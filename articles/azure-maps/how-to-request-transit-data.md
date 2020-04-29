@@ -1,6 +1,6 @@
 ---
-title: Żądanie danych tranzytowych | Mapy platformy Microsoft Azure
-description: W tym artykule dowiesz się, jak żądać danych transportu publicznego przy użyciu usługi mobilności Microsoft Azure Maps.
+title: Żądaj danych tranzytowych | Mapy Microsoft Azure
+description: W tym artykule dowiesz się, jak żądać danych tranzytu publicznego przy użyciu usługi mobilności w Microsoft Azure Maps.
 author: philmea
 ms.author: philmea
 ms.date: 09/06/2019
@@ -10,45 +10,45 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: f60b66790342874620971c8f15a1e8ace9a3c7cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335472"
 ---
-# <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Żądanie danych transportu publicznego przy użyciu usługi mobilności usługi Azure Maps 
+# <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Żądanie danych tranzytu publicznego przy użyciu usługi Azure Maps Mobility 
 
-W tym artykule pokazano, jak używać usługi Azure Maps [Mobility Service](https://aka.ms/AzureMapsMobilityService) do żądania danych transportu publicznego. Dane tranzytowe obejmują przystanki tranzytowe, informacje o trasie i szacowane czas podróży.
+W tym artykule pokazano, jak za pomocą [usługi mobilności](https://aka.ms/AzureMapsMobilityService) Azure Maps żądania danych tranzytu publicznego. Dane tranzytowe obejmują zatrzymanie tranzytu, informacje o trasie i oszacowania czasu podróży.
 
 W tym artykule dowiesz się, jak:
 
-* Uzyskaj identyfikator obszaru metra za pomocą [interfejsu API Get Metro Area](https://aka.ms/AzureMapsMobilityMetro)
-* Zamów pobliskie przystanki tranzytowe korzystając z usługi [Get Nearby Transit.](https://aka.ms/AzureMapsMobilityNearbyTransit)
-* Interfejs API Pobierz [trasy tranzytowe](https://aka.ms/AzureMapsMobilityTransitRoute) kwerendy w celu zaplanowania trasy przy użyciu transportu publicznego.
-* Poproś o geometrię trasy tranzytowej i szczegółowy harmonogram trasy za pomocą [interfejsu API trasy get transit](https://aka.ms/https://azure.microsoft.com/services/azure-maps/).
+* Pobieranie identyfikatora obszaru Metro przy użyciu [interfejsu API pobierania Metro](https://aka.ms/AzureMapsMobilityMetro)
+* Zażądaj zatrzymywania tranzytu w pobliżu przy użyciu usługi [pobierania w pobliżu](https://aka.ms/AzureMapsMobilityNearbyTransit) .
+* Zapytanie [pobieranie tras tranzytowych interfejsu API](https://aka.ms/AzureMapsMobilityTransitRoute) w celu zaplanowania trasy przy użyciu tranzytu publicznego.
+* Żądaj geometrii trasy tranzytowej i szczegółowego harmonogramu dla trasy przy użyciu [interfejsu API uzyskiwania tranzytu](https://aka.ms/https://azure.microsoft.com/services/azure-maps/)trasy.
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Najpierw musisz mieć konto usługi Azure Maps i klucz subskrypcji, aby wykonywać wszelkie wywołania interfejsów API transportu publicznego usługi Azure Maps. Aby uzyskać informacje, postępuj zgodnie z instrukcjami w [tworzenie konta](quick-demo-map-app.md#create-an-account-with-azure-maps) w celu utworzenia konta usługi Azure Maps. Wykonaj kroki opisane w [celu uzyskania klucza podstawowego,](quick-demo-map-app.md#get-the-primary-key-for-your-account) aby uzyskać klucz podstawowy dla swojego konta. Aby uzyskać więcej informacji na temat uwierzytelniania w usłudze Azure Maps, zobacz [zarządzanie uwierzytelnianiem w usłudze Azure Maps](./how-to-manage-authentication.md).
+Najpierw musisz mieć konto Azure Maps i klucz subskrypcji, aby wykonać dowolne wywołania interfejsów API Azure Maps publicznego przesyłania. Aby uzyskać więcej informacji, postępuj zgodnie z instrukcjami podanymi w temacie [Tworzenie konta](quick-demo-map-app.md#create-an-account-with-azure-maps) w celu utworzenia konta Azure Maps. Postępuj zgodnie z instrukcjami w temacie [Pobieranie klucza podstawowego](quick-demo-map-app.md#get-the-primary-key-for-your-account) , aby uzyskać klucz podstawowy dla Twojego konta. Aby uzyskać więcej informacji na temat uwierzytelniania w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](./how-to-manage-authentication.md).
 
 
-W tym artykule używa [aplikacji Postman](https://www.getpostman.com/apps) do tworzenia wywołań REST. Można użyć dowolnego środowiska programistycznego interfejsu API, które wolisz.
+W tym artykule jest wykorzystywana [aplikacja Poster](https://www.getpostman.com/apps) do kompilowania wywołań REST. Możesz użyć dowolnego preferowanego środowiska deweloperskiego interfejsu API.
 
 
-## <a name="get-a-metro-area-id"></a>Uzyskaj identyfikator obszaru metra
+## <a name="get-a-metro-area-id"></a>Pobieranie identyfikatora obszaru Metro
 
-Aby uzyskać informacje o tranzycie dla określonego obszaru `metroId` metropolitalnego, musisz tego obszaru. [Interfejs API Get Metro Area](https://aka.ms/AzureMapsMobilityMetro) umożliwia żądanie obszarów metra, w których dostępna jest usługa azure maps mobilności. Odpowiedź zawiera `metroId`szczegóły, takie `metroName`jak , i reprezentacja geometrii obszaru metra w formacie GeoJSON.
+Aby żądać informacji o tranzycie dla określonego obszaru metropolitalnych, będziesz potrzebować `metroId` tego obszaru. [Interfejs API uzyskiwania obszaru Metro](https://aka.ms/AzureMapsMobilityMetro) umożliwia zażądanie obszarów Metro, w których dostępna jest usługa Azure Maps Mobility. Odpowiedź zawiera szczegóły `metroId`, takie jak, `metroName`i reprezentacja geometrii obszaru Metro w formacie GEOJSON.
 
-Złóżmy wniosek, aby uzyskać Metro Area dla Seattle-Tacoma metro obszarze ID. Aby poprosić o identyfikator strefy metra, wykonaj następujące czynności:
+Utwórzmy żądanie pobrania obszaru Metro dla identyfikatora obszaru Metro Seattle-Tacoma. Aby zażądać identyfikatora dla obszaru Metro, wykonaj następujące czynności:
 
-1. Otwórz aplikację Postman i utwórzmy kolekcję do przechowywania żądań. U góry aplikacji Listonosz wybierz pozycję **Nowy**. W oknie **Utwórz nowy** wybierz pozycję **Kolekcja**.  Nazwij kolekcję i wybierz przycisk **Utwórz.**
+1. Otwórz aplikację Poster i Utwórz kolekcję do przechowywania żądań. W górnej części aplikacji Poster wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Kolekcja**.  Nadaj kolekcji nazwę i wybierz przycisk **Utwórz** .
 
-2. Aby utworzyć żądanie, wybierz ponownie pozycję **Nowy.** W oknie **Utwórz nowy** wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzednim kroku jako lokalizację, w której ma być zapisywane żądanie. Następnie wybierz pozycję **Zapisz**.
+2. Aby utworzyć żądanie, wybierz pozycję **nowe** ponownie. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzednim kroku jako lokalizację, w której chcesz zapisać żądanie. Następnie wybierz pozycję **Zapisz**.
     
-    ![Tworzenie żądania w listonoszu](./media/how-to-request-transit-data/postman-new.png)
+    ![Utwórz żądanie w programie Poster](./media/how-to-request-transit-data/postman-new.png)
 
-3. Wybierz metodę **GET** HTTP na karcie konstruktora i wprowadź następujący adres URL, aby utworzyć żądanie GET. Zamień `{subscription-key}`klucz podstawowy usługi Azure Maps.
+3. Wybierz metodę **Get** http na karcie Konstruktor i wprowadź następujący adres URL, aby utworzyć żądanie Get. Zamień `{subscription-key}`na klucz podstawowy Azure Maps.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/metroArea/id/json?subscription-key={subscription-key}&api-version=1.0&query=47.63096,-122.126
@@ -111,23 +111,23 @@ Złóżmy wniosek, aby uzyskać Metro Area dla Seattle-Tacoma metro obszarze ID.
     }
     ```
 
-5. Skopiuj `metroId`program , będziemy musieli użyć go później.
+5. Skopiuj `metroId`, należy użyć go później.
 
-## <a name="request-nearby-transit-stops"></a>Poproś o pobliskie przystanki tranzytowe
+## <a name="request-nearby-transit-stops"></a>Żądaj zatrzymywania tranzytu w pobliżu
 
-Usługa Azure Maps [Get Nearby Transit](https://aka.ms/AzureMapsMobilityNearbyTransit) umożliwia wyszukiwanie obiektów tranzytowych.  interfejs API zwraca szczegóły obiektu tranzytowego, takie jak przystanki transportu publicznego i udostępnione rowery wokół danej lokalizacji. Następnie zwrócimy się do służby z prośbą o wyszukanie pobliskich przystanków komunikacji miejskiej w promieniu 300 metrów wokół danej lokalizacji. W żądaniu musimy uwzględnić `metroId` pobrane wcześniej.
+Azure Maps [pobrania usługi tranzytu w pobliżu](https://aka.ms/AzureMapsMobilityNearbyTransit) umożliwia wyszukiwanie obiektów tranzytowych.  Interfejs API zwraca szczegóły obiektu tranzytowego, takie jak tranzyt publiczny, i udostępnione rowery wokół danej lokalizacji. Następnie wyślemy żądanie do usługi w celu wyszukania nieoczekiwanego tranzytu publicznego w ramach promienia 300-metrów wokół danej lokalizacji. W żądaniu musimy uwzględnić `metroId` pobrane wcześniej.
 
-Aby złożyć wniosek do [get nearby transit,](https://aka.ms/AzureMapsMobilityNearbyTransit)wykonaj poniższe czynności:
+Aby wysłać żądanie do [procedury pobierania w pobliżu](https://aka.ms/AzureMapsMobilityNearbyTransit), wykonaj następujące czynności:
 
-1. W polu Postman kliknij pozycję **Żądanie nowego żądania** | **GET** i nazwij go **Poblistrzyj przystanki**.
+1. W programie Poster kliknij pozycję **nowe żądanie** | **Pobierz żądanie** i nazwij **ją.**
 
-2. Na karcie Konstruktor wybierz metodę **POBIERZ** HTTP, wprowadź następujący adres URL żądania dla punktu końcowego interfejsu API i kliknij przycisk **Wyślij**.
+2. Na karcie Konstruktor wybierz metodę **Get** http, wprowadź następujący adres URL żądania dla punktu końcowego interfejsu API i kliknij przycisk **Wyślij**.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/nearby/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&query=47.63096,-122.126&radius=300&objectType=stop
     ```
 
-3. Po pomyślnym żądaniu struktura odpowiedzi powinna wyglądać następująco poniżej:
+3. Po pomyślnym żądaniu struktura odpowiedzi powinna wyglądać podobnie do poniższej:
 
     ```JSON
     {
@@ -214,30 +214,30 @@ Aby złożyć wniosek do [get nearby transit,](https://aka.ms/AzureMapsMobilityN
     }   
     ```
 
-Jeśli uważnie obserwujesz strukturę odpowiedzi, zobaczysz, że zawiera ona parametry dla każdego obiektu tranzytowego. Każdy obiekt tranzytowy `id`ma `type` `stopName`parametry, `mainAgencyName`takie jak , , `mainTransitType`, i położenie, we współrzędnych, obiektu.
+Jeśli uważnie obserwujemy strukturę odpowiedzi, zobaczysz, że zawiera ona parametry dla każdego obiektu tranzytowego. Każdy obiekt tranzytowy ma parametry, takie `id`jak `type`, `stopName` `mainTransitType` `mainAgencyName`,,, i położenie, we współrzędnych obiektu.
 
-W celu nauki, użyjemy `id` przystanków autobusowych jako źródła, dla naszej trasy w następnym odcinku.  
+Na potrzeby nauki będziemy korzystać z magistrali jako punktu `id` początkowego dla naszej trasy w następnej sekcji.  
 
 
-## <a name="request-a-transit-route"></a>Poproś o trasę tranzytową
+## <a name="request-a-transit-route"></a>Żądanie trasy tranzytowej
 
-Interfejs API usługi Azure Maps [Get Transit Routes](https://aka.ms/AzureMapsMobilityTransitRoute) umożliwia planowanie podróży. Zwraca najlepsze możliwe opcje trasy z początku układu współrzędnych do miejsca docelowego. Usługa zapewnia różnego rodzaju środki transportu, w tym spacery, jazdę na rowerze i transport publiczny. Następnie przeszukujemy trasę z najbliższego przystanku autobusowego do wieży Space Needle w Seattle.
+[Interfejs API uzyskiwania tras tranzytowych](https://aka.ms/AzureMapsMobilityTransitRoute) Azure Maps umożliwia planowanie podróży. Zwraca najlepsze możliwe opcje trasy ze źródła do miejsca docelowego. Usługa udostępnia różne rodzaje trybów podróży, w tym idące przechodzenie, pisanie odręczne i tranzyt publiczny. Następnie przeszukamy trasę od najbliższej magistrali do obudowy "Wieża" w Seattle.
 
 ### <a name="get-location-coordinates-for-destination"></a>Pobierz współrzędne lokalizacji dla miejsca docelowego
 
-Aby uzyskać współrzędne lokalizacji wieży Space Needle, umożliwia skorzystanie z usługi azure maps [fuzzy search service](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
+Aby uzyskać współrzędne lokalizacji obudowy typu wieża, można użyć Azure Maps [rozmyte Search Service](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
 
-Aby złożyć wniosek do usługi wyszukiwania Rozmyte, wykonaj poniższe czynności:
+Aby wysłać żądanie do usługi wyszukiwania rozmytego, wykonaj następujące czynności:
 
-1. W pozycji Listonosz kliknij pozycję **Żądanie nowego żądania** | **GET** i nazwij go **Pobierz współrzędne lokalizacji**.
+1. W programie Poster kliknij pozycję **nowe żądanie** | **Pobierz żądanie** , a następnie nadaj jej nazwę **współrzędne lokalizacji**.
 
-2.  Na karcie Konstruktor wybierz metodę **POBIERZ** HTTP, wprowadź następujący adres URL żądania i kliknij przycisk **Wyślij**.
+2.  Na karcie Konstruktor wybierz metodę **Get** http, wprowadź następujący adres URL żądania, a następnie kliknij przycisk **Wyślij**.
  
     ```HTTP
     https://atlas.microsoft.com/search/fuzzy/json?subscription-key={subscription-key}&api-version=1.0&query=space needle
     ```
     
-3. Jeśli uważnie spojrzysz na odpowiedź, zawiera ona wiele lokalizacji w wynikach wyszukiwania igły kosmicznej. Każdy wynik zawiera współrzędne lokalizacji pod **pozycją**. Skopiuj `lat` i `lon` pod **pozycją** pierwszego wyniku.
+3. Jeśli dokładnie sprawdzasz odpowiedź, zawiera wiele lokalizacji w wynikach wyszukiwania wskazówki dotyczącej miejsca. Każdy wynik zawiera współrzędne lokalizacji pod **pozycją**. Skopiuj `lat` i `lon` pod **pozycją** pierwszego wyniku.
     
    ```JSON
    {
@@ -333,23 +333,23 @@ Aby złożyć wniosek do usługi wyszukiwania Rozmyte, wykonaj poniższe czynno�
     ``` 
     
 
-### <a name="request-route"></a>Zamów trasę
+### <a name="request-route"></a>Trasa żądania
 
-Aby złożyć żądanie trasy, wykonaj poniższe czynności:
+Aby wykonać żądanie trasy, wykonaj poniższe czynności:
 
-1. W programie Postman kliknij pozycję **Żądanie nowe żądanie** | **GET** i nazwij go Pobierz informacje **o marszrutie**.
+1. W programie Poster kliknij pozycję **nowe żądanie** | **Pobierz żądanie** i nadaj jej nazwę **Uzyskaj informacje o trasie**.
 
-2. Na karcie Konstruktor wybierz metodę **POBIERZ** HTTP, wprowadź następujący adres URL żądania dla punktu końcowego interfejsu API i kliknij przycisk **Wyślij**.
+2. Na karcie Konstruktor wybierz metodę **Get** http, wprowadź następujący adres URL żądania dla punktu końcowego interfejsu API i kliknij przycisk **Wyślij**.
 
-    Poprosimy o połączenia komunikacji miejskiej dla autobusu, określając `modeType` parametry i `transitType` parametry. Adres URL żądania zawiera lokalizacje pobrane w poprzednich sekcjach. Dla `originType`, mamy teraz **stopId**. A dla `destionationType`, mamy **stanowisko**.
+    Będziemy żądać tras tranzytu publicznego dla magistrali, określając parametry `modeType` i `transitType` . Adres URL żądania zawiera lokalizacje pobrane w poprzednich sekcjach. `originType`Dla mamy teraz **stopid**. W przypadku `destionationType`, mamy **położeniu**.
 
-    Zobacz [listę parametrów identyfikatora URI,](https://aka.ms/AzureMapsMobilityTransitRoute#uri-parameters) których można użyć w żądaniu, do [interfejsu API Pobierz trasy tranzytowe](https://aka.ms/AzureMapsMobilityTransitRoute). 
+    Zapoznaj się z [listą parametrów identyfikatora URI](https://aka.ms/AzureMapsMobilityTransitRoute#uri-parameters) , których można użyć w żądaniu do [interfejsu API uzyskiwania tras tranzytowych](https://aka.ms/AzureMapsMobilityTransitRoute). 
   
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/route/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&originType=stopId&origin=522---2060603&destionationType=position&destination=47.62039,-122.34928&modeType=publicTransit&transitType=bus
     ```
 
-3. Po pomyślnym żądaniu struktura odpowiedzi powinna wyglądać następująco poniżej:
+3. Po pomyślnym żądaniu struktura odpowiedzi powinna wyglądać podobnie do poniższej:
 
     ```JSON
     {
@@ -494,23 +494,23 @@ Aby złożyć żądanie trasy, wykonaj poniższe czynności:
     }
     ```
 
-4. Jeśli uważnie obserwować, istnieje wiele tras **autobusowych** w odpowiedzi. Każda trasa ma unikatowy identyfikator **trasy** i podsumowanie opisujące każdy odcinek trasy. Odcinek trasy jest częścią trasy między dwoma punktami postojowymi. Następnie poprosimy o szczegółowe informacje dotyczące najszybszej trasy przy użyciu `itineraryId` odpowiedzi.
+4. Jeśli dokładnie zaobserwujesz, w odpowiedzi występuje wiele tras **magistrali** . Każda trasa ma unikatowy **Identyfikator trasy** i podsumowanie opisujące każdy etap trasy. Etap trasy jest częścią trasy między dwoma waypoints Stop. Następnie będziemy żądać szczegółowych informacji o najszybszej trasie przy `itineraryId` użyciu w odpowiedzi.
 
-## <a name="request-fastest-route-itinerary"></a>Poproś o najszybszą trasę trasy
+## <a name="request-fastest-route-itinerary"></a>Żądaj najszybszych tras trasy
 
-Usługa [planu podróży](https://aka.ms/AzureMapsMobilityTransitItinerary) usługi Azure Maps Get Transit umożliwia żądanie danych dla określonej trasy przy użyciu identyfikatora trasy trasy **zwróconego** przez usługę interfejsu API Get Trasy [tranzytowe.](https://aka.ms/AzureMapsMobilityTransitRoute) Aby złożyć wniosek, wykonaj poniższe czynności:
+Usługa Azure Maps [pobierania trasy tranzytowej](https://aka.ms/AzureMapsMobilityTransitItinerary) umożliwia żądanie danych dla określonej trasy przy użyciu **identyfikatora** trasy tras zwróconego przez usługę [API uzyskiwania tras tranzytowych](https://aka.ms/AzureMapsMobilityTransitRoute) . Aby wykonać żądanie, wykonaj poniższe czynności:
 
-1. W programie Postman kliknij pozycję **Żądanie nowego żądania** | **GET** i nazwij go Pobierz informacje **o tranzycie**.
+1. W programie Poster kliknij pozycję **nowe żądanie** | **Pobierz żądanie** , a następnie nadaj mu **informacje dotyczące tranzytu**.
 
-2. Na karcie Konstruktor wybierz metodę **POBIERZ** HTTP. Wprowadź następujący adres URL żądania dla punktu końcowego interfejsu API i kliknij przycisk **Wyślij**.
+2. Na karcie Konstruktor wybierz metodę **Get** http. Wprowadź następujący adres URL żądania dla punktu końcowego interfejsu API i kliknij przycisk **Wyślij**.
 
-    Ustawimy parametr `detailType` na **geometrię,** tak aby odpowiedź zawierała informacje o zatrzymaniu dla transportu publicznego i nawigacji zakręt po kroku dla etapów spacerowych i rowerowych na trasie.
+    Ustawimy `detailType` parametr na **geometrię** , tak aby odpowiedź zawierała informacje o zatrzymaniu dla tranzytu publicznego i przełączać nawigację w ramach tej trasy.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/itinerary/json?api-version=1.0&subscription-key={subscription-key}&query={itineraryId}&detailType=geometry
     ```
     
-3. Po pomyślnym żądaniu struktura odpowiedzi powinna wyglądać następująco poniżej:
+3. Po pomyślnym żądaniu struktura odpowiedzi powinna wyglądać podobnie do poniższej:
 
     ```JSON
     {
@@ -781,12 +781,12 @@ Usługa [planu podróży](https://aka.ms/AzureMapsMobilityTransitItinerary) usł
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak żądać danych w czasie rzeczywistym za pomocą usługi mobilności:
+Informacje na temat żądania danych w czasie rzeczywistym przy użyciu usługi mobilności:
 
 > [!div class="nextstepaction"]
 > [Jak żądać danych w czasie rzeczywistym](how-to-request-real-time-data.md)
 
-Zapoznaj się z dokumentacją interfejsu API usługi mobilności usługi Azure Maps
+Poznaj dokumentację interfejsu API usługi mobilności Azure Maps
 
 > [!div class="nextstepaction"]
 > [Dokumentacja interfejsu API usługi mobilności](https://aka.ms/AzureMapsMobilityService)

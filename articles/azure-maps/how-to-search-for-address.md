@@ -1,6 +1,6 @@
 ---
-title: Wyszukiwanie lokalizacji przy użyciu usług Azure Maps Search | Mapy platformy Microsoft Azure
-description: W tym artykule dowiesz się, jak wyszukiwać lokalizację przy użyciu usługi Wyszukiwania Map Platformy Microsoft Azure w celu geokodowania i odwrotnego geokodowania.
+title: Wyszukaj lokalizację przy użyciu usług wyszukiwania Azure Maps | Mapy Microsoft Azure
+description: W tym artykule dowiesz się, jak wyszukiwać lokalizację przy użyciu Microsoft Azure Maps Search Service do geokodowania i odwrotnego geokodowania.
 author: philmea
 ms.author: philmea
 ms.date: 01/15/2020
@@ -9,39 +9,39 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: cf0e5267885df1ace51271c53bb2d68ee5002f00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335428"
 ---
-# <a name="search-for-a-location-using-azure-maps-search-services"></a>Wyszukiwanie lokalizacji przy użyciu usług Azure Maps Search
+# <a name="search-for-a-location-using-azure-maps-search-services"></a>Wyszukiwanie lokalizacji przy użyciu usług wyszukiwania Azure Maps
 
-Usługa Azure Maps [Search to](https://docs.microsoft.com/rest/api/maps/search) zestaw interfejsów API RESTful zaprojektowanych, aby ułatwić deweloperom wyszukiwanie adresów, miejsc, wizyt firm według nazwy lub kategorii oraz innych informacji geograficznych. Oprócz obsługi tradycyjnego geokodowania, usługi mogą również odwracać adresy geokodów i ulice na podstawie szerokości i długości geograficznej. Wartości szerokości i długości geograficznej zwracane przez wyszukiwanie mogą służyć jako parametry w innych usługach usługi Azure Maps, takich jak [usługi Routs i](https://docs.microsoft.com/rest/api/maps/route) [Pogoda.](https://docs.microsoft.com/rest/api/maps/weather)
+Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) to zestaw interfejsów API RESTful zaprojektowanych w celu ułatwienia deweloperom wyszukiwania adresów, miejsc, aukcji w biznesie według nazw lub kategorii oraz innych informacji geograficznych. Oprócz obsługi tradycyjnych geokodowania, usługi mogą również odwracać adresy geokodowe i skrzyżowania w oparciu o Latitudes i Długość geograficzna. Wartości szerokości i długości geograficznej zwrócone przez wyszukiwanie mogą służyć jako parametry w innych usługach Azure Maps, takich jak usługi [Route](https://docs.microsoft.com/rest/api/maps/route) i [Pogoda](https://docs.microsoft.com/rest/api/maps/weather) .
 
 W tym artykule dowiesz się, jak:
 
-* Żądania współrzędnych szerokości i długości geograficznej dla adresu (lokalizacji adresu geokodowania) przy użyciu [interfejsu API adresu wyszukiwania]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddress)
-* Wyszukiwanie adresu lub punktu zainteresowania (POI) za pomocą [interfejsu API wyszukiwania rozmytego](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
-* Wyszukiwanie adresu wraz z właściwościami i współrzędnymi
-* Wyszukiwanie [odwrotnego adresu](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) w celu tłumaczenia lokalizacji współrzędnych na adres ulicy
-* Wyszukiwanie ulicy krzyżowej za pomocą [interfejsu API Odwróć ulicę adresu wyszukiwania](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
+* Żądaj współrzędnej szerokości geograficznej i długości geograficznej dla adresu (lokalizacji geokodu) za pomocą [interfejsu API adresów wyszukiwania]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddress)
+* Wyszukaj adres lub punkt zainteresowania (punkt POI) za pomocą [interfejsu API wyszukiwania rozmytego](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+* Wyszukaj adres oraz właściwości i współrzędne
+* Utwórz [odwrotne wyszukiwanie adresu](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) w celu przetłumaczenia lokalizacji współrzędnych na ulica
+* Wyszukiwanie krzyżowego przy użyciu [adresu wyszukiwania odwrotnej API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać kroki opisane w tym artykule, należy najpierw utworzyć konto usługi Azure Maps i uzyskać klucz subskrypcji konta map. Postępuj zgodnie z instrukcjami w [tworzenie konta,](quick-demo-map-app.md#create-an-account-with-azure-maps) aby utworzyć subskrypcję konta usługi Azure Maps i wykonaj kroki w [celu uzyskania klucza podstawowego,](quick-demo-map-app.md#get-the-primary-key-for-your-account) aby uzyskać klucz podstawowy dla swojego konta. Aby uzyskać więcej informacji na temat uwierzytelniania w usłudze Azure Maps, zobacz [zarządzanie uwierzytelnianiem w usłudze Azure Maps](./how-to-manage-authentication.md).
+Aby wykonać kroki opisane w tym artykule, musisz najpierw utworzyć konto Azure Maps i uzyskać mapowanie klucza subskrypcji konta. Postępuj zgodnie z instrukcjami w temacie [Tworzenie konta](quick-demo-map-app.md#create-an-account-with-azure-maps) , aby utworzyć subskrypcję konta Azure Maps, i wykonaj kroki opisane w sekcji [Uzyskiwanie klucza podstawowego](quick-demo-map-app.md#get-the-primary-key-for-your-account) , aby uzyskać klucz podstawowy dla Twojego konta. Aby uzyskać więcej informacji na temat uwierzytelniania w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](./how-to-manage-authentication.md).
 
-W tym artykule używa [aplikacji Postman](https://www.getpostman.com/apps) do tworzenia wywołań REST. Można użyć dowolnego środowiska programistycznego interfejsu API, które wolisz.
+W tym artykule jest wykorzystywana [aplikacja Poster](https://www.getpostman.com/apps) do kompilowania wywołań REST. Możesz użyć dowolnego preferowanego środowiska deweloperskiego interfejsu API.
 
-## <a name="request-latitude-and-longitude-for-an-address-geocoding"></a>Żądanie szerokości i długości geograficznej dla adresu (geokodowanie)
+## <a name="request-latitude-and-longitude-for-an-address-geocoding"></a>Żądaj szerokości geograficznej i długości geograficznej dla adresu (geokodowania)
 
-W tym przykładzie używamy interfejsu API adresu wyszukiwania usługi Azure Maps [Pobierz adres wyszukiwania](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) do konwersji adresu ulicy na współrzędne szerokości i długości geograficznej. Można przekazać pełny lub częściowy adres ulicy do interfejsu API i otrzymać odpowiedź, która zawiera szczegółowe właściwości adresu, takie jak ulica, kod pocztowy i kraj/region, a także wartości pozycyjne w szerokości i długości geograficznej.
+W tym przykładzie używamy [interfejsu API usługi Azure Maps Get Address Search](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) w celu przekonwertowania adresu ulicy na współrzędne geograficzne. Można przekazać pełny lub częściowo ulica adresu do interfejsu API i odebrać odpowiedź, która zawiera szczegółowe właściwości adresu, takie jak ulica, kod pocztowy i kraj/region, a także wartości pozycyjne na szerokości i długości geograficznej.
 
-Jeśli masz zestaw adresów do geokodowania, możesz użyć [interfejsu API partii post search address batch](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatch) do wysyłania partii zapytań w jednym wywołaniu interfejsu API.
+Jeśli masz zestaw adresów do geokodowania, możesz użyć [interfejsu API usługi Batch dla adresu wyszukiwania](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatch) , aby wysłać partię zapytań w jednym wywołaniu interfejsu API.
 
-1. W polu Postman kliknij pozycję **Żądanie NOWE ŻĄDANIE** | **GET** i nazwij go **Wyszukiwanie adresowe**.
+1. W programie Poster kliknij pozycję **nowe żądanie** | **Pobierz żądanie** i nadaj jej nazwę **Wyszukaj**.
 
-2. Na karcie Konstruktor wybierz metodę **POBIERZ** HTTP, wprowadź adres URL żądania dla punktu końcowego interfejsu API i wybierz protokół autoryzacji, jeśli istnieje.
+2. Na karcie Konstruktor wybierz metodę **Get** http, wprowadź adres URL żądania dla punktu końcowego interfejsu API i wybierz protokół autoryzacji (jeśli istnieje).
 
 ![Wyszukiwanie adresów](./media/how-to-search-for-address/address_search_url.png)
 
@@ -49,183 +49,183 @@ Jeśli masz zestaw adresów do geokodowania, możesz użyć [interfejsu API part
 |---------------|------------------------------------------------| 
 | Metoda HTTP | GET |
 | Adres URL żądania | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) | 
-| Autoryzacja | Nie Ów ów |
+| Autoryzacja | Brak uwierzytelniania |
 
-3. Kliknij **params**i wprowadź następujące pary klucz / wartość, które mają być używane jako parametry kwerendy lub ścieżki w adresie URL żądania: 
+3. Kliknij pozycję **params**i wprowadź następujące pary klucz/wartość, które mają być używane jako parametry zapytania lub ścieżki w adresie URL żądania: 
 
 ![Wyszukiwanie adresów](./media/how-to-search-for-address/address_search_params.png) 
 
-| Klucz | Wartość | 
+| Key | Wartość | 
 |------------------|-------------------------| 
 | api-version | 1.0 | 
-| klucz subskrypcji | \<klucz usługi Azure Maps\> | 
-| query | 400 Broad St, Seattle, WA 98109 | 
+| klucz subskrypcji | \<Twój klucz Azure Maps\> | 
+| query | 400 szerokie St, Seattle, WA 98109 | 
 
-4. Kliknij **przycisk Wyślij** i przejrzyj treść odpowiedzi. 
+4. Kliknij pozycję **Wyślij** i sprawdź treść odpowiedzi. 
 
-W takim przypadku określono pełną kwerendę adresową i otrzymano pojedynczy wynik w treści odpowiedzi. 
+W takim przypadku należy określić kompletne zapytanie dotyczące adresu i otrzymać jeden wynik w treści odpowiedzi. 
 
-5. W params, edytuj ciąg zapytania do następującej wartości: 
+5. W obszarze Parametry Edytuj ciąg zapytania do następującej wartości: 
 
     ```plaintext 
         400 Broad, Seattle 
     ``` 
 
-6. Dodaj następującą parę Klucz / Wartość do sekcji **Params** i kliknij przycisk **Wyślij:** 
+6. Dodaj następującą parę klucz/wartość do sekcji **params** i kliknij pozycję **Wyślij**: 
 
-| Klucz | Wartość | 
+| Key | Wartość | 
 |-----|------------| 
-| Typeahead | true | 
+| typeahead | true | 
 
-Flaga **typeahead** informuje interfejs API wyszukiwania adresów, aby traktować kwerendę jako częściowe dane wejściowe i zwracać tablicę wartości predykcyjnych.
+Flaga **typeahead** INSTRUUJE interfejs API wyszukiwania adresów, aby traktować zapytanie jako częściowe dane wejściowe i zwracało tablicę wartości predykcyjnych.
 
 ## <a name="using-fuzzy-search-api"></a>Korzystanie z interfejsu API wyszukiwania rozmytego
 
-Interfejs API usługi Azure Maps[ Fuzzy Search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) jest zalecaną usługą do użycia, gdy nie wiesz, jakie są dane wejściowe użytkownika dla zapytania wyszukiwania. Interfejs API łączy wyszukiwanie i geokodowanie punktu zainteresowania (POI) w kanoniczne "wyszukiwanie jednowierszowe". Na przykład interfejs API może obsługiwać dane wejściowe dowolnej kombinacji tokenu adresu lub CZOŁdu. Może być również ważony pozycją kontekstową (lat./lon. para), w pełni ograniczona współrzędną i promieniem lub wykonywana bardziej ogólnie bez żadnego punktu kontrolnego odchylenia geograficznego.
+Azure Maps[ interfejs API wyszukiwania rozmytego](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) jest zalecaną usługą, która będzie używana, gdy nie wiesz, jak dane wejściowe użytkownika są przeznaczone dla zapytania wyszukiwania. Interfejs API łączy punkt POI i geokodowania w postaci kanonicznej "jednowierszowego wyszukiwania". Interfejs API może na przykład obsłużyć dane wejściowe dowolnej kombinacji adresów lub tokenów punkt POI. Może być również ważona z pozycją kontekstową (/Lon.. para), w pełni ograniczone przez współrzędne i promień, lub wykonywane bardziej ogólnie bez żadnego punktu zakotwiczenia geograficznego.
 
-Większość zapytań wyszukiwania `maxFuzzyLevel=1` domyślnie, aby uzyskać wydajność i zmniejszyć nietypowe wyniki. Tę wartość domyślną można zastąpić zgodnie z potrzebami `maxFuzzyLevel=2` `3`na żądanie, przekazując parametr kwerendy lub .
+Większość zapytań wyszukiwania domyślnie pozwala `maxFuzzyLevel=1` uzyskać wydajność i zmniejszyć nietypowe wyniki. Ta wartość domyślna może zostać przesłonięta w razie konieczności na żądanie, przekazując `maxFuzzyLevel=2` parametr `3`zapytania lub.
 
-### <a name="search-for-an-address-using-fuzzy-search"></a>Wyszukiwanie adresu przy użyciu wyszukiwania rozmytego
+### <a name="search-for-an-address-using-fuzzy-search"></a>Wyszukaj adres przy użyciu wyszukiwania rozmytego
 
-1. Otwórz aplikację Listonosz, kliknij pozycję Nowy | Utwórz nowy i wybierz **żądanie GET**. Wprowadź nazwę żądania **wyszukiwania rozmytego,** wybierz kolekcję lub folder, w który chcesz ją zapisać, a następnie kliknij przycisk **Zapisz**.
+1. Otwórz aplikację Poster, a następnie kliknij pozycję Nowy | Utwórz nową, a następnie wybierz pozycję **Pobierz żądanie**. Wprowadź nazwę żądania dla **wyszukiwania rozmytego**, wybierz kolekcję lub folder, w którym chcesz zapisać, a następnie kliknij przycisk **Zapisz**.
 
-2. Na karcie Konstruktor wybierz metodę **GET** HTTP i wprowadź adres URL żądania dla punktu końcowego interfejsu API.
+2. Na karcie Konstruktor wybierz metodę **Get** http i wprowadź adres URL żądania dla punktu końcowego interfejsu API.
 
-    ![Rozmyte wyszukiwanie](./media/how-to-search-for-address/fuzzy_search_url.png)
+    ![Wyszukiwanie rozmyte](./media/how-to-search-for-address/fuzzy_search_url.png)
 
     | Parametr | Sugerowana wartość |
     |---------------|------------------------------------------------|
     | Metoda HTTP | GET |
     | Adres URL żądania | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
-    | Autoryzacja | Nie Ów ów |
+    | Autoryzacja | Brak uwierzytelniania |
 
-    Atrybut **json** w ścieżce adresu URL określa format odpowiedzi. W tym artykule używa json dla ułatwienia użytkowania i czytelności. Dostępne formaty odpowiedzi można znaleźć w definicji **Get Search Fuzzy** [odwołania do funkcjonalnego interfejsu API map](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
+    Atrybut **JSON** w ścieżce URL określa format odpowiedzi. W tym artykule opisano łatwość użycia i czytelność w formacie JSON. Dostępne formaty odpowiedzi można znaleźć w definicji **rozmytego wyszukiwania** w usłudze [Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
 
-3. Kliknij **params**i wprowadź następujące pary klucz / wartość, które mają być używane jako parametry kwerendy lub ścieżki w adresie URL żądania:
+3. Kliknij pozycję **params**i wprowadź następujące pary klucz/wartość, które mają być używane jako parametry zapytania lub ścieżki w adresie URL żądania:
 
-    ![Rozmyte wyszukiwanie](./media/how-to-search-for-address/fuzzy_search_params.png)
+    ![Wyszukiwanie rozmyte](./media/how-to-search-for-address/fuzzy_search_params.png)
 
-    | Klucz | Wartość |
+    | Key | Wartość |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | klucz subskrypcji | \<klucz usługi Azure Maps\> |
+    | klucz subskrypcji | \<Twój klucz Azure Maps\> |
     | query | Pizza |
 
-4. Kliknij **przycisk Wyślij** i przejrzyj treść odpowiedzi.
+4. Kliknij pozycję **Wyślij** i sprawdź treść odpowiedzi.
 
-    Niejednoznaczny ciąg zapytania dla "pizza" zwrócił [wynik](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) 10 punktów zainteresowania (POI) w kategoriach "pizza" i "restaurant". Każdy wynik zwraca adres ulicy, wartości szerokości i długości geograficznej, port widoku i punkty wejścia dla lokalizacji.
+    Niejednoznaczny ciąg zapytania dla "Pizza" zwrócił 10 [punktów wyniku zainteresowania](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (punkt POI) zarówno w kategorii "Pizza", jak i "restauracji". Każdy wynik zwraca adres ulicy, wartości szerokości i długości geograficznej, port widoku i punkty wejścia dla tej lokalizacji.
   
-    Wyniki są zróżnicowane dla tej kwerendy, nie są powiązane z żadną konkretną lokalizacją referencyjną. Za pomocą parametru **countrySet** można określić tylko kraje/regiony, dla których aplikacja wymaga ochrony. Domyślnym zachowaniem jest wyszukiwanie całego świata, potencjalnie zwracając niepotrzebne wyniki.
+    Wyniki są różne dla tego zapytania, nie są powiązane z żadną określoną lokalizacją odwołania. Za pomocą parametru **countrySet** można określić tylko kraje/regiony, dla których aplikacja wymaga pokrycia. Domyślnym zachowaniem jest przeszukanie całego świata i potencjalnie zwrócenie niepotrzebnych wyników.
 
-5. Dodaj następującą parę Klucz / Wartość do sekcji **Params** i kliknij przycisk **Wyślij:**
+5. Dodaj następującą parę klucz/wartość do sekcji **params** i kliknij pozycję **Wyślij**:
 
-    | Klucz | Wartość |
+    | Key | Wartość |
     |------------------|-------------------------|
-    | krajStaw | USA |
+    | countrySet | USA |
   
-    Wyniki są teraz ograniczone przez kod kraju i kwerenda zwraca pizzerii w Stanach Zjednoczonych.
+    Wyniki są teraz ograniczone przez kod kraju, a zapytanie zwraca Pizza Restauracje w Stany Zjednoczone.
   
-    Aby zapewnić wyniki dla lokalizacji, można zbadać punkt zainteresowania i użyć zwracanych wartości szerokości i długości geograficznej w wywołaniu usługi wyszukiwania rozmytego. W takim przypadku użyto usługi wyszukiwania, aby zwrócić lokalizację Seattle Space Needle i używane łat. / lon. wartości, aby zorientować wyszukiwanie.
+    Aby zapewnić wyniki dla lokalizacji, można wysłać zapytanie do punktu zainteresowania i użyć zwracanych wartości szerokości geograficznej i długości geograficznej w wywołaniu do usługi wyszukiwania rozmytego. W takim przypadku użyto usługi wyszukiwania do zwrócenia położenia wskazówki dotyczącej obszaru Seattle i użycia tabeli lat. Długość. wartości, które umożliwiają ukierunkowanie wyszukiwania.
   
-6. W parach parajowych wprowadź następujące pary kluczy/ wartości i kliknij przycisk **Wyślij**:
+6. W polu Parametry wprowadź następujące pary klucz/wartość, a następnie kliknij pozycję **Wyślij**:
 
-    ![Rozmyte wyszukiwanie](./media/how-to-search-for-address/fuzzy_search_latlon.png)
+    ![Wyszukiwanie rozmyte](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
-    | Klucz | Wartość |
+    | Key | Wartość |
     |-----|------------|
-    | lat | 47.620525 |
-    | Lon | -122.349274 |
+    | usługę | 47,620525 |
+    | Długość | -122,349274 |
 
 
-## <a name="search-for-a-street-address-using-reverse-address-search"></a>Wyszukiwanie adresu ulicy przy użyciu wyszukiwania odwrotnego adresu
+## <a name="search-for-a-street-address-using-reverse-address-search"></a>Wyszukaj adres ulicy przy użyciu wyszukiwania odwrotnego adresu
 
-Interfejs [API odwrotnego adresu wyszukiwania]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) usługi Azure Maps umożliwia przetłumaczenie współrzędnych (np. 37.786505, -122.3862) na adres ulicy zrozumiałej dla człowieka. Najczęściej jest to potrzebne w aplikacjach śledzących, w których otrzymujesz kanał GPS z urządzenia lub zasobu i chcesz wiedzieć, jaki adres znajduje się współrzędna.
-Jeśli masz zestaw lokalizacji współrzędnych do odwrócenia geokodu, możesz użyć [interfejsu API odwrotnej partii adresu wyszukiwania,](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressreversebatch) aby wysłać partię zapytań w jednym wywołaniu interfejsu API.
+Azure Maps [uzyskać zwrotny interfejs API]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) umożliwiający przetłumaczenie współrzędnych (przykład: 37,786505,-122,3862) na adres ulicy zrozumiałej dla człowieka. Najczęściej jest to konieczne w przypadku śledzenia aplikacji, w których otrzymujesz kanał GPS z urządzenia lub zasobu i chcesz wiedzieć, jaki adres znajduje się w lokalizacji.
+Jeśli masz zestaw lokalizacji współrzędnych w celu odwrócenia geokodu, możesz użyć [interfejsu API odwrotnej sekwencji adresów wyszukiwania](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressreversebatch) , aby wysłać partię zapytań w jednym wywołaniu interfejsu API.
 
 
-1. W polu Postman kliknij pozycję **Żądanie NOWE ŻĄDANIE** | **GET** i nazwij go Reverse **Address Search**.
+1. W programie Poster kliknij pozycję **nowe żądanie** | **Pobierz żądanie** i nadaj jej nazwę **Reverse Address Search**.
 
-2. Na karcie Konstruktor wybierz metodę **GET** HTTP i wprowadź adres URL żądania dla punktu końcowego interfejsu API.
+2. Na karcie Konstruktor wybierz metodę **Get** http i wprowadź adres URL żądania dla punktu końcowego interfejsu API.
   
-    ![Odwrotny adres URL wyszukiwania adresów](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![Adres URL wyszukiwania wstecznego adresu](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | Parametr | Sugerowana wartość |
     |---------------|------------------------------------------------|
     | Metoda HTTP | GET |
     | Adres URL żądania | [https://atlas.microsoft.com/search/address/reverse/json?](https://atlas.microsoft.com/search/address/reverse/json?) |
-    | Autoryzacja | Nie Ów ów |
+    | Autoryzacja | Brak uwierzytelniania |
   
-3. Kliknij **params**i wprowadź następujące pary klucz / wartość, które mają być używane jako parametry kwerendy lub ścieżki w adresie URL żądania:
+3. Kliknij pozycję **params**i wprowadź następujące pary klucz/wartość, które mają być używane jako parametry zapytania lub ścieżki w adresie URL żądania:
   
-    ![Parametry wyszukiwania adresu zwrotnego](./media/how-to-search-for-address/reverse_address_search_params.png)
+    ![Parametry wyszukiwania wstecznego adresu](./media/how-to-search-for-address/reverse_address_search_params.png)
   
-    | Klucz | Wartość |
+    | Key | Wartość |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | klucz subskrypcji | \<klucz usługi Azure Maps\> |
-    | query | 47.591180,-122.332700 |
+    | klucz subskrypcji | \<Twój klucz Azure Maps\> |
+    | query | 47.591180,-122,332700 |
   
-4. Kliknij **przycisk Wyślij** i przejrzyj treść odpowiedzi.
+4. Kliknij pozycję **Wyślij** i sprawdź treść odpowiedzi.
 
-    Odpowiedź zawiera kluczowe informacje adresowe dotyczące Safeco Field.
+    Odpowiedź zawiera informacje o adresie klucza dotyczące pola Safeco.
   
-5. Dodaj następującą parę Klucz / Wartość do sekcji **Params** i kliknij przycisk **Wyślij:**
+5. Dodaj następującą parę klucz/wartość do sekcji **params** i kliknij pozycję **Wyślij**:
 
-    | Klucz | Wartość |
+    | Key | Wartość |
     |-----|------------|
     | numer | true |
 
-    Jeśli parametr kwerendy [numerycznej](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) jest wysyłany z żądaniem, odpowiedź może zawierać stronę ulicy (lewą lub prawą), a także pozycję odsunięcia dla tego numeru.
+    Jeśli parametr [Number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) jest wysyłany wraz z żądaniem, odpowiedź może zawierać stronę ulicy (lewą lub prawą), a także pozycję przesunięcia dla tego numeru.
   
-6. Dodaj następującą parę Klucz / Wartość do sekcji **Params** i kliknij przycisk **Wyślij:**
+6. Dodaj następującą parę klucz/wartość do sekcji **params** i kliknij pozycję **Wyślij**:
 
-    | Klucz | Wartość |
+    | Key | Wartość |
     |-----|------------|
-    | zwrotSpeedLimit | true |
+    | returnSpeedLimit | true |
   
-    Po ustawieniu parametru kwerendy [returnspeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) odpowiedź zwraca zaksięgowaną prędkość.
+    Gdy parametr zapytania [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) jest ustawiony, odpowiedź zwróci limit liczby opublikowanych prędkości.
 
-7. Dodaj następującą parę Klucz / Wartość do sekcji **Params** i kliknij przycisk **Wyślij:**
+7. Dodaj następującą parę klucz/wartość do sekcji **params** i kliknij pozycję **Wyślij**:
 
-    | Klucz | Wartość |
+    | Key | Wartość |
     |-----|------------|
     | returnRoadUse | true |
 
-    Po ustawieniu parametru kwerendy [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) odpowiedź zwraca tablicę użycia drogi dla wstecznych geokodów na poziomie ulicy.
+    Gdy parametr zapytania [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) jest ustawiony, odpowiedź zwróci tablicę use do dróg w celu odwrócenia geokodowej na poziomie ulicy.
 
-8. Dodaj następującą parę Klucz / Wartość do sekcji **Params** i kliknij przycisk **Wyślij:**
+8. Dodaj następującą parę klucz/wartość do sekcji **params** i kliknij pozycję **Wyślij**:
 
-    | Klucz | Wartość |
+    | Key | Wartość |
     |-----|------------|
-    | drogaUżyj | true |
+    | roadUse | true |
 
-    Kwerendę geokodowania odwrotnej można ograniczyć do określonego typu drogi przy użyciu parametru zapytania [roadUse.](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)
+    Można ograniczyć zapytanie odwrotnego kodu do określonego typu drogi przy użyciu parametru zapytania [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) .
   
-## <a name="search-for-cross-street-using-reverse-address-cross-street-search"></a>Wyszukaj ulicę krzyżową za pomocą wyszukiwania odwrotnego adresu cross street
+## <a name="search-for-cross-street-using-reverse-address-cross-street-search"></a>Wyszukiwanie krzyżowe przy użyciu wyszukiwania odwrotnego adresu
 
-1. W polu Listonosz kliknij pozycję **Żądanie nowego żądania** | **GET** i nazwij go Reverse Address Cross **Street Search**.
+1. W programie Poster kliknij pozycję **nowe żądanie** | **Pobierz żądanie** i nadaj jej nazwę **odwrotne wyszukiwanie**.
 
-2. Na karcie Konstruktor wybierz metodę **GET** HTTP i wprowadź adres URL żądania dla punktu końcowego interfejsu API.
+2. Na karcie Konstruktor wybierz metodę **Get** http i wprowadź adres URL żądania dla punktu końcowego interfejsu API.
   
-    ![Odwrotny adres Cross Street Search](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![Odwrotne wyszukiwanie adresu zwrotnego](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | Parametr | Sugerowana wartość |
     |---------------|------------------------------------------------|
     | Metoda HTTP | GET |
     | Adres URL żądania | [https://atlas.microsoft.com/search/address/reverse/crossstreet/json?](https://atlas.microsoft.com/search/address/reverse/crossstreet/json?) |
-    | Autoryzacja | Nie Ów ów |
+    | Autoryzacja | Brak uwierzytelniania |
   
-3. Kliknij **params**i wprowadź następujące pary klucz / wartość, które mają być używane jako parametry kwerendy lub ścieżki w adresie URL żądania:
+3. Kliknij pozycję **params**i wprowadź następujące pary klucz/wartość, które mają być używane jako parametry zapytania lub ścieżki w adresie URL żądania:
   
-    | Klucz | Wartość |
+    | Key | Wartość |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | klucz subskrypcji | \<klucz usługi Azure Maps\> |
-    | query | 47.591180,-122.332700 |
+    | klucz subskrypcji | \<Twój klucz Azure Maps\> |
+    | query | 47.591180,-122,332700 |
   
-4. Kliknij **przycisk Wyślij** i przejrzyj treść odpowiedzi.
+4. Kliknij pozycję **Wyślij** i sprawdź treść odpowiedzi.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zapoznaj się z [dokumentacją interfejsu API REST usługi wyszukiwania usług Azure Maps.](https://docs.microsoft.com/rest/api/maps/search)
-- Dowiedz się więcej o [najlepszych rozwiązaniach usługi Azure Maps Search Service](https://docs.microsoft.com/azure/azure-maps/how-to-use-best-practices-for-search) i o tym, jak zoptymalizować zapytania.
+- Zapoznaj się z [dokumentacją interfejsu API REST Azure Maps Search Service](https://docs.microsoft.com/rest/api/maps/search).
+- Dowiedz się więcej o [Azure Maps Search Service najlepszych praktykach](https://docs.microsoft.com/azure/azure-maps/how-to-use-best-practices-for-search) i sposobach optymalizacji zapytań.

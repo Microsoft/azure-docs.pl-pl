@@ -1,6 +1,6 @@
 ---
-title: Maszyna wirtualna systemu Windows nie może uruchomić się z powodu menedżera rozruchu systemu Windows
-description: Ten artykuł zawiera kroki, aby rozwiązać problemy, w których Menedżer rozruchu systemu Windows uniemożliwia uruchamianie maszyny wirtualnej platformy Azure.
+title: Nie można uruchomić maszyny wirtualnej systemu Windows z powodu Menedżera rozruchu systemu Windows
+description: W tym artykule przedstawiono procedurę rozwiązywania problemów, w których Menedżer rozruchu systemu Windows uniemożliwia rozruch maszyny wirtualnej platformy Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: v-miegge
@@ -15,124 +15,124 @@ ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 5d2fb62870e2c41af635627f5d692f08c67f8394
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80373351"
 ---
-# <a name="windows-vm-cannot-boot-due-to-windows-boot-manager"></a>Nie można uruchomić maszyny Wirtualnej systemu Windows z powodu Menedżera rozruchu systemu Windows
+# <a name="windows-vm-cannot-boot-due-to-windows-boot-manager"></a>Maszyna wirtualna z systemem Windows nie może zostać uruchomiona z powodu Menedżera rozruchu systemu Windows
 
-Ten artykuł zawiera kroki, aby rozwiązać problemy, w których Menedżer rozruchu systemu Windows uniemożliwia uruchamianie maszyny wirtualnej platformy Azure (VM).
+W tym artykule przedstawiono procedurę rozwiązywania problemów, w których Menedżer rozruchu systemu Windows uniemożliwia rozruch maszyny wirtualnej platformy Azure.
 
 ## <a name="symptom"></a>Objaw
 
-Maszyna wirtualna jest zablokowany czeka na monit użytkownika i nie uruchamia się, chyba że ręcznie poinstruowany.
+Maszyna wirtualna jest w stanie oczekiwania na monitowanie użytkownika i nie zostanie uruchomiona, chyba że zostanie ona przetestowana ręcznie.
 
-Podczas korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) do wyświetlania zrzutu ekranu maszyny Wirtualnej, zobaczysz, że zrzut ekranu wyświetla Menedżera rozruchu systemu Windows z *komunikatem Wybierz system operacyjny do uruchomienia lub naciśnij klawisz TAB, aby wybrać narzędzie:*.
+W przypadku korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zobaczysz, że zrzut ekranu wyświetla Menedżera rozruchu systemu Windows z komunikatem *Wybierz system operacyjny do uruchomienia lub naciśnij klawisz Tab, aby wybrać narzędzie:*.
 
 Rysunek 1.
  
-![Menedżer rozruchu systemu Windows z napisem "Wybierz system operacyjny do uruchomienia lub naciśnij klawisz TAB, aby wybrać narzędzie:"](media/troubleshoot-guide-windows-boot-manager-menu/1.jpg)
+![Menedżer rozruchu systemu Windows przedstawiający "Wybierz system operacyjny do uruchomienia lub naciśnij klawisz TAB, aby wybrać narzędzie:"](media/troubleshoot-guide-windows-boot-manager-menu/1.jpg)
 
 ## <a name="cause"></a>Przyczyna
 
-Ten błąd jest spowodowany flagą BCD *displaybootmenu w Menedżerze rozruchu* systemu Windows. Gdy flaga jest włączona, Menedżer rozruchu systemu Windows monituje użytkownika, podczas procesu uruchamiania, aby wybrać program ładujący, który chce uruchomić, powodując opóźnienie rozruchu. Na platformie Azure ta funkcja może dodać do czasu potrzebny do uruchomienia maszyny Wirtualnej.
+Ten błąd jest spowodowany *DISPLAYBOOTMENU* flagi BCD w Menedżerze rozruchu systemu Windows. Gdy flaga jest włączona, Menedżer rozruchu systemu Windows wyświetli z pytaniem użytkownika, podczas procesu uruchamiania, aby wybrać moduł ładujący, który ma zostać uruchomiony, powodując opóźnienie rozruchu. Na platformie Azure ta funkcja może zostać dodana do czasu potrzebnego do rozruchu maszyny wirtualnej.
 
 ## <a name="solution"></a>Rozwiązanie
 
-Omówienie procesu:
+Przegląd procesu:
 
-1. Skonfiguruj dla szybszego czasu rozruchu przy użyciu konsoli szeregowej.
-2. Tworzenie i uzyskiwanie dostępu do maszyny wirtualnej naprawy.
-3. Konfigurowanie dla szybszego czasu rozruchu na maszynie wirtualnej naprawy.
-4. **Zalecane:** Przed przebudową maszyny Wirtualnej należy włączyć kolekcję konsoli szeregowej i zrzutu pamięci.
-5. Odbuduj maszynę wirtualną.
+1. Skonfiguruj program w celu skrócenia czasu rozruchu przy użyciu konsoli szeregowej.
+2. Utwórz maszynę wirtualną naprawy i uzyskaj do niej dostęp.
+3. Skonfiguruj krótszy czas rozruchu na naprawianej maszynie wirtualnej.
+4. **Zalecane**: przed odbudowaniem maszyny wirtualnej Włącz zbieranie danych z konsoli szeregowej i zrzutu pamięci.
+5. Skompiluj ponownie maszynę wirtualną.
 
-### <a name="configure-for-faster-boot-time-using-serial-console"></a>Konfigurowanie szybszego czasu rozruchu przy użyciu konsoli szeregowej
+### <a name="configure-for-faster-boot-time-using-serial-console"></a>Skonfiguruj, aby przyspieszyć czas rozruchu przy użyciu konsoli szeregowej
 
-Jeśli masz dostęp do konsoli szeregowej, istnieją dwa sposoby osiągnięcia szybszego czasu rozruchu. Zmniejsz czas oczekiwania *na wyświetlenie* lub całkowicie usuń flagę.
+Jeśli masz dostęp do konsoli szeregowej, istnieją dwa sposoby przyspieszenia rozruchu. Zmniejsz czas oczekiwania *DISPLAYBOOTMENU* lub Usuń flagę całkowicie.
 
-1. Postępuj zgodnie ze wskazówkami, aby uzyskać dostęp do [usługi Azure Serial Console dla systemu Windows,](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) aby uzyskać dostęp do konsoli tekstowej.
+1. Postępuj zgodnie z instrukcjami, aby uzyskać dostęp do konsoli programu [Azure serial Console dla systemu Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) .
 
    > [!NOTE]
-   > Jeśli nie możesz uzyskać dostępu do konsoli szeregowej, przejdź dalej, [aby utworzyć i uzyskać dostęp do maszyny wirtualnej naprawy](#create-and-access-a-repair-vm).
+   > Jeśli nie możesz uzyskać dostępu do konsoli szeregowej, przejdź dalej, aby [utworzyć naprawczą maszynę wirtualną i uzyskać do niej dostęp](#create-and-access-a-repair-vm).
 
-2. **Opcja A:** Skrócenie czasu oczekiwania
+2. **Opcja A**: skrócenie czasu oczekiwania
 
-   a. Czas oczekiwania jest domyślnie ustawiony na 30 sekund, ale można go zmienić na krótszy czas (np. 5 sekund).
+   a. Czas oczekiwania jest domyślnie ustawiony na 30 sekund, ale można go zmienić na szybszy (np. 5 sekund).
 
-   b. Aby dostosować wartość limitu czasu, użyj następującego polecenia w konsoli szeregowej:
+   b. Użyj następującego polecenia w konsoli szeregowej, aby dostosować wartość limitu czasu:
 
       `bcdedit /set {bootmgr} timeout 5`
 
-3. **Opcja B**: Usuwanie flagi BCD
+3. **Opcja B**: usuwanie flagi BCD
 
-   a. Aby całkowicie uniemożliwić wyświetlenie monitu menu rozruchu, wprowadź następujące polecenie:
+   a. Aby uniemożliwić całkowite wyświetlenie menu rozruchu, wprowadź następujące polecenie:
 
       `bcdedit /deletevalue {bootmgr} displaybootmenu`
 
       > [!NOTE]
-      > Jeśli nie można użyć konsoli szeregowej do skonfigurowania szybszego czasu rozruchu w powyższych krokach, możesz kontynuować następujące kroki. Teraz będziesz rozwiązywać problemy w trybie offline, aby rozwiązać ten problem.
+      > Jeśli nie można użyć konsoli szeregowej w celu skonfigurowania krótszego czasu rozruchu w powyższych krokach, można wykonać następujące czynności. Teraz będziesz rozwiązywać problemy w trybie offline, aby rozwiązać ten problem.
 
 ### <a name="create-and-access-a-repair-vm"></a>Tworzenie maszyny wirtualnej naprawy i uzyskiwanie do niej dostępu
 
-1. Użyj [kroków 1-3 poleceń naprawy maszyny Wirtualnej,](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) aby przygotować maszynę wirtualną naprawy.
-2. Użyj połączenia pulpitu zdalnego połącz się z maszyną wirtualną naprawy.
+1. Wykonaj [kroki 1-3 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) , aby przygotować maszynę wirtualną naprawy.
+2. Użyj Podłączanie pulpitu zdalnego połączyć się z maszyną wirtualną naprawy.
 
-### <a name="configure-for-faster-boot-time-on-a-repair-vm"></a>Konfigurowanie szybszego czasu rozruchu na maszynie wirtualnej naprawy
+### <a name="configure-for-faster-boot-time-on-a-repair-vm"></a>Konfigurowanie na potrzeby krótszego czasu rozruchu na naprawianej maszynie wirtualnej
 
 1. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień.
-2. Wprowadź następujące elementy, aby włączyć DisplayBootMenu:
+2. Aby włączyć DisplayBootMenu, wprowadź następujące elementy:
 
-   To polecenie należy używać dla **maszyn wirtualnych generacji 1:**
+   Użyj tego polecenia dla **maszyn wirtualnych 1. generacji**:
 
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} displaybootmenu yes`
 
-   To polecenie należy używać dla **maszyn wirtualnych generacji 2:**
+   Użyj tego polecenia dla **maszyn wirtualnych 2. generacji**:
 
    `bcdedit /store <VOLUME LETTER OF EFI SYSTEM PARTITION>:EFI\Microsoft\boot\bcd /set {bootmgr} displaybootmenu yes`
 
-   Zastąp wszelkie symbole większe lub mniejsze niż symbole, a także tekst w nich zawarty, np > <.
+   Zastąp elementy większe niż lub mniejsze niż symbole oraz tekst w nich, np. "< tekst tutaj >".
 
 3. Zmień wartość limitu czasu na 5 sekund:
 
-   To polecenie należy używać dla **maszyn wirtualnych generacji 1:**
+   Użyj tego polecenia dla **maszyn wirtualnych 1. generacji**:
 
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} timeout 5`
 
-   To polecenie należy używać dla **maszyn wirtualnych generacji 2:**
+   Użyj tego polecenia dla **maszyn wirtualnych 2. generacji**:
 
    `bcdedit /store <VOLUME LETTER OF EFI SYSTEM PARTITION>:EFI\Microsoft\boot\bcd /set {bootmgr} timeout 5`
 
-   Zastąp wszelkie symbole większe lub mniejsze niż symbole, a także tekst w nich zawarty, np > <.
+   Zastąp elementy większe niż lub mniejsze niż symbole oraz tekst w nich, np. "< tekst tutaj >".
 
-### <a name="recommended-before-you-rebuild-the-vm-enable-serial-console-and-memory-dump-collection"></a>Zalecane: Przed przebudową maszyny wirtualnej należy włączyć zbieranie konsoli szeregowej i zrzutu pamięci
+### <a name="recommended-before-you-rebuild-the-vm-enable-serial-console-and-memory-dump-collection"></a>Zalecane: przed odbudowaniem maszyny wirtualnej Włącz zbieranie danych z konsoli szeregowej i zrzutu pamięci
 
-Aby włączyć zbieranie zrzutów pamięci i konsolę szeregową, uruchom następujący skrypt:
+Aby włączyć Zbieranie zrzutów pamięci i konsolę seryjną, uruchom następujący skrypt:
 
 1. Otwórz sesję wiersza polecenia z podwyższonym poziomem uprawnień (Uruchom jako administrator).
 2. Uruchom następujące polecenia:
 
-   Włącz konsolę szeregową
+   Włącz konsolę seryjną
 
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON`
 
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 
-   Zastąp wszelkie symbole większe lub mniejsze niż symbole, a także tekst w nich zawarty, np > <.
+   Zastąp elementy większe niż lub mniejsze niż symbole oraz tekst w nich, np. "< tekst tutaj >".
 
-3. Sprawdź, czy wolne miejsce na dysku systemu operacyjnego jest tak samo jak rozmiar pamięci (RAM) na maszynie wirtualnej.
+3. Sprawdź, czy ilość wolnego miejsca na dysku systemu operacyjnego jest taka sama jak rozmiar pamięci (RAM) na maszynie wirtualnej.
 
-   Jeśli na dysku systemu operacyjnego nie ma wystarczającej ilości miejsca, należy zmienić lokalizację, w której zostanie utworzony plik zrzutu pamięci, i odwołać się do dowolnego dysku danych dołączonego do maszyny Wirtualnej, który ma wystarczającą ilość wolnego miejsca. Aby zmienić lokalizację, zastąp "%SystemRoot%" literą dysku (na przykład "F:") dysku danych w poniższych poleceniach.
+   Jeśli na dysku systemu operacyjnego nie ma wystarczającej ilości miejsca, należy zmienić lokalizację, w której zostanie utworzony plik zrzutu pamięci, i odwołać się do dowolnego dysku danych dołączonego do maszyny wirtualnej z wystarczającą ilością wolnego miejsca. Aby zmienić lokalizację, Zastąp "% główny_katalog_systemowy%" literą dysku (na przykład "F:") dysku danych w poniższych poleceniach.
 
-#### <a name="suggested-configuration-to-enable-os-dump"></a>Sugerowana konfiguracja umożliwiająca wysyp systemu operacyjnego
+#### <a name="suggested-configuration-to-enable-os-dump"></a>Sugerowana konfiguracja do włączenia zrzutu systemu operacyjnego
 
-**Obciążenie uszkodzonego dysku systemu operacyjnego:**
+**Załaduj przerwany dysk systemu operacyjnego**:
 
 `REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM`
 
-**Włącz na ControlSet001:**
+**Włącz w ControlSet001:**
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f`
 
@@ -140,7 +140,7 @@ Aby włączyć zbieranie zrzutów pamięci i konsolę szeregową, uruchom nastę
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-**Włącz na ControlSet002:**
+**Włącz w ControlSet002:**
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f`
 
@@ -148,10 +148,10 @@ Aby włączyć zbieranie zrzutów pamięci i konsolę szeregową, uruchom nastę
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-**Rozładuj uszkodzony dysk systemu operacyjnego:**
+**Zwolnij przerwany dysk systemu operacyjnego:**
 
 `REG UNLOAD HKLM\BROKENSYSTEM`
 
 ### <a name="rebuild-the-original-vm"></a>Odbuduj oryginalną maszynę wirtualną
 
-Użyj [kroku 5 poleceń naprawy maszyny Wirtualnej,](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) aby ponownie zmontować maszynę wirtualną.
+Aby ponownie połączyć maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) .

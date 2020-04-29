@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie klastrami Apache Hadoop w usłudze HDInsight za pomocą zestawu .NET SDK — Azure
-description: Dowiedz się, jak wykonywać zadania administracyjne dla klastrów Apache Hadoop w udziale HDInsight przy użyciu zestawu SDK .NET usługi HDInsight.
+title: Zarządzanie klastrami Apache Hadoop w usłudze HDInsight przy użyciu zestawu .NET SDK — Azure
+description: Dowiedz się, jak wykonywać zadania administracyjne dotyczące klastrów Apache Hadoop w usłudze HDInsight przy użyciu zestawu .NET SDK usługi HDInsight.
 ms.reviewer: jasonh
 author: hrasheed-msft
 ms.service: hdinsight
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
 ms.openlocfilehash: 36a77d49b507d3d0158d1b4b492d0141350de50f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80240636"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Zarządzanie klastrami Apache Hadoop w usłudze HDInsight przy użyciu zestawu SDK platformy .NET
 
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Dowiedz się, jak zarządzać klastrami HDInsight przy użyciu [HDInsight.NET SDK.](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
+Dowiedz się, jak zarządzać klastrami usługi HDInsight przy użyciu [zestawu SDK HDInsight.NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
 
 **Wymagania wstępne**
 
@@ -27,7 +27,7 @@ Przed rozpoczęciem korzystania z informacji zawartych w tym artykule należy dy
 
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-## <a name="connect-to-azure-hdinsight"></a>Łączenie się z usługą Azure HDInsight
+## <a name="connect-to-azure-hdinsight"></a>Łączenie z usługą Azure HDInsight
 
 Potrzebne są następujące pakiety NuGet:
 
@@ -37,7 +37,7 @@ Install-Package Microsoft.Azure.Management.ResourceManager -Pre
 Install-Package Microsoft.Azure.Management.HDInsight
 ```
 
-Poniższy przykładowy kod pokazuje, jak połączyć się z platformą Azure, zanim będzie można administrować klastrami USŁUGI HDInsight w ramach subskrypcji platformy Azure.
+Poniższy przykład kodu pokazuje, jak nawiązać połączenie z platformą Azure, zanim będzie można administrować klastrami usługi HDInsight w ramach subskrypcji platformy Azure.
 
 ```csharp
 using System;
@@ -106,12 +106,12 @@ namespace HDInsightManagement
 }
 ```
 
-Po uruchomieniu tego programu zostanie wyświetlony monit.  Jeśli nie chcesz widzieć monitu, zobacz Tworzenie aplikacji net [hdinsight uwierzytelniania nieinterakcyjnego](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
+Po uruchomieniu tego programu zostanie wyświetlony monit.  Jeśli nie chcesz zobaczyć tego monitu, zobacz [Tworzenie aplikacji usługi HDInsight programu .NET w trybie nieinterakcyjnym](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
 
-## <a name="list-clusters"></a>Listy klastrów
+## <a name="list-clusters"></a>Wyświetl listę klastrów
 
-Poniższy fragment kodu zawiera listę klastrów i niektórych właściwości:
+Poniższy fragment kodu zawiera listę klastrów i niektóre właściwości:
 
 ```csharp
 var results = _hdiManagementClient.Clusters.List();
@@ -125,7 +125,7 @@ foreach (var name in results.Clusters) {
 
 ## <a name="delete-clusters"></a>Usuwanie klastrów
 
-Użyj następującego fragmentu kodu, aby usunąć klaster synchronicznie lub asynchronicznie: 
+Użyj poniższego fragmentu kodu, aby usunąć klaster synchronicznie lub asynchronicznie: 
 
 ```csharp
 _hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
@@ -134,21 +134,21 @@ _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Nam
 
 ## <a name="scale-clusters"></a>Skalowanie klastrów
 
-Funkcja skalowania klastra umożliwia zmianę liczby węzłów procesu roboczego używanych przez klaster uruchomiony w usłudze Azure HDInsight bez konieczności ponownego tworzenia klastra.
+Funkcja skalowania klastra pozwala zmienić liczbę węzłów procesu roboczego używanych przez klaster, który działa w usłudze Azure HDInsight bez konieczności ponownego tworzenia klastra.
 
 > [!NOTE]  
-> Obsługiwane są tylko klastry z hdinsight w wersji 3.1.3 lub nowszej. Jeśli nie masz pewności co do wersji klastra, możesz sprawdzić stronę Właściwości.  Zobacz [Lista i pokaż klastry](hdinsight-administer-use-portal-linux.md#showClusters).
+> Obsługiwane są tylko klastry z usługą HDInsight w wersji 3.1.3 lub nowszej. Jeśli nie masz pewności, jaka jest wersja klastra, możesz sprawdzić stronę właściwości.  Zobacz [listę i wyświetlanie klastrów](hdinsight-administer-use-portal-linux.md#showClusters).
 
-Wpływ zmiany liczby węzłów danych dla każdego typu klastra obsługiwanego przez program HDInsight:
+Wpływ zmiany liczby węzłów danych dla każdego typu klastra obsługiwanego przez usługi HDInsight:
 
 * Apache Hadoop
   
-    Można bezproblemowo zwiększyć liczbę węzłów procesu roboczego w klastrze Hadoop, który jest uruchomiony bez wpływu na żadnych oczekujących lub uruchomionych zadań. Nowe zadania można również przesłać w trakcie operacji. Błędy w operacji skalowania są bezpiecznie obsługiwane, tak aby klaster zawsze pozostaje w stanie funkcjonalnym.
+    Można bezproblemowo zwiększyć liczbę węzłów procesu roboczego w klastrze Hadoop uruchomionym bez wpływu na zadania oczekujące lub uruchomione. Nowe zadania mogą być również przesyłane, gdy operacja jest w toku. Błędy w operacji skalowania są bezpiecznie obsługiwane, aby klaster zawsze pozostawał w stanie funkcjonalności.
   
-    Gdy klaster Hadoop jest skalowany w dół przez zmniejszenie liczby węzłów danych, niektóre usługi w klastrze są ponownie uruchamiane. Powoduje to, że wszystkie uruchomione i oczekujące zadania zakończyć się niepowodzeniem po zakończeniu operacji skalowania. Można jednak ponownie przesłać zadania po zakończeniu operacji.
+    Po skalowaniu klastra Hadoop przez zmniejszenie liczby węzłów danych, niektóre usługi w klastrze są ponownie uruchamiane. Powoduje to, że wszystkie uruchomione i oczekujące zadania kończą się niepowodzeniem po zakończeniu operacji skalowania. Można jednak ponownie przesłać zadania po zakończeniu operacji.
 * Apache HBase
   
-    Można bezproblemowo dodać lub usunąć węzły do klastra HBase, gdy jest uruchomiony. Serwery regionalne są automatycznie równoważące w ciągu kilku minut od ukończenia operacji skalowania. Można jednak również ręcznie zrównoważyć serwery regionalne, logując się do węzła głównego klastra i uruchamiając następujące polecenia w oknie wiersza polecenia:
+    Można bezproblemowo dodawać lub usuwać węzły do klastra HBase, gdy jest on uruchomiony. Serwery regionalne są automatycznie równoważone w ciągu kilku minut od zakończenia operacji skalowania. Można również ręcznie zrównoważyć serwery regionalne, logując się do węzła głównego klastra i uruchamiając następujące polecenia z poziomu okna wiersza polecenia:
   
 
     ```bash
@@ -159,20 +159,20 @@ Wpływ zmiany liczby węzłów danych dla każdego typu klastra obsługiwanego p
 
 * Apache Storm
   
-    Podczas działania klastra Storm można bezproblemowo dodawać lub usuwać węzły danych. Ale po pomyślnym zakończeniu operacji skalowania, trzeba będzie zrównoważyć topologii.
+    Można bezproblemowo dodawać lub usuwać węzły danych do klastra burzy, gdy jest on uruchomiony. Ale po pomyślnym zakończeniu operacji skalowania należy ponownie zrównoważyć topologię.
   
     Ponowne równoważenie można wykonać na dwa sposoby:
   
-  * Interfejs użytkownika sieci Burzowej
+  * Interfejs użytkownika sieci Web burzy
   * Narzędzie interfejsu wiersza polecenia (CLI)
     
-    Więcej informacji można znaleźć w [dokumentacji Apache Storm.](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)
+    Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) .
     
-    Interfejs użytkownika sieci Storm jest dostępny w klastrze HDInsight:
+    Interfejs użytkownika sieci Web burzy jest dostępny w klastrze usługi HDInsight:
     
-    ![Równoważenie skali burzy HDInsight](./media/hdinsight-administer-use-powershell/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    ![Ponowne równoważenie skali burzy usługi HDInsight](./media/hdinsight-administer-use-powershell/hdinsight-portal-scale-cluster-storm-rebalance.png)
     
-    Oto przykład użycia polecenia CLI w celu zrównoważenia topologii burzy:
+    Oto przykład sposobu użycia interfejsu wiersza polecenia w celu ponownego zrównoważenia topologii burzy:
     
 
     ```console
@@ -191,7 +191,7 @@ _hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Nam
 
 ## <a name="grantrevoke-access"></a>Udzielanie/odwoływanie dostępu
 
-Klastry HDInsight mają następujące usługi sieci web HTTP (wszystkie te usługi mają punkty końcowe RESTful):
+Klastry HDInsight mają następujące usługi sieci Web HTTP (wszystkie te usługi mają RESTful punkty końcowe):
 
 * ODBC
 * JDBC
@@ -199,7 +199,7 @@ Klastry HDInsight mają następujące usługi sieci web HTTP (wszystkie te usłu
 * Apache Oozie
 * Apache Templeton
 
-Domyślnie te usługi są przyznawane za dostęp. Można odwołać/udzielić dostępu. Aby odwołać:
+Domyślnie te usługi są przyznawane na potrzeby dostępu. Możesz odwołać/udzielić dostępu. Aby odwołać:
 
 ```csharp
 var httpParams = new HttpSettingsParameters
@@ -211,7 +211,7 @@ var httpParams = new HttpSettingsParameters
 _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
 ```
 
-Przyznanie:
+Aby udzielić:
 
 ```csharp
 var httpParams = new HttpSettingsParameters
@@ -224,17 +224,17 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 ```
 
 > [!NOTE]  
-> Przyznając/cofając dostęp, zresetujesz nazwę użytkownika i hasło klastra.
+> Przez przyznanie/cofnięcie dostępu, należy zresetować nazwę użytkownika i hasło klastra.
 
-Można to również zrobić za pośrednictwem portalu. Zobacz [Zarządzanie klastrami Apache Hadoop w usłudze HDInsight przy użyciu portalu Azure.](hdinsight-administer-use-portal-linux.md)
+Można to również zrobić za pośrednictwem portalu. Zobacz [Zarządzanie klastrami Apache Hadoop w usłudze HDInsight przy użyciu Azure Portal](hdinsight-administer-use-portal-linux.md).
 
 ## <a name="update-http-user-credentials"></a>Aktualizowanie poświadczeń użytkownika HTTP
 
-Jest to taka sama procedura jak Grant/revoke dostępu HTTP.  Jeśli klaster otrzymał dostęp HTTP, należy go najpierw odwołać.  A następnie udzielić dostępu z nowych poświadczeń użytkownika HTTP.
+Ta sama procedura jest taka sama jak w przypadku dostępu do protokołu HTTP Grant/Revoke.  Jeśli do klastra udzielono dostępu przy użyciu protokołu HTTP, należy najpierw go odwołać.  A następnie Udziel dostępu przy użyciu nowych poświadczeń użytkownika HTTP.
 
 ## <a name="find-the-default-storage-account"></a>Znajdowanie domyślnego konta magazynu
 
-Poniższy fragment kodu pokazuje, jak uzyskać domyślną nazwę konta magazynu i domyślny klucz konta magazynu dla klastra.
+Poniższy fragment kodu przedstawia sposób pobierania domyślnej nazwy konta magazynu i domyślnego klucza konta magazynu dla klastra.
 
 ```csharp
 var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
@@ -244,33 +244,33 @@ foreach (var key in results.Configuration.Keys)
 }
 ```
 
-## <a name="submit-jobs"></a>Przesyłanie ofert pracy
+## <a name="submit-jobs"></a>Prześlij zadania
 
 **Aby przesłać zadania MapReduce**
 
-Zobacz [Uruchamianie mapDoredunia próbek w hdinsight](hadoop/apache-hadoop-run-samples-linux.md).
+Zobacz [Uruchamianie przykładów MapReduce w usłudze HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
-**Aby przesłać oferty pracy Apache Hive** 
+**Aby przesłać Apache Hive zadania** 
 
-Zobacz [Uruchamianie zapytań gałęzi apache przy użyciu pliku .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
+Zobacz [uruchamianie Apache Hive zapytań przy użyciu zestawu .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
-**Aby przesłać oferty pracy Apache Sqoop**
+**Aby przesłać zadania Apache Sqoop**
 
-Zobacz [Korzystanie z Apache Sqoop z HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
+Zobacz [Korzystanie z platformy Apache Sqoop z usługą HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
 
-**Aby przesłać oferty pracy Apache Oozie**
+**Aby przesłać zadania Apache Oozie**
 
-Zobacz [Używanie apache Oozie z Hadoop do definiowania i uruchamiania przepływu pracy w umiaśnie HDInsight](hdinsight-use-oozie-linux-mac.md).
+[Aby zdefiniować i uruchomić przepływ pracy w usłudze HDInsight, zobacz temat Korzystanie z platformy Apache Oozie z usługą Hadoop](hdinsight-use-oozie-linux-mac.md).
 
-## <a name="upload-data-to-azure-blob-storage"></a>Przekazywanie danych do magazynu obiektów blob platformy Azure
+## <a name="upload-data-to-azure-blob-storage"></a>Przekazywanie danych do usługi Azure Blob Storage
 
 Zobacz [Przekazywanie danych do usługi HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Zobacz też
 
-* [Dokumentacja referencyjna sdk.NET .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
-* [Zarządzanie klastrami Apache Hadoop w usłudze HDInsight przy użyciu portalu Azure](hdinsight-administer-use-portal-linux.md)
-* [Administrowanie programem HDInsight za pomocą interfejsu wiersza polecenia][hdinsight-admin-cli]
+* [Dokumentacja referencyjna zestawu SDK platformy .NET dla usługi HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
+* [Zarządzanie klastrami Apache Hadoop w usłudze HDInsight przy użyciu Azure Portal](hdinsight-administer-use-portal-linux.md)
+* [Administrowanie usługą HDInsight przy użyciu interfejsu wiersza polecenia][hdinsight-admin-cli]
 * [Tworzenie klastrów usługi HDInsight][hdinsight-provision]
 * [Przekazywanie danych do usługi HDInsight][hdinsight-upload-data]
 * [Wprowadzenie do usługi Azure HDInsight][hdinsight-get-started]

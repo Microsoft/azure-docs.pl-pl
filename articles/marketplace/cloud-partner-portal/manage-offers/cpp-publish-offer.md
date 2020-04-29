@@ -1,6 +1,6 @@
 ---
-title: Publikowanie ofert Marketplace | Azure Marketplace
-description: Publikowanie ofert na platformie Azure i w witrynach AppSource Marketplaces przy użyciu portalu cloud partnerów
+title: Publikuj oferty witryny Marketplace | Portal Azure Marketplace
+description: Publikuj oferty na platformie Azure i AppSource Marketplace przy użyciu portal Cloud Partner
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,35 +8,35 @@ ms.topic: conceptual
 ms.date: 01/12/2019
 ms.author: dsindona
 ms.openlocfilehash: ab75afd2278433dc36c3d1280b41edfa1e34ddce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80286408"
 ---
-# <a name="publish-azure-marketplace-and-appsource-offers"></a>Publikowanie ofert portalu Azure Marketplace i AppSource
+# <a name="publish-azure-marketplace-and-appsource-offers"></a>Publikowanie ofert w portalu Azure Marketplace i AppSource
 
-Po wypełnieniu wszystkich szczegółów oferty nadszedł czas, aby opublikować ofertę i wziąć ją "na żywo" w portalu Azure Marketplace. Oferta przechodzi kilka etapów. Upewnij się, że zarówno zawartość marketingowa, jak i zasoby techniczne spełniają wymagania jakościowe, aby uzyskać certyfikat platformy Azure i rozpocząć transmisję na żywo w witrynie sieci Web.  Na poniższym diagramie przedstawiono ogólny proces publikowania oferty.  Proces ten różni się nieco między różnymi typami ofert.
+Po wypełnieniu wszystkich szczegółów oferty czas na opublikowanie oferty i jej "Live" w portalu Azure Marketplace. Istnieje kilka etapów oferty. Upewnij się, że zawartość marketingowa i Twoje zasoby techniczne spełniają wymagania dotyczące jakości, aby można było uzyskać certyfikat platformy Azure i przejść na żywo w witrynie sieci Web.  Na poniższym diagramie przedstawiono proces publikowania oferty ogólnej.  Ten proces różni się nieco od różnych typów ofert.
 
-![ogólny przepływ do publikowania ofert](./media/publish-flow.png)
+![ogólny przepływ dla publikacji oferty](./media/publish-flow.png)
 
 
 ## <a name="publishing-process"></a>Proces publikowania
 
-Aby opublikować ofertę, skorzystaj z poniższych kroków.
+Aby opublikować ofertę, wykonaj następujące kroki.
 
-1. Kliknij **pozycję Publikuj** na karcie **Edytor,** aby rozpocząć proces publikowania.
-2. Na karcie **Stan** zobaczysz pozycję **Kroki publikowania** w formularzu schematu blokowego.  Ten formularz określa również bieżący stan oferty i zgłaszane problemy.
-3. Po zweryfikowaniu, że wszystko wygląda poprawnie i działa poprawnie w wersji zapoznawczej, możesz rozpocząć transmisję na żywo. Kliknij **pozycję Przejdź na żywo** na karcie **Stan,** a firma Microsoft zabierze ofertę do produkcji i odpowiedniego portalu marketplace. Zazwyczaj, przejdź na żywo trwa kilka godzin.
+1. Kliknij przycisk **Publikuj** na karcie **Edytor** , aby rozpocząć proces publikowania.
+2. Na karcie **stan** zobaczysz formularz **procedura publikowania** w schemacie blokowym.  Ten formularz określa również bieżący stan oferty oraz zgłoszone problemy.
+3. Po sprawdzeniu, czy wszystko wygląda poprawnie i działa prawidłowo w wersji zapoznawczej, wszystko jest gotowe do użycia. Kliknij pozycję **Przejdź na żywo** na karcie **stan** , a firma Microsoft podejmie ofertę do produkcji i w odpowiednim portalu Marketplace. Zazwyczaj usługa Live zajmie kilka godzin.
 
-W dowolnym momencie procesu publikowania możesz również zalogować się i kliknąć kartę **Wszystkie oferty,** aby wyświetlić najnowszy stan dowolnej oferty. Możesz kliknąć bezpośrednio na stan oferty i zobaczyć szczegóły dotyczące miejsca, w którym znajduje się twoja oferta w procesie publikowania.
+W dowolnym momencie procesu publikowania możesz także zalogować się i kliknąć kartę **wszystkie oferty** , aby wyświetlić najnowszy stan dowolnej oferty. Możesz kliknąć pozycję bezpośrednio w obszarze stanu oferty i wyświetlić szczegółowe informacje o tym, gdzie Twoja oferta znajduje się w procesie publikowania.
 
 
-## <a name="canceling-the-publishing-request"></a>Anulowanie żądania publikowania
+## <a name="canceling-the-publishing-request"></a>Anulowanie żądania publikacji
 
-Możesz rozpocząć proces publikowania i mieć potrzebę anulowania żądania. Żądanie publikowania można anulować tylko wtedy, gdy żądanie publikowania osiągnie krok *wylogowywania wydawcy.* Aby anulować, kliknij przycisk **Anuluj publikowanie**. Stan publikowania jest resetowany do kroku 1, a aby ponownie opublikować, należy kliknąć przycisk **Publikuj** i wykonać kroki opisane na karcie **Stan.**
+Możesz rozpocząć proces publikowania i wymagać anulowania żądania. Możesz anulować żądanie publikowania tylko wtedy, gdy żądanie publikowania osiągnie krok *Wyloguj wydawcy* . Aby anulować, kliknij przycisk **Anuluj publikowanie**. Stan publikowania resetuje się do kroku 1, a aby ponownie opublikować, należy kliknąć przycisk **Publikuj** i postępować zgodnie z instrukcjami na karcie **stan** .
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Podczas procesu publikowania warto monitorować [stan oferty](./cpp-view-status-offer.md) do czasu jej opublikowania. 
+W trakcie procesu publikowania warto monitorować [stan oferty](./cpp-view-status-offer.md) do momentu, w którym oferta będzie aktywna. 

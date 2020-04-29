@@ -1,6 +1,6 @@
 ---
-title: Kontrolki udzielania dotacji w zasadach dostępu warunkowego — usługa Azure Active Directory
-description: Co to są formanty dotacji w zasadach dostępu warunkowego usługi Azure AD
+title: Udzielanie kontroli w zasadach dostępu warunkowego — Azure Active Directory
+description: Co to jest przyznanie kontroli w zasadach dostępu warunkowego usługi Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,66 +12,66 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 02ec8dace971cd4dc1407c9e8d20839504c9ecc3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80331837"
 ---
-# <a name="conditional-access-grant"></a>Dostęp warunkowy: Dotacja
+# <a name="conditional-access-grant"></a>Dostęp warunkowy: Udziel
 
-W ramach zasad dostępu warunkowego administrator może korzystać z kontroli dostępu, aby udzielić lub zablokować dostęp do zasobów.
+W ramach zasad dostępu warunkowego administrator może korzystać z kontroli dostępu w celu udzielenia lub zablokowania dostępu do zasobów.
 
-![Zasady dostępu warunkowego z kontrolą dotacji wymagającą uwierzytelniania wieloskładnikowego](./media/concept-conditional-access-grant/conditional-access-grant.png)
+![Zasady dostępu warunkowego z kontrolką Grant wymagające uwierzytelniania wieloskładnikowego](./media/concept-conditional-access-grant/conditional-access-grant.png)
 
 ## <a name="block-access"></a>Blokowanie dostępu
 
-Blok uwzględnia wszelkie przypisania i uniemożliwia dostęp na podstawie konfiguracji zasad dostępu warunkowego.
+Zablokowanie uwzględnia wszelkie przypisania i uniemożliwia dostęp na podstawie konfiguracji zasad dostępu warunkowego.
 
-Blok jest potężną kontrolą, która powinna być dzierżona z odpowiednią wiedzą. Jest to coś, czego administratorzy powinni używać trybu tylko do [raportu,](concept-conditional-access-report-only.md) aby przetestować przed włączeniem.
+Block to zaawansowana kontrolka, która powinna być wielded z odpowiednią wiedzą. Aby przetestować przed włączeniem, Administratorzy powinni używać [trybu tylko do raportowania](concept-conditional-access-report-only.md) .
 
 ## <a name="grant-access"></a>Udzielanie dostępu
 
-Administratorzy mogą wymusić jeden lub więcej formantów podczas udzielania dostępu. Te formanty obejmują następujące opcje: 
+Administratorzy mogą zdecydować się na wymuszenie co najmniej jednej kontrolki podczas udzielania dostępu. Te kontrolki obejmują następujące opcje: 
 
-- [Wymagaj uwierzytelniania wieloskładnikowego (uwierzytelniania wieloskładnikowego azure)](../authentication/concept-mfa-howitworks.md)
-- [Wymagaj, aby urządzenie było oznaczone jako zgodne (usługa Microsoft Intune)](/intune/protect/device-compliance-get-started)
-- [Wymagaj hybrydowego urządzenia przyłączającego do usługi Azure AD](../devices/concept-azure-ad-join-hybrid.md)
-- [Wymagaj zatwierdzonej aplikacji klienckiej](app-based-conditional-access.md)
+- [Wymagaj uwierzytelniania wieloskładnikowego (Azure Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
+- [Wymagaj, aby urządzenie było oznaczone jako zgodne (Microsoft Intune)](/intune/protect/device-compliance-get-started)
+- [Wymagaj hybrydowego urządzenia dołączonego do usługi Azure AD](../devices/concept-azure-ad-join-hybrid.md)
+- [Wymaganie zatwierdzonej aplikacji klienckiej](app-based-conditional-access.md)
 - [Wymaganie zasad ochrony aplikacji](app-protection-based-conditional-access.md)
 
 Gdy administratorzy zdecydują się połączyć te opcje, mogą wybrać następujące metody:
 
-- Wymagaj wszystkich wybranych elementów sterujących (formantu **i** sterowania)
-- Wymagaj jednego z wybranych formantów (formantu **OR)**
+- Wymagaj wszystkich zaznaczonych kontrolek (kontrolka **i** kontrola)
+- Wymagaj jednej z wybranych kontrolek (kontrolki **lub** kontrolka)
 
-Domyślnie dostęp warunkowy wymaga wszystkich wybranych formantów.
+Domyślnie dostęp warunkowy wymaga wszystkich zaznaczonych kontrolek.
 
 ### <a name="require-multi-factor-authentication"></a>Wymagaj uwierzytelniania wieloskładnikowego
 
-Zaznaczenie tego pola wyboru będzie wymagało od użytkowników wykonywania uwierzytelniania wieloskładnikowego platformy Azure. Więcej informacji na temat wdrażania uwierzytelniania wieloskładnikowego platformy Azure można znaleźć w artykule [Planowanie wdrożenia uwierzytelniania wieloskładnikowego platformy Azure w chmurze.](../authentication/howto-mfa-getstarted.md)
+Zaznaczenie tego pola wyboru spowoduje, że użytkownicy będą musieli wykonać Multi-Factor Authentication platformy Azure. Więcej informacji na temat wdrażania usługi Azure Multi-Factor Authentication można znaleźć w artykule [Planowanie wdrożenia usługi azure Multi-Factor Authentication opartego na chmurze](../authentication/howto-mfa-getstarted.md).
 
 ### <a name="require-device-to-be-marked-as-compliant"></a>Wymagaj, aby urządzenie było oznaczone jako zgodne
 
-Organizacje, które wdrożyły usługę Microsoft Intune, mogą używać informacji zwróconych z ich urządzeń do identyfikowania urządzeń spełniających określone wymagania dotyczące zgodności. Te informacje o zgodności zasad są przekazywane z usługi Intune do usługi Azure AD, gdzie dostęp warunkowy może podejmować decyzje o przyznaniu lub zablokowaniu dostępu do zasobów. Aby uzyskać więcej informacji na temat zasad zgodności, zobacz artykuł [Ustawianie reguł na urządzeniach w celu umożliwienia dostępu do zasobów w organizacji przy użyciu usługi Intune](/intune/protect/device-compliance-get-started).
+Organizacje, które wdrożyły Microsoft Intune mogą korzystać z informacji zwróconych z urządzeń w celu identyfikowania urządzeń spełniających określone wymagania w zakresie zgodności. Te informacje o zgodności z tymi zasadami są przekazywane z usługi Intune w usłudze Azure AD, gdzie dostęp warunkowy może podejmować decyzje o udzieleniu lub zablokowaniu dostępu do zasobów. Aby uzyskać więcej informacji na temat zasad zgodności, zobacz artykuł [Ustawianie reguł na urządzeniach w celu zezwalania na dostęp do zasobów w organizacji przy użyciu usługi Intune](/intune/protect/device-compliance-get-started).
 
-Urządzenie może być oznaczone jako zgodne przez usługę Intune (dla dowolnego systemu operacyjnego urządzenia) lub przez system MDM innej firmy dla urządzeń z systemem Windows 10. Jamf pro jest jedynym obsługiwanym systemem MDM innych firm. Więcej informacji na temat integracji można znaleźć w artykule [Integruj Jamf Pro z intune w celu zapewnienia zgodności](/intune/protect/conditional-access-integrate-jamf).
+Urządzenie może być oznaczone jako zgodne przez usługę Intune (dla dowolnego systemu operacyjnego urządzenia) lub przez system MDM innej firmy dla urządzeń z systemem Windows 10. Jamf Pro jest jedynym obsługiwanym systemem zarządzania urządzeniami przenośnymi innej firmy. Więcej informacji na temat integracji można znaleźć w artykule integracja usługi [Jamf Pro z usługą Intune w celu zapewnienia zgodności](/intune/protect/conditional-access-integrate-jamf).
 
-Urządzenia muszą być zarejestrowane w usłudze Azure AD, zanim będą mogły być oznaczone jako zgodne. Więcej informacji na temat rejestracji urządzenia można znaleźć w artykule, [Co to jest tożsamość urządzenia](../devices/overview.md).
+Aby można było oznaczyć je jako zgodne, urządzenia muszą być zarejestrowane w usłudze Azure AD. Więcej informacji na temat rejestracji urządzeń można znaleźć w artykule [co to jest tożsamość urządzenia](../devices/overview.md).
 
-### <a name="require-hybrid-azure-ad-joined-device"></a>Wymagaj hybrydowego urządzenia przyłączającego do usługi Azure AD
+### <a name="require-hybrid-azure-ad-joined-device"></a>Wymagaj hybrydowego urządzenia dołączonego do usługi Azure AD
 
-Organizacje mogą używać tożsamości urządzenia jako części zasad dostępu warunkowego. Organizacje mogą wymagać, aby urządzenia były hybrydowe usługi Azure AD przyłączone przy użyciu tego pola wyboru. Aby uzyskać więcej informacji na temat tożsamości urządzeń, zobacz artykuł [Co to jest tożsamość urządzenia?](../devices/overview.md).
+Organizacje mogą zdecydować się na użycie tożsamości urządzenia jako części zasad dostępu warunkowego. Organizacje mogą wymagać, aby urządzenia były dołączone do hybrydowej usługi Azure AD przy użyciu tego pola wyboru. Aby uzyskać więcej informacji o tożsamościach urządzeń, zobacz artykuł [co to jest tożsamość urządzenia?](../devices/overview.md).
 
 ### <a name="require-approved-client-app"></a>Wymaganie zatwierdzonej aplikacji klienckiej
 
-Organizacje mogą wymagać, aby próba dostępu do wybranych aplikacji w chmurze została wykonana z zatwierdzonej aplikacji klienckiej. Te zatwierdzone aplikacje klienckie obsługują [zasady ochrony aplikacji usługi Intune](/intune/app-protection-policy) niezależnie od rozwiązania do zarządzania urządzeniami przenośnymi (MDM).
+Organizacje mogą wymagać od zatwierdzonej aplikacji klienckiej próby dostępu do wybranych aplikacji w chmurze. Te zatwierdzone aplikacje klienckie obsługują [Zasady ochrony aplikacji usługi Intune](/intune/app-protection-policy) niezależnie od dowolnego rozwiązania do zarządzania urządzeniami przenośnymi (MDM).
 
-Aby wykorzystać tę kontrolę dotacji, dostęp warunkowy wymaga, aby urządzenie było zarejestrowane w usłudze Azure Active Directory, która wymaga użycia aplikacji brokera. Aplikacją brokera jest aplikacja Microsoft Authenticator w przypadku systemu iOS lub aplikacja Portal firmy Microsoft w przypadku urządzeń z systemem Android. Jeśli aplikacja brokera nie jest zainstalowana na urządzeniu, gdy użytkownik próbuje uwierzytelnić, użytkownik zostanie przekierowany do sklepu z aplikacjami, aby zainstalować aplikację brokera.
+Aby można było korzystać z tej kontroli dotacji, dostęp warunkowy wymaga zarejestrowania urządzenia w Azure Active Directory, które wymaga użycia aplikacji brokera. Aplikacją brokera jest aplikacja Microsoft Authenticator w przypadku systemu iOS lub aplikacja Portal firmy Microsoft w przypadku urządzeń z systemem Android. Jeśli aplikacja brokera nie jest zainstalowana na urządzeniu podczas próby uwierzytelnienia użytkownika, użytkownik zostanie przekierowany do sklepu z aplikacjami w celu zainstalowania aplikacji brokera.
 
-To ustawienie dotyczy następujących aplikacji na iOS i Android:
+To ustawienie dotyczy następujących aplikacji dla systemów iOS i Android:
 
-- Ochrona informacji platformy Microsoft Azure
+- Microsoft Azure Information Protection
 - Microsoft Bookings
 - Microsoft Cortana
 - Microsoft Dynamics 365
@@ -83,11 +83,11 @@ To ustawienie dotyczy następujących aplikacji na iOS i Android:
 - Microsoft Kaizala
 - Microsoft Launcher
 - Microsoft Office
-- Centrum pakietu Microsoft Office
+- Microsoft Office Hub
 - Microsoft OneDrive
 - Microsoft OneNote
 - Program Microsoft Outlook
-- Planista firmy Microsoft
+- Microsoft Planner
 - Microsoft PowerApps
 - Microsoft Power BI
 - Microsoft PowerPoint
@@ -97,46 +97,46 @@ To ustawienie dotyczy następujących aplikacji na iOS i Android:
 - Usługa Microsoft Stream
 - Microsoft Teams
 - Microsoft To-Do
-- Microsoft Visio
+- Program Microsoft Visio
 - Microsoft Word
 - Microsoft Yammer
 - Microsoft Whiteboard
 
 **Uwagi**
 
-- Zatwierdzone aplikacje klienckie obsługują funkcję zarządzania aplikacjami mobilnymi usługi Intune.
-- Wymagaj **wymaganego zatwierdzenia aplikacji klienckiej:**
-   - Obsługuje tylko stan platformy iOS i Android dla urządzeń.
-   - Aplikacja brokera jest wymagana do zarejestrowania urządzenia. W systemie iOS aplikacja brokera jest Microsoft Authenticator i na Androida, jest to aplikacja Intune Company Portal.
-- Dostęp warunkowy nie może uznać przeglądarki Microsoft Edge w trybie InPrivate za zatwierdzoną aplikację kliencką.
+- Zatwierdzone aplikacje klienckie obsługują funkcję zarządzania aplikacjami mobilnymi w usłudze Intune.
+- Wymagane wymagania dotyczące **zatwierdzonej aplikacji klienckiej** :
+   - Obsługuje tylko warunek platformy dla systemów iOS i Android.
+   - Aby zarejestrować urządzenie, wymagana jest aplikacja brokera. W systemie iOS aplikacja brokera jest Microsoft Authenticator i w systemie Android jest Intune — Portal firmy App.
+- Dostęp warunkowy nie może rozważyć Microsoft Edge w trybie InPrivate w zatwierdzonej aplikacji klienckiej.
 
-Zobacz artykuł [Jak: Wymagaj zatwierdzonych aplikacji klienckich do dostępu do aplikacji w chmurze z dostępem warunkowym dla](app-based-conditional-access.md) przykładów konfiguracji.
+Zapoznaj się z artykułem [: jak wymagać zatwierdzonych aplikacji klienckich do uzyskiwania dostępu do aplikacji w chmurze przy użyciu dostępu warunkowego](app-based-conditional-access.md) na potrzeby przykładów konfiguracyjnych.
 
 ### <a name="require-app-protection-policy"></a>Wymaganie zasad ochrony aplikacji
 
-W zasadach dostępu warunkowego można wymagać, aby [zasady ochrony aplikacji usługi Intune](/intune/app-protection-policy) były obecne w aplikacji klienckiej, zanim dostęp do wybranych aplikacji w chmurze będzie dostępny. 
+W zasadach dostępu warunkowego można wymagać, aby [Zasady ochrony aplikacji usługi Intune](/intune/app-protection-policy) były obecne w aplikacji klienckiej przed udostępnieniem dostępu do wybranych aplikacji w chmurze. 
 
-Aby wykorzystać tę kontrolę dotacji, dostęp warunkowy wymaga, aby urządzenie było zarejestrowane w usłudze Azure Active Directory, która wymaga użycia aplikacji brokera. Aplikacją brokera jest aplikacja Microsoft Authenticator w przypadku systemu iOS lub aplikacja Portal firmy Microsoft w przypadku urządzeń z systemem Android. Jeśli aplikacja brokera nie jest zainstalowana na urządzeniu, gdy użytkownik próbuje uwierzytelnić, użytkownik zostanie przekierowany do sklepu z aplikacjami, aby zainstalować aplikację brokera.
+Aby można było korzystać z tej kontroli dotacji, dostęp warunkowy wymaga zarejestrowania urządzenia w Azure Active Directory, które wymaga użycia aplikacji brokera. Aplikacją brokera jest aplikacja Microsoft Authenticator w przypadku systemu iOS lub aplikacja Portal firmy Microsoft w przypadku urządzeń z systemem Android. Jeśli aplikacja brokera nie jest zainstalowana na urządzeniu podczas próby uwierzytelnienia użytkownika, użytkownik zostanie przekierowany do sklepu z aplikacjami w celu zainstalowania aplikacji brokera.
 
 To ustawienie dotyczy następujących aplikacji klienckich:
 
 - Microsoft Cortana
 - Microsoft OneDrive
 - Program Microsoft Outlook
-- Planista firmy Microsoft
+- Microsoft Planner
 
 **Uwagi**
 
-- Zasady ochrony aplikacji obsługują funkcję zarządzania aplikacjami mobilnymi usługi Intune z ochroną zasad.
-- Wymagania **zasad ochrony aplikacji Wymagaj:**
-    - Obsługuje tylko stan platformy iOS i Android dla urządzeń.
-    - Aplikacja brokera jest wymagana do zarejestrowania urządzenia. W systemie iOS aplikacja brokera jest Microsoft Authenticator i na Androida, jest to aplikacja Intune Company Portal.
+- Aplikacje dla zasad ochrony aplikacji obsługują funkcję zarządzania aplikacjami mobilnymi w usłudze Intune z ochroną zasad.
+- Wymagania dotyczące wymagań **zasad ochrony aplikacji** :
+    - Obsługuje tylko warunek platformy dla systemów iOS i Android.
+    - Aby zarejestrować urządzenie, wymagana jest aplikacja brokera. W systemie iOS aplikacja brokera jest Microsoft Authenticator i w systemie Android jest Intune — Portal firmy App.
 
-Zobacz artykuł [Jak: Wymagaj zasad ochrony aplikacji i zatwierdzonej aplikacji klienckiej do dostępu do aplikacji w chmurze z dostępem warunkowym dla](app-protection-based-conditional-access.md) przykładów konfiguracji.
+Zapoznaj się z artykułem [instrukcje: wymaganie zasad ochrony aplikacji oraz zatwierdzonej aplikacji klienckiej do uzyskiwania dostępu do aplikacji w chmurze przy użyciu dostępu warunkowego](app-protection-based-conditional-access.md) na potrzeby przykładów konfiguracyjnych.
 
 ### <a name="terms-of-use"></a>Warunki użytkowania
 
-Jeśli organizacja utworzyła warunki użytkowania, dodatkowe opcje mogą być widoczne w ramach kontroli dotacji. Te opcje umożliwiają administratorom wymaganie potwierdzenia warunków użytkowania jako warunku dostępu do zasobów chronionych przez zasady. Więcej informacji na temat warunków użytkowania można znaleźć w artykule, [warunki użytkowania usługi Azure Active Directory](terms-of-use.md).
+Jeśli Twoja organizacja utworzyła warunki użytkowania, dodatkowe opcje mogą być widoczne w obszarze Udziel kontroli. Te opcje umożliwiają administratorom wymaganie potwierdzenia warunków użytkowania jako stanu dostępu do zasobów chronionych przez zasady. Więcej informacji na temat warunków użytkowania można znaleźć w artykule [Azure Active Directory warunki użytkowania](terms-of-use.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

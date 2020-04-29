@@ -1,6 +1,6 @@
 ---
-title: Adnotacje kontrolera transferu danych przychodzących bramy aplikacji
-description: Ten artykuł zawiera dokumentację dotyczącą adnotacji specyficznych dla kontrolera transferu danych przychodzących bramy aplikacji.
+title: Application Gateway adnotacje kontrolera transferu danych przychodzących
+description: Ten artykuł zawiera dokumentację dotyczącą adnotacji specyficznych dla kontrolera Application Gateway transferu danych przychodzących.
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -8,36 +8,36 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: f54381ddcd11a2e4a24d30d812468da85b5403de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335820"
 ---
-# <a name="annotations-for-application-gateway-ingress-controller"></a>Adnotacje dla kontrolera transferu danych przychodzących bramy aplikacji 
+# <a name="annotations-for-application-gateway-ingress-controller"></a>Adnotacje dla Application Gateway kontroler danych przychodzących 
 
 ## <a name="introductions"></a>Wprowadzenia
 
-Zasób transferu przychodzącego Kubernetes można opisać za pomocą dowolnych par kluczy/wartości. AGIC polega na adnotacje do programowania funkcji bramy aplikacji, które nie są konfigurowalne za pośrednictwem pliku YAML przychodzących. Adnotacje przychodzących są stosowane do wszystkich ustawień HTTP, pul zaplecza i odbiorników pochodzących z zasobu transferu danych przychodzących.
+Zasób Kubernetes Ingres może być oznaczony za pomocą dowolnej pary klucz/wartość. AGIC opiera się na adnotacjach do funkcji programu Application Gateway, których nie można skonfigurować za pośrednictwem transferu danych przychodzących YAML. Adnotacje przychodzące są stosowane do wszystkich ustawień HTTP, pul zaplecza i odbiorników pochodzących z zasobów przychodzących.
 
 ## <a name="list-of-supported-annotations"></a>Lista obsługiwanych adnotacji
 
-Aby zasób przynikanie był obserwowany przez AGIC, `kubernetes.io/ingress.class: azure/application-gateway`musi być oznaczony **adnotacją** . Tylko wtedy AGIC będzie współpracować z danym zasobem Ingress.
+Aby zasób transferu danych przychodzących był obserwowany przez AGIC, **należy dodać** do `kubernetes.io/ingress.class: azure/application-gateway`niego adnotację. Dopiero wtedy AGIC będzie działała z zapytaniem o dane wejściowe.
 
 | Klucz adnotacji | Typ wartości | Wartość domyślna | Dozwolone wartości
 | -- | -- | -- | -- |
 | [appgw.ingress.kubernetes.io/backend-path-prefix](#backend-path-prefix) | `string` | `nil` | |
 | [appgw.ingress.kubernetes.io/ssl-redirect](#tls-redirect) | `bool` | `false` | |
 | [appgw.ingress.kubernetes.io/connection-draining](#connection-draining) | `bool` | `false` | |
-| [appgw.ingress.kubernetes.io/connection-draining-timeout](#connection-draining) | `int32`(sekundy) | `30` | |
+| [appgw.ingress.kubernetes.io/connection-draining-timeout](#connection-draining) | `int32`s | `30` | |
 | [appgw.ingress.kubernetes.io/cookie-based-affinity](#cookie-based-affinity) | `bool` | `false` | |
-| [appgw.ingress.kubernetes.io/request-timeout](#request-timeout) | `int32`(sekundy) | `30` | |
+| [appgw.ingress.kubernetes.io/request-timeout](#request-timeout) | `int32`s | `30` | |
 | [appgw.ingress.kubernetes.io/use-private-ip](#use-private-ip) | `bool` | `false` | |
 | [appgw.ingress.kubernetes.io/backend-protocol](#backend-protocol) | `string` | `http` | `http`, `https` |
 
-## <a name="backend-path-prefix"></a>Prefiks ścieżki wewnętrznej bazy danych
+## <a name="backend-path-prefix"></a>Prefiks ścieżki zaplecza
 
-Ta adnotacja umożliwia ścieżkę wewnętrznej bazy danych określoną w zasobie transferu danych przychodzących, która ma zostać przepisana z prefiksem określonym w tej adnotacji. Dzięki temu użytkownicy mogą udostępniać usługi, których punkty końcowe są inne niż nazwy punktów końcowych używane do udostępnienia usługi w zasobie transferu przychodzącego.
+Ta adnotacja umożliwia zapisanie ścieżki zaplecza określonej w zasobie transferu danych przychodzących z prefiksem określonym w tej adnotacji. Dzięki temu użytkownicy mogą ujawniać usługi, których punkty końcowe są inne niż nazwy punktów końcowych używane do udostępniania usługi w zasobie transferu danych przychodzących.
 
 ### <a name="usage"></a>Sposób użycia
 
@@ -65,14 +65,14 @@ spec:
           serviceName: go-server-service
           servicePort: 80
 ```
-W powyższym przykładzie zdefiniowaliśmy zasób `go-server-ingress-bkprefix` transferu danych `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"` przychodzących o nazwie z adnotacją . Adnotacja nakazuje bramie aplikacji utworzenie ustawienia HTTP, które będzie miało zastąpienie `/hello` `/test/`prefiksu ścieżki dla ścieżki do .
+W powyższym przykładzie zdefiniowano zasób transferu danych przychodzących o nazwie `go-server-ingress-bkprefix` z adnotacją. `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"` Adnotacja informuje bramę aplikacji o utworzeniu ustawienia HTTP, które będzie miało przesłonięcie prefiksu ścieżki `/hello` dla `/test/`ścieżki do.
 
 > [!NOTE] 
-> W powyższym przykładzie mamy tylko jedną regułę zdefiniowaną. Jednak adnotacje mają zastosowanie do całego zasobu transferu danych przychodzących, więc jeśli użytkownik zdefiniował wiele reguł, prefiks ścieżki wewnętrznej bazy danych zostanie skonfigurowany dla każdej z określonych ścieżek. W związku z tym jeśli użytkownik chce różnych reguł z różnych prefiksów ścieżki (nawet dla tej samej usługi) będą musieli zdefiniować różne zasoby transferu danych przychodzących.
+> W powyższym przykładzie zdefiniowano tylko jedną regułę. Jednakże adnotacje mają zastosowanie do całego zasobu związanego z ruchem przychodzącym, więc jeśli użytkownik określił wiele reguł, prefiks ścieżki zaplecza zostanie skonfigurowany dla każdej z określonych ścieżek. W takim przypadku, jeśli użytkownik chce mieć różne reguły z różnymi prefiksami ścieżki (nawet dla tej samej usługi), trzeba zdefiniować różne zasoby związane z ruchem przychodzącym.
 
-## <a name="tls-redirect"></a>Przekierowanie TLS
+## <a name="tls-redirect"></a>Przekierowanie protokołu TLS
 
-Bramę aplikacji [można skonfigurować tak,](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) aby automatycznie przekierowywała adresy URL HTTP do swoich odpowiedników https. Gdy ta adnotacja jest obecna, a TLS jest poprawnie skonfigurowany, kontroler transferu danych przychodzących Kubernetes utworzy [regułę routingu z konfiguracją przekierowania](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) i zastosuje zmiany do bramy aplikacji. Utworzonym przekierowaniem `301 Moved Permanently`będzie HTTP .
+Application Gateway [można skonfigurować tak](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) , aby automatycznie przekierowywać adresy URL http do ich odpowiedników https. Gdy ta adnotacja jest obecna, a protokół TLS jest prawidłowo skonfigurowany, Kubernetes transferu danych przychodzących utworzy [regułę routingu z konfiguracją przekierowania](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) i zastosuje zmiany do Application Gateway. Utworzone przekierowanie będzie HTTP `301 Moved Permanently`.
 
 ### <a name="usage"></a>Sposób użycia
 
@@ -107,8 +107,8 @@ spec:
 
 ## <a name="connection-draining"></a>Opróżnianie połączenia
 
-`connection-draining`: Ta adnotacja umożliwia użytkownikom określenie, czy włączyć opróżnianie połączenia.
-`connection-draining-timeout`: Ta adnotacja umożliwia użytkownikom określenie limitu czasu, po którym brama aplikacji zakończy żądania do punktu końcowego wysysania wewnętrznej bazy danych.
+`connection-draining`: Ta adnotacja umożliwia użytkownikom określenie, czy należy włączyć opróżnianie połączenia.
+`connection-draining-timeout`: Ta adnotacja pozwala użytkownikom na określenie limitu czasu, po upływie którego Application Gateway zakończy żądania do opróżniania punktu końcowego zaplecza.
 
 ### <a name="usage"></a>Sposób użycia
 
@@ -141,7 +141,7 @@ spec:
 
 ## <a name="cookie-based-affinity"></a>Koligacja oparta na plikach cookie
 
-Ta adnotacja pozwala określić, czy włączyć koligacji opartej na plikach cookie.
+Ta adnotacja pozwala określić, czy ma zostać włączona koligacja oparta na plikach cookie.
 
 ### <a name="usage"></a>Sposób użycia
 
@@ -172,7 +172,7 @@ spec:
 
 ## <a name="request-timeout"></a>Limit czasu żądania
 
-Ta adnotacja umożliwia określenie limitu czasu żądania w sekundach, po którym brama aplikacji zakończy się niepowodzeniem żądania, jeśli odpowiedź nie zostanie odebrana.
+Ta adnotacja pozwala określić limit czasu żądania (w sekundach), po upływie którego Application Gateway żądanie zakończy się niepowodzeniem, jeśli odpowiedź nie zostanie odebrana.
 
 ### <a name="usage"></a>Sposób użycia
 
@@ -201,13 +201,13 @@ spec:
           servicePort: 80
 ```
 
-## <a name="use-private-ip"></a>Korzystanie z prywatnego adresu IP
+## <a name="use-private-ip"></a>Użyj prywatnego adresu IP
 
-Ta adnotacja pozwala nam określić, czy udostępnić ten punkt końcowy na prywatnej własności IP bramy aplikacji.
+Ta adnotacja pozwala określić, czy ten punkt końcowy ma zostać ujawniony w prywatnym adresie IP Application Gateway.
 
 > [!NOTE]
-> * Brama aplikacji nie obsługuje wielu adresów IP na tym samym porcie (przykład: 80/443). Przychodzących z adnotacji `appgw.ingress.kubernetes.io/use-private-ip: "false"` i `appgw.ingress.kubernetes.io/use-private-ip: "true"` `HTTP` inny z on spowoduje AGIC nie po awarii w aktualizacji bramy aplikacji.
-> * W przypadku bramy aplikacji, która nie ma prywatnego `appgw.ingress.kubernetes.io/use-private-ip: "true"` adresu IP, przychodzące dane z zostaną zignorowane. Zostanie to odzwierciedlone w dziennikach kontrolera i `NoPrivateIP` zdarzeniach transferu danych przychodzących dla osób przychodzących z ostrzeżeniem.
+> * Application Gateway nie obsługuje wielu adresów IP na tym samym porcie (przykład: 80/443). Ruch przychodzący z `appgw.ingress.kubernetes.io/use-private-ip: "false"` adnotacją i `appgw.ingress.kubernetes.io/use-private-ip: "true"` inne `HTTP` z opcją with spowoduje niepowodzenie AGIC podczas aktualizowania Application Gateway.
+> * W przypadku Application Gateway, które nie mają prywatnego adresu IP, `appgw.ingress.kubernetes.io/use-private-ip: "true"` Ingresses z zostanie zignorowane. Spowoduje to odzwierciedlenie w dziennikach kontrolera i zdarzeń związanych z transferem danych przychodzących `NoPrivateIP` dla tych ingresses z ostrzeżeniem.
 
 
 ### <a name="usage"></a>Sposób użycia
@@ -235,13 +235,13 @@ spec:
           servicePort: 80
 ```
 
-## <a name="backend-protocol"></a>Protokół wewnętrznej bazy danych
+## <a name="backend-protocol"></a>Protokół zaplecza
 
-Ta adnotacja pozwala nam określić protokół, który brama aplikacji powinna używać podczas rozmowy z zasobnikami. Obsługiwane protokoły: `http`,`https`
+Ta adnotacja umożliwia określenie protokołu, który Application Gateway powinien być używany podczas rozmowy z zasobnikami. Obsługiwane protokoły: `http`,`https`
 
 > [!NOTE]
-> * Certyfikaty z podpisem własnym są obecnie obsługiwane przez bramę aplikacji, obecnie usługa AGIC obsługuje tylko wtedy, `https` gdy zasobniki używają certyfikatu podpisanego przez dobrze znany urząd certyfikacji.
-> * Upewnij się, że nie używasz portu 80 z https i portu 443 z HTTP na zasobnikach.
+> * W `https` przypadku, gdy certyfikaty z podpisem własnym są obsługiwane w Application Gateway, obecnie AGIC tylko w przypadku korzystania z certyfikatu podpisanego przez dobrze znany urząd certyfikacji.
+> * Upewnij się, że nie używasz portu 80 z protokołem HTTPS i portem 443 z protokołem HTTP w przypadku zasobników.
 
 ### <a name="usage"></a>Sposób użycia
 ```yaml

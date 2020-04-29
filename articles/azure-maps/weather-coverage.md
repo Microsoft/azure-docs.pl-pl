@@ -1,6 +1,6 @@
 ---
-title: Pokrycie pogodowe | Mapy platformy Microsoft Azure
-description: W tym artykule dowiesz się więcej o zasięgu pogody w usługach Microsoft Azure Maps.
+title: Pokrycie pogodowe | Mapy Microsoft Azure
+description: Ten artykuł zawiera informacje na temat pokrycia pogody w Microsoft Azure Maps.
 author: philmea
 ms.author: philmea
 ms.date: 11/20/2019
@@ -9,28 +9,28 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 60761f7641d8cf87121992fce9050aea0f0b434b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80333582"
 ---
-# <a name="azure-maps-weather-coverage"></a>Pokrycie pogody usługi Azure Maps
+# <a name="azure-maps-weather-coverage"></a>Azure Maps pokrycie pogodowe
 
-Ten artykuł zawiera informacje o zasięgu usług [pogodowych](https://aka.ms/AzureMapsWeatherService)usługi Usługi Azure Maps . Usługi danych pogoda usługi Azure Maps zwraca szczegóły, takie jak kafelki radarowe, aktualne warunki pogodowe, prognozy pogody i pogoda na trasie.
+Ten artykuł zawiera informacje o pokryciu dotyczące Azure Maps [usług pogodowych](https://aka.ms/AzureMapsWeatherService). Azure Maps usługi danych pogody zwracają szczegóły, takie jak kafelki radarowe, bieżące warunki pogodowe, prognozy pogodowe i Pogoda wzdłuż trasy.
 
-Usługa Azure Maps nie ma takiego samego poziomu informacji i dokładności dla wszystkich krajów i regionów.
+Azure Maps nie ma tego samego poziomu informacji i dokładności dla wszystkich krajów i regionów.
 
-Poniższa tabela zawiera informacje o tym, jakiego rodzaju informacje o pogodzie można zażądać od każdego kraju/regionu.
+Poniższa tabela zawiera informacje o rodzaju informacji o pogodzie, które można zażądać od poszczególnych krajów/regionów.
 
 | Symbol | Znaczenie |
 |--------|---------|
-|*       |Obejmuje pogodę wzdłuż trasy, aktualne warunki, prognozę godzinową, prognozę kwartalną i dzienne prognozy API |
+|*       |Obejmuje Pogoda na trasie, bieżące warunki, prognozę godzinową, prognozę kwartalną i dzienne interfejsy API prognozowania |
 
 
 ## <a name="americas"></a>Ameryki
 
-| Kraj/region              |  Płytki satelitarne | Prognoza minut, Płytki Radarowe | Inne* | 
+| Kraj/region              |  Kafelki satelitarne | Prognoza minutowa, kafelki radarowe | Różnych | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Anguilla                                 | ✓ |   |  ✓| 
 | Antarktyda                               | ✓ |   |  ✓|
@@ -74,19 +74,19 @@ Poniższa tabela zawiera informacje o tym, jakiego rodzaju informacje o pogodzie
 | Paragwaj                                 | ✓ |   |  ✓| 
 | Peru                                     | ✓ |   |  ✓| 
 | Portoryko                              | ✓ |   |  ✓| 
-| Św Barthélemy                         | ✓ |   |  ✓| 
+| Saint Barthélemy                         | ✓ |   |  ✓| 
 | Saint Kitts i Nevis                    | ✓ |   |  ✓| 
 | Saint Lucia                              | ✓ |   |  ✓| 
 | Saint-Martin                             | ✓ |   |  ✓| 
-| Św Pierre i Miquelon                | ✓ |   |  ✓| 
+| Saint-Pierre i Miquelon                | ✓ |   |  ✓| 
 | Saint Vincent i Grenadyny         | ✓ |   |  ✓| 
 | Sint Eustatius                           | ✓ |   |  ✓|  
 | Sint Maarten                             | ✓ |   |  ✓| 
-| Georgia Południowa i Sandwich Południowy | ✓ |   |  ✓| 
+| Wyspy Georgia Południowa i Sandwich Południowy | ✓ |   |  ✓| 
 | Surinam                                 | ✓ |   |  ✓| 
 | Trynidad i Tobago                      | ✓ |   |  ✓| 
 | Wyspy Turks i Caicos                 | ✓ |   |  ✓| 
-| Wyspy U.S. Outlying                    | ✓ |   |  ✓| 
+| Odległe wyspy Stanów Zjednoczonych                    | ✓ |   |  ✓| 
 | Wyspy Dziewicze Stanów Zjednoczonych                      | ✓ |   |  ✓| 
 | Stany Zjednoczone                            | ✓ | ✓ |  ✓| 
 | Urugwaj                                  | ✓ |   |  ✓| 
@@ -95,7 +95,7 @@ Poniższa tabela zawiera informacje o tym, jakiego rodzaju informacje o pogodzie
 
 ## <a name="middle-east-and-africa"></a>Bliski Wschód i Afryka
 
-| Kraj/region              |  Płytki satelitarne | Prognoza minut, Płytki Radarowe | Inne* | 
+| Kraj/region              |  Kafelki satelitarne | Prognoza minutowa, kafelki radarowe | Różnych | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Algieria                     | ✓               |                              |        ✓| 
 | Angola                      | ✓               |                              |        ✓| 
@@ -111,12 +111,12 @@ Poniższa tabela zawiera informacje o tym, jakiego rodzaju informacje o pogodzie
 | Czad                        | ✓               |                              |        ✓| 
 | Komory                     | ✓               |                              |        ✓| 
 | Kongo (DRK)                 | ✓               |                              |        ✓|
-| Kości słoniowej               | ✓               |                              |        ✓| 
+| Wybrzeże Kości Słoniowej               | ✓               |                              |        ✓| 
 | Dżibuti                    | ✓               |                              |        ✓| 
 | Egipt                       | ✓               |                              |        ✓| 
 | Gwinea Równikowa           | ✓               |                              |        ✓| 
 | Erytrea                     | ✓               |                              |        ✓| 
-| eSwatini ( eSwatini )                    | ✓               |                              |        ✓| 
+| eSwatini                    | ✓               |                              |        ✓| 
 | Etiopia                    | ✓               |                              |        ✓| 
 | Francuskie Terytoria Południowe i Antarktyczne | ✓               |                              |        ✓| 
 | Gabon                       | ✓               |                              |        ✓| 
@@ -150,8 +150,8 @@ Poniższa tabela zawiera informacje o tym, jakiego rodzaju informacje o pogodzie
 | Katar                       | ✓               |                              |        ✓| 
 | Réunion                     | ✓               |                              |        ✓| 
 | Rwanda                      | ✓               |                              |        ✓| 
-| Świętej Heleny, Wniebowstąpienie, Tristan da Cunha        | ✓               |                              |        ✓| 
-| Wyspy Świętego Tomasza i Książęcej       | ✓               |                              |        ✓| 
+| Święta Helena, Wyspa Wniebowstąpienia, Tristan da Cunha        | ✓               |                              |        ✓| 
+| Wyspy Świętego Tomasza i Książęca       | ✓               |                              |        ✓| 
 | Arabia Saudyjska                | ✓               |                              |        ✓| 
 | Senegal                     | ✓               |                              |        ✓| 
 | Seszele                  | ✓               |                              |        ✓| 
@@ -174,7 +174,7 @@ Poniższa tabela zawiera informacje o tym, jakiego rodzaju informacje o pogodzie
 
 ## <a name="asia-pacific"></a>Azja i Pacyfik
 
-| Kraj/region              |  Płytki satelitarne | Prognoza minut, Płytki Radarowe | Inne* | 
+| Kraj/region              |  Kafelki satelitarne | Prognoza minutowa, kafelki radarowe | Różnych | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Afganistan                       | ✓ |   |  ✓| 
 | Samoa Amerykańskie                    | ✓ |   |  ✓| 
@@ -191,7 +191,7 @@ Poniższa tabela zawiera informacje o tym, jakiego rodzaju informacje o pogodzie
 | Fidżi                              | ✓ |   |  ✓| 
 | Polinezja Francuska                  | ✓ |   |  ✓| 
 | Guam                              | ✓ |   |  ✓| 
-| Wyspa Heard i Wyspy McDonalda | ✓ |   |  ✓| 
+| Wyspy Heard i McDonald | ✓ |   |  ✓| 
 | SRA Hongkong                     | ✓ |   |  ✓| 
 | Indie                             | ✓ |   |  ✓| 
 | Indonezja                         | ✓ |   |  ✓| 
@@ -241,7 +241,7 @@ Poniższa tabela zawiera informacje o tym, jakiego rodzaju informacje o pogodzie
 
 ## <a name="europe"></a>Europa
 
-| Kraj/region              |  Płytki satelitarne | Prognoza minut, Płytki Radarowe | Inne* | 
+| Kraj/region              |  Kafelki satelitarne | Prognoza minutowa, kafelki radarowe | Różnych | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|
 | Albania                | ✓ |   |  ✓| 
 | Andora                | ✓ |   |  ✓| 
@@ -254,7 +254,7 @@ Poniższa tabela zawiera informacje o tym, jakiego rodzaju informacje o pogodzie
 | Bułgaria               | ✓ |   |  ✓| 
 | Chorwacja                | ✓ | ✓ |  ✓| 
 | Cypr                 | ✓ |   |  ✓| 
-| Czechy                | ✓ | ✓ |  ✓| 
+| Czechia                | ✓ | ✓ |  ✓| 
 | Dania                | ✓ | ✓ |  ✓| 
 | Estonia                | ✓ | ✓ |  ✓| 
 | Wyspy Owcze          | ✓ |   |  ✓| 
@@ -271,7 +271,7 @@ Poniższa tabela zawiera informacje o tym, jakiego rodzaju informacje o pogodzie
 | Włochy                  | ✓ |   |  ✓|
 | Wyspa Man            | ✓ |   |  ✓| 
 | Jersey                 | ✓ |   |  ✓| 
-| Kosowa                 | ✓ |   |  ✓| 
+| Kosowie                 | ✓ |   |  ✓| 
 | Łotwa                 | ✓ |   |  ✓| 
 | Liechtenstein          | ✓ | ✓ |  ✓| 
 | Litwa              | ✓ |   |  ✓| 

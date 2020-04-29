@@ -1,6 +1,6 @@
 ---
-title: Jak przenieść ładunek między urządzeniem a usługą inicjowania obsługi urządzeń platformy Azure
-description: W tym dokumencie opisano sposób przenoszenia ładunku między urządzeniem a usługą inicjowania obsługi administracyjnej urządzeń (DPS)
+title: Jak przenieść ładunek między urządzeniami a usługą Azure Device Provisioning
+description: W tym dokumencie opisano sposób transferu ładunku między urządzeniami a usługą Device Provisioning (DPS)
 author: menchi
 ms.author: menchi
 ms.date: 02/11/2020
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: de6bb3fe0879a69467283e93a04a355876a02cba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80246691"
 ---
-# <a name="how-to-transfer-a-payload-between-device-and-dps"></a>Jak przenieść ładunek między urządzeniem a DPS
-Czasami DPS potrzebuje więcej danych z urządzeń, aby prawidłowo aprowizować je do odpowiedniego Centrum IoT i że dane muszą być dostarczane przez urządzenie. Na odwrót DPS może zwracać dane do urządzenia, aby ułatwić logikę po stronie klienta. 
+# <a name="how-to-transfer-a-payload-between-device-and-dps"></a>Jak przenieść ładunek między urządzeniami i usługą DPS
+Czasami usługa DPS potrzebuje więcej danych z urządzeń, aby prawidłowo udostępnić je właściwym IoT Hub i że dane muszą być dostarczone przez urządzenie. Na odwrót usługa DPS może zwrócić dane do urządzenia w celu ułatwienia logiki po stronie klienta. 
 
 ## <a name="when-to-use-it"></a>Zastosowanie
-Ta funkcja może służyć jako ulepszenie [alokacji niestandardowej](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Na przykład chcesz przydzielić urządzenia na podstawie modelu urządzenia bez interwencji człowieka. W takim przypadku użyjesz [alokacji niestandardowej](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Urządzenie można skonfigurować tak, aby zgłaszało informacje o modelu w ramach [wywołania urządzenia rejestrującego](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice). DPS przekaże ładunek urządzenia do niestandardowego elementu webhook alokacji. Funkcja może zdecydować, do którego centrum IoT Hub przejdzie po otrzymaniu informacji o modelu urządzenia. Podobnie jeśli element webhook chce zwrócić niektóre dane do urządzenia, przekaże dane z powrotem jako ciąg w odpowiedzi elementu webhook.  
+Tej funkcji można użyć jako rozszerzenia [alokacji niestandardowej](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Na przykład, chcesz przydzielić urządzenia w oparciu o model urządzenia bez interwencji człowieka. W takim przypadku zostanie użyta [alokacja niestandardowa](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Można skonfigurować urządzenie do zgłaszania informacji o modelu w ramach [wywołania rejestracji urządzenia](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice). Usługa DPS przekaże ładunek urządzenia do elementu webhook niestandardowej alokacji. A funkcja może zdecydować, które IoT Hub urządzenie będzie przejdzie, gdy otrzyma informacje o modelu urządzenia. Podobnie, jeśli element webhook chce zwrócić pewne dane do urządzenia, przekaże dane z powrotem jako ciąg w odpowiedzi elementu webhook.  
 
-## <a name="device-sends-data-payload-to-dps"></a>Urządzenie wysyła ładunek danych do DPS
-Gdy urządzenie wysyła [wywołanie urządzenia rejestru](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice) do DPS, wywołanie rejestru można udoskonalić, aby wziąć inne pola w treści. Ciało wygląda następująco: 
+## <a name="device-sends-data-payload-to-dps"></a>Urządzenie wysyła ładunek danych do programu DPS
+Gdy urządzenie wysyła [wywołanie rejestracji urządzenia](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice) do punktu dystrybucji, wywołanie Register można rozszerzyć, aby przyjąć inne pola w treści. Treść wygląda następująco: 
    ```
    { 
        “registrationId”: “mydevice”, 
@@ -34,8 +34,8 @@ Gdy urządzenie wysyła [wywołanie urządzenia rejestru](https://docs.microsoft
     } 
    ```
 
-## <a name="dps-returns-data-to-the-device"></a>DPS zwraca dane do urządzenia
-Jeśli element webhook zasad alokacji niestandardowej chce zwrócić niektóre dane do urządzenia, przekaże dane z powrotem jako ciąg w odpowiedzi elementu webhook. Zmiana znajduje się w sekcji ładunku poniżej. 
+## <a name="dps-returns-data-to-the-device"></a>Usługa DPS zwraca dane do urządzenia
+Jeśli element webhook niestandardowych zasad alokacji chce zwrócić pewne dane do urządzenia, przekaże dane z powrotem jako ciąg w odpowiedzi elementu webhook. Ta zmiana znajduje się w sekcji ładunek poniżej. 
    ```
    { 
        "iotHubHostName": "sample-iot-hub-1.azure-devices.net", 
@@ -54,7 +54,7 @@ Jeśli element webhook zasad alokacji niestandardowej chce zwrócić niektóre d
    ```
 
 ## <a name="sdk-support"></a>Obsługa zestawu SDK
-Ta funkcja jest dostępna w [modułach SDK klienta](https://docs.microsoft.com/azure/iot-dps/)C, C#, JAVA i Node.js.  
+Ta funkcja jest dostępna w zestawach [SDK klienta](https://docs.microsoft.com/azure/iot-dps/)języka C, C#, Java i Node. js.  
 
 ## <a name="next-steps"></a>Następne kroki
-* Tworzenie przy użyciu zestawu [SDK usługi Azure IoT]( https://github.com/Azure/azure-iot-sdks) dla usługi Azure IoT Hub i usługi inicjowania obsługi administracyjnej urządzeń usługi Azure IoT Hub
+* Opracowywanie zawartości przy użyciu [zestawu Azure IoT SDK]( https://github.com/Azure/azure-iot-sdks) dla platformy Azure IoT Hub i platformy Azure IoT Hub Device Provisioning Service

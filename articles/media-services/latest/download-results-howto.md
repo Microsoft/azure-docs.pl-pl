@@ -1,5 +1,5 @@
 ---
-title: Pobierz wyniki zadania — Usługa Azure Media Services
+title: Pobierz wyniki zadania Azure Media Services
 description: W tym artykule pokazano, jak pobrać wyniki zadania.
 services: media-services
 documentationcenter: ''
@@ -12,21 +12,21 @@ ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
 ms.openlocfilehash: bae7104eaded8c2ed153bc141faf7eba0bb86bae
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80346280"
 ---
 # <a name="download-the-results-of-a-job"></a>Pobierz wyniki zadania
 
-W usłudze Azure Media Services podczas przetwarzania filmów (na przykład kodowania lub analizowania) należy utworzyć [zasób](assets-concept.md) wyjściowy do przechowywania wyniku [zadania.](transforms-jobs-concept.md) Następnie można pobrać te wyniki do folderu lokalnego przy użyciu interfejsów API usługi multimediów i magazynu. 
+W Azure Media Services, podczas przetwarzania wideo (na przykład kodowania lub analizowania) należy utworzyć [zasób](assets-concept.md) wyjściowy do przechowywania wyniku [zadania](transforms-jobs-concept.md). Następnie można pobrać te wyniki do folderu lokalnego przy użyciu usługi multimediów i interfejsów API magazynu. 
 
-W tym artykule pokazano, jak pobrać wyniki przy użyciu plików Java i .NET SDK.
+W tym artykule pokazano, jak pobrać wyniki przy użyciu zestawów SDK języka Java i .NET.
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-Przegląd [zarządzania zasobami](manage-asset-concept.md).
+Zapoznaj się z tematem [Zarządzanie zasobami](manage-asset-concept.md).
 
 ## <a name="java"></a>Java
 
@@ -71,7 +71,7 @@ private static void downloadResults(MediaManager manager, String resourceGroup, 
 }
 ```
 
-Zobacz przykład pełnego kodu: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
+Zobacz pełny kod przykład: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
 
 ## <a name="net"></a>.NET
 
@@ -120,8 +120,8 @@ private async static Task DownloadResults(IAzureMediaServicesClient client, stri
 }
 ```
 
-Zobacz przykład pełnego kodu: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
+Zobacz pełny kod przykład: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Tworzenie danych wejściowych zadania z adresu URL HTTPS](job-input-from-http-how-to.md).
+[Utwórz dane wejściowe zadania na podstawie adresu URL https](job-input-from-http-how-to.md).

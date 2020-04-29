@@ -1,47 +1,47 @@
 ---
-title: Alerty z usługi Azure Monitor dla maszyn wirtualnych
-description: W tym artykule opisano sposób tworzenia reguł alertów na podstawie danych dotyczących wydajności zebranych przez usługę Azure Monitor dla maszyn wirtualnych.
+title: Alerty z Azure Monitor dla maszyn wirtualnych
+description: Opisuje sposób tworzenia reguł alertów na podstawie danych wydajności zbieranych przez Azure Monitor dla maszyn wirtualnych.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/23/2020
 ms.openlocfilehash: 987537d8497b3d8f2728941334d8328320ec6997
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80289604"
 ---
-# <a name="how-to-create-alerts-from-azure-monitor-for-vms"></a>Jak tworzyć alerty z usługi Azure Monitor dla maszyn wirtualnych
-[Alerty w usłudze Azure Monitor](../platform/alerts-overview.md) proaktywnie powiadamiają o interesujących danych i wzorcach w danych monitorowania. Usługa Azure Monitor dla maszyn wirtualnych nie zawiera wstępnie skonfigurowanych reguł alertów, ale można utworzyć własne na podstawie danych, które zbiera. Ten artykuł zawiera wskazówki dotyczące tworzenia reguł alertów, w tym zestaw przykładowych zapytań.
+# <a name="how-to-create-alerts-from-azure-monitor-for-vms"></a>Jak utworzyć alerty z Azure Monitor dla maszyn wirtualnych
+[Alerty w usłudze Azure monitor](../platform/alerts-overview.md) aktywnie powiadamiać o interesujących danych i wzorcach danych monitorowania. Azure Monitor dla maszyn wirtualnych nie obejmuje wstępnie skonfigurowanych reguł alertów, ale można je utworzyć na podstawie zbieranych danych. Ten artykuł zawiera wskazówki dotyczące tworzenia reguł alertów, w tym zestawu przykładowych zapytań.
 
 
 ## <a name="alert-rule-types"></a>Typy reguł alertów
-Usługa Azure Monitor ma [różne typy reguł alertów](../platform/alerts-overview.md#what-you-can-alert-on) na podstawie danych używanych do tworzenia alertu. Wszystkie dane zbierane przez usługę Azure Monitor dla maszyn wirtualnych są przechowywane w dziennikach usługi Azure Monitor, która obsługuje [alerty dziennika.](../platform/alerts-log.md) Obecnie nie można używać [alertów metryk](../platform/alerts-log.md) z danymi wydajności zebranymi z usługi Azure Monitor dla maszyn wirtualnych, ponieważ dane nie są zbierane w metrykach usługi Azure Monitor. Aby zebrać dane dla alertów metryk, zainstaluj [rozszerzenie diagnostyki](../platform/diagnostics-extension-overview.md) dla maszyn wirtualnych systemu Windows lub [agenta Telegraf](../platform/collect-custom-metrics-linux-telegraf.md) dla maszyn wirtualnych z systemem Linux, aby zebrać dane dotyczące wydajności w metrykach.
+Azure Monitor ma [różne typy reguł alertów](../platform/alerts-overview.md#what-you-can-alert-on) na podstawie danych użytych do utworzenia alertu. Wszystkie dane zbierane przez Azure Monitor dla maszyn wirtualnych są przechowywane w dziennikach Azure Monitor, które obsługują [alerty dzienników](../platform/alerts-log.md). Nie można obecnie używać [alertów metryk](../platform/alerts-log.md) z danymi wydajności zbieranymi z Azure monitor dla maszyn wirtualnych, ponieważ dane nie są zbierane do Azure monitor metryk. Aby zbierać dane dotyczące alertów metryk, należy zainstalować [rozszerzenie diagnostyki](../platform/diagnostics-extension-overview.md) dla maszyn wirtualnych z systemem Windows lub [telegraf agenta](../platform/collect-custom-metrics-linux-telegraf.md) dla maszyn wirtualnych z systemem Linux w celu zbierania danych wydajności w metrykach.
 
-Istnieją dwa typy alertów dziennika w usłudze Azure Monitor:
+Istnieją dwa typy alertów dziennika w Azure Monitor:
 
-- [Liczba alertów wyników](../platform/alerts-unified-log.md#number-of-results-alert-rules) utworzyć pojedynczy alert, gdy kwerenda zwraca co najmniej określoną liczbę rekordów. Są one idealne dla danych nienuliczalnych, takich jak zdarzenia systemu Windows i Syslog zebrane przez [agenta usługi Log Analytics](../platform/log-analytics-agent.md) lub do analizowania trendów wydajności na wielu komputerach.
-- [Alerty pomiaru metryki](../platform/alerts-unified-log.md#metric-measurement-alert-rules) utworzyć oddzielny alert dla każdego rekordu w kwerendzie, która ma wartość, która przekracza próg zdefiniowany w regule alertu. Te reguły alertów są idealne dla danych dotyczących wydajności zebranych przez usługę Azure Monitor dla maszyn wirtualnych, ponieważ mogą tworzyć indywidualne alerty dla każdego komputera.
+- [Liczba alertów z wynikami](../platform/alerts-unified-log.md#number-of-results-alert-rules) tworzenia pojedynczego alertu, gdy zapytanie zwróci co najmniej określoną liczbę rekordów. Są one idealne dla danych nieliczbowych, takich jak zdarzenia systemu Windows i dziennika systemowego zbierane przez [agenta log Analytics](../platform/log-analytics-agent.md) lub do analizowania trendów wydajności na wielu komputerach.
+- [Alerty pomiarów metryk](../platform/alerts-unified-log.md#metric-measurement-alert-rules) tworzą osobny alert dla każdego rekordu w zapytaniu, który ma wartość, która przekracza próg zdefiniowany w regule alertu. Te reguły alertów są idealne dla danych wydajności zbieranych przez Azure Monitor dla maszyn wirtualnych, ponieważ mogą tworzyć indywidualne alerty dla każdego komputera.
 
 
 ## <a name="alert-rule-walkthrough"></a>Przewodnik po regule alertu
-W tej sekcji oparcie się o utworzeniu reguły alertu pomiaru metryki przy użyciu danych o wydajności z usługi Azure Monitor dla maszyn wirtualnych. Tego podstawowego procesu można użyć z różnych zapytań dziennika do alertów na różnych liczników wydajności.
+Ta sekcja zawiera szczegółowe instrukcje dotyczące tworzenia reguły alertu pomiaru metryk przy użyciu danych wydajności z Azure Monitor dla maszyn wirtualnych. Możesz użyć tego podstawowego procesu z wieloma kwerendami dzienników, aby otrzymywać alerty dotyczące różnych liczników wydajności.
 
-Zacznij od utworzenia nowej reguły alertów zgodnie z procedurą w [temacie Tworzenie, wyświetlanie i zarządzanie alertami dziennika przy użyciu usługi Azure Monitor](../platform/alerts-log.md). W przypadku **zasobu**wybierz obszar roboczy usługi Log Analytics używany przez maszyny wirtualne usługi Azure Monitor w ramach subskrypcji. Ponieważ zasób docelowy dla reguł alertów dziennika jest zawsze obszarem roboczym usługi Log Analytics, kwerenda dziennika musi zawierać dowolny filtr dla określonych maszyn wirtualnych lub zestawów skalowania maszyny wirtualnej. 
+Zacznij od utworzenia nowej reguły alertu zgodnie z procedurą w temacie [Tworzenie, wyświetlanie i zarządzanie alertami dzienników przy użyciu Azure monitor](../platform/alerts-log.md). Dla **zasobu**wybierz obszar roboczy log Analytics używany przez Azure monitor maszyny wirtualne w ramach subskrypcji. Ponieważ zasób docelowy dla reguł alertów dziennika jest zawsze obszarem roboczym Log Analytics, zapytanie dziennika musi zawierać dowolny filtr dla określonych maszyn wirtualnych lub zestawów skalowania maszyn wirtualnych. 
 
-W przypadku **warunku** reguły alertu użyj jednego z zapytań w [poniższej sekcji](#sample-alert-queries) jako **kwerendy wyszukiwania**. Kwerenda musi zwrócić właściwość liczbową o nazwie *AggregatedValue*. Należy podsumować dane według komputera, dzięki czemu można utworzyć oddzielny alert dla każdej maszyny wirtualnej, która przekracza próg.
+W przypadku **warunku** reguły alertu Użyj jednego z zapytań w [poniższej sekcji](#sample-alert-queries) jako **zapytanie wyszukiwania**. Zapytanie musi zwracać Właściwość liczbową o nazwie *AggregatedValue*. Powinno ono podsumowywać dane według komputera, aby można było utworzyć oddzielny alert dla każdej maszyny wirtualnej, która przekracza wartość progową.
 
-W **logice Alert**wybierz opcję **Pomiar metryki,** a następnie podaj **wartość progu**. W **obszarze Alert wyzwalacza na podstawie**określić, ile razy próg musi zostać przekroczony przed utworzeniem alertu. Na przykład prawdopodobnie nie obchodzi, czy procesor przekracza próg raz, a następnie wraca do normy, ale zależy Ci, czy nadal przekracza próg przez wiele kolejnych pomiarów.
+W **logice alertu**wybierz pozycję **pomiar metryki** , a następnie podaj **wartość progową**. W obszarze **wyzwalanie alertów opartych na**Określ, ile razy należy przekroczyć wartość progową przed utworzeniem alertu. Na przykład prawdopodobnie nie zachodzi, że procesor przekroczy próg raz, a następnie powraca do normalnego, ale należy zachować ostrożność, jeśli przekroczy próg z wielu kolejnych pomiarów.
 
-**Oceniane na podstawie** sekcji określa, jak często kwerenda jest uruchamiana i przedział czasu dla kwerendy. W poniższym przykładzie kwerenda będzie uruchamiana co 15 minut i oceniać wartości wydajności zebrane w ciągu poprzednich 15 minut.
+**Obliczona na podstawie** sekcji określa, jak często jest wykonywane zapytanie i przedział czasu dla zapytania. W przykładzie przedstawionym poniżej zapytanie zostanie uruchomione co 15 minut i zostanie obliczone wartości wydajności zebrane w ciągu ostatnich 15 minut.
 
 
 ![Reguła alertu pomiaru metryki](media/vminsights-alerts/metric-measurement-alert.png)
 
-## <a name="sample-alert-queries"></a>Przykładowe kwerendy alertów
-Następujące zapytania mogą być używane z regułą alertu pomiaru metryki przy użyciu danych dotyczących wydajności zebranych przez usługę Azure Monitor dla maszyn wirtualnych. Każdy podsumowuje dane według komputera, tak aby alert został utworzony dla każdego komputera o wartości przekraczającej próg.
+## <a name="sample-alert-queries"></a>Przykładowe zapytania dotyczące alertu
+Następujące zapytania mogą być używane z regułą alertu pomiaru metryki przy użyciu danych wydajności zbieranych przez Azure Monitor dla maszyn wirtualnych. Każda z nich podsumowuje dane według komputera, aby alert został utworzony dla każdego komputera o wartości przekraczającej wartość progową.
 
 ### <a name="cpu-utilization"></a>Wykorzystanie procesora
 
@@ -52,7 +52,7 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
 ```
 
-### <a name="available-memory-in-mb"></a>Dostępna pamięć w MB
+### <a name="available-memory-in-mb"></a>Dostępna pamięć (MB)
 
 ```kusto
 InsightsMetrics
@@ -61,7 +61,7 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
 ```
 
-### <a name="available-memory-in-percentage"></a>Dostępna pamięć w procentach
+### <a name="available-memory-in-percentage"></a>Dostępna pamięć (w procentach)
 
 ```kusto
 InsightsMetrics 
@@ -72,7 +72,7 @@ InsightsMetrics
 | summarize AggregatedValue = avg(AvailableMemoryPercentage) by bin(TimeGenerated, 15m), Computer, _ResourceId 
 ```
 
-### <a name="logical-disk-used---all-disks-on-each-computer"></a>Używany dysk logiczny - wszystkie dyski na każdym komputerze
+### <a name="logical-disk-used---all-disks-on-each-computer"></a>Użyto dysku logicznego — wszystkie dyski na każdym komputerze
 
 ```kusto
 InsightsMetrics
@@ -81,7 +81,7 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId 
 ```
 
-### <a name="logical-disk-used---individual-disks"></a>Używany dysk logiczny - pojedyncze dyski
+### <a name="logical-disk-used---individual-disks"></a>Użyto dysku logicznego — poszczególne dyski
 
 ```kusto
 InsightsMetrics
@@ -91,7 +91,7 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, Disk
 ```
 
-### <a name="logical-disk-iops"></a>IOPS dysku logicznego
+### <a name="logical-disk-iops"></a>Liczba operacji we/wy dysku logicznego
 
 ```kusto
 InsightsMetrics
@@ -120,7 +120,7 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId 
 ```
 
-### <a name="network-interfaces-bytes-received---individual-interfaces"></a>Odebrane bajty interfejsów sieciowych — pojedyncze interfejsy
+### <a name="network-interfaces-bytes-received---individual-interfaces"></a>Odebrane bajty interfejsów sieciowych — poszczególne interfejsy
 
 ```kusto
 InsightsMetrics
@@ -130,7 +130,7 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, NetworkInterface
 ```
 
-### <a name="network-interfaces-bytes-sent---all-interfaces"></a>Bajty interfejsów sieciowych - wszystkie interfejsy
+### <a name="network-interfaces-bytes-sent---all-interfaces"></a>Wysłane bajty interfejsów sieciowych — wszystkie interfejsy
 
 ```kusto
 InsightsMetrics
@@ -139,7 +139,7 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId
 ```
 
-### <a name="network-interfaces-bytes-sent---individual-interfaces"></a>Bajty interfejsów sieciowych - indywidualne interfejsy
+### <a name="network-interfaces-bytes-sent---individual-interfaces"></a>Wysłane bajty interfejsów sieciowych — poszczególne interfejsy
 
 ```kusto
 InsightsMetrics
@@ -150,7 +150,7 @@ InsightsMetrics
 ```
 
 ### <a name="virtual-machine-scale-set"></a>Zestaw skalowania maszyn wirtualnych
-Modyfikuj za pomocą identyfikatora subskrypcji, grupy zasobów i nazwy zestawu skalowania maszyny wirtualnej.
+Zmodyfikuj swój identyfikator subskrypcji, grupę zasobów i nazwę zestawu skalowania maszyn wirtualnych.
 
 ```kusto
 InsightsMetrics
@@ -161,7 +161,7 @@ InsightsMetrics
 ```
 
 ### <a name="specific-virtual-machine"></a>Określona maszyna wirtualna
-Modyfikuj za pomocą identyfikatora subskrypcji, grupy zasobów i nazwy maszyny Wirtualnej.
+Zmodyfikuj swój identyfikator subskrypcji, grupę zasobów i nazwę maszyny wirtualnej.
 
 ```kusto
 InsightsMetrics
@@ -171,8 +171,8 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m)
 ```
 
-### <a name="cpu-utilization-for-all-compute-resources-in-a-subscription"></a>Wykorzystanie procesora CPU dla wszystkich zasobów obliczeniowych w ramach subskrypcji
-Zmodyfikuj za pomocą identyfikatora subskrypcji.
+### <a name="cpu-utilization-for-all-compute-resources-in-a-subscription"></a>Użycie procesora CPU dla wszystkich zasobów obliczeniowych w ramach subskrypcji
+Zmodyfikuj swój identyfikator subskrypcji.
 
 ```kusto
 InsightsMetrics
@@ -182,8 +182,8 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId
 ```
 
-### <a name="cpu-utilization-for-all-compute-resources-in-a-resource-group"></a>Wykorzystanie procesora CPU dla wszystkich zasobów obliczeniowych w grupie zasobów
-Modyfikuj za pomocą identyfikatora subskrypcji i grupy zasobów.
+### <a name="cpu-utilization-for-all-compute-resources-in-a-resource-group"></a>Użycie procesora CPU dla wszystkich zasobów obliczeniowych w grupie zasobów
+Zmodyfikuj swój identyfikator subskrypcji i grupę zasobów.
 
 ```kusto
 InsightsMetrics
@@ -197,5 +197,5 @@ or _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/r
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [alertach w usłudze Azure Monitor](../platform/alerts-overview.md).
-- Dowiedz się więcej o [kwerendach dziennika przy użyciu danych z usługi Azure Monitor dla maszyn wirtualnych.](vminsights-log-search.md)
+- Dowiedz się więcej o [alertach w Azure monitor](../platform/alerts-overview.md).
+- Dowiedz się więcej [na temat zapytań dzienników przy użyciu danych z Azure monitor dla maszyn wirtualnych](vminsights-log-search.md).

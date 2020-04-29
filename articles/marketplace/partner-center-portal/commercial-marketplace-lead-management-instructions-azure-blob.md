@@ -1,6 +1,6 @@
 ---
-title: Tabela platformy Azure w komercyjnym programie marketplace| Azure Marketplace
-description: Konfigurowanie zarządzania potencjalnymi klientami dla obiektu Blob platformy Azure
+title: Azure Table w komercyjnym programie Marketplace | Portal Azure Marketplace
+description: Konfigurowanie zarządzania liderem dla obiektów blob platformy Azure
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,56 +8,56 @@ ms.topic: conceptual
 ms.date: 7/30/2019
 ms.author: dsindona
 ms.openlocfilehash: 062252b007e22fcd2644c8b647fc0ecc2f5938cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80285252"
 ---
-# <a name="lead-management-instructions-for-azure-blob"></a>Instrukcje zarządzania potencjalnymi klientami dla obiektów Blob platformy Azure
+# <a name="lead-management-instructions-for-azure-blob"></a>Instrukcje dotyczące zarządzania potencjalnymi klientami dla obiektów blob platformy Azure
 
 >[!Caution]
->Opcja obiektu Blob platformy Azure do przetwarzania potencjalnych klientów z oferty portalu Marketplace została przestarzała. Jeśli masz obecnie ofertę opublikowaną z konfiguracją zarządzania potencjalnymi klientami dla obiektu Blob platformy Azure, nie otrzymujesz już potencjalnych klientów. Zaktualizuj konfigurację zarządzania potencjalnymi klientami do dowolnej z innych opcji zarządzania potencjalnymi klientami. Dowiedz się więcej o innych opcjach na [stronie docelowej zarządzania potencjalnymi klientami](./commercial-marketplace-get-customer-leads.md)."
+>Opcja obiektów blob platformy Azure do przetwarzania potencjalnych klientów z oferty Marketplace jest przestarzała. Jeśli obecnie masz opublikowaną ofertę z konfiguracją zarządzania potencjalnym klientem dla obiektu blob platformy Azure, nie będziesz już otrzymywać potencjalnych klientów. Zaktualizuj konfigurację zarządzania potencjalnymi klientami do dowolnej z pozostałych opcji zarządzania potencjalnymi klientami. Zapoznaj się z innymi opcjami na [stronie docelowej zarządzania potencjalnymi klientami](./commercial-marketplace-get-customer-leads.md).
 
-Jeśli system zarządzania relacjami z klientami (CRM) nie jest jawnie obsługiwany w Centrum partnerów do odbierania potencjalnych klientów w portalu Azure Marketplace i AppSource, można użyć obiektu Blob platformy Azure do obsługi tych potencjalnych klientów. Następnie można wyeksportować dane i zaimportować je do systemu CRM. Instrukcje zawarte w tym artykule zapewniają proces tworzenia konta usługi Azure Storage i obiektu Blob platformy Azure na tym koncie. Ponadto można utworzyć nowy przepływ za pomocą usługi Microsoft Flow, aby wysłać powiadomienie e-mail, gdy oferta otrzyma potencjalnego klienta.
+Jeśli system zarządzania relacjami z klientami (CRM) nie jest jawnie obsługiwany w centrum partnerskim na potrzeby otrzymywania potencjalnych klientów w witrynie Azure Marketplace i AppSource, można użyć obiektu blob platformy Azure, aby obsłużyć te potencjalni klienci. Następnie można wyeksportować dane i zaimportować je do systemu CRM. Instrukcje zawarte w tym artykule pomogą w procesie tworzenia konta usługi Azure Storage i obiektu blob platformy Azure w ramach tego konta. Ponadto możesz utworzyć nowy przepływ przy użyciu Microsoft Flow, aby wysłać powiadomienie e-mail, gdy oferta odbierze potencjalny klient.
 
 
 ## <a name="how-to-configure-azure-blob"></a>Jak skonfigurować obiekt blob platformy Azure
 
-1. Jeśli nie masz konta platformy Azure, możesz [utworzyć bezpłatne konto próbne](https://azure.microsoft.com/pricing/free-trial/).
-1. Po aktywnym koncie platformy Azure zaloguj się do [witryny Azure portal](https://portal.azure.com).
-1. W witrynie Azure portal utwórz konto magazynu przy użyciu poniższej procedury.  
-    1. Wybierz **pozycję +Utwórz zasób** na lewym pasku menu.  **Okienko Nowy** (ostrze) zostanie wyświetlone po prawej stronie.
-    2. Wybierz **pozycję Magazyn** w okienku **Nowy.**  Po **Featured** prawej stronie zostanie wyświetlona lista Polecane.
-    3. Wybierz **konto magazynu,** aby rozpocząć tworzenie konta.  Postępuj zgodnie z instrukcjami w artykule [Tworzenie konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+1. Jeśli nie masz konta platformy Azure, możesz [utworzyć bezpłatne konto wersji próbnej](https://azure.microsoft.com/pricing/free-trial/).
+1. Po uaktywnieniu konta platformy Azure Zaloguj się do [Azure Portal](https://portal.azure.com).
+1. W Azure Portal Utwórz konto magazynu, wykonując poniższą procedurę.  
+    1. Wybierz pozycję **+ Utwórz zasób** na pasku menu po lewej stronie.  **Nowe** okienko (blok) zostanie wyświetlone po prawej stronie.
+    2. Wybierz pozycję **Magazyn** w **nowym** okienku.  Lista **proponowanych** zostanie wyświetlona po prawej stronie.
+    3. Wybierz **konto magazynu** , aby rozpocząć tworzenie konta.  Postępuj zgodnie z instrukcjami w artykule [Tworzenie konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
 
-    ![Kroki tworzenia konta magazynu platformy Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
+    ![Procedura tworzenia konta usługi Azure Storage](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
 
-    Aby uzyskać więcej informacji na temat kont magazynu, wybierz [samouczek Szybki start](https://docs.microsoft.com/azure/storage/).  Aby uzyskać więcej informacji na temat cen magazynowania, zobacz [ceny magazynowania](https://azure.microsoft.com/pricing/details/storage/).
+    Aby uzyskać więcej informacji na temat kont magazynu, wybierz pozycję [samouczek szybkiego startu](https://docs.microsoft.com/azure/storage/).  Aby uzyskać więcej informacji na temat cennika usługi Storage, zobacz [Cennik usługi Storage](https://azure.microsoft.com/pricing/details/storage/).
 
-4. Poczekaj, aż konto magazynu zostanie aprowizny, proces, który zwykle trwa kilka minut.  Następnie przejdź do konta magazynu ze strony **głównej** witryny Azure portal, wybierając **pozycję Zobacz wszystkie zasoby** lub wybierając wszystkie **zasoby** z lewego paska menu nawigacji w witrynie Azure portal.
+4. Zaczekaj na zainicjowanie obsługi konta magazynu, proces, który zwykle trwa kilka minut.  Następnie uzyskaj dostęp do konta magazynu ze strony **głównej** Azure Portal, wybierając pozycję **Pokaż wszystkie zasoby** lub wybierając pozycję **wszystkie zasoby** na lewym pasku nawigacyjnym Azure Portal.
 
-    ![Uzyskiwanie dostępu do konta magazynu platformy Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-access.png)
+    ![Dostęp do konta usługi Azure Storage](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-access.png)
 
-5. W okienku konta magazynu wybierz pozycję **Klawisze programu Access** i skopiuj wartość *ciągu połączenia* dla klucza. Zapisz tę wartość, ponieważ jest to wartość *parametry połączenia konta magazynu,* którą należy podać w portalu publikowania, aby otrzymywać potencjalnych klientów dla oferty marketplace.
+5. W okienku konto magazynu wybierz pozycję **klucze dostępu** i skopiuj wartość *Parametry połączenia* dla klucza. Zapisz tę wartość, ponieważ jest to wartość *parametrów połączenia konta magazynu* , która będzie potrzebna w portalu wydawców w celu otrzymywania potencjalnych klientów na potrzeby oferty z witryny Marketplace.
 
-     Przykładem użądlenia połączenia jest:
+     Przykładem połączenia Sting jest:
 
      ```sql
      DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
      ```
 
-    ![Klucz magazynu platformy Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
+    ![Klucz usługi Azure Storage](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
 
-6. Na stronie konta magazynu wybierz pozycję **Obiekty blob**.
+6. Na stronie konto magazynu wybierz pozycję **obiekty blob**.
 
-   ![Klucz magazynu platformy Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
+   ![Klucz usługi Azure Storage](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
 
-7. Po przejściu na stronę obiektów blob wybierz przycisk **+ Kontener.**
+7. Na stronie obiekty blob wybierz przycisk **+ kontener** .
 
 8. Wpisz **nazwę** nowego kontenera. Nazwa kontenera musi być zapisana małymi literami, zaczynać się literą lub cyfrą i może zawierać tylko litery, cyfry i znak kreski (-). Aby uzyskać dodatkowe informacje o regułach nazewnictwa kontenerów i obiektów blob, zobacz [Nazewnictwo i odwołania do kontenerów, obiektów blob i metadanych](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-    Zapisz tę wartość, ponieważ jest to wartość *Nazwa kontenera,* którą należy podać w portalu publikowania, aby otrzymywać potencjalnych klientów dla oferty marketplace.
+    Zapisz tę wartość, ponieważ jest to wartość *nazwy kontenera* , którą należy podać w portalu wydawców, aby otrzymywać potencjalnych klientów na potrzeby oferty portalu Marketplace.
 
 9. Ustaw poziom publicznego dostępu do kontenera jako **prywatny (bez dostępu anonimowego)**.
 
@@ -65,27 +65,27 @@ Jeśli system zarządzania relacjami z klientami (CRM) nie jest jawnie obsługiw
 
     ![Nowy kontener](./media/commercial-marketplace-lead-management-instructions-azure-blob/new-container.png)
 
-## <a name="configure-your-offer-to-send-leads-to-the-azure-blob"></a>Konfigurowanie oferty do wysyłania potencjalnych klientów do obiektu Blob platformy Azure
+## <a name="configure-your-offer-to-send-leads-to-the-azure-blob"></a>Konfigurowanie oferty do wysyłania potencjalnych klientów do obiektu blob platformy Azure
 
-Gdy będziesz gotowy skonfigurować informacje o zarządzaniu potencjalnymi klientami dla oferty w portalu publikowania, wykonaj poniższe czynności:
+Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania potencjalnym liderem oferty w portalu wydawców, wykonaj następujące czynności:
 
-1. Przejdź do strony **Ustawienia oferty** dla swojej oferty.
-2. Wybierz **pozycję Połącz** w sekcji Zarządzanie potencjalnymi klientami.
+1. Przejdź do strony **Konfiguracja oferty** dla swojej oferty.
+2. Wybierz pozycję **Połącz** w sekcji Zarządzanie potencjalnymi klientami.
 
     ![Połącz ofertę](./media/commercial-marketplace-lead-management-instructions-azure-blob/connect-offer.png)
 
-3. W oknie podręcznym Szczegóły połączenia wybierz pozycję Azure Blob for the Lead Destination (Szczegóły połączenia) wybierz pozycję Azure Blob for the Lead Destination (Szczegóły połączenia) w oknie podręcznym **Usługi Azure blob(NP.**
+3. W oknie podręcznym szczegóły połączenia wybierz pozycję **obiekt blob platformy Azure** dla miejsca docelowego potencjalnego klienta.
 
-    ![Połącz szczegóły](./media/commercial-marketplace-lead-management-instructions-azure-blob/connect-details.png) 
+    ![Szczegóły połączenia](./media/commercial-marketplace-lead-management-instructions-azure-blob/connect-details.png) 
 
-4. Podaj **nazwę kontenera** i **parametry połączenia konta magazynu,** które zostały odebrane zgodnie z tymi instrukcjami.
+4. Podaj **nazwę kontenera** i **Parametry połączenia konta magazynu** , które zostały uzyskane z poniższych instrukcji.
 
     * Przykład nazwy kontenera:`marketplaceleadcontainer`
-    * Przykład ciągu połączenia `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![konta magazynu: Szczegóły połączenia](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
+    * Przykład parametrów połączenia konta magazynu: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![szczegóły połączenia](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
 
-5. Wybierz **pozycję Zapisz**.
+5. Wybierz pozycję **Zapisz**.
 
     > [!NOTE]
-    > Musisz zakończyć konfigurowanie pozostałej części oferty i opublikować ją, zanim będzie można odbierać potencjalnych klientów dla oferty.
+    > Musisz zakończyć konfigurowanie reszty oferty i opublikować ją przed odebraniem potencjalnych klientów do oferty.
 
 

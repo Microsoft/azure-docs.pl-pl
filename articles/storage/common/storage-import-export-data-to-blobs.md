@@ -1,6 +1,6 @@
 ---
-title: Używanie importu/eksportowania platformy Azure do przesyłania danych do obiektów blob platformy Azure | Dokumenty firmy Microsoft
-description: Dowiedz się, jak tworzyć zadania importowania i eksportowania w witrynie Azure portal, aby przesyłać dane do i z obiektów blob platformy Azure.
+title: Transferowanie danych do obiektów blob platformy Azure za pomocą usługi Azure Import/Export | Microsoft Docs
+description: Dowiedz się, jak tworzyć zadania importu i eksportu w Azure Portal, aby przesyłać dane do i z obiektów blob platformy Azure.
 author: alkohli
 services: storage
 ms.service: storage
@@ -9,157 +9,157 @@ ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 570c663861361a19190f6fb5d608b6aa029a0885
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80282498"
 ---
-# <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Importowanie danych do usługi Azure Blob Storage za pomocą usługi Azure Import/Export service
+# <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Importowanie danych do platformy Azure Blob Storage przy użyciu usługi Azure Import/Export
 
-Ten artykuł zawiera instrukcje krok po kroku dotyczące używania usługi Azure Import/Export do bezpiecznego importowania dużych ilości danych do magazynu obiektów Blob platformy Azure. Aby zaimportować dane do obiektów blob platformy Azure, usługa wymaga wysłania zaszyfrowanych dysków twardych zawierających dane do centrum danych platformy Azure.  
+Ten artykuł zawiera instrukcje krok po kroku dotyczące korzystania z usługi Azure Import/Export do bezpiecznego importowania dużych ilości danych do usługi Azure Blob Storage. Aby zaimportować dane do obiektów blob platformy Azure, usługa wymaga dostarczania szyfrowanych dysków zawierających dane do centrum danych platformy Azure.  
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed utworzeniem zadania importu w celu przeniesienia danych do usługi Azure Blob Storage należy dokładnie przejrzeć i wypełnić następującą listę wymagań wstępnych dla tej usługi.
-Musisz:
+Przed utworzeniem zadania importowania w celu przesyłania danych do usługi Azure Blob Storage należy uważnie przejrzeć i wykonać poniższą listę wymagań wstępnych dla tej usługi.
+Należy:
 
-* Mieć aktywną subskrypcję platformy Azure, która może służyć do importu/eksportu usługi.
-* Mieć co najmniej jedno konto usługi Azure Storage z kontenerem magazynu. Zobacz listę [obsługiwanych kont magazynu i typów magazynowania dla usługi Import/Eksport .](storage-import-export-requirements.md)
-  * Aby uzyskać informacje dotyczące tworzenia nowego konta magazynu, zobacz [Jak utworzyć konto magazynu](storage-account-create.md).
-  * Aby uzyskać informacje na temat kontenera magazynu, przejdź do [temat Tworzenie kontenera magazynu](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
-* Posiadać odpowiednią liczbę dysków [obsługiwanych typów](storage-import-export-requirements.md#supported-disks).
-* Mieć system Windows z uruchomiona [w wersji obsługiwanego systemu operacyjnego](storage-import-export-requirements.md#supported-operating-systems).
-* Włącz funkcję BitLocker w systemie Windows. Zobacz [Jak włączyć funkcję BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-* [Pobierz najnowszą wersję WAImportExport w wersji 1](https://www.microsoft.com/download/details.aspx?id=42659) w systemie Windows. Najnowsza wersja narzędzia zawiera aktualizacje zabezpieczeń umożliwiające zewnętrzną ochronę klucza Funkcje BitLocker i funkcję zaktualizowanego trybu odblokowywania.
+* Mieć aktywną subskrypcję platformy Azure, która może być używana w usłudze Import/Export.
+* Mieć co najmniej jedno konto usługi Azure Storage z kontenerem magazynu. Zapoznaj się z listą [obsługiwanych kont magazynu i typów magazynów dla usługi Import/Export](storage-import-export-requirements.md).
+  * Aby uzyskać informacje dotyczące tworzenia nowego konta magazynu, zobacz [jak utworzyć konto magazynu](storage-account-create.md).
+  * Aby uzyskać informacje na temat kontenera magazynu, przejdź do obszaru [Tworzenie kontenera magazynu](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
+* Ma wystarczającą liczbę dysków [obsługiwanych typów](storage-import-export-requirements.md#supported-disks).
+* System Windows z uruchomioną [obsługiwaną wersją systemu operacyjnego](storage-import-export-requirements.md#supported-operating-systems).
+* Włącz funkcję BitLocker w systemie Windows. Zobacz [jak włączyć funkcję BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
+* [Pobierz najnowszą wersję WAImportExport 1](https://www.microsoft.com/download/details.aspx?id=42659) w systemie Windows. Najnowsza wersja tego narzędzia zawiera aktualizacje zabezpieczeń zezwalające na zewnętrzną ochronę klucza funkcji BitLocker oraz zaktualizowaną funkcję trybu odblokowywania.
 
-  * Rozpaj do folderu `waimportexportv1`domyślnego . Na przykład `C:\WaImportExportV1`.
-* Posiadaj konto FedEx/DHL. Jeśli chcesz użyć przewoźnika innego niż FedEx/DHL, skontaktuj `adbops@microsoft.com`się z zespołem operacji usługi Azure Data Box pod adresem .  
+  * Rozpakuj do folderu `waimportexportv1`domyślnego. Na przykład `C:\WaImportExportV1`.
+* Mieć konto FedEx/DHL. Jeśli chcesz użyć operatora innego niż FedEx/DHL, skontaktuj się z zespołem operacyjnym Azure Data Box `adbops@microsoft.com`.  
   * Konto musi być prawidłowe, powinno mieć saldo i musi mieć możliwości wysyłki zwrotnej.
-  * Wygeneruj numer śledzenia dla zadania eksportu.
-  * Każde zadanie powinno mieć osobny numer śledzenia. Wiele zadań o tym samym numerze śledzenia nie są obsługiwane.
-  * Jeśli nie masz konta operatora, przejdź do:
-    * [Utwórz konto FedEX](https://www.fedex.com/en-us/create-account.html), lub
+  * Generuj numer śledzenia dla zadania eksportu.
+  * Każde zadanie powinno mieć oddzielny numer śledzenia. Wiele zadań o tym samym numerze śledzenia nie są obsługiwane.
+  * Jeśli nie masz konta nośnego, przejdź do:
+    * [Utwórz konto FedEx](https://www.fedex.com/en-us/create-account.html)lub
     * [Utwórz konto DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
-## <a name="step-1-prepare-the-drives"></a>Krok 1: Przygotowanie napędów
+## <a name="step-1-prepare-the-drives"></a>Krok 1. Przygotowanie dysków
 
-Ten krok generuje plik dziennika. Plik dziennika przechowuje podstawowe informacje, takie jak numer seryjny dysku, klucz szyfrowania i szczegóły konta magazynu.
+Ten krok powoduje wygenerowanie pliku dziennika. W pliku dziennika są przechowywane podstawowe informacje, takie jak numer seryjny dysku, klucz szyfrowania i szczegóły konta magazynu.
 
-Wykonaj następujące kroki, aby przygotować dyski.
+Wykonaj poniższe kroki, aby przygotować dyski.
 
-1. Podłącz dyski do systemu Windows za pomocą złączy SATA.
-2. Utwórz pojedynczy wolumin NTFS na każdym dysku. Przypisz literę dysku do woluminu. Nie używaj punktów montażowych.
-3. Włącz szyfrowanie funkcją BitLocker na woluminie NTFS. Jeśli korzystasz z systemu Windows Server, użyj instrukcji w [jak włączyć funkcję BitLocker w systemie Windows Server 2012 R2](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-4. Kopiowanie danych do zaszyfrowanego woluminu. Użyj przeciągania i upuszczania lub Robocopy lub takiego narzędzia do kopiowania. Plik dziennika (*jrn*) jest tworzony w tym samym folderze, w którym uruchomi się narzędzie.
+1. Podłącz stacje dysków do systemu Windows za pomocą łączników SATA.
+2. Utwórz pojedynczy wolumin NTFS na każdym dysku. Przypisz literę dysku do woluminu. Nie należy używać mountpoints.
+3. Włącz szyfrowanie funkcją BitLocker na woluminie NTFS. W przypadku korzystania z systemu Windows Server wykonaj instrukcje podane w temacie [jak włączyć funkcję BitLocker w systemie Windows Server 2012 R2](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
+4. Kopiuj dane do woluminu szyfrowanego. Użyj przeciągania i upuszczania lub Robocopy lub dowolnego takiego narzędzia do kopiowania. Plik dziennika (*. jrn*) jest tworzony w tym samym folderze, w którym uruchomiono narzędzie.
 
-   Jeśli dysk jest zablokowany i musisz odblokować dysk, kroki odblokowania mogą się różnić w zależności od przypadku użycia.
+   Jeśli dysk jest zablokowany i musisz odblokować dysk, kroki do odblokowania mogą się różnić w zależności od przypadku użycia.
 
-   * Jeśli dodano dane do wstępnie zaszyfrowanego dysku (narzędzie WAImportExport nie było używane do szyfrowania), użyj klawisza BitLocker (hasło numeryczne, które określisz) w wyskakującym okienku, aby odblokować dysk.
+   * Jeśli dane zostały dodane do wstępnie zaszyfrowanego dysku (Narzędzie WAImportExport nie zostało użyte do szyfrowania), użyj klucza funkcji BitLocker (określonego przez użytkownika hasła numerycznego) w celu odblokowania dysku.
 
-   * Jeśli dodano dane do dysku zaszyfrowanego przez narzędzie WAImportExport, użyj następującego polecenia, aby odblokować dysk:
+   * Jeśli dodano dane do dysku, który został zaszyfrowany za pomocą narzędzia WAImportExport, użyj następującego polecenia, aby odblokować dysk:
 
         `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`
 
-5. Otwórz okno programu PowerShell lub wiersz polecenia z uprawnieniami administracyjnymi. Aby zmienić katalog na rozpakowany folder, uruchom następujące polecenie:
+5. Otwórz okno programu PowerShell lub wiersza polecenia z uprawnieniami administracyjnymi. Aby zmienić katalog na folder niespakowany, uruchom następujące polecenie:
 
     `cd C:\WaImportExportV1`
 6. Aby uzyskać klucz funkcji BitLocker dysku, uruchom następujące polecenie:
 
     `manage-bde -protectors -get <DriveLetter>:`
-7. Aby przygotować dysk, uruchom następujące polecenie. **W zależności od rozmiaru danych może to potrwać od kilku godzin do dni.**
+7. Aby przygotować dysk, uruchom następujące polecenie. **W zależności od rozmiaru danych może to potrwać kilka godzin.**
 
     ```powershell
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
     ```
 
-    Plik dziennika jest tworzony w tym samym folderze, w którym uruchomiono narzędzie. Two other files są również tworzone - plik *xml* (folder, w którym uruchomisz narzędzie) i plik *drive-manifest.xml* (folder, w którym znajdują się dane).
+    Plik dziennika jest tworzony w tym samym folderze, w którym uruchomiono narzędzie. Tworzone są również dwa inne pliki — plik *XML* (folder, w którym jest uruchamiane narzędzie) i plik *Drive-manifest. XML* (folder, w którym znajdują się dane).
 
-    Zastosowane parametry są opisane w poniższej tabeli:
+    Użyte parametry są opisane w poniższej tabeli:
 
     |Opcja  |Opis  |
     |---------|---------|
-    |/j:     |Nazwa pliku dziennika z rozszerzeniem jrn. Plik dziennika jest generowany na dysk. Zaleca się użycie numeru seryjnego dysku jako nazwy pliku dziennika.         |
+    |/j     |Nazwa pliku dziennika z rozszerzeniem JRN. Plik dziennika jest generowany na dysku. Zalecamy użycie numeru seryjnego dysku jako nazwy pliku dziennika.         |
     |/ Identyfikator:     |Identyfikator sesji. Użyj unikatowego numeru sesji dla każdego wystąpienia polecenia.      |
-    |/t:     |Litera dysku, który ma zostać wysłany. Na przykład `D`dysk .         |
-    |/bk:     |Klawisz BitLocker dla dysku. Jego numeryczne hasło z wyjścia`manage-bde -protectors -get D:`      |
-    |/srcdir:     |Po literze dysku, który ma `:\`zostać wysłany, następuje . Na przykład `D:\`.         |
+    |/t:     |Litera dysku do wysłania. Na przykład dysk `D`.         |
+    |/bk:     |Klucz funkcji BitLocker dla dysku. Hasło liczbowe z danych wyjściowych`manage-bde -protectors -get D:`      |
+    |/srcdir:     |Litera dysku, po którym następuje wydanie `:\`. Na przykład `D:\`.         |
     |/dstdir:     |Nazwa kontenera docelowego w usłudze Azure Storage.         |
-    |/blobtype:     |Ta opcja określa typ obiektów blob, do których mają zostać zaimportować dane. W przypadku bloków obiektów `BlockBlob` blob jest to `PageBlob`i dla obiektów blob strony, jest .         |
-    |/skipwrite:     |Opcja określająca, że nie ma żadnych nowych danych wymaganych do skopiowania i należy przygotować istniejące dane na dysku.          |
-    |/enablecontentmd5:     |Opcja po włączeniu, zapewnia, że MD5 jest `Content-md5` obliczany i ustawiony jako właściwość na każdym obiekcie blob. Tej opcji należy używać tylko `Content-md5` wtedy, gdy chcesz użyć tego pola po przekazaniu danych na platformę Azure. <br> Ta opcja nie ma wpływu na sprawdzanie integralności danych (które występuje domyślnie). To ustawienie wydłuża czas przekazywania danych do chmury.          |
-8. Powtórz poprzedni krok dla każdego dysku, który musi zostać wysłany. Plik dziennika o podanej nazwie jest tworzony dla każdego uruchomienia wiersza polecenia.
+    |/blobtype:     |Ta opcja określa typ obiektów blob, do których mają zostać zaimportowane dane. W przypadku blokowych obiektów BLOB `BlockBlob` jest to i dla stronicowych obiektów `PageBlob`BLOB.         |
+    |/skipwrite:     |Opcja, która określa, że nie są wymagane żadne nowe dane do skopiowania, a istniejące dane na dysku muszą zostać przygotowane.          |
+    |/enablecontentmd5:     |Opcja po włączeniu zapewnia, że MD5 jest obliczany i ustawiany jako `Content-md5` właściwość dla każdego obiektu BLOB. Użyj tej opcji tylko wtedy, gdy chcesz użyć `Content-md5` pola po przekazaniu danych na platformę Azure. <br> Ta opcja nie ma wpływu na sprawdzanie integralności danych (domyślnie występuje). Ustawienie to zwiększa czas przekazywania danych do chmury.          |
+8. Powtórz poprzedni krok dla każdego dysku, który należy dostarczyć. Plik dziennika o podanej nazwie jest tworzony dla każdego przebiegu wiersza polecenia.
 
     > [!IMPORTANT]
-    > * Wraz z plikiem `<Journal file name>_DriveInfo_<Drive serial ID>.xml` dziennika plik jest również tworzony w tym samym folderze, w którym znajduje się narzędzie. Plik xml jest używany zamiast pliku dziennika podczas tworzenia zadania, jeśli plik dziennika jest zbyt duży.
+    > * Wraz z plikiem dziennika tworzony jest również `<Journal file name>_DriveInfo_<Drive serial ID>.xml` plik w tym samym folderze, w którym znajduje się narzędzie. Plik. XML jest używany zamiast pliku dziennika podczas tworzenia zadania, jeśli plik dziennika jest zbyt duży.
 
-## <a name="step-2-create-an-import-job"></a>Krok 2: Tworzenie zadania importu
+## <a name="step-2-create-an-import-job"></a>Krok 2. Tworzenie zadania importu
 
-Wykonaj następujące kroki, aby utworzyć zadanie importu w witrynie Azure portal.
+Wykonaj następujące kroki, aby utworzyć zadanie importowania w Azure Portal.
 
-1. Zaloguj się https://portal.azure.com/do pliku .
-2. Przejdź do **pozycję Wszystkie usługi > zadaniami magazynowania > importu/eksportu**.
+1. Zaloguj się do https://portal.azure.com/.
+2. Przejdź do obszaru **wszystkie usługi > magazyn > zadania importowania/eksportowania**.
 
-    ![Przejdź do zadania importu/eksportu](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
+    ![Przejdź do zadań importu/eksportu](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
-3. Kliknij **pozycję Utwórz zadanie importu/eksportu**.
+3. Kliknij pozycję **Utwórz zadanie importu/eksportu**.
 
     ![Kliknij pozycję Utwórz zadanie importu/eksportu](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
-4. W **podstawach**:
+4. **Podstawowe informacje**:
 
-   * Wybierz **pozycję Importuj na platformę Azure**.
+   * Wybierz pozycję **Importuj na platformie Azure**.
    * Wprowadź opisową nazwę zadania importu. Użyj nazwy, aby śledzić postęp zadań.
        * Nazwa może zawierać tylko małe litery, cyfry i łączniki.
-       * Nazwa musi zaczynać się od litery i nie może zawierać spacji.
+       * Nazwa musi rozpoczynać się od litery i nie może zawierać spacji.
    * Wybierz subskrypcję.
-   * Umożliwia wprowadzenie lub wybranie grupy zasobów.  
+   * Wprowadź lub wybierz grupę zasobów.  
 
-     ![Tworzenie zadania importu — krok 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
+     ![Tworzenie zadania importowania — krok 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
-5. W **szczegóły zadania**:
+5. W **szczegółach zadania**:
 
-   * Przekaż pliki dziennika dysku uzyskane podczas etapu przygotowania dysku. Jeśli `waimportexport.exe version1` użyto, prześlij jeden plik dla każdego przygotowanego dysku. Jeśli rozmiar pliku dziennika przekracza 2 MB, `<Journal file name>_DriveInfo_<Drive serial ID>.xml` można użyć również utworzonego z plikiem dziennika.
-   * Wybierz docelowe konto magazynu, na którym będą przebywać dane.
-   * Lokalizacja nadajnicza jest wypełniana automatycznie na podstawie regionu wybranego konta magazynu.
+   * Przekaż pliki dziennika stacji, które zostały uzyskane podczas kroku przygotowywania dysku. Jeśli `waimportexport.exe version1` został użyty, Przekaż jeden plik dla każdego przygotowanego dysku. Jeśli rozmiar pliku dziennika przekracza 2 MB, można użyć `<Journal file name>_DriveInfo_<Drive serial ID>.xml` również utworzonego w pliku dziennika.
+   * Wybierz docelowe konto magazynu, na którym będą przechowywane dane.
+   * Lokalizacja Dropoff jest automatycznie wypełniana na podstawie regionu wybranego konta magazynu.
 
-   ![Tworzenie zadania importu — krok 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+   ![Tworzenie zadania importowania — krok 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
-6. W **zamian informacje o wysyłce:**
+6. W oknie **Informacje o wysyłce zwrotu**:
 
-   * Wybierz przewoźnika z listy rozwijanej. Jeśli chcesz użyć przewoźnika innego niż FedEx/DHL, wybierz istniejącą opcję z listy rozwijanej. Skontaktuj się `adbops@microsoft.com` z zespołem operacji platformy Azure Data Box, aby uzyskać informacje dotyczące operatora, którego zamierzasz użyć.
-   * Wprowadź prawidłowy numer konta przewoźnika utworzony z tym operatorem. Firma Microsoft używa tego konta do wysłania dysków z powrotem do Użytkownika po zakończeniu zadania importowania. Jeśli nie masz numeru konta, utwórz konto [fedex](https://www.fedex.com/us/oadr/) lub [dhl](https://www.dhl.com/) przewoźnika.
-   * Podaj pełną i prawidłową nazwę kontaktu, telefon, adres e-mail, adres pocztowy, miasto, zamek błyskawiczny, województwo i kraj/region.
+   * Wybierz operatora z listy rozwijanej. Jeśli chcesz użyć operatora innego niż FedEx/DHL, wybierz istniejącą opcję z listy rozwijanej. Skontaktuj się z zespołem `adbops@microsoft.com` ds. operacyjnych Azure Data Box z informacjami dotyczącymi przewoźnika, którego zamierzasz używać.
+   * Wprowadź prawidłowy numer konta nośnego, który został utworzony za pomocą tego operatora. Firma Microsoft korzysta z tego konta, aby po zakończeniu zadania importowania dostarczać dyski z powrotem do użytkownika. Jeśli nie masz numeru konta, Utwórz konto z systemem [FedEx](https://www.fedex.com/us/oadr/) lub [DHL](https://www.dhl.com/) .
+   * Podaj pełną i poprawną nazwę kontaktu, numer telefonu, adres e-mail, ulica, miasto, kod pocztowy, Województwo i kraj/region.
 
        > [!TIP]
-       > Zamiast określać adres e-mail dla pojedynczego użytkownika, podaj grupową wiadomość e-mail. Dzięki temu otrzymasz powiadomienia, nawet jeśli administrator opuści.
+       > Zamiast określania adresu e-mail dla pojedynczego użytkownika, podaj adres e-mail grupy. Dzięki temu będziesz otrzymywać powiadomienia nawet w przypadku opuszczenia przez administratora.
 
-     ![Tworzenie zadania importu — krok 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+     ![Tworzenie zadania importowania — krok 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
-7. W **podsumowaniu:**
+7. **Podsumowanie**:
 
-   * Przejrzyj informacje o stanowisku pracy podane w podsumowaniu. Zanotuj nazwę zadania i adres wysyłki centrum danych platformy Azure, aby wysłać dyski z powrotem na platformę Azure. Te informacje są używane później na etykiecie wysyłkowej.
-   * Kliknij **przycisk OK,** aby utworzyć zadanie importu.
+   * Przejrzyj informacje o zadaniu podane w podsumowaniu. Zanotuj nazwę zadania i adres wysyłkowy centrum danych platformy Azure, aby dostarczać dyski z powrotem do platformy Azure. Te informacje są używane później na etykiecie wysyłkowej.
+   * Kliknij przycisk **OK** , aby utworzyć zadanie importowania.
 
-     ![Tworzenie zadania importu — krok 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+     ![Tworzenie zadania importowania — krok 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
-## <a name="step-3-optional-configure-customer-managed-key"></a>Krok 3 (opcjonalnie): Konfigurowanie klucza zarządzanego przez klienta
+## <a name="step-3-optional-configure-customer-managed-key"></a>Krok 3 (opcjonalny): Konfigurowanie klucza zarządzanego przez klienta
 
-Pomiń ten krok i przejdź do następnego kroku, jeśli chcesz użyć klucza zarządzanego firmy Microsoft do ochrony kluczy funkcji BitLocker dla dysków. Aby skonfigurować własny klucz w celu ochrony klucza funkcji BitLocker, postępuj zgodnie z instrukcjami w [temacie Konfigurowanie kluczy zarządzanych przez klienta za pomocą usługi Azure Key Vault for Azure Import/Export w witrynie Azure portal](storage-import-export-encryption-key-portal.md)
+Pomiń ten krok i przejdź do następnego kroku, jeśli chcesz użyć klucza zarządzanego przez firmę Microsoft w celu ochrony kluczy funkcji BitLocker dla dysków. Aby skonfigurować własny klucz do ochrony klucza funkcji BitLocker, postępuj zgodnie z instrukcjami podanymi w temacie [Konfigurowanie kluczy zarządzanych przez klienta w Azure Key Vault na potrzeby importowania/eksportowania na platformie Azure w Azure Portal](storage-import-export-encryption-key-portal.md)
 
-## <a name="step-4-ship-the-drives"></a>Krok 4: Wyślij napędy
+## <a name="step-4-ship-the-drives"></a>Krok 4. dostarczenie dysków
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
-## <a name="step-5-update-the-job-with-tracking-information"></a>Krok 5: Aktualizowanie zadania informacjami o śledzeniu
+## <a name="step-5-update-the-job-with-tracking-information"></a>Krok 5. aktualizowanie zadania przy użyciu informacji śledzenia
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-## <a name="step-6-verify-data-upload-to-azure"></a>Krok 6: Weryfikowanie przekazywania danych na platformę Azure
+## <a name="step-6-verify-data-upload-to-azure"></a>Krok 6. Weryfikacja przekazywania danych na platformę Azure
 
-Śledzenie zadania do zakończenia. Po zakończeniu zadania sprawdź, czy dane zostały przekazane na platformę Azure. Usuń dane lokalne dopiero po zweryfikowaniu, że przekazywanie zakończyło się pomyślnie.
+Śledź zadanie do ukończenia. Po zakończeniu zadania Sprawdź, czy dane zostały przekazane do platformy Azure. Usuń dane lokalne dopiero po sprawdzeniu, że przekazywanie zakończyło się pomyślnie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wyświetlanie stanowiska i stanu dysku](storage-import-export-view-drive-status.md)
+* [Wyświetlanie stanu zadania i dysku](storage-import-export-view-drive-status.md)
 * [Przejrzyj wymagania dotyczące importu/eksportu](storage-import-export-requirements.md)

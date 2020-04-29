@@ -1,6 +1,6 @@
 ---
-title: Pokaż dane o ruchu drogowym na mapie Androida | Mapy platformy Microsoft Azure
-description: W tym artykule dowiesz się, jak wyświetlić dane o ruchu na mapie przy użyciu microsoft azure maps android SDK.
+title: Wyświetlanie danych o ruchu na mapie systemu Android | Mapy Microsoft Azure
+description: W tym artykule dowiesz się, jak wyświetlać dane o ruchu na mapie przy użyciu Android SDK Microsoft Azure Maps.
 author: philmea
 ms.author: philmea
 ms.date: 02/27/2020
@@ -9,29 +9,29 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: e5611eeb08ac370e12cf452d57a87e449fbd80da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335372"
 ---
-# <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Pokazywale danych o ruchu drogowym na mapie przy użyciu usługi Azure Maps Android SDK
+# <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Wyświetlanie danych o ruchu na mapie przy użyciu Azure Maps Android SDK
 
-Dane przepływu i zdarzenia są dwa typy danych o ruchu, które mogą być wyświetlane na mapie. W tym przewodniku pokazano, jak wyświetlić oba typy danych o ruchu drogowym. Dane dotyczące incydentów składają się z danych punktowych i liniowych dotyczących takich rzeczy, jak konstrukcje, zamknięcia dróg i wypadki. Dane przepływu pokazują dane dotyczące przepływu ruchu na drodze.
+Dane przepływu i dane zdarzeń to dwa typy danych ruchu, które mogą być wyświetlane na mapie. W tym przewodniku pokazano, jak wyświetlić oba typy danych ruchu. Dane zdarzeń obejmują dane dotyczące punktów i danych opartych na wierszach dla elementów, takich jak konstrukcje, zamknięcia dróg i awarie. Dane przepływu przedstawiają metryki dotyczące przepływu ruchu w podróży.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby można było pokazać ruch na mapie, należy [wykonać konto platformy Azure](quick-demo-map-app.md#create-an-account-with-azure-maps)i uzyskać klucz [subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account). Następnie należy zainstalować [zestaw SDK usługi Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) w systemie Android i załadować mapę.
+Aby można było wyświetlić ruch na mapie, należy [utworzyć konto platformy Azure](quick-demo-map-app.md#create-an-account-with-azure-maps)i [uzyskać klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account). Następnie należy zainstalować [Android SDK Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) i załadować mapę.
 
-## <a name="incidents-traffic-data"></a>Dane o ruchu drogowym incydentów 
+## <a name="incidents-traffic-data"></a>Zdarzenia danych ruchu 
 
-Aby wywołać, `setTraffic` należy zaimportować `incidents`następujące biblioteki, a także:
+Należy zaimportować następujące biblioteki do wywołania `setTraffic` i: `incidents`
 
 ```java
 import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.incidents;
 ```
 
- Poniższy fragment kodu pokazuje, jak wyświetlić dane o ruchu drogowym na mapie. Przekazujemy wartość logiczną `incidents` do metody i przekazujemy go do `setTraffic` metody. 
+ Poniższy fragment kodu przedstawia sposób wyświetlania danych o ruchu na mapie. Przekazujemy wartość logiczną do `incidents` metody i przekazujemy ją do `setTraffic` metody. 
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
@@ -42,23 +42,23 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-## <a name="flow-traffic-data"></a>Dane o ruchu przepływów
+## <a name="flow-traffic-data"></a>Dane ruchu przepływu
 
-Najpierw musisz zaimportować następujące biblioteki, aby zadzwonić, `setTraffic` i: `flow`
+Najpierw należy zaimportować następujące biblioteki w celu wywołania `setTraffic` i: `flow`
 
 ```java
 import com.microsoft.azure.maps.mapcontrol.options.TrafficFlow;
 import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 ```
 
-Użyj następującego fragmentu kodu, aby ustawić dane przepływu ruchu. Podobnie jak kod w poprzedniej sekcji, przekazujemy `flow` zwracaną `setTraffic` wartość metody do metody. Istnieją cztery wartości, które `flow`mogą być przekazywane `flow` do , a każda wartość wyzwoli, aby zwrócić odpowiednią wartość. Zwracana wartość `flow` zostanie następnie przekazana jako `setTraffic`argument do . Zobacz poniższą tabelę dla tych czterech wartości:
+Użyj poniższego fragmentu kodu, aby ustawić dane przepływu ruchu. Podobnie jak w przypadku kodu w poprzedniej sekcji, przekazujemy wartość zwracaną `flow` metody do `setTraffic` metody. Istnieją cztery wartości, które mogą być przenoszone `flow`do, a każda wartość będzie `flow` wyzwalać odpowiednią wartość. Zwracana wartość `flow` zostanie następnie przeniesiona jako argument do `setTraffic`. Zapoznaj się z poniższą tabelą dla tych czterech wartości:
 
 | | |
 | :-- | :-- |
-| TrafficFlow.NONE | Nie wyświetla danych o ruchu drogowym na mapie |
-| TrafficFlow.WZGLĘDNY | Pokazuje dane o ruchu drogowym, które są związane z prędkością swobodnego przepływu na drodze |
-| TrafficFlow.RELATIVE_DELAY | Wyświetla obszary, które są wolniejsze niż średnie oczekiwane opóźnienie |
-| TrafficFlow.ABSOLUTE (Niem. | Pokazuje absolutną prędkość wszystkich pojazdów na drodze |
+| TrafficFlow. NONE | Nie wyświetla danych o ruchu na mapie |
+| TrafficFlow. RELATYWN | Pokazuje dane o ruchu odnoszące się do szybkości swobodnego przepływu drogi |
+| TrafficFlow. RELATIVE_DELAY | Wyświetla obszary, które są wolniejsze niż średnie oczekiwane opóźnienie |
+| TrafficFlow. ABSOLUTN | Pokazuje absolutną prędkość wszystkich pojazdów w podróży |
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
@@ -69,11 +69,11 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-## <a name="show-incident-traffic-data-by-clicking-a-feature"></a>Wyświetlanie danych o zdarzeniu, klikając funkcję
+## <a name="show-incident-traffic-data-by-clicking-a-feature"></a>Pokaż dane o ruchu zdarzeń, klikając funkcję
 
-Aby uzyskać zdarzenia dla określonej funkcji, można użyć poniższego kodu. Po kliknięciu funkcji logika kodu sprawdza zdarzenia i tworzy komunikat o zdarzeniu. U dołu ekranu pojawi się komunikat ze szczegółami.
+Aby uzyskać zdarzenia dotyczące konkretnej funkcji, można użyć poniższego kodu. Po kliknięciu funkcji logika kodu sprawdza zdarzenia i kompiluje komunikat o zdarzeniu. W dolnej części ekranu zostanie wyświetlony komunikat z informacjami.
 
-1. Najpierw musisz edytować **układ res > > activity_main.xml**, aby wyglądał jak poniższy. Można zastąpić `mapcontrol_centerLat`, `mapcontrol_centerLng`i `mapcontrol_zoom` żądane wartości. Przypomnijmy, poziom powiększenia jest wartością od 0 do 22. Przy poziomie powiększenia 0 cały świat mieści się na jednej kafelku.
+1. Najpierw należy edytować **> zasobów > activity_main. XML**, tak aby wyglądał wyglądać podobnie do przedstawionego poniżej. Licencjobiorca może zastąpić `mapcontrol_centerLat` `mapcontrol_centerLng` `mapcontrol_zoom` odpowiednie wartości. Odwołaj, poziom powiększenia jest wartością z zakresu od 0 do 22. Na poziomie powiększenia 0 cały świat mieści się na jednym kafelku.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>
@@ -96,7 +96,7 @@ Aby uzyskać zdarzenia dla określonej funkcji, można użyć poniższego kodu. 
    </FrameLayout>
    ```
 
-2. Dodaj następujący kod do pliku **MainActivity.java.** Pakiet jest domyślnie dołączony, więc upewnij się, że pakiet jest utrzymywany u góry.
+2. Dodaj następujący kod do pliku **Main. Java** . Pakiet jest domyślnie dołączany, więc upewnij się, że pakiet znajduje się u góry.
 
    ```java
    package <yourpackagename>;
@@ -221,17 +221,17 @@ Aby uzyskać zdarzenia dla określonej funkcji, można użyć poniższego kodu. 
    }
    ```
 
-3. Po włączeniu powyższego kodu do aplikacji, będziesz mógł kliknąć na funkcję i zobaczyć szczegóły zdarzeń drogowych. W zależności od szerokości, długości geograficznej i wartości poziomu powiększenia użytych w pliku **activity_main.xml** zostaną wyświetlone wyniki podobne do następujących obrazów:
+3. Po dodaniu powyższego kodu do aplikacji będzie można kliknąć funkcję i zobaczyć szczegóły zdarzeń dotyczących ruchu sieciowego. W zależności od szerokości geograficznej, długości geograficznej oraz wartości poziomu powiększenia, które były używane w pliku **activity_main. XML** , wyniki wyglądają podobnie jak na poniższym obrazie:
 
    <center>
 
-   ![Incydent-ruch na mapie](./media/how-to-show-traffic-android/android-traffic.png)
+   ![Zdarzenia — ruch przychodzący na mapie](./media/how-to-show-traffic-android/android-traffic.png)
 
    </center>
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z następującymi przewodnikami, aby dowiedzieć się, jak dodać więcej danych do mapy:
+Aby dowiedzieć się, jak dodać więcej danych do mapy, zobacz następujące przewodniki:
 
 > [!div class="nextstepaction"]
 > [Dodawanie warstwy symboli](how-to-add-symbol-to-android-map.md)

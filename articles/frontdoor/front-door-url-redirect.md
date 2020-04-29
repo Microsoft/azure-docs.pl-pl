@@ -1,6 +1,6 @@
 ---
-title: Drzwi frontowe platformy Azure — przekierowanie adresu URL | Dokumenty firmy Microsoft
-description: Ten artykuł pomaga zrozumieć, jak usługi Azure Front Door obsługuje przekierowanie adresów URL dla ich tras, jeśli jest skonfigurowany.
+title: Moje drzwi platformy Azure — przekierowanie adresu URL | Microsoft Docs
+description: Ten artykuł pomaga zrozumieć, w jaki sposób platforma Azure front-drzwi obsługuje przekierowywanie adresów URL dla swoich tras, jeśli są skonfigurowane.
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -12,44 +12,44 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: sharadag
 ms.openlocfilehash: 5e3e44c4aee84fe9e2e21174a1d65fdf26b765a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80295475"
 ---
 # <a name="url-redirect"></a>Przekierowywanie adresów URL
-Za pomocą usługi Azure Front Door można przekierować ruch. Można przekierować ruch na wielu poziomach (protokół, nazwa hosta, ścieżka, ciąg zapytania) i wszystkie funkcje mogą być skonfigurowane dla poszczególnych mikrousług, ponieważ przekierowanie jest oparte na ścieżce. Upraszcza to konfigurację aplikacji, optymalizuje użycie zasobów i obsługuje nowe scenariusze przekierowania, w tym przekierowanie globalne i oparte na ścieżce.
+Aby przekierować ruch, możesz użyć platformy Azure. Ruch można przekierować na wiele poziomów (protokołu, nazwy hosta, ścieżki, ciągu zapytania) i wszystkie funkcje można skonfigurować dla poszczególnych mikrousług, ponieważ przekierowanie jest oparte na ścieżce. Upraszcza to konfigurację aplikacji, optymalizuje użycie zasobów i obsługuje nowe scenariusze przekierowania, w tym globalne i oparte na ścieżkach przekierowywanie.
 </br>
 
-![Przekierowanie adresu URL drzwiami frontowymi platformy Azure][1]
+![Przekierowanie adresu URL usługi Azure front-drzwi][1]
 
-## <a name="redirection-types"></a>Typy przekierowania
-Typ przekierowania ustawia kod stanu odpowiedzi dla klientów, aby zrozumieć cel przekierowania. Obsługiwane są następujące typy przekierowań:
+## <a name="redirection-types"></a>Typy przekierowań
+Typ przekierowania ustawia kod stanu odpowiedzi dla klientów, aby zrozumieć przeznaczenie przekierowania. Obsługiwane są następujące typy przekierowań:
 
-- **301 (Przeniesiony na stałe)**: Wskazuje, że zasobu docelowego został przypisany nowy stały identyfikator URI i wszelkie przyszłe odwołania do tego zasobu powinny używać jednego z uris ujęte w załączeniu. Użyj kodu stanu 301 dla przekierowania HTTP do HTTPS. 
-- **302 (Znaleziono)**: Wskazuje, że zasób docelowy znajduje się tymczasowo w ramach innego identyfikatora URI. Ponieważ przekierowanie może być zmieniane od czasu do czasu, klient powinien nadal używać identyfikatora URI żądania efektywnego dla przyszłych żądań.
-- **307 (przekierowanie tymczasowe)**: Wskazuje, że zasób docelowy znajduje się tymczasowo w ramach innego identyfikatora URI, a agent użytkownika NIE MOŻE zmieniać metody żądania, jeśli wykonuje automatyczne przekierowanie do tego identyfikatora URI. Ponieważ przekierowanie może ulec zmianie w czasie, klient powinien kontynuować przy użyciu oryginalnego identyfikatora URI żądania efektywnego dla przyszłych żądań.
-- **308 (stałe przekierowanie)**: Wskazuje, że zasobu docelowego został przypisany nowy stały identyfikator URI i wszelkie przyszłe odwołania do tego zasobu powinny używać jednego z ujętych identyfikatorów URI. Klienci z możliwością edycji łączy powinni automatycznie ponownie łączyć odwołania do identyfikatora URI żądania efektywnego z jednym lub kilkoma nowymi odwołaniami wysyłanymi przez serwer, jeśli to możliwe.
+- **301 (trwale przeniesiono)**: wskazuje, że do zasobu docelowego przypisano nowy stały identyfikator URI i wszystkie przyszłe odwołania do tego zasobu powinny używać jednego z załączonych identyfikatorów URI. Użyj kodu stanu 301 do przekierowania HTTP do HTTPS. 
+- **302 (znaleziono)**: wskazuje, że zasób docelowy znajduje się tymczasowo pod innym identyfikatorem URI. Ponieważ przekierowanie może ulec zmianie, klient powinien nadal używać obowiązującego identyfikatora URI żądania dla przyszłych żądań.
+- **307 (tymczasowe przekierowanie)**: wskazuje, że zasób docelowy znajduje się tymczasowo pod innym identyfikatorem URI, a agent użytkownika nie może zmienić metody żądania, jeśli wykonuje automatyczne przekierowanie do tego identyfikatora URI. Ponieważ przekierowanie może ulec zmianie z upływem czasu, klient powinien kontynuować korzystanie z oryginalnego identyfikatora URI żądania dla przyszłych żądań.
+- **308 (stałe przekierowanie)**: wskazuje, że do zasobu docelowego przypisano nowy stały identyfikator URI, a wszystkie przyszłe odwołania do tego zasobu powinny używać jednego z załączonych identyfikatorów URI. Klienci z możliwością edytowania linków powinni automatycznie ponownie łączyć odwołania do obowiązującego identyfikatora URI żądania do co najmniej jednego odwołania wysyłanego przez serwer, o ile to możliwe.
 
 ## <a name="redirection-protocol"></a>Protokół przekierowania
-Można ustawić protokół, który będzie używany do przekierowania. Pozwala to na jeden z najczęstszych przypadków użycia funkcji przekierowania, czyli ustawienie przekierowania HTTP na HTTPS.
+Można ustawić protokół, który będzie używany do przekierowywania. Pozwala to na użycie jednego z najpopularniejszych przypadków użycia funkcji przekierowania, czyli ustawienie przekierowania HTTP na HTTPS.
 
-- **Tylko HTTPS**: Ustaw protokół tylko na HTTPS, jeśli chcesz przekierować ruch z HTTP do HTTPS. Usługa Azure Front Door zaleca, aby zawsze ustawiać przekierowanie tylko na HTTPS.
-- **Tylko HTTP**: Spowoduje to przekierowanie żądania przychodzącego do protokołu HTTP. Tej wartości należy używać tylko wtedy, gdy chcesz zachować ruch HTTP, który jest niezaszyfrowany.
-- **Żądanie dopasowania:** Ta opcja zachowuje protokół używany przez żądanie przychodzące. Tak więc żądanie HTTP pozostaje HTTP i żądanie HTTPS pozostaje przekierowanie postu HTTPS.
+- **Tylko https**: Ustaw tylko protokół https, jeśli chcesz przekierować ruch z protokołu HTTP do protokołu HTTPS. Przed drzwiami platformy Azure zaleca się, aby zawsze ustawiać przekierowanie tylko do protokołu HTTPS.
+- **Tylko http**: przekierowuje żądanie przychodzące do protokołu HTTP. Użyj tej wartości tylko wtedy, gdy chcesz zachować ruch HTTP, który jest nieszyfrowany.
+- **Dopasowanie żądania**: Ta opcja zachowuje protokół używany przez żądanie przychodzące. W związku z tym żądanie HTTP pozostaje HTTP, a żądanie HTTPS pozostaje przekierowaniem post HTTPS.
 
 ## <a name="destination-host"></a>Host docelowy
-W ramach konfigurowania routingu przekierowania można również zmienić nazwę hosta lub domenę dla żądania przekierowania. To pole można ustawić tak, aby zmienić nazwa hosta w adresie URL przekierowania lub w inny sposób zachować nazwa hosta z żądania przychodzącego. Tak więc za pomocą tego pola `https://www.contoso.com/*` można `https://www.fabrikam.com/*`przekierować wszystkie żądania wysłane do programu .
+W ramach konfigurowania routingu przekierowywania można także zmienić nazwę hosta lub domenę dla żądania przekierowania. Można ustawić to pole, aby zmienić nazwę hosta w adresie URL przekierowania lub w przeciwnym razie zachować nazwę hosta z żądania przychodzącego. Dlatego przy użyciu tego pola można przekierować wszystkie żądania wysłane `https://www.contoso.com/*` do `https://www.fabrikam.com/*`usługi.
 
 ## <a name="destination-path"></a>Ścieżka docelowa
-W przypadkach, w których chcesz zastąpić segment ścieżki adresu URL jako część przekierowania, możesz ustawić to pole z nową wartością ścieżki. W przeciwnym razie można zachować wartość ścieżki jako część przekierowania. Tak więc, korzystając z tego pola, `https://www.contoso.com/\*` `https://www.contoso.com/redirected-site`można przekierować wszystkie żądania wysyłane do programu .
+W przypadku, gdy chcesz zastąpić segment ścieżki adresu URL w ramach przekierowania, możesz ustawić to pole z nową wartością ścieżki. W przeciwnym razie można zachować wartość ścieżki w ramach przekierowania. Dlatego przy użyciu tego pola można przekierować wszystkie żądania wysyłane do `https://www.contoso.com/\*` programu. `https://www.contoso.com/redirected-site`
 
-## <a name="query-string-parameters"></a>Parametry ciągu kwerendy
-Można również zastąpić parametry ciągu zapytania w przekierowanym adresie URL. Aby zastąpić istniejący ciąg zapytania z adresu URL żądania przychodzącego, ustaw to pole na "Zamień", a następnie ustaw odpowiednią wartość. W przeciwnym razie można zachować oryginalny zestaw ciągów zapytań, ustawiając pole na "Zachowaj". Na przykład za pomocą tego pola można przekierować cały ruch wysyłany do `https://www.contoso.com/foo/bar` programu `https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F`. 
+## <a name="query-string-parameters"></a>Parametry ciągu zapytania
+Parametry ciągu zapytania można również zastąpić w przekierowanym adresie URL. Aby zastąpić wszystkie istniejące parametry zapytania z przychodzącego adresu URL żądania, należy ustawić to pole na wartość "Zamień", a następnie ustawić odpowiednie wartości. W przeciwnym razie można zachować oryginalny zestaw ciągów zapytania, ustawiając pole na wartość "preserve". Na przykład przy użyciu tego pola można przekierować cały ruch wysyłany do `https://www.contoso.com/foo/bar` usługi. `https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F` 
 
 ## <a name="destination-fragment"></a>Fragment docelowy
-Fragment docelowy jest częścią adresu URL po "#", zwykle używanej przez przeglądarki do wylądowania w określonej sekcji na stronie. To pole można ustawić tak, aby dodać fragment do adresu URL przekierowania.
+Fragment docelowy jest częścią adresu URL po "#", zwykle używanej przez przeglądarki do gruntów w określonej sekcji na stronie. Można ustawić to pole, aby dodać fragment do adresu URL przekierowania.
 
 ## <a name="next-steps"></a>Następne kroki
 

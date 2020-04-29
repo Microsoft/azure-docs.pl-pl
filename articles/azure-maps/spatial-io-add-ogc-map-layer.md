@@ -1,6 +1,6 @@
 ---
-title: Dodawanie warstwy mapy Open Geospatial Consortium (OGC) | Mapy platformy Microsoft Azure
-description: Dowiedz się, jak nakładać warstwę mapy OGC na mapę i jak korzystać z różnych opcji w klasie OgcMapLayer.
+title: Dodaj warstwę mapy Open Geospatial Consortium (OGC) | Mapy Microsoft Azure
+description: Dowiedz się, jak nałożyć warstwę mapy OGC na mapę oraz jak używać różnych opcji w klasie OgcMapLayer.
 author: philmea
 ms.author: philmea
 ms.date: 03/02/2020
@@ -9,92 +9,92 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: b753ecfc07cfb3806838f8a05dbe33ef0bb92730
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80334297"
 ---
-# <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Dodawanie warstwy mapy z Konsorcjum Otwartego Geoprzestrzennego (OGC)
+# <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Dodaj warstwę mapy z Open Geospatial Consortium (OGC)
 
-Klasa `atlas.layer.OgcMapLayer` może nakładać na mapę obrazów usług map internetowych (WMS) i obrazów WMTS (Web Map Tile Services). WMS to standardowy protokół opracowany przez OGC do obsługi georeferencyjnych obrazów map przez Internet. Georeferencje obrazu to procesy kojarzenia obrazu z lokalizacją geograficzną. WMTS jest również standardowym protokołem opracowanym przez OGC. Jest przeznaczony do obsługi wstępnie renderowanych i georeferencyjnych kafelków map.
+`atlas.layer.OgcMapLayer` Klasa może nakładać obrazy usług mapy sieci Web (WMS) i obrazów usług mapy sieci Web (WMTS) na mapie. WMS jest standardowym protokołem opracowanym przez OGC do obsługi obrazów mapy geograficznej za pośrednictwem Internetu. Odwołanie do obrazu jest procesami kojarzenia obrazu z lokalizacją geograficzną. WMTS jest również standardowym protokołem opracowanym przez OGC. Jest ona przeznaczona do obsługi wstępnie renderowanych i geoodwołaniowych kafelków mapy.
 
-W poniższych sekcjach opisano funkcje usługi map `OgcMapLayer` internetowych, które są obsługiwane przez klasę.
+W poniższych sekcjach opisano funkcje usługi mapy sieci Web, które są obsługiwane `OgcMapLayer` przez klasę.
 
-**Usługa map internetowych (WMS)**
+**Usługa mapy sieci Web (WMS)**
 
-- Obsługiwane wersje: `1.0.0` `1.1.0`, `1.1.1`, , i`1.3.0`
-- Usługa musi obsługiwać system `EPSG:3857` projekcji lub obsługiwać ponowneprojections.
-- GetFeatureInfo wymaga usługi `EPSG:4326` do obsługi lub obsługi reprojections. 
+- Obsługiwane wersje: `1.0.0`, `1.1.0`, `1.1.1`i`1.3.0`
+- Usługa musi obsługiwać system `EPSG:3857` projekcji lub obsługiwać reprojekcje.
+- GetFeatureInfo wymaga, aby usługa obsługiwała `EPSG:4326` lub obsługiwała przedziały. 
 - Obsługiwane operacje:
 
     | | |
     | :-- | :-- |
-    | GetCapabilities (Zdolności do uzyskania) | Pobiera metadane dotyczące usługi z obsługiwanymi możliwościami |
-    | Mapa GetMap | Pobiera obraz mapy dla określonego regionu |
-    | GetFeatureInfo | Pobiera `feature_info`, który zawiera podstawowe dane dotyczące funkcji |
+    | GetCapabilities | Pobiera metadane dotyczące usługi z obsługiwanymi możliwościami |
+    | GetMap | Pobiera obraz mapy dla określonego regionu |
+    | GetFeatureInfo | Pobiera `feature_info`, który zawiera dane podstawowe dotyczące funkcji |
 
-**Usługa kafelków map internetowych (WMTS)**
+**Usługa kafelków mapy sieci Web (WMTS)**
 
 - Obsługiwane wersje:`1.0.0`
-- Płytki muszą być kwadratowe, takie, że `TileWidth == TileHeight`.
-- Crs obsługiwane: `EPSG:3857` lub`GoogleMapsCompatible` 
-- Identyfikator TileMatrix musi być wartością całkowitą odpowiadającą poziomowi powiększenia na mapie. Na mapie azure poziom powiększenia jest wartością między `"0"` i `"22"`. Tak, `"0"` jest obsługiwany, `"00"` ale nie jest obsługiwany.
+- Kafelki muszą być kwadratowe, `TileWidth == TileHeight`na przykład.
+- Obsługiwane przez KSR `EPSG:3857` :`GoogleMapsCompatible` 
+- Identyfikator TileMatrix musi być wartością całkowitą, która odpowiada poziomowi powiększenia na mapie. Na mapie platformy Azure poziom powiększenia jest wartością z zakresu od `"0"` do. `"22"` `"0"` Jest to obsługiwane, ale `"00"` nie jest obsługiwane.
 - Obsługiwane operacje:
 
     | | |
     | :-- | :-- |
-    | GetCapabilities (Zdolności do uzyskania) | Pobiera obsługiwane operacje i funkcje |
-    | GetTile (właśc. | Pobiera obrazy dla określonego kafelka |
+    | GetCapabilities | Pobiera obsługiwane operacje i funkcje |
+    | Getkafelk | Pobiera obraz dla określonego kafelka |
 
-## <a name="overlay-an-ogc-map-layer"></a>Nakładanie warstwy mapy OGC
+## <a name="overlay-an-ogc-map-layer"></a>Nałóż warstwę mapy OGC
 
-`url` Może to być podstawowy adres URL usługi lub pełny adres URL z zapytaniem o uzyskanie możliwości usługi. W zależności od podanych szczegółów klient WFS może wypróbować kilka standardowych formatów adresów URL, aby określić, jak początkowo uzyskać dostęp do usługi.
+`url` Może to być podstawowy adres URL usługi lub pełny adres URL z kwerendą w celu uzyskania możliwości usługi. W zależności od podanych informacji klient WFS może wypróbować kilka standardowych formatów adresów URL, aby określić, jak początkowo uzyskać dostęp do usługi.
 
-Poniższy kod pokazuje, jak nałożyć warstwę mapy OGC na mapę.
+Poniższy kod przedstawia sposób nakładki warstwy mapy OGC na mapie.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Przykład warstwy mapy OGC' src='//codepen.io/azuremaps/embed/xxGLZWB/?height=700&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz <a href='https://codepen.io/azuremaps/pen/xxGLZWB/'>przykład warstwy mapy pióra OGC</a> według usługi Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na funkcji <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Przykład warstwy mapy OGC' src='//codepen.io/azuremaps/embed/xxGLZWB/?height=700&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zapoznaj się z <a href='https://codepen.io/azuremaps/pen/xxGLZWB/'>przykładem warstwy mapy OGC</a> pióra według Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="ogc-map-layer-options"></a>Opcje warstwy mapy OGC
 
-Poniższy przykład pokazuje różne opcje warstwy mapy OGC. Możesz kliknąć przycisk pióra kodu w prawym górnym rogu, aby edytować pióro kodu.
+Poniższy przykład ilustruje różne opcje warstwy mapy OGC. Aby edytować pióro kodu, możesz kliknąć przycisk pióra kodu w prawym górnym rogu.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Opcje warstwy mapy OGC' src='//codepen.io/azuremaps/embed/abOyEVQ/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz <a href='https://codepen.io/azuremaps/pen/abOyEVQ/'>opcje warstwy mapy Pióra OGC</a> według usługi Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na funkcji <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Opcje warstwy mapy OGC' src='//codepen.io/azuremaps/embed/abOyEVQ/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz <a href='https://codepen.io/azuremaps/pen/abOyEVQ/'>Opcje warstwy mapy OGC</a> pióra według Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="ogc-web-map-service-explorer"></a>Eksplorator usługi map internetowych OGC
+## <a name="ogc-web-map-service-explorer"></a>Eksplorator usługi mapy sieci Web OGC
 
-Następujące narzędzie nakłada na warstwy obrazy z usług map internetowych (WMS) i usług kafelek map internetowych (WMTS). Można wybrać, które warstwy w usłudze są renderowane na mapie. Dla tych warstw można również wyświetlić skojarzone legendy.
+Następujące Narzędzie nakłada obrazy z usług mapy sieci Web (WMS) i usługi kafelków mapy sieci Web (WMTS) jako warstwy. Możesz wybrać warstwy, które mają być renderowane na mapie. Możesz również wyświetlić skojarzone legendy dla tych warstw.
 
 <br/>
 
-<iframe height='750' style='width: 100%;' scrolling='no' title='Eksplorator usługi map internetowych OGC' src='//codepen.io/azuremaps/embed/YzXxYdX/?height=750&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz <a href='https://codepen.io/azuremaps/pen/YzXxYdX/'>Eksplorator usługi map internetowych Pióra OGC</a> według usługi Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na funkcji <a href='https://codepen.io'>CodePen</a>.
+<iframe height='750' style='width: 100%;' scrolling='no' title='Eksplorator usługi mapy sieci Web OGC' src='//codepen.io/azuremaps/embed/YzXxYdX/?height=750&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zapoznaj się z <a href='https://codepen.io/azuremaps/pen/YzXxYdX/'>Eksploratorem OGC usługi mapy sieci Web</a> programu<a href='https://codepen.io/azuremaps'>@azuremaps</a>piórem, Azure Maps () na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Można również określić ustawienia mapy, aby korzystać z usługi proxy. Usługa serwera proxy umożliwia ładowanie zasobów hostowanych w domenach, które nie mają włączonego mechanizmu CORS.
+Możesz również określić ustawienia mapy, aby użyć usługi proxy. Usługa serwera proxy umożliwia ładowanie zasobów hostowanych w domenach, które nie mają włączonego mechanizmu CORS.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o klasach i metodach użytych w tym artykule:
+Dowiedz się więcej na temat klas i metod używanych w tym artykule:
 
 > [!div class="nextstepaction"]
-> [Warstwa OgcMap](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.layer.ogcmaplayer)
+> [OgcMapLayer](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.layer.ogcmaplayer)
 
 > [!div class="nextstepaction"]
-> [OgcMapLayerOptions (OgcMapLayerOptions)](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.ogcmaplayeroptions)
+> [OgcMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.ogcmaplayeroptions)
 
-Zobacz następujące artykuły, które zawierają przykłady kodu, które można dodać do map:
-
-> [!div class="nextstepaction"]
-> [Łączenie się z usługą WFS](spatial-io-connect-wfs-service.md)
+Zobacz następujące artykuły, które zawierają przykłady kodu, które można dodać do Twoich map:
 
 > [!div class="nextstepaction"]
-> [Wykorzystanie podstawowych operacji](spatial-io-core-operations.md)
+> [Nawiązywanie połączenia z usługą WFS](spatial-io-connect-wfs-service.md)
+
+> [!div class="nextstepaction"]
+> [Korzystanie z podstawowych operacji](spatial-io-core-operations.md)
 
 > [!div class="nextstepaction"]
 > [Szczegóły obsługiwanego formatu danych](spatial-io-supported-data-format-details.md)

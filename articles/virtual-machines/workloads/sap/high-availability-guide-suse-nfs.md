@@ -1,6 +1,6 @@
 ---
-title: Wysoka dostępność usług NFS na maszynach wirtualnych platformy Azure w sles | Dokumenty firmy Microsoft
-description: Wysoka dostępność systemu plików NFS na maszynach wirtualnych platformy Azure na serwerze SUSE Linux Enterprise Server
+title: Wysoka dostępność dla systemu plików NFS na maszynach wirtualnych platformy Azure w systemie SLES | Microsoft Docs
+description: Wysoka dostępność systemu plików NFS na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2020
 ms.author: radeltch
 ms.openlocfilehash: 4dce0a675f5841591da00a322b72718964d382ac
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80348870"
 ---
-# <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Wysoka dostępność systemu plików NFS na maszynach wirtualnych platformy Azure na serwerze SUSE Linux Enterprise Server
+# <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Wysoka dostępność systemu plików NFS na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -50,47 +50,47 @@ ms.locfileid: "80348870"
 
 [sap-hana-ha]:sap-hana-high-availability.md
 
-W tym artykule opisano sposób wdrażania maszyn wirtualnych, konfigurowania maszyn wirtualnych, instalowania struktury klastra i instalowania serwera systemu plików NFS o wysokiej dostępności, który może służyć do przechowywania udostępnionych danych systemu SAP o wysokiej dostępności.
-W tym przewodniku opisano sposób konfigurowania serwera NFS o wysokiej dostępności, który jest używany przez dwa systemy SAP, NW1 i NW2. Nazwy zasobów (na przykład maszyny wirtualne, sieci wirtualne) w przykładzie zakładają, że użyto [szablonu serwera plików SAP][template-file-server] z prefiksem zasobu **prod**.
+W tym artykule opisano sposób wdrażania maszyn wirtualnych, konfigurowania maszyn wirtualnych, instalowania platformy klastra i instalowania serwera NFS o wysokiej dostępności, który może służyć do przechowywania danych udostępnionych systemu SAP o wysokiej dostępności.
+W tym przewodniku opisano sposób konfigurowania serwera NFS o wysokiej dostępności, który jest używany przez dwa systemy SAP, NW1 i NW2. Nazwy zasobów (na przykład Virtual Machines, Virtual Networks) w przykładzie założono, że użyto [szablonu serwera plików SAP][template-file-server] **z prefiksem**zasobu.
 
-Najpierw przeczytaj poniższe uwagi i dokumenty SAP
+Najpierw przeczytaj następujące informacje i dokumenty SAP
 
-* Uwaga SAP [1928533], która ma:
+* Nota SAP [1928533], która ma:
   * Lista rozmiarów maszyn wirtualnych platformy Azure, które są obsługiwane w przypadku wdrażania oprogramowania SAP
   * Ważne informacje o pojemności dla rozmiarów maszyn wirtualnych platformy Azure
-  * Obsługiwane oprogramowanie SAP oraz system operacyjny (OS) i kombinacje baz danych
-  * Wymagana wersja jądra SAP dla systemu Windows i Linux na platformie Microsoft Azure
+  * Obsługiwane oprogramowanie SAP oraz kombinacje systemu operacyjnego i bazy danych
+  * Wymagana wersja jądra SAP dla systemu Windows i Linux w systemie Microsoft Azure
 
-* Uwaga SAP [2015553] zawiera listę wymagań wstępnych dla wdrożeń oprogramowania SAP obsługiwanych przez SAP na platformie Azure.
-* Sap Note [2205917] ma zalecane ustawienia systemu operacyjnego dla SUSE Linux Enterprise Server dla aplikacji SAP
-* Sap Note [1944799] ma wytyczne SAP HANA dla SUSE Linux Enterprise Server dla aplikacji SAP
-* Uwaga SAP [2178632] zawiera szczegółowe informacje na temat wszystkich metryk monitorowania zgłoszonych dla sap na platformie Azure.
-* Sap Note [2191498] ma wymaganą wersję agenta hosta SAP dla systemu Linux na platformie Azure.
-* Uwaga SAP [2243692] ma informacje o licencjonowaniu SAP w systemie Linux na platformie Azure.
-* Sap Note [1984787] ma ogólne informacje na temat SUSE Linux Enterprise Server 12.
-* Uwaga SAP [1999351] zawiera dodatkowe informacje dotyczące rozwiązywania problemów z rozszerzeniem rozszerzonego monitorowania platformy Azure dla systemu SAP.
-* [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) ma wszystkie wymagane notatki SAP dla Linuksa.
-* [Planowanie i implementacja maszyn wirtualnych platformy Azure dla systemu SAP w systemie Linux][planning-guide]
-* [Wdrożenie maszyn wirtualnych platformy Azure dla systemu SAP w systemie Linux (w tym artykule)][deployment-guide]
-* [Wdrożenie usługi DBMS maszyn wirtualnych platformy Azure dla systemu SAP w systemie Linux][dbms-guide]
-* [SUSE Linux Enterprise High Availability Extension 12 DODATKU SP3 — najważniejsze wskazówki — przewodniki po najlepszych praktykach][sles-hae-guides]
-  * Wysoka dostępna pamięć masowa NFS z DRBD i rozrusznikiem serca
-* [SUSE Linux Enterprise Server for SAP Applications 12 SP3 — najważniejsze wskazówki — przewodniki po najlepszych praktykach][sles-for-sap-bp]
-* [Informacje o wersji SUSE High Availability Extension 12 SP3][suse-ha-12sp3-relnotes]
+* Uwaga dotycząca protokołu SAP [2015553] zawiera listę wymagań wstępnych dotyczących wdrożeń oprogramowania SAP obsługiwanych przez oprogramowanie SAP na platformie Azure.
+* W przypadku programu SAP Uwaga [2205917] zalecane ustawienia systemu operacyjnego dla SUSE Linux Enterprise Server aplikacji SAP
+* Uwaga dotycząca oprogramowania SAP [1944799] SAP HANA wytycznych dla SUSE Linux Enterprise Server aplikacji SAP
+* Uwaga dotycząca oprogramowania SAP [2178632] zawiera szczegółowe informacje o wszystkich metrykach monitorowania raportowanych dla oprogramowania SAP na platformie Azure.
+* Uwaga dotycząca programu SAP [2191498] ma wymaganą wersję agenta hosta SAP dla systemu Linux na platformie Azure.
+* Uwaga dotycząca oprogramowania SAP [2243692] zawiera informacje na temat licencjonowania SAP w systemie Linux na platformie Azure.
+* Uwaga dotycząca protokołu SAP [1984787] zawiera ogólne informacje o SUSE Linux Enterprise Server 12.
+* Uwaga dotycząca programu SAP [1999351] zawiera dodatkowe informacje dotyczące rozwiązywania problemów z rozszerzoną funkcją monitorowania platformy Azure dla oprogramowania SAP.
+* [Społeczność systemu SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) na stronie wiki ma wszystkie wymagane uwagi SAP dla systemu Linux.
+* [Planowanie i wdrażanie usługi Azure Virtual Machines dla oprogramowania SAP w systemie Linux][planning-guide]
+* [Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP w systemie Linux (ten artykuł)][deployment-guide]
+* [Wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP w systemie Linux][dbms-guide]
+* [Wskazówki dotyczące najlepszych rozwiązań dla systemu SUSE Linux Enterprise o wysokiej dostępności][sles-hae-guides]
+  * Magazyn systemu plików NFS o wysokiej dostępności z DRBD i Pacemaker
+* [SUSE Linux Enterprise Server for SAP Applications 12 SP3 — wskazówki dotyczące najlepszych rozwiązań][sles-for-sap-bp]
+* [Informacje o wersji w programie SUSE High Availability Extension 12 SP3][suse-ha-12sp3-relnotes]
 
 ## <a name="overview"></a>Omówienie
 
-Aby osiągnąć wysoką dostępność, SAP NetWeaver wymaga serwera NFS. Serwer NFS jest skonfigurowany w oddzielnym klastrze i może być używany przez wiele systemów SAP.
+Aby zapewnić wysoką dostępność, rozwiązanie SAP NetWeaver wymaga serwera NFS. Serwer NFS jest skonfigurowany w osobnym klastrze i może być używany przez wiele systemów SAP.
 
-![Omówienie wysokiej dostępności sap NetWeaver](./media/high-availability-guide-nfs/ha-suse-nfs.png)
+![Omówienie wysokiej dostępności SAP NetWeaver](./media/high-availability-guide-nfs/ha-suse-nfs.png)
 
-Serwer NFS używa dedykowanej wirtualnej nazwy hosta i wirtualnych adresów IP dla każdego systemu SAP korzystającego z tego serwera NFS. Na platformie Azure moduł równoważenia obciążenia jest wymagany do używania wirtualnego adresu IP. Na poniższej liście przedstawiono konfigurację modułu równoważenia obciążenia.        
+Serwer NFS używa dedykowanej wirtualnej nazwy hosta i wirtualnych adresów IP dla każdego systemu SAP, który używa tego serwera NFS. Na platformie Azure moduł równoważenia obciążenia jest wymagany do używania wirtualnego adresu IP. Na poniższej liście przedstawiono konfigurację modułu równoważenia obciążenia.        
 
-* Konfiguracja frontu
+* Konfiguracja frontonu
   * Adres IP 10.0.0.4 dla NW1
   * Adres IP 10.0.0.5 dla NW2
-* Konfiguracja wewnętrznej bazy danych
-  * Połączone z podstawowymi interfejsami sieciowymi wszystkich maszyn wirtualnych, które powinny być częścią klastra NFS
+* Konfiguracja zaplecza
+  * Połączono z podstawowymi interfejsami sieciowymi wszystkich maszyn wirtualnych, które powinny być częścią klastra NFS
 * Port sondy
   * Port 61000 dla NW1
   * Port 61001 dla NW2
@@ -100,164 +100,164 @@ Serwer NFS używa dedykowanej wirtualnej nazwy hosta i wirtualnych adresów IP d
   * 2049 TCP dla NW2
   * 2049 UDP dla NW2
 
-## <a name="set-up-a-highly-available-nfs-server"></a>Konfigurowanie serwera systemu plików NFS o wysokiej dostępności
+## <a name="set-up-a-highly-available-nfs-server"></a>Konfigurowanie serwera NFS o wysokiej dostępności
 
-Można użyć szablonu platformy Azure z usługi GitHub, aby wdrożyć wszystkie wymagane zasoby platformy Azure, w tym maszyny wirtualne, zestaw dostępności i moduł równoważenia obciążenia lub można wdrożyć zasoby ręcznie.
+Możesz użyć szablonu platformy Azure z usługi GitHub do wdrożenia wszystkich wymaganych zasobów platformy Azure, w tym maszyn wirtualnych, zestawu dostępności i modułu równoważenia obciążenia, lub ręcznie wdrożyć zasoby.
 
-### <a name="deploy-linux-via-azure-template"></a>Wdrażanie systemu Linux za pośrednictwem szablonu platformy Azure
+### <a name="deploy-linux-via-azure-template"></a>Wdrażanie systemu Linux za pomocą szablonu platformy Azure
 
-Portal Azure Marketplace zawiera obraz dla systemu SUSE Linux Enterprise Server for SAP Applications 12, którego można użyć do wdrożenia nowych maszyn wirtualnych.
-Można użyć jednego z szablonów szybkiego startu w usłudze GitHub, aby wdrożyć wszystkie wymagane zasoby. Szablon wdraża maszyny wirtualne, moduł równoważenia obciążenia, zestaw dostępności itp. Aby wdrożyć szablon, wykonaj następujące czynności:
+Portal Azure Marketplace zawiera obraz dla SUSE Linux Enterprise Server dla aplikacji SAP 12, których można użyć do wdrażania nowych maszyn wirtualnych.
+Możesz użyć jednego z szablonów szybkiego startu w usłudze GitHub, aby wdrożyć wszystkie wymagane zasoby. Szablon wdraża maszyny wirtualne, moduł równoważenia obciążenia, zestaw dostępności itd. Wykonaj następujące kroki, aby wdrożyć szablon:
 
-1. Otwieranie [szablonu serwera plików SAP][template-file-server] w witrynie Azure portal   
+1. Otwórz [Szablon serwera plików SAP][template-file-server] w Azure Portal   
 1. Wprowadź następujące parametry
    1. Prefiks zasobu  
-      Wprowadź prefiks, którego chcesz użyć. Wartość jest używana jako prefiks dla zasobów, które są wdrażane.
+      Wprowadź prefiks, którego chcesz użyć. Wartość jest używana jako prefiks dla wdrożonych zasobów.
    2. Liczba systemów SAP  
-      Wprowadź liczbę systemów SAP, które będą korzystać z tego serwera plików. Spowoduje to wdrożenie wymaganej ilości konfiguracji frontendu, reguł równoważenia obciążenia, portów sondy, dysków itp.
+      Wprowadź liczbę systemów SAP, które będą korzystać z tego serwera plików. Spowoduje to wdrożenie wymaganej liczby konfiguracji frontonu, zasad równoważenia obciążenia, portów sondowania, dysków itp.
    3. Typ systemu operacyjnego  
-      Wybierz jedną z dystrybucji Linuksa. W tym przykładzie wybierz SLES 12
-   4. Nazwa użytkownika i hasło administratora  
-      Tworzony jest nowy użytkownik, który może służyć do logowania się do komputera.
+      Wybierz jedną z dystrybucji systemu Linux. Na potrzeby tego przykładu wybierz pozycję SLES 12
+   4. Nazwa użytkownika administratora i hasło administratora  
+      Zostanie utworzony nowy użytkownik, którego można użyć do zalogowania się na komputerze.
    5. Identyfikator podsieci  
-      Jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, do której powinna być przypisana maszyna wirtualna, nazwij identyfikator tej określonej podsieci. Identyfikator zwykle wygląda jak /subskrypcje/**&lt;&gt;identyfikator subskrypcji**/resourceGroups/**&lt;nazwa&gt;grupy zasobów**/providers/Microsoft.Network/virtualNetworks/**&lt;nazwa&gt;sieci wirtualnej**/podsieci/**&lt;nazwa&gt; podsieci**
+      Jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, należy przypisać do niej identyfikator tej konkretnej podsieci. Identyfikator zazwyczaj wygląda tak, jak**&lt;&gt;Identyfikator subskrypcji**/subscriptions//resourceGroups/**&lt;nazwa grupy&gt;zasobów**/Providers/Microsoft.Network/virtualNetworks/**&lt;nazwa sieci&gt;wirtualnej**/Subnets/**&lt;nazwa&gt; podsieci**
 
-### <a name="deploy-linux-manually-via-azure-portal"></a>Ręczne wdrażanie systemu Linux za pośrednictwem witryny Azure portal
+### <a name="deploy-linux-manually-via-azure-portal"></a>Ręczne wdrażanie systemu Linux za pośrednictwem Azure Portal
 
-Najpierw należy utworzyć maszyny wirtualne dla tego klastra NFS. Następnie należy utworzyć moduł równoważenia obciążenia i używać maszyn wirtualnych w pulach wewnętrznej bazy danych.
+Najpierw należy utworzyć maszyny wirtualne dla tego klastra systemu plików NFS. Następnie należy utworzyć moduł równoważenia obciążenia i użyć maszyn wirtualnych w pulach zaplecza.
 
 1. Tworzenie grupy zasobów
 1. Tworzenie sieci wirtualnej
 1. Tworzenie zestawu dostępności  
-   Ustawianie domeny aktualizacji maksymalnej
-1. Utwórz maszynę wirtualną 1 Użyj co najmniej SLES4SAP 12 SP3, w tym przykładzie jest używany obraz SLES4SAP 12 SP3 BYOS SLES dla aplikacji SAP 12 SP3 (BYOS)  
-   Wybierz zestaw dostępności utworzony wcześniej  
-1. Tworzenie maszyny wirtualnej 2 Użyj co najmniej SLES4SAP 12 SP3, w tym przykładzie obraz SLES4SAP 12 SP3 BYOS  
-   SLES Dla aplikacji SAP 12 SP3 (BYOS) jest używany  
-   Wybierz zestaw dostępności utworzony wcześniej  
+   Ustaw maksymalną domenę aktualizacji
+1. Utwórz maszynę wirtualną 1 Użyj co najmniej SLES4SAP 12 SP3. w tym przykładzie jest używany SLES4SAP 12 SP3 BYOS Image SLES for SAP Applications 12 SP3 (BYOS)  
+   Wybierz utworzony wcześniej zestaw dostępności  
+1. Utwórz maszynę wirtualną 2 Użyj co najmniej SLES4SAP 12 SP3, w tym przykładzie obraz SLES4SAP 12 SP3 BYOS  
+   Używane są SLES for SAP Applications 12 SP3 (BYOS)  
+   Wybierz utworzony wcześniej zestaw dostępności  
 1. Dodaj jeden dysk danych dla każdego systemu SAP do obu maszyn wirtualnych.
-1. Tworzenie modułu równoważenia obciążenia (wewnętrznego). Zalecamy [standardowy moduł równoważenia obciążenia](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
+1. Utwórz Load Balancer (wewnętrzny). Zalecamy użycie [standardowej usługi równoważenia obciążenia](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
    1. Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć standardowy moduł równoważenia obciążenia:
-      1. Tworzenie adresów IP frontendu
+      1. Utwórz adresy IP frontonu
          1. Adres IP 10.0.0.4 dla NW1
-            1. Otwórz moduł równoważenia obciążenia, wybierz pulę adresów IP frontu i kliknij przycisk Dodaj
-            1. Wprowadź nazwę nowej puli IP frontendu (na przykład **nw1-frontend)**
-            1. Ustaw przypisanie na Statyczne i wprowadź adres IP (na przykład **10.0.0.4**)
-            1. Kliknij przycisk OK
+            1. Otwórz moduł równoważenia obciążenia, wybierz pozycję Pula adresów IP frontonu, a następnie kliknij przycisk Dodaj.
+            1. Wprowadź nazwę nowej puli adresów IP frontonu (na przykład **NW1-fronton**)
+            1. Ustaw przypisanie na static i wprowadź adres IP (na przykład **10.0.0.4**)
+            1. Kliknij przycisk OK.
          1. Adres IP 10.0.0.5 dla NW2
             * Powtórz powyższe kroki dla NW2
       1. Tworzenie pul zaplecza
-         1. Połączone z podstawowymi interfejsami sieciowymi wszystkich maszyn wirtualnych, które powinny być częścią klastra NFS
-            1. Otwórz moduł równoważenia obciążenia, wybierz pule wewnętrznej bazy danych i kliknij przycisk Dodaj
-            1. Wprowadź nazwę nowej puli wewnętrznej bazy danych (na przykład **nw-backend)**
-            1. Wybierz sieć wirtualną
+         1. Połączono z podstawowymi interfejsami sieciowymi wszystkich maszyn wirtualnych, które powinny być częścią klastra NFS
+            1. Otwórz moduł równoważenia obciążenia, wybierz pozycję Pule zaplecza, a następnie kliknij przycisk Dodaj.
+            1. Wprowadź nazwę nowej puli zaplecza (na przykład NW przypadku **zaplecza**)
+            1. Wybierz Virtual Network
             1. Kliknij pozycję Dodaj maszynę wirtualną
-            1. Wybierz maszyny wirtualne klastra NFS i ich adresy IP.
+            1. Wybierz Maszyny wirtualne klastra NFS i ich adresy IP.
             1. Kliknij pozycję Add (Dodaj).
       1. Tworzenie sond kondycji
          1. Port 61000 dla NW1
-            1. Otwórz moduł równoważenia obciążenia, wybierz sondy kondycji i kliknij przycisk Dodaj
-            1. Wprowadź nazwę nowej sondy kondycji (na przykład **nw1-hp**)
-            1. Wybierz protokół TCP jako protokół, port 610**00**, zachowaj interwał 5 i próg w złej kondycji 2
-            1. Kliknij przycisk OK
+            1. Otwórz moduł równoważenia obciążenia, wybierz pozycję sondy kondycji, a następnie kliknij przycisk Dodaj.
+            1. Wprowadź nazwę nowej sondy kondycji (na przykład **NW1-HP**)
+            1. Wybierz pozycję TCP jako protokół, port 610**00**, Zachowaj interwał 5 i próg złej kondycji 2
+            1. Kliknij przycisk OK.
          1. Port 61001 dla NW2
             * Powtórz powyższe kroki, aby utworzyć sondę kondycji dla NW2
       1. Reguły równoważenia obciążenia
-         1. Otwórz moduł równoważenia obciążenia, wybierz reguły równoważenia obciążenia i kliknij przycisk Dodaj
-         1. Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład **nw1-lb**)
-         1. Wybierz adres IP frontendu, pulę wewnętrznej bazy danych i sondę kondycji utworzoną wcześniej (na przykład **nw1-frontend**. **nw-backend** i **nw1-hp**)
-         1. Wybierz **porty wysokiej haw**.
-         1. Wydłużenie limitu czasu bezczynnego do 30 minut
-         1. **Upewnij się, że włączysz pływający adres IP**
-         1. Kliknij przycisk OK
+         1. Otwórz moduł równoważenia obciążenia, wybierz pozycję reguły równoważenia obciążenia i kliknij przycisk Dodaj.
+         1. Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład **NW1-lb**)
+         1. Wybierz adres IP frontonu, pulę zaplecza i sondę kondycji utworzoną wcześniej (na przykład **NW1-frontonu**. **NW zapleczu** i **NW1 — HP**)
+         1. Wybierz pozycję **porty ha**.
+         1. Zwiększ limit czasu bezczynności do 30 minut
+         1. **Upewnij się, że włączono zmiennoprzecinkowy adres IP**
+         1. Kliknij przycisk OK.
          * Powtórz powyższe kroki, aby utworzyć regułę równoważenia obciążenia dla NW2
-   1. Alternatywnie, jeśli scenariusz wymaga podstawowego modułu równoważenia obciążenia, postępuj zgodnie z poniższymi instrukcjami:
-      1. Tworzenie adresów IP frontendu
+   1. Alternatywnie, jeśli scenariusz wymaga podstawowego modułu równoważenia obciążenia, wykonaj następujące instrukcje:
+      1. Utwórz adresy IP frontonu
          1. Adres IP 10.0.0.4 dla NW1
-            1. Otwórz moduł równoważenia obciążenia, wybierz pulę adresów IP frontu i kliknij przycisk Dodaj
-            1. Wprowadź nazwę nowej puli IP frontendu (na przykład **nw1-frontend)**
-            1. Ustaw przypisanie na Statyczne i wprowadź adres IP (na przykład **10.0.0.4**)
-            1. Kliknij przycisk OK
+            1. Otwórz moduł równoważenia obciążenia, wybierz pozycję Pula adresów IP frontonu, a następnie kliknij przycisk Dodaj.
+            1. Wprowadź nazwę nowej puli adresów IP frontonu (na przykład **NW1-fronton**)
+            1. Ustaw przypisanie na static i wprowadź adres IP (na przykład **10.0.0.4**)
+            1. Kliknij przycisk OK.
          1. Adres IP 10.0.0.5 dla NW2
             * Powtórz powyższe kroki dla NW2
       1. Tworzenie pul zaplecza
-         1. Połączone z podstawowymi interfejsami sieciowymi wszystkich maszyn wirtualnych, które powinny być częścią klastra NFS
-            1. Otwórz moduł równoważenia obciążenia, wybierz pule wewnętrznej bazy danych i kliknij przycisk Dodaj
-            1. Wprowadź nazwę nowej puli wewnętrznej bazy danych (na przykład **nw-backend)**
+         1. Połączono z podstawowymi interfejsami sieciowymi wszystkich maszyn wirtualnych, które powinny być częścią klastra NFS
+            1. Otwórz moduł równoważenia obciążenia, wybierz pozycję Pule zaplecza, a następnie kliknij przycisk Dodaj.
+            1. Wprowadź nazwę nowej puli zaplecza (na przykład NW przypadku **zaplecza**)
             1. Kliknij pozycję Dodaj maszynę wirtualną
             1. Wybierz utworzony wcześniej zestaw dostępności
-            1. Wybieranie maszyn wirtualnych klastra NFS
-            1. Kliknij przycisk OK
+            1. Wybierz Maszyny wirtualne klastra NFS
+            1. Kliknij przycisk OK.
       1. Tworzenie sond kondycji
          1. Port 61000 dla NW1
-            1. Otwórz moduł równoważenia obciążenia, wybierz sondy kondycji i kliknij przycisk Dodaj
-            1. Wprowadź nazwę nowej sondy kondycji (na przykład **nw1-hp**)
-            1. Wybierz protokół TCP jako protokół, port 610**00**, zachowaj interwał 5 i próg w złej kondycji 2
-            1. Kliknij przycisk OK
+            1. Otwórz moduł równoważenia obciążenia, wybierz pozycję sondy kondycji, a następnie kliknij przycisk Dodaj.
+            1. Wprowadź nazwę nowej sondy kondycji (na przykład **NW1-HP**)
+            1. Wybierz pozycję TCP jako protokół, port 610**00**, Zachowaj interwał 5 i próg złej kondycji 2
+            1. Kliknij przycisk OK.
          1. Port 61001 dla NW2
             * Powtórz powyższe kroki, aby utworzyć sondę kondycji dla NW2
       1. Reguły równoważenia obciążenia
          1. 2049 TCP dla NW1
-            1. Otwórz moduł równoważenia obciążenia, wybierz reguły równoważenia obciążenia i kliknij przycisk Dodaj
-            1. Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład **nw1-lb-2049**)
-            1. Wybierz adres IP wewnętrznej bazy danych, pulę wewnętrznej bazy danych i sondę kondycji utworzoną wcześniej (na przykład **nw1-frontend)**
-            1. Zachowaj protokół **TCP**, wprowadź port **2049**
-            1. Wydłużenie limitu czasu bezczynnego do 30 minut
-            1. **Upewnij się, że włączysz pływający adres IP**
-            1. Kliknij przycisk OK
+            1. Otwórz moduł równoważenia obciążenia, wybierz pozycję reguły równoważenia obciążenia i kliknij przycisk Dodaj.
+            1. Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład **NW1-lb-2049**)
+            1. Wybierz adres IP frontonu, pulę zaplecza i sondę kondycji utworzoną wcześniej (na przykład **NW1-fronton**)
+            1. Utrzymywanie protokołu **TCP**, wprowadź port **2049**
+            1. Zwiększ limit czasu bezczynności do 30 minut
+            1. **Upewnij się, że włączono zmiennoprzecinkowy adres IP**
+            1. Kliknij przycisk OK.
          1. 2049 UDP dla NW1
-            * Powtórz powyższe kroki dla portu 2049 i UDP dla NW1
+            * Powtórz powyższe kroki dla portów 2049 i UDP dla NW1
          1. 2049 TCP dla NW2
-            * Powtórz powyższe kroki dla portu 2049 i TCP dla NW2
+            * Powtórz powyższe kroki dla portów 2049 i TCP dla NW2
          1. 2049 UDP dla NW2
-            * Powtórz powyższe kroki dla portu 2049 i UDP dla NW2
+            * Powtórz powyższe kroki dla portów 2049 i UDP dla NW2
 
 > [!Note]
-> Gdy maszyny wirtualne bez publicznych adresów IP są umieszczane w puli wewnętrznej bazy danych wewnętrznego (bez publicznego adresu IP) Standardowy moduł równoważenia obciążenia platformy Azure, nie będzie żadnych wychodzących połączeń z Internetem, chyba że zostanie wykonana dodatkowa konfiguracja, aby umożliwić routing do publicznych punktów końcowych. Aby uzyskać szczegółowe informacje na temat sposobu osiągnięcia łączności wychodzącej, zobacz [Łączność publiczna dla maszyn końcowych przy użyciu standardowego modułu równoważenia obciążenia platformy Azure w scenariuszach wysokiej dostępności SAP.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)  
+> Gdy maszyny wirtualne bez publicznych adresów IP są umieszczane w puli zaplecza wewnętrznego (bez publicznego adresu IP) standardowego modułu równoważenia obciążenia platformy Azure, nie będzie wychodzące połączenie z Internetem, chyba że zostanie przeprowadzona dodatkowa konfiguracja zezwalająca na kierowanie do publicznych punktów końcowych. Aby uzyskać szczegółowe informacje na temat sposobu osiągnięcia łączności wychodzącej, zobacz [publiczna łączność z punktem końcowym dla Virtual Machines przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 > [!IMPORTANT]
-> Nie należy włączać sygnatur czasowych TCP na maszynach wirtualnych platformy Azure umieszczonych za modułem równoważenia obciążenia platformy Azure. Włączenie sygnatur czasowych TCP spowoduje niepowodzenie sond kondycji. Ustaw parametr **net.ipv4.tcp_timestamps** na **0**. Aby uzyskać szczegółowe informacje, zobacz [Sondy kondycji modułu równoważenia obciążenia](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Nie należy włączać sygnatur czasowych protokołu TCP na maszynach wirtualnych platformy Azure umieszczonych za Azure Load Balancer. Włączenie sygnatur czasowych protokołu TCP spowoduje niepowodzenie sond kondycji. Ustaw parametr **net. IPv4. tcp_timestamps** na **0**. Aby uzyskać szczegółowe informacje, zobacz [sondy kondycji Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
-### <a name="create-pacemaker-cluster"></a>Tworzenie klastra rozrusznika serca
+### <a name="create-pacemaker-cluster"></a>Tworzenie klastra Pacemaker
 
-Wykonaj kroki opisane w [sekcji Konfigurowanie rozrusznika serca na suse linux enterprise server na platformie Azure,](high-availability-guide-suse-pacemaker.md) aby utworzyć podstawowy klaster rozrusznika serca dla tego serwera NFS.
+Wykonaj kroki opisane w temacie [Konfigurowanie Pacemaker SUSE Linux Enterprise Server na platformie Azure](high-availability-guide-suse-pacemaker.md) , aby utworzyć podstawowy klaster Pacemaker dla tego serwera systemu plików NFS.
 
-### <a name="configure-nfs-server"></a>Konfigurowanie serwera systemu plików NFS
+### <a name="configure-nfs-server"></a>Konfigurowanie serwera NFS
 
-Następujące elementy są poprzedzone **[A]** - ma zastosowanie do wszystkich węzłów, **[1]** - dotyczy tylko węzła 1 lub **[2]** - dotyczy tylko węzła 2.
+Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]** — dotyczy tylko węzła 1 lub **[2]** — dotyczy tylko węzła 2.
 
-1. **[A]** Rozpoznawanie nazw hostów instalatora
+1. **[A]** rozpoznawanie nazw hostów
 
-   Można użyć serwera DNS lub zmodyfikować /etc/hosts we wszystkich węzłach. W tym przykładzie pokazano, jak używać pliku /etc/hosts.
-   Zastąp adres IP i nazwa hosta w następujących poleceniach
+   Możesz użyć serwera DNS lub zmodyfikować/etc/hosts na wszystkich węzłach. Ten przykład pokazuje, jak używać pliku/etc/hosts.
+   Zastąp adres IP i nazwę hosta w następujących poleceniach
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
    
-   Wstaw następujące wiersze do /etc/hosts. Zmienianie adresu IP i nazwy hosta w celu dopasowania go do środowiska
+   Wstaw następujące wiersze do/etc/hosts. Zmień adres IP i nazwę hosta, aby odpowiadały Twojemu środowisku
    
    <pre><code># IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
    <b>10.0.0.5 nw2-nfs</b>
    </code></pre>
 
-1. **[A]** Włącz serwer systemu plików NFS
+1. **[A]** Włącz serwer NFS
 
-   Tworzenie głównego wpisu eksportu nfs
+   Tworzenie wpisu eksportu głównego systemu plików NFS
 
    <pre><code>sudo sh -c 'echo /srv/nfs/ *\(rw,no_root_squash,fsid=0\)>/etc/exports'
    
    sudo mkdir /srv/nfs/
    </code></pre>
 
-1. **[A]** Instalowanie komponentów drbd
+1. **[A]** Zainstaluj składniki DRBD
 
    <pre><code>sudo zypper install drbd drbd-kmp-default drbd-utils
    </code></pre>
 
-1. **[A]** Tworzenie partycji dla urządzeń drbd
+1. **[A]** Utwórz partycję dla urządzeń DRBD
 
-   Wyświetlanie listy wszystkich dostępnych dysków danych
+   Wyświetl wszystkie dostępne dyski danych
 
    <pre><code>sudo ls /dev/disk/azure/scsi1/
    </code></pre>
@@ -268,15 +268,15 @@ Następujące elementy są poprzedzone **[A]** - ma zastosowanie do wszystkich w
    lun0  lun1
    ```
 
-   Tworzenie partycji dla każdego dysku danych
+   Utwórz partycje dla każdego dysku z danymi
 
    <pre><code>sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun0'
    sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun1'
    </code></pre>
 
-1. **[A]** Tworzenie konfiguracji LVM
+1. **[A]** Utwórz konfiguracje LVM
 
-   Wyświetl listę wszystkich dostępnych partycji
+   Wyświetl wszystkie dostępne partycje
 
    <pre><code>ls /dev/disk/azure/scsi1/lun*-part*
    </code></pre>
@@ -287,7 +287,7 @@ Następujące elementy są poprzedzone **[A]** - ma zastosowanie do wszystkich w
    /dev/disk/azure/scsi1/lun0-part1  /dev/disk/azure/scsi1/lun1-part1
    ```
 
-   Tworzenie woluminów LVM dla każdej partycji
+   Utwórz woluminy LVM dla każdej partycji
 
    <pre><code>sudo pvcreate /dev/disk/azure/scsi1/lun0-part1  
    sudo vgcreate vg-<b>NW1</b>-NFS /dev/disk/azure/scsi1/lun0-part1
@@ -298,18 +298,18 @@ Następujące elementy są poprzedzone **[A]** - ma zastosowanie do wszystkich w
    sudo lvcreate -l 100%FREE -n <b>NW2</b> vg-<b>NW2</b>-NFS
    </code></pre>
 
-1. **[A]** Konfigurowanie drbd
+1. **[A]** Skonfiguruj DRBD
 
    <pre><code>sudo vi /etc/drbd.conf
    </code></pre>
 
-   Upewnij się, że plik drbd.conf zawiera następujące dwa wiersze
+   Upewnij się, że plik DRBD. conf zawiera dwa następujące wiersze
 
    <pre><code>include "drbd.d/global_common.conf";
    include "drbd.d/*.res";
    </code></pre>
 
-   Zmienianie globalnej konfiguracji drbd
+   Zmień globalną konfigurację DRBD
 
    <pre><code>sudo vi /etc/drbd.d/global_common.conf
    </code></pre>
@@ -353,12 +353,12 @@ Następujące elementy są poprzedzone **[A]** - ma zastosowanie do wszystkich w
    }
    </code></pre>
 
-1. **[A]** Tworzenie urządzeń drbd NFS
+1. **[A]** tworzenie urządzeń DRBD NFS
 
    <pre><code>sudo vi /etc/drbd.d/<b>NW1</b>-nfs.res
    </code></pre>
 
-   Włóż konfigurację nowego urządzenia drbd i wyjdź
+   Wstaw konfigurację dla nowego urządzenia DRBD i Zakończ
 
    <pre><code>resource <b>NW1</b>-nfs {
         protocol     C;
@@ -383,7 +383,7 @@ Następujące elementy są poprzedzone **[A]** - ma zastosowanie do wszystkich w
    <pre><code>sudo vi /etc/drbd.d/<b>NW2</b>-nfs.res
    </code></pre>
 
-   Włóż konfigurację nowego urządzenia drbd i wyjdź
+   Wstaw konfigurację dla nowego urządzenia DRBD i Zakończ
 
    <pre><code>resource <b>NW2</b>-nfs {
         protocol     C;
@@ -405,7 +405,7 @@ Następujące elementy są poprzedzone **[A]** - ma zastosowanie do wszystkich w
    }
    </code></pre>
 
-   Utwórz urządzenie drbd i uruchom je
+   Utwórz urządzenie DRBD i uruchom je
 
    <pre><code>sudo drbdadm create-md <b>NW1</b>-nfs
    sudo drbdadm create-md <b>NW2</b>-nfs
@@ -413,25 +413,25 @@ Następujące elementy są poprzedzone **[A]** - ma zastosowanie do wszystkich w
    sudo drbdadm up <b>NW2</b>-nfs
    </code></pre>
 
-1. **[1]** Pomiń początkową synchronizację
+1. **[1]** Pomiń synchronizację początkową
 
    <pre><code>sudo drbdadm new-current-uuid --clear-bitmap <b>NW1</b>-nfs
    sudo drbdadm new-current-uuid --clear-bitmap <b>NW2</b>-nfs
    </code></pre>
 
-1. **[1]** Ustawianie węzła podstawowego
+1. **[1]** Ustaw węzeł podstawowy
 
    <pre><code>sudo drbdadm primary --force <b>NW1</b>-nfs
    sudo drbdadm primary --force <b>NW2</b>-nfs
    </code></pre>
 
-1. **[1]** Poczekaj, aż nowe urządzenia drbd zostaną zsynchronizowane
+1. **[1]** poczekaj na zsynchronizowanie nowych urządzeń DRBD
 
    <pre><code>sudo drbdsetup wait-sync-resource NW1-nfs
    sudo drbdsetup wait-sync-resource NW2-nfs
    </code></pre>
 
-1. **[1]** Tworzenie systemów plików na urządzeniach drbd
+1. **[1]** tworzenie systemów plików na urządzeniach DRBD
 
    <pre><code>sudo mkfs.xfs /dev/drbd0
    sudo mkdir /srv/nfs/NW1
@@ -460,26 +460,26 @@ Następujące elementy są poprzedzone **[A]** - ma zastosowanie do wszystkich w
    sudo umount /srv/nfs/NW2
    </code></pre>
 
-1. **[A]** Konfiguracja wykrywania podzielonego mózgu
+1. **[A]** konfiguracja DRBD — wykrywanie rozdzielenia mózgów
 
-   Podczas korzystania z drbd do synchronizacji danych z jednego hosta do drugiego, może wystąpić tak zwany podział mózgu. Podzielony mózg to scenariusz, w którym oba węzły klastra promowały urządzenie drbd jako podstawowe i nie były zsynchronizowane. Może to być rzadka sytuacja, ale nadal chcesz obsługiwać i rozwiązać podzielony mózg tak szybko, jak to możliwe. Dlatego ważne jest, aby być powiadamianym, gdy doszło do podziału mózgu.
+   W przypadku korzystania z programu DRBD do synchronizowania danych z jednego hosta z innym, może wystąpić polecenie Split mózg. Podzielona mózg jest scenariuszem, w którym oba węzły klastra podwyższenie poziomu urządzenia DRBD jako podstawowe i wystąpiły z synchronizacją. Może to być rzadki przypadek, ale nadal chcesz obsługiwać i rozwiązywać podzielone mózgi tak szybko, jak to możliwe. W związku z tym ważne jest, aby otrzymywać powiadomienia, gdy wystąpił podzielony plik mózgów.
 
-   Przeczytaj [oficjalną dokumentację drbd,](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-split-brain-notification) jak skonfigurować powiadomienie o podzielonym mózgu.
+   Zapoznaj [się z oficjalną dokumentacją DRBD](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-split-brain-notification) na temat konfigurowania powiadomienia o rozdzieleniu mózgów.
 
-   Jest również możliwe, aby automatycznie odzyskać od scenariusza podziału mózgu. Aby uzyskać więcej informacji, przeczytaj [artykuł Automatyczne zasady odzyskiwania mózgu podzielonego](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-automatic-split-brain-recovery-configuration)
+   Możliwe jest również automatyczne odzyskanie z podzielonego scenariusza mózgów. Aby uzyskać więcej informacji, przeczytaj artykuł [Automatyczne dzielenie zasad odzyskiwania mózgów](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-automatic-split-brain-recovery-configuration)
    
 ### <a name="configure-cluster-framework"></a>Konfigurowanie struktury klastra
 
-1. **[1]** Dodaj urządzenia drbd NFS dla systemu SAP NW1 do konfiguracji klastra
+1. **[1]** Dodaj urządzenia DRBD NFS dla oprogramowania SAP system NW1 do konfiguracji klastra
 
    > [!IMPORTANT]
-   > Ostatnie testy ujawniły sytuacje, w których netcat przestaje odpowiadać na żądania z powodu zaległości i ograniczenia obsługi tylko jednego połączenia. Zasób netcat przestaje nasłuchiwać żądań modułu równoważenia obciążenia platformy Azure, a zmienny adres IP staje się niedostępny.  
-   > W przypadku istniejących klastrów rozruszników zalecamy w przeszłości zastąpienie netcata socatem. Obecnie zalecamy użycie agenta zasobów azure-lb, który jest częścią agentów zasobów pakietu, z następującymi wymaganiami dotyczącymi wersji pakietu:
-   > - W przypadku SLES 12 SP4/SP5 wersja musi być co najmniej resource-agents-4.3.018.a7fb5035-3.30.1.  
-   > - Dla SLES 15/15 SP1 wersja musi być co najmniej resource-agents-4.3.0184.6ee15eb2-4.13.1.  
+   > Ostatnie testy ujawniły sytuacje, w których netcat przestaje odpowiadać na żądania z powodu zaległości i ograniczenia obsługi tylko jednego połączenia. Zasób netcat przestaje nasłuchiwać żądań modułu równoważenia obciążenia platformy Azure, a przestawny adres IP stał się niedostępny.  
+   > W przypadku istniejących klastrów Pacemaker zalecamy w przeszłości zastępowanie netcat socat. Obecnie zalecamy korzystanie z agenta zasobów Azure-lb, który jest częścią agentów zasobów pakietu, z następującymi wymaganiami dotyczącymi wersji pakietu:
+   > - W przypadku SLES 12 SP4/SP5 wersja musi być co najmniej równa "Resource-Agents-4.3.018. a7fb5035-3.30.1.  
+   > - W przypadku programu SLES 15/15 z dodatkiem SP1 wersja musi być co najmniej równa "Resource-Agents-4.3.0184.6 ee15eb2-4.13.1.  
    >
-   > Należy pamiętać, że zmiana będzie wymagać krótkiego przestoju.  
-   > W przypadku istniejących klastrów stymulatora, jeśli konfiguracja została już zmieniona, aby używać socat zgodnie z opisem w [umacnianiu wykrywania równoważenia obciążenia azure,](https://www.suse.com/support/kb/doc/?id=7024128)nie ma wymogu natychmiastowego przejścia na agenta zasobów azure-lb.
+   > Należy pamiętać, że zmiana będzie wymagała krótkiego przestoju.  
+   > W przypadku istniejących klastrów Pacemaker, jeśli konfiguracja została już zmieniona tak, aby korzystała z socat zgodnie z opisem w zabezpieczeniach [wykrywania modułu równoważenia obciążenia platformy Azure](https://www.suse.com/support/kb/doc/?id=7024128), nie ma potrzeby natychmiastowego przełączania do agenta zasobów Azure-LB.
 
    <pre><code>sudo crm configure rsc_defaults resource-stickiness="200"
 
@@ -528,7 +528,7 @@ Następujące elementy są poprzedzone **[A]** - ma zastosowanie do wszystkich w
      g-<b>NW1</b>_nfs ms-drbd_<b>NW1</b>_nfs:Master
    </code></pre>
 
-1. **[1]** Dodaj urządzenia drbd NFS dla systemu SAP NW2 do konfiguracji klastra
+1. **[1]** Dodaj urządzenia DRBD NFS dla oprogramowania SAP system NW2 do konfiguracji klastra
 
    <pre><code># Enable maintenance mode
    sudo crm configure property maintenance-mode=true
@@ -571,7 +571,7 @@ Następujące elementy są poprzedzone **[A]** - ma zastosowanie do wszystkich w
      g-<b>NW2</b>_nfs ms-drbd_<b>NW2</b>_nfs:Master
    </code></pre>
 
-   Opcja `crossmnt` w `exportfs` zasobach klastra jest dostępna w naszej dokumentacji dla zgodności z powrotem ze starszymi wersjami SLES.  
+   `crossmnt` Opcja w zasobach `exportfs` klastra znajduje się w naszej dokumentacji w celu zapewnienia zgodności z poprzednimi wersjami przy użyciu starszych wersji programu SLES.  
 
 1. **[1]** Wyłącz tryb konserwacji
    
@@ -580,8 +580,8 @@ Następujące elementy są poprzedzone **[A]** - ma zastosowanie do wszystkich w
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Instalowanie SAP ASCS i bazy danych](high-availability-guide-suse.md)
-* [Planowanie i implementacja maszyn wirtualnych platformy Azure dla systemu SAP][planning-guide]
-* [Wdrożenie maszyn wirtualnych platformy Azure dla systemu SAP][deployment-guide]
-* [Wdrożenie usługi DBMS maszyn wirtualnych platformy Azure dla systemu SAP][dbms-guide]
-* Aby dowiedzieć się, jak ustalić wysoką dostępność i plan odzyskiwania po awarii sap HANA na maszynach wirtualnych platformy Azure, zobacz [Wysoka dostępność SAP HANA na maszynach wirtualnych platformy Azure (VM)][sap-hana-ha]
+* [Instalowanie oprogramowania SAP ASCS i bazy danych](high-availability-guide-suse.md)
+* [Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP][planning-guide]
+* [Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP][deployment-guide]
+* [Wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP][dbms-guide]
+* Aby dowiedzieć się, jak zapewnić wysoką dostępność i zaplanować odzyskiwanie po awarii SAP HANA na maszynach wirtualnych platformy Azure, zobacz [wysoka dostępność SAP HANA na platformie azure Virtual Machines (maszyny wirtualne)][sap-hana-ha]

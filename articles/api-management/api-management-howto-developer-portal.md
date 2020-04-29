@@ -1,7 +1,7 @@
 ---
-title: Omówienie portalu dla deweloperów usługi Azure API Management
+title: Omówienie portalu dla deweloperów platformy Azure API Management
 titleSuffix: Azure API Management
-description: Dowiedz się więcej o portalu dla deweloperów w usłudze API Management.
+description: Dowiedz się więcej o portalu dla deweloperów w API Management.
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
@@ -14,160 +14,160 @@ ms.topic: article
 ms.date: 03/15/2020
 ms.author: apimpm
 ms.openlocfilehash: fefa5ff5d112b479110d484ee0ea4c358b5c88a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335913"
 ---
-# <a name="azure-api-management-developer-portal-overview"></a>Omówienie portalu dla deweloperów usługi Azure API Management
+# <a name="azure-api-management-developer-portal-overview"></a>Portal deweloperów API Management platformy Azure — omówienie
 
-Portal dla deweloperów to automatycznie generowana, w pełni konfigurowalna witryna sieci Web z dokumentacją interfejsów API. Jest to miejsce, gdzie konsumenci interfejsu API można odnajdywać interfejsy API, dowiedzieć się, jak z nich korzystać, zażądać dostępu i wypróbować je.
+Portal dla deweloperów to automatycznie generowana, w pełni dostosowywalna witryna sieci Web z dokumentacją interfejsów API. W przypadku, gdy konsumenci interfejsu API mogą odnajdywać interfejsy API, dowiedzieć się, jak ich używać, zażądać dostępu i wypróbować.
 
-W tym artykule opisano różnice między samodzielnie hostowanymi i zarządzanymi wersjami portalu dewelopera w usłudze API Management. Wyjaśnia również jego architekturę i dostarcza odpowiedzi na często zadawane pytania.
+W tym artykule opisano różnice między samodzielnymi i zarządzanymi wersjami portalu dla deweloperów w API Management. Wyjaśniono w nim także swoją architekturę i przedstawiono odpowiedzi na często zadawane pytania.
 
-![Portal deweloperski api management](media/api-management-howto-developer-portal/cover.png)
+![Portal dla deweloperów API Management](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a>Wersje zarządzane i hostowane samodzielnie
+## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a>Zarządzane i samodzielne wersje
 
-Portal dla deweloperów można utworzyć na dwa sposoby:
+Portal dla deweloperów można skompilować na dwa sposoby:
 
-- **Wersja zarządzana** — poprzez edytowanie i dostosowywanie portalu, który jest wbudowany `<your-api-management-instance-name>.developer.azure-api.net`w wystąpienie usługi API Management i jest dostępny za pośrednictwem adresu URL . Zapoznaj się z [tym artykułem dokumentacji,](api-management-howto-developer-portal-customize.md) aby dowiedzieć się, jak uzyskać dostęp do zarządzanego portalu i dostosować go.
-- **Wersja hostowana samodzielnie** — wdrażając i samodzielnie hostując portal poza wystąpieniem usługi API Management. Takie podejście umożliwia edytowanie bazy kodu portalu i rozszerzanie podanych podstawowych funkcji — na przykład implementowanie niestandardowych widżetów do integracji z systemami innych firm. W tym scenariuszu jesteś opiekunem portalu i jesteś odpowiedzialny za uaktualnienie portalu do najnowszej wersji. Szczegółowe informacje i instrukcje można znaleźć w [repozytorium GitHub z kodem źródłowym portalu][1] i [samouczkiem na temat implementowania widżetu][3]. [Samouczek dla wersji zarządzanej](api-management-howto-developer-portal-customize.md) przechodzi przez panel administracyjny portalu, który jest wspólny dla wersji zarządzanych i hostowanych samodzielnie.
+- **Wersja zarządzana** — edytując i dostosowując Portal, który jest wbudowany w wystąpienie API Management i jest dostępny za pomocą adresu URL `<your-api-management-instance-name>.developer.azure-api.net`. Zapoznaj się z [tym artykułem dokumentacji](api-management-howto-developer-portal-customize.md) , aby dowiedzieć się, jak uzyskać dostęp do portalu zarządzanego i dostosować go.
+- **Samodzielna wersja** — przez wdrożenie i samodzielne hostowanie portalu poza wystąpieniem API Management. Takie podejście umożliwia edytowanie bazy kodu portalu i poszerzanie dostarczonych funkcji podstawowych — na przykład zaimplementowanie niestandardowych widżetów dla integracji z systemami innych firm. W tym scenariuszu użytkownik jest odpowiedzialny za aktualizowanie portalu do najnowszej wersji. Aby uzyskać szczegółowe informacje i instrukcje, zapoznaj się z [repozytorium GitHub za pomocą kodu źródłowego portalu][1] i [samouczka dotyczącego implementacji widżetu][3]. Samouczek dotyczący [zarządzanej wersji](api-management-howto-developer-portal-customize.md) przeprowadzi Cię przez panel administracyjny portalu, który jest typowy dla zarządzanych i samodzielnych wersji.
 
-## <a name="portal-architectural-concepts"></a>Koncepcje architektoniczne portalu
+## <a name="portal-architectural-concepts"></a>Koncepcje architektury portalu
 
 Składniki portalu można logicznie podzielić na dwie kategorie: *kod* i *zawartość*.
 
-*Kod* jest obsługiwany w [repozytorium GitHub][1] i zawiera:
+*Kod* jest przechowywany w [repozytorium GitHub][1] i obejmuje:
 
-- Widżety - które reprezentują elementy wizualne i łączą HTML, JavaScript, zdolność stylizacji, ustawienia i mapowanie zawartości. Przykładami są obraz, akapit tekstowy, formularz, lista interfejsów API itp.
-- Definicje stylizowania — określające sposób stylizowania widżetów
-- Engine - który generuje statyczne strony internetowe z zawartości portalu i jest napisany w JavaScript
-- Edytor wizualny - który pozwala na dostosowanie przeglądarki i tworzenie doświadczenia
+- Widżety, które reprezentują elementy wizualne i łączą kod HTML, JavaScript, możliwość stylów, ustawienia i mapowanie zawartości. Przykłady to obraz, akapit tekstu, formularz, lista interfejsów API itp.
+- Definicje stylów, które określają, w jaki sposób można stylować widżety
+- Aparat, który generuje statyczne strony sieci Web z zawartości portalu i jest zapisywana w języku JavaScript
+- Edytor wizualny, który umożliwia dostosowanie i tworzenie w przeglądarce
 
-*Zawartość* jest podzielona na dwie podkategorie: *zawartość portalu* i zawartość *api management*.
+*Zawartość* jest dzielona na dwie podkategorie: *zawartość portalu* i *zawartość API Management*.
 
 *Zawartość portalu* jest specyficzna dla portalu i obejmuje:
 
-- Strony - na przykład strona docelowa, samouczki API, wpisy na blogu
+- Strony — na przykład strona docelowa, samouczki interfejsu API, wpisy w blogu
 - Multimedia — obrazy, animacje i inna zawartość oparta na plikach
-- Układy - szablony, które są dopasowywały się do adresu URL i definiują sposób wyświetlania stron
-- Style - wartości definicji stylów, np.
-- Ustawienia - konfiguracja, np.
+- Układy — szablony dopasowane do adresu URL i definiują sposób wyświetlania stron
+- Style — wartości dla definicji stylów, np. czcionki, kolory, obramowania
+- Ustawienia — konfiguracja, np. favicon, metadane witryny sieci Web
 
-*Zawartość portalu*, z wyjątkiem nośników, jest wyrażona jako dokumenty JSON.
+*Zawartość portalu*, z wyjątkiem nośników, jest wyrażana jako dokumenty JSON.
 
-*Zawartość usługi API Management* obejmuje jednostki, takie jak interfejsy API, operacje, produkty, subskrypcje.
+*API Management Content* zawiera jednostki, takie jak interfejsy API, operacje, produkty i subskrypcje.
 
-Portal opiera się na dostosowanym widelcu [paperbits ram](https://paperbits.io/). Oryginalna funkcja Paperbits została rozszerzona, aby zapewnić widżety specyficzne dla api Management (na przykład listę interfejsów API, listę produktów) i łącznik do usługi API Management do zapisywania i pobierania zawartości.
+Portal jest oparty na dostosowaniu rozwidlenia [struktury Paperbits](https://paperbits.io/). Oryginalne funkcje Paperbits zostały rozszerzone, aby zapewnić widżety specyficzne dla API Management (na przykład listę interfejsów API, listę produktów) i łącznik do API Management usługi do zapisywania i pobierania zawartości.
 
 ## <a name="frequently-asked-questions"></a><a name="faq"></a>Często zadawane pytania
 
-W tej sekcji odpowiadamy na często zadawane pytania dotyczące portalu dla deweloperów, które mają charakter ogólny. Pytania dotyczące wersji hostowane samodzielnie można znaleźć [w sekcji wiki repozytorium GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
+W tej sekcji znajdziesz odpowiedzi na często zadawane pytania dotyczące portalu dla deweloperów, który ma charakter ogólny. Pytania specyficzne dla własnej wersji hostowanej można znaleźć w [sekcji wiki repozytorium GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
 
 ### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/>Jak przeprowadzić migrację z wersji zapoznawczej portalu?
 
-Korzystając z wersji zapoznawczej portalu dewelopera, udostępnino zawartość w wersji zapoznawczej w usłudze zarządzania interfejsami API. Zawartość domyślna została znacząco zmodyfikowana w ogólnie dostępnej wersji, aby uzyskać lepsze wrażenia użytkownika. Zawiera również nowe widżety.
+Korzystając z wersji zapoznawczej portalu dla deweloperów, Zainicjowano obsługę zawartości w wersji zapoznawczej w usłudze API Management. Zawartość domyślna została znacząco zmodyfikowana w ogólnie dostępnej wersji w celu lepszego środowiska użytkownika. Zawiera również nowe widżety.
 
-Jeśli używasz wersji zarządzanej, zresetuj zawartość portalu, klikając **pozycję Resetuj zawartość** w sekcji **Menu Operacje.** Potwierdzenie tej operacji spowoduje usunięcie całej zawartości portalu i udostępnienie nowej zawartości domyślnej. Aparat portalu został automatycznie zaktualizowany w usłudze zarządzania interfejsami API.
+Jeśli używasz zarządzanej wersji, zresetuj zawartość portalu, klikając pozycję **Zresetuj zawartość** w sekcji menu **operacje** . Potwierdzenie tej operacji spowoduje usunięcie całej zawartości portalu i udostępnienie nowej zawartości domyślnej. Aparat portalu został automatycznie zaktualizowany w usłudze API Management.
 
-![Resetowanie zawartości portalu](media/api-management-howto-developer-portal/reset-content.png)
+![Resetuj zawartość portalu](media/api-management-howto-developer-portal/reset-content.png)
 
-Jeśli używasz wersji hostowane samodzielnie, użyj `scripts/cleanup.bat` `scripts/generate.bat` i z repozytorium GitHub, aby usunąć istniejącą zawartość i aprowizować nową zawartość. Upewnij się, że kod portalu jest uaktualniony do najnowszej wersji z repozytorium GitHub wcześniej.
+Jeśli używasz wersji samohostowanej, Użyj usługi `scripts/cleanup.bat` i `scripts/generate.bat` z repozytorium GitHub, aby usunąć istniejącą zawartość i udostępnić nową zawartość. Upewnij się, że kod portalu został uaktualniony do najnowszej wersji z repozytorium GitHub wcześniej.
 
-Jeśli nie chcesz resetować zawartości portalu, możesz użyć nowo dostępnych widżetów na swoich stronach. Istniejące widżety zostały automatycznie zaktualizowane do najnowszych wersji.
+Jeśli nie chcesz resetować zawartości portalu, możesz rozważyć użycie nowo dostępnych widżetów na stronach. Istniejące widżety zostały automatycznie zaktualizowane do najnowszych wersji.
 
-Jeśli portal został aprowidyfikowany po ogłoszeniu o ogólnej dostępności, powinien już zawierać nową zawartość domyślną. Nie jest wymagane żadne działanie z Twojej strony.
+Jeśli Twój portal został zainicjowany po ogólnym ogłoszeniu dostępności, powinien już obsługiwać nową zawartość domyślną. Nie jest wymagana żadna akcja ze strony użytkownika.
 
-### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-developer-portal"></a>Jak mogę przeprowadzić migrację ze starego portalu dla deweloperów do portalu dla deweloperów?
+### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-developer-portal"></a>Jak przeprowadzić migrację ze starego portalu dla deweloperów do portalu dla deweloperów?
 
-Portale są niezgodne i należy przeprowadzić ręczną migrację zawartości.
+Portale nie są zgodne i należy przeprowadzić migrację zawartości ręcznie.
 
-### <a name="does-the-portal-have-all-the-features-of-the-old-portal"></a>Czy portal ma wszystkie funkcje starego portalu?
+### <a name="does-the-portal-have-all-the-features-of-the-old-portal"></a>Czy Portal ma wszystkie funkcje starego portalu?
 
-Portal dla deweloperów nie obsługuje już *aplikacji* i *problemów.*
+Portal dla deweloperów nie obsługuje już *aplikacji* i *problemów*.
 
-Uwierzytelnianie za pomocą OAuth w interaktywnej konsoli dewelopera nie jest jeszcze obsługiwane. Postęp można śledzić za pomocą [problemu z githubem](https://github.com/Azure/api-management-developer-portal/issues/208).
+Uwierzytelnianie za pomocą protokołu OAuth w interaktywnej konsoli dewelopera nie jest jeszcze obsługiwane. Postęp można śledzić w ramach [problemu usługi GitHub](https://github.com/Azure/api-management-developer-portal/issues/208).
 
-### <a name="has-the-old-portal-been-deprecated"></a>Czy stary portal został przestarzały?
+### <a name="has-the-old-portal-been-deprecated"></a>Czy stary Portal jest przestarzały?
 
-Stare portale dla deweloperów i wydawców są teraz *starszymi* funkcjami — będą otrzymywać tylko aktualizacje zabezpieczeń. Nowe funkcje zostaną zaimplementowane tylko w nowym portalu dla deweloperów.
+Stary Portal deweloperów i wydawców ma teraz *starsze* funkcje — będą otrzymywać tylko aktualizacje zabezpieczeń. Nowe funkcje zostaną zaimplementowane tylko w nowym portalu dla deweloperów.
 
-Wycofanie starszych portali zostanie ogłoszone oddzielnie. Jeśli masz pytania, wątpliwości lub komentarze, zgłoś je [w dedykowanym numerze GitHub](https://github.com/Azure/api-management-developer-portal/issues/121).
+Wycofanie starszych portali zostanie ogłoszone osobno. Jeśli masz pytania, wątpliwości lub komentarze, zgłoś je [w ramach dedykowanego problemu usługi GitHub](https://github.com/Azure/api-management-developer-portal/issues/121).
 
-### <a name="functionality-i-need-isnt-supported-in-the-portal"></a>Potrzebna funkcjonalność nie jest obsługiwana w portalu
+### <a name="functionality-i-need-isnt-supported-in-the-portal"></a>Wymagana funkcjonalność nie jest obsługiwana w portalu
 
-Możesz samodzielnie otworzyć [żądanie funkcji](https://aka.ms/apimwish) lub [zaimplementować brakujące funkcje.][3] Jeśli zaimplementujesz funkcje samodzielnie, możesz samodzielnie hostować portal deweloperów lub otworzyć żądanie ściągnięcia w usłudze GitHub, aby uwzględnić zmiany w wersji zarządzanej.
+Możesz otworzyć [żądanie funkcji](https://aka.ms/apimwish) lub [samodzielnie zaimplementować brakującą funkcjonalność][3]. W przypadku zaimplementowania funkcji samodzielnie możesz samoobsługowo zarządzać portalem deweloperów lub otworzyć żądanie ściągnięcia w usłudze GitHub, aby uwzględnić zmiany w zarządzanej wersji.
 
-### <a name="how-can-i-automate-portal-deployments"></a>Jak zautomatyzować wdrożenia portalu?
+### <a name="how-can-i-automate-portal-deployments"></a>Jak można zautomatyzować wdrożenia portalu?
 
-Możesz programowo uzyskiwać dostęp do zawartości portalu dewelopera i zarządzać nią za pośrednictwem interfejsu API REST, niezależnie od tego, czy używasz wersji zarządzanej, czy samodzielnej.
+Możesz programowo uzyskać dostęp do zawartości portalu dla deweloperów i zarządzać nią za pośrednictwem interfejsu API REST, niezależnie od tego, czy używasz zarządzanej, czy własnej wersji.
 
-Interfejs API jest udokumentowany w [sekcji wiki repozytorium GitHub][2]. Może służyć do automatyzacji migracji zawartości portalu między środowiskami — na przykład ze środowiska testowego do środowiska produkcyjnego. Więcej informacji na temat tego procesu można znaleźć [w tym artykule dokumentacji](https://aka.ms/apimdocs/migrateportal) w usłudze GitHub.
+Interfejs API jest udokumentowany w [sekcji wiki repozytorium GitHub][2]. Może służyć do automatyzowania migracji zawartości portalu między środowiskami — na przykład ze środowiska testowego do środowiska produkcyjnego. Więcej informacji o tym procesie można znaleźć [w tym artykule z dokumentacji](https://aka.ms/apimdocs/migrateportal) w witrynie GitHub.
 
-### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>Czy portal obsługuje szablony usługi Azure Resource Manager i/lub jest zgodny z zestawem devops zasób usługi API Management?
+### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>Czy Portal obsługuje Azure Resource Manager szablonów i/lub jest zgodny z zestawem SDK API Management DevOps?
 
 Nie.
 
 ### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies"></a>Czy muszę włączyć dodatkową łączność sieci wirtualnej dla zależności zarządzanego portalu?
 
-W większości przypadków - nie.
+W większości przypadków — nie.
 
-Jeśli usługa zarządzania interfejsami API znajduje się w wewnętrznej sieci wirtualnej, portal dla deweloperów jest dostępny tylko z poziomu sieci. Nazwa hosta punktu końcowego zarządzania musi zostać rozpoznana do wewnętrznego adresu VIP usługi z komputera używanego do uzyskiwania dostępu do interfejsu administracyjnego portalu. Upewnij się, że punkt końcowy zarządzania jest zarejestrowany w systemie DNS. W przypadku błędnej konfiguracji zostanie wyświetlony błąd: `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
+Jeśli Twoja usługa API Management znajduje się w wewnętrznej sieci wirtualnej, Portal dla deweloperów jest dostępny tylko z poziomu usługi. Nazwa hosta punktu końcowego zarządzania musi zostać rozpoznana jako wewnętrzny adres VIP usługi z komputera, który służy do uzyskiwania dostępu do interfejsu administracyjnego portalu. Upewnij się, że punkt końcowy zarządzania jest zarejestrowany w systemie DNS. W przypadku błędnej konfiguracji zostanie wyświetlony komunikat o błędzie: `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
 
-Jeśli usługa zarządzania interfejsami API znajduje się w wewnętrznej sieci wirtualnej i uzyskujesz do niej dostęp za pośrednictwem bramy aplikacji z Internetu, upewnij się, że włączysz łączność z portalem dewelopera i punktami końcowymi zarządzania usługi API Management.
+Jeśli usługa API Management znajduje się w wewnętrznej sieci wirtualnej i uzyskuje do niej dostęp za pośrednictwem Application Gateway z Internetu, upewnij się, że jest włączona łączność z portalem dla deweloperów i punktami końcowymi zarządzania API Management.
 
-### <a name="i-have-assigned-a-custom-api-management-domain-and-the-published-portal-doesnt-work"></a>Przypisano niestandardową domenę usługi API Management, a opublikowany portal nie działa
+### <a name="i-have-assigned-a-custom-api-management-domain-and-the-published-portal-doesnt-work"></a>Mam przypisaną niestandardową domenę API Management i opublikowany Portal nie działa
 
-Po zaktualizowaniu domeny należy [ponownie opublikować portal,](api-management-howto-developer-portal-customize.md#publish) aby zmiany zostały wprowadzone.
+Po zaktualizowaniu domeny należy [ponownie opublikować Portal](api-management-howto-developer-portal-customize.md#publish) , aby zmiany zaczęły obowiązywać.
 
-### <a name="i-have-added-an-identity-provider-and-i-cant-see-it-in-the-portal"></a>Dodałem dostawcę tożsamości i nie widzę go w portalu
+### <a name="i-have-added-an-identity-provider-and-i-cant-see-it-in-the-portal"></a>Dodaliśmy dostawcę tożsamości i nie mogę go zobaczyć w portalu
 
-Po skonfigurowaniu dostawcy tożsamości (na przykład AAD, AAD B2C), należy [ponownie opublikować portal,](api-management-howto-developer-portal-customize.md#publish) aby zmiany zostały wprowadzone.
+Po skonfigurowaniu dostawcy tożsamości (na przykład AAD, AAD B2C) należy [ponownie opublikować Portal](api-management-howto-developer-portal-customize.md#publish) , aby zmiany zaczęły obowiązywać.
 
-### <a name="i-have-set-up-delegation-and-the-portal-doesnt-use-it"></a>Mam skonfigurowany delegowanie i portal nie używa go
+### <a name="i-have-set-up-delegation-and-the-portal-doesnt-use-it"></a>Mam konfigurację delegowania, a Portal nie używa jej
 
-Po skonfigurowaniu delegowania należy [ponownie opublikować portal,](api-management-howto-developer-portal-customize.md#publish) aby zmiany zostały wprowadzone.
+Po skonfigurowaniu delegowania należy [ponownie opublikować Portal](api-management-howto-developer-portal-customize.md#publish) , aby zmiany zaczęły obowiązywać.
 
-### <a name="my-other-api-management-configuration-changes-havent-been-propagated-in-the-developer-portal"></a>Inne zmiany konfiguracji usługi API Management nie zostały propagowane w portalu dla deweloperów
+### <a name="my-other-api-management-configuration-changes-havent-been-propagated-in-the-developer-portal"></a>MOJE inne API Management zmiany konfiguracji nie zostały rozpropagowane w portalu dla deweloperów
 
-Większość zmian konfiguracji (na przykład sieci wirtualnej, logowania i warunków produktu) wymaga [ponownego opublikowania portalu](api-management-howto-developer-portal-customize.md#publish).
+Większość zmian konfiguracji (na przykład Sieć wirtualna, logowanie i warunki produktu) wymagają [ponownego opublikowania portalu](api-management-howto-developer-portal-customize.md#publish).
 
-### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a><a name="cors"></a>Podczas korzystania z konsoli interaktywnej pojawia się błąd CORS
+### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a><a name="cors"></a>Otrzymuję błąd CORS podczas korzystania z konsoli interaktywnej
 
-Interaktywna konsola sprawia, że żądanie interfejsu API po stronie klienta z przeglądarki. Rozwiąż problem cors, dodając [zasady CORS](api-management-cross-domain-policies.md#CORS) w interfejsach API.
+Konsola interaktywna wykonuje żądanie interfejsu API po stronie klienta z przeglądarki. Rozwiąż problem CORS przez dodanie [zasad CORS](api-management-cross-domain-policies.md#CORS) do interfejsów API.
 
-Możesz sprawdzić stan zasad CORS w sekcji **Omówienie portalu** usługi zarządzania interfejsami API w witrynie Azure portal. Pole ostrzegawcze wskazuje brak lub nieprawidłowo skonfigurowane zasady.
+Stan zasad CORS można sprawdzić w sekcji **Omówienie portalu** usługi API Management w Azure Portal. Okno ostrzeżenia wskazuje nieobecne lub nieprawidłowo skonfigurowane zasady.
 
-![Portal deweloperski api management](media/api-management-howto-developer-portal/cors-azure-portal.png)
+![Portal dla deweloperów API Management](media/api-management-howto-developer-portal/cors-azure-portal.png)
 
-Automatyczne stosowanie zasad CORS przez kliknięcie przycisku **Włącz CORS.**
+Automatyczne stosowanie zasad CORS przez kliknięcie przycisku **Włącz CORS** .
 
-Można również włączyć CORS ręcznie.
+Można również włączyć funkcję CORS ręcznie.
 
-1. Kliknij **ręcznie zastosować go na poziomie globalnym** link, aby wyświetlić wygenerowany kod zasad.
-2. Przejdź do **wszystkich interfejsów API** w sekcji **interfejsów API** usługi zarządzania interfejsami API w witrynie Azure portal.
-3. Kliknij ikonę **</>** w sekcji **Przetwarzanie przychodzące.**
-4. Wstaw zasady **<inbound>** w sekcji pliku XML. Upewnij się, **<origin>** że wartość jest zgodna z domeną portalu deweloperów.
+1. Kliknij pozycję **ręcznie Zastosuj na poziomie globalnym** , aby wyświetlić wygenerowany kod zasad.
+2. Przejdź do **wszystkich interfejsów API** w sekcji **interfejsy API** usługi API Management w Azure Portal.
+3. Kliknij **</>** ikonę w sekcji **Przetwarzanie przychodzące** .
+4. Wstaw zasady w **<inbound>** sekcji pliku XML. Upewnij się, **<origin>** że wartość jest zgodna z domeną portalu deweloperów.
 
 > [!NOTE]
 > 
-> Jeśli zastosujesz zasady CORS w zakresie produktu, zamiast zakresów interfejsów API, a interfejs API użyje uwierzytelniania klucza subskrypcji za pośrednictwem nagłówka, konsola nie będzie działać.
+> W przypadku zastosowania zasad CORS w zakresie produktu, a nie zakresu interfejsów API, a interfejs API używa uwierzytelniania klucza subskrypcji za pośrednictwem nagłówka, konsola nie będzie działała.
 >
-> Przeglądarka automatycznie wystawia żądanie HTTP opcje, które nie zawiera nagłówka z kluczem subskrypcji. Z powodu brakującego klucza subskrypcji usługa API Management nie może skojarzyć wywołania OPTIONS z produktem, więc nie może zastosować zasad CORS.
+> Przeglądarka automatycznie wystawia żądanie HTTP dotyczące opcji, które nie zawiera nagłówka z kluczem subskrypcji. Ze względu na brak klucza subskrypcji API Management nie można skojarzyć opcji z produktem, dlatego nie można zastosować zasad CORS.
 >
 > Jako obejście można przekazać klucz subskrypcji w parametrze zapytania.
 
-### <a name="what-permissions-do-i-need-to-edit-the-developer-portal"></a>Jakich uprawnień potrzebuję do edytowania portalu dla deweloperów?
+### <a name="what-permissions-do-i-need-to-edit-the-developer-portal"></a>Jakie uprawnienia muszę edytować w portalu dla deweloperów?
 
-Jeśli `Oops. Something went wrong. Please try again later.` widzisz błąd podczas otwierania portalu w trybie administracyjnym, może brakować wymaganych uprawnień (RBAC).
+Jeśli `Oops. Something went wrong. Please try again later.` wystąpi błąd podczas otwierania portalu w trybie administracyjnym, może brakować wymaganych uprawnień (RBAC).
 
-Starsze portale wymagały `Microsoft.ApiManagement/service/getssotoken/action` uprawnień w`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`zakresie usługi ( ), aby umożliwić administratorowi użytkownika dostęp do portali. Nowy portal wymaga `Microsoft.ApiManagement/service/users/token/action` uprawnienia w `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`zakresie .
+Starsze portale wymagały uprawnienia `Microsoft.ApiManagement/service/getssotoken/action` do zakresu usługi (`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`), aby umożliwić administratorowi użytkownika dostęp do portali. Nowy portal wymaga uprawnień `Microsoft.ApiManagement/service/users/token/action` w zakresie. `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`
 
-Do utworzenia roli z wymaganym uprawnieniem można użyć następującego skryptu programu PowerShell. Pamiętaj, aby `<subscription-id>` zmienić parametr. 
+Za pomocą poniższego skryptu programu PowerShell można utworzyć rolę z wymaganym uprawnieniem. Pamiętaj, aby zmienić `<subscription-id>` parametr. 
 
 ```PowerShell
 #New Portals Admin Role 
@@ -185,23 +185,23 @@ $customRole.AssignableScopes.Add('/subscriptions/<subscription-id>')
 New-AzRoleDefinition -Role $customRole 
 ```
  
-Po utworzeniu roli można ją przyznać każdemu użytkownikowi z sekcji **Kontrola dostępu (IAM)** w witrynie Azure portal. Przypisanie tej roli do użytkownika spowoduje przypisanie uprawnień w zakresie usługi. Użytkownik będzie mógł generować tokeny sygnatury dostępu Współdzielonego w imieniu *dowolnego* użytkownika w usłudze. Co najmniej ta rola musi być przypisana do administratora usługi. Następujące polecenie programu PowerShell pokazuje, jak przypisać `user1` rolę do użytkownika w najniższym zakresie, aby uniknąć udzielania niepotrzebnych uprawnień użytkownikowi: 
+Po utworzeniu roli można udzielić jej użytkownikowi z poziomu sekcji **Access Control (IAM)** w Azure Portal. Przypisanie tej roli do użytkownika spowoduje przypisanie uprawnienia do zakresu usługi. Użytkownik będzie mógł generować tokeny SAS w imieniu *dowolnego* użytkownika w usłudze. Na minimalnym poziomie ta rola musi być przypisana do administratora usługi. Następujące polecenie programu PowerShell demonstruje sposób przypisywania roli do użytkownika `user1` w najniższym zakresie, aby uniknąć udzielania niepotrzebnych uprawnień użytkownikowi: 
 
 ```PowerShell
 New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM New Portal Admin" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1" 
 ```
 
-Po przyznaniu uprawnień użytkownikowi użytkownik musi się wylogować i zalogować się ponownie w witrynie Azure portal, aby nowe uprawnienia zaczęły obowiązywać.
+Po udzieleniu uprawnień użytkownikowi użytkownik musi się wylogować i zalogować się ponownie do Azure Portal, aby nowe uprawnienia zaczęły obowiązywać.
 
 ### <a name="im-seeing-the-unable-to-start-the-portal-see-if-settings-are-specified-correctly--error"></a>Widzę `Unable to start the portal. See if settings are specified correctly (...)` błąd
 
-Ten błąd jest `GET` wyświetlany, `https://<management-endpoint-hostname>/subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.ApiManagement/service/xxx/contentTypes/document/contentItems/configuration?api-version=2018-06-01-preview` gdy wywołanie nie powiedzie się. Wywołanie jest wydawane z przeglądarki przez interfejs administracyjny portalu.
+Ten błąd jest wyświetlany, `GET` gdy wywołanie `https://<management-endpoint-hostname>/subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.ApiManagement/service/xxx/contentTypes/document/contentItems/configuration?api-version=2018-06-01-preview` zakończy się niepowodzeniem. Wywołanie jest wydawane z przeglądarki przez interfejs administracyjny portalu.
 
-Jeśli usługa zarządzania interfejsami API znajduje się w sieci wirtualnej — zapoznaj się z pytaniem o łączność sieci wirtualnej powyżej.
+Jeśli usługa API Management znajduje się w sieci wirtualnej, zapoznaj się z powyższym pytaniem dotyczącym łączności sieci wirtualnej.
 
-Niepowodzenie połączenia może być również spowodowane przez certyfikat TLS/SSL, który jest przypisany do domeny niestandardowej i nie jest zaufany przez przeglądarkę. Jako ograniczenie, można usunąć domeny niestandardowej punktu końcowego zarządzania — zarządzanie interfejsem API powróci do domyślnego punktu końcowego z zaufanym certyfikatem.
+Błąd wywołania może być również spowodowany przez certyfikat TLS/SSL, który jest przypisany do domeny niestandardowej i nie jest zaufany przez przeglądarkę. Jako środek zaradczy, można usunąć niestandardową domenę punktu końcowego zarządzania — API Management powróci do domyślnego punktu końcowego za pomocą zaufanego certyfikatu.
 
-### <a name="whats-the-browser-support-for-the-portal"></a>Jaka jest obsługa przeglądarki dla portalu?
+### <a name="whats-the-browser-support-for-the-portal"></a>Co to jest obsługa przeglądarki dla portalu?
 
 | Przeglądarka                     | Obsługiwane       |
 |-----------------------------|-----------------|
@@ -211,15 +211,15 @@ Niepowodzenie połączenia może być również spowodowane przez certyfikat TLS
 | Microsoft Internet Explorer | Nie              |
 | Mozilla Firefox             | Tak<sup>1</sup> |
 
- <small><sup>1</sup> Obsługiwane w dwóch najnowszych wersjach produkcyjnych.</small>
+ <small><sup>1</sup> obsługiwane w dwóch najnowszych wersjach produkcyjnych.</small>
 
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się więcej o nowym portalu dla deweloperów:
 
-- [Uzyskiwanie dostępu do zarządzanego portalu deweloperskiego i dostosowywanie ich](api-management-howto-developer-portal-customize.md)
-- [Konfigurowanie samodzielnej wersji portalu][2]
-- [Zaimplementuj własny widżet][3]
+- [Dostęp do zarządzanego portalu deweloperów i dostosowywanie go](api-management-howto-developer-portal-customize.md)
+- [Skonfiguruj samodzielną wersję portalu][2]
+- [Implementowanie własnego widżetu][3]
 
 Przeglądaj inne zasoby:
 

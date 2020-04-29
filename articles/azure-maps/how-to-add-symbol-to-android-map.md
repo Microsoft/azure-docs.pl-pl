@@ -1,6 +1,6 @@
 ---
-title: Dodawanie warstwy symboli do map systemu Android | Mapy platformy Microsoft Azure
-description: W tym artykule dowiesz się, jak renderować dane punktowe na mapie, dodając do niej warstwę symboli przy użyciu sdk Microsoft Azure Maps android.
+title: Dodawanie warstwy symboli do map systemu Android | Mapy Microsoft Azure
+description: W tym artykule dowiesz się, jak renderować dane punktu na mapie, dodając do niej warstwę symboli przy użyciu Android SDK Microsoft Azure Maps.
 author: philmea
 ms.author: philmea
 ms.date: 04/26/2019
@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 0eca73b5acae715283c05125181e12729ed5a772
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335587"
 ---
-# <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Dodawanie warstwy symboli do mapy przy użyciu zestawu SDK usługi Azure Maps dla systemu Android
+# <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Dodawanie warstwy symboli do mapy przy użyciu Azure Maps Android SDK
 
-W tym artykule pokazano, jak renderować dane punktowe ze źródła danych jako warstwę symboli na mapie przy użyciu sdk systemu Azure Maps w systemie Android.
+W tym artykule pokazano, jak renderować dane punktu ze źródła danych jako warstwę symboli na mapie przy użyciu Android SDK Azure Maps.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby całkowicie wykonać kroki opisane w tym artykule, należy zainstalować [zestaw SDK usługi Azure Maps dla systemu Android,](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) aby załadować mapę.
+Aby całkowicie wykonać kroki opisane w tym artykule, należy zainstalować [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) w celu załadowania mapy.
 
 ## <a name="add-a-symbol-layer"></a>Dodawanie warstwy symboli
 
-Aby dodać znacznik na mapie za pomocą warstwy symboli, wykonaj poniższe czynności:
+Aby dodać znacznik na mapie za pomocą warstwy symboli, wykonaj następujące czynności:
 
-1. Edytuj**układ** >  **res** > **activity_main.xml,** aby wyglądał jak następujący kod XML:
+1. Edytuj **res** > **layout**układ > res**activity_main. XML** , tak aby wyglądał następująco:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -50,7 +50,7 @@ Aby dodać znacznik na mapie za pomocą warstwy symboli, wykonaj poniższe czynn
     </FrameLayout>
     ```
 
-2. Skopiuj poniższy fragment kodu do metody **onCreate()** danej `MainActivity.java` klasy.
+2. Skopiuj poniższy fragment kodu do metody **OnCreate ()** `MainActivity.java` klasy.
 
     ```Java
     mapControl.onReady(map -> {
@@ -72,9 +72,9 @@ Aby dodać znacznik na mapie za pomocą warstwy symboli, wykonaj poniższe czynn
     
     ```
     
-    Fragment kodu powyżej najpierw uzyskuje wystąpienie kontroli mapy usługi Azure Maps przy użyciu **onReady()** metody wywołania zwrotnego. Następnie tworzy obiekt źródła danych przy użyciu **Klasy DataSource** i dodaje go do mapy. Następnie dodaje **do niego operację** zawierającą geometrię punktu. Czerwony obraz znacznika jest następnie ustawiany jako ikona symbolu. **Warstwa symboli** używa tekstu lub ikon do renderowania danych opartych na punktach zawiniętych w źródle danych jako symbolu na mapie. Następnie tworzona jest warstwa symboli, a źródło danych jest przekazywane do niej w celu renderowania, a następnie dodawane do warstw mapy.
+    Poniższy fragment kodu uzyskuje Azure Maps wystąpienia kontrolki mapy za pomocą metody wywołania zwrotnego **()** . Następnie tworzy obiekt źródła danych przy użyciu klasy **DataSource** i dodaje go do mapy. Następnie dodaje **funkcję** zawierającą geometrię punktu do niej. Obraz czerwonego znacznika jest następnie ustawiany jako ikona symbolu. **Warstwa symboli** używa tekstu lub ikon do renderowania danych opartych na punktach opakowanych w źródle danych jako symbol na mapie. Następnie zostanie utworzona warstwa symboli, a źródło danych zostanie przesłane do niego do renderowania, a następnie dodane do warstw mapy.
     
-    Po dodaniu fragmentu kodu powyżej, `MainActivity.java` powinien wyglądać jak poniżej:
+    Po dodaniu fragmentu kodu powyżej `MainActivity.java` powinien wyglądać tak jak poniżej:
     
     ```Java
     package com.example.myapplication;
@@ -166,11 +166,11 @@ Aby dodać znacznik na mapie za pomocą warstwy symboli, wykonaj poniższe czynn
     }
     ```
     
-W tym momencie po uruchomieniu aplikacji powinien zostać wyświetlony znacznik na mapie, jak pokazano poniżej:
+W tym momencie, jeśli uruchomisz aplikację, na mapie powinien zostać wyświetlony znacznik, jak pokazano poniżej:
 
 <center>
 
-![Pin mapy Androida](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
+![Kod PIN mapy systemu Android](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
 
 
 ## <a name="next-steps"></a>Następne kroki

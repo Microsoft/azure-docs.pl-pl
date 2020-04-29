@@ -1,6 +1,6 @@
 ---
-title: Używanie narzędzia Azure Import/Export do przesyłania danych do i z usługi Azure Storage | Dokumenty firmy Microsoft
-description: Dowiedz się, jak tworzyć zadania importowania i eksportowania w witrynie Azure portal do przesyłania danych do i z usługi Azure Storage.
+title: Transferowanie danych do i z usługi Azure Storage za pomocą usługi Azure Import/Export | Microsoft Docs
+description: Dowiedz się, jak tworzyć zadania importu i eksportu w Azure Portal na potrzeby przesyłania danych do i z usługi Azure Storage.
 author: alkohli
 services: storage
 ms.service: storage
@@ -9,114 +9,114 @@ ms.date: 03/15/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: eee0fc2797fbe0666a6b848fde574c7807f47cc9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80282447"
 ---
-# <a name="what-is-azure-importexport-service"></a>Co to jest usługa importowania/eksportowania platformy Azure?
+# <a name="what-is-azure-importexport-service"></a>Co to jest usługa Azure Import/Export?
 
-Usługa Importu/eksportu platformy Azure służy do bezpiecznego importowania dużych ilości danych do magazynu obiektów Blob platformy Azure i plików azure przez wysyłanie dysków do centrum danych platformy Azure. Ta usługa może również służyć do przesyłania danych z magazynu obiektów Blob platformy Azure na dyski i wysyłać do witryn lokalnych. Dane z jednego lub więcej dysków można zaimportować do magazynu obiektów Blob platformy Azure lub usługi Azure Files.
+Usługa Azure Import/Export służy do bezpiecznego importowania dużych ilości danych do usługi Azure Blob Storage i Azure Files przez wysyłkę dysków do centrum danych platformy Azure. Ta usługa może również służyć do transferowania danych z usługi Azure Blob Storage do stacji dysków i dostarczania ich do lokacji lokalnych. Dane z co najmniej jednego dysku można zaimportować do usługi Azure Blob Storage lub Azure Files.
 
-Dostarczaj własne dyski i przesyłaj dane za pomocą usługi Azure Import/Export. Można również użyć dysków dostarczonych przez firmę Microsoft.
+Dostarczaj własne dyski i przesyłaj dane za pomocą usługi Azure Import/Export. Możesz również użyć stacji dysków dostarczonych przez firmę Microsoft.
 
-Jeśli chcesz przenieść dane przy użyciu dysków dostarczonych przez firmę Microsoft, możesz użyć [usługi Azure Data Box Disk](../../databox/data-box-disk-overview.md) do importowania danych na platformę Azure. Firma Microsoft dostarcza do centrum danych do centrum danych do 5 zaszyfrowanych dysków PÓŁPRZEWODNIKOWYCH (SSD) o łącznej pojemności 40 TB na zamówienie za pośrednictwem operatora regionalnego. Można szybko skonfigurować dyski, skopiować dane na dyski za pośrednictwem połączenia USB 3.0 i wysłać dyski z powrotem na platformę Azure. Aby uzyskać więcej informacji, przejdź do [przeglądu usługi Azure Data Box Disk](../../databox/data-box-disk-overview.md).
+Jeśli chcesz przenieść dane przy użyciu stacji dysków dostarczonych przez firmę Microsoft, możesz użyć [Azure Data Box Disk](../../databox/data-box-disk-overview.md) do zaimportowania danych do platformy Azure. Firma Microsoft dostarcza do 5 szyfrowanych dysków półprzewodnikowych (dysków SSD) z 40 TB całkowitej pojemności na zamówienie do centrum danych za pomocą operatora regionalnego. Można szybko skonfigurować stacje dysków, skopiować dane na dyski za pośrednictwem połączenia USB 3,0 i dostarczyć dyski z powrotem do platformy Azure. Aby uzyskać więcej informacji, przejdź do [omówienia Azure Data Box Disk](../../databox/data-box-disk-overview.md).
 
-## <a name="azure-importexport-use-cases"></a>Przypadki użycia importu/eksportowania platformy Azure
+## <a name="azure-importexport-use-cases"></a>Azure Import/Export — przypadki użycia
 
-Należy rozważyć użycie usługi Azure Import/Export, gdy przekazywanie lub pobieranie danych przez sieć jest zbyt powolne lub uzyskanie dodatkowej przepustowości sieci jest zaporowe. Użyj tej usługi w następujących scenariuszach:
+Rozważ użycie usługi Azure Import/Export, gdy przekazywanie lub pobieranie danych za pośrednictwem sieci jest zbyt wolne lub nie ma dodatkowej przepustowości sieci. Tej usługi należy używać w następujących scenariuszach:
 
-* **Migracja danych do chmury:** szybko i ekonomicznie przenieś duże ilości danych na platformę Azure.
-* **Dystrybucja zawartości**: Szybkie wysyłanie danych do witryn klientów.
-* **Kopia zapasowa:** Wykonywanie kopii zapasowych danych lokalnych do przechowywania w usłudze Azure Storage.
-* **Odzyskiwanie danych:** odzyskaj dużą ilość danych przechowywanych w magazynie i złóż je do lokalizacji lokalnej.
+* **Migracja danych do chmury**: szybkie i ekonomiczne przenoszenie dużych ilości danych na platformę Azure.
+* **Dystrybucja zawartości**: szybkie wysyłanie danych do lokacji klienta.
+* **Kopia zapasowa**: Twórz kopie zapasowe danych lokalnych do przechowywania w usłudze Azure Storage.
+* **Odzyskiwanie danych**: odzyskiwanie dużej ilości danych przechowywanych w magazynie i dostarczanie ich do lokalizacji lokalnej.
 
 ## <a name="importexport-components"></a>Składniki importu/eksportu
 
-Usługa importu/eksportu używa następujących składników:
+Usługa Import/Export korzysta z następujących składników:
 
-* **Import/eksportowanie usługi:** Ta usługa dostępna w witrynie Azure portal ułatwia użytkownikowi tworzenie i śledzenie zadań importowania (przekazywania) danych i eksportowania (pobierania).  
+* **Usługa importu/eksportu**: Ta usługa dostępna w Azure Portal ułatwia użytkownikowi tworzenie i śledzenie zadań importowania danych (przekazywania) i eksportowania (pobierania).  
 
-* **Narzędzie WAImportExport**: Jest to narzędzie wiersza polecenia, które wykonuje następujące czynności:
-  * Przygotowuje dyski, które są wysyłane do importu.
+* **Narzędzie WAImportExport**: jest to narzędzie wiersza polecenia, które wykonuje następujące czynności:
+  * Przygotowuje stacje dysków, które są dostarczane do zaimportowania.
   * Ułatwia kopiowanie danych na dysk.
-  * Szyfruje dane na dysku za pomocą 128-bitowego funkcji BitLocker AES. Do ochrony klucza funkcji BitLocker można użyć zewnętrznego ochraniacza kluczy.
+  * Szyfruje dane na dysku przy użyciu algorytmu AES 128-bit funkcji BitLocker. Aby chronić klucz funkcji BitLocker, można użyć funkcji ochrony klucza zewnętrznego.
   * Generuje pliki dziennika dysku używane podczas tworzenia importu.
-  * Pomaga zidentyfikować liczbę dysków potrzebnych do zadań eksportu.
+  * Pomaga identyfikować liczbę dysków wymaganych do eksportowania zadań.
 
 > [!NOTE]
-> Narzędzie WAImportExport jest dostępne w dwóch wersjach: w wersji 1 i 2. Zalecamy użycie:
+> Narzędzie WAImportExport jest dostępne w dwóch wersjach, w wersji 1 i 2. Zalecamy korzystanie z programu:
 >
-> * Wersja 1 do importowania/eksportowania do magazynu obiektów blob platformy Azure.
-> * Wersja 2 do importowania danych do plików platformy Azure.
+> * Wersja 1 do zaimportowania/wyeksportowania do usługi Azure Blob Storage.
+> * Wersja 2 do importowania danych do usługi Azure Files.
 >
-> Narzędzie WAImportExport jest zgodne tylko z 64-bitowym systemem operacyjnym Windows. W przypadku obsługi określonych wersji systemu operacyjnego przejdź do [wymagań dotyczących importu/eksportu platformy Azure](storage-import-export-requirements.md#supported-operating-systems).
+> Narzędzie WAImportExport jest zgodne tylko z 64-bitowym systemem operacyjnym Windows. W przypadku określonych wersji systemu operacyjnego przejdź do [wymagań dotyczących importowania/eksportowania na platformie Azure](storage-import-export-requirements.md#supported-operating-systems).
 
-* **Dyski: Dyski**SSD (SSD) lub Dyski twarde (HDD) można wysyłać do centrum danych platformy Azure. Podczas tworzenia zadania importu wysyłasz dyski zawierające dane. Podczas tworzenia zadania eksportu, należy wysłać puste dyski do centrum danych platformy Azure. W przypadku określonych typów dysków przejdź do [strony Obsługiwane typy dysków](storage-import-export-requirements.md#supported-hardware).
+* **Stacje dysków**: dyski półprzewodnikowe (dysków SSD) lub dyski twarde (HDD) można dostarczyć do centrum danych platformy Azure. Podczas tworzenia zadania importowania są dostarczane dyski zawierające dane. Podczas tworzenia zadania eksportu można dostarczyć puste dyski do centrum danych platformy Azure. Dla określonych typów dysków przejdź do pozycji [obsługiwane typy dysków](storage-import-export-requirements.md#supported-hardware).
 
 ## <a name="how-does-importexport-work"></a>Jak działa import/eksport?
 
-Usługa Importu/eksportu platformy Azure umożliwia transfer danych do obiektów blob platformy Azure i plików platformy Azure przez tworzenie zadań. Tworzenie zadań za pomocą witryny Azure portal lub interfejsu API REST usługi Azure Resource Manager. Każde zadanie jest skojarzone z jednym kontem magazynu.
+Usługa Azure Import/Export umożliwia przesyłanie danych do obiektów blob platformy Azure i Azure Files przez tworzenie zadań. Użyj Azure Portal lub Azure Resource Manager interfejsu API REST do tworzenia zadań. Każde zadanie jest skojarzone z jednym kontem magazynu.
 
-Zadania mogą być zadania importu lub eksportu. Zadanie importowania umożliwia importowanie danych do obiektów Blobs platformy Azure lub plików platformy Azure, podczas gdy zadanie eksportowania umożliwia eksportowanie danych z obiektów blob platformy Azure. W przypadku zadania importu wysyłasz dyski zawierające dane. Podczas tworzenia zadania eksportu, należy wysłać puste dyski do centrum danych platformy Azure. W każdym przypadku można wysłać do 10 dysków na zadanie.
+Zadania mogą być importowane lub eksportowane. Zadanie importowania umożliwia importowanie danych do obiektów blob platformy Azure lub plików platformy Azure, a zadanie eksportu umożliwia eksportowanie danych z obiektów blob platformy Azure. W przypadku zadania importowania dostarczasz dyski zawierające dane. Po utworzeniu zadania eksportu należy dostarczyć puste dyski do centrum danych platformy Azure. W każdym przypadku można dostarczyć do 10 dysków na każde zadanie.
 
-### <a name="inside-an-import-job"></a>Wewnątrz zadania importu
+### <a name="inside-an-import-job"></a>Wewnątrz zadania importowania
 
 Na wysokim poziomie zadanie importu obejmuje następujące kroki:
 
-1. Określ dane do zaimportowania, liczbę potrzebnych dysków, docelową lokalizację obiektu blob dla danych w magazynie platformy Azure.
-2. Narzędzie WAImportExport służy do kopiowania danych na dyski. Szyfruj dyski za pomocą funkcji BitLocker.
-3. Utwórz zadanie importu na koncie magazynu docelowego w witrynie Azure portal. Przekaż pliki dziennika dysku.
-4. Podaj adres zwrotny i numer konta przewoźnika, aby wysyłać dyski z powrotem do Ciebie.
-5. Wyślij dyski na adres wysyłki podany podczas tworzenia zadania.
-6. Zaktualizuj numer śledzenia dostawy w szczegółach zadania importu i prześlij zadanie importu.
+1. Określ dane do zaimportowania, wymaganą liczbę dysków, docelową lokalizację obiektu BLOB dla danych w usłudze Azure Storage.
+2. Użyj narzędzia WAImportExport, aby skopiować dane na dyski. Szyfruj stacje dysków za pomocą funkcji BitLocker.
+3. Utwórz zadanie importu na docelowym koncie magazynu w Azure Portal. Przekaż pliki dziennika stacji.
+4. Podaj adres zwrotny i numer konta nośnego do wysyłania dysków z powrotem do Ciebie.
+5. Wyślij dyski na adres wysyłkowy podany podczas tworzenia zadania.
+6. Zaktualizuj numer śledzenia dostarczania w szczegółach zadania importowania i Prześlij zadanie importu.
 7. Dyski są odbierane i przetwarzane w centrum danych platformy Azure.
-8. Dyski są wysyłane przy użyciu konta operatora na adres zwrotny podany w zadaniu importu.
+8. Dyski są dostarczane przy użyciu konta operatora na adres zwrotny podany w zadaniu importu.
 
 > [!NOTE]
-> W przypadku przesyłek lokalnych (w kraju/regionie centrum danych) prosimy o udostępnienie krajowego konta przewoźnika.
+> W przypadku wydań lokalnych (w ramach kraju/regionu centrum danych) należy udostępnić konto przewoźnika krajowego.
 >
-> W przypadku przesyłek za granicą (poza krajem/regionem centrum danych) prosimy o udostępnienie konta międzynarodowego przewoźnika.
+> W przypadku danych o wydaniach (poza krajem/regionem centrum danych) należy udostępnić międzynarodowe konto operatora.
 
- ![Rysunek 1:Importowanie przepływu zadań](./media/storage-import-export-service/importjob.png)
+ ![Rysunek 1. Importowanie przepływu zadań](./media/storage-import-export-service/importjob.png)
 
 Aby uzyskać instrukcje krok po kroku dotyczące importowania danych, przejdź do:
 
 * [Importowanie danych do obiektów blob platformy Azure](storage-import-export-data-to-blobs.md)
-* [Importowanie danych do plików platformy Azure](storage-import-export-data-to-files.md)
+* [Importuj dane do Azure Files](storage-import-export-data-to-files.md)
 
 ### <a name="inside-an-export-job"></a>Wewnątrz zadania eksportu
 
 > [!IMPORTANT]
-> Usługa obsługuje tylko eksport obiektów blob platformy Azure. Eksport plików platformy Azure nie jest obsługiwany.
+> Usługa obsługuje tylko eksportowanie obiektów blob platformy Azure. Eksportowanie plików platformy Azure nie jest obsługiwane.
 
 Na wysokim poziomie zadanie eksportu obejmuje następujące kroki:
 
-1. Określ dane do wyeksportowania, liczbę potrzebnych dysków, źródłowe obiekty BLOB lub ścieżki kontenerów danych w magazynie obiektów Blob.
-2. Utwórz zadanie eksportu na koncie magazynu źródłowego w witrynie Azure portal.
-3. Określ źródłowe obiekty BLOB lub ścieżki kontenerów dla danych, które mają być eksportowane.
-4. Podaj adres zwrotny i numer konta przewoźnika, aby wysyłać dyski z powrotem do Ciebie.
-5. Wyślij dyski na adres wysyłki podany podczas tworzenia zadania.
-6. Zaktualizuj numer śledzenia dostawy w szczegółach zadania eksportu i prześlij zadanie eksportu.
+1. Określ dane, które mają zostać wyeksportowane, wymagane dyski, źródłowe obiekty blob lub ścieżki kontenerów danych w usłudze BLOB Storage.
+2. Utwórz zadanie eksportu na źródłowym koncie magazynu w Azure Portal.
+3. Określ źródłowe obiekty blob lub ścieżki kontenerów dla danych do wyeksportowania.
+4. Podaj adres zwrotny i numer konta nośnego do wysyłania dysków z powrotem do Ciebie.
+5. Wyślij dyski na adres wysyłkowy podany podczas tworzenia zadania.
+6. Zaktualizuj numer śledzenia dostarczania w szczegółach zadania eksportu i Prześlij zadanie eksportu.
 7. Dyski są odbierane i przetwarzane w centrum danych platformy Azure.
-8. Dyski są szyfrowane za pomocą funkcji BitLocker, a klucze są dostępne za pośrednictwem witryny Azure portal.  
-9. Dyski są wysyłane przy użyciu konta operatora na adres zwrotny podany w zadaniu importu.
+8. Dyski są szyfrowane za pomocą funkcji BitLocker, a klucze są dostępne za pośrednictwem Azure Portal.  
+9. Dyski są dostarczane przy użyciu konta operatora na adres zwrotny podany w zadaniu importu.
 
 > [!NOTE]
-> W przypadku przesyłek lokalnych (w kraju/regionie centrum danych) prosimy o udostępnienie krajowego konta przewoźnika.
+> W przypadku wydań lokalnych (w ramach kraju/regionu centrum danych) należy udostępnić konto przewoźnika krajowego.
 >
-> W przypadku przesyłek za granicą (poza krajem/regionem centrum danych) prosimy o udostępnienie konta międzynarodowego przewoźnika.
+> W przypadku danych o wydaniach (poza krajem/regionem centrum danych) należy udostępnić międzynarodowe konto operatora.
   
- ![Rysunek 2:Eksportowanie przepływu zadań](./media/storage-import-export-service/exportjob.png)
+ ![Rysunek 2. eksportowanie przepływu zadań](./media/storage-import-export-service/exportjob.png)
 
-Aby uzyskać instrukcje krok po kroku dotyczące eksportu danych, przejdź do [tematu Eksportowanie danych z obiektów Blob platformy Azure](storage-import-export-data-from-blobs.md).
+Aby uzyskać instrukcje krok po kroku dotyczące eksportowania danych, przejdź do obszaru [Eksportowanie danych z obiektów blob platformy Azure](storage-import-export-data-from-blobs.md).
 
 ## <a name="region-availability"></a>Dostępność w danym regionie
 
-Usługa Import/Eksport platformy Azure obsługuje kopiowanie danych do i ze wszystkich kont magazynu platformy Azure. Dyski można wysyłać do jednej z wymienionych lokalizacji. Jeśli twoje konto magazynu znajduje się w lokalizacji platformy Azure, która nie jest określona w tym miejscu, podczas tworzenia zadania jest dostępna alternatywna lokalizacja wysyłki.
+Usługa Azure Import/Export obsługuje kopiowanie danych do i ze wszystkich kont usługi Azure Storage. Dyski można wydać do jednej z wymienionych lokalizacji. Jeśli Twoje konto magazynu znajduje się w lokalizacji platformy Azure, która nie została określona w tym miejscu, podczas tworzenia zadania zostanie udostępniona alternatywna lokalizacja wysyłki.
 
-### <a name="supported-shipping-locations"></a>Obsługiwane lokalizacje wysyłkowe
+### <a name="supported-shipping-locations"></a>Obsługiwane lokalizacje wysyłki
 
 |Kraj/region  |Kraj/region  |Kraj/region  |Kraj/region  |
 |---------|---------|---------|---------|
@@ -131,15 +131,15 @@ Usługa Import/Eksport platformy Azure obsługuje kopiowanie danych do i ze wszy
 
 ## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 
-Dane na dysku są szyfrowane przy użyciu szyfrowania dysków funkcji AES 128-bitowych funkcji BitLocker. To szyfrowanie chroni dane podczas przesyłania.
+Dane na dysku są szyfrowane przy użyciu algorytmu AES 128-bit szyfrowanie dysków funkcją BitLocker. To szyfrowanie chroni dane podczas przesyłania.
 
 W przypadku zadań importowania dyski są szyfrowane na dwa sposoby.  
 
-* Określ opcję podczas korzystania z pliku *dataset.csv* podczas uruchamiania narzędzia WAImportExport podczas przygotowywania dysku.
+* Określ opcję w przypadku korzystania z pliku *DataSet. csv* przy uruchamianiu narzędzia WAImportExport podczas przygotowywania dysku.
 
-* Włącz szyfrowanie funkcją BitLocker ręcznie na dysku. Określ klucz szyfrowania w *pliku driveset.csv* podczas uruchamiania wiersza polecenia narzędzia WAImportExport podczas przygotowywania dysku. Klucz szyfrowania funkcji BitLocker można dodatkowo chronić za pomocą zewnętrznego programu ochrony kluczy (znanego również jako klucz zarządzany firmy Microsoft) lub klucza zarządzanego przez klienta. Aby uzyskać więcej informacji, zobacz jak [chronić klucz funkcji BitLocker za pomocą klucza zarządzanego przez klienta](storage-import-export-encryption-key-portal.md).
+* Ręcznie Włącz szyfrowanie funkcji BitLocker na dysku. Określ klucz szyfrowania w pliku *driveset. csv* , gdy uruchamiasz wiersz polecenia narzędzia WAImportExport podczas przygotowywania dysku. Klucz szyfrowania BitLocker można dodatkowo chronić przy użyciu zewnętrznej ochrony klucza (znanej również jako klucz zarządzany przez firmę Microsoft) lub klucza zarządzanego przez klienta. Aby uzyskać więcej informacji, zobacz jak [używać klucza zarządzanego przez klienta do ochrony klucza funkcji BitLocker](storage-import-export-encryption-key-portal.md).
 
-W przypadku zadań eksportowania po skopiowaniu danych na dyski usługa szyfruje dysk przy użyciu funkcji BitLocker przed wysłaniem go z powrotem do Ciebie. Klucz szyfrowania jest dostarczany za pośrednictwem witryny Azure portal. Dysk musi zostać odblokowany za pomocą narzędzia WAImporExport za pomocą klucza.
+W przypadku zadań eksportu po skopiowaniu danych na dyski Usługa szyfruje dysk przy użyciu funkcji BitLocker przed wysłaniem jej z powrotem do użytkownika. Klucz szyfrowania jest dostarczany przez Azure Portal. Dysk należy odblokować przy użyciu narzędzia WAImporExport przy użyciu klucza.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
@@ -147,20 +147,20 @@ W przypadku zadań eksportowania po skopiowaniu danych na dyski usługa szyfruje
 
 **Opłata za obsługę dysku**
 
-Istnieje opłata za obsługę dysku za każdy dysk przetworzony w ramach zadania importu lub eksportu. Zobacz szczegóły dotyczące [cen importu/eksportu platformy Azure](https://azure.microsoft.com/pricing/details/storage-import-export/).
+Dla każdego dysku przetworzonego w ramach zadania importowania lub eksportowania występuje opłata za obsługę dysku. Zobacz szczegóły [cennika usługi Azure Import/Export](https://azure.microsoft.com/pricing/details/storage-import-export/).
 
 **Koszty wysyłki**
 
-Podczas wysyłania dysków na platformę Azure płacisz koszty wysyłki przewoźnikowi. Gdy firma Microsoft zwróci dyski do użytkownika, koszt wysyłki jest obciążany kontem przewoźnika, które podałeś w momencie tworzenia zadania.
+Podczas dostarczania dysków na platformę Azure koszt wysyłki jest obciążany przez firmę wysyłkową. Gdy firma Microsoft zwraca dyski do Ciebie, koszt wysyłki jest naliczany na koncie przewoźnika, które podano podczas tworzenia zadania.
 
 **Koszty transakcji**
 
-[Standardowa opłata za transakcję magazynu](https://azure.microsoft.com/pricing/details/storage/) ma zastosowanie podczas importowania i eksportu danych. Standardowe opłaty wychodzące mają również zastosowanie wraz z opłatami za transakcje magazynu, gdy dane są eksportowane z usługi Azure Storage. Aby uzyskać więcej informacji na temat kosztów wyjścia, zobacz [Ceny transferu danych.](https://azure.microsoft.com/pricing/details/data-transfers/).
+[Opłata za transakcje magazynu w warstwie Standardowa](https://azure.microsoft.com/pricing/details/storage/) jest stosowana podczas importowania, a także do eksportowania danych. W przypadku eksportowania danych z usługi Azure Storage opłaty za wychodzące normy są również stosowane wraz z opłatami za transakcje magazynu. Aby uzyskać więcej informacji o kosztach ruchu wychodzącego, zobacz [Cennik transferu danych.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak korzystać z usługi Import/Eksportowanie w celu:
+Dowiedz się, jak używać usługi Import/Export w celu:
 
 * [Importowanie danych do obiektów blob platformy Azure](storage-import-export-data-to-blobs.md)
 * [Eksportowanie danych z obiektów blob platformy Azure](storage-import-export-data-from-blobs.md)
-* [Importowanie danych do plików platformy Azure](storage-import-export-data-to-files.md)
+* [Importuj dane do Azure Files](storage-import-export-data-to-files.md)

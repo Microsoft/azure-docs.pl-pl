@@ -1,6 +1,6 @@
 ---
-title: Tworzenie konta microsoft developer | Azure Marketplace
-description: Wymagania i kroki dotyczące tworzenia konta microsoft developer.
+title: Tworzenie konta dewelopera firmy Microsoft | Portal Azure Marketplace
+description: Wymagania i kroki związane z tworzeniem konta dewelopera Microsoft.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,212 +8,212 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: 161abde1ef0dfd86842fb56afe699fa632e0d9ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280375"
 ---
-<a name="create-a-microsoft-developer-account"></a>Tworzenie konta programu Microsoft Developer
+<a name="create-a-microsoft-developer-account"></a>Tworzenie konta dewelopera firmy Microsoft
 ====================================
 
-W tym artykule opisano sposób stan publikowania zatwierdzonego programu Microsoft Developer dla portalu Azure Marketplace.
+W tym artykule opisano, jak stać się zatwierdzonym deweloperem firmy Microsoft na potrzeby publikowania w witrynie Azure Marketplace.
 
 ## <a name="create-a-microsoft-account"></a>Tworzenie konta Microsoft
 
-Aby rozpocząć proces publikowania, musisz ukończyć rejestrację **Centrum deweloperów firmy Microsoft.** Użyjesz tego samego zarejestrowanego konta w **[portalu Cloud Partner Portal,](https://cloudpartner.azure.com/)** aby rozpocząć proces publikowania.
+Aby rozpocząć proces publikowania, musisz ukończyć rejestrację **Centrum deweloperów Microsoft** . Użyjesz tego samego zarejestrowanego konta w **[Portal Cloud partner](https://cloudpartner.azure.com/)** , aby rozpocząć proces publikowania.
 
-### <a name="general-account-guidelines"></a>Ogólne wytyczne dotyczące konta
+### <a name="general-account-guidelines"></a>Ogólne wytyczne dotyczące kont
 
-Firma Microsoft zaleca, aby mieć tylko jedno konto Microsoft dla oferty portalu Azure Marketplace. To konto nie powinno być specyficzne dla usług ani ofert.
+Zalecamy, aby masz tylko jeden konto Microsoft dla ofert portalu Azure Marketplace. To konto nie powinno być specyficzne dla usług ani ofert.
 
-Adres, który tworzy nazwę użytkownika, powinien znajdować się w domenie i być kontrolowany przez zespół IT. Wszystkie działania związane z publikowaniem powinny być wykonywane za pośrednictwem tego konta.
+Adres tworzący nazwę użytkownika powinien znajdować się w domenie i kontrolowany przez Twój zespół IT. Wszystkie działania związane z publikowaniem należy wykonać za pomocą tego konta.
 
 >[!WARNING]
->Słowa takie jak "Azure" i "Microsoft" nie są obsługiwane podczas rejestracji konta Microsoft. Unikaj używania tych słów do ukończenia procesu tworzenia i rejestracji konta.
+>Takie słowa, jak "Azure" i "Microsoft", nie są obsługiwane w przypadku rejestracji konto Microsoft. Unikaj używania tych słów w celu zakończenia procesu tworzenia i rejestracji konta.
 
 ### <a name="company-account-guidelines"></a>Wytyczne dotyczące konta firmowego
 
-Postępuj zgodnie z tymi wskazówkami, jeśli więcej niż jedna osoba będzie musiała uzyskać dostęp do konta, logując się za pomocą konta Microsoft, które otworzyło konto.
+Postępuj zgodnie z tymi wskazówkami, jeśli więcej niż jedna osoba będzie musiała uzyskać dostęp do konta, logując się przy użyciu konto Microsoft, które otworzyło konto.
 
 >[!IMPORTANT]
->Aby umożliwić wielu użytkownikom dostęp do konta Centrum deweloperów, zalecamy przypisywanie ról poszczególnym użytkownikom za pomocą usługi Azure Active Directory. Mogą uzyskać dostęp do konta, logując się przy użyciu swoich indywidualnych poświadczeń usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Zarządzanie użytkownikami kont](https://docs.microsoft.com/windows/uwp/publish/manage-account-users).
+>Aby umożliwić wielu użytkownikom dostęp do konta Centrum deweloperów, zalecamy używanie Azure Active Directory do przypisywania ról do poszczególnych użytkowników. Mogą uzyskać dostęp do konta, logując się przy użyciu poszczególnych poświadczeń usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Zarządzanie użytkownikami konta](https://docs.microsoft.com/windows/uwp/publish/manage-account-users).
 
--   Utwórz konto Microsoft przy użyciu adresu e-mail należącego do domeny firmy,\'ale nie do jednej osoby. Na przykład windowsapps\@fabrikam.com.
--   Ogranicz dostęp do tego konta Microsoft do jak najmniejszej liczby deweloperów.
--   Skonfiguruj firmową listę dystrybucyjną poczty e-mail, która obejmuje wszystkich użytkowników, którzy muszą uzyskać dostęp do konta dewelopera, i dodaj ten adres e-mail do informacji zabezpieczających. Dzięki temu wszyscy pracownicy na liście mogą otrzymywać kody zabezpieczeń w razie potrzeby i zarządzać informacjami zabezpieczającymi konta Microsoft. Jeśli skonfigurowanie listy dystrybucyjnej nie jest możliwe, właściciel indywidualnego konta e-mail musi być dostępny, aby uzyskać dostęp do kodu zabezpieczającego i udostępnić go po wyświetleniu monitu (na przykład gdy nowe informacje zabezpieczające zostaną dodane do konta lub gdy musi być uzyskiwany z nowego urządzenia).
--   Dodaj firmowy numer telefonu, który nie wymaga rozszerzenia i jest dostępny dla kluczowych członków zespołu.
--   Ogólnie rzecz biorąc, deweloperzy używają zaufanych urządzeń do logowania się na konto dewelopera firmy. Wszyscy kluczowi członkowie zespołu powinni mieć dostęp do tych zaufanych urządzeń. Zmniejszy to potrzebę wysyłania kodów zabezpieczających podczas uzyskiwania dostępu do konta.
--   Jeśli chcesz zezwolić na dostęp do konta z niezaufanego komputera, ogranicz ten dostęp do maksymalnie pięciu deweloperów. W idealnym przypadku deweloperzy ci powinni uzyskać dostęp do konta z komputerów, które mają tę samą lokalizację geograficzną i sieciową.
--   Często sprawdzaj [informacje zabezpieczające firmy,](https://account.live.com/proofs/Manage) aby upewnić się, że są aktualne.
+-   Utwórz konto Microsoft przy użyciu adresu e-mail, który należy do domeny firmowej\', ale nie do pojedynczej osoby. Na przykład WindowsApps\@fabrikam.com.
+-   Ogranicz dostęp do tego konto Microsoft do najmniejszej możliwej liczby deweloperów.
+-   Skonfiguruj firmową listę dystrybucyjną poczty e-mail, która zawiera wszystkich użytkowników, którzy muszą uzyskać dostęp do konta dewelopera, a następnie Dodaj ten adres e-mail do informacji zabezpieczających. Dzięki temu wszyscy pracownicy na liście mogą odbierać kody zabezpieczeń w razie potrzeby i zarządzać informacjami o zabezpieczeniach konto Microsoft. Jeśli skonfigurowanie listy dystrybucyjnej nie jest możliwe, właściciel indywidualnego konta e-mail musi być dostępny, aby uzyskać dostęp do kodu zabezpieczeń i udostępnić go po wyświetleniu monitu (na przykład gdy nowe informacje zabezpieczające zostaną dodane do konta lub w przypadku, gdy wymagane jest uzyskanie dostępu z nowego urządzenia).
+-   Dodaj numer telefonu firmy, który nie wymaga rozszerzenia i jest dostępny dla głównych członków zespołu.
+-   Ogólnie rzecz biorąc Deweloperzy używają zaufanych urządzeń do logowania się do firmowego konta dewelopera. Wszyscy członkowie zespołu kluczy powinni mieć dostęp do tych zaufanych urządzeń. Pozwoli to zmniejszyć potrzebę wysyłania kodów zabezpieczeń podczas uzyskiwania dostępu do konta.
+-   Jeśli musisz zezwolić na dostęp do konta z niezaufanego komputera, Ogranicz dostęp do maksymalnie pięciu deweloperów. W idealnym przypadku deweloperzy powinni uzyskiwać dostęp do konta z maszyn, które współużytkują tę samą lokalizację geograficzną i sieciową.
+-   Często Przejrzyj [informacje zabezpieczające firmy](https://account.live.com/proofs/Manage) , aby upewnić się, że jest ona aktualna.
 
 >[!IMPORTANT]
->Dostęp do konta dewelopera powinien być dostępny głównie z zaufanych komputerów. Ma to kluczowe znaczenie, ponieważ istnieje limit liczby kodów generowanych na konto w tygodniu. Umożliwia również najbardziej bezproblemowe środowisko logowania.
+>Twoje konto dewelopera powinno być dostępne głównie z zaufanych komputerów. Jest to ważne, ponieważ istnieje limit liczby wygenerowanych kodów dla konta na tydzień. Zapewnia również najbardziej bezproblemowe środowisko logowania.
 >
->Aby uzyskać więcej informacji, zobacz [dodatkowe wskazówki dotyczące kont deweloperów i zabezpieczeń](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
+>Aby uzyskać więcej informacji, zobacz [dodatkowe wskazówki i zabezpieczenia dotyczące konta dewelopera](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
 
 ### <a name="to-create-a-microsoft-account"></a>Aby utworzyć konto Microsoft
 
-1.  Otwórz nową sesję przeglądania Chrome Incognito lub Internet Explorer InPrivate, aby upewnić się, że nie zalogowano się na istniejące konto.
-2.  Zarejestruj wiadomość e-mail (przy użyciu poprzednich wytycznych) jako konto Microsoft, korzystając z tego [łącza](https://signup.live.com/signup.aspx). Wykonaj następujące instrukcje dotyczące rejestracji:
+1.  Otwórz nową sesję przeglądania w trybie InPrivate programu Chrome incognito lub Internet Explorer, aby upewnić się, że użytkownik nie jest zalogowany na istniejącym koncie.
+2.  Zarejestrowanie poczty e-mail (zgodnie z poprzednimi wskazówkami) jako konto Microsoft za pomocą tego [linku](https://signup.live.com/signup.aspx). Wykonaj następujące instrukcje dotyczące rejestracji:
 
-    - Rejestrując konto jako konto Microsoft, musisz podać prawidłowy numer telefonu, aby system wysłał Ci kod weryfikacyjny konta jako wiadomość tekstową lub połączenie automatyczne.
-    - Rejestrując konto jako konto Microsoft, musisz podać prawidłowy identyfikator wiadomości e-mail do odbierania automatycznej wiadomości e-mail w celu weryfikacji konta.
-    - Sprawdź adres e-mail wysłany do biblioteki dl.
+    - Podczas rejestrowania konta jako konto Microsoft należy podać prawidłowy numer telefonu dla systemu, aby przesłać kod weryfikacyjny konta jako wiadomość tekstową lub automatyczne wywołanie.
+    - Podczas rejestrowania konta jako konto Microsoft należy podać prawidłowy identyfikator e-mail w celu uzyskania zautomatyzowanej wiadomości e-mail w celu weryfikacji konta.
+    - Sprawdź, czy adres e-mail został wysłany do listy dystrybucyjnej.
 
-    Teraz możesz korzystać z nowego konta Microsoft w Centrum deweloperów firmy Microsoft.
+    Teraz możesz przystąpić do korzystania z nowego konto Microsoft w centrum deweloperów firmy Microsoft.
 
-## <a name="register-your-account-in-microsoft-developer-center"></a>Zarejestruj swoje konto w Centrum deweloperów firmy Microsoft
+## <a name="register-your-account-in-microsoft-developer-center"></a>Zarejestruj swoje konto w centrum deweloperów firmy Microsoft
 
-Centrum deweloperów firmy Microsoft służy do jednorazowego rejestrowania informacji o firmie. Rejestrujący musi być ważnym przedstawicielem przedsiębiorstwa i musi podać swoje dane osobowe w celu potwierdzenia swojej tożsamości. Osoba rejestrująca się musi używać konta Microsoft udostępnionego dla firmy, **a to samo konto musi być używane w portalu cloud partnerów.** Przed podjęciem próby jego utworzenia należy sprawdzić, czy firma nie ma jeszcze konta Centrum deweloperów firmy Microsoft. Podczas procesu będziemy zbierać informacje o adresie firmy, informacje o koncie bankowym i informacje podatkowe. Zazwyczaj można je uzyskać od finansów lub kontaktów biznesowych.
+Centrum deweloperów firmy Microsoft służy do rejestrowania informacji o firmie jeden raz. Rejestratorze musi być prawidłowym przedstawicielem firmy i musi podać swoje dane osobowe w celu weryfikacji tożsamości. Osoba rejestrująca musi używać konto Microsoft udostępnionej firmie, **a to samo konto musi być używane w Portal Cloud partner.** Upewnij się, że firma nie ma jeszcze konta Centrum deweloperów firmy Microsoft przed podjęciem próby jego utworzenia. W trakcie procesu będziemy zbierać informacje o adresie firmy, informacje o koncie bankowym i informacje podatkowe. Są one zazwyczaj uzyskiwane z kontaktów finansowych lub firmowych.
 
 >[!IMPORTANT]
->Należy wykonać następujące składniki profilu dewelopera, aby przejść przez różne fazy tworzenia i wdrażania oferty.
+>Aby postępować zgodnie z różnymi etapami tworzenia i wdrażania oferty, należy wykonać następujące składniki profilu dewelopera.
 
-| Profil dewelopera     | Aby rozpocząć pracę roboczą    | Przygotowanie       | Publikowanie szablonu bezpłatnego i rozwiązania   | Publikowanie reklam   |
+| Profil dewelopera     | Aby rozpocząć pracę w wersji roboczej    | Przygotowanie       | Publikowanie szablonu bezpłatnego i rozwiązania   | Publikuj komercyjne   |
 |---------------------- |----------------   |-----------    |-------------------------------------  |---------------------  |
-| Rejestracja firmy  | Musi mieć         | Musi mieć     | Musi mieć                             | Musi mieć             |
-| Identyfikator profilu podatkowego        | Optional (Opcjonalność)          | Optional (Opcjonalność)      | Optional (Opcjonalność)                              | Musi mieć             |
-| Konto bankowe          | Optional (Opcjonalność)          | Optional (Opcjonalność)      | Optional (Opcjonalność)                              | Musi mieć             |
+| Rejestracja w firmie  | Musi mieć         | Musi mieć     | Musi mieć                             | Musi mieć             |
+| Identyfikator profilu podatkowego        | Optional          | Optional      | Optional                              | Musi mieć             |
+| Konto bankowe          | Optional          | Optional      | Optional                              | Musi mieć             |
 
 >[!NOTE]
->Bring Your Own License (BYOL) jest obsługiwany tylko dla maszyn wirtualnych i jest uważany za bezpłatną ofertę.
+>Korzystanie z własnej licencji (BYOL) jest obsługiwane tylko dla maszyn wirtualnych i jest uważana za bezpłatną ofertę.
 
-### <a name="register-your-company-account"></a>Zarejestruj swoje konto firmowe
+### <a name="register-your-company-account"></a>Rejestrowanie konta firmowego
 
-1. Otwórz nową sesję przeglądania Internet Explorer InPrivate lub Chrome Incognito, aby upewnić się, że nie zalogowano się na konto osobiste.
+1. Otwórz nową sesję przeglądania InPrivate lub incognito przeglądarki Internet Explorer, aby upewnić się, że użytkownik nie jest zalogowany na koncie osobistym.
 
-2. Przejdź do [Centrum deweloperów systemu Windows,](https://dev.windows.com/registration?accountprogram=azure) aby zarejestrować się jako sprzedawca. Przed kontynuowaniem prosimy o zapoznanie się z poniższą ważną uwagą.
+2. Przejdź do [Centrum deweloperów systemu Windows](https://dev.windows.com/registration?accountprogram=azure) , aby zarejestrować siebie jako sprzedającego. Przed kontynuowaniem Przeczytaj zapoznaj się z poniższą uwagą.
 
-   ![Weryfikacja konta Microsoft](./media/cloud-partner-portal-create-dev-center-registration/seller-dashboard-verify.jpg)
+   ![Weryfikacja konto Microsoft](./media/cloud-partner-portal-create-dev-center-registration/seller-dashboard-verify.jpg)
 
     >[!IMPORTANT]
-    >Upewnij się, że identyfikator wiadomości e-mail lub lista dystrybucyjna (zalecana jest lista dystrybucyjna w celu usunięcia zależności od osób fizycznych), której będziesz używać do rejestracji w Centrum deweloperów, jest początkowo zarejestrowana jako konto Microsoft. Jeśli nie, zarejestruj się za pomocą tego linku. Ponadto nie można używać identyfikatora wiadomości e-mail w domenie firmy Microsoft do rejestracji w Centrum deweloperów."
+    >Upewnij się, że identyfikator poczty e-mail lub lista dystrybucyjna (lista dystrybucyjna jest zalecana do usunięcia zależności od osób), które będą używane do rejestracji w centrum deweloperów, są najpierw zarejestrowane jako konto Microsoft. Jeśli nie, zarejestruj się za pomocą tego linku. Ponadto nie można używać żadnych identyfikatorów poczty e-mail w domenie firmowej firmy Microsoft na potrzeby rejestracji w centrum deweloperów.
 
-   ![Zaloguj się centrum deweloperów](./media/cloud-partner-portal-create-dev-center-registration/seller-dashboard-login.jpg)
+   ![Logowanie do centrum deweloperów](./media/cloud-partner-portal-create-dev-center-registration/seller-dashboard-login.jpg)
 
-3. Uruchom kreatora "Pomóż nam chronić Twoje konto", aby zweryfikować twoją tożsamość za pomocą numeru telefonu lub adresu e-mail.
+3. Uruchom Kreatora "Pomóż nam chronić Twoje konto", aby zweryfikować swoją tożsamość przy użyciu numeru telefonu lub adresu e-mail.
 
-4. W obszarze Informacje o koncie rejestracyjnym wybierz **kraj/region konta** z listy rozwijanej, a następnie wybierz pozycję **Dalej**.
+4. W oknie Informacje o koncie rejestracji wybierz z listy rozwijanej **kraj/region konta** , a następnie wybierz przycisk **dalej**.
 
    ![Wybierz kraj/region](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >Kraje/regiony "sprzedaj z": Aby sprzedawać swoje usługi w portalu Azure Marketplace, zarejestrowana jednostka musi pochodzić z jednego z zatwierdzonych krajów/regionów sprzedaży wyświetlanych na liście rozwijanej. Ograniczenie to dotyczy wypłat i podatków. Aby uzyskać więcej informacji, zobacz zasady uczestnictwa w portalu Marketplace.
+    >"Sprzedawca" z krajów/regionów: aby sprzedawać swoje usługi w portalu Azure Marketplace, zarejestrowana jednostka musi być z jednego z zatwierdzonych krajów/regionów, które są wyświetlane na liście rozwijanej. To ograniczenie dotyczy wypłaty i przyczyn podatkowych. Aby uzyskać więcej informacji, zobacz zasady uczestnictwa w portalu Marketplace.
 
-5. Wybierz **firmę** jako "Typ konta", a następnie wybierz **pozycję Dalej**.
+5. Wybierz pozycję **firma** jako "typ konta", a następnie wybierz pozycję **dalej**.
 
     >[!IMPORTANT]
-    >Aby lepiej zrozumieć typy kont i zdecydować, który typ jest dla Ciebie najlepszy, wyświetl typy kont, lokalizacje i opłaty na stronie wyświetlane w następnym przechwytywaniu ekranu.
+    >Aby lepiej zrozumieć typy kont i zdecydować, który typ jest najlepszy dla Ciebie, Wyświetl typy kont stron, lokalizacje i opłaty widoczne w następnym przechwyceniu ekranu.
 
-    ![Typy kont dla sprzedających](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_05.png)
+    ![Typy kont dla sprzedawcy](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_05.png)
 
-6. Wprowadź **nazwę wyświetlaną programu Publisher**. Zazwyczaj jest to nazwa twojej firmy.
+6. Wprowadź **nazwę wyświetlaną wydawcy**. Jest to zazwyczaj nazwa firmy.
 
     >[!NOTE]
-    >Nazwa wyświetlana wydawcy wprowadzona w Centrum deweloperów nie jest wyświetlana w portalu Azure Marketplace po wyświetlenie oferty. Ale te informacje są potrzebne do zakończenia procesu rejestracji.
+    >Nazwa wyświetlana wydawcy wprowadzona w centrum deweloperów nie jest wyświetlana w portalu Azure Marketplace po wyświetleniu oferty. Jednak te informacje są konieczne do zakończenia procesu rejestracji.
 
-7. Wprowadź **informacje kontaktowe dotyczące** weryfikacji konta.
+7. Wprowadź **informacje kontaktowe** dla weryfikacji konta.
 
     >[!IMPORTANT]
-    >Musisz podać dokładne dane kontaktowe, ponieważ będą wykorzystywane w naszym procesie weryfikacji, aby Twoja firma została zatwierdzona w Centrum deweloperów."
+    >Musisz podać dokładne informacje kontaktowe, ponieważ zostaną one użyte w procesie weryfikacyjnym, aby Twoja firma mogła zostać zatwierdzona w centrum deweloperów.
 
-8. Wprowadź informacje kontaktowe **osoby zatwierdzającej firmę**. Osoba zatwierdzająca firmę to osoba, która może zweryfikować, czy użytkownik jest upoważniony do utworzenia konta w Centrum deweloperów w imieniu organizacji. Po podasz te informacje wybierz **pozycję Dalej,** aby przejść do **sekcji Płatność**.
+8. Wprowadź informacje kontaktowe **osoby zatwierdzającej w firmie**. Osoba zatwierdzająca w firmie jest osobą, która może sprawdzić, czy masz uprawnienia do tworzenia konta w centrum deweloperów w imieniu organizacji. Po podaniu tych informacji wybierz pozycję **dalej** , aby przejść do **sekcji płatność**.
 
-    ![Identyfikowanie osoby zatwierdzającej firmę](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_08.png)
+    ![Określ osobę zatwierdzającą w firmie](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_08.png)
 
-9. Wprowadź informacje o płatności dla swojego konta. Jeśli masz kod promocyjny, który pokrywa koszt rejestracji, możesz wprowadzić go tutaj. W przeciwnym razie podaj dane karty kredytowej (lub paypal na obsługiwanych rynkach). Wybierz **przycisk Dalej,** aby przejść do ostatecznego **przeglądu**.
+9. Wprowadź informacje o płatności dla Twojego konta. Jeśli masz kod promocyjny, który obejmuje koszt rejestracji, możesz wprowadzić go tutaj. W przeciwnym razie podaj informacje o karcie kredytowej (lub w systemie PayPal na obsługiwanych rynkach). Wybierz pozycję **dalej** , aby przejść do ostatniego **przeglądu**.
 
    ![Rejestracja płatności](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_09.png)
 
-10. Przejrzyj informacje o koncie i potwierdź, że wszystko jest w porządku. Przeczytaj i zaakceptuj warunki [umowy wydawcy portalu Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560). Zaznacz to pole, aby wskazać, że przeczytałeś i zaakceptowałeś te warunki.
+10. Przejrzyj informacje o koncie i upewnij się, że wszystkie elementy są poprawne. Przeczytaj i zaakceptuj warunki i postanowienia [umowy wydawcy Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560). Zaznacz pole wyboru, aby wskazać, że masz uprawnienia do odczytu i zaakceptowania tych warunków.
 
-11. Wybierz **Zakończ,** aby potwierdzić rejestrację. Na Twój adres e-mail zostanie wysłana wiadomość z potwierdzeniem.
+11. Wybierz pozycję **Zakończ** , aby potwierdzić rejestrację. Na adres e-mail zostanie wysłany komunikat z potwierdzeniem.
 
-12. Jeśli planujesz publikować tylko bezpłatne oferty, wybierz [pozycję Przejdź do portalu cloud partner](https://cloudpartner.azure.com/) i przejdź do "Zarejestruj swoje konto w portalu partnerów w chmurze" w tym artykule.
+12. Jeśli planujesz tylko publikowanie bezpłatnych ofert, wybierz pozycję [Przejdź do Portal Cloud partner](https://cloudpartner.azure.com/) i przejdź do pozycji "Zarejestruj konto w portalu Cloud Partner" w tym artykule.
 
-### <a name="commercial-offers"></a>Oferty handlowe
+### <a name="commercial-offers"></a>Oferty komercyjne
 
-Jeśli planujesz publikować oferty handlowe, takie jak oferta maszyny wirtualnej przy użyciu modelu rozliczeń godzinowych, musisz podać informacje podatkowe i bankowe. W tym celu zaloguj się na konto Centrum deweloperów i wybierz pozycję **Zaktualizuj informacje o koncie**. Postępuj zgodnie z instrukcjami w następnej sekcji "Dodaj informacje bankowe i podatkowe".
+Jeśli planujesz publikowanie ofert komercyjnych, takich jak oferta maszyn wirtualnych przy użyciu modelu rozliczania godzinowego, musisz podać informacje podatkowe i bankowe. W tym celu zaloguj się do konta Centrum deweloperów i wybierz pozycję **Zaktualizuj informacje o koncie**. Postępuj zgodnie z instrukcjami w następnej sekcji "Dodawanie informacji bankowych i podatkowych".
 
 >[!IMPORTANT]
->Nie będzie można wypchnąć oferty komercyjnej do produkcji bez podania informacji o koncie bankowym i podatku.
+>Nie będzie można wypchnąć komercyjnej oferty do produkcji bez podawania informacji o koncie bankowym i podatku.
 
-Jeśli wolisz zaktualizować informacje bankowe i podatkowe później, możesz przejść do "Zarejestruj swoje konto w portalu partnerów w chmurze" w tym artykule.
+Jeśli wolisz później zaktualizować dane bankowe i podatkowe, możesz przejść do "Zarejestruj konto w portalu Cloud Partner" w tym artykule.
 
 >[!NOTE]
->Zalecamy jak najszybsze podanie informacji o kontach bankowych i podatkach, ponieważ weryfikacja informacji podatkowych wymaga czasu.
+>Firma Microsoft zaleca, aby jak najszybciej zapewnić informacje o koncie bankowym i podatku, ponieważ trwa sprawdzanie poprawności informacji podatkowych.
 
 ### <a name="add-banking-and-tax-information"></a>Dodawanie informacji bankowych i podatkowych
 
-Aby opublikować oferty handlowe do zakupu, należy dodać informacje o wypłatach i podatkach oraz przesłać je do weryfikacji w Centrum deweloperów.
+Aby opublikować komercyjne oferty zakupu, należy dodać wypłatę i informacje podatkowe i przesłać je do walidacji w centrum deweloperów.
 
-**Aby dostarczyć informacji bankowych**
+**Aby podać informacje o banku**
 
-1.  Zaloguj się do [Centrum deweloperów firmy Microsoft](https://dev.windows.com/registration?accountprogram=azure) za pomocą konta Microsoft.
-2.  Wybierz **konto wypłat** w menu po lewej stronie, w obszarze Wybierz metodę **płatności**wybierz pozycję Konto **bankowe** lub **PayPal**.
+1.  Zaloguj się do [Centrum deweloperów firmy Microsoft](https://dev.windows.com/registration?accountprogram=azure) przy użyciu konto Microsoft.
+2.  Wybierz pozycję **konto wypłaty** w menu po lewej stronie, w obszarze **Wybierz formę płatności**wybierz pozycję **konto bankowe** lub **PayPal**.
 
     >[!NOTE]
-    >Jeśli masz oferty handlowe, które klienci kupują w Marketplace, jest to konto, na którym otrzymasz wypłatę za te zakupy.
+    >Jeśli masz komercyjne oferty, które klienci kupują w portalu Marketplace, jest to konto, na którym zostanie wyświetlona wypłata za te zakupy.
 3.  Wprowadź informacje o płatności, a następnie wybierz pozycję **Zapisz**.
 
     >[!IMPORTANT]
-    >Jeśli chcesz zaktualizować lub zmienić konto wypłat, wykonaj poprzednie kroki, aby zastąpić bieżące informacje nowymi informacjami.
+    >Jeśli musisz zaktualizować lub zmienić konto wypłaty, wykonaj powyższe kroki, aby zastąpić bieżące informacje nowymi informacjami.
     >
-    >Zmiana konta wypłat może opóźnić płatności nawet o jeden cykl płatności. To opóźnienie występuje, ponieważ musimy zweryfikować zmianę konta, tak jak to zrobiliśmy podczas pierwszego konfigurowania konta wypłat. Po zweryfikowaniu konta nadal otrzymasz zapłatę za pełną kwotę; wszelkie płatności należne za bieżący cykl płatności zostaną dodane do następnego.
+    >Zmiana konta wypłaty może opóźniać płatności o jeden cykl płatności. To opóźnienie występuje, ponieważ musimy zweryfikować zmianę konta, tak jak podczas pierwszej konfiguracji konta wypłaty. Po zweryfikowaniu konta będziesz nadal otrzymywać opłaty za pełną kwotę. Wszelkie płatności z tytułu bieżącego cyklu płatności zostaną dodane do kolejnego.
 
-4.  Wybierz **pozycję Dalej**.
+4.  Wybierz pozycję **Dalej**.
 
-**Aby uzyskać informacje podatkowe**
+**Aby podać informacje podatkowe**
 
-1.  Zaloguj się do [Centrum deweloperów firmy Microsoft](https://dev.windows.com/registration?accountprogram=azure) za pomocą konta Microsoft (w razie potrzeby).
-2.  W menu po lewej stronie wybierz **pozycję Profil podatkowy**.
-3.  Na stronie **Konfigurowanie formularza podatku:**
-    - Wybierz kraj lub region, w którym masz stałe miejsce zamieszkania.
-    - Wybierz kraj lub region, w którym masz obywatelstwo podstawowe.
-    - Wybierz **pozycję Dalej**.
-4.  Wprowadź szczegóły podatku, a następnie wybierz przycisk **Dalej**.
+1.  Zaloguj się do [Centrum deweloperów firmy Microsoft](https://dev.windows.com/registration?accountprogram=azure) , korzystając z konto Microsoft (jeśli to konieczne).
+2.  Z menu po lewej stronie wybierz pozycję **profil podatkowy**.
+3.  Na stronie **Konfigurowanie formularza podatkowego** :
+    - Wybierz kraj lub region, w którym znajduje się stały miejsce w miejscu.
+    - Wybierz kraj lub region, w którym posiadasz obywatelstwo podstawowe.
+    - Wybierz pozycję **Dalej**.
+4.  Wprowadź szczegóły podatkowe, a następnie wybierz pozycję **dalej**.
 
 >[!WARNING]
->Nie będzie można wypchnąć do ofert komercyjnych do produkcji bez podania informacji o koncie bankowym i podatkach na koncie Microsoft Developer Center.
+>Nie będzie możliwe wypchnięcie do ofert komercyjnych w środowisku produkcyjnym bez podawania informacji o koncie bankowym i podatku w Twoim koncie Microsoft Developer Center.
 
 ### <a name="developer-center-registration-issues"></a>Problemy z rejestracją Centrum deweloperów
 
-Jeśli masz problemy z rejestracją Centrum deweloperów, użyj następujących kroków, aby otworzyć bilet pomocy technicznej.
+Jeśli masz problemy z rejestracją Centrum deweloperów, wykonaj następujące kroki, aby otworzyć bilet pomocy technicznej.
 
-1.  Przejdź do [linku pomocy technicznej](https://developer.microsoft.com/windows/support).
-2.  W obszarze **Kontakt z nami**wybierz pozycję **Prześlij zdarzenie**.
-    ![Otwieranie biletu](./media/cloud-partner-portal-create-dev-center-registration/imgAddTax_02.png)
-3.  W przypadku **typu problem**wybierz opcję "Pomoc z Centrum deweloperów", a w **kategorii**wybierz opcję "Publikuj aplikacje i zarządzaj nimi". Wybierz **pozycję Rozpocznij wiadomość e-mail**.
+1.  Przejdź do [linku do pomocy technicznej](https://developer.microsoft.com/windows/support).
+2.  W obszarze **kontakt z nami**wybierz pozycję **Prześlij zdarzenie**.
+    ![Otwórz bilet](./media/cloud-partner-portal-create-dev-center-registration/imgAddTax_02.png)
+3.  W obszarze **typ problemu**wybierz pozycję "pomoc z Centrum deweloperów" i dla **kategorii**wybierz pozycję "publikowanie aplikacji i zarządzanie nimi". Wybierz pozycję **Rozpocznij pocztę e-mail**.
 
-    ![identyfikowanie typu problemu](./media/cloud-partner-portal-create-dev-center-registration/imgAddTax_03.png)
+    ![Identyfikowanie typu problemu](./media/cloud-partner-portal-create-dev-center-registration/imgAddTax_03.png)
 
-4.  Otrzymasz stronę logowania. Zaloguj się za pomocą dowolnego konta Microsoft. Jeśli nie masz konta Microsoft, [utwórz je](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).\
+4.  Zostanie nadana Strona logowania. Zaloguj się przy użyciu dowolnych konto Microsoft. Jeśli nie masz konto Microsoft, [Utwórz je](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1). \
 
-5.  Podaj szczegółowe informacje o problemie i wybierz **opcję Prześlij,** aby wysłać bilet.
+5.  Podaj szczegółowe informacje o problemie i wybierz pozycję **Prześlij** , aby wysłać bilet.
 
-    ![prześlij bilet](./media/cloud-partner-portal-create-dev-center-registration/imgAddTax_05.png)
+    ![Prześlij bilet](./media/cloud-partner-portal-create-dev-center-registration/imgAddTax_05.png)
 
-## <a name="register-your-account-in-the-cloud-partner-portal"></a>Zarejestruj swoje konto w portalu partnerów w chmurze
+## <a name="register-your-account-in-the-cloud-partner-portal"></a>Zarejestruj swoje konto w portalu Cloud partner
 
-Za pomocą [portalu Cloud Partner Portal](https://cloudpartner.azure.com/) można publikować oferty i zarządzać nimi.
+Użyj [Portal Cloud partner](https://cloudpartner.azure.com/) , aby opublikować oferty i zarządzać nimi.
 
-1.  Otwórz nową sesję przeglądania Chrome Incognito lub Internet Explorer InPrivate, aby upewnić się, że nie zalogowano się na konto osobiste.
-2.  Przejdź do [portalu cloud partner .](https://cloudpartner.azure.com/)
-3.  Jeśli jesteś nowym użytkownikiem i logujesz się do [portalu Cloud Partner Portal](https://cloudpartner.azure.com/) po raz pierwszy, musisz zalogować się przy użyciu tego samego identyfikatora e-mail, który jest zarejestrowany na twoim koncie Centrum deweloperów. Dzięki temu twoje konto Centrum deweloperów i konto portalu partnera w chmurze są ze sobą połączone.
+1.  Otwórz nową sesję przeglądania w trybie InPrivate programu Chrome incognito lub Internet Explorer, aby upewnić się, że użytkownik nie jest zalogowany na koncie osobistym.
+2.  Przejdź do [Portal Cloud partner](https://cloudpartner.azure.com/).
+3.  Jeśli jesteś nowym użytkownikiem i zalogujesz się do [Portal Cloud partner](https://cloudpartner.azure.com/) po raz pierwszy, musisz zalogować się przy użyciu tego samego identyfikatora poczty e-mail, który został zarejestrowany w ramach konta Centrum deweloperów. Dzięki temu konto Centrum deweloperów i konto portalu partnerów w chmurze są połączone ze sobą.
 
-Później można dodać innych członków firmy, którzy pracują nad aplikacją. Możesz je jako współautorów lub właścicieli w portalu partnerów w chmurze, wykonując kroki w następnej sekcji.
+Później możesz dodać innych członków firmy, którzy pracują nad aplikacją. Możesz je jako współautorzy lub właściciele w portalu Cloud partner, wykonując czynności opisane w następnej sekcji.
 
-Jeśli zostaniesz dodany jako współautor/właściciel w portalu portalu partnerów w chmurze, możesz zalogować się przy za pomocą własnego konta.
+Jeśli użytkownik jest dodawany jako współautor/właściciel w portalu portalu Cloud partner, można zalogować się przy użyciu własnego konta.
 
 >[!TIP]
->Zasady uczestnictwa są opisane w witrynie sieci Web platformy Azure.
+>Zasady uczestnictwa są opisane w witrynie sieci Web systemu Azure.
 
-## <a name="manage-users-as-owners-or-contributors-in-the-cloud-partner-portal"></a>Zarządzanie użytkownikami jako właścicielami lub współautorami w portalu partnerów w chmurze
+## <a name="manage-users-as-owners-or-contributors-in-the-cloud-partner-portal"></a>Zarządzanie użytkownikami jako właściciele lub współautorzy w portalu Cloud partner
 
-[Kroki zarządzania użytkownikami w portalu partnerów w chmurze](./cloud-partner-portal-manage-users.md)
+[Kroki umożliwiające zarządzanie użytkownikami w portalu Cloud partner](./cloud-partner-portal-manage-users.md)
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy twoje konto jest tworzone i zarejestrowane, możesz rozpocząć proces publikowania w portalu Azure Marketplace.
+Teraz, gdy Twoje konto zostało utworzone i zarejestrowane, możesz rozpocząć proces publikowania w portalu Azure Marketplace.

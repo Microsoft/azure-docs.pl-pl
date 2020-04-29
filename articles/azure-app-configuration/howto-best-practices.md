@@ -1,6 +1,6 @@
 ---
-title: Najważniejsze wskazówki dotyczące konfiguracji aplikacji platformy Azure | Dokumenty firmy Microsoft
-description: Dowiedz się, jak najlepiej korzystać z konfiguracji aplikacji platformy Azure
+title: Najlepsze rozwiązania dotyczące konfiguracji aplikacji platformy Azure | Microsoft Docs
+description: Dowiedz się, jak najlepiej używać konfiguracji aplikacji platformy Azure
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -13,38 +13,38 @@ ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
 ms.openlocfilehash: df56f53b64a35737700529b80c004efeb31eaabc
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80348661"
 ---
-# <a name="azure-app-configuration-best-practices"></a>Najważniejsze wskazówki dotyczące konfiguracji aplikacji platformy Azure
+# <a name="azure-app-configuration-best-practices"></a>Najlepsze rozwiązania dotyczące konfiguracji aplikacji platformy Azure
 
-W tym artykule omówiono typowe wzorce i najlepsze rozwiązania podczas korzystania z konfiguracji aplikacji platformy Azure.
+W tym artykule omówiono typowe wzorce i najlepsze rozwiązania w przypadku korzystania z usługi Azure App Configuration.
 
 ## <a name="key-groupings"></a>Grupowanie kluczy
 
-Konfiguracja aplikacji udostępnia dwie opcje organizowania kluczy:
+Konfiguracja aplikacji oferuje dwie opcje organizowania kluczy:
 
 * Prefiksy kluczy
 * Etykiety
 
-Do grupowania kluczy można użyć jednej lub obu opcji.
+Aby zgrupować klucze, można użyć jednej lub obu opcji.
 
-*Prefiksy kluczy* są początkowymi częściami kluczy. Można logicznie grupować zestaw kluczy przy użyciu tego samego prefiksu w ich nazwach. Prefiksy mogą zawierać wiele składników połączonych `/`ogranicznikiem, takich jak , podobnie jak ścieżka adresu URL, w celu utworzenia obszaru nazw. Takie hierarchie są przydatne podczas przechowywania kluczy dla wielu aplikacji, usług składników i środowisk w jednym magazynie konfiguracji aplikacji.
+*Prefiksy kluczy* są początkowymi częściami kluczy. Można logicznie grupować zestaw kluczy przy użyciu tego samego prefiksu w nazwach. Prefiksy mogą zawierać wiele składników połączonych przez ogranicznik, `/`na przykład podobne do ścieżki URL, w celu utworzenia przestrzeni nazw. Takie hierarchie są przydatne w przypadku przechowywania kluczy dla wielu aplikacji, usług składowych i środowisk w jednym magazynie konfiguracji aplikacji.
 
-Ważną rzeczą, o której należy pamiętać, jest to, że klucze są odwołania do kodu aplikacji, aby pobrać wartości odpowiednich ustawień. Klucze nie powinny się zmieniać, w przeciwnym razie trzeba będzie zmodyfikować kod za każdym razem, gdy to się stanie.
+Ważne jest, aby pamiętać, że klucze są do których odwołuje się kod aplikacji w celu pobrania wartości odpowiednich ustawień. Klucze nie powinny się zmieniać lub w przeciwnym razie trzeba będzie zmodyfikować swój kod.
 
-*Etykiety* są atrybutem w kluczach. Są one używane do tworzenia wariantów klucza. Na przykład można przypisać etykiety do wielu wersji klucza. Wersja może być iteracji, środowiska lub innych informacji kontekstowych. Aplikacja może zażądać zupełnie inny zestaw wartości kluczy, określając inną etykietę. W rezultacie wszystkie odwołania do kluczy pozostają niezmienione w kodzie.
+*Etykiety* są atrybutem kluczy. Są one używane do tworzenia wariantów klucza. Można na przykład przypisać etykiety do wielu wersji klucza. Wersja może być iteracją, środowiskiem lub innymi informacjami kontekstowymi. Aplikacja może zażądać całkowicie różnego zestawu wartości kluczowych, określając inną etykietę. W związku z tym wszystkie odwołania do kluczy pozostaną niezmienione w kodzie.
 
 ## <a name="key-value-compositions"></a>Kompozycje klucz-wartość
 
-Konfiguracja aplikacji traktuje wszystkie klucze przechowywane z nim jako niezależne jednostki. Konfiguracja aplikacji nie próbuje wywnioskować żadnej relacji między kluczami lub dziedziczyć wartości klucza na podstawie ich hierarchii. Można jednak agregować wiele zestawów kluczy przy użyciu etykiet w połączeniu z prawidłową konfiguracją układania w kodzie aplikacji.
+Konfiguracja aplikacji traktuje wszystkie klucze przechowywane z nią jako jednostki niezależne. W obszarze Konfiguracja aplikacji nie jest podejmowana próba wywnioskowania żadnej relacji między kluczami lub dziedziczenia wartości kluczy na podstawie ich hierarchii. Można jednak agregować wiele zestawów kluczy, używając etykiet sprzężonych z prawidłowym stosem konfiguracji w kodzie aplikacji.
 
-Spójrzmy na przykład. Załóżmy, że masz ustawienie o nazwie **Asset1**, którego wartość może się różnić w zależności od środowiska programistycznego. Tworzysz klucz o nazwie "Asset1" z pustą etykietą i etykietą o nazwie "Rozwój". W pierwszej etykiecie należy umieścić wartość domyślną dla **zasobu1**i umieścić określoną wartość dla "Rozwoju" w drugim.
+Spójrzmy na przykład. Załóżmy, że masz ustawienie o nazwie **Asset1**, którego wartość może się różnić w zależności od środowiska deweloperskiego. Tworzysz klucz o nazwie "Asset1" z pustą etykietą i etykietą o nazwie "Development". W pierwszej etykiecie zostanie umieszczona wartość domyślna dla **Asset1**i zostanie umieszczona określona wartość "Programowanie" w tym drugim.
 
-W kodzie najpierw pobrać wartości klucza bez żadnych etykiet, a następnie pobrać ten sam zestaw wartości klucza po raz drugi z etykietą "Rozwoju". Podczas pobierania wartości po raz drugi, poprzednie wartości kluczy są zastępowane. System konfiguracji .NET Core umożliwia "układanie" wielu zestawów danych konfiguracyjnych jeden na drugim. Jeśli klucz istnieje w więcej niż jednym zestawie, używany jest ostatni zestaw, który go zawiera. Dzięki nowoczesnej platformie programowania, takiej jak .NET Core, otrzymasz tę funkcję układania bezpłatnie, jeśli używasz natywnego dostawcy konfiguracji, aby uzyskać dostęp do konfiguracji aplikacji. Poniższy fragment kodu pokazuje, jak można zaimplementować układanie w aplikacji .NET Core:
+W kodzie należy najpierw pobrać wartości klucza bez żadnych etykiet, a następnie pobrać ten sam zestaw wartości klucza po raz drugi z etykietą "Programowanie". Po pobraniu wartości po raz drugi poprzednie wartości kluczy są zastępowane. System konfiguracji .NET Core umożliwia "stos" wielu zestawów danych konfiguracji na siebie nawzajem. Jeśli klucz istnieje w więcej niż jednym zestawie, używany jest ostatni zestaw, który zawiera. Dzięki nowoczesnej strukturze programistycznej, takiej jak .NET Core, można bezpłatnie skorzystać z tej możliwości tworzenia stosu, jeśli używasz natywnego dostawcy konfiguracji do uzyskiwania dostępu do konfiguracji aplikacji. Poniższy fragment kodu przedstawia sposób implementacji stosu w aplikacji .NET Core:
 
 ```csharp
 // Augment the ConfigurationBuilder with Azure App Configuration
@@ -56,37 +56,37 @@ configBuilder.AddAzureAppConfiguration(options => {
 });
 ```
 
-[Użyj etykiet, aby włączyć różne konfiguracje dla różnych środowisk](./howto-labels-aspnet-core.md) zawiera pełny przykład.
+[Aby włączyć różne konfiguracje dla różnych środowisk, należy użyć etykiet](./howto-labels-aspnet-core.md) .
 
-## <a name="app-configuration-bootstrap"></a>Bootstrap konfiguracji aplikacji
+## <a name="app-configuration-bootstrap"></a>Konfiguracja aplikacji — Bootstrap
 
-Aby uzyskać dostęp do magazynu konfiguracji aplikacji, można użyć jego parametry połączenia, który jest dostępny w witrynie Azure portal. Ponieważ parametry połączenia zawierają informacje o poświadczeniach, są one uważane za wpisy tajne. Te wpisy tajne muszą być przechowywane w usłudze Azure Key Vault, a kod musi być uwierzytelniany w magazynie kluczy, aby je pobrać.
+Aby uzyskać dostęp do magazynu konfiguracji aplikacji, można użyć jego parametrów połączenia, który jest dostępny w Azure Portal. Ponieważ parametry połączenia zawierają informacje o poświadczeniach, są one uznawane za wpisy tajne. Te klucze tajne muszą być przechowywane w Azure Key Vault, a kod musi być uwierzytelniany do Key Vault, aby je pobrać.
 
-Lepszym rozwiązaniem jest użycie funkcji tożsamości zarządzanych w usłudze Azure Active Directory. W tożsamościach zarządzanych potrzebny jest tylko adres URL punktu końcowego konfiguracji aplikacji, aby uzyskać dostęp do sklepu konfiguracji aplikacji. Adres URL można osadzić w kodzie aplikacji (na przykład w pliku *appsettings.json).* Zobacz [integrowanie z tożsamościami zarządzanymi platformy Azure, aby](howto-integrate-azure-managed-service-identity.md) uzyskać szczegółowe informacje.
+Lepszym rozwiązaniem jest użycie funkcji tożsamości zarządzane w programie Azure Active Directory. W przypadku tożsamości zarządzanych do magazynu konfiguracji aplikacji potrzebny jest tylko adres URL punktu końcowego konfiguracji aplikacji. Adres URL można osadzić w kodzie aplikacji (na przykład w pliku *appSettings. JSON* ). Szczegóły można znaleźć w temacie [integracja z tożsamościami zarządzanymi przez platformę Azure](howto-integrate-azure-managed-service-identity.md) .
 
-## <a name="app-or-function-access-to-app-configuration"></a>Dostęp do aplikacji lub funkcji w konfiguracji aplikacji
+## <a name="app-or-function-access-to-app-configuration"></a>Dostęp do aplikacji lub funkcji do konfiguracji aplikacji
 
-Dostęp do konfiguracji aplikacji dla aplikacji lub funkcji sieci Web można zapewnić za pomocą dowolnej z następujących metod:
+Możesz zapewnić dostęp do konfiguracji aplikacji dla aplikacji lub funkcji sieci Web przy użyciu dowolnej z następujących metod:
 
-* Za pośrednictwem portalu Azure wprowadź parametry połączenia do magazynu konfiguracji aplikacji w ustawieniach aplikacji usługi App Service.
-* Zapisz parametry połączenia do magazynu konfiguracji aplikacji w magazynie aplikacji w magazynie aplikacji i [odwołujej się do niego z usługi App Service](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
-* Użyj tożsamości zarządzanych platformy Azure, aby uzyskać dostęp do magazynu konfiguracji aplikacji. Aby uzyskać więcej informacji, zobacz [Integrowanie z tożsamościami zarządzanymi platformy Azure](howto-integrate-azure-managed-service-identity.md).
-* Wypychanie konfiguracji z konfiguracji aplikacji do usługi App Service. Konfiguracja aplikacji zapewnia funkcję eksportu (w witrynie Azure portal i interfejsu wiersza polecenia platformy Azure), która wysyła dane bezpośrednio do usługi App Service. Za pomocą tej metody nie trzeba w ogóle zmieniać kodu aplikacji.
+* Za pomocą Azure Portal wprowadź parametry połączenia do magazynu konfiguracji aplikacji w ustawieniach aplikacji App Service.
+* Zapisz parametry połączenia z magazynem konfiguracji aplikacji w Key Vault i [odwołując się do niego z App Service](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
+* Użyj tożsamości zarządzanych przez platformę Azure, aby uzyskać dostęp do magazynu konfiguracji aplikacji. Aby uzyskać więcej informacji, zobacz [Integrowanie z tożsamościami zarządzanymi przez platformę Azure](howto-integrate-azure-managed-service-identity.md).
+* Konfiguracja wypychana z konfiguracji aplikacji do App Service. Konfiguracja aplikacji udostępnia funkcję eksportu (w Azure Portal i interfejsu wiersza polecenia platformy Azure), która wysyła dane bezpośrednio do App Service. W przypadku tej metody nie trzeba zmieniać kodu aplikacji.
 
-## <a name="reduce-requests-made-to-app-configuration"></a>Zmniejsz liczbę żądań kierowanych do konfiguracji aplikacji
+## <a name="reduce-requests-made-to-app-configuration"></a>Ogranicz żądania dotyczące konfiguracji aplikacji
 
-Nadmierne żądania do konfiguracji aplikacji może spowodować ograniczenie lub opłaty za nadmiar. Aby zmniejszyć liczbę złożonych wniosków:
+Nadmierne żądania konfiguracji aplikacji mogą powodować naliczanie opłat lub za użycie nadwyżkowe. Aby zmniejszyć liczbę wykonanych żądań:
 
-* Zwiększ limit czasu odświeżania, zwłaszcza jeśli wartości konfiguracji nie zmieniają się często. Określ nowy limit czasu odświeżania przy użyciu [ `SetCacheExpiration` metody](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setcacheexpiration).
+* Zwiększ limit czasu odświeżania, szczególnie w przypadku, gdy wartości konfiguracyjne nie ulegają częstym zmianom. Określ nowy limit czasu odświeżania przy użyciu [ `SetCacheExpiration` metody](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setcacheexpiration).
 
-* Oglądaj pojedynczy *klucz wartownika,* zamiast oglądać poszczególne klawisze. Odśwież całą konfigurację tylko wtedy, gdy zmieni się klucz wartownika. Zobacz [przykład używanie konfiguracji dynamicznej w aplikacji ASP.NET Core.](enable-dynamic-configuration-aspnet-core.md)
+* Obejrzyj pojedynczy *klucz wskaźnikowy*, zamiast oglądać poszczególne klucze. Odśwież całą konfigurację tylko w przypadku zmiany klucza wskaźnikowego. Zobacz [Używanie konfiguracji dynamicznej w aplikacji ASP.NET Core](enable-dynamic-configuration-aspnet-core.md) na przykład.
 
-* Użyj usługi Azure Event Grid, aby otrzymywać powiadomienia o zmianach konfiguracji, a nie stale sondowania dla wszelkich zmian. Aby uzyskać więcej informacji, zobacz [Kierowanie zdarzeń konfiguracji aplikacji platformy Azure do punktu końcowego sieci Web](./howto-app-configuration-event.md)
+* Użyj Azure Event Grid, aby otrzymywać powiadomienia o zmianach konfiguracji, a nie stale sondować o wszelkie zmiany. Aby uzyskać więcej informacji [, zobacz kierowanie zdarzeń konfiguracji aplikacji platformy Azure do punktu końcowego sieci Web](./howto-app-configuration-event.md)
 
-## <a name="importing-configuration-data-into-app-configuration"></a>Importowanie danych konfiguracyjnych do konfiguracji aplikacji
+## <a name="importing-configuration-data-into-app-configuration"></a>Importowanie danych konfiguracji do konfiguracji aplikacji
 
-Konfiguracja aplikacji oferuje opcję zbiorczego [importowania](https://aka.ms/azconfig-importexport1) ustawień konfiguracji z bieżących plików konfiguracyjnych przy użyciu witryny Azure portal lub interfejsu wiersza polecenia. Można również użyć tych samych opcji do eksportowania wartości z konfiguracji aplikacji, na przykład między powiązanymi sklepami. Jeśli chcesz skonfigurować ciągłą synchronizację z repozytorium GitHub, możesz użyć naszej [akcji GitHub,](https://aka.ms/azconfig-gha2) aby nadal korzystać z istniejących praktyk kontroli źródła, jednocześnie uzyskując korzyści z konfiguracji aplikacji.
+Konfiguracja aplikacji oferuje opcję zbiorczego [importowania](https://aka.ms/azconfig-importexport1) ustawień konfiguracji z bieżących plików konfiguracji przy użyciu Azure Portal lub interfejsu wiersza polecenia. Możesz również użyć tych samych opcji, aby wyeksportować wartości z konfiguracji aplikacji, na przykład między powiązanymi magazynami. Jeśli chcesz skonfigurować trwającą synchronizację z repozytorium GitHub, możesz użyć naszej [akcji GitHub](https://aka.ms/azconfig-gha2) , aby móc nadal korzystać z istniejących rozwiązań kontroli źródła podczas uzyskiwania korzyści z konfiguracji aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Klawisze i wartości](./concept-key-value.md)
+* [Klucze i wartości](./concept-key-value.md)

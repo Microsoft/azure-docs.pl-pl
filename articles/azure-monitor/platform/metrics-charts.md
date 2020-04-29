@@ -1,6 +1,6 @@
 ---
 title: Zaawansowane funkcje Eksploratora metryk platformy Azure
-description: Dowiedz się więcej o zaawansowanych funkcjach Eksploratora metryk usługi Azure Monitor
+description: Dowiedz się więcej na temat zaawansowanych funkcji Azure Monitor Eksplorator metryk
 author: vgorbenko
 services: azure-monitor
 ms.topic: conceptual
@@ -8,125 +8,125 @@ ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 2df1e0bb7d586edb13dc86e163f0e5728608d2a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80371603"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Zaawansowane funkcje Eksploratora metryk platformy Azure
 
 > [!NOTE]
-> W tym artykule przyjęto założenie, że znasz podstawowe funkcje Eksploratora metryk. Jeśli jesteś nowym użytkownikiem i chcesz dowiedzieć się, jak utworzyć pierwszy wykres metrykowy, zobacz [Wprowadzenie do Eksploratora metryk platformy Azure](metrics-getting-started.md).
+> W tym artykule założono, że znasz podstawowe funkcje Eksplorator metryk. Jeśli jesteś nowym użytkownikiem i chcesz dowiedzieć się, jak utworzyć pierwszy wykres pomiarowy, zobacz [Rozpoczynanie pracy z usługą Azure Eksplorator metryk](metrics-getting-started.md).
 
 ## <a name="metrics-in-azure"></a>Metryki na platformie Azure
 
-[Metryki w usłudze Azure Monitor](data-platform-metrics.md) to seria zmierzonych wartości i zliczeń, które są zbierane i przechowywane w czasie. Istnieją standardowe (lub "platforma") metryki i metryki niestandardowe. Standardowe metryki są dostarczane przez samą platformę Azure. Standardowe metryki odzwierciedlają statystyki kondycji i użycia zasobów platformy Azure. Podczas gdy metryki niestandardowe są wysyłane do platformy Azure przez aplikacje przy użyciu [interfejsu API usługi Application Insights dla zdarzeń niestandardowych i metryk,](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics)rozszerzenia [diagnostyki systemu Windows Azure (WAD)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview)lub interfejsu [API REST usługi Azure Monitor.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api)
+[Metryki w Azure monitor](data-platform-metrics.md) są serią mierzonych wartości i liczb, które są zbierane i przechowywane w czasie. Istnieją metryki standardowe (lub platformy) i metryki niestandardowe. Standardowe metryki są udostępniane przez samą platformę Azure. Standardowe metryki odzwierciedlają dane statystyczne dotyczące kondycji i użycia zasobów platformy Azure. Niestandardowe metryki są wysyłane do platformy Azure przez aplikacje przy użyciu [interfejsu api Application Insights dla niestandardowych zdarzeń i metryk](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [rozszerzenia Windows Diagnostyka Azure (funkcji wad)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview)lub [interfejsu API REST Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
 
 ## <a name="create-views-with-multiple-metrics-and-charts"></a>Tworzenie widoków z wieloma metrykami i wykresami
 
-Można tworzyć wykresy, które kreślą wiele linii metryk lub pokazują wiele wykresów metrycznych jednocześnie. Ta funkcja umożliwia:
+Można utworzyć wykresy, które kreślą wiele linii metryk lub jednocześnie wyświetlają wiele wykresów metryk. Ta funkcja umożliwia:
 
 - skorelować powiązane metryki na tym samym wykresie, aby zobaczyć, jak jedna wartość jest powiązana z inną
-- wyświetlanie danych z różnymi jednostkami miary w bliskiej odległości
-- wizualnie agregować i porównywać metryki z wielu zasobów
+- Wyświetl metryki z różnymi jednostkami miary w bliskim sąsiedztwie
+- wizualnie Agreguj i porównuj metryki z wielu zasobów
 
-Na przykład jeśli masz 5 kont magazynu i chcesz wiedzieć, ile całkowitego miejsca jest zużywane między nimi, można utworzyć (skumulowany) wykres warstwowy, który pokazuje indywidualną i sumę wszystkich wartości w określonych punktach w czasie.
+Jeśli na przykład masz 5 kont magazynu i chcesz dowiedzieć się, ile łącznego obszaru są używane między nimi, możesz utworzyć wykres warstwowy (skumulowany), który pokazuje indywidualną i sumę wszystkich wartości w określonych punktach w czasie.
 
 ### <a name="multiple-metrics-on-the-same-chart"></a>Wiele metryk na tym samym wykresie
 
-Najpierw [utwórz nowy wykres](metrics-getting-started.md#create-your-first-metric-chart). Kliknij **pozycję Dodaj metrykę** i powtórz kroki, aby dodać kolejną metrykę na tym samym wykresie.
+Najpierw [Utwórz nowy wykres](metrics-getting-started.md#create-your-first-metric-chart). Kliknij przycisk **Dodaj metrykę** i powtórz kroki, aby dodać kolejną metrykę na tym samym wykresie.
 
    > [!NOTE]
-   > Zazwyczaj nie chcesz mieć metryki z różnych jednostek miary (tj. "milisekundy" i "kilobajty") lub znacznie różne skale na jednym wykresie. Zamiast tego należy rozważyć użycie wielu wykresów. Kliknij przycisk Dodaj wykres, aby utworzyć wiele wykresów w Eksploratorze metryk.
+   > Zwykle nie chcesz mieć metryk z różnymi jednostkami miary (tj. "milisekund" i "kilobajtów") lub z znacznie różną skalą na jednym wykresie. Zamiast tego należy rozważyć użycie wielu wykresów. Kliknij przycisk Dodaj wykres, aby utworzyć wiele wykresów w Eksploratorze metryk.
 
 ### <a name="multiple-charts"></a>Wiele wykresów
 
-Kliknij **przycisk Dodaj wykres** i utwórz inny wykres z inną metryką.
+Kliknij przycisk **Dodaj wykres** i Utwórz inny wykres z inną metryką.
 
-### <a name="order-or-delete-multiple-charts"></a>Zamawianie lub usuwanie wielu wykresów
+### <a name="order-or-delete-multiple-charts"></a>Kolejność lub usuwanie wielu wykresów
 
-Aby zamówić lub usunąć wiele wykresów, kliknij symbol elipsy ( **...** ), aby otworzyć menu wykresu i wybrać odpowiednią pozycję menu **Przenieś w górę**, Przenieś w **dół**lub **Usuń**.
+Aby zamówić lub usunąć wiele wykresów, kliknij symbol wielokropka ( **...** ), aby otworzyć menu Wykres i wybrać odpowiedni element menu **Przenieś w górę**lub **Przenieś w dół**lub **Usuń**.
 
-## <a name="apply-filters-to-charts"></a>Stosowanie filtrów do wykresów
+## <a name="apply-filters-to-charts"></a>Zastosuj filtry do wykresów
 
-Filtry można stosować do wykresów przedstawiających dane z wymiarami. Na przykład jeśli metryka "Liczba transakcji" ma wymiar "Typ odpowiedzi", który wskazuje, czy odpowiedź z transakcji powiodła się, czy nie powiodła się, filtrowanie w tym wymiarze wykreśliłoby linię wykresu tylko dla udanych (lub tylko nieudanych) transakcji. 
+Można zastosować filtry do wykresów, które wyświetlają metryki z wymiarami. Na przykład jeśli Metryka "liczba transakcji" ma wymiar "typ odpowiedzi", który wskazuje, czy odpowiedź z transakcji zakończyła się powodzeniem, czy niepowodzeniem, filtrowanie w tym wymiarze spowoduje wykreślenie wiersza wykresu dla transakcji zakończonych powodzeniem (lub tylko zakończonych niepowodzeniem). 
 
 ### <a name="to-add-a-filter"></a>Aby dodać filtr
 
-1. Wybierz **dodaj filtr** nad wykresem
+1. Wybierz pozycję **Dodaj filtr** powyżej wykresu
 
-2. Wybierz wymiar (właściwość), który chcesz filtrować
+2. Wybierz wymiar, który ma być filtrowany
 
    ![obraz metryki](./media/metrics-charts/00006.png)
 
-3. Wybierz wartości wymiarów, które mają zostać uwzględnione podczas drukowania wykresu (w tym przykładzie pokazano odfiltrowanie udanych transakcji magazynu):
+3. Wybierz wartości wymiaru, które mają zostać uwzględnione podczas kreolenia wykresu (w tym przykładzie pokazano, jak odfiltrować pomyślne transakcje magazynu):
 
    ![obraz metryki](./media/metrics-charts/00007.png)
 
-4. Po wybraniu wartości filtru kliknij z dala od selektora filtru, aby je zamknąć. Teraz wykres pokazuje, ile transakcji magazynu nie powiodło się:
+4. Po wybraniu wartości filtru kliknij poza selektorem filtru, aby go zamknąć. Teraz wykres pokazuje, ile transakcji magazynu nie powiodło się:
 
    ![obraz metryki](./media/metrics-charts/00008.png)
 
-5. Można powtórzyć kroki od 1 do 4, aby zastosować wiele filtrów do tych samych wykresów.
+5. Możesz powtórzyć kroki 1-4, aby zastosować wiele filtrów do tych samych wykresów.
 
 
 
-## <a name="apply-splitting-to-a-chart"></a>Stosowanie dzielenia do wykresu
+## <a name="apply-splitting-to-a-chart"></a>Zastosuj podział do wykresu
 
-Metrykę można podzielić według wymiarów, aby zwizualizować porównanie różnych segmentów metryki ze sobą i zidentyfikować segmenty odchyłe wymiaru.
+Można podzielić metrykę według wymiaru, aby wizualizować, jak różne segmenty są porównywane z innymi, i identyfikować nieleżące segmenty wymiaru.
 
-### <a name="apply-splitting"></a>Stosowanie podziału
+### <a name="apply-splitting"></a>Zastosuj podział
 
-1. Kliknij **zastosuj podział** nad wykresem.
+1. Kliknij przycisk **Zastosuj podział** powyżej wykresu.
  
    > [!NOTE]
-   > Dzielenie nie może być używane z wykresami, które mają wiele metryk. Ponadto do dowolnego pojedynczego wykresu można zastosować wiele filtrów, ale tylko jeden wymiar podziału.
+   > Nie można używać dzielenia z wykresami, które mają wiele metryk. Ponadto można mieć wiele filtrów, ale tylko jeden wymiar podziału jest zastosowany do każdego pojedynczego wykresu.
 
-2. Wybierz wymiar, na którym chcesz podzielić wykres na segmenty:
+2. Wybierz wymiar, dla którego chcesz podzielić wykres:
 
    ![obraz metryki](./media/metrics-charts/00010.png)
 
-   Teraz wykres pokazuje teraz wiele linii, po jednym dla każdego segmentu wymiaru:
+   Teraz wykres zawiera teraz wiele wierszy, po jednym dla każdego segmentu wymiaru:
 
    ![obraz metryki](./media/metrics-charts/00012.png)
 
-3. Kliknij od selektora **grupowania,** aby go zamknąć.
+3. Kliknij poza **selektorem grupowania** , aby go zamknąć.
 
    > [!NOTE]
-   > Użyj filtrowania i dzielenia w tym samym wymiarze, aby ukryć segmenty, które nie mają znaczenia dla scenariusza, i ułatwić odczyt wykresów.
+   > Użyj filtrowania i dzielenia w tym samym wymiarze, aby ukryć segmenty nieistotne dla danego scenariusza i ułatwić odczytywanie wykresów.
 
-## <a name="lock-boundaries-of-chart-y-axis"></a>Zablokuj granice osi wykresu y
+## <a name="lock-boundaries-of-chart-y-axis"></a>Blokuj granice osi y wykresu
 
-Blokowanie zakresu osi y staje się ważne, gdy wykres pokazuje mniejsze wahania większych wartości. 
+Zablokowanie zakresu osi y jest ważne, gdy wykres pokazuje mniejsze wahania większych wartości. 
 
-Na przykład gdy liczba pomyślnych żądań spadnie z 99,99% do 99,5%, może to oznaczać znaczne obniżenie jakości usług. Jednak zauważenie niewielkich wahań wartości liczbowych byłoby trudne lub nawet niemożliwe z domyślnych ustawień wykresu. W takim przypadku można zablokować najniższą granicę wykresu do 99%, co sprawi, że ten mały spadek będzie bardziej widoczny. 
+Na przykład, gdy liczba pomyślnych żądań spadnie w dół od 99,99% do 99,5%, może to oznaczać znaczącą redukcję jakości usługi. Obserwowanie jednak niewielkie wahania wartości liczbowych byłyby trudne lub nawet niemożliwe z domyślnych ustawień wykresu. W takim przypadku można zablokować najniższą granicę wykresu do 99%, co sprawia, że to małe powiększanie. 
 
-Innym przykładem jest wahania w dostępnej pamięci, gdzie wartość technicznie nigdy nie osiągnie 0. Ustalenie zakresu do wyższej wartości może ułatwić wykrycie spadków dostępnej pamięci. 
+Innym przykładem jest Wahanie dostępnej pamięci, gdzie wartość będzie technicznie nigdy nie dociera do 0. Naprawianie zakresu do wyższej wartości może spowodować, że przerwy w dostępnej pamięci są łatwiejsze. 
 
-Aby sterować zakresem osi y, użyj "..." wykresu, a następnie wybierz **polecenie Edytuj wykres,** aby uzyskać dostęp do zaawansowanych ustawień wykresu. Zmodyfikuj wartości w sekcji Zakres osi Y lub użyj przycisku **Auto,** aby przywrócić wartości domyślne.
+Aby kontrolować zakres osi y, użyj "..." menu Wykres i wybierz pozycję **Edytuj wykres** , aby uzyskać dostęp do zaawansowanych ustawień wykresu. Zmodyfikuj wartości w sekcji Zakres osi Y **lub użyj przycisku** Auto, aby przywrócić wartości domyślne.
 
 ![obraz metryki](./media/metrics-charts/00014-manually-set-granularity.png)
 
 > [!WARNING]
-> Blokowanie granic osi y dla wykresów, które śledzą różne liczby lub sumy w określonym okresie czasu (a zatem używają liczby, sumy, minimum lub maksymalnych agregacji) zwykle wymaga określenia stałego szczegółowości czasu, a nie polegania na automatycznych wartościach domyślnych. Jest to konieczne, ponieważ wartości na wykresach zmieniają się, gdy szczegółowość czasu jest automatycznie modyfikowana przez użytkownika, który zmienia rozmiar okna przeglądarki lub przechodzi z jednej rozdzielczości ekranu do drugiej. Wynikająca ze zmian w czasie wpływa na wygląd wykresu, unieważniając bieżący wybór zakresu osi y.
+> Zablokowanie granic osi y dla wykresów, które śledzą różne liczby lub sumy w danym okresie czasu (w tym przypadku użycie metody Count, sum, minimum lub Maximum) zwykle wymaga określenia stałego stopnia szczegółowości, zamiast polegania na automatycznym wykorzystaniu wartości domyślnych. Jest to konieczne, ponieważ wartości na wykresach zmieniają się, gdy poziom szczegółowości czasu jest automatycznie modyfikowany przez okno przeglądarki zmiany rozmiarów użytkownika lub przejście z jednej rozdzielczości ekranu do innej. Zmiana stopnia szczegółowości w czasie wpływa na wygląd wykresu, co unieważnia bieżący wybór zakresu osi y.
 
-## <a name="change-colors-of-chart-lines"></a>Zmienianie kolorów linii wykresu
+## <a name="change-colors-of-chart-lines"></a>Zmień kolory linii wykresu
 
-Po skonfigurowaniu wykresów linie wykresu są automatycznie przypisywane do koloru z domyślnej palety. Można zmienić te kolory.
+Po skonfigurowaniu wykresów linie wykresu zostaną automatycznie przypisane do koloru z domyślnej palety. Można zmienić te kolory.
 
-Aby zmienić kolor linii wykresu, kliknij kolorowy pasek w legendzie odpowiadającej wykresowi. Zostanie otwarte okno dialogowe selektora kolorów. Użyj selektora kolorów, aby skonfigurować kolor linii.
+Aby zmienić kolor linii wykresu, kliknij kolorowy pasek w legendzie, który odnosi się do wykresu. Zostanie otwarte okno dialogowe selektora kolorów. Użyj próbnika kolorów, aby skonfigurować kolor linii.
 
-Po skonfigurowaniu kolorów wykresu pozostaną one w ten sposób po przypięciu wykresu do pulpitu nawigacyjnego. W poniższej sekcji pokazano, jak przypiąć wykres.
+Po skonfigurowaniu kolorów wykresu pozostaną one w taki sposób, gdy przypinasz wykres do pulpitu nawigacyjnego. W poniższej sekcji pokazano, jak przypiąć wykres.
 
 > [!NOTE]
-> Ze względu na ograniczenia naszego harmonogramu wydań i publikowania, zmiana kolorów linii wykresu tymczasowo wymaga podania [https://portal.azure.com/?feature.colorpicker=true](https://portal.azure.com/?feature.colorpicker=true)specjalnego parametru **?feature.colorpicker=true** podczas uruchamiania witryny Azure portal . To ograniczenie zostanie wkrótce usunięte. 
+> Ze względu na ograniczenia naszej wersji i harmonogramu publikowania zmiana kolorów linii wykresu jest tymczasowo wymagana do przekazania specjalnego parametru **? Funkcja. colorpicker = true** podczas uruchamiania Azure Portal [https://portal.azure.com/?feature.colorpicker=true](https://portal.azure.com/?feature.colorpicker=true). To ograniczenie zostanie wkrótce usunięte. 
 
 ![obraz metryki](./media/metrics-charts/018.png)
 
 ## <a name="pin-charts-to-dashboards"></a>Przypinanie wykresów do pulpitów nawigacyjnych
 
-Po skonfigurowaniu wykresów można dodać go do pulpitów nawigacyjnych, aby można było wyświetlić go ponownie, ewentualnie w kontekście innych danych telemetrycznych monitorowania, lub udostępnić zespołowi.
+Po skonfigurowaniu wykresów możesz dodać go do pulpitów nawigacyjnych, aby można było wyświetlić go ponownie, prawdopodobnie w kontekście innej telemetrii monitorowania lub udostępnić zespołowi.
 
 Aby przypiąć skonfigurowany wykres do pulpitu nawigacyjnego:
 
@@ -136,29 +136,29 @@ Po skonfigurowaniu wykresu kliknij menu **Akcje wykresu** w prawym górnym rogu 
 
 ## <a name="create-alert-rules"></a>Tworzenie reguł alertów
 
-Można użyć kryteriów, które zostały ustawione do wizualizacji metryki jako podstawie reguły alertu opartego na metryki. Nowa reguła alertów będzie zawierać zasób docelowy, metrykę, dzielenie i filtrowanie wymiarów z wykresu. Te ustawienia będzie można później zmodyfikować w okienku tworzenia reguły alertu.
+Możesz użyć kryteriów ustawionych do wizualizacji metryk jako podstawy reguły alertu opartej na metrykach. Nowa reguła alertów będzie obejmować zasób docelowy, metrykę, podział i wymiary filtru z wykresu. Później będzie można modyfikować te ustawienia w okienku tworzenia reguły alertu.
 
-### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>Aby utworzyć nową regułę alertu, kliknij pozycję **Nowa reguła alertu**
+### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>Aby utworzyć nową regułę alertu, kliknij pozycję **Nowa reguła alertu** .
 
-![Przycisk Nowa reguła alertu wyróżniony na czerwono](./media/metrics-charts/015.png)
+![Przycisk nowej reguły alertu wyróżniony czerwonymi](./media/metrics-charts/015.png)
 
-Zostaniesz przesiąknięta do okienka tworzenia reguł alertów z podstawowymi wymiarami metryki z wykresu wstępnie wypełnionego, aby ułatwić generowanie niestandardowych reguł alertów.
+Nastąpi przekierowanie do okienka Tworzenie reguły alertów z bazowymi wymiarami metryk z wykresu wstępnie wypełnionym, aby ułatwić generowanie niestandardowych reguł alertów.
 
 ![Tworzenie reguły alertu](./media/metrics-charts/016.png)
 
-Zapoznaj się z tym [artykułem,](alerts-metric.md) aby dowiedzieć się więcej o konfigurowaniu alertów metryk.
+Zapoznaj się z tym [artykułem](alerts-metric.md) , aby dowiedzieć się więcej o konfigurowaniu alertów dotyczących metryk.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 *Nie widzę żadnych danych na wykresie.*
 
-* Filtry mają zastosowanie do wszystkich wykresów w okienku. Upewnij się, że podczas ustawiania ostrości na jednym wykresie nie ustawiono filtru, który wyklucza wszystkie dane na innym.
+* Filtry stosują się do wszystkich wykresów w okienku. Upewnij się, że podczas skoncentrowania się na jednym wykresie nie ustawiono filtru, który wyklucza wszystkie dane z innego.
 
-* Jeśli chcesz ustawić różne filtry na różnych wykresach, utwórz je w różnych ostrzach, zapisz je jako oddzielne ulubione. Jeśli chcesz, możesz przypiąć je do pulpitu nawigacyjnego, aby można je było zobaczyć obok siebie.
+* Jeśli chcesz ustawić inne filtry na różnych wykresach, utwórz je w różnych blokach, a następnie Zapisz je jako osobne Ulubione. Jeśli chcesz, możesz przypiąć je do pulpitu nawigacyjnego, aby były widoczne obok siebie.
 
-* Jeśli posadymać wykres według właściwości, która nie jest zdefiniowana na metryki, to nie będzie nic na wykresie. Spróbuj wyczyścić segmentację (dzielenie) lub wybierz inną właściwość.
+* W przypadku segmentacji wykresu na podstawie właściwości, która nie jest zdefiniowana w metryce, na wykresie nie będzie niczego. Spróbuj usunąć segmentację (dzielenie) lub wybierz inną właściwość.
 
 ## <a name="next-steps"></a>Następne kroki
 
-  Przeczytaj [artykuł Tworzenie niestandardowych pulpitów nawigacyjnych kluczowych wskaźników wydajności,](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) aby dowiedzieć się więcej o najlepszych rozwiązaniach dotyczących tworzenia pulpitów nawigacyjnych z metrykami.
+  Przeczytaj temat [Tworzenie niestandardowych pulpitów nawigacyjnych wskaźników KPI](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) , aby dowiedzieć się więcej o najlepszych rozwiązaniach dotyczących tworzenia pulpitów nawigacyjnych z możliwością podejmowania działań z
 

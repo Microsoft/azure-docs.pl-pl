@@ -1,6 +1,6 @@
 ---
-title: Co to jest tryb tylko do raportu dostępu warunkowego? - Usługa Azure Active Directory
-description: Jak można uzyskać pomoc dotyczącą trybu tylko do raportu podczas wdrażania zasad dostępu warunkowego
+title: Co to jest tryb tylko do raportowania dostępu warunkowego? -Azure Active Directory
+description: Jak korzystać z pomocy w trybie tylko do raportowania z wdrożeniem zasad dostępu warunkowego
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,43 +12,43 @@ manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd41e79a1e08c57e806f6ada32faccfa5fdf5792
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80295280"
 ---
-# <a name="what-is-conditional-access-report-only-mode"></a>Co to jest tryb tylko do raportu dostępu warunkowego?
+# <a name="what-is-conditional-access-report-only-mode"></a>Co to jest tryb tylko do raportowania dostępu warunkowego?
 
-Dostęp warunkowy jest szeroko stosowany przez naszych klientów, aby zachować bezpieczeństwo, stosując odpowiednie mechanizmy kontroli dostępu w odpowiednich okolicznościach. Jednak jednym z wyzwań związanych z wdrażaniem zasad dostępu warunkowego w organizacji jest określenie wpływu na użytkowników końcowych. Może być trudne do przewidzenia liczby i nazw użytkowników, na które mają wpływ typowe inicjatywy wdrażania, takie jak blokowanie uwierzytelniania starszego, wymaganie uwierzytelniania wieloskładnikowego dla populacji użytkowników lub implementowanie zasad ryzyka logowania. 
+Dostęp warunkowy jest szeroko używany przez naszych klientów w celu zapewnienia bezpieczeństwa przez zastosowanie odpowiednich kontroli dostępu w odpowiednich przypadkach. Jednak jednym z wyzwań związanych z wdrażaniem zasad dostępu warunkowego w organizacji jest określenie wpływu na użytkowników końcowych. Może być trudne, aby przewidzieć liczbę i nazwy użytkowników, na które mają wpływ typowe inicjatywy wdrażania, takie jak blokowanie starszego uwierzytelniania, wymaganie uwierzytelniania wieloskładnikowego w przypadku populacji użytkowników lub wdrażanie zasad dotyczących ryzyka związanego z logowaniem. 
 
-Tryb tylko do raportu to nowy stan zasad dostępu warunkowego, który umożliwia administratorom ocenę wpływu zasad dostępu warunkowego przed włączeniem ich w ich środowisku.  Wraz z wydaniem trybu tylko do raportu:
+Tryb tylko do raportowania jest nowym stanem zasad dostępu warunkowego, który umożliwia administratorom ocenę wpływu zasad dostępu warunkowego przed włączeniem ich w środowisku.  Z wersją trybu tylko do raportowania:
 
-- Zasady dostępu warunkowego można włączyć w trybie tylko do raportu.
-- Podczas logowania zasady w trybie tylko do raportu są oceniane, ale nie są wymuszane.
-- Wyniki są rejestrowane na kartach **Dostęp warunkowy** i **Tylko do raportu (Wersja zapoznawcza)** szczegółów dziennika logowania.
-- Klienci korzystający z subskrypcji usługi Azure Monitor mogą monitorować wpływ swoich zasad dostępu warunkowego przy użyciu skoroszytu wglądu w dostęp warunkowy.
+- Zasady dostępu warunkowego można włączyć w trybie tylko raportowanie.
+- Zasady w trybie tylko do raportowania są oceniane, ale nie są wymuszane.
+- Wyniki są rejestrowane na kartach **dostęp warunkowy** i **tylko raport (wersja zapoznawcza)** dziennika logowania.
+- Klienci z subskrypcją Azure Monitor mogą monitorować wpływ ich zasad dostępu warunkowego za pomocą skoroszytu dostępu warunkowego usługi Insights.
 
 > [!WARNING]
-> Zasady w trybie tylko do raportów, które wymagają zgodnych urządzeń, mogą monitować użytkowników na komputerach Mac, iOS i Android, aby wybrali certyfikat urządzenia podczas oceny zasad, nawet jeśli zgodność urządzenia nie jest wymuszana. Monity te mogą powtarzać się, dopóki urządzenie nie zostanie zgodnie. Aby uniemożliwić użytkownikom końcowym odbieranie monitów podczas logowania, wyklucz platformy urządzeń Mac, iOS i Android z zasad dotyczących zgodności z urządzeniami.
+> Zasady w trybie tylko do raportowania, które wymagają zgodnych urządzeń, mogą monitować użytkowników o komputery Mac, iOS i Android w celu wybrania certyfikatu urządzenia podczas obliczania zasad, nawet jeśli zgodność urządzenia nie jest wymuszana. Te polecenia mogą powtarzać się, dopóki urządzenie nie zostanie zgodne. Aby uniemożliwić użytkownikom końcowym otrzymywanie pojawiających się w trakcie logowania, należy wykluczyć platformy urządzeń Mac, iOS i Android z zasad tylko do raportowania, które wykonują testy zgodności urządzeń.
 
-![Karta Tylko do raportu w dzienniku logowania usługi Azure AD](./media/concept-conditional-access-report-only/report-only-detail-in-sign-in-log.png)
+![Karta tylko raport w dzienniku logowania usługi Azure AD](./media/concept-conditional-access-report-only/report-only-detail-in-sign-in-log.png)
 
-## <a name="policy-results"></a>Wyniki polityki
+## <a name="policy-results"></a>Wyniki zasad
 
-Gdy zasady w trybie tylko do raportu są oceniane dla danego logowania, istnieją cztery nowe możliwe wartości wyników:
+Gdy zasady w trybie tylko do raportowania są oceniane dla danego logowania, istnieją cztery nowe możliwe wartości wyniku:
 
 | Wynik | Opis |
 | --- | --- |
-| Tylko raport: Sukces | Wszystkie skonfigurowane warunki zasad, wymagane nieinterakcyjne formanty dotacji i formanty sesji zostały spełnione. Na przykład wymóg uwierzytelniania wieloskładnikowego jest spełniony przez oświadczenie usługi MFA już obecne w tokenie lub zgodne zasady urządzenia jest spełniony przez wykonanie sprawdzania urządzenia na zgodnym urządzeniu. |
-| Tylko raport: Niepowodzenie | Wszystkie skonfigurowane warunki zasad zostały spełnione, ale nie wszystkie wymagane nieinterakcyjne formanty dotacji lub formanty sesji zostały spełnione. Na przykład zasady stosuje się do użytkownika, gdzie formant bloku jest skonfigurowany lub urządzenie nie spełnia zgodnych zasad urządzenia. |
-| Tylko raport: wymagana akcja użytkownika | Wszystkie skonfigurowane warunki zasad zostały spełnione, ale akcja użytkownika będzie wymagana do spełnienia wymaganych formantów dotacji lub kontroli sesji. W trybie tylko do raportu użytkownik nie jest monitowany o spełnienie wymaganych formantów. Na przykład użytkownicy nie są monitowani o wyzwania uwierzytelniania wieloskładnikowego lub warunki użytkowania.   |
-| Tylko raport: Niestosowano | Nie wszystkie skonfigurowane warunki zasad zostały spełnione. Na przykład użytkownik jest wykluczony z zasad lub zasady dotyczą tylko niektórych zaufanych nazwanych lokalizacji. |
+| Tylko raport: sukces | Wszystkie skonfigurowane warunki zasad, wymagane kontrolki grantu nieinteraktywnego i kontrolki sesji zostały spełnione. Na przykład wymaganie uwierzytelniania wieloskładnikowego jest spełnione przez wystąpienie usługi MFA już obecne w tokenie lub zgodne zasady dotyczące urządzeń są spełnione przez przeprowadzenie kontroli urządzenia na zgodnym urządzeniu. |
+| Tylko raport: niepowodzenie | Wszystkie skonfigurowane warunki zasad zostały spełnione, ale nie wszystkie wymagane kontrolki dotacji nieinterakcyjnych lub kontrolki sesji zostały spełnione. Na przykład zasady mają zastosowanie do użytkownika, w którym skonfigurowano kontrolkę bloku lub jeśli urządzenie nie spełnia zgodnych zasad dotyczących urządzeń. |
+| Tylko raport: wymagana akcja użytkownika | Wszystkie skonfigurowane warunki zasad zostały spełnione, ale akcja użytkownika będzie wymagana do spełnienia wymaganych kontrolek uprawnień lub kontrolek sesji. W trybie tylko do raportowania użytkownik nie jest monitowany o spełnienie wymaganych kontrolek. Na przykład użytkownicy nie otrzymują monitu o wyzwania związane z uwierzytelnianiem wieloskładnikowym ani warunki użytkowania.   |
+| Tylko raport: nie zastosowano | Nie wszystkie skonfigurowane warunki zasad zostały spełnione. Na przykład użytkownik jest wykluczony z zasad lub zasady dotyczą tylko niektórych zaufanych nazw lokalizacji. |
 
-## <a name="conditional-access-insights-workbook"></a>Skoroszyt usługi Statystyka dostępu warunkowego
+## <a name="conditional-access-insights-workbook"></a>Skoroszyt usługi Dostęp warunkowy Insights
 
-Administratorzy mają możliwość tworzenia wielu zasad w trybie tylko do raportu, dlatego konieczne jest zrozumienie zarówno indywidualnego wpływu każdej zasady, jak i połączonego wpływu wielu zasad ocenianych razem. Nowy skoroszyt usługi Warunkowy wgląd w dane dostępu warunkowego umożliwia administratorom wizualizowanie zapytań dostępu warunkowego i monitorowanie wpływu zasad dla danego zakresu czasu, zestawu aplikacji i użytkowników. 
+Administratorzy mają możliwość tworzenia wielu zasad w trybie tylko do raportowania, dlatego konieczne jest zrozumienie poszczególnych wpływów poszczególnych zasad i łączny wpływ wielu zasad jednocześnie. Nowy skoroszyt usługi Dostęp warunkowy pozwala administratorom na wizualizację zapytań dostępu warunkowego i monitorowanie wpływu zasad dla danego zakresu czasu, zestawu aplikacji i użytkowników. 
  
 ## <a name="next-steps"></a>Następne kroki
 
-[Konfigurowanie trybu tylko do raportu w zasadach dostępu warunkowego](howto-conditional-access-report-only.md)
+[Konfigurowanie trybu tylko do raportowania w zasadach dostępu warunkowego](howto-conditional-access-report-only.md)

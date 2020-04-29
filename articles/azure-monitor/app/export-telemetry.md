@@ -1,134 +1,134 @@
 ---
-title: Ciągły eksport danych telemetrycznych z usługi Application Insights | Dokumenty firmy Microsoft
-description: Eksportuj dane diagnostyczne i dane użycia do magazynu na platformie Microsoft Azure i pobieraj je z tego miejsca.
+title: Ciągły eksport danych telemetrycznych z Application Insights | Microsoft Docs
+description: Wyeksportuj dane diagnostyczne i użycia do magazynu w Microsoft Azure i Pobierz je stamtąd.
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.openlocfilehash: f6afe42e483ab7ad5810169fc301946c75308c29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80298283"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Eksportowanie telemetrii z usługi Application Insights
-Chcesz zachować dane telemetryczne dłużej niż standardowy okres przechowywania? Lub przetworzyć go w jakiś wyspecjalizowany sposób? Eksport ciągły jest do tego idealny. Zdarzenia widoczne w portalu usługi Application Insights można wyeksportować do magazynu na platformie Microsoft Azure w formacie JSON. Stamtąd możesz pobrać swoje dane i napisać dowolny kod potrzebny do ich przetworzenia.  
+Chcesz utrzymać dane telemetryczne dłużej niż w przypadku standardowego okresu przechowywania? Lub przetwarzać je w sposób wyspecjalizowany? Eksport ciągły jest idealnym rozwiązaniem. Zdarzenia wyświetlane w portalu Application Insights mogą zostać wyeksportowane do magazynu w Microsoft Azure w formacie JSON. Z tego miejsca możesz pobrać dane i napisać dowolny kod, który jest potrzebny do jego przetworzenia.  
 
-Przed skonfigurowaniem eksportu ciągłego istnieją pewne alternatywy, które warto rozważyć:
+Przed skonfigurowaniem eksportu ciągłego należy wziąć pod uwagę pewne alternatywy:
 
-* Przycisk Eksportuj u góry karty metryki lub wyszukiwanie umożliwia przenoszenie tabel i wykresów do arkusza kalkulacyjnego programu Excel.
+* Przycisk Eksportuj w górnej części metryk lub karty wyszukiwania umożliwia transfer tabel i wykresów do arkusza kalkulacyjnego programu Excel.
 
-* [Analytics](../../azure-monitor/app/analytics.md) zapewnia zaawansowany język zapytań dla telemetrii. Może również eksportować wyniki.
-* Jeśli chcesz [eksplorować dane w usłudze Power BI,](../../azure-monitor/app/export-power-bi.md )możesz to zrobić bez użycia ciągłego eksportu.
-* [Interfejs API REST dostępu do danych](https://dev.applicationinsights.io/) umożliwia programowy dostęp do telemetrii.
-* Można również uzyskać dostęp do ciągłego eksportu konfiguracji [za pośrednictwem programu Powershell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
+* [Analiza](../../azure-monitor/app/analytics.md) zapewnia zaawansowany język zapytań na potrzeby telemetrii. Może również eksportować wyniki.
+* Jeśli chcesz [eksplorować dane w Power BI](../../azure-monitor/app/export-power-bi.md ), możesz to zrobić bez korzystania z eksportu ciągłego.
+* [Interfejs API REST dostępu do danych](https://dev.applicationinsights.io/) umożliwia programistyczne uzyskiwanie dostępu do telemetrii.
+* Możesz również uzyskać dostęp do ustawień [eksport ciągły za pomocą programu PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
-Po ciągłym eksporcie kopiuje dane do magazynu (gdzie może pozostać tak długo, jak chcesz), jest nadal dostępna w usłudze Application Insights dla zwykłego [okresu przechowywania](../../azure-monitor/app/data-retention-privacy.md).
+Gdy eksport ciągły kopiuje dane do magazynu (o ile będzie to możliwe), nadal jest dostępny w Application Insights w przypadku normalnego [okresu przechowywania](../../azure-monitor/app/data-retention-privacy.md).
 
-## <a name="continuous-export-advanced-storage-configuration"></a>Konfiguracja zaawansowanego magazynu ciągłego eksportu
+## <a name="continuous-export-advanced-storage-configuration"></a>Konfiguracja ciągłego magazynu zaawansowanego eksportu
 
-Eksport ciągły **nie obsługuje** następujących funkcji/konfiguracji magazynu platformy Azure:
+Eksport ciągły **nie obsługuje** następujących funkcji/konfiguracji usługi Azure Storage:
 
-* Korzystanie z [zapór sieci wirtualnej/usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security) w połączeniu z magazynem obiektów blob platformy Azure.
+* Korzystanie z [zapór sieci wirtualnej/Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security) w połączeniu z usługą Azure Blob Storage.
 
-* [Niezmienne magazynu](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) dla magazynu obiektów blob platformy Azure.
+* [Niezmienny magazyn](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) dla magazynu obiektów blob platformy Azure.
 
-* [Usługa Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
+* [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
 ## <a name="create-a-continuous-export"></a><a name="setup"></a>Tworzenie eksportu ciągłego
 
-1. W zasobie Usługi Application Insights dla aplikacji w obszarze Konfigurowanie po lewej stronie otwórz opcję Eksportowanie ciągłe i wybierz pozycję **Dodaj:**
+1. W Application Insights zasób dla aplikacji w obszarze Konfigurowanie po lewej stronie Otwórz eksport ciągły i wybierz polecenie **Dodaj**:
 
 2. Wybierz typy danych telemetrycznych, które chcesz wyeksportować.
 
-3. Utwórz lub wybierz [konto magazynu platformy Azure,](../../storage/common/storage-introduction.md) na którym chcesz przechowywać dane. Aby uzyskać więcej informacji na temat opcji cennika pamięci masowej, odwiedź [oficjalną stronę cennika](https://azure.microsoft.com/pricing/details/storage/).
+3. Utwórz lub wybierz [konto usługi Azure Storage](../../storage/common/storage-introduction.md) , na którym chcesz przechowywać dane. Aby uzyskać więcej informacji na temat opcji cennika magazynu, odwiedź [oficjalną stronę cennika](https://azure.microsoft.com/pricing/details/storage/).
 
-     Kliknij pozycję Dodaj, Eksportuj miejsce docelowe, Konto magazynu, a następnie utwórz nowy magazyn lub wybierz istniejący magazyn.
+     Kliknij przycisk Dodaj, Eksportuj miejsce docelowe, konto magazynu, a następnie utwórz nowy magazyn lub wybierz istniejący magazyn.
 
     > [!Warning]
-    > Domyślnie lokalizacja magazynu zostanie ustawiona na ten sam region geograficzny co zasób usługi Application Insights. Jeśli przechowujesz w innym regionie, możesz ponieść opłaty za przelewy.
+    > Domyślnie lokalizacja magazynu zostanie ustawiona na ten sam region geograficzny co zasób Application Insights. Jeśli przechowujesz w innym regionie, mogą zostać naliczone opłaty za transfer.
 
 4. Utwórz lub wybierz kontener w magazynie.
 
-Po utworzeniu eksportu zaczyna on być w toku. Otrzymasz tylko dane, które nadejdzie po utworzeniu eksportu.
+Po utworzeniu eksportu zostanie on uruchomiony. Uzyskasz tylko dane, które nadeszły po utworzeniu eksportu.
 
-Może wystąpić opóźnienie około godziny przed wyświetleniem danych w magazynie.
+Dane w magazynie mogą być opóźnione o godzinę.
 
-Po zakończeniu pierwszego eksportu znajdziesz strukturę podobną do następującej w kontenerze magazynu obiektów Blob platformy Azure: (Będzie się to różnić w zależności od danych, które zbierasz).
+Po zakończeniu pierwszego eksportu znajdziesz strukturę podobną do następującej w kontenerze usługi Azure Blob Storage: (będzie to się różnić w zależności od zbieranych danych).
 
 |Nazwa | Opis |
 |:----|:------|
-| [Dostępność](export-data-model.md#availability) | Raporty [dostępności testów sieci web](../../azure-monitor/app/monitor-web-app-availability.md).  |
-| [Zdarzenie](export-data-model.md#events) | Zdarzenia niestandardowe generowane przez [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 
+| [Dostępność](export-data-model.md#availability) | Raportuje [testy sieci Web dostępności](../../azure-monitor/app/monitor-web-app-availability.md).  |
+| [Wydarzen](export-data-model.md#events) | Zdarzenia niestandardowe wygenerowane przez [poleceń trackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 
 | [Wyjątki](export-data-model.md#exceptions) |Zgłasza [wyjątki](../../azure-monitor/app/asp-net-exceptions.md) na serwerze i w przeglądarce.
-| [Wiadomości](export-data-model.md#trace-messages) | Wysyłane przez [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)i [przez karty rejestrowania](../../azure-monitor/app/asp-net-trace-logs.md).
-| [Metryki](export-data-model.md#metrics) | Generowane przez wywołania interfejsu API metryki.
-| [Liczniki wydajności](export-data-model.md) | Liczniki wydajności zbierane przez usługa Application Insights.
-| [Żądania](export-data-model.md#requests)| Wysyłane przez [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). Moduły standardowe używają tego do raportów czas odpowiedzi serwera, mierzony na serwerze.| 
+| [Komunikaty](export-data-model.md#trace-messages) | Wysyłane przez [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)i [karty rejestrowania](../../azure-monitor/app/asp-net-trace-logs.md).
+| [Metryki](export-data-model.md#metrics) | Generowane przez wywołania interfejsu API metryk.
+| [Liczniki wydajności](export-data-model.md) | Liczniki wydajności zbierane przez Application Insights.
+| [Żądania](export-data-model.md#requests)| Wysłane przez [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). Moduły standardowe używają tego do raportowania czasu odpowiedzi serwera, mierzoną na serwerze.| 
 
 ### <a name="to-edit-continuous-export"></a>Aby edytować eksport ciągły
 
-Kliknij ciągłe eksportowanie i wybierz konto magazynu do edycji.
+Kliknij pozycję eksport ciągły i wybierz konto magazynu do edycji.
 
-### <a name="to-stop-continuous-export"></a>Aby zatrzymać ciągły eksport
+### <a name="to-stop-continuous-export"></a>Aby zatrzymać eksport ciągły
 
-Aby zatrzymać eksport, kliknij przycisk Wyłącz. Po ponownym kliknięciu przycisku Włącz eksport zostanie ponownie uruchomiony z nowymi danymi. Nie otrzymasz danych, które dotarły do portalu, gdy eksport został wyłączony.
+Aby zatrzymać eksport, kliknij przycisk Wyłącz. Kliknięcie przycisku Włącz ponownie spowoduje ponowne uruchomienie eksportu z nowymi danymi. Nie zostaną pobrane dane, które dotarły do portalu, podczas gdy eksport został wyłączony.
 
-Aby zatrzymać eksport na stałe, usuń go. W ten sposób nie powoduje usunięcia danych z magazynu.
+Aby zatrzymać eksport trwale, usuń go. Wykonanie tej czynności nie powoduje usunięcia danych z magazynu.
 
-### <a name="cant-add-or-change-an-export"></a>Nie możesz dodać lub zmienić eksportu?
-* Aby dodać lub zmienić eksport, potrzebujesz praw dostępu Właściciela, Współautora lub Współautora usługi Application Insights. [Dowiedz się więcej o rolach][roles].
+### <a name="cant-add-or-change-an-export"></a>Nie można dodać lub zmienić eksportu?
+* Aby dodać lub zmienić eksporty, wymagane są uprawnienia właściciela, współautora lub Application Insights współautora. [Poznaj role][roles].
 
-## <a name="what-events-do-you-get"></a><a name="analyze"></a>Jakie wydarzenia otrzymujesz?
-Eksportowane dane to nieprzetworzona telemetria, którą otrzymujemy od aplikacji, z tą różnicą, że dodajemy dane o lokalizacji, które obliczamy na podstawie adresu IP klienta.
+## <a name="what-events-do-you-get"></a><a name="analyze"></a>Jakie zdarzenia są uzyskiwane?
+Wyeksportowane dane są nieoczyszczoną telemetrią otrzymywaną z aplikacji, z tą różnicą, że dodawane są dane lokalizacji, które są obliczane na podstawie adresu IP klienta.
 
-Dane, które zostały odrzucone przez [próbkowanie,](../../azure-monitor/app/sampling.md) nie są uwzględniane w wyeksportowanych danych.
+Dane, które zostały odrzucone przez [pobranie próbek](../../azure-monitor/app/sampling.md) nie są uwzględniane w wyeksportowanych danych.
 
-Inne obliczone dane nie są uwzględniane. Na przykład nie eksportujemy średniego wykorzystania procesora CPU, ale eksportujemy nieprzetworzone dane telemetryczne, z których oblicza się średnią.
+Inne metryki obliczeniowe nie są uwzględniane. Na przykład nie eksportuje średniego użycia procesora CPU, ale eksportuje się nieprzetworzoną telemetrię, z której jest obliczana średnia.
 
-Dane obejmują również wyniki wszelkich [testów sieci web dostępności,](../../azure-monitor/app/monitor-web-app-availability.md) które zostały skonfigurowane.
+Dane obejmują również wyniki wszelkich skonfigurowanych [testów dostępności sieci Web](../../azure-monitor/app/monitor-web-app-availability.md) .
 
 > [!NOTE]
-> **Pobierania próbek.** Jeśli aplikacja wysyła dużo danych, funkcja próbkowania może działać i wysyłać tylko ułamek wygenerowanej danych telemetrycznych. [Dowiedz się więcej na temat próbkowania.](../../azure-monitor/app/sampling.md)
+> **Sond.** Jeśli aplikacja wysyła dużo danych, funkcja próbkowania może działać i wysyłać tylko część wygenerowanej telemetrii. [Dowiedz się więcej na temat próbkowania.](../../azure-monitor/app/sampling.md)
 >
 >
 
-## <a name="inspect-the-data"></a><a name="get"></a>Sprawdź dane
-Magazyn można sprawdzić bezpośrednio w portalu. Kliknij pozycję narzędzia główne w menu po lewej stronie, u góry, gdzie znajduje się napis "Usługi platformy Azure" wybierz **konta magazynu**, wybierz nazwę konta magazynu, na stronie przeglądu wybierz **obiekty Blob** w obszarze usługi, a na koniec wybierz nazwę kontenera.
+## <a name="inspect-the-data"></a><a name="get"></a>Inspekcja danych
+Magazyn można sprawdzić bezpośrednio w portalu. Kliknij pozycję Strona główna w menu z lewej strony, w górnej części strony "usługi platformy Azure" Wybierz pozycję **konta magazynu**, wybierz nazwę konta magazynu, na stronie Przegląd wybierz pozycję **obiekty blob** w obszarze usługi, a następnie wybierz nazwę kontenera.
 
-Aby sprawdzić magazyn platformy Azure w programie Visual Studio, otwórz **program View**, **Cloud Explorer**. (Jeśli nie masz tego polecenia menu, musisz zainstalować zestaw SDK platformy Azure: Otwórz okno dialogowe **Nowy projekt,** rozwiń węzeł Visual C#/Cloud i wybierz pozycję **Pobierz zestaw Microsoft Azure SDK dla platformy .NET).**
+Aby sprawdzić usługę Azure Storage w programie Visual Studio, Otwórz **Widok**, **Eksplorator chmury**. (Jeśli nie masz tego polecenia menu, musisz zainstalować zestaw Azure SDK: Otwórz okno dialogowe **Nowy projekt** , rozwiń pozycję Visual C#/Cloud i wybierz polecenie **Pobierz zestaw Microsoft Azure SDK dla platformy .NET**.)
 
-Po otwarciu magazynu obiektów blob zostanie wyświetlony kontener z zestawem plików obiektów blob. Identyfikator URI każdego pliku pochodzący z nazwy zasobu usługi Application Insights, jego klucz instrumentacji, typ telemetrii/data/godzina. (Nazwa zasobu jest mała litera, a klucz instrumentacji pomija myślniki).)
+Po otwarciu magazynu obiektów BLOB zobaczysz kontener z zestawem plików obiektów BLOB. Identyfikator URI każdego pliku pochodzącego z nazwy zasobu Application Insights, jego klucza instrumentacji, typu telemetrii/daty/godziny. (Nazwa zasobu jest mała, a klucz Instrumentacji pomija łączniki).
 
-![Sprawdź magazyn obiektów blob za pomocą odpowiedniego narzędzia](./media/export-telemetry/04-data.png)
+![Sprawdzanie magazynu obiektów BLOB przy użyciu odpowiedniego narzędzia](./media/export-telemetry/04-data.png)
 
-Data i godzina są UTC i są, gdy dane telemetryczne został złożony w magazynie — nie czas został wygenerowany. Więc jeśli piszesz kod, aby pobrać dane, może poruszać się liniowo przez dane.
+Data i godzina są UTC i są, gdy dane telemetryczne zostały zdeponowane w sklepie — nie czas, który został wygenerowany. Dlatego jeśli napiszesz kod w celu pobrania danych, może on być przenoszony liniowo przez dane.
 
-Oto forma ścieżki:
+Oto postać ścieżki:
 
     $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
 
 Lokalizacja
 
-* `blobCreationTimeUtc`to czas, kiedy obiekt blob został utworzony w wewnętrznej magazynie przemieszczania
-* `blobDeliveryTimeUtc`to czas, kiedy obiekt blob jest kopiowany do magazynu docelowego eksportu
+* `blobCreationTimeUtc`to czas, w którym obiekt BLOB został utworzony w wewnętrznym magazynie przemieszczania
+* `blobDeliveryTimeUtc`to czas, po jakim obiekt BLOB jest kopiowany do magazynu docelowego eksportu
 
 ## <a name="data-format"></a><a name="format"></a>Format danych
-* Każdy obiekt blob jest plikiem tekstowym, który zawiera wiele wierszy oddzielonych od '\n'. Zawiera dane telemetryczne przetwarzane w okresie około pół minuty.
+* Każdy obiekt BLOB jest plikiem tekstowym zawierającym wiele wierszy "\n", które są oddzielone. Zawiera dane telemetryczne przetwarzane w przedziale czasu wynoszącym około pół minuty.
 * Każdy wiersz reprezentuje punkt danych telemetrii, taki jak żądanie lub widok strony.
-* Każdy wiersz jest niesformatowanym dokumentem JSON. Jeśli chcesz usiąść i wpatrywać się w niego, otwórz go w programie Visual Studio i wybierz polecenie Edytuj, Zaawansowane, Formatuj plik:
+* Każdy wiersz jest niesformatowanym dokumentem JSON. Jeśli chcesz tam umieścić i stare, otwórz go w programie Visual Studio i wybierz pozycję Edytuj, zaawansowany, plik formatu:
 
-![Wyświetlanie danych telemetrycznych za pomocą odpowiedniego narzędzia](./media/export-telemetry/06-json.png)
+![Wyświetlanie telemetrii za pomocą odpowiedniego narzędzia](./media/export-telemetry/06-json.png)
 
-Czas trwania jest w kleszczach, gdzie 10 000 kleszczy = 1 ms. Na przykład te wartości pokazują czas 1 ms, aby wysłać żądanie z przeglądarki, 3 ms, aby je otrzymać, i 1,8 s do przetworzenia strony w przeglądarce:
+Czas trwania jest w taktach, gdzie 10 000 Takty = 1 ms. Na przykład te wartości przedstawiają czas 1 ms, aby wysłać żądanie z przeglądarki, 3 MS w celu otrzymania go i 1,8 s do przetworzenia strony w przeglądarce:
 
     "sendRequest": {"value": 10000.0},
     "receiveRequest": {"value": 30000.0},
     "clientProcess": {"value": 17970000.0}
 
-[Szczegółowe odwołanie do modelu danych dla typów właściwości i wartości.](export-data-model.md)
+[Szczegółowe informacje o modelu danych dla typów i wartości właściwości.](export-data-model.md)
 
 ## <a name="processing-the-data"></a>Przetwarzanie danych
-Na małą skalę możesz napisać kod, aby rozdzielić dane, odczytać je w arkuszu kalkulacyjnym itd. Przykład:
+Na małą skalę można napisać kod, aby ściągnąć dane, odczytać je w arkuszu kalkulacyjnym itd. Przykład:
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
     {
@@ -147,57 +147,57 @@ Na małą skalę możesz napisać kod, aby rozdzielić dane, odczytać je w arku
       }
     }
 
-Aby uzyskać większy przykład kodu, zobacz [przy użyciu roli procesu roboczego][exportasa].
+Aby uzyskać większy przykład kodu, zobacz [Używanie roli proces roboczy][exportasa].
 
-## <a name="delete-your-old-data"></a><a name="delete"></a>Usuwanie starych danych
-Użytkownik jest odpowiedzialny za zarządzanie pojemnością magazynu i usuwanie starych danych, jeśli to konieczne.
+## <a name="delete-your-old-data"></a><a name="delete"></a>Usuń stare dane
+W razie potrzeby użytkownik jest odpowiedzialny za zarządzanie pojemnością magazynu i usunięciem starych danych.
 
-## <a name="if-you-regenerate-your-storage-key"></a>Jeśli ponownie wygenerujesz klucz pamięci masowej...
-Jeśli zmienisz klucz w magazynie, ciągły eksport przestanie działać. Powiadomienie zostanie wyświetlone na koncie platformy Azure.
+## <a name="if-you-regenerate-your-storage-key"></a>W przypadku ponownego wygenerowania klucza magazynu...
+Jeśli klucz zostanie zmieniony na magazyn, eksport ciągły przestanie działać. Zobaczysz powiadomienie na koncie platformy Azure.
 
-Otwórz kartę Eksport ciągły i edytuj eksport. Edytuj miejsce docelowe eksportu, ale po prostu pozostaw tę samą ilość miejsca. Kliknij przycisk OK, aby potwierdzić.
+Otwórz kartę eksport ciągły i edytuj eksport. Edytuj miejsce docelowe eksportu, ale po prostu pozostaw wybrany ten sam magazyn. Kliknij przycisk OK, aby potwierdzić.
 
-Ciągły eksport zostanie uruchomiony ponownie.
+Eksport ciągły zostanie uruchomiony ponownie.
 
-## <a name="export-samples"></a>Eksportowanie próbek
+## <a name="export-samples"></a>Eksportuj przykłady
 
 * [Eksportowanie do bazy danych SQL przy użyciu usługi Stream Analytics][exportasa]
-* [Przykładowa analiza strumienia 2](export-stream-analytics.md)
+* [Przykład Stream Analytics 2](export-stream-analytics.md)
 
-Na większych skalach należy wziąć pod uwagę [HDInsight](https://azure.microsoft.com/services/hdinsight/) — Klastry Hadoop w chmurze. Usługa HDInsight udostępnia wiele technologii do zarządzania dużymi zbiorami danych i ich analizowania, a także do przetwarzania danych wyeksportowanych z usługi Application Insights.
+W przypadku większych skal należy wziąć pod uwagę klastry usługi [HDInsight](https://azure.microsoft.com/services/hdinsight/) -Hadoop w chmurze. Usługa HDInsight oferuje różne technologie umożliwiające zarządzanie i analizowanie danych Big Data oraz używanie ich do przetwarzania danych, które zostały wyeksportowane z Application Insights.
 
 ## <a name="q--a"></a>Pytania i odpowiedzi
-* *Ale wszystko, czego chcę, to jednorazowe pobranie wykresu.*  
+* *Ale wszystko, czego chcę, jest jednorazowym pobraniem wykresu.*  
 
-    Tak, możesz to zrobić. U góry karty kliknij pozycję **Eksportuj dane**.
-* *Skonfigurowałem eksport, ale w moim sklepie nie ma żadnych danych.*
+    Tak, możesz to zrobić. W górnej części karty kliknij pozycję **Eksportuj dane**.
+* *Skonfiguruję eksport, ale nie ma żadnych danych w sklepie.*
 
-    Czy usługa Application Insights otrzymała dane telemetryczne z aplikacji od czasu skonfigurowania eksportu? Otrzymasz tylko nowe dane.
-* *Próbowałem skonfigurować eksport, ale odmówiono mi dostępu*
+    Czy Application Insights odbierać dane telemetryczne z aplikacji od momentu skonfigurowania eksportu? Otrzymasz tylko nowe dane.
+* *Podjęto próbę skonfigurowania eksportu, ale odmówiono dostępu*
 
-    Jeśli konto jest własnością organizacji, musisz być członkiem grupy właścicieli lub współautorów.
-* *Czy mogę eksportować bezpośrednio do własnego sklepu lokalnego?*
+    Jeśli konto należy do organizacji, musisz być członkiem grupy Właściciele lub Współautorzy.
+* *Czy mogę wyeksportować prosty do własnego magazynu lokalnego?*
 
-    Nie, przepraszam. Nasz aparat eksportu działa obecnie tylko z usługą Azure Storage w tej chwili.  
-* *Czy istnieje jakiś limit ilości danych, które można umieścić w moim sklepie?*
+    Nie, przepraszamy. Nasz aparat eksportu obecnie działa tylko z usługą Azure Storage.  
+* *Czy istnieje ograniczenie ilości danych, które zostały umieszczone w moim sklepie?*
 
-    Nie. Będziemy wciskać dane do momentu usunięcia eksportu. Zatrzymamy się, jeśli osiągniemy zewnętrzne limity przechowywania obiektów blob, ale to dość ogromne. To do Ciebie, aby kontrolować, ile miejsca używasz.  
-* *Ile obiektów blob powinienem zobaczyć w magazynie?*
+    Nie. Będziemy utrzymywać dane wypychane do momentu usunięcia eksportu. Jeśli osiągnięto limity zewnętrzne usługi BLOB Storage, zatrzymamy się, ale jest to dość ogromne. Pozwala to kontrolować ilość używanej pamięci masowej.  
+* *Ile obiektów BLOB powinna się znaleźć w magazynie?*
 
-  * Dla każdego typu danych wybranego do wyeksportowania nowy obiekt blob jest tworzony co minutę (jeśli dane są dostępne).
-  * Ponadto w przypadku aplikacji o dużym natężeniu ruchu przydzielane są dodatkowe jednostki partycji. W takim przypadku każda jednostka tworzy obiekt blob co minutę.
-* *Ponownie wygenerowano klucz do magazynu lub zmieniłem nazwę kontenera, a teraz eksport nie działa.*
+  * Dla każdego typu danych, który został wybrany do eksportowania, co minutę tworzony jest nowy obiekt BLOB (Jeśli dane są dostępne).
+  * Ponadto w przypadku aplikacji o dużym natężeniu ruchu są przydzielone dodatkowe jednostki partycji. W takim przypadku każda jednostka tworzy obiekt BLOB co minutę.
+* *Ponownie wygenerowano klucz do magazynu lub zmieniono nazwę kontenera, a teraz eksportowanie nie działa.*
 
-    Edytuj eksport i otwórz kartę miejsca docelowego eksportu. Pozostaw ten sam magazyn zaznaczony jak poprzednio, a następnie kliknij przycisk OK, aby potwierdzić. Eksport zostanie ponownie uruchomiony. Jeśli zmiana nastąpiła w ciągu ostatnich kilku dni, nie utracisz danych.
+    Edytuj kartę Eksportuj i Otwórz lokalizację docelową eksportu. Pozostaw ten sam magazyn wybrany jak poprzednio, a następnie kliknij przycisk OK, aby potwierdzić. Eksport zostanie uruchomiony ponownie. Jeśli zmiana była w ciągu ostatnich kilku dni, utracisz dane.
 * *Czy mogę wstrzymać eksport?*
 
     Tak. Kliknij przycisk Wyłącz.
 
 ## <a name="code-samples"></a>Przykłady kodu
 
-* [Przykład analizy strumienia](export-stream-analytics.md)
+* [Przykład Stream Analytics](export-stream-analytics.md)
 * [Eksportowanie do bazy danych SQL przy użyciu usługi Stream Analytics][exportasa]
-* [Szczegółowe odwołanie do modelu danych dla typów właściwości i wartości.](export-data-model.md)
+* [Szczegółowe informacje o modelu danych dla typów i wartości właściwości.](export-data-model.md)
 
 <!--Link references-->
 

@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie użytkownikami w portalu partnerów w chmurze | Azure Marketplace
-description: Zarządzanie użytkownikami w portalu partnerów w chmurze
+title: Zarządzanie użytkownikami w portalu Cloud partner | Portal Azure Marketplace
+description: Zarządzanie użytkownikami w portalu Cloud partner
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: 441f466fcbeb05d06d565dbe1af237d01554d844
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280222"
 ---
-<a name="managing-users-on-cloud-partner-portal"></a>Zarządzanie użytkownikami w portalu partnerów w chmurze
+<a name="managing-users-on-cloud-partner-portal"></a>Zarządzanie użytkownikami w portalu Cloud partner
 ======================================
 
-Portal partnerów w chmurze umożliwia dodawanie użytkowników z dostępem opartym na rolach do ofert maszyn wirtualnych. Pomaga zarządzać dostępem i uprawnieniami, podczas gdy wiele osób pracuje nad ofertami.
+Portal Cloud Partner pozwala dodawać użytkowników z dostępem opartym na rolach do ofert maszyn wirtualnych. Ułatwia ona zarządzanie dostępem i uprawnieniami, gdy wiele osób pracuje nad ofertami.
 
-Aby **dodać użytkowników i przypisać role** do publikowania ofert, wykonaj poniższe czynności:
+Aby **dodać użytkowników i przypisać role** dla publikacji oferty, wykonaj następujące czynności:
 
-<a name="step-1-to-add-users-and-assign-roles-click-the-users-tab-on-the-left-side-navigation-pane"></a>Krok 1. Aby dodać użytkowników i przypisać role, kliknij kartę Użytkownicy w lewym okienku nawigacji po lewej stronie.
+<a name="step-1-to-add-users-and-assign-roles-click-the-users-tab-on-the-left-side-navigation-pane"></a>Krok 1. Aby dodać użytkowników i przypisać role, kliknij kartę Użytkownicy w okienku nawigacji po lewej stronie.
 --------------------------------------------------------------------------------------------
 
 ![Karta Użytkownicy](./media/cloud-partner-portal-how-to-manage-users/userstab.png)
@@ -34,27 +34,27 @@ Aby **dodać użytkowników i przypisać role** do publikowania ofert, wykonaj p
 <a name="step-3-type-email-address-and-select-a-role-assignment"></a>Krok 3. Wpisz adres e-mail i wybierz przypisanie roli.
 --------------------------------------------------------
 
-Możesz dodać nowego użytkownika jako "właściciela" lub "współautora".
+Nowego użytkownika można dodać jako "Owner" lub "Współautor".
 
-**E-mail:** Dodaj adresy e-mail członków zespołu, którzy będą pracować nad opublikowaniem oferty. Obsługiwane są konta Microsoft (Outlook, Hotmail i Live) oraz identyfikatory organizacji.
+**Poczta e-mail**: Dodaj adresy e-mail członków zespołu, którzy będą pracować przy publikowaniu oferty. Obsługiwane są konta Microsoft (Outlook, Hotmail i Live) oraz identyfikatory organizacji.
 
-o Dodaj "alias e-mail/grupę zespołu/grupy" w przypadku, gdy osoba pracująca nad ofertą opuści organizację.
+o Dodaj alias "adres e-mail zespołu/grupy" w przypadku, gdy osoba pracująca nad ofertą opuści organizację.
 
-o Upewnij się, że identyfikatory wiadomości e-mail podane w portalu Cloud Partner Portal są monitorowane pod kątem komunikacji firmy Microsoft.
+Upewnij się, że identyfikatory poczty e-mail podane w portal Cloud Partner są monitorowane pod kątem komunikacji od firmy Microsoft.
 
 **Rola**: Zapoznaj się z poniższą tabelą, aby zidentyfikować odpowiedni typ roli użytkownika.
 
 ![](./media/cloud-partner-portal-how-to-manage-users/assignrole.png)
-![Przypisywanie poziomu ról](./media/cloud-partner-portal-how-to-manage-users/roleaccesslevel.png)
+![Przypisywanie poziomu ról ról](./media/cloud-partner-portal-how-to-manage-users/roleaccesslevel.png)
 
-Obecnie tylko właściciele mogą uzyskać dostęp do kart Płatności platformy Azure i klienta platformy Azure w aplikacji Insights.
+Obecnie tylko właściciele mogą uzyskiwać dostęp do wypłatów platformy Azure oraz kart klienta platformy Azure w usłudze Insights.
 
-<a name="step-4-select-the-publisher-name-you-want-to-add-to-the-new-user-then-click-add-to-complete-user-addition"></a>Krok 4. Wybierz nazwę wydawcy, którą chcesz dodać do nowego użytkownika, a następnie kliknij przycisk Dodaj, aby ukończyć dodawanie użytkownika.
+<a name="step-4-select-the-publisher-name-you-want-to-add-to-the-new-user-then-click-add-to-complete-user-addition"></a>Krok 4. Wybierz nazwę wydawcy, którą chcesz dodać do nowego użytkownika, a następnie kliknij przycisk Dodaj, aby zakończyć Dodawanie użytkownika.
 ----------------------------------------------------------------------------------------------------------------------------
 
 > [!NOTE]
-> "Nazwy wydawców", dla których twój e-mail jest dodawany jako właściciel lub współautor, pojawią się na liście rozwijanej Wydawcy do wyboru."
+> Nazwa "wydawcy", do której wiadomość e-mail zostanie dodana jako właściciel lub współautor, zostanie wyświetlona na liście rozwijanej wydawcy do wyboru.
 
-![Przypisywanie roli — wybierz wydawcę](./media/cloud-partner-portal-how-to-manage-users/assignselectpublisher.png)
+![Przypisywanie roli — wybór wydawcy](./media/cloud-partner-portal-how-to-manage-users/assignselectpublisher.png)
 
-Jeśli chcesz usunąć użytkownika, który został dodany, wystarczy wyszukać jego adres e-mail na karcie Użytkownicy, a następnie nacisnąć przycisk usuń po prawej stronie.
+Jeśli musisz usunąć użytkownika, który został dodany, wystarczy przeszukać swoją wiadomość e-mail na karcie Użytkownicy, a następnie nacisnąć przycisk Usuń po prawej stronie.

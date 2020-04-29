@@ -1,6 +1,6 @@
 ---
-title: Odbieranie zdarzeń przy użyciu hosta procesora zdarzeń — usługi Azure Event Hubs | Dokumenty firmy Microsoft
-description: W tym artykule opisano hosta procesora zdarzeń w usłudze Azure Event Hubs, co upraszcza zarządzanie punktami kontrolnymi, leasingiem i odczytywaniem zdarzeń równoleżniejących.
+title: Odbieranie zdarzeń za pomocą hosta procesora zdarzeń — Azure Event Hubs | Microsoft Docs
+description: W tym artykule opisano hosta procesora zdarzeń w usłudze Azure Event Hubs, który upraszcza zarządzanie użyciem punktów kontrolnych, dzierżawienia i odczytywania jonu zdarzeń równoległych.
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -15,46 +15,46 @@ ms.custom: seodec18
 ms.date: 01/10/2020
 ms.author: shvija
 ms.openlocfilehash: 485f51e45e342ca28d54d609fd975bef5b204f7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80372225"
 ---
 # <a name="event-processor-host"></a>Host procesora zdarzeń
 > [!NOTE]
-> Ten artykuł dotyczy starej wersji zestawu SDK usługi Azure Event Hubs. Aby dowiedzieć się, jak przeprowadzić migrację kodu do nowszej wersji sdk, zobacz te przewodniki migracji. 
+> Ten artykuł ma zastosowanie do starej wersji usługi Azure Event Hubs SDK. Aby dowiedzieć się, jak przeprowadzić migrację kodu do nowszej wersji zestawu SDK, zobacz te przewodniki dotyczące migracji. 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md)
 > - [Skrypt Java](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md)
 >
-> Zobacz [też: Równoważenie obciążenia partycji w wielu wystąpieniach aplikacji](event-processor-balance-partition-load.md).
+> Ponadto zobacz [równoważenia obciążenia partycji w wielu wystąpieniach aplikacji](event-processor-balance-partition-load.md).
 
-Usługa Azure Event Hubs to zaawansowana usługa pozyskiwania danych telemetrycznych, która może służyć do przesyłania strumieniowego milionów zdarzeń przy niskich kosztach. W tym artykule opisano sposób używania pozyskiwania zdarzeń przy użyciu *hosta procesora zdarzeń* (EPH); inteligentny agent konsumencki, który upraszcza zarządzanie punktami kontrolnymi, leasingiem i równoległymi czytnikami zdarzeń.  
+Azure Event Hubs to zaawansowana usługa pozyskiwania danych telemetrycznych, która może służyć do przesyłania strumieniowego milionów zdarzeń przy niskich kosztach. W tym artykule opisano sposób korzystania z zdarzeń pozyskiwanych za pomocą *hosta procesora zdarzeń* (EPH); inteligentny Agent konsumencki, który upraszcza zarządzanie czytnikami punktów kontrolnych, dzierżaw i zdarzeń równoległych.  
 
-Kluczem do skalowania dla centrów zdarzeń jest idea podzielonych na partycje konsumentów. W przeciwieństwie do [wzorca konkurujących konsumentów](https://msdn.microsoft.com/library/dn568101.aspx) wzorzec konsumenta, wzorzec konsumenta podzielony na partycje umożliwia dużą skalę, usuwając wąskie gardło rywalizacji i ułatwiając równoległość końca do końca.
+Klucz do skalowania dla Event Hubs jest pomysłem dla użytkowników z podziałem na partycje. W przeciwieństwie do wzorca [konkurujących odbiorców](https://msdn.microsoft.com/library/dn568101.aspx) , partycjonowany wzorzec klienta umożliwia wysoką skalowalność, usuwając wąskie gardła rywalizacji i ułatwiając zakończenie równoległości.
 
-## <a name="home-security-scenario"></a>Scenariusz bezpieczeństwa w domu
+## <a name="home-security-scenario"></a>Scenariusz zabezpieczeń domowych
 
-W przykładowym scenariuszu rozważmy firmę zajmującą się bezpieczeństwem w domu, która monitoruje 100 000 domów. Co minutę pobiera dane z różnych czujników, takich jak czujnik ruchu, czujnik otwierania drzwi / okien, detektor pęknięć szkła itp., zainstalowany w każdym domu. Firma udostępnia stronę internetową dla mieszkańców do monitorowania działalności ich domu w czasie zbliżonym do rzeczywistego.
+W przykładowym scenariuszu należy rozważyć firmową firmę zabezpieczeń, która monitoruje 100 000 domy. Co minutę pobiera dane z różnych czujników, takich jak wykrywanie ruchu, czujnik otwartych drzwi/okien, detektory szkła, jak i zainstalowane w każdym domu. Firma udostępnia witrynę sieci Web dla rezydentów do monitorowania aktywności ich domu w czasie niemal rzeczywistym.
 
-Każdy czujnik wypycha dane do centrum zdarzeń. Centrum zdarzeń jest skonfigurowane z 16 partycjami. Na końcu zużywa, potrzebujesz mechanizmu, który może odczytywać te zdarzenia, konsolidować je (filtrować, agregować itp.) i zrzucać agregację do obiektu blob magazynu, który jest następnie rzutowany na przyjazną dla użytkownika stronę sieci web.
+Każdy czujnik wypychanie danych do centrum zdarzeń. Centrum zdarzeń jest skonfigurowane z 16 partycjami. W celu korzystania z tego celu wymagany jest mechanizm, który może odczytywać te zdarzenia, konsolidować je (filtrowanie, agregowanie itp.) i zrzutować agregacji do magazynu obiektów blob, który jest następnie rzutowany na stronę sieci Web przyjazną dla użytkownika.
 
-## <a name="write-the-consumer-application"></a>Napisz aplikację konsumencką
+## <a name="write-the-consumer-application"></a>Napisz aplikację konsumenta
 
-Podczas projektowania konsumenta w środowisku rozproszonym scenariusz musi obsługiwać następujące wymagania:
+Podczas projektowania użytkownika w środowisku rozproszonym scenariusz musi obsługiwać następujące wymagania:
 
-1. **Skala:** Tworzenie wielu konsumentów, z każdego konsumenta przejęcia na własność odczytu z kilku partycji Centrum zdarzeń.
-2. **Bilans obciążenia:** Dynamicznie zwiększaj lub zmniejszaj konsumentów. Na przykład, gdy do każdego domu dodawany jest nowy typ czujnika (na przykład detektor tlenku węgla), liczba zdarzeń wzrasta. W takim przypadku operator (człowiek) zwiększa liczbę wystąpień konsumentów. Następnie pula konsumentów można zrównoważyć liczbę partycji, które posiadają, aby udostępnić obciążenie nowo dodanych konsumentów.
-3. **Bezproblemowe wznowienie w przypadku awarii:** Jeśli konsument **(konsument A**) ulegnie awarii (na przykład maszyna wirtualna obsługująca konsumenta nagle ulega awarii), inni konsumenci muszą mieć możliwość pobrania partycji należących do **konsumenta A** i kontynuowania. Ponadto punkt kontynuacji, zwany *punktem kontrolnym* lub *przesunięciem,* powinien znajdować się dokładnie w punkcie, w którym **konsument A** nie powiódł się lub nieco wcześniej.
-4. **Zużywają zdarzenia:** Podczas gdy poprzednie trzy punkty dotyczą zarządzania konsumentem, musi istnieć kod, aby konsumować zdarzenia i zrobić coś pożytecznego z nim; na przykład zagregować go i przekazać go do magazynu obiektów blob.
+1. **Skala:** Utwórz wielu odbiorców, z których każdy konsument przejmuje prawo do odczytu z kilku Event Hubs partycji.
+2. **Równoważenie obciążenia:** Dynamiczne zwiększanie lub zmniejszanie liczby klientów. Na przykład, gdy do każdego domu zostanie dodany nowy typ czujnika (na przykład wykrywacz tlenku węgla), liczba zdarzeń rośnie. W takim przypadku operator (człowiek) zwiększa liczbę wystąpień odbiorców. Następnie Pula odbiorców może ponownie zrównoważyć liczbę posiadanych partycji, aby udostępnić obciążenie nowo dodanym klientom.
+3. **Bezproblemowe wznowienie w przypadku awarii:** Jeśli odbiorca (**konsument a**) zakończy się niepowodzeniem (na przykład w maszynie wirtualnej, na której znajdują się nieoczekiwane awarie klienta), inni klienci muszą mieć możliwość pobrania partycji należących do **konsumenta a** i kontynuować. Ponadto punkt kontynuacji, nazywany punktem *kontrolnym* lub *przesunięciem*, powinien znajdować się w dokładnie określonym punkcie, w którym **odbiorca** nie zakończył się niepowodzeniem lub nieco przed nim.
+4. **Korzystaj z zdarzeń:** Mimo że poprzednie trzy punkty zajmują się zarządzaniem konsumentem, musi istnieć kod, który umożliwia korzystanie z tych zdarzeń i jest bardziej użyteczny dla niego. na przykład Agreguj go i Przekaż do magazynu obiektów BLOB.
 
-Zamiast tworzenia własnego rozwiązania dla tego, Event Hubs zapewnia tę funkcję za pośrednictwem interfejsu [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) i [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) klasy.
+Zamiast tworzyć własne rozwiązanie, Event Hubs udostępnia tę funkcję za pomocą interfejsu [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) oraz klasy [klasy eventprocessorhost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) .
 
-## <a name="ieventprocessor-interface"></a>Interfejs IEventProcessor
+## <a name="ieventprocessor-interface"></a>IEventProcessor, interfejs
 
-Po pierwsze, korzystanie z aplikacji implementuje interfejs [IEventProcessor,](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) który ma cztery metody: [OpenAsync, CloseAsync, ProcessErrorAsync i ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods). Ten interfejs zawiera rzeczywisty kod do korzystania ze zdarzeń wysyłanych przez centra zdarzeń. Poniższy kod przedstawia prostą implementację:
+Pierwsze, zużywające aplikacje implementują interfejs [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) , który ma cztery metody: [openAsync, CloseAsync, ProcessErrorAsync i ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods). Ten interfejs zawiera rzeczywisty kod służący do korzystania z zdarzeń wysyłanych Event Hubs. Poniższy kod pokazuje prostą implementację:
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -89,125 +89,125 @@ public class SimpleEventProcessor : IEventProcessor
 }
 ```
 
-Next, instantiate an [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) instance. W zależności od przeciążenia podczas tworzenia [EventProcessorHost wystąpienie](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) w konstruktorze, następujące parametry są używane:
+Następnie Utwórz wystąpienie wystąpienia [klasy eventprocessorhost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) . W zależności od przeciążenia podczas tworzenia wystąpienia [klasy eventprocessorhost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) w Konstruktorze są używane następujące parametry:
 
-- **hostName:** nazwa każdego wystąpienia konsumenta. Każde wystąpienie **EventProcessorHost** musi mieć unikatową wartość dla tej zmiennej w grupie odbiorców, więc nie kod twardy tej wartości.
+- **hostname:** Nazwa każdego wystąpienia odbiorcy. Każde wystąpienie elementu **klasy eventprocessorhost** musi mieć unikatową wartość tej zmiennej w grupie odbiorców, dlatego nie należy nakodować tej wartości.
 - **eventHubPath:** Nazwa centrum zdarzeń.
-- **consumerGroupName:** Usługa Event Hubs używa **$Default** jako nazwy domyślnej grupy odbiorców, ale jest dobrą praktyką, aby utworzyć grupę odbiorców dla określonego aspektu przetwarzania.
-- **eventHubConnectionString:** Parametry połączenia z centrum zdarzeń, które można pobrać z witryny Azure portal. Ten ciąg połączenia powinien mieć uprawnienia **nasłuchiwki** w centrum zdarzeń.
-- **storageConnectionString:** Konto magazynu używane do zarządzania zasobami wewnętrznymi.
+- **consumerGroupName:** Event Hubs używa **$default** jako nazwy domyślnej grupy odbiorców, ale dobrym sposobem jest utworzenie grupy odbiorców dla określonego aspektu przetwarzania.
+- **eventHubConnectionString:** Parametry połączenia z centrum zdarzeń, które można pobrać z Azure Portal. Te parametry połączenia powinny mieć uprawnienia do **nasłuchiwania** w centrum zdarzeń.
+- **storageConnectionString:** Konto magazynu używane na potrzeby wewnętrznego zarządzania zasobami.
 
-Na koniec konsumenci rejestrują [EventProcessorHost wystąpienie](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) z usługi Centrum zdarzeń. Rejestrowanie klasy procesora zdarzeń z wystąpieniem EventProcessorHost rozpoczyna przetwarzanie zdarzeń. Rejestrowanie nakazuje usługi Event Hubs oczekiwać, że aplikacja konsumenta zużywa zdarzenia z niektórych partycji i wywołać [iEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) kod implementacji, gdy wypycha zdarzenia do użycia. 
+Na koniec użytkownicy rejestrują wystąpienie [klasy eventprocessorhost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) za pomocą usługi Event Hubs. Zarejestrowanie klasy procesora zdarzeń z wystąpieniem klasy eventprocessorhost rozpoczyna przetwarzanie zdarzenia. Rejestracja instruuje usługę Event Hubs, aby spodziewać się, że aplikacja konsumencka korzysta z zdarzeń z niektórych partycji i wywołuje kod implementacji [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) za każdym razem, gdy wypycha zdarzenia do użycia. 
 
 
 ### <a name="example"></a>Przykład
 
-Na przykład załóżmy, że istnieje 5 maszyn wirtualnych (VM) przeznaczonych do korzystania ze zdarzeń i prostej aplikacji konsoli w każdej maszynie wirtualnej, która wykonuje pracę zużycia rzeczywistego. Każda aplikacja konsoli następnie tworzy jedno [wystąpienie EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) i rejestruje go w usłudze Centrum zdarzeń.
+Załóżmy na przykład, że istnieją 5 maszyn wirtualnych przeznaczonych do zużywania zdarzeń oraz prosta aplikacja konsolowa w każdej maszynie wirtualnej, która wykonuje rzeczywiste zużycie. Każda aplikacja konsolowa tworzy jedno wystąpienie [klasy eventprocessorhost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) i rejestruje je w usłudze Event Hubs.
 
-W tym przykładzie załóżmy, że 16 partycji są przydzielane do 5 **EventProcessorHost** wystąpień. Niektóre **wystąpienia EventProcessorHost** może posiadać kilka partycji więcej niż inne. Dla każdej partycji, która **eventProcessorHost wystąpienie** `SimpleEventProcessor` jest właścicielem, tworzy wystąpienie klasy. W związku z tym istnieje 16 wystąpień `SimpleEventProcessor` ogólnej, z jednym przypisany do każdej partycji.
+W tym przykładowym scenariuszu Załóżmy, że 16 partycji są przydzielono do 5 wystąpień **klasy eventprocessorhost** . Niektóre wystąpienia **klasy eventprocessorhost** mogą być właścicielami kilku innych partycji niż inne. Dla każdej partycji, do której należy wystąpienie **klasy eventprocessorhost** , tworzy wystąpienie `SimpleEventProcessor` klasy. W związku z tym istnieje 16 wystąpień `SimpleEventProcessor` ogólnych z jednym przypisanym do każdej partycji.
 
-Poniższa lista podsumowuje ten przykład:
+Poniższa lista zawiera podsumowanie tego przykładu:
 
-- 16 partycji Centrum zdarzeń.
-- 5 maszyn wirtualnych, 1 aplikacja dla konsumentów (na przykład Consumer.exe) w każdej maszynie wirtualnej.
-- 5 Zarejestrowanych wystąpień EPH, 1 na każdej maszynie wirtualnej przez Consumer.exe.
-- 16 `SimpleEventProcessor` obiektów utworzonych przez 5 wystąpień EPH.
-- 1 Aplikacja Consumer.exe może `SimpleEventProcessor` zawierać 4 obiekty, ponieważ wystąpienie 1 EPH może być właścicielem 4 partycji.
+- 16 Event Hubs partycjach.
+- 5 maszyn wirtualnych, 1 aplikacja konsumencka (na przykład Consumer. exe) w każdej maszynie wirtualnej.
+- 5 EPH wystąpień zarejestrowanych, 1 w każdej maszynie wirtualnej za pomocą programu Consumer. exe.
+- 16 `SimpleEventProcessor` obiektów utworzonych przez wystąpienia z 5 EPH.
+- 1 aplikacja Consumer. exe może zawierać 4 `SimpleEventProcessor` obiekty, ponieważ wystąpienie 1 EPH może mieć 4 partycje.
 
 ## <a name="partition-ownership-tracking"></a>Śledzenie własności partycji
 
-Własność partycji do wystąpienia EPH (lub konsumenta) jest śledzona za pośrednictwem konta usługi Azure Storage, które jest przewidziane do śledzenia. Śledzenie można wizualizować w prosty sposób w następujący sposób. Rzeczywistą implementację można wyświetlić, badając obiekty blob w obszarze podane konto magazynu:
+Własność partycji z wystąpieniem EPH (lub odbiorcą) jest śledzona za pomocą konta usługi Azure Storage, które jest dostępne do śledzenia. Możesz wizualizować śledzenie jako prostą tabelę w następujący sposób. Rzeczywistą implementację można zobaczyć, badając obiekty blob w ramach podanego konta magazynu:
 
-| **Nazwa grupy konsumentów** | **Identyfikator partycji** | **Nazwa hosta (właściciel)** | **Czas dzierżawy (lub własności)** | **Przesunięcie w partycji (punkt kontrolny)** |
+| **Nazwa grupy konsumentów** | **Identyfikator partycji** | **Nazwa hosta (właściciel)** | **Czas trwania dzierżawy (lub własności)** | **Przesunięcie na partycję (punkt kontrolny)** |
 | --- | --- | --- | --- | --- |
-| $Default | 0 | Maszyna\_wirtualna dla konsumentów3 | 2018-04-15T01:23:45 | 156 |
-| $Default | 1 | KonsumenckiE\_VM4 | 2018-04-15T01:22:13 | 734 |
-| $Default | 2 | Maszyna\_wirtualna dla konsumentów0 | 2018-04-15T01:22:56 | 122 |
+| $Default | 0 | VM3\_konsumenta | 2018 r – 04-15T01:23:45 | 156 |
+| $Default | 1 | VM4\_konsumenta | 2018 r – 04-15T01:22:13 | 734 |
+| $Default | 2 | VM0\_konsumenta | 2018 r – 04-15T01:22:56 | 122 |
 | : |   |   |   |   |
 | : |   |   |   |   |
-| $Default | 15 | Maszyna\_wirtualna dla konsumentów3 | 2018-04-15T01:22:56 | 976 |
+| $Default | 15 | VM3\_konsumenta | 2018 r – 04-15T01:22:56 | 976 |
 
-W tym miejscu każdy host przejmuje własność partycji przez pewien czas trwania (czas trwania dzierżawy). Jeśli host ulegnie awarii (maszyna wirtualna zostanie zamknięta), dzierżawa wygaśnie. Inne hosty próbują uzyskać własność partycji, a jeden z hostów powiedzie się. Ten proces resetuje dzierżawę na partycji z nowym właścicielem. W ten sposób tylko jeden czytnik w danym momencie można odczytać z dowolnej partycji w grupie konsumentów.
+W tym miejscu każdy host uzyskuje własność partycji przez określony czas (czas trwania dzierżawy). Jeśli host zakończy się niepowodzeniem (maszyna wirtualna zostanie wyłączona), dzierżawa wygaśnie. Inne hosty próbują uzyskać własność partycji, a jeden z nich kończy się powodzeniem. Ten proces resetuje dzierżawę na partycji przy użyciu nowego właściciela. W ten sposób tylko jeden czytelnik w danym momencie może odczytywać daną partycję w obrębie grupy odbiorców.
 
 ## <a name="receive-messages"></a>Odbieranie komunikatów
 
-Każde [wywołanie ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) dostarcza kolekcję zdarzeń. Twoim obowiązkiem jest obsługa tych zdarzeń. Jeśli chcesz upewnić się, że host procesora przetwarza każdą wiadomość co najmniej raz, musisz napisać własny zachować ponawianie kodu. Ale bądź ostrożny w sprawie zatrutych wiadomości.
+Każde wywołanie [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) dostarcza kolekcję zdarzeń. Jest odpowiedzialny za obsługę tych zdarzeń. Aby upewnić się, że host procesora przetwarza każdy komunikat co najmniej raz, należy napisać swój własny kod Kontynuuj ponawianie próby. Należy zachować ostrożność w przypadku skażonych komunikatów.
 
-Zaleca się, aby robić rzeczy stosunkowo szybko; oznacza to, że jak najmniej przetwarzania. Zamiast tego należy użyć grup odbiorców. Jeśli chcesz zapisać do magazynu i zrobić kilka routingu, lepiej jest użyć dwóch grup konsumentów i mieć dwie implementacje [IEventProcessor,](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) które są uruchamiane oddzielnie.
+Zalecane jest stosunkowo szybkie wykonywanie operacji. oznacza to, że możliwie jak najmniejszej ilości przetwarzania. Zamiast tego należy użyć grup odbiorców. Jeśli zachodzi potrzeba zapisu do magazynu i przeprowadzenia pewnych routingu, lepiej jest używać dwóch grup odbiorców i mieć dwie implementacje [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) , które są uruchamiane oddzielnie.
 
-W pewnym momencie podczas przetwarzania możesz chcieć śledzić to, co przeczytałeś i ukończono. Śledzenie jest krytyczne, jeśli trzeba ponownie uruchomić odczyt, więc nie powrócisz do początku strumienia. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) upraszcza to śledzenie za pomocą *punktów kontrolnych*. Punkt kontrolny jest lokalizacją lub przesunięciem dla danej partycji w obrębie danej grupy odbiorców, w którym to momencie użytkownik jest zadowolony z przetworzenia wiadomości. Oznaczanie punktu kontrolnego w **EventProcessorHost** odbywa się przez wywołanie [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) metody na [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext) obiektu. Ta operacja jest wykonywana w ramach [metody ProcessEventsAsync,](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) ale można ją również wykonać w [programie CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync).
+W pewnym momencie podczas przetwarzania warto śledzić dane, które zostały odczytane i wykonane. Śledzenie ma krytyczne znaczenie, jeśli trzeba będzie ponownie uruchomić odczytywanie, aby nie wrócić do początku strumienia. [Klasy eventprocessorhost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) upraszcza to śledzenie przy użyciu *punktów kontrolnych*. Punkt kontrolny jest lokalizacją lub przesunięciem dla danej partycji w ramach danej grupy odbiorców, w tym momencie masz pewność, że przetworzono komunikaty. Oznaczanie punktu kontrolnego w **klasy eventprocessorhost** jest realizowane przez wywołanie metody [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) w obiekcie [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext) . Ta operacja jest wykonywana w metodzie [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) , ale można ją również wykonać w [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync).
 
 ## <a name="checkpointing"></a>Tworzenie punktów kontrolnych
 
-[CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) Metoda ma dwa przeciążenia: pierwszy, bez parametrów, punkty kontrolne do najwyższego przesunięcia zdarzeń w kolekcji zwrócone przez [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync). To przesunięcie jest znakiem "wysokiej wody"; zakłada, że zostały przetworzone wszystkie ostatnie zdarzenia, gdy go wywołasz. Jeśli używasz tej metody w ten sposób, należy pamiętać, że oczekuje się wywołać go po innym kod przetwarzania zdarzenia został zwrócony. Drugie przeciążenie umożliwia określenie wystąpienia [EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata) do punktu kontrolnego. Ta metoda umożliwia użycie innego typu znaku wodnego do punktu kontrolnego. Za pomocą tego znaku wodnego można zaimplementować znak "niska woda": najniższe zdarzenie sekwencjonowane, które masz pewność, że zostało przetworzone. To przeciążenie jest przewidziane w celu umożliwienia elastyczności w zarządzaniu offsetem.
+Metoda [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) ma dwa przeciążenia: pierwszy, bez parametrów, punkty kontrolne do najwyższego przesunięcia zdarzenia w kolekcji zwróconej przez [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync). To przesunięcie jest oznaczeniem "wysokiej wody"; przyjęto założenie, że wszystkie ostatnie zdarzenia zostały przetworzone podczas jego wywoływania. Jeśli używasz tej metody w ten sposób, pamiętaj, że oczekujesz, że będzie ona wywoływana po zwróceniu innego kodu przetwarzania zdarzeń. Drugie Przeciążenie pozwala określić wystąpienie [EVENTDATA](/dotnet/api/microsoft.azure.eventhubs.eventdata) dla punktu kontrolnego. Ta metoda umożliwia użycie innego typu znaku wodnego do tworzenia punktów kontrolnych. Za pomocą tego znaku wodnego można zaimplementować znacznik "niskiego poziomu": najniższe określone sekwencjonowane zdarzenie zostało przetworzone. To Przeciążenie zapewnia elastyczność w zakresie zarządzania przesunięciem.
 
-Po wykonaniu punktu kontrolnego plik JSON z informacjami specyficznymi dla partycji (w szczególności przesunięcie) jest zapisywany na koncie magazynu dostarczonym w konstruktorze do [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Ten plik jest stale aktualizowany. Ważne jest, aby wziąć pod uwagę punkty kontrolne w kontekście - byłoby nierozsądne do punktu kontrolnego każdej wiadomości. Konto magazynu używane do obsługi punktów kontrolnych prawdopodobnie nie obsłuży tego obciążenia, ale co ważniejsze, punkt kontrolny każdego pojedynczego zdarzenia wskazuje na wzorzec obsługi w kolejce, dla którego kolejka usługi Service Bus może być lepszym rozwiązaniem niż centrum zdarzeń. Ideą Centrum zdarzeń jest to, że otrzymujesz "co najmniej raz" dostawę na dużą skalę. Dzięki temu, że systemy podrzędne są idempotentne, można łatwo odzyskać po awarii lub ponownym uruchomieniu, które powodują, że te same zdarzenia są odbierane wiele razy.
+Gdy punkt kontrolny jest wykonywany, plik JSON z informacjami specyficznymi dla partycji (w konkretnym przesunięciu) jest zapisywana na koncie magazynu dostarczonym w konstruktorze do [klasy eventprocessorhost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Ten plik jest aktualizowany w sposób ciągły. Należy wziąć pod uwagę konieczność przetworzenia punktów kontrolnych w kontekście. Konto magazynu używane do tworzenia punktów kontrolnych prawdopodobnie nie obsłuży tego obciążenia, ale dokładniejsze punkty kontrolne każdego pojedynczego zdarzenia to wskaźnik wzorca komunikatów umieszczonych w kolejce, dla którego Kolejka Service Bus może być lepszym rozwiązaniem niż centrum zdarzeń. Event Hubs poniżej zawarto "co najmniej raz" dostarczanie na dużą skalę. Dzięki wykorzystaniu systemów podrzędnych idempotentne można łatwo odzyskać z błędów lub ponownych uruchomień, co spowoduje, że te same zdarzenia są odbierane wiele razy.
 
 ## <a name="thread-safety-and-processor-instances"></a>Bezpieczeństwo wątków i wystąpienia procesora
 
-Domyślnie [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) jest bezpieczny dla wątków i zachowuje się w sposób synchroniczne w odniesieniu do wystąpienia [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor). Gdy zdarzenia przybywają dla partycji [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) jest wywoływana w wystąpieniu **IEventProcessor** dla tej partycji i zablokuje dalsze wywołania **ProcessEventsAsync** dla partycji. Kolejne komunikaty i wywołania **ProcessEventsAsync** kolejki w górę w tle, jak pompa wiadomości nadal działać w tle w innych wątków. To bezpieczeństwo gwintów eliminuje potrzebę kolekcji bezpiecznych dla wątków i znacznie zwiększa wydajność.
+Domyślnie [klasy eventprocessorhost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) jest bezpieczny wątkowo i zachowuje się synchronicznie w odniesieniu do wystąpienia elementu [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor). Po nadejściu zdarzeń dla partycji [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) jest wywoływana w wystąpieniu **IEventProcessor** dla tej partycji i będzie blokować dalsze wywołania **ProcessEventsAsync** dla partycji. Kolejne komunikaty i wywołania w kolejce **ProcessEventsAsync** w tle, gdy pompa komunikatów będzie działać w tle w innych wątkach. Bezpieczeństwo wątków eliminuje konieczność stosowania kolekcji bezpiecznych dla wątków i znacząco zwiększa wydajność.
 
-## <a name="shut-down-gracefully"></a>Zamknij się z gracją
+## <a name="shut-down-gracefully"></a>Łagodnie Zamknij
 
-Na koniec [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) umożliwia czyste zamknięcie wszystkich czytników partycji i zawsze powinno być wywoływane podczas zamykania wystąpienia [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Nie wykaże się to może spowodować opóźnienia podczas uruchamiania innych wystąpień **EventProcessorHost** z powodu wygaśnięcia dzierżawy i konfliktów Epoch. Zarządzanie epoką jest szczegółowo opisane w sekcji [Epoch](#epoch) artykułu. 
+Na koniec [klasy eventprocessorhost. UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) włącza czyste zamknięcie wszystkich czytników partycji i zawsze powinna być wywoływana podczas zamykania wystąpienia [klasy eventprocessorhost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Niewykonanie tej operacji może spowodować opóźnienia podczas uruchamiania innych wystąpień **klasy eventprocessorhost** ze względu na wygaśnięcie dzierżawy i konflikty epoki. Zarządzanie epoką zostało szczegółowo omówione w sekcji [epoki](#epoch) artykułu. 
 
-## <a name="lease-management"></a>Zarządzanie leasingiem
-Rejestrowanie klasy procesora zdarzeń z wystąpieniem EventProcessorHost rozpoczyna przetwarzanie zdarzeń. Wystąpienie hosta uzyskuje dzierżawy na niektórych partycjach Centrum zdarzeń, prawdopodobnie chwytając niektóre z innych wystąpień hosta, w sposób, który zbiega się w równej dystrybucji partycji we wszystkich wystąpieniach hosta. Dla każdej dzierżawionej partycji wystąpienie hosta tworzy wystąpienie podanej klasy procesora zdarzeń, a następnie odbiera zdarzenia z tej partycji i przekazuje je do wystąpienia procesora zdarzeń. Jak więcej wystąpień dodać i więcej dzierżaw są chwycił, EventProcessorHost ostatecznie równoważy obciążenie wśród wszystkich konsumentów.
+## <a name="lease-management"></a>Zarządzanie dzierżawą
+Zarejestrowanie klasy procesora zdarzeń z wystąpieniem klasy eventprocessorhost rozpoczyna przetwarzanie zdarzenia. Wystąpienie hosta uzyskuje dzierżawy na niektórych partycjach centrum zdarzeń, które mogą być używane przez inne wystąpienia hosta w taki sposób, aby były zbieżne na parzystej dystrybucji partycji we wszystkich wystąpieniach hosta. W przypadku każdej partycji dzierżawionej wystąpienie hosta tworzy wystąpienie dostarczonej klasy procesora zdarzeń, a następnie odbiera zdarzenia z tej partycji i przekazuje je do wystąpienia procesora zdarzeń. Po dodaniu większej liczby wystąpień i przeniesieniu większej liczby dzierżaw klasy eventprocessorhost ostatecznie równoważy obciążenie wśród wszystkich odbiorców.
 
-Jak wyjaśniono wcześniej, tabela śledzenia znacznie upraszcza charakter skalowania automatycznego [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync). Jako wystąpienie **EventProcessorHost** rozpoczyna, nabywa jak najwięcej dzierżaw, jak to możliwe i rozpoczyna czytanie zdarzeń. Jako dzierżawy w pobliżu wygaśnięcia **EventProcessorHost** próbuje odnowić je, umieszczając rezerwację. Jeśli dzierżawa jest dostępna do odnowienia, procesor kontynuuje odczyt, ale jeśli tak nie jest, czytnik jest zamknięty i [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync) jest wywoływana. **CloseAsync** to dobry moment, aby wykonać wszelkie końcowe oczyszczanie dla tej partycji.
+Jak wyjaśniono wcześniej, tabela śledzenia znacznie upraszcza charakter automatycznego skalowania [klasy eventprocessorhost. UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync). Wystąpienie **klasy eventprocessorhost** rozpoczyna się od wielu dzierżaw, a następnie rozpoczyna odczytywanie zdarzeń. Gdy dzierżawy zbliżają się do wygaśnięcia, **klasy eventprocessorhost** próbuje odnowić je, umieszczając rezerwację. Jeśli dzierżawa jest dostępna do odnowienia, procesor kontynuuje odczyt, ale jeśli nie jest, czytnik jest zamknięty i [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync) jest wywoływana. **CloseAsync** to dobry moment, aby przeprowadzić końcowe czyszczenie tej partycji.
 
-**EventProcessorHost** zawiera właściwość [PartitionManagerOptions.](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.partitionmanageroptions) Ta właściwość umożliwia kontrolę nad zarządzaniem dzierżawą. Ustaw te opcje przed zarejestrowaniem implementacji [IEventProcessor.](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor)
+**Klasy eventprocessorhost** zawiera właściwość [PartitionManagerOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.partitionmanageroptions) . Ta właściwość umożliwia kontrolę nad zarządzaniem dzierżawą. Ustaw te opcje przed zarejestrowaniem implementacji [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) .
 
-## <a name="control-event-processor-host-options"></a>Opcje hosta procesora zdarzeń sterowania
+## <a name="control-event-processor-host-options"></a>Sterowanie opcjami hosta procesora zdarzeń
 
-Ponadto jedno przeciążenie [RegisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync?view=azure-dotnet#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) przyjmuje [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync?view=azure-dotnet#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) obiektu jako parametr. Ten parametr służy do kontrolowania zachowania [eventprocessorHost.UnregisterEventProcessorAsync.](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions) definiuje cztery właściwości i jedno zdarzenie:
+Ponadto jedno Przeciążenie [RegisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync?view=azure-dotnet#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) przyjmuje obiekt [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync?view=azure-dotnet#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) jako parametr. Użyj tego parametru, aby kontrolować zachowanie [klasy eventprocessorhost. UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) . [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions) definiuje cztery właściwości i jedno zdarzenie:
 
-- [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize): Maksymalny rozmiar kolekcji, którą chcesz otrzymać w wywołaniu [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync). Ten rozmiar nie jest minimalny, tylko maksymalny rozmiar. Jeśli istnieje mniej wiadomości do odebraniu, **ProcessEventsAsync** wykonuje z tyle, ile były dostępne.
-- [PrefetchCount](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.prefetchcount): Wartość używana przez podstawowy kanał AMQP do określenia górnego limitu liczby wiadomości, które klient powinien odbierać. Ta wartość powinna być większa lub równa [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize).
-- [InvokeProcessorAfterReceiveTimeout:](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.invokeprocessorafterreceivetimeout)Jeśli ten parametr jest **true**, [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) jest wywoływana, gdy podstawowe wywołanie do odbierania zdarzeń na partycji limit czasu. Ta metoda jest przydatna do podejmowania akcji opartych na czasie w okresach braku aktywności na partycji.
-- [InitialOffsetProvider:](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider)Umożliwia ustawienie wskaźnika funkcji lub wyrażenia lambda, które jest wywoływane w celu zapewnienia początkowego przesunięcia, gdy czytelnik rozpoczyna czytanie partycji. Bez określania tego przesunięcia czytnik rozpoczyna się od najstarszego zdarzenia, chyba że plik JSON z przesunięciem został już zapisany na koncie magazynu dostarczonym do konstruktora [EventProcessorHost.](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) Ta metoda jest przydatna, gdy chcesz zmienić zachowanie uruchamiania czytnika. Gdy ta metoda jest wywoływana, parametr obiektu zawiera identyfikator partycji, dla którego czytnik jest uruchamiany.
-- [ExceptionReceivedEventArgs](/dotnet/api/microsoft.azure.eventhubs.processor.exceptionreceivedeventargs): Umożliwia otrzymywanie powiadomień o wszelkich podstawowych wyjątkach występujących w [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Jeśli rzeczy nie działają zgodnie z oczekiwaniami, to wydarzenie jest dobrym miejscem, aby zacząć szukać.
+- [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize): maksymalny rozmiar kolekcji, która ma zostać odebrana w wywołaniu [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync). Ten rozmiar nie jest minimalny, tylko maksymalny rozmiar. Jeśli jest mniej komunikatów do odebrania, **ProcessEventsAsync** wykonuje się za pomocą tak dużo, jak były dostępne.
+- [PrefetchCount](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.prefetchcount): wartość używana przez podstawowy kanał AMQP do określenia górnego limitu liczby komunikatów, które powinien odebrać klient. Ta wartość powinna być większa lub równa [maxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize).
+- [InvokeProcessorAfterReceiveTimeout](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.invokeprocessorafterreceivetimeout): Jeśli ten parametr ma **wartość true**, [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) jest wywoływana, gdy bazowe wywołanie do odbierania zdarzeń na partycji przekracza limit czasu. Ta metoda jest przydatna do podejmowania akcji opartych na czasie w okresach braku aktywności na partycji.
+- [InitialOffsetProvider](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider): umożliwia określenie wskaźnika funkcji lub wyrażenia lambda, które jest wywoływane, aby zapewnić początkowe przesunięcie, gdy czytnik rozpocznie Odczytywanie partycji. Bez określenia tego przesunięcia czytnik zaczyna się od najstarszego zdarzenia, chyba że plik JSON z przesunięciami został już zapisany na koncie magazynu dostarczonym do konstruktora [klasy eventprocessorhost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) . Ta metoda jest przydatna, gdy chcesz zmienić zachowanie uruchamiania czytnika. Gdy ta metoda jest wywoływana, parametr obiektu zawiera identyfikator partycji, dla której czytelnik jest uruchamiany.
+- [ExceptionReceivedEventArgs](/dotnet/api/microsoft.azure.eventhubs.processor.exceptionreceivedeventargs): umożliwia otrzymywanie powiadomień o wszelkich podstawowych wyjątkach występujących w [klasy eventprocessorhost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Jeśli rzeczy nie działają zgodnie z oczekiwaniami, to zdarzenie jest dobrym miejscem, aby rozpocząć wyszukiwanie.
 
-## <a name="epoch"></a>Epoch
+## <a name="epoch"></a>EPOCH
 
-Oto jak działa epoka otrzymywania:
+Oto jak działa Epoka odbioru:
 
-### <a name="with-epoch"></a>Z Epoką
-Epoka jest unikatowy identyfikator (wartość epoki), który używa usługi, aby wymusić własność partycji/dzierżawy. Tworzenie odbiornika opartego na epoce przy użyciu [CreateEpochReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet) metody. Ta metoda tworzy odbiornik oparty na epoce. Odbiornik jest tworzony dla określonej partycji centrum zdarzeń z określonej grupy odbiorców.
+### <a name="with-epoch"></a>Z epoką
+Epoka jest unikatowym identyfikatorem (wartość epoki) używaną przez usługę, aby wymusić własność partycji/dzierżawy. Można utworzyć odbiornik oparty na epoki przy użyciu metody [CreateEpochReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet) . Ta metoda tworzy odbiornik oparty na epoki. Odbiorca jest tworzony dla określonej partycji centrum zdarzeń z określonej grupy odbiorców.
 
-Funkcja epoki zapewnia użytkownikom możliwość zapewnienia, że w grupie odbiorców w dowolnym momencie znajduje się tylko jeden odbiornik, z następującymi regułami:
+Funkcja Epoka zapewnia użytkownikom możliwość zapewnienia, że w dowolnym momencie w grupie odbiorców istnieje tylko jeden odbiornik z następującymi regułami:
 
-- Jeśli w grupie odbiorców nie ma istniejącego odbiornika, użytkownik może utworzyć odbiornik o dowolnej wartości epoki.
-- Jeśli istnieje odbiornik o wartości epoki e1 i tworzony jest nowy odbiornik o wartości epoki e2, gdzie e1 <= e2, odbiornik z e1 zostanie automatycznie odłączony, odbiornik z e2 zostanie pomyślnie utworzony.
-- Jeśli istnieje odbiornik o wartości epoki e1 i tworzony jest nowy odbiornik o wartości epoki e2, gdzie e1 > e2, to tworzenie e2 z błędem z błędem: Odbiornik z epoką e1 już istnieje.
+- Jeśli nie ma żadnych istniejących odbiorników w grupie odbiorców, użytkownik może utworzyć odbiorcę z dowolną wartością epoki.
+- Jeśli istnieje odbiornik z wartością epoki E1 i zostanie utworzony nowy odbiornik z wartością epoki E2, gdzie E1 <= E2, odbiorca z E1 zostanie odłączony automatycznie, odbiornik z E2 zostanie utworzony pomyślnie.
+- Jeśli istnieje odbiornik z wartością epoki E1 i nowy odbiorca jest tworzony z wartością epoki E2, gdzie E1 > E2, a następnie utworzenie E2 z zakończeniem się niepowodzeniem z powodu błędu: odbiornik z epoką.
 
-### <a name="no-epoch"></a>Nie epoka
-Tworzenie odbiornika nienaparte epoki przy użyciu [CreateReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet) metody. 
+### <a name="no-epoch"></a>Brak epoki
+Tworzysz odbiornik oparty na protokole epoki przy użyciu metody [OnReceive](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet) . 
 
-Istnieje kilka scenariuszy przetwarzania strumienia, w którym użytkownicy chcieliby utworzyć wiele odbiorników w jednej grupie odbiorców. Aby wspierać takie scenariusze, mamy możliwość tworzenia odbiornika bez epoki i w tym przypadku pozwalamy na maksymalnie 5 równoczesnych odbiorników w grupie konsumentów.
+W przypadku przetwarzania strumieniowego istnieją pewne scenariusze, w których użytkownicy mogą utworzyć wielu odbiorników w pojedynczej grupie odbiorców. Aby wspierać takie scenariusze, firma Microsoft może utworzyć odbiorcę bez epoki. w takim przypadku zezwolimy na maksymalnie 5 współbieżnych odbiorców w grupie konsumentów.
 
 ### <a name="mixed-mode"></a>Tryb mieszany
-Nie zaleca się użycia aplikacji, w którym tworzysz odbiornik z epoką, a następnie przełączasz się na no-epoch lub odwrotnie w tej samej grupie odbiorców. Jednak gdy to zachowanie występuje, usługa obsługuje go przy użyciu następujących reguł:
+Nie zalecamy użycia aplikacji, gdy tworzysz odbiornik z epoką, a następnie przełączasz się do opcji No-Epoka lub vice versa w tej samej grupie odbiorców. Jednak w przypadku wystąpienia tego zachowania usługa obsługuje je przy użyciu następujących reguł:
 
-- Jeśli istnieje odbiornik już utworzony z epoki e1 i aktywnie odbiera zdarzenia i nowy odbiornik jest tworzony bez epoki, tworzenie nowego odbiornika zakończy się niepowodzeniem. Odbiorniki epokowe zawsze mają pierwszeństwo w systemie.
-- Jeśli nie było odbiornika już utworzone z epoki e1 i został odłączony, a nowy odbiornik jest tworzony bez epoki na nowy MessagingFactory, utworzenie nowego odbiornika zakończy się sukcesem. Istnieje zastrzeżenie, że nasz system wykryje "odłączenie odbiornika" po ~ 10 minutach.
-- Jeśli istnieje jeden lub więcej odbiorników utworzonych bez epoki, a nowy odbiornik jest tworzony z epoki e1, wszystkie stare odbiorniki rozłączają się.
+- Jeśli istnieje już odbiornik z epoką E1 i aktywnie odbieramy zdarzenia i zostanie utworzony nowy odbiorca bez epoki, tworzenie nowego odbiornika zakończy się niepowodzeniem. Odbiorniki epok zawsze mają pierwszeństwo w systemie.
+- Jeśli został już utworzony odbiornik z epoką E1 i nastąpiło odłączenie, a nowy odbiorca jest tworzony bez epoki na nowym MessagingFactory, tworzenie nowego odbiorcy powiedzie się. W tym miejscu występuje zastrzeżenia, które system wykrywa "odłączenie odbiorcy" po ~ 10 minut.
+- Jeśli istnieje co najmniej jeden odbiornik, który został utworzony bez epoki, a nowy odbiorca jest tworzony z epoką E1, wszystkie stare odbiorniki są rozłączone.
 
 
 > [!NOTE]
-> Zaleca się używanie różnych grup konsumentów dla aplikacji, które używają epok i dla tych, które nie używają epok, aby uniknąć błędów. 
+> Zalecamy używanie różnych grup odbiorców dla aplikacji korzystających z epoki i dla tych, które nie używają epoki, aby uniknąć błędów. 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy znasz hosta procesora zdarzeń, zobacz następujące artykuły, aby dowiedzieć się więcej o Centrach zdarzeń:
+Teraz, gdy znasz już hosta procesora zdarzeń, zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej o Event Hubs:
 
 - Rozpoczynanie pracy z usługą Event Hubs
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [Javascript](get-started-java-send-v2.md)
-* [Przewodnik po programowaniu centrów zdarzeń](event-hubs-programming-guide.md)
+    - [JavaScript](get-started-java-send-v2.md)
+* [Przewodnik programowania Event Hubs](event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md) (Dostępność i spójność w usłudze Event Hubs)
 * [Event Hubs — często zadawane pytania](event-hubs-faq.md)
-* [Przykłady centrów zdarzeń w usłudze GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)
+* [Przykłady Event Hubs w witrynie GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)

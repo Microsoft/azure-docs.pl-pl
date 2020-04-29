@@ -1,6 +1,6 @@
 ---
-title: Dodawanie warstwy kafelków do map systemu Android | Mapy platformy Microsoft Azure
-description: W tym artykule dowiesz się, jak renderować warstwę kafli na mapie przy użyciu sdk Microsoft Azure Maps Android.
+title: Dodawanie warstwy kafelków do map systemu Android | Mapy Microsoft Azure
+description: W tym artykule dowiesz się, jak renderować warstwę kafelków na mapie przy użyciu Android SDK Microsoft Azure Maps.
 author: philmea
 ms.author: philmea
 ms.date: 04/26/2019
@@ -9,46 +9,46 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: f98598bd1307bb1b46ff23814780c5f809b9ac90
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335559"
 ---
-# <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Dodawanie warstwy kafelków do mapy przy użyciu zestawu SDK usługi Azure Maps dla systemu Android
+# <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Dodawanie warstwy kafelków do mapy przy użyciu Azure Maps Android SDK
 
-W tym artykule pokazano, jak renderować warstwę kafli na mapie przy użyciu sdk systemu Android usługi Azure Maps. Warstwy kafelków umożliwiają nakładanie obrazów na kafelki map bazowych usługi Azure Maps. Więcej informacji na temat systemu kafli usługi Azure Maps można znaleźć w dokumentacji [poziomów powiększenia i siatki kafli.](zoom-levels-and-tile-grid.md)
+W tym artykule przedstawiono sposób renderowania warstwy kafelków na mapie przy użyciu Android SDK Azure Maps. Warstwy kafelków umożliwiają nakładanie obrazów na kafelkach mapy podstawowej Azure Maps. Więcej informacji o Azure Maps systemie rozmieszczania można znaleźć w dokumentacji [poziomów powiększenia i siatki kafelków](zoom-levels-and-tile-grid.md) .
 
-Warstwa kafli jest ładowana w kafelkach z serwera. Te obrazy mogą być wstępnie renderowane i przechowywane jak każdy inny obraz na serwerze, przy użyciu konwencji nazewnictwa, że warstwa kafli rozumie. Lub te obrazy mogą być renderowane za pomocą usługi dynamicznej, która generuje obrazy w czasie zbliżonym do rzeczywistego. Istnieją trzy różne konwencje nazewnictwa usługi kafelków obsługiwane przez klasę Azure Maps TileLayer:
+Warstwa kafelków jest ładowana na kafelkach z serwera. Te obrazy mogą być wstępnie renderowane i przechowywane jak każdy inny obraz na serwerze, przy użyciu konwencji nazewnictwa, która jest rozpoznawana przez warstwę kafelków. Można też renderować te obrazy za pomocą usługi dynamicznej, która generuje obrazy niemal w czasie rzeczywistym. Istnieją trzy różne konwencje nazewnictwa usługi kafelków obsługiwane przez Azure Maps TileLayer klasy:
 
-* X, Y, Powiększenie notacji - Na podstawie poziomu powiększenia, x jest kolumną i y jest położeniem wiersza kafelka w siatce kafelków.
-* Notacja quadkey - Kombinacja x, y, powiększenie informacji do pojedynczej wartości ciągu, która jest unikatowym identyfikatorem kafelka.
-* Obwiednia — współrzędne obwiedni mogą `{west},{south},{east},{north}` służyć do określania obrazu w formacie, który jest powszechnie używany przez [usługi mapowania sieci Web (WMS).](https://www.opengeospatial.org/standards/wms)
+* X, Y, z notacją powiększenia w oparciu o poziom powiększenia, x to kolumna, a Y to pozycja w wierszu kafelka w siatce kafelków.
+* Quadkey-kombinacja x, y, Powiększ informacje w postaci pojedynczej wartości ciągu, która jest unikatowym identyfikatorem dla kafelka.
+* Współrzędne pola ograniczenia obwiedni mogą służyć do określania obrazu w formacie `{west},{south},{east},{north}` , który jest często używany przez [usługi mapowania sieci Web (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
-> A TileLayer to świetny sposób wizualizacji dużych zestawów danych na mapie. Warstwa kafli może być nie tylko generowana z obrazu, ale także dane wektorowe mogą być renderowane jako warstwa kafli. Renderowanie danych wektorowych jako warstwy kafelków, formant mapy musi tylko załadować kafelki, które mogą być znacznie mniejsze w rozmiarze pliku niż dane wektorowe, które reprezentują. Ta technika jest używana przez wielu, którzy muszą renderować miliony wierszy danych na mapie.
+> TileLayer to doskonały sposób wizualizacji dużych zestawów danych na mapie. Nie tylko można wygenerować warstwy kafelków z obrazu, ale dane wektorowe mogą być również renderowane jako warstwa kafelków. Przez renderowanie danych wektorowych jako warstwy kafelków, formant mapy musi ładować tylko kafelki, które mogą być znacznie mniejsze w rozmiarze pliku niż dane wektorowe, które reprezentują. Ta technika jest używana przez wiele osób, które muszą renderować miliony wierszy danych na mapie.
 
-Adres URL kafelka przekazany do warstwy kafelków musi być adresem URL http/https do zasobu TileJSON lub szablonem adresu URL kafelka, który używa następujących parametrów: 
+Adres URL kafelka przesłany do warstwy kafelków musi być adresem URL protokołu HTTP/HTTPS do zasobu TileJSON lub szablonem adresu URL kafelka, który używa następujących parametrów: 
 
-* `{x}`- X położenie płytki. Również `{y}` potrzebuje `{z}`i .
-* `{y}`- Pozycja Y płytki. Również `{x}` potrzebuje `{z}`i .
-* `{z}`- Poziom powiększenia płytki. Również `{x}` potrzebuje `{y}`i .
-* `{quadkey}`- Identyfikator poczwórki kafelków oparty na konwencji nazewnictwa systemu kafli Bing Maps.
-* `{bbox-epsg-3857}`- Ciąg obwiedni z `{west},{south},{east},{north}` formatem w systemie odniesienia przestrzennego EPSG 3857.
-* `{subdomain}`- Symbol zastępczy dla wartości poddomeny, jeśli określono wartość poddomeny.
+* `{x}`-X pozycja kafelka. Również wymagają `{y}` i `{z}`.
+* `{y}`-Y pozycja kafelka. Również wymagają `{x}` i `{z}`.
+* `{z}`— Poziom powiększenia kafelka. Również wymagają `{x}` i `{y}`.
+* `{quadkey}`-Kafelek quadkey identyfikator oparty na konwencji nazewnictwa systemu kafelków mapy Bing.
+* `{bbox-epsg-3857}`-Ciąg pola granicznego z formatem `{west},{south},{east},{north}` w systemie referencyjnym przestrzennym EPSG 3857.
+* `{subdomain}`— Symbol zastępczy wartości poddomeny, jeśli określono wartość poddomeny.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby zakończyć proces w tym artykule, należy zainstalować [zestaw SDK systemu Azure Maps dla systemu Android,](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) aby załadować mapę.
+Aby ukończyć proces w tym artykule, należy zainstalować [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) w celu załadowania mapy.
 
 
 ## <a name="add-a-tile-layer-to-the-map"></a>Dodawanie warstwy kafelków do mapy
 
- W tym przykładzie pokazano, jak utworzyć warstwę kafli, która wskazuje zestaw kafelków. Te kafelki używają systemu kafli "x, y, zoom". Źródłem tej warstwy płytek jest nakładka radaru pogodowego z [Iowa Environmental Mesonet z Iowa State University.](https://mesonet.agron.iastate.edu/ogc/) 
+ Ten przykład pokazuje, jak utworzyć warstwę kafelków, która wskazuje zestaw kafelków. Te kafelki używają systemu dzielenia "x, y, zoom". Źródłem tej warstwy kafelków jest nałożenie radaru pogody z [Iowa środowiska Mesonet Iowa University](https://mesonet.agron.iastate.edu/ogc/). 
 
-Warstwę kafelków można dodać do mapy, wykonując poniższe czynności.
+Do mapy można dodać warstwę kafelków, wykonując poniższe kroki.
 
-1. Edytuj **układ > res > activity_main.xml,** aby wyglądał jak poniższy:
+1. Edytuj **> układ zasobów > activity_main. XML** , tak aby wyglądał wyglądać następująco:
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -71,7 +71,7 @@ Warstwę kafelków można dodać do mapy, wykonując poniższe czynności.
     </FrameLayout>
     ```
 
-2. Skopiuj poniższy fragment kodu do metody **onCreate()** danej `MainActivity.java` klasy.
+2. Skopiuj poniższy fragment kodu poniżej do metody **OnCreate ()** `MainActivity.java` klasy.
 
     ```Java
     mapControl.onReady(map -> {
@@ -84,9 +84,9 @@ Warstwę kafelków można dodać do mapy, wykonując poniższe czynności.
     });
     ```
     
-    Fragment kodu powyżej najpierw uzyskuje wystąpienie kontroli mapy usługi Azure Maps przy użyciu **onReady()** metody wywołania zwrotnego. Następnie tworzy `TileLayer` obiekt i przekazuje sformatowany adres URL `tileUrl` kafelka **xyz** do opcji. Krycie warstwy jest ustawione `0.8` na i ponieważ kafelki z usługi kafelków są 256 pikseli kafelków, informacje te są przekazywane do `tileSize` opcji. Warstwa kafli jest następnie przekazywana do menedżera warstw map.
+    Poniższy fragment kodu uzyskuje Azure Maps wystąpienia kontrolki mapy za pomocą metody wywołania zwrotnego **()** . Następnie tworzy `TileLayer` obiekt i przekazuje sformatowany adres URL kafelka **XYZ** do `tileUrl` opcji. Nieprzezroczystość warstwy jest ustawiona na `0.8` , a ponieważ kafelki z używanej usługi kafelków są 256 pikseli, te informacje są przesyłane do `tileSize` opcji. Warstwa kafelków jest następnie przenoszona do Menedżera warstwy map.
 
-    Po dodaniu fragmentu kodu powyżej, `MainActivity.java` powinien wyglądać jak poniżej:
+    Po dodaniu fragmentu kodu powyżej `MainActivity.java` powinien wyglądać tak jak poniżej:
     
     ```Java
     package com.example.myapplication;
@@ -168,15 +168,15 @@ Warstwę kafelków można dodać do mapy, wykonując poniższe czynności.
     }
     ```
 
-Jeśli uruchomisz aplikację teraz, powinieneś zobaczyć linię na mapie, jak widać poniżej:
+Jeśli aplikacja zostanie uruchomiona teraz, na mapie powinna zostać wyświetlona następująca linia:
 
 <center>
 
-![Linia mapy Androida](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center>
+![Linia mapy systemu Android](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center>
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz poniższy artykuł, aby dowiedzieć się więcej o sposobach ustawiania stylów mapy
+Zapoznaj się z poniższym artykułem, aby dowiedzieć się więcej o sposobach ustawiania stylów mapy
 
 > [!div class="nextstepaction"]
-> [Zmienianie stylów map na mapach systemu Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Zmień style mapy w usłudze mapy systemu Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)

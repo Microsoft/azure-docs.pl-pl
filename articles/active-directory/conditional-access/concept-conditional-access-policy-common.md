@@ -1,5 +1,5 @@
 ---
-title: Typowe zasady dostępu warunkowego — usługa Azure Active Directory
+title: Typowe zasady dostępu warunkowego — Azure Active Directory
 description: Powszechnie używane zasady dostępu warunkowego dla organizacji
 services: active-directory
 ms.service: active-directory
@@ -12,33 +12,33 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 20b699f0672b49dd2f947e0cf00d0ffcef7961e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80295308"
 ---
 # <a name="common-conditional-access-policies"></a>Typowe zasady dostępu warunkowego
 
-[Domyślne zabezpieczenia](../fundamentals/concept-fundamentals-security-defaults.md) są idealne dla niektórych, ale wiele organizacji potrzebuje większej elastyczności niż oferują. Na przykład wiele osób potrzebuje możliwości wykluczenia określonych kont, takich jak ich konta dostępu awaryjnego lub konta administracyjne typu break-glass, z zasad dostępu warunkowego wymagających uwierzytelniania wieloskładnikowego. W przypadku tych organizacji wspólne zasady, do których odwołuje się ten artykuł, mogą być używane.
+[Wartości domyślne zabezpieczeń](../fundamentals/concept-fundamentals-security-defaults.md) są wspaniałe w przypadku niektórych organizacji, które wymagają większej elastyczności niż oferta. Na przykład wiele potrzeb umożliwia wykluczenie określonych kont, takich jak ich dostęp awaryjny lub konta administracyjne w ramach awarii z zasad dostępu warunkowego, które wymagają uwierzytelniania wieloskładnikowego. W przypadku tych organizacji typowe zasady, do których odwołuje się ten artykuł, mogą być używane.
 
-![Zasady dostępu warunkowego w witrynie Azure portal](./media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png)
+![Zasady dostępu warunkowego w Azure Portal](./media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png)
 
 ## <a name="emergency-access-accounts"></a>Konta dostępu awaryjnego
 
-Więcej informacji na temat kont dostępu awaryjnego i powodów, dla których są one ważne, można znaleźć w następujących artykułach: 
+Więcej informacji o kontach dostępu awaryjnego i o tym, dlaczego są ważne, można znaleźć w następujących artykułach: 
 
 * [Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD](../users-groups-roles/directory-emergency-access.md)
-* [Tworzenie strategii zarządzania elastyczną kontrolą dostępu za pomocą usługi Azure Active Directory](../authentication/concept-resilient-controls.md)
+* [Utwórz odporną strategię zarządzania kontrolą dostępu za pomocą Azure Active Directory](../authentication/concept-resilient-controls.md)
 
-## <a name="typical-policies-deployed-by-organizations"></a>Typowe zasady wdrażane przez organizacje
+## <a name="typical-policies-deployed-by-organizations"></a>Typowe zasady wdrożone przez organizacje
 
-* [Blokowanie uwierzytelniania starszego](howto-conditional-access-policy-block-legacy.md)\*
-* [Wymagaj usługi MFA dla administratorów](howto-conditional-access-policy-admin-mfa.md)\*
-* [Wymagaj usługi MFA do zarządzania platformą Azure](howto-conditional-access-policy-azure-management.md)\*
-* [Wymagaj usługi MFA dla wszystkich użytkowników](howto-conditional-access-policy-all-users-mfa.md)\*
+* [Blokuj starsze uwierzytelnianie](howto-conditional-access-policy-block-legacy.md)\*
+* [Wymagaj uwierzytelniania wieloskładnikowego dla administratorów](howto-conditional-access-policy-admin-mfa.md)\*
+* [Wymagaj uwierzytelniania wieloskładnikowego na potrzeby zarządzania na platformie Azure](howto-conditional-access-policy-azure-management.md)\*
+* [Wymagaj uwierzytelniania wieloskładnikowego dla wszystkich użytkowników](howto-conditional-access-policy-all-users-mfa.md)\*
 
-\*Te cztery zasady po skonfigurowaniu razem, będzie naśladować funkcje włączone przez [domyślne zabezpieczenia](../fundamentals/concept-fundamentals-security-defaults.md).
+\*Te cztery zasady, które zostały skonfigurowane razem, spowodują naśladowanie funkcjonalności włączonej przez [domyślne ustawienia zabezpieczeń](../fundamentals/concept-fundamentals-security-defaults.md).
 
 ## <a name="additional-policies"></a>Dodatkowe zasady
 
@@ -46,10 +46,10 @@ Więcej informacji na temat kont dostępu awaryjnego i powodów, dla których s�
 * [Wymaganie zaufanej lokalizacji na potrzeby rejestracji uwierzytelniania wieloskładnikowego](howto-conditional-access-policy-registration.md)
 * [Blokowanie dostępu według lokalizacji](howto-conditional-access-policy-location.md)
 * [Wymaganie zgodnego urządzenia](howto-conditional-access-policy-compliant-device.md)
-* [Blokowanie dostępu z wyjątkiem określonych aplikacji](howto-conditional-access-policy-block-access.md)
+* [Blokuj dostęp poza określonymi aplikacjami](howto-conditional-access-policy-block-access.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Symuluj zachowanie logowania za pomocą narzędzia Co zrobić w przypadku dostępu warunkowego.](troubleshoot-conditional-access-what-if.md)
+- [Symuluj zachowanie podczas logowania za pomocą narzędzia What If dostępu warunkowego.](troubleshoot-conditional-access-what-if.md)
 
-- [Użyj trybu tylko do raportu dla dostępu warunkowego, aby określić wpływ nowych decyzji dotyczących zasad.](concept-conditional-access-report-only.md)
+- [Użyj trybu tylko do raportowania dla dostępu warunkowego, aby określić wpływ nowych decyzji dotyczących zasad.](concept-conditional-access-report-only.md)

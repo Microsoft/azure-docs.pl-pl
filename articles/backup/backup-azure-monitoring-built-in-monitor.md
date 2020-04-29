@@ -1,109 +1,109 @@
 ---
-title: Monitorowanie obciążeń chronionych za pomocą usługi Azure Backup
-description: W tym artykule zapoznaj się z możliwościami monitorowania i powiadamiania dla obciążeń usługi Azure Backup przy użyciu witryny Azure portal.
+title: Monitorowanie Azure Backup chronionych obciążeń
+description: W tym artykule omówiono możliwości monitorowania i powiadamiania dotyczące obciążeń Azure Backup przy użyciu Azure Portal.
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 ms.openlocfilehash: de5a82f5ad1d8113b27c07484f2f08f4cf97c759
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80294938"
 ---
-# <a name="monitoring-azure-backup-workloads"></a>Monitorowanie obciążeń kopii zapasowej platformy Azure
+# <a name="monitoring-azure-backup-workloads"></a>Monitorowanie obciążeń Azure Backup
 
-Usługa Azure Backup udostępnia wiele rozwiązań do tworzenia kopii zapasowych opartych na wymaganiach dotyczących tworzenia kopii zapasowych i topologii infrastruktury (lokalnie i platformy Azure). Każdy użytkownik kopii zapasowej lub administrator powinien zobaczyć, co dzieje się we wszystkich rozwiązaniach i oczekuje się, że zostanie powiadomiony w ważnych scenariuszach. W tym artykule opisano funkcje monitorowania i powiadamiania udostępniane przez usługę Azure Backup.
+Azure Backup oferuje wiele rozwiązań do tworzenia kopii zapasowych opartych na wymaganiach dotyczących kopii zapasowych i topologii infrastruktury (lokalnie i na platformie Azure). Każdy użytkownik lub administrator kopii zapasowej powinien zobaczyć, co dzieje się we wszystkich rozwiązaniach, i powinien zostać powiadomiony w ważnych scenariuszach. W tym artykule opisano możliwości monitorowania i powiadamiania udostępniane przez usługę Azure Backup.
 
-## <a name="backup-jobs-in-recovery-services-vault"></a>Zadania tworzenia kopii zapasowych w magazynie usług odzyskiwania
+## <a name="backup-jobs-in-recovery-services-vault"></a>Zadania tworzenia kopii zapasowej w magazynie Recovery Services
 
-Usługa Azure Backup zapewnia wbudowane funkcje monitorowania i alertów dla obciążeń chronionych przez usługę Azure Backup. W ustawieniach magazynu usług odzyskiwania sekcja **Monitorowanie** zawiera wbudowane zadania i alerty.
+Azure Backup zapewnia wbudowane funkcje monitorowania i alertów dla obciążeń chronionych przez Azure Backup. W ustawieniach magazynu Recovery Services sekcja **monitorowanie** zawiera wbudowane zadania i alerty.
 
-![Wbudowany monitoring skarbca RS](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltmonitoring.png)
+![Niezbudowane monitorowanie magazynu RS](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltmonitoring.png)
 
-Zadania są generowane podczas wykonywania operacji, takich jak konfigurowanie kopii zapasowej, tworzenia kopii zapasowych, przywracania, usuwania kopii zapasowej i tak dalej.
+Zadania są generowane, gdy wykonywane są operacje, takie jak konfigurowanie kopii zapasowej, wykonywanie kopii zapasowej, przywracanie, Usuwanie kopii zapasowej itd.
 
-W tym miejscu przedstawiono zadania z następujących rozwiązań usługi Azure Backup:
+Poniżej przedstawiono zadania z następujących rozwiązań Azure Backup:
 
 - Kopia zapasowa maszyny wirtualnej platformy Azure
-- Kopia zapasowa pliku platformy Azure
-- Tworzenie kopii zapasowej obciążenia platformy Azure, takie jak SQL i SAP HANA
+- Kopia zapasowa plików platformy Azure
+- Tworzenie kopii zapasowych na platformie Azure, takich jak SQL i SAP HANA
 - Agent usługi Azure Backup (MAB)
 
-Zadania z Programu System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) NIE są wyświetlane.
+NIE są wyświetlane zadania z programu System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (serwera usługi MAB).
 
 > [!NOTE]
-> Obciążenia platformy Azure, takie jak kopie zapasowe SQL i SAP HANA w maszynach wirtualnych platformy Azure, mają ogromną liczbę zadań tworzenia kopii zapasowych. Na przykład kopie zapasowe dziennika można uruchomić co 15 minut. W związku z tym dla takich obciążeń bazy danych wyświetlane są tylko operacje wyzwalane przez użytkownika. Zaplanowane operacje tworzenia kopii zapasowych NIE są wyświetlane.
+> Obciążenia platformy Azure, takie jak SQL i SAP HANA Backup na maszynach wirtualnych platformy Azure, mają ogromną liczbę zadań tworzenia kopii zapasowych. Na przykład kopie zapasowe dzienników można uruchamiać co 15 minut. W związku z tym w przypadku takich obciążeń bazy danych wyświetlane są tylko operacje wyzwalane przez użytkownika. Zaplanowane operacje tworzenia kopii zapasowej nie są wyświetlane.
 
-## <a name="backup-alerts-in-recovery-services-vault"></a>Alerty kopii zapasowych w magazynie usług odzyskiwania
+## <a name="backup-alerts-in-recovery-services-vault"></a>Alerty kopii zapasowych w magazynie Recovery Services
 
-Alerty to przede wszystkim scenariusze, w których użytkownicy są powiadamiani, aby mogli podjąć odpowiednie działania. Sekcja **Alerty kopii zapasowej** zawiera alerty generowane przez usługę Azure Backup. Te alerty są definiowane przez usługę, a użytkownik nie może tworzyć żadnych alertów.
+Alerty są szczególnie sytuacje, w których użytkownicy są powiadamiani, aby mogli podejmować odpowiednie działania. W sekcji **alerty kopii zapasowej** znajdują się alerty wygenerowane przez usługę Azure Backup. Te alerty są definiowane przez usługę i użytkownik nie może tworzyć alertów niestandardowych.
 
 ### <a name="alert-scenarios"></a>Scenariusze alertów
 
-Następujące scenariusze są definiowane przez usługę jako alerty scenariuszy.
+Poniższe scenariusze są definiowane przez usługę jako scenariusze z alertami.
 
 - Niepowodzenia wykonywania kopii zapasowej/przywracania
 - Wykonanie kopii zapasowej zakończyło się pomyślnie z ostrzeżeniami dla agenta usługi Azure Backup (MAB)
-- Zatrzymaj ochronę dzięki ochronie danych/Ochronie przed zatrzymaniem dzięki usuwaniu danych
+- Zatrzymaj ochronę z zachowaniem Zachowaj dane/Zatrzymaj ochronę przy użyciu danych usuwania
 
-### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Alerty z następujących rozwiązań usługi Azure Backup są wyświetlane tutaj
+### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Alerty z następujących rozwiązań Azure Backup są wyświetlane w tym miejscu
 
 - Kopie zapasowe maszyn wirtualnych platformy Azure
 - Kopie zapasowe plików platformy Azure
-- Kopie zapasowe obciążenia platformy Azure, takie jak SQL, SAP HANA
+- Kopie zapasowe obciążeń platformy Azure, takie jak SQL, SAP HANA
 - Agent usługi Azure Backup (MAB)
 
 > [!NOTE]
-> Alerty z Programu System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) NIE są wyświetlane w tym miejscu.
+> Alerty z programu System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (serwera usługi MAB) nie są wyświetlane w tym miejscu.
 
-### <a name="consolidated-alerts"></a>Alerty skonsolidowane
+### <a name="consolidated-alerts"></a>Skonsolidowane alerty
 
-W przypadku rozwiązań do tworzenia kopii zapasowych obciążenia platformy Azure, takich jak SQL i SAP HANA, kopie zapasowe dziennika mogą być generowane bardzo często (do co 15 minut zgodnie z zasadami). Jest więc również możliwe, że błędy kopii zapasowej dziennika są również bardzo częste (do co 15 minut). W tym scenariuszu użytkownik końcowy zostanie przeciążony, jeśli alert jest wywoływany dla każdego wystąpienia awarii. Tak więc alert jest wysyłany dla pierwszego wystąpienia i jeśli kolejne błędy są z powodu tej samej głównej przyczyny, a następnie dalsze alerty nie są generowane. Pierwszy alert jest aktualizowany z liczbą błędów. Ale jeśli alert jest inaktywowany przez użytkownika, następne wystąpienie wyzwoli inny alert i będzie traktowany jako pierwszy alert dla tego wystąpienia. W ten sposób usługa Azure Backup wykonuje konsolidację alertów dla kopii zapasowych SQL i SAP HANA.
+W przypadku rozwiązań do tworzenia kopii zapasowych platformy Azure, takich jak SQL i SAP HANA, kopie zapasowe dzienników można generować bardzo często (do co 15 minut zgodnie z zasadami). Istnieje również możliwość, że błędy kopii zapasowej dziennika są również bardzo częste (do co 15 minut). W tym scenariuszu użytkownik końcowy zostanie przesunięty w przypadku zgłoszenia alertu dla każdego wystąpienia błędu. W związku z tym alert jest wysyłany dla pierwszego wystąpienia i jeśli kolejne błędy są spowodowane tą samą główną przyczyną, kolejne alerty nie są generowane. Pierwszy alert jest aktualizowany z liczbą błędów. Jeśli jednak alert zostanie zdezaktywowany przez użytkownika, następne wystąpienie wywoła kolejny alert i będzie traktowane jako pierwszy alert dla tego wystąpienia. Poniżej przedstawiono sposób, w jaki Azure Backup wykonuje konsolidację alertów dla kopii zapasowych SQL i SAP HANA.
 
-### <a name="exceptions-when-an-alert-is-not-raised"></a>Wyjątki, gdy alert nie jest zgłaszany
+### <a name="exceptions-when-an-alert-is-not-raised"></a>Wyjątki w przypadku niezgłoszenia alertu
 
-Istnieje kilka wyjątków, gdy alert nie jest zgłaszany w przypadku błędu. Oto one:
+Istnieje kilka wyjątków, gdy alert nie zostanie zgłoszony w przypadku awarii. Oto one:
 
 - Użytkownik jawnie anulował uruchomione zadanie
-- Zadanie nie powiedzie się, ponieważ inne zadanie tworzenia kopii zapasowej jest w toku (nic do działania tutaj, ponieważ musimy tylko czekać na poprzednie zadanie, aby zakończyć)
-- Zadanie tworzenia kopii zapasowej maszyny Wirtualnej kończy się niepowodzeniem, ponieważ kopia zapasowa maszyny wirtualnej platformy Azure już nie istnieje
-- [Alerty skonsolidowane](#consolidated-alerts)
+- Zadanie nie powiodło się, ponieważ trwa inne zadanie tworzenia kopii zapasowej (nic nie działa, ponieważ oczekujemy na zakończenie poprzedniego zadania)
+- Zadanie tworzenia kopii zapasowej maszyny wirtualnej nie powiodło się, ponieważ kopia zapasowa maszyny wirtualnej platformy Azure już nie istnieje
+- [Skonsolidowane alerty](#consolidated-alerts)
 
-Powyższe wyjątki są zaprojektowane ze zrozumieniem, że wynik tych operacji (głównie wyzwalane przez użytkownika) pojawia się natychmiast na klientach portalu/PS/CLI. Dlatego użytkownik jest natychmiast świadomy i nie potrzebuje powiadomienia.
+Powyższe wyjątki zostały zaprojektowane z myślą o tym, że wynik tych operacji (przede wszystkim jest wyzwalany przez użytkownika) jest natychmiast wyświetlany na klientach Portal/PS/CLI. Użytkownik jest natychmiast świadomy i nie potrzebuje powiadomienia.
 
 ### <a name="alert-types"></a>Typy alertów
 
-Na podstawie ważności alertów alerty można zdefiniować w trzech typach:
+W oparciu o ważność alertu alerty można definiować w trzech typach:
 
-- **Krytyczne:** Co do zasady każda awaria kopii zapasowej lub odzyskiwania (zaplanowane lub wywołane przez użytkownika) prowadzi do generowania alertu i będzie wyświetlana jako alert krytyczny, a także destrukcyjne operacje, takie jak usuwanie kopii zapasowej.
-- **Ostrzeżenie:** Jeśli operacja tworzenia kopii zapasowej zakończy się pomyślnie, ale z kilkoma ostrzeżeniami, są one wyświetlane jako alerty ostrzegawcze.
-- **Informacje:** Na dzień dzisiejszy usługa Azure Backup nie generuje żadnego alertu informacyjnego.
+- **Krytyczny**: w zasadzie wszystkie błędy tworzenia kopii zapasowej lub odzyskiwania (zaplanowane lub wywołane przez użytkownika) spowodują wygenerowanie alertu i będą wyświetlane jako alert krytyczny, a także operacje niszczące, takie jak usuwanie kopii zapasowej.
+- **Ostrzeżenie**: Jeśli operacja tworzenia kopii zapasowej zakończy się pomyślnie, ale z kilkoma ostrzeżeniami, są one wyświetlane jako alerty ostrzegawcze.
+- **Informacyjny**: w dniu dzisiejszym usługa Azure Backup nie generuje alertu informacyjnego.
 
-## <a name="notification-for-backup-alerts"></a>Powiadomienie o alertach dotyczących kopii zapasowej
+## <a name="notification-for-backup-alerts"></a>Powiadomienia o alertach dotyczących kopii zapasowych
 
 > [!NOTE]
-> Konfigurację powiadomień można wykonać tylko za pośrednictwem usługi Azure Portal. Obsługa interfejsu API/REST/usługi Azure Resource Manager nie jest obsługiwana.
+> Konfigurację powiadomień można przeprowadzić tylko za pomocą witryny Azure Portal. Obsługa szablonu interfejsu Azure Resource Manager API (PS/CLI/REST) nie jest obsługiwana.
 
-Po uruchomieniu alertu użytkownicy są powiadamiani. Usługa Azure Backup udostępnia wbudowany mechanizm powiadamiania za pośrednictwem poczty e-mail. Można określić poszczególne adresy e-mail lub listy dystrybucyjne, które mają być powiadamiane podczas generowania alertu. Można również wybrać, czy otrzymywać powiadomienia dla każdego pojedynczego alertu lub grupować je w podsumowaniu co godzinę, a następnie otrzymywać powiadomienia.
+Po podniesieniu alertu użytkownicy będą powiadamiani. Azure Backup zapewnia wbudowany mechanizm powiadomień za pośrednictwem poczty e-mail. Jeden z nich może określać poszczególne adresy e-mail lub listy dystrybucyjne do powiadomienia o wygenerowaniu alertu. Możesz również wybrać, czy otrzymywać powiadomienia o każdym indywidualnym alercie, czy grupować je w co godzinę, a następnie otrzymywać powiadomienia.
 
-![Wbudowane powiadomienie e-mail o wbudowanym urzeszeniu usługi RS Vault](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification.png)
+![Powiadomienie e-mail dotyczące nieskompilowanego magazynu RS](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification.png)
 
-Po skonfigurowaniu powiadomienia otrzymasz powitalną lub wprowadzającą wiadomość e-mail. Potwierdza to, że usługa Azure Backup może wysyłać wiadomości e-mail na te adresy po wyświetleniu alertu.<br>
+Po skonfigurowaniu powiadomienia otrzymasz powitalną lub wprowadzającą wiadomość e-mail. Spowoduje to potwierdzenie, że Azure Backup mogą wysyłać wiadomości e-mail na te adresy, gdy zostanie zgłoszony alert.<br>
 
-Jeśli częstotliwość została ustawiona na podsumowanie godzinowe i alert został podniesiony i rozwiązany w ciągu godziny, nie będzie częścią nadchodzącego podsumowania godzinowego.
+Jeśli częstotliwość została ustawiona na podsumowanie godzinowe, a alert został zgłoszony i rozwiązany w ciągu godziny, nie będzie częścią nadchodzącego podsumowania godzinowego.
 
 > [!NOTE]
 >
-> - Jeśli wykonywana jest destrukcyjna operacja, taka jak **ochrona zatrzymania z usuniętymi danymi,** zostanie wyświetlony alert i zostanie wysłana wiadomość e-mail do właścicieli subskrypcji, administratorów i współadministratorów, nawet jeśli powiadomienia NIE są skonfigurowane dla magazynu odzyskiwania usługi.
-> - Aby skonfigurować powiadomienie dla pomyślnych zadań, użyj [usługi Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
+> - W przypadku wykonania operacji niszczącej, takiej jak **zatrzymanie ochrony z usuwaniem danych** , zostanie zgłoszony alert, a wiadomość e-mail zostanie wysłana do właścicieli subskrypcji, administratorów i współadministratorów, nawet jeśli nie skonfigurowano powiadomień dla magazynu usługi odzyskiwania.
+> - Aby skonfigurować powiadomienie dla zadań zakończonych powodzeniem, użyj [log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
-## <a name="inactivating-alerts"></a>Inaktywowanie alertów
+## <a name="inactivating-alerts"></a>Dezaktywacja alertów
 
-Aby dezaktywować/rozwiązać aktywny alert, możesz kliknąć element listy odpowiadający alertowi, który chcesz dezaktywować. Spowoduje to otwarcie ekranu, na który wyświetlane są szczegółowe informacje o wpisie, a u góry przycisk "Inactivate". Kliknięcie tego przycisku spowoduje zmianę stanu alertu na "Nieaktywny". Możesz również dezaktywować alert, klikając prawym przyciskiem myszy element listy odpowiadający tego wpisowi i wybierając opcję "Dezaktywuj".
+Aby dezaktywować/rozwiązywać aktywny alert, możesz kliknąć element listy odpowiadający Alertowi, który ma zostać zdezaktywowany. Spowoduje to otwarcie ekranu wyświetlającego szczegółowe informacje o alercie, z przyciskiem "Dezaktywuj" u góry. Kliknięcie tego przycisku spowoduje zmianę stanu alertu na nieaktywny. Możesz również dezaktywować alert, klikając prawym przyciskiem myszy element listy odpowiadający temu Alertowi i wybierając pozycję "Dezaktywuj".
 
-![Dezaktywacja alertów w magazynie RS](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
+![Dezaktywacja alertu dotyczącego magazynu RS](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Monitorowanie obciążeń kopii zapasowych platformy Azure przy użyciu usługi Azure Monitor](backup-azure-monitoring-use-azuremonitor.md)
+[Monitorowanie obciążeń usługi Azure Backup przy użyciu Azure Monitor](backup-azure-monitoring-use-azuremonitor.md)

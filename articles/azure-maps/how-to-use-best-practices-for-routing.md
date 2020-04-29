@@ -1,6 +1,6 @@
 ---
-title: Najważniejsze wskazówki dotyczące usługi Azure Maps Route Service | Mapy platformy Microsoft Azure
-description: Dowiedz się, jak efektywnie kierować trasę, korzystając z usługi tras z usług Microsoft Azure Maps.
+title: Najlepsze rozwiązania dotyczące Azure Maps Route Service | Mapy Microsoft Azure
+description: Dowiedz się, jak wydajnie kierować przy użyciu Route Service z Microsoft Azure Maps.
 author: philmea
 ms.author: philmea
 ms.date: 03/11/2020
@@ -9,87 +9,87 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 85ce29d088b8fbd110988db67776d89346215e5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335418"
 ---
-# <a name="best-practices-for-azure-maps-route-service"></a>Najważniejsze wskazówki dotyczące usługi Azure Maps Route
+# <a name="best-practices-for-azure-maps-route-service"></a>Najlepsze rozwiązania dotyczące usługi Azure Maps Route Service
 
-Interfejsy API wskazówki dojazdu i macierzy tras w [usłudze Azure](https://docs.microsoft.com/rest/api/maps/route) Maps Route Service mogą służyć do obliczania szacowanych czasów przybycia (ETA) dla każdej żądanej trasy. Interfejsy API trasy uwzględniają takie czynniki, jak informacje o ruchu drogowym w czasie rzeczywistym i historyczne dane o ruchu drogowym, takie jak typowe prędkości drogowe w żądanym dniu tygodnia i porze dnia. Interfejsy API zwracają najkrótsze lub najszybsze trasy dostępne do wielu miejsc docelowych w czasie w kolejności lub w zoptymalizowanej kolejności, na podstawie czasu lub odległości. Użytkownicy mogą również poprosić o specjalistyczne trasy i szczegóły dla spacerowiczów, rowerzystów i pojazdów użytkowych, takich jak ciężarówki. W tym artykule udostępnimy najlepsze rozwiązania, aby wywołać usługę Azure Maps [Route Service,](https://docs.microsoft.com/rest/api/maps/route)a dowiesz się, jak to zrobić:
+Wskazówki dotyczące trasy i interfejsy API macierzy trasy w Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route) mogą służyć do obliczania szacowanego czasu przybycia (ETAs) dla każdej żądanej trasy. Interfejsy API tras uwzględniają takie czynniki jak informacje o ruchu w czasie rzeczywistym i historyczne dane o ruchu, takie jak typowe szybkości podróży w dniu tygodnia i o porze dnia. Interfejsy API zwracają najkrótsze lub najszybsze trasy dostępne dla wielu miejsc docelowych jednocześnie w sekwencji lub w kolejności zoptymalizowanej na podstawie czasu lub odległości. Użytkownicy mogą również zażądać wyspecjalizowanych tras i szczegółów dla podejść, rowerzystów i pojazdów komercyjnych, takich jak samochody. W tym artykule udostępnimy najlepsze rozwiązania w zakresie wywoływania Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route)i dowiesz się, jak:
 
-* Wybierz między interfejsami API wskazówki dojazdu a interfejsem API routingu macierzy
-* Żądanie historycznych i przewidywanych czasów podróży na podstawie danych o ruchu drogowym w czasie rzeczywistym i historycznych
-* Zażądaj szczegółów trasy, takich jak czas i odległość, dla całej trasy i każdego odcinka trasy
-* Zamów trasę dla pojazdu użytkowego, takiego jak ciężarówka
-* Prośba o informacje drogowe na trasie, takie jak korki i informacje o opłatach drogowych
-* Poproś o trasę, która składa się z jednego lub więcej przystanków (punktów trasy)
-* Optymalizacja trasy jednego lub więcej przystanków, aby uzyskać najlepszą kolejność, aby odwiedzić każdy przystanek (punkt trasy)
-* Optymalizacja tras alternatywnych przy użyciu punktów pomocniczych. Na przykład zaoferuj alternatywne trasy, które przechodzą przez stację ładowania pojazdów elektrycznych.
-* Korzystanie z [usługi marszruty](https://docs.microsoft.com/rest/api/maps/route) za pomocą zestawu SDK usługi Azure Maps Web
+* Wybieranie między interfejsami API wskazówek dotyczących tras i interfejsem API routingu macierzy
+* Żądaj historycznych i przewidywanych czasów podróży na podstawie danych o ruchu w czasie rzeczywistym i historycznych
+* Żądaj szczegółowych informacji o trasie, takich jak czas i odległość, dla całej trasy i każdego etapu trasy
+* Zażądaj trasy dla pojazdu komercyjnego, takiego jak ciężarówka
+* Żądaj informacji o ruchu na trasie, takich jak dżemy i informacje o cle
+* Zażądaj trasy, która składa się z co najmniej jednego zatrzymania (waypoints)
+* Optymalizacja trasy jednego lub większej liczby przerw w celu uzyskania najlepszej kolejności do odwiedzania każdego zatrzymania (punkt nawigacyjny)
+* Optymalizuj alternatywne trasy przy użyciu punktów pomocniczych. Można na przykład oferować alternatywne trasy, które przechodzą przez stację ładowania pojazdu elektrycznego.
+* Używanie [Route Service](https://docs.microsoft.com/rest/api/maps/route) z zestawem SDK Azure Maps sieci Web
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby nawiązywać połączenia z interfejsami API usługi Azure Maps, potrzebujesz konta usługi Azure Maps i klucza. Aby uzyskać więcej informacji, zobacz [Tworzenie konta](quick-demo-map-app.md#create-an-account-with-azure-maps) i Uzyskaj [klucz podstawowy](quick-demo-map-app.md#get-the-primary-key-for-your-account). Klucz podstawowy jest również znany jako podstawowy klucz subskrypcji lub klucz subskrypcji.
+Aby wykonać wywołania do Azure Maps interfejsów API, musisz mieć konto Azure Maps i klucz. Aby uzyskać więcej informacji, zobacz [Tworzenie konta](quick-demo-map-app.md#create-an-account-with-azure-maps) i [Uzyskiwanie klucza podstawowego](quick-demo-map-app.md#get-the-primary-key-for-your-account). Klucz podstawowy jest również znany jako podstawowy klucz subskrypcji lub klucz subskrypcji.
 
-Aby uzyskać informacje dotyczące uwierzytelniania w usłudze Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w usłudze Azure Maps](./how-to-manage-authentication.md). Aby uzyskać więcej informacji na temat zasięgu usługi trasy, zobacz [Zasięg routingu](routing-coverage.md).
+Aby uzyskać informacje o uwierzytelnianiu w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](./how-to-manage-authentication.md). Aby uzyskać więcej informacji na temat pokrycia Route Service, zobacz [pokrycie routingu](routing-coverage.md).
 
-W tym artykule używa [aplikacji Postman](https://www.postman.com/downloads/) do tworzenia wywołań REST, ale można wybrać dowolne środowisko programistyczne interfejsu API.
+W tym artykule jest wykorzystywana [aplikacja Poster](https://www.postman.com/downloads/) do kompilowania wywołań REST, ale można wybrać dowolne środowisko deweloperskie interfejsu API.
 
-## <a name="choose-between-route-directions-and-matrix-routing"></a>Wybierz kierunki trasy i routing macierzowy
+## <a name="choose-between-route-directions-and-matrix-routing"></a>Wybór między kierunkami tras i marszrutą macierzy
 
-Interfejsy API wskazówek api dojazdu, w tym czas podróży i współrzędne ścieżki trasy. Interfejs API macierzy trasy umożliwia obliczanie czasu i odległości podróży dla zestawu tras zdefiniowanych przez lokalizacje początkowe i docelowe. Dla każdego źródła interfejs API macierzy oblicza koszt (czas podróży i odległość) routingu z tego źródła do każdego miejsca docelowego. Wszystkie te interfejsy API umożliwiają określenie parametrów, takich jak żądany czas odjazdu, czas przybycia i typ pojazdu, takie jak samochód lub ciężarówka. Wszystkie wykorzystują dane o ruchu drogowym w czasie rzeczywistym lub predykcyjnym, aby zwrócić najbardziej optymalne trasy.
+Interfejsy API wskazówki dotyczące trasy zwracają instrukcje, w tym czas podróży i współrzędne ścieżki trasy. Interfejs API macierzy tras pozwala obliczyć czas podróży i odległość dla zestawu tras zdefiniowanych przez lokalizację źródłową i docelową. Dla każdego danego źródła interfejs API macierzy oblicza koszt (czas podróży i odległość) routingu z tego źródła do każdego miejsca docelowego. Wszystkie te interfejsy API umożliwiają określenie parametrów, takich jak żądany czas wyruszenia, czasy przybycia i typ pojazdu, np. samochodu lub ciężarówka. Wszyscy wykorzystują dane dotyczące ruchu w czasie rzeczywistym lub predykcyjnym odpowiednio do zwrócenia najbardziej optymalnych tras.
 
-Należy rozważyć wywołanie interfejsów API wskazówki dojazdu, jeśli scenariusz jest:
+Rozważ wywołanie interfejsów API wskazówek dotyczących trasy, Jeśli Twój Scenariusz ma:
 
-* Poproś o najkrótszą lub najszybszą trasę jazdy między dwoma lub więcej znanymi lokalizacjami, aby uzyskać dokładne godziny przyjazdu pojazdów dostawczych.
-* Żądanie szczegółowego prowadzenia trasy, w tym geometrii trasy, w celu wizualizacji tras na mapie
-* Biorąc pod uwagę listę lokalizacji klientów, oblicz możliwie najkrótszą trasę, aby odwiedzić każdą lokalizację klienta i powrócić do źródła. Ten scenariusz jest powszechnie znany jako problem sprzedawcy podróży. W jednym żądaniu można przekazać maksymalnie 150 punktów trasy (przystanków).
-* Wysyłaj partie kwerend do interfejsu API partii wskazówki dojazdu trasy przy użyciu tylko jednego wywołania interfejsu API.
+* Zażądaj najkrótszej lub najszybszej trasy między dwoma lub większą liczbą znanych lokalizacji, aby uzyskać precyzyjne czasy przybycia dla pojazdów dostawczych.
+* Żądaj szczegółowych wskazówek dotyczących trasy, w tym geometrii tras, do wizualizacji tras na mapie
+* Mając listę lokalizacji klientów, Oblicz najkrótszą możliwą trasę, aby odwiedzać poszczególne lokalizacje klientów i powrócić do źródła. Ten scenariusz jest często znany jako problem z podróżą Salesman. Można przekazać do 150 waypoints (zatrzymanie) w jednym żądaniu.
+* Wysyłanie partii zapytań do interfejsu API usługi Batch wskazówek dotyczących trasy przy użyciu tylko jednego wywołania interfejsu API.
 
-Należy rozważyć wywołanie interfejsu API routingu macierzy, jeśli scenariusz jest do:
+Rozważ wywołanie interfejsu API routingu macierzy, Jeśli Twój Scenariusz ma:
 
-* Oblicz czas podróży lub odległość między zestawem miejsc początkowych i miejsc docelowych. Na przykład masz 12 kierowców i musisz znaleźć najbliższego dostępnego kierowcę, aby odebrać dostawę jedzenia z restauracji.
-* Sortuj potencjalne trasy według ich rzeczywistej odległości lub czasu podróży. Interfejs API macierzy zwraca tylko czasy podróży i odległości dla każdej kombinacji pochodzenia i miejsca docelowego.
-* Dane klastra na podstawie czasu podróży lub odległości. Na przykład firma zatrudnia 50 pracowników, znajdź wszystkich pracowników, którzy mieszkają w ciągu 20 minut czasu jazdy od biura.
+* Oblicz czas podróży lub odległość między zestawem źródeł i miejscami docelowymi. Na przykład masz 12 sterowników i musisz znaleźć najbliższy dostępny sterownik, aby pobrać dostawę żywności z restauracji.
+* Sortuj potencjalne trasy według ich rzeczywistej odległości lub czasu. Interfejs API macierzy zwraca tylko czasy podróży i odległości dla każdej kombinacji źródłowej i docelowej.
+* Dane klastra na podstawie czasu podróży lub odległości. Na przykład firma ma 50 pracowników, Znajdź wszystkich pracowników na żywo w ciągu 20 minut od momentu jego uruchomienia.
 
-Oto porównanie, aby pokazać niektóre możliwości kierunków trasy i macierzy interfejsów API:
+Poniżej znajduje się porównanie przedstawiające pewne możliwości dotyczące instrukcji trasy i interfejsów API macierzy:
 
-| Azure Maps API | Maksymalna liczba zapytań w żądaniu | Unikaj obszarów | Wyznaczanie tras dla samochodów ciężarowych i pojazdów elektrycznych | punkty trasy i optymalizacja podróży sprzedawcy | Punkty pomocnicze |
+| Interfejs API Azure Maps | Maksymalna liczba zapytań w żądaniu | Unikaj obszarów | Routing samochodu i elektrycznego | Optymalizacja waypoints i podróży Salesman | Punkty pomocnicze |
 | :--------------: |  :--------------: |  :--------------: | :--------------: | :--------------: | :--------------: |
-| Uzyskaj wskazówki dojazdu | 1 | | X | X | |
-| Publikowanie wskazówek dojazdu | 1 | X | X | X | X |
-| Księgowanie partii wskazówki dojazdu | 700 | | X | X | |
-| Macierz postu | 700 | | X | | |
+| Pobierz wskazówki dotyczące trasy | 1 | | X | X | |
+| Wskazówki dotyczące trasy po trasie | 1 | X | X | X | X |
+| Partia instrukcji po trasie | 700 | | X | X | |
+| Macierz po trasie | 700 | | X | | |
 
-Aby dowiedzieć się więcej o możliwościach wyznaczania tras pojazdów elektrycznych, zapoznaj się z naszym samouczkiem na temat [kierowania pojazdów elektrycznych za pomocą notesów platformy Azure z pythonem.](tutorial-ev-routing.md)
+Aby dowiedzieć się więcej o możliwościach routingu pojazdów elektrycznych, zobacz nasz samouczek dotyczący [kierowania pojazdów elektrycznych przy użyciu Azure Notebooks za pomocą języka Python](tutorial-ev-routing.md).
 
-## <a name="request-historic-and-real-time-data"></a>Żądanie danych historycznych i w czasie rzeczywistym
+## <a name="request-historic-and-real-time-data"></a>Żądaj danych historycznych i w czasie rzeczywistym
 
-Domyślnie usługa Trasa zakłada, że tryb podróżowania jest samochodem, a czas odjazdu jest teraz. Zwraca trasę na podstawie warunków ruchu w czasie rzeczywistym, chyba że żądanie obliczania trasy określa inaczej. Stałe ograniczenia ruchu zależne od czasu, takie jak "Lewe skręty nie są dozwolone między 16:00 a 18:00" są przechwytywane i będą uwzględniane przez silnik routingu. Zamknięcia dróg, takie jak roboty drogowe, będą brane pod uwagę, chyba że wyraźnie zażądasz trasy, która ignoruje bieżący ruch na żywo. Aby zignorować bieżący `traffic` `false` ruch, należy ustawić w żądaniu interfejsu API.
+Domyślnie usługa trasy zakłada, że tryb podróży jest samochodem i czas wyruszenia jest teraz. Zwraca trasę na podstawie warunków ruchu w czasie rzeczywistym, chyba że żądanie obliczenia trasy jest określone w przeciwnym razie. Stałe ograniczenia ruchu zależnego od czasu, takie jak "lewe przelewy" nie są dozwolone między 4:00 PM do 6:00 PM ", są przechwytywane i uwzględniane przez aparat routingu. Zamknięcia dróg, takie jak roadworks, będą brane pod uwagę, chyba że zażądasz trasy, która ignoruje bieżący ruch na żywo. Aby zignorować bieżący ruch, ustaw na `traffic` `false` wartość w żądaniu interfejsu API.
 
-Wartość obliczania trasy **travelTimeInSekunds** obejmuje opóźnienie spowodowane ruchem. Jest generowany przez wykorzystanie bieżących i historycznych danych dotyczących czasu podróży, gdy czas odjazdu jest ustawiony na teraz. Jeśli czas odlotu jest ustawiony w przyszłości, interfejsy API zwracają przewidywane czasy podróży na podstawie danych historycznych.
+Wartość **travelTimeInSeconds** obliczeń trasy obejmuje opóźnienie spowodowane ruchem. Jest on generowany przy użyciu bieżących i historycznych danych czasu podróży, gdy czas wyruszenia jest ustawiony na teraz. Jeśli czas wyruszenia zostanie ustawiony w przyszłości, interfejsy API zwracają przewidywany czas podróży na podstawie danych historycznych.
 
-Jeśli dołączysz **parametr computeTravelTimeFor=all** w żądaniu, element podsumowania w odpowiedzi będzie miał następujące dodatkowe pola, w tym historyczne warunki ruchu:
+Jeśli w żądaniu zostanie uwzględniony parametr **computeTravelTimeFor = All** , wówczas element Summary w odpowiedzi będzie zawierał następujące dodatkowe pola, w tym historyczne warunki ruchu:
 
 | Element | Opis|
 | :--- | :--- |
-| noTrafficTravelTimeInSekundy | Szacowany czas podróży obliczony tak, jakby na trasie nie było opóźnień z powodu warunków drogowych, na przykład z powodu zatorów |
-| historicTrafficTravelTimeInSekundy | Szacowany czas podróży obliczony na podstawie danych o historycznym ruchu zależnym od czasu |
-| liveTrafficIncidentsTravelTimeInSekundy | Szacowany czas podróży obliczony na podstawie danych prędkości w czasie rzeczywistym |
+| noTrafficTravelTimeInSeconds | Szacowany czas podróży został obliczony tak, jakby nie ma opóźnień dla trasy ze względu na to, że z powodu przeciążenia |
+| historicTrafficTravelTimeInSeconds | Szacowany czas podróży obliczany przy użyciu danych o ruchu historycznym zależnym od czasu |
+| liveTrafficIncidentsTravelTimeInSeconds | Szacowany czas podróży obliczany przy użyciu danych szybkości w czasie rzeczywistym |
 
-W następnych sekcjach pokazano, jak nawiązywać połączenia z interfejsami API trasy przy użyciu omawianych parametrów.
+W następnych sekcjach pokazano, jak wykonywać wywołania interfejsów API tras przy użyciu omawianych parametrów.
 
 ### <a name="sample-query"></a>Przykładowe zapytanie
 
-W pierwszym przykładzie poniżej czas odjazdu jest ustawiony na przyszłość, w momencie pisania.
+Pierwszy przykład poniżej czasu wyjazdu jest ustawiony na przyszłość w czasie pisania.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=51.368752,-0.118332:51.385426,-0.128929&travelMode=car&traffic=true&departAt=2025-03-29T08:00:20&computeTravelTimeFor=all
 ```
 
-Odpowiedź zawiera element podsumowania, jak ten poniżej. Ponieważ czas odjazdu jest ustawiony na przyszłość, **trafficDelayInSeconds** wartość wynosi zero. Wartość **travelTimeInSeconds** jest obliczana przy użyciu zależnych od czasu danych o historycznym ruchu drogowym. Tak więc w tym przypadku **travelTimeInSeconds** wartość jest równa **historicTrafficTravelTimeInSeconds** wartość.
+Odpowiedź zawiera element podsumowania, podobny do przedstawionego poniżej. Ponieważ czas wyruszenia jest ustawiony na przyszłość, wartość **trafficDelayInSeconds** jest równa zero. Wartość **travelTimeInSeconds** jest obliczana przy użyciu danych o ruchu historycznym zależnym od czasu. Dlatego w tym przypadku wartość **travelTimeInSeconds** jest równa wartości **historicTrafficTravelTimeInSeconds** .
 
 ```json
 "summary": {
@@ -106,13 +106,13 @@ Odpowiedź zawiera element podsumowania, jak ten poniżej. Ponieważ czas odjazd
 
 ### <a name="sample-query"></a>Przykładowe zapytanie
 
-W drugim przykładzie poniżej mamy żądanie routingu w czasie rzeczywistym, gdzie jest teraz czas odlotu. Nie jest jawnie określony w adresie URL, ponieważ jest to wartość domyślna.
+W drugim przykładzie występuje żądanie routingu w czasie rzeczywistym, w którym jest teraz czas wyjazdu. Nie jest on jawnie określony w adresie URL, ponieważ jest wartością domyślną.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=47.6422356,-122.1389797:47.6641142,-122.3011268&travelMode=car&traffic=true&computeTravelTimeFor=all
 ```
 
-Odpowiedź zawiera podsumowanie, jak pokazano poniżej. Z powodu przeciążeń **trafficDelaysInSeconds** wartość jest większa niż zero. Jest również większa niż **historycznaTrafficTravelTimeInSeconds**.
+Odpowiedź zawiera podsumowanie, jak pokazano poniżej. Ze względu na przeciążenia wartość **trafficDelaysInSeconds** jest większa od zera. Jest ona również większa niż **historicTrafficTravelTimeInSeconds**.
 
 ```json
 "summary": {
@@ -127,15 +127,15 @@ Odpowiedź zawiera podsumowanie, jak pokazano poniżej. Z powodu przeciążeń *
 },
 ```
 
-## <a name="request-route-and-leg-details"></a>Zażądaj szczegółów trasy i odcinka
+## <a name="request-route-and-leg-details"></a>Żądaj szczegółów trasy i etapu
 
-Domyślnie usługa Trasa zwróci tablicę współrzędnych. Odpowiedź będzie zawierać współrzędne, które składają `points`się na ścieżkę na liście o nazwie . Odpowiedź trasy obejmuje również odległość od początku trasy i szacowany czas, jaki upłynął. Wartości te mogą służyć do obliczania średniej prędkości dla całej trasy.
+Domyślnie usługa Route zwróci tablicę współrzędnych. Odpowiedź będzie zawierać współrzędne, które tworzą ścieżkę na liście o nazwie `points`. Odpowiedź trasy obejmuje również odległość od początku trasy i szacowany czas, który upłynął. Te wartości mogą służyć do obliczania średniej szybkości dla całej trasy.
 
-Na poniższej `points` ilustracji przedstawiono element.
+Na poniższej ilustracji przedstawiono `points` element.
 
 <center>
 
-![lista punktów](media/how-to-use-best-practices-for-routing/points-list-is-hidden-img.png)
+![Lista punktów](media/how-to-use-best-practices-for-routing/points-list-is-hidden-img.png)
 
 </center>
 
@@ -143,13 +143,13 @@ Rozwiń `point` element, aby wyświetlić listę współrzędnych ścieżki:
 
 <center>
 
-![lista punktów](media/how-to-use-best-practices-for-routing/points-list-img.png)
+![Lista punktów](media/how-to-use-best-practices-for-routing/points-list-img.png)
 
 </center>
 
-Interfejsy API wskazówki dojazdu obsługują różne formaty instrukcji, których można używać, określając parametr **InstructionsType.** Aby sformatować instrukcje łatwego przetwarzania komputera, użyj **instrukcjiType=coded**. Użyj **instructionsType=tagged,** aby wyświetlić instrukcje jako tekst dla użytkownika. Ponadto instrukcje mogą być formatowane jako tekst, w którym niektóre elementy instrukcji są oznaczone, a instrukcja jest przedstawiona ze specjalnym formatowaniem. Aby uzyskać więcej informacji, zobacz [listę obsługiwanych typów instrukcji](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routeinstructionstype).
+Interfejsy API wskazówek dotyczących trasy obsługują różne formaty instrukcji, które mogą być używane przez określenie parametru **instructiontype** . Aby sformatować instrukcje dotyczące łatwego przetwarzania komputera, użyj **instrukcji instructiontype = kodowane**. Użyj **instrukcji instructiontype = Tagged** , aby wyświetlić instrukcje jako tekst dla użytkownika. Ponadto instrukcje można sformatować jako tekst, w którym są oznaczone niektóre elementy instrukcji, a instrukcja jest prezentowana z formatowaniem specjalnym. Aby uzyskać więcej informacji, zobacz [listę obsługiwanych typów instrukcji](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routeinstructionstype).
 
-Gdy wymagane są instrukcje, odpowiedź zwraca `guidance`nowy element o nazwie . Element `guidance` zawiera dwie informacje: wskazówki "zakręt po kroku" i skrócone instrukcje.
+Gdy wymagane są instrukcje, odpowiedź zwraca nowy element o nazwie `guidance`. `guidance` Element zawiera dwie części informacji: instrukcje włączania i podsumowywania instrukcji.
 
 <center>
 
@@ -157,163 +157,163 @@ Gdy wymagane są instrukcje, odpowiedź zwraca `guidance`nowy element o nazwie .
 
 </center>
 
-Element `instructions` zawiera wskazówki zakręt po zakręcie `instructionGroups` dla podróży, a ma podsumowane instrukcje. Każde podsumowanie instrukcji obejmuje segment podróży, który może obejmować wiele dróg. Interfejsy API mogą zwracać szczegóły dotyczące odcinków trasy. takich jak zakres współrzędnych korka lub aktualna prędkość ruchu.
+`instructions` Element zawiera wskazówki dotyczące włączania i wyłączania dla podróży oraz `instructionGroups` zawiera podsumowanie instrukcji. Każde podsumowanie instrukcji obejmuje segment rejsu, który może obejmować wiele dróg. Interfejsy API mogą zwrócić szczegóły dotyczące sekcji trasy. taki jak, zakres współrzędnych zakleszczenia ruchu lub bieżącą szybkość ruchu.
 
 <center>
 
-![Instrukcje z kolei po kolei](media/how-to-use-best-practices-for-routing/instructions-turn-by-turn-img.png)
+![Włącz, włączając instrukcje](media/how-to-use-best-practices-for-routing/instructions-turn-by-turn-img.png)
 
 </center>
 
 <center>
 
-![Skrócone instrukcje](media/how-to-use-best-practices-for-routing/instructions-summary-img.png)
+![Instrukcje podsumowania](media/how-to-use-best-practices-for-routing/instructions-summary-img.png)
 
 </center>
 
-## <a name="request-a-route-for-a-commercial-vehicle"></a>Poproś o trasę dla pojazdu użytkowego
+## <a name="request-a-route-for-a-commercial-vehicle"></a>Żądaj trasy dla pojazdu komercyjnego
 
-Interfejsy API routingu usługi Azure Maps obsługują routing pojazdów użytkowych, obejmujący routing samochodów ciężarowych. Interfejsy API uwzględnić określone limity. Takie jak wysokość i masa pojazdu oraz w przypadku przewozu ładunku niebezpiecznego. Na przykład, jeśli pojazd przewozi łatwopalne, silnik wyznaczający unikać niektórych tuneli, które znajdują się w pobliżu obszarów mieszkalnych.
+Interfejsy API routingu Azure Maps obsługują komercyjne Routing pojazdu, obejmujący Routing ciężarów komercyjnych. Interfejsy API uwzględniają określone limity. Takie jak, Wysokość i waga pojazdu oraz, jeśli pojazd jest przewożący niebezpieczne towary. Jeśli na przykład pojazd ma łatwopalne, aparat routingu unika pewnych tuneli, które znajdują się blisko obszarów mieszkalnych.
 
 ### <a name="sample-query"></a>Przykładowe zapytanie
 
-Poniższe przykładowe żądanie dotyczy trasy dla samochodu ciężarowego. Ciężarówka przewozi niebezpieczne odpady klasy 1.
+Przykładowe żądanie poniżej wysyła zapytanie do trasy dla ciężarówki komercyjnej. Ciężarówka jest przewożąca odpady niebezpieczne klasy 1.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass1&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
 ```
 
-Interfejs API trasy zwraca wskazówki, które uwzględnią wymiary samochodu ciężarowego i odpadów niebezpiecznych. Instrukcje dotyczące trasy można odczytać, `guidance` rozwijając element.
+Interfejs API tras zwraca wskazówki, które uwzględniają Wymiary wózka i odpadów niebezpiecznych. Instrukcje dotyczące trasy można odczytać, rozszerzając `guidance` element.
 
 <center>
 
-![Samochód ciężarowy z hazwaste klasy 1](media/how-to-use-best-practices-for-routing/truck-with-hazwaste-img.png)
+![Ciężarówka z klasą 1 hazwaste](media/how-to-use-best-practices-for-routing/truck-with-hazwaste-img.png)
 
 </center>
 
 ### <a name="sample-query"></a>Przykładowe zapytanie
 
-Zmiana klasy us Hazmat, z powyższej kwerendy, spowoduje inną trasę, aby pomieścić tę zmianę.
+Zmiana klasy Hazmat US (Stany Zjednoczone) z powyższego zapytania spowoduje przekroczenie tej zmiany w innej trasie.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass9&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
 ```
 
-Poniższa odpowiedź dotyczy ciężarówki przewożącej materiały niebezpieczne klasy 9, które są mniej niebezpieczne niż materiał niebezpieczny klasy 1. Po rozwinięciu `guidance` elementu, aby odczytać wskazówki dojazdu, można zauważyć, że wskazówki nie są takie same. Istnieje więcej instrukcji trasy dla ciężarówki przewożącej materiały niebezpieczne klasy 1.
+Poniższa odpowiedź dotyczy ciężarówki przewożącej materiał niebezpieczny klasy 9, który jest mniej bezpieczny niż materiał niebezpieczny klasy 1. Po rozwinięciu `guidance` elementu, aby przeczytać wskazówki, Zauważ, że te wskazówki nie są takie same. Istnieje więcej instrukcji dotyczących trasy dla samochodów przewożących materiał niebezpieczny klasy 1.
 
 <center>
 
-![Samochód ciężarowy z hazwaste klasy 9](media/how-to-use-best-practices-for-routing/truck-with-hazwaste9-img.png)
+![Ciężarówka z klasą 9 hazwaste](media/how-to-use-best-practices-for-routing/truck-with-hazwaste9-img.png)
 
 </center>
 
-## <a name="request-traffic-information-along-a-route"></a>Żądanie informacji o ruchu drogowym wzdłuż trasy
+## <a name="request-traffic-information-along-a-route"></a>Żądaj informacji o ruchu na trasie
 
-Za pomocą interfejsów API kierunku trasy usługi Azure Maps deweloperzy `sectionType` mogą żądać szczegółów dla każdego typu sekcji, dołączając parametr w żądaniu. Na przykład można zażądać informacji o prędkości dla każdego segmentu korka. Zapoznaj się [z listą wartości dla sekcjiType klucz,](https://docs.microsoft.com/rest/api/maps/route/getroutedirections#sectiontype) aby dowiedzieć się o różnych szczegółów, które można zażądać.
+Dzięki interfejsom API kierunku trasy Azure Maps deweloperzy mogą żądać szczegółowych informacji dla każdego typu sekcji przez uwzględnienie `sectionType` parametru w żądaniu. Na przykład można zażądać informacji o szybkości dla każdego segmentu zakleszczenia ruchu. Zapoznaj się z [listą wartości dla klucza sectiontype](https://docs.microsoft.com/rest/api/maps/route/getroutedirections#sectiontype) , aby dowiedzieć się więcej o różnych szczegółach, które można zażądać.
 
 ### <a name="sample-query"></a>Przykładowe zapytanie
 
-Następująca kwerenda `sectionType` `traffic`ustawia na . Żąda sekcji, które zawierają informacje o ruchu drogowym z Seattle do San Diego.
+Poniższe zapytanie ustawia wartość `sectionType` na. `traffic` Żąda sekcji zawierających informacje o ruchu z Seattle do San Diego.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&sectionType=traffic&query=47.6062,-122.3321:32.7157,-117.1611
 ```
 
-Odpowiedź zawiera sekcje, które są odpowiednie dla ruchu wzdłuż podanych współrzędnych.
+Odpowiedź zawiera sekcje, które są odpowiednie dla ruchu, wzdłuż danego współrzędnych.
 
 <center>
 
-![odcinki ruchu drogowego](media/how-to-use-best-practices-for-routing/traffic-section-type-img.png)
+![sekcje ruchu](media/how-to-use-best-practices-for-routing/traffic-section-type-img.png)
 
 </center>
 
-Ta opcja może służyć do kolorowania sekcji podczas renderowania mapy, jak na poniższym obrazku: 
+Ta opcja umożliwia kolorowanie sekcji podczas renderowania mapy, jak na poniższym obrazie: 
 
 <center>
 
-![odcinki ruchu drogowego](media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png)
+![sekcje ruchu](media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png)
 
 </center>
 
-## <a name="calculate-and-optimize-a-multi-stop-route"></a>Obliczanie i optymalizowanie trasy wieloprzełodowej
+## <a name="calculate-and-optimize-a-multi-stop-route"></a>Obliczanie i optymalizowanie trasy z obsługą multitransportu
 
-Usługa Azure Maps udostępnia obecnie dwie formy optymalizacji trasy:
+Azure Maps obecnie oferuje dwie formy optymalizacji tras:
 
-* Optymalizacje na podstawie żądanego typu trasy, bez zmiany kolejności punktów trasy. [Obsługiwane typy tras](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routetype) można znaleźć tutaj
+* Optymalizacje oparte na żądanym typie trasy, bez zmiany kolejności waypoints. [Obsługiwane typy tras](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routetype) można znaleźć tutaj
 
-* Optymalizacja sprzedawcy podróży, która zmienia kolejność punktów trasy, aby uzyskać najlepsze zamówienie, aby odwiedzić każdy przystanek
+* Salesman Optymalizacja, która zmienia kolejność waypoints w celu uzyskania najlepszej kolejności do odwiedzania każdego zatrzymania
 
-W przypadku routingu wieloprzełodniczkowego można określić do 150 punktów trasy w jednym żądaniu trasy. Początkowe i końcowe lokalizacje współrzędnych mogą być takie same, jak w przypadku podróży w obie strony. Ale musisz podać co najmniej jeden dodatkowy punkt trasy, aby obliczyć trasę. Punkty trasy można dodać do zapytania między współrzędnymi początku i miejsca docelowego.
+W przypadku routingu z obsługą wiele tras do 150 waypoints można określić w jednym żądaniu trasy. Lokalizacje współrzędnych początkowych i końcowych mogą być takie same, jak w przypadku rundy. Należy jednak podać co najmniej jedną dodatkową punkt nawigacyjnyą, aby umożliwić Obliczanie trasy. Waypoints można dodać do zapytania między współrzędne źródłowe i docelowe.
 
-Jeśli chcesz zoptymalizować najlepszą kolejność, aby odwiedzić dane punkty trasy, musisz określić **computeBestOrder=true**. Ten scenariusz jest również znany jako problem optymalizacji sprzedawcy podróży.
+Aby zoptymalizować najlepszą kolejność do odwiedzania danego waypoints, należy określić **computeBestOrder = true**. Ten scenariusz jest również znany jako problem z optymalizacją Salesman.
 
 ### <a name="sample-query"></a>Przykładowe zapytanie
 
-Następująca kwerenda żąda ścieżki dla sześciu `computeBestOrder` punktów trasy, z parametrem ustawionym na `false`. Jest to również wartość domyślna dla parametru. `computeBestOrder`
+Następujące zapytanie żąda ścieżki dla sześciu waypoints z `computeBestOrder` parametrem ustawionym na. `false` Jest to również wartość domyślna `computeBestOrder` parametru.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&computeBestOrder=false&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
 ```
 
-Odpowiedź opisuje długość ścieżki na 140 851 metrów i że podróż tą ścieżką zajmie 9991 sekund.
+Odpowiedź opisuje długość ścieżki do 140 851 gazomierzy i że potrwa 9 991 sekund do podróży tej ścieżki.
 
 <center>
 
-![Nieoptymalna reakcja](media/how-to-use-best-practices-for-routing/non-optimized-response-img.png)
+![Niezoptymalizowana odpowiedź](media/how-to-use-best-practices-for-routing/non-optimized-response-img.png)
 
 </center>
 
-Poniższa ilustracja przedstawia ścieżkę wynikającą z tej kwerendy. Ta ścieżka jest jedną z możliwych tras. Nie jest to optymalna ścieżka oparta na czasie lub odległości.
+Poniższy obraz ilustruje ścieżkę podaną w wyniku tego zapytania. Ta ścieżka jest jedną z możliwych tras. Nie jest to optymalna ścieżka oparta na czasie lub odległości.
 
 <center>
 
-![Obraz niestyptowany](media/how-to-use-best-practices-for-routing/non-optimized-image-img.png)
+![Obraz niezoptymalizowany](media/how-to-use-best-practices-for-routing/non-optimized-image-img.png)
 
 </center>
 
-Kolejność punktu trasy to: 0, 1, 2, 3, 4, 5 i 6.
+Ta punkt nawigacyjny ma następującą kolejność: 0, 1, 2, 3, 4, 5 i 6.
 
 ### <a name="sample-query"></a>Przykładowe zapytanie
 
-Następująca kwerenda żąda ścieżki dla tych samych sześciu punktów, jak w powyższym przykładzie. Tym razem `computeBestOrder` parametr ustawiony `true` na (optymalizacja sprzedawcy podróży).
+Następujące zapytanie żąda ścieżki dla tego samego sześć waypoints, jak w powyższym przykładzie. Tym razem `computeBestOrder` parametr ustawiony na `true` (podróż Salesman).
 
 ```http
 https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&computeBestOrder=true&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
 ```
 
-Odpowiedź opisuje długość ścieżki na 91 814 metrów i że podróż tą ścieżką zajmie 7797 sekund. Odległość podróży i czas podróży są tutaj niższe, ponieważ interfejs API zwrócił zoptymalizowaną trasę.
+Odpowiedź opisuje długość ścieżki do 91 814 gazomierzy i że potrwa 7 797 sekund do podróży tej ścieżki. Odległość podróży i czas podróży są mniejsze w tym miejscu, ponieważ interfejs API zwrócił zoptymalizowaną trasę.
 
 <center>
 
-![Nieoptymalna reakcja](media/how-to-use-best-practices-for-routing/optimized-response-img.png)
+![Niezoptymalizowana odpowiedź](media/how-to-use-best-practices-for-routing/optimized-response-img.png)
 
 </center>
 
-Poniższa ilustracja przedstawia ścieżkę wynikającą z tej kwerendy.
+Poniższy obraz ilustruje ścieżkę podaną w wyniku tego zapytania.
 
 <center>
 
-![Obraz niestyptowany](media/how-to-use-best-practices-for-routing/optimized-image-img.png)
+![Obraz niezoptymalizowany](media/how-to-use-best-practices-for-routing/optimized-image-img.png)
 
 </center>
 
-Optymalna trasa ma następującą kolejność punktową: 0, 5, 1, 2, 4, 3 i 6.
+Optymalna trasa ma następującą kolejność punkt nawigacyjny: 0, 5, 1, 2, 4, 3 i 6.
 
 >[!TIP]
-> Zoptymalizowane informacje o zamówieniu punktu trasy z usługi Routing zawiera zestaw indeksów. Nie obejmują one wskaźników pochodzenia i miejsca docelowego. Należy przyrost tych wartości o 1, aby uwzględnić początek. Następnie dodaj miejsce docelowe do końca, aby uzyskać pełną uporządkowaną listę punktów trasy.
+> Zoptymalizowane informacje o kolejności punkt nawigacyjny z usługi routingu zapewniają zestaw indeksów. Obejmują one źródło i indeksy docelowe. Te wartości należy zwiększyć o 1 w celu uwzględnienia pochodzenia. Następnie Dodaj lokalizację docelową na końcu, aby uzyskać pełną uporządkowaną listę punkt nawigacyjny.
 
-## <a name="calculate-and-bias-alternative-routes-using-supporting-points"></a>Obliczanie i stronniczość tras alternatywnych przy użyciu punktów pomocniczych
+## <a name="calculate-and-bias-alternative-routes-using-supporting-points"></a>Obliczanie i rozliczanie alternatywnych tras przy użyciu punktów pomocniczych
 
-Mogą wystąpić sytuacje, w których chcesz zrekonstruować trasę, aby obliczyć zero lub więcej alternatywnych tras dla trasy referencyjnej. Na przykład można wyświetlić alternatywne trasy klientów, które przechodzą przez sklep detaliczny. W takim przypadku należy stronniczość lokalizacji przy użyciu punktów pomocniczych. Oto kroki, aby bias lokalizacji:
+Mogą wystąpić sytuacje, w których chcesz odtworzyć trasę, aby obliczyć zero lub więcej tras alternatywnych dla trasy referencyjnej. Na przykład możesz chcieć pokazać klientom alternatywne trasy, które przechodzą w sklepie detalicznym. W takim przypadku należy rozrównać lokalizację przy użyciu punktów pomocniczych. Poniżej przedstawiono kroki, które należy wykonać w celu rozdzielenia lokalizacji:
 
-1. Obliczanie trasy w stanie rzeczywistym i uzyskanie ścieżki z odpowiedzi trasy
-2. Użyj ścieżki trasy, aby znaleźć żądane lokalizacje wzdłuż lub w pobliżu ścieżki trasy. Na przykład można użyć interfejsu API punktu zainteresowania usługi Azure Maps [Point of Interest](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi) lub zbadać własne dane w bazie danych.  
-3. Zamów lokalizacje na podstawie odległości od początku trasy
-4. Dodaj te lokalizacje jako punkty pomocnicze w nowym żądaniu trasy do [interfejsu API Post Route Directions](https://docs.microsoft.com/rest/api/maps/route/postroutedirections). Aby dowiedzieć się więcej o punktach pomocniczych, zobacz [dokumentację interfejsu API Post Route Directions](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints). 
+1. Obliczanie trasy jako-is i pobieranie ścieżki z odpowiedzi trasy
+2. Użyj ścieżki trasy, aby znaleźć odpowiednie lokalizacje lub blisko ścieżki trasy. Można na przykład użyć [interfejsu API punktu](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi) Azure Maps lub zapytania do własnych danych w bazie danych.  
+3. Kolejność lokalizacji na podstawie odległości od początku trasy
+4. Dodaj te lokalizacje jako punkty pomocnicze w nowym żądaniu trasy do [interfejsu API wskazówek dotyczących trasy](https://docs.microsoft.com/rest/api/maps/route/postroutedirections). Aby dowiedzieć się więcej o punktach pomocniczych, zapoznaj się z [dokumentacją interfejsu API dotyczącej instrukcji post Route](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints). 
 
-Podczas wywoływania [interfejsu API Post Route Directions](https://docs.microsoft.com/rest/api/maps/route/postroutedirections)można ustawić minimalny czas odchylenia lub ograniczenia odległości wraz z punktami pomocniczymi. Użyj tych parametrów, jeśli chcesz zaoferować alternatywne trasy, ale chcesz również ograniczyć czas podróży. Gdy te ograniczenia są używane, alternatywne trasy będą podążać trasą odniesienia od punktu początkowego dla danego czasu lub odległości. Innymi słowy, inne trasy odbiegają od trasy odniesienia dla podanych ograniczeń.
+Podczas wywoływania [interfejsu API wskazówek dotyczących trasy](https://docs.microsoft.com/rest/api/maps/route/postroutedirections), można ustawić minimalny czas odchylenia lub ograniczenia odległości wraz z punktami pomocniczymi. Użyj tych parametrów, jeśli chcesz oferować alternatywne trasy, ale chcesz również ograniczyć czas podróży. Gdy te ograniczenia są używane, trasy alternatywne będą podążać za trasą odniesienia od punktu początkowego dla danego czasu lub odległości. Innymi słowy, pozostałe trasy są rozbieżne względem trasy odwołania według danego ograniczenia.
 
-Poniższy obraz eksponuje przykład renderowania tras alternatywnych z określonymi limitami odchylenia dla czasu i odległości.
+Poniższy obraz przedstawia przykład renderowania alternatywnych tras z określonymi limitami odchyleń dla czasu i odległości.
 
 <center>
 
@@ -321,22 +321,22 @@ Poniższy obraz eksponuje przykład renderowania tras alternatywnych z określon
 
 </center>
 
-## <a name="use-the-routing-service-in-a-web-app"></a>Korzystanie z usługi Routing w aplikacji sieci web
+## <a name="use-the-routing-service-in-a-web-app"></a>Korzystanie z usługi routingu w aplikacji sieci Web
 
-Zestaw Azure Maps Web SDK udostępnia [moduł usługi](https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest). Ten moduł jest biblioteką pomocniczą, która ułatwia korzystanie z interfejsów API REST usługi Azure Maps w aplikacjach sieci Web lub Node.js przy użyciu języka JavaScript lub TypeScript. Moduł Service może służyć do renderowania zwróconych tras na mapie. Moduł automatycznie określa, który interfejs API ma być używany z żądaniami GET i POST.
+Zestaw SDK sieci Web Azure Maps udostępnia [moduł usługi](https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest). Ten moduł jest biblioteką pomocników ułatwiającą korzystanie z Azure Maps interfejsów API REST w aplikacjach sieci Web lub Node. js przy użyciu języka JavaScript lub TypeScript. Moduł usługi może służyć do renderowania zwracanych tras na mapie. Moduł automatycznie określa, który interfejs API ma być używany z żądaniami GET i POST.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej, zobacz:
 
 > [!div class="nextstepaction"]
-> [Usługa Marszruty usługi Azure Maps](https://docs.microsoft.com/rest/api/maps/route)
+> [Usługa tras Azure Maps](https://docs.microsoft.com/rest/api/maps/route)
 
 > [!div class="nextstepaction"]
-> [Jak korzystać z modułu Serwis](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module)
+> [Jak używać modułu usługi](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module)
 
 > [!div class="nextstepaction"]
 > [Pokaż trasę na mapie](https://docs.microsoft.com/azure/azure-maps/map-route)
 
 > [!div class="nextstepaction"]
-> [Pakiet NPM usługi Azure Maps](https://www.npmjs.com/package/azure-maps-rest  )
+> [Azure Maps pakiet NPM](https://www.npmjs.com/package/azure-maps-rest  )

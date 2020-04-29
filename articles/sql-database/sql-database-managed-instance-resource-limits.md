@@ -1,6 +1,6 @@
 ---
 title: Limity zasobów — wystąpienie zarządzane
-description: Ten artykuł zawiera omówienie limitów zasobów usługi Azure SQL Database dla wystąpień zarządzanych.
+description: Ten artykuł zawiera omówienie limitów zasobów Azure SQL Database dla wystąpień zarządzanych.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,146 +12,146 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
 ms.openlocfilehash: b2871ec87e4d7f337c26b3ff3de83c1c3c88aea2
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80365391"
 ---
-# <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Omówienie limitów zasobów zarządzanych wystąpienia wystąpienia usługi Azure SQL Database
+# <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Przegląd Azure SQL Database limitów zasobów wystąpienia zarządzanego
 
-Ten artykuł zawiera omówienie właściwości technicznych i limitów zasobów dla wystąpienia zarządzanego usługi Azure SQL Database i zawiera informacje dotyczące sposobu żądania zwiększenia tych limitów.
+Ten artykuł zawiera omówienie parametrów technicznych i limitów zasobów dla Azure SQL Database wystąpienia zarządzanego i zawiera informacje o sposobach żądania wzrostu do tych limitów.
 
 > [!NOTE]
-> Różnice w obsługiwanych funkcjach i instrukcjach T-SQL można znaleźć [w pomocy różnic y funkcji](sql-database-features.md) i obsługi instrukcji [T-SQL](sql-database-managed-instance-transact-sql-information.md). Aby uzyskać ogólne różnice między warstwami usług w pojedynczej bazie danych i wystąpieniu zarządzanym, zobacz [Porównanie warstwy usługi](sql-database-service-tiers-general-purpose-business-critical.md#service-tier-comparison).
+> Aby uzyskać różnice w obsługiwanych funkcjach i instrukcjach języka T-SQL, zobacz temat [różnice w funkcjach](sql-database-features.md) i [Obsługa instrukcji języka t-SQL](sql-database-managed-instance-transact-sql-information.md). Aby uzyskać ogólną różnicę między warstwami usług w pojedynczej bazie danych i wystąpieniu zarządzanym, zobacz [porównanie warstwy usług](sql-database-service-tiers-general-purpose-business-critical.md#service-tier-comparison).
 
-## <a name="hardware-generation-characteristics"></a>Charakterystyka generowania sprzętu
+## <a name="hardware-generation-characteristics"></a>Charakterystyki generowania sprzętu
 
-Wystąpienie zarządzane ma cechy i limity zasobów, które zależą od podstawowej infrastruktury i architektury. Wystąpienie zarządzanej usługi Azure SQL Database można wdrożyć na dwóch generacjach sprzętu: Gen4 i Gen5. Generacje sprzętu mają różne cechy, jak opisano w poniższej tabeli:
+Wystąpienie zarządzane ma cechy i limity zasobów, które są zależne od podstawowej infrastruktury i architektury. Wystąpienie zarządzane Azure SQL Database można wdrożyć na dwóch generacjach sprzętu: obliczenia i 5 rdzeń. Generacji sprzętu mają różne cechy, zgodnie z opisem w poniższej tabeli:
 
-|   | **Gen4** | **Gen5** |
+|   | **Obliczenia** | **5 rdzeń** |
 | --- | --- | --- |
-| Sprzęt | Procesory Intel E5-2673 v3 (Haswell) 2,4 GHz, dołączony vCore SSD = 1 PP (rdzeń fizyczny) | Procesory Intel E5-2673 v4 (Broadwell) 2,3 GHz i Intel SP-8160 (Skylake), szybkie NVMe SSD, vCore=1 LP (hyper-thread) |
-| Liczba rdzeni wirtualnych | 8, 16, 24 vCore | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
-| Maksymalna ilość pamięci (stosunek pamięci do rdzenia) | 7 GB na r/r<br/>Dodaj więcej wirtualnych, aby uzyskać więcej pamięci. | 5,1 GB na r/r<br/>Dodaj więcej wirtualnych, aby uzyskać więcej pamięci. |
-| Maksymalna pamięć OLTP w pamięci | Limit wystąpień: 1-1,5 GB na r/r| Limit wystąpień: 0,8 - 1,65 GB na vCore |
-| Maksymalna ilość zarezerwowanego miejsca na wystąpienie |  Przeznaczenie ogólne: 8 TB<br/>Krytyczne dla biznesu: 1 TB | Przeznaczenie ogólne: 8 TB<br/> Krytyczne dla firmy 1 TB, 2 TB lub 4 TB w zależności od liczby rdzeni |
+| Sprzęt | Procesor Intel E5-2673 v3 (Haswell) 2,4 GHz, dołączony dysk SSD rdzeń wirtualny = 1 PP (rdzeń fizyczny) | Procesor Intel E5-2673 v4 (Broadwell) 2,3-GHz i Intel SP-8160 (Skylake), Fast NVMe SSD, rdzeń wirtualny = 1 LP (Hyper-Thread) |
+| Liczba rdzeni wirtualnych | 8, 16, 24 rdzeni wirtualnych | 4, 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych |
+| Maksymalna ilość pamięci (stosunek pamięci/rdzeni) | 7 GB na rdzeń wirtualny<br/>Aby uzyskać więcej pamięci, Dodaj więcej rdzeni wirtualnych. | 5,1 GB na rdzeń wirtualny<br/>Aby uzyskać więcej pamięci, Dodaj więcej rdzeni wirtualnych. |
+| Maksymalna pamięć OLTP w pamięci | Limit wystąpień: 1 – 1,5 GB na rdzeń wirtualny| Limit wystąpień: 0,8 – 1,65 GB na rdzeń wirtualny |
+| Maksymalna ilość zarezerwowanego wystąpienia |  Ogólnego przeznaczenia: 8 TB<br/>Krytyczne dla działania firmy: 1 TB | Ogólnego przeznaczenia: 8 TB<br/> Krytyczne dla działania firmy 1 TB, 2 TB lub 4 TB w zależności od liczby rdzeni |
 
 > [!IMPORTANT]
-> - Sprzęt Gen4 jest wycofywany i nie jest już dostępny dla nowych wdrożeń. Wszystkie nowe wystąpienia zarządzane muszą być wdrożone na sprzęcie Gen5.
-> - Rozważ [przeniesienie zarządzanych wystąpień na sprzęt gen 5,](sql-database-service-tiers-vcore.md) aby uzyskać szerszy zakres skalowalności vCore i magazynu, przyspieszonej sieci, najlepszej wydajności we/wy i minimalnego opóźnienia.
+> - Sprzęt obliczenia jest stopniowo wycofywany i nie jest już dostępny dla nowych wdrożeń. Wszystkie nowe wystąpienia zarządzane muszą zostać wdrożone na sprzęcie 5 rdzeń.
+> - Rozważ [przeniesienie wystąpień zarządzanych do sprzętu gen 5](sql-database-service-tiers-vcore.md) w celu uzyskania szerszego zakresu skalowalności rdzeń wirtualny i pamięci masowej, przyspieszonej sieci, najlepszej wydajności operacji we/wy i minimalnych opóźnień.
 
 ### <a name="in-memory-oltp-available-space"></a>Dostępne miejsce w pamięci OLTP 
 
-Ilość miejsca OLTP w pamięci w warstwie usług [Krytyczne dla firmy](sql-database-service-tier-business-critical.md) zależy od liczby owo wirtualnych i generowania sprzętu. W poniższej tabeli wymieniono limity pamięci, które mogą być używane dla obiektów OLTP w pamięci.
+Ilość miejsca OLTP w pamięci w [krytyczne dla działania firmy](sql-database-service-tier-business-critical.md) warstwy usług zależy od liczby rdzeni wirtualnych i generowania sprzętu. W poniższej tabeli wymieniono limity pamięci, które mogą być używane dla obiektów OLTP w pamięci.
 
-| Przestrzeń OLTP w pamięci  | **Gen5** | **Gen4** |
+| Przestrzeń OLTP w pamięci  | **5 rdzeń** | **Obliczenia** |
 | --- | --- | --- |
 | 4 rdzenie wirtualne  | 3,14 GB | |   
 | 8 rdzeni wirtualnych  | 6,28 GB | 8 GB |
-| 16 vCores | 15,77 GB | 20 GB |
-| 24 vCores | 25,25 GB | 36 GB |
-| 32 vCores | 37,94 GB | |
-| 40 vCores | 52,23 GB | |
-| 64 vCores | 99,9 GB    | |
-| 80 vCores | 131,68 GB| |
+| 16 rdzeni wirtualnych | 15,77 GB | 20 GB |
+| 24 rdzeni wirtualnych | 25,25 GB | 36 GB |
+| 32 rdzeni wirtualnych | 37,94 GB | |
+| 40 rdzeni wirtualnych | 52,23 GB | |
+| 64 rdzeni wirtualnych | 99,9 GB    | |
+| 80 rdzeni wirtualnych | 131,68 GB| |
 
-## <a name="service-tier-characteristics"></a>Charakterystyka warstwy usług
+## <a name="service-tier-characteristics"></a>Charakterystyki warstwy usług
 
-Wystąpienie zarządzane ma dwie warstwy usług: [Ogólnego przeznaczenia](sql-database-service-tier-general-purpose.md) i [Krytyczny dla firmy](sql-database-service-tier-business-critical.md). Te warstwy zapewniają [różne możliwości,](sql-database-service-tiers-general-purpose-business-critical.md)jak opisano w poniższej tabeli.
+Wystąpienie zarządzane ma dwie warstwy usług: [ogólnego przeznaczenia](sql-database-service-tier-general-purpose.md) i [krytyczne dla działania firmy](sql-database-service-tier-business-critical.md). Te warstwy zapewniają [różne możliwości](sql-database-service-tiers-general-purpose-business-critical.md), zgodnie z opisem w poniższej tabeli.
 
 > [!Important]
-> Warstwa usługi o znaczeniu krytycznym dla firmy zapewnia dodatkową wbudowaną kopię wystąpienia (repliki pomocniczej), która może być używana do obciążenia tylko do odczytu. Jeśli można oddzielić zapytania do odczytu i zapisu i tylko do odczytu/analityczne/raportowanie zapytań, otrzymujesz dwa razy wirtualne i pamięci w tej samej cenie. Replika pomocnicza może pozostawać w czasie kilku sekund za wystąpieniem podstawowym, więc jest przeznaczona do odciążania raportowania/obciążenia analitycznego, które nie wymaga dokładnego bieżącego stanu danych. W poniższej tabeli **kwerendy tylko** do odczytu są kwerendami, które są wykonywane w replice pomocniczej.
+> Krytyczne dla działania firmy warstwa usługi oferuje dodatkową wbudowaną kopię wystąpienia (replikę pomocniczą), która może być używana do obsługi obciążeń tylko do odczytu. Jeśli możesz oddzielić zapytania odczytu i zapisu oraz zapytania tylko do odczytu/analizy/raportowania, otrzymujesz dwa razy rdzeni wirtualnych i pamięć za tę samą cenę. Replika pomocnicza może potrwać kilka sekund za wystąpieniem podstawowym, więc jest przeznaczona do odciążania obciążeń raportowanie/analitycznych, które nie wymagają dokładnego stanu danych. W poniższej tabeli **zapytania tylko do odczytu** są zapytania, które są wykonywane w replice pomocniczej.
 
-| **Funkcja** | **Cel ogólny** | **Krytyczne dla biznesu** |
+| **Funkcja** | **Ogólnego przeznaczenia** | **Krytyczne dla działania firmy** |
 | --- | --- | --- |
-| Liczba rdzeni wirtualnych\* | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64, 80 <br/>\*Ta sama liczba korów wirtualnych jest przeznaczona dla zapytań tylko do odczytu. |
-| Maksymalna ilość pamięci | Gen4: 56 GB - 168 GB (7 GB/vCore)<br/>Gen5: 20,4 GB - 408 GB (5,1 GB/vCore)<br/>Dodaj więcej wirtualnych, aby uzyskać więcej pamięci. | Gen4: 56 GB - 168 GB (7 GB/vCore)<br/>Gen5: 20,4 GB - 408 GB (5,1 GB/vCore) dla zapytań odczytu i zapisu<br/>+ dodatkowe 20,4 GB - 408 GB (5,1 GB/vCore) dla zapytań tylko do odczytu.<br/>Dodaj więcej wirtualnych, aby uzyskać więcej pamięci. |
-| Maksymalny rozmiar magazynu wystąpienia (zarezerwowany) | - 2 TB dla 4 vCorów (tylko Gen5)<br/>- 8 TB dla innych rozmiarów | Gen4: 1 TB <br/> Gen5: <br/>- 1 TB na 4, 8, 16 vCores<br/>- 2 TB dla 24 vCores<br/>- 4 TB dla 32, 40, 64, 80 vCores |
-| Maksymalny rozmiar bazy danych | Do aktualnie dostępnego rozmiaru wystąpienia (maks. 2 TB - 8 TB w zależności od liczby korów wirtualnych). | Do aktualnie dostępnego rozmiaru wystąpienia (maksymalnie 1 TB - 4 TB w zależności od liczby owo wirtualnych). |
-| Maksymalny rozmiar bazy danych tempDB | Ograniczona do 24 GB/vCore (96 - 1920 GB) i obecnie dostępny rozmiar magazynu wystąpienia.<br/>Dodaj więcej vCores, aby uzyskać więcej miejsca tempdb.<br/> Rozmiar pliku dziennika jest ograniczony do 120 GB.| Do aktualnie dostępnego rozmiaru magazynu wystąpienia. |
-| Maksymalna liczba baz danych na wystąpienie | 100, chyba że limit rozmiaru magazynu wystąpienia został osiągnięty. | 100, chyba że limit rozmiaru magazynu wystąpienia został osiągnięty. |
-| Maksymalna liczba plików bazy danych na wystąpienie | Maksymalnie 280, chyba że rozmiar magazynu wystąpienia lub limit [miejsca alokacji magazynu w wersji Premium w wersji Premium](sql-database-release-notes.md#exceeding-storage-space-with-small-database-files) został osiągnięty. | 32 767 plików na bazę danych, chyba że osiągnięto limit rozmiaru magazynu wystąpienia. |
-| Maksymalny rozmiar pliku danych | Ograniczona do aktualnie dostępnego rozmiaru magazynu wystąpień (maks. 2 TB - 8 TB) i [miejsca alokacji magazynu w wersji Premium platformy Azure.](sql-database-release-notes.md#exceeding-storage-space-with-small-database-files) | Ograniczona do aktualnie dostępnego rozmiaru magazynu wystąpień (do 1 TB - 4 TB). |
-| Maksymalny rozmiar pliku dziennika | Ograniczona do 2 TB i obecnie dostępny rozmiar magazynu wystąpienia. | Ograniczona do 2 TB i obecnie dostępny rozmiar magazynu wystąpienia. |
-| Dane/Dziennik IOPS (przybliżony) | Do 30-40 K IOPS na wystąpienie*, 500 - 7500 na plik<br/>\*[Zwiększ rozmiar pliku, aby uzyskać więcej we/wy](#file-io-characteristics-in-general-purpose-tier)| 10 K - 200 K (2500 IOPS/vCore)<br/>Dodaj więcej koperów wirtualnych, aby uzyskać lepszą wydajność we/wy. |
-| Rejestrowanie limitu przepływności zapisu (na wystąpienie) | 3 MB/s na r/r<br/>Maksymalnie 22 MB/s | 4 MB/s na r/r<br/>Maksymalnie 48 MB/s |
-| Przepustowość danych (przybliżona) | 100 - 250 MB/s na plik<br/>\*[Zwiększ rozmiar pliku, aby uzyskać lepszą wydajność we/wy](#file-io-characteristics-in-general-purpose-tier) | Nie ograniczając się. |
-| Opóźnienie we/wy magazynu (przybliżone) | 5-10 ms | 1-2 ms |
-| Oltp w pamięci | Nieobsługiwane | Dostępne, [rozmiar zależy od liczby vCore](#in-memory-oltp-available-space) |
+| Liczba rdzeni wirtualnych\* | Obliczenia: 8, 16, 24<br/>5 rdzeń: 4, 8, 16, 24, 32, 40, 64, 80 | Obliczenia: 8, 16, 24 <br/> 5 rdzeń: 4, 8, 16, 24, 32, 40, 64, 80 <br/>\*Ta sama liczba rdzeni wirtualnych jest przeznaczona dla zapytań tylko do odczytu. |
+| Maksymalna pamięć | Obliczenia: 56 GB – 168 GB (7GB/rdzeń wirtualny)<br/>5 rdzeń: 20,4 GB – 408 GB (5.1 GB/rdzeń wirtualny)<br/>Aby uzyskać więcej pamięci, Dodaj więcej rdzeni wirtualnych. | Obliczenia: 56 GB – 168 GB (7GB/rdzeń wirtualny)<br/>5 rdzeń: 20,4 GB-408 GB (5.1 GB/rdzeń wirtualny) dla zapytań do odczytu i zapisu<br/>+ dodatkowe 20,4 GB – 408 GB (5.1 GB/rdzeń wirtualny) dla zapytań tylko do odczytu.<br/>Aby uzyskać więcej pamięci, Dodaj więcej rdzeni wirtualnych. |
+| Maksymalny rozmiar magazynu wystąpienia (zarezerwowany) | -2 TB dla 4 rdzeni wirtualnych (tylko 5 rdzeń)<br/>-8 TB dla innych rozmiarów | Obliczenia: 1 TB <br/> 5 rdzeń <br/>-1 TB dla 4, 8, 16 rdzeni wirtualnych<br/>-2 TB przez 24 rdzeni wirtualnych<br/>-4 TB dla 32, 40, 64, 80 rdzeni wirtualnych |
+| Maksymalny rozmiar bazy danych | Do aktualnie dostępnego rozmiaru wystąpienia (maksymalnie 2 TB – 8 TB w zależności od liczby rdzeni wirtualnych). | Do aktualnie dostępnego rozmiaru wystąpienia (maksymalnie 1 TB — 4 TB w zależności od liczby rdzeni wirtualnych). |
+| Maksymalny rozmiar bazy danych tempDB | Ograniczone do 24 GB/rdzeń wirtualny (96 – 1 920 GB) i aktualnie dostępnego rozmiaru magazynu wystąpień.<br/>Dodaj więcej rdzeni wirtualnych, aby uzyskać więcej przestrzeni TempDB.<br/> Rozmiar pliku dziennika jest ograniczony do 120 GB.| Do aktualnie dostępnego rozmiaru magazynu wystąpień. |
+| Maksymalna liczba baz danych na wystąpienie | 100, chyba że osiągnięto limit rozmiaru magazynu wystąpień. | 100, chyba że osiągnięto limit rozmiaru magazynu wystąpień. |
+| Maksymalna liczba plików bazy danych na wystąpienie | Do 280, o ile nie osiągnięto rozmiaru magazynu wystąpienia lub limitu [przestrzeni dyskowej usługi Azure Premium](sql-database-release-notes.md#exceeding-storage-space-with-small-database-files) . | 32 767 plików na bazę danych, o ile nie osiągnięto limitu rozmiaru magazynu wystąpień. |
+| Maksymalny rozmiar pliku danych | Ograniczone do aktualnie dostępnego rozmiaru magazynu wystąpień (maksymalnie 2 TB-8 TB) i [miejsca alokacji dysku Azure Premium Storage](sql-database-release-notes.md#exceeding-storage-space-with-small-database-files). | Ograniczone do aktualnie dostępnego rozmiaru magazynu wystąpień (do 1 TB – 4 TB). |
+| Maksymalny rozmiar pliku dziennika | Ograniczone do 2 TB i aktualnie dostępnego rozmiaru magazynu wystąpień. | Ograniczone do 2 TB i aktualnie dostępnego rozmiaru magazynu wystąpień. |
+| Operacje we/wy danych/dziennika (przybliżone) | Do 30-40 K operacji we/wy na wystąpienie *, 500-7500 na plik<br/>\*[Zwiększ rozmiar pliku, aby uzyskać więcej operacji we/wy na sekundę](#file-io-characteristics-in-general-purpose-tier)| 10 k-200 K (2500 IOPS/rdzeń wirtualny)<br/>Dodaj więcej rdzeni wirtualnych, aby uzyskać lepszą wydajność operacji we/wy. |
+| Limit przepływności zapisu dziennika (na wystąpienie) | 3 MB/s na rdzeń wirtualny<br/>Maks. 22 MB/s | 4 MB/s na rdzeń wirtualny<br/>Maks 48 MB/s |
+| Przepływność danych (przybliżona) | 100 – 250 MB/s na plik<br/>\*[Zwiększ rozmiar pliku, aby uzyskać lepszą wydajność we/wy](#file-io-characteristics-in-general-purpose-tier) | Nieograniczone. |
+| Opóźnienie operacji we/wy magazynu (w przybliżeniu) | 5-10 ms | 1-2 MS |
+| Przetwarzanie OLTP w pamięci | Nieobsługiwane | Dostępne, [rozmiar zależy od liczby rdzeń wirtualny](#in-memory-oltp-available-space) |
 | Maksymalna liczba sesji | 30000 | 30000 |
-| [Repliki tylko do odczytu](sql-database-read-scale-out.md) | 0 | 1 (w cenie) |
+| [Repliki tylko do odczytu](sql-database-read-scale-out.md) | 0 | 1 (wliczone w cenę) |
 
 > [!NOTE]
-> - **Obecnie dostępny rozmiar magazynu wystąpienia** jest różnica między rozmiar wystąpienia zarezerwowanego i używanego miejsca do magazynowania.
-> - Rozmiar pliku danych i dziennika w bazach danych użytkownika i systemu są uwzględniane w rozmiarze magazynu wystąpienia, który jest porównywany z limitem maksymalnego rozmiaru magazynu. Użyj widoku systemu <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files,</a> aby określić całkowitą ilość używanego miejsca przez bazy danych. Dzienniki błędów nie są zachowywane i nie są uwzględniane w rozmiarze. Kopie zapasowe nie są uwzględniane w rozmiarze magazynu.
-> - Przepływność i we/wy w warstwie ogólnego przeznaczenia zależą również od [rozmiaru pliku,](#file-io-characteristics-in-general-purpose-tier) który nie jest jawnie ograniczony przez wystąpienie zarządzane.
-> - Można utworzyć inną replikę czytelną w różnych regionach platformy Azure przy użyciu grup automatycznego trybu failover.
-> - Maksymalna liczba wystąpień We/Wy zależą od układu pliku i dystrybucji obciążenia. Na przykład, jeśli utworzysz pliki o mocy 7 x 1 TB z maksymalną 5K IOPS i 7 małych plików (mniejszych niż 128 GB) z 500 IOPS każdy, można uzyskać 38500 IOPS na wystąpienie (7x5000 + 7x500), jeśli obciążenie może korzystać ze wszystkich plików. Należy zauważyć, że pewna ilość we/wy jest również używana do automatycznego tworzenia kopii zapasowych.
+> - **Obecnie dostępny rozmiar magazynu wystąpienia** to różnica między zarezerwowanym rozmiarem wystąpienia i ilością miejsca do magazynowania.
+> - Rozmiar pliku danych i dziennika w bazach danych użytkownika i systemu jest uwzględniany w rozmiarze magazynu wystąpienia, który jest porównywany z maksymalnym limitem rozmiaru magazynu. Użyj widoku <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys. master_files</a> system w celu określenia łącznej ilości miejsca używanego przez bazy danych. Dzienniki błędów nie są utrwalane i nie zostały uwzględnione w rozmiarze. Kopie zapasowe nie są uwzględniane w rozmiarze magazynu.
+> - Przepływność i operacje we/wy w warstwie Ogólnego przeznaczenia również zależą od [rozmiaru pliku](#file-io-characteristics-in-general-purpose-tier) , który nie jest jawnie ograniczony przez wystąpienie zarządzane.
+> - Można utworzyć kolejną replikę do odczytu w innym regionie świadczenia usługi Azure przy użyciu grup Autotryb failover.
+> - Maksymalna liczba operacji we/wy wystąpienia zależy od układu pliku i rozkładu obciążenia. Jeśli na przykład utworzysz 7 x 1 TB plików z maksymalną 5 K IOPS każdy i 7 małych plików (mniejszym niż 128 GB) z 500 IOPS każdy, możesz uzyskać 38500 operacji we/wy na wystąpienie (7x5000 + 7x500), jeśli obciążenie może korzystać ze wszystkich plików. Należy zauważyć, że niektóre liczby operacji we/wy są również używane do tworzenia kopii zapasowych.
 
 > [!NOTE]
-> Więcej informacji na temat [limitów zasobów w pulach wystąpień zarządzanych można znaleźć w tym artykule](sql-database-instance-pools.md#instance-pools-resource-limitations).
+> Więcej informacji na temat [limitów zasobów w pulach wystąpień zarządzanych w tym artykule](sql-database-instance-pools.md#instance-pools-resource-limitations).
 
 ### <a name="file-io-characteristics-in-general-purpose-tier"></a>Charakterystyka we/wy pliku w warstwie Ogólnego przeznaczenia
 
-W warstwie usług ogólnego przeznaczenia każdy plik bazy danych otrzymuje dedykowane usługi We/Wy i przepływność, która zależy od rozmiaru pliku. Większe pliki są coraz więcej We/Wy i przepływności. Charakterystyki we/wy plików bazy danych są przedstawione w poniższej tabeli:
+W Ogólnego przeznaczenia warstwy usług każdy plik bazy danych uzyskuje dedykowane operacje we/wy i przepływność, które są zależne od rozmiaru pliku. Większe pliki zwiększają liczbę IOPS i przepływność. Właściwości we/wy plików bazy danych przedstawiono w poniższej tabeli:
 
-| Rozmiar pliku | >=0 i <=128 GiB | >128 i <=256 GiB | >256 i <= 512 GiB | >0,5 i <=1 TiB    | >1 i <=2 TiB    | >2 i <=4 TiB | >4 i <=8 TiB |
+| Rozmiar pliku | >= 0 i <= 128 GiB | >128 i <= 256 GiB | >256 i <= 512 GiB | >0,5 i <= 1 TiB    | >1 i <= 2 TiB    | >2 i <= 4 TiB | >4 i <= 8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| We/Wy na plik       | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12 500   |
+| Liczba operacji we/wy na plik       | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12 500   |
 | Przepływność na plik | 100 MiB/s | 125 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
 
-Jeśli zauważysz duże opóźnienie we/wy w niektórych plikach bazy danych lub zobaczysz, że usługi We/Wy/przepływność osiągają limit, możesz zwiększyć wydajność, [zwiększając rozmiar pliku](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
+Jeśli zauważysz wysokie opóźnienia we/wy dla niektórych plików bazy danych lub widzisz, że liczba IOPS/przepływność osiąga limit, można zwiększyć wydajność, [zwiększając rozmiar pliku](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
 
-Istnieją również limity na poziomie wystąpienia, takie jak maksymalna przepływność zapisu dziennika 22 MB/s, więc może nie być w stanie dotrzeć do pliku w całym pliku dziennika, ponieważ osiągasz limit przepływności wystąpienia.
+Istnieją również limity na poziomie wystąpienia, takie jak maksymalna przepływność zapisu dziennika 22 MB/s, dzięki czemu możesz nie mieć możliwości uzyskania dostępu do pliku w pliku dziennika, ponieważ zbliża się limit przepływności wystąpienia.
 
 ## <a name="supported-regions"></a>Obsługiwane regiony
 
-Wystąpienia zarządzane można tworzyć tylko w [obsługiwanych regionach](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Aby utworzyć wystąpienie zarządzane w regionie, który obecnie nie jest obsługiwany, można [wysłać żądanie pomocy technicznej za pośrednictwem portalu Azure](quota-increase-request.md).
+Wystąpienia zarządzane można tworzyć tylko w [obsługiwanych regionach](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Aby utworzyć wystąpienie zarządzane w regionie, który nie jest obecnie obsługiwany, można [wysłać żądanie pomocy technicznej za pośrednictwem Azure Portal](quota-increase-request.md).
 
 ## <a name="supported-subscription-types"></a>Obsługiwane typy subskrypcji
 
-Wystąpienie zarządzane obsługuje obecnie wdrażanie tylko w następujących typach subskrypcji:
+Wystąpienie zarządzane obecnie obsługuje tylko wdrożenie następujących typów subskrypcji:
 
 - [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
-- [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/)
+- [Płatność zgodnie z rzeczywistym użyciem](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Dostawca usług w chmurze (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
 - [Enterprise — tworzenie i testowanie](https://azure.microsoft.com/offers/ms-azr-0148p/)
 - [Płatność zgodnie z rzeczywistym użyciem — tworzenie i testowanie](https://azure.microsoft.com/offers/ms-azr-0023p/)
-- [Subskrypcje z miesięcznymi kredytami platformy Azure dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)
+- [Subskrypcje z miesięcznymi środkami platformy Azure dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)
 
-## <a name="regional-resource-limitations"></a>Regionalne ograniczenia zasobów
+## <a name="regional-resource-limitations"></a>Ograniczenia zasobów regionalnych
 
-Obsługiwane typy subskrypcji może zawierać ograniczoną liczbę zasobów na region. Wystąpienie zarządzane ma dwa domyślne limity na region platformy Azure (które można zwiększyć na żądanie, tworząc specjalne [żądanie pomocy technicznej w witrynie Azure portal w](quota-increase-request.md) zależności od typu subskrypcji:
+Obsługiwane typy subskrypcji mogą zawierać ograniczoną liczbę zasobów na region. Wystąpienie zarządzane ma dwa domyślne limity dla regionu platformy Azure (które można zwiększyć na żądanie, tworząc specjalne [żądanie pomocy technicznej w Azure Portal w](quota-increase-request.md) zależności od typu subskrypcji:
 
-- **Limit**podsieci: Maksymalna liczba podsieci, w których wystąpienia zarządzane są wdrażane w jednym regionie.
-- **Limit jednostek vCore**: Maksymalna liczba jednostek vCore, które można wdrożyć we wszystkich wystąpieniach w jednym regionie. Jeden procesor gp vCore używa jednej jednostki vCore, a jedna bc vCore zajmuje 4 jednostki vCore. Całkowita liczba wystąpień nie jest ograniczona, o ile mieści się w limicie jednostki vCore.
+- **Limit podsieci**: Maksymalna liczba podsieci, w których wystąpienia zarządzane są wdrażane w jednym regionie.
+- **limit jednostek rdzeń wirtualny**: Maksymalna liczba jednostek rdzeń wirtualny, które mogą zostać wdrożone we wszystkich wystąpieniach w jednym regionie. Jedna z zasad GP rdzeń wirtualny korzysta z jednej jednostki rdzeń wirtualny, a jedna z nich ma rdzeń wirtualny rdzeń wirtualny jednostek. Łączna liczba wystąpień nie jest ograniczona, o ile mieści się w limicie jednostek rdzeń wirtualny.
 
 > [!Note]
-> Te limity są ustawieniami domyślnymi, a nie ograniczeniami technicznymi. Limity można zwiększyć na żądanie, tworząc specjalne [żądanie pomocy technicznej w witrynie Azure portal,](quota-increase-request.md) jeśli potrzebujesz więcej zarządzanych wystąpień w bieżącym regionie. Alternatywnie można utworzyć nowe wystąpienia zarządzane w innym regionie platformy Azure bez wysyłania żądań pomocy technicznej.
+> Te limity to ustawienia domyślne, a nie ograniczenia techniczne. Limity można zwiększyć na żądanie, tworząc specjalne [żądanie pomocy technicznej w Azure Portal,](quota-increase-request.md) Jeśli potrzebujesz więcej wystąpień zarządzanych w bieżącym regionie. Alternatywnie można tworzyć nowe wystąpienia zarządzane w innym regionie świadczenia usługi Azure bez wysyłania żądań pomocy technicznej.
 
-W poniższej tabeli przedstawiono **domyślne limity regionalne** dla obsługiwanych typów subskrypcji (domyślne limity można rozszerzyć za pomocą żądania pomocy technicznej opisanego poniżej):
+W poniższej tabeli przedstawiono **domyślne limity** dla obsługiwanych typów subskrypcji (domyślne limity można rozszerzyć przy użyciu żądania pomocy technicznej opisanego poniżej):
 
-|Typ subskrypcji| Maksymalna liczba podsieci wystąpienia zarządzanego | Maksymalna liczba jednostek vCore* |
+|Typ subskrypcji| Maksymalna liczba podsieci wystąpienia zarządzanego | Maksymalna liczba jednostek rdzeń wirtualny * |
 | :---| :--- | :--- |
-|Pay-as-you-go|3|320|
-|CSP |8 (15 w niektórych regionach**)|960 (1440 w niektórych regionach**)|
-|Dev/Test płatności zgodnie z rzeczywistym poł.|3|320|
+|Płatność zgodnie z rzeczywistym użyciem|3|320|
+|CSP |8 (15 w niektórych regionach * *)|960 (1440 w niektórych regionach * *)|
+|Płatność zgodnie z rzeczywistym użyciem — tworzenie i testowanie|3|320|
 |Enterprise — tworzenie i testowanie|3|320|
-|Ea|8 (15 w niektórych regionach**)|960 (1440 w niektórych regionach**)|
+|EA|8 (15 w niektórych regionach * *)|960 (1440 w niektórych regionach * *)|
 |Visual Studio Enterprise|2 |64|
-|Platformy Visual Studio Professional i MSDN|2|32|
+|Visual Studio Professional i Platformy MSDN|2|32|
 
-\*Podczas planowania wdrożeń należy wziąć pod uwagę, że warstwa usług o znaczeniu krytycznym dla firmy (BC) wymaga czterech (4) razy większej pojemności generacji niż warstwa usług ogólnego przeznaczenia (GP). Na przykład: 1 gp vCore = 1 jednostka vCore i 1 BC vCore = 4 jednostki vCore. Aby uprościć analizę zużycia względem domyślnych limitów, podsumuj jednostki vCore we wszystkich podsieciach w regionie, w którym są wdrażane wystąpienia zarządzane, i porównaj wyniki z limitami jednostek wystąpienia dla typu subskrypcji. **Maksymalna liczba jednostek vCore** ma zastosowanie do każdej subskrypcji w regionie. Nie ma limitu na poszczególne podsieci, z tą różnicą, że suma wszystkich owo wirtualnych wdrożonych w wielu podsieciach musi być niższa lub równa **maksymalnej liczbie jednostek vCore**.
+\*W obszarze Planowanie wdrożeń należy wziąć pod uwagę, że warstwa usług Krytyczne dla działania firmy (BC) wymaga czterech (4) razy więcej rdzeń wirtualny pojemności niż Ogólnego przeznaczenia (GP). Na przykład: 1 GP rdzeń wirtualny = 1 rdzeń wirtualny Unit i 1 BC rdzeń wirtualny = 4 jednostki rdzeń wirtualny. Aby uprościć analizę zużycia pod kątem domyślnych limitów, należy podsumować jednostki rdzeń wirtualny we wszystkich podsieciach w regionie, w którym wdrożono wystąpienia zarządzane i porównać wyniki z limitami jednostek wystąpienia dla danego typu subskrypcji. **Maksymalna liczba jednostek rdzeń wirtualny** dotyczy każdej subskrypcji w regionie. Nie ma żadnego limitu dla poszczególnych podsieci, z tą różnicą, że suma wszystkich rdzeni wirtualnych wdrożonych w wielu podsieciach musi być mniejsza lub równa **maksymalnej liczbie jednostek rdzeń wirtualny**.
 
-\*\*Większe limity podsieci i elementów wirtualnych są dostępne w następujących regionach: Australia Wschodnia, Wschodnie stany USA, Wschodnie stany USA 2, Europa Północna, Południowo-Środkowe stany USA, Azja Południowo-Wschodnia, Wielka Brytania Południowa, Europa Zachodnia, Zachodnie stany USA 2.
+\*\*Większe limity podsieci i rdzeń wirtualny są dostępne w następujących regionach: Australia Wschodnia, Wschodnie stany USA, Wschodnie stany USA 2, Europa Północna, Południowo-środkowe stany USA, Azja Południowo-Wschodnia Południowe Zjednoczone Królestwo, Europa Zachodnia, zachodnie stany USA 2.
 
-## <a name="request-a-quota-increase-for-sql-managed-instance"></a>Żądanie zwiększenia przydziału dla wystąpienia zarządzanego SQL
+## <a name="request-a-quota-increase-for-sql-managed-instance"></a>Zażądaj zwiększenia limitu przydziału dla wystąpienia zarządzanego SQL
 
-Jeśli potrzebujesz więcej wystąpień zarządzanych w bieżących regionach, wyślij żądanie pomocy technicznej, aby rozszerzyć przydział przy użyciu witryny Azure portal. Aby uzyskać więcej informacji, zobacz [Żądanie zwiększenia przydziału dla usługi Azure SQL Database](quota-increase-request.md).
+Jeśli potrzebujesz więcej wystąpień zarządzanych w Twoich bieżących regionach, Wyślij żądanie obsługi, aby zwiększyć przydział przy użyciu Azure Portal. Aby uzyskać więcej informacji, zobacz [zwiększenie przydziału żądań dla Azure SQL Database](quota-increase-request.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji na temat wystąpienia zarządzanego, zobacz [Co to jest wystąpienie zarządzane?](sql-database-managed-instance.md).
-- Aby uzyskać informacje o cenach, zobacz [cennik zarządzanych wystąpień bazy danych SQL](https://azure.microsoft.com/pricing/details/sql-database/managed/).
-- Aby dowiedzieć się, jak utworzyć pierwsze wystąpienie zarządzane, zobacz [przewodnik szybki start](sql-database-managed-instance-get-started.md).
+- Aby uzyskać więcej informacji o wystąpieniu zarządzanym, zobacz [co to jest wystąpienie zarządzane?](sql-database-managed-instance.md)
+- Aby uzyskać informacje o cenach, zobacz [SQL Database cenach wystąpienia zarządzanego](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+- Aby dowiedzieć się, jak utworzyć pierwsze wystąpienie zarządzane, zobacz [Przewodnik Szybki Start](sql-database-managed-instance-get-started.md).

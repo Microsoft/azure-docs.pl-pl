@@ -1,6 +1,6 @@
 ---
-title: Lista kontrolna tworzenia oferty SaaS — rynek komercyjny dla platformy Azure
-description: Szczegóły, które można podać w procesie tworzenia oferty SaaS. - Komercyjny rynek dla platformy Azure
+title: Lista kontrolna tworzenia oferty SaaS — Marketing komercyjny dla platformy Azure
+description: Szczegóły, jakie można podać w procesie tworzenia oferty SaaS. — Komercyjne witryny Marketplace na platformie Azure
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,157 +8,157 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.openlocfilehash: 60111b6a23c76314383c5f95be3eb4b38f90d3e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80281344"
 ---
 # <a name="saas-offer-creation-checklist"></a>Lista kontrolna tworzenia oferty SaaS
 
-Proces tworzenia oferty SaaS poprowadzi Cię przez wiele stron. Oto szczegóły, które możesz podać na każdej stronie, z linkami, aby dowiedzieć się więcej o każdym elemencie.
+Proces tworzenia oferty SaaS przeprowadzi Cię przez wiele stron. Poniżej znajdują się szczegóły, które można podać na każdej stronie, z linkami do dodatkowych informacji na temat poszczególnych elementów.
 
-Elementy, które musisz podać lub określić, są wymienione poniżej. Niektóre obszary są opcjonalne lub mają podane wartości domyślne, które można zmienić zgodnie z potrzebami. Nie musisz pracować nad tymi sekcjami w kolejności wymienionej tutaj.
+Elementy wymagane do podania lub określenia są wymienione poniżej. Niektóre obszary są opcjonalne lub mają podane wartości domyślne, które można zmienić zgodnie z potrzebami. Nie musisz już korzystać z tych sekcji w podanej kolejności.
 
 | **Element**    | **Przeznaczenie**  |
 | :---------- | :-------------------|
-| [**Nowa oferta Modal**](#new-offer-modal) | Zbiera informacje o tożsamości.  |
-| [Strona ustawienia oferty](#offer-setup-page) | Umożliwia wybranie funkcji korzystania z kluczowych funkcji i wybranie sposobu sprzedaży oferty za pośrednictwem firmy Microsoft.  |
-| [Strona Właściwości](#properties-page) | Zdefiniuj kategorie i branże używane do grupowania oferty na rynkach, umowy prawne obsługujące twoją ofertę i wersję aplikacji. |
-| [Strona aukcji oferty](#offer-listing-page) | Zdefiniuj szczegóły oferty, które mają być wyświetlane na rynku, w tym opisy oferty i zasobów marketingowych. |
-| [Podgląd strony](#preview-page) | Zdefiniuj ograniczoną grupę odbiorców w wersji zapoznawczej, aby zwolnić ofertę przed opublikowaniem oferty na żywo szerszym odbiorcom marketplace. |
-| [Strona konfiguracji technicznej oferty](#technical-configuration-page)  | Opcja dostępna tylko w przypadku, gdy zdecydujesz się sprzedać ofertę za pośrednictwem firmy Microsoft. Zdefiniuj szczegóły techniczne (ścieżka adresu URL, element webhook, identyfikator dzierżawy i identyfikator aplikacji) używane do łączenia się z ofertą. |
-| [**Nowy modal planu**](#plan-identity-modal) | Zbiera informacje o tożsamości planu.  |
-| [Strona aukcji planu](#plan-listing-page)  | Opcja dostępna tylko w przypadku, gdy zdecydujesz się sprzedać ofertę za pośrednictwem firmy Microsoft. Zdefiniuj szczegóły używane do listy planu w portalu marketplace.  |
-| [Strona dostępności cen & planu](#plan-pricing--availability-page)  | Opcja dostępna tylko w przypadku, gdy zdecydujesz się sprzedać ofertę za pośrednictwem firmy Microsoft.  Zbiera cechy biznesowe (model cenowy), odbiorców i dostępność rynkową dla każdego planu (wersji) oferty.  |
-| [Strona aukcji dysku testowego](#test-drive-listing-page)  | Dostępne tylko wtedy, gdy zdecydujesz się zaoferować jazdę próbną dla swojej oferty. Zdefiniuj szczegóły używane do listy jazdy testowej w portalu marketplace.  |
-| Strona konfiguracji technicznej dysku testowego  | Dostępne tylko wtedy, gdy zdecydujesz się zaoferować jazdę próbną dla swojej oferty. Zdefiniuj szczegóły techniczne demonstracji (lub "jazdy próbne"), która umożliwi klientom wypróbowanie oferty przed jej zakupem.  |
-| [Przeglądanie i publikowanie strony](#review-and-publish-page)  | Wybierz zmiany, które chcesz opublikować, zobacz stan każdej strony i przekaż notatki zespołowi certyfikacji.  |
+| [**Nowa oferta — modalne**](#new-offer-modal) | Zbiera informacje o tożsamości oferty.  |
+| [Strona konfiguracji oferty](#offer-setup-page) | Umożliwia korzystanie z kluczowych funkcji i wybór sposobu sprzedaży oferty przez firmę Microsoft.  |
+| [Strona właściwości](#properties-page) | Zdefiniuj kategorie i branże używane do grupowania oferty na rynkach Marketplace, umowy prawne wspierające Twoją ofertę i wersję aplikacji. |
+| [Strona z listą ofert](#offer-listing-page) | Zdefiniuj szczegóły oferty do wyświetlania w portalu Marketplace, w tym opisy oferty i zasobów marketingowych. |
+| [Strona podglądu](#preview-page) | Zdefiniuj ograniczonego odbiorcę w wersji zapoznawczej, aby wypróbować ofertę przed opublikowaniem oferty w szerszym gronie odbiorców w portalu Marketplace. |
+| [Strona konfiguracji technicznej oferty](#technical-configuration-page)  | Dostępne tylko w przypadku wybrania sprzedaży oferty przez firmę Microsoft. Zdefiniuj szczegóły techniczne (ścieżkę URL, element webhook, identyfikator dzierżawy i identyfikator aplikacji) używane do nawiązania połączenia z ofertą. |
+| [**Nowy modalny plan**](#plan-identity-modal) | Zbiera informacje o tożsamości planu.  |
+| [Strona aukcji planu](#plan-listing-page)  | Dostępne tylko w przypadku wybrania sprzedaży oferty przez firmę Microsoft. Zdefiniuj szczegóły używane do wyświetlania planu w portalu Marketplace.  |
+| [Zaplanuj stronę dostępności & cennika](#plan-pricing--availability-page)  | Dostępne tylko w przypadku wybrania sprzedaży oferty przez firmę Microsoft.  Gromadzi informacje o cechach biznesowej (modelu cen), odbiorcach i dostępności dla każdego planu (wersji) oferty.  |
+| [Strona listy dysków testowych](#test-drive-listing-page)  | Dostępne tylko wtedy, gdy wybrano opcję zaoferowania dysku testowego dla oferty. Zdefiniuj szczegóły używane do wyświetlania na liście dysku testowego w portalu Marketplace.  |
+| Strona konfiguracji technicznej na dysku testowym  | Dostępne tylko wtedy, gdy wybrano opcję zaoferowania dysku testowego dla oferty. Zdefiniuj szczegóły techniczne dla demonstracji (lub "Test Drive"), która umożliwi klientom wypróbowanie oferty przed zatwierdzeniem jej zakupu.  |
+| [Przeglądanie i publikowanie strony](#review-and-publish-page)  | Wybierz zmiany, które chcesz opublikować, zobacz stan poszczególnych stron i podaj uwagi dotyczące zespołu certyfikacji.  |
 
 
-## <a name="new-offer-modal"></a>Nowa oferta modalna 
+## <a name="new-offer-modal"></a>Nowa oferta — modalne 
 
-Pierwsze informacje, które zostaną poproszone o podanie, to identyfikator i alias oferty. 
+Pierwsze fragmenty informacji, które należy podać, są IDENTYFIKATORem i aliasem oferty. 
 
 | **Nazwa pola**    | **Uwagi**   |  
 | :---------------- | :-----------| 
-| Identyfikator oferty  | Wymagane, nie można zmienić po utworzeniu. Maksymalnie 50 znaków i musi składać się tylko z małych liter, znaków alfanumerycznych, kresek lub podkreśleń. |
-| Zaoferuj alias  | Wymagany. |
+| Identyfikator oferty  | Wymagane, nie można zmienić po utworzeniu. Maks. 50 znaków i musi zawierać tylko małe litery, znaki alfanumeryczne, łączniki i podkreślenia. |
+| Alias oferty  | Wymagany. |
 
 ## <a name="offer-setup-page"></a>Strona konfiguracji oferty
 
-Strona konfiguracji oferty to miejsce, w którym można zdecydować się na różne kanały i ruchy sprzedaży, a także zadeklarować korzystanie z kluczowych funkcji, takich jak jazda próbna i potencjalnych klientów. 
+Na stronie Konfiguracja oferty możesz wybrać różne kanały i sprzedawać ruchy, a także zadeklarować korzystanie z najważniejszych funkcji, takich jak Stacja testowa i klient. 
 
 | **Nazwa pola**    | **Uwagi**   | 
 | :---------------- | :-----------|  
-| Czy chcesz sprzedawać za pośrednictwem firmy Microsoft?  | Wymagany. Domyślnie: Tak |
-| Jak chcesz, aby potencjalni klienci wchodzili w interakcje z ofertą? (Wezwanie do działania)  | Wymagane, jeśli nie sprzedaje za pośrednictwem firmy Microsoft. Domyślnie: Bezpłatna wersja próbna, opcje: "Pobierz teraz", "Bezpłatna wersja próbna", "Skontaktuj się ze mną". |
-| Adres URL wersji próbnej  | Wymagane, jeśli wybrano opcję "Bezpłatna wersja próbna", ponieważ klienci powinni wchodzić w interakcje z ofertą. |
-| Adres URL oferty  | Wymagane, jeśli zostanie wybrana opcja "Pobierz teraz", ponieważ sposób, w jaki klienci powinni wchodzić w interakcje z ofertą |
-| Kanały  | Element opcjonalny. Domyślnie: nie włączona do kanału CSP (sprzedawcy).  |
-| Wersja testowa | Element opcjonalny. Domyślnie: brak włączonej jazdy testowej.  |
-| Typ dysku testowego | Wymagane, jeśli włączono jazdę próbną. Domyślnie: Nie wybrano opcji. Opcje: Usługa Azure Resource Manager, Dynamics 365 for Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operations, Logic app, Power BI.  |
-| Zarządzanie potencjalnymi klientami - połączenie z systemem CRM | Wymagane, jeśli sprzedaż za pośrednictwem firmy Microsoft lub jeśli oferty aukcji jako "Skontaktuj się ze mną". Domyślnie: nie ma podłączonego systemu CRM. Opcje CRM: tabela platformy Azure, obiekt blob platformy Azure, program Dynamics CRM online, punkt końcowy HTTP, Marketo, Salesforce  |
+| Czy chcesz sprzedawać w firmie Microsoft?  | Wymagany. Ustawienie domyślne: Tak |
+| Jak chcesz, aby potencjalni klienci mogli współdziałać z listą ofert? (Wywołanie do akcji)  | Wymagane, jeśli nie sprzedajesz przez firmę Microsoft. Domyślnie: bezpłatna wersja próbna, opcje: "Pobierz teraz", "bezpłatna wersja próbna", "kontakt ze mną". |
+| Adres URL wersji próbnej  | Wymagany, jeśli wybrano opcję "bezpłatna wersja próbna", ponieważ sposób, w jaki klienci powinni korzystać z listy ofert. |
+| Adres URL oferty  | Wymagane, jeśli wybrano opcję "Pobierz teraz", ponieważ sposób, w jaki klienci powinni korzystać z listy ofert |
+| Kanały  | Opcjonalny. Wartość domyślna: nie została wybrana w kanale CSP (odsprzedawcy).  |
+| Wersja testowa | Opcjonalny. Wartość domyślna: brak włączonego dysku testowego.  |
+| Typ dysku testowego | Wymagane, jeśli włączono dysk testowy. Wartość domyślna: Brak zaznaczenia. Opcje: Azure Resource Manager, Dynamics 365 dla firm Central, Dynamics 365 do zaangażowania klienta, Dynamics 365 for Operations, Logic App Power BI.  |
+| Zarządzanie potencjalnymi klientami — nawiązywanie połączenia z systemem CRM | Wymagane, jeśli sprzedajesz przez firmę Microsoft lub jeśli lista zawiera oferty "kontakt ze mną". Wartość domyślna: brak połączonego systemu CRM. Opcje programu CRM: tabela Azure, obiekt blob platformy Azure, Dynamics CRM Online, HTTPs, punkt końcowy, Marketo, Salesforce  |
 
 ## <a name="properties-page"></a>Strona właściwości
 
-Strona właściwości to miejsce, na którym definiujesz kategorie i branże używane do grupowania oferty na rynkach, umowy prawne obsługujące twoją ofertę i wersję aplikacji. Pamiętaj, aby podać pełne i dokładne informacje o swojej ofercie na tej stronie, aby była odpowiednio wyświetlana i oferowana właściwemu zestawowi klientów. 
+Na stronie właściwości można zdefiniować kategorie i branże używane do grupowania oferty na rynkach Marketplace, umowy prawne wspierające Twoją ofertę i wersję aplikacji. Upewnij się, że podajesz pełne i dokładne szczegółowe informacje o ofercie na tej stronie, aby była ona wyświetlana odpowiednio i oferowana przez właściwy zestaw klientów. 
 
 | **Nazwa pola**    | **Uwagi**   | 
 | :---------------- | :-----------|  
-| Kategoria i podkategoria | Wymagane 1 i max 3. Domyślnie: Nie wybrano opcji. |
-| Branże i podprzemystwa | Element opcjonalny. max 2 L1 Industries i maksymalnie 2 podprzemysłów w każdej branży L1, Domyślnie: Brak wybranych |
-| Wersja aplikacji  | Element opcjonalny. Domyślnie: Brak. |
-| Użyj kontraktu standardowego  | Element opcjonalny. Domyślnie: nie zaznaczono.  | |
-| Warunki użytkowania  | Wymagane, jeśli umowa standardowa nie jest zaznaczona.  |
+| Kategoria i Podkategoria | Wymagane wartości 1 i maks. 3. Wartość domyślna: Brak zaznaczenia. |
+| Branże i podbranże | Opcjonalny. maksymalnie 2 branże L1 i 2 podbranże w ramach każdej branży L1, domyślnie: brak wybranych |
+| Wersja aplikacji  | Opcjonalny. Wartość domyślna: Brak. |
+| Użyj kontraktu standardowego  | Opcjonalny. Domyślnie: nie wybrano.  | |
+| Warunki użytkowania  | Wymagane, jeśli nie wybrano kontraktu standardowego.  |
 
-## <a name="offer-listing-page"></a>Strona aukcji oferty
+## <a name="offer-listing-page"></a>Strona z listą ofert
 
-Strona aukcji to miejsce, na którym podajesz tekst i obrazy, które klienci widzą podczas wyświetlania oferty w portalu Marketplace. 
+Na stronie lista znajduje się tekst i obrazy widoczne dla klientów podczas wyświetlania listy ofert w portalu Marketplace. 
 
 | **Nazwa pola**    | **Uwagi**   |
 | :---------------- | :-----------| 
-| Nazwa  | Wymagane, max 50 znaków. |
-| Podsumowanie  | Wymagane, maksymalnie 100 znaków. | 
-| Opis  | Wymagane, max 3000 znaków. |
-| Instrukcje dotyczące rozpoczynania pracy  | Wymagane, max 3000 znaków. |
-| Instrukcje dotyczące rozpoczynania pracy  | Wymagane, max 3000 znaków. |
-| Szukaj słów kluczowych  | Opcjonalnie, zalecane, maksymalnie 3 słowa kluczowe. |
-| Adres URL polityki prywatności  | Wymagany. |
-| Adres URL materiałów marketingowych programu CSP  | Element opcjonalny. |
-| Przydatne linki Tytuł + ADRES URL  | Element opcjonalny. |
-| Tytuł + plik dokumentów uzupełniających  | Wymagane, min 1 i max 3. Musi być w formacie PDF. |
-| Zrzuty ekranu  | Wymagane, min 1 zrzut ekranu i max 5 ; zalecane cztery lub więcej. Musi mieć 1280 X 720 w formacie PNG. |
-| Logo sklepu (małe, średnie, duże, szerokie, bohater)  | Małe (48 X 48) i duże (216 X 216) wymagane; inne rozmiary opcjonalne, ale zalecane: Średni (90 x 90), Szeroki (255 x 115), Bohater (815 x 290). Musi być w formacie PNG. |
-| Nazwa filmu + adres URL + miniatura  | Opcjonalnie, zalecane, maksymalnie 4 filmy. Miniatura musi mieć rozmiar 1280 x 720 w formacie PNG. Film musi być hostowany w YouTube lub Vimeo. |
-| Kontakty (program CSP, inżynieria, wsparcie)  | Wymagany kontakt inżynierski i pomocy technicznej (imię i nazwisko, adres e-mail i numer telefonu); Kontakt programu CSP jest opcjonalny, ale zalecany. |
+| Nazwa  | Wymagane, maks. 50 znaków. |
+| Podsumowanie  | Wymagane, maks. 100 znaków. | 
+| Opis  | Wymagane, maks. 3000 znaków. |
+| Instrukcje Wprowadzenie  | Wymagane, maks. 3000 znaków. |
+| Instrukcje Wprowadzenie  | Wymagane, maks. 3000 znaków. |
+| Słowa kluczowe wyszukiwania  | Opcjonalne, zalecane, maksymalnie 3 słowa kluczowe. |
+| Adres URL zasad ochrony prywatności  | Wymagany. |
+| Adres URL materiałów marketingowych programu CSP  | Opcjonalny. |
+| Przydatne linki tytuł + adres URL  | Opcjonalny. |
+| Dokument pomocniczy tytuł + plik  | Wymagane, minimum 1 i 3. Musi być formatem pliku PDF. |
+| Zrzuty ekranu  | Wymagany, minimalny 1 zrzut ekranu i maksymalnie 5; co najmniej cztery zalecane. Musi mieć 1280 X 720 w formacie PNG. |
+| Logo Sklepu (małe, średnie, duże, szerokie, Hero)  | Małe (48 X 48) i duże (216 X 216) wymagane; inne rozmiary opcjonalne, ale zalecane: Średni (90 x 90), szeroki (255 x 115), Hero (815 x 290). Musi być w formacie PNG. |
+| Nazwa wideo + URL + miniatura  | Opcjonalne, zalecane, maksymalnie 4 wideo. Miniatura musi mieć 1280 x 720 w formacie PNG. Wideo musi być hostowane w serwisie YouTube lub Vimeo. |
+| Kontakty (program CSP, inżynieria, pomoc techniczna)  | Wymagana osoba kontaktu inżynieryjnego i pomocy technicznej (nazwisko, adres e-mail i numer telefonu); Program CSP kontaktuje się z opcjonalnym, ale zalecanym. |
 | Adres URL pomocy technicznej  | Wymagany. |
 
 ## <a name="preview-page"></a>Strona podglądu
 
-Na stronie podglądu można określić grupę odbiorców, aby mieć dostęp do podglądu oferty, aby sprawdzić, czy oferta spełnia wszystkie Twoje wymagania, zanim zostanie wyeksponowanych. 
+Na stronie wersji zapoznawczej można określić odbiorców w celu uzyskania dostępu do wersji zapoznawczej oferty, aby upewnić się, że oferta spełnia wszystkie wymagania, zanim będzie ona aktywna. 
 
 | **Nazwa pola**    | **Uwagi**   | 
 | :---------------- | :-----------| 
-| E-mail AAD/MSA + opis | Wymagane, min 1 i max 10, jeśli zostały wprowadzone ręcznie, lub do 20 w przypadku przesyłania pliku CSV. |
+| Wiadomości e-mail w usłudze AAD/MSA i opis | Wymagane, minimum 1 i maks. 10, jeśli zostało wprowadzone ręcznie, lub do 20 w przypadku przekazywania pliku CSV. |
 
 ## <a name="technical-configuration-page"></a>Strona konfiguracji technicznej 
 
-Na stronie konfiguracji technicznej określono szczegóły techniczne używane przez firmę Microsoft do łączenia się z ofertą. Ta strona nie jest widoczna, jeśli zdecydujesz się nie sprzedawać za pośrednictwem firmy Microsoft.
+Na stronie Konfiguracja techniczna można określić szczegóły techniczne używane przez firmę Microsoft do nawiązania połączenia z ofertą. Ta strona nie jest widoczna dla Ciebie, jeśli zdecydujesz się nie sprzedawać w firmie Microsoft.
 
 | **Nazwa pola**    | **Uwagi**   |  
 | :---------------- | :-----------| 
-| Adres URL strony docelowej | Wymagane w przypadku sprzedaży za pośrednictwem firmy Microsoft. |
-| Elementów webhook połączenia | Wymagane w przypadku sprzedaży za pośrednictwem firmy Microsoft. |
-| Identyfikator dzierżawy usługi Azure AD | Wymagane w przypadku sprzedaży za pośrednictwem firmy Microsoft. |
-| Identyfikator aplikacji usługi Azure AD | Wymagane w przypadku sprzedaży za pośrednictwem firmy Microsoft. |
+| Adres URL strony docelowej | Wymagane, jeśli sprzedajesz przez firmę Microsoft. |
+| Element webhook połączenia | Wymagane, jeśli sprzedajesz przez firmę Microsoft. |
+| Identyfikator dzierżawy usługi Azure AD | Wymagane, jeśli sprzedajesz przez firmę Microsoft. |
+| Identyfikator aplikacji usługi Azure AD | Wymagane, jeśli sprzedajesz przez firmę Microsoft. |
 
-## <a name="plan-identity-modal"></a>Planowanie modalności tożsamości
+## <a name="plan-identity-modal"></a>Zaplanuj modalną tożsamość
 
-Pierwsze informacje, które użytkownik jest proszony o podanie, to nazwa i identyfikator planu. Ta strona nie jest widoczna, jeśli zdecydujesz się nie sprzedawać za pośrednictwem firmy Microsoft.
+Pierwsze informacje, które należy podać, to nazwa i identyfikator planu. Ta strona nie jest widoczna dla Ciebie, jeśli użytkownik zdecydował się nie sprzedawać w firmie Microsoft.
 
 | **Nazwa pola**    | **Uwagi**   |  
 | :---------------- | :-----------| 
-| Identyfikator planu  | Wymagane w przypadku sprzedaży za pośrednictwem firmy Microsoft. Nie można go zmienić po utworzeniu. Maksymalnie 50 znaków i musi składać się tylko z małych liter, znaków alfanumerycznych, kresek lub podkreśleń. |
-| Plan Name  | Wymagane w przypadku sprzedaży za pośrednictwem firmy Microsoft. Musi być unikalny we wszystkich planach w ofercie. Maksymalnie 50 znaków. |
+| Identyfikator planu  | Wymagane, jeśli sprzedajesz przez firmę Microsoft. Nie można go zmienić po utworzeniu. Maks. 50 znaków i musi zawierać tylko małe litery, znaki alfanumeryczne, łączniki i podkreślenia. |
+| Plan Name  | Wymagane, jeśli sprzedajesz przez firmę Microsoft. Musi być unikatowa we wszystkich planach oferty. Maks. 50 znaków. |
 
 ## <a name="plan-listing-page"></a>Strona aukcji planu
 
-Strona z listą planu to miejsce, na którym udostępniasz klientom tekst, który można zobaczyć podczas wyświetlania planu w portalu marketplace. Ta strona nie jest widoczna, jeśli zdecydujesz się nie sprzedawać za pośrednictwem firmy Microsoft.
+Na stronie z listą planu można podać tekst, który mają być widoczne dla klientów podczas wyświetlania planu w portalu Marketplace. Ta strona nie jest widoczna dla Ciebie, jeśli zdecydujesz się nie sprzedawać w firmie Microsoft.
 
 | **Nazwa pola**    | **Uwagi**   |  
 | :---------------- | :-----------| 
-| Opis planu   | Wymagane w przypadku sprzedaży za pośrednictwem firmy Microsoft. Maksymalnie 500 znaków. | |
+| Opis planu   | Wymagane, jeśli sprzedajesz przez firmę Microsoft. Maks. 500 znaków. | |
 
-## <a name="plan-pricing--availability-page"></a>Strona dostępności cen & planu
+## <a name="plan-pricing--availability-page"></a>Zaplanuj stronę dostępności & cennika
 
-Strona cen i dostępności planu umożliwia zdefiniowanie charakterystyki biznesowej, odbiorców i dostępności rynkowej dla każdego planu (wersji) oferty. Ta strona nie jest widoczna, jeśli zdecydujesz się nie sprzedawać za pośrednictwem firmy Microsoft.
+Na stronie planowanie cen i dostępności można zdefiniować charakterystykę biznesową, odbiorców i dostępność rynkową dla każdego planu (wersji) oferty. Ta strona nie jest widoczna dla Ciebie, jeśli zdecydujesz się nie sprzedawać w firmie Microsoft.
 
 | **Nazwa pola**    | **Uwagi**   | 
 | :---------------- | :-----------| 
-| Dostępność na rynku  | Wymagane, min 1 i max 141. |
-| Model cenowy  | Wymagany. Domyślnie: Stawka ryczałtowa. Opcje: Stawka ryczałtowa, na użytkownika. |
-| Minimalna i maksymalna liczba miejsc  | Opcjonalnie, dostępne tylko wtedy, gdy wybrany jest model cenowy oparty na fotelu. |
-| Termin rozliczeniowy  | Wymagany. Domyślnie: co miesiąc. Opcje: Miesięczny, Roczny. |
-| Price  | Wymagany USD miesięcznie, jeśli wybrany zostanie wybrany miesięczny termin rozliczeniowy; lub USD rocznie, jeśli wybrany zostanie roczny termin rozliczeniowy. |
-| Zaplanuj grupę odbiorców  | Element opcjonalny. Domyślnie: plan publiczny. Opcje: Publiczny, Prywatny według identyfikatora dzierżawy |
-| Grupa odbiorców planu ograniczonego (identyfikator dzierżawy + opis)  | Wymagane, jeśli wybrany plan prywatny. Min 1 i max 10 identyfikatorów dzierżawy, jeśli wprowadzone ręcznie. Max 20000 jeśli plik CSV import. |
+| Dostępność na rynku  | Wymagane, minimum 1 i maks. 141. |
+| Model cen  | Wymagany. Wartość domyślna: stawka płaska. Opcje: stawka ryczałtowa na użytkownika. |
+| Minimalna i Maksymalna liczba stanowisk  | Opcjonalne, dostępne tylko wtedy, gdy wybrano model cenowy oparty na miejscu. |
+| Okres rozliczeniowy  | Wymagany. Wartość domyślna: co miesiąc. Opcje: co miesiąc, roczna. |
+| Price  | Wymagany USD miesięcznie, w przypadku wybrania miesięcznego okresu rozliczeniowego; lub USD na rok, jeśli wybrano roczny okres rozliczeniowy. |
+| Planowanie odbiorców  | Opcjonalny. Domyślne: plan publiczny. Opcje: publiczne, prywatne według identyfikatora dzierżawy |
+| Odbiorcy planu z ograniczeniami (identyfikator dzierżawy + opis)  | Wymagane, jeśli wybrano plan prywatny. Minimalna 1 i maksymalna 10 identyfikatorów dzierżawy, jeśli wprowadzono ją ręcznie. Max 20000, jeśli Importuj plik CSV. |
 
-## <a name="test-drive-listing-page"></a>Strona z listą z dyskami testowych
+## <a name="test-drive-listing-page"></a>Strona listy dysków testowych
 
-Dostępne tylko wtedy, gdy zdecydujesz się zaoferować jazdę próbną dla swojej oferty. Zdefiniuj szczegóły używane do listy jazdy testowej w portalu marketplace.
+Dostępne tylko wtedy, gdy wybrano opcję zaoferowania dysku testowego dla oferty. Zdefiniuj szczegóły używane do wyświetlania na liście dysku testowego w portalu Marketplace.
 
 | **Nazwa pola**    | **Uwagi**   | 
 | :---------------- | :-----------| 
 | Opis  | Wymagany. |
-| Nazwa podręcznika użytkownika + plik  | Wymagane, maksymalnie 1 doc. Musi być w formacie PDF. |
-| Nazwa filmu, adres URL + miniatura  | Opcjonalnie, zalecane. Miniatura musi mieć rozmiar 533 x 324 w formacie JPGP lub PNG. Film musi być hostowany w YouTube lub Vimeo. |
+| Ręczna nazwa użytkownika + plik  | Wymagany, maksymalny 1 dokument doc. musi być w formacie PDF. |
+| Nazwa wideo, adres URL i miniatura  | Opcjonalne, zalecane. Miniatura musi być 533 x 324 w formacie JPGP lub PNG. Wideo musi być hostowane w serwisie YouTube lub Vimeo. |
 
 ## <a name="review-and-publish-page"></a>Przeglądanie i publikowanie strony
 
 | **Nazwa pola**    | **Uwagi**   | 
 | :---------------- | :-----------| 
-| Uwagi do certyfikacji  | Element opcjonalny. |
+| Uwagi dotyczące certyfikacji  | Opcjonalny. |
 
 ## <a name="next-steps"></a>Następne kroki
 

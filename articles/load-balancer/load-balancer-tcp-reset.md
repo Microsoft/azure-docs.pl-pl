@@ -1,7 +1,7 @@
 ---
-title: Resetowanie TCP modułu równoważenia obciążenia na bezczynniu na platformie Azure
+title: Load Balancer Resetowanie protokołu TCP przy bezczynności na platformie Azure
 titleSuffix: Azure Load Balancer
-description: W tym artykule dowiedz się więcej o równoważącym obciążenia platformy Azure z dwukierunkowymi pakietami RST TCP na podstawie limitu czasu bezczynnego.
+description: W tym artykule dowiesz się więcej o Azure Load Balancer z dwukierunkowym pakietem TCP RST przy przekroczeniu limitu czasu bezczynności.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,31 +14,31 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2019
 ms.author: allensu
 ms.openlocfilehash: d3d836ddea8d07a25ad09e6f19d9f17a680decd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80294402"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle"></a>Moduł równoważenia obciążenia z resetowaniem TCP na bezczynniu
+# <a name="load-balancer-with-tcp-reset-on-idle"></a>Load Balancer z resetowaniem protokołu TCP przy bezczynności
 
-Standardowego [modułu równoważenia obciążenia](load-balancer-standard-overview.md) można użyć do utworzenia bardziej przewidywalnego zachowania aplikacji dla scenariuszy, włączając resetowanie TCP na bezczynności dla danej reguły. Domyślnym zachowaniem modułu równoważenia obciążenia jest dyskretne upuszczanie przepływów po osiągnięciu limitu czasu bezczynności przepływu.  Włączenie tej funkcji spowoduje, że moduł równoważenia obciążenia będzie wysyłał dwukierunkowe resetowanie TCP (pakiet TCP RST) przy po przekroju czasu bezczynnego.  Spowoduje to poinformowanie punktów końcowych aplikacji, że połączenie zostało przesunął limit czasu i nie jest już użyteczny.  Punkty końcowe można natychmiast ustanowić nowe połączenie w razie potrzeby.
+Za pomocą [Usługa Load Balancer w warstwie Standardowa](load-balancer-standard-overview.md) można utworzyć bardziej przewidywalne zachowanie aplikacji dla Twoich scenariuszy przez włączenie resetowania protokołu TCP dla danej reguły. Domyślne zachowanie Load Balancer polega na dyskretnym porzucaniu przepływów, gdy zostanie osiągnięty limit czasu bezczynności przepływu.  Włączenie tej funkcji spowoduje, że Load Balancer wysyłać dwukierunkowe Resetowanie protokołu TCP (pakiety TCP RST) przy limicie czasu bezczynności.  Spowoduje to wyświetlenie punktów końcowych aplikacji, dla których upłynął limit czasu połączenia i nie będzie już można go używać.  Punkty końcowe mogą natychmiast ustanowić nowe połączenie, jeśli jest to możliwe.
 
-![Resetowanie TCP modułu równoważenia obciążenia](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
+![Load Balancer Resetowanie protokołu TCP](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
  
-Zmień to zachowanie domyślne i włączysz wysyłanie resetów TCP na podstawie limitu czasu bezczynnego na przychodzących regułach TRANSLATORA, regułach równoważenia obciążenia i [regułach wychodzących](https://aka.ms/lboutboundrules).  Po włączeniu według reguły moduł równoważenia obciążenia wysyła dwukierunkowe resetowanie TCP (pakiety TCP RST) zarówno do punktów końcowych klienta, jak i serwera w czasie limitu czasu bezczynności dla wszystkich pasujących przepływów.
+Należy zmienić to zachowanie domyślne i włączyć opcję wysyłania resetowania protokołu TCP przy bezczynności, aby włączyć przychodzące reguły NAT, reguły równoważenia obciążenia i [reguły ruchu wychodzącego](https://aka.ms/lboutboundrules).  Po włączeniu dla każdej reguły, Load Balancer wyśle dwukierunkowe Resetowanie TCP (pakiety TCP RST) do punktów końcowych klienta i serwera w czasie bezczynności dla wszystkich zgodnych przepływów.
 
-Punkty końcowe odbierające pakiety TCP RST natychmiast zamykają odpowiednie gniazdo. Zapewnia to natychmiastowe powiadomienie o punktach końcowych, że wystąpiło zwolnienie połączenia, a wszelkie przyszłe komunikaty dotyczące tego samego połączenia TCP nie powiodą się.  Aplikacje mogą przeczyścić połączenia, gdy gniazdo zostanie zamknięte i ponownie nawiązują połączenia zgodnie z potrzebami, bez oczekiwania na przesunienie czasu połączenia TCP.
+Punkty końcowe odbierające pakiety TCP RST zamykają odpowiednie gniazda natychmiast. Zapewnia to natychmiastowe powiadomienie do punktów końcowych, w których wystąpiło wydanie połączenia, i wszelka przyszła komunikacja z tym samym połączeniem TCP zakończy się niepowodzeniem.  Aplikacje mogą przeczyścić połączenia, gdy gniazdo zamknie i ponownie nawiąże połączenia w razie potrzeby bez oczekiwania na zakończenie limitu czasu połączenia TCP.
 
-W wielu scenariuszach może to zmniejszyć konieczność wysyłania TCP (lub warstwy aplikacji) keepalives odświeżyć czas bezczynności przepływu. 
+W przypadku wielu scenariuszy może to zmniejszyć konieczność wysłania aktywności protokołu TCP (lub warstwy aplikacji) w celu odświeżenia czasu bezczynności przepływu. 
 
-Jeśli czas trwania bezczynności przekracza czas trwania dozwolony przez konfigurację lub aplikacja pokazuje niepożądane zachowanie z włączonymi resetowaniami TCP, może być konieczne użycie funkcji keepalives TCP (lub zachowaalives warstwy aplikacji) do monitorowania żywotności połączeń TCP.  Ponadto keepalives może również pozostać przydatne, gdy połączenie jest bliższe gdzieś w ścieżce, szczególnie keepalives warstwy aplikacji.  
+Jeśli czasy trwania bezczynności przekraczają liczbę dozwolonych przez konfigurację lub aplikacja pokazuje niepożądane zachowanie z włączonym resetowaniem protokołu TCP, może być nadal konieczne użycie obsługi protokołu TCP (lub utrzymywania warstwy aplikacji) w celu monitorowania aktywności połączeń TCP.  Ponadto utrzymywanie aktywności może być również przydatne w przypadku, gdy połączenie jest nawiązywane z serwerem proxy w ścieżce, szczególnie w przypadku warstwy aplikacji.  
 
-Dokładnie zbadać cały scenariusz końca do końca, aby zdecydować, czy można korzystać z włączania resetowania TCP, dostosowując limit czasu bezczynność i czy dodatkowe kroki mogą być wymagane w celu zapewnienia żądanego zachowania aplikacji.
+Uważnie Przeanalizuj cały kompleksowy scenariusz, aby zdecydować, czy można włączyć Resetowanie protokołu TCP, dostosować limit czasu bezczynności, a jeśli wymagane są dodatkowe kroki, aby zapewnić odpowiednie zachowanie aplikacji.
 
-## <a name="enabling-tcp-reset-on-idle-timeout"></a>Włączanie resetowania TCP przy po przekroczeniem limitu czasu bezczynnego
+## <a name="enabling-tcp-reset-on-idle-timeout"></a>Włączanie resetowania protokołu TCP po upływie limitu czasu bezczynności
 
-Korzystając z wersji interfejsu API 2018-07-01, można włączyć wysyłanie dwukierunkowych resetów TCP na podstawie limitu czasu bezczynności na podstawie reguły:
+Korzystając z interfejsu API w wersji 2018-07-01, można włączyć wysyłanie dwukierunkowych resetów TCP przy bezczynności dla każdej reguły:
 
 ```json
       "loadBalancingRules": [
@@ -64,16 +64,16 @@ Korzystając z wersji interfejsu API 2018-07-01, można włączyć wysyłanie dw
       ]
 ```
 
-## <a name="region-availability"></a><a name="regions"></a>Dostępność regionu
+## <a name="region-availability"></a><a name="regions"></a>Dostępność regionów
 
 Dostępne we wszystkich regionach.
 
 ## <a name="limitations"></a>Ograniczenia
 
-- Protokół TCP RST wysyłany tylko podczas połączenia TCP w stanie ESTABLISHED.
+- Parametr RST jest wysyłany tylko podczas połączenia TCP w stanie USTANOWIONym.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [standardowym równoważącym obciążenia](load-balancer-standard-overview.md).
-- Dowiedz się więcej o [regułach ruchu wychodzącego](load-balancer-outbound-rules-overview.md).
-- [Konfigurowanie protokołu TCP RST przy przekroju czasu bezczynnego](load-balancer-tcp-idle-timeout.md)
+- Dowiedz się więcej na temat [Usługa Load Balancer w warstwie Standardowa](load-balancer-standard-overview.md).
+- Poznaj [reguły ruchu wychodzącego](load-balancer-outbound-rules-overview.md).
+- [Skonfiguruj RST o limicie czasu bezczynności protokołu TCP](load-balancer-tcp-idle-timeout.md)

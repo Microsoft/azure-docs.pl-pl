@@ -1,6 +1,6 @@
 ---
-title: Wyświetlanie metryk użycia interfejsu API usługi Azure Maps | Mapy platformy Microsoft Azure
-description: W tym artykule dowiesz się, jak wyświetlić metryki dla wywołań interfejsu API usługi Microsoft Azure Maps w witrynie Azure portal.
+title: Wyświetl metryki użycia interfejsu API Azure Maps | Mapy Microsoft Azure
+description: W tym artykule dowiesz się, jak wyświetlać metryki dla wywołań interfejsu API Maps Microsoft Azure w Azure Portal.
 author: philmea
 ms.author: philmea
 ms.date: 08/06/2018
@@ -9,61 +9,61 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 0eb117af712b3b1f63a3f99c96cba9775f8e3996
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335164"
 ---
 # <a name="view-azure-maps-api-usage-metrics"></a>Wyświetlanie metryk użycia interfejsu API usługi Azure Maps
 
-W tym artykule pokazano, jak wyświetlić metryki użycia interfejsu API dla konta usługi Azure Maps w [witrynie Azure portal.](https://portal.azure.com) Metryki są wyświetlane w wygodnym formacie wykresu wzdłuż konfigurowalny czas trwania.
+W tym artykule pokazano, jak wyświetlić metryki użycia interfejsu API dla konta Azure Maps w [Azure Portal](https://portal.azure.com). Metryki są wyświetlane w wygodnym formacie grafu, co umożliwia dostosowanie czasu trwania.
 
 ## <a name="view-metric-snapshot"></a>Wyświetl migawkę metryki
 
-Na stronie **Przegląd** konta Mapy możesz zobaczyć kilka typowych danych. Obecnie pokazuje *całkowitą liczbę żądań,* *całkowita liczba błędów*i *dostępność* w wybranym czasie trwania.
+Niektóre typowe metryki można zobaczyć na stronie **Przegląd** konta Maps. Obecnie pokazuje *łączne żądania*, *łączne błędy*i *dostępność* w czasie trwania możliwego do wyboru czasu.
 
-![Omówienie metryk użycia usługi Azure Maps](media/how-to-view-api-usage/portal-overview.png)
+![Przegląd metryk użycia Azure Maps](media/how-to-view-api-usage/portal-overview.png)
 
 Przejdź do następnej sekcji, jeśli chcesz dostosować te wykresy do konkretnej analizy.
 
-## <a name="view-detailed-metrics"></a>Wyświetlanie szczegółowych danych
+## <a name="view-detailed-metrics"></a>Wyświetl szczegółowe metryki
 
 1. Zaloguj się do subskrypcji platformy Azure w [portalu](https://portal.azure.com).
 
-2. Kliknij element menu **Wszystkie zasoby** po lewej stronie i przejdź do konta usługi *Azure Maps*.
+2. Kliknij element menu **wszystkie zasoby** po lewej stronie i przejdź do *konta Azure Maps*.
 
-3. Po otwarciu konta Mapy kliknij menu **Metryki** po lewej stronie.
+3. Po otwarciu konta Maps kliknij menu **metryki** po lewej stronie.
 
-4. W okienku **Metryki** wybierz jedną z następujących opcji:
+4. W okienku **metryki** wybierz jedną z następujących opcji:
 
-   1. **Dostępność** — która pokazuje *średnią* dostępności interfejsu API w określonym czasie.
-   2. **Użycie** — co pokazuje, jak *liczy się* użycie dla Twojego konta.
+   1. **Dostępność** — który pokazuje *ŚREDNIĄ* dostępność interfejsu API w danym okresie czasu.
+   2. **Użycie** — pokazuje, jak *licznik* użycia dla Twojego konta.
 
-      ![Okienko metryki użycia usługi Azure Maps](media/how-to-view-api-usage/portal-metrics.png)
+      ![Okienko metryk użycia Azure Maps](media/how-to-view-api-usage/portal-metrics.png)
 
-5. Następnie możesz wybrać *zakres czasu,* klikając **przycisk Ostatnie 24 godziny (Automatyczne)**. Domyślnie zakres czasu jest ustawiony na 24 godziny. Po kliknięciu zobaczysz wszystkie możliwe do wyboru zakresy czasu. Można wybrać *szczegółowość czasu* i wybrać wyświetlanie czasu jako *lokalnego* lub *GMT* w tej samej rozwijanej. Kliknij przycisk **Zastosuj**.
+5. Następnie możesz wybrać *zakres czasu* , klikając **ostatnie 24 godziny (automatyczne)**. Domyślnie zakres czasu jest ustawiany na 24 godziny. Po kliknięciu zobaczysz wszystkie wybrane zakresy czasu. Możesz wybrać *stopień szczegółowości czasu* i wybrać opcję wyświetlania czasu jako *lokalnego* lub *GMT* w tej samej liście rozwijanej. Kliknij przycisk **Zastosuj**.
 
-    ![Zakres czasu metryk usługi Azure Maps](media/how-to-view-api-usage/time-range.png)
+    ![Zakres czasu metryk Azure Maps](media/how-to-view-api-usage/time-range.png)
 
-6. Po dodaniu danych można **dodać filtr** z właściwości istotnych dla tej metryki. Następnie wybierz wartość właściwości, która ma być widoczna na wykresie.
+6. Po dodaniu metryki możesz **dodać filtr** z właściwości odpowiednich dla tej metryki. Następnie wybierz wartość właściwości, która ma być widoczna na grafie.
 
-    ![Filtr metryk użycia usługi Azure Maps](media/how-to-view-api-usage/filter.png)
+    ![Filtr metryk użycia Azure Maps](media/how-to-view-api-usage/filter.png)
 
-7. Możesz również **zastosować podział** dla danych na podstawie wybranej właściwości metryki. Umożliwia wykres podzielić na wiele wykresów, dla każdej wartości tej właściwości. Na poniższym rysunku kolor każdego wykresu odpowiada wartości właściwości wyświetlanej w dolnej części wykresu.
+7. Możesz również **zastosować dzielenie** dla metryki na podstawie wybranej właściwości metryki. Umożliwia to dzielenie wykresu na wiele wykresów, dla każdej wartości tej właściwości. Na poniższej ilustracji kolor każdego wykresu odpowiada wartości właściwości widocznej w dolnej części wykresu.
 
-    ![Dzielenie metryk użycia usługi Azure Maps](media/how-to-view-api-usage/splitting.png)
+    ![Dzielenie metryk użycia Azure Maps](media/how-to-view-api-usage/splitting.png)
 
-8. Możesz również zaobserwować wiele danych na tym samym wykresie, po prostu klikając przycisk **Dodaj metrykę** u góry.
+8. Możesz również obserwować wiele metryk na tym samym wykresie. Wystarczy kliknąć przycisk **Dodaj metrykę** na górze.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o interfejsach API usługi Azure Maps, dla których chcesz śledzić użycie:
+Dowiedz się więcej na temat Azure Maps interfejsów API, dla których chcesz śledzić użycie:
 > [!div class="nextstepaction"] 
-> [Instrukcje dotyczące zestawów SDK usługi Azure Maps w sieci Web](how-to-use-map-control.md)
+> [Azure Maps zestawu SDK sieci Web](how-to-use-map-control.md)
 
 > [!div class="nextstepaction"] 
-> [Instrukcje dotyczące zestawów SDK dla systemu Android usługi Azure Maps](how-to-use-android-map-control-library.md)
+> [Azure Maps Android SDK](how-to-use-android-map-control-library.md)
 
 > [!div class="nextstepaction"]
-> [Dokumentacja interfejsu API usługi Azure Maps REST](https://docs.microsoft.com/rest/api/maps)
+> [Dokumentacja interfejsu API REST Azure Maps](https://docs.microsoft.com/rest/api/maps)

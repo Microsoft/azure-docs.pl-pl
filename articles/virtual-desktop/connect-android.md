@@ -1,6 +1,6 @@
 ---
-title: Łączenie się z pulpitem wirtualnym systemu Windows z systemu Android — Azure
-description: Jak połączyć się z pulpitem wirtualnym systemu Windows za pomocą klienta systemu Android.
+title: Nawiązywanie połączenia z pulpitem wirtualnym systemu Windows w systemie Android — Azure
+description: Jak nawiązać połączenie z pulpitem wirtualnym systemu Windows przy użyciu klienta systemu Android.
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
@@ -9,45 +9,45 @@ ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: d2990c82efbcdac7d453f920301787b8c83db1e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80295377"
 ---
 # <a name="connect-with-the-android-client"></a>Łączenie się z klientem systemu Android
 
-> Dotyczy: Android 4.1 lub nowszych, Chromebooków z ChromeOS 53 lub nowszymi.
+> Dotyczy: system Android 4,1 i nowsze, Chromebooks z ChromeOS 53 i nowszymi.
 
 >[!NOTE]
 > Możliwość dostępu do zasobów pulpitu wirtualnego systemu Windows z klienta systemu Android jest obecnie dostępna w wersji zapoznawczej.
 
-Dostęp do zasobów pulpitu wirtualnego systemu Windows można uzyskać z urządzenia z systemem Android za pomocą naszego klienta do pobrania. Możesz też korzystać z klienta Androida na urządzeniach Chromebooka obsługujących Sklep Google Play. W tym przewodniku dowiesz się, jak skonfigurować klienta androida.
+Możesz uzyskać dostęp do zasobów pulpitu wirtualnego systemu Windows z urządzenia z systemem Android za pomocą klienta do pobrania. Klienta systemu Android można także używać na urządzeniach Chromebook, które obsługują Sklep Google Play. W tym przewodniku przedstawiono sposób konfigurowania klienta systemu Android.
 
-## <a name="install-the-android-client"></a>Zainstaluj klienta Androida
+## <a name="install-the-android-client"></a>Instalowanie klienta systemu Android
 
-Aby rozpocząć, [pobierz](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) i zainstaluj klienta na urządzeniu z Androidem.
+Aby rozpocząć, [Pobierz](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) i zainstaluj klienta na urządzeniu z systemem Android.
 
 ## <a name="subscribe-to-a-feed"></a>Subskrybowanie kanału informacyjnego
 
-Subskrybuj kanał informacyjny dostarczony przez administratora, aby uzyskać listę zarządzanych zasobów, do których możesz uzyskać dostęp na urządzeniu z Androidem.
+Zasubskrybuj źródło danych dostarczone przez administratora, aby uzyskać listę zasobów zarządzanych, do których możesz uzyskać dostęp na urządzeniu z systemem Android.
 
-Aby zasubskrybować kanał:
+Aby subskrybować źródło danych:
 
-1. W Centrum połączeń **+** naciśnij pozycję , a następnie naciśnij pozycję **Zdalny kanał informacyjny zasobów**.
-2. Wprowadź adres URL pliku danych w polu **Adres URL kanału informacyjnego.** Adres URL pliku danych może być adresem URL lub adresem e-mail.
-   - Jeśli używasz adresu URL, użyj adresu URL, <https://rdweb.wvd.microsoft.com>który dał Ci administrator, normalnie .
-   - Aby korzystać z poczty e-mail, wpisz swój adres e-mail. Klient wyszuka adres URL skojarzony z Twoim adresem e-mail, jeśli administrator skonfigurował serwer w ten sposób.
-3. Naciśnij przycisk **DALEJ**.
-4. Po wyświetleniu monitu podaj poświadczenia.
-   - W przypadku **nazwy użytkownika**należy podać nazwę użytkownika z uprawnieniami dostępu do zasobów.
-   - W przypadku **hasła**podaj hasło skojarzone z nazwą użytkownika.
-   - Może również zostać wyświetlony monit o podanie dodatkowych czynników, jeśli administrator skonfigurował uwierzytelnianie w ten sposób.
+1. W centrum połączenia naciśnij **+** pozycję, a następnie naciśnij pozycję **zdalne źródło zasobów**.
+2. Wprowadź adres URL źródła danych w polu **adres URL źródła danych** . Adres URL źródła danych może być adresem URL lub adresem e-mail.
+   - Jeśli używasz adresu URL, użyj tego administratora, zwykle <https://rdweb.wvd.microsoft.com>.
+   - Aby użyć poczty e-mail, wprowadź swój adres e-mail. Klient będzie szukać adresu URL skojarzonego z Twoim adresem e-mail, jeśli administrator skonfigurował serwer w taki sposób.
+3. Naciśnij przycisk **dalej**.
+4. Po wyświetleniu monitu podaj swoje poświadczenia.
+   - W polu **Nazwa użytkownika**Nadaj nazwę użytkownikowi uprawnienia dostępu do zasobów.
+   - W polu **hasło**Podaj hasło skojarzone z nazwą użytkownika.
+   - Może być również wyświetlony monit o podanie dodatkowych czynników, jeśli administrator skonfigurował uwierzytelnianie w taki sposób.
 
-Po subskrybowaniu Centrum połączeń powinno wyświetlać zasoby zdalne.
+Po zasubskrybowaniu centrum połączeń powinno wyświetlić zasoby zdalne.
 
-Po zasubskrybowaniu pliku danych zawartość pliku danych będzie regularnie aktualizowana automatycznie. Zasoby mogą być dodawane, zmieniane lub usuwane na podstawie zmian wprowadzonych przez administratora.
+Po zasubskrybowaniu kanału informacyjnego zawartość kanału informacyjnego będzie regularnie aktualizowana automatycznie. Zasoby mogą zostać dodane, zmienione lub usunięte na podstawie zmian wprowadzonych przez administratora.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o korzystaniu z klienta Androida, zapoznaj się [z Wprowadzenie do klienta Android](/windows-server/remote/remote-desktop-services/clients/remote-desktop-android/).
+Aby dowiedzieć się więcej na temat korzystania z klienta systemu Android, zapoznaj się z tematem Rozpoczynanie [pracy z klientem systemu Android](/windows-server/remote/remote-desktop-services/clients/remote-desktop-android/).

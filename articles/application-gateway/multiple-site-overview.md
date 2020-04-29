@@ -1,6 +1,6 @@
 ---
 title: Hostowanie wielu witryn w usłudze Azure Application Gateway
-description: Ten artykuł zawiera omówienie obsługi obsługi wielu lokacji usługi Azure Application Gateway.
+description: Ten artykuł zawiera omówienie obsługi wielolokacjowej platformy Azure Application Gateway.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,24 +8,24 @@ ms.date: 03/11/2020
 ms.author: amsriva
 ms.topic: conceptual
 ms.openlocfilehash: 4d945a255dacd35c61c3c80574b7d46b56de4aab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80257414"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hostowanie wielu witryn usługi Application Gateway
 
-Hosting wielu lokacji umożliwia skonfigurowanie więcej niż jednej aplikacji sieci web na tym samym porcie bramy aplikacji. Ta funkcja umożliwia skonfigurowanie bardziej wydajnej topologii dla wdrożeń przez dodanie maksymalnie 100 witryn internetowych do jednej bramy aplikacji. Każdą witrynę sieci Web można skierować do jej puli zaplecza. W poniższym przykładzie brama `contoso.com` `fabrikam.com` aplikacji obsługuje ruch dla i z dwóch pul serwerów zaplecza o nazwie ContosoServerPool i FabrikamServerPool.
+Obsługa wielu witryn umożliwia skonfigurowanie więcej niż jednej aplikacji sieci Web na tym samym porcie bramy aplikacji. Ta funkcja umożliwia skonfigurowanie bardziej wydajnej topologii dla wdrożeń przez dodanie maksymalnie 100 witryn internetowych do jednej bramy aplikacji. Każdą witrynę sieci Web można skierować do jej puli zaplecza. W poniższym przykładzie Brama Application Gateway obsługuje ruch dla `contoso.com` i `fabrikam.com` z dwóch pul serwera zaplecza o nazwie puli contososerverpool i puli fabrikamserverpool.
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 
 > [!IMPORTANT]
-> Reguły są przetwarzane w kolejności, w jakiej są wymienione w portalu dla jednostki SKU w wersji 1. Dla jednostki SKU v2 dokładne dopasowania mają wyższy priorytet. Zdecydowanie zaleca się skonfigurowanie odbiorników obejmujących wiele lokacji przed skonfigurowaniem podstawowego odbiornika.  Zapewni to skierowanie ruchu do odpowiedniego zaplecza. Jeśli podstawowy odbiornik znajduje się na początku listy i jest zgodny z żądaniem przychodzącym, jest ono przetwarzane przez ten odbiornik.
+> Reguły są przetwarzane w kolejności, w której są wyświetlane w portalu dla jednostki SKU w wersji 1. W przypadku jednostki SKU v2 dokładne dopasowania mają wyższy priorytet. Zdecydowanie zaleca się skonfigurowanie odbiorników obejmujących wiele lokacji przed skonfigurowaniem podstawowego odbiornika.  Zapewni to skierowanie ruchu do odpowiedniego zaplecza. Jeśli podstawowy odbiornik znajduje się na początku listy i jest zgodny z żądaniem przychodzącym, jest ono przetwarzane przez ten odbiornik.
 
 Żądania dotyczące adresu `http://contoso.com` są kierowane do puli ContosoServerPool, a żądania dotyczące adresu `http://fabrikam.com` — do puli FabrikamServerPool.
 
-Podobnie można obsługiwać wiele poddomen tej samej domeny nadrzędnej w tym samym wdrożeniu bramy aplikacji. Na przykład można `http://blog.contoso.com` hostować i `http://app.contoso.com` na wdrożenie bramy pojedynczej aplikacji.
+Analogicznie, można hostować wiele poddomen w tej samej domenie nadrzędnej w ramach tego samego wdrożenia bramy aplikacji. Można na przykład hostować i `http://blog.contoso.com` `http://app.contoso.com` obsługiwać pojedyncze wdrożenie bramy aplikacji.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Nagłówki hosta i oznaczanie nazwy serwera (SNI, Server Name Indication)
 
@@ -35,17 +35,17 @@ Istnieją trzy popularne mechanizmy włączania hostingu wielu witryn w tej same
 2. Użycie nazwy hosta do hostowania wielu aplikacji internetowych na tym samym adresie IP.
 3. Użycie różnych portów do hostowania wielu aplikacji internetowych na tym samym adresie IP.
 
-Obecnie brama aplikacji obsługuje jeden publiczny adres IP, w którym nasłuchuje ruchu. Tak więc wiele aplikacji, każda z własnym adresem IP nie jest obecnie obsługiwana. 
+Obecnie Application Gateway obsługuje jeden publiczny adres IP, na którym nasłuchuje ruch. W związku z tym wiele aplikacji, z których każdy ma własny adres IP, nie jest obecnie obsługiwane. 
 
-Brama aplikacji obsługuje wiele aplikacji, z których każda nasłuchuje na różnych portach, ale w tym scenariuszu wymaga to, aby aplikacje akceptował ruch na niestandardowych portach. Często nie jest to konfiguracja, która ma być żądana.
+Application Gateway obsługuje wiele aplikacji, które nasłuchują na różnych portach, ale ten scenariusz wymaga, aby aplikacje akceptowały ruch na portach niestandardowych. Często nie jest to konfiguracja, której chcesz użyć.
 
-Usługa Application Gateway bazuje na nagłówkach hosta HTTP 1.1 w celu hostowania więcej niż jednej witryny sieci Web na tym samym publicznym adresie IP i porcie. Witryny hostowane w bramie aplikacji mogą również obsługiwać odciążanie protokołu TLS z rozszerzeniem TLS wskazania nazwy serwera (SNI). Ten scenariusz oznacza, że przeglądarka i farma sieci Web zaplecza klienta muszą obsługiwać protokół HTTP/1.1 i rozszerzenie TLS zgodnie ze standardem RFC 6066.
+Usługa Application Gateway bazuje na nagłówkach hosta HTTP 1.1 w celu hostowania więcej niż jednej witryny sieci Web na tym samym publicznym adresie IP i porcie. Lokacje hostowane w usłudze Application Gateway mogą również obsługiwać odciążanie protokołu TLS przy użyciu rozszerzenia TLS Oznaczanie nazwy serwera (SNI). Ten scenariusz oznacza, że przeglądarka i farma sieci Web zaplecza klienta muszą obsługiwać protokół HTTP/1.1 i rozszerzenie TLS zgodnie ze standardem RFC 6066.
 
 ## <a name="listener-configuration-element"></a>Element konfiguracji odbiornika
 
-Istniejące elementy konfiguracji HTTPListener są rozszerzone do obsługi elementów wskazania nazwy hosta i nazwy serwera. Jest on używany przez bramę aplikacji do kierowania ruchu do odpowiedniej puli wewnętrznej bazy danych. 
+Istniejące elementy konfiguracji odbiornika HttpListener są rozszerzane do obsługi elementów wskazujących nazwę hosta i nazwę serwera. Jest on używany przez Application Gateway do kierowania ruchu do odpowiedniej puli zaplecza. 
 
-Poniższy przykład kodu jest fragment elementu HttpListeners z pliku szablonu:
+Poniższy przykład kodu jest fragmentem elementu HttpListeners z pliku szablonu:
 
 ```json
 "httpListeners": [

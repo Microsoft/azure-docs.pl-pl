@@ -1,6 +1,6 @@
 ---
-title: Skalowanie sesji hostuje usługę Azure Automation — Azure
-description: Jak automatycznie skalować hosty sesji pulpitu wirtualnego systemu Windows za pomocą usługi Azure Automation.
+title: Skalowanie hostów sesji Azure Automation — Azure
+description: Jak automatycznie skalować hosty sesji pulpitu wirtualnego systemu Windows przy użyciu Azure Automation.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,67 +9,67 @@ ms.date: 03/26/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 3a853dc32f8716f3f2ba32896a7a4a239efcc5bd
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80349881"
 ---
-# <a name="scale-session-hosts-using-azure-automation"></a>Skalowanie hostów sesji przy użyciu usługi Azure Automation
+# <a name="scale-session-hosts-using-azure-automation"></a>Skalowanie hostów sesji przy użyciu Azure Automation
 
-Całkowity koszt wdrożenia pulpitu wirtualnego systemu Windows można zmniejszyć, skalując maszyny wirtualne. Oznacza to zamykanie i rozdzielanie maszyn wirtualnych hosta sesji poza godzinami szczytu, a następnie włączanie ich i ponowne przydzielanie ich w godzinach szczytu.
+Możesz zmniejszyć łączny koszt wdrożenia pulpitu wirtualnego systemu Windows, przeskalując maszyny wirtualne. Oznacza to wyłączenie i cofnięcie przydziału maszyn wirtualnych hosta sesji w godzinach użycia poza szczytem, a następnie włączenie ich z powrotem i ich ponowne przypisanie w godzinach szczytu.
 
-W tym artykule dowiesz się o narzędziu skalowania utworzonym za pomocą usługi Azure Automation i usługi Azure Logic Apps, które automatycznie skaluje maszyny wirtualne hosta sesji w środowisku pulpitu wirtualnego systemu Windows. Aby dowiedzieć się, jak korzystać z narzędzia skalowania, przejdź do [wymagań wstępnych](#prerequisites).
+Ten artykuł zawiera informacje na temat narzędzia do skalowania utworzonego przy użyciu Azure Automation i Azure Logic Apps, które automatycznie skaluje maszyny wirtualne hosta sesji w środowisku pulpitu wirtualnego systemu Windows. Aby dowiedzieć się, jak korzystać z narzędzia do skalowania, przejdź do sekcji [wymagania wstępne](#prerequisites).
 
 ## <a name="how-the-scaling-tool-works"></a>Jak działa narzędzie skalowania
 
-Narzędzie skalowania zapewnia opcję automatyzacji o niskich kosztach dla klientów, którzy chcą zoptymalizować koszty maszyny wirtualnej hosta sesji.
+Narzędzie skalowania udostępnia opcję automatyzacji o niskich kosztach dla klientów, którzy chcą zoptymalizować koszty maszyn wirtualnych hosta sesji.
 
-Narzędzia skalowania można użyć do:
+Możesz użyć narzędzia skalowania, aby:
  
-- Zaplanuj uruchamianie i zatrzymywania maszyn wirtualnych w zależności od godzin pracy szczytowych i poza szczytem.
-- Skalowanie w poziomie maszyn wirtualnych na podstawie liczby sesji na rdzeń procesora CPU.
-- Skalowanie w maszynach wirtualnych w godzinach poza szczytem, pozostawiając minimalną liczbę maszyn wirtualnych hosta sesji uruchomionych.
+- Zaplanuj uruchamianie i zatrzymywanie maszyn wirtualnych w oparciu o szczytową i nieszczytową godzinę biznesową.
+- Skalowanie maszyn wirtualnych na podstawie liczby sesji na rdzeń procesora CPU.
+- Skalowanie maszyn wirtualnych poza godzinami szczytu, pozostawiając minimalną liczbę maszyn wirtualnych hosta sesji z systemem.
 
-Narzędzie skalowania używa kombinacji elementów runbook programu Azure Automation PowerShell, elementów webhook i aplikacji logiki Azure Logic Apps do działania. Po uruchomieniu narzędzia usługa Azure Logic Apps wywołuje element webhook, aby uruchomić element runbook usługi Azure Automation. Element runbook następnie tworzy zadanie.
+Narzędzie do skalowania używa Azure Automation kombinacji elementów Runbook programu PowerShell, webhook i Azure Logic Apps do działania. Po uruchomieniu narzędzia Azure Logic Apps wywoła element webhook w celu uruchomienia Azure Automation elementu Runbook. Następnie element Runbook utworzy zadanie.
 
-W szczytowym czasie użycia zadanie sprawdza bieżącą liczbę sesji i pojemność maszyny Wirtualnej bieżącego uruchomionego hosta sesji dla każdej puli hostów. Używa tych informacji do obliczenia, czy uruchomione maszyny wirtualne hosta sesji mogą obsługiwać istniejące sesje na podstawie *parametru SessionThresholdPerCPU* zdefiniowanego dla pliku **createazurelogicapp.ps1.** Jeśli maszyny wirtualne hosta sesji nie mogą obsługiwać istniejących sesji, zadanie uruchamia dodatkowe maszyny wirtualne hosta sesji w puli hostów.
+W czasie szczytowego użycia zadanie sprawdza bieżącą liczbę sesji i pojemność maszyny wirtualnej aktualnie działającego hosta sesji dla każdej puli hostów. Te informacje służą do obliczenia, czy uruchomione maszyny wirtualne hosta sesji mogą obsługiwać istniejące sesje na podstawie parametru *SessionThresholdPerCPU* zdefiniowanego dla pliku **createazurelogicapp. ps1** . Jeśli maszyny wirtualne hosta sesji nie mogą obsługiwać istniejących sesji, zadanie uruchamia dodatkowe maszyny wirtualne hosta sesji w puli hostów.
 
 >[!NOTE]
->*SessionThresholdPerCPU* nie ogranicza liczby sesji na maszynie Wirtualnej. Ten parametr określa tylko, kiedy nowe maszyny wirtualne muszą zostać uruchomione, aby zrównoważyć obciążenia połączeń. Aby ograniczyć liczbę sesji, należy postępować zgodnie z instrukcjami [Set-RdsHostPool,](/powershell/module/windowsvirtualdesktop/set-rdshostpool/) aby odpowiednio skonfigurować parametr *MaxSessionLimit.*
+>*SessionThresholdPerCPU* nie ogranicza liczby sesji na maszynie wirtualnej. Ten parametr określa tylko, kiedy należy uruchomić nowe maszyny wirtualne w celu równoważenia obciążenia połączeń. Aby ograniczyć liczbę sesji, należy postępować zgodnie z instrukcjami [Set-RdsHostPool](/powershell/module/windowsvirtualdesktop/set-rdshostpool/) , aby odpowiednio skonfigurować parametr *MaxSessionLimit* .
 
-W czasie użycia poza szczytem zadanie określa, które maszyny wirtualne hosta sesji powinny zostać zamknięte na podstawie *parametru MinimumNumberOfRDSH.* Zadanie ustawi maszyny wirtualne hosta sesji do trybu opróżniania, aby zapobiec nowym sesjam łączącym się z hostami. Jeśli ustawisz *parametr LimitSecondsToForceLogOffUser* na wartość dodatnią niezerową, zadanie powiadomi wszystkich aktualnie zalogowanych użytkowników, aby zapisali swoją pracę, odczekali skonfigurowaną ilość czasu, a następnie wymusili na użytkownikach wylogowanie się. Po wylogowanie wszystkich sesji użytkownika na maszynie wirtualnej hosta sesji zadanie zostanie zamknięte na maszynie Wirtualnej.
+W czasie użytkowania poza szczytem zadanie Określa, które maszyny wirtualne hosta sesji powinny zostać zamknięte na podstawie parametru *MinimumNumberOfRDSH* . Zadanie skonfiguruje maszyny wirtualne hosta sesji do trybu opróżniania, aby zapobiec łączeniu się nowych sesji z hostami. Jeśli parametr *LimitSecondsToForceLogOffUser* zostanie ustawiony na wartość różną od zera, zadanie powiadomi wszystkie aktualnie zalogowanych użytkowników, aby zaoszczędzić swoją pracę, zaczekać skonfigurowany czas, a następnie wymusić wylogowanie się użytkowników. Po wyrejestrowaniu wszystkich sesji użytkownika na maszynie wirtualnej hosta sesji zadanie zostanie zamknięte.
 
-Jeśli ustawisz *parametr LimitSecondsToForceLogOffUser* na zero, zadanie zezwoli na ustawienie konfiguracji sesji w określonych zasadach grupy do obsługi podpisywania sesji użytkownika. Aby wyświetlić te zasady grupy, przejdź do **zasady konfiguracji** > **Policies** > komputera**Szablony administracyjne** > **Windows Składniki** > **Terminale Serwera** > **terminali** > **limity czasu sesji**. Jeśli istnieją aktywne sesje na maszynie wirtualnej hosta sesji, zadanie spowoduje pozostawienie uruchomionej maszyny wirtualnej hosta sesji. Jeśli nie ma żadnych aktywnych sesji, zadanie zostanie zamknięte na maszynie wirtualnej hosta sesji.
+Jeśli parametr *LimitSecondsToForceLogOffUser* zostanie ustawiony na wartość zero, zadanie zezwoli na ustawienie konfiguracji sesji w określonych zasadach grupy do obsługi wylogowywania sesji użytkowników. Aby wyświetlić te zasady grupy, przejdź do pozycji **Konfiguracja** > **zasady** > **Szablony administracyjne** > **składniki** > systemu Windows**usługi** > terminalowych**limity czasu sesji****serwera** > terminali. W przypadku aktywnych sesji na maszynie wirtualnej hosta sesji zadanie pozostawi maszynę wirtualną hosta sesji uruchomioną. Jeśli nie ma aktywnych sesji, zadanie zamknie maszynę wirtualną hosta sesji.
 
-Zadanie jest uruchamiane okresowo na podstawie ustawionego interwału cyklu. Ten interwał można zmienić w zależności od rozmiaru środowiska pulpitu wirtualnego systemu Windows, ale należy pamiętać, że uruchamianie i zamykanie maszyn wirtualnych może zająć trochę czasu, więc pamiętaj, aby uwzględnić opóźnienie. Zalecamy ustawienie interwału cyklu na co 15 minut.
+Zadanie jest uruchamiane okresowo na podstawie interwału ustawionego cyklu. Ten interwał można zmienić na podstawie rozmiaru środowiska pulpitu wirtualnego systemu Windows, ale należy pamiętać, że uruchamianie i zamykanie maszyn wirtualnych może zająć trochę czasu, więc pamiętaj, aby uwzględnić opóźnienie. Zalecamy ustawienie interwału cyklu na co 15 minut.
 
 Jednak narzędzie ma również następujące ograniczenia:
 
-- To rozwiązanie dotyczy tylko łączonych maszyn wirtualnych hosta sesji.
-- To rozwiązanie zarządza maszynami wirtualnymi w dowolnym regionie, ale może być używane tylko w tej samej subskrypcji co konto usługi Azure Automation i usługi Azure Logic Apps.
+- To rozwiązanie ma zastosowanie tylko do maszyn wirtualnych hosta sesji w puli.
+- To rozwiązanie służy do zarządzania maszynami wirtualnymi w dowolnym regionie, ale mogą być używane tylko w tej samej subskrypcji, co konto Azure Automation i Azure Logic Apps.
 
 >[!NOTE]
->Narzędzie skalowania steruje trybem równoważenia obciążenia puli hostów, który jest skalujący. Ustawia go do równoważenia obciążenia pierwszego szerokości zarówno w godzinach szczytu, jak i poza szczytem.
+>Narzędzie skalowania kontroluje tryb równoważenia obciążenia puli hostów, która jest skalowana. Ustawia je na funkcję równoważenia obciążenia w pierwszej kolejności zarówno w godzinach szczytu, jak i poza szczytem.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem konfigurowania narzędzia skalowania upewnij się, że masz gotowe następujące czynności:
+Przed rozpoczęciem konfigurowania narzędzia do skalowania upewnij się, że masz następujące elementy:
 
-- [Dzierżawa i host pulpitu wirtualnego systemu Windows](create-host-pools-arm-template.md)
-- Maszyny wirtualne z puli hostów sesji skonfigurowane i zarejestrowane w usłudze pulpitu wirtualnego systemu Windows
-- Użytkownik z [dostępem współautora w](../role-based-access-control/role-assignments-portal.md) ramach subskrypcji platformy Azure
+- [Dzierżawa i Pula hostów systemu Windows Virtual Desktop](create-host-pools-arm-template.md)
+- Maszyny wirtualne puli hostów sesji skonfigurowane i zarejestrowane w usłudze pulpitu wirtualnego systemu Windows
+- Użytkownik z [dostępem współautora](../role-based-access-control/role-assignments-portal.md) w ramach subskrypcji platformy Azure
 
-Maszyna używana do wdrażania narzędzia musi mieć: 
+Komputer używany do wdrożenia narzędzia musi mieć następujące: 
 
-- Program Windows PowerShell 5.1 lub nowszy
-- Moduł Microsoft Az PowerShell
+- Windows PowerShell 5,1 lub nowszy
+- Moduł Microsoft AZ PowerShell
 
-Jeśli masz wszystko gotowe, zacznijmy.
+Jeśli wszystko jest gotowe, zacznijmy.
 
 ## <a name="create-an-azure-automation-account"></a>Tworzenie konta usługi Azure Automation
 
-Najpierw musisz konto usługi Azure Automation do uruchomienia systemu runbook programu PowerShell. Aby skonfigurować konto:
+Najpierw musisz mieć konto Azure Automation, aby uruchomić element Runbook programu PowerShell. Poniżej przedstawiono sposób konfigurowania konta:
 
 1. Uruchom program Windows PowerShell jako administrator.
 2. Uruchom następujące polecenie cmdlet, aby zalogować się do konta platformy Azure.
@@ -79,9 +79,9 @@ Najpierw musisz konto usługi Azure Automation do uruchomienia systemu runbook p
      ```
 
      >[!NOTE]
-     >Twoje konto musi mieć prawa współautora w ramach subskrypcji platformy Azure, na której chcesz wdrożyć narzędzie skalowania.
+     >Twoje konto musi mieć uprawnienia współautora w ramach subskrypcji platformy Azure, w której chcesz wdrożyć narzędzie do skalowania.
 
-3. Uruchom następujące polecenie cmdlet, aby pobrać skrypt do tworzenia konta usługi Azure Automation:
+3. Uruchom następujące polecenie cmdlet, aby pobrać skrypt służący do tworzenia konta Azure Automation:
 
      ```powershell
      Set-Location -Path "c:\temp"
@@ -89,47 +89,47 @@ Najpierw musisz konto usługi Azure Automation do uruchomienia systemu runbook p
      Invoke-WebRequest -Uri $uri -OutFile ".\createazureautomationaccount.ps1"
      ```
 
-4. Uruchom następujące polecenie cmdlet, aby wykonać skrypt i utworzyć konto usługi Azure Automation:
+4. Uruchom następujące polecenie cmdlet, aby wykonać skrypt i utworzyć konto Azure Automation:
 
      ```powershell
      .\createazureautomationaccount.ps1 -SubscriptionID <azuresubscriptionid> -ResourceGroupName <resourcegroupname> -AutomationAccountName <name of automation account> -Location "Azure region for deployment"
      ```
 
-5. Dane wyjściowe polecenia cmdlet będą zawierać identyfikator URI elementu webhook. Upewnij się, aby zachować rekord identyfikatora URI, ponieważ użyjesz go jako parametru podczas konfigurowania harmonogramu wykonywania dla aplikacji logiki Azure.
+5. Dane wyjściowe polecenia cmdlet będą zawierać identyfikator URI elementu webhook. Pamiętaj, aby zachować rekord identyfikatora URI, ponieważ będzie on używany jako parametr podczas konfigurowania harmonogramu wykonywania dla usługi Azure Logic Apps.
 
-6. Po skonfigurowaniu konta usługi Azure Automation zaloguj się do subskrypcji platformy Azure i sprawdź, czy twoje konto usługi Azure Automation i odpowiedni element runbook pojawiły się w określonej grupie zasobów, jak pokazano na poniższej ilustracji:
+6. Po skonfigurowaniu konta Azure Automation Zaloguj się do subskrypcji platformy Azure i sprawdź, czy konto Azure Automation i odpowiedni element Runbook pojawiły się w określonej grupie zasobów, jak pokazano na poniższej ilustracji:
 
-   ![Obraz strony przegląd platformy Azure przedstawiający nowo utworzone konto automatyzacji i element runbook.](media/automation-account.png)
+   ![Obraz strony Przegląd platformy Azure przedstawiający nowo utworzone konto usługi Automation i element Runbook.](media/automation-account.png)
 
-  Aby sprawdzić, czy element webhook znajduje się tam, gdzie powinien być, wybierz nazwę elementu runbook. Następnie przejdź do sekcji Zasoby elementu runbook i wybierz pozycję **Webhooks**.
+  Aby sprawdzić, czy element webhook jest w tym miejscu, wybierz nazwę elementu Runbook. Następnie przejdź do sekcji zasobów elementu Runbook i wybierz pozycję elementy **webhook**.
 
-## <a name="create-an-azure-automation-run-as-account"></a>Tworzenie konta usługi Azure Automation Run As
+## <a name="create-an-azure-automation-run-as-account"></a>Tworzenie Azure Automation konta Uruchom jako
 
-Teraz, gdy masz konto usługi Azure Automation, musisz również utworzyć konto usługi Azure Automation Run As, aby uzyskać dostęp do zasobów platformy Azure.
+Teraz, gdy masz konto Azure Automation, musisz również Azure Automation utworzyć konto Uruchom jako w celu uzyskania dostępu do zasobów platformy Azure.
 
-[Konto Azure Automation Run As](../automation/manage-runas-account.md) zapewnia uwierzytelnianie do zarządzania zasobami na platformie Azure za pomocą poleceń cmdlet platformy Azure. Podczas tworzenia konta Uruchom jako tworzy nowego użytkownika jednostki usługi w usłudze Azure Active Directory i przypisuje rolę współautora do głównego użytkownika usługi na poziomie subskrypcji, usługa Azure Uruchom jako konto to świetny sposób bezpiecznego uwierzytelniania za pomocą certyfikaty i nazwę jednostki usługi bez konieczności przechowywania nazwy użytkownika i hasła w obiekcie poświadczeń. Aby dowiedzieć się więcej o uruchamianiu jako uwierzytelnianiu, zobacz [Ograniczanie uprawnień uruchamiania jako konta](../automation/manage-runas-account.md#limiting-run-as-account-permissions).
+[Konto Uruchom jako Azure Automation](../automation/manage-runas-account.md) zapewnia uwierzytelnianie na potrzeby zarządzania zasobami na platformie Azure za pomocą poleceń cmdlet platformy Azure. Podczas tworzenia konta Uruchom jako jest tworzony nowy użytkownik głównej nazwy usługi w Azure Active Directory i przypisuje rolę współautor do użytkownika jednostki usługi na poziomie subskrypcji, konto Uruchom jako platformy Azure jest doskonałym sposobem na bezpieczne uwierzytelnianie z użyciem certyfikatów i nazwy głównej usługi bez konieczności przechowywania nazwy użytkownika i hasła w obiekcie Credential. Aby dowiedzieć się więcej o uwierzytelnianiu Uruchom jako, zobacz [ograniczanie uprawnień konta Uruchom jako](../automation/manage-runas-account.md#limiting-run-as-account-permissions).
 
-Każdy użytkownik, który jest członkiem roli Administratorzy subskrypcji i współadministrator subskrypcji można utworzyć konto Uruchom jako, postępując zgodnie z instrukcjami następnej sekcji.
+Każdy użytkownik, który jest członkiem roli Administratorzy subskrypcji i administrator subskrypcji, może utworzyć konto Uruchom jako, postępując zgodnie z instrukcjami w następnej sekcji.
 
 Aby utworzyć konto Uruchom jako na koncie platformy Azure:
 
-1. W witrynie Azure portal wybierz pozycję **Wszystkie usługi**. Na liście zasobów wprowadź i wybierz pozycję **Konta automatyzacji**.
+1. W Azure Portal wybierz pozycję **wszystkie usługi**. Na liście zasobów wprowadź i wybierz pozycję **konta usługi Automation**.
 
-2. Na stronie **Konta automatyzacji** wybierz nazwę konta automatyzacji.
+2. Na stronie **konta usługi Automation** wybierz nazwę konta usługi Automation.
 
-3. W okienku po lewej stronie okna wybierz pozycję **Uruchom jako konta** w sekcji Ustawienia kont.
+3. W okienku po lewej stronie okna wybierz pozycję **konta Uruchom jako** w sekcji Ustawienia konta.
 
-4. Wybierz **pozycję Azure Uruchom jako konto**. Po **wyświetleniu** okienka Dodaj usługę Azure Uruchom jako konto przejrzyj informacje omówienia, a następnie wybierz pozycję **Utwórz,** aby rozpocząć proces tworzenia konta.
+4. Wybierz pozycję **konto Uruchom jako platformy Azure**. Po wyświetleniu okienka **Dodawanie konta Uruchom jako platformy Azure** Przejrzyj informacje przeglądowe, a następnie wybierz pozycję **Utwórz** , aby rozpocząć proces tworzenia konta.
 
-5. Poczekaj kilka minut, aż platforma Azure utworzy konto Uruchom jako. Postęp tworzenia można śledzić w menu w obszarze Powiadomienia.
+5. Zaczekaj kilka minut na utworzenie konta Uruchom jako przez platformę Azure. Postęp tworzenia można śledzić w menu w obszarze powiadomienia.
 
-6. Po zakończeniu procesu utworzy zasób o nazwie AzureRunAsConnection na określonym koncie automatyzacji. Zasób połączenia przechowuje identyfikator aplikacji, identyfikator dzierżawy, identyfikator subskrypcji i odcisk palca certyfikatu. Zapamiętaj identyfikator aplikacji, ponieważ użyjesz go później.
+6. Po zakończeniu procesu zostanie utworzony element zawartości o nazwie AzureRunAsConnection na określonym koncie usługi Automation. Zasób połączenia zawiera identyfikator aplikacji, identyfikator dzierżawy, Identyfikator subskrypcji i odcisk palca certyfikatu. Zapamiętaj identyfikator aplikacji, ponieważ będzie on używany później.
 
 ### <a name="create-a-role-assignment-in-windows-virtual-desktop"></a>Tworzenie przypisania roli na pulpicie wirtualnym systemu Windows
 
-Następnie należy utworzyć przypisanie roli, aby usługa AzureRunAsConnection mogła wchodzić w interakcje z pulpitem wirtualnym systemu Windows. Upewnij się, że używasz programu PowerShell do logowania się przy użyciu konta, które ma uprawnienia do tworzenia przypisań ról.
+Następnie należy utworzyć przypisanie roli, aby AzureRunAsConnection mogły współdziałać z pulpitem wirtualnym systemu Windows. Upewnij się, że używasz programu PowerShell, aby zalogować się przy użyciu konta, które ma uprawnienia do tworzenia przypisań ról.
 
-Najpierw pobierz i zaimportuj [moduł programu Windows Virtual Desktop PowerShell](/powershell/windows-virtual-desktop/overview/) do użycia w sesji programu PowerShell, jeśli jeszcze tego nie zrobiłeś. Uruchom następujące polecenia cmdlet programu PowerShell, aby połączyć się z pulpitem wirtualnym systemu Windows i wyświetlić dzierżawców.
+Najpierw pobierz i zaimportuj [moduł programu PowerShell dla pulpitu wirtualnego systemu Windows](/powershell/windows-virtual-desktop/overview/) , który ma być używany w sesji programu PowerShell, jeśli jeszcze tego nie zrobiono. Uruchom następujące polecenia cmdlet programu PowerShell, aby połączyć się z pulpitem wirtualnym systemu Windows i wyświetlić dzierżawców.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -137,17 +137,17 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Get-RdsTenant
 ```
 
-Po znalezieniu dzierżawy z pulami hostów, które chcesz skalować, postępuj zgodnie z instrukcjami w [obszarze Tworzenie konta usługi Azure Automation](#create-an-azure-automation-account) i użyj nazwy dzierżawy, którą otrzymałeś z poprzedniego polecenia cmdlet w następującym połączeniu cmdlet, aby utworzyć przypisanie roli:
+Po znalezieniu dzierżawy z pulami hosta, które chcesz skalować, postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Azure Automation](#create-an-azure-automation-account) i użyj nazwy dzierżawy uzyskanej z poprzedniego polecenia cmdlet w poniższym poleceniu cmdlet, aby utworzyć przypisanie roli:
 
 ```powershell
 New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId <applicationid> -TenantName <tenantname>
 ```
 
-## <a name="create-the-azure-logic-app-and-execution-schedule"></a>Tworzenie aplikacji logiki platformy Azure i harmonogram wykonywania
+## <a name="create-the-azure-logic-app-and-execution-schedule"></a>Tworzenie aplikacji logiki platformy Azure i harmonogramu wykonywania
 
-Na koniec musisz utworzyć aplikację logiki azure i skonfigurować harmonogram wykonywania dla nowego narzędzia skalowania.
+Na koniec należy utworzyć aplikację logiki platformy Azure i skonfigurować harmonogram wykonywania dla nowego narzędzia do skalowania.
 
-1.  Otwieranie programu Windows PowerShell jako administrator
+1.  Otwórz program Windows PowerShell jako administrator
 
 2.  Uruchom następujące polecenie cmdlet, aby zalogować się do konta platformy Azure.
 
@@ -155,19 +155,19 @@ Na koniec musisz utworzyć aplikację logiki azure i skonfigurować harmonogram 
      Login-AzAccount
      ```
 
-3. Uruchom następujące polecenie cmdlet, aby pobrać plik skryptu createazurelogicapp.ps1 na komputerze lokalnym.
+3. Uruchom następujące polecenie cmdlet, aby pobrać plik skryptu createazurelogicapp. ps1 na komputerze lokalnym.
 
      ```powershell
      Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazurelogicapp.ps1" -OutFile "your local machine path\ createazurelogicapp.ps1"
      ```
 
-4. Uruchom następujące polecenie cmdlet, aby zalogować się do pulpitu wirtualnego systemu Windows przy za pomocą konta z uprawnieniami właściciela usług PULPITU ZDALNEGO lub współautora usług pulpitu zdalnego.
+4. Uruchom następujące polecenie cmdlet, aby zalogować się do pulpitu wirtualnego systemu Windows przy użyciu konta, które ma uprawnienia właściciela usług pulpitu zdalnego lub współautor pulpitu zdalnego.
 
      ```powershell
      Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
      ```
 
-5. Uruchom następujący skrypt programu PowerShell, aby utworzyć aplikację logiki Azure i harmonogram wykonywania.
+5. Uruchom następujący skrypt programu PowerShell, aby utworzyć aplikację logiki platformy Azure i harmonogram wykonywania.
 
      ```powershell
      $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group for the new Azure Logic App"
@@ -231,32 +231,32 @@ Na koniec musisz utworzyć aplikację logiki azure i skonfigurować harmonogram 
 
      Po uruchomieniu skryptu aplikacja logiki powinna pojawić się w grupie zasobów, jak pokazano na poniższej ilustracji.
 
-     ![Obraz strony przeglądu dla przykładowej aplikacji logiki Azure.](media/logic-app.png)
+     ![Obraz strony przegląd dla przykładowej aplikacji logiki platformy Azure.](media/logic-app.png)
 
-Aby wprowadzić zmiany w harmonogramie wykonywania, takie jak zmiana interwału cyklu lub strefy czasowej, przejdź do harmonogramu skalowania automatycznego i wybierz pozycję **Edytuj,** aby przejść do Projektanta aplikacji logiki.
+Aby wprowadzić zmiany do harmonogramu wykonywania, takie jak zmiana interwału cyklu lub strefy czasowej, przejdź do harmonogramu automatycznego skalowania i wybierz pozycję **Edytuj** , aby przejść do projektanta Logic Apps.
 
-![Obraz projektanta aplikacji logiki. Menu cyklu i elementu webhook, które umożliwiają użytkownikowi edytowanie czasów cyklu i pliku elementu webhook są otwarte.](media/logic-apps-designer.png)
+![Obraz projektanta Logic Apps. Menu cykl i element webhook umożliwiające użytkownikowi edytowanie czasów cyklu i pliku elementu webhook.](media/logic-apps-designer.png)
 
-## <a name="manage-your-scaling-tool"></a>Zarządzanie narzędziem skalowania
+## <a name="manage-your-scaling-tool"></a>Zarządzaj narzędziem do skalowania
 
-Po utworzeniu narzędzia skalowania można uzyskać dostęp do jego danych wyjściowych. W tej sekcji opisano kilka funkcji, które mogą okazać się pomocne.
+Po utworzeniu narzędzia do skalowania możesz uzyskać dostęp do jego danych wyjściowych. W tej sekcji opisano kilka funkcji, które mogą być przydatne.
 
 ### <a name="view-job-status"></a>Wyświetlanie stanu zadania
 
-Można wyświetlić stan podsumowania wszystkich zadań uruchomieniu lub wyświetlić bardziej szczegółowy stan określonego zadania umowości w witrynie Azure portal.
+Można wyświetlić podsumowanie stanu wszystkich zadań elementu Runbook lub wyświetlić bardziej szczegółowy stan określonego zadania elementu Runbook w Azure Portal.
 
-Po prawej stronie wybranego konta automatyzacji w obszarze "Statystyki zadań" można wyświetlić listę podsumowań wszystkich zadań elementu runbook. Otwarcie strony **Zadania** po lewej stronie okna zawiera aktualne stany zadań, godziny rozpoczęcia i godziny ukończenia.
+Po prawej stronie wybranego konta usługi Automation w obszarze "statystyki zadania" można wyświetlić listę podsumowań wszystkich zadań elementu Runbook. Otwarcie strony **zadania** po lewej stronie okna powoduje wyświetlenie bieżących stanów zadań, godzin rozpoczęcia i czasu zakończenia.
 
-![Zrzut ekranu strony stanu zadania.](media/jobs-status.png)
+![Zrzut ekranu przedstawiający stronę stanu zadania.](media/jobs-status.png)
 
-### <a name="view-logs-and-scaling-tool-output"></a>Wyświetlanie dzienników i skalowanie danych wyjściowych narzędzia
+### <a name="view-logs-and-scaling-tool-output"></a>Wyświetlanie dzienników i narzędzi do skalowania danych wyjściowych
 
-Można wyświetlić dzienniki operacji skalowania w poziomie i skalowania w, otwierając swój projekt runbook i wybierając nazwę zadania.
+Możesz wyświetlić dzienniki operacji skalowania w poziomie i skalowania przez otwarcie elementu Runbook i wybranie nazwy zadania.
 
-Przejdź do systemu runbook (domyślną nazwą jest WVDAutoScaleRunbook) w grupie zasobów obsługującej konto usługi Azure Automation i wybierz **opcję Przegląd**. Na stronie przegląd wybierz zadanie w obszarze Ostatnie zadania, aby wyświetlić jego dane wyjściowe narzędzia skalowania, jak pokazano na poniższej ilustracji.
+Przejdź do elementu Runbook (nazwa domyślna to WVDAutoScaleRunbook) w grupie zasobów hostującym konto Azure Automation i wybierz pozycję **Przegląd**. Na stronie Przegląd wybierz zadanie w obszarze ostatnie zadania, aby wyświetlić dane wyjściowe narzędzia do skalowania, jak pokazano na poniższej ilustracji.
 
-![Obraz okna danych wyjściowych dla narzędzia skalowania.](media/tool-output.png)
+![Obraz okna dane wyjściowe narzędzia do skalowania.](media/tool-output.png)
 
 ## <a name="report-issues"></a>Zgłaszanie problemów
 
-Jeśli wystąpią jakiekolwiek problemy z narzędziem skalowania, możesz je zgłosić na [stronie RDS GitHub](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
+Jeśli wystąpią problemy z narzędziem skalowania, możesz je zgłosić na [stronie usług pulpitu zdalnego](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps)w serwisie GitHub.

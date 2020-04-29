@@ -1,7 +1,7 @@
 ---
-title: Umiejętność poznawcza wykrywania pii (podgląd)
+title: Umiejętność wykrywania przez dane OSOBowe (wersja zapoznawcza)
 titleSuffix: Azure Cognitive Search
-description: Wyodrębnij i zamaskuj informacje umożliwiające identyfikację użytkownika z tekstu w potoku wzbogacania w usłudze Azure Cognitive Search. Ta umiejętność jest obecnie w publicznej wersji zapoznawczej.
+description: Wyodrębnij i zamaskowanie danych osobowych z tekstu w potoku wzbogacania na platformie Azure Wyszukiwanie poznawcze. Ta umiejętność jest obecnie dostępna w publicznej wersji zapoznawczej.
 manager: nitinme
 author: careyjmac
 ms.author: chalton
@@ -9,58 +9,58 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: f21200bc6f5b25f3330f5bb87c0843caa5a84e56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80298880"
 ---
-#    <a name="pii-detection-cognitive-skill"></a>Umiejętność poznawcza wykrywania pii
+#    <a name="pii-detection-cognitive-skill"></a>Umiejętność wykrywania przez dane OSOBowe
 
 > [!IMPORTANT] 
-> Ta umiejętność jest obecnie w publicznej wersji zapoznawczej. Funkcja w wersji zapoznawczej jest dostarczana bez umowy dotyczącej poziomu usług i nie jest zalecana dla obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Obecnie nie ma obsługi portalu ani SDK .NET.
+> Ta umiejętność jest obecnie dostępna w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Obecnie nie ma obsługi portalu lub zestawu SDK platformy .NET.
 
-Umiejętność **wykrywania informacji** umożliwiających identyfikację użytkownika wyodrębnia informacje umożliwiające identyfikację użytkownika z tekstu wejściowego i umożliwia maskowanie ich z tego tekstu na różne sposoby. Ta umiejętność korzysta z modeli uczenia maszynowego dostarczonych przez [analizę tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) w usługach Cognitive Services.
+Umiejętność **wykrywania** danych osobowych wyodrębnia dane osobowe z tekstu wejściowego i zapewnia możliwość zamaskowania tego tekstu na różne sposoby. Ta umiejętność używa modeli uczenia maszynowego zapewnianych przez [Analiza tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) w Cognitive Services.
 
 > [!NOTE]
-> W miarę rozszerzania zakresu poprzez zwiększanie częstotliwości przetwarzania, dodawanie większej liczby dokumentów lub dodawanie kolejnych algorytmów sztucznej inteligencji należy [dołączyć rozliczany zasób usług Cognitive Services.](cognitive-search-attach-cognitive-services.md) Opłaty naliczane podczas wywoływania interfejsów API w usługach Cognitive Services i wyodrębniania obrazu w ramach etapu pękania dokumentów w usłudze Azure Cognitive Search. Nie ma żadnych opłat za wyodrębnianie tekstu z dokumentów.
+> Podczas rozszerzania zakresu przez zwiększenie częstotliwości przetwarzania, Dodawanie większej liczby dokumentów lub Dodawanie algorytmów AI, należy [dołączyć Cognitive Services rozliczanego zasobu](cognitive-search-attach-cognitive-services.md). Opłaty naliczane podczas wywoływania interfejsów API w Cognitive Services oraz do wyodrębniania obrazów w ramach etapu łamania dokumentu w usłudze Azure Wyszukiwanie poznawcze. Nie są naliczane opłaty za Wyodrębnianie tekstu z dokumentów.
 >
-> Wykonanie wbudowanych umiejętności jest naliczane według istniejącej [ceny płatności zgodnie z rzeczywistymi oczekiwaniami.](https://azure.microsoft.com/pricing/details/cognitive-services/) Ceny wyodrębniania obrazów są opisane na [stronie cennika usługi Azure Cognitive Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Do wykonania wbudowanych umiejętności są naliczane opłaty za istniejące [Cognitive Services cena płatność zgodnie z rzeczywistym](https://azure.microsoft.com/pricing/details/cognitive-services/)użyciem. Cennik wyodrębniania obrazów został opisany na [stronie cennika usługi Azure wyszukiwanie poznawcze](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.skills.text.PIIDetectionSkill
+Microsoft. umiejętności. Text. PIIDetectionSkill
 
 ## <a name="data-limits"></a>Limity danych
-Maksymalny rozmiar rekordu powinien wynosić 50 000 [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)znaków mierzonych za pomocą pliku . Jeśli musisz podzielić dane przed wysłaniem ich do umiejętności, rozważ użycie [umiejętności Dzielenie tekstu.](cognitive-search-skill-textsplit.md)
+Maksymalny rozmiar rekordu powinien składać się z 50 000 znaków mierzonych przez [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Jeśli musisz podzielić dane przed wysłaniem ich do umiejętności, rozważ użycie [umiejętności podziału tekstu](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parametry umiejętności
 
-W parametrach rozróżniana jest wielkość liter i wszystkie są opcjonalne.
+W parametrach jest rozróżniana wielkość liter i wszystkie są opcjonalne.
 
 | Nazwa parametru     | Opis |
 |--------------------|-------------|
-| domyślny Kod Języka |    Kod języka tekstu wejściowego. Na razie `en` tylko jest obsługiwany. |
-| minimumPrecision (minimumPrecision) | Wartość między 0,0 a 1,0. Jeśli wynik zaufania (w `piiEntities` danych wyjściowych) `minimumPrecision` jest niższa niż ustawiona wartość, jednostka nie jest zwracana lub maskowana. Wartość domyślna to 0.0. |
-| maskowanieMode | Parametr, który zapewnia różne sposoby maskowania wykrytych informacji umożliwiających identyfikację użytkownika w tekście wejściowym. Obsługiwane są następujące opcje: <ul><li>`none`(domyślnie): Oznacza to, że nie `maskedText` zostanie wykonane maskowanie i dane wyjściowe nie zostaną zwrócone. </li><li> `redact`: Ta opcja spowoduje usunięcie wykrytych jednostek z tekstu wejściowego i nie zastąpi ich niczym. Należy zauważyć, że w tym `piiEntities` przypadku przesunięcie w danych wyjściowych będzie w stosunku do oryginalnego tekstu, a nie zamaskowany tekst. </li><li> `replace`: Ta opcja zastąpi wykryte jednostki znakiem `maskingCharacter` podanym w parametrze.  Znak zostanie powtórzony do długości wykrytego elementu, tak aby odsunięcia poprawnie odpowiadały `maskedText`zarówno tekstowi wejściemu, jak i wyjściu .</li></ul> |
-| maskowanieCharakter | Znak, który będzie używany do maskowania `maskingMode` tekstu, `replace`jeśli parametr jest ustawiony na . Obsługiwane są następujące opcje: `*` (domyślnie), `#`, `X`. Ten parametr może `null` `maskingMode` być tylko `replace`wtedy, gdy nie jest ustawiony na . |
+| defaultLanguageCode |    Kod języka tekstu wejściowego. Na razie tylko `en` jest obsługiwane. |
+| minimumPrecision | Wartość z zakresu od 0,0 do 1,0. Jeśli wynik pewności (w `piiEntities` danych wyjściowych) jest mniejszy niż wartość ustawiona `minimumPrecision` , jednostka nie jest zwracana ani zamaskowane. Wartość domyślna to 0,0. |
+| maskingMode | Parametr, który zapewnia różne sposoby maskowania wykryte dane OSOBowe w tekście wejściowym. Obsługiwane są następujące opcje: <ul><li>`none`(ustawienie domyślne): oznacza to, że maskowanie nie zostanie wykonane i `maskedText` wyjście nie zostanie zwrócone. </li><li> `redact`: Ta opcja spowoduje usunięcie wykrytych jednostek z tekstu wejściowego i nie zastępowanie ich żadnymi. Należy zauważyć, że w tym przypadku przesunięcie w `piiEntities` danych wyjściowych będzie w odniesieniu do oryginalnego tekstu, a nie do zamaskowanego tekstu. </li><li> `replace`: Ta opcja spowoduje zamianę wykrytych jednostek na znak określony w `maskingCharacter` parametrze.  Znak zostanie powtórzony do długości wykrytej jednostki, aby przesunięcia odpowiednio odpowiadały zarówno dane wejściowe, jak i dane wyjściowe `maskedText`.</li></ul> |
+| maskingCharacter | Znak, który będzie używany do zamaskowania tekstu, jeśli `maskingMode` parametr jest ustawiony na. `replace` Obsługiwane są następujące opcje: `*` (domyślne), `#`,. `X` Ten parametr może mieć `null` wartość tylko `maskingMode` wtedy, gdy nie `replace`jest ustawiony na. |
 
 
-## <a name="skill-inputs"></a>Wprowadzanie umiejętności
+## <a name="skill-inputs"></a>Dane wejściowe kwalifikacji
 
 | Nazwa wejściowa      | Opis                   |
 |---------------|-------------------------------|
-| languageCode    | Element opcjonalny. Wartość domyślna to `en`.  |
+| languageCode    | Opcjonalny. Wartość domyślna to `en`.  |
 | tekst          | Tekst do analizy.          |
 
 ## <a name="skill-outputs"></a>Wyniki umiejętności
 
 | Nazwa wyjściowa      | Opis                   |
 |---------------|-------------------------------|
-| PiiEntities (władarze) | Tablica typów złożonych zawierająca następujące pola: <ul><li>tekst (rzeczywiste dane umożliwiające identyfikację z wyodrębnienia)</li> <li>type</li><li>Podtypu</li><li>wynik (wyższa wartość oznacza, że jest bardziej prawdopodobne, że jest to rzeczywisty podmiot)</li><li>offset (do tekstu wejściowego)</li><li>length</li></ul> </br> [Możliwe typy i podtypy można znaleźć tutaj.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/named-entity-types?tabs=personal) |
-| maskedText | Jeśli `maskingMode` jest ustawiona na `none`wartość inną niż , to dane wyjściowe będzie wynikiem ciągu maskowania wykonywanego na tekście wejściowym, zgodnie z opisem zaznaczonego `maskingMode`.  Jeśli `maskingMode` jest `none`ustawiona na , to dane wyjściowe nie będą obecne. |
+| piiEntities | Tablica typów złożonych, które zawierają następujące pola: <ul><li>tekst (rzeczywiste dane OSOBowe jako wyodrębnione)</li> <li>type</li><li>Podtyp</li><li>wynik (wyższa wartość oznacza, że bardziej prawdopodobnie jest to rzeczywista jednostka)</li><li>Przesunięcie (do tekstu wejściowego)</li><li>length</li></ul> </br> [Możliwe typy i podtypy można znaleźć tutaj.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/named-entity-types?tabs=personal) |
+| maskedText | Jeśli `maskingMode` jest ustawiona na wartość inną niż `none`, dane wyjściowe będą wynikiem przeprowadzenia maskowania dla tekstu wejściowego, zgodnie z opisem wybranej opcji. `maskingMode`  Jeśli `maskingMode` jest ustawiona na `none`, dane wyjściowe nie będą obecne. |
 
-##    <a name="sample-definition"></a>Przykładowa definicja
+##    <a name="sample-definition"></a>Definicja Przykładowa
 
 ```json
   {
@@ -127,16 +127,16 @@ W parametrach rozróżniana jest wielkość liter i wszystkie są opcjonalne.
 }
 ```
 
-Należy zauważyć, że przesunięcia zwrócone dla jednostek w danych wyjściowych tej umiejętności są bezpośrednio zwracane z [interfejsu API analizy tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), co oznacza, że jeśli używasz ich do indeksowania do oryginalnego ciągu, należy użyć [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) klasy w .NET w celu wyodrębnienia poprawnej zawartości.  [Więcej szczegółów można znaleźć tutaj.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/text-offsets)
+Należy zauważyć, że przesunięcia zwrócone dla jednostek w danych wyjściowych tej umiejętności są zwracane bezpośrednio z [interfejs API analizy tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), co oznacza, że są one używane do indeksowania w oryginalnym ciągu, należy użyć klasy [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) w programie .NET w celu wyodrębnienia poprawnej zawartości.  [Więcej szczegółów można znaleźć tutaj.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/text-offsets)
 
 ## <a name="error-and-warning-cases"></a>Przypadki błędów i ostrzeżeń
-Jeśli kod języka dokumentu nie jest obsługiwane, ostrzeżenie jest zwracany i nie jednostek są wyodrębniane.
-Jeśli tekst jest pusty, zostanie wysuń ostrzeżenie.
-Jeśli tekst jest większy niż 50 000 znaków, tylko pierwsze 50 000 znaków zostanie przeanalizowanych i zostanie wydane ostrzeżenie.
+Jeśli kod języka dla dokumentu nie jest obsługiwany, zwracane jest ostrzeżenie i nie są wyodrębniane żadne jednostki.
+Jeśli tekst jest pusty, zostanie wygenerowane ostrzeżenie.
+Jeśli tekst jest większy niż 50 000 znaków, przeanalizowane zostaną tylko pierwsze 50 000 znaki i zostanie wygenerowane ostrzeżenie.
 
-Jeśli umiejętność zwraca ostrzeżenie, `maskedText` dane wyjściowe mogą być puste.  Oznacza to, że jeśli oczekujesz, że dane wyjściowe istnieją do wprowadzenia do późniejszych umiejętności, nie będzie działać zgodnie z oczekiwaniami. Należy o tym pamiętać podczas pisania definicji zestaw umiejętności.
+Jeśli umiejętność zwróci ostrzeżenie, dane wyjściowe `maskedText` mogą być puste.  Oznacza to, że Jeśli spodziewasz się, że dane wyjściowe mają być dostępne do późniejszej umiejętności, nie będą działały zgodnie z oczekiwaniami. Należy pamiętać o tym podczas pisania definicji zestawu umiejętności.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
-+ [Jak zdefiniować zestaw umiejętności](cognitive-search-defining-skillset.md)
++ [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)

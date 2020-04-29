@@ -1,6 +1,6 @@
 ---
 title: Wirtualna sieć WAN platformy Azure i praca zdalna
-description: Na tej stronie opisano, jak można korzystać z wirtualnej sieci WAN platformy Azure, aby umożliwić pracę zdalną ze względu na pandemię COVID-19.
+description: Na tej stronie opisano, jak korzystać z wirtualnej sieci WAN platformy Azure, aby umożliwić pracę zdalną z powodu COVID-19 Pandemic.
 services: virtual-wan
 author: reyandap
 ms.service: virtual-wan
@@ -8,50 +8,50 @@ ms.topic: article
 ms.date: 03/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: ce212b5da90906966025674b58884d0e2f5bb064
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80337126"
 ---
-# <a name="azure-virtual-wan-and-supporting-remote-work"></a>Wirtualna sieć WAN platformy Azure i obsługa pracy zdalnej
+# <a name="azure-virtual-wan-and-supporting-remote-work"></a>Wirtualna sieć WAN platformy Azure i obsługa zdalna
 
 >[!NOTE]
->W tym artykule opisano, jak można korzystać z wirtualnej sieci WAN platformy Azure, platformy Azure, sieci firmy Microsoft i ekosystemu partnerów platformy Azure do pracy zdalnej i łagodzenia problemów sieciowych, które występują z powodu kryzysu COVID-19.
+>W tym artykule opisano sposób korzystania z usługi Azure Virtual Networks, platformy Azure, sieci firmy Microsoft i ekosystemu partnerów platformy Azure do zdalnego działania i rozwiązywania problemów z siecią, które są dostępne z powodu kryzysu COVID-19.
 >
 
-Czy rozszyfrujesz, aby zapewnić łączność dla użytkowników zdalnych?
-Czy nagle widzisz potrzebę wspierania przypływu użytkowników poza to, co zaplanowałeś?
-Czy potrzebujesz użytkownika, aby połączyć się z domu i nie tylko uzyskać dostęp do chmury, ale także mieć możliwość dotarcia do lokalnego?
-Czy potrzebujesz zdalnych użytkowników, aby móc dotrzeć do zasobów za prywatną siecią WAN?
-Czy użytkownicy muszą uzyskiwać dostęp do zasobów wewnątrz chmury bez konieczności konfigurowania łączności między regionami?
-Ponieważ ta globalna pandemia powoduje bezprecedensowe zmiany wokół nas, zespół wirtualnej sieci WAN platformy Azure jest tutaj, aby zaspokoić potrzeby związane z łącznością.
+Czy są szyfrowane w celu zapewnienia łączności z użytkownikami zdalnymi?
+Czy widzisz nieoczekiwaną konieczność obsługi większej liczby użytkowników niż planowano?
+Czy użytkownik musi nawiązać połączenie z domu i nie tylko uzyskiwać dostęp do chmury, ale również mieć możliwość nawiązania połączenia lokalnego?
+Czy chcesz, aby użytkownicy zdalni mieli dostęp do zasobów za prywatną siecią WAN?
+Czy istnieje potrzeba, aby użytkownicy mieli dostęp do zasobów w chmurze bez konieczności konfigurowania łączności między regionami?
+Ponieważ ta globalna Pandemic tworzy niespotykaną zmiany w naszym świecie, zespół sieci WAN platformy Azure jest tutaj przeznaczony do zaspokajania potrzeb związanych z łącznością.
 
-Wirtualna sieć WAN platformy Azure to usługa sieciowa, która łączy wiele funkcji sieci, zabezpieczeń i routingu w celu zapewnienia jednego interfejsu operacyjnego. Funkcje te obejmują łączność oddziałową (poprzez automatyzację łączności z urządzeń wirtualnego partnera WAN, takich jak SD-WAN lub VPN CPE), łączność sieci VPN między lokacjami, łączność sieci VPN z użytkownikami zdalnymi (point-to-site), łączność prywatna (ExpressRoute), Łączność wewnątrz chmury (łączność przechodnia dla sieci wirtualnych), interconnectivity VPN ExpressRoute, routing, zapora platformy Azure, szyfrowanie dla łączności prywatnej itp. Nie musisz mieć wszystkie te przypadki użycia, aby rozpocząć korzystanie z wirtualnej sieci WAN. Możesz rozpocząć pracę tylko z jednym przypadkiem użycia i dostosować sieć w miarę jej rozwoju.
+Wirtualna sieć WAN platformy Azure to usługa sieciowa, która udostępnia wiele funkcji sieci, zabezpieczeń i routingu w celu zapewnienia pojedynczego interfejsu operacyjnego. Te funkcje obejmują łączność z gałęzią (za pośrednictwem automatyzacji łączności z urządzeń partnerskich sieci WAN, takich jak SD-WAN lub VPN CPE), łączności sieci VPN typu lokacja-lokacja, sieci VPN użytkowników zdalnych (połączeń punkt-lokacja), połączeń prywatnych (ExpressRoute), łączności z chmurą (łączności przechodniej dla sieci wirtualnych), sieci VPN ExpressRoute, routingu, zapory systemu Nie musisz mieć wszystkich tych przypadków użycia, aby rozpocząć korzystanie z wirtualnej sieci WAN. Możesz rozpocząć pracę z tylko jednym przypadkiem użycia i dostosować sieć w miarę rozwoju.
 
 ![Diagram usługi Virtual WAN](./media/virtual-wan-about/virtualwan1.png)
 
-Teraz mówiąc o zdalnych użytkowników, pozwala spojrzeć na to, co trzeba, aby sieć i działa:
+Teraz mówiąc o użytkownikach zdalnych, możesz sprawdzić, co jest potrzebne, aby zapewnić, że sieć zostanie uruchomiona:
 
-## <a name="set-up-remote-user-connectivity"></a><a name="connectivity"></a>Konfigurowanie łączności użytkownika zdalnego
+## <a name="set-up-remote-user-connectivity"></a><a name="connectivity"></a>Konfigurowanie łączności użytkowników zdalnych
 
-Możesz połączyć się z zasobami na platformie Azure za pomocą połączenia IPsec/IKE (IKEv2) lub OpenVPN. Ten typ połączenia wymaga skonfigurowania klienta sieci VPN dla użytkownika zdalnego. Ten klient może być [klientem sieci VPN platformy Azure](https://go.microsoft.com/fwlink/?linkid=2117554) lub klientem OpenVPN lub dowolnym klientem obsługującym protokół IKEv2. Aby uzyskać więcej informacji, zobacz [Tworzenie połączenia typu punkt-lokacja](virtual-wan-point-to-site-portal.md).
+Możesz połączyć się z zasobami na platformie Azure za pośrednictwem protokołu IPsec/IKE (IKEv2) lub połączenia OpenVPN. Ten typ połączenia wymaga skonfigurowania klienta sieci VPN dla użytkownika zdalnego. Ten klient może być klientem [sieci VPN platformy Azure](https://go.microsoft.com/fwlink/?linkid=2117554) lub klientem OpenVPN lub dowolnym klientem obsługującym protokół IKEv2. Aby uzyskać więcej informacji, zobacz [Tworzenie połączenia typu punkt-lokacja](virtual-wan-point-to-site-portal.md).
 
-## <a name="connectivity-from-the-remote-user-to-on-premises"></a><a name="remote user connectivity"></a>Łączność z użytkownikiem zdalnym do lokalnego
+## <a name="connectivity-from-the-remote-user-to-on-premises"></a><a name="remote user connectivity"></a>Łączność od użytkownika zdalnego do lokalnego
 
-Masz tu dwie opcje:
+Dostępne są dwie opcje:
 
-* Skonfiguruj łączność lokacja z dowolnym istniejącym urządzeniem sieci VPN. Po podłączeniu urządzenia sieci VPN IPsec do centrum wirtualnej sieci WAN platformy Azure wzajemne połączenia między siecią VPN użytkownika typu "punkt-lokacja" (użytkownik zdalny) a siecią VPN między lokacjami jest automatyczne. Aby uzyskać więcej informacji na temat konfigurowania sieci VPN między lokacjami z lokalnego urządzenia sieci VPN na wirtualną sieć WAN platformy Azure, zobacz [Tworzenie połączenia lokacja-lokacja przy użyciu wirtualnej sieci WAN](virtual-wan-site-to-site-portal.md).
+* Skonfiguruj połączenie lokacja-lokacja z dowolnym istniejącym urządzeniem sieci VPN. Po nawiązaniu połączenia między urządzeniem sieci VPN IPsec a usługą Azure Virtual WAN Hub połączenie między siecią VPN użytkownika punkt-lokacja (użytkownik zdalny) i siecią VPN typu lokacja-lokacja odbywa się automatycznie. Aby uzyskać więcej informacji na temat konfigurowania sieci VPN typu lokacja-lokacja z lokalnego urządzenia sieci VPN do wirtualnej sieci WAN platformy Azure, zobacz [Tworzenie połączenia typu lokacja-lokacja przy użyciu wirtualnej sieci WAN](virtual-wan-site-to-site-portal.md).
 
-* Podłącz obwód usługi ExpressRoute do koncentratora wirtualnej sieci WAN. Podłączanie obwodu usługi ExpressRoute wymaga wdrożenia bramy usługi ExpressRoute w wirtualnej sieci WAN. Po wdrożeniu jednego z nich wzajemne połączenia między siecią VPN użytkownika typu "punkt-lokacja" a użytkownikiem usługi ExpressRoute są automatyczne. Aby utworzyć połączenie usługi ExpressRoute, zobacz [Tworzenie połączenia usługi ExpressRoute przy użyciu wirtualnej sieci WAN](virtual-wan-expressroute-portal.md). Do nawiązania połączenia z wirtualną siecią WAN platformy Azure można użyć istniejącego obwodu usługi ExpressRoute.
+* Połącz obwód ExpressRoute z koncentratorem wirtualnej sieci WAN. Połączenie obwodu ExpressRoute wymaga wdrożenia bramy ExpressRoute w wirtualnej sieci WAN. Po wdrożeniu jednej komunikacji między siecią VPN użytkownika punkt-lokacja a użytkownikiem ExpressRoute jest automatycznie. Aby utworzyć połączenie ExpressRoute, zobacz [Tworzenie połączenia usługi ExpressRoute przy użyciu wirtualnej sieci WAN](virtual-wan-expressroute-portal.md). Możesz użyć istniejącego obwodu usługi ExpressRoute, aby nawiązać połączenie z wirtualną siecią WAN platformy Azure.
 
-## <a name="existing-basic-virtual-wan-customer"></a><a name="basic vWAN"></a>Istniejący podstawowy klient wirtualnej sieci WAN
+## <a name="existing-basic-virtual-wan-customer"></a><a name="basic vWAN"></a>Istniejący podstawowy wirtualny klient sieci WAN
 
-Podstawowa wirtualna sieć WAN zapewnia tylko sieć VPN typu lokacja lokacja. Aby użytkownicy zdalni mogli się połączyć, należy uaktualnić wirtualną sieć WAN do standardowej wirtualnej sieci WAN. Aby uzyskać instrukcje uaktualnienia wirtualnej sieci WAN, zobacz [Uaktualnianie wirtualnej sieci WAN z podstawowej do standardowej](upgrade-virtual-wan.md)
+Podstawowa wirtualna sieć WAN zapewnia tylko sieć VPN typu lokacja-lokacja. Aby użytkownicy zdalni mogli nawiązywać połączenia, należy uaktualnić wirtualną sieć WAN do standardowej wirtualnej sieci WAN. Aby uzyskać instrukcje dotyczące uaktualniania wirtualnej sieci WAN, zobacz [uaktualnianie wirtualnej sieci WAN z warstwy Podstawowa do standardowa](upgrade-virtual-wan.md)
 
 ## <a name="additional-information"></a><a name="other considerations"></a>Dodatkowe informacje
 
-Wirtualna sieć WAN obsługuje jeden koncentrator na region/lokalizację. Aby uzyskać informacje o lokalizacji, zobacz [wirtualnych partnerów sieci WAN i lokalizacje](virtual-wan-locations-partners.md) artykułu. Każdy koncentrator obsługuje do 10 000 połączeń zdalnych użytkowników, 1000 połączeń w odgałęzieniach, cztery obwody usługi ExpressRoute i do 500 połączeń z siecią wirtualną. Podczas skalowania użytkowników zdalnych, jeśli masz jakieś pytania, nie wahaj się azurevirtualwan@microsoft.comszukać pomocy, wysyłając wiadomość e-mail na adres . Jeśli potrzebujesz pomocy technicznej, pamiętaj, aby otworzyć bilet pomocy technicznej z witryny Azure portal i pomoc będzie w drodze.
+Wirtualna sieć WAN obsługuje jeden koncentrator na region/lokalizację. Informacje o lokalizacji znajdują się w artykule dotyczącym [partnerów i lokalizacji wirtualnych sieci WAN](virtual-wan-locations-partners.md) . Każde centrum obsługuje do 10 000 połączeń użytkowników zdalnych, połączenie z gałęzią 1 000, cztery obwody usługi ExpressRoute oraz do 500 połączeń Virtual Network. Podczas skalowania w górę użytkowników zdalnych, jeśli masz jakieś pytania, nie niechętnie zezwalają, aby uzyskać pomoc, wysyłając wiadomość e-mail na azurevirtualwan@microsoft.comadres. Jeśli wymagana jest pomoc techniczna, pamiętaj, aby otworzyć bilet pomocy technicznej z Azure Portal i uzyskać pomoc.
 
 ## <a name="faq"></a><a name="faq"></a>Najczęściej zadawane pytania
 
@@ -59,4 +59,4 @@ Wirtualna sieć WAN obsługuje jeden koncentrator na region/lokalizację. Aby uz
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat wirtualnej sieci WAN, zobacz [omówienie wirtualnej sieci WAN](virtual-wan-about.md)
+Aby uzyskać więcej informacji na temat wirtualnej sieci WAN, zobacz [Omówienie usługi Virtual WAN](virtual-wan-about.md)

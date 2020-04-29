@@ -1,47 +1,47 @@
 ---
-title: Konfigurowanie monitorowania gpu za pomocą usługi Azure Monitor dla kontenerów | Dokumenty firmy Microsoft
-description: W tym artykule opisano, jak skonfigurować monitorowanie klastrów Kubernetes za pomocą węzłów obsługujących procesory NVIDIA i PROCESOR GPU FIRMY AMD za pomocą usługi Azure Monitor dla kontenerów.
+title: Konfigurowanie monitorowania procesora GPU przy użyciu Azure Monitor dla kontenerów | Microsoft Docs
+description: W tym artykule opisano, jak można skonfigurować monitorowanie klastrów Kubernetes z węzłami z obsługą procesorów NVIDIA i AMD przy użyciu Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.openlocfilehash: 958f5ab33edcd280f5673391eba907728f1153c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80373312"
 ---
-# <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>Konfigurowanie monitorowania procesora GPU za pomocą usługi Azure Monitor dla kontenerów
+# <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>Konfigurowanie monitorowania procesora GPU przy użyciu Azure Monitor dla kontenerów
 
-Począwszy od wersji agenta *ciprod03022019*, monitor platformy Azure dla kontenerów zintegrowany agent obsługuje teraz monitorowanie użycia procesora GPU (procesor graficzny) na węzłach klastra Kubernetes obsługujących procesor GPU i monitoruj zasoby zasobami/kontenerami, żądając i korzystając z zasobów GPU.
+Począwszy od wersji agenta *ciprod03022019*, usługa Azure monitor for Containers Integrated Agent obsługuje teraz monitorowanie procesora GPU (graficzne jednostki przetwarzania) w węzłach klastra KUBERNETES z procesorem GPU i monitorowanie obciążeń/kontenerów żądających i korzystających z zasobów procesora GPU.
 
-## <a name="supported-gpu-vendors"></a>Obsługiwani dostawcy procesorów GPU
+## <a name="supported-gpu-vendors"></a>Obsługiwani dostawcy procesora GPU
 
-Usługa Azure Monitor for Containers obsługuje monitorowanie klastrów gpu od następujących dostawców procesorów GPU:
+Azure Monitor kontenerów obsługuje monitorowanie klastrów procesora GPU od następujących dostawców GPU:
 
-- [Nvidia](https://developer.nvidia.com/kubernetes-gpu)
+- [GRAFICZNY](https://developer.nvidia.com/kubernetes-gpu)
 
-- [Amd](https://github.com/RadeonOpenCompute/k8s-device-plugin)
+- [PROCESORÓW](https://github.com/RadeonOpenCompute/k8s-device-plugin)
 
-Usługa Azure Monitor dla kontenerów automatycznie rozpoczyna monitorowanie użycia procesora GPU w węzłach, a procesor GPU żąda zasobników i obciążeń, zbierając następujące metryki w odstępach 60sek i przechowując je w tabeli **InsightMetrics:**
+Azure Monitor dla kontenerów automatycznie uruchamia monitorowanie użycia procesora GPU w węzłach oraz procesor GPU żądający zasobników i obciążeń, zbierając następujące metryki w interwałach 60sec i przechowując je w tabeli **InsightMetrics** :
 
-|Nazwa metryki |Wymiar metryczny (znaczniki) |Opis |
+|Nazwa metryki |Wymiar metryki (Tagi) |Opis |
 |------------|------------------------|------------|
-|kontenerGpuDutyCycle |container.azm.ms/clusterId, container.azm.ms/clusterName, containerName, gpuId, gpuModel, gpuVendor|Procent czasu w ciągu minionego okresu próbkowania (60 sekund), podczas którego procesor GPU był zajęty/aktywnie przetwarzał kontener. Cykl pracy to liczba od 1 do 100. |
-|containerGpuLimits |container.azm.ms/clusterId, container.azm.ms/clusterName, containerName |Każdy kontener można określić limity jako jeden lub więcej procesorów GPU. Nie można zażądać ani ograniczyć ułamka procesora GPU. |
-|containerGpuRequests |container.azm.ms/clusterId, container.azm.ms/clusterName, containerName |Każdy kontener może zażądać jednego lub więcej procesorów GPU. Nie można zażądać ani ograniczyć ułamka procesora GPU.|
-|kontenerGpumemoryTotalBytes |container.azm.ms/clusterId, container.azm.ms/clusterName, containerName, gpuId, gpuModel, gpuVendor |Ilość pamięci GPU w bajtach dostępnych do użycia dla określonego kontenera. |
-|kontenerGpumemoryUsedBytes |container.azm.ms/clusterId, container.azm.ms/clusterName, containerName, gpuId, gpuModel, gpuVendor |Ilość pamięci GPU w bajtach używanych przez określony kontener. |
-|węzełGpuAllocatable |container.azm.ms/clusterId, container.azm.ms/clusterName, gpuVendor |Liczba procesorów graficznych w węźle, który może być używany przez kubernetes. |
-|węzełGpuCapacity |container.azm.ms/clusterId, container.azm.ms/clusterName, gpuVendor |Całkowita liczba procesorów graficznych w węźle. |
+|containerGpuDutyCycle |container.azm.ms/clusterId, container.azm.ms/clusterName, ContainerName, gpuId, gpuModel, gpuVendor|Procent czasu w ciągu ostatniej próbki (60 sekund), w którym procesor GPU był zajęty/aktywnie przetwarzany dla kontenera. Cykl cła to liczba z zakresu od 1 do 100. |
+|containerGpuLimits |container.azm.ms/clusterId, container.azm.ms/clusterName, ContainerName |Każdy kontener może określać limity jako jeden lub więcej procesorów GPU. Nie jest możliwe zażądanie lub ograniczenie ułamka procesora GPU. |
+|containerGpuRequests |container.azm.ms/clusterId, container.azm.ms/clusterName, ContainerName |Każdy kontener może zażądać jednego lub większej liczby procesorów GPU. Nie jest możliwe zażądanie lub ograniczenie ułamka procesora GPU.|
+|containerGpumemoryTotalBytes |container.azm.ms/clusterId, container.azm.ms/clusterName, ContainerName, gpuId, gpuModel, gpuVendor |Ilość pamięci procesora GPU dostępna do użycia dla określonego kontenera. |
+|containerGpumemoryUsedBytes |container.azm.ms/clusterId, container.azm.ms/clusterName, ContainerName, gpuId, gpuModel, gpuVendor |Ilość pamięci procesora GPU w bajtach używanych przez określony kontener. |
+|nodeGpuAllocatable |container.azm.ms/clusterId, container.azm.ms/clusterName, gpuVendor |Liczba procesorów GPU w węźle, które mogą być używane przez Kubernetes. |
+|nodeGpuCapacity |container.azm.ms/clusterId, container.azm.ms/clusterName, gpuVendor |Łączna liczba procesorów GPU w węźle. |
 
-## <a name="gpu-performance-charts"></a>Wykresy wydajności GPU 
+## <a name="gpu-performance-charts"></a>Wykresy wydajności procesora GPU 
 
-Usługa Azure Monitor dla kontenerów zawiera wstępnie skonfigurowane wykresy dla metryk wymienionych wcześniej w tabeli jako skoroszytu gpu dla każdego klastra. Skoroszyt GPU **węzeł GPU** można znaleźć bezpośrednio w klastrze AKS, wybierając **skoroszyty** z lewego okienka oraz z listy rozwijanej **Widok skoroszytów** w aplikacji Insight.
+Azure Monitor kontenerów zawiera wstępnie skonfigurowane wykresy dla metryk wymienionych wcześniej w tabeli jako skoroszyt GPU dla każdego klastra. Można znaleźć **procesor GPU węzła podrzędnego** bezpośrednio z klastra AKS, wybierając **skoroszyty** z okienka po lewej stronie, a następnie z listy rozwijanej **Wyświetl skoroszyty** w szczegółowej części.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [Używanie procesorów GPU do obciążeń intensywnie korzystających z obliczeń w usłudze Azure Kubernetes](../../aks/gpu-cluster.md) Service (AKS), aby dowiedzieć się, jak wdrożyć klaster AKS zawierający węzły obsługujące procesora GPU.
+- Zobacz [Korzystanie z procesorów GPU w przypadku obciążeń intensywnie korzystających z obliczeń w usłudze Azure Kubernetes Service](../../aks/gpu-cluster.md) (AKS), aby dowiedzieć się, jak WDROŻYĆ klaster AKS zawierający węzły z obsługą procesora GPU.
 
-- Dowiedz się więcej o [jednostkach SKU maszyn wirtualnych zoptymalizowanych pod kątem procesorów GPU na platformie Microsoft Azure](../../virtual-machines/sizes-gpu.md).
+- Dowiedz się więcej o [jednostkach SKU zoptymalizowanych pod kątem procesora GPU w Microsoft Azure](../../virtual-machines/sizes-gpu.md).
 
-- Przejrzyj [obsługę procesora GPU w ulotce Kubernetes,](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/) aby dowiedzieć się więcej o eksperymentalnej obsłudze usługi Kubernetes w zakresie zarządzania procesorami GPU w co najmniej jednym węzłach w klastrze.
+- Zapoznaj się z [obsługą procesora GPU w Kubernetes](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/) , aby dowiedzieć się więcej o eksperymentalnej obsłudze Kubernetes do zarządzania procesorami GPU w jednym lub wielu węzłach w klastrze

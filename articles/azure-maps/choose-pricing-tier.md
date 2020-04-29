@@ -1,6 +1,6 @@
 ---
-title: Wybierz odpowiednią warstwę cenową | Mapy platformy Microsoft Azure
-description: W tym artykule dowiesz się o warstwach cenowych oferowanych przez usługi Microsoft Azure Maps.
+title: Wybierz odpowiednią warstwę cenową | Mapy Microsoft Azure
+description: W tym artykule znajdziesz informacje o warstwach cenowych oferowanych przez Microsoft Azure Maps.
 author: philmea
 ms.author: philmea
 ms.date: 01/15/2020
@@ -9,59 +9,59 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: a8bf7ff9bacd4fe84ee5b64d0aed5cb271ce06f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335675"
 ---
-# <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Wybierz odpowiednią warstwę cenową w usłudze Azure Maps
+# <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Wybierz odpowiednią warstwę cenową w Azure Maps
 
-Usługa Azure Maps oferuje dwie warstwy cenowe, S0 i S1. Celem tego artykułu jest pomoc w wyborze odpowiedniej warstwy cenowej dla Twoich potrzeb. Aby wybrać odpowiednią warstwę cenową, zadaj sobie następujące dwa pytania.
+Azure Maps oferuje dwie warstwy cenowe, S0 i S1. Celem tego artykułu jest ułatwienie wyboru odpowiedniej warstwy cenowej dla potrzeb użytkownika. Aby wybrać odpowiednią warstwę cenową, należy zadać sobie poniższe dwa pytania.
 
-## <a name="how-many-concurrent-users-do-i-plan-to-support"></a>Ilu współbieżnych użytkowników mam zamiar obsługiwać? 
-Warstwy cenowe S0 i S1 obsługują różne ilości przepływności danych. Warstwa cenowa S0 obsługuje do **50 zapytań na sekundę.** Warstwa S1 obsługuje **więcej niż 50 zapytań na sekundę.**
+## <a name="how-many-concurrent-users-do-i-plan-to-support"></a>Ile współbieżnych użytkowników planuję obsługiwać? 
+Warstwy cenowe S0 i S1 obsługują różne ilości przepływności danych. Warstwa cenowa S0 obsługuje do **50 zapytań na sekundę**. Natomiast warstwa S1 obsługuje **więcej niż 50 zapytań na sekundę**.
 
-## <a name="what-geospatial-capabilities-do-i-plan-to-use"></a>Jakich możliwości geoprzestrzennych zamierzam wykorzystać?
-Warstwa cenowa S0 jest odpowiednia dla Ciebie, jeśli podstawowe interfejsy API geoprzestrzenne spełniają wymagania usługi. Jeśli chcesz bardziej zaawansowane możliwości dla aplikacji, należy rozważyć wybranie warstwy cenowej S1. Zaawansowane funkcje obejmują: zdjęcia lotnicze i hybrydowe, uzyskiwanie zasięgu trasy i geokodowanie wsadowe. Przejrzyj tabelę **możliwości warstwy cenowej,** aby wybrać warstwę cenową najbardziej odpowiednią dla danego zastosowania.
+## <a name="what-geospatial-capabilities-do-i-plan-to-use"></a>Jakie możliwości geoprzestrzenne są planowane do użycia?
+Warstwa cenowa S0 jest dla Ciebie odpowiednia, jeśli podstawowe interfejsy API geoprzestrzennej spełniają wymagania dotyczące usługi. Jeśli chcesz uzyskać bardziej zaawansowane możliwości aplikacji, rozważ rezygnację z warstwy cenowej S1. Zaawansowane możliwości obejmują: połączenie lotnicze oraz zdjęcia hybrydowe, uzyskiwanie zakresu tras i geokodowanie partii. Zapoznaj się z tabelą **możliwości warstwy cenowej** , aby wybrać warstwę cenową, która jest najbardziej odpowiednia dla Twojej aplikacji.
 
 ### <a name="pricing-tier-capabilities"></a>Możliwości warstwy cenowej
 
-| Możliwości                              |        S0           |  S1      |
+| Możliwość                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
 | Renderowanie mapy                              | ✓                   | ✓       |
-| Satelitarne                       |                     | ✓        |
-| Wyszukiwanie                                  | ✓                    | ✓        |
+| Obraz satelitarny                       |                     | ✓        |
+| Wyszukaj                                  | ✓                    | ✓        |
 | Wyszukiwanie wsadowe                            |                     | ✓        |
 | Trasa                                   | ✓                    |✓        |
-| Routing wsadowych                            |                    | ✓        |
+| Routing usługi Batch                            |                    | ✓        |
 | Routing macierzy                          |                     | ✓        |
-| Zasięg trasy (Izochrony)                |                     | ✓        |
+| Zakres tras (izochron)                |                     | ✓        |
 | Ruch                                |✓                    |✓        |
 | Strefa czasowa                               |✓                    |✓        |
 | Geolokalizacja (wersja zapoznawcza)                    |✓                   |✓        |
 | Operacje przestrzenne                        |                    |✓        |
 | Geofencing                                |                    |✓        |
-| Dane usługi Azure Maps (wersja zapoznawcza)                |                     | ✓        |
+| Dane Azure Maps (wersja zapoznawcza)                |                     | ✓        |
 | Mobilność (wersja zapoznawcza)                       |                     | ✓        |
 | Pogoda (wersja zapoznawcza)                        |✓                    |✓        |
 
-Należy wziąć pod uwagę te dodatkowe punkty:
-* Jaki rodzaj przedsiębiorstwa posiadasz?
-* Jak ważne jest twoje zgłoszenie?
+Należy wziąć pod uwagę następujące dodatkowe punkty:
+* Jakiego typu przedsiębiorstwa masz?
+* Jak jest krytyczna aplikacja?
 
-### <a name="pricing-tier-targeted-customers"></a>Klienci ukierunkowani na warstwę cenową
+### <a name="pricing-tier-targeted-customers"></a>Zamierzone odbiorcy warstwy cenowej
 
-Zobacz tabelę klientów kierowanych na **warstwę cenową,** aby lepiej zrozumieć warstwy cenowe S0 i S1. Aby uzyskać więcej informacji, zobacz [Ceny usługi Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/). 
+Zapoznaj się z tabelą **docelową dla klientów warstwy cenowej** , aby lepiej poznać warstwy cenowe S0 i S1. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/). 
 
-| Warstwa cenowa  |     Klienci ukierunkowani                                                                |
+| Warstwa cenowa  |     Dokierowany klienci                                                                |
 |-----------------|:-----------------------------------------------------------------------------------------|
-| S0            |    <p>Warstwa cenowa S0 działa dla aplikacji na wszystkich etapach produkcji: od opracowywania weryfikacji koncepcji i testowania na wczesnym etapie do produkcji i wdrażania aplikacji. Jednak ta warstwa jest przeznaczona dla rozwoju na małą skalę lub klientów o niskiej równoczesnych użytkowników lub obu. <p>|
-| S1            |    <p>Warstwa cenowa S1 jest dla klientów z aplikacjami korporacyjnymi na dużą skalę, aplikacjami o znaczeniu krytycznym lub dużą liczbą równoczesnych użytkowników. Jest to również dla tych klientów, którzy wymagają zaawansowanych usług geoprzestrzennych.</p>|
+| S0            |    <p>Warstwa cenowa S0 działa w przypadku aplikacji na wszystkich etapach produkcji: od projektowania rozwiązań do tworzenia koncepcji i wczesnego etapu testowania do produkcji i wdrażania aplikacji. Jednak ta warstwa została zaprojektowana na potrzeby rozwoju małych lub klientów, którzy mają mniej równoczesnych użytkowników lub obie te funkcje. <p>|
+| S1            |    <p>Warstwa cenowa S1 jest przeznaczony dla klientów, którzy mają duże aplikacje dla przedsiębiorstw, aplikacje o znaczeniu krytycznym lub duże ilości równoczesnych użytkowników. Jest on również przeznaczony dla tych klientów, którzy wymagają zaawansowanych usług geoprzestrzennych.</p>|
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o wyświetlaniu i zmienianiu warstw cenowych:
+Dowiedz się więcej o sposobie wyświetlania i zmieniania warstw cenowych:
 
 > [!div class="nextstepaction"] 
 > [Zarządzanie warstwą cenową](how-to-manage-pricing-tier.md)

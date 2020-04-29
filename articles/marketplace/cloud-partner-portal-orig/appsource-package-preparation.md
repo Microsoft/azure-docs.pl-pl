@@ -1,6 +1,6 @@
 ---
-title: Przygotowanie pakietu AppSource | Azure Marketplace
-description: Explanaion w jaki sposób przygotować i zbudować pakiety AppSource .
+title: Przygotowanie pakietu AppSource | Portal Azure Marketplace
+description: Explanaion przygotowywanie i kompilowanie pakietów AppSource.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,34 +8,34 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: 76f8cbd6cb16b585a7dbda7b2ffa5eeeeb1b68d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280613"
 ---
-# <a name="appsource-package-preparation"></a>Przygotowanie pakietu AppSource
+# <a name="appsource-package-preparation"></a>Przygotowywanie pakietu AppSource
 
-Oprócz pliku solution.zip potrzebny jest pakiet **AppSource**. Jest to plik .zip, który zawiera wszystkie zasoby potrzebne do automatyzacji procesu wdrażania rozwiązania w środowisku CRM klientów. **Pakiet AppSource** zawiera następujące składniki
+Oprócz pliku rozwiązania. zip wymagany jest **pakiet AppSource**. Jest to plik. zip, który zawiera wszystkie zasoby, które są konieczne do zautomatyzowania procesu wdrażania rozwiązania w środowisku programu CRM klienta. **Pakiet AppSource** ma następujące składniki
 
-* Pakiet dla wdrażacza pakietów
-* **Content_Types.xml** z używanymi zasobami
-* xml z danymi specyficznymi dla aplikacji
-* Logo 32x32, które będzie wyświetlane wraz z twoją wizytówką w Centrum administracyjnym
-* Postanowienia licencyjne, polityka prywatności
+* Pakiet narzędzia do wdrażania pakietów
+* Plik **Content_Types. XML** z używanymi zasobami
+* plik XML z danymi specyficznymi dla aplikacji
+* logo 32x32, które będzie wyświetlane na liście w centrum administracyjnym
+* Postanowienia licencyjne, zasady ochrony prywatności
 
-Poniższe kroki pomogą Ci utworzyć pakiet AppSource.
+Poniższe kroki ułatwią utworzenie pakietu AppSource.
 
-## <a name="a-create-a-package-for-the-package-deployer"></a>a. Tworzenie pakietu dla wdrażacza pakietów
+## <a name="a-create-a-package-for-the-package-deployer"></a>a. Tworzenie pakietu dla narzędzia do wdrażania pakietów
 
-Pakiet dla wdrażacza pakietów jest jedną z części pakietu AppSource.
+Pakiet narzędzia do wdrażania pakietów jest jedną z części pakietu AppSource.
 
-Aby utworzyć pakiet dla wdrażacza pakietu, należy [https://msdn.microsoft.com/library/dn688182.aspx](https://msdn.microsoft.com/library/dn688182.aspx)użyć następujących instrukcji: . Po zakończeniu, pakiet będzie składać się z aktywów poniżej:
+Aby utworzyć pakiet dla narzędzia do wdrażania pakietów, należy wykonać następujące instrukcje: [https://msdn.microsoft.com/library/dn688182.aspx](https://msdn.microsoft.com/library/dn688182.aspx). Po zakończeniu pakiet obejmuje następujące zasoby:
 
-1. Folder pakietów: zawiera wszystkie rozwiązania, dane konfiguracyjne, pliki płaskie i zawartość pakietu. _Uwaga: W poniższym przykładzie założymy, że folder pakietu nosi nazwę "PkgFolder"_
-2. dll: Zestaw zawiera niestandardowy kod dla pakietu. _Uwaga: W poniższym przykładzie założymy, że ten plik nosi nazwę "MicrosoftSample.dll"._
+1. Folder pakietu: zawiera wszystkie rozwiązania, dane konfiguracji, pliki płaskie i zawartość pakietu. _Uwaga: w poniższym przykładzie przyjęto założenie, że folder pakietu nosi nazwę "PkgFolder"_
+2. DLL: zestaw zawiera niestandardowy kod dla pakietu. _Uwaga: w poniższym przykładzie przyjęto założenie, że ten plik ma nazwę "MicrosoftSample. dll"._
 
-Teraz musisz utworzyć plik o nazwie "**Content_Types.xml**" Ten plik wyświetli listę wszystkich rozszerzeń zasobów, które są częścią pakietu. Oto przykładowy kod pliku.
+Teraz musisz utworzyć plik o nazwie "**Content_Types. XML**", aby wyświetlić listę wszystkich rozszerzeń zasobów, które są częścią pakietu. Oto przykładowy kod dla tego pliku.
 
     <?xml version="1.0" encoding="utf-8"?>
         <Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
@@ -52,36 +52,36 @@ Teraz musisz utworzyć plik o nazwie "**Content_Types.xml**" Ten plik wyświetli
         <Default Extension="css" ContentType="application/octet-stream" />
     </Types>
 
-Ostatnim krokiem jest skompresować następujące pliki w jednym pliku. Nazwij to **package.zip**. Będzie ona zawierać
+Ostatnim krokiem jest zaplikowanie zip poniżej w jednym pliku. Wywołaj **pakiet IT Package. zip**. Będzie zawierać
 
-1. PkgFolder (w tym wszystko wewnątrz folderu)
-2. Dll
-3. **Content_Types.xml**
+1. PkgFolder (w tym wszystkie elementy wewnątrz folderu)
+2. bibliotece
+3. **Content_Types. XML**
 
-Kroki tworzenia pliku package.zip:
+Procedura tworzenia pliku Package. zip:
 
-1. Umieść folder pakietu, **plik Content_Types.xml** i PackageName.dll w jednym katalogu.
+1. Umieść folder pakietu, plik **Content_Types. XML** i PackageName. dll w jednym katalogu.
 
-![Zdjęcie CRMScreenShot2](media/CRMScreenShot2.png)
+![CRMScreenShot2](media/CRMScreenShot2.png)
 
-1. Zaznacz wszystkie elementy w folderze, kliknij prawym przyciskiem myszy i wybierz polecenie Wyślij do skompresowanego (zip) folder
+1. Zaznacz wszystkie elementy w folderze, kliknij prawym przyciskiem myszy i wybierz polecenie Wyślij do skompresowanego folderu (zip).
 
-![Zdjęcie CRMScreenShot3](media/CRMScreenShot3.png)
+![CRMScreenShot3](media/CRMScreenShot3.png)
 
-1. Zmienianie nazwy na package.zip
+1. Zmień nazwę na Package. zip
 
-![Zdjęcie CRMScreenShot4](media/CRMScreenShot4.png)
+![CRMScreenShot4](media/CRMScreenShot4.png)
 
-## <a name="b-create-an-appsource-package"></a>b. Tworzenie pakietu appsource
+## <a name="b-create-an-appsource-package"></a>b. Tworzenie pakietu AppSource
 
 Pakiet AppSource wymaga kilku dodatkowych plików.
 
-1. jpg (rozdzielczość 32x32)
-2. html (plik w formacie HTML)
-3. **Content_Types.xml** (tak samo jak powyżej)
+1. jpg (rozpoznawanie 32x32)
+2. HTML (plik w formacie HTML)
+3. **Content_Types. XML** (analogicznie jak powyżej)
 4. xml
 
-Oto przykładowy kod pliku input.xml. Zobacz definicje w poniższej tabeli.
+Oto przykładowy kod dla Input. XML. Zobacz definicje w poniższej tabeli.
 
     <PvsPackageData>
         <ProviderName>Microsoft</ProviderName>
@@ -101,35 +101,35 @@ Oto przykładowy kod pliku input.xml. Zobacz definicje w poniższej tabeli.
         </Locales>
     </PvsPackageData>
  
-**Gdzie:**
+**Miejscu**
 
 |Pole|Szczegóły|
 |---|---|
-|ProviderName|Z kim pochodzi rozwiązanie. Jeśli zespół firmy Microsoft, to powinien być Microsoft.|
-|Plik pakietu |Zasoby programu wdrażania pakietu spakowane\_razem z plikiem content types.xml. Ten plik zip powinien zawierać zestaw wdrażający pakiet i folder z zasobami wdrażający pakiet. Oznacza to, że package.zip|
-|Nazwa rozwiązaniaAnchorname |Nazwa pliku zip rozwiązania w rozmieszczacza pakietu, który jest używany dla nazwy wyświetlanej i opisu zasobów rozwiązania.|
-| StartDate| Jest to data, że pakiet rozwiązania staną się dostępne. Format to MM/DD/YYYY|
-|Enddate|Jest to data, że pakiet rozwiązania przestanie być dostępny. Format to MM/DD/YYYY |
-|Obsługiwanekraje |Jest to lista krajów/regionów rozdzielona przecinkami, które powinny widzieć ten pakiet. Skontaktuj się z usługami online, aby uzyskać listę wszystkich aktualnych kodów krajów. W tym czasie, z tego pisania lista była: AE, AL, AM, AO, AR, AT, AU, AZ, BA, BB, BD, BE, BG, BH, BM, BN, BO, BR, BY, CA, CH, CI, CL, CM, CO, CR, CV, CW, CY, CZ, DE, DK, DO, DZ, EC, EE, EG ,ES,FI,FR,GB,GE,GH,GR,GT,HK,HN,HR,HU,ID,IE,IL,IN,IQ,IS,IT,JM,JO,JP,KE,KG,KN,KR,KW,KY,KZ,LB,LK,LT,LU,LV,LY,MA,MC,MD,ME,MK,MN,MO,MT,MU,MX,MY,MY ,NG,NI,NL,NO,NZ,OM,PA,PE,PH,PK,PL,PR,PS,PT,PY,QA,RO,RS,RU,RW,SA,SE,SG,SI,SK,SN,SV,TH,TM,TN,TR,TT,TW,UA,US,UY,UZ,VE,VI,VN,ZAN,ZAW |
-|LearnMoreLink (Więcej niż w tym) | Adres URL strony z informacjami o tym pakiecie. |
-|Ustawień regionalnych|Jedno wystąpienie tego węzła dla każdego języka ux, który chcesz obsługiwać w ux preferowanego rozwiązania. Ten węzeł zawiera elementy podrzędne opisujące ustawienia regionalne, logo i terminy dla każdego języka|
-|Ustawienia regionalne: PackageLocale.Code|LCID języka dla tego węzła. Przykład: angielski amerykański to 1033|
-|Ustawienia regionalne: PackageLocale.IsDefault|Wskazuje, że jest to język domyślny. Jest to używany jako język powrotu, jeśli język UX wybrany przez klienta nie jest dostępny.|
-|Ustawienia regionalne: Logo|To, jeśli logo, którego chcesz użyć dla tego pakietu. Rozmiar ikony to 32x32. Dozwolone formaty to PNG i JPG|
-|Ustawienia regionalne:Warunki: PackageTerm.File|Jest to nazwa pliku doc HTML, który zawiera postanowienia licencyjne.|
+|ProviderName|Kim jest rozwiązanie. Jeśli zespół firmy Microsoft, powinien to być firma Microsoft.|
+|PackageFile |Zasoby wdrażania pakietów spakowane razem z plikiem Content\_Types. XML. Ten plik zip powinien zawierać zestaw Package Deployer i folder z zasobami wdrażania pakietu. To jest plik Package. zip|
+|SolutionAnchorName |Nazwa pliku zip rozwiązania w programie do wdrażania pakietów, który jest używany jako nazwa wyświetlana i opis zasobów rozwiązania.|
+| StartDate| Jest to data udostępnienia pakietu rozwiązania. Format to MM/DD/RRRR|
+|EndDate|Jest to data, o którą pakiet rozwiązania zostanie zatrzymany. Format to MM/DD/RRRR |
+|SupportedCountries |Jest to rozdzielana przecinkami lista krajów/regionów, które powinny zobaczyć ten pakiet. Skontaktuj się z Usługi online, aby uzyskać listę wszystkich bieżących kodów krajów. W tym momencie ten zapis listy to: AE, AL, AM, AO, AR, AT, AU, AZ, BA, BB, BD, do, BG, BH, BM, mld USD, BO, BR, przez, CA, CH, CI, CL, CM,, CR, CV, CW, CY, CZ, DE, DK, DO, DZ, we, EE, EG,, FI, HN, w tym,, , W, IQ, IS, IT, JM, JO, JP, KE, KG, KN, KR, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, ME, MK, MN, MO, MT, SO, SO, MY, NG, NI, NL, NO, NZ, OM, PA, PE, PH, PK, PL, PR, PS, PT, PR, DO, DO, RO, RS, RU, RW, SA, SE, SG, SI, SK, SN, SV, TH, TM, TN , TR, TT, TW, UA, US, UY, UZ, VE, VI, VN, ZA, ZW |
+|LearnMoreLink | Adres URL do strony więcej informacji dla tego pakietu. |
+|Ustawień regionalnych|Jedno wystąpienie tego węzła dla każdego języka środowiska użytkownika, który ma być obsługiwany w preferowanym środowisku środowiska. Ten węzeł zawiera elementy podrzędne opisujące ustawienia regionalne, logo i warunki dla każdego języka|
+|Ustawienia regionalne: PackageLocale. Code|Identyfikator LCID języka dla tego węzła. Przykład: angielski (Stany Zjednoczone) to 1033|
+|Ustawienia regionalne: PackageLocale. IsDefault|Wskazuje, że jest to język domyślny. Jest on używany jako język powrotu, jeśli język UX wybrany przez klienta nie jest dostępny.|
+|Ustawienia regionalne: logo|Jest to możliwe, jeśli logo, którego chcesz użyć dla tego pakietu. Rozmiar ikony to 32x32. Dozwolone formaty to PNG i JPG|
+|Ustawienia regionalne: warunki: PackageTerm. File|Jest to nazwa pliku dokumentu HTML zawierającego postanowienia licencyjne.|
 
-Oto, gdzie pojawi się logo:
+Oto gdzie będzie wyświetlane logo:
 
-![Zdjęcie CRMScreenShot5](media/CRMScreenShot5.png)
+![CRMScreenShot5](media/CRMScreenShot5.png)
 
-Ostatnim krokiem jest skompresować następujące pliki w jednym pliku.
+Ostatnim krokiem jest zaplikowanie zip poniżej w jednym pliku.
 
-1. zip (utworzony wcześniej)
-2. **Content_Types.xml**
+1. plik zip (utworzony wcześniej)
+2. **Content_Types. XML**
 3. xml
 4. png
 5. html
 
-![Zdjęcie CRMScreenShot6](media/CRMScreenShot6.png)
+![CRMScreenShot6](media/CRMScreenShot6.png)
 
-Zmień nazwę pliku na coś odpowiedniego dla aplikacji. Wolimy podać nazwę firmy i nazwę aplikacji. Na przykład: **_Microsoft_SamplePackage.zip**.
+Zmień nazwę pliku na odpowiedni dla aplikacji. Preferujemy dołączenie nazwy firmy i nazwy aplikacji. Na przykład: **_Microsoft_SamplePackage. zip**.
