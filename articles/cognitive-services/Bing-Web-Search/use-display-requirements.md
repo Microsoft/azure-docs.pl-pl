@@ -1,7 +1,7 @@
 ---
-title: Wymagania dotyczące używania i wyświetlania interfejsów API wyszukiwania Bing
+title: Użyj i Wyświetl wymagania dla interfejsy API wyszukiwania Bing
 titleSuffix: Azure Cognitive Services
-description: Wymagania dotyczące wyświetlania wyników wyszukiwania z interfejsów API wyszukiwania Bing w aplikacjach.
+description: Wymagania dotyczące wyświetlania wyników wyszukiwania z interfejsy API wyszukiwania Bing w aplikacjach.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60499889"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Wymagania dotyczące użycia i wyświetlania interfejsu API wyszukiwania Bing
 
-Te wymagania dotyczące używania i wyświetlania mają zastosowanie do dowolnej implementacji zawartości i skojarzonych informacji z następujących interfejsów API wyszukiwania Bing, w tym relacji, metadanych i innych sygnałów.
+Te wymagania dotyczące użycia i wyświetlania dotyczą wszelkich implementacji zawartości i skojarzonych informacji z następujących interfejsy API wyszukiwania Bing, w tym relacji, metadanych i innych sygnałów.
 
 - Wyszukiwanie niestandardowe Bing
 - Wyszukiwanie jednostek Bing
@@ -36,136 +36,136 @@ Te wymagania dotyczące używania i wyświetlania mają zastosowanie do dowolnej
 
 |Termin  |Opis  |
 |---------|---------|
-|Odpowiedź     | Kategoria wyników zwrócona w odpowiedzi. Na przykład odpowiedź z interfejsu API wyszukiwania w sieci Web Bing może zawierać odpowiedzi w kategoriach wyników stron sieci Web, obrazu, wideo, wizualizacji i wiadomości. |
-|Odpowiedź     | Wszelkie odpowiedzi i skojarzone dane odebrane w odpowiedzi na pojedyncze wywołanie interfejsu API wyszukiwania. |
-|Wynik    | Element informacji w odpowiedzi. Na przykład zestaw danych połączonych z pojedynczym artykułem informacyjnym jest wynikiem odpowiedzi na wiadomości. |
-|Interfejsy API wyszukiwania    | zbiorczo interfejsy API wyszukiwania niestandardowego Bing, wyszukiwania jednostek, wyszukiwania obrazów, wyszukiwania wiadomości, wyszukiwania wideo, wyszukiwania wizualnego, wyszukiwania lokalnego firmy i wyszukiwania w sieci Web. |
+|Odpowiedź     | Kategoria wyników zwróconych w odpowiedzi. Na przykład odpowiedź z interfejs API wyszukiwania w sieci Web Bing może zawierać odpowiedzi w kategoriach wyników, obrazów, wideo, wizualizacji i wiadomości strony sieci Web. |
+|Odpowiedź     | Wszystkie odpowiedzi i skojarzone dane odebrane w odpowiedzi na jedno wywołanie interfejsu API wyszukiwania. |
+|Wynik    | Element informacji w odpowiedzi. Na przykład zestaw danych połączonych z pojedynczym artykułem z wiadomościami jest wynikiem odpowiedzi na wiadomość. |
+|Interfejsy API wyszukiwania    | zbiorowo wyszukiwanie niestandardowe Bing, wyszukiwanie jednostek, wyszukiwanie obrazów, wyszukiwanie wiadomości, wyszukiwanie wideo, wyszukiwanie wizualne, lokalne wyszukiwanie biznesowe i interfejsy API wyszukiwanie w sieci Web. |
 
-## <a name="bing-spell-check-and-bing-autosuggest-api-restrictions"></a>Sprawdzanie pisowni bing i ograniczenia interfejsu API automatycznego przełączania umotywowania bing
+## <a name="bing-spell-check-and-bing-autosuggest-api-restrictions"></a>Ograniczenia sprawdzanie pisowni Bing i interfejs API automatycznego sugerowania Bing
 
 Nie:
 
-- Kopiowanie, przechowywanie lub buforowanie danych otrzymanych z funkcji sprawdzania pisowni bing lub automatycznych zasysania analogów interfejsu API usługi Bing.
-- Użyj danych otrzymywanych z sprawdzania pisowni Bing lub automatycznego przełączania interfejsów API Bing w ramach uczenia maszynowego lub podobnej aktywności algorytmicznej. Nie używaj tych danych do szkolenia, oceny lub ulepszania nowych lub istniejących usług, które użytkownik lub osoby trzecie mogą oferować.
+- Skopiuj, przechowuj lub Buforuj wszystkie dane otrzymane z sprawdzanie pisowni Bing lub automatyczne sugerowanie Bing interfejsów API.
+- Użyj danych otrzymywanych z sprawdzanie pisowni Bing lub automatyczne sugerowanie Bing interfejsów API w ramach dowolnego uczenia maszynowego lub podobnej aktywności algorytmu. Tych danych nie należy używać do uczenia się, szacowania ani ulepszania nowych lub istniejących usług, które mogą oferować użytkownik lub osoby trzecie.
 
 ## <a name="bing-search-apis"></a>Interfejsy API wyszukiwania Bing
 
 > [!NOTE]
-> Wymagania w tej sekcji dotyczą tylko interfejsów API wyszukiwania, które nie obejmują sprawdzania pisowni bing lub autosuggest Bing. 
+> Wymagania zawarte w tej sekcji dotyczą tylko interfejsów API wyszukiwania, które nie zawierają sprawdzanie pisowni Bing ani automatyczne sugerowanie Bing. 
 
-### <a name="internet-search-experience-requirements"></a>Wymagania dotyczące wyszukiwania w Internecie
+### <a name="internet-search-experience-requirements"></a>Wymagania dotyczące środowiska wyszukiwania w Internecie
 
-Wszystkie dane zwracane w odpowiedziach mogą być wykorzystywane tylko w środowiskach wyszukiwania w Internecie. Wyszukiwanie w Internecie oznacza wyświetlaną zawartość: 
+Wszystkie dane zwrócone w odpowiedzi mogą być używane tylko w środowiskach wyszukiwania internetowego. Internetowa obsługa wyszukiwania oznacza zawartość wyświetlaną: 
 
-- Jest istotne i reaguje na bezpośrednie zapytanie użytkownika końcowego lub inne wskazanie jego zainteresowania wyszukiwania i intencji (na przykład zapytanie wyszukiwania wskazane przez użytkownika). 
+- Jest istotne i odpowiada na zapytanie bezpośrednie użytkownika końcowego lub inne wskazanie ich zainteresowania i intencje wyszukiwania (na przykład zapytanie wyszukiwania wskazane przez użytkownika). 
 
-- Pomaga użytkownikom znajdować źródła danych odpowiedzi i nawigować do ich źródeł. Na przykład podając klikalne łącza z hiperłączy w odpowiedzi.
+- Pomaga użytkownikom znaleźć źródła danych odpowiedzi i przechodzić do nich. Można na przykład udostępniać linki do kliknięcia z hiperlinków w odpowiedzi.
 
-- Zawiera wiele wyników dla użytkownika do wyboru. 
+- Zawiera wiele wyników, które użytkownik może wybrać. 
 
-- Znajdują się w miejscu docelowym, które umożliwia użytkownikom wyszukiwanie.
+- Znajdują się w rozmieszczeniu, które umożliwia użytkownikom wyszukiwanie.
 
-- Zawiera widoczną wskazówkę, że zawartość jest wynikiem wyszukiwania w Internecie. Na przykład oświadczenie, że zawartość jest "z sieci Web".
+- Zawiera widoczne wskazanie, że zawartość jest wynikiem wyszukiwania w Internecie. Na przykład instrukcja, której zawartość to "z sieci Web".
 
-- Zawiera wszelkie inne odpowiednie środki w celu zapewnienia, że dane interfejsu API wyszukiwania Bing nie naruszają żadnych obowiązujących przepisów ani praw osób trzecich. Skonsultuj się z doradcami prawnymi, aby ustalić, jakie środki mogą być odpowiednie.
+- Obejmuje wszelkie inne odpowiednie środki, aby zapewnić, że dane interfejsu API Wyszukiwanie Bing nie naruszają obowiązujących przepisów lub praw innych firm. Zapoznaj się z doradcami prawnymi, aby określić, jakie środki mogą być odpowiednie.
 
-Jedynym wyjątkiem od tych wymagań dotyczących środowiska wyszukiwania w Internecie jest odnajdowanie adresów URL, zgodnie z opisem w dalszej części tego artykułu. 
+Jedynym wyjątkiem od tych wymagań w zakresie wyszukiwania internetowego jest odnajdowanie adresów URL, zgodnie z opisem w dalszej części tego artykułu. 
 
 ### <a name="restrictions"></a>Ograniczenia
 
 Nie:
 
-- Kopiowanie, przechowywanie lub buforowanie dowolnych danych z odpowiedzi (z wyjątkiem przechowywania w zakresie dozwolonym przez [ciągłość usługi](#continuity-of-service). 
+- Kopiowanie, przechowywanie lub buforowanie danych z odpowiedzi (z wyjątkiem przechowywania w zakresie dozwolonym przez [ciągłość usługi](#continuity-of-service). 
 
-- Użyj danych otrzymanych z interfejsów API wyszukiwania w ramach dowolnego uczenia maszynowego lub podobne działanie algorytmiczne. Nie używaj tych danych do szkolenia, oceny lub ulepszania nowych lub istniejących usług, które użytkownik lub osoby trzecie mogą oferować.
+- Użyj danych otrzymanych z interfejsów API wyszukiwania jako części dowolnego uczenia maszynowego lub podobnej aktywności algorytmu. Tych danych nie należy używać do uczenia się, szacowania ani ulepszania nowych lub istniejących usług, które mogą oferować użytkownik lub osoby trzecie.
 
-- Modyfikuj zawartość wyników (inne niż w celu ich sformatowania w sposób, który nie narusza żadnych innych wymogów), chyba że jest to wymagane przez prawo lub na które firma Microsoft zgodzi się. 
+- Zmodyfikuj zawartość wyników (inne niż w celu ich sformatowania w taki sposób, że nie narusza żadnego innego wymogu), chyba że jest to wymagane przez prawo ani uzgodnione przez firmę Microsoft. 
 
-- Pomiń informacje o atrybucji i adresy URL skojarzone z treścią wyników.
+- Pomiń informacje o przypisywaniu i adresy URL skojarzone z zawartością wyniku.
 
-- Kolejność, w tym przez pominięcie, wyniki wyświetlane w odpowiedzi, gdy zamówienie lub ranking jest dostarczany, chyba że jest to wymagane przez prawo lub uzgodnione przez firmę Microsoft. 
+- Zmiana kolejności, w tym przez pominięcie, wyniki wyświetlane w odpowiedzi w przypadku podanej kolejności lub klasyfikacji, chyba że jest to wymagane przez prawo lub uzgodnione przez firmę Microsoft. 
 
     > [!NOTE]
-    > To wymaganie nie ma zastosowania do ponownego ustawienia zaimplementowanego za pośrednictwem portalu dla interfejsu API wyszukiwania niestandardowego Bing.
+    > To wymaganie nie dotyczy zmiany kolejności zaimplementowanej w portalu dla interfejs API wyszukiwania niestandardowego Bing.
 
-- Wyświetlanie innej zawartości w dowolnej części odpowiedzi w sposób, który doprowadziłby użytkownika do przekonania, że inna zawartość jest częścią odpowiedzi. 
+- Wyświetlanie innej zawartości w ramach dowolnej części odpowiedzi w taki sposób, aby użytkownik mógł uznać, że druga zawartość jest częścią odpowiedzi. 
 
-- Wyświetlanie reklam, które nie są dostarczane przez firmę Microsoft na żadnej stronie, która wyświetla dowolną część odpowiedzi. 
+- Wyświetlaj reklamy, które nie są dostarczane przez firmę Microsoft na żadnej stronie, która wyświetla jakąkolwiek część odpowiedzi. 
 
 - Wyświetlaj reklamy na stronach z odpowiedziami:
-    - Z interfejsów API obrazów Bing, wyszukiwania wiadomości, wyszukiwania wideo lub wyszukiwania wizualnego
-    - Filtrowane lub ograniczone głównie (lub wyłącznie) do wyników wyszukiwania obrazów, wiadomości i/lub filmów lub efektów wizualnych.
+    - Z poziomu interfejsów API wyszukiwanie wiadomości, wyszukiwanie wideo lub wyszukiwanie wizualne z obrazu Bing
+    - Są one filtrowane lub ograniczone (lub wyłącznie) do wyników wyszukiwania obrazów, wiadomości i/lub wideo lub wizualizacji.
 
-### <a name="notices-and-branding"></a>Uwagi i branding 
-Zrobić:
+### <a name="notices-and-branding"></a>Powiadomienia i znakowanie 
+Nie
 
-- W widocznym miejscu należy dołączyć hiperłącze funkcjonalne do [zasad zachowania poufności informacji firmy Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839), w pobliżu każdego punktu środowiska użytkownika (UX), który oferuje użytkownikowi możliwość wprowadzania zapytania wyszukiwania. Oznacz hiperłącze **Zasad zachowania poufności informacji firmy Microsoft**.
+- W widocznym miejscu dołączysz funkcjonalne hiperłącze do [zasad zachowania poufności informacji firmy Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839)w każdym miejscu środowiska użytkownika, które oferuje użytkownikowi możliwość wprowadzenia zapytania wyszukiwania. Oznacz hiperłącze **zasad zachowania poufności informacji firmy Microsoft**.
 
-- Wyraźnie wyświetla znakowanie Bing, zgodne z [wytycznymi dotyczącymi używania znaków towarowych Bing,](https://go.microsoft.com/fwlink/?linkid=833278)w pobliżu każdego punktu w UX, który oferuje użytkownikowi możliwość wprowadzania zapytania wyszukiwania. Takie marki muszą wyraźnie stwierdzić użytkownikowi, że Microsoft zasila środowisko wyszukiwania w Internecie.
+- W widocznym miejscu Wykorzystaj znakowanie Bing, zgodnie z [wytycznymi dotyczącymi użycia znaku towarowego Bing](https://go.microsoft.com/fwlink/?linkid=833278), w dowolnym miejscu w środowisku użytkownika, które oferuje użytkownikowi możliwość wprowadzenia zapytania wyszukiwania. Takie oznakowanie musi jasno stwierdzać użytkownikowi, że firma Microsoft umożliwia korzystanie z funkcji wyszukiwania internetowego.
 
-- Każdą odpowiedź (lub część odpowiedzi) wyświetlaną z interfejsów API wyszukiwania w sieci Web Bing, wyszukiwania obrazów, wyszukiwania wiadomości, wyszukiwania wideo i wyszukiwania wizualnego można przypisać firmie Microsoft, chyba że firma Microsoft określi inaczej na piśmie do użytku użytkownika. Jest to opisane w [Wytycznych dotyczących używania znaków towarowych Bing](https://go.microsoft.com/fwlink/?linkid=833278). 
+- Do firmy Microsoft można przypisywać każdą odpowiedź (lub część odpowiedzi) wyświetlaną w interfejsie API wyszukiwanie w sieci Web Bing, wyszukiwanie obrazów, wyszukiwanie wiadomości, wyszukiwanie wideo i wyszukiwanie wizualne, chyba że firma Microsoft określi inaczej do użycia. Jest to opisane w [wytycznych dotyczących użycia znaku towarowego Bing](https://go.microsoft.com/fwlink/?linkid=833278). 
 
 Nie:
 
-- Odpowiedzi atrybutów (lub części odpowiedzi) wyświetlane z interfejsu API wyszukiwania niestandardowego Bing do firmy Microsoft, chyba że firma Microsoft określa inaczej na piśmie dla danego zastosowania.
+- Odpowiedzi na atrybuty (lub fragmenty odpowiedzi) wyświetlane w interfejs API wyszukiwania niestandardowego Bing do firmy Microsoft, chyba że firma Microsoft określi inaczej w przypadku konkretnego użycia.
 
-### <a name="transferring-responses"></a>Przesyłanie odpowiedzi
+### <a name="transferring-responses"></a>Transferowanie odpowiedzi
 
-Jeśli użytkownik może przenieść odpowiedź z interfejsu API wyszukiwania do innego użytkownika, na przykład za pośrednictwem aplikacji do obsługi wiadomości lub publikowania w mediach społecznościowych, zastosowanie mają następujące zasady: 
+W przypadku umożliwienia użytkownikowi przetransferowania odpowiedzi z interfejsu API wyszukiwania do innego użytkownika, na przykład za pośrednictwem aplikacji do obsługi wiadomości lub ogłaszania mediów społecznościowych, należy zastosować następujące czynności: 
 
-- Przekazane odpowiedzi muszą:
-  - Składa się z zawartości, która nie jest zmieniana z zawartości odpowiedzi wyświetlanych użytkownikowi przesyłającemu. Zmiany formatowania są dopuszczalne.
-  - Nie dołączaj żadnych danych w formularzu metadanych.
-  - W przypadku odpowiedzi z interfejsów API usługi Bing, Image, News, Video i Visual API można wyświetlić język wskazujący, że odpowiedź została uzyskana za pośrednictwem środowiska wyszukiwania w Internecie obsługiwanego przez usługę Bing. Na przykład możesz wyświetlić język, taki jak "Powered by Bing" lub "Dowiedz się więcej o tym obrazie w u usługi Bing", lub możesz użyć logo Bing.
-  - W przypadku odpowiedzi z interfejsu API wyszukiwania niestandardowego usługi Bing język wyświetlania wskazujący, że odpowiedź została uzyskana za pośrednictwem środowiska wyszukiwania w Internecie. Możesz na przykład wyświetlić język, taki jak "Dowiedz się więcej o tym wyniku wyszukiwania".
-  - W widocznym miejscu wyświetlają pełną kwerendę używaną do wygenerowania odpowiedzi.
-  - Dołącz widoczny link lub podobne przypisanie do źródłowego źródła odpowiedzi, bezpośrednio lub za pośrednictwem wyszukiwarki (bing.com, m.bing.com lub niestandardowej usługi wyszukiwania, stosownie do przypadku).
-- Nie można zautomatyzować przesyłania odpowiedzi. Przeniesienie musi być zainicjowane przez akcję użytkownika wyraźnie potwierdzającą zamiar przeniesienia odpowiedzi.
-- Użytkownik może włączyć tylko do przesyłania odpowiedzi, które zostały wyświetlone w odpowiedzi na kwerendę użytkownika przesyłającego.
+- Przesłane odpowiedzi muszą:
+  - Składają się z zawartości, która nie została zmodyfikowana z zawartości odpowiedzi wyświetlanej dla użytkownika przekazującego. Dozwolone jest wprowadzanie zmian w formatowaniu.
+  - Nie dołączaj żadnych danych do formularza metadanych.
+  - W przypadku odpowiedzi z interfejsów API sieci Web, obrazów, wiadomości, wideo i wizualizacji usługi Bing język wyświetlania wskazujący, że odpowiedź została uzyskana za pośrednictwem środowiska wyszukiwania internetowego obsługiwanego przez usługę Bing. Na przykład możesz wyświetlić język taki jak "obsługiwany przez Bing" lub "dowiedzieć się więcej na temat tego obrazu w usłudze Bing" lub użyć logo Bing.
+  - W przypadku odpowiedzi z interfejs API wyszukiwania niestandardowego Bing, język wyświetlania wskazujący, że odpowiedź została uzyskana za pośrednictwem internetowego środowiska wyszukiwania. Na przykład możesz wyświetlić język, taki jak "Dowiedz się więcej na temat tego wyniku wyszukiwania".
+  - Wyświetlenie pełnego zapytania użytego do wygenerowania odpowiedzi.
+  - Dołącz widoczne łącze lub podobne przypisanie do bazowego źródła odpowiedzi, bezpośrednio lub za pomocą aparatu wyszukiwania (bing.com, m.bing.com lub niestandardowej usługi wyszukiwania).
+- Nie można zautomatyzować transferu odpowiedzi. Przekazanie musi być inicjowane przez akcję użytkownika jasno evidencing zamiar przetransferowania odpowiedzi.
+- Użytkownik może zezwolić tylko na transfer odpowiedzi, które były wyświetlane w odpowiedzi na kwerendę transferu użytkownika.
 
-### <a name="continuity-of-service"></a>Ciągłość świadczenia usług 
+### <a name="continuity-of-service"></a>Ciągłość usługi 
 
-Nie należy kopiować, przechowywać ani buforować żadnych danych z odpowiedzi interfejsu API wyszukiwania. Aby jednak umożliwić ciągłość dostępu do usługi i renderowania danych, wyniki mogą być przechowywane wyłącznie pod następującymi warunkami:
+Nie Kopiuj, przechowuj ani nie Buforuj żadnych danych z odpowiedzi interfejsu API wyszukiwania. Jednak w celu zapewnienia ciągłości dostępu do usługi i renderowania danych można zachować wyniki wyłącznie w następujących warunkach:
 
 #### <a name="device"></a>Urządzenie
 
-Użytkownik może umożliwić użytkownikowi zachowanie wyników na urządzeniu przez mniej niż (i) 24 godziny od momentu kwerendy lub (ii) do momentu przesłania przez użytkownika kolejnego zapytania w celu uzyskania zaktualizowanych wyników, pod warunkiem że zachowane wyniki mogą być używane tylko:
+Możesz umożliwić użytkownikowi zachowanie wyników na urządzeniu przez krótsze (i) 24 godziny od czasu zapytania lub (II), dopóki użytkownik nie wyśle kolejnego zapytania o zaktualizowane wyniki, pod warunkiem, że zachowane wyniki mogą być używane tylko:
 
-- Aby umożliwić użytkownikowi dostęp do wyników wcześniej zwróconych do tego użytkownika na tym urządzeniu (na przykład w przypadku przerwy w świadczeniu usług).
-- Aby przechowywać wyniki zwrócone dla proaktywnego zapytania spersonalizowane w oczekiwaniu na potrzeby użytkownika, na podstawie sygnałów tego użytkownika (na przykład w przypadku przewidywanej przerwy w świadczeniu usług).
+- Aby umożliwić użytkownikowi uzyskanie dostępu do wyników wcześniej zwróconych do tego użytkownika na tym urządzeniu (na przykład w przypadku przerwania działania usługi).
+- Do przechowywania wyników zwróconych dla proaktywnego zapytania spersonalizowanych w oczekiwaniu na potrzeby użytkowników, na podstawie sygnałów tego użytkownika (na przykład w przypadku przewidywanych przerw w działaniu usługi).
 
 #### <a name="server"></a>Serwer
 
-Wyniki specyficzne dla pojedynczego użytkownika mogą być bezpiecznie przechowywane na kontrolowanym serwerze i wyświetlać tylko zachowane wyniki:
+Wyniki specyficzne dla pojedynczego użytkownika mogą być bezpiecznie przechowywane na serwerze, który kontrolujesz, i wyświetlają tylko zachowane wyniki:
 
-- Aby umożliwić użytkownikowi dostęp do raportu historycznego wyników wcześniej zwróconych do tego użytkownika w rozwiązaniu. Wyniki nie mogą być (i) przechowywane przez okres dłużej niż 21 dni od momentu początkowego zapytania użytkownika końcowego oraz (ii) wyświetlane w odpowiedzi na nowe lub powtarzające się zapytanie użytkownika.
-- Aby przechowywać wyniki zwrócone dla proaktywnego zapytania spersonalizowane w oczekiwaniu na potrzeby użytkownika, na podstawie sygnałów tego użytkownika. Wyniki te można przechowywać przez mniej niż (i) 24 godziny od momentu kwerendy lub (ii) do momentu przesłania przez użytkownika innej kwerendy w celu uzyskania zaktualizowanych wyników.
+- Aby umożliwić użytkownikowi dostęp do historycznego raportu wyników wcześniej zwróconych do tego użytkownika w rozwiązaniu. Wyniki nie mogą być (i) przechowywane przez ponad 21 dni od momentu początkowego zapytania użytkownika końcowego i (II) wyświetlane w odpowiedzi na nowe lub powtórzone zapytanie użytkownika.
+- Do przechowywania wyników zwróconych dla proaktywnego zapytania spersonalizowanego w oczekiwaniu na potrzeby użytkowników, na podstawie sygnałów tego użytkownika. Można przechowywać te wyniki dla krótszych (i) 24 godzin od czasu zapytania lub (II), dopóki użytkownik nie wyśle kolejnego zapytania pod kątem zaktualizowanych wyników.
 
-Za każdym razem, gdy są zachowywane, wyniki dla określonego użytkownika nie mogą być mieszane z wynikami dla innego użytkownika. Oznacza to, że wyniki każdego użytkownika muszą być zachowane i dostarczone oddzielnie.
+Wyniki dla określonego użytkownika nie mogą być commingled z wynikami dla innego użytkownika. Oznacza to, że wyniki poszczególnych użytkowników muszą zostać zachowane i dostarczone osobno.
 
 ### <a name="general"></a>Ogólne 
 
 Dla wszystkich prezentacji zachowanych wyników:
 
-- Dołącz wyraźne, widoczne powiadomienie o czasie wysłania kwerendy.
-- Przedstaw użytkownikowi przycisk lub podobne środki do ponownego zapytania i uzyskania zaktualizowanych wyników. 
+- Dołącz jasne, widoczne informacje o czasie wysłania zapytania.
+- Zaprezentowanie użytkownikowi przycisku lub podobnej metody w celu ponownego wykonania zapytania i uzyskania zaktualizowanych wyników. 
 - Zachowaj znakowanie Bing w prezentacji wyników.
-- Usuń (i odśwież z nową kwerendą w razie potrzeby) zapisane wyniki w określonych ramach czasowych.
+- Usuń (i w razie konieczności Odświeżaj nowe zapytanie) zapisane wyniki w określonych przedziale czasowym.
 
-### <a name="non-display-url-discovery"></a>Odnajdowanie niechwerysji adresów URL 
+### <a name="non-display-url-discovery"></a>Odnajdywanie adresu URL bez wyświetlania 
 
-Odpowiedzi wyszukiwania można używać wyłącznie w przypadku wyszukiwania w internecie wyłącznie w celu wykrywania adresów URL źródeł informacji reagujących na zapytanie od użytkownika lub klienta. Możesz skopiować takie adresy URL w raporcie lub podobnej odpowiedzi, którą podajesz:
+Odpowiedzi wyszukiwania można używać tylko w przypadku wyszukiwania niepochodzącego z Internetu, tylko w celu odnajdywania adresów URL źródeł informacji, które odpowiadają na zapytanie od użytkownika lub klienta. Możesz skopiować takie adresy URL w raporcie lub podobnej odpowiedzi:
 
-- Tylko do tego użytkownika lub klienta, w odpowiedzi na to zapytanie.
-- Tylko wtedy, gdy zawiera znaczne dodatkowe cenne treści, istotne dla kwerendy.
+- Tylko dla tego użytkownika lub klienta, w odpowiedzi na zapytanie.
+- Tylko wtedy, gdy zawiera ona znaczną dodatkową zawartość, istotną dla zapytania.
 
-Poprzednie sekcje interfejsów API wyszukiwania używają i wyświetlania nie mają zastosowania do tego zastosowania nieeksłaniowego, z wyjątkiem następujących: 
+Poprzednie sekcje interfejsów API wyszukiwania wykorzystują i nie mają zastosowania do tego, które nie są wyświetlane, z wyjątkiem następujących: 
 
-- Nie buforuj, nie kopiuj ani nie przechowuj żadnych danych ani treści z odpowiedzi na wyszukiwanie lub z nich pochodzi, z innych niż opisane wcześniej ograniczone kopiowanie adresów URL.
-- Upewnij się, że korzystasz z danych (w tym adresów URL) otrzymanych z interfejsów API wyszukiwania, nie narusza żadnych obowiązujących przepisów prawa ani praw osób trzecich.
-- Nie należy używać danych (w tym adresów URL) otrzymanych z interfejsów API wyszukiwania w ramach indeksu wyszukiwania lub uczenia maszynowego lub podobnej aktywności algorytmicznej. Nie używaj tych danych do tworzenia pociągów, oceny lub ulepszania usług, które użytkownik lub osoby trzecie mogą oferować.
+- Nie Buforuj, nie Kopiuj ani nie przechowuj żadnych danych ani zawartości z lub pochodzą z odpowiedzi wyszukiwania, inne niż opisane powyżej ograniczonego kopiowania adresów URL.
+- Upewnij się, że używane dane (w tym adresy URL) otrzymane z interfejsów API wyszukiwania nie naruszają obowiązujących przepisów ani praw innych firm.
+- Nie należy używać danych (łącznie z adresami URL) otrzymywanych z interfejsów API wyszukiwania w ramach dowolnego indeksu wyszukiwania lub uczenia maszynowego lub podobnej aktywności algorytmu. Nie używaj tych danych do tworzenia uczenia, szacowania ani ulepszania usług, które mogą oferować użytkownik lub osoby trzecie.
 
 ## <a name="gdpr-compliance"></a>Zgodność z RODO  
 
-W odniesieniu do wszelkich danych osobowych podlegających ogólnemu rozporządzeniu o ochronie danych (RODO) Unii Europejskiej( RODO) i przetwarzanych w związku z połączeniami z interfejsami API wyszukiwania, interfejsami API sprawdzania pisowni Bing lub interfejsem API automatycznego przełączania Bing, użytkownik rozumie, że użytkownik i firma Microsoft są niezależnych administratorów danych zgodnie z RODO. Jesteś niezależnie odpowiedzialny za zgodność z RODO.  
+W odniesieniu do wszelkich danych osobowych podlegających Unii Europejskiej Ogólne rozporządzenie o ochronie danych (Rodo) i przetwarzanych w związku z wywołaniami interfejsów API wyszukiwania, sprawdzanie pisowni Bing interfejsu API lub interfejs API automatycznego sugerowania Bing, rozumiesz, że ty i firma Microsoft są niezależnymi kontrolerami danych w ramach Rodo. Użytkownik jest odpowiedzialny za zgodność z Rodo.  
 

@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Integracja pojedynczego lasu usługi AD z platformą Azure przy użyciu usług PHS'
+title: 'Samouczek: Integrowanie pojedynczego lasu usługi AD z platformą Azure przy użyciu PHS'
 description: W tym samouczku pokazano, jak skonfigurować środowisko tożsamości hybrydowej przy użyciu funkcji synchronizacji skrótów haseł.
 services: active-directory
 documentationcenter: ''
@@ -15,17 +15,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b17300fa69b61c7713c860e2a35e63fcb6584bc4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "66474003"
 ---
-# <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Samouczek: Integracja pojedynczego lasu AD przy użyciu synchronizacji skrótów haseł (PHS)
+# <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Samouczek: Integrowanie pojedynczego lasu usługi AD przy użyciu funkcji synchronizacji skrótów haseł (PHS)
 
 ![Utwórz](media/tutorial-password-hash-sync/diagram.png)
 
-Poniższy samouczek poprowadzi Cię przez tworzenie środowiska tożsamości hybrydowej przy użyciu synchronizacji skrótu hasła.  To środowisko może następnie służyć do testowania lub do zapoznania się z jak działa tożsamości hybrydowej.
+Poniższy samouczek przeprowadzi Cię przez proces tworzenia hybrydowego środowiska tożsamości przy użyciu funkcji synchronizacji skrótów haseł.  Tego środowiska można następnie użyć do testowania lub w celu uzyskania bardziej znajomości sposobu działania tożsamości hybrydowej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Poniżej przedstawiono wymagania wstępne niezbędne do wykonania kroków tego samouczka
@@ -82,8 +82,8 @@ Aby zakończyć tworzenie maszyny wirtualnej, należy zakończyć instalację sy
 5. Kliknij pozycję **Zainstaluj teraz**.
 6. Wprowadź klucz licencji i kliknij przycisk **Dalej**.
 7. Zaznacz opcję **Akceptuję postanowienia licencyjne, a następnie kliknij przycisk **Dalej**.
-8. Wybierz **opcję Niestandardowe: Zainstaluj tylko system Windows (zaawansowane)**
-9. Kliknij **przycisk Dalej**
+8. Wybierz **niestandardowe: tylko Zainstaluj system Windows (Zaawansowane)**
+9. Kliknij przycisk **dalej** .
 10. Po zakończeniu instalacji uruchom ponownie maszynę wirtualną, zaloguj się i uruchom aktualizacje systemu Windows, aby upewnić się, że maszyna wirtualna została zaktualizowana.  Zainstaluj najnowsze aktualizacje.
 
 ## <a name="install-active-directory-prerequisites"></a>Instalowanie wymagań wstępnych usługi Active Directory
@@ -183,7 +183,7 @@ Teraz należy utworzyć dzierżawę usługi Azure AD, aby umożliwić synchroniz
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta z subskrypcją platformy Azure.
 2. Wybierz **ikonę plusa (+)** i wyszukaj ciąg **Azure Active Directory**.
 3. W wynikach wyszukiwania wybierz pozycję **Azure Active Directory**.
-4. Wybierz **pozycję Utwórz**.</br>
+4. Wybierz przycisk **Utwórz**.</br>
 ![Tworzenie](media/tutorial-password-hash-sync/create1.png)</br>
 5. Podaj **nazwę organizacji** wraz z **początkową nazwą domeny**. Następnie wybierz pozycję **Utwórz**. Spowoduje to utworzenie katalogu.
 6. Po zakończeniu kliknij link **tutaj**, aby zarządzać katalogiem.
@@ -202,13 +202,13 @@ Dzierżawa usługi Azure AD jest już gotowa. Utworzymy konto administratora glo
 ## <a name="download-and-install-azure-ad-connect"></a>Pobieranie i instalowanie programu Azure AD Connect
 Nadszedł czas, aby pobrać i zainstalować program Azure AD Connect.  Po zainstalowaniu go przejdziemy przez konfigurację ekspresową.  Wykonaj następujące czynności:
 
-1. Pobieranie [usługi Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)
+1. Pobierz [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)
 2. Przejdź do pozycji **AzureADConnect.msi** i kliknij ją dwukrotnie.
 3. Na ekranie powitalnym zaznacz pole wyrażenia zgody na warunki licencji i kliknij pozycję **Kontynuuj**.  
 4. Na ekranie Ustawienia ekspresowe kliknij polecenie **Użyj ustawień ekspresowych**.</br>  
 ![Tworzenie](media/tutorial-password-hash-sync/express1.png)</br>
-5. Na ekranie Łączenie z usługą Azure AD podaj nazwę użytkownika i hasło administratora globalnego usługi Azure AD. Kliknij przycisk **alej**.  
-6. Na ekranie Łączenie z usługami AD DS wprowadź nazwę użytkownika i hasło konta administratora przedsiębiorstwa. Kliknij przycisk **alej**.  
+5. Na ekranie Łączenie z usługą Azure AD podaj nazwę użytkownika i hasło administratora globalnego usługi Azure AD. Kliknij przycisk **Dalej**.  
+6. Na ekranie Łączenie z usługami AD DS wprowadź nazwę użytkownika i hasło konta administratora przedsiębiorstwa. Kliknij przycisk **Dalej**.  
 7. Na ekranie Wszystko gotowe do skonfigurowania kliknij pozycję **Zainstaluj**.
 8. Po zakończeniu instalacji kliknij przycisk **Zakończ**.
 9. Po zakończeniu instalacji wyloguj się, a następnie zaloguj się ponownie przed użyciem narzędzia Synchronization Service Manager lub Synchronization Rule Editor.
@@ -237,4 +237,4 @@ W ten sposób pomyślnie skonfigurowano środowisko tożsamości hybrydowej, kt�
 
 - [Sprzęt i wymagania wstępne](how-to-connect-install-prerequisites.md) 
 - [Ustawienia ekspresowe](how-to-connect-install-express.md)
-- [Synchronizacja skrótu hasła](how-to-connect-password-hash-synchronization.md)|
+- [Synchronizacja skrótów haseł](how-to-connect-password-hash-synchronization.md)|

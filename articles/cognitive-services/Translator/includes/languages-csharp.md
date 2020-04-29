@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: a7715577936b0e95392f2d561e4b492b20c9dbf5
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69906941"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
@@ -45,7 +45,7 @@ using Newtonsoft.Json;
 
 ## <a name="get-endpoint-information-from-an-environment-variable"></a>Pobierz informacje o punkcie końcowym ze zmiennej środowiskowej
 
-Dodaj następujące wiersze `Program` do klasy. Te wiersze odczytują klucz subskrypcji i punkt końcowy ze zmiennych środowiskowych i zgłasza błąd, jeśli napotkasz jakiekolwiek problemy.
+Dodaj następujące wiersze do `Program` klasy. Te wiersze odczytają klucz subskrypcji i punkt końcowy ze zmiennych środowiskowych i zgłasza błąd, jeśli wystąpią jakieś problemy.
 
 ```csharp
 private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
@@ -62,7 +62,7 @@ static Program()
 
 ## <a name="create-a-function-to-get-a-list-of-languages"></a>Tworzenie funkcji w celu uzyskania listy języków
 
-W `Program` klasie utwórz funkcję `GetLanguages`o nazwie . Ta klasa hermetyzuje kod używany do wywołania zasobu Languages i wyświetla wynik w konsoli.
+W `Program` klasie Utwórz funkcję o nazwie `GetLanguages`. Ta klasa hermetyzuje kod używany do wywołania zasobu Languages i wyświetla wynik w konsoli.
 
 ```csharp
 static void GetLanguages()
@@ -119,9 +119,9 @@ Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
 ```
 
-Jeśli korzystasz z subskrypcji wielu usług usług Cognitive Services, należy również uwzględnić `Ocp-Apim-Subscription-Region` parametry żądania. [Dowiedz się więcej o uwierzytelnieniu za pomocą subskrypcji wielu usług](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Jeśli używasz subskrypcji usługi Cognitive Services, musisz także uwzględnić `Ocp-Apim-Subscription-Region` w parametrach żądania. [Dowiedz się więcej o uwierzytelnianiu w ramach subskrypcji wielu usług](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
-Aby wydrukować odpowiedź z "Pretty Print" (formatowanie odpowiedzi), dodaj tę funkcję do klasy Program:
+Aby wydrukować odpowiedź przy użyciu "całkiem Print" (formatowanie dla odpowiedzi), Dodaj tę funkcję do klasy programu:
 
 ```csharp
 static string PrettyPrint(string s)
@@ -149,7 +149,7 @@ dotnet run
 
 ## <a name="sample-response"></a>Przykładowa odpowiedź
 
-Znajdź skrót kraju/regionu na tej [liście języków](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Znajdź skrót kraju/regionu na [liście języków](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 {
@@ -241,7 +241,7 @@ Upewnij się, że wszystkie poufne informacje, takie jak klucze subskrypcji, zos
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z odwołaniem do interfejsu API, aby zrozumieć wszystko, co można zrobić z interfejsem API tekstu translatora.
+Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co można zrobić za pomocą interfejs API tłumaczenia tekstu w usłudze Translator.
 
 > [!div class="nextstepaction"]
 > [Odwołanie API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z programem LINE WORKS | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i programem LINE WORKS.
+title: 'Samouczek: integracja Azure Active Directory z usługą LINE WORKS | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i WIERSZem działania.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,46 +17,46 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7e1dfe10cdf80f750efbb7f08d001c7ce25fe068
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67086660"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Samouczek: Integracja usługi Azure Active Directory z programem LINE WORKS
+# <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Samouczek: integracja Azure Active Directory z WIERSZem działa
 
-W tym samouczku dowiesz się, jak zintegrować program LINE WORKS z usługą Azure Active Directory (Azure AD).
-Integracja programu LINE WORKS z usługą Azure AD zapewnia następujące korzyści:
+Z tego samouczka dowiesz się, jak zintegrować usługę LINE z usługą Azure Active Directory (Azure AD).
+Integracja LINIOWa współpracuje z usługą Azure AD zapewnia następujące korzyści:
 
-* Można kontrolować w usłudze Azure AD, który ma dostęp do programu LINE WORKS.
-* Można włączyć użytkowników, aby automatycznie zalogować się do usługi LINE WORKS (logowanie jednokrotne) za pomocą swoich kont usługi Azure AD.
+* Możesz kontrolować usługę Azure AD, która ma dostęp do programu LINE WORKS.
+* Możesz zezwolić użytkownikom na automatyczne logowanie do usługi LINE WORKS (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z programem LINE WORKS, potrzebne są następujące elementy:
+Aby skonfigurować integrację z usługą Azure AD za pomocą programu LINE, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/)
-* Subskrypcja z obsługą logowania jednokrotnego LINE WORKS
+* WIERSZ obsługuje subskrypcję z włączoną rejestracją jednokrotną
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* LINE WORKS obsługuje sso inicjowane przez **SP**
+* Usługa LINE WORKS obsługuje usługę zainicjowana przez usługę **SP** SSO
 
 
 
 
 
-## <a name="adding-line-works-from-the-gallery"></a>Dodawanie LINE WORKS z galerii
+## <a name="adding-line-works-from-the-gallery"></a>Dodawanie wierszy działa z galerii
 
-Aby skonfigurować integrację programu LINE WORKS z usługą Azure AD, należy dodać program LINE WORKS z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację linii z usługą Azure AD, musisz dodać wiersz działania z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać program LINE WORKS z galerii, wykonaj następujące czynności:**
+**Aby dodać wiersz do programu z galerii, wykonaj następujące czynności:**
 
 1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
@@ -70,31 +70,31 @@ Aby skonfigurować integrację programu LINE WORKS z usługą Azure AD, należy 
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **LINE WORKS**, wybierz polecenie **LINE WORKS** z panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wpisz **line Works**, wybierz pozycję **line Works** z panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
-    ![LINE WORKS na liście wyników](common/search-new-app.png)
+    ![WIERSZ działa na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji można skonfigurować i przetestować azure ad logowania jednokrotnego z LINE WORKS na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w programie LINE WORKS.
+W tej sekcji konfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD za pomocą wiersza działa na podstawie użytkownika testowego o nazwie **Britta Simon**.
+Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w wierszu.
 
-Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD za pomocą usługi LINE WORKS, należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą programu LINE, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie jednokrotne LINE WORKS](#configure-line-works-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+2. **[Skonfiguruj logowanie](#configure-line-works-single-sign-on)** jednokrotne w wierszu — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego LINE WORKS](#create-line-works-test-user)** — aby mieć odpowiednik Britta Simon w line works, który jest połączony z reprezentacją użytkownika usługi Azure AD.
+5. **[Utwórz wiersz Works test użytkownika](#create-line-works-test-user)** — Aby uzyskać odpowiednik Britta Simon w wierszu działa, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą programu LINE WORKS, wykonaj następujące kroki:
+Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu LINE, wykonaj następujące czynności:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **LINE WORKS** wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie w **wierszu** integracja aplikacji wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -108,7 +108,7 @@ Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą programu L
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
 
-    ![LINE WORKS Informacje o domenie i adresach URL logowania jednokrotnego](common/sp-identifier.png)
+    ![WIERSZ działania — informacje o rejestracji jednokrotnej w domenie i adresach URL](common/sp-identifier.png)
 
     a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://auth.worksmobile.com/d/login/<domain>/`
 
@@ -118,7 +118,7 @@ Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą programu L
 
     ![Link do pobierania certyfikatu](common/certificateraw.png)
 
-6. W sekcji **Konfigurowanie programów LINE WORKS** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
+6. W sekcji **Konfigurowanie programu Works** należy skopiować odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
@@ -126,14 +126,14 @@ Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą programu L
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
-### <a name="configure-line-works-single-sign-on"></a>Konfigurowanie logowania jednokrotnego programu LINE WORKS
+### <a name="configure-line-works-single-sign-on"></a>Konfiguruj logowanie jednokrotne w wierszu
 
-Aby skonfigurować logowanie jednokrotne po stronie **LINE WORKS,** należy zapoznać się z [dokumentami logowania jednokrotnego w programie LINE WORKS](https://developers.worksmobile.com/jp/document/1001080101) i skonfigurować ustawienie LINE WORKS.
+Aby skonfigurować Logowanie jednokrotne w **wierszu** , zapoznaj się z [wierszem Uruchom dokumenty logowania jednokrotnego](https://developers.worksmobile.com/jp/document/1001080101) i skonfiguruj ustawienie line Works.
 
 > [!NOTE]
-> Należy przekonwertować pobrany plik certyfikatu z .cert na .pem
+> Należy skonwertować pobrany plik certyfikatu z. CERT na. pem
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -143,7 +143,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -153,23 +153,23 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa** `brittasimon@yourcompanydomain.extension`użytkownika wpisz . Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`. Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jednokrotnego, przyznając dostęp do programu LINE WORKS.
+W tej sekcji Britta Simon do korzystania z logowania jednokrotnego platformy Azure, przyznając dostęp do programu LINE.
 
-1. W portalu Azure wybierz pozycję **Aplikacje przedsiębiorstwa**, wybierz **pozycję Wszystkie aplikacje**, a następnie wybierz **pozycję LINE WORKS**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **wiersz działania**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz pozycję **LINE WORKS**.
+2. Na liście Aplikacje wybierz pozycję **wiersz działa**.
 
-    ![Łącze LINE WORKS na liście Aplikacje](common/all-applications.png)
+    ![Link LINE WORKS na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -181,24 +181,24 @@ W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jed
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-line-works-test-user"></a>Utwórz użytkownika testowego LINE WORKS
+### <a name="create-line-works-test-user"></a>Utwórz użytkownika testowego programu LINE
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w LINE WORKS. Przejdź do [strony administratora PROGRAMU LINE WORKS](https://admin.worksmobile.com) i dodaj użytkowników na platformie LINE WORKS.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w wierszu działa. [Stronę Administracja wiersz](https://admin.worksmobile.com) dostępu programu Access i Dodawanie użytkowników w wierszu Works platform.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka LINE WORKS w Panelu dostępu należy automatycznie zalogować się do programu LINE WORKS, dla którego skonfigurowano logującą się logującą logującą. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka LINE WORKS w panelu dostępu należy automatycznie zalogować się do wiersza, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

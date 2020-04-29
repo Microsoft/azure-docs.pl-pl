@@ -1,7 +1,7 @@
 ---
-title: Obsługa języka — interfejs API autosuggest usługi Bing
+title: Obsługa języka — interfejs API automatycznego sugerowania Bing
 titleSuffix: Azure Cognitive Services
-description: Lista obsługiwanych języków i regionów interfejsu API autosugestywowania Bing.
+description: Lista obsługiwanych języków i regionów dla interfejs API automatycznego sugerowania Bing.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fe2e78501024983544b399762fb936d86e5c9d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60547340"
 ---
-# <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Obsługa języka i regionu dla interfejsu API automatycznego przełączania mapowania usługi Bing
+# <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Obsługa języka i regionu dla interfejs API automatycznego sugerowania Bing
 
-Poniżej wymieniono języki obsługiwane przez interfejs API autosuggest usługi Bing.
+Poniżej wymieniono języki obsługiwane przez interfejs API automatycznego sugerowania Bing.
 
 | Język    | Kod języka |
 |:----------- |:-------------:|
@@ -49,8 +49,8 @@ Poniżej wymieniono języki obsługiwane przez interfejs API autosuggest usługi
 | Niemiecki (Niemcy)      | `de-DE`          |
 | Niemiecki (Szwajcaria)      | `de-CH`          |
 | Włoski     | `it`          |
-| Japoński    | `ja`          |
-| Koreański      | `ko`          |
+| japoński    | `ja`          |
+| koreański      | `ko`          |
 | Norweski   | `no`          |
 | Polski      | `pl`          |
 | portugalski (Brazylia)   | `pt-BR`|
@@ -64,7 +64,7 @@ Poniżej wymieniono języki obsługiwane przez interfejs API autosuggest usługi
 | szwedzki     | `sv`          |
 | Turecki     | `tr`          |
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-- [Strona Dokumentacja usług Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)
-- [Strona produktu usługi Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
+- [Strona dokumentacji usługi Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)
+- [Strona produktu Cognitive Services platformy Azure](https://azure.microsoft.com/services/cognitive-services/)

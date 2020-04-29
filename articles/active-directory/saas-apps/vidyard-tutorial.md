@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: a55ec7afc94440ea8b6a48ed1507476d362df6c0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67087419"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>Samouczek: integracja Azure Active Directory z usługą Vidyard
@@ -132,7 +132,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Vidyard, wy
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
 ### <a name="configure-vidyard-single-sign-on"></a>Konfigurowanie logowania jednokrotnego Vidyard
 
@@ -154,7 +154,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Vidyard, wy
 
     b. Skopiuj wartość **strony logowania jednokrotnego użytkownika** i wklej ją do pola tekstowego **Zaloguj adres URL** w sekcji **Podstawowa konfiguracja SAML** na Azure Portal.
 
-    d. Skopiuj wartość **adres URL ACS** i wklej ją do pola tekstowego **adresu URL odpowiedzi** w sekcji **Podstawowa konfiguracja SAML** na Azure Portal.
+    c. Skopiuj wartość **adres URL ACS** i wklej ją do pola tekstowego **adresu URL odpowiedzi** w sekcji **Podstawowa konfiguracja SAML** na Azure Portal.
 
     d. Skopiuj wartość **wystawcy/adres URL metadanych** i wklej ją do pola tekstowego **identyfikatora** w sekcji **Podstawowa konfiguracja SAML** na Azure Portal.
 
@@ -202,7 +202,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
   
     b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension. Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z workrite | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a workrite.
+title: 'Samouczek: integracja Azure Active Directory z usługą Workrite | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Workrite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,40 +16,40 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 026ad76fa82a28ca3e7f29de2e656994b9cad634
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67086767"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workrite"></a>Samouczek: Integracja usługi Azure Active Directory z workrite
+# <a name="tutorial-azure-active-directory-integration-with-workrite"></a>Samouczek: integracja Azure Active Directory z usługą Workrite
 
-W tym samouczku dowiesz się, jak zintegrować Workrite z usługą Azure Active Directory (Azure AD).
-Integracja workrite z usługą Azure AD zapewnia następujące korzyści:
+W tym samouczku dowiesz się, jak zintegrować usługę Workrite z usługą Azure Active Directory (Azure AD).
+Integracja Workrite z usługą Azure AD zapewnia następujące korzyści:
 
-* Można kontrolować w usłudze Azure AD, który ma dostęp do Workrite.
-* Można włączyć użytkowników, aby automatycznie zalogować się do Workrite (logowanie jednokrotne) z ich kont usługi Azure AD.
+* Możesz kontrolować usługę Azure AD, która ma dostęp do usługi Workrite.
+* Możesz pozwolić użytkownikom na automatyczne logowanie do Workrite (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z workrite, potrzebne są następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z usługą Workrite, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/)
-* Subskrypcja z włączoną funkcją logowania jednokrotnego Workrite
+* Subskrypcja z włączonym logowaniem jednokrotnym w Workrite
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Workrite obsługuje sso inicjowane przez **SP**
+* Workrite obsługuje logowanie jednokrotne w usłudze **SP**
 
-## <a name="adding-workrite-from-the-gallery"></a>Dodawanie workrite z galerii
+## <a name="adding-workrite-from-the-gallery"></a>Dodawanie Workrite z galerii
 
-Aby skonfigurować integrację workrite z usługą Azure AD, należy dodać Workrite z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację programu Workrite z usługą Azure AD, musisz dodać Workrite z galerii do listy zarządzanych aplikacji SaaS.
 
 **Aby dodać Workrite z galerii, wykonaj następujące czynności:**
 
@@ -65,31 +65,31 @@ Aby skonfigurować integrację workrite z usługą Azure AD, należy dodać Work
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Workrite**, wybierz **opcję Workrite** z panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wpisz **Workrite**, wybierz pozycję **Workrite** from panel wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
      ![Workrite na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji można skonfigurować i przetestować azure ad logowania jednokrotnego z Workrite na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w workrite.
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą Workrite na podstawie użytkownika testowego o nazwie **Britta Simon**.
+Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Workrite.
 
-Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD za pomocą Workrite, należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Workrite, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie jednokrotne Workrite](#configure-workrite-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+2. **[Skonfiguruj logowanie](#configure-workrite-single-sign-on)** jednokrotne w usłudze Workrite, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego Workrite](#create-workrite-test-user)** — aby mieć odpowiednik Britta Simon w Workrite, który jest połączony z reprezentacją użytkownika usługi Azure AD.
+5. **[Utwórz użytkownika testowego Workrite](#create-workrite-test-user)** , aby uzyskać odpowiednik Britta Simon w Workrite, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą workrite, wykonaj następujące kroki:
+Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Workrite, wykonaj następujące czynności:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie Integracja aplikacji **Workrite** wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Workrite** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -103,18 +103,18 @@ Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą workrite, 
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
 
-    ![Informacje o domenie workrite i adresach URL z logami jednokrotnymi](common/sp-signonurl.png)
+    ![Workrite domenę i adresy URL Logowanie jednokrotne](common/sp-signonurl.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://app.workrite.co.uk/securelogin/samlgateway.aspx?id=<uniqueid>`
 
     > [!NOTE]
-    > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta Workrite,](mailto:support@workrite.co.uk) aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z [zespołem obsługi klienta Workrite](mailto:support@workrite.co.uk) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
-6. W sekcji **Konfigurowanie workrite** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
+6. W sekcji **Konfigurowanie Workrite** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
@@ -122,11 +122,11 @@ Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą workrite, 
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
-### <a name="configure-workrite-single-sign-on"></a>Konfigurowanie logowania jednokrotnego workrite
+### <a name="configure-workrite-single-sign-on"></a>Konfigurowanie logowania jednokrotnego Workrite
 
-Aby skonfigurować logowanie jednokrotne po stronie **Workrite,** należy wysłać pobrany **certyfikat (Base64)** i odpowiednie skopiowane adresy URL z witryny Azure portal do [zespołu pomocy technicznej Workrite.](mailto:support@workrite.co.uk) Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować Logowanie jednokrotne na stronie **Workrite** , musisz wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej Workrite](mailto:support@workrite.co.uk). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -136,7 +136,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -146,23 +146,23 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa** brittasimon@yourcompanydomain.extensionużytkownika wpisz . Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension. Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jednokrotnego, przyznając dostęp do Workrite.
+W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi Workrite.
 
-1. W portalu Azure wybierz pozycję **Aplikacje przedsiębiorstwa**, wybierz **pozycję Wszystkie aplikacje,** a następnie wybierz **pozycję Workrite**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **Workrite**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz **pozycję Workrite**.
+2. Na liście Aplikacje wybierz pozycję **Workrite**.
 
-    ![Łącze Workrite na liście Aplikacje](common/all-applications.png)
+    ![Link Workrite na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -174,7 +174,7 @@ W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jed
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
@@ -182,17 +182,17 @@ W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jed
 
 Celem tej sekcji jest utworzenie użytkownika o nazwie Britta Simon w Workrite.
 
-**Aby utworzyć użytkownika o nazwie Britta Simon w Workrite, wykonaj następujące kroki:**
+**Aby utworzyć użytkownika o nazwie Britta Simon in Workrite, wykonaj następujące czynności:**
 
-1. Zaloguj się do witryny firmy workrite jako administrator.
+1. Zaloguj się do witryny firmy Workrite jako administrator.
 
-2. W okienku nawigacji kliknij pozycję **Administrator**.
+2. W okienku nawigacji kliknij pozycję **administrator**.
    
-    ![Kontrola administratora][400]
+    ![Kontrolka administratora][400]
 
-3. Przejdź do szybkiego łącza, a następnie kliknij pozycję **Utwórz użytkownika**.
+3. Przejdź do pozycji Szybkie linki, a następnie kliknij pozycję **Utwórz użytkownika**.
    
-    ![Tworzenie sekcji użytkownika][401]
+    ![Utwórz sekcję użytkownika][401]
 
 4. W oknie dialogowym **Tworzenie użytkownika** wykonaj następujące czynności:
    
@@ -200,11 +200,11 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie Britta Simon w Workrite.
     
     a. W polu tekstowym **Email** (Adres e-mail) wpisz adres e-mail użytkownika, np. Brittasimon@contoso.com.
 
-    b. W polu tekstowym **Imię** wpisz pierwszą nazwę użytkownika, takiego jak Britta.
+    b. W polu tekstowym **imię i nazwisko** wpisz imię użytkownika, np. Britta.
 
-    d. W polu **tekstowym Nazwisko** wpisz nazwisko użytkownika takiego jak Simon.
+    c. W polu tekstowym **nazwisko** wpisz nazwisko użytkownika, np. Simon.
     
-    d. Wybierz **administratora klienta** jako **wybierz rolę**.
+    d. Wybierz pozycję **administrator klienta** jako **Wybierz rolę**.
     
     e. Kliknij przycisk **Zapisz**.
 
@@ -212,15 +212,15 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie Britta Simon w Workrite.
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Workrite w Panelu dostępu należy automatycznie zalogować się do workrite, dla którego skonfigurowano logującą się logującą logującą. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Workrite w panelu dostępu należy automatycznie zalogować się do Workrite, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 <!--Image references-->
 

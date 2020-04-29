@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7e7f5aa324db869e30a8b2fe214416129baca8d9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68380738"
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Porównanie współpracy typu B2B i B2C w usłudze Azure Active Directory
@@ -34,9 +34,9 @@ Możliwości współpracy w usłudze B2B |     Autonomiczna oferta usługi Azure
 Przeznaczenie: organizacje, które chcą uwierzytelniać użytkowników z organizacji partnerskiej, niezależnie od dostawcy tożsamości. | Przeznaczenie: zapraszanie klientów aplikacji mobilnych i internetowych — osób prywatnych, instytucji lub organizacji — do usługi Azure AD.
 Obsługiwane tożsamości: pracownicy z kontami służbowymi, partnerzy z kontami służbowymi lub dowolny adres e-mail. Wkrótce będzie możliwa obsługa federacji bezpośredniej.  | Obsługiwane tożsamości: użytkownicy konsumenci z kontami aplikacji lokalnych (dowolny adres e-mail lub nazwa użytkownika) albo dowolna obsługiwana tożsamość społecznościowa z federacją bezpośrednią.
 Użytkownicy zewnętrzni są zarządzani w tym samym katalogu co pracownicy, ale mają specjalne adnotacje. Można nimi zarządzać tak samo jak pracownikami, dodawać ich do tych samych grup itd.  | Użytkownicy zewnętrzni są zarządzani w katalogu aplikacji. Są oni zarządzani poza katalogiem pracowników i partnerów organizacji (jeśli taki istnieje).
-Logowanie jednokrotne do wszystkich aplikacji połączonych z usługą Azure AD jest obsługiwane. Można zapewnić dostęp do usługi Office 365 lub aplikacji lokalnych oraz innych aplikacji SaaS, takich jak Salesforce lub Workday.  |  Logowanie jednokrotne do aplikacji należących do klienta w ramach dzierżaw usługi Azure AD B2C jest obsługiwane. Jednoślimyk do usługi Office 365 lub innych aplikacji Microsoft SaaS nie jest obsługiwany.
+Logowanie jednokrotne do wszystkich aplikacji połączonych z usługą Azure AD jest obsługiwane. Można zapewnić dostęp do usługi Office 365 lub aplikacji lokalnych oraz innych aplikacji SaaS, takich jak Salesforce lub Workday.  |  Logowanie jednokrotne do aplikacji należących do klienta w ramach dzierżaw usługi Azure AD B2C jest obsługiwane. Logowanie jednokrotne do pakietu Office 365 lub innych aplikacji Microsoft SaaS nie jest obsługiwane.
 Cykl życia partnera: zarządzany przez hosta/organizację zapraszającą.  | Cykl życia klienta: samoobsługowy lub zarządzany przez aplikację.
-Zasady zabezpieczeń i zgodność: Zarządzane przez organizację hosta/zapraszania (na przykład z [zasadami dostępu warunkowego).](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)  | Zasady zabezpieczeń i zgodność: zarządzane przez aplikację.
+Zasady zabezpieczeń i zgodność: zarządzane przez hosta/zapraszanie organizacji (na przykład z [zasadami dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)).  | Zasady zabezpieczeń i zgodność: zarządzane przez aplikację.
 Znakowanie: jest używana marka hosta/organizacji zapraszającej.  |    Znakowanie: zarządzane przez aplikację. Zazwyczaj jest używana marka produktu z danymi organizacji w tle.
 Więcej informacji: [wpis w blogu](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [dokumentacja](what-is-b2b.md)  | Więcej informacji: [strona produktu](https://azure.microsoft.com/services/active-directory-b2c/), [dokumentacja](https://docs.microsoft.com/azure/active-directory-b2c/)
 

@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: subsarma
 ms.custom: include file for PowerShell for Azure DNS
 ms.openlocfilehash: 32c516ccee3a9f4f7604a3e330285703a776b47d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67133705"
 ---
 ## <a name="set-up-azure-powershell-for-azure-dns"></a>Konfigurowanie programu Azure PowerShell dla usługi Azure DNS
@@ -38,7 +38,7 @@ Find-Module -Name AzureRM.Dns
 Find-Module -Name AzureRM.Network 
 ``` 
  
-Dane wyjściowe powyższych poleceń musi pokazać, że wersja usługi AzureRM.Dns jest wersja 4.1.0 lub nowsza, a dla azurerm.network jest 5.4.0 lub nowsza wersja.  
+Dane wyjściowe powyższych poleceń muszą wskazywać, że wersja AzureRM. DNS ma 4.1.0 lub nowszą wersję, a dla AzureRM. Network jest 5.4.0 lub nowsza.  
 
 Jeśli w systemie są wcześniejsze wersje, możesz zainstalować najnowszą wersję programu Azure PowerShell lub pobrać i zainstalować powyższe moduły z galerii programu PowerShell, korzystając z linków obok wersji modułu. Następnie możesz zainstalować je przy użyciu poniższych poleceń. Oba moduły są wymagane i są w pełni zgodne z poprzednimi wersjami. 
 
@@ -52,7 +52,7 @@ Install-Module -Name AzureRM.Network -Force
 
 ### <a name="sign-in-to-your-azure-account"></a>Zaloguj się do swojego konta platformy Azure
 
-Otwórz konsolę programu PowerShell i połącz się ze swoim kontem. Aby uzyskać więcej informacji, zobacz [Logowanie się za pomocą usługi AzureRM](/powershell/azure/azurerm/authenticate-azureps).
+Otwórz konsolę programu PowerShell i połącz się ze swoim kontem. Aby uzyskać więcej informacji, zobacz [Logowanie przy użyciu usługi AzureRM](/powershell/azure/azurerm/authenticate-azureps).
 
 ```powershell
 Connect-AzureRmAccount

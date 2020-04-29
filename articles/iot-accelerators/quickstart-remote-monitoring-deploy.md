@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/25/2019
 ms.author: dobett
 ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60890164"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Szybki start: testowanie opartego na chmurze rozwiązania do monitorowania zdalnego
@@ -22,11 +22,11 @@ W tym przewodniku Szybki start pokazano, jak wdrożyć akcelerator rozwiązania 
 
 W początkowym wdrożeniu akcelerator rozwiązań jest skonfigurowany dla firmy o nazwie Contoso. Jako operator w firmie Contoso zarządzasz różnego typu urządzeniami, takimi jak chłodziarki, wdrożonymi w różnych środowiskach fizycznych. Chłodziarka wysyła dane telemetryczne dotyczące temperatury, wilgotności i ciśnienia do akceleratora rozwiązania do monitorowania zdalnego.
 
-Ten szybki start wdraża **podstawową** wersję akceleratora rozwiązań do celów testowych i demonstracyjnych, które minimalizują koszty. Aby uzyskać więcej informacji na temat różnych wersji, które można wdrożyć, zobacz [Podstawowe i standardowe wdrożenia](iot-accelerators-remote-monitoring-deploy-cli.md#basic-and-standard-deployments).
+W tym przewodniku Szybki Start jest wdrażana **podstawowa** wersja akceleratora rozwiązania dla celów testowych i demonstracyjnych, które minimalizują koszty. Aby uzyskać więcej informacji o różnych wersjach, które można wdrożyć, zobacz [podstawowe i standardowe wdrożenia](iot-accelerators-remote-monitoring-deploy-cli.md#basic-and-standard-deployments).
 
 Do wykonania kroków tego przewodnika Szybki start jest potrzebna aktywna subskrypcja platformy Azure.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="deploy-the-solution"></a>Wdrażanie rozwiązania
 
@@ -38,7 +38,7 @@ Kliknij kafelek **Zdalne monitorowanie**. Na stronie **Zdalne monitorowanie** kl
 
 ![Wybieranie pozycji Zdalne monitorowanie](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
-Wybierz **opcję Mikrousługi języka C#** jako **opcje wdrażania**. Implementacje Języka Java i C# mają te same funkcje.
+Wybierz **mikrousługi w języku C#** jako **Opcje wdrażania**. Implementacje Java i C# mają te same funkcje.
 
 W polu **Nazwa rozwiązania** wprowadź unikatową nazwę akceleratora rozwiązania do monitorowania zdalnego. W tym przewodniku Szybki start używamy nazwy **contoso-rm**.
 
@@ -87,13 +87,13 @@ Operator w firmie Contoso może monitorować urządzenia na pulpicie nawigacyjny
 
 Na stronie **Pulpit nawigacyjny** w panelu **Alerty** jest wyświetlany alert **Zbyt duże ciśnienie chłodziarki**. Chłodziarka jest reprezentowana przez czerwoną pinezkę na mapie (może być konieczne przesunięcie i powiększenie widoku na mapie):
 
-[![Pulpit nawigacyjny pokazuje alert ciśnienia i urządzenie na mapie](./media/quickstart-remote-monitoring-deploy/dashboardalarm-inline.png)](./media/quickstart-remote-monitoring-deploy/dashboardalarm-expanded.png#lightbox)
+[![Pulpit nawigacyjny pokazuje alert o ciśnieniu i urządzenie na mapie](./media/quickstart-remote-monitoring-deploy/dashboardalarm-inline.png)](./media/quickstart-remote-monitoring-deploy/dashboardalarm-expanded.png#lightbox)
 
 W panelu **Alerty** kliknij pozycję **...** w kolumnie **Eksploruj** obok reguły **Zbyt duże ciśnienie chłodziarki**. Ta akcja spowoduje przejście do strony **Konserwacja** — można na niej wyświetlić szczegóły reguły, która wyzwoliła alert.
 
 Na stronie konserwacji **Zbyt duże ciśnienie chłodziarki** są wyświetlane szczegóły reguły, która wyzwoliła alerty. Ponadto przedstawia czas wystąpienia alertów i urządzenie, które je wyzwoliło:
 
-[![Strona konserwacji zawiera listę alertów, które zostały wyzwolone](./media/quickstart-remote-monitoring-deploy/maintenancealarmlist-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenancealarmlist-expanded.png#lightbox)
+[![Na stronie obsługa jest wyświetlana lista alertów, które zostały wyzwolone](./media/quickstart-remote-monitoring-deploy/maintenancealarmlist-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenancealarmlist-expanded.png#lightbox)
 
 Zidentyfikowano problem, który wyzwolił alert, i skojarzone urządzenie. Następne kroki umożliwiają operatorowi potwierdzenie alertu i rozwiązanie problemu.
 
@@ -101,25 +101,25 @@ Zidentyfikowano problem, który wyzwolił alert, i skojarzone urządzenie. Nast�
 
 Aby pokazać innym operatorom, że pracujesz nad alertem, zaznacz go, a następnie zmień wartość ustawienia **Stan alertu** na wartość **Potwierdzono**:
 
-[![Wybierz i potwierdź alert](./media/quickstart-remote-monitoring-deploy/maintenanceacknowledge-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceacknowledge-expanded.png#lightbox)
+[![Wybierz i Potwierdź alert](./media/quickstart-remote-monitoring-deploy/maintenanceacknowledge-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceacknowledge-expanded.png#lightbox)
 
 Wartość w kolumnie stanu zmieni się na **Potwierdzono**.
 
 Aby wykonać działanie dotyczące chłodziarki, przewiń w dół do pozycji **Informacje pokrewne**, wybierz chłodziarkę z listy **Urządzenia z alertami**, a następnie wybierz pozycję **Zadania**:
 
-[![Wybierz urządzenie i zaplanuj akcję](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-expanded.png#lightbox)
+[![Wybierz urządzenie i Zaplanuj akcję](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-expanded.png#lightbox)
 
 W panelu **Zadania** wybierz pozycję **Uruchom metodę** a następnie metodę **EmergencyValveRelease**. Dodaj nazwę zadania **ChillerPressureRelease** i kliknij przycisk **Zastosuj**. Te ustawienia pozwalają utworzyć dla Ciebie zadanie, które jest wykonywane natychmiast.
 
 Aby wyświetlić stan zadania, wróć do strony **Konserwacja** i wyświetl listę zadań w widoku **Zadania**. Może być konieczne odczekanie kilku sekund, zanim będzie można zobaczyć, że zadanie zostało uruchomione:
 
-[![Stan zadań w widoku Zadania](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-expanded.png#lightbox)
+[![Stan zadań w widok Zadania](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-expanded.png#lightbox)
 
 ### <a name="check-the-pressure-is-back-to-normal"></a>Sprawdzanie, czy ciśnienie wróciło do normalnego poziomu
 
 Aby wyświetlić dane telemetryczne dotyczące ciśnienia chłodziarki, przejdź do strony **Pulpit nawigacyjny**, wybierz pozycję **Ciśnienie** w panelu telemetrii i upewnij się, że chłodziarka **chiller-02.0** ma normalne ciśnienie:
 
-[![Ciśnienie z powrotem do normy](./media/quickstart-remote-monitoring-deploy/pressurenormal-inline.png)](./media/quickstart-remote-monitoring-deploy/pressurenormal-expanded.png#lightbox)
+[![Ciśnienie z powrotem do normalnego](./media/quickstart-remote-monitoring-deploy/pressurenormal-inline.png)](./media/quickstart-remote-monitoring-deploy/pressurenormal-expanded.png#lightbox)
 
 Aby zamknąć zdarzenie, przejdź do strony **Konserwacja**, wybierz alert i ustaw stan **Zamknięto**:
 
@@ -131,7 +131,7 @@ Wartość w kolumnie stanu zmieni się na **Zamknięto**.
 
 Jeśli zamierzasz przejść do samouczków, nie usuwaj wdrożenia akceleratora rozwiązania do monitorowania zdalnego.
 
-Jeśli akcelerator rozwiązań nie jest już potrzebny, usuń go ze strony [Aproweuj rozwiązania,](https://www.azureiotsolutions.com/Accelerators#dashboard) zaznaczając go, a następnie klikając pozycję **Usuń rozwiązanie:**
+Jeśli akcelerator rozwiązania nie jest już potrzebny, usuń go ze strony [wstępnie zainicjowanych rozwiązań](https://www.azureiotsolutions.com/Accelerators#dashboard) , wybierając ją, a następnie klikając pozycję **Usuń rozwiązanie**:
 
 ![Usuwanie rozwiązania](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 

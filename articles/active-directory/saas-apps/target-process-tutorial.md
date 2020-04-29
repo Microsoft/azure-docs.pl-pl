@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z programem TargetProcess | Dokumenty firmy Microsoft'
+title: 'Samouczek: integracja Azure Active Directory z usługą TargetProcess | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją TargetProcess.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 60cd043c34ba2aee365c59feb38cc9dd02d45746
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67089042"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Samouczek: Integracja usługi Azure Active Directory z programem TargetProcess
+# <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Samouczek: integracja Azure Active Directory z usługą TargetProcess
 
 Z tego samouczka dowiesz się, jak zintegrować aplikację TargetProcess z usługą Azure Active Directory (Azure AD).
 Integrowanie aplikacji TargetProcess z usługą Azure AD oferuje następujące korzyści:
@@ -32,7 +32,7 @@ Integrowanie aplikacji TargetProcess z usługą Azure AD oferuje następujące k
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -78,7 +78,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację połączenia m
 Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD z aplikacją TargetProcess, należy ukończyć poniższe bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie jednokrotne TargetProcess](#configure-targetprocess-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+2. **[Skonfiguruj logowanie](#configure-targetprocess-single-sign-on)** jednokrotne w usłudze TargetProcess, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Tworzenie użytkownika testowego aplikacji TargetProcess](#create-targetprocess-test-user)** — aby mieć w aplikacji TargetProcess odpowiednik użytkownika Britta Simon połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -125,9 +125,9 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji TargetProc
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
-### <a name="configure-targetprocess-single-sign-on"></a>Konfigurowanie rejestracji pojedynczej targetprocess
+### <a name="configure-targetprocess-single-sign-on"></a>Konfigurowanie logowania jednokrotnego TargetProcess
 
 1. Aby zautomatyzować konfigurację w aplikacji **TargetProcess**, musisz zainstalować **rozszerzenie przeglądarki do bezpiecznego logowania Moje aplikacje**, klikając pozycję **Zainstaluj rozszerzenie**.
 
@@ -141,13 +141,13 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji TargetProc
 
 4. W menu w górnej części strony kliknij pozycję **Konfiguruj**.
 
-    ![Konfiguracja](./media/target-process-tutorial/tutorial_target_process_05.png)
+    ![Konfigurowanie](./media/target-process-tutorial/tutorial_target_process_05.png)
 
-5. Kliknij kartę **Ustawienia.**
+5. Kliknij kartę **Ustawienia** .
 
     ![Ustawienia](./media/target-process-tutorial/tutorial_target_process_06.png)
 
-6. Kliknij **pozycję Logowanie jednokrotne.**
+6. Kliknij kartę **rejestracja** jednokrotna.
 
     ![klikanie pozycji Logowanie jednokrotne](./media/target-process-tutorial/tutorial_target_process_07.png)
 
@@ -157,9 +157,9 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji TargetProc
 
     a. Kliknij pozycję **Włącz logowanie jednokrotne**.
 
-    b. W polu **tekstowym logowania adres URL,** wklej wartość **adresu URL logowania,** które zostały skopiowane z witryny Azure portal.
+    b. W polu tekstowym **adres URL** logowania wklej wartość **adresu URL logowania** skopiowanego z Azure Portal.
 
-    d. Otwórz pobrany certyfikat w programie Notatnik, skopiuj zawartość, a następnie wklej ją w polu tekstowym **Certyfikat**.
+    c. Otwórz pobrany certyfikat w programie Notatnik, skopiuj zawartość, a następnie wklej ją w polu tekstowym **Certyfikat**.
 
     d. Kliknij pozycję **Włącz aprowizowanie JIT**.
 
@@ -173,7 +173,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -183,10 +183,10 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **\@brittasimon yourcompanydomain.extension**  
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
     Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
@@ -198,7 +198,7 @@ W tej sekcji włączysz dla użytkownika Britta Simon możliwość korzystania z
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz opcję **DocelowyProcess**.
+2. Na liście Aplikacje wybierz pozycję **TargetProcess**.
 
     ![Link do aplikacji TargetProcess na liście aplikacji](common/all-applications.png)
 
@@ -212,13 +212,13 @@ W tej sekcji włączysz dla użytkownika Britta Simon możliwość korzystania z
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
 ### <a name="create-targetprocess-test-user"></a>Tworzenie użytkownika testowego aplikacji TargetProcess
 
-W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w TargetProcess. TargetProcess obsługuje just-in-time użytkownika inicjowania obsługi administracyjnej, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik jeszcze nie istnieje w TargetProcess, nowy jest tworzony po uwierzytelnieniu.
+W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w TargetProcess. TargetProcess obsługuje Inicjowanie obsługi użytkowników just in Time, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik nie istnieje jeszcze w usłudze TargetProcess, zostanie utworzony nowy po uwierzytelnieniu.
 
 > [!Note]
 > Jeśli musisz ręcznie utworzyć użytkownika, skontaktuj się z [zespołem pomocy technicznej ds. aplikacji TargetProcess](mailto:support@targetprocess.com).
@@ -227,12 +227,12 @@ W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w TargetProcess. Ta
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka TargetProcess w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji TargetProcess, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka TargetProcess w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji TargetProcess, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

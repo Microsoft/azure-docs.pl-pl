@@ -6,24 +6,24 @@ ms.topic: include
 ms.date: 07/17/2019
 ms.author: pafarley
 ms.openlocfilehash: ce67062f83ad10703dfb1f0ee1f3741e698fb450
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70130104"
 ---
-Co najmniej zalecamy użycie co najmniej 30 obrazów na znacznik w zestawie szkolenia wstępnego. Warto również zebrać kilka dodatkowych obrazów, aby przetestować model, gdy zostanie przeszkolony.
+Jako minimum zalecamy używanie co najmniej 30 obrazów na tag w początkowym zestawie szkoleniowym. Warto również zebrać kilka dodatkowych obrazów w celu przetestowania modelu po jego przeszkoleniu.
 
-Aby skutecznie trenować model, użyj obrazów o różnorodności wizualnej. Wybierz obrazy, które różnią się w zależności od:
+Aby efektywnie szkolić model, użyj obrazów z odmianą wizualną. Wybierz obrazy, które różnią się w zależności od:
 * kąt kamery
-* Oświetlenie
+* oświetlenia
 * tło
-* styl wizualny
-* indywidualne/zgrupowane przedmioty
+* styl wizualizacji
+* osoby/zgrupowane elementy
 * size
 * type
 
-Ponadto upewnij się, że wszystkie obrazy treningowe spełniają następujące kryteria:
-* format .jpg, png, .bmp lub .gif
-* nie większy niż 6 MB (4 MB dla obrazów przewidywania)
-* nie mniej niż 256 pikseli na najkrótszej krawędzi; obrazy krótsze niż te zostaną automatycznie przeskalowane przez usługę Custom Vision Service
+Ponadto upewnij się, że wszystkie obrazy szkoleniowe spełniają następujące kryteria:
+* Format jpg, PNG, BMP lub gif
+* nie więcej niż 6MB w rozmiarze (4 MB dla obrazów predykcyjnych)
+* nie mniej niż 256 pikseli na najkrótszej krawędzi; Każdy obraz krótszy niż ten zostanie automatycznie przeskalowany w górę przez Custom Vision Service

@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory ze sprinklr | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a sprinklr.
+title: 'Samouczek: integracja Azure Active Directory z zraszaczem | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i zraszaczem.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 9e4025d040783bff1cd85fb46d571e3a89967892
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67089660"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Samouczek: Integracja usługi Azure Active Directory ze sprinklr
+# <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Samouczek: integracja Azure Active Directory z zraszaczem
 
-W tym samouczku dowiesz się, jak zintegrować sprinklr z usługą Azure Active Directory (Azure AD).
-Integracja sprinklr z usługą Azure AD zapewnia następujące korzyści:
+W tym samouczku dowiesz się, jak zintegrować program zraszacz z usługą Azure Active Directory (Azure AD).
+Integracja programu zraszacz z usługą Azure AD zapewnia następujące korzyści:
 
-* Można kontrolować w usłudze Azure AD, który ma dostęp do Sprinklr.
-* Można włączyć użytkowników, aby automatycznie zalogować się do Sprinklr (Logowanie jednokrotne) z ich kont usługi Azure AD.
+* Możesz kontrolować usługę Azure AD, która ma dostęp do programu zraszacz.
+* Możesz umożliwić użytkownikom automatyczne logowanie do programu zraszaczy (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD ze sprinklr, potrzebujesz następujących elementów:
+Aby skonfigurować integrację z usługą Azure AD za pomocą programu zraszacz, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
-* Subskrypcja z obsługą logowania jednokrotnego Sprinklr
+* Subskrypcja z włączonym logowaniem jednokrotnym
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Sprinklr **obsługuje** sp zainicjowane SSO
+* Program zraszacz obsługuje logowanie jednokrotne w usłudze **SP**
 
-## <a name="adding-sprinklr-from-the-gallery"></a>Dodawanie Sprinklr z galerii
+## <a name="adding-sprinklr-from-the-gallery"></a>Dodawanie programu zraszacz z galerii
 
-Aby skonfigurować integrację sprinklr z usługą Azure AD, należy dodać Sprinklr z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację programu zraszacz z usługą Azure AD, musisz dodać program zraszacz z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać Sprinklr z galerii, wykonaj następujące czynności:**
+**Aby dodać program zraszacz z galerii, wykonaj następujące czynności:**
 
 1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
@@ -65,31 +65,31 @@ Aby skonfigurować integrację sprinklr z usługą Azure AD, należy dodać Spri
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Sprinklr**, wybierz **Opcję Sprinklr** z panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wpisz tekst **zraszaczy**, wybierz pozycję **zraszacze** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
-     ![Sprinklr na liście wyników](common/search-new-app.png)
+     ![Zraszacz na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji można skonfigurować i przetestować azure ad logowania jednokrotnego z Sprinklr na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w sprinklr.
+W tej sekcji można skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą programu zraszacz na podstawie użytkownika testowego o nazwie **Britta Simon**.
+Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w programie Zraszaczer.
 
-Aby skonfigurować i przetestować usługę Azure AD jednokrotnego logowania za pomocą Sprinklr, należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą programu zraszacz, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj sprinklr logowanie jednokrotne](#configure-sprinklr-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+2. **[Skonfiguruj logowanie](#configure-sprinklr-single-sign-on)** jednokrotne w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego Sprinklr](#create-sprinklr-test-user)** — aby mieć odpowiednik Britta Simon w Sprinklr, który jest połączony z reprezentacją użytkownika usługi Azure AD.
+5. **[Utwórz użytkownika testowego programu zraszaczego](#create-sprinklr-test-user)** , aby uzyskać odpowiednik Britta Simon w programie zraszacz, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą sprinklr, wykonaj następujące kroki:
+Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu zraszacz, wykonaj następujące czynności:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **Sprinklr** wybierz opcję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji programu **zraszacz** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -103,20 +103,20 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą sprinklr, w
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
 
-    ![Informacje o domenie sprinklr i adresach URL z logowaniami jednokrotnymi](common/sp-identifier.png)
+    ![Informacje o rejestracji jednokrotnej w domenie i adresach URL](common/sp-identifier.png)
 
     a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<subdomain>.sprinklr.com`
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `https://<subdomain>.sprinklr.com`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta Sprinklr,](https://www.sprinklr.com/contact-us/) aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta programu zraszacz](https://www.sprinklr.com/contact-us/) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
-6. W sekcji **Konfigurowanie sprinklr** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
+6. W sekcji **Konfigurowanie instalacji zraszacz** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
@@ -124,45 +124,45 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą sprinklr, w
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
-### <a name="configure-sprinklr-single-sign-on"></a>Konfigurowanie rejestracji jednokrotnej sprinklr
+### <a name="configure-sprinklr-single-sign-on"></a>Konfigurowanie logowania jednokrotnego dla instalacji
 
-1. W innym oknie przeglądarki internetowej zaloguj się do witryny firmy Sprinklr jako administrator.
+1. W innym oknie przeglądarki sieci Web Zaloguj się do firmowej lokacji programu zraszacz jako administrator.
 
-1. Przejdź do **ustawień administracyjnych \> **.
+1. Przejdź do **pozycji \> ustawienia administracyjne**.
 
     ![Administracja](./media/sprinklr-tutorial/ic782907.png "Administracja")
 
-1. Przejdź do **strony Zarządzanie logiem jednokrotnym partnera \> ** w lewym okienku.
+1. Przejdź do pozycji **Zarządzaj \> logowaniem jednokrotnym** w lewym okienku.
 
     ![Zarządzanie partnerem](./media/sprinklr-tutorial/ic782908.png "Zarządzanie partnerem")
 
-1. Kliknij **pozycję +Dodaj znaki jednokrotne**.
+1. Kliknij pozycję **+ Dodaj Logowanie jednokrotne**.
 
     ![Logowanie jednokrotne](./media/sprinklr-tutorial/ic782909.png "Logowanie jednokrotne")
 
-1. Na stronie **Znak jednokrotny na** stronie wykonaj następujące czynności:
+1. Na stronie **Logowanie** jednokrotne wykonaj następujące czynności:
 
     ![Logowanie jednokrotne](./media/sprinklr-tutorial/ic782910.png "Logowanie jednokrotne")
 
-    a. W polach tekstowych **Nazwa** wpisz nazwę konfiguracji (na przykład: *WAADSSOTest*).
+    a. W polu tekstowym **Nazwa** wpisz nazwę konfiguracji (na przykład: *WAADSSOTest*).
 
     b. Wybierz pozycję **Włączone**.
 
-    d. Wybierz **pozycję Użyj nowego certyfikatu SSO**.
+    c. Wybierz pozycję **Użyj nowego certyfikatu logowania jednokrotnego**.
 
-    d. Otwórz certyfikat zakodowany w bazie podstawowej-64 w notatniku, skopiuj jego zawartość do schowka, a następnie wklej go do pola tekstowego **Certyfikat dostawcy tożsamości.**
+    d. Otwórz certyfikat zakodowany w formacie Base-64 w Notatniku, skopiuj zawartość tego pliku do schowka, a następnie wklej go do pola tekstowego **certyfikat dostawcy tożsamości** .
 
-    e. Wklej wartość **identyfikatora usługi Azure AD** skopiowaną z witryny Azure Portal do pola tekstowego **identyfikatora jednostki.**
+    e. Wklej wartość **identyfikatora usługi Azure AD** skopiowaną z witryny Azure Portal do pola tekstowego **Identyfikator jednostki** .
 
-    f. Wklej wartość **adresu URL logowania,** która została skopiowana z witryny Azure Portal do pola tekstowego **adresu URL logowania dostawcy tożsamości.**
+    f. Wklej wartość **adresu URL logowania** skopiowaną z witryny Azure Portal do pola tekstowego **adres URL logowania dostawcy tożsamości** .
 
-    g. Wklej wartość **adresu URL wylogowania** skopiowaną z witryny Azure Portal do pola tekstowego **URL wylogowania dostawcy tożsamości.**
+    g. Wklej wartość **adresu URL wylogowywania** skopiowaną z witryny Azure Portal do pola tekstowego **adres URL wylogowania dostawcy tożsamości** .
 
-    h. Jako **typ identyfikatora użytkownika SAML,** wybierz **twierdzenie zawiera sprinklr.com nazwę użytkownika**.
+    h. Jako **Typ identyfikatora użytkownika SAML**, wybierz pozycję **potwierdzenie zawiera nazwę użytkownika Sprinklr.com**.
 
-    i. Jako **lokalizacja identyfikatora użytkownika SAML**wybierz identyfikator **użytkownika w elemencie identyfikatora nazwy instrukcji Podmiot**.
+    i. Jako **lokalizację identyfikatora użytkownika SAML**wybierz pozycję **Identyfikator użytkownika w elemencie identyfikator nazwy w instrukcji subject**.
 
     j. Kliknij przycisk **Zapisz**.
 
@@ -176,7 +176,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -189,21 +189,21 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     b. W polu **Nazwa użytkownika** wpisz **brittasimon@yourcompanydomain.extension**  
     Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jednokrotnego, przyznając dostęp do Sprinklr.
+W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do programu zraszacz.
 
-1. W portalu Azure wybierz pozycję **Aplikacje dla przedsiębiorstw**, wybierz **pozycję Wszystkie aplikacje**, a następnie wybierz opcję **Sprinklr**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **zraszacz**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz opcję **Sprinklr**.
+2. Na liście Aplikacje wybierz pozycję **zraszacz**.
 
-    ![Łącze Sprinklr na liście Aplikacje](common/all-applications.png)
+    ![Link do programu zraszacz na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -215,23 +215,23 @@ W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jed
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-sprinklr-test-user"></a>Utwórz użytkownika testowego Sprinklr
+### <a name="create-sprinklr-test-user"></a>Utwórz użytkownika testowego instalacji
 
-1. Zaloguj się do witryny firmy Sprinklr jako administrator.
+1. Zaloguj się do firmowej lokacji programu zraszacz jako administrator.
 
-1. Przejdź do **ustawień administracyjnych \> **.
+1. Przejdź do **pozycji \> ustawienia administracyjne**.
 
     ![Administracja](./media/sprinklr-tutorial/ic782907.png "Administracja")
 
-1. Przejdź do **strony Zarządzanie użytkownikami klienta \> ** z lewego okienka.
+1. Przejdź do pozycji **Zarządzaj \> użytkownikami klienta** w okienku po lewej stronie.
 
     ![Ustawienia](./media/sprinklr-tutorial/ic782914.png "Ustawienia")
 
-1. Kliknij **pozycję Dodaj użytkownika**.
+1. Kliknij pozycję **Dodaj użytkownika**.
 
     ![Ustawienia](./media/sprinklr-tutorial/ic782915.png "Ustawienia")
 
@@ -239,40 +239,40 @@ W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jed
 
     ![Edytuj użytkownika](./media/sprinklr-tutorial/ic782916.png "Edytuj użytkownika")
 
-    a. W polach **tekstowych Poczta e-mail**i **imię** i **nazwisko** wpisz informacje o koncie użytkownika usługi Azure AD, które chcesz aprowizować.
+    a. W **wiadomości e-mail**, **imię** i nazwisko pola **textname** wpisz informacje o koncie użytkownika usługi Azure AD, które chcesz udostępnić.
 
-    b. Wybierz **hasło wyłączone**.
+    b. Wybierz pozycję **hasło wyłączone**.
 
-    d. Wybierz **język**.
+    c. Wybierz **Język**.
 
-    d. Wybierz **typ użytkownika**.
+    d. Wybierz **Typ użytkownika**.
 
     e. Kliknij przycisk **Update** (Aktualizuj).
 
     > [!IMPORTANT]
-    > **Hasło wyłączone** musi być wybrane, aby umożliwić użytkownikowi zalogowanie się za pośrednictwem dostawcy tożsamości. 
+    > Aby umożliwić użytkownikowi zalogowanie się za pośrednictwem dostawcy tożsamości, należy wybrać opcję **wyłączone hasło** . 
 
-1. Przejdź do **roli**, a następnie wykonaj następujące kroki:
+1. Przejdź do **roli**, a następnie wykonaj następujące czynności:
 
     ![Role partnerów](./media/sprinklr-tutorial/ic782917.png "Role partnerów")
 
-    a. Z listy **Globalne** wybierz **ALL_Permissions**.  
+    a. Z listy **globalnej** wybierz pozycję **ALL_Permissions**.  
 
     b. Kliknij przycisk **Update** (Aktualizuj).
 
 > [!NOTE]
-> Można użyć innych narzędzi do tworzenia konta użytkownika Sprinklr lub interfejsów API dostarczonych przez Sprinklr do aprowizowania kont użytkowników usługi Azure AD.
+> Do udostępniania kont użytkowników usługi Azure AD można używać innych narzędzi do tworzenia kont użytkowników programu zraszacz lub interfejsów API udostępnianych przez program zraszacz.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Sprinklr w Panelu dostępu należy automatycznie zalogować się do sprinklr, dla którego skonfigurowano logującą się logującą. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka zraszacza w panelu dostępu należy automatycznie zalogować się do programu zraszacz, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

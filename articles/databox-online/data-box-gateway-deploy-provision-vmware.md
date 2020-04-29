@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 85992224edd10c0a0f233de9f6274cc77e109b22
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60757744"
 ---
-# <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Samouczek: Aprowizowanie bramy skrzynki danych platformy Azure w vmware
+# <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Samouczek: Inicjowanie obsługi Azure Data Box Gateway w oprogramowaniu VMware
 
 ## <a name="overview"></a>Omówienie
 
@@ -23,14 +23,14 @@ W tym samouczku opisano sposób aprowizacji usługi Data Box Gateway w systemie 
 
 Do aprowizowania urządzenia wirtualnego i nawiązania z nim połączenia wymagane są uprawnienia administratora. Aprowizacja i wstępna konfiguracja może zająć około 10 minut.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Sprawdzanie, czy host spełnia minimalne wymagania dotyczące urządzenia
 > * Aprowizowanie urządzenia wirtualnego w programie VMware
 > * Uruchamianie urządzenia wirtualnego i uzyskiwanie adresu IP
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -102,7 +102,7 @@ Wykonaj następujące czynności, aby aprowizować urządzenie wirtualne w funkc
    
 5. Kliknij prawym przyciskiem myszy i wybierz polecenie **Browse Datastore** (Przeglądaj magazyn danych).
 
-   ![Przeglądanie magazynu danych](./media/data-box-gateway-deploy-provision-vmware/image3.png)
+   ![Przeglądaj magazyn danych](./media/data-box-gateway-deploy-provision-vmware/image3.png)
 
 6. Zostanie wyświetlone okno **Datastore Browser** (Przeglądarka magazynu danych).
 
@@ -118,7 +118,7 @@ Wykonaj następujące czynności, aby aprowizować urządzenie wirtualne w funkc
 
 9. Wskaż pobrane pliki VMDK. Pliki są dwa. Wybierz plik do przekazania.
 
-    ![Wybieranie pliku do przesłania](./media/data-box-gateway-deploy-provision-vmware/image7.png)
+    ![Wybierz plik do przekazania](./media/data-box-gateway-deploy-provision-vmware/image7.png)
 
 10. Kliknij przycisk **Open** (Otwórz). Rozpocznie się przekazywanie pliku VMDK do określonego magazynu danych. Przekazanie pliku może zająć kilka minut.
 11. Po zakończeniu przekazywania plik będzie widoczny w magazynie danych w utworzonym folderze. Teraz przekaż drugi plik VMDK do tego samego magazynu danych. Po przekazaniu obu plików zostaną one scalone w jeden plik. Wtedy w katalogu będzie widoczny pojedynczy plik.
@@ -127,42 +127,42 @@ Wykonaj następujące czynności, aby aprowizować urządzenie wirtualne w funkc
 
 12. Wróć do okna klienta vSphere. W okienku Navigator (Nawigator) wybierz pozycję **Virtual Machines** (Maszyny wirtualne). W okienku po prawej stronie kliknij pozycję **Create/Register VM** (Utwórz/zarejestruj maszynę wirtualną).
 
-    ![Tworzenie lub rejestrowanie maszyny wirtualnej](./media/data-box-gateway-deploy-provision-vmware/image9.png)
+    ![Utwórz lub Zarejestruj maszynę wirtualną](./media/data-box-gateway-deploy-provision-vmware/image9.png)
 
 13. Zostanie wyświetlone okno **New Virtual Machine** (Nowa maszyna wirtualna). W obszarze Select creation type (Wybór typu tworzenia) wybierz pozycję **Create a new virtual machine** (Utwórz nową maszynę wirtualną) i kliknij przycisk **Next** (Dalej).
-    ![Wybierz stronę typu tworzenia](./media/data-box-gateway-deploy-provision-vmware/image10.png)
+    ![Wybieranie strony typu tworzenia](./media/data-box-gateway-deploy-provision-vmware/image10.png)
 
-14. Na stronie **Select a Name and OS Name and Location** (Wybór nazwy, nazwy systemu operacyjnego i lokalizacji) określ nazwę maszyny wirtualnej w polu **Name** (Nazwa). Ta nazwa powinna odpowiadać nazwie folderu (zalecane najlepsze rozwiązanie), którą podano wcześniej w kroku 7. W polu **Guest OS family** (Rodzina systemu operacyjnego gościa) wybierz pozycję Windows, a w polu **Guest OS version** (Wersja systemu operacyjnego gościa) — Microsoft Windows Server 2016 (64-bit) (Microsoft Windows Server 2016 [64-bitowy]). Kliknij przycisk **alej**.
+14. Na stronie **Select a Name and OS Name and Location** (Wybór nazwy, nazwy systemu operacyjnego i lokalizacji) określ nazwę maszyny wirtualnej w polu **Name** (Nazwa). Ta nazwa powinna odpowiadać nazwie folderu (zalecane najlepsze rozwiązanie), którą podano wcześniej w kroku 7. W polu **Guest OS family** (Rodzina systemu operacyjnego gościa) wybierz pozycję Windows, a w polu **Guest OS version** (Wersja systemu operacyjnego gościa) — Microsoft Windows Server 2016 (64-bit) (Microsoft Windows Server 2016 [64-bitowy]). Kliknij przycisk **Dalej**.
 
-    ![Wybieranie strony Nazwa i Nazwa systemu operacyjnego oraz Lokalizacja](./media/data-box-gateway-deploy-provision-vmware/image11.png)
+    ![Wybierz nazwę i nazwę systemu operacyjnego oraz stronę lokalizacji](./media/data-box-gateway-deploy-provision-vmware/image11.png)
 
-15. Na stronie **Select storage** (Wybór magazynu) wybierz magazyn danych, którego chcesz użyć do aprowizowania maszyny wirtualnej. Kliknij przycisk **alej**.
+15. Na stronie **Select storage** (Wybór magazynu) wybierz magazyn danych, którego chcesz użyć do aprowizowania maszyny wirtualnej. Kliknij przycisk **Dalej**.
 
     ![Wybierz stronę magazynu](./media/data-box-gateway-deploy-provision-vmware/image12.png)
-16. Na stronie **Customize settings** (Dostosowywanie ustawień) ustaw wartość **CPU** (Procesor CPU) na 4, **Memory** (Pamięć) na co najmniej 8192 MB, a **Hard disk 1** (Dysk twardy 1) na co najmniej 2 TB. Wybierz **dysk twardy SCSI** do dodania. W tym przypadku był to typ LSI Logic SAS. **Statyczne dyski IDE nie są obsługiwane.** **Hard disk 1** (Dysk twardy 1) jest wirtualnym dyskiem danych. Pamiętaj, że po aprowizowaniu dysku nie można zmniejszyć jego rozmiaru. Próba zmniejszenia dysku powoduje utratę wszystkich danych lokalnych na urządzeniu. 
+16. Na stronie **Customize settings** (Dostosowywanie ustawień) ustaw wartość **CPU** (Procesor CPU) na 4, **Memory** (Pamięć) na co najmniej 8192 MB, a **Hard disk 1** (Dysk twardy 1) na co najmniej 2 TB. Wybierz **dysk twardy SCSI** do dodania. W tym przypadku był to typ LSI Logic SAS. **Statyczne dyski IDE nie są obsługiwane.** **Hard disk 1** (Dysk twardy 1) jest wirtualnym dyskiem danych. Pamiętaj, że po aprowizowaniu dysku nie można zmniejszyć jego rozmiaru. Próba zmniejszenia dysku spowoduje utratę wszystkich danych lokalnych na urządzeniu. 
 
-    ![Dostosowywanie strony ustawień](./media/data-box-gateway-deploy-provision-vmware/image13.png)
+    ![Dostosuj stronę ustawień](./media/data-box-gateway-deploy-provision-vmware/image13.png)
 
     Na tej samej stronie kliknij pozycję **Add hard disk** (Dodaj dysk twardy), a następnie wybierz pozycję **Existing hard disk** (Istniejący dysk twardy). Wybierz plik VMDK w magazynie danych. Spowoduje to dodanie dysku systemu operacyjnego. 
 
-     ! Dostosowywanie strony ustawień[](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     ! Dostosuj stronę ustawień[](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     Przewiń w dół, aż zobaczysz **nowy dysk twardy** i rozwiń go, aby wyświetlić ustawienia. Ustaw opcję **Virtual Device Node** (Węzeł urządzenia wirtualnego) na wartość **IDE controller 0** (Kontroler IDE 0).
 
-     ![Dostosowywanie strony ustawień](./media/data-box-gateway-deploy-provision-vmware/image15.png)
+     ![Dostosuj stronę ustawień](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
-17. (Opcjonalnie) *Wykonaj ten krok tylko wtedy, jeśli korzystasz z oprogramowania VMware ESXi Server 6.7*. Na stronie **Customize settings** (Dostosowywanie ustawień) kliknij pozycję **VM options** (Opcje maszyny wirtualnej). Wybierz pozycję **Boot options > Firmware** (Opcje rozruchu > Oprogramowanie układowe) i zmień wartość dla tej opcji na **BIOS**. Domyślnie ustawiona wartość to EFI. Kliknij przycisk **alej**.
+17. (Opcjonalnie) *Wykonaj ten krok tylko wtedy, jeśli korzystasz z oprogramowania VMware ESXi Server 6.7*. Na stronie **Customize settings** (Dostosowywanie ustawień) kliknij pozycję **VM options** (Opcje maszyny wirtualnej). Wybierz pozycję **Boot options > Firmware** (Opcje rozruchu > Oprogramowanie układowe) i zmień wartość dla tej opcji na **BIOS**. Domyślnie ustawiona wartość to EFI. Kliknij przycisk **Dalej**.
 
-    ![Dostosowywanie strony ustawień w przypadku uruchamiania programu VMware ESXi Server 6.7](./media/data-box-gateway-deploy-provision-vmware/image15a.png)
+    ![Dostosuj stronę ustawień w przypadku uruchamiania VMware ESXi Server 6,7](./media/data-box-gateway-deploy-provision-vmware/image15a.png)
 
 18. Na stronie **Ready to Complete** (Gotowe do ukończenia) przejrzyj wszystkie ustawienia skojarzone z nową maszyną wirtualną. Sprawdź, czy ustawienie procesora CPU ma wartość 4, pamięci — 8192 MB, a interfejsu sieciowego — 1 oraz czy dysk twardy 2 ma wybrany kontroler IDE 0. Kliknij przycisk **Zakończ**.
    
-    ![Strona Gotowe](./media/data-box-gateway-deploy-provision-vmware/image16.png)
-    ![do ukończenia Strona Gotowa do ukończenia](./media/data-box-gateway-deploy-provision-vmware/image17.png)
+    ![Gotowe do ukończenia strony](./media/data-box-gateway-deploy-provision-vmware/image16.png)
+    ![gotowej do ukończenia](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
 Maszyna wirtualna jest teraz aprowizowana. Zostanie wyświetlone odpowiednie powiadomienie, a nowa maszyna wirtualna zostanie dodana do listy maszyn wirtualnych.
 
-![Nowa maszyna wirtualna dodana do listy maszyn wirtualnych](./media/data-box-gateway-deploy-provision-vmware/image17.png)
+![Dodano nową maszynę wirtualną do listy maszyn wirtualnych](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
 Następnym krokiem jest włączenie tej maszyny wirtualnej i uzyskanie adresu IP.
 
@@ -176,11 +176,11 @@ Wykonaj poniższe kroki, aby uruchomić urządzenie wirtualne i nawiązać z nim
 #### <a name="to-start-the-virtual-device"></a>Aby uruchomić urządzenie wirtualne
 1. Uruchom urządzenie wirtualne. W okienku po prawej stronie wybierz urządzenie z listy maszyn wirtualnych, a następnie kliknij prawym przyciskiem myszy, aby wyświetlić menu kontekstowe. Wybierz pozycję **Power** (Zasilanie), a następnie pozycję **Power on** (Włącz). Maszyna wirtualna powinna zostać włączona. Stan możesz zobaczyć w dolnym okienku klienta internetowego.
 
-    ![Włączanie urządzenia wirtualnego](./media/data-box-gateway-deploy-provision-vmware/image19.png)
+    ![Włącz urządzenie wirtualne](./media/data-box-gateway-deploy-provision-vmware/image19.png)
 
 2. Ponownie wybierz maszynę wirtualną. Kliknij prawym przyciskiem myszy i wybierz polecenie **Console** (Konsola), a następnie **Open in a new window** (Otwórz w nowym oknie).
 
-    ![Otwieranie konsoli urządzenia wirtualnego](./media/data-box-gateway-deploy-provision-vmware/image20.png)
+    ![Otwórz konsolę urządzenia wirtualnego](./media/data-box-gateway-deploy-provision-vmware/image20.png)
 
 3. Konsola maszyny wirtualnej zostanie otwarta w nowym oknie. 
 
@@ -188,9 +188,9 @@ Wykonaj poniższe kroki, aby uruchomić urządzenie wirtualne i nawiązać z nim
 
 4. Po uruchomieniu urządzenia wskaż i kliknij kartę w górnej, środkowej części okna konsoli. Wybierz pozycję **Guest OS > Send keys > Ctrl+Alt+Delete** (System operacyjny gościa > Wyślij klawisze > Ctrl+Alt+Delete). Spowoduje to odblokowanie maszyny wirtualnej.
 
-   ![Odblokowywanie urządzenia wirtualnego](./media/data-box-gateway-deploy-provision-vmware/image22.png)
+   ![Odblokuj urządzenie wirtualne](./media/data-box-gateway-deploy-provision-vmware/image22.png)
 
-5. Podaj hasło, aby zalogować się do maszyny. Domyślnym hasłem jest *Password1*.
+5. Podaj hasło, aby zalogować się do maszyny. Domyślne hasło to *Password1*.
 
    ![Wprowadź hasło urządzenia wirtualnego](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
@@ -204,14 +204,14 @@ Wykonaj poniższe kroki, aby uruchomić urządzenie wirtualne i nawiązać z nim
 
 9. Po zakończeniu początkowej konfiguracji i uruchomieniu urządzenia zobaczysz tekst baneru urządzenia. Zanotuj adresy IP i URL wyświetlane w tekście baneru. Posłużą one do zarządzania urządzeniem. Za pomocą tego adresu IP nawiążesz połączenie z internetowym interfejsem użytkownika urządzenia wirtualnego oraz dokończysz lokalną konfigurację i aktywację urządzenia.
 
-   ![Adres URL tekstu i połączenia banera dla urządzenia wirtualnego](./media/data-box-gateway-deploy-provision-vmware/image24.png)
+   ![Tekst baneru i adres URL połączenia dla urządzenia wirtualnego](./media/data-box-gateway-deploy-provision-vmware/image24.png)
 
 Jeśli urządzenie nie spełnia minimalnych wymagań dotyczących konfiguracji, w tekście baneru zostanie wyświetlony błąd (widoczny poniżej). Trzeba zmodyfikować konfigurację urządzenia tak, aby zapewnić zasoby spełniające minimalne wymagania. Następnie możesz ponownie uruchomić urządzenie i połączyć się z nim. Minimalne wymagania konfiguracji opisano w sekcji [Sprawdzanie, czy system hosta spełnia minimalne wymagania dotyczące urządzenia wirtualnego](#check-the-host-system).
 
-Jeśli podczas początkowej konfiguracji przy użyciu lokalnego interfejsu użytkownika sieci Web napotkasz inny błąd, zapoznaj się z następującymi przepływami pracy:
+Jeśli wystąpi jakikolwiek inny błąd podczas początkowej konfiguracji przy użyciu lokalnego interfejsu użytkownika sieci Web, zapoznaj się z następującymi przepływami pracy:
 
-- [Uruchom testy diagnostyczne w celu rozwiązywania problemów z konfiguracją interfejsu użytkownika sieci](data-box-gateway-troubleshoot.md#run-diagnostics)Web .
-- [Generowanie pakietu dziennika i wyświetlania plików dziennika](data-box-gateway-troubleshoot.md#collect-support-package).
+- [Uruchom testy diagnostyczne, aby rozwiązać problemy z konfiguracją interfejsu użytkownika sieci Web](data-box-gateway-troubleshoot.md#run-diagnostics).
+- [Generuj pakiet dzienników i Wyświetl pliki dziennika](data-box-gateway-troubleshoot.md#collect-support-package).
 
 ## <a name="next-steps"></a>Następne kroki
 

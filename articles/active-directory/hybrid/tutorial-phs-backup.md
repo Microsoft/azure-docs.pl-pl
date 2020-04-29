@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Konfigurowanie phs jako kopii zapasowej dla usług AD FS w usłudze Azure AD Connect | Dokumenty firmy Microsoft'
+title: 'Samouczek: Konfigurowanie PHS jako kopii zapasowej AD FS w Azure AD Connect | Microsoft Docs'
 description: Opisuje sposób włączania synchronizacji skrótów haseł jako zapasu dla usług AD FS.
 services: active-directory
 documentationcenter: ''
@@ -13,27 +13,27 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3e5ad7badfa44a006fd7e71d3b0e42ee95ac698d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "64919011"
 ---
-# <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Samouczek: Konfigurowanie phs jako kopii zapasowej dla usług AD FS w usłudze Azure AD Connect
+# <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Samouczek: Konfigurowanie PHS jako kopii zapasowej AD FS w Azure AD Connect
 
 Następujący samouczek przeprowadzi Cię przez konfigurowanie synchronizacji skrótów haseł jako zapasu i trybu failover dla usług AD FS.  W tym dokumencie przedstawimy także sposób włączenia synchronizacji skrótów haseł jako podstawowej metody uwierzytelniania w przypadku awarii lub niedostępności usług AD FS.
 
 >[!NOTE] 
->Mimo że te kroki są zwykle wykonywane w sytuacjach awaryjnych lub awarii, zaleca się przetestowanie tych kroków i sprawdzenie procedur przed wystąpieniem awarii.
+>Chociaż te kroki są zwykle wykonywane w sytuacjach awaryjnych lub awarii, zaleca się przetestowanie tych kroków i zweryfikowanie procedur przed wystąpieniem awarii.
 
 >[!NOTE]
->W przypadku, gdy nie masz dostępu do serwera usługi Azure AD Connect lub serwer nie ma dostępu do Internetu, można skontaktować się z [pomocą techniczną firmy Microsoft,](https://support.microsoft.com/en-us/contactus/) aby pomóc w zmianach po stronie usługi Azure AD.
+>Jeśli nie masz dostępu do usługi Azure AD Connect Server lub serwer nie ma dostępu do Internetu, możesz skontaktować się z [Pomoc techniczna firmy Microsoft](https://support.microsoft.com/en-us/contactus/) , aby pomóc w wprowadzeniu zmian w stronie usługi Azure AD.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Ten samouczek opiera się na [samouczek: Federacji pojedynczego środowiska lasu AD do chmury](tutorial-federation.md) i jest na wymagane przed podjęciem tej próby samouczka.  Jeśli tamten samouczek nie został wykonany, zrób to przed podjęciem próby wykonania kroków zawartych w tym dokumencie.
+Ten samouczek jest oparty na [samouczku: sfederować pojedyncze środowisko lasu usługi AD z chmurą](tutorial-federation.md) i jest to wymagane przed podjęciem próby wykonania tego samouczka.  Jeśli tamten samouczek nie został wykonany, zrób to przed podjęciem próby wykonania kroków zawartych w tym dokumencie.
 
 >[!IMPORTANT]
->Przed przejściem na phs należy utworzyć kopię zapasową środowiska usług AD FS.  Można to zrobić za pomocą [narzędzia szybkiego przywracania usług AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool#how-to-use-the-tool).
+>Przed przełączeniem do PHS należy utworzyć kopię zapasową środowiska AD FS.  Można to zrobić za pomocą [narzędzia AD FS szybkie przywracanie](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool#how-to-use-the-tool).
 
 ## <a name="enable-phs-in-azure-ad-connect"></a>Włączanie synchronizacji skrótów haseł w programie Azure AD Connect
 Pierwszym krokiem w środowisku programu Azure AD Connect korzystającym z federacji jest włączenie synchronizacji skrótów haseł i umożliwienie programowi Azure AD Connect synchronizowania skrótów.
@@ -41,14 +41,14 @@ Pierwszym krokiem w środowisku programu Azure AD Connect korzystającym z feder
 Wykonaj następujące czynności:
 
 1.  Kliknij dwukrotnie ikonę programu Azure AD Connect utworzoną na pulpicie.
-2.  Kliknij **pozycję Konfiguruj**.
+2.  Kliknij przycisk **Konfiguruj**.
 3.  Na stronie Zadania dodatkowe wybierz pozycję **Dostosuj opcje synchronizacji**, a następnie kliknij pozycję **Dalej**.
 4.  Podaj nazwę użytkownika i hasło administratora globalnego.  To konto zostało utworzone [tutaj](tutorial-federation.md#create-a-global-administrator-in-azure-ad) w poprzednim samouczku.
 5.  Na ekranie **Łączenie katalogów** kliknij pozycję **Dalej**.
 6.  Na ekranie **Filtrowanie domen i jednostek organizacyjnych** kliknij przycisk **Dalej**.
 7.  Na ekranie **Funkcje opcjonalne** zaznacz opcję **Synchronizacja skrótów haseł** i kliknij pozycję **Dalej**.
 ![Wybierz](media/tutorial-phs-backup/backup1.png)</br>
-8.  Na ekranie **Gotowe do skonfigurowania** kliknij pozycję **Konfiguruj**.
+8.  Na ekranie **gotowy do skonfigurowania** kliknij pozycję **Konfiguruj**.
 9.  Po zakończeniu konfigurowania kliknij pozycję **Zakończ**.
 10. Gotowe.  Wszystko jest zrobione.  Synchronizacja skrótów haseł zostanie teraz przeprowadzona i będzie można jej używać jako zapasu, jeśli usługi AD FS staną się niedostępne.
 
@@ -56,10 +56,10 @@ Wykonaj następujące czynności:
 Teraz pokażemy, jak przejść na synchronizację skrótów haseł. Przed rozpoczęciem zastanów się nad warunkami wykonania przejścia. Nie rób tego z przyczyn tymczasowych, takich jak awaria sieci, pomniejszy problem z usługami AD FS lub problem wpływający na część użytkowników. Jeśli podejmiesz decyzję o wykonaniu przejścia, ponieważ rozwiązanie problemu trwałoby zbyt długo, wykonaj następujące kroki:
 
 > [!IMPORTANT]
-> Należy pamiętać, że synchronizacja skrótów haseł z usługą Azure AD zajmie trochę czasu.  Oznacza to, że może upłynąć 3 godziny, zanim synchronizacja zostanie zakończona i zanim zaczniesz uwierzytelniać przy użyciu skrótów haseł.
+> Należy pamiętać, że potrwa to trochę czasu, aby skróty haseł były synchronizowane z usługą Azure AD.  Oznacza to, że ukończenie synchronizacji może potrwać 3 godziny, a zanim będzie możliwe rozpoczęcie uwierzytelniania przy użyciu skrótów haseł.
 
 1. Kliknij dwukrotnie ikonę programu Azure AD Connect utworzoną na pulpicie.
-2.  Kliknij **pozycję Konfiguruj**.
+2.  Kliknij przycisk **Konfiguruj**.
 3.  Wybierz pozycję **Zmień dane logowania użytkownika** i kliknij pozycję **Dalej**.
 ![Zmień](media/tutorial-phs-backup/backup2.png)</br>
 4.  Podaj nazwę użytkownika i hasło administratora globalnego.  To konto zostało utworzone [tutaj](tutorial-federation.md#create-a-global-administrator-in-azure-ad) w poprzednim samouczku.
@@ -76,35 +76,35 @@ Teraz pokażemy, jak przejść na synchronizację skrótów haseł. Przed rozpoc
 2. Zaloguj się przy użyciu konta użytkownika utworzonego w nowej dzierżawie.  Należy zalogować się przy użyciu następującego formatu: (user@domain.onmicrosoft.com). Użyj tego samego hasła, za pomocą którego użytkownik loguje się lokalnie.</br>
    ![Weryfikacja](media/tutorial-password-hash-sync/verify1.png)</br>
 
-## <a name="switch-back-to-federation"></a>Powrót do federacji
-Teraz pokażemy Ci, jak wrócić do federacji.  Aby to zrobić, wykonaj następujące czynności:
+## <a name="switch-back-to-federation"></a>Przełącz z powrotem do Federacji
+Teraz pokażemy, jak przełączyć się z powrotem do Federacji.  W tym celu wykonaj następujące czynności:
 
 1.  Kliknij dwukrotnie ikonę programu Azure AD Connect utworzoną na pulpicie.
-2.  Kliknij **pozycję Konfiguruj**.
+2.  Kliknij przycisk **Konfiguruj**.
 3.  Wybierz pozycję **Zmień dane logowania użytkownika** i kliknij pozycję **Dalej**.
-4.  Podaj nazwę użytkownika i hasło administratora globalnego.  Jest to konto, które zostało utworzone [w tym](tutorial-federation.md#create-a-global-administrator-in-azure-ad) miejscu w poprzednim samouczku.
-5.  Na ekranie **logowania użytkownika** wybierz pozycję **Federacja z usługami AD FS** i kliknij przycisk **Dalej**.  
+4.  Podaj nazwę użytkownika i hasło administratora globalnego.  To jest konto, które [zostało utworzone w](tutorial-federation.md#create-a-global-administrator-in-azure-ad) poprzednim samouczku.
+5.  Na ekranie **logowania użytkownika** wybierz opcję **Federacja z AD FS** i kliknij przycisk **dalej**.  
 6. Na stronie Poświadczenia administratora domeny wprowadź nazwę użytkownika oraz hasło konta contoso\Administrator, a następnie kliknij przycisk **Dalej**.
-7. Na ekranie farmy usług AD FS kliknij przycisk **Dalej**.
-8. Na ekranie **domeny usługi Azure AD** wybierz domenę z listy rozwijanej i kliknij przycisk **Dalej**.
+7. Na ekranie farmy AD FS kliknij przycisk **dalej**.
+8. Na ekranie **domena usługi Azure AD** wybierz z listy rozwijanej domenę, a następnie kliknij przycisk **dalej**.
 9. Na ekranie **Wszystko gotowe do skonfigurowania** kliknij pozycję **Konfiguruj**.
-10. Po zakończeniu konfiguracji kliknij przycisk **Dalej**.
+10. Po zakończeniu konfiguracji kliknij przycisk **dalej**.
 ![Konfigurowanie](media/tutorial-phs-backup/backup4.png)</br>
-11. Na ekranie **Sprawdź łączność federacjową** kliknij pozycję **Sprawdź**.  Może być konieczne skonfigurowanie rekordów DNS (dodawanie rekordów A i AAAA), aby można je było pomyślnie ukończyć.
+11. Na stronie **Weryfikowanie łączności federacyjnej** kliknij przycisk **Weryfikuj**.  W celu pomyślnego wykonania tej czynności może być konieczne skonfigurowanie rekordów DNS (Dodaj rekordy a i AAAA).
 ![Weryfikacja](media/tutorial-phs-backup/backup5.png)</br>
-12. Kliknij przycisk **Wyjdź**.
+12. Kliknij przycisk **Zakończ**.
 
-## <a name="reset-the-ad-fs-and-azure-trust"></a>Resetowanie usług AD FS i zaufania platformy Azure
-Teraz musimy zresetować zaufanie między usługami AD FS i platformy Azure.
+## <a name="reset-the-ad-fs-and-azure-trust"></a>Zresetuj AD FS i zaufanie platformy Azure
+Teraz musimy zresetować zaufanie między AD FS i platformą Azure.
 
 1.  Kliknij dwukrotnie ikonę programu Azure AD Connect utworzoną na pulpicie.
-2.  Kliknij **pozycję Konfiguruj**.
-3.  Wybierz **pozycję Zarządzaj federacją** i kliknij przycisk **Dalej**.
-4.  Wybierz **pozycję Resetuj zaufanie usługi Azure AD** i kliknij przycisk **Dalej**.
+2.  Kliknij przycisk **Konfiguruj**.
+3.  Wybierz pozycję **Zarządzaj Federacją** i kliknij przycisk **dalej**.
+4.  Wybierz pozycję **Zresetuj relację zaufania usługi Azure AD** , a następnie kliknij przycisk **dalej**.
 ![Reset](media/tutorial-phs-backup/backup6.png)</br>
-5.  Na ekranie **Połącz z usługą Azure AD** wprowadź nazwę użytkownika i hasło administratora globalnego.
-6.  Na ekranie **Połącz z usługami AD FS** wprowadź nazwę użytkownika i hasło contoso\Administrator i kliknij przycisk **Dalej.**
-7.  Na ekranie **Certyfikaty** kliknij przycisk **Dalej**.
+5.  Na ekranie **łączenie z usługą Azure AD** wprowadź nazwę użytkownika i hasło administratora globalnego.
+6.  Na ekranie **Połącz z AD FS** wprowadź nazwę użytkownika i hasło contoso\administrator, a następnie kliknij przycisk **Dalej.**
+7.  Na ekranie **Certyfikaty** kliknij przycisk **dalej**.
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testowanie logowania się przy użyciu jednego z kont użytkowników
 

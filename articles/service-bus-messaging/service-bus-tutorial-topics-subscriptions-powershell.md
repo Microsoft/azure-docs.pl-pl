@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 ms.openlocfilehash: 3d1e1491ad045eba88ca7bbe54a1acb38199f7d7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "65987913"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Samouczek: aktualizowanie magazynu przy użyciu programu PowerShell oraz tematów/subskrypcji
@@ -22,7 +22,7 @@ Usługa Microsoft Azure Service Bus to wielodostępna usługa przesyłania komun
 
 W tym samouczku opisano, jak wysyłać i odbierać komunikaty z i do kolejki usługi Service Bus, używając programu PowerShell do utworzenia przestrzeni nazw do przesyłania komunikatów oraz kolejki w ramach tej przestrzeni nazw i uzyskać poświadczenia autoryzacji do tej przestrzeni nazw. Następnie w procedurze przedstawiono, jak wysyłać i odbierać komunikaty z tej kolejki przy użyciu [biblioteki platformy .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Tworzenie tematu usługi Service Bus i co najmniej jednej subskrypcji do tego tematu przy użyciu programu Azure PowerShell
 > * Dodawanie filtrów tematu przy użyciu programu PowerShell
@@ -34,7 +34,7 @@ Przykładem tego scenariusza jest aktualizacja asortymentu magazynu na potrzeby 
 
 ![temat](./media/service-bus-tutorial-topics-subscriptions-powershell/about-service-bus-topic.png)
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto][] przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto][] .
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -46,7 +46,7 @@ Aby ukończyć kroki tego samouczka, upewnij się, że zainstalowano następują
 1. [Program Visual Studio 2017 Update 3 (wersja 15.3, 26730.01)](https://www.visualstudio.com/vs) lub nowszy.
 2. [Zestaw NET Core SDK](https://www.microsoft.com/net/download/windows), wersja 2.0 lub nowsza.
 
-Ten samouczek wymaga używania najnowszej wersji programu Azure PowerShell. Jeśli chcesz zainstalować lub uaktualnić, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell][].
+Ten samouczek wymaga używania najnowszej wersji programu Azure PowerShell. Jeśli konieczne jest zainstalowanie lub uaktualnienie, zobacz [Instalowanie i konfigurowanie Azure PowerShell][].
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -271,7 +271,7 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 ```
 
 > [!NOTE]
-> Zasoby usługi Service Bus można zarządzać za pomocą [Eksploratora magistrali usług](https://github.com/paolosalvatori/ServiceBusExplorer/). Eksplorator usługi Service Bus umożliwia użytkownikom łączenie się z obszarem nazw usługi Service Bus i administrowanie jednostkami obsługi wiadomości w łatwy sposób. Narzędzie zapewnia zaawansowane funkcje, takie jak funkcje importu/eksportu lub możliwość testowania tematu, kolejek, subskrypcji, usług przekazywania, centrów powiadomień i centrów zdarzeń. 
+> Za pomocą [eksploratora Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/)można zarządzać zasobami Service Bus. Eksplorator Service Bus umożliwia użytkownikom łączenie się z przestrzenią nazw Service Bus i administrowanie jednostkami obsługi komunikatów w prosty sposób. Narzędzie zapewnia zaawansowane funkcje, takie jak funkcja importowania/eksportowania lub możliwość testowania tematów, kolejek, subskrypcji, usług przekazywania, centrów powiadomień i centrów zdarzeń. 
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -291,5 +291,5 @@ Przejdź do następnego samouczka, aby dowiedzieć się więcej o korzystaniu z 
 > [!div class="nextstepaction"]
 > [aktualizowanie magazynu przy użyciu programu PowerShell oraz tematów/subskrypcji](service-bus-tutorial-topics-subscriptions-cli.md)
 
-[darmowe konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[bezpłatne konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Instalowanie i konfigurowanie programu Azure PowerShell]: /powershell/azure/install-Az-ps

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: d5de8efc62984b9738c9247b12225f35265309c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67182999"
 ---
 > [!TIP]
 >
-> Jeśli planujesz używać powiązań HTTP lub WebHook, należy zaplanować, aby uniknąć wyczerpania portów, które może być spowodowane nieprawidłowym wystąpieniem `HttpClient`pliku . Aby uzyskać więcej informacji, zobacz [Jak zarządzać połączeniami w usłudze Azure Functions](../articles/azure-functions/manage-connections.md).
+> Jeśli planujesz używać powiązań HTTP lub webhook, Zaplanuj, aby uniknąć wyczerpania portów, które mogą być przyczyną nieprawidłowego tworzenia `HttpClient`wystąpienia. Aby uzyskać więcej informacji, zobacz [jak zarządzać połączeniami w Azure Functions](../articles/azure-functions/manage-connections.md).

@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 467e09f9bd46df6d888d82f2961c5aed9cca4ab5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67183032"
 ---
-Ten przykład obejmuje przy użyciu usługi [Twilio](https://www.twilio.com/) do wysyłania wiadomości SMS do telefonu komórkowego. Usługa Azure Functions ma już obsługę usługi Twilio za pośrednictwem [powiązania usługi Twilio,](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio)a przykładowa funkcja używa tej funkcji.
+Ten przykład obejmuje użycie usługi [Twilio](https://www.twilio.com/) do wysyłania komunikatów SMS na telefon komórkowy. Azure Functions ma już obsługę Twilio za pośrednictwem [powiązania Twilio](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio), a przykład korzysta z tej funkcji.
 
-Pierwszą rzeczą, której potrzebujesz, jest konto usługi Twilio. Można utworzyć jeden https://www.twilio.com/try-twiliowolny w . Po uzyskaniu konta dodaj do aplikacji funkcji następujące trzy **następujące ustawienia aplikacji.**
+Pierwszym z nich jest konto Twilio. Możesz utworzyć jeden bezpłatnie o https://www.twilio.com/try-twilio. Po utworzeniu konta Dodaj następujące trzy **Ustawienia aplikacji** do aplikacji funkcji.
 
 | Nazwa ustawienia aplikacji | Opis wartości |
 | - | - |
-| **TwilioAccountSid**  | Identyfikator SID dla twojego konta usługi Twilio |
-| **TwilioAuthToken (TwilioAuthToken)**   | Token YUTH dla Twojego konta Twilio |
-| **Numer telefonu TwilioNumer** | Numer telefonu skojarzony z Twoim kontem usługi Twilio. Służy do wysyłania wiadomości SMS. |
+| **TwilioAccountSid**  | Identyfikator SID konta usługi Twilio |
+| **TwilioAuthToken**   | Token uwierzytelniania dla konta usługi Twilio |
+| **TwilioPhoneNumber** | Numer telefonu skojarzony z kontem Twilio. Służy do wysyłania wiadomości SMS. |

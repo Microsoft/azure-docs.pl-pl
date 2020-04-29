@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 6c72cd270e634ca0aebff7c17d5663241428e182
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69907073"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
@@ -17,7 +17,7 @@ ms.locfileid: "69907073"
 
 ## <a name="create-a-project-and-import-required-modules"></a>Tworzenie projektu i importowanie wymaganych modułów
 
-Utwórz nowy projekt języka Python przy użyciu ulubionego środowiska IDE lub edytora lub utwórz nowy folder na pulpicie. Skopiuj ten fragment kodu do projektu/folderu do pliku o nazwie `dictionary-lookup.py`.
+Utwórz nowy projekt w języku Python przy użyciu ulubionego środowiska IDE lub edytora lub Utwórz nowy folder na pulpicie. Skopiuj ten fragment kodu do projektu/folderu do pliku o nazwie `dictionary-lookup.py`.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -31,7 +31,7 @@ Pierwszy komentarz informuje interpreter języka Python, aby używać kodowania 
 
 ## <a name="set-the-subscription-key-endpoint-and-path"></a>Ustawianie klucza subskrypcji, punktu końcowego i ścieżki
 
-W tym przykładzie spróbuje odczytać klucz subskrypcji i `TRANSLATOR_TEXT_KEY` punkt `TRANSLATOR_TEXT_ENDPOINT`końcowy usługi Translator Text ze zmiennych środowiskowych: i . Jeśli nie znasz zmiennych środowiskowych, można `subscription_key` ustawić `endpoint` i jako ciągi i komentować instrukcje warunkowe.
+Ten przykład spróbuje odczytać klucz subskrypcji tłumaczenie tekstu w usłudze Translator i punkt końcowy ze zmiennych środowiskowych: `TRANSLATOR_TEXT_KEY` i. `TRANSLATOR_TEXT_ENDPOINT` Jeśli nie znasz zmiennych środowiskowych, możesz ustawić `subscription_key` i `endpoint` jako ciągi i dodać komentarz do instrukcji warunkowych.
 
 Skopiuj ten kod do projektu:
 
@@ -74,7 +74,7 @@ headers = {
 }
 ```
 
-Jeśli korzystasz z subskrypcji wielu usług usług Cognitive Services, należy również uwzględnić `Ocp-Apim-Subscription-Region` parametry żądania. [Dowiedz się więcej o uwierzytelnieniu za pomocą subskrypcji wielu usług](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Jeśli używasz subskrypcji usługi Cognitive Services, musisz także uwzględnić `Ocp-Apim-Subscription-Region` w parametrach żądania. [Dowiedz się więcej o uwierzytelnianiu w ramach subskrypcji wielu usług](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="create-a-request-to-find-alternate-translations"></a>Tworzenie żądania w celu znalezienia alternatywnych tłumaczeń
 
@@ -147,7 +147,7 @@ Jeśli klucz subskrypcji umieszczono na stałe w kodzie programu, pamiętaj, aby
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z odwołaniem do interfejsu API, aby zrozumieć wszystko, co można zrobić z interfejsem API tekstu translatora.
+Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co można zrobić za pomocą interfejs API tłumaczenia tekstu w usłudze Translator.
 
 > [!div class="nextstepaction"]
 > [Odwołanie API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

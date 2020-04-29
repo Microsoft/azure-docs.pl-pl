@@ -11,21 +11,21 @@ ms.custom: include file
 ms.date: 06/24/2019
 ms.author: diberry
 ms.openlocfilehash: f69502907e2dd3c5b3c64634b1b11e10af5397f5
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67438435"
 ---
-## <a name="more-information-about-bots"></a>Więcej informacji o botach
+## <a name="more-information-about-bots"></a>Więcej informacji na temat botów
 
-Aby uzyskać więcej informacji na temat korzystania z tej usługi z botami, należy rozpocząć od następujących zasobów:
+Aby uzyskać więcej informacji na temat korzystania z tej usługi z usługą botów, Zacznij od następujących zasobów:
 
 |Zasób|Przeznaczenie|
 |--|--|
-|[Usługa Azure Bot](https://dev.botframework.com/)|Usługa Azure Bot zapewnia pełną usługę sieci web hostowane w chmurze z punktem końcowym bota. Usługi korzystają z [platformy Bot](https://github.com/Microsoft/botframework), która jest dostępna w kilku językach.|
-|[Struktura botów](https://github.com/Microsoft/botframework)|Microsoft Bot Framework to kompleksowa platforma do tworzenia konwersacyjnych środowisk SI klasy korporacyjnej.|
-|[Emulator struktury botów](https://github.com/Microsoft/botframework#Bot-Framework-Emulator)|Bot Framework Emulator to wieloplatformowa aplikacja komputerowa, która umożliwia deweloperom botów testowanie i debugowanie botów utworzonych przy użyciu SDK programu Bot Framework. Emulatora platformy botów służy do testowania botów działających lokalnie na komputerze lub do łączenia się z botami działającymi zdalnie.|
-|[Narzędzia botów](https://github.com/Microsoft/botbuilder-tools)|Narzędzia Bot Framework to zbiór wieloplatformowych narzędzi wiersza polecenia przeznaczonych do tworzenia kompleksowego przepływu pracy botów. |
-|[Próbki konstruktora botów](https://github.com/Microsoft/BotBuilder-Samples)|W pełni opracowane przykłady botów są przeznaczone do zilustrowania scenariuszy, które należy zaimplementować do tworzenia wielkich botów.|
+|[Usługa Azure bot](https://dev.botframework.com/)|Usługa Azure bot zapewnia kompletną, hostowaną w chmurze usługę sieci Web z punktem końcowym bot. Usługi korzystają z [platformy bot Framework](https://github.com/Microsoft/botframework), która jest dostępna w kilku językach.|
+|[Struktura botów](https://github.com/Microsoft/botframework)|Microsoft bot Framework to kompleksowa platforma służąca do tworzenia konwersacji typu AI klasy korporacyjnej.|
+|[Emulator struktury bot Framework](https://github.com/Microsoft/botframework#Bot-Framework-Emulator)|Emulator bot Framework to międzyplatformowa aplikacja klasyczna, która umożliwia deweloperom bot testowanie i debugowanie botów utworzonych przy użyciu zestawu SDK bot Framework. Można użyć emulatora bot Framework do testowania botów uruchomionego lokalnie na maszynie lub w celu zdalnego nawiązywania połączenia z usługą botów.|
+|[Narzędzia bot](https://github.com/Microsoft/botbuilder-tools)|Narzędzia bot Framework to zbiór wieloplatformowych narzędzi wiersza polecenia, które mają na celu pokrycie kompleksowego przepływu pracy deweloperskiej bot. |
+|[Przykłady konstruktora bot](https://github.com/Microsoft/BotBuilder-Samples)|W pełni rozwinięte przykłady bot są przeznaczone do zilustrowania scenariuszy, które należy zaimplementować, aby kompilować doskonałe botów.|
 |||

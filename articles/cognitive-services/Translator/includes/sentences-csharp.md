@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 3d92d3f959e2ad44daa82d6b609b9357cee969c9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69906862"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
@@ -32,11 +32,11 @@ Następnie należy zainstalować element Json.Net. Z poziomu katalogu projektu u
 dotnet add package Newtonsoft.Json --version 11.0.2
 ```
 
-## <a name="select-the-c-language-version"></a>Wybieranie wersji językowej języka języka C#
+## <a name="select-the-c-language-version"></a>Wybierz wersję języka C#
 
-Ten szybki start wymaga języka C# 7.1 lub nowszego. Istnieje kilka sposobów, aby zmienić wersję języka C# dla projektu. W tym przewodniku pokażemy, jak `sentences-sample.csproj` dostosować plik. Aby uzyskać wszystkie dostępne opcje, takie jak zmiana języka w programie Visual Studio, zobacz [Wybieranie wersji języka języka C#.](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version)
+Ten przewodnik Szybki Start wymaga języka C# 7,1 lub nowszego. Istnieje kilka sposobów zmiany wersji języka C# dla projektu. W tym przewodniku pokazano, jak dostosować `sentences-sample.csproj` plik. Aby uzyskać wszystkie dostępne opcje, takie jak zmiana języka w programie Visual Studio, zobacz [Wybieranie wersji języka C#](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
 
-Otwórz projekt, a `sentences-sample.csproj`następnie otwórz . Upewnij się, że `LangVersion` jest ustawiona na 7.1 lub nowszą. Jeśli nie ma grupy właściwości dla wersji językowej, dodaj następujące wiersze:
+Otwórz projekt, a następnie otwórz `sentences-sample.csproj`. Upewnij się, `LangVersion` że ustawiono wartość 7,1 lub nowszą. Jeśli nie ma grupy właściwości dla wersji językowej, Dodaj następujące wiersze:
 
 ```xml
 <PropertyGroup>
@@ -59,7 +59,7 @@ using Newtonsoft.Json;
 
 ## <a name="create-classes-for-the-json-response"></a>Tworzenie klas dla odpowiedzi JSON
 
-Następnie utworzymy klasę, która jest używana podczas deserializacji odpowiedzi JSON zwróconej przez interfejs API tekstu translatora.
+Następnie utworzymy klasę, która jest używana podczas deserializacji odpowiedzi JSON zwróconej przez interfejs API tłumaczenia tekstu w usłudze Translator.
 
 ```csharp
 /// <summary>
@@ -78,9 +78,9 @@ public class DetectedLanguage
 }
 ```
 
-## <a name="get-subscription-information-from-environment-variables"></a>Uzyskaj informacje o subskrypcji ze zmiennych środowiskowych
+## <a name="get-subscription-information-from-environment-variables"></a>Pobierz informacje o subskrypcji ze zmiennych środowiskowych
 
-Dodaj następujące wiersze `Program` do klasy. Te wiersze odczytują klucz subskrypcji i punkt końcowy ze zmiennych środowiskowych i zgłasza błąd, jeśli napotkasz jakiekolwiek problemy.
+Dodaj następujące wiersze do `Program` klasy. Te wiersze odczytają klucz subskrypcji i punkt końcowy ze zmiennych środowiskowych i zgłasza błąd, jeśli wystąpią jakieś problemy.
 
 ```csharp
 private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
@@ -105,7 +105,7 @@ static Program()
 
 ## <a name="create-a-function-to-determine-sentence-length"></a>Tworzenie funkcji w celu określenia długości zdania
 
-W `Program` klasie utwórz nową `BreakSentenceRequest()`funkcję o nazwie . Ta funkcja przyjmuje `subscriptionKey`cztery `endpoint` `route`argumenty: `inputText`, , i .
+W `Program` klasie Utwórz nową funkcję o nazwie `BreakSentenceRequest()`. Ta funkcja przyjmuje cztery argumenty: `subscriptionKey`, `endpoint`, `route`i `inputText`.
 
 ```csharp
 static public async Task BreakSentenceRequest(string subscriptionKey, string endpoint, string route, string inputText)
@@ -117,7 +117,7 @@ static public async Task BreakSentenceRequest(string subscriptionKey, string end
 }
 ```
 
-## <a name="serialize-the-break-sentence-request"></a>Serializowanie żądania zdania przerwania
+## <a name="serialize-the-break-sentence-request"></a>Serializacja żądania zdania Break
 
 Następnie należy utworzyć i serializować obiekt JSON obejmujący tekst. Pamiętaj, że możesz przekazać więcej niż jeden obiekt w tablicy `body`.
 
@@ -173,11 +173,11 @@ foreach (BreakSentenceResult o in deserializedOutput)
 }
 ```
 
-Jeśli korzystasz z subskrypcji wielu usług usług Cognitive Services, należy również uwzględnić `Ocp-Apim-Subscription-Region` parametry żądania. [Dowiedz się więcej o uwierzytelnieniu za pomocą subskrypcji wielu usług](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Jeśli używasz subskrypcji usługi Cognitive Services, musisz także uwzględnić `Ocp-Apim-Subscription-Region` w parametrach żądania. [Dowiedz się więcej o uwierzytelnianiu w ramach subskrypcji wielu usług](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="put-it-all-together"></a>Zebranie wszystkich elementów
 
-Ostatnim krokiem jest wywołanie instrukcji `BreakSentenceRequest()` w funkcji `Main`. Zlokalizuj `static void Main(string[] args)` i zastąp go tym kodem:
+Ostatnim krokiem jest wywołanie instrukcji `BreakSentenceRequest()` w funkcji `Main`. Znajdź `static void Main(string[] args)` i Zamień ten kod:
 
 ```csharp
 static async Task Main(string[] args)
@@ -194,7 +194,7 @@ static async Task Main(string[] args)
 }
 ```
 
-Zauważysz, że `Main`w , deklarujesz `endpoint` `route` `subscriptionKey`, , i `breakSentenceText`tekst do oceny .
+Zauważysz, że w `Main`programie jest deklarujący `subscriptionKey`, `endpoint` `route`, i tekst do oszacowania `breakSentenceText`.
 
 ## <a name="run-the-sample-app"></a>Uruchamianie przykładowej aplikacji
 
@@ -206,14 +206,14 @@ dotnet run
 
 ## <a name="sample-response"></a>Przykładowa odpowiedź
 
-Po uruchomieniu próbki powinny zostać wyświetlone następujące wydruki do terminala:
+Po uruchomieniu przykładu na terminalu powinny zostać wyświetlone następujące elementy:
 
 ```bash
 The detected language is \'en\'. Confidence is: 1.
 The first sentence length is: 25
 ```
 
-Ten komunikat jest zbudowany z surowego JSON, który będzie wyglądać następująco:
+Ten komunikat jest zbudowany na podstawie nieprzetworzonego kodu JSON, który będzie wyglądać następująco:
 
 ```json
 [
@@ -234,7 +234,7 @@ Upewnij się, że wszystkie poufne informacje, takie jak klucze subskrypcji, zos
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z odwołaniem do interfejsu API, aby zrozumieć wszystko, co można zrobić z interfejsem API tekstu translatora.
+Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co można zrobić za pomocą interfejs API tłumaczenia tekstu w usłudze Translator.
 
 > [!div class="nextstepaction"]
 > [Odwołanie API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

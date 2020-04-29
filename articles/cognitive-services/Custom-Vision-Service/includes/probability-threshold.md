@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 07/17/2019
 ms.author: pafarley
 ms.openlocfilehash: 07e7cc991f127bf4bb4f466c0108962786e45bce
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68423577"
 ---
-Zwróć uwagę na suwak **Próg prawdopodobieństwa** w lewym okienku karty **Wydajność.** Jest to poziom zaufania, że przewidywanie musi mieć, aby uznać za poprawne (do celów obliczania precyzji i odwołania). 
+Zwróć uwagę na suwak **próg prawdopodobieństwa** w lewym okienku na karcie **wydajność** . Jest to poziom pewności, że przewidywanie musi mieć być uznawane za prawidłowe (na potrzeby obliczenia precyzji i odwołania). 
 
-Podczas interpretowania wywołań przewidywanie z wysokim progiem prawdopodobieństwa, mają tendencję&mdash;do zwracania wyników z dużą precyzją kosztem odwołania wykryte klasyfikacje są poprawne, ale wiele pozostaje niewykryte. Próg niskiego prawdopodobieństwa&mdash;powoduje, że większość rzeczywistych klasyfikacji jest wykrywana, ale w ramach tego zestawu jest więcej fałszywych alarmów. Mając to na uwadze, należy ustawić próg prawdopodobieństwa zgodnie z określonymi potrzebami projektu. Później, gdy otrzymujesz wyniki prognozowania po stronie klienta, należy użyć tej samej wartości progu prawdopodobieństwa, jak użyto w tym miejscu.
+Gdy interpretujesz wywołania prognoz z progiem wysokiego prawdopodobieństwa, mają one zwrócić wyniki z wysoką dokładnością kosztu odwołania&mdash;wykryte klasyfikacje są poprawne, ale wiele nie zostanie wykryte. Próg niskiego prawdopodobieństwa oznacza&mdash;, że wszystkie rzeczywiste klasyfikacje są wykrywane, ale w tym zestawie występuje więcej fałszywych wartości dodatnich. Pamiętając o tym, należy ustawić próg prawdopodobieństwa zgodnie z konkretnymi potrzebami projektu. Później, gdy otrzymujesz wyniki przewidywania po stronie klienta, należy użyć tej samej wartości progowej prawdopodobieństwa, która została użyta w tym miejscu.

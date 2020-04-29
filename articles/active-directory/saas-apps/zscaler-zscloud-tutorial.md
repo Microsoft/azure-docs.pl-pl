@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z usługą Zscaler ZSCloud | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a usługą Zscaler ZSCloud.
+title: 'Samouczek: integracja Azure Active Directory z usługą rozwiązania Zscaler ZSCloud | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i rozwiązania Zscaler ZSCloud.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,44 +16,44 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.openlocfilehash: 43d7e58f0c267afe8a22c217d9800abb041df8cb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68723055"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Samouczek: Integracja usługi Azure Active Directory z usługą Zscaler ZSCloud
+# <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Samouczek: integracja Azure Active Directory z usługą rozwiązania Zscaler ZSCloud
 
-W tym samouczku dowiesz się, jak zintegrować Zscaler ZSCloud z usługą Azure Active Directory (Azure AD).
-Integracja Zscaler ZSCloud z usługą Azure AD zapewnia następujące korzyści:
+W tym samouczku dowiesz się, jak zintegrować usługę rozwiązania Zscaler ZSCloud z usługą Azure Active Directory (Azure AD).
+Integracja usługi rozwiązania Zscaler ZSCloud z usługą Azure AD zapewnia następujące korzyści:
 
-* Możesz kontrolować w usłudze Azure AD, który ma dostęp do Zscaler ZSCloud.
-* Możesz włączyć automatyczne logowanie użytkowników do Zscaler ZSCloud (logowanie jednokrotne) za pomocą ich kont usługi Azure AD.
+* Możesz kontrolować w usłudze Azure AD, kto ma dostęp do rozwiązania Zscaler ZSCloud.
+* Możesz umożliwić użytkownikom automatyczne logowanie do rozwiązania Zscaler ZSCloud (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z usługą Zscaler ZSCloud, potrzebne są następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z usługą rozwiązania Zscaler ZSCloud, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/)
-* Subskrypcja z obsługą logowania jednokrotnego Zscaler ZSCloud
+* Subskrypcja z włączonym logowaniem jednokrotnym w usłudze rozwiązania Zscaler ZSCloud
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Zscaler ZSCloud obsługuje sso inicjowane przez **SP**
+* Rozwiązania Zscaler ZSCloud obsługuje logowanie jednokrotne w usłudze **SP**
 
-* Zscaler ZSCloud obsługuje **inicjowanie** obsługi administracyjnej użytkowników just in time
+* Rozwiązania Zscaler ZSCloud obsługuje inicjowanie aprowizacji użytkowników **just in Time**
 
-## <a name="adding-zscaler-zscloud-from-the-gallery"></a>Dodawanie Zscaler ZSCloud z galerii
+## <a name="adding-zscaler-zscloud-from-the-gallery"></a>Dodawanie rozwiązania Zscaler ZSCloud z galerii
 
-Aby skonfigurować integrację Zscaler ZSCloud z usługą Azure AD, należy dodać Zscaler ZSCloud z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację usługi rozwiązania Zscaler ZSCloud w usłudze Azure AD, musisz dodać ZSCloud rozwiązania Zscaler z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać Zscaler ZSCloud z galerii, wykonaj następujące czynności:**
+**Aby dodać rozwiązania Zscaler ZSCloud z galerii, wykonaj następujące czynności:**
 
 1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
@@ -67,31 +67,31 @@ Aby skonfigurować integrację Zscaler ZSCloud z usługą Azure AD, należy doda
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Zscaler ZSCloud**, wybierz **Zscaler ZSCloud** z panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wpisz **rozwiązania Zscaler ZSCloud**, wybierz pozycję **rozwiązania Zscaler ZSCloud** from a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
-     ![Zscaler ZSCloud na liście wyników](common/search-new-app.png)
+     ![Rozwiązania Zscaler ZSCloud na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji można skonfigurować i przetestować azure ad logowania jednokrotnego z Zscaler ZSCloud na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w Zscaler ZSCloud.
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą rozwiązania Zscaler ZSCloud na podstawie użytkownika testowego o nazwie **Britta Simon**.
+Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w programie rozwiązania Zscaler ZSCloud.
 
-Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD za pomocą zscalera ZSCloud, musisz wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi rozwiązania Zscaler ZSCloud, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj zscaler ZSCloud Logowanie jednokrotne](#configure-zscaler-zscloud-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+2. **[Skonfiguruj logowanie](#configure-zscaler-zscloud-single-sign-on)** jednokrotne w usłudze rozwiązania Zscaler ZSCloud — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego Zscaler ZSCloud](#create-zscaler-zscloud-test-user)** — aby mieć odpowiednik Britta Simon w Zscaler ZSCloud, który jest połączony z reprezentacją użytkownika usługi Azure AD.
+5. **[Utwórz użytkownika testowego rozwiązania Zscaler ZSCloud](#create-zscaler-zscloud-test-user)** , aby uzyskać odpowiednik Simon Britta w rozwiązania Zscaler ZSCloud, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą zscalera ZSCloud, wykonaj następujące kroki:
+Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą rozwiązania Zscaler ZSCloud, wykonaj następujące czynności:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **Zscaler ZSCloud** wybierz pozycję **Logowanie jednokrotne.**
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **rozwiązania Zscaler ZSCloud** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -105,18 +105,18 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą zscalera ZS
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
 
-    ![Informacje o logach jednokrotnych domeny I adresów URL Zscaler ZSCloud](common/sp-signonurl.png)
+    ![Rozwiązania Zscaler ZSCloud domeny i adresy URL Logowanie jednokrotne](common/sp-signonurl.png)
 
-    W pola tekstowym **Adresu URL logowania** wpisz adres URL używany przez użytkowników do logowania się do aplikacji ZScaler ZSCloud.
+    W polu tekstowym **adres URL logowania** wpisz adres URL używany przez użytkowników do logowania się do aplikacji rozwiązania Zscaler ZSCloud.
 
     > [!NOTE]
-    > Musisz zaktualizować wartość za pomocą rzeczywistego adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta Zscaler ZSCloud,](https://help.zscaler.com/) aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Należy zaktualizować wartość przy użyciu rzeczywistego adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta rozwiązania Zscaler ZSCloud](https://help.zscaler.com/) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-5. Aplikacja Zscaler ZSCloud oczekuje potwierdzeń SAML w określonym formacie, który wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij ikonę **Edytuj,** aby otworzyć okno dialogowe **Atrybuty użytkownika.**
+5. Aplikacja rozwiązania Zscaler ZSCloud oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij przycisk **Edytuj** ikonę, aby otworzyć okno dialogowe **atrybuty użytkownika** .
 
     ![image](common/edit-attribute.png)
 
-6. Oprócz powyższej, aplikacja Zscaler ZSCloud oczekuje, że kilka więcej atrybutów zostanie przekazanych z powrotem w odpowiedzi SAML. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** wykonaj następujące czynności, aby dodać atrybut tokenu SAML, jak pokazano w poniższej tabeli:
+6. Oprócz powyższych, aplikacja rozwiązania Zscaler ZSCloud oczekuje kilku atrybutów do przekazania z powrotem do odpowiedzi SAML. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** wykonaj następujące czynności, aby dodać atrybut tokenu SAML, jak pokazano w poniższej tabeli:
     
     | Nazwa | Atrybut źródłowy |
     | ---------| ------------ |
@@ -130,7 +130,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą zscalera ZS
 
     b. W polu tekstowym **Nazwa** wpisz nazwę atrybutu pokazaną dla tego wiersza.
 
-    d. Pozostaw pole **Przestrzeń nazw** puste.
+    c. Pozostaw pole **Przestrzeń nazw** puste.
 
     d. Dla opcji Źródło wybierz wartość **Atrybut**.
 
@@ -145,7 +145,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą zscalera ZS
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
-8. W sekcji **Konfigurowanie Zscaler ZSCloud** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
+8. W sekcji **Konfigurowanie rozwiązania Zscaler ZSCloud** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
@@ -153,19 +153,19 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą zscalera ZS
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
-### <a name="configure-zscaler-zscloud-single-sign-on"></a>Konfigurowanie logowania jednokrotnego Zscaler ZSCloud
+### <a name="configure-zscaler-zscloud-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w usłudze rozwiązania Zscaler ZSCloud
 
-1. Aby zautomatyzować konfigurację w Zscaler ZSCloud, musisz zainstalować **rozszerzenie przeglądarki My Apps Secure Sign-in,** klikając przycisk Zainstaluj **rozszerzenie**.
+1. Aby zautomatyzować konfigurację w programie rozwiązania Zscaler ZSCloud, należy zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
 
-    ![Rozszerzenie Moje aplikacje](common/install-myappssecure-extension.png)
+    ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
 
-2. Po dodaniu rozszerzenia do przeglądarki, kliknij **Instalator Zscaler ZSCloud** skieruje Cię do aplikacji Zscaler ZSCloud. Stamtąd podaj poświadczenia administratora, aby zalogować się do Zscaler ZSCloud. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację dla Ciebie i zautomatyzuje kroki 3-6.
+2. Po dodaniu rozszerzenia do przeglądarki, kliknij przycisk **Setup rozwiązania Zscaler ZSCloud** przekieruje Cię do aplikacji rozwiązania Zscaler ZSCloud. Z tego miejsca podaj poświadczenia administratora, aby zalogować się do usługi rozwiązania Zscaler ZSCloud. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-6.
 
-    ![Konfiguracja sso](common/setup-sso.png)
+    ![Konfigurowanie logowania jednokrotnego](common/setup-sso.png)
 
-3. Jeśli chcesz ręcznie skonfigurować Zscaler ZSCloud, otwórz nowe okno przeglądarki internetowej i zaloguj się do witryny firmy Zscaler ZSCloud jako administrator i wykonaj następujące czynności:
+3. Jeśli chcesz ręcznie skonfigurować rozwiązania Zscaler ZSCloud, Otwórz nowe okno przeglądarki sieci Web i zaloguj się w witrynie firmy rozwiązania Zscaler ZSCloud jako administrator i wykonaj następujące czynności:
 
 4. Przejdź do obszaru **Administracja > Uwierzytelnianie > Ustawienia uwierzytelniania** i wykonaj następujące kroki:
    
@@ -177,13 +177,13 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą zscalera ZS
 
 5. W oknie **Edytowanie języka SAML** wykonaj następujące kroki i kliknij pozycję Zapisz.  
             
-    ![Zarządzanie uwierzytelnianiem użytkowników &](./media/zscaler-zscloud-tutorial/ic800208.png "Zarządzanie uwierzytelnianiem użytkowników &")
+    ![Zarządzanie użytkownikami & uwierzytelnianie](./media/zscaler-zscloud-tutorial/ic800208.png "Zarządzanie użytkownikami & uwierzytelnianie")
     
     a. W polu tekstowym **Adres URL portalu języka SAML** wklej **adres URL logowania** skopiowany z witryny Azure Portal.
 
     b. W polu tekstowym **Atrybut nazwy logowania** wprowadź identyfikator **NameID**.
 
-    d. Kliknij pozycję **Przekaż**, aby przekazać certyfikat podpisywania języka SAML na platformie Azure, który został pobrany z witryny Azure Portal w obrębie **publicznego certyfikatu SSL**.
+    c. Kliknij pozycję **Przekaż**, aby przekazać certyfikat podpisywania języka SAML na platformie Azure, który został pobrany z witryny Azure Portal w obrębie **publicznego certyfikatu SSL**.
 
     d. Przełącz element **Włącz automatyczne aprowizowanie języka SAML**.
 
@@ -224,9 +224,9 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą zscalera ZS
 
     a. Zaznacz pole wyboru **Użyj serwera proxy dla sieci LAN**.
 
-    b. W polach tekstowych Adres wpisz **bramę. Zscaler ZSCloud.net**.
+    b. W polu tekstowym Adres wpisz **Gateway. Rozwiązania Zscaler ZSCloud.net**.
 
-    d. W polu tekstowym Port wpisz **80**.
+    c. W polu tekstowym Port wpisz **80**.
 
     d. Zaznacz pole wyboru **Nie używaj serwera proxy dla adresów lokalnych**.
 
@@ -242,7 +242,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -252,23 +252,23 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa** brittasimon@yourcompanydomain.extensionużytkownika wpisz . Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension. Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć Britta Simon do korzystania z usługi Azure logowania jednokrotnego, przyznając dostęp do Zscaler ZSCloud.
+W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do rozwiązania Zscaler ZSCloud.
 
-1. W portalu Azure wybierz pozycję **Aplikacje dla przedsiębiorstw**, wybierz **pozycję Wszystkie aplikacje**, a następnie wybierz pozycję **Zscaler ZSCloud**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **rozwiązania Zscaler ZSCloud**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz pozycję **Zscaler ZSCloud**.
+2. Na liście Aplikacje wybierz pozycję **rozwiązania Zscaler ZSCloud**.
 
-    ![Łącze Zscaler ZSCloud na liście Aplikacje](common/all-applications.png)
+    ![Link rozwiązania Zscaler ZSCloud na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -291,26 +291,26 @@ W tej sekcji można włączyć Britta Simon do korzystania z usługi Azure logow
     ![image](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_assign.png)
 
     >[!NOTE]
-    >Domyślna rola dostępu nie jest obsługiwana, ponieważ spowoduje to przerwanie inicjowania obsługi administracyjnej, więc nie można wybrać roli domyślnej podczas przypisywania użytkownika.
+    >Domyślna rola dostępu nie jest obsługiwana, ponieważ spowoduje to przerwanie aprowizacji, więc nie można wybrać roli domyślnej podczas przypisywania użytkownika.
 
-### <a name="create-zscaler-zscloud-test-user"></a>Tworzenie użytkownika testowego Zscaler ZSCloud
+### <a name="create-zscaler-zscloud-test-user"></a>Utwórz użytkownika testowego rozwiązania Zscaler ZSCloud
 
-W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w Zscaler ZSCloud. Zscaler ZSCloud obsługuje just-in-time użytkownika inicjowania obsługi administracyjnej, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik jeszcze nie istnieje w Zscaler ZSCloud, nowy jest tworzony po uwierzytelnieniu.
+W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w rozwiązania Zscaler ZSCloud. Rozwiązania Zscaler ZSCloud obsługuje Inicjowanie obsługi użytkowników just in Time, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik nie istnieje jeszcze w programie rozwiązania Zscaler ZSCloud, zostanie utworzony nowy po uwierzytelnieniu.
 
 >[!Note]
->Jeśli chcesz ręcznie utworzyć użytkownika, skontaktuj się z [zespołem pomocy technicznej Zscaler ZSCloud](https://help.zscaler.com/).
+>Jeśli musisz ręcznie utworzyć użytkownika, skontaktuj się z [zespołem pomocy technicznej rozwiązania Zscaler ZSCloud](https://help.zscaler.com/).
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Zscaler ZSCloud w Panelu dostępu należy automatycznie zalogować się do Zscaler ZSCloud, dla którego skonfigurowano logującą się logującą log. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka rozwiązania Zscaler ZSCloud w panelu dostępu należy automatycznie zalogować się do ZSCloud rozwiązania Zscaler, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

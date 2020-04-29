@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z programem Showpad | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a programem Showpad.
+title: 'Samouczek: integracja Azure Active Directory z usługą Showpad | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Showpad.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,43 +16,43 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 6c9235efe75c5ed16de01d950dcbec9746fbfa10
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67090788"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-showpad"></a>Samouczek: Integracja usługi Azure Active Directory z programem Showpad
+# <a name="tutorial-azure-active-directory-integration-with-showpad"></a>Samouczek: integracja Azure Active Directory z usługą Showpad
 
-W tym samouczku dowiesz się, jak zintegrować program Showpad z usługą Azure Active Directory (Azure AD).
-Integracja programu Showpad z usługą Azure AD zapewnia następujące korzyści:
+W tym samouczku dowiesz się, jak zintegrować usługę Showpad z usługą Azure Active Directory (Azure AD).
+Integracja Showpad z usługą Azure AD zapewnia następujące korzyści:
 
-* Można kontrolować w usłudze Azure AD, który ma dostęp do Showpad.
-* Można włączyć użytkowników, aby automatycznie zalogować się do Showpad (Logowanie jednokrotne) z ich kont usługi Azure AD.
+* Możesz kontrolować usługę Azure AD, która ma dostęp do usługi Showpad.
+* Możesz pozwolić użytkownikom na automatyczne logowanie do Showpad (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z programem Showpad, potrzebne są następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z usługą Showpad, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/)
-* Subskrypcja z obsługą logowania jednokrotnego showpad
+* Subskrypcja z włączonym logowaniem jednokrotnym w Showpad
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Showpad obsługuje syto inicjowane przez **SP**
-* Showpad obsługuje **inicjowanie** obsługi administracyjnej użytkowników just in time
+* Showpad obsługuje logowanie jednokrotne w usłudze **SP**
+* Showpad obsługuje Inicjowanie obsługi użytkowników **just in Time**
 
-## <a name="adding-showpad-from-the-gallery"></a>Dodawanie showpada z galerii
+## <a name="adding-showpad-from-the-gallery"></a>Dodawanie Showpad z galerii
 
-Aby skonfigurować integrację programu Showpad z usługą Azure AD, należy dodać program Showpad z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację programu Showpad z usługą Azure AD, musisz dodać Showpad z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać showpad z galerii, wykonaj następujące czynności:**
+**Aby dodać Showpad z galerii, wykonaj następujące czynności:**
 
 1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
@@ -66,31 +66,31 @@ Aby skonfigurować integrację programu Showpad z usługą Azure AD, należy dod
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Showpad**, wybierz **Showpad** z panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wpisz **Showpad**, wybierz pozycję **Showpad** from panel wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Showpad na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji można skonfigurować i przetestować azure ad logowanie jednokrotne za pomocą Showpad na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w programie Showpad.
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą Showpad na podstawie użytkownika testowego o nazwie **Britta Simon**.
+Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Showpad.
 
-Aby skonfigurować i przetestować logowanie jednookrotne usługi Azure AD za pomocą programu Showpad, należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Showpad, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie jednokrotne showpad](#configure-showpad-single-sign-on)** - aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+2. **[Skonfiguruj logowanie](#configure-showpad-single-sign-on)** jednokrotne w usłudze Showpad, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego Showpad](#create-showpad-test-user)** - mieć odpowiednik Britta Simon w Showpad, który jest połączony z reprezentacji usługi Azure AD użytkownika.
+5. **[Utwórz użytkownika testowego Showpad](#create-showpad-test-user)** , aby uzyskać odpowiednik Britta Simon w Showpad, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą programu Showpad, wykonaj następujące czynności:
+Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Showpad, wykonaj następujące czynności:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **showpad** wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Showpad** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -104,20 +104,20 @@ Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą programu S
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
 
-    ![Informacje o domenie i adresach URL showpad](common/sp-identifier.png)
+    ![Showpad domenę i adresy URL Logowanie jednokrotne](common/sp-identifier.png)
 
     a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<comapany-name>.showpad.biz/login`
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `https://<company-name>.showpad.biz`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta Showpad,](https://help.showpad.com/) aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta Showpad](https://help.showpad.com/) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/metadataxml.png)
 
-6. W sekcji **Konfigurowanie showpada** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
+6. W sekcji **Konfigurowanie Showpad** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
@@ -125,33 +125,33 @@ Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą programu S
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
-### <a name="configure-showpad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego showpada
+### <a name="configure-showpad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego Showpad
 
-1. Zaloguj się do dzierżawy Showpad jako administrator.
+1. Zaloguj się do swojej dzierżawy Showpad jako administrator.
 
 1. W menu u góry kliknij pozycję **Settings** (Ustawienia).
 
     ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/showpad-tutorial/tutorial_showpad_001.png)
 
-1. Przejdź do **logowania jednokrotnego** i kliknij przycisk **Włącz**.
+1. Przejdź do **logowania jednokrotnego** , a następnie kliknij pozycję **Włącz**.
 
     ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/showpad-tutorial/tutorial_showpad_002.png)
 
-1. W oknie **dialogowym Dodawanie usługi SAML 2.0** wykonaj następujące czynności:
+1. W oknie dialogowym **Dodawanie usługi SAML 2,0** wykonaj następujące czynności:
 
     ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/showpad-tutorial/tutorial_showpad_003.png) 
 
-    a. W polach **tekstowych Nazwa** wpisz nazwę dostawcy identyfikatora (na przykład: nazwę firmy).
+    a. W polu tekstowym **Nazwa** wpisz nazwę dostawcy identyfikatora (na przykład: Nazwa firmy).
 
-    b. Jako **źródło metadanych**wybierz **XML**.
+    b. Jako **Źródło metadanych**wybierz pozycję **XML**.
 
-    d. Skopiuj zawartość pliku XML metadanych, który został pobrany z witryny Azure Portal, a następnie wklej go do pola tekstowego **Metadane XML.**
+    c. Skopiuj zawartość pliku XML metadanych pobranego z Azure Portal, a następnie wklej ją do pola tekstowego **XML metadanych** .
 
-    d. Po **zalogowaniu**się wybierz pozycję Automatyczne udostępnianie kont dla nowych użytkowników .
+    d. Wybierz opcję konta autoaprowizacji **dla nowych użytkowników podczas logowania**.
 
-    e. Kliknij **przycisk Prześlij**.
+    e. Kliknij przycisk **Prześlij**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -161,7 +161,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -174,21 +174,21 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`  
     Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jednokrotnego, przyznając dostęp do Showpad.
+W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi Showpad.
 
-1. W portalu Azure wybierz pozycję **Aplikacje przedsiębiorstwa**, wybierz **pozycję Wszystkie aplikacje**, a następnie wybierz pozycję **Showpad**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **Showpad**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz pozycję **Showpad**.
+2. Na liście Aplikacje wybierz pozycję **Showpad**.
 
-    ![Łącze Showpad na liście Aplikacje](common/all-applications.png)
+    ![Link Showpad na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -200,25 +200,25 @@ W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jed
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
 ### <a name="create-showpad-test-user"></a>Utwórz użytkownika testowego Showpad
 
-W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w Showpad. Showpad obsługuje just-in-time inicjowania obsługi administracyjnej użytkowników, który jest domyślnie włączony. W tej sekcji nie musisz niczego robić. Jeśli użytkownik jeszcze nie istnieje w Showpad, nowy jest tworzony po uwierzytelnieniu.
+W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w Showpad. Showpad obsługuje Inicjowanie obsługi użytkowników just in Time, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik nie istnieje jeszcze w usłudze Showpad, zostanie utworzony nowy po uwierzytelnieniu.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Showpad w Panelu dostępu należy automatycznie zalogować się do showpada, dla którego skonfigurowano logującą się logującą logującą. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Showpad w panelu dostępu należy automatycznie zalogować się do Showpad, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

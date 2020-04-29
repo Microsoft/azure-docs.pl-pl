@@ -1,7 +1,7 @@
 ---
-title: Domyślny tag statystyk — wyszukiwanie wizualne Bing
+title: Tag default Insights — wyszukiwanie wizualne Bing
 titleSuffix: Azure Cognitive Services
-description: Zawiera szczegółowe informacje o domyślnych szczegółowych informacji, które wyszukiwanie wizualne Bing zwraca o obrazie.
+description: Zawiera szczegółowe informacje dotyczące domyślnego wglądu, który wyszukiwanie wizualne Bing zwraca informacje o obrazie.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: scottwhi
 ms.openlocfilehash: b6bc323f4e8deaf975c292f92d862b1fbe0e2714
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60510126"
 ---
-# <a name="default-insights-tag"></a>Domyślny tag statystyk
+# <a name="default-insights-tag"></a>Tag default Insights
 
-Domyślny znacznik szczegółowych informacji `displayName` to znacznik z polem ustawionym na pusty ciąg. W poniższym przykładzie przedstawiono możliwą listę domyślnych szczegółowych informacji (akcji). Lista akcji, które zawiera odpowiedź, zależy od obrazu. I dla każdej akcji, lista właściwości może się różnić w zależności od obrazu, więc sprawdź, czy właściwość istnieje przed próbą użycia go.
+Domyślny tag Insights to ten, z którym `displayName` pole jest ustawione na pusty ciąg. W poniższym przykładzie przedstawiono listę domyślnych szczegółowych informacji (akcji). Lista akcji, których dotyczy odpowiedź, zależy od obrazu. I dla każdej akcji Lista właściwości może się różnić w zależności od obrazu, dlatego sprawdź, czy właściwość istnieje przed próbą jej użycia.
 
 ```json
 {
@@ -98,9 +98,9 @@ Domyślny znacznik szczegółowych informacji `displayName` to znacznik z polem 
 }
 ```
 
-## <a name="pagesincluding-insight"></a>PagesIncluding insight
+## <a name="pagesincluding-insight"></a>PagesIncluding wgląd w szczegółowe dane
 
-Informacje zawieranie stron zawiera listę stron sieci Web, które zawierają ten obraz. W rzeczywistości jest to `Image` lista obiektów, a `hostPageUrl` pole zawiera adres URL strony sieci Web zawierającej obraz. Na przykład użycie, zobacz [PagesIncluding przykład wglądu](./bing-insights-usage.md#pagesincluding-insight-example).
+PagesIncluding Insights zawiera listę stron sieci Web, które zawierają ten obraz. Jest to w rzeczywistości lista `Image` obiektów, a `hostPageUrl` pole zawiera adres URL strony sieci Web zawierającej obraz. Przykład użycia można znaleźć w temacie [PagesIncluding Insight](./bing-insights-usage.md#pagesincluding-insight-example).
 
 ```json
       {
@@ -137,9 +137,9 @@ Informacje zawieranie stron zawiera listę stron sieci Web, które zawierają te
       }
 ```
 
-## <a name="shoppingsources-insight"></a>ShoppingSources wgląd
+## <a name="shoppingsources-insight"></a>ShoppingSources wgląd w szczegółowe dane
 
-ShoppingSources wgląd zawiera listę witryn sieci Web, gdzie użytkownik może kupić element pokazany na obrazie. Lista ofert zawiera adres URL strony sieci Web, na którym użytkownik może kupić przedmiot, cenę przedmiotu oraz ocenę lub szczegóły przeglądu. Na przykład użycie można znaleźć w [przykładzie ShoppingSources](./bing-insights-usage.md#shoppingsources-insight-example).
+ShoppingSources Insights zawiera listę witryn sieci Web, w których użytkownik może kupić element pokazywany na obrazie. Lista ofert zawiera adres URL strony sieci Web, w której użytkownik może kupić element, cenę elementu oraz ocenę lub szczegóły przeglądu. Na przykład użycie, zobacz [przykład ShoppingSources](./bing-insights-usage.md#shoppingsources-insight-example).
 
 ```json
       {
@@ -166,9 +166,9 @@ ShoppingSources wgląd zawiera listę witryn sieci Web, gdzie użytkownik może 
       }
 ```
 
-## <a name="moresizes-insight"></a>MoreSizes wgląd
+## <a name="moresizes-insight"></a>MoreSizes wgląd w szczegółowe dane
 
-Wgląd MoreSizes identyfikuje liczbę rozmiarów (większych lub mniejszych) obrazu znalezionego w `availableSizesCount` Internecie (zobacz pole):
+MoreSizes Insights identyfikuje liczbę (większą lub mniejszą) obrazu, który znajduje się w Internecie (patrz `availableSizesCount` pole):
 
 ```json
       {
@@ -201,9 +201,9 @@ Wgląd MoreSizes identyfikuje liczbę rozmiarów (większych lub mniejszych) obr
       },
 ```
 
-## <a name="visualsearch-insight"></a>Wgląd w wygląd programu VisualSearch
+## <a name="visualsearch-insight"></a>VisualSearch wgląd w szczegółowe dane
 
-Wgląd VisualSearch zawiera listę obrazów, które są wizualnie podobne do oryginalnego obrazu (zawiera zawartość podobną do zawartości wyświetlanej w oryginalnym obrazie). Na przykład użycie można znaleźć w [przykładzie wglądu w wizualizacje](./bing-insights-usage.md#visualsearch-insight-example).
+VisualSearch Insights udostępnia listę obrazów, które są wizualnie podobne do oryginalnego obrazu (zawiera zawartość podobną do zawartości pokazanej w oryginalnym obrazie). Przykład użycia można znaleźć w temacie [VisualSearch Insight](./bing-insights-usage.md#visualsearch-insight-example).
 
 ```json
       {
@@ -241,9 +241,9 @@ Wgląd VisualSearch zawiera listę obrazów, które są wizualnie podobne do ory
       }
 ```
 
-## <a name="recipes-insight"></a>Wgląd w przepisy
+## <a name="recipes-insight"></a>Przepisy szczegółowe
 
-Wgląd w przepisy zawiera listę stron internetowych, które zawierają przepis na jedzenie pokazane na obrazie. Na przykład użycie można znaleźć w [przykładzie wglądu w przepisy](./bing-insights-usage.md#recipes-insight-example).
+Przepis Insights zawiera listę stron sieci Web, które zawierają przepisy dotyczące tworzenia żywności widocznej na obrazie. Przykład użycia można znaleźć w temacie [przepisy przykładowego wglądu w szczegółowe](./bing-insights-usage.md#recipes-insight-example)dane.
 
 ```json
       {
@@ -276,9 +276,9 @@ Wgląd w przepisy zawiera listę stron internetowych, które zawierają przepis 
 ```
 
 
-## <a name="imagebyid-insight"></a>Wgląd w obraz iid
+## <a name="imagebyid-insight"></a>ImageById wgląd w szczegółowe dane
 
-Wgląd ImageById udostępnia `Image` obiekt obrazu, do którego żądano szczegółowe informacje:
+ImageById Insights udostępnia `Image` obiekt obrazu, dla którego zażądano szczegółowych informacji:
 
 ```json
       {
@@ -311,9 +311,9 @@ Wgląd ImageById udostępnia `Image` obiekt obrazu, do którego żądano szczeg�
       },
 ```
 
-## <a name="productvisualsearch-insight"></a>Wgląd w produktyWyszukiwanie informacji
+## <a name="productvisualsearch-insight"></a>ProductVisualSearch wgląd w szczegółowe dane
 
-ProductVisualSearch wgląd zawiera listę obrazów produktów, które są wizualnie podobne do produktów wyświetlanych na oryginalnym obrazie. Pole `insightsMetadata` może zawierać informacje o ofertach, w których można kupić produkt, oraz o cenie produktu.
+ProductVisualSearch Insights zawiera listę obrazów produktów, które są wizualnie podobne do produktów przedstawionych w oryginalnym obrazie. `insightsMetadata` Pole może zawierać informacje o ofertach, w których można kupić produkt i cenę produktu.
 
 ```json
       {
@@ -375,9 +375,9 @@ ProductVisualSearch wgląd zawiera listę obrazów produktów, które są wizual
       }
 ```
 
-## <a name="relatedsearches-insight"></a>Informacje o powiązanych poszukiwaniach
+## <a name="relatedsearches-insight"></a>RelatedSearches wgląd w szczegółowe dane
 
-Informacje RelatedSearches zawierają listę powiązanych wyszukiwań dokonywanych przez inne osoby (na podstawie wyszukiwanych haseł innych użytkowników). Na przykład użycie, zobacz [RelatedSearches przykład wglądu](./bing-insights-usage.md#relatedsearches-insight-example).
+RelatedSearches Insights zawiera listę powiązanych wyszukiwań wykonywanych przez innych użytkowników (w oparciu o terminy wyszukiwania inne osoby). Przykład użycia można znaleźć w temacie [RelatedSearches Insight](./bing-insights-usage.md#relatedsearches-insight-example).
 
 ```json
       {
@@ -398,9 +398,9 @@ Informacje RelatedSearches zawierają listę powiązanych wyszukiwań dokonywany
       }
 ```
 
-## <a name="documentlevelsuggestions-insight"></a>DocumentLevelSuggestions wgląd
+## <a name="documentlevelsuggestions-insight"></a>DocumentLevelSuggestions wgląd w szczegółowe dane
 
-DocumentLevelSuggestions insight zawiera listę sugerowanych wyszukiwanych terminów na podstawie zawartości obrazu:
+DocumentLevelSuggestions Insights zawiera listę sugerowanych terminów wyszukiwania na podstawie zawartości obrazu:
 
 ```json
       {
@@ -423,6 +423,6 @@ DocumentLevelSuggestions insight zawiera listę sugerowanych wyszukiwanych termi
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się [z przykładami użycia analizy Bing,](bing-insights-usage.md) aby zobaczyć, jak bing może wyświetlać szczegółowe informacje wizualne.
+Zapoznaj się [z przykładami użycia usługi Bing Insights](bing-insights-usage.md) , aby dowiedzieć się, jak Bing może wyświetlać wizualizacje wizualne.
 
-Aby szybko rozpocząć pracę z pierwszym żądaniem, zobacz szybki start: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
+Aby szybko zacząć korzystać z pierwszego żądania, zobacz Przewodnik Szybki Start: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node. js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).

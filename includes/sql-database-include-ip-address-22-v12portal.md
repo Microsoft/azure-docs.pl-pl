@@ -1,7 +1,7 @@
 ---
 title: Reguły zapory na poziomie serwera
 description: Reguły zapory na poziomie serwera
-keywords: połączenie sql,parametry połączenia
+keywords: połączenie SQL, parametry połączenia
 services: sql-database
 author: dalechen
 manager: craigg
@@ -11,35 +11,35 @@ ms.topic: include
 ms.date: 07/13/2018
 ms.author: ninarn
 ms.openlocfilehash: 8d0f9899dbb7599340b8d15ca010a0157011fb9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67183310"
 ---
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-2. Na liście po lewej stronie wybierz pozycję **Wszystkie usługi**.
+2. Na liście po lewej stronie wybierz pozycję **wszystkie usługi**.
 
-3. Przewiń i wybierz **serwery SQL**.
+3. Przewiń i wybierz pozycję **serwery SQL**.
 
-    ![Znajdowanie serwera bazy danych SQL platformy Azure w portalu][b21-FindServerInPortal]
-5. W polu tekstowym filtru zacznij wpisywać nazwę serwera. Zostanie wyświetlony wiersz.
+    ![Znajdowanie serwera Azure SQL Database w portalu][b21-FindServerInPortal]
+5. W polu tekstowym filtr Zacznij wpisywać nazwę serwera. Zostanie wyświetlony wiersz.
 
 6. Wybierz wiersz dla serwera. Zostanie wyświetlony blok dla serwera.
 
-7. W bloku serwera wybierz pozycję **Ustawienia**.
+7. W bloku serwer wybierz pozycję **Ustawienia**.
 
-8. Wybierz **Zapora .**
+8. Wybierz opcję **Zapora**.
 
-    ![Wybieranie ustawień > Zapory][b31-SettingsFirewallNavig]
-9. Wybierz **pozycję Dodaj adres IP klienta**. Wpisz nazwę nowej reguły w pierwszym polu tekstowym.
+    ![Wybierz pozycję Ustawienia > Zapora][b31-SettingsFirewallNavig]
+9. Wybierz pozycję **Dodaj adres IP klienta**. Wpisz nazwę nowej reguły w pierwszym polu tekstowym.
 
-10. Wpisz niskie i wysokie wartości adresów IP dla zakresu, który chcesz włączyć.
+10. Wpisz wartości w polu niskie i wysokie adresy IP dla zakresu, który ma zostać włączony.
 
-    * Może być przydatny, aby mieć niski koniec wartości z **.0** i koniec wysokiej wartości z **.255**.
+    * Może być użyteczna, aby zakończyć niską wartość z **0** i wysoką wartość na **. 255**.
 
-11. Wybierz **pozycję Zapisz**.
+11. Wybierz pozycję **Zapisz**.
 
 <!-- Image references. -->
 

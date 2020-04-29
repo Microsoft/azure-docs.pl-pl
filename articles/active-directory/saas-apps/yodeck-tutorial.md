@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z usługą Yodeck | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a usługą Yodeck.
+title: 'Samouczek: integracja Azure Active Directory z usługą Yodeck | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Yodeck.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,40 +16,40 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: af0748f36e8d2299921f987c517f7a4923bd0d55
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67086472"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>Samouczek: Integracja usługi Azure Active Directory z usługą Yodeck
+# <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>Samouczek: integracja Azure Active Directory z usługą Yodeck
 
-W tym samouczku dowiesz się, jak zintegrować yodeck z usługą Azure Active Directory (Azure AD).
-Integracja usługi Yodeck z usługą Azure AD zapewnia następujące korzyści:
+W tym samouczku dowiesz się, jak zintegrować usługę Yodeck z usługą Azure Active Directory (Azure AD).
+Integracja Yodeck z usługą Azure AD zapewnia następujące korzyści:
 
-* Można kontrolować w usłudze Azure AD, który ma dostęp do Yodeck.
-* Można włączyć użytkowników, aby automatycznie zalogować się do Yodeck (Logowanie jednokrotne) z ich kont usługi Azure AD.
+* Możesz kontrolować usługę Azure AD, która ma dostęp do usługi Yodeck.
+* Możesz pozwolić użytkownikom na automatyczne logowanie do Yodeck (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby skonfigurować integrację usługi Azure AD z usługą Yodeck, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
-* Subskrypcja z obsługą logowania jednokrotnego yodeck
+* Subskrypcja z włączonym logowaniem jednokrotnym w Yodeck
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Yodeck obsługuje **sp** i **IDP** zainicjowane SSO
+* Yodeck obsługuje usługę **SP** i **dostawcy tożsamości** zainicjowano Logowanie jednokrotne
 
 ## <a name="adding-yodeck-from-the-gallery"></a>Dodawanie Yodeck z galerii
 
-Aby skonfigurować integrację firmy Yodeck z usługą Azure AD, należy dodać yodeck z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację programu Yodeck z usługą Azure AD, musisz dodać Yodeck z galerii do listy zarządzanych aplikacji SaaS.
 
 **Aby dodać Yodeck z galerii, wykonaj następujące czynności:**
 
@@ -65,31 +65,31 @@ Aby skonfigurować integrację firmy Yodeck z usługą Azure AD, należy dodać 
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Yodeck**, wybierz **Yodeck** z panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wpisz **Yodeck**, wybierz pozycję **Yodeck** from panel wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
      ![Yodeck na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji można skonfigurować i przetestować azure ad logowania jednokrotnego z Yodeck na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w usłudze Yodeck.
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą Yodeck na podstawie użytkownika testowego o nazwie **Britta Simon**.
+Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Yodeck.
 
-Aby skonfigurować i przetestować usługę Azure AD jednokrotnego logowania z Yodeck, należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Yodeck, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie jednokrotne yodeck](#configure-yodeck-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+2. **[Skonfiguruj logowanie](#configure-yodeck-single-sign-on)** jednokrotne w usłudze Yodeck, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego Yodeck](#create-yodeck-test-user)** — aby mieć odpowiednik Britta Simon w Yodeck, który jest połączony z reprezentacją użytkownika usługi Azure AD.
+5. **[Utwórz użytkownika testowego Yodeck](#create-yodeck-test-user)** , aby uzyskać odpowiednik Britta Simon w Yodeck, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą usługi Yodeck, wykonaj następujące kroki:
+Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Yodeck, wykonaj następujące czynności:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **Yodeck** wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Yodeck** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -101,39 +101,39 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą usługi Yod
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-4. W sekcji **Podstawowa konfiguracja SAML,** jeśli chcesz skonfigurować aplikację w trybie inicjowanym **przez IDP,** wykonaj następujący krok:
+4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Informacje o logach do domeny i adresów URL](common/idp-identifier.png)
+    ![Yodeck domenę i adresy URL Logowanie jednokrotne](common/idp-identifier.png)
 
     W polu tekstowym **Identyfikator** wpisz adres URL: `https://app.yodeck.com/api/v1/account/metadata/`
 
-5. Kliknij **pozycję Ustaw dodatkowe adresy URL** i wykonaj następujący krok, jeśli chcesz skonfigurować aplikację w trybie inicjowanym w sp: **SP**
+5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
     ![image](common/both-preintegrated-signon.png)
 
-    W polu **tekstowym "Podpisywanie adresu URL"** wpisz adres URL:`https://app.yodeck.com/login`
+    W polu tekstowym **adres URL logowania** wpisz adres URL:`https://app.yodeck.com/login`
 
 6. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij przycisk kopiowania, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
 
-### <a name="configure-yodeck-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w uprawij
+### <a name="configure-yodeck-single-sign-on"></a>Konfigurowanie logowania jednokrotnego Yodeck
 
-1. W innym oknie przeglądarki internetowej zaloguj się do witryny firmy Yodeck jako administrator.
+1. W innym oknie przeglądarki sieci Web Zaloguj się do firmowej witryny Yodeck jako administrator.
 
-2. Kliknij opcję **Ustawienia użytkownika** w prawym górnym rogu strony i wybierz pozycję **Ustawienia konta**.
+2. Kliknij opcję **Ustawienia użytkownika** formularz w prawym górnym rogu strony i wybierz pozycję **Ustawienia konta**.
 
     ![Konfiguracja Yodeck](./media/yodeck-tutorial/configure1.png)
 
-3. Wybierz **SAML** i wykonaj następujące czynności:
+3. Wybierz pozycję **SAML** i wykonaj następujące czynności:
 
     ![Konfiguracja Yodeck](./media/yodeck-tutorial/configure2.png)
 
-    a. Wybierz **pozycję Importuj z adresu URL**.
+    a. Wybierz pozycję **Importuj z adresu URL**.
 
-    b. W polu tekstowym **adresu URL** wklej wartość adresu **URL metadanych federacji aplikacji,** która została skopiowana z portalu Azure, a następnie kliknij przycisk **Importuj**.
+    b. W polu tekstowym **adres URL** wklej wartość **adresu URL metadanych federacji aplikacji** , która została skopiowana z Azure Portal i kliknij przycisk **Importuj**.
     
-    d. Po zaimportowaniu **adresu URL metadanych federacji aplikacji**pozostałe pola wypełniają się automatycznie.
+    c. Po zaimportowaniu **adresu URL metadanych federacji aplikacji**pozostałe pola są wypełniane automatycznie.
 
     d. Kliknij przycisk **Zapisz**.
 
@@ -145,7 +145,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -155,23 +155,23 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa** brittasimon@yourcompanydomain.extensionużytkownika wpisz . Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension. Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jednokrotnego, udzielając dostępu do Yodeck.
+W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi Yodeck.
 
-1. W portalu Azure wybierz pozycję **Aplikacje dla przedsiębiorstw**, wybierz **pozycję Wszystkie aplikacje,** a następnie wybierz pozycję **Yodeck**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **Yodeck**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz pozycję **Yodeck**.
+2. Na liście Aplikacje wybierz pozycję **Yodeck**.
 
-    ![Łącze Yodeck na liście Aplikacje](common/all-applications.png)
+    ![Link Yodeck na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -183,23 +183,23 @@ W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jed
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-yodeck-test-user"></a>Tworzenie użytkownika testowego Yodeck
+### <a name="create-yodeck-test-user"></a>Utwórz użytkownika testowego Yodeck
 
-Aby umożliwić użytkownikom usługi Azure AD zalogować się do usługi Yodeck, muszą one być aprowizować w Yodeck. W przypadku Yodeck inicjowania obsługi administracyjnej jest zadanie ręczne.
+Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Yodeck, muszą one być obsługiwane w usłudze Yodeck. W przypadku Yodeck, Inicjowanie obsługi administracyjnej jest zadaniem ręcznym.
 
 **Aby aprowizować konto użytkownika, wykonaj następujące czynności:**
 
-1. Zaloguj się do witryny firmy Yodeck jako administrator.
+1. Zaloguj się do firmowej witryny Yodeck jako administrator.
 
-2. Kliknij opcję **Ustawienia użytkownika** w prawym górnym rogu strony i wybierz **pozycję Użytkownicy**.
+2. Kliknij opcję **Ustawienia użytkownika** formularz w prawym górnym rogu strony i wybierz pozycję **Użytkownicy**.
 
     ![Dodawanie pracownika](./media/yodeck-tutorial/user1.png)
 
-3. Kliknij **+Użytkownik,** aby otworzyć kartę **Szczegóły użytkownika.**
+3. Kliknij pozycję **+ użytkownik** , aby otworzyć kartę **szczegóły użytkownika** .
 
     ![Dodawanie pracownika](./media/yodeck-tutorial/user2.png)
 
@@ -207,13 +207,13 @@ Aby umożliwić użytkownikom usługi Azure AD zalogować się do usługi Yodeck
 
     ![Dodawanie pracownika](./media/yodeck-tutorial/user3.png)
 
-    a. W polu tekstowym **Imię** wpisz imię użytkownika, takiego jak **Britta**.
+    a. W polu tekstowym **imię i nazwisko** wpisz imię użytkownika, np. **Britta**.
 
     b. W polu tekstowym **Last Name** (Nazwisko) wpisz nazwisko użytkownika, takie jak **Simon**.
 
-    d. W polu tekstowym **Email** (Adres e-mail) wpisz adres e-mail użytkownika, np. brittasimon@contoso.com.
+    c. W polu tekstowym **Email** (Adres e-mail) wpisz adres e-mail użytkownika, np. brittasimon@contoso.com.
 
-    d. Wybierz odpowiednią opcję **Uprawnienia konta** zgodnie z wymaganiami organizacyjnymi.
+    d. Wybierz opcję odpowiednie **uprawnienia konta** zgodnie z wymaganiami organizacji.
     
     e. Kliknij przycisk **Zapisz**.
 
@@ -221,13 +221,13 @@ Aby umożliwić użytkownikom usługi Azure AD zalogować się do usługi Yodeck
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Yodeck w Panelu dostępu należy automatycznie zalogować się do yodeck, dla którego skonfigurowano logującą się logującą logującą. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Yodeck w panelu dostępu należy automatycznie zalogować się do Yodeck, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

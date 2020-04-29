@@ -9,10 +9,10 @@ ms.date: 08/02/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9c18a2c74d03a636a0865f3008eb421ab8d7412d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68781477"
 ---
 1. W portalu kliknij pozycję **+Utwórz zasób**.
@@ -30,4 +30,4 @@ ms.locfileid: "68781477"
    - **Grupa zasobów** wybierz grupę zasobów, która ma być używana. Możesz utworzyć nową grupę zasobów lub wybrać już utworzoną.
    - **Lokalizacja:** wybierz lokalizację, w której ten obiekt zostanie utworzony. Można wybrać tę samą lokalizację, w której znajduje się sieć wirtualna, ale nie jest to konieczne.
 
-4. Po zakończeniu określania wartości kliknij przycisk **Utwórz,** aby utworzyć bramę.
+4. Po zakończeniu określania wartości kliknij przycisk **Utwórz** , aby utworzyć bramę.

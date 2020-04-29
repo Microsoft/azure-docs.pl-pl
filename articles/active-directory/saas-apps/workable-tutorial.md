@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z możliwością pracy | Dokumenty firmy Microsoft'
+title: 'Samouczek: integracja z usługą Azure Active Directory Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Workable.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5fc1f6434bea8f75c7bcc7859c6f90d7abdd031b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71091035"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workable"></a>Samouczek: Integracja usługi Azure Active Directory z możliwością pracy
+# <a name="tutorial-azure-active-directory-integration-with-workable"></a>Samouczek: integracja z usługą Azure Active Directory
 
 Z tego samouczka dowiesz się, jak zintegrować aplikację Workable z usługą Azure Active Directory (Azure AD).
 Integracja aplikacji Workable z usługą Azure AD zapewnia następujące korzyści:
@@ -33,7 +33,7 @@ Integracja aplikacji Workable z usługą Azure AD zapewnia następujące korzyś
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -103,17 +103,17 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Workable, 
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-4. W sekcji **Podstawowa konfiguracja SAML,** Jeśli chcesz skonfigurować aplikację w trybie inicjowanym **przez IDP,** wykonaj następujące czynności:
+4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
     ![Informacje o logowaniu jednokrotnym — domena i adresy URL aplikacji Workable](common/both-replyurl.png)
 
-    W polu tekstowym **Odpowiedz na adres URL** wpisz adres URL, używając następującego wzorca:`https://www.workable.com/auth/saml/<SUBDOMAIN>/callback`
+    W polu tekstowym **adres URL odpowiedzi** wpisz adres URL, używając następującego wzorca:`https://www.workable.com/auth/saml/<SUBDOMAIN>/callback`
 
-5. Kliknij **ustaw dodatkowe adresy URL** i wykonaj następujący krok, jeśli chcesz skonfigurować aplikację w trybie inicjowanym w sp: **SP**
+5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
     ![Informacje o logowaniu jednokrotnym — domena i adresy URL aplikacji Workable](common/both-signonurl.png)
 
-    W polu **tekstowym "Podpisywanie adresu URL"** wpisz adres URL:`https://www.workable.com/sso/signin`
+    W polu tekstowym **adres URL logowania** wpisz adres URL:`https://www.workable.com/sso/signin`
 
     > [!NOTE]
     > Wartość adresu URL odpowiedzi nie jest prawdziwa. Zaktualizuj wartość adresu URL odpowiedzi przy użyciu rzeczywistego adresu URL odpowiedzi. Skontaktuj się z [zespołem pomocy technicznej klienta aplikacji Workable](mailto:support@workable.com), aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -130,7 +130,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Workable, 
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
 ### <a name="configure-workable-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w aplikacji Workable
 
@@ -142,7 +142,7 @@ Aby włączyć logowanie jednokrotne w aplikacji Workable, skontaktuj się z ded
 
 3. Adres URL wylogowywania
 
-Po włączeniu logowania jednokrotnego menedżer konta workable poinformuje Cię o tym i możesz użyć [strony logowania jednokrotnego workowa,](https://help.workable.com/hc/en-us/articles/360000067753-Single-Sign-on-SSO-Overview-Pro) aby zalogować się przy użyciu poddomeny konta workowego.
+Gdy Logowanie jednokrotne zostało włączone, Menedżer kont, który będzie się z nim informować, i można użyć w ten sposób do logowania się z użyciem domeny [logowania jednokrotnego](https://help.workable.com/hc/en-us/articles/360000067753-Single-Sign-on-SSO-Overview-Pro) , aby zalogować się za pomocą poddomeny konta usługi
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -152,7 +152,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -162,9 +162,9 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa** `brittasimon\@yourcompanydomain.extension`użytkownika wpisz . Na przykład BrittaSimon@contoso.com.
+    b. W polu **Nazwa użytkownika** wpisz `brittasimon\@yourcompanydomain.extension`. Na przykład BrittaSimon@contoso.com.
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
@@ -190,7 +190,7 @@ W tej sekcji włączysz użytkownikowi Britta Simon możliwość korzystania z l
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
@@ -202,12 +202,12 @@ W tej sekcji w aplikacji Workable jest tworzony użytkownik o nazwie Britta Simo
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Workable w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Workable, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Workable w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Workable, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
