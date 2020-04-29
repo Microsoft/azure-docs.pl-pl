@@ -5,41 +5,41 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 19d2dedc2ccf7015696504a94f5ef7c43a90d3be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67183428"
 ---
 #### <a name="to-download-hotfixes"></a>Aby pobrać poprawki
 
 Wykonaj następujące kroki, aby pobrać aktualizację oprogramowania z Wykazu usługi Microsoft Update.
 
-1. Uruchom program Internet [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)Explorer i przejdź do pliku .
+1. Uruchom program Internet Explorer i przejdź [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)do.
 2. Jeśli po raz pierwszy używasz Wykazu usługi Microsoft Update na danym komputerze, po wyświetleniu monitu o zainstalowanie dodatku Wykazu usługi Microsoft Update kliknij pozycję **Zainstaluj**.
 
     ![Instalowanie wykazu](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-3. W polu wyszukiwania wykazu Microsoft Update wprowadź numer bazy wiedzy (KB) poprawki, którą chcesz pobrać, na przykład **4037264**, a następnie kliknij przycisk **Wyszukaj**.
+3. W polu wyszukiwania w wykazie Microsoft Update wprowadź numer bazy wiedzy (KB) poprawki, którą chcesz pobrać, na przykład **4037264**, a następnie kliknij przycisk **Wyszukaj**.
    
-    Zostanie wyświetlona lista poprawek, na przykład **zbiorcza aktualizacja pakietu oprogramowania 5.0 dla storsimple serii 8000**.
+    Zostanie wyświetlona lista poprawek, na przykład **Zbiorcza pakiet zbiorczy aktualizacji 5,0 dla serii StorSimple 8000**.
    
     ![Przeszukiwanie wykazu](./media/storsimple-install-update5-hotfix/update-catalog-search.png)
 
-4. Kliknij **pozycję Pobierz**. Określ lokalizację lokalną, do której mają trafiać pobrane pliki, albo **przejdź** do takiej lokalizacji. Kliknij pliki, aby pobrać do określonej lokalizacji i folderu. Folder można też skopiować do udziału sieciowego osiągalnego z urządzenia.
-5. Wyszukaj dodatkowe poprawki wymienione w powyższej tabeli (**4037266**) i pobierz odpowiednie pliki do określonych folderów wymienionych w powyższej tabeli.
+4. Kliknij pozycję **Pobierz**. Określ lokalizację lokalną, do której mają trafiać pobrane pliki, albo **przejdź** do takiej lokalizacji. Kliknij pliki do pobrania do określonej lokalizacji i folderu. Folder można też skopiować do udziału sieciowego osiągalnego z urządzenia.
+5. Wyszukaj wszelkie dodatkowe poprawki wymienione w powyższej tabeli (**4037266**) i Pobierz odpowiednie pliki do określonych folderów, jak wymieniono w powyższej tabeli.
 
 > [!NOTE]
-> Poprawki muszą być dostępne z obu kontrolerów, aby wykryć wszelkie potencjalne komunikaty o błędach z kontrolera równorzędnego.
+> Poprawki muszą być dostępne z obu kontrolerów, aby wykrywać potencjalne komunikaty o błędach z kontrolera równorzędnego.
 >
-> Poprawki muszą zostać skopiowane do 3 oddzielnych folderów. Na przykład aktualizacja agenta urządzenia/Cis/MDS może być kopiowana w folderze _FirstOrderUpdate,_ wszystkie inne aktualizacje nieulegające zakłóceniom mogą być kopiowane w folderze _SecondOrderUpdate,_ a aktualizacje trybu konserwacji skopiowane w _folderze ThirdOrderUpdate._
+> Poprawki muszą zostać skopiowane do 3 oddzielnych folderów. Na przykład aktualizacja agenta oprogramowania/WNP/MDS może zostać skopiowana w folderze _FirstOrderUpdate_ , a wszystkie pozostałe aktualizacje, które nie są zakłócane, można skopiować w folderze _SecondOrderUpdate_ , a aktualizacje trybu konserwacji skopiowane w folderze _ThirdOrderUpdate_ .
 
 #### <a name="to-install-and-verify-regular-mode-hotfixes"></a>Aby zainstalować i zweryfikować poprawki przeznaczone do trybu normalnego
 
-Wykonaj następujące kroki, aby zainstalować i zweryfikować poprawki przeznaczone do trybu normalnego. Jeśli zostały już zainstalowane przy użyciu witryny Azure Portal, przejdź do przodu, aby [zainstalować i zweryfikować poprawki trybu konserwacji](#to-install-and-verify-maintenance-mode-hotfixes).
+Wykonaj następujące kroki, aby zainstalować i zweryfikować poprawki przeznaczone do trybu normalnego. Jeśli zostały już zainstalowane przy użyciu Azure Portal, przejdź z wyprzedzeniem, aby [zainstalować i zweryfikować poprawki trybu konserwacji](#to-install-and-verify-maintenance-mode-hotfixes).
 
 1. Aby zainstalować poprawki, przejdź do interfejsu programu Windows PowerShell na konsoli szeregowej Twojego urządzenia StorSimple. Postępuj zgodnie ze szczegółowymi instrukcjami w części [Nawiązywanie połączenia z konsolą szeregową urządzenia przy użyciu programu PuTTY](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). W wierszy polecenia naciśnij klawisz **Enter**.
-2. Wybierz opcję 1, **Zaloguj się z pełnym dostępem**. Zalecamy, aby najpierw zainstalować poprawkę na kontrolerze pasywnym.
+2. Wybierz opcję 1, **Zaloguj się z pełnymi prawami dostępu**. Zalecamy, aby najpierw zainstalować poprawkę na kontrolerze pasywnym.
 3. Aby zainstalować poprawkę, w wierszu polecenia wpisz:
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
@@ -51,7 +51,7 @@ Wykonaj następujące kroki, aby zainstalować i zweryfikować poprawki przeznac
 4. Po wyświetleniu monitu podaj hasło. Przykładowe dane wyjściowe dotyczące instalacji aktualizacji stosowanych w pierwszej kolejności są pokazane poniżej. W przypadku pierwszej aktualizacji zamówienia należy wskazać określony plik.
 
     >[!NOTE] 
-    > Należy najpierw zainstalować _HcsSoftwareUpdate.exe._ Po zakończeniu tej instalacji zainstaluj _plik CisMdsAgentUpdate.exe_.
+    > Należy najpierw zainstalować _plik HcsSoftwareUpdate. exe_ . Po zakończeniu tej instalacji Zainstaluj program _CisMdsAgentUpdate. exe_.
    
         ```
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
@@ -68,7 +68,7 @@ Wykonaj następujące kroki, aby zainstalować i zweryfikować poprawki przeznac
 5. Wpisz **Y**, gdy zostanie wyświetlony monit o potwierdzenie instalacji poprawki.
 6. Monitoruj aktualizację za pomocą polecenia cmdlet `Get-HcsUpdateStatus`. Aktualizacja zakończy się najpierw na kontrolerze pasywnym. Gdy kontroler pasywny zostanie zaktualizowany, nastąpi przejście do trybu failover i aktualizacja zostanie zastosowana na drugim kontrolerze. Aktualizacja zostanie zakończona po zaktualizowaniu obu kontrolerów.
    
-    Następujące przykładowe dane wyjściowe pokazują aktualizację w toku. `RunInprogress` Jest, `True` gdy aktualizacja jest w toku.
+    Następujące przykładowe dane wyjściowe pokazują aktualizację w toku. Jest `RunInprogress` to `True` , kiedy aktualizacja jest w toku.
 
     ```
     Controller0>Get-HcsUpdateStatus
@@ -79,7 +79,7 @@ Wykonaj następujące kroki, aby zainstalować i zweryfikować poprawki przeznac
     Controller1Events   :
     ```
    
-     Następujące przykładowe dane wyjściowe wskazują, że aktualizacja została zakończona. Jest `RunInProgress` `False` po zakończeniu aktualizacji.
+     Następujące przykładowe dane wyjściowe wskazują, że aktualizacja została zakończona. `RunInProgress` Jest to `False` po zakończeniu aktualizacji.
    
     ```
     Controller0>Get-HcsUpdateStatus
@@ -105,13 +105,13 @@ Wykonaj następujące kroki, aby zainstalować i zweryfikować poprawki przeznac
      Jeśli numer wersji nie zmieni się po zastosowaniu aktualizacji, wskazuje to, że stosowanie poprawki nie powiodło się. Jeśli widzisz coś takiego, skontaktuj się z [pomocą techniczną firmy Microsoft](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) w celu uzyskania dalszej pomocy.
      
      > [!IMPORTANT]
-     > Przed zastosowaniem następnej `Restart-HcsController` aktualizacji należy ponownie uruchomić aktywny kontroler za pośrednictwem polecenia cmdlet.
+     > Przed zastosowaniem następnej aktualizacji należy ponownie uruchomić `Restart-HcsController` kontroler Active przy użyciu polecenia cmdlet.
      
-8. Powtórz kroki 3-6, aby zainstalować _agenta CisMDSAgentupdate.exe pobranego_ do folderu _FirstOrderUpdate._
-8. Powtórz kroki 3-6, aby zainstalować aktualizacje drugiego zamówienia. 
+8. Powtórz kroki 3-6, aby zainstalować agenta _CisMDSAgentupdate. exe_ pobranego do folderu _FirstOrderUpdate_ .
+8. Powtórz kroki 3-6, aby zainstalować aktualizacje drugiej kolejności. 
 
     > [!NOTE] 
-    > W przypadku aktualizacji drugiego zamówienia można zainstalować `Start-HcsHotfix cmdlet` wiele aktualizacji, uruchamiając folder i wskazując folder, w którym znajdują się aktualizacje drugiego zamówienia. Polecenie cmdlet uruchomi wszystkie aktualizacje dostępne w tym folderze. Jeśli aktualizacja jest już zainstalowana, logika aktualizacji wykryje to i nie zastosuje tej aktualizacji.
+    > W przypadku aktualizacji drugiej kolejności można zainstalować wiele aktualizacji, uruchamiając polecenie `Start-HcsHotfix cmdlet` i wskazując folder, w którym znajdują się drugie aktualizacje kolejności. Polecenie cmdlet uruchomi wszystkie aktualizacje dostępne w tym folderze. Jeśli aktualizacja jest już zainstalowana, logika aktualizacji wykryje to i nie zastosuje tej aktualizacji.
 
     Po zainstalowaniu wszystkich poprawek użyj polecenia cmdlet `Get-HcsSystem`. Wersje powinny być następujące:
     
@@ -122,7 +122,7 @@ Wykonaj następujące kroki, aby zainstalować i zweryfikować poprawki przeznac
 
 #### <a name="to-install-and-verify-maintenance-mode-hotfixes"></a>Aby zainstalować i zweryfikować poprawki przeznaczone do trybu konserwacji
 
-Aktualizacja KB4037263 umożliwia instalowanie aktualizacji oprogramowania układowego dysku. Te aktualizacje wymagają zatrzymania pracy i zajmują około 30 minut. Można zdecydować się na zainstalowanie ich w zaplanowanym oknie obsługi, łącząc się z konsolą szeregową urządzenia.
+Aby zainstalować aktualizacje oprogramowania układowego dysku, użyj KB4037263. Te aktualizacje wymagają zatrzymania pracy i zajmują około 30 minut. Można zdecydować się na zainstalowanie ich w zaplanowanym oknie obsługi, łącząc się z konsolą szeregową urządzenia.
 
 > [!NOTE] 
 > Jeśli oprogramowanie układowe dysku jest już aktualne, nie trzeba instalować tych aktualizacji. Uruchom polecenie cmdlet `Get-HcsUpdateAvailability` z konsoli szeregowej urządzenia, aby sprawdzić, czy aktualizacje są dostępne i czy wymagają przerwania pracy (są przeznaczone do trybu konserwacji), czy nie (są przeznaczone do trybu normalnego).
@@ -132,9 +132,9 @@ Aby zainstalować aktualizacje oprogramowania układowego dysku, postępuj zgodn
 1. Przełącz urządzenie do trybu konserwacji. 
 
     > [!NOTE] 
-    > Podczas łączenia się z urządzeniem w trybie konserwacji nie należy używać komunikacji zdalnej programu Windows PowerShell. Zamiast tego należy uruchomić to polecenie cmdlet na kontrolerze urządzenia podczas połączenia za pośrednictwem konsoli szeregowej urządzenia.
+    > Nie używaj komunikacji zdalnej programu Windows PowerShell podczas nawiązywania połączenia z urządzeniem w trybie konserwacji. Zamiast tego należy uruchomić to polecenie cmdlet na kontrolerze urządzenia podczas połączenia za pośrednictwem konsoli szeregowej urządzenia.
 
-    Aby umieścić sterownik w trybie konserwacji, wpisz:
+    Aby umieścić kontroler w trybie konserwacji, wpisz:
    
     `Enter-HcsMaintenanceMode`
    
@@ -175,7 +175,7 @@ Aby zainstalować aktualizacje oprogramowania układowego dysku, postępuj zgodn
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. Monitoruj postęp instalacji za pomocą polecenia `Get-HcsUpdateStatus`. Aktualizacja będzie zakończona, gdy parametr `RunInProgress` zmieni wartość na `False`.
-4. Po zakończeniu instalacji kontroler, na którym została zainstalowana poprawka przeznaczona do trybu konserwacji, zostanie uruchomiony ponownie. Zaloguj się jako opcja 1, **Zaloguj się z pełnym dostępem**i sprawdź wersję oprogramowania układowego dysku. Wpisz:
+4. Po zakończeniu instalacji kontroler, na którym została zainstalowana poprawka przeznaczona do trybu konserwacji, zostanie uruchomiony ponownie. Zaloguj się jako opcja 1, **Zaloguj się z pełnymi prawami dostępu**i sprawdź wersję oprogramowania układowego dysku. Wpisz:
    
    `Get-HcsFirmwareVersion`
    
@@ -270,5 +270,5 @@ Aby zainstalować aktualizacje oprogramowania układowego dysku, postępuj zgodn
    
    `Exit-HcsMaintenanceMode`
 
-5. Po wyjściu z trybu konserwacji kontrolery zostaną ponownie uruchomione. Po pomyślnym zastosowaniu aktualizacji oprogramowania układowego dysku i zamknięciu trybu konserwacji urządzenia wróć do witryny Azure portal. Pamiętaj, że fakt zainstalowania aktualizacji przeznaczonych do trybu konserwacji może nie być widoczny w portalu nawet przez 24 godziny.
+5. Po wyjściu z trybu konserwacji kontrolery zostaną ponownie uruchomione. Po pomyślnym zastosowaniu aktualizacji oprogramowania układowego dysku i przejściu urządzenia w tryb konserwacji Wróć do Azure Portal. Pamiętaj, że fakt zainstalowania aktualizacji przeznaczonych do trybu konserwacji może nie być widoczny w portalu nawet przez 24 godziny.
 

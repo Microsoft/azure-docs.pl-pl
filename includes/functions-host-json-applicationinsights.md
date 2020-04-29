@@ -8,13 +8,13 @@ ms.date: 10/19/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: a925076dfccd30c73febb2aadc8692667ea01525
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76279357"
 ---
-Steruje [funkcją próbkowania w usłudze Application Insights](../articles/azure-functions/functions-monitoring.md#configure-sampling).
+Kontroluje [funkcję próbkowania w Application Insights](../articles/azure-functions/functions-monitoring.md#configure-sampling).
 
 ```json
 {
@@ -27,7 +27,7 @@ Steruje [funkcją próbkowania w usłudze Application Insights](../articles/azur
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------| 
-|Isenabled|true|Włącza lub wyłącza próbkowanie.| 
-|maxTelemetryItemsPerSekunda|5|Próg, od którego rozpoczyna się pobieranie próbek.| 
+|isEnabled|true|Włącza lub wyłącza próbkowanie.| 
+|maxTelemetryItemsPerSecond|5|Próg, w którym rozpoczyna się próbkowanie.| 

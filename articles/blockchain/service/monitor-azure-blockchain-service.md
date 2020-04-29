@@ -1,63 +1,63 @@
 ---
-title: Monitorowanie usługi Azure Blockchain Service (ABS)
-description: Monitorowanie usługi Azure Blockchain za pośrednictwem usługi Azure Monitor
+title: Monitorowanie usługi Azure łańcucha bloków (ABS)
+description: Monitorowanie usługi Azure łańcucha bloków za pomocą Azure Monitor
 ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: v-umha
 ms.openlocfilehash: 6f2a91a8ffce67d3c4008a7587f2787f6446c341
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76293253"
 ---
-# <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Monitoruj usługę Azure Blockchain za pośrednictwem usługi Azure Monitor  
+# <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Monitoruj usługę Azure łańcucha bloków za pomocą Azure Monitor  
 
-Ponieważ klienci uruchamiają scenariusze łańcucha bloków klasy produkcyjnej w usłudze Azure Blockchain Service (ABS), kluczowe znaczenie ma monitorowanie zasobów pod kątem dostępności, wydajności i operacji. W tym artykule opisano dane monitorowania generowane przez usługę Azure Blockchain Service i jak można używać różnych funkcji i integracji usługi Azure Monitor do analizowania i ostrzegania, aby zarządzać środowiskami klasy produkcyjnej.  
+Klienci, którzy uruchamiają scenariusze łańcucha bloków klasy produkcyjnej w usłudze Azure łańcucha bloków Service (ABS), mają krytyczne znaczenie dla monitorowania zasobów pod kątem dostępności, wydajności i operacji. W tym artykule opisano dane monitorowania wygenerowane przez usługę Azure łańcucha bloków oraz sposób użycia różnych funkcji i integracji Azure Monitor do analizowania i wyzwalania alertów w programie w celu zarządzania środowiskami klasy produkcyjnej.  
 
 ## <a name="what-is-azure-monitor"></a>Co to jest Azure Monitor?
 
-Usługa Azure Blockchain Service tworzy dane monitorowania przy użyciu usługi Azure Monitor, która jest usługą monitorowania pełnego stosu na platformie Azure, która zapewnia pełny zestaw funkcji do monitorowania zasobów platformy Azure. Aby uzyskać więcej informacji na temat usługi Azure Monitor, zobacz [Monitorowanie zasobów platformy Azure za pomocą usługi Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource).
+Usługa Azure łańcucha bloków tworzy dane monitorowania za pomocą Azure Monitor, który jest pełną usługą monitorowania stosu na platformie Azure, która oferuje pełny zestaw funkcji do monitorowania zasobów platformy Azure. Aby uzyskać więcej informacji na temat Azure Monitor, zobacz [monitorowanie zasobów platformy Azure przy użyciu Azure monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource).
  
 
-Poniższe sekcje opierają się na tym artykule, opisując określone dane zebrane z usługi Azure Blockchain Service i podając przykłady konfigurowania zbierania danych i analizowania tych danych za pomocą narzędzi platformy Azure.
+Poniższe sekcje dotyczą tego artykułu, opisując szczegółowe dane zebrane z usługi Azure łańcucha bloków Service i dostarczając przykłady konfigurowania zbierania danych i analizowania tych danych przy użyciu narzędzi platformy Azure.
 
-## <a name="monitor-data-collected-from-azure-blockchain-service"></a>Monitorowanie danych zebranych z usługi Azure Blockchain Service  
+## <a name="monitor-data-collected-from-azure-blockchain-service"></a>Monitoruj dane zebrane z usługi Azure łańcucha bloków Service  
 
-Usługa Azure Blockchain service zbiera ten sam rodzaj danych monitorowania, co inne zasoby platformy Azure, które są opisane w [obszarze Monitorowanie danych](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data) z zasobów platformy Azure. Zobacz [monitorowanie danych usługi Azure Blockchain Service, aby](#monitor-azure-blockchain-service-data-reference) uzyskać szczegółowe informacje na temat dzienników i metryk utworzonych przez usługę Azure Blockchain Service.
+Usługa Azure łańcucha bloków gromadzi dane monitorowania tego samego rodzaju jak inne zasoby platformy Azure, które są opisane w temacie [monitorowanie danych](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data) z zasobów platformy Azure. Aby uzyskać szczegółowe informacje o dziennikach i metrykach utworzonych przez usługę Azure łańcucha bloków, zobacz artykuł [monitorowanie usługi Azure łańcucha bloków Data Reference](#monitor-azure-blockchain-service-data-reference) .
 
-Strona omówienia w witrynie Azure portal dla każdego zasobu członkowskiego usługi Azure Blockchain Service zawiera krótki widok transakcji, w tym żądań obsługiwanych i przetworzonych bloków. Niektóre z tych danych są zbierane automatycznie i dostępne do analizy po utworzeniu zasobu członkowskiego usługi Azure Blockchain Service, podczas gdy można włączyć zbieranie dodatkowych danych z dodatkową konfiguracją.
+Strona przegląd w Azure Portal dla każdego zasobu elementu członkowskiego usługi Azure łańcucha bloków zawiera krótki widok transakcji, w tym żądania obsługiwane i przetworzone bloki. Niektóre z tych danych są zbierane automatycznie i dostępne do analizy po utworzeniu zasobu elementu członkowskiego usługi Azure łańcucha bloków, podczas gdy można włączyć dodatkowe zbieranie danych z dodatkową konfiguracją.
 
 ## <a name="diagnostic-settings"></a>Ustawienia diagnostyczne  
 
-Metryki platformy i dziennik aktywności są zbierane automatycznie, ale należy utworzyć ustawienie diagnostyczne do zbierania dzienników zasobów lub przesyłania dalej ich poza usługą Azure Monitor. Zobacz [Tworzenie ustawień diagnostycznych do zbierania dzienników platformy i metryk na platformie Azure, aby](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) uzyskać szczegółowy proces tworzenia ustawienia diagnostycznego przy użyciu portalu Azure, interfejsu wiersza polecenia lub programu PowerShell.
+Metryki platformy i dziennik aktywności są zbierane automatycznie, ale należy utworzyć ustawienie diagnostyczne, aby zbierać dzienniki zasobów lub przesyłać je dalej poza Azure Monitor. Zobacz [Tworzenie ustawień diagnostycznych, aby zbierać dzienniki platformy i metryki na platformie Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) w celu uzyskania szczegółowego procesu tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia lub programu PowerShell.
 
-Podczas tworzenia ustawienia diagnostycznego, należy określić, które kategorie dzienników do zbierania. Kategorie usługi Azure Blockchain service są wymienione poniżej.
+Podczas tworzenia ustawienia diagnostycznego należy określić, które kategorie dzienników mają być zbierane. Poniżej wymieniono kategorie usługi Azure łańcucha bloków Service.
 
-**Dzienniki proxy blockchain** - Wybierz kategorię, jeśli chcesz monitorować dzienniki proxy NGNIX. Wszystkie szczegóły transakcji odbiorcy są dostępne do celów inspekcji i debugowania.  
+**Łańcucha bloków dzienniki proxy** — wybierz kategorię, jeśli chcesz monitorować dzienniki proxy NGNIX. Wszystkie szczegóły transakcji klienta są dostępne do celów inspekcji i debugowania.  
 
-**Dzienniki aplikacji blockchain** — wybierz kategorię, aby uzyskać dzienniki aplikacji blockchain hostowane przez usługę zarządzaną. Na przykład dla członka ABS-Kworum te dzienniki będą dzienniki z kworum się.  
+**Dzienniki aplikacji łańcucha bloków** — wybierz kategorię, aby pobrać dzienniki aplikacji łańcucha bloków hostowanej przez usługę zarządzaną. Na przykład dla elementu członkowskiego kworum typu ABS te dzienniki będą dzienniki z samego kworum.  
 
-**Żądania metryki:** Wybierz opcję, aby zbierać dane metryki z usługi Azure Cosmos DB do miejsc docelowych w ustawieniu diagnostycznym, które są zbierane automatycznie w metrykach platformy Azure. Zbieranie danych metryk za pomocą dzienników zasobów do analizowania obu rodzajów danych razem i do wysyłania danych metryk poza usługą Azure Monitor.
+**Żądania metryk**: wybierz opcję zbierania danych metryk z Azure Cosmos DB do miejsc docelowych w ustawieniu diagnostycznym, które są zbierane automatycznie w ramach metryk platformy Azure. Zbieraj dane metryk z dziennikami zasobów, aby analizować jednocześnie oba rodzaje danych i wysyłać dane metryk poza Azure Monitor.
 
-## <a name="analyze-metric-data"></a>Analizowanie danych metrycznych  
+## <a name="analyze-metric-data"></a>Analizowanie danych metryki  
 
-Możesz analizować metryki usługi Azure Blockchain za pomocą Eksploratora metryk, przejdź do karty Metryki w sekcji Monitorowanie w bloku zasobów ABS. Zobacz [Wprowadzenie do Eksploratora metryk platformy Azure, aby](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) uzyskać szczegółowe informacje na temat korzystania z narzędzia. Pełne metryki dla usługi Azure Blockchain service znajdują się w metrykach standardowych usługi Azure Blockchain Service w obszarze nazw.
+Metryki dla usługi Azure łańcucha bloków Service można analizować za pomocą Eksploratora metryk, przejdź do karty metryki w obszarze monitorowanie w bloku zasoby ABS. Zobacz Rozpoczynanie [pracy z usługą Azure Eksplorator metryk](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) , aby uzyskać szczegółowe informacje na temat korzystania z narzędzia. Kompletne metryki dla usługi Azure łańcucha bloków są wymienione w obszarze nazw metryki usługi Azure łańcucha bloków Service w warstwie Standardowa.
 
-Wymiar **węzła** można użyć podczas dodawania filtru lub dzielenia metryk, które zasadniczo zawiera wartości metryki dla węzłów transakcji i węzłów walidatora członka ABS.
+Wymiaru **węzła** można użyć podczas dodawania filtru lub dzielenia metryk, co zasadniczo zapewnia wartości metryk dla węzłów transakcji i węzłów modułu sprawdzania poprawności elementu członkowskiego ABS.
 
 ## <a name="analyze-log-data"></a>Analizowanie danych dzienników
 
-Oto kilka zapytań, które można wprowadzić na pasku wyszukiwania dzienników, aby ułatwić monitorowanie członków usługi Azure Blockchain Service. Te zapytania działają z [nowym językiem](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Poniżej przedstawiono niektóre zapytania, które można wprowadzić na pasku przeszukiwania dzienników, aby ułatwić monitorowanie członków usługi Azure łańcucha bloków. Te zapytania działają w [nowym języku](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
-Aby zbadać warunki błędu w dziennikach aplikacji Blockchain, użyj poniższej kwerendy:
+Aby zbadać warunki błędu w dziennikach aplikacji łańcucha bloków, użyj poniższego zapytania:
 
 ```
 BlockchainApplicationLog | where BlockchainMessage contains "ERROR" or BlockchainMessage contains "fatal"
 
 ```
 
-Aby zbadać warunki błędu w dziennikach proxy łańcucha bloków, użyj poniższej kwerendy  
+Aby zbadać warunki błędu w dziennikach serwera proxy łańcucha bloków, użyj poniższego zapytania  
 
 
 ```
@@ -66,107 +66,107 @@ BlockchainProxyLog
 | limit 500
 
 ```
-Filtry czasu dostępne w dziennikach platformy Azure umożliwiają filtrowanie kwerendy dla określonego zakresu czasu.
+Można użyć filtrów czasu dostępnych w dziennikach platformy Azure do filtrowania zapytania dla określonego przedziału czasu.
 
-## <a name="monitor-azure-blockchain-service-data-reference"></a>Monitorowanie danych usługi Azure Blockchain Service  
+## <a name="monitor-azure-blockchain-service-data-reference"></a>Monitoruj odwołanie do danych usługi Azure łańcucha bloków Service  
 
-Ten artykuł zawiera odwołanie do danych dziennika i metryki zebranych do analizy wydajności i dostępności usługi Azure Blockchain.  
+Ten artykuł zawiera informacje dotyczące danych dzienników i metryk zbieranych w celu przeanalizowania wydajności i dostępności usługi Azure łańcucha bloków.  
 
 ### <a name="resource-logs"></a>Dzienniki zasobów
 
-Wszystkie dzienniki zasobów współużytkują wspólny schemat najwyższego poziomu z kilkoma unikatowymi właściwościami specyficznymi dla usługi blockchain. Poniżej znajduje się artykuł Schemat [dzienników zasobów najwyższego poziomu](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema), szczegóły dotyczące określonych właściwości usługi Azure Blockchain Service są omówione poniżej  
+Wszystkie dzienniki zasobów udostępniają wspólny schemat najwyższego poziomu z kilkoma unikatowymi właściwościami specyficznymi dla usługi łańcucha bloków. Można zapoznać się z artykułem [schemat dzienników zasobów najwyższego poziomu](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema), szczegółowe informacje o określonych właściwościach usługi Azure łańcucha bloków.  
 
-W poniższej tabeli wymieniono właściwości dzienników serwera proxy usługi Azure Blockchain, gdy są one zbierane w dziennikach usługi Azure Monitor lub usłudze Azure Storage.  
+W poniższej tabeli wymieniono właściwości dzienników serwera proxy usługi Azure łańcucha bloków, które są zbierane w dziennikach Azure Monitor lub usłudze Azure Storage.  
 
 
 | Nazwa właściwości  | Opis |
 |:---|:---|
-| time | Data i godzina (UTC) po wykonaniu operacji. |
-| Resourceid  | Zasób usługi Azure Blockchain Service, dla którego są włączone dzienniki.  |
-| category  |W przypadku usługi Azure Blockchain wartościami, które są możliwe, są **dzienniki proxy** i **applicationlogs**. |
+| time | Data i godzina (UTC), gdy wystąpiła operacja. |
+| Identyfikator  | Zasób usługi Azure łańcucha bloków, dla którego są włączone dzienniki.  |
+| category  |W przypadku usługi Azure łańcucha bloków dostępne wartości to **Proxylogs** i **Applicationlogs**. |
 | operationName  | Nazwa operacji reprezentowanej przez to zdarzenie.   |
-| Poziom dziennika  | Domyślnie usługa Azure Blockchain Service umożliwia poziom dziennika **informacji.**   |
-| Lokalizacja węzła  | Region platformy Azure, w którym wdrożono element członkowski łańcucha bloków.  |
-| Nazwa łańcucha bloków  | Nazwa węzła członka usługi Azure Blockchain, na którym wykonywana jest operacja.   |
-| Etretoda  | Metoda, która jest wywoływana przez podstawowy protokół blockchain, w Kworum, może być eth_sendTransactions, eth_getBlockByNumber itp.  |
-| Agent  | Agent użytkownika, który działa w imieniu użytkownika, takich jak przeglądarka internetowa Mozilla, Edge itp. Przykładami wartości są: "Mozilla/5.0 (Linux x64) node.js/8.16.0 v8/6.2.414.77"  |
-| Code   | kody błędów HTTP. Zazwyczaj 4XX i 5XX są warunki błędu.  |
-| WęzełHost  | Nazwa DNS węzła.   |
-| Nazwa pliku RequestMethodName | Metoda HTTP wywoływana, możliwe wartości w tym miejscu są PUT dla create member, GET do uzyskania szczegółów istniejącego elementu członkowskiego, DELETE dla usuń członka, PATCH do aktualizacji elementu członkowskiego.   |
-| Nazwanika łańcucha bloków  | Nazwa członka usługi Azure Blockchain Service podana przez użytkownika.  |
+| Poziom dziennika  | Domyślnie usługa Azure łańcucha bloków włącza poziom dziennika **informacyjnego** .   |
+| NodeLocation  | Region świadczenia usługi Azure, w którym jest wdrażany element członkowski łańcucha bloków.  |
+| BlockchainNodeName  | Nazwa węzła elementu członkowskiego usługi Azure łańcucha bloków, w którym jest wykonywana operacja.   |
+| EthMethod  | Metoda, która jest wywoływana przez podstawowy protokół łańcucha bloków w kworum, może być eth_sendTransactions, eth_getBlockByNumber itd.  |
+| Agent  | Agent użytkownika działający w imieniu użytkownika, taki jak przeglądarka sieci Web Mozilla, Edge itd. Przykłady wartości to: "Mozilla/5.0 (linux x64) Node. js/8.16.0 V8/6.2.414.77"  |
+| Code   | Kody błędów HTTP. Zazwyczaj 4XX i 5XX są warunkami błędów.  |
+| NodeHost  | Nazwa DNS węzła.   |
+| RequestMethodName | Wywoływana metoda HTTP, możliwe wartości w tym miejscu są UMIESZCZAne w celu utworzenia elementu członkowskiego, pobieranie do pobrania szczegółów istniejącego elementu członkowskiego, usuwanie elementu członkowskiego usuwania, poprawka do aktualizacji elementu członkowskiego.   |
+| BlockchainMemberName  | Nazwa członka usługi łańcucha bloków platformy Azure podana przez użytkownika.  |
 | Konsorcjum | Nazwa konsorcjum podana przez użytkownika.   |
-| Remote  | Adres IP klienta, do którego nadchodzi żądanie.  |
-| Rozmiar żądania  | Rozmiar żądania złożonego w bajtach.  |
-| Czas żądania  | Czas trwania żądania w milisekundach.|
+| Remote  | Adres IP klienta, z którego pochodzi żądanie.  |
+| RequestSize  | Rozmiar żądania w bajtach.  |
+| RequestTime  | Czas trwania żądania (w milisekundach).|
 
 
 
 
-W poniższej tabeli wymieniono właściwości dzienników aplikacji azure blockchain.
+W poniższej tabeli wymieniono właściwości dzienników aplikacji Azure łańcucha bloków.
 
 
 | Nazwa właściwości  | Opis |
 |:---|:---|
-| time | Data i godzina (UTC) po wykonaniu operacji. |
-| Resourceid  | Zasób usługi Azure Blockchain Service, dla którego są włączone dzienniki.|
-| category  |W przypadku usługi Azure Blockchain możliwa wartość to **proxylogi** i **dzienniki aplikacji.**  |
+| time | Data i godzina (UTC), gdy wystąpiła operacja. |
+| Identyfikator  | Zasób usługi Azure łańcucha bloków, dla którego są włączone dzienniki.|
+| category  |W przypadku usługi Azure łańcucha bloków wartość możliwe jest **Proxylogs** i **Applicationlogs**.  |
 | operationName  | Nazwa operacji reprezentowanej przez to zdarzenie.   |
-| Poziom dziennika  | Domyślnie usługa Azure Blockchain Service umożliwia poziom dziennika **informacji.**   |
-| Lokalizacja węzła  | Region platformy Azure, w którym wdrożono element członkowski łańcucha bloków.  |
-| Nazwa łańcucha bloków  | Nazwa węzła członka usługi Azure Blockchain, na którym wykonywana jest operacja.   |
-| BlockchainMessage (BlockchainMessage)    | To pole będzie zawierać dziennik aplikacji Blockchain, który jest dziennikami zwykłych danych. W przypadku ABS-Kworum miałoby to dzienniki kworum. Zawiera informacje o tym, jaki typ wpisu dziennika jest to, że jest informacyjny, błąd, ostrzeżenie i ciąg, który daje więcej informacji na temat akcji wykonywane.   |
-| Identyfikator dzierżawy    | Dzierżawa usługi Azure Blockchain w poszczególnych regionach. Formatem tego pola https://westlake-rp-prodjest . <region>.cloudapp.azure.com, w którym region określa region platformy Azure wdrożonego elementu członkowskiego.       |
-| SourceSystem   | System wypełnia dzienniki, w tym przypadku jest to **Azure**.    |
+| Poziom dziennika  | Domyślnie usługa Azure łańcucha bloków włącza poziom dziennika **informacyjnego** .   |
+| NodeLocation  | Region świadczenia usługi Azure, w którym jest wdrażany element członkowski łańcucha bloków.  |
+| BlockchainNodeName  | Nazwa węzła elementu członkowskiego usługi Azure łańcucha bloków, w którym jest wykonywana operacja.   |
+| BlockchainMessage    | To pole będzie zawierać dziennik aplikacji łańcucha bloków, który jest dzienników zwykłych danych. W przypadku usługi ABS-kworum będą istnieć dzienniki kworum. Zawiera informacje o rodzaju wpisu dziennika, który ma charakter informacyjny, błąd, ostrzeżenie i ciąg, który zawiera więcej informacji na temat wykonywanej akcji.   |
+| TenantID    | Dzierżawa specyficzna dla regionu usługi Azure łańcucha bloków. Format tego pola to https://westlake-rp-prod. <region>. cloudapp.Azure.com, gdzie region określa region świadczenia usługi Azure wdrożonego elementu członkowskiego.       |
+| SourceSystem   | System wypełnia dzienniki, w tym przypadku jest to **platforma Azure**.    |
 
 
 
 ### <a name="metrics"></a>Metryki
 
-W poniższych tabelach wymieniono metryki platformy zebrane dla usługi Azure Blockchain Service. Wszystkie metryki są przechowywane w metrykach standardowych **usługi Azure Blockchain Service** w obszarze nazw.
+W poniższych tabelach przedstawiono metryki platformy zebrane dla usługi Azure łańcucha bloków Service. Wszystkie metryki są przechowywane w obszarze nazw metryki **usługi Azure łańcucha bloków Service** w warstwie Standardowa.
 
-Aby uzyskać listę wszystkich obsługiwanych metryk usługi Azure Monitor (w tym usługi Azure Blockchain Service), zobacz [metryki obsługiwane przez usługę Azure Monitor.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)
+Listę wszystkich Azure Monitor obsługiwanych metryk (w tym usługi Azure łańcucha bloków Service) można znaleźć w temacie [Azure monitor Supported Metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
 
-### <a name="blockchain-metrics"></a>Dane blockchain
+### <a name="blockchain-metrics"></a>Metryki łańcucha bloków
 
-Poniższa tabela określa listę metryk łańcucha bloków, które są zbierane dla zasobu członkowskiego usługi Azure Blockchain Service.
+Poniższa tabela zawiera listę metryk łańcucha bloków, które są zbierane dla zasobu elementu członkowskiego usługi Azure łańcucha bloków.
 
 
 | Nazwa metryki | Jednostka  |  Typ agregacji| Opis   |
 |---|---|---|---|
-| Oczekujące transakcje   | Liczba  |  Średnia | Liczba transakcji oczekujących na wydobycie.   |
-| Przetworzone bloki   | Liczba  | Suma  |  Liczba bloków przetwarzanych w każdym przedziale czasu. Obecnie rozmiar bloku wynosi 5 sekund, dlatego w ciągu minuty każdy węzeł przetworzy 12 bloków i 60 bloków w 5 minut.   |
+| Oczekujące transakcje   | Liczba  |  Średnia | Liczba transakcji, które oczekują na analizowane pod.   |
+| Przetworzone bloki   | Liczba  | Suma  |  Liczba bloków przetworzonych w każdym przedziale czasu. Obecnie rozmiar bloku wynosi 5 sekund, dlatego w minucie każdy węzeł będzie przetwarzać 12 bloków i 60 bloków w ciągu 5 minut.   |
 |Przetworzone transakcje    | Liczba  | Suma  | Liczba transakcji przetworzonych w bloku.    |
-|Transakcje w kolejce    |  Liczba | Średnia  | Liczba transakcji, których nie można natychmiast wydobyć. Może to być spowodowane tym, że przybyli poza kolejnością, a przyszła czeka na przedejście poprzedniej transakcji. Lub może to być dwie transakcje mają ten sam numer używany tylko raz (nonce) i tej samej wartości gazu, stąd druga nie może być wydobywana.   |
+|Transakcje w kolejce    |  Liczba | Średnia  | Liczba transakcji, które nie mogą być natychmiast analizowane pod. Może to być spowodowane faktem, że nie dotarły one do kolejności, a przyszła transakcja oczekuje na nadejście poprzedniej transakcji. Lub może to być dwa transakcje mają tę samą wartość tylko raz (jednorazowy) i tą samą wartością gazu, dlatego drugi nie może być analizowane pod.   |
 
 ### <a name="connection-metrics"></a>Metryki połączeń  
 
-W poniższej tabeli wymieniono różne metryki połączenia, które są zbierane dla zasobu członkowskiego usługi Azure Blockchain Service. Są to metryki serwera proxy NGINX.
+W poniższej tabeli wymieniono różne metryki połączenia, które są zbierane dla zasobu elementu członkowskiego usługi Azure łańcucha bloków. Są to metryki serwera proxy NGINX.
 
 
 | Nazwa metryki | Jednostka  |  Typ agregacji| Opis |
 |---|---|---|---|
-| Akceptowane połączenia   | Liczba  |  Suma | Całkowita liczba zaakceptowanych połączeń klientów.   |
-| Aktywne połączenia  | Liczba  | Średnia  |  Bieżąca liczba aktywnych połączeń klientów, w tym połączenia oczekujące.    |
-|Obsługiwane połączenia    | Liczba  | Suma  | Całkowita liczba obsługiwanych połączeń. Ogólnie rzecz biorąc wartość parametru jest taka sama jak akceptowane połączenia, chyba że pewne limity zasobów zostały osiągnięte.     |
-|Obsługiwane żądania     |  Liczba | Suma  | Całkowita liczba żądań klientów.  |
+| Zaakceptowane połączenia   | Liczba  |  Suma | Całkowita liczba zaakceptowanych połączeń klientów.   |
+| Aktywne połączenia  | Liczba  | Średnia  |  Bieżąca liczba aktywnych połączeń klienta, w tym połączeń oczekujących.    |
+|Obsłużone połączenia    | Liczba  | Suma  | Całkowita liczba obsłużonych połączeń. Ogólnie rzecz biorąc, wartość parametru jest taka sama jak w przypadku akceptowanych połączeń, o ile nie osiągnięto limitów zasobów.     |
+|Obsłużone żądania     |  Liczba | Suma  | Całkowita liczba żądań klientów.  |
 
 
 ### <a name="performance-metrics"></a>Metryki wydajności
 
-W poniższej tabeli wymieniono metryki wydajności, które są zbierane dla każdego z węzłów zasobu członkowskiego łańcucha bloków platformy Azure.  
+W poniższej tabeli przedstawiono metryki wydajności, które są zbierane dla każdego węzła zasobu elementu członkowskiego usługi Azure łańcucha bloków.  
 
 
 | Nazwa metryki | Jednostka  |  Typ agregacji| Opis   |
 |---|---|---|---|
 | Procent użycia procesora CPU   | Procentowe  |  Maks. | Procent użycia procesora CPU.     |
-| Bajty odczytu we/wy   | Kilobajtów   | Suma  |  Suma bajtów odczytu we/wy we wszystkich węzłach zasobu członkowskiego łańcucha bloków.      |
-|Bajty zapisu we/wy     | Kilobajtów   | Suma  | Suma we/wy zapisuje bajty we wszystkich węzłach zasobu członkowskiego łańcucha bloków.     |
-|Limit pamięci       |  Gigabajtów   | Średnia    | Maksymalna ilość pamięci dostępnej dla procesu łańcucha bloków na węzeł. |
-|Użycie pamięci     | Gigabajtów  |  Średnia | Ilość używanej pamięci uśredniona we wszystkich węzłach.  |
-| Procent użycia pamięci     | Procentowe   | Średnia  |  Procent używanej pamięci uśredniona we wszystkich węzłach.       |
-|Użycie pamięci masowej      | Gigabajtów   | Średnia  | GB używanego miejsca do magazynowania uśrednił we wszystkich węzłach.       |
+| Bajty odczytu we/wy   | Kilobajtach   | Suma  |  Suma bajtów odczytu we wszystkich węzłach zasobu elementu członkowskiego łańcucha bloków.      |
+|Bajty zapisu we/wy     | Kilobajtach   | Suma  | Suma operacji we/wy zapisuje bajty we wszystkich węzłach zasobu elementu członkowskiego łańcucha bloków.     |
+|Limit pamięci       |  Gigabajtach   | Średnia    | Maksymalna ilość pamięci dostępnej dla procesu łańcucha bloków na węzeł. |
+|Użycie pamięci     | Gigabajtach  |  Średnia | Ilość używanej pamięci średnia dla wszystkich węzłów.  |
+| Procent użycia pamięci     | Procentowe   | Średnia  |  Wartość procentowa używanej pamięci (średnia) we wszystkich węzłach.       |
+|Użycie magazynu      | Gigabajtach   | Średnia  | Średnia GB miejsca do magazynowania używana we wszystkich węzłach.       |
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [Blockchain Data Manager](https://docs.microsoft.com/azure/blockchain/service/data-manager) do przechwytywania i przekształcania danych łańcucha bloków do usługi Azure Event Grid.
+Dowiedz się więcej o [łańcucha bloków Data Manager](https://docs.microsoft.com/azure/blockchain/service/data-manager) do przechwytywania i przekształcania danych łańcucha bloków w Azure Event Grid.

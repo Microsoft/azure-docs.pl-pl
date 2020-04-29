@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: magoedte
 ms.openlocfilehash: 6890c71ac7c265d46cc77751786fea4d0b228588
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67183624"
 ---
 ### <a name="troubleshoot-azure-diagnostics"></a>Rozwiązywanie problemów z funkcją Diagnostyka Azure
@@ -30,8 +30,8 @@ Aby zarejestrować tego dostawcę zasobów, wykonaj następujące czynności w w
 Po zarejestrowaniu dostawcy zasobów *Microsoft.insights* spróbuj ponownie skonfigurować diagnostykę.
 
 
-W programie PowerShell, jeśli zostanie wyświetlony następujący komunikat o błędzie, musisz zaktualizować wersję programu PowerShell:
+Jeśli zostanie wyświetlony następujący komunikat o błędzie w programie PowerShell, musisz zaktualizować swoją wersję programu PowerShell:
 
 `Set-AzDiagnosticSetting : A parameter cannot be found that matches parameter name 'WorkspaceId'.`
 
-Zaktualizuj swoją wersję programu Azure PowerShell, postępuj zgodnie z instrukcjami zawartymi w artykule [Instalowanie programu Azure PowerShell.](/powershell/azure/install-az-ps)
+Zaktualizuj swoją wersję Azure PowerShell, postępuj zgodnie z instrukcjami w artykule [instalowanie Azure PowerShell](/powershell/azure/install-az-ps) .

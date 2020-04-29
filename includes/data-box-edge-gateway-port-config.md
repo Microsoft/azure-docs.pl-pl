@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 98f9e0377e560fa0bba2fd470ff01431b2ed21d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67183671"
 ---
-| Nr portu| Wył. | Zakres portu| Wymagany|   Uwagi |   |
+| Numer portu.| Do lub do zewnątrz | Zakres portów| Wymagany|   Uwagi |   |
 |--------|-----|-----|-----------|----------|-----------|
-| TCP 80 (HTTP)|Out|Sieć WAN |Nie|Port wychodzący służy do pobierania aktualizacji przez dostęp do Internetu. <br>Wychodzący serwer proxy sieci Web jest konfigurowany przez użytkownika. |
-| Protokół TCP 443 (HTTPS)|Out|Sieć WAN|Tak|Port wychodzący służy do uzyskiwania dostępu do danych w chmurze.<br>Wychodzący serwer proxy sieci Web jest konfigurowany przez użytkownika.|
-| UDP 123 (NTP)|Out|Sieć WAN|W niektórych przypadkach<br>Zobacz notatki|Ten port jest wymagany tylko w przypadku korzystania z internetowego serwera NTP.  |   
-| UDP 53 (DNS)|Out|Sieć WAN|W niektórych przypadkach<br>Zobacz notatki|Ten port jest wymagany tylko w przypadku korzystania z internetowego serwera DNS.<br>Zalecamy korzystanie z lokalnego serwera DNS. |
-| TCP 5985 (WinRM)|Wyjście/Wyjęcie|Sieć LAN|W niektórych przypadkach<br>Zobacz notatki|Ten port jest wymagany do łączenia się z urządzeniem za pośrednictwem zdalnego programu PowerShell za pośrednictwem protokołu HTTP.  |
-| UDP 67 (DHCP)|Out|Sieć LAN|W niektórych przypadkach<br>Zobacz notatki|Ten port jest wymagany tylko w przypadku korzystania z lokalnego serwera DHCP.  |
-| TCP 80 (HTTP)|Wyjście/Wyjęcie|Sieć LAN|Tak|Ten port jest portem przychodzącym dla lokalnego interfejsu użytkownika na urządzeniu do zarządzania lokalnego. <br>Dostęp do lokalnego interfejsu użytkownika za pośrednictwem protokołu HTTP zostanie automatycznie przekierowany do protokołu HTTPS.  |
-| Protokół TCP 443 (HTTPS)|Wyjście/Wyjęcie|Sieć LAN|Tak|Ten port jest portem przychodzącym dla lokalnego interfejsu użytkownika na urządzeniu do zarządzania lokalnego. |
-| TCP 445 (SMB)|W|Sieć LAN|W niektórych przypadkach<br>Zobacz notatki|Ten port jest wymagany tylko wtedy, gdy łączysz się za pośrednictwem protokołu SMB. |
-| TCP 2049 (KNF)|W|Sieć LAN|W niektórych przypadkach<br>Zobacz notatki|Ten port jest wymagany tylko wtedy, gdy łączysz się za pośrednictwem systemu plików NFS. |
+| TCP 80 (HTTP)|Out|Sieć WAN |Nie|Port wychodzący jest używany na potrzeby dostępu do Internetu w celu pobierania aktualizacji. <br>Wychodzący serwer proxy sieci Web jest konfigurowany przez użytkownika. |
+| TCP 443 (HTTPS)|Out|Sieć WAN|Tak|Port wychodzący służy do uzyskiwania dostępu do danych w chmurze.<br>Wychodzący serwer proxy sieci Web jest konfigurowany przez użytkownika.|
+| UDP 123 (NTP)|Out|Sieć WAN|W niektórych przypadkach<br>Zobacz uwagi|Ten port jest wymagany tylko wtedy, gdy jest używany internetowy serwer NTP.  |   
+| UDP 53 (DNS)|Out|Sieć WAN|W niektórych przypadkach<br>Zobacz uwagi|Ten port jest wymagany tylko wtedy, gdy jest używany internetowy serwer DNS.<br>Zalecamy korzystanie z lokalnego serwera DNS. |
+| TCP 5985 (WinRM)|Out/in|Sieć LAN|W niektórych przypadkach<br>Zobacz uwagi|Ten port jest wymagany do nawiązania połączenia z urządzeniem za pośrednictwem zdalnego programu PowerShell za pośrednictwem protokołu HTTP.  |
+| UDP 67 (DHCP)|Out|Sieć LAN|W niektórych przypadkach<br>Zobacz uwagi|Ten port jest wymagany tylko wtedy, gdy używany jest lokalny serwer DHCP.  |
+| TCP 80 (HTTP)|Out/in|Sieć LAN|Tak|Ten port jest portem wejściowym lokalnego interfejsu użytkownika na urządzeniu na potrzeby lokalnego zarządzania. <br>Dostęp do lokalnego interfejsu użytkownika za pośrednictwem protokołu HTTP zostanie automatycznie przekierowany do protokołu HTTPS.  |
+| TCP 443 (HTTPS)|Out/in|Sieć LAN|Tak|Ten port jest portem wejściowym lokalnego interfejsu użytkownika na urządzeniu na potrzeby lokalnego zarządzania. |
+| TCP 445 (SMB)|W|Sieć LAN|W niektórych przypadkach<br>Zobacz uwagi|Ten port jest wymagany tylko w przypadku łączenia się za pośrednictwem protokołu SMB. |
+| TCP 2049 (NFS)|W|Sieć LAN|W niektórych przypadkach<br>Zobacz uwagi|Ten port jest wymagany tylko w przypadku łączenia się za pośrednictwem systemu plików NFS. |

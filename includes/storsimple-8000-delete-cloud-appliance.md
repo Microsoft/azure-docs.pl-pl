@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: ac708eb2ac79a74b8f4e09a7306a42665b3aca94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67183288"
 ---
 #### <a name="to-delete-a-cloud-appliance"></a>Aby usunąć urządzenie w chmurze
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 2. Usunąć można tylko zdezaktywowane urządzenie, które nie zawiera danych. Najpierw usuń dane z urządzenia lub [przełącz dane w tryb failover](../articles/storsimple/storsimple-8000-device-failover-cloud-appliance.md) w kontenerach woluminu na inne urządzenie. Po usunięciu danych możesz przystąpić do dezaktywowania urządzenia.
 3. Na stronie usługi Menedżera urządzeń StorSimple kliknij pozycję **Urządzenia**, a następnie wybierz urządzenie. Kliknij je prawym przyciskiem myszy i wybierz polecenie **Dezaktywuj**.
 4. Po dezaktywacji urządzenia kliknij je prawym przyciskiem myszy i wybierz polecenie **Usuń**.

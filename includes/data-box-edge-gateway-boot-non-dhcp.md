@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 880b630ae48eda086f6454f0d7108d27d3403b77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67183899"
 ---
-Jeśli uruchomisz się w środowisku nieobjętym dhcp, wykonaj następujące kroki, aby wdrożyć maszynę wirtualną dla bramy pola danych.
+W przypadku rozruchu w środowisku innym niż DHCP wykonaj następujące kroki, aby wdrożyć maszynę wirtualną dla Data Box Gateway.
 
-1. [Połącz się z interfejsem programu Windows PowerShell urządzenia](#connect-to-the-powershell-interface).
+1. [Połącz się z interfejsem programu Windows PowerShell dla urządzenia](#connect-to-the-powershell-interface).
 2. Użyj `Get-HcsIpAddress` polecenia cmdlet, aby wyświetlić listę interfejsów sieciowych włączonych na urządzeniu wirtualnym. Jeśli urządzenie ma włączony jeden interfejs sieciowy, jego domyślną nazwą jest `Ethernet`.
 
-    W poniższym przykładzie przedstawiono użycie tego polecenia cmdlet:
+    W poniższym przykładzie pokazano użycie tego polecenia cmdlet:
 
     ```
     [10.100.10.10]: PS>Get-HcsIpAddress

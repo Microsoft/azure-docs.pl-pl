@@ -1,6 +1,6 @@
 ---
 title: Omówienie integracji usług Azure Service Bus i Event Grid | Microsoft Docs
-description: Ten artykuł zawiera opis sposobu integrowania wiadomości usługi Azure Service Bus z usługą Azure Event Grid.
+description: Ten artykuł zawiera opis sposobu, w jaki program Azure Service Bus Messaging integruje się z Azure Event Grid.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: 1e514e2856afae4ff6f877bb193935da1bc5d623
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76773481"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Omówienie integracji usług Azure Service Bus i Event Grid
@@ -38,7 +38,7 @@ Do włączenia tej funkcji potrzebne są następujące elementy:
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### <a name="verify-that-you-have-contributor-access"></a>Weryfikowanie dostępu współautora
-Przejdź do obszaru nazw usługi Service Bus, a następnie wybierz **pozycję Kontrola dostępu (IAM)** i wybierz kartę **Przypisania ról.** 
+Przejdź do przestrzeni nazw Service Bus, a następnie wybierz pozycję **Kontrola dostępu (IAM)**, a następnie wybierz pozycję Karta **przypisania ról** . Sprawdź, czy masz dostęp współautora do przestrzeni nazw. 
 
 ### <a name="events-and-event-schemas"></a>Zdarzenia i schematy zdarzeń
 
@@ -138,7 +138,7 @@ Aby utworzyć nową subskrypcję usługi Event Grid, wykonaj następujące czynn
 
 ## <a name="azure-cli-instructions"></a>Instrukcje dotyczące interfejsu wiersza polecenia platformy Azure
 
-Najpierw upewnij się, że zainstalowano interfejs wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. [Pobierz instalator](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Wybierz **pozycję Windows + X**, a następnie otwórz nową konsolę programu PowerShell z uprawnieniami administratora. Możesz również użyć powłoki poleceń w witrynie Azure Portal.
+Najpierw upewnij się, że zainstalowano interfejs wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. [Pobierz instalatora](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Wybierz pozycję **Windows + X**, a następnie otwórz nową konsolę programu PowerShell z uprawnieniami administratora. Możesz również użyć powłoki poleceń w witrynie Azure Portal.
 
 Wykonaj następujący kod:
 
@@ -152,11 +152,11 @@ namespaceid=$(az resource show --namespace Microsoft.ServiceBus --resource-type 
 az eventgrid event-subscription create --resource-id $namespaceid --name "<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>" --endpoint "<your_function_url>" --subject-ends-with "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
 ```
 
-Jeśli korzystasz z BASH 
+Jeśli używasz BASH 
 
 ## <a name="powershell-instructions"></a>Instrukcje dotyczące programu PowerShell
 
-Upewnij się, że masz zainstalowany program Azure PowerShell. [Pobierz instalator](https://docs.microsoft.com/powershell/azure/install-Az-ps). Naciśnij klawisze **Windows + X** i otwórz nową konsolę programu PowerShell z uprawnieniami administratora. Możesz również użyć powłoki poleceń w witrynie Azure Portal.
+Upewnij się, że masz zainstalowany program Azure PowerShell. [Pobierz instalatora](https://docs.microsoft.com/powershell/azure/install-Az-ps). Naciśnij klawisze **Windows + X** i otwórz nową konsolę programu PowerShell z uprawnieniami administratora. Możesz również użyć powłoki poleceń w witrynie Azure Portal.
 
 ```powershell-interactive
 Connect-AzAccount

@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: alkohli
 ms.openlocfilehash: f3bb391dceb1948820d00c0d09229f2c106ffc0b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68601362"
 ---
-Na urządzeniu data box edge z skonfigurowaną rolą obliczeniową dostępny jest podzbiór poleceń platformy docker do monitorowania lub rozwiązywania problemów z modułami. Aby wyświetlić listę dostępnych poleceń, [połącz się z interfejsem programu PowerShell](#connect-to-the-powershell-interface) i użyj tej `dkrdbe` funkcji.
+Na urządzeniu Data Box Edge, na którym skonfigurowano rolę obliczeniową, podzbiór poleceń platformy Docker jest dostępny do monitorowania i rozwiązywania problemów z modułami. Aby wyświetlić listę dostępnych poleceń, Połącz się [z interfejsem programu PowerShell](#connect-to-the-powershell-interface) i Użyj `dkrdbe` funkcji.
 
 ```powershell
 [10.100.10.10]: PS>dkrdbe -?
@@ -35,28 +35,28 @@ Commands:
 
 [10.100.10.10]: PS>
 ```
-Poniższa tabela ma krótki opis poleceń dostępnych dla: `dkrdbe`
+W poniższej tabeli znajduje się krótki opis poleceń dostępnych dla `dkrdbe`:
 
 |command  |Opis |
 |---------|---------|
 |`image`     | Zarządzanie obrazami. Aby usunąć nieużywane obrazy, użyj:`dkrdbe image prune -a -f`       |
 |`images`     | Wyświetlanie obrazów         |
-|`inspect`     | Zwracanie informacji niskiego poziomu w obiektach platformy Docker         |
-|`login`     | Logowanie się do rejestru platformy Docker         |
-|`logout`     | Wylogowywanie się z rejestru platformy Docker         |
+|`inspect`     | Zwracanie informacji niskiego poziomu dotyczących obiektów platformy Docker         |
+|`login`     | Logowanie do rejestru platformy Docker         |
+|`logout`     | Wylogowywanie z rejestru platformy Docker         |
 |`logs`     | Pobieranie dzienników kontenera        |
-|`port`     | Mapowania portów listy lub określonego mapowania kontenera        |
+|`port`     | Wyświetlanie listy mapowań portów lub określonego mapowania dla kontenera        |
 |`ps`     | Wyświetlanie listy kontenerów        |
 |`pull`     | Ściąganie obrazu lub repozytorium z rejestru         |
-|`start`     | Uruchamianie jednego lub większej liczby zatrzymanych kontenerów         |
+|`start`     | Uruchom co najmniej jeden zatrzymany kontener         |
 |`stats`     | Wyświetlanie strumienia na żywo statystyk użycia zasobów kontenerów         |
-|`stop`     | Zatrzymywać jeden lub więcej uruchomionych kontenerów        |
-|`system`     | Zarządzanie docker         |
+|`stop`     | Zatrzymaj jeden lub więcej uruchomionych kontenerów        |
+|`system`     | Zarządzaj platformą Docker         |
 |`top`     | Wyświetlanie uruchomionych procesów kontenera         |
 
-Aby uzyskać pomoc dotyczącą dowolnego `dkrdbe <command-name> --help`dostępnego polecenia, użyj programu .
+Aby uzyskać pomoc dotyczącą dowolnego z dostępnych poleceń `dkrdbe <command-name> --help`, użyj polecenia.
 
-Na przykład, aby zrozumieć `port` użycie polecenia, wpisz:
+Na przykład, aby zrozumieć użycie `port` polecenia, wpisz:
 
 ```powershell
 [10.100.10.10]: P> dkrdbe port --help
@@ -78,13 +78,13 @@ Options:
 [10.100.10.10]: PS>
 ```
 
-Dostępne polecenia `dkrdbe` dla funkcji używają tych samych parametrów, co te używane dla zwykłych poleceń docker. Aby uzyskać opcje i parametry używane z poleceniem platformy docker, przejdź do polecenia [Użyj wiersza polecenia platformy Docker](https://docs.docker.com/engine/reference/commandline/docker/).
+Dostępne polecenia dla `dkrdbe` funkcji używają tych samych parametrów, które są używane dla normalnych poleceń platformy Docker. W przypadku opcji i parametrów używanych z poleceniem Docker przejdź do pozycji [Użyj wiersza polecenia platformy Docker](https://docs.docker.com/engine/reference/commandline/docker/).
 
 ### <a name="to-check-if-the-module-deployed-successfully"></a>Aby sprawdzić, czy moduł został wdrożony pomyślnie
 
-Moduły obliczeniowe są kontenery, które mają logikę biznesową zaimplementowane. Aby sprawdzić, czy moduł obliczeniowy został `ps` pomyślnie wdrożony, uruchom polecenie i sprawdź, czy kontener (odpowiadający modułowi obliczeniowemu) jest uruchomiony.
+Moduły obliczeniowe są kontenerami, w których zaimplementowano logikę biznesową. Aby sprawdzić, czy moduł obliczeniowy został pomyślnie wdrożony, `ps` Uruchom polecenie i sprawdź, czy kontener (odpowiadający modułowi obliczeniowemu) jest uruchomiony.
 
-Aby uzyskać listę wszystkich kontenerów (w tym tych, `ps -a` które są wstrzymane), uruchom polecenie.
+Aby uzyskać listę wszystkich kontenerów (łącznie z wstrzymanymi), uruchom `ps -a` polecenie.
 
 ```powershell
 [10.100.10.10]: P> dkrdbe ps -a
@@ -96,9 +96,9 @@ acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/s
 [10.100.10.10]: PS>
 ```
 
-Jeśli wystąpił błąd podczas tworzenia obrazu kontenera lub podczas `logs edgeAgent`ściągania obrazu, uruchom program .  `EdgeAgent`jest kontenerem środowiska wykonawczego usługi IoT Edge, który jest odpowiedzialny za inicjowanie obsługi administracyjnej innych kontenerów.
+Jeśli wystąpił błąd podczas tworzenia obrazu kontenera lub podczas ściągania obrazu, uruchom `logs edgeAgent`polecenie.  `EdgeAgent`jest kontenerem środowiska uruchomieniowego IoT Edge, który jest odpowiedzialny za obsługę innych kontenerów.
 
-Ponieważ `logs edgeAgent` zrzuca wszystkie dzienniki, dobrym sposobem, aby zobaczyć `--tail 20`ostatnie błędy jest użycie opcji .
+Ponieważ `logs edgeAgent` powoduje zrzut wszystkich dzienników, dobrym sposobem na wyświetlenie ostatnich błędów jest użycie opcji `--tail 20`.
 
 
 ```powershell
@@ -119,9 +119,9 @@ reateOptions":"{\"HostConfig\":{\"Binds\":[\"/home/hcsshares/share4-dl460:/home/
 
 ### <a name="to-get-container-logs"></a>Aby uzyskać dzienniki kontenerów
 
-Aby uzyskać dzienniki dla określonego kontenera, najpierw wystaw kontener, a następnie pobierz dzienniki kontenera, który Cię interesuje.
+Aby uzyskać dzienniki dla określonego kontenera, najpierw utwórz listę kontenerów, a następnie Pobierz dzienniki dla odpowiedniego kontenera.
 
-1. [Połącz się z interfejsem programu PowerShell](#connect-to-the-powershell-interface).
+1. [Nawiąż połączenie z interfejsem programu PowerShell](#connect-to-the-powershell-interface).
 2. Aby uzyskać listę uruchomionych kontenerów, uruchom `ps` polecenie.
 
     ```powershell
@@ -133,9 +133,9 @@ Aby uzyskać dzienniki dla określonego kontenera, najpierw wystaw kontener, a n
     acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days                                                                                  edgeAgent
     ```
 
-3. Zanotuj identyfikator kontenera dla kontenera, dla którego potrzebne są dzienniki.
+3. Zanotuj identyfikator kontenera dla kontenera, dla którego są potrzebne dzienniki.
 
-4. Aby uzyskać dzienniki dla określonego kontenera, uruchom `logs` polecenie podając identyfikator kontenera.
+4. Aby pobrać dzienniki dla określonego kontenera, uruchom `logs` polecenie, podając identyfikator kontenera.
 
     ```powershell
     [10.100.10.10]: PS>dkrdbe logs d99e2f91d9a8
@@ -150,18 +150,18 @@ Aby uzyskać dzienniki dla określonego kontenera, najpierw wystaw kontener, a n
     02/26/2019 18:23:38: Info: Processed event.
     ```
 
-### <a name="to-monitor-the-usage-statistics-of-the-device"></a>Aby monitorować statystyki użytkowania urządzenia
+### <a name="to-monitor-the-usage-statistics-of-the-device"></a>Aby monitorować statystyki użycia urządzenia
 
-Aby monitorować pamięć, użycie procesora CPU i `stats` we/wy na urządzeniu, użyj polecenia.
+Aby monitorować pamięć, użycie procesora CPU i we/wy na urządzeniu, użyj `stats` polecenia.
 
-1. [Połącz się z interfejsem programu PowerShell](#connect-to-the-powershell-interface).
-2. Uruchom `stats` polecenie, aby wyłączyć transmisję na żywo i wyciągnąć tylko pierwszy wynik.
+1. [Nawiąż połączenie z interfejsem programu PowerShell](#connect-to-the-powershell-interface).
+2. Uruchom `stats` polecenie, aby wyłączyć strumień na żywo i ściągnąć tylko pierwszy wynik.
 
    ```powershell
    dkrdbe stats --no-stream
    ```
 
-   W poniższym przykładzie przedstawiono użycie tego polecenia cmdlet:
+   W poniższym przykładzie pokazano użycie tego polecenia cmdlet:
 
     ```
     [10.100.10.10]: P> dkrdbe stats --no-stream

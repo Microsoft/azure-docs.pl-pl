@@ -9,12 +9,12 @@ ms.date: 07/17/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: fe3d47d41d10a3abc8c9c889081af2db337963ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68883710"
 ---
 <!-- This contains intro text for the "Get an IoT hub connection string" section in the iot-hub-lang-lang-module-twin-getstarted.md files-->
 
-W tym artykule utworzysz usługę zaplecza, która dodaje urządzenie w rejestrze tożsamości, a następnie dodaje moduł do tego urządzenia. Usługa wymaga uprawnienia **do zapisu rejestru.** Domyślnie każdy centrum IoT jest tworzony przy pomocą zasady dostępu współdzielonego o nazwie **registryReadWrite,** który udziela tego uprawnienia.
+W tym artykule opisano tworzenie usługi zaplecza, która dodaje urządzenie w rejestrze tożsamości, a następnie dodaje moduł do tego urządzenia. Twoja usługa wymaga uprawnień do **zapisu w rejestrze** . Domyślnie każde Centrum IoT Hub jest tworzone z użyciem zasad dostępu współdzielonego o nazwie **registryReadWrite** , które przyznaje to uprawnienie.

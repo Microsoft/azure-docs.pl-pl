@@ -1,30 +1,30 @@
 ---
-title: Stan aranżacji niestandardowej w funkcjach trwałych — Azure
-description: Dowiedz się, jak skonfigurować i używać niestandardowego stanu aranżacji dla funkcji trwałych.
+title: Stan aranżacji niestandardowej w Durable Functions — Azure
+description: Informacje na temat konfigurowania i używania niestandardowego stanu aranżacji dla Durable Functions.
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 31b7d51293878c9d0e8567b6b4bd58c48d75ec63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76766266"
 ---
-# <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Stan aranżacji niestandardowej w funkcjach trwałych (usługi Azure)
+# <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Stan aranżacji niestandardowej w Durable Functions (Azure Functions)
 
-Stan aranżacji niestandardowej umożliwia ustawienie niestandardowej wartości stanu dla funkcji koordynatora. Ten stan jest dostarczany za pośrednictwem [interfejsu API getstatus HTTP](durable-functions-http-api.md#get-instance-status) lub [ `GetStatusAsync` interfejsu API](durable-functions-instance-management.md#query-instances) na kliencie aranżacji.
+Stan aranżacji niestandardowej pozwala ustawić niestandardową wartość stanu dla funkcji programu Orchestrator. Ten stan jest dostarczany za pośrednictwem [interfejsu API http GetStatus](durable-functions-http-api.md#get-instance-status) lub [ `GetStatusAsync` interfejsu API](durable-functions-instance-management.md#query-instances) na kliencie aranżacji.
 
 ## <a name="sample-use-cases"></a>Przykładowe przypadki użycia
 
 > [!NOTE]
-> Poniższe przykłady pokazują, jak używać funkcji stanu niestandardowego w językach C# i JavaScript. Przykłady języka C# są zapisywane dla funkcji trwałych 2.x i nie są zgodne z funkcjami trwałymi 1.x. Aby uzyskać więcej informacji na temat różnic między wersjami, zobacz [wersje funkcji trwałych](durable-functions-versions.md) artykułu.
+> W poniższych przykładach pokazano, jak używać niestandardowej funkcji stanu w językach C# i JavaScript. Przykłady w języku C# są napisywane dla Durable Functions 2. x i nie są zgodne z Durable Functions 1. x. Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
 
-### <a name="visualize-progress"></a>Wizualizuj postęp
+### <a name="visualize-progress"></a>Wizualizowanie postępu
 
-Klienci mogą sondować punkt końcowy stanu i wyświetlać interfejs użytkownika postępu, który wizualizuje bieżący etap wykonywania. W poniższym przykładzie pokazano udostępnianie postępu:
+Klienci mogą sondować punkt końcowy stanu i wyświetlać interfejs użytkownika postępu, który wizualizuje bieżący etap wykonania. W poniższym przykładzie przedstawiono udostępnianie postępu:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -51,9 +51,9 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-`E1_HelloSequence`funkcja koordynatora:
+`E1_HelloSequence`Funkcja programu Orchestrator:
 
 ```javascript
 const df = require("durable-functions");
@@ -73,7 +73,7 @@ module.exports = df.orchestrator(function*(context){
 });
 ```
 
-`E1_SayHello`funkcja aktywności:
+`E1_SayHello`Funkcja działania:
 
 ```javascript
 module.exports = async function(context, name) {
@@ -83,9 +83,9 @@ module.exports = async function(context, name) {
 
 ---
 
-A następnie klient otrzyma dane wyjściowe aranżacji tylko wtedy, gdy `CustomStatus` pole jest ustawione na "Londyn":
+A następnie klient otrzyma dane wyjściowe aranżacji tylko wtedy, gdy `CustomStatus` pole jest ustawione na wartość "Londyn":
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -118,7 +118,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -148,15 +148,15 @@ module.exports = async function(context, req) {
 ```
 
 > [!NOTE]
-> W języku JavaScript `customStatus` pole zostanie ustawione `yield` `return` po zaplanowaniu następnej lub akcji.
+> W języku JavaScript `customStatus` pole zostanie ustawione, gdy zostanie zaplanowana Następna `yield` lub `return` akcja.
 
 ---
 
-### <a name="output-customization"></a>Dostosowywanie danych wyjściowych
+### <a name="output-customization"></a>Dostosowanie danych wyjściowych
 
-Innym ciekawym scenariuszem jest segmentowanie użytkowników przez zwracanie niestandardowych danych wyjściowych na podstawie unikatowych cech lub interakcji. Za pomocą stanu aranżacji niestandardowej kod po stronie klienta pozostanie ogólny. Wszystkie główne modyfikacje będą miały miejsce po stronie serwera, jak pokazano w poniższym przykładzie:
+Innym interesującym scenariuszem jest segmentacja użytkowników, zwracając dostosowane dane wyjściowe na podstawie unikatowych właściwości lub interakcji. Dzięki pomocy dotyczącej niestandardowego stanu aranżacji kod po stronie klienta pozostanie ogólny. Wszystkie podstawowe modyfikacje zostaną wykonane po stronie serwera, jak pokazano w następującym przykładzie:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```csharp
 [FunctionName("CityRecommender")]
@@ -194,7 +194,7 @@ public static void Run(
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -231,9 +231,9 @@ module.exports = df.orchestrator(function*(context) {
 
 ### <a name="instruction-specification"></a>Specyfikacja instrukcji
 
-Koordynator może dostarczyć unikatowe instrukcje do klientów za pośrednictwem stanu niestandardowego. Instrukcje stanu niestandardowego zostaną zamapowane na kroki w kodzie aranżacji:
+Koordynator może zapewnić klientom unikatowe instrukcje za pośrednictwem stanu niestandardowego. Niestandardowe instrukcje stanu zostaną zamapowane na kroki w kodzie aranżacji:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```csharp
 [FunctionName("ReserveTicket")]
@@ -261,7 +261,7 @@ public static async Task<bool> Run(
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -290,11 +290,11 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-## <a name="sample"></a>Sample
+## <a name="sample"></a>Przykład
 
 W poniższym przykładzie stan niestandardowy jest ustawiony jako pierwszy;
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```csharp
 public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrationContext context)
@@ -309,7 +309,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -327,13 +327,13 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-Gdy aranżacja jest uruchomiona, klienci zewnętrzni mogą pobrać ten stan niestandardowy:
+Po uruchomieniu aranżacji klienci zewnętrzni mogą pobrać ten stan niestandardowy:
 
 ```http
 GET /runtime/webhooks/durabletask/instances/instance123
 ```
 
-Klienci otrzymają następującą odpowiedź:
+Klienci otrzymają następujące odpowiedzi:
 
 ```json
 {
@@ -347,9 +347,9 @@ Klienci otrzymają następującą odpowiedź:
 ```
 
 > [!WARNING]
-> Ładunek stanu niestandardowego jest ograniczony do 16 KB tekstu JSON UTF-16, ponieważ musi być w stanie zmieścić się w kolumnie usługi Azure Table Storage. Zalecamy użycie magazynu zewnętrznego, jeśli potrzebujesz większego ładunku.
+> Niestandardowy ładunek stanu jest ograniczony do 16 KB tekstu JSON w formacie UTF-16, ponieważ musi być w stanie zmieścić się w kolumnie Table Storage platformy Azure. Zalecamy używanie magazynu zewnętrznego, jeśli potrzebny jest większy ładunek.
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o trwałych zegarach](durable-functions-timers.md)
+> [Więcej informacji na temat trwałych czasomierzy](durable-functions-timers.md)

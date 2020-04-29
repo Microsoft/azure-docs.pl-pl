@@ -1,30 +1,30 @@
 ---
-title: Sieci szkieletowej usługi Azure — przy użyciu aplikacji sieci szkieletowej usług KeyVault odwołania
-description: W tym artykule wyjaśniono, jak używać usługi sieci szkieletowej KeyVaultReference obsługi wpisów tajnych aplikacji.
+title: Service Fabric platformy Azure — korzystanie z Service Fabric odwołań do magazynu kluczy aplikacji
+description: W tym artykule wyjaśniono, jak używać obsługi KeyVaultReference usługi Service-Fabric dla wpisów tajnych aplikacji.
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: f7d8a083ea5ec4b66c29d392ee98927915465875
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76545487"
 ---
-#  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Obsługa keyvaultreference dla aplikacji sieci szkieletowej usług (wersja zapoznawcza)
+#  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Obsługa KeyVaultReference dla aplikacji Service Fabric (wersja zapoznawcza)
 
-Typowym wyzwaniem podczas tworzenia aplikacji w chmurze jest sposób bezpiecznego przechowywania wpisów tajnych wymaganych przez aplikację. Na przykład można zapisać poświadczenia repozytorium kontenera w keyvault i odwołać się do niego w manifeście aplikacji. Usługa Sieci szkieletowej KeyVaultReference używa tożsamości zarządzanej sieci szkieletowej usług i ułatwia odwoływanie się do wpisów tajnych kluczy. Poniżej dalsza część artykułu Szczegółowe informacje na temat używania usługi Fabric KeyVaultReference i zawiera niektóre typowe użycie.
+Typowym wyzwaniem podczas kompilowania aplikacji w chmurze jest sposób bezpiecznego przechowywania wpisów tajnych wymaganych przez aplikację. Na przykład możesz chcieć zapisać poświadczenia repozytorium kontenera w magazynie kluczy i odwołać się do niego w manifeście aplikacji. Service Fabric KeyVaultReference korzysta z tożsamości zarządzanej Service Fabric i ułatwia odwoływanie się do wpisów tajnych magazynu kluczy. W pozostałej części tego artykułu szczegółowo przedstawiono sposób korzystania z Service Fabric KeyVaultReference i zawiera on typowe użycie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Tożsamość zarządzana dla aplikacji (MIT)
     
-    Obsługa keyvaultreference sieci szkieletowej usług używa tożsamości zarządzanej aplikacji i dlatego aplikacje planujące użycie Funkcji KeyVaultReferences powinny używać tożsamości zarządzanej. Postępuj zgodnie z tym [dokumentem,](concepts-managed-identity.md) aby włączyć tożsamość zarządzana dla aplikacji.
+    Service Fabric obsługa KeyVaultReference korzysta z tożsamości zarządzanej aplikacji, w związku z czym aplikacje planujące użycie KeyVaultReferences powinny używać tożsamości zarządzanej. Postępuj zgodnie z tym [dokumentem](concepts-managed-identity.md) , aby włączyć zarządzaną tożsamość aplikacji.
 
-- Centralny Magazyn Tajemnic (CSS).
+- Magazyn centralnych wpisów tajnych (CSS).
 
-    Central Secrets Store (CSS) to zaszyfrowana lokalna pamięć podręczna wpisów tajnych sieci szkieletowej. CSS to lokalna pamięć podręczna magazynu tajne, która przechowuje poufne dane, takie jak hasło, tokeny i klucze, zaszyfrowane w pamięci. KeyVaultReference, po pobraniu, są buforowane w CSS.
+    Magazyn centralnych wpisów tajnych (CSS) jest Service Fabric zaszyfrowanych lokalnych kluczy tajnych. CSS to lokalna pamięć podręczna magazynu lokalnego wpisu tajnego, która przechowuje dane poufne, takie jak hasło, tokeny i klucze, szyfrowane w pamięci. KeyVaultReference, po pobraniu znajdują się w pamięci podręcznej w CSS.
 
-    Dodaj poniżej do konfiguracji `fabricSettings` klastra w ramach, aby włączyć wszystkie funkcje wymagane dla obsługi KeyVaultReference.
+    Dodaj poniżej do konfiguracji klastra, `fabricSettings` aby włączyć wszystkie funkcje wymagane do obsługi KeyVaultReference.
 
     ```json
     "fabricSettings": 
@@ -69,7 +69,7 @@ Typowym wyzwaniem podczas tworzenia aplikacji w chmurze jest sposób bezpieczneg
             "value": "<EncryptionCertificateThumbprint for CSS>"
         }
     ```
-Aby zmiany zostały wprowadzone, należy również zmienić zasady uaktualniania, aby określić silne ponowne uruchomienie środowiska uruchomieniowego sieci szkieletowej usług w każdym węźle w miarę postępu uaktualniania za pośrednictwem klastra. To ponowne uruchomienie gwarantuje, że nowo włączona usługa systemowa jest uruchomiona i uruchomiona w każdym węźle. We we wtorkowym urywku forceRestart jest podstawowym ustawieniem; użyj istniejących wartości dla pozostałych ustawień.
+Aby zmiany zaczęły obowiązywać, należy również zmienić zasady uaktualniania, aby określić wymuszenie ponownego uruchomienia Service Fabric środowiska uruchomieniowego na każdym węźle w miarę postępu uaktualniania przez klaster. To ponowne uruchomienie zapewnia, że nowo włączona usługa systemu zostanie uruchomiona i uruchomiona w każdym węźle. W poniższym fragmencie kodu forceRestart jest podstawowym ustawieniem. Użyj istniejących wartości dla pozostałej części ustawień.
 ```json
 "upgradeDescription": {
     "forceRestart": true,
@@ -81,23 +81,23 @@ Aby zmiany zostały wprowadzone, należy również zmienić zasady uaktualniania
     "upgradeTimeout": "12:00:00"
 }
 ```
-- Udzielanie aplikacji uprawnień dostępu do tożsamości zarządzanej do keyvault
+- Przyznawanie uprawnień dostępu do tożsamości zarządzanej aplikacji do magazynu kluczy
 
-    Odwołaj się do tego [dokumentu,](how-to-grant-access-other-resources.md) aby zobaczyć, jak udzielić dostępu do tożsamości zarządzanej do keyvault. Należy również zauważyć, że jeśli używasz tożsamości zarządzanej przypisanej do systemu, tożsamość zarządzana jest tworzona dopiero po wdrożeniu aplikacji.
+    Odwołuje się do tego [dokumentu](how-to-grant-access-other-resources.md) , aby dowiedzieć się, jak udzielić zarządzanej tożsamości dostępu do magazynu kluczy. Należy również pamiętać, że jeśli używasz tożsamości zarządzanej przypisanej przez system, tożsamość zarządzana jest tworzona dopiero po wdrożeniu aplikacji.
 
-## <a name="keyvault-secret-as-application-parameter"></a>Klucz tajny keyvault jako parametr aplikacji
-Załóżmy, że aplikacja musi odczytać hasło bazy danych wewnętrznej bazy danych przechowywane w keyvault, obsługa keyvaultreference sieci szkieletowej usługi ułatwia. Poniższy `DBPassword` przykład odczytuje klucz tajny z keyvault przy użyciu obsługi usługi Fabric KeyVaultReference.
+## <a name="keyvault-secret-as-application-parameter"></a>Wpis tajny magazynu kluczy jako parametr aplikacji
+Załóżmy, że aplikacja musi odczytać hasło bazy danych zaplecza przechowywane w magazynie kluczy, Service Fabric pomoc techniczną KeyVaultReference. Poniżej przykład odczytuje `DBPassword` wpis tajny z magazynu kluczy przy użyciu Service Fabric KeyVaultReference.
 
-- Dodawanie sekcji do pliku settings.xml
+- Dodaj sekcję do pliku Settings. XML
 
-    Definiowanie parametru `DBPassword` za pomocą typu `KeyVaultReference` i wartości`<KeyVaultURL>`
+    Zdefiniuj `DBPassword` parametr z typem `KeyVaultReference` i wartością`<KeyVaultURL>`
 
     ```xml
     <Section Name="dbsecrets">
         <Parameter Name="DBPassword" Type="KeyVaultReference" Value="https://vault200.vault.azure.net/secrets/dbpassword/8ec042bbe0ea4356b9b171588a8a1f32"/>
     </Section>
     ```
-- Odwoływać się do nowej sekcji w ApplicationManifest.xml w`<ConfigPackagePolicies>`
+- Odwołuje się do nowej sekcji w ApplicationManifest. XML w`<ConfigPackagePolicies>`
 
     ```xml
     <ServiceManifestImport>
@@ -113,9 +113,9 @@ Załóżmy, że aplikacja musi odczytać hasło bazy danych wewnętrznej bazy da
     </ServiceManifestImport>
     ```
 
-- Korzystanie z funkcji KeyVaultReference w aplikacji
+- Korzystanie z KeyVaultReference w aplikacji
 
-    Usługa Sieci szkieletowej w wystąpieniu usługi rozwiąże Parametr KeyVaultReference przy użyciu tożsamości zarządzanej aplikacji. Każdy parametr `<Section  Name=dbsecrets>` wymieniony w obszarze będzie plik w folderze wskazanym przez EnvironmentVariable SecretPath. Poniżej fragment kodu C# pokaż, jak odczytać DBPassword w aplikacji.
+    Service Fabric przy tworzeniu wystąpienia usługi rozwiąże parametr KeyVaultReference za pomocą tożsamości zarządzanej aplikacji. Każdy parametr w obszarze `<Section  Name=dbsecrets>` będzie plikiem w folderze wskazanym przez zmiennych środowiskowych SecretPath. Poniższy fragment kodu w języku C# pokazuje, jak odczytać dbpassword w aplikacji.
 
     ```C#
     string secretPath = Environment.GetEnvironmentVariable("SecretPath");
@@ -126,11 +126,11 @@ Załóżmy, że aplikacja musi odczytać hasło bazy danych wewnętrznej bazy da
     }
     ```
     > [!NOTE] 
-    > W scenariuszu kontenera można użyć MountPoint `secrets` do kontrolowania, gdzie zostanie zainstalowany.
+    > W scenariuszu kontenera można użyć MountPoint, aby określić, `secrets` gdzie zostanie zainstalowana.
 
-## <a name="keyvault-secret-as-environment-variable"></a>Klucz tajny keyvault jako zmienna środowiskowa
+## <a name="keyvault-secret-as-environment-variable"></a>Wpis tajny magazynu kluczy jako zmienna środowiskowa
 
-Zmienne środowiskowe sieci szkieletowej usług obsługują teraz typ KeyVaultReference, w poniższym przykładzie pokazano, jak powiązać zmienną środowiskową z kluczem tajnym przechowywanym w keyvault.
+Zmienne środowiskowe Service Fabric obsługują teraz typ KeyVaultReference, poniżej przedstawiono sposób powiązania zmiennej środowiskowej z wpisem tajnym przechowywanym w magazynie kluczy.
 
 ```xml
 <EnvironmentVariables>
@@ -141,21 +141,21 @@ Zmienne środowiskowe sieci szkieletowej usług obsługują teraz typ KeyVaultRe
 ```C#
 string eventStorePassword =  Environment.GetEnvironmentVariable("EventStorePassword");
 ```
-## <a name="keyvault-secret-as-container-repository-password"></a>Keyvault tajny jako hasło repozytorium kontenerów
-KeyVaultReference jest obsługiwanym typem dla repozytorium kontenerówCredentials, poniżej pokazano, jak używać odwołania keyvault jako hasło repozytorium kontenera.
+## <a name="keyvault-secret-as-container-repository-password"></a>Wpis tajny magazynu kluczy jako hasło repozytorium kontenera
+KeyVaultReference jest obsługiwanym typem kontenera RepositoryCredentials, poniżej pokazano, jak używać odwołania do magazynu kluczy jako hasła repozytorium kontenerów.
 ```xml
  <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="user1" Type="KeyVaultReference" Password="https://ttkvault.vault.azure.net/secrets/containerpwd/e225bd97e203430d809740b47736b9b8"/>
       </ContainerHostPolicies>
 ```
-## <a name="faq"></a>Najczęściej zadawane pytania
-- Tożsamość zarządzana musi być włączona dla obsługi KeyVaultReference, aktywacja aplikacji zakończy się niepowodzeniem, jeśli KeyVaultReference jest używany bez włączania tożsamości zarządzanej.
+## <a name="faq"></a>Często zadawane pytania
+- Tożsamość zarządzana musi być włączona na potrzeby obsługi KeyVaultReference, jednak aktywacja aplikacji zakończy się niepowodzeniem, jeśli KeyVaultReference jest używany bez włączania tożsamości zarządzanej.
 
-- Jeśli używasz tożsamości przypisanej do systemu, jest ona tworzona tylko po wdrożeniu aplikacji, co powoduje utworzenie zależności cyklicznej. Po wdrożeniu aplikacji można udzielić systemowi uprawnienia dostępu do tożsamości przypisanemu do usługi keyvault. Tożsamość przypisaną do systemu można znaleźć według nazwy {cluster}/{nazwa aplikacji}/{nazwa usługi}
+- Jeśli używasz tożsamości przypisanej do systemu, jest ona tworzona dopiero po wdrożeniu aplikacji i spowoduje to utworzenie zależności cyklicznej. Po wdrożeniu aplikacji można przyznać systemowi uprawnienia dostępu do tożsamości dla magazynu kluczy. Tożsamość przypisaną przez system można znaleźć według nazwy {Cluster}/{Application Name}/{ServiceName}
 
-- Keyvault musi być w tej samej subskrypcji co klaster sieci szkieletowej usług. 
+- Magazyn kluczy musi znajdować się w tej samej subskrypcji co klaster usługi Service Fabric. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dokumentacja usługi Azure KeyVault](https://docs.microsoft.com/azure/key-vault/)
+* [Dokumentacja usługi Azure — Magazyn kluczy](https://docs.microsoft.com/azure/key-vault/)

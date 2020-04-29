@@ -9,33 +9,33 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: include file
 ms.openlocfilehash: a5c1ddd085ae65b9920d73f50f993f4646785a69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68883836"
 ---
 ## <a name="create-a-module-identity"></a>Tworzenie tożsamości modułu
 
-W tej sekcji utworzysz aplikację konsoli .NET, która tworzy tożsamość urządzenia i tożsamość modułu w rejestrze tożsamości w centrum. Urządzenie lub moduł nie może połączyć się z koncentratorem, chyba że ma wpis w rejestrze tożsamości. Więcej informacji znajduje się w sekcji [Identity registry (Rejestr tożsamości) artykułu IoT Hub developer guide](../articles/iot-hub/iot-hub-devguide-identity-registry.md) (Usługa IoT Hub — przewodnik dewelopera).
+W tej sekcji utworzysz aplikację konsolową platformy .NET, która tworzy tożsamość urządzenia i tożsamość modułu w rejestrze tożsamości w centrum. Urządzenie lub moduł nie może połączyć się z centrum, chyba że ma wpis w rejestrze tożsamości. Więcej informacji znajduje się w sekcji [Identity registry (Rejestr tożsamości) artykułu IoT Hub developer guide](../articles/iot-hub/iot-hub-devguide-identity-registry.md) (Usługa IoT Hub — przewodnik dewelopera).
 
-Uruchomienie tej aplikacji konsolowej powoduje wygenerowanie unikatowego identyfikatora i klucza zarówno dla urządzenia, jak i modułu. Urządzenie i moduł używają tych wartości do identyfikowania się podczas wysyłania komunikatów z urządzenia do chmury do usługi IoT Hub. W identyfikatorach jest uwzględniana wielkość liter.
+Uruchomienie tej aplikacji konsolowej powoduje wygenerowanie unikatowego identyfikatora i klucza zarówno dla urządzenia, jak i modułu. Twoje urządzenie i moduł używają tych wartości, aby identyfikować je podczas wysyłania komunikatów z urządzenia do chmury do IoT Hub. W identyfikatorach jest uwzględniana wielkość liter.
 
-1. Otwórz program Visual Studio i wybierz pozycję **Utwórz nowy projekt**.
+1. Otwórz program Visual Studio, a następnie wybierz pozycję **Utwórz nowy projekt**.
 
-1. W **obszarze Tworzenie nowego projektu**wybierz pozycję Aplikacja konsoli **(.NET Framework).**
+1. W obszarze **Utwórz nowy projekt**wybierz pozycję **aplikacja konsoli (.NET Framework)**.
 
-1. Wybierz **przycisk Dalej,** aby otworzyć pole wyboru **Konfiguruj nowy projekt**. Nadaj projektowi nazwę *CreateIdentities*, a rozwiązaniu *IoTHubGetStarted*. Upewnij się, że program .NET Framework jest w wersji 4.6.1 lub nowszej.
+1. Wybierz pozycję **dalej** , aby otworzyć okno **Konfigurowanie nowego projektu**. Nadaj projektowi nazwę *CreateIdentities*, a rozwiązaniu *IoTHubGetStarted*. Upewnij się, że program .NET Framework jest w wersji 4.6.1 lub nowszej.
 
-    ![Wprowadzanie nazwy i struktury rozwiązania programu Visual Studio](./media/iot-hub-get-started-create-module-identity-csharp/configure-createidentities-project.png)
+    ![Podaj nazwę i strukturę rozwiązania programu Visual Studio](./media/iot-hub-get-started-create-module-identity-csharp/configure-createidentities-project.png)
 
-1. W programie Visual Studio otwórz **program Tools** > **NuGet Package Manager** > **Manage NuGet Packages for Solution**. Wybierz kartę **Przeglądaj**.
+1. W programie Visual Studio Otwórz pozycję **Narzędzia** > **Menedżer** > pakietów NuGet**Zarządzanie pakietami NuGet dla rozwiązania**. Wybierz kartę **Przeglądaj**.
 
-1. Wyszukaj **witrynę Microsoft.Azure.Devices**. Wybierz go, a następnie wybierz pozycję **Zainstaluj**.
+1. Wyszukaj ciąg **Microsoft. Azure. Devices**. Zaznacz go, a następnie wybierz pozycję **Zainstaluj**.
 
-    ![Instalowanie bieżącej wersji pakietu SDK usługi Azure IoT Hub .NET](./media/iot-hub-get-started-create-module-identity-csharp/install-service-sdk.png)
+    ![Zainstaluj bieżącą wersję zestawu SDK usługi .NET IoT Hub platformy Azure](./media/iot-hub-get-started-create-module-identity-csharp/install-service-sdk.png)
 
-1. Dodaj następujące `using` instrukcje w górnej części pliku **Program.cs:**
+1. Dodaj następujące `using` instrukcje w górnej części pliku **program.cs** :
 
    ```csharp
    using Microsoft.Azure.Devices;
@@ -50,7 +50,7 @@ Uruchomienie tej aplikacji konsolowej powoduje wygenerowanie unikatowego identyf
    const string moduleID = "myFirstModule";
    ```
 
-1. Dodaj następujący kod do **Main** klasy.
+1. Dodaj następujący kod do klasy **Main** .
 
    ```csharp
    static void Main(string[] args)
@@ -102,13 +102,13 @@ Uruchomienie tej aplikacji konsolowej powoduje wygenerowanie unikatowego identyf
     }
     ```
 
-    Metoda `AddDeviceAsync` tworzy tożsamość urządzenia z identyfikatorem **myFirstDevice**. Jeśli ten identyfikator urządzenia już istnieje w rejestrze tożsamości, kod po prostu pobiera istniejące informacje o urządzeniu. Aplikacja następnie wyświetla klucz podstawowy dla tej tożsamości. Ten klucz jest używany w aplikacji symulowanego urządzenia, aby połączyć się z koncentratorem.
+    `AddDeviceAsync` Metoda tworzy tożsamość urządzenia o identyfikatorze **myFirstDevice**. Jeśli ten identyfikator urządzenia już istnieje w rejestrze tożsamości, kod po prostu pobiera istniejące informacje o urządzeniu. Aplikacja następnie wyświetla klucz podstawowy dla tej tożsamości. Ten klucz jest używany w aplikacji symulowanego urządzenia do łączenia się z centrum.
 
-    Metoda `AddModuleAsync` tworzy tożsamość modułu z identyfikatorem **myFirstModule** pod **urządzeniem myFirstDevice**. Jeśli ten identyfikator modułu już istnieje w rejestrze tożsamości, kod po prostu pobiera istniejące informacje o module. Aplikacja następnie wyświetla klucz podstawowy dla tej tożsamości. Ten klucz jest używany w aplikacji symulowanego modułu, aby połączyć się z koncentratorem.
+    `AddModuleAsync` Metoda tworzy tożsamość modułu o identyfikatorze **myFirstModule** w obszarze Device **myFirstDevice**. Jeśli ten identyfikator modułu już istnieje w rejestrze tożsamości, kod po prostu pobiera informacje o istniejących modułach. Aplikacja następnie wyświetla klucz podstawowy dla tej tożsamości. Ten klucz jest używany w aplikacji symulowanego modułu do łączenia się z centrum.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 1. Uruchom tę aplikację i zanotuj klucz urządzenia i klucz modułu.
 
 > [!NOTE]
-> Rejestr tożsamości usługi IoT Hub przechowuje tylko tożsamości urządzeń i modułów, aby umożliwić bezpieczny dostęp do koncentratora. W rejestrze tożsamości są przechowywane identyfikatory urządzeń i klucze służące jako poświadczenia zabezpieczeń. W rejestrze tożsamości są także przechowywane flagi włączenia/wyłączenia dla każdego urządzenia, za pomocą których można wyłączyć dostęp do danego urządzenia. Jeśli aplikacja musi przechowywać inne metadane specyficzne dla urządzenia, należy użyć magazynu specyficzne dla aplikacji. Nie istnieje flaga włączenia/wyłączenia tożsamości modułów. Więcej informacji znajduje się w temacie [IoT Hub Developer Guide](../articles/iot-hub/iot-hub-devguide-identity-registry.md) (Usługa IoT Hub — przewodnik dewelopera).
+> W rejestrze tożsamości IoT Hub są przechowywane tylko tożsamości urządzeń i modułów w celu zapewnienia bezpiecznego dostępu do centrum. W rejestrze tożsamości są przechowywane identyfikatory urządzeń i klucze służące jako poświadczenia zabezpieczeń. W rejestrze tożsamości są także przechowywane flagi włączenia/wyłączenia dla każdego urządzenia, za pomocą których można wyłączyć dostęp do danego urządzenia. Jeśli aplikacja wymaga przechowywania innych metadanych specyficznych dla urządzenia, należy użyć magazynu specyficznego dla aplikacji. Nie istnieje flaga włączenia/wyłączenia tożsamości modułów. Więcej informacji znajduje się w temacie [IoT Hub Developer Guide](../articles/iot-hub/iot-hub-devguide-identity-registry.md) (Usługa IoT Hub — przewodnik dewelopera).

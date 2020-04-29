@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
 ms.openlocfilehash: d5af557a62f4bd35c242d334c28a38c3d632f7cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67183691"
 ---
-1. [Połącz się z interfejsem programu PowerShell](#connect-to-the-powershell-interface).
-2. Użyj, `Get-HcsApplianceInfo` aby uzyskać informacje o urządzeniu.
+1. [Nawiąż połączenie z interfejsem programu PowerShell](#connect-to-the-powershell-interface).
+2. Aby uzyskać `Get-HcsApplianceInfo` informacje dotyczące urządzenia, użyj programu.
 
-    W poniższym przykładzie przedstawiono użycie tego polecenia cmdlet:
+    W poniższym przykładzie pokazano użycie tego polecenia cmdlet:
 
     ```
     [10.100.10.10]: PS>Get-HcsApplianceInfo
@@ -43,16 +43,16 @@ ms.locfileid: "67183691"
     IsRegistered                  : False
     ```
 
-    Oto tabela podsumowująca niektóre ważne informacje o urządzeniu:
+    Poniżej przedstawiono tabelę podsumowującą niektóre ważne informacje o urządzeniu:
     
     | Parametr                             | Opis                                                                                                                                                  |   |
     |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-    | FriendlyName                   | Przyjazna nazwa urządzenia skonfigurowana za pośrednictwem lokalnego interfejsu użytkownika sieci web podczas wdrażania urządzenia. Domyślną przyjazną nazwą jest numer seryjny urządzenia.  |   |
-    | SerialNumber                   | Numer seryjny urządzenia to unikatowy numer przypisany fabrycznie.                                                                             |   |
-    | Model                          | Model urządzenia Data Box Edge lub Data Box Gateway. Model jest wirtualny dla bramy pola danych i fizyczny dla krawędzi pola danych.                   |   |
-    | Wersja friendlysoftware        | Przyjazny ciąg odpowiadający wersji oprogramowania urządzenia. W przypadku systemu działającego w wersji zapoznawczej przyjazną wersją oprogramowania będzie Data Box Edge 1902. |   |
-    | Wersja HcsVersion                     | Wersja oprogramowania HCS działająca na urządzeniu. Na przykład wersja oprogramowania HCS odpowiadająca Data Box Edge 1902 to 1.4.771.324.            |   |
-    | LokalnapędnośćInMb              | Całkowita pojemność lokalna urządzenia w Megabitach.                                                                                                        |   |
-    | Czyzarejestrowane                   | Ta wartość wskazuje, czy urządzenie jest aktywowane w usłudze.                                                                                         |   |
+    | FriendlyName                   | Przyjazna nazwa urządzenia skonfigurowana za pomocą lokalnego interfejsu użytkownika sieci Web podczas wdrażania urządzenia. Domyślną przyjazną nazwą jest numer seryjny urządzenia.  |   |
+    | SerialNumber                   | Numer seryjny urządzenia jest unikatowym numerem przypisanym w fabryce.                                                                             |   |
+    | Model                          | Model dla Data Box Edge lub Data Box Gateway urządzenia. Model jest wirtualny dla Data Box Gateway i fizycznych dla Data Box Edge.                   |   |
+    | FriendlySoftwareVersion        | Przyjazny ciąg, który odpowiada wersji oprogramowania urządzenia. W przypadku systemu z systemem w wersji zapoznawczej przyjazna wersja oprogramowania byłaby Data Box Edge 1902. |   |
+    | HcsVersion                     | Wersja oprogramowania magazynu HCS uruchomiona na urządzeniu. Na przykład magazynu HCS wersja oprogramowania odpowiadająca Data Box Edge 1902 to 1.4.771.324.            |   |
+    | LocalCapacityInMb              | Całkowita pojemność lokalnego urządzenia w megabitach.                                                                                                        |   |
+    | IsRegistered                   | Ta wartość wskazuje, czy urządzenie jest aktywowane z usługą.                                                                                         |   |
 
 

@@ -9,21 +9,21 @@ ms.date: 10/09/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 98d765e2f6909f00f8dfe76d06aef017aad67adf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71174977"
 ---
 ## <a name="terminology"></a>Terminologia
 
 Obraz portalu Marketplace na platformie Azure ma następujące atrybuty:
 
-* **Wydawca**: Organizacja, która utworzyła obraz. Przykłady: Canonical, MicrosoftWindowsServer
+* **Wydawca**: organizacja, która utworzyła obraz. Przykłady: Canonical, MicrosoftWindowsServer
 * **Oferta**: Nazwa grupy powiązanych obrazów utworzonych przez wydawcę. Przykłady: UbuntuServer, WindowsServer
-* **Jednostka SKU**: Wystąpienie oferty, takie jak główne wydanie dystrybucji. Przykłady: 18.04-LTS, 2019-Datacenter
-* **Wersja**: Numer wersji jednostki SKU obrazu. 
+* **Jednostka SKU**: wystąpienie oferty, takie jak główna wersja dystrybucji. Przykłady: 18,04-LTS, 2019-Datacenter
+* **Wersja**: numer wersji jednostki SKU obrazu. 
 
-Aby zidentyfikować obraz portalu Marketplace podczas programowego wdrażania maszyny Wirtualnej, należy podać te wartości indywidualnie jako parametry. Niektóre narzędzia akceptują obraz *URN*, który łączy te wartości, oddzielone dwukropkiem (:) znak: *Wydawca*:*Oferta*:*Sku*:*Wersja*. W urnie można zastąpić numer wersji "najnowszą", która wybiera najnowszą wersję obrazu. 
+Aby zidentyfikować obraz z witryny Marketplace podczas programistycznego wdrażania maszyny wirtualnej, należy podać te wartości osobno jako parametry. Niektóre narzędzia akceptują *nazwę URN*obrazu, która łączy te wartości, rozdzielając je średnikiem (:) znak: *Wydawca*:*Oferta*:*SKU*:*wersja*. W nazwie URN można zastąpić numer wersji "najnowszy", co spowoduje wybranie najnowszej wersji obrazu. 
 
-Jeśli wydawca obrazu udostępnia dodatkowe warunki licencji i zakupu, należy zaakceptować te warunki i włączyć wdrażanie programowe. Podczas programowego wdrażania maszyny wirtualnej należy również podać parametry *planu zakupu.* Zobacz [Wdrażanie obrazu z terminami w portalu Marketplace](#deploy-an-image-with-marketplace-terms).
+Jeśli Wydawca obrazu udostępni dodatkowe warunki licencji i zakupu, należy zaakceptować te warunki i włączyć wdrażanie programistyczne. Należy również podać parametry *planu zakupu* przy programistycznym wdrażaniu maszyny wirtualnej. Zobacz [wdrażanie obrazu z warunkami witryny Marketplace](#deploy-an-image-with-marketplace-terms).

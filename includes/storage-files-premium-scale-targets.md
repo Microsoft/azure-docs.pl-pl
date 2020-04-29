@@ -5,29 +5,29 @@ ms.topic: include
 ms.date: 06/07/2019
 ms.author: rogarana
 ms.openlocfilehash: b28427b3ede0cfaeb9e08d3c73b15ea7f2961f1b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "71180064"
 ---
-#### <a name="additional-premium-file-share-level-limits"></a>Dodatkowe limity poziomu udziału plików premium
+#### <a name="additional-premium-file-share-level-limits"></a>Dodatkowe limity poziomów udziałów plików w warstwie Premium
 
 |Obszar  |Środowisko docelowe  |
 |---------|---------|
-|Minimalny wzrost/spadek rozmiaru    |1 Gib      |
-|Bazowe we/wy    |1 IOPS na GiB, do 100 000|
-|Rozerwanie we/wy    |3x IOPS na GiB, do 100 000|
-|Szybkość ruchu wychodzącego         |60 MiB/s + 0,06 * Aprowizowana GiB        |
-|Wskaźnik transferu wnikacza| 40 MiB/s + 0,04 * Aprowizowana GiB |
+|Minimalny wzrost/zmniejszenie rozmiaru    |1 GiB      |
+|Liczba IOPS linii bazowej    |1 Liczba operacji we/wy na sekundę, do 100 000|
+|Rozerwanie operacji we/wy    |3 razy dziennie operacji we/wy na GiB, do 100 000|
+|Szybkość ruchu wychodzącego         |60 MiB/s + 0,06 * GiB aprowizacji        |
+|Szybkość transferu danych przychodzących| 40 MiB/s + 0,04 * GiB aprowizacji |
 
 #### <a name="file-level-limits"></a>Limity poziomów plików
 
 |Obszar  |Plik Premium  |Plik standardowy |
 |---------|---------|---------|
 |Rozmiar                  |1 TiB         |1 TiB|
-|Maksymalna liczba IOPS na plik     |5000         |1000|
-|Dojście współbieżne    |2000         |2000|
+|Maksymalna liczba operacji we/wy na plik     |5000         |1000|
+|Równoczesne uchwyty    |2000         |2000|
 |Ruch wychodzący  |300 MiB/s|      Zobacz standardowe wartości przepływności plików|
 |Ruch przychodzący  |200 MiB/s| Zobacz standardowe wartości przepływności plików|
-|Przepływność| Zobacz wartości transferu ruchu przychodzącego/wychodzącego pliku premium| Do 60 MiB/s|
+|Przepływność| Zobacz wartości wejściowe/wyjściowe plików w warstwie Premium| Do 60 MiB/s|

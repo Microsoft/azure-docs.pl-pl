@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 1cf5bbdad555c50c418851904f36a578522843b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67183293"
 ---
 #### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>Aby utworzyć publiczne punkty końcowe na urządzeniu w chmurze
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 2. Kliknij opcję **Maszyny wirtualne**, a następnie wybierz maszynę wirtualną, która jest używana jako urządzenie w chmurze.
     
 3. Musisz utworzyć regułę sieciowej grupy zabezpieczeń, aby kontrolować przepływ ruchu do i z maszyny wirtualnej. Wykonaj poniższe kroki, aby utworzyć regułę sieciowej grupy zabezpieczeń.

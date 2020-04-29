@@ -9,32 +9,32 @@ ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: be71b269e618d13a126e4005754b307e9c6517d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67183225"
 ---
 ## <a name="azure-backup"></a>Azure Backup
 
-Aby wykonać kopię zapasową maszyn wirtualnych platformy Azure z uruchomionymi obciążeniami produkcyjnymi, użyj usługi Azure Backup. Usługa Azure Backup obsługuje kopie zapasowe spójne z aplikacjami zarówno dla maszyn wirtualnych z systemem Windows, jak i linux. Usługa Azure Backup tworzy punkty odzyskiwania przechowywane w geograficznie nadmiarowych magazynach odzyskiwania. Z punktu odzyskiwania można przywrócić całą maszynę wirtualną lub tylko poszczególne pliki. 
+Aby utworzyć kopię zapasową maszyn wirtualnych platformy Azure z uruchomionymi obciążeniami produkcyjnymi, użyj Azure Backup. Azure Backup obsługuje kopie zapasowe spójne z aplikacjami zarówno dla maszyn wirtualnych z systemem Windows, jak i Linux. Usługa Azure Backup tworzy punkty odzyskiwania przechowywane w geograficznie nadmiarowych magazynach odzyskiwania. Z punktu odzyskiwania można przywrócić całą maszynę wirtualną lub tylko poszczególne pliki. 
 
-Aby zapoznać się z prostym, praktycznym wprowadzeniem do usługi Azure Backup for Azure VMs, zobacz samouczek "Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure" dla [systemu Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) lub [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).
+Aby uzyskać proste, praktyczne wprowadzenie do Azure Backup dla maszyn wirtualnych platformy Azure, zobacz samouczek "Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure" dla [systemu](../articles/virtual-machines/windows/tutorial-backup-vms.md) [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) lub Windows.
 
-Aby uzyskać więcej informacji na temat działania usługi Azure Backup, zobacz [Planowanie infrastruktury kopii zapasowej maszyny Wirtualnej na platformie Azure](../articles/backup/backup-azure-vms-introduction.md)
+Aby uzyskać więcej informacji na temat działania Azure Backup, zobacz [Planowanie infrastruktury kopii zapasowych maszyn wirtualnych na platformie Azure](../articles/backup/backup-azure-vms-introduction.md)
 
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 
-Usługa Azure Site Recovery chroni maszyny wirtualne przed poważnym scenariuszem awarii, gdy w całym regionie wystąpi awaria spowodowana poważną klęską żywiołową lub powszechną przerwą w świadczeniu usług. Można skonfigurować usługę Azure Site Recovery dla maszyn wirtualnych, dzięki czemu można odzyskać aplikację za pomocą jednego kliknięcia w ciągu kilku minut. Można replikować do wybranego regionu platformy Azure, nie jest ograniczona do sparowanych regionów. 
+Azure Site Recovery chroni maszyny wirtualne przed głównym scenariuszem awarii, gdy cały region napotyka awarię ze względu na główne klęski żywiołowe lub rozległe przerwy w działaniu usługi. Można skonfigurować Azure Site Recovery dla maszyn wirtualnych, aby umożliwić odzyskanie aplikacji za pomocą jednego kliknięcia w kilka minut. Możesz przeprowadzić replikację do wybranego regionu platformy Azure, nie jest ograniczona do sparowanych regionów. 
 
-Można uruchomić ćwiczenia odzyskiwania po awarii z testami na żądanie, bez wpływu na obciążenia produkcyjne lub ciągłą replikację. Tworzenie planów odzyskiwania do organizowania pracy awaryjnej i powrotu po awarii całej aplikacji uruchomionej na wielu maszynach wirtualnych. Funkcja planu odzyskiwania jest zintegrowana z elementami runbook automatyzacji platformy Azure.
+Można uruchomić testy awaryjne odzyskiwania po awarii, korzystając z przechodzenia do trybu failover na żądanie, bez wpływu na obciążenia produkcyjne lub trwającą replikację. Utwórz plany odzyskiwania, aby organizować tryb failover i powrót po awarii całej aplikacji uruchomionej na wielu maszynach wirtualnych. Funkcja planu odzyskiwania jest zintegrowana z elementami Runbook usługi Azure Automation.
 
-Można rozpocząć, [replikując maszyny wirtualne](https://aka.ms/a2a-getting-started). 
+Możesz rozpocząć od [replikowania maszyn wirtualnych](https://aka.ms/a2a-getting-started). 
 
-## <a name="managed-snapshots"></a>Migawki zarządzane 
+## <a name="managed-snapshots"></a>Zarządzane migawki 
 
-W środowiskach deweloperskich i testowych migawki zapewniają szybką i prostą opcję tworzenia kopii zapasowych maszyn wirtualnych korzystających z dysków zarządzanych. Migawka zarządzana jest pełną kopią dysku zarządzanego tylko do odczytu. Migawki istnieją niezależnie od dysku źródłowego i mogą służyć do tworzenia nowych dysków zarządzanych do odbudowy maszyny Wirtualnej. Są one rozliczane na podstawie używanej części dysku. Na przykład jeśli utworzysz migawkę dysku zarządzanego o aprowizowanym pojemności 64 GB i rzeczywistym rozmiarze używanych danych 10 GB, migawka będzie rozliczana tylko dla używanego rozmiaru danych 10 GB.  
+W środowiskach deweloperskich i testowych migawki zapewniają szybką i prostą opcję tworzenia kopii zapasowych maszyn wirtualnych używających Managed Disks. Zarządzana migawka to pełna kopia dysku zarządzanego tylko do odczytu. Migawki istnieją niezależnie od dysku źródłowego i mogą być używane do tworzenia nowych dysków zarządzanych na potrzeby odbudowywania maszyny wirtualnej. Opłaty są naliczane na podstawie użytej części dysku. Jeśli na przykład utworzysz migawkę dysku zarządzanego o pojemności 64 GB i rzeczywistą ilość danych wynoszącą 10 GB, będzie ona rozliczana tylko za użyty rozmiar danych wynoszący 10 GB.  
 
 Aby uzyskać więcej informacji na temat tworzenia migawek, zobacz:
 
@@ -44,4 +44,4 @@ Aby uzyskać więcej informacji na temat tworzenia migawek, zobacz:
 
 
 ## <a name="next-steps"></a>Następne kroki
-Możesz wypróbować usługę Azure Backup, wykonując "Tworzenie kopii zapasowych maszyn wirtualnych systemu Windows" dla [systemu Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) lub [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).
+Azure Backup można wypróbować, postępując zgodnie z samouczkiem "Tworzenie kopii zapasowej maszyn wirtualnych systemu Windows" w systemie [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) lub [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).

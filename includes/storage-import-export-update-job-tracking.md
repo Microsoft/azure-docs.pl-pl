@@ -9,21 +9,21 @@ ms.date: 07/17/2018
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: 5aa64671cddf2542972ac753c0132a5abebaebfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67183445"
 ---
-Po wysłaniu dysków wróć do strony **Importuj/Eksportuj** w witrynie Azure Portal. 
+Po wysłaniu dysków Wróć na stronę **Importuj/Eksportuj** na Azure Portal. 
 
 > [!IMPORTANT] 
 > Jeśli numer śledzenia nie zostanie zaktualizowany w ciągu 2 tygodni od utworzenia zadania, zadanie wygaśnie. 
 
 Aby zaktualizować numer śledzenia, wykonaj następujące czynności.
  
-1. Zaznacz i kliknij zadanie.
-2. Kliknij **pozycję Aktualizuj stan zadania i informacje o śledzeniu po wysłaniu dysków**. 
-3. Zaznacz pole wyboru względem **Oznacz jako wysłane**.
-4. Podaj **numer** **przewoźnika** i śledzenia .
-5. Śledzenie postępu zadania na pulpicie nawigacyjnym portalu. Aby uzyskać opis każdego stanu zadania, przejdź do [witryny Wyświetlanie stanu zadania](../articles/storage/common/storage-import-export-view-drive-status.md).
+1. Wybierz i kliknij zadanie.
+2. Kliknij pozycję **Aktualizuj stan zadania i informacje śledzenia po wysłaniu dysków**. 
+3. Zaznacz pole wyboru obok pola **Oznacz jako wysłane**.
+4. Podaj numer **operatora** i **śledzenia**.
+5. Śledź postęp zadania na pulpicie nawigacyjnym portalu. Aby zapoznać się z opisem każdego stanu zadania, przejdź do [widoku stanu zadania](../articles/storage/common/storage-import-export-view-drive-status.md).

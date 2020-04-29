@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 02274bacb66a33ef54e07bc8113d7db46d4d5296
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67183421"
 ---
 #### <a name="to-add-a-storsimple-backup-policy"></a>Aby dodać zasady kopii zapasowych danych StorSimple
@@ -23,7 +23,7 @@ ms.locfileid: "67183421"
    
    1. Pole **Wybierz urządzenie** jest automatycznie wypełniane na podstawie wybranego urządzenia.
    
-   2. Określ **nazwę zasad** kopii zapasowej zawierającą od 3 do 150 znaków. Po utworzeniu zasad nie można zmienić ich nazwy.
+   2. Określ **nazwę zasad** kopii zapasowych o długości od 3 do 150 znaków. Po utworzeniu zasad nie można zmienić ich nazwy.
        
    3. Aby przypisać woluminy do tych zasad kopii zapasowych, wybierz pozycję **Dodaj woluminy**, a następnie na tabelarycznej liście woluminów kliknij pola wyboru, aby przypisać woluminy do tych zasad kopii zapasowych.
 
@@ -35,7 +35,7 @@ ms.locfileid: "67183421"
 
        1. Dla pozycji **Typ migawki** wybierz opcję **Chmura** lub **Lokalna**.
 
-       2. Wskaż częstotliwość tworzenia kopii zapasowych (określ liczbę, a następnie wybierz pozycję **Dni** lub **Tygodnie** z listy rozwijanej.
+       2. Wskaż częstotliwość wykonywania kopii zapasowych (Określ liczbę, a następnie wybierz z listy rozwijanej pozycję **dni** lub **tygodnie** ).
 
        3. Wprowadź harmonogram przechowywania.
 

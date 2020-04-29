@@ -9,22 +9,22 @@ ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
 ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67183170"
 ---
-Maszyny wirtualne platformy Azure (VM) przechodzą przez różne stany, które można podzielić na stany *inicjowania obsługi administracyjnej* i *zasilania.* Celem tego artykułu jest opisanie tych stanów, a w szczególności wyróżnienie, gdy klienci są rozliczane na przykład użycie. 
+Usługa Azure Virtual Machines (VM) umożliwia przechodzenie między różnymi stanami, które można podzielić na możliwości *aprowizacji* *i Stany* . Celem tego artykułu jest opisywanie tych stanów i wyraźne wyróżnienie, gdy klienci są rozliczani za użycie wystąpień. 
 
 ## <a name="power-states"></a>Stany zasilania
 
-Stan zasilania reprezentuje ostatni znany stan maszyny Wirtualnej.
+Stan zasilacza reprezentuje ostatni znany stan maszyny wirtualnej.
 
-![Diagram stanu zasilania maszyny Wirtualnej](./media/virtual-machines-common-states-lifecycle/vm-power-states.png)
+![Diagram stanu baterii maszyny wirtualnej](./media/virtual-machines-common-states-lifecycle/vm-power-states.png)
 
 <br>
-Poniższa tabela zawiera opis każdego stanu wystąpienia i wskazuje, czy jest rozliczane za użycie wystąpienia, czy nie.
+Poniższa tabela zawiera opis każdego stanu wystąpienia i wskazuje, czy jest rozliczana za użycie wystąpienia, czy nie.
 
 <table>
 <tr>
@@ -35,12 +35,12 @@ Stan
 Opis
 </th>
 <th>
-Rozliczanie użycia wystąpienia
+Rozliczenia użycia wystąpienia
 </th>
 </tr>
 <tr>
 <td>
-<p><b>Zaczynając</b></p>
+<p><b>Uruchamianie</b></p>
 </td>
 <td>
 <p>Maszyna wirtualna jest uruchamiana.</p>
@@ -53,7 +53,7 @@ Rozliczanie użycia wystąpienia
     ]</code><br>
 </td>
 <td>
-<p><b>Niezaliczone rachunki</b></p>
+<p><b>Bez opłat</b></p>
 </td>
 </tr>
 <tr>
@@ -61,7 +61,7 @@ Rozliczanie użycia wystąpienia
 <p><b>Uruchomiono</b></p>
 </td>
 <td>
-<p>Normalny stan roboczy maszyny Wirtualnej</p>
+<p>Normalny stan roboczy dla maszyny wirtualnej</p>
 <code>"statuses": [<br>
  {<br>
  "code": "PowerState/running",<br>
@@ -79,7 +79,7 @@ Rozliczanie użycia wystąpienia
 <p><b>Zatrzymywanie</b></p>
 </td>
 <td>
-<p>Jest to stan przejściowy. Po zakończeniu zostanie wyświetlona jako **Zatrzymana**.</p>
+<p>Jest to stan przejściowy. Po zakończeniu będzie wyświetlana jako **zatrzymana**.</p>
 <code>"statuses": [<br>
  {<br>
  "code": "PowerState/stopping",<br>
@@ -97,8 +97,8 @@ Rozliczanie użycia wystąpienia
 <p><b>Zatrzymano</b></p>
 </td>
 <td>
-<p>Maszyna wirtualna została zamknięta z poziomu systemu operacyjnego gościa lub przy użyciu interfejsów API usługi PowerOff.</p>
-<p>Sprzęt jest nadal przydzielany do maszyny Wirtualnej i pozostaje na hoście. </p>
+<p>Maszyna wirtualna została zamknięta z poziomu systemu operacyjnego gościa lub przy użyciu interfejsów API wyłączenie.</p>
+<p>Sprzęt jest nadal przydzielony do maszyny wirtualnej i pozostaje na hoście. </p>
 <code>"statuses": [<br>
  {<br>
  "code": "PowerState/stopped",<br>
@@ -108,7 +108,7 @@ Rozliczanie użycia wystąpienia
  ]</code><br>
 </td>
 <td>
-<p><b>&#42;z rozliczeniami</b></p>
+<p><b>Rozliczanie&#42;</b></p>
 </td>
 </tr>
 <tr>
@@ -116,7 +116,7 @@ Rozliczanie użycia wystąpienia
 <p><b>Cofanie przydziału</b></p>
 </td>
 <td>
-<p>Stan przejściowy. Po zakończeniu maszyna wirtualna będzie kazywać się jako **cofnięta.**</p>
+<p>Stan przejściowy. Po zakończeniu maszyna wirtualna będzie wyświetlana jako **cofnięta alokacja**.</p>
 <code>"statuses": [<br>
  {<br>
  "code": "PowerState/deallocating",<br>
@@ -126,7 +126,7 @@ Rozliczanie użycia wystąpienia
  ]</code><br>
 </td>
 <td>
-<p><b>Nie naliczane&#42;</b></p>
+<p><b>Rozliczane&#42;</b></p>
 </td>
 </tr>
 <tr>
@@ -134,7 +134,7 @@ Rozliczanie użycia wystąpienia
 <p><b>Cofnięto przydział</b></p>
 </td>
 <td>
-<p>Maszyna wirtualna została zatrzymana pomyślnie i usunięta z hosta. </p>
+<p>Maszyna wirtualna została pomyślnie zatrzymana i usunięta z hosta. </p>
 <code>"statuses": [<br>
  {<br>
  "code": "PowerState/deallocated",<br>
@@ -144,30 +144,30 @@ Rozliczanie użycia wystąpienia
  ]</code><br>
 </td>
 <td>
-<p><b>Niezaliczone rachunki</b></p>
+<p><b>Bez opłat</b></p>
 </td>
 </tr>
 </tbody>
 </table>
 
 
-&#42;Niektóre zasoby platformy Azure, takie jak dyski i sieci, ponoszą opłaty. Licencje na oprogramowanie w instancji nie są naliczane opłaty.
+&#42;niektórych zasobów platformy Azure, takich jak dyski i sieci, są naliczane opłaty. W licencjach na oprogramowanie w wystąpieniu nie są naliczane opłaty.
 
-## <a name="provisioning-states"></a>Stany inicjowania obsługi administracyjnej
+## <a name="provisioning-states"></a>Stany aprowizacji
 
-Stan inicjowania obsługi administracyjnej jest stanem zainicjowanej przez użytkownika operacji płaszczyzny sterowania na maszynie wirtualnej. Te stany są oddzielone od stanu zasilania maszyny Wirtualnej.
+Stan aprowizacji to stan zainicjowanej przez użytkownika operacji kontroli płaszczyzny na maszynie wirtualnej. Te Stany są oddzielone od stanu zasilacza maszyny wirtualnej.
 
-- **Tworzenie** — tworzenie maszyny Wirtualnej.
+- **Utwórz** — Tworzenie maszyny wirtualnej.
 
-- **Aktualizacja** — aktualizuje model dla istniejącej maszyny Wirtualnej. Niektóre zmiany nie-model do maszyny Wirtualnej, takich jak Start/Restart również podlegają aktualizacji.
+- **Update** — aktualizuje model istniejącej maszyny wirtualnej. Niektóre zmiany niezwiązane z modelem maszyny wirtualnej, takie jak uruchomienie/ponowne uruchomienie, również podlegają aktualizacji.
 
-- **Usuń** — usunięcie maszyny Wirtualnej.
+- **Usuń** — usunięcie maszyny wirtualnej.
 
-- **Deallocate** — jest, gdy maszyna wirtualna jest zatrzymana i usunięta z hosta. Rozdzielanie maszyny Wirtualnej jest uważane za aktualizację, więc będzie wyświetlać stany inicjowania obsługi administracyjnej związane z aktualizacją.
+- **Cofnięcie alokacji** — to miejsce, w którym maszyna wirtualna jest zatrzymana i usuwana z hosta. Cofanie przydziału maszyny wirtualnej jest uznawane za aktualizację, więc spowoduje wyświetlenie Stanów aprowizacji związanych z aktualizacją.
 
 
 
-Oto przejściowe stany operacji po zaakceptowaniu przez platformę akcji zainicjowanej przez użytkownika:
+Poniżej znajdują się Stany operacji przejściowych po zaakceptowaniu przez platformę akcji zainicjowanej przez użytkownika:
 
 <br>
 
@@ -210,7 +210,7 @@ Oto przejściowe stany operacji po zaakceptowaniu przez platformę akcji zainicj
 </tr>
 <tr>
 <td width="162">
-<p><b>Usuwanie</b></p>
+<p><b>Usunąć</b></p>
 </td>
 <td width="366">
 <code>"statuses": [<br>
@@ -224,11 +224,11 @@ Oto przejściowe stany operacji po zaakceptowaniu przez platformę akcji zainicj
 </tr>
 <tr>
 <td width="162">
-<p><b>Stany inicjowania obsługi administracyjnej systemu operacyjnego</b></p>
+<p><b>Stany aprowizacji systemu operacyjnego</b></p>
 </td>
 <td width="366">
-<p>Jeśli maszyna wirtualna jest tworzona z obrazem systemu operacyjnego, a nie z obrazem wyspecjalizowanym, można zaobserwować następujące podstany:</p>
-<p>1. <b>OSProvisioningInprogress</b> &ndash; Maszyna wirtualna jest uruchomiona i instalacja systemu operacyjnego gościa jest w toku. <p /> 
+<p>Jeśli maszyna wirtualna jest tworzona przy użyciu obrazu systemu operacyjnego, a nie obrazu specjalistycznego, można zaobserwować następujące podstany:</p>
+<p>1. <b>OSProvisioningInprogress</b> &ndash; maszyna wirtualna jest uruchomiona, a instalacja systemu operacyjnego gościa jest w toku. <p /> 
 <code> "statuses": [<br>
  {<br>
  "code": "ProvisioningState/creating/OSProvisioningInprogress",<br>
@@ -236,7 +236,7 @@ Oto przejściowe stany operacji po zaakceptowaniu przez platformę akcji zainicj
  "displayStatus": "OS Provisioning In progress"<br>
  }<br>
 ]</code><br>
-<p>2. <b>OSProvisioningUzupełnianie</b> &ndash; stanu krótkotrwałego. Maszyna wirtualna szybko przechodzi do **sukcesu,** chyba że należy zainstalować wszystkie rozszerzenia. Instalacja rozszerzeń może zająć trochę czasu. <br />
+<p>2. <b>OSProvisioningComplete</b> &ndash; stan krótkotrwały. Maszyna wirtualna szybko przechodzi do **sukcesu** , chyba że trzeba zainstalować rozszerzenia. Instalowanie rozszerzeń może zająć trochę czasu. <br />
 <code> "statuses": [<br>
  {<br>
  "code": "ProvisioningState/creating/OSProvisioningComplete",<br>
@@ -244,7 +244,7 @@ Oto przejściowe stany operacji po zaakceptowaniu przez platformę akcji zainicj
  "displayStatus": "OS Provisioning Complete"<br>
  }<br>
 ]</code><br>
-<p><b>Uwaga:</b>Inicjowanie obsługi administracyjnej systemu operacyjnego może przejść do **nie powiodło się,** jeśli występuje błąd systemu operacyjnego lub system operacyjny nie zostanie zainstalowany na czas. Klienci będą naliczane opłaty za wdrożoną maszynę wirtualną w infrastrukturze.</p>
+<p><b>Uwaga</b>: Inicjowanie obsługi systemu operacyjnego może przejść do **niepowodzenia** , jeśli wystąpi błąd systemu operacyjnego lub system operacyjny nie zostanie zainstalowany w czasie. Klienci będą rozliczani za wdrożoną maszynę wirtualną w infrastrukturze.</p>
 </td>
 </tr>
 </table>
@@ -252,7 +252,7 @@ Oto przejściowe stany operacji po zaakceptowaniu przez platformę akcji zainicj
 
 Po zakończeniu operacji maszyna wirtualna przejdzie do jednego z następujących stanów:
 
-- **Powiodło się** — akcje inicjowane przez użytkownika zostały zakończone.
+- **Powodzenie** — akcje zainicjowane przez użytkownika zostały ukończone.
 
     ```
   "statuses": [ 
@@ -267,7 +267,7 @@ Po zakończeniu operacji maszyna wirtualna przejdzie do jednego z następującyc
 
  
 
-- **Nie powiodło się** — reprezentuje operację nie powiodło się. Więcej informacji i możliwych rozwiązań można znaleźć w kodach błędów.
+- **Niepowodzenie** — reprezentuje operację, która nie powiodła się. Zapoznaj się z kodami błędów, aby uzyskać więcej informacji i możliwych rozwiązań.
 
     ```
   "statuses": [
@@ -283,11 +283,11 @@ Po zakończeniu operacji maszyna wirtualna przejdzie do jednego z następującyc
 
 
 
-## <a name="vm-instance-view"></a>Widok wystąpienia maszyny Wirtualnej
+## <a name="vm-instance-view"></a>Widok wystąpienia maszyny wirtualnej
 
-Interfejs API widoku wystąpienia zawiera informacje o stanie uruchomionym maszyny Wirtualnej. Aby uzyskać więcej informacji, zobacz dokumentację interfejsu API [widoku wystąpienia — maszyny wirtualne.](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview)
+Interfejs API widoku wystąpienia zawiera informacje o stanie uruchomienia maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz dokumentację interfejsu API [widoku Virtual Machines-instance](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview) .
 
-Eksplorator zasobów platformy Azure udostępnia prosty interfejs użytkownika do wyświetlania stanu uruchomionej maszyny Wirtualnej: [Eksplorator zasobów](https://resources.azure.com/).
+Eksplorator zasobów platformy Azure udostępnia prosty interfejs użytkownika do wyświetlania stanu działania maszyny wirtualnej: [Eksplorator zasobów](https://resources.azure.com/).
 
-Stany inicjowania obsługi administracyjnej są widoczne we właściwościach maszyny Wirtualnej i widoku wystąpienia. Stany zasilania są dostępne w widoku wystąpienia maszyny Wirtualnej. 
+Stany aprowizacji są widoczne w obszarze właściwości maszyny wirtualnej i widok wystąpienia. Stany mocy są dostępne w widoku wystąpienia maszyny wirtualnej. 
 

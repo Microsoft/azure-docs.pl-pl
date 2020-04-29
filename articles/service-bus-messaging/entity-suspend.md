@@ -1,6 +1,6 @@
 ---
-title: Usługa Azure Service Bus — zawieszanie jednostek obsługi wiadomości
-description: W tym artykule wyjaśniono, jak tymczasowo zawiesić i ponownie aktywować jednostki komunikatów usługi Azure Service Bus (kolejki, tematy i subskrypcje).
+title: Azure Service Bus-wstrzymywanie jednostek obsługi komunikatów
+description: W tym artykule wyjaśniono, jak tymczasowo wstrzymywać i ponownie aktywować Azure Service Bus jednostki komunikatów (kolejki, tematy i subskrypcje).
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,40 +14,40 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 7386932f19eee064926184eb17f5e92e30add98e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76760389"
 ---
-# <a name="suspend-and-reactivate-messaging-entities-disable"></a>Zawieszanie i ponowne aktywowanie jednostek obsługi wiadomości (wyłączanie)
+# <a name="suspend-and-reactivate-messaging-entities-disable"></a>Wstrzymywanie i ponowne uaktywnianie jednostek obsługi komunikatów (wyłączone)
 
-Kolejki, tematy i subskrypcje mogą zostać tymczasowo zawieszone. Zawieszenie umieszcza jednostki w stanie wyłączonym, w którym wszystkie wiadomości są przechowywane w magazynie. Jednak wiadomości nie można usunąć lub dodać, a odpowiednie operacje protokołu dają błędy.
+Kolejki, tematy i subskrypcje mogą być tymczasowo zawieszone. Zawieszenie umieszcza jednostkę w stanie wyłączonym, w którym wszystkie komunikaty są przechowywane w magazynie. Jednak wiadomości nie mogą zostać usunięte ani dodane, a odpowiednie operacje protokołu zwracają błędy.
 
-Zawieszenie jednostki odbywa się zazwyczaj z pilnych względów administracyjnych. Jednym ze scenariuszy jest wdrożenie wadliwego odbiornika, który odbiera wiadomości z kolejki, nie przetwarza, a mimo to niepoprawnie kończy wiadomości i usuwa je. Jeśli to zachowanie zostanie zdiagnozowane, kolejka może być wyłączona dla odbiera, dopóki nie zostanie wdrożony poprawiony kod i można zapobiec dalszej utracie danych spowodowanej przez wadliwy kod.
+Zawieszenie jednostki jest zwykle wykonywane z pilnymi przyczynami administracyjnymi. W jednym scenariuszu wdrożono wadliwy odbiornik, który pobiera komunikaty z kolejki, kończy się niepowodzeniem, a następnie nieprawidłowo wypełnia komunikaty i usuwa je. W przypadku zdiagnozowania tego zachowania Kolejka może zostać wyłączona dla odbieranych danych, dopóki nie zostanie wdrożony skorygowany kod i będzie można zapobiec dalszej utracie danych spowodowanych przez błędny kod.
 
-Zawieszenie lub reaktywacja może być wykonana przez użytkownika lub przez system. System zawiesza tylko jednostki z poważnych przyczyn administracyjnych, takich jak osiągnięcie limitu wydatków na subskrypcję. Jednostki wyłączone z systemu nie mogą być ponownie aktywowane przez użytkownika, ale są przywracane, gdy przyczyna zawieszenia została rozwiązana.
+Zawieszenie lub ponowna aktywacja może zostać wykonana przez użytkownika lub przez system. System zawiesza jedynie jednostki z powodu poważnego działania administracyjnego, takiego jak nakroczenie limitu wydatków na subskrypcję. Jednostki wyłączone przez system nie mogą być ponownie uaktywniane przez użytkownika, ale są przywracane po rozdaniu przyczyny zawieszenia.
 
-W **portalu, Właściwości** sekcji dla odpowiedniej jednostki umożliwia zmianę stanu; poniższy zrzut ekranu przedstawia przełącznik dla kolejki:
+W portalu, sekcja **Właściwości** dla odpowiedniej jednostki umożliwia zmianę stanu; Poniższy zrzut ekranu przedstawia przełącznik dla kolejki:
 
 ![][1]
 
-Portal zezwala tylko na całkowite wyłączenie kolejek. Operacje wysyłania i odbierania można również wyłączyć oddzielnie przy użyciu interfejsów API [menedżera nazw usługi](/dotnet/api/microsoft.servicebus.namespacemanager) Service Bus w programie .NET Framework SDK lub za pomocą szablonu usługi Azure Resource Manager za pośrednictwem interfejsu wiersza polecenia platformy Azure lub programu Azure PowerShell.
+Portal zezwala tylko na całkowite wyłączenie kolejek. Operacje wysyłania i odbierania można także wyłączać oddzielnie przy użyciu interfejsów API Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) w zestawie .NET Framework SDK lub z szablonem Azure Resource Manager za pomocą interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="suspension-states"></a>Stany zawieszenia
 
-Stany, które można ustawić dla kolejki są:
+Stany, które można ustawić dla kolejki, to:
 
--   **Aktywny:** Kolejka jest aktywna.
--   **Wyłączone**: Kolejka jest zawieszona.
--   **SendDisabled**: Kolejka jest częściowo zawieszona, a odbieranie jest dozwolone.
--   **ReceiveDisabled:** Kolejka jest częściowo zawieszona, a wysyłanie jest dozwolone.
+-   **Aktywne**: kolejka jest aktywna.
+-   **Wyłączone**: kolejka jest wstrzymana.
+-   **SendDisabled**: kolejka jest częściowo zawieszona, a odbieranie jest dozwolone.
+-   **ReceiveDisabled**: kolejka jest częściowo zawieszona z dozwolonym wysyłaniem.
 
-W przypadku subskrypcji i tematów można ustawić tylko **aktywne** i **wyłączone.**
+W przypadku subskrypcji i tematów można ustawić tylko **aktywne** i **wyłączone** .
 
-Wyliczanie [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) definiuje również zestaw stanów przejściowych, które mogą być ustawiane tylko przez system. Polecenie programu PowerShell, aby wyłączyć kolejkę jest wyświetlany w poniższym przykładzie. Polecenie reaktywacji jest `Status` równoważne, ustawienie **active**.
+Wyliczenie [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) definiuje również zestaw stanów przejściowych, które mogą być ustawiane przez system. W poniższym przykładzie pokazano polecenie programu PowerShell do wyłączania kolejki. Polecenie ponownej aktywacji jest równoznaczne z `Status` ustawieniem **aktywny**.
 
 ```powershell
 $q = Get-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
@@ -59,7 +59,7 @@ Set-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueu
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o wiadomościach usługi Service Bus, zobacz następujące tematy:
+Aby dowiedzieć się więcej na temat Service Bus Messaging, zobacz następujące tematy:
 
 * [Kolejki, tematy i subskrypcje usługi Service Bus](service-bus-queues-topics-subscriptions.md)
 * [Wprowadzenie do kolejek usługi Service Bus](service-bus-dotnet-get-started-with-queues.md)

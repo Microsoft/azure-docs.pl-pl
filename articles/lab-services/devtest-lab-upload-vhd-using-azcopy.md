@@ -1,6 +1,6 @@
 ---
-title: Przekazywanie pliku VHD do laboratoriów devtest platformy Azure przy użyciu AzCopy | Dokumenty firmy Microsoft
-description: Ten artykuł zawiera przewodnik do korzystania z narzędzia wiersza polecenia AzCopy do przekazywania pliku VHD do konta magazynu laboratorium w usłudze Azure DevTest Labs.
+title: Przekaż plik VHD do Azure DevTest Labs przy użyciu usługi AzCopy | Microsoft Docs
+description: Ten artykuł zawiera Przewodnik po użyciu narzędzia wiersza polecenia AzCopy w celu przekazania pliku VHD do konta magazynu laboratorium w Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,57 +15,57 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 49dc70788bf2a44b6925c5f3f8226fdadab8768c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76757426"
 ---
-# <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Prześlij plik VHD na konto magazynu laboratorium za pomocą AzCopy
+# <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Przekaż plik VHD do konta magazynu laboratorium przy użyciu AzCopy
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-W laboratoriach DevTest Azure pliki VHD mogą być używane do tworzenia obrazów niestandardowych, które są używane do inicjowania obsługi administracyjnej maszyn wirtualnych. Poniższe kroki umożliwiają przejście przez za pomocą narzędzia wiersza polecenia AzCopy do przekazywania pliku VHD do konta magazynu w laboratorium. Po przesłaniu pliku VHD w [sekcji Następne kroki](#next-steps) wymieniono kilka artykułów ilustrujących sposób tworzenia niestandardowego obrazu z przesłanego pliku VHD. Aby uzyskać więcej informacji na temat dysków i dysków VHD na platformie Azure, zobacz [Wprowadzenie do dysków zarządzanych](../virtual-machines/linux/managed-disks-overview.md)
+W Azure DevTest Labs pliki VHD mogą służyć do tworzenia obrazów niestandardowych, które są używane do obsługi maszyn wirtualnych. Poniższe kroki umożliwiają przekazanie pliku VHD do konta magazynu laboratorium przy użyciu narzędzia wiersza polecenia AzCopy. Po przekazaniu pliku VHD [sekcja następne kroki](#next-steps) zawiera listę artykułów, które ilustrują, jak utworzyć obraz niestandardowy na podstawie przekazanego pliku VHD. Aby uzyskać więcej informacji na temat dysków i dysków VHD na platformie Azure, zobacz [wprowadzenie do usługi Managed disks](../virtual-machines/linux/managed-disks-overview.md)
 
 > [!NOTE] 
 >  
-> AzCopy jest narzędziem wiersza polecenia tylko dla systemu Windows.
+> AzCopy to narzędzie wiersza polecenia tylko dla systemu Windows.
 
 ## <a name="step-by-step-instructions"></a>Instrukcje krok po kroku
 
-Poniższe kroki przebiegają przez przekazywanie pliku VHD do usługi Azure DevTest Labs przy użyciu [programu AzCopy](https://aka.ms/downloadazcopy). 
+Poniższe kroki przeprowadzą Cię przez proces przekazywania pliku VHD do Azure DevTest Labs przy użyciu [AzCopy](https://aka.ms/downloadazcopy). 
 
-1. Pobierz nazwę konta magazynu laboratorium przy użyciu witryny Azure portal:
+1. Pobierz nazwę konta magazynu laboratorium przy użyciu Azure Portal:
 
-1. Zaloguj się do [Portalu Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Zaloguj się w witrynie [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Wybierz **pozycję Wszystkie usługi**, a następnie wybierz z listy pozycję **DevTest Labs.**
+1. Wybierz pozycję **wszystkie usługi**, a następnie z listy wybierz pozycję **DevTest Labs** .
 
-1. Z listy laboratoriów wybierz żądane laboratorium.  
+1. Z listy laboratoriów wybierz odpowiednie laboratorium.  
 
-1. Na bloku laboratorium wybierz opcję **Konfiguracja**. 
+1. W bloku laboratorium wybierz pozycję **Konfiguracja**. 
 
-1. W bloku **Konfiguracji** laboratorium wybierz opcję **Obrazy niestandardowe (VED)**.
+1. W bloku **Konfiguracja** laboratorium wybierz pozycję **obrazy niestandardowe (VHD)**.
 
-1. W bloku **Obrazy niestandardowe** wybierz **pozycję +Dodaj**. 
+1. W bloku **obrazy niestandardowe** wybierz pozycję **+ Dodaj**. 
 
-1. Na **bloku Obraz niestandardowy** wybierz pozycję **VHD**.
+1. W bloku **obrazu niestandardowego** wybierz pozycję **wirtualny dysk twardy**.
 
-1. Na bloku **VHD** wybierz **pozycję Przekaż dysk VHD za pomocą programu PowerShell**.
+1. W bloku **wirtualnego dysku twardego** wybierz pozycję **Przekaż dysk VHD przy użyciu programu PowerShell**.
 
-    ![Przekazywanie dysku VHD za pomocą programu PowerShell](./media/devtest-lab-upload-vhd-using-azcopy/upload-image-using-psh.png)
+    ![Przekazywanie wirtualnego dysku twardego przy użyciu programu PowerShell](./media/devtest-lab-upload-vhd-using-azcopy/upload-image-using-psh.png)
 
-1. Przekaż obraz przy użyciu bloku **programu PowerShell** wyświetla wywołanie polecenia cmdlet **Add-AzureVhd.** Pierwszy parametr (*Miejsce docelowe*) zawiera identyfikator URI dla kontenera obiektów blob *(uploads)* w następującym formacie:
+1. Blok **przekazywanie obrazu przy użyciu programu PowerShell** wyświetla wywołanie polecenia cmdlet **Add-AzureVhd** . Pierwszy parametr (*miejsce docelowe*) zawiera identyfikator URI kontenera obiektów BLOB (*przekazywanie*) w następującym formacie:
 
     ```
     https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/...
     ``` 
 
-1. Zanotuj pełny identyfikator URI, ponieważ jest on używany w późniejszych krokach.
+1. Zanotuj pełny identyfikator URI, ponieważ jest używany w dalszych krokach.
 
-1. Prześlij plik VHD za pomocą AzCopy:
+1. Przekaż plik VHD przy użyciu AzCopy:
  
-1. [Pobierz i zainstaluj najnowszą wersję AzCopy](https://aka.ms/downloadazcopy).
+1. [Pobierz i zainstaluj najnowszą wersję programu AzCopy](https://aka.ms/downloadazcopy).
 
 1. Otwórz okno polecenia i przejdź do katalogu instalacyjnego AzCopy. Opcjonalnie można dodać lokalizację instalacji AzCopy do ścieżki systemowej. Domyślnie AzCopy jest instalowany w następującym katalogu:
 
@@ -73,7 +73,7 @@ Poniższe kroki przebiegają przez przekazywanie pliku VHD do usługi Azure DevT
     %ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy
     ```
 
-1. Korzystając z klucza konta magazynu i identyfikatora URI kontenera obiektów blob, uruchom następujące polecenie w wierszu polecenia. Wartość *vhdFileName* musi być w cudzysłowie. Proces przesyłania pliku VHD może być długi w zależności od rozmiaru pliku VHD i szybkości połączenia.   
+1. Korzystając z klucza konta magazynu i identyfikatora URI kontenera obiektów blob, uruchom następujące polecenie w wierszu polecenia. Wartość *vhdFileName* musi być w cudzysłowie. Proces przekazywania pliku VHD może być długi w zależności od rozmiaru pliku VHD i szybkości połączenia.   
 
     ```command-line
     AzCopy /Source:<sourceDirectory> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Pattern:"<vhdFileName>" /BlobType:page
@@ -81,5 +81,5 @@ Poniższe kroki przebiegają przez przekazywanie pliku VHD do usługi Azure DevT
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie niestandardowego obrazu w laboratoriach devtest azure z pliku VHD przy użyciu portalu Azure](devtest-lab-create-template.md)
-- [Tworzenie niestandardowego obrazu w laboratoriach devtest platformy Azure na podstawie pliku VHD przy użyciu programu PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
+- [Tworzenie niestandardowego obrazu w Azure DevTest Labs z pliku VHD przy użyciu Azure Portal](devtest-lab-create-template.md)
+- [Tworzenie niestandardowego obrazu w Azure DevTest Labs z pliku VHD przy użyciu programu PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)

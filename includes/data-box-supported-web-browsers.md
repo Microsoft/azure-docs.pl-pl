@@ -6,17 +6,17 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: alkohli
 ms.openlocfilehash: 2b0149bd2bb46de87b4575ccb5d44836dd74bde9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "66242167"
 ---
-Oto lista przeglądarek internetowych obsługiwanych dla lokalnego interfejsu użytkownika sieci Web.
+Poniżej znajduje się lista przeglądarek sieci Web obsługiwanych przez lokalny interfejs użytkownika sieci Web.
 
 | **Przeglądarka** | **Wersje** | **Dodatkowe wymagania/uwagi** |
 | --- | --- | --- |
-| Google Chrome |Najnowsza wersja |Testowane z Chrome|
+| Google Chrome |Najnowsza wersja |Testowanie za pomocą przeglądarki Chrome|
 | Microsoft Edge |Najnowsza wersja | |
-| Programu firefox | Najnowsza wersja | Testowany z FireFox|
-| Internet Explorer |Najnowsza wersja |Jeśli nie możesz się zalogować, sprawdź, czy są włączone pliki cookie i javascript. Aby włączyć dostęp do interfejsu użytkownika, dodaj adres IP urządzenia do **akcji prywatności,** aby urządzenie miało dostęp do plików cookie. |
+| FireFox | Najnowsza wersja | Testowanie za pomocą przeglądarki FireFox|
+| Internet Explorer |Najnowsza wersja |Jeśli nie możesz się zalogować, sprawdź, czy są włączone pliki cookie i JavaScript. Aby włączyć dostęp do interfejsu użytkownika, Dodaj adres IP urządzenia do **działań związanych z ochroną prywatności** , aby urządzenie miało dostęp do plików cookie. |

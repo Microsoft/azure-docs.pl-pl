@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: b657ee32e76dd90671f7e91337ced01b925889a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67183690"
 ---
-Jeśli wystąpią jakiekolwiek problemy z urządzeniem, można utworzyć pakiet pomocy technicznej z dzienników systemowych. Pomoc techniczna firmy Microsoft używa tego pakietu do rozwiązywania problemów. Wykonaj następujące kroki, aby utworzyć pakiet pomocy technicznej:
+Jeśli występują problemy z urządzeniem, możesz utworzyć pakiet pomocy technicznej z dzienników systemu. Pomoc techniczna firmy Microsoft używa tego pakietu do rozwiązywania problemów. Wykonaj następujące kroki, aby utworzyć pakiet pomocy technicznej:
 
-1. [Połącz się z interfejsem programu PowerShell urządzenia](#connect-to-the-powershell-interface).
-2. Użyj `Get-HcsNodeSupportPackage` polecenia, aby utworzyć pakiet pomocy technicznej. Użycie polecenia cmdlet jest następujące:
+1. [Nawiąż połączenie z interfejsem programu PowerShell urządzenia](#connect-to-the-powershell-interface).
+2. Użyj polecenia `Get-HcsNodeSupportPackage` , aby utworzyć pakiet dla pomocy technicznej. Użycie polecenia cmdlet jest następujące:
 
     ```powershell
     Get-HcsNodeSupportPackage [-Path] <string> [-Zip] [-ZipFileName <string>] [-Include {None | RegistryKeys | EtwLogs
@@ -27,15 +27,15 @@ Jeśli wystąpią jakiekolwiek problemy z urządzeniem, można utworzyć pakiet 
             [-IncludeArchived] [-IncludePeriodicStats] [-Credential <pscredential>]  [<CommonParameters>]
     ```
 
-    Polecenie cmdlet zbiera dzienniki z urządzenia i kopiuje te dzienniki do określonej sieci lub udziału lokalnego.
+    Polecenie cmdlet zbiera dzienniki z urządzenia i kopiuje je do określonej sieci lub udziału lokalnego.
 
-    Zastosowane parametry są następujące:
+    Używane parametry są następujące:
 
-    - `-Path`- Określ sieć lub ścieżkę lokalną, do którą chcesz skopiować pakiet pomocy technicznej. (wymagane)
-    - `-Credential`- Określ poświadczenia, aby uzyskać dostęp do chronionej ścieżki.
-    - `-Zip`- Określ, aby wygenerować plik zip.
-    - `-Include`- Określ, aby uwzględnić składniki, które mają być zawarte w pakiecie pomocy technicznej. Jeśli nie `Default` zostanie określony, zakłada się.
-    - `-IncludeArchived`- Określ, aby uwzględnić zarchiwizowane dzienniki w pakiecie pomocy technicznej.
-    - `-IncludePeriodicStats`- Określ, aby uwzględnić okresowe dzienniki statystyk w pakiecie pomocy technicznej.
+    - `-Path`-Określ sieć lub ścieżkę lokalną, do której ma zostać skopiowana pakiet obsługi. potrzeb
+    - `-Credential`-Określ poświadczenia, aby uzyskać dostęp do chronionej ścieżki.
+    - `-Zip`-Określ, aby wygenerować plik zip.
+    - `-Include`-Określ, aby uwzględnić składniki do uwzględnienia w pakiecie pomocy technicznej. Jeśli nie zostanie określony `Default` , przyjmowana jest wartość.
+    - `-IncludeArchived`-Określ, aby uwzględnić archiwizowane dzienniki w pakiecie obsługi.
+    - `-IncludePeriodicStats`-Określ, aby uwzględnić okresowe dzienniki statnia w pakiecie pomocy technicznej.
 
     

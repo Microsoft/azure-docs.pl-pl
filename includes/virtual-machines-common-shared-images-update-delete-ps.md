@@ -9,34 +9,34 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: d2a85f3947e9993e5d1853e45c6d03586a074cf6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67183194"
 ---
 ## <a name="update-resources"></a>Aktualizowanie zasobów
 
-Istnieją pewne ograniczenia dotyczące tego, co można zaktualizować. Można zaktualizować następujące elementy: 
+Istnieją pewne ograniczenia dotyczące tego, co można zaktualizować. Następujące elementy można zaktualizować: 
 
-Galeria zdjęć udostępnionych:
+Galeria obrazów udostępnionych:
 - Opis
 
 Definicja obrazu:
-- Zalecane procesory wirtualne
+- Zalecane procesorów wirtualnych vCPU
 - Zalecana pamięć
 - Opis
-- Data końca daty daty
+- Data zakończenia okresu istnienia
 
 Wersja obrazu:
 - Liczba replik regionalnych
 - Regiony docelowe
-- Wyłączenie z najnowszych
-- Data końca daty daty
+- Wykluczanie z najnowszych
+- Data zakończenia okresu istnienia
 
-Jeśli planujesz dodawanie regionów repliki, nie należy usuwać obrazu zarządzanego źródłowego. Obraz zarządzany źródłowego jest potrzebny do replikowania wersji obrazu do dodatkowych regionów. 
+Jeśli planujesz dodanie regionów replik, nie usuwaj źródłowego obrazu zarządzanego. Źródłowy obraz zarządzany jest wymagany do replikowania wersji obrazu do dodatkowych regionów. 
 
-Aby zaktualizować opis galerii, użyj [update-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/update-azgallery).
+Aby zaktualizować opis galerii, użyj polecenie [Update-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/update-azgallery).
 
 ```azurepowershell-interactive
 Update-AzGallery `
@@ -44,7 +44,7 @@ Update-AzGallery `
    -ResourceGroupName $resourceGroup.Name
 ```
 
-W tym przykładzie pokazano, jak użyć [Update-AzGalleryImageDefinition,](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimagedefinition) aby zaktualizować datę końca życia dla naszej definicji obrazu.
+W tym przykładzie pokazano, jak za pomocą [Update-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimagedefinition) zaktualizować datę końca okresu ważności dla definicji obrazu.
 
 ```azurepowershell-interactive
 Update-AzGalleryImageDefinition `
@@ -54,7 +54,7 @@ Update-AzGalleryImageDefinition `
    -EndOfLifeDate 01/01/2030
 ```
 
-W tym przykładzie pokazano, jak użyć [Update-AzGalleryImageVersion,](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimageversion) aby wykluczyć tę wersję obrazu z używanego jako *najnowszy* obraz.
+Ten przykład pokazuje, jak używać [Update-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimageversion) do wykluczania tej wersji obrazu z używania jako *najnowszego* obrazu.
 
 ```azurepowershell-interactive
 Update-AzGalleryImageVersion `
@@ -68,7 +68,7 @@ Update-AzGalleryImageVersion `
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Podczas usuwania zasobów, należy rozpocząć z ostatniego elementu w zagnieżdżonych zasobów - wersja obrazu. Po usunięciu wersji można usunąć definicję obrazu. Nie można usunąć galerii, dopóki wszystkie zasoby pod nią nie zostaną usunięte.
+Podczas usuwania zasobów należy zacząć od ostatniego elementu w zagnieżdżonych zasobach — wersji obrazu. Po usunięciu wersji można usunąć definicję obrazu. Nie można usunąć galerii, dopóki nie zostaną usunięte wszystkie znajdujące się w niej zasoby.
 
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroup"
