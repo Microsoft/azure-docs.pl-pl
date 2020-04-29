@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z błędem usługi Azure IoT Hub 403002 IoTHubQuotaExceeded
-description: Dowiedz się, jak naprawić błąd 403002 IoTQuotaExceeded
+title: Rozwiązywanie problemów z usługą Azure IoT Hub błąd 403002 IoTHubQuotaExceeded
+description: Dowiedz się, jak naprawić błąd 403002 IoTHubQuotaExceeded
 author: jlian
 manager: briz
 ms.service: iot-hub
@@ -9,29 +9,29 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 8312c3267e826088f34b3bffe1520703eec00bdc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76961116"
 ---
 # <a name="403002-iothubquotaexceeded"></a>403002 IoTHubQuotaExceeded
 
-W tym artykule opisano przyczyny i rozwiązania dla **błędów 403002 IoTHubQuotaExceededed.**
+W tym artykule opisano przyczyny i rozwiązania **403002 błędów IoTHubQuotaExceeded** .
 
 ## <a name="symptoms"></a>Objawy
 
-Wszystkie żądania do Centrum IoT nie powiodą się z błędem **403002 IoTQuotaExceeded**. W witrynie Azure portal lista urządzeń centrum IoT nie ładuje się.
+Wszystkie żądania do IoT Hub kończą się niepowodzeniem z błędem **403002 IoTHubQuotaExceeded**. W Azure Portal nie można załadować listy urządzeń Centrum IoT Hub.
 
 ## <a name="cause"></a>Przyczyna
 
-Dzienny przydział wiadomości dla centrum IoT hub jest przekroczony. 
+Przekroczono dzienny limit przydziału komunikatów dla Centrum IoT. 
 
 ## <a name="solution"></a>Rozwiązanie
 
-[Uaktualnij lub zwiększ liczbę jednostek w centrum IoT hub](iot-hub-upgrade.md) lub poczekaj na następny dzień UTC, aby odświeżyć dzienny przydział.
+[Uaktualnij lub Zwiększ liczbę jednostek w centrum IoT](iot-hub-upgrade.md) lub poczekaj na następny dzień UTC, aby odświeżyć dzienny limit przydziału.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby zrozumieć, jak operacje są wliczane do przydziału, takie jak zapytania bliźniacze i metody bezpośrednie, zobacz [Opis cen usługi IoT Hub](iot-hub-devguide-pricing.md#charges-per-operation)
-* Aby skonfigurować monitorowanie dziennego użycia przydziału, skonfiguruj alert z metryką *Całkowita liczba używanych komunikatów*. Aby uzyskać instrukcje krok po kroku, zobacz [Konfigurowanie metryk i alertów za pomocą Usługi IoT Hub](tutorial-use-metrics-and-diags.md#set-up-metrics)
+* Aby zrozumieć, w jaki sposób operacje są wliczane do limitu przydziału, takich jak zapytania dwuosiowe i metody bezpośrednie, zobacz temat [Omówienie cen IoT Hub](iot-hub-devguide-pricing.md#charges-per-operation)
+* Aby skonfigurować monitorowanie dla dziennego użycia przydziału, skonfiguruj alert z *łączną liczbą używanych komunikatów*. Aby uzyskać instrukcje krok po kroku, zobacz [Konfigurowanie metryk i alertów za pomocą IoT Hub](tutorial-use-metrics-and-diags.md#set-up-metrics)

@@ -1,6 +1,6 @@
 ---
-title: Analizowanie raportu Planek wdrażania w celu odzyskiwania po awarii VMware za pomocą usługi Azure Site Recovery
-description: W tym artykule opisano sposób analizowania raportu wygenerowanego przez planista wdrażania odzyskiwania odzyskiwania odzyskiwania po awarii VMware na platformie Azure przy użyciu usługi Azure Site Recovery.
+title: Analizuj Planista wdrażania raport dotyczący odzyskiwania po awarii programu VMware z Azure Site Recovery
+description: W tym artykule opisano sposób analizowania raportu wygenerowanego przez Planista wdrażania odzyskiwania na potrzeby odzyskiwania po awarii oprogramowania VMware na platformie Azure przy użyciu Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: mayg
 ms.openlocfilehash: 4dad11e8331064a9df1b1aed561e00b9a9b24017
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257513"
 ---
-# <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analizowanie raportu Planek wdrażania dla odzyskiwania po awarii VMware na platformie Azure
+# <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analizowanie raportu Planista wdrażania na potrzeby odzyskiwania po awarii oprogramowania VMware na platformę Azure
 
 Wygenerowany raport programu Microsoft Excel zawiera następujące arkusze:
 ## <a name="on-premises-summary"></a>Podsumowanie środowiska lokalnego
@@ -92,7 +92,7 @@ Jeśli narzędzie zostało uruchomione na serwerze konfiguracji lub serwerze prz
 W przypadku wszystkich wdrożeń usługi Site Recovery w przedsiębiorstwach zalecamy użycie usługi [ExpressRoute](https://aka.ms/expressroute).
 
 ### <a name="required-storage-accounts"></a>Wymagane konta magazynu
-Ten wykres przedstawia łączną liczbę kont magazynu (w warstwach Standardowa i Premium) wymaganych do ochrony wszystkich zgodnych maszyn wirtualnych. Aby dowiedzieć się, którego konta magazynu używać dla poszczególnych maszyn wirtualnych, zobacz sekcję „Rozmieszczenie maszyny wirtualnej względem magazynu”. Jeśli używasz wersji 2.5 Planerki wdrażania, to zalecenie zawiera tylko liczbę standardowych kont magazynu pamięci podręcznej, które są potrzebne do replikacji, ponieważ dane są zapisywane bezpośrednio na dyskach zarządzanych.
+Ten wykres przedstawia łączną liczbę kont magazynu (w warstwach Standardowa i Premium) wymaganych do ochrony wszystkich zgodnych maszyn wirtualnych. Aby dowiedzieć się, którego konta magazynu używać dla poszczególnych maszyn wirtualnych, zobacz sekcję „Rozmieszczenie maszyny wirtualnej względem magazynu”. Jeśli używasz wersji 2.5 Planista wdrażania, to zalecenie pokazuje tylko liczbę kont magazynu w warstwie Standardowa pamięci podręcznej, które są potrzebne do replikacji, ponieważ dane są bezpośrednio zapisywane do Managed Disks.
 
 ![Wymagane konta magazynu w planiście wdrożenia](media/site-recovery-vmware-deployment-planner-analyze-report/required-storage-accounts-v2a.png)
 
@@ -157,19 +157,19 @@ Może wystąpić sytuacja, w której nie można ustawić przepustowości większ
 ## <a name="vm-storage-placement"></a>Rozmieszczenie maszyny wirtualnej względem magazynu
 
 >[!Note]
->Planista wdrażania w wersji 2.5 zaleca umieszczenie magazynu dla komputerów, które będą replikowane bezpośrednio do dysków zarządzanych.
+>Planista wdrażania v 2.5 zaleca umieszczenie magazynu dla maszyn, które będą replikowane bezpośrednio do dysków zarządzanych.
 
 ![Rozmieszczenie maszyny wirtualnej względem magazynu](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
-**Typ magazynu replikacji:** standardowy lub premium dysk zarządzany, który jest używany do replikowania wszystkich odpowiednich maszyn wirtualnych wymienionych w kolumnie **Place maszyn wirtualnych.**
+**Typ magazynu replikacji**: dysk zarządzany w warstwie Standardowa lub Premium, który jest używany do replikowania wszystkich odpowiednich maszyn wirtualnych wymienionych w **maszynach wirtualnych do umieszczenia** w kolumnie.
 
-**Typ konta magazynu dziennika:** Wszystkie dzienniki replikacji są przechowywane na standardowym koncie magazynu.
+**Typ konta magazynu dzienników**: wszystkie dzienniki replikacji są przechowywane na koncie magazynu w warstwie Standardowa.
 
-**Sugerowany prefiks dla konta magazynu:** sugerowany prefiks trzech znaków, który może służyć do nazywania konta magazynu pamięci podręcznej. Możesz użyć własnego prefiksu, ale propozycja narzędzia będzie zgodna z [konwencją nazewnictwa partycji dla kont magazynu](https://aka.ms/storage-performance-checklist).
+**Sugerowany prefiks dla konta magazynu**: sugerowany 3-znakowy prefiks, którego można użyć do nadawania nazwy kontu magazynu pamięci podręcznej. Możesz użyć własnego prefiksu, ale propozycja narzędzia będzie zgodna z [konwencją nazewnictwa partycji dla kont magazynu](https://aka.ms/storage-performance-checklist).
 
-**Sugerowana nazwa konta dziennika:** Nazwa konta magazynu po dołączeniu sugerowanego prefiksu. Zastąp nazwę w nawiasach kątowych (< i >) niestandardowymi danymi wejściowymi.
+**Sugerowana nazwa konta dziennika**: nazwa konta magazynu po dołączeniu sugerowanego prefiksu. Zastąp nazwę w nawiasach kątowych (< i >) niestandardowymi danymi wejściowymi.
 
-**Podsumowanie umieszczenia:** Podsumowanie dysków potrzebnych do chronionych maszyn wirtualnych według typu magazynu. Obejmuje całkowitą liczbę maszyn wirtualnych, całkowity rozmiar aprowizowana na wszystkich dyskach i całkowitą liczbę dysków.
+**Podsumowanie umieszczania**: Podsumowanie dysków wymaganych do chronionych maszyn wirtualnych według typu magazynu. Obejmuje ona łączną liczbę maszyn wirtualnych, całkowity rozmiar udostępniany na wszystkich dyskach i łączną liczbę dysków.
 
 **Maszyny wirtualne do rozmieszczenia**: lista wszystkich maszyn wirtualnych, które powinny zostać umieszczone na danym koncie magazynu w celu uzyskania optymalnej wydajności i użycia.
 
@@ -178,7 +178,7 @@ Może wystąpić sytuacja, w której nie można ustawić przepustowości większ
 
 **Nazwa maszyny wirtualnej**: nazwa lub adres IP maszyny wirtualnej używany w pliku VMListFile podczas generowania raportu. Ta kolumna obejmuje też dyski (VMDK) dołączone do maszyn wirtualnych. Aby wyróżnić maszyny wirtualne vCenter o zduplikowanych nazwach lub adresach IP, nazwy zawierają nazwę hosta ESXi. Wymieniony host ESXi to host, na którym umieszczono maszynę wirtualną odnaleziono w trakcie okresu profilowania.
 
-**Zgodność maszyny wirtualnej**: wartości to **Tak** i **Tak\***. **Tak** \* jest w przypadkach, w których maszyna wirtualna jest odpowiednia dla [najwyższej jakości SSD](../virtual-machines/windows/disks-types.md). Tutaj profilowany dysk o dużym współczynniku zmian lub dużej liczbie operacji we/wy należy do kategorii P20 lub P30, ale z powodu swojego rozmiaru jest mapowany w dół do kategorii P10 lub P20. Decyzja o tym, do którego typu dysku magazynu Premium będzie mapowany dysk, jest podejmowana na podstawie jego rozmiaru na poziomie konta magazynu. Przykład:
+**Zgodność maszyny wirtualnej**: wartości to **Tak** i **Tak\***. **Tak** \* jest dla wystąpień, w których maszyna wirtualna jest zgodna z [dysków SSD Premium](../virtual-machines/windows/disks-types.md). Tutaj profilowany dysk o dużym współczynniku zmian lub dużej liczbie operacji we/wy należy do kategorii P20 lub P30, ale z powodu swojego rozmiaru jest mapowany w dół do kategorii P10 lub P20. Decyzja o tym, do którego typu dysku magazynu Premium będzie mapowany dysk, jest podejmowana na podstawie jego rozmiaru na poziomie konta magazynu. Przykład:
 * Mniej niż 128 GB — P10.
 * 128 GB do 256 GB — P15.
 * 256 GB do 512 GB — P20.
@@ -186,11 +186,11 @@ Może wystąpić sytuacja, w której nie można ustawić przepustowości większ
 * 1025 GB do 2048 GB — P40.
 * 2049 GB do 4095 GB — P50.
 
-Na przykład jeśli charakterystyka obciążenia dysku umieścić go w kategorii P20 lub P30, ale rozmiar mapuje go w dół do niższego typu dysku magazynu premium, narzędzie oznacza, że maszyna wirtualna jako **Tak**\*. Narzędzie zaleca również zmianę rozmiaru dysku źródłowego tak, aby mieścił się w zalecanym typie dysku Premium Storage lub zmianę docelowego typu dysku po zakończeniu pracy w trybie failover.
+Na przykład jeśli charakterystyki obciążenia dysku są umieszczone w kategorii P20 lub P30, ale rozmiar mapuje go na niższy typ dysku magazynu Premium, narzędzie oznacza tę maszynę wirtualną jako **tak**\*. Narzędzie zaleca również zmianę rozmiaru dysku źródłowego tak, aby mieścił się w zalecanym typie dysku Premium Storage lub zmianę docelowego typu dysku po zakończeniu pracy w trybie failover.
 
 **Typ magazynu**: dostępne typy magazynu to Standardowa i Premium.
 
-**Asrseeddisk (Managed Disk) utworzony dla replikacji:** Nazwa dysku, który jest tworzony po włączeniu replikacji. Przechowuje dane i ich migawki na platformie Azure.
+**Asrseeddisk (dysk zarządzany) utworzony na potrzeby replikacji**: Nazwa dysku, który jest tworzony podczas włączania replikacji. Przechowuje dane i ich migawki na platformie Azure.
 
 **Szczytowa wartość operacji we/wy odczytu i zapisu na sekundę (ze współczynnikiem wzrostu)**: liczba operacji we/wy odczytu i zapisu na sekundę dla szczytowego obciążenia na dysku (domyślnie jest używany 95. percentyl) wraz z przyszłym współczynnikiem wzrostu (wartość domyślna to 30 procent). Pamiętaj, że łączna liczba operacji we/wy odczytu i zapisu maszyny wirtualnej nie zawsze jest sumą operacji we/wy odczytu i zapisu z poszczególnych dysków maszyny wirtualnej, ponieważ szczytowa liczba operacji we/wy odczytu i zapisu maszyny wirtualnej to wartość szczytowa sumy operacji we/wy odczytu i zapisu poszczególnych dysków z każdej minuty okresu profilowania.
 
@@ -221,14 +221,14 @@ Na przykład jeśli charakterystyka obciążenia dysku umieścić go w kategorii
 
 **Zgodność maszyny wirtualnej**: wskazuje, dlaczego dana maszyna wirtualna nie jest zgodna na potrzeby użycia z usługą Site Recovery. Niezgodność każdego dysku na podstawie opublikowanych [limitów magazynów](https://aka.ms/azure-storage-scalbility-performance) może wynikać z dowolnej spośród następujących przyczyn:
 
-* Nieprawidłowy rozmiar dysku danych lub nieprawidłowy rozmiar dysku systemu operacyjnego. [Przejrzyj](vmware-physical-azure-support-matrix.md#azure-vm-requirements) limity pomocy technicznej. 
+* Nieprawidłowy rozmiar dysku danych lub nieprawidłowy rozmiar dysku systemu operacyjnego. [Zapoznaj](vmware-physical-azure-support-matrix.md#azure-vm-requirements) się z limitami pomocy technicznej. 
 * Łączny rozmiar maszyny wirtualnej (suma replikacji i testu pracy w trybie failover) przekracza obsługiwany limit rozmiaru konta magazynu (35 TB). Ta niezgodność występuje przeważnie, jeśli wartość charakterystyki wydajności pojedynczego dysku maszyny wirtualnej przekracza maksymalny obsługiwany limit standardowego magazynu platformy Azure lub usługi Site Recovery. Takie wystąpienie powoduje przeniesienie do strefy magazynów Premium Storage. Jednak maksymalny obsługiwany rozmiar konta magazynu Premium Storage jest równy 35 TB i jedna chroniona maszyna wirtualna nie może być chroniona na wielu kontach magazynu. Zauważ również, że przeprowadzenie testu pracy w trybie failover na chronionej maszynie wirtualnej powoduje również uruchomienie go na koncie magazynu z trwającą replikacją. W takiej sytuacji skonfiguruj podwojony rozmiar dysku na potrzeby równoległej kontynuacji replikacji i pomyślnie przeprowadzonego testu pracy w trybie failover.
 
 * Źródłowe operacje we/wy na sekundę przekraczają obsługiwany limit operacji we/wy na sekundę magazynu wynoszący 7500 operacji na dysk.
 
 * Źródłowe operacje we/wy na sekundę przekraczają obsługiwany limit operacji we/wy na sekundę maszyny wirtualnej wynoszący 80 000 operacji na dysk.
 
-* Średni współczynnik zmian danych przekracza obsługiwany limit zmian danych usługi Site Recovery wynoszący 20 MB/s dla średniego rozmiaru we/wy dla dysku.
+* Średni współczynnik zmian danych przekracza obsługiwane Site Recovery limit liczby zmian danych równy 20 MB/s dla średniego rozmiaru operacji we/wy dysku.
 
 * Szczytowy współczynnik zmian danych dla wszystkich dysków na maszynie wirtualnej przekracza maksymalny obsługiwany limit szczytowego współczynnika zmian danych usługi Site Recovery wynoszący 54 MB/s na maszynę wirtualną.
 
@@ -255,12 +255,12 @@ Na przykład jeśli charakterystyka obciążenia dysku umieścić go w kategorii
 
 **Typ rozruchu**: typ rozruchu maszyny wirtualnej. Dozwolone wartości to BIOS i EFI.  Obecnie usługa Azure Site Recovery obsługuje maszyny wirtualne EFI systemu Windows Server (Windows Server 2012, 2012 R2 i 2016) pod warunkiem, że liczba partycji na dysku rozruchowym jest mniejsza niż 4, a rozmiar sektora rozruchowego wynosi 512 bajtów. Aby można było chronić maszyny wirtualne EFI, wersja usługi mobilności Azure Site Recovery musi być równa 9.13 lub wyższa. Dla maszyn wirtualnych EFI jest obsługiwane tylko przejście w tryb failover. Powrót po awarii nie jest obsługiwany.
 
-**Typ systemu operacyjnego:** Jest to typ systemu operacyjnego maszyny wirtualnej. Może to być system Windows, Linux lub inny, zależnie od szablonu wybranego z oprogramowania VMware vSphere podczas tworzenia maszyny wirtualnej.
+**Typ systemu operacyjnego**: jest to typ systemu operacyjnego maszyny wirtualnej. Może to być system Windows, Linux lub inny, zależnie od szablonu wybranego z oprogramowania VMware vSphere podczas tworzenia maszyny wirtualnej.
 
 ## <a name="azure-site-recovery-limits"></a>Limity usługi Azure Site Recovery
 W poniższej tabeli przedstawiono limity usługi Azure Site Recovery. Limity te są oparte na naszych testach, ale nie obejmują wszystkich możliwych kombinacji operacji we/wy aplikacji. Rzeczywiste wyniki mogą różnić w zależności od kombinacji operacji we/wy aplikacji. Aby uzyskać najlepsze wyniki nawet po zakończeniu planowania wdrożenia, zawsze zalecamy dokładne przetestowanie aplikacji przy użyciu testu pracy w trybie failover w celu uzyskania prawdziwych informacji o wydajności aplikacji.
 
-**Miejsce docelowe magazynu replikacji** | **Średni rozmiar źródłowych operacji we/wy na dysku** |**Średni źródłowy współczynnik zmian danych na dysku** | **Łączny współczynnik zmian danych na dysku dziennie**
+**Cel magazynu replikacji** | **Średni rozmiar źródłowych operacji we/wy na dysku** |**Średni źródłowy współczynnik zmian danych na dysku** | **Łączny współczynnik zmian danych na dysku dziennie**
 ---|---|---|---
 Standard Storage | 8 KB | 2 MB/s | 168 GB na dysk
 Dysk w warstwie Premium P10 lub P15 | 8 KB  | 2 MB/s | 168 GB na dysk

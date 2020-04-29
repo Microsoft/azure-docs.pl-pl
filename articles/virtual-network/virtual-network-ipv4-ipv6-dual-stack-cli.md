@@ -1,7 +1,7 @@
 ---
-title: Wdrażanie aplikacji dwusłonowej IPv6 — podstawowy moduł równoważenia obciążenia — interfejs wiersza polecenia
+title: Wdrażanie aplikacji podwójnego stosu IPv6 — podstawowa Load Balancer — interfejs wiersza polecenia
 titlesuffix: Azure Virtual Network
-description: W tym artykule pokazano, jak wdrożyć aplikację podwójnego stosu IPv6 w sieci wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure.
+description: W tym artykule pokazano, jak wdrożyć aplikację dwustosową protokołu IPv6 w usłudze Azure Virtual Network przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,28 +14,28 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: 396c37d4c8de6a890102e435c5ec6cc70b598638
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80421021"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli"></a>Wdrażanie aplikacji dwusłonowej IPv6 przy użyciu podstawowego modułu równoważenia obciążenia — cli
+# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli"></a>Wdrażanie aplikacji podwójnego stosu IPv6 przy użyciu podstawowego interfejsu wiersza polecenia Load Balancer
 
-W tym artykule pokazano, jak wdrożyć aplikację podwójnego stosu (IPv4 + IPv6) z podstawowym modułem równoważenia obciążenia przy użyciu interfejsu wiersza polecenia platformy Azure, która zawiera sieć wirtualną z dwoma stosami z podsiecią z podwójnym stosem, podstawowy moduł równoważenia obciążenia z dwoma (IPv4 + IPv6), maszyny wirtualne z kartami sieciowymi, które mają podwójną konfigurację IP, dwie reguły grupy zabezpieczeń sieci i podwójne publiczne adresy IP.
+W tym artykule pokazano, jak wdrożyć aplikację podwójnego stosu (IPv4 + IPv6) Load Balancer przy użyciu interfejsu wiersza polecenia platformy Azure, który obejmuje sieć wirtualną o podwójnej stercie z podsiecią podwójnego stosu, podstawową Load Balancer z podwójnymi konfiguracjami frontonu (IPv4 + IPv6), maszynami wirtualnymi z kartami sieciowymi, które mają dwie konfiguracje IP, dwie reguły sieciowej grupy zabezpieczeń i dwa publiczne
 
-Aby wdrożyć aplikację z dwoma stosami (IPV4 + IPv6) przy użyciu standardowego modułu równoważenia obciążenia, zobacz [Wdrażanie aplikacji podwójnego stosu IPv6 ze standardowym modułem równoważenia obciążenia przy użyciu narzędzia Azure CLI.](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md)
+Aby wdrożyć aplikację z podwójnym stosem (IPV4 + IPv6) przy użyciu usługa Load Balancer w warstwie Standardowa, zobacz [wdrażanie aplikacji dwustosowej przy użyciu protokołu IPv6 usługa Load Balancer w warstwie Standardowa za pomocą interfejsu wiersza polecenia platformy Azure](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).
 
 
 Jeśli nie masz subskrypcji platformy Azure, utwórz teraz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować i używać interfejsu wiersza polecenia platformy Azure lokalnie zamiast tego, ten szybki start wymaga użycia interfejsu wiersza polecenia platformy Azure w wersji 2.0.49 lub nowszej. Aby dowiedzieć się, jaka wersja jest zainstalowana, uruchom polecenie `az --version`. Aby uzyskać informacje na temat instalacji i uaktualnienia, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia platformy Azure i korzystać z niego lokalnie, ten przewodnik Szybki Start wymaga użycia interfejsu wiersza polecenia platformy Azure w wersji 2.0.49 lub nowszej. Aby dowiedzieć się, jaka wersja jest zainstalowana, uruchom polecenie `az --version`. Aby uzyskać informacje na temat instalacji i uaktualnienia, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Przed utworzeniem sieci wirtualnej z dwoma stosami należy utworzyć grupę zasobów z [utworzeniem grupy AZ](/cli/azure/group). Poniższy przykład tworzy grupę zasobów o nazwie *DsResourceGroup01* w lokalizacji *eastus:*
+Przed utworzeniem sieci wirtualnej o podwójnym stosie należy utworzyć grupę zasobów za pomocą [AZ Group Create](/cli/azure/group). Poniższy przykład tworzy grupę zasobów o nazwie *DsResourceGroup01* w lokalizacji *Wschodnie* :
 
 ```azurecli
 az group create \
@@ -43,8 +43,8 @@ az group create \
 --location eastus
 ```
 
-## <a name="create-ipv4-and-ipv6-public-ip-addresses-for-load-balancer"></a>Tworzenie publicznych adresów IP IPv4 i IPv6 dla modułu równoważenia obciążenia
-Aby uzyskać dostęp do punktów końcowych IPv4 i IPv6 w Internecie, potrzebujesz publicznych adresów IP IPv4 i IPv6 dla modułu równoważenia obciążenia. Utwórz publiczny adres IP za pomocą polecenia [az network public-ip create](/cli/azure/network/public-ip). Poniższy przykład tworzy publiczny adres IP IPv4 i IPv6 o nazwie *dsPublicIP_v4* i *dsPublicIP_v6* w grupie zasobów *DsResourceGroup01:*
+## <a name="create-ipv4-and-ipv6-public-ip-addresses-for-load-balancer"></a>Tworzenie publicznych adresów IP adresów IPv4 i IPv6 dla usługi równoważenia obciążenia
+Aby uzyskać dostęp do punktów końcowych protokołów IPv4 i IPv6 w Internecie, należy dysponować adresami IP dla usługi równoważenia obciążenia IPv4 i IPv6. Utwórz publiczny adres IP za pomocą polecenia [az network public-ip create](/cli/azure/network/public-ip). Poniższy przykład tworzy publiczny adres IP IPv4 i IPv6 o nazwie *dsPublicIP_v4* i *dsPublicIP_v6* w grupie zasobów *DsResourceGroup01* :
 
 ```azurecli
 # Create an IPV4 IP address
@@ -69,7 +69,7 @@ az network public-ip create \
 
 ## <a name="create-public-ip-addresses-for-vms"></a>Tworzenie publicznych adresów IP dla maszyn wirtualnych
 
-Aby zdalnie uzyskiwać dostęp do maszyn wirtualnych w Internecie, potrzebujesz publicznych adresów IP protokołu IPv4 dla maszyn wirtualnych. Utwórz publiczny adres IP za pomocą polecenia [az network public-ip create](/cli/azure/network/public-ip).
+Aby zdalnie uzyskiwać dostęp do maszyn wirtualnych za pośrednictwem Internetu, należy dysponować publicznymi adresami IP IPv4 dla maszyn wirtualnych. Utwórz publiczny adres IP za pomocą polecenia [az network public-ip create](/cli/azure/network/public-ip).
 
 ```azurecli
 az network public-ip create \
@@ -91,11 +91,11 @@ az network public-ip create \
 
 ## <a name="create-basic-load-balancer"></a>Tworzenie podstawowego modułu równoważenia obciążenia
 
-W tej sekcji można skonfigurować adres IP z dwiema frontendami (IPv4 i IPv6) oraz pulę adresów zaplecza dla modułu równoważenia obciążenia, a następnie utworzyć podstawowy moduł równoważenia obciążenia.
+W tej sekcji należy skonfigurować podwójny adres IP frontonu (IPv4 i IPv6) oraz pulę adresów zaplecza dla modułu równoważenia obciążenia, a następnie utworzyć podstawową Load Balancer.
 
 ### <a name="create-load-balancer"></a>Tworzenie modułu równoważenia obciążenia
 
-Utwórz podstawowy moduł równoważenia obciążenia z [siecią az lb utwórz](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) o nazwie **dsLB,** która zawiera pulę frontonu o nazwie **dsLbFrontEnd_v4**, pulę wewnętrznej bazy danych o nazwie **dsLbBackEndPool_v4** skojarzoną z publicznym adresem IP IPv4 **dsPublicIP_v4** utworzonym w poprzednim kroku. 
+Utwórz podstawową Load Balancer za pomocą [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) o nazwie **dsLB** , która zawiera pulę frontonu o nazwie **dsLbFrontEnd_v4**, puli zaplecza o nazwie **DsLbBackEndPool_v4** skojarzonej z publicznym adresem IP IPv4 **dsPublicIP_v4** utworzonego w poprzednim kroku. 
 
 ```azurecli
 az network lb create \
@@ -108,9 +108,9 @@ az network lb create \
 --backend-pool-name dsLbBackEndPool_v4
 ```
 
-### <a name="create-ipv6-frontend"></a>Tworzenie frontendu IPv6
+### <a name="create-ipv6-frontend"></a>Tworzenie frontonu IPv6
 
-Utwórz ipv6 frontend IP z [az sieci lb frontend-ip utworzyć](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create). Poniższy przykład tworzy konfigurację IP wewnętrznej bazy o nazwie *dsLbFrontEnd_v6* i dołącza *adres dsPublicIP_v6:*
+Utwórz adres IP frontonu IPV6 za pomocą [AZ Network lb fronton-IP Create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create). Poniższy przykład umożliwia utworzenie konfiguracji adresu IP frontonu o nazwie *dsLbFrontEnd_v6* i dołączenie adresu *dsPublicIP_v6* :
 
 ```azurecli
 az network lb frontend-ip create \
@@ -123,7 +123,7 @@ az network lb frontend-ip create \
 
 ### <a name="configure-ipv6-back-end-address-pool"></a>Konfigurowanie puli adresów zaplecza IPv6
 
-Utwórz pule adresów zaplecza IPv6 z [utworzeniem puli adresów az lb](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create). W poniższym przykładzie utworzono pulę adresów zaplecza o nazwie *dsLbBackEndPool_v6* w celu uwzględnienia maszyn wirtualnych z konfiguracjami kart sieciowych IPv6:
+Utwórz pule adresów zaplecza IPv6 za pomocą [AZ Network lb Address-Pool Create](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create). Poniższy przykład tworzy pulę adresów zaplecza o nazwie *dsLbBackEndPool_v6* w celu uwzględnienia maszyn wirtualnych z konfiguracjami kart sieciowych IPv6:
 
 ```azurecli
 az network lb address-pool create \
@@ -143,7 +143,7 @@ az network lb probe create -g DsResourceGroup01  --lb-name dsLB -n dsProbe --pro
 
 Reguła modułu równoważenia obciążenia służy do definiowania sposobu dystrybucji ruchu do maszyn wirtualnych. Zdefiniuj konfigurację adresu IP frontonu na potrzeby ruchu przychodzącego oraz pulę adresów IP zaplecza do odbierania ruchu, wraz z wymaganym portem źródłowym i docelowym. 
 
-Utwórz regułę modułu równoważenia obciążenia za pomocą polecenia [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create). W poniższym przykładzie utworzono reguły równoważenia obciążenia o nazwach *dsLBrule_v4* i *dsLBrule_v6* i równoważą ruch na porcie *TCP* *80* do konfiguracji IP frontendu IPv4 i IPv6:
+Utwórz regułę modułu równoważenia obciążenia za pomocą polecenia [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create). Poniższy przykład tworzy reguły modułu równoważenia obciążenia o nazwie *dsLBrule_v4* i *dsLBrule_v6* i równoważy ruch na *TCP* porcie TCP *80* do konfiguracji adresu IP frontonu IPv4 i IPv6:
 
 ```azurecli
 az network lb rule create \
@@ -172,11 +172,11 @@ az network lb rule create \
 ```
 
 ## <a name="create-network-resources"></a>Tworzenie zasobów sieciowych
-Przed wdrożeniem niektórych maszyn wirtualnych należy utworzyć pomocnicze zasoby sieciowe — zestaw dostępności, grupę zabezpieczeń sieci, sieć wirtualną i wirtualne karty sieciowe. 
+Przed wdrożeniem niektórych maszyn wirtualnych należy utworzyć pomocnicze zasoby sieciowe — zestaw dostępności, sieciową grupę zabezpieczeń, sieć wirtualną i wirtualne karty sieciowe. 
 ### <a name="create-an-availability-set"></a>Tworzenie zestawu dostępności
 Aby zwiększyć dostępność aplikacji, umieść maszyny wirtualne w zestawie dostępności.
 
-Utwórz zestaw dostępności z [az vm dostępność zestaw create](https://docs.microsoft.com/cli/azure/vm/availability-set?view=azure-cli-latest). Poniższy przykład tworzy zestaw dostępności o nazwie *dsAVset:*
+Utwórz zestaw dostępności za pomocą [AZ VM Availability-Set Create](https://docs.microsoft.com/cli/azure/vm/availability-set?view=azure-cli-latest). Poniższy przykład tworzy zestaw dostępności o nazwie *dsAVset*:
 
 ```azurecli
 az vm availability-set create \
@@ -189,11 +189,11 @@ az vm availability-set create \
 
 ### <a name="create-network-security-group"></a>Tworzenie sieciowej grupy zabezpieczeń
 
-Utwórz grupę zabezpieczeń sieci dla reguł, które będą regulować komunikację przychodzącą i wychodzącą w sieci wirtualnej.
+Utwórz sieciową grupę zabezpieczeń dla reguł, które będą zarządzać komunikacją przychodzącą i wychodzącą w sieci wirtualnej.
 
 #### <a name="create-a-network-security-group"></a>Tworzenie sieciowej grupy zabezpieczeń
 
-Tworzenie sieciowej grupy zabezpieczeń z [utworzeniem sieci AZ network nsg](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)
+Utwórz sieciową grupę zabezpieczeń za pomocą [AZ Network sieciowej grupy zabezpieczeń Create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)
 
 
 ```azurecli
@@ -206,7 +206,7 @@ az network nsg create \
 
 #### <a name="create-a-network-security-group-rule-for-inbound-and-outbound-connections"></a>Tworzenie reguły sieciowej grupy zabezpieczeń dla połączeń przychodzących i wychodzących
 
-Utwórz regułę sieciowej grupy zabezpieczeń, aby umożliwić połączenia RDP za pośrednictwem portu 3389, połączenie internetowe za pośrednictwem portu 80 oraz połączenia wychodzące z [regułą nsg sieci AZ .](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create)
+Utwórz regułę sieciowej grupy zabezpieczeń, aby zezwolić na połączenia RDP przez port 3389, połączenie internetowe przez port 80 oraz dla połączeń wychodzących za pomocą [AZ Network sieciowej grupy zabezpieczeń Rule Create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create).
 
 ```azurecli
 # Create inbound rule for port 3389
@@ -259,7 +259,7 @@ az network nsg rule create \
 
 ### <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
-Utwórz sieć wirtualną za pomocą polecenia [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create). Poniższy przykład tworzy sieć wirtualną o nazwie *dsVNET* z podsieciami *dsSubNET_v4* i *dsSubNET_v6:*
+Utwórz sieć wirtualną za pomocą polecenia [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create). Poniższy przykład tworzy sieć wirtualną o nazwie *dsVNET* z podsieciami *dsSubNET_v4* i *dsSubNET_v6*:
 
 ```azurecli
 # Create the virtual network
@@ -281,7 +281,7 @@ az network vnet subnet create \
 
 ### <a name="create-nics"></a>Tworzenie kart sieciowych
 
-Tworzenie wirtualnych kart sieciowych dla każdej maszyny Wirtualnej za pomocą [sieciowej nic az .](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create) Poniższy przykład tworzy wirtualną kartę sieciową dla każdej maszyny Wirtualnej. Każda karta sieciowa ma dwie konfiguracje IP (1 konfiguracja IPv4, 1 konfiguracja IPv6). Tworzenie konfiguracji IPV6 z [az sieci nic ip-config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create).
+Utwórz wirtualne karty sieciowe dla każdej maszyny wirtualnej za pomocą [AZ Network nic Create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create). Poniższy przykład tworzy wirtualną kartę sieciową dla każdej maszyny wirtualnej. Każda karta sieciowa ma dwie konfiguracje IP (1 Konfiguracja IPv4, 1 konfiguracja IPv6). Konfigurację IPV6 można utworzyć za pomocą [AZ Network nic IP-config Create](https://docs.microsoft.com/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create).
 
 ```azurecli
 # Create NICs
@@ -332,9 +332,9 @@ az network nic ip-config create \
 
 ### <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
-Tworzenie maszyn wirtualnych za pomocą [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create). Poniższy przykład obejmuje tworzenie dwóch maszyn wirtualnych oraz wymaganych składników sieci wirtualnej, jeśli jeszcze nie istnieją. 
+Utwórz maszyny wirtualne za pomocą [AZ VM Create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create). Poniższy przykład obejmuje tworzenie dwóch maszyn wirtualnych oraz wymaganych składników sieci wirtualnej, jeśli jeszcze nie istnieją. 
 
-Utwórz maszynę wirtualną *dsVM0* w następujący sposób:
+Utwórz *dsVM0* maszyny wirtualnej w następujący sposób:
 
 ```azurecli
  az vm create \
@@ -346,7 +346,7 @@ Utwórz maszynę wirtualną *dsVM0* w następujący sposób:
 --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest  
 ```
 
-Utwórz maszynę wirtualną *dsVM1* w następujący sposób:
+Utwórz *dsVM1* maszyny wirtualnej w następujący sposób:
 
 ```azurecli
 az vm create \
@@ -358,18 +358,18 @@ az vm create \
 --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest 
 ```
 
-## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Wyświetlanie sieci wirtualnej z dwoma stosami IPv6 w witrynie Azure portal
-Sieć wirtualną z dwoma stosami IPv6 można wyświetlić w witrynie Azure Portal w następujący sposób:
+## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Wyświetlanie sieci wirtualnej podwójnego stosu IPv6 w Azure Portal
+Sieć wirtualną o podwójnym stosie IPv6 można wyświetlić w Azure Portal w następujący sposób:
 1. Na pasku wyszukiwania portalu wprowadź *dsVnet*.
-2. Gdy pozycja **myVirtualNetwork** pojawi się w wynikach wyszukiwania, wybierz ją. Spowoduje to uruchomienie strony **Przegląd** sieci wirtualnej z dwoma stosami o nazwie *dsVnet*. Sieć wirtualna z dwoma stosami pokazuje dwie karty sieciowe z konfiguracjami IPv4 i IPv6 znajdującymi się w podsieci podwójnego stosu o nazwie *dsSubnet*.
+2. Gdy pozycja **myVirtualNetwork** pojawi się w wynikach wyszukiwania, wybierz ją. Spowoduje to uruchomienie strony **Przegląd** sieci wirtualnej o podwójnym stosie o nazwie *dsVnet*. Sieć wirtualna o podwójnym stosie pokazuje dwie karty sieciowe z konfiguracją protokołów IPv4 i IPv6 znajdującą się w podwójnej podsieci o nazwie *dsSubnet*.
 
-  ![Sieć wirtualna z dwoma stosami IPv6 na platformie Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
+  ![Sieć wirtualna o podwójnym stosie IPv6 na platformie Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 
 
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy nie jest już potrzebne, można użyć polecenia [delete grupy az,](/cli/azure/group#az-group-delete) aby usunąć grupę zasobów, maszynę wirtualną i wszystkie powiązane zasoby.
+Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [AZ Group Delete](/cli/azure/group#az-group-delete) .
 
 ```azurecli
  az group delete --name DsResourceGroup01
@@ -377,4 +377,4 @@ Gdy nie jest już potrzebne, można użyć polecenia [delete grupy az,](/cli/azu
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule utworzono podstawowy moduł równoważenia obciążenia z konfiguracją IP z podwójnym frontendem (IPv4 i IPv6). Utworzono również dwie maszyny wirtualne, które zawierały karty sieciowe z dwiema konfiguracjami IP (IPV4 + IPv6), które zostały dodane do puli zaplecza modułu równoważenia obciążenia. Aby dowiedzieć się więcej o obsłudze IPv6 w sieciach wirtualnych platformy Azure, zobacz [Co to jest IPv6 dla usługi Azure Virtual Network?](ipv6-overview.md)
+W tym artykule opisano tworzenie podstawowego Load Balancer z konfiguracją dwóch adresów IP frontonu (IPv4 i IPv6). Utworzono również dwie maszyny wirtualne, które zawierają karty sieciowe z dwoma konfiguracjami protokołu IP (IPV4 + IPv6), które zostały dodane do puli zaplecza modułu równoważenia obciążenia. Aby dowiedzieć się więcej o obsłudze protokołu IPv6 w sieciach wirtualnych platformy Azure, zobacz [co to jest protokół IPv6 dla systemu azure Virtual Network?](ipv6-overview.md)

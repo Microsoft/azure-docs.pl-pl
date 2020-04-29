@@ -1,6 +1,6 @@
 ---
-title: Chmury i regiony, w których dostępna jest usługa Azure Media Services w wersji 3
-description: W tym artykule owieszeń dotyczących chmur i regionów platformy Azure, w których usługa Azure Media Services w wersji 3 jest dostępna.
+title: Chmury i regiony, w których jest dostępny Azure Media Services wersja 3
+description: Ten artykuł zawiera informacje o chmurach i regionach platformy Azure, w których jest dostępny Azure Media Services wersja 3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,42 +12,42 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.author: juliako
 ms.openlocfilehash: 1257bf4dfb0d5b2c4995cac760290f97293a0c0f
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80382974"
 ---
-# <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Chmury i regiony, w których istnieje usługa Azure Media Services w wersji 3
+# <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Chmury i regiony, w których istnieje Azure Media Services v3
 
-Usługa Azure Media Services w wersji 3 jest dostępna za pośrednictwem manifestu usługi Azure Resource Manager w globalnej platformie Azure, usłudze Azure Government, Azure Germany, Azure China 21Vianet. Jednak nie wszystkie funkcje usługi Media Services są dostępne we wszystkich chmurach platformy Azure. W tym dokumencie opisano dostępność głównych składników usługi Media Services w wersji 3.
+Azure Media Services V3 jest dostępny za pośrednictwem Azure Resource Manager manifestu na platformie Azure, Azure Government, Azure (Niemcy), Azure Chiny 21Vianet. Jednak nie wszystkie funkcje Media Services są dostępne we wszystkich chmurach platformy Azure. W tym dokumencie przedstawiono dostępność głównych składników Media Services w wersji 3.
 
 ## <a name="feature-availability-in-azure-clouds"></a>Dostępność funkcji w chmurach platformy Azure
 
 | Funkcja|Globalne regiony platformy Azure | Azure Government|Azure (Niemcy)|Azure w Chinach — 21Vianet|
 | --- | --- | --- | --- | --- |
 | [Azure Event Grid](reacting-to-media-services-events.md) | Dostępne | Niedostępne | Niedostępne | Niedostępne |
-| [WideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Dostępne | Niedostępne | Niedostępne | Niedostępne |
+| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Dostępne | Niedostępne | Niedostępne | Niedostępne |
 | [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Dostępne | Niedostępne | Niedostępne | Niedostępne |
 | [StandardEncoderPreset](encoding-concept.md) | Dostępne | Dostępne | Dostępne | Dostępne |
-| [LiveEvents (Wydarzenia na żywo)](live-streaming-overview.md) | Dostępne | Dostępne | Dostępne | Dostępne |
-| [Punkty przesyłania strumieniowego](streaming-endpoint-concept.md) | Dostępne | Dostępne | Dostępne | Dostępne |
+| [LiveEvents](live-streaming-overview.md) | Dostępne | Dostępne | Dostępne | Dostępne |
+| [StreamingEndpoints](streaming-endpoint-concept.md) | Dostępne | Dostępne | Dostępne | Dostępne |
 
-## <a name="regionsgeographieslocations"></a>Regiony/regiony geograficzne/lokalizacje
+## <a name="regionsgeographieslocations"></a>Regiony/lokalizacje geograficzne/lokalizacje
 
-[Regiony, w których wdrożono usługę Azure Media Services](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
+[Regiony, w których jest wdrażana usługa Azure Media Services](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
-### <a name="region-code-name"></a>Nazwa kodowa regionu
+### <a name="region-code-name"></a>Nazwa kodu regionu
 
-Jeśli trzeba podać parametr **lokalizacji,** należy podać nazwę kodu regionu jako wartość **lokalizacji.** Aby uzyskać nazwę kodową regionu, w którego znajduje się Twoje konto i do którego powinno zostać skierowane połączenie, można uruchomić następujący wiersz w [usłudze Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
+Jeśli konieczne jest podanie parametru **Location** , należy podać nazwę kodu regionu jako wartość **lokalizacji** . Aby uzyskać nazwę kodu regionu, w którym znajduje się Twoje konto, a połączenie powinno być kierowane, możesz uruchomić następujący wiersz w [interfejsie wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
 ```azurecli-interactive
 az account list-locations
 ```
 
-Po uruchomieniu wiersza pokazano powyżej, otrzymasz listę wszystkich regionów platformy Azure. Przejdź do regionu platformy Azure, który ma *nazwę wyświetlania,* której szukasz, i użyj jego wartości *nazwy* dla parametru **lokalizacji.**
+Po uruchomieniu pokazanego powyżej wiersza otrzymujesz listę wszystkich regionów świadczenia usługi Azure. Przejdź do regionu platformy Azure, dla którego szukasz *DisplayName* , i użyj jego wartości *nazwy* dla parametru **Location** .
 
-Na przykład dla regionu platformy Azure West US 2 (wyświetlane poniżej), użyjesz "westus2" dla **parametru lokalizacji.**
+Na przykład dla regionu Azure zachodnie stany USA 2 (wyświetlone poniżej) dla parametru **Location** zostanie użyta wartość "westus2".
 
 ```json
    {
@@ -62,15 +62,15 @@ Na przykład dla regionu platformy Azure West US 2 (wyświetlane poniżej), uży
 
 ## <a name="endpoints"></a>Punkty końcowe  
 
-Następujące punkty końcowe są ważne, aby wiedzieć, podczas łączenia się z kontami usługi Media Services z różnych krajowych chmur platformy Azure.
+Następujące punkty końcowe są ważne, aby wiedzieć, jak nawiązać połączenie z kontami Media Services z różnych krajowych chmur platformy Azure.
 
-### <a name="global-azure"></a>Globalna platforma Azure
+### <a name="global-azure"></a>Globalny platformę Azure
 
 |Punkty końcowe||
 | --- | --- |
 | Azure Resource Manager |  `https://management.azure.com/` |
 | Uwierzytelnianie | `https://login.microsoftonline.com/` |
-| Grupa odbiorców tokenów | `https://management.core.windows.net/` |
+| Odbiorcy tokenu | `https://management.core.windows.net/` |
 
 ### <a name="azure-government"></a>Azure Government
 
@@ -78,7 +78,7 @@ Następujące punkty końcowe są ważne, aby wiedzieć, podczas łączenia się
 | --- | --- |
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
 | Uwierzytelnianie | `https://login.microsoftonline.us/` |
-| Grupa odbiorców tokenów | `https://management.core.usgovcloudapi.net/` |
+| Odbiorcy tokenu | `https://management.core.usgovcloudapi.net/` |
 
 ### <a name="azure-germany"></a>Azure (Niemcy)
 
@@ -86,7 +86,7 @@ Następujące punkty końcowe są ważne, aby wiedzieć, podczas łączenia się
 | --- | --- |  
 | Azure Resource Manager | `https://management.cloudapi.de/` |
 | Uwierzytelnianie | `https://login.microsoftonline.de/` |
-| Grupa odbiorców tokenów | `https://management.core.cloudapi.de/`|
+| Odbiorcy tokenu | `https://management.core.cloudapi.de/`|
 
 ### <a name="azure-china-21vianet"></a>Azure w Chinach — 21Vianet
 
@@ -94,9 +94,9 @@ Następujące punkty końcowe są ważne, aby wiedzieć, podczas łączenia się
 | --- | --- |
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | Uwierzytelnianie | `https://login.chinacloudapi.cn/` |
-| Grupa odbiorców tokenów |  `https://management.core.chinacloudapi.cn/` |
+| Odbiorcy tokenu |  `https://management.core.chinacloudapi.cn/` |
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Regiony platformy Azure](https://azure.microsoft.com/global-infrastructure/regions/)
 * [Obszary geograficzne platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
@@ -104,4 +104,4 @@ Następujące punkty końcowe są ważne, aby wiedzieć, podczas łączenia się
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Omówienie usługi Media Services w wersji 3](media-services-overview.md)
+[Media Services wersja 3 — Omówienie](media-services-overview.md)

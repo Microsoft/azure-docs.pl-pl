@@ -1,6 +1,6 @@
 ---
-title: Struktury danych usługi mobilności w usłudze Azure Maps| Mapy platformy Microsoft Azure
-description: W tym artykule dowiesz się o typowych polach i strukturach danych zwracanych za pośrednictwem usług microsoft azure maps mobilności.
+title: Struktury danych usługi mobilności w Azure Maps | Mapy Microsoft Azure
+description: Ten artykuł zawiera informacje o typowych polach i strukturach danych zwracanych przez Microsoft Azure Maps usługi mobilności.
 author: philmea
 ms.author: philmea
 ms.date: 06/05/2019
@@ -9,62 +9,62 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 4dfc6793bba473c4046863937baa292dde7bf421
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478691"
 ---
-# <a name="data-structures-in-azure-maps-mobility-service"></a>Struktury danych w usłudze mobilności usługi Azure Maps
+# <a name="data-structures-in-azure-maps-mobility-service"></a>Struktury danych w Azure Maps usłudze mobilności
 
-W tym artykule przedstawiono pojęcie Metro Area w [usłudze Azure Maps Mobility Service.](https://aka.ms/AzureMapsMobilityService) Omówimy niektóre typowe pola, które są zwracane, gdy ta usługa jest wyszukiwana dla przystanków transportu publicznego i linii. Zalecamy przeczytanie tego artykułu przed opracowaniem za pomocą interfejsów API usługi mobilności.
+W tym artykule wprowadzono koncepcję obszaru Metro w [Azure Maps usłudze mobilności](https://aka.ms/AzureMapsMobilityService). Omawiamy niektóre typowe pola, które są zwracane, gdy ta usługa jest przedmiotem zapytania o zatrzymanie i obsługę tranzytu publicznego. Zalecamy odczytywanie tego artykułu przed programowaniem przy użyciu interfejsów API usługi mobilności.
 
-## <a name="metro-area"></a>Metro
+## <a name="metro-area"></a>Obszar Metro
 
-Dane usługi mobilności są pogrupowane według obsługiwanych obszarów metra. Obszary metra nie są zgodne z granicami miasta. Obszar metra może zawierać wiele miast, gęsto zaludnione miasto i okoliczne miasta. W rzeczywistości kraj/region może być jednym obszarem metra. 
+Dane usługi mobilności są pogrupowane według obsługiwanych obszarów Metro. Obszary Metro nie obserwują granic miejscowości. Obszar Metro może zawierać wiele miast, gęsto wypełnione miasto i otaczające miasta. W rzeczywistości kraj/region może być jednym obszarem Metro. 
 
-Jest `metroID` to identyfikator obszaru metra, który może służyć do wywołania [Get Metro Area Info API](https://aka.ms/AzureMapsMobilityMetroAreaInfo). Użyj interfejsu API "Pobierz metro" usługi Azure Maps, aby zażądać typów tranzytu, agencji tranzytowych, aktywnych alertów i dodatkowych szczegółów dla wybranej stacji metra. Można również zamówić obsługiwane obszary metra i metroIDs. Identyfikatory obszaru metra mogą ulec zmianie.
+`metroID` Jest to identyfikator obszaru Metro, którego można użyć do wywołania [interfejsu API informacji o powierzchni Metro](https://aka.ms/AzureMapsMobilityMetroAreaInfo). Użyj Azure Maps "" Get Metro ", aby zażądać typów tranzytowych, agencji tranzytowych, aktywnych alertów i dodatkowych szczegółów dla wybranej linii metra. Możesz również zażądać obsługiwanych obszarów Metro i metroIDs. Identyfikatory obszaru Metro mogą ulec zmianie.
 
 **metroID:** 522 **Nazwa:** Seattle-Tacoma-Bellevue
 
-![Seattle-metro-area](./media/mobility-service-data-structure/seattle-metro.png)
+![Seattle — obszar Metro](./media/mobility-service-data-structure/seattle-metro.png)
 
-## <a name="stop-ids"></a>Zatrzymaj identyfikatory
+## <a name="stop-ids"></a>Zatrzymywanie identyfikatorów
 
-Zatrzymania przesyłania mogą być określane przez dwa typy identyfikatorów, identyfikator specyfikacji ogólnego [kanału informacyjnego (GFTS)](http://gtfs.org/) i identyfikator zatrzymania usługi Azure Maps. Identyfikator GFTS jest określany jako stopKey i identyfikator zatrzymania usługi Azure Maps jest określany jako identyfikator stopID. Często odwołując się do przystanków przesyłania, zachęcamy do korzystania z identyfikatora zatrzymania usługi Azure Maps. stopID jest bardziej stabilny i może pozostać taki sam, o ile istnieje fizyczne zatrzymanie. Identyfikator zatrzymania GTFS jest aktualizowany częściej. Na przykład identyfikator zatrzymania GTFS można zaktualizować na żądanie dostawcy GTFS lub po wydaniu nowej wersji GTFS. Chociaż fizyczne zatrzymanie nie miało zmian, identyfikator zatrzymania GTFS może ulec zmianie.
+Zatrzymywanie tranzytu może być określane przez dwa typy identyfikatorów, identyfikator [GFTS (Generally exportion Specification)](http://gtfs.org/) i identyfikator zatrzymania Azure Maps. Identyfikator GFTS jest określany jako stopKey, a Azure Maps identyfikator zatrzymania jest określany jako stopID. Podczas częstego odwoływania się do zatrzymywania tranzytu zaleca się użycie identyfikatora zatrzymania Azure Maps. stopID jest bardziej stabilna i prawdopodobnie pozostaje taka sama, o ile istnieje fizyczne zatrzymanie. Identyfikator zatrzymania GTFS jest aktualizowany częściej. Na przykład identyfikator zatrzymania GTFS można zaktualizować na żądanie dostawcy GTFS lub w przypadku wydania nowej wersji GTFS. Mimo że fizyczne zatrzymanie nie miało żadnej zmiany, identyfikator zatrzymania GTFS może ulec zmianie.
 
-Aby rozpocząć, możesz poprosić o pobliskie przystanki tranzytowe za pomocą [interfejsu Get Nearby Transit API](https://aka.ms/AzureMapsMobilityNearbyTransit).
+Aby rozpocząć, możesz zażądać zatrzymania tranzytu w pobliżu za pomocą [interfejsu API pobierania pobliskich tranzytów](https://aka.ms/AzureMapsMobilityNearbyTransit).
 
-## <a name="line-groups-and-lines"></a>Grupy wierszy i linie
+## <a name="line-groups-and-lines"></a>Wiersze i grupy wierszy
 
-Usługa mobilności używa równoległego modelu danych dla linii i grup linii. Model ten jest używany do lepszego radzenia sobie ze zmianami odziedziczonymi po trasach [GTFS](http://gtfs.org/) i danych o podróżach.
+Usługa mobilności używa równoległego modelu danych dla linii i grup liniowych. Ten model jest używany do lepszego postępowania z zmianami dziedziczonymi z tras [GTFS](http://gtfs.org/) i danych podróży.
 
 
 ### <a name="line-groups"></a>Grupy wierszy
 
-Grupa wierszy jest encją, która grupuje wszystkie wiersze, które są logicznie częścią tej samej grupy. Zazwyczaj grupa wierszy zawiera dwa wiersze, jeden od punktu A do B, a drugi powracający z punktu B do A. Obie linie należałyby do tej samej agencji transportu publicznego i miałyby ten sam numer linii. Mogą jednak wystąpić przypadki, w których grupa wierszy ma więcej niż dwie linie lub tylko jedną linię w obrębie.
+Grupa wierszy jest jednostką, która grupuje ze sobą wszystkie wiersze, które są logicznie częścią tej samej grupy. Zwykle grupa wierszy zawiera dwa wiersze, jeden od punktu A do B, a druga zwraca od punktu B do A. Oba wiersze powinny należeć do tej samej publicznej agencji transportowej i mieć ten sam numer wiersza. Mogą jednak wystąpić sytuacje, w których grupa linii ma więcej niż dwa wiersze lub tylko jeden wiersz.
 
 
 ### <a name="lines"></a>Linie
 
-Jak wspomniano powyżej, każda grupa wierszy składa się z zestawu wierszy. Każda grupa wierszy składa się z dwóch linii, a każda linia opisuje kierunek.  Istnieją jednak przypadki, w których więcej wierszy tworzą grupę wierszy. Na przykład istnieje linia, która czasami objazdy przez pewną dzielnicę, a czasami nie. W obu przypadkach działa pod tym samym numerem wiersza. Również grupa wierszy może składać się z pojedynczego wiersza. Linia kołowa z jednym kierunkiem jest grupą lingową z jedną linią.
+Jak opisano powyżej, każda grupa wierszy składa się z zestawu wierszy. Każda grupa wierszy składa się z dwóch wierszy, a każdy wiersz opisuje kierunek.  Istnieją jednak przypadki, w których więcej wierszy redaguje grupę wierszy. Na przykład jest to linia, która czasami zawiera kilka przewodników w określonym klubie i czasami nie jest. W obu przypadkach działa pod tym samym numerem wiersza. Ponadto grupa wierszy może składać się z jednego wiersza. Cykliczna linia z pojedynczym kierunkiem jest grupą z jednym wierszem.
 
-Aby rozpocząć, można zażądać grup wierszy przy użyciu [interfejsu API Pobierz linię tranzytową](https://aka.ms/AzureMapsMobilityTransitLine).
+Aby rozpocząć, możesz zażądać grup wierszy przy użyciu [interfejsu API uzyskiwania linii tranzytowej](https://aka.ms/AzureMapsMobilityTransitLine).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak żądać danych tranzytowych za pomocą usługi mobilności:
+Dowiedz się, jak żądać danych tranzytowych przy użyciu usługi mobilności:
 
 > [!div class="nextstepaction"]
-> [Jak zażądać danych tranzytowych](how-to-request-transit-data.md)
+> [Jak żądać danych tranzytowych](how-to-request-transit-data.md)
 
-Dowiedz się, jak żądać danych w czasie rzeczywistym za pomocą usługi mobilności:
+Informacje na temat żądania danych w czasie rzeczywistym przy użyciu usługi mobilności:
 
 > [!div class="nextstepaction"]
 > [Jak żądać danych w czasie rzeczywistym](how-to-request-real-time-data.md)
 
-Zapoznaj się z dokumentacją interfejsu API usługi mobilności usługi Azure Maps
+Poznaj dokumentację interfejsu API usługi mobilności Azure Maps
 
 > [!div class="nextstepaction"]
 > [Dokumentacja interfejsu API usługi mobilności](https://aka.ms/AzureMapsMobilityService)

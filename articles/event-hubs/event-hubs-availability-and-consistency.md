@@ -1,6 +1,6 @@
 ---
-title: Dostępność i spójność — usługi Azure Event Hubs | Dokumenty firmy Microsoft
-description: Jak zapewnić maksymalną dostępność i spójność z usługi Azure Event Hubs przy użyciu partycji.
+title: Dostępność i spójność — Event Hubs platformy Azure | Microsoft Docs
+description: Jak zapewnić maksymalną ilość dostępności i spójność za pomocą usługi Azure Event Hubs przy użyciu partycji.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -14,44 +14,44 @@ ms.workload: na
 ms.date: 03/27/2020
 ms.author: shvija
 ms.openlocfilehash: 0546adb6131479a8f5d2e7e31819483200586839
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80397337"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Availability and consistency in Event Hubs (Dostępność i spójność w usłudze Event Hubs)
 
 ## <a name="overview"></a>Omówienie
-Usługa Azure Event Hubs używa [modelu partycjonowania](event-hubs-scalability.md#partitions) w celu zwiększenia dostępności i równoległości w ramach jednego centrum zdarzeń. Na przykład jeśli centrum zdarzeń ma cztery partycje, a jedna z tych partycji jest przenoszona z jednego serwera na inny w operacji równoważenia obciążenia, nadal można wysyłać i odbierać z trzech innych partycji. Ponadto posiadanie większej liczby partycji umożliwia posiadanie większej liczby równoczesnych czytników przetwarzających dane, poprawiając agregującą przepływność. Zrozumienie implikacji partycjonowania i zamawiania w systemie rozproszonym jest kluczowym aspektem projektowania rozwiązań.
+Usługa Azure Event Hubs używa [modelu partycjonowania](event-hubs-scalability.md#partitions) , aby zwiększyć dostępność i przetwarzanie równoległe w ramach jednego centrum zdarzeń. Na przykład jeśli centrum zdarzeń ma cztery partycje, a jedna z nich jest przenoszona z jednego serwera do drugiego w operacji równoważenia obciążenia, można nadal wysyłać i odbierać z trzech innych partycji. Ponadto posiadanie większej liczby partycji pozwala na przetworzenie danych przez większą liczbę czytelników i zwiększenie zagregowanej przepływności. Zrozumienie skutków partycjonowania i uporządkowania w systemie rozproszonym jest krytycznym aspektem projektu rozwiązania.
 
-Aby wyjaśnić kompromis między zamawianiem a [dostępnością, zobacz wyobcowanie wPR](https://en.wikipedia.org/wiki/CAP_theorem), znane również jako pozorowanie Brewera. W tym pozorze omówiono wybór między spójnością, dostępnością i tolerancją partycji. Stwierdza, że dla systemów podzielonych na partycje przez sieć zawsze istnieje kompromis między spójnością a dostępnością.
+Aby ułatwić wyjaśnienie handlu między porządkowaniem i dostępnością, zobacz [theorem Cap](https://en.wikipedia.org/wiki/CAP_theorem), znany również jako theorem Brewer. Ten theorem omawia wybór między opcją spójności, dostępności i tolerancją partycji. W przypadku systemów partycjonowanych przez sieć zawsze występuje kompromis między spójnością i dostępnością.
 
-W yokreślenie browaru definiuje spójność i dostępność w następujący sposób:
-* Tolerancja partycji: możliwość systemu przetwarzania danych do kontynuowania przetwarzania danych, nawet jeśli wystąpi błąd partycji.
-* Dostępność: węzeł, który nie działa, zwraca uzasadnioną odpowiedź w rozsądnym czasie (bez błędów lub limitów czasu).
-* Spójność: odczyt jest gwarantowany do zwrócenia najnowszego zapisu dla danego klienta.
+Brewer theorem definiuje spójność i dostępność w następujący sposób:
+* Tolerancja partycji: możliwość systemu przetwarzania danych kontynuuje przetwarzanie danych, nawet jeśli wystąpi awaria partycji.
+* Dostępność: węzeł niepowodujący awarii zwraca rozsądną odpowiedź w rozsądnym czasie (bez błędów lub przekroczeń limitu czasu).
+* Spójność: Odczyt jest gwarantowany do zwrócenia najnowszej zapis dla danego klienta.
 
 ## <a name="partition-tolerance"></a>Tolerancja partycji
-Centra zdarzeń jest zbudowany na modelu danych podzielonych na partycje. Można skonfigurować liczbę partycji w centrum zdarzeń podczas instalacji, ale nie można zmienić tej wartości później. Ponieważ należy używać partycji z centrum zdarzeń, należy podjąć decyzję o dostępności i spójności dla aplikacji.
+Event Hubs jest tworzona na podstawie partycjonowanego modelu danych. Można skonfigurować liczbę partycji w centrum zdarzeń podczas instalacji, ale nie można zmienić tej wartości później. Ze względu na to, że należy używać partycji z Event Hubs, należy podjąć decyzję dotyczącą dostępności i spójności aplikacji.
 
 ## <a name="availability"></a>Dostępność
-Najprostszym sposobem rozpoczęcia pracy z centrum zdarzeń jest użycie zachowania domyślnego. 
+Najprostszym sposobem na rozpoczęcie pracy z Event Hubs jest użycie zachowania domyślnego. 
 
-#### <a name="azuremessagingeventhubs-500-or-later"></a>[Usługa Azure.Messaging.EventHubs (5.0.0 lub nowsze)](#tab/latest)
-Jeśli utworzysz nowy **[Obiekt EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient?view=azure-dotnet)** i użyjesz Metody **[SendAsync,](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync?view=azure-dotnet)** zdarzenia są automatycznie dystrybuowane między partycjami w centrum zdarzeń. To zachowanie pozwala na największą ilość czasu.
+#### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure. Messaging. EventHubs (5.0.0 lub nowszy)](#tab/latest)
+Jeśli utworzysz nowy obiekt **[EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient?view=azure-dotnet)** i użyjesz metody **[SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync?view=azure-dotnet)** , zdarzenia są automatycznie dystrybuowane między partycjami w centrum zdarzeń. To zachowanie umożliwia największą ilość czasu.
 
-#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Witryna Microsoft.Azure.EventHubs (4.1.0 lub wcześniejsza)](#tab/old)
-Jeśli utworzysz nowy **[obiekt EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** i użyjesz **[metody Send,](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** zdarzenia są automatycznie dystrybuowane między partycjami w centrum zdarzeń. To zachowanie pozwala na największą ilość czasu.
+#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft. Azure. EventHubs (4.1.0 lub starszy)](#tab/old)
+W przypadku utworzenia nowego obiektu **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** i użycia metody **[send](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** zdarzenia są automatycznie dystrybuowane między partycjami w centrum zdarzeń. To zachowanie umożliwia największą ilość czasu.
 
 ---
 
-W przypadkach użycia, które wymagają maksymalnego czasu wystania, ten model jest preferowany.
+Dla przypadków użycia, które wymagają maksymalnego czasu, preferowany jest ten model.
 
 ## <a name="consistency"></a>Spójność
-W niektórych scenariuszach kolejność zdarzeń może być ważna. Na przykład system zaplecza może przetworzyć polecenie aktualizacji przed poleceniem usuwania. W tym przypadku można ustawić klucz partycji na zdarzenie `PartitionSender` lub użyć obiektu (jeśli używasz starej biblioteki Microsoft.Azure.Messaging), aby wysyłać tylko zdarzenia do określonej partycji. W ten sposób zapewnia, że gdy te zdarzenia są odczytywane z partycji, są odczytywane w kolejności. Jeśli używasz biblioteki **Azure.Messaging.EventHubs** i aby uzyskać więcej informacji, zobacz [Migrowanie kodu z PartitionSender do EventHubProducerClient do publikowania zdarzeń na partycji](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
+W niektórych scenariuszach kolejność zdarzeń może być ważna. Na przykład możesz chcieć, aby system zaplecza przetworzył polecenie aktualizacji przed poleceniem usuwania. W tym przypadku można ustawić klucz partycji dla zdarzenia lub użyć `PartitionSender` obiektu (Jeśli używasz starej biblioteki Microsoft. Azure. Messaging Library) do wysyłania tylko zdarzeń do określonej partycji. Dzięki temu w przypadku odczytywania tych zdarzeń z partycji są one odczytywane w pożądanej kolejności. Jeśli używasz biblioteki **Azure. Messaging. EventHubs** i aby uzyskać więcej informacji, zobacz [Migrowanie kodu z PartitionSender do EventHubProducerClient w celu publikowania zdarzeń na partycji](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
 
-#### <a name="azuremessagingeventhubs-500-or-later"></a>[Usługa Azure.Messaging.EventHubs (5.0.0 lub nowsze)](#tab/latest)
+#### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure. Messaging. EventHubs (5.0.0 lub nowszy)](#tab/latest)
 
 ```csharp
 var connectionString = "<< CONNECTION STRING FOR THE EVENT HUBS NAMESPACE >>";
@@ -68,7 +68,7 @@ await using (var producerClient = new EventHubProducerClient(connectionString, e
 }
 ```
 
-#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Witryna Microsoft.Azure.EventHubs (4.1.0 lub wcześniejsza)](#tab/old)
+#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft. Azure. EventHubs (4.1.0 lub starszy)](#tab/old)
 
 ```csharp
 var connectionString = "<< CONNECTION STRING FOR THE EVENT HUBS NAMESPACE >>";
@@ -94,11 +94,11 @@ finally
 
 ---
 
-W tej konfiguracji należy pamiętać, że jeśli określona partycja, do której wysyłasz jest niedostępna, zostanie wyświetlone odpowiedzi na błąd. Jako punkt porównania, jeśli nie masz koligacji do jednej partycji, usługa Centrum zdarzeń wysyła zdarzenie do następnej dostępnej partycji.
+W przypadku tej konfiguracji należy pamiętać, że jeśli określona partycja, do której jest wysyłana, jest niedostępna, zostanie wyświetlona odpowiedź na błąd. Jako punkt porównania, jeśli nie masz koligacji z jedną partycją, usługa Event Hubs wysyła zdarzenie do następnej dostępnej partycji.
 
-Jednym z możliwych rozwiązań, aby zapewnić zamawianie, a jednocześnie maksymalizacji czasu, byłoby agregowanie zdarzeń w ramach aplikacji przetwarzania zdarzeń. Najprostszym sposobem, aby to osiągnąć jest stemplowanie zdarzenia za pomocą niestandardowej właściwości numeru sekwencyjnyego. Poniżej znajduje się kod przykładowy:
+Jednym z możliwych rozwiązań do zapewnienia uporządkowania, a jednocześnie zmaksymalizowania czasu, byłoby zaagregowanie zdarzeń w ramach aplikacji do przetwarzania zdarzeń. Najprostszym sposobem na to jest sygnatura zdarzenia z właściwością niestandardowego numeru sekwencji. Poniżej znajduje się kod przykładowy:
 
-#### <a name="azuremessagingeventhubs-500-or-later"></a>[Usługa Azure.Messaging.EventHubs (5.0.0 lub nowsze)](#tab/latest)
+#### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure. Messaging. EventHubs (5.0.0 lub nowszy)](#tab/latest)
 
 ```csharp
 // create a producer client that you can use to send events to an event hub
@@ -124,7 +124,7 @@ await using (var producerClient = new EventHubProducerClient(connectionString, e
 }
 ```
 
-#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Witryna Microsoft.Azure.EventHubs (4.1.0 lub wcześniejsza)](#tab/old)
+#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft. Azure. EventHubs (4.1.0 lub starszy)](#tab/old)
 ```csharp
 // Create an Event Hubs client
 var client = new EventHubClient(connectionString, eventHubName);
@@ -146,10 +146,10 @@ await producer.SendAsync(data);
 ```
 ---
 
-W tym przykładzie wysyła zdarzenie do jednej z dostępnych partycji w centrum zdarzeń i ustawia odpowiedni numer sekwencyjny z aplikacji. To rozwiązanie wymaga stanu, który ma być przechowywany przez aplikację przetwarzania, ale daje nadawcom punkt końcowy, który jest bardziej prawdopodobne, aby być dostępne.
+Ten przykład wysyła zdarzenie do jednej z dostępnych partycji w centrum zdarzeń i ustawia odpowiedni numer sekwencyjny z aplikacji. To rozwiązanie wymaga zachowania stanu przez aplikację do przetwarzania, ale daje nadawcom punkt końcowy, który jest bardziej prawdopodobnie dostępny.
 
 ## <a name="next-steps"></a>Następne kroki
 Następujące linki pozwalają dowiedzieć się więcej na temat usługi Event Hubs:
 
-* [Omówienie usługi Usługi Usługi Usługi Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Przegląd usługi Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Tworzenie centrum zdarzeń](event-hubs-create.md)

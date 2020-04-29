@@ -1,6 +1,6 @@
 ---
-title: Włączanie wirtualizacji zagnieżdżonej na szablonie maszyny Wirtualnej w usłudze Azure Lab Services (Skrypt) | Dokumenty firmy Microsoft
-description: Dowiedz się, jak utworzyć szablon maszyny Wirtualnej z wieloma maszynami wirtualnymi wewnątrz.  Innymi słowy włącz zagnieżdżoną wirtualizację na szablonie maszyny Wirtualnej w usłudze Azure Lab Services.
+title: Włącz wirtualizację zagnieżdżoną na maszynie wirtualnej szablonu w Azure Lab Services (skrypt) | Microsoft Docs
+description: Dowiedz się, jak utworzyć maszynę wirtualną szablonu z wieloma maszynami wirtualnymi wewnątrz.  Innymi słowy należy włączyć wirtualizację zagnieżdżoną na maszynie wirtualnej szablonu w Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,42 +14,42 @@ ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
 ms.openlocfilehash: 56e5ad21f94521565b4df193b2450a1c994b66f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79503038"
 ---
-# <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-using-a-script"></a>Włączanie wirtualizacji zagnieżdżonej na maszynie wirtualnej szablonu w usłudze Azure Lab Services przy użyciu skryptu
+# <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-using-a-script"></a>Włącz wirtualizację zagnieżdżoną na maszynie wirtualnej szablonu w Azure Lab Services przy użyciu skryptu
 
-Wirtualizacja zagnieżdżona umożliwia utworzenie środowiska wielu maszyn wirtualnych wewnątrz maszyny wirtualnej szablonu laboratorium. Publikowanie szablonu zapewni każdemu użytkownikowi w laboratorium maszynę wirtualną skonfigurowaną z wieloma maszynami wirtualnymi w nim.  Aby uzyskać więcej informacji na temat wirtualizacji zagnieżdżonej i usług Azure Lab Services, zobacz [Włączanie wirtualizacji zagnieżdżonej na maszynie wirtualnej szablonu w usługach Azure Lab Services.](how-to-enable-nested-virtualization-template-vm.md)
+Wirtualizacja zagnieżdżona umożliwia tworzenie środowiska z obsługą wiele maszyn wirtualnych w ramach maszyny wirtualnej szablonu laboratorium. Opublikowanie szablonu zapewni każdemu użytkownikowi w laboratorium z maszyną wirtualną skonfigurowaną z wieloma maszynami wirtualnymi.  Aby uzyskać więcej informacji na temat wirtualizacji zagnieżdżonej i Azure Lab Services, zobacz [Włączanie wirtualizacji zagnieżdżonej na maszynie wirtualnej szablonu w Azure Lab Services](how-to-enable-nested-virtualization-template-vm.md).
 
-W tym artykule skupiono się na konfigurowaniu zagnieżdżonej wirtualizacji dla systemu Windows Server 2016 lub Windows Server 2019. Skrypt służy do konfigurowania maszyny szablonu z funkcji Hyper-V.  Poniższe kroki poprowadzą Cię przez sposób korzystania ze [skryptów Funkcji Hyper-V usług laboratoryjnych](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/HyperV).
+Kroki opisane w tym artykule koncentrują się na konfigurowaniu zagnieżdżonej wirtualizacji dla systemu Windows Server 2016 lub Windows Server 2019. Za pomocą skryptu można skonfigurować maszynę szablonu przy użyciu funkcji Hyper-V.  Poniższe kroki przeprowadzą Cię przez proces korzystania ze [skryptów funkcji Hyper-V dla usług Lab Services](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/HyperV).
 
 >[!IMPORTANT]
->Wybierz **opcję Duże (wirtualizacja zagnieżdżona)** lub **Średnia (wirtualizacja zagnieżdżona)** dla rozmiaru maszyny wirtualnej podczas tworzenia laboratorium.  Zagnieżdżona wirtualizacja nie będzie działać inaczej.  
+>Wybierz opcję **duże (Wirtualizacja zagnieżdżona)** lub **Średni (Wirtualizacja zagnieżdżona)** dla rozmiaru maszyny wirtualnej podczas tworzenia laboratorium.  Wirtualizacja zagnieżdżona nie będzie działała inaczej.  
 
 ## <a name="run-script"></a>Uruchamianie skryptu
 
-1. Jeśli używasz programu Internet Explorer, może `https://github.com` być trzeba dodać do listy zaufanych witryn.
+1. Jeśli używasz programu Internet Explorer, może być konieczne dodanie `https://github.com` do listy zaufanych witryn.
     1. Otwórz program Internet Explorer.
-    1. Wybierz ikonę koła zębatego i wybierz **opcję Opcje internetowe**.  
-    1. Po wyświetleniu okna dialogowego **Opcje internetowe** wybierz pozycję **Zabezpieczenia**, wybierz pozycję **Zaufane witryny**, kliknij przycisk **Witryny.**
-    1. Po wyświetleniu okna dialogowego **Zaufane witryny** dodaj `https://github.com` je do listy zaufanych witryn sieci Web i wybierz pozycję **Zamknij**.
+    1. Wybierz ikonę koła zębatego, a następnie wybierz pozycję **Opcje internetowe**.  
+    1. Po wyświetleniu okna dialogowego **Opcje internetowe** wybierz pozycję **zabezpieczenia**, wybierz pozycję **Zaufane witryny**, kliknij przycisk **witryny** .
+    1. Gdy zostanie wyświetlone okno dialogowe **Zaufane witryny** , `https://github.com` Dodaj do listy zaufanych witryn sieci Web i wybierz pozycję **Zamknij**.
 
         ![Zaufane witryny](../media/how-to-enable-nested-virtualization-template-vm-using-script/trusted-sites-dialog.png)
-1. Pobierz pliki repozytorium Git zgodnie z poniższymi krokami.
-    1. Przejdź [https://github.com/Azure/azure-devtestlab/](https://github.com/Azure/azure-devtestlab/)do .
-    1. Kliknij przycisk **Klonuj lub Pobierz.**
-    1. Kliknij **pozycję Pobierz plik ZIP**.
-    1. Wyodrębnianie pliku ZIP
+1. Pobierz pliki repozytorium git, jak opisano w poniższych krokach.
+    1. Przejdź do [https://github.com/Azure/azure-devtestlab/](https://github.com/Azure/azure-devtestlab/).
+    1. Kliknij przycisk **klonowania lub pobierania** .
+    1. Kliknij pozycję **Pobierz plik zip**.
+    1. Wyodrębnij plik ZIP
 
     >[!TIP]
-    >Repozytorium Git można również sklonować w pliku [https://github.com/Azure/azure-devtestlab.git](https://github.com/Azure/azure-devtestlab.git).
+    >Repozytorium git można również sklonować pod adresem [https://github.com/Azure/azure-devtestlab.git](https://github.com/Azure/azure-devtestlab.git).
 
-1. Uruchom **program PowerShell** w trybie **administratora.**
-1. W oknie programu PowerShell przejdź do folderu z pobranym skryptem. Jeśli nawigujesz z górnego folderu plików repozytorium, skrypt `azure-devtestlab\samples\ClassroomLabs\Scripts\HyperV\`znajduje się pod adresem .
-1. Może być konieczna zmiana zasad wykonywania, aby pomyślnie uruchomić skrypt. Uruchom następujące polecenie:
+1. Uruchom program **PowerShell** w trybie **administratora** .
+1. W oknie programu PowerShell przejdź do folderu z pobranym skryptem. Jeśli przechodzenie jest z górnego folderu plików repozytorium, skrypt znajduje się w lokalizacji `azure-devtestlab\samples\ClassroomLabs\Scripts\HyperV\`.
+1. Może być konieczna zmiana zasad wykonywania w celu pomyślnego uruchomienia skryptu. Uruchom następujące polecenie:
 
     ```powershell
     Set-ExecutionPolicy bypass -force
@@ -62,7 +62,7 @@ W tym artykule skupiono się na konfigurowaniu zagnieżdżonej wirtualizacji dla
     ```
 
     > [!NOTE]
-    > Skrypt może wymagać ponownego uruchomienia komputera. Postępuj zgodnie z instrukcjami ze skryptu i ponownie uruchomić skrypt, dopóki **skrypt ukończony** nie zostanie widoczny w danych wyjściowych.
+    > Skrypt może wymagać ponownego uruchomienia komputera. Postępuj zgodnie z instrukcjami ze skryptu, a następnie uruchom skrypt do momentu wyświetlenia **skryptu** w danych wyjściowych.
 1. Nie zapomnij zresetować zasad wykonywania. Uruchom następujące polecenie:
 
     ```powershell
@@ -71,13 +71,13 @@ W tym artykule skupiono się na konfigurowaniu zagnieżdżonej wirtualizacji dla
 
 ## <a name="conclusion"></a>Podsumowanie
 
-Teraz maszyna szablonu jest gotowa do tworzenia maszyn wirtualnych funkcji Hyper-V. Zobacz [Tworzenie maszyny wirtualnej w funkcji Hyper-V,](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) aby uzyskać instrukcje dotyczące tworzenia maszyn wirtualnych funkcji Hyper-V. Zobacz Centrum [oceny firmy Microsoft,](https://www.microsoft.com/evalcenter/) aby sprawdzić dostępne systemy operacyjne i oprogramowanie.  
+Teraz komputer z szablonem jest gotowy do tworzenia maszyn wirtualnych funkcji Hyper-V. Aby uzyskać instrukcje dotyczące tworzenia maszyn wirtualnych funkcji Hyper-v, zobacz temat [Tworzenie maszyny wirtualnej w funkcji Hyper-v](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) . Zobacz również artykuł [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/) , aby wyewidencjonować dostępne systemy operacyjne i oprogramowanie.  
 
 ## <a name="next-steps"></a>Następne kroki
 
-Następne kroki są wspólne dla konfigurowania dowolnego laboratorium.
+Następne kroki są wspólne do konfigurowania dowolnego laboratorium.
 
 - [Dodaj użytkowników](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Ustawianie przydziału](how-to-configure-student-usage.md#set-quotas-for-users)
+- [Ustaw przydział](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Ustawianie harmonogramu](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
-- [Linki do rejestracji wiadomości e-mail do studentów](how-to-configure-student-usage.md#send-invitations-to-users)
+- [Linki do rejestracji w wiadomościach e-mail z uczniami](how-to-configure-student-usage.md#send-invitations-to-users)

@@ -1,6 +1,6 @@
 ---
-title: Rozszerzenie maszyny Wirtualnej usługi Azure Key Vault dla systemu Windows
-description: Wdrażanie agenta wykonującego automatyczne odświeżanie wpisów tajnych usługi Key Vault na maszynach wirtualnych przy użyciu rozszerzenia maszyny wirtualnej.
+title: Azure Key Vault rozszerzenie maszyny wirtualnej dla systemu Windows
+description: Wdróż agenta wykonującego automatyczne odświeżanie Key Vault wpisów tajnych na maszynach wirtualnych przy użyciu rozszerzenia maszyny wirtualnej.
 services: virtual-machines-windows
 author: msmbaldwin
 tags: keyvault
@@ -9,32 +9,32 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 8e014e7a1c564377582e4503218c4129619daa91
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80410731"
 ---
-# <a name="key-vault-virtual-machine-extension-for-windows"></a>Rozszerzenie maszyny wirtualnej magazynu kluczy dla systemu Windows
+# <a name="key-vault-virtual-machine-extension-for-windows"></a>Key Vault rozszerzenie maszyny wirtualnej dla systemu Windows
 
-Rozszerzenie maszyny Wirtualnej usługi Key Vault zapewnia automatyczne odświeżanie certyfikatów przechowywanych w magazynie kluczy platformy Azure. W szczególności rozszerzenie monitoruje listę obserwowanych certyfikatów przechowywanych w magazynach kluczy, a po wykryciu zmiany pobiera i instaluje odpowiednie certyfikaty. Ten dokument zawiera szczegółowe informacje o obsługiwanych platformach, konfiguracjach i opcjach wdrażania rozszerzenia maszyny Wirtualnej usługi Key Vault dla systemu Windows. 
+Rozszerzenie maszyny wirtualnej Key Vault umożliwia automatyczne odświeżanie certyfikatów przechowywanych w magazynie kluczy platformy Azure. W związku z tym rozszerzenie monitoruje listę obserwowanych certyfikatów przechowywanych w magazynach kluczy, a po wykryciu zmiany pobiera i instaluje odpowiednie certyfikaty. Ten dokument zawiera szczegółowe informacje o obsługiwanych platformach, konfiguracjach i opcjach wdrażania dla rozszerzenia maszyny wirtualnej Key Vault dla systemu Windows. 
 
 ### <a name="operating-system"></a>System operacyjny
 
-Rozszerzenie maszyny Wirtualnej usługi Key Vault obsługuje następujące wersje systemu Windows:
+Rozszerzenie maszyny wirtualnej Key Vault obsługuje poniższe wersje systemu Windows:
 
 - Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012
 
-### <a name="supported-certificate-content-types"></a>Obsługiwane typy zawartości certyfikatu
+### <a name="supported-certificate-content-types"></a>Obsługiwane typy zawartości certyfikatów
 
 - #12 PKCS
-- Pem
+- PEM
 
 ## <a name="extension-schema"></a>Schemat rozszerzenia
 
-Poniżej przedstawiono schemat rozszerzenia maszyny Wirtualnej magazynu kluczy. Rozszerzenie nie wymaga chronionych ustawień - wszystkie jego ustawienia są uważane za informacje publiczne. Rozszerzenie wymaga listy monitorowanych certyfikatów, częstotliwości sondowania i magazynu certyfikatów docelowych. Są to:  
+Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault. Rozszerzenie nie wymaga ustawień chronionych — wszystkie jego ustawienia są uznawane za informacje publiczne. Rozszerzenie wymaga listy monitorowanych certyfikatów, częstotliwości sondowania i docelowego magazynu certyfikatów. Są to:  
 
 ```json
     {
@@ -65,31 +65,31 @@ Poniżej przedstawiono schemat rozszerzenia maszyny Wirtualnej magazynu kluczy. 
 ```
 
 > [!NOTE]
-> Adresy URL obserwowanych certyfikatów `https://myVaultName.vault.azure.net/secrets/myCertName`powinny mieć formę .
+> Adresy URL obserwowanych certyfikatów powinny mieć postać `https://myVaultName.vault.azure.net/secrets/myCertName`.
 > 
-> Dzieje się `/secrets` tak, ponieważ ścieżka zwraca pełny certyfikat, `/certificates` w tym klucz prywatny, podczas gdy ścieżka nie. Więcej informacji na temat certyfikatów można znaleźć tutaj: [Certyfikaty magazynu kluczy](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Wynika to z `/secrets` faktu, że ścieżka zwraca pełny certyfikat, w tym klucz prywatny, `/certificates` podczas gdy ścieżka nie jest. Więcej informacji o certyfikatach można znaleźć tutaj: [Key Vault Certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
 ### <a name="property-values"></a>Wartości właściwości
 
-| Nazwa | Wartość / Przykład | Typ danych |
+| Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
-| wydawca | Microsoft.Azure.KeyVault | ciąg |
+| publisher | Microsoft.Azure.KeyVault | ciąg |
 | type | KeyVaultForWindows | ciąg |
-| typHandlerVersion | 1.0 | int |
-| sondowanieIntervalInS | 3600 | ciąg |
+| typeHandlerVersion | 1.0 | int |
+| pollingIntervalInS | 3600 | ciąg |
 | certificateStoreName | MY | ciąg |
-| linkOnRenewal | false | wartość logiczna |
-| certificateStoreLocation (Alokacja magazynu)  | Localmachine | ciąg |
-| wymaganeInitialSync | true | wartość logiczna |
-| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | tablica ciągów
+| linkOnRenewal | fałsz | wartość logiczna |
+| certificateStoreLocation  | LocalMachine | ciąg |
+| requiredInitialSync | true | wartość logiczna |
+| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Tablica ciągów
 
 
 ## <a name="template-deployment"></a>Wdrażanie na podstawie szablonu
 
-Rozszerzenia maszyn wirtualnych platformy Azure można wdrożyć za pomocą szablonów usługi Azure Resource Manager. Szablony są idealne podczas wdrażania co najmniej jednej maszyny wirtualnej, które wymagają odświeżenia certyfikatów po wdrożeniu. Rozszerzenie można wdrożyć na poszczególnych maszynach wirtualnych lub zestawach skalowania maszyny wirtualnej. Schemat i konfiguracja są wspólne dla obu typów szablonów. 
+Rozszerzenia maszyny wirtualnej platformy Azure można wdrażać za pomocą szablonów Azure Resource Manager. Szablony są idealne do wdrożenia co najmniej jednej maszyny wirtualnej, która wymaga odświeżenia certyfikatów po wdrożeniu. Rozszerzenie można wdrożyć na poszczególnych maszynach wirtualnych lub w zestawach skalowania maszyn wirtualnych. Schemat i konfiguracja są wspólne dla obu typów szablonów. 
 
-Konfiguracja JSON dla rozszerzenia maszyny wirtualnej musi być zagnieżdżona `"resources": []` wewnątrz fragmentu zasobu maszyny wirtualnej szablonu, w szczególności obiektu dla szablonu maszyny wirtualnej i w przypadku skalowania maszyny wirtualnej ustawionej w obiekcie. `"virtualMachineProfile":"extensionProfile":{"extensions" :[]`
+Konfiguracja JSON rozszerzenia maszyny wirtualnej musi być zagnieżdżona w ramach fragmentu zasobów maszyny wirtualnej szablonu, w odniesieniu `"resources": []` do szablonu maszyny wirtualnej, a w przypadku zestawu skalowania maszyn wirtualnych w obszarze `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` obiekt.
 
 ```json
     {
@@ -118,11 +118,11 @@ Konfiguracja JSON dla rozszerzenia maszyny wirtualnej musi być zagnieżdżona `
 ```
 
 
-## <a name="azure-powershell-deployment"></a>Wdrożenie programu Azure PowerShell
+## <a name="azure-powershell-deployment"></a>Wdrożenie Azure PowerShell
 
-Program Azure PowerShell może służyć do wdrażania rozszerzenia maszyny Wirtualnej usługi Key Vault na istniejącej maszynie wirtualnej lub zestawie skalowania maszyny wirtualnej. 
+Azure PowerShell można użyć do wdrożenia rozszerzenia maszyny wirtualnej Key Vault do istniejącej maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych. 
 
-* Aby wdrożyć rozszerzenie na maszynie Wirtualnej:
+* Aby wdrożyć rozszerzenie na maszynie wirtualnej:
     
     ```powershell
         # Build settings
@@ -141,7 +141,7 @@ Program Azure PowerShell może służyć do wdrażania rozszerzenia maszyny Wirt
     
     ```
 
-* Aby wdrożyć rozszerzenie na zestawie skalowania maszyny wirtualnej:
+* Aby wdrożyć rozszerzenie na zestawie skalowania maszyn wirtualnych:
 
     ```powershell
     
@@ -166,9 +166,9 @@ Program Azure PowerShell może służyć do wdrażania rozszerzenia maszyny Wirt
 
 ## <a name="azure-cli-deployment"></a>Wdrożenie interfejsu wiersza polecenia platformy Azure
 
-Interfejsu wiersza polecenia platformy Azure może służyć do wdrażania rozszerzenia maszyny Wirtualnej usługi Key Vault do istniejącego zestawu skalowania maszyny wirtualnej lub maszyny wirtualnej. 
+Interfejsu wiersza polecenia platformy Azure można użyć do wdrożenia rozszerzenia maszyny wirtualnej Key Vault na istniejącej maszynie wirtualnej lub w zestawie skalowania maszyn wirtualnych. 
  
-* Aby wdrożyć rozszerzenie na maszynie Wirtualnej:
+* Aby wdrożyć rozszerzenie na maszynie wirtualnej:
     
     ```azurecli
        # Start the deployment
@@ -179,7 +179,7 @@ Interfejsu wiersza polecenia platformy Azure może służyć do wdrażania rozsz
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\ <observedCerts>\"] }}'
     ```
 
-* Aby wdrożyć rozszerzenie na zestawie skalowania maszyny wirtualnej:
+* Aby wdrożyć rozszerzenie na zestawie skalowania maszyn wirtualnych:
 
    ```azurecli
         # Start the deployment
@@ -191,16 +191,16 @@ Interfejsu wiersza polecenia platformy Azure może służyć do wdrażania rozsz
     ```
 
 Należy pamiętać o następujących ograniczeniach/wymaganiach:
-- Ograniczenia przechowalni kluczy:
-  - Musi istnieć w momencie 
-  - Zasady dostępu do magazynu kluczy są ustawione dla tożsamości maszyn wirtualnych/VMSS przy użyciu systemu MSI
+- Ograniczenia Key Vault:
+  - Musi istnieć w czasie wdrożenia 
+  - Zasady dostępu Key Vault są ustawione dla tożsamości VM/VMSS przy użyciu pliku MSI
 
 
 ## <a name="troubleshoot-and-support"></a>Rozwiązywanie problemów i pomoc techniczna
 
 ### <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-Dane dotyczące stanu wdrożeń rozszerzeń można pobrać z witryny Azure portal i przy użyciu programu Azure PowerShell. Aby wyświetlić stan wdrożenia rozszerzeń dla danej maszyny Wirtualnej, uruchom następujące polecenie przy użyciu programu Azure PowerShell.
+Dane dotyczące stanu wdrożeń rozszerzeń można pobrać z Azure Portal i przy użyciu Azure PowerShell. Aby wyświetlić stan wdrożenia dla danej maszyny wirtualnej, uruchom następujące polecenie przy użyciu Azure PowerShell.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 ```powershell
@@ -221,4 +221,4 @@ Dane wyjściowe wykonania rozszerzenia są rejestrowane w następującym pliku:
 
 ### <a name="support"></a>Pomoc techniczna
 
-Jeśli potrzebujesz więcej pomocy w dowolnym momencie tego artykułu, możesz skontaktować się z ekspertami platformy Azure na [forach MSDN Azure i Stack Overflow](https://azure.microsoft.com/support/forums/). Alternatywnie można zgłosić zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję Uzyskaj pomoc techniczną. Aby uzyskać informacje na temat korzystania z pomocy technicznej platformy Azure, przeczytaj często zadawane [pytania dotyczące pomocy technicznej platformy Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Jeśli potrzebujesz więcej pomocy w dowolnym punkcie tego artykułu, możesz skontaktować się z ekspertami platformy Azure na [forach MSDN i Stack Overflow](https://azure.microsoft.com/support/forums/). Alternatywnie możesz zaplikować zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję Uzyskaj pomoc techniczną. Aby uzyskać informacje o korzystaniu z pomocy technicznej platformy Azure, przeczytaj temat [Microsoft Azure support — często zadawane pytania](https://azure.microsoft.com/support/faq/).

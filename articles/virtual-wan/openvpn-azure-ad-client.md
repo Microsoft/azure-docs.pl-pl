@@ -1,6 +1,6 @@
 ---
-title: 'Brama sieci VPN: klient sieci VPN dla połączeń protokołu OpenVPN P2S: uwierzytelnianie usługi Azure AD'
-description: Za pomocą sieci VPN P2S można łączyć się z siecią wirtualną przy użyciu uwierzytelniania usługi Azure AD
+title: 'VPN Gateway: klient VPN dla połączeń protokołu OpenVPN Protocol P2S: uwierzytelnianie usługi Azure AD'
+description: Aby nawiązać połączenie z siecią wirtualną przy użyciu uwierzytelniania usługi Azure AD, możesz użyć sieci VPN P2S
 services: vpn-gateway
 author: anzaman
 ms.service: virtual-wan
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: alzam
 ms.openlocfilehash: edb509d43742aeecf74107ae8cb625aeafbccb9f
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80385625"
 ---
-# <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Konfigurowanie klienta sieci VPN dla połączeń protokołu P2S OpenVPN: uwierzytelnianie usługi Azure AD
+# <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Konfigurowanie klienta VPN dla połączeń protokołu P2S OpenVPN: uwierzytelnianie usługi Azure AD
 
-Ten artykuł ułatwia konfigurowanie klienta sieci VPN do łączenia się z siecią wirtualną przy użyciu sieci VPN typu lokacja i uwierzytelniania usługi Azure Active Directory. Przed nawiązaniem połączenia i uwierzytelnienia przy użyciu usługi Azure AD należy najpierw skonfigurować dzierżawę usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Konfigurowanie dzierżawy usługi Azure AD](openvpn-azure-ad-tenant.md).
+Ten artykuł pomaga skonfigurować klienta sieci VPN do łączenia się z siecią wirtualną przy użyciu sieci VPN typu punkt-lokacja i uwierzytelniania Azure Active Directory. Aby można było nawiązać połączenie i uwierzytelnić się za pomocą usługi Azure AD, należy najpierw skonfigurować dzierżawę usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Konfigurowanie dzierżawy usługi Azure AD](openvpn-azure-ad-tenant.md).
 
 > [!NOTE]
 > Uwierzytelnianie usługi Azure AD jest obsługiwane tylko dla połączeń protokołu OpenVPN®.
@@ -24,41 +24,41 @@ Ten artykuł ułatwia konfigurowanie klienta sieci VPN do łączenia się z siec
 
 ## <a name="working-with-client-profiles"></a><a name="profile"></a>Praca z profilami klientów
 
-Aby nawiązać połączenie, należy pobrać klienta sieci VPN platformy Azure i skonfigurować profil klienta sieci VPN na każdym komputerze, który chce połączyć się z siecią wirtualną. Profil klienta można utworzyć na komputerze, wyeksportować, a następnie zaimportować na dodatkowe komputery.
+Aby nawiązać połączenie, należy pobrać klienta sieci VPN platformy Azure i skonfigurować profil klienta sieci VPN na każdym komputerze, który chce nawiązać połączenie z siecią wirtualną. Można utworzyć profil klienta na komputerze, wyeksportować go, a następnie zaimportować do dodatkowych komputerów.
 
 ### <a name="to-download-the-azure-vpn-client"></a>Aby pobrać klienta sieci VPN platformy Azure
 
-Użyj tego [łącza,](https://go.microsoft.com/fwlink/?linkid=2117554) aby pobrać klienta sieci VPN platformy Azure. Upewnij się, że klient sieci VPN platformy Azure ma uprawnienia do uruchamiania w tle. Aby sprawdzić/włączyć uprawnienie, wykonaj poniższe czynności:
+Użyj tego [linku](https://go.microsoft.com/fwlink/?linkid=2117554) , aby pobrać klienta sieci VPN platformy Azure. Upewnij się, że klient sieci VPN platformy Azure ma uprawnienie do uruchamiania w tle. Aby sprawdzić/włączyć uprawnienie, wykonaj poniższe czynności:
 
-1. Przejdź do ekranu startowego , a następnie wybierz pozycję Ustawienia > aplikacje prywatności > w tle.
-2. W obszarze Aplikacje w tle upewnij się, że **aplikacja Pozwól, aby aplikacje działały w tle,** była włączona.
-3. W obszarze Wybierz aplikacje, które mogą być uruchamiane w tle, włącz ustawienia klienta sieci VPN platformy Azure **na Włączone**.
+1. Przejdź do menu Start, a następnie wybierz pozycję Ustawienia > prywatność > aplikacje w tle.
+2. W obszarze aplikacje w tle upewnij się, że **aplikacje są uruchamiane w tle** .
+3. W obszarze Wybierz aplikacje, które mogą być uruchamiane w tle, Włącz ustawienia dla usługi Azure VPN Client na wartość **włączone**.
 
-  ![Uprawnienia](./media/openvpn-azure-ad-client/backgroundpermission.png)
+  ![zezwolenie](./media/openvpn-azure-ad-client/backgroundpermission.png)
 
-### <a name="to-create-a-certificate-based-client-profile"></a><a name="cert"></a>Aby utworzyć profil klienta opartego na certyfikatach
+### <a name="to-create-a-certificate-based-client-profile"></a><a name="cert"></a>Aby utworzyć profil klienta oparty na certyfikacie
 
-Podczas pracy z profilem opartym na certyfikatach upewnij się, że odpowiednie certyfikaty są zainstalowane na komputerze klienckim. Aby uzyskać więcej informacji o certyfikatach, zobacz [Instalowanie certyfikatów klientów](certificates-point-to-site.md).
+Podczas pracy z profilem opartym na certyfikatach upewnij się, że odpowiednie certyfikaty są zainstalowane na komputerze klienckim. Aby uzyskać więcej informacji o certyfikatach, zobacz [Instalowanie certyfikatów klienta](certificates-point-to-site.md).
 
   ![cert](./media/openvpn-azure-ad-client/create/create-cert1.jpg)
 
-### <a name="to-create-a-radius-client-profile"></a><a name="radius"></a>Aby utworzyć profil klienta USŁUGI RADIUS
+### <a name="to-create-a-radius-client-profile"></a><a name="radius"></a>Aby utworzyć profil klienta usługi RADIUS
 
-  ![Promień](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
+  ![promienie](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
   
 > [!NOTE]
-> Klucz tajny serwera można wyeksportować w profilu klienta sieci VPN P2S.  Instrukcje dotyczące eksportowania profilu klienta można znaleźć [tutaj](about-vpn-profile-download.md).
+> Wpis tajny serwera można wyeksportować w profilu klienta sieci VPN P2S.  Instrukcje dotyczące sposobu eksportowania profilu klienta można znaleźć [tutaj](about-vpn-profile-download.md).
 >
 
 ### <a name="to-export-and-distribute-a-client-profile"></a><a name="export"></a>Aby wyeksportować i rozpowszechnić profil klienta
 
-Gdy masz profil roboczy i musisz go rozesłać do innych użytkowników, możesz go wyeksportować, wykonując następujące czynności:
+Gdy dysponujesz profilem roboczym i chcesz go rozesłać do innych użytkowników, możesz go wyeksportować, wykonując następujące czynności:
 
-1. Wyróżnij profil klienta sieci VPN, który chcesz wyeksportować, wybierz **...**, a następnie wybierz pozycję **Eksportuj**.
+1. Zaznacz profil klienta sieci VPN, który chcesz wyeksportować, wybierz pozycję **...**, a następnie wybierz pozycję **Eksportuj**.
 
     ![export](./media/openvpn-azure-ad-client/export/export1.jpg)
 
-2. Wybierz lokalizację, w której chcesz zapisać ten profil, pozostaw nazwę pliku bez względu na to, w jakim się znajduje, a następnie wybierz pozycję **Zapisz,** aby zapisać plik xml.
+2. Wybierz lokalizację, w której chcesz zapisać ten profil, pozostaw nazwę pliku, a następnie wybierz pozycję **Zapisz** , aby zapisać plik XML.
 
     ![export](./media/openvpn-azure-ad-client/export/export2.jpg)
 
@@ -68,7 +68,7 @@ Gdy masz profil roboczy i musisz go rozesłać do innych użytkowników, możesz
 
     ![import](./media/openvpn-azure-ad-client/import/import1.jpg)
 
-2. Przejdź do pliku xml profilu i wybierz go. Po wybraniu wybranego pliku wybierz pozycję **Otwórz**.
+2. Przejdź do pliku XML profilu i wybierz go. Po wybraniu pliku wybierz pozycję **Otwórz**.
 
     ![import](./media/openvpn-azure-ad-client/import/import2.jpg)
 
@@ -76,11 +76,11 @@ Gdy masz profil roboczy i musisz go rozesłać do innych użytkowników, możesz
 
     ![import](./media/openvpn-azure-ad-client/import/import3.jpg)
 
-4. Wybierz **pozycję Połącz,** aby połączyć się z siecią VPN.
+4. Wybierz pozycję **Połącz** , aby nawiązać połączenie z siecią VPN.
 
     ![import](./media/openvpn-azure-ad-client/import/import4.jpg)
 
-5. Po podłączeniu ikona zmieni kolor na zielony i na **powiedzmię Connected**.
+5. Po nawiązaniu połączenia ikona zmieni kolor na zielony i powiedzie **się.**
 
     ![import](./media/openvpn-azure-ad-client/import/import5.jpg)
 
@@ -90,21 +90,21 @@ Gdy masz profil roboczy i musisz go rozesłać do innych użytkowników, możesz
 
     ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
-2. Wybierz **pozycję Usuń,** aby usunąć.
+2. Wybierz pozycję **Usuń** , aby usunąć.
 
     ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="create-a-connection"></a><a name="connection"></a>Tworzenie połączenia
 
-1. Na stronie wybierz **+** pozycję , a następnie **+ Dodaj**.
+1. Na stronie wybierz **+** pozycję, a następnie pozycję **+ Dodaj**.
 
     ![połączenie](./media/openvpn-azure-ad-client/create/create1.jpg)
 
-2. Wypełnij informacje o połączeniu. Jeśli nie masz pewności co do wartości, skontaktuj się z administratorem. Po wypełnieniu wartości wybierz pozycję **Zapisz**.
+2. Wprowadź informacje o połączeniu. Jeśli nie masz pewności co do wartości, skontaktuj się z administratorem. Po wypełnieniu wartości wybierz pozycję **Zapisz**.
 
     ![połączenie](./media/openvpn-azure-ad-client/create/create2.jpg)
 
-3. Wybierz **pozycję Połącz,** aby połączyć się z siecią VPN.
+3. Wybierz pozycję **Połącz** , aby nawiązać połączenie z siecią VPN.
 
     ![połączenie](./media/openvpn-azure-ad-client/create/create3.jpg)
 
@@ -112,53 +112,53 @@ Gdy masz profil roboczy i musisz go rozesłać do innych użytkowników, możesz
 
     ![połączenie](./media/openvpn-azure-ad-client/create/create4.jpg)
 
-5. Po pomyślnym nawiązaniu połączenia ikona zmieni kolor na zielony i na **powiedzmie Połącz .**
+5. Po pomyślnym nawiązaniu połączenia ikona zmieni kolor na zielony i powiedzie **się.**
 
     ![połączenie](./media/openvpn-azure-ad-client/create/create5.jpg)
 
-### <a name="to-connect-automatically"></a><a name="autoconnect"></a>Aby połączyć się automatycznie
+### <a name="to-connect-automatically"></a><a name="autoconnect"></a>Aby nawiązać połączenie automatycznie
 
-Te kroki pomagają skonfigurować połączenie do automatycznego łączenia się z opcję Zawsze włączony.
+Te kroki ułatwiają skonfigurowanie połączenia do automatycznego łączenia z usługą Always-On.
 
 1. Na stronie głównej klienta sieci VPN wybierz pozycję **Ustawienia sieci VPN**.
 
     ![auto](./media/openvpn-azure-ad-client/auto/auto1.jpg)
 
-2. Wybierz **pozycję Tak** w polu dialogowym Przełączanie aplikacji.
+2. W oknie dialogowym przełączanie aplikacji wybierz pozycję **tak** .
 
     ![auto](./media/openvpn-azure-ad-client/auto/auto2.jpg)
 
-3. Upewnij się, że połączenie, które chcesz ustawić, nie jest jeszcze połączone, a następnie zaznacz profil i zaznacz pole wyboru **Automatycznie połącz.**
+3. Upewnij się, że połączenie, które chcesz ustawić, nie jest już połączone, a następnie zaznacz profil i zaznacz pole wyboru **Połącz automatycznie** .
 
     ![auto](./media/openvpn-azure-ad-client/auto/auto3.jpg)
 
-4. Wybierz **pozycję Połącz,** aby zainicjować połączenie sieci VPN.
+4. Wybierz pozycję **Połącz** , aby zainicjować połączenie sieci VPN.
 
     ![auto](./media/openvpn-azure-ad-client/auto/auto4.jpg)
 
-## <a name="diagnose-connection-issues"></a><a name="diagnose"></a>Diagnozowanie problemów z połączeniem
+## <a name="diagnose-connection-issues"></a><a name="diagnose"></a>Diagnozuj problemy z połączeniem
 
-1. Aby zdiagnozować problemy z połączeniem, można użyć narzędzia **Diagnozowanie.** Wybierz **...** obok połączenia sieci VPN, które chcesz zdiagnozować, aby odsłonić menu. Następnie wybierz **polecenie Diagnozuj**.
+1. Aby zdiagnozować problemy z połączeniem, można użyć narzędzia do **diagnozowania** . Wybierz **...** obok połączenia sieci VPN, które chcesz zdiagnozować, aby wyświetlić menu. Następnie wybierz pozycję **Diagnozuj**.
 
-    ![Zdiagnozować](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
+    ![Sprawdź](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
 
 2. Na stronie **Właściwości połączenia** wybierz pozycję **Uruchom diagnostykę**.
 
-    ![Zdiagnozować](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
+    ![Sprawdź](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
 
-3. Zaloguj się przy użyciu poświadczeń.
+3. Zaloguj się przy użyciu swoich poświadczeń.
 
-    ![Zdiagnozować](./media/openvpn-azure-ad-client/diagnose/diagnose3.jpg)
+    ![Sprawdź](./media/openvpn-azure-ad-client/diagnose/diagnose3.jpg)
 
-4. Wyświetl wyniki diagnozy.
+4. Wyświetl wyniki diagnostyki.
 
-    ![Zdiagnozować](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
+    ![Sprawdź](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
 ## <a name="faq"></a>Najczęściej zadawane pytania
 
-### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Jak dodać sufiksy DNS do klienta sieci VPN?
+### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Jak mogę dodać sufiksy DNS do klienta sieci VPN?
 
-Można zmodyfikować pobrany plik XML profilu i dodać ** \<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** tagów
+Można zmodyfikować pobrany plik XML profilu i dodać ** \<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>**
 
 ```
 <azvpnprofile>
@@ -174,9 +174,9 @@ Można zmodyfikować pobrany plik XML profilu i dodać ** \<dnssuffixes>\<dnssuf
 </azvpnprofile>
 ```
 
-### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>Jak dodać niestandardowe serwery DNS do klienta sieci VPN?
+### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>Jak mogę dodać do klienta sieci VPN niestandardowe serwery DNS?
 
-Można zmodyfikować pobrany plik XML profilu i dodać ** \<dnsservers>\< \<dnsserver> /dnsserver>\</dnsservers>** tagi
+Można zmodyfikować pobrany plik XML profilu i dodać ** \<dnsservers>\<serwer DNS> \</DNSServer>\</dnsservers>**
 
 ```
 <azvpnprofile>
@@ -192,12 +192,12 @@ Można zmodyfikować pobrany plik XML profilu i dodać ** \<dnsservers>\< \<dnss
 ```
 
 > [!NOTE]
-> Klient OpenVPN Azure AD wykorzystuje wpisy tabeli zasad rozpoznawania nazw DNS (NRPT), co `ipconfig /all`oznacza, że serwery DNS nie będą wyświetlane w pliku danych wyjściowym . Aby potwierdzić używane ustawienia DNS, zapoznaj się z [witryną Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) w programie PowerShell.
+> Klient usługi OpenVPN Azure AD korzysta z wpisów tabeli zasad rozpoznawania nazw DNS (NRPT), co oznacza, że serwery DNS nie będą wyświetlane w danych wyjściowych `ipconfig /all`. Aby potwierdzić używane ustawienia usługi DNS, zapoznaj się z tematem [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) w programie PowerShell.
 >
 
-### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Jak dodać niestandardowe trasy do klienta sieci VPN?
+### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Jak mogę dodać trasy niestandardowe do klienta sieci VPN?
 
-Można zmodyfikować pobrany plik XML profilu i dodać ** \<otoki \<>trasy \<>\<maskę>docelową \<> \</miejsce docelowe>/maska />\</route>\</includeroutes>** tagów
+Można zmodyfikować pobrany plik XML profilu i dodać ** \< \<includeroutes>trasy>\<miejsce docelowe>\<Mask> \</Destination>\</Mask>\</Route>\</includeroutes>** Tagi
 
 ```
 <azvpnprofile>
@@ -213,9 +213,9 @@ Można zmodyfikować pobrany plik XML profilu i dodać ** \<otoki \<>trasy \<>\<
 </azvpnprofile>
 ```
 
-### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>Jak zablokować (wykluczyć) trasy z klienta sieci VPN?
+### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>Jak mogę blokowe (wykluczanie) tras z klienta sieci VPN?
 
-Można zmodyfikować pobrany plik XML profilu i dodać ** \<wykluczenia \<>\<marszruty>\<maskę>docelową> \</miejsce docelowe>\</maska>\< \</trasa>/excluderoutes>** znaczników
+Można zmodyfikować pobrany plik XML profilu i dodać ** \< \<excluderoutes>trasy>\<miejsce docelowe>\<Mask> \</Destination>\</Mask>\</Route>\</excluderoutes>** Tagi
 
 ```
 <azvpnprofile>
@@ -233,4 +233,4 @@ Można zmodyfikować pobrany plik XML profilu i dodać ** \<wykluczenia \<>\<mar
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji, zobacz [Tworzenie dzierżawy usługi Azure Active Directory dla połączeń P2S Open VPN korzystających z uwierzytelniania usługi Azure AD](openvpn-azure-ad-tenant.md).
+Aby uzyskać więcej informacji, zobacz [Tworzenie dzierżawy Azure Active Directory dla P2S Otwórz połączenia sieci VPN korzystające z uwierzytelniania usługi Azure AD](openvpn-azure-ad-tenant.md).

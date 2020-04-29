@@ -1,262 +1,262 @@
 ---
-title: Jak kwerendy dzienników z usługi Azure Monitor dla maszyn wirtualnych
-description: Rozwiązanie usługi Azure Monitor dla maszyn wirtualnych zbiera metryki i dane dziennika, a w tym artykule opisano rekordy i zawiera przykładowe kwerendy.
+title: Jak wykonywać zapytania dotyczące dzienników z Azure Monitor dla maszyn wirtualnych
+description: Azure Monitor dla maszyn wirtualnych rozwiązanie zbiera metryki i dane dziennika do i w tym artykule opisano rekordy i zawiera przykładowe zapytania.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 61a71539dc034a216689eafd8991df60db96d2a4
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80396924"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Jak wysyłać zapytania do dzienników z usługi Azure Monitor dla maszyn wirtualnych
+# <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Jak wykonywać zapytania dotyczące dzienników z Azure Monitor dla maszyn wirtualnych
 
-Usługa Azure Monitor dla maszyn wirtualnych zbiera metryki wydajności i połączeń, dane spisu komputerów i procesów oraz informacje o stanie kondycji i przekazuje je do obszaru roboczego usługi Log Analytics w usłudze Azure Monitor.  Te dane są dostępne dla [kwerendy](../../azure-monitor/log-query/log-query-overview.md) w usłudze Azure Monitor. Te dane można zastosować do scenariuszy, które obejmują planowanie migracji, analizę zdolności produkcyjnych, odnajdowanie i rozwiązywanie problemów z wydajnością na żądanie.
+Azure Monitor dla maszyn wirtualnych zbiera metryki wydajności i połączeń, dane spisu komputerów i procesów oraz informacje o stanie kondycji i przekazuje je do obszaru roboczego Log Analytics w Azure Monitor.  Te dane są dostępne dla [zapytań](../../azure-monitor/log-query/log-query-overview.md) w Azure monitor. Te dane można zastosować do scenariuszy, które obejmują Planowanie migracji, analizę pojemności, odnajdywanie i rozwiązywanie problemów z wydajnością na żądanie.
 
 ## <a name="map-records"></a>Mapowanie rekordów
 
-Jeden rekord jest generowany na godzinę dla każdego unikatowego komputera i procesu, oprócz rekordów, które są generowane, gdy proces lub komputer jest uruchamiany lub jest wbudowany w usługę Azure Monitor dla map maszyn wirtualnych. Te rekordy mają właściwości w poniższych tabelach. Pola i wartości w ServiceMapComputer_CL zdarzenia są mapowane do pól zasobu maszyny w interfejsie API usługi ServiceMap Azure Resource Manager. Pola i wartości w ServiceMapProcess_CL zdarzenia są mapowane do pól zasobu Proces w interfejsie API usługi ServiceMap Azure Resource Manager. Pole ResourceName_s jest zgodne z polem nazwy w odpowiednim zasobie Menedżera zasobów. 
+Jeden rekord jest generowany na godzinę dla każdego unikatowego komputera i procesu, oprócz rekordów, które są generowane, gdy proces lub komputer zostanie uruchomiony lub jest on dołączony do funkcji Azure Monitor dla maszyn wirtualnych map. Te rekordy mają właściwości w poniższych tabelach. Pola i wartości w ServiceMapComputer_CL zdarzenia są mapowane na pola zasobu maszyny w interfejsie API usługi ServiceMap Azure Resource Manager. Pola i wartości w zdarzeniach ServiceMapProcess_CL są mapowane na pola zasobu procesu w interfejsie API usługi ServiceMap Azure Resource Manager. Pole ResourceName_s pasuje do pola Nazwa w odpowiednim zasobie Menedżer zasobów. 
 
-Istnieją wewnętrznie wygenerowane właściwości, których można używać do identyfikowania unikatowych procesów i komputerów:
+Istnieją wewnętrznie wygenerowane właściwości, których można użyć do identyfikowania unikatowych procesów i komputerów:
 
-- Komputer: użyj *identyfikatora resourceid* lub *ResourceName_s,* aby jednoznacznie zidentyfikować komputer w obszarze roboczym usługi Log Analytics.
-- Proces: użyj *identyfikatora resourceid,* aby jednoznacznie zidentyfikować proces w obszarze roboczym usługi Log Analytics. *ResourceName_s* jest unikatowa w kontekście maszyny, na której działa proces (MachineResourceName_s) 
+- Komputer: Użyj *ResourceID* lub *ResourceName_s* , aby jednoznacznie zidentyfikować komputer w obszarze roboczym log Analytics.
+- Proces: Użyj *ResourceID* , aby jednoznacznie zidentyfikować proces w obszarze roboczym log Analytics. *ResourceName_s* jest unikatowy w kontekście maszyny, na której jest uruchomiony proces (MachineResourceName_s) 
 
-Ponieważ dla określonego procesu i komputera w określonym zakresie czasu może istnieć wiele rekordów, kwerendy mogą zwracać więcej niż jeden rekord dla tego samego komputera lub procesu. Aby uwzględnić tylko najnowszy `| summarize arg_max(TimeGenerated, *) by ResourceId` rekord, dodaj do kwerendy.
+Ponieważ wiele rekordów może istnieć dla określonego procesu i komputera w określonym przedziale czasu, kwerendy mogą zwrócić więcej niż jeden rekord dla tego samego komputera lub procesu. Aby uwzględnić tylko najnowszy rekord, Dodaj `| summarize arg_max(TimeGenerated, *) by ResourceId` go do zapytania.
 
 ### <a name="connections-and-ports"></a>Połączenia i porty
 
-Funkcja Metryki połączenia wprowadza dwie nowe tabele w dziennikach usługi Azure Monitor — VMConnection i VMBoundPort. Tabele te zawierają informacje o połączeniach komputera (przychodzące i wychodzące), a także porty serwera, które są na nich otwarte/aktywne. ConnectionMetrics są również udostępniane za pośrednictwem interfejsów API, które zapewniają środki do uzyskania określonej metryki w oknie czasu. Połączenia TCP wynikające z akceptowania na gnieździe *nasłuchiwania* są przychodzące, podczas gdy połączenia *z* danym adresem IP i portem są wychodzące. Kierunek połączenia jest reprezentowany przez właściwość Direction, którą można ustawić na **przychodzącą** lub **wychodzącą**. 
+Funkcja metryk połączenia wprowadza dwie nowe tabele w Azure Monitor Logs — VMConnection i VMBoundPort. Te tabele zawierają informacje o połączeniach dla komputera (ruchu przychodzącego i wychodzącego), a także portów serwerów, które są w nich otwarte/aktywne. ConnectionMetrics są również udostępniane za pośrednictwem interfejsów API, które udostępniają metodę uzyskiwania określonej metryki w przedziale czasu. Połączenia TCP wynikające z *zaakceptowania* w gnieździe nasłuchiwania są przychodzące, podczas gdy te utworzone przez *połączenie* z danym adresem IP i portem są wychodzące. Kierunek połączenia jest reprezentowany przez Właściwość Direction, która może być ustawiona na wartość **przychodzące** lub **wychodzące**. 
 
-Rekordy w tych tabelach są generowane na podstawie danych zgłoszonych przez agenta zależności. Każdy rekord reprezentuje obserwację w odstępie 1 minuty. TimeGenerated Właściwość wskazuje początek przedziału czasu. Każdy rekord zawiera informacje umożliwiające identyfikację odpowiedniej jednostki, czyli połączenia lub portu, a także metryki skojarzone z tą encją. Obecnie zgłaszana jest tylko aktywność sieciowa występująca przy użyciu protokołu TCP przez protokół IPv4. 
+Rekordy w tych tabelach są generowane na podstawie danych zgłaszanych przez Agent zależności. Każdy rekord reprezentuje obserwację w przedziale czasowym 1 minuty. Właściwość TimeGenerated wskazuje początek interwału czasu. Każdy rekord zawiera informacje służące do identyfikacji odpowiedniej jednostki, czyli połączenia lub portu, a także metryk skojarzonych z tą jednostką. Obecnie zgłaszane jest tylko działanie sieciowe, które odbywa się przy użyciu protokołu TCP przez IPv4. 
 
 #### <a name="common-fields-and-conventions"></a>Wspólne pola i konwencje 
 
-Następujące pola i konwencje mają zastosowanie zarówno do VMConnection, jak i VMBoundPort: 
+Następujące pola i konwencje dotyczą zarówno VMConnection, jak i VMBoundPort: 
 
-- Komputer: w pełni kwalifikowana nazwa domeny urządzenia do raportowania 
-- AgentId: unikatowy identyfikator komputera z agentem usługi Log Analytics  
-- Komputer: nazwa zasobu usługi Azure Resource Manager dla komputera udostępniane przez ServiceMap. Jest to formularz *m-{GUID}*, gdzie *identyfikator GUID* jest tym samym identyfikatorem GUID co agentid  
-- Proces: nazwa zasobu usługi Azure Resource Manager dla procesu udostępnianego przez servicemap. Jest to ciąg *p-{hex}*. Proces jest unikatowy w zakresie maszyny i wygenerować unikatowy identyfikator procesu na komputerach, połączyć pola Maszyny i Proces. 
-- Nazwa procesu: nazwa wykonywalna procesu raportowania.
+- Komputer: w pełni kwalifikowana nazwa domeny komputera raportowania 
+- Identyfikator agenta: unikatowy identyfikator dla komputera z agentem Log Analytics  
+- Maszyna: nazwa zasobu Azure Resource Manager dla maszyny uwidocznionej przez ServiceMap. Ma postać *m-{GUID}*, gdzie *GUID* jest tym samym identyfikatorem GUID co identyfikator agenta  
+- Proces: nazwa zasobu Azure Resource Manager dla procesu uwidocznionego przez ServiceMap. Ma postać *p-{szesnastkowy ciąg}*. Proces jest unikatowy w ramach zakresu maszyn i do generowania unikatowego identyfikatora procesu między maszynami, łączenia pól maszyn i procesów. 
+- ProcessName: nazwa pliku wykonywalnego procesu raportowania.
 - Wszystkie adresy IP są ciągami w formacie kanonicznym IPv4, na przykład *13.107.3.160* 
 
-Aby zarządzać kosztami i złożonością, rekordy połączeń nie reprezentują pojedynczych fizycznych połączeń sieciowych. Wiele fizycznych połączeń sieciowych jest grupowanych w połączenie logiczne, które jest następnie odzwierciedlane w odpowiedniej tabeli.  Co oznacza, że rekordy w tabeli *VMConnection* reprezentują logiczne grupowanie, a nie poszczególne połączenia fizyczne, które są obserwowane. Fizyczne połączenie sieciowe dzielące tę samą wartość dla następujących atrybutów w danym interwału jednominutowym jest agregowane w jeden rekord logiczny w *vmconnection*. 
+Aby zarządzać kosztami i złożonością, rekordy połączeń nie reprezentują poszczególnych fizycznych połączeń sieciowych. Wiele połączeń sieci fizycznych jest zgrupowanych w połączenie logiczne, które jest następnie odzwierciedlone w odpowiedniej tabeli.  Oznacza to, że rekordy w tabeli *VMConnection* reprezentują logiczne grupowanie, a nie poszczególne połączenia fizyczne, które są obserwowane. Fizyczne połączenie sieciowe udostępniające tę samą wartość dla następujących atrybutów podczas danego interwału jednominutowego są agregowane w jednym rekordzie logicznym w *VMConnection*. 
 
 | Właściwość | Opis |
 |:--|:--|
-|Kierunek |Kierunek połączenia, wartość jest *przychodzące* lub *wychodzące* |
+|Kierunek |Kierunek połączenia, wartość jest *przychodząca* lub *wychodząca* |
 |Maszyna |Nazwa FQDN komputera |
-|Proces |Tożsamość procesu lub grup procesów, inicjowanie/akceptowanie połączenia |
-|Pw.pw. |Adres IP źródła |
-|DestinationIp (Ip) |Adres IP miejsca docelowego |
-|Port docelowy |Numer portu miejsca docelowego |
-|Protocol (Protokół) |Protokół używany do połączenia.  Wartości to *tcp*. |
+|Proces |Tożsamość procesu lub grup procesów, inicjowanie/zaakceptowanie połączenia |
+|SourceIp |Adres IP źródła |
+|DestinationIp |Adres IP miejsca docelowego |
+|DestinationPort |Numer portu miejsca docelowego |
+|Protocol (Protokół) |Protokół używany do nawiązywania połączenia.  Wartości to *TCP*. |
 
-Aby uwzględnić wpływ grupowania, informacje o liczbie zgrupowanych połączeń fizycznych znajdują się w następujących właściwościach rekordu:
+W celu uwzględnienia wpływu grupowania informacje o liczbie zgrupowanych połączeń fizycznych są dostępne w następujących właściwościach rekordu:
 
 | Właściwość | Opis |
 |:--|:--|
-|LinkiNaestione |Liczba fizycznych połączeń sieciowych, które zostały nawiązane w oknie czasu raportowania |
-|LinksTerminated (ŁączyTerminowane) |Liczba fizycznych połączeń sieciowych, które zostały zakończone w oknie czasu raportowania |
-|ŁączaNiewiększy |Liczba fizycznych połączeń sieciowych, które nie powiodły się w czasie raportowania. Te informacje są obecnie dostępne tylko dla połączeń wychodzących. |
-|LinksLive (Na żywo) |Liczba fizycznych połączeń sieciowych, które były otwarte na końcu okna czasu raportowania|
+|LinksEstablished |Liczba połączeń sieci fizycznych, które zostały nawiązane w przedziale czasu raportowania |
+|LinksTerminated |Liczba połączeń sieci fizycznych, które zostały przerwane w przedziale czasu raportowania |
+|LinksFailed |Liczba fizycznych połączeń sieciowych zakończonych niepowodzeniem w przedziale czasu raportowania. Te informacje są obecnie dostępne tylko dla połączeń wychodzących. |
+|LinksLive |Liczba otwartych połączeń sieciowych w momencie zakończenia przedziału czasu raportowania|
 
 #### <a name="metrics"></a>Metryki
 
-Oprócz danych liczby połączeń informacje o ilości danych wysyłanych i odbieranych na danym połączeniu logicznym lub porcie sieciowym są również zawarte w następujących właściwościach rekordu:
+Oprócz metryk licznik połączeń informacje o ilości danych wysłanych i odebranych w danym połączeniu logicznym lub porcie sieciowym są również zawarte w następujących właściwościach rekordu:
 
 | Właściwość | Opis |
 |:--|:--|
-|Bajtów |Całkowita liczba bajtów wysłanych w okresie raportowania |
-|Bytesreceived |Całkowita liczba bajtów odebranych w okresie raportowania |
-|Odpowiedzi |Liczba odpowiedzi zaobserwowanych w okresie raportowania. 
-|ResponseTimeMax (OdpowiedźTimeMax) |Największy czas odpowiedzi (milisekundy) obserwowany w oknie czasu raportowania. Jeśli nie ma wartości, właściwość jest pusta.|
-|ResponseTimeMin (Czas reakcji) |Najmniejszy czas odpowiedzi (milisekundy) obserwowany w oknie czasu raportowania. Jeśli nie ma wartości, właściwość jest pusta.|
-|Czas reakcji |Suma wszystkich czasów odpowiedzi (milisekund) obserwowanych w oknie czasu raportowania. Jeśli nie ma wartości, właściwość jest pusta.|
+|BytesSent |Łączna liczba bajtów wysłanych w przedziale czasu raportowania |
+|BytesReceived |Łączna liczba bajtów odebranych w przedziale czasu raportowania |
+|Odpowiedzi |Liczba odpowiedzi zaobserwowanych w przedziale czasu raportowania. 
+|ResponseTimeMax |Największy czas odpowiedzi (w milisekundach) zaobserwowany w przedziale czasu raportowania. W przypadku braku wartości właściwość jest pusta.|
+|ResponseTimeMin |Najmniejszy czas odpowiedzi (w milisekundach) zaobserwowany w przedziale czasu raportowania. W przypadku braku wartości właściwość jest pusta.|
+|ResponseTimeSum |Suma wszystkich czasów odpowiedzi (w milisekundach) zaobserwowanych w przedziale czasu raportowania. W przypadku braku wartości właściwość jest pusta.|
 
-Trzeci typ danych zgłaszanych jest czas odpowiedzi — jak długo obiekt wywołujący spędza oczekiwanie na żądanie wysłane za pomocą połączenia do przetworzenia i odpowiedzi na przez zdalny punkt końcowy. Zgłoszony czas odpowiedzi jest oszacowaniem rzeczywistego czasu odpowiedzi leżącego u podstaw protokołu aplikacji. Jest obliczany przy użyciu heurystyki na podstawie obserwacji przepływu danych między źródłem a docelowym końcem fizycznego połączenia sieciowego. Koncepcyjnie jest to różnica między czasem ostatniego bajtu żądania pozostawia nadawcy, a godziną, kiedy ostatni bajt odpowiedzi powraca do niego. Te dwa sygnatury czasowe są używane do wytyczyć zdarzenia żądania i odpowiedzi na danym połączeniu fizycznym. Różnica między nimi reprezentuje czas odpowiedzi pojedynczego żądania. 
+Zgłaszany trzeci typ danych to czas odpowiedzi — jak długo obiekt wywołujący oczekuje na żądanie wysłane przez połączenie, które ma zostać przetworzone przez zdalny punkt końcowy. Raportowany czas odpowiedzi jest oszacowaniem rzeczywistego czasu odpowiedzi podstawowego protokołu aplikacji. Jest on obliczany przy użyciu algorytmów heurystycznych na podstawie obserwacji przepływu danych między źródłowym i docelowym końcem połączenia sieciowego. Ze pojęciową różnicą jest różnica między czasem, gdy ostatni bajt żądania opuszcza nadawcę, oraz czas, kiedy ostatni bajt odpowiedzi trafia do niego. Te dwa sygnatury czasowe służą do odróżnić zdarzeń żądań i odpowiedzi dla danego połączenia fizycznego. Różnica między nimi reprezentuje czas odpowiedzi pojedynczego żądania. 
 
-W tej pierwszej wersji tej funkcji nasz algorytm jest przybliżeniem, które może działać z różnym powodzeniem w zależności od rzeczywistego protokołu aplikacji używanego dla danego połączenia sieciowego. Na przykład bieżące podejście działa dobrze dla protokołów opartych na odpowiedzi na żądanie, takich jak HTTP(S), ale nie działa z protokołami opartymi na kolejkach jednokierunkowych lub wiadomości.
+W pierwszej wersji tej funkcji nasz algorytm to przybliżenie, które może współdziałać z różnymi poziomami sukcesu w zależności od rzeczywistego protokołu aplikacji używanego dla danego połączenia sieciowego. Na przykład bieżące podejście działa dobrze w przypadku protokołów opartych na odpowiedzi na żądania, takich jak HTTP (S), ale nie działa z protokołami jednokierunkowymi lub opartymi na kolejkach komunikatów.
 
-Oto kilka ważnych kwestii, które należy wziąć pod uwagę:
+Oto kilka istotnych kwestii, które należy wziąć pod uwagę:
 
-1. Jeśli proces akceptuje połączenia na tym samym adresie IP, ale za pośrednictwem wielu interfejsów sieciowych, zostanie zgłoszony osobny rekord dla każdego interfejsu. 
-2. Rekordy z wieloznacznym adresem IP nie będą zawierać żadnych działań. Są one włączone do reprezentowania faktu, że port na komputerze jest otwarty dla ruchu przychodzącego.
-3. Aby zmniejszyć szczegółowość i ilość danych, rekordy z wieloznacznym adresem IP zostaną pominięte, gdy istnieje pasujący rekord (dla tego samego procesu, portu i protokołu) z określonym adresem IP. Po pominięciu rekordu IP symboli wieloznacznych właściwość rekordu IsWildcardBind z określonym adresem IP zostanie ustawiona na "True", aby wskazać, że port jest narażony na każdy interfejs komputera raportowania.
-4. Porty, które są powiązane tylko na określonym interfejsie mają IsWildcardBind ustawiona na *False*.
+1. Jeśli proces akceptuje połączenia o tym samym adresie IP, ale przez wiele interfejsów sieciowych, zostanie zgłoszony oddzielny rekord dla każdego interfejsu. 
+2. Rekordy z symbolem wieloznacznym adresu IP nie będą miały aktywności. Są one dołączone do reprezentowania faktu, że port na komputerze jest otwarty dla ruchu przychodzącego.
+3. Aby zmniejszyć poziom szczegółowości i ilości danych, rekordy z symbolem wieloznacznym adresu IP zostaną pominięte, gdy istnieje pasujący rekord (dla tego samego procesu, portu i protokołu) o określonym adresie IP. W przypadku pominięcia wieloznacznego rekordu adresu IP Właściwość rekordu IsWildcardBind z określonym adresem IP zostanie ustawiona na wartość "true", aby wskazać, że port jest narażony na każdy interfejs maszyny raportowania.
+4. Porty, które są powiązane tylko z określonym interfejsem, mają IsWildcardBind ustawiony na *wartość false*.
 
-#### <a name="naming-and-classification"></a>Nazewnictwo i klasyfikacja
+#### <a name="naming-and-classification"></a>Nazewnictwo i Klasyfikacja
 
-Dla wygody adres IP zdalnego końca połączenia znajduje się we właściwości RemoteIp. W przypadku połączeń przychodzących remoteip jest taki sam jak SourceIp, podczas gdy dla połączeń wychodzących jest taki sam jak DestinationIp. Właściwość RemoteDnsCanonicalNames reprezentuje nazwy kanoniczne DNS zgłaszane przez komputer dla usługi RemoteIp. Właściwości RemoteDnsQuestions i RemoteClassification są zarezerwowane do wykorzystania w przyszłości. 
+Dla wygody adres IP zdalnego końca połączenia jest zawarty we właściwości RemoteIp. W przypadku połączeń przychodzących RemoteIp jest taka sama jak SourceIp, natomiast w przypadku połączeń wychodzących jest taka sama jak DestinationIp. Właściwość RemoteDnsCanonicalNames reprezentuje nazwy kanoniczne DNS zgłoszone przez komputer dla RemoteIp. Właściwości RemoteDnsQuestions i RemoteClassification są zastrzeżone do użytku w przyszłości. 
 
 #### <a name="geolocation"></a>Geolokalizacja
 
-*VMConnection* zawiera również informacje geolokalizacji dla zdalnego końca każdego rekordu połączenia w następujących właściwościach rekordu: 
+*VMConnection* również zawiera informacje o geolokalizacji dla zdalnego końca każdego rekordu połączenia w następujących właściwościach rekordu: 
 
 | Właściwość | Opis |
 |:--|:--|
-|Zdalnekraje |Nazwa kraju/regionu obsługującego program RemoteIp.  Na przykład Stany *Zjednoczone* |
-|Zdalna zdolność do działania |Szerokość geograficzna. Na przykład *47,68* |
-|Zdalneodwszerwienie |Długość geograficzna. Na przykład *-122.12* |
+|RemoteCountry |Nazwa kraju/regionu, w którym znajduje się RemoteIp.  Na przykład *Stany Zjednoczone* |
+|RemoteLatitude |Geolokalizacja geograficzna. Na przykład *47,68* |
+|RemoteLongitude |Długość geograficzna geolokalizacji. Na przykład *-122,12* |
 
 #### <a name="malicious-ip"></a>Złośliwy adres IP
 
-Każda właściwość RemoteIp w tabeli *VMConnection* jest sprawdzana względem zestawu adresów IP ze znanymi złośliwymi działaniami. Jeśli RemoteIp zostanie zidentyfikowany jako złośliwy, następujące właściwości zostaną wypełnione (są puste, gdy adres IP nie jest uważany za złośliwy) w następujących właściwościach rekordu:
+Każda właściwość RemoteIp w tabeli *VMConnection* jest sprawdzana względem zestawu adresów IP ze znaną złośliwym działaniem. Jeśli RemoteIp zostanie zidentyfikowany jako złośliwe, zostaną wypełnione następujące właściwości (są puste, jeśli adres IP nie jest uważany za złośliwy) w następujących właściwościach rekordu:
 
 | Właściwość | Opis |
 |:--|:--|
-|MaliciousIp (właśc. |Adres RemoteIp |
-|Typ wytypu wskaźnika |Wykryto wskaźnik zagrożenia jest jedną z następujących wartości, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
-|Opis |Opis obserwowanego zagrożenia. |
-|TLPPoziom |Poziom protokołu sygnalizacji świetlnej (TLP) jest jedną z zdefiniowanych wartości: *Biały,* *Zielony,* *Bursztynowy,* *Czerwony.* |
-|Ufność |Wartości to *od 0 do 100*. |
-|Ważność |Wartości to *0 – 5*, gdzie *5* jest najcięższy, a *0* wcale nie jest dotkliwe. Wartość domyślna to *3*.  |
-|Pierwszy raporteddatetime |Po raz pierwszy dostawca zgłosił wskaźnik. |
-|Ostatnia data datetime |Ostatni raz wskaźnik był widziany przez Interflow. |
-|Isactive |Wskazuje, że wskaźniki są dezaktywowane wartością *Prawda* lub *Fałda.* |
-|Link do raportu |Linki do raportów związanych z danym obserwowalny. |
-|DodatkoweInformanie |Zawiera dodatkowe informacje, jeśli dotyczy, o obserwowanym zagrożeniu. |
+|MaliciousIp |Adres RemoteIp |
+|IndicatorThreadType |Wykryty wskaźnik zagrożeń to jedna z następujących wartości: *botnet*, *C2*, *CryptoMining*, *sieci darknet*, *DDoS*, *MaliciousUrl*, *złośliwe oprogramowanie*, *phishing*, *proxy*, *opierająca*, *listy do obejrzenia*.   |
+|Opis |Opis zaobserwowanego zagrożenia. |
+|TLPLevel |Poziom protokołu Traffic Light Protocol (TLP) to jedna ze zdefiniowanych wartości: *biały*, *zielony*, *bursztynowy*, *czerwony*. |
+|Ufność |Wartości to *0 – 100*. |
+|Ważność |Wartości to *0 – 5*, gdzie *5* jest największa i *0* nie jest poważny. Wartość domyślna to *3*.  |
+|FirstReportedDateTime |Pierwszy raz dostawca zgłosił wskaźnik. |
+|LastReportedDateTime |Ostatni czas widziany przez przepływanie wskaźnika. |
+|IsActive |Wskazuje, że wskaźniki są dezaktywowane z wartością *true* lub *false* . |
+|ReportReferenceLink |Linki do raportów związanych z tym, że jest to zauważalne. |
+|AdditionalInformation |Zawiera dodatkowe informacje o zaobserwowanym zagrożeniu, jeśli ma to zastosowanie. |
 
 ### <a name="ports"></a>Porty 
 
-Porty na komputerze, które aktywnie akceptują ruch przychodzący lub mogą potencjalnie akceptować ruch, ale są bezczynne w czasie raportowania, są zapisywane w tabeli VMBoundPort.  
+Porty na komputerze, który aktywnie akceptują ruch przychodzący lub potencjalnie mogą akceptować ruch, ale są bezczynne w przedziale czasu raportowania, są zapisywane w tabeli VMBoundPort.  
 
 Każdy rekord w VMBoundPort jest identyfikowany przez następujące pola: 
 
 | Właściwość | Opis |
 |:--|:--|
-|Proces | Tożsamość procesu (lub grup procesów), z którymi port jest skojarzony.|
-|Ip | Adres IP portu (może to być symbol wieloznaczny IP, *0.0.0.0)* |
+|Proces | Tożsamość procesu (lub grup procesów), z którym jest skojarzony port.|
+|Przegląd | Adres IP portu (może to być symbol wieloznaczny adresu IP, *0.0.0.0*) |
 |Port |Numer portu |
-|Protocol (Protokół) | Protokół.  Przykład *tcp* lub *udp* (obecnie obsługiwany jest tylko *tcp).*|
+|Protocol (Protokół) | Protokół.  Przykład: *TCP* lub *UDP* (tylko *protokół TCP* jest obecnie obsługiwany).|
  
-Tożsamość portu pochodzi z powyższych pięciu pól i jest przechowywana we właściwości PortId. Ta właściwość może służyć do szybkiego znajdowania rekordów dla określonego portu w czasie. 
+Tożsamość, którą port pochodzi od powyższych pięciu pól i jest przechowywana we właściwości identyfikator portu. Ta właściwość może służyć do szybkiego znajdowania rekordów dla określonego portu w czasie. 
 
 #### <a name="metrics"></a>Metryki 
 
-Rekordy portów obejmują metryki reprezentujące skojarzone z nimi połączenia. Obecnie zgłaszane są następujące metryki (szczegóły dla każdej metryki są opisane w poprzedniej sekcji): 
+Rekordy portów obejmują metryki reprezentujące powiązane z nimi połączenia. Obecnie zgłaszane są następujące metryki (szczegóły dotyczące poszczególnych metryk są opisane w poprzedniej sekcji): 
 
 - BytesSent i BytesReceived 
-- LinkiNawiązane, LinksTerminated, LinksLive 
+- LinksEstablished, LinksTerminated, LinksLive 
 - ResposeTime, ResponseTimeMin, ResponseTimeMax, ResponseTimeSum 
 
-Oto kilka ważnych kwestii, które należy wziąć pod uwagę:
+Oto kilka istotnych kwestii, które należy wziąć pod uwagę:
 
-- Jeśli proces akceptuje połączenia na tym samym adresie IP, ale za pośrednictwem wielu interfejsów sieciowych, zostanie zgłoszony osobny rekord dla każdego interfejsu.  
-- Rekordy z wieloznacznym adresem IP nie będą zawierać żadnych działań. Są one włączone do reprezentowania faktu, że port na komputerze jest otwarty dla ruchu przychodzącego. 
-- Aby zmniejszyć szczegółowość i ilość danych, rekordy z wieloznacznym adresem IP zostaną pominięte, gdy istnieje pasujący rekord (dla tego samego procesu, portu i protokołu) z określonym adresem IP. Po pominięciu rekordu IP z symbolami wieloznacznych właściwość *IsWildcardBind* dla rekordu o określonym adresie IP zostanie ustawiona na *True*.  Oznacza to, że port jest narażony na każdy interfejs urządzenia raportowania. 
-- Porty, które są powiązane tylko na określonym interfejsie mają IsWildcardBind ustawiona na *False*. 
+- Jeśli proces akceptuje połączenia o tym samym adresie IP, ale przez wiele interfejsów sieciowych, zostanie zgłoszony oddzielny rekord dla każdego interfejsu.  
+- Rekordy z symbolem wieloznacznym adresu IP nie będą miały aktywności. Są one dołączone do reprezentowania faktu, że port na komputerze jest otwarty dla ruchu przychodzącego. 
+- Aby zmniejszyć poziom szczegółowości i ilości danych, rekordy z symbolem wieloznacznym adresu IP zostaną pominięte, gdy istnieje pasujący rekord (dla tego samego procesu, portu i protokołu) o określonym adresie IP. W przypadku pominięcia wieloznacznego rekordu adresu IP Właściwość *IsWildcardBind* rekordu z określonym adresem IP zostanie ustawiona na *wartość true*.  Oznacza to, że port jest narażony na każdy interfejs maszyny raportowania. 
+- Porty, które są powiązane tylko z określonym interfejsem, mają IsWildcardBind ustawiony na *wartość false*. 
 
-### <a name="vmcomputer-records"></a>Rekordy VMComputer
+### <a name="vmcomputer-records"></a>VMComputer rekordy
 
-Rekordy z *typem VMComputer* mają dane spisu serwerów z agentem zależności. Te rekordy mają właściwości w poniższej tabeli:
+Rekordy z typem *VMComputer* mają dane spisu dla serwerów z agentem zależności. Te rekordy mają właściwości w poniższej tabeli:
 
 | Właściwość | Opis |
 |:--|:--|
 |TenantId | Unikatowy identyfikator obszaru roboczego |
-|SourceSystem | *Insights* | 
+|SourceSystem | *Szczegółowe informacje* | 
 |TimeGenerated | Sygnatura czasowa rekordu (UTC) |
 |Computer (Komputer) | Nazwa FQDN komputera | 
-|AgentId | Unikatowy identyfikator agenta usługi Log Analytics |
-|Maszyna | Nazwa zasobu usługi Azure Resource Manager dla komputera udostępniane przez ServiceMap. Jest to formularz *m-{GUID}*, gdzie *identyfikator GUID* jest tym samym identyfikatorem GUID co AgentId. | 
-|DisplayName | Nazwa wyświetlana | 
-|Pełna nazwa funkcjiwydajna | Pełna nazwa wyświetlana | 
+|Identyfikator agenta | Unikatowy identyfikator agenta Log Analytics |
+|Maszyna | Nazwa zasobu Azure Resource Manager dla maszyny uwidocznionej przez ServiceMap. Ma postać *m-{GUID}*, gdzie *GUID* jest tym samym identyfikatorem GUID co identyfikator agenta. | 
+|Nazwa wyświetlana | Nazwa wyświetlana | 
+|FullDisplayName | Pełna nazwa wyświetlana | 
 |HostName | Nazwa komputera bez nazwy domeny |
-|Czas rozruchu | Czas rozruchu maszyny (UTC) |
+|BootTime | Czas rozruchu komputera (UTC) |
 |TimeZone | Znormalizowana strefa czasowa |
-|VirtualizationState | *wirtualny,* *hipernadzorcy,* *fizyczny* |
-|Ipv4Addresses (Ipv4) | Tablica adresów IPv4 | 
-|Maski Ipv4Subnet | Tablica masek podsieci IPv4 (w tej samej kolejności co Ipv4Addresses). |
+|VirtualizationState | *wirtualne*, *Funkcja hypervisor*, *fizyczne* |
+|Ipv4Addresses | Tablica adresów IPv4 | 
+|Ipv4SubnetMasks | Tablica masek podsieci IPv4 (w takiej samej kolejności jak Ipv4Addresses). |
 |Ipv4DefaultGateways | Tablica bram IPv4 | 
-|Ipv6Addresses (Ipv6) | Tablica adresów IPv6 | 
-|Sukienki MacAddresses | Tablica adresów MAC | 
-|Nazwy dns | Tablica nazw DNS skojarzonych z urządzeniem. |
+|Ipv6Addresses | Tablica adresów IPv6 | 
+|MacAddresses | Tablica adresów MAC | 
+|DnsNames | Tablica nazw DNS skojarzonych z maszyną. |
 |DependencyAgentVersion | Wersja agenta zależności uruchomionego na komputerze. | 
-|OperacyjnaRoda Operacyjna | *Linux*, *Windows* |
+|OperatingSystemFamily | *Linux*, *Windows* |
 |OperatingSystemFullName | Pełna nazwa systemu operacyjnego | 
-|PhysicalMemoryMB (Pamięć Fizyczna) | Pamięć fizyczna w megabajtach | 
-|Procesorów | Liczba procesorów | 
-|Szybkość procesora | Szybkość procesora w MHz | 
-|VirtualMachineType (Typ wirtualny) | *hyperv*, *vmware*, *xen* |
-|VirtualMachineNativeId (Id virtualmachineNativeId) | Identyfikator maszyny Wirtualnej przypisany przez jego hipernadzorcy | 
-|VirtualMachineNativeName (VirtualMachineNativeName) | Nazwa maszyny Wirtualnej |
-|VirtualMachineHypervisorId | Unikatowy identyfikator funkcji hypervisor hostującej maszynę wirtualną |
-|Typ funkcji Hypervisor | *hyperv* |
-|HypervisorId | Unikatowy identyfikator hipernadzorcy | 
+|PhysicalMemoryMB | Pamięć fizyczna w megabajtach | 
+|Procesorów CPU | Liczba procesorów | 
+|CpuSpeed | Szybkość procesora CPU (w MHz) | 
+|VirtualMachineType | *HyperV*, *VMware*, *Xen* |
+|VirtualMachineNativeId | Identyfikator maszyny wirtualnej przypisany przez funkcję hypervisor | 
+|VirtualMachineNativeName | Nazwa maszyny wirtualnej |
+|VirtualMachineHypervisorId | Unikatowy identyfikator funkcji hypervisor hostującym maszynę wirtualną |
+|HypervisorType | *HyperV* |
+|HypervisorId | Unikatowy identyfikator funkcji hypervisor | 
 |HostingProvider | *Azure* |
 |_ResourceId | Unikatowy identyfikator zasobu platformy Azure |
-|AzureSubscriptionId | Unikatowy globalnie identyfikator identyfikujący subskrypcję | 
-|Grupa zasobów Azure | Nazwa grupy zasobów platformy Azure, do. |
-|Nazwa usługi AzureResourceName | Nazwa zasobu platformy Azure |
-|Lokalizacja usługi Azure | Lokalizacja zasobu platformy Azure |
-|Usługa AzureUpdateDomain | Nazwa domeny aktualizacji platformy Azure |
-|AzureFaultDomain (Domena usługi AzureFault) | Nazwa domeny błędów platformy Azure |
-|Obiekt AzureVmId | Unikatowy identyfikator maszyny wirtualnej platformy Azure |
-|Rozmiar platformy Azure | Rozmiar maszyny Wirtualnej platformy Azure |
-|AzureImagePublisher | Nazwa wydawcy maszyny Wirtualnej platformy Azure |
-|Usługa AzureImageOffering | Nazwa typu oferty maszyny Wirtualnej platformy Azure | 
+|AzureSubscriptionId | Unikatowy identyfikator globalny, który identyfikuje subskrypcję | 
+|AzureResourceGroup | Nazwa grupy zasobów platformy Azure, do której należy maszyna. |
+|AzureResourceName | Nazwa zasobu platformy Azure |
+|AzureLocation | Lokalizacja zasobu platformy Azure |
+|AzureUpdateDomain | Nazwa domeny aktualizacji platformy Azure |
+|AzureFaultDomain | Nazwa domeny błędów platformy Azure |
+|AzureVmId | Unikatowy identyfikator maszyny wirtualnej platformy Azure |
+|AzureSize | Rozmiar maszyny wirtualnej platformy Azure |
+|AzureImagePublisher | Nazwa wydawcy maszyny wirtualnej platformy Azure |
+|AzureImageOffering | Nazwa typu oferty maszyny wirtualnej platformy Azure | 
 |AzureImageSku | Jednostka SKU obrazu maszyny wirtualnej platformy Azure | 
 |AzureImageVersion | Wersja obrazu maszyny wirtualnej platformy Azure | 
-|Usługa AzureCloudServiceName | Nazwa usługi w chmurze platformy Azure |
-|Usługa AzureCloudServiceDeployment | Identyfikator wdrożenia usługi w chmurze |
-|Nazwa usługi AzureCloudRoleName | Nazwa roli usługi w chmurze |
-|Typ roli usługi AzureCloudRoleType | Typ roli usługi w chmurze: *pracownik* lub *sieć Web* |
-|Obiekt AzureCloudServiceInstanceId | Identyfikator wystąpienia roli usługi w chmurze |
-|Nazwa zestawu AzureVmScaleSet | Nazwa zestawu skalowania maszyny wirtualnej |
-|AzureVmScaleSetDeployment | Identyfikator wdrożenia zestawu skalowania maszyny wirtualnej |
-|AzureVmScaleSetResourceId | Unikatowy identyfikator zasobu zestawu skalowania maszyny wirtualnej.|
-|Obiekt AzureVmScaleSetInstanceId | Unikatowy identyfikator zestawu skalowania maszyny wirtualnej |
-|Obiekt AzureServiceFabricClusterId | Unikatowy identyfikator klastra sieci szkieletowej usług Azure | 
-|Usługa AzureFabricClusterName | Nazwa klastra sieci szkieletowej usług Azure |
+|AzureCloudServiceName | Nazwa usługi w chmurze platformy Azure |
+|AzureCloudServiceDeployment | Identyfikator wdrożenia dla usługi w chmurze |
+|AzureCloudServiceRoleName | Nazwa roli usługi w chmurze |
+|AzureCloudServiceRoleType | Typ roli usługi w chmurze: *proces roboczy* lub *Sieć Web* |
+|AzureCloudServiceInstanceId | Identyfikator wystąpienia roli usługi w chmurze |
+|AzureVmScaleSetName | Nazwa zestawu skalowania maszyn wirtualnych |
+|AzureVmScaleSetDeployment | Identyfikator wdrożenia zestawu skalowania maszyn wirtualnych |
+|AzureVmScaleSetResourceId | Unikatowy identyfikator zasobu zestawu skalowania maszyn wirtualnych.|
+|AzureVmScaleSetInstanceId | Unikatowy identyfikator zestawu skalowania maszyn wirtualnych |
+|AzureServiceFabricClusterId | Unikatowy identyfikator klastra usługi Azure Service Fabric | 
+|AzureServiceFabricClusterName | Nazwa klastra usługi Azure Service Fabric |
 
-### <a name="vmprocess-records"></a>Rekordy VMProcess
+### <a name="vmprocess-records"></a>VMProcess rekordy
 
-Rekordy z *typem VMProcess* mają dane spisu dla procesów połączonych z TCP na serwerach z agentem zależności. Te rekordy mają właściwości w poniższej tabeli:
+Rekordy z typem *VMProcess* mają dane spisu dla procesów połączonych z protokołem TCP na serwerach z agentem zależności. Te rekordy mają właściwości w poniższej tabeli:
 
 | Właściwość | Opis |
 |:--|:--|
 |TenantId | Unikatowy identyfikator obszaru roboczego |
-|SourceSystem | *Insights* | 
+|SourceSystem | *Szczegółowe informacje* | 
 |TimeGenerated | Sygnatura czasowa rekordu (UTC) |
 |Computer (Komputer) | Nazwa FQDN komputera | 
-|AgentId | Unikatowy identyfikator agenta usługi Log Analytics |
-|Maszyna | Nazwa zasobu usługi Azure Resource Manager dla komputera udostępniane przez ServiceMap. Jest to formularz *m-{GUID}*, gdzie *identyfikator GUID* jest tym samym identyfikatorem GUID co AgentId. | 
-|Proces | Unikatowy identyfikator procesu mapy usług. Jest w postaci *p-{GUID}*. 
-|Plik wykonywalnyName | Nazwa pliku wykonywalnego procesu | 
-|DisplayName | Nazwa wyświetlana procesu |
-|Rola | Rola procesu: *webserver*, *appServer*, *databaseServer*, *ldapServer*, *smbServer* |
-|Grupa | Nazwa grupy procesów. Procesy w tej samej grupie są logicznie powiązane, na przykład, częścią tego samego produktu lub komponentu systemu. |
-|StartTime | Czas rozpoczęcia puli procesów |
-|Pierwszy Identyfikator | Pierwszy PID w puli procesów |
+|Identyfikator agenta | Unikatowy identyfikator agenta Log Analytics |
+|Maszyna | Nazwa zasobu Azure Resource Manager dla maszyny uwidocznionej przez ServiceMap. Ma postać *m-{GUID}*, gdzie *GUID* jest tym samym identyfikatorem GUID co identyfikator agenta. | 
+|Proces | Unikatowy identyfikator procesu Service Map. Ma postać *p-{GUID}*. 
+|Plik wykonywalny | Nazwa pliku wykonywalnego procesu | 
+|Nazwa wyświetlana | Nazwa wyświetlana procesu |
+|Rola | Rola procesu: *WebServer*, *appServer*, *databaseServer*, *ldapServer*, *smbServer* |
+|Grupa | Nazwa grupy procesów. Procesy w tej samej grupie są logicznie powiązane, np. częścią tego samego produktu lub składnika systemu. |
+|StartTime | Godzina rozpoczęcia puli procesów |
+|FirstPid | Pierwszy Identyfikator PID w puli procesów |
 |Opis | Opis procesu |
 |CompanyName | Nazwa firmy |
-|Nazwa wewnętrzna | Nazwa wewnętrzna |
+|Wewnętrznyname | Nazwa wewnętrzna |
 |ProductName | Nazwa produktu |
 |ProductVersion | Wersja produktu |
-|Wersja pliku | Wersja pliku |
-|Ścieżka wykonywalna |Ścieżka pliku wykonywalnego |
-|Commandline | Wiersz polecenia |
+|FileVersion | Wersja pliku |
+|Ścieżka pliku wykonywalnego |Ścieżka pliku wykonywalnego |
+|Wiersza polecenia | Wiersz polecenia |
 |WorkingDirectory | Katalog roboczy |
 |Usługi | Tablica usług, w ramach których proces jest wykonywany |
-|UserName | Konto, na którym wykonywany jest proces |
-|Domena użytkowników | Domena, w której proces jest wykonywany |
+|UserName | Konto, na którym proces jest wykonywany |
+|UserDomain | Domena, w której wykonywany jest proces |
 |_ResourceId | Unikatowy identyfikator procesu w obszarze roboczym |
 
 
-## <a name="sample-map-queries"></a>Przykładowe kwerendy mapy
+## <a name="sample-map-queries"></a>Przykładowe zapytania mapy
 
-### <a name="list-all-known-machines"></a>Lista wszystkich znanych maszyn
+### <a name="list-all-known-machines"></a>Wyświetl listę wszystkich znanych maszyn
 
 ```kusto
 VMComputer | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
-### <a name="when-was-the-vm-last-rebooted"></a>Kiedy maszyna wirtualna została ostatnio ponownie uruchomiona
+### <a name="when-was-the-vm-last-rebooted"></a>Kiedy maszyna wirtualna została ostatnio uruchomiona ponownie
 
 ```kusto
 let Today = now(); VMComputer | extend DaysSinceBoot = Today - BootTime | summarize by Computer, DaysSinceBoot, BootTime | sort by BootTime asc
@@ -274,79 +274,79 @@ VMComputer | where AzureLocation != "" | summarize by Computer, AzureImageOfferi
 VMComputer | summarize arg_max(TimeGenerated, *) by _ResourceId | project PhysicalMemoryMB, Computer
 ```
 
-### <a name="list-computer-name-dns-ip-and-os"></a>Lista nazw komputerów, DNS, IP i OS
+### <a name="list-computer-name-dns-ip-and-os"></a>Wyświetl listę nazw komputerów, DNS, IP i OS
 
 ```kusto
 VMComputer | summarize arg_max(TimeGenerated, *) by _ResourceId | project Computer, OperatingSystemFullName, DnsNames, Ipv4Addresses
 ```
 
-### <a name="find-all-processes-with-sql-in-the-command-line"></a>Znajdź wszystkie procesy z "sql" w wierszu polecenia
+### <a name="find-all-processes-with-sql-in-the-command-line"></a>Znajdź wszystkie procesy z "SQL" w wierszu polecenia
 
 ```kusto
 VMProcess | where CommandLine contains_cs "sql" | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
-### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Znajdowanie komputera (najnowszego rekordu) według nazwy zasobu
+### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Znajdź maszynę (najnowszy rekord) według nazwy zasobu
 
 ```kusto
 search in (VMComputer) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
-### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Znajdowanie komputera (najnowszego rekordu) według adresu IP
+### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Znajdź komputer (najnowszy rekord) według adresu IP
 
 ```kusto
 search in (VMComputer) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
-### <a name="list-all-known-processes-on-a-specified-machine"></a>Wyświetlanie listy wszystkich znanych procesów na określonym komputerze
+### <a name="list-all-known-processes-on-a-specified-machine"></a>Wyświetl listę wszystkich znanych procesów na określonym komputerze
 
 ```kusto
 VMProcess | where Machine == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
-### <a name="list-all-computers-running-sql-server"></a>Lista wszystkich komputerów z programem SQL Server
+### <a name="list-all-computers-running-sql-server"></a>Wyświetl listę wszystkich komputerów z systemem SQL Server
 
 ```kusto
 VMComputer | where AzureResourceName in ((search in (VMProcess) "*sql*" | distinct Machine)) | distinct Computer
 ```
 
-### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Wyświetl listę wszystkich unikatowych wersji produktu curl w moim centrum danych
+### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Wyświetl listę wszystkich unikatowych wersji programu zwinięcie w moim centrum danych
 
 ```kusto
 VMProcess | where ExecutableName == "curl" | distinct ProductVersion
 ```
 
-### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Tworzenie grupy komputerów wszystkich komputerów z systemem CentOS
+### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Utwórz grupę komputerów z systemem CentOS
 
 ```kusto
 VMComputer | where OperatingSystemFullName contains_cs "CentOS" | distinct Computer
 ```
 
-### <a name="bytes-sent-and-received-trends"></a>Bajty wysyłane i odbierane trendy
+### <a name="bytes-sent-and-received-trends"></a>Liczba bajtów wysłanych i otrzymanych trendów
 
 ```kusto
 VMConnection | summarize sum(BytesSent), sum(BytesReceived) by bin(TimeGenerated,1hr), Computer | order by Computer desc | render timechart
 ```
 
-### <a name="which-azure-vms-are-transmitting-the-most-bytes"></a>Maszyny wirtualne platformy Azure przesyłają najwięcej bajtów
+### <a name="which-azure-vms-are-transmitting-the-most-bytes"></a>Które maszyny wirtualne platformy Azure przesyłają najwięcej bajtów
 
 ```kusto
 VMConnection | join kind=fullouter(VMComputer) on $left.Computer == $right.Computer | summarize count(BytesSent) by Computer, AzureVMSize | sort by count_BytesSent desc
 ```
 
-### <a name="link-status-trends"></a>Łączenie trendów stanu
+### <a name="link-status-trends"></a>Trendy stanu łącza
 
 ```kusto
 VMConnection | where TimeGenerated >= ago(24hr) | where Computer == "acme-demo" | summarize dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h) | render timechart
 ```
 
-### <a name="connection-failures-trend"></a>Trend niepowodzeń połączeń
+### <a name="connection-failures-trend"></a>Trend błędów połączeń
 
 ```kusto
 VMConnection | where Computer == "acme-demo" | extend bythehour = datetime_part("hour", TimeGenerated) | project bythehour, LinksFailed | summarize failCount = count() by bythehour | sort by bythehour asc | render timechart
 ```
 
-### <a name="bound-ports"></a>Porty powiązane
+### <a name="bound-ports"></a>Powiązane porty
 
 ```kusto
 VMBoundPort
@@ -355,7 +355,7 @@ VMBoundPort
 | distinct Port, ProcessName
 ```
 
-### <a name="number-of-open-ports-across-machines"></a>Liczba otwartych portów na różnych komputerach
+### <a name="number-of-open-ports-across-machines"></a>Liczba otwartych portów między maszynami
 
 ```kusto
 VMBoundPort
@@ -365,7 +365,7 @@ VMBoundPort
 | order by OpenPorts desc
 ```
 
-### <a name="score-processes-in-your-workspace-by-the-number-of-ports-they-have-open"></a>Oceniaj procesy w obszarze roboczym według liczby otwartych portów
+### <a name="score-processes-in-your-workspace-by-the-number-of-ports-they-have-open"></a>Ocena procesów w obszarze roboczym według liczby otwartych portów
 
 ```kusto
 VMBoundPort
@@ -375,9 +375,9 @@ VMBoundPort
 | order by OpenPorts desc
 ```
 
-### <a name="aggregate-behavior-for-each-port"></a>Agreguj zachowanie dla każdego portu
+### <a name="aggregate-behavior-for-each-port"></a>Zagregowane zachowanie dla każdego portu
 
-Ta kwerenda może być następnie używana do oceniania portów według aktywności, np.
+Tego zapytania można następnie użyć do oceny portów według aktywności, np. portów z większością ruchu przychodzącego/wychodzącego, porty z większością połączeń
 ```kusto
 // 
 VMBoundPort
@@ -387,7 +387,7 @@ VMBoundPort
 | order by Machine, Computer, Port, Ip, ProcessName
 ```
 
-### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Podsumowywanie połączeń wychodzących z grupy komputerów
+### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Podsumuj połączenia wychodzące z grupy maszyn
 
 ```kusto
 // the machines of interest
@@ -437,16 +437,16 @@ Rekordy z typem *InsightsMetrics* mają dane dotyczące wydajności z systemu op
 | Właściwość | Opis |
 |:--|:--|
 |TenantId | Unikatowy identyfikator obszaru roboczego |
-|SourceSystem | *Insights* | 
-|TimeGenerated | Czas zebranej wartości (UTC) |
+|SourceSystem | *Szczegółowe informacje* | 
+|TimeGenerated | Godzina zebrania wartości (UTC) |
 |Computer (Komputer) | Nazwa FQDN komputera | 
 |Origin | *vm.azm.ms* |
 |Przestrzeń nazw | Kategoria licznika wydajności | 
 |Nazwa | Nazwa licznika wydajności |
-|Val | Pobrana wartość | 
-|Tagi | Powiązane szczegóły dotyczące rekordu. Zobacz poniższą tabelę, aby dostrzec znaczniki używane z różnymi typami rekordów.  |
-|AgentId | Unikatowy identyfikator agenta każdego komputera |
-|Typ | *Wskaźniki insights* |
+|Użyte | Zebrana wartość | 
+|Tagi | Powiązane szczegółowe informacje o rekordzie. Zapoznaj się z poniższą tabelą dla tagów używanych z różnymi typami rekordów.  |
+|Identyfikator agenta | Unikatowy identyfikator dla agenta każdego komputera |
+|Typ | *InsightsMetrics* |
 |_ResourceId_ | Identyfikator zasobu maszyny wirtualnej |
 
 Liczniki wydajności aktualnie zebrane w tabeli *InsightsMetrics* są wymienione w poniższej tabeli:
@@ -454,25 +454,25 @@ Liczniki wydajności aktualnie zebrane w tabeli *InsightsMetrics* są wymienione
 | Przestrzeń nazw | Nazwa | Opis | Jednostka | Tagi |
 |:---|:---|:---|:---|:---|
 | Computer (Komputer)    | Puls             | Puls komputera                        | | |
-| Memory (Pamięć)      | DostępneMB           | Dostępne bajty pamięci                    | Bajty          | memorySizeMB - Całkowity rozmiar pamięci|
-| Sieć     | WriteBytesPerSecond   | Bajty zapisu sieciowego na sekundę            | PrzeztówPerSekunda | NetworkDeviceId - Identyfikator urządzenia<br>bajty - całkowita liczba wysłanych bajtów |
-| Sieć     | ReadBytesPerSecond (Odczyt Naprzemognie)    | Bajty odczytu sieciowego na sekundę             | PrzeztówPerSekunda | networkDeviceId - Identyfikator urządzenia<br>bajty - całkowita liczba odebranych bajtów |
-| Procesor   | WykorzystaniePrzestrzysty | Procent wykorzystania procesora          | Wartość procentowa        | totalCpus — łączna wartość procesorów |
-| Logiczny dysk | WritesPerSecond       | Zapisy na dysku logicznym na sekundę            | Połów połówek | mountId - Identyfikator instalacji urządzenia |
-| Logiczny dysk | 19.00.        | Milisekunda opóźnienia zapisu dysku logicznego    | Milisekund   | mountId - Identyfikator instalacji urządzenia |
-| Logiczny dysk | WriteBytesPerSecond   | Bajty zapisu dysku logicznego na sekundę       | PrzeztówPerSekunda | mountId - Identyfikator instalacji urządzenia |
-| Logiczny dysk | TransferPerSecond    | Transfery dysku logicznego na sekundę         | Połów połówek | mountId - Identyfikator instalacji urządzenia |
-| Logiczny dysk | TransferLatencyMs     | Milisekunda opóźnienia transferu dysku logicznego | Milisekund   | mountId - Identyfikator instalacji urządzenia |
-| Logiczny dysk | OdczytySekundy        | Odczyty dysku logicznego na sekundę             | Połów połówek | mountId - Identyfikator instalacji urządzenia |
-| Logiczny dysk | ReadLatencyMs (Odczytywanie erekcji)         | Milisekunda opóźnienia odczytu dysku logicznego     | Milisekund   | mountId - Identyfikator instalacji urządzenia |
-| Logiczny dysk | ReadBytesPerSecond (Odczyt Naprzemognie)    | Bajty odczytu dysku logicznego na sekundę        | PrzeztówPerSekunda | mountId - Identyfikator instalacji urządzenia |
-| Logiczny dysk | FreeSpacePrzestrzeń   | Procent wolnego miejsca na dysku logicznym        | Wartość procentowa        | mountId - Identyfikator instalacji urządzenia |
-| Logiczny dysk | FreeSpaceMB (Obszar wolny)           | Bajty wolnego miejsca na dysku logicznym             | Bajty          | mountId - Identyfikator instalacji urządzenia<br>diskSizeMB — całkowity rozmiar dysku |
-| Logiczny dysk | PrzeztówPerSekunda        | Bajty dysku logicznego na sekundę             | PrzeztówPerSekunda | mountId - Identyfikator instalacji urządzenia |
+| Memory (Pamięć)      | AvailableMB           | Bajty dostępne pamięci                    | Bajty          | memorySizeMB — całkowity rozmiar pamięci|
+| Sieć     | WriteBytesPerSecond   | Bajty zapisu sieci na sekundę            | BytesPerSecond | NetworkDeviceId — identyfikator urządzenia<br>bajty — całkowita liczba wysłanych bajtów |
+| Sieć     | ReadBytesPerSecond    | Bajty odczytu sieci na sekundę             | BytesPerSecond | networkDeviceId — identyfikator urządzenia<br>bajty — całkowita liczba odebranych bajtów |
+| Procesor   | UtilizationPercentage | Procent użycia procesora          | Wartość procentowa        | totalCpus — łączna liczba procesorów CPU |
+| Dysk logiczny | WritesPerSecond       | Zapisy dysku logicznego na sekundę            | CountPerSecond | mountId — identyfikator instalacji urządzenia |
+| Dysk logiczny | WriteLatencyMs        | Opóźnienie zapisu na dysku logicznym w milisekundach    | )   | mountId — identyfikator instalacji urządzenia |
+| Dysk logiczny | WriteBytesPerSecond   | Bajty zapisu dysku logicznego na sekundę       | BytesPerSecond | mountId — identyfikator instalacji urządzenia |
+| Dysk logiczny | TransfersPerSecond    | Transfery dysku logicznego na sekundę         | CountPerSecond | mountId — identyfikator instalacji urządzenia |
+| Dysk logiczny | TransferLatencyMs     | Opóźnienie transferu dysku logicznego (milisekundy) | )   | mountId — identyfikator instalacji urządzenia |
+| Dysk logiczny | ReadsPerSecond        | Odczyty dysku logicznego na sekundę             | CountPerSecond | mountId — identyfikator instalacji urządzenia |
+| Dysk logiczny | ReadLatencyMs         | Opóźnienie odczytu z dysku logicznego (milisekundy)     | )   | mountId — identyfikator instalacji urządzenia |
+| Dysk logiczny | ReadBytesPerSecond    | Bajty odczytu z dysku logicznego na sekundę        | BytesPerSecond | mountId — identyfikator instalacji urządzenia |
+| Dysk logiczny | FreeSpacePercentage   | Procent wolnego miejsca na dysku logicznym        | Wartość procentowa        | mountId — identyfikator instalacji urządzenia |
+| Dysk logiczny | FreeSpaceMB           | Bajty wolnego miejsca na dysku logicznym             | Bajty          | mountId — identyfikator instalacji urządzenia<br>diskSizeMB — całkowity rozmiar dysku |
+| Dysk logiczny | BytesPerSecond        | Liczba bajtów dysku logicznego na sekundę             | BytesPerSecond | mountId — identyfikator instalacji urządzenia |
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Jeśli jesteś nowy do pisania zapytań dziennika w usłudze Azure Monitor, sprawdź, [jak używać usługi Log Analytics](../../azure-monitor/log-query/get-started-portal.md) w witrynie Azure portal do pisania zapytań dziennika.
+* Jeśli jesteś nowym sposobem pisania zapytań dzienników w Azure Monitor, zapoznaj się z [tematem jak używać log Analytics](../../azure-monitor/log-query/get-started-portal.md) w Azure Portal do zapisywania zapytań dzienników.
 
-* Dowiedz się więcej o [pisaniu zapytań](../../azure-monitor/log-query/search-queries.md)wyszukiwania .
+* Dowiedz się więcej na temat [pisania zapytań wyszukiwania](../../azure-monitor/log-query/search-queries.md).

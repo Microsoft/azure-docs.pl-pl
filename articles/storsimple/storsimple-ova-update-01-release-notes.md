@@ -1,6 +1,6 @@
 ---
-title: StorSimple Virtual Array Update 0.2 & 0.1 informacje o wersji
-description: W tym artykule opisano krytyczne otwarte problemy i rozwiązania dla tablicy wirtualnej StorSimple z aktualizacją 0.2 i 0.1.
+title: StorSimple Virtual Array Update 0,2 & 0,1 — informacje o wersji
+description: Opisuje krytyczne problemy i rozwiązania dla macierzy wirtualnej StorSimple z uruchomioną aktualizacją 0,2 i 0,1.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,73 +15,73 @@ ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
 ms.openlocfilehash: 95386f36340aca470769c920e40bbb70e09d34fc
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80397880"
 ---
-# <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>StorSimple Virtual Array Update 0.2 i 0.1 informacje o wersji
+# <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>StorSimple Virtual Array Update 0,2 i 0,1 — informacje o wersji
 ## <a name="overview"></a>Omówienie
-W poniższych informacjach o wersji identyfikowano krytyczne otwarte problemy i rozwiązane problemy z aktualizacjami tablicy wirtualnej Usługi Microsoft Azure StorSimple. (Microsoft Azure StorSimple Virtual Array jest również znany jako StorSimple lokalnego urządzenia wirtualnego lub StorSimple urządzenia wirtualnego.) 
+Poniższe informacje o wersji dotyczą krytycznych problemów otwartych i rozwiązanych problemów dotyczących Microsoft Azure StorSimple aktualizacji macierzy wirtualnych. (Microsoft Azure StorSimple tablica wirtualna jest również znana jako StorSimple lokalne urządzenie wirtualne lub StorSimple urządzenie wirtualne). 
 
-Informacje o wersji są stale aktualizowane, a ponieważ wykrywane są krytyczne problemy wymagające obejścia, są dodawane. Przed wdrożeniem urządzenia wirtualnego StorSimple należy dokładnie przejrzeć informacje zawarte w informacjach o wersji.
+Informacje o wersji są stale aktualizowane i wykryto krytyczne problemy wymagające obejścia. Przed wdrożeniem urządzenia wirtualnego StorSimple należy uważnie zapoznać się z informacjami zawartymi w informacjach o wersji.
 
-Aktualizacja 0.2 odpowiada wersji oprogramowania **10.0.10280.0;** Aktualizacja 0.1 jest w wersji **10.0.10279.0**. W poniższych sekcjach znajdziesz listę zmian dla każdej aktualizacji. 
+Aktualizacja 0,2 jest zgodna z wersją oprogramowania **10.0.10280.0**; Aktualizacja 0,1 jest w wersji **10.0.10279.0**. W poniższych sekcjach przedstawiono zmiany dla każdej aktualizacji. 
 
 > [!NOTE]
-> Aktualizacje są destrukcyjne i uruchomią ponownie urządzenie. Jeśli we/wy są w toku, urządzenie poniesie przestoje.
+> Aktualizacje są zakłócane i spowodują ponowne uruchomienie urządzenia. Jeśli operacje we/wy są w toku, na urządzeniu zostanie naliczone przestoje.
 > 
 > 
 
-## <a name="issues-fixed-in-the-update-02"></a>Problemy rozwiązane w aktualizacji 0.2
-Aktualizacja 0.2 zawiera wszystkie zmiany z aktualizacji 0.1 oprócz poprawki opisanej w poniższej tabeli:
+## <a name="issues-fixed-in-the-update-02"></a>Problemy rozwiązane w aktualizacji 0,2
+Aktualizacja 0,2 obejmuje wszystkie zmiany z aktualizacji 0,1 oprócz poprawki opisanej w poniższej tabeli:
 
 | Funkcja | Problem |
 | --- | --- |
-| Aktualizacje |W ostatniej wersji aktualizacje nie zostały wykryte automatycznie w klasycznej witrynie Azure portal, więc trzeba było użyć lokalnego interfejsu użytkownika sieci Web, aby zainstalować aktualizacje. Ten problem został rozwiązany w tej wersji. Po zainstalowaniu aktualizacji 0.2 można zainstalować przyszłe aktualizacje przy użyciu klasycznego portalu platformy Azure. |
+| Aktualizacje |W ostatniej wersji aktualizacje nie zostały wykryte automatycznie w klasycznym portalu Azure, dlatego należy użyć lokalnego interfejsu użytkownika sieci Web do zainstalowania aktualizacji. Ten problem został rozwiązany w tej wersji. Po zainstalowaniu aktualizacji 0,2 można zainstalować przyszłe aktualizacje przy użyciu klasycznego portalu Azure. |
 
-## <a name="whats-new-in-the-update-01"></a>Co nowego w aktualizacji 0.1
-Aktualizacja 0.1 zawiera następujące poprawki i ulepszenia. 
+## <a name="whats-new-in-the-update-01"></a>Co nowego w aktualizacji 0,1
+Aktualizacja 0,1 zawiera następujące poprawki błędów i ulepszenia. 
 
-* **Zwiększona odporność na awarie chmury:** Ta wersja ma kilka poprawek błędów dotyczących odzyskiwania po awarii, tworzenia kopii zapasowych, przywracania i warstwowania w przypadku zakłóceń łączności w chmurze. 
-* **Zwiększona wydajność przywracania:** Ta wersja ma poprawki błędów, które znacznie skróciły czas ukończenia zadań przywracania.
-* **Automatyczna optymalizacja regeneracji miejsca:** Gdy dane są usuwane na woluminach nieobe aprowizacji, nieużywane bloki magazynu muszą zostać odzyskane. Ta wersja usprawniła proces rekultywacji miejsca z chmury, co spowodowało, że nieużywane miejsce stało się dostępne szybciej w porównaniu z poprzednimi wersjami.
-* **Nowe obrazy dysków wirtualnych:** nowe dyski VHD, VHDX i VMDK są teraz dostępne za pośrednictwem klasycznego portalu platformy Azure. Możesz pobrać te obrazy, aby aprowizować nowe urządzenia aktualizacji 0.1.
-* **Poprawa stanu zadań w portalu**: We wcześniejszej wersji oprogramowania raportowanie stanu zadania w portalu nie było szczegółowe. Ten problem został rozwiązany w tej wersji.
-* **Środowisko dołączania do domeny:** poprawki błędów związane z dołączaniem do domeny i ich zmienianiem nazwy.
+* **Ulepszona odporność na awarie w chmurze**: w tej wersji występuje kilka poprawek błędów dotyczących odzyskiwania po awarii, wykonywania kopii zapasowych, przywracania i obsługi warstw w przypadku przerwania łączności z chmurą. 
+* **Ulepszona wydajność przywracania**: Ta wersja zawiera poprawki błędów, które znacząco obcinają czas zakończenia zadań przywracania.
+* **Zautomatyzowana optymalizacja przestrzeni odzyskiwania**: po usunięciu danych w woluminach alokowanych elastycznie należy odzyskać nieużywane bloki magazynu. W tej wersji Ulepszono proces odzyskiwania miejsca z chmury, co spowodowało, że nieużywane miejsce staje się dostępne szybciej w porównaniu z poprzednimi wersjami.
+* **Nowe obrazy dysków wirtualnych**: nowe pliki VHD, VHDX i VMDK są teraz dostępne za pośrednictwem klasycznego portalu Azure. Możesz pobrać te obrazy, aby udostępnić nowe urządzenia z aktualizacją Update 0,1.
+* **Poprawa dokładności stanu zadań w portalu**: w starszej wersji oprogramowania raportowanie stanu zadania w portalu było nieszczegółowe. Ten problem został rozwiązany w tej wersji.
+* **Środowisko przyłączania do domeny**: poprawki błędów związanych z przyłączaniem do domeny i zmianami nazw urządzeń.
 
-## <a name="issues-fixed-in-the-update-01"></a>Problemy rozwiązane w aktualizacji 0.1
+## <a name="issues-fixed-in-the-update-01"></a>Problemy rozwiązane w aktualizacji 0,1
 Poniższa tabela zawiera podsumowanie problemów rozwiązanych w tej wersji.
 
 | Nie. | Funkcja | Problem |
 | --- | --- | --- |
-| 1 |Vmdk |W niektórych wersjach VMware dysk systemu operacyjnego był postrzegany jako rozrzedzony, powodując alerty i zakłócając normalne operacje. Zostało to naprawione w tej wersji. |
-| 2 |Serwer iSCSI |W ostatniej wersji użytkownik był zobowiązany do określenia bramy dla każdego włączonego interfejsu sieciowego urządzenia wirtualnego StorSimple. To zachowanie zostało zmienione w tej wersji, dzięki czemu użytkownik musi skonfigurować co najmniej jedną bramę dla wszystkich włączonych interfejsów sieciowych. |
-| 3 |Pakiet pomocy technicznej |We wcześniejszej wersji oprogramowania kolekcja pakietów pomocy technicznej nie powiodła się, gdy rozmiary pakietów były większe niż 1 GB. Ten problem został rozwiązany w tej wersji. |
-| 4 |Dostęp do chmury |W ostatniej wersji, jeśli StorSimple Virtual Array nie ma łączności sieciowej i został ponownie uruchomiony, lokalny interfejs użytkownika będzie miał problemy z łącznością. Ten problem został rozwiązany w tej wersji. |
-| 5 |Monitorowanie wykresów |W poprzedniej wersji, po pracy awaryjnej urządzenia, wykresy wykorzystania pojemności chmury wyświetlane niepoprawne wartości w klasycznej witryny azure portalu. Jest to ustalone w bieżącym wydaniu. |
+| 1 |VMDK |W niektórych wersjach programu VMware dysk systemu operacyjnego był traktowany jako rozrzedzony powodujący alerty i zakłócanie normalnych operacji. Ten problem został rozwiązany w tej wersji. |
+| 2 |serwer iSCSI |W ostatniej wersji użytkownik musiał określić bramę dla każdego włączonego interfejsu sieciowego urządzenia wirtualnego StorSimple. To zachowanie jest zmieniane w tej wersji, dzięki czemu użytkownik musi skonfigurować co najmniej jedną bramę dla wszystkich włączonych interfejsów sieciowych. |
+| 3 |Pakiet pomocy technicznej |W starszej wersji oprogramowania zbieranie pakietów pomocy technicznej nie powiodło się, gdy rozmiar pakietu był większy niż 1 GB. Ten problem został rozwiązany w tej wersji. |
+| 4 |Dostęp do chmury |W ostatniej wersji, Jeśli wirtualna macierz StorSimple nie miała łączności sieciowej i została uruchomiona ponownie, lokalny interfejs użytkownika będzie miał problemy z łącznością. Ten problem został rozwiązany w tej wersji. |
+| 5 |Wykresy monitorowania |W poprzedniej wersji, po przełączeniu urządzenia w tryb failover, wykresy wykorzystania pojemności chmury wyświetlają nieprawidłowe wartości w klasycznym portalu Azure. Ten problem został rozwiązany w bieżącej wersji. |
 
-## <a name="known-issues-in-the-update-01"></a>Znane problemy w aktualizacji 0.1
-Poniższa tabela zawiera podsumowanie znanych problemów dla StorSimple Virtual Array i zawiera problemy z wersji zauważyć z poprzednich wersji. **Wydanie problemów odnotowane w tej wersji jest oznaczone gwiazdką. Prawie wszystkie problemy na tej liście zostały przeniesione z wersji GA StorSimple Virtual Array.**
+## <a name="known-issues-in-the-update-01"></a>Znane problemy z aktualizacją 0,1
+Poniższa tabela zawiera podsumowanie znanych problemów dotyczących macierzy wirtualnej StorSimple i obejmuje wydanie wydań z poprzednich wersji. **Wydanie problemów zanotowane w tej wersji jest oznaczone gwiazdką. Prawie wszystkie problemy na tej liście przeprowadzono w porównaniu z wersją StorSimple macierzy wirtualnej.**
 
-| Nie. | Funkcja | Problem | Obejście/komentarze |
+| Nie. | Funkcja | Problem | Obejście/Komentarze |
 | --- | --- | --- | --- |
-| **1.** |Aktualizacje |Nie można zaktualizować urządzeń wirtualnych utworzonych w wersji zapoznawczej do obsługiwanej wersji ogólnej dostępności. |Te urządzenia wirtualne muszą zostać przejęte awaryjnie dla wydania ogólnej dostępności przy użyciu przepływu pracy odzyskiwania po awarii (DR). |
-| **2.** |Aprowizowany dysk danych |Po zainicjowaniu obsługi administracyjnej dysku danych o określonym rozmiarze i utworzeniu odpowiedniego urządzenia wirtualnego StorSimple nie należy rozszerzać ani zmniejszać dysku danych. Próba wykonania tej tezy spowoduje utratę wszystkich danych w warstwach lokalnych urządzenia. | |
-| **3.** |Zasady grupy |Gdy urządzenie jest przyłączone do domeny, zastosowanie zasad grupy może niekorzystnie wpłynąć na działanie urządzenia. |Upewnij się, że tablica wirtualna znajduje się we własnej jednostce organizacyjnej (OU) dla usługi Active Directory i nie są stosowane do niej żadne obiekty zasad grupy. |
-| **4.** |Lokalny interfejs użytkownika w sieci Web |Jeśli w programie Internet Explorer (IE ESC) są włączone ulepszone funkcje zabezpieczeń, niektóre lokalne strony interfejsu użytkownika sieci Web, takie jak Rozwiązywanie problemów lub konserwacja, mogą nie działać poprawnie. Przyciski na tych stronach również mogą nie działać. |Wyłącz rozszerzone funkcje zabezpieczeń w programie Internet Explorer. |
-| **5.** |Lokalny interfejs użytkownika w sieci Web |Na maszynie wirtualnej funkcji Hyper-V interfejsy sieciowe w interfejsie użytkownika sieci web są wyświetlane jako interfejsy 10 Gb/s. |To zachowanie jest odzwierciedleniem funkcji Hyper-V. Funkcja Hyper-V zawsze pokazuje 10 Gb/s dla wirtualnych kart sieciowych. |
-| **6.** |Wolumeny warstwowe lub udziały |Blokowanie zakresu bajtów dla aplikacji, które pracują z StorSimple woluminów warstwowych nie jest obsługiwany. Jeśli blokada zakresu bajtów jest włączona, StorSimple warstwy nie będzie działać. |Zalecane środki obejmują: <br></br>Wyłącz blokowanie zakresu bajtów w logice aplikacji.<br></br>Wybierz, aby umieścić dane dla tej aplikacji w woluminach przypiętych lokalnie, w przeciwieństwie do woluminów warstwowych.<br></br>*Zastrzeżenie:* Jeśli jest włączone lokalne przypięte woluminy i blokowanie zakresu bajtów, należy pamiętać, że wolumin przypięty lokalnie może być w trybie online jeszcze przed zakończeniem przywracania. W takich przypadkach, jeśli przywracanie jest w toku, następnie należy poczekać na przywrócenie, aby zakończyć. |
-| **7.** |Udziały warstwowe |Praca z dużymi plikami może spowodować spowolnienie warstwy. |Podczas pracy z dużymi plikami zaleca się, aby największy plik był mniejszy niż 3% rozmiaru udziału. |
-| **8.** |Wykorzystana pojemność dla akcji |Zużycie udziału może być widoczne w przypadku braku jakichkolwiek danych dotyczących udziału. Jest to spowodowane używane pojemności dla udziałów zawiera metadane. | |
-| **9.** |Odzyskiwanie po awarii |Odzyskiwanie po awarii serwera plików można wykonać tylko w tej samej domenie co urządzenie źródłowe. Odzyskiwanie po awarii na urządzeniu docelowym w innej domenie nie jest obsługiwane w tej wersji. |Zostanie to zaimplementowane w nowszej wersji. |
-| **10.** |Azure PowerShell |Nie można zarządzać urządzeniami wirtualnymi StorSimple za pośrednictwem programu Azure PowerShell w tej wersji. |Wszystkie zarządzanie urządzeniami wirtualnymi powinny odbywać się za pośrednictwem klasycznego portalu platformy Azure i lokalnego interfejsu użytkownika sieci Web. |
-| **11.** |Zmiana hasła |Konsola urządzeń tablicy wirtualnej akceptuje dane wejściowe tylko w formacie klawiatury w USA. | |
-| **12.** |CHAP |Po utworzeniu protokołu CHAP nie można usunąć. Ponadto jeśli zmodyfikujesz poświadczenia protokołu CHAP, należy przetraktować woluminy w trybie offline, a następnie przesuń je do trybu online, aby zmiana została uwzględniona. |Zostaną one omówione w późniejszym wydaniu. |
-| **13.** |Serwer iSCSI |"Używany magazyn" wyświetlany dla woluminu iSCSI może być inny w usłudze StorSimple Manager i na hoście iSCSI. |Host iSCSI ma widok systemu plików.<br></br>Urządzenie widzi bloki przydzielone, gdy wolumin był przy maksymalnym rozmiarze. |
-| **14.** |Serwer plików* |Jeśli plik w folderze ma alternatywny strumień danych (ADS) skojarzony z nim, ads nie jest archiwizowana lub przywracana za pomocą odzyskiwania po awarii, klonowania i odzyskiwania poziomu elementu. | |
+| **1.** |Aktualizacje |Nie można zaktualizować urządzeń wirtualnych utworzonych w wersji zapoznawczej do obsługiwanej wersji ogólnej dostępności. |Te urządzenia wirtualne muszą zostać przełączone w tryb failover w celu udostępnienia ogólnej wersji dostępności przy użyciu przepływu pracy odzyskiwania po awarii (DR). |
+| **2.** |Dysk danych z zainicjowaną obsługą |Po zainicjowaniu obsługi dysku z danymi określonego rozmiaru i utworzeniu odpowiedniego urządzenia wirtualnego StorSimple nie należy rozwijać ani zmniejszać dysku z danymi. Próba wykonania tej czynności spowoduje utratę wszystkich danych w warstwach lokalnych urządzenia. | |
+| **3.** |Zasady grupy |Gdy urządzenie jest przyłączone do domeny, zastosowanie zasad grupy może niekorzystnie wpłynąć na działanie urządzenia. |Upewnij się, że tablica wirtualna ma własną jednostkę organizacyjną (OU) dla Active Directory i nie są do niej stosowane obiekty zasad grupy (GPO). |
+| **czwart.** |Lokalny interfejs użytkownika sieci Web |Jeśli ulepszone funkcje zabezpieczeń są włączone w programie Internet Explorer (IE ESC), niektóre strony lokalnego interfejsu użytkownika sieci Web, takie jak Rozwiązywanie problemów lub konserwacja, mogą nie funkcjonować prawidłowo. Przyciski na tych stronach mogą również nie funkcjonować. |Wyłącz ulepszone funkcje zabezpieczeń w programie Internet Explorer. |
+| **5000.** |Lokalny interfejs użytkownika sieci Web |W maszynie wirtualnej funkcji Hyper-V interfejsy sieciowe w interfejsie użytkownika sieci Web są wyświetlane jako interfejsy 10 GB/s. |To zachowanie jest odbiciem funkcji Hyper-V. Funkcja Hyper-V zawsze pokazuje 10 GB/s dla wirtualnych kart sieciowych. |
+| **ust.** |Woluminy warstwowe lub udziały |Blokowanie zakresu bajtów dla aplikacji współpracujących z woluminami warstwowymi StorSimple nie jest obsługiwane. Jeśli jest włączone blokowanie zakresu bajtów, StorSimple nie będzie działała. |Zalecane miary obejmują: <br></br>Wyłącz blokowanie zakresu bajtów w logice aplikacji.<br></br>Wybierz opcję umieszczenia danych dla tej aplikacji na woluminach przypiętych lokalnie, zamiast woluminów warstwowych.<br></br>*Zastrzeżenie*: w przypadku używania woluminów przypiętych lokalnie i blokowania zakresu bajtów należy pamiętać, że wolumin przypięty lokalnie może być w trybie online nawet przed ukończeniem przywracania. W takich przypadkach, jeśli przywracanie jest w toku, należy poczekać na ukończenie przywracania. |
+| **7.** |Udziały warstwowe |Praca z dużymi plikami może spowodować spowolnienie warstwy. |Podczas pracy z dużymi plikami zalecamy, aby największy plik był mniejszy niż 3% rozmiaru udziału. |
+| **0,8.** |Używana pojemność dla udziałów |Użycie udostępniania może być widoczne w przypadku braku jakichkolwiek danych w udziale. Wynika to z faktu, że używana pojemność udziałów obejmuje metadane. | |
+| **9.** |Odzyskiwanie po awarii |Odzyskiwanie po awarii serwera plików można wykonać tylko w tej samej domenie, w której znajduje się urządzenie źródłowe. Odzyskiwanie po awarii na urządzenie docelowe w innej domenie nie jest obsługiwane w tej wersji. |Ta wartość zostanie zaimplementowana w nowszej wersji. |
+| **dziesięć.** |Azure PowerShell |Nie można zarządzać urządzeniami wirtualnymi StorSimple za pomocą Azure PowerShell w tej wersji. |Wszystkie zarządzanie urządzeniami wirtualnymi należy przeprowadzić przy użyciu klasycznego portalu Azure oraz lokalnego interfejsu użytkownika sieci Web. |
+| **11.** |Zmiana hasła |Konsola urządzenia macierzy wirtualnej akceptuje tylko dane wejściowe w formacie klawiatury en-US. | |
+| **dwunastomiesięcznych.** |CHAP |Nie można usunąć poświadczeń protokołu CHAP po utworzeniu. Ponadto w przypadku zmodyfikowania poświadczeń protokołu CHAP należy przełączyć woluminy do trybu offline, a następnie przełączyć je w tryb online, aby zmiany zaczęły obowiązywać. |Zostaną one rozkierowane do nowszej wersji. |
+| **trzynast.** |serwer iSCSI |"Użyty magazyn" wyświetlany dla woluminu iSCSI może się różnić w zależności od usługi StorSimple Manager i hosta iSCSI. |Host iSCSI zawiera widok systemu plików.<br></br>Urządzenie widzi bloki przydzieloną, gdy wolumin był w maksymalnym rozmiarze. |
+| **14,5.** |Serwer plików * |Jeśli do pliku w folderze są skojarzone alternatywne strumienie danych (ADS), nie są one tworzone ani przywracane w ramach odzyskiwania po awarii, klonowania i odzyskiwania na poziomie elementu. | |
 
 ## <a name="next-step"></a>Następny krok
-[Zainstaluj aktualizacje](storsimple-ova-install-update-01.md) na tablicy wirtualnej StorSimple.
+[Zainstaluj aktualizacje](storsimple-ova-install-update-01.md) w macierzy wirtualnej StorSimple.
 

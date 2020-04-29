@@ -1,6 +1,6 @@
 ---
-title: Często zadawane pytania dotyczące apache kafka w usłudze Azure HDInsight
-description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące platformy Apache Kafka w usłudze Azure HDInsight, zarządzanej usłudze w chmurze Hadoop.
+title: Często zadawane pytania dotyczące Apache Kafka w usłudze Azure HDInsight
+description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące Apache Kafka w usłudze Azure HDInsight — zarządzanej usługi w chmurze.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,93 +8,93 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.openlocfilehash: d27c648980338b3a9e12bd618eb4620fe9988fd7
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80436912"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Często zadawane pytania dotyczące platformy Apache Kafka w ramach usługi Azure HDInsight
 
-Ten artykuł dotyczy niektórych typowych pytań dotyczących korzystania z platformy Apache Kafka w usłudze Azure HDInsight.
+W tym artykule opisano niektóre często zadawane pytania dotyczące korzystania z Apache Kafka w usłudze Azure HDInsight.
 
-## <a name="what-kafka-versions-are-supported-by-hdinsight"></a>Jakie wersje platformy Kafka są obsługiwane przez hdinsight?
+## <a name="what-kafka-versions-are-supported-by-hdinsight"></a>Jakie wersje Kafka są obsługiwane przez usługi HDInsight?
 
-Więcej informacji na temat oficjalnie obsługiwanych wersji komponentów hdinsight można znaleźć w części [Jakie są komponenty i wersje Apache Hadoop dostępne w formacie HDInsight?](../hdinsight-component-versioning.md#supported-hdinsight-versions). Zalecamy zawsze używanie najnowszej wersji, aby zapewnić najlepszą możliwą wydajność i środowisko użytkownika.
+Więcej informacji na temat wersji oficjalnie obsługiwanych składników usługi HDInsight znajduje się w temacie [co to są składniki Apache Hadoop i wersje dostępne w usłudze HDInsight?](../hdinsight-component-versioning.md#supported-hdinsight-versions). Zaleca się, aby zawsze używać najnowszej wersji, aby zapewnić najlepszą możliwą wydajność i środowisko użytkownika.
 
-## <a name="what-resources-are-provided-in-an-hdinsight-kafka-cluster-and-what-resources-am-i-charged-for"></a>Jakie zasoby są dostarczane w klastrze platformy HDInsight w kafce i za jakie zasoby pobieram opłatę?
+## <a name="what-resources-are-provided-in-an-hdinsight-kafka-cluster-and-what-resources-am-i-charged-for"></a>Jakie zasoby są udostępniane w klastrze usługi HDInsight Kafka i jakie zasoby są rozliczane?
 
-Klaster platformy Kafka usługi HDInsight zawiera następujące zasoby:
+Klaster usługi HDInsight Kafka obejmuje następujące zasoby:
 
-* Węzły głowy
-* Węzły zookeeper
-* Węzły brokera (pracownika) 
-* Dyski zarządzane platformy Azure dołączone do węzłów brokera
+* Węzły główne
+* Dozorcy węzły
+* Węzły brokera (proces roboczy) 
+* Managed Disks platformy Azure dołączone do węzłów brokera
 * Węzły bramy
 
-Wszystkie te zasoby są naliczane na podstawie naszego [modelu cenowego HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/), z wyjątkiem węzłów bramy. Nie są naliczane opłaty za węzły bramy.
+Wszystkie te zasoby są rozliczone w oparciu o nasz [model cenowy usługi HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/), z wyjątkiem węzłów bramy. Nie są naliczone opłaty za węzły bramy.
 
-Aby uzyskać bardziej szczegółowy opis różnych typów węzłów, zobacz [architektura sieci wirtualnej usługi Azure HDInsight](../hdinsight-virtual-network-architecture.md). Ceny są oparte na użyciu węzła na minutę. Ceny różnią się w zależności od rozmiaru węzła, liczby węzłów, typu używanego dysku zarządzanego i regionu.
+Aby uzyskać bardziej szczegółowy opis różnych typów węzłów, zobacz [Architektura sieci wirtualnej usługi Azure HDInsight](../hdinsight-virtual-network-architecture.md). Ceny są ustalane na podstawie użycia węzłów na minutę. Ceny różnią się w zależności od rozmiaru węzła, liczby węzłów, używanego dysku zarządzanego oraz regionu.
 
-## <a name="do-apache-kafka-apis-work-with-hdinsight"></a>Czy interfejsy API Apache Kafka współpracują z interfejsami HDInsight?
+## <a name="do-apache-kafka-apis-work-with-hdinsight"></a>Czy Apache Kafka interfejsy API działają z usługą HDInsight?
 
-Tak, hdinsight używa natywnych interfejsów API platformy Kafka. Kod aplikacji klienckiej nie musi się zmieniać. Zobacz [samouczek: Użyj interfejsów API producenta i konsumentów platformy Apache Kafka,](./apache-kafka-producer-consumer-api.md) aby zobaczyć, jak można używać interfejsów API producenta/konsumenta opartych na języku Java w klastrze.
+Tak, Usługa HDInsight używa natywnych interfejsów API Kafka. Nie trzeba zmieniać kodu aplikacji klienckiej. Zobacz [Samouczek: korzystanie z interfejsów API producenta i klienta Apache Kafka](./apache-kafka-producer-consumer-api.md) , aby zobaczyć, jak można używać interfejsów API producentów/klientów opartych na języku Java w klastrze.
 
-## <a name="can-i-change-cluster-configurations"></a>Czy można zmienić konfiguracje klastra?
+## <a name="can-i-change-cluster-configurations"></a>Czy mogę zmienić konfiguracje klastrów?
 
-Tak, za pośrednictwem portalu Ambari. Każdy składnik w portalu ma sekcję **konfiguracjów,** która może służyć do zmiany konfiguracji składników. Niektóre zmiany mogą wymagać ponownego uruchomienia brokera.
+Tak, za pomocą portalu Ambari. Każdy składnik w portalu zawiera sekcję **configs** , która może służyć do zmiany konfiguracji składników. Niektóre zmiany mogą wymagać ponownego uruchomienia brokera.
 
-## <a name="what-type-of-authentication-does-hdinsight-support-for-apache-kafka"></a>Jaki typ uwierzytelniania obsługuje usługi HDInsight dla platformy Apache Kafka?
+## <a name="what-type-of-authentication-does-hdinsight-support-for-apache-kafka"></a>Jakiego typu uwierzytelniania obsługuje Usługa HDInsight dla Apache Kafka?
 
-Korzystając z [pakietu zabezpieczeń przedsiębiorstwa (ESP),](../domain-joined/apache-domain-joined-architecture.md)można uzyskać zabezpieczenia na poziomie tematu dla ich klastrów platformy Kafka. Zobacz [samouczek: Konfigurowanie zasad platformy Apache Kafka w aplikacji HDInsight z pakietem zabezpieczeń przedsiębiorstwa (wersja zapoznawcza)](../domain-joined/apache-domain-joined-run-kafka.md)— aby uzyskać więcej informacji.
+Za pomocą [pakiet Enterprise Security (ESP)](../domain-joined/apache-domain-joined-architecture.md)można uzyskać zabezpieczenia na poziomie tematu dla swoich klastrów Kafka. Aby uzyskać więcej informacji, zobacz [Samouczek: Konfigurowanie zasad Apache Kafka w usłudze HDInsight z pakiet Enterprise Security (wersja zapoznawcza)](../domain-joined/apache-domain-joined-run-kafka.md).
 
-## <a name="is-my-data-encrypted-can-i-use-my-own-keys"></a>Czy moje dane są szyfrowane? Czy mogę używać własnych kluczy?
+## <a name="is-my-data-encrypted-can-i-use-my-own-keys"></a>Czy moje dane są szyfrowane? Czy mogę użyć własnych kluczy?
 
-Wszystkie komunikaty platformy Kafka na dyskach zarządzanych są szyfrowane za pomocą [szyfrowania usługi Azure Storage Service Encryption (SSE).](../../storage/common/storage-service-encryption.md) Dane w tranzycie (na przykład dane przesyłane od klientów do brokerów i na odwrót) nie są domyślnie szyfrowane. Możliwe jest szyfrowanie takiego ruchu poprzez [samodzielne konfigurowanie protokołu TLS.](./apache-kafka-ssl-encryption-authentication.md) Ponadto usługa HDInsight umożliwia zarządzanie własnymi kluczami w celu szyfrowania danych w spoczynku. Aby uzyskać więcej informacji, zobacz [Szyfrowanie dysku klucza zarządzanego](../disk-encryption.md)przez klienta.
+Wszystkie komunikaty Kafka na dyskach zarządzanych są szyfrowane za pomocą [usługi Azure szyfrowanie usługi Storage (SSE)](../../storage/common/storage-service-encryption.md). Dane przesyłane w trakcie przesyłania (na przykład dane wysyłane z klientów do brokerów i inne sposoby) nie są domyślnie szyfrowane. Istnieje możliwość zaszyfrowania takiego ruchu przez [skonfigurowanie własnego protokołu TLS](./apache-kafka-ssl-encryption-authentication.md). Ponadto Usługa HDInsight umożliwia zarządzanie własnymi kluczami w celu szyfrowania danych przechowywanych w stanie spoczynku. Aby uzyskać więcej informacji, zobacz [szyfrowanie dysków klucza zarządzanego przez klienta](../disk-encryption.md).
 
-## <a name="how-do-i-connect-clients-to-my-cluster"></a>Jak połączyć klientów z klastrem?
+## <a name="how-do-i-connect-clients-to-my-cluster"></a>Jak mogę połączyć klientów z moim klastrem?
 
-Aby klienci platformy Kafka mogli komunikować się z brokerami platformy Kafka, muszą oni mieć możliwość dotarcia do brokerów za pośrednictwem sieci. W przypadku klastrów HDInsight granica zabezpieczeń jest granicą sieci wirtualnej(VNet). W związku z tym najprostszym sposobem łączenia klientów z klastrem HDInsight jest utworzenie klientów w tej samej sieci wirtualnej co klaster. Inne scenariusze obejmują:
+Aby klienci Kafka mogli komunikować się z brokerami usługi Kafka, muszą być w stanie dotrzeć do brokerów za pośrednictwem sieci. W przypadku klastrów usługi HDInsight Virtual Network (VNet) jest granicą zabezpieczeń. W związku z tym Najprostszym sposobem łączenia klientów z klastrem usługi HDInsight jest utworzenie klientów w tej samej sieci wirtualnej co klaster. Inne scenariusze obejmują:
 
-* Łączenie klientów w innej sieci wirtualnej platformy Azure — równoważy sieć wirtualną klastra i sieć wirtualną klienta i konfiguruj klaster dla [reklam IP.](apache-kafka-connect-vpn-gateway.md#configure-kafka-for-ip-advertising) Podczas korzystania z reklam IP klienci platformy Kafka muszą używać adresów IP brokera do łączenia się z brokerami, a nie z w pełni kwalifikowanymi nazwami domen (FQDN).
+* Łączenie klientów w innej sieci wirtualnej platformy Azure — równorzędna Sieć wirtualna klastra i Sieć wirtualna klienta oraz konfiguracja klastra na potrzeby [anonsowania adresów IP](apache-kafka-connect-vpn-gateway.md#configure-kafka-for-ip-advertising). W przypadku korzystania z reklamy IP klienci Kafka muszą używać adresów IP brokera do łączenia się z brokerami, zamiast w pełni kwalifikowanych nazw domen (FQDN).
 
-* Łączenie klientów lokalnych — korzystanie z sieci VPN i konfigurowanie niestandardowych serwerów DNS zgodnie z opisem w [programie Plan sieci wirtualnej dla usługi Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md).
+* Łączenie klientów lokalnych — przy użyciu sieci VPN i Konfigurowanie niestandardowych serwerów DNS zgodnie z opisem w temacie [Planowanie sieci wirtualnej dla usługi Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md).
 
-* Tworzenie publicznego punktu końcowego dla usługi Platformy Kafka — jeśli wymagania dotyczące zabezpieczeń przedsiębiorstwa na to pozwalają, można wdrożyć publiczny punkt końcowy dla brokerów platformy Kafka lub samodzielnie zarządzany punkt końcowy REST typu open source z publicznym punktem końcowym.
+* Tworzenie publicznego punktu końcowego dla usługi Kafka — Jeśli jej wymagania dotyczące zabezpieczeń przedsiębiorstwa, można wdrożyć publiczny punkt końcowy dla brokerów usługi Kafka lub samozarządzanego punktu końcowego "open source" z publicznym punktem końcowym.
 
-## <a name="can-i-add-more-disk-space-on-an-existing-cluster"></a>Czy można dodać więcej miejsca na dysku w istniejącym klastrze?
+## <a name="can-i-add-more-disk-space-on-an-existing-cluster"></a>Czy mogę dodać więcej miejsca na dysku w istniejącym klastrze?
 
-Aby zwiększyć ilość miejsca dostępnego dla wiadomości platformy Kafka, można zwiększyć liczbę węzłów. Obecnie dodawanie większej liczby dysków do istniejącego klastra nie jest obsługiwane.
+Aby zwiększyć ilość miejsca dostępnego dla komunikatów Kafka, można zwiększyć liczbę węzłów. Obecnie Dodawanie większej liczby dysków do istniejącego klastra nie jest obsługiwane.
 
-## <a name="can-a-kafka-cluster-work-with-databricks"></a>Czy klaster platformy Kafka może współpracować z databricks? 
+## <a name="can-a-kafka-cluster-work-with-databricks"></a>Czy klaster Kafka współpracuje z datakostki? 
 
-Tak, klastry platformy Kafka mogą pracować z Databricks tak długo, jak są one w tej samej sieci wirtualnej. Aby użyć klastra platformy Kafka z databricks, należy utworzyć sieć wirtualną z klastrem platformy HDInsight Kafka w nim, a następnie określić, że sieć wirtualna podczas tworzenia obszaru roboczego Databricks i użyj iniekcji sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Wdrażanie usługi Azure Databricks w sieci wirtualnej platformy Azure (iniekcja sieci wirtualnej).](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject) Podczas tworzenia obszaru roboczego Databricks należy podać nazwy brokera bootstrap klastra platformy Kafka. Aby uzyskać informacje na temat pobierania nazw brokerów Platformy Kafka, zobacz [Pobierz informacje o hostu Apache Zookeeper i Broker](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started#getkafkainfo).
+Tak, klastry Kafka mogą współpracować z kostkami, tak długo, jak znajdują się w tej samej sieci wirtualnej. Aby użyć klastra Kafka z kostkami danych, należy utworzyć sieć wirtualną z klastrem usługi HDInsight Kafka w tym obszarze, a następnie określić tę sieć wirtualną podczas tworzenia obszaru roboczego datakostki i użyć iniekcji sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [wdrażanie Azure Databricks w Virtual Network platformy Azure (iniekcja sieci wirtualnej)](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Podczas tworzenia obszaru roboczego datakostki należy podać nazwy brokera Bootstrap klastra Kafka. Aby uzyskać informacje na temat pobierania nazw brokera Kafka, zobacz [pobieranie informacji o hoście Apache dozorcy i brokera](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started#getkafkainfo).
 
-## <a name="how-can-i-have-maximum-data-durability"></a>Jak uzyskać maksymalną trwałość danych?
+## <a name="how-can-i-have-maximum-data-durability"></a>Jak mogę mieć maksymalną trwałość danych?
 
-Trwałość danych pozwala osiągnąć najniższe ryzyko utraty wiadomości. Aby osiągnąć maksymalną trwałość danych, zalecamy następujące ustawienia:
+Trwałość danych umożliwia osiągnięcie najmniejszego ryzyka utraty komunikatów. Aby osiągnąć maksymalną trwałość danych, zalecamy użycie następujących ustawień:
 
-* minimalnego współczynnika replikacji 3 w większości regionów
-* użyj minimalnego współczynnika replikacji 4 w regionach z tylko dwiema domenami błędów
-* wyłączyć nieczyste wybory przywódców
-* ustaw **min.insync.replicas** na 2 lub więcej - zmienia to liczbę replik, które muszą być całkowicie zsynchronizowane z liderem, zanim zapis będzie mógł być kontynuowany
-* ustaw właściwość **acks** na **wszystkie** — ta właściwość wymaga, aby wszystkie repliki potwierdzało wszystkie wiadomości
+* Użycie minimalnego współczynnika replikacji wynoszącego 3 w większości regionów
+* Użyj minimalnego współczynnika replikacji wynoszącego 4 w regionach z tylko dwiema domenami błędów
+* Wyłącz wybory lidera nieoczyszczonego
+* Ustaw wartość **min. unsync. Replicas** na 2 lub więcej — spowoduje to zmianę liczby replik, które muszą być całkowicie zsynchronizowane z liderem, zanim będzie można kontynuować zapisywanie
+* Ustaw właściwość **ACK** na wartość **All** — ta właściwość wymaga, aby wszystkie repliki potwierdziły wszystkie komunikaty
 
-Konfigurowanie platformy Kafka dla większej spójności danych wpływa na dostępność brokerów do tworzenia żądań.
+Skonfigurowanie Kafka na potrzeby wyższego poziomu spójności danych ma wpływ na dostępność brokerów do tworzenia żądań.
 
 ## <a name="can-i-replicate-my-data-to-multiple-clusters"></a>Czy można replikować dane do wielu klastrów?
 
-Tak, dane mogą być replikowane do wielu klastrów przy użyciu programu Kafka MirrorMaker. Zobacz szczegóły dotyczące konfigurowania MirrorMaker można znaleźć w [Mirror Apache Tematy Kafka](apache-kafka-mirroring.md). Ponadto istnieją inne zarządzane przez siebie technologie open source i dostawcy, którzy mogą pomóc w osiągnięciu replikacji do wielu klastrów, takich jak [Brooklin.](https://github.com/linkedin/Brooklin/)
+Tak, dane mogą być replikowane do wielu klastrów przy użyciu Kafka narzędzia MirrorMaker. Szczegółowe informacje na temat konfigurowania narzędzia MirrorMaker można znaleźć w [tematach Apache Kafka duplikatów](apache-kafka-mirroring.md). Ponadto istnieją inne samozarządzane technologie typu open source i dostawcy, które mogą pomóc w osiągnięciu replikacji do wielu klastrów, takich jak [Brooklin](https://github.com/linkedin/Brooklin/).
 
-## <a name="can-i-upgrade-my-cluster-how-should-i-upgrade-my-cluster"></a>Czy mogę uaktualnić klaster? Jak uaktualnić klaster?
+## <a name="can-i-upgrade-my-cluster-how-should-i-upgrade-my-cluster"></a>Czy mogę uaktualnić klaster? Jak należy uaktualnić klaster?
 
-Obecnie nie obsługujemy uaktualnień wersji klastra w miejscu. Aby zaktualizować klaster do wyższej wersji platformy Kafka, utwórz nowy klaster z odpowiednią wersją i migruj klientów platformy Kafka, aby użyć nowego klastra.
+Obecnie nie obsługujemy uaktualnień wersji klastra miejscowego. Aby zaktualizować klaster do nowszej wersji Kafka, Utwórz nowy klaster z żądaną wersją i Przeprowadź migrację klientów Kafka do korzystania z nowego klastra.
 
-## <a name="how-do-i-monitor-my-kafka-cluster"></a>Jak monitorować klaster platformy Kafka?
+## <a name="how-do-i-monitor-my-kafka-cluster"></a>Jak mogę monitorować klaster Kafka?
 
-Użyj monitora platformy Azure do analizowania [dzienników platformy Kafka](./apache-kafka-log-analytics-operations-management.md).
+Użyj usługi Azure monitor, aby przeanalizować [dzienniki usługi Kafka](./apache-kafka-log-analytics-operations-management.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Konfigurowanie szyfrowania i uwierzytelniania protokołu TLS dla platformy Apache Kafka w usłudze Azure HDInsight](./apache-kafka-ssl-encryption-authentication.md)
+* [Konfigurowanie szyfrowania i uwierzytelniania TLS dla Apache Kafka w usłudze Azure HDInsight](./apache-kafka-ssl-encryption-authentication.md)
 * [Replikowanie tematów platformy Apache Kafka przy użyciu platformy Kafka w usłudze HDInsight za pomocą narzędzia MirrorMaker](./apache-kafka-mirroring.md)

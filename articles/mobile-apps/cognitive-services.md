@@ -1,6 +1,6 @@
 ---
-title: Używanie sztucznej inteligencji do rozwiązywania problemów biznesowych za pomocą usług Azure Cognitive Services
-description: Dowiedz się więcej o usłudze tworzenia inteligentnych aplikacji mobilnych opartych na sztucznej inteligencji.
+title: Używaj sztucznej analizy do rozwiązywania problemów z firmą Cognitive Services platformy Azure
+description: Dowiedz się więcej o usłudze do kompilowania inteligentnych aplikacji mobilnych opartych na sztucznej analizie.
 author: codemillmatt
 ms.assetid: 34a8a070-0123-4faf-8588-ccff02097224
 ms.service: vs-appcenter
@@ -8,55 +8,55 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
 ms.openlocfilehash: a3955379248c284066ec57d67e61654ac664bfa5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80240943"
 ---
-# <a name="cognitive-services-helps-to-solve-business-problems-by-using-ai"></a>Usługi Cognitive Services pomagają rozwiązywać problemy biznesowe za pomocą ai
-[Usługa Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) zapewnia zaawansowane usługi do natchnienia aplikacji za pomocą inteligentnych algorytmów, aby zobaczyć, usłyszeć, mówić, zrozumieć i interpretować potrzeby użytkownika, aby przekształcić swoją firmę za pomocą sztucznej inteligencji (AI). Możesz sprawić, by twoje aplikacje mobilne były inteligentne, angażujące i kontekstowe dla użytkowników. Deweloperzy mogą używać interfejsów API, zestawów SDK i usług, aby dodać ai do swojej oferty i pomóc w tworzeniu inteligentnych aplikacji bez posiadania bezpośredniej inteligencji lub umiejętności nauki o danych.
+# <a name="cognitive-services-helps-to-solve-business-problems-by-using-ai"></a>Cognitive Services pomaga rozwiązywać problemy biznesowe przy użyciu AI
+[Usługa Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) oferuje zaawansowane usługi umożliwiające Dodaj aplikacji przy użyciu inteligentnych algorytmów, aby zobaczyć, słyszeć, mówić, zrozumieć i interpretować, że użytkownik musi przekształcić swoją firmę przy użyciu sztucznej analizy (AI). Aplikacje mobilne można tworzyć w sposób inteligentny, atrakcyjny i kontekstowy dla użytkowników. Deweloperzy mogą korzystać z interfejsów API, zestawów SDK i usług, aby dodać AI do ich ofert i pomóc w tworzeniu inteligentnych aplikacji bez konieczności bezpośredniego korzystania z usługi AI lub nauki o danych.
 
-## <a name="cognitive-services-capabilities"></a>Możliwości usług kognitywnych
+## <a name="cognitive-services-capabilities"></a>Możliwości Cognitive Services
 - **Obraz**
-    - Tagowanie obrazów, miniatury
+    - Znakowanie obrazu, miniatury
     - OCR (rozpoznawanie pisma ręcznego)
     - Wykrywanie twarzy
-    - Wykrywanie emocji
-    - Wgląd w wideo
-    - Moderowanie obrazu i wideo
-    - Niestandardowe rozpoznawanie obrazów
+    - Wykrywanie rozpoznawania emocji
+    - Szczegółowe informacje wideo
+    - Moderowanie obrazów i wideo
+    - Rozpoznawanie obrazu niestandardowego
 
 - **Mowa**
-    - Mowa do tekstu (transkrypcja mowy)
-    - Dostosowana transkrypcja mowy (złożone słowa, hałaśliwe środowisko)
+    - Zamiana mowy na tekst (transkrypcja mowy)
+    - Dostosowany transkrypcja mowy (złożone słowa, środowisko z zakłóceniami)
     - Zamiana tekstu na mowę
-    - Identyfikator prelegenta i uwierzytelnianie
+    - Identyfikator i uwierzytelnianie osoby mówiącej
     - Tłumaczenie mowy w czasie rzeczywistym
 
 - **Język**
-    - Kontekstowe rozumienie języka, dostosowana analiza intencji
-    - Analiza tonacji, wykrywanie fraz kluczowych
+    - Interpretacja języka kontekstowego, dostosowana analiza założeń
+    - Analiza tonacji, wykrywanie fraz kluczy
     - Tłumaczenie tekstu do 60 języków
     - Moderowanie tekstu
     - Sprawdzanie pisowni
 
 - **Decyzja** 
-    - Moderator treści
-    - Spersonalizowane dostarczanie treści
+    - Moderator zawartości
+    - Spersonalizowane dostarczanie zawartości
     - Wykrywacz anomalii
 
 - **Wyszukaj**
-    - Sugestie wyszukiwania automatycznego 
-    - Rozszerzenie informacji o jednostce
-    - Kompleksowe wyszukiwanie wiadomości, obrazów, filmów, stron internetowych i lokalnych jednostek biznesowych
-    - Dostosowane i dostosowane do potrzeb wyszukiwanie
+    - Automatyczne sugestie dotyczące wyszukiwania 
+    - Rozszerzanie informacji o jednostce
+    - Kompleksowe wyszukiwanie w postaci obszernych wiadomości, obrazów, wideo, sieci Web i lokalnych jednostek gospodarczych
+    - Dostosowane i dostosowane środowiska wyszukiwania
 
-- Obsługa kontenerów dla usług Cognitive Services
+- Obsługa kontenerów dla Cognitive Services
 
  ## <a name="references"></a>Dokumentacja
-   - [Portal Azure](https://portal.azure.com) 
+   - [Azure Portal](https://portal.azure.com) 
    - [Dokumentacja usług Cognitive Services](/azure/cognitive-services/welcome)
-   - [Szybki start](/azure/cognitive-services/cognitive-services-apis-create-account)
+   - [Przewodniki Szybki start](/azure/cognitive-services/cognitive-services-apis-create-account)
    - [Obsługa kontenerów](/azure/cognitive-services/cognitive-services-container-support)
-   - [Szybki start](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows)
+   - [Przewodniki Szybki start](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows)

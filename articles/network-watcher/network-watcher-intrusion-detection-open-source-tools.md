@@ -1,7 +1,7 @@
 ---
-title: Wykrywanie włamań do sieci za pomocą narzędzi open source
+title: Wykonywanie wykrywania nieautoryzowanych sieci za pomocą narzędzi open source
 titleSuffix: Azure Network Watcher
-description: W tym artykule opisano, jak używać usługi Azure Network Watcher i narzędzi open source do wykrywania włamań do sieci
+description: W tym artykule opisano sposób korzystania z usługi Azure Network Watcher i narzędzi open source w celu wykrywania nieautoryzowanych sieci
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -14,33 +14,33 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 1bd823d94552d1e920b367b6576b0e3bb74aefb2
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80474931"
 ---
-# <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Wykrywanie włamań do sieci za pomocą obserwatora sieciowego i narzędzi open source
+# <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Wykrywanie intruzów w sieci za pomocą Network Watcher i narzędzi open source
 
-Przechwytywanie pakietów jest kluczowym składnikiem implementacji systemów wykrywania włamań do sieci (IDS) i wykonywania monitorowania zabezpieczeń sieciowych (NSM). Istnieje kilka narzędzi open source IDS, które przetwarzają przechwytywanie pakietów i szukają podpisów możliwych włamań do sieci i złośliwej aktywności. Korzystając z przechwytywania pakietów dostarczonych przez Obserwatora sieci, można analizować sieć pod kątem wszelkich szkodliwych włamań lub luk w zabezpieczeniach.
+Przechwytywanie pakietów to kluczowy składnik służący do implementowania systemów wykrywania dostępu do sieci (identyfikatorów) i wykonywania monitorowania zabezpieczeń sieci (NSM). Istnieje kilka narzędzi identyfikatorów Open Source, które przetwarzają przechwycenia pakietów i szukają podpisów możliwych intruzów sieci i złośliwych działań. Za pomocą przechwytywania pakietów dostarczonych przez Network Watcher można analizować sieć pod kątem wszelkich szkodliwych intruzów lub luk w zabezpieczeniach.
 
-Jednym z takich narzędzi open source jest Suricata, aparat IDS, który używa zestawów reguł do monitorowania ruchu sieciowego i wyzwala alerty, gdy wystąpią podejrzane zdarzenia. Suricata oferuje silnik wielowątkowy, co oznacza, że może przeprowadzać analizę ruchu sieciowego ze zwiększoną prędkością i wydajnością. Aby uzyskać więcej informacji na temat Suricata https://suricata-ids.org/i jej możliwości, odwiedź ich stronę internetową w .
+Jednym z takich narzędzi typu "open source" jest suricata, ponieważ aparat identyfikatorów używa zestawów reguł do monitorowania ruchu sieciowego i wyzwalania alertów po wystąpieniu podejrzanych zdarzeń. Suricata oferuje aparat wielowątkowy, co oznacza, że może przeprowadzać analizę ruchu sieciowego dzięki zwiększonej szybkości i wydajności. Aby uzyskać więcej informacji na temat Suricata i jego możliwości, odwiedź witrynę https://suricata-ids.org/sieci Web pod adresem.
 
 ## <a name="scenario"></a>Scenariusz
 
-W tym artykule wyjaśniono, jak skonfigurować środowisko do wykrywania włamań do sieci przy użyciu funkcji Kontrola sieci, Suricata i stos elastyczny. Network Watcher zapewnia przechwytywanie pakietów używane do wykrywania włamań do sieci. Suricata przetwarza przechwytywanie pakietów i wyzwala alerty na podstawie pakietów, które pasują do danego harmonogramu zagrożeń. Te alerty są przechowywane w pliku dziennika na komputerze lokalnym. Za pomocą elastycznego stosu dzienniki generowane przez Suricata mogą być indeksowane i używane do tworzenia pulpitu nawigacyjnego Kibana, zapewniając wizualną reprezentację dzienników i sposób szybkiego uzyskiwania wglądu w potencjalne luki w sieci.  
+W tym artykule wyjaśniono, jak skonfigurować środowisko do wykrywania wtargnięcia sieci przy użyciu Network Watcher, Suricata i elastycznego stosu. Network Watcher udostępnia przechwycenia pakietów służące do przeprowadzania wykrywania nieautoryzowanych sieci. Suricata przetwarza przechwycenia pakietu i wyzwala alerty w oparciu o pakiety zgodne z danym zestawem zagrożeń. Te alerty są przechowywane w pliku dziennika na komputerze lokalnym. Korzystając z elastycznego stosu, dzienniki wygenerowane przez Suricata mogą być indeksowane i używane do tworzenia pulpitu nawigacyjnego Kibana, zapewniając wizualizację wizualną dzienników i metodę szybkiego uzyskiwania wglądu w potencjalne luki w zabezpieczeniach sieci.  
 
 ![prosty scenariusz aplikacji sieci Web][1]
 
-Oba narzędzia open source można skonfigurować na maszynie Wirtualnej platformy Azure, co pozwala na wykonanie tej analizy w ramach własnego środowiska sieci platformy Azure.
+Oba narzędzia Open Source można skonfigurować na maszynie wirtualnej platformy Azure, co pozwala na przeprowadzanie tej analizy w ramach własnego środowiska sieciowego platformy Azure.
 
 ## <a name="steps"></a>Kroki
 
 ### <a name="install-suricata"></a>Zainstaluj Suricata
 
-W przypadku wszystkich innych metod instalacji należyhttps://suricata.readthedocs.io/en/suricata-5.0.2/quickstart.html#installation
+W przypadku wszystkich innych metod instalacji odwiedź witrynęhttps://suricata.readthedocs.io/en/suricata-5.0.2/quickstart.html#installation
 
-1. W terminalu wiersza polecenia maszyny Wirtualnej uruchom następujące polecenia:
+1. W terminalu wiersza polecenia maszyny wirtualnej Uruchom następujące polecenia:
 
     ```
     sudo add-apt-repository ppa:oisf/suricata-stable
@@ -48,13 +48,13 @@ W przypadku wszystkich innych metod instalacji należyhttps://suricata.readthedo
     sudo sudo apt-get install suricata
     ```
 
-1. Aby zweryfikować instalację, `suricata -h` uruchom polecenie, aby wyświetlić pełną listę poleceń.
+1. Aby sprawdzić poprawność instalacji, uruchom `suricata -h` polecenie, aby wyświetlić pełną listę poleceń.
 
-### <a name="download-the-emerging-threats-ruleset"></a>Pobierz nowy system reguł zagrożeń
+### <a name="download-the-emerging-threats-ruleset"></a>Pobierz zestaw reguł zagrożeń
 
-Na tym etapie nie mamy żadnych zasad, aby Suricata działała. Możesz utworzyć własne reguły, jeśli istnieją określone zagrożenia dla sieci, które chcesz wykryć, lub możesz również użyć opracowanych zestawów reguł od wielu dostawców, takich jak Nowe zagrożenia lub reguły VRT z Snort. Używamy swobodnie dostępnego systemu reguł Emerging Threats tutaj:
+Na tym etapie nie mamy żadnych reguł do uruchomienia Suricata. Możesz utworzyć własne reguły, jeśli istnieją określone zagrożenia dla sieci, które mają być wykrywane, lub można również użyć utworzonych zestawów reguł z wielu dostawców, takich jak nowe zagrożenia lub VRT reguły z snort. Korzystamy z dostępnego w tym miejscu zestawu nowych zagrożeń:
 
-Pobierz zestaw reguł i skopiuj je do katalogu:
+Pobierz zestaw reguł i skopiuj go do katalogu:
 
 ```
 wget https://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
@@ -62,27 +62,27 @@ tar zxf emerging.rules.tar.gz
 sudo cp -r rules /etc/suricata/
 ```
 
-### <a name="process-packet-captures-with-suricata"></a>Przechwytywanie pakietów procesowych za pomocą suricata
+### <a name="process-packet-captures-with-suricata"></a>Przetwarzaj przechwycenia pakietu za pomocą Suricata
 
-Aby przetworzyć przechwytywanie pakietów przy użyciu suricata, uruchom następujące polecenie:
+Aby przetworzyć przechwycone pakiety przy użyciu Suricata, uruchom następujące polecenie:
 
 ```
 sudo suricata -c /etc/suricata/suricata.yaml -r <location_of_pcapfile>
 ```
-Aby sprawdzić wynikowe alerty, przeczytaj plik fast.log:
+Aby sprawdzić wyniki alertów, zapoznaj się z plikiem Fast. log:
 ```
 tail -f /var/log/suricata/fast.log
 ```
 
-### <a name="set-up-the-elastic-stack"></a>Konfigurowanie stosu elastycznego
+### <a name="set-up-the-elastic-stack"></a>Konfigurowanie elastycznego stosu
 
-Dzienniki, które produkuje Suricata zawierają cenne informacje o tym, co dzieje się w naszej sieci, te pliki dziennika nie są najłatwiejsze do odczytania i zrozumienia. Łącząc Suricata z elastycznym stosem, możemy utworzyć pulpit nawigacyjny Kibana, który pozwala nam wyszukiwać, wykresować, analizować i czerpać wnioski z naszych dzienników.
+Chociaż dzienniki wytwarzane przez program Suricata zawierają cenne informacje o tym, co się dzieje w naszej sieci, te pliki dzienników nie są najłatwiej czytać i zrozumieć. Łącząc Suricata z elastycznym stosem, możemy utworzyć pulpit nawigacyjny Kibana, co umożliwia nam wyszukiwanie, Graph, analizowanie i uzyskiwanie szczegółowych informacji z naszych dzienników.
 
 #### <a name="install-elasticsearch"></a>Zainstaluj Elasticsearch
 
-1. Stos elastyczny z wersji 5.0 i nowszych wymaga java 8. Uruchom polecenie, `java -version` aby sprawdzić wersję. Jeśli nie masz zainstalowanej oprogramowania Java, zapoznaj się z dokumentacją dotyczącą [zestawów JDK z suppored platformy Azure.](https://aka.ms/azure-jdks)
+1. Stos elastyczny z wersji 5,0 i nowszej wymaga języka Java 8. Uruchom polecenie `java -version` , aby sprawdzić wersję. Jeśli nie masz zainstalowanego języka Java, zapoznaj się z dokumentacją na [platformie Azure-Suppored zestawy JDK](https://aka.ms/azure-jdks).
 
-1. Pobierz odpowiedni pakiet binarny dla swojego systemu:
+1. Pobierz poprawny pakiet binarny dla Twojego systemu:
 
     ```
     curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
@@ -90,15 +90,15 @@ Dzienniki, które produkuje Suricata zawierają cenne informacje o tym, co dziej
     sudo /etc/init.d/elasticsearch start
     ```
 
-    Inne metody instalacji można znaleźć na [Elasticsearch Installation](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html)
+    Inne metody instalacji można znaleźć w [instalacji Elasticsearch](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html)
 
-1. Sprawdź, czy Elasticsearch działa za pomocą polecenia:
+1. Sprawdź, czy Elasticsearch działa z poleceniem:
 
     ```
     curl http://127.0.0.1:9200
     ```
 
-    Powinna zostać wyświetlna odpowiedź podobna do tej:
+    Powinna zostać wyświetlona odpowiedź podobna do tej:
 
     ```
     {
@@ -115,23 +115,23 @@ Dzienniki, które produkuje Suricata zawierają cenne informacje o tym, co dziej
     }
     ```
 
-Dalsze instrukcje dotyczące instalacji wyszukiwania elastycznego można znaleźć na stronie [Instalacja](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html)
+Dalsze instrukcje dotyczące instalowania wyszukiwania elastycznego można znaleźć w [instalacji](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html) strony.
 
-### <a name="install-logstash"></a>Instalowanie programu Logstash
+### <a name="install-logstash"></a>Zainstaluj logstash
 
-1. Aby zainstalować program Logstash, uruchom następujące polecenia:
+1. Aby zainstalować logstash, uruchom następujące polecenia:
 
     ```
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. Następnie musimy skonfigurować Logstash do odczytu z danych wyjściowych pliku eve.json. Utwórz plik logstash.conf przy użyciu:
+1. Następnie musimy skonfigurować logstash do odczytu z danych wyjściowych pliku Wigilia. JSON. Utwórz plik logstash. conf przy użyciu:
 
     ```
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
-1. Dodaj do pliku następującą zawartość (upewnij się, że ścieżka do pliku eve.json jest poprawna):
+1. Dodaj następującą zawartość do pliku (Upewnij się, że ścieżka do pliku Wigilia. JSON jest poprawna):
 
     ```ruby
     input {
@@ -203,21 +203,21 @@ Dalsze instrukcje dotyczące instalacji wyszukiwania elastycznego można znaleź
     }
     ```
 
-1. Upewnij się, że nadaj odpowiednie uprawnienia do pliku eve.json, aby logstash mógł go pochłonąć.
+1. Upewnij się, że nadajesz odpowiednie uprawnienia do pliku Wigilia. JSON, aby logstash mógł pozyskiwać plik.
     
     ```
     sudo chmod 775 /var/log/suricata/eve.json
     ```
 
-1. Aby uruchomić logstash uruchom polecenie:
+1. Aby rozpocząć logstash, uruchom polecenie:
 
     ```
     sudo /etc/init.d/logstash start
     ```
 
-Dalsze instrukcje dotyczące instalacji firmy Logstash można znaleźć w [oficjalnej dokumentacji](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)
+Dalsze instrukcje dotyczące instalowania logstash można znaleźć w [oficjalnej dokumentacji](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html) .
 
-### <a name="install-kibana"></a>Instalowanie Kibana
+### <a name="install-kibana"></a>Zainstaluj Kibana
 
 1. Uruchom następujące polecenia, aby zainstalować Kibana:
 
@@ -226,65 +226,65 @@ Dalsze instrukcje dotyczące instalacji firmy Logstash można znaleźć w [oficj
     tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
 
     ```
-1. Aby uruchomić Kibana użyj poleceń:
+1. Aby uruchomić Kibana, Użyj poleceń:
 
     ```
     cd kibana-5.2.0-linux-x86_64/
     ./bin/kibana
     ```
 
-1. Aby wyświetlić interfejs internetowy Kibana, przejdź do`http://localhost:5601`
-1. W tym scenariuszu wzorzec indeksu używany dla dzienników Suricata jest "logstash-*"
+1. Aby wyświetlić interfejs sieci Web Kibana, przejdź do`http://localhost:5601`
+1. W tym scenariuszu wzorzec indeksu używany dla dzienników Suricata ma wartość "logstash-*"
 
-1. Jeśli chcesz zdalnie wyświetlić pulpit nawigacyjny Kibana, utwórz przychodzącą regułę nsg umożliwiającą dostęp do **portu 5601**.
+1. Jeśli chcesz zdalnie wyświetlić pulpit nawigacyjny Kibana, Utwórz regułę sieciowej grupy zabezpieczeń dla ruchu przychodzącego zezwalającą na dostęp do **portu 5601**.
 
 ### <a name="create-a-kibana-dashboard"></a>Tworzenie pulpitu nawigacyjnego Kibana
 
-W tym artykule udostępniliśmy przykładowy pulpit nawigacyjny, aby wyświetlić trendy i szczegóły w alertach.
+W tym artykule udostępniono przykładowy pulpit nawigacyjny do wyświetlania trendów i szczegółów w alertach.
 
-1. Pobierz plik pulpitu nawigacyjnego [tutaj,](https://aka.ms/networkwatchersuricatadashboard)plik wizualizacji [tutaj](https://aka.ms/networkwatchersuricatavisualization)i zapisany plik wyszukiwania [tutaj](https://aka.ms/networkwatchersuricatasavedsearch).
+1. Pobierz tutaj plik pulpitu [nawigacyjnego, plik](https://aka.ms/networkwatchersuricatadashboard)wizualizacji [tutaj](https://aka.ms/networkwatchersuricatavisualization)i zapisany plik wyszukiwania [tutaj](https://aka.ms/networkwatchersuricatasavedsearch).
 
-1. Na karcie **Zarządzanie** w kibanie przejdź do pozycji Zapisane obiekty i zaimportuj wszystkie trzy pliki. **Saved Objects** Następnie na karcie **Pulpit nawigacyjny** można otworzyć i załadować przykładowy pulpit nawigacyjny.
+1. Na karcie **Zarządzanie** w programie Kibana przejdź do pozycji **zapisane obiekty** i zaimportuj wszystkie trzy pliki. Następnie na karcie **pulpit nawigacyjny** możesz otworzyć i załadować przykładowy pulpit nawigacyjny.
 
-Możesz również tworzyć własne wizualizacje i pulpity nawigacyjne dostosowane do danych, które cię interesują. Przeczytaj więcej o tworzeniu wizualizacji Kibana z [oficjalnej dokumentacji](https://www.elastic.co/guide/en/kibana/current/visualize.html)Kibana .
+Możesz również tworzyć własne wizualizacje i pulpity nawigacyjne dostosowane do metryk własnych zainteresowań. Dowiedz się więcej na temat tworzenia wizualizacji Kibana z [oficjalnej dokumentacji](https://www.elastic.co/guide/en/kibana/current/visualize.html)programu Kibana.
 
-![deska rozdzielcza kibana][2]
+![Pulpit nawigacyjny Kibana][2]
 
-### <a name="visualize-ids-alert-logs"></a>Wizualizuj dzienniki alertów IDS
+### <a name="visualize-ids-alert-logs"></a>Wizualizuj identyfikatory dzienników alertów
 
 Przykładowy pulpit nawigacyjny zawiera kilka wizualizacji dzienników alertów Suricata:
 
-1. Alerty geoip – mapa pokazująca rozkład alertów według ich kraju/regionu pochodzenia na podstawie położenia geograficznego (określonej przez IP)
+1. Alerty według GeoIP — Mapa przedstawiająca dystrybucję alertów według kraju/regionu pochodzenia na podstawie lokalizacji geograficznej (określony przez adres IP)
 
-    ![geo ip][3]
+    ![geograficznie IP][3]
 
-1. Top 10 Alerty - podsumowanie 10 najczęściej wyzwalanych alertów i ich opis. Kliknięcie pojedynczego alertu filtruje pulpit nawigacyjny do informacji dotyczących tego określonego alertu.
+1. 10 najważniejszych alertów — podsumowanie 10 najczęściej wyzwalanych alertów i ich opis. Kliknięcie pojedynczego alertu powoduje odfiltrowanie pulpitu nawigacyjnego do informacji odnoszących się do tego konkretnego alertu.
 
-    ![zdjęcie 4][4]
+    ![obraz 4][4]
 
-1. Liczba alertów – łączna liczba alertów wyzwalanych przez zestawu reguł
+1. Liczba alertów — łączna liczba alertów wyzwalanych przez zestaw reguł
 
-    ![fot.][5]
+    ![obraz 5][5]
 
-1. Top 20 Źródłowych/docelowych adresów IP/portów — wykresy kołowe przedstawiające 20 pierwszych adresów IP i portów, na których zostały wyzwolone alerty. Można odfiltrować w dół na określonych ip/portów, aby zobaczyć, ile i jakiego rodzaju alerty są wyzwalane.
+1. 20 najpopularniejszych adresów IP/portów docelowych — wykresy kołowe przedstawiające 20 najważniejszych adresów IP i portów, na których zostały wyzwolone alerty. Możesz odfiltrować określone adresy IP/porty, aby sprawdzić, ile i jakiego rodzaju alerty są wyzwalane.
 
-    ![fot.][6]
+    ![obraz 6][6]
 
-1. Podsumowanie alertów — tabela podsumowująca szczegółowe informacje o poszczególnych alertach. Tę tabelę można dostosować, aby wyświetlić inne parametry zainteresowania dla każdego alertu.
+1. Podsumowanie alertu — tabela zawiera podsumowanie konkretnych szczegółów poszczególnych alertów. Możesz dostosować tę tabelę, aby wyświetlić inne parametry, które są istotne dla każdego alertu.
 
-    ![zdjęcie 7][7]
+    ![obraz 7][7]
 
-Więcej dokumentacji dotyczącej tworzenia niestandardowych wizualizacji i pulpitów nawigacyjnych można znaleźć w [oficjalnej dokumentacji firmy Kibana.](https://www.elastic.co/guide/en/kibana/current/introduction.html)
+Aby uzyskać więcej dokumentacji dotyczącej tworzenia niestandardowych wizualizacji i pulpitów nawigacyjnych, zobacz [oficjalną dokumentację Kibana](https://www.elastic.co/guide/en/kibana/current/introduction.html).
 
 ## <a name="conclusion"></a>Podsumowanie
 
-Łącząc przechwytywanie pakietów dostarczane przez Funkcję Obserwatora sieci i narzędzia IDS typu open source, takie jak Suricata, można przeprowadzać wykrywanie włamań do sieci w celu wykrycia szerokiego zakresu zagrożeń. Te pulpity nawigacyjne umożliwiają szybkie wykrywanie trendów i anomalii w sieci, a także przeglądanie danych w celu odnajdywanie głównych przyczyn alertów, takich jak złośliwi agenci użytkowników lub porty podatne na ataki. Dzięki tym wyodrębnionych danych można podejmować świadome decyzje dotyczące reagowania i ochrony sieci przed wszelkimi szkodliwymi próbami włamania oraz tworzyć reguły zapobiegające przyszłym włamaniom do sieci.
+Łącząc przechwycenia pakietów udostępniane przez Network Watcher i identyfikatory Open Source, takie jak Suricata, można przeprowadzić wykrywanie wtargnięcia w sieci dla szerokiego zakresu zagrożeń. Te pulpity nawigacyjne pozwalają szybko wyszukiwać trendy i anomalie w sieci, a także Dig dane w celu odnalezienia głównych przyczyn alertów, takich jak złośliwi agenci użytkowników lub zagrożone porty. Korzystając z tych wyodrębnionych danych, można podejmować świadome decyzje dotyczące sposobu reagowania i ochrony sieci przed wszelkimi szkodliwymi próbami włamania oraz utworzyć reguły zapobiegające przyszłym włamaniom do sieci.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak wyzwalać przechwytywanie pakietów na podstawie alertów, odwiedzając witrynę [Użyj przechwytywania pakietów, aby proaktywne monitorowanie sieci za pomocą usługi Azure Functions](network-watcher-alert-triggered-packet-capture.md)
+Dowiedz się, jak wyzwolić przechwytywanie pakietów na podstawie alertów, odwiedzając [użycie funkcji przechwytywania pakietów do aktywnego monitorowania sieci przy użyciu Azure Functions](network-watcher-alert-triggered-packet-capture.md)
 
-Dowiedz się, jak wizualizować dzienniki przepływu sieciowych sieci płciowych za pomocą usługi Power BI, odwiedzając [wizualizuj dzienniki przepływów sieciowych sieciowych za pomocą usługi Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Dowiedz się, jak wizualizować dzienniki przepływu sieciowej grupy zabezpieczeń za pomocą Power BI, odwiedzając [wizualizacje sieciowej grupy zabezpieczeń przepływy dzienników z Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
 
 

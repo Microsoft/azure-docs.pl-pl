@@ -17,38 +17,38 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/08/2019
 ms.openlocfilehash: 00de9c803ef796eda8da609a4009e0a8cfcb3664
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79455371"
 ---
 # <a name="registration-management"></a>Zarządzanie rejestracją
 
-W tym temacie wyjaśniono, jak zarejestrować urządzenia w centrach powiadomień w celu otrzymywania powiadomień wypychanych. W temacie opisano rejestracje na wysokim poziomie, a następnie wprowadza dwa główne wzorce rejestracji urządzeń: rejestrowanie z urządzenia bezpośrednio do centrum powiadomień i rejestrowanie za pośrednictwem wewnętrznej bazy danych aplikacji.
+W tym temacie wyjaśniono, jak zarejestrować urządzenia w centrach powiadomień w celu otrzymywania powiadomień wypychanych. W temacie opisano rejestracje na wysokim poziomie, a następnie wprowadzono dwa główne wzorce rejestrowania urządzeń: rejestrowanie z urządzenia bezpośrednio do centrum powiadomień i rejestrowanie się w zapleczu aplikacji.
 
-## <a name="what-is-device-registration"></a>Co to jest rejestracja urządzenia
+## <a name="what-is-device-registration"></a>Co to jest rejestracja urządzeń
 
-Rejestracja urządzenia w Centrum powiadomień odbywa się za pomocą **rejestracji** lub **instalacji**.
+Rejestracja urządzenia w centrum powiadomień odbywa się przy użyciu **rejestracji** lub **instalacji**.
 
 ### <a name="registrations"></a>Rejestracje
 
-Rejestracja kojarzy dojście usługi powiadomień platformy (PNS) dla urządzenia z tagami i ewentualnie szablonem. Dojście PNS może być ChannelURI, token urządzenia lub identyfikator rejestracji FCM. Tagi są używane do kierowania powiadomień do prawidłowego zestawu uchwytów urządzeń. Aby uzyskać więcej informacji, zobacz [Routing i Wyrażenia znaczników](notification-hubs-tags-segment-push-message.md). Szablony są używane do implementowania transformacji na rejestrację. Aby uzyskać więcej informacji, zobacz [Szablony](notification-hubs-templates-cross-platform-push-messages.md).
+Rejestracja kojarzy obsługę usługi powiadomień platformy (PNS) dla urządzenia ze znacznikami i prawdopodobnie szablonem. Dojściem PNS może być identyfikator channeluri, token urządzenia lub Identyfikator rejestracji FCM. Tagi służą do kierowania powiadomień do poprawnego zestawu dojścia do urządzeń. Aby uzyskać więcej informacji, zobacz [Routing i wyrażenia tagów](notification-hubs-tags-segment-push-message.md). Szablony służą do implementowania transformacji na rejestrację. Aby uzyskać więcej informacji, zobacz [Szablony](notification-hubs-templates-cross-platform-push-messages.md).
 
 > [!NOTE]
 > Usługa Azure Notification Hubs obsługuje maksymalnie 60 tagów na urządzenie.
 
 ### <a name="installations"></a>Instalacje
 
-Instalacja jest rozszerzona rejestracja, która zawiera worek właściwości związanych z wypychaniem. Jest to najnowsze i najlepsze podejście do rejestracji urządzeń. Jednak nie jest obsługiwany przez po stronie klienta .NET SDK[(Notification Hub SDK dla operacji wewnętrznej bazy danych)](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)jeszcze.  Oznacza to, że jeśli rejestrujesz się z samego urządzenia klienckiego, należy użyć [podejścia interfejsu API rest usługi notification hubs](/rest/api/notificationhubs/create-overwrite-installation) do obsługi instalacji. Jeśli używasz usługi wewnętrznej bazy danych, powinieneś być w stanie używać [SDK Centrum powiadomień do operacji wewnętrznej bazy danych](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+Instalacja to ulepszona Rejestracja obejmująca zbiór właściwości związanych z wypychaniem. Jest to najnowsze i najlepsze podejście do rejestracji urządzeń. Nie jest to jednak obsługiwane przez program .NET SDK po stronie klienta ([SDK Centrum powiadomień dla operacji zaplecza](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)).  Oznacza to, że jeśli rejestrujesz się z urządzenia klienckiego, należy użyć podejścia [interfejsu API REST Notification Hubs](/rest/api/notificationhubs/create-overwrite-installation) do obsługi instalacji. Jeśli używasz usługi wewnętrznej bazy danych, powinno być możliwe użycie [zestawu SDK Centrum powiadomień dla operacji zaplecza](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-Oto kilka kluczowych zalet korzystania z instalacji:
+Poniżej przedstawiono kilka najważniejszych zalet używania instalacji:
 
-- Tworzenie lub aktualizowanie instalacji jest w pełni idempotentne. Możesz więc ponowić próbę bez żadnych obaw dotyczących zduplikowanych rejestracji.
-- Model instalacyjny obsługuje`$InstallationId:{INSTALLATION_ID}`specjalny format znacznika ( ), który umożliwia wysyłanie powiadomień bezpośrednio do określonego urządzenia. Jeśli na przykład kod aplikacji ustawi identyfikator `joe93developer` instalacji dla tego konkretnego urządzenia, deweloper może kierować reklamy na to urządzenie podczas wysyłania powiadomienia do tagu. `$InstallationId:{joe93developer}` Dzięki temu można kierować na określone urządzenie bez konieczności wykonywania dodatkowych kodowania.
-- Korzystanie z instalacji umożliwia również wykonywanie aktualizacji rejestracji częściowej. Częściowa aktualizacja instalacji jest wymagana za pomocą metody PATCH przy użyciu [standardu JSON-Patch](https://tools.ietf.org/html/rfc6902). Jest to przydatne, gdy chcesz zaktualizować tagi w rejestracji. Nie musisz ściągnąć całej rejestracji, a następnie ponownie wysłać wszystkie poprzednie tagi.
+- Tworzenie lub aktualizowanie instalacji jest w pełni idempotentne. Dzięki temu można ponowić próbę bez obaw o zduplikowane rejestracje.
+- Model instalacji obsługuje specjalny format znacznika (`$InstallationId:{INSTALLATION_ID}`), który umożliwia wysyłanie powiadomień bezpośrednio do określonego urządzenia. Na przykład jeśli kod aplikacji ustawia identyfikator instalacji `joe93developer` dla tego konkretnego urządzenia, deweloper może kierować to urządzenie do tego urządzenia podczas wysyłania powiadomienia do `$InstallationId:{joe93developer}` znacznika. Pozwala to na określenie konkretnego urządzenia, bez konieczności wykonywania dodatkowych czynności programistycznych.
+- Korzystanie z instalacji umożliwia również przeprowadzanie aktualizacji rejestracji częściowej. Częściowa aktualizacja instalacji jest wymagana z metodą PATCH przy użyciu [standardu JSON-patch](https://tools.ietf.org/html/rfc6902). Jest to przydatne, gdy chcesz zaktualizować Tagi rejestracji. Nie trzeba ściągać całej rejestracji, a następnie ponownie wysłać wszystkich powyższych tagów.
 
-Instalacja może zawierać następujące właściwości. Aby uzyskać pełną listę właściwości instalacji, zobacz [Tworzenie lub zastępowanie instalacji za pomocą interfejsu API REST](/rest/api/notificationhubs/create-overwrite-installation) lub właściwości [instalacji](/dotnet/api/microsoft.azure.notificationhubs.installation).
+Instalacja może zawierać następujące właściwości. Aby zapoznać się z pełną listą właściwości instalacji, zobacz [Tworzenie lub zastępowanie instalacji przy użyciu interfejsu API REST](/rest/api/notificationhubs/create-overwrite-installation) lub [właściwości instalacji](/dotnet/api/microsoft.azure.notificationhubs.installation).
 
 ```json
 // Example installation format to show some supported properties
@@ -89,43 +89,43 @@ Instalacja może zawierać następujące właściwości. Aby uzyskać pełną li
 > [!NOTE]
 > Domyślnie rejestracje i instalacje nie wygasają.
 
-Rejestracje i instalacje muszą zawierać prawidłowy uchwyt pns dla każdego urządzenia/kanału. Ponieważ uchwyty usługi PNS można uzyskać tylko w aplikacji klienckiej na urządzeniu, jeden wzorzec jest zarejestrować się bezpośrednio na tym urządzeniu za pomocą aplikacji klienckiej. Z drugiej strony zagadnienia dotyczące zabezpieczeń i logiki biznesowej związane z tagami mogą wymagać zarządzania rejestracją urządzenia w zapleczu aplikacji.
+Rejestracje i instalacje muszą zawierać prawidłowy uchwyt PNS dla każdego urządzenia/kanału. Ponieważ dojścia PNS można uzyskać tylko w aplikacji klienckiej na urządzeniu, jeden wzorzec jest rejestrowany bezpośrednio na tym urządzeniu przy użyciu aplikacji klienckiej. Z drugiej strony zagadnienia dotyczące zabezpieczeń i logika biznesowa związane ze znacznikami mogą wymagać zarządzania rejestracją urządzeń w zapleczu aplikacji.
 
 > [!NOTE]
-> Interfejs API instalacji nie obsługuje usługi Baidu (chociaż nie ma interfejsu API rejestracji). 
+> Interfejs API instalacji nie obsługuje usługi Baidu (mimo że interfejs API rejestracji działa). 
 
 ### <a name="templates"></a>Szablony
 
-Jeśli chcesz użyć [szablonów, instalacja](notification-hubs-templates-cross-platform-push-messages.md)urządzenia zawiera również wszystkie szablony skojarzone z tym urządzeniem w formacie JSON (patrz przykład powyżej). Nazwy szablonów pomagają kierować różne szablony dla tego samego urządzenia.
+Jeśli chcesz używać [szablonów](notification-hubs-templates-cross-platform-push-messages.md), instalacja urządzenia również zawiera wszystkie szablony skojarzone z danym urządzeniem w formacie JSON (Zobacz przykład powyżej). Nazwy szablonów ułatwiają Określanie różnych szablonów dla tego samego urządzenia.
 
-Każda nazwa szablonu jest mapowana na treść szablonu i opcjonalny zestaw znaczników. Ponadto każda platforma może mieć dodatkowe właściwości szablonu. W przypadku Sklepu Windows (przy użyciu WNS) i Windows Phone 8 (przy użyciu mpns) dodatkowy zestaw nagłówków może być częścią szablonu. W przypadku sieci APN można ustawić właściwość wygaśnięcia na stałą lub wyrażenie szablonu. Aby uzyskać pełną listę właściwości instalacji, zobacz [Tworzenie lub zastępowanie instalacji za pomocą tematu REST.](/rest/api/notificationhubs/create-overwrite-installation)
+Każda nazwa szablonu mapuje do treści szablonu i opcjonalnego zestawu tagów. Ponadto każda platforma może mieć dodatkowe właściwości szablonu. W przypadku sklepu Windows (przy użyciu WNS) i Windows Phone 8 (przy użyciu usługi MPNS) dodatkowy zestaw nagłówków może być częścią szablonu. W przypadku usługi APNs można ustawić właściwość wygaśnięcia na stałą lub wyrażenie szablonu. Aby zapoznać się z pełną listą właściwości instalacji, zobacz temat [Tworzenie lub zastępowanie instalacji przy użyciu REST](/rest/api/notificationhubs/create-overwrite-installation) .
 
-### <a name="secondary-tiles-for-windows-store-apps"></a>Kafelki pomocnicze dla aplikacji ze Sklepu Windows
+### <a name="secondary-tiles-for-windows-store-apps"></a>Pomocnicze kafelki dla aplikacji ze sklepu Windows
 
-W przypadku aplikacji klienckich ze Sklepu Windows wysyłanie powiadomień do kafelków pomocniczych jest takie samo jak wysyłanie ich do podstawowego. Jest to również obsługiwane w instalacjach. Kafelki pomocnicze mają inny ChannelUri, który SDK w aplikacji klienckiej obsługuje w sposób przezroczysty.
+W przypadku aplikacji klienckich do sklepu Windows wysyłanie powiadomień do kafelków pomocniczych jest takie samo, jak wysyłanie ich do podstawowego. Jest to również obsługiwane w instalacjach. Pomocnicze kafelki mają różne identyfikator channeluri, które zestaw SDK w aplikacji klienckiej obsługuje w sposób niewidoczny.
 
-Słownik SecondaryTiles używa tego samego identyfikatora kafeide, który jest używany do tworzenia obiektu SecondaryTiles w aplikacji ze Sklepu Windows. Podobnie jak w przypadku podstawowego ChannelUri, ChannelUris płytek pomocniczych można zmienić w dowolnym momencie. Aby instalacje w centrum powiadomień były aktualizowane, urządzenie musi odświeżyć je przy obliczu bieżących rozmiarów kafelków pomocniczych.
+Słownik SecondaryTiles używa tego samego TileId, który jest używany do tworzenia obiektu SecondaryTiles w aplikacji ze sklepu Windows. Podobnie jak w przypadku podstawowego identyfikator channeluri, ChannelUris kafelków pomocniczych mogą ulec zmianie w dowolnym momencie. Aby można było zaktualizować instalacje w centrum powiadomień, urządzenie musi je odświeżyć przy użyciu bieżącego ChannelUris kafelków pomocniczych.
 
 ## <a name="registration-management-from-the-device"></a>Zarządzanie rejestracją z urządzenia
 
-Podczas zarządzania rejestracją urządzenia z aplikacji klienckich wewnętrznej bazy danych jest odpowiedzialny tylko za wysyłanie powiadomień. Aplikacje klienckie aktualizują obsługę usług PNS i rejestrują tagi. Poniższy rysunek ilustruje ten wzór.
+Podczas zarządzania rejestracją urządzenia z poziomu aplikacji klienckich zaplecze jest odpowiedzialna tylko za wysyłanie powiadomień. Aplikacje klienckie przechowują PNSą Aktualności i rejestrują Tagi. Poniższy rysunek ilustruje ten wzorzec.
 
 ![Rejestracja z urządzenia](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
 
-Urządzenie najpierw pobiera dojście PNS z usługi PNS, a następnie rejestruje się bezpośrednio w centrum powiadomień. Po pomyślnym zakończeniu rejestracji zaplecze aplikacji może wysłać powiadomienie dotyczące tej rejestracji. Aby uzyskać więcej informacji na temat wysyłania powiadomień, zobacz [Routing i Wyrażenia znaczników](notification-hubs-tags-segment-push-message.md).
+Urządzenie najpierw pobiera dojście PNS z PNS, a następnie rejestruje je bezpośrednio w centrum powiadomień. Po pomyślnym zarejestrowaniu zaplecze aplikacji może wysłać powiadomienie dotyczące tej rejestracji. Aby uzyskać więcej informacji o sposobach wysyłania powiadomień, zobacz [Routing i wyrażenia tagów](notification-hubs-tags-segment-push-message.md).
 
-W takim przypadku używasz tylko prawa nasłuchiwać, aby uzyskać dostęp do centrów powiadomień z urządzenia. Aby uzyskać więcej informacji, zobacz [Bezpieczeństwo](notification-hubs-push-notification-security.md).
+W takim przypadku użytkownik może uzyskać dostęp do centrów powiadomień z urządzenia tylko przy użyciu praw nasłuchiwania. Aby uzyskać więcej informacji, zobacz [zabezpieczenia](notification-hubs-push-notification-security.md).
 
-Rejestracja z urządzenia jest najprostszą metodą, ale ma pewne wady:
+Rejestrowanie z urządzenia jest najprostszą metodą, ale ma pewne wady:
 
-- Aplikacja kliencka może aktualizować swoje tagi tylko wtedy, gdy aplikacja jest aktywna. Na przykład, jeśli użytkownik ma dwa urządzenia, które rejestrują tagi związane z drużynami sportowymi, gdy pierwsze urządzenie zarejestruje się na dodatkowy tag (na przykład Seahawks), drugie urządzenie nie otrzyma powiadomień o Seahawks, dopóki aplikacja na drugim urządzeniu nie zostanie wykonano po raz drugi. Ogólnie rzecz biorąc, gdy na tagi ma wpływ wiele urządzeń, zarządzanie tagami z wewnętrznej bazy danych jest pożądaną opcją.
-- Ponieważ aplikacje mogą być hacked, zabezpieczenie rejestracji do określonych tagów wymaga dodatkowej opieki, jak wyjaśniono w artykule [Bezpieczeństwo](notification-hubs-push-notification-security.md).
+- Aplikacja kliencka może aktualizować swoje Tagi tylko wtedy, gdy aplikacja jest aktywna. Na przykład jeśli użytkownik ma dwa urządzenia, które rejestrują Tagi związane z zespołami sportowymi, gdy pierwsze urządzenie rejestruje dla dodatkowego tagu (na przykład Seahawks), drugie urządzenie nie otrzyma powiadomień dotyczących Seahawks do momentu wykonania aplikacji na drugim urządzeniu. Bardziej ogólnie rzecz biorąc, gdy w przypadku tagów ma wpływ wiele urządzeń, zarządzanie tagami z zaplecza jest pożądaną opcją.
+- Ponieważ aplikacje mogą być zaatakowana, zabezpieczenie rejestracji w określonych tagach wymaga dodatkowej opieki, jak wyjaśniono w artykule [zabezpieczenia](notification-hubs-push-notification-security.md)artykułu.
 
-### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>Przykładowy kod do zarejestrowania się w centrum powiadomień z urządzenia przy użyciu instalacji
+### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>Przykładowy kod do zarejestrowania z centrum powiadomień na urządzeniu przy użyciu instalacji
 
-Obecnie jest to obsługiwane tylko przy użyciu [interfejsu API REST centrum powiadomień.](/rest/api/notificationhubs/create-overwrite-installation)
+W tej chwili jest to obsługiwane tylko przy użyciu [interfejsu API REST Notification Hubs](/rest/api/notificationhubs/create-overwrite-installation).
 
-Można również użyć metody PATCH przy użyciu [standardu JSON-Patch](https://tools.ietf.org/html/rfc6902) do aktualizacji instalacji.
+Można również użyć metody PATCH przy użyciu [standardu JSON-patch](https://tools.ietf.org/html/rfc6902) do aktualizacji instalacji.
 
 ```csharp
 class DeviceInstallation
@@ -204,9 +204,9 @@ else
 }
 ```
 
-### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration"></a>Przykładowy kod do zarejestrowania się w centrum powiadomień z urządzenia przy użyciu rejestracji
+### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration"></a>Przykładowy kod do zarejestrowania się w centrum powiadomień na urządzeniu przy użyciu rejestracji
 
-Te metody utworzyć lub zaktualizować rejestrację dla urządzenia, na którym są wywoływane. Oznacza to, że aby zaktualizować dojście lub znaczniki, należy zastąpić całą rejestrację. Pamiętaj, że rejestracje są przejściowe, więc zawsze powinieneś mieć niezawodny magazyn z bieżącymi tagami, których potrzebuje określone urządzenie.
+Te metody tworzą lub aktualizują rejestrację dla urządzenia, na którym są wywoływane. Oznacza to, że w celu zaktualizowania dojścia lub tagów należy zastąpić całą rejestrację. Należy pamiętać, że rejestracje są przejściowe, więc zawsze powinien istnieć niezawodny magazyn z bieżącymi tagami, które są określone dla konkretnego urządzenia.
 
 ```csharp
 // Initialize the Notification Hub
@@ -261,17 +261,17 @@ catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
 
 ## <a name="registration-management-from-a-backend"></a>Zarządzanie rejestracją z zaplecza
 
-Zarządzanie rejestracjami z wewnętrznej bazy danych wymaga zapisania dodatkowego kodu. Aplikacja z urządzenia musi dostarczyć zaktualizowany dojście usługi PNS do wewnętrznej bazy danych przy każdym uruchomieniu aplikacji (wraz z tagami i szablonami), a wewnętrznej bazy danych musi zaktualizować ten uchwyt w centrum powiadomień. Poniższy obraz ilustruje ten projekt.
+Zarządzanie rejestracjami z zaplecza wymaga napisania dodatkowego kodu. Aplikacja z urządzenia musi udostępnić zaktualizowane dojście PNS do zaplecza za każdym razem, gdy aplikacja zostanie uruchomiona (wraz ze znacznikami i szablonami), a zaplecze musi zaktualizować ten uchwyt w centrum powiadomień. Na poniższej ilustracji przedstawiono ten projekt.
 
 ![Zarządzanie rejestracją](./media/notification-hubs-registration-management/notification-hubs-registering-on-backend.png)
 
-Zalety zarządzania rejestracjami z wewnętrznej bazy danych obejmują możliwość modyfikowania tagów do rejestracji, nawet wtedy, gdy odpowiednia aplikacja na urządzeniu jest nieaktywna, oraz do uwierzytelniania aplikacji klienckiej przed dodaniem tagu do jej rejestracji.
+Zalety zarządzania rejestracjami z zaplecza obejmują możliwość modyfikowania tagów do rejestracji nawet wtedy, gdy odpowiednia aplikacja na urządzeniu jest nieaktywna i aby można było uwierzytelnić aplikację kliencką przed dodaniem znacznika do jego rejestracji.
 
-### <a name="example-code-to-register-with-a-notification-hub-from-a-backend-using-an-installation"></a>Przykładowy kod do zarejestrowania się w centrum powiadomień z wewnętrznej bazy danych przy użyciu instalacji
+### <a name="example-code-to-register-with-a-notification-hub-from-a-backend-using-an-installation"></a>Przykładowy kod do zarejestrowania się w centrum powiadomień z zaplecza przy użyciu instalacji
 
-Urządzenie klienckie nadal pobiera jego dojście PNS i odpowiednie właściwości instalacji, jak poprzednio i wywołuje niestandardowy interfejs API na wewnętrznej wejście, które można wykonać rejestracji i autoryzowania tagów itp. Wewnętrznej bazy danych można wykorzystać [SDK Centrum powiadomień dla operacji wewnętrznej bazy danych](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+Urządzenie klienckie nadal pobiera uchwyt PNS oraz odpowiednie właściwości instalacji tak jak wcześniej i wywołuje niestandardowy interfejs API w zapleczu, który może przeprowadzić rejestrację i autoryzować Tagi itd. Zaplecze może korzystać z [zestawu SDK Centrum powiadomień dla operacji zaplecza](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-Można również użyć metody PATCH przy użyciu [standardu JSON-Patch](https://tools.ietf.org/html/rfc6902) do aktualizacji instalacji.
+Można również użyć metody PATCH przy użyciu [standardu JSON-patch](https://tools.ietf.org/html/rfc6902) do aktualizacji instalacji.
 
 ```csharp
 // Initialize the Notification Hub
@@ -315,9 +315,9 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
 }
 ```
 
-### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Przykładowy kod do zarejestrowania się w centrum powiadomień z urządzenia przy użyciu identyfikatora rejestracji
+### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Przykładowy kod do zarejestrowania z centrum powiadomień na urządzeniu przy użyciu identyfikatora rejestracji
 
-Z wewnętrznej bazy danych aplikacji można wykonywać podstawowe operacje CRUDS na rejestracjach. Przykład:
+Z zaplecza aplikacji można wykonywać podstawowe operacje CRUDS na rejestracjach. Przykład:
 
 ```csharp
 var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
@@ -341,4 +341,4 @@ await hub.UpdateRegistrationAsync(r);
 await hub.DeleteRegistrationAsync(r);
 ```
 
-Wewnętrznej bazy danych musi obsługiwać współbieżności między aktualizacjami rejestracji. Usługa Service Bus oferuje optymistyczną kontrolę współbieżności do zarządzania rejestracją. Na poziomie HTTP jest to realizowane przy użyciu ETag w operacjach zarządzania rejestracją. Ta funkcja jest w sposób przezroczysty używana przez pakiety MICROSOFT SDK, które zgłaszają wyjątek, jeśli aktualizacja zostanie odrzucona ze względu na współbieżność. Wewnętrznej bazy danych aplikacji jest odpowiedzialny za obsługę tych wyjątków i ponowić próbę aktualizacji, jeśli to konieczne.
+Zaplecze musi obsługiwać współbieżność między aktualizacjami rejestracji. Service Bus oferuje optymistyczną kontrolę współbieżności dla zarządzania rejestracją. Na poziomie protokołu HTTP jest to implementowane przy użyciu elementu ETag w operacjach zarządzania rejestracją. Ta funkcja jest w niewidoczny sposób używana przez zestawy SDK firmy Microsoft, które zgłasza wyjątek, jeśli aktualizacja zostanie odrzucona ze względów współbieżności. Zaplecze aplikacji jest odpowiedzialny za obsługę tych wyjątków i ponawianie próby aktualizacji, jeśli jest to konieczne.

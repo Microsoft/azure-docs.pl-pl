@@ -1,6 +1,6 @@
 ---
-title: Hostuj kod źródłowy aplikacji mobilnej w chmurze za pomocą gitHub i usługi Azure DevOps
-description: Dowiedz się więcej o usługach hostowanych kodu aplikacji mobilnej w chmurze za pomocą usług firmy Microsoft.
+title: Hostowanie kodu źródłowego aplikacji mobilnej w chmurze za pomocą usług GitHub i Azure DevOps
+description: Dowiedz się więcej o usługach do hostowania kodu aplikacji mobilnej w chmurze za pomocą usług firmy Microsoft.
 author: codemillmatt
 ms.assetid: 12a8a079-9b3c-4faf-2222-ccff02097224
 ms.service: vs-appcenter
@@ -8,72 +8,72 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
 ms.openlocfilehash: 66d8980ab53010af0703d789fbe791c60a32052d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80240958"
 ---
-# <a name="cloud-hosted-source-code-management-services"></a>Usługi zarządzania kodami źródłowymi hostowanymi w chmurze
-Jeśli masz zespoły programistyczne z wieloma członkami zespołu, którzy pracują na tej samej podstawie kodu, musisz znaleźć odpowiednie miejsce do hosta kodu. Przechowywanie danych w chmurze i posiadanie scentralizowanego repozytorium umożliwia wszystkim przekazywanie, edytowanie i zarządzanie plikami kodu. Mogą również wchodzić w interakcje z innymi deweloperami w projektach. Kod może być łatwo dostępny bez względu na to, gdzie jesteś, o ile masz połączenie z Internetem.
+# <a name="cloud-hosted-source-code-management-services"></a>Usługi zarządzania kodem źródłowym hostowane w chmurze
+Jeśli masz zespoły deweloperów mające wielu członków zespołu, którzy pracują nad tą samą bazą kodu, musisz znaleźć odpowiednie miejsce do hostowania kodu. Przechowywanie danych w chmurze i posiadanie scentralizowanego repozytorium umożliwia wszystkim użytkownikom przekazywanie i edytowanie plików kodu oraz zarządzanie nimi. Mogą również współistnieć z innymi deweloperami w projektach. Kod może być łatwo dostępny niezależnie od tego, czy masz połączenie z Internetem.
 
-Hosting w chmurze jest znacznie łatwiejszy niż opcje lokalne. Wymaga mniej konfiguracji sprzętu i umożliwia organizacjom ukończenie procesu implementacji w bardziej elastyczny sposób.
+Hosting w chmurze jest znacznie łatwiejszy niż w przypadku opcji lokalnych. Wymaga to mniejszej konfiguracji sprzętowej i umożliwia organizacjom ukończenie procesu implementacji w bardziej Agile sposób.
 
 ## <a name="benefits-of-hosting-source-code-in-the-cloud"></a>Zalety hostingu kodu źródłowego w chmurze
-- **Scentralizowane przechowywanie w chmurze:** Wyświetlaj dane i zarządzaj nimi z dowolnego miejsca.
-- **Lepsza współpraca i czystszy kod:** Śledź kod w zespołach i zarządzaj projektami, aby zapewnić ciągłą dostawę doskonałego oprogramowania.
-- **Łatwiej się zaangażować:** Łatwo wnosić wkład w swoje projekty.
-- **Szybszy cykl uwalniania:** Pracuj szybciej w swoich zespołach i łatwo wnosisz wkład w swoje projekty.
-- **Obniż koszty:** Nie martw się o utrzymanie własnego sprzętu, serwerów, VPN i tak dalej.
+- **Scentralizowany magazyn w chmurze:** Wyświetlaj dane z dowolnego miejsca i zarządzaj nimi.
+- **Lepsza współpraca i kod czyszczący:** Śledź kod w zespołach i Zarządzaj projektami w celu zapewnienia ciągłego dostarczania doskonałego oprogramowania.
+- **Łatwiejsze do pobrania:** Łatwe Współtworzenie projektów.
+- **Szybszy cykl wydania:** Pracuj szybciej w zespołach i łatwo twórz swoje projekty.
+- **Zmniejsz koszt:** Nie martw się o utrzymywanie własnego sprzętu, serwerów, sieci VPN i tak dalej.
 
-Skorzystaj z następujących usług do hosta danych aplikacji w chmurze.
+Użyj następujących usług, aby hostować dane aplikacji w chmurze.
 
 ## <a name="github"></a>GitHub
-[GitHub](https://github.com/) to usługa hostingowa repozytorium typu open source, która obsługuje projekty kodu źródłowego w różnych językach programowania. GitHub śledzi różne zmiany wprowadzone w każdej iteracji.
+[GitHub](https://github.com/) to usługa hostingu repozytorium typu "open source", która obsługuje projekty kodu źródłowego w różnych różnych językach programowania. GitHub śledzi różne zmiany wprowadzone w każdej iteracji.
 
 **Najważniejsze funkcje**
-- Użyj hostingu kodu, aby zachować cały kod w jednym miejscu. Repozytoria prywatne, publiczne i typu open source są wyposażone w narzędzia ułatwiające hostowanie, przechowywanie wersji i kodu wydania.
-- Przejrzyj kod i użyj wbudowanych narzędzi do przeglądania, aby przegląd kodu był istotną częścią procesu dowolnego zespołu:
-    - Chroń gałęzie, proponuj zmiany i żądaj opinii.
-    - Wykryć różnice, komentować w kontekście i uzyskać jasne opinie.
-- Koordynuj wcześnie, bądź wyrównany i rzuć więcej pracy dzięki narzędziom do zarządzania projektami w usłudze GitHub:
-    - Zobacz ogólny obraz projektu.
-    - Użyj tablic zadań, które znajdują się tuż obok kodu w usłudze GitHub.
-    - Przeciągnij karty, aby przypisać problemy lub wycofać żądania do członków zespołu.
+- Użyj hostingu kodu, aby zachować cały kod w jednym miejscu. Repozytoria prywatne, publiczne i open source są wyposażone w narzędzia ułatwiające hostowanie, wersję i wydanie kodu.
+- Przejrzyj kod i Użyj wbudowanych narzędzi do przeglądu, aby sprawdzić, czy kod jest istotną częścią procesu zespołu:
+    - Ochrona gałęzi, proponowanie zmian i przeglądanie żądań.
+    - Różnice w miejscu, komentarze w kontekście i uzyskaj jasne Opinie.
+- Koordynuj wczesne i niezrównane działania i Dowiedz się więcej dzięki narzędziom do zarządzania projektami w usłudze GitHub:
+    - Zapoznaj się z dużym obrazem projektu.
+    - Skorzystaj z tablic zadań, które znajdują się bezpośrednio obok kodu w usłudze GitHub.
+    - Przeciągnij karty, aby przypisać problemy lub żądania ściągnięcia do członków zespołu.
     - Ustaw punkty kontrolne, aby organizować i śledzić postęp.
-    - Napisz notatki, aby przechwycić pomysły, które mogą być przydatne, ale nie należą do określonego problemu lub żądania ściągnięcia.
-- Łatwo odkrywaj i wybieraj odpowiednie narzędzia do lepszej komunikacji i automatyzacji pracy, kupując aplikacje z [GitHub Marketplace.](https://github.com/marketplace)
-- Zarządzanie zespołami i rozwijanie ich za pomocą: 
-    - Role użytkowników ułatwiające organizowanie zespołów i uprawnienia dostępu.
-    - Narzędzia wątku dyskusji, aby utrzymać konwersacje na temat i zespół koncentruje.
-    - Wytyczne dla społeczności, aby szybko skonfigurować nowych członków zespołu z kontem.
-- Przeglądaj i gwiazdy popularnych projektów do naśladowania.
-- Sieci i uczyć się od innych w branży.
+    - Zapisuj uwagi dotyczące pomysłów do przechwytywania, które mogą być przydatne, ale nie należy do określonego problemu lub żądania ściągnięcia.
+- Łatwo Odkrywaj i wybieraj odpowiednie narzędzia, aby zapewnić lepszą komunikację i automatyzację pracy, kupując aplikacje z [witryny GitHub Marketplace](https://github.com/marketplace).
+- Zarządzanie zespołami i ich rozwój przy użyciu: 
+    - Role użytkowników ułatwiające organizowanie zespołów i uprawnień dostępu.
+    - Narzędzia wątku dyskusji umożliwiające zachowanie konwersacji w temacie i zespole.
+    - Wytyczne społeczności umożliwiające szybkie konfigurowanie nowych członków zespołu przy użyciu konta.
+- Przeglądaj i gwiazdy popularne projekty, aby je obserwować.
+- Sieci i Dowiedz się od innych osób w branży.
 
-**Odwołania**
+**Dokumentacja**
 - [GitHub](https://github.com/)
-- [Przewodniki gitHub](https://guides.github.com/)
+- [Przewodniki GitHub](https://guides.github.com/)
 - [Forum społeczności GitHub](https://github.community/)
-- [Rynek GitHub](https://github.com/marketplace)
+- [Portal GitHub Marketplace](https://github.com/marketplace)
 
 ## <a name="azure-devops"></a>Azure DevOps
-[Usługa Azure DevOps](https://azure.microsoft.com/services/devops/) obsługuje [usługi Azure Repos](https://azure.microsoft.com/services/devops/repos/) i [Team Foundation Version Control (TFVC)](https://docs.microsoft.com/azure/devops/repos/tfvc/index?view=azure-devops) jako opcje kontroli źródła. Ma nieograniczoną liczbę bezpłatnych prywatnych repozytoriów z przeglądami kodu współpracy, zaawansowanym zarządzaniem plikami, wyszukiwaniem kodu i zasadami oddziału, aby zapewnić wysokiej jakości kod. Repozytorium platformy Azure doskonale sprawdza się w przypadku małych projektów i dużych organizacji, które wymagają natywnej obsługi usługi Azure Active Directory i zaawansowanych zasad.
+[Usługa Azure DevOps](https://azure.microsoft.com/services/devops/) obsługuje [Azure Repos](https://azure.microsoft.com/services/devops/repos/) i [Kontrola wersji serwera Team Foundation (TFVC)](https://docs.microsoft.com/azure/devops/repos/tfvc/index?view=azure-devops) jako opcje kontroli źródła. Ma nieograniczone bezpłatne repozytoria prywatne z zespołowymi przeglądami kodu, zaawansowanym zarządzaniem plikami, wyszukiwaniem kodu i zasadami rozgałęzień w celu zapewnienia wysokiej jakości kodu. Azure Repos doskonale nadaje się dla małych projektów i dużych organizacji, które wymagają obsługi natywnych Azure Active Directory i zaawansowanych zasad.
     
 **Najważniejsze funkcje**
-- Użyj nieograniczonego repozytorium kodu źródłowego Git hostowanego w chmurze dla publicznych i prywatnych repo:
-    - Uzyskaj wsparcie dla dowolnego klienta Git.
-    - Użyj haków internetowych i integracji interfejsu API.
-- Rozpocznij następną kompilację od żądania ściągnięcia repozytorium:
-    - Współpracuj, aby utworzyć lepszy kod przy użyciu wątkowej dyskusji i ciągłej integracji dla każdej zmiany.
-    - Skonfiguruj ciągłą integrację/ciągłe dostarczanie (CI/CD), aby automatycznie wyzwalać kompilacje, testy i wdrożenia przy każdym zakończonym żądaniu ściągania. Można użyć usługi Azure Potoki lub narzędzia.
-    - Chroń jakość kodu za pomocą zasad gałęzi.
-- Obsługa scentralizowanej kontroli wersji za pomocą kontroli wersji programu Team Foundation, która zawiera przegląd kodu.
-- Połącz się z kodem przy użyciu xcode, Eclipse, IntelliJ, Android Studio, Visual Studio, Visual Studio Code i innych.
-- Użyj zaawansowanego wyszukiwania kodu semantycznego.
-- Korzystaj z funkcji gotowych do pracy w przedsiębiorstwie. Usługa Azure DevOps ma natywną integrację z usługą Azure Active Directory, co upraszcza proces zarządzania dostępem do repozytoriów kodu.
-- Zapewnij jakość kodu za pomocą zasad gałęzi, takich jak minimalna liczba przeglądów kodu, wymagania dotyczące udanych kompilacji i wymuszanie strategii scalania Git.
-- Połącz swoje ulubione środowisko programistyczne, aby uzyskać dostęp do repo i zarządzać pracą.
+- Używaj nieograniczonego, hostowanego w chmurze repozytorium kodu źródłowego git dla Twoich repozytoriów publicznych i prywatnych:
+    - Uzyskaj pomoc techniczną dla dowolnego klienta git.
+    - Użyj elementów webhook i integracji interfejsu API.
+- Rozpocznij od następnej kompilacji od żądania ściągnięcia repozytorium:
+    - Współpracuj nad tworzeniem lepszego kodu przy użyciu dyskusji wielowątkowej i ciągłej integracji dla każdej zmiany.
+    - Skonfiguruj ciągłą integrację/ciągłe dostarczanie (CI/CD), aby automatycznie wyzwalać kompilacje, testy i wdrożenia przy użyciu każdego zakończonego żądania ściągnięcia. Możesz użyć Azure Pipelines lub narzędzi.
+    - Ochrona jakości kodu za pomocą zasad gałęzi.
+- Obsługuj scentralizowany system kontroli wersji za pomocą Kontrola wersji serwera Team Foundation, który obejmuje przegląd kodu.
+- Nawiąż połączenie z kodem przy użyciu Xcode, zaćmienia, IntelliJ, Android Studio, Visual Studio, Visual Studio Code i innych.
+- Korzystaj z zaawansowanego wyszukiwania kodu semantycznego.
+- Uzyskaj korzyści z funkcji gotowych dla przedsiębiorstw. Usługa Azure DevOps ma natywną integrację z usługą Azure Active Directory, która upraszcza proces zarządzania dostępem do repozytoriów kodu.
+- Zapewnianie jakości kodu za pomocą zasad gałęzi, takich jak minimalna liczba przeglądów kodu, wymagania dotyczące udanych kompilacji oraz wymuszanie strategii scalania git.
+- Połącz swoje ulubione środowisko programistyczne, aby uzyskać dostęp do repozytoriów i zarządzać pracą.
 
-**Odwołania**
-- [Wprowadzenie do usługi Azure Repos](https://azure.microsoft.com/services/devops/repos/) 
-- [Dokumentacja usługi Azure Repos](/azure/devops/repos/?view=azure-devops)
+**Dokumentacja**
+- [Wprowadzenie do Azure Repos](https://azure.microsoft.com/services/devops/repos/) 
+- [Dokumentacja Azure Repos](/azure/devops/repos/?view=azure-devops)

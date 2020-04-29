@@ -1,8 +1,8 @@
 ---
-title: Wykrywanie ryzyka usługi Azure Active Directory | Dokumenty firmy Microsoft
-description: Ten artice daje szczegółowy przegląd tego, co wykrywanie ryzyka są.
+title: Azure Active Directory wykrywania ryzyka | Microsoft Docs
+description: Ten artice zawiera szczegółowy przegląd czynników ryzyka, które są wykrywalne.
 services: active-directory
-keywords: ochrona tożsamości usługi Azure Active Directory, bezpieczeństwo, ryzyko, poziom ryzyka, luka, zasady zabezpieczeń
+keywords: Azure Active Directory Identity Protection, bezpieczeństwo, ryzyko, poziom ryzyka, usterka, zasady zabezpieczeń
 author: MarkusVi
 manager: daveba
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
@@ -17,25 +17,25 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4caa248f6972609ecb6bf71dd521c68d78cebd70
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80383960"
 ---
-# <a name="azure-active-directory-risk-detections"></a>Wykrywanie ryzyka usługi Azure Active Directory
+# <a name="azure-active-directory-risk-detections"></a>Azure Active Directory wykrywania ryzyka
 
-Zdecydowana większość naruszeń zabezpieczeń ma miejsce, gdy osoby atakujące uzyskują dostęp do środowiska, kradnąc tożsamość użytkownika. Odnajdowanie naruszonych tożsamości nie jest łatwym zadaniem. Usługa Azure Active Directory używa adaptacyjnych algorytmów uczenia maszynowego i heurystyki do wykrywania podejrzanych akcji, które są związane z kontami użytkowników. Każda wykryta podejrzana akcja jest przechowywana w rekordzie zwanym **wykrywaniem ryzyka.**
+Większość naruszeń zabezpieczeń odbywa się, gdy osoby atakujące uzyskują dostęp do środowiska przez kradzież tożsamości użytkownika. Odnajdywanie zagrożonych tożsamości nie jest łatwe. Azure Active Directory używa adaptacyjnych algorytmów uczenia maszynowego i heurystyki do wykrywania podejrzanych działań, które są związane z kontami użytkowników. Każda wykryte podejrzane działania są przechowywane w rekordzie nazywanym **wykryciem ryzyka**.
 
-Istnieją dwa miejsca, w których można przejrzeć zgłoszone wykrywanie ryzyka:
+Istnieją dwa miejsca, w których można przejrzeć zgłoszone wykrywania zagrożeń:
 
- - **Raportowanie usługi Azure AD** — wykrywanie ryzyka jest częścią raportów zabezpieczeń usługi Azure AD. Aby uzyskać więcej informacji, zobacz [raport zabezpieczeń użytkowników zagrożonych](concept-user-at-risk.md) i [raport zabezpieczeń ryzykownych logów](concept-risky-sign-ins.md).
+ - **Raportowanie usługi Azure AD** — wykrywanie ryzyka są częścią raportów zabezpieczeń usługi Azure AD. Aby uzyskać więcej informacji, zapoznaj się z [raportem](concept-user-at-risk.md) o zabezpieczeniach dotyczące użytkowników i [ryzykownych](concept-risky-sign-ins.md)logowań.
 
- - **Usługa Azure AD Identity Protection** — wykrywanie ryzyka jest również częścią możliwości raportowania usługi Azure Active [Directory Identity Protection](../active-directory-identityprotection.md).
+ - Wykrycia ryzyka **Azure AD Identity Protection** są również częścią funkcji raportowania [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
-Ponadto można użyć [interfejsu API wykrywania ryzyka ochrony tożsamości,](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) aby uzyskać programowy dostęp do wykrywania zabezpieczeń za pomocą programu Microsoft Graph. Aby uzyskać więcej informacji, zobacz [Wprowadzenie do usługi Azure Active Directory Identity Protection i Microsoft Graph](../identity-protection/graph-get-started.md). 
+Ponadto można użyć [interfejsu API wykrywania ryzyka ochrony tożsamości](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) , aby uzyskać programowy dostęp do wykrywania zabezpieczeń przy użyciu Microsoft Graph. Aby uzyskać więcej informacji, zobacz [wprowadzenie do Azure Active Directory Identity Protection i Microsoft Graph](../identity-protection/graph-get-started.md). 
 
-Obecnie usługa Azure Active Directory wykrywa sześć typów wykrywania ryzyka:
+Obecnie Azure Active Directory wykrywa sześć typów wykrycia ryzyka:
 
 - [Użytkownicy z ujawnionymi poświadczeniami](#leaked-credentials) 
 - [Logowania z anonimowych adresów IP](#sign-ins-from-anonymous-ip-addresses) 
@@ -47,74 +47,74 @@ Obecnie usługa Azure Active Directory wykrywa sześć typów wykrywania ryzyka:
 ![Wykrywanie ryzyka](./media/concept-risk-events/91.png)
 
 > [!IMPORTANT]
-> Czasami wykrywanie ryzyka może być wykrywane bez odpowiedniego wpisu logowania w [raporcie logowania](concept-sign-ins.md). Jest tak, ponieważ ochrona tożsamości ocenia ryzyko zarówno **dla logowania interakcyjne,** jak i **nieinterakcyjne,** podczas gdy raport logowania pokazuje tylko interaktywne logowania.
+> Czasami może się okazać, że wykrywanie ryzyka nie ma odpowiedniego wpisu logowania w [raporcie logowania](concept-sign-ins.md). Wynika to z faktu, że usługa Identity Protection szacuje ryzyko dla logowania **interaktywnego** i **nieinterakcyjnego** , podczas gdy raport logowania zawiera tylko interakcyjne logowania.
 
-Wgląd w wykryte wykrywanie ryzyka jest powiązany z subskrypcją usługi Azure AD. 
+Szczegółowe informacje na temat wykrytego wykrywania ryzyka są powiązane z subskrypcją usługi Azure AD. 
 
-* Dzięki **wersji Azure AD Premium P2**otrzymujesz najbardziej szczegółowe informacje o wszystkich podstawowych wykrywaniach. 
-* W **przypadku wersji Azure AD Premium P1**zaawansowane wykrywanie (takie jak nieznane właściwości logowania) nie są objęte licencją i będą wyświetlane pod nazwą **Zaloguj się z wykrytym dodatkowym ryzykiem.** Ponadto pola poziomu ryzyka i szczegółów ryzyka są ukryte.
+* Za pomocą **Azure AD — wersja Premium P2**można uzyskać najbardziej szczegółowe informacje na temat wszystkich podstawowych wykryć. 
+* W **wersji Azure AD — wersja Premium P1**wykrycie zaawansowane (takie jak nieznane właściwości logowania) nie jest objęte licencją i zostanie wyświetlone pod nazwą **logowania z wykrytym dodatkowym ryzykiem**. Ponadto pola szczegóły poziomu ryzyka i ryzyka są ukryte.
 
-Podczas gdy wykrywanie ryzyka stanowi już ważny aspekt ochrony tożsamości, masz również możliwość ręcznego rozwiązania ich lub zaimplementowania automatycznych odpowiedzi przez skonfigurowanie zasad dostępu warunkowego. Aby uzyskać więcej informacji, zobacz [Azure Active Directory Identity Protection (Ochrona tożsamości w usłudze Azure Active Directory)](../active-directory-identityprotection.md).
+Chociaż wykrywanie zagrożeń reprezentuje już istotny aspekt ochrony tożsamości, można także ręcznie rozwiązać te problemy lub zaimplementować automatyczne odpowiedzi przez skonfigurowanie zasad dostępu warunkowego. Aby uzyskać więcej informacji, zobacz [Azure Active Directory Identity Protection (Ochrona tożsamości w usłudze Azure Active Directory)](../active-directory-identityprotection.md).
 
 ## <a name="risk-detection-types"></a>Typy wykrywania ryzyka
 
-Właściwość **typu wykrywania ryzyka** jest identyfikatorem podejrzanej akcji, dla jakiej został utworzony rekord wykrywania ryzyka.
+Właściwość **Typ wykrywania ryzyka** jest identyfikatorem podejrzanej akcji, dla której został utworzony rekord wykrywania ryzyka.
 
 Ciągłe inwestycje firmy Microsoft w proces wykrywania prowadzą do:
 
-- Poprawa dokładności wykrywania istniejących wykrywania ryzyka 
+- Poprawa dokładności wykrywania istniejących wykryć ryzyka 
 - Nowe typy wykrywania ryzyka, które zostaną dodane w przyszłości
 
-### <a name="leaked-credentials"></a>Wyciekające poświadczenia
+### <a name="leaked-credentials"></a>Nieujawnione poświadczenia
 
-Gdy cyberprzestępcy naruszyli prawidłowe hasła legalnych użytkowników, często udostępniają te poświadczenia. Zwykle odbywa się to poprzez opublikowanie ich publicznie w ciemnej sieci lub wklej witryn lub poprzez handel lub sprzedaż poświadczeń na czarnym rynku. Usługa microsoft wyciekła poświadczeń przejmuje nazwy użytkownika / parę haseł poprzez monitorowanie publicznych i ciemnych stron internetowych i poprzez współpracę z:
+Gdy cybernetycznymi naruszają prawidłowe hasła dla uprawnionych użytkowników, często udostępniają te poświadczenia. Jest to zwykle realizowane przez zaksięgowanie ich publicznie w ciemnych witrynach sieci Web lub wklejanie lub przez handel lub sprzedawanie poświadczeń na czarnym rynku. Usługa Microsoft wycieka poświadczeń uzyskuje pary nazw użytkowników i haseł, monitorując publiczne i ciemne witryny sieci Web i wykonując następujące działania:
 
-- Naukowcy
-- Ścigania
-- Zespoły zabezpieczeń w firmie Microsoft
+- Wizytujących
+- Przepisy prawne
+- Zespoły ds. zabezpieczeń w firmie Microsoft
 - Inne zaufane źródła 
 
-Gdy usługa uzyskuje parę nazw użytkowników / haseł, są one sprawdzane pod kątem bieżących prawidłowych poświadczeń użytkowników usługi AAD. Po znalezieniu dopasowania oznacza to, że hasło użytkownika zostało naruszone i zostanie utworzone **wykrywanie ryzyka wyciekanych poświadczeń.**
+Gdy usługa uzyskuje pary username i Password, są sprawdzane pod kątem bieżących prawidłowych poświadczeń przez użytkowników usługi AAD. Gdy zostanie znalezione dopasowanie, oznacza to, że złamano hasło użytkownika i zostanie utworzone **przecieki zagrożeń** .
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Logowania z anonimowych adresów IP
 
-Ten typ wykrywania ryzyka identyfikuje użytkowników, którzy pomyślnie zalogowali się z adresu IP, który został zidentyfikowany jako anonimowy adres IP serwera proxy. Te serwery proxy są używane przez osoby, które chcą ukryć adres IP urządzenia i mogą być używane do złośliwego zamiaru.
+Ten typ wykrywania ryzyka identyfikuje użytkowników, którzy pomyślnie logowali się z adresu IP, który został zidentyfikowany jako anonimowy adres IP serwera proxy. Te serwery proxy są używane przez osoby, które chcą ukryć adres IP urządzenia i mogą być używane do złośliwego celu.
 
 ### <a name="impossible-travel-to-atypical-locations"></a>Niemożliwa podróż do nietypowych lokalizacji
 
-Ten typ wykrywania ryzyka identyfikuje dwa logowania pochodzące z geograficznie odległych lokalizacji, gdzie co najmniej jedna z lokalizacji może być nietypowa dla użytkownika, biorąc pod uwagę zachowanie z przeszłości. Wśród kilku innych czynników ten algorytm uczenia maszynowego uwzględnia czas między dwoma logowaniami i czas potrzebny użytkownikowi na podróż z pierwszej lokalizacji do drugiej, wskazując, że inny użytkownik używa tego samego Poświadczenia.
+Ten typ wykrywania ryzyka identyfikuje dwa logowania pochodzące z lokalizacji geograficznie odległych, gdzie co najmniej jedna z tych lokalizacji może być nietypowa dla użytkownika, pod kątem wcześniejszego zachowania. Ten algorytm uczenia maszynowego uwzględnia między innymi różne czynniki czas między dwoma logowaniami i czas, jaki zajęł użytkownikowi w podróży od pierwszej lokalizacji do drugiego, co oznacza, że inny użytkownik korzysta z tych samych poświadczeń.
 
-Algorytm ignoruje oczywiste "fałszywe alarmy" przyczyniające się do niemożliwych warunków podróży, takich jak VPN i lokalizacje regularnie używane przez innych użytkowników w organizacji. System ma początkowy okres uczenia się 14 dni, podczas którego uczy się zachowania logowania nowego użytkownika. 
+Algorytm ignoruje oczywiste "fałszywie dodatnie" przyczyniające się do niemożliwych warunków podróży, takich jak sieci VPN i lokalizacje regularnie używane przez innych użytkowników w organizacji. System ma początkowy okres uczenia wynoszący 14 dni, podczas którego nauczy się zachowanie logowania nowego użytkownika. 
 
-### <a name="sign-in-from-unfamiliar-locations"></a>Logowanie się z nieznanych lokalizacji
+### <a name="sign-in-from-unfamiliar-locations"></a>Logowanie z nieznanych lokalizacji
 
-Ten typ wykrywania ryzyka uwzględnia wcześniejsze lokalizacje logowania (IP, Szerokość geograficzna / długość geograficzna i ASN) w celu określenia nowych / nieznanych lokalizacji. System przechowuje informacje o poprzednich lokalizacjach używanych przez użytkownika i uwzględnia te "znane" lokalizacje. Wykrywanie ryzyka jest wyzwalane, gdy logowanie występuje z lokalizacji, która nie znajduje się jeszcze na liście znanych lokalizacji. System ma początkowy okres nauki wynoszący 30 dni, podczas którego nie oznacza żadnych nowych lokalizacji jako nieznanych lokalizacji. System ignoruje również logowania ze znanych urządzeń i lokalizacji, które są geograficznie blisko znanej lokalizacji. 
+Ten typ wykrywania ryzyka traktuje w przeszłości lokalizacje logowania (IP, szerokości/długości geograficznej i ASN), aby określić nowe/nieznane lokalizacje. System przechowuje informacje o poprzednich lokalizacjach używanych przez użytkownika i uwzględnia te "znane" lokalizacje. Wykrywanie ryzyka jest wyzwalane, gdy logowanie następuje z lokalizacji, która nie znajduje się na liście znanych lokalizacji. System ma początkowy okres uczenia 30 dni, podczas którego nie flaguje żadnych nowych lokalizacji jako nieznanych lokalizacji. System ignoruje logowania ze znanych urządzeń i lokalizacje, które znajdują się geograficznie blisko znanej lokalizacji. 
 
-Usługa Identity Protection wykrywa logowania z nieznanych lokalizacji również w przypadku uwierzytelniania podstawowego / starszych protokołów. Ponieważ te protokoły nie mają nowoczesnych znanych funkcji, takich jak identyfikator klienta, nie ma wystarczającej ilości danych telemetrycznych, aby zmniejszyć liczbę fałszywych alarmów. Aby zmniejszyć liczbę wykrytych wykrywania ryzyka, należy przejść do nowoczesnego uwierzytelniania.   
+Program Identity Protection wykrywa logowania z nieznanych lokalizacji również dla uwierzytelniania podstawowego/starszych protokołów. Ponieważ te protokoły nie mają nowoczesnych znanych funkcji, takich jak identyfikator klienta, nie ma wystarczającej ilości danych telemetrycznych, aby zmniejszyć liczbę fałszywie dodatnich. Aby zmniejszyć liczbę wykrytych wykryć zagrożeń, należy przejść do nowoczesnego uwierzytelniania.   
 
 > [!NOTE]
-> Jeśli nazwa użytkownika logowania i hasło nie są zgodne, logowanie zakończy się niepowodzeniem i wykrywanie ryzyka nie nastąpi. Logowanie z nieznanych lokalizacji wykrywania ryzyka tylko są wyzwalane na pomyślny logowania.
+> Jeśli nazwa użytkownika i hasło logowania nie są zgodne, logowanie zakończy się niepowodzeniem, a wykrywanie ryzyka nie wystąpi. Logowanie się z nieznanych wykrywania zagrożeń w lokalizacji jest wyzwalane tylko w przypadku pomyślnych logowań.
 
 ### <a name="sign-ins-from-infected-devices"></a>Logowania z zainfekowanych urządzeń
 
-Ten typ wykrywania ryzyka identyfikuje logowania z urządzeń zainfekowanych złośliwym oprogramowaniem, o których wiadomo, że aktywnie komunikują się z serwerem botów. Jest to określane przez korelację adresów IP urządzenia użytkownika z adresami IP, które miały kontakt z serwerem botów. 
+Ten typ wykrywania ryzyka identyfikuje logowania z urządzeń zainfekowanych złośliwym oprogramowaniem, które są znane, aby aktywnie komunikować się z serwerem bot. Jest to określane przez skorelowanie adresów IP urządzenia użytkownika z adresami IP, które były w kontakcie z serwerem bot. 
 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Logowania z adresów IP związanych z podejrzanymi działaniami
-Ten typ wykrywania ryzyka identyfikuje adresy IP, z których w krótkim czasie zaobserwowano dużą liczbę nieudanych prób logowania na wielu kontach użytkowników. To pasuje do wzorców ruchu adresów IP używanych przez osoby atakujące i jest silnym wskaźnikiem, że konta są już lub mają zostać naruszone. Jest to algorytm uczenia maszynowego, który ignoruje oczywiste fałszywych alarmów, takich jak adresy IP, które są regularnie używane przez innych użytkowników w organizacji.  System ma początkowy okres uczenia się 14 dni, w którym uczy się zachowania logowania nowego użytkownika i nowej dzierżawy.
+Ten typ wykrywania ryzyka identyfikuje adresy IP, z których były widoczne duże liczby nieudanych prób logowania na wielu kontach użytkowników w krótkim czasie. Dopasowuje to wzorce ruchu adresów IP używanych przez osoby atakujące i jest silnym wskaźnikiem, że konta są już lub zostały naruszone. Jest to algorytm uczenia maszynowego, który ignoruje oczywiste fałszywe-pozytywne, takie jak adresy IP, które są regularnie używane przez innych użytkowników w organizacji.  System ma początkowy okres uczenia wynoszący 14 dni, w którym nauczysz zachowanie logowania nowego użytkownika i nowej dzierżawy.
 
 ## <a name="detection-type"></a>Typ wykrywania
 
-Właściwość typu wykrywania jest wskaźnikiem **(w czasie rzeczywistym** lub **offline)** dla przedziałów czasowych wykrywania wykrywania ryzyka. Obecnie większość wykrywania ryzyka są wykrywane w trybie offline w operacji przetwarzania końcowego po wykryciu ryzyka.
+Właściwość typ wykrywania jest wskaźnikiem (w**czasie rzeczywistym** lub **w trybie offline**) w celu wykrycia czasu wykrywania ryzyka. Obecnie wykryto większość wykrycia ryzyka w trybie offline w operacji po zakończeniu przetwarzania po wykryciu ryzyka.
 
-W poniższej tabeli wymieniono czas potrzebny na pokazanie się typu wykrywania w powiązanym raporcie:
+W poniższej tabeli wymieniono czas, jaki jest potrzebny dla typu wykrywania do wyświetlenia w powiązanym raporcie:
 
-| Typ wykrywania | Opóźnienie raportowania |
+| Typ wykrywania | Raportowanie opóźnienia |
 | --- | --- |
-| Przesyłanie w czasie rzeczywistym | 5 do 10 minut |
-| W trybie offline | 2 do 4 godzin |
+| Przesyłanie w czasie rzeczywistym | od 5 do 10 minut |
+| W trybie offline | od 2 do 4 godzin |
 
 
-W przypadku typów wykrywania ryzyka wykrytych przez usługę Azure Active Directory typy wykrywania są następujące:
+W przypadku typów wykrywania ryzyka Azure Active Directory wykrywane są typy wykrywania:
 
 | Typ wykrywania ryzyka | Typ wykrywania |
 | :-- | --- | 
@@ -128,55 +128,55 @@ W przypadku typów wykrywania ryzyka wykrytych przez usługę Azure Active Direc
 
 ## <a name="risk-level"></a>Poziom ryzyka
 
-Właściwość poziomu ryzyka wykrywania ryzyka jest wskaźnikiem **(Wysoki,** **Średni**lub **Niski)** dla dotkliwości i pewności wykrywania ryzyka. Ta właściwość pomaga ustalić priorytety działań, które należy podjąć. 
+Właściwość poziomu ryzyka wykrywania ryzyka jest wskaźnikiem (**wysoki**, **Średni**lub **niski**) dla ważności i zaufania wykrywania ryzyka. Ta właściwość pomaga określić priorytety działań, które należy wykonać. 
 
-Nasilenie wykrywania ryzyka reprezentuje siłę sygnału jako predyktora naruszenia tożsamości. Zaufanie jest wskaźnikiem możliwości fałszywych alarmów. 
+Ważność wykrywania ryzyka reprezentuje siłę sygnału jako predykcyjny kompromis dotyczący naruszenia tożsamości. Wiarygodność jest wskaźnikiem dla możliwości fałszywych wartości dodatnich. 
 
 Na przykład: 
 
-* **Wysoka:** Wysoka pewność i wykrywanie wysokiego ryzyka. Te zdarzenia są silne wskaźniki, że tożsamość użytkownika została naruszona, a wszystkie konta użytkowników wpływ powinny być natychmiast korygowane.
+* **Wysoki**: wysoki poziom zaufania i wysoka ważność. Te zdarzenia są silnymi wskaźnikami, w przypadku których zabezpieczenia tożsamości zostały naruszone, a wszystkie konta użytkowników, których to dotyczy, powinny być natychmiast korygowane.
 
-* **Medium**: Wysoka dotkliwość, ale niższe wykrywanie ryzyka ufności lub odwrotnie. Zdarzenia te są potencjalnie ryzykowne, a wszelkie konta użytkowników, których to dotyczy, powinny zostać naprawione.
+* **Średni**: wysoka ważność, ale niższe ryzyko związane z zaufaniem lub na odwrót. Zdarzenia te są potencjalnie ryzykowne i należy skorygować wszystkie konta użytkowników, których dotyczy problem.
 
-* **Niski:** Niska pewność i wykrywanie niskiego ryzyka. To zdarzenie nie może wymagać natychmiastowego działania, ale w połączeniu z innymi wykrywania ryzyka, może stanowić silne wskazanie, że tożsamość jest zagrożona.
+* **Niski**: wykrywanie ryzyka niskiego zaufania i niskiego poziomu ważności. To zdarzenie może nie wymagać natychmiastowego działania, ale w połączeniu z innymi wykryciami ryzyka może zapewnić silne wskazanie naruszenia bezpieczeństwa tożsamości.
 
 ![Poziom ryzyka](./media/concept-risk-events/01.png)
 
-### <a name="leaked-credentials"></a>Wyciekające poświadczenia
+### <a name="leaked-credentials"></a>Nieujawnione poświadczenia
 
-Wykrywanie ryzyka wyciekły poświadczenia są klasyfikowane jako **Wysoki**, ponieważ stanowią one wyraźne wskazanie, że nazwa użytkownika i hasło są dostępne dla osoby atakującej.
+Wykrywanie ryzyka przecieków poświadczeń są klasyfikowane jako **wysokie**, ponieważ zapewniają jasne wskazanie, że nazwa użytkownika i hasło są dostępne dla osoby atakującej.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Logowania z anonimowych adresów IP
 
-Poziom ryzyka dla tego typu wykrywania ryzyka jest **średni,** ponieważ anonimowy adres IP nie jest silnym wskaźnikiem naruszenia zabezpieczeń konta. Zalecamy natychmiastowe skontaktowanie się z użytkownikiem w celu sprawdzenia, czy używa on anonimowych adresów IP.
+Poziom ryzyka dla tego typu wykrywania ryzyka jest **Średni** , ponieważ anonimowy adres IP nie jest silnym wskaźnikiem naruszenia zabezpieczeń konta. Zalecamy natychmiastowe skontaktowanie się z użytkownikiem w celu sprawdzenia, czy korzystali z anonimowych adresów IP.
 
 
 ### <a name="impossible-travel-to-atypical-locations"></a>Niemożliwa podróż do nietypowych lokalizacji
 
-Niemożliwe podróżowanie jest zwykle dobrym wskaźnikiem, że haker był w stanie pomyślnie się zalogować. Jednak fałszywe alarmy mogą wystąpić, gdy użytkownik podróżuje przy użyciu nowego urządzenia lub przy użyciu sieci VPN, która zazwyczaj nie jest używana przez innych użytkowników w organizacji. Innym źródłem fałszywych alarmów są aplikacje, które nieprawidłowo przekazują adresy IP serwera jako adresy IP klienta, co może nadawać wygląd logów odbywających się z centrum danych, w którym hostowany jest zaplecze tej aplikacji (często są to centra danych firmy Microsoft, które może nadawać wygląd logowania odbywających się z adresów IP należących do firmy Microsoft). W wyniku tych fałszywych alarmów poziom ryzyka dla tego wykrywania ryzyka jest **średni.**
+Niemożliwa podróż jest zwykle dobrym wskaźnikiem, że haker mógł pomyślnie się zalogować. Jednak fałszywe-pozytywne mogą wystąpić, gdy użytkownik podróżuje przy użyciu nowego urządzenia lub sieci VPN, które zwykle nie są używane przez innych użytkowników w organizacji. Innym źródłem fałszywych wartości fałszywych są aplikacje, które niepoprawnie przechodzą adresy IP serwera jako adresy IP klienta, co może spowodować pojawienie się miejsca logowania z centrum danych, w którym jest hostowana zaplecze aplikacji (często są to firmy Microsoft datacenters, które mogą spowodować, że podczas logowania pochodzą z adresów IP należących do firmy Microsoft). W wyniku tych fałszywych, poziom ryzyka dla tego wykrywania ryzyka to **Średni**.
 
 > [!TIP]
-> Można zmniejszyć liczbę zgłoszonych fałszywych alarmów dla tego typu wykrywania ryzyka, konfigurując [nazwane lokalizacje](../active-directory-named-locations.md). 
+> Można zmniejszyć liczbę raportowanych fałszywych wartości false-pozytywne dla tego typu wykrywania ryzyka przez skonfigurowanie [nazwanych lokalizacji](../active-directory-named-locations.md). 
 
-### <a name="sign-in-from-unfamiliar-locations"></a>Logowanie się z nieznanych lokalizacji
+### <a name="sign-in-from-unfamiliar-locations"></a>Logowanie z nieznanych lokalizacji
 
-Nieznane lokalizacje mogą stanowić silny sygnał, że osoba atakująca może użyć skradzionej tożsamości. Fałszywe alarmy mogą wystąpić, gdy użytkownik podróżuje, wypróbowywa nowe urządzenie lub korzysta z nowej sieci VPN. W wyniku tych fałszywych alarmów poziom ryzyka dla tego typu zdarzenia jest **średni**.
+Nieznane lokalizacje mogą zapewnić mocną wskazówkę, że osoba atakująca może korzystać z skradzionej tożsamości. Fałszywe-pozytywne mogą wystąpić, gdy użytkownik podróżuje, próbuje nowe urządzenie lub korzysta z nowej sieci VPN. W wyniku tych fałszywych wartości dodatnich poziom ryzyka dla tego typu zdarzenia to **Średni**.
 
 ### <a name="sign-ins-from-infected-devices"></a>Logowania z zainfekowanych urządzeń
 
-To wykrywanie ryzyka identyfikuje adresy IP, a nie urządzenia użytkownika. Jeśli kilka urządzeń znajduje się za jednym adresem IP, a tylko niektóre są kontrolowane przez sieć botów, logowania z innych urządzeń niepotrzebnie wyzwalają to zdarzenie, dlatego to wykrywanie ryzyka jest klasyfikowane jako **niskie**.  
+To wykrywanie ryzyka identyfikuje adresy IP, a nie urządzenia użytkowników. Jeśli kilka urządzeń znajduje się za pojedynczym adresem IP, a tylko niektóre z nich są kontrolowane przez sieć bot, logowania z innych urządzeń wyzwalają to zdarzenie niekoniecznie, co oznacza, że to wykrywanie ryzyka jest sklasyfikowane jako **niskie**.  
 
-Zalecamy skontaktowanie się z użytkownikiem i zeskanowanie wszystkich urządzeń użytkownika. Możliwe jest również, że urządzenie osobiste użytkownika jest zainfekowane lub że ktoś inny używał zainfekowanego urządzenia z tego samego adresu IP co użytkownik. Zainfekowane urządzenia są często zainfekowane złośliwym oprogramowaniem, które nie zostało jeszcze zidentyfikowane przez oprogramowanie antywirusowe, a także mogą wskazywać na złe nawyki użytkownika, które mogły spowodować zainfekowanie urządzenia.
+Zalecamy skontaktowanie się z użytkownikiem i przeskanowanie wszystkich urządzeń użytkownika. Istnieje również możliwość, że urządzenie osobiste użytkownika jest zainfekowane lub że ktoś inny używa zainfekowanego urządzenia z tego samego adresu IP, który jest używany przez użytkownika. Zainfekowane urządzenia są często Zainfekowane złośliwym oprogramowaniem, które nie zostało jeszcze zidentyfikowane przez oprogramowanie antywirusowe, i mogą także wskazywać wszelkie złe nawyki użytkowników, które mogą spowodować zainfekowanie urządzenia.
 
-Aby uzyskać więcej informacji na temat rozwiązywania problemu infekcji złośliwym [oprogramowaniem, zobacz Centrum ochrony przed złośliwym oprogramowaniem](https://www.microsoft.com/en-us/security/portal/definitions/adl.aspx/).
+Więcej informacji o sposobie rozwiązywania infekcji złośliwym oprogramowaniem znajduje się w [Centrum ochrony przed złośliwym](https://www.microsoft.com/en-us/security/portal/definitions/adl.aspx/)oprogramowaniem.
 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Logowania z adresów IP związanych z podejrzanymi działaniami
 
-Zalecamy skontaktowanie się z użytkownikiem w celu sprawdzenia, czy rzeczywiście zalogował się z adresu IP, który został oznaczony jako podejrzany. Poziom ryzyka dla tego typu zdarzenia to "**Medium**", ponieważ kilka urządzeń może znajdować się za tym samym adresem IP, podczas gdy tylko niektóre mogą być odpowiedzialne za podejrzaną aktywność. 
+Zalecamy skontaktowanie się z użytkownikiem w celu sprawdzenia, czy rzeczywiście zalogowano się z adresu IP, który został oznaczony jako podejrzany. Poziomem ryzyka dla tego typu zdarzenia jest "**średnia**", ponieważ niektóre urządzenia mogą znajdować się za tym samym adresem IP, podczas gdy tylko niektóre mogą być odpowiedzialne za podejrzane działania. 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Raport zabezpieczeń użytkowników zagrożonych](concept-user-at-risk.md)
-* [Raport zabezpieczeń ryzykownych logów](concept-risky-sign-ins.md)
-* [Usługa Azure AD Identity Protection](../active-directory-identityprotection.md).
+* [Raport o zabezpieczeniach użytkowników z ryzykiem](concept-user-at-risk.md)
+* [Raport zabezpieczeń dotyczący ryzykownych logowań](concept-risky-sign-ins.md)
+* [Azure AD Identity Protection](../active-directory-identityprotection.md).

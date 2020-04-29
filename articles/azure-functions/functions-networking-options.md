@@ -1,152 +1,152 @@
 ---
 title: Opcje sieciowe usługi Azure Functions
-description: Omówienie wszystkich opcji sieci dostępnych w usłudze Azure Functions.
+description: Przegląd wszystkich opcji sieciowych dostępnych w Azure Functions.
 author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.openlocfilehash: 6637627d48df8f9b6126debc215aac9bceb76f6b
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80419532"
 ---
 # <a name="azure-functions-networking-options"></a>Opcje sieciowe usługi Azure Functions
 
-W tym artykule opisano funkcje sieciowe dostępne w opcjach hostingu dla usługi Azure Functions. Wszystkie następujące opcje sieciowe umożliwiają dostęp do zasobów bez użycia adresów internetowych lub ograniczenie dostępu do Internetu do aplikacji funkcyjnej.
+W tym artykule opisano funkcje sieciowe dostępne w obszarze Opcje hostingu dla Azure Functions. Wszystkie poniższe opcje sieciowe zapewniają pewne możliwości dostępu do zasobów bez używania adresów z obsługą sieci Internet lub w celu ograniczenia dostępu do Internetu do aplikacji funkcji.
 
-Modele hostingu mają różne poziomy izolacji sieci dostępne. Wybór odpowiedniego ułatwia spełnienie wymagań dotyczących izolacji sieci.
+Modele hostingu mają różne poziomy izolacji sieci. Wybranie odpowiedniej opcji pomaga spełnić wymagania dotyczące izolacji sieci.
 
-Aplikacje funkcyjne można hostować na kilka sposobów:
+Aplikacje funkcji można hostować na kilka sposobów:
 
-* Można wybrać jedną z opcji planu, które działają w infrastrukturze wielodostępnej, z różnymi poziomami łączności sieci wirtualnej i opcji skalowania:
-    * [Plan zużycia](functions-scale.md#consumption-plan) skaluje się dynamicznie w odpowiedzi na obciążenie i oferuje minimalne opcje izolacji sieci.
-    * [Plan Premium](functions-scale.md#premium-plan) również dynamicznie się skaluje i oferuje bardziej kompleksową izolację sieci.
-    * Plan [usługi Azure App Service](functions-scale.md#app-service-plan) działa w stałej skali i oferuje izolację sieci podobną do planu Premium.
-* Funkcje można uruchamiać w [środowisku usługi aplikacji](../app-service/environment/intro.md). Ta metoda wdraża funkcję w sieci wirtualnej i oferuje pełną kontrolę sieci i izolacji.
+* Możesz wybrać spośród opcji planu, które są uruchamiane w infrastrukturze wielodostępnej, z różnymi poziomami łączności sieci wirtualnej i opcji skalowania:
+    * [Plan zużycia](functions-scale.md#consumption-plan) jest skalowany dynamicznie w odpowiedzi na obciążenie i oferuje minimalne opcje izolacji sieci.
+    * [Plan Premium](functions-scale.md#premium-plan) również skaluje się dynamicznie i oferuje bardziej kompleksową izolację sieci.
+    * [Plan App Service](functions-scale.md#app-service-plan) platformy Azure działa ze stałą skalą i oferuje izolację sieci podobną do planu Premium.
+* Funkcje można uruchamiać w [App Service Environment](../app-service/environment/intro.md). Ta metoda wdraża funkcję w sieci wirtualnej i oferuje pełną kontrolę sieci i izolację.
 
-## <a name="matrix-of-networking-features"></a>Matryca funkcji sieciowych
+## <a name="matrix-of-networking-features"></a>Macierz funkcji sieciowych
 
-|                |[Plan Zużycie](functions-scale.md#consumption-plan)|[Plan Premium](functions-scale.md#premium-plan)|[Plan usługi aplikacji](functions-scale.md#app-service-plan)|[Środowisko usługi aplikacji](../app-service/environment/intro.md)|
+|                |[Plan Zużycie](functions-scale.md#consumption-plan)|[Plan Premium](functions-scale.md#premium-plan)|[Plan App Service](functions-scale.md#app-service-plan)|[Środowisko usługi App Service](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
-|[Ograniczenia przychodzącego adresu IP i dostęp do witryn prywatnych](#inbound-ip-restrictions)|✅Tak|✅Tak|✅Tak|✅Tak|
-|[Integracja z siecią wirtualną](#virtual-network-integration)|❌№|✅Tak (regionalne)|✅Tak (regionalne i bramowe)|✅Tak|
-|[Wyzwalacze sieci wirtualnej (inne niż HTTP)](#virtual-network-triggers-non-http)|❌№| ✅Tak |✅Tak|✅Tak|
-|[Połączenia hybrydowe](#hybrid-connections) (tylko windows)|❌№|✅Tak|✅Tak|✅Tak|
-|[Wychodzące ograniczenia adresów IP](#outbound-ip-restrictions)|❌№| ✅Tak|✅Tak|✅Tak|
+|[Ograniczenia przychodzącego adresu IP i dostępu do lokacji prywatnej](#inbound-ip-restrictions)|✅Opcję|✅Opcję|✅Opcję|✅Opcję|
+|[Integracja z siecią wirtualną](#virtual-network-integration)|❌Znaleziono|✅Tak (regionalne)|✅Tak (regionalne i brama)|✅Opcję|
+|[Wyzwalacze sieci wirtualnej (bez protokołu HTTP)](#virtual-network-triggers-non-http)|❌Znaleziono| ✅Opcję |✅Opcję|✅Opcję|
+|[Połączenia hybrydowe](#hybrid-connections) (tylko system Windows)|❌Znaleziono|✅Opcję|✅Opcję|✅Opcję|
+|[Ograniczenia wychodzącego adresu IP](#outbound-ip-restrictions)|❌Znaleziono| ✅Opcję|✅Opcję|✅Opcję|
 
 ## <a name="inbound-ip-restrictions"></a>Ograniczenia przychodzącego adresu IP
 
-Ograniczenia adresów IP służą do definiowania uporządkowanej priorytetowo listy adresów IP, które są dozwolone lub mają odmowę dostępu do aplikacji. Lista może zawierać adresy IPv4 i IPv6. Gdy istnieje jeden lub więcej wpisów, niejawne "odmówić wszystkich" istnieje na końcu listy. Ograniczenia IP działają ze wszystkimi opcjami hostingu funkcji.
+Za pomocą ograniczeń adresów IP można zdefiniować uporządkowaną według priorytetu listę adresów IP, które są dozwolone lub odrzucane przez dostęp do aplikacji. Lista może zawierać adresy IPv4 i IPv6. W przypadku co najmniej jednego wpisu na końcu listy występuje niejawne "odmowa wszystkich". Ograniczenia adresów IP działają ze wszystkimi opcjami hostingu funkcji.
 
 > [!NOTE]
-> Z ograniczeniami sieciowymi można używać edytora portalu tylko z poziomu sieci wirtualnej lub po umieszczeniu adresu IP komputera, którego używasz, aby uzyskać dostęp do witryny Azure portal na liście Bezpiecznych adresatów. Jednak nadal można uzyskać dostęp do wszystkich funkcji na karcie **Funkcje platformy** z dowolnego komputera.
+> W przypadku ograniczeń sieci można używać edytora portalu tylko z poziomu sieci wirtualnej lub po umieszczeniu adresu IP komputera, którego używasz, aby uzyskać dostęp do Azure Portal na liście bezpiecznych adresatów. Można jednak nadal uzyskiwać dostęp do dowolnych funkcji na karcie **funkcje platformy** z dowolnego komputera.
 
-Aby dowiedzieć się więcej, zobacz [Ograniczenia dostępu statycznego usługi Azure App Service](../app-service/app-service-ip-restrictions.md).
+Aby dowiedzieć się więcej, zobacz [Azure App Service ograniczenia dostępu statycznego](../app-service/app-service-ip-restrictions.md).
 
 ## <a name="private-site-access"></a>Dostęp do witryn prywatnych
 
-Dostęp do witryny prywatnej odnosi się do udostępnienia aplikacji tylko z sieci prywatnej, takiej jak sieć wirtualna platformy Azure.
+Dostęp do lokacji prywatnej dotyczy udostępniania aplikacji tylko z sieci prywatnej, takiej jak sieć wirtualna platformy Azure.
 
-* Dostęp do witryny prywatnej jest dostępny w planach [Premium,](./functions-premium-plan.md) [Consumption](functions-scale.md#consumption-plan)i [App Service,](functions-scale.md#app-service-plan) gdy skonfigurowane są punkty końcowe usługi.
-    * Punkty końcowe usługi można skonfigurować na podstawie aplikacji w obszarze **Funkcje** > platformy**Konfiguracja** > sieci**Ograniczenia** > dostępu**Dodaj regułę**. Sieci wirtualne można teraz wybrać jako typ reguły.
-    * Aby uzyskać więcej informacji, zobacz [Punkty końcowe usługi sieci wirtualnej](../virtual-network/virtual-network-service-endpoints-overview.md).
-    * Należy pamiętać, że w punktach końcowych usługi funkcja nadal ma pełny dostęp wychodzący do Internetu, nawet przy skonfigurowaniu integracji sieci wirtualnej.
-* Dostęp do witryny prywatnej jest również dostępny w środowisku usługi app service skonfigurowany z wewnętrznym modułem równoważenia obciążenia (ILB). Aby uzyskać więcej informacji, zobacz [Tworzenie i używanie wewnętrznego modułu równoważenia obciążenia ze środowiskiem usługi aplikacji](../app-service/environment/create-ilb-ase.md).
+* Dostęp do lokacji prywatnej jest dostępny w planach [Premium](./functions-premium-plan.md), [zużycia](functions-scale.md#consumption-plan)i [App Service](functions-scale.md#app-service-plan) w przypadku skonfigurowania punktów końcowych usługi.
+    * Punkty końcowe usługi można skonfigurować dla poszczególnych aplikacji w obszarze**Networking** >  **funkcje** > platformy**Konfigurowanie ograniczeń** > dostępu**Dodaj regułę**. Sieci wirtualne można teraz wybrać jako typ reguły.
+    * Aby uzyskać więcej informacji, zobacz [punkty końcowe usługi sieci wirtualnej](../virtual-network/virtual-network-service-endpoints-overview.md).
+    * Należy pamiętać, że dzięki punktom końcowym usługi funkcja nadal ma pełny dostęp wychodzący do Internetu, nawet z skonfigurowaną integracją sieci wirtualnej.
+* Dostęp do lokacji prywatnej jest również dostępny w ramach App Service Environment, który jest skonfigurowany przy użyciu wewnętrznego modułu równoważenia obciążenia (ILB). Aby uzyskać więcej informacji, zobacz [Tworzenie i używanie wewnętrznego modułu równoważenia obciążenia z App Service Environment](../app-service/environment/create-ilb-ase.md).
 
-Aby dowiedzieć się, jak skonfigurować dostęp do witryny prywatnej, zobacz [Ustanawianie dostępu do witryny prywatnej usług Azure Functions](functions-create-private-site-access.md).
+Aby dowiedzieć się, jak skonfigurować dostęp do lokacji prywatnej, zobacz [ustanawianie Azure Functions dostępu do lokacji prywatnej](functions-create-private-site-access.md).
 
 ## <a name="virtual-network-integration"></a>Integracja sieci wirtualnej
 
-Integracja z siecią wirtualną umożliwia aplikacji funkcji dostęp do zasobów wewnątrz sieci wirtualnej.
-Usługa Azure Functions obsługuje dwa rodzaje integracji z siecią wirtualną:
+Integracja z siecią wirtualną umożliwia aplikacji funkcji dostęp do zasobów w sieci wirtualnej.
+Azure Functions obsługuje dwa rodzaje integracji sieci wirtualnej:
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
-Integracja sieci wirtualnej w usłudze Azure Functions korzysta z infrastruktury udostępnionej z aplikacjami sieci Web usługi App Service. Aby dowiedzieć się więcej o dwóch typach integracji sieci wirtualnej, zobacz:
+Integracja sieci wirtualnej w programie Azure Functions używa infrastruktury udostępnionej z App Service aplikacjami sieci Web. Aby dowiedzieć się więcej o dwóch typach integracji z siecią wirtualną, zobacz:
 
 * [Integracja regionalnej sieci wirtualnej](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
-* [Integracja z siecią wirtualną wymaganą przez bramę](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
+* [Integracja z siecią wirtualną wymagana przez bramę](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
-Aby dowiedzieć się, jak skonfigurować integrację sieci [wirtualnej, zobacz Integrowanie aplikacji funkcji z siecią wirtualną platformy Azure](functions-create-vnet.md).
+Aby dowiedzieć się, jak skonfigurować integrację sieci wirtualnej, zobacz [Integrowanie aplikacji funkcji z siecią wirtualną platformy Azure](functions-create-vnet.md).
 
-## <a name="regional-virtual-network-integration"></a>Regionalna integracja sieci wirtualnej
+## <a name="regional-virtual-network-integration"></a>Integracja regionalnej sieci wirtualnej
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-regional.md)]
 
-## <a name="connect-to-service-endpoint-secured-resources"></a>Łączenie się z zasobami zabezpieczonymi punktu końcowego usługi
+## <a name="connect-to-service-endpoint-secured-resources"></a>Łączenie z zabezpieczonymi zasobami punktu końcowego usługi
 
-Aby zapewnić wyższy poziom zabezpieczeń, można ograniczyć liczbę usług platformy Azure do sieci wirtualnej przy użyciu punktów końcowych usługi. Następnie należy zintegrować aplikację funkcji z tej sieci wirtualnej, aby uzyskać dostęp do zasobu. Ta konfiguracja jest obsługiwana we wszystkich planach, które obsługują integrację sieci wirtualnej.
+Aby zapewnić wyższy poziom zabezpieczeń, można ograniczyć liczbę usług platformy Azure do sieci wirtualnej za pomocą punktów końcowych usługi. Następnie należy zintegrować aplikację funkcji z tą siecią wirtualną, aby uzyskać dostęp do zasobu. Ta konfiguracja jest obsługiwana we wszystkich planach, które obsługują integrację z siecią wirtualną.
 
-Aby dowiedzieć się więcej, zobacz [Punkty końcowe usługi sieci wirtualnej](../virtual-network/virtual-network-service-endpoints-overview.md).
+Aby dowiedzieć się więcej, zobacz [punkty końcowe usługi sieci wirtualnej](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Ograniczanie konta magazynu do sieci wirtualnej
 
-Podczas tworzenia aplikacji funkcji, należy utworzyć lub łącze do ogólnego przeznaczenia konta usługi Azure Storage, który obsługuje blob, kolejki i magazynu tabel. Obecnie nie można używać żadnych ograniczeń sieci wirtualnej na tym koncie. Jeśli skonfigurujesz punkt końcowy usługi sieci wirtualnej na koncie magazynu, którego używasz dla aplikacji funkcji, ta konfiguracja spowoduje przerwanie aplikacji.
+Podczas tworzenia aplikacji funkcji należy utworzyć konto usługi Azure Storage ogólnego przeznaczenia lub połączyć się z nim, które obsługuje magazyn obiektów blob, kolejek i tabel. Na tym koncie nie można obecnie używać żadnych ograniczeń sieci wirtualnej. W przypadku skonfigurowania punktu końcowego usługi sieci wirtualnej na koncie magazynu używanym przez aplikację funkcji, ta konfiguracja spowoduje przerwanie działania aplikacji.
 
-Aby dowiedzieć się więcej, zobacz [Wymagania dotyczące konta magazynu](./functions-create-function-app-portal.md#storage-account-requirements).
+Aby dowiedzieć się więcej, zobacz [wymagania dotyczące konta magazynu](./functions-create-function-app-portal.md#storage-account-requirements).
 
-## <a name="use-key-vault-references"></a>Korzystanie z odwołań do magazynu kluczy
+## <a name="use-key-vault-references"></a>Użyj odwołań Key Vault
 
-Odwołania usługi Azure Key Vault można używać wpisów tajnych z usługi Azure Key Vault w aplikacji usługi Azure Functions bez konieczności zmiany kodu. Usługa Azure Key Vault to usługa zapewniająca scentralizowane zarządzanie wpisami tajnymi, z pełną kontrolą nad zasadami dostępu i historią inspekcji.
+Możesz użyć odwołań Azure Key Vault, aby użyć wpisów tajnych z Azure Key Vault w aplikacji Azure Functions bez konieczności wprowadzania żadnych zmian w kodzie. Azure Key Vault to usługa zapewniająca scentralizowane zarządzanie kluczami tajnymi z pełną kontrolą nad zasadami dostępu i historią inspekcji.
 
-Obecnie [odwołania do magazynu kluczy](../app-service/app-service-key-vault-references.md) nie będą działać, jeśli magazyn kluczy jest zabezpieczony punktami końcowymi usługi. Aby połączyć się z magazynem kluczy przy użyciu integracji sieci wirtualnej, należy wywołać Key Vault w kodzie aplikacji.
+Obecnie [odwołania Key Vault](../app-service/app-service-key-vault-references.md) nie będą działały, jeśli Magazyn kluczy jest zabezpieczony za pomocą punktów końcowych usługi. Aby nawiązać połączenie z magazynem kluczy przy użyciu integracji z siecią wirtualną, należy wywołać Key Vault w kodzie aplikacji.
 
-## <a name="virtual-network-triggers-non-http"></a>Wyzwalacze sieci wirtualnej (inne niż HTTP)
+## <a name="virtual-network-triggers-non-http"></a>Wyzwalacze sieci wirtualnej (bez protokołu HTTP)
 
-Obecnie można używać funkcji wyzwalania innych niż HTTP z sieci wirtualnej na jeden z dwóch sposobów:
+Obecnie można używać funkcji wyzwalacza innego niż HTTP z poziomu sieci wirtualnej na jeden z dwóch sposobów:
 
-+ Uruchom aplikację funkcji w planie Premium i włącz obsługę wyzwalaczy sieci wirtualnej.
-+ Uruchom aplikację funkcji w planie usługi app service lub środowisku usługi aplikacji.
++ Uruchom aplikację funkcji w planie Premium i Włącz obsługę wyzwalacza sieci wirtualnej.
++ Uruchom aplikację funkcji w planie App Service lub App Service Environment.
 
-### <a name="premium-plan-with-virtual-network-triggers"></a>Plan premium z wyzwalaczami sieci wirtualnej
+### <a name="premium-plan-with-virtual-network-triggers"></a>Plan Premium z wyzwalaczami sieci wirtualnej
 
-Po uruchomieniu planu Premium można połączyć funkcje wyzwalania inne niż HTTP z usługami uruchamianym w sieci wirtualnej. Aby to zrobić, należy włączyć obsługę wyzwalaczy sieci wirtualnej dla aplikacji funkcji. Ustawienie **pomocy technicznej wyzwalacza sieci wirtualnej** znajduje się w [witrynie Azure portal](https://portal.azure.com) w obszarze Ustawienia aplikacji **Funkcji**.
+Po uruchomieniu planu Premium można połączyć funkcje wyzwalacza inne niż HTTP z usługami, które działają w sieci wirtualnej. W tym celu należy włączyć obsługę wyzwalacza sieci wirtualnej dla aplikacji funkcji. Ustawienie **obsługi wyzwalacza sieci wirtualnej** znajduje się w [Azure Portal](https://portal.azure.com) w obszarze **Ustawienia aplikacji funkcji**.
 
 ![Przełącznik sieci wirtualnej](media/functions-networking-options/virtual-network-trigger-toggle.png)
 
-Można również włączyć wyzwalacze sieci wirtualnej przy użyciu następującego polecenia interfejsu wiersza polecenia platformy Azure:
+Wyzwalacze sieci wirtualnej można również włączyć za pomocą następującego polecenia interfejsu CLI platformy Azure:
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
 ```
 
-Wyzwalacze sieci wirtualnej są obsługiwane w wersji 2.x i powyżej środowiska wykonawczego Functions. Obsługiwane są następujące typy wyzwalaczy innych niż HTTP.
+Wyzwalacze sieci wirtualnej są obsługiwane w wersji 2. x i powyżej środowiska uruchomieniowego funkcji. Obsługiwane są następujące typy wyzwalaczy inne niż HTTP.
 
 | Wewnętrzny | Minimalna wersja |
 |-----------|---------| 
-|[Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 lub więcej |
-|[Witryna Microsoft.Azure.WebJobs.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 lub więcej|
-|[Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus)| 3.2.0 lub więcej|
-|[Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)| 3.0.5 lub więcej|
-|[Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)| 2.0.0 lub więcej|
+|[Microsoft. Azure. WebJobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 lub nowszy |
+|[Microsoft. Azure. WebJobs. Extensions. EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 lub nowszy|
+|[Microsoft. Azure. WebJobs. Extensions. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus)| 3.2.0 lub nowszy|
+|[Microsoft. Azure. WebJobs. Extensions. CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)| 3.0.5 lub nowszy|
+|[Microsoft. Azure. WebJobs. Extensions. DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)| 2.0.0 lub nowszy|
 
 > [!IMPORTANT]
-> Po włączeniu obsługi wyzwalaczy sieci wirtualnej tylko typy wyzwalaczy wyświetlane w poprzedniej tabeli są skalowane dynamicznie za pomocą aplikacji. Nadal można używać wyzwalaczy, które nie są w tabeli, ale nie są skalowane poza ich wstępnie rozgrzane liczby wystąpień. Aby uzyskać pełną listę wyzwalaczy, zobacz [Wyzwalacze i powiązania](./functions-triggers-bindings.md#supported-bindings).
+> Po włączeniu obsługi wyzwalacza sieci wirtualnej tylko typy wyzwalaczy widoczne w poprzedniej tabeli są dynamicznie skalowane z aplikacją. Nadal można używać wyzwalaczy, które nie znajdują się w tabeli, ale nie są skalowane poza liczbą wystąpień sprzed obgrzanych. Aby uzyskać pełną listę wyzwalaczy, zobacz [wyzwalacze i powiązania](./functions-triggers-bindings.md#supported-bindings).
 
-### <a name="app-service-plan-and-app-service-environment-with-virtual-network-triggers"></a>Plan usługi app service i środowisko usługi aplikacji z wyzwalaczami sieci wirtualnej
+### <a name="app-service-plan-and-app-service-environment-with-virtual-network-triggers"></a>App Service planowanie i App Service Environment przy użyciu wyzwalaczy sieci wirtualnej
 
-Gdy aplikacja funkcji działa w planie usługi app service lub środowisku usługi aplikacji, można użyć funkcji wyzwalania innych niż HTTP. Aby funkcje zostały poprawnie wyzwolone, musisz być połączony z siecią wirtualną z dostępem do zasobu zdefiniowanego w połączeniu wyzwalającym.
+Gdy aplikacja funkcji działa w planie App Service lub App Service Environment, można użyć funkcji wyzwalacza innego niż HTTP. Aby funkcje zostały wyzwolone prawidłowo, musisz mieć połączenie z siecią wirtualną z dostępem do zasobu zdefiniowanego w połączeniu wyzwalacza.
 
-Załóżmy na przykład, że chcesz skonfigurować usługę Azure Cosmos DB do akceptowania ruchu tylko z sieci wirtualnej. W takim przypadku należy wdrożyć aplikację funkcji w planie usługi App Service, który zapewnia integrację sieci wirtualnej z tej sieci wirtualnej. Integracja umożliwia wyzwalanie funkcji przez ten zasób usługi Azure Cosmos DB.
+Załóżmy na przykład, że chcesz skonfigurować Azure Cosmos DB, aby akceptować tylko ruch z sieci wirtualnej. W takim przypadku należy wdrożyć aplikację funkcji w planie App Service, która zapewnia integrację sieci wirtualnej z tą siecią wirtualną. Integracja umożliwia wyzwolenie funkcji przez ten Azure Cosmos DB zasób.
 
 ## <a name="hybrid-connections"></a>Połączenia hybrydowe
 
-[Połączenia hybrydowe](../service-bus-relay/relay-hybrid-connections-protocol.md) to funkcja usługi Azure Relay, której można używać do uzyskiwania dostępu do zasobów aplikacji w innych sieciach. Zapewnia dostęp z aplikacji do punktu końcowego aplikacji. Nie można go użyć do uzyskania dostępu do aplikacji. Połączenia hybrydowe są dostępne dla funkcji uruchamianych w systemie Windows we wszystkich oprócz planu zużycia.
+[Połączenia hybrydowe](../service-bus-relay/relay-hybrid-connections-protocol.md) to funkcja Azure Relay, z której można korzystać w celu uzyskania dostępu do zasobów aplikacji w innych sieciach. Zapewnia dostęp z aplikacji do punktu końcowego aplikacji. Nie można używać go do uzyskiwania dostępu do aplikacji. Połączenia hybrydowe jest dostępny dla funkcji uruchamianych w systemie Windows we wszystkich, ale w planie zużycia.
 
-Zgodnie z usługą Azure Functions każde połączenie hybrydowe jest skorelowane z kombinacją pojedynczego hosta i portu TCP. Oznacza to, że punkt końcowy połączenia hybrydowego może znajdować się w dowolnym systemie operacyjnym i dowolnej aplikacji, o ile uzyskujesz dostęp do portu nasłuchującego TCP. Funkcja Połączenia hybrydowe nie wie ani nie dba o to, czym jest protokół aplikacji ani do czego uzyskujesz dostęp. Po prostu zapewnia dostęp do sieci.
+Jak w Azure Functions każde połączenie hybrydowe jest skorelowane z pojedynczym hostem TCP i kombinacją portów. Oznacza to, że punkt końcowy połączenia hybrydowego może znajdować się w dowolnym systemie operacyjnym i dowolnej aplikacji, o ile jest uzyskiwany dostęp do portu nasłuchiwania protokołu TCP. Funkcja Połączenia hybrydowe nie wie ani nie ma informacji o tym, czym jest lub do czego masz dostęp. Zapewnia dostęp do sieci.
 
-Aby dowiedzieć się więcej, zobacz [dokumentację usługi app service dla połączeń hybrydowych](../app-service/app-service-hybrid-connections.md). Te same kroki konfiguracji obsługują usługi Azure Functions.
+Aby dowiedzieć się więcej, zapoznaj się z dokumentacją dotyczącą [App Service połączenia hybrydowe](../app-service/app-service-hybrid-connections.md). Te same kroki konfiguracji obsługują Azure Functions.
 
 >[!IMPORTANT]
-> Połączenia hybrydowe są obsługiwane tylko w planach systemu Windows. Linux nie jest obsługiwany.
+> Połączenia hybrydowe jest obsługiwana tylko w planach systemu Windows. System Linux nie jest obsługiwany.
 
-## <a name="outbound-ip-restrictions"></a>Wychodzące ograniczenia adresów IP
+## <a name="outbound-ip-restrictions"></a>Ograniczenia wychodzącego adresu IP
 
-Wychodzące ograniczenia ip są dostępne w planie Premium, planie usługi app service lub środowisku usługi aplikacji. Ograniczenia ruchu wychodzącego można skonfigurować dla sieci wirtualnej, w której jest wdrażane środowisko usługi App Service.
+Ograniczenia wychodzącego adresu IP są dostępne w planie Premium, planie App Service lub App Service Environment. Można skonfigurować ograniczenia ruchu wychodzącego dla sieci wirtualnej, w której wdrożono App Service Environment.
 
-Po zintegrowaniu aplikacji funkcji w planie Premium lub planie usługi app service z siecią wirtualną, aplikacja może domyślnie nawiązywać połączenia wychodzące z Internetem. Dodając ustawienie `WEBSITE_VNET_ROUTE_ALL=1`aplikacji, można wymusić cały ruch wychodzący do wysłania do sieci wirtualnej, gdzie reguły sieciowej grupy zabezpieczeń mogą być używane do ograniczania ruchu.
+W przypadku integrowania aplikacji funkcji w planie Premium lub planu App Service z siecią wirtualną aplikacja nadal może domyślnie nawiązywać połączenia wychodzące do Internetu. Po dodaniu ustawienia `WEBSITE_VNET_ROUTE_ALL=1`aplikacji wymusisz, aby cały ruch wychodzący był wysyłany do sieci wirtualnej, w którym można używać zasad grupy zabezpieczeń sieci do ograniczania ruchu.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -154,11 +154,11 @@ Po zintegrowaniu aplikacji funkcji w planie Premium lub planie usługi app servi
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o sieci i usłudze Azure Functions:
+Aby dowiedzieć się więcej na temat sieci i Azure Functions:
 
-* [Postępuj zgodnie z samouczkiem na temat rozpoczynania integracji z siecią wirtualną](./functions-create-vnet.md)
-* [Przeczytaj często zadawane pytania dotyczące funkcji sieciowych](./functions-networking-faq.md)
-* [Dowiedz się więcej o integracji sieci wirtualnej z usługą/funkcjami aplikacji](../app-service/web-sites-integrate-with-vnet.md)
+* [Postępuj zgodnie z samouczkiem dotyczącym rozpoczynania pracy z integracją z siecią wirtualną](./functions-create-vnet.md)
+* [Przeczytaj informacje o usłudze Functions — często zadawane pytania](./functions-networking-faq.md)
+* [Dowiedz się więcej o integracji z siecią wirtualną za pomocą App Service/Functions](../app-service/web-sites-integrate-with-vnet.md)
 * [Dowiedz się więcej o sieciach wirtualnych na platformie Azure](../virtual-network/virtual-networks-overview.md)
-* [Włącz więcej funkcji sieciowych i kontroluj za pomocą środowisk usługi app service](../app-service/environment/intro.md)
-* [Łączenie się z poszczególnymi zasobami lokalnymi bez zmian zapory przy użyciu połączeń hybrydowych](../app-service/app-service-hybrid-connections.md)
+* [Włączanie większej liczby funkcji sieciowych i kontroli w środowiskach App Service](../app-service/environment/intro.md)
+* [Nawiąż połączenie z lokalnymi zasobami bez zmian w zaporze przy użyciu Połączenia hybrydowe](../app-service/app-service-hybrid-connections.md)

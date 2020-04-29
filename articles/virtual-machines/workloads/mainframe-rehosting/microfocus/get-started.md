@@ -1,31 +1,31 @@
 ---
-title: Środowiska deweloperne/testowe micro Focus na platformie Azure | Dokumenty firmy Microsoft
-description: Hostuj ponownie obciążenia komputerów mainframe IBM z/OS przy użyciu rozwiązań Micro Focus na maszynach wirtualnych platformy Azure.Rehost your IBM z/OS mainframe workloads using Micro Focus solutions on Azure virtual machines (VMs).
+title: Tworzenie środowisk deweloperskich i testowych na platformie Azure | Microsoft Docs
+description: Przehostaj obciążenia systemu mainframe firmy IBM z/OS przy użyciu rozwiązań Micro Focus na maszynach wirtualnych platformy Azure.
 author: njray
 ms.author: sread
 ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 62d3f7cc75a887605cdd3c19ac2e45990e541d5e
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80410982"
 ---
-# <a name="micro-focus-devtest-environments-on-azure"></a>Środowiska deweloperne/testowe micro Focus na platformie Azure
+# <a name="micro-focus-devtest-environments-on-azure"></a>Tworzenie środowisk deweloperskich i testowych na platformie Azure
 
-Wprowadzenie na platformę Azure ze środowiskiem deweloperskim i testowym to świetny sposób na zwiększenie wysiłków modernizacyjnych. Aplikacje mainframe, które zależą od starszych systemów, takich jak IBM CICS (Customer Information Control System) i IMS (Information Management System) mogą być ponownie hostowane na platformie Azure przy użyciu rozwiązań partnerskich.
+Wprowadzenie do platformy Azure za pomocą środowiska deweloperskiego i testowego jest doskonałym sposobem na zwiększenie wysiłków modernizacji. Aplikacje mainframe, które są zależne od starszych systemów, takich jak IBM CICS (system kontroli informacji o klientach) i IMS (system zarządzania informacjami), można obsługiwać na platformie Azure przy użyciu rozwiązań partnerskich.
 
-Micro Focus nawiązał współpracę z firmą Microsoft, aby zaoferować atrakcyjne narzędzia do migracji i hostowania mainframe. Aplikacje mainframe można uruchamiać w scenariuszach programowania, testowania i produkcji na platformie Azure i platformie Microsoft Windows.
+Firma Micro Focus opracowała współpracę z firmą Microsoft w celu oferowania atrakcyjnych migracji komputerów mainframe i rehostowania narzędzi. Można uruchamiać aplikacje mainframe w ramach scenariuszy tworzenia, testowania i produkcji na platformie Azure i na platformie Microsoft Windows.
 
-Micro Focus oferuje rozwiązania do ponownego hostowania i testowania, które rozszerzają istniejące aplikacje biznesowe COBOL i PL/I na platformę Azure.
+Funkcja Micro Focus oferuje rozwiązania do testowania i przeprowadzenia testów, które umożliwiają wdrażanie istniejących aplikacji COBOL i PL/I w systemie Azure.
 
 > [!NOTE]
-> Wkrótce: Instrukcje dotyczące konfigurowania [programu Micro Focus Enterprise Server 5.0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) na maszynach wirtualnych platformy Azure.
+> Wkrótce: instrukcje dotyczące konfigurowania programu [Micro Focus Enterprise Server 5,0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) na maszynach wirtualnych platformy Azure.
 
 **Następne kroki**
 
-- [Instalowanie programu Micro Focus Enterprise Server 4.0 i Enterprise Developer 4.0 na platformie Azure](./set-up-micro-focus-azure.md)
-- [Konfigurowanie programu Micro Focus CICS BankDemo dla programu Micro Focus Enterprise Developer 4.0 na platformie Azure](./demo.md)
-- [Uruchamianie serwera enterprise server w kontenerach platformy Docker na platformie Azure](./run-enterprise-server-container.md)
+- [Instalowanie programu Micro Focus Enterprise Server 4,0 i Enterprise Developer 4,0 na platformie Azure](./set-up-micro-focus-azure.md)
+- [Konfigurowanie mikrofokusu CICS BankDemo dla deweloperów Enterprise Developer 4,0 na platformie Azure](./demo.md)
+- [Uruchamianie serwera korporacyjnego w kontenerach platformy Docker na platformie Azure](./run-enterprise-server-container.md)

@@ -1,7 +1,7 @@
 ---
-title: Konfigurowanie limitu czasu bezczynnego modułu równoważenia obciążenia TCP na platformie Azure
+title: Konfigurowanie limitu czasu bezczynności protokołu TCP modułu równoważenia obciążenia na platformie Azure
 titleSuffix: Azure Load Balancer
-description: W tym artykule dowiesz się, jak skonfigurować limit czasu bezczynny usługi Azure Load Balance BalanceR TCP.
+description: W tym artykule dowiesz się, jak skonfigurować Azure Load Balancer limit czasu bezczynności protokołu TCP.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2020
 ms.author: allensu
 ms.openlocfilehash: d0bb73b58aa23e5f7eb784772acf37b05df463ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79456832"
 ---
-# <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Konfigurowanie ustawień limitu czasu bezczynnego TCP dla modułu równoważenia obciążenia platformy Azure
+# <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Skonfiguruj ustawienia limitu czasu bezczynności protokołu TCP dla Azure Load Balancer
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -28,22 +28,22 @@ ms.locfileid: "79456832"
 
 Jeśli postanowisz zainstalować program PowerShell i używać go lokalnie, ten artykuł wymaga modułu Azure PowerShell w wersji 5.4.1 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
 
-## <a name="tcp-idle-timeout"></a>Limit czasu bezczynnego TCP
-Moduł równoważenia obciążenia platformy Azure ma ustawienie limitu czasu bezczynności od 4 minut do 30 minut. Domyślnie jest ustawiona na 4 minuty. Jeśli okres braku aktywności jest dłuższy niż wartość limitu czasu, nie ma żadnej gwarancji, że sesja TCP lub HTTP jest utrzymywana między klientem a usługą w chmurze.
+## <a name="tcp-idle-timeout"></a>Limit czasu bezczynności protokołu TCP
+Azure Load Balancer ma ustawienie limitu czasu bezczynności wynoszące 4 minuty do 30 minut. Wartość domyślna to 4 minuty. Jeśli okres braku aktywności jest dłuższy niż wartość limitu czasu, nie ma gwarancji, że sesja TCP lub HTTP jest utrzymywana między klientem a usługą w chmurze.
 
-Po zamknięciu połączenia aplikacja kliencka może otrzymać następujący komunikat o błędzie: "Połączenie podstawowe zostało zamknięte: Połączenie, które miało zostać zachowane przy życiu, zostało zamknięte przez serwer".
+Gdy połączenie zostanie zamknięte, aplikacja kliencka może otrzymać następujący komunikat o błędzie: "Połączenie podstawowe zostało zamknięte: połączenie, które było oczekiwać aktywności, zostało zamknięte przez serwer".
 
-Powszechną praktyką jest użycie TCP keep-alive. Praktyka ta utrzymuje połączenie aktywne przez dłuższy czas. Aby uzyskać więcej informacji, zobacz te [przykłady .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Z włączoną funkcją keep-alive pakiety są wysyłane w okresach braku aktywności w połączeniu. Pakiety keep-alive upewnij się, że wartość limitu czasu bezczynność nie jest osiągnięty i połączenie jest utrzymywane przez długi okres.
+Typowym zastosowaniem jest utrzymywanie aktywności protokołu TCP. Ta metoda utrzymuje, że połączenie jest aktywne przez dłuższy czas. Aby uzyskać więcej informacji, zobacz te [przykłady dla platformy .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Gdy włączona jest funkcja Keep-Alive, pakiety są wysyłane w trakcie okresów braku aktywności w ramach połączenia. Pakiety Keep-Alive zapewniają, że wartość limitu czasu bezczynności nie zostanie osiągnięta, a połączenie jest utrzymywane przez długi czas.
 
-Ustawienie działa tylko dla połączeń przychodzących. Aby uniknąć utraty połączenia, skonfiguruj tcp keep-alive z interwałem mniejszym niż ustawienie limitu czasu bezczynnego lub zwiększyć wartość limitu czasu bezczynnego. Aby obsługiwać te scenariusze, dodano obsługę konfigurowalny limit czasu bezczynności.
+Ustawienie działa tylko dla połączeń przychodzących. Aby uniknąć utraty połączenia, skonfiguruj wartość "Keep-Alive TCP" z interwałem mniejszym niż ustawienie limitu czasu bezczynności lub Zwiększ limit czasu bezczynności. Aby można było obsługiwać te scenariusze, dodano obsługę limitu czasu bezczynności, który można skonfigurować.
 
-TCP keep-alive działa w scenariuszach, w których żywotność baterii nie jest ograniczeniem. Nie jest zalecany w przypadku aplikacji mobilnych. Korzystanie z TCP keep-alive w aplikacji mobilnej może szybciej rozładować baterię urządzenia.
+Utrzymywanie aktywności TCP działa w scenariuszach, w których czas pracy baterii nie jest ograniczeniem. Nie jest to zalecane w przypadku aplikacji mobilnych. Korzystanie z funkcji utrzymywania połączenia TCP w aplikacji mobilnej umożliwia szybsze opróżnianie baterii urządzenia.
 
 ![Limit czasu TCP](./media/load-balancer-tcp-idle-timeout/image1.png)
 
-W poniższych sekcjach opisano sposób zmiany ustawień limitu czasu bezczynnego dla publicznych zasobów ip i modułu równoważenia obciążenia.
+W poniższych sekcjach opisano, jak zmienić ustawienia limitu czasu bezczynności dla zasobów publicznego adresu IP i modułu równoważenia obciążenia.
 
-## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Konfigurowanie limitu czasu TCP dla publicznego adresu IP na poziomie wystąpienia do 15 minut
+## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Skonfiguruj limit czasu protokołu TCP dla publicznego adresu IP na poziomie wystąpienia na 15 minut
 
 ```azurepowershell-interactive
 $publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
@@ -51,11 +51,11 @@ $publicIP.IdleTimeoutInMinutes = "15"
 Set-AzPublicIpAddress -PublicIpAddress $publicIP
 ```
 
-Parametr `IdleTimeoutInMinutes` jest opcjonalny. Jeśli nie jest ustawiona, domyślny limit czasu wynosi 4 minuty. Dopuszczalny zakres limitu czasu wynosi od 4 do 30 minut.
+Parametr `IdleTimeoutInMinutes` jest opcjonalny. Jeśli nie jest ustawiona, domyślny limit czasu wynosi 4 minuty. Akceptowalny zakres limitu czasu wynosi od 4 do 30 minut.
 
-## <a name="set-the-tcp-timeout-on-a-load-balanced-rule-to-15-minutes"></a>Ustawianie limitu czasu TCP dla reguły równoważenia obciążenia na 15 minut
+## <a name="set-the-tcp-timeout-on-a-load-balanced-rule-to-15-minutes"></a>Ustaw limit czasu TCP dla reguły ze zrównoważonym obciążeniem na 15 minut
 
-Aby ustawić limit czasu bezczynnego dla modułu równoważenia obciążenia, "IdleTimeoutInMinutes" jest ustawiona na regule równoważenia obciążenia. Przykład:
+Aby ustawić limit czasu bezczynności dla modułu równoważenia obciążenia, wartość "IdleTimeoutInMinutes" jest ustawiana dla reguły ze zrównoważonym obciążeniem. Przykład:
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer -Name "MyLoadBalancer" -ResourceGroup "MyResourceGroup"
@@ -63,8 +63,8 @@ $lb | Set-AzLoadBalancerRuleConfig -Name myLBrule -IdleTimeoutInMinutes 15
 ```
 ## <a name="next-steps"></a>Następne kroki
 
-[Omówienie wewnętrznego modułu równoważenia obciążenia](load-balancer-internal-overview.md)
+[Przegląd wewnętrznego modułu równoważenia obciążenia](load-balancer-internal-overview.md)
 
-[Rozpoczęcie konfigurowania modułu równoważenia obciążenia skierowanego do Internetu](quickstart-create-standard-load-balancer-powershell.md)
+[Wprowadzenie do konfigurowania modułu równoważenia obciążenia dostępnego z Internetu](quickstart-create-standard-load-balancer-powershell.md)
 
 [Configure a load balancer distribution mode](load-balancer-distribution-mode.md) (Konfigurowanie trybu dystrybucji modułu równoważenia obciążenia)

@@ -1,6 +1,6 @@
 ---
-title: Zgrowawienie
-description: Dowiedz się więcej o korzystaniu z przelokalizacji grubej, aby znaleźć kotwice w pobliżu.
+title: Duże przelokalizowanie
+description: Dowiedz się więcej o korzystaniu ze zbyt dużej lokalizacji, aby znaleźć kotwice w sąsiedztwie.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -9,35 +9,35 @@ ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 4c1604eaad1ebdedf6a360a647fe5b9f95c829c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76844398"
 ---
 # <a name="coarse-relocalization"></a>Zgrubna ponowna lokalizacja
 
-Gruba relokalizacja to funkcja, która zapewnia wstępną odpowiedź na pytanie: *Gdzie jest teraz moje urządzenie / Jakie treści należy obserwować?* Odpowiedź nie jest precyzyjna, ale zamiast tego jest w formie: *Jesteś blisko tych kotwic; spróbuj zlokalizować jedną z nich*.
+Bardzo duże relokalizacja to funkcja, która zapewnia wstępną odpowiedź na pytanie: *gdzie jest teraz moje urządzenie/jakie treści należy zaobserwować?* Odpowiedź nie jest precyzyjna, ale zamiast tego jest w postaci: znajdują się w *pobliżu tych kotwic; Spróbuj zlokalizować jeden z nich*.
 
-Grubozwiązkowa relokalizacja polega na kojarzeniu różnych odczytów czujników na urządzeniu zarówno z tworzeniem, jak i wykonywaniem zapytań o kotwice. W scenariuszach zewnętrznych dane z czujników są zazwyczaj położeniem urządzenia GPS (Global Positioning System). Jeśli gps nie jest dostępny lub zawodne (np. w pomieszczeniach), dane czujnika składają się z punktów dostępu WiFi i sygnałów nawigacyjnych Bluetooth w zasięgu. Wszystkie zebrane dane z czujników przyczyniają się do utrzymania indeksu przestrzennego, który jest używany przez kotwice przestrzenne platformy Azure do szybkiego określenia zakotwiczeń, które znajdują się w odległości około 100 metrów od urządzenia.
+Bardzo duże przeszukiwanie działa przez skojarzenie różnych odczytów czujnika na urządzeniu z tworzeniem i wykonywaniem zapytań o kotwice. W przypadku scenariuszy z zewnątrz dane czujnika są zwykle pozycjami GPS (GPS) urządzenia. Gdy GPS jest niedostępny lub niezawodny (na przykład w przypadku braku drzwi), dane czujnika składają się z punktów dostępu Wi-Fi i sygnałów nawigacyjnych Bluetooth w zakresie. Wszystkie zebrane dane czujnika przyczyniają się do utrzymania indeksu przestrzennego, który jest używany przez kotwice przestrzenne platformy Azure, aby szybko określić kotwice mieszczące się w około 100 metrów na urządzeniu.
 
-Szybkie wyszukiwanie kotew dzięki zgęstnej relokalizacji upraszcza rozwój aplikacji wspieranych przez światowe kolekcje (powiedzmy milionów geo-rozproszonych) kotew. Złożoność zarządzania kotwicą jest ukryta, co pozwala skupić się bardziej na niesamowitej logice aplikacji. Wszystkie kotwicy podnoszenia ciężkich jest wykonywana za kulisami przez Azure Spatial Anchors.
+Szybkie wyszukiwanie kotwic z obsługą ogromnej relokalizacji upraszcza tworzenie aplikacji, które są obsługiwane przez światowe kolekcje z założeniami (np. milionów elementów rozproszonych geograficznie). Złożoność zarządzania zakotwiczeniam jest ukryta, co pozwala skupić się na większej ostrości w logice aplikacji. Wszystkie duże zakotwiczenie są wykonywane w tle przez kotwice przestrzenne platformy Azure.
 
-## <a name="collected-sensor-data"></a>Zebrane dane z czujników
+## <a name="collected-sensor-data"></a>Zebrane dane czujnika
 
-Dane czujnika, które można wysłać do usługi kotwiczenia, są jedną z następujących czynności:
+Dane czujnika, które można wysłać do usługi zakotwiczenia, to jeden z następujących:
 
-* Pozycja GPS: szerokość geograficzna, długość geograficzna, wysokość.
-* Siła sygnału punktów dostępu WiFi w zasięgu.
-* Siła sygnału sygnału sygnału Bluetooth w zasięgu.
+* Pozycja GPS: Szerokość geograficzna, Długość geograficzna, Wysokość.
+* Siła sygnału punktów dostępu Wi-Fi w zakresie.
+* Siła sygnału sygnałów nawigacyjnych Bluetooth w zakresie.
 
-Ogólnie rzecz biorąc, aplikacja będzie musiała uzyskać uprawnienia specyficzne dla urządzenia, aby uzyskać dostęp do danych GPS, Wi-Fi lub BLE. Ponadto niektóre z powyższych danych czujników nie są dostępne zgodnie z projektem na niektórych platformach. Aby uwzględnić te sytuacje, zbieranie danych z czujników jest opcjonalne i jest domyślnie wyłączone.
+Ogólnie rzecz biorąc aplikacja będzie musiała uzyskać uprawnienia specyficzne dla urządzenia, aby uzyskać dostęp do danych GPS, Wi-Fi lub z tabeli. Ponadto niektóre z powyższych danych czujników nie są dostępne przez projektowanie na niektórych platformach. Aby uwzględnić te sytuacje, kolekcja danych czujników jest opcjonalna i jest domyślnie wyłączona.
 
-## <a name="set-up-the-sensor-data-collection"></a>Konfigurowanie zbierania danych czujników
+## <a name="set-up-the-sensor-data-collection"></a>Konfigurowanie zbierania danych z czujnika
 
-Zacznijmy od utworzenia dostawcy odcisków palców czujnika i uświadomienia sesji:
+Zacznijmy od utworzenia dostawcy odcisku palca czujnika i przeprowadzenia dla niego informacji o tej sesji:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```csharp
 // Create the sensor fingerprint provider
@@ -50,7 +50,7 @@ cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
 cloudSpatialAnchorSession.LocationProvider = sensorProvider;
 ```
 
-# <a name="objc"></a>[ObjC ( ObjC )](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 // Create the sensor fingerprint provider
@@ -118,27 +118,27 @@ cloudSpatialAnchorSession.LocationProvider(sensorProvider);
 ```
 ---
 
-Następnie musisz zdecydować, które czujniki chcesz użyć do grubej relokalizacji. Ta decyzja jest specyficzna dla aplikacji, którą opracowujesz, ale zalecenia w poniższej tabeli powinny dać dobry punkt wyjścia:
+Następnie należy zdecydować, które czujniki mają być używane w przypadku niedużej lokalizacji. Ta decyzja jest specyficzna dla opracowywanej aplikacji, ale zalecenia w poniższej tabeli powinny zapewnić dobry punkt początkowy:
 
 
-|             | Pomieszczeniach | Zewnątrz |
+|             | Brak drzwi | Na zewnątrz |
 |-------------|---------|----------|
-| Gps         | Wyłączone | Włączone |
-| Sieć Wi-Fi        | Włączone | Wł.(opcjonalnie) |
-| Sygnalizatory BLE | Włączone (opcjonalnie z zastrzeżeniami, patrz poniżej) | Wyłączone |
+| GPS         | Wyłączone | Włączone |
+| Sieć Wi-Fi        | Włączone | On (opcjonalnie) |
+| Sygnały nawigacyjne dotyczące beli | On (opcjonalnie z zastrzeżeniami, zobacz poniżej) | Wyłączone |
 
 
-### <a name="enabling-gps"></a>Włączanie gps
+### <a name="enabling-gps"></a>Włączanie GPS
 
-Zakładając, że aplikacja ma już uprawnienia dostępu do pozycji GPS urządzenia, można skonfigurować azure przestrzenne kotwice, aby go używać:
+Przy założeniu, że aplikacja ma już uprawnienia dostępu do pozycji GPS urządzenia, można skonfigurować kotwice przestrzenne platformy Azure, aby z niej korzystać:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.GeoLocationEnabled = true;
 ```
 
-# <a name="objc"></a>[ObjC ( ObjC )](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 ASASensorCapabilities *sensors = locationProvider.sensors;
@@ -175,20 +175,20 @@ sensors.GeoLocationEnabled(true);
 
 ---
 
-Podczas korzystania z GPS w aplikacji należy pamiętać, że odczyty dostarczane przez sprzęt są zazwyczaj:
+W przypadku korzystania z GPS w aplikacji należy pamiętać, że odczyty udostępniane przez sprzęt są zwykle następujące:
 
-* asynchronicznego i niskiej częstotliwości (poniżej 1 Hz).
-* zawodne / hałaśliwe (średnio 7-m odchylenie standardowe).
+* częstotliwość asynchroniczna i niska (mniej niż 1 Hz).
+* niezawodne/zakłócenia (średnio 7-m odchylenie standardowe).
 
-Ogólnie rzecz biorąc, zarówno system operacyjny urządzenia, jak i kotwice przestrzenne platformy Azure wykonają filtrowanie i ekstrapolację na nieprzetworzonym sygnale GPS, próbując ograniczyć te problemy. To dodatkowe przetwarzanie wymaga dodatkowego czasu na zbieżność, więc aby uzyskać najlepsze wyniki, należy spróbować:
+Ogólnie rzecz biorąc, zarówno system operacyjny, jak i kotwice przestrzenne platformy Azure będą wykonywać pewne filtrowanie i ekstrapolację na nieprzetworzonym sygnale GPS, próbując wyeliminować te problemy. To dodatkowe przetwarzanie wymaga dodatkowego czasu na zbieżność, dlatego w celu uzyskania najlepszych wyników należy spróbować:
 
-* utworzyć jeden dostawca odcisków palców czujnika jak najwcześniej w aplikacji
-* utrzymywanie przy życiu dostawcy odcisków palców czujnika między wieloma sesjami
-* udostępnianie dostawcy odcisków palców czujnika między wieloma sesjami
+* Utwórz dostawcę odcisku palca czujnika jako wczesny, jak to możliwe w aplikacji
+* utrzymywanie dostawcy odcisków palca czujnika między wieloma sesjami
+* Udostępnianie dostawcy odcisków palca czujnika między wieloma sesjami
 
-Jeśli planujesz używać dostawcy odcisków palców czujnika poza sesją kotwicy, upewnij się, że uruchomisz go przed żądaniem oszacowania czujnika. Na przykład poniższy kod zajmie się aktualizowaniem pozycji urządzenia na mapie w czasie rzeczywistym:
+Jeśli zamierzasz używać dostawcy odcisków palca czujnika poza sesją zakotwiczenia, przed zażądaniem oszacowania czujnika upewnij się, że został on uruchomiony. Na przykład poniższy kod zajmie się aktualizacją położenia urządzenia na mapie w czasie rzeczywistym:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```csharp
 // Game about to start, start tracking the sensors
@@ -211,7 +211,7 @@ while (m_isRunning)
 sensorProvider.Stop();
 ```
 
-# <a name="objc"></a>[ObjC ( ObjC )](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 // Game about to start, start tracking the sensors
@@ -316,15 +316,15 @@ sensorProvider.Stop();
 
 ### <a name="enabling-wifi"></a>Włączanie sieci Wi-Fi
 
-Zakładając, że aplikacja ma już uprawnienia dostępu do stanu WiFi urządzenia, można skonfigurować zakotwiczenia przestrzenne platformy Azure, aby z niej korzystać:
+Przy założeniu, że aplikacja ma już uprawnienia dostępu do stanu sieci Wi-Fi urządzenia, można skonfigurować kotwice przestrzenne platformy Azure do korzystania z niej:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.WifiEnabled = true;
 ```
 
-# <a name="objc"></a>[ObjC ( ObjC )](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 ASASensorCapabilities *sensors = locationProvider.sensors;
@@ -361,28 +361,28 @@ sensors.WifiEnabled(true);
 
 ---
 
-Podczas korzystania z sieci Wi-Fi w aplikacji należy pamiętać, że odczyty dostarczane przez sprzęt są zazwyczaj:
+W przypadku korzystania z sieci Wi-Fi w aplikacji należy pamiętać, że odczyty udostępniane przez sprzęt są zwykle następujące:
 
-* asynchronicznego i niskiej częstotliwości (poniżej 0,1 Hz).
-* potencjalnie ograniczona na poziomie systemu operacyjnego.
-* zawodne / hałaśliwe (średnio odchylenie standardowe 3-dBm).
+* częstotliwość asynchroniczna i niska (mniej niż 0,1 Hz).
+* możliwe ograniczenie na poziomie systemu operacyjnego.
+* niezawodne/zakłócenia (średnio 3-dBm odchylenie standardowe).
 
-Zakotwiczenia przestrzenne platformy Azure spróbuje utworzyć mapę siły sygnału sieci Wi-Fi podczas sesji, próbując ograniczyć te problemy. Aby uzyskać najlepsze wyniki, należy spróbować:
+Kotwice przestrzenne platformy Azure podejmują próbę skompilowania odfiltrowanej mapy siły sygnału sieci Wi-Fi podczas sesji w celu rozwiązania tych problemów. Aby uzyskać najlepsze wyniki, należy spróbować:
 
-* utworzyć sesję na długo przed umieszczeniem pierwszej kotwicy.
-* utrzymać sesję przy życiu tak długo, jak to możliwe (to jest, utworzyć wszystkie kotwice i kwerendy w jednej sesji).
+* przed wprowadzeniem pierwszej kotwicy utwórz sesję.
+* Utrzymuj sesję aktywności tak długo, jak to możliwe (to oznacza, że wszystkie kotwice i zapytania są tworzone w jednej sesji).
 
-### <a name="enabling-bluetooth-beacons"></a>Włączanie sygnałów nawigacyjnych Bluetooth
+### <a name="enabling-bluetooth-beacons"></a>Włączanie sygnałów Bluetooth
 
-Zakładając, że aplikacja ma już uprawnienia dostępu do stanu Bluetooth urządzenia, można skonfigurować zakotwiczenia przestrzenne platformy Azure, aby z niej korzystać:
+Przy założeniu, że aplikacja ma już uprawnienia dostępu do stanu Bluetooth urządzenia, można skonfigurować kotwice przestrzenne platformy Azure do korzystania z niej:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.BluetoothEnabled = true;
 ```
 
-# <a name="objc"></a>[ObjC ( ObjC )](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 ASASensorCapabilities *sensors = locationProvider.sensors;
@@ -419,13 +419,13 @@ sensors.BluetoothEnabled(true);
 
 ---
 
-Sygnalizatory są zazwyczaj wszechstronnymi urządzeniami, w których można skonfigurować wszystko — w tym identyfikatory UUID i adresy MAC. Ta elastyczność może być problematyczne dla azure przestrzenne kotwice, ponieważ uważa, że sygnały nawigacyjne są jednoznacznie identyfikowane przez ich identyfikatory UUID. Niezapewnienie tej wyjątkowości najprawdopodobniej spowoduje przestrzenne tunele czasoprzestrzenniowe. Aby uzyskać najlepsze wyniki, należy:
+Sygnały nawigacyjne są zazwyczaj uniwersalnymi urządzeniami, gdzie wszystko — w tym Identyfikatory UUID i adresy MAC — można skonfigurować. Ta elastyczność może być przyczyną problemów z zakotwiczeniami przestrzennymi platformy Azure, ponieważ uważają sygnały, które są jednoznacznie identyfikowane przez ich identyfikatory UUID. Niepowodzenie, aby upewnić się, że unikatowość będzie prawdopodobnie powodowało Wormholes przestrzenne. Aby uzyskać najlepsze wyniki, należy:
 
-* przypisać unikatowe identyfikatory UUD do sygnałów nawigacyjnych.
-* wdrożyć je — zazwyczaj w regularnych wzorców, takich jak siatka.
-* przekazać listę unikalnych identyfikatorów UUI DO dostawcy odcisków palców czujnika:
+* Przypisywanie unikatowych identyfikatorów UUID do sygnałów nawigacyjnych.
+* Wdrażaj je — zwykle w zwykłych wzorcach, takich jak siatka.
+* Przekaż listę unikatowych identyfikatorów UUID sygnałów do dostawcy odcisków palca czujnika:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.KnownBeaconProximityUuids = new[]
@@ -436,7 +436,7 @@ sensorProvider.Sensors.KnownBeaconProximityUuids = new[]
 };
 ```
 
-# <a name="objc"></a>[ObjC ( ObjC )](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 NSArray *uuids = @[@"22e38f1a-c1b3-452b-b5ce-fdb0f39535c1", @"a63819b9-8b7b-436d-88ec-ea5d8db2acb0"];
@@ -491,15 +491,15 @@ sensors.KnownBeaconProximityUuids(uuids);
 
 ---
 
-Zakotwiczenia przestrzenne platformy Azure będą śledzić tylko sygnały nawigacyjne Bluetooth, które znajdują się na liście znanych identyfikatorów UUID zbliżeniową sygnału sygnalizatora. Złośliwe sygnały nawigacyjne zaprogramowane tak, aby zezwalały na identyfikatory UUID, mogą jednak negatywnie wpłynąć na jakość usługi. Z tego powodu należy używać sygnalizatorów tylko w wyselekcjonowanych przestrzeniach, w których można kontrolować ich wdrożenie.
+Kotwice przestrzenne platformy Azure śledzą sygnały nawigacyjne Bluetooth, które znajdują się w znanej liście identyfikatorów UUID sąsiedztwa. Złośliwe sygnały są programowane w taki sposób, aby na liście identyfikatorów UUID mogły mieć negatywny wpływ na jakość usługi. Z tego powodu należy używać sygnałów nawigacyjnych tylko w nadzorowanych miejscach, w których można kontrolować ich wdrażanie.
 
-## <a name="querying-with-sensor-data"></a>Wykonywanie zapytań z danymi z czujnika
+## <a name="querying-with-sensor-data"></a>Wykonywanie zapytań przy użyciu danych czujników
 
-Po utworzeniu kotwic ze skojarzonymi danymi z czujników można rozpocząć ich pobieranie za pomocą odczytów czujników zgłoszonych przez urządzenie. Nie musisz już dostarczać usługi listy znanych kotwic, które oczekujesz od niego , zamiast tego po prostu poinformuj usługę o lokalizacji urządzenia zgłoszonej przez wbudowane czujniki. Kotwice przestrzenne platformy Azure następnie dowiedzieć się zestaw zakotwiczeń w pobliżu urządzenia i spróbuj wizualnie dopasować je.
+Po utworzeniu kotwic ze skojarzonymi danymi czujnika można rozpocząć pobieranie ich przy użyciu odczytów czujnika zgłoszonych przez urządzenie. Nie musisz już podawać usługi za pomocą listy znanych kotwic, które zamierzasz znaleźć — zamiast tego wystarczy, aby usługa wiedzieli lokalizację urządzenia jako zgłoszoną przez czujniki dołączania. Dzięki zakotwiczeniem przestrzennym platformy Azure zostanie przedstawiony zestaw kotwic blisko urządzenia i podjęto próbę wizualnego dopasowania go.
 
-Aby zapytania korzystały z danych z czujnika, zacznij od utworzenia kryteriów "w pobliżu urządzenia":
+Aby zapytania używały danych z czujnika, Zacznij od utworzenia kryterium "blisko urządzenia":
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```csharp
 NearDeviceCriteria nearDeviceCriteria = new NearDeviceCriteria();
@@ -514,7 +514,7 @@ anchorLocateCriteria = new AnchorLocateCriteria();
 anchorLocateCriteria.NearDevice = nearDeviceCriteria;
 ```
 
-# <a name="objc"></a>[ObjC ( ObjC )](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 ASANearDeviceCriteria *nearDeviceCriteria = [[ASANearDeviceCriteria alloc] init];
@@ -592,19 +592,19 @@ anchorLocateCriteria.NearDevice(nearDeviceCriteria);
 
 ---
 
-Parametr `DistanceInMeters` określa, jak daleko będziemy eksplorować wykres zakotwiczenia, aby pobrać zawartość. Załóżmy na przykład, że zapełniłeś trochę miejsca kotwicami o stałej gęstości 2 co metr. Ponadto kamera w urządzeniu obserwuje pojedynczą kotwicę, a usługa pomyślnie ją zlokalizowała. Najprawdopodobniej chcesz pobrać wszystkie kotwice, które umieściłeś w pobliżu, a nie pojedynczą kotwicę, którą aktualnie obserwujesz. Zakładając, że umieszczone kotwice są połączone na wykresie, usługa może pobrać wszystkie pobliskie kotwice, podążając za krawędziami wykresu. Ilość wykresu przechodzi przez przechodzenie `DistanceInMeters`wykonane jest kontrolowana przez ; otrzymasz wszystkie kotwice podłączone do tej, którą znajdujesz, `DistanceInMeters`które są bliżej niż .
+`DistanceInMeters` Parametr określa, jak daleko analizujemy Graf zakotwiczony do pobierania zawartości. Przyjęto założenie, że na przykład wypełniono miejsce z kotwicami o stałej gęstości wynoszącej 2 każdy licznik. Dodatkowo aparat na urządzeniu obsłużył jedną kotwicę, a usługa została pomyślnie umieszczona w usłudze. Najprawdopodobniej interesuje Cię pobieranie wszystkich kotwic, które zostały umieszczone w pobliżu, a nie z pojedynczej kotwicy, która jest aktualnie zaobserwowania. Przy założeniu, że kotwice zostały połączone w grafie, usługa może pobrać wszystkie kotwice w pobliżu, postępując zgodnie z krawędziami na wykresie. Ilość wykonywanego przechodzenia wykresu jest kontrolowana przez `DistanceInMeters`program; otrzymasz wszystkie kotwice połączone z tym, że są one bliżej siebie `DistanceInMeters`.
 
-Należy pamiętać, że `MaxResultCount` duże wartości dla mogą negatywnie wpłynąć na wydajność. Ustaw go na rozsądną wartość dla aplikacji.
+Należy pamiętać, że duże wartości dla `MaxResultCount` mogą negatywnie wpłynąć na wydajność. Ustaw ją na wartość rozsądną dla aplikacji.
 
-Na koniec musisz poinformować sesję, aby użyć wyszukiwania opartego na czujnikach:
+Na koniec należy poinformować sesję, aby używała wyszukiwania opartego na czujnikach:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```csharp
 cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
 ```
 
-# <a name="objc"></a>[ObjC ( ObjC )](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 [cloudSpatialAnchorSession createWatcher:anchorLocateCriteria];
@@ -638,42 +638,42 @@ cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
 
 ## <a name="expected-results"></a>Oczekiwane wyniki
 
-Urządzenia GPS klasy konsumenckiej są zazwyczaj dość nieprecyzyjne. Badanie przeprowadzone przez [Zandenbergen i Barbeau (2011)][6] raportuje medianą dokładności telefonów komórkowych z wspomaganym GPS (A-GPS) na około 7 metrów - dość dużą wartość do zignorowania! Aby uwzględnić te błędy pomiarowe, usługa traktuje kotwice jako rozkład prawdopodobieństwa w przestrzeni GPS. Jako takie, kotwica jest teraz obszar przestrzeni, który najprawdopodobniej (czyli z ponad 95% zaufania) zawiera swoją prawdziwą, nieznaną pozycję GPS.
+Urządzenia GPS klasy konsumenckiej są zwykle całkiem nieprecyzyjne. Badania przez [Zandenbergen i Barbeau (2011)][6] umożliwiają raportowanie średniej dokładności telefonów komórkowych z obsługą GPS (a-GPS) do około 7 metrów — dość dużej wartości do zignorowania. Aby uwzględnić te błędy pomiarów, usługa traktuje kotwice jako rozkład prawdopodobieństwa w przestrzeni GPS. W związku z tym zakotwiczenie jest teraz regionem obszaru, który najprawdopodobniej (czyli z ponad 95% pewnością) zawiera jego prawdziwe, nieznane położenie GPS.
 
-To samo rozumowanie jest stosowane podczas wykonywania zapytań z GPS. Urządzenie jest reprezentowane jako kolejny przestrzenny obszar zaufania wokół swojej prawdziwej, nieznanej pozycji GPS. Odkrywanie pobliskich kotwic przekłada się na zwykłe znajdowanie kotwic z obszarami zaufania *wystarczająco blisko* regionu zaufania urządzenia, jak pokazano na poniższym obrazku:
+Te same przyczyny są stosowane podczas wykonywania zapytań przy użyciu GPS. Urządzenie jest reprezentowane jako inny region zaufania przestrzennego wokół jego prawdziwej, nieznanej pozycji GPS. Odnajdowanie kotwic w pobliżu jest tłumaczone na po prostu znalezienie kotwic z regionem zaufania *wystarczająco blisko* obszaru pewności urządzenia, jak pokazano na poniższej ilustracji:
 
-![Wybór kandydatów kotwicy z GPS](media/coarse-reloc-gps-separation-distance.png)
+![Wybór kandydatów zakotwiczenia przy użyciu GPS](media/coarse-reloc-gps-separation-distance.png)
 
-Dokładność sygnału GPS, zarówno podczas tworzenia kotwicy, jak i podczas zapytań, ma duży wpływ na zestaw zwróconych kotwic. W przeciwieństwie do zapytań opartych na WiFi / beacons rozważy wszystkie kotwice, które mają co najmniej jeden punkt dostępu / beacon wspólnego z zapytaniem. W tym sensie wynik zapytania opartego na WiFi / beacons jest w większości określany przez fizyczny zasięg punktów dostępu / sygnalizatorów i przeszkód środowiskowych.
+Dokładność sygnału GPS, zarówno przy tworzeniu kotwic, jak i podczas zapytań, ma duży wpływ na zestaw zwracanych kotwic. W przeciwieństwie do zapytań opartych na sieci Wi-Fi/nadajnikach wszystkie kotwice, które mają co najmniej jeden punkt dostępu/sygnalizator wspólnych w zapytaniu. W tym sensie wynik zapytania opartego na sieci Wi-Fi/sygnałów jest głównie określony przez fizyczny zakres punktów dostępu/sygnałów nawigacyjnych i przeszkód środowiskowych.
 
-Poniższa tabela szacuje oczekiwaną przestrzeń wyszukiwania dla każdego typu czujnika:
+W poniższej tabeli szacuje oczekiwany obszar wyszukiwania dla każdego typu czujnika:
 
-| Czujnik      | Promień przestrzeni wyszukiwania (ok.) | Szczegóły |
+| Czujnik      | Promień obszaru wyszukiwania (w przybliżeniu) | Szczegóły |
 |-------------|:-------:|---------|
-| Gps         | 20 m - 30 m | Określa niepewność GPS wśród innych czynników. Podane liczby są szacowane na średnią dokładność GPS telefonów komórkowych z A-GPS, czyli 7 metrów. |
-| Sieć Wi-Fi        | 50 m - 100 m | Zależy od zasięgu punktów dostępu bezprzewodowego. Zależy od częstotliwości, siły nadajnika, przeszkód fizycznych, zakłóceń i tak dalej. |
-| Sygnalizatory BLE |  70 m | Określa zasięg sygnału sygnalizatora. Zależy od częstotliwości, siły transmisji, przeszkód fizycznych, zakłóceń i tak dalej. |
+| GPS         | 20 m-30 m | Określana na podstawie niepewności GPS między innymi czynnikami. Raportowane liczby są szacowane dla średniej dokładności GPS telefonów komórkowych z-GPS, czyli 7 metrów. |
+| Sieć Wi-Fi        | 50 m – 100 m | Określany przez zakres punktów dostępu bezprzewodowego. Zależy od częstotliwości, siły nadajnika, przeszkód fizycznych, zakłóceń i tak dalej. |
+| Sygnały nawigacyjne dotyczące beli |  70 m | Określany przez zakres sygnałów nawigacyjnych. Zależy od częstotliwości, siły transmisji, przeszkód fizycznych, zakłóceń i tak dalej. |
 
-## <a name="per-platform-support"></a>Obsługa platformy
+## <a name="per-platform-support"></a>Obsługa poszczególnych platform
 
-W poniższej tabeli podsumowano dane z czujników zebrane na każdej z obsługiwanych platform, wraz z wszelkimi zastrzeżeniami specyficznymi dla platformy:
+Poniższa tabela zawiera podsumowanie danych czujników zbieranych na każdej z obsługiwanych platform wraz z wszelkimi zastrzeżeniami specyficznymi dla platformy:
 
 
 |             | HoloLens | Android | iOS |
 |-------------|----------|---------|-----|
-| Gps         | Nie dotyczy | Obsługiwane za pośrednictwem interfejsów API [LocationManager][3] (zarówno GPS, jak i NETWORK) | Obsługiwane za pośrednictwem interfejsów API [programu CLLocationManager][4] |
-| Sieć Wi-Fi        | Obsługiwane z szybkością około jednego skanowania co 3 sekundy | Obsługiwane. Począwszy od poziomu API 28, skanowanie WiFi jest ograniczane do 4 połączeń co 2 minuty. Z systemu Android 10 ograniczanie przepustowości można wyłączyć w menu Ustawienia dewelopera. Aby uzyskać więcej informacji, zobacz [dokumentację systemu Android][5]. | Nie dotyczy - brak publicznego interfejsu API |
-| Sygnalizatory BLE | Ograniczone do [Eddystone][1] i [iBeacon][2] | Ograniczone do [Eddystone][1] i [iBeacon][2] | Ograniczone do [Eddystone][1] i [iBeacon][2] |
+| GPS         | Nie dotyczy | Obsługiwane za poorednictwem interfejsów API [lokalizacji][3] (GPS i Network) | Obsługiwane za poorednictwem interfejsów API [CLLocationManager][4] |
+| Sieć Wi-Fi        | Obsługiwane z szybkością około jednego skanowania co 3 sekundy | Obsługiwane. Począwszy od poziomu interfejsu API 28, skanowania w sieci Wi-Fi są ograniczone do 4 wywołań co 2 minuty. W przypadku systemu Android 10 ograniczenie przepustowości można wyłączyć w menu Ustawienia dewelopera. Aby uzyskać więcej informacji, zobacz [dokumentację systemu Android][5]. | N/A — brak publicznego interfejsu API |
+| Sygnały nawigacyjne dotyczące beli | Ograniczone do [Eddystone][1] i [iBeacon][2] | Ograniczone do [Eddystone][1] i [iBeacon][2] | Ograniczone do [Eddystone][1] i [iBeacon][2] |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Użyj grubozległej relokalizacji w aplikacji.
+Użyj bardzo dużej lokalizacji w aplikacji.
 
 > [!div class="nextstepaction"]
 > [Unity](../how-tos/set-up-coarse-reloc-unity.md)
 
 > [!div class="nextstepaction"]
-> [Cel C](../how-tos/set-up-coarse-reloc-objc.md)
+> [Obiektowy C](../how-tos/set-up-coarse-reloc-objc.md)
 
 > [!div class="nextstepaction"]
 > [Swift](../how-tos/set-up-coarse-reloc-swift.md)

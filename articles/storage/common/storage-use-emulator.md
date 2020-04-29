@@ -1,6 +1,6 @@
 ---
-title: Użyj emulatora magazynu platformy Azure do tworzenia i testowania | Dokumenty firmy Microsoft
-description: Emulator magazynu platformy Azure zapewnia bezpłatne lokalne środowisko programistyczne do tworzenia i testowania aplikacji usługi Azure Storage.
+title: Korzystanie z emulatora usługi Azure Storage do programowania i testowania | Microsoft Docs
+description: Emulator usługi Azure Storage udostępnia bezpłatne lokalne środowisko programistyczne na potrzeby tworzenia i testowania aplikacji usługi Azure Storage.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 08/21/2019
@@ -8,102 +8,102 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.openlocfilehash: 997aa9d96f2f52331865fd15d97443d74bb8bc1f
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80398012"
 ---
-# <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Używanie emulatora magazynu platformy Azure do tworzenia i testowania
+# <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Korzystanie z emulatora usługi Azure Storage na potrzeby tworzenia i testowania
 
-Emulator magazynu platformy Microsoft Azure to narzędzie, które emuluje usługi Azure Blob, Queue i Table do lokalnych celów programistów. Można przetestować aplikację na usługi magazynu lokalnie bez tworzenia subskrypcji platformy Azure lub ponoszenia żadnych kosztów. Jeśli jesteś zadowolony z tego, jak aplikacja działa w emulatorze, przełącz się na konto usługi Azure storage w chmurze.
+Emulator magazynu Microsoft Azure jest narzędziem, które emuluje usługi obiektów blob, kolejek i tabel platformy Azure na potrzeby lokalnego tworzenia. Możesz testować swoją aplikację w usłudze Storage lokalnie bez tworzenia subskrypcji platformy Azure lub ponoszenia kosztów. Gdy aplikacja działa w emulatorze, przejdź do korzystania z konta usługi Azure Storage w chmurze.
 
-## <a name="get-the-storage-emulator"></a>Pobierz emulator pamięci masowej
+## <a name="get-the-storage-emulator"></a>Pobierz emulator magazynu
 
-Emulator magazynu jest dostępny jako część microsoft [azure SDK](https://azure.microsoft.com/downloads/). Emulator pamięci masowej można również zainstalować za pomocą [autonomicznego instalatora](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (pobieranie bezpośrednie). Aby zainstalować emulator magazynu, musisz mieć uprawnienia administracyjne na komputerze.
+Emulator magazynu jest dostępny w ramach [zestawu SDK Microsoft Azure](https://azure.microsoft.com/downloads/). Emulator magazynu można również zainstalować przy użyciu [autonomicznego Instalatora](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (Pobieranie bezpośrednie). Aby zainstalować emulator magazynu, musisz mieć uprawnienia administracyjne na komputerze.
 
-Emulator magazynu działa obecnie tylko w systemie Windows. Jeśli potrzebujesz emulatora pamięci masowej dla Linuksa, jedną z opcji jest utrzymywany przez społeczność, emulator pamięci masowej typu open source [Azurite](https://github.com/azure/azurite).
+Emulator magazynu jest obecnie uruchamiany tylko w systemie Windows. Jeśli potrzebujesz emulatora magazynu dla systemu Linux, jedną z opcji jest obsługiwana przez społeczność [azurite](https://github.com/azure/azurite)emulator magazynu typu open source.
 
 > [!NOTE]
-> Dane utworzone w jednej wersji emulatora magazynu nie jest gwarantowane być dostępne podczas korzystania z innej wersji. Jeśli musisz utrwalić dane na dłuższą metę, zaleca się przechowywanie tych danych na koncie magazynu platformy Azure, a nie w emulatorze magazynu.
+> W przypadku korzystania z innej wersji nie ma gwarancji, że dane utworzone w jednej wersji emulatora magazynu są dostępne. Jeśli potrzebujesz utrzymywać dane przez długi czas, zalecamy przechowywanie tych danych na koncie usługi Azure Storage, a nie w emulatorze magazynu.
 > 
-> Emulator magazynu zależy od określonych wersji bibliotek OData. Zastępowanie bibliotek DLL OData używanych przez emulator magazynu z innymi wersjami jest nieobsługiwał i może powodować nieoczekiwane zachowanie. Jednak każda wersja OData obsługiwane przez usługę magazynu może służyć do wysyłania żądań do emulatora.
+> Emulator magazynu zależy od określonych wersji bibliotek OData. Zastępowanie bibliotek DLL OData używanych przez emulator magazynu z innymi wersjami nie jest obsługiwane i może spowodować nieoczekiwane zachowanie. Jednak w celu wysyłania żądań do emulatora może być używana dowolna wersja protokołu OData obsługiwana przez usługę magazynu.
 
-## <a name="how-the-storage-emulator-works"></a>Jak działa emulator pamięci masowej
+## <a name="how-the-storage-emulator-works"></a>Jak działa emulator magazynu
 
-Emulator magazynu używa lokalnego wystąpienia usługi Microsoft SQL Server 2012 Express LocalDB do emulowania usług magazynu platformy Azure. Można skonfigurować emulator magazynu, aby uzyskać dostęp do lokalnego wystąpienia programu SQL Server zamiast wystąpienia LocalDB. Zobacz [Start i zainicjować emulator magazynu](#start-and-initialize-the-storage-emulator) sekcji w dalszej części tego artykułu, aby dowiedzieć się więcej.
+Emulator magazynu używa wystąpienia lokalnego Microsoft SQL Server 2012 Express LocalDB do emulowania usług Azure Storage. Można skonfigurować emulator magazynu, aby mógł uzyskać dostęp do lokalnego wystąpienia SQL Server, a nie wystąpienia LocalDB. Zobacz sekcję [Uruchamianie i Inicjowanie emulatora magazynu](#start-and-initialize-the-storage-emulator) w dalszej części tego artykułu, aby dowiedzieć się więcej.
 
-Emulator magazynu łączy się z programem SQL Server lub LocalDB przy użyciu uwierzytelniania systemu Windows.
+Emulator magazynu łączy się z SQL Server lub LocalDB przy użyciu uwierzytelniania systemu Windows.
 
-Istnieją pewne różnice w funkcjonalności między emulatorem magazynu i usługami magazynu platformy Azure. Aby uzyskać więcej informacji na temat tych różnic, zobacz [różnice między emulator magazynu i usługi Azure Storage](#differences-between-the-storage-emulator-and-azure-storage) sekcji w dalszej części tego artykułu.
+Istnieją pewne różnice w działaniu między emulatorem magazynu a usługami Azure Storage. Więcej informacji na temat tych różnic znajduje się w sekcji [różnice między emulatorem magazynu i usługą Azure Storage](#differences-between-the-storage-emulator-and-azure-storage) w dalszej części tego artykułu.
 
-## <a name="start-and-initialize-the-storage-emulator"></a>Uruchamianie i inicjowanie emulatora magazynu
+## <a name="start-and-initialize-the-storage-emulator"></a>Uruchamianie i Inicjowanie emulatora magazynu
 
-Aby uruchomić emulator magazynu platformy Azure:
+Aby uruchomić emulator usługi Azure Storage:
 
-1. Wybierz przycisk **Start** lub naciśnij klawisz **Windows.**
-2. Rozpocznij `Azure Storage Emulator`wpisywanie .
+1. Wybierz przycisk **Start** lub naciśnij klawisz **systemu Windows** .
+2. Zacznij pisać `Azure Storage Emulator`.
 3. Wybierz emulator z listy wyświetlanych aplikacji.
 
-Po uruchomieniu emulatora magazynu pojawi się okno wiersza polecenia. Za pomocą tego okna konsoli można uruchomić i zatrzymać emulator magazynu. Można również wyczyścić dane, uzyskać stan i zainicjować emulator z wiersza polecenia. Aby uzyskać więcej informacji, zobacz sekcję [odwołania do wiersza polecenia emulatora magazynu](#storage-emulator-command-line-tool-reference) w dalszej części tego artykułu.
+Po uruchomieniu emulatora magazynu zostanie wyświetlone okno wiersza polecenia. To okno konsoli służy do uruchamiania i zatrzymywania emulatora magazynu. Możesz również wyczyścić dane, pobrać stan i zainicjować emulator z poziomu wiersza polecenia. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą [narzędzia wiersza polecenia emulatora magazynu](#storage-emulator-command-line-tool-reference) w dalszej części tego artykułu.
 
 > [!NOTE]
-> Emulator magazynu platformy Azure może nie uruchomić poprawnie, jeśli inny emulator magazynu, takich jak Azurite, jest uruchomiony w systemie.
+> Emulator usługi Azure Storage może nie działać prawidłowo, jeśli w systemie działa inny emulator magazynu, taki jak azurite.
 
 Po uruchomieniu emulatora pojawi się ikona w obszarze powiadomień paska zadań systemu Windows.
 
-Po zamknięciu okna wiersza polecenia emulatora magazynu emulator będzie nadal działać. Aby ponownie przywołać okno konsoli emulatora magazynu, wykonaj poprzednie kroki, tak jakby uruchamianie emulatora magazynu.
+Po zamknięciu okna wiersza polecenia emulatora magazynu będzie nadal można uruchamiać emulator magazynu. Aby ponownie wyświetlić okno konsoli emulatora magazynu, wykonaj powyższe kroki, tak jak w przypadku uruchamiania emulatora magazynu.
 
-Przy pierwszym uruchomieniu emulatora magazynu, lokalne środowisko magazynu jest inicjowane dla Ciebie. Proces inicjowania tworzy bazę danych w LocalDB i rezerwuje porty HTTP dla każdej usługi magazynu lokalnego.
+Przy pierwszym uruchomieniu emulatora magazynu jest inicjowane lokalne środowisko magazynu. Proces inicjalizacji tworzy bazę danych w LocalDB i rezerwuje porty HTTP dla każdej lokalnej usługi magazynu.
 
-Emulator magazynu jest instalowany domyślnie na `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`.
+Emulator magazynu jest instalowany domyślnie w `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`programie.
 
 > [!TIP]
-> Za pomocą [Eksploratora magazynu platformy Microsoft Azure](https://storageexplorer.com) można pracować z zasobami emulatora magazynu lokalnego. Poszukaj "(Emulator - Porty domyślne) (Klucz)" w obszarze "Lokalne & dołączone" w drzewie zasobów Eksploratora magazynu po zainstalowaniu i uruchomieniu emulatora magazynu.
+> [Eksplorator usługi Microsoft Azure Storage](https://storageexplorer.com) można użyć do pracy z zasobami emulatora magazynu lokalnego. Poszukaj pozycji "(domyślne porty emulatora) (klucz)" w obszarze "lokalne & dołączone" w drzewie zasobów Eksplorator usługi Storage po zainstalowaniu i uruchomieniu emulatora magazynu.
 >
 
-### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>Inicjowanie emulatora magazynu w celu użycia innej bazy danych SQL
+### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>Inicjowanie emulatora magazynu w celu korzystania z innej bazy danych SQL
 
-Za pomocą narzędzia wiersza polecenia emulatora magazynu można zainicjować emulator magazynu w celu wskazania wystąpienia bazy danych SQL innego niż domyślne wystąpienie localdb:
+Za pomocą narzędzia wiersza polecenia emulatora magazynu można zainicjować emulator magazynu, aby wskazywał wystąpienie bazy danych SQL inne niż domyślne wystąpienie LocalDB:
 
-1. Otwórz okno konsoli emulatora magazynu, zgodnie z opisem w [sekcji Start i zainiólować emulator magazynu.](#start-and-initialize-the-storage-emulator)
-1. W oknie konsoli wpisz następujące polecenie, gdzie `<SQLServerInstance>` jest nazwa wystąpienia programu SQL Server. Aby użyć localdb, należy określić `(localdb)\MSSQLLocalDb` jako wystąpienie programu SQL Server.
+1. Otwórz okno konsoli emulatora magazynu, zgodnie z opisem w sekcji [Uruchamianie i Inicjowanie emulatora magazynu](#start-and-initialize-the-storage-emulator) .
+1. W oknie konsoli wpisz następujące polecenie, gdzie `<SQLServerInstance>` jest nazwą wystąpienia SQL Server. Aby użyć LocalDB, określ `(localdb)\MSSQLLocalDb` jako wystąpienie SQL Server.
 
    `AzureStorageEmulator.exe init /server <SQLServerInstance>`
 
-   Można również użyć następującego polecenia, które kieruje emulator do używania domyślnego wystąpienia programu SQL Server:
+   Można również użyć następującego polecenia, które kieruje emulator do użycia domyślnego wystąpienia SQL Server:
 
    `AzureStorageEmulator.exe init /server .`
 
-   Można też użyć następującego polecenia, które ponownie inicjuje bazę danych do domyślnego wystąpienia LocalDB:
+   Można też użyć poniższego polecenia, które ponownie inicjuje bazę danych do domyślnego wystąpienia LocalDB:
 
    `AzureStorageEmulator.exe init /forceCreate`
 
-Aby uzyskać więcej informacji na temat tych poleceń, zobacz [Odwołanie do wiersza polecenia emulatora magazynu](#storage-emulator-command-line-tool-reference).
+Aby uzyskać więcej informacji na temat tych poleceń, zobacz temat [Narzędzie wiersza polecenia emulatora magazynu](#storage-emulator-command-line-tool-reference).
 
 > [!TIP]
-> Za pomocą [programu Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) można zarządzać wystąpieniami programu SQL Server, w tym instalacją LocalDB. W oknie dialogowym **Połącz z serwerem** programu SMSS określ `(localdb)\MSSQLLocalDb` w polu Nazwa **serwera:** aby połączyć się z wystąpieniem LocalDB.
+> Możesz użyć [Management Studio Microsoft SQL Server](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS), aby zarządzać wystąpieniami SQL Server, w tym instalacją LocalDB. W oknie dialogowym SMSS **łączenia z serwerem** Podaj `(localdb)\MSSQLLocalDb` wartość w polu **Nazwa serwera:** , aby połączyć się z wystąpieniem LocalDB.
 
 ## <a name="authenticating-requests-against-the-storage-emulator"></a>Uwierzytelnianie żądań względem emulatora magazynu
 
-Po zainstalowaniu i uruchomieniu emulatora magazynu można przetestować kod przeciwko niemu. Każde żądanie, które zostanie złożony przeciwko emulatorowi magazynu, musi być autoryzowane, chyba że jest to żądanie anonimowe. Można autoryzować żądania względem emulatora magazynu przy użyciu uwierzytelniania klucza udostępnionego lub za pomocą sygnatury dostępu współdzielonego (SAS).
+Po zainstalowaniu i uruchomieniu emulatora magazynu można przetestować swój kod. Każde żądanie wprowadzane względem emulatora magazynu musi być autoryzowane, chyba że jest to żądanie anonimowe. Żądania można autoryzować do emulatora magazynu przy użyciu uwierzytelniania klucza współużytkowanego lub z sygnaturą dostępu współdzielonego (SAS).
 
-### <a name="authorize-with-shared-key-credentials"></a>Autoryzowanie przy użyciu poświadczeń klucza udostępnionego
+### <a name="authorize-with-shared-key-credentials"></a>Autoryzuj przy użyciu poświadczeń klucza współużytkowanego
 
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
-Aby uzyskać więcej informacji na temat ciągów połączeń, zobacz [Konfigurowanie ciągów połączeń usługi Azure Storage](../storage-configure-connection-string.md).
+Aby uzyskać więcej informacji dotyczących parametrów połączenia, zobacz [Konfigurowanie parametrów połączenia usługi Azure Storage](../storage-configure-connection-string.md).
 
-### <a name="authorize-with-a-shared-access-signature"></a>Autoryzacja przy za pomocą udostępnionego podpisu dostępu
+### <a name="authorize-with-a-shared-access-signature"></a>Autoryzuj przy użyciu sygnatury dostępu współdzielonego
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Niektóre biblioteki klienta magazynu platformy Azure, takie jak biblioteka platformy Xamarin, obsługują tylko uwierzytelnianie za pomocą tokenu sygnatury dostępu współdzielonego (SAS). Token sygnatury dostępu Współdzielonego można utworzyć przy użyciu [Eksploratora magazynu](https://storageexplorer.com/) lub innej aplikacji obsługującej uwierzytelnianie klucza udostępnionego.
+Niektóre biblioteki klienta usługi Azure Storage, takie jak biblioteka Xamarin, obsługują tylko uwierzytelnianie z tokenem sygnatury dostępu współdzielonego (SAS). Token SYGNATURy dostępu współdzielonego można utworzyć przy użyciu [Eksplorator usługi Storage](https://storageexplorer.com/) lub innej aplikacji obsługującej uwierzytelnianie klucza wspólnego.
 
-Można również wygenerować token sygnatury dostępu Współdzielonego przy użyciu programu Azure PowerShell. Poniższy przykład generuje token sygnatury dostępu Współdzielonego z pełnymi uprawnieniami do kontenera obiektu blob:
+Token sygnatury dostępu współdzielonego można również wygenerować przy użyciu Azure PowerShell. Poniższy przykład generuje token SAS z pełnymi uprawnieniami do kontenera obiektów blob:
 
-1. Zainstaluj program Azure PowerShell, jeśli jeszcze tego nie zrobiłeś (zaleca się użycie najnowszej wersji poleceń cmdlet programu Azure PowerShell). Aby uzyskać instrukcje instalacji, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-Az-ps).
-2. Otwórz program Azure PowerShell i uruchom `CONTAINER_NAME` następujące polecenia, zastępując wybraną nazwą:
+1. Zainstaluj Azure PowerShell, jeśli nie zostało to jeszcze zrobione (zaleca się użycie najnowszej wersji Azure PowerShell poleceń cmdlet). Instrukcje instalacji znajdują się w temacie [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+2. Otwórz Azure PowerShell i uruchom następujące polecenia, zastępując `CONTAINER_NAME` je wybraną nazwą:
 
 ```powershell
 $context = New-AzStorageContext -Local
@@ -115,59 +115,59 @@ $now = Get-Date
 New-AzStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
 ```
 
-Wynikowy identyfikator URI podpisu dostępu współdzielonego dla nowego kontenera powinien być podobny do:
+Otrzymany identyfikator URI sygnatury dostępu współdzielonego dla nowego kontenera powinien wyglądać podobnie do:
 
 ```
 http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
 ```
 
-Podpis dostępu współdzielonego utworzony w tym przykładzie jest prawidłowy przez jeden dzień. Podpis udziela pełnego dostępu (odczyt, zapis, usuń, lista) do obiektów blob w kontenerze.
+Sygnatura dostępu współdzielonego utworzona przy użyciu tego przykładu jest ważna przez jeden dzień. Podpis przyznaje pełen dostęp (odczyt, zapis, usuwanie, lista) do obiektów BLOB w kontenerze.
 
-Aby uzyskać więcej informacji na temat podpisów dostępu współdzielonego, zobacz [Udzielanie ograniczonego dostępu do zasobów usługi Azure Storage przy użyciu sygnatur dostępu współdzielonego (SAS).](storage-sas-overview.md)
+Aby uzyskać więcej informacji na temat sygnatur dostępu współdzielonego, zobacz [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](storage-sas-overview.md).
 
 ## <a name="addressing-resources-in-the-storage-emulator"></a>Adresowanie zasobów w emulatorze magazynu
 
-Punkty końcowe usługi dla emulatora magazynu różnią się od punktów końcowych dla konta magazynu platformy Azure. Komputer lokalny nie wykonuje rozpoznawania nazw domen, co wymaga, aby punkty końcowe emulatora magazynu były adresami lokalnymi.
+Punkty końcowe usługi dla emulatora magazynu są inne niż punkty końcowe dla konta usługi Azure Storage. Komputer lokalny nie obsługuje rozpoznawania nazw domen, ponieważ punkty końcowe emulatora magazynu mają być adresami lokalnymi.
 
-Gdy adres zasobu na koncie magazynu platformy Azure, należy użyć następującego schematu. Nazwa konta jest częścią nazwy hosta identyfikatora URI, a zaadresowany zasób jest częścią ścieżki URI:
+Gdy adresowanie zasobu na koncie usługi Azure Storage jest możliwe, należy użyć poniższego schematu. Nazwa konta jest częścią nazwy hosta identyfikatora URI, a zasób jest częścią ścieżki URI:
 
 `<http|https>://<account-name>.<service-name>.core.windows.net/<resource-path>`
 
-Na przykład następujący identyfikator URI jest prawidłowym adresem obiektu blob na koncie magazynu platformy Azure:
+Na przykład następujący identyfikator URI jest prawidłowym adresem dla obiektu BLOB na koncie usługi Azure Storage:
 
 `https://myaccount.blob.core.windows.net/mycontainer/myblob.txt`
 
-Ponieważ komputer lokalny nie wykonuje rozpoznawania nazw domen, nazwa konta jest częścią ścieżki identyfikatora URI zamiast nazwy hosta. Użyj następującego formatu identyfikatora URI dla zasobu w emulatorze magazynu:
+Ponieważ komputer lokalny nie wykonuje rozpoznawania nazw domen, nazwa konta jest częścią ścieżki URI zamiast nazwy hosta. Użyj następującego formatu identyfikatora URI dla zasobu w emulatorze magazynu:
 
 `http://<local-machine-address>:<port>/<account-name>/<resource-path>`
 
-Na przykład następujący adres może służyć do uzyskiwania dostępu do obiektu blob w emulatorze magazynu:
+Na przykład następujący adres może służyć do uzyskiwania dostępu do obiektu BLOB w emulatorze magazynu:
 
 `http://127.0.0.1:10000/myaccount/mycontainer/myblob.txt`
 
-Punkty końcowe usługi dla emulatora magazynu są:
+Punkty końcowe usługi dla emulatora magazynu są następujące:
 
-* Usługa obiektów blob:`http://127.0.0.1:10000/<account-name>/<resource-path>`
-* Usługa kolejki:`http://127.0.0.1:10001/<account-name>/<resource-path>`
-* Obsługa tabel:`http://127.0.0.1:10002/<account-name>/<resource-path>`
+* Blob service:`http://127.0.0.1:10000/<account-name>/<resource-path>`
+* usługa kolejki:`http://127.0.0.1:10001/<account-name>/<resource-path>`
+* Table service:`http://127.0.0.1:10002/<account-name>/<resource-path>`
 
-### <a name="addressing-the-account-secondary-with-ra-grs"></a>Adresowanie konta pomocniczego za pomocą RA-GRS
+### <a name="addressing-the-account-secondary-with-ra-grs"></a>Adresowanie pomocniczej konta za pomocą RA-GRS
 
-Począwszy od wersji 3.1, emulator magazynu obsługuje replikację geograficzną dostępu do odczytu (RA-GRS). Dostęp do lokalizacji dodatkowej można uzyskać, dołączając -secondary do nazwy konta. Na przykład następujący adres może służyć do uzyskiwania dostępu do obiektu blob przy użyciu pomocniczego tylko do odczytu w emulatorze magazynu:
+Począwszy od wersji 3,1 emulator magazynu obsługuje replikację Geograficznie nadmiarowy do odczytu (RA-GRS). Możesz uzyskać dostęp do pomocniczej lokalizacji, dołączając-pomocniczy do nazwy konta. Na przykład następujący adres może służyć do uzyskiwania dostępu do obiektu BLOB przy użyciu pomocniczego elementu tylko do odczytu w emulatorze magazynu:
 
 `http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt`
 
 > [!NOTE]
-> Aby uzyskać programowy dostęp do pomocniczego za pomocą emulatora magazynu, użyj biblioteki klienta magazynu dla platformy .NET w wersji 3.2 lub nowszej. Szczegółowe informacje można znaleźć w [bibliotece klienta usługi Microsoft Azure Storage dla platformy .NET.](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+> Aby uzyskać programistyczny dostęp do pomocniczego elementu z emulatorem magazynu, użyj biblioteki klienta usługi Storage dla programu .NET w wersji 3,2 lub nowszej. Aby uzyskać szczegółowe informacje, zobacz [Biblioteka klienta Microsoft Azure Storage dla platformy .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx) .
 >
 >
 
-## <a name="storage-emulator-command-line-tool-reference"></a>Odwołanie do wiersza polecenia emulatora magazynu
+## <a name="storage-emulator-command-line-tool-reference"></a>Dokumentacja narzędzia wiersza polecenia emulatora magazynu
 
-Począwszy od wersji 3.0, okno konsoli jest wyświetlany po uruchomieniu emulatora magazynu. Użyj wiersza polecenia w oknie konsoli, aby uruchomić i zatrzymać emulator. Można również wykonywać kwerendy pod kątem stanu i wykonywać inne operacje z wiersza polecenia.
+Począwszy od wersji 3,0, okno konsoli jest wyświetlane po uruchomieniu emulatora magazynu. Użyj wiersza polecenia w oknie konsoli, aby uruchomić i zatrzymać emulator. Można również wykonywać zapytania o stan i wykonywać inne operacje z poziomu wiersza polecenia.
 
 > [!NOTE]
-> Jeśli masz zainstalowany emulator obliczeniowy platformy Microsoft Azure, ikona zasobnika systemowego pojawi się po uruchomieniu emulatora magazynu. Kliknij prawym przyciskiem myszy ikonę, aby wyświetlić menu, które zapewnia graficzny sposób uruchamiania i zatrzymywania emulatora magazynu.
+> Jeśli zainstalowano emulator obliczeń Microsoft Azure, podczas uruchamiania emulatora magazynu zostanie wyświetlona ikona zasobnika systemowego. Kliknij prawym przyciskiem myszy ikonę, aby wyświetlić menu, które zapewnia graficzny sposób uruchamiania i zatrzymywania emulatora magazynu.
 >
 >
 
@@ -181,150 +181,150 @@ Aby wyświetlić listę opcji, wpisz ciąg `/help` w wierszu polecenia.
 
 | Opcja | Opis | Polecenie | Argumenty |
 | --- | --- | --- | --- |
-| **Początek** |Uruchamia emulator magazynu. |`AzureStorageEmulator.exe start [-inprocess]` |*-Reprocess:* Uruchom emulator w bieżącym procesie zamiast tworzenia nowego procesu. |
-| **Zatrzymaj** |Zatrzymuje emulator magazynu. |`AzureStorageEmulator.exe stop` | |
+| **Początek** |Uruchamia emulator magazynu. |`AzureStorageEmulator.exe start [-inprocess]` |*-Reprocess*: uruchamia emulator w bieżącym procesie zamiast tworzenia nowego procesu. |
+| **Zatrzymaj** |Powoduje zatrzymanie emulatora magazynu. |`AzureStorageEmulator.exe stop` | |
 | **Stan** |Drukuje stan emulatora magazynu. |`AzureStorageEmulator.exe status` | |
-| **Clear** |Czyści dane we wszystkich usługach określonych w wierszu polecenia. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*obiekt blob*: Czyści dane obiektu blob. <br/>*kolejka:* Czyści dane kolejki. <br/>*tabela*: Czyści dane tabeli. <br/>*wszystkie*: Czyści wszystkie dane we wszystkich usługach. |
-| **Init** |Wykonuje jednorazowe inicjowanie w celu skonfigurowania emulatora. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*: Określa serwer obsługujący wystąpienie SQL. <br/>*-sqlinstance instanceName*: Określa nazwę wystąpienia SQL, które ma być używane w domyślnym wystąpieniu serwera. <br/>*-forcecreate*: Wymusza tworzenie bazy danych SQL, nawet jeśli już istnieje. <br/>*-skipcreate*: Pomija tworzenie bazy danych SQL. Ma to pierwszeństwo przed -forcecreate.<br/>*-reserveports*: Próbuje zarezerwować porty HTTP skojarzone z usługami.<br/>*-unreserveports*: Próbuje usunąć rezerwacje dla portów HTTP skojarzonych z usługami. Ma to pierwszeństwo przed portami -reserveports.<br/>*-inprocess*: Wykonuje inicjowanie w bieżącym procesie zamiast tarło nowego procesu. Bieżący proces musi zostać uruchomiony z podwyższonym poziomem uprawnień, jeśli zmiana rezerwacji portów. |
+| **Clear** |Czyści dane we wszystkich usługach określonych w wierszu polecenia. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*BLOB*: czyści dane obiektów BLOB. <br/>*Queue*: czyści dane kolejki. <br/>*tabela*: czyści dane tabeli. <br/>*wszystkie*: czyści wszystkie dane we wszystkich usługach. |
+| **Init** |Wykonuje jednorazowe inicjowanie w celu skonfigurowania emulatora. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-Server serverName\instanceName*: Określa serwer hostujący wystąpienie programu SQL Server. <br/>*-SQLInstance InstanceName*: Określa nazwę wystąpienia SQL, które ma być używane w domyślnym wystąpieniu serwera. <br/>*-forceCreate*: wymusza tworzenie bazy danych SQL, nawet jeśli już istnieje. <br/>*-skipcreate*: pomija Tworzenie bazy danych SQL. Ma to pierwszeństwo przed forceCreate.<br/>*-reserveports*: próbuje zarezerwować porty http skojarzone z usługami.<br/>*-unreserveports*: próbuje usunąć rezerwacje dla portów http skojarzonych z usługami. Ma to pierwszeństwo przed reserveports.<br/>*-unprocess*: wykonuje inicjalizację w bieżącym procesie zamiast duplikowania nowego procesu. W przypadku zmiany rezerwacji portów bieżący proces musi zostać uruchomiony z podwyższonym poziomem uprawnień. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Różnice między emulatorem magazynu a usługą Azure Storage
 
-Ponieważ emulator magazynu jest lokalnym środowiskiem emulowanym, istnieją różnice między przy użyciu emulatora i konta magazynu platformy Azure w chmurze:
+Ponieważ emulator magazynu jest lokalnym emulowanym środowiskiem, istnieją różnice między użyciem emulatora i konta usługi Azure Storage w chmurze:
 
-* Emulator magazynu obsługuje tylko jedno konto stałe i dobrze znany klucz uwierzytelniania.
+* Emulator magazynu obsługuje tylko pojedyncze stałe konto i dobrze znane klucze uwierzytelniania.
 * Emulator magazynu nie jest skalowalną usługą magazynu i nie obsługuje dużej liczby równoczesnych klientów.
-* Zgodnie z opisem w [adresowanie zasobów w emulatorze magazynu](#addressing-resources-in-the-storage-emulator)zasoby są adresowane inaczej w emulatorze magazynu w porównaniu do konta magazynu platformy Azure. Różnica polega na tym, że rozpoznawanie nazw domen jest dostępne w chmurze, ale nie na komputerze lokalnym.
-* Począwszy od wersji 3.1, konto emulatora magazynu obsługuje replikację geograficzną dostępu do odczytu (RA-GRS). W emulatorze wszystkie konta mają włączone RA-GRS i nigdy nie ma żadnych opóźnień między replikami podstawowymi i pomocniczymi. Get Blob Service Stats, Get Queue Service Stats i Get Table Service Stats operacje są obsługiwane `LastSyncTime` na koncie pomocniczym i zawsze zwróci wartość elementu odpowiedzi jako bieżący czas zgodnie z podstawowej bazy danych SQL.
-* Punkty końcowe usługi file service i SMB protocol service nie są obecnie obsługiwane w emulatorze magazynu.
-* Jeśli używasz wersji usług magazynu, która nie jest obsługiwana przez emulator, emulator zwraca błąd VersionNotSupportedByEmulator (kod stanu HTTP 400 - Złe żądanie).
+* Zgodnie z opisem w temacie [Addressing Resources w emulatorze magazynu](#addressing-resources-in-the-storage-emulator)zasoby są rozwiązywane inaczej w emulatorze magazynu, a konto usługi Azure Storage. Różnica polega na tym, że rozpoznawanie nazw domen jest dostępne w chmurze, ale nie na komputerze lokalnym.
+* Począwszy od wersji 3,1, konto emulatora magazynu obsługuje replikację Geograficznie nadmiarowy do odczytu (RA-GRS). W emulatorze wszystkie konta mają włączoną funkcję RA-GRS i nigdy nie ma zwłoki między repliką podstawową i pomocniczą. Statystyki usługi Get BLOB Service, get Queue Service i Get Table Service są obsługiwane na serwerze pomocniczym i zawsze zwracają wartość elementu `LastSyncTime` Response jako bieżący czas zależny od podstawowej bazy danych SQL.
+* Punkty końcowe usługi plików i protokołu SMB nie są obecnie obsługiwane w emulatorze magazynu.
+* Jeśli używasz wersji usług magazynu, która nie jest obsługiwana przez emulator, Emulator zwróci błąd VersionNotSupportedByEmulator (kod stanu HTTP 400-złe żądanie).
 
-### <a name="differences-for-blob-storage"></a>Różnice dla magazynu obiektów Blob
+### <a name="differences-for-blob-storage"></a>Różnice dotyczące usługi BLOB Storage
 
-Następujące różnice dotyczą magazynu obiektów Blob w emulatorze:
+Poniższe różnice dotyczą magazynu obiektów BLOB w emulatorze:
 
-* Emulator magazynu obsługuje tylko rozmiary obiektów blob do 2 GB.
-* Maksymalna długość nazwy obiektu blob w emulatorze magazynu wynosi 256 znaków, podczas gdy maksymalna długość nazwy obiektu blob w usłudze Azure Storage to 1024 znaków.
-* Kopia przyrostowa umożliwia kopiowanie migawek z nadpisanych obiektów blob, co zwraca błąd w usłudze.
-* Get Page Ranges Diff nie działa między migawkami skopiowanymi przy użyciu przyrostowego obiektu blob kopiowania.
-* Put Blob operacji może zakończyć się pomyślnie względem obiektu blob, który istnieje w emulatorze magazynu z aktywnej dzierżawy, nawet jeśli identyfikator dzierżawy nie został określony w żądaniu.
-* Dołącz operacje obiektów blob nie są obsługiwane przez emulator. Próba operacji na obiekcie blob dołączania zwraca błąd FeatureNotSupportedByEmulator (kod stanu HTTP 400 - Złe żądanie).
+* Emulator magazynu obsługuje tylko rozmiary obiektów BLOB do 2 GB.
+* Maksymalna długość nazwy obiektu BLOB w emulatorze magazynu to 256 znaków, podczas gdy maksymalna długość nazwy obiektu BLOB w usłudze Azure Storage to 1024 znaków.
+* Kopiowanie przyrostowe umożliwia skopiowanie migawek z nadpisanych obiektów blob, które zwracają błąd w usłudze.
+* Pobieranie zakresów stron różnica nie działa między migawkami skopiowanymi przy użyciu obiektu BLOB kopiowania przyrostowego.
+* Operacja Put obiektu BLOB może powieść się z obiektem BLOB, który istnieje w emulatorze magazynu z aktywną dzierżawą, nawet jeśli w żądaniu nie został określony identyfikator dzierżawy.
+* Operacje dołączania obiektów BLOB nie są obsługiwane przez emulator. Próba wykonania operacji na dołączeniu obiektu BLOB zwraca błąd FeatureNotSupportedByEmulator (kod stanu HTTP 400-złe żądanie).
 
-### <a name="differences-for-table-storage"></a>Różnice w przechowywaniu tabel
+### <a name="differences-for-table-storage"></a>Różnice dotyczące usługi Table Storage
 
-Następujące różnice dotyczą magazynu tabel w emulatorze:
+Poniższe różnice dotyczą magazynu tabel w emulatorze:
 
-* Właściwości daty w usłudze tabel w emulatorze magazynu obsługują tylko zakres obsługiwany przez program SQL Server 2005 (muszą być późniejsze niż 1 stycznia 1753). Wszystkie daty przed 1 stycznia 1753 są zmieniane na tę wartość. Dokładność dat jest ograniczona do dokładności programu SQL Server 2005, co oznacza, że daty są precyzyjne do 1/300 sekundy.
-* Emulator magazynu obsługuje wartości właściwości klucza partycji i wiersza mniejsze niż 512 bajtów. Całkowity rozmiar nazwy konta, nazwy tabeli i nazw właściwości kluczy razem nie może przekroczyć 900 bajtów.
-* Całkowity rozmiar wiersza w tabeli w emulatorze magazynu jest ograniczony do mniej niż 1 MB.
-* W emulatorze magazynu właściwości typu `Edm.Guid` `Edm.Binary` danych lub `Equal (eq)` `NotEqual (ne)` obsługi tylko operatorów i porównania w ciągach filtru kwerend.
+* Właściwości Date w Table service w emulatorze magazynu obsługują tylko zakres obsługiwany przez SQL Server 2005 (wymagane jest późniejsze od 1 stycznia 1753). Wszystkie daty przed 1 stycznia 1753 są zmieniane na tę wartość. Precyzja dat jest ograniczona do dokładności SQL Server 2005, co oznacza, że daty są precyzyjne do 1/300th sekundy.
+* Emulator magazynu obsługuje wartości właściwości klucza partycji i klucza wiersza mniejsze niż 512 bajtów. Łączny rozmiar nazwy konta, nazwy tabeli i nazwy właściwości klucza nie może przekraczać 900 bajtów.
+* Łączny rozmiar wiersza w tabeli w emulatorze magazynu jest ograniczony do mniej niż 1 MB.
+* `Edm.Guid` W emulatorze magazynu właściwości typu danych lub `Edm.Binary` obsługują tylko `Equal (eq)` operatory `NotEqual (ne)` porównania w ciągach filtru zapytań.
 
-### <a name="differences-for-queue-storage"></a>Różnice w magazynie kolejek
+### <a name="differences-for-queue-storage"></a>Różnice dotyczące usługi queue storage
 
-Nie ma żadnych różnic specyficznych dla magazynu kolejki w emulatorze.
+W emulatorze nie ma żadnych różnic związanych z magazynem kolejek.
 
-## <a name="storage-emulator-release-notes"></a>Informacje o wydaniu emulatora magazynu
+## <a name="storage-emulator-release-notes"></a>Informacje o wersji emulatora magazynu
 
-### <a name="version-510"></a>Wersja 5.10
+### <a name="version-510"></a>Wersja 5,10
 
-* Emulator magazynu nie odrzuci wersji 2019-07-07 usług magazynu w punktach końcowych usługi blob, queue i table service.
+* Emulator magazynu nie odrzuci wersji 2019-07-07 usług magazynu dla punktów końcowych obiektów blob, kolejek i Table service.
 
-### <a name="version-59"></a>Wersja 5.9
+### <a name="version-59"></a>Wersja 5,9
 
-* Emulator magazynu nie odrzuci wersji 2019-02-02 usług magazynu w punktach końcowych usługi blob, queue i table service.
+* Emulator magazynu nie odrzuci wersji 2019-02-02 usług magazynu dla punktów końcowych obiektów blob, kolejek i Table service.
 
-### <a name="version-58"></a>Wersja 5.8
+### <a name="version-58"></a>Wersja 5,8
 
-* Emulator magazynu nie odrzuci wersji 2018-11-09 usług magazynu w punktach końcowych usługi blob, queue i table service.
+* Emulator magazynu nie odrzuci wersji 2018-11-09 usług magazynu dla punktów końcowych obiektów blob, kolejek i Table service.
 
-### <a name="version-57"></a>Wersja 5.7
+### <a name="version-57"></a>Wersja 5,7
 
-* Naprawiono błąd, który powodował awarię, jeśli rejestrowanie było włączone.
+* Naprawiono usterkę powodującą awarię, jeśli rejestrowanie zostało włączone.
 
-### <a name="version-56"></a>Wersja 5.6
+### <a name="version-56"></a>Wersja 5,6
 
-* Emulator magazynu obsługuje teraz wersję 2018-03-28 usług magazynu w punktach końcowych usługi blob, queue i table service.
+* Emulator magazynu obsługuje teraz wersję 2018-03-28 usług magazynu dla punktów końcowych obiektów blob, kolejek i Table service.
 
-### <a name="version-55"></a>Wersja 5.5
+### <a name="version-55"></a>Wersja 5,5
 
-* Emulator magazynu obsługuje teraz wersję 2017-11-09 usług magazynu w punktach końcowych usługi blob, queue i table service.
-* Obsługa została dodana dla obiektu blob **Created** właściwość, która zwraca czas tworzenia obiektu blob.
+* Emulator magazynu obsługuje teraz wersję 2017-11-09 usług magazynu dla punktów końcowych obiektów blob, kolejek i Table service.
+* Dodano obsługę dla właściwości obiektu BLOB **Created** , która zwraca czas utworzenia obiektu BLOB.
 
-### <a name="version-54"></a>Wersja 5.4
+### <a name="version-54"></a>Wersja 5,4
 
-* Aby poprawić stabilność instalacji, emulator nie próbuje już rezerwować portów w czasie instalacji. Jeśli chcesz zarezerwować port, użyj opcji *-reserveports* polecenia **init,** aby je określić.
+* Aby poprawić stabilność instalacji, Emulator nie próbuje zarezerwować portów w czasie instalacji. Jeśli chcesz zastrzeżeń portów, użyj opcji *-reserveports* polecenia **init** , aby je określić.
 
-### <a name="version-53"></a>Wersja 5.3
+### <a name="version-53"></a>Wersja 5,3
 
-* Emulator magazynu obsługuje teraz wersję 2017-07-29 usług magazynu w punktach końcowych usługi blob, queue i table service.
+* Emulator magazynu obsługuje teraz wersję 2017-07-29 usług magazynu dla punktów końcowych obiektów blob, kolejek i Table service.
 
-### <a name="version-52"></a>Wersja 5.2
+### <a name="version-52"></a>Wersja 5,2
 
-* Emulator magazynu obsługuje teraz wersję 2017-04-17 usług magazynu w punktach końcowych usługi blob, queue i table service.
-* Naprawiono błąd, który powodował, że wartości właściwości tabeli nie były poprawnie kodowane.
+* Emulator magazynu obsługuje teraz wersję 2017-04-17 usług magazynu dla punktów końcowych obiektów blob, kolejek i Table service.
+* Naprawiono usterkę polegającą na tym, że wartości właściwości tabeli nie zostały poprawnie zakodowane.
 
-### <a name="version-51"></a>Wersja 5.1
+### <a name="version-51"></a>Wersja 5,1
 
-* Naprawiono błąd, który powodował, `DataServiceVersion` że emulator magazynu zwracał nagłówek w niektórych odpowiedziach, w których usługa nie była.
+* Rozwiązano problem polegający na tym, że emulator `DataServiceVersion` magazynu zwrócił nagłówek w niektórych odpowiedziach, gdzie usługa nie została.
 
-### <a name="version-50"></a>Wersja 5.0
+### <a name="version-50"></a>Wersja 5,0
 
-* Instalator emulatora magazynu nie sprawdza już istniejących instalacji MSSQL i .NET Framework.
-* Instalator emulatora magazynu nie tworzy już bazy danych w ramach instalacji. Baza danych będzie nadal tworzony w razie potrzeby w ramach uruchamiania.
+* Instalator emulatora magazynu nie sprawdza już istniejących instalacji programu MSSQL i .NET Framework.
+* Instalator emulatora magazynu nie tworzy już bazy danych w ramach instalacji. Baza danych będzie w razie konieczności tworzona w ramach uruchomienia.
 * Tworzenie bazy danych nie wymaga już podniesienia uprawnień.
 * Rezerwacje portów nie są już potrzebne do uruchomienia.
-* Dodaje następujące opcje `init` `-reserveports` do : (wymaga podniesienia), `-unreserveports` `-skipcreate`(wymaga podniesienia), .
-* Opcja Interfejsu użytkownika emulatora pamięci masowej na ikonie zasobnika systemowego uruchamia teraz interfejs wiersza polecenia. Stary interfejs użytkownika nie jest już dostępny.
-* Niektóre biblioteki DLL zostały usunięte lub zmieniono ich nazwę.
+* Dodaje następujące opcje `init`do: `-reserveports` (wymaga podniesienia uprawnień) `-unreserveports` , (wymaga podniesienia `-skipcreate`uprawnień),.
+* Opcja interfejsu użytkownika emulatora magazynu w ikonie zasobnika systemu teraz uruchamia interfejs wiersza polecenia. Stary interfejs GUI nie jest już dostępny.
+* Niektóre biblioteki DLL zostały usunięte lub zmieniono ich nazwy.
 
-### <a name="version-46"></a>Wersja 4.6
+### <a name="version-46"></a>Wersja 4,6
 
-* Emulator magazynu obsługuje teraz wersję 2016-05-31 usług magazynu w punktach końcowych usługi blob, queue i table service.
+* Emulator magazynu obsługuje teraz wersję 2016-05-31 usług magazynu dla punktów końcowych obiektów blob, kolejek i Table service.
 
-### <a name="version-45"></a>Wersja 4.5
+### <a name="version-45"></a>Wersja 4,5
 
-* Naprawiono błąd, który powodował niepowodzenie instalacji i inicjowania po zmianie nazwy zapasowej bazy danych.
+* Rozwiązano błąd, który spowodował niepowodzenie instalacji i inicjalizacji w przypadku zmiany nazwy bazy danych.
 
-### <a name="version-44"></a>Wersja 4.4
+### <a name="version-44"></a>Wersja 4,4
 
-* Emulator magazynu obsługuje teraz wersję 2015-12-11 usług magazynu w punktach końcowych usługi blob, queue i table service.
-* Wyrzucanie elementów bezużytecznych danych obiektów blob w emulatorze magazynu jest teraz bardziej wydajne w przypadku dużej liczby obiektów blob.
-* Naprawiono błąd, który powodował, że plik ACL XML kontenera był sprawdzany nieco inaczej niż usługa magazynu.
-* Naprawiono błąd, który czasami powodował, że wartości max i min DateTime były zgłaszane w niewłaściwej strefie czasowej.
+* Emulator magazynu obsługuje teraz wersję 2015-12-11 usług magazynu dla punktów końcowych obiektów blob, kolejek i Table service.
+* Odzyskiwanie pamięci przez emulator magazynu danych obiektów BLOB jest teraz wydajniejsze w przypadku dużej liczby obiektów BLOB.
+* Usunięto usterkę, która spowodowała sprawdzenie poprawności kodu XML listy ACL kontenerów nieco inaczej niż w przypadku usługi Storage.
+* Rozwiązano usterkę, która czasami powodowała raportowanie wartości maks. Max i min DateTime w niepoprawnej strefie czasowej.
 
-### <a name="version-43"></a>Wersja 4.3
+### <a name="version-43"></a>Wersja 4,3
 
-* Emulator magazynu obsługuje teraz wersję 2015-07-08 usług magazynu w punktach końcowych usługi blob, queue i table service.
+* Emulator magazynu obsługuje teraz wersję 2015-07-08 usług magazynu dla punktów końcowych obiektów blob, kolejek i Table service.
 
-### <a name="version-42"></a>Wersja 4.2
+### <a name="version-42"></a>Wersja 4,2
 
-* Emulator magazynu obsługuje teraz wersję 2015-04-05 usług magazynu w punktach końcowych usługi blob, queue i table service.
+* Emulator magazynu obsługuje teraz wersję 2015-04-05 usług magazynu dla punktów końcowych obiektów blob, kolejek i Table service.
 
-### <a name="version-41"></a>Wersja 4.1
+### <a name="version-41"></a>Wersja 4,1
 
-* Emulator magazynu obsługuje teraz wersję 2015-02-21 usług magazynu w punktach końcowych usługi blob, queue i table service. Nie obsługuje nowych funkcji dołączania obiektów blob.
-* Emulator zwraca teraz znaczący komunikat o błędzie dla nieobsługiwałych wersji usług magazynu. Zalecamy użycie najnowszej wersji emulatora. Jeśli wystąpi błąd VersionNotSupportedByEmulator (kod stanu HTTP 400 - Złe żądanie), pobierz najnowszą wersję emulatora.
-* Naprawiono błąd, w którym stan wyścigu powodował, że dane jednostki tabeli były nieprawidłowe podczas równoczesnych operacji scalania.
+* Emulator magazynu obsługuje teraz wersję 2015-02-21 usług magazynu dla punktów końcowych obiektów blob, kolejek i Table service. Nie obsługuje nowych funkcji dołączania obiektów BLOB.
+* Emulator teraz zwraca zrozumiały komunikat o błędzie dla nieobsługiwanych wersji usług magazynu. Zalecamy użycie najnowszej wersji emulatora. Jeśli wystąpi błąd VersionNotSupportedByEmulator (kod stanu HTTP 400-złe żądanie), Pobierz najnowszą wersję emulatora.
+* Naprawiono usterkę polegającą na tym, że stan wyścigu spowodował nieprawidłowe dane jednostki tabeli podczas współbieżnych operacji scalania.
 
-### <a name="version-40"></a>Wersja 4.0
+### <a name="version-40"></a>Wersja 4,0
 
-* Nazwa pliku wykonywalnego emulatora magazynu została zmieniona na *AzureStorageEmulator.exe*.
+* Nazwa pliku wykonywalnego emulatora magazynu została zmieniona na *AzureStorageEmulator. exe*.
 
-### <a name="version-32"></a>Wersja 3.2
+### <a name="version-32"></a>Wersja 3,2
 
-* Emulator magazynu obsługuje teraz wersję 2014-02-14 usług magazynu w punktach końcowych usługi blob, queue i table service. Punkty końcowe usługi plików nie są obecnie obsługiwane w emulatorze magazynu. Zobacz [przechowywanie wersji usług usługi Azure Storage, aby](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) uzyskać szczegółowe informacje na temat wersji 2014-02-14.
+* Emulator magazynu obsługuje teraz wersję 2014-02-14 usług magazynu dla punktów końcowych obiektów blob, kolejek i Table service. Punkty końcowe usługi plików nie są obecnie obsługiwane w emulatorze magazynu. Aby uzyskać szczegółowe informacje na temat wersji 2014-02-14 [, zobacz Przechowywanie wersji usług Azure Storage](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) .
 
-### <a name="version-31"></a>Wersja 3.1
+### <a name="version-31"></a>Wersja 3,1
 
-* Magazyn geograficzny dostępu do odczytu (RA-GRS) jest teraz obsługiwany w emulatorze magazynu. , `Get Blob Service Stats` `Get Queue Service Stats`i `Get Table Service Stats` interfejsy API są obsługiwane dla konta pomocniczego i zawsze zwróci wartość LastSyncTime elementu odpowiedzi jako bieżący czas zgodnie z podstawowej bazy danych SQL. Aby uzyskać programowy dostęp do pomocniczego za pomocą emulatora magazynu, użyj biblioteki klienta magazynu dla platformy .NET w wersji 3.2 lub nowszej. Szczegółowe informacje można znaleźć w bibliotece klienta usługi Microsoft Azure Storage, aby uzyskać informacje o numerze .NET.
+* Magazyn Geograficznie nadmiarowy dostępny do odczytu (RA-GRS) jest teraz obsługiwany w emulatorze magazynu. Interfejsy `Get Blob Service Stats`API `Get Queue Service Stats`, i `Get Table Service Stats` są obsługiwane dla pomocniczego konta i zawsze zwracają wartość elementu odpowiedzi LastSyncTime jako bieżący czas zgodnie z podstawową bazą danych SQL. Aby uzyskać programistyczny dostęp do pomocniczego elementu z emulatorem magazynu, użyj biblioteki klienta usługi Storage dla programu .NET w wersji 3,2 lub nowszej. Szczegółowe informacje znajdują się w temacie Microsoft Azure Storage Client Library for .NET Reference.
 
-### <a name="version-30"></a>Wersja 3.0
+### <a name="version-30"></a>Wersja 3,0
 
-* Emulator magazynu platformy Azure nie jest już dostarczany w tym samym pakiecie co emulator obliczeniowy.
-* Graficzny interfejs użytkownika emulatora magazynu jest przestarzały. Został on zastąpiony przez skryptowy interfejs wiersza polecenia. Aby uzyskać szczegółowe informacje na temat interfejsu wiersza polecenia, zobacz Odwołanie do narzędzia wiersza polecenia emulatora magazynu. Interfejs graficzny będzie nadal obecny w wersji 3.0, ale jest dostępny tylko wtedy, gdy emulator obliczeniowy jest zainstalowany przez kliknięcie prawym przyciskiem myszy na ikonie zasobnika systemowego i wybranie opcji Pokaż interfejs emulatora magazynu.
-* Wersja 2013-08-15 usług magazynu platformy Azure jest teraz w pełni obsługiwana. (Poprzednio ta wersja była obsługiwana tylko przez emulator pamięci masowego w wersji 2.2.1 Wersja zapoznawcza).
+* Emulator usługi Azure Storage nie jest już dostarczany w tym samym pakiecie co emulator obliczeniowy.
+* Graficzny interfejs użytkownika emulatora magazynu jest przestarzały. Został on zastąpiony przez skryptowy interfejs wiersza polecenia. Aby uzyskać szczegółowe informacje na temat interfejsu wiersza polecenia, zobacz temat narzędzie wiersza polecenia emulatora magazynu. Interfejs graficzny będzie nadal występować w wersji 3,0, ale można uzyskać do niego dostęp tylko wtedy, gdy emulator obliczeń zostanie zainstalowany, klikając prawym przyciskiem myszy ikonę zasobnika systemowego i wybierając pozycję Pokaż interfejs użytkownika emulatora magazynu.
+* Wersja 2013-08-15 usług Azure Storage jest teraz w pełni obsługiwana. (Wcześniej ta wersja była obsługiwana tylko przez emulator magazynu w wersji wersja zapoznawcza).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Oceń wieloplatformowy, obsługiwany przez społeczność emulator pamięci masowej typu open source [Azurite](https://github.com/azure/azurite). 
-* [Przykłady usługi Azure Storage przy użyciu platformy .NET](../storage-samples-dotnet.md) zawierają łącza do kilku przykładów kodu, których można użyć podczas tworzenia aplikacji.
-* Za pomocą [Eksploratora usługi Microsoft Azure Storage](https://storageexplorer.com) można pracować z zasobami na koncie magazynu w chmurze i w emulatorze magazynu.
+* Oceń międzyplatformową, obsługiwaną przez społeczność [azurite](https://github.com/azure/azurite)emulator magazynu Open Source. 
+* [Przykłady usługi Azure Storage korzystające z platformy .NET](../storage-samples-dotnet.md) zawierają linki do kilku przykładów kodu, których można użyć podczas tworzenia aplikacji.
+* [Eksplorator usługi Microsoft Azure Storage](https://storageexplorer.com) można użyć do pracy z zasobami na koncie magazynu w chmurze i w emulatorze magazynu.

@@ -1,6 +1,6 @@
 ---
-title: Filtrowanie geograficzne w domenie dla drzwi y frontowej platformy Azure | Dokumenty firmy Microsoft
-description: W tym artykule dowiesz się więcej o zasadach filtrowania geograficznego dla drzwi frontowych platformy Azure
+title: Filtrowanie geograficzne w domenie dla drzwi z przodu platformy Azure | Microsoft Docs
+description: Ten artykuł zawiera informacje na temat zasad filtrowania geograficznego dla drzwi platformy Azure
 services: frontdoor
 documentationcenter: ''
 author: KumudD
@@ -14,19 +14,19 @@ ms.date: 03/21/2019
 ms.author: kumud
 ms.reviewer: tyao
 ms.openlocfilehash: 2cdde705d0e9f0905d4c33648b5415758d838b06
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80411182"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Co to jest filtrowanie geograficzne domeny w usłudze Azure Front Door?
 
-Domyślnie usługi Azure Front Door odpowiada na żądania użytkowników, niezależnie od lokalizacji użytkownika, który złożył żądanie. Jednak w niektórych przypadkach można ograniczyć dostęp do aplikacji sieci web według kraju/regionu. Usługa zapory aplikacji sieci Web (WAF) w drzwiach frontowych umożliwia definiowanie zasad przy użyciu reguł dostępu niestandardowego dla określonej ścieżki w punkcie końcowym, aby zezwolić lub zablokować dostęp z określonych krajów/regionów. 
+Domyślnie drzwi frontonu platformy Azure reagują na żądania użytkowników, niezależnie od lokalizacji użytkownika wysyłającego żądanie. Jednak w niektórych przypadkach możesz chcieć ograniczyć dostęp do aplikacji sieci Web według kraju/regionu. Usługa Zapora aplikacji sieci Web (WAF) w przód drzwi umożliwia zdefiniowanie zasad przy użyciu niestandardowych reguł dostępu dla określonej ścieżki w punkcie końcowym, aby zezwolić na dostęp z określonych krajów/regionów lub go zablokować. 
 
-Zasady WAF zwykle zawiera zestaw reguł niestandardowych. Reguła składa się z warunków dopasowań, akcji i priorytetu. W warunku dopasowania należy zdefiniować zmienną dopasowania, operator i wartość dopasowania.  W przypadku reguły filtrowania geograficznego zmienna dopasowania to REMOTE_ADDR, operator to GeoMatch, a wartość to dwuliterowy kod kraju. Możesz połączyć warunek GeoMatch i warunek dopasowania ciągu REQUEST_URI, aby utworzyć regułę filtrowania geograficznego opartą na ścieżkach.
+Zasady WAF zazwyczaj obejmują zestaw reguł niestandardowych. Reguła składa się z warunków dopasowań, akcji i priorytetu. W warunku dopasowania należy zdefiniować zmienną dopasowania, operator i wartość dopasowania.  W przypadku reguły filtrowania geograficznego zmienna dopasowania to REMOTE_ADDR, operator to GeoMatch, a wartość to dwuliterowy kod kraju. Możesz połączyć warunek GeoMatch i warunek dopasowania ciągu REQUEST_URI, aby utworzyć regułę filtrowania geograficznego opartą na ścieżkach.
 
-Zasady filtrowania geograficznego dla drzwi frontowych można skonfigurować za pomocą [programu Azure PowerShell](front-door-tutorial-geo-filtering.md) lub korzystając z naszego [szablonu szybkiego startu.](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering)
+Można skonfigurować zasady filtrowania geograficznego dla drzwi z przodu przy użyciu [Azure PowerShell](front-door-tutorial-geo-filtering.md) lub przy użyciu naszego [szablonu szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
 ## <a name="country-code-reference"></a>Odwołanie do kodu kraju
 
@@ -53,7 +53,7 @@ Zasady filtrowania geograficznego dla drzwi frontowych można skonfigurować za 
 | BH | Bahrajn|
 | BI | Burundi|
 | BJ | Benin|
-| BL | Św Barthélemy|
+| BL | Saint Barthélemy|
 | BN | Brunei Darussalam|
 | BO | Boliwia|
 | BR | Brazylia|

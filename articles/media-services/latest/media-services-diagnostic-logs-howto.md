@@ -1,6 +1,6 @@
 ---
-title: Monitorowanie dzienników diagnostycznych usługi Media Services za pośrednictwem usługi Azure Monitor | Dokumenty firmy Microsoft
-description: W tym artykule pokazano, jak rozsyłać i wyświetlać dzienniki diagnostyczne za pośrednictwem usługi Azure Monitor.
+title: Monitoruj Media Services dzienników diagnostycznych za pomocą Azure Monitor | Microsoft Docs
+description: W tym artykule przedstawiono sposób kierowania i wyświetlania dzienników diagnostycznych za pośrednictwem Azure Monitor.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,37 +14,37 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: 4d4587c701a054828fc34785e2ae680fef47625d
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80382923"
 ---
-# <a name="monitor-media-services-diagnostic-logs"></a>Monitorowanie dzienników diagnostycznych usługi Media Services
+# <a name="monitor-media-services-diagnostic-logs"></a>Monitorowanie dzienników diagnostycznych Media Services
 
-[Usługa Azure Monitor](../../azure-monitor/overview.md) umożliwia monitorowanie metryk i dzienników diagnostycznych, które pomagają zrozumieć, jak działają aplikacje. Aby uzyskać szczegółowy opis tej funkcji i zobaczyć, dlaczego chcesz używać metryk i dzienników diagnostycznych usługi Azure Media Services, zobacz [Monitorowanie metryk usługi Media Services i dzienników diagnostycznych.](media-services-metrics-diagnostic-logs.md)
+[Azure monitor](../../azure-monitor/overview.md) umożliwia monitorowanie metryk i dzienników diagnostycznych, które ułatwiają zrozumienie sposobu działania aplikacji. Aby uzyskać szczegółowy opis tej funkcji oraz sprawdzić, dlaczego warto używać Azure Media Services metryki i dzienniki diagnostyczne, zobacz [monitorowanie Media Services metryk i dzienników diagnostycznych](media-services-metrics-diagnostic-logs.md).
 
-W tym artykule pokazano, jak rozsyłać dane do konta magazynu, a następnie wyświetlić dane.
+W tym artykule pokazano, jak skierować dane do konta magazynu, a następnie wyświetlić dane.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Utwórz konto usługi Media Services](create-account-cli-how-to.md).
-- Przejrzyj [metryki monitora usługi Media Services i dzienniki diagnostyczne](media-services-metrics-diagnostic-logs.md).
+- [Utwórz konto Media Services](create-account-cli-how-to.md).
+- Przegląd [metryk Media Services monitorów i dzienników diagnostycznych](media-services-metrics-diagnostic-logs.md).
 
-## <a name="route-data-to-the-storage-account-using-the-portal"></a>Posyłanie danych do konta magazynu za pomocą portalu
+## <a name="route-data-to-the-storage-account-using-the-portal"></a>Kierowanie danych do konta magazynu przy użyciu portalu
 
 1. Zaloguj się do witryny Azure Portal na stronie https://portal.azure.com.
-1. Przejdź do konta programu Media Services i kliknij pozycję **Ustawienia diagnostyczne** w obszarze **Monitor**. Zostanie wyświetlona lista wszystkich zasobów w subskrypcji, które generują dane monitorowania za pośrednictwem usługi Azure Monitor.
+1. Przejdź do konta Media Services w programie, a następnie kliknij pozycję **Ustawienia diagnostyczne** w obszarze **monitorowanie**. Zostanie wyświetlona lista wszystkich zasobów w subskrypcji, które generują dane monitorowania za pośrednictwem usługi Azure Monitor.
 
     ![Sekcja ustawień diagnostycznych](media/media-services-diagnostic-logs/logs01.png)
 
-1. Kliknij **pozycję Dodaj ustawienie diagnostyczne**.
+1. Kliknij pozycję **Dodaj ustawienie diagnostyczne**.
 
    Ustawienie diagnostyczne zasobu definiuje, *jakie* dane monitorowania powinny być przekierowywane z określonego zasobu i *gdzie* powinny one trafiać.
 
 1. W wyświetlonej sekcji podaj **nazwę** ustawienia i zaznacz pole wyboru **Zarchiwizuj na koncie magazynu**.
 
-    Wybierz konto magazynu, do którego chcesz wysyłać dzienniki, i naciśnij **przycisk OK**.
+    Wybierz konto magazynu, do którego chcesz wysłać dzienniki, a następnie naciśnij przycisk **OK**.
 1. Zaznacz wszystkie pola w obszarach **Dziennik** i **Metryka**. W zależności od typu zasobu może być widoczna tylko jedna z tych opcji. Za pomocą tych pól wyboru można wybrać kategorie danych dzienników i metryk, dostępne dla tego typu zasobu, które mają być wysyłane do wybranego miejsca docelowego — w tym przypadku konta magazynu.
 
    ![Sekcja ustawień diagnostycznych](media/media-services-diagnostic-logs/logs02.png)
@@ -53,9 +53,9 @@ W tym artykule pokazano, jak rozsyłać dane do konta magazynu, a następnie wy�
 
 Dane monitorowania z zasobu będą teraz przepływać do konta magazynu.
 
-## <a name="route-data-to-the-storage-account-using-the-azure-cli"></a>Rozsyłanie danych do konta magazynu przy użyciu interfejsu wiersza polecenia platformy Azure
+## <a name="route-data-to-the-storage-account-using-the-azure-cli"></a>Kierowanie danych do konta magazynu przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Aby włączyć przechowywanie dzienników diagnostycznych na koncie `az monitor diagnostic-settings` magazynu, należy uruchomić następujące polecenie interfejsu wiersza polecenia platformy Azure:
+Aby włączyć magazyn dzienników diagnostycznych na koncie magazynu, uruchom następujące `az monitor diagnostic-settings` polecenie interfejsu wiersza polecenia platformy Azure:
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -83,7 +83,7 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
     --logs '[{"category": "KeyDeliveryRequests",  "enabled": true, "retentionPolicy": {"days": 3, "enabled": true }}]'
 ```
 
-## <a name="view-data-in-the-storage-account-using-the-portal"></a>Wyświetlanie danych na koncie magazynu za pomocą portalu
+## <a name="view-data-in-the-storage-account-using-the-portal"></a>Wyświetlanie danych na koncie magazynu przy użyciu portalu
 
 Jeśli wykonano powyższe kroki, dane zaczęły już przepływać do konta magazynu.
 
@@ -91,14 +91,14 @@ Może upłynąć nawet pięć minut, zanim zdarzenie pojawi się na koncie magaz
 
 1. W portalu przejdź do sekcji **Konta magazynu** widocznej na pasku nawigacyjnym po lewej stronie.
 1. Znajdź konto magazynu utworzone w poprzedniej sekcji i kliknij je.
-1. Kliknij na **obiekty Blobs**, a następnie w kontenerze **oznaczonym insights-logs-keydeliveryrequests**. Jest to kontener, który ma dzienniki w nim. Dane monitorowania są podzielone na kontenery według identyfikatora zasobu, a następnie według daty i godziny.
+1. Kliknij **obiekty blob**, a następnie na kontenerze z etykietą **Insights-Logs-keydeliveryrequests**. Jest to kontener, w którym znajdują się Twoje dzienniki. Dane monitorowania są podzielone na kontenery według identyfikatora zasobu, a następnie według daty i godziny.
 1. Przejdź do pliku PT1H.json, klikając identyfikator zasobu, datę i godzinę w obrębie kontenerów. Kliknij plik PT1H.json, a następnie kliknij przycisk **Pobierz**.
 
  Możesz teraz wyświetlić zdarzenie JSON przechowywane na koncie magazynu.
 
-### <a name="examples-of-pt1hjson"></a>Przykłady PT1H.json
+### <a name="examples-of-pt1hjson"></a>Przykłady PT1H. JSON
 
-#### <a name="clear-key-delivery-log"></a>Wyczyść dziennik dostarczania kluczy
+#### <a name="clear-key-delivery-log"></a>Wyczyść dziennik dostarczania klucza
 
 ```json
 {
@@ -136,7 +136,7 @@ Może upłynąć nawet pięć minut, zanim zdarzenie pojawi się na koncie magaz
 }
 ```
 
-#### <a name="widevine-encrypted-key-delivery-log"></a>Widevine zaszyfrowany dziennik dostarczania kluczy
+#### <a name="widevine-encrypted-key-delivery-log"></a>Dziennik dostarczania zaszyfrowanego klucza Widevine
 
 ```json
 {
@@ -176,13 +176,13 @@ Może upłynąć nawet pięć minut, zanim zdarzenie pojawi się na koncie magaz
 
 ## <a name="additional-notes"></a>Uwagi dodatkowe
 
-* Widevine jest usługą świadczoną przez Google Inc. i podlega warunkom korzystania z usługi oraz Polityce prywatności Firmy Google, Inc.
+* Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-* [Metryki usługi Azure Monitor](../../azure-monitor/platform/data-platform.md)
-* [Dzienniki diagnostyczne usługi Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md)
-* [Jak zbierać i wykorzystywać dane dziennika z zasobów platformy Azure](../../azure-monitor/platform/platform-logs-overview.md)
+* [Metryki Azure Monitor](../../azure-monitor/platform/data-platform.md)
+* [Azure Monitor dzienników diagnostycznych](../../azure-monitor/platform/platform-logs-overview.md)
+* [Jak zbierać i zużywać dane dzienników z zasobów platformy Azure](../../azure-monitor/platform/platform-logs-overview.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

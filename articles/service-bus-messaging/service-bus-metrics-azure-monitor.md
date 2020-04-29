@@ -1,6 +1,6 @@
 ---
-title: Metryki usługi Azure Service Bus w usłudze Azure Monitor| Dokumenty firmy Microsoft
-description: W tym artykule wyjaśniono, jak używać usługi Azure Monitor do monitorowania jednostek usługi Service Bus (kolejki, tematy i subskrypcje).
+title: Metryki Azure Service Bus w Azure Monitor | Microsoft Docs
+description: W tym artykule wyjaśniono, jak używać Azure Monitor do monitorowania jednostek Service Bus (kolejek, tematów i subskrypcji).
 services: service-bus-messaging
 documentationcenter: .NET
 author: axisc
@@ -10,169 +10,169 @@ ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: 227dfaff211eb60c5c2b25b5c76ecc82b6ce3edc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80240787"
 ---
-# <a name="azure-service-bus-metrics-in-azure-monitor"></a>Metryki usługi Azure Service Bus w usłudze Azure Monitor
+# <a name="azure-service-bus-metrics-in-azure-monitor"></a>Metryki Azure Service Bus w Azure Monitor
 
-Metryki usługi Service Bus zapewniają stan zasobów w ramach subskrypcji platformy Azure. Za pomocą bogatego zestawu danych metryk można ocenić ogólną kondycję zasobów usługi Service Bus, nie tylko na poziomie obszaru nazw, ale także na poziomie jednostki. Te statystyki mogą być ważne, ponieważ pomagają one monitorować stan usługi Service Bus. Metryki mogą również pomóc w rozwiązywaniu problemów z przyczynami źródłowymi bez konieczności kontaktowania się z pomocą techniczną platformy Azure.
+Metryki Service Bus umożliwiają udostępnienie stanu zasobów w ramach subskrypcji platformy Azure. Dzięki bogatemu zestawowi danych metryk można ocenić ogólną kondycję zasobów Service Bus, nie tylko na poziomie przestrzeni nazw, ale również na poziomie jednostki. Te dane statystyczne mogą być ważne, ponieważ ułatwiają monitorowanie stanu Service Bus. Metryki mogą również pomóc w rozwiązywaniu problemów dotyczących głównych przyczyn, bez konieczności kontaktowania się z pomocą techniczną platformy Azure.
 
-Usługa Azure Monitor udostępnia ujednolicone interfejsy użytkownika do monitorowania w różnych usługach platformy Azure. Aby uzyskać więcej informacji, zobacz [monitorowanie na platformie Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) i pobieranie [metryki usługi Azure Monitor z .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) próbki w usłudze GitHub.
+Azure Monitor zapewnia ujednolicone interfejsy użytkownika do monitorowania różnych usług platformy Azure. Aby uzyskać więcej informacji, zobacz [monitorowanie w Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) i [pobieranie metryk Azure monitor z przykładem platformy .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) w witrynie GitHub.
 
 > [!IMPORTANT]
-> Jeśli nie było żadnej interakcji z jednostką przez 2 godziny, metryki zaczną pokazywać "0" jako wartość, dopóki jednostka nie będzie już bezczynna.
+> Gdy nie dojdzie do żadnej interakcji z jednostką przez 2 godziny, metryki rozpoczną wyświetlanie "0" jako wartości do momentu, gdy jednostka nie będzie już w stanie bezczynności.
 
-## <a name="access-metrics"></a>Dostęp do danych
+## <a name="access-metrics"></a>Metryki dostępu
 
-Usługa Azure Monitor udostępnia wiele sposobów dostępu do metryk. Można uzyskać dostęp do metryk za pośrednictwem [witryny Azure portal](https://portal.azure.com)lub użyć interfejsów API usługi Azure Monitor (REST i .NET) i rozwiązań analitycznych, takich jak dzienniki usługi Azure Monitor i usługi Event Hubs. Aby uzyskać więcej informacji, zobacz [metryki w usłudze Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
+Azure Monitor zapewnia wiele sposobów uzyskiwania dostępu do metryk. Możesz uzyskać dostęp do metryk przy użyciu [Azure Portal](https://portal.azure.com)lub użyć interfejsów API Azure monitor (REST i .NET) oraz rozwiązań do analizy, takich jak dzienniki Azure Monitor i Event Hubs. Aby uzyskać więcej informacji, zobacz [metryki w Azure monitor](../azure-monitor/platform/data-platform-metrics.md).
 
-Metryki są domyślnie włączone i można uzyskać dostęp do ostatnich 30 dni danych. Jeśli chcesz zachować dane przez dłuższy okres czasu, możesz archiwizować dane metryk na koncie usługi Azure Storage. Ta wartość jest konfigurowana w [ustawieniach diagnostycznych](../azure-monitor/platform/diagnostic-settings.md) w usłudze Azure Monitor.
+Metryki są domyślnie włączone i można uzyskać dostęp do najnowszych danych z ostatnich 30 dni. Jeśli chcesz zachować dane przez dłuższy czas, możesz zarchiwizować dane metryk na koncie usługi Azure Storage. Ta wartość jest konfigurowana w [ustawieniach diagnostycznych](../azure-monitor/platform/diagnostic-settings.md) w Azure monitor.
 
-## <a name="access-metrics-in-the-portal"></a>Dostęp do danych w portalu
+## <a name="access-metrics-in-the-portal"></a>Dostęp do metryk w portalu
 
-Metryki można monitorować w czasie w [witrynie Azure portal](https://portal.azure.com). W poniższym przykładzie pokazano, jak wyświetlić pomyślne żądania i przychodzące żądania na poziomie konta:
+Można monitorować metryki w czasie w [Azure Portal](https://portal.azure.com). Poniższy przykład pokazuje, jak wyświetlić pomyślne żądania i żądania przychodzące na poziomie konta:
 
 ![][1]
 
-Można również uzyskać dostęp do metryk bezpośrednio za pośrednictwem obszaru nazw. Aby to zrobić, wybierz obszar nazw, a następnie kliknij **pozycję Metryki**. Aby wyświetlić metryki filtrowane do zakresu encji, wybierz encję, a następnie kliknij pozycję **Metryki**.
+Możesz również uzyskać dostęp do metryk bezpośrednio za pośrednictwem przestrzeni nazw. Aby to zrobić, wybierz przestrzeń nazw, a następnie kliknij pozycję **metryki**. Aby wyświetlić metryki odfiltrowane do zakresu jednostki, wybierz jednostkę, a następnie kliknij pozycję **metryki**.
 
 ![][2]
 
-W przypadku metryk pomocniczych wymiarów należy filtrować z żądaną wartością wymiaru.
+W przypadku metryk obsługujących wymiary należy filtrować według żądanej wartości wymiaru.
 
 ## <a name="billing"></a>Rozliczenia
 
-Metryki i alerty w usłudze Azure Monitor są naliczane na podstawie alertów. Opłaty te powinny być dostępne w portalu po skonfigurowaniu alertu i przed jego zapisaniem. 
+Metryki i alerty dotyczące Azure Monitor są naliczane według poszczególnych alertów. Opłaty te powinny być dostępne w portalu po skonfigurowaniu alertu i przed jego zapisaniem. 
 
-Dodatkowe rozwiązania, które pochłoają dane metryki, są rozliczane bezpośrednio przez te rozwiązania. Na przykład są rozliczane przez usługę Azure Storage, jeśli archiwum danych metryk do konta usługi Azure Storage. Są również rozliczane przez usługi Log Analytics, jeśli strumień danych metryk do usługi Log Analytics do analizy zaawansowanej.
+Dodatkowe rozwiązania, w przypadku których dane metryk są rozliczane bezpośrednio przez te rozwiązania. Na przykład w przypadku archiwizowania danych metryk na koncie usługi Azure Storage są naliczane opłaty za usługę Azure Storage. Opłaty są naliczane według Log Analytics, jeśli przesyłasz strumieniowo dane metryk do Log Analytics na potrzeby zaawansowanej analizy.
 
 Poniższe metryki zapewniają przegląd kondycji usługi. 
 
 > [!NOTE]
-> Jesteśmy przestarzałe kilka metryk, ponieważ są one przenoszone pod inną nazwą. Może to wymagać aktualizacji odwołań. Dane oznaczone słowem kluczowym "przestarzałe" nie będą obsługiwane w przyszłości.
+> Gdy są one przenoszone pod inną nazwę, jest przestarzałe kilka metryk. Może to wymagać aktualizacji odwołań. Metryki oznaczone słowem kluczowym "przestarzałe" nie będą obsługiwane do przodu.
 
-Wszystkie wartości metryk są wysyłane do usługi Azure Monitor co minutę. Ziarnistość czasu definiuje przedział czasu, dla którego są prezentowane wartości metryk. Obsługiwany przedział czasu dla wszystkich metryk usługi Service Bus wynosi 1 minutę.
+Wszystkie wartości metryk są wysyłane do Azure Monitor co minutę. Stopień szczegółowości czasu określa przedział czasu, w którym są prezentowane wartości metryk. Obsługiwany przedział czasu dla wszystkich metryk Service Bus wynosi 1 minutę.
 
-## <a name="request-metrics"></a>Żądania metryki
+## <a name="request-metrics"></a>Metryki żądań
 
-Zlicza liczbę żądań operacji danych i zarządzania.
+Zlicza żądania operacji na danych i zarządzania.
 
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
-| Żądania przychodzące| Liczba żądań złożonych do usługi Service Bus w określonym czasie. <br/><br/> Jednostka: Liczba <br/> Typ agregacji: Suma <br/> Wymiar: Nazwa elementu|
-|Pomyślne żądania|Liczba pomyślnych żądań złożonych do usługi Service Bus w określonym okresie.<br/><br/> Jednostka: Liczba <br/> Typ agregacji: Suma <br/> Wymiar: Nazwa elementu|
-|Błędy serwera|Liczba żądań, które nie zostały przetworzone z powodu błędu w usłudze Service Bus w określonym okresie.<br/><br/> Jednostka: Liczba <br/> Typ agregacji: Suma <br/> Wymiar: Nazwa elementu|
-|Błędy użytkownika (patrz poniższa podsekcja)|Liczba żądań nie przetworzonych z powodu błędów użytkownika w określonym czasie.<br/><br/> Jednostka: Liczba <br/> Typ agregacji: Suma <br/> Wymiar: Nazwa elementu|
-|Ograniczone żądania|Liczba żądań, które zostały ograniczone, ponieważ użycie zostało przekroczone.<br/><br/> Jednostka: Liczba <br/> Typ agregacji: Suma <br/> Wymiar: Nazwa elementu|
+| Żądania przychodzące| Liczba żądań wysyłanych do usługi Service Bus w określonym przedziale czasu. <br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+|Żądania zakończone powodzeniem|Liczba pomyślnych żądań do usługi Service Bus w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+|Błędy serwera|Liczba żądań, które nie zostały przetworzone z powodu błędu w usłudze Service Bus w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+|Błędy użytkowników (zobacz następującą podsekcję)|Liczba żądań, które nie zostały przetworzone z powodu błędów użytkowników w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+|Ograniczone żądania|Liczba żądań, które zostały ograniczone, ponieważ przekroczono użycie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
 
 ### <a name="user-errors"></a>Błędy użytkownika
 
 Następujące dwa typy błędów są klasyfikowane jako błędy użytkownika:
 
-1. Błędy po stronie klienta (w HTTP, który byłby 400 błędów).
-2. Błędy występujące podczas przetwarzania wiadomości, takie jak [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception).
+1. Błędy po stronie klienta (w przypadku protokołu HTTP, które byłyby błędy 400).
+2. Błędy, które występują podczas przetwarzania komunikatów, takie jak [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception).
 
 
-## <a name="message-metrics"></a>Metryki wiadomości
+## <a name="message-metrics"></a>Metryki komunikatów
 
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
-|Wiadomości przychodzące|Liczba zdarzeń lub wiadomości wysyłanych do usługi Service Bus w określonym czasie.<br/><br/> Jednostka: Liczba <br/> Typ agregacji: Suma <br/> Wymiar: Nazwa elementu|
-|Wiadomości wychodzące|Liczba zdarzeń lub komunikatów odebranych z usługi Service Bus w określonym okresie.<br/><br/> Jednostka: Liczba <br/> Typ agregacji: Suma <br/> Wymiar: Nazwa elementu|
-| Komunikaty| Liczba wiadomości w kolejce/temacie. <br/><br/> Jednostka: Liczba <br/> Typ agregacji: średnia <br/> Wymiar: Nazwa elementu |
-| ActiveMessages (Aktywne"| Liczba aktywnych wiadomości w kolejce/temacie. <br/><br/> Jednostka: Liczba <br/> Typ agregacji: średnia <br/> Wymiar: Nazwa elementu |
-| Wiadomości z martwymi literami| Liczba wiadomości utraconych w kolejce/temacie. <br/><br/> Jednostka: Liczba <br/> Typ agregacji: średnia <br/>Wymiar: Nazwa elementu |
-| Zaplanowane wiadomości| Liczba zaplanowanych wiadomości w kolejce/temacie. <br/><br/> Jednostka: Liczba <br/> Typ agregacji: średnia  <br/> Wymiar: Nazwa elementu |
+|Komunikaty przychodzące|Liczba zdarzeń lub komunikatów wysłanych do Service Bus w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+|Komunikaty wychodzące|Liczba zdarzeń lub komunikatów odebranych z Service Bus w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+| Komunikaty| Liczba komunikatów w kolejce/temacie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Wymiar: EntityName |
+| ActiveMessages| Liczba aktywnych komunikatów w kolejce/temacie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Wymiar: EntityName |
+| Wiadomości utracone| Liczba utraconych wiadomości w kolejce/temacie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/>Wymiar: EntityName |
+| Zaplanowane wiadomości| Liczba zaplanowanych komunikatów w kolejce/temacie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia  <br/> Wymiar: EntityName |
 
 > [!NOTE]
-> Wartości dla następujących metryk są wartościami punktu w czasie. Przychodzące wiadomości, które zostały zużyte natychmiast po tym punkt w czasie może nie być odzwierciedlone w tych metryki. 
+> Wartości dla następujących metryk są wartościami punktu w czasie. Komunikaty przychodzące, które były używane natychmiast po tym punkcie w czasie, mogą nie być odzwierciedlone w tych metrykach. 
 > - Komunikaty
-> - Aktywne wiadomości 
-> - Wiadomości z martwymi literami 
+> - Aktywne komunikaty 
+> - Wiadomości utracone 
 > - Zaplanowane wiadomości 
 
 ## <a name="connection-metrics"></a>Metryki połączeń
 
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
-|ActiveConnections (Aktywne połączenia)|Liczba aktywnych połączeń w obszarze nazw, a także w jednostce.<br/><br/> Jednostka: Liczba <br/> Typ agregacji: Suma <br/> Wymiar: Nazwa elementu|
+|Połączeń ActiveConnections|Liczba aktywnych połączeń w przestrzeni nazw, jak również w jednostce.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
 
 ## <a name="resource-usage-metrics"></a>Metryki użycia zasobów
 
 > [!NOTE] 
-> Poniższe dane są dostępne tylko w warstwie **premium.** 
+> Następujące metryki są dostępne tylko w warstwie **Premium** . 
 > 
-> Ważne metryki do monitorowania wszelkich awarii dla obszaru nazw warstwy premium to: **użycie procesora CPU na obszar nazw** i rozmiar pamięci na obszar **nazw**. [Skonfiguruj alerty](../azure-monitor/platform/alerts-metric.md) dla tych metryk przy użyciu usługi Azure Monitor.
+> Ważne metryki do monitorowania dla przestrzeni nazw warstwy Premium są następujące: **użycie procesora CPU na przestrzeń** nazw i **rozmiar pamięci na przestrzeń nazw**. [Skonfiguruj alerty](../azure-monitor/platform/alerts-metric.md) dla tych metryk przy użyciu Azure monitor.
 > 
-> Inną metryką, którą można monitorować, są: **żądania ograniczone.** Nie powinno być problemu, choć tak długo, jak obszar nazw pozostaje w pamięci, procesora CPU i pośredniczy limitów połączeń. Aby uzyskać więcej informacji, zobacz [Ograniczanie przepustowości w warstwie Premium usługi Azure Service Bus](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier)
+> Inną metryką, którą można monitorować, jest: **żądania ograniczone**. Nie powinno to być problemem, o ile przestrzeń nazw pozostaje w limitach połączeń z pamięcią, PROCESORem i brokerem. Aby uzyskać więcej informacji, zobacz [ograniczanie przepustowości w Azure Service Bus warstwie Premium](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier)
 
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
-|Użycie procesora CPU na obszar nazw|Procent użycia procesora CPU obszaru nazw.<br/><br/> Jednostka: Procent <br/> Typ agregacji: maksymalna <br/> Wymiar: Nazwa elementu|
-|Użycie rozmiaru pamięci na obszar nazw|Procent użycia pamięci obszaru nazw.<br/><br/> Jednostka: Procent <br/> Typ agregacji: maksymalna <br/> Wymiar: Nazwa elementu|
+|Użycie procesora CPU na przestrzeń nazw|Procent użycia procesora w przestrzeni nazw.<br/><br/> Jednostka: procent <br/> Typ agregacji: maksimum <br/> Wymiar: EntityName|
+|Użycie rozmiaru pamięci na przestrzeń nazw|Procent użycia pamięci w przestrzeni nazw.<br/><br/> Jednostka: procent <br/> Typ agregacji: maksimum <br/> Wymiar: EntityName|
 
-## <a name="metrics-dimensions"></a>Wymiary metryki
+## <a name="metrics-dimensions"></a>Wymiary metryk
 
-Usługa Azure Service Bus obsługuje następujące wymiary metryk w usłudze Azure Monitor. Dodawanie wymiarów do danych jest opcjonalne. Jeśli wymiary nie zostaną dodane, metryki są określane na poziomie obszaru nazw. 
+Azure Service Bus obsługuje następujące wymiary dla metryk w Azure Monitor. Dodawanie wymiarów do metryk jest opcjonalne. Jeśli nie dodasz wymiarów, metryki są określane na poziomie przestrzeni nazw. 
 
 |Nazwa wymiaru|Opis|
 | ------------------- | ----------------- |
-|Nazwa elementu| Usługa Service Bus obsługuje jednostki obsługi wiadomości w obszarze nazw.|
+|EntityName| Service Bus obsługuje jednostki obsługi komunikatów w przestrzeni nazw.|
 
 ## <a name="set-up-alerts-on-metrics"></a>Konfigurowanie alertów dotyczących metryk
 
-1. Na karcie **Metryki** na stronie **Obszar nazw magistrali usług** wybierz pozycję **Konfiguruj alerty**. 
+1. Na karcie **metryki** **obszaru nazw Service Bus** wybierz pozycję **Konfiguruj alerty**. 
 
-    ![Strona Metryki — menu Konfigurowanie alertów](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
-2. Wybierz opcję **Wybierz obiekt docelowy** i wykonaj następujące czynności na stronie **Wybierz zasób:** 
-    1. Wybierz **pozycję Obszary nazw magistrali usług** dla pola **Filtruj według typu zasobu.** 
-    2. Wybierz subskrypcję pola **Filtruj według subskrypcji.**
-    3. Wybierz **obszar nazw magistrali usług** z listy. 
-    4. Wybierz pozycję **Done** (Gotowe). 
+    ![Strona metryk — Konfigurowanie alertów](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
+2. Wybierz opcję **Wybierz cel** i wykonaj następujące czynności na stronie **Wybierz zasób** : 
+    1. Wybierz **Service Bus przestrzenie nazw** dla pola **Filtr według typu zasobu** . 
+    2. Wybierz subskrypcję dla pola **Filtruj według subskrypcji** .
+    3. Wybierz z listy **przestrzeń nazw usługi Service Bus** . 
+    4. Wybierz pozycję **Gotowe**. 
     
-        ![Wybierz obszar nazw](./media/service-bus-metrics-azure-monitor/select-namespace.png)
-1. Wybierz **pozycję Dodaj kryteria**i wykonaj następujące czynności na stronie **Konfigurowanie logiki sygnału:**
-    1. Wybierz **Metryki** dla **typu sygnału**. 
-    2. Wybierz sygnał. Na przykład: **Błędy usługi**. 
+        ![Wybierz przestrzeń nazw](./media/service-bus-metrics-azure-monitor/select-namespace.png)
+1. Wybierz pozycję **Dodaj kryteria**i wykonaj następujące czynności na stronie **Konfigurowanie logiki sygnałów** :
+    1. Wybierz **metryki** dla **typu sygnału**. 
+    2. Wybierz sygnał. Na przykład: **błędy usługi**. 
 
         ![Wybieranie błędów serwera](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
-    1. Wybierz **opcję Większa niż** dla **warunku**.
-    2. Wybierz **opcję Suma** dla **agregacji czasu**. 
-    3. Wprowadź **5** dla **progu**. 
-    4. Wybierz pozycję **Done** (Gotowe).    
+    1. Wybierz opcję **większe niż** w przypadku **warunku**.
+    2. Wybierz pozycję **Suma** dla **agregacji czasu**. 
+    3. Wprowadź wartość **5** w obszarze **próg**. 
+    4. Wybierz pozycję **Gotowe**.    
 
         ![Określ warunek](./media/service-bus-metrics-azure-monitor/specify-condition.png)    
-1. Na stronie **Tworzenie reguły** rozwiń pozycję **Definiuj szczegóły alertu**i wykonaj następujące czynności:
+1. Na stronie **Tworzenie reguły** rozwiń pozycję **Zdefiniuj szczegóły alertu**i wykonaj następujące czynności:
     1. Wprowadź **nazwę** alertu. 
-    2. Wprowadź **opis** alertu.
-    3. Wybierz **ważność** alertu. 
+    2. Wprowadź **Opis** alertu.
+    3. Wybierz pozycję **ważność** dla alertu. 
 
         ![Szczegóły alertu](./media/service-bus-metrics-azure-monitor/alert-details.png)
-1. Na stronie **Tworzenie reguły** rozwiń pozycję **Definiuj grupę akcji**, wybierz **pozycję Nowa grupa akcji**i wykonaj następujące czynności na stronie **Dodaj grupę akcji**. 
+1. Na stronie **Tworzenie reguły** rozwiń węzeł **Zdefiniuj grupę akcji**, wybierz pozycję **Nowa grupa akcji**i wykonaj następujące czynności na **stronie Dodaj grupę akcji**. 
     1. Wprowadź nazwę grupy akcji.
     2. Wprowadź krótką nazwę grupy akcji. 
     3. Wybierz subskrypcję. 
     4. Wybierz grupę zasobów. 
-    5. W tym instruktażu wprowadź pozycję **Wyślij wiadomość e-mail** do **nazwy akcji**.
-    6. Wybierz **opcję E-mail/SMS/Push/Voice** dla **typu AKCJI**. 
+    5. W tym instruktażu wprowadź nazwę **Wyślij wiadomość e-mail** dla **akcji**.
+    6. Wybierz pozycję **poczta e-mail/SMS/wypychanie/głos** dla **typu akcji**. 
     7. Wybierz pozycję **Edytuj szczegóły**. 
-    8. Na stronie **E-mail/SMS/Push/Voice** wykonaj następujące czynności:
+    8. Na stronie **wiadomości e-mail/SMS/wypychanie/głos** wykonaj następujące czynności:
         1. Wybierz pozycję **Adres e-mail**. 
         2. Wpisz **adres e-mail**. 
-        3. Kliknij przycisk **OK**.
+        3. Wybierz przycisk **OK**.
 
             ![Szczegóły alertu](./media/service-bus-metrics-azure-monitor/add-action-group.png)
-        4. Na stronie **Dodawanie grupy akcji** wybierz pozycję **OK**. 
+        4. Na stronie **Dodaj grupę akcji** wybierz pozycję **OK**. 
 1. Na stronie **Tworzenie reguły** wybierz pozycję **Utwórz regułę alertu**. 
 
-    ![Przycisk Utwórz regułę alertu](./media/service-bus-metrics-azure-monitor/create-alert-rule.png)
+    ![Przycisk tworzenia reguły alertu](./media/service-bus-metrics-azure-monitor/create-alert-rule.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [omówienie usługi Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
+Zobacz [omówienie Azure monitor](../monitoring-and-diagnostics/monitoring-overview.md).
 
 [1]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor1.png
 [2]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor2.png

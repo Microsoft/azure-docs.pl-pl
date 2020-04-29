@@ -1,6 +1,6 @@
 ---
-title: Wysoka dostępność usług Azure Analysis Services | Dokumenty firmy Microsoft
-description: W tym artykule opisano, jak usługi Azure Analysis Services zapewnia wysoką dostępność podczas przerw w świadczeniu usług.
+title: Azure Analysis Services wysoka dostępność | Microsoft Docs
+description: W tym artykule opisano, jak Azure Analysis Services zapewnia wysoką dostępność podczas przerw w działaniu usługi.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,31 +8,31 @@ ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 78a6d41b638d79111a58830f0cb0d5190ea0796c
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80408685"
 ---
-# <a name="analysis-services-high-availability"></a>Wysoka dostępność usług Analysis Services
+# <a name="analysis-services-high-availability"></a>Analysis Services wysoka dostępność
 
-W tym artykule opisano zapewnienie wysokiej dostępności dla serwerów usług Azure Analysis Services. 
+W tym artykule opisano sposób zapewnienia wysokiej dostępności dla serwerów Azure Analysis Services. 
 
-## <a name="assuring-high-availability-during-a-service-disruption"></a>Zapewnienie wysokiej dostępności podczas przerwy w świadczeniu usług
+## <a name="assuring-high-availability-during-a-service-disruption"></a>Zapewnienie wysokiej dostępności podczas przerw w działaniu usługi
 
-Chociaż rzadko centrum danych platformy Azure może mieć awarię. Gdy wystąpi awaria, powoduje zakłócenia biznesowe, które mogą trwać kilka minut lub może trwać wiele godzin. Wysoka dostępność jest najczęściej osiągana dzięki nadmiarowości serwerów. Dzięki usłudze Azure Analysis Services można uzyskać nadmiarowość, tworząc dodatkowe serwery pomocnicze w co najmniej jednym regionie. Podczas tworzenia serwerów nadmiarowych, aby zapewnić, że dane i metadane na tych serwerach są synchronizowane z serwerem w regionie, który przeszedł w tryb offline, można:
+Czasami centrum danych platformy Azure może mieć awarię. Gdy wystąpi awaria, powoduje to zakłócenia działania firmy, które może trwać kilka minut, lub może trwać w godzinach. Wysoka dostępność jest najczęściej osiągana z nadmiarowością serwera. Za pomocą Azure Analysis Services można uzyskać nadmiarowość, tworząc dodatkowe, pomocnicze serwery w jednym lub kilku regionach. Podczas tworzenia nadmiarowych serwerów, aby zapewnić, że dane i metadane na tych serwerach są zsynchronizowane z serwerem w regionie, który został przełączony w tryb offline, można:
 
-* Wdrażanie modeli na serwerach nadmiarowych w innych regionach. Ta metoda wymaga przetwarzania danych zarówno na serwerze podstawowym, jak i serwerach nadmiarowych równolegle, zapewniając, że wszystkie serwery są zsynchronizowane.
+* Wdrażaj modele w nadmiarowych serwerach w innych regionach. Ta metoda wymaga przetwarzania danych zarówno na serwerze podstawowym, jak i w sposób nadmiarowy, co zapewnia, że wszystkie serwery są zsynchronizowane.
 
-* [Tworzenie kopii zapasowych](analysis-services-backup.md) baz danych z serwera podstawowego i przywracanie na serwerach nadmiarowych. Na przykład można zautomatyzować nocne kopie zapasowe do magazynu platformy Azure i przywrócić do innych serwerów nadmiarowych w innych regionach. 
+* [Utwórz kopię zapasową](analysis-services-backup.md) baz danych z serwera podstawowego i przywróć je na serwerach nadmiarowych. Na przykład można zautomatyzować kopie zapasowe nocne do usługi Azure Storage, a następnie przywrócić inne nadmiarowe serwery w innych regionach. 
 
-W obu przypadkach, jeśli serwer podstawowy wystąpi awaria, należy zmienić parametry połączenia w raportowaniu klientów, aby połączyć się z serwerem w innym regionalnym centrum danych. Tę zmianę należy uznać za ostateczność i tylko wtedy, gdy wystąpi katastrofalna awaria regionalnego centrum danych. Jest bardziej prawdopodobne, że awaria centrum danych obsługującego serwer podstawowy powróci do trybu online, zanim będzie można zaktualizować połączenia na wszystkich klientach. 
+W obu przypadkach, jeśli serwer podstawowy ulegnie awarii, należy zmienić parametry połączenia w klientach raportowania, aby połączyć się z serwerem w innym regionalnym centrum danych. Ta zmiana powinna być traktowana jako Ostatnia i tylko wtedy, gdy wystąpi awaria regionalnego centrum danych. Prawdopodobnie awaria centrum danych, w którym serwer podstawowy zostałby powracał do trybu online, zanim będzie można zaktualizować połączenia na wszystkich klientach. 
 
-Aby uniknąć konieczności zmiany ciągów połączeń w przypadku klientów raportowania, można utworzyć [alias](analysis-services-server-alias.md) serwera dla serwera podstawowego. Jeśli serwer podstawowy ulegnie upadkowi, można zmienić alias wskazujący serwer nadmiarowy w innym regionie. Alias do nazwy serwera można zautomatyzować, kodując sprawdzanie kondycji punktu końcowego na serwerze podstawowym. Jeśli sprawdzanie kondycji nie powiedzie się, ten sam punkt końcowy może kierować do serwera nadmiarowego w innym regionie. 
+Aby uniknąć konieczności zmiany parametrów połączenia na klientach raportowania, można utworzyć [alias](analysis-services-server-alias.md) serwera dla serwera podstawowego. Jeśli serwer podstawowy ulegnie awarii, można zmienić alias tak, aby wskazywał serwer nadmiarowy w innym regionie. Można zautomatyzować alias do nazwy serwera przez kodowanie kontroli kondycji punktu końcowego na serwerze podstawowym. Jeśli sprawdzanie kondycji nie powiedzie się, ten sam punkt końcowy może kierować do nadmiarowego serwera w innym regionie. 
 
 ## <a name="related-information"></a>Informacje pokrewne
 
-[Tworzenie kopii zapasowych i przywracanie](analysis-services-backup.md)   
-[Zarządzanie usługami analizy platformy Azure](analysis-services-manage.md)   
+[Tworzenie kopii zapasowej i przywracanie](analysis-services-backup.md)   
+[Zarządzaj Azure Analysis Services](analysis-services-manage.md)   
 [Nazwy serwerów aliasów](analysis-services-server-alias.md) 
 

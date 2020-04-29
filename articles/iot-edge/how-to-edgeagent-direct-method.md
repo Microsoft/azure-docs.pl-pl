@@ -1,6 +1,6 @@
 ---
-title: Wbudowane krawędzieWergentowe metody bezpośrednie — usługa Azure IoT Edge
-description: Monitorowanie wdrożenia usługi IoT Edge i zarządzanie nim przy użyciu wbudowanych metod bezpośrednich w module środowiska uruchomieniowego agenta usługi IoT Edge
+title: Wbudowane metody edgeAgent Direct — Azure IoT Edge
+description: Monitorowanie wdrożenia IoT Edge i zarządzanie nim przy użyciu wbudowanych metod bezpośrednich w module IoT Edge Runtime Agent
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -10,23 +10,23 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 57b9d46918414cef9e8cbcffb941b98c98f985ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80240341"
 ---
-# <a name="communicate-with-edgeagent-using-built-in-direct-methods"></a>Komunikacja z krawędziąAgent przy użyciu wbudowanych metod bezpośrednich
+# <a name="communicate-with-edgeagent-using-built-in-direct-methods"></a>Komunikacja z edgeAgent za pomocą wbudowanych metod bezpośrednich
 
-Monitorowanie wdrożeń usługi IoT Edge i zarządzanie nimi przy użyciu metod bezpośrednich zawartych w module agenta usługi IoT Edge. Metody bezpośrednie są implementowane na urządzeniu, a następnie mogą być wywoływane z chmury. Agent usługi IoT Edge zawiera bezpośrednie metody, które ułatwiają zdalne monitorowanie urządzeń usługi IoT Edge i zarządzanie nimi.
+Monitorowanie wdrożeń IoT Edge i zarządzanie nimi przy użyciu metod bezpośrednich zawartych w module IoT Edge Agent. Metody bezpośrednie są implementowane na urządzeniu, a następnie mogą być wywoływane z chmury. Agent IoT Edge obejmuje metody bezpośrednie, które ułatwiają zdalne monitorowanie urządzeń IoT Edge i zarządzanie nimi.
 
-Aby uzyskać więcej informacji na temat metod bezpośrednich, jak ich używać i jak je zaimplementować we własnych modułach, zobacz [Rozumienie i wywoływanie metod bezpośrednich z Usługi IoT Hub](../iot-hub/iot-hub-devguide-direct-methods.md).
+Aby uzyskać więcej informacji na temat metod bezpośrednich, sposobu ich używania i sposobu ich implementacji w własnych modułach, zobacz [Omówienie i wywoływanie metod bezpośrednich z IoT Hub](../iot-hub/iot-hub-devguide-direct-methods.md).
 
 Nazwy tych metod bezpośrednich są obsługiwane bez uwzględniania wielkości liter.
 
 ## <a name="ping"></a>Ping
 
-Metoda **ping** jest przydatna do sprawdzania, czy funkcja IoT Edge jest uruchomiona na urządzeniu lub czy urządzenie ma otwarte połączenie z centrum IoT Hub. Ta metoda bezpośrednia służy do pingowania agenta IoT Edge i uzyskania jego stanu. Pomyślny ping zwraca pusty ładunek i **"status": 200**.
+Metoda **ping** jest przydatna do sprawdzania, czy IoT Edge jest uruchomiona na urządzeniu, czy też ma otwarte połączenie z IoT Hub. Użyj tej metody bezpośredniej, aby wysłać polecenie ping do agenta IoT Edge i uzyskać jego stan. Pomyślne polecenie ping zwraca pusty ładunek i **"status": 200**.
 
 Przykład:
 
@@ -34,17 +34,17 @@ Przykład:
 az iot hub invoke-module-method --method-name 'ping' -n <hub name> -d <device name> -m '$edgeAgent'
 ```
 
-W witrynie Azure portal wywołać metodę `ping` z nazwą metody `{}`i pusty ładunek JSON .
+W Azure Portal Wywołaj metodę z nazwą `ping` metody i pustym ładunkiem `{}`json.
 
-![Wywoływanie bezpośredniego polecenia ping metody w witrynie Azure portal](./media/how-to-edgeagent-direct-method/ping-direct-method.png)
+![Wywołaj metodę Direct "ping" w Azure Portal](./media/how-to-edgeagent-direct-method/ping-direct-method.png)
 
-## <a name="restart-module"></a>Moduł ponownego uruchamiania
+## <a name="restart-module"></a>Uruchom ponownie moduł
 
-Metoda **RestartModule** umożliwia zdalne zarządzanie modułami działającymi na urządzeniu Usługi IoT Edge. Jeśli moduł zgłasza stan awarii lub inne nieprawidłowe zachowanie, można wyzwolić agenta IoT Edge, aby go ponownie uruchomić. Pomyślne polecenie ponownego uruchomienia zwraca pusty ładunek i **"stan": 200**.
+Metoda **RestartModule** umożliwia zdalne zarządzanie modułami uruchomionymi na urządzeniu IoT Edge. Jeśli moduł zgłasza stan awarii lub inne zachowanie w złej kondycji, można wyzwolić IoT Edge agenta, aby go ponownie uruchomić. Pomyślne ponowne uruchomienie polecenia powoduje zwrócenie pustego ładunku i **"status": 200**.
 
-Metoda RestartModule jest dostępna w wersji 1.0.9 i nowszej w uliczce IoT Edge. 
+Metoda RestartModule jest dostępna w IoT Edge w wersji 1.0.9 i nowszych. 
 
-Metody direct RestartModule można użyć na dowolnym module uruchomionym na urządzeniu IoT Edge, w tym na samym module edgeAgent. Jednak jeśli używasz tej bezpośredniej metody, aby zamknąć edgeAgent, nie otrzymasz wynik sukcesu, ponieważ połączenie zostanie przerwane podczas ponownego uruchamiania modułu.
+Metody RestartModule Direct można użyć dla dowolnego modułu uruchomionego na urządzeniu IoT Edge, w tym do modułu edgeAgent. Jeśli jednak używasz tej metody bezpośredniej do zamykania edgeAgent, nie otrzymasz wyniku sukcesu, ponieważ połączenie zostanie przerwane, gdy moduł zostanie uruchomiony ponownie.
 
 Przykład:
 
@@ -58,7 +58,7 @@ az iot hub invoke-module-method --method-name 'RestartModule' -n <hub name> -d <
 '
 ```
 
-W witrynie Azure portal wywołać metodę `RestartModule` o nazwie metody i następujące ładunku JSON:
+W Azure Portal Wywołaj metodę z nazwą `RestartModule` metody i następującym ładunkiem JSON:
 
 ```json
 {
@@ -67,16 +67,16 @@ W witrynie Azure portal wywołać metodę `RestartModule` o nazwie metody i nast
 }
 ```
 
-![Wywoływanie metody bezpośredniej "RestartModule" w witrynie Azure portal](./media/how-to-edgeagent-direct-method/restartmodule-direct-method.png)
+![Wywołaj metodę bezpośrednią "RestartModule" w Azure Portal](./media/how-to-edgeagent-direct-method/restartmodule-direct-method.png)
 
 ## <a name="experimental-methods"></a>Metody eksperymentalne
 
-Nowe opcje metody bezpośredniej są dostępne jako funkcje eksperymentalne do testowania, w tym:
+Nowe opcje metody bezpośredniej są dostępne jako eksperymentalne funkcje do testowania, w tym:
 
-* [UploadLogs](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md): Pobieranie dzienników modułów i przekazywanie ich do usługi Azure Blob Storage.
-* [GetTaskStatus](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md#gettaskstatus): Sprawdź stan żądania dziennika przekazywania.
-* [GetLogs](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md#getlogs): Pobieranie modułu loguje wbudowane w odpowiedzi metody bezpośredniej.
+* [UploadLogs](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md): Pobierz dzienniki modułu i przekaż je do usługi Azure Blob Storage.
+* [GetTaskStatus](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md#gettaskstatus): Sprawdź stan żądania dzienników przekazywania.
+* [Getlogs](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md#getlogs): pobieranie dzienników modułu w odpowiedzi metody bezpośredniej.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Właściwości agenta usługi IoT Edge i bliźniaczy modułów koncentratora usługi IoT Edge](module-edgeagent-edgehub.md)
+[Właściwości agenta IoT Edge i modułu IoT Edge Hub bliźniaczych reprezentacji](module-edgeagent-edgehub.md)

@@ -1,7 +1,7 @@
 ---
-title: Dodawanie IPv6 do aplikacji IPv4 w sieci wirtualnej platformy Azure — interfejs wiersza polecenia platformy Azure
+title: Dodawanie protokołu IPv6 do aplikacji IPv4 w usłudze Azure Virtual Network — interfejs wiersza polecenia platformy Azure
 titlesuffix: Azure Virtual Network
-description: W tym artykule pokazano, jak wdrożyć adresy IPv6 do istniejącej aplikacji w sieci wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure.
+description: W tym artykule pokazano, jak wdrażać adresy IPv6 w istniejącej aplikacji w usłudze Azure Virtual Network przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,15 +14,15 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: f3f9b32ea55f0ceebf08b22ccc7e2ceec0b6227e
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80420807"
 ---
-# <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli"></a>Dodawanie IPv6 do aplikacji IPv4 w sieci wirtualnej platformy Azure — interfejs wiersza polecenia platformy Azure
+# <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli"></a>Dodawanie protokołu IPv6 do aplikacji IPv4 w usłudze Azure Virtual Network — interfejs wiersza polecenia platformy Azure
 
-W tym artykule pokazano, jak dodać adresy IPv6 do aplikacji, która używa publicznego adresu IP IPv4 w sieci wirtualnej platformy Azure dla standardowego modułu równoważenia obciążenia przy użyciu interfejsu wiersza polecenia platformy Azure. Uaktualnienie w miejscu obejmuje sieć wirtualną i podsieć, standardowy moduł równoważenia obciążenia z konfiguracjami frontonu IPv4 + IPV6, maszyny wirtualne z kartami sieciowymi, które mają konfiguracje IPv4 + IPv6, grupę zabezpieczeń sieci i publiczne adresy IP.
+W tym artykule pokazano, jak dodać adresy IPv6 do aplikacji, która korzysta z publicznego adresu IP protokołu IPv4 w sieci wirtualnej platformy Azure dla usługa Load Balancer w warstwie Standardowa przy użyciu interfejsu wiersza polecenia platformy Azure. Uaktualnienie w miejscu obejmuje sieć wirtualną i podsieć, usługa Load Balancer w warstwie Standardowa z konfiguracjami frontonu IPv4 + IPV6, maszynami wirtualnymi z konfiguracjami IPv4 + IPv6, sieciową grupą zabezpieczeń i publicznymi adresami IP.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -31,11 +31,11 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia platformy Azur
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym artykule przyjęto założenie, że wdrożono standardowy moduł równoważenia obciążenia zgodnie z opisem w [przewodniku Szybki start: Tworzenie standardowego modułu równoważenia obciążenia — Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md).
+W tym artykule przyjęto założenie, że wdrożono usługa Load Balancer w warstwie Standardowa zgodnie z opisem w [przewodniku szybki start: tworzenie usługa Load Balancer w warstwie Standardowa interfejsu wiersza polecenia platformy Azure](../load-balancer/quickstart-load-balancer-standard-public-cli.md).
 
 ## <a name="create-ipv6-addresses"></a>Tworzenie adresów IPv6
 
-Utwórz publiczny adres IPv6 za pomocą [utworzenia sieci az public-ip](/cli/azure/network/public-ip) dla standardowego modułu równoważenia obciążenia. Poniższy przykład tworzy publiczny adres IP IPv6 o nazwie *PublicIP_v6* w grupie zasobów *myResourceGroupSLB:*
+Utwórz publiczny adres IPv6 przy użyciu [AZ Network Public-IP Create](/cli/azure/network/public-ip) dla usługa Load Balancer w warstwie Standardowa. Poniższy przykład tworzy publiczny adres IP IPv6 o nazwie *PublicIP_v6* w grupie zasobów *myResourceGroupSLB* :
 
 ```azurecli
   
@@ -48,9 +48,9 @@ az network public-ip create \
 --version IPv6
 ```
 
-## <a name="configure-ipv6-load-balancer-frontend"></a>Konfigurowanie frontendu modułu równoważenia obciążenia IPv6
+## <a name="configure-ipv6-load-balancer-frontend"></a>Konfigurowanie frontonu modułu równoważenia obciążenia IPv6
 
-COnfigure moduł równoważenia obciążenia z nowym adresem IP IPv6 przy użyciu [sieci az lb frontend-ip utworzyć](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create) w następujący sposób:
+Skonfiguruj moduł równoważenia obciążenia za pomocą nowego adresu IP IPv6 za pomocą polecenia [AZ Network lb fronton-IP Create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create) w następujący sposób:
 
 ```azurecli
 az network lb frontend-ip create \
@@ -60,9 +60,9 @@ az network lb frontend-ip create \
 --public-ip-address PublicIP_v6
 ```
 
-## <a name="configure-ipv6-load-balancer-backend-pool"></a>Konfigurowanie puli wewnętrznej bazy modułu równoważenia obciążenia IPv6
+## <a name="configure-ipv6-load-balancer-backend-pool"></a>Konfigurowanie puli zaplecza modułu równoważenia obciążenia IPv6
 
-Tworzenie puli wewnętrznej bazy danych dla kart sieciowych z adresami IPv6 przy użyciu [sieci az lb address-pool tworzy](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create) się w następujący sposób:
+Utwórz pulę zaplecza dla kart sieciowych z adresami IPv6 przy użyciu polecenia [AZ Network lb Address-Pool Create](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create) w następujący sposób:
 
 ```azurecli
 az network lb address-pool create \
@@ -73,7 +73,7 @@ az network lb address-pool create \
 
 ## <a name="configure-ipv6-load-balancer-rules"></a>Konfigurowanie reguł modułu równoważenia obciążenia IPv6
 
-Utwórz reguły modułu równoważenia obciążenia IPv6 za pomocą [reguły az network lb .](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create)
+Utwórz reguły modułu równoważenia obciążenia IPv6 za pomocą [AZ Network lb Rule Create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create).
 
 ```azurecli
 az network lb rule create \
@@ -89,7 +89,7 @@ az network lb rule create \
 
 ## <a name="add-ipv6-address-ranges"></a>Dodawanie zakresów adresów IPv6
 
-Dodaj zakresy adresów IPv6 do sieci wirtualnej i podsieci obsługującej moduł równoważenia obciążenia w następujący sposób:
+Dodaj zakresy adresów IPv6 do sieci wirtualnej i podsieci obsługujących moduł równoważenia obciążenia w następujący sposób:
 
 ```azurecli
 az network vnet update \
@@ -104,9 +104,9 @@ az network vnet subnet update \
 --address-prefixes  "10.0.0.0/24"  "ace:cab:deca:deed::/64"  
 ```
 
-## <a name="add-ipv6-configuration-to-nics"></a>Dodawanie konfiguracji IPv6 do kart sieciowych
+## <a name="add-ipv6-configuration-to-nics"></a>Dodawanie konfiguracji protokołu IPv6 do kart sieciowych
 
-Skonfiguruj karty sieciowe maszyn wirtualnych z adresem IPv6 przy użyciu [sieci az nic ip-config, utwórz](https://docs.microsoft.com/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create) w następujący sposób:
+Skonfiguruj karty sieciowe maszyn wirtualnych z adresem IPv6 za pomocą polecenia [AZ Network nic IP-config Create](https://docs.microsoft.com/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create) w następujący sposób:
 
 ```azurecli
 az network nic ip-config create \
@@ -141,12 +141,12 @@ az network nic ip-config create \
 
 ```
 
-## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Wyświetlanie sieci wirtualnej z dwoma stosami IPv6 w witrynie Azure portal
-Sieć wirtualną z dwoma stosami IPv6 można wyświetlić w witrynie Azure Portal w następujący sposób:
-1. W pasku wyszukiwania portalu wpisz *myVnet*.
-2. Gdy **myVnet** pojawi się w wynikach wyszukiwania, wybierz go. Spowoduje to uruchomienie strony **Przegląd** sieci wirtualnej z dwoma stosami o nazwie *myVNet*. Sieć wirtualna z dwoma stosami pokazuje trzy karty sieciowe z konfiguracjami IPv4 i IPv6 znajdującymi się w podsieci podwójnego stosu o nazwie *mySubnet*.
+## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Wyświetlanie sieci wirtualnej podwójnego stosu IPv6 w Azure Portal
+Sieć wirtualną o podwójnym stosie IPv6 można wyświetlić w Azure Portal w następujący sposób:
+1. Na pasku wyszukiwania portalu wprowadź *myVnet*.
+2. Gdy **myVnet** pojawia się w wynikach wyszukiwania, wybierz ją. Spowoduje to uruchomienie strony **Przegląd** sieci wirtualnej o podwójnym stosie o nazwie *myVNet*. Sieć wirtualna o podwójnym stosie pokazuje trzy karty sieciowe z konfiguracją protokołów IPv4 i IPv6 znajdującą się w podsieci o podwójnym stosie o nazwie Moja *podsieć*.
 
-  ![Sieć wirtualna z dwoma stosami IPv6 na platformie Azure](./media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-vnet.png)
+  ![Sieć wirtualna o podwójnym stosie IPv6 na platformie Azure](./media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-vnet.png)
 
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
@@ -159,4 +159,4 @@ Remove-AzResourceGroup -Name MyAzureResourceGroupSLB
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule zaktualizowano istniejący standardowy moduł równoważenia obciążenia z konfiguracją ip frontendu IPv4 do konfiguracji podwójnego stosu (IPv4 i IPv6). Dodano również konfiguracje IPv6 do kart sieciowych maszyn wirtualnych w puli wewnętrznej bazy danych. Aby dowiedzieć się więcej o obsłudze IPv6 w sieciach wirtualnych platformy Azure, zobacz [Co to jest IPv6 dla usługi Azure Virtual Network?](ipv6-overview.md)
+W tym artykule zostały zaktualizowane istniejące usługa Load Balancer w warstwie Standardowa z konfiguracją adresów IP frontonu IPv4 do konfiguracji podwójnego stosu (IPv4 i IPv6). Do kart sieciowych maszyn wirtualnych w puli zaplecza dodano także konfiguracje protokołu IPv6. Aby dowiedzieć się więcej o obsłudze protokołu IPv6 w sieciach wirtualnych platformy Azure, zobacz [co to jest protokół IPv6 dla systemu azure Virtual Network?](ipv6-overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Kolejki utraconych wiadomości w usłudze Service Bus | Dokumenty firmy Microsoft
-description: W tym artykule opisano kolejki utraconych wiadomości w usłudze Azure Service Bus. Kolejki usługi Service Bus i subskrypcje tematów zapewniają drugą podoka, zwaną kolejką utraconych wiadomości.
+title: Service Bus kolejek utraconych wiadomości | Microsoft Docs
+description: Opisuje kolejki utraconych wiadomości w Azure Service Bus. Kolejki Service Bus i subskrypcje tematów zapewniają pomocniczą podkolejkę o nazwie Kolejka utraconych wiadomości.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -15,83 +15,83 @@ ms.workload: na
 ms.date: 03/23/2020
 ms.author: aschhab
 ms.openlocfilehash: 9c1a0cb92fbaf98d25799ffb5a85e666e7c05f8c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80158909"
 ---
-# <a name="overview-of-service-bus-dead-letter-queues"></a>Omówienie kolejek utraconych wiadomości usługi Service Bus
+# <a name="overview-of-service-bus-dead-letter-queues"></a>Przegląd Service Busych kolejek utraconych
 
-Kolejki usługi Azure Service Bus i subskrypcje tematów zapewniają pomocniczą podoka, zwaną *kolejką utraconych wiadomości* (DLQ). Kolejki utraconych wiadomości nie musi być jawnie tworzone i nie można usunąć lub w inny sposób zarządzane niezależnie od jednostki głównej.
+Kolejki Azure Service Bus i subskrypcje tematów zapewniają pomocniczą podkolejkę o nazwie *Kolejka utraconych wiadomości* (DLQ). Kolejka utraconych wiadomości nie musi być jawnie utworzona i nie można jej usunąć ani inaczej zarządzać niezależnie od jednostki głównej.
 
-W tym artykule opisano kolejki utraconych wiadomości w usłudze Service Bus. Wiele dyskusji jest zilustrowane przez [dead-letter kolejki próbki](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/DeadletterQueue) na GitHub.
+W tym artykule opisano kolejki utraconych wiadomości w Service Bus. Większość dyskusji przedstawiono w [przykładowej kolejce utraconych wiadomości](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/DeadletterQueue) w witrynie GitHub.
  
 ## <a name="the-dead-letter-queue"></a>Kolejka utraconych wiadomości
 
-Celem kolejki utraconych wiadomości jest przytrzymanie wiadomości, które nie mogą być dostarczone do dowolnego odbiornika lub wiadomości, które nie mogą być przetwarzane. Wiadomości można następnie usunąć z dlq i sprawdzić. Aplikacja może, za pomocą operatora, rozwiązać problemy i ponownie przesłać wiadomość, zarejestrować fakt, że wystąpił błąd i podjąć działania naprawcze. 
+Kolejka utraconych wiadomości polega na zapełnieniu komunikatów, których nie można dostarczyć do żadnego odbiorcy ani komunikatów, których nie można przetworzyć. Następnie można usunąć wiadomości z DLQ i sprawdzić. Aplikacja może, z pomocą operatora, poprawić problemy i ponownie przesłać komunikat, należy zarejestrować fakt, że wystąpił błąd i podjąć działania naprawcze. 
 
-Z punktu widzenia interfejsu API i protokołu DLQ jest w większości podobny do każdej innej kolejki, z tą różnicą, że wiadomości mogą być przesyłane tylko za pośrednictwem operacji utraconej wiadomości jednostki nadrzędnej. Ponadto czas do żywo nie jest przestrzegane, i nie można dead-letter wiadomości z DLQ. Kolejka utraconych wiadomości w pełni obsługuje dostarczanie blokady wglądu i operacje transakcyjne.
+Z punktu widzenia interfejsu API i protokołu DLQ jest głównie podobne do każdej innej kolejki, z tą różnicą, że komunikaty mogą być przesyłane tylko za pośrednictwem operacji utraconej jednostki nadrzędnej. Ponadto nie zaobserwowano czasu wygaśnięcia i nie można martwić się o wiadomość z DLQ. Kolejka utraconych wiadomości w pełni obsługuje dostarczanie z blokadą i operacje transakcyjne.
 
-Nie ma automatycznego oczyszczania dlq. Wiadomości pozostają w dlq, dopóki jawnie pobrać je z DLQ i wywołać [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) w wiadomości utraconej wiadomości.
+Nie istnieje automatyczne czyszczenie DLQ. Komunikaty pozostają w DLQ, dopóki nie zostaną jawnie pobrane z DLQ i wywołają [kompletne ()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) wiadomości utraconych.
 
 ## <a name="dlq-message-count"></a>Liczba komunikatów DLQ
-Nie jest możliwe uzyskanie liczby wiadomości w kolejce utraconych wiadomości na poziomie tematu. To dlatego, że wiadomości nie siedzą na poziomie tematu, chyba że usługa Service Bus zgłasza błąd wewnętrzny. Zamiast tego gdy nadawca wysyła wiadomość do tematu, wiadomość jest przekazywać dalej do subskrypcji tematu w milisekundach i w związku z tym nie znajduje się już na poziomie tematu. Tak, można zobaczyć wiadomości w DLQ skojarzone z subskrypcji dla tematu. W poniższym przykładzie **Eksplorator usługi Service Bus** pokazuje, że istnieją 62 komunikaty obecnie w DLQ dla subskrypcji "test1". 
+Nie jest możliwe uzyskanie liczby komunikatów w kolejce utraconych danych na poziomie tematu. Wynika to z faktu, że komunikaty nie znajdują się na poziomie tematu, chyba że Service Bus zgłasza błąd wewnętrzny. Zamiast tego, gdy nadawca wysyła komunikat do tematu, komunikat jest przekazywany do subskrypcji tematu w milisekundach, co oznacza, że nie znajduje się już na poziomie tematu. W związku z tym można zobaczyć komunikaty w DLQ skojarzone z subskrypcją dla tematu. W poniższym przykładzie **eksplorator Service Bus** pokazuje, że w DLQ dla subskrypcji "test1" znajdują się obecnie 62 komunikaty. 
 
 ![Liczba komunikatów DLQ](./media/service-bus-dead-letter-queues/dead-letter-queue-message-count.png)
 
-Można również uzyskać liczbę wiadomości DLQ za pomocą [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription?view=azure-cli-latest#az-servicebus-topic-subscription-show)polecenia interfejsu wiersza polecenia platformy Azure: . 
+Liczbę komunikatów DLQ można także uzyskać za pomocą polecenia interfejsu CLI platformy Azure: [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription?view=azure-cli-latest#az-servicebus-topic-subscription-show). 
 
-## <a name="moving-messages-to-the-dlq"></a>Przenoszenie wiadomości do biblioteki ddlq
+## <a name="moving-messages-to-the-dlq"></a>Przeniesienie komunikatów do DLQ
 
-Istnieje kilka działań w usłudze Service Bus, które powodują, że wiadomości są wypychane do DLQ z poziomu samego aparatu obsługi wiadomości. Aplikacja może również jawnie przenosić wiadomości do DLQ. 
+Istnieje kilka działań w Service Bus, które powodują wypychanie komunikatów do DLQ z poziomu samego aparatu obsługi komunikatów. Aplikacja może również jawnie przenosić komunikaty do DLQ. 
 
-Gdy wiadomość zostanie przeniesiona przez brokera, dwie właściwości są dodawane do wiadomości, gdy broker wywołuje `DeadLetterReason` `DeadLetterErrorDescription`jego wewnętrzną wersję metody [DeadLetter](/dotnet/api/microsoft.azure.servicebus.queueclient.deadletterasync) w wiadomości: i .
+Gdy wiadomość zostanie przeniesiona przez brokera, do wiadomości są dodawane dwie właściwości, ponieważ Broker wywoła swoją wewnętrzną wersję metody [utraconych](/dotnet/api/microsoft.azure.servicebus.queueclient.deadletterasync) wiadomości: `DeadLetterReason` i `DeadLetterErrorDescription`.
 
-Aplikacje można zdefiniować `DeadLetterReason` własne kody dla właściwości, ale system ustawia następujące wartości.
+Aplikacje mogą definiować własne kody dla `DeadLetterReason` właściwości, ale system ustawia następujące wartości.
 
-| Warunek | DeadLetterReason (Nie żyje) | Martwy Tekst w języku: DeadLetterErrorDescription |
+| Warunek | DeadLetterReason | DeadLetterErrorDescription |
 | --- | --- | --- |
-| Zawsze |HeaderSizeExceed |Przekroczono limit przydziału rozmiaru dla tego strumienia. |
-| ! Opis tematu.<br />EnableFilteringMessagesBeforePublishing i SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationWynikwycekcje |Wyjątek. GetType(). Nazwa |Wyjątek. Komunikat |
-| WłączUdyederLetteringOnMessageExpiration |TTLExpiredException |Komunikat wygasł i został uznany za utracony. |
-| SubskrypcjaDescription.RequiresSession |Identyfikator sesji ma wartość null. |Jednostka z obsługą sesji nie pozwala na komunikat, którego identyfikator sesji ma wartość null. |
-| !kolejka utraconych listów | MaxTransferHopCountExceeded | Maksymalna dozwolona przeskoki podczas przesyłania dalej między kolejkami. Wartość jest ustawiona na 4. |
-| Wyraźne martwe litery aplikacji |Określone przez aplikację |Określone przez aplikację |
+| Zawsze |HeaderSizeExceeded |Przekroczono limit przydziału rozmiaru dla tego strumienia. |
+| ! TopicDescription.<br />EnableFilteringMessagesBeforePublishing i SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |Oprócz. GetType (). Nazwij |Oprócz. Komunikat |
+| EnableDeadLetteringOnMessageExpiration |TTLExpiredException |Komunikat wygasł i został uznany za utracony. |
+| SubscriptionDescription.RequiresSession |Identyfikator sesji ma wartość null. |Jednostka z obsługą sesji nie pozwala na komunikat, którego identyfikator sesji ma wartość null. |
+| Kolejka utraconych wiadomości | MaxTransferHopCountExceeded | Maksymalna liczba dozwolonych przeskoków podczas przekazywania między kolejkami. Wartość jest równa 4. |
+| Niejawna utracona aplikacja |Określone przez aplikację |Określone przez aplikację |
 
-## <a name="exceeding-maxdeliverycount"></a>Przekroczenie maksymalnej liczby
+## <a name="exceeding-maxdeliverycount"></a>Przekraczanie MaxDeliveryCount
 
-Kolejki i subskrypcje mają [queueDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) i [SubscriptionDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount) właściwości odpowiednio; wartość domyślna to 10. Za każdym razem, gdy wiadomość została dostarczona pod blokadą[(ReceiveMode.PeekLock),](/dotnet/api/microsoft.azure.servicebus.receivemode)ale została jawnie porzucona lub blokada wygasła, wiadomość [BrokeredMessage.DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) jest zwiększana. Gdy [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) przekracza [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount), wiadomość jest przenoszona do `MaxDeliveryCountExceeded` DLQ, określając kod przyczyny.
+Każda kolejka i subskrypcje mają odpowiednio Właściwość [QueueDescription. MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) i [SubscriptionDescription. MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount) ; wartość domyślna to 10. Za każdym razem, gdy komunikat zostanie dostarczony w ramach blokady ([ReceiveMode. PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)), ale został jawnie porzucony lub blokada wygasła, komunikat [BrokeredMessage. DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) jest zwiększany. Gdy [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) przekracza [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount), komunikat jest przenoszony do DLQ, określając kod `MaxDeliveryCountExceeded` przyczyny.
 
-Tego zachowania nie można wyłączyć, ale można ustawić [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) na dużą liczbę.
+Nie można wyłączyć tego zachowania, ale można ustawić [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) na dużą liczbę.
 
-## <a name="exceeding-timetolive"></a>Przekroczenie timetolive
+## <a name="exceeding-timetolive"></a>Przekraczanie TimeToLive
 
-Gdy [właściwość QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) lub [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) jest ustawiona na **true** (wartość domyślna jest **false),** `TTLExpiredException` wszystkie wygasające komunikaty są przenoszone do DLQ, określając kod przyczyny.
+Gdy właściwość [QueueDescription. EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) lub [SubscriptionDescription. EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) ma **wartość true** (wartością domyślną jest **false**), wszystkie komunikaty wygasające są przenoszone do DLQ, określając kod `TTLExpiredException` przyczyny.
 
-Wygasłe wiadomości są czyszczone i przenoszone do DLQ tylko wtedy, gdy istnieje co najmniej jeden aktywny odbiornik ściągający z kolejki głównej lub subskrypcji; że zachowanie jest zgodnie z projektem.
+Wygasłe komunikaty są przeczyszczane i przenoszone do DLQ, gdy istnieje co najmniej jeden aktywny odbiornik ściągający z kolejki głównej lub subskrypcji. takie zachowanie jest zaprojektowane.
 
 ## <a name="errors-while-processing-subscription-rules"></a>Błędy podczas przetwarzania reguł subskrypcji
 
-Gdy [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) właściwość jest włączona dla subskrypcji, wszelkie błędy, które występują podczas wykonywania reguły filtru SQL subskrypcji są przechwytywane w DLQ wraz z komunikatem naruszającym.
+Gdy właściwość [SubscriptionDescription. EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) jest włączona dla subskrypcji, wszelkie błędy występujące podczas wykonywania reguły filtru SQL subskrypcji są przechwytywane w DLQ wraz z komunikatem o błędzie.
 
-## <a name="application-level-dead-lettering"></a>Napisy martwe na poziomie aplikacji
+## <a name="application-level-dead-lettering"></a>Utraconych wiadomości na poziomie aplikacji
 
-Oprócz funkcji dead-lettering dostarczonych przez system, aplikacje mogą używać DLQ jawnie odrzucić niedopuszczalne wiadomości. Mogą one zawierać wiadomości, które nie mogą być poprawnie przetwarzane z powodu jakiegokolwiek problemu z systemem, wiadomości, które zawierają nieprawidłowo sformułowane ładunki lub wiadomości, które nie uwierzytelniania, gdy używany jest jakiś schemat zabezpieczeń na poziomie wiadomości.
+Oprócz funkcji utraconych wiadomości dostarczonych przez system aplikacje mogą jawnie odrzucać nieakceptowane wiadomości za pomocą DLQ. Mogą one zawierać komunikaty, których nie można prawidłowo przetworzyć z powodu wszelkiego rodzaju problemów z systemem, komunikatów, które przechowują źle sformułowane ładunki, lub komunikatów, które nie są uwierzytelniane, gdy jest używany jakiś schemat zabezpieczeń na poziomie wiadomości.
 
-## <a name="dead-lettering-in-forwardto-or-sendvia-scenarios"></a>Napisy martwe w scenariuszach ForwardTo lub SendVia
+## <a name="dead-lettering-in-forwardto-or-sendvia-scenarios"></a>Utracono martwe scenariusze w scenariuszach Prześlij dalej lub Wyślij za pomocą
 
-Wiadomości będą wysyłane do kolejki utraconych wiadomości transferu pod następującymi warunkami:
+Komunikaty będą wysyłane do kolejki przesyłania utraconych wiadomości w następujących warunkach:
 
-- Wiadomość przechodzi przez więcej niż cztery kolejki lub tematy, które są [połączone ze sobą](service-bus-auto-forwarding.md).
-- Kolejka docelowa lub temat jest wyłączona lub usunięta.
-- Kolejka docelowa lub temat przekracza maksymalny rozmiar jednostki.
+- Komunikat przechodzi przez więcej niż cztery kolejki lub tematy, które są [powiązane ze sobą](service-bus-auto-forwarding.md).
+- Kolejka docelowa lub temat jest wyłączony lub usunięty.
+- Docelowa Kolejka lub temat przekracza maksymalny rozmiar jednostki.
 
-Aby pobrać te wiadomości z martwymi literami, można utworzyć odbiornik przy użyciu metody narzędzia [FormatTransferDeadletterPath.](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formattransferdeadletterpath)
+Aby pobrać te wiadomości utraconych, można utworzyć odbiornik przy użyciu metody narzędzia [FormatTransferDeadletterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formattransferdeadletterpath) .
 
 ## <a name="example"></a>Przykład
 
-Poniższy fragment kodu tworzy odbiornik wiadomości. W pętli odbierania dla kolejki głównej kod pobiera wiadomość z [Receive(TimeSpan.Zero),](/dotnet/api/microsoft.servicebus.messaging.messagereceiver)która prosi brokera o natychmiastowe zwrócenie każdej wiadomości łatwo dostępnej lub zwrócenie bez rezultatu. Jeśli kod otrzyma wiadomość, natychmiast ją porzuca, co `DeliveryCount`zwiększa . Gdy system przeniesie wiadomość do DLQ, kolejka główna jest pusta i pętla kończy się, ponieważ [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) zwraca **wartość null**.
+Poniższy fragment kodu tworzy odbiorcę wiadomości. W pętli odbioru dla kolejki głównej kod pobiera komunikat z poleceniem [Receive (TimeSpan. zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver), które umożliwia brokerowi natychmiastowe zwrócenie wszelkich komunikatów, które są łatwo dostępne lub do zwrócenia bez żadnego wyniku. Jeśli kod otrzymuje komunikat, natychmiast porzuca go, co zwiększa wartość `DeliveryCount`. Gdy system przenosi komunikat do DLQ, kolejka główna jest pusta, a pętla zostanie zakończona, ponieważ [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) zwraca **wartość null**.
 
 ```csharp
 var receiver = await receiverFactory.CreateMessageReceiverAsync(queueName, ReceiveMode.PeekLock);
@@ -111,20 +111,20 @@ while(true)
 ```
 
 ## <a name="path-to-the-dead-letter-queue"></a>Ścieżka do kolejki utraconych wiadomości
-Dostęp do kolejki utraconych wiadomości można uzyskać przy użyciu następującej składni:
+Możesz uzyskać dostęp do kolejki utraconych wiadomości za pomocą następującej składni:
 
 ```
 <queue path>/$deadletterqueue
 <topic path>/Subscriptions/<subscription path>/$deadletterqueue
 ```
 
-Jeśli używasz .NET SDK, można uzyskać ścieżkę do kolejki utraconych wiadomości przy użyciu SubscriptionClient.FormatDeadLetterPath(). Ta metoda przyjmuje nazwę tematu/nazwę subskrypcji i sufiksy z **/$DeadLetterQueue**.
+Jeśli używasz zestawu SDK platformy .NET, możesz uzyskać ścieżkę do kolejki utraconych wiadomości za pomocą metody SubscriptionClient. FormatDeadLetterPath (). Ta metoda przyjmuje nazwę tematu/nazwę subskrypcji i sufiksy z **/$DeadLetterQueue**.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Więcej informacji na temat kolejek usługi Service Bus można znaleźć w następujących artykułach:
+Więcej informacji o kolejkach Service Bus można znaleźć w następujących artykułach:
 
 * [Wprowadzenie do kolejek usługi Service Bus](service-bus-dotnet-get-started-with-queues.md)
-* [Porównywano kolejki kolejek platformy Azure i usługi Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+* [Porównanie kolejek platformy Azure i kolejek Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 

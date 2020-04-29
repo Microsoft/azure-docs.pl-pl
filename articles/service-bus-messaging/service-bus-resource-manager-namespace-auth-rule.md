@@ -1,6 +1,6 @@
 ---
-title: Tworzenie reguły autoryzacji usługi Service Bus przy użyciu szablonu platformy Azure
-description: Tworzenie reguły autoryzacji usługi Service Bus dla obszaru nazw i kolejki przy użyciu szablonu usługi Azure Resource Manager
+title: Tworzenie reguły autoryzacji Service Bus przy użyciu szablonu platformy Azure
+description: Tworzenie reguły autoryzacji Service Bus dla przestrzeni nazw i kolejki przy użyciu szablonu Azure Resource Manager
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -15,37 +15,37 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
 ms.openlocfilehash: 1bfb2d2d946a85c1d051315fb29a5a63f7a00871
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80384929"
 ---
-# <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Tworzenie reguły autoryzacji usługi Service Bus dla obszaru nazw i kolejki przy użyciu szablonu usługi Azure Resource Manager
+# <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Tworzenie reguły autoryzacji Service Bus dla przestrzeni nazw i kolejki przy użyciu szablonu Azure Resource Manager
 
-W tym artykule pokazano, jak używać szablonu usługi Azure Resource Manager, który tworzy [regułę autoryzacji](service-bus-authentication-and-authorization.md#shared-access-signature) dla obszaru nazw usługi Service Bus i kolejki. W tym artykule wyjaśniono, jak określić, które zasoby są wdrażane i jak zdefiniować parametry, które są określone podczas wdrażania. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
+W tym artykule pokazano, jak używać szablonu Azure Resource Manager, który tworzy [regułę autoryzacji](service-bus-authentication-and-authorization.md#shared-access-signature) dla Service Bus przestrzeni nazw i kolejki. W tym artykule wyjaśniono, jak określić, które zasoby są wdrażane, oraz jak definiować parametry, które są określone podczas wdrażania. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
 
-Aby uzyskać więcej informacji na temat tworzenia szablonów, zobacz [Tworzenie szablonów usługi Azure Resource Manager][Authoring Azure Resource Manager templates].
+Aby uzyskać więcej informacji na temat tworzenia szablonów, zobacz [Tworzenie szablonów Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Aby uzyskać pełny szablon, zobacz [szablon reguły autoryzacji usługi Service Bus][Service Bus auth rule template] w usłudze GitHub.
+Aby zapoznać się z pełnym szablonem, zapoznaj się z [szablonem reguł autoryzacji Service Bus][Service Bus auth rule template] w witrynie GitHub.
 
 > [!NOTE]
-> Następujące szablony usługi Azure Resource Manager są dostępne do pobrania i wdrożenia.
+> Następujące szablony Azure Resource Manager są dostępne do pobrania i wdrożenia.
 > 
 > * [Tworzenie przestrzeni nazw usługi Service Bus](service-bus-resource-manager-namespace.md)
-> * [Tworzenie obszaru nazw usługi Service Bus z kolejką](service-bus-resource-manager-namespace-queue.md)
-> * [Tworzenie obszaru nazw usługi Service Bus z tematem i subskrypcją](service-bus-resource-manager-namespace-topic.md)
-> * [Tworzenie obszaru nazw usługi Service Bus z tematem, subskrypcją i regułą](service-bus-resource-manager-namespace-topic-with-rule.md)
+> * [Tworzenie przestrzeni nazw Service Bus przy użyciu kolejki](service-bus-resource-manager-namespace-queue.md)
+> * [Tworzenie przestrzeni nazw Service Bus przy użyciu tematu i subskrypcji](service-bus-resource-manager-namespace-topic.md)
+> * [Tworzenie przestrzeni nazw Service Bus z tematem, subskrypcją i regułą](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Aby sprawdzić dostępność najnowszych szablonów, odwiedź galerię [szablonów szybki start platformy Azure][Azure Quickstart Templates] i wyszukaj usługę Service **Bus**.
+> Aby sprawdzić najnowsze szablony, odwiedź Galerię [szablonów szybkiego startu platformy Azure][Azure Quickstart Templates] i Wyszukaj **Service Bus**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-will-you-deploy"></a>Co chcesz wdrożyć?
 
-Za pomocą tego szablonu można wdrożyć regułę autoryzacji usługi Service Bus dla obszaru nazw i jednostki obsługi wiadomości (w tym przypadku kolejki).
+Ten szablon umożliwia wdrożenie reguły autoryzacji Service Bus dla przestrzeni nazw i jednostki obsługi komunikatów (w tym przypadku kolejki).
 
-Ten szablon używa [sygnatury dostępu współdzielonego (SAS)](service-bus-sas.md) do uwierzytelniania. Usługa SAS umożliwia aplikacjom uwierzytelnienie się w usłudze Service Bus przy użyciu klucza dostępu skonfigurowanego w obszarze nazw lub w jednostce obsługi wiadomości (kolejki lub tematu), z którą są skojarzone określone prawa. Następnie można użyć tego klucza do generowania tokenu sygnatury dostępu Współdzielonego, który klienci mogą z kolei używać do uwierzytelniania w usłudze Service Bus.
+Ten szablon używa [sygnatury dostępu współdzielonego (SAS)](service-bus-sas.md) do uwierzytelniania. Sygnatura dostępu współdzielonego umożliwia aplikacjom uwierzytelnianie się w Service Bus przy użyciu klucza, który jest skonfigurowany w przestrzeni nazw, lub jednostki obsługi komunikatów (kolejki lub tematu), z którą są skojarzone określone prawa. Następnie można użyć tego klucza do wygenerowania tokenu SAS, którego klienci mogą używać w celu uwierzytelniania do Service Bus.
 
 Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk:
 
@@ -53,13 +53,13 @@ Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk:
 
 ## <a name="parameters"></a>Parametry
 
-Przy użyciu usługi Azure Resource Manager można zdefiniować parametry dla wartości, które mają zostać uwzględnione podczas wdrażania szablonu. Szablon zawiera sekcję `Parameters` o nazwie, która zawiera wszystkie wartości parametrów. Należy zdefiniować parametr dla tych wartości, które będą się różnić w zależności od projektu, który wdrażasz lub na podstawie środowiska, w które wdrażasz. Nie należy definiować parametrów dla wartości, które zawsze pozostaną takie same. Każda wartość parametru używana w szablonie definiuje wdrażane zasoby.
+Przy użyciu usługi Azure Resource Manager można zdefiniować parametry dla wartości, które mają zostać uwzględnione podczas wdrażania szablonu. Szablon zawiera sekcję o nazwie `Parameters` , która zawiera wszystkie wartości parametrów. Należy zdefiniować parametr dla tych wartości, które będą się różnić w zależności od wdrażanego projektu lub w oparciu o środowisko, w którym wdrażasz. Nie należy definiować parametrów dla wartości, które zawsze pozostają takie same. Każda wartość parametru używana w szablonie definiuje wdrażane zasoby.
 
 Szablon zawiera definicje następujących parametrów.
 
-### <a name="servicebusnamespacename"></a>usługaNamespaceName
+### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 
-Nazwa obszaru nazw usługi Service Bus do utworzenia.
+Nazwa przestrzeni nazw Service Bus, która ma zostać utworzona.
 
 ```json
 "serviceBusNamespaceName": {
@@ -67,9 +67,9 @@ Nazwa obszaru nazw usługi Service Bus do utworzenia.
 }
 ```
 
-### <a name="namespaceauthorizationrulename"></a>nazwaspaceAucharizacjaRuleName
+### <a name="namespaceauthorizationrulename"></a>namespaceAuthorizationRuleName
 
-Nazwa reguły autoryzacji dla obszaru nazw.
+Nazwa reguły autoryzacji dla przestrzeni nazw.
 
 ```json
 "namespaceAuthorizationRuleName ": {
@@ -77,9 +77,9 @@ Nazwa reguły autoryzacji dla obszaru nazw.
 }
 ```
 
-### <a name="servicebusqueuename"></a>usługaBusQueueName
+### <a name="servicebusqueuename"></a>serviceBusQueueName
 
-Nazwa kolejki w obszarze nazw usługi Service Bus.
+Nazwa kolejki w przestrzeni nazw Service Bus.
 
 ```json
 "serviceBusQueueName": {
@@ -87,9 +87,9 @@ Nazwa kolejki w obszarze nazw usługi Service Bus.
 }
 ```
 
-### <a name="servicebusapiversion"></a>usługaBusApiVersion
+### <a name="servicebusapiversion"></a>serviceBusApiVersion
 
-Wersja interfejsu API usługi Service Bus szablonu.
+Wersja szablonu interfejsu API Service Bus.
 
 ```json
 "serviceBusApiVersion": { 
@@ -102,7 +102,7 @@ Wersja interfejsu API usługi Service Bus szablonu.
 
 ## <a name="resources-to-deploy"></a>Zasoby wymagające wdrożenia
 
-Tworzy standardową przestrzeń nazw usługi Service Bus typu **Wiadomości**i regułę autoryzacji usługi Service Bus dla obszaru nazw i encji.
+Tworzy standardową przestrzeń nazw Service Bus typu **Messaging**oraz regułę autoryzacji Service Bus dla przestrzeni nazw i jednostki.
 
 ```json
 "resources": [
@@ -154,7 +154,7 @@ Tworzy standardową przestrzeń nazw usługi Service Bus typu **Wiadomości**i r
     ]
 ```
 
-Aby zapoznać się ze składnią i właściwościami JSON, zobacz [obszary nazw,](/azure/templates/microsoft.servicebus/namespaces)kolejki i [Reguły](/azure/templates/microsoft.servicebus/namespaces/queues) [autoryzacji](/azure/templates/microsoft.servicebus/namespaces/authorizationrules).
+Aby poznać składnię i właściwości JSON, zobacz [przestrzenie nazw](/azure/templates/microsoft.servicebus/namespaces), [kolejki](/azure/templates/microsoft.servicebus/namespaces/queues)i [reguł autoryzacji](/azure/templates/microsoft.servicebus/namespaces/authorizationrules).
 
 ## <a name="commands-to-run-deployment"></a>Polecenia umożliwiające uruchomienie wdrożenia
 
@@ -176,10 +176,10 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy utworzono i wdrożyłeś zasoby przy użyciu usługi Azure Resource Manager, dowiedz się, jak zarządzać tymi zasobami, wyświetlając te artykuły:
+Teraz, po utworzeniu i wdrożeniu zasobów przy użyciu Azure Resource Manager, Dowiedz się, jak zarządzać tymi zasobami, wyświetlając następujące artykuły:
 
 * [Zarządzanie magistralą usług za pomocą programu PowerShell](service-bus-powershell-how-to-provision.md)
-* [Zarządzanie zasobami usługi Service Bus za pomocą Eksploratora magistrali usług](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+* [Zarządzanie zasobami Service Bus za pomocą Eksploratora Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 * [Uwierzytelnianie i autoryzacja w usłudze Service Bus](service-bus-authentication-and-authorization.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md

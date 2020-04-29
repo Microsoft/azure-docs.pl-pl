@@ -1,6 +1,6 @@
 ---
-title: Włączanie lub wyłączanie reguły zapory w szane gołym os w usłudze Azure VM | Dokumenty firmy Microsoft
-description: Dowiedz się, jak używać narzędzi zdalnych lub ustawień rejestru w trybie online lub offline do włączania lub wyłączania reguł zapory systemu operacyjnego gościa na zdalnej maszynie wirtualnej platformy Azure.
+title: Włączanie lub wyłączanie reguły zapory w systemie operacyjnym gościa na maszynie wirtualnej platformy Azure | Microsoft Docs
+description: Dowiedz się, jak włączyć lub wyłączyć reguły zapory systemu operacyjnego gościa na zdalnej maszynie wirtualnej platformy Azure za pomocą usług online lub offline.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -15,29 +15,29 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: e93dbd085ce99b8d555d6b9bb04e7eb6f60de0ee
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422896"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Włączanie lub wyłączanie reguły zapory w systemie operacyjnym gościa maszyny wirtualnej platformy Azure
 
-Ten artykuł zawiera odwołanie do rozwiązywania problemów z sytuacją, w której można podejrzewać, że zapora systemu operacyjnego gościa filtruje częściowy ruch na maszynie wirtualnej (VM). Może to być przydatne z następujących powodów:
+Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z sytuacją, w której można podejrzewać, że Zapora systemu operacyjnego gościa filtruje częściowy ruch na maszynie wirtualnej. Może to być przydatne z następujących powodów:
 
-*   Jeśli celowo dokonano zmiany w zaporze, która spowodowała niepowodzenie połączeń RDP, użycie funkcji Niestandardowe rozszerzenie skryptu może rozwiązać ten problem.
+*   Jeśli zmiana została celowo wykonana w zaporze, która spowodowała niepowodzenie połączeń RDP, użycie funkcji niestandardowego rozszerzenia skryptu może rozwiązać ten problem.
 
-*   Wyłączenie wszystkich profili zapory jest bardziej niezawodnym sposobem rozwiązywania problemów niż ustawienie reguły zapory specyficznej dla protokołu RDP.
+*   Wyłączenie wszystkich profilów zapory jest bardziej foolproof sposobem rozwiązywania problemów niż ustawienie reguły zapory dotyczącej protokołu RDP.
 
 ## <a name="solution"></a>Rozwiązanie
 
-Sposób konfigurowania reguł zapory zależy od poziomu dostępu do maszyny Wirtualnej, który jest wymagany. W poniższych przykładach użyto reguł PROW. Jednak te same metody mogą być stosowane do innego rodzaju ruchu, wskazując poprawny klucz rejestru.
+Sposób konfigurowania reguł zapory zależy od poziomu dostępu do wymaganej maszyny wirtualnej. W poniższych przykładach użyto reguł RDP. Jednak te same metody można zastosować do dowolnego innego rodzaju ruchu, wskazując prawidłowy klucz rejestru.
 
 ### <a name="online-troubleshooting"></a>Rozwiązywanie problemów online 
 
-#### <a name="mitigation-1-custom-script-extension"></a>Środki zaradcze 1: Niestandardowe rozszerzenie skryptu
+#### <a name="mitigation-1-custom-script-extension"></a>Środki zaradcze 1: niestandardowe rozszerzenie skryptu
 
-1.  Utwórz skrypt przy użyciu następującego szablonu.
+1.  Utwórz skrypt przy użyciu poniższego szablonu.
 
     *   Aby włączyć regułę:
         ```cmd
@@ -49,15 +49,15 @@ Sposób konfigurowania reguł zapory zależy od poziomu dostępu do maszyny Wirt
         netsh advfirewall firewall set rule dir=in name="Remote Desktop - User Mode (TCP-In)" new enable=no
         ```
 
-2.  Przekaż ten skrypt w witrynie Azure portal przy użyciu funkcji [rozszerzenia skryptu niestandardowego.](../extensions/custom-script-windows.md) 
+2.  Przekaż ten skrypt do Azure Portal przy użyciu funkcji [niestandardowego rozszerzenia skryptu](../extensions/custom-script-windows.md) . 
 
-#### <a name="mitigation-2-remote-powershell"></a>Łagodzenie 2: Zdalny program PowerShell
+#### <a name="mitigation-2-remote-powershell"></a>Środki zaradcze 2: zdalne środowisko PowerShell
 
-Jeśli maszyna wirtualna jest w trybie online i można uzyskać dostęp na innej maszynie wirtualnej w tej samej sieci wirtualnej, można wprowadzić następujące środki zaradcze przy użyciu innych maszyn wirtualnych.
+Jeśli maszyna wirtualna jest w trybie online i jest dostępna na innej maszynie wirtualnej w tej samej sieci wirtualnej, możesz zastosować środki zaradcze przy użyciu innej maszyny wirtualnej.
 
-1.  Na maszynie wirtualnej rozwiązywania problemów otwórz okno konsoli programu PowerShell.
+1.  Na maszynie wirtualnej Rozwiązywanie problemów Otwórz okno konsoli programu PowerShell.
 
-2.  Uruchom następujące polecenia, odpowiednio.
+2.  Uruchom następujące polecenia, zgodnie z potrzebami.
 
     *   Aby włączyć regułę:
         ```powershell
@@ -73,13 +73,13 @@ Jeśli maszyna wirtualna jest w trybie online i można uzyskać dostęp na innej
         exit
         ```
 
-#### <a name="mitigation-3-pstools-commands"></a>Łagodzenie 3: POLECENIA PSTools
+#### <a name="mitigation-3-pstools-commands"></a>Środki zaradcze 3: program PsTools polecenia
 
-Jeśli maszyna wirtualna jest w trybie online i można uzyskać dostęp na innej maszynie wirtualnej w tej samej sieci wirtualnej, można wprowadzić następujące środki zaradcze przy użyciu innych maszyn wirtualnych.
+Jeśli maszyna wirtualna jest w trybie online i jest dostępna na innej maszynie wirtualnej w tej samej sieci wirtualnej, możesz zastosować środki zaradcze przy użyciu innej maszyny wirtualnej.
 
-1.  Na maszynie wirtualnej rozwiązywania problemów pobierz [narzędzie PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
+1.  Na maszynie wirtualnej Rozwiązywanie problemów Pobierz [program PsTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
 
-2.  Otwórz wystąpienie cmd i uzyskać dostęp do maszyny Wirtualnej za pośrednictwem jego wewnętrzny adres IP (DIP). 
+2.  Otwórz wystąpienie programu CMD i uzyskaj dostęp do maszyny wirtualnej za pomocą wewnętrznego adresu IP (DIP). 
 
     * Aby włączyć regułę:
         ```cmd
@@ -95,77 +95,77 @@ Jeśli maszyna wirtualna jest w trybie online i można uzyskać dostęp na innej
 
 #### <a name="mitigation-4-remote-registry"></a>Łagodzenie 4: Rejestr zdalny
 
-Jeśli maszyna wirtualna jest w trybie online i można uzyskać dostęp na innej maszynie wirtualnej w tej samej sieci [wirtualnej,](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry) można użyć rejestru zdalnego na innej maszynie wirtualnej.
+Jeśli maszyna wirtualna jest w trybie online i można uzyskać do niej dostęp z innej maszyny wirtualnej w tej samej sieci wirtualnej, możesz użyć [rejestru zdalnego](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry) na drugiej maszynie wirtualnej.
 
-1.  Na maszynie Wirtualnej rozwiązywania problemów uruchom Edytor rejestru (regedit.exe), a następnie wybierz pozycję**Rejestr sieciowy łączenia** **plików** > .
+1.  Na maszynie wirtualnej Rozwiązywanie problemów Uruchom Edytor rejestru (regedit. exe), a następnie wybierz pozycję **plik** > **Połącz z rejestrem sieciowym**.
 
-2.  Otwórz gałąź *TARGET MACHINE*\SYSTEM, a następnie określ następujące wartości:
+2.  Otwórz gałąź \System *maszyny docelowej*, a następnie określ następujące wartości:
 
-    * Aby włączyć regułę, otwórz następującą wartość rejestru:
+    * Aby włączyć regułę, Otwórz następującą wartość rejestru:
     
-        *MASZYNA DOCELOWA*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
+        \SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-Usermode-in-TCP *maszyny docelowej*
     
-        Następnie zmień **Active=FALSE** na **Active=TRUE** w ciągu:
+        Następnie zmień wartość **Active = false** na **Active = true** w ciągu:
 
-        **wersja 2.22| Action=Zezwalaj| Active=PRAWDA| Dir=W| Protokół=6| Profil=Domena| Profil=Prywatny| Profil=Publiczny| LPort=3389| App=%SystemRoot%\system32\svchost.exe| Svc=termservice| Nazwa\@= FirewallAPI.dll,-28775| Desc=\@FirewallAPI.dll,-28756| BedCtxt=\@FirewallAPI.dll,-28752|**
+        **2.22 v | Akcja = Zezwalaj | Aktywny = TRUE | Dir = in | Protokół = 6 | Profil = domena | Profil = prywatny | Profil = publiczny | LPort = 3389 | App =%SystemRoot%\system32\svchost.exe | SVC = TermService | Nazwa =\@FirewallAPI. dll,-28775 | DESC =\@FirewallAPI. dll,-28756 | EmbedCtxt =\@FirewallAPI. dll,-28752 |**
     
-    * Aby wyłączyć regułę, otwórz następującą wartość rejestru:
+    * Aby wyłączyć regułę, Otwórz następującą wartość rejestru:
     
-        *MASZYNA DOCELOWA*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
+        \SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-Usermode-in-TCP *maszyny docelowej*
 
-        Następnie zmień **Active =TRUE** na **Active=FALSE**:
+        Następnie zmień wartość **Active = true** na **Active = false**:
         
-        **wersja 2.22| Action=Zezwalaj| Active=FAŁSZ| Dir=W| Protokół=6| Profil=Domena| Profil=Prywatny| Profil=Publiczny| LPort=3389| App=%SystemRoot%\system32\svchost.exe| Svc=termservice| Nazwa\@= FirewallAPI.dll,-28775| Desc=\@FirewallAPI.dll,-28756| BedCtxt=\@FirewallAPI.dll,-28752|**
+        **2.22 v | Akcja = Zezwalaj | Aktywny = FAŁSZ | Dir = in | Protokół = 6 | Profil = domena | Profil = prywatny | Profil = publiczny | LPort = 3389 | App =%SystemRoot%\system32\svchost.exe | SVC = TermService | Nazwa =\@FirewallAPI. dll,-28775 | DESC =\@FirewallAPI. dll,-28756 | EmbedCtxt =\@FirewallAPI. dll,-28752 |**
 
 3.  Uruchom ponownie maszynę wirtualną, aby zastosować zmiany.
 
 ### <a name="offline-troubleshooting"></a>Rozwiązywanie problemów w trybie offline 
 
-Jeśli nie można uzyskać dostępu do maszyny Wirtualnej za pomocą dowolnej metody, przy użyciu niestandardowego rozszerzenia skryptu zakończy się niepowodzeniem i trzeba będzie pracować w trybie OFFLINE, pracując bezpośrednio za pośrednictwem dysku systemowego.
+Jeśli nie możesz uzyskać dostępu do maszyny wirtualnej za pomocą żadnej metody, korzystanie z niestandardowego rozszerzenia skryptu zakończy się niepowodzeniem, a użytkownik będzie musiał pracować w trybie OFFLINE, pracując bezpośrednio na dysku systemowym.
 
-Przed wykonać następujące kroki, należy wykonać migawkę dysku systemowego maszyny Wirtualnej, którego dotyczy problem jako kopię zapasową. Aby uzyskać więcej informacji, zobacz [Migawka dysku](../windows/snapshot-copy-managed-disk.md).
+Przed wykonaniem tych kroków należy wykonać migawkę dysku systemowego, której dotyczy dana maszyna wirtualna, jako kopię zapasową. Aby uzyskać więcej informacji, zobacz [migawka dysku](../windows/snapshot-copy-managed-disk.md).
 
-1.  [Podłącz dysk systemowy do odzyskiwania maszyny Wirtualnej](troubleshoot-recovery-disks-portal-windows.md).
+1.  [Dołącz dysk systemowy do maszyny wirtualnej odzyskiwania](troubleshoot-recovery-disks-portal-windows.md).
 
-2.  Uruchom połączenie pulpitu zdalnego z maszyną wirtualną odzyskiwania.
+2.  Uruchom Pulpit zdalny połączenie z maszyną wirtualną odzyskiwania.
 
-3.  Upewnij się, że dysk jest oflagowany jako **w trybie online** w konsoli Zarządzanie dyskami. Należy zauważyć, że litera dysku przypisana do dołączonego dysku systemowego.
+3.  Upewnij się, że dysk jest oflagowany jako **online** w konsoli Zarządzanie dyskami. Należy pamiętać, że litera dysku przypisana do dołączonego dysku systemowego.
 
-4.  Przed wprowadzeniem jakichkolwiek zmian należy utworzyć kopię folderu \windows\system32\config na wypadek konieczności wycofania zmian.
+4.  Przed wprowadzeniem jakichkolwiek zmian Utwórz kopię folderu \Windows\System32\Config w przypadku, gdy konieczne jest wycofanie zmian.
 
-5.  Na maszynie wirtualnej rozwiązywania problemów uruchom Edytor rejestru (regedit.exe).
+5.  Na maszynie wirtualnej Rozwiązywanie problemów Uruchom Edytor rejestru (regedit. exe).
 
-6.  Zaznacz klawisz **HKEY_LOCAL_MACHINE,** a następnie wybierz z menu pozycję**Gałąź obciążenia** **pliku.** > 
+6.  Zaznacz klucz **HKEY_LOCAL_MACHINE** , a następnie wybierz pozycję **plik** > **Załaduj gałąź** z menu.
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
-7.  Znajdź, a następnie otwórz plik \windows\system32\config\SYSTEM. 
+7.  Zlokalizuj i Otwórz plik \windows\system32\config\SYSTEM. 
 
     > [!Note]
-    > Zostanie wyświetlony monit o podanie nazwy. Wprowadź **BROKENSYSTEM**, a następnie rozwiń **HKEY_LOCAL_MACHINE**. Zostanie wyświetlony dodatkowy klucz o nazwie **BROKENSYSTEM**. Do tego rozwiązywania problemów, montujemy te pokrzywki problem jako **BROKENSYSTEM**.
+    > Zostanie wyświetlony monit o podanie nazwy. Wprowadź **BROKENSYSTEM**, a następnie rozwiń węzeł **HKEY_LOCAL_MACHINE**. Zobaczysz teraz dodatkowy klucz o nazwie **BROKENSYSTEM**. W ramach tego problemu instalujemy te gałęzie problemów jako **BROKENSYSTEM**.
 
-8.  Wykonuj następujące zmiany w gałęzi BROKENSYSTEM:
+8.  Wprowadź następujące zmiany w gałęzi BROKENSYSTEM:
 
-    1.  Sprawdź, od którego klucza rejestru **ControlSet** jest uruchamiany maszyna wirtualna. Jego numer klucza zostanie wyświetlony w HKLM\BROKENSYSTEM\Select\Current.
+    1.  Sprawdź, który klucz rejestru **ControlSet** jest URUCHAMIANY przez maszynę wirtualną. Zobaczysz swój numer klucza w HKLM\BROKENSYSTEM\Select\Current.
 
-    2.  Aby włączyć regułę, otwórz następującą wartość rejestru:
+    2.  Aby włączyć regułę, Otwórz następującą wartość rejestru:
     
         HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
         
-        Następnie zmień **Active=FALSE** na **Active=True**.
+        Następnie zmień wartość **Active = false** na **Active = true**.
         
-        **wersja 2.22| Action=Zezwalaj| Active=PRAWDA| Dir=W| Protokół=6| Profil=Domena| Profil=Prywatny| Profil=Publiczny| LPort=3389| App=%SystemRoot%\system32\svchost.exe| Svc=termservice| Nazwa\@= FirewallAPI.dll,-28775| Desc=\@FirewallAPI.dll,-28756| BedCtxt=\@FirewallAPI.dll,-28752|**
+        **2.22 v | Akcja = Zezwalaj | Aktywny = TRUE | Dir = in | Protokół = 6 | Profil = domena | Profil = prywatny | Profil = publiczny | LPort = 3389 | App =%SystemRoot%\system32\svchost.exe | SVC = TermService | Nazwa =\@FirewallAPI. dll,-28775 | DESC =\@FirewallAPI. dll,-28756 | EmbedCtxt =\@FirewallAPI. dll,-28752 |**
 
-    3.  Aby wyłączyć regułę, otwórz następujący klucz rejestru:
+    3.  Aby wyłączyć regułę, Otwórz następujący klucz rejestru:
 
         HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
 
-        Następnie zmień **Active=True** na **Active=FALSE**.
+        Następnie zmień wartość **Active = true na wartość** **Active = false**.
         
-        **wersja 2.22| Action=Zezwalaj| Active=FAŁSZ| Dir=W| Protokół=6| Profil=Domena| Profil=Prywatny| Profil=Publiczny| LPort=3389| App=%SystemRoot%\system32\svchost.exe| Svc=termservice| Nazwa\@= FirewallAPI.dll,-28775| Desc=\@FirewallAPI.dll,-28756| BedCtxt=\@FirewallAPI.dll,-28752|**
+        **2.22 v | Akcja = Zezwalaj | Aktywny = FAŁSZ | Dir = in | Protokół = 6 | Profil = domena | Profil = prywatny | Profil = publiczny | LPort = 3389 | App =%SystemRoot%\system32\svchost.exe | SVC = TermService | Nazwa =\@FirewallAPI. dll,-28775 | DESC =\@FirewallAPI. dll,-28756 | EmbedCtxt =\@FirewallAPI. dll,-28752 |**
 
-9.  Zaznacz **pozycję BROKENSYSTEM**, a następnie z menu wybierz polecenie**Rozładuj** **plik.** > 
+9.  Podświetl pozycję **BROKENSYSTEM**, a następnie wybierz pozycję **plik** > **Zwolnij gałąź** z menu.
 
-10. [Odłącz dysk systemowy i ponownie utwórz maszynę wirtualną](troubleshoot-recovery-disks-portal-windows.md).
+10. [Odłącz dysk systemowy i Utwórz ponownie maszynę wirtualną](troubleshoot-recovery-disks-portal-windows.md).
 
 11. Sprawdź, czy problem został rozwiązany.

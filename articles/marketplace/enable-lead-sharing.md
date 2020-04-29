@@ -1,6 +1,6 @@
 ---
-title: Włączanie udostępniania potencjalnych klienty w portalu Azure Marketplace | Azure
-description: Dowiedz się, jak włączyć udostępnianie potencjalnych pracowników w portalu Azure Marketplace i AppSource dla wydawców aplikacji i usług.
+title: Włącz udostępnianie liderów w portalu Azure Marketplace | Azure
+description: Dowiedz się, jak włączyć udostępnianie liderów w witrynie Azure Marketplace i AppSource dla wydawców aplikacji i usług.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,49 +8,49 @@ ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dsindona
 ms.openlocfilehash: b41a29fb3548937e9071cfb9f065dd46f63df83e
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80387615"
 ---
 # <a name="enable-lead-sharing"></a>Włączanie udostępniania informacji o potencjalnych klientach
-Zapewnienie, że zarządzanie potencjalnymi klientami jest włączone dla twojej aukcji w [portalu Azure Marketplace](https://azuremarketplace.microsoft.com) lub Microsoft [AppSource,](https://appsource.microsoft.com) może pomóc w otrzymaniu informacji kontaktowych dla następujących grup odbiorców:
+Zagwarantowanie, że zarządzanie potencjalnymi klientami jest włączone dla Twojej aukcji w [portalu Azure Marketplace](https://azuremarketplace.microsoft.com) , lub [Microsoft AppSource](https://appsource.microsoft.com) może pomóc Ci w otrzymaniu informacji kontaktowych dla następujących odbiorców:
 
-| Sklepu | Grupy odbiorców |
+| Musisz | Grupy odbiorców |
 |:--- |:--- |
 | AppSource | Klienci biznesowi |
 | Azure Marketplace | Wszyscy klienci |
 
-Twoi potencjalni klienci stanowią podstawę działań informacyjnych dla kampanii wymienionych w poniższej tabeli, powiązanych wniosków sprzedażowych pracowników działu sprzedaży w terenie oraz informacji o skuteczności aplikacji lub oferty:
+Potencjalni klienci stanowią podstawę zorganizować dla kampanii wymienionych w poniższej tabeli, w odniesieniu do pokrewnych ruchów sprzedaży przez personel działu sprzedaży i informacje o sposobie wykonywania Twojej aplikacji lub oferty:
 
-| Sklepu | Kampania |
+| Musisz | Kampania |
 |:--- |:--- |
 | AppSource | Pielęgnacja |
-| Azure Marketplace | Generowanie popytu |
+| Azure Marketplace | Generowanie na żądanie |
 
-Skorzystaj z następujących praktyk dla swoich potencjalnych klientów:
-*   Zakwalifikuj potencjalnych klientów i zdobądź potencjalnych klientów jako potencjalnych klientów.
-*   Pielęgnuj potencjalnych klientów, aby wejść do rurociągu sprzedaży.
-*   Dostosuj swoje wysiłki do ogólnej strategii kampanii marketingowej.
+Użyj następujących praktyk dla potencjalnych klientów:
+*   Kwalifikowanie potencjalnych klientów i Ocena potencjalnych klientów jako szans sprzedaży.
+*   Informacyjna potencjalni klienci w celu wprowadzenia potoku sprzedaży.
+*   Dopasuj swoje wysiłki do ogólnej strategii kampanii marketingowej.
 
-Twoi potencjalni klienci wykazują zainteresowanie klientów następującymi aukcjami:
+Potencjalni klienci przedstawiają zainteresowania klientów na następujących listach:
 
-| Sklepu | Aukcji |
+| Musisz | Zawierające |
 |:--- |:--- |
 | AppSource | <table> <tr><td>Aplikacja</td></tr> <tr><td>Usługi konsultingowe</td></tr> </table> |
 | Azure Marketplace | <table> <tr><td>Oferta</td></tr> <tr><td>Technologia</td></tr> </table> |
 
-Powinien pan mieć proces obserwacji potencjalnych klientów zgodnie z opisem w poniższej tabeli:
+Powinieneś mieć wdrożony proces, aby postępować wraz z potencjalnymi klientami, zgodnie z opisem w poniższej tabeli:
 
-| Sklepu | Leads |
+| Musisz | Leads |
 |:--- |:--- |
-| AppSource | <table> <tr><td>Twój CRM</td></tr> <tr><td>Program CRM sprzedawcy pól firmy Microsoft</td></tr> </table> |
-| Azure Marketplace | <table> <tr><td>Azure Marketplace</td></tr> <tr><td>Program CRM sprzedawcy pól firmy Microsoft</td></tr> </table> |
+| AppSource | <table> <tr><td>Twój CRM</td></tr> <tr><td>Sprzedawca pola Microsoft CRM</td></tr> </table> |
+| Azure Marketplace | <table> <tr><td>Azure Marketplace</td></tr> <tr><td>Sprzedawca pola Microsoft CRM</td></tr> </table> |
 
-Potencjalni klienci w witrynach sklepowych w portalu Marketplace różnią się od potencjalnych klientów z zastrzeżeniem sprzedawcy firmy Microsoft, którzy są funkcją programu Co-Sell.
+Potencjalni klienci w sklepie Marketplace różnią się od potencjalnych klientów firmy Microsoft oferowanych przez sprzedawców.
 
-Aby uzyskać więcej informacji na temat uzyskiwania dostępu do programu Co-Sell, zobacz [Promowanie firmy za pomocą firmy Microsoft](./promote-your-business-with-microsoft.md).
+Aby uzyskać więcej informacji o tym, jak uzyskać dostęp do programu do współsprzedawcy, zobacz [Promuj swoją firmę w firmie Microsoft](./promote-your-business-with-microsoft.md).
 
 ## <a name="next-steps"></a>Następne kroki
-Zapoznaj się z [przewodnikiem po publikowaniu w portalu Azure Marketplace i appsource](./marketplace-publishers-guide.md).
+Zapoznaj się z [podręcznikiem publikowania w witrynie Azure Marketplace i AppSource](./marketplace-publishers-guide.md).

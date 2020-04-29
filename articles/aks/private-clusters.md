@@ -1,31 +1,31 @@
 ---
-title: Tworzenie prywatnego klastra usługi Kubernetes platformy Azure
-description: Dowiedz się, jak utworzyć prywatny klaster usługi Kubernetes platformy Azure (AKS)
+title: Tworzenie prywatnego klastra usługi Azure Kubernetes Service
+description: Dowiedz się, jak utworzyć prywatny klaster usługi Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
 ms.openlocfilehash: 87f52c5a749b531e5b0656e0b30ff0fe9c1a57bf
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80398048"
 ---
-# <a name="create-a-private-azure-kubernetes-service-cluster"></a>Tworzenie prywatnego klastra usługi Kubernetes platformy Azure
+# <a name="create-a-private-azure-kubernetes-service-cluster"></a>Tworzenie prywatnego klastra usługi Azure Kubernetes Service
 
-W klastrze prywatnym płaszczyzna kontrolna lub serwer interfejsu API ma wewnętrzne adresy IP zdefiniowane w dokumencie [RFC1918 — Address Allocation for Private Internets.](https://tools.ietf.org/html/rfc1918) Za pomocą klastra prywatnego można zapewnić, że ruch sieciowy między serwerem interfejsu API a pulami węzłów pozostaje tylko w sieci prywatnej.
+W klastrze prywatnym płaszczyzna kontroli lub serwer interfejsu API ma wewnętrzne adresy IP, które są zdefiniowane w [alokacji RFC1918-Address dla prywatnych Internetu](https://tools.ietf.org/html/rfc1918) dokumentów. Za pomocą klastra prywatnego można zapewnić, że ruch sieciowy między serwerem interfejsu API i pulami węzłów pozostanie tylko w sieci prywatnej.
 
-Płaszczyzna sterowania lub serwer interfejsu API znajduje się w subskrypcji platformy Azure (AKS) zarządzanej przez usługę Azure. Klaster klienta lub pula węzłów znajduje się w subskrypcji klienta. Serwer i puli klastra lub węzła mogą komunikować się ze sobą za pośrednictwem [usługi Azure Private Link][private-link-service] w sieci wirtualnej serwera interfejsu API i prywatnego punktu końcowego, który jest udostępniany w podsieci klastra AKS klienta.
+Płaszczyzna kontroli lub serwer interfejsu API znajduje się w subskrypcji platformy Azure zarządzanej przez usługę Azure Kubernetes Service (AKS). Klaster klienta lub Pula węzłów znajduje się w subskrypcji klienta. Serwer i Pula węzłów mogą komunikować się ze sobą za pomocą [usługi Azure Private link][private-link-service] w sieci wirtualnej serwera interfejsu API i prywatnego punktu końcowego, który jest udostępniany w podsieci klastra AKS klienta.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Interfejsu wiersza polecenia platformy Azure w wersji 2.2.0 lub nowszej
+* Interfejs wiersza polecenia platformy Azure w wersji 2.2.0 lub nowszej
 
 ## <a name="create-a-private-aks-cluster"></a>Tworzenie prywatnego klastra AKS
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów lub użyj istniejącej grupy zasobów dla klastra AKS.
+Utwórz grupę zasobów lub Użyj istniejącej grupy zasobów dla klastra AKS.
 
 ```azurecli-interactive
 az group create -l westus -n MyResourceGroup
@@ -36,9 +36,9 @@ az group create -l westus -n MyResourceGroup
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster  
 ```
-Gdzie *--enable-private-cluster* jest obowiązkową flagą dla klastra prywatnego. 
+Where *--enable-Private-Cluster* jest obowiązkową flagą dla klastra prywatnego. 
 
-### <a name="advanced-networking"></a>Zaawansowana sieć  
+### <a name="advanced-networking"></a>Zaawansowane sieci  
 
 ```azurecli-interactive
 az aks create \
@@ -52,63 +52,63 @@ az aks create \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 
 ```
-Gdzie *--enable-private-cluster* jest obowiązkową flagą dla klastra prywatnego. 
+Where *--enable-Private-Cluster* jest obowiązkową flagą dla klastra prywatnego. 
 
 > [!NOTE]
-> Jeśli adres mostka platformy Docker CIDR (172.17.0.1/16) starć z podsiecią CIDR, należy odpowiednio zmienić adres mostka platformy Docker.
+> Jeśli adres CIDR (172.17.0.1/16) mostka platformy Docker koliduje z maską CIDR podsieci, należy odpowiednio zmienić adres mostka platformy Docker.
 
 ## <a name="options-for-connecting-to-the-private-cluster"></a>Opcje łączenia się z klastrem prywatnym
 
-Punkt końcowy serwera interfejsu API nie ma publicznego adresu IP. Aby zarządzać serwerem interfejsu API, należy użyć maszyny Wirtualnej, która ma dostęp do sieci wirtualnej azure (VNet) klastra AKS. Istnieje kilka opcji ustanawiania łączności sieciowej z klastrem prywatnym.
+Punkt końcowy serwera interfejsu API nie ma publicznego adresu IP. Aby zarządzać serwerem interfejsu API, należy użyć maszyny wirtualnej, która ma dostęp do Virtual Network platformy Azure klastra AKS. Istnieje kilka opcji ustanawiania łączności sieciowej z klastrem prywatnym.
 
-* Utwórz maszynę wirtualną w tej samej sieci wirtualnej platformy Azure (VNet) co klaster AKS.
-* Użyj maszyny Wirtualnej w oddzielnej sieci i [skonfiguruj komunikację równorzędną sieci wirtualnej][virtual-network-peering].  Zobacz sekcję poniżej, aby uzyskać więcej informacji na temat tej opcji.
-* Użyj połączenia [Trasy ekspresowej lub sieci VPN.][express-route-or-VPN]
+* Utwórz maszynę wirtualną w tej samej usłudze Azure Virtual Network (VNet) jako klaster AKS.
+* Użyj maszyny wirtualnej w oddzielnym sieci i skonfiguruj [komunikację równorzędną sieci wirtualnej][virtual-network-peering].  Zapoznaj się z sekcją poniżej, aby uzyskać więcej informacji na temat tej opcji.
+* Użyj usługi [Express Route lub połączenia sieci VPN][express-route-or-VPN] .
 
-Tworzenie maszyny Wirtualnej w tej samej sieci wirtualnej jako klaster AKS jest najprostszą opcją.  Express Route i VPN zwiększają koszty i wymagają dodatkowej złożoności sieci.  Komunikacja równorzędna sieci wirtualnej wymaga zaplanowania zakresów CIDR sieci, aby upewnić się, że nie ma nakładających się zakresów.
+Najłatwiej jest utworzyć maszynę wirtualną w tej samej sieci wirtualnej, co klaster AKS.  Funkcja Express Route i sieci VPN zwiększa koszty i wymaga dodatkowej złożoności sieci.  Komunikacja równorzędna sieci wirtualnych wymaga zaplanowania zakresów CIDR sieci, aby upewnić się, że nie ma nakładających się zakresów.
 
 ## <a name="virtual-network-peering"></a>Wirtualne sieci równorzędne
 
-Jak wspomniano, komunikacja równorzędna sieci wirtualnej jest jednym ze sposobów dostępu do klastra prywatnego. Aby korzystać z komunikacji równorzędnej sieci wirtualnej, należy skonfigurować łącze między siecią wirtualną a prywatną strefą DNS.
+Jak wspomniano, Komunikacja równorzędna sieci wirtualnej jest jednym ze sposobów uzyskiwania dostępu do klastra prywatnego. Aby można było użyć komunikacji równorzędnej sieci wirtualnej, należy skonfigurować łącze między siecią wirtualną i prywatną strefą DNS.
     
-1. Przejdź do grupy zasobów MC_* w witrynie Azure portal.  
+1. Przejdź do grupy zasobów MC_ * w Azure Portal.  
 2. Wybierz prywatną strefę DNS.   
-3. W lewym okienku wybierz łącze **Sieć wirtualna.**  
-4. Utwórz nowe łącze, aby dodać sieć wirtualną maszyny Wirtualnej do prywatnej strefy DNS. Udostępnienie łącza strefa DNS zajmuje kilka minut.  
-5. Wróć do grupy zasobów MC_* w witrynie Azure portal.  
-6. W prawym okienku wybierz sieć wirtualną. Nazwa sieci wirtualnej jest w formie *aks-vnet-\**.  
-7. W lewym okienku wybierz pozycję **Peerings**.  
-8. Wybierz **pozycję Dodaj**, dodaj sieć wirtualną maszyny Wirtualnej, a następnie utwórz komunikację równorzędnej.  
-9. Przejdź do sieci wirtualnej, w której masz maszynę wirtualną, wybierz **pozycję Peerings**, wybierz sieć wirtualną AKS, a następnie utwórz komunikację równorzędną. Jeśli zakresy adresów w sieci wirtualnej usługi AKS i kolizji sieci wirtualnej maszyny Wirtualnej, komunikacja równorzędna kończy się niepowodzeniem. Aby uzyskać więcej informacji, zobacz [Komunikacja równorzędna sieci wirtualnej][virtual-network-peering].
+3. W lewym okienku wybierz łącze **Sieć wirtualna** .  
+4. Utwórz nowy link, aby dodać sieć wirtualną maszyny wirtualnej do prywatnej strefy DNS. Udostępnienie linku strefy DNS może potrwać kilka minut.  
+5. Wróć do grupy zasobów MC_ * w Azure Portal.  
+6. W prawym okienku wybierz sieć wirtualną. Nazwa sieci wirtualnej ma postać *AKS-VNET-\**.  
+7. W lewym okienku wybierz pozycję **Komunikacja równorzędna**.  
+8. Wybierz pozycję **Dodaj**, Dodaj sieć wirtualną maszyny wirtualnej, a następnie utwórz komunikację równorzędną.  
+9. Przejdź do sieci wirtualnej, w której znajduje się maszyna wirtualna, wybierz pozycję **Komunikacja równorzędna**, wybierz sieć wirtualną AKS, a następnie utwórz komunikację równorzędną. Jeśli zakresy adresów w sieci wirtualnej AKS i konflikty sieci wirtualnej maszyn wirtualnych są niepowodzeniem, Komunikacja równorzędna nie powiedzie się. Aby uzyskać więcej informacji, zobacz [wirtualne sieci równorzędne][virtual-network-peering].
 
-## <a name="hub-and-spoke-with-custom-dns"></a>Koncentrat i rozmowa z niestandardowym systemem DNS
+## <a name="hub-and-spoke-with-custom-dns"></a>Koncentrator i szprycha z niestandardowym systemem DNS
 
-[Architektury koncentratora i szprychy](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) są często używane do wdrażania sieci na platformie Azure. W wielu z tych wdrożeń ustawienia DNS w sieciach wirtualnych szprychy są skonfigurowane do odwoływania się do centralnej usługi przesyłania dalej DNS, aby umożliwić lokalne i oparte na platformie Azure rozpoznawanie DNS. Podczas wdrażania klastra AKS w takim środowisku sieciowym, istnieją pewne szczególne kwestie, które muszą być brane pod uwagę.
+[Architektury](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) gwiazdy są często używane do wdrażania sieci na platformie Azure. W wielu z tych wdrożeń ustawienia DNS w szprychie sieci wirtualnych są skonfigurowane tak, aby odwoływać się do centralnej usługi przesyłania dalej w systemie DNS w celu umożliwienia lokalnego rozpoznawania nazw DNS opartych na platformie Azure. W przypadku wdrażania klastra AKS do takiego środowiska sieciowego należy wziąć pod uwagę pewne szczególne kwestie.
 
-![Prywatne centrum klastra i szprychy](media/private-clusters/aks-private-hub-spoke.png)
+![Prywatny koncentrator klastra i szprycha](media/private-clusters/aks-private-hub-spoke.png)
 
-1. Domyślnie podczas inicjowania obsługi administracyjnej klastra prywatnego w grupie zasobów zarządzanych przez klaster tworzony jest prywatny punkt końcowy (1) i prywatna strefa DNS (2). Klaster używa rekordu A w strefie prywatnej do rozpoznawania adresu IP prywatnego punktu końcowego w celu komunikacji z serwerem interfejsu API.
+1. Domyślnie po zainicjowaniu obsługi klastra prywatnego w grupie zasobów zarządzanej przez klaster jest tworzony prywatny punkt końcowy (1) i prywatna strefa DNS (2). Klaster używa rekordu A w strefie prywatnej w celu rozpoznania adresu IP prywatnego punktu końcowego na potrzeby komunikacji z serwerem interfejsu API.
 
-2. Prywatna strefa DNS jest połączona tylko z siecią wirtualną, do którą są dołączone węzły klastra (3). Oznacza to, że prywatny punkt końcowy można rozpoznać tylko przez hosty w tej połączonej sieci wirtualnej. W scenariuszach, w których nie skonfigurowano niestandardowego systemu DNS w sieci wirtualnej (domyślnie), działa to bez problemu jako punkt hostów w wersji 168.63.129.16 dla systemu DNS, która może rozpoznawać rekordy w prywatnej strefie DNS z powodu łącza.
+2. Prywatna strefa DNS jest połączona tylko z siecią wirtualną, do której są dołączone węzły klastra (3). Oznacza to, że prywatny punkt końcowy może być rozpoznany tylko przez hosty w połączonej sieci wirtualnej. W scenariuszach, w których w sieci wirtualnej nie skonfigurowano żadnych niestandardowych nazw DNS (domyślnie), to działa bez problemu jako hosty w 168.63.129.16 dla systemu DNS, który może rozpoznawać rekordy w prywatnej strefie DNS ze względu na link.
 
-3. W scenariuszach, w których sieć wirtualna zawierająca klaster ma niestandardowe ustawienia DNS (4), wdrażanie klastra kończy się niepowodzeniem, chyba że prywatna strefa DNS jest połączona z siecią wirtualną zawierającą niestandardowe programy rozpoznawania nazw DNS (5). To łącze można utworzyć ręcznie po utworzeniu strefy prywatnej podczas inicjowania obsługi administracyjnej klastra lub za pomocą automatyzacji po wykryciu utworzenia strefy przy użyciu zasad platformy Azure lub innych mechanizmów wdrażania opartych na zdarzeniach (na przykład usługa Azure Event Grid i usługi Azure Functions).
+3. W scenariuszach, w których sieć wirtualna zawierająca klaster ma niestandardowe ustawienia DNS (4), wdrożenie klastra kończy się niepowodzeniem, chyba że prywatna strefa DNS jest połączona z siecią wirtualną, która zawiera niestandardowe resolvery DNS (5). Ten link można utworzyć ręcznie po utworzeniu strefy prywatnej podczas aprowizacji klastra lub za pośrednictwem automatyzacji podczas wykrywania tworzenia strefy przy użyciu Azure Policy lub innych mechanizmów wdrażania opartych na zdarzeniach (na przykład Azure Event Grid i Azure Functions).
 
 ## <a name="dependencies"></a>Zależności  
 
-* Usługa Private Link jest obsługiwana tylko w standardowym modułie równoważenia obciążenia platformy Azure. Podstawowy moduł równoważenia obciążenia platformy Azure nie jest obsługiwany.  
-* Aby użyć niestandardowego serwera DNS, dodaj adres Azure DNS IP 168.63.129.16 jako nadrzędny serwer DNS na niestandardowym serwerze DNS.
+* Usługa link prywatny jest obsługiwana tylko w przypadku standardowej Azure Load Balancer. Podstawowa Azure Load Balancer nie jest obsługiwana.  
+* Aby użyć niestandardowego serwera DNS, należy dodać Azure DNS 168.63.129.16 IP jako nadrzędny Serwer DNS na niestandardowym serwerze DNS.
 
 ## <a name="limitations"></a>Ograniczenia 
-* Nieautoryzowane zakresy IP nie mogą być stosowane do punktu końcowego serwera prywatnego interfejsu api, mają one zastosowanie tylko do publicznego serwera interfejsu API
-* Strefy dostępności są obecnie obsługiwane w niektórych regionach, zobacz początek tego dokumentu 
-* [Ograniczenia usługi Azure Private Link][private-link-service] mają zastosowanie do klastrów prywatnych, prywatnych punktów końcowych platformy Azure i punktów końcowych usługi sieci wirtualnej, które nie są obecnie obsługiwane w tej samej sieci wirtualnej.
-* Brak obsługi węzłów wirtualnych w klastrze prywatnym do obracania prywatnych wystąpień kontenerów platformy Azure (ACI) w prywatnej sieci wirtualnej platformy Azure
-* Brak obsługi integracji usługi Azure DevOps po wyjęciu z pudełkiem z klastrami prywatnymi
-* Dla klientów, którzy muszą włączyć usługę Azure Container Registry do pracy z prywatnym usługą AKS, sieć wirtualna rejestru kontenerów musi być równorzędna z siecią wirtualną klastra agentów.
-* Brak bieżącej obsługi usługi Azure Dev Spaces
-* Brak obsługi konwersji istniejących klastrów AKS na klastry prywatne
+* Nie można zastosować dozwolonych zakresów adresów IP do punktu końcowego serwera prywatnego interfejsu API, są one stosowane tylko do publicznego serwera interfejsu API
+* Strefy dostępności są obecnie obsługiwane w niektórych regionach, zobacz początek tego dokumentu. 
+* [Ograniczenia usługi Azure Private link][private-link-service] są stosowane do prywatnych klastrów, prywatnych punktów końcowych platformy Azure i punktów końcowych usługi sieci wirtualnej, które nie są obecnie obsługiwane w tej samej sieci wirtualnej.
+* Brak obsługi węzłów wirtualnych w klastrze prywatnym do Azure Container Instances prywatnego (ACI) w prywatnej sieci wirtualnej platformy Azure
+* Brak wsparcia dla integracji usługi Azure DevOps z użyciem klastrów prywatnych
+* W przypadku klientów, którzy muszą umożliwić Azure Container Registry pracy z prywatnym AKS, Container Registry sieci wirtualnej musi być połączona z siecią wirtualną klastra agentów.
+* Brak bieżącej obsługi Azure Dev Spaces
+* Brak obsługi konwertowania istniejących klastrów AKS do klastrów prywatnych
 * Usunięcie lub zmodyfikowanie prywatnego punktu końcowego w podsieci klienta spowoduje, że klaster przestanie działać. 
-* Usługa Azure Monitor dla kontenerów Dane na żywo nie jest obecnie obsługiwana.
+* Azure Monitor kontenerów danych na żywo nie są obecnie obsługiwane.
 
 
 <!-- LINKS - internal -->

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
 ms.openlocfilehash: 987cdd76ba533fa0ae4b37c2755fe84a00d14de5
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80435861"
 ---
 # <a name="azure-security-center-data-security"></a>Azure Security Center — bezpieczeństwo danych
@@ -47,11 +47,11 @@ Usługa Azure Security Center analizuje dane z następujących źródeł, aby za
 
 | Lokalizacja geograficzna maszyny wirtualnej                              | Lokalizacja geograficzna obszaru roboczego |
 |-------------------------------------|---------------|
-| Stany Zjednoczone, Brazylia, Republika Południowej Afryki | Stany Zjednoczone |
+| Stany Zjednoczone, Brazylia, Afryka Południowa | Stany Zjednoczone |
 | Kanada                              | Kanada        |
-| Europa (z wyłączeniem Zjednoczonego Królestwa)   | Europa        |
+| Europa (z wyjątkiem Zjednoczonego Królestwa)   | Europa        |
 | Wielka Brytania                      | Wielka Brytania |
-| Azja (z wyłączeniem Indii, Japonii, Korei, Chin)   | Azja i Pacyfik  |
+| Azja (z wyjątkiem Indii, Japonia, Korea, Chiny)   | Azja i Pacyfik  |
 | Korea                              | Azja i Pacyfik  |
 | Indie                               | Indie         |
 | Japonia                               | Japonia         |
@@ -71,8 +71,8 @@ Artefakty maszyny są przechowywane centralnie w tym samym regionie, co maszyna 
 
 ## <a name="managing-data-collection-from-virtual-machines"></a>Zarządzanie zbieraniem danych z maszyn wirtualnych
 
-W przypadku włączenia usługi Security Center na platformie Azure zbieranie danych jest włączone dla każdej subskrypcji platformy Azure. Zbieranie danych można również włączyć dla subskrypcji w sekcji Zasady zabezpieczeń usługi Azure Security Center. Po włączeniu zbierania danych usługa Azure Security Center apłecz agenta usługi Log Analytics na wszystkich obsługiwanych maszynach wirtualnych platformy Azure i nowych, które są tworzone.
-Agent usługi Log Analytics skanuje w poszukiwaniu różnych konfiguracji związanych z zabezpieczeniami i zdarzeń w [śledzenia zdarzeń dla systemu Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) ślady. Ponadto system operacyjny będzie zgłaszać zdarzenia dziennika zdarzeń w trakcie pracy maszyny. Przykłady takich danych to typ systemu operacyjnego i jego wersja, dzienniki systemu operacyjnego (dzienniki zdarzeń systemu Windows), uruchomione procesy, nazwa maszyny, adresy IP, zalogowany użytkownik i identyfikator dzierżawy. Agent usługi Log Analytics odczytuje wpisy dziennika zdarzeń i ślady ETW i kopiuje je do obszarów roboczych do analizy. Agent usługi Log Analytics kopiuje również pliki zrzutu awaryjnego do obszaru roboczego, włącza zdarzenia tworzenia procesów i włącza inspekcję wiersza polecenia.
+W przypadku włączenia usługi Security Center na platformie Azure zbieranie danych jest włączone dla każdej subskrypcji platformy Azure. Zbieranie danych można również włączyć dla subskrypcji w sekcji Zasady zabezpieczeń usługi Azure Security Center. Gdy zbieranie danych jest włączone, Azure Security Center inicjuje agenta Log Analytics we wszystkich istniejących obsługiwanych maszynach wirtualnych platformy Azure i utworzonych nowych.
+Agent Log Analytics skanuje w poszukiwaniu różnych konfiguracji związanych z zabezpieczeniami i zdarzeń do śledzenia [zdarzeń systemu Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Ponadto system operacyjny będzie zgłaszać zdarzenia dziennika zdarzeń w trakcie pracy maszyny. Przykłady takich danych to typ systemu operacyjnego i jego wersja, dzienniki systemu operacyjnego (dzienniki zdarzeń systemu Windows), uruchomione procesy, nazwa maszyny, adresy IP, zalogowany użytkownik i identyfikator dzierżawy. Agent Log Analytics odczytuje wpisy dziennika zdarzeń i śledzenia ETW i kopiuje je do obszarów roboczych na potrzeby analizy. Agent Log Analytics kopiuje także pliki zrzutu awaryjnego do obszarów roboczych, włącza zdarzenia tworzenia procesów i włącza inspekcję wiersza polecenia.
 
 Jeśli jest używana warstwa Bezpłatna usługi Azure Security Center, zbieranie danych można również wyłączyć z poziomu maszyn wirtualnych w sekcji Zasady zabezpieczeń. Zbieranie danych jest wymagane dla subskrypcji w warstwie Standardowa. Kolekcja artefaktów i migawki dysków maszyny wirtualnej będzie nadal włączona, nawet jeśli wyłączono zbieranie danych.
 
@@ -80,18 +80,18 @@ Jeśli jest używana warstwa Bezpłatna usługi Azure Security Center, zbieranie
 
 Klienci mogą używać danych związanych z usługą Security Center pochodzących z różnych strumieni danych, jak pokazano poniżej:
 
-* **Działanie platformy Azure:** wszystkie alerty zabezpieczeń, zatwierdzone żądania [Just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) usługi Security Center i wszystkie alerty generowane przez [adaptacyjne formanty aplikacji.](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
-* **Dzienniki usługi Azure Monitor**: wszystkie alerty zabezpieczeń.
+* **Aktywność platformy Azure**: wszystkie alerty zabezpieczeń, zatwierdzone Security Center żądań [just-in-Time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) oraz wszystkie alerty wygenerowane przez [adaptacyjne kontrolki aplikacji](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
+* **Dzienniki Azure monitor**: wszystkie alerty zabezpieczeń.
 
 
 > [!NOTE]
 > Zalecenia dotyczące zabezpieczeń można także wykorzystywać za pośrednictwem interfejsu API REST. Aby uzyskać więcej informacji, zobacz [Security Resource Provider REST API Reference (Dokumentacja interfejsu API REST dostawcy zasobów zabezpieczeń)](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 W tym dokumencie wyjaśniono, jak zarządzane i chronione są dane w usłudze Azure Security Center. Aby dowiedzieć się więcej na temat usługi Azure Security Center, zobacz:
 
-* [Przewodnik planowania i operacji usługi Azure Security Center](security-center-planning-and-operations-guide.md) — dowiedz się, jak zaplanować i zrozumieć zagadnienia dotyczące projektu, aby przyjąć usługę Azure Security Center.
-* [Monitorowanie kondycji zabezpieczeń w usłudze Azure Security Center](security-center-monitoring.md) — dowiedz się, jak monitorować kondycję zasobów platformy Azure
-* [Zarządzanie alertami zabezpieczeń i odpowiadanie na nie w usłudze Azure Security Center](security-center-managing-and-responding-alerts.md) — dowiedz się, jak zarządzać alertami zabezpieczeń i odpowiadać na nie
-* [Monitorowanie rozwiązań partnerskich za pomocą usługi Azure Security Center](security-center-partner-solutions.md) — dowiedz się, jak monitorować stan kondycji rozwiązań partnerskich.
-* [Blog dotyczący zabezpieczeń platformy Azure](https://blogs.msdn.com/b/azuresecurity/) — znajdowanie wpisów w blogu dotyczących zabezpieczeń i zgodności z przepisami platformy Azure
+* [Azure Security Center Przewodnik planowania i](security-center-planning-and-operations-guide.md) obsługi — Dowiedz się, jak planować i zrozumieć zagadnienia dotyczące projektowania, aby przyjąć Azure Security Center.
+* [Monitorowanie kondycji zabezpieczeń w Azure Security Center](security-center-monitoring.md) — informacje na temat monitorowania kondycji zasobów platformy Azure
+* [Zarządzanie alertami zabezpieczeń i reagowanie na nie w Azure Security Center](security-center-managing-and-responding-alerts.md) — informacje na temat zarządzania alertami zabezpieczeń i reagowania na nie
+* [Monitorowanie rozwiązań partnerskich za pomocą Azure Security Center](security-center-partner-solutions.md) — informacje na temat monitorowania stanu kondycji rozwiązań partnerskich.
+* [Blog dotyczący zabezpieczeń platformy Azure](https://blogs.msdn.com/b/azuresecurity/) — wpisy w blogu dotyczące zabezpieczeń i zgodności platformy Azure

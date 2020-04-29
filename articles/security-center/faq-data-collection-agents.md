@@ -1,6 +1,6 @@
 ---
-title: Usługa Azure Security Center — często zadawane pytania dotyczące zbierania danych i agentów
-description: Często zadawane pytania dotyczące gromadzenia danych, agentów i obszarów roboczych usługi Azure Security Center, produktu, który pomaga zapobiegać zagrożeniom, wykrywać je i reagować na nie
+title: Azure Security Center często zadawane pytania — zbieranie danych i agenci
+description: Często zadawane pytania dotyczące zbierania danych, agentów i obszarów roboczych dla Azure Security Center, produktu, który pomaga zapobiegać zagrożeniom, wykrywać je i reagować na nie
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,212 +14,212 @@ ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
 ms.openlocfilehash: 0dbad1a94479430426dae47df7ca3a3ecd9dc980
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80436197"
 ---
-# <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Często zadawane pytania — pytania dotyczące gromadzenia danych, agentów i obszarów roboczych
+# <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Często zadawane pytania — pytania dotyczące zbierania danych, agentów i obszarów roboczych
 
-Usługa Security Center zbiera dane z maszyn wirtualnych platformy Azure (maszyn wirtualnych), zestawów skalowania maszyn wirtualnych, kontenerów IaaS i komputerów innych niż platformy Azure (w tym komputerów lokalnych) w celu monitorowania luk w zabezpieczeniach i zagrożeń. Dane są zbierane za pomocą agenta usługi Log Analytics, który odczytuje różne konfiguracje związane z zabezpieczeniami i dzienniki zdarzeń z komputera i kopiuje dane do obszaru roboczego do analizy.
+Security Center zbiera dane z maszyn wirtualnych platformy Azure, zestawów skalowania maszyn wirtualnych, kontenerów IaaS oraz komputerów spoza platformy Azure (w tym maszyn lokalnych) do monitorowania luk w zabezpieczeniach i zagrożeń. Dane są zbierane przy użyciu agenta Log Analytics, który odczytuje różne konfiguracje związane z zabezpieczeniami i dzienniki zdarzeń z komputera i kopiuje dane do obszaru roboczego w celu przeprowadzenia analizy.
 
 
-## <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Czy naliczane są naliczane dane dziennika usługi Azure Monitor w obszarach roboczych utworzonych przez usługę Security Center?
+## <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Czy są naliczane opłaty za dzienniki Azure Monitor w obszarach roboczych utworzonych przez Security Center?
 
-Nie. Obszary robocze utworzone przez usługę Security Center, skonfigurowane dla dzienników usługi Azure Monitor na węzeł rozliczeń, nie ponoszą opłat dziennika usługi Azure Monitor. Rozliczenia w uchowach Security Center są zawsze oparte na zasadach zabezpieczeń centrum zabezpieczeń i rozwiązaniach zainstalowanych w obszarze roboczym:
+Nie. Obszary robocze utworzone przez Security Center, podczas gdy skonfigurowano do rozliczania Azure Monitor dzienników na węzeł, nie są naliczane opłaty za dzienniki Azure Monitor. Rozliczanie Security Center jest zawsze uzależnione od zasad zabezpieczeń Security Center i rozwiązań zainstalowanych w obszarze roboczym:
 
-- **Warstwa bezpłatna** — usługa Security Center włącza rozwiązanie "SecurityCenterFree" w domyślnym obszarze roboczym. Nie zostanie naliczona naliczona naliczona warstwa Bezpłatna.
+- **Warstwa Bezpłatna** — Security Center włącza rozwiązanie "SecurityCenterFree" w domyślnym obszarze roboczym. Nie zostanie naliczona opłata za warstwę bezpłatna.
 
-- **Warstwa standardowa** — usługa Security Center włącza rozwiązanie "Zabezpieczenia" w domyślnym obszarze roboczym.
+- **Warstwa standardowa** — Security Center włącza rozwiązanie "zabezpieczenia" w domyślnym obszarze roboczym.
 
-Aby uzyskać więcej informacji na temat cen, zobacz [Ustalanie cen w centrum zabezpieczeń](https://azure.microsoft.com/pricing/details/security-center/).
+Aby uzyskać więcej informacji na temat cen, zobacz [Cennik usługi Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
-> Warstwa cenowa analizy dzienników obszarów roboczych utworzonych przez usługa Security Center nie ma wpływu na rozliczenia usługi Security Center.
+> Warstwa cenowa usługi log Analytics dla obszarów roboczych utworzonych przez Security Center nie ma wpływu na Security Center rozliczanie.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 
-## <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-log-analytics-agent-installation"></a>Co kwalifikuje maszynę wirtualną do automatycznego inicjowania obsługi administracyjnej instalacji agenta usługi Log Analytics?
+## <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-log-analytics-agent-installation"></a>Co kwalifikuje maszynę wirtualną do automatycznej aprowizacji instalacji agenta Log Analytics?
 
-Maszyny wirtualne IaaS systemu Windows lub Linux kwalifikują się, jeśli:
+Maszyny wirtualne z systemem Windows lub Linux IaaS kwalifikują się, jeśli:
 
-- Rozszerzenie agenta usługi Log Analytics nie jest obecnie zainstalowane na maszynie wirtualnej.
-- Maszyna wirtualna jest w stanie uruchomionym.
-- Zainstalowany jest [agent maszyny wirtualnej platformy](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) Windows lub Linux Azure.
-- Maszyna wirtualna nie jest używana jako urządzenie, takie jak zapora aplikacji sieci web lub zapora nowej generacji.
+- Rozszerzenie agenta Log Analytics nie jest obecnie zainstalowane na maszynie wirtualnej.
+- Maszyna wirtualna jest w stanie uruchomienia.
+- [Agent maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) z systemem Windows lub Linux jest zainstalowany.
+- Maszyna wirtualna nie jest używana jako urządzenie, takie jak Zapora aplikacji sieci Web lub Zapora nowej generacji.
 
 
-## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Czy można usunąć domyślne obszary robocze utworzone przez Centrum zabezpieczeń?
+## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Czy mogę usunąć domyślne obszary robocze utworzone przez Security Center?
 
-**Nie zaleca się usuwania domyślnego obszaru roboczego.** Usługa Security Center używa domyślnych obszarów roboczych do przechowywania danych zabezpieczeń z maszyn wirtualnych. Jeśli usuniesz obszar roboczy, Usługa Security Center nie będzie mogła zbierać tych danych, a niektóre zalecenia dotyczące zabezpieczeń i alerty są niedostępne.
+**Nie zaleca się usuwania domyślnego obszaru roboczego.** Security Center używa domyślnych obszarów roboczych do przechowywania danych zabezpieczeń z maszyn wirtualnych. W przypadku usunięcia obszaru roboczego Security Center nie będzie mógł zebrać tych danych, a niektóre zalecenia dotyczące zabezpieczeń i alerty są niedostępne.
 
-Aby odzyskać, usuń agenta usługi Log Analytics na maszynach wirtualnych połączonych z usuniętym obszarem roboczym. Usługa Security Center ponownie instaluje agenta i tworzy nowe domyślne obszary robocze.
+Aby odzyskać, Usuń agenta Log Analytics na maszynach wirtualnych połączonych z usuniętym obszarem roboczym. Security Center ponownie instaluje agenta i tworzy nowe domyślne obszary robocze.
 
-## <a name="how-can-i-use-my-existing-log-analytics-workspace"></a>Jak mogę korzystać z istniejącego obszaru roboczego usługi Log Analytics?
+## <a name="how-can-i-use-my-existing-log-analytics-workspace"></a>Jak mogę użyć istniejącego obszaru roboczego Log Analytics?
 
-Można wybrać istniejący obszar roboczy usługi Log Analytics do przechowywania danych zebranych przez Centrum zabezpieczeń. Aby użyć istniejącego obszaru roboczego usługi Log Analytics:
+Można wybrać istniejący obszar roboczy Log Analytics do przechowywania danych zbieranych przez Security Center. Aby użyć istniejącego obszaru roboczego Log Analytics:
 
 - Obszar roboczy musi być skojarzony z wybraną subskrypcją platformy Azure.
-- Aby uzyskać dostęp do obszaru roboczego, musisz mieć co najmniej uprawnienia do odczytu.
+- Aby uzyskać dostęp do obszaru roboczego, musisz mieć uprawnienia do odczytu.
 
-Aby wybrać istniejący obszar roboczy usługi Log Analytics:
+Aby wybrać istniejący obszar roboczy Log Analytics:
 
-1. W obszarze **Zasady zabezpieczeń — zbieranie danych**wybierz pozycję Użyj innego obszaru **roboczego**.
+1. W obszarze **zasady zabezpieczeń — zbieranie danych**wybierz opcję **Użyj innego obszaru roboczego**.
 
-    ![Korzystanie z innego obszaru roboczego][4]
+    ![Użyj innego obszaru roboczego][4]
 
-1. Z menu rozwijanego wybierz obszar roboczy do przechowywania zebranych danych.
-
-    > [!NOTE]
-    > W menu rozwijanym są wyświetlane tylko obszary robocze, do których masz dostęp i które znajdują się w subskrypcji platformy Azure.
-
-1. Wybierz **pozycję Zapisz**. Zostaniesz zapytany, czy chcesz ponownie skonfigurować monitorowane maszyny wirtualne.
-
-    - Wybierz **opcję Nie,** jeśli chcesz, aby nowe ustawienia obszaru roboczego **były stosowane tylko na nowych maszynach wirtualnych**. Nowe ustawienia obszaru roboczego dotyczą tylko nowych instalacji agenta; nowo wykryte maszyny wirtualne, które nie mają zainstalowanego agenta usługi Log Analytics.
-    - Wybierz **opcję Tak,** jeśli chcesz, aby nowe ustawienia obszaru roboczego **były stosowane na wszystkich maszynach wirtualnych**. Ponadto każda maszyna wirtualna połączona z utworzonym obszarem roboczym centrum zabezpieczeń jest ponownie połączona z nowym docelowym obszarem roboczym.
+1. Z menu rozwijanego wybierz obszar roboczy, w którym mają być przechowywane zebrane dane.
 
     > [!NOTE]
-    > Jeśli wybierzesz **opcję Tak,** nie usuwaj żadnych obszarów roboczych utworzonych przez Centrum zabezpieczeń, dopóki wszystkie maszyny wirtualne nie zostaną ponownie połączone z nowym docelowym obszarem roboczym. Ta operacja kończy się niepowodzeniem, jeśli obszar roboczy zostanie usunięty zbyt wcześnie.
+    > W menu rozwijanym są wyświetlane tylko obszary robocze, do których masz dostęp i znajdują się w subskrypcji platformy Azure.
+
+1. Wybierz pozycję **Zapisz**. Zostanie wyświetlony monit o ponowne skonfigurowanie monitorowanych maszyn wirtualnych.
+
+    - Wybierz pozycję **nie** , jeśli chcesz, aby nowe ustawienia obszaru roboczego były **stosowane tylko do nowych maszyn wirtualnych**. Nowe ustawienia obszaru roboczego mają zastosowanie tylko do nowych instalacji agenta; nowo odnalezione maszyny wirtualne, na których nie zainstalowano agenta Log Analytics.
+    - Wybierz pozycję **tak** , jeśli chcesz, aby nowe ustawienia obszaru roboczego były **stosowane do wszystkich maszyn wirtualnych**. Ponadto wszystkie maszyny wirtualne połączone z Security Center utworzonym obszarem roboczym są ponownie połączone z nowym docelowym obszarem roboczym.
+
+    > [!NOTE]
+    > W przypadku wybrania opcji **tak**nie usuwaj żadnych obszarów roboczych utworzonych przez Security Center, dopóki wszystkie maszyny wirtualne nie zostaną ponownie połączone z nowym docelowym obszarem roboczym. Ta operacja kończy się niepowodzeniem, jeśli obszar roboczy zostanie zbyt wcześnie usunięty.
 
     - Aby anulować operację, wybierz pozycję **Anuluj**.
 
-## <a name="what-if-the-log-analytics-agent-was-already-installed-as-an-extension-on-the-vm"></a>Co zrobić, jeśli agent usługi Log Analytics został już zainstalowany jako rozszerzenie na maszynie Wirtualnej?<a name="mmaextensioninstalled"></a>
+## <a name="what-if-the-log-analytics-agent-was-already-installed-as-an-extension-on-the-vm"></a>Co zrobić, jeśli Agent Log Analytics został już zainstalowany jako rozszerzenie na maszynie wirtualnej?<a name="mmaextensioninstalled"></a>
 
-Gdy agent monitorowania jest zainstalowany jako rozszerzenie, konfiguracja rozszerzenia umożliwia raportowanie tylko do jednego obszaru roboczego. Usługa Security Center nie zastępuje istniejących połączeń z obszarami roboczymi użytkowników. Usługa Security Center będzie przechowywać dane zabezpieczeń z maszyny Wirtualnej w obszarze roboczym, który jest już podłączony, pod warunkiem, że zostało na nim zainstalowane rozwiązanie "Security" lub "SecurityCenterFree". Usługa Security Center może uaktualnić wersję rozszerzenia do najnowszej wersji w tym procesie.
+Gdy Agent monitorowania jest zainstalowany jako rozszerzenie, konfiguracja rozszerzenia umożliwia raportowanie tylko jednego obszaru roboczego. Security Center nie przesłania istniejących połączeń z obszarami roboczymi użytkowników. Security Center będą przechowywać dane zabezpieczeń z maszyny wirtualnej w obszarze roboczym, który jest już połączony, pod warunkiem, że zostało na nim zainstalowane rozwiązanie "Security" lub "SecurityCenterFree". Security Center może uaktualnić wersję rozszerzenia do najnowszej wersji w tym procesie.
 
-Aby uzyskać więcej informacji, zobacz [Automatyczne inicjowanie obsługi administracyjnej w przypadku istniejącej instalacji agenta.](security-center-enable-data-collection.md#preexisting)
-
-
-
-## <a name="what-if-a-log-analytics-agent-is-directly-installed-on-the-machine-but-not-as-an-extension-direct-agent"></a>Co zrobić, jeśli agent usługi Log Analytics jest zainstalowany bezpośrednio na komputerze, ale nie jako rozszerzenie (agent bezpośredni)?<a name="directagentinstalled"></a>
-
-Jeśli agent usługi Log Analytics jest zainstalowany bezpośrednio na maszynie Wirtualnej (nie jako rozszerzenie platformy Azure), Usługa Security Center zainstaluje rozszerzenie agenta usługi Log Analytics i może uaktualnić agenta usługi Log Analytics do najnowszej wersji.
-
-Zainstalowany agent będzie nadal raportował do swoich już skonfigurowanych obszarów roboczych, a ponadto raportuje do obszaru roboczego skonfigurowanego w Centrum zabezpieczeń (Multi-homing jest obsługiwany na komputerach z systemem Windows).
-
-Jeśli skonfigurowany obszar roboczy jest obszarem roboczym użytkownika (nie domyślnym obszarem roboczym usługi Security Center), należy zainstalować na nim rozwiązanie "Security/"SecurityCenterFree", aby usługa Security Center rozpoczęła przetwarzanie zdarzeń z maszyn wirtualnych i komputerów raportujących do tego obszaru roboczego.
-
-W przypadku komputerów z systemem Linux agent multi-homing nie jest jeszcze obsługiwany — w związku z tym, jeśli zostanie wykryta istniejąca instalacja agenta, automatyczne inicjowanie obsługi administracyjnej nie nastąpi i konfiguracja komputera nie zostanie zmieniona.
-
-W przypadku istniejących komputerów w ramach subskrypcji wbudowanych w centrum zabezpieczeń przed 17 marca 2019 r., gdy zostanie wykryty istniejący agent, rozszerzenie agenta usługi Log Analytics nie zostanie zainstalowane i nie zostanie to naruszone. W przypadku tych maszyn zobacz zalecenie "Rozwiązywanie problemów ze zdrowiem agenta monitorowania na komputerach", aby rozwiązać problemy z instalacją agenta na tych komputerach
-
-Aby uzyskać więcej informacji, zobacz następną sekcję [Co się stanie, jeśli program System Center Operations Manager lub agent bezpośredni systemu OMS jest już zainstalowany na mojej maszynie wirtualnej?](#scomomsinstalled)
-
-## <a name="what-if-a-system-center-operations-manager-agent-is-already-installed-on-my-vm"></a>Co zrobić, jeśli agent programu Operations Manager programu System Center jest już zainstalowany na mojej maszynie wirtualnej?<a name="scomomsinstalled"></a>
-
-Centrum zabezpieczeń zainstaluje rozszerzenie agenta usługi Log Analytics obok istniejącego agenta programu Operations Manager w centrum systemu. Istniejący agent będzie normalnie raportować serwer programu System Center Operations Manager. Należy zauważyć, że agent programu Operations Manager i agent usługi Log Analytics współużytkują wspólne biblioteki w czasie wykonywania, które zostaną zaktualizowane do najnowszej wersji podczas tego procesu. Uwaga - Jeśli zainstalowana jest wersja 2012 agenta programu Operations Manager, nie należy włączać automatycznego inicjowania obsługi administracyjnej (możliwości zarządzania mogą zostać utracone, gdy serwer programu Operations Manager jest również w wersji 2012).
+Aby uzyskać więcej informacji, zobacz [Automatyczne Inicjowanie obsługi w przypadku istniejącej instalacji agenta](security-center-enable-data-collection.md#preexisting).
 
 
-## <a name="what-is-the-impact-of-removing-these-extensions"></a>Jaki jest wpływ usuwania tych rozszerzeń?
 
-Jeśli usuniesz rozszerzenie monitorowania firmy Microsoft, Usługa Security Center nie będzie mogła zbierać danych zabezpieczeń z maszyny Wirtualnej, a niektóre zalecenia dotyczące zabezpieczeń i alerty są niedostępne. W ciągu 24 godzin usługa Security Center określa, że na maszynie Wirtualnej brakuje rozszerzenia i ponownie instaluje rozszerzenie.
+## <a name="what-if-a-log-analytics-agent-is-directly-installed-on-the-machine-but-not-as-an-extension-direct-agent"></a>Co zrobić, jeśli Agent Log Analytics jest bezpośrednio zainstalowany na komputerze, ale nie jako rozszerzenie (Agent bezpośredni)?<a name="directagentinstalled"></a>
+
+Jeśli Agent Log Analytics jest instalowany bezpośrednio na maszynie wirtualnej (nie jako rozszerzenie platformy Azure), Security Center zainstaluje rozszerzenie agenta Log Analytics i może uaktualnić agenta Log Analytics do najnowszej wersji.
+
+Zainstalowany agent będzie kontynuował raportowanie do już skonfigurowanych obszarów roboczych, a ponadto wyśle raport do obszaru roboczego skonfigurowanego w Security Center (wiele multihostingu jest obsługiwana na maszynach z systemem Windows).
+
+Jeśli skonfigurowany obszar roboczy jest obszarem roboczym użytkownika (nie Security Center domyślnym obszarem roboczym), należy zainstalować na nim rozwiązanie "Security/" SecurityCenterFree "dla Security Center, aby rozpocząć przetwarzanie zdarzeń z maszyn wirtualnych i komputerów zgłaszanych do tego obszaru roboczego.
+
+W przypadku maszyn z systemem Linux Agent multihostingu nie jest jeszcze obsługiwany — w związku z tym jeśli zostanie wykryta istniejąca instalacja agenta, automatyczne Inicjowanie obsługi nie zostanie wykonane i konfiguracja maszyny nie zostanie zmieniona.
+
+W przypadku istniejących maszyn w ramach subskrypcji dołączanych do Security Center przed marcem 17 2019, gdy zostanie wykryty istniejący Agent, rozszerzenie agenta Log Analytics nie zostanie zainstalowane i nie będzie to miało takiego oddziaływania. W przypadku tych maszyn Zobacz zalecenie "Rozwiązywanie problemów z kondycją agenta monitorowania na komputerach", aby rozwiązać problemy z instalacją agenta na tych maszynach
+
+Aby uzyskać więcej informacji, zobacz następną sekcję [co się stanie, jeśli System Center Operations Manager lub Agent usługi OMS Direct jest już zainstalowany na mojej maszynie wirtualnej?](#scomomsinstalled)
+
+## <a name="what-if-a-system-center-operations-manager-agent-is-already-installed-on-my-vm"></a>Co zrobić, jeśli Agent System Center Operations Manager jest już zainstalowany na mojej maszynie wirtualnej?<a name="scomomsinstalled"></a>
+
+Program Security Center zainstaluje rozszerzenie agenta Log Analytics obok istniejącej System Center Operations Manager agenta. Istniejący agent będzie kontynuował raportowanie do serwera System Center Operations Manager w normalny sposób. Należy pamiętać, że Agent Operations Manager i Agent Log Analytics mają wspólne biblioteki uruchomieniowe, które zostaną zaktualizowane do najnowszej wersji w trakcie tego procesu. Uwaga — Jeśli jest zainstalowana wersja 2012 agenta Operations Manager, nie włączaj automatycznej aprowizacji (możliwości zarządzania mogą zostać utracone, gdy serwer Operations Manager jest również w wersji 2012).
 
 
-## <a name="how-do-i-stop-the-automatic-agent-installation-and-workspace-creation"></a>Jak zatrzymać automatyczną instalację agenta i tworzenie obszaru roboczego?
+## <a name="what-is-the-impact-of-removing-these-extensions"></a>Jaki jest wpływ usunięcia tych rozszerzeń?
 
-Automatyczne inicjowanie obsługi administracyjnej subskrypcji można wyłączyć w zasadach zabezpieczeń, ale nie jest to zalecane. Wyłączenie automatycznego inicjowania obsługi administracyjnej ogranicza zalecenia i alerty w centrum zabezpieczeń. Aby wyłączyć automatyczne inicjowanie obsługi administracyjnej:
+Jeśli usuniesz rozszerzenie Microsoft Monitoring, Security Center nie będzie w stanie zbierać danych zabezpieczeń z maszyny wirtualnej, a niektóre zalecenia dotyczące zabezpieczeń i alerty są niedostępne. W ciągu 24 godzin Security Center określa, że maszyna wirtualna nie ma rozszerzenia i ponownie instaluje rozszerzenie.
 
-1. Jeśli subskrypcja jest skonfigurowana dla warstwy Standardowa, otwórz zasady zabezpieczeń dla tej subskrypcji i wybierz warstwę **bezpłatną.**
+
+## <a name="how-do-i-stop-the-automatic-agent-installation-and-workspace-creation"></a>Jak mogę zatrzymać automatyczną instalację agenta i tworzenie obszaru roboczego?
+
+Automatyczne Inicjowanie obsługi dla subskrypcji w zasadach zabezpieczeń można wyłączyć, ale nie jest to zalecane. Wyłączenie automatycznych limitów aprowizacji Security Center zaleceń i alertów. Aby wyłączyć automatyczne Inicjowanie obsługi:
+
+1. Jeśli subskrypcja jest skonfigurowana dla warstwy Standardowa, Otwórz zasady zabezpieczeń dla tej subskrypcji i wybierz warstwę **bezpłatna** .
 
    ![Warstwa cenowa][1]
 
-1. Następnie wyłącz automatyczne inicjowanie obsługi administracyjnej, wybierając **pozycję Wyłączone** na stronie Zasady zabezpieczeń — **zbieranie danych.**
+1. Następnie wyłącz automatyczne Inicjowanie obsługi, wybierając pozycję **wyłączone** na stronie **zasady zabezpieczeń — zbieranie danych** .
    ![Zbieranie danych][2]
 
 
 ## <a name="should-i-opt-out-of-the-automatic-agent-installation-and-workspace-creation"></a>Czy należy zrezygnować z automatycznej instalacji agenta i tworzenia obszaru roboczego?
 
 > [!NOTE]
-> Zapoznaj się z sekcjami [Jakie są konsekwencje rezygnacji?](#what-are-the-implications-of-opting-out-of-automatic-provisioning) [recommended steps when opting out](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning)
+> Pamiętaj, aby przejrzeć sekcje [, jakie są implikacje rezygnacji?](#what-are-the-implications-of-opting-out-of-automatic-provisioning) i [zalecanych czynności](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning) , jeśli zdecydujesz się zrezygnować z automatycznej aprowizacji.
 
-Możesz zrezygnować z automatycznego inicjowania obsługi administracyjnej, jeśli dotyczy cię:
+Możesz zrezygnować z automatycznej aprowizacji, jeśli ma to zastosowanie:
 
-- Automatyczna instalacja agenta przez program Security Center dotyczy całej subskrypcji. Nie można zastosować instalacji automatycznej do podzbioru maszyn wirtualnych. Jeśli istnieją krytyczne maszyny wirtualne, których nie można zainstalować za pomocą agenta usługi Log Analytics, należy zrezygnować z automatycznego inicjowania obsługi administracyjnej.
-- Instalacja rozszerzenia agenta usługi Log Analytics aktualizuje wersję agenta. Dotyczy to agenta bezpośredniego i agenta programu Operations Manager w centrum systemu (w tym ostatnim agent programu Operations Manager i usługa log analytics współużytkują wspólne biblioteki środowiska uruchomieniowego , które zostaną zaktualizowane w procesie). Jeśli zainstalowany agent programu Operations Manager jest w wersji 2012 i jest uaktualniany, możliwości zarządzania mogą zostać utracone, gdy serwer programu Operations Manager jest również w wersji 2012. Należy rozważyć rezygnację z automatycznego inicjowania obsługi administracyjnej, jeśli zainstalowany agent programu Operations Manager jest w wersji 2012.
-- Jeśli masz niestandardowy obszar roboczy zewnętrzny do subskrypcji (scentralizowanego obszaru roboczego), należy zrezygnować z automatycznego inicjowania obsługi administracyjnej. Rozszerzenie agenta usługi Log Analytics można ręcznie zainstalować i połączyć go z obszarem roboczym bez zastępowania połączenia przez centrum zabezpieczeń.
-- Jeśli chcesz uniknąć tworzenia wielu obszarów roboczych na subskrypcję i masz własny niestandardowy obszar roboczy w ramach subskrypcji, masz dwie opcje:
+- Automatyczna instalacja agenta Security Center ma zastosowanie do całej subskrypcji. Nie można zastosować instalacji automatycznej do podzestawu maszyn wirtualnych. Jeśli istnieją krytyczne maszyny wirtualne, których nie można zainstalować za pomocą agenta Log Analytics, należy zrezygnować z automatycznej aprowizacji.
+- Instalacja rozszerzenia agenta Log Analytics aktualizuje wersję agenta. Dotyczy to zarówno agenta bezpośredniego, jak i agenta System Center Operations Managerowego (w tym ostatnim przypadku, w którym Agent Operations Manager i Log Analytics udostępnia wspólne biblioteki środowiska uruchomieniowego, które zostaną zaktualizowane w procesie). Jeśli zainstalowany agent Operations Manager jest w wersji 2012 i zostanie uaktualniony, możliwości zarządzania mogą zostać utracone, gdy serwer Operations Manager jest również w wersji 2012. Rozważ rezygnację z automatycznej aprowizacji, jeśli zainstalowany agent Operations Manager jest w wersji 2012.
+- Jeśli masz niestandardowy obszar roboczy poza subskrypcją (scentralizowany obszar roboczy), należy zrezygnować z automatycznej aprowizacji. Możesz ręcznie zainstalować rozszerzenie agenta Log Analytics i połączyć je z obszarem roboczym bez Security Center zastępowania połączenia.
+- Jeśli chcesz uniknąć tworzenia wielu obszarów roboczych na subskrypcję i masz własny niestandardowy obszar roboczy w ramach subskrypcji, będziesz mieć dwie opcje:
 
-   1. Możesz zrezygnować z automatycznego inicjowania obsługi administracyjnej. Po migracji ustaw domyślne ustawienia obszaru roboczego zgodnie z opisem w [sekcji Jak mogę korzystać z istniejącego obszaru roboczego usługi Log Analytics?](#how-can-i-use-my-existing-log-analytics-workspace)
+   1. Możesz zrezygnować z automatycznej aprowizacji. Po migracji Ustaw domyślne ustawienia obszaru roboczego zgodnie z opisem w artykule [Jak mogę użyć istniejącego obszaru roboczego log Analytics?](#how-can-i-use-my-existing-log-analytics-workspace)
 
-   1. Można też zezwolić na zakończenie migracji, zainstalowanie agenta usługi Log Analytics na maszynach wirtualnych oraz maszyn wirtualnych połączonych z utworzonym obszarem roboczym. Następnie wybierz własny niestandardowy obszar roboczy, ustawiając domyślne ustawienie obszaru roboczego z określeniem ponownego konfigurowania już zainstalowanych agentów. Aby uzyskać więcej informacji, zobacz [Jak korzystać z istniejącego obszaru roboczego usługi Log Analytics?](#how-can-i-use-my-existing-log-analytics-workspace)
-
-
-## <a name="what-are-the-implications-of-opting-out-of-automatic-provisioning"></a>Jakie są konsekwencje rezygnacji z automatycznego udostępniania administracyjnego?
-
-Po zakończeniu migracji usługa Security Center nie może zbierać danych zabezpieczeń z maszyny Wirtualnej, a niektóre zalecenia dotyczące zabezpieczeń i alerty są niedostępne. Jeśli zrezygnujesz, zainstaluj agenta usługi Log Analytics ręcznie. Zobacz [zalecane kroki podczas rezygnacji](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
+   1. Można też zezwolić na ukończenie migracji, Log Analytics agenta do zainstalowania na maszynach wirtualnych oraz maszyn wirtualnych połączonych z utworzonym obszarem roboczym. Następnie wybierz własny niestandardowy obszar roboczy przez ustawienie domyślnego ustawienia obszaru roboczego z ustawieniem w celu ponownego skonfigurowania już zainstalowanych agentów. Aby uzyskać więcej informacji, zobacz [Jak mogę korzystać z istniejącego obszaru roboczego log Analytics?](#how-can-i-use-my-existing-log-analytics-workspace)
 
 
-## <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>Jakie są zalecane kroki przy rezygnacji z automatycznego inicjowania obsługi administracyjnej?
+## <a name="what-are-the-implications-of-opting-out-of-automatic-provisioning"></a>Jakie są implikacje rezygnacji z automatycznej aprowizacji?
 
-Ręcznie zainstaluj rozszerzenie agenta usługi Log Analytics, aby usługa Security Center mogła zbierać dane zabezpieczeń z maszyn wirtualnych i dostarczać rekomendacje i alerty. Zobacz [instalację agenta dla maszyny Wirtualnej systemu Windows](../virtual-machines/extensions/oms-windows.md) lub [instalacji agenta dla maszyny Wirtualnej systemu Linux, aby](../virtual-machines/extensions/oms-linux.md) uzyskać wskazówki dotyczące instalacji.
+Po zakończeniu migracji Security Center nie może zbierać danych zabezpieczeń z maszyny wirtualnej, a niektóre zalecenia dotyczące zabezpieczeń i alerty są niedostępne. Jeśli zrezygnujesz z programu, Zainstaluj agenta Log Analytics ręcznie. Przed [rezygnacją Zobacz zalecane kroki](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
 
-Agenta można połączyć z dowolnym istniejącym niestandardowym obszarem roboczym lub utworzonym w Centrum zabezpieczeń obszarem roboczym. Jeśli niestandardowy obszar roboczy nie ma włączonych rozwiązań "Security" lub "SecurityCenterFree", należy zastosować rozwiązanie. Aby zastosować, wybierz niestandardowy obszar roboczy lub subskrypcję i zastosuj warstwę cenową za pośrednictwem strony **Zasady zabezpieczeń — warstwa cenowa.**
+
+## <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>Jakie zalecane kroki należy wykonać w przypadku rezygnacji z automatycznej aprowizacji?
+
+Ręcznie zainstaluj rozszerzenie agenta Log Analytics, aby Security Center mógł zbierać dane dotyczące zabezpieczeń z maszyn wirtualnych i udostępniać zalecenia i alerty. Aby uzyskać wskazówki dotyczące instalacji, zobacz [Instalacja agenta dla maszyny wirtualnej z systemem Windows](../virtual-machines/extensions/oms-windows.md) lub [instalacji agenta dla maszyny wirtualnej z systemem Linux](../virtual-machines/extensions/oms-linux.md) .
+
+Możesz połączyć agenta z dowolnym istniejącym obszarem roboczym lub Security Center utworzonym obszarem roboczym. Jeśli w niestandardowym obszarze roboczym nie włączono rozwiązań "Security" lub "SecurityCenterFree", należy zastosować rozwiązanie. Aby zastosować tę opcję, wybierz niestandardowy obszar roboczy lub subskrypcję i Zastosuj warstwę cenową na stronie **zasady zabezpieczeń — warstwa cenowa** .
 
    ![Warstwa cenowa][1]
 
-Usługa Security Center włączy poprawne rozwiązanie w obszarze roboczym na podstawie wybranej warstwy cenowej.
+Security Center włączy poprawne rozwiązanie w obszarze roboczym w oparciu o wybraną warstwę cenową.
 
 
-## <a name="how-do-i-remove-oms-extensions-installed-by-security-center"></a>Jak usunąć rozszerzenia systemu OMS zainstalowane przez program Security Center?<a name="remove-oms"></a>
+## <a name="how-do-i-remove-oms-extensions-installed-by-security-center"></a>Jak mogę usunąć rozszerzenia pakietu OMS zainstalowane przez program Security Center?<a name="remove-oms"></a>
 
-Agent usługi Log Analytics można usunąć ręcznie. Nie jest to zalecane, ponieważ ogranicza zalecenia i alerty w centrum zabezpieczeń.
-
-> [!NOTE]
-> Jeśli zbieranie danych jest włączone, usługa Security Center zainstaluje agenta ponownie po jego usunięciu.  Przed ręcznym usunięciem agenta należy wyłączyć zbieranie danych. Zobacz Jak zatrzymać automatyczną instalację agenta i tworzenie obszaru roboczego? instrukcje dotyczące wyłączania gromadzenia danych.
-
-Aby ręcznie wyjąć agenta:
-
-1.    W portalu otwórz **dzienniki analizy**.
-
-1.    Na stronie Analiza dzienników wybierz obszar roboczy:
-
-1.    Wybierz maszyny wirtualne, których nie chcesz monitorować, i wybierz pozycję **Rozłącz**.
-
-   ![Usuń agenta][3]
+Agenta Log Analytics można usunąć ręcznie. Nie jest to zalecane, ponieważ ogranicza Security Center zaleceń i alertów.
 
 > [!NOTE]
-> Jeśli maszyna wirtualna z systemem Linux ma już agenta OMS bez rozszerzenia, usunięcie rozszerzenia usuwa agenta i będziesz musiał go ponownie zainstalować.
+> Jeśli zbieranie danych jest włączone, Security Center zainstaluje agenta po jego usunięciu.  Należy wyłączyć zbieranie danych przed ręcznym usunięciem agenta. Zobacz Jak mogę Zatrzymaj automatyczną instalację agenta i tworzenie obszaru roboczego? instrukcje dotyczące wyłączania zbierania danych.
+
+Aby ręcznie usunąć agenta:
+
+1.    W portalu Otwórz **log Analytics**.
+
+1.    Na stronie Log Analytics wybierz obszar roboczy:
+
+1.    Wybierz Maszyny wirtualne, które nie mają być monitorowane, i wybierz pozycję **Rozłącz**.
+
+   ![Usuwanie agenta][3]
+
+> [!NOTE]
+> Jeśli maszyna wirtualna z systemem Linux ma już agenta pakietu OMS bez rozszerzenia, usunięcie tego rozszerzenia spowoduje również konieczność jego ponownego zainstalowania.
 
 
-## <a name="how-do-i-disable-data-collection"></a>Jak wyłączyć zbieranie danych?
+## <a name="how-do-i-disable-data-collection"></a>Jak mogę wyłączyć zbieranie danych?
 
-Automatyczne inicjowanie obsługi administracyjnej jest domyślnie wyłączone. Automatyczne inicjowanie obsługi administracyjnej z zasobów można wyłączyć w dowolnym momencie, wyłączając to ustawienie w zasadach zabezpieczeń. Automatyczne inicjowanie obsługi administracyjnej jest wysoce zalecane w celu uzyskania alertów zabezpieczeń i zaleceń dotyczących aktualizacji systemu, luk w zabezpieczeniach systemu operacyjnego i ochrony punktów końcowych.
+Automatyczne Inicjowanie obsługi jest domyślnie wyłączone. Automatyczne Inicjowanie obsługi można wyłączyć z zasobów w dowolnym momencie, wyłączając to ustawienie w zasadach zabezpieczeń. Automatyczna obsługa administracyjna jest zdecydowanie zalecana w celu uzyskania alertów zabezpieczeń i zaleceń dotyczących aktualizacji systemu, luk w zabezpieczeniach systemu operacyjnego i programu Endpoint Protection.
 
-Aby wyłączyć zbieranie danych, [zaloguj się do portalu Azure](https://portal.azure.com), wybierz pozycję **Przeglądaj,** wybierz pozycję **Centrum zabezpieczeń**i wybierz pozycję **Wybierz zasadę**. Wybierz subskrypcję, dla której chcesz wyłączyć automatyczną aprowizację. Po wybraniu subskrypcji zostanie otwarta zasada zabezpieczeń — zostanie otwarte **zbieranie danych.** W obszarze **Automatyczne inicjowanie obsługi administracyjnej**wybierz pozycję **Wyłączone**.
+Aby wyłączyć zbieranie danych, [Zaloguj się do Azure Portal](https://portal.azure.com), wybierz pozycję **Przeglądaj**, wybierz pozycję **Security Center**, a następnie wybierz pozycję **Wybierz zasady**. Wybierz subskrypcję, dla której chcesz wyłączyć automatyczną aprowizację. Po wybraniu zasad zabezpieczeń subskrypcji zostanie otwarte **zbieranie danych** . W obszarze **autoinicjowanie obsługi**wybierz pozycję **wyłączone**.
 
 
-## <a name="how-do-i-enable-data-collection"></a>Jak włączyć zbieranie danych?
+## <a name="how-do-i-enable-data-collection"></a>Jak mogę włączyć zbieranie danych?
 
-Zbieranie danych dla subskrypcji platformy Azure można włączyć w zasadach zabezpieczeń. Aby włączyć zbieranie danych. [Zaloguj się do portalu Azure](https://portal.azure.com), wybierz pozycję **Przeglądaj,** wybierz pozycję **Centrum zabezpieczeń**i wybierz pozycję Zasady **zabezpieczeń**. Wybierz subskrypcję, która ma włączyć automatyczne inicjowanie obsługi administracyjnej. Po wybraniu subskrypcji zostanie otwarta zasada zabezpieczeń — zostanie otwarte **zbieranie danych.** W obszarze **Automatyczne inicjowanie obsługi administracyjnej**wybierz pozycję **Włączone**.
+Zbieranie danych dla subskrypcji platformy Azure można włączyć w zasadach zabezpieczeń. Aby włączyć zbieranie danych. [Zaloguj się do Azure Portal](https://portal.azure.com), wybierz pozycję **Przeglądaj**, wybierz pozycję **Security Center**, a następnie wybierz pozycję **zasady zabezpieczeń**. Wybierz subskrypcję, dla której chcesz włączyć automatyczną obsługę administracyjną. Po wybraniu zasad zabezpieczeń subskrypcji zostanie otwarte **zbieranie danych** . W obszarze **autoinicjowanie obsługi**wybierz pozycję **włączone**.
 
 
 ## <a name="what-happens-when-data-collection-is-enabled"></a>Co się stanie, gdy zbieranie danych jest włączone?
 
-Gdy automatyczne inicjowanie obsługi administracyjnej jest włączone, usługa Security Center aprowizacji agenta usługi Log Analytics na wszystkich obsługiwanych maszyn wirtualnych platformy Azure i wszystkie nowe, które są tworzone. Zalecana jest automatyczna inicjowanie obsługi administracyjnej, ale dostępna jest również instalacja agenta ręcznego. [Dowiedz się, jak zainstalować rozszerzenie agenta usługi Log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
+Gdy włączona jest Automatyczna obsługa administracyjna, Security Center inicjuje agenta Log Analytics na wszystkich obsługiwanych maszynach wirtualnych platformy Azure i utworzonych nowych. Zalecana jest Automatyczna obsługa administracyjna, ale jest również dostępna ręczna instalacja agenta. [Dowiedz się, jak zainstalować rozszerzenie agenta log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
 
-Agent włącza zdarzenie tworzenia procesu 4688 i *CommandLine* pole wewnątrz zdarzenia 4688. Nowe procesy utworzone na maszynie wirtualnej są rejestrowane przez EventLog i monitorowane przez usługi wykrywania usługi usługi security center. Aby uzyskać więcej informacji na temat szczegółów zarejestrowanych dla każdego nowego procesu, zobacz [pola opisu w 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). Agent zbiera również 4688 zdarzeń utworzonych na maszynie wirtualnej i przechowuje je w wyszukiwaniu.
+Agent włącza zdarzenie tworzenia procesu 4688 i pole *wiersza polecenia* wewnątrz zdarzenia 4688. Nowe procesy utworzone na maszynie wirtualnej są rejestrowane przez dziennik zdarzeń i monitorowane przez usługi wykrywania Security Center. Aby uzyskać więcej informacji na temat szczegółów zarejestrowanych dla każdego nowego procesu, zobacz [Opis pól w 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). Agent zbiera również zdarzenia 4688 utworzone na maszynie wirtualnej i zapisuje je w wyszukiwaniu.
 
-Agent umożliwia również zbieranie danych dla [adaptacyjnych kontroli aplikacji,](security-center-adaptive-application.md)Centrum zabezpieczeń konfiguruje lokalną zasadę zasad ograniczeń oprogramowania w trybie inspekcji, aby umożliwić wszystkim aplikacjom. Ta zasada spowoduje, że funkcja AppLocker będzie generować zdarzenia, które są następnie zbierane i wykorzystywane przez centrum zabezpieczeń. Należy pamiętać, że ta zasada nie będzie skonfigurowana na żadnych komputerach, na których istnieje już skonfigurowana zasada ograniczeń oprogramowania. 
+Agent umożliwia również zbieranie danych na potrzeby [adaptacyjnych kontrolek aplikacji](security-center-adaptive-application.md), Security Center konfiguruje lokalne zasady funkcji AppLocker w trybie inspekcji, aby zezwolić na wszystkie aplikacje. Te zasady spowodują generowanie przez funkcję AppLocker zdarzeń, które następnie są zbierane i wykorzystywane przez Security Center. Należy pamiętać, że te zasady nie zostaną skonfigurowane na wszystkich komputerach, na których już skonfigurowano zasady funkcji AppLocker. 
 
-Gdy usługa Security Center wykryje podejrzaną aktywność na maszynie wirtualnej, klient jest powiadamiany pocztą e-mail, jeśli podano [informacje kontaktowe zabezpieczeń.](security-center-provide-security-contact-details.md) Alert jest również widoczny na pulpicie nawigacyjnym alertów zabezpieczeń w urzekania zabezpieczeń w urzekania zabezpieczeń.
-
-
-## <a name="will-security-center-work-using-an-oms-gateway"></a>Czy usługa Security Center będzie działać przy użyciu bramy oms?
-
-Tak. Usługa Azure Security Center wykorzystuje usługę Azure Monitor do zbierania danych z maszyn wirtualnych i serwerów platformy Azure przy użyciu agenta usługi Log Analytics.
-Aby zebrać dane, każda maszyna wirtualna i serwer muszą łączyć się z Internetem przy użyciu protokołu HTTPS. Połączenie może być bezpośrednie, za pomocą serwera proxy lub za pośrednictwem [bramy OMS](../azure-monitor/platform/gateway.md).
+Gdy Security Center wykryje podejrzane działanie na maszynie wirtualnej, klient zostanie powiadomiony pocztą e-mail, jeśli podano [Informacje o kontakcie zabezpieczeń](security-center-provide-security-contact-details.md) . Alert jest również widoczny na pulpicie nawigacyjnym alertów zabezpieczeń Security Center.
 
 
-## <a name="does-the-monitoring-agent-impact-the-performance-of-my-servers"></a>Czy agent monitorowania wpływa na wydajność moich serwerów?
+## <a name="will-security-center-work-using-an-oms-gateway"></a>Czy Security Center będzie działała przy użyciu bramy pakietu OMS?
 
-Agent zużywa nominalną ilość zasobów systemowych i powinien mieć niewielki wpływ na wydajność. Aby uzyskać więcej informacji na temat wpływu na wydajność oraz agenta i rozszerzenia, zobacz [przewodnik planowania i operacji](security-center-planning-and-operations-guide.md#data-collection-and-storage).
+Tak. Azure Security Center wykorzystuje Azure Monitor do zbierania danych z maszyn wirtualnych i serwerów platformy Azure przy użyciu agenta Log Analytics.
+Aby zebrać dane, każda maszyna wirtualna i serwer muszą łączyć się z Internetem przy użyciu protokołu HTTPS. Połączenie może być bezpośrednie, przy użyciu serwera proxy lub przez [bramę pakietu OMS](../azure-monitor/platform/gateway.md).
+
+
+## <a name="does-the-monitoring-agent-impact-the-performance-of-my-servers"></a>Czy Agent monitorowania ma wpływ na wydajność moich serwerów?
+
+Agent zużywa nominalną ilość zasobów systemowych i powinien mieć niewielki wpływ na wydajność. Aby uzyskać więcej informacji na temat wpływu na wydajność oraz agenta i rozszerzenia, zobacz [Przewodnik planowania i](security-center-planning-and-operations-guide.md#data-collection-and-storage)obsługi.
 
 
 ## <a name="where-is-my-data-stored"></a>Gdzie są przechowywane moje dane?
 
-Dane zebrane z tego agenta są przechowywane w istniejącym obszarze roboczym usługi Log Analytics skojarzonym z subskrypcją lub nowym obszarze roboczym. Aby uzyskać więcej informacji, zobacz [Bezpieczeństwo danych](security-center-data-security.md).
+Dane zbierane z tego agenta są przechowywane w istniejącym obszarze roboczym Log Analytics skojarzonym z subskrypcją lub nowym obszarem roboczym. Aby uzyskać więcej informacji, zobacz [zabezpieczenia danych](security-center-data-security.md).
 
 
 <!--Image references-->

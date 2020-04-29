@@ -1,6 +1,6 @@
 ---
-title: Używanie narzędzi zdalnych do rozwiązywania problemów z maszynami wirtualnymi platformy Azure | Dokumenty firmy Microsoft
-description: Dowiedz się więcej o psexec, skrypty programu PowerShell i innych narzędzi zdalnych, których można używać do rozwiązywania problemów z zdalną maszyną wirtualną platformy Azure bez użycia protokołu RDP.
+title: Rozwiązywanie problemów z MASZYNami wirtualnymi platformy Azure za pomocą narzędzi zdalnych Microsoft Docs
+description: Dowiedz się więcej na temat PsExec, skryptów programu PowerShell i innych zdalnych narzędzi, których można użyć do rozwiązywania problemów z MASZYNami wirtualnymi platformy Azure bez użycia protokołu RDP.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -15,21 +15,21 @@ ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
 ms.openlocfilehash: d29b2b7c2b9194f20afe4c74d117847f0e343b12
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422602"
 ---
-# <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Rozwiązywanie problemów z maszynami wirtualnymi usługi Azure za pomocą narzędzi zdalnych
+# <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Rozwiązywanie problemów z MASZYNami wirtualnymi platformy Azure za pomocą narzędzi zdalnych
 
-Podczas rozwiązywania problemów na maszynie wirtualnej platformy Azure (VM), można połączyć się z maszyną wirtualną przy użyciu narzędzi zdalnych, które zostały omówione w tym artykule zamiast przy użyciu protokołu RDP (Remote Desktop Protocol).
+W przypadku rozwiązywania problemów dotyczących maszyn wirtualnych platformy Azure można nawiązać połączenie z MASZYNą wirtualną za pomocą narzędzi zdalnych, które zostały omówione w tym artykule, zamiast korzystać z Remote Desktop Protocol (RDP).
 
 ## <a name="serial-console"></a>Konsola szeregowa
 
-Użyj [konsoli szeregowej dla maszyn wirtualnych platformy Azure](serial-console-windows.md) do uruchamiania poleceń na zdalnej maszynie wirtualnej platformy Azure.
+Użyj [konsoli szeregowej dla Virtual Machines platformy Azure](serial-console-windows.md) , aby uruchomić polecenia na zdalnej maszynie wirtualnej platformy Azure.
 
-## <a name="remote-cmd"></a>Zdalny cmd
+## <a name="remote-cmd"></a>Zdalne polecenie CMD
 
 Pobierz [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec). Połącz się z maszyną wirtualną, uruchamiając następujące polecenie:
 
@@ -38,28 +38,28 @@ psexec \\<computer>-u user -s cmd
 ```
 
 >[!NOTE]
->* Polecenie musi być uruchamiane na komputerze, który jest w tej samej sieci wirtualnej.
->* DIP lub HostName może \<służyć do zastąpienia> komputera.
->* Parametr -s zapewnia, że polecenie jest wywoływane przy użyciu konta systemowego (uprawnienia administratora).
->* PsExec używa portów TCP 135 i 445. W rezultacie oba porty muszą być otwarte na zaporze.
+>* Polecenie musi być uruchamiane na komputerze znajdującym się w tej samej sieci wirtualnej.
+>* Aby zastąpić \<> komputera, można użyć adresu DIP lub nazwy hosta.
+>* Parametr-s sprawdza, czy polecenie jest wywoływane przy użyciu konta systemowego (uprawnienia administratora).
+>* PsExec używa portów TCP 135 i 445. W związku z tym dwa porty muszą być otwarte na zaporze.
 
-## <a name="run-command"></a>Uruchom polecenie 
+## <a name="run-command"></a>Uruchom polecenie
 
-Aby uzyskać więcej informacji na temat używania funkcji polecenia uruchom do uruchamiania skryptów na maszynie wirtualnej, zobacz [Uruchamianie skryptów programu PowerShell w maszynie Wirtualnej systemu Windows za pomocą polecenia uruchom](../windows/run-command.md).
+Aby uzyskać więcej informacji na temat używania funkcji run polecenia do uruchamiania skryptów na maszynie wirtualnej, zobacz [Uruchamianie skryptów programu PowerShell na maszynie wirtualnej z systemem Windows za pomocą polecenia Uruchom](../windows/run-command.md).
 
 ## <a name="custom-script-extension"></a>Rozszerzenie niestandardowego skryptu
 
-Za pomocą funkcji Niestandardowe rozszerzenie skryptu można uruchomić skrypt niestandardowy na docelowej maszynie wirtualnej. Aby korzystać z tej funkcji, muszą być spełnione następujące warunki:
+Możesz użyć funkcji niestandardowego rozszerzenia skryptu do uruchomienia skryptu niestandardowego na docelowej maszynie wirtualnej. Aby skorzystać z tej funkcji, muszą zostać spełnione następujące warunki:
 
 * Maszyna wirtualna ma łączność.
-* Agent maszyny wirtualnej platformy Azure jest zainstalowany i działa zgodnie z oczekiwaniami na maszynie Wirtualnej.
-* Rozszerzenie nie zostało wcześniej zainstalowane na maszynie Wirtualnej.
+* Agent maszyny wirtualnej platformy Azure jest zainstalowany i działa zgodnie z oczekiwaniami na maszynie wirtualnej.
+* Rozszerzenie nie zostało wcześniej zainstalowane na maszynie wirtualnej.
  
-  Rozszerzenie wstrzykuje skrypt tylko po raz pierwszy, że jest używany. Jeśli użyjesz tej funkcji później, rozszerzenie rozpoznaje, że był już używany i nie przekazuje nowego skryptu.
+  Rozszerzenie Wstawia skrypt tylko podczas pierwszego użycia. Jeśli użyjesz tej funkcji później, rozszerzenie rozpoznaje, że było już używane i nie przekazuje nowego skryptu.
 
-Przekaż skrypt do konta magazynu i wygeneruj własny kontener. Następnie uruchom następujący skrypt w programie Azure PowerShell na komputerze, który ma łączność z maszyną wirtualną.
+Przekaż skrypt na konto magazynu i Wygeneruj własny kontener. Następnie uruchom następujący skrypt w Azure PowerShell na komputerze, który ma łączność z maszyną wirtualną.
 
-### <a name="for-classic-deployment-model-vms"></a>Dla klasycznych modeli wdrażania maszyn wirtualnych
+### <a name="for-classic-deployment-model-vms"></a>Dla maszyn wirtualnych z klasycznym modelem wdrażania
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
@@ -90,7 +90,7 @@ $vm = Get-AzureVM -ServiceName $vmCloudService -Name $vmName
 Set-AzureVMCustomScriptExtension "CustomScriptExtension" -VM $vm -StorageAccountName $storageAccount -StorageAccountKey $storagekey -ContainerName $container -FileName $blobName -Run $blobName | Update-AzureVM
 ```
 
-### <a name="for-azure-resource-manager-vms"></a>Dla maszyn wirtualnych usługi Azure Resource Manager
+### <a name="for-azure-resource-manager-vms"></a>Dla maszyn wirtualnych Azure Resource Manager
 
  
 
@@ -120,18 +120,18 @@ Set-AzureStorageBlobContent -File $localScript -Container $container -Blob $blob
 Set-AzVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $vmResourceGroup -VMName $vmName -Location $vmLocation -StorageAccountName $storageAccount -StorageAccountKey $storagekey -ContainerName $container -FileName $blobName -Run $blobName
 ```
 
-## <a name="remote-powershell"></a>Zdalny program PowerShell
+## <a name="remote-powershell"></a>Zdalne środowisko PowerShell
 
 >[!NOTE]
 >Port TCP 5986 (HTTPS) musi być otwarty, aby można było użyć tej opcji.
 >
->W przypadku maszyn wirtualnych usługi Azure Resource Manager należy otworzyć port 5986 w sieciowej grupie zabezpieczeń (NSG). Aby uzyskać więcej informacji, zobacz Grupy zabezpieczeń. 
+>W przypadku maszyn wirtualnych Azure Resource Manager należy otworzyć port 5986 w sieciowej grupie zabezpieczeń (sieciowej grupy zabezpieczeń). Aby uzyskać więcej informacji, zobacz grupy zabezpieczeń. 
 >
->W przypadku maszyn wirtualnych RDFE musi istnieć punkt końcowy z portem prywatnym (5986) i portem publicznym. Następnie należy również otworzyć ten publiczny port na nsg.
+>W przypadku maszyn wirtualnych frontonu reddog trzeba mieć punkt końcowy z portem prywatnym (5986) i portem publicznym. Następnie trzeba również otworzyć ten port publiczny na sieciowej grupy zabezpieczeń.
 
 ### <a name="set-up-the-client-computer"></a>Konfigurowanie komputera klienckiego
 
-Aby zdalnie połączyć się z maszyną wirtualną za pomocą programu PowerShell, należy najpierw skonfigurować komputer kliencki, aby zezwolić na połączenie. Aby to zrobić, dodaj maszynę wirtualną do listy zaufanych hostów programu PowerShell, uruchamiając odpowiednie polecenie następujące.
+Aby użyć programu PowerShell do zdalnego nawiązywania połączenia z maszyną wirtualną, należy najpierw skonfigurować komputer kliencki w taki sposób, aby zezwalał na połączenie. W tym celu należy dodać maszynę wirtualną do listy zaufanych hostów programu PowerShell, uruchamiając następujące polecenie zgodnie z potrzebami.
 
 Aby dodać jedną maszynę wirtualną do listy zaufanych hostów:
 
@@ -145,15 +145,15 @@ Aby dodać wiele maszyn wirtualnych do listy zaufanych hostów:
 Set-Item wsman:\localhost\Client\TrustedHosts -value <ComputerName1>,<ComputerName2>
 ```
 
-Aby dodać wszystkie komputery do listy hostów zaufanych:
+Aby dodać wszystkie komputery do listy zaufanych hostów:
 
 ```powershell
 Set-Item wsman:\localhost\Client\TrustedHosts -value *
 ```
 
-### <a name="enable-remoteps-on-the-vm"></a>Włączanie remoteps na maszynie wirtualnej
+### <a name="enable-remoteps-on-the-vm"></a>Włącz RemotePS na maszynie wirtualnej
 
-W przypadku maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania użyj rozszerzenia skryptu niestandardowego, aby uruchomić następujący skrypt:
+W przypadku maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania Użyj niestandardowego rozszerzenia skryptu, aby uruchomić następujący skrypt:
 
 ```powershell
 Enable-PSRemoting -Force
@@ -163,31 +163,31 @@ $command = "winrm create winrm/config/Listener?Address=*+Transport=HTTPS @{Hostn
 cmd.exe /C $command
 ```
 
-W przypadku maszyn wirtualnych usługi Azure Resource Manager użyj poleceń uruchamiania z portalu, aby uruchomić skrypt EnableRemotePS:
+W przypadku maszyn wirtualnych Azure Resource Manager Użyj poleceń Uruchom z portalu, aby uruchomić skrypt EnableRemotePS:
 
-![Uruchom polecenie ](./media/remote-tools-troubleshoot-azure-vm-issues/run-command.png)
+![Uruchom polecenie](./media/remote-tools-troubleshoot-azure-vm-issues/run-command.png)
 
 ### <a name="connect-to-the-vm"></a>Łączenie z maszyną wirtualną
 
-Uruchom następujące polecenie na podstawie lokalizacji komputera klienckiego:
+Uruchom następujące polecenie w oparciu o lokalizację komputera klienckiego:
 
 * Poza siecią wirtualną lub wdrożeniem
 
-  * W przypadku maszyny Wirtualnej utworzonej przy użyciu klasycznego modelu wdrażania uruchom następujące polecenie:
+  * W przypadku maszyny wirtualnej utworzonej przy użyciu klasycznego modelu wdrażania Uruchom następujące polecenie:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
     Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.cloudapp.net>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-  * W przypadku maszyny Wirtualnej usługi Azure Resource Manager należy najpierw dodać nazwę DNS do publicznego adresu IP. Aby uzyskać szczegółowe kroki, zobacz [Tworzenie w pełni kwalifikowanej nazwy domeny w portalu Azure dla maszyny Wirtualnej systemu Windows](../windows/portal-create-fqdn.md). Następnie uruchom poniższe polecenie:
+  * W przypadku maszyny wirtualnej Azure Resource Manager należy najpierw dodać nazwę DNS do publicznego adresu IP. Aby uzyskać szczegółowe instrukcje, zobacz [Tworzenie w pełni kwalifikowanej nazwy domeny w Azure Portal dla maszyny wirtualnej z systemem Windows](../windows/portal-create-fqdn.md). Następnie uruchom poniższe polecenie:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
     Enter-PSSession -ComputerName "<<DNSname.DataCenter.cloudapp.azure.com>>" -port "5986" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-* Wewnątrz sieci wirtualnej lub wdrożenia uruchom następujące polecenie:
+* W obrębie sieci wirtualnej lub wdrożenia Uruchom następujące polecenie:
   
   ```powershell
   $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
@@ -195,9 +195,9 @@ Uruchom następujące polecenie na podstawie lokalizacji komputera klienckiego:
   ```
 
 >[!NOTE] 
->Ustawienie SkipCaCheck flagi pomija wymóg zaimportowania certyfikatu do maszyny Wirtualnej po uruchomieniu sesji.
+>Ustawienie flagi SkipCaCheck pomija wymagania dotyczące importowania certyfikatu do maszyny wirtualnej podczas uruchamiania sesji.
 
-Można również użyć polecenia cmdlet invoke-command do zdalnego uruchamiania skryptu na maszynie wirtualnej.
+Można również użyć polecenia cmdlet Invoke-Command do zdalnego uruchomienia skryptu na maszynie wirtualnej.
 
 ```powershell
 Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
@@ -206,54 +206,54 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 ## <a name="remote-registry"></a>Rejestr zdalny
 
 >[!NOTE]
->Aby korzystać z tej opcji, port TCP 135 lub 445 musi być otwarty.
+>Aby można było użyć tej opcji, port TCP 135 lub 445 musi być otwarty.
 >
->W przypadku maszyn wirtualnych usługi Azure Resource Manager należy otworzyć port 5986 na sieciowej grupie sieciowej. Aby uzyskać więcej informacji, zobacz Grupy zabezpieczeń. 
+>W przypadku maszyn wirtualnych Azure Resource Manager należy otworzyć port 5986 w sieciowej grupy zabezpieczeń. Aby uzyskać więcej informacji, zobacz grupy zabezpieczeń. 
 >
->W przypadku maszyn wirtualnych RDFE musi istnieć punkt końcowy z portem prywatnym 5986 i portem publicznym. Musisz również otworzyć ten publiczny port na nsg.
+>W przypadku maszyn wirtualnych frontonu reddog trzeba mieć punkt końcowy z portem prywatnym 5986 i portem publicznym. Należy również otworzyć ten port publiczny na sieciowej grupy zabezpieczeń.
 
-1. Z innej maszyny Wirtualnej w tej samej sieci wirtualnej otwórz edytor rejestru (regedit.exe).
+1. Z poziomu innej maszyny wirtualnej w tej samej sieci wirtualnej, Otwórz Edytor rejestru (regedit. exe).
 
-2. Wybierz pozycję**Rejestr sieciowy połączenia** **plików** > .
+2. Wybierz pozycję **plik** > **Połącz rejestr sieciowy**.
 
    ![Edytor rejestru](./media/remote-tools-troubleshoot-azure-vm-issues/remote-registry.png) 
 
-3. Znajdź docelową maszynę wirtualną według **nazwy hosta** lub **dynamicznego adresu IP** (preferowanego), wprowadzając ją w polu Wprowadź nazwę **obiektu, aby zaznaczyć.**
+3. Znajdź docelową maszynę wirtualną według **nazwy hosta** lub **dynamicznego adresu IP** (preferowany), wprowadzając ją w polu **Wprowadź nazwę obiektu do wybrania** .
 
    ![Wprowadź nazwę obiektu, aby zaznaczyć pole](./media/remote-tools-troubleshoot-azure-vm-issues/input-computer-name.png) 
  
-4. Wprowadź poświadczenia dla docelowej maszyny Wirtualnej.
+4. Wprowadź poświadczenia dla docelowej maszyny wirtualnej.
 
-5. Wprowadzać wszelkie niezbędne zmiany w rejestrze.
+5. Wprowadź wszelkie niezbędne zmiany w rejestrze.
 
 ## <a name="remote-services-console"></a>Konsola usług zdalnych
 
 >[!NOTE]
->Aby korzystać z tej opcji, muszą być otwarte porty TCP 135 lub 445.
+>Aby można było użyć tej opcji, porty TCP 135 lub 445 muszą być otwarte.
 >
->W przypadku maszyn wirtualnych usługi Azure Resource Manager należy otworzyć port 5986 na sieciowej grupie sieciowej. Aby uzyskać więcej informacji, zobacz Grupy zabezpieczeń. 
+>W przypadku maszyn wirtualnych Azure Resource Manager należy otworzyć port 5986 w sieciowej grupy zabezpieczeń. Aby uzyskać więcej informacji, zobacz grupy zabezpieczeń. 
 >
->W przypadku maszyn wirtualnych RDFE musi istnieć punkt końcowy z portem prywatnym 5986 i portem publicznym. Musisz również otworzyć ten publiczny port na nsg.
+>W przypadku maszyn wirtualnych frontonu reddog trzeba mieć punkt końcowy z portem prywatnym 5986 i portem publicznym. Należy również otworzyć ten port publiczny na sieciowej grupy zabezpieczeń.
 
-1. Z innej maszyny Wirtualnej w tej samej sieci wirtualnej otwórz wystąpienie **services.msc**.
+1. Z poziomu innej maszyny wirtualnej w tej samej sieci wirtualnej, Otwórz wystąpienie programu **Services. msc**.
 
-2. Kliknij prawym przyciskiem myszy **pozycję Usługi (lokalne).**
+2. Kliknij prawym przyciskiem myszy pozycję **usługi (lokalne)**.
 
 3. Wybierz pozycję **Połącz z innym komputerem**.
 
    ![Usługa zdalna](./media/remote-tools-troubleshoot-azure-vm-issues/remote-services.png)
 
-4. Wprowadź dynamiczny adres IP docelowej maszyny Wirtualnej.
+4. Wprowadź dynamiczny adres IP docelowej maszyny wirtualnej.
 
    ![Wejściowy dynamiczny adres IP](./media/remote-tools-troubleshoot-azure-vm-issues/input-ip-address.png)
 
-5. Wprowadzać wszelkie niezbędne zmiany w usługach.
+5. Wprowadź wszelkie niezbędne zmiany w usługach.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać więcej informacji na temat polecenia cmdlet Enter-PSSession, zobacz [Enter-PSSession](https://technet.microsoft.com/library/hh849707.aspx).
-- Aby uzyskać więcej informacji na temat niestandardowego rozszerzenia skryptu dla systemu Windows przy użyciu klasycznego modelu wdrażania, zobacz [Niestandardowe rozszerzenie skryptu dla systemu Windows](../extensions/custom-script-classic.md).
-- PsExec jest częścią [PSTools Suite](https://download.sysinternals.com/files/PSTools.zip).
-- Aby uzyskać więcej informacji na temat pakietu PSTools Suite, zobacz [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
+- Aby uzyskać więcej informacji o rozszerzeniu niestandardowego skryptu dla systemu Windows przy użyciu klasycznego modelu wdrażania, zobacz [rozszerzenie niestandardowego skryptu dla systemu Windows](../extensions/custom-script-classic.md).
+- PsExec jest częścią [pakietu program PsTools](https://download.sysinternals.com/files/PSTools.zip).
+- Aby uzyskać więcej informacji na temat pakietu program PsTools, zobacz [program PsTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
 
 

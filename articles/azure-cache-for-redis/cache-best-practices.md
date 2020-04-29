@@ -1,90 +1,90 @@
 ---
 title: Najlepsze rozwiązania dotyczące usługi Azure Cache for Redis
-description: Dowiedz się, jak skutecznie korzystać z pamięci podręcznej Azure dla redis, postępając zgodnie z tymi najlepszymi rozwiązaniami.
+description: Dowiedz się, jak efektywnie korzystać z pamięci podręcznej platformy Azure, postępując zgodnie z najlepszymi rozwiązaniami.
 author: joncole
 ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
 ms.openlocfilehash: 105a3996753a1d1c2d71846cc8bad574e4498acf
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478612"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Najlepsze rozwiązania dotyczące usługi Azure Cache for Redis 
-Postępujące zgodnie z tymi najlepszymi rozwiązaniami, można pomóc zmaksymalizować wydajność i opłacalne korzystanie z pamięci podręcznej platformy Azure dla wystąpienia Redis.
+Postępując zgodnie z najlepszymi rozwiązaniami, możesz pomóc zmaksymalizować wydajność i ekonomiczne użycie wystąpienia usługi Azure cache for Redis.
 
 ## <a name="configuration-and-concepts"></a>Konfiguracja i koncepcje
- * **Użyj warstwy Standardowa lub Premium dla systemów produkcyjnych.**  Warstwa Podstawowa to system z jednym węzłem bez replikacji danych i bez umowy SLA. Ponadto można użyć przynajmniej pamięci podręcznej C1.  Pamięci podręczne C0 są przeznaczone do prostych scenariuszy deweloperskich/testowych, ponieważ mają wspólny rdzeń procesora, mało pamięci i są podatne na problemy "hałaśliwego sąsiada".
+ * **Użyj warstwy Standardowa lub Premium dla systemów produkcyjnych.**  Warstwa Podstawowa to jednowęzłowy system bez replikacji danych i Umowa SLA. Ponadto można użyć przynajmniej pamięci podręcznej C1.  Pamięć podręczna C0 jest przeznaczona dla prostych scenariuszy tworzenia i testowania, ponieważ mają współużytkowaną rdzeń procesora CPU, małą ilość pamięci i są podatne na problemy "zakłócenia".
 
- * **Należy pamiętać, że Redis jest magazynem danych w pamięci.**  [W tym artykule](cache-troubleshoot-data-loss.md) opisano niektóre scenariusze, w których może wystąpić utrata danych.
+ * **Należy pamiętać, że Redis jest magazynem danych w pamięci.**  W [tym artykule](cache-troubleshoot-data-loss.md) opisano niektóre scenariusze, w których może wystąpić utrata danych.
 
- * **Opracowanie systemu w taki sposób, że może obsługiwać blips połączenia** [z powodu poprawek i pracy awaryjnej](cache-failover.md).
+ * **Opracowywanie systemu w taki sposób, że może on obsługiwać Blips połączeń** [z powodu poprawek i trybu failover](cache-failover.md).
 
- * **Skonfiguruj [ustawienie zarezerwowane dla maxmemory,](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) aby poprawić responsywność systemu** w warunkach ciśnienia pamięci.  Wystarczające ustawienie rezerwacji jest szczególnie ważne w przypadku obciążeń z dużą ilością zapisu lub w przypadku przechowywania większych wartości (100 KB lub więcej) w redis. Należy rozpocząć od 10% rozmiaru pamięci podręcznej i zwiększyć ten procent, jeśli masz obciążenia dużo zapisu.
+ * **Skonfiguruj [ustawienie zarezerwowane maxmemory](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) , aby zwiększyć czas odpowiedzi systemu** w warunkach ciśnienia pamięci.  Wystarczające ustawienie rezerwacji jest szczególnie ważne w przypadku obciążeń z dużym obciążeniem lub w przypadku przechowywania większych wartości (100 KB lub więcej) w Redis. Należy zacząć od 10% rozmiaru pamięci podręcznej i zwiększyć tę wartość procentową w przypadku obciążeń z dużą ilością zapisu.
 
- * **Redis działa najlepiej z mniejszymi wartościami,** więc rozważ posiekanie większych danych na wiele klawiszy.  W [tej dyskusji Redis,](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/)niektóre uwagi są wymienione, które należy dokładnie rozważyć.  Przeczytaj [ten artykuł,](cache-troubleshoot-client.md#large-request-or-response-size) aby zapoznać się z przykładowym problemem, który może być spowodowany przez duże wartości.
+ * **Redis najlepiej sprawdza się w przypadku mniejszych wartości**, więc Rozważ powiększanie większych danych do wielu kluczy.  W [tej dyskusji Redis](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/)należy wziąć pod uwagę pewne zagadnienia, które należy uwzględnić uważnie.  Przeczytaj [ten artykuł](cache-troubleshoot-client.md#large-request-or-response-size) , aby zapoznać się z przykładowym problemem, który może być spowodowany przez duże wartości.
 
- * **Zlokalizuj wystąpienie pamięci podręcznej i aplikację w tym samym regionie.**  Łączenie się z pamięcią podręczną w innym regionie może znacznie zwiększyć opóźnienie i ograniczyć niezawodność.  Chociaż można połączyć się spoza platformy Azure, nie jest zalecane, *zwłaszcza w przypadku korzystania z Redis jako pamięci podręcznej.*  Jeśli używasz Redis jako tylko klucz/magazyn wartości, opóźnienie może nie być głównym problemem. 
+ * **Znajdź wystąpienie pamięci podręcznej i swoją aplikację w tym samym regionie.**  Łączenie się z pamięcią podręczną w innym regionie może znacznie zwiększyć opóźnienie i ograniczyć niezawodność.  Istnieje możliwość nawiązania połączenia poza platformą Azure, ale nie jest to zalecane, *szczególnie w przypadku korzystania z Redis jako pamięci podręcznej*.  Jeśli używasz Redis jako samego magazynu klucz/wartość, opóźnienie może nie być zasadniczym problemem. 
 
- * **Ponowne użycie połączeń.**  Tworzenie nowych połączeń jest kosztowne i zwiększa opóźnienia, więc ponownie używać połączeń jak najwięcej. Jeśli zdecydujesz się utworzyć nowe połączenia, przed ich zwolnieniem zamknij stare połączenia (nawet w językach pamięci zarządzanej, takich jak .NET lub Java).
+ * **Ponowne użycie połączeń.**  Tworzenie nowych połączeń jest kosztowne i zwiększa opóźnienia, dlatego należy ponownie używać połączeń, tak jak to możliwe. Jeśli zdecydujesz się na utworzenie nowych połączeń, przed ich wydaniem upewnij się, że zostały zamknięte stare połączenia (nawet w językach zarządzanych, takich jak .NET lub Java).
 
- * **Skonfiguruj bibliotekę klienta tak, aby używała *limitu czasu połączenia* co najmniej 15 sekund,** co daje czas systemowy na połączenie nawet w wyższych warunkach procesora.  Mała wartość limitu czasu połączenia nie gwarantuje, że połączenie jest ustanawiane w tym przedziale czasu.  Jeśli coś pójdzie nie tak (wysoki procesor klienta, wysoki procesor serwera i tak dalej), a następnie krótki limit czasu połączenia spowoduje próbę połączenia zakończyć się niepowodzeniem. To zachowanie często pogarsza złą sytuację.  Zamiast pomagać, krótsze limity czasu pogłębiają problem, zmuszając system do ponownego uruchomienia procesu próby ponownego połączenia, co może prowadzić do *połączenia -> nie powiedzie się -> pętli ponawiania.* Ogólnie zaleca się pozostawienie limitu czasu połączenia na 15 sekund lub więcej. Lepiej pozwolić, aby próba połączenia powiodła się po 15 lub 20 sekundach, niż aby szybko się nie powiodła, tylko ponowić próbę. Taka pętla ponawiania może spowodować, że awaria potrwa dłużej niż jeśli system po prostu trwa dłużej.  
+ * **Skonfiguruj bibliotekę klienta tak, aby korzystała z *limitu czasu połączenia* wynoszącego co najmniej 15 sekund**, co zapewnia czas systemowy do połączenia nawet w wyższych warunkach CPU.  Niewielka wartość limitu czasu połączenia nie gwarantuje, że połączenie jest ustanowione w tym czasie.  Jeśli coś się nie powiedzie (wysoki procesor CPU klienta, wysoki procesor CPU i tak dalej), wówczas wartość limitu czasu połączenia zostanie spowodowana błędem połączenia. Takie zachowanie często sprawia, że zła sytuacja jest gorsza.  W przeciwieństwie do krótszych limitów czasu pogłębić problem, wymuszając system, aby ponownie uruchomić proces próby ponownego nawiązania połączenia, co może prowadzić do *niepowodzenia > pętli ponawiania próby połączenia >* . Zwykle zaleca się pozostawienie limitu czasu połączenia co 15 sekund. Lepszym rozwiązaniem jest ponowienie próby połączenia po 15 lub 20 sekundach, aby szybko się nie przekroczyć. Taka pętla ponawiania może spowodować wydłużenie czasu przestoju, niż w przypadku dłuższego wydłużenia systemu.  
      > [!NOTE]
-     > Te wskazówki są specyficzne dla *próby połączenia* i nie są związane z czasem, w którego chcesz poczekać na *operację,* taką jak GET lub SET, aby zakończyć.
+     > Wskazówki te są specyficzne dla *próby połączenia* i nie są związane z czasem oczekiwania na wykonanie *operacji* , takich jak pobieranie lub Ustawianie.
  
- * **Unikaj kosztownych operacji** — niektóre operacje Redis, takie jak polecenie [KEYS,](https://redis.io/commands/keys) są *bardzo* drogie i należy ich unikać.  Aby uzyskać więcej informacji, zobacz niektóre zagadnienia dotyczące [długotrwałych poleceń](cache-troubleshoot-server.md#long-running-commands)
+ * **Unikaj kosztownych operacji** — niektóre operacje Redis, takie jak [klucze](https://redis.io/commands/keys) , są *bardzo* kosztowne i powinny być nieuniknione.  Aby uzyskać więcej informacji, zobacz Zagadnienia dotyczące [długotrwałych poleceń](cache-troubleshoot-server.md#long-running-commands)
 
- * **Użyj szyfrowania TLS** — usługa Azure Cache for Redis domyślnie wymaga szyfrowanej komunikacji TLS.  TLS wersje 1.0, 1.1 i 1.2 są obecnie obsługiwane.  Jednak TLS 1.0 i 1.1 są na ścieżce do deprecation całej branży, więc należy użyć TLS 1.2, jeśli w ogóle możliwe.  Jeśli biblioteka klienta lub narzędzie nie obsługuje protokołu TLS, włączenie połączeń niezaszyfrowanych można wykonać [za pośrednictwem witryny Azure portal](cache-configure.md#access-ports) lub [interfejsów API zarządzania.](https://docs.microsoft.com/rest/api/redis/redis/update)  W takich przypadkach, gdy szyfrowane połączenia nie są możliwe, zaleca się umieszczenie pamięci podręcznej i aplikacji klienckiej w sieci wirtualnej.  Aby uzyskać więcej informacji o portach używanych w scenariuszu pamięci podręcznej sieci wirtualnej, zobacz tę [tabelę](cache-how-to-premium-vnet.md#outbound-port-requirements).
+ * **Korzystanie z szyfrowania TLS** — usługa Azure cache for Redis domyślnie wymaga komunikacji szyfrowanej przy użyciu protokołu TLS.  Protokoły TLS w wersji 1,0, 1,1 i 1,2 są obecnie obsługiwane.  Jednak protokoły TLS 1,0 i 1,1 znajdują się na ścieżce, aby wycofać całe branże, więc Użyj protokołu TLS 1,2, jeśli jest to możliwe.  Jeśli Biblioteka klienta lub narzędzie nie obsługuje protokołu TLS, można włączyć nieszyfrowane połączenia [za pomocą Azure Portal](cache-configure.md#access-ports) lub [interfejsów API zarządzania](https://docs.microsoft.com/rest/api/redis/redis/update).  W takich przypadkach, gdy połączenia szyfrowane nie są możliwe, będzie zalecane umieszczenie pamięci podręcznej i aplikacji klienckiej w sieci wirtualnej.  Aby uzyskać więcej informacji o portach używanych w scenariuszu pamięci podręcznej sieci wirtualnej, zapoznaj się z tą [tabelą](cache-how-to-premium-vnet.md#outbound-port-requirements).
  
 ## <a name="memory-management"></a>Zarządzanie pamięcią
-Istnieje kilka rzeczy związanych z użyciem pamięci w wystąpieniu serwera Redis, które warto rozważyć.  Oto kilka z nich:
+Istnieje kilka rzeczy związanych z użyciem pamięci w wystąpieniu serwera Redis, które warto wziąć pod uwagę.  Oto kilka z nich:
 
- * **Wybierz [zasady eksmisji,](https://redis.io/topics/lru-cache) która działa dla aplikacji.**  Domyślna zasada dla usługi Azure Redis jest *volatile-lru*, co oznacza, że tylko klucze, które mają ustawioną wartość TTL będą kwalifikować się do eksmisji.  Jeśli żadne klucze nie mają wartości TTL, system nie eksmituje żadnych kluczy.  Jeśli chcesz, aby system pozwalał na eksmisję dowolnego klucza, jeśli jest pod presją pamięci, możesz rozważyć politykę *allkeys-lru.*
+ * **Wybierz [Zasady wykluczania](https://redis.io/topics/lru-cache) , które działają dla aplikacji.**  Zasady domyślne dla usługi Azure Redis to *volatile-LRU*, co oznacza, że tylko klucze mające ustawioną wartość TTL będą kwalifikować się do wykluczenia.  Jeśli żadne klucze nie mają wartości TTL, system nie wykluczają żadnych kluczy.  Jeśli chcesz, aby system zezwalał na każdy klucz, który ma zostać wykluczony w przypadku wykorzystania pamięci, warto rozważyć zasady *AllKeys-LRU* .
 
- * **Ustaw wartość wygaśnięcia na kluczach.**  Wygaśnięcie spowoduje proaktywne usunięcie kluczy zamiast oczekiwania, aż pojawi się ciśnienie pamięci.  Gdy eksmisja nie kopać z powodu nacisku pamięci, może to spowodować dodatkowe obciążenie serwera.  Aby uzyskać więcej informacji, zobacz dokumentację dla poleceń [EXPIRE](https://redis.io/commands/expire) i [EXPIREAT.](https://redis.io/commands/expireat)
+ * **Ustaw wartość wygaśnięcia kluczy.**  Wygaśnięcie spowoduje usunięcie kluczy aktywnie, zamiast czekać do momentu wyczerpania pamięci.  Gdy wykluczenie zostanie rozpoczęte ze względu na wykorzystanie pamięci, może to spowodować dodatkowe obciążenie serwera.  Aby uzyskać więcej informacji, zobacz dokumentację poleceń [wygaśnięcia](https://redis.io/commands/expire) i [EXPIREAT](https://redis.io/commands/expireat) .
  
 ## <a name="client-library-specific-guidance"></a>Wskazówki dotyczące biblioteki klienta
- * [StackExchange.Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
- * [Java — którego klienta należy używać?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
+ * [StackExchange. Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
+ * [Java — którego klienta należy użyć?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
  * [Sałata (Java)](https://gist.github.com/warrenzhu25/181ccac7fa70411f7eb72aff23aa8a6a#file-azure-redis-lettuce-best-practices-md)
  * [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
  * [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
  * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
- * [Dostawca stanu Asp.Net sesji](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
+ * [Dostawca stanu sesji Asp.Net](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
 
 
 ## <a name="when-is-it-safe-to-retry"></a>Kiedy można bezpiecznie ponowić próbę?
-Niestety, nie ma łatwej odpowiedzi.  Każda aplikacja musi zdecydować, jakie operacje mogą być ponowione, a które nie.  Każda operacja ma różne wymagania i zależności między kluczami.  Oto kilka rzeczy, które możesz rozważyć:
+Niestety, nie ma żadnej prostej odpowiedzi.  Każda aplikacja musi zdecydować, jakie operacje mogą być ponawiane, a które nie.  Każda operacja ma inne wymagania i zależności między kluczami.  Oto kilka rzeczy, które można wziąć pod uwagę:
 
- * Można uzyskać błędy po stronie klienta, mimo że Redis pomyślnie uruchomił polecenie, które poprosiłeś go o uruchomienie.  Przykład:
-     - Limity czasu są koncepcją po stronie klienta.  Jeśli operacja dotarła do serwera, serwer uruchomi polecenie, nawet jeśli klient z rezygnuje z oczekiwania.  
-     - Gdy wystąpi błąd w połączeniu gniazda, nie jest możliwe, aby wiedzieć, czy operacja faktycznie uruchomiony na serwerze.  Na przykład błąd połączenia może się zdarzyć po serwer przetworzył żądanie, ale przed klient odbiera odpowiedź.
- *  Jak reaguje moja aplikacja, jeśli przypadkowo uruchomię tę samą operację dwa razy?  Na przykład co zrobić, jeśli zwiększać liczbę całkowitą dwa razy zamiast raz?  Czy moja aplikacja pisze do tego samego klucza z wielu miejsc?  Co zrobić, jeśli moja logika ponawiania próby zastąpi wartość ustawioną przez inną część mojej aplikacji?
+ * Można pobrać błędy po stronie klienta, nawet jeśli Redis pomyślnie uruchomił polecenie, które prosi o jego uruchomienie.  Przykład:
+     - Limity czasu to koncepcje po stronie klienta.  Jeśli operacja osiągnęła serwer, na serwerze zostanie uruchomione polecenie, nawet jeśli klient nawiąże oczekiwanie.  
+     - Gdy w połączeniu z gniazdem wystąpi błąd, nie można sprawdzić, czy operacja rzeczywiście została uruchomiona na serwerze.  Na przykład błąd połączenia może wystąpić po przetworzeniu żądania przez serwer, ale przed odebraniem odpowiedzi przez klienta.
+ *  Jak reaguje moja aplikacja, jeśli przypadkowo uruchamiasz tę samą operację dwukrotnie?  Na przykład, co w przypadku zwiększenia liczby całkowitej dwa razy zamiast raz?  Czy moja aplikacja zapisuje się w tym samym kluczu z wielu miejsc?  Co zrobić, jeśli moja logika ponawiania zastępuje wartość ustawioną przez inną część mojej aplikacji?
 
-Jeśli chcesz przetestować, jak kod działa w warunkach błędu, należy rozważyć użycie [funkcji restartu](cache-administration.md#reboot). Ponowne uruchomienie pozwala zobaczyć, jak blips połączenia wpływają na aplikację.
+Jeśli chcesz przetestować działanie kodu w warunkach błędów, rozważ użycie [funkcji ponownego uruchamiania](cache-administration.md#reboot). Ponowny rozruch pozwala zobaczyć, jak Blips połączeń wpływa na aplikację.
 
 ## <a name="performance-testing"></a>Testowanie wydajności
- * **Zacznij od `redis-benchmark.exe` użycia,** aby uzyskać odczucie możliwe przepływności/opóźnienia przed napisaniu własnych testów perf.  Dokumentację redis-benchmark można [znaleźć tutaj](https://redis.io/topics/benchmarks).  Należy zauważyć, że redis-benchmark nie obsługuje protokołu TLS, więc przed uruchomieniem testu należy [włączyć port nietls za pośrednictwem portalu.](cache-configure.md#access-ports)  [Wersja redis-benchmark.exe zgodna z systemem Windows znajduje się tutaj](https://github.com/MSOpenTech/redis/releases)
- * Maszyna wirtualna klienta używana do testowania powinna znajdować się **w tym samym regionie co** wystąpienie pamięci podręcznej Redis.
- * **Zalecamy korzystanie z serii Dv2 VM** dla klienta, ponieważ mają one lepszy sprzęt i dadzą najlepsze wyniki.
- * Upewnij się, że używana maszyna wirtualna klienta ma **co najmniej tyle mocy obliczeniowej i przepustowości,* co testowana pamięć podręczna. 
- * **Włącz usługę VRSS** na komputerze klienckim, jeśli korzystasz z systemu Windows.  [Zobacz tutaj, aby uzyskać szczegółowe informacje](https://technet.microsoft.com/library/dn383582(v=ws.11).aspx).  Przykładowy skrypt programu PowerShell:
-     >PowerShell -ExecutionPolicy Nieograniczone Enable-NetAdapterRSS -Name (Get-NetAdapter). Nazwa 
+ * **Zacznij od korzystania `redis-benchmark.exe` ** z programu, aby uzyskać dostęp do możliwej przepływności/opóźnienia przed napisaniem własnych testów wydajności.  Dokumentację Redis-testową można [znaleźć tutaj](https://redis.io/topics/benchmarks).  Należy pamiętać, że Redis-testowe nie obsługuje protokołu TLS, dlatego należy [włączyć port bez protokołu TLS w portalu](cache-configure.md#access-ports) przed uruchomieniem testu.  [Zgodną z systemem Windows wersją programu Redis-Benchmark. exe można znaleźć tutaj](https://github.com/MSOpenTech/redis/releases)
+ * Maszyna wirtualna klienta użyta do testowania powinna znajdować się **w tym samym regionie** co wystąpienie pamięci podręcznej Redis.
+ * **Zalecamy używanie serii maszyn wirtualnych Dv2** dla klienta, ponieważ mają one lepszy sprzęt i dają najlepsze wyniki.
+ * Upewnij się, że używana maszyna wirtualna klienta ma **co najmniej tyle obliczeń i przepustowości* jako przetestowanej pamięci podręcznej. 
+ * Jeśli korzystasz z systemu Windows, **Włącz opcję wirtualnego skalowania** na komputerze klienckim.  [Zobacz tutaj, aby uzyskać szczegółowe informacje](https://technet.microsoft.com/library/dn383582(v=ws.11).aspx).  Przykładowy skrypt programu PowerShell:
+     >PowerShell-ExecutionPolicy bez ograniczeń Enable-NetAdapterRSS-Name (Get-ServiceAdapter). Nazwij 
      
- * **Rozważ użycie instancji Redis warstwy Premium**.  Te rozmiary pamięci podręcznej będą miały lepsze opóźnienie sieci i przepływność, ponieważ są uruchomione na lepszym sprzęcie dla procesora CPU i sieci.
+ * **Rozważ użycie wystąpień usługi Redis w warstwie Premium**.  Te rozmiary pamięci podręcznej będą mieć większe opóźnienia sieci i przepływność, ponieważ działają na lepszym sprzęcie dla obu procesorów i sieci.
  
      > [!NOTE]
-     > Nasze zaobserwowane wyniki wydajności są [publikowane tutaj](cache-faq.md#azure-cache-for-redis-performance) dla twojego odniesienia.   Należy również pamiętać, że SSL/TLS dodaje pewne obciążenie, więc może pojawić się różne opóźnienia i/lub przepływności, jeśli używasz szyfrowania transportu.
+     > Nasze obserwowane wyniki wydajności są [publikowane w tym miejscu](cache-faq.md#azure-cache-for-redis-performance) dla odwołania.   Należy również pamiętać, że protokół SSL/TLS dodaje pewne obciążenie, dzięki czemu możesz uzyskać różne opóźnienia i/lub przepływność, jeśli używasz szyfrowania transportowego.
  
-### <a name="redis-benchmark-examples"></a>Przykłady redis-benchmark
-**Konfiguracja wstępna:** Przygotuj wystąpienie pamięci podręcznej z danymi wymaganymi dla poleceń testowania opóźnienia i przepływności wymienionych poniżej.
-> redis-benchmark.exe -h yourcache.redis.cache.windows.net -a twójAccesskey -t SET -n 10 -d 1024 
+### <a name="redis-benchmark-examples"></a>Redis — przykłady testów porównawczych
+**Konfiguracja przed testami**: Przygotuj wystąpienie pamięci podręcznej z danymi wymaganymi dla poleceń testowania opóźnienia i przepływności wymienionych poniżej.
+> Redis-Benchmark. exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t SET-n 10-d 1024 
 
-**Aby przetestować opóźnienie:** Test get żądań przy użyciu ładunku 1k.
-> redis-benchmark.exe -h yourcache.redis.cache.windows.net -a twójAccesskey -t GET -d 1024 -P 50 -c 4
+**W celu przetestowania opóźnienia**: Przetestuj żądania GET przy użyciu ładunku 1K.
+> Redis-Benchmark. exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-d 1024-P 50-c 4
 
-**Aby przetestować przepływność:** Pipelined żądania GET z ładunkiem 1k.
-> redis-benchmark.exe -h yourcache.redis.cache.windows.net -a twójAccesskey -t GET -n 1000000 -d 1024 -P 50 -c 50
+**Aby przetestować przepływność:** Potok żądania GET z ładunkiem.
+> Redis-Benchmark. exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-n 1000000-d 1024-P 50-c 50

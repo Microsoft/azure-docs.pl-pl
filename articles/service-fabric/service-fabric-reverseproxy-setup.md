@@ -1,47 +1,47 @@
 ---
-title: Konfigurowanie odwrotnego serwera proxy usługi Azure Service
-description: Dowiedz się, jak skonfigurować i skonfigurować usługę odwrotnego serwera proxy dla aplikacji sieci szkieletowej usług Azure.
+title: Usługa Azure Service Fabric Konfigurowanie zwrotnego serwera proxy
+description: Dowiedz się, jak skonfigurować i skonfigurować usługę zwrotnego serwera proxy dla aplikacji Service Fabric platformy Azure.
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pepogors
 ms.openlocfilehash: 6e3edb0fe238dcaddb7d99cc68660591f081581c
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80476676"
 ---
-# <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Konfigurowanie i konfigurowanie odwrotnego serwera proxy w sieci szkieletowej usług Azure
-Reverse proxy to opcjonalna usługa sieci szkieletowej usług Azure, która pomaga mikrousług uruchomionych w klastrze sieci szkieletowej usług odnajdywać i komunikować się z innymi usługami, które mają punkty końcowe http. Aby dowiedzieć się więcej, zobacz [Odwracanie serwera proxy w sieci szkieletowej usług Azure](service-fabric-reverseproxy.md). W tym artykule pokazano, jak skonfigurować i skonfigurować odwrotny serwer proxy w klastrze. 
+# <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Konfigurowanie i Konfigurowanie zwrotnego serwera proxy na platformie Azure Service Fabric
+Zwrotny serwer proxy to opcjonalna usługa Service Fabric platformy Azure, która pomaga mikrousługom działającym w klastrze Service Fabric odnajdywania i komunikowania się z innymi usługami, które mają punkty końcowe http. Aby dowiedzieć się więcej, zobacz [zwrotny serwer proxy na platformie Azure Service Fabric](service-fabric-reverseproxy.md). W tym artykule opisano sposób konfigurowania i konfigurowania zwrotnego serwera proxy w klastrze. 
 
-## <a name="enable-reverse-proxy-using-azure-portal"></a>Włączanie odwrotnego serwera proxy przy użyciu witryny Azure portal
+## <a name="enable-reverse-proxy-using-azure-portal"></a>Włącz zwrotny serwer proxy przy użyciu Azure Portal
 
-Usługa Azure portal udostępnia opcję włączania odwrotnego serwera proxy podczas tworzenia nowego klastra sieci szkieletowej usług. Nie można uaktualnić istniejącego klastra, aby używać odwrotnego serwera proxy za pośrednictwem portalu. 
+Azure Portal udostępnia opcję włączania zwrotnego serwera proxy podczas tworzenia nowego klastra Service Fabric. Nie można uaktualnić istniejącego klastra do korzystania z zwrotnego serwera proxy za pomocą portalu. 
 
-Aby skonfigurować odwrotny serwer proxy podczas [tworzenia klastra przy użyciu witryny Azure Portal,](./service-fabric-cluster-creation-via-portal.md)upewnij się, że wykonujesz następujące czynności:
+Aby skonfigurować zwrotny serwer proxy podczas [tworzenia klastra przy użyciu Azure Portal](./service-fabric-cluster-creation-via-portal.md), należy wykonać następujące czynności:
 
-1. W **kroku 2: Konfiguracja klastra**, w obszarze **Konfiguracja typu węzła**wybierz **pozycję Włącz odwrotny serwer proxy**.
+1. W **kroku 2: Konfiguracja klastra**, w obszarze **Konfiguracja typu węzła**, zaznacz opcję **Włącz zwrotny serwer proxy**.
 
-   ![Włączanie odwrotnego serwera proxy w portalu](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
-2. (Opcjonalnie) Aby skonfigurować bezpieczny serwer proxy wsteczny, należy skonfigurować certyfikat TLS/SSL. W **kroku 3: Zabezpieczenia**, na **Konfigurowanie ustawień zabezpieczeń klastra**, w obszarze **Typ konfiguracji**, wybierz **niestandardowe**. Następnie w obszarze **Odwrócony certyfikat SSL serwera proxy**wybierz pozycję **Dołącz certyfikat SSL dla odwrotnego serwera proxy** i wprowadź szczegóły certyfikatu.
+   ![Włącz zwrotny serwer proxy w portalu](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
+2. Obowiązkowe Aby skonfigurować bezpieczny zwrotny serwer proxy, należy skonfigurować certyfikat TLS/SSL. W **kroku 3: zabezpieczenia**, w obszarze **Konfigurowanie ustawień zabezpieczeń klastra**w obszarze **Typ konfiguracji**wybierz opcję **niestandardowy**. Następnie w obszarze **certyfikat protokołu SSL zwrotnego serwera**, wybierz opcję **Dołącz certyfikat SSL dla zwrotnego serwera proxy** i wprowadź szczegóły certyfikatu.
 
-   ![Konfigurowanie bezpiecznego serwera proxy wstecznego w portalu](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
+   ![Konfigurowanie bezpiecznego zwrotnego serwera proxy w portalu](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 
-   Jeśli podczas tworzenia klastra nie można skonfigurować odwrotnego serwera proxy z certyfikatem, można to zrobić później za pomocą szablonu Menedżera zasobów dla grupy zasobów klastra. Aby dowiedzieć się więcej, zobacz [Włączanie odwrotnego serwera proxy za pomocą szablonów usługi Azure Resource Manager](#enable-reverse-proxy-via-azure-resource-manager-templates).
+   Jeśli nie skonfigurujesz zwrotnego serwera proxy przy użyciu certyfikatu podczas tworzenia klastra, możesz zrobić to później za pomocą szablonu Menedżer zasobów dla grupy zasobów klastra. Aby dowiedzieć się więcej, zobacz [Włączanie zwrotnego serwera proxy za pomocą szablonów Azure Resource Manager](#enable-reverse-proxy-via-azure-resource-manager-templates).
 
-## <a name="enable-reverse-proxy-via-azure-resource-manager-templates"></a>Włączanie odwrotnego serwera proxy za pomocą szablonów usługi Azure Resource Manager
+## <a name="enable-reverse-proxy-via-azure-resource-manager-templates"></a>Włącz zwrotny serwer proxy za pomocą szablonów Azure Resource Manager
 
-W przypadku klastrów na platformie Azure można użyć szablonu usługi Azure Resource Manager, aby włączyć odwrotny serwer proxy w sieci szkieletowej usług. Można włączyć odwrotny serwer proxy podczas tworzenia klastra lub włączyć go, aktualizując klaster w późniejszym czasie. 
+W przypadku klastrów na platformie Azure można użyć szablonu Azure Resource Manager, aby włączyć zwrotny serwer proxy w programie Service Fabric. Zwrotny serwer proxy można włączyć podczas tworzenia klastra lub włączania go przez aktualizację klastra w późniejszym czasie. 
 
-W przypadku nowego klastra można [utworzyć niestandardowy szablon Menedżera zasobów](service-fabric-cluster-creation-via-arm.md) lub przykładowy szablon. 
+W przypadku nowego klastra można [utworzyć niestandardowy szablon Menedżer zasobów](service-fabric-cluster-creation-via-arm.md) lub użyć przykładowego szablonu. 
 
-Przykładowe szablony Menedżera zasobów, które mogą pomóc w skonfigurowaniu bezpiecznego serwera proxy wstecznego dla klastra platformy Azure, można znaleźć w [przykładowych szablonach bezpiecznego serwera proxy wstecznego](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample) w usłudze GitHub. Instrukcje i szablony używane do konfigurowania bezpiecznego serwera proxy odwrotnego https za pomocą certyfikatu i obsługi narzucania certyfikatu można znaleźć w temacie [Konfigurowanie serwera proxy odwrotnego HTTPS w bezpiecznym klastrze](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) w pliku README.
+Możesz znaleźć przykładowe szablony Menedżer zasobów, które mogą ułatwić skonfigurowanie bezpiecznego zwrotnego serwera proxy dla klastra platformy Azure w [przykładowych szablonach bezpiecznych zwrotnych serwerów proxy](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample) w witrynie GitHub. Zapoznaj się z tematem [Konfigurowanie zwrotnego serwera proxy HTTPS w zabezpieczonym klastrze](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) w pliku Readme, aby uzyskać instrukcje i szablony służące do konfigurowania bezpiecznego zwrotnego serwera proxy z certyfikatem i do obsługi przerzucania certyfikatów.
 
-W przypadku istniejącego klastra można wyeksportować szablon Menedżera zasobów dla grupy zasobów klastra za pomocą [portalu Azure,](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template) [programu PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell)lub [interfejsu wiersza polecenia platformy Azure.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli)
+W przypadku istniejącego klastra można wyeksportować szablon Menedżer zasobów dla grupy zasobów klastra przy użyciu [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template), [programu PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell)lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli).
 
-Po szablonie Menedżera zasobów można włączyć odwrotny serwer proxy, wykonując następujące czynności:
+Po utworzeniu szablonu Menedżer zasobów można włączyć zwrotny serwer proxy, wykonując następujące czynności:
 
-1. Zdefiniuj port dla odwrotnego serwera proxy w [sekcji Parametry](../azure-resource-manager/templates/template-syntax.md) szablonu.
+1. Zdefiniuj port dla zwrotnego serwera proxy w [sekcji Parametry](../azure-resource-manager/templates/template-syntax.md) szablonu.
 
     ```json
     "SFReverseProxyPort": {
@@ -52,7 +52,7 @@ Po szablonie Menedżera zasobów można włączyć odwrotny serwer proxy, wykonu
         }
     },
     ```
-2. Określ port dla każdego z obiektów typu węzła w [sekcji Typ zasobu](../azure-resource-manager/templates/template-syntax.md) [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) .
+2. Określ port dla każdego z obiektów NodeType w [sekcji Typ zasobu](../azure-resource-manager/templates/template-syntax.md) [**Microsoft. servicefabric/klastrów**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) .
 
     Port jest identyfikowany przez nazwę parametru, reverseProxyEndpointPort.
 
@@ -74,7 +74,7 @@ Po szablonie Menedżera zasobów można włączyć odwrotny serwer proxy, wykonu
         ...
     }
     ```
-3. Aby skonfigurować certyfikaty TLS/SSL na porcie dla odwrotnego serwera proxy, dodaj certyfikat do właściwości ***reverseProxyCertificate*** w [sekcji Typ zasobu](../resource-group-authoring-templates.md) **Microsoft.ServiceFabric/clusters** .
+3. Aby skonfigurować certyfikaty TLS/SSL na porcie dla zwrotnego serwera proxy, Dodaj certyfikat do właściwości ***reverseProxyCertificate*** w [sekcji Typ zasobu](../resource-group-authoring-templates.md) **Microsoft. servicefabric/** Reports.
 
     ```json
     {
@@ -97,8 +97,8 @@ Po szablonie Menedżera zasobów można włączyć odwrotny serwer proxy, wykonu
     }
     ```
 
-### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>Obsługa certyfikatu odwrotnego serwera proxy innego niż certyfikat klastra
- Jeśli odwrócony certyfikat serwera proxy różni się od certyfikatu, który zabezpiecza klaster, wcześniej określony certyfikat powinien zostać zainstalowany na maszynie wirtualnej i dodany do listy kontroli dostępu (ACL), aby sieć szkieletowa usług mogła uzyskać do niego dostęp. Można to zrobić w [sekcji Typ zasobu](../resource-group-authoring-templates.md) [**Microsoft.Compute/virtualMachineScaleSets**](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachinescalesets) . Aby instalacja, dodaj certyfikat do osProfile. Sekcja rozszerzenia szablonu może zaktualizować certyfikat w acl.
+### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>Obsługa certyfikatu zwrotnego serwera proxy, który różni się od certyfikatu klastra
+ Jeśli certyfikat zwrotnego serwera proxy różni się od certyfikatu, który zabezpiecza klaster, wówczas wcześniej określony certyfikat powinien zostać zainstalowany na maszynie wirtualnej i dodany do listy kontroli dostępu (ACL), tak aby Service Fabric mógł uzyskać do niej dostęp. Można to zrobić w [sekcji Typ zasobu](../resource-group-authoring-templates.md) [**Microsoft. COMPUTE/virtualMachineScaleSets**](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachinescalesets) . Na potrzeby instalacji Dodaj certyfikat do osProfile. Sekcja rozszerzenia szablonu może zaktualizować certyfikat na liście ACL.
 
   ```json
   {
@@ -150,15 +150,15 @@ Po szablonie Menedżera zasobów można włączyć odwrotny serwer proxy, wykonu
     }
   ```
 > [!NOTE]
-> W przypadku używania certyfikatów różniących się od certyfikatu klastra w celu włączenia odwrotnego serwera proxy w istniejącym klastrze należy zainstalować odwrócony certyfikat serwera proxy i zaktualizować listy ACL w klastrze przed włączeniem odwrotnego serwera proxy. Ukończ wdrożenie [szablonu usługi Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) przy użyciu ustawień wymienionych wcześniej przed rozpoczęciem wdrażania, aby włączyć odwrotny serwer proxy w krokach 1-3.
+> W przypadku używania certyfikatów, które różnią się od certyfikatu klastra w celu włączenia zwrotnego serwera proxy w istniejącym klastrze, należy zainstalować certyfikat zwrotnego serwera proxy i zaktualizować listę kontroli dostępu w klastrze przed włączeniem zwrotnego serwera proxy. Ukończ wdrożenie [szablonu Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) przy użyciu powyższych ustawień przed rozpoczęciem wdrażania, aby włączyć zwrotny serwer proxy w krokach 1-3.
 
-## <a name="enable-reverse-proxy-on-standalone-clusters"></a>Włączanie odwrotnego serwera proxy w klastrach autonomicznych
+## <a name="enable-reverse-proxy-on-standalone-clusters"></a>Włącz zwrotny serwer proxy w klastrach autonomicznych
 
-W przypadku klastrów autonomicznych włączysz odwrotny serwer proxy w pliku ClusterConfig.json. Można włączyć odwrotny serwer proxy podczas tworzenia klastra lub uaktualniania konfiguracji dla istniejącego klastra. Aby dowiedzieć się więcej o ustawieniach dostępnych w plikach ClusterConfig.json, zobacz [Autonomiczne ustawienia klastra](./service-fabric-cluster-manifest.md).
+W przypadku klastrów autonomicznych należy włączyć zwrotny serwer proxy w pliku ClusterConfig. JSON. Można włączyć zwrotny serwer proxy podczas tworzenia klastra lub uaktualnić konfigurację dla istniejącego klastra. Aby dowiedzieć się więcej o ustawieniach dostępnych w plikach ClusterConfig. JSON, zobacz [autonomiczne ustawienia klastra](./service-fabric-cluster-manifest.md).
 
-W poniższych krokach przedstawiono ustawienia używane do włączania odwrotnego serwera proxy i, opcjonalnie, aby zabezpieczyć odwrotny serwer proxy za pomocą certyfikatu X.509. 
+Poniższe kroki pokazują ustawienia umożliwiające włączenie zwrotnego serwera proxy oraz, opcjonalnie, aby zabezpieczyć zwrotny serwer proxy za pomocą certyfikatu X. 509. 
 
-1. Aby włączyć odwrotny serwer proxy, ustaw wartość **reverseProxyEndpointPort** dla typu węzła w obszarze **właściwości** w konfiguracji klastra. Następujący JSON pokazuje ustawienie odwrotnego portu punktu końcowego serwera proxy na 19081 dla węzłów o typie "NodeType0":
+1. Aby włączyć zwrotny serwer proxy, należy ustawić wartość **reverseProxyEndpointPort** dla typu węzła w obszarze **Właściwości** w konfiguracji klastra. Poniższy kod JSON przedstawia ustawienie portu punktu końcowego zwrotnego serwera proxy na 19081 dla węzłów o typie "NodeType0":
 
    ```json
        "properties": {
@@ -174,8 +174,8 @@ W poniższych krokach przedstawiono ustawienia używane do włączania odwrotneg
           ...
        }
    ```
-2. (Opcjonalnie) Aby uzyskać bezpieczny odwrotny serwer proxy, skonfiguruj certyfikat w sekcji **zabezpieczeń** w obszarze **Właściwości**. 
-   - W środowisku deweloperskim lub testowym można użyć ustawienia **ReverseProxyCertificate:**
+2. Obowiązkowe W przypadku bezpiecznego zwrotnego serwera proxy Skonfiguruj certyfikat w sekcji **zabezpieczenia** w obszarze **Właściwości**. 
+   - W przypadku środowiska programistycznego lub testowego można użyć ustawienia **ReverseProxyCertificate** :
 
       ```json
           "properties": {
@@ -195,7 +195,7 @@ W poniższych krokach przedstawiono ustawienia używane do włączania odwrotneg
               ...
           }
       ```
-   - W środowisku produkcyjnym zalecane jest ustawienie **ReverseProxyCertificateCommonNames:**
+   - Dla środowiska produkcyjnego zalecane jest ustawienie **ReverseProxyCertificateCommonNames** :
 
       ```json
           "properties": {
@@ -219,40 +219,40 @@ W poniższych krokach przedstawiono ustawienia używane do włączania odwrotneg
           }
       ```
 
-   Aby dowiedzieć się więcej na temat konfigurowania certyfikatów autonomicznego klastra i zarządzania nimi, a także więcej szczegółów dotyczących konfigurowania certyfikatów używanych do zabezpieczania odwrotnego serwera proxy, zobacz [Zabezpieczenia oparte na certyfikatach X509](./service-fabric-windows-cluster-x509-security.md).
+   Aby dowiedzieć się więcej na temat konfigurowania i zarządzania certyfikatami dla klastra autonomicznego, a także bardziej szczegółowych informacji na temat konfigurowania certyfikatów używanych do zabezpieczenia zwrotnego serwera proxy, zobacz [zabezpieczenia oparte na certyfikatach x509](./service-fabric-windows-cluster-x509-security.md).
 
-Po zmodyfikowaniu pliku ClusterConfig.json w celu włączenia odwrotnego serwera proxy postępuj zgodnie z instrukcjami w [uaktualnieniu konfiguracji klastra,](service-fabric-cluster-config-upgrade-windows-server.md) aby wypchnąć zmiany do klastra.
+Po zmodyfikowaniu pliku ClusterConfig. JSON w celu włączenia zwrotnego serwera proxy postępuj zgodnie z instrukcjami w temacie [Uaktualnij konfigurację klastra](service-fabric-cluster-config-upgrade-windows-server.md) , aby wypchnąć zmiany w klastrze.
 
 
-## <a name="expose-reverse-proxy-on-a-public-port-through-azure-load-balancer"></a>Uwidacznianie odwrotnego serwera proxy w porcie publicznym za pośrednictwem modułu równoważenia obciążenia platformy Azure
+## <a name="expose-reverse-proxy-on-a-public-port-through-azure-load-balancer"></a>Uwidaczniaj zwrotny serwer proxy na porcie publicznym za pomocą Azure Load Balancer
 
-Aby rozwiązać odwrotny serwer proxy spoza klastra platformy Azure, należy skonfigurować reguły równoważenia obciążenia platformy Azure i sondę kondycji platformy Azure dla portu odwrotnego serwera proxy. Te kroki można wykonać przy użyciu witryny Azure portal lub szablonu Menedżera zasobów w dowolnym momencie po utworzeniu klastra. 
+Aby rozwiązać zwrotny serwer proxy spoza klastra platformy Azure, skonfiguruj reguły Azure Load Balancer i sondę kondycji platformy Azure dla portu zwrotnego serwera proxy. Kroki te można wykonać przy użyciu Azure Portal lub szablonu Menedżer zasobów w dowolnym momencie po utworzeniu klastra. 
 
 > [!WARNING]
-> Podczas konfigurowania portu odwrotnego serwera proxy w moduł równoważenia obciążenia wszystkie mikrousługi w klastrze, które udostępniają punkt końcowy HTTP są adresowalne spoza klastra. Oznacza to, że mikrousługi przeznaczone do wewnętrznej może być wykrywalne przez określonego złośliwego użytkownika. Potencjalnie stwarza to poważne luki w zabezpieczeniach, które można wykorzystać; na przykład:
+> Po skonfigurowaniu portu zwrotnego serwera proxy w Load Balancer wszystkie mikrousługi w klastrze, które uwidaczniają punkt końcowy HTTP, są adresowane spoza klastra. Oznacza to, że mikrousługi mające być wewnętrzne mogą być odnajdywane przez określonego złośliwego użytkownika. Jest to potencjalnie przyczyną poważnych luk w zabezpieczeniach, które mogą zostać wykorzystane; na przykład:
 >
-> * Złośliwy użytkownik może uruchomić atak typu "odmowa usługi", wielokrotnie wywołując usługę wewnętrzną, która nie ma wystarczająco wzmocnionej powierzchni ataku.
-> * Złośliwy użytkownik może dostarczać nieprawidłowo sformułowane pakiety do usługi wewnętrznej, co powoduje niezamierzone zachowanie.
-> * Usługa przeznaczona do wewnętrznej może zwracać prywatne lub poufne informacje, które nie są przeznaczone do narażonych na usługi poza klastrem, ujawniając w ten sposób te poufne informacje złośliwemu użytkownikowi. 
+> * Złośliwy użytkownik może uruchomić atak typu "odmowa usługi", wielokrotnie wywołując usługę wewnętrzną, która nie ma wystarczająco niezawodnej powierzchni ataku.
+> * Złośliwy użytkownik może dostarczyć wadliwe pakiety do usługi wewnętrznej, powodując niezamierzone zachowanie.
+> * Usługa, która ma być wewnętrzna, może zwracać informacje prywatne lub poufne, które nie są przeznaczone do ujawnienia usług poza klastrem, dzięki czemu ujawniają te poufne informacje złośliwemu użytkownikowi. 
 >
-> Upewnij się, że w pełni zrozumieć i ograniczyć potencjalne konsekwencje zabezpieczeń dla klastra i aplikacji działających na nim, przed upublicznieniem odwrotnego portu proxy. 
+> Pamiętaj, aby w pełni zrozumieć i wyeliminować potencjalne konsekwencje dotyczące zabezpieczeń klastra i uruchomione na nim aplikacje przed przystąpieniem do publicznego przywróceniu portu serwera proxy. 
 >
 
-Jeśli chcesz udostępnić odwrotnej proxy publicznie dla autonomicznego klastra, sposób, w jaki to zrobić będzie zależeć od systemu hosting klastra i wykracza poza zakres tego artykułu. Poprzednie ostrzeżenie dotyczące publicznego ujawniania odwrotnego serwera proxy nadal ma zastosowanie.
+Jeśli chcesz uwidocznić odwrotny serwer proxy publicznie dla klastra autonomicznego, sposób, w jaki to zrobisz, będzie zależny od systemu obsługującego klaster i wykraczający poza zakres tego artykułu. Powyższe ostrzeżenie dotyczące ujawniania publicznie zwrotnego serwera proxy nadal ma zastosowanie.
 
-### <a name="expose-the-reverse-proxy-using-azure-portal"></a>Uwidacznianie odwrotnego serwera proxy przy użyciu witryny Azure portal 
+### <a name="expose-the-reverse-proxy-using-azure-portal"></a>Uwidacznianie zwrotnego serwera proxy przy użyciu Azure Portal 
 
-1. W witrynie Azure Portal kliknij grupę zasobów dla klastra, a następnie kliknij moduł równoważenia obciążenia klastra.
-2. Aby dodać sondę kondycji dla portu odwrotnego serwera proxy, w lewym okienku okna modułu równoważenia obciążenia, w obszarze **USTAWIENIA**kliknij pozycję **Sondy kondycji**. Następnie kliknij przycisk **Dodaj** u góry okna Sondy kondycji i wprowadź szczegóły portu odwrotnego serwera proxy, a następnie kliknij przycisk **OK**. Domyślnie odwrotny port serwera proxy to 19081, chyba że został zmieniony podczas tworzenia klastra.
+1. Na Azure Portal kliknij grupę zasobów klastra, a następnie kliknij moduł równoważenia obciążenia dla klastra.
+2. Aby dodać sondę kondycji dla portu zwrotnego serwera proxy, w lewym okienku okna modułu równoważenia obciążenia w obszarze **Ustawienia**kliknij pozycję **sondy kondycji**. Następnie kliknij pozycję **Dodaj** w górnej części okna sondy kondycji i wprowadź szczegóły portu zwrotnego serwera proxy, a następnie kliknij przycisk **OK**. Domyślnie port zwrotnego serwera proxy to 19081, chyba że został zmieniony podczas tworzenia klastra.
 
-   ![Konfigurowanie sondy kondycji odwrotnego serwera proxy](./media/service-fabric-reverseproxy-setup/lb-rp-probe.png)
-3. Aby dodać regułę równoważenia obciążenia w celu udostępnienia portu odwrotnego serwera proxy, w lewym okienku okna modułu równoważenia obciążenia w obszarze **USTAWIENIA**kliknij pozycję **Reguły równoważenia obciążenia**. Następnie kliknij przycisk **Dodaj** u góry okna Reguły równoważenia obciążenia i wprowadź szczegóły portu odwrotnego serwera proxy. Upewnij się, że ustawiono wartość **port** na port, na którym ma być odsłonięty serwer proxy wsteczny, wartość **portu wewnętrznej bazy danych** ustawionego po włączeniu odwrotnego serwera proxy, a wartość **sondy kondycji** do sondy kondycji skonfigurowaną w poprzednim kroku. Ustaw inne pola odpowiednio i kliknij przycisk **OK**.
+   ![Konfigurowanie sondy kondycji zwrotnego serwera proxy](./media/service-fabric-reverseproxy-setup/lb-rp-probe.png)
+3. Aby dodać regułę Load Balancer, aby uwidocznić port zwrotnego serwera proxy, w lewym okienku okna modułu równoważenia obciążenia w obszarze **Ustawienia**kliknij pozycję **reguły równoważenia obciążenia**. Następnie kliknij pozycję **Dodaj** w górnej części okna reguły równoważenia obciążenia i wprowadź szczegóły dla portu zwrotnego serwera proxy. Upewnij się, że wartość **portu** jest ustawiona na port, na którym ma być uwidoczniony zwrotny serwer proxy, wartość **portu zaplecza** do portu ustawionego po włączeniu zwrotnego serwera proxy oraz wartość **sondy** kondycji do sondy kondycji skonfigurowanej w poprzednim kroku. W razie potrzeby ustaw inne pola i kliknij przycisk **OK**.
 
-   ![Konfigurowanie reguły równoważenia obciążenia dla odwrotnego serwera proxy](./media/service-fabric-reverseproxy-setup/lb-rp-rule.png)
+   ![Skonfiguruj regułę modułu równoważenia obciążenia dla zwrotnego serwera proxy](./media/service-fabric-reverseproxy-setup/lb-rp-rule.png)
 
-### <a name="expose-the-reverse-proxy-via-resource-manager-templates"></a>Udostępnianie odwrotnego serwera proxy za pomocą szablonów Menedżera zasobów
+### <a name="expose-the-reverse-proxy-via-resource-manager-templates"></a>Uwidacznianie zwrotnego serwera proxy za pomocą szablonów Menedżer zasobów
 
-Poniższy JSON odwołuje się do tego samego szablonu, który jest używany w [Enable reverse proxy za pośrednictwem szablonów usługi Azure Resource Manager](#enable-reverse-proxy-via-azure-resource-manager-templates). Informacje na temat tworzenia szablonu Menedżera zasobów lub eksportowania szablonu dla istniejącego klastra można znaleźć w tej sekcji dokumentu.  Zmiany są wprowadzane w sekcji [**Microsoft.Network/loadBalancers**](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers) [Resource type .](../resource-group-authoring-templates.md)
+Poniższy kod JSON odwołuje się do tego samego szablonu, który jest używany w funkcji [Włącz zwrotny serwer proxy za pomocą szablonów Azure Resource Manager](#enable-reverse-proxy-via-azure-resource-manager-templates). Zapoznaj się z tą sekcją dokumentu, aby uzyskać informacje na temat sposobu tworzenia szablonu Menedżer zasobów lub eksportowania szablonu dla istniejącego klastra.  Zmiany są wprowadzane w [sekcji Typ zasobu](../resource-group-authoring-templates.md) [**Microsoft. Network/loadBalancers**](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers) .
 
     ```json
     {
@@ -298,11 +298,11 @@ Poniższy JSON odwołuje się do tego samego szablonu, który jest używany w [E
     ```
 
 
-## <a name="customize-reverse-proxy-behavior-using-fabric-settings"></a>Dostosowywanie zachowania serwera proxy wstecznego przy użyciu ustawień sieci szkieletowej
+## <a name="customize-reverse-proxy-behavior-using-fabric-settings"></a>Dostosowywanie zachowania zwrotnego serwera proxy przy użyciu ustawień sieci szkieletowej
 
-Zachowanie odwrotnego serwera proxy można dostosować za pomocą ustawień sieci szkieletowej w szablonie Menedżera zasobów dla klastrów hostowanych na platformie Azure lub w pliku ClusterConfig.json dla klastrów autonomicznych. Ustawienia sterujące zachowaniem odwrotnego serwera proxy znajdują się w sekcji [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) w sekcji **fabricSettings** w sekcji **właściwości klastra.** 
+Można dostosować zachowanie zwrotnego serwera proxy za pomocą ustawień sieci szkieletowej w szablonie Menedżer zasobów dla klastrów hostowanych na platformie Azure lub w pliku ClusterConfig. JSON dla klastrów autonomicznych. Ustawienia kontrolujące zachowanie zwrotnego serwera proxy znajdują się w sekcji [**elementu applicationgateway/http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) w sekcji **fabricSettings** w sekcji **Właściwości** klastra. 
 
-Na przykład można ustawić wartość **DefaultHttpRequestTimeout,** aby ustawić limit czasu dla żądań do odwrotnego serwera proxy do 180 sekund, jak w następującym JSON:
+Na przykład można ustawić wartość **DefaultHttpRequestTimeout** , aby ustawić limit czasu żądań na zwrotny serwer proxy do 180 sekund, jak w poniższym kodzie JSON:
 
    ```json
    {
@@ -322,10 +322,10 @@ Na przykład można ustawić wartość **DefaultHttpRequestTimeout,** aby ustawi
    }
    ``` 
 
-Aby uzyskać więcej informacji na temat aktualizowania ustawień sieci szkieletowej dla klastrów platformy Azure, zobacz [Dostosowywanie ustawień klastra przy użyciu szablonów Menedżera zasobów](service-fabric-cluster-config-upgrade-azure.md). W przypadku klastrów autonomicznych zobacz [Dostosowywanie ustawień klastra dla klastrów autonomicznych](service-fabric-cluster-config-upgrade-windows-server.md). 
+Aby uzyskać więcej informacji na temat aktualizowania ustawień sieci szkieletowej dla klastrów platformy Azure, zobacz [Dostosowywanie ustawień klastra przy użyciu szablonów Menedżer zasobów](service-fabric-cluster-config-upgrade-azure.md). W przypadku klastrów autonomicznych zobacz [Dostosowywanie ustawień klastra dla klastrów autonomicznych](service-fabric-cluster-config-upgrade-windows-server.md). 
 
-Kilka ustawień sieci szkieletowej służy do ustanawiania bezpiecznej komunikacji między odwrotnym serwerem proxy a usługami. Aby uzyskać szczegółowe informacje na temat tych ustawień, zobacz [Łączenie się z bezpieczną usługą za pomocą odwrotnego serwera proxy](service-fabric-reverseproxy-configure-secure-communication.md).
+Kilka ustawień sieci szkieletowej służy do nawiązywania bezpiecznej komunikacji między zwrotnym serwerem proxy a usługami. Aby uzyskać szczegółowe informacje na temat tych ustawień, zobacz [nawiązywanie połączenia z bezpieczną usługą przy użyciu zwrotnego serwera proxy](service-fabric-reverseproxy-configure-secure-communication.md).
 
 ## <a name="next-steps"></a>Następne kroki
-* [Konfigurowanie przekazywania dalej w celu zabezpieczenia usługi HTTP za pomocą odwrotnego serwera proxy](service-fabric-reverseproxy-configure-secure-communication.md)
-* Aby uzyskać opcje konfiguracji serwera proxy wstecznego, zobacz [sekcję ApplicationGateway/Http w obszarze Dostosowywanie ustawień klastra sieci szkieletowej usług](service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
+* [Skonfiguruj przekazywanie do bezpiecznej usługi HTTP przy użyciu zwrotnego serwera proxy](service-fabric-reverseproxy-configure-secure-communication.md)
+* Aby zapoznać się z opcjami konfiguracji zwrotnego serwera proxy, zobacz [sekcję elementu applicationgateway/http w temacie Dostosowywanie ustawień klastra Service Fabric](service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
