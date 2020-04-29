@@ -1,6 +1,6 @@
 ---
-title: Używanie grup urządzeń w aplikacji Azure IoT Central | Dokumenty firmy Microsoft
-description: Jako operator dowiedz się, jak używać grup urządzeń do analizowania danych telemetrycznych z urządzeń w aplikacji Azure IoT Central.
+title: Używanie grup urządzeń w aplikacji IoT Central platformy Azure | Microsoft Docs
+description: Dowiedz się, jak używać grup urządzeń do analizowania danych telemetrycznych z urządzeń w aplikacji IoT Central platformy Azure.
 author: dominicbetts
 ms.author: dobett
 ms.date: 02/12/2020
@@ -9,85 +9,85 @@ ms.service: iot-central
 services: iot-central
 manager: peterpfr
 ms.openlocfilehash: 58fc71ab05c34e8acd252e7a1984c55996d1b3a7
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80999034"
 ---
-# <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Samouczek: analizowanie telemetrii urządzeń za pomocą grup urządzeń
+# <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Samouczek: używanie grup urządzeń do analizowania danych telemetrycznych urządzenia
 
-W tym artykule opisano, jak jako operator używać grup urządzeń do analizowania danych telemetrycznych urządzeń w aplikacji Usługi Azure IoT Central.
+W tym artykule opisano, jak operator, aby użyć grup urządzeń do analizowania danych telemetrycznych urządzenia w aplikacji IoT Central platformy Azure.
 
-Grupa urządzeń to lista urządzeń, które są zgrupowane razem, ponieważ odpowiadają określonym kryteriom. Grupy urządzeń ułatwiają zarządzanie, wizualizowanie i analizowanie urządzeń na dużą skalę przez grupowanie urządzeń w mniejsze, logiczne grupy. Na przykład można utworzyć grupę urządzeń, aby wyświetlić listę wszystkich urządzeń klimatyzatora w Seattle, aby umożliwić technikowi znajdowanie urządzeń, za które są odpowiedzialni.
+Grupa urządzeń to lista urządzeń zgrupowanych ze sobą, ponieważ są one zgodne z określonymi kryteriami. Grupy urządzeń ułatwiają zarządzanie, wizualizowanie i analizowanie urządzeń w dużej skali przez grupowanie urządzeń w mniejsze, logiczne grupy. Na przykład możesz utworzyć grupę urządzeń, aby wyświetlić listę wszystkich urządzeń z warunkiem klimatyzacyjnym w Seattle, aby umożliwić pracownikom znalezienie urządzeń, dla których są odpowiedzialni.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie grupy urządzeń
-> * Analizowanie danych telemetrycznych urządzenia za pomocą grupy urządzeń
+> * Przeanalizuj dane telemetryczne urządzenia za pomocą grupy urządzeń
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem należy ukończyć [tworzenie aplikacji Azure IoT Central](./quick-deploy-iot-central.md) i dodać symulowane urządzenie do szybkiego startu aplikacji [IoT Central,](./quick-create-simulated-device.md) aby utworzyć szablon urządzenia **MXChip IoT DevKit** do pracy.
+Przed rozpoczęciem należy ukończyć [Tworzenie aplikacji IoT Central platformy Azure](./quick-deploy-iot-central.md) i [dodać symulowane urządzenie do aplikacji IoT Central](./quick-create-simulated-device.md) przewodników Szybki Start, aby utworzyć szablon urządzenia **zestawu deweloperskiego IoT DevKit** do pracy z usługą.
 
 ## <a name="create-simulated-devices"></a>Tworzenie symulowanych urządzeń
 
-Przed utworzeniem grupy urządzeń należy dodać co najmniej pięć symulowanych urządzeń z szablonu urządzenia **MXChip IoT DevKit,** który będzie używany w tym samouczku:
+Przed utworzeniem grupy urządzeń należy dodać co najmniej pięć symulowanych urządzeń z szablonu urządzenia **zestawu deweloperskiego IoT DevKit** do użycia w tym samouczku:
 
 ![Pięć symulowanych urządzeń czujników](./media/tutorial-use-device-groups/simulated-devices.png)
 
-W przypadku czterech symulowanych urządzeń czujników użyj widoku **Zarządzaj urządzeniem,** aby ustawić nazwę klienta na *Contoso:*
+W przypadku czterech symulowanych urządzeń czujników użyj widoku **Zarządzanie urządzeniem** , aby ustawić nazwę klienta na *contoso*:
 
-![Ustawianie nazwy klienta na Contoso](./media/tutorial-use-device-groups/customer-name.png)
+![Ustaw nazwę klienta na contoso](./media/tutorial-use-device-groups/customer-name.png)
 
 ## <a name="create-a-device-group"></a>Tworzenie grupy urządzeń
 
 Aby utworzyć grupę urządzeń:
 
-1. Wybierz **pozycję Grupy urządzeń** w lewym okienku.
+1. W okienku po lewej stronie wybierz pozycję **grupy urządzeń** .
 
 1. Wybierz **+**:
 
     ![Nowa grupa urządzeń](media/tutorial-use-device-groups/image1.png)
 
-1. Nadaj grupie urządzeń nazwę *Urządzenia Contoso*. Można również dodać opis. Grupa urządzeń może zawierać tylko urządzenia z jednego szablonu urządzenia. Wybierz szablon urządzenia **MXChip IoT DevKit,** który będzie używany dla tej grupy.
+1. Nadaj grupie urządzeń nazwę *contoso Devices*. Możesz również dodać opis. Grupa urządzeń może zawierać tylko urządzenia z jednego szablonu urządzenia. Wybierz szablon urządzenia **zestawu deweloperskiego IoT DevKit** , który ma być używany dla tej grupy.
 
-1. Aby dostosować grupę urządzeń tak, aby uwzględniała tylko urządzenia należące do **firmy Contoso,** wybierz **opcję + Filtr**. Wybierz właściwość Nazwa **nabywcy,** operator porównania Równa się i **Contoso** jako wartość. **Customer Name** Można dodać wiele filtrów i urządzeń spełniających **wszystkie** kryteria filtrowania są umieszczane w grupie urządzeń. Utworzona grupa urządzeń jest dostępna dla każdego, kto ma dostęp do aplikacji, dzięki czemu każdy może wyświetlać, modyfikować lub usuwać grupę urządzeń:
+1. Aby dostosować grupę urządzeń w celu uwzględnienia tylko urządzeń należących do firmy **contoso**, wybierz pozycję **+ Filtr**. Wybierz właściwość **Nazwa klienta** , operator porównania **równa** się i **contoso** jako wartość. Można dodać wiele filtrów i urządzeń spełniających **wszystkie** kryteria filtrowania są umieszczane w grupie urządzeń. Utworzona grupa urządzeń jest dostępna dla każdego, kto ma dostęp do aplikacji, więc każda osoba może wyświetlać, modyfikować lub usuwać grupę urządzeń:
 
-    ![Kwerenda grupy urządzeń](media/tutorial-use-device-groups/image2.png)
+    ![Zapytanie grupy urządzeń](media/tutorial-use-device-groups/image2.png)
 
     > [!TIP]
-    > Grupa urządzeń jest kwerendą dynamiczną. Za każdym razem, gdy wyświetlasz listę urządzeń, na liście mogą znajdować się różne urządzenia. Lista zależy od tego, które urządzenia spełniają obecnie kryteria kwerendy.
+    > Grupa urządzeń jest kwerendą dynamiczną. Za każdym razem, gdy oglądasz listę urządzeń, na liście mogą znajdować się różne urządzenia. Lista zależy od tego, które urządzenia spełniają kryteria zapytania.
 
-1. Wybierz pozycję **Zapisz**.
+1. Wybierz polecenie **Zapisz**.
 
 > [!NOTE]
-> W przypadku urządzeń usługi Azure IoT Edge wybierz szablony usługi Azure IoT Edge, aby utworzyć grupę urządzeń.
+> W przypadku urządzeń Azure IoT Edge wybierz pozycję Szablony Azure IoT Edge, aby utworzyć grupę urządzeń.
 
 ## <a name="analytics"></a>Analiza
 
-**Analytics** z grupą urządzeń służy do analizowania danych telemetrycznych z urządzeń w grupie. Na przykład można wykreślić średnią temperaturę zgłoszoną przez wszystkie czujniki środowiskowe Contoso.
+Możesz użyć **analizy** z grupą urządzeń, aby przeanalizować dane telemetryczne z urządzeń w grupie. Na przykład można wykreślić średnią temperaturę raportowaną przez wszystkie czujniki środowiska firmy Contoso.
 
 Aby przeanalizować dane telemetryczne dla grupy urządzeń:
 
-1. Wybierz **pozycję Analytics** w lewym okienku.
+1. Wybierz pozycję **Analiza** w okienku po lewej stronie.
 
-1. Wybierz utworzoną grupę **urządzeń Contoso.** Następnie dodaj zarówno typy telemetrii **temperatury,** jak i **wilgotności:**
+1. Wybierz utworzoną grupę urządzeń **contoso Devices** . Następnie dodaj typy telemetrii **temperatury** i **wilgotności** :
 
     ![Tworzenie analizy](./media/tutorial-use-device-groups/create-analysis.png)
 
-    Użyj ikon koła zębatego obok typów telemetrii, aby wybrać typ agregacji. Wartość domyślna to **Średnia**. Użyj **podziału przez,** aby zmienić sposób pokazywanych danych agregacji. Na przykład, jeśli podzielisz się według identyfikatora urządzenia, zobaczysz wykres dla każdego urządzenia po **wybraniu opcji Analizuj**.
+    Użyj ikon koła zębatego obok typów telemetrii, aby wybrać typ agregacji. Wartość domyślna to **Average**. Użyj **podziału przez** , aby zmienić sposób wyświetlania zagregowanych danych. Jeśli na przykład podzieli według identyfikatora urządzenia, zobaczysz wykres dla każdego urządzenia po wybraniu opcji **Analizuj**.
 
-1. Wybierz **opcję Analizuj,** aby wyświetlić średnie wartości telemetryczne:
+1. Wybierz pozycję **Analizuj** , aby wyświetlić średnie wartości telemetrii:
 
     ![Wyświetl analizę](./media/tutorial-use-device-groups/view-analysis.png)
 
-    Można dostosować widok, zmienić wyświetlony okres czasu i wyeksportować dane.
+    Możesz dostosować widok, zmienić wyświetlany okres i wyeksportować dane.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy już wiesz, jak korzystać z grup urządzeń w aplikacji Azure IoT Central, oto sugerowany następny krok:
+Teraz, gdy wiesz już, jak używać grup urządzeń w aplikacji IoT Central platformy Azure, Oto sugerowany następny krok:
 
 > [!div class="nextstepaction"]
-> [Jak utworzyć reguły telemetryczne](tutorial-create-telemetry-rules.md)
+> [Jak utworzyć reguły telemetrii](tutorial-create-telemetry-rules.md)

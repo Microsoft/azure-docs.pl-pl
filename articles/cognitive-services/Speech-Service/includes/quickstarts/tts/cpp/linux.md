@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: Synteza mowy, C++ (Linux) - usługa mowy'
+title: 'Szybki Start: synteza mowy, C++ (Linux) — usługa mowy'
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak syntetyzować mowę w języku C++ w systemie Linux przy użyciu SDK mowy
+description: Dowiedz się, jak przeprowadzić funkcję syntezy mowy w języku C++ w systemie Linux przy użyciu zestawu Speech SDK
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: yinhew
 ms.openlocfilehash: 458dc6899b0d89fcda2ff989ae95523e12de13c5
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81275556"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zanim zaczniesz, upewnij się, że:
+Przed rozpoczęciem upewnij się, że:
 
 > [!div class="checklist"]
-> * [Tworzenie zasobu mowy platformy Azure](../../../../get-started.md)
-> * [Konfigurowanie środowiska programistycznego i tworzenie pustego projektu](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programming-language-cpp)
+> * [Tworzenie zasobu usługi Azure Speech](../../../../get-started.md)
+> * [Skonfiguruj środowisko deweloperskie i Utwórz pusty projekt](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programming-language-cpp)
 
 ## <a name="add-sample-code"></a>Dodawanie przykładowego kodu
 
@@ -52,7 +52,7 @@ Zanim zaczniesz, upewnij się, że:
   g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libasound.so.2
   ```
 
-* W systemie **ARM64** (64-bitowym) uruchom następujące polecenie, aby utworzyć aplikację.
+* W systemie **arm64** (64-bitowym) Uruchom następujące polecenie, aby skompilować aplikację.
 
   ```sh
   g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/arm64" -l:libasound.so.2
@@ -74,7 +74,7 @@ Zanim zaczniesz, upewnij się, że:
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x86"
      ```
 
-   * W systemie **ARM64** (64-bitowym) wprowadź następujące polecenie.
+   * W systemie **arm64** (64-bitowym) wprowadź następujące polecenie.
 
      ```sh
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/arm64"
@@ -86,7 +86,7 @@ Zanim zaczniesz, upewnij się, że:
    ./helloworld
    ```
 
-1. W oknie konsoli zostanie wyświetlony monit z monitem o wpisanie tekstu. Wpisz kilka słów lub zdanie. Wpisany tekst jest przesyłany do usługi Mowa i syntetyzowany do mowy, która jest odtwarzana na głośniku.
+1. W oknie konsoli zostanie wyświetlony monit z monitem o wpisanie tekstu. Wpisz kilka wyrazów lub zdania. Tekst, który wpisano, jest przesyłany do usługi mowy i można go wyrównać do mowy, który jest odtwarzany na głośniku.
 
    ```text
    Type some text that you want to speak...
@@ -99,7 +99,7 @@ Zanim zaczniesz, upewnij się, że:
 
 [!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Tworzenie niestandardowego głosu](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
-- [Nagrywanie niestandardowych próbek głosu](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
+- [Rejestruj niestandardowe przykłady głosu](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

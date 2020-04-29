@@ -1,5 +1,5 @@
 ---
-title: Przykłady programu Azure PowerShell — zestaw skalowania nadmiarowych stref
+title: Przykłady Azure PowerShell-strefowo nadmiarowy zestaw skalowania
 description: Ten skrypt tworzy zestaw skalowania maszyn wirtualnych z systemem Windows Server 2016 w wielu strefach dostępności.
 author: ju-shim
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 04/05/2018
 ms.author: jushiman
 ms.custom: mvc
 ms.openlocfilehash: 902233025f8d98a8e0966fca869634ed132976b5
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81008446"
 ---
 # <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>Tworzenie strefowo nadmiarowego zestawu skalowania maszyn wirtualnych przy użyciu programu PowerShell

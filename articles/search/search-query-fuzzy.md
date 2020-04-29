@@ -1,7 +1,7 @@
 ---
 title: Wyszukiwanie rozmyte
 titleSuffix: Azure Cognitive Search
-description: Zaimplementuj wyszukiwanie "czy masz na myśli", aby automatycznie poprawić błędnie napisany termin lub literówkę.
+description: Zaimplementuj środowisko wyszukiwania "Czy chodziło", aby poprawić błędne wyrażenie lub literówki.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,108 +9,108 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.openlocfilehash: 32ad34bcfb42bf8fc45ba7fdb7fba5e797ee6106
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81262438"
 ---
-# <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Wyszukiwanie rozmyte w celu skorygowania błędów ortograficznych i literówek
+# <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Wyszukiwanie rozmyte pozwala poprawić błędy pisowni i literówki
 
-Usługa Azure Cognitive Search obsługuje wyszukiwanie rozmyte, typ kwerendy, która kompensuje literówki i błędnie napisane terminy w ciągu wejściowym. Czyni to poprzez skanowanie w poszukiwaniu terminów o podobnym składzie. Rozszerzenie wyszukiwania na bliskie mecze skutkuje automatyczną poprawianiem literówki, gdy rozbieżność to tylko kilka zagubionych znaków. 
+Usługa Azure Wyszukiwanie poznawcze obsługuje Wyszukiwanie rozmyte, typ zapytania, który umożliwia kompensowanie literówki i błędnie napisanych wyrazów w ciągu wejściowym. Jest to możliwe dzięki skanowaniu pod kątem warunków mających podobną kompozycję. Rozwijanie wyszukiwania w celu poprawienia dopasowań ma wpływ na funkcję Autokorekty literówki, gdy niezgodność jest zaledwie kilka nieprawidłowych znaków. 
 
-## <a name="what-is-fuzzy-search"></a>Co to jest wyszukiwanie rozmyte?
+## <a name="what-is-fuzzy-search"></a>Co to jest Wyszukiwanie rozmyte?
 
-Jest to ćwiczenie ekspansji, które tworzy dopasowanie na warunkach o podobnym składzie. Po określeniu wyszukiwania rozmytego aparat tworzy wykres (oparty na [deterministycznej teorii skończonego automatu)](https://en.wikipedia.org/wiki/Deterministic_finite_automaton)podobnie skomponowanych terminów dla wszystkich całych terminów w zapytaniu. Na przykład, jeśli zapytanie zawiera trzy terminy "uniwersytet w Waszyngtonie", `search=university~ of~ washington~` wykres jest tworzony dla każdego terminu w kwerendzie (nie ma usuwania słowa stop w wyszukiwaniu rozmytym, więc "z" pobiera wykres).
+Jest to ćwiczenie rozszerzające, które tworzy dopasowanie na warunkach mających podobną kompozycję. Gdy jest określone Wyszukiwanie rozmyte, aparat tworzy wykres (oparty na [deterministyczniu skończonej usługi Automation teoretycznej](https://en.wikipedia.org/wiki/Deterministic_finite_automaton)) o podobnym znaczeniu, dla wszystkich pełnych terminów w zapytaniu. Na przykład, jeśli zapytanie zawiera trzy terminy "University of Waszyngton", wykres jest tworzony dla każdego terminu w zapytaniu `search=university~ of~ washington~` (nie ma usuwania wyrazów przerywanych w przypadku wyszukiwania rozmytego, więc "z" pobiera wykres).
 
-Wykres składa się z maksymalnie 50 rozszerzeń lub permutacji każdego terminu, przechwytując zarówno poprawne, jak i niepoprawne warianty w procesie. Aparat następnie zwraca najwyższej odpowiednich dopasowań w odpowiedzi. 
+Wykres składa się z maksymalnie 50 ekspansji lub permutacji każdego warunku, przechwytując jednocześnie poprawne i niepoprawne warianty w procesie. Aparat następnie zwraca najbardziej odpowiednie dopasowania w odpowiedzi. 
 
-Dla terminu takiego jak "uniwersytet", wykres może mieć "unversty, universty, uniwersytet, wszechświat, odwrotność". Wszystkie dokumenty, które pasują do tych na wykresie są uwzględniane w wynikach. W przeciwieństwie do innych zapytań, które analizują tekst do obsługi różnych form tego samego słowa ("myszy" i "myszy"), porównania w rozmytej kwerendzie są przyjmowane według wartości nominalnej bez żadnej analizy językowej tekstu. "Wszechświat" i "odwrotność", które są semantycznie różne, będą pasować, ponieważ różnice składniowe są małe.
+Na przykład termin "Uniwersytet" może mieć postać "unversty, Universty, University, Universe". Wszystkie dokumenty, które pasują do tych w grafie, są uwzględniane w wynikach. W przeciwieństwie do innych zapytań, które analizują tekst w celu obsługi różnych form tego samego wyrazu ("mysz" i "mysz"), porównania w zapytaniu rozmytym są wykonywane z wartością kroju bez żadnej analizy językowej tekstu. "Universe" i "odwrotne", które różnią się semantycznie, są zgodne, ponieważ rozbieżności składniowe są małe.
 
-Dopasowanie zakończy się pomyślnie, jeśli rozbieżności są ograniczone do dwóch lub mniej zmian, gdzie edycja jest wstawiony, usunięty, podstawiony lub transponowany znak. Algorytm korekcji ciągu, który określa różnicę jest [Damerau-Levenshtein metryki odległości,](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) opisane jako "minimalna liczba operacji (wstawienia, usunięcia, podstawienia lub transpozycji dwóch sąsiednich znaków) wymagane do zmiany jednego wyrazu do drugiego". 
+Dopasowanie powiedzie się, jeśli rozbieżności są ograniczone do dwóch lub mniejszych modyfikacji, gdzie Edycja jest wstawiana, usuwana, zastępowana lub transponowana. Algorytm korekcji ciągu określający różnicę jest metryką [odległości Damerau-Levenshtein](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) , opisaną jako "minimalna liczba operacji (wstawienia, usunięcia, podstawienia lub transpozycji dwóch sąsiadujących znaków) wymagana do zmiany jednego wyrazu na drugi". 
 
-W usłudze Azure Cognitive Search:
+Na platformie Azure Wyszukiwanie poznawcze:
 
-+ Rozmyte zapytanie dotyczy całych terminów, ale można obsługiwać frazy za pośrednictwem konstrukcji AND. Na przykład "Unviersty~ of~ "Wshington~" będzie pasować do "University of Washington".
++ Zapytanie rozmyte ma zastosowanie do całych warunków, ale można obsługiwać frazy i konstrukcje. Na przykład "Unviersty ~ of ~" Wshington ~ "byłoby zgodne z" University of Waszyngton ".
 
-+ Domyślna odległość edycji to 2. Wartość `~0` oznacza brak rozszerzenia (tylko dokładny termin jest uważany za dopasowanie), ale można określić `~1` dla jednego stopnia różnicy lub jednej edycji. 
++ Domyślna odległość edycji wynosi 2. Wartość `~0` oznacza brak rozwinięcia (tylko dokładny termin jest uważany za dopasowanie), ale można określić `~1` jeden stopień różnic lub jedną edycję. 
 
-+ Rozmyte zapytanie można rozwinąć termin do 50 dodatkowych permutacji. Ten limit nie jest konfigurowalny, ale można skutecznie zmniejszyć liczbę rozszerzeń, zmniejszając odległość edycji do 1.
++ Zapytanie rozmyte może rozwijać termin do 50 dodatkowych permutacji. Ten limit nie jest konfigurowalny, ale można skutecznie zmniejszyć liczbę rozszerzeń, zmniejszając odległość edycji do 1.
 
 + Odpowiedzi składają się z dokumentów zawierających odpowiednie dopasowanie (do 50).
 
-Łącznie wykresy są przesyłane jako kryteria dopasowania względem tokenów w indeksie. Jak można sobie wyobrazić, rozmyte wyszukiwanie jest z natury wolniejsze niż inne formularze zapytań. Rozmiar i złożoność indeksu można określić, czy korzyści są wystarczające, aby zrównoważyć opóźnienie odpowiedzi.
+Zbiorczo wykresy są przekazywane jako kryteria dopasowywania do tokenów w indeksie. Jak można wyobrazić, Wyszukiwanie rozmyte jest zależne od innych formularzy zapytań. Rozmiar i złożoność indeksu mogą określać, czy korzyści są wystarczające do przesunięcia opóźnienia odpowiedzi.
 
 > [!NOTE]
-> Ponieważ wyszukiwanie rozmyte wydaje się być powolne, warto zbadać alternatywy, takie jak indeksowanie n-gram, z postępem sekwencji krótkich znaków (dwie i trzy sekwencje znaków dla tokenów bigram i trygramu). W zależności od języka i powierzchni zapytania n-gram może zapewnić lepszą wydajność. Kompromis polega na tym, że indeksowanie n-gram jest bardzo intensywne i generuje znacznie większe indeksy.
+> Ponieważ Wyszukiwanie rozmyte jest powolne, może być wartościowa, aby zbadać alternatywy, takie jak indeksowanie n-gramowe, wraz z postępem sekwencji krótkich znaków (dwie i trzy sekwencje znaków dla tokenów dwugramowych i trigram). W zależności od używanego języka i powierzchni zapytań, n-gram może zapewnić lepszą wydajność. Jest to, że indeksowanie n-gramowe jest bardzo intensywnie czasochłonne i generuje znacznie większe indeksy.
 >
-> Inną alternatywą, którą można rozważyć, jeśli chcesz obsłużyć tylko najbardziej rażące przypadki, będzie [mapa synonimem](search-synonyms.md). Na przykład mapowanie "szukaj" na "serach, serch, sarch" lub "retrieve" na "retreive".
+> Kolejną alternatywą, którą można wziąć pod uwagę, jeśli chcesz obsłużyć tylko najbardziej egregiouse przypadki, będzie to [Mapa synonimu](search-synonyms.md). Na przykład Mapuj "Wyszukaj" na "wyszukiwanie, serch, Sarch" lub "Pobierz" na "pobranie".
 
-## <a name="indexing-for-fuzzy-search"></a>Indeksowanie wyszukiwania rozmytego
+## <a name="indexing-for-fuzzy-search"></a>Indeksowanie dla wyszukiwania rozmytego
 
-Analizatory nie są używane podczas przetwarzania zapytań do tworzenia wykresu rozszerzenia, ale to nie znaczy, analizatory powinny być ignorowane w scenariuszach wyszukiwania rozmyte. Po tym wszystkim analizatory są używane podczas indeksowania do tworzenia tokenów, względem których dopasowywanie jest wykonywane, czy kwerenda jest formularz swobodny, filtrowane wyszukiwanie lub rozmyte wyszukiwania z wykresem jako dane wejściowe. 
+Analizatory nie są używane podczas przetwarzania zapytań w celu utworzenia grafu rozwinięcia, ale nie oznacza to, że analizatory powinny być ignorowane w scenariuszach wyszukiwania rozmytego. Wszystkie analizatory są używane podczas indeksowania do tworzenia tokenów, dla których wykonywane jest dopasowywanie, niezależnie od tego, czy zapytanie jest w postaci bezpłatnej, filtrowane wyszukiwanie, czy też wyszukiwania rozmytego z wykresem jako dane wejściowe. 
 
-Ogólnie rzecz biorąc podczas przypisywania analizatorów na podstawie pola, decyzja o dostrojeniu łańcucha analizy opiera się na podstawowym przypadku użycia (filtr lub wyszukiwanie pełnotekstowe), a nie wyspecjalizowanych formach zapytań, takich jak wyszukiwanie rozmyte. Z tego powodu nie ma konkretnego zalecenia analizatora dla wyszukiwania rozmytego. 
+Ogólnie rzecz biorąc, podczas przypisywania analizatorów dla poszczególnych pól decyzja o dostosowaniu łańcucha analizy jest oparta na podstawowym przypadku użycia (filtr lub wyszukiwanie pełnotekstowe) zamiast wyspecjalizowanych formularzy zapytań, takich jak Wyszukiwanie rozmyte. Z tego powodu nie ma określonego zalecenia analizatora dla wyszukiwania rozmytego. 
 
-Jeśli jednak kwerendy testowe nie tworzą oczekiwanych dopasowań, możesz spróbować zmienić analizator indeksowania, ustawiając go na [analizator języka,](index-add-language-analyzers.md)aby sprawdzić, czy uzyskasz lepsze wyniki. Niektóre języki, szczególnie te z mutacjami samogłosek, mogą korzystać z przegięcia i nieregularnych formularzy wyrazowych generowanych przez procesory języka naturalnego firmy Microsoft. W niektórych przypadkach przy użyciu analizatora języka prawo może mieć wpływ na to, czy termin jest tokenized w sposób, który jest zgodny z wartością dostarczoną przez użytkownika.
+Jednakże jeśli zapytania testowe nie wytwarzają oczekiwanych odpowiedników, można spróbować użyć analizatora indeksowania, ustawiając go na [Analizator języka](index-add-language-analyzers.md), aby zobaczyć, czy wyniki są lepsze. Niektóre języki, szczególnie te z mutacją samogłosek, mogą skorzystać z przegięcia i nietypowych wyrazów wygenerowanych przez procesory Microsoft Natural Language. W niektórych przypadkach przy użyciu odpowiedniego analizatora języka można określić, czy termin jest tokenem w taki sposób, który jest zgodny z wartością dostarczoną przez użytkownika.
 
-## <a name="how-to-use-fuzzy-search"></a>Jak korzystać z wyszukiwania rozmytego
+## <a name="how-to-use-fuzzy-search"></a>Jak używać wyszukiwania rozmytego
 
-Rozmyte kwerendy są konstruowane przy użyciu pełnej składni kwerendy Lucene, wywołując [analizator zapytania Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
+Zapytania rozmyte są konstruowane przy użyciu pełnej składni zapytań Lucene, wywołując [Analizator zapytań Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
-1. Ustaw pełną analizator lucene na`queryType=full`kwerendzie ( ).
+1. Ustaw pełny parser Lucene dla zapytania (`queryType=full`).
 
-1. Opcjonalnie zakres żądania do określonych pól,`searchFields=<field1,field2>`przy użyciu tego parametru ( ). 
+1. Opcjonalnie należy ograniczyć zakres żądania do określonych pól przy użyciu tego parametru (`searchFields=<field1,field2>`). 
 
-1. Dołącz operatora tyldy (`~`) na koniec`search=<string>~`całego okresu ( ).
+1. Dołącz operator tyldy`~`() na końcu całego okresu (`search=<string>~`).
 
-   Dołącz parametr opcjonalny, liczbę z 0 do 2 (domyślnie),`~1`jeśli chcesz określić odległość edycji ( ). Na przykład "blue~" lub "blue~1" zwróci "niebieski", "blues" i "glue".
+   Dołącz opcjonalny parametr, liczbę z zakresu od 0 do 2 (domyślnie), jeśli chcesz określić odległość do edycji (`~1`). Na przykład "Blue ~" lub "Blue ~ 1" zwróci "Blue", "Blues" i "Glue".
 
-W usłudze Azure Cognitive Search, oprócz terminu i odległości (maksymalnie 2), nie ma żadnych dodatkowych parametrów, aby ustawić w kwerendzie.
+Na platformie Azure Wyszukiwanie poznawcze, poza terminem i odległością (maksymalnie 2), nie ma żadnych dodatkowych parametrów do ustawienia dla zapytania.
 
 > [!NOTE]
-> Podczas przetwarzania zapytań rozmyte zapytania nie są poddawane [analizie leksykalne](search-lucene-query-architecture.md#stage-2-lexical-analysis). Dane wejściowe kwerendy są dodawane bezpośrednio do drzewa zapytań i rozwijane w celu utworzenia wykresu terminów. Jedyną wykonawaną transformacją jest niższa obudowa.
+> Podczas przetwarzania zapytania nierozmyte zapytania nie przechodzą na [analizę leksykalną](search-lucene-query-architecture.md#stage-2-lexical-analysis). Dane wejściowe zapytania są dodawane bezpośrednio do drzewa zapytań i rozwinięte w celu utworzenia grafu warunków. Jedyną przekształceniem jest mała wielkość liter.
 
 ## <a name="testing-fuzzy-search"></a>Testowanie wyszukiwania rozmytego
 
-W przypadku prostego testowania zalecamy [Eksploratora wyszukiwania](search-explorer.md) lub [postmana](search-get-started-postman.md) do iteracji za pomocą wyrażenia zapytania. Oba narzędzia są interaktywne, co oznacza, że można szybko przejść przez wiele wariantów terminu i ocenić odpowiedzi, które wracają.
+W przypadku prostych testów zalecamy [Eksplorator wyszukiwania](search-explorer.md) lub [notkę](search-get-started-postman.md) do iteracji w wyrażeniu zapytania. Oba narzędzia są interaktywne, co oznacza, że możesz szybko przejść przez wiele wariantów okresu i oszacować odpowiedzi z powrotem.
 
-Gdy wyniki są niejednoznaczne, [wyróżnianie trafień](search-pagination-page-layout.md#hit-highlighting) może pomóc zidentyfikować dopasowanie w odpowiedzi. 
+Gdy wyniki są niejednoznaczne, [wyróżnianie trafień](search-pagination-page-layout.md#hit-highlighting) może ułatwić identyfikację dopasowania w odpowiedzi. 
 
 > [!Note]
-> Użycie podświetlania trafień do identyfikacji rozmytych dopasowań ma ograniczenia i działa tylko w przypadku podstawowego wyszukiwania rozmytego. Jeśli indeks ma profile oceniania lub jeśli warstwa kwerendy z dodatkową składnią, naciśnięcie wyróżniania może nie zidentyfikować dopasowania. 
+> Użycie wyróżniania trafień w celu identyfikowania dopasowań rozmytej ma ograniczenia i działa tylko dla podstawowego wyszukiwania rozmytego. Jeśli indeks zawiera profile oceniania lub jeśli zostanie wybrana warstwa zapytania z dodatkową składnią, wyróżnianie trafień może zakończyć się niepowodzeniem, aby zidentyfikować dopasowanie. 
 
-### <a name="example-1-fuzzy-search-with-the-exact-term"></a>Przykład 1: wyszukiwanie rozmyte z dokładnym terminem
+### <a name="example-1-fuzzy-search-with-the-exact-term"></a>Przykład 1: Wyszukiwanie rozmyte z dokładnym terminem
 
-Załóżmy, że w `"Description"` polu w dokumencie wyszukiwania istnieje następujący ciąg znaków:`"Test queries with special characters, plus strings for MSFT, SQL and Java."`
+Załóżmy, że następujący ciąg istnieje w `"Description"` polu w dokumencie wyszukiwania:`"Test queries with special characters, plus strings for MSFT, SQL and Java."`
 
-Zacznij od wyszukiwania rozmytego na "specjalne" i dodaj podświetlenie trafień do pola Opis:
+Rozpocznij od rozmytego wyszukiwania w "specjalny" i Dodaj wyróżnianie trafień do pola Opis:
 
     search=special~&highlight=Description
 
-W odpowiedzi, ponieważ dodano wyróżnienie, formatowanie jest stosowane do "specjalne" jako pasujący termin.
+W odpowiedzi, ponieważ dodano podświetlanie trafień, formatowanie jest stosowane do wyrażenia "Special" jako kryterium dopasowywania.
 
     "@search.highlights": {
         "Description": [
             "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
         ]
 
-Spróbuj ponownie, błędnie ortograficzny "specjalne" przez wyjęcie kilku liter ("pe"):
+Spróbuj ponownie wykonać żądanie, wpisując polecenie "Special" (specjalne), pobierając kilka liter ("PE"):
 
     search=scial~&highlight=Description
 
-Jak dotąd, nie ma zmian w odpowiedzi. Użycie domyślnej odległości 2 stopni, usunięcie dwóch znaków "pe" z "special" nadal pozwala na pomyślne dopasowanie tego terminu.
+Do tej pory odpowiedź nie zostanie zmieniona. Korzystając z wartości domyślnej o długości 2 stopni, usunięcie dwóch znaków "PE" z "specjalnych" nadal umożliwia pomyślne dopasowanie w tym okresie.
 
     "@search.highlights": {
         "Description": [
             "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
         ]
 
-Próbując jeszcze jednego żądania, zmodyfikuj wyszukiwany termin, wyjmując ostatni znak w sumie za trzy skreślenia (od "specjalnego" do "scal"):
+Po ponowieniu kolejnych żądań zmodyfikuj termin wyszukiwania, pobierając jeden ostatni znak z sumy trzech usunięć (od "Special" do "skalę"):
 
     search=scal~&highlight=Description
 
-Należy zauważyć, że ta sama odpowiedź jest zwracana, ale teraz zamiast dopasowywania na "specjalne", rozmyte dopasowanie jest na "SQL".
+Zwróć uwagę, że zwracana jest taka sama odpowiedź, ale teraz zamiast dopasowywania do "specjalnych" dopasowanie rozmyte jest w "SQL".
 
             "@search.score": 0.4232868,
             "@search.highlights": {
@@ -118,11 +118,11 @@ Należy zauważyć, że ta sama odpowiedź jest zwracana, ale teraz zamiast dopa
                     "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
                 ]
 
-Punktem tego rozszerzonego przykładu jest zilustrowanie jasności, że naciśnięcie podkreślając może doprowadzić do niejednoznacznych wyników. We wszystkich przypadkach zwracany jest ten sam dokument. Gdyby oparcie się na identyfikatorach dokumentu, aby zweryfikować dopasowanie, być może przegapiłeś przejście z "specjalnego" na "SQL".
+Tym rozwiniętym przykładem jest zilustrowanie przejrzystości, którą wyróżnianie trafień może doprowadzić do niejednoznacznych wyników. We wszystkich przypadkach zwracany jest ten sam dokument. Czy korzystasz z identyfikatorów dokumentów w celu sprawdzenia dopasowania, być może pominięto zmianę z "Special" na "SQL".
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-+ [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Cognitive Search (architektura analizowania zapytań)](search-lucene-query-architecture.md)
++ [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Wyszukiwanie poznawcze (architektura analizy zapytań)](search-lucene-query-architecture.md)
 + [Eksplorator wyszukiwania](search-explorer.md)
-+ [Jak kwerendy w .NET](search-query-dotnet.md)
-+ [Jak zapytać w REST](search-create-index-rest-api.md)
++ [Jak wykonywać zapytania w programie .NET](search-query-dotnet.md)
++ [Jak wykonywać zapytania w usłudze REST](search-create-index-rest-api.md)

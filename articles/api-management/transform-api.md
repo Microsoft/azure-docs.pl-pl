@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
 ms.openlocfilehash: 9a9c6897937b73786367accc33e985a268907226
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81258749"
 ---
 # <a name="transform-and-protect-your-api"></a>Przekształcanie i ochrona interfejsu API
@@ -26,7 +26,7 @@ Samouczek przedstawia sposób przekształcania interfejsu API, aby nie ujawniał
 
 W tym samouczku przedstawiono również, jak łatwo można dodawać ochronę do interfejsu API zaplecza dzięki konfigurowaniu liczby wywołań i przydziałów za pomocą usługi Azure API Management. Na przykład możesz ograniczyć liczbę wywołań dla interfejsu API, aby nie był on nadmiernie obciążany przez deweloperów. Aby uzyskać więcej informacji, zobacz [Zasady zarządzania interfejsem API](api-management-policies.md)
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -41,7 +41,7 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 
 -   Poznaj [terminologię dotyczącą usługi Azure API Management](api-management-terminology.md).
 -   Zapoznaj się z [koncepcją zasad w usłudze Azure API Management](api-management-howto-policies.md).
--   Ukończ następujące przewodniki Szybki start: [Utwórz wystąpienie usługi Azure API Management](get-started-create-service-instance.md).
+-   Wykonaj następujące kroki szybkiego startu: [Tworzenie wystąpienia usługi Azure API Management](get-started-create-service-instance.md).
 -   Ponadto wykonaj zadania z następującego samouczka: [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
@@ -75,12 +75,12 @@ Oryginalna odpowiedź powinna wyglądać następująco:
 2. W górnej części ekranu wybierz kartę **Projektowanie**.
 3. Wybierz opcję **Wszystkie operacje**.
 4. W sekcji **Przetwarzanie danych wychodzących** kliknij ikonę **</>**.
-5. Umieść kursor wewnątrz elementu ** &lt;&gt; wychodzącego.**
+5. Umieść kursor wewnątrz elementu ** &lt;wychodzącego&gt; ** .
 6. W okienku po prawej stronie w obszarze **Zasady przekształcania** kliknij dwukrotnie opcję **+ Ustaw nagłówek HTTP** (aby wstawić dwa fragmenty kodu zasad).
 
    ![Zasady](./media/transform-api/transform-api.png)
 
-7. Zmodyfikuj kod ** \<>wychodzącej,** aby wyglądać następująco:
+7. Zmodyfikuj kod ** \<>wychodzącego** , aby wyglądać następująco:
 
        <set-header name="X-Powered-By" exists-action="delete" />
        <set-header name="X-AspNet-Version" exists-action="delete" />
@@ -112,7 +112,7 @@ Aby zobaczyć oryginalną odpowiedź:
 2.  Wybierz opcję **Wszystkie operacje**.
 3.  W górnej części ekranu wybierz kartę **Projektowanie**.
 4.  W sekcji **Przetwarzanie danych wychodzących** kliknij ikonę **</>**.
-5.  Umieść kursor wewnątrz elementu ** &lt;wychodzącego&gt; ** i kliknij przycisk **Wstaw zasady** w prawym górnym rogu.
+5.  Umieść kursor wewnątrz elementu ** &lt;wychodzącego&gt; ** , a następnie kliknij przycisk **Wstaw zasady** w prawym górnym rogu.
 6.  W oknie po prawej stronie w obszarze **Zasady przekształcania** kliknij opcję **+ Znajdź i zastąp ciąg w treści**.
 7.  Zmodyfikuj kod **find-and-replace** (w elemencie **\<outbound\>**), aby zastąpić adres URL i dopasować go do bramy APIM. Przykład:
 
@@ -120,7 +120,7 @@ Aby zobaczyć oryginalną odpowiedź:
 
 ## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>Ochrona interfejsu API poprzez dodanie zasad limitu szybkości (ograniczanie przepustowości)
 
-W tej sekcji przedstawiono sposób dodawania zabezpieczeń do interfejsu API zaplecza poprzez konfigurowanie limitów szybkości. Na przykład możesz ograniczyć liczbę wywołań dla interfejsu API, aby nie był on nadmiernie obciążany przez deweloperów. W tym przykładzie limit jest ustawiony na 3 wywołania na 15 sekund dla każdego identyfikatora subskrypcji. Po 15 sekundach deweloper może ponowić próbę wywołania interfejsu API.
+W tej sekcji przedstawiono sposób dodawania zabezpieczeń do interfejsu API zaplecza poprzez konfigurowanie limitów szybkości. Na przykład możesz ograniczyć liczbę wywołań dla interfejsu API, aby nie był on nadmiernie obciążany przez deweloperów. W tym przykładzie limit jest ustawiony na 3 wywołań na 15 sekund dla każdego identyfikatora subskrypcji. Po 15 sekundach deweloper może ponowić próbę wywołania interfejsu API.
 
 ![Ustawianie zasad danych przychodzących](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png)
 
@@ -128,7 +128,7 @@ W tej sekcji przedstawiono sposób dodawania zabezpieczeń do interfejsu API zap
 2.  Wybierz opcję **Wszystkie operacje**.
 3.  W górnej części ekranu wybierz kartę **Projektowanie**.
 4.  W sekcji **Przetwarzanie danych przychodzących** kliknij ikonę **</>**.
-5.  Umieść kursor wewnątrz elementu ** &lt;przychodzącego.&gt; **
+5.  Umieść kursor wewnątrz elementu ** &lt;przychodzącego&gt; ** .
 6.  W oknie po prawej stronie w obszarze **Zasady ograniczeń dostępu** kliknij opcję **+ Ogranicz liczbę wywołań na klucz**.
 7.  Zmodyfikuj kod **rate-limit-by-key** (w elemencie **\<inbound\>**) do następującego:
 

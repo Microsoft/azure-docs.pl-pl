@@ -1,5 +1,5 @@
 ---
-title: Samouczek — tworzenie i używanie dysków dla zestawów skalowania za pomocą programu Azure PowerShell
+title: Samouczek — Tworzenie i używanie dysków dla zestawów skalowania za pomocą Azure PowerShell
 description: Dowiedz się, jak za pomocą programu Azure PowerShell utworzyć dyski funkcji Dyski zarządzane i używać ich razem z zestawem skalowania maszyn wirtualnych, na przykład dodawać, przygotowywać, wyświetlać i odłączać dyski.
 author: ju-shim
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: jushiman
 ms.custom: mvc
 ms.openlocfilehash: 6cdd1ee3c18d63e1a8c7734a9efc2573f6b04b33
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81011195"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Samouczek: tworzenie dysków i używanie ich z zestawem skalowania maszyn wirtualnych za pośrednictwem programu Azure PowerShell
@@ -26,7 +26,7 @@ Zestawy skalowania maszyn wirtualnych przechowują aplikacje, dane oraz systemy 
 > * Wydajność dysku
 > * Dołączanie i przygotowywanie dysków z danymi
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
@@ -90,7 +90,7 @@ Dyski można tworzyć i dołączać podczas tworzenia zestawu skalowania lub w r
 ### <a name="attach-disks-at-scale-set-creation"></a>Dołączanie dysków podczas tworzenia zestawu skalowania
 Utwórz zestaw skalowania maszyn wirtualnych przy użyciu polecenia [New-AzVmss](/powershell/module/az.compute/new-azvmss). Po wyświetleniu monitu podaj nazwę użytkownika i hasło dla wystąpień maszyn wirtualnych. Musisz również utworzyć moduł równoważenia obciążenia, który umożliwia kierowanie ruchu do poszczególnych wystąpień maszyn wirtualnych. Moduł równoważenia obciążenia zawiera reguły, które pozwalają kierować ruchem na porcie TCP 80 oraz korzystać z ruchu pulpitu zdalnego na porcie TCP 3389 i komunikacji zdalnej programu PowerShell na porcie TCP 5985.
 
-Dwa dyski są tworzone za pomocą parametru `-DataDiskSizeGb`. Pierwszy dysk ma *rozmiar 64* GB, a drugi *128* GB. Po wyświetleniu monitu podaj własne odpowiednie poświadczenia administracyjne dla wystąpień maszyn wirtualnych w zestawie skalowania:
+Dwa dyski są tworzone za pomocą parametru `-DataDiskSizeGb`. Pierwszy dysk ma rozmiar *64* GB, a drugi dysk to *128* GB. Po wyświetleniu monitu podaj własne odpowiednie poświadczenia administracyjne dla wystąpień maszyn wirtualnych w zestawie skalowania:
 
 ```azurepowershell-interactive
 New-AzVmss `

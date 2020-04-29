@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 0df74b82c847c9738d97d2001573666714c17672
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81008356"
 ---
 ## <a name="limitations"></a>Ograniczenia
@@ -25,14 +25,14 @@ ms.locfileid: "81008356"
 
 ## <a name="deploy-shared-disks"></a>Wdrażanie dysków udostępnionych
 
-### <a name="deploy-a-premium-ssd-as-a-shared-disk"></a>Wdrażanie dysku SSD w wersji premium jako dysku udostępnionego
+### <a name="deploy-a-premium-ssd-as-a-shared-disk"></a>Wdrażanie dysków SSD Premium jako dysku udostępnionego
 
-Aby wdrożyć dysk zarządzany z włączoną funkcją `maxShares` dysku udostępnionego, użyj nowej właściwości i zdefiniuj wartość większą niż 1. Dzięki temu dysk można udostępnić na wielu maszynach wirtualnych.
+Aby wdrożyć dysk zarządzany z włączoną funkcją udostępnionego dysku, użyj nowej właściwości `maxShares` i Zdefiniuj wartość większą od 1. Dzięki temu dysk jest współużytkowany na wielu maszynach wirtualnych.
 
 > [!IMPORTANT]
-> Wartość `maxShares` można ustawić lub zmienić tylko wtedy, gdy dysk jest odinstalowany ze wszystkich maszyn wirtualnych. Zobacz [rozmiary dysku](#disk-sizes) dla dozwolonych `maxShares`wartości dla .
+> Wartość `maxShares` można ustawić lub zmienić tylko wtedy, gdy dysk zostanie odinstalowany ze wszystkich maszyn wirtualnych. Sprawdź [rozmiary dysków](#disk-sizes) dla dozwolonych wartości dla `maxShares`.
 
-Przed użyciem następującego `[parameters('dataDiskName')]` `[resourceGroup().location]`szablonu zastąp , `[parameters('dataDiskSizeGB')]`, i `[parameters('maxShares')]` własnymi wartościami.
+`[parameters('dataDiskName')]`Przed użyciem następującego szablonu Zastąp wartości, `[resourceGroup().location]` `[parameters('dataDiskSizeGB')]`, i `[parameters('maxShares')]` własnymi wartościami.
 
 ```json
 { 
@@ -73,14 +73,14 @@ Przed użyciem następującego `[parameters('dataDiskName')]` `[resourceGroup().
 }
 ```
 
-### <a name="deploy-an-ultra-disk-as-a-shared-disk"></a>Wdrażanie dysku ultra jako dysku udostępnionego
+### <a name="deploy-an-ultra-disk-as-a-shared-disk"></a>Wdróż dysk typu Ultra jako dysk udostępniony
 
 #### <a name="cli"></a>Interfejs wiersza polecenia
 
-Aby wdrożyć dysk zarządzany z włączoną `maxShares` funkcją dysku udostępnionego, zmień parametr na wartość większą niż 1. Dzięki temu dysk można udostępnić na wielu maszynach wirtualnych.
+Aby wdrożyć dysk zarządzany z włączoną funkcją udostępnionego dysku, należy zmienić `maxShares` parametr na wartość większą niż 1. Dzięki temu dysk jest współużytkowany na wielu maszynach wirtualnych.
 
 > [!IMPORTANT]
-> Wartość `maxShares` można ustawić lub zmienić tylko wtedy, gdy dysk jest odinstalowany ze wszystkich maszyn wirtualnych. Zobacz [rozmiary dysku](#disk-sizes) dla dozwolonych `maxShares`wartości dla .
+> Wartość `maxShares` można ustawić lub zmienić tylko wtedy, gdy dysk zostanie odinstalowany ze wszystkich maszyn wirtualnych. Sprawdź [rozmiary dysków](#disk-sizes) dla dozwolonych wartości dla `maxShares`.
 
 ```azurecli
 #Creating an Ultra shared Disk 
@@ -95,12 +95,12 @@ az disk show -g rg1 -n clidisk
 
 #### <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Aby wdrożyć dysk zarządzany z włączoną funkcją dysku udostępnionego, użyj właściwości `maxShares` i zdefiniuj wartość większą niż 1. Dzięki temu dysk można udostępnić na wielu maszynach wirtualnych.
+Aby wdrożyć dysk zarządzany z włączoną funkcją udostępnionego dysku, użyj właściwości `maxShares` i Zdefiniuj wartość większą od 1. Dzięki temu dysk jest współużytkowany na wielu maszynach wirtualnych.
 
 > [!IMPORTANT]
-> Wartość `maxShares` można ustawić lub zmienić tylko wtedy, gdy dysk jest odinstalowany ze wszystkich maszyn wirtualnych. Zobacz [rozmiary dysku](#disk-sizes) dla dozwolonych `maxShares`wartości dla .
+> Wartość `maxShares` można ustawić lub zmienić tylko wtedy, gdy dysk zostanie odinstalowany ze wszystkich maszyn wirtualnych. Sprawdź [rozmiary dysków](#disk-sizes) dla dozwolonych wartości dla `maxShares`.
 
-Przed użyciem następującego `[parameters('dataDiskName')]` `[resourceGroup().location]`szablonu `[parameters('maxShares')]` `[parameters('diskIOPSReadWrite')]`zastąp `[parameters('diskMBpsReadOnly')]` , `[parameters('dataDiskSizeGB')]`, , `[parameters('diskMBpsReadWrite')]`, `[parameters('diskIOPSReadOnly')]`i własnymi wartościami.
+`[parameters('dataDiskName')]`Przed użyciem następującego szablonu Zastąp wartości, `[resourceGroup().location]`, `[parameters('dataDiskSizeGB')]`, `[parameters('maxShares')]` `[parameters('diskIOPSReadWrite')]` `[parameters('diskMBpsReadWrite')]` `[parameters('diskIOPSReadOnly')]`,,, i `[parameters('diskMBpsReadOnly')]` własnymi wartościami.
 
 ```json
 {
@@ -168,12 +168,12 @@ Przed użyciem następującego `[parameters('dataDiskName')]` `[resourceGroup().
 }
 ```
 
-### <a name="using-azure-shared-disks-with-your-vms"></a>Korzystanie z dysków udostępnionych platformy Azure z maszynami wirtualnymi
+### <a name="using-azure-shared-disks-with-your-vms"></a>Używanie dysków udostępnionych platformy Azure z maszynami wirtualnymi
 
-Po wdrożeniu udostępnionego `maxShares>1`dysku z programem można zainstalować dysk na jednej lub kilku maszynach wirtualnych.
+Po wdrożeniu udostępnionego dysku za pomocą `maxShares>1`programu możesz zainstalować dysk na co najmniej jednej z maszyn wirtualnych.
 
 > [!IMPORTANT]
-> Wszystkie maszyny wirtualne współużytkowane na dysku muszą być wdrożone w tej samej [grupie miejsc docelowych zbliżeniowych](../articles/virtual-machines/windows/proximity-placement-groups.md).
+> Wszystkie maszyny wirtualne, które udostępniają dysk, muszą być wdrożone w tej samej [grupie umieszczania sąsiedztwa](../articles/virtual-machines/windows/proximity-placement-groups.md).
 
 ```azurepowershell-interactive
 
@@ -195,11 +195,11 @@ $vm = Add-AzVMDataDisk -VM $vm -Name "mySharedDisk" -CreateOption Attach -Manage
 update-AzVm -VM $vm -ResourceGroupName $resourceGroup
 ```
 
-## <a name="supported-scsi-pr-commands"></a>Obsługiwane polecenia PR SCSI
+## <a name="supported-scsi-pr-commands"></a>Obsługiwane polecenia SCSI PR
 
-Po zamontowaniu udostępnionego dysku na maszynach wirtualnych w klastrze można ustanowić kworum i odczyt/zapis na dysku przy użyciu funkcji PR SCSI. Następujące polecenia PR są dostępne podczas korzystania z dysków udostępnionych platformy Azure:
+Po zainstalowaniu dysku udostępnionego na maszynach wirtualnych w klastrze można ustanowić kworum i odczyt/zapis na dysku przy użyciu żądania ściągnięcia SCSI. Następujące polecenia żądania ściągnięcia są dostępne w przypadku korzystania z dysków udostępnionych platformy Azure:
 
-Aby wchodzić w interakcje z dyskiem, zacznij od listy akcji trwała rezerwacja:
+Aby współdziałać z dyskiem, należy zacząć od listy Akcja zastrzeżenia trwałego:
 
 ```
 PR_REGISTER_KEY 
@@ -217,7 +217,7 @@ PR_CLEAR_RESERVATION
 PR_RELEASE_RESERVATION 
 ```
 
-W przypadku korzystania z PR_RESERVE, PR_PREEMPT_RESERVATION lub PR_RELEASE_RESERVATION podaj jeden z następujących typów rezerwacji trwałej:
+W przypadku korzystania z PR_RESERVE, PR_PREEMPT_RESERVATION lub PR_RELEASE_RESERVATION Podaj jeden z następujących typów trwałych:
 
 ```
 PR_NONE 
@@ -235,9 +235,9 @@ PR_WRITE_EXCLUSIVE_ALL_REGISTRANTS
 PR_EXCLUSIVE_ACCESS_ALL_REGISTRANTS 
 ```
 
-Należy również podać klucz trwałej rezerwacji podczas korzystania z PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, PR_PREEMPT_RESERVATION, PR_CLEAR_RESERVATION lub PR_RELEASE-RESERVATION.
+W przypadku korzystania z PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, PR_PREEMPT_RESERVATION, PR_CLEAR_RESERVATION lub PR_RELEASE-rezerwacji należy również podać klucz trwały.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli chcesz spróbować dysków udostępnionych, zarejestruj się w [naszej wersji zapoznawczej.](https://aka.ms/AzureSharedDiskPreviewSignUp)
+Jeśli interesuje Cię próbę przeprowadzenia udostępniania dysków, [Utwórz konto w wersji zapoznawczej](https://aka.ms/AzureSharedDiskPreviewSignUp).

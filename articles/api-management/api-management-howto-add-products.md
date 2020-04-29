@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
 ms.openlocfilehash: 686d6e2ff01fd4d8283350ab8097e1f73c914af0
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81261000"
 ---
 # <a name="create-and-publish-a-product"></a>Tworzenie i publikowanie produktu  
 
 W usłudze Azure API Management produkt zawiera co najmniej jeden interfejs API oraz limit przydziału użycia i warunki użytkowania. Po opublikowaniu produktu deweloperzy mogą go zasubskrybować i zacząć korzystać z jego interfejsów API.  
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie i publikowanie produktu
@@ -35,7 +35,7 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 + Poznaj [terminologię dotyczącą usługi Azure API Management](api-management-terminology.md).
-+ Ukończ następujące przewodniki Szybki start: [Utwórz wystąpienie usługi Azure API Management](get-started-create-service-instance.md).
++ Wykonaj następujące kroki szybkiego startu: [Tworzenie wystąpienia usługi Azure API Management](get-started-create-service-instance.md).
 + Ponadto wykonaj zadania z następującego samouczka: [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md).
 
 ## <a name="create-and-publish-a-product"></a>Tworzenie i publikowanie produktu
@@ -67,7 +67,7 @@ Możesz kontynuować konfigurowanie produktu po zapisaniu go, wybierając kartę
 
 Wyświetl lub dodaj subskrybentów produktu z poziomu karty **Subskrypcje**.
 
-Ustaw widoczność produktu dla deweloperów lub gości na karcie **Kontrola dostępu.**
+Ustawianie widoczności produktu dla deweloperów lub Gości na karcie **Kontrola dostępu** .
 
 ## <a name="add-apis-to-a-product"></a><a name="add-apis"> </a>Dodawanie interfejsów API do produktu
 

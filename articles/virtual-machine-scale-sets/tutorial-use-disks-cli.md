@@ -1,5 +1,5 @@
 ---
-title: Samouczek — tworzenie i używanie dysków dla zestawów skalowania za pomocą interfejsu wiersza polecenia platformy Azure
+title: Samouczek — Tworzenie i używanie dysków dla zestawów skalowania za pomocą interfejsu wiersza polecenia platformy Azure
 description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure utworzyć dyski funkcji Dyski zarządzane i używać ich razem z zestawem skalowania maszyn wirtualnych, na przykład dodawać, przygotowywać, wyświetlać i odłączać dyski.
 author: ju-shim
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: jushiman
 ms.custom: mvc
 ms.openlocfilehash: 3759fa426a712308e1956376d559c1ac84eadbd7
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81008832"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Samouczek: tworzenie dysków i używanie ich z zestawem skalowania maszyn wirtualnych za pośrednictwem interfejsu wiersza polecenia platformy Azure
@@ -25,7 +25,7 @@ Zestawy skalowania maszyn wirtualnych przechowują aplikacje, dane oraz systemy 
 > * Wydajność dysku
 > * Dołączanie i przygotowywanie dysków z danymi
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -51,7 +51,7 @@ Podczas tworzenia lub skalowania zestawu skalowania do każdego wystąpienia mas
 
 
 ## <a name="azure-data-disks"></a>Dyski z danymi platformy Azure
-W przypadku konieczności instalowania aplikacji i przechowywania danych można dodać kolejne dyski z danymi. Dyski z danymi powinny być używane w sytuacji, gdy potrzebny jest trwały i dynamiczny magazyn danych. Każdy dysk z danymi ma maksymalną pojemność wynoszącą 4 TB. Liczba dysków z danymi, które można dołączyć, zależy od rozmiaru wystąpienia maszyny wirtualnej. Dla każdej maszyny wirtualnej maszyny Wirtualnej można podłączyć dwa dyski danych maksymalnie do 64 dysków na maszynę wirtualną.
+W przypadku konieczności instalowania aplikacji i przechowywania danych można dodać kolejne dyski z danymi. Dyski z danymi powinny być używane w sytuacji, gdy potrzebny jest trwały i dynamiczny magazyn danych. Każdy dysk z danymi ma maksymalną pojemność wynoszącą 4 TB. Liczba dysków z danymi, które można dołączyć, zależy od rozmiaru wystąpienia maszyny wirtualnej. Dla każdego vCPU maszyny wirtualnej można dołączyć dwa dyski z danymi do bezwzględnej maksymalnie 64 dysków na maszynę wirtualną.
 
 ## <a name="vm-disk-types"></a>Typy dysków maszyny wirtualnej
 Na platformie Azure dostępne są dwa typy dysków.

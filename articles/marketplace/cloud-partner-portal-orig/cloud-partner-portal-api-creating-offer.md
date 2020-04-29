@@ -1,6 +1,6 @@
 ---
-title: Tworzenie lub modyfikowanie oferty | Azure Marketplace
-description: Interfejs API do tworzenia nowej lub aktualizacji i istniejącej oferty.
+title: Tworzenie lub modyfikowanie oferty | Portal Azure Marketplace
+description: Interfejs API służący do tworzenia nowej lub zaktualizowanej oferty.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,19 +8,19 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: 66e640ab199a884ebfab69cbe7db7f562d848720
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81256352"
 ---
 <a name="create-or-modify-an-offer"></a>Tworzenie lub modyfikowanie oferty
 =========================
 
 > [!NOTE]
-> Interfejsy API portalu partnerów w chmurze są zintegrowane z centrum partnerów i będą nadal działać po migracji ofert do Centrum partnerów. Integracja wprowadza niewielkie zmiany. Przejrzyj zmiany wymienione w [aplikacji Cloud Partner Portal API Reference,](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) aby upewnić się, że kod będzie nadal działać po migracji do Centrum partnerów.
+> Interfejsy API portal Cloud Partner są zintegrowane z centrum partnerskim i będą nadal działały po przeprowadzeniu migracji ofert do Centrum partnerskiego. W ramach integracji wprowadzono niewielkie zmiany. Przejrzyj zmiany wymienione w [Portal Cloud partner dokumentacja interfejsu API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) , aby upewnić się, że kod będzie nadal działał po migracji do Centrum partnerskiego.
 
-To wywołanie aktualizuje określoną ofertę w obszarze nazw wydawcy lub tworzy nową ofertę.
+To wywołanie aktualizuje określoną ofertę w przestrzeni nazw wydawcy lub tworzy nową ofertę.
 
   `PUT https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>?api-version=2017-10-31`
 
@@ -30,27 +30,27 @@ To wywołanie aktualizuje określoną ofertę w obszarze nazw wydawcy lub tworzy
 
 |  **Nazwa**         |  **Opis**                      |  **Typ danych**  |
 |  --------         |  ----------------                     |  -------------  |
-| identyfikator wydawcy       |  Identyfikator wydawcy, na przykład`contoso` |   Ciąg |
-| offerId           |  Identyfikator oferty                     |   Ciąg        |
+| publisherId       |  Identyfikator wydawcy, na przykład`contoso` |   String |
+| offerId           |  Identyfikator oferty                     |   String        |
 | api-version       |  Najnowsza wersja interfejsu API            |   Date           |
 |  |  |  |
 
 <a name="header"></a>Nagłówek
 ------
 
-|  **Nazwa**        |  **Wartość**               |
+|  **Nazwa**        |  **Wartościami**               |
 |  ---------       |  ----------              | 
 | Content-Type     | `application/json`       |
 | Autoryzacja    | `Bearer YOUR_TOKEN`      |
 |  |  |
 
 
-<a name="body-example"></a>Przykład ciała
+<a name="body-example"></a>Przykład treści
 ------------
 
-Poniższy przykład tworzy ofertę z `contosovirtualmachine`offerID .
+Poniższy przykład tworzy ofertę z offerID `contosovirtualmachine`.
 
-### <a name="request"></a>Żądanie
+### <a name="request"></a>Request
 
 ``` json
   {
@@ -242,23 +242,23 @@ Poniższy przykład tworzy ofertę z `contosovirtualmachine`offerID .
 ```
 
 > [!NOTE]
-> Aby zmodyfikować tę ofertę, dodaj nagłówek **If-Match** ustawiony na * do powyższego żądania. Użyj tej samej treści żądania, jak powyżej, ale zmodyfikuj wartości zgodnie z potrzebami. 
+> Aby zmodyfikować tę ofertę, Dodaj nagłówek **if-Match** o wartości * do powyższego żądania. Użyj tej samej treści żądania jak powyżej, ale Zmodyfikuj wartości zgodnie z potrzebami. 
 
 
 ### <a name="response-status-codes"></a>Kody stanu odpowiedzi
 
 | **Code**  |  **Opis**                                                                            |
 | --------  |  ---------------                                                                            |
-|  200      | `OK`. Żądanie zostało pomyślnie przetworzone i oferta została pomyślnie zmodyfikowana.           |
-|  201      | `Created`. Żądanie zostało pomyślnie przetworzone, a oferta została pomyślnie utworzona.   |
-|  400      | `Bad/Malformed request`. Treść odpowiedzi na błędy może dostarczyć więcej informacji.            |
-|  403      | `Forbidden`. Klient nie ma dostępu do żądanej przestrzeni nazw.                     |
-|  404      | `Not found`. Jednostka, o której mowa przez klienta, nie istnieje.                           |
-|  412      | Serwer nie spełnia jednego z warunków wstępnych określonych przez żądający w żądaniu. Klient powinien sprawdzić ETAG wysłane z żądaniem. |
+|  200      | `OK`. Żądanie zostało pomyślnie przetworzone i oferta została zmodyfikowana pomyślnie.           |
+|  201      | `Created`. Żądanie zostało pomyślnie przetworzone i oferta została pomyślnie utworzona.   |
+|  400      | `Bad/Malformed request`. Treść odpowiedzi na błąd może dostarczyć więcej informacji.            |
+|  403      | `Forbidden`. Klient nie ma dostępu do żądanego obszaru nazw.                     |
+|  404      | `Not found`. Jednostka, do której odwołuje się klient, nie istnieje.                           |
+|  412      | Serwer nie spełnia jednego z warunków wstępnych określonych w żądaniu. Klient powinien sprawdzić element ETAG wysłany z żądaniem. |
 |  |  |
 
 
 <a name="uploading-artifacts"></a>Przekazywanie artefaktów
 -------------------
 
-Artefakty, takie jak obrazy i logo, powinny być udostępniane przez przesłanie ich do dostępnej lokalizacji w sieci Web, a następnie włączenie każdego jako identyfikatora URI w żądaniu PUT, jak w powyższym przykładzie. System wykryje, że te pliki nie są obecne w magazynie portalu Azure marketplace i pobrać te pliki do magazynu.  W rezultacie okaże się, że przyszłe żądania GET zwróci adres URL usługi platformy Azure marketplace dla tych plików.
+Artefakty, takie jak obrazy i logo, powinny być udostępniane przez przekazanie ich do dostępnej lokalizacji w sieci Web, a następnie dołączenie ich jako identyfikatora URI w żądaniu PUT, jak w powyższym przykładzie. System wykryje, że te pliki nie znajdują się w magazynie Azure Marketplace, i pobierzą te pliki do magazynu.  W związku z tym zobaczysz, że przyszłe żądania GET będą zwracać adres URL usługi Azure Marketplace dla tych plików.

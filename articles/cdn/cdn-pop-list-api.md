@@ -1,6 +1,6 @@
 ---
-title: Pobieranie bieżącej listy adresów IP pop dla usługi Azure CDN| Dokumenty firmy Microsoft
-description: Dowiedz się, jak pobrać bieżącą listę pop.
+title: Pobierz bieżącą listę punktów obecności IP dla Azure CDN | Microsoft Docs
+description: Dowiedz się, jak pobrać bieżącą listę punktów obecności.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -16,36 +16,36 @@ ms.date: 08/22/2019
 ms.author: allensu
 ms.custom: ''
 ms.openlocfilehash: a58fd7c6f50cd46ac3c34cd7e5bd329c0007e5f6
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260194"
 ---
-# <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Pobieranie bieżącej listy adresów IP pop dla usługi Azure CDN
+# <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Pobierz bieżącą listę punktów obecności IP dla Azure CDN
 
-## <a name="retrieve-the-current-verizon-pop-ip-list-for-azure-cdn"></a>Pobieranie bieżącej listy adresów IP verizon POP dla usługi Azure CDN
+## <a name="retrieve-the-current-verizon-pop-ip-list-for-azure-cdn"></a>Pobierz bieżącą listę punktów obecności Verizon IP dla Azure CDN
 
-Za pomocą interfejsu API REST można pobrać zestaw serwerów IP dla serwerów punktu obecności Verizon (POP). Te serwery POP żądają serwerów pochodzenia skojarzonych z punktami końcowymi usługi Azure Content Delivery Network (CDN) w profilu Verizon **(Azure CDN Standard firmy Verizon** lub **Azure CDN Premium firmy Verizon).** Należy zauważyć, że ten zestaw adresów IP różni się od adresów IP, które klient zobaczy podczas składania żądań do adresów grupy leceń. 
+Za pomocą interfejsu API REST można pobrać zestaw adresów IP dla serwerów punktu obecności (POP) Verizon. Te serwery POP wysyłają żądania do serwerów pochodzenia, które są skojarzone z punktami końcowymi usługi Azure Content Delivery Network (CDN) w profilu Verizon (**Azure CDN Standard z Verizon** lub **Azure CDN Premium from Verizon**). Należy zauważyć, że ten zestaw adresów IP różni się od adresów IP, które zobaczy klient podczas wykonywania żądań do punktów obecności. 
 
-Aby zapoznać się ze składnią operacji interfejsu API REST do pobierania listy POP, zobacz [Węzeł krawędzi — lista](https://docs.microsoft.com/rest/api/cdn/edgenodes/list).
+Aby zapoznać się z składnią operacji interfejsu API REST na potrzeby pobierania listy punktów obecności, zobacz [Edge nodes-list](https://docs.microsoft.com/rest/api/cdn/edgenodes/list).
 
-## <a name="retrieve-the-current-microsoft-pop-ip-list-for-azure-cdn"></a>Pobieranie bieżącej listy adresów IP pop firmy Microsoft dla usługi Azure CDN
+## <a name="retrieve-the-current-microsoft-pop-ip-list-for-azure-cdn"></a>Pobierz bieżącą listę adresów POP firmy Microsoft dla Azure CDN
 
-Aby zablokować aplikację, aby akceptować ruch tylko z usługi Azure CDN firmy Microsoft, należy skonfigurować listy ACL adresów IP dla wewnętrznej bazy danych. Można również ograniczyć zestaw akceptowanych wartości dla nagłówka "X-Forwarded-Host" wysyłanego przez usługę Azure CDN firmy Microsoft. Poniższe kroki są wyszczególnione w następujący sposób:
+Aby zablokować aplikację w celu akceptowania tylko ruchu z Azure CDN firmy Microsoft, musisz skonfigurować listy ACL adresów IP dla zaplecza. Możesz również ograniczyć zestaw akceptowanych wartości dla nagłówka "X-Forward-host" wysyłanego przez Azure CDN od firmy Microsoft. Poniższe kroki są szczegółowo opisane poniżej:
 
-Skonfiguruj protokół IP ACLing dla zaplecza, aby akceptować ruch z usługi Azure CDN z wewnętrznej bazy danych IP przestrzeni adresowej i tylko usług infrastruktury platformy Azure. 
+Skonfiguruj ACLing IP dla zaplecza, aby akceptować ruch z Azure CDN z przestrzeni adresów IP zaplecza firmy Microsoft i usług infrastruktury platformy Azure. 
 
-* Usługa Azure CDN z przestrzeni adresów IP zaplecza IPv4 firmy Microsoft: 147.243.0.0/16
-* Usługa Azure CDN z obszaru ip zaplecza IPv6 firmy Microsoft: 2a01:111:2050::/44
+* Azure CDN ze przestrzeni adresów IP zaplecza protokołu IPv4 firmy Microsoft: 147.243.0.0/16
+* Azure CDN ze przestrzeni adresów IP zaplecza protokołu IPv6 firmy Microsoft: 2a01:111:2050::/44
 
-Zakresy adresów IP i tagi usług dla usług firmy Microsoft można znaleźć [tutaj](https://www.microsoft.com/download/details.aspx?id=56519)
+Zakresy adresów IP i Tagi usług dla usług firmy Microsoft można znaleźć [tutaj](https://www.microsoft.com/download/details.aspx?id=56519)
 
 
 ## <a name="typical-use-case"></a>Typowy przypadek użycia
 
-Ze względów bezpieczeństwa można użyć tej listy adresów IP, aby wymusić, że żądania do serwera pochodzenia są dokonywane tylko z prawidłowego verizon POP. Na przykład jeśli ktoś wykrył adres hosta lub adres IP serwera źródłowego sieci CDN, można składać żądania bezpośrednio do serwera pochodzenia, w związku z czym z pominięciem możliwości skalowania i zabezpieczeń dostarczonych przez usługę Azure CDN. Ustawiając adresy IP na liście zwracanej jako jedyne dozwolone adresy IP na serwerze pochodzenia, można zapobiec temu scenariuszowi. Aby upewnić się, że masz najnowszą listę pop, pobierz ją co najmniej raz dziennie. 
+Ze względów bezpieczeństwa można użyć tej listy adresów IP, aby wymusić, że żądania kierowane do serwera pochodzenia są wykonywane tylko z prawidłowego punktu obecności Verizon. Na przykład, jeśli ktoś ododnalazł nazwę hosta lub adres IP dla serwera pochodzenia punktu końcowego usługi CDN, może to oznaczać żądania bezpośrednio do serwera źródłowego, dlatego pomijając możliwości skalowania i zabezpieczeń zapewniane przez Azure CDN. W przypadku ustawienia adresów IP na liście zwracanych jako jedyne dozwolone adresy IP na serwerze pochodzenia można zablokować ten scenariusz. Aby upewnić się, że masz najnowszą listę punktów obecności, pobierz ją co najmniej raz dziennie. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać informacje na temat interfejsu API REST, zobacz [Interfejs API REST usługi Azure CDN](https://docs.microsoft.com/rest/api/cdn/).
+Informacje o interfejsie API REST znajdują się w temacie [Azure CDN API REST](https://docs.microsoft.com/rest/api/cdn/).

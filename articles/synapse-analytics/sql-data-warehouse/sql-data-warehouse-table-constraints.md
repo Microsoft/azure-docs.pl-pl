@@ -1,6 +1,6 @@
 ---
 title: Klucze podstawowe, obce i unikatowe
-description: Obsługa ograniczeń tabeli w puli sql synapse w usłudze Azure Synapse Analytics
+description: Obsługa ograniczeń tabeli w Synapse puli SQL w usłudze Azure Synapse Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,32 +12,32 @@ ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: f97163d02836442430037e18439bcf0724046332
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80990773"
 ---
 # <a name="primary-key-foreign-key-and-unique-key-in-synapse-sql-pool"></a>Klucz podstawowy, klucz obcy i unikatowy klucz w puli SQL Synapse
 
-Dowiedz się więcej o ograniczeniach tabeli w puli sql synapse, w tym klucza podstawowego, klucza obcego i klucza unikatowego.
+Dowiedz się więcej o ograniczeniach tabeli w puli Synapse SQL, w tym klucz podstawowy, klucz obcy i unikatowy klucz.
 
 ## <a name="table-constraints"></a>Ograniczenia tabeli
 
-Puli SQL Synapse obsługuje te ograniczenia tabeli: 
-- Klucz podstawowy jest obsługiwany tylko wtedy, gdy są używane nieklastrowane i niewymnaczone.    
-- Ograniczenie UNIQUE jest obsługiwane tylko z nieegzekwowane jest używany.
+Synapse Pula SQL obsługuje następujące ograniczenia tabeli: 
+- KLUCZ podstawowy jest obsługiwany tylko w przypadku, gdy są używane obiekty nieklastrowane i niewymuszone.    
+- Ograniczenie UNIQUE jest obsługiwane tylko przez niewymuszone użycie.
 
-Aby uzyskać składnię, zaznacz pole [wyboru ZMIEŃ TABELĘ](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) i [UTWÓRZ TABELĘ](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
+W obszarze Składnia Sprawdź pozycję [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) i [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
 
-Ograniczenie KLUCZA OBCEGO nie jest obsługiwane w puli języka SQL Synapse.  
+Ograniczenie klucza obcego nie jest obsługiwane w puli SQL Synapse.  
 
 
 ## <a name="remarks"></a>Uwagi
 
-Posiadanie klucza podstawowego i/lub klucza unikatowego umożliwia aparat puli Synapse SQL do generowania optymalnego planu wykonania kwerendy.  Wszystkie wartości w kolumnie klucza podstawowego lub kolumnie unikatowego ograniczenia powinny być unikatowe.
+Posiadanie klucza podstawowego i/lub unikatowego klucza umożliwia aparatowi puli SQL Synapse generowanie optymalnego planu wykonywania zapytania.  Wszystkie wartości w kolumnie klucza podstawowego lub unikatowej kolumnie ograniczenia powinny być unikatowe.
 
-Po utworzeniu tabeli z kluczem podstawowym lub unikatowym ograniczeniem w puli Synapse SQL użytkownicy muszą upewnić się, że wszystkie wartości w tych kolumnach są unikatowe.  Naruszenie tego może spowodować kwerendy do zwrócenia niedokładne wyniki.  W tym przykładzie pokazano, jak kwerenda może zwrócić niedokładny wynik, jeśli klucz podstawowy lub kolumna ograniczeń unikatowych zawiera zduplikowane wartości.  
+Po utworzeniu tabeli przy użyciu klucza podstawowego lub ograniczenia UNIQUE w Synapse puli SQL użytkownicy muszą upewnić się, że wszystkie wartości w tych kolumnach są unikatowe.  Naruszenie, które może spowodować zwrócenie nieprawidłowego wyniku zapytania.  Ten przykład pokazuje, jak zapytanie może zwracać niedokładne wyniki, jeśli klucz podstawowy lub kolumna ograniczenia UNIQUE zawiera zduplikowane wartości.  
 
 ```sql
  -- Create table t1
@@ -164,7 +164,7 @@ a1          total
 
 ## <a name="examples"></a>Przykłady
 
-Tworzenie tabeli puli Synapse SQL z kluczem podstawowym: 
+Utwórz tabelę puli SQL Synapse z kluczem podstawowym: 
 
 ```sql 
 CREATE TABLE mytable (c1 INT PRIMARY KEY NONCLUSTERED NOT ENFORCED, c2 INT);
@@ -177,4 +177,4 @@ CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po utworzeniu tabel dla puli SQL Synapse następnym krokiem jest załadowanie danych do tabeli. Aby zapoznać się z samouczkiem ładowania, zobacz [Ładowanie danych do puli SQL Synapse](load-data-wideworldimportersdw.md).
+Po utworzeniu tabel dla puli SQL Synapse, następnym krokiem jest załadowanie danych do tabeli. Aby zapoznać się z samouczkiem ładowania, zobacz [ładowanie danych do puli SQL Synapse](load-data-wideworldimportersdw.md).

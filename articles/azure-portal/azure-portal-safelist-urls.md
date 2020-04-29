@@ -1,6 +1,6 @@
 ---
-title: Safelist adresy URL portalu platformy Azure na zaporze lub serwerze proxy
-description: Dodaj te adresy URL do pomijania serwera proxy, aby komunikować się z witryną Azure portal i jej usługami
+title: Safelist adresy URL Azure Portal na zaporze lub serwerze proxy
+description: Dodaj te adresy URL do obejścia serwera proxy, aby komunikować się z Azure Portalą i jej usługami
 services: azure-portal
 keywords: ''
 author: mgblythe
@@ -10,21 +10,21 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 399c64c88e78079432fcf7c09dafd199da83358b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255053"
 ---
-# <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Safelist adresy URL portalu platformy Azure na zaporze lub serwerze proxy
+# <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Safelist adresy URL Azure Portal na zaporze lub serwerze proxy
 
-Lokalne urządzenia zabezpieczające można skonfigurować w celu ominięcia ograniczeń zabezpieczeń adresów URL portalu Azure. Ta konfiguracja może zwiększyć wydajność i łączność między siecią lokalną lub szerokosądową a chmurą platformy Azure.
+Lokalne urządzenia zabezpieczeń można skonfigurować w celu obejścia ograniczeń zabezpieczeń dla adresów URL Azure Portal. Ta konfiguracja może zwiększyć wydajność i łączność między siecią lokalną lub rozległą a chmurą platformy Azure.
 
-Administratorzy sieci często wdrażają serwery proxy, zapory lub inne urządzenia. Urządzenia te pomagają zabezpieczyć i dać kontrolę nad tym, jak użytkownicy uzyskują dostęp do Internetu. Reguły mające na celu ochronę użytkowników mogą czasami blokować lub spowalniać legalny ruch internetowy związany z działalnością biznesową. Ten ruch obejmuje komunikację między Tobą a platformą Azure. Aby zoptymalizować łączność między siecią a witryną Azure portal i jej usługami, zalecamy dodanie adresów URL witryny Azure portal do listy bezpiecznych.
+Administratorzy sieci często wdrażają serwery proxy, zapory lub inne urządzenia. Te urządzenia pomagają zabezpieczyć i zapewnić kontrolę nad tym, jak użytkownicy uzyskują dostęp do Internetu. Reguły służące do ochrony użytkowników mogą czasami blokować lub spowalniać słuszny ruch internetowy związany z firmą. Ten ruch obejmuje komunikację między ty i platformą Azure. Aby zoptymalizować łączność między siecią a Azure Portal i jej usługami, zalecamy dodanie Azure Portal adresów URL do safelist.
 
-## <a name="azure-portal-urls-for-proxy-bypass"></a>Adresy URL portalu platformy Azure dla pomijania serwera proxy
+## <a name="azure-portal-urls-for-proxy-bypass"></a>Adresy URL Azure Portal dla obejścia serwera proxy
 
-Punkty końcowe adresu URL do listy bezpiecznych dla witryny Azure portal są specyficzne dla chmury platformy Azure, w której jest wdrażana organizacja. Aby zezwolić ruchowi sieciowe do tych punktów końcowych na ominięcie ograniczeń, wybierz chmurę. Następnie dodaj listę adresów URL do serwera proxy lub zapory.
+Punkty końcowe URL Safelist dla Azure Portal są specyficzne dla chmury platformy Azure, w której wdrożono organizację. Aby zezwolić na ruch sieciowy do tych punktów końcowych w celu obejścia ograniczeń, wybierz chmurę. Następnie Dodaj listę adresów URL do serwera proxy lub zapory.
 
 #### <a name="public-cloud"></a>[Chmura publiczna](#tab/public-cloud)
 
@@ -50,7 +50,7 @@ Punkty końcowe adresu URL do listy bezpiecznych dla witryny Azure portal są sp
 *.windows-int.net
 ```
 
-#### <a name="us-government-cloud"></a>[Chmura rządu Stanów Zjednoczonych](#tab/us-government-cloud)
+#### <a name="us-government-cloud"></a>[Chmura dla instytucji rządowych USA](#tab/us-government-cloud)
 
 ```
 *.azure.us
@@ -63,7 +63,7 @@ Punkty końcowe adresu URL do listy bezpiecznych dla witryny Azure portal są sp
 *.windowsazure.us
 ```
 
-#### <a name="china-government-cloud"></a>[Chińska chmura rządów](#tab/china-government-cloud)
+#### <a name="china-government-cloud"></a>[Chmura dla instytucji rządowych](#tab/china-government-cloud)
 
 ```
 *.azure.cn
@@ -77,6 +77,6 @@ Punkty końcowe adresu URL do listy bezpiecznych dla witryny Azure portal są sp
 ---
 
 > [!NOTE]
-> Ruch do tych punktów końcowych używa standardowych portów TCP dla HTTP (80) i HTTPS (443).
+> Ruch do tych punktów końcowych używa standardowych portów TCP dla protokołu HTTP (80) i HTTPS (443).
 >
 >

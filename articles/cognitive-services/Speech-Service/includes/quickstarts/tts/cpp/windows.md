@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: synteza mowy, C++ (Windows) — usługa mowy'
+title: 'Szybki Start: synteza mowy, C++ (Windows) — usługa mowy'
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak syntetyzować mowę w języku C++ na pulpicie systemu Windows przy użyciu pakietu SDK mowy
+description: Dowiedz się, jak przeprowadzić funkcję syntezy mowy w języku C++ na pulpicie systemu Windows przy użyciu zestawu Speech SDK
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: yinhew
 ms.openlocfilehash: 298d70b4f01da221ca469aaf49d68ed0b91325d3
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81274731"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zanim zaczniesz, upewnij się, że:
+Przed rozpoczęciem upewnij się, że:
 
 > [!div class="checklist"]
-> * [Tworzenie zasobu mowy platformy Azure](../../../../get-started.md)
-> * [Konfigurowanie środowiska programistycznego i tworzenie pustego projektu](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
+> * [Tworzenie zasobu usługi Azure Speech](../../../../get-started.md)
+> * [Skonfiguruj środowisko deweloperskie i Utwórz pusty projekt](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
 
 ## <a name="add-sample-code"></a>Dodawanie przykładowego kodu
 
@@ -37,24 +37,24 @@ Zanim zaczniesz, upewnij się, że:
 
 1. Zastąp ciąg `YourServiceRegion`[regionem](~/articles/cognitive-services/Speech-Service/regions.md) skojarzonym z subskrypcją (na przykład `westus` w przypadku subskrypcji bezpłatnej wersji próbnej).
 
-1. Na pasku menu wybierz pozycję Zapisz**wszystkie** **pliki** > .
+1. Na pasku menu wybierz kolejno opcje **plik** > **Zapisz wszystko**.
 
 ## <a name="build-and-run-the-application"></a>Kompilowanie i uruchamianie aplikacji
 
-1. Na pasku menu **wybierz** > build**build solution,** aby utworzyć aplikację. Kod powinien teraz zostać skompilowany bez błędów.
+1. Na pasku menu wybierz kolejno opcje **Kompiluj** > kompilacje**rozwiązanie** , aby skompilować aplikację. Kod powinien teraz zostać skompilowany bez błędów.
 
-1. Wybierz **debugowanie** > **rozpocznij debugowanie** (lub naciśnij klawisz **F5),** aby uruchomić aplikację **helloworld.**
+1. Wybierz **Debuguj** > **Rozpocznij debugowanie** (lub naciśnij klawisz **F5**), aby uruchomić aplikację **HelloWorld** .
 
-1. Wpisz angielską frazę lub zdanie. Aplikacja przesyła tekst do usługi Mowy, która wysyła syntetyzowaną mowę do aplikacji w celu odtworzenia na głośniku.
+1. Wpisz frazę lub zdanie w języku angielskim. Aplikacja przesyła swój tekst do usługi mowy, która wysyła do aplikacji aplikację, która ma być odtwarzana na głos.
 
-   ![Wyjście konsoli po udanej syntezie mowy](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-cpp-windows-console-output.png)
+   ![Dane wyjściowe konsoli po pomyślnym przeprowadzeniu syntezy mowy](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-cpp-windows-console-output.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
 [!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Tworzenie niestandardowego głosu](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
-- [Nagrywanie niestandardowych próbek głosu](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
+- [Rejestruj niestandardowe przykłady głosu](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

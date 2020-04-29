@@ -1,5 +1,5 @@
 ---
-title: Samouczek — automatyczne skalowanie zestawu skalowania za pomocą interfejsu wiersza polecenia platformy Azure
+title: Samouczek — Skalowanie automatyczne zestawu skalowania przy użyciu interfejsu wiersza polecenia platformy Azure
 description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure automatycznie skalować zestaw skalowania maszyn wirtualnych w odpowiedzi na wzrosty i spadki zapotrzebowania na procesor CPU
 author: ju-shim
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 05/18/2018
 ms.author: jushiman
 ms.custom: mvc
 ms.openlocfilehash: 711553fd0a71103f340137755ef51264e3883c25
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81010407"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Samouczek: automatyczne skalowanie zestawu skalowania maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -25,7 +25,7 @@ Podczas tworzenia zestawu skalowania musisz zdefiniować liczbę wystąpień mas
 > * Testy obciążeniowe wystąpień maszyn wirtualnych i wyzwalanie reguł skalowania automatycznego
 > * Skalowanie automatyczne do wewnątrz po zmniejszeniu zapotrzebowania
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -54,7 +54,7 @@ az vmss create \
 
 ## <a name="define-an-autoscale-profile"></a>Definiowanie profilu skalowania automatycznego
 
-Aby włączyć skalowanie automatyczne na zestawie skalowania, najpierw zdefiniuj profil skalowania automatycznego. Ten profil obejmuje definiowanie domyślnej, minimalnej i maksymalnej pojemności zestawu skalowania. Dzięki tym limitom możesz kontrolować koszty, ponieważ wystąpienia maszyn wirtualnych nie są tworzone w sposób ciągły, zaś akceptowalna wydajność jest zrównoważona z minimalną liczbą wystąpień, które pozostają w zdarzeniu skalowania w pionie. Utwórz profil skalowania automatycznego za pomocą polecenia [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). W poniższym przykładzie ustawia domyślną i minimalną pojemność *2* wystąpień maszyn wirtualnych i maksymalnie *10:*
+Aby włączyć skalowanie automatyczne na zestawie skalowania, najpierw zdefiniuj profil skalowania automatycznego. Ten profil obejmuje definiowanie domyślnej, minimalnej i maksymalnej pojemności zestawu skalowania. Dzięki tym limitom możesz kontrolować koszty, ponieważ wystąpienia maszyn wirtualnych nie są tworzone w sposób ciągły, zaś akceptowalna wydajność jest zrównoważona z minimalną liczbą wystąpień, które pozostają w zdarzeniu skalowania w pionie. Utwórz profil skalowania automatycznego za pomocą polecenia [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). W poniższym przykładzie ustawiono wartość domyślną i minimalną, pojemność wynoszącą *2* wystąpienia maszyn wirtualnych, a maksymalnie *10*:
 
 ```azurecli-interactive
 az monitor autoscale create \
@@ -200,7 +200,7 @@ Zakończ działanie narzędzia *watch* za pomocą klawiszy `Ctrl-c`. Co pięć m
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Aby usunąć zestaw skalowania i dodatkowe zasoby, usuń grupę zasobów i wszystkie jej zasoby za pomocą [az group delete](/cli/azure/group). Parametr `--no-wait` zwraca kontrolę do wiersza polecenia bez oczekiwania na zakończenie operacji. Parametr `--yes` potwierdza, że chcesz usunąć zasoby bez wyświetlania dodatkowego monitu.
+Aby usunąć zestaw skalowania i dodatkowe zasoby, Usuń grupę zasobów i wszystkie jej zasoby za pomocą polecenie [AZ Group Delete](/cli/azure/group). Parametr `--no-wait` zwraca kontrolę do wiersza polecenia bez oczekiwania na zakończenie operacji. Parametr `--yes` potwierdza, że chcesz usunąć zasoby bez wyświetlania dodatkowego monitu.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

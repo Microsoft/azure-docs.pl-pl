@@ -1,6 +1,6 @@
 ---
-title: Pulpit nawigacyjny użycia w analizie komercyjnej platformy reklamowej w Centrum partnerów
-description: Dowiedz się, jak uzyskać dostęp do wszystkich ofert maszyn wirtualnych i metryk rozliczeniowych taryfowych.
+title: Pulpit nawigacyjny użycia w komercyjnej analizie Marketplace w centrum partnerskim
+description: Dowiedz się, jak uzyskać dostęp do wszystkich maszyn wirtualnych, w których są dostępne metryki dotyczące rozliczeń.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,120 +8,120 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: 33762540d14ea51e8325abe9a466007cd7cca748
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81262183"
 ---
-# <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny użycia w analizie rynku komercyjnego
+# <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny użycia w komercyjnej analizie Marketplace
 
-Ten artykuł zawiera informacje na temat pulpitu nawigacyjnego użycia w Centrum partnerów. Ten pulpit nawigacyjny wyświetla wszystkie oferty użycia i metryki rozliczeniowe taryfowe w dwóch oddzielnych kartach: użycie maszyny Wirtualnej i użycie rozliczeń taryfowych.
+Ten artykuł zawiera informacje na temat pulpitu nawigacyjnego użycie w centrum partnerskim. Ten pulpit nawigacyjny wyświetla wszystkie maszyny wirtualne, które oferuje metryki użycia i naliczanych rozliczeń na dwóch oddzielnych kartach: użycie maszyn wirtualnych i zliczanie opłat.
 
-Aby uzyskać dostęp do pulpitu nawigacyjnego Usage, otwórz pulpit nawigacyjny **[Analizy](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** w obszarze Komercyjna marketplace.
+Aby uzyskać dostęp do pulpitu nawigacyjnego użycie, Otwórz pulpit nawigacyjny **[Analizuj](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** w obszarze komercyjny Portal Marketplace.
 
 >[!NOTE]
-> Szczegółowe definicje terminologii analitycznej można znaleźć w części [Często zadawane pytania i terminologia dotyczące analizy rynku komercyjnego.](./faq-terminology.md)
+> Aby uzyskać szczegółowe definicje terminologii dotyczącej analizy, zobacz [często zadawane pytania i terminologię dotyczącą komercyjnej analizy portalu Marketplace](./faq-terminology.md).
 
 ## <a name="usage-dashboard"></a>Pulpit nawigacyjny Użycie
 
-Pulpit nawigacyjny użycia reprezentuje metryki dla wszystkich maszyn wirtualnych (VM) oferuje użycie i pomiaru rozliczeń użycia. Znajdują się one w dwóch oddzielnych kartach: użycie maszyny Wirtualnej i użycie rozliczeń taryfowych.
+Pulpit nawigacyjny użycia przedstawia metryki dla całej maszyny wirtualnej (VM), które zapewniają użycie i pomiarowe użycie rozliczeń. Znajdują się one na dwóch oddzielnych kartach: użycie maszyn wirtualnych i obciążenie taryfowe.
 
-Na karcie Użycie maszyny Wirtualnej znajdują się graficzne reprezentacje następujących elementów:
+Na karcie użycie maszyny wirtualnej znajdują się graficzne reprezentacje następujących elementów:
 
 - [Podsumowanie użycia](#usage-summary)
-- [Użycie według lokalizacji geograficznej](#usage-by-geography)
-- [Wykorzystanie przez oferty](#usage-by-offers)
+- [Użycie według położenia geograficznego](#usage-by-geography)
+- [Użycie przez oferty](#usage-by-offers)
 - [Trend użycia według ofert i jednostek SKU](#usage-trend-by-offers-and-skus)
 - [Użycie według typu oferty](#usage-by-offer-type)
-- [Użycie według rozmiaru maszyny Wirtualnej](#usage-by-vm-size)
-- [Wykorzystanie według kanału sprzedaży](#usage-by-sales-channel)
-- [Szczegółowe dane dotyczące użytkowania](#detailed-usage-data)
+- [Użycie według rozmiaru maszyny wirtualnej](#usage-by-vm-size)
+- [Użycie według kanału sprzedaży](#usage-by-sales-channel)
+- [Szczegółowe dane użycia](#detailed-usage-data)
 
 > [!NOTE]
-> Raporty analytics są wyświetlane inaczej w portalu Cloud Partner Portal (CPP) i Centrum partnerów. **Statystyki sprzedawcy** w CPP mają kartę zamówień i użycia, która wyświetla dane zarówno dla ofert opartych na użyciu, jak i ofert nieopartych na użyciu. W Centrum partnerów metryki użycia są wyświetlane na osobnej stronie.
+> Raporty analityczne są wyświetlane inaczej w portal Cloud Partner (CPP) i centrum partnerskie. **Informacje o sprzedawcy** w programie CPP mają kartę zamówienia i użycie, która wyświetla dane dla ofert opartych na użyciu i nieopartych na użyciu. W centrum partnerskim metryki użycia są wyświetlane na osobnej stronie.
 
 ### <a name="usage-summary"></a>Podsumowanie użycia
 
-Tabela podsumowania użycia wyświetla godziny użycia klienta dla wszystkich zakupionych ofert.
+W tabeli Podsumowanie użycia są wyświetlane godziny użycia klientów dla wszystkich zakupionych ofert.
 
-- Znormalizowane godziny użytkowania są definiowane jako godziny użycia znormalizowane w celu uwzględnienia liczby rdzeni maszyn wirtualnych ([liczba rdzeni maszyn wirtualnych] x [godziny użycia pierwotnego]). Maszyny wirtualne oznaczone jako "SHAREDCORE" używają 1/6 (lub 0,1666) jako mnożnika [liczba rdzeni maszyn wirtualnych].
-- Nieprzetworzone godziny użytkowania są definiowane jako czas, przez który maszyny wirtualne były uruchomione pod względem godzin.
-- Wartość procentowa reprezentuje zmianę wzrostu użycia dla wybranego zakresu dat ([użycie ostatniego miesiąca — użycie pierwszego miesiąca])/ użycie pierwszego miesiąca).
-- Zielone trójkąty skierowane w górę wskazują na zmianę wzrostu.
-- Czerwony trójkąt skierowany w dół wskazuje na ujemną zmianę wzrostu w stosunku do poprzedniego miesiąca.
-- Wykresy mikrobarów reprezentują wartości miesięczne. Wartość każdego miesiąca można wyświetlić, najeżdżając kursorem na kolumny na wykresie.
+- Znormalizowane godziny użycia są definiowane jako godziny użycia znormalizowane w celu uwzględnienia liczby rdzeni maszyn wirtualnych ([liczba rdzeni maszyn wirtualnych] x [godz. użycia pierwotnego]). Maszyny wirtualne oznaczone jako "SHAREDCORE" wykorzystują 1/6 (lub 0,1666) jako mnożnik [liczba rdzeni maszyn wirtualnych].
+- Godziny użycia pierwotnego są definiowane jako czas działania maszyn wirtualnych w godzinach.
+- Wartość procentowa reprezentuje zmianę wzrostu zużycia dla wybranego zakresu dat ([ostatnie użycie miesiąca – pierwsze użycie miesiąca])/użycie pierwszego miesiąca).
+- Zielone Trójkąty wskazujące zmianę wzrostu.
+- Czerwony trójkąt skierowany w dół wskazuje negatywną zmianę wzrostu względem poprzedniego miesiąca.
+- Wykresy mikro bar reprezentują wartości miesięczne. Możesz wyświetlić wartość dla każdego miesiąca, umieszczając kursor nad kolumnami na wykresie.
 
-### <a name="usage-by-geography"></a>Użycie według lokalizacji geograficznej
+### <a name="usage-by-geography"></a>Użycie według położenia geograficznego
 
-**Znormalizowane użycie według mapy cieplnej geografii** wyświetla godziny użycia mapowane według kraju klienta. Zmiana koloru kraju reprezentuje znormalizowane stężenie użycia. Powróć oryginalny widok, naciskając przycisk **home** na mapie.
+**Znormalizowane użycie według lokalizacji geograficznej** mapę cieplną wyświetla godziny użycia mapowane zgodnie z krajem klienta. Odmiana koloru kraju reprezentuje znormalizowane stężenie użycia. Przywróć widok oryginalny, naciskając przycisk Home ( **Strona główna** ) na mapie.
 
-### <a name="usage-by-offers"></a>Wykorzystanie przez oferty
+### <a name="usage-by-offers"></a>Użycie przez oferty
 
-- **Znormalizowane użycie według wykresu** kołowego oferty wyświetla podział znormalizowanych godzin użytkowania według ofert zgodnie z wybranym zakresem dat. 5 najlepszych ofert jest wyświetlanych na wykresie, a pozostałe są pogrupowane w kategorii "reszta wszystkich".
-- Wykres słupkowy przedstawia trend wzrostu miesiąc po miesiącu dla wybranego zakresu dat. Kolumny miesiąca reprezentują godziny użycia z ofert z najwyższymi godzinami użytkowania dla danego miesiąca. Wykres liniowy przedstawia trend procentowy wzrostu wykreślony na drugiej osi Y.
-- Użyj suwaka u góry wykresu, aby przewinąć od prawej do lewej wzdłuż osi x i/lub skupić się na określonych punktach danych.
+- Wykres kołowy **znormalizowane użycie przez oferty** przedstawia podział znormalizowanych godzin użycia według ofert zgodnie z wybranym zakresem dat. 5 najważniejszych ofert są wyświetlane w grafie, podczas gdy reszta jest zgrupowana w kategorii "REST All".
+- Wykres słupkowy przedstawia trend wzrostu miesiąc po miesiącu dla wybranego zakresu dat. Kolumny miesiąc przedstawiają godziny użycia z ofert o największej godzinie użycia dla danego miesiąca. Wykres liniowy przedstawia trend procentu wzrostu wykreślony na pomocniczej osi Y.
+- Użyj suwaka u góry wykresu, aby przewinąć w prawo do lewej wzdłuż osi x i/lub skupić się na określonych punktach danych.
 
 ### <a name="usage-trend-by-offers-and-skus"></a>Trend użycia według ofert i jednostek SKU
 
-Na tym wykresie jest wyświetlany trend znormalizowanego użycia dla wybranych jednostek SKU oferty. Ranking oferty wyświetla 50 najlepszych ofert o najwyższym zużyciu i są sortowane według godzin użytkowania. Tabela liderów jednostki SKU wyświetla 50 najlepszych jednostek SKU o najwyższym użyciu dla wybranej oferty.
+Ten wykres przedstawia trend znormalizowanych użycia dla wybranych jednostek SKU oferty. Oferta rankingów zawiera najpopularniejsze oferty 50 o największym użyciu i są posortowane według godzin użycia. Rankingów SKU zawiera listę głównych jednostek SKU 50 o największym użyciu dla wybranej oferty.
 
 ### <a name="usage-by-offer-type"></a>Użycie według typu oferty
 
-- Wykres **kołowy użycia według typu oferty** organizuje użycie zgodnie z typem oferty.
-- Najlepsze oferty są wyświetlane na wykresie, a pozostałe oferty są pogrupowane jako "Rest All".
-- Wykres **trendu** wyświetla trendy wzrostu miesiąc po miesiącu. Kolumna miesiąc reprezentuje użycie według typów oferty w tym miesiącu.
+- Wykres kołowy **użycie według typu oferty** organizuje użycie zgodnie z typem oferty.
+- Pierwsze oferty są wyświetlane na wykresie, a pozostałe oferty są pogrupowane jako "REST All".
+- Wykres **trendu** przedstawia trendy dotyczące wzrostu miesiąca na miesiąc. Kolumna month reprezentuje użycie według typów oferty najwyższej w danym miesiącu.
 
-### <a name="usage-by-vm-size"></a>Użycie według rozmiaru maszyny Wirtualnej
+### <a name="usage-by-vm-size"></a>Użycie według rozmiaru maszyny wirtualnej
 
-Ten wykres reprezentuje trend użycia dla wybranych rozmiarów maszyn wirtualnych (maksymalnie 5) wszystkich ofert/jednostek SKU. Wykres kolumnowy jest skumulowany z godzinami użycia wybranych rozmiarów maszyn wirtualnych.
+Ten wykres przedstawia trend użycia dla wybranych rozmiarów maszyn wirtualnych (maksymalnie 5) wszystkich ofert/jednostek SKU. Wykres kolumnowy jest układany w godzinach użycia wybranych rozmiarów maszyn wirtualnych.
 
-Ranking wyświetla 50 najlepszych rozmiarów maszyn wirtualnych o najwyższym użyciu i jest sortowany według godzin użycia.
+W rankingów są wyświetlane najbardziej 50 rozmiary maszyn wirtualnych o największym wykorzystaniu i posortowane według godzin użycia.
 
-### <a name="usage-by-sales-channel"></a>Wykorzystanie według kanału sprzedaży
+### <a name="usage-by-sales-channel"></a>Użycie według kanału sprzedaży
 
-- Użycie według wykresu kołowego kanału sprzedaży organizuje użycie zgodnie z kanałem sprzedaży
-- Górny kanał sprzedaży o najwyższym użyciu jest wyświetlany na wykresie, a reszta kanału sprzedaży jest pogrupowana jako "Rest All".
-- Kolumna miesiąc reprezentuje użycie przez górny kanał sprzedaży w tym miesiącu.
-- Funkcje tego wykresu są takie same jak wykres "Użycie według ofert"
+- Wykres kołowy użycie według kanału sprzedaży organizuje użycie zgodnie z kanałem sprzedaży
+- Na wykresie zostanie wyświetlony górny kanał sprzedaży z najwyższym użyciem, a pozostała część kanału sprzedaży jest zgrupowana jako "REST All".
+- Kolumna month reprezentuje użycie według najlepszych kanałów sprzedaży w danym miesiącu.
+- Funkcje tego wykresu są takie same jak wykres "użycie przez oferty"
 
-### <a name="detailed-usage-data"></a>Szczegółowe dane dotyczące użytkowania
+### <a name="detailed-usage-data"></a>Szczegółowe dane użycia
 
-W **tabeli szczegółów użycia** wyświetlana jest ponumerowana lista 1000 rekordów użycia posortowanych według użycia.
+W **tabeli Szczegóły użycia** zostanie wyświetlona lista numerowana pierwszych rekordów użycia 1000 posortowanych według użycia.
 
-- Każdą kolumnę w siatce można sortować.
+- Każda kolumna w siatce jest do sortowania.
 - Dane można wyodrębnić do pliku CSV, jeśli liczba rekordów jest mniejsza niż 1000.
-- Jeśli liczba rekordów wynosi ponad 1000, dane eksportu zostaną asynchronicznie umieszczone na stronie pobierania, która będzie dostępna przez następne 30 dni.
-- Filtry można zastosować do **szczegółowych danych użycia,** aby wyświetlić tylko dane, które Cię interesują. Dane mogą być filtrowane według kraju, kanału sprzedaży, typu licencji w portalu Marketplace, typu użycia, nazwy oferty, typu oferty, bezpłatnych wersji próbnych, identyfikatora subskrypcji w marketplace, identyfikatora klienta i nazwy firmy.
+- Jeśli liczba rekordów przekracza 1000, dane eksportu będą asynchroniczne umieszczane na stronie pobierania, która będzie dostępna w ciągu następnych 30 dni.
+- Filtry można zastosować do **szczegółowych danych użycia** , aby wyświetlić tylko te dane, które Cię interesują. Dane można filtrować według kraju, kanału sprzedaży, typu licencji Marketplace, typu użycia, nazwy oferty, typu oferty, bezpłatnych wersji próbnych, identyfikatora subskrypcji witryny Marketplace, identyfikatora klienta i nazwy firmy.
 
 > [!NOTE]
-> Wybierz **typ Użycia** w filtrze strony, aby wyświetlić wykresy na stronie w widoku "Widok znormalizowany" lub "Nieprzetworzony". Domyślnym widokiem tych wykresów jest "Widok znormalizowany".
+> Wybierz **Typ użycia** w filtrze strony, aby wyświetlić wykresy na stronie w widoku "znormalizowany widok" lub "widok nieprzetworzony". Domyślnym widokiem tych wykresów jest "widok znormalizowany".
 
-**Filtry strony Użycie** są stosowane na poziomie strony. Można wybrać wiele filtrów, aby renderować wykres dla kryteriów wybranych do wyświetlania, a dane, które mają być wyświetlane w siatce/eksporcie "szczegółowe dane użycia". Filtry są stosowane do danych wyodrębnionych dla zakresu danych wybranego w prawym górnym rogu strony zamówień.
+**Filtry stron użycia** są stosowane na poziomie strony. Możesz wybrać wiele filtrów, aby renderować wykres dla kryteriów, które chcesz wyświetlić, oraz danych, które mają być wyświetlane w siatce/eksporcie "szczegółowe dane użycia". Filtry są stosowane do danych wyodrębnionych dla zakresu danych wybranego w prawym górnym rogu strony Orders (zamówienia).
 
-- **Typy ofert** i **nazwy ofert** są wyświetlane tylko dla ofert nabytych w wybranym zakresie dat. Nazwy ofert na liście są wyświetlane dla typów ofert wybranych z listy.
-- Domyślnym wyborem jest "Wszystkie" dla każdej z opcji filtru, z wyjątkiem **typu Użycie**. Domyślnym wyborem **dla typu użycia** jest użycie znormalizowane. Aby wyświetlić użycie surowca na wykresach, wybierz opcję "użycie pierwotne".
-- Zastosowane filtry pokazują wybrane(-e) liczbę dla dokonanych wyborów filtrów. Zastosowane filtry nie są wyświetlane dla wyborów domyślnych.
-
-> [!NOTE]
-> Szczegółowa definicja każdego z pól w siatce "szczegółowe dane zamówienia", filtry stron i wszystkie możliwe wybory są zdefiniowane w sekcji słownika danych [często zadawanych pytań i terminologii.](link needed)
-
-Karta **Użycie rozliczeń taryfowych** przedstawia informacje o użyciu dla typów ofert, w których użycie jest mierzone według wymiaru na licznik. Obecnie prezentowany jest overage typu oferty SaaS. Zakładka przedstawia graficzne reprezentacje trendów nadpłaty dla użycia rozliczeń taryfowych SaaS:
-
-- **Trend przełęczna według wymiarów liczników**: Wyświetla miesięczny trend nadliczmowania dla wybranego wymiaru licznika oferty. Oś X reprezentuje miesiąc, a oś Y reprezentuje ilość użycia. Jednostka miary miernika niestandardowego jest również wyświetlana na osi Y.
-- **Tendencja przekroju wartości SKU**: Reprezentuje tendencję wykorzystania wybranego wymiaru licznika według jednostek SKU. Wyświetlane jednostki SKU będą reprezentować 5 najlepszych jednostek SKU o najwyższej ilości użycia dla wybranej oferty.
-- **Trend przewyższenia według 50 najlepszych klientów**: 50 najlepszych ofert z najwyższymi godzinami użytkowania jest wyświetlanych na ***tablicy liderów*** i jest klasyfikowanych według najwyższego wykorzystania licznika niestandardowego. Wybierz klienta w tabeli liderów, aby wyświetlić trend użycia wybranego wymiaru licznika.
-- **Trend przewyższenia przez najlepszych klientów**: Przedstawia najlepsze percentyle klientów, które przyczyniają się do % całkowitego użycia. Górny percentyl odbiorcy jest wyświetlany wzdłuż osi X i jest określany przez ilość użycia odbiorcy. Oś Y wyświetla ilość użycia. Szczegóły można wyświetlić, najeżdżając kursorem na punkty wzdłuż wykresu liniowego.
+- **Typy ofert** i **nazwy ofert** są wyświetlane tylko dla ofert, które zostały nabyte w wybranym zakresie dat. Nazwy ofert na liście są wyświetlane dla typów ofert wybranych z listy.
+- Wybór domyślny to "All" dla każdej opcji filtru, z wyjątkiem **typu użycia**. Domyślny wybór dla **typu użycia** to znormalizowane użycie. Aby wyświetlić surowe użycie na wykresach, wybierz pozycję "użycie pierwotne".
+- Zastosowane filtry pokazują wybrane opcje liczby dla wybranych opcji filtrowania. Zastosowane filtry nie są wyświetlane dla opcji domyślnych.
 
 > [!NOTE]
-> Szczegóły użycia i wszystkie wykresy na tej stronie są wyświetlane dla dowolnego wymiaru licznika wybranego dla filtru strony.
+> Szczegółowa definicja każdego z pól w siatce "szczegółowe dane zamówienia", filtry stron i wszystkie możliwe wybory są zdefiniowane w sekcji słownik danych artykułu [często zadawane pytania i terminologia](link needed) .
+
+Karta **taryfowe użycie rozliczeń** przedstawia informacje o użyciu dla typów ofert, w których użycie jest mierzone przez wymiar miernika. Typ nadwyżki oferty SaaS jest obecnie prezentowany. Na karcie przedstawiono graficzną reprezentację trendów nadwyżkowych w przypadku używania rozliczeń SaaS z naliczaniem:
+
+- **Trend nadwyżkowy według wymiaru miernika**: przedstawia miesięczną wartość trendu nadwyżkowego dla wybranego wymiaru licznika oferty. Oś X reprezentuje miesiąc, a oś Y reprezentuje ilość użycia. Jednostka pomiaru licznika niestandardowego jest również wyświetlana na osi Y.
+- **Trend nadwyżkowy według jednostki SKU**: reprezentuje trend ilości użycia wybranego wymiaru licznika według jednostek SKU. Wyświetlone jednostki SKU będą reprezentować 5 głównych jednostek SKU z największą ilością użycia wybranej oferty.
+- **Trend nadwyżkowy według najlepszych 50 klientów**: oferty z największą ilością w wysokości 50 są wyświetlane na ***tablicy lidera*** i są klasyfikowane według najwyższego użycia miernika niestandardowego. Wybierz klienta w rankingów, aby wyświetlić trend użycia wybranego wymiaru miernika.
+- **Trend nadwyżkowy według klientów najczęściej**: przedstawia najważniejsze percentyle klienta, które przyczyniają się do% całkowitego użycia. Najwyższy percentyl klienta jest wyświetlany wzdłuż osi X i jest określany przez ilość użycia klienta. Oś Y Wyświetla ilość użycia. Możesz wyświetlić szczegóły, umieszczając kursor nad punktami wzdłuż wykresu liniowego.
+
+> [!NOTE]
+> Szczegóły użycia i wszystkie wykresy na tej stronie są wyświetlane dla danego wymiaru licznika dla filtru strony.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać przegląd raportów analitycznych dostępnych w komercyjnym rynku Centrum partnerów, zobacz [Analytics dla rynku komercyjnego w Centrum partnerów.](./analytics.md)
-- Aby uzyskać wykresy, trendy i wartości danych agregujących, które podsumowują aktywność w portalu marketplace dla Twojej oferty, zobacz [Podsumowanie pulpitu nawigacyjnego w analizie rynku komercyjnego.](./summary-dashboard.md)
-- Aby uzyskać informacje o zamówieniach w formacie graficznym i do pobrania, zobacz [Pulpit nawigacyjny zamówień w analizie rynku komercyjnego](./orders-dashboard.md).
-- Aby uzyskać szczegółowe informacje o klientach, w tym trendy wzrostu, zobacz [Pulpit nawigacyjny klientów w analizie rynku komercyjnego.](./customer-dashboard.md)
-- Aby uzyskać listę żądań pobierania w ciągu ostatnich 30 dni, zobacz [Pulpit nawigacyjny pobierania w analizie rynku komercyjnego](./downloads-dashboard.md).
-- Aby wyświetlić skonsolidowany widok opinii klientów dotyczących ofert w witrynie Azure Marketplace i AppSource, zobacz [Pulpit nawigacyjny ocen i opinii w analizie komercyjnego portalu marketplace.](./ratings-reviews.md)
-- W przypadku często zadawanych pytań dotyczących analityki rynku komercyjnego i kompleksowego słownika terminów danych zobacz [Często zadawane pytania i terminologia w celu analizy rynku komercyjnego.](./faq-terminology.md)
+- Aby zapoznać się z omówieniem raportów analitycznych dostępnych na rynku komercyjnym centrum partnerskiego, zobacz [Analiza portalu komercyjnego w centrum partnerskim](./analytics.md).
+- W przypadku grafów, trendów i wartości zagregowanych danych, które podsumowują aktywność witryny Marketplace dla oferty, zobacz [pulpit nawigacyjny podsumowania w portalu komercyjnej analizy Marketplace](./summary-dashboard.md).
+- Aby uzyskać informacje o zamówieniach w formacie graficznym i do pobrania, zobacz temat [Zamówienie pulpitu nawigacyjnego w portalu komercyjnej analizy Marketplace](./orders-dashboard.md).
+- Aby uzyskać szczegółowe informacje na temat klientów, w tym trendów wzrostu, zobacz [pulpit nawigacyjny klienta w komercyjnej analizie portalu Marketplace](./customer-dashboard.md).
+- Aby uzyskać listę żądań pobierania w ciągu ostatnich 30 dni, zobacz [pulpit nawigacyjny w portalu komercyjnej analizy Marketplace](./downloads-dashboard.md).
+- Aby wyświetlić skonsolidowany widok opinii klientów na temat ofert w witrynie Azure Marketplace i AppSource, zobacz [pulpit nawigacyjny oceny i przeglądów w portalu komercyjnej analizy Marketplace](./ratings-reviews.md).
+- Często zadawane pytania dotyczące analizy komercyjnej portalu Marketplace i kompleksowego słownika warunków dotyczących danych można znaleźć [w temacie często zadawane pytania i terminologia dotyczące komercyjnej analizy w portalu Marketplace](./faq-terminology.md).

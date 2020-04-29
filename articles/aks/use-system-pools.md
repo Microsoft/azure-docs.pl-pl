@@ -1,65 +1,65 @@
 ---
-title: Korzystanie z pul węzłów systemowych w usłudze Azure Kubernetes Service (AKS)
-description: Dowiedz się, jak tworzyć pule węzłów systemu w usłudze Azure Kubernetes (AKS) i zarządzać nimi.
+title: Korzystanie z pul węzłów systemu w usłudze Azure Kubernetes Service (AKS)
+description: Dowiedz się, jak tworzyć pule węzłów systemu i zarządzać nimi w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 04/06/2020
 ms.openlocfilehash: b567d9e618877463e1e659f368d35fbb787a4ef2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81259072"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Zarządzanie pulami węzłów systemowych w usłudze Azure Kubernetes Service (AKS)
 
-W usłudze Azure Kubernetes (AKS) węzły tej samej konfiguracji są grupowane w *pule węzłów.* Pule węzłów zawierają podstawowe maszyny wirtualne, które uruchamiają aplikacje. Pule węzłów systemowych i pul węzłów użytkownika to dwa różne tryby puli węzłów dla klastrów AKS. Pule węzłów systemowych służą głównemu celowi hostowania krytycznych zasobników systemu, takich jak CoreDNS i tunnelfront. Pule węzłów użytkownika służą głównym celem hostowania zasobników aplikacji. Jednak zasobników aplikacji można zaplanować w pulach węzłów systemowych, jeśli chcesz mieć tylko jedną pulę w klastrze AKS. Każdy klaster usługi AKS musi zawierać co najmniej jedną pulę węzłów systemowych z co najmniej jednym węzłem. 
+W usłudze Azure Kubernetes Service (AKS) węzły tej samej konfiguracji są pogrupowane w *Pule węzłów*. Pule węzłów zawierają bazowe maszyny wirtualne, na których działają aplikacje. Pule węzłów systemowych i pule węzłów użytkowników są dwoma różnymi trybami puli węzłów dla klastrów AKS. Pule węzłów systemu stanowią podstawowy cel hostingu krytycznych podstaw systemu, takich jak CoreDNS i tunnelfront. Pule węzłów użytkowników stanowią podstawowy cel hostingu podstaw aplikacji. Jednak w ramach klastra AKS można zaplanować pulę aplikacji w puli węzłów systemu. Każdy klaster AKS musi zawierać co najmniej jedną pulę węzłów systemu z co najmniej jednym węzłem. 
 
 > [!Important]
-> Jeśli uruchomisz pulę pojedynczego węzła systemowego dla klastra AKS w środowisku produkcyjnym, zaleca się użycie co najmniej trzech węzłów dla puli węzłów.
+> W przypadku uruchamiania jednej puli węzłów systemu dla klastra AKS w środowisku produkcyjnym zaleca się użycie co najmniej trzech węzłów dla puli węzłów.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-* Potrzebujesz zainstalowanego i skonfigurowany interfejsu wiersza polecenia platformy Azure w wersji 2.3.1 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
+* Musisz mieć zainstalowany i skonfigurowany interfejs wiersza polecenia platformy Azure w wersji 2.3.1 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
 ## <a name="limitations"></a>Ograniczenia
 
-Następujące ograniczenia mają zastosowanie podczas tworzenia klastrów AKS i zarządzania nimi, które obsługują pule węzłów systemowych.
+Podczas tworzenia klastrów AKS obsługujących pule węzłów systemu i zarządzania nimi obowiązują następujące ograniczenia.
 
-* Zobacz [Przydziały, ograniczenia rozmiaru maszyny wirtualnej i dostępność regionu w usłudze Azure Kubernetes Service (AKS)][quotas-skus-regions].
-* Klaster AKS musi być zbudowany z zestawami skalowania maszyny wirtualnej jako typ maszyny wirtualnej.
-* Nazwa puli węzłów może zawierać tylko małe litery alfanumeryczne i musi zaczynać się od małych liter. W przypadku pul węzłów systemu Linux długość musi wynosić od 1 do 12 znaków. W przypadku pul węzłów systemu Windows długość musi wynosić od 1 do 6 znaków.
+* Zobacz [limity przydziałów, ograniczenia rozmiaru maszyny wirtualnej i dostępność regionów w usłudze Azure Kubernetes Service (AKS)][quotas-skus-regions].
+* Klaster AKS musi być skompilowany przy użyciu zestawów skalowania maszyn wirtualnych jako typ maszyny wirtualnej.
+* Nazwa puli węzłów może zawierać tylko małe znaki alfanumeryczne i musi zaczynać się małą literą. W przypadku pul węzłów systemu Linux długość musi należeć do zakresu od 1 do 12 znaków. W przypadku pul węzłów systemu Windows długość musi należeć do zakresu od 1 do 6 znaków.
 
-## <a name="system-and-user-node-pools"></a>Pule węzłów systemowych i użytkowników
+## <a name="system-and-user-node-pools"></a>Pule węzłów systemu i użytkownika
 
-Węzły puli węzłów systemowych mają etykietę **kubernetes.azure.com/mode: system**. Każdy klaster usługi AKS zawiera co najmniej jedną pulę węzłów systemowych. Pule węzłów systemowych mają następujące ograniczenia:
+Każdy węzeł puli węzłów systemu ma etykietę **Kubernetes.Azure.com/Mode: system**. Każdy klaster AKS zawiera co najmniej jedną pulę węzłów systemu. Pule węzłów systemowych mają następujące ograniczenia:
 
-* Opiekuń systemowy musi być Linux.
-* Typ węzła użytkownika osType może być Linux lub Windows.
-* Pule systemowe muszą zawierać co najmniej jeden węzeł, a pule węzłów użytkownika mogą zawierać zero lub więcej węzłów.
-* Pule węzłów systemowych wymagają jednostki SKU maszyny Wirtualnej z co najmniej 2 procesorami wirtualnymi i 4 GB pamięci.
-* Pule węzłów systemowych muszą obsługiwać co najmniej 30 zasobników zgodnie z [formułą minimalnej i maksymalnej wartości dla zasobników][maximum-pods].
-* Pule węzłów punktowych wymagają pul węzłów użytkownika.
+* OsType pul systemu musi być Linux.
+* Pule węzłów użytkowników osType mogą mieć system Linux lub Windows.
+* Pule systemu muszą zawierać co najmniej jeden węzeł, a pule węzłów użytkownika mogą zawierać zero lub więcej węzłów.
+* Pule węzłów systemu wymagają jednostki SKU maszyny wirtualnej z co najmniej 2 procesorów wirtualnych vCPU i 4 GB pamięci.
+* Pule węzłów systemowych muszą obsługiwać co najmniej 30 zasobników, zgodnie z opisem w [formule minimalnej i maksymalnej wartości dla zasobników][maximum-pods].
+* Pule węzłów dodatkowych wymagają pul węzłów użytkownika.
 
-Można wykonać następujące operacje z pulami węzłów:
+W przypadku pul węzłów można wykonać następujące operacje:
 
-* Zmień pulę węzłów systemowych na pulę węzłów użytkownika, pod warunkiem, że masz inną pulę węzłów systemowych, aby zająć jej miejsce w klastrze AKS.
-* Zmień pulę węzłów użytkownika na pulę węzłów systemowych.
-* Usuwanie pul węzłów użytkownika.
-* Można usunąć pule węzłów systemowych, pod warunkiem, że masz inną pulę węzłów systemowych, aby zająć jego miejsce w klastrze AKS.
-* Klaster usługi AKS może mieć wiele pul węzłów systemowych i wymaga co najmniej jednej puli węzłów systemowych.
+* Zmień pulę węzłów systemu, aby była pulą węzłów użytkownika, pod warunkiem, że w klastrze AKS masz inną pulę węzłów systemu.
+* Zmień pulę węzłów użytkownika na pulę węzłów systemu.
+* Usuń pule węzłów użytkownika.
+* Pule węzłów systemowych można usunąć, pod warunkiem, że w klastrze AKS istnieje inna Pula węzłów systemu.
+* Klaster AKS może mieć wiele pul węzłów systemowych i wymaga co najmniej jednej puli węzłów systemu.
 
-## <a name="create-a-new-aks-cluster-with-a-system-node-pool"></a>Tworzenie nowego klastra AKS z pula węzłów systemowych
+## <a name="create-a-new-aks-cluster-with-a-system-node-pool"></a>Tworzenie nowego klastra AKS z pulą węzłów systemowych
 
-Podczas tworzenia nowego klastra AKS automatycznie tworzysz pulę węzłów systemowych z jednym węzłem. Początkowa pula węzłów domyślnie ma tryb typu systemu. Podczas tworzenia nowych pul węzłów z az aks nodepool dodać, te pule węzłów są pulami węzłów użytkownika, chyba że jawnie określić parametr mode.
+Podczas tworzenia nowego klastra AKS automatycznie tworzy się pulę węzłów systemowych z pojedynczym węzłem. Początkowa Pula węzłów domyślnie jest trybem typu System. Gdy tworzysz nowe pule węzłów za pomocą AZ AKS nodepool Add, te pule węzłów są pulami węzłów użytkownika, chyba że jawnie określisz parametr mode.
 
-Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w regionie *eastus.*
+Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w regionie *wschodnim* .
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Utwórz klaster AKS za pomocą polecenia [az aks create][az-aks-create]. Poniższy przykład tworzy klaster o nazwie *myAKSCluster* z jedną pulą systemu zawierającą jeden węzeł. W przypadku obciążeń produkcyjnych upewnij się, że używasz pul węzłów systemowych z co najmniej trzema węzłami. Ta operacja może potrwać kilka minut.
+Utwórz klaster AKS za pomocą polecenia [az aks create][az-aks-create]. W poniższym przykładzie tworzony jest klaster o nazwie *myAKSCluster* z jedną pulą systemową zawierającą jeden węzeł. W przypadku obciążeń produkcyjnych upewnij się, że używasz pul węzłów systemu z co najmniej trzema węzłami. Wykonanie tej operacji może potrwać kilka minut.
 
 ```azurecli-interactive
 az aks create -g myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
@@ -67,7 +67,7 @@ az aks create -g myResourceGroup --name myAKSCluster --node-count 1 --generate-s
 
 ## <a name="add-a-system-node-pool-to-an-existing-aks-cluster"></a>Dodawanie puli węzłów systemowych do istniejącego klastra AKS
 
-Do istniejących klastrów AKS można dodać co najmniej jedną pulę węzłów systemu. Następujące polecenie dodaje pulę węzłów systemu typu trybu z domyślną liczbą trzech węzłów.
+Do istniejących klastrów AKS można dodać co najmniej jedną pulę węzłów systemu. Następujące polecenie dodaje pulę węzłów systemu typu system z domyślną liczbą trzech węzłów.
 
 ```azurecli-interactive
 az aks nodepool add -g myResourceGroup --cluster-name myAKSCluster -n mynodepool --mode system
@@ -80,7 +80,7 @@ Szczegóły puli węzłów można sprawdzić za pomocą następującego poleceni
 az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
 ```
 
-Tryb typu **System** jest zdefiniowany dla puli węzłów systemowych, a tryb typu **Użytkownik** jest zdefiniowany dla puli węzłów użytkownika.
+Tryb typu **system** jest zdefiniowany dla pul węzłów systemowych, a tryb typu **User** został zdefiniowany dla pul węzłów użytkownika.
 
 ```output
 {
@@ -112,17 +112,17 @@ Tryb typu **System** jest zdefiniowany dla puli węzłów systemowych, a tryb ty
 }
 ```
 
-## <a name="update-system-and-user-node-pools"></a>Aktualizowanie puli węzłów systemu i użytkownika
+## <a name="update-system-and-user-node-pools"></a>Aktualizowanie pul węzłów systemu i użytkownika
 
-Można zmienić tryby zarówno dla puli węzłów systemu, jak i węzłów użytkownika. Pulę węzłów systemowych można zmienić na pulę użytkowników tylko wtedy, gdy w klastrze AKS istnieje już inna pula węzłów systemowych.
+Można zmienić tryby dla pul węzłów systemu i użytkownika. Pulę węzłów systemowych można zmienić na pulę użytkowników tylko wtedy, gdy inna Pula węzłów systemu już istnieje w klastrze AKS.
 
-To polecenie zmienia pulę węzłów systemowych na pulę węzłów użytkownika.
+To polecenie powoduje zmianę puli węzłów systemowych na pulę węzłów użytkownika.
 
 ```azurecli-interactive
 az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodepool --mode user
 ```
 
-To polecenie zmienia pulę węzłów użytkownika na pulę węzłów systemowych.
+To polecenie powoduje zmianę puli węzłów użytkownika na pulę węzłów systemowych.
 
 ```azurecli-interactive
 az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodepool --mode system
@@ -131,9 +131,9 @@ az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodep
 ## <a name="delete-a-system-node-pool"></a>Usuwanie puli węzłów systemowych
 
 > [!Note]
-> Aby użyć pul węzłów systemowych w klastrach AKS przed wersją interfejsu API 2020-03-02, dodaj nową pulę węzłów systemowych, a następnie usuń oryginalną domyślną pulę węzłów.
+> Aby użyć pul węzłów systemowych w klastrach AKS przed interfejsem API w wersji 2020-03-02, Dodaj nową pulę węzłów systemu, a następnie usuń oryginalną domyślną pulę węzłów.
 
-Wcześniej nie można było usunąć puli węzłów systemowych, która była początkową domyślną pulą węzłów w klastrze AKS. Teraz masz możliwość usuwania dowolnej puli węzłów z klastrów. Ponieważ klastry usługi AKS wymagają co najmniej jednej puli węzłów systemowych, przed usunięciem jednego z nich musi istnieć co najmniej dwie pule węzłów systemowych w klastrze AKS.
+Wcześniej nie można było usunąć puli węzłów systemu, która była początkową domyślną pulą węzłów w klastrze AKS. Masz teraz elastyczność usuwania dowolnej puli węzłów z klastrów. Ponieważ klastry AKS wymagają co najmniej jednej puli węzłów systemu, przed usunięciem jednej z nich należy mieć co najmniej dwie pule węzłów systemu w klastrze AKS.
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
@@ -141,7 +141,7 @@ az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodep
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule dowiesz się, jak tworzyć pule węzłów systemu w klastrze AKS i zarządzać nimi. Aby uzyskać więcej informacji na temat używania wielu pul węzłów, zobacz [używanie wielu pul węzłów][use-multiple-node-pools].
+W tym artykule przedstawiono sposób tworzenia pul węzłów systemu i zarządzania nimi w klastrze AKS. Aby uzyskać więcej informacji na temat korzystania z wielu pul węzłów, zobacz [Korzystanie z wielu pul węzłów][use-multiple-node-pools].
 
 <!-- EXTERNAL LINKS -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/

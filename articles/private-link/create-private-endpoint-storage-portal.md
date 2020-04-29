@@ -8,45 +8,45 @@ ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 111e6e2f80c3460f363c496b7b32befdca16250d
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81115106"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Nawiązywanie prywatnego połączenia z kontem magazynu za pomocą prywatnego punktu końcowego platformy Azure
-Prywatny punkt końcowy platformy Azure jest podstawowym blokiem konstrukcyjnym dla łącza prywatnego na platformie Azure. Umożliwia zasoby platformy Azure, takie jak maszyny wirtualne (maszyny wirtualne), do komunikowania się prywatnie z zasobami łącza prywatnego.
+Prywatny punkt końcowy platformy Azure to podstawowy blok konstrukcyjny dla prywatnego linku na platformie Azure. Dzięki temu zasoby platformy Azure, takie jak maszyny wirtualne, mogą komunikować się prywatnie z zasobami łączy prywatnych.
 
-W tym przewodniku Szybki start dowiesz się, jak utworzyć maszynę wirtualną w sieci wirtualnej platformy Azure, konto magazynu z prywatnym punktem końcowym przy użyciu witryny Azure portal. Następnie można bezpiecznie uzyskać dostęp do konta magazynu z maszyny Wirtualnej.
+W tym przewodniku szybki start dowiesz się, jak utworzyć maszynę wirtualną w sieci wirtualnej platformy Azure, konto magazynu z prywatnym punktem końcowym przy użyciu Azure Portal. Następnie możesz bezpiecznie uzyskać dostęp do konta magazynu z maszyny wirtualnej.
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="create-a-vm"></a>Tworzenie maszyny wirtualnej
-W tej sekcji utworzysz sieć wirtualną i podsieć do obsługi maszyny Wirtualnej, która jest używana do uzyskiwania dostępu do zasobu łącza prywatnego (konto magazynu w tym przykładzie).
+W tej sekcji utworzysz sieć wirtualną i podsieć służącą do hostowania maszyny wirtualnej, która jest używana do uzyskiwania dostępu do prywatnego zasobu linku (konta magazynu w tym przykładzie).
 
 ## <a name="virtual-network-and-parameters"></a>Sieć wirtualna i parametry
 
-W tej sekcji utworzysz sieć wirtualną i podsieć do obsługi maszyny Wirtualnej, która jest używana do uzyskiwania dostępu do zasobu łącza prywatnego.
+W tej sekcji utworzysz sieć wirtualną i podsieć do hostowania maszyny wirtualnej, która jest używana do uzyskiwania dostępu do prywatnego zasobu linku.
 
-W tej sekcji należy zastąpić następujące parametry w krokach poniższymi informacjami:
+W tej sekcji należy zamienić następujące parametry w krokach z poniższymi informacjami:
 
 | Parametr                   | Wartość                |
 |-----------------------------|----------------------|
-| **\<>nazwa grupy zasobów**  | myResourceGroup |
-| **\<>nazwa sieci wirtualnej** | myVirtualNetwork          |
-| **\<nazwa regionu>**          | Zachodnio-środkowe stany USA      |
-| **\<>przestrzeni adresowej IPv4**   | 10.1.0.0\16          |
-| **\<>nazwa podsieci**          | mySubnet        |
-| **\<>zakresu adresu podsieci** | 10.1.0.0\24          |
+| **\<Nazwa grupy zasobów>**  | myResourceGroup |
+| **\<Nazwa sieci wirtualnej>** | myVirtualNetwork          |
+| **\<Nazwa regionu>**          | Zachodnio-środkowe stany USA      |
+| **\<Adresy IPv4>miejsca**   | 10.1.0.0 \ 16          |
+| **\<>nazwy podsieci**          | mySubnet        |
+| **\<>zakresu adresów podsieci** | 10.1.0.0 \ 24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 
 ### <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-1. W lewym górnym rogu ekranu w portalu Azure wybierz pozycję Utwórz**maszynę wirtualną****obliczeniową** >  **zasobów** > .
+1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz zasób** > **obliczeniowy** > **maszyny wirtualnej**.
 
 1. W obszarze **Tworzenie maszyny wirtualnej — ustawienia podstawowe** wprowadź lub wybierz następujące informacje:
 
@@ -56,10 +56,10 @@ W tej sekcji należy zastąpić następujące parametry w krokach poniższymi in
     | Subskrypcja | Wybierz subskrypcję. |
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**. Utworzono to w poprzedniej sekcji.  |
     | **SZCZEGÓŁY WYSTĄPIENIA** |  |
-    | Nazwa maszyny wirtualnej | Wpisz *myVm*. |
-    | Region | Wybierz **WestCentralUS**. |
+    | Nazwa maszyny wirtualnej | Wprowadź *myVm*. |
+    | Region | Wybierz pozycję **WestCentralUS**. |
     | Opcje dostępności | Pozostaw wartość domyślną **Brak wymaganej nadmiarowości infrastruktury**. |
-    | Image (Obraz) | Wybierz **pozycję Centrum danych systemu Windows Server 2019**. |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter**. |
     | Rozmiar | Pozostaw wartość domyślną **Standardowy DS1, wersja 2**. |
     | **KONTO ADMINISTRATORA** |  |
     | Nazwa użytkownika | Wprowadź wybraną nazwę użytkownika. |
@@ -71,32 +71,32 @@ W tej sekcji należy zastąpić następujące parametry w krokach poniższymi in
     | Masz już licencję systemu Windows? | Pozostaw wartość domyślną **Nie**. |
     |||
 
-1. Wybierz **dalej: Dyski**.
+1. Wybierz pozycję **Dalej: dyski**.
 
-1. W **obszarze Tworzenie maszyny wirtualnej — dyski**pozostaw ustawienia domyślne i wybierz pozycję **Dalej: Sieć**.
+1. W obszarze **Utwórz maszynę wirtualną**, pozostaw wartości domyślne, a następnie wybierz pozycję **Dalej: sieć**.
 
 1. W obszarze **Tworzenie maszyny wirtualnej — sieć** wybierz następujące informacje:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
-    | Sieć wirtualna | Pozostaw domyślną **myvirtualnetwork**.  |
-    | Przestrzeń adresowa | Pozostaw domyślny **10.1.0.0/24**.|
-    | Podsieć | Pozostaw domyślną **mySubnet (10.1.0.0/24)**.|
+    | Sieć wirtualna | Pozostaw wartość domyślną **MyVirtualNetwork**.  |
+    | Przestrzeń adresowa | Pozostaw wartość domyślną **10.1.0.0/24**.|
+    | Podsieć | Pozostaw domyślną wartość moja **podsieć (10.1.0.0/24)**.|
     | Publiczny adres IP | Pozostaw wartość domyślną **(nowy) myVm-ip**. |
     | Publiczne porty wejściowe | Wybierz pozycję **Zezwalaj na wybrane porty**. |
     | Wybierz porty wejściowe | Wybierz pozycje **HTTP** i **RDP**.|
     ||
 
-1. Wybierz pozycję **Przegląd + utwórz**. Zostaniesz przesuń do **review + tworzenie** strony, gdzie platforma Azure sprawdza poprawność konfiguracji.
+1. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację.
 
-1. Po wyświetleniu komunikatu **O przekazaniu weryfikacji** wybierz pozycję **Utwórz**.
+1. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**.
 
 ## <a name="create-your-private-endpoint"></a>Tworzenie prywatnego punktu końcowego
-W tej sekcji utworzysz konto magazynu prywatnego przy użyciu prywatnego punktu końcowego do niego. 
+W tej sekcji utworzysz prywatne konto magazynu przy użyciu prywatnego punktu końcowego. 
 
-1. W lewym górnym rogu ekranu w witrynie Azure portal wybierz pozycję **Utwórz** > **konto****magazynu** > zasobów .
+1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz zasób** > **Storage** > magazyn**konto magazynu**.
 
-1. W **obszarze Tworzenie konta magazynu — podstawy**wprowadź lub wybierz te informacje:
+1. W obszarze **Tworzenie konta magazynu — podstawowe**wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
@@ -104,71 +104,71 @@ W tej sekcji utworzysz konto magazynu prywatnego przy użyciu prywatnego punktu 
     | Subskrypcja | Wybierz subskrypcję. |
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**. Utworzono to w poprzedniej sekcji.|
     | **SZCZEGÓŁY WYSTĄPIENIA** |  |
-    | Nazwa konta magazynu  | Wprowadź *mystorageaccount*. Jeśli ta nazwa zostanie przejęta, utwórz unikatową nazwę. |
-    | Region | Wybierz **WestCentralUS**. |
+    | Nazwa konta magazynu  | Wprowadź *mojekontomagazynu*. Jeśli ta nazwa jest wykonywana, utwórz unikatową nazwę. |
+    | Region | Wybierz pozycję **WestCentralUS**. |
     | Wydajność| Pozostaw wartość domyślną **Standardowa**. |
-    | Rodzaj konta | Pozostaw domyślny **magazyn (ogólnego przeznaczenia w wersji 2)**. |
-    | Replikacja | Wybierz **opcję Magazyn geograficzny dostępu do odczytu (RA-GRS)**. |
+    | Rodzaj konta | Pozostaw domyślny **Magazyn (ogólnego przeznaczenia w wersji 2)**. |
+    | Replikacja | Wybierz **Magazyn Geograficznie nadmiarowy do odczytu (RA-GRS)**. |
     |||
   
-3. Wybierz **dalej: Sieć**.
-4. W **obszarze Tworzenie konta magazynu — Sieć**, metoda łączności wybierz pozycję Prywatny punkt **końcowy**.
-5. W **obszarze Tworzenie konta magazynu — Sieć**wybierz pozycję Dodaj prywatny punkt **końcowy**. 
-6. W **obszarze Tworzenie prywatnego punktu końcowego**wprowadź lub wybierz te informacje:
+3. Wybierz pozycję **Dalej: sieć**.
+4. W obszarze **Tworzenie konta magazynu — sieć**, metoda połączenia wybierz pozycję **prywatny punkt końcowy**.
+5. W obszarze **Tworzenie konta magazynu — sieć**wybierz pozycję **Dodaj prywatny punkt końcowy**. 
+6. W obszarze **Utwórz prywatny punkt końcowy**wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
     | **SZCZEGÓŁY PROJEKTU** | |
     | Subskrypcja | Wybierz subskrypcję. |
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**. Utworzono to w poprzedniej sekcji.|
-    |Lokalizacja|Wybierz **WestCentralUS**.|
+    |Lokalizacja|Wybierz pozycję **WestCentralUS**.|
     |Nazwa|Wprowadź *myPrivateEndpoint*.  |
-    |Podsób magazynu|Pozostaw domyślny **obiekt blob**. |
-    | **Sieci** |  |
-    | Sieć wirtualna  | Wybierz *MyVirtualNetwork* z grupy zasobów *myResourceGroup*. |
-    | Podsieć | Wybierz *mySubnet*. |
-    | **PRYWATNA INTEGRACJA Z SYSTEMEM DNS**|  |
-    | Integracja z prywatną strefą DNS  | Pozostaw domyślny **Tak**. |
-    | Prywatna strefa DNS  | Pozostaw domyślną **privatelink.blob.core.windows.net (Nowy)**. |
+    |Zasób podrzędny magazynu|Pozostaw domyślny **obiekt BLOB**. |
+    | **SIECI** |  |
+    | Sieć wirtualna  | Wybierz pozycję *MyVirtualNetwork* *z grupy zasobów*. |
+    | Podsieć | Wybierz pozycję Moja *podsieć*. |
+    | **PRYWATNA INTEGRACJA Z USŁUGĄ DNS**|  |
+    | Integracja z prywatną strefą DNS  | Pozostaw wartość domyślną **tak**. |
+    | Prywatna strefa DNS  | Pozostaw wartość domyślną **(New) privatelink.blob.Core.Windows.NET**. |
     |||
-7. Kliknij przycisk **OK**. 
-8. Wybierz pozycję **Przegląd + utwórz**. Zostaniesz przesuń do **review + tworzenie** strony, gdzie platforma Azure sprawdza poprawność konfiguracji. 
-9. Po wyświetleniu komunikatu **O przekazaniu weryfikacji** wybierz pozycję **Utwórz**. 
-10. Przejdź do zasobu konta magazynu, który właśnie utworzono.
-11. Z menu zawartości po lewej stronie wybierz **pozycję Klawisze dostępu.**
-12. Wybierz **polecenie Kopiuj** na ciągu połączenia dla key1.
+7. Wybierz przycisk **OK**. 
+8. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
+9. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**. 
+10. Przejdź do zasobu konta magazynu, który właśnie został utworzony.
+11. Z menu po lewej stronie wybierz pozycję **klucze dostępu** .
+12. Wybierz pozycję **Kopiuj** w parametrach połączenia dla Klucz1.
  
 ## <a name="connect-to-a-vm-from-the-internet"></a>Nawiązywanie połączenia z maszyną wirtualną z Internetu
 
 Połącz się z maszyną wirtualną *myVm* z Internetu w następujący sposób:
 
-1. W pasku wyszukiwania portalu wpisz *myVm*.
+1. Na pasku wyszukiwania portalu wprowadź *myVm*.
 
 1. Wybierz przycisk **Połącz**. Po wybraniu przycisku **Połącz** zostanie otwarta strona **Łączenie z maszyną wirtualną**.
 
 1. Wybierz opcję **Pobierz plik RDP**. Na platformie Azure zostanie utworzony plik Remote Desktop Protocol (*rdp*), który zostanie pobrany na komputer.
 
-1. Otwórz *pobrany plik rdp.*
+1. Otwórz *pobrany plik RDP* .
 
     1. Po wyświetleniu monitu wybierz pozycję **Połącz**.
 
-    1. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny Wirtualnej.
+    1. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej.
 
         > [!NOTE]
-        > Może być konieczne **wybranie opcji Więcej opcji** > **Użyj innego konta,** aby określić poświadczenia wprowadzone podczas tworzenia maszyny Wirtualnej.
+        > Może być konieczne wybranie **pozycji więcej opcji** > **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
 
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
 1. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie o certyfikacie, wybierz opcję **Tak** lub **Kontynuuj**.
 
 1. Po wyświetleniu pulpitu maszyny wirtualnej zminimalizuj ją i wróć z powrotem do pulpitu lokalnego.  
 
-## <a name="access-storage-account-privately-from-the-vm"></a>Dostęp do konta magazynu prywatnego z maszyny Wirtualnej
+## <a name="access-storage-account-privately-from-the-vm"></a>Dostęp do konta magazynu prywatnego z maszyny wirtualnej
 
-W tej sekcji połączysz się prywatnie z kontem magazynu przy użyciu prywatnego punktu końcowego.
+W tej sekcji nastąpi połączenie prywatne z kontem magazynu przy użyciu prywatnego punktu końcowego.
 
-1. W pulpicie zdalnym *myVM*otwórz program PowerShell.
-2. Wprowadź `nslookup mystorageaccount.blob.core.windows.net` Otrzymasz wiadomość podobną do tej:
+1. W Pulpit zdalny *myVM*Otwórz program PowerShell.
+2. Wprowadź `nslookup mystorageaccount.blob.core.windows.net` komunikat podobny do tego:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -178,28 +178,28 @@ W tej sekcji połączysz się prywatnie z kontem magazynu przy użyciu prywatneg
     Aliases:  mystorageaccount.blob.core.windows.net
     ```
 3. Zainstaluj [Eksplorator usługi Microsoft Azure Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
-4. Wybierz **pozycję Konta magazynu** po kliknięciu prawym przyciskiem myszy.
-5. Wybierz **pozycję Połącz z magazynem na platformie Azure**.
-6. Wybierz **pozycję Użyj ciągu połączenia**.
-7. Wybierz **pozycję Dalej**.
+4. Wybierz pozycję **konta magazynu** po kliknięciu prawym przyciskiem myszy.
+5. Wybierz pozycję **Połącz z usługą Azure Storage**.
+6. Wybierz pozycję **Użyj parametrów połączenia**.
+7. Wybierz pozycję **Dalej**.
 8. Wprowadź parametry połączenia, wklejając wcześniej skopiowane informacje.
-9. Wybierz **pozycję Dalej**.
+9. Wybierz pozycję **Dalej**.
 10. Wybierz przycisk **Połącz**.
-11. Przeglądaj kontenery obiektów Blob z konta mystorageaccount 
-12. (Opcjonalnie) Twórz foldery i/lub przesyłaj pliki na *konto mystorageaccount*. 
-13. Zamknij połączenie pulpitu zdalnego do *myVM*. 
+11. Przeglądanie kontenerów obiektów blob z mojekontomagazynu 
+12. Zdefiniować Utwórz foldery i/lub Przekaż pliki do *mojekontomagazynu*. 
+13. Zamknij połączenie pulpitu zdalnego z *myVM*. 
 
-Dodatkowe opcje dostępu do konta magazynu:
-- Microsoft Azure Storage Explorer to samodzielna bezpłatna aplikacja firmy Microsoft, która umożliwia wizualną pracę z danymi magazynu platformy Azure w systemach Windows, macOS i Linux. Aplikację można zainstalować w celu prywatnego przeglądania zawartości konta magazynu. 
+Dodatkowe opcje uzyskiwania dostępu do konta magazynu:
+- Eksplorator usługi Microsoft Azure Storage to autonomiczna bezpłatna aplikacja oferowana przez firmę Microsoft, która umożliwia wizualne korzystanie z danych usługi Azure Storage w systemach Windows, macOS i Linux. Możesz zainstalować aplikację, aby przeglądać prywatnie zawartość konta magazynu. 
  
-- Narzędzie AzCopy to kolejna opcja dla szybkiego transferu danych skryptowych dla magazynu platformy Azure. Narzędzie AzCopy służy do transferowania danych do i z usług Blob, File i Table Storage. 
+- Narzędzie AzCopy jest kolejną opcją do przesyłania danych z obsługą skryptów o wysokiej wydajności dla usługi Azure Storage. Narzędzie AzCopy służy do transferowania danych do i z usług Blob, File i Table Storage. 
 
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów 
-Po zakończeniu korzystania z prywatnego punktu końcowego, konta magazynu i maszyny Wirtualnej usuń grupę zasobów i wszystkie zasoby, które zawiera: 
-1. Wprowadź *myResourceGroup* w polu **wyszukiwania** u góry portalu i wybierz *myResourceGroup* z wyników wyszukiwania. 
+Gdy skończysz korzystać z prywatnego punktu końcowego, konta magazynu i maszyny wirtualnej, Usuń grupę zasobów i wszystkie zawarte w niej zasoby: 
+1. Wprowadź w polu **wyszukiwania** w górnej części portalu *i wybierz pozycję* *moja zasobów z* wyników wyszukiwania. 
 2. Wybierz pozycję **Usuń grupę zasobów**. 
 3. W polu **WPISZ NAZWĘ GRUPY ZASOBÓW:** wprowadź nazwę *myResourceGroup*, a następnie wybierz pozycję **Usuń**. 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym przewodniku Szybki start utworzono maszynę wirtualną na koncie sieci wirtualnej i magazynu oraz w prywatnym punkcie końcowym. Połączenie z jedną maszyną wirtualną z Internetu i bezpieczne komunikowanie się z kontem magazynu przy użyciu łącza prywatnego. Aby dowiedzieć się więcej o prywatnym punkcie końcowym, zobacz [Co to jest prywatny punkt końcowy platformy Azure?](private-endpoint-overview.md).
+W tym przewodniku szybki start utworzono MASZYNę wirtualną w sieci wirtualnej i na koncie magazynu oraz prywatnym punkcie końcowym. Nawiązano połączenie z jedną maszyną wirtualną z Internetu i bezpieczny dostęp do konta magazynu za pomocą linku prywatnego. Aby dowiedzieć się więcej o prywatnym punkcie końcowym, zobacz [co to jest prywatny punkt końcowy platformy Azure?](private-endpoint-overview.md).

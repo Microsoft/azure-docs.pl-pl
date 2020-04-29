@@ -1,6 +1,6 @@
 ---
-title: Jak nawiązać połączenie telefoniczne z usługi Twilio (.NET) | Dokumenty firmy Microsoft
-description: Dowiedz się, jak nawiązać połączenie telefoniczne i wysłać wiadomość SMS za pomocą usługi interfejsu API usługi Twilio na platformie Azure. Przykłady kodu napisane w .NET.
+title: Jak nawiązać połączenie telefoniczne z Twilio (.NET) | Microsoft Docs
+description: Dowiedz się, jak nawiązać połączenie telefoniczne i wysłać wiadomość SMS z usługą interfejsu API Twilio na platformie Azure. Przykłady kodu zapisywane w środowisku .NET.
 services: ''
 documentationcenter: .net
 author: mimckitt
@@ -14,36 +14,36 @@ ms.topic: article
 ms.date: 05/04/2016
 ms.author: mimckitt
 ms.openlocfilehash: df1f5e1c21c28fa8c1fcdef6b2278fb92014a3b1
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81272563"
 ---
-# <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Jak nawiązać połączenie telefoniczne przy użyciu usługi Twilio w roli sieci Web na platformie Azure
-W tym przewodniku pokazano, jak używać usługi Twilio do nawijania z witryny sieci Web hostowanej na platformie Azure. Wynikowa aplikacja monituje użytkownika o nawiązać połączenie z podanym numerem i komunikatem, jak pokazano na poniższym zrzucie ekranu.
+# <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Jak nawiązać połączenie telefoniczne za pomocą Twilio w roli sieci Web na platformie Azure
+W tym przewodniku pokazano, jak za pomocą programu Twilio utworzyć wywołanie ze strony sieci Web hostowanej na platformie Azure. Aplikacja wynikowa monituje użytkownika o wywołanie przy użyciu podanej liczby i komunikatu, jak pokazano na poniższym zrzucie ekranu.
 
-![Formularz wywołania platformy Azure przy użyciu usługi Twilio i ASP.NET][twilio_dotnet_basic_form]
+![Formularz wywołania platformy Azure z użyciem Twilio i ASP.NET][twilio_dotnet_basic_form]
 
 ## <a name="prerequisites"></a><a name="twilio-prereqs"></a>Wymagania wstępne
 Aby użyć kodu w tym temacie, należy wykonać następujące czynności:
 
-1. Uzyskaj konto usługi Twilio i token uwierzytelniania z [konsoli usługi Twilio][twilio_console]. Aby rozpocząć korzystanie z usługi Twilio, zarejestruj się w pliku [https://www.twilio.com/try-twilio][try_twilio]. Ceny można ocenić [https://www.twilio.com/pricing][twilio_pricing]w punkcie . Aby uzyskać informacje na temat interfejsu [https://www.twilio.com/voice/api][twilio_api]API dostarczonego przez program Twilio, zobacz .
-2. Dodaj *bibliotekę programu Twilio .NET* do swojej roli sieci Web. Zobacz **Aby dodać biblioteki usługi Twilio do projektu roli sieci Web,** w dalszej części tego tematu.
+1. Uzyskaj konto Twilio i token uwierzytelniania z [konsoli Twilio][twilio_console]. Aby rozpocząć pracę z usługą Twilio, zarejestruj się [https://www.twilio.com/try-twilio][try_twilio]pod adresem. Cennik można obliczyć pod adresem [https://www.twilio.com/pricing][twilio_pricing]. Informacje o interfejsie API udostępnianym przez Twilio można [https://www.twilio.com/voice/api][twilio_api]znaleźć w temacie.
+2. Dodaj *bibliotekę Twilio .NET* do roli sieci Web. Zobacz, **Aby dodać biblioteki Twilio do projektu roli sieci Web**, w dalszej części tego tematu.
 
 Należy zapoznać się z tworzeniem podstawowej [roli sieci Web na platformie Azure][azure_webroles_get_started].
 
-## <a name="how-to-create-a-web-form-for-making-a-call"></a><a name="howtocreateform"></a>Jak: Tworzenie formularza internetowego do nawiązywania połączenia
-<a id="use_nuget"></a>Aby dodać biblioteki usługi Twilio do projektu roli sieci Web:
+## <a name="how-to-create-a-web-form-for-making-a-call"></a><a name="howtocreateform"></a>Instrukcje: Tworzenie formularza sieci Web na potrzeby wywołania
+<a id="use_nuget"></a>Aby dodać biblioteki Twilio do projektu roli sieci Web:
 
 1. Otwórz rozwiązanie w programie Visual Studio.
-2. Kliknij prawym przyciskiem myszy **pozycję Odwołania**.
+2. Kliknij prawym przyciskiem myszy pozycję **odwołania**.
 3. Kliknij pozycję **Zarządzaj pakietami NuGet**.
-4. Kliknij pozycję **Online**.
-5. W polu wyszukiwania online wpisz *twilio*.
-6. Kliknij **pozycję Zainstaluj** pakiet usługi Twilio.
+4. Kliknij pozycję **online**.
+5. W polu Wyszukaj online wpisz *Twilio*.
+6. Kliknij przycisk **Instaluj** w pakiecie Twilio.
 
-Poniższy kod pokazuje, jak utworzyć formularz sieci web, aby pobrać dane użytkownika do nawiązywania połączenia. W tym przykładzie tworzony jest ASP.NET roli sieci Web o nazwie **TwilioCloud.**
+Poniższy kod pokazuje, jak utworzyć formularz sieci Web, aby pobrać dane użytkownika w celu utworzenia wywołania. W tym przykładzie zostanie utworzona rola sieci Web ASP.NET o nazwie **TwilioCloud** .
 
 ```aspx
 <%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master"
@@ -69,8 +69,8 @@ Poniższy kod pokazuje, jak utworzyć formularz sieci web, aby pobrać dane uży
 </asp:Content>
 ```
 
-## <a name="how-to-create-the-code-to-make-the-call"></a><a id="howtocreatecode"></a>Jak: Tworzenie kodu, aby nawiązać połączenie
-Poniższy kod, który jest wywoływany, gdy użytkownik wypełnia formularz, tworzy komunikat o połączeniu i generuje wywołanie. W tym przykładzie kod jest uruchamiany w programie obsługi zdarzeń onclick przycisku w formularzu. (Użyj konta usługi Twilio i tokenu uwierzytelniania zamiast `accountSID` `authToken` wartości zastępczych przypisanych do i w poniższym kodzie).
+## <a name="how-to-create-the-code-to-make-the-call"></a><a id="howtocreatecode"></a>Instrukcje: Tworzenie kodu w celu wywołania
+Poniższy kod, który jest wywoływany, gdy użytkownik ukończy formularz, tworzy komunikat wywołania i generuje wywołanie. W tym przykładzie kod jest uruchamiany w procedurze obsługi zdarzeń onkliknięcia przycisku w formularzu. (Użyj konta Twilio i tokenu uwierzytelniania zamiast wartości zastępczych przypisanych do `accountSID` i `authToken` w poniższym kodzie).
 
 ```csharp
 using System;
@@ -143,22 +143,22 @@ namespace WebRole1
 }
 ```
 
-Wywołanie jest i punkt końcowy usługi Twilio, wersja interfejsu API i stan wywołania są wyświetlane. Poniższy zrzut ekranu przedstawia dane wyjściowe z przebiegu próbki.
+Zostało wykonane wywołanie i zostanie wyświetlony punkt końcowy Twilio, wersja interfejsu API i stan wywołania. Poniższy zrzut ekranu przedstawia dane wyjściowe z przykładowego przebiegu.
 
-![Odpowiedź na wywołanie platformy Azure przy użyciu usługi Twilio i ASP.NET][twilio_dotnet_basic_form_output]
+![Odpowiedź na wywołanie platformy Azure przy użyciu Twilio i ASP.NET][twilio_dotnet_basic_form_output]
 
-Więcej informacji na temat TwiML można znaleźć na stronie [https://www.twilio.com/docs/api/twiml][twiml]. Więcej informacji &lt;&gt; na temat Say i innych czasowników Twilio można znaleźć na stronie [https://www.twilio.com/docs/api/twiml/say][twilio_say].
+Więcej informacji na temat TwiML można znaleźć pod [https://www.twilio.com/docs/api/twiml][twiml]adresem. Więcej informacji na &lt;temat&gt; mówią i innych zleceń Twilio można znaleźć pod [https://www.twilio.com/docs/api/twiml/say][twilio_say]adresem.
 
 ## <a name="next-steps"></a><a id="nextsteps"></a>Następne kroki
-Ten kod został dostarczony, aby pokazać podstawowe funkcje przy użyciu usługi Twilio w ASP.NET roli sieci web na platformie Azure. Przed wdrożeniem na platformie Azure w procesach produkcyjnych można dodać więcej obsługi błędów lub innych funkcji. Przykład:
+Ten kod został dostarczony, aby pokazać podstawowe funkcje przy użyciu Twilio w roli sieci Web ASP.NET na platformie Azure. Przed wdrożeniem na platformie Azure w środowisku produkcyjnym warto dodać więcej obsługi błędów lub innych funkcji. Przykład:
 
-* Zamiast używać formularza sieci web, można użyć usługi Azure Blob storage lub wystąpienia usługi Azure SQL Database do przechowywania numerów telefonów i wywoływania tekstu. Aby uzyskać informacje dotyczące korzystania z obiektów blob na platformie Azure, zobacz [Jak korzystać z usługi magazynu obiektów Blob platformy Azure w .NET][howto_blob_storage_dotnet]. Aby uzyskać informacje dotyczące korzystania z bazy danych SQL, zobacz [Jak używać usługi Azure SQL Database w aplikacjach platformy .NET][howto_sql_azure_dotnet].
-* Można użyć `RoleEnvironment.getConfigurationSettings` do pobrania identyfikatora konta usługi Twilio i token uwierzytelniania z ustawień konfiguracji wdrożenia, zamiast twardego kodowania wartości w formularzu. Aby uzyskać `RoleEnvironment` informacje o klasie, zobacz [Microsoft.WindowsAzure.ServiceRuntime Namespace][azure_runtime_ref_dotnet].
-* Przeczytaj wytyczne dotyczące zabezpieczeń [https://www.twilio.com/docs/security][twilio_docs_security]usługi Twilio pod adresem .
-* Dowiedz się więcej o [https://www.twilio.com/docs][twilio_docs]firmie Twilio pod adresem .
+* Zamiast korzystać z formularza sieci Web, można użyć usługi Azure Blob Storage lub wystąpienia Azure SQL Database do przechowywania numerów telefonów i wywoływać tekst. Aby uzyskać informacje o używaniu obiektów BLOB na platformie Azure, zobacz [jak używać usługi Azure Blob Storage w programie .NET][howto_blob_storage_dotnet]. Aby uzyskać informacje dotyczące korzystania z SQL Database, zobacz [jak używać Azure SQL Database w aplikacjach .NET][howto_sql_azure_dotnet].
+* Można użyć `RoleEnvironment.getConfigurationSettings` , aby pobrać identyfikator konta Twilio i token uwierzytelniania z ustawień konfiguracji wdrożenia, a nie na podstawie twardej wartości w formularzu. Aby uzyskać informacje o `RoleEnvironment` klasie, zobacz [przestrzeń nazw Microsoft. windowsazure. serviceruntime][azure_runtime_ref_dotnet].
+* Zapoznaj się ze wskazówkami [https://www.twilio.com/docs/security][twilio_docs_security]dotyczącymi zabezpieczeń Twilio na stronie.
+* Dowiedz się więcej o [https://www.twilio.com/docs][twilio_docs]usłudze Twilio pod adresem.
 
-## <a name="see-also"></a><a name="seealso"></a>Zobacz też
-* [Jak korzystać z funkcji Twilio dla poczty głosowej i programu SMS z platformy Azure](twilio-dotnet-how-to-use-for-voice-sms.md)
+## <a name="see-also"></a><a name="seealso"></a>Zobacz także
+* [Jak korzystać z funkcji Twilio na potrzeby obsługi głosu i programu SMS z platformy Azure](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_console]: https://www.twilio.com/console
 [twilio_pricing]: https://www.twilio.com/pricing

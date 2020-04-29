@@ -1,6 +1,6 @@
 ---
-title: Zasady przekształcania usługi Azure API Management | Dokumenty firmy Microsoft
-description: Dowiedz się więcej o zasadach przekształcania dostępnych do użycia w usłudze Azure API Management.
+title: Zasady transformacji API Management platformy Azure | Microsoft Docs
+description: Dowiedz się więcej na temat zasad transformacji dostępnych do użycia w usłudze Azure API Management.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -13,41 +13,41 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
 ms.openlocfilehash: 27bb6abb7ae8eae46bc4dea3708270ecb4b731a6
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260908"
 ---
 # <a name="api-management-transformation-policies"></a>Zasady przekształcania w usłudze API Management
-Ten temat zawiera odwołanie do następujących zasad zarządzania interfejsami API. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [Zasady w zarządzania interfejsami API](https://go.microsoft.com/fwlink/?LinkID=398186).
+Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
 
 ##  <a name="transformation-policies"></a><a name="TransformationPolicies"></a>Zasady transformacji
 
--   [Konwertuj JSON na XML](api-management-transformation-policies.md#ConvertJSONtoXML) — konwertuje treść żądania lub odpowiedzi z JSON na XML.
+-   [Convert JSON do formatu XML](api-management-transformation-policies.md#ConvertJSONtoXML) — konwertuje treść żądania lub odpowiedzi z formatu JSON na XML.
 
--   [Konwertuj XML na JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) — konwertuje treść żądania lub odpowiedzi z XML na JSON.
+-   [Konwertuj kod XML na format JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) — konwertuje treść żądania lub odpowiedzi z formatu XML na notację JSON.
 
--   [Znajdź i zastąp ciąg w treści](api-management-transformation-policies.md#Findandreplacestringinbody) — znajduje podciąg żądania lub odpowiedzi i zastępuje go innym podciągem.
+-   [Znajdź i Zamień ciąg w treści](api-management-transformation-policies.md#Findandreplacestringinbody) — umożliwia znalezienie żądania lub podciągu odpowiedzi i zastąpienie go innym podciągiem.
 
--   [Maskuj adresy URL w zawartości](api-management-transformation-policies.md#MaskURLSContent) — ponownie zapisuje (maskuje) łącza w treści odpowiedzi, dzięki czemu wskazują one równoważne łącze za pośrednictwem bramy.
+-   [Maskowanie adresów URL w](api-management-transformation-policies.md#MaskURLSContent) treści odpowiedzi, aby wskazywały na równoważne łącze za pośrednictwem bramy.
 
--   [Ustaw usługę wewnętrznej bazy danych](api-management-transformation-policies.md#SetBackendService) — zmienia usługę wewnętrznej bazy danych dla żądania przychodzącego.
+-   [Ustawianie usługi zaplecza](api-management-transformation-policies.md#SetBackendService) — zmienia usługę zaplecza dla żądania przychodzącego.
 
 -   [Ustaw treść](api-management-transformation-policies.md#SetBody) — ustawia treść wiadomości dla żądań przychodzących i wychodzących.
 
--   [Ustaw nagłówek HTTP](api-management-transformation-policies.md#SetHTTPheader) — przypisuje wartość do istniejącego nagłówka odpowiedzi i/lub żądania lub dodaje nowy nagłówek odpowiedzi i/lub żądania.
+-   [Ustawianie nagłówka HTTP](api-management-transformation-policies.md#SetHTTPheader) — przypisuje wartość do istniejącej odpowiedzi i/lub nagłówka żądania lub dodaje nową odpowiedź i/lub nagłówek żądania.
 
--   [Ustaw parametr ciągu kwerendy](api-management-transformation-policies.md#SetQueryStringParameter) — dodaje, zastępuje wartość lub usuwa parametr ciągu zapytania żądania.
+-   [Ustaw parametr ciągu zapytania](api-management-transformation-policies.md#SetQueryStringParameter) — dodaje, zastępuje wartość lub usuwa parametr ciągu zapytania żądania.
 
--   [Przepisz adres URL](api-management-transformation-policies.md#RewriteURL) — konwertuje adres URL żądania z formularza publicznego na formularz oczekiwany przez usługę sieci web.
+-   [Ponownie Napisz adres URL](api-management-transformation-policies.md#RewriteURL) — konwertuje adres URL żądania z jego formularza publicznego na formularz oczekiwany przez usługę sieci Web.
 
--   [Przekształcanie xml przy użyciu XSLT](api-management-transformation-policies.md#XSLTransform) - Stosuje transformację XSL do XML w treści żądania lub odpowiedzi.
+-   [Przekształcanie kodu XML przy użyciu XSLT](api-management-transformation-policies.md#XSLTransform) — stosuje transformację XSL do pliku XML w treści żądania lub odpowiedzi.
 
-##  <a name="convert-json-to-xml"></a><a name="ConvertJSONtoXML"></a>Konwertowanie JSON na XML
- Zasady `json-to-xml` konwertuje treści żądania lub odpowiedzi z JSON do XML.
+##  <a name="convert-json-to-xml"></a><a name="ConvertJSONtoXML"></a>Konwertuj kod JSON na format XML
+ `json-to-xml` Zasady konwertują treść żądania lub odpowiedzi z formatu JSON na XML.
 
-### <a name="policy-statement"></a>Oświadczenie dotyczące zasad
+### <a name="policy-statement"></a>Instrukcja zasad
 
 ```xml
 <json-to-xml apply="always | content-type-json" consider-accept-header="true | false" parse-date="true | false"/>
@@ -71,27 +71,27 @@ Ten temat zawiera odwołanie do następujących zasad zarządzania interfejsami 
 
 |Nazwa|Opis|Wymagany|
 |----------|-----------------|--------------|
-|json-do-xml|Element główny.|Tak|
+|JSON-to-XML|Element główny.|Tak|
 
 ### <a name="attributes"></a>Atrybuty
 
-|Nazwa|Opis|Wymagany|Domyślne|
+|Nazwa|Opis|Wymagany|Domyślny|
 |----------|-----------------|--------------|-------------|
-|apply|Atrybut musi być ustawiony na jedną z następujących wartości.<br /><br /> - zawsze - zawsze stosować konwersję.<br />- content-type-json - konwertuj tylko wtedy, gdy odpowiedź Nagłówek typu zawartości wskazuje obecność JSON.|Tak|Nie dotyczy|
-|consider-accept-header|Atrybut musi być ustawiony na jedną z następujących wartości.<br /><br /> - true - zastosuj konwersję, jeśli XML jest wymagane w nagłówku akceptuję żądanie.<br />- false -zawsze stosuje konwersję.|Nie|true|
-|data analizy|Gdy ustawiono wartości `false` daty są po prostu kopiowane podczas transformacji|Nie|true|
+|apply|Atrybut musi być ustawiony na jedną z następujących wartości.<br /><br /> -zawsze-zawsze stosuje konwersję.<br />-Content-Type-JSON — Konwertuj tylko w przypadku, gdy w nagłówku Content-Type jest obecność JSON.|Tak|Nie dotyczy|
+|Rozważ-Accept-header|Atrybut musi być ustawiony na jedną z następujących wartości.<br /><br /> -true — Zastosuj konwersję, jeśli zażądano kodu XML w nagłówku akceptowania żądania.<br />-false — zawsze stosuj konwersję.|Nie|true|
+|Analiza — Data|Gdy ustawienia wartości `false` dat są po prostu kopiowane podczas transformacji|Nie|true|
 
 ### <a name="usage"></a>Sposób użycia
- Ta zasada może być używana w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad .
+ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
--   **Sekcje zasad:** przychodzące, wychodzące, błąd
+-   **Sekcje zasad:** przychodzące, wychodzące, w przypadku błędu
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-##  <a name="convert-xml-to-json"></a><a name="ConvertXMLtoJSON"></a>Konwertowanie XML na JSON
- Zasady `xml-to-json` konwertuje treści żądania lub odpowiedzi z XML do JSON. Ta zasada może służyć do modernizacji interfejsów API na podstawie usług sieci web tylko w języku XML.
+##  <a name="convert-xml-to-json"></a><a name="ConvertXMLtoJSON"></a>Konwertuj kod XML na format JSON
+ `xml-to-json` Zasady konwertują treść żądania lub odpowiedzi z formatu XML na notację JSON. Za pomocą tych zasad można przeprowadzić modernizację interfejsów API opartych na usługach sieci Web zaplecza tylko w języku XML.
 
-### <a name="policy-statement"></a>Oświadczenie dotyczące zasad
+### <a name="policy-statement"></a>Instrukcja zasad
 
 ```xml
 <xml-to-json kind="javascript-friendly | direct" apply="always | content-type-xml" consider-accept-header="true | false"/>
@@ -115,27 +115,27 @@ Ten temat zawiera odwołanie do następujących zasad zarządzania interfejsami 
 
 |Nazwa|Opis|Wymagany|
 |----------|-----------------|--------------|
-|xml-to-json|Element główny.|Tak|
+|XML-to-JSON|Element główny.|Tak|
 
 ### <a name="attributes"></a>Atrybuty
 
-|Nazwa|Opis|Wymagany|Domyślne|
+|Nazwa|Opis|Wymagany|Domyślny|
 |----------|-----------------|--------------|-------------|
-|Rodzaju|Atrybut musi być ustawiony na jedną z następujących wartości.<br /><br /> - javascript-friendly - przerobiony JSON ma formularz przyjazny dla programistów JavaScript.<br />- direct - przekonwertowany JSON odzwierciedla strukturę oryginalnego dokumentu XML.|Tak|Nie dotyczy|
-|apply|Atrybut musi być ustawiony na jedną z następujących wartości.<br /><br /> - zawsze - konwertuj zawsze.<br />- content-type-xml - konwertuj tylko wtedy, gdy odpowiedź Nagłówek typu zawartości wskazuje obecność XML.|Tak|Nie dotyczy|
-|consider-accept-header|Atrybut musi być ustawiony na jedną z następujących wartości.<br /><br /> - true - zastosuj konwersję, jeśli JSON jest wymagane w żądaniu Akceptuj nagłówek.<br />- false -zawsze stosuje konwersję.|Nie|true|
+|Natur|Atrybut musi być ustawiony na jedną z następujących wartości.<br /><br /> -przyjazny dla języka JavaScript — przekonwertowany kod JSON ma postać przyjazną dla deweloperów języka JavaScript.<br />-Direct — przekonwertowane dane JSON odzwierciedlają strukturę oryginalnego dokumentu XML.|Tak|Nie dotyczy|
+|apply|Atrybut musi być ustawiony na jedną z następujących wartości.<br /><br /> -zawsze Konwertuj zawsze.<br />-Content-Type-XML-Convert tylko wtedy, gdy w nagłówku Content-Type (odpowiedź) wskazuje obecność XML.|Tak|Nie dotyczy|
+|Rozważ-Accept-header|Atrybut musi być ustawiony na jedną z następujących wartości.<br /><br /> -true — Zastosuj konwersję, jeśli żądanie JSON jest wymagane w nagłówku akceptowania żądania.<br />-false — zawsze stosuj konwersję.|Nie|true|
 
 ### <a name="usage"></a>Sposób użycia
- Ta zasada może być używana w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad .
+ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
--   **Sekcje zasad:** przychodzące, wychodzące, błąd
+-   **Sekcje zasad:** przychodzące, wychodzące, w przypadku błędu
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-##  <a name="find-and-replace-string-in-body"></a><a name="Findandreplacestringinbody"></a>Znajdowanie i zastępowanie ciągu w treści
- Zasady `find-and-replace` znajduje podciąg żądania lub odpowiedzi i zastępuje go innym podciągem.
+##  <a name="find-and-replace-string-in-body"></a><a name="Findandreplacestringinbody"></a>Znajdź i Zamień ciąg w treści
+ `find-and-replace` Zasada znajduje podciąg żądania lub odpowiedzi i zastępuje go innym podciągiem.
 
-### <a name="policy-statement"></a>Oświadczenie dotyczące zasad
+### <a name="policy-statement"></a>Instrukcja zasad
 
 ```xml
 <find-and-replace from="what to replace" to="replacement" />
@@ -151,29 +151,29 @@ Ten temat zawiera odwołanie do następujących zasad zarządzania interfejsami 
 
 |Nazwa|Opis|Wymagany|
 |----------|-----------------|--------------|
-|znajdowanie i zastępowanie|Element główny.|Tak|
+|Znajdź i Zamień|Element główny.|Tak|
 
 ### <a name="attributes"></a>Atrybuty
 
-|Nazwa|Opis|Wymagany|Domyślne|
+|Nazwa|Opis|Wymagany|Domyślny|
 |----------|-----------------|--------------|-------------|
-|Z|Ciąg do wyszukania.|Tak|Nie dotyczy|
+|wniosek|Ciąg do wyszukania.|Tak|Nie dotyczy|
 |na|Ciąg zastępujący. Określ ciąg zastępczy o zerowej długości, aby usunąć ciąg wyszukiwania.|Tak|Nie dotyczy|
 
 ### <a name="usage"></a>Sposób użycia
- Ta zasada może być używana w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad .
+ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
--   **Sekcje zasad:** przychodzące, wychodzące, wewnętrznej bazy danych, on-error
+-   **Sekcje zasad:** przychodzące, wychodzące, zaplecze, w przypadku błędu
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-##  <a name="mask-urls-in-content"></a><a name="MaskURLSContent"></a>Maskowanie adresów URL w treści
- Zasady `redirect-content-urls` ponownie zapisuje (maski) łączy w treści odpowiedzi, tak aby wskazać równoważne łącze za pośrednictwem bramy. Użyj w sekcji wychodzącej, aby ponownie napisać łącza treści odpowiedzi, aby wskazać je do bramy. Użyj w sekcji przychodzącej dla przeciwnego efektu.
+##  <a name="mask-urls-in-content"></a><a name="MaskURLSContent"></a>Maskowanie adresów URL w zawartości
+ Linki `redirect-content-urls` do ponownego zapisu zasad (maski) w treści odpowiedzi, aby wskazywały odpowiedni link za pośrednictwem bramy. Użyj w sekcji wychodzącej, aby ponownie zapisać linki treści odpowiedzi, aby wskazywały na bramę. Użyj w sekcji ruchu przychodzącego, aby oddziałać odwrotnie.
 
 > [!NOTE]
->  Ta zasada nie zmienia żadnych `Location` wartości nagłówka, takich jak nagłówki. Aby zmienić wartości nagłówka, użyj zasad [nagłówka zestawu.](api-management-transformation-policies.md#SetHTTPheader)
+>  Te zasady nie zmieniają żadnych wartości nagłówka, takich jak `Location` nagłówki. Aby zmienić wartości nagłówka, użyj zasad [Set-header](api-management-transformation-policies.md#SetHTTPheader) .
 
-### <a name="policy-statement"></a>Oświadczenie dotyczące zasad
+### <a name="policy-statement"></a>Instrukcja zasad
 
 ```xml
 <redirect-content-urls />
@@ -189,19 +189,19 @@ Ten temat zawiera odwołanie do następujących zasad zarządzania interfejsami 
 
 |Nazwa|Opis|Wymagany|
 |----------|-----------------|--------------|
-|przekierowanie-treść-adresy URL|Element główny.|Tak|
+|redirect-Content-URL|Element główny.|Tak|
 
 ### <a name="usage"></a>Sposób użycia
- Ta zasada może być używana w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad .
+ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące, wychodzące
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-##  <a name="set-backend-service"></a><a name="SetBackendService"></a>Ustawianie usługi wewnętrznej bazy danych
- Użyj `set-backend-service` zasad, aby przekierować żądanie przychodzące do innej wewnętrznej bazy danych niż określona w ustawieniach interfejsu API dla tej operacji. Ta zasada zmienia podstawowy adres URL usługi wewnętrznej bazy danych żądania przychodzącego na adres określony w zasadach.
+##  <a name="set-backend-service"></a><a name="SetBackendService"></a>Ustawianie usługi zaplecza
+ Użyj zasad `set-backend-service` , aby przekierować żądanie przychodzące do innego zaplecza niż ten określony w ustawieniach interfejsu API dla tej operacji. Te zasady umożliwiają zmianę podstawowego adresu URL usługi wewnętrznej bazy danych żądania przychodzącego na określony w zasadach.
 
-### <a name="policy-statement"></a>Oświadczenie dotyczące zasad
+### <a name="policy-statement"></a>Instrukcja zasad
 
 ```xml
 <set-backend-service base-url="base URL of the backend service" />
@@ -214,7 +214,7 @@ lub
 ```
 
 > [!NOTE]
-> Jednostkami zaplecza można zarządzać za pomocą [interfejsu API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) zarządzania i [programu PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Jednostki zaplecza mogą być zarządzane za pośrednictwem [interfejsu API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) zarządzania i [programu PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### <a name="example"></a>Przykład
 
@@ -236,13 +236,13 @@ lub
     </outbound>
 </policies>
 ```
-W tym przykładzie zasady usługi set backend kieruje żądania na podstawie wartości wersji przekazanej w ciągu kwerendy do innej usługi wewnętrznej bazy danych niż określona w interfejsie API.
+W tym przykładzie zasady usługi zaplecza są kierowane na podstawie wartości wersji przekazaną w ciągu zapytania do innej usługi zaplecza niż określona w interfejsie API.
 
-Początkowo podstawowy adres URL usługi wewnętrznej bazy danych pochodzi z ustawień interfejsu API. Tak więc `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` adres `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef` `http://contoso.com/api/10.4/` URL żądania staje się tam, gdzie jest adres URL usługi wewnętrznej bazy danych określony w ustawieniach interfejsu API.
+Początkowo podstawowy adres URL usługi wewnętrznej bazy danych pochodzi z ustawień interfejsu API. Dlatego adres URL `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` żądania przyjmuje `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef` wartość `http://contoso.com/api/10.4/` , gdzie jest określony adres URL usługi wewnętrznej bazy danych w ustawieniach interfejsu API.
 
-Po zastosowaniu [instrukcji\><wybierz](api-management-advanced-policies.md#choose) zasad adres URL bazy usługi wewnętrznej bazy `http://contoso.com/api/8.2` `http://contoso.com/api/9.1`danych może zmienić się ponownie na lub , w zależności od wartości parametru kwerendy żądania wersji. Na przykład, jeśli `"2013-15"` wartość jest końcowy `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`adres URL żądania staje się .
+Gdy zostanie zastosowana [<wybierz\> ](api-management-advanced-policies.md#choose) instrukcję zasad, podstawowy adres URL usługi wewnętrznej bazy danych może zmienić się `http://contoso.com/api/9.1`na `http://contoso.com/api/8.2` lub, w zależności od wartości parametru zapytania o wersję. Na przykład, jeśli wartość jest `"2013-15"` końcowym adresem URL żądania. `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`
 
-Jeśli wymagane jest dalsze przekształcenie żądania, można użyć innych [zasad transformacji.](api-management-transformation-policies.md#TransformationPolicies) Na przykład, aby usunąć parametr kwerendy wersji teraz, gdy żądanie jest kierowane do wewnętrznej bazy danych specyficzne dla wersji, [zasady parametru zestawu zapytania](api-management-transformation-policies.md#SetQueryStringParameter) ciąg może służyć do usuwania teraz nadmiarowy atrybut wersji.
+Jeśli pożądane jest dalsze przekształcenie żądania, można użyć innych [zasad przekształcania](api-management-transformation-policies.md#TransformationPolicies) . Na przykład, aby usunąć parametr zapytania wersji teraz, gdy żądanie jest kierowane do zaplecza specyficznego dla wersji, można użyć zasad [parametrów ciągu zapytania](api-management-transformation-policies.md#SetQueryStringParameter) , aby usunąć teraz nadmiarowy atrybut wersji.
 
 ### <a name="example"></a>Przykład
 
@@ -256,49 +256,49 @@ Jeśli wymagane jest dalsze przekształcenie żądania, można użyć innych [za
     </outbound>
 </policies>
 ```
-W tym przykładzie zasady kieruje żądanie do wewnętrznej bazy danych sieci szkieletowej usługi, używając ciągu zapytania userId jako klucz partycji i przy użyciu podstawowej repliki partycji.
+W tym przykładzie zasady kierują żądanie do zaplecza usługi Service Fabric przy użyciu ciągu zapytania userId jako klucza partycji i przy użyciu podstawowej repliki partycji.
 
 ### <a name="elements"></a>Elementy
 
 |Nazwa|Opis|Wymagany|
 |----------|-----------------|--------------|
-|usługa ustawiania zaplecza|Element główny.|Tak|
+|Konfiguracja zaplecza — usługa|Element główny.|Tak|
 
 ### <a name="attributes"></a>Atrybuty
 
-|Nazwa|Opis|Wymagany|Domyślne|
+|Nazwa|Opis|Wymagany|Domyślny|
 |----------|-----------------|--------------|-------------|
-|adres url bazy|Nowy podstawowy adres URL usługi wewnętrznej bazy danych.|Jeden `base-url` z `backend-id` lub musi być obecny.|Nie dotyczy|
-|identyfikator zaplecza|Identyfikator wewnętrznej bazy danych do trasy do. (Encje zaplecza są zarządzane za pośrednictwem [interfejsu API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) i [programu PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Jeden `base-url` z `backend-id` lub musi być obecny.|Nie dotyczy|
-|sf-partition-key|Ma zastosowanie tylko wtedy, gdy zaplecze jest usługą sieci szkieletowej usług i jest określona przy użyciu "backend-id". Służy do rozpoznawania określonej partycji z usługi rozpoznawania nazw.|Nie|Nie dotyczy|
-|sf-replika-typ|Ma zastosowanie tylko wtedy, gdy zaplecze jest usługą sieci szkieletowej usług i jest określona przy użyciu "backend-id". Określa, czy żądanie powinno przejść do repliki podstawowej lub pomocniczej partycji. |Nie|Nie dotyczy|
-|sf-resolve-warunek|Dotyczy tylko wtedy, gdy zaplecze jest usługą sieci szkieletowej usług. Warunek identyfikujący, czy wywołanie wewnętrznej bazy danych sieci szkieletowej usług musi zostać powtórzone z nową rozdzielczością.|Nie|Nie dotyczy|
-|sf-service-instance-name|Dotyczy tylko wtedy, gdy zaplecze jest usługą sieci szkieletowej usług. Umożliwia zmianę wystąpień usługi w czasie wykonywania. |Nie|Nie dotyczy|
-|sf-listener-name|Ma zastosowanie tylko wtedy, gdy zaplecze jest usługą sieci szkieletowej usług i jest określona przy użyciu "backend-id". Usługa Fabric Reliable Services umożliwia tworzenie wielu odbiorników w usłudze. Ten atrybut jest używany do wybierania określonego odbiornika, gdy wewnętrznej bazy danych niezawodnej usługi ma więcej niż jeden odbiornik. Jeśli ten atrybut nie zostanie określony, usługa API Management spróbuje użyć odbiornika bez nazwy. Odbiornik bez nazwy jest typowe dla niezawodnych usług, które mają tylko jeden odbiornik. |Nie|Nie dotyczy|
+|podstawowy adres URL|Nowy podstawowy adres URL usługi zaplecza.|Jeden z `base-url` lub `backend-id` musi być obecny.|Nie dotyczy|
+|Identyfikator zaplecza|Identyfikator zaplecza do skierowania do. (Jednostki zaplecza są zarządzane za pośrednictwem [interfejsu API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) i [programu PowerShell](https://www.powershellgallery.com/packages?q=apimanagement)).|Jeden z `base-url` lub `backend-id` musi być obecny.|Nie dotyczy|
+|SF-Partition-Key|Dotyczy tylko sytuacji, gdy zaplecze jest usługą Service Fabric i jest określona przy użyciu identyfikatora zaplecza. Służy do rozwiązywania określonej partycji z usługi rozpoznawania nazw.|Nie|Nie dotyczy|
+|SF-Replica-Type|Dotyczy tylko sytuacji, gdy zaplecze jest usługą Service Fabric i jest określona przy użyciu identyfikatora zaplecza. Kontroluje, czy żądanie powinno przechodzić do podstawowej lub pomocniczej repliki partycji. |Nie|Nie dotyczy|
+|SF-Rozwiązuj — warunek|Dotyczy tylko sytuacji, gdy zaplecze jest usługą Service Fabric. Warunek określający, czy wywołanie Service Fabric zaplecza musi być powtórzone przy użyciu nowego rozwiązania.|Nie|Nie dotyczy|
+|SF-Service-instance-Name|Dotyczy tylko sytuacji, gdy zaplecze jest usługą Service Fabric. Zezwala na zmianę wystąpień usługi w czasie wykonywania. |Nie|Nie dotyczy|
+|SF-Listener-Name|Dotyczy tylko sytuacji, gdy zaplecze jest usługą Service Fabric i jest określona przy użyciu identyfikatora zaplecza. Service Fabric Reliable Services umożliwia tworzenie wielu odbiorników w usłudze. Ten atrybut służy do wybierania określonego odbiornika, gdy usługa niezawodna zaplecza ma więcej niż jeden odbiornik. Jeśli ten atrybut nie jest określony, API Management podejmie próbę użycia odbiornika bez nazwy. Odbiornik bez nazwy jest typowy dla Reliable Services, które mają tylko jeden odbiornik. |Nie|Nie dotyczy|
 
 ### <a name="usage"></a>Sposób użycia
- Ta zasada może być używana w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad .
+ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące, zaplecze
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-##  <a name="set-body"></a><a name="SetBody"></a>Ustaw obiekt
- Użyj `set-body` zasad, aby ustawić treść wiadomości dla żądań przychodzących i wychodzących. Aby uzyskać dostęp do treści `context.Request.Body` wiadomości, `context.Response.Body`można użyć właściwości lub , w zależności od tego, czy zasady są w sekcji przychodzącej lub wychodzącej.
+##  <a name="set-body"></a><a name="SetBody"></a>Ustaw treść
+ Użyj `set-body` zasad, aby ustawić treść komunikatu dla żądań przychodzących i wychodzących. Aby uzyskać dostęp do treści wiadomości `context.Request.Body` `context.Response.Body`, można użyć właściwości lub, w zależności od tego, czy zasady są w sekcji przychodzące lub wychodzące.
 
 > [!IMPORTANT]
->  Należy zauważyć, że domyślnie podczas `context.Request.Body` `context.Response.Body`uzyskiwania dostępu do treści wiadomości przy użyciu lub , oryginalna treść wiadomości zostanie utracona i musi być ustawiona przez zwrócenie treści z powrotem w wyrażeniu. Aby zachować zawartość treści, należy ustawić `preserveContent` parametr podczas uzyskiwania dostępu do `true` wiadomości. Jeśli `preserveContent` jest `true` ustawiona i inny obiekt jest zwracany przez wyrażenie, zwracany obiekt jest używany.
+>  Należy pamiętać, że domyślnie podczas uzyskiwania dostępu do treści wiadomości `context.Request.Body` za `context.Response.Body`pomocą lub, Oryginalna treść wiadomości zostaje utracona i należy ją ustawić, zwracając treść z powrotem w wyrażeniu. Aby zachować zawartość treści, należy ustawić `preserveContent` parametr na `true` czas uzyskiwania dostępu do komunikatu. Jeśli `preserveContent` jest ustawiona na `true` i zostanie zwrócona inna treść w wyrażeniu, zostanie użyta zwracana treść.
 >
->  Podczas korzystania z polisy `set-body` należy zwrócić uwagę na następujące kwestie.
+>  Podczas korzystania z `set-body` zasad należy wziąć pod uwagę następujące kwestie.
 >
-> - Jeśli używasz `set-body` zasad do zwrócenia nowego lub zaktualizowanego obiektu, `preserveContent` `true` nie musisz ustawiać, ponieważ jawnie dostarczasz nową zawartość treści.
+> - Jeśli korzystasz z `set-body` zasad w celu zwrócenia nowej lub zaktualizowanej treści, nie musisz mieć ustawionej wartości `preserveContent` , `true` ponieważ użytkownik jawnie dostarcza nową zawartość treści.
 >   -   Zachowanie zawartości odpowiedzi w potoku przychodzącym nie ma sensu, ponieważ nie ma jeszcze odpowiedzi.
->   -   Zachowanie zawartości żądania w potoku wychodzącym nie ma sensu, ponieważ żądanie zostało już wysłane do wewnętrznej bazy danych w tym momencie.
->   -   Jeśli ta zasada jest używana, gdy nie ma treści wiadomości, na przykład w przychodzącym GET, zgłaszany jest wyjątek.
+>   -   Zachowanie zawartości żądania w potoku wychodzącym nie ma sensu, ponieważ żądanie zostało już wysłane do zaplecza w tym momencie.
+>   -   Jeśli te zasady są używane w przypadku braku treści wiadomości, na przykład w przypadku pobierania przychodzącego, zgłaszany jest wyjątek.
 
- Aby uzyskać więcej `context.Request.Body`informacji, zobacz , `context.Response.Body`i `IMessage` sekcje w [tabeli zmiennych kontekstu.](api-management-policy-expressions.md#ContextVariables)
+ Aby uzyskać więcej informacji, `context.Request.Body`zapoznaj `context.Response.Body`się z `IMessage` sekcjami w tabeli [zmiennych kontekstowych](api-management-policy-expressions.md#ContextVariables) .
 
-### <a name="policy-statement"></a>Oświadczenie dotyczące zasad
+### <a name="policy-statement"></a>Instrukcja zasad
 
 ```xml
 <set-body>new body value as text</set-body>
@@ -306,13 +306,13 @@ W tym przykładzie zasady kieruje żądanie do wewnętrznej bazy danych sieci sz
 
 ### <a name="examples"></a>Przykłady
 
-#### <a name="literal-text-example"></a>Przykład tekstu dosłownego
+#### <a name="literal-text-example"></a>Przykład tekstu literału
 
 ```xml
 <set-body>Hello world!</set-body>
 ```
 
-#### <a name="example-accessing-the-body-as-a-string-note-that-we-are-preserving-the-original-request-body-so-that-we-can-access-it-later-in-the-pipeline"></a>Przykład uzyskiwania dostępu do treści jako ciąg. Należy zauważyć, że zachowujemy oryginalną treść żądania, dzięki czemu możemy uzyskać do niego dostęp w dalszej części potoku.
+#### <a name="example-accessing-the-body-as-a-string-note-that-we-are-preserving-the-original-request-body-so-that-we-can-access-it-later-in-the-pipeline"></a>Przykład uzyskiwania dostępu do treści jako ciągu. Należy pamiętać, że zachowujemy pierwotną treść żądania, aby można było uzyskać do niej dostęp później w potoku.
 
 ```xml
 <set-body>
@@ -326,7 +326,7 @@ W tym przykładzie zasady kieruje żądanie do wewnętrznej bazy danych sieci sz
 </set-body>
 ```
 
-#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accessing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Przykład uzyskiwania dostępu do treści jako JObject. Należy zauważyć, że ponieważ nie rezerwujemy oryginalnej treści żądania, dostęp do niego później w potoku spowoduje wyjątek.
+#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accessing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Przykład uzyskiwania dostępu do treści jako JObject. Zwróć uwagę, że ponieważ nie obsługujemy pierwotnej treści żądania, uzyskanie dostępu do niej w dalszej części potoku spowoduje wyjątek.
 
 ```xml
 <set-body> 
@@ -341,8 +341,8 @@ W tym przykładzie zasady kieruje żądanie do wewnętrznej bazy danych sieci sz
 
 ```
 
-#### <a name="filter-response-based-on-product"></a>Odpowiedź filtru na podstawie produktu
- W tym przykładzie pokazano, jak wykonać filtrowanie zawartości, usuwając elementy danych `Starter` z odpowiedzi otrzymanej z usługi wewnętrznej bazy danych podczas korzystania z produktu. Aby zademonstrować konfigurowanie i używanie tych zasad, zobacz [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 34:30. Rozpocznij o 31:50, aby zobaczyć przegląd [interfejsu API prognozy ciemnego nieba,](https://developer.forecast.io/) który został użyty w tym pokazie.
+#### <a name="filter-response-based-on-product"></a>Filtrowanie odpowiedzi na podstawie produktu
+ Ten przykład pokazuje, jak wykonywać filtrowanie zawartości przez usunięcie elementów danych z odpowiedzi otrzymanej z usługi wewnętrznej bazy wiedzy podczas korzystania `Starter` z produktu. Aby zapoznać się z prezentacją konfigurowania i korzystania z tych zasad, zobacz temat [Cloud okładki epizod 177: więcej API Management funkcji z Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) i szybkie przekazanie do 34:30. Zacznij od 31:50, aby zapoznać się z omówieniem [interfejsu API prognozowania ciemnej przestrzeniki](https://developer.forecast.io/) używanej w tej wersji demonstracyjnej.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -360,18 +360,18 @@ W tym przykładzie zasady kieruje żądanie do wewnętrznej bazy danych sieci sz
 </choose>
 ```
 
-### <a name="using-liquid-templates-with-set-body"></a>Korzystanie z szablonów cieczy z osadzoną treścią
-Zasady `set-body` można skonfigurować tak, aby używał języka [szablonów płynnych](https://shopify.github.io/liquid/basics/introduction/) do przekształcania treści żądania lub odpowiedzi. Może to być bardzo skuteczne, jeśli trzeba całkowicie zmienić format wiadomości.
+### <a name="using-liquid-templates-with-set-body"></a>Używanie szablonów płynów z zestawem treści
+Zasady można skonfigurować tak, aby używały języka Liquid tworzenia szablonów do przekształcania treści żądania lub odpowiedzi. [Liquid](https://shopify.github.io/liquid/basics/introduction/) `set-body` Może to być bardzo skuteczne, jeśli trzeba całkowicie zmienić format wiadomości.
 
 > [!IMPORTANT]
-> Implementacja Liquid używane `set-body` w zasadach jest skonfigurowany w trybie "C#". Jest to szczególnie ważne podczas wykonywania takich czynności, jak filtrowanie. Na przykład użycie filtru daty wymaga użycia wielkości liter Pascal i formatowania daty języka C#:
+> Implementacja środowiska ciecz użyta w `set-body` zasadach jest konfigurowana w trybie "C#". Jest to szczególnie ważne podczas wykonywania takich czynności jak filtrowanie. Przykładowo użycie filtru daty wymaga zastosowania wielkości liter w języku Pascala i formatowania daty C#, np.:
 >
-> {{body.foo.startDateTime| Data:"yyyyMMddTHH:mm:ddZ"}}
+> {{Body. foo. startDateTime | Date: "yyyyMMddTHH: mm: ddZ"}}
 
 > [!IMPORTANT]
-> Aby poprawnie powiązać z treścią XML przy `set-header` użyciu szablonu Liquid, użyj zasad, aby ustawić typ zawartości na aplikację/xml, tekst/xml (lub dowolny typ kończący się na +xml); dla treści JSON musi to być application/json, text/json (lub dowolny typ kończący się na +json).
+> Aby prawidłowo powiązać z treścią XML przy użyciu szablonu Liquid, użyj `set-header` zasad, aby ustawić typ zawartości na wartość Application/XML, text/xml (lub dowolny typ kończący się znakami + XML); dla treści JSON, musi to być Application/JSON, text/JSON (lub dowolny typ kończący się znakami + JSON).
 
-#### <a name="convert-json-to-soap-using-a-liquid-template"></a>Konwertowanie JSON na mydło przy użyciu szablonu Liquid
+#### <a name="convert-json-to-soap-using-a-liquid-template"></a>Konwertowanie JSON na SOAP przy użyciu szablonu ciekłego
 ```xml
 <set-body template="liquid">
     <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
@@ -384,7 +384,7 @@ Zasady `set-body` można skonfigurować tak, aby używał języka [szablonów p�
 </set-body>
 ```
 
-#### <a name="transform-json-using-a-liquid-template"></a>Przekształcanie JSON przy użyciu szablonu Liquid
+#### <a name="transform-json-using-a-liquid-template"></a>Przekształć kod JSON przy użyciu szablonu ciekłego
 ```xml
 {
 "order": {
@@ -398,15 +398,15 @@ Zasady `set-body` można skonfigurować tak, aby używał języka [szablonów p�
 
 |Nazwa|Opis|Wymagany|
 |----------|-----------------|--------------|
-|set-body|Element główny. Zawiera tekst podstawowy lub wyrażenia, które zwracają treść.|Tak|
+|Ustaw treść|Element główny. Zawiera tekst treści lub wyrażenia zwracające treść.|Tak|
 
 ### <a name="properties"></a>Właściwości
 
-|Nazwa|Opis|Wymagany|Domyślne|
+|Nazwa|Opis|Wymagany|Domyślny|
 |----------|-----------------|--------------|-------------|
-|szablon|Służy do zmiany trybu tworzenia szablonów, w których będą uruchamiane zasady obiektu zestawu. Obecnie jedyną obsługiwaną wartością jest:<br /><br />- płyn - zasada nadwozia będzie wykorzystywać płynny silnik do tworzenia maszyn |Nie||
+|szablon|Służy do zmiany trybu tworzenia szablonów, w którym będą uruchamiane zasady zestawu treści. Obecnie jedyną obsługiwaną wartością jest:<br /><br />-Liquid-zasady dotyczące zestawu treści będą używać aparatu ciekłej tworzenia szablonów |Nie||
 
-Aby uzyskać dostęp do informacji o żądaniu i odpowiedzi, szablon Liquid może powiązać z obiektem kontekstu z następującymi właściwościami: <br />
+Aby uzyskać dostęp do informacji na temat żądania i odpowiedzi, szablon płynu można powiązać z obiektem kontekstu o następujących właściwościach: <br />
 <pre>context.
     Request.
         Url
@@ -447,18 +447,18 @@ OriginalUrl.
 
 
 ### <a name="usage"></a>Sposób użycia
- Ta zasada może być używana w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad .
+ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące, wychodzące, zaplecze
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-##  <a name="set-http-header"></a><a name="SetHTTPheader"></a>Ustawianie nagłówka HTTP
- Zasada `set-header` przypisuje wartość do istniejącego nagłówka odpowiedzi i/lub żądania lub dodaje nowy nagłówek odpowiedzi i/lub żądania.
+##  <a name="set-http-header"></a><a name="SetHTTPheader"></a>Ustaw nagłówek HTTP
+ `set-header` Zasada przypisuje wartość do istniejącej odpowiedzi i/lub nagłówka żądania lub dodaje nową odpowiedź i/lub nagłówek żądania.
 
- Wstawia listę nagłówków HTTP do wiadomości HTTP. Po umieszczeniu w potoku przychodzącym ta zasada ustawia nagłówki HTTP dla żądania przekazywanego do usługi docelowej. Po umieszczeniu w potoku wychodzącym ta zasada ustawia nagłówki HTTP dla odpowiedzi wysyłanej do klienta bramy.
+ Wstawia listę nagłówków HTTP do wiadomości HTTP. Po umieszczeniu w potoku przychodzącym te zasady ustawiają nagłówki HTTP dla żądania przesyłanego do usługi docelowej. Po umieszczeniu w potoku wychodzącym te zasady ustawiają nagłówki HTTP dla odpowiedzi wysyłanej do klienta bramy.
 
-### <a name="policy-statement"></a>Oświadczenie dotyczące zasad
+### <a name="policy-statement"></a>Instrukcja zasad
 
 ```xml
 <set-header name="header name" exists-action="override | skip | append | delete">
@@ -468,14 +468,14 @@ OriginalUrl.
 
 ### <a name="examples"></a>Przykłady
 
-#### <a name="example---adding-header-override-existing"></a>Przykład - dodawanie nagłówka, zastępowanie istniejących
+#### <a name="example---adding-header-override-existing"></a>Przykład — dodawanie nagłówka, zastępowanie istniejącego
 
 ```xml
 <set-header name="some header name" exists-action="override">
     <value>20</value>
 </set-header>
 ```
-#### <a name="example---removing-header"></a>Przykład - usuwanie nagłówka
+#### <a name="example---removing-header"></a>Przykład — usuwanie nagłówka
 
 ```xml
  <set-header name="some header name" exists-action="delete" />
@@ -483,8 +483,8 @@ OriginalUrl.
 
 
 
-#### <a name="forward-context-information-to-the-backend-service"></a>Przesyłanie dalej informacji kontekstowych do usługi wewnętrznej bazy danych
- W tym przykładzie pokazano, jak zastosować zasady na poziomie interfejsu API, aby dostarczyć informacje kontekstowe do usługi wewnętrznej bazy danych. Aby zademonstrować konfigurowanie i używanie tych zasad, zobacz [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 10:30. O godzinie 12:10 w portalu dewelopera znajduje się demonstracja wywoływania operacji, w której można zobaczyć zasady w pracy.
+#### <a name="forward-context-information-to-the-backend-service"></a>Przekazywanie informacji kontekstu do usługi wewnętrznej bazy danych
+ Ten przykład pokazuje, jak zastosować zasady na poziomie interfejsu API, aby dostarczyć informacje kontekstu do usługi wewnętrznej bazy danych. Aby zapoznać się z prezentacją konfigurowania i korzystania z tych zasad, zobacz temat [Cloud okładki epizod 177: więcej API Management funkcji z Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) i szybkie przekazanie do 10:30. Na 12:10 znajduje się pokaz wywoływania operacji w portalu dla deweloperów, w której można zobaczyć zasady w miejscu pracy.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward some context information, user id and the region the gateway is hosted in, to the backend service for logging or evaluation -->
@@ -494,17 +494,17 @@ OriginalUrl.
 </set-header>
 ```
 
- Aby uzyskać więcej informacji, zobacz [Wyrażenia zasad i](api-management-policy-expressions.md) [zmienna kontekstowa](api-management-policy-expressions.md#ContextVariables).
+ Aby uzyskać więcej informacji, zobacz [wyrażenia zasad](api-management-policy-expressions.md) i [zmienna kontekstowa](api-management-policy-expressions.md#ContextVariables).
 
 > [!NOTE]
-> Wiele wartości nagłówka są łączone z ciągiem CSV, na przykład:`headerName: value1,value2,value3`
+> Wiele wartości nagłówka są połączone z ciągiem CSV, na przykład:`headerName: value1,value2,value3`
 >
-> Wyjątki obejmują znormalizowane nagłówki, które wartości:
-> - mogą zawierać przecinki (`User-Agent`, `WWW-Authenticate`, `Proxy-Authenticate`),
-> - może zawierać`Cookie`datę `Set-Cookie` `Warning`( , , ),
-> - zawierać datę`Date` `Expires`( `If-Modified-Since` `If-Unmodified-Since`, `Last-Modified` `Retry-After`, , , , ).
+> Wyjątki zawierają standardowe nagłówki, które są wartościami:
+> - może zawierać przecinków (`User-Agent`, `WWW-Authenticate`, `Proxy-Authenticate`),
+> - może zawierać datę (`Cookie`, `Set-Cookie`, `Warning`),
+> - zawiera datę (`Date`, `Expires`, `If-Modified-Since` `If-Unmodified-Since`,, `Last-Modified`, `Retry-After`).
 >
-> W przypadku tych wyjątków wiele wartości nagłówka nie zostanie skoncjonowanych w jeden ciąg i zostanie przekazanych jako oddzielne nagłówki, na przykład:`User-Agent: value1`
+> W przypadku tych wyjątków wiele wartości nagłówka nie będzie łączonych w jeden ciąg i zostanie przesłane jako oddzielne nagłówki, na przykład:`User-Agent: value1`
 >`User-Agent: value2`
 >`User-Agent: value3`
 
@@ -512,27 +512,27 @@ OriginalUrl.
 
 |Nazwa|Opis|Wymagany|
 |----------|-----------------|--------------|
-|set-header|Element główny.|Tak|
-|value|Określa wartość nagłówka, która ma zostać ustawiona. Dla wielu nagłówków o tej `value` samej nazwie dodać dodatkowe elementy.|Nie|
+|Set-header|Element główny.|Tak|
+|value|Określa wartość nagłówka, która ma zostać ustawiona. Dla wielu nagłówków o tej samej nazwie Dodaj dodatkowe `value` elementy.|Nie|
 
 ### <a name="properties"></a>Właściwości
 
-|Nazwa|Opis|Wymagany|Domyślne|
+|Nazwa|Opis|Wymagany|Domyślny|
 |----------|-----------------|--------------|-------------|
-|istnieje-działanie|Określa, jaką akcję należy podjąć, gdy nagłówek jest już określony. Ten atrybut musi mieć jedną z następujących wartości.<br /><br /> - zastępowanie - zastępuje wartość istniejącego nagłówka.<br />- skip - nie zastępuje istniejącej wartości nagłówka.<br />- dołączanie - dołącza wartość do istniejącej wartości nagłówka.<br />- delete - usuwa nagłówek z żądania.<br /><br /> Gdy ustawiono rejestrowanie `override` wielu wpisów o tej samej nazwie powoduje, że nagłówek jest ustawiany zgodnie ze wszystkimi wpisami (które będą wyświetlane wiele razy); tylko wymienione wartości zostaną ustawione w wyniku.|Nie|override|
+|Istnieje — akcja|Określa akcję, która ma zostać podjęta, gdy nagłówek jest już określony. Ten atrybut musi mieć jedną z następujących wartości.<br /><br /> -override — zastępuje wartość istniejącego nagłówka.<br />-Skip — nie zastępuje istniejącej wartości nagłówka.<br />-Append-dołącza wartość do istniejącej wartości nagłówka.<br />-DELETE — usuwa nagłówek z żądania.<br /><br /> Gdy ustawione na `override` rejestrowanie wielu wpisów o tej samej nazwie powoduje, że nagłówek jest ustawiany zgodnie ze wszystkimi wpisami (które zostaną wyświetlone wiele razy); w wyniku zostaną ustawione tylko wymienione wartości.|Nie|override|
 |name|Określa nazwę nagłówka, który ma zostać ustawiony.|Tak|Nie dotyczy|
 
 ### <a name="usage"></a>Sposób użycia
- Ta zasada może być używana w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad .
+ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
--   **Sekcje zasad:** przychodzące, wychodzące, wewnętrznej bazy danych, on-error
+-   **Sekcje zasad:** przychodzące, wychodzące, zaplecze, w przypadku błędu
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-##  <a name="set-query-string-parameter"></a><a name="SetQueryStringParameter"></a>Ustawianie parametru ciągu kwerendy
- Zasady `set-query-parameter` dodaje, zastępuje wartość lub usuwa parametr ciągu zapytania żądania. Może służyć do przekazywania parametrów kwerendy oczekiwanych przez usługę wewnętrznej bazy danych, które są opcjonalne lub nigdy nie są obecne w żądaniu.
+##  <a name="set-query-string-parameter"></a><a name="SetQueryStringParameter"></a>Ustaw parametr ciągu zapytania
+ `set-query-parameter` Zasady dodają, zamieniają wartość lub usuwają parametr ciągu zapytania żądania. Może służyć do przekazywania parametrów zapytania oczekiwanych przez usługę zaplecza, które są opcjonalne lub nigdy nie występują w żądaniu.
 
-### <a name="policy-statement"></a>Oświadczenie dotyczące zasad
+### <a name="policy-statement"></a>Instrukcja zasad
 
 ```xml
 <set-query-parameter name="param name" exists-action="override | skip | append | delete">
@@ -550,8 +550,8 @@ OriginalUrl.
 
 ```
 
-#### <a name="forward-context-information-to-the-backend-service"></a>Przesyłanie dalej informacji kontekstowych do usługi wewnętrznej bazy danych
- W tym przykładzie pokazano, jak zastosować zasady na poziomie interfejsu API, aby dostarczyć informacje kontekstowe do usługi wewnętrznej bazy danych. Aby zademonstrować konfigurowanie i używanie tych zasad, zobacz [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 10:30. O godzinie 12:10 w portalu dewelopera znajduje się demonstracja wywoływania operacji, w której można zobaczyć zasady w pracy.
+#### <a name="forward-context-information-to-the-backend-service"></a>Przekazywanie informacji kontekstu do usługi wewnętrznej bazy danych
+ Ten przykład pokazuje, jak zastosować zasady na poziomie interfejsu API, aby dostarczyć informacje kontekstu do usługi wewnętrznej bazy danych. Aby zapoznać się z prezentacją konfigurowania i korzystania z tych zasad, zobacz temat [Cloud okładki epizod 177: więcej API Management funkcji z Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) i szybkie przekazanie do 10:30. Na 12:10 znajduje się pokaz wywoływania operacji w portalu dla deweloperów, w której można zobaczyć zasady w miejscu pracy.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward a piece of context, product name in this example, to the backend service for logging or evaluation -->
@@ -561,42 +561,42 @@ OriginalUrl.
 
 ```
 
- Aby uzyskać więcej informacji, zobacz [Wyrażenia zasad i](api-management-policy-expressions.md) [zmienna kontekstowa](api-management-policy-expressions.md#ContextVariables).
+ Aby uzyskać więcej informacji, zobacz [wyrażenia zasad](api-management-policy-expressions.md) i [zmienna kontekstowa](api-management-policy-expressions.md#ContextVariables).
 
 ### <a name="elements"></a>Elementy
 
 |Nazwa|Opis|Wymagany|
 |----------|-----------------|--------------|
-|set-query-parametr|Element główny.|Tak|
-|value|Określa wartość parametru zapytania, która ma zostać ustawiona. Dla wielu parametrów kwerendy `value` o tej samej nazwie dodać dodatkowe elementy.|Tak|
+|Set-Query-Parameter|Element główny.|Tak|
+|value|Określa wartość parametru zapytania, która ma zostać ustawiona. Dla wielu parametrów zapytania o tej samej nazwie Dodaj dodatkowe `value` elementy.|Tak|
 
 ### <a name="properties"></a>Właściwości
 
-|Nazwa|Opis|Wymagany|Domyślne|
+|Nazwa|Opis|Wymagany|Domyślny|
 |----------|-----------------|--------------|-------------|
-|istnieje-działanie|Określa akcję, która ma zostać podjęta, gdy parametr zapytania jest już określony. Ten atrybut musi mieć jedną z następujących wartości.<br /><br /> - zastępowanie - zastępuje wartość istniejącego parametru.<br />- skip - nie zastępuje istniejącej wartości parametru kwerendy.<br />- dok.<br />- delete - usuwa parametr kwerendy z żądania.<br /><br /> Gdy ustawiono rejestrowanie `override` wielu wpisów o tej samej nazwie powoduje, że parametr kwerendy jest ustawiany zgodnie ze wszystkimi wpisami (które będą wyświetlane wiele razy); tylko wymienione wartości zostaną ustawione w wyniku.|Nie|override|
-|name|Określa nazwę parametru kwerendy, który ma zostać ustawiony.|Tak|Nie dotyczy|
+|Istnieje — akcja|Określa akcję, która ma zostać podjęta, gdy parametr zapytania jest już określony. Ten atrybut musi mieć jedną z następujących wartości.<br /><br /> -override — zastępuje wartość istniejącego parametru.<br />-Skip — nie zastępuje istniejącej wartości parametru zapytania.<br />-Append-dołącza wartość do istniejącej wartości parametru zapytania.<br />-DELETE — Usuwa parametr zapytania z żądania.<br /><br /> Gdy ustawione na `override` rejestrowanie wielu wpisów o tej samej nazwie powoduje, że parametr zapytania jest ustawiany zgodnie ze wszystkimi wpisami (które zostaną wyświetlone wiele razy); w wyniku zostaną ustawione tylko wymienione wartości.|Nie|override|
+|name|Określa nazwę parametru zapytania, który ma zostać ustawiony.|Tak|Nie dotyczy|
 
 ### <a name="usage"></a>Sposób użycia
- Ta zasada może być używana w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad .
+ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące, zaplecze
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-##  <a name="rewrite-url"></a><a name="RewriteURL"></a>Przepisz adres URL
- Zasady `rewrite-uri` konwertuje adres URL żądania z formularza publicznego do formularza oczekiwanego przez usługę sieci web, jak pokazano w poniższym przykładzie.
+##  <a name="rewrite-url"></a><a name="RewriteURL"></a>Ponownie Napisz adres URL
+ `rewrite-uri` Zasady KONWERTUJĄ adres URL żądania z jego formularza publicznego na formularz oczekiwany przez usługę sieci Web, jak pokazano w poniższym przykładzie.
 
-- Publiczny adres URL -`http://api.example.com/storenumber/ordernumber`
+- Publiczny adres URL —`http://api.example.com/storenumber/ordernumber`
 
-- Adres URL żądania -`http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
+- Adres URL żądania —`http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
 
-  Ta zasada może być używana, gdy adres URL przyjazny dla ludzi i/lub przeglądarki powinien zostać przekształcony w format adresu URL oczekiwany przez usługę sieci web. Ta zasada musi być stosowana tylko podczas ujawniania alternatywnego formatu adresu URL, takiego jak czyste adresy URL, ponowne adresy URL, przyjazne dla użytkownika adresy URL lub adresy URL przyjazne dla SEO, które są czysto strukturalnymi adresami URL, które nie zawierają ciągu zapytania i zamiast tego zawierają tylko ścieżkę zasobu (po schemacie i urzędzie). Często odbywa się to w celach estetycznych, użyteczności lub optymalizacji pod kątem wyszukiwarek (SEO).
+  Tych zasad można używać w przypadku, gdy adres URL i/lub przyjazny dla przeglądarki powinien być przekształcony w format adresu URL oczekiwany przez usługę sieci Web. Te zasady muszą być stosowane tylko podczas ujawniania alternatywnego formatu adresu URL, na przykład czystych adresów URL, adresów URL RESTful, przyjaznych dla użytkownika adresów URL lub przyjaznych dla funkcji optymalizacji adresów URL, które nie zawierają ciągu zapytania, a zamiast tego zawierają tylko ścieżkę do zasobu (po schemacie i urzędzie). Jest to często wykonywane w celach estetycznych, użytecznych lub optymalizacji aparatu wyszukiwania (w przypadku funkcji optymalizacji).
 
 > [!NOTE]
->  Parametry ciągu kwerendy można dodawać tylko przy użyciu zasad. Nie można dodać dodatkowych parametrów ścieżki szablonu w adresie URL ponownego zapisu.
+>  Parametry ciągu zapytania można dodawać tylko przy użyciu zasad. Nie można dodać dodatkowych parametrów ścieżki szablonu w adresie URL ponownego zapisywania.
 
-### <a name="policy-statement"></a>Oświadczenie dotyczące zasad
+### <a name="policy-statement"></a>Instrukcja zasad
 
 ```xml
 <rewrite-uri template="uri template" copy-unmatched-params="true | false" />
@@ -646,26 +646,26 @@ OriginalUrl.
 
 |Nazwa|Opis|Wymagany|
 |----------|-----------------|--------------|
-|przepisać-uri|Element główny.|Tak|
+|ponowne zapisywanie — identyfikator URI|Element główny.|Tak|
 
 ### <a name="attributes"></a>Atrybuty
 
-|Atrybut|Opis|Wymagany|Domyślne|
+|Atrybut|Opis|Wymagany|Domyślny|
 |---------------|-----------------|--------------|-------------|
-|szablon|Rzeczywisty adres URL usługi sieci web z dowolnymi parametrami ciągu zapytania. Podczas używania wyrażeń cała wartość musi być wyrażeniem.|Tak|Nie dotyczy|
-|kopiowanie-niezrównane params|Określa, czy parametry kwerendy w żądaniu przychodzącym, które nie są obecne w oryginalnym szablonie adresu URL, są dodawane do adresu URL zdefiniowanego przez szablon ponownego zapisu|Nie|true|
+|szablon|Rzeczywisty adres URL usługi sieci Web z dowolnymi parametrami ciągu zapytania. W przypadku używania wyrażeń cała wartość musi być wyrażeniem.|Tak|Nie dotyczy|
+|Kopiowanie — niedopasowane-parametry|Określa, czy parametry zapytania w żądaniu przychodzącym nie występują w oryginalnym szablonie adresu URL są dodawane do adresu URL zdefiniowanego przez ponowne zapisanie szablonu|Nie|true|
 
 ### <a name="usage"></a>Sposób użycia
- Ta zasada może być używana w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad .
+ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-##  <a name="transform-xml-using-an-xslt"></a><a name="XSLTransform"></a>Przekształcanie języka XML przy użyciu xslt
- Zasady `Transform XML using an XSLT` stosuje transformację XSL do XML w treści żądania lub odpowiedzi.
+##  <a name="transform-xml-using-an-xslt"></a><a name="XSLTransform"></a>Przekształcanie kodu XML przy użyciu XSLT
+ `Transform XML using an XSLT` Zasady stosują transformację XSL do pliku XML w treści żądania lub odpowiedzi.
 
-### <a name="policy-statement"></a>Oświadczenie dotyczące zasad
+### <a name="policy-statement"></a>Instrukcja zasad
 
 ```xml
 <xsl-transform>
@@ -715,12 +715,12 @@ OriginalUrl.
 
 |Nazwa|Opis|Wymagany|
 |----------|-----------------|--------------|
-|xsl-transform|Element główny.|Tak|
-|parametr|Służy do definiowania zmiennych używanych w transformacji|Nie|
-|xsl:arkusz stylów|Główny element arkusza stylów. Wszystkie elementy i atrybuty zdefiniowane w standardowej [specyfikacji XSLT](https://www.w3.org/TR/xslt)|Tak|
+|przekształcenia XSL|Element główny.|Tak|
+|parametr|Używane do definiowania zmiennych używanych w przekształceniu|Nie|
+|xsl: stylesheet|Główny element arkusza stylów. Wszystkie elementy i atrybuty zdefiniowane w ramach standardowej [specyfikacji XSLT](https://www.w3.org/TR/xslt)|Tak|
 
 ### <a name="usage"></a>Sposób użycia
- Ta zasada może być używana w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad .
+ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące, wychodzące
 
@@ -730,6 +730,6 @@ OriginalUrl.
 
 Aby uzyskać więcej informacji, zobacz następujące tematy:
 
-+ [Zasady w zarządzaniu interfejsami API](api-management-howto-policies.md)
-+ [Odwołanie do zasad](api-management-policy-reference.md) dla pełnej listy oświadczeń zasad i ich ustawień
++ [Zasady w API Management](api-management-howto-policies.md)
++ [Dokumentacja zasad](api-management-policy-reference.md) pełna lista instrukcji zasad i ich ustawień
 + [Przykłady zasad](policy-samples.md)

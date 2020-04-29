@@ -1,5 +1,5 @@
 ---
-title: Samouczek — tworzenie zestawu skalowania maszyny wirtualnej platformy Azure i zarządzanie nim
+title: Samouczek — Tworzenie zestawu skalowania maszyn wirtualnych platformy Azure i zarządzanie nim
 description: Dowiedz się, jak za pomocą programu Azure PowerShell utworzyć zestaw skalowania maszyn wirtualnych oraz wykonywać niektóre typowe zadania zarządzania, takie jak uruchamianie i zatrzymywanie wystąpienia lub zmienianie pojemności zestawu skalowania.
 author: ju-shim
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 05/18/2018
 ms.author: jushiman
 ms.custom: mvc
 ms.openlocfilehash: 938b4e64dd5b67488ae5d061f2ceb29ae4bb7f6e
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81011248"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Samouczek: tworzenie zestawu skalowania maszyn wirtualnych i zarządzanie nim przy użyciu programu Azure PowerShell
@@ -26,7 +26,7 @@ Zestaw skalowania maszyn wirtualnych umożliwia wdrożenie zestawu identycznych,
 > * Ręczne skalowanie zestawu skalowania
 > * Wykonywanie typowych zadań zarządzania zestawem skalowania
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
@@ -35,7 +35,7 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
 
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
-Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Grupę zasobów należy utworzyć przed utworzeniem zestawu skalowania maszyn wirtualnych. Utwórz grupę zasobów za pomocą polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). W tym przykładzie grupa zasobów o nazwie *myResourceGroup* jest tworzony w regionie *EastUS.* 
+Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Grupę zasobów należy utworzyć przed utworzeniem zestawu skalowania maszyn wirtualnych. Utwórz grupę zasobów za pomocą polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). W tym przykładzie grupa zasobów o nazwie Moja *zasobów* jest tworzona w regionie *wschodnim* . 
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
@@ -93,7 +93,7 @@ Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -
 ## <a name="list-connection-information"></a>Wyświetlanie informacji o połączeniu
 Do modułu równoważenia obciążenia, który kieruje ruch do poszczególnych wystąpień maszyn wirtualnych, jest przypisany publiczny adres IP. Domyślnie do modułu równoważenia obciążenia platformy Azure, który przesyła dalej ruch połączenia zdalnego na danym porcie do poszczególnych maszyn wirtualnych, są dodawane reguły translatora adresów sieciowych (NAT). Aby nawiązać połączenie z wystąpieniami maszyn wirtualnych w zestawie skalowania, musisz utworzyć połączenie zdalne z przypisanym publicznym adresem IP za pośrednictwem określonego numeru portu.
 
-Aby wyświetlić listę portów NAT umożliwiających połączenie z wystąpieniami maszyn wirtualnych w zestawie skalowania, najpierw pobierz obiekt modułu równoważenia obciążenia za pomocą polecenia [Get-AzLoadBalancer](/powershell/module/az.network/Get-AzLoadBalancer). Następnie wyświetl przychodzące reguły NAT za pomocą [get-AzLoadBalancerInboundNatRuleConfig:](/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig)
+Aby wyświetlić listę portów NAT umożliwiających połączenie z wystąpieniami maszyn wirtualnych w zestawie skalowania, najpierw pobierz obiekt modułu równoważenia obciążenia za pomocą polecenia [Get-AzLoadBalancer](/powershell/module/az.network/Get-AzLoadBalancer). Następnie Wyświetl reguły NAT dla ruchu przychodzącego za pomocą [Get-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig):
 
 
 ```azurepowershell-interactive
@@ -132,7 +132,7 @@ IpAddress
 52.168.121.216
 ```
 
-Utwórz połączenie zdalne z pierwszym wystąpieniem maszyny wirtualnej. Podaj swój publiczny adres IP i numer portu wymaganego wystąpienia maszyny wirtualnej, jak pokazano w poprzednich poleceniach. Po wyświetleniu monitu wprowadź poświadczenia używane podczas tworzenia zestawu skalowania (domyślnie w przykładowych poleceniach, *azureuser* i *\@P ssw0rd!*). Jeśli korzystasz z usługi Azure Cloud Shell, wykonaj ten krok przy użyciu wiersza polecenia lokalnego programu PowerShell lub klienta pulpitu zdalnego. W poniższym przykładzie nawiązano połączenie z wystąpieniem maszyny wirtualnej *1*:
+Utwórz połączenie zdalne z pierwszym wystąpieniem maszyny wirtualnej. Podaj swój publiczny adres IP i numer portu wymaganego wystąpienia maszyny wirtualnej, jak pokazano w poprzednich poleceniach. Po wyświetleniu monitu wprowadź poświadczenia używane podczas tworzenia zestawu skalowania (domyślnie w przykładowych poleceniach, *azureuser* i *P\@ssw0rd!*). Jeśli korzystasz z usługi Azure Cloud Shell, wykonaj ten krok przy użyciu wiersza polecenia lokalnego programu PowerShell lub klienta pulpitu zdalnego. W poniższym przykładzie nawiązano połączenie z wystąpieniem maszyny wirtualnej *1*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001

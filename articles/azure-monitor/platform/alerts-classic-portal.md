@@ -1,72 +1,72 @@
 ---
-title: Tworzenie alertów metryk klasycznych i zarządzanie nimi przy użyciu usługi Azure Monitor
-description: Dowiedz się, jak używać witryny Azure portal, interfejsu wiersza polecenia lub programu Powershell do tworzenia, wyświetlania i zarządzania klasycznymi regułami alertów metryk.
+title: Tworzenie klasycznych alertów metryk i zarządzanie nimi przy użyciu Azure Monitor
+description: Dowiedz się, jak używać Azure Portal, interfejsu wiersza polecenia lub programu PowerShell do tworzenia i wyświetlania reguł alertów dotyczących częstotliwości klasycznych oraz zarządzania nimi.
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.openlocfilehash: e635c243a887690fb1f7a5dcd017c1130d74a747
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114577"
 ---
-# <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Tworzenie, wyświetlanie i zarządzanie klasycznymi alertami metryk przy użyciu usługi Azure Monitor
+# <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Twórz i wyświetlaj klasyczne alerty metryk i zarządzaj nimi za pomocą Azure Monitor
 
-Klasyczne alerty metryki w usłudze Azure Monitor umożliwiają uzyskanie powiadomienia, gdy jedna z metryk przekroczy próg. Alerty metryki klasycznej to starsza funkcja, która umożliwia alerty tylko w przypadku metryk niewymiarowych. Istnieje istniejąca nowsza funkcja o nazwie alerty metryki, która ma ulepszoną funkcjonalność za nikim klasycznym alertów metryk. Więcej informacji o nowych funkcjach alertów metryk można dowiedzieć się więcej w [przeglądzie alertów metryk.](../../azure-monitor/platform/alerts-metric-overview.md) W tym artykule opisano, jak tworzyć, wyświetlać i zarządzać klasycznymi regułami alertów metryk za pośrednictwem witryny Azure portal, interfejsu wiersza polecenia platformy Azure i programu Powershell.
+Klasyczne alerty metryk w Azure Monitor umożliwiają otrzymywanie powiadomień, gdy jedna z metryk przekracza próg. Klasyczne alerty metryk są starszą funkcją, która umożliwia generowanie alertów tylko w przypadku metryk niewymiarowych. Istnieje już nowa funkcja, nazywana alertami metryk, która oferuje ulepszone funkcje w porównaniu z klasycznymi alertami metryk. Więcej informacji o nowych funkcjach alertów metryk można znaleźć w temacie [Omówienie alertów dotyczących metryk](../../azure-monitor/platform/alerts-metric-overview.md). W tym artykule opisano sposób tworzenia i wyświetlania klasycznych reguł alertów dotyczących metryk oraz zarządzania nimi za pomocą Azure Portal, interfejsu wiersza polecenia platformy Azure i programu PowerShell.
 
-## <a name="with-azure-portal"></a>Dzięki witrynie Azure portal
+## <a name="with-azure-portal"></a>Z Azure Portal
 
-1. W [portalu](https://portal.azure.com/)znajdź zasób, który chcesz monitorować, a następnie wybierz go.
+1. W [portalu](https://portal.azure.com/)Znajdź zasób, który chcesz monitorować, a następnie wybierz go.
 
-2. W sekcji **MONITOROWANIE** wybierz **pozycję Alerty (klasyczny)**. Tekst i ikona mogą się nieznacznie różnić w zależności od zasobów. Jeśli nie znajdziesz **alertów (klasycznych)** tutaj, możesz je znaleźć w alertach lub **regułach alertów.** **Alert Rules**
+2. W sekcji **monitorowanie** wybierz pozycję **alerty (klasyczne)**. Tekst i ikona mogą się nieco różnić w zależności od różnych zasobów. Jeśli w tym miejscu nie znajdziesz **alertów (klasyczny)** , możesz go znaleźć w **alertach** lub **regułach alertów**.
 
     ![Monitorowanie](media/alerts-classic-portal/AlertRulesButton.png)
 
-3. Wybierz polecenie **Dodaj alert metryki (klasyczny),** a następnie wypełnij pola.
+3. Wybierz polecenie **Dodaj alert metryki (klasyczny)** , a następnie wypełnij pola.
 
-    ![Dodaj alert](media/alerts-classic-portal/AddAlertOnlyParamsPage.png)
+    ![Dodawanie alertu](media/alerts-classic-portal/AddAlertOnlyParamsPage.png)
 
-4. **Nazwij** regułę alertu. Następnie wybierz **opis**, który pojawia się również w wiadomościach e-mail z powiadomieniami.
+4. **Nadaj nazwę** regule alertu. Następnie wybierz **Opis**, który również pojawia się w wiadomości e-mail z powiadomieniem.
 
-5. Wybierz **metrykę,** którą chcesz monitorować. Następnie wybierz **Condition** i **Threshold** wartość dla metryki. Należy również wybrać **okres** czasu, który reguła metryki musi być spełniony przed wyzwalania alertu. Na przykład jeśli używasz okresu "W ciągu ostatnich 5 minut", a alert szuka procesora CPU powyżej 80%, alert wyzwala, gdy procesor był stale powyżej 80% przez 5 minut. Po wystąpieniu pierwszego wyzwalacza wyzwala się ponownie, gdy procesor pozostanie poniżej 80% przez 5 minut. Pomiar metryki procesora cpu odbywa się co minutę.
+5. Wybierz **metrykę** , którą chcesz monitorować. Następnie wybierz **warunek** i wartość **progu** dla metryki. Należy również wybrać **okres** , przez jaki reguła metryki musi być spełniona przed wyzwalaczem alertu. Na przykład jeśli używasz okresu "w ciągu ostatnich 5 minut", a alert wyszukuje procesor powyżej 80%, alert jest wyzwalany w przypadku, gdy procesor CPU był spójny powyżej 80% przez 5 minut. Po wystąpieniu pierwszego wyzwalacza jest wyzwalane ponownie, gdy procesor CPU pozostaje poniżej 80% przez 5 minut. Pomiar metryki procesora CPU występuje co minutę.
 
-6. Wybierz **właścicieli wiadomości e-mail...** jeśli chcesz, aby administratorzy i współadministratorzy otrzymywali powiadomienia e-mail po uruchomieniu alertu.
+6. Wybierz **właścicieli poczty e-mail...** , jeśli chcesz, aby administratorzy i współadministratorzy otrzymywali powiadomienia e-mail o alertach.
 
-7. Jeśli chcesz wysyłać powiadomienia na dodatkowe adresy e-mail po uruchomieniu alertu, dodaj je w polu **Wiadomości e-mail dodatkowego administratora.** Oddziel wiele wiadomości e-mail średnikami w następującym formacie: *e-mail\@\@contoso.com;email2 contoso.com*
+7. Jeśli chcesz wysyłać powiadomienia do dodatkowych adresów e-mail po uruchomieniu alertu, Dodaj je w polu dodatkowe adresy **E-mail administratora** . Oddziel wiele wiadomości e-mail średnikami, w następującym formacie: *e-mail\@contoso. com; email2\@contoso.com*
 
-8. Umieść prawidłowy identyfikator URI w polu **Webhook,** jeśli chcesz, aby był wywoływany po uruchomieniu alertu.
+8. Wprowadź prawidłowy identyfikator URI w polu **elementu webhook** , jeśli chcesz, aby był on wywoływany po uruchomieniu alertu.
 
-9. Jeśli używasz usługi Azure Automation, można wybrać system runbook do uruchomienia po uruchomieniu alertu.
+9. Jeśli używasz Azure Automation, możesz wybrać element Runbook, który ma być uruchamiany po uruchomieniu alertu.
 
 10. Wybierz pozycję **OK**, aby utworzyć alert.
 
-W ciągu kilku minut alert jest aktywny i wyzwala, jak opisano wcześniej.
+W ciągu kilku minut alert jest aktywny i wyzwalacze opisane wcześniej.
 
-Po utworzeniu alertu można go wybrać i wykonać jedno z następujących zadań:
+Po utworzeniu alertu można go wybrać i wykonać jedną z następujących czynności:
 
-* Wyświetl wykres przedstawiający próg metryki i rzeczywiste wartości z poprzedniego dnia.
-* Edytuj lub usuń go.
-* **Wyłącz** lub **włącz** go, jeśli chcesz tymczasowo zatrzymać lub wznowić otrzymywanie powiadomień dla tego alertu.
+* Wyświetl wykres, który pokazuje próg metryki i rzeczywiste wartości z poprzedniego dnia.
+* Edytuj lub Usuń.
+* **Wyłącz** lub **Włącz** tę opcję, jeśli chcesz tymczasowo zatrzymać lub wznowić otrzymywanie powiadomień dla tego alertu.
 
 ## <a name="with-azure-cli"></a>Z interfejsem wiersza polecenia platformy Azure
 
-W poprzednich sekcjach opisano sposób tworzenia, wyświetlania i zarządzania regułami alertów metryk przy użyciu witryny Azure Portal. W tej sekcji opisano, jak zrobić to samo przy użyciu wieloplatformowego [interfejsu wiersza polecenia platformy Azure.](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) Najszybszym sposobem rozpoczęcia korzystania z interfejsu wiersza polecenia platformy Azure jest [usługa Azure Cloud Shell.](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)
+Poprzednie sekcje opisują sposób tworzenia, wyświetlania i zarządzania regułami alertów dotyczących metryk przy użyciu Azure Portal. W tej sekcji opisano, jak wykonać to samo przy użyciu wieloplatformowego [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Najszybszym sposobem na rozpoczęcie korzystania z interfejsu wiersza polecenia platformy Azure jest [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest).
 
-### <a name="get-all-classic-metric-alert-rules-in-a-resource-group"></a>Pobierz wszystkie klasyczne reguły alertów metryk w grupie zasobów
+### <a name="get-all-classic-metric-alert-rules-in-a-resource-group"></a>Pobierz wszystkie reguły alertu dotyczącego klasycznej metryki w grupie zasobów
 
 ```azurecli
 az monitor alert list --resource-group <group name>
 ```
 
-### <a name="see-details-of-a-particular-classic-metric-alert-rule"></a>Zobacz szczegóły określonej klasycznej reguły alertów metryki
+### <a name="see-details-of-a-particular-classic-metric-alert-rule"></a>Zobacz szczegóły konkretnej reguły alertu dotyczącego klasycznej metryki
 
 ```azurecli
 az monitor alert show --resource-group <group name> --name <alert name>
 ```
 
-### <a name="create-a-classic-metric-alert-rule"></a>Tworzenie klasycznej reguły alertu metryki
+### <a name="create-a-classic-metric-alert-rule"></a>Tworzenie reguły klasycznego alertu dotyczącego metryki
 
 ```azurecli
 az monitor alert create --name <alert name> --resource-group <group name> \
@@ -76,7 +76,7 @@ az monitor alert create --name <alert name> --resource-group <group name> \
     --condition "<METRIC> {>,>=,<,<=} <THRESHOLD> {avg,min,max,total,last} ##h##m##s"
 ```
 
-### <a name="delete-a-classic-metric-alert-rule"></a>Usuwanie klasycznej reguły alertu metryki
+### <a name="delete-a-classic-metric-alert-rule"></a>Usuwanie reguły klasycznego alertu dotyczącego metryki
 
 ```azurecli
 az monitor alert delete --name <alert name> --resource-group <group name>
@@ -86,49 +86,49 @@ az monitor alert delete --name <alert name> --resource-group <group name>
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-W tej sekcji pokazano, jak używać poleceń programu PowerShell do tworzenia, wyświetlania i zarządzania klasycznymi alertami metryk. Przykłady w tym artykule ilustrują, jak można używać poleceń cmdlet usługi Azure Monitor dla alertów metryk klasycznych.
+W tych sekcjach pokazano, jak za pomocą poleceń programu PowerShell tworzyć i wyświetlać alerty metryk klasycznej oraz zarządzać nimi. Przykłady w tym artykule ilustrują, jak można użyć poleceń cmdlet Azure Monitor dla klasycznych alertów dotyczących metryk.
 
-1. Jeśli jeszcze tego nie zrobiłeś, skonfiguruj program PowerShell do uruchamiania na komputerze. Aby uzyskać więcej informacji, zobacz [Jak zainstalować i skonfigurować program PowerShell](/powershell/azure/overview). Można również przejrzeć całą listę poleceń cmdlet programu Azure Monitor PowerShell w poleceniach [cmdlet usługi Azure Monitor (Insights).](https://docs.microsoft.com/powershell/module/az.applicationinsights)
+1. Jeśli jeszcze tego nie zrobiono, skonfiguruj program PowerShell do uruchamiania na komputerze. Aby uzyskać więcej informacji, zobacz [jak zainstalować i skonfigurować program PowerShell](/powershell/azure/overview). Możesz również przejrzeć całą listę Azure Monitor poleceń cmdlet programu PowerShell w [Azure monitor polecenia cmdlet (Insights)](https://docs.microsoft.com/powershell/module/az.applicationinsights).
 
-2. Najpierw zaloguj się do subskrypcji platformy Azure.
+2. Najpierw Zaloguj się do subskrypcji platformy Azure.
 
     ```powershell
     Connect-AzAccount
     ```
 
-3. Zostanie wyświetlony ekran logowania. Po zalogowaniu się na swoje konto, TenantID i domyślny identyfikator subskrypcji są wyświetlane. Wszystkie polecenia cmdlet platformy Azure działają w kontekście domyślnej subskrypcji. Aby wyświetlić listę subskrypcji, do których masz dostęp, użyj następującego polecenia:
+3. Zobaczysz ekran logowania. Po zalogowaniu się na koncie zostanie wyświetlony TenantID i domyślny identyfikator subskrypcji. Wszystkie polecenia cmdlet platformy Azure działają w kontekście domyślnej subskrypcji. Aby wyświetlić listę subskrypcji, do których masz dostęp, użyj następującego polecenia:
 
     ```powershell
     Get-AzSubscription
     ```
 
-4. Aby zmienić kontekst pracy na inną subskrypcję, użyj następującego polecenia:
+4. Aby zmienić kontekst roboczy na inną subskrypcję, użyj następującego polecenia:
 
     ```powershell
     Set-AzContext -SubscriptionId <subscriptionid>
     ```
 
-5. W grupie zasobów można pobrać wszystkie klasyczne reguły alertów metryki:
+5. Wszystkie klasyczne reguły alertów metryk można pobrać w grupie zasobów:
 
     ```powershell
     Get-AzAlertRule -ResourceGroup montest
     ```
 
-6. Możesz wyświetlić szczegóły klasycznej reguły alertów metryk
+6. Możesz wyświetlić szczegóły klasycznej reguły alertu dotyczącego metryki
 
     ```powershell
     Get-AzAlertRule -Name simpletestCPU -ResourceGroup montest -DetailedOutput
     ```
 
-7. Można pobrać wszystkie reguły alertów ustawione dla zasobu docelowego. Na przykład wszystkie reguły alertów ustawione na maszynie Wirtualnej.
+7. Można pobrać wszystkie reguły alertów ustawione dla zasobu docelowego. Na przykład wszystkie reguły alertów ustawione na maszynie wirtualnej.
 
     ```powershell
     Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. Klasyczne reguły alertów nie mogą być już tworzone za pośrednictwem programu PowerShell. Aby utworzyć regułę alertu, należy użyć nowego polecenia ["Add-AzMetricAlertRule".](/powershell/module/az.monitor/add-azmetricalertrule)
+8. Nie można już tworzyć klasycznych reguł alertów za pomocą programu PowerShell. Aby utworzyć regułę alertu, należy użyć nowego polecenia ["Add-AzMetricAlertRule"](/powershell/module/az.monitor/add-azmetricalertrule) .
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Utwórz klasyczny alert metryki z szablonem Menedżera zasobów](../../azure-monitor/platform/alerts-enable-template.md).
-- [Mieć klasyczny alert metryki powiadamiać system nie platformy Azure za pomocą elementu webhook](../../azure-monitor/platform/alerts-webhooks.md).
+- [Utwórz klasyczny alert dotyczący metryki z szablonem Menedżer zasobów](../../azure-monitor/platform/alerts-enable-template.md).
+- [Zawiadom klasyczny alert dotyczący metryki systemu spoza platformy Azure przy użyciu elementu webhook](../../azure-monitor/platform/alerts-webhooks.md).

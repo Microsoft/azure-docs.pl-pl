@@ -1,7 +1,7 @@
 ---
 title: Omówienie grup zabezpieczeń sieci platformy Azure
 titlesuffix: Azure Virtual Network
-description: Dowiedz się więcej o sieciowych grupach zabezpieczeń. Sieciowe grupy zabezpieczeń ułatwią filtrowanie ruchu sieciowego między zasobami platformy Azure.
+description: Dowiedz się więcej o sieciowych grupach zabezpieczeń. Sieciowe grupy zabezpieczeń ułatwiają Filtrowanie ruchu sieciowego między zasobami platformy Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,17 +14,17 @@ ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
 ms.openlocfilehash: 968cc9ed9d938bb04d1243102855c134147ddf3b
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81269877"
 ---
 # <a name="network-security-groups"></a>Grupy zabezpieczeń sieci
 <a name="network-security-groups"></a>
 
-Za pomocą sieciowej grupy zabezpieczeń platformy Azure można filtrować ruch sieciowy do i z zasobów platformy Azure w sieci wirtualnej platformy Azure. Grupa zabezpieczeń sieci zawiera [reguły zabezpieczeń](#security-rules), które zezwalają na lub blokują przychodzący ruch sieciowy lub wychodzący ruch sieciowy dla kilku typów zasobów platformy Azure. Dla każdej reguły można określić źródło i obiekt docelowy, port i protokół.
-W tym artykule opisano właściwości reguły sieciowej grupy zabezpieczeń, [stosowane domyślne reguły zabezpieczeń](#default-security-rules) oraz właściwości reguły, które można zmodyfikować w celu utworzenia [rozszerzonej reguły zabezpieczeń](#augmented-security-rules).
+Za pomocą grupy zabezpieczeń sieci platformy Azure można filtrować ruch sieciowy do i z zasobów platformy Azure w sieci wirtualnej platformy Azure. Grupa zabezpieczeń sieci zawiera [reguły zabezpieczeń](#security-rules), które zezwalają na lub blokują przychodzący ruch sieciowy lub wychodzący ruch sieciowy dla kilku typów zasobów platformy Azure. Dla każdej reguły można określić źródło i obiekt docelowy, port i protokół.
+W tym artykule opisano właściwości reguły sieciowej grupy zabezpieczeń, stosowane [domyślne reguły zabezpieczeń](#default-security-rules) oraz właściwości reguły, które można modyfikować w celu utworzenia [rozszerzonej reguły zabezpieczeń](#augmented-security-rules).
 
 ## <a name="security-rules"></a><a name="security-rules"></a>Reguły zabezpieczeń
 
@@ -89,23 +89,23 @@ Platforma Azure tworzy następujące reguły domyślne w każdej tworzonej grupi
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Dowolne | Zablokuj |
 
-W kolumnach **Źródło** i **Obiekt docelowy** elementy *VirtualNetwork*, *AzureLoadBalancer* i *Internet* są [tagami usługi](service-tags-overview.md), a nie adresami IP. W kolumnie protokołu **Any** obejmuje TCP, UDP i ICMP. Podczas tworzenia reguły można określić protokół TCP, UDP, ICMP lub dowolny. Wartość *0.0.0.0/0* w kolumnach **Źródło** i **Obiekt docelowy** reprezentuje wszystkie adresy. Klienci, tacy jak Azure portal, Azure CLI lub PowerShell, mogą używać * lub dowolnego dla tego wyrażenia.
+W kolumnach **Źródło** i **Obiekt docelowy** elementy *VirtualNetwork*, *AzureLoadBalancer* i *Internet* są [tagami usługi](service-tags-overview.md), a nie adresami IP. W kolumnie Protokół **wszystkie** obejmują protokoły TCP, UDP i ICMP. Podczas tworzenia reguły można określić protokół TCP, UDP, ICMP lub dowolny. Wartość *0.0.0.0/0* w kolumnach **Źródło** i **Obiekt docelowy** reprezentuje wszystkie adresy. Klienci, takie jak Azure Portal, interfejs wiersza polecenia platformy Azure lub program PowerShell, mogą używać dla tego wyrażenia znaku * lub dowolnego z nich.
  
 Nie można usunąć reguł domyślnych, ale można je przesłonić, tworząc reguły o wyższych priorytetach.
 
 ### <a name="augmented-security-rules"></a><a name="augmented-security-rules"></a>Rozszerzone reguły zabezpieczeń
 
-Rozszerzone reguły zabezpieczeń upraszczają definicję zabezpieczeń dla sieci wirtualnych, umożliwiając definiowanie zasad zabezpieczeń większych i złożonych sieci przy użyciu mniejszej liczby reguł. Można połączyć wiele portów, wiele jawnych adresów IP i zakresów w jedną, łatwo zrozumiałą regułę zabezpieczeń. Rozszerzone reguły stosuje się w polach źródła, obiektu docelowego i portów reguły. Aby uprościć zarządzanie definicją reguły zabezpieczeń, połącz rozszerzone reguły zabezpieczeń z [tagami usług](service-tags-overview.md) lub [grupami zabezpieczeń aplikacji](#application-security-groups). Istnieją ograniczenia liczby adresów, zakresów i portów, które można określić w regule. Aby uzyskać więcej informacji, zobacz [Azure limits (Ograniczenia platformy Azure)](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Rozszerzone reguły zabezpieczeń upraszczają definicję zabezpieczeń dla sieci wirtualnych, umożliwiając definiowanie zasad zabezpieczeń większych i złożonych sieci przy użyciu mniejszej liczby reguł. Można połączyć wiele portów, wiele jawnych adresów IP i zakresów w jedną, łatwo zrozumiałą regułę zabezpieczeń. Rozszerzone reguły stosuje się w polach źródła, obiektu docelowego i portów reguły. Aby uprościć zarządzanie definicją reguły zabezpieczeń, połącz rozszerzone reguły zabezpieczeń z [tagami usług](service-tags-overview.md) lub [grupami zabezpieczeń aplikacji](#application-security-groups). Istnieją limity liczby adresów, zakresów i portów, które można określić w regule. Aby uzyskać więcej informacji, zobacz [Azure limits (Ograniczenia platformy Azure)](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 #### <a name="service-tags"></a>Tagi usługi
 
-Tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Pomaga zminimalizować złożoność częstych aktualizacji reguł zabezpieczeń sieci.
+Tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Pomaga zminimalizować złożoność częstych aktualizacji w regułach zabezpieczeń sieci.
 
-Aby uzyskać więcej informacji, zobacz [Tagi usługi platformy Azure](service-tags-overview.md). Aby uzyskać przykład użycia tagu usługi Magazyn do ograniczania dostępu do sieci, zobacz [Ograniczanie dostępu do sieci do zasobów PaaS](tutorial-restrict-network-access-to-resources.md).
+Aby uzyskać więcej informacji, zobacz [Tagi usług platformy Azure](service-tags-overview.md). Przykład użycia znacznika usługi magazynu w celu ograniczenia dostępu do sieci można znaleźć w temacie [ograniczanie dostępu sieciowego do zasobów PaaS](tutorial-restrict-network-access-to-resources.md).
 
 #### <a name="application-security-groups"></a>Grupy zabezpieczeń aplikacji
 
-Grupy zabezpieczeń aplikacji umożliwiają skonfigurowanie zabezpieczeń sieci jako naturalnego rozszerzenia struktury aplikacji, co pozwala na grupowanie maszyn wirtualnych i definiowanie zasad zabezpieczeń sieci na podstawie tych grup. Możesz ponownie używać zasad zabezpieczeń na dużą skalę bez ręcznej obsługi jawnych adresów IP. Aby dowiedzieć się więcej, zobacz [Grupy zabezpieczeń aplikacji](application-security-groups.md).
+Grupy zabezpieczeń aplikacji umożliwiają skonfigurowanie zabezpieczeń sieci jako naturalnego rozszerzenia struktury aplikacji, co pozwala na grupowanie maszyn wirtualnych i definiowanie zasad zabezpieczeń sieci na podstawie tych grup. Możesz ponownie używać zasad zabezpieczeń na dużą skalę bez ręcznej obsługi jawnych adresów IP. Aby dowiedzieć się więcej, zobacz [grupy zabezpieczeń aplikacji](application-security-groups.md).
 
 ## <a name="how-traffic-is-evaluated"></a>Sposób oceniania ruchu
 
@@ -138,25 +138,25 @@ W przypadku ruchu wychodzącego platforma Azure przetwarza najpierw reguły w gr
 
 ### <a name="intra-subnet-traffic"></a>Ruch wewnątrz podsieci
 
-Należy pamiętać, że reguły zabezpieczeń w sieciowej sieciowej skojarzonej z podsiecią mogą wpływać na łączność między maszynami wirtualnymi w jej obrębie. Na przykład jeśli reguła jest dodawany do *NSG1,* który odrzuca wszystkie ruchu przychodzącego i wychodzącego, *VM1* i *VM2* nie będzie już w stanie komunikować się ze sobą. Aby na to pozwolić, musiałaby zostać dodana inna zasada. 
+Należy pamiętać, że reguły zabezpieczeń w sieciowej grupy zabezpieczeń skojarzonej z podsiecią mogą mieć wpływ na łączność między MASZYNami wirtualnymi. Na przykład, jeśli reguła zostanie dodana do *NSG1* , która odmówi cały ruch przychodzący i wychodzący, *VM1* i *VM2* nie będą już mogły komunikować się ze sobą. Aby to umożliwić, należy dodać inną regułę. 
 
 
 
 Reguły agregowane stosowane do interfejsu sieciowego można łatwo wyświetlić, wyświetlając [obowiązujące reguły zabezpieczeń](virtual-network-network-interface.md#view-effective-security-rules) dla interfejsu sieciowego. Możesz również skorzystać z możliwości [weryfikowania przepływu protokołu IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) w celu ustalenia, czy komunikacja z lub do interfejsu sieciowego jest dozwolona. Weryfikowanie przepływu adresów IP informuje, czy komunikacja jest dozwolona lub zablokowana, oraz która reguła zabezpieczeń sieci zezwala lub nie zezwala na ruch.
 
 > [!NOTE]
-> Sieciowe grupy zabezpieczeń są skojarzone z podsieciami lub z maszynami wirtualnymi i usługami w chmurze wdrożonymi w klasycznym modelu wdrażania oraz z podsieciami lub interfejsami sieciowymi w modelu wdrażania Menedżera zasobów. Aby dowiedzieć się więcej na temat modeli wdrażania platformy Azure, zapoznaj się z artykułem [Understand Azure deployment models](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Informacje na temat modeli wdrażania platformy Azure).
+> Sieciowe grupy zabezpieczeń są skojarzone z podsieciami lub do maszyn wirtualnych i usług w chmurze wdrożonych w klasycznym modelu wdrażania, a także do podsieci lub interfejsów sieciowych w Menedżer zasobów model wdrażania. Aby dowiedzieć się więcej na temat modeli wdrażania platformy Azure, zapoznaj się z artykułem [Understand Azure deployment models](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Informacje na temat modeli wdrażania platformy Azure).
 
 > [!TIP]
 > Zaleca się skojarzenie grupy zabezpieczeń sieci z podsiecią lub interfejsem sieciowym, ale nie obydwoma tymi elementami naraz, o ile nie ma po temu konkretnego powodu. Ponieważ reguły w grupie zabezpieczeń sieci skojarzonej z podsiecią mogą powodować konflikt z regułami w grupie zabezpieczeń sieci skojarzonej z interfejsem sieciowym, możesz napotkać nieoczekiwane problemy z komunikacją, co będzie wymagać rozwiązywania problemów.
 
 ## <a name="azure-platform-considerations"></a>Zagadnienia dotyczące platformy Azure
 
-- **Wirtualny adres IP węzła hosta:** Podstawowe usługi infrastrukturalne, takie jak DHCP, DNS, IMDS i monitorowanie kondycji, są dostarczane za pośrednictwem zwirtualizowanych adresów IP hosta 168.63.129.16 i 169.254.169.254. Te adresy IP należą do firmy Microsoft i są jedynymi zwirtualizowanymi adresami IP używanymi do tego celu we wszystkich regionach. Skuteczne zasady bezpieczeństwa i skuteczne trasy nie będą zawierać tych zasad platformy. Aby zastąpić tę podstawową komunikację w sprawie infrastruktury, można utworzyć regułę zabezpieczeń, aby odmówić ruchu, używając następujących [tagów usługi](service-tags-overview.md) w regułach sieciowej grupy zabezpieczeń: AzurePlatformDNS, AzurePlatformIMDS, AzurePlatformLKM. Dowiedz się, jak [zdiagnozować filtrowanie ruchu sieciowego](diagnose-network-traffic-filter-problem.md) i [zdiagnozować routing sieciowy.](diagnose-network-routing-problem.md)
+- **Wirtualny adres IP węzła hosta**: podstawowe usługi infrastruktury, takie jak DHCP, DNS, IMDS i monitorowanie kondycji, są udostępniane za pomocą zwirtualizowanych adresów IP hosta 168.63.129.16 i 169.254.169.254. Te adresy IP należą do firmy Microsoft i są jedynymi zwirtualizowanymi adresami IP używanymi do tego celu we wszystkich regionach. Obowiązujące reguły zabezpieczeń i obowiązujące trasy nie będą obejmować tych reguł platformy. Aby zastąpić tę podstawową komunikację z infrastrukturą, można utworzyć regułę zabezpieczeń, aby odmówić ruchu przy użyciu następujących [tagów usługi](service-tags-overview.md) w regułach sieciowej grupy zabezpieczeń: AzurePlatformDNS, AzurePlatformIMDS, AzurePlatformLKM. Dowiedz się, jak [zdiagnozować Filtrowanie ruchu sieciowego](diagnose-network-traffic-filter-problem.md) i [zdiagnozować Routing sieciowy](diagnose-network-routing-problem.md).
 - **Licencjonowanie (usługa zarządzania kluczami):** obrazy systemu Windows uruchomione na maszynach wirtualnych muszą być licencjonowane. W celu zapewnienia licencjonowania do serwerów hosta usługi zarządzania kluczami zostaje wysłane żądanie licencjonowania, które takie żądania obsługują. Żądanie jest wysyłane za pomocą portu 1688. W przypadku wdrożeń korzystających z konfiguracji [default route 0.0.0.0/0](virtual-networks-udr-overview.md#default-route) ta reguła platformy zostanie wyłączona.
 - **Maszyny wirtualne w pulach ze zrównoważonym obciążeniem**: port źródłowy i zakres adresów stosowane są z komputera źródłowego, nie modułu równoważenia obciążenia. Port docelowy i zakres adresów dotyczą komputera docelowego, a nie modułu równoważenia obciążenia.
 - **Wystąpienia usług platformy Azure**: wystąpienia kilku usług platformy Azure, takich jak usługa HDInsight, środowiska usług aplikacji i zestawy skalowania maszyn wirtualnych, są wdrażane w podsieciach sieci wirtualnej. Aby uzyskać pełną listę usług, które można wdrażać w sieciach wirtualnych, zobacz [Virtual network for Azure services (Sieć wirtualna dla usług platformy Azure)](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Upewnij się, że należy zapoznać się z wymaganiami dotyczącymi portów dla każdej usługi przed zastosowaniem grupy zabezpieczeń sieci do podsieci, w której zasób został wdrożony. Jeśli porty wymagane przez usługę zostaną zablokowane, usługa nie będzie działać prawidłowo.
-- **Wysyłanie wychodzących wiadomości e-mail:** Firma Microsoft zaleca korzystanie z uwierzytelnionych usług przekazywania SMTP (zazwyczaj połączonych za pośrednictwem portu TCP 587, ale często także innych) do wysyłania wiadomości e-mail z maszyn wirtualnych platformy Azure. Usługi przekazywania SMTP specjalizują się w obsłudze reputacji nadawcy, aby ograniczyć możliwość odrzucenia wiadomości e-mail przez zewnętrznych dostawców poczty e-mail. Takie usługi przekazywania SMTP obejmują między innymi usługi Exchange Online Protection i SendGrid. Korzystanie z usług przekazywania SMTP nie jest w żaden sposób ograniczone na platformie Azure, niezależnie od typu subskrypcji. 
+- **Wysyłanie wychodzących wiadomości e-mail**: Firma Microsoft zaleca korzystanie z usług uwierzytelnionego przekazywania SMTP (zwykle połączonych za pośrednictwem portu 587 protokołu TCP, ale często również innych) do wysyłania wiadomości E-mail z usługi Azure Virtual Machines. Usługi przekazywania SMTP specjalizują się w obsłudze reputacji nadawcy, aby ograniczyć możliwość odrzucenia wiadomości e-mail przez zewnętrznych dostawców poczty e-mail. Takie usługi przekazywania SMTP obejmują między innymi usługi Exchange Online Protection i SendGrid. Korzystanie z usług przekazywania SMTP nie jest w żaden sposób ograniczone na platformie Azure, niezależnie od typu subskrypcji. 
 
   Jeśli subskrypcja platformy Azure została utworzona przed 15 listopada 2017 r., oprócz używania usług przekazywania SMTP można wysłać wiadomości e-mail bezpośrednio za pośrednictwem portu 25 protokołu TCP. Jeśli subskrypcja została utworzona po 15 listopada 2017 r., wysyłanie wiadomości e-mail bezpośrednio przez port 25 może okazać się niemożliwe. Zachowanie komunikacji wychodzącej za pośrednictwem portu 25 zależy od typu Twojej subskrypcji w następujący sposób:
 
@@ -169,8 +169,8 @@ Reguły agregowane stosowane do interfejsu sieciowego można łatwo wyświetlić
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się, które zasoby platformy Azure można wdrożyć w sieci wirtualnej i mieć skojarzone z nimi sieciowe grupy zabezpieczeń, zobacz [Integracja sieci wirtualnej dla usług platformy Azure](virtual-network-for-azure-services.md)
+* Aby dowiedzieć się, które zasoby platformy Azure można wdrożyć w sieci wirtualnej i które z nimi są skojarzone sieciowe grupy zabezpieczeń, zobacz [integracja z siecią wirtualną dla usług platformy Azure](virtual-network-for-azure-services.md)
 * Jeśli nie masz doświadczenia w tworzeniu grup zabezpieczeń sieci, możesz ukończyć szybki [samouczek](tutorial-filter-network-traffic.md), aby zyskać pewne doświadczenie w tym zakresie. 
 * Jeśli znasz grupy zabezpieczeń sieci i chcesz nimi zarządzać, zobacz [Manage a network security group](manage-network-security-group.md) (Zarządzanie sieciową grupą zabezpieczeń). 
 * Jeśli występują problemy z komunikacją i musisz rozwiązać problemy z grupami zabezpieczeń sieci, zobacz [Diagnozowanie problemu z filtrowaniem ruchu sieciowego maszyny wirtualnej](diagnose-network-traffic-filter-problem.md). 
-* Dowiedz się, jak włączyć [dzienniki przepływu sieciowej grupy zabezpieczeń](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do analizowania ruchu sieciowego do i z zasobów, które mają skojarzoną grupę zabezpieczeń sieci.
+* Dowiedz się, jak włączyć [dzienniki przepływu sieciowych grup zabezpieczeń](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , aby analizować ruch sieciowy do i z zasobów, które mają skojarzoną grupę zabezpieczeń sieci.

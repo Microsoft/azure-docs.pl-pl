@@ -1,6 +1,6 @@
 ---
-title: Czyszczenie punktu końcowego usługi Azure CDN | Dokumenty firmy Microsoft
-description: Dowiedz się, jak wyczyścić całą zawartość buforowaną z punktu końcowego usługi Azure CDN.
+title: Przeczyszczanie punktu końcowego Azure CDN | Microsoft Docs
+description: Dowiedz się, jak przeczyścić całą buforowaną zawartość z punktu końcowego Azure CDN.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -15,65 +15,65 @@ ms.topic: article
 ms.date: 05/17/2019
 ms.author: allensu
 ms.openlocfilehash: ebbb0dd059ce2bcf4a3bc260ed6d426d5be09dfe
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260262"
 ---
-# <a name="purge-an-azure-cdn-endpoint"></a>Czyszczenie punktu końcowego usługi Azure CDN
+# <a name="purge-an-azure-cdn-endpoint"></a>Przeczyszczanie punktu końcowego Azure CDN
 ## <a name="overview"></a>Omówienie
-Węzły brzegowe usługi Azure CDN będą buforować zasoby, dopóki nie wygaśnie czas wygaśnięcia (TTL) zasobu.  Po wygaśnięciu czasu wygaśnięcia zasobu, gdy klient zażąda zasobu z węzła krawędzi, węzeł krawędzi pobierze nową zaktualizowaną kopię zasobu, aby obsługiwać żądanie klienta i przechowywać odświeżanie pamięci podręcznej.
+Azure CDN węzły brzegowe będą buforować zasoby do momentu wygaśnięcia czasu wygaśnięcia elementu zawartości.  Po upływie czasu wygaśnięcia zasobu, gdy klient zażąda zasobu z węzła brzegowego, węzeł brzegowy pobierze nową zaktualizowaną kopię elementu zawartości, aby obsłużyć żądanie klienta i zapisać Odświeżanie pamięci podręcznej.
 
-Najlepszym rozwiązaniem, aby upewnić się, że użytkownicy zawsze uzyskać najnowszą kopię zasobów jest wersja zasobów dla każdej aktualizacji i opublikować je jako nowe adresy URL.  Usługa CDN natychmiast pobierze nowe zasoby dla następnych żądań klientów.  Czasami można przeczyścić buforowaną zawartość ze wszystkich węzłów brzegowych i wymusić na nich wszystkie pobieranie nowych zaktualizowanych zasobów.  Może to być spowodowane aktualizacjami aplikacji sieci web lub szybkim zaktualizowaniem zasobów zawierających nieprawidłowe informacje.
+Najlepszym rozwiązaniem, aby upewnić się, że użytkownicy zawsze uzyskują najnowszą kopię zasobów, są w wersji zasobów dla każdej aktualizacji i publikują je jako nowe adresy URL.  Usługa CDN natychmiast pobierze nowe zasoby dla kolejnych żądań klientów.  Czasami możesz chcieć przeczyścić zawartość pamięci podręcznej ze wszystkich węzłów brzegowych i wymusić, aby wszystkie nowe zasoby były pobierane.  Może to być spowodowane aktualizacjami aplikacji sieci Web lub szybkiej aktualizacji zasobów zawierających nieprawidłowe informacje.
 
 > [!TIP]
-> Należy zauważyć, że przeczyszczanie usuwa tylko buforowaną zawartość na serwerach brzegowych sieci CDN.  Wszystkie podrzędne pamięci podręczne, takie jak serwery proxy i lokalne pamięci podręczne przeglądarki, mogą nadal zawierać buforowaną kopię pliku.  Należy o tym pamiętać podczas ustawiania czasu na żywo pliku.  Można wymusić na kliencie podrzędnym żądanie najnowszej wersji pliku, nadając mu unikatową nazwę przy każdej aktualizacji lub korzystając z [buforowania ciągów zapytań.](cdn-query-string.md)  
+> Należy zauważyć, że przeczyszczanie czyści zawartość z pamięci podręcznej na serwerach brzegowych usługi CDN.  Wszystkie podrzędne pamięci podręczne, takie jak serwery proxy i pamięci podręczne przeglądarki, mogą nadal przechowywać w pamięci podręcznej kopię pliku.  Ważne jest, aby pamiętać, że podczas ustawiania czasu wygaśnięcia pliku.  Możesz wymusić, aby klient podrzędny zażądał najnowszej wersji pliku, nadając mu unikatową nazwę przy każdej aktualizacji lub korzystając z [buforowania ciągu zapytania](cdn-query-string.md).  
 > 
 > 
 
-W tym samouczku można przejść przez przeczyszczanie zasobów ze wszystkich węzłów krawędzi punktu końcowego.
+Ten samouczek przeprowadzi Cię przez przeczyszczanie zasobów ze wszystkich węzłów brzegowych punktu końcowego.
 
 ## <a name="walkthrough"></a>Przewodnik
-1. W [witrynie Azure Portal](https://portal.azure.com)przejdź do profilu sieci CDN zawierającego punkt końcowy, który chcesz przeczyścić.
-2. W bloku profilu CDN kliknij przycisk przeczyszczanie.
+1. W [witrynie Azure Portal](https://portal.azure.com)przejdź do profilu CDN zawierającego punkt końcowy, który chcesz przeczyścić.
+2. W bloku profil usługi CDN kliknij przycisk Przeczyść.
    
-    ![Ostrze profilu CDN](./media/cdn-purge-endpoint/cdn-profile-blade.png)
+    ![Blok profilu CDN](./media/cdn-purge-endpoint/cdn-profile-blade.png)
    
-    Otwiera się ostrze Odczyszczanie.
+    Zostanie otwarty blok przeczyszczania.
    
-    ![Ostrze do oczyszczania CDN](./media/cdn-purge-endpoint/cdn-purge-blade.png)
-3. Na przeczyszczanie bloku, wybierz adres usługi, które chcesz przeczyścić z listy rozwijanej adresu URL.
+    ![Blok przeczyszczania usługi CDN](./media/cdn-purge-endpoint/cdn-purge-blade.png)
+3. W bloku przeczyszczania wybierz adres usługi, który chcesz przeczyścić z listy rozwijanej adresów URL.
    
-    ![Formularz oczyszczania](./media/cdn-purge-endpoint/cdn-purge-form.png)
+    ![Wyczyść formularz](./media/cdn-purge-endpoint/cdn-purge-form.png)
    
    > [!NOTE]
-   > Można również uzyskać punkt do bloku Przeczyszczanie, klikając przycisk **Przeczyszczanie** na bloku punktu końcowego sieci CDN.  W takim przypadku pole **adresu URL** zostanie wstępnie wypełnione adresem usługi tego określonego punktu końcowego.
+   > Możesz również przejść do bloku przeczyszczania, klikając przycisk **Przeczyść** w bloku punkt końcowy usługi CDN.  W takim przypadku pole **URL** zostanie wstępnie wypełnione adresem usługi danego punktu końcowego.
    > 
    > 
-4. Wybierz zasoby, które mają być przeczyszczane z węzłów krawędzi.  Jeśli chcesz wyczyścić wszystkie zasoby, kliknij pole wyboru **Przeczyść wszystkie.**  W przeciwnym razie wpisz ścieżkę każdego zasobu, który chcesz przeczyścić w pola tekstowym **Ścieżka.** Poniższe formaty są obsługiwane w ścieżce.
-    1. **Przeczyszczanie pojedynczego adresu URL**: Przeczyszczyć poszczególne zasoby, określając pełny`/pictures/strasbourg.png`adres URL, z rozszerzeniem pliku lub bez niego, np.`/pictures/strasbourg`
-    2. **Przeczyszczanie symboli wieloznacznych**: Asterisk (\*) może być użyte jako symbol wieloznaczny. Przeczyść wszystkie foldery, podfoldery i pliki `/*` pod punktem końcowym za pomocą ścieżki lub przeczyść wszystkie podfoldery i pliki w określonym folderze, określając `/*`folder, po którym następuje , np.,`/pictures/*`.  Należy zauważyć, że przeczyszczanie symboli wieloznacznych nie jest obecnie obsługiwane przez usługę Azure CDN z usługi Akamai. 
-    3. **Przeczyszczanie domeny głównej**: Przeczyść katalog główny punktu końcowego z "/" w ścieżce.
+4. Wybierz zasoby, które chcesz przeczyścić z węzłów krawędzi.  Jeśli chcesz wyczyścić wszystkie zasoby, kliknij pole wyboru **Przeczyść wszystkie** .  W przeciwnym razie wpisz ścieżkę do każdego zasobu, który ma zostać przeczyszczony, w polu tekstowym **ścieżka** . W ścieżce obsługiwane są poniższe formaty.
+    1. **Przeczyszczanie pojedynczego adresu URL**: Przeczyść pojedynczy element zawartości, określając pełny adres URL, z rozszerzeniem pliku lub bez niego`/pictures/strasbourg.png`, np.;`/pictures/strasbourg`
+    2. **Przeczyszczanie symboli wieloznacznych**: gwiazdka (\*) może być używana jako symbol wieloznaczny. Przeczyść wszystkie foldery, podfoldery i pliki w punkcie końcowym z `/*` ścieżką lub Przeczyść wszystkie podfoldery i pliki w określonym folderze `/*`, określając folder, a następnie, na przykład`/pictures/*`,.  Należy zauważyć, że przeczyszczanie symboli wieloznacznych nie jest obsługiwane przez Azure CDN z Akamai obecnie. 
+    3. **Przeczyszczanie domeny głównej**: Przeczyść element główny punktu końcowego z "/" w ścieżce.
    
    > [!TIP]
-   > Ścieżki muszą być określone dla przeczyszczać i muszą być względnym adresem URL, który pasuje do następującego [wyrażenia regularnego](/dotnet/standard/base-types/regular-expression-language-quick-reference). **Przeczyść wszystkie** i **przeczyszczanie symboli wieloznacznych** nie są obecnie obsługiwane przez **usługę Azure CDN z usługi Akamai.**
+   > Należy określić ścieżki dla przeczyszczania i musi być względnym adresem URL, który pasuje do poniższego [wyrażenia regularnego](/dotnet/standard/base-types/regular-expression-language-quick-reference). **Przeczyszczanie wszystkich** i **symboli wieloznacznych** nie jest obsługiwane przez **Azure CDN obecnie z Akamai** .
    > > Przeczyszczanie pojedynczego adresu URL`@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
    > > Ciąg zapytania`@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
-   > > Przeczyszczanie `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";`symboli wieloznacznych . 
+   > > Przeczyszczanie `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";`symboli wieloznacznych. 
    > 
-   > Więcej pól tekstowych **Ścieżka** pojawi się po wprowadzeniu tekstu, aby umożliwić tworzenie listy wielu zasobów.  Zasoby można usunąć z listy, klikając przycisk wielokropek (...)
+   > Po wprowadzeniu tekstu w celu umożliwienia utworzenia listy wielu zasobów zostaną wyświetlone pola **TextPath** .  Aby usunąć zasoby z listy, kliknij przycisk wielokropka (...).
    > 
-5. Kliknij przycisk **Przeczyszcz.**
+5. Kliknij przycisk **Przeczyść** .
    
-    ![Przycisk Przeczyść](./media/cdn-purge-endpoint/cdn-purge-button.png)
+    ![Przycisk przeczyszczania](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Przeczyszczanie żądań trwa około 10 minut, aby przetworzyć za pomocą **usługi Azure CDN firmy Microsoft,** około 2 minuty z **usługą Azure CDN firmy Verizon** (standard i premium) i około 10 sekund z **usługą Azure CDN firmy Akamai.**  Usługa Azure CDN ma limit 50 równoczesnych żądań przeczyścić w danym momencie na poziomie profilu. 
+> Żądania przeczyszczania trwają około 10 minut, aby przetwarzać w **Azure CDN od firmy Microsoft**, około 2 minut z **Azure CDN z Verizon** (standardowa i Premium) oraz około 10 sekund z **Azure CDN z Akamai**.  Azure CDN ma limit 50 współbieżnych żądań przeczyszczania w danym momencie na poziomie profilu. 
 > 
 > 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Wstępne ładowanie zasobów w punkcie końcowym usługi Azure CDN](cdn-preload-endpoint.md)
-* [Odwołanie interfejsu API REST usługi Azure CDN — przeczyszczanie lub wstępne ładowanie punktu końcowego](/rest/api/cdn/endpoints)
+* [Azure CDN dokumentacja interfejsu API REST — przeczyszczanie lub wstępne ładowanie punktu końcowego](/rest/api/cdn/endpoints)
 

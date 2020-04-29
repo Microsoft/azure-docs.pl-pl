@@ -1,6 +1,6 @@
 ---
-title: Przykłady programu Azure PowerShell — tworzenie kompletnego zestawu skalowania maszyny wirtualnej
-description: Ten skrypt tworzy zestaw skalowania maszyny wirtualnej z systemem Windows Server 2016, w którym są konfigurowane i tworzone poszczególne zasoby.
+title: Przykłady Azure PowerShell — tworzenie kompletnego zestawu skalowania maszyn wirtualnych
+description: Ten skrypt tworzy zestaw skalowania maszyn wirtualnych z systemem Windows Server 2016, w którym są skonfigurowane i tworzone poszczególne zasoby.
 author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
@@ -9,15 +9,15 @@ ms.date: 05/29/2018
 ms.author: jushiman
 ms.custom: mvc
 ms.openlocfilehash: 2459aee8c93df3b039922ee53c0fe86d302505cf
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81011518"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>Tworzenie pełnego zestawu skalowania maszyn wirtualnych przy użyciu programu PowerShell
 
-Ten skrypt tworzy zestaw skalowania maszyn wirtualnych z systemem Windows Server 2016. Poszczególne zasoby są konfigurowane i tworzone, a nie przy użyciu [wbudowanych opcji tworzenia zasobów dostępnych tutaj w New-AzVmss](powershell-sample-create-simple-scale-set.md). Po uruchomieniu skryptu możesz uzyskać dostęp do wystąpień maszyn wirtualnych za pośrednictwem protokołu RDP.
+Ten skrypt tworzy zestaw skalowania maszyn wirtualnych z systemem Windows Server 2016. Poszczególne zasoby są konfigurowane i tworzone, a nie za pomocą [wbudowanych opcji tworzenia zasobów dostępnych tutaj w artykule New-AzVmss](powershell-sample-create-simple-scale-set.md). Po uruchomieniu skryptu możesz uzyskać dostęp do wystąpień maszyn wirtualnych za pośrednictwem protokołu RDP.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

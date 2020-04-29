@@ -1,35 +1,35 @@
 ---
-title: Szablon Menedżera zasobów — tworzenie alertu metryki
-description: Dowiedz się, jak użyć szablonu Menedżera zasobów do utworzenia klasycznego alertu metryki do odbierania powiadomień pocztą e-mail lub elementami webhook.
+title: Szablon Menedżer zasobów — tworzenie alertu metryki
+description: Dowiedz się, jak za pomocą szablonu Menedżer zasobów utworzyć klasyczny alert metryki w celu otrzymywania powiadomień za pośrednictwem poczty e-mail lub elementu webhook.
 author: rboucher
 ms.author: robb
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
 ms.openlocfilehash: 5a868167f80aaa735e4fbeab32fd1d308dd6da1f
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114431"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Tworzenie klasycznego alertu metryki za pomocą szablonu usługi Resource Manager
 > [!WARNING]
 > 
-> W tym artykule opisano tworzenie **klasycznych alertów metryk** przy użyciu szablonów Menedżera zasobów. Klasyczne alerty zostały wycofane w sierpniu 2019 r. i mają zostać całkowicie wycofane w czerwcu 2020 r. Nie można utworzyć nowych alertów klasycznych publicznej platformy Azure. Niektóre regionalne wersje platformy Azure mogą nadal mieć tę opcję, ale sugerujemy utworzenie [nowszych alertów metryk](../../azure-monitor/platform/alerts-metric-near-real-time.md) przy użyciu szablonów, jeśli w ogóle jest to możliwe. [Ten artykuł](alerts-metric-create-templates.md) zawiera szczegółowe informacje.
+> W tym artykule opisano tworzenie **klasycznych alertów metryk** przy użyciu szablonów Menedżer zasobów. Alerty klasyczne zostały wycofane w sierpniu 2019 i ustawione jako całkowicie przestarzałe w czerwcu 2020. Nie możesz tworzyć nowych alertów klasycznych na platformie Azure. Niektóre regionalne wersje platformy Azure mogą nadal korzystać z tej opcji, ale sugerujemy utworzenie [nowszych alertów metryk](../../azure-monitor/platform/alerts-metric-near-real-time.md) przy użyciu szablonów, jeśli jest to możliwe. [Ten artykuł](alerts-metric-create-templates.md) zawiera szczegółowe informacje.
 >
 
-W tym artykule pokazano, jak można użyć [szablonu usługi Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do konfigurowania alertów metryk klasycznych platformy Azure. Dzięki temu można automatycznie skonfigurować alerty dotyczące zasobów podczas ich tworzenia, aby upewnić się, że wszystkie zasoby są monitorowane poprawnie.
+W tym artykule pokazano, jak można użyć [szablonu Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) w celu skonfigurowania alertów dotyczących klasycznych metryk platformy Azure. Pozwala to na automatyczne Konfigurowanie alertów dotyczących zasobów podczas ich tworzenia w celu zapewnienia poprawnego monitorowania wszystkich zasobów.
 
 Podstawowe kroki są następujące:
 
 1. Utwórz szablon jako plik JSON, który opisuje sposób tworzenia alertu.
-2. [Wdrażanie szablonu przy użyciu dowolnej metody wdrażania](../../azure-resource-manager/templates/deploy-powershell.md).
+2. [Wdróż szablon przy użyciu dowolnej metody wdrażania](../../azure-resource-manager/templates/deploy-powershell.md).
 
-Poniżej opisano, jak utworzyć szablon Menedżera zasobów najpierw dla samego alertu, a następnie dla alertu podczas tworzenia innego zasobu.
+Poniżej opisano sposób tworzenia szablonu Menedżer zasobów jako pierwszego dla samego alertu, a następnie dla alertu podczas tworzenia innego zasobu.
 
-## <a name="resource-manager-template-for-a-classic-metric-alert"></a>Szablon Menedżera zasobów dla klasycznego alertu metryki
-Aby utworzyć alert przy użyciu szablonu Menedżera zasobów, należy utworzyć zasób typu `Microsoft.Insights/alertRules` i wypełnić wszystkie powiązane właściwości. Poniżej znajduje się szablon, który tworzy regułę alertu.
+## <a name="resource-manager-template-for-a-classic-metric-alert"></a>Szablon Menedżer zasobów dla klasycznego alertu dotyczącego metryki
+Aby utworzyć alert przy użyciu szablonu Menedżer zasobów, utworzysz zasób typu `Microsoft.Insights/alertRules` i Wypełnij wszystkie powiązane właściwości. Poniżej znajduje się szablon, który tworzy regułę alertu.
 
 ```json
 {
@@ -176,10 +176,10 @@ Aby utworzyć alert przy użyciu szablonu Menedżera zasobów, należy utworzyć
 }
 ```
 
-Wyjaśnienie schematu i właściwości reguły alertu [jest dostępne w tym miejscu](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Informacje o schemacie i właściwościach reguły alertu [są dostępne tutaj](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
-## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>Szablon Menedżera zasobów dla zasobu z klasycznym alertem metryki
-Alert w szablonie Menedżera zasobów jest najczęściej przydatne podczas tworzenia alertu podczas tworzenia zasobu. Na przykład można upewnić się, że reguła "CPU % > 80" jest skonfigurowana przy każdym wdrożeniu maszyny wirtualnej. Aby to zrobić, należy dodać regułę alertu jako zasób w tablicy `dependsOn` zasobów dla szablonu maszyny Wirtualnej i dodać zależność przy użyciu właściwości do identyfikatora zasobu maszyny Wirtualnej. Oto pełny przykład, który tworzy maszynę wirtualną systemu Windows i dodaje alert, który powiadamia administratorów subskrypcji, gdy wykorzystanie procesora CPU przekracza 80%.
+## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>Menedżer zasobów szablon dla zasobu z alertem dotyczącym klasycznej metryki
+Alert dla szablonu Menedżer zasobów najczęściej jest przydatny podczas tworzenia alertu podczas tworzenia zasobu. Można na przykład upewnić się, że reguła "procesor% > 80" jest skonfigurowana przy każdym wdrożeniu maszyny wirtualnej. W tym celu należy dodać regułę alertu jako zasób w tablicy zasobów dla szablonu maszyny wirtualnej i dodać zależność przy użyciu `dependsOn` właściwości do identyfikatora zasobu maszyny wirtualnej. Oto pełny przykład tworzenia maszyny wirtualnej z systemem Windows i dodawania alertu, który powiadamia administratorów subskrypcji, gdy użycie procesora spadnie powyżej 80%.
 
 ```json
 {
@@ -399,7 +399,7 @@ Alert w szablonie Menedżera zasobów jest najczęściej przydatne podczas tworz
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* [Dowiedz się więcej o alertach](alerts-overview.md)
-* [Dodawanie ustawień diagnostycznych](../../azure-monitor/platform/diagnostic-settings-template.md) do szablonu Menedżera zasobów
-* Aby zapoznać się ze składnią i właściwościami JSON, zobacz Odwołanie do szablonu [microsoft.Insights/alertrules.](/azure/templates/microsoft.insights/alertrules)
+* [Przeczytaj więcej na temat alertów](alerts-overview.md)
+* [Dodawanie ustawień diagnostycznych](../../azure-monitor/platform/diagnostic-settings-template.md) do szablonu Menedżer zasobów
+* Aby poznać składnię i właściwości JSON, zobacz [Microsoft. Insights/alertrules](/azure/templates/microsoft.insights/alertrules) Template Reference.
 

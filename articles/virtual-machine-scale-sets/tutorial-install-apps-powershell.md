@@ -1,5 +1,5 @@
 ---
-title: Samouczek — instalowanie aplikacji w zestawie skalowania za pomocą programu Azure PowerShell
+title: Samouczek — Instalowanie aplikacji w zestawie skalowania za pomocą Azure PowerShell
 description: Dowiedz się, jak za pomocą programu Azure PowerShell instalować aplikacje w zestawach skalowania maszyn wirtualnych, korzystając z rozszerzenia niestandardowego skryptu
 author: ju-shim
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 11/08/2018
 ms.author: jushiman
 ms.custom: mvc
 ms.openlocfilehash: 789b3ca6cf49bbecf7393c5c70b19cbb43dfd164
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81011272"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>Samouczek: instalowanie aplikacji w zestawach skalowania maszyn wirtualnych za pomocą programu Azure PowerShell
@@ -24,7 +24,7 @@ Aby uruchamiać aplikacje na wystąpieniach maszyn wirtualnych w zestawie skalow
 > * Używanie rozszerzenia niestandardowego skryptu platformy Azure
 > * Aktualizowanie uruchomionej aplikacji w zestawie skalowania
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
@@ -154,7 +154,7 @@ Nie zamykaj przeglądarki internetowej, aby w następnym kroku można było zoba
 
 
 ## <a name="update-app-deployment"></a>Aktualizowanie wdrożenia aplikacji
-W całym cyklu życia zestawu skalowania konieczne może być wdrożenie zaktualizowanej wersji aplikacji. Rozszerzenie niestandardowego skryptu umożliwia odwołanie się do zaktualizowanego skryptu wdrażania i ponowne zastosowanie rozszerzenia do zestawu skalowania. Po utworzeniu zestawu skalowania w `-UpgradePolicyMode` poprzednim kroku został ustawiony na *Automatyczny*. To ustawienie pozwala wystąpieniom maszyn wirtualnych w zestawie skalowania automatycznie aktualizować aplikację i stosować jej najnowszą wersję.
+W całym cyklu życia zestawu skalowania konieczne może być wdrożenie zaktualizowanej wersji aplikacji. Rozszerzenie niestandardowego skryptu umożliwia odwołanie się do zaktualizowanego skryptu wdrażania i ponowne zastosowanie rozszerzenia do zestawu skalowania. Gdy zestaw skalowania został utworzony w poprzednim kroku, `-UpgradePolicyMode` został ustawiony na *automatyczny*. To ustawienie pozwala wystąpieniom maszyn wirtualnych w zestawie skalowania automatycznie aktualizować aplikację i stosować jej najnowszą wersję.
 
 Utwórz nową definicję konfiguracji o nazwie *customConfigv2*. Ta definicja umożliwia uruchomienie zaktualizowanej wersji *v2* skryptu instalacji aplikacji:
 

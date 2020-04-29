@@ -1,6 +1,6 @@
 ---
-title: Lokalizacje pop usługi Azure CDN według skrótów | Dokumenty firmy Microsoft
-description: W tym artykule wymieniono lokalizacje pop usługi Azure CDN, posortowane według skrótu POP dla usługi Azure CDN firmy Verizon.
+title: Azure CDN lokalizacje POP według skrótu | Microsoft Docs
+description: W tym artykule wymieniono Azure CDN lokalizacje POP, posortowane według skrótu POP, dla Azure CDN z Verizon.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -15,144 +15,144 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: allensu
 ms.openlocfilehash: a5f3f8dbb83b23fc16fd1225e5a9cbeab16b9576
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260245"
 ---
-# <a name="azure-cdn-pop-locations-by-abbreviation"></a>Lokalizacje pop usługi Azure CDN według skrótów
+# <a name="azure-cdn-pop-locations-by-abbreviation"></a>Azure CDN lokalizacje POP według skrótu
 > [!div class="op_single_selector"]
 > * [Lokalizacje POP według regionu](cdn-pop-locations.md)
 > * [Lokalizacje POP według skrótu](cdn-pop-abbreviations.md)
 > 
 
 
-W tym artykule wymieniono lokalizacje POP posortowane według skrótu POP dla **usługi Azure CDN firmy Verizon**.
+W tym artykule wymieniono lokalizacje POP, posortowane według skrótów POP, **Azure CDN z Verizon**.
 
 Skrót | Lokalizacja | Region
 | --- | --- | --- |
-Aga | Atlanta, Georgia, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-Agb | Atlanta, Georgia, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-Akl | Auckland, Nowa Zelandia | Azja
-Ama | Amsterdam, Holandia | Europa
-Amb | Amsterdam, Holandia | Europa
+AGA | Atlanta, Gruzja, USA | Ameryka Północna: wschodnie wybrzeże USA
+AGB | Atlanta, Gruzja, USA | Ameryka Północna: wschodnie wybrzeże USA
+AKL | Auckland, Nowa Zelandia | Azja
+AMA | Amsterdam, Holandia | Europa
+AMB | Amsterdam, Holandia | Europa
 AMS | Amsterdam, Holandia | Europa
-Arn | Sztokholm, Szwecja | Europa
-ATL | Atlanta, Georgia, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-Baq | Barranquilla, Kolumbia | Ameryka Łacińska
+ARN | Sztokholm, Szwecja | Europa
+ATL | Atlanta, Gruzja, USA | Ameryka Północna: wschodnie wybrzeże USA
+BAQ | Barranquilla, Kolumbia | Ameryka Łacińska
 BLR | Bengaluru (Bangalore), Indie | Azja
-BNJ ( BNJ ) | Newark, New Jersey, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-Bos | Boston, Massachusetts, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-Bth | Batam, Indonezja | Azja
-Bue | Buenos Aires, Argentyna | Ameryka Łacińska
-Bur | Los Angeles, Kalifornia, Stany Zjednoczone | Ameryka Północna: Zachodnie Wybrzeże USA
-Cdg | Paryż, Francja | Europa
-Cgh | São Paulo, Brazylia | Ameryka Łacińska
-Cgk | Dżakarta, Indonezja | Azja
-Cha | Chicago, Illinois, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-Chb | Chicago, Illinois, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-CNJ ( CNJ ) | Newark, New Jersey, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-Cph | Kopenhaga, Dania | Europa
-Cpm | Los Angeles, Kalifornia, Stany Zjednoczone | Ameryka Północna: Zachodnie Wybrzeże USA
-Cva | Ashburn, Wirginia, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-Daa | Dallas, Teksas, Stany Zjednoczone | Ameryka Północna: Wybrzeże Środkowe USA
-Dab | Dallas, Teksas, Stany Zjednoczone | Ameryka Północna: Wybrzeże Środkowe USA
-Dca | Ashburn, Wirginia, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-Dcb | Ashburn, Wirginia, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-Dcc | Ashburn, Wirginia, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
+BNJ | Newark, New Jersey, USA | Ameryka Północna: wschodnie wybrzeże USA
+BOS | Boston, Massachusetts, USA | Ameryka Północna: wschodnie wybrzeże USA
+BTH | Batam, Indonezja | Azja
+BUE | Buenos Aires, Argentyna | Ameryka Łacińska
+BUR | Los Angeles, Kalifornia, USA | Ameryka Północna: zachodnie wybrzeże USA
+CDG | Paryż, Francja | Europa
+CGH | So Paulo, Brazylia | Ameryka Łacińska
+CGK | Dżakarta, Indonezja | Azja
+& | Chicago, Illinois, USA | Ameryka Północna: wschodnie wybrzeże USA
+CHB | Chicago, Illinois, USA | Ameryka Północna: wschodnie wybrzeże USA
+CNJ | Newark, New Jersey, USA | Ameryka Północna: wschodnie wybrzeże USA
+CPH | Kopenhaga, Dania | Europa
+CPM | Los Angeles, Kalifornia, USA | Ameryka Północna: zachodnie wybrzeże USA
+CVA | Ashburn, Wirginia, USA | Ameryka Północna: wschodnie wybrzeże USA
+STAWIAJĄC | Dallas, Texas, USA | Ameryka Północna: środkowe wybrzeże USA
+DAB | Dallas, Texas, USA | Ameryka Północna: środkowe wybrzeże USA
+DCA | Ashburn, Wirginia, USA | Ameryka Północna: wschodnie wybrzeże USA
+DCB | Ashburn, Wirginia, USA | Ameryka Północna: wschodnie wybrzeże USA
+DCC | Ashburn, Wirginia, USA | Ameryka Północna: wschodnie wybrzeże USA
 DEL | Noida, Indie | Azja
-Den | Denver, Kolorado, Stany Zjednoczone | Ameryka Północna: Stany Zjednoczone
-Dfw | Dallas, Teksas, Stany Zjednoczone | Ameryka Północna: Stany Zjednoczone
-Ewr | Nowy Jork, Nowy Jork Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-Eze | Buenos Aires, Argentyna | Ameryka Łacińska
-Fcn (fcn) | Frankfurt, Niemcy | Europa
-Fll | Miami, Floryda, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
+DEN | Denver, Kolorado, USA | Ameryka Północna: środkowe stany USA
+DFW | Dallas, Texas, USA | Ameryka Północna: środkowe stany USA
+EWR | Nowy Jork, Nowy Jork USA | Ameryka Północna: wschodnie wybrzeże USA
+EZE | Buenos Aires, Argentyna | Ameryka Łacińska
+FCN | Frankfurt, Niemcy | Europa
+FLL | Miami, Florida, USA | Ameryka Północna: wschodnie wybrzeże USA
 FRA | Frankfurt, Niemcy | Europa
-Frb (frb) | Frankfurt, Niemcy | Europa
-Frc | Frankfurt, Niemcy | Europa
-Frf | Frankfurt, Niemcy | Europa
-Ftw | Dallas, Teksas, Stany Zjednoczone | Ameryka Północna: Stany Zjednoczone
-Fty | Atlanta, Georgia, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-Koncert | Rio de Janeiro, Brazylia | Ameryka Łacińska
-GRU | São Paulo, Brazylia | Ameryka Łacińska
-Hel | Helsinki, Finlandia | Europa
-Hhp | SRA Hongkong | Azja
-Hkc | SRA Hongkong | Azja
-Hkg | SRA Hongkong | Azja
-Hnd | Tokio, Japonia | Azja
-Iad | Ashburn, Wirginia, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-Icn | Seoul, Korea | Azja
-Itm | Osaka, Japonia | Azja
-Jfk | Nowy Jork, Nowy Jork, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-Jnb | Johannesburg, Republika Południowej Afryki | Europa
-Khh ( khh ) | Kaohsiung, Tajwan | Azja
-Kix | Osaka, Japonia | Azja
-Laa | Los Angeles, Kalifornia, Stany Zjednoczone | Ameryka Północna: Zachodnie Wybrzeże USA
-LAB | Los Angeles, Kalifornia, Stany Zjednoczone | Ameryka Północna: Zachodnie Wybrzeże USA
-Lam | Los Angeles, Kalifornia, Stany Zjednoczone | Ameryka Północna: Zachodnie Wybrzeże USA
-Sieć LAN | Los Angeles, Kalifornia, Stany Zjednoczone | Ameryka Północna: Zachodnie Wybrzeże USA
-Lax | Los Angeles, Kalifornia, Stany Zjednoczone | Ameryka Północna: Zachodnie Wybrzeże USA
-Pln | Londyn, Wielka Brytania | Europa
-Lga | Nowy Jork, Nowy Jork, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-Lha | Londyn, Wielka Brytania | Europa
-LHB ( LHB ) | Londyn, Wielka Brytania | Europa
-Lhm | Londyn, Wielka Brytania | Europa
-LHN ( LHN ) | Londyn, Wielka Brytania | Europa
-Lhr | Londyn, Wielka Brytania | Europa
-Lim | Lima, Peru | Ameryka Łacińska
-Maa | Chennai, Indie | Azja
-Mad | Madryt, Hiszpania | Europa
-Mde | Medellin, Kolumbia | Ameryka Łacińska
-Mdw | Chicago, Illinois, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-Meb | Melbourne, Australia | Azja
-Mel | Melbourne, Australia | Azja
-Mex | Mexico City, Mexico | Ameryka Północna
-Mia | Miami, Floryda, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-Mib | Miami, Floryda, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-Mikrofon | Miami, Floryda, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-Pani | Marsylia, Francja | Europa
-Mxp | Milan, Włochy | Europa
-Gderać | Bombaj, Indie | Azja
-Ndl | Delhi, Indie | Azja
-Nrt | Tokio, Japonia | Azja
-Nya | Nowy Jork, Nowy Jork, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-Okręg wyborczy NYB | Nowy Jork, Nowy Jork, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-Omm | Maskat, Oman | Bliski Wschód
-Ord | Chicago, Illinois, Stany Zjednoczone | Ameryka Północna: Stany Zjednoczone
-Ory | Paryż, Francja | Europa
-OXR | Los Angeles, Kalifornia, Stany Zjednoczone | Ameryka Północna: Zachodnie Wybrzeże USA
-Pab | Paryż, Francja | Europa
-Pae | Seattle, Waszyngton, Stany Zjednoczone | Ameryka Północna: Zachodnie Wybrzeże USA
-Pbc | Puebla, Meksyk | Ameryka Północna
-Phl | Filadelfia, Pensylwania, Stany Zjednoczone | Ameryka Północna: Wschodnie wybrzeże USA
-Pnq | Bombaj, Indie | Azja
-Ospy | Paryż, Francja | Europa
-QRO (właso) | Santiago de Querétaro, Meksyk | Ameryka Północna
-RHV (rhv) | San Jose, Kalifornia, Stany Zjednoczone | Ameryka Północna: Zachodnie Wybrzeże USA
-Ściągacze | Rio de Janeiro, Brazylia | Ameryka Łacińska
-Rix | Ryga, Łotwa | Europa
+FRB | Frankfurt, Niemcy | Europa
+FRC | Frankfurt, Niemcy | Europa
+FRANCUSKI | Frankfurt, Niemcy | Europa
+FTW | Dallas, Texas, USA | Ameryka Północna: środkowe stany USA
+FTY | Atlanta, Gruzja, USA | Ameryka Północna: wschodnie wybrzeże USA
+RDZENIOWYM procesorem | Rio de Janeiro, Brazylia | Ameryka Łacińska
+GRU | So Paulo, Brazylia | Ameryka Łacińska
+HEL | Helsinki, Finlandia | Europa
+HHP | SRA Hongkong | Azja
+HKC | SRA Hongkong | Azja
+HKG | SRA Hongkong | Azja
+HND | Tokio, Japonia | Azja
+IAD | Ashburn, Wirginia, USA | Ameryka Północna: wschodnie wybrzeże USA
+ICN | Seul, Korea | Azja
+ITM | Osaka, Japonia | Azja
+JFK | Nowy Jork, Nowy Jork, USA | Ameryka Północna: wschodnie wybrzeże USA
+JNB | Johannesburg, Republika Południowej Afryki | Europa
+KHH | Kaohsiung, Tajwan | Azja
+KIX | Osaka, Japonia | Azja
+LAA | Los Angeles, Kalifornia, USA | Ameryka Północna: zachodnie wybrzeże USA
+LAB | Los Angeles, Kalifornia, USA | Ameryka Północna: zachodnie wybrzeże USA
+LAM | Los Angeles, Kalifornia, USA | Ameryka Północna: zachodnie wybrzeże USA
+Sieć LAN | Los Angeles, Kalifornia, USA | Ameryka Północna: zachodnie wybrzeże USA
+SWOBODNY | Los Angeles, Kalifornia, USA | Ameryka Północna: zachodnie wybrzeże USA
+WALUT | Londyn, Zjednoczone Królestwo | Europa
+LGA | Nowy Jork, Nowy Jork, USA | Ameryka Północna: wschodnie wybrzeże USA
+LHA | Londyn, Zjednoczone Królestwo | Europa
+LHB | Londyn, Zjednoczone Królestwo | Europa
+LHM | Londyn, Zjednoczone Królestwo | Europa
+LHN | Londyn, Zjednoczone Królestwo | Europa
+LHR | Londyn, Zjednoczone Królestwo | Europa
+LIM | Lima, Peru | Ameryka Łacińska
+MAA | Chennai, Indie | Azja
+Mad — | Madryt, Hiszpania | Europa
+MDE | Medellin, Kolumbia | Ameryka Łacińska
+MDW | Chicago, Illinois, USA | Ameryka Północna: wschodnie wybrzeże USA
+MEB | Melbourne, Australia | Azja
+MEL | Melbourne, Australia | Azja
+MEX | Mexico City, Mexico | Ameryka Północna
+MIA | Miami, Florida, USA | Ameryka Północna: wschodnie wybrzeże USA
+- | Miami, Florida, USA | Ameryka Północna: wschodnie wybrzeże USA
+UŻYCIEM | Miami, Florida, USA | Ameryka Północna: wschodnie wybrzeże USA
+Marta | Marsylii, Francja | Europa
+MXP | Mediolan, Włochy | Europa
+NAG | Mumbaj, Indie | Azja
+NDL | Delhi, Indie | Azja
+NRT | Tokio, Japonia | Azja
+NYA | Nowy Jork, Nowy Jork, USA | Ameryka Północna: wschodnie wybrzeże USA
+NYB | Nowy Jork, Nowy Jork, USA | Ameryka Północna: wschodnie wybrzeże USA
+OMM | Maskat, Oman | Bliski Wschód
+UP | Chicago, Illinois, USA | Ameryka Północna: środkowe stany USA
+ORY | Paryż, Francja | Europa
+OXR | Los Angeles, Kalifornia, USA | Ameryka Północna: zachodnie wybrzeże USA
+PAB | Paryż, Francja | Europa
+PAE | Seattle, Waszyngton, USA | Ameryka Północna: zachodnie wybrzeże USA
+PBC | Puebla, Meksyk | Ameryka Północna
+PHL | Philadelphia, Pensylwania, USA | Ameryka Północna: wschodnie wybrzeże USA
+PRZEKAZUJĄCEGO | Mumbaj, Indie | Azja
+POX | Paryż, Francja | Europa
+QRO | Querétaro, Meksyk | Ameryka Północna
+RHV | San Jose, Kalifornia, USA | Ameryka Północna: zachodnie wybrzeże USA
+WZDŁUŻ | Rio de Janeiro, Brazylia | Ameryka Łacińska
+RIX | Ryga, Łotwa | Europa
 RTM | Amsterdam, Holandia | Europa
-Saa | San Jose, Kalifornia, Stany Zjednoczone | Ameryka Północna: Zachodnie Wybrzeże USA
-Sab | San Jose, Kalifornia, Stany Zjednoczone | Ameryka Północna: Zachodnie Wybrzeże USA
-Scl | Valparaíso, Chile | Ameryka Łacińska
-Morze | Seattle, Waszyngton, Stany Zjednoczone | Ameryka Północna: Zachodnie Wybrzeże USA
-Seb | Seattle, Waszyngton, Stany Zjednoczone | Ameryka Północna: Zachodnie Wybrzeże USA
-S | Seattle, Waszyngton, Stany Zjednoczone | Ameryka Północna: Zachodnie Wybrzeże USA
-Sgb | Singapur | Azja
+BEZPIECZEŃSTWA | San Jose, Kalifornia, USA | Ameryka Północna: zachodnie wybrzeże USA
+SAB | San Jose, Kalifornia, USA | Ameryka Północna: zachodnie wybrzeże USA
+SCL | Valparaíso, Chile | Ameryka Łacińska
+MORSK | Seattle, Waszyngton, USA | Ameryka Północna: zachodnie wybrzeże USA
+SEB | Seattle, Waszyngton, USA | Ameryka Północna: zachodnie wybrzeże USA
+S | Seattle, Waszyngton, USA | Ameryka Północna: zachodnie wybrzeże USA
+SGB | Singapur | Azja
 SIN | Singapur | Azja
-Sjc | San Jose, Kalifornia, Stany Zjednoczone | Ameryka Północna: Zachodnie Wybrzeże USA
-Sjo | San Jose, Kalifornia, Stany Zjednoczone | Ameryka Północna: Zachodnie Wybrzeże USA
-Sto (sto) | Sztokholm, Szwecja | Europa
-Syd | Sydney, Australia | Azja
-Tir | Chennai, Indie | Azja
-Tka | Tokio, Japonia | Azja
-Tkb | Tokio, Japonia | Azja
-Toj | Madryt, Hiszpania | Europa
+SJC | San Jose, Kalifornia, USA | Ameryka Północna: zachodnie wybrzeże USA
+SJO | San Jose, Kalifornia, USA | Ameryka Północna: zachodnie wybrzeże USA
+KONIE | Sztokholm, Szwecja | Europa
+Funkcja | Sydney, Australia | Azja
+TIR | Chennai, Indie | Azja
+TKA | Tokio, Japonia | Azja
+TKB | Tokio, Japonia | Azja
+TOJ | Madryt, Hiszpania | Europa
 Zjednoczone Emiraty Arabskie | Fujairah, Zjednoczone Emiraty Arabskie | Europa
-UIO (UIO) | Quito, Ekwador | Ameryka Łacińska
-Vie | Wiedeń, Austria | Europa
-Vny | Los Angeles, Kalifornia, Stany Zjednoczone | Ameryka Północna: Zachodnie Wybrzeże USA
-Waw | Warszawa, Polska | Europa
+UIO | Quito, Ekwador | Ameryka Łacińska
+Wyświetl | Wiedeń, Austria | Europa
+VNY | Los Angeles, Kalifornia, USA | Ameryka Północna: zachodnie wybrzeże USA
+WAW | Warszawa, Polska | Europa
 
 

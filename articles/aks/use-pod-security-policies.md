@@ -1,35 +1,35 @@
 ---
-title: Używanie zasad zabezpieczeń zasobników w usłudze Azure Kubernetes Service (AKS)
-description: Dowiedz się, jak kontrolować przyjęć zasobników przy użyciu PodSecurityPolicy w usłudze Azure Kubernetes (AKS)
+title: Używanie zasad zabezpieczeń na platformie Azure Kubernetes Service (AKS)
+description: Dowiedz się, jak kontrolować przyjmowanie w systemie za pomocą PodSecurityPolicy w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
 ms.openlocfilehash: 9e3a17e4775150247ef7924dffec68cc86a0bcac
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80998356"
 ---
-# <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>W wersji zapoznawczej — zabezpieczyć klaster przy użyciu zasad zabezpieczeń zasobników w usłudze Azure Kubernetes (AKS)
+# <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Wersja zapoznawcza — Zabezpieczanie klastra przy użyciu zasad zabezpieczeń na platformie Azure Kubernetes Service (AKS)
 
-Aby zwiększyć bezpieczeństwo klastra usługi AKS, można ograniczyć, jakie zasobniki można zaplanować. Zasobników, które żądają zasobów, na które nie zezwalasz, nie można uruchomić w klastrze AKS. Ten dostęp można zdefiniować przy użyciu zasad zabezpieczeń zasobnika. W tym artykule pokazano, jak używać zasad zabezpieczeń zasobników, aby ograniczyć wdrażanie zasobników w ucho.
+Aby zwiększyć bezpieczeństwo klastra AKS, możesz ograniczyć, co można zaplanować. Nie można uruchomić z nich zasobników, które żądają niedozwolonych zasobów w klastrze AKS. Ten dostęp można zdefiniować przy użyciu zasad zabezpieczeń pod. W tym artykule pokazano, jak za pomocą zasad zabezpieczeń w programie ograniczyć wdrażanie zasobników w AKS.
 
 > [!IMPORTANT]
-> Funkcje podglądu usługi AKS są samoobsługowe. Wersje zapoznawcza są dostarczane w stanie "tak jak jest" i "w miarę dostępności" i są wyłączone z umów o gwarantowanym poziomie usług i ograniczonej gwarancji. Podglądy AKS są częściowo objęte obsługą klienta na podstawie najlepszych starań. W związku z tym te funkcje nie są przeznaczone do użytku produkcyjnego. Aby uzyskać dodatkowe informacje, zobacz następujące artykuły pomocy technicznej:
+> Funkcja AKS w wersji zapoznawczej to samoobsługowe uczestnictwo. Wersje zapoznawcze są udostępniane w postaci "AS-IS" i "jako dostępne" i są wyłączone z umów dotyczących poziomu usług i ograniczonej rękojmi. Wersje zapoznawcze AKS są częściowo objęte obsługą klienta w oparciu o najlepszy nakład pracy. W związku z tym te funkcje nie są przeznaczone do użytku produkcyjnego. Dodatkowe informacje można znaleźć w następujących artykułach pomocy technicznej:
 >
-> * [Zasady wsparcia AKS][aks-support-policies]
-> * [Często zadawane pytania dotyczące pomocy technicznej platformy Azure][aks-faq]
+> * [Zasady pomocy technicznej AKS][aks-support-policies]
+> * [Pomoc techniczna platformy Azure — często zadawane pytania][aks-faq]
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zobacz szybki start usługi AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub za pomocą portalu [Azure.][aks-quickstart-portal]
+W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
-Potrzebujesz zainstalowanego i skonfigurowany interfejsu wiersza polecenia platformy Azure w wersji 2.0.61 lub nowszej. Uruchom polecenie  `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie przeprowadzenie instalacji lub uaktualnienia, zobacz  [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
+Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.61 lub nowszej. Uruchom polecenie  `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie przeprowadzenie instalacji lub uaktualnienia, zobacz  [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
-### <a name="install-aks-preview-cli-extension"></a>Instalowanie rozszerzenia interfejsu wiersza polecenia aks-preview
+### <a name="install-aks-preview-cli-extension"></a>Zainstaluj rozszerzenie interfejsu wiersza polecenia AKS-Preview
 
-Aby korzystać z zasad zabezpieczeń zasobników, potrzebujesz rozszerzenia interfejsu wiersza polecenia *aks-preview* w wersji 0.4.1 lub nowszej. Zainstaluj rozszerzenie interfejsu wiersza polecenia interfejsu wiersza polecenia platformy Azure *aks-preview* przy użyciu polecenia [dodawania rozszerzenia az,][az-extension-add] a następnie sprawdź dostępność dostępnych aktualizacji za pomocą polecenia [aktualizacji rozszerzenia az:][az-extension-update]
+Aby można było korzystać z zasad zabezpieczeń na poziomie systemu, wymagany jest interfejs wiersza polecenia *AKS-Preview* w wersji 0.4.1 lub nowszej. Zainstaluj rozszerzenie interfejsu wiersza polecenia platformy Azure w *wersji zapoznawczej* przy użyciu poleceń [AZ Extension Add][az-extension-add] , a następnie wyszukaj wszystkie dostępne aktualizacje za pomocą polecenia [AZ Extension Update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -39,49 +39,49 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### <a name="register-pod-security-policy-feature-provider"></a>Dostawca funkcji zasad zabezpieczeń zasobnika rejestru
+### <a name="register-pod-security-policy-feature-provider"></a>Zarejestruj dostawcę funkcji zasad zabezpieczeń
 
-Aby utworzyć lub zaktualizować klaster AKS do używania zasad zabezpieczeń zasobników, najpierw włącz flagę funkcji w ramach subskrypcji. Aby zarejestrować flagę funkcji *PodSecurityPolicyPreview,* użyj polecenia [az feature register,][az-feature-register] jak pokazano w poniższym przykładzie:
+Aby utworzyć lub zaktualizować klaster AKS na potrzeby używania zasad zabezpieczeń, należy najpierw włączyć flagę funkcji w ramach subskrypcji. Aby zarejestrować flagę funkcji *PodSecurityPolicyPreview* , użyj polecenia [AZ Feature Register][az-feature-register] , jak pokazano w następującym przykładzie:
 
 > [!CAUTION]
-> Podczas rejestrowania funkcji w ramach subskrypcji nie można obecnie odeszło od rejestracji tej funkcji. Po włączeniu niektórych funkcji w wersji zapoznawczej ustawienia domyślne mogą być używane dla wszystkich klastrów AKS utworzonych w ramach subskrypcji. Nie włączaj funkcji w wersji zapoznawczej w subskrypcjach produkcyjnych. Użyj oddzielnej subskrypcji, aby przetestować funkcje w wersji zapoznawczej i zebrać opinie.
+> Po zarejestrowaniu funkcji w ramach subskrypcji nie można obecnie wyrejestrować tej funkcji. Po włączeniu niektórych funkcji w wersji zapoznawczej można użyć wartości domyślnych dla wszystkich klastrów AKS utworzonych w ramach subskrypcji. Nie włączaj funkcji w wersji zapoznawczej w ramach subskrypcji produkcyjnych. Korzystaj z oddzielnej subskrypcji, aby testować funkcje w wersji zapoznawczej i zbierać opinie.
 
 ```azurecli-interactive
 az feature register --name PodSecurityPolicyPreview --namespace Microsoft.ContainerService
 ```
 
-Trwa kilka minut, aby stan pokazał *zarejestrowany*. Stan rejestracji można sprawdzić za pomocą polecenia [az feature list:][az-feature-list]
+Wyświetlenie stanu *rejestracji*może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSecurityPolicyPreview')].{Name:name,State:properties.state}"
 ```
 
-Gdy będzie to gotowe, odśwież rejestrację dostawcy zasobów *Microsoft.ContainerService* za pomocą polecenia [rejestru dostawcy az:][az-provider-register]
+Gdy wszystko będzie gotowe, Odśwież rejestrację dostawcy zasobów *Microsoft. ContainerService* za pomocą polecenia [AZ Provider Register][az-provider-register] :
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## <a name="overview-of-pod-security-policies"></a>Omówienie zasad zabezpieczeń zasobników
+## <a name="overview-of-pod-security-policies"></a>Przegląd zasad zabezpieczeń pod
 
-W klastrze Kubernetes kontroler wstępu jest używany do przechwytywania żądań do serwera interfejsu API, gdy ma zostać utworzony zasób. Kontroler dostępu można następnie *sprawdzić poprawność* żądania zasobu względem zestawu reguł lub *mutować* zasób, aby zmienić parametry wdrażania.
+W klastrze Kubernetes kontroler przyjmowania jest używany do przechwytywania żądań do serwera interfejsu API, gdy zasób zostanie utworzony. Kontroler dopuszczenia może następnie *sprawdzić poprawność* żądania zasobu względem zestawu *reguł lub zmodyfikować zasób w celu* zmiany parametrów wdrożenia.
 
-*PodSecurityPolicy* jest kontrolerem wstępu, który sprawdza poprawność specyfikacji zasobnika spełnia zdefiniowane wymagania. Te wymagania mogą ograniczać korzystanie z kontenerów uprzywilejowanych, dostęp do niektórych typów magazynu lub użytkownika lub grupy kontenera można uruchomić jako. Podczas próby wdrożenia zasobu, w którym specyfikacje zasobu nie spełniają wymagań określonych w zasadach zabezpieczeń zasobnika, żądanie jest odrzucane. Ta możliwość kontrolowania, jakie zasobniki można zaplanować w klastrze AKS, zapobiega niektórym możliwym lukom w zabezpieczeniach lub eskalacjom uprawnień.
+*PodSecurityPolicy* to kontroler przyjmowania, który sprawdza, czy specyfikacja pod spełnia określone wymagania. Wymagania te mogą ograniczać użycie kontenerów uprzywilejowanych, dostęp do niektórych typów magazynów lub użytkownika lub grupę, w których kontener może być uruchamiany. Podczas próby wdrożenia zasobu, w którym specyfikacje pod nie spełniają wymagań opisanych w zasadach zabezpieczeń pod, żądanie jest odrzucane. Możliwość kontrolowania, jakie elementy można zaplanować w klastrze AKS, uniemożliwiają pewne potencjalne luki w zabezpieczeniach lub eskalacji uprawnień.
 
-Po włączeniu zasad zabezpieczeń zasobników w klastrze AKS stosowane są niektóre domyślne zasady. Te domyślne zasady zapewniają gotowe środowisko do definiowania, jakie zasobniki można zaplanować. Jednak użytkownicy klastra mogą napotkać problemy z wdrażaniem zasobników, dopóki nie zdefiniujesz własnych zasad. Zalecanym podejściem jest:
+Po włączeniu zasad zabezpieczeń w klastrze AKS są stosowane pewne zasady domyślne. Te zasady domyślne zapewniają wbudowane środowisko do definiowania, które z nich można zaplanować. Jednak użytkownicy klastrów mogą uruchamiać problemy ze wdrożeniem platformy, dopóki nie zostaną zdefiniowane własne zasady. Zalecanym podejściem jest:
 
 * Tworzenie klastra AKS
-* Definiowanie własnych zasad zabezpieczeń zasobników
-* Włączanie funkcji zasad zabezpieczeń zasobnika
+* Definiowanie własnych zasad zabezpieczeń pod
+* Włącz funkcję zasad zabezpieczeń pod
 
-Aby pokazać, jak domyślne zasady ograniczają wdrożenia zasobników, w tym artykule najpierw włączamy funkcję zasad zabezpieczeń zasobnika, a następnie tworzymy zasady niestandardowe.
+Aby pokazać, jak zasady domyślne ograniczają wdrożenia, w tym artykule należy najpierw włączyć funkcję zasad zabezpieczeń na stronie, a następnie utworzyć zasadę niestandardową.
 
-## <a name="enable-pod-security-policy-on-an-aks-cluster"></a>Włączanie zasad zabezpieczeń zasobników w klastrze usługi AKS
+## <a name="enable-pod-security-policy-on-an-aks-cluster"></a>Włączanie zasad zabezpieczeń pod względem klastra AKS
 
-Za pomocą polecenia [az aks update][az-aks-update] można włączyć lub wyłączyć zasady zabezpieczeń zasobnika. Poniższy przykład umożliwia zasad zabezpieczeń zasobnika na nazwę klastra *myAKSCluster* w grupie zasobów o nazwie *myResourceGroup*.
+Korzystając z polecenia [AZ AKS Update][az-aks-update] , można włączać lub wyłączać zasady zabezpieczeń na zasadzie. Poniższy przykład włącza zasady zabezpieczeń pod nazwą klastra *myAKSCluster* w grupie zasobów o nazwie Moja *resourceName*.
 
 > [!NOTE]
-> W przypadku rzeczywistych zastosowań nie włączaj zasad zabezpieczeń zasobników, dopóki nie zdefiniowano własnych zasad niestandardowych. W tym artykule włącz zasady zabezpieczeń zasobników jako pierwszy krok, aby zobaczyć, jak domyślne zasady ograniczają wdrożenia zasobników.
+> W przypadku użycia w świecie rzeczywistym nie należy włączać zasad zabezpieczeń na poziomie, dopóki nie zostaną zdefiniowane własne zasady niestandardowe. W tym artykule opisano zasady zabezpieczeń pod względem pierwszego kroku, aby zobaczyć, jak domyślne zasady ograniczają wdrożenia.
 
 ```azurecli-interactive
 az aks update \
@@ -92,9 +92,9 @@ az aks update \
 
 ## <a name="default-aks-policies"></a>Domyślne zasady AKS
 
-Po włączeniu zasad zabezpieczeń zasobników usługa AKS tworzy jedną domyślną zasadę o nazwie *uprzywilejowana*. Nie edytuj ani nie usuwaj zasad domyślnych. Zamiast tego utwórz własne zasady, które definiują ustawienia, które chcesz kontrolować. Przyjrzyjmy się najpierw, jakie są te domyślne zasady, jak wpływają one na wdrożenia zasobników.
+Po włączeniu zasad zabezpieczeń na AKS tworzy jedną domyślną zasadę o nazwie *Privileged*. Nie Edytuj ani nie usuwaj zasad domyślnych. Zamiast tego należy utworzyć własne zasady definiujące ustawienia, które mają być kontrolowane. Najpierw Spójrzmy na to, jakie zasady domyślne wpływają na wdrożenia.
 
-Aby wyświetlić dostępne zasady, użyj polecenia [kubectl get psp,][kubectl-get] jak pokazano w poniższym przykładzie
+Aby wyświetlić dostępne zasady, użyj polecenia [polecenia kubectl Get PSP][kubectl-get] , jak pokazano w poniższym przykładzie.
 
 ```console
 $ kubectl get psp
@@ -103,13 +103,13 @@ NAME         PRIV    CAPS   SELINUX    RUNASUSER          FSGROUP     SUPGROUP  
 privileged   true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *     configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
 ```
 
-Zasady zabezpieczeń zasobnika *uprzywilejowanego* są stosowane do dowolnego uwierzytelnionego użytkownika w klastrze AKS. To przypisanie jest kontrolowane przez clusterroles i ClusterRoleBindings. Użyj [polecenia kubectl get rolebindings][kubectl-get] i wyszukaj *powiązanie default:privileged:* w obszarze nazw *systemu kube:*
+Zasady zabezpieczeń *uprzywilejowany* pod są stosowane do każdego uwierzytelnionego użytkownika w klastrze AKS. To przypisanie jest kontrolowane przez ClusterRoles i ClusterRoleBindings. Użyj polecenia [polecenia kubectl Get rolebindings][kubectl-get] i Wyszukaj *wartość default: Privileged:* Binding w przestrzeni nazw *polecenia-system* :
 
 ```console
 kubectl get rolebindings default:privileged -n kube-system -o yaml
 ```
 
-Jak pokazano na poniższym skondensowanym wyjściu, *psp:restricted* ClusterRole jest przypisany do wszystkich *użytkowników systemowych:uwierzytelnionych.* Ta możliwość zapewnia podstawowy poziom ograniczeń bez definiowania własnych zasad.
+Jak pokazano w następujących wąskich danych wyjściowych, *PSP: ClusterRole z ograniczeniami* jest przypisany do dowolnego *systemu: Użytkownicy uwierzytelnieni* . Ta możliwość zapewnia podstawowy poziom ograniczeń bez zdefiniowanych zasad.
 
 ```
 apiVersion: rbac.authorization.k8s.io/v1
@@ -128,20 +128,20 @@ subjects:
   name: system:masters
 ```
 
-Ważne jest, aby zrozumieć, jak te domyślne zasady współdziałają z żądaniami użytkowników, aby zaplanować zasobników przed rozpoczęciem tworzenia własnych zasad zabezpieczeń zasobnika. W następnych kilku sekcjach zaplanujmy niektóre zasobników, aby zobaczyć te domyślne zasady w działaniu.
+Ważne jest, aby zrozumieć, jak te domyślne zasady współdziałają z żądaniami użytkowników w celu zaplanowania planów przed rozpoczęciem tworzenia własnych zasad zabezpieczeń. W następnych kilku sekcjach Przyjrzyjmy się zaplanowaniu kilku zasobników, aby zobaczyć te domyślne zasady w działaniu.
 
 ## <a name="create-a-test-user-in-an-aks-cluster"></a>Tworzenie użytkownika testowego w klastrze AKS
 
-Domyślnie podczas korzystania z polecenia [az aks get-credentials][az-aks-get-credentials] poświadczenia, poświadczenia *administratora* dla `kubectl` klastra AKS są dodawane do konfiguracji. Użytkownik administratora pomija wymuszanie zasad zabezpieczeń zasobników. Jeśli używasz integracji usługi Azure Active Directory dla klastrów AKS, możesz zalogować się przy użyciu poświadczeń użytkownika niebędącego administratorem, aby wyświetlić wymuszanie zasad w działaniu. W tym artykule utwórzmy konto użytkownika testowego w klastrze AKS, którego można użyć.
+Domyślnie w przypadku używania polecenia [AZ AKS Get-Credentials][az-aks-get-credentials] poświadczenia *administratora* dla klastra AKS są dodawane do `kubectl` konfiguracji. Użytkownik administracyjny pomija wymuszanie zasad zabezpieczeń pod. Jeśli używasz integracji Azure Active Directory dla klastrów AKS, możesz zalogować się przy użyciu poświadczeń użytkownika niebędącego administratorem, aby zobaczyć wymuszanie zasad w akcji. W tym artykule utworzyszmy konto użytkownika testowego w klastrze AKS, którego możesz użyć.
 
-Utwórz przykładową przestrzeń nazw o nazwie *psp-aks* dla zasobów testowych za pomocą polecenia [kubectl create namespace.][kubectl-create] Następnie utwórz konto usługi o nazwie *nonadmin-user* za pomocą polecenia [kubectl create serviceaccount:][kubectl-create]
+Utwórz przykładową przestrzeń nazw o nazwie *PSP-AKS* dla zasobów testowych przy użyciu polecenia [Utwórz przestrzeń nazw polecenia kubectl][kubectl-create] . Następnie utwórz konto usługi o nazwie *nieadministracyjne — użytkownik* korzystający z polecenia [polecenia kubectl Create Account][kubectl-create] :
 
 ```console
 kubectl create namespace psp-aks
 kubectl create serviceaccount --namespace psp-aks nonadmin-user
 ```
 
-Następnie utwórz rolebinding dla *nienależącego do użytkownika,* aby wykonać podstawowe akcje w obszarze nazw za pomocą [polecenia kubectl create rolebinding:][kubectl-create]
+Następnie utwórz Rolębinding dla *użytkownika niebędącego administratorem* w celu wykonywania podstawowych akcji w przestrzeni nazw za pomocą polecenia [polecenia kubectl Create rolebinding][kubectl-create] :
 
 ```console
 kubectl create rolebinding \
@@ -151,12 +151,12 @@ kubectl create rolebinding \
     --serviceaccount=psp-aks:nonadmin-user
 ```
 
-### <a name="create-alias-commands-for-admin-and-non-admin-user"></a>Tworzenie poleceń aliasu dla administratora i użytkownika niebędącego administratorem
+### <a name="create-alias-commands-for-admin-and-non-admin-user"></a>Utwórz polecenia aliasu dla administratora i użytkownika niebędącego administratorem
 
-Aby wyróżnić różnicę między zwykłym `kubectl` użytkownikiem administratora podczas korzystania z niego a użytkownikiem niebędącym administratorem utworzonym w poprzednich krokach, utwórz dwa aliasy wiersza polecenia:
+Aby wyróżnić różnicę między zwykłym użytkownikiem administratora podczas korzystania `kubectl` z programu i użytkownik niebędący administratorem utworzony w poprzednich krokach, Utwórz dwa aliasy wiersza polecenia:
 
-* Alias **kubectl-admin** jest przeznaczony dla zwykłego użytkownika administratora i jest objęty zakresem obszaru nazw *psp-aks.*
-* **Identyfikator kubectl-nonadminuser** jest przeznaczony dla *nienadmin-user* utworzonego w poprzednim kroku i jest objęty zakresem obszaru nazw *psp-aks.*
+* Alias **polecenia kubectl-admin** jest przeznaczony dla regularnego użytkownika administratora i jest objęty zakresem przestrzeni nazw *PSP-AKS* .
+* Alias **polecenia kubectl-nonadminuser** jest przeznaczony dla *użytkownika niebędącego administratorem* utworzonego w poprzednim kroku i jest objęty zakresem przestrzeni nazw *PSP-AKS* .
 
 Utwórz te dwa aliasy, jak pokazano w następujących poleceniach:
 
@@ -165,11 +165,11 @@ alias kubectl-admin='kubectl --namespace psp-aks'
 alias kubectl-nonadminuser='kubectl --as=system:serviceaccount:psp-aks:nonadmin-user --namespace psp-aks'
 ```
 
-## <a name="test-the-creation-of-a-privileged-pod"></a>Testowanie tworzenia uprzywilejowanej zasobnika
+## <a name="test-the-creation-of-a-privileged-pod"></a>Testowanie tworzenia uprzywilejowanego pod
 
-Najpierw przetestujmy, co się dzieje, gdy `privileged: true`planujesz zasobnik z kontekstem zabezpieczeń . Ten kontekst zabezpieczeń eskaluje uprawnienia zasobnika. W poprzedniej sekcji, która pokazywała domyślne zasady zabezpieczeń zasobników usługi AKS, *zasady z ograniczeniami* powinny odmówić tego żądania.
+Najpierw Przetestuj, co się dzieje, gdy planujesz go z kontekstem zabezpieczeń `privileged: true`. Ten kontekst zabezpieczeń przekazuje uprawnienia administratora. W poprzedniej sekcji, która wykazała domyślne zasady zabezpieczeń AKS pod, zasady z *ograniczeniami* powinny odmówić tego żądania.
 
-Utwórz plik `nginx-privileged.yaml` o nazwie i wklej następujący manifest YAML:
+Utwórz plik o nazwie `nginx-privileged.yaml` i wklej następujący manifest YAML:
 
 ```yaml
 apiVersion: v1
@@ -184,13 +184,13 @@ spec:
         privileged: true
 ```
 
-Utwórz zasobnik za pomocą polecenia [zastosuj kubectl][kubectl-apply] i określ nazwę manifestu YAML:
+Utwórz pod za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] i określ nazwę manifestu YAML:
 
 ```console
 kubectl-nonadminuser apply -f nginx-privileged.yaml
 ```
 
-Zasobnik nie może być zaplanowane, jak pokazano w poniższym przykładzie danych wyjściowych:
+Nie można zaplanować, jak pokazano w następujących przykładowych danych wyjściowych:
 
 ```console
 $ kubectl-nonadminuser apply -f nginx-privileged.yaml
@@ -198,13 +198,13 @@ $ kubectl-nonadminuser apply -f nginx-privileged.yaml
 Error from server (Forbidden): error when creating "nginx-privileged.yaml": pods "nginx-privileged" is forbidden: unable to validate against any pod security policy: []
 ```
 
-Zasobnik nie dociera do etapu planowania, więc nie ma żadnych zasobów do usunięcia przed przejściem dalej.
+Nie dociera do etapu planowania, dlatego nie ma żadnych zasobów do usunięcia przed przełączeniem.
 
-## <a name="test-creation-of-an-unprivileged-pod"></a>Przetestuj tworzenie nieuprzywilejowanej kapsuły
+## <a name="test-creation-of-an-unprivileged-pod"></a>Tworzenie testu dla nieuprzywilejowanego pod
 
-W poprzednim przykładzie specyfikacji zasobnika wymagane eskalacji uprzywilejowanej. To żądanie jest odrzucane przez domyślne zasady zabezpieczeń *zasobników ograniczone,* więc zasobnik nie powiedzie się zaplanować. Spróbujmy teraz uruchomić tę samą zasobnik NGINX bez żądania eskalacji uprawnień.
+W poprzednim przykładzie Specyfikacja "pod" zażądała eskalacji uprzywilejowanej. To żądanie jest odrzucane przez domyślne zasady zabezpieczeń *ograniczone* pod względem zasad, więc nie można zaplanować uruchomienia. Spróbujmy teraz uruchomić ten sam NGINX pod bez żądania eskalacji uprawnień.
 
-Utwórz plik `nginx-unprivileged.yaml` o nazwie i wklej następujący manifest YAML:
+Utwórz plik o nazwie `nginx-unprivileged.yaml` i wklej następujący manifest YAML:
 
 ```yaml
 apiVersion: v1
@@ -217,13 +217,13 @@ spec:
       image: nginx:1.14.2
 ```
 
-Utwórz zasobnik za pomocą polecenia [zastosuj kubectl][kubectl-apply] i określ nazwę manifestu YAML:
+Utwórz pod za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] i określ nazwę manifestu YAML:
 
 ```console
 kubectl-nonadminuser apply -f nginx-unprivileged.yaml
 ```
 
-Zasobnik nie może być zaplanowane, jak pokazano w poniższym przykładzie danych wyjściowych:
+Nie można zaplanować, jak pokazano w następujących przykładowych danych wyjściowych:
 
 ```console
 $ kubectl-nonadminuser apply -f nginx-unprivileged.yaml
@@ -231,13 +231,13 @@ $ kubectl-nonadminuser apply -f nginx-unprivileged.yaml
 Error from server (Forbidden): error when creating "nginx-unprivileged.yaml": pods "nginx-unprivileged" is forbidden: unable to validate against any pod security policy: []
 ```
 
-Zasobnik nie dociera do etapu planowania, więc nie ma żadnych zasobów do usunięcia przed przejściem dalej.
+Nie dociera do etapu planowania, dlatego nie ma żadnych zasobów do usunięcia przed przełączeniem.
 
-## <a name="test-creation-of-a-pod-with-a-specific-user-context"></a>Testowanie tworzenia zasobnika z określonym kontekstem użytkownika
+## <a name="test-creation-of-a-pod-with-a-specific-user-context"></a>Tworzenie testów pod kątem określonego kontekstu użytkownika
 
-W poprzednim przykładzie obraz kontenera automatycznie próbował użyć roota do powiązania NGINX z portem 80. To żądanie zostało odrzucone przez domyślne zasady zabezpieczeń *zasobnika ograniczonego,* więc nie można uruchomić zasobnika. Spróbujmy teraz uruchomić tę samą kapsułę NGINX z `runAsUser: 2000`określonym kontekstem użytkownika, takim jak .
+W poprzednim przykładzie obraz kontenera automatycznie próbował użyć elementu głównego do powiązania NGINX z portem 80. To żądanie zostało odrzucone przez domyślne zasady zabezpieczeń *ograniczone* pod względem zasad, więc uruchomienie nie powiodło się. Spróbujmy teraz uruchomić te same NGINX pod kątem określonego kontekstu użytkownika, takich jak `runAsUser: 2000`.
 
-Utwórz plik `nginx-unprivileged-nonroot.yaml` o nazwie i wklej następujący manifest YAML:
+Utwórz plik o nazwie `nginx-unprivileged-nonroot.yaml` i wklej następujący manifest YAML:
 
 ```yaml
 apiVersion: v1
@@ -252,13 +252,13 @@ spec:
         runAsUser: 2000
 ```
 
-Utwórz zasobnik za pomocą polecenia [zastosuj kubectl][kubectl-apply] i określ nazwę manifestu YAML:
+Utwórz pod za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] i określ nazwę manifestu YAML:
 
 ```console
 kubectl-nonadminuser apply -f nginx-unprivileged-nonroot.yaml
 ```
 
-Zasobnik nie może być zaplanowane, jak pokazano w poniższym przykładzie danych wyjściowych:
+Nie można zaplanować, jak pokazano w następujących przykładowych danych wyjściowych:
 
 ```console
 $ kubectl-nonadminuser apply -f nginx-unprivileged-nonroot.yaml
@@ -266,15 +266,15 @@ $ kubectl-nonadminuser apply -f nginx-unprivileged-nonroot.yaml
 Error from server (Forbidden): error when creating "nginx-unprivileged-nonroot.yaml": pods "nginx-unprivileged-nonroot" is forbidden: unable to validate against any pod security policy: []
 ```
 
-Zasobnik nie dociera do etapu planowania, więc nie ma żadnych zasobów do usunięcia przed przejściem dalej.
+Nie dociera do etapu planowania, dlatego nie ma żadnych zasobów do usunięcia przed przełączeniem.
 
-## <a name="create-a-custom-pod-security-policy"></a>Tworzenie niestandardowej zasady zabezpieczeń zasobników
+## <a name="create-a-custom-pod-security-policy"></a>Tworzenie niestandardowych zasad zabezpieczeń pod
 
-Teraz, gdy widziałeś zachowanie domyślnych zasad zabezpieczeń zasobnika, zapewnijmy sposób dla *nienawidzonych użytkowników,* aby pomyślnie zaplanować zasobników.
+Po zapoznaniu się z zachowaniem domyślnych zasad zabezpieczeń na poziomie, pozwól, aby użytkownik niebędący *administratorem* pomyślnie zaplanował plan.
 
-Utwórzmy zasadę odrzucania zasobników, które żądają uprzywilejowanego dostępu. Inne opcje, takie jak *runAsUser* lub dozwolone *woluminy,* nie są jawnie ograniczone. Ten typ zasad odrzuca żądanie dostępu uprzywilejowanego, ale w przeciwnym razie umożliwia klastrowi uruchomienie żądanych zasobników.
+Utwórzmy zasady, aby odrzucić system, który zażądał uprzywilejowanego dostępu. Inne opcje, takie jak *runAsUser* lub dozwolone *woluminy*, nie są wyraźnie ograniczone. Ten typ zasad odrzuca żądanie dostępu uprzywilejowanego, ale w przeciwnym razie umożliwia klastrowi uruchomienie żądanych zasobników.
 
-Utwórz plik `psp-deny-privileged.yaml` o nazwie i wklej następujący manifest YAML:
+Utwórz plik o nazwie `psp-deny-privileged.yaml` i wklej następujący manifest YAML:
 
 ```yaml
 apiVersion: policy/v1beta1
@@ -295,13 +295,13 @@ spec:
   - '*'
 ```
 
-Utwórz zasady za pomocą polecenia [zastosuj kubectl][kubectl-apply] i określ nazwę manifestu YAML:
+Utwórz zasady za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] i określ nazwę manifestu YAML:
 
 ```console
 kubectl apply -f psp-deny-privileged.yaml
 ```
 
-Aby wyświetlić dostępne zasady, użyj [polecenia kubectl get psp,][kubectl-get] jak pokazano w poniższym przykładzie. Porównaj zasady *uprzywilejowane psp-deny* z *domyślną zasadą z ograniczeniami,* która została wymuszana w poprzednich przykładach, aby utworzyć zasobnik. Tylko korzystanie z *priv* eskalacji jest odrzucana przez zasady. Nie ma żadnych ograniczeń dla użytkownika lub grupy dla *zasad uprzywilejowanych psp-deny.*
+Aby wyświetlić dostępne zasady, użyj polecenia [polecenia kubectl Get PSP][kubectl-get] , jak pokazano w poniższym przykładzie. Porównaj zasady *PSP-Deny-Privileged* z domyślnymi zasadami *ograniczonymi* , które zostały wymuszone w poprzednich przykładach, aby utworzyć element pod. Zasady odrzucają tylko użycie eskalacji *priv* . Nie ma żadnych ograniczeń dla użytkownika lub grupy dla zasad *"PSP-Deny-Privileged* ".
 
 ```console
 $ kubectl get psp
@@ -311,11 +311,11 @@ privileged            true    *      RunAsAny   RunAsAny           RunAsAny    R
 psp-deny-privileged   false          RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *          
 ```
 
-## <a name="allow-user-account-to-use-the-custom-pod-security-policy"></a>Zezwalaj kontu użytkownika na używanie niestandardowych zasad zabezpieczeń zasobników
+## <a name="allow-user-account-to-use-the-custom-pod-security-policy"></a>Zezwalaj kontu użytkownika na używanie zasad zabezpieczeń niestandardowych pod
 
-W poprzednim kroku utworzono zasadę zabezpieczeń zasobnika, aby odrzucić zasobników, które żądają uprzywilejowanego dostępu. Aby zezwolić na użycie zasad, należy utworzyć *rolę* lub *rolę klastra*. Następnie należy skojarzyć jedną z tych ról przy użyciu *funkcji RoleBinding* lub *ClusterRoleBinding*.
+W poprzednim kroku zostały utworzone zasady zabezpieczeń pod, aby odrzucić program, który zażądał uprzywilejowanego dostępu. Aby zezwolić na użycie zasad, należy utworzyć *rolę* lub *ClusterRole*. Następnie należy skojarzyć jedną z tych ról przy użyciu *rolibinding* lub *ClusterRoleBinding*.
 
-W tym przykładzie należy utworzyć clusterrole, która umożliwia *korzystanie z* zasad *uprzywilejowanych psp-deny* utworzonych w poprzednim kroku. Utwórz plik `psp-deny-privileged-clusterrole.yaml` o nazwie i wklej następujący manifest YAML:
+Na potrzeby tego przykładu Utwórz element ClusterRole, który umożliwia *użycie* zasad *"PSP-Deny-Privileged* " utworzonych w poprzednim kroku. Utwórz plik o nazwie `psp-deny-privileged-clusterrole.yaml` i wklej następujący manifest YAML:
 
 ```yaml
 kind: ClusterRole
@@ -333,13 +333,13 @@ rules:
   - use
 ```
 
-Utwórz grupę ClusterRole za pomocą polecenia [kubectl apply][kubectl-apply] i określ nazwę manifestu YAML:
+Utwórz ClusterRole za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] i określ nazwę manifestu YAML:
 
 ```console
 kubectl apply -f psp-deny-privileged-clusterrole.yaml
 ```
 
-Teraz utwórz narzędzie ClusterRoleBinding, aby użyć roli klastra utworzonej w poprzednim kroku. Utwórz plik `psp-deny-privileged-clusterrolebinding.yaml` o nazwie i wklej następujący manifest YAML:
+Teraz Utwórz ClusterRoleBinding, aby użyć ClusterRole utworzonych w poprzednim kroku. Utwórz plik o nazwie `psp-deny-privileged-clusterrolebinding.yaml` i wklej następujący manifest YAML:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1beta1
@@ -356,24 +356,24 @@ subjects:
   name: system:serviceaccounts
 ```
 
-Utwórz element ClusterRoleBinding za pomocą polecenia [zastosuj kubectl][kubectl-apply] i określ nazwę manifestu YAML:
+Utwórz ClusterRoleBinding za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] i określ nazwę manifestu YAML:
 
 ```console
 kubectl apply -f psp-deny-privileged-clusterrolebinding.yaml
 ```
 
 > [!NOTE]
-> W pierwszym kroku tego artykułu funkcja zasad zabezpieczeń zasobnika została włączona w klastrze AKS. Zalecaną praktyką było włączenie funkcji zasad zabezpieczeń zasobnika tylko po zdefiniowaniu własnych zasad. Jest to etap, na którym można włączyć funkcję zasad zabezpieczeń zasobnika. Zdefiniowano co najmniej jedną zasadę niestandardową, a konta użytkowników zostały skojarzone z tymi zasadami. Teraz można bezpiecznie włączyć funkcję zasad zabezpieczeń zasobnika i zminimalizować problemy spowodowane przez domyślne zasady.
+> W pierwszym kroku tego artykułu włączono funkcję zasad zabezpieczeń pod względem klastra AKS. Zalecaną metodą jest włączenie funkcji zasad zabezpieczeń pod warunkiem po zdefiniowaniu własnych zasad. Jest to etap, w którym można włączyć funkcję zasad zabezpieczeń pod. Zdefiniowano co najmniej jedną zasadę niestandardową, a konta użytkowników zostały skojarzone z tymi zasadami. Teraz można bezpiecznie włączyć funkcję zasad zabezpieczeń na podstawie i zminimalizować problemy spowodowane przez zasady domyślne.
 
-## <a name="test-the-creation-of-an-unprivileged-pod-again"></a>Ponownie przetestuj utworzenie nieuprzywilejowanej kapsuły
+## <a name="test-the-creation-of-an-unprivileged-pod-again"></a>Ponownie przetestuj tworzenie nieuprzywilejowanego konta
 
-Z niestandardowe zasady zabezpieczeń zasobnika stosowane i powiązanie dla konta użytkownika do korzystania z zasad, spróbujmy utworzyć nieuprzywilejowanych zasobnika ponownie. Użyj tego `nginx-privileged.yaml` samego manifestu, aby utworzyć zasobnik za pomocą [polecenia zastosuj kubectl:][kubectl-apply]
+Po zastosowaniu zasad zabezpieczeń niestandardowych pod kątem stosowania zasad i powiązania dla konta użytkownika w celu korzystania z nich spróbuj ponownie utworzyć nieuprzywilejowany element. Użyj tego samego `nginx-privileged.yaml` manifestu, aby utworzyć pod przy użyciu polecenia [polecenia kubectl Apply][kubectl-apply] :
 
 ```console
 kubectl-nonadminuser apply -f nginx-unprivileged.yaml
 ```
 
-Zasobnik jest pomyślnie zaplanowane. Po sprawdzeniu stanu zasobnika za pomocą [polecenia kubectl get strąki,][kubectl-get] zasobnik jest *uruchomiony:*
+Pomyślnie zaplanowano zadanie pod. Po sprawdzeniu stanu usługi pod za pomocą [polecenia kubectl Get-zasobnikowego][kubectl-get] , pod jest *uruchomiony*:
 
 ```
 $ kubectl-nonadminuser get pods
@@ -382,9 +382,9 @@ NAME                 READY   STATUS    RESTARTS   AGE
 nginx-unprivileged   1/1     Running   0          7m14s
 ```
 
-W tym przykładzie pokazano, jak można utworzyć niestandardowe zasady zabezpieczeń zasobników, aby zdefiniować dostęp do klastra AKS dla różnych użytkowników lub grup. Domyślne zasady usługi AKS zapewniają ścisłe kontrole, jakie zasobniki mogą działać, więc utwórz własne zasady niestandardowe, aby następnie poprawnie zdefiniować potrzebne ograniczenia.
+Ten przykład pokazuje, jak można utworzyć zasady zabezpieczeń niestandardowych pod kątem definiowania dostępu do klastra AKS dla różnych użytkowników lub grup. Domyślne zasady AKS zapewniają ścisłą kontrolę nad tym, co mogą być uruchamiane, i utworzyć własne zasady niestandardowe, a następnie prawidłowo definiować wymagane ograniczenia.
 
-Usuń nieuprzywilejowaną zasobnik NGINX za pomocą polecenia [kubectl delete][kubectl-delete] i określ nazwę manifestu YAML:
+Usuń NGINX nieuprzywilejowany pod za pomocą polecenia [Delete polecenia kubectl][kubectl-delete] i określ nazwę manifestu YAML:
 
 ```console
 kubectl-nonadminuser delete -f nginx-unprivileged.yaml
@@ -392,7 +392,7 @@ kubectl-nonadminuser delete -f nginx-unprivileged.yaml
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Aby wyłączyć zasady zabezpieczeń zasobnika, należy ponownie użyć polecenia [az aks update.][az-aks-update] Poniższy przykład wyłącza zasady zabezpieczeń zasobników na nazwie klastra *myAKSCluster* w grupie zasobów o nazwie *myResourceGroup:*
+Aby wyłączyć zasady zabezpieczeń pod, ponownie Użyj polecenia [AZ AKS Update][az-aks-update] . W poniższym przykładzie zostały wyłączone zasady zabezpieczeń pod nazwą klastra *myAKSCluster* w grupie zasobów o nazwie Moja *zasobów*:
 
 ```azurecli-interactive
 az aks update \
@@ -401,20 +401,20 @@ az aks update \
     --disable-pod-security-policy
 ```
 
-Następnie usuń narzędzie ClusterRole i ClusterRoleBinding:
+Następnie usuń ClusterRole i ClusterRoleBinding:
 
 ```console
 kubectl delete -f psp-deny-privileged-clusterrolebinding.yaml
 kubectl delete -f psp-deny-privileged-clusterrole.yaml
 ```
 
-Usuń zasady zabezpieczeń za pomocą polecenia [kubectl delete][kubectl-delete] i określ nazwę manifestu YAML:
+Usuń zasady zabezpieczeń przy użyciu polecenia [polecenia kubectl Delete][kubectl-delete] i określ nazwę manifestu YAML:
 
 ```console
 kubectl delete -f psp-deny-privileged.yaml
 ```
 
-Na koniec usuń obszar nazw *psp-aks:*
+Na koniec Usuń przestrzeń nazw *PSP-AKS* :
 
 ```console
 kubectl delete namespace psp-aks
@@ -422,9 +422,9 @@ kubectl delete namespace psp-aks
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule pokazano, jak utworzyć zasady zabezpieczeń zasobników, aby zapobiec użyciu dostępu uprzywilejowanego. Istnieje wiele funkcji, które zasady można wymusić, takich jak typ woluminu lub runas użytkownika. Aby uzyskać więcej informacji na temat dostępnych opcji, zobacz [dokumenty dotyczące odwołań do zasad zabezpieczeń kubernetes pod][kubernetes-policy-reference].
+W tym artykule pokazano, jak utworzyć zasady zabezpieczeń pod, aby uniemożliwić korzystanie z uprzywilejowanego dostępu. Istnieje wiele funkcji, które mogą wymuszać zasady, takie jak typ woluminu lub użytkownika RunAs. Aby uzyskać więcej informacji na temat dostępnych opcji, zobacz [dokumenty referencyjne dotyczące zasad zabezpieczeń Kubernetes][kubernetes-policy-reference].
 
-Aby uzyskać więcej informacji na temat ograniczania ruchu sieciowego, zobacz [Zabezpieczanie ruchu między zasobnikami przy użyciu zasad sieciowych w uzywce AKS][network-policies].
+Aby uzyskać więcej informacji na temat ograniczania ruchu sieciowego, zobacz [bezpieczny ruch między jednostkami z użyciem zasad sieciowych w AKS][network-policies].
 
 <!-- LINKS - external -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply

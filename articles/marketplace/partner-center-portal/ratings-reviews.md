@@ -1,6 +1,6 @@
 ---
-title: Pulpit nawigacyjny ocen i recenzji w komercyjnych analizach w Centrum partnerów
-description: Dowiedz się, jak uzyskać dostęp do skonsolidowanego widoku opinii klientów dotyczących ofert w witrynie Azure Marketplace i AppSource.
+title: Pulpit nawigacyjny klasyfikacji i przeglądów w komercyjnej analizie Marketplace w centrum partnerskim
+description: Dowiedz się, jak uzyskać skonsolidowany widok opinii klientów dla ofert w witrynie Azure Marketplace i AppSource.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,59 +8,59 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: 405ba37fd10fa48bf45f1031d2e9b5b17620ea0a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81262421"
 ---
-# <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny ocen i recenzji w analizie rynku komercyjnego
+# <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny klasyfikacji i przeglądów w komercyjnej analizie Marketplace
 
-Ten artykuł zawiera informacje na temat pulpitu nawigacyjnego Oceny & opinii w Centrum partnerów. Ten pulpit nawigacyjny wyświetla skonsolidowany widok opinii klientów dotyczących ofert w witrynie Azure Marketplace i AppSource.
+Ten artykuł zawiera informacje na temat oceny & przeglądów na pulpicie nawigacyjnym w centrum partnerskim. Ten pulpit nawigacyjny wyświetla skonsolidowany widok opinii klientów dla ofert w witrynie Azure Marketplace i AppSource.
 
-Aby uzyskać dostęp do **pulpitu nawigacyjnego Oceny & opinii** w narzędziach analitycznych Centrum partnerów, otwórz pulpit nawigacyjny **[Analizuj](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** w obszarze Marketplace komercyjnego.
+Aby uzyskać dostęp do **pulpitu nawigacyjnego recenzje & przeglądów** w narzędziach do analiz Centrum partnerskiego, Otwórz pulpit nawigacyjny **[Analizuj](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** w obszarze komercyjny Portal Marketplace.
 
 >[!NOTE]
-> Szczegółowe definicje terminologii analitycznej można znaleźć w części [Często zadawane pytania i terminologia dotyczące analizy rynku komercyjnego.](./faq-terminology.md)
+> Aby uzyskać szczegółowe definicje terminologii dotyczącej analizy, zobacz [często zadawane pytania i terminologię dotyczącą komercyjnej analizy portalu Marketplace](./faq-terminology.md).
 
-## <a name="ratings--reviews"></a>Oceny & recenzje
+## <a name="ratings--reviews"></a>Klasyfikacje & przeglądy
 
-Gdy klienci przeglądają, wyszukują i kupują oferty w obu rynkach, mogą zostawiać oceny i recenzje ofert, które nabyli.
+Gdy klienci przeglądają, szukają i kupują oferty w ramach obu rynków, mogą opuścić klasyfikacje i przeglądy dla ofert, które zostały nabyte.
 
-- Klienci mogą przesłać nową ocenę lub przejrzeć i zaktualizować lub usunąć istniejącą ocenę lub opinię, którą przesłali. Klienci mogą wprowadzać zmiany tylko w posiadanych ocenach i opiniach.  
-- Recenzje są publikowane na karcie Recenzje na stronie wyświetlania produktu oferty w portalu Azure Marketplace lub AppSource. Klienci mogą podać swoje imię i nazwisko lub opublikować anonimowo.  
+- Klienci mogą przesłać nową klasyfikację lub przejrzeć i zaktualizować lub usunąć istniejącą ocenę lub sprawdzić, czy zostały one przesłane. Klienci mogą wprowadzać zmiany tylko do ocen i przeglądów, których są właścicielami.  
+- Przeglądy są publikowane na karcie przeglądy na stronie ekran produktu oferty w witrynie Azure Marketplace lub AppSource. Klienci mogą dołączać swoją nazwę lub ogłaszać anonimowo.  
 
-Pulpit **nawigacyjny przeglądu ocen &** wyświetla trendy i szczegółowe informacje o tym działaniu przez klientów. Można wyświetlić graficzną reprezentację następujących elementów:
+**Pulpit nawigacyjny recenzja & przegląd** przedstawia trendy i szczegółowe informacje o tym działaniu według klientów. Można wyświetlić graficzną reprezentację następujących elementów:
 
-- Oceny & recenzje  
-- Przejrzyj komentarze
+- Klasyfikacje & przeglądy  
+- Przejrzyj Komentarze
 
-**Karty witryny sklepu Marketplace** umożliwiają wydawcom wyświetlanie metryk oferty oddzielnie na kartach AppSource & Azure Marketplace. Aby wyświetlić konkretne dane ofertowe, wybierz ofertę z listy rozwijanej oferty.
+**Karty witryny portalu Marketplace** umożliwiają wydawcom wyświetlanie metryk oferty osobno na kartach AppSource & Azure Marketplace. Aby wyświetlić określone metryki oferty, wybierz ofertę z listy rozwijanej oferta.
 
 
-### <a name="ratings-and-reviews-summary"></a>Podsumowanie ocen i recenzji
+### <a name="ratings-and-reviews-summary"></a>Podsumowanie klasyfikacji i przeglądów
 
-Sekcja podsumowania ocen & recenzji wyświetla poniższe dane dla wybranego zakresu dat:
+Sekcja podsumowania ocen & przeglądów zawiera poniższe metryki dla wybranego zakresu dat:
 
-- **Średnia ocena:** Średnia ważona ocena w gwiazdkach wszystkich ocen przesłanych przez klientów do wybranej oferty.
-- **Podział klasyfikacji:** Podział oceny w gwiazdkach według liczby klientów, którzy złożyli oceny. Wykres słupkowy jest połączony z rzeczywistymi i zmienionymi ocenami (zaktualizowana liczba ocen).
-- **Łączna ocena:** Ogólna liczba przesłanych ocen. Ta liczba obejmuje również oceny z recenzjami i bez.
-- **Oceny z recenzjami:** Liczba przesłanych opinii.
+- **Średnia ocena:** Średnia ważona średniej klasyfikacji wszystkich ocen przesłanych przez klientów dla wybranej oferty.
+- **Podział klasyfikacji:** Podział klasyfikacji gwiazdkowej według liczby klientów, którzy przesłały klasyfikacje. Wykres słupkowy jest układany z rzeczywistą i skorygowaną klasyfikacją (zaktualizowaną liczbę ocen).
+- **Łączna Klasyfikacja:** Łączna liczba przesłanych ocen. Ta liczba obejmuje również klasyfikacje z i bez przeglądów.
+- **Oceny z recenzjami:** Liczba przesłanych recenzji.
 
-![Centrum partnerów analizuj podsumowanie ocen i recenzji](./media/analyze-ratings-summary.png)
+![Podsumowanie klasyfikacji i przeglądów Centrum partnerskiego](./media/analyze-ratings-summary.png)
 
-### <a name="review-comments"></a>Przejrzyj komentarze
+### <a name="review-comments"></a>Przejrzyj Komentarze
 
-Recenzje są wyświetlane w porządku chronologicznym, gdy zostały opublikowane. Widok domyślny wyświetla wszystkie opinie i można filtrować opinie według oceny w gwiazdkach za pomocą **filtru Ocena** w menu rozwijanym. Ponadto możesz wyszukiwać według słów kluczowych, które pojawiają się w recenzji.  
+Przeglądy są wyświetlane w kolejności chronologicznej w przypadku ich opublikowania. W widoku domyślnym są wyświetlane wszystkie Recenzje i można filtrować Recenzje według klasyfikacji gwiazdkowej przy użyciu **filtru klasyfikacji** w menu rozwijanym. Ponadto można wyszukiwać według słów kluczowych, które pojawiają się w przeglądzie.  
 
-![Centrum partnerów analizować komentarze do recenzji](./media/analyze-reviews.png)
+![Analiza komentarzy dotyczących przeglądu Centrum partnerskiego](./media/analyze-reviews.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać przegląd raportów analitycznych dostępnych w komercyjnym rynku Centrum partnerów, zobacz [Analytics dla rynku komercyjnego w Centrum partnerów.](./analytics.md)
-- Aby uzyskać wykresy, trendy i wartości danych agregujących, które podsumowują aktywność w portalu marketplace dla Twojej oferty, zobacz [Podsumowanie pulpitu nawigacyjnego w analizie rynku komercyjnego.](./summary-dashboard.md)
-- Aby uzyskać informacje o zamówieniach w formacie graficznym i do pobrania, zobacz [Pulpit nawigacyjny zamówień w analizie rynku komercyjnego](./orders-dashboard.md).
-- W przypadku maszyny wirtualnej (VM) oferuje użycie i metryki rozliczeniowe taryfowe, zobacz [Pulpit nawigacyjny użycia w analizie komercyjnego rynku.](./usage-dashboard.md)
-- Aby uzyskać szczegółowe informacje o klientach, w tym trendy wzrostu, zobacz [Pulpit nawigacyjny klientów w analizie rynku komercyjnego.](./customer-dashboard.md)
-- Aby uzyskać listę żądań pobierania w ciągu ostatnich 30 dni, zobacz [Pulpit nawigacyjny pobierania w analizie rynku komercyjnego](./downloads-dashboard.md).
-- W przypadku często zadawanych pytań dotyczących analityki rynku komercyjnego i kompleksowego słownika terminów danych zobacz [Często zadawane pytania i terminologia w celu analizy rynku komercyjnego.](./faq-terminology.md)
+- Aby zapoznać się z omówieniem raportów analitycznych dostępnych na rynku komercyjnym centrum partnerskiego, zobacz [Analiza portalu komercyjnego w centrum partnerskim](./analytics.md).
+- W przypadku grafów, trendów i wartości zagregowanych danych, które podsumowują aktywność witryny Marketplace dla oferty, zobacz [pulpit nawigacyjny podsumowania w portalu komercyjnej analizy Marketplace](./summary-dashboard.md).
+- Aby uzyskać informacje o zamówieniach w formacie graficznym i do pobrania, zobacz temat [Zamówienie pulpitu nawigacyjnego w portalu komercyjnej analizy Marketplace](./orders-dashboard.md).
+- W przypadku maszyn wirtualnych (VM) są dostępne metryki dotyczące użycia i taryfowego rozliczania, zobacz [pulpit nawigacyjny użycia w portalu komercyjnej analizy Marketplace](./usage-dashboard.md).
+- Aby uzyskać szczegółowe informacje na temat klientów, w tym trendów wzrostu, zobacz [pulpit nawigacyjny klienta w komercyjnej analizie portalu Marketplace](./customer-dashboard.md).
+- Aby uzyskać listę żądań pobierania w ciągu ostatnich 30 dni, zobacz [pulpit nawigacyjny w portalu komercyjnej analizy Marketplace](./downloads-dashboard.md).
+- Często zadawane pytania dotyczące analizy komercyjnej portalu Marketplace i kompleksowego słownika warunków dotyczących danych można znaleźć [w temacie często zadawane pytania i terminologia dotyczące komercyjnej analizy w portalu Marketplace](./faq-terminology.md).

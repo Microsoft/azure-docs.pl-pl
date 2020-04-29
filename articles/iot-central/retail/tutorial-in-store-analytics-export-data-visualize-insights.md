@@ -1,6 +1,6 @@
 ---
-title: Samouczek — eksportowanie danych i wizualizacja szczegółowych informacji w usłudze Azure IoT Central
-description: W tym samouczku dowiesz się, jak eksportować dane z usługi IoT Central i wizualizować szczegółowe informacje na pulpicie nawigacyjnym usługi Power BI.
+title: Samouczek — eksportowanie danych i wizualizacja szczegółowych informacji na platformie Azure IoT Central
+description: W tym samouczku dowiesz się, jak eksportować dane z IoT Central i wizualizować szczegółowe informacje na pulpicie nawigacyjnym Power BI.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -12,100 +12,100 @@ ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
 ms.openlocfilehash: 6062e8a74af4bb0a19d02ccf9a4c50da0cc4a7c5
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81000105"
 ---
-# <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Samouczek: eksportowanie danych z usługi Azure IoT Central i wizualizacja szczegółowych informacji w usłudze Power BI
+# <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Samouczek: eksportowanie danych z platformy Azure IoT Central i wizualizacja szczegółowych informacji w programie Power BI
 
 
 
-W dwóch poprzednich samouczkach utworzono i dostosowano aplikację IoT Central przy użyciu szablonu aplikacji **analizy w sklepie** . W tym samouczku skonfigurujesz aplikację IoT Central do eksportowania danych telemetrycznych zebranych z urządzeń. Następnie można użyć usługi Power BI do utworzenia niestandardowego pulpitu nawigacyjnego dla menedżera sklepu w celu wizualizacji szczegółowych informacji pochodzących z danych telemetrycznych.
+W dwóch poprzednich samouczkach utworzono i dostosowano aplikację IoT Central przy użyciu szablonu aplikacji do **analizy w sklepie — wyewidencjonowywanie** . W tym samouczku skonfigurujesz aplikację IoT Central do eksportowania danych telemetrycznych zebranych z urządzeń. Następnie użyj Power BI, aby utworzyć niestandardowy pulpit nawigacyjny dla Menedżera sklepu w celu wizualizowania szczegółowych informacji uzyskanych na podstawie danych telemetrycznych.
 
 Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Skonfiguruj aplikację IoT Central, aby wyeksportować dane telemetryczne do centrum zdarzeń.
-> * Aplikacje logiki używają do wysyłania danych z centrum zdarzeń do zestawu danych przesyłania strumieniowego usługi Power BI.
-> * Utwórz pulpit nawigacyjny usługi Power BI, aby wizualizować dane w zestawie danych przesyłania strumieniowego.
+> * Użyj Logic Apps, aby wysyłać dane z centrum zdarzeń do zestawu danych przesyłania strumieniowego Power BI.
+> * Utwórz pulpit nawigacyjny Power BI, aby wizualizować dane w zestawie danych przesyłania strumieniowego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Do ukończenia tego samouczka niezbędne są następujące elementy:
 
-* Aby ukończyć dwa poprzednie samouczki, [utwórz aplikację analityczną w sklepie w usłudze Azure IoT Central](./tutorial-in-store-analytics-create-app.md) i [dostosuj pulpit nawigacyjny operatora i zarządzaj urządzeniami w usłudze Azure IoT Central](./tutorial-in-store-analytics-customize-dashboard.md).
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
-* Konto usługi Power BI. Jeśli nie masz konta usługi Power BI, przed rozpoczęciem zarejestruj się w celu uzyskania [bezpłatnej wersji próbnej usługi Power BI Pro.](https://app.powerbi.com/signupredirect?pbi_source=web)
+* Aby wykonać poprzednie dwa samouczki, [Utwórz aplikację analizy w sklepie na platformie azure IoT Central](./tutorial-in-store-analytics-create-app.md) i [Dostosuj pulpit nawigacyjny operatora i Zarządzaj urządzeniami w usłudze Azure IoT Central](./tutorial-in-store-analytics-customize-dashboard.md).
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+* Konto usługi Power BI. Jeśli nie masz konta Power BI, przed rozpoczęciem Zarejestruj się, aby uzyskać [bezpłatną Power BI Pro wersję próbną](https://app.powerbi.com/signupredirect?pbi_source=web) .
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Przed utworzeniem centrum zdarzeń i aplikacji logiki, należy utworzyć grupę zasobów, aby nimi zarządzać. Grupa zasobów powinna znajdować się w tej samej lokalizacji co **aplikacja analizy w sklepie — wyewidencjonuj** aplikację IoT Central. Aby utworzyć grupę zasobów:
+Przed utworzeniem centrum zdarzeń i aplikacji logiki należy utworzyć grupę zasobów, aby zarządzać nimi. Grupa zasobów powinna znajdować się w tej samej lokalizacji, w której znajduje się aplikacja **do analizy w sklepie — wyewidencjonowywanie** IoT Central. Aby utworzyć grupę zasobów:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. W lewej nawigacji wybierz pozycję **Grupy zasobów**. Następnie wybierz pozycję **Dodaj**.
-1. W przypadku **subskrypcji**wybierz nazwę subskrypcji platformy Azure użytej do utworzenia aplikacji IoT Central.
-1. W przypadku **nazwy grupy zasobów** wprowadź analizę sklepu _detalicznego_*.
-1. W przypadku **regionu**wybierz ten sam region, który został wybrany dla aplikacji IoT Central.
-1. Wybierz **pozycję Recenzja + Utwórz**.
+1. W okienku nawigacji po lewej stronie wybierz pozycję **grupy zasobów**. Następnie wybierz pozycję **Dodaj**.
+1. W polu **subskrypcja**wybierz nazwę subskrypcji platformy Azure, która została użyta do utworzenia aplikacji IoT Central.
+1. W polu Nazwa **grupy zasobów** wprowadź wartość _Retail-Store-Analysis_*.
+1. Dla **regionu**wybierz ten sam region, który został wybrany dla aplikacji IoT Central.
+1. Wybierz pozycję **Recenzja + Utwórz**.
 1. Na stronie **Przeglądanie + tworzenie** wybierz pozycję **Utwórz**.
 
-Masz teraz grupę zasobów o nazwie **retail-store-analysis** w ramach subskrypcji.
+Teraz masz grupę zasobów o nazwie **Retail-Store-Analysis** w Twojej subskrypcji.
 
 ## <a name="create-an-event-hub"></a>Tworzenie centrum zdarzeń
 
-Przed skonfigurowaniem aplikacji monitorowania sieci sprzedaży do eksportowania danych telemetrycznych należy utworzyć centrum zdarzeń, aby odbierać eksportowane dane. Poniższe kroki pokazują, jak utworzyć centrum zdarzeń:
+Aby można było skonfigurować aplikację do monitorowania handlu detalicznego w celu wyeksportowania danych telemetrycznych, należy utworzyć centrum zdarzeń, aby otrzymać wyeksportowane dane. Poniższe kroki pokazują, jak utworzyć centrum zdarzeń:
 
-1. W witrynie Azure portal wybierz pozycję **Utwórz zasób** w lewym górnym rogu ekranu.
-1. W **polu Wyszukaj w marketplace**wprowadź centrum _zdarzeń_, a następnie naciśnij klawisz **Enter**.
-1. Na stronie **Centra zdarzeń** wybierz pozycję **Utwórz**.
-1. Na stronie **Tworzenie obszaru nazw** należy wykonać następujące czynności:
-    * Wprowadź unikatową nazwę obszaru nazw, taką jak _twojanazwa-retail-store-analysis_. System sprawdza, czy ta nazwa jest dostępna.
-    * Wybierz **podstawową** warstwę cenową.
-    * Wybierz tę samą **subskrypcję,** która została użyta do utworzenia aplikacji IoT Central.
-    * Wybierz grupę zasobów **analizy sklepu detalicznego.**
-    * Wybierz tę samą lokalizację, która została użyta w aplikacji IoT Central.
-    * Wybierz **pozycję Utwórz**. Może być trzeba poczekać kilka minut na system do aprowizowania zasobów.
-1. W portalu przejdź do grupy zasobów **analizy magazynu sieci sprzedaży.** Zaczekaj na zakończenie wdrożenia. Może być konieczne **wybranie opcji Odśwież,** aby zaktualizować stan wdrożenia. Stan utworzenia obszaru nazw centrum zdarzeń można również sprawdzić w obszarze **powiadomień**.
-1. W grupie zasobów **analizy sklepu detalicznego** wybierz **obszar nazw centrów zdarzeń**. Zostanie wyświetlona strona główna **obszaru nazw centrów zdarzeń** w portalu.
+1. W Azure Portal wybierz pozycję **Utwórz zasób** w lewym górnym rogu ekranu.
+1. W obszarze **Wyszukaj w portalu Marketplace**wprowadź _Event Hubs_, a następnie naciśnij klawisz **Enter**.
+1. Na stronie **Event Hubs** wybierz pozycję **Utwórz**.
+1. Na stronie **Tworzenie przestrzeni nazw** wykonaj następujące czynności:
+    * Wprowadź unikatową nazwę przestrzeni nazw, takiej jak nazwa _użytkownika-sprzedaż-magazyn-analiza_. System sprawdza, czy ta nazwa jest dostępna.
+    * Wybierz warstwę cenową **podstawowa** .
+    * Wybierz tę samą **subskrypcję** , która została użyta do utworzenia aplikacji IoT Central.
+    * Wybierz grupę zasobów **analizy handlu detalicznego** .
+    * Wybierz tę samą lokalizację, która była używana dla aplikacji IoT Central.
+    * Wybierz przycisk **Utwórz**. Może być konieczne odczekanie kilku minut, aż system udostępni Zasoby.
+1. W portalu przejdź do grupy zasobów **analizy handlu detalicznego** . Zaczekaj na zakończenie wdrożenia. Może być konieczne wybranie opcji **Odśwież** , aby zaktualizować stan wdrożenia. Możesz również sprawdzić stan tworzenia przestrzeni nazw centrum zdarzeń w **powiadomieniach**.
+1. W grupie zasobów **analizy sprzedaży detalicznej** wybierz **Event Hubs przestrzeni nazw**. Zostanie wyświetlona strona główna **obszaru nazw Event Hubs** w portalu.
 
-Teraz masz **obszar nazw centrów zdarzeń,** możesz utworzyć **Centrum zdarzeń** do użycia z aplikacją IoT Central:
+Teraz masz **Event Hubs przestrzeni nazw**, możesz utworzyć **centrum zdarzeń** do użycia z aplikacją IoT Central:
 
-1. Na stronie głównej **obszaru nazw centrów zdarzeń** w portalu wybierz pozycję **+ Centrum zdarzeń**.
-1. Na stronie **Tworzenie Centrum zdarzeń** wprowadź dane _telemetryczne magazynu_ jako nazwę, a następnie wybierz pozycję **Utwórz**.
+1. Na stronie głównej **obszaru nazw Event Hubs** w portalu wybierz pozycję **+ centrum zdarzeń**.
+1. Na stronie **Tworzenie centrum zdarzeń** _wprowadź wartość w polu_ nazwa, a następnie wybierz pozycję **Utwórz**.
 
-Teraz masz centrum zdarzeń, którego można używać podczas konfigurowania eksportu danych z aplikacji IoT Central:
+Masz teraz centrum zdarzeń, których można użyć podczas konfigurowania eksportu danych z aplikacji IoT Central:
 
 ![Centrum zdarzeń](./media/tutorial-in-store-analytics-visualize-insights/event-hub.png)
 
 ## <a name="configure-data-export"></a>Konfigurowanie eksportu danych
 
-Teraz masz centrum zdarzeń, możesz skonfigurować aplikację **analityczną w sklepie — wyewidencjonuj,** aby eksportować dane telemetryczne z podłączonych urządzeń. Poniższe kroki pokazują, jak skonfigurować eksport:
+Teraz masz centrum zdarzeń, możesz skonfigurować aplikację do **analizy i wyewidencjonowywania w sklepie** , aby wyeksportować dane telemetryczne z połączonych urządzeń. Poniższe kroki pokazują, jak skonfigurować eksport:
 
-1. Zaloguj się do **analizy w sklepie — wyewidencjonuj** aplikację IoT Central.
-1. Wybierz **pozycję Eksportowanie danych** w lewym okienku.
-1. Wybierz **pozycję Nowy > usługi Azure Event Hubs**.
-1. Wprowadź _eksport telemetrii_ jako **nazwę wyświetlaną**.
-1. Wybierz **obszar nazw Centrów zdarzeń**.
-1. Wybierz centrum zdarzeń **telemetrii sklepu.**
-1. Wyłącz **urządzenia** i **szablony urządzeń** w sekcji **Dane, aby wyeksportować.**
-1. Wybierz **pozycję Zapisz**.
+1. Zaloguj się do aplikacji do **analizy w sklepie — Wyewidencjonuj** IoT Central.
+1. W lewym okienku wybierz pozycję **eksport danych** .
+1. Wybierz pozycję **nowy > Azure Event Hubs**.
+1. Wprowadź wartość w polu _eksport danych telemetrycznych_ jako **nazwę wyświetlaną**.
+1. Wybierz **przestrzeń nazw Event Hubs**.
+1. Wybierz centrum zdarzeń w **sklepie — dane telemetryczne** .
+1. Wyłącz **urządzenia** i **Szablony urządzeń** w sekcji **dane do eksportowania** .
+1. Wybierz pozycję **Zapisz**.
 
-Eksport danych może potrwać kilka minut, aby rozpocząć wysyłanie danych telemetrycznych do centrum zdarzeń. Stan eksportu można zobaczyć na stronie **Eksportowanie danych:**
+Eksportowanie danych telemetrycznych do centrum zdarzeń może potrwać kilka minut. Stan eksportu można sprawdzić na stronie Eksport **danych** :
 
 ![Ciągła konfiguracja eksportu danych](./media/tutorial-in-store-analytics-visualize-insights/export-configuration.png)
 
-## <a name="create-the-power-bi-datasets"></a>Tworzenie zestawów danych usługi Power BI
+## <a name="create-the-power-bi-datasets"></a>Tworzenie zestawów danych Power BI
 
-Pulpit nawigacyjny usługi Power BI wyświetli dane z aplikacji do monitorowania sprzedaży detalicznej. W tym rozwiązaniu używasz zestawów danych przesyłania strumieniowego usługi Power BI jako źródła danych dla pulpitu nawigacyjnego usługi Power BI. W tej sekcji można zdefiniować schemat zestawów danych przesyłania strumieniowego, tak aby aplikacja logiki można przesyłać dalej dane z centrum zdarzeń. Poniższe kroki pokazują, jak utworzyć dwa zestawy danych przesyłania strumieniowego dla czujników środowiskowych i jeden zestaw danych przesyłania strumieniowego dla czujnika obłożenia:
+Pulpit nawigacyjny Power BI będzie wyświetlał dane z aplikacji do monitorowania handlu detalicznego. W tym rozwiązaniu można używać zestawów danych przesyłania strumieniowego Power BI jako źródła dla Power BI pulpitu nawigacyjnego. W tej sekcji zdefiniujesz Schemat zestawów danych przesyłania strumieniowego, dzięki czemu aplikacja logiki będzie mogła przekazywać dane z centrum zdarzeń. Poniższe kroki pokazują, jak utworzyć dwa zestawy danych przesyłania strumieniowego dla czujników środowiskowych i jeden zestaw danych przesyłania strumieniowego dla czujnika zajętości:
 
 1. Zaloguj się do swojego konta usługi **Power BI**.
-1. Wybierz pozycję **Obszary robocze**, a następnie wybierz pozycję **Utwórz obszar roboczy**.
-1. Na stronie **Tworzenie obszaru roboczego** wprowadź _pozycję Analiza w sklepie — wyewidencjonowanie_ jako **nazwa obszaru roboczego**.
-1. Przewiń do dołu strony Witamy na stronie **obszaru roboczego Analizy w sklepie — wyewidencjonuj,** a następnie wybierz pozycję **Pomiń**.
-1. Na stronie obszaru roboczego wybierz pozycję **Utwórz > zestaw danych przesyłania strumieniowego**.
-1. Na stronie **Nowy zestaw danych przesyłania strumieniowego** wybierz pozycję **API**, a następnie wybierz pozycję **Dalej**.
-1. Wprowadź _czujnik strefy 1_ jako **nazwę zestawu danych**.
+1. Wybierz pozycję **obszary robocze**, a następnie wybierz pozycję **Utwórz obszar roboczy**.
+1. Na stronie **Tworzenie obszaru roboczego** wprowadź wartość _w polu analiza w sklepie — Wyewidencjonuj_ jako **nazwę obszaru roboczego**.
+1. Przewiń do dołu strony **Witamy w obszarze roboczym analizy w sklepie — wyewidencjonowywanie** , a następnie wybierz pozycję **Pomiń**.
+1. Na stronie obszar roboczy wybierz pozycję **Utwórz zestaw danych przesyłania strumieniowego >**.
+1. Na stronie **Nowy zestaw danych przesyłania strumieniowego** wybierz pozycję **interfejs API**, a następnie wybierz przycisk **dalej**.
+1. Wprowadź _Strefa 1 czujnik_ jako **nazwę zestawu danych**.
 1. Wprowadź trzy **wartości ze strumienia** w poniższej tabeli:
 
     | Nazwa wartości  | Typ wartości |
@@ -114,76 +114,76 @@ Pulpit nawigacyjny usługi Power BI wyświetli dane z aplikacji do monitorowania
     | Wilgotność    | Liczba     |
     | Temperatura | Liczba     |
 
-1. **Włącz analizę danych historycznych.**
-1. Wybierz **pozycję Utwórz,** a następnie **gotowe**.
-1. Utwórz kolejny zestaw danych przesyłania strumieniowego o nazwie **Czujnik Strefy 2** z tym samym schematem i ustawieniami co zestaw danych strumieniowych **czujnika strefy 1.**
+1. Przełącz **analizę danych historycznych** .
+1. Wybierz pozycję **Utwórz** , a następnie przycisk **gotowe**.
+1. Utwórz inny zestaw danych przesyłania strumieniowego o nazwie **sensor strefa 2** z tym samym schematem i ustawieniami, co zestaw danych przesyłania strumieniowego **Strefa 1 czujnika** .
 
-Masz teraz dwa zestawy danych przesyłania strumieniowego. Aplikacja logiki będzie kierować dane telemetryczne z dwóch czujników środowiskowych podłączonych do **analizy w sklepie —** aplikacja do realizacji transakcji do tych dwóch zestawów danych:
+Masz teraz dwa zestawy danych przesyłania strumieniowego. Aplikacja logiki kieruje dane telemetryczne z dwóch czujników środowiska, podłączonych do aplikacji do **analizy w sklepie** , do tych dwóch zestawów danych:
 
 ![Zestawy danych strefy](./media/tutorial-in-store-analytics-visualize-insights/dataset-1.png)
 
-To rozwiązanie używa jednego zestawu danych przesyłania strumieniowego dla każdego czujnika, ponieważ nie jest możliwe zastosowanie filtrów do przesyłania strumieniowego danych w usłudze Power BI.
+To rozwiązanie używa jednego zestawu danych przesyłania strumieniowego dla każdego czujnika, ponieważ nie można zastosować filtrów do przesyłania strumieniowego danych w Power BI.
 
-Potrzebny jest również zestaw danych przesyłania strumieniowego dla danych telemetrycznych obłożenia:
+Wymagany jest również zestaw danych przesyłania strumieniowego dla telemetrii zajętości:
 
-1. Na stronie obszaru roboczego wybierz pozycję **Utwórz > zestaw danych przesyłania strumieniowego**.
-1. Na stronie **Nowy zestaw danych przesyłania strumieniowego** wybierz pozycję **API**, a następnie wybierz pozycję **Dalej**.
-1. Wprowadź _czujnik obłożenia_ jako **nazwę zestawu danych**.
-1. Wprowadź pięć **wartości ze strumienia** w poniższej tabeli:
+1. Na stronie obszar roboczy wybierz pozycję **Utwórz zestaw danych przesyłania strumieniowego >**.
+1. Na stronie **Nowy zestaw danych przesyłania strumieniowego** wybierz pozycję **interfejs API**, a następnie wybierz przycisk **dalej**.
+1. Wprowadź _czujnik zajętości_ jako **nazwę zestawu danych**.
+1. Wprowadź pięć **wartości ze strumienia** w następującej tabeli:
 
     | Nazwa wartości     | Typ wartości |
     | -------------- | ---------- |
     | Znacznik czasu      | DateTime   |
     | Długość kolejki 1 | Liczba     |
     | Długość kolejki 2 | Liczba     |
-    | Czas przebywania 1   | Liczba     |
-    | Czas przebywania 2   | Liczba     |
+    | Czas mieszkania 1   | Liczba     |
+    | Czas mieszkania 2   | Liczba     |
 
-1. **Włącz analizę danych historycznych.**
-1. Wybierz **pozycję Utwórz,** a następnie **gotowe**.
+1. Przełącz **analizę danych historycznych** .
+1. Wybierz pozycję **Utwórz** , a następnie przycisk **gotowe**.
 
-Masz teraz trzeci zestaw danych przesyłania strumieniowego, który przechowuje wartości z symulowanego czujnika obłożenia. Ten czujnik raportuje długość kolejki przy dwóch kasach w sklepie oraz czas oczekiwania klientów w tych kolejkach:
+Masz teraz trzeci zestaw danych przesyłania strumieniowego, który przechowuje wartości z czujnika symulowanego zajętości. Ten czujnik zgłasza długość kolejki w dwóch wyewidencjonowaniu w sklepie i jak długo klienci oczekują w tych kolejkach:
 
-![Zestaw danych o obłożeniem](./media/tutorial-in-store-analytics-visualize-insights/dataset-2.png)
+![Zestaw danych użytkowania](./media/tutorial-in-store-analytics-visualize-insights/dataset-2.png)
 
 ## <a name="create-a-logic-app"></a>Tworzenie aplikacji logiki
 
-W tym rozwiązaniu aplikacja logiki odczytuje dane telemetryczne z centrum zdarzeń, analizuje dane, a następnie wysyła je do utworzonych zestawów danych przesyłania strumieniowego usługi Power BI.
+W tym rozwiązaniu aplikacja logiki odczytuje dane telemetryczne z centrum zdarzeń, analizuje je, a następnie wysyła je do utworzonych zestawów danych przesyłania strumieniowego Power BI.
 
-Przed utworzeniem aplikacji logiki, należy identyfikatory urządzeń dwóch czujników RuuviTag podłączony do aplikacji IoT Central w [Tworzenie aplikacji analitycznej w sklepie w usłudze Azure IoT Central](./tutorial-in-store-analytics-create-app.md) samouczka:
+Przed utworzeniem aplikacji logiki potrzebne są identyfikatory urządzeń dwóch czujników RuuviTag podłączonych do aplikacji IoT Central w samouczku [Tworzenie aplikacji do analizy w sklepie na platformie Azure IoT Central](./tutorial-in-store-analytics-create-app.md) :
 
-1. Zaloguj się do **analizy w sklepie — wyewidencjonuj** aplikację IoT Central.
-1. Wybierz **pozycję Urządzenia** w lewym okienku. Następnie wybierz **RuuviTag**.
+1. Zaloguj się do aplikacji do **analizy w sklepie — Wyewidencjonuj** IoT Central.
+1. Wybierz pozycję **urządzenia** w lewym okienku. Następnie wybierz pozycję **RuuviTag**.
 1. Zanotuj **identyfikatory urządzeń**. Na poniższym zrzucie ekranu identyfikatory to **f5dcf4ac32e8** i **e29ffc8d5326**:
 
     ![Identyfikatory urządzeń](./media/tutorial-in-store-analytics-visualize-insights/device-ids.png)
 
-Poniższe kroki pokazują, jak utworzyć aplikację logiki w witrynie Azure portal:
+Poniższe kroki pokazują, jak utworzyć aplikację logiki w Azure Portal:
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) i wybierz pozycję **Utwórz zasób** w lewym górnym rogu ekranu.
-1. W **polu Wyszukaj w portalu Marketplace**wprowadź aplikację _Logika_, a następnie naciśnij **klawisz Enter**.
-1. Na stronie **Aplikacja logiki** wybierz pozycję **Utwórz**.
-1. Na stronie tworzenie **aplikacji logiki:**
-    * Wprowadź unikatową nazwę aplikacji logiki, taką jak _twojanazwa-retail-store-analysis_.
-    * Wybierz tę samą **subskrypcję,** która została użyta do utworzenia aplikacji IoT Central.
-    * Wybierz grupę zasobów **analizy sklepu detalicznego.**
-    * Wybierz tę samą lokalizację, która została użyta w aplikacji IoT Central.
-    * Wybierz **pozycję Utwórz**. Może być trzeba poczekać kilka minut na system do aprowizowania zasobów.
-1. W witrynie Azure portal przejdź do nowej aplikacji logiki.
-1. Na stronie **Projektant aplikacji logiki** przewiń w dół i wybierz pozycję **Pusta aplikacja logiki**.
-1. W **polu Wyszukaj łączniki i wyzwalacze**wprowadź centrum _zdarzeń_.
-1. W **obszarze Wyzwalacze**wybierz pozycję **Kiedy zdarzenia są dostępne w Centrum zdarzeń**.
-1. Wprowadź _dane telemetryczne Magazynu_ jako nazwę **połączenia**i wybierz obszar **nazw centrów zdarzeń**.
-1. Wybierz zasadę **RootManageSharedAccess** i wybierz pozycję **Utwórz**.
-1. W akcji **Kiedy zdarzenia są dostępne w Centrum zdarzeń:**
-    * W **nazwie Centrum zdarzeń**wybierz opcję przechowywanie danych **telemetrycznych**.
-    * W **obszarze Typ zawartości**wybierz **aplikację/json**.
-    * Ustaw **interwał** na trzy, a **częstotliwość** na sekundy
-1. Wybierz **pozycję Zapisz,** aby zapisać aplikację logiki.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **Utwórz zasób** w lewym górnym rogu ekranu.
+1. W obszarze **Wyszukaj w portalu Marketplace wprowadź wartość** _aplikacja logiki_, a następnie naciśnij klawisz **Enter**.
+1. Na stronie **aplikacja logiki** wybierz pozycję **Utwórz**.
+1. Na stronie Tworzenie **aplikacji logiki** :
+    * Wprowadź unikatową nazwę aplikacji logiki, taką jak nazwa _użytkownika-sprzedaż-magazyn-analiza_.
+    * Wybierz tę samą **subskrypcję** , która została użyta do utworzenia aplikacji IoT Central.
+    * Wybierz grupę zasobów **analizy handlu detalicznego** .
+    * Wybierz tę samą lokalizację, która była używana dla aplikacji IoT Central.
+    * Wybierz przycisk **Utwórz**. Może być konieczne odczekanie kilku minut, aż system udostępni Zasoby.
+1. W Azure Portal przejdź do nowej aplikacji logiki.
+1. Na stronie **projektanta Logic Apps** przewiń w dół i wybierz pozycję **pusta aplikacja logiki**.
+1. W obszarze **Wyszukaj łączniki i wyzwalacze**wpisz _Event Hubs_.
+1. W obszarze **wyzwalacze**wybierz opcję **gdy zdarzenia są dostępne w centrum zdarzeń**.
+1. Wprowadź dane _telemetryczne sklepu_ jako **nazwę połączenia**, a następnie wybierz **przestrzeń nazw Event Hubs**.
+1. Wybierz zasady **RootManageSharedAccess** i wybierz pozycję **Utwórz**.
+1. W akcji **gdy zdarzenia są dostępne w centrum zdarzeń** :
+    * W polu **nazwa centrum zdarzeń**wybierz pozycję **Magazyn-Telemetria**.
+    * W polu **Typ zawartości**wybierz pozycję **Application/JSON**.
+    * Ustaw **Interwał** na wartość 3 i **częstotliwość** na sekundy
+1. Wybierz pozycję **Zapisz** , aby zapisać aplikację logiki.
 
-Aby dodać logikę do projektu aplikacji logiki, wybierz **widok Kod:**
+Aby dodać logikę do projektu aplikacji logiki, wybierz pozycję **Widok kodu**:
 
-1. Wymień `"actions": {},` na następujący JSON. Wymień dwa `[YOUR RUUVITAG DEVICE ID 1]` symbole zastępcze i `[YOUR RUUVITAG DEVICE ID 2]` identyfikatory, które zanotowałeś w dwóch urządzeniach RuuviTag:
+1. Zamień `"actions": {},` na poniższy kod JSON. Zastąp dwa symbole `[YOUR RUUVITAG DEVICE ID 1]` zastępcze `[YOUR RUUVITAG DEVICE ID 2]` i identyfikatorami zanotowanymi dla dwóch urządzeń RuuviTag:
 
     ```json
     "actions": {
@@ -368,83 +368,83 @@ Aby dodać logikę do projektu aplikacji logiki, wybierz **widok Kod:**
     },
     ```
 
-1. Wybierz **pozycję Zapisz,** a następnie wybierz pozycję **Projektant,** aby wyświetlić wersję wizualną dodanej logiki:
+1. Wybierz pozycję **Zapisz** , a następnie wybierz pozycję **Projektant** , aby wyświetlić dodaną przez Ciebie wersję elementu logiki:
 
-    ![Projektowanie aplikacji logiki](./media/tutorial-in-store-analytics-visualize-insights/logic-app.png)
+    ![Projekt aplikacji logiki](./media/tutorial-in-store-analytics-visualize-insights/logic-app.png)
 
-1. Wybierz **opcję Przełącz według identyfikatora urządzenia,** aby rozwinąć akcję. Następnie wybierz **opcję Strefa 1 środowiska**i wybierz pozycję Dodaj **akcję**.
-1. W **polu Szukaj łączników i akcji**wprowadź program Power **BI**, a następnie naciśnij klawisz **Enter**.
-1. Zaznacz akcję **Dodaj wiersze do zestawu danych (podglądu).**
-1. Wybierz **pozycję Zaloguj się** i postępuj zgodnie z monitami, aby zalogować się na swoje konto usługi Power BI.
-1. Po zakończeniu procesu logowania w akcji **Dodaj wiersze do zestawu danych:**
-    * Wybierz **analitykę w sklepie — jako** obszar roboczy.
-    * Wybierz **czujnik strefy 1** jako zestaw danych.
+1. Wybierz pozycję **Przełącz według** ID, aby rozwinąć akcję. Następnie wybierz pozycję **środowisko Strefa 1**, a następnie wybierz pozycję **Dodaj akcję**.
+1. W obszarze **łączniki i akcje wyszukiwania**wprowadź **Power BI**, a następnie naciśnij klawisz **Enter**.
+1. Wybierz akcję **Dodaj wiersze do zestawu danych (wersja zapoznawcza)** .
+1. Wybierz pozycję **Zaloguj** i postępuj zgodnie z monitami, aby zalogować się do konta Power BI.
+1. Po zakończeniu procesu logowania w akcji **Dodaj wiersze do zestawu danych** :
+    * Wybierz pozycję **in-Store Analytics — wyewidencjonowywanie** jako obszar roboczy.
+    * Wybierz **Strefa 1 czujnik** jako zestaw danych.
     * Wybierz **RealTimeData** jako tabelę.
-    * Wybierz **pozycję Dodaj nowy parametr,** a następnie wybierz pola **Sygnatura** **czasowa, Wilgotność**i **Temperatura.**
-    * Zaznacz pole **Sygnatura czasowa,** a następnie wybierz **x-opt-enqueuedtime** z listy **Zawartość dynamiczna.**
-    * Zaznacz pole **Wilgotność,** a następnie wybierz pozycję **Zobacz więcej** obok **pozycji Analizuj dane telemetryczne**. Następnie wybierz **wilgotność**.
-    * Zaznacz pole **Temperatura,** a następnie wybierz pozycję **Zobacz więcej** obok **pozycji Analizuj dane telemetryczne**. Następnie wybierz **opcję Temperatura**.
-    * Wybierz przycisk **Zapisz**, aby zapisać zmiany. Akcja **środowiska strefa 1** wygląda następująco: ![Środowisko strefy 1](./media/tutorial-in-store-analytics-visualize-insights/zone-1-action.png)
-1. Wybierz akcję **Środowisko strefy 2** i wybierz pozycję **Dodaj akcję**.
-1. W **polu Szukaj łączników i akcji**wprowadź program Power **BI**, a następnie naciśnij klawisz **Enter**.
-1. Zaznacz akcję **Dodaj wiersze do zestawu danych (podglądu).**
-1. W akcji **Dodawanie wierszy do zestawu danych 2:**
-    * Wybierz **analitykę w sklepie — jako** obszar roboczy.
-    * Wybierz **czujnik strefy 2** jako zestaw danych.
+    * Wybierz pozycję **Dodaj nowy parametr** , a następnie wybierz pola **sygnatury czasowej**, **wilgotności**i **temperatury** .
+    * Zaznacz pole **sygnatura czasowa** , a następnie wybierz pozycję **x-opt-enqueuedtime** z listy **zawartość dynamiczna** .
+    * Zaznacz pole **wilgotność** , a następnie wybierz pozycję **Zobacz więcej** obok pozycji **Analizuj dane telemetryczne**. Następnie wybierz pozycję **wilgotność**.
+    * Wybierz pole **temperatura** , a następnie wybierz pozycję **Zobacz więcej** obok pozycji **Analizuj dane telemetryczne**. Następnie wybierz pozycję **temperatura**.
+    * Wybierz przycisk **Zapisz**, aby zapisać zmiany. Akcja **środowiska Strefa 1** wygląda następująco: ![Strefa 1 Environment](./media/tutorial-in-store-analytics-visualize-insights/zone-1-action.png)
+1. Wybierz akcję **środowiska strefa 2** , a następnie wybierz pozycję **Dodaj akcję**.
+1. W obszarze **łączniki i akcje wyszukiwania**wprowadź **Power BI**, a następnie naciśnij klawisz **Enter**.
+1. Wybierz akcję **Dodaj wiersze do zestawu danych (wersja zapoznawcza)** .
+1. W akcji **Dodaj wiersze do zestawu danych 2** :
+    * Wybierz pozycję **in-Store Analytics — wyewidencjonowywanie** jako obszar roboczy.
+    * Wybierz **strefa 2 Czujnik** jako zestaw danych.
     * Wybierz **RealTimeData** jako tabelę.
-    * Wybierz **pozycję Dodaj nowy parametr,** a następnie wybierz pola **Sygnatura** **czasowa, Wilgotność**i **Temperatura.**
-    * Zaznacz pole **Sygnatura czasowa,** a następnie wybierz **x-opt-enqueuedtime** z listy **Zawartość dynamiczna.**
-    * Zaznacz pole **Wilgotność,** a następnie wybierz pozycję **Zobacz więcej** obok **pozycji Analizuj dane telemetryczne**. Następnie wybierz **wilgotność**.
-    * Zaznacz pole **Temperatura,** a następnie wybierz pozycję **Zobacz więcej** obok **pozycji Analizuj dane telemetryczne**. Następnie wybierz **opcję Temperatura**.
-    Wybierz przycisk **Zapisz**, aby zapisać zmiany.  Akcja **środowiska strefy 2** wygląda następująco: ![Środowisko strefy 2](./media/tutorial-in-store-analytics-visualize-insights/zone-2-action.png)
-1. Wybierz akcję **Obłożenie,** a następnie wybierz akcję **Przełącz według identyfikatora interfejsu.**
-1. Wybierz akcję **interfejsu Czas przebywania** i wybierz pozycję **Dodaj akcję**.
-1. W **polu Szukaj łączników i akcji**wprowadź program Power **BI**, a następnie naciśnij klawisz **Enter**.
-1. Zaznacz akcję **Dodaj wiersze do zestawu danych (podglądu).**
-1. W akcji **Dodawanie wierszy do zestawu danych:**
-    * Wybierz **analitykę w sklepie — jako** obszar roboczy.
-    * Wybierz **opcję Czujnik obłożenia** jako zestaw danych.
+    * Wybierz pozycję **Dodaj nowy parametr** , a następnie wybierz pola **sygnatury czasowej**, **wilgotności**i **temperatury** .
+    * Zaznacz pole **sygnatura czasowa** , a następnie wybierz pozycję **x-opt-enqueuedtime** z listy **zawartość dynamiczna** .
+    * Zaznacz pole **wilgotność** , a następnie wybierz pozycję **Zobacz więcej** obok pozycji **Analizuj dane telemetryczne**. Następnie wybierz pozycję **wilgotność**.
+    * Wybierz pole **temperatura** , a następnie wybierz pozycję **Zobacz więcej** obok pozycji **Analizuj dane telemetryczne**. Następnie wybierz pozycję **temperatura**.
+    Wybierz przycisk **Zapisz**, aby zapisać zmiany.  Akcja **środowiska strefa 2** wygląda następująco: ![strefa 2 Environment](./media/tutorial-in-store-analytics-visualize-insights/zone-2-action.png)
+1. Wybierz akcję **zajętości** , a następnie wybierz akcję **przełączenia przez identyfikator interfejsu** .
+1. Wybierz akcję **interfejs czasu mieszkania** i wybierz pozycję **Dodaj akcję**.
+1. W obszarze **łączniki i akcje wyszukiwania**wprowadź **Power BI**, a następnie naciśnij klawisz **Enter**.
+1. Wybierz akcję **Dodaj wiersze do zestawu danych (wersja zapoznawcza)** .
+1. W akcji **Dodaj wiersze do zestawu danych** :
+    * Wybierz pozycję **in-Store Analytics — wyewidencjonowywanie** jako obszar roboczy.
+    * Wybierz **czujnik zajętości** jako zestaw danych.
     * Wybierz **RealTimeData** jako tabelę.
-    * Wybierz **pozycję Dodaj nowy parametr,** a następnie wybierz pola **Sygnatura czasowa**, **Czas przebywania 1**i **Czas przebywania 2.**
-    * Zaznacz pole **Sygnatura czasowa,** a następnie wybierz **x-opt-enqueuedtime** z listy **Zawartość dynamiczna.**
-    * Wybierz pole **Czas przebywania 1,** a następnie wybierz pozycję **Zobacz więcej** obok **pozycji Analizuj dane telemetryczne**. Następnie wybierz **DwellTime1**.
-    * Wybierz pole **Czas przebywania 2,** a następnie wybierz pozycję **Zobacz więcej** obok **pozycji Analizuj dane telemetryczne**. Następnie wybierz **DwellTime2**.
-    * Wybierz przycisk **Zapisz**, aby zapisać zmiany. Akcja **interfejsu Czasu przebywania** wygląda następująco: Akcja ![obłożenia](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
-1. Wybierz akcję **interfejsu Liczba osób** i wybierz pozycję Dodaj **akcję**.
-1. W **polu Szukaj łączników i akcji**wprowadź program Power **BI**, a następnie naciśnij klawisz **Enter**.
-1. Zaznacz akcję **Dodaj wiersze do zestawu danych (podglądu).**
-1. W akcji **Dodawanie wierszy do zestawu danych:**
-    * Wybierz **analitykę w sklepie — jako** obszar roboczy.
-    * Wybierz **opcję Czujnik obłożenia** jako zestaw danych.
+    * Wybierz pozycję **Dodaj nowy parametr** , a następnie wybierz pola **sygnatura**czasowa **1**i czas mieszkania oraz **2** .
+    * Zaznacz pole **sygnatura czasowa** , a następnie wybierz pozycję **x-opt-enqueuedtime** z listy **zawartość dynamiczna** .
+    * Wybierz pole **czas mieszkania 1** , a następnie wybierz pozycję **Zobacz więcej** obok pozycji **Analizuj dane telemetryczne**. Następnie wybierz pozycję **DwellTime1**.
+    * Wybierz pole **czas mieszkania 2** , a następnie wybierz pozycję **Zobacz więcej** obok pozycji **Analizuj dane telemetryczne**. Następnie wybierz pozycję **DwellTime2**.
+    * Wybierz przycisk **Zapisz**, aby zapisać zmiany. Akcja **interfejsu czasu mieszkania** wygląda jak na poniższym zrzucie ekranu: ![akcja zajętości](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
+1. Wybierz akcję **Liczba osób** , a następnie wybierz pozycję **Dodaj akcję**.
+1. W obszarze **łączniki i akcje wyszukiwania**wprowadź **Power BI**, a następnie naciśnij klawisz **Enter**.
+1. Wybierz akcję **Dodaj wiersze do zestawu danych (wersja zapoznawcza)** .
+1. W akcji **Dodaj wiersze do zestawu danych** :
+    * Wybierz pozycję **in-Store Analytics — wyewidencjonowywanie** jako obszar roboczy.
+    * Wybierz **czujnik zajętości** jako zestaw danych.
     * Wybierz **RealTimeData** jako tabelę.
-    * Wybierz **pozycję Dodaj nowy parametr,** a następnie wybierz pola **Sygnatura czasowa**, **Długość kolejki 1**i **Długość kolejki 2.**
-    * Zaznacz pole **Sygnatura czasowa,** a następnie wybierz **x-opt-enqueuedtime** z listy **Zawartość dynamiczna.**
-    * Zaznacz pole **Długość kolejki 1,** a następnie wybierz pozycję **Zobacz więcej** obok **pozycji Analizowanie danych telemetrycznych**. Następnie wybierz **count1**.
-    * Zaznacz pole **Długość kolejki 2,** a następnie wybierz pozycję **Zobacz więcej** obok **pozycji Analizowanie danych telemetrycznych**. Następnie wybierz **count2**.
-    * Wybierz przycisk **Zapisz**, aby zapisać zmiany. Akcja **interfejsu Liczba osób** wygląda następująco na zrzucie ekranu: ![Akcja obłożenia](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-2.png)
+    * Wybierz pozycję **Dodaj nowy parametr** , a następnie wybierz pola **sygnatura czasowa**, **Długość kolejki 1**i **Długość kolejki 2** .
+    * Zaznacz pole **sygnatura czasowa** , a następnie wybierz pozycję **x-opt-enqueuedtime** z listy **zawartość dynamiczna** .
+    * Zaznacz pole **Długość kolejki 1** , a następnie wybierz pozycję **Zobacz więcej** obok pozycji **Analizuj dane telemetryczne**. Następnie wybierz pozycję **count1**.
+    * Wybierz pole **Długość kolejki 2** , a następnie wybierz pozycję **Zobacz więcej** obok pozycji **Analizuj dane telemetryczne**. Następnie wybierz pozycję **count2**.
+    * Wybierz przycisk **Zapisz**, aby zapisać zmiany. Akcja **interfejsu liczba osób** wygląda jak na poniższym zrzucie ekranu: ![akcja zajętości](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-2.png)
 
-Aplikacja logiki działa automatycznie. Aby wyświetlić stan każdego uruchomienia, przejdź do strony **Przegląd** aplikacji logiki w witrynie Azure Portal:
+Aplikacja logiki zostanie uruchomiona automatycznie. Aby wyświetlić stan każdego przebiegu, przejdź do strony **Przegląd** dla aplikacji logiki w Azure Portal:
 
-## <a name="create-a-power-bi-dashboard"></a>Tworzenie pulpitu nawigacyjnego usługi Power BI
+## <a name="create-a-power-bi-dashboard"></a>Tworzenie pulpitu nawigacyjnego Power BI
 
-Teraz masz dane telemetryczne płynące z aplikacji IoT Central za pośrednictwem centrum zdarzeń. Następnie aplikacja logiki analizuje komunikaty centrum zdarzeń i dodaje je do zestawu danych przesyłania strumieniowego usługi Power BI. Teraz można utworzyć pulpit nawigacyjny usługi Power BI do wizualizacji danych telemetrycznych:
+Teraz dane telemetryczne są przesyłane z aplikacji IoT Central za pośrednictwem centrum zdarzeń. Następnie aplikacja logiki analizuje komunikaty centrum zdarzeń i dodaje je do Power BI zestawu danych przesyłania strumieniowego. Teraz możesz utworzyć pulpit nawigacyjny Power BI, aby wizualizował dane telemetryczne:
 
 1. Zaloguj się do swojego konta usługi **Power BI**.
-1. Wybierz **obszary robocze > analityki w sklepie — wyewidencjonowanie**.
-1. Wybierz pozycję **Utwórz > pulpit nawigacyjny**.
-1. Wprowadź **analizę sklepu** jako nazwę pulpitu nawigacyjnego i wybierz pozycję **Utwórz**.
+1. Wybierz **obszary robocze > analizy w sklepie — wyewidencjonowanie**.
+1. Wybierz pozycję **Utwórz pulpit nawigacyjny >**.
+1. Wprowadź wartość w polu **Analiza sklepu** jako nazwę pulpitu nawigacyjnego, a następnie wybierz pozycję **Utwórz**.
 
-### <a name="add-line-charts"></a>Dodawanie wykresów liniowych
+### <a name="add-line-charts"></a>Dodaj wykresy liniowe
 
-Dodaj cztery płytki wykresu liniowego, aby pokazać temperaturę i wilgotność z dwóch czujników środowiskowych. Użyj informacji w poniższej tabeli, aby utworzyć kafelki. Aby dodać każdy kafelek, zacznij od wybrania **... (Więcej opcji) > Dodaj kafelek**. Wybierz **pozycję Niestandardowe dane przesyłania strumieniowego**, a następnie wybierz pozycję **Dalej:**
+Dodaj cztery kafelki wykresu liniowego, aby pokazać temperaturę i wilgotność z dwóch czujników środowiska. Użyj informacji podanych w poniższej tabeli, aby utworzyć kafelki. Aby dodać każdy kafelek, Zacznij od wybrania **... (Więcej opcji) > dodać kafelek**. Wybierz pozycję **niestandardowe dane przesyłane strumieniowo**, a następnie wybierz pozycję **dalej**:
 
-| Ustawienie | Wykres #1 | Wykres #2 | Wykres #3 | #4 wykresu |
+| Ustawienie | #1 wykresu | #2 wykresu | #3 wykresu | #4 wykresu |
 | ------- | -------- | -------- | -------- | -------- |
-| Dataset | Czujnik strefy 1 | Czujnik strefy 1 | Czujnik strefy 2 | Czujnik strefy 2 |
+| Dataset | Czujnik Strefa 1 | Czujnik Strefa 1 | Czujnik Strefa 2 | Czujnik Strefa 2 |
 | Typ wizualizacji | Wykres liniowy | Wykres liniowy | Wykres liniowy | Wykres liniowy |
 | Oś | Znacznik czasu | Znacznik czasu | Znacznik czasu | Znacznik czasu |
 | Wartości | Temperatura | Wilgotność | Temperatura | Wilgotność |
-| Okno czasu | 60 min. | 60 min. | 60 min. | 60 min. |
+| Przedział czasu | 60 minut | 60 minut | 60 minut | 60 minut |
 | Tytuł | Temperatura (1 godzina) | Wilgotność (1 godzina) | Temperatura (1 godzina) | Wilgotność (1 godzina) |
 | Podtytuł | Strefa 1 | Strefa 1 | Strefa 2 | Strefa 2 |
 
@@ -452,13 +452,13 @@ Poniższy zrzut ekranu przedstawia ustawienia pierwszego wykresu:
 
 ![Ustawienia wykresu liniowego](./media/tutorial-in-store-analytics-visualize-insights/line-chart.png)
 
-### <a name="add-cards-to-show-environmental-data"></a>Dodawanie kart do pokazania danych środowiskowych
+### <a name="add-cards-to-show-environmental-data"></a>Dodawanie kart do wyświetlania danych o środowisku
 
-Dodaj cztery płytki karty, aby wyświetlić najnowsze wartości temperatury i wilgotności z dwóch czujników środowiskowych. Użyj informacji w poniższej tabeli, aby utworzyć kafelki. Aby dodać każdy kafelek, zacznij od wybrania **... (Więcej opcji) > Dodaj kafelek**. Wybierz **pozycję Niestandardowe dane przesyłania strumieniowego**, a następnie wybierz pozycję **Dalej:**
+Dodaj cztery kafelki kart, aby wyświetlić najnowsze wartości temperatury i wilgotności z dwóch czujników środowiska. Użyj informacji podanych w poniższej tabeli, aby utworzyć kafelki. Aby dodać każdy kafelek, Zacznij od wybrania **... (Więcej opcji) > dodać kafelek**. Wybierz pozycję **niestandardowe dane przesyłane strumieniowo**, a następnie wybierz pozycję **dalej**:
 
 | Ustawienie | #1 karty | #2 karty | #3 karty | #4 karty |
 | ------- | ------- | ------- | ------- | ------- |
-| Dataset | Czujnik strefy 1 | Czujnik strefy 1 | Czujnik strefy 2 | Czujnik strefy 2 |
+| Dataset | Czujnik Strefa 1 | Czujnik Strefa 1 | Czujnik Strefa 2 | Czujnik Strefa 2 |
 | Typ wizualizacji | Karta | Karta | Karta | Karta |
 | Pola | Temperatura | Wilgotność | Temperatura | Wilgotność |
 | Tytuł | Temperatura (F) | Wilgotność (%) | Temperatura (F) | Wilgotność (%) |
@@ -468,41 +468,41 @@ Poniższy zrzut ekranu przedstawia ustawienia pierwszej karty:
 
 ![Ustawienia karty](./media/tutorial-in-store-analytics-visualize-insights/card-settings.png)
 
-### <a name="add-tiles-to-show-checkout-occupancy-data"></a>Dodawanie kafelków w celu wyświetlenia danych obłożenia wyewidencjonowywanych
+### <a name="add-tiles-to-show-checkout-occupancy-data"></a>Dodaj kafelki, aby pokazać dane dotyczące operacji wyewidencjonowania
 
-Dodaj cztery kafelki kart, aby wyświetlić długość kolejki i czas przebywania dla dwóch transakcji w sklepie. Użyj informacji w poniższej tabeli, aby utworzyć kafelki. Aby dodać każdy kafelek, zacznij od wybrania **... (Więcej opcji) > Dodaj kafelek**. Wybierz **pozycję Niestandardowe dane przesyłania strumieniowego**, a następnie wybierz pozycję **Dalej:**
+Dodaj cztery kafelki kart, aby wyświetlić długość kolejki i czas mieszkania dla dwóch operacji wyewidencjonowania w sklepie. Użyj informacji podanych w poniższej tabeli, aby utworzyć kafelki. Aby dodać każdy kafelek, Zacznij od wybrania **... (Więcej opcji) > dodać kafelek**. Wybierz pozycję **niestandardowe dane przesyłane strumieniowo**, a następnie wybierz pozycję **dalej**:
 
 | Ustawienie | #1 karty | #2 karty | #3 karty | #4 karty |
 | ------- | ------- | ------- | ------- | ------- |
-| Dataset | Czujnik obłożenia | Czujnik obłożenia | Czujnik obłożenia | Czujnik obłożenia |
+| Dataset | Czujnik zajętości | Czujnik zajętości | Czujnik zajętości | Czujnik zajętości |
 | Typ wizualizacji | Wykres kolumnowy grupowany | Wykres kolumnowy grupowany | Miernik | Miernik |
 | Oś    | Znacznik czasu | Znacznik czasu | Nie dotyczy | Nie dotyczy |
-| Wartość | Czas przebywania 1 | Czas przebywania 2 | Długość kolejki 1 | Długość kolejki 2 |
-| Okno czasu | 60 min. | 60 min. |  Nie dotyczy | Nie dotyczy |
-| Tytuł | Czas przebywania | Czas przebywania | Długość kolejki | Długość kolejki |
-| Podtytuł | Kasa 1 | Kasa 2 | Kasa 1 | Kasa 2 |
+| Wartość | Czas mieszkania 1 | Czas mieszkania 2 | Długość kolejki 1 | Długość kolejki 2 |
+| Przedział czasu | 60 minut | 60 minut |  Nie dotyczy | Nie dotyczy |
+| Tytuł | Czas mieszkania | Czas mieszkania | Długość kolejki | Długość kolejki |
+| Podtytuł | Wyewidencjonowanie 1 | Wyewidencjonowanie 2 | Wyewidencjonowanie 1 | Wyewidencjonowanie 2 |
 
-Zmień rozmiar i zmień kolejność kafelków na pulpicie nawigacyjnym, aby wyglądały następująco:
+Zmień rozmiar i Rozmieść kafelki na pulpicie nawigacyjnym tak, aby wyglądały tak jak na poniższym zrzucie ekranu:
 
 ![Pulpit nawigacyjny usługi Power BI](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
 
-Można dodać kilka dodatkowych zasobów graficznych, aby jeszcze bardziej dostosować pulpit nawigacyjny:
+Możesz dodać kilka dodatkowych zasobów graficznych, aby dodatkowo dostosować pulpit nawigacyjny:
 
 ![Pulpit nawigacyjny usługi Power BI](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard-graphics.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli aplikacja IoT Central została ukończona, możesz ją usunąć, logując się do aplikacji i przechodząc do strony **Ustawienia aplikacji** w sekcji **Administracja.**
+Jeśli zakończysz pracę z aplikacją IoT Central, możesz ją usunąć, logując się do aplikacji i przechodząc do strony **Ustawienia aplikacji** w sekcji **Administracja** .
 
-Jeśli chcesz zachować aplikację, ale zmniejszyć koszty skojarzone z nią, należy wyłączyć eksport danych, który wysyła dane telemetryczne do centrum zdarzeń.
+Jeśli chcesz zachować aplikację, ale zmniejsz koszty związane z nią, wyłącz eksport danych, który wysyła dane telemetryczne do centrum zdarzeń.
 
-Centrum zdarzeń i aplikację logiki można usunąć w portalu Azure, usuwając grupę zasobów o nazwie **retail-store-analysis**.
+Możesz usunąć centrum zdarzeń i aplikację logiki w Azure Portal, usuwając grupę zasobów o nazwie **Retail-Store-Analysis**.
 
-Zestawy danych i pulpit nawigacyjny usługi Power BI można usunąć, usuwając obszar roboczy ze strony ustawień usługi Power BI dla obszaru roboczego.
+Możesz usunąć Power BI zestawy danych i pulpit nawigacyjny, usuwając obszar roboczy ze strony Ustawienia Power BI dla obszaru roboczego.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Te trzy samouczki pokazały kompleksowe rozwiązanie, które używa szablonu aplikacji **In-Store analytics — checkout** IoT Central. Podłączono urządzenia do aplikacji, użyto usługi IoT Central do monitorowania urządzeń i użyto usługi Power BI do utworzenia pulpitu nawigacyjnego w celu wyświetlenia szczegółowych informacji z danych telemetrycznych urządzenia. Zalecanym następnym krokiem jest zbadanie jednego z innych szablonów aplikacji IoT Central:
+Te trzy samouczki pokazują kompleksowe rozwiązanie, które korzysta z szablonu aplikacji **do analizy w sklepie — wyewidencjonowywanie** IoT Central. Urządzenia zostały podłączone do aplikacji, używane IoT Central do monitorowania urządzeń i używane Power BI do tworzenia pulpitu nawigacyjnego w celu wyświetlenia szczegółowych informacji na podstawie danych telemetrycznych urządzenia. Zalecanym następnym krokiem jest zapoznanie się z jednym z innych IoT Central szablonów aplikacji:
 
 > [!div class="nextstepaction"]
 > * [Tworzenie rozwiązań dla branży energetycznej za pomocą usługi IoT Central](../energy/overview-iot-central-energy.md)

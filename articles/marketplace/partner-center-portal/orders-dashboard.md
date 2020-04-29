@@ -1,6 +1,6 @@
 ---
-title: Pulpit nawigacyjny zamówień centrum partnerów w analizie w portalu Marketplace komercyjnym
-description: Dowiedz się, jak uzyskać dostęp do raportów analitycznych dotyczących zamówień oferowanych w portalu marketplace w formacie graficznym i do pobrania.
+title: Pulpit nawigacyjny zamówień Centrum partnerskiego w komercyjnej analizie Marketplace
+description: Dowiedz się, jak uzyskać dostęp do raportów analitycznych zamówień oferowanych w portalu Marketplace w formacie graficznym i do pobrania.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,126 +8,126 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: 148b80a6843168b11e4feb3558f6bf08eaeb3ace
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81261265"
 ---
-# <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny zamówień w analizie rynku komercyjnego
+# <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny zamówień w komercyjnej analizie Marketplace
 
-Ten artykuł zawiera informacje na **pulpicie nawigacyjnym zamówień** w Centrum partnerów. Ten pulpit nawigacyjny wyświetla informacje o zamówieniach w formacie graficznym i do pobrania.
+Ten artykuł zawiera informacje na temat **pulpitu nawigacyjnego zamówienia** w centrum partnerskim. Ten pulpit nawigacyjny wyświetla informacje o zamówieniach w formacie graficznym i do pobrania.
 
-Aby uzyskać dostęp do **pulpitu nawigacyjnego Zamówienia** w narzędziach analitycznych Centrum **[partnerów,](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** otwórz pulpit nawigacyjny Analizy w obszarze Rynek komercyjny.
+Aby uzyskać dostęp do **pulpitu nawigacyjnego Orders** w narzędziach do analiz Centrum partnerskiego, Otwórz **[pulpit nawigacyjny Analizuj](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** w obszarze komercyjny Portal Marketplace.
 
 >[!NOTE]
-> Szczegółowe definicje terminologii analitycznej można znaleźć w części [Często zadawane pytania i terminologia dotyczące analizy rynku komercyjnego.](./faq-terminology.md)
+> Aby uzyskać szczegółowe definicje terminologii dotyczącej analizy, zobacz [często zadawane pytania i terminologię dotyczącą komercyjnej analizy portalu Marketplace](./faq-terminology.md).
 
 ## <a name="orders-dashboard"></a>Pulpit nawigacyjny Zamówienia
 
-**Pulpit nawigacyjny Zamówień** w menu **Analizuj** wyświetla bieżące zamówienia dla wszystkich ofert SaaS. Można wyświetlić graficzne reprezentacje następujących elementów:
+**Pulpit nawigacyjny zamówienia** w menu **Analizuj** zawiera bieżące zamówienia dla wszystkich ofert SaaS. Można wyświetlić graficzne reprezentacje następujących elementów:
 
-- [Podsumowanie zamówienia](#order-summary)
-- [Zamówienia według geografii](#orders-by-geography)
-- [Zamówienia według ofert](#orders-by-offers)
-- [Tendencja zamówień na witrynę w porównaniu z zakładem](#orders-trend-per-site-versus-per-seat)
-- [Zamówienia przez jednostki SKU](#orders-by-skus)
-- [Tendencja zamówień i miejsc](#orders-and-seats-trend)
+- [Zamów podsumowanie](#order-summary)
+- [Zamówienia według położenia geograficznego](#orders-by-geography)
+- [Zamówienia według oferty](#orders-by-offers)
+- [Trend zamówień na lokację, a na stanowisko](#orders-trend-per-site-versus-per-seat)
+- [Zamówienia według jednostek SKU](#orders-by-skus)
+- [Trend zamówień i siedzeń](#orders-and-seats-trend)
 - [Tabela szczegółów zamówienia](#order-details-table)
 
 > [!NOTE]
-> Istnieją różnice między wyświetlaniem raportów analitycznych w portalu Cloud Partner Portal (CPP) a nowym programem dla rynków komercyjnych w Centrum partnerów. Jednym z konkretnych sposobów jest to, że **Insights sprzedawcy** w CPP ma **zamówienie & użycie** karty, która wyświetla dane dla ofert opartych na użyciu i ofert nieopartych na użyciu. W Centrum **partnerów** strona Zamówienia ma osobną kartę dla ofert SaaS.
+> Istnieją różnice między sposobami wyświetlania raportów analizy w portal Cloud Partner (CPP) i nowym komercyjnym programie Marketplace w centrum partnerskim. Jednym z nich jest to, że informacje dostępne dla **sprzedającego** w programie CPP mają kartę **użycie zamówienia &** , która wyświetla dane dla ofert opartych na użyciu i nieopartych na użyciu. W centrum partnerskim strona **zamówienia** ma osobną kartę dla ofert SaaS.
 
-## <a name="order-dashboard-details"></a>Szczegóły pulpitu nawigacyjnego zamówienia
+## <a name="order-dashboard-details"></a>Szczegóły kolejności pulpitu nawigacyjnego
 
-W tej sekcji opisano raporty analityczne bardziej szczegółowo.
+W tej sekcji szczegółowo opisano raporty analityczne.
 
-### <a name="order-summary"></a>Podsumowanie zamówienia
+### <a name="order-summary"></a>Zamów podsumowanie
 
-W sekcji Podsumowanie zamówienia wyświetlana jest liczba wszystkich zakupionych zamówień (z wyłączeniem anulowanych zamówień), anulowanych zamówień i miejsc.
+Sekcja podsumowania zamówienia zawiera liczbę wszystkich zakupionych zamówień (z pominięciem zamówień anulowanych), zamówień anulowanych i siedzeń.
 
-Wartość procentowa obok pozycji Łączna liczba zamówień reprezentuje kwotę wzrostu wybranego zakresu dat.
+Wartość procentowa obok sumy zamówień reprezentuje stopień wzrostu wybranego zakresu dat.
 
-![Podsumowanie zamówienia analizy centrum partnerów](./media/order-summary.png)
+![Podsumowanie zamówienia Centrum partnerskiego](./media/order-summary.png)
 
 - Zielony trójkąt skierowany w górę wskazuje na pozytywny trend wzrostu.
-- Czerwony trójkąt skierowany w dół wskazuje na ujemny trend wzrostu w stosunku do poprzedniego miesiąca.
-- Trendy wzrostu są reprezentowane przez mikrobargrafy. Wartość każdego miesiąca można wyświetlić, najeżdżając kursorem na kolumny na wykresie.
-- Anulowane zamówienia to liczba zamówień, które zostały wcześniej zakupione, a następnie anulowane w wybranym zakresie dat.
-- Liczba miejsc jest liczbą miejsc utworzonych w wybranym zakresie dat.
+- Czerwony trójkąt skierowany w dół wskazuje negatywny trend wzrostu względem poprzedniego miesiąca.
+- Trendy wzrostu są reprezentowane przez wykresy mikro bar. Możesz wyświetlić wartość dla każdego miesiąca, umieszczając kursor nad kolumnami na wykresie.
+- Zamówienia anulowane to liczba zamówień, które zostały wcześniej zakupione, a następnie anulowane w wybranym zakresie dat.
+- Stanowiska to liczba siedzeń utworzonych w wybranym zakresie dat.
 
-### <a name="orders-by-geography"></a>Zamówienia według geografii
+### <a name="orders-by-geography"></a>Zamówienia według położenia geograficznego
 
-Mapa cieplna **Zamówienia według lokalizacji** pokazuje liczbę zamówień na mapie świata i pokazuje miejsca mapowane na podstawie kraju klienta. Ta mapa cieplna działa tak samo jak **[klient według mapy cieplnej geografii](./customer-dashboard.md#customer-by-geography)**.
+Mapę cieplną **Orders by geography** wyświetla liczbę zamówień na mapie światowej i przedstawia stanowiska zamapowane na podstawie kraju klienta. Ta mapę cieplną działa tak samo jak **[Klient według położenia geograficznego mapę cieplną](./customer-dashboard.md#customer-by-geography)**.
 
-![Centrum partnerów Analizuj zamówienia według lokalizacji geograficznej](./media/orders-by-geography.png)
+![Centrum partnerskie — analizowanie zamówień według lokalizacji geograficznej](./media/orders-by-geography.png)
 
-### <a name="orders-by-offers"></a>Zamówienia według ofert
+### <a name="orders-by-offers"></a>Zamówienia według oferty
 
-**Wykres Zamówień według ofert** organizuje zamówienia (w tym anulowane zamówienia) zgodnie z ich nazwami ofert.
+Wykres pierścieniowy **zamówienia według oferty** organizuje zamówienia (w tym anulowane zamówienia) zgodnie z ich nazwami ofert.
 
-- Najlepsze oferty są wyświetlane na wykresie, a pozostałe oferty są pogrupowane jako "Rest All".
-- Możesz wybrać konkretne oferty w legendzie, aby wyświetlić tylko te oferty na wykresie.
-- Najechanie kursorem na wycinkę na wykresie spowoduje wyświetlenie liczby zamówień i procentu tej oferty w porównaniu z całkowitą liczbą zamówień we wszystkich ofertach.
-- Trend **zamówień według ofert** wyświetla trendy wzrostu z miesiąca na miesiąc. Kolumna miesiąc reprezentuje liczbę zamówień według nazwy oferty. Na wykresie liniowym jest wyświetlany trend procentowy wzrostu wykreślony na osi z.
-- Suwaka u góry wykresu można użyć, aby przewinąć w prawo i w lewo wzdłuż osi x i skupić się na określonych punktach danych.
-- Wykres trendu można wyświetlić, wybierając określony element w legendzie.
-- Można również wybrać wyświetlanie trendów i danych dla **anulowanych zamówień**. Wykres będzie funkcjonował w taki sam sposób, jak zamówienia według wykresu **ofert.**
+- Najważniejsze oferty są wyświetlane na wykresie, a pozostałe oferty są pogrupowane jako "REST All".
+- Możesz wybrać konkretne oferty w legendzie, aby wyświetlić tylko te oferty na grafie.
+- Umieszczenie kursora na wycinku na wykresie spowoduje wyświetlenie liczby zamówień i procentu oferty w porównaniu do łącznej liczby zamówień w ramach wszystkich ofert.
+- **Trend zamówień według oferty** przedstawia trendy dotyczące wzrostu miesiąca. Kolumna month reprezentuje liczbę zamówień według nazwy oferty. Na wykresie liniowym jest wyświetlany trend procentu wzrostu wykreślony na osi z.
+- Możesz użyć suwaka w górnej części wykresu, aby przewinąć w prawo i w lewo wzdłuż osi x i skupić się na określonych punktach danych.
+- Możesz wyświetlić wykres trendu, wybierając konkretny element w legendzie.
+- Możesz również wybrać, aby wyświetlić trendy i dane dla **anulowanych zamówień**. Wykres będzie działać w taki sam sposób, jak Graf **Orders by offers** .
 
-### <a name="orders-trend-per-site-versus-per-seat"></a>Zamówienia Trend na witrynę w porównaniu z miejscem
+### <a name="orders-trend-per-site-versus-per-seat"></a>Trend zamówień na lokację, a na stanowisko
 
-Wykres pączka **na miejsce w porównaniu do pączka na miejsce** reprezentuje podział na witrynę SaaS i na miejsce zamówienia SaaS zakupione przez klientów (ten wykres obejmuje anulowane zamówienia). Wykres kolumnowy reprezentuje trend dla zamówień SaaS dla witryn i na miejsce SaaS zakupionych przez klientów (ten wykres obejmuje anulowane zamówienia).
+Wykres pierścieniowy na lokację, a dla każdego **stanowiska na kanapie** reprezentuje podział na SaaSą witryny i zamówienia SaaS zakupione przez klientów (ten wykres zawiera anulowane zamówienia). Wykres kolumnowy reprezentuje trend dla SaaS lokacji i zamówień SaaS zamówionych przez klientów (ten wykres zawiera anulowane zamówienia).
 
-### <a name="orders-by-skus"></a>Zamówienia przez jednostki SKU
+### <a name="orders-by-skus"></a>Zamówienia według jednostek SKU
 
-Wykres **Zamówienia według jednostek SKU** reprezentuje trend zamówień na poziomie Jednostki SKU dla wszystkich ofert (dotyczy to anulowanych zamówień). Wykres pierścieniowy reprezentuje podział pięciu pierwszych zamówień jednostek SKU, a wykres kolumnowy reprezentuje trend zamówień dla pięciu największych jednostek SKU.
+Wykres **Orders by SKU** reprezentuje trend zamówień na poziomie jednostki składowania (SKU) dla wszystkich ofert (obejmuje to zamówienia anulowane). Wykres pierścieniowy reprezentuje podział pierwszych pięciu zamówień SKU, a wykres kolumnowy reprezentuje trend zamówień dla pięciu głównych jednostek SKU.
 
-### <a name="orders-and-seats-trend"></a>Trend zamówień i miejsc
+### <a name="orders-and-seats-trend"></a>Trend zamówień i siedzeń
 
-Wykres **trendu zamówień i miejsc** przedstawia 50 najlepszych ofert z największą liczbą zamówień. Są one wyświetlane na tablicy liderów i są sortowane według najwyższej liczby zamówień i procentu zamówienia.
+Wykres **trendów zamówień i siedzeń** przedstawia najpopularniejsze oferty 50 o najwyższej liczbie zamówień. Są one wyświetlane na tablicy lidera i są posortowane według najwyższej liczby porządkowej i procentowej kolejności.
 
-- **Zamówienia według jednostek SKU**: Wybierz ofertę, aby wyświetlić podział liczby zamówień dla pięciu największych jednostek SKU na wykresie.
-- **Miejsca według jednostek SKU**: Miesięczny trend siedzeń dla pięciu największych jednostek SKU. Jeśli wybrana oferta nie jest ofertą na miejsce, nie zobaczysz żadnych danych na tym wykresie warstwowym.
+- **Zamówienia według jednostek SKU**: wybierz ofertę, aby wyświetlić podział liczby zamówień dla pięciu głównych jednostek SKU na wykresie.
+- **Stanowiska według jednostek SKU**: miesięczny trend siedzeń dla pięciu pierwszych jednostek SKU. Jeśli wybrana oferta nie jest ofertą na stanowisko, na tym wykresie warstwowym nie będą widoczne żadne dane.
 
-### <a name="canceled-orders-by-offers"></a>Anulowane zamówienia według ofert
+### <a name="canceled-orders-by-offers"></a>Zamówienia anulowane według ofert
 
-Wykres kołowy **Anulowane zamówienia według ofert** organizuje wszystkie anulowane zamówienia zgodnie z ich nazwami ofert. Najlepsze oferty są wyświetlane na wykresie, a pozostałe oferty są pogrupowane jako "Rest All". W legendzie można wybrać określone oferty do wyświetlenia na wykresie.
+Wykres kołowy **anulowania zamówień według oferty** organizuje wszystkie anulowane zamówienia zgodnie z ich nazwami ofert. Najważniejsze oferty są wyświetlane na wykresie, a pozostałe oferty są pogrupowane jako "REST All". Możesz wybrać konkretne oferty w legendzie, aby wyświetlić je na wykresie.
 
-- Najechanie kursorem na wycinkę na wykresie spowoduje wyświetlenie liczby zamówień i procentu wybranej oferty w porównaniu z całkowitą liczbą zamówień we wszystkich ofertach.
-- Na wykresie kolumnowym są wyświetlane trendy miesiąc po miesiącu. Kolumny reprezentują liczbę anulowanych zamówień według nazwy oferty. Suwaka u góry wykresu można użyć, aby przewinąć w prawo i w lewo wzdłuż osi x i skupić się na określonych punktach danych. Wykres trendu można wyświetlić, wybierając określony element w legendzie.
+- Umieszczenie kursora na wycinku na wykresie spowoduje wyświetlenie liczby zamówień i procent wybranej oferty w porównaniu do łącznej liczby zamówień we wszystkich ofertach.
+- Wykres kolumnowy zawiera trendy dotyczące miesiąca. Kolumny reprezentują liczbę anulowanych zamówień według nazwy oferty. Możesz użyć suwaka na górze wykresu, aby przewinąć w prawo i w lewo wzdłuż osi x i skupić się na określonych punktach danych. Możesz wyświetlić wykres trendu, wybierając konkretny element w legendzie.
 
 ### <a name="order-details-table"></a>Tabela szczegółów zamówienia
 
-W tabeli Szczegóły zamówienia jest wyświetlana ponumerowana lista 1000 najwyższych zamówień posortowanych według daty nabycia.
+W tabeli Order Details (szczegóły zamówienia) wyświetlana jest lista numerowana zamówień z 1000 góry posortowanych według daty nabycia.
 
-- Każdą kolumnę w siatce można sortować.
+- Każda kolumna w siatce jest do sortowania.
 - Dane można wyodrębnić do pliku TSV, jeśli liczba rekordów jest mniejsza niż 1000.
-- Jeśli liczba rekordów ponad 1000, eksportowane dane zostaną asynchronicznie umieszczone na stronie pobierania przez następne 30 dni.
-- Filtry można zastosować do **tabeli Szczegóły zamówienia,** aby wyświetlić tylko dane, które Cię interesują. Dane mogą być filtrowane według kraju, typu licencji platformy Azure, typu licencji w portalu Marketplace, typu oferty, stanu zamówienia, bezpłatnych śladów, identyfikatora subskrypcji portalu Marketplace, identyfikatora klienta i nazwy firmy.
+- Jeśli liczba rekordów przekracza 1000, eksportowane dane będą asynchroniczne umieszczane na stronie pobierania przez następne 30 dni.
+- Filtry można zastosować do **tabeli Order Details** , aby wyświetlić tylko te dane, które Cię interesują. Dane można filtrować według kraju, typu licencji platformy Azure, typu licencji Marketplace, typu oferty, stanu zamówienia, bezpłatnych identyfikatorów, identyfikatora subskrypcji witryny Marketplace, identyfikatora klienta i nazwy firmy.
 
-#### <a name="orders-page-filters"></a>Filtry strony zamówień
+#### <a name="orders-page-filters"></a>Filtry stron zamówień
 
-Filtry te są stosowane na poziomie strony.
+Te filtry są stosowane na poziomie strony.
 
-Można wybrać wiele filtrów, aby renderować wykres dla kryteriów, które chcesz wyświetlić, oraz danych, które mają być wyświetlane w siatce/eksporcie **szczegółowe dane zamówienia.** Filtry są stosowane do danych wyodrębnionych dla zakresu danych wybranego w prawym górnym rogu strony zamówień.
+Możesz wybrać wiele filtrów, aby renderować wykres dla kryteriów, które chcesz wyświetlić, oraz danych, które mają być wyświetlane w **szczegółowym porządku** siatki/eksportowanie danych. Filtry są stosowane do danych wyodrębnionych dla zakresu danych wybranego w prawym górnym rogu strony Orders (zamówienia).
 
-- Typy ofert i nazwy ofert są wyświetlane tylko dla ofert, dla których masz zamówienia w wybranym zakresie dat. Nazwy ofert na liście są wyświetlane dla typów ofert wybranych na liście.
-- Zastosowane filtry pokazują całkowite metryki w ramach każdego wyboru dla każdego wybranego filtru. Zastosowane filtry nie są wyświetlane po wybraniu zaznaczenia domyślnego.
-- Jeśli dla jednej z list rozwijanych wybrano opcję **Wszystko,** wszystkie dane na wybranej stronie zostaną zagregowane. Na przykład: "Wszystkie" w opcji filtru typów oferty oznacza, że wszystkie typy ofert zostały wybrane. Jest to domyślny wybór list rozwijanych. Zastosowane filtry nie będą widoczne po wybraniu opcji **Wszystko.**
-- **Wybór wielu wartości:** wszystkie dane na stronie zostaną zagregowane dla wszystkich wyborów dokonanych pod listą rozwijaną. Jeśli dokonano wielu selekcji, zastosowany filtr wyświetli liczbę wszystkich dokonanych wyborów. Zobacz obrazek poniżej w celach informacyjnych.
+- Typy ofert i nazwy ofert są wyświetlane tylko dla ofert, dla których masz zamówienia w ramach wybranego zakresu dat. Nazwy ofert na liście są wyświetlane dla ofert o typach wybranych na liście.
+- Zastosowane filtry przedstawiają łączną metryki w każdym zaznaczeniu dla każdego wybranego filtru. Zastosowane filtry nie są wyświetlane, gdy wybrano wybór domyślny.
+- Jeśli wybrano opcję **wszystkie** dla jednej z list rozwijanych, wszystkie metryki na wybranej stronie zostaną zagregowane. Na przykład: "wszystkie" w opcji filtrowania typów ofert oznacza, że wybrano wszystkie typy ofert. Jest to domyślny wybór dla list rozwijanych. Zastosowane filtry są wyświetlane, gdy **wszystko** jest zaznaczone.
+- **Wybór wielokrotny**: wszystkie metryki na stronie zostaną zagregowane dla wszystkich opcji dokonanych na liście rozwijanej. W przypadku wybrania wielu zaznaczeń filtr będzie zawierać liczbę wszystkich dokonanych wyborów. Zapoznaj się z poniższym obrazem.
 
-    ![Centrum partnerów Analizowanie zamówienia z wieloma wartościami zastosowanymi do filtru](./media/filters-applied.png)
+    ![Centrum partnerskie — Przeanalizuj kolejność z wieloma wartościami zastosowanymi do filtrowania](./media/filters-applied.png)
 
-- **Wybór pojedynczej wartości**: Jeśli wybrana jest jedna wartość, zastosowany filtr wyświetli liczbę jednego filtru, który został wybrany. Zobacz poniższą ilustrację, aby uzyskać odniesienie.
+- **Wybór pojedynczej wartości**: Jeśli wybrano jedną wartość, zastosowany filtr będzie zawierać liczbę wybranych filtrów. Aby uzyskać informacje, zobacz poniżej obraz.
 
-     ![Centrum partnerów Analizowanie zamówienia z pojedynczą wartością zastosowaną do filtru](./media/filters-applied-single.png)
+     ![Kolejność analizowania w centrum partnerskim z pojedynczą wartością zastosowaną do filtrowania](./media/filters-applied-single.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać przegląd raportów analitycznych dostępnych w komercyjnym rynku Centrum partnerów, zobacz [Analytics dla rynku komercyjnego w Centrum partnerów.](./analytics.md)
-- Aby uzyskać wykresy, trendy i wartości danych agregujących, które podsumowują aktywność w portalu marketplace dla Twojej oferty, zobacz [Podsumowanie pulpitu nawigacyjnego w analizie rynku komercyjnego.](./summary-dashboard.md)
-- W przypadku maszyny wirtualnej (VM) oferuje użycie i metryki rozliczeniowe taryfowe, zobacz [Pulpit nawigacyjny użycia w analizie komercyjnego portalu marketplace.](./usage-dashboard.md)
-- Aby uzyskać szczegółowe informacje o klientach, w tym trendy wzrostu, zobacz [pulpit nawigacyjny klienta w analizie rynku komercyjnego.](./customer-dashboard.md)
-- Aby uzyskać listę żądań pobierania w ciągu ostatnich 30 dni, zobacz [Pulpit nawigacyjny pobierania w analizie komercyjnego rynku.](./downloads-dashboard.md)
-- Aby wyświetlić skonsolidowany widok opinii klientów dotyczących ofert w witrynie Azure Marketplace i AppSource, zobacz [Pulpit nawigacyjny ocen i opinii w analizie komercyjnego portalu marketplace.](./ratings-reviews.md)
-- W przypadku często zadawanych pytań dotyczących analityki rynku komercyjnego i kompleksowego słownika terminów danych zobacz [Często zadawane pytania i terminologia w celu analizy rynku komercyjnego.](./faq-terminology.md)
+- Aby zapoznać się z omówieniem raportów analitycznych dostępnych na rynku komercyjnym centrum partnerskiego, zobacz [Analiza portalu komercyjnego w centrum partnerskim](./analytics.md).
+- W przypadku grafów, trendów i wartości zagregowanych danych, które podsumowują aktywność witryny Marketplace dla oferty, zobacz [pulpit nawigacyjny podsumowania w portalu komercyjnej analizy Marketplace](./summary-dashboard.md).
+- W przypadku maszyn wirtualnych (VM) są dostępne metryki dotyczące użycia i taryfowego rozliczania, zobacz [pulpit nawigacyjny użycia w portalu komercyjnej analizy Marketplace](./usage-dashboard.md).
+- Aby uzyskać szczegółowe informacje na temat klientów, w tym trendów wzrostu, zobacz [pulpit nawigacyjny klienta w komercyjnej analizie portalu Marketplace](./customer-dashboard.md).
+- Aby uzyskać listę żądań pobierania w ciągu ostatnich 30 dni, zobacz [pulpit nawigacyjny w portalu komercyjnej analizy Marketplace](./downloads-dashboard.md).
+- Aby wyświetlić skonsolidowany widok opinii klientów na temat ofert w witrynie Azure Marketplace i AppSource, zobacz [pulpit nawigacyjny oceny i przeglądów w portalu komercyjnej analizy Marketplace](./ratings-reviews.md).
+- Często zadawane pytania dotyczące analizy komercyjnej portalu Marketplace i kompleksowego słownika warunków dotyczących danych można znaleźć [w temacie często zadawane pytania i terminologia dotyczące komercyjnej analizy w portalu Marketplace](./faq-terminology.md).

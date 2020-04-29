@@ -1,6 +1,6 @@
 ---
-title: Specyficzne dla Verizon nagłówki HTTP dla aparatu reguł usługi Azure CDN | Dokumenty firmy Microsoft
-description: W tym artykule opisano sposób używania nagłówków HTTP specyficznych dla verizon z aparatem reguł usługi Azure CDN.
+title: Verizon-specyficzne dla aparatu reguł Azure CDN | Microsoft Docs
+description: W tym artykule opisano sposób użycia nagłówków HTTP specyficznych dla Verizon z aparatem reguł Azure CDN.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -15,69 +15,69 @@ ms.topic: article
 ms.date: 04/16/2018
 ms.author: allensu
 ms.openlocfilehash: d2208f6769c8051b38bdafb92d62ec03cb2d668c
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253564"
 ---
-# <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Specyficzne dla verizon nagłówki HTTP dla aparatu reguł usługi Azure CDN
+# <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Verizon nagłówki HTTP dla aparatu reguł Azure CDN
 
-W przypadku **produktów usługi Azure CDN Premium z** produktów Verizon, gdy żądanie HTTP jest wysyłane do serwera pochodzenia, serwer punktu obecności (POP) może dodać jeden lub więcej zastrzeżonych nagłówków (lub specjalnych nagłówków serwera proxy) w żądaniu klienta do punktu obecności. Te nagłówki są dodatkiem do standardowych nagłówków przekazywania otrzymanych. Aby uzyskać informacje o standardowych nagłówkach żądań, zobacz [Żądania pól](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Request_fields).
+W przypadku **Azure CDN Premium z produktów Verizon** , gdy żądanie HTTP jest wysyłane do serwera pochodzenia, serwer punktu obecności (pop) może dodać jeden lub więcej zarezerwowanych nagłówków (lub specjalne nagłówki proxy) w żądaniu klienta do punktu obecności. Te nagłówki są uzupełnieniem standardowych nagłówków przesyłania dalej. Aby uzyskać informacje o nagłówkach standardowych żądań, zobacz [pola żądania](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Request_fields).
 
-Jeśli chcesz zapobiec dodawaniu jednego z tych zastrzeżonych nagłówków w żądaniu POP usługi Azure CDN (Content Delivery Network) do serwera pochodzenia, należy utworzyć regułę z [funkcją nagłówki specjalne proxy](cdn-verizon-premium-rules-engine-reference-features.md#proxy-special-headers) w silniku reguł. W tej regule wyklucz nagłówek, który chcesz usunąć z domyślnej listy nagłówków w polu nagłówków. Jeśli [włączono funkcję Nagłówki odpowiedzi debugowania pamięci podręcznej,](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers) `X-EC-Debug` należy dodać niezbędne nagłówki. 
+Aby zapobiec dodawaniu jednego z tych zarezerwowanych nagłówków do żądania POP Azure CDN (Content Delivery Network) do serwera pochodzenia, należy utworzyć regułę z [funkcją specjalnych nagłówków serwera proxy](cdn-verizon-premium-rules-engine-reference-features.md#proxy-special-headers) w aparacie reguł. W tej regule Wyklucz nagłówek, który chcesz usunąć z domyślnej listy nagłówków w polu nagłówki. Jeśli włączono [funkcję nagłówków odpowiedzi w pamięci podręcznej debugowania](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers), pamiętaj o dodaniu niepotrzebnych `X-EC-Debug` nagłówków. 
 
-Na przykład, aby `Via` usunąć nagłówek, pole nagłówków reguły powinno zawierać następującą listę nagłówków: *X-Forwarded-For, X-Forwarded-Proto, X-Host, X-Midgress, X-Gateway-List, X-EC-Name, Host*. 
+Na przykład, aby usunąć `Via` nagłówek, pole nagłówki reguły powinno zawierać następującą listę nagłówków: x-Forwarded *-for, x-Forwarded-proto, x-host, x-Midgress, x-Gateway-list, x-we-Name, Host*. 
 
-![Reguła nagłówków specjalnych serwera proxy](./media/cdn-http-headers/cdn-proxy-special-header-rule.png)
+![Reguła specjalnych nagłówków serwera proxy](./media/cdn-http-headers/cdn-proxy-special-header-rule.png)
 
-W poniższej tabeli opisano nagłówki, które mogą być dodawane przez verizon CDN POP w żądaniu:
+W poniższej tabeli opisano nagłówki, które mogą zostać dodane przez POP Verizon CDN w żądaniu:
 
 Nagłówek żądania | Opis | Przykład
 ---------------|-------------|--------
-[Via](#via-request-header) | Identyfikuje serwer POP, który przesunął żądanie do serwera pochodzenia. | HTTP/1.1 ECS (dca/1A2B)
-X-Forwarded-For | Wskazuje adres IP żądający.| 10.10.10.10
-X-Forwarded-Proto | Wskazuje protokół żądania. | http
-X-Host | Wskazuje nazwa hosta żądania. | cdn.mydomain.com
-X-Midgress (X-Midgress) | Wskazuje, czy żądanie zostało przesunięty przez dodatkowy serwer SIECI CDN. Na przykład serwer osłony typu pop typu origin lub serwer POP-do-ADN gateway server. <br />Ten nagłówek jest dodawany do żądania tylko wtedy, gdy odbywa się ruch średni. W takim przypadku nagłówek jest ustawiony na 1, aby wskazać, że żądanie zostało przypisane przez dodatkowy serwer sieci CDN.| 1
+[Korzystając](#via-request-header) | Identyfikuje serwer POP, który proxy żądania do serwera pochodzenia. | HTTP/1.1 ECS (DCA/1A2B)
+X-Forwarded-For | Wskazuje adres IP osoby żądającej.| 10.10.10.10
+X-Forwarded-proto | Wskazuje protokół żądania. | http
+X-Host | Wskazuje nazwę hosta żądania. | cdn.mydomain.com
+X-Midgress | Wskazuje, czy żądanie zostało przekazane przy użyciu dodatkowego serwera sieci CDN. Na przykład serwer podręczny serwer osłony lub serwer z systemem POP do serwera bramy wdrożenie. <br />Ten nagłówek jest dodawany do żądania tylko wtedy, gdy odbywa się ruch midgress. W takim przypadku nagłówek jest ustawiony na 1, aby wskazać, że żądanie zostało przekazane za pomocą dodatkowego serwera sieci CDN.| 1
 [Host](#host-request-header) | Identyfikuje hosta i port, w którym można znaleźć żądaną zawartość. | marketing.mydomain.com:80
-[X-Gateway-Lista](#x-gateway-list-request-header) | ADN: Identyfikuje listę trybu failover serwerów bramy ADN przypisanych do źródła klienta. <br />Osłona początkowa: wskazuje zestaw serwerów osłony początkowej przypisanych do źródła klienta. | `icn1,hhp1,hnd1`
-X-EC-_&lt;nazwa&gt;_ | Nagłówki żądań, które zaczynają się od *X-EC* (na przykład X-EC-Tag, [X-EC-Debug)](cdn-http-debug-headers.md)są zarezerwowane do użycia przez sieć CDN.| produkcja waf
+[Lista X-Gateway](#x-gateway-list-request-header) | Wdrożenie: identyfikuje listę trybu failover serwerów bramy wdrożenie przypisanej do źródła klienta. <br />Tarcza źródła: wskazuje zestaw serwerów osłony pochodzenia przypisanych do źródła klienta. | `icn1,hhp1,hnd1`
+X-we-_&lt;Name&gt;_ | Nagłówki żądań, które zaczynają się od *X-we* (na przykład x-we-tag, [x-we-Debug](cdn-http-debug-headers.md)), są zarezerwowane do użytku przez sieć CDN.| WAF — produkcja
 
 ## <a name="via-request-header"></a>Za pomocą nagłówka żądania
-Format, w `Via` którym nagłówek żądania identyfikuje serwer POP, jest określony przez następującą składnię:
+Format, za pomocą którego `Via` nagłówek żądania IDENTYFIKUJE serwer pop, jest określany przez następującą składnię:
 
 `Via: Protocol from Platform (POP/ID)` 
 
 Terminy używane w składni są zdefiniowane w następujący sposób:
-- Protokół: wskazuje wersję protokołu (na przykład HTTP/1.1) używaną do proxy żądania. 
+- Protokół: wskazuje wersję protokołu (na przykład HTTP/1.1) służącą do proxy żądania. 
 
-- Platforma: wskazuje platformę, na której zażądano zawartości. Dla tego pola obowiązują następujące kody: 
+- Platforma: wskazuje platformę, w której zażądano zawartości. Następujące kody są prawidłowe dla tego pola: 
 
     Code | Platforma
     -----|---------
-    EcAcc (europejski wypadek 201 | Duży protokół HTTP
-    Ecs   | HTTP Mały
-    Ecd   | Sieć dostarczania aplikacji (ADN)
+    ECAcc | Duże HTTP
+    ECS   | Niewielka HTTP
+    ECD   | Sieć dostarczania aplikacji (wdrożenie)
 
-- POP: Wskazuje [pop,](cdn-pop-abbreviations.md) który obsługiwał żądanie. 
+- POP: wskazuje [punkt obecności](cdn-pop-abbreviations.md) , który obsłużył żądanie. 
 
-- Identyfikator: Tylko do użytku wewnętrznego.
+- Identyfikator: tylko do użytku wewnętrznego.
 
 ### <a name="example-via-request-header"></a>Przykład za pośrednictwem nagłówka żądania
 
 `Via: HTTP/1.1 ECD (dca/1A2B)`
 
 ## <a name="host-request-header"></a>Nagłówek żądania hosta
-Serwery POP zastąpią `Host` nagłówek, gdy oba poniższe warunki są spełnione:
-- Źródłem żądanej zawartości jest serwer pochodzenia klienta.
-- Odpowiednia opcja nagłówka hosta HTTP odpowiedniego źródła klienta nie jest pusta.
+Serwery POP zastąpią nagłówek `Host` , gdy spełnione są oba poniższe warunki:
+- Źródło dla wymaganej zawartości jest serwerem pochodzenia klienta.
+- Opcja nagłówka hosta HTTP odpowiedniego pochodzenia klienta nie jest pusta.
 
-Nagłówek `Host` żądania zostanie zastąpiony w celu odzwierciedlenia wartości zdefiniowanej w opcji Nagłówek hosta HTTP.
-Jeśli opcja nagłówka hosta HTTP pochodzenia klienta jest `Host` ustawiona na pustą, nagłówek żądania przesłany przez zwerytę zostanie przekazany do serwera pochodzenia klienta.
+Nagłówek `Host` żądania zostanie nadpisany w celu odzwierciedlenia wartości zdefiniowanej w opcji nagłówka hosta http.
+Jeśli opcja nagłówka hosta HTTP pochodzenia klienta jest ustawiona na wartość puste, wówczas nagłówek `Host` żądania przesłany przez żądającego zostanie przekazany do serwera pochodzenia klienta.
 
-## <a name="x-gateway-list-request-header"></a>Nagłówek żądania x-gateway-list
-Serwer POP doda/zastąpi nagłówek żądania X-Gateway-List, gdy spełniony jest jeden z następujących warunków:
-- Żądanie wskazuje na platformę ADN.
-- Żądanie jest przekazywane do serwera pochodzenia klienta, który jest chroniony przez funkcję Origin Shield.
+## <a name="x-gateway-list-request-header"></a>Nagłówek żądania X-Gateway-list
+Serwer POP doda/zastąpi nagłówek żądania X-Gateway-list po spełnieniu jednego z następujących warunków:
+- Żądanie wskazuje na platformę wdrożenie.
+- Żądanie jest przekazywane do serwera pochodzenia klienta, który jest chroniony przez funkcję osłony pochodzenia.
 

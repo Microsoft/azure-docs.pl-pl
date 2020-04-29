@@ -1,6 +1,6 @@
 ---
-title: Pobieranie operacji INTERFEJSU API | Azure Marketplace
-description: Pobiera wszystkie operacje w ofercie lub uzyskać określoną operację dla określonego identyfikatora operacji.
+title: Pobieranie interfejsu API operacji | Portal Azure Marketplace
+description: Pobiera wszystkie operacje z oferty lub w celu uzyskania określonej operacji dla określonego operationId.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,18 +8,18 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: 93b2ca700a987b86aedfdae55d58540c8ffe84ed
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255877"
 ---
 # <a name="retrieve-operations"></a>Pobieranie operacji
 
 > [!NOTE]
-> Interfejsy API portalu partnerów w chmurze są zintegrowane z centrum partnerów i będą nadal działać po migracji ofert do Centrum partnerów. Integracja wprowadza niewielkie zmiany. Przejrzyj zmiany wymienione w [aplikacji Cloud Partner Portal API Reference,](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) aby upewnić się, że kod będzie nadal działać po migracji do Centrum partnerów.
+> Interfejsy API portal Cloud Partner są zintegrowane z centrum partnerskim i będą nadal działały po przeprowadzeniu migracji ofert do Centrum partnerskiego. W ramach integracji wprowadzono niewielkie zmiany. Przejrzyj zmiany wymienione w [Portal Cloud partner dokumentacja interfejsu API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) , aby upewnić się, że kod będzie nadal działał po migracji do Centrum partnerskiego.
 
-Pobiera wszystkie operacje w ofercie lub uzyskać określoną operację dla określonego identyfikatora operacji. Klient może używać parametrów kwerendy do filtrowania uruchomionych operacji.
+Pobiera wszystkie operacje z oferty lub w celu uzyskania określonej operacji dla określonego operationId. Klient może użyć parametrów zapytania, aby odfiltrować uruchomione operacje.
 
 ``` https
 
@@ -34,27 +34,27 @@ Pobiera wszystkie operacje w ofercie lub uzyskać określoną operację dla okre
 
 |  **Nazwa**          |      **Opis**                                                                                           | **Typ danych** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  identyfikator wydawcy       |  Identyfikator wydawcy, na przykład`Contoso`                                                                   |  Ciąg       |
-|  offerId           |  Identyfikator oferty                                                                                              |  Ciąg       |
-|  operationId       |  Identyfikator GUID, który jednoznacznie identyfikuje operację w ofercie. OperationId mogą być pobierane przy użyciu tego interfejsu API i jest również zwracany w nagłówku HTTP odpowiedzi dla każdej długotrwałej operacji, takich jak interfejs API [oferty publikowania.](./cloud-partner-portal-api-publish-offer.md)  |   Guid (identyfikator GUID)   |
+|  publisherId       |  Identyfikator wydawcy, na przykład`Contoso`                                                                   |  String       |
+|  offerId           |  Identyfikator oferty                                                                                              |  String       |
+|  operationId       |  Identyfikator GUID, który jednoznacznie identyfikuje operację na ofercie. OperationId może zostać pobrany za pomocą tego interfejsu API i jest również zwracany w nagłówku HTTP odpowiedzi dla dowolnej długotrwałej operacji, takiej jak interfejs API [oferty publikacji](./cloud-partner-portal-api-publish-offer.md) .  |   Guid (identyfikator GUID)   |
 |  api-version       | Najnowsza wersja interfejsu API |    Date      |
 |  |  |  |
 
 ## <a name="header"></a>Nagłówek
 
 
-|  **Nazwa**          |  **Wartość**           |
+|  **Nazwa**          |  **Wartościami**           |
 |  ---------------   | -------------------- |
 |  Content-Type      | `application/json`   |
 |  Autoryzacja     | `Bearer YOUR_TOKEN`  |
 |  |  |
 
 
-## <a name="body-example"></a>Przykład ciała
+## <a name="body-example"></a>Przykład treści
 
 ### <a name="response"></a>Odpowiedź
 
-#### <a name="get-operations"></a>Operacje GET
+#### <a name="get-operations"></a>Pobierz operacje
 
 ``` json
     [
@@ -79,7 +79,7 @@ Pobiera wszystkie operacje w ofercie lub uzyskać określoną operację dla okre
     ]
 ```
 
-#### <a name="get-operation"></a>Operacja GET
+#### <a name="get-operation"></a>Pobierz operację
 
 ``` json
     [
@@ -175,11 +175,11 @@ Pobiera wszystkie operacje w ofercie lub uzyskać określoną operację dla okre
 |  **Nazwa**                    |  **Opis**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 |  id                          | Identyfikator GUID, który jednoznacznie identyfikuje operację                                                       |
-|  rodzaj przesyłania              | Określa rodzaj operacji zgłaszanej dla oferty, na przykład`Publish/GoLive`      |
-|  utworzonyDateTime             | Data daty czasu UTC podczas tworzenia operacji                                                       |
-|  lastActionDateTime          | Data daty czasu UTC, gdy ostatnia aktualizacja została wykonana w operacji                                       |
-|  status                      | Stan operacji, `not started` \| `running` \| `failed` \| `completed`albo . Tylko jedna operacja `running` może mieć stan w czasie. |
-|  error                       | Komunikat o błędzie dla operacji nie powiodło się                                                               |
+|  submisja              | Identyfikuje typ operacji raportowanej dla oferty, na przykład`Publish/GoLive`      |
+|  createdDateTime             | UTC DateTime podczas tworzenia operacji                                                       |
+|  lastActionDateTime          | Data i godzina UTC ostatniej aktualizacji dla operacji                                       |
+|  status                      | Stan `not started` \| `running` operacji \| . `failed` \| `completed` `running` W danym momencie może istnieć tylko jedna operacja. |
+|  error                       | Komunikat o błędzie dla operacji zakończonych niepowodzeniem                                                               |
 |  |  |
 
 ### <a name="response-step-properties"></a>Właściwości kroku odpowiedzi
@@ -189,18 +189,18 @@ Pobiera wszystkie operacje w ofercie lub uzyskać określoną operację dla okre
 | estimatedTimeFrame | Szacowany czas trwania tej operacji |
 | id | Unikatowy identyfikator procesu kroku |
 | description | Opis kroku |
-| nazwa kroku | Przyjazna nazwa kroku |
-| status | Stan kroku, albo `notStarted` \| `running` \| `failed` \|`completed` |
-| z chmury do urządzenia | Wszelkie powiadomienia lub ostrzeżenia napotkane podczas kroku. Tablica ciągów |
-| Progresspercentage | Liczba całkowita od 0 do 100 wskazująca postęp kroku |
+| krokname | Przyjazna nazwa kroku |
+| status | `notStarted` \| `running` \| `failed` Stan kroku, albo \|`completed` |
+| z chmury do urządzenia | Wszystkie powiadomienia lub ostrzeżenia wystąpiły w trakcie tego kroku. Tablica ciągów |
+| progressPercentage | Liczba całkowita z zakresu od 0 do 100 wskazująca postęp kroku |
 | | |
 
 ### <a name="response-status-codes"></a>Kody stanu odpowiedzi
 
 | **Code**  |   **Opis**                                                                                  |
 |  -------- |   -------------------------------------------------------------------------------------------------|
-|  200      | `OK`- Żądanie zostało pomyślnie przetworzone i zwrócono żądane działania.        |
-|  400      | `Bad/Malformed request`- Treść odpowiedzi na błędy może zawierać więcej informacji.                    |
-|  403      | `Forbidden`- Klient nie ma dostępu do określonego obszaru nazw.                          |
-|  404      | `Not found`- Określona jednostka nie istnieje.                                                 |
+|  200      | `OK`-Żądanie zostało pomyślnie przetworzone i zostały zwrócone żądane operacje.        |
+|  400      | `Bad/Malformed request`-Treść odpowiedzi błędu może zawierać więcej informacji.                    |
+|  403      | `Forbidden`-Klient nie ma dostępu do określonego obszaru nazw.                          |
+|  404      | `Not found`-Określona jednostka nie istnieje.                                                 |
 |  |  |

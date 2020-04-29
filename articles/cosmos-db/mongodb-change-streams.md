@@ -1,6 +1,6 @@
 ---
-title: Zmienianie strumieni w interfejsie API usługi Azure Cosmos DB dla usługi MongoDB
-description: Dowiedz się, jak korzystać ze strumieni zmian w interfejsie API usługi Azure Cosmos DB dla usługi MongoDB, aby uzyskać zmiany wprowadzone w danych.
+title: Zmień strumienie w interfejsie API Azure Cosmos DB dla MongoDB
+description: Dowiedz się, jak używać strumienia zmian w interfejsie API Azure Cosmos DB MongoDB, aby uzyskać zmiany wprowadzone w danych.
 author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
@@ -8,44 +8,44 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: tisande
 ms.openlocfilehash: 38e262abefe5444c1fe7586810f4b971cc7baf6c
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114163"
 ---
-# <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Zmienianie strumieni w interfejsie API usługi Azure Cosmos DB dla usługi MongoDB
+# <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Zmień strumienie w interfejsie API Azure Cosmos DB dla MongoDB
 
-[Obsługa kanału informacyjnego zmiany](change-feed.md) w interfejsie API usługi Azure Cosmos DB dla usługi MongoDB jest dostępna przy użyciu interfejsu API strumieni zmian. Za pomocą interfejsu API strumieni zmian, aplikacje można uzyskać zmiany wprowadzone do kolekcji lub elementów w jednym niezależnego fragmentu. Później można podjąć dalsze działania na podstawie wyników. Zmiany elementów w kolekcji są przechwytywane w kolejności ich czasu modyfikacji i kolejność sortowania jest gwarantowana dla klucza niezależnego fragmentu.
+Obsługa [kanałów zmian](change-feed.md) w interfejsie API Azure Cosmos DB dla MongoDB jest dostępna za pomocą interfejsu API zmiany strumieni. Za pomocą interfejsu API Zmień strumienie aplikacje mogą pobrać zmiany wprowadzone do kolekcji lub do elementów w jednym fragmentu. Później można wykonać dalsze czynności na podstawie wyników. Zmiany elementów w kolekcji są przechwytywane w kolejności ich modyfikacji, a porządek sortowania jest gwarantowany na klucz fragmentu.
 
 > [!NOTE]
-> Aby użyć strumieni zmian, utwórz konto w wersji 3.6 interfejsu API usługi Azure Cosmos DB dla usługi MongoDB lub nowszej wersji. Po uruchomieniu przykłady strumienia zmian względem wcześniejszej `Unrecognized pipeline stage name: $changeStream` wersji, może zostać wyświetlony błąd.
+> Aby można było używać strumieni zmian, należy utworzyć konto z wersją 3,6 interfejsu API Azure Cosmos DB dla MongoDB lub nowszej wersji. W przypadku uruchomienia przykładów zmiany strumienia dla starszej wersji może zostać wyświetlony `Unrecognized pipeline stage name: $changeStream` błąd.
 
 ## <a name="current-limitations"></a>Bieżące ograniczenia
 
-Następujące ograniczenia mają zastosowanie podczas korzystania ze strumieni zmian:
+W przypadku korzystania ze strumieni zmian stosowane są następujące ograniczenia:
 
-* Właściwości `operationType` `updateDescription` i właściwości nie są jeszcze obsługiwane w dokumencie wyjściowym.
-* `insert`Typy `update`operacji `replace` i operacje są obecnie obsługiwane. 
+* Właściwości `operationType` i `updateDescription` nie są jeszcze obsługiwane w dokumencie wyjściowym.
+* Typy `insert`operacji `update`, i `replace` są obecnie obsługiwane. 
 * Operacja usuwania lub inne zdarzenia nie są jeszcze obsługiwane.
 
-Ze względu na te ograniczenia wymagane są opcje $match, $project i fullDocument, jak pokazano w poprzednich przykładach.
+Ze względu na te ograniczenia wymagane są opcje etap $match, etap $project i fullDocument, jak pokazano w poprzednich przykładach.
 
-W przeciwieństwie do źródła danych w interfejsie API SQL usługi Azure Cosmos DB nie istnieje oddzielna [biblioteka procesora kanału informacyjnego zmian,](change-feed-processor.md) która umożliwia korzystanie ze strumieni zmian lub potrzebę kontenera dzierżawy. Obecnie nie ma obsługi [wyzwalaczy usługi Azure Functions](change-feed-functions.md) do przetwarzania strumieni zmian.
+W przeciwieństwie do źródła zmian w interfejsie API SQL Azure Cosmos DB nie istnieje oddzielna [Biblioteka procesora kanału informacyjnego zmian](change-feed-processor.md) , która umożliwia korzystanie z strumienia zmian lub potrzeby kontenera dzierżawy. Obecnie nie są obsługiwane [wyzwalacze Azure Functions](change-feed-functions.md) do przetwarzania strumieni zmian.
 
 ## <a name="error-handling"></a>Obsługa błędów
 
-Następujące kody błędów i komunikaty są obsługiwane podczas korzystania ze strumieni zmian:
+Podczas używania strumieni zmian są obsługiwane następujące kody błędów i komunikaty:
 
-* **Kod błędu HTTP 16500** — gdy strumień zmian jest ograniczany, zwraca pustą stronę.
+* **Kod błędu HTTP 16500** — gdy strumień zmiany jest ograniczany, zwraca pustą stronę.
 
-* **NamespaceNotFound (OperationType Invalidate)** — po uruchomieniu strumienia zmian w kolekcji, która `NamespaceNotFound` nie istnieje lub jeśli kolekcja zostanie porzucona, zwracany jest błąd. Ponieważ `operationType` nie można zwrócić właściwości w dokumencie wyjściowym, `operationType Invalidate` zamiast `NamespaceNotFound` błędu zwracany jest błąd.
+* **NamespaceNotFound (OperationType unvalidate)** — w przypadku uruchomienia strumienia zmian w kolekcji, która nie istnieje lub jeśli kolekcja została porzucona, zwracany jest `NamespaceNotFound` błąd. Ponieważ `operationType` właściwość nie może zostać zwrócona w dokumencie wyjściowym, a nie `operationType Invalidate` w przypadku błędu `NamespaceNotFound` , zwracany jest błąd.
 
 ## <a name="examples"></a>Przykłady
 
-W poniższym przykładzie pokazano, jak uzyskać strumienie zmian na wszystkie elementy w kolekcji. W tym przykładzie tworzy kursor do oglądania elementów, gdy są one wstawiane, aktualizowane lub zastępowane. Etap, `$match` `$project` etap i `fullDocument` opcja są wymagane, aby uzyskać strumienie zmian. Obserwowanie operacji usuwania przy użyciu strumieni zmian nie jest obecnie obsługiwane. Aby obejść ten problem, można dodać znacznik miękki do elementów, które są usuwane. Na przykład można dodać atrybut w elemencie o nazwie "usunięte". Jeśli chcesz usunąć element, możesz ustawić "usunięte" `true` i ustawić czas wygaśnięcia elementu. Ponieważ aktualizacja "usunięte" `true` do jest aktualizacja, ta zmiana będzie widoczna w strumieniu zmian.
+Poniższy przykład pokazuje, jak pobrać strumienie zmian dla wszystkich elementów w kolekcji. Ten przykład umożliwia utworzenie kursora do oglądania elementów, gdy są one wstawiane, aktualizowane lub zastępowane. Do `$match` pobrania strumieni `$project` zmian są wymagane `fullDocument` etapy, etapy i opcje. Obserwowanie operacji usuwania przy użyciu strumieni zmian nie jest obecnie obsługiwane. Obejście tego problemu pozwala na dodanie znacznika miękkiego do elementów, które są usuwane. Na przykład, można dodać atrybut w elemencie o nazwie "usunięte". Jeśli chcesz usunąć element, możesz ustawić wartość "usunięty" `true` i ustawić wartość czasu wygaśnięcia dla elementu. Ponieważ aktualizacja "usunięty" `true` jest aktualizacją, ta zmiana będzie widoczna w strumieniu zmiany.
 
-### <a name="javascript"></a>Javascript:
+### <a name="javascript"></a>JavaScript
 
 ```javascript
 var cursor = db.coll.watch(
@@ -83,9 +83,9 @@ while (enumerator.MoveNext()){
 enumerator.Dispose();
 ```
 
-## <a name="changes-within-a-single-shard"></a>Zmiany w jednym niezależnuchy
+## <a name="changes-within-a-single-shard"></a>Zmiany w ramach jednego fragmentuu
 
-W poniższym przykładzie pokazano, jak uzyskać zmiany elementów w ramach jednego fragmentu. W tym przykładzie pobiera zmiany elementów, które mają klucz niezależnego fragmentu równa "a" i wartość klucza niezależnego fragmentu równa "1". Istnieje możliwość, aby różne klienci odczytywania zmian z różnych fragmentów równolegle.
+Poniższy przykład pokazuje, jak uzyskać zmiany w elementach w ramach jednego fragmentu. Ten przykład pobiera zmiany elementów, które mają klucz fragmentu równy "a", a wartość klucza fragmentu równą "1". Istnieje możliwość, że różni klienci czytają zmiany z różnych fragmentów równolegle.
 
 ```javascript
 var cursor = db.coll.watch(
@@ -106,5 +106,5 @@ var cursor = db.coll.watch(
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Automatyczne wykorzystywanie czasu do automatycznego wygaśnięcia danych w interfejsie API usługi Azure Cosmos DB dla usługi MongoDB](mongodb-time-to-live.md)
-* [Indeksowanie w interfejsie API usługi Azure Cosmos DB dla usługi MongoDB](mongodb-indexing.md)
+* [Użyj czasu wygaśnięcia, aby automatycznie wygasać dane w interfejsie API Azure Cosmos DB MongoDB](mongodb-time-to-live.md)
+* [Indeksowanie w interfejsie API Azure Cosmos DB dla MongoDB](mongodb-indexing.md)

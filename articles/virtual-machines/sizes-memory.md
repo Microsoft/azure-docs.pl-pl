@@ -1,13 +1,13 @@
 ---
-title: Rozmiary maszyn wirtualnych platformy Azure — pamięć | Dokumenty firmy Microsoft
-description: Wyświetla listę różnych rozmiarów zoptymalizowanych pod kątem pamięci dostępnych dla maszyn wirtualnych na platformie Azure. Wyświetla informacje o liczbie procesorów wirtualnych, dysków danych i kart sieciowych, a także przepustowości magazynu i przepustowości sieci dla rozmiarów w tej serii.
+title: Rozmiary maszyn wirtualnych platformy Azure — pamięć | Microsoft Docs
+description: Wyświetla różne rozmiary zoptymalizowane pod kątem pamięci dostępne dla maszyn wirtualnych na platformie Azure. Wyświetla informacje o liczbie procesorów wirtualnych vCPU, dyskach danych i kartach sieciowych oraz o przepływności magazynu i przepustowości sieci dla rozmiarów w tej serii.
 services: virtual-machines
 documentationcenter: ''
 author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
-keywords: Izolacja maszyny Wirtualnej,izolowana maszyna wirtualna,izolacja,odizolowana
+keywords: Izolacja maszyny wirtualnej, izolowana maszyna wirtualna, izolacja, izolowana
 ms.assetid: ''
 ms.service: virtual-machines
 ms.devlang: na
@@ -16,29 +16,29 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
 ms.openlocfilehash: 5a20e9c64b6ef948167333b54b16b34e84dc0e32
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273583"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych zoptymalizowane pod kątem pamięci
 
-Rozmiary maszyn wirtualnych zoptymalizowane pod kątem pamięci oferują wysoki współczynnik pamięci do procesora, który doskonale sprawdza się w przypadku relacyjnych serwerów baz danych, średnich i dużych pamięci podręcznych oraz analizy w pamięci. Ten artykuł zawiera informacje o liczbie procesorów wirtualnych, dysków danych i kart sieciowych, a także przepływności i przepustowości sieci magazynu dla każdego rozmiaru w tym grupowaniu.
+Rozmiary maszyn wirtualnych zoptymalizowane pod kątem pamięci oferują duże proporcje pamięci dla serwerów relacyjnych baz danych, średnich i dużych pamięci podręcznych oraz analizę w pamięci. Ten artykuł zawiera informacje na temat liczby procesorów wirtualnych vCPU, dysków danych i kart sieciowych, a także przepływności magazynu i przepustowości sieci dla każdego rozmiaru w ramach tego grupowania.
 
-- [Dv2 i DSv2-series](dv2-dsv2-series-memory.md), kontynuacja oryginalnej serii D, posiada mocniejszy procesor. Seria Dv2 jest o około 35% szybsza niż seria D. Działa na procesorach&reg; Intel&reg; Xeon 8171M 2.1 GHz&reg; (Skylake) lub Intel Xeon&reg; E5-2673 v4 2.3 GHz (Broadwell) lub Intel&reg; Xeon&reg; E5-2673 v3 2.4 GHz (Haswell) oraz z technologią Intel Turbo Boost 2.0. Konfiguracje pamięci i dysków serii Dv2 są takie same jak w przypadku serii D.
+- [Dv2 i DSv2 —](dv2-dsv2-series-memory.md)kolejne z serii D, które oferują bardziej wydajny procesor. Seria Dv2 jest o około 35% szybsza niż seria D. Działa na procesorach Intel&reg; xeon&reg; 8171M 2,1 GHz (Skylake) lub&reg; intel Xeon&reg; E5-2673 v4 2,3 GHz (Broadwell) lub Intel&reg; Xeon&reg; E5-2673 v3 2,4 GHz (Haswell), a także z technologią Intel Turbo — rozwiązanie 2,0. Konfiguracje pamięci i dysków serii Dv2 są takie same jak w przypadku serii D.
 
-    Seria Dv2 i DSv2 idealnie nadaje się do zastosowań wymagających szybszych procesorów wirtualnych, lepszej wydajności pamięci tymczasowej lub wyższych wymagań dotyczących pamięci. Oferują one kombinację opcji o dużych możliwościach dla wielu aplikacji klasy korporacyjnej.
+    Dv2 i DSv2 są idealnym rozwiązaniem w przypadku aplikacji wymagających szybszego procesorów wirtualnych vCPU, lepszej wydajności magazynu tymczasowego lub większego zapotrzebowania na pamięć. Oferują one kombinację opcji o dużych możliwościach dla wielu aplikacji klasy korporacyjnej.
 
-- [Seria Eav4 i Easv4](eav4-easv4-series.md) wykorzystuje procesor AMD 2.35Ghz EPYC<sup>TM</sup> 7452 w konfiguracji wielowątkowej z pamięcią podręczną L3 o rozmiarze do 256 MB, zwiększając możliwości uruchamiania większości obciążeń zoptymalizowanych pod kątem pamięci. Seria Eav4 i Easv4 mają taką samą konfigurację pamięci i dysków jak ev3 & serii Esv3.
+- [Seria Eav4 i Easv4](eav4-easv4-series.md) wykorzystuje procesor AMD 2.35 GHz EPYC<sup>TM</sup> 7452 w konfiguracji WIELOWĄTKOWEJ z maksymalnie 256 MB pamięci podręcznej L3, zwiększając opcje uruchamiania większości zoptymalizowanych pod kątem pamięci. Serie Eav4 i Easv4 mają takie same konfiguracje pamięci i dysków jak seria EV3 & Esv3.
 
-- Procesor Intel&reg; Xeon&reg; 8171M 2.1 GHz (Skylake)&reg; &reg; z serii [Ev3 i Esv3](ev3-esv3-series.md) w konfiguracji hiperwątkowej, zapewniając lepszą ofertę wartości dla większości obciążeń ogólnego przeznaczenia i dostosowując Ev3 do maszyn wirtualnych ogólnego przeznaczenia większości innych chmur. Pamięć została rozszerzona (z 7 GiB/vCPU do 8 GiB/vCPU), podczas gdy limity dysków i sieci zostały dostosowane na podstawie rdzenia, aby wyrównać z przejściem do hiperwątkowości. Ev3 jest kontynuacją wysokiej pamięci rozmiarów maszyn wirtualnych z rodzin D/Dv2.
+- Procesor [EV3 i Esv3 serii](ev3-esv3-series.md) Intel&reg; Xeon&reg; 8171M 2,1 GHz (Skylake) lub procesor intel&reg; Xeon&reg; E5-2673 v4 2,3 GHz (Broadwell) w konfiguracji wielowątkowej funkcji Hyper-Threading, który zapewnia lepszą wartość w przypadku większości obciążeń ogólnego przeznaczenia, a EV3 do wyrównania z maszynami wirtualnymi ogólnego przeznaczenia większości innych chmur. Pamięć została rozszerzona (od 7 GiB/vCPU do 8 GiB/vCPU), podczas gdy limity dysku i sieci zostały skorygowane dla poszczególnych rdzeni, aby dostosować je do przenoszenia do funkcji Hyper-Threading. EV3 to kolejne rozmiary maszyn wirtualnych o dużej ilości pamięci w rodzinach D/Dv2.
 
-- Seria [M](m-series.md) oferuje wysoką liczbę procesorów wirtualnych (do 128 procesorów wirtualnych) i dużą ilość pamięci (do 3,8 TiB). Jest również idealny dla bardzo dużych baz danych lub innych aplikacji, które korzystają z wysokiej liczby procesorów wirtualnych i dużych ilości pamięci.
+- [Seria M](m-series.md) oferuje dużą liczbę vCPU (do 128 procesorów wirtualnych vCPU) i dużą ilość pamięci (do 3,8 TIB). Jest on również idealny dla bardzo dużych baz danych lub innych aplikacji, które korzystają z dużej liczby vCPU i dużych ilości pamięci.
 
-- [Seria Mv2](mv2-series.md) oferuje najwyższą liczbę procesorów wirtualnych (do 416 procesorów wirtualnych) i największą pamięć (do 11,4 TiB) dowolnej maszyny wirtualnej w chmurze. Jest to idealne rozwiązanie dla bardzo dużych baz danych lub innych aplikacji, które korzystają z wysokiej liczby procesorów wirtualnych i dużych ilości pamięci.
+- [Seria Mv2](mv2-series.md) oferuje najwyższą liczbę vCPU (do 416 procesorów wirtualnych vCPU) i największą ilość pamięci (do 11,4 TIB) dowolnej maszyny wirtualnej w chmurze. Jest to idealne rozwiązanie w przypadku bardzo dużych baz danych lub innych aplikacji, które korzystają z dużej liczby vCPU i dużych ilości pamięci.
 
-Usługa Azure Compute oferuje rozmiary maszyn wirtualnych, które są izolowane do określonego typu sprzętu i dedykowane jednemu klientowi. Te rozmiary maszyn wirtualnych najlepiej nadają się do obciążeń, które wymagają wysokiego stopnia izolacji od innych klientów dla obciążeń obejmujących elementy, takie jak zgodność i wymagania prawne. Klienci mogą również zdecydować się na dalsze podział zasobów tych izolowanych maszyn wirtualnych przy użyciu [obsługi platformy Azure dla zagnieżdżonych maszyn wirtualnych.](https://azure.microsoft.com/blog/nested-virtualization-in-azure/) Zobacz strony dla rodzin maszyn wirtualnych poniżej dla izolowanych opcji maszyny wirtualnej.
+Usługa Azure COMPUTE oferuje rozmiary maszyn wirtualnych, które są odizolowane od określonego typu sprzętu i przeznaczone dla jednego klienta. Te rozmiary maszyn wirtualnych najlepiej nadają się do obciążeń wymagających wysokiego stopnia izolacji od innych klientów w przypadku obciążeń obejmujących takie elementy, jak zgodność i wymagania prawne. Klienci mogą również dodatkowo podzielić zasoby tych izolowanych maszyn wirtualnych, korzystając z [pomocy technicznej platformy Azure dla zagnieżdżonych maszyn wirtualnych](https://azure.microsoft.com/blog/nested-virtualization-in-azure/). Zapoznaj się z poniższą opcją dla izolowanych opcji maszyn wirtualnych.
 
 ## <a name="other-sizes"></a>Inne rozmiary
 
@@ -51,4 +51,4 @@ Usługa Azure Compute oferuje rozmiary maszyn wirtualnych, które są izolowane 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o tym, jak [jednostki obliczeniowe platformy Azure (ACU)](acu.md) mogą pomóc w porównywaniu wydajności obliczeniowej w jednostkach SKU platformy Azure.
+Dowiedz się więcej o tym, jak [usługa Azure COMPUTE units (ACU)](acu.md) może pomóc w porównaniu wydajności obliczeniowej w ramach jednostek SKU platformy Azure.

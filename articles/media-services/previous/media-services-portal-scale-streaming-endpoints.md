@@ -1,6 +1,6 @@
 ---
-title: Skalowanie punktów końcowych przesyłania strumieniowego za pomocą portalu Azure | Dokumenty firmy Microsoft
-description: W tym samouczku otrzymasz od kroków skalowania punktów końcowych przesyłania strumieniowego za pomocą witryny Azure portal.
+title: Skalowanie punktów końcowych przesyłania strumieniowego przy użyciu Azure Portal | Microsoft Docs
+description: Ten samouczek przeprowadzi Cię przez kroki skalowania punktów końcowych przesyłania strumieniowego przy użyciu Azure Portal.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 40820170bae275f090c5f898387698fc562e59ae
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80985545"
 ---
 # <a name="scale-streaming-endpoints-with-the-azure-portal"></a>Skalowanie punktów końcowych przesyłania strumieniowego przy użyciu witryny Azure Portal
@@ -29,9 +29,9 @@ ms.locfileid: "80985545"
 > 
 > 
 
-Punkty końcowe przesyłania strumieniowego **Premium** są odpowiednie w przypadku zaawansowanych obciążeń, ponieważ zapewniają dedykowaną i skalowalną pojemność przepustowości. Klienci, którzy mają punkt końcowy przesyłania strumieniowego **Premium**, domyślnie uzyskują jedną jednostkę przesyłania strumieniowego (SU, streaming unit). Punkt końcowy przesyłania strumieniowego można skalować poprzez dodawanie jednostek SU. Każdy jednostka SU zwiększa pojemność przepustowości aplikacji. Aby uzyskać więcej informacji na temat typów punktów końcowych przesyłania strumieniowego i konfiguracji sieci CDN, zobacz [omówienie punktu końcowego przesyłania strumieniowego.](media-services-streaming-endpoints-overview.md)
+Punkty końcowe przesyłania strumieniowego **Premium** są odpowiednie w przypadku zaawansowanych obciążeń, ponieważ zapewniają dedykowaną i skalowalną pojemność przepustowości. Klienci, którzy mają punkt końcowy przesyłania strumieniowego **Premium**, domyślnie uzyskują jedną jednostkę przesyłania strumieniowego (SU, streaming unit). Punkt końcowy przesyłania strumieniowego można skalować poprzez dodawanie jednostek SU. Każdy jednostka SU zwiększa pojemność przepustowości aplikacji. Aby uzyskać więcej informacji na temat typów punktów końcowych przesyłania strumieniowego i konfiguracji sieci CDN, zobacz temat [Omówienie punktu końcowego przesyłania strumieniowego](media-services-streaming-endpoints-overview.md) .
  
-W tym temacie pokazano, jak skalować punkt końcowy przesyłania strumieniowego.
+W tym temacie przedstawiono sposób skalowania punktu końcowego przesyłania strumieniowego.
 
 Aby dowiedzieć się więcej o cenach, zobacz artykuł [Szczegółowe informacje o cenach usługi Media Services](https://azure.microsoft.com/pricing/details/media-services/).
 
@@ -40,11 +40,11 @@ Aby dowiedzieć się więcej o cenach, zobacz artykuł [Szczegółowe informacje
 Aby zmienić liczbę jednostek przesyłania strumieniowego, wykonaj następujące czynności:
 
 1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz swoje konto usługi Azure Media Services.
-2. W oknie **Ustawienia** wybierz pozycję **Punkty końcowe przesyłania strumieniowego**.
+2. W oknie **Ustawienia** wybierz pozycję **punkty końcowe przesyłania strumieniowego**.
 3. Kliknij punkt końcowy przesyłania strumieniowego, który chcesz skalować. 
 
     > [!NOTE] 
-    > Można skalować tylko punkty końcowe przesyłania strumieniowego **w u. w wersji Premium.**
+    > Możesz skalować punkty końcowe przesyłania strumieniowego w **warstwie Premium** .
 
 4. Przesuń suwak, aby określić liczbę jednostek przesyłania strumieniowego.
 

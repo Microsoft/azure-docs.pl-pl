@@ -1,34 +1,34 @@
 ---
-title: Aktualizowanie klastra w celu używania nazwy pospolitej certyfikatu
-description: Dowiedz się, jak przełączyć klaster sieci szkieletowej usług z używania odcisków palców certyfikatów na używanie nazwy pospolitej certyfikatu.
+title: Zaktualizuj klaster, aby używał nazwy pospolitej certyfikatu
+description: Dowiedz się, jak przełączyć klaster Service Fabric z używania odcisków palców certyfikatów do korzystania z nazwy pospolitej certyfikatu.
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 1926b0501766eb0a5fe086ceada0c9bf45e3dcf6
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81272631"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Change cluster from certificate thumbprint to common name (Zmienianie klastra z odcisku palca certyfikatu na nazwę pospolitą)
-Żadne dwa certyfikaty nie mogą mieć tego samego odcisku palca, co utrudnia najazd lub zarządzanie certyfikatami klastra. Wiele certyfikatów może jednak mieć tę samą nazwę pospolitą lub podmiot.  Przełączenie wdrożonego klastra z używania odcisków palca certyfikatu na używanie nazw pospolitych certyfikatów sprawia, że zarządzanie certyfikatami jest znacznie prostsze. W tym artykule opisano sposób aktualizowania uruchomionego klastra sieci szkieletowej usług, aby używać nazwy pospolitej certyfikatu zamiast odcisku palca certyfikatu.
+Dwa certyfikaty nie mogą mieć tego samego odcisku palca, co utrudnia zarzucanie certyfikatów klastra lub zarządzanie nimi. Jednak wiele certyfikatów może mieć taką samą nazwę pospolitą lub podmiot.  Przełączenie wdrożonego klastra z używania odcisków palca certyfikatu na używanie nazw pospolitych certyfikatów sprawia, że zarządzanie certyfikatami jest znacznie prostsze. W tym artykule opisano, jak zaktualizować uruchomiony klaster Service Fabric, aby używał nazwy pospolitej certyfikatu zamiast odcisku palca certyfikatu.
 
 >[!NOTE]
-> Jeśli masz dwa odcisk palca zadeklarowane w szablonie, należy wykonać dwa wdrożenia.  Pierwsze wdrożenie odbywa się przed wykonaniu kroków w tym artykule.  Pierwsze wdrożenie ustawia właściwość **odcisk palca** w szablonie do używanego certyfikatu i usuwa **właściwość thumbprintSecondary.**  W przypadku drugiego wdrożenia wykonaj kroki opisane w tym artykule.
+> Jeśli w szablonie zadeklarujesz dwa odciski palców, musisz wykonać dwa wdrożenia.  Pierwsze wdrożenie jest wykonywane przed wykonaniem kroków opisanych w tym artykule.  Pierwsze wdrożenie ustawia właściwość **odcisku palca** w szablonie na używany certyfikat i usuwa Właściwość **thumbprintSecondary** .  W przypadku drugiego wdrożenia wykonaj kroki opisane w tym artykule.
  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="get-a-certificate"></a>Uzyskaj certyfikat
-Najpierw uzyskaj certyfikat od [urzędu certyfikacji](https://wikipedia.org/wiki/Certificate_authority).  Wspólna nazwa certyfikatu powinna być dla domeny niestandardowej, której jesteś właścicielem, i kupiona od rejestratora domeny. Na przykład "azureservicefabricbestpractices.com"; ci, którzy nie są pracownikami firmy Microsoft, nie mogą aprowizować certyfikatów dla domen MS, więc nie można używać nazw DNS usługi LB lub Traffic Manager jako nazw pospolitych dla certyfikatu i konieczne będzie zainicjowanie obsługi [administracyjnej strefy DNS platformy Azure,](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) jeśli domena niestandardowa ma być rozpoznawana na platformie Azure. Należy również zadeklarować domenę niestandardową, której jesteś właścicielem, jako "managementEndpoint" klastra, jeśli chcesz, aby portal odzwierciedlał niestandardowy alias domeny dla klastra.
+## <a name="get-a-certificate"></a>Pobierz certyfikat
+Najpierw Pobierz certyfikat z [urzędu certyfikacji (CA)](https://wikipedia.org/wiki/Certificate_authority).  Nazwa pospolita certyfikatu powinna być dla domeny niestandardowej, która jest posiadana, i zakupiona z rejestratora domen. Na przykład "azureservicefabricbestpractices.com"; osoby, które nie są pracownikami firmy Microsoft, nie mogą udostępniać certyfikatów dla domen MS, dlatego nie można używać nazw DNS w obstawce lub Traffic Manager jako wspólnych nazw dla certyfikatu i należy udostępnić [Azure DNS strefę](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) , jeśli domena niestandardowa ma być rozpoznawalna na platformie Azure. Należy również zadeklarować domenę niestandardową jako "element ManagementEndpoint", jeśli chcesz, aby Portal odzwierciedlał niestandardowy alias domeny dla klastra.
 
 Do celów testowych można uzyskać certyfikat podpisany przez urząd certyfikacji z bezpłatnego lub otwartego urzędu certyfikacji.
 
 > [!NOTE]
-> Certyfikaty z podpisem własnym, w tym certyfikaty wygenerowane podczas wdrażania klastra sieci szkieletowej usług w witrynie Azure portal, nie są obsługiwane. 
+> Certyfikaty z podpisem własnym, w tym wygenerowane podczas wdrażania klastra Service Fabric w Azure Portal, nie są obsługiwane. 
 
-## <a name="upload-the-certificate-and-install-it-in-the-scale-set"></a>Prześlij certyfikat i zainstaluj go w zestawie skalowania
-Na platformie Azure klaster sieci szkieletowej usług jest wdrażany na zestawie skalowania maszyny wirtualnej.  Przekaż certyfikat do magazynu kluczy, a następnie zainstaluj go w zestawie skalowania maszyny wirtualnej, na który jest uruchomiony klaster.
+## <a name="upload-the-certificate-and-install-it-in-the-scale-set"></a>Przekaż certyfikat i zainstaluj go w zestawie skalowania
+Na platformie Azure klaster Service Fabric jest wdrażany w zestawie skalowania maszyn wirtualnych.  Przekaż certyfikat do magazynu kluczy, a następnie zainstaluj go w zestawie skalowania maszyn wirtualnych, na którym działa klaster.
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -88,25 +88,25 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 ```
 
 >[!NOTE]
-> Wpisy tajne zestawu skalowania nie obsługują tego samego identyfikatora zasobu dla dwóch oddzielnych wpisów tajnych, ponieważ każdy klucz tajny jest wersjonawczonym, unikatowym zasobem. 
+> Wpisy tajne zestawu skalowania nie obsługują tego samego identyfikatora zasobu dla dwóch oddzielnych wpisów tajnych, ponieważ każdy klucz tajny jest w wersji, unikatowy zasób. 
 
-## <a name="download-and-update-the-template-from-the-portal"></a>Pobieranie i aktualizowanie szablonu z portalu
-Certyfikat został zainstalowany w podstawowym zestawie skalowania, ale należy również zaktualizować klaster sieci szkieletowej usług, aby użyć tego certyfikatu i jego nazwy pospolitej.  Teraz pobierz szablon dla wdrożenia klastra.  Zaloguj się do [witryny Azure portal](https://portal.azure.com) i przejdź do grupy zasobów hostującej klaster.  W **obszarze Ustawienia**wybierz pozycję **Wdrożenia**.  Wybierz najnowsze wdrożenie i kliknij pozycję **Wyświetl szablon**.
+## <a name="download-and-update-the-template-from-the-portal"></a>Pobieranie i aktualizowanie szablonu z poziomu portalu
+Certyfikat został zainstalowany w podstawowym zestawie skalowania, ale należy również zaktualizować klaster Service Fabric, aby używał tego certyfikatu i jego nazwy pospolitej.  Teraz Pobierz szablon wdrożenia klastra.  Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do grupy zasobów, w której znajduje się klaster.  W obszarze **Ustawienia**wybierz pozycję **wdrożenia**.  Wybierz najnowsze wdrożenie i kliknij przycisk **Wyświetl szablon**.
 
-![Wyświetlanie szablonów][image1]
+![Wyświetl szablony][image1]
 
-Pobierz szablon i parametry plików JSON na komputer lokalny.
+Pobierz pliki szablonu i parametrów JSON na komputer lokalny.
 
-Najpierw otwórz plik parametrów w edytorze tekstu i dodaj następującą wartość parametru:
+Najpierw Otwórz plik parametrów w edytorze tekstów i Dodaj następującą wartość parametru:
 ```json
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
 },
 ```
 
-Następnie otwórz plik szablonu w edytorze tekstu i włóż trzy aktualizacje do obsługi nazwy pospolitej certyfikatu.
+Następnie otwórz plik szablonu w edytorze tekstów i wprowadź trzy aktualizacje do obsługi nazwy pospolitej certyfikatu.
 
-1. W sekcji **parametry** dodaj *parametr certificateCommonName:*
+1. W sekcji **Parametry** Dodaj parametr *certificateCommonName* :
     ```json
     "certificateCommonName": {
         "type": "string",
@@ -116,9 +116,9 @@ Następnie otwórz plik szablonu w edytorze tekstu i włóż trzy aktualizacje d
     },
     ```
 
-    Należy również rozważyć usunięcie *certyfikatuThumbprint*, może nie być już odwołuje się w szablonie Menedżera zasobów.
+    Rozważ również usunięcie *certificateThumbprint*, w którym nie można już odwoływać się do szablonu Menedżer zasobów.
 
-2. W zasobie **Microsoft.Compute/virtualMachineScaleSets** zaktualizuj rozszerzenie maszyny wirtualnej, aby używało nazwy pospolitej w ustawieniach certyfikatu zamiast odcisku palca.  W **virtualMachineProile**->**extensionProile**->**rozszerzenia**->**certyfikat**->ustawień**właściwości**->**,** dodaj `"commonNames": ["[parameters('certificateCommonName')]"],` i usuń `"thumbprint": "[parameters('certificateThumbprint')]",`.
+2. W zasobie **Microsoft. COMPUTE/virtualMachineScaleSets** zaktualizuj rozszerzenie maszyny wirtualnej tak, aby używało nazwy pospolitej w ustawieniach certyfikatu zamiast odcisku palca.  W **oknie virtualMachineProfile**->**extensionProfile**->**rozszerzenia**->**Właściwości** `"commonNames": ["[parameters('certificateCommonName')]"],` `"thumbprint": "[parameters('certificateThumbprint')]",`**certificate****settings**ustawienia certyfikat, Dodaj i Usuń.->->
     ```json
         "virtualMachineProfile": {
         "extensionProfile": {
@@ -152,7 +152,7 @@ Następnie otwórz plik szablonu w edytorze tekstu i włóż trzy aktualizacje d
                 },
     ```
 
-3.  W zasobie **Microsoft.ServiceFabric/clusters** zaktualizuj wersję interfejsu API do "2018-02-01".  Dodaj również **ustawienie certificateCommonNames** z **właściwość commonNames** i usuń ustawienie **certyfikatu** (z właściwością odcisku palca), jak w poniższym przykładzie:
+3.  W zasobów **Microsoft. servicefabric/klastrów** zaktualizuj wersję interfejsu API do wersji "2018-02-01".  Dodaj również ustawienie **certificateCommonNames** z właściwością **commonNames** i Usuń ustawienie **certyfikatu** (z właściwością odcisku palca), jak w poniższym przykładzie:
     ```json
     {
         "apiVersion": "2018-02-01",
@@ -179,10 +179,10 @@ Następnie otwórz plik szablonu w edytorze tekstu i włóż trzy aktualizacje d
         ...
     ```
 
-Aby uzyskać dodatkowe informacje, zobacz [Wdrażanie klastra sieci szkieletowej usług, który używa nazwy pospolitej certyfikatu zamiast odcisku palca.](https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn)
+Aby uzyskać dodatkowe informacje [, zobacz Wdrażanie klastra Service Fabric, który używa nazwy pospolitej certyfikatu zamiast odcisku palca.](https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn)
 
-## <a name="deploy-the-updated-template"></a>Wdrażanie zaktualizowanego szablonu
-Ponowne wdrożenie zaktualizowanego szablonu po wszczęciem zmian.
+## <a name="deploy-the-updated-template"></a>Wdróż zaktualizowany szablon
+Wdróż ponownie zaktualizowany szablon po wprowadzeniu zmian.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
@@ -193,7 +193,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [zabezpieczeniach klastra](service-fabric-cluster-security.md).
-* Dowiedz się, jak [przerzucić certyfikat klastra](service-fabric-cluster-rollover-cert-cn.md)
+* Dowiedz się [, jak przerzucać certyfikat klastra](service-fabric-cluster-rollover-cert-cn.md)
 * [Aktualizowanie certyfikatów klastra i zarządzanie nimi](service-fabric-cluster-security-update-certs-azure.md)
 
 [image1]: ./media/service-fabric-cluster-change-cert-thumbprint-to-cn/PortalViewTemplates.png

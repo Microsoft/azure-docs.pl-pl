@@ -1,91 +1,91 @@
 ---
-title: Wycofywanie interfejsów API wdrażania dla usługi Azure Monitor i skalowania automatycznego
-description: Metryki i automatyczne skalowanie klasycznych interfejsów API, nazywanych również modelem wdrażania usługi Azure Service Management (ASM) lub RDFE, które są wycofywane
+title: Wycofywanie interfejsów API wdrażania dla metryk Azure Monitor i skalowanie automatyczne
+description: Metryki i automatyczne skalowanie klasycznych interfejsów API, nazywane również usługą Azure Service Management (ASM) lub modelem wdrożenia frontonu reddog
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.openlocfilehash: d9b6118bc165a9b0a78ae9c4da895719249b22b7
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114228"
 ---
-# <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Wycofanie klasycznego interfejsu API modelu wdrażania usługi Azure Monitor dla metryk i skalowania automatycznego
+# <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor wycofywanie interfejsów API klasycznego modelu wdrażania dla metryk i skalowania automatycznego
 
-Usługa Azure Monitor (dawniej Usługa Azure Insights po pierwszym wydaniu) oferuje obecnie możliwość tworzenia i zarządzania ustawieniami skalowania automatycznego dla i korzystania z metryk z klasycznych maszyn wirtualnych i klasycznych usług w chmurze. Oryginalny zestaw klasycznych interfejsów API opartych na modelu wdrażania zostanie **wycofany po 30 czerwca 2019 r.** we wszystkich chmurach publicznych i prywatnych platformy Azure we wszystkich regionach.   
+Azure Monitor (dawniej usługa Azure Insights podczas pierwszego wydania) oferuje obecnie możliwość tworzenia ustawień automatycznego skalowania i korzystania z nich przy użyciu metryk z klasycznych maszyn wirtualnych i klasycznych Cloud Services. Oryginalny zestaw klasycznych interfejsów API opartych na modelu wdrożenia zostanie **wycofany po 30 czerwca 2019** we wszystkich chmurach publicznych i prywatnych platformy Azure we wszystkich regionach.   
 
-Te same operacje były obsługiwane za pośrednictwem zestawu interfejsów API opartych na usłudze Azure Resource Manager przez ponad rok. Portal Azure używa nowych interfejsów API REST dla skalowania automatycznego i metryk. Dostępne są również nowe interfejsy SDK, PowerShell i CLI oparte na tych interfejsach API Menedżera zasobów. Nasze usługi partnerskie do monitorowania zużywają nowe interfejsy API REST oparte na Menedżerze zasobów w usłudze Azure Monitor.  
+Te same operacje były obsługiwane przez zestaw interfejsów API opartych na Azure Resource Manager przez cały rok. W Azure Portal są używane nowe interfejsy API REST dla funkcji automatycznego skalowania i metryk. Dostępne są również nowe zestawy SDK, program PowerShell i interfejs wiersza polecenia na podstawie tych Menedżer zasobów interfejsów API. Nasze usługi partnerskie na potrzeby monitorowania wykorzystują nowe Menedżer zasobów oparte na interfejsie API REST w programie Azure Monitor.  
 
-## <a name="who-is-not-affected"></a>Kogo to nie dotyczy
+## <a name="who-is-not-affected"></a>Nie dotyczy
 
-Jeśli zarządzasz skalowaniem automatycznym za pośrednictwem witryny Azure Portal, nowe szablony [zestawów SDK,](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)PowerShell, CLI lub Resource Manager firmy Azure, nie jest konieczne żadne działanie.  
+Jeśli zarządzasz skalowaniem automatycznym za pośrednictwem Azure Portal, [nowego Azure monitor zestawu SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/), programu PowerShell, interfejsu wiersza polecenia lub szablonów Menedżer zasobów, nie trzeba podejmować żadnych działań.  
 
-Jeśli korzystasz z metryk za pośrednictwem witryny Azure portal lub za pośrednictwem różnych [usług partnerów monitorowania,](../../azure-monitor/platform/partners.md)nie jest konieczne żadne działanie. Firma Microsoft współpracuje z partnerami monitoruja w celu migracji do nowych interfejsów API.
+W przypadku korzystania z metryk za pośrednictwem Azure Portal lub różnych [usług partnerskich monitorowania](../../azure-monitor/platform/partners.md)nie jest wymagane żadne działanie. Firma Microsoft współpracuje z partnerami monitorowania w celu migrowania do nowych interfejsów API.
 
-## <a name="who-is-affected"></a>Kogo dotyczy problem
+## <a name="who-is-affected"></a>Kogo dotyczy
 
-Ten artykuł dotyczy użytkownika, jeśli używasz następujących składników:
+Ten artykuł ma zastosowanie w przypadku korzystania z następujących składników:
 
-- **Klasyczny zestaw SDK usługi Azure Insights** — jeśli używasz [klasycznego sdk usługi Azure Insights,](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/)przełącz się na nowy zestaw SDK usługi Azure Monitor dla [platformy .NET](https://github.com/azure/azure-libraries-for-net#download) lub [Java](https://github.com/azure/azure-libraries-for-java#download). Pobierz [pakiet NuGet zestawu SDK usługi Azure Monitor](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/).
+- **Klasyczny zestaw SDK usługi Azure Insights** — Jeśli korzystasz z [klasycznego zestawu SDK usługi Azure Insights](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/), przełącz się do korzystania z nowego zestawu SDK Azure monitor dla [platformy .NET](https://github.com/azure/azure-libraries-for-net#download) lub [Java](https://github.com/azure/azure-libraries-for-java#download). Pobierz [pakiet NuGet zestawu SDK Azure monitor](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/).
 
-- **Klasyczna skalowanie automatyczne** — jeśli wywołujesz [klasyczne interfejsy API ustawień automatycznego](https://msdn.microsoft.com/library/azure/mt348562.aspx) z narzędzi utworzonych na zamówienie lub przy użyciu [klasycznego zestawu Azure Insights SDK,](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/)należy przełączyć się na interfejs [API REST usługi Resource Manager Azure Monitor](https://docs.microsoft.com/rest/api/monitor/autoscalesettings).
+- **Klasyczne automatyczne skalowanie** — Jeśli wywołujesz [klasyczne interfejsy API ustawień automatycznego skalowania](https://msdn.microsoft.com/library/azure/mt348562.aspx) z wbudowanych narzędzi niestandardowych lub korzystając z [klasycznego zestawu SDK usługi Azure Insights](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/), należy przełączyć się do korzystania z [interfejsu API REST Azure monitor Menedżer zasobów](https://docs.microsoft.com/rest/api/monitor/autoscalesettings).
 
-- **Klasyczne metryki** — jeśli korzystasz z metryk przy użyciu [klasycznych interfejsów API REST](https://msdn.microsoft.com/library/azure/dn510374.aspx) lub [klasycznego zestawu SDK usługi Azure Insights](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/) z narzędzi niestandardowych, należy przełączyć się do korzystania z interfejsu API REST usługi Resource Manager Azure [Monitor.](https://docs.microsoft.com/rest/api/monitor/autoscalesettings) 
+- **Metryki klasyczne** — Jeśli korzystasz z metryk przy użyciu [klasycznych interfejsów API REST](https://msdn.microsoft.com/library/azure/dn510374.aspx) lub [klasycznego zestawu SDK usługi Azure Insights](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/) z poziomu wbudowanych narzędzi, należy przełączyć się do korzystania z [interfejsu API REST Menedżer zasobów Azure monitor](https://docs.microsoft.com/rest/api/monitor/autoscalesettings). 
 
-Jeśli nie masz pewności, czy kod lub narzędzia niestandardowe dzwonią do klasycznych interfejsów API, zapoznaj się z następującymi tematami:
+Jeśli nie masz pewności, czy Twój kod lub narzędzia niestandardowe wywołuje klasyczne interfejsy API, zapoznaj się z następującymi tematami:
 
-- Przejrzyj identyfikator URI, do którego odwołuje się kod lub narzędzie. Klasyczne interfejsy API używają https://management.core.windows.netidentyfikatora URI . Należy używać nowszego identyfikatora URI dla interfejsów `https://management.azure.com/`API opartych na Menedżerze zasobów zaczyna się od .
+- Przejrzyj identyfikator URI, do którego istnieje odwołanie w kodzie lub narzędziu. Klasyczne interfejsy API używają identyfikatora URI https://management.core.windows.net. Należy użyć nowszego identyfikatora URI dla interfejsów API opartych na Menedżer zasobów rozpoczyna `https://management.azure.com/`się od.
 
-- Porównaj nazwę złożenia na komputerze. Starszy klasyczny montaż https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/jest w .
+- Porównaj nazwę zestawu na swojej maszynie. Starszy zestaw klasyczny ma wartość o https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/.
 
-- Jeśli używasz uwierzytelniania certyfikatu, aby uzyskać dostęp do metryk lub skalowania automatycznego interfejsów API, używasz klasycznego punktu końcowego i biblioteki. Nowsze interfejsy API Menedżera zasobów wymagają uwierzytelniania usługi Azure Active Directory za pośrednictwem jednostki usługi lub jednostki głównej użytkownika.
+- Jeśli używasz uwierzytelniania certyfikatu w celu uzyskania dostępu do metryk lub interfejsów API automatycznego skalowania, używasz klasycznego punktu końcowego i biblioteki. Nowsze Menedżer zasobów interfejsy API wymagają uwierzytelniania Azure Active Directory za pośrednictwem jednostki usługi lub nazwy głównej użytkownika.
 
-- Jeśli używasz wywołań, do których odwołuje się w dokumentacji w dowolnym z poniższych łączy, używasz starszych klasycznych interfejsów API.
+- W przypadku korzystania z wywołań, do których odwołuje się w dokumentacji na dowolnym z poniższych linków, używane są starsze klasyczne interfejsy API.
 
-  - [Biblioteka klas windows.Azure.Management.Monitoring](https://docs.microsoft.com/previous-versions/azure/dn510414(v=azure.100))
+  - [Biblioteka klas Windows. Azure. Management. Monitoring](https://docs.microsoft.com/previous-versions/azure/dn510414(v=azure.100))
 
   - [Monitorowanie (klasyczne) .NET](https://docs.microsoft.com/previous-versions/azure/reference/mt348562(v%3dazure.100))
 
-  - [Interfejs IMetricOperations](https://docs.microsoft.com/previous-versions/azure/reference/dn802395(v%3dazure.100))
+  - [IMetricOperations, interfejs](https://docs.microsoft.com/previous-versions/azure/reference/dn802395(v%3dazure.100))
 
-## <a name="why-you-should-switch"></a>Dlaczego warto przełączyć
+## <a name="why-you-should-switch"></a>Dlaczego należy przełączyć
 
-Wszystkie istniejące możliwości skalowania automatycznego i metryki będą nadal działać za pośrednictwem nowych interfejsów API.  
+Wszystkie istniejące możliwości skalowania automatycznego i metryk będą nadal działały za pośrednictwem nowych interfejsów API.  
 
-Migracja do nowszych interfejsów API jest dostępna z możliwościami opartymi na Menedżerze zasobów, takimi jak obsługa spójnej kontroli dostępu opartej na rolach (RBAC) we wszystkich usługach monitorowania. Zyskujesz również dodatkowe funkcje dla danych: 
+Migrowanie do nowszych interfejsów API wiąże się z możliwościami opartymi na Menedżer zasobów, takimi jak obsługa spójnych Access Control opartych na rolach (RBAC) w ramach wszystkich usług monitorowania. Możesz również uzyskać dodatkową funkcjonalność dla metryk: 
 
-- podparcie dla wymiarów
-- spójna 1-minutowa szczegółowość metryczna we wszystkich usługach 
-- lepsze wyszukiwanie zapytań
-- większe przechowywanie danych (93 dni danych vs. 30 dni) 
+- Obsługa wymiarów
+- spójność 1-minutowego stopnia szczegółowości dla wszystkich usług 
+- lepsze wykonywanie zapytań
+- wyższe przechowywanie danych (od 93 do 30 dni) 
 
-Ogólnie rzecz biorąc, podobnie jak wszystkie inne usługi na platformie Azure, interfejsy API usługi Azure Monitor oparte na usłudze Resource Manager są wyposażone w lepszą wydajność, skalowalność i niezawodność. 
+Ogólnie, podobnie jak w przypadku wszystkich innych usług na platformie Azure, Azure Monitor interfejsy API oparte na Menedżer zasobów są dostępne w celu zapewnienia lepszej wydajności, skalowalności i niezawodności. 
 
-## <a name="what-happens-if-you-do-not-migrate"></a>Co się stanie, jeśli nie zostaniesz zmigrowane
+## <a name="what-happens-if-you-do-not-migrate"></a>Co się stanie, jeśli nie wykonasz migracji
 
-### <a name="before-retirement"></a>Przed przejściem na emeryturę
+### <a name="before-retirement"></a>Przed wycofaniem
 
-Nie będzie żadnego bezpośredniego wpływu na usługi platformy Azure lub ich obciążeń.  
+Nie będzie żadnego bezpośredniego wpływu na usługi platformy Azure ani ich obciążenia.  
 
-### <a name="after-retirement"></a>Po przejściu na emeryturę
+### <a name="after-retirement"></a>Po wycofaniu
 
-Wszystkie wywołania klasycznych interfejsów API wymienionych wcześniej zakończy się niepowodzeniem i zwróci komunikaty o błędach podobne do następujących komunikatów:
+Wszystkie wywołania klasycznych interfejsów API wymienione wcześniej zakończą się niepowodzeniem i zwracają komunikaty o błędach podobne do następujących:
 
-W przypadku skalowania automatycznego: *ten interfejs API został przestarzały. Użyj szablonów Witryny Azure Portal, Azure Monitor SDK, PowerShell, CLI lub Resource Manager do zarządzania ustawieniami skalowania automatycznego.*  
+W przypadku automatycznego skalowania: *ten interfejs API jest przestarzały. Aby zarządzać ustawieniami automatycznego skalowania, użyj szablonów Azure Portal, Azure Monitor SDK, programu PowerShell, interfejsu wiersza polecenia lub Menedżer zasobów*.  
 
-W przypadku metryk: *ten interfejs API został przestarzały. Użyj witryny Azure Portal, Azure Monitor SDK, PowerShell, CLI, aby zbadać metryki.*
+Metryki: *ten interfejs API jest przestarzały. Użyj Azure Portal, Azure Monitor SDK, programu PowerShell, interfejsu wiersza polecenia, aby wykonać zapytanie o metryki*.
 
 ## <a name="email-notifications"></a>Powiadomienia e-mail
 
-Powiadomienie o przejściu na emeryturę zostało wysłane na adresy e-mail dla następujących ról konta: 
+Powiadomienie o wycofaniu zostało wysłane na adresy e-mail dla następujących ról konta: 
 
-- Administratorzy kont i usług
-- Coadministrators  
+- Administratorzy konta i usługi
+- Współadministratorów  
 
-Jeśli masz jakieś pytania, MonitorClassicAPIhelp@microsoft.comskontaktuj się z nami pod adresem .  
+Jeśli masz jakieś pytania, skontaktuj się z nami MonitorClassicAPIhelp@microsoft.compod adresem.  
 
 ## <a name="references"></a>Dokumentacja
 
-- [Nowsze interfejsy API REST dla usługi Azure Monitor](https://docs.microsoft.com/rest/api/monitor/) 
-- [Nowszy zestaw SDK monitora platformy Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)
+- [Nowsze interfejsy API REST dla Azure Monitor](https://docs.microsoft.com/rest/api/monitor/) 
+- [Nowszy Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)

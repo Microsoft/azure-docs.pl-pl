@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: Syntetyzowanie mowy, Java (Android) - Usługa mowy'
+title: 'Szybki Start: synteza mowy, Java (Android) — usługa mowy'
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak syntetyzować mowę w języku Java w systemie Android przy użyciu sdk mowy
+description: Dowiedz się, jak przeprowadzić funkcję syntezy mowy w języku Java w systemie Android przy użyciu zestawu Speech SDK
 services: cognitive-services
 author: yulin-li
 manager: nitinme
@@ -11,31 +11,31 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: yulili
 ms.openlocfilehash: d114e75a08f31a664772b84e19ec4d93b453af0b
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81274724"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zanim zaczniesz, upewnij się, że:
+Przed rozpoczęciem upewnij się, że:
 
 > [!div class="checklist"]
-> * [Tworzenie zasobu mowy platformy Azure](../../../../get-started.md)
-> * [Konfigurowanie środowiska programistycznego i tworzenie pustego projektu](../../../../quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
+> * [Tworzenie zasobu usługi Azure Speech](../../../../get-started.md)
+> * [Skonfiguruj środowisko deweloperskie i Utwórz pusty projekt](../../../../quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
 
 ## <a name="create-user-interface"></a>Tworzenie interfejsu użytkownika
 
 Utworzymy podstawowy interfejs użytkownika dla aplikacji. Edytuj układ dla głównego działania, `activity_main.xml`. Początkowo układ zawiera pasek tytułu z nazwą aplikacji i element TextView zawierający tekst „Hello World!”.
 
-1. Kliknij element TextView. Zmień jego atrybut identyfikatora w prawym `outputMessage`górnym rogu na , i przeciągnij go na dolny ekran. Usuń jego tekst.
+1. Kliknij element TextView. Zmień jego atrybut ID w prawym górnym rogu `outputMessage`, a następnie przeciągnij go do dolnego ekranu. Usuń jego tekst.
 
 1. Z palety w lewym górnym rogu okna `activity_main.xml` przeciągnij przycisk do pustego miejsca nad tekstem.
 
 1. W atrybutach przycisku po prawej stronie w polu wartości atrybutu `onClick` wprowadź `onSpeechButtonClicked`. Napiszemy metodę o tej nazwie do obsługi zdarzenia przycisku.  Zmień atrybut ID w prawym górnym rogu na `button`.
 
-1. Przeciągnij zwykły tekst w spację nad przyciskiem; zmień jego atrybut ID na `speakText`, i `Hi there!`zmień atrybut tekstu na .
+1. Przeciągnij zwykły tekst do obszaru powyżej przycisku; Zmień jego atrybut ID na `speakText`, a następnie Zmień atrybut tekstu na `Hi there!`.
 
 1. Użyj ikony różdżki u góry projektanta na potrzeby wnioskowania ograniczeń układu.
 
@@ -54,7 +54,7 @@ Tekst i graficzna reprezentacja interfejsu użytkownika powinny teraz wyglądać
 
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/android/text-to-speech/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 
-   * Metoda `onSpeechButtonClicked` oznacza, jak wspomniano wcześniej, procedurę obsługi naciskania przycisku. Naciśnięcie przycisku wyzwala syntezę mowy.
+   * Metoda `onSpeechButtonClicked` oznacza, jak wspomniano wcześniej, procedurę obsługi naciskania przycisku. Naciśnięcie przycisku uruchamia funkcję synteza mowy.
 
 1. W tym samym pliku zastąp ciąg `YourSubscriptionKey` kluczem subskrypcji.
 
@@ -62,17 +62,17 @@ Tekst i graficzna reprezentacja interfejsu użytkownika powinny teraz wyglądać
 
 ## <a name="build-and-run-the-app"></a>Kompilowanie i uruchamianie aplikacji
 
-1. Połącz urządzenie z systemem Android do komputera projektowego. Upewnij się, że na urządzeniu włączono [tryb projektowania i debugowanie USB](https://developer.android.com/studio/debug/dev-options). Alternatywnie, utwórz [emulator systemu Android](https://developer.android.com/studio/run/emulator).
+1. Połącz urządzenie z systemem Android do komputera projektowego. Upewnij się, że na urządzeniu włączono [tryb projektowania i debugowanie USB](https://developer.android.com/studio/debug/dev-options). Alternatywnie możesz utworzyć [emulator systemu Android](https://developer.android.com/studio/run/emulator).
 
-1. Aby utworzyć aplikację, naciśnij klawisze Ctrl+F9 lub wybierz z paska menu pozycję **Zbuduj** > **projekt.**
+1. Aby skompilować aplikację, naciśnij klawisze CTRL + F9 lub wybierz opcję **Kompiluj** > **Utwórz projekt** z paska menu.
 
-1. Aby uruchomić aplikację, naciśnij klawisze Shift+F10 lub wybierz polecenie **Uruchom** > **polecenie Uruchom "app"**.
+1. Aby uruchomić aplikację, naciśnij klawisze Shift + F10 **lub wybierz polecenie** > Uruchom**przebieg "App"**.
 
-1. W wyświetlonym oknie docelowym wdrożenia wybierz urządzenie z systemem Android lub emulator.
+1. W wyświetlonym oknie cel wdrożenia wybierz urządzenie z systemem Android lub emulator.
 
    ![Zrzut ekranu okna Deployment Target (Cel wdrożenia)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-12-deploy.png)
 
-Wprowadź tekst i naciśnij przycisk w aplikacji, aby rozpocząć sekcję syntezy mowy. Usłyszysz syntetyzowany dźwięk z domyślnego głośnika i zobaczysz `speech synthesis succeeded` informacje na ekranie.
+Wprowadź tekst i naciśnij przycisk w aplikacji, aby rozpocząć sekcję synteza mowy. Słychać dźwięk z głośników domyślnego i zobaczysz `speech synthesis succeeded` informacje na ekranie.
 
 ![Zrzut ekranu aplikacji Android](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-13-2-gui-on-device-tts.png)
 
@@ -80,7 +80,7 @@ Wprowadź tekst i naciśnij przycisk w aplikacji, aby rozpocząć sekcję syntez
 
 [!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Tworzenie niestandardowego głosu](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
-- [Nagrywanie niestandardowych próbek głosu](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
+- [Rejestruj niestandardowe przykłady głosu](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

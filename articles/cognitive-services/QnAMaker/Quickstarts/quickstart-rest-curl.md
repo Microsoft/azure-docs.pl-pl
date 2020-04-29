@@ -1,45 +1,45 @@
 ---
-title: 'Szybki start: zarządzanie bazą wiedzy za pomocą cURL & REST'
-description: Ten przewodnik Szybki start pokazuje, jak tworzyć, publikować i wysyłać zapytania do bazy wiedzy przy użyciu interfejsów API REST.
+title: 'Szybki Start: korzystanie z & zawieszania do zarządzania bazą wiedzy QnA Maker'
+description: W tym przewodniku szybki start przedstawiono sposób tworzenia, publikowania i wysyłania zapytań do bazy wiedzy przy użyciu interfejsów API REST.
 ms.date: 04/13/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: quickstart
 ms.openlocfilehash: facc45ab8f916181f7eeceb65c5102a60ae7d7e9
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81261707"
 ---
-# <a name="quickstart-use-curl-and-rest-to-manage-knowledge-base"></a>Szybki start: zarządzanie bazą wiedzy za pomocą cURL i REST
+# <a name="quickstart-use-curl-and-rest-to-manage-knowledge-base"></a>Szybki Start: używanie zawieszania i REST do zarządzania bazą wiedzy
 
-Ten przewodnik Szybki start przeprowadzi Cię przez tworzenie, publikowanie i wykonywanie zapytań z bazy wiedzy. Usługa QnA Maker automatycznie wyodrębnia pytania i odpowiedzi z częściowo ustrukturyzowanej zawartości, na przykład często zadawanych pytań, ze [źródeł danych](../Concepts/knowledge-base.md). Model bazy wiedzy jest zdefiniowany w formacie JSON wysyłanym w treści żądania interfejsu API.
+Ten przewodnik Szybki Start przeprowadzi Cię przez proces tworzenia, publikowania i wysyłania zapytań do bazy wiedzy. Usługa QnA Maker automatycznie wyodrębnia pytania i odpowiedzi z częściowo ustrukturyzowanej zawartości, na przykład często zadawanych pytań, ze [źródeł danych](../Concepts/knowledge-base.md). Model bazy wiedzy jest zdefiniowany w formacie JSON wysyłanym w treści żądania interfejsu API.
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Bieżąca wersja [cURL](https://curl.haxx.se/). W przewodnikach Szybki start używanych jest kilka przełączników wiersza polecenia, które są odnotowane w [dokumentacji cURL](https://curl.haxx.se/docs/manpage.html).
-* Aby użyć klucza i nazwy zasobu, musisz mieć [zasób QnA Maker.](../How-To/set-up-qnamaker-service-azure.md) Wprowadzono **nazwę** zasobu podczas tworzenia zasobów, a następnie klucz został utworzony dla Ciebie. Nazwa zasobu jest używana jako poddomena punktu końcowego. Aby pobrać nazwę klucza i zasobu, wybierz **szybki start** dla zasobu w witrynie Azure portal. Nazwa zasobu jest pierwszą poddomeną adresu URL punktu końcowego:
+* Bieżąca wersja programu [zwinięcie](https://curl.haxx.se/). Kilka przełączników wiersza polecenia są używane w przewodnikach Szybki Start, które zostały zanotowane w [dokumentacji programu zwinięcie](https://curl.haxx.se/docs/manpage.html).
+* Aby użyć nazwy klucza i zasobu, musisz mieć [zasób QNA Maker](../How-To/set-up-qnamaker-service-azure.md). Podczas tworzenia zasobu wprowadzono **nazwę** zasobu, a następnie klucz został utworzony. Nazwa zasobu jest używana jako poddomena dla punktu końcowego. Aby pobrać nazwę klucza i zasobu, wybierz pozycję **Szybki Start** dla zasobu w Azure Portal. Nazwa zasobu to pierwsza poddomena adresu URL punktu końcowego:
 
     `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
 
 > [!CAUTION]
-> W poniższych przykładach `\` bash użyto znaku kontynuacji wiersza. Jeśli konsola lub terminal używa innego znaku kontynuacji wiersza, użyj tego znaku.
+> Poniższe przykłady BASH używają znaku kontynuacji `\` wiersza. Jeśli konsola lub terminal używa innego znaku kontynuacji wiersza, użyj tego znaku.
 
 ## <a name="create-a-knowledge-base"></a>Tworzenie bazy wiedzy
 
-Aby utworzyć bazę wiedzy z interfejsami API REST i cURL, należy mieć następujące informacje:
+Aby utworzyć bazę wiedzy z interfejsami API REST i zwinięciem, musisz dysponować następującymi informacjami:
 
-|Informacje|Konfiguracja cURL|Przeznaczenie|
+|Informacje|Konfiguracja zwinięcie|Przeznaczenie|
 |--|--|--|
-|Nazwa zasobu programu QnA Maker|Adres URL|używane do konstruowania adresu URL|
-|Klucz zasobu programu QnA Maker|`-h`param `Ocp-Apim-Subscription-Key` dla nagłówka|Uwierzytelnij się w usłudze QnA Maker|
-|JSON opisujący bazę wiedzy|`-d`Param|[Przykłady](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) JSON|
-|Rozmiar JSON w bajtach|`-h`param `Content-Size` dla nagłówka||
+|Nazwa zasobu QnA Maker|Adres URL|używane do konstruowania adresu URL|
+|Klucz zasobu QnA Maker|`-h`param dla `Ocp-Apim-Subscription-Key` nagłówka|Uwierzytelnianie w usłudze QnA Maker|
+|JSON opisujące bazę wiedzy|`-d`param|[Przykłady](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) kodu JSON|
+|Rozmiar JSON w bajtach|`-h`param dla `Content-Size` nagłówka||
 
-Polecenie cURL jest wykonywane z powłoki BASH. Edytuj to polecenie przy obliczu własnej nazwy zasobu, klucza zasobów oraz wartości JSON i rozmiaru JSON.
+Polecenie zwinięcie jest wykonywane z poziomu powłoki BASH. Edytuj to polecenie przy użyciu własnej nazwy zasobu, klucza zasobu oraz wartości JSON i rozmiaru JSON.
 
 ```bash
 curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0/knowledgebases/create \
@@ -50,7 +50,7 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 -d '{ name: "QnA Maker FAQ",urls: [ "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs"]}'
 ```
 
-Odpowiedź cURL od QnA `operationId` Maker zawiera , który jest wymagany, aby [uzyskać status operacji.](#get-status-of-operation)
+Odpowiedź zazwinięcie z QnA Maker obejmuje `operationId` , który jest wymagany do [uzyskania stanu operacji](#get-status-of-operation).
 
 ```json
 {
@@ -62,17 +62,17 @@ Odpowiedź cURL od QnA `operationId` Maker zawiera , który jest wymagany, aby [
 }
 ```
 
-## <a name="get-status-of-operation"></a>Uzyskaj stan operacji
+## <a name="get-status-of-operation"></a>Pobierz stan operacji
 
-Podczas tworzenia bazy wiedzy, ponieważ operacja jest asynchronizna, odpowiedź zawiera informacje w celu określenia stanu.
+Podczas tworzenia bazy wiedzy, ponieważ operacja jest asynchroniczna, odpowiedź zawiera informacje służące do określenia stanu.
 
-|Informacje|Konfiguracja cURL|Przeznaczenie|
+|Informacje|Konfiguracja zwinięcie|Przeznaczenie|
 |--|--|--|
-|Nazwa zasobu programu QnA Maker|Adres URL|używane do konstruowania adresu URL|
-|Identyfikator operacji|Trasa adresu URL|`/operations/REPLACE-WITH-YOUR-OPERATION-ID`|
-|Klucz zasobu programu QnA Maker|`-h`param `Ocp-Apim-Subscription-Key` dla nagłówka|Uwierzytelnij się w usłudze QnA Maker|
+|Nazwa zasobu QnA Maker|Adres URL|używane do konstruowania adresu URL|
+|Identyfikator operacji|Trasa URL|`/operations/REPLACE-WITH-YOUR-OPERATION-ID`|
+|Klucz zasobu QnA Maker|`-h`param dla `Ocp-Apim-Subscription-Key` nagłówka|Uwierzytelnianie w usłudze QnA Maker|
 
-Polecenie cURL jest wykonywane z powłoki BASH. Edytuj to polecenie przy obliczu własnej nazwy zasobu, klucza zasobów i identyfikatora operacji.
+Polecenie zwinięcie jest wykonywane z poziomu powłoki BASH. Edytuj to polecenie przy użyciu własnej nazwy zasobu, klucza zasobu i identyfikatora operacji.
 
 ```bash
 curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0/operations/REPLACE-WITH-YOUR-OPERATION-ID \
@@ -80,7 +80,7 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
 ```
 
-Odpowiedź cURL zawiera stan. Jeśli stan operacji zakończy się `resourceLocation` pomyślnie, zawiera identyfikator bazy wiedzy.
+Odpowiedź zwinięcie zawiera stan. W przypadku pomyślnego stanu operacji zostanie `resourceLocation` uwzględniony identyfikator bazy wiedzy.
 
 ```json
 {
@@ -95,19 +95,19 @@ Odpowiedź cURL zawiera stan. Jeśli stan operacji zakończy się `resourceLocat
 
 ## <a name="publish-knowledge-base"></a>Publikowanie bazy wiedzy
 
-Przed zapytaniem bazy wiedzy należy:
+Przed wykonaniem zapytania w bazie wiedzy należy:
 * Publikowanie bazy wiedzy
-* Pobierz klucz punktu końcowego środowiska wykonawczego
+* Pobierz klucz punktu końcowego środowiska uruchomieniowego
 
-To zadanie publikuje bazę wiedzy. Uzyskanie klucza punktu końcowego środowiska wykonawczego jest [osobnym zadaniem](#get-published-knowledge-bases-runtime-endpoint-key).
+To zadanie służy do publikowania bazy wiedzy. Pobieranie klucza punktu końcowego środowiska uruchomieniowego jest [osobnym zadaniem](#get-published-knowledge-bases-runtime-endpoint-key).
 
-|Informacje|Konfiguracja cURL|Przeznaczenie|
+|Informacje|Konfiguracja zwinięcie|Przeznaczenie|
 |--|--|--|
-|Nazwa zasobu programu QnA Maker|Adres URL|używane do konstruowania adresu URL|
-|Klucz zasobu programu QnA Maker|`-h`param `Ocp-Apim-Subscription-Key` dla nagłówka|Uwierzytelnij się w usłudze QnA Maker|
-|Identyfikator bazy wiedzy|Trasa adresu URL|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
+|Nazwa zasobu QnA Maker|Adres URL|używane do konstruowania adresu URL|
+|Klucz zasobu QnA Maker|`-h`param dla `Ocp-Apim-Subscription-Key` nagłówka|Uwierzytelnianie w usłudze QnA Maker|
+|Identyfikator bazy wiedzy|Trasa URL|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
 
-Polecenie cURL jest wykonywane z powłoki BASH. Edytuj to polecenie przy obliczu własnej nazwy zasobu, klucza zasobów i identyfikatora bazy wiedzy.
+Polecenie zwinięcie jest wykonywane z poziomu powłoki BASH. Edytuj to polecenie przy użyciu własnej nazwy zasobu, klucza zasobu i identyfikatora bazy wiedzy.
 
 ```bash
 curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID \
@@ -117,24 +117,24 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 --data-raw ''
 ```
 
-Stan odpowiedzi to 204 bez wyników. Użyj `-v` parametru wiersza polecenia, aby wyświetlić pełne dane wyjściowe dla polecenia cURL. Będzie to obejmować stan HTTP.
+Stan odpowiedzi to 204 bez wyników. Użyj parametru `-v` wiersza polecenia, aby wyświetlić pełne dane wyjściowe polecenia zwinięcie. Spowoduje to uwzględnienie stanu HTTP.
 
-## <a name="get-published-knowledge-bases-runtime-endpoint-key"></a>Pobierz klucz punktu końcowego środowiska wykonawczego opublikowanej bazy wiedzy
+## <a name="get-published-knowledge-bases-runtime-endpoint-key"></a>Pobierz klucz punktu końcowego środowiska uruchomieniowego opublikowanej bazy wiedzy
 
-Przed zapytaniem bazy wiedzy należy:
+Przed wykonaniem zapytania w bazie wiedzy należy:
 * Publikowanie bazy wiedzy
-* Pobierz klucz punktu końcowego środowiska wykonawczego
+* Pobierz klucz punktu końcowego środowiska uruchomieniowego
 
-To zadanie otrzymuje klucz punktu końcowego środowiska wykonawczego. Publikowanie bazy wiedzy jest [osobnym zadaniem](#publish-knowledge-base).
+To zadanie Pobiera klucz punktu końcowego środowiska uruchomieniowego. Publikowanie bazy wiedzy jest [osobnym zadaniem](#publish-knowledge-base).
 
 Klucz punktu końcowego środowiska uruchomieniowego jest tym samym kluczem dla wszystkich baz wiedzy przy użyciu zasobu QnA Maker.
 
-|Informacje|Konfiguracja cURL|Przeznaczenie|
+|Informacje|Konfiguracja zwinięcie|Przeznaczenie|
 |--|--|--|
-|Nazwa zasobu programu QnA Maker|Adres URL|używane do konstruowania adresu URL|
-|Klucz zasobu programu QnA Maker|`-h`param `Ocp-Apim-Subscription-Key` dla nagłówka|Uwierzytelnij się w usłudze QnA Maker|
+|Nazwa zasobu QnA Maker|Adres URL|używane do konstruowania adresu URL|
+|Klucz zasobu QnA Maker|`-h`param dla `Ocp-Apim-Subscription-Key` nagłówka|Uwierzytelnianie w usłudze QnA Maker|
 
-Polecenie cURL jest wykonywane z powłoki BASH. Edytuj to polecenie przy sterami własnej nazwy zasobu, klucza zasobów.
+Polecenie zwinięcie jest wykonywane z poziomu powłoki BASH. Edytuj to polecenie przy użyciu własnej nazwy zasobu, klucza zasobu.
 
 ```bash
 curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0/endpointkeys \
@@ -143,7 +143,7 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 ```
 
 
-Odpowiedź cURL zawiera klucze punktu końcowego środowiska wykonawczego. Użyj tylko jednego z kluczy podczas wykonywania zapytań, aby uzyskać odpowiedź z bazy wiedzy.
+Odpowiedź zwinięcie zawiera klucze punktu końcowego środowiska uruchomieniowego. Użyj tylko jednego z kluczy podczas wykonywania zapytania w celu uzyskania odpowiedzi z bazy wiedzy.
 
 ```json
 {
@@ -156,17 +156,17 @@ Odpowiedź cURL zawiera klucze punktu końcowego środowiska wykonawczego. Użyj
 
 ## <a name="query-for-answer-from-published-knowledge-base"></a>Zapytanie o odpowiedź z opublikowanej bazy wiedzy
 
-Uzyskiwanie odpowiedzi z wiedzy odbywa się z oddzielnego środowiska uruchomieniowego niż zarządzanie bazą wiedzy. Ponieważ jest to oddzielne środowisko uruchomieniowe, należy uwierzytelnić za pomocą klucza środowiska uruchomieniowego.
+Uzyskiwanie odpowiedzi ze wiedzy odbywa się z osobnego środowiska uruchomieniowego niż zarządzanie bazą wiedzy. Ponieważ jest to osobne środowisko uruchomieniowe, należy przeprowadzić uwierzytelnianie przy użyciu klucza czasu wykonywania.
 
-|Informacje|Konfiguracja cURL|Przeznaczenie|
+|Informacje|Konfiguracja zwinięcie|Przeznaczenie|
 |--|--|--|
-|Nazwa zasobu programu QnA Maker|Adres URL|używane do konstruowania adresu URL|
-|Klucz środowiska uruchomieniowego programu QnA Maker|`-h`param `Authorization` dla nagłówka|Klucz jest częścią ciągu, który `Endpointkey `zawiera słowo . Uwierzytelnij się w usłudze QnA Maker|
-|Identyfikator bazy wiedzy|Trasa adresu URL|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
-|JSON opisujące kwerendę|`-d`Param|[Żądania parametrów treści](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) i [przykładów](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) JSON|
-|Rozmiar JSON w bajtach|`-h`param `Content-Size` dla nagłówka||
+|Nazwa zasobu QnA Maker|Adres URL|używane do konstruowania adresu URL|
+|Klucz środowiska uruchomieniowego QnA Maker|`-h`param dla `Authorization` nagłówka|Klucz jest częścią ciągu zawierającego wyraz `Endpointkey `. Uwierzytelnianie w usłudze QnA Maker|
+|Identyfikator bazy wiedzy|Trasa URL|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
+|Zapytanie JSON opisujące|`-d`param|[Parametry treści żądania](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) i [przykłady](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) kodu JSON|
+|Rozmiar JSON w bajtach|`-h`param dla `Content-Size` nagłówka||
 
-Polecenie cURL jest wykonywane z powłoki BASH. Edytuj to polecenie przy obliczu własnej nazwy zasobu, klucza zasobów i identyfikatora bazy wiedzy.
+Polecenie zwinięcie jest wykonywane z poziomu powłoki BASH. Edytuj to polecenie przy użyciu własnej nazwy zasobu, klucza zasobu i identyfikatora bazy wiedzy.
 
 ```bash
 curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID/generateAnswer \
@@ -177,19 +177,19 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker/knowledg
 -d '{"question": "How are QnA Maker and LUIS used together?","top": 6,"isTest": true,  "scoreThreshold": 20, "strictFilters": [], "userId": "sd53lsY="}'
 ```
 
-Pomyślna odpowiedź zawiera najwyższą odpowiedź wraz z innymi informacjami, które aplikacja kliencka, taka jak czat bot, musi wyświetlić odpowiedź dla użytkownika.
+Pomyślna odpowiedź obejmuje największą odpowiedź oraz inne informacje, które aplikacja kliencka, taka jak rozmowa bot, musi wyświetlić odpowiedź do użytkownika.
 
-## <a name="delete-knowledge-base"></a>Usuwanie bazy wiedzy
+## <a name="delete-knowledge-base"></a>Usuń bazę wiedzy
 
 Po zakończeniu pracy z bazą wiedzy usuń ją.
 
-|Informacje|Konfiguracja cURL|Przeznaczenie|
+|Informacje|Konfiguracja zwinięcie|Przeznaczenie|
 |--|--|--|
-|Nazwa zasobu programu QnA Maker|Adres URL|używane do konstruowania adresu URL|
-|Klucz zasobu programu QnA Maker|`-h`param `Ocp-Apim-Subscription-Key` dla nagłówka|Uwierzytelnij się w usłudze QnA Maker|
-|Identyfikator bazy wiedzy|Trasa adresu URL|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
+|Nazwa zasobu QnA Maker|Adres URL|używane do konstruowania adresu URL|
+|Klucz zasobu QnA Maker|`-h`param dla `Ocp-Apim-Subscription-Key` nagłówka|Uwierzytelnianie w usłudze QnA Maker|
+|Identyfikator bazy wiedzy|Trasa URL|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
 
-Polecenie cURL jest wykonywane z powłoki BASH. Edytuj to polecenie przy obliczu własnej nazwy zasobu, klucza zasobów i identyfikatora bazy wiedzy.
+Polecenie zwinięcie jest wykonywane z poziomu powłoki BASH. Edytuj to polecenie przy użyciu własnej nazwy zasobu, klucza zasobu i identyfikatora bazy wiedzy.
 
 ```bash
 curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID \
@@ -198,13 +198,13 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
 ```
 
-Stan odpowiedzi to 204 bez wyników. Użyj `-v` parametru wiersza polecenia, aby wyświetlić pełne dane wyjściowe dla polecenia cURL. Będzie to obejmować stan HTTP.
+Stan odpowiedzi to 204 bez wyników. Użyj parametru `-v` wiersza polecenia, aby wyświetlić pełne dane wyjściowe polecenia zwinięcie. Spowoduje to uwzględnienie stanu HTTP.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Tworzenie autorstwa](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) Dokumentacja referencyjna
-* [Środowisko wykonawcze](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/) Dokumentacja referencyjna
-* [Przykładowe skrypty BASH przy użyciu cURL](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/curl/QnAMaker)
+* [Tworzenie](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) Dokumentacja referencyjna
+* [Środowisko uruchomieniowe](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/) Dokumentacja referencyjna
+* [Przykładowe skrypty BASH korzystające z zwinięcie](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/curl/QnAMaker)
 
 ## <a name="next-steps"></a>Następne kroki
 

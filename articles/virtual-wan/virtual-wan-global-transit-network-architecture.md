@@ -1,5 +1,5 @@
 ---
-title: 'Architektura: Architektura globalnej sieci tranzytowej'
+title: 'Architektura: Globalna architektura sieci tranzytowej'
 titleSuffix: Azure Virtual WAN
 description: Dowiedz się więcej o globalnej architekturze sieci tranzytowej dla wirtualnej sieci WAN
 services: virtual-wan
@@ -9,139 +9,139 @@ ms.topic: article
 ms.date: 02/06/2020
 ms.author: cherylmc
 ms.openlocfilehash: 9515058bc78a2d56dc1734c046dac5d5b04f68d9
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81113175"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Globalna architektura sieci tranzytowej i wirtualna sieć WAN
 
-Nowoczesne przedsiębiorstwa wymagają wszechobecnej łączności między hiper-rozproszonymi aplikacjami, danymi i użytkownikami w chmurze i lokalnie. Globalna architektura sieci tranzytowej jest wdrażana przez przedsiębiorstwa w celu konsolidacji, łączenia i kontrolowania nowoczesnego, globalnego śladu it dla przedsiębiorstw zorientowanego na chmurę.
+Nowoczesne przedsiębiorstwa wymagają powszechnej łączności między aplikacjami rozproszonymi, danymi i użytkownikami w chmurze i lokalnymi. Globalna architektura sieci tranzytowej jest wdrażana przez przedsiębiorstwa do konsolidowania, łączenia i kontrolowania nowoczesnego, globalnego przedsiębiorstwa opartego na chmurze.
 
-Globalna architektura sieci tranzytowej jest oparta na klasycznym modelu łączności koncentratora i szprychy, w którym "koncentrator" sieci hostowany w chmurze umożliwia przechodnie łączność między punktami końcowymi, które mogą być rozproszone między różnymi typami "szprych".
+Globalna architektura sieci tranzytowej jest oparta na klasycznym modelu łączności typu Hub i satelity, w którym sieć hostowana w chmurze "Hub" umożliwia przechodnią łączność między punktami końcowymi, które mogą być dystrybuowane w różnych typach "szprych".
 
-W tym modelu szprycha może być:
-* Sieć wirtualna (sieci wirtualne)
-* Fizyczna lokacja oddziału
+W tym modelu szprychą może być:
+* Sieć wirtualna (sieci wirtualnych)
+* Lokacja fizyczna
 * Użytkownik zdalny
 * Internet
 
-![piasta i szprycha](./media/virtual-wan-global-transit-network-architecture/figure1.png)
+![koncentrator i szprycha](./media/virtual-wan-global-transit-network-architecture/figure1.png)
 
-**Wykres 1: Globalna sieć węzłów tranzytowych i szprych**
+**Rysunek 1: globalna sieć piasty i satelity**
 
-Rysunek 1 przedstawia logiczny widok globalnej sieci tranzytowej, w której geograficznie rozproszone użytkownicy, lokacje fizyczne i sieci wirtualne są ze sobą połączone za pośrednictwem koncentratora sieciowego hostowanego w chmurze. Ta architektura umożliwia logiczne połączenie tranzytowe z jednym przeskoku między punktami końcowymi sieci.
+Rysunek 1 przedstawia widok logiczny globalnej sieci tranzytowej, w którym użytkownicy rozproszona geograficznie, lokacje fizyczne i sieci wirtualnych są współłączona za pośrednictwem Centrum sieciowego hostowanego w chmurze. Ta architektura umożliwia logiczne połączenie z jednym przeskokiem między punktami końcowymi sieci.
 
 ## <a name="global-transit-network-with-virtual-wan"></a><a name="globalnetworktransit"></a>Globalna sieć tranzytowa z wirtualną siecią WAN
 
-Wirtualna sieć WAN platformy Azure to usługa sieci w chmurze zarządzana przez firmę Microsoft. Wszystkie składniki sieci, z których składa się ta usługa, są hostowane i zarządzane przez firmę Microsoft. Aby uzyskać więcej informacji na temat wirtualnej sieci WAN, zobacz [omówienie wirtualnej sieci WAN.](virtual-wan-about.md)
+Wirtualna sieć WAN platformy Azure to usługa sieci w chmurze zarządzana przez firmę Microsoft. Wszystkie składniki sieci, które składają się na tę usługę, są hostowane i zarządzane przez firmę Microsoft. Aby uzyskać więcej informacji na temat wirtualnej sieci WAN, zobacz artykuł [Omówienie wirtualnych sieci WAN](virtual-wan-about.md) .
 
-Wirtualna sieć WAN platformy Azure umożliwia architekturę globalnej sieci tranzytowej, umożliwiając wszechobecną łączność między globalnie rozproszonymi zestawami obciążeń w chmurze w sieciach wirtualnych, lokacjach oddziałów, aplikacjach SaaS i PaaS oraz użytkownikach.
+Wirtualna sieć WAN platformy Azure umożliwia globalną architekturę sieci tranzytowej przez umożliwienie powszechnej łączności między globalnie rozproszonymi zbiorami obciążeń w chmurze w sieci wirtualnych, oddziałach, aplikacjach SaaS i PaaS oraz użytkowników.
 
 ![Wirtualna sieć WAN platformy Azure](./media/virtual-wan-global-transit-network-architecture/figure2.png)
 
-**Rysunek 2: Globalna sieć tranzytowa i wirtualna sieć WAN**
+**Rysunek 2: globalne sieci tranzytowe i wirtualna sieć WAN**
 
-W architekturze wirtualnej sieci WAN platformy Azure wirtualne koncentratory sieci WAN są aprowiedzone w regionach platformy Azure, z którymi można połączyć swoje gałęzie, sieci wirtualne i użytkowników zdalnych. Lokacje oddziałów fizycznych są połączone z koncentratorem przez usługi Premium ExpressRoute lub sieci VPN lokacji do lokacji, sieci wirtualne są połączone z koncentratorem za pomocą połączeń sieci wirtualnych, a użytkownicy zdalni mogą bezpośrednio łączyć się z koncentratorem za pomocą sieci VPN użytkownika (sieci VPN typu lokacja). Wirtualna sieć WAN obsługuje również międzyregionowe połączenie sieci wirtualnej, w którym sieć wirtualna w jednym regionie może być połączona z koncentratorem wirtualnej sieci WAN w innym regionie.
+W architekturze sieci wirtualnej platformy Azure wirtualne centra sieci WAN są inicjowane w regionach platformy Azure, w których można wybrać połączenie z gałęziami, sieci wirtualnych i użytkownikami zdalnymi. Fizyczne Lokacje oddziałów są połączone z centrum za pomocą ExpressRoute Premium lub lokacji-VPN, sieci wirtualnych są połączone z koncentratorem przez połączenia sieci wirtualnej, a użytkownicy zdalni mogą łączyć się bezpośrednio z centrum przy użyciu sieci VPN użytkownika (VPN punkt-lokacja). Wirtualna sieć WAN obsługuje również międzyregionowe połączenie sieci wirtualnej, w którym sieć wirtualna w jednym regionie może być podłączona do koncentratora wirtualnego sieci WAN w innym regionie.
 
-Można ustanowić wirtualną sieć WAN, tworząc pojedynczy wirtualny koncentrator sieci WAN w regionie, który ma największą liczbę szprych (oddziałów, sieci wirtualnych, użytkowników), a następnie łącząc szprychy, które znajdują się w innych regionach z koncentratorem. Jest to dobry opcja, gdy ślad przedsiębiorstwa jest głównie w jednym regionie z kilkoma zdalnymi szprychami.  
+Można nawiązać wirtualną sieć WAN, tworząc pojedyncze wirtualne koncentratory sieci WAN w regionie, który ma największą liczbę szprych (gałęzie, sieci wirtualnych, użytkowników), a następnie łącząc szprychy, które znajdują się w innych regionach z koncentratorem. Jest to dobrym rozwiązaniem, gdy powierzchnia przedsiębiorstwa jest w większości w jednym regionie, z kilkoma zdalnymi szprychami.  
   
-## <a name="hub-to-hub-connectivity-preview"></a><a name="hubtohub"></a>Łączność między koncentratorem (wersja zapoznawcza)
+## <a name="hub-to-hub-connectivity-preview"></a><a name="hubtohub"></a>Łączność między centrami (wersja zapoznawcza)
 
-Rozmiar chmury przedsiębiorstwa może obejmować wiele regionów chmury i jest optymalny (z opóźnieniem) dostęp do chmury z regionu najbliższego ich fizycznej witryny i użytkowników. Jedną z kluczowych zasad architektury globalnej sieci tranzytowej jest umożliwienie łączności między regionami między wszystkimi punktami końcowymi sieci w chmurze i lokalnie. Oznacza to, że ruch z gałęzi, która jest połączona z chmurą w jednym regionie, może dotrzeć do innej gałęzi lub sieci wirtualnej w innym regionie przy użyciu łączności hub-to-hub włączonej przez [usługę Azure Global Network.](https://azure.microsoft.com/global-infrastructure/global-network/)
+Obszar chmury przedsiębiorstwa może obejmować wiele regionów chmur i jest optymalny (opóźnienia), aby uzyskać dostęp do chmury z regionu znajdującego się najbliżej ich fizycznej witryny i użytkowników. Jedną z najważniejszych zasad globalnej architektury sieci tranzytowej jest włączenie łączności między regionami i punktami końcowymi sieci lokalnych. Oznacza to, że ruch z gałęzi, która jest połączona z chmurą w jednym regionie, może należeć do innej gałęzi lub sieci wirtualnej w innym regionie przy użyciu połączenia typu Hub-do-Hub włączonego przez [Sieć globalną platformy Azure](https://azure.microsoft.com/global-infrastructure/global-network/).
 
-![międzyregionów](./media/virtual-wan-global-transit-network-architecture/figure3.png)
+![między regionami](./media/virtual-wan-global-transit-network-architecture/figure3.png)
 
-**Rysunek 3: Łączność międzyregionami wirtualnej sieci WAN**
+**Rysunek 3. wirtualna komunikacja między regionami w sieci WAN**
 
-Gdy wiele koncentratorów są włączone w jednej wirtualnej sieci WAN, koncentratory są automatycznie połączone za pośrednictwem łączy hub-to-hub, umożliwiając w ten sposób globalną łączność między oddziałami i sieci wirtualnych, które są rozproszone w wielu regionach. 
+Jeśli w jednej wirtualnej sieci WAN włączono wiele centrów, koncentratory są automatycznie dołączane za pośrednictwem linków między centrami, co umożliwia globalne połączenie między gałęziami i sieci wirtualnychami rozproszonymi w wielu regionach. 
 
-Ponadto koncentratory, które są częścią tej samej wirtualnej sieci WAN, mogą być skojarzone z różnymi regionalnymi zasadami dostępu i zabezpieczeń. Aby uzyskać więcej informacji, zobacz [zabezpieczenia i kontrola zasad](#security) w dalszej części tego artykułu.
+Ponadto centra, które są częścią tej samej wirtualnej sieci WAN, mogą być skojarzone z różnymi regionalnymi zasadami dostępu i zabezpieczeń. Aby uzyskać więcej informacji, zobacz [zabezpieczenia i kontrola zasad](#security) w dalszej części tego artykułu.
 
-## <a name="any-to-any-connectivity"></a><a name="anytoany"></a>Łączność typu "dowolna"
+## <a name="any-to-any-connectivity"></a><a name="anytoany"></a>Łączność dowolna-do-dowolna
 
-Globalna architektura sieci tranzytowej umożliwia łączność dowolną za pośrednictwem wirtualnych koncentratorów sieci WAN. Ta architektura eliminuje lub zmniejsza potrzebę pełnej siatki lub częściowej łączności siatki między szprychami, które są bardziej złożone do tworzenia i konserwacji. Ponadto sterowanie routingu w sieciach hub-and-spoke vs. mesh jest łatwiejsze do skonfigurowania i obsługi.
+Globalna architektura sieci tranzytowej umożliwia korzystanie z dowolnej łączności za pośrednictwem wirtualnych centrów sieci WAN. Ta architektura eliminuje lub zmniejsza potrzebę obsługi pełnej siatki lub częściowej łączności między szprychami, które są bardziej skomplikowane do kompilowania i konserwowania. Ponadto w celu łatwiejszego konfigurowania i konserwowania kontroli routingu w sieciach typu Hub i szprych.
 
-Łączność typu "każdy dowolna" (w kontekście architektury globalnej) umożliwia przedsiębiorstwu z globalnie rozproszonymi użytkownikami, oddziałami, centrami danych, sieciami wirtualnymi i aplikacjami łączenie się ze sobą za pośrednictwem koncentratora "tranzytowego". Wirtualna sieć WAN platformy Azure działa jako globalny system tranzytowy.
+Dowolna z połączeń (w kontekście globalnej architektury) umożliwia przedsiębiorstwom globalnie rozproszonym użytkownikom, rozgałęzień, centrów danych, sieci wirtualnych i aplikacji łączenie się ze sobą za pośrednictwem centrów "przesyłania". Wirtualna sieć WAN platformy Azure pełni rolę globalnego systemu tranzytowego.
 
-![do jakichkolwiek](./media/virtual-wan-global-transit-network-architecture/figure4.png)
+![dowolny do dowolnego](./media/virtual-wan-global-transit-network-architecture/figure4.png)
 
-**Rysunek 4: Wirtualne ścieżki ruchu WAN**
+**Rysunek 4. ścieżki ruchu wirtualnego sieci WAN**
 
-Wirtualna sieć WAN platformy Azure obsługuje następujące ścieżki globalnej łączności tranzytowej. Litery w nawiasach są mapowane na rysunek 4.
+Wirtualna sieć WAN platformy Azure obsługuje następujące globalne ścieżki połączeń tranzytowych. Litery w nawiasach są mapowane na rysunek 4.
 
-* Sieć odgałęzienia do sieci wirtualnej (a)
-* Odgałęzienie do gałęzi (b)
-  * Globalny zasięg usługi ExpressRoute i wirtualna sieć WAN
-* Zdalna usługa User-to-VNet (c)
-* Zdalny użytkownik do gałęzi (d)
-* Sieci wirtualnej do sieci wirtualnej (e)
-* Odgałęzienie do koncentratora-do gałęzi (f)
-* Sieć odgałęzienia do koncentratora do sieci wirtualnej (g)
-* Sieci wirtualnej do koncentratora-do sieci wirtualnej (h)
+* Odgałęzienie do sieci wirtualnej (a)
+* Rozgałęzienie (b)
+  * ExpressRoute Global Reach i wirtualna sieć WAN
+* Zdalne użytkownika do sieci wirtualnej (c)
+* Zdalny użytkownik do rozgałęzienia (d)
+* Sieć wirtualna-sieć wirtualna (e)
+* Gałąź-do-Hub-Hub (f)
+* Gałąź-do-Hub — piasta-Sieć wirtualna (g)
+* Sieć wirtualna-sieć-piasta (h)
 
-### <a name="branch-to-vnet-a-and-branch-to-vnet-cross-region-g"></a>Sieć międzygałęzienną a) i międzyregionem międzysieciową międzygałęźnikami (g)
+### <a name="branch-to-vnet-a-and-branch-to-vnet-cross-region-g"></a>Rozgałęzienie między sieciami wirtualnymi (a) i gałęzią między różnymi regionami (g)
 
-Sieć lokacji do sieci wirtualnej jest podstawową ścieżką obsługiwaną przez wirtualną sieć WAN platformy Azure. Ta ścieżka umożliwia łączenie oddziałów z obciążeniami korporacyjnymi usługi Azure IAAS, które są wdrażane w sieciach wirtualnych platformy Azure. Gałęzie mogą być połączone z wirtualną siecią WAN za pośrednictwem usługi ExpressRoute lub sieci VPN typu lokacja lokacja. Ruch przechodzi do sieci wirtualnych, które są połączone z wirtualnych koncentratorów sieci WAN za pośrednictwem połączeń sieci wirtualnej. Jawne [przesyłanie bramy](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) nie jest wymagane dla wirtualnej sieci WAN, ponieważ wirtualna sieć WAN automatycznie umożliwia przesyłanie bramy do lokacji oddziału. Zobacz artykuł [Virtual WAN Partners](virtual-wan-configure-automation-providers.md) na temat podłączania cpe SD-WAN do wirtualnej sieci WAN.
+Gałąź do sieci wirtualnej jest ścieżką podstawową obsługiwaną przez wirtualną sieć WAN platformy Azure. Ta ścieżka umożliwia łączenie gałęzi z obciążeniami platformy Azure IAAS Enterprise, które są wdrożone w usłudze Azure sieci wirtualnych. Gałęzie mogą być połączone z wirtualną siecią WAN za pośrednictwem ExpressRoute lub sieci VPN typu lokacja-lokacja. Ruch do sieci wirtualnych podłączony do wirtualnych koncentratorów sieci WAN za pośrednictwem połączeń VNet. Jawna [tranzyt bramy](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) nie jest wymagana dla wirtualnej sieci WAN, ponieważ wirtualna sieć WAN automatycznie włącza tranzyt bramy do lokacji oddziału. Zobacz artykuł dotyczący [partnerów wirtualnych sieci WAN](virtual-wan-configure-automation-providers.md) , w jaki sposób połączyć urządzenie z systemem SD-WAN z wirtualną siecią WAN.
 
-### <a name="expressroute-global-reach-and-virtual-wan"></a>Globalny zasięg usługi ExpressRoute i wirtualna sieć WAN
+### <a name="expressroute-global-reach-and-virtual-wan"></a>ExpressRoute Global Reach i wirtualna sieć WAN
 
-Usługa ExpressRoute to prywatny i odporny sposób łączenia sieci lokalnych z usługą Microsoft Cloud. Wirtualna sieć WAN obsługuje połączenia obwodów trasy ekspresowej. Połączenie lokacji oddziału z wirtualną siecią WAN z trasą ekspresową wymaga 1) obwodu Premium Circuit 2) w lokalizacji obsługującej globalny zasięg.
+ExpressRoute to prywatny i odporny na połączenie sieci lokalnych z Microsoft Cloud. Wirtualna sieć WAN obsługuje połączenia obwodów tras Express. Połączenie lokacji rozgałęzienia z wirtualną siecią WAN przy użyciu trasy Express wymaga 1) obwodu 2), który ma być w Global Reach lokalizacji.
 
-Globalny zasięg usługi ExpressRoute to funkcja dodatkowa dla usługi ExpressRoute. Dzięki globalnemu zasięgowi możesz połączyć obwody usługi ExpressRoute, aby utworzyć sieć prywatną między sieciami lokalnymi. Gałęzie, które są połączone z usługą Azure Virtual WAN przy użyciu usługi ExpressRoute wymagają globalnego zasięgu usługi ExpressRoute do komunikowania się ze sobą.
+ExpressRoute Global Reach to funkcja dodatku dla ExpressRoute. Za pomocą Global Reach można połączyć obwody usługi ExpressRoute w celu naprowadzenia prywatnej sieci między sieciami lokalnymi. Gałęzie, które są połączone z wirtualną siecią WAN platformy Azure za pomocą ExpressRoute, wymagają, aby Global Reach ExpressRoute się ze sobą.
 
-W tym modelu każda gałąź, która jest połączona z koncentratorem wirtualnej sieci WAN przy użyciu usługi ExpressRoute, może łączyć się z sieciami wirtualnymi przy użyciu ścieżki odgałęzienia do sieci wirtualnej. Ruch między gałęziami nie będzie przesyłał koncentratora, ponieważ globalny zasięg usługi ExpressRoute umożliwia bardziej optymalną ścieżkę za pomocą usługi Azure WAN.
+W tym modelu każda gałąź, która jest połączona z wirtualnym koncentratorem sieci WAN przy użyciu programu ExpressRoute, może łączyć się z sieci wirtualnych przy użyciu ścieżki gałęzi do sieci wirtualnej. Ruch rozgałęzienia do gałęzi nie będzie przenoszony do centrum, ponieważ ExpressRoute Global Reach zapewnia bardziej optymalną ścieżkę w sieci WAN platformy Azure.
 
-### <a name="branch-to-branch-b-and-branch-to-branch-cross-region-f"></a>Międzyregionem do gałęzi (b) i międzyregionami międzygałęźniami
+### <a name="branch-to-branch-b-and-branch-to-branch-cross-region-f"></a>Rozgałęzienie (b) i odgałęzienie między regionami (f)
 
-Gałęzie mogą być połączone z wirtualnym koncentratorem sieci WAN platformy Azure przy użyciu obwodów usługi ExpressRoute i/lub połączeń sieci VPN między lokacjami. Gałęzie można połączyć z wirtualnym koncentratorem sieci WAN, który znajduje się w regionie najbliższym gałęzi.
+Gałęzie mogą być połączone z koncentratorem wirtualnej sieci WAN platformy Azure przy użyciu obwodów usługi ExpressRoute i/lub połączeń sieci VPN typu lokacja-lokacja. Gałęzie można połączyć z koncentratorem wirtualnej sieci WAN, który znajduje się w regionie najbliższym gałęzi.
 
-Ta opcja umożliwia przedsiębiorstwom korzystanie z szkieletu platformy Azure w celu łączenia gałęzi. Jednak mimo że ta funkcja jest dostępna, należy rozważyć korzyści wynikające z łączenia gałęzi za pośrednictwem wirtualnej sieci WAN platformy Azure w porównaniu z prywatną siecią WAN.  
+Ta opcja umożliwia przedsiębiorstwom wykorzystanie szkieletu platformy Azure do łączenia gałęzi. Jednak mimo że ta funkcja jest dostępna, należy zastanowić się nad korzyściami z łączenia gałęzi za pośrednictwem wirtualnej sieci WAN platformy Azure a korzystanie z prywatnej sieci WAN.  
 
-### <a name="remote-user-to-vnet-c"></a>Zdalna usługa User-to-VNet (c)
+### <a name="remote-user-to-vnet-c"></a>Zdalne użytkownika do sieci wirtualnej (c)
 
-Można włączyć bezpośredni, bezpieczny zdalny dostęp do platformy Azure przy użyciu połączenia typu punkt-lokacja z klienta zdalnego użytkownika do wirtualnej sieci WAN. Użytkownicy zdalni w przedsiębiorstwie nie muszą już korzystać z sieci ową do chmury za pomocą firmowej sieci VPN.
+Możesz włączyć bezpośredni i bezpieczny dostęp zdalny do platformy Azure przy użyciu połączenia typu punkt-lokacja z zdalnego klienta użytkownika z wirtualną siecią WAN. Użytkownicy zdalni przedsiębiorstwa nie muszą już hairpin do chmury przy użyciu firmowej sieci VPN.
 
-### <a name="remote-user-to-branch-d"></a>Zdalny użytkownik do gałęzi (d)
+### <a name="remote-user-to-branch-d"></a>Zdalny użytkownik do rozgałęzienia (d)
 
-Ścieżka zdalnego użytkownika do gałęzi umożliwia użytkownikom zdalnym korzystającym z połączenia typu "punkt-lokacja" lokalne obciążenia i aplikacje dostępu do lokalnych obciążeń i aplikacji przez przesyłanie przez chmurę. Ta ścieżka zapewnia użytkownikom zdalnym elastyczność dostępu do obciążeń, które są wdrażane zarówno na platformie Azure, jak i lokalnie. Przedsiębiorstwa mogą włączyć centralną chmurową usługę bezpiecznego dostępu zdalnego w wirtualnej sieci WAN platformy Azure.
+Zdalna ścieżka użytkownika do gałęzi umożliwia użytkownikom zdalnym, którzy korzystają z połączenia typu punkt-lokacja z lokalnymi obciążeniami i aplikacjami dostępnymi na platformie Azure przez przeprowadzenie przesyłania danych przez chmurę. Ta ścieżka zapewnia użytkownikom zdalnym elastyczność dostępu do obciążeń, które są wdrażane na platformie Azure i lokalnie. Przedsiębiorstwa mogą włączyć centralną, opartą na chmurze usługę bezpiecznego dostępu zdalnego w wirtualnej sieci WAN platformy Azure.
 
-### <a name="vnet-to-vnet-transit-e-and-vnet-to-vnet-cross-region-h"></a>Tranzyt sieci wirtualnej do sieci wirtualnej (e) i międzyregionem sieci wirtualnej do sieci wirtualnej (h)
+### <a name="vnet-to-vnet-transit-e-and-vnet-to-vnet-cross-region-h"></a>Tranzyt między sieciami wirtualnymi (e) i między różnymi regionami między sieciami wirtualnymi (h)
 
-Tranzyt sieci wirtualnej do sieci wirtualnej umożliwia sieci wirtualne połączyć się ze sobą w celu połączenia aplikacji wielowarstwowych, które są implementowane w wielu sieciach wirtualnych. Opcjonalnie można połączyć sieci wirtualne ze sobą za pośrednictwem komunikacji równorzędnej sieci wirtualnej i może to być odpowiednie dla niektórych scenariuszy, w których tranzyt przez koncentrator VWAN nie jest konieczne.
+Tranzyt między sieciami wirtualnymi umożliwia sieci wirtualnych łączenie się ze sobą w celu łączenia aplikacji wielowarstwowych wdrożonych w wielu sieci wirtualnychach. Opcjonalnie można połączyć sieci wirtualnych ze sobą za pośrednictwem komunikacji równorzędnej sieci wirtualnych, co może być odpowiednie w przypadku niektórych scenariuszy, w których przesyłanie za pośrednictwem centrum VWAN nie jest konieczne.
 
-## <a name="security-and-policy-control"></a><a name="security"></a>Bezpieczeństwo i kontrola zasad
+## <a name="security-and-policy-control"></a><a name="security"></a>Zabezpieczenia i kontrola zasad
 
-Centra wirtualnej sieci WAN platformy Azure łączą wszystkie punkty końcowe sieci w sieci hybrydowej i potencjalnie widzą cały ruch sieciowy przesyłania. Wirtualne koncentratory sieci WAN można przekonwertować na zabezpieczone koncentratory wirtualne, wdrażając zaporę platformy Azure w centrach wirtualnych sieci VWAN, aby umożliwić bezpieczeństwo oparte na chmurze, dostęp i kontrolę zasad. Aranżacja zapór platformy Azure w wirtualnych centrach sieci WAN może być wykonywana przez usługę Azure Firewall Manager.
+Wirtualne centra sieci wirtualnej platformy Azure łączą wszystkie punkty końcowe sieci w sieci hybrydowej i potencjalnie widzą cały ruch w sieci tranzytowej. Wirtualne centra sieci WAN można przekonwertować na zabezpieczone centra wirtualne, wdrażając zaporę platformy Azure wewnątrz centrów VWAN w celu włączenia zabezpieczeń, dostępu i kontroli zasad opartych na chmurze. Aranżacja zapór platformy Azure w wirtualnych centrach sieci WAN może być wykonywana przez Menedżera zapory platformy Azure.
 
-[Usługa Azure Firewall Manager](https://go.microsoft.com/fwlink/?linkid=2107683) udostępnia funkcje zarządzania i skalowania zabezpieczeń dla globalnych sieci tranzytowych. Usługa Azure Firewall Manager umożliwia centralne zarządzanie routingiem, globalnym zarządzaniem zasadami, zaawansowanymi usługami zabezpieczeń internetowych za pośrednictwem innych firm wraz z Zaporą platformy Azure.
+[Menedżer zapory platformy Azure](https://go.microsoft.com/fwlink/?linkid=2107683) oferuje funkcje umożliwiające zarządzanie zabezpieczeniami globalnymi sieciami tranzytowymi i skalowanie ich. Menedżer zapory platformy Azure umożliwia centralne zarządzanie routingiem, globalnym zarządzaniem zasadami, zaawansowanymi usługami zabezpieczeń internetowych za pośrednictwem innych firm wraz z zaporą platformy Azure.
 
-![zabezpieczony koncentrator wirtualny z zaporą platformy Azure](./media/virtual-wan-global-transit-network-architecture/figure5.png)
+![bezpieczny koncentrator wirtualny z zaporą platformy Azure](./media/virtual-wan-global-transit-network-architecture/figure5.png)
 
-**Rysunek 5: Zabezpieczone centrum wirtualne z zaporą platformy Azure**
+**Rysunek 5. zabezpieczone centrum wirtualne za pomocą zapory platformy Azure**
 
-Zapora azure do wirtualnej sieci WAN obsługuje następujące ścieżki połączeń zabezpieczonych transportu globalnego. Litery w nawiasach są mapowane na rysunek 5.
+Zapora platformy Azure z wirtualną siecią WAN obsługuje następujące ścieżki połączeń zabezpieczonych globalnie. Litery w nawiasach są mapowane na rysunek 5.
 
-* Bezpieczny tranzyt sieci wirtualnej do sieci wirtualnej (e)
-* Wirtualna do Internetu lub usługi zabezpieczeń innych firm (i)
-* Usługa zabezpieczeń między gałęziami a Internetem lub usługami zabezpieczeń innych firm (j)
+* Bezpieczne tranzyt połączeń między sieciami wirtualnymi (e)
+* Usługa zabezpieczeń sieci wirtualnej lub innej firmy (i)
+* Odgałęzienie do Internetu lub usługa zabezpieczeń innych firm (j)
 
-### <a name="vnet-to-vnet-secured-transit-e"></a>Tranzyt zabezpieczony sieci wirtualnej do sieci wirtualnej (e)
+### <a name="vnet-to-vnet-secured-transit-e"></a>Zabezpieczone tranzyt między sieciami wirtualnymi (e)
 
-Tranzyt zabezpieczony sieci wirtualnej do sieci wirtualnej umożliwia sieciom wirtualnym łączenie się ze sobą za pośrednictwem zapory platformy Azure w wirtualnym centrum sieci WAN.
+Zabezpieczone tranzyt między sieciami wirtualnymi umożliwia sieci wirtualnych łączenie się ze sobą za pośrednictwem zapory platformy Azure w ramach wirtualnego koncentratora WAN.
 
-### <a name="vnet-to-internet-or-third-party-security-service-i"></a>Wirtualna do Internetu lub usługi zabezpieczeń innych firm (i)
+### <a name="vnet-to-internet-or-third-party-security-service-i"></a>Usługa zabezpieczeń sieci wirtualnej lub innej firmy (i)
 
-Sieć wirtualna do Internetu lub tranzyt zabezpieczony innej firmy umożliwia sieciom wirtualnym łączenie się z Internetem lub obsługiwanymi usługami zabezpieczeń innych firm za pośrednictwem zapory azure w wirtualnym centrum sieci WAN.
+Połączenie między sieciami wirtualnymi a transportem zewnętrznym umożliwia usłudze sieci wirtualnych łączenie się z Internetem lub obsługiwane usługi zabezpieczeń innych firm za pośrednictwem zapory platformy Azure w wirtualnej sieci WAN.
 
-### <a name="branch-to-internet-or-third-party-security-service-j"></a>Usługa zabezpieczeń między gałęziami a Internetem lub usługami zabezpieczeń innych firm (j)
-Usługa przesyłania danych typu branch-to-Internet lub innej firmy secure umożliwia oddziałom łączenie się z Internetem lub obsługiwanymi usługami zabezpieczeń innych firm za pośrednictwem zapory azure w wirtualnym centrum sieci WAN.
+### <a name="branch-to-internet-or-third-party-security-service-j"></a>Odgałęzienie do Internetu lub usługa zabezpieczeń innych firm (j)
+Odgałęzienie do Internetu lub zabezpieczone tranzyt innych firm umożliwia rozgałęzienia do łączenia się z Internetem lub obsługiwanych usług zabezpieczeń innych firm za pośrednictwem zapory platformy Azure w wirtualnym koncentratorze sieci WAN.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Tworzenie połączenia przy użyciu wirtualnej sieci WAN i wdrażanie zapory platformy Azure w centrum wirtualnej sieci Wirtualnej sieci..
+Utwórz połączenie za pomocą wirtualnej sieci WAN i Wdróż zaporę platformy Azure w centrach VWAN.
 
-* [Połączenia lokacja-lokacja przy użyciu wirtualnej sieci WAN](virtual-wan-site-to-site-portal.md)
-* [Połączenia usługi ExpressRoute przy użyciu wirtualnej sieci WAN](virtual-wan-expressroute-portal.md)
-* [Usługa Azure Firewall Manager do wdrażania usługi Azure FW w usłudze VWAN](https://go.microsoft.com/fwlink/?linkid=2107683)
+* [Połączenia między lokacjami przy użyciu wirtualnej sieci WAN](virtual-wan-site-to-site-portal.md)
+* [ExpressRoute połączeń przy użyciu wirtualnej sieci WAN](virtual-wan-expressroute-portal.md)
+* [Menedżer zapory platformy Azure do wdrażania usługi Azure PD w VWAN](https://go.microsoft.com/fwlink/?linkid=2107683)

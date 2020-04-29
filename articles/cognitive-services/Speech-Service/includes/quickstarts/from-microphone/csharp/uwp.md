@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: rozpoznawanie mowy z mikrofonu, C# (UWP) — usługa mowy'
+title: 'Szybki Start: Rozpoznawanie mowy z mikrofonu, C# (platformy UWP) — usługa mowy'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: erhopf
@@ -10,38 +10,38 @@ ms.topic: include
 ms.date: 04/02/2020
 ms.author: erhopf
 ms.openlocfilehash: 1c631f4dea3b182c97f11f3892dff834c7681507
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81274952"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zanim zaczniesz:
+Przed rozpoczęciem:
 
 > [!div class="checklist"]
-> * [Tworzenie zasobu mowy platformy Azure](../../../../get-started.md)
-> * [Konfigurowanie środowiska programistycznego i tworzenie pustego projektu](../../../../quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
-> * Upewnij się, że masz dostęp do mikrofonu do przechwytywania dźwięku
+> * [Tworzenie zasobu usługi Azure Speech](../../../../get-started.md)
+> * [Skonfiguruj środowisko deweloperskie i Utwórz pusty projekt](../../../../quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
+> * Upewnij się, że masz dostęp do mikrofonu do przechwytywania audio
 
-Jeśli już to zrobiłeś, świetnie. Chodźmy dalej.
+Jeśli to już zrobione, świetnie. Kontynuujmy.
 
 ## <a name="open-your-project-in-visual-studio"></a>Otwieranie projektu w programie Visual Studio
 
-Pierwszym krokiem jest, aby upewnić się, że projekt jest otwarty w programie Visual Studio.
+Pierwszym krokiem jest upewnienie się, że projekt jest otwarty w programie Visual Studio.
 
-## <a name="start-with-some-boilerplate-code"></a>Zacznij od kodu standardowego
+## <a name="start-with-some-boilerplate-code"></a>Zacznij od pewnego kodu standardowego
 
-Dodajmy kod, który działa jako szkielet dla naszego projektu.
+Dodajmy kod, który działa jako szkielet dla projektu.
 
-1. W **Eksploratorze rozwiązań**otwórz `MainPage.xaml`.
+1. W **Eksplorator rozwiązań**Otwórz `MainPage.xaml`program.
 
-2. W widoku XAML projektanta wstaw następujący fragment kodu XAML do `<Grid>` znacznika **Siatka** (między i): `</Grid>`
+2. W widoku XAML projektanta Wstaw następujący fragment kodu XAML do tagu **Grid** (między `<Grid>` i `</Grid>`):
 
    [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml#StackPanel)]
 
-3. W **Eksploratorze rozwiązań**otwórz `MainPage.xaml.cs`plik źródłowy związany z kodem . (Jest zgrupowany `MainPage.xaml`w obszarze .)
+3. W **Eksplorator rozwiązań**Otwórz plik `MainPage.xaml.cs`źródłowy związany z kodem. (Jest ono pogrupowane `MainPage.xaml`w.)
 
 4. Zastąp kod następującym kodem podstawowym:
 
@@ -49,43 +49,43 @@ Dodajmy kod, który działa jako szkielet dla naszego projektu.
 
 ## <a name="create-a-speech-configuration"></a>Tworzenie konfiguracji mowy
 
-Przed zainicjowaniem `SpeechRecognizer` obiektu należy utworzyć konfigurację, która używa klucza subskrypcji i regionu subskrypcji. Wstaw ten `RecognizeSpeechAsync()` kod w metodzie.
+Aby można było zainicjować `SpeechRecognizer` obiekt, należy utworzyć konfigurację korzystającą z klucza subskrypcji i regionu subskrypcji. Wstaw ten kod w `RecognizeSpeechAsync()` metodzie.
 
 > [!NOTE]
-> W tym przykładzie `FromSubscription()` użyto `SpeechConfig`metody do utworzenia pliku . Aby uzyskać pełną listę dostępnych metod, zobacz [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/)[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=51-53)]
+> Ten przykład używa `FromSubscription()` metody do skompilowania `SpeechConfig`. Aby uzyskać pełną listę dostępnych metod, zobacz [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/)[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=51-53)]
 
-## <a name="initialize-a-speechrecognizer"></a>Inicjowanie funkcji SpeechRecognizer
+## <a name="initialize-a-speechrecognizer"></a>Inicjowanie elementu SpeechRecognizer
 
-Teraz utwórzmy plik `SpeechRecognizer`. Ten obiekt jest tworzony wewnątrz using instrukcji, aby zapewnić prawidłowe uwalnianie zasobów niezarządzanych. Wstaw ten `RecognizeSpeechAsync()` kod w metodzie, tuż poniżej konfiguracji mowy.
+Teraz Utwórzmy `SpeechRecognizer`. Ten obiekt jest tworzony wewnątrz instrukcji using, aby zapewnić odpowiednią wersję niezarządzanych zasobów. Wstaw ten kod w `RecognizeSpeechAsync()` metodzie bezpośrednio poniżej konfiguracji mowy.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=58,59,93)]
 
 ## <a name="recognize-a-phrase"></a>Rozpoznawanie frazy
 
-Z `SpeechRecognizer` obiektu, masz zamiar wywołać `RecognizeOnceAsync()` metodę. Ta metoda pozwala usługi mowy wiedzieć, że wysyłasz jedną frazę do rozpoznawania i że po zidentyfikowaniu frazy, aby zatrzymać rozpoznawanie mowy.
+Z `SpeechRecognizer` obiektu jest wywoływana `RecognizeOnceAsync()` Metoda. Ta metoda pozwala usłudze rozpoznawania mowy wysyłać pojedyncze frazy do rozpoznawania, a po zidentyfikowaniu frazy do zatrzymania rozpoznawania mowy.
 
-Wewnątrz using instrukcji, dodaj ten kod.
+Wewnątrz instrukcji using Dodaj ten kod.
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=66)]
 
 ## <a name="display-the-recognition-results-or-errors"></a>Wyświetlanie wyników rozpoznawania (lub błędów)
 
-Gdy wynik rozpoznawania jest zwracany przez usługę mowy, należy coś z nim zrobić. Będziemy to proste i wydrukować wynik na panelu stanu.
+Gdy usługa mowy zwróci wynik rozpoznawania, należy wykonać coś z nim. Zajmiemy się tym, że będzie on prosty i będzie drukował wynik do panelu stanu.
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=68-93)]
 
 ## <a name="build-and-run-the-application"></a>Kompilowanie i uruchamianie aplikacji
 
-Teraz możesz przystąpić do tworzenia i testowania aplikacji.
+Teraz możesz przystąpić do kompilowania i testowania aplikacji.
 
-1. Na pasku menu wybierz pozycję **Build** > **Build Solution** to build the application. Kod powinien teraz zostać skompilowany bez błędów.
+1. Na pasku menu wybierz polecenie **Kompiluj** > **kompilację rozwiązania** , aby skompilować aplikację. Kod powinien teraz zostać skompilowany bez błędów.
 
-1. Aby uruchomić aplikację, wybierz **opcję Debugowanie** > **rozpocznij debugowanie** (lub naciśnij **klawisz F5).** Zostanie **wyświetlene okno helloworld.**
+1. Wybierz **Debuguj** > **Rozpocznij debugowanie** (lub naciśnij klawisz **F5**), aby uruchomić aplikację. Zostanie wyświetlone okno **HelloWorld** .
 
-   ![Przykładowa aplikacja do rozpoznawania mowy platformy uniwersalnej systemu Windows w języku C# — szybki start](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-helloworld-window.png)
+   ![Przykładowa aplikacja rozpoznawania mowy platformy UWP w języku C# — Szybki Start](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-helloworld-window.png)
 
-1. Wybierz **włącz mikrofon**, a gdy pojawi się żądanie uprawnień dostępu, wybierz pozycję **Tak**.
+1. Wybierz pozycję **Włącz mikrofon**i po włączeniu żądania uprawnienia dostępu wybierz pozycję **tak**.
 
-   ![Żądanie uprawnień dostępu do mikrofonu](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
+   ![Żądanie uprawnienia dostępu do mikrofonu](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
 1. Wybierz opcję **Speech recognition with microphone input** (Rozpoznawanie mowy z użyciem danych wejściowych z mikrofonu) i wypowiedz zwrot lub zdanie w języku angielskim do mikrofonu urządzenia. Mowa zostanie przesłana do usługi rozpoznawania mowy i transkrybowana na tekst, który zostanie wyświetlony w tym oknie.
 

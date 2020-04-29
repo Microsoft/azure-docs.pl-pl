@@ -1,6 +1,6 @@
 ---
-title: Sterowanie zachowaniem buforowania usługi Azure CDN za pomocą reguł buforowania | Dokumenty firmy Microsoft
-description: Reguły buforowania sieci CDN umożliwiają ustawianie lub modyfikowanie domyślnego zachowania wygaśnięcia pamięci podręcznej zarówno globalnie, jak i z warunkami, takimi jak ścieżka adresu URL i rozszerzenia plików.
+title: Sterowanie zachowaniem Azure CDN buforowania przy użyciu reguł buforowania | Microsoft Docs
+description: Korzystając z reguł buforowania usługi CDN, można ustawić lub zmodyfikować domyślne zachowanie wygaśnięcia pamięci podręcznej zarówno globalnie, jak i z warunkami, takimi jak ścieżka URL i rozszerzenia plików.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,33 +14,33 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: allensu
 ms.openlocfilehash: 874ec75fb9173b6cee50bf8880510464fa13e9d2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81254244"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Sterowanie zachowaniem buforowania w usłudze Azure CDN przy użyciu reguł buforowania
 
 > [!NOTE] 
-> Reguły buforowania są dostępne tylko dla **usługi Azure CDN Standard firmy Verizon** i Azure **CDN Standard z profilów Akamai.** W przypadku **usługi Azure CDN z** profilów firmy Microsoft należy użyć aparatu reguł standardowych dla [usługi](cdn-standard-rules-engine-reference.md) **Azure CDN Premium z** profilów Verizon, należy użyć aparatu reguł [Verizon Premium](cdn-rules-engine.md) w portalu **Zarządzanie** dla podobnych funkcji.
+> Reguły buforowania są dostępne tylko dla **Azure CDN Standard from Verizon** i **Azure CDN Standard from Akamai** profile. Aby uzyskać **Azure CDN z profilów firmy Microsoft** , należy użyć [standardowego aparatu reguł](cdn-standard-rules-engine-reference.md) dla **Azure CDN Premium w** profilach Verizon, należy użyć [aparatu reguł Verizon w warstwie Premium](cdn-rules-engine.md) w portalu **zarządzania** , aby uzyskać podobną funkcjonalność.
  
 Usługa Azure Content Delivery Network (CDN) oferuje dwa sposoby kontrolowania sposobu buforowania plików: 
 
-- Reguły buforowania: W tym artykule opisano, jak można używać reguł buforowania sieci dostarczania zawartości (CDN) do ustawiania lub modyfikowania domyślnego zachowania wygasania pamięci podręcznej zarówno globalnie, jak i z niestandardowymi warunkami, takimi jak ścieżka adresu URL i rozszerzenie pliku. Usługa Azure CDN oferuje dwa typy reguł buforowania:
+- Reguły buforowania: w tym artykule opisano, jak można użyć reguł buforowania usługi Content Delivery Network (CDN) w celu ustawienia lub zmodyfikowania domyślnego zachowania wygaśnięcia pamięci podręcznej zarówno globalnie, jak i z warunkami niestandardowymi, takimi jak ścieżka URL i rozszerzenie pliku. Usługa Azure CDN oferuje dwa typy reguł buforowania:
 
    - Globalne reguły buforowania: można ustawić jedną globalną regułę buforowania dla każdego punktu końcowego w profilu, co wpłynie na wszystkie żądania do punktu końcowego. Globalna reguła buforowania zastępuje wszelkie nagłówki dyrektywy pamięci podręcznej HTTP, jeśli zostały one ustawione.
 
    - Niestandardowe reguły buforowania: można skonfigurować co najmniej jedną niestandardową regułę buforowania dla każdego punktu końcowego w profilu. Niestandardowe reguły buforowania pasują do określonych ścieżek i rozszerzeń plików, są przetwarzane kolejno i zastępują globalną regułę buforowania, jeśli została ustawiona. 
 
-- Buforowanie ciągów zapytań: można dostosować sposób, w jaki usługa Azure CDN traktuje buforowanie żądań za pomocą ciągów zapytań. Aby uzyskać więcej informacji, zobacz [Kontrolowanie zachowania buforowania usługi Azure CDN za pomocą ciągów zapytań](cdn-query-string.md). Jeśli plik nie jest buforowalny, ustawienie buforowania ciągów zapytań nie ma wpływu na reguły buforowania i domyślne zachowania sieci CDN.
+- Buforowanie ciągu zapytania: można dostosować sposób, w jaki Azure CDN traktuje buforowanie dla żądań z ciągami zapytań. Aby uzyskać więcej informacji, zobacz [Azure CDN sterowania zachowaniem buforowania przy użyciu ciągów zapytań](cdn-query-string.md). Jeśli plik nie jest w pamięci podręcznej, ustawienie buforowania ciągu zapytania nie ma wpływu na reguły buforowania i domyślne zachowania sieci CDN.
 
-Aby uzyskać informacje na temat domyślnego zachowania buforowania i buforowania nagłówków dyrektywy, zobacz [Jak działa buforowanie](cdn-how-caching-works.md). 
+Aby uzyskać informacje dotyczące domyślnego zachowania buforowania i nagłówków dyrektywy buforowania, zobacz [jak działa buforowanie](cdn-how-caching-works.md). 
 
 
-## <a name="accessing-azure-cdn-caching-rules"></a>Uzyskiwanie dostępu do reguł buforowania usługi Azure CDN
+## <a name="accessing-azure-cdn-caching-rules"></a>Uzyskiwanie dostępu do reguł buforowania Azure CDN
 
-1. Otwórz witrynę Azure portal, wybierz profil usługi CDN, a następnie wybierz punkt końcowy.
+1. Otwórz Azure Portal, wybierz profil CDN, a następnie wybierz punkt końcowy.
 
 2. W lewym okienku w obszarze Ustawienia zaznacz pole **Reguły buforowania**.
 
@@ -52,13 +52,13 @@ Aby uzyskać informacje na temat domyślnego zachowania buforowania i buforowani
 
 
 ## <a name="caching-behavior-settings"></a>Ustawienia zachowania buforowania
-W przypadku globalnych i niestandardowych reguł buforowania można określić następujące ustawienia **zachowania buforowania:**
+W przypadku globalnych i niestandardowych reguł buforowania można określić następujące ustawienia **zachowania buforowania** :
 
-- **Pomijanie pamięci podręcznej:** Nie buforuj i ignoruj nagłówki dyrektywy cache dostarczone przez źródło.
+- **Obejście pamięci podręcznej**: nie Buforuj i Ignoruj buforów dostarczonych przez pochodzenie.
 
-- **Zastępowanie:** Ignoruj czas trwania pamięci podręcznej dostarczonej przez pochodzenie; zamiast tego użyj podanego czasu trwania pamięci podręcznej. Nie spowoduje to zastąpienia kontroli pamięci podręcznej: no-cache.
+- **Zastąpienie**: ignorowanie czasu trwania pamięci podręcznej dostarczonej przez Źródło; Zamiast tego użyj dostarczonego czasu trwania pamięci podręcznej. Nie spowoduje to przesłonięcia kontroli pamięci podręcznej: nie-cache.
 
-- **Ustaw, jeśli brakuje:** Honor origin-provided cache-directive nagłówki, jeśli istnieją; w przeciwnym razie należy użyć podanego czasu trwania pamięci podręcznej.
+- **Ustaw, jeśli brak**: honorowanie dostarczonej przez źródło nagłówka dyrektywy, jeśli istnieją; w przeciwnym razie należy użyć podanego czasu trwania pamięci podręcznej.
 
 ![Globalne reguły buforowania](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
@@ -67,53 +67,53 @@ W przypadku globalnych i niestandardowych reguł buforowania można określić n
 ## <a name="cache-expiration-duration"></a>Czas wygaśnięcia pamięci podręcznej
 W przypadku globalnych i niestandardowych reguł buforowania można określić czas wygaśnięcia pamięci podręcznej w dniach, godzinach, minutach i sekundach:
 
-- W przypadku ustawień zachowania Zastępowanie i **Ustawianie,** **jeśli brakuje** **zachowania buforowania,** prawidłowe czasy trwania pamięci podręcznej wahają się od 0 sekund do 366 dni. Dla wartości 0 sekund cdn buforuje zawartość, ale musi ponownie ocenić każde żądanie z serwerem pochodzenia.
+- W przypadku **przesłonięcia** i ustawienia w **przypadku braku** ustawień **zachowania buforowania** prawidłowy czas trwania pamięci podręcznej wynosi od 0 sekund do 366 dni. W przypadku wartości 0 sekund Usługa CDN buforuje zawartość, ale należy ponownie zweryfikować każde żądanie z serwerem pochodzenia.
 
-- W przypadku ustawienia **Bypass cache** czas trwania pamięci podręcznej jest automatycznie ustawiany na 0 sekund i nie można go zmienić.
+- W przypadku ustawienia **Pomiń pamięć** podręczną wartość czasu trwania pamięci podręcznej jest automatycznie ustawiana na 0 sekund i nie można jej zmienić.
 
-## <a name="custom-caching-rules-match-conditions"></a>Niestandardowe reguły buforowania są zgodne z warunkami
+## <a name="custom-caching-rules-match-conditions"></a>Warunki dopasowania niestandardowych reguł buforowania
 
-W przypadku reguł niestandardowej pamięci podręcznej dostępne są dwa warunki dopasowania:
+W przypadku niestandardowych reguł pamięci podręcznej dostępne są dwa warunki dopasowania:
  
-- **Ścieżka:** Ten warunek jest zgodny ze ścieżką adresu URL, z wyłączeniem\*nazwy domeny i obsługuje symbol symbolu wieloznacznego ( ). Na przykład _/myfile.html_, _/my/folder/*_ i _/my/images/*.jpg_. Maksymalna długość wynosi 260 znaków.
+- **Ścieżka**: ten warunek jest zgodny ze ścieżką adresu URL, z wyłączeniem nazwy domeny i obsługuje symbol wieloznaczny\*(). Na przykład _/myfile.html_, _/My/folder/*_ i _/My/images/*. jpg_. Maksymalna długość to 260 znaków.
 
-- **Rozszerzenie:** Ten warunek jest zgodny z rozszerzeniem pliku żądanego. Można podać listę rozszerzeń plików oddzielonych przecinkami, aby dopasować je do siebie. Na przykład _.jpg_, _.mp3_lub _.png_. Maksymalna liczba rozszerzeń wynosi 50, a maksymalna liczba znaków na rozszerzenie wynosi 16. 
+- **Rozszerzenie**: ten warunek dopasowuje rozszerzenie pliku żądanego pliku. Można podać listę rozszerzeń plików rozdzielanych przecinkami. Na przykład _jpg_, _MP3_lub _PNG_. Maksymalna liczba rozszerzeń to 50, a maksymalna liczba znaków na rozszerzenie to 16. 
 
-## <a name="global-and-custom-rule-processing-order"></a>Kolejność przetwarzania reguł globalnych i niestandardowych
+## <a name="global-and-custom-rule-processing-order"></a>Kolejność przetwarzania reguły globalnej i niestandardowej
 Globalne i niestandardowe reguły buforowania są przetwarzane w następującej kolejności:
 
-- Globalne reguły buforowania mają pierwszeństwo przed domyślnym zachowaniem buforowania sieci CDN (ustawienia nagłówka http cache-directive). 
+- Globalne reguły buforowania mają pierwszeństwo przed domyślnym zachowaniem buforowania usługi CDN (ustawienia nagłówka w formacie HTTP cache-dyrektywy). 
 
-- Niestandardowe reguły buforowania mają pierwszeństwo przed globalnymi regułami buforowania, gdzie mają zastosowanie. Niestandardowe reguły buforowania są przetwarzane w kolejności od góry do dołu. Oznacza to, że jeśli żądanie spełnia oba warunki, reguły u dołu listy mają pierwszeństwo przed regułami znajdującymi się na górze listy. W związku z tym należy umieścić bardziej szczegółowe reguły niższe na liście.
+- Niestandardowe reguły buforowania mają pierwszeństwo przed globalnymi regułami buforowania, gdy mają zastosowanie. Niestandardowe reguły buforowania są przetwarzane w kolejności od góry do dołu. Oznacza to, że jeśli żądanie pasuje do obu warunków, reguły znajdujące się u dołu listy mają pierwszeństwo przed regułami w górnej części listy. W związku z tym należy umieścić bardziej szczegółowe reguły w dolnej części listy.
 
-**Przykład:**
+**Przykład**:
 - Globalna reguła buforowania: 
-   - Zachowanie buforowania: **Zastępowanie**
+   - Zachowanie buforowania: **przesłonięcie**
    - Czas wygaśnięcia pamięci podręcznej: 1 dzień
 
 - Niestandardowa reguła buforowania #1:
-   - Warunek dopasowania: **Ścieżka**
-   - Wartość dopasowania: _/home/*_
-   - Zachowanie buforowania: **Zastępowanie**
+   - Warunek dopasowania: **ścieżka**
+   - Wartość dopasowania: _/Home/*_
+   - Zachowanie buforowania: **przesłonięcie**
    - Czas wygaśnięcia pamięci podręcznej: 2 dni
 
 - Niestandardowa reguła buforowania #2:
-   - Warunek dopasowania: **Rozszerzenie**
-   - Wartość dopasowania: _.html_
-   - Zachowanie buforowania: **ustaw, jeśli brakuje**
+   - Warunek dopasowania: **rozszerzenie**
+   - Dopasuj wartość: _. html_
+   - Zachowanie buforowania: **Ustaw, jeśli brakuje**
    - Czas wygaśnięcia pamięci podręcznej: 3 dni
 
-Po ustawieniu tych reguł żądanie nazwy _ &lt;hosta&gt;punktu końcowego_.azureedge.net/home/index.html wyzwala niestandardową regułę buforowania #2, która jest ustawiona na: **Ustaw, jeśli brakuje** i 3 dni. W związku z tym jeśli `Cache-Control` plik `Expires` *index.html* ma lub nagłówki HTTP, są one honorowane; w przeciwnym razie, jeśli te nagłówki nie są ustawione, plik jest buforowany przez 3 dni.
+Gdy te reguły są ustawione, żądanie dla _ &lt;nazwy&gt;hosta punktu końcowego_azureedge.net/home/index.html wyzwala niestandardową regułę buforowania #2, która jest ustawiona na: **Ustaw, jeśli brakuje** i 3 dni. W związku z tym, jeśli plik *index. html* ma `Cache-Control` lub `Expires` nagłówki HTTP, są one honorowane; w przeciwnym razie, jeśli te nagłówki nie są ustawione, plik jest buforowany przez 3 dni.
 
 > [!NOTE] 
-> Pliki, które są buforowane przed zmianą reguły zachowują ustawienie czasu trwania pamięci podręcznej pochodzenia. Aby zresetować czas trwania pamięci podręcznej, należy [przeczyścić plik](cdn-purge-endpoint.md). 
+> Pliki przechowywane w pamięci podręcznej przed zmianą reguły utrzymują ustawienia czasu trwania pamięci podręcznej. Aby zresetować ich okresy istnienia pamięci podręcznej, należy [przeczyścić plik](cdn-purge-endpoint.md). 
 >
-> Zmiany konfiguracji usługi Azure CDN może zająć trochę czasu, aby propagować za pośrednictwem sieci: 
+> Azure CDN zmiany konfiguracji mogą zająć trochę czasu w sieci: 
 > - W przypadku profili usługi **Azure CDN Standard from Akamai** propagacja zwykle trwa mniej niż jedną minutę. 
-> - W przypadku **usługi Azure CDN Standard z** profilów Verizon propagacja zwykle kończy się w ciągu 10 minut.  
+> - W przypadku **Azure CDN standardowych z profilów Verizon** Propagacja zwykle kończy się w ciągu 10 minut.  
 >
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Jak działa buforowanie](cdn-how-caching-works.md)
 - [Samouczek: ustawianie reguł buforowania usługi Azure CDN](cdn-caching-rules-tutorial.md)

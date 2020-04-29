@@ -1,25 +1,25 @@
 ---
-title: Klauzula GROUP BY w usłudze Azure Cosmos DB
-description: Dowiedz się więcej o klauzuli GROUP BY dla usługi Azure Cosmos DB.
+title: Klauzula GROUP BY w Azure Cosmos DB
+description: Zapoznaj się z klauzulą GROUP BY dla Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: tisande
 ms.openlocfilehash: 8a3cbbafc066747b62f79934f2cd12301aa1ba17
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81261605"
 ---
-# <a name="group-by-clause-in-azure-cosmos-db"></a>Klauzula GROUP BY w usłudze Azure Cosmos DB
+# <a name="group-by-clause-in-azure-cosmos-db"></a>Klauzula GROUP BY w Azure Cosmos DB
 
-Klauzula GROUP BY dzieli wyniki kwerendy zgodnie z wartościami jednej lub więcej określonych właściwości.
+Klauzula GROUP BY dzieli wyniki zapytania zgodnie z wartościami jednej lub więcej określonych właściwości.
 
 > [!NOTE]
-> Usługa Azure Cosmos DB obsługuje obecnie grupę według w pliku .NET SDK 3.3 i nowszy, a także javascript SDK 3.4 lub nowszy.
-> Obsługa innych języków SDK nie jest obecnie dostępna, ale jest planowana.
+> Azure Cosmos DB obecnie obsługuje grupowanie według zestawu .NET SDK 3,3 i nowszego oraz zestawu JavaScript SDK 3,4 lub nowszego.
+> Obsługa innych zestawów SDK języka nie jest obecnie dostępna, ale jest planowana.
 
 ## <a name="syntax"></a>Składnia
 
@@ -35,25 +35,25 @@ Klauzula GROUP BY dzieli wyniki kwerendy zgodnie z wartościami jednej lub więc
 
 - `<scalar_expression_list>`
 
-   Określa wyrażenia, które będą używane do dzielenia wyników kwerendy.
+   Określa wyrażenia, które będą używane do dzielenia wyników zapytania.
 
 - `<scalar_expression>`
   
-   Wszelkie wyrażenia skalarne są dozwolone z wyjątkiem podquerii skalarnych i agregacji skalarnych. Każde wyrażenie skalarne musi zawierać co najmniej jedno odwołanie do właściwości. Nie ma ograniczeń co do liczby pojedynczych wyrażeń ani kardynalności każdego wyrażenia.
+   Każde wyrażenie skalarne jest dozwolone z wyjątkiem skalarnych podzapytań i agregacji skalarnych. Każde wyrażenie skalarne musi zawierać co najmniej jedno odwołanie do właściwości. Nie ma żadnego limitu liczby pojedynczych wyrażeń ani kardynalności poszczególnych wyrażeń.
 
 ## <a name="remarks"></a>Uwagi
   
-  Gdy kwerenda używa klauzuli GROUP BY, klauzula SELECT może zawierać tylko podzbiór właściwości i funkcji systemowych zawartych w klauzuli GROUP BY. Jednym z wyjątków są [agregowane funkcje systemowe,](sql-query-aggregates.md)które mogą pojawić się w klauzuli SELECT bez uwzględniania ich w klauzuli GROUP BY. W klauzuli SELECT zawsze można również uwzględnić wartości literału.
+  Gdy zapytanie używa klauzuli GROUP BY, klauzula SELECT może zawierać tylko podzestaw właściwości i funkcji systemowych zawartych w klauzuli GROUP BY. Jedynym wyjątkiem są [zagregowane funkcje systemowe](sql-query-aggregates.md), które mogą występować w klauzuli SELECT bez uwzględniania ich w klauzuli Group by. Można zawsze uwzględnić wartości literału w klauzuli SELECT.
 
-  Klauzula GROUP BY musi być po select, FROM i WHERE klauzuli i przed offset limit klauzuli. Obecnie nie można użyć GROUP BY z klauzulą ORDER BY, ale jest to planowane.
+  Klauzula GROUP BY musi być późniejsza niż klauzula SELECT, FROM i WHERE oraz przed klauzulą LIMIT przesunięcia. Obecnie nie można używać klauzuli GROUP BY z klauzulą ORDER BY, ale jest to planowane.
 
-  Klauzula GROUP BY nie zezwala na żadną z następujących czynności:
+  Klauzula GROUP BY nie zezwala na żadną z następujących wartości:
   
-- Właściwości aliasowania lub funkcje systemu aliasowania (aliasowanie jest nadal dozwolone w klauzuli SELECT)
-- Podkwerend
-- Zagregowane funkcje systemowe (są one dozwolone tylko w klauzuli SELECT)
+- Właściwości aliasowania lub funkcje systemowe aliasowania (aliasowanie jest nadal dozwolone w klauzuli SELECT)
+- Podzapytania
+- Agreguj funkcje systemowe (są dozwolone tylko w klauzuli SELECT)
 
-Zapytania z agregowaną funkcją systemową `GROUP BY` i podkwerendą z nie są obsługiwane. Na przykład następująca kwerenda nie jest obsługiwana:
+Zapytania z zagregowaną funkcją systemową i podzapytaniem `GROUP BY` z nie są obsługiwane. Na przykład następujące zapytanie nie jest obsługiwane:
 
 ```sql
 SELECT COUNT(UniqueLastNames) FROM (SELECT AVG(f.age) FROM f GROUP BY f.lastName) AS UniqueLastNames
@@ -61,9 +61,9 @@ SELECT COUNT(UniqueLastNames) FROM (SELECT AVG(f.age) FROM f GROUP BY f.lastName
 
 ## <a name="examples"></a>Przykłady
 
-W tych przykładach użyto zestawu danych żywieniowych dostępnych za pośrednictwem [usługi Azure Cosmos DB Query Playground](https://www.documentdb.com/sql/demo).
+W poniższych przykładach użyto zestawu danych odżywiania dostępnego za pomocą [środowisko testowe zapytań Azure Cosmos DB](https://www.documentdb.com/sql/demo).
 
-Na przykład oto zapytanie, które zwraca całkowitą liczbę elementów w każdej grupie żywności:
+Na przykład Oto zapytanie, które zwraca łączną liczbę elementów w każdej z nich:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup
@@ -71,7 +71,7 @@ FROM Food f
 GROUP BY f.foodGroup
 ```
 
-Niektóre wyniki są (SŁOWO kluczowe TOP służy do ograniczania wyników):
+Niektóre wyniki to (pierwsze słowo kluczowe jest używane do ograniczania wyników):
 
 ```json
 [{
@@ -92,7 +92,7 @@ Niektóre wyniki są (SŁOWO kluczowe TOP służy do ograniczania wyników):
 }]
 ```
 
-Ta kwerenda ma dwa wyrażenia używane do dzielenia wyników:
+To zapytanie ma dwa wyrażenia używane do dzielenia wyników:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup, f.version
@@ -100,7 +100,7 @@ FROM Food f
 GROUP BY f.foodGroup, f.version
 ```
 
-Niektóre wyniki są:
+Oto niektóre wyniki:
 
 ```json
 [{
@@ -125,7 +125,7 @@ Niektóre wyniki są:
 }]
 ```
 
-Ta kwerenda ma funkcję systemową w klauzuli GROUP BY:
+To zapytanie zawiera funkcję systemową w klauzuli GROUP BY:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, UPPER(f.foodGroup) AS upperFoodGroup
@@ -133,7 +133,7 @@ FROM Food f
 GROUP BY UPPER(f.foodGroup)
 ```
 
-Niektóre wyniki są:
+Oto niektóre wyniki:
 
 ```json
 [{
@@ -154,7 +154,7 @@ Niektóre wyniki są:
 }]
 ```
 
-Ta kwerenda używa zarówno słów kluczowych, jak i funkcji systemowych w wyrażeniu właściwości elementu:
+To zapytanie używa zarówno słów kluczowych, jak i funkcji systemowych w wyrażeniu właściwości elementu:
 
 ```sql
 SELECT COUNT(1) AS foodGroupCount, ARRAY_CONTAINS(f.tags, {name: 'orange'}) AS containsOrangeTag,  f.version BETWEEN 0 AND 2 AS correctVersion
@@ -180,5 +180,5 @@ Wyniki są następujące:
 ## <a name="next-steps"></a>Następne kroki
 
 - [Wprowadzenie](sql-query-getting-started.md)
-- [Klauzula SELECT](sql-query-select.md)
-- [Agregujących](sql-query-aggregates.md)
+- [SELECT — klauzula](sql-query-select.md)
+- [Funkcje agregujące](sql-query-aggregates.md)

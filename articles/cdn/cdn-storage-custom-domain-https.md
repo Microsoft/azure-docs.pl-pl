@@ -1,6 +1,6 @@
 ---
-title: Dostęp do obiektów blob magazynu przy użyciu domeny niestandardowej usługi Azure CDN za pośrednictwem protokołu HTTPS
-description: Dowiedz się, jak dodać domenę niestandardową usługi Azure CDN i włączyć protokół HTTPS w tej domenie dla niestandardowego punktu końcowego magazynu obiektów blob.
+title: Dostęp do obiektów blob magazynu przy użyciu Azure CDN domeny niestandardowej za pośrednictwem protokołu HTTPS
+description: Dowiedz się, jak dodać domenę niestandardową Azure CDN i włączyć protokół HTTPS w tej domenie dla niestandardowego punktu końcowego magazynu obiektów BLOB.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -16,10 +16,10 @@ ms.date: 06/15/2018
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: 5b6fe2b2704f101a7775b7eb700375105b0a9eca
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81259888"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Samouczek: uzyskiwanie dostępu do obiektów blob magazynu w domenie niestandardowej usługi Azure CDN za pośrednictwem protokołu HTTPS
@@ -44,15 +44,15 @@ Usługa Azure CDN ignoruje wszelkie ograniczenia dodane do tokenu SAS. Na przyk�
 Jeśli tworzysz wiele adresów URL sygnatur SAS dla tego samego punktu końcowego obiektu blob, rozważ włączenie buforowania ciągu zapytania. Daje to gwarancję, że każdy adres URL jest traktowany jako unikatowy obiekt. Aby uzyskać więcej informacji, zobacz [Sterowanie zachowaniem buforowania usługi CDN za pomocą ciągów zapytań](cdn-query-string.md).
 
 ## <a name="http-to-https-redirection"></a>Przekierowywanie protokołu HTTP do HTTPS
-Możesz przekierować ruch HTTP do HTTPS, tworząc regułę przekierowania adresu URL za pomocą [aparatu reguł standardowych](cdn-standard-rules-engine.md) lub aparatu reguł Verizon [Premium](cdn-verizon-premium-rules-engine.md). Aparat reguł standardowych jest dostępny tylko dla usługi Azure CDN z profilów firmy Microsoft, podczas gdy aparat reguł premium Verizon jest dostępny tylko w usłudze Azure CDN Premium z profilów Verizon.
+Można wybrać przekierowywanie ruchu HTTP do protokołu HTTPS przez utworzenie reguły przekierowywania adresu URL za pomocą [aparatu reguł standardowych](cdn-standard-rules-engine.md) lub [aparatu reguł Verizon Premium](cdn-verizon-premium-rules-engine.md). Aparat reguł standardowych jest dostępny tylko dla Azure CDN z profilów firmy Microsoft, podczas gdy aparat reguł warstwy Premium jest dostępny tylko z poziomu Azure CDN profilów Premium.
 
 ![Reguła przekierowania firmy Microsoft](./media/cdn-storage-custom-domain-https/cdn-standard-redirect-rule.png)
 
-W powyższej regule pozostawienie nazwy hosta, ścieżki, ciągu zapytania i fragmentu spowoduje, że wartości przychodzące będą używane w przekierowaniu. 
+W powyższej regule pozostawienie nazwy hosta, ścieżki, ciągu zapytania i fragmentu spowoduje, że wartości przychodzące są używane w przekierowaniu. 
 
 ![Reguła przekierowania Verizon](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
 
-W powyższej regule *nazwa punktu końcowego Cdn* odnosi się do nazwy skonfigurowanej dla punktu końcowego sieci CDN, którą można wybrać z listy rozwijanej. Wartość właściwości *origin-path* odnosi się do ścieżki w ramach konta magazynu źródła, w którym znajduje się zawartość statyczna. Jeśli hostujesz całą zawartość statyczną w jednym kontenerze, zastąp właściwość *origin-path* nazwą tego kontenera.
+W powyższej regule usługa *CDN-Endpoint-Name* odnosi się do nazwy skonfigurowanej dla punktu końcowego usługi CDN, którą można wybrać z listy rozwijanej. Wartość właściwości *origin-path* odnosi się do ścieżki w ramach konta magazynu źródła, w którym znajduje się zawartość statyczna. Jeśli hostujesz całą zawartość statyczną w jednym kontenerze, zastąp właściwość *origin-path* nazwą tego kontenera.
 
 ## <a name="pricing-and-billing"></a>Cennik i rozliczenia
 Gdy uzyskujesz dostęp do obiektów blob za pomocą usługi Azure CDN, opłaty są naliczane według [cen magazynu obiektów blob](https://azure.microsoft.com/pricing/details/storage/blobs/) za ruch między serwerami POP a źródłem (magazynem obiektów blob) oraz według [cennika usługi Azure CDN](https://azure.microsoft.com/pricing/details/cdn/) za dane, do których uzyskano dostęp z serwerów POP.

@@ -1,6 +1,6 @@
 ---
-title: Typowe problemy z uwierzytelnianiem dwuskładnikowym konta — Usługa Azure AD
-description: Rozwiązania niektórych z najczęstszych problemów z weryfikacją dwuskładnikową oraz konta służbowego.
+title: Typowe problemy z uwierzytelnianiem dwuskładnikowym konta — Azure AD
+description: Rozwiązania niektórych typowych problemów z weryfikacją dwuskładnikową oraz konta służbowego.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,104 +13,104 @@ ms.date: 04/02/2020
 ms.author: curtand
 ms.reviewer: kexia
 ms.openlocfilehash: 3df79fb1e103ddfaafeb348641e675cd250f5858
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81271696"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Typowe problemy z weryfikacją dwuskładnikową i kontem służbowym
 
-Gdy organizacja usługi Azure Active Directory (Azure AD) włącza weryfikację dwuskładnikową, logowanie do konta służbowego lub szkolnego wymaga kombinacji nazwy użytkownika, hasła oraz urządzenia przenośnego lub telefonu. Jest bezpieczniejsza niż tylko hasło, opierając się na dwóch formach uwierzytelniania: czymś, co wiesz i czymś, co masz przy sobie. Weryfikacja dwuskładniowa może pomóc powstrzymać złośliwych hakerów przed podszywaniem się pod Ciebie, ponieważ nawet jeśli mają twoje hasło, szanse są takie, że nie mają twojego urządzenia.
+Gdy organizacja usługi Azure Active Directory (Azure AD) zmieni weryfikację dwuetapową, logowanie do konta służbowego wymaga kombinacji nazwy użytkownika, hasła oraz urządzenia przenośnego lub telefonu. Jest to bezpieczniejsze niż tylko hasło, polegające na dwóch formach uwierzytelniania: coś znanego, a ty ty. Weryfikacja dwuetapowa może pomóc w zaprzestaniu zaniechania złośliwych hakerów, ponieważ nawet jeśli mają swoje hasło, szanse się, że nie mają one jeszcze urządzenia.
 
 <center>
 
 ![Obraz metod uwierzytelniania koncepcyjnego](../authentication/media/concept-mfa-howitworks/methods.png)</center>
 
-Istnieją pewne typowe problemy z weryfikacją dwuskładnikową, które wydają się zdarzać częściej niż ktokolwiek z nas by chciał. Zebraliśmy ten artykuł, aby rozwiązać najczęstsze problemy i niektóre możliwe poprawki.
+Istnieją pewne typowe problemy z weryfikacją dwuetapową, które pojawiają się częściej niż dowolna z nas. W tym artykule opisano najczęstsze problemy i niektóre możliwe poprawki.
 
 >[!Important]
->Jeśli jesteś administratorem, możesz znaleźć więcej informacji na temat konfigurowania środowiska usługi Azure AD i zarządzania nim w [dokumentacji usługi Azure AD.](https://docs.microsoft.com/azure/active-directory)
+>Jeśli jesteś administratorem, możesz znaleźć więcej informacji na temat sposobu konfigurowania środowiska usługi Azure AD i zarządzania nim w [dokumentacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory).
 >
->Ta zawartość jest również przeznaczona wyłącznie do użytku z kontem służbowym lub szkolnym, alain@contoso.comktóre jest kontem udostępnionym przez organizację (na przykład). Jeśli masz problemy z weryfikacją dwuskładnikową i osobistym kontem Microsoft, które danielle@outlook.comjest kontem skonfigurowanym dla siebie (na przykład ), zobacz [Włączanie lub wyłączanie weryfikacji dwuskładnikowej dla konta Microsoft.](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)
+>Ta zawartość jest również przeznaczona wyłącznie do użytku z kontem służbowym, które jest kontem udostępnionym przez organizację (na przykład alain@contoso.com). Jeśli masz problemy z weryfikacją dwuetapową i osobistą konto Microsoft, czyli kontem skonfigurowanym dla siebie (na przykład danielle@outlook.com), zobacz [Włączanie lub wyłączanie weryfikacji dwuskładnikowej dla konto Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
-## <a name="i-dont-have-my-mobile-device-with-me"></a>Nie mam przy sobie urządzenia mobilnego
+## <a name="i-dont-have-my-mobile-device-with-me"></a>Nie mam mojego urządzenia przenośnego
 
-Zdarza się. Urządzenie mobilne zostało pozostawione w domu, a teraz nie możesz używać telefonu do weryfikacji, kim jesteś. Jeśli wcześniej dodano inną metodę logowania się do konta, taką jak telefon biurowy, teraz możesz użyć tej metody. Jeśli nigdy nie dodano dodatkowej metody weryfikacji, skontaktuj się z działem pomocy technicznej organizacji i poproś o pomoc w powrocie do konta.
+Dzieje się tak. Urządzenie przenośne zostało pozostawione w domu, a teraz nie można użyć telefonu do sprawdzenia, kim jesteś. Jeśli wcześniej dodano kolejną metodę logowania się do konta, takiego jak telefon biurowy, powinno być możliwe korzystanie z tej metody teraz. Jeśli nigdy nie dodaliśmy dodatkowej metody weryfikacji, musisz skontaktować się z działem pomocy technicznej Twojej organizacji i pomożemy Ci wrócić do swojego konta.
 
-### <a name="to-sign-in-to-your-work-or-school-account-using-another-verification-method"></a>Aby zalogować się na konto służbowe przy użyciu innej metody weryfikacji
+### <a name="to-sign-in-to-your-work-or-school-account-using-another-verification-method"></a>Aby zalogować się do konta służbowego przy użyciu innej metody weryfikacji
 
-1. Zaloguj się na swoje konto, ale wybierz link **Zaloguj w inny sposób** na stronie weryfikacji **dwuskładnikowej.**
+1. Zaloguj się do swojego konta, ale wybierz łącze **Zaloguj w innym** miejscu na stronie **weryfikacji dwuetapowej** .
 
-    ![Zmienianie metody weryfikacji logowania](./media/multi-factor-authentication-end-user-troubleshoot/two-factor-auth-signin-another-way.png)
+    ![Zmień metodę weryfikacji logowania](./media/multi-factor-authentication-end-user-troubleshoot/two-factor-auth-signin-another-way.png)
 
-    Jeśli nie widzisz linku **Zaloguj w inny sposób,** oznacza to, że nie skonfigurowałeś żadnych innych metod weryfikacji. Musisz skontaktować się z administratorem, aby uzyskać pomoc w zalogowaniu się na konto.
+    Jeśli nie widzisz **znaku w innym sposobie** linku, oznacza to, że nie zostały skonfigurowane żadne inne metody weryfikacji. Musisz skontaktować się z administratorem, aby uzyskać pomoc w logowaniu się do konta.
 
-2. Wybierz alternatywną metodę weryfikacji i kontynuuj proces weryfikacji dwuskładnikowej.
+2. Wybierz alternatywną metodę weryfikacji i Kontynuuj proces weryfikacji dwuetapowej.
 
-## <a name="i-lost-my-mobile-device-or-it-was-stolen"></a>Zgubiłem urządzenie mobilne lub zostało skradzione
+## <a name="i-lost-my-mobile-device-or-it-was-stolen"></a>Moje urządzenie przenośne zostało zgubione lub zostało skradzione
 
-Jeśli zgubiłeś lub skradziono urządzenie mobilne, możesz zalogować się przy użyciu innej metody lub poprosić pomoc techniczną organizacji o wyczyszczenie ustawień. Zdecydowanie zalecamy poinformowanie działu pomocy technicznej organizacji, czy telefon został zgubiony lub skradziony, aby można było wypowiedzieć odpowiednie aktualizacje na Twoim koncie. Po wyczyszczeniu ustawień zostanie wyświetlony monit o zarejestrowanie się w [celu weryfikacji dwuskładnikowej](multi-factor-authentication-end-user-first-time.md) przy następnym loguchieniu.
+W przypadku zgubienia lub kradzieży urządzenia przenośnego możesz zalogować się przy użyciu innej metody lub poproszeniu działu pomocy technicznej organizacji o wyczyszczenie ustawień. Zdecydowanie zalecamy umożliwienie działowi pomocy technicznej Twojej firmy informacji w przypadku zgubienia lub kradzieży telefonu, dzięki czemu można wykonać odpowiednie aktualizacje na Twoim koncie. Po wyczyszczeniu ustawień zostanie wyświetlony monit o [zarejestrowanie się w celu przeprowadzenia weryfikacji dwuskładnikowej](multi-factor-authentication-end-user-first-time.md) przy następnym logowaniu.
 
-## <a name="im-not-getting-the-verification-code-sent-to-my-mobile-device"></a>Nie odaję kodu weryfikacyjnego wysłanego na moje urządzenie mobilne
+## <a name="im-not-getting-the-verification-code-sent-to-my-mobile-device"></a>Nie otrzymuję kodu weryfikacyjnego wysłanego do urządzenia przenośnego
 
-Nieuchwyt kodu weryfikacyjnego jest częstym problemem i jest zazwyczaj związane z urządzeniem przenośnym i jego ustawieniami. Kilka możliwych rzeczy do wypróbowania:
+Kod weryfikacyjny nie jest typowym problemem i jest zazwyczaj związany z urządzeniem przenośnym i jego ustawieniami. Niektóre możliwe czynności do wypróbowania:
 
-Spróbuj tego | Informacje o wskazówkach
+Wypróbuj ten | Informacje wskazówki
 --------- | ------------
-Ponowne uruchamianie urządzenia mobilnego | Czasami urządzenie po prostu wymaga odświeżenia. Ponowne uruchomienie urządzenia kończy wszystkie procesy lub usługi działające w tle, które są aktualnie uruchomione i może powodować problemy, wraz z odświeżeniem podstawowych składników urządzenia, ponownym uruchomieniem ich w przypadku awarii w pewnym momencie.
-Sprawdź, czy twoje informacje zabezpieczające są poprawne | Upewnij się, że informacje o metodzie weryfikacji zabezpieczeń są dokładne, zwłaszcza numery telefonów. Jeśli umieścisz niewłaściwy numer telefonu, wszystkie alerty zostaną przesunie się do tego nieprawidłowego numeru. Na szczęście ten użytkownik nie będzie mógł nic zrobić z alertami, ale również nie pomoże Ci zalogować się na swoje konto. Aby upewnić się, że informacje są poprawne, zapoznaj się z instrukcjami w artykule [Zarządzanie ustawieniami metody weryfikacji dwuskładnikowej.](multi-factor-authentication-end-user-manage-settings.md)
-Sprawdź, czy powiadomienia są włączone | Upewnij się, że na urządzeniu przenośnym są włączone powiadomienia i że wybrano metodę powiadamiania, która umożliwia połączenia telefoniczne, aplikację uwierzytelniania i aplikację do obsługi wiadomości (w przypadku wiadomości tekstowych) wysyłanie widocznych powiadomień o alertach na urządzenie przenośne.
-Upewnij się, że masz sygnał urządzenia i połączenie z Internetem | Upewnij się, że połączenia telefoniczne i wiadomości tekstowe docierają do urządzenia mobilnego. Zadzwoń do znajomego i wyślesz ci wiadomość tekstową, aby upewnić się, że otrzymasz oba. Jeśli tego nie zrobisz, najpierw sprawdź, czy urządzenie mobilne jest włączone. Jeśli urządzenie jest włączone, ale nadal nie otrzymujesz połączenia lub SMS-a, najprawdopodobniej jest to problem z siecią i musisz porozmawiać z dostawcą. Jeśli często występują problemy związane z sygnałem, zalecamy zainstalowanie i używanie [aplikacji Microsoft Authenticator](user-help-auth-app-download-install.md) na urządzeniu przenośnym. Aplikacja uwierzytelniająca może generować losowe kody zabezpieczeń dla logowania, bez konieczności podłączania sygnału komórkowego lub połączenia internetowego.
-Wyłącz nie przeszkadzać | Upewnij się, że nie włączyłeś funkcji **Nie przeszkadzać** na urządzeniu mobilnym. Gdy ta funkcja jest włączona, powiadomienia nie mogą ostrzegać o tym na urządzeniu mobilnym. Instrukcje dotyczące wyłączania tej funkcji można znaleźć w instrukcji obsługi urządzenia mobilnego.
-Odblokowywanie numerów telefonów | W Stanach Zjednoczonych połączenia głosowe firmy Microsoft pochodzą z następujących numerów: +1 (866) 539 4191, +1 (855) 330 8653 i +1 (877) 668 6536.
-Sprawdzanie ustawień związanych z baterią | Ten wydaje się nieco dziwne na powierzchni, ale jeśli już skonfigurować optymalizację baterii, aby zatrzymać rzadziej używane aplikacje z pozostają aktywne w tle, system powiadomień najprawdopodobniej został naruszony. Aby spróbować rozwiązać ten problem, wyłącz optymalizację baterii aplikacji uwierzytelniania i aplikacji do obsługi wiadomości, a następnie spróbuj ponownie zalogować się na konto.
-Wyłączanie aplikacji zabezpieczających innych firm | Jeśli masz aplikację, która chroni wiadomości tekstowe lub połączenia telefoniczne, aby zminimalizować nieznanych rozmówców, mogą one uniemożliwić odebranie kodu weryfikacyjnego. Spróbuj wyłączyć wszystkie aplikacje zabezpieczające innych firm w telefonie, a następnie poproś o wysłanie innego kodu weryfikacyjnego.
+Ponowne uruchamianie urządzenia przenośnego | Czasami urządzenie wymaga odświeżenia. Ponowne uruchomienie urządzenia kończy wszystkie procesy w tle, które są obecnie uruchomione i mogą powodować problemy, a także odświeża podstawowe składniki urządzenia, uruchamiając je ponownie na wypadek awarii w pewnym momencie.
+Sprawdź, czy informacje zabezpieczające są poprawne | Upewnij się, że informacje o metodzie weryfikacji zabezpieczeń są dokładne, a zwłaszcza numery telefonów. Jeśli umieścisz w niewłaściwym numerze telefonu, wszystkie alerty przechodzą do tej niepoprawnej liczby. Na szczęście ten użytkownik nie będzie mógł wykonywać żadnych czynności dotyczących alertów, ale również nie pomoże Ci zalogować się do konta. Aby upewnić się, że informacje są poprawne, zapoznaj się z instrukcjami w artykule [Zarządzanie ustawieniami metody weryfikacji dwuskładnikowej](multi-factor-authentication-end-user-manage-settings.md) .
+Sprawdź, czy powiadomienia są włączone | Upewnij się, że na urządzeniu przenośnym włączono powiadomienia i że została wybrana metoda powiadamiania, która umożliwia nawiązywanie połączeń telefonicznych, aplikacji uwierzytelniania i aplikacji do obsługi wiadomości (w przypadku wiadomości SMS) do wysyłania powiadomień o alertach na urządzeniu przenośnym.
+Upewnij się, że masz sygnał urządzenia i połączenie internetowe | Upewnij się, że Twoje połączenia telefoniczne i wiadomości SMS są przekazywane do urządzenia przenośnego. Skontaktuj się z ty i Wyślij wiadomość SMS, aby upewnić się, że otrzymujesz oba elementy. Jeśli tego nie zrobisz, najpierw sprawdź, czy urządzenie przenośne jest włączone. Jeśli urządzenie jest włączone, ale nie masz połączenia lub tekstu, prawdopodobnie wystąpił problem z siecią i musisz skontaktować się z dostawcą. Jeśli często występują problemy związane z sygnałami, zalecamy zainstalowanie [aplikacji Microsoft Authenticator](user-help-auth-app-download-install.md) i używanie jej na urządzeniu przenośnym. Aplikacja Authenticator może generować losowe kody zabezpieczeń do logowania, nie wymagając żadnego sygnału komórkowego ani połączenia internetowego.
+Wyłącz nie przeszkadzać | Upewnij się, że na urządzeniu przenośnym nie została włączona funkcja nie **przeszkadzać** . Gdy ta funkcja jest włączona, powiadomienia nie mogą otrzymywać alertów na urządzeniu przenośnym. Instrukcje dotyczące sposobu wyłączania tej funkcji można znaleźć w podręczniku urządzenia przenośnego.
+Odblokuj numery telefonów | W Stany Zjednoczone połączenia głosowe pochodzące od firmy Microsoft pochodzą z następujących liczb: + 1 (866) 539 4191, + 1 (855) 330 8653 i + 1 (877) 668 6536.
+Sprawdź ustawienia związane z baterią | Jest to nietypowy bit na powierzchni, ale jeśli skonfigurowano optymalizację baterii w celu zatrzymywania nieużywanych aplikacji w tle, system powiadomień ma największe ryzyko. Aby spróbować rozwiązać ten problem, wyłącz optymalizację baterii dla aplikacji uwierzytelniania i aplikacji do obsługi wiadomości, a następnie spróbuj ponownie zalogować się do konta.
+Wyłącz aplikacje zabezpieczeń innych firm | Jeśli masz aplikację chroniącą wiadomości tekstowe lub połączenia telefoniczne w celu zminimalizowania nieznanych obiektów wywołujących, mogą one uniemożliwić odebranie kodu weryfikacyjnego. Spróbuj wyłączyć wszystkie aplikacje zabezpieczeń innych firm na telefonie, a następnie poprosić o wysłanie innego kodu weryfikacyjnego.
 
-## <a name="im-not-getting-prompted-for-my-second-verification-information"></a>Nie dostajesz monitu o podanie moich drugich informacji weryfikacyjnych
+## <a name="im-not-getting-prompted-for-my-second-verification-information"></a>Nie otrzymuję monitu o podanie drugiej informacji weryfikacyjnej
 
-Jeśli zalogujesz się na konto służbowe przy użyciu nazwy użytkownika i hasła, ale nie zostałeś poproszony o dodatkowe informacje weryfikacyjne zabezpieczeń, być może urządzenie nie zostało jeszcze skonfigurowane. Urządzenie mobilne musi być skonfigurowane do pracy z określoną dodatkową metodą weryfikacji zabezpieczeń. Aby upewnić się, że urządzenie mobilne jest włączone i jest dostępne do użycia z metodą weryfikacji, zobacz artykuł [Zarządzanie ustawieniami metody weryfikacji dwuskładnikowej.](multi-factor-authentication-end-user-manage-settings.md) Jeśli wiesz, że nie skonfigurowano urządzenia ani konta, możesz to zrobić teraz, wykonując czynności opisane w artykule [Konfigurowanie mojego konta dla weryfikacji dwuetapowej.](multi-factor-authentication-end-user-first-time.md)
+Jeśli zalogowano się na koncie służbowym przy użyciu nazwy użytkownika i hasła, ale nie został wyświetlony monit o podanie dodatkowych informacji weryfikacyjnych o zabezpieczeniach, być może jeszcze nie skonfigurowano urządzenia. Urządzenie przenośne musi być skonfigurowane do pracy z konkretną dodatkową metodą weryfikacji zabezpieczeń. Aby upewnić się, że urządzenie przenośne jest włączone i dostępne do użycia w ramach metody weryfikacji, zobacz artykuł [Zarządzanie ustawieniami metody weryfikacji dwuskładnikowej](multi-factor-authentication-end-user-manage-settings.md) . Jeśli wiesz, że nie skonfigurowano urządzenia ani Twojego konta, możesz to zrobić teraz, wykonując kroki opisane w artykule [Konfigurowanie mojego konta na potrzeby weryfikacji dwuetapowej](multi-factor-authentication-end-user-first-time.md) .
 
 ## <a name="i-got-a-new-phone-number-and-i-want-to-add-it"></a>Mam nowy numer telefonu i chcę go dodać
 
-Jeśli otrzymałeś nowy numer telefonu, musisz zaktualizować szczegóły metody weryfikacji zabezpieczeń, aby monity weryfikacyjne zostały wyświetlone we właściwej lokalizacji. Aby zaktualizować metodę weryfikacji, wykonaj czynności opisane w sekcji **Dodaj lub zmień numer telefonu** w artykule Zarządzanie [ustawieniami dwuskładnikowej metody weryfikacji.](multi-factor-authentication-end-user-manage-settings.md#add-or-change-your-phone-number)
+Jeśli masz nowy numer telefonu, musisz zaktualizować Szczegóły metody weryfikacji zabezpieczeń, aby wyświetlić komunikaty weryfikacyjne w odpowiedniej lokalizacji. Aby zaktualizować metodę weryfikacji, wykonaj kroki opisane w sekcji **Dodawanie lub zmiana numeru telefonu** w artykule [Zarządzanie ustawieniami metody weryfikacji dwuskładnikowej](multi-factor-authentication-end-user-manage-settings.md#add-or-change-your-phone-number) .
 
-## <a name="i-got-a-new-mobile-device-and-i-want-to-add-it"></a>Mam nowe urządzenie mobilne i chcę go dodać
+## <a name="i-got-a-new-mobile-device-and-i-want-to-add-it"></a>Mam nowe urządzenie przenośne i chcę je dodać
 
-Jeśli masz nowe urządzenie mobilne, musisz skonfigurować je tak, aby działało z weryfikacją dwuskładnikową. Jest to rozwiązanie wieloetapowe:
+Jeśli masz nowe urządzenie przenośne, musisz skonfigurować je do pracy z weryfikacją dwuetapową. To jest rozwiązanie wieloetapowe:
 
-1. Skonfiguruj urządzenie do pracy z kontem służbowym, wykonując czynności opisane w artykule [Konfigurowanie konta dla weryfikacji dwuetapowej.](multi-factor-authentication-end-user-first-time.md)
+1. Skonfiguruj swoje urządzenie do pracy z kontem służbowym, wykonując kroki opisane w artykule [Konfigurowanie mojego konta na potrzeby weryfikacji dwuetapowej](multi-factor-authentication-end-user-first-time.md) .
 
-1. Zaktualizuj informacje o koncie i urządzeniu na stronie **Dodatkowa weryfikacja zabezpieczeń,** usuwając stare urządzenie i dodając nowe. Aby uzyskać więcej informacji, zobacz artykuł [Zarządzanie ustawieniami metody weryfikacji dwuskładnikowej.](multi-factor-authentication-end-user-manage-settings.md)
+1. Zaktualizuj swoje informacje o koncie i urządzeniu na stronie **dodatkowej weryfikacji zabezpieczeń** , usuwając stare urządzenie i dodając nowe. Aby uzyskać więcej informacji, zobacz artykuł [Zarządzanie ustawieniami metody weryfikacji dwuskładnikowej](multi-factor-authentication-end-user-manage-settings.md) .
 
 Kroki opcjonalne:
 
-- Pobierz, zainstaluj i skonfiguruj aplikację Microsoft Authenticator na urządzeniu przenośnym, wykonując czynności opisane w [artykule Pobieranie i instalowanie aplikacji Microsoft Authenticator.](user-help-auth-app-download-install.md)
+- Pobierz, zainstaluj i skonfiguruj aplikację Microsoft Authenticator na urządzeniu przenośnym, wykonując czynności opisane w artykule [pobieranie i instalowanie aplikacji Microsoft Authenticator](user-help-auth-app-download-install.md) .
 
-- Włącz weryfikację dwuskładnikową dla zaufanych urządzeń, wykonując czynności opisane w sekcji **Włącz monity weryfikacji dwuskładnikowej na zaufanym urządzeniu** w artykule [Zarządzanie ustawieniami metody weryfikacji dwuskładnikowej.](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device)
+- Włącz weryfikację dwuskładnikową dla zaufanych urządzeń, wykonując czynności opisane w sekcji **Włączanie weryfikacji dwuskładnikowej w** artykule [Zarządzanie ustawieniami metody weryfikacji dwuskładnikowej](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device) .
 
-## <a name="im-having-problems-signing-in-on-my-mobile-device-while-traveling"></a>Mam problemy z logowaniem się na urządzeniu mobilnym podczas podróży
+## <a name="im-having-problems-signing-in-on-my-mobile-device-while-traveling"></a>Mam problemy z logowaniem się na urządzeniu przenośnym podczas podróży
 
-Korzystanie z metody weryfikacji związanej z urządzeniem mobilnym, takiej jak wiadomości tekstowe, podczas pobytu w lokalizacji międzynarodowej może być trudniejsze. Możliwe jest również, że urządzenie mobilne może spowodować naliżenie opłat roamingowych. W tej sytuacji zaleca się użycie aplikacji Microsoft Authenticator z opcją łączenia się z hotspotem Wi-Fi. Aby uzyskać więcej informacji na temat pobierania, instalowania i konfigurowania aplikacji Microsoft Authenticator na urządzeniu przenośnym, zobacz artykuł [Pobieranie i instalowanie aplikacji Microsoft Authenticator.](user-help-auth-app-download-install.md)
+Może się okazać trudne użycie metody weryfikacji powiązanej z urządzeniami przenośnymi, na przykład wiadomości SMS, podczas gdy jesteś w międzynarodowej lokalizacji. Istnieje również możliwość, że urządzenie przenośne może spowodować naliczenie opłat za roaming. W tej sytuacji zalecamy korzystanie z aplikacji Microsoft Authenticator z opcją nawiązywania połączenia z hotspotem Wi-Fi. Aby uzyskać więcej informacji o pobieraniu, instalowaniu i konfigurowaniu aplikacji Microsoft Authenticator na urządzeniu przenośnym, zobacz artykuł [pobieranie i instalowanie aplikacji Microsoft Authenticator](user-help-auth-app-download-install.md) .
 
-## <a name="i-cant-get-my-app-passwords-to-work"></a>Nie mogę uzyskać haseł aplikacji do działania
+## <a name="i-cant-get-my-app-passwords-to-work"></a>Nie mogę pobrać haseł aplikacji
 
-Hasła aplikacji zastępują zwykłe hasło dla starszych aplikacji klasycznych, które nie obsługują weryfikacji dwuskładnikowej. Najpierw upewnij się, że hasło zostało wpisane poprawnie. Jeśli to nie rozwiąże, spróbuj utworzyć nowe hasło aplikacji dla aplikacji, wykonując kroki opisane w **artykule Tworzenie i usuwanie haseł aplikacji przy użyciu** sekcji Portal Moje aplikacje w [artykule Zarządzanie hasłami aplikacji dla weryfikacji dwuetapowej.](multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page)
+Hasła aplikacji zastępują normalne hasło dla starszych aplikacji klasycznych, które nie obsługują weryfikacji dwuskładnikowej. Najpierw upewnij się, że hasło zostało wpisane prawidłowo. Jeśli to nie rozwiąże problemu, spróbuj utworzyć nowe hasło aplikacji dla aplikacji, wykonując czynności opisane w sekcji **Tworzenie i usuwanie haseł aplikacji za pomocą portalu Moje aplikacje** w artykule [Zarządzanie hasłami aplikacji w celu weryfikacji dwuetapowej](multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page) .
 
-## <a name="i-cant-turn-two-factor-verification-off"></a>Nie mogę wyłączyć weryfikacji dwuskładnikowej
+## <a name="i-cant-turn-two-factor-verification-off"></a>Nie można wyłączyć weryfikacji dwuskładnikowej
 
-Jeśli korzystasz z weryfikacji dwuskładnikowej na koncie służbowym (na przykład), najprawdopodobniej oznacza to, że twoja organizacja zdecydowała, alain@contoso.comże musisz użyć tej dodatkowej funkcji zabezpieczeń. Ponieważ organizacja zdecydowała, że należy użyć tej funkcji, nie ma możliwości jej indywidualnego wyłączenia. Jeśli jednak korzystasz z weryfikacji dwuskładnikowej alain@outlook.comza pomocą konta osobistego, na przykład, masz możliwość włączania i wyłączania tej funkcji. Aby uzyskać instrukcje dotyczące kontrolowania weryfikacji dwuskładnikowej dla kont osobistych, zobacz [Włączanie lub wyłączanie weryfikacji dwuskładnikowej dla konta Microsoft.](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)
+Jeśli używasz weryfikacji dwuetapowej przy użyciu konta służbowego (na przykład alain@contoso.com), najprawdopodobniej oznacza to, że Twoja organizacja zdecydowała się użyć tej dodatkowej funkcji zabezpieczeń. Ponieważ organizacja zdecydowała się na korzystanie z tej funkcji, nie ma możliwości jej samoistnienia. Jeśli jednak korzystasz z weryfikacji dwuetapowej przy użyciu konta osobistego, na przykład alain@outlook.com, możesz włączyć i wyłączyć tę funkcję. Aby uzyskać instrukcje dotyczące kontrolowania weryfikacji dwuskładnikowej dla kont osobistych, zobacz [Włączanie lub wyłączanie weryfikacji dwuskładnikowej dla konto Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
-Jeśli nie można wyłączyć weryfikacji dwuskładnikowej, może to być również spowodowane domyślnymi ustawieniami zabezpieczeń, które zostały zastosowane na poziomie organizacji. Aby uzyskać więcej informacji na temat wartości domyślnych zabezpieczeń, zobacz [Co to są defulta zabezpieczeń?](../fundamentals/concept-fundamentals-security-defaults.md)
+Jeśli nie można wyłączyć weryfikacji dwuskładnikowej, może to być spowodowane ustawieniami domyślnymi zabezpieczeń, które zostały zastosowane na poziomie organizacji. Aby uzyskać więcej informacji na temat ustawień domyślnych zabezpieczeń, zobacz [co to jest Security defulta?](../fundamentals/concept-fundamentals-security-defaults.md)
 
-## <a name="i-didnt-find-an-answer-to-my-problem"></a>Nie znalazłem odpowiedzi na mój problem
+## <a name="i-didnt-find-an-answer-to-my-problem"></a>Nie mogę znaleźć odpowiedzi na mój problem
 
-Jeśli po wykonaniu tych czynności nadal występują problemy, skontaktuj się z działem pomocy technicznej organizacji, aby uzyskać pomoc.
+Jeśli wykonano te kroki, ale nadal występują problemy, skontaktuj się z działem pomocy technicznej Twojej organizacji w celu uzyskania pomocy.
 
 ## <a name="related-articles"></a>Pokrewne artykuły:
 
 - [Zarządzanie ustawieniami metody weryfikacji dwuskładnikowej](multi-factor-authentication-end-user-manage-settings.md)
 
-- [Konfigurowanie konta do weryfikacji dwuetapowej](multi-factor-authentication-end-user-first-time.md)
+- [Konfigurowanie mojego konta na potrzeby weryfikacji dwuetapowej](multi-factor-authentication-end-user-first-time.md)
 
 - [Microsoft Authenticator app FAQ (Aplikacja Microsoft Authenticator — często zadawane pytania)](user-help-auth-app-faq.md)

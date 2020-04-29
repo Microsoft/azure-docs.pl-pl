@@ -1,7 +1,7 @@
 ---
-title: 'Samouczek: Tworzenie modelu uczenia maszynowego za pomocą języka R'
+title: 'Samouczek: Tworzenie modelu uczenia maszynowego przy użyciu języka R'
 titleSuffix: Azure Machine Learning
-description: W tym samouczku użyjesz zestawu SDK usługi Azure Machine Learning do utworzenia modelu regresji logistycznej, który przewiduje prawdopodobieństwo śmierci w wypadku samochodowym.
+description: W tym samouczku użyjesz Azure Machine Learning R SDK, aby utworzyć model regresji logistycznej, który przewiduje prawdopodobieństwo wystąpienia krytycznego poziomu się w przypadku awarii samochodu.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,91 +11,91 @@ author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
 ms.openlocfilehash: 5b1c6561519bc25c2b7ac77f0a25eff89413a07a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81256488"
 ---
-# <a name="tutorial-use-r-to-create-a-machine-learning-model"></a>Samouczek: Tworzenie modelu uczenia maszynowego za pomocą języka R
+# <a name="tutorial-use-r-to-create-a-machine-learning-model"></a>Samouczek: Tworzenie modelu uczenia maszynowego przy użyciu języka R
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-W tym samouczku użyjesz zestawu SDK usługi Azure Machine Learning do utworzenia modelu regresji logistycznej, który przewiduje prawdopodobieństwo śmierci w wypadku samochodowym. Zobaczysz, jak zasoby chmury usługi Azure Machine Learning współpracują z usługą R, aby zapewnić skalowalne środowisko do szkolenia i wdrażania modelu.  
+W tym samouczku użyjesz Azure Machine Learning R SDK, aby utworzyć model regresji logistycznej, który przewiduje prawdopodobieństwo wystąpienia krytycznego poziomu się w przypadku awarii samochodu. Zobaczysz, jak zasoby chmury Azure Machine Learning współpracują z językiem R, aby zapewnić skalowalne środowisko do szkolenia i wdrażania modelu.  
 
 Ten samouczek obejmuje wykonanie następujących zadań:
 > [!div class="checklist"]
-> * Tworzenie obszaru roboczego usługi Azure Machine Learning
-> * Klonowanie folderu notesu z plikami niezbędnymi do uruchomienia tego samouczka w obszarze roboczym
-> * Otwieranie rstudio z obszaru roboczego
-> * Załaduj dane i przygotuj się do treningu
-> * Przesyłanie danych do magazynu danych, aby były dostępne do zdalnego szkolenia
-> * Tworzenie zasobu obliczeniowego w celu zdalnego szkolenia modelu
-> * Trenuj `caret` model, aby przewidzieć prawdopodobieństwo śmierci
-> * Wdrażanie punktu końcowego prognozowania
-> * Przetestuj model z R
+> * Tworzenie obszaru roboczego Azure Machine Learning
+> * Klonowanie folderu notesu przy użyciu plików niezbędnych do uruchomienia tego samouczka w obszarze roboczym
+> * Otwórz RStudio z obszaru roboczego
+> * Ładowanie danych i przygotowanie do szkolenia
+> * Przekaż dane do magazynu danych, aby były dostępne do szkolenia zdalnego
+> * Utwórz zasób obliczeniowy, aby zdalnie nauczyć model
+> * Uczenie `caret` modelu do przewidywania prawdopodobieństwa krytycznego
+> * Wdrażanie punktu końcowego przewidywania
+> * Testowanie modelu przy użyciu języka R
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję usługi Azure Machine Learning](https://aka.ms/AMLFree) już dziś.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree) dzisiaj.
 
 
 ## <a name="create-a-workspace"></a>Tworzenie obszaru roboczego
 
-Obszar roboczy usługi Azure Machine Learning to podstawowy zasób w chmurze używany do eksperymentowania, uczenia i wdrażania modeli uczenia maszynowego. Wiąże subskrypcję platformy Azure i grupę zasobów z łatwo zużywanym obiektem w usłudze. 
+Obszar roboczy Azure Machine Learning to podstawowe zasoby w chmurze, za pomocą których można eksperymentować, uczeniować i wdrażać modele uczenia maszynowego. Łączy ona Twoją subskrypcję i grupę zasobów platformy Azure z łatwym w użyciu obiektem w usłudze. 
 
-Tworzenie obszaru roboczego za pośrednictwem witryny Azure portal, konsoli opartej na sieci Web do zarządzania zasobami platformy Azure. 
+Aby zarządzać zasobami platformy Azure, można utworzyć obszar roboczy za pośrednictwem Azure Portal konsoli internetowej. 
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
-> Zanotuj **swój obszar roboczy** i **subskrypcję**. Będą one potrzebne, aby zapewnić utworzenie eksperymentu we właściwym miejscu. 
+> Zanotuj swój **obszar roboczy** i **subskrypcję**. Będą one potrzebne do utworzenia eksperymentu w odpowiednim miejscu. 
 
 
 ## <a name="clone-a-notebook-folder"></a><a name="azure"></a>Klonowanie folderu notesu
 
-W tym przykładzie użyto serwera notesu w chmurze w obszarze roboczym dla środowiska wolnego od instalacji i wstępnie skonfigurowanego środowiska. Użyj [własnego środowiska,](https://azure.github.io/azureml-sdk-for-r/articles/installation.html) jeśli wolisz mieć kontrolę nad środowiskiem, pakietami i zależnościami.
+W tym przykładzie używany jest serwer notesu w chmurze w obszarze roboczym na potrzeby instalacji i wstępnie skonfigurowanego środowiska. Jeśli wolisz sterować środowiskiem, pakietami i zależnościami, użyj [własnego środowiska](https://azure.github.io/azureml-sdk-for-r/articles/installation.html) .
 
-Wykonaj następującą konfigurację eksperymentu i uruchom kroki w usłudze Azure Machine Learning studio, skonsolidowanym interfejsie, który zawiera narzędzia uczenia maszynowego do wykonywania scenariuszy do nauki o danych dla praktyków nauki o danych na wszystkich poziomach umiejętności.
+Należy wykonać następujące czynności w celu skonfigurowania i uruchomienia kroków w programie Azure Machine Learning Studio — skonsolidowany interfejs, który obejmuje narzędzia uczenia maszynowego do wykonywania scenariuszy analizy danych dla lekarzy danych wszystkich poziomów umiejętności.
 
-1. Zaloguj się do [studia usługi Azure Machine Learning](https://ml.azure.com/).
+1. Zaloguj się do [Azure Machine Learning Studio](https://ml.azure.com/).
 
-1. Wybierz subskrypcję i utworzony obszar roboczy.
+1. Wybierz swoją subskrypcję i utworzony obszar roboczy.
 
-1. Po lewej stronie **wybierz pozycję Notesy.**
+1. Wybierz **notesy** po lewej stronie.
 
-1. Otwórz folder **Przykłady.**
+1. Otwórz folder **Samples** .
 
-1. Otwórz folder **R.**
+1. Otwórz folder **R** .
 
-1. Otwórz folder z numerem wersji.  Ta liczba reprezentuje bieżącą wersję zestawu R SDK.
+1. Otwórz w folderze numer wersji.  Ta liczba reprezentuje bieżącą wersję zestawu R SDK.
 
-1. Wybierz **"..."** po prawej stronie folderu **winiety,** a następnie wybierz pozycję **Klonuj**.
+1. Wybierz pozycję **"..."** po prawej stronie folderu **vignettes** , a następnie wybierz pozycję **Klonuj**.
 
-    ![Folder Klonowanie](media/tutorial-1st-r-experiment/clone-folder.png)
+    ![Klonuj folder](media/tutorial-1st-r-experiment/clone-folder.png)
 
-1. Zostanie wyświetlona lista folderów przedstawiająca każdego użytkownika, który uzyskuje dostęp do obszaru roboczego.  Wybierz folder, aby sklonować tam folder **winiet.**
+1. Zostanie wyświetlona lista folderów pokazująca każdego użytkownika, który uzyskuje dostęp do obszaru roboczego.  Wybierz folder, w którym ma zostać sklonowany folder **vignettes** .
 
 ## <a name="a-nameopenopen-rstudio"></a><a name="open">Otwórz RStudio
 
-Użyj RStudio na wystąpieniu obliczeniowym lub maszynie wirtualnej notesu, aby uruchomić ten samouczek.  
+Użyj RStudio na wystąpieniu obliczeniowym lub maszynie wirtualnej z notesem, aby uruchomić ten samouczek.  
 
-1. Wybierz **pozycję Oblicz** po lewej stronie.
+1. Wybierz pozycję **obliczenia** po lewej stronie.
 
-1. Dodaj zasób obliczeniowy, jeśli jeszcze go nie istnieje.
+1. Dodaj zasób obliczeniowy, jeśli jeszcze nie istnieje.
 
-1. Po uruchomieniu obliczeń użyj łącza **RStudio,** aby otworzyć RStudio.
+1. Po uruchomieniu obliczeń Użyj linku **RStudio** , aby otworzyć RStudio.
 
-1. W RStudio, twój folder *winiety* jest kilka poziomów w dół od *użytkowników* w sekcji **Pliki** w prawym dolnym prawa.  W *obszarze winiety*wybierz folder *train-and-deploy-to-aci, aby* znaleźć pliki potrzebne w tym samouczku.
+1. W programie RStudio folder *vignettes* to kilka poziomów w dół od *użytkowników* w sekcji **pliki** w prawym dolnym rogu.  W obszarze *vignettes*wybierz folder *uczenie i wdrażanie-do-ACI* , aby znaleźć pliki wymagane w tym samouczku.
 
 > [!Important]
-> Pozostała część tego artykułu zawiera tę samą zawartość, jak w *train-and-deploy-to-aci. Rmd.* Jeśli masz doświadczenie z RMarkdown, nie krępuj się używać kodu z tego pliku.  Możesz też skopiować/wkleić fragmenty kodu stamtąd lub z tego artykułu do skryptu R lub wiersza polecenia.  
+> Pozostała część tego artykułu zawiera tę samą zawartość, która jest widoczna w części *uczenie i wdrażanie-do-ACI. Plik RMD* . Jeśli masz doświadczenie z RMarkdown, możesz użyć kodu z tego pliku.  Można też skopiować/wkleić fragmenty kodu z tego miejsca lub z tego artykułu do skryptu języka R lub wiersza polecenia.  
 
 
 ## <a name="set-up-your-development-environment"></a>Konfigurowanie środowiska projektowego
-Konfiguracja prac rozwojowych w tym samouczku zawiera następujące akcje:
+Konfiguracja dla pracy programistycznej w tym samouczku obejmuje następujące działania:
 
 * Instalowanie wymaganych pakietów
-* Łączenie się z obszarem roboczym, aby wystąpienie obliczeniowe mogły komunikować się z zasobami zdalnymi
-* Tworzenie eksperymentu w celu śledzenia przebiegów
-* Tworzenie zdalnego celu obliczeniowego do użycia w szkoleniu
+* Nawiązywanie połączenia z obszarem roboczym, dzięki czemu wystąpienie obliczeniowe może komunikować się z zasobami zdalnymi
+* Utwórz eksperyment do śledzenia przebiegów
+* Utwórz zdalne miejsce docelowe obliczeń do użycia na potrzeby szkolenia
 
 ### <a name="install-required-packages"></a>Instalowanie wymaganych pakietów
 
@@ -107,7 +107,7 @@ Konfiguracja prac rozwojowych w tym samouczku zawiera następujące akcje:
     azuremlsdk::install_azureml(envname = 'r-reticulate')
     ```
     
-* Lub zainstaluj wersję deweloperską z GitHub.
+* Lub Zainstaluj wersję deweloperskią z usługi GitHub.
 
     ```R
     # or install the development version from GitHub
@@ -115,33 +115,33 @@ Konfiguracja prac rozwojowych w tym samouczku zawiera następujące akcje:
     azuremlsdk::install_azureml(envname = 'r-reticulate')
     ```
 
-Teraz śmiało i zaimportować pakiet **azuremlsdk.**
+Teraz przejdź dalej i zaimportuj pakiet **azuremlsdk** .
 
 ```R
 library(azuremlsdk)
 ```
 
-Skrypty szkoleniowe i`accidents.R` `accident_predict.R`oceniające ( i ) mają pewne dodatkowe zależności. Jeśli planujesz uruchamianie tych skryptów lokalnie, upewnij się, że masz te wymagane pakiety, jak również.
+Skrypty szkoleniowe i oceniające`accidents.R` ( `accident_predict.R`i) mają pewne dodatkowe zależności. Jeśli planujesz uruchamiać te skrypty lokalnie, upewnij się, że masz również wymagane pakiety.
 
-### <a name="load-your-workspace"></a>Załaduj swój obszar roboczy
-Tworzenie wystąpienia obiektu obszaru roboczego z istniejącego obszaru roboczego. Poniższy kod spowoduje załadowanie szczegółów obszaru roboczego z pliku **config.json.** Można również pobrać obszar roboczy za pomocą programu [`get_workspace()`](https://azure.github.io/azureml-sdk-for-r/reference/get_workspace.html).
+### <a name="load-your-workspace"></a>Załaduj obszar roboczy
+Utwórz wystąpienie obiektu obszaru roboczego z istniejącego obszaru roboczego. Poniższy kod załaduje szczegóły obszaru roboczego z pliku **config. JSON** . Możesz również pobrać obszar roboczy przy użyciu [`get_workspace()`](https://azure.github.io/azureml-sdk-for-r/reference/get_workspace.html).
 
 ```R
 ws <- load_workspace_from_config()
 ```
 
 ### <a name="create-an-experiment"></a>Tworzenie eksperymentu
-Eksperyment usługi Azure ML śledzi grupowanie przebiegów, zazwyczaj z tego samego skryptu szkoleniowego. Utwórz eksperyment, aby śledzić przebiegi do szkolenia modelu karetki na danych wypadków.
+Eksperyment Azure ML śledzi grupowanie przebiegów, zazwyczaj z tego samego skryptu szkoleniowego. Utwórz eksperyment, aby śledzić przebiegi w celu uczenia modelu karetki na danych wypadków.
 
 ```R
 experiment_name <- "accident-logreg"
 exp <- experiment(ws, experiment_name)
 ```
 
-### <a name="create-a-compute-target"></a>Tworzenie celu obliczeniowego
+### <a name="create-a-compute-target"></a>Tworzenie obiektu docelowego obliczeń
 Za pomocą usługi zarządzanej Azure Machine Learning Compute (AmlCompute) analitycy danych mogą szkolić modele uczenia maszynowego w klastrach maszyn wirtualnych platformy Azure. Przykłady obejmują maszyny wirtualne z obsługą procesorów GPU. W tym samouczku utworzysz klaster AmlCompute z jednym węzłem jako środowisko szkoleniowe. Poniższy kod tworzy klaster obliczeniowy, jeśli jeszcze nie istnieje w obszarze roboczym.
 
-Może być konieczne odczekanie kilku minut na aprowizacji klastra obliczeniowego, jeśli jeszcze nie istnieje.
+Jeśli klaster obliczeniowy nie istnieje, może być konieczne odczekanie kilku minut.
 
 ```R
 cluster_name <- "rcluster"
@@ -158,8 +158,8 @@ wait_for_provisioning_completion(compute_target)
 ```
 
 ## <a name="prepare-data-for-training"></a>Przygotowywanie danych do szkolenia
-Ten poradnik wykorzystuje dane z US [National Highway Traffic Safety Administration](https://cdan.nhtsa.gov/tsftables/tsfar.htm) (dzięki Mary [C. Meyer i Tremika Finney](https://www.stat.colostate.edu/~meyer/airbags.htm)).
-Ten zestaw danych zawiera dane z ponad 25 000 wypadków samochodowych w Stanach Zjednoczonych, ze zmiennymi, których można użyć do przewidzenia prawdopodobieństwa śmierci. Najpierw zaimportuj dane do R i `accidents` przekształć `Rdata` je w nową ramkę danych do analizy i wyeksportuj do pliku.
+W tym samouczku są stosowane dane z [administracji krajowej bezpieczeństwa ruchu](https://cdan.nhtsa.gov/tsftables/tsfar.htm) drogowego USA (z podziękowaniami dla [Mary C. Meyer i Tremika Finney](https://www.stat.colostate.edu/~meyer/airbags.htm)).
+Ten zestaw danych zawiera dane z ponad 25 000 samochodów w Stanach Zjednoczonych ze zmiennymi, których można użyć do przewidywania prawdopodobieństwa krytyczne. Najpierw zaimportuj dane do języka R i Przekształć je w nową ramkę `accidents` danych na potrzeby analizy i wyeksportuj je do `Rdata` pliku.
 
 ```R
 nassCDS <- read.csv("nassCDS.csv", 
@@ -177,8 +177,8 @@ accidents$dvcat <- ordered(accidents$dvcat,
 saveRDS(accidents, file="accidents.Rd")
 ```
 
-### <a name="upload-data-to-the-datastore"></a>Przekazywanie danych do magazynu danych
-Przekaż dane do chmury, aby były dostępne w środowisku szkolenia zdalnego. Każdy obszar roboczy usługi Azure Machine Learning jest dostarczany z domyślnym magazynem danych, który przechowuje informacje o połączeniu z kontenerem obiektów blob platformy Azure, który jest aprowiada na koncie magazynu dołączonym do obszaru roboczego. Poniższy kod przekaże dane dotyczące wypadków utworzone powyżej do tego magazynu danych.
+### <a name="upload-data-to-the-datastore"></a>Przekaż dane do magazynu danych
+Przekaż dane do chmury, aby uzyskać dostęp do zdalnego środowiska szkoleniowego. Każdy obszar roboczy Azure Machine Learning jest dostarczany z domyślnym magazynem danych, który przechowuje informacje o połączeniu do kontenera obiektów blob platformy Azure, który jest inicjowany w ramach konta magazynu dołączonego do obszaru roboczego. Poniższy kod przekaże dane wypadki utworzone powyżej do tego magazynu danych.
 
 ```R
 ds <- get_default_datastore(ws)
@@ -193,30 +193,30 @@ upload_files_to_datastore(ds,
 
 ## <a name="train-a-model"></a>Szkolenie modelu
 
-W tym samouczku dopasuj model regresji logistycznej do przekazanych danych przy użyciu zdalnego klastra obliczeniowego. Aby przesłać pracę, musisz:
+Na potrzeby tego samouczka Dopasuj model regresji logistycznej do przekazanych danych przy użyciu zdalnego klastra obliczeniowego. Aby przesłać zadanie, musisz:
 
-* Przygotowanie skryptu szkolenia
+* Przygotuj skrypt szkoleniowy
 * Tworzenie narzędzia do szacowania
 * Przesyłanie zadania
 
-### <a name="prepare-the-training-script"></a>Przygotowanie skryptu szkolenia
-Skrypt szkolenia `accidents.R` o nazwie został dostarczony dla Ciebie w tym samym katalogu, co ten samouczek. Zwróć uwagę na następujące szczegóły **wewnątrz skryptu szkoleniowego,** które zostały wykonane w celu wykorzystania usługi Azure Machine Learning do szkolenia:
+### <a name="prepare-the-training-script"></a>Przygotuj skrypt szkoleniowy
+Skrypt szkoleniowy został `accidents.R` wywołany w tym samym katalogu, w którym znajduje się ten samouczek. Zwróć uwagę na następujące szczegóły w **skrypcie szkoleniowym** , które zostały wykonane w celu wykorzystania Azure Machine Learning do szkolenia:
 
-* Skrypt szkolenia przyjmuje `-d` argument, aby znaleźć katalog, który zawiera dane szkoleniowe. Podczas definiowania i przesyłania zadania później, należy wskazać do magazynu danych dla tego argumentu. Usługa Azure ML zainstaluje folder magazynu w klastrze zdalnym dla zadania szkoleniowego.
-* Skrypt szkolenia rejestruje ostateczną dokładność jako metrykę do rekordu `log_metric_to_run()`uruchomienia w usłudze Azure ML przy użyciu . Zestaw SDK usługi Azure ML udostępnia zestaw interfejsów API rejestrowania do rejestrowania różnych metryk podczas przebiegów szkoleniowych. Te metryki są rejestrowane i utrwalone w rekordzie przebiegu eksperymentu. Dane są następnie dostępne w dowolnym momencie lub wyświetlane na stronie szczegółów uruchamiania w [studio](https://ml.azure.com). Zobacz [odwołanie do](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) pełnego zestawu metod `log_*()`rejestrowania .
-* Skrypt szkoleniowy zapisuje model w katalogu o nazwie **dane wyjściowe**. Folder `./outputs` otrzymuje specjalne traktowanie przez usługę Azure ML. Podczas szkolenia pliki zapisane `./outputs` do są automatycznie przekazywane do rekordu uruchomienia przez usługę Azure ML i utrwalone jako artefakty. Zapisując przeszkolony model `./outputs`do programu , będziesz mieć dostęp do pliku modelu i pobierać go nawet po zakończeniu biegu i nie masz już dostępu do zdalnego środowiska szkoleniowego.
+* Skrypt szkoleniowy przyjmuje argument `-d` , aby znaleźć katalog zawierający dane szkoleniowe. Po zdefiniowaniu i przesłaniu zadania później należy wskazać magazyn danych dla tego argumentu. Platforma Azure ML zainstaluje folder magazynu w klastrze zdalnym dla zadania szkoleniowego.
+* Skrypt szkoleniowy rejestruje ostateczną dokładność jako metrykę do rekordu uruchomienia w usłudze Azure ML przy użyciu `log_metric_to_run()`. Zestaw SDK usługi Azure ML udostępnia zestaw interfejsów API rejestrowania do rejestrowania różnych metryk podczas przebiegów szkoleniowych. Te metryki są rejestrowane i utrwalane w rekordzie przebiegu eksperymentu. Dostęp do metryk można uzyskać w dowolnym momencie lub wyświetlić na stronie Szczegóły uruchamiania w programie [Studio](https://ml.azure.com). Zobacz [informacje](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) dotyczące pełnego zestawu metod `log_*()`rejestrowania.
+* Skrypt szkoleniowy zapisuje model w katalogu **o nazwie**Outputs. `./outputs` Folder otrzymuje specjalne traktowanie w usłudze Azure ml. Podczas szkolenia pliki zapisywane do `./outputs` są automatycznie przekazywane do rekordu uruchomienia przez usługę Azure ml i utrwalane jako artefakty. Zapisując przeszkolony model do `./outputs`, będziesz mieć dostęp do pliku modelu nawet po jego zakończeniu i nie masz już dostępu do zdalnego środowiska szkoleniowego.
 
 ### <a name="create-an-estimator"></a>Tworzenie narzędzia do szacowania
 
-Estymator usługi Azure ML hermetyzuje informacje o konfiguracji uruchamiania potrzebne do wykonywania skryptu szkoleniowego w celu obliczeniowym. Przebiegi usługi Azure ML są uruchamiane jako zadania konteneryzowane w określonym celu obliczeniowym. Domyślnie obraz platformy Docker utworzony dla zadania szkoleniowego będzie zawierać R, zestaw SDK usługi Azure ML i zestaw często używanych pakietów R. Zobacz pełną listę pakietów domyślnych zawartych tutaj.
+Usługa Azure ML szacowania hermetyzuje informacje o konfiguracji uruchamiania, które są zbędne do wykonania skryptu szkoleniowego na obiekcie docelowym obliczeń. Uruchomienia usługi Azure ML są uruchamiane jako zadania kontenerowe w określonym elemencie docelowym obliczeń. Domyślnie obraz platformy Docker utworzony dla zadania szkoleniowego obejmuje język R, zestaw SDK usługi Azure ML oraz zestaw powszechnie używanych pakietów języka R. Zapoznaj się z pełną listą pakietów domyślnych uwzględnionych w tym miejscu.
 
-Aby utworzyć estymator, należy zdefiniować:
+Aby utworzyć szacowania, zdefiniuj:
 
-* Katalog zawierający skrypty potrzebne do`source_directory`szkolenia ( ). Wszystkie pliki w tym katalogu są przekazywane do węzłów klastra do wykonania. Katalog musi zawierać skrypt szkolenia i wszelkie dodatkowe skrypty wymagane.
-* Skrypt szkolenia, który zostanie`entry_script`wykonany ( ).
-* Cel obliczeniowy`compute_target`( ), w tym przypadku klaster AmlCompute utworzony wcześniej.
-* Parametry wymagane ze skryptu`script_params`szkoleniowego ( ). Usługa Azure ML uruchomi skrypt szkoleniowy jako `Rscript`skrypt wiersza polecenia z programem . W tym samouczku można określić jeden argument do skryptu, punkt `ds$path(target_path)`montażowy katalogu danych, które można uzyskać dostęp za pomocą programu .
-* Wszelkie zależności środowiska wymagane do szkolenia. Domyślny obraz platformy Docker utworzony do`caret`szkolenia `e1071`zawiera `optparse`już trzy pakiety ( , i ) potrzebne w skrypcie szkolenia.  Nie trzeba więc podawać dodatkowych informacji. Jeśli używasz pakietów Języka R, które nie są domyślnie `cran_packages` uwzględniane, użyj parametru estymatora, aby dodać dodatkowe pakiety CRAN. Zobacz [`estimator()`](https://azure.github.io/azureml-sdk-for-r/reference/estimator.html) punkt odniesienia dla pełnego zestawu konfigurowalnych opcji.
+* Katalog zawierający skrypty, które są używane do uczenia`source_directory`(). Wszystkie pliki w tym katalogu są przekazywane do węzłów klastra w celu wykonania. Katalog musi zawierać Twój skrypt szkoleniowy i wymagane dodatkowe skrypty.
+* Skrypt szkoleniowy, który zostanie wykonany (`entry_script`).
+* Obiekt docelowy obliczeń (`compute_target`), w tym przypadku utworzony wcześniej klaster AmlCompute.
+* Parametry wymagane ze skryptu szkoleniowego (`script_params`). Usługa Azure ML uruchomi skrypt szkoleniowy jako skrypt wiersza polecenia z `Rscript`. W tym samouczku określisz jeden argument do skryptu, punkt zamontowania katalogu danych, do którego możesz uzyskać `ds$path(target_path)`dostęp.
+* Wszystkie zależności środowiska wymagane do uczenia się. Domyślny obraz platformy Docker skompilowany na potrzeby szkolenia zawiera już trzy pakiety (`caret` `e1071`, i `optparse`), które są niezbędne w skrypcie szkoleniowym.  Nie musisz podawać dodatkowych informacji. Jeśli używasz pakietów języka R, które nie są uwzględnione domyślnie, użyj `cran_packages` parametru szacowania, aby dodać dodatkowe pakiety Cran. Zobacz [`estimator()`](https://azure.github.io/azureml-sdk-for-r/reference/estimator.html) informacje dotyczące pełnego zestawu konfigurowalnych opcji.
 
 ```R
 est <- estimator(source_directory = ".",
@@ -226,43 +226,43 @@ est <- estimator(source_directory = ".",
                  )
 ```
 
-### <a name="submit-the-job-on-the-remote-cluster"></a>Przesyłanie zadania w klastrze zdalnym
+### <a name="submit-the-job-on-the-remote-cluster"></a>Prześlij zadanie w klastrze zdalnym
 
-Na koniec prześlij zadanie do uruchomienia w klastrze. `submit_experiment()`zwraca Run obiektu, który następnie używa się do interfejsu z run. Łącznie pierwszy przebieg trwa **około 10 minut**. Ale w przypadku późniejszych uruchomień ten sam obraz platformy Docker jest ponownie odtwarzany, o ile zależności skryptu nie zmieniają się.  W takim przypadku obraz jest buforowany, a czas uruchamiania kontenera jest znacznie szybszy.
+Na koniec Prześlij zadanie do uruchomienia w klastrze. `submit_experiment()`zwraca obiekt Run, który następnie jest używany do interfejsu z przebiegiem. Łącznie pierwszy przebieg trwa **około 10 minut**. Jednak w przypadku późniejszego uruchomienia ten sam obraz platformy Docker jest ponownie używany, tak długo, jak zależności skryptu nie są zmieniane.  W takim przypadku obraz jest buforowany i czas uruchamiania kontenera jest znacznie szybszy.
 
 ```R
 run <- submit_experiment(exp, est)
 ```
 
-Szczegóły przebiegu można wyświetlić w przeglądarce RStudio Viewer. Kliknięcie łącza "Widok sieci Web" pod warunkiem spowoduje, że do usługi Azure Machine Learning studio, gdzie można monitorować przebieg w interfejsie użytkownika.
+Szczegóły przebiegu można wyświetlić w przeglądarce RStudio. Kliknięcie linku "Widok sieci Web" spowoduje wyświetlenie Azure Machine Learning Studio, w którym można monitorować przebieg w interfejsie użytkownika.
 
 ```R
 view_run_details(run)
 ```
 
-Szkolenie modelu odbywa się w tle. Poczekaj na zakończenie uczenia modelu przed uruchomieniem dalszego kodu.
+Szkolenia modeli odbywają się w tle. Poczekaj na zakończenie uczenia modelu przed uruchomieniem dalszego kodu.
 
 ```R
 wait_for_run_completion(run, show_output = TRUE)
 ```
 
-Ty — i współpracownicy z dostępem do obszaru roboczego — możesz przesyłać wiele eksperymentów równolegle, a usługa Azure ML podejmie planowanie zadań w klastrze obliczeniowym. Można nawet skonfigurować klaster do automatycznego skalowania do wielu węzłów i skalowania wstecz, gdy w kolejce nie ma więcej zadań obliczeniowych. Ta konfiguracja jest opłacalnym sposobem udostępniania zasobów obliczeniowych przez zespoły.
+Współpracownicy z dostępem do obszaru roboczego — mogą przesyłać wiele eksperymentów równolegle, a platforma Azure ML zajmie się planowaniem zadań w klastrze obliczeniowym. Można nawet skonfigurować klaster w taki sposób, aby automatycznie skalowany w górę w wielu węzłach, i skalować z powrotem, gdy w kolejce nie ma więcej zadań obliczeniowych. Ta konfiguracja stanowi ekonomiczne rozwiązanie dla zespołów do udostępniania zasobów obliczeniowych.
 
-## <a name="retrieve-training-results"></a>Pobieranie wyników treningów
-Po zakończeniu szkolenia modelu można uzyskać dostęp do artefaktów zadania, które zostały utrwalone do rekordu przebiegu, w tym wszelkie metryki rejestrowane i końcowego modelu przeszkolonego.
+## <a name="retrieve-training-results"></a>Pobierz wyniki szkolenia
+Gdy Twój model zakończy szkolenia, możesz uzyskać dostęp do artefaktów zadania, które zostały utrwalone w rekordzie uruchomienia, w tym zarejestrowane metryki i finalny, przeszkolony model.
 
-### <a name="get-the-logged-metrics"></a>Pobierz zarejestrowane dane
-W skrypcie `accidents.R`szkolenia , rejestrowane metryki z modelu: dokładność prognoz w danych szkoleniowych. Możesz zobaczyć metryki w [studio](https://ml.azure.com)lub wyodrębnić je do sesji lokalnej jako listę R w następujący sposób:
+### <a name="get-the-logged-metrics"></a>Pobieranie zarejestrowanych metryk
+W skrypcie `accidents.R`szkoleniowym zarejestrowano metrykę z modelu: dokładność prognoz w danych szkoleniowych. Możesz wyświetlić metryki w [Studio](https://ml.azure.com)lub wyodrębnić je do sesji lokalnej jako listę R w następujący sposób:
 
 ```R
 metrics <- get_run_metrics(run)
 metrics
 ```
 
-Jeśli przeprowadzono wiele eksperymentów (na przykład przy użyciu różnych zmiennych, algorytmów lub hiperparamerów), możesz użyć metryk z każdego uruchomienia, aby porównać i wybrać model, którego użyjesz w produkcji.
+Jeśli uruchomiono wiele eksperymentów (np. przy użyciu różnych zmiennych, algorytmów lub parametrów), można użyć metryk z każdego przebiegu, aby porównać i wybrać model, który będzie używany w środowisku produkcyjnym.
 
-### <a name="get-the-trained-model"></a>Uzyskaj wyszkolony model
-Można pobrać przeszkolony model i spojrzeć na wyniki w lokalnej sesji R. Poniższy kod pobierze zawartość `./outputs` katalogu, który zawiera plik modelu.
+### <a name="get-the-trained-model"></a>Uzyskaj przeszkolony model
+Możesz pobrać szkolony model i przeglądać wyniki w lokalnej sesji języka R. Poniższy kod pobierze zawartość `./outputs` katalogu, który zawiera plik modelu.
 
 ```R
 download_files_from_run(run, prefix="outputs/")
@@ -270,22 +270,22 @@ accident_model <- readRDS("outputs/model.rds")
 summary(accident_model)
 ```
 
-Widzisz kilka czynników, które przyczyniają się do zwiększenia szacowanego prawdopodobieństwa śmierci:
+Zobaczysz pewne czynniki, które przyczyniają się do wzrostu szacowanego prawdopodobieństwa zgonu:
 
-* większa prędkość uderzenia 
-* mężczyzna kierowca
+* wyższa szybkość wpływów 
+* Sterownik męski
 * starszy pasażer
-* Pasażerów
+* drogow
 
-Widzisz mniejsze prawdopodobieństwo śmierci z:
+Zobaczysz mniejsze prawdopodobieństwa śmierci z:
 
-* obecność poduszek powietrznych
-* obecność pasów bezpieczeństwa
-* zderzenie czołowe 
+* obecność toreb dla worków
+* SEATBELTS obecności
+* kolizja czołowa 
 
-Rok produkcji pojazdu nie ma znaczącego wpływu.
+Rok produkcji pojazdu nie ma znaczącego skutku.
 
-Tego modelu można użyć do tworzenia nowych prognoz:
+Przy użyciu tego modelu można tworzyć nowe przewidywania:
 
 ```R
 newdata <- data.frame( # valid values shown below
@@ -305,11 +305,11 @@ as.numeric(predict(accident_model,newdata, type="response")*100)
 
 ## <a name="deploy-as-a-web-service"></a>Wdrażanie w postaci usługi internetowej
 
-Dzięki modelowi możesz przewidzieć niebezpieczeństwo śmierci po kolizji. Użyj usługi Azure ML, aby wdrożyć model jako usługę przewidywania. W tym samouczku wdrożysz usługę sieci web w [instancjach kontenera platformy Azure](https://docs.microsoft.com/azure/container-instances/) (ACI).
+Dzięki modelowi można przewidzieć niebezpieczeństwo zgonu z kolizji. Użyj platformy Azure ML do wdrożenia modelu jako usługi predykcyjnej. W tym samouczku zostanie wdrożona usługa sieci Web w [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI).
 
 ### <a name="register-the-model"></a>Rejestrowanie modelu
 
-Najpierw zarejestruj model pobrany do obszaru [`register_model()`](https://azure.github.io/azureml-sdk-for-r/reference/register_model.html)roboczego za pomocą programu . Zarejestrowany model może być dowolną kolekcją plików, ale w tym przypadku wystarczy obiekt modelu R. Usługa Azure ML użyje zarejestrowanego modelu do wdrożenia.
+Najpierw Zarejestruj pobrany model do obszaru roboczego za pomocą [`register_model()`](https://azure.github.io/azureml-sdk-for-r/reference/register_model.html). Zarejestrowanym modelem może być dowolna Kolekcja plików, ale w tym przypadku obiekt modelu R jest wystarczający. Platforma Azure ML będzie używać zarejestrowanego modelu do wdrożenia.
 
 ```R
 model <- register_model(ws, 
@@ -318,18 +318,18 @@ model <- register_model(ws,
                         description = "Predict probablity of auto accident")
 ```
 
-### <a name="define-the-inference-dependencies"></a>Definiowanie zależności wnioskowania
-Aby utworzyć usługę sieci web dla modelu, należy najpierw`entry_script`utworzyć skrypt oceniania ( ), skrypt R, który będzie przyjmować jako wartości zmiennych wejściowych (w formacie JSON) i wyprowadzać prognozowanie z modelu. W tym samouczku użyj `accident_predict.R`podanego pliku oceniania . Skrypt oceniania musi `init()` zawierać metodę, która ładuje model i zwraca funkcję, która używa modelu do przewidywania na podstawie danych wejściowych. Więcej informacji można znaleźć w [dokumentacji.](https://azure.github.io/azureml-sdk-for-r/reference/inference_config.html#details)
+### <a name="define-the-inference-dependencies"></a>Zdefiniuj zależności wnioskowania
+Aby utworzyć usługę sieci Web dla modelu, należy najpierw utworzyć skrypt oceniania (`entry_script`), skrypt języka R, który przyjmuje jako wartości zmiennych wejściowych (w formacie JSON) i wyprowadza prognozę z modelu. Na potrzeby tego samouczka Użyj dostarczonego pliku `accident_predict.R`oceniania. Skrypt oceniania musi zawierać `init()` metodę, która ładuje model i zwraca funkcję, która używa modelu do prognozowania na podstawie danych wejściowych. Zapoznaj się z [dokumentacją](https://azure.github.io/azureml-sdk-for-r/reference/inference_config.html#details) , aby uzyskać więcej szczegółów.
 
-Następnie zdefiniuj **środowisko** usługi Azure ML dla zależności pakietu skryptu. W środowisku należy określić pakiety języka R (z CRAN lub gdzie indziej), które są potrzebne do uruchomienia skryptu. Można również podać wartości zmiennych środowiskowych, które skrypt może odwoływać się do modyfikowania jego zachowanie. Domyślnie usługa Azure ML będzie tworzyć ten sam domyślny obraz platformy Docker używany z estymatorem do szkolenia. Ponieważ samouczek nie ma specjalnych wymagań, utwórz środowisko bez specjalnych atrybutów.
+Następnie zdefiniuj **środowisko** Azure ml dla zależności pakietu skryptu. W środowisku należy określić pakiety języka R (z CRAN lub innych innych), które są potrzebne do uruchomienia skryptu. Możesz również podać wartości zmiennych środowiskowych, do których skrypt może się odwoływać, aby zmodyfikować jego zachowanie. Domyślnie platforma Azure ML kompiluje ten sam domyślny obraz platformy Docker używany z szacowania na potrzeby szkolenia. Ponieważ samouczek nie ma specjalnych wymagań, Utwórz środowisko bez atrybutów specjalnych.
 
 ```R
 r_env <- r_environment(name = "basic_env")
 ```
 
-Jeśli chcesz użyć własnego obrazu platformy Docker do `custom_docker_image` wdrożenia zamiast tego, należy określić parametr. Zobacz [`r_environment()`](https://azure.github.io/azureml-sdk-for-r/reference/r_environment.html) odwołanie do pełnego zestawu konfigurowalnych opcji definiowania środowiska.
+Jeśli zamiast tego chcesz użyć własnego obrazu platformy Docker do wdrożenia, określ `custom_docker_image` parametr. Zobacz [`r_environment()`](https://azure.github.io/azureml-sdk-for-r/reference/r_environment.html) informacje dotyczące pełnego zestawu konfigurowalnych opcji definiowania środowiska.
 
-Teraz masz wszystko, czego potrzebujesz, aby utworzyć **konfigur wnioskowania** do hermetyzacji skryptu oceniającego i zależności środowiska.
+Teraz masz wszystko, co musisz zrobić, aby utworzyć **konfigurację wnioskowania** do hermetyzacji skryptów oceniania i zależności środowiska.
 
 ```R
 inference_config <- inference_config(
@@ -338,13 +338,13 @@ inference_config <- inference_config(
 ```
 
 ### <a name="deploy-to-aci"></a>Wdrażanie w usłudze ACI
-W tym samouczku wdrożysz usługę w usłudze ACI. Ten kod przepisuje pojedynczy kontener do odpowiadania na przychodzące żądania, który jest odpowiedni do testowania i lekkich obciążeń. Zobacz [`aci_webservice_deployment_config()`](https://azure.github.io/azureml-sdk-for-r/reference/aci_webservice_deployment_config.html) dodatkowe opcje konfigurowalne. (W przypadku wdrożeń na skalę produkcyjną można również [wdrożyć w usłudze Azure Kubernetes.)](https://azure.github.io/azureml-sdk-for-r/articles/deploy-to-aks/deploy-to-aks.html)
+W tym samouczku zostanie wdrożona usługa do ACI. Ten kod Inicjuje obsługę jednego kontenera w celu reagowania na żądania przychodzące, które jest odpowiednie do testowania i obciążeń lekkich. Więcej [`aci_webservice_deployment_config()`](https://azure.github.io/azureml-sdk-for-r/reference/aci_webservice_deployment_config.html) konfigurowalnych opcji można znaleźć w temacie. (W przypadku wdrożeń na skalę produkcyjną można także [wdrożyć usługę Azure Kubernetes Service](https://azure.github.io/azureml-sdk-for-r/articles/deploy-to-aks/deploy-to-aks.html)).
 
 ``` R
 aci_config <- aci_webservice_deployment_config(cpu_cores = 1, memory_gb = 0.5)
 ```
 
-Teraz wdrażasz model jako usługę sieci web. Wdrożenie **może potrwać kilka minut**. 
+Teraz można wdrożyć model jako usługę sieci Web. Wdrożenie **może potrwać kilka minut**. 
 
 ```R
 aci_service <- deploy_model(ws, 
@@ -358,7 +358,7 @@ wait_for_deployment(aci_service, show_output = TRUE)
 
 ## <a name="test-the-deployed-service"></a>Testowanie wdrożonego modelu
 
-Teraz, gdy model jest wdrożony jako usługa, można [`invoke_webservice()`](https://azure.github.io/azureml-sdk-for-r/reference/invoke_webservice.html)przetestować usługę z języka R przy użyciu .  Podaj nowy zestaw danych do przewidzenia, przekonwertuj je na JSON i wyślij do usługi.
+Teraz, gdy model jest wdrażany jako usługa, można przetestować usługę z poziomu języka R przy [`invoke_webservice()`](https://azure.github.io/azureml-sdk-for-r/reference/invoke_webservice.html)użyciu.  Podaj nowy zestaw danych do przewidywania, Przekształć go w kod JSON i wyślij go do usługi.
 
 ```R
 library(jsonlite)
@@ -378,7 +378,7 @@ prob <- invoke_webservice(aci_service, toJSON(newdata))
 prob
 ```
 
-Można również uzyskać punkt końcowy HTTP usługi sieci web, który akceptuje wywołania klienta REST. Ten punkt końcowy można udostępnić każdemu, kto chce przetestować usługę internetową lub zintegrować ją z aplikacją.
+Możesz również uzyskać punkt końcowy HTTP usługi sieci Web, który akceptuje wywołania klienta REST. Ten punkt końcowy można udostępnić każdemu, kto chce przetestować usługę internetową lub zintegrować ją z aplikacją.
 
 ```R
 aci_service$scoring_uri
@@ -386,9 +386,9 @@ aci_service$scoring_uri
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Usuń zasoby, gdy nie są już potrzebne. Nie usuwaj żadnych zasobów, które chcesz nadal używać. 
+Usuń zasoby, gdy nie będą już potrzebne. Nie usuwaj zasobów, których planujesz nadal używać. 
 
-Usuń usługę sieci web:
+Usuń usługę sieci Web:
 ```R
 delete_webservice(aci_service)
 ```
@@ -411,6 +411,6 @@ Możesz też zachować grupę zasobów i usunąć jeden obszar roboczy. Wyświet
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Po zakończeniu pierwszego eksperymentu usługi Azure Machine Learning w językach R dowiedz się więcej o [sdk usługi Azure Machine Learning dla języka R.](https://azure.github.io/azureml-sdk-for-r/index.html)
+* Teraz, po ukończeniu pierwszego Azure Machine Learning eksperymentu w języku R, Dowiedz się więcej na temat [Azure Machine Learning SDK dla języka r](https://azure.github.io/azureml-sdk-for-r/index.html).
 
-* Dowiedz się więcej o usłudze Azure Machine Learning z języka R na podstawie przykładów w innych *folderach winiet.*
+* Dowiedz się więcej o Azure Machine Learning z językiem R w przykładach w innych folderach *vignettes* .

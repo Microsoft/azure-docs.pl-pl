@@ -1,6 +1,6 @@
 ---
-title: Dzienniki aktywności usługi Azure Active Directory w usłudze Azure Monitor | Dokumenty firmy Microsoft
-description: Wprowadzenie do dzienników aktywności usługi Azure Active Directory w usłudze Azure Monitor
+title: Azure Active Directory dzienników aktywności w Azure Monitor | Microsoft Docs
+description: Wprowadzenie do Azure Active Directory dzienników aktywności w Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,20 +18,20 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0822bdd886a9a29f2cdb6843d3dc4404d7360f32
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81261027"
 ---
-# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Dzienniki aktywności usługi Azure AD w usłudze Azure Monitor
+# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Dzienniki aktywności usługi Azure AD w Azure Monitor
 
-Dzienniki aktywności usługi Azure Active Directory (Azure AD) można rozsyłać do kilku punktów końcowych w celu długoterminowego przechowywania i analizowania danych. Ta funkcja umożliwia:
+Dzienniki aktywności usługi Azure Active Directory (Azure AD) można kierować do kilku punktów końcowych w celu długoterminowego przechowywania i wglądu w dane. Ta funkcja umożliwia:
 
-* Archiwizuj dzienniki aktywności usługi Azure AD na koncie magazynu platformy Azure, aby zachować dane przez długi czas.
-* Strumieniuj dzienniki aktywności usługi Azure AD do centrum zdarzeń platformy Azure w celu analizy przy użyciu popularnych narzędzi do zarządzania informacjami o zabezpieczeniach i zdarzeniami (SIEM), takich jak Splunk i QRadar.
-* Zintegruj dzienniki aktywności usługi Azure AD z własnymi niestandardowymi rozwiązaniami dziennika, przesyłając je strumieniowo do centrum zdarzeń.
-* Wysyłaj dzienniki aktywności usługi Azure AD do dzienników usługi Azure Monitor, aby umożliwić zaawansowane wizualizacje, monitorowanie i alerty na połączonych danych.
+* Archiwizuj dzienniki aktywności usługi Azure AD na koncie usługi Azure Storage, aby zachować dane przez długi czas.
+* Przesyłaj strumieniowo dzienniki aktywności usługi Azure AD do centrum zdarzeń platformy Azure w celu analizy przy użyciu popularnych narzędzi do zarządzania informacjami i zdarzeniami zabezpieczeń (SIEM), takich jak Splunk i QRadar.
+* Integrowanie dzienników aktywności usługi Azure AD z własnymi niestandardowymi rozwiązaniami dzienników przez przesyłanie strumieniowe do centrum zdarzeń.
+* Wyślij dzienniki aktywności usługi Azure AD do dzienników Azure Monitor, aby umożliwić rozbudowane wizualizacje, monitorowanie i zgłaszanie alertów dotyczących połączonych danych.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
@@ -39,7 +39,7 @@ Dzienniki aktywności usługi Azure Active Directory (Azure AD) można rozsyła�
 
 ## <a name="supported-reports"></a>Obsługiwane raporty
 
-Dzienniki inspekcji usługi Azure AD i logowania można rozsyłać do konta magazynu platformy Azure, centrum zdarzeń, dzienników usługi Azure Monitor lub rozwiązania niestandardowego przy użyciu tej funkcji. 
+Dzienniki inspekcji usługi Azure AD i dzienniki logowania można kierować do konta usługi Azure Storage, centrum zdarzeń, dzienników Azure Monitor lub niestandardowego rozwiązania za pomocą tej funkcji. 
 
 * **Dzienniki inspekcji**: [raport działań dotyczący dzienników inspekcji](concept-audit-logs.md) zapewnia dostęp do historii wszystkich zadań wykonanych w dzierżawie.
 * **Dzienniki logowania**: przy użyciu [raportu działań dotyczącego logowań](concept-sign-ins.md) można określić, kto wykonał zadania zgłoszone w dziennikach inspekcji.
@@ -62,7 +62,7 @@ W zależności od tego, gdzie chcesz przekierować dane dziennika inspekcji, bę
 
 * Konto usługi Azure Storage, do którego masz uprawnienia *ListKeys*. Zalecamy używanie konta magazynu ogólnego, a nie konta magazynu obiektów blob. Aby uzyskać informacje o cenach magazynu, zobacz [kalkulator cen usługi Azure Storage](https://azure.microsoft.com/pricing/calculator/?service=storage). 
 * Przestrzeń nazw usługi Azure Event Hubs potrzeby integracji z rozwiązaniami innych firm.
-* Obszar roboczy usługi Azure Log Analytics do wysyłania dzienników do dzienników usługi Azure Monitor.
+* Obszar roboczy usługi Azure Log Analytics do wysyłania dzienników do Azure Monitor dzienników.
 
 ## <a name="cost-considerations"></a>Kwestie związane z kosztami
 
@@ -70,7 +70,7 @@ Jeśli masz już licencję usługi Azure AD, potrzebujesz subskrypcji platformy 
 
 ### <a name="storage-size-for-activity-logs"></a>Rozmiar magazynu dla dzienników aktywności
 
-Każde zdarzenie dziennika inspekcji używa około 2 KB magazynu danych. Dzienniki zdarzeń logowania są około 4 KB magazynu danych. W przypadku dzierżawy z 100 000 użytkowników, którzy generują około 1,5 miliona zdarzeń dziennie, będziesz potrzebować około 3 GB magazynu danych na dzień. Ponieważ operacje zapisu są przetwarzane w partiach w około pięciominutowych odstępach, możesz oczekiwać około 9000 operacji zapisu miesięcznie. 
+Każde zdarzenie dziennika inspekcji używa około 2 KB magazynu danych. Dzienniki zdarzeń logowania dotyczą około 4 KB magazynu danych. W przypadku dzierżawy z 100 000 użytkowników, którzy generują około 1,5 miliona zdarzeń dziennie, będziesz potrzebować około 3 GB magazynu danych na dzień. Ponieważ operacje zapisu są przetwarzane w partiach w około pięciominutowych odstępach, możesz oczekiwać około 9000 operacji zapisu miesięcznie. 
 
 
 Poniższa tabela zawiera oszacowanie kosztów w zależności od rozmiaru dzierżawy w przypadku konta magazynu ogólnego przeznaczenia w wersji 2 w regionie Zachodnie stany USA z okresem przechowywania co najmniej jeden rok. Aby utworzyć bardziej dokładne oszacowanie dla ilości danych, którą przewidujesz dla aplikacji, użyj [kalkulatora cen usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
@@ -98,24 +98,24 @@ Zdarzenia są przetwarzane w partiach w około 5-minutowych odstępach i wysyła
 
 Na przykład w przypadku dużej dzierżawy z ponad 100 000 użytkowników przeważnie występuje 18 zdarzeń na sekundę, co oznacza szybkość wynoszącą 5400 zdarzeń co pięć minut. Ponieważ dzienniki inspekcji mają rozmiar około 2 KB na zdarzenie, odpowiada to 10,8 MB danych. W związku z tym 43 komunikaty są wysyłane do centrum zdarzeń w ciągu tego pięciominutowego interwału. 
 
-Poniższa tabela zawiera szacowane koszty miesięcznie dla podstawowego centrum zdarzeń w zachodnie stany USA, w zależności od ilości danych zdarzeń, które mogą się różnić od dzierżawy do dzierżawy, jak na wiele czynników, takich jak zachowanie logowania użytkownika itp. Aby obliczyć dokładne oszacowanie ilości danych, które przewidujesz dla aplikacji, użyj [kalkulatora cen Usługi Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
+Poniższa tabela zawiera szacowane koszty miesięcznie w przypadku podstawowego centrum zdarzeń w regionie zachodnie stany USA, w zależności od ilości danych zdarzeń, które mogą się różnić od dzierżawców do dzierżawców w przypadku wielu czynników, takich jak zachowanie logowania użytkownika itd. Aby obliczyć dokładne oszacowanie ilości danych przewidywanej dla aplikacji, użyj [kalkulatora cen Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 | Kategoria dziennika | Liczba użytkowników | Zdarzenia na sekundę | Zdarzenia na pięciominutowy interwał | Wolumen na interwał | Komunikaty na interwał | Komunikaty na miesiąc | Koszt za miesiąc (szac.) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
 | Inspekcja | 100 000 | 18 | 5400 | 10,8 MB | 43 | 371 520 | 10,83 USD |
 | Inspekcja | 1000 | 0.1 | 52 | 104 KB | 1 | 8640 | 10,80 USD |
-| Logowania | 100 000 | 18000 | 5,400,000 | 10,8 GB | 42188 | 364,504,320 | zł. |  
+| Logowania | 100 000 | 18000 | 5 400 000 | 10,8 GB | 42188 | 364 504 320 | $23,9 |  
 | Logowania | 1000 | 178 | 53 400 | 106,8&nbsp;MB | 418 | 3 611 520 | 11,06 USD |  
 
-### <a name="azure-monitor-logs-cost-considerations"></a>Usługa Azure Monitor rejestruje kwestie dotyczące kosztów
+### <a name="azure-monitor-logs-cost-considerations"></a>Zagadnienia dotyczące kosztów Azure Monitor dzienników
 
 
 
-| Kategoria dziennika       | Liczba użytkowników | Zdarzenia dziennie | Wydarzenia w miesiącu (30 dni) | Koszt miesięcznie w USD (est.) |
+| Kategoria dziennika       | Liczba użytkowników | Zdarzenia dziennie | Liczba zdarzeń miesięcznie (30 dni) | Koszt miesięcznie w USD (EST.) |
 | :--                | ---             | ---            | ---                        | --:                          |
-| Inspekcje i logowania | 100 000         | 16,500,000     | 495,000,000                |  zł.                       |
-| Inspekcja              | 100 000         | 1,500,000      | 45,000,000                 |  zł.                     |
-| Logowania           | 100 000         | 15,000,000     | 450,000,000                |  zł.                     |
+| Inspekcja i logowania | 100 000         | 16 500 000     | 495 000 000                |  $1093,00                       |
+| Inspekcja              | 100 000         | 1 500 000      | 45 000 000                 |  $246,66                     |
+| Logowania           | 100 000         | 15 000 000     | 450 000 000                |  $847,28                     |
 
 
 
@@ -126,7 +126,7 @@ Poniższa tabela zawiera szacowane koszty miesięcznie dla podstawowego centrum 
 
 
 
-Aby przejrzeć koszty związane z zarządzaniem dziennikami usługi Azure Monitor, zobacz [Zarządzanie kosztami przez kontrolowanie ilości danych i przechowywania w dziennikach usługi Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
+Aby zapoznać się z kosztami związanymi z zarządzaniem dziennikami Azure Monitor, zobacz [Zarządzanie kosztami, kontrolując ilość danych i przechowywanie w dziennikach Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
@@ -138,21 +138,21 @@ Ta sekcja zawiera odpowiedzi na często zadawane pytania i znane problemy z dzie
 
 ---
 
-**Pyt.: Jak szybko po akcji odpowiednie dzienniki pojawią się w moim Centrum zdarzeń?**
+**P: jak wkrótce po akcji zostaną wyświetlone odpowiednie dzienniki w centrum zdarzeń?**
 
 **Odpowiedź**: Dzienniki powinny być widoczne w centrum zdarzeń w ciągu dwóch do pięciu minut po wykonaniu akcji. Aby uzyskać więcej informacji na temat usługi Event Hubs, zobacz [Co to jest usługa Azure Event Hubs?](../../event-hubs/event-hubs-about.md)
 
 ---
 
-**Pyt.: Jak szybko po akcji odpowiednie dzienniki pojawią się na moim koncie magazynu?**
+**P: jak wkrótce po akcji zostaną wyświetlone odpowiednie dzienniki na koncie magazynu?**
 
 **Odpowiedź:** W przypadku kont usługi Azure Storage opóźnienie wynosi od 5 do 15 minut po wykonaniu akcji.
 
 ---
 
-**Pyt.: Co się stanie, jeśli administrator zmieni okres przechowywania ustawienia diagnostycznego?**
+**P: co się stanie, jeśli administrator zmieni okres przechowywania ustawienia diagnostycznego?**
 
-**Odp**.: Nowe zasady przechowywania zostaną zastosowane do dzienników zebranych po zmianie. Dzienniki zebrane przed zmianą zasad nie ulegnie zmianie.
+Odp **.: nowe**zasady przechowywania zostaną zastosowane do dzienników zebranych po zmianie. Nie dotyczy to dzienników zebranych przed zmianą zasad.
 
 ---
 
@@ -180,7 +180,7 @@ Ta sekcja zawiera odpowiedzi na często zadawane pytania i znane problemy z dzie
 
 **Pytanie: Jakie narzędzia SIEM są obecnie obsługiwane?** 
 
-**A:** **A:** Obecnie usługa Azure Monitor jest obsługiwana przez [splunk](tutorial-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight), LogRhythm i Logz.io. Aby uzyskać więcej informacji na temat sposobu działania łączników, zobacz [Stream Azure monitoring data to an event hub for consumption by an external tool (Przesyłanie strumieniowe danych monitorowania platformy Azure do centrum zdarzeń do użycia przez zewnętrzne narzędzie)](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+Odp. **A** **: obecnie**Azure monitor jest obsługiwany przez [Splunk](tutorial-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight), LogRhythm i Logz.IO. Aby uzyskać więcej informacji na temat sposobu działania łączników, zobacz [Stream Azure monitoring data to an event hub for consumption by an external tool (Przesyłanie strumieniowe danych monitorowania platformy Azure do centrum zdarzeń do użycia przez zewnętrzne narzędzie)](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ---
 
@@ -198,7 +198,7 @@ Ta sekcja zawiera odpowiedzi na często zadawane pytania i znane problemy z dzie
 
 **Pytanie: Czy można uzyskać dostęp do danych z centrum zdarzeń bez użycia zewnętrznego narzędzia SIEM?** 
 
-**A:** Tak. Aby uzyskać dostęp do dzienników z aplikacji niestandardowej, możesz użyć [interfejsu API usługi Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md). 
+Odp **.: tak**. Aby uzyskać dostęp do dzienników z aplikacji niestandardowej, możesz użyć [interfejsu API usługi Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md). 
 
 ---
 
@@ -207,4 +207,4 @@ Ta sekcja zawiera odpowiedzi na często zadawane pytania i znane problemy z dzie
 
 * [Archiwizowanie dzienników aktywności na koncie magazynu](quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Kierowanie dzienników aktywności do centrum zdarzeń](quickstart-azure-monitor-stream-logs-to-event-hub.md)
-* [Integrowanie dzienników aktywności za pomocą usługi Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)
+* [Integrowanie dzienników aktywności z Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)

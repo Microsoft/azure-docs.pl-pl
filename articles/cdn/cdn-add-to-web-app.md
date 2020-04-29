@@ -16,10 +16,10 @@ ms.date: 05/14/2018
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: 18054e47a987a7e79e9083b6f7a2f20b059c7f28
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81254618"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Samouczek: dodawanie usługi Azure CDN do aplikacji internetowej usługi Azure App Service
@@ -76,7 +76,7 @@ Na stronie **Azure Content Delivery Network** określ ustawienia dla **nowego pu
 | ------- | --------------- | ----------- |
 | **Profil CDN** | myCDNProfile | Profil CDN jest kolekcją punktów końcowych usługi CDN znajdujących się w tej samej warstwie cenowej. |
 | **Warstwa cenowa** | Standard Akamai | [Warstwa cenowa](cdn-features.md) określa dostawcę i dostępne funkcje. W tym samouczku jest używana warstwa *Standard Akamai*. |
-| **Nazwa punktu końcowego usługi CDN** | Dowolna unikatowa nazwa w domenie azureedge.net | Dostęp do buforowanych zasobów w domenie * &lt;endpointname&gt;*.azureedge.net.
+| **Nazwa punktu końcowego usługi CDN** | Dowolna unikatowa nazwa w domenie azureedge.net | Dostęp do buforowanych zasobów można uzyskać w domenie * &lt;EndpointName&gt;*. azureedge.NET.
 
 Wybierz pozycję **Utwórz**, aby utworzyć profil CDN.
 
@@ -210,7 +210,7 @@ W witrynie Azure Portal na stronie **Punkt końcowy usługi CDN** wybierz pozycj
 
 Z listy rozwijanej **Zachowanie buforowania ciągu kwerendy** wybierz pozycję **Buforuj każdy unikatowy adres URL**.
 
-Wybierz **pozycję Zapisz**.
+Wybierz pozycję **Zapisz**.
 
 ![Wybieranie zachowania buforowania ciągów zapytań](media/cdn-add-to-web-app/portal-select-caching-behavior.png)
 

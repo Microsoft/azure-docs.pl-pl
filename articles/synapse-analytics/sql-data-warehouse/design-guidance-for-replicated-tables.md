@@ -1,6 +1,6 @@
 ---
-title: Wskazówki dotyczące projektu dla tabel replikowanych
-description: Zalecenia dotyczące projektowania tabel replikowanych w synapse SQL
+title: Wskazówki dotyczące projektowania zreplikowanych tabel
+description: Zalecenia dotyczące projektowania zreplikowanych tabel w Synapse SQL
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,59 +12,59 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 654aeddbb305124ea00a883dbef9d8b5ad585a36
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80990790"
 ---
-# <a name="design-guidance-for-using-replicated-tables-in-sql-analytics"></a>Wskazówki dotyczące projektowania dotyczące korzystania z tabel replikowanych w usłudze SQL Analytics
+# <a name="design-guidance-for-using-replicated-tables-in-sql-analytics"></a>Wskazówki dotyczące projektowania na potrzeby używania zreplikowanych tabel w usłudze SQL Analytics
 
-Ten artykuł zawiera zalecenia dotyczące projektowania tabel replikowanych w schemacie usługi SQL Analytics. Skorzystaj z tych zaleceń, aby zwiększyć wydajność kwerendy, zmniejszając złożoność przenoszenia danych i zapytań.
+W tym artykule przedstawiono zalecenia dotyczące projektowania zreplikowanych tabel w schemacie usługi SQL Analytics. Te zalecenia umożliwiają zwiększenie wydajności zapytań, zmniejszając jednocześnie przemieszczenie danych i złożoność zapytań.
 
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym artykule założono, że znasz pojęcia dotyczące dystrybucji danych i przenoszenia danych w usłudze SQL Analytics.Aby uzyskać więcej informacji, zobacz artykuł [architektury.](massively-parallel-processing-mpp-architecture.md)
+W tym artykule założono, że znasz koncepcje dystrybucji i przenoszenia danych w usłudze SQL Analytics.Aby uzyskać więcej informacji, zobacz artykuł dotyczący [architektury](massively-parallel-processing-mpp-architecture.md) .
 
-W ramach projektowania tabeli, zrozumieć jak najwięcej o danych i jak dane są poszukiwane.Rozważmy na przykład następujące pytania:
+W ramach projektu tabeli należy zrozumieć możliwie jak najwięcej danych i jak są wykonywane zapytania dotyczące danych.Rozważmy na przykład następujące pytania:
 
-- Jak duży jest stół?
-- Jak często tabela jest odświeżana?
-- Czy w bazie danych usługi SQL Analytics są wylić tabele faktów i wymiarów?
+- Jak duży jest tabela?
+- Jak często jest odświeżana tabela?
+- Czy istnieją tabele faktów i wymiarów w bazie danych SQL Analytics?
 
-## <a name="what-is-a-replicated-table"></a>Co to jest tabela replikowana?
+## <a name="what-is-a-replicated-table"></a>Co to jest zreplikowana tabela?
 
-Zreplikowana tabela ma pełną kopię tabeli dostępną w każdym węźle obliczeniowym. Replikowanie tabeli eliminuje konieczność przesyłania danych między węzłami obliczeniowymi przed operacją sprzężenia lub agregacji. Ponieważ tabela ma wiele kopii, replikowane tabele działają najlepiej, gdy rozmiar tabeli jest mniejszy niż 2 GB skompresowany.  2 GB nie jest twardym limitem.  Jeśli dane są statyczne i nie zmieniają się, można replikować większe tabele.
+Replikowana tabela ma pełną kopię tabeli dostępną w każdym węźle obliczeniowym. Replikowanie tabeli eliminuje konieczność przesyłania danych między węzłami obliczeniowymi przed operacją sprzężenia lub agregacji. Ponieważ tabela ma wiele kopii, zreplikowane tabele działają najlepiej, gdy rozmiar tabeli jest mniejszy niż 2 GB skompresowane.  2 GB nie jest sztywnym limitem.  Jeśli dane są statyczne i nie zmieniają się, można replikować większe tabele.
 
-Na poniższym diagramie przedstawiono replikowaną tabelę, która jest dostępna w każdym węźle obliczeniowym. W usłudze SQL Analytics replikowana tabela jest w pełni kopiowana do bazy danych dystrybucji w każdym węźle obliczeniowym.
+Na poniższym diagramie przedstawiono zreplikowane tabele, które są dostępne w każdym węźle obliczeniowym. W usłudze SQL Analytics replikowana tabela jest w pełni kopiowana do bazy danych dystrybucji w każdym węźle obliczeniowym.
 
 ![Tabela replikowana](./media/design-guidance-for-replicated-tables/replicated-table.png "Tabela replikowana")  
 
-Tabele replikowane działają dobrze dla tabel wymiarów w schemacie gwiazdy. Tabele wymiarów są zazwyczaj łączone z tabelami faktów, które są rozłożone inaczej niż tabela wymiarów.  Wymiary są zwykle o rozmiarze, który umożliwia przechowywanie i utrzymywanie wielu kopii. Wymiary przechowują dane opisowe, które zmieniają się powoli, takie jak nazwa i adres klienta oraz szczegóły produktu. Powoli zmieniający się charakter danych prowadzi do mniejszej konserwacji tabeli replikowanej.
+Zreplikowane tabele działają dobrze w przypadku tabel wymiarów w schemacie gwiazdy. Tabele wymiarów są zwykle przyłączone do tabel faktów dystrybuowanych inaczej niż tabela wymiarów.  Wymiary mają zwykle rozmiar, który umożliwia przechowywanie i konserwowanie wielu kopii. Wymiary opisują dane, które zmieniają się powoli, takie jak nazwa i adres klienta oraz szczegóły produktu. Wolno zmieniający się charakter danych prowadzi do mniejszej konserwacji zreplikowanej tabeli.
 
-Należy rozważyć użycie tabeli replikowanej, gdy:
+Rozważ użycie zreplikowanej tabeli, gdy:
 
-- Rozmiar tabeli na dysku jest mniejszy niż 2 GB, niezależnie od liczby wierszy. Aby znaleźć rozmiar tabeli, można użyć polecenia [DBCC PDW_SHOWSPACEUSED:](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`.
-- Tabela jest używana w sprzężeniach, które w przeciwnym razie wymagałyby przenoszenia danych. Podczas łączenia tabel, które nie są dystrybuowane w tej samej kolumnie, takich jak tabela rozproszona mieszania do tabeli okrężnego, do ukończenia kwerendy wymagane jest przesunięcie danych.  Jeśli jedna z tabel jest mała, należy wziąć pod uwagę tabelę replikowaną. W większości przypadków zaleca się używanie tabel replikowanych zamiast tabel okrężnych. Aby wyświetlić operacje przenoszenia danych w planach kwerend, należy użyć [pliku sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  BroadcastMoveOperation jest typową operacją przenoszenia danych, którą można wyeliminować przy użyciu tabeli replikowanej.  
+- Rozmiar tabeli na dysku jest mniejszy niż 2 GB, niezależnie od liczby wierszy. Aby znaleźć rozmiar tabeli, można użyć polecenia [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) : `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`.
+- Tabela jest używana w sprzężeniach, które w przeciwnym razie wymagają przeniesienia danych. Podczas sprzęgania tabel, które nie są dystrybuowane w tej samej kolumnie, takich jak tabela dystrybuowana z mieszaniem do tabeli okrężnej, przenoszenie danych jest wymagane do ukończenia zapytania.  Jeśli jedna z tabel jest mała, weź pod uwagę zreplikowaną tabelę. W większości przypadków zalecamy używanie zreplikowanych tabel zamiast tabel z działaniem okrężnym. Aby wyświetlić operacje przenoszenia danych w planach zapytań, użyj wykazu [sys. dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  BroadcastMoveOperation to typowa Operacja przenoszenia danych, którą można wyeliminować przy użyciu zreplikowanej tabeli.  
 
-Tabele replikowane mogą nie uzyskać najlepszej wydajności kwerendy, gdy:
+Zreplikowane tabele mogą nie dać najlepszej wydajności zapytania, gdy:
 
-- Tabela ma częste operacje wstawiania, aktualizowania i usuwania.Operacje języka manipulowania danymi (DML) wymagają przebudowy replikowanej tabeli.Często przebudowywanie może spowodować mniejszą wydajność.
-- Baza danych usługi SQL Analytics jest często skalowana. Skalowanie bazy danych usługi SQL Analytics zmienia liczbę węzłów obliczeniowych, co wiąże się z odbudową replikowanej tabeli.
-- Tabela zawiera dużą liczbę kolumn, ale operacje danych zazwyczaj uzyskują dostęp tylko do niewielkiej liczby kolumn. W tym scenariuszu zamiast replikowania całej tabeli, może być bardziej skuteczne do dystrybucji tabeli, a następnie utworzyć indeks na często używanych kolumn. Gdy kwerenda wymaga przenoszenia danych, usługa SQL Analytics przenosi dane tylko dla żądanych kolumn.
+- W tabeli występują częste operacje wstawiania, aktualizowania i usuwania.Operacje języka danych (DML) wymagają odbudowania zreplikowanej tabeli.Ponowne kompilowanie często może spowodować wolniejszą wydajność.
+- Baza danych SQL Analytics jest często skalowana. Skalowanie bazy danych analitycznej SQL zmienia liczbę węzłów obliczeniowych, co spowoduje ponowne skompilowanie zreplikowanej tabeli.
+- Tabela zawiera dużą liczbę kolumn, ale operacje na danych zazwyczaj uzyskują dostęp tylko do niewielkiej liczby kolumn. W tym scenariuszu zamiast replikowania całej tabeli może być bardziej efektywne dystrybuowanie tabeli, a następnie utworzenie indeksu na często używanych kolumnach. Gdy zapytanie wymaga przenoszenia danych, program SQL Analytics przenosi dane dla żądanych kolumn.
 
-## <a name="use-replicated-tables-with-simple-query-predicates"></a>Używanie tabel replikowanych z prostymi predykatami kwerend
+## <a name="use-replicated-tables-with-simple-query-predicates"></a>Korzystanie z zreplikowanych tabel z prostymi predykatami zapytań
 
-Przed wybraniem do dystrybucji lub replikacji tabeli, należy pomyśleć o typach kwerend, które mają być uruchamiane względem tabeli. W miarę możliwości
+Przed wybraniem opcji dystrybucji lub replikowania tabeli należy wziąć pod uwagę typy zapytań, które mają być uruchamiane względem tabeli. Zawsze, gdy jest to możliwe,
 
-- Użyj tabel replikowanych dla kwerend z prostymi predykatami zapytań, takimi jak równość lub nierówność.
-- Użyj tabel rozproszonych dla kwerend ze złożonymi predykatami zapytań, takimi jak LIKE lub NOT LIKE.
+- Używaj zreplikowanych tabel dla zapytań z prostymi predykatami zapytań, takimi jak równość lub nierówności.
+- Używaj tabel rozproszonych dla zapytań ze złożonymi predykatami zapytań, takimi jak takie jak lub niepodobne.
 
-Zapytania intensywnie korzystające z procesora CPU działają najlepiej, gdy praca jest rozproszona we wszystkich węzłach obliczeniowych. Na przykład kwerendy uruchamiane w każdym wierszu tabeli działają lepiej w tabelach rozproszonych niż w tabelach replikowanych. Ponieważ replikowana tabela jest przechowywana w całości w każdym węźle obliczeniowym, kwerenda intensywnie korzystająca z procesora CPU względem replikowanej tabeli jest uruchamiana względem całej tabeli w każdym węźle obliczeniowym. Dodatkowe obliczenia mogą spowolnić wydajność kwerendy.
+Zapytania intensywnie korzystające z procesora CPU działają najlepiej, gdy prace są dystrybuowane we wszystkich węzłach obliczeniowych. Na przykład zapytania, które uruchamiają obliczenia dla każdego wiersza tabeli, działają lepiej w tabelach rozproszonych niż zreplikowane tabele. Ponieważ zreplikowana tabela jest przechowywana w całości na każdym węźle obliczeniowym, zapytanie intensywnie korzystające z procesora CPU względem zreplikowanej tabeli działa w całej tabeli w każdym węźle obliczeniowym. Dodatkowe obliczenie może spowolnić wykonywanie zapytań.
 
-Na przykład ta kwerenda ma złożony predykat.  Działa szybciej, gdy dane są w tabeli rozproszonej zamiast zreplikowanej tabeli. W tym przykładzie dane mogą być rozproszone okrężne.
+Na przykład to zapytanie ma złożony predykat.  Działa szybciej, gdy dane są w rozproszonej tabeli zamiast zreplikowanej tabeli. W tym przykładzie dane mogą być dystrybuowane do działania okrężnego.
 
 ```sql
 
@@ -74,11 +74,11 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 
 ```
 
-## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>Konwertowanie istniejących tabel okrężnych na tabele replikowane
+## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>Konwertuj istniejące tabele działania okrężnego na zreplikowane tabele
 
-Jeśli masz już tabele okrężne, zaleca się przekonwertowanie ich na tabele replikowane, jeśli spełniają kryteria opisane w tym artykule. Tabele replikowane zwiększają wydajność w przypadku tabel okrężnych, ponieważ eliminują potrzebę przenoszenia danych.  Tabela okrężna zawsze wymaga przenoszenia danych dla sprzężeń.
+Jeśli masz już tabele działające w trybie okrężnym, zalecamy przekonwertowanie ich na zreplikowane tabele, jeśli spełniają kryteria opisane w tym artykule. Zreplikowane tabele zwiększają wydajność w przypadku tabel z działaniem okrężnym, ponieważ eliminują potrzebę przenoszenia danych.  Tabela działania okrężnego zawsze wymaga przenoszenia danych dla sprzężeń.
 
-W tym przykładzie użyto [CTAS,](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) aby zmienić Tabelę DimSalesTerritory na tabelę replikowaną. W tym przykładzie działa niezależnie od tego, czy DimSalesTerritory jest rozmieszczonych mieszania lub okrężne.
+W tym przykładzie zastosowano [CTAs](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) do zmiany tabeli dimSalesTerritory na zreplikowaną tabelę. Ten przykład działa niezależnie od tego, czy DimSalesTerritory jest oparta na skrócie lub działa w trybie okrężnym.
 
 ```sql
 CREATE TABLE [dbo].[DimSalesTerritory_REPLICATE]
@@ -97,11 +97,11 @@ RENAME OBJECT [dbo].[DimSalesTerritory_REPLICATE] TO [DimSalesTerritory];
 DROP TABLE [dbo].[DimSalesTerritory_old];
 ```
 
-### <a name="query-performance-example-for-round-robin-versus-replicated"></a>Przykład wydajności kwerendy dla działania okrężnego i replikowanego
+### <a name="query-performance-example-for-round-robin-versus-replicated"></a>Przykład wydajności zapytań dla działania okrężnego i zreplikowanego
 
-Tabela replikowana nie wymaga żadnego przenoszenia danych dla sprzężeń, ponieważ cała tabela jest już obecna w każdym węźle obliczeniowym. Jeśli tabele wymiarów są rozproszone okrężnie, sprzężenie kopiuje tabelę wymiarów w całości do każdego węzła obliczeniowego. Aby przenieść dane, plan kwerend zawiera operację o nazwie BroadcastMoveOperation. Ten typ operacji przenoszenia danych spowalnia wydajność kwerendy i jest eliminowany przy użyciu tabel replikowanych. Aby wyświetlić kroki planu kwerend, użyj widoku katalogu [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) widoku katalogu systemowego.  
+Replikowana tabela nie wymaga przenoszenia danych dla sprzężeń, ponieważ cała tabela jest już obecna w każdym węźle obliczeniowym. Jeśli tabele wymiarów są dystrybuowane w sposób okrężny, sprzężenie kopiuje tabelę wymiarów w całości do każdego węzła obliczeniowego. Aby przenieść dane, plan zapytania zawiera operację o nazwie BroadcastMoveOperation. Ten typ operacji przenoszenia danych spowalnia wydajność zapytań i jest eliminowany przy użyciu zreplikowanych tabel. Aby wyświetlić kroki planu zapytania, użyj widoku wykazu systemu [sys. dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  
 
-Na przykład w następującej kwerendzie względem `FactInternetSales` schematu AdventureWorks tabela jest rozproszona mieszania. `DimDate` Tabele `DimSalesTerritory` i są mniejszymi tabelami wymiarów. Ta kwerenda zwraca całkowitą sprzedaż w Ameryce Północnej dla roku obrachunkowego 2004:
+Na przykład w poniższym zapytaniu względem schematu AdventureWorks `FactInternetSales` tabela jest dystrybuowana z mieszaniem. Tabele `DimDate` i `DimSalesTerritory` są mniejszymi tabelami wymiarów. To zapytanie zwraca łączną wartość sprzedaży w Ameryka Północna dla roku obrachunkowego 2004:
 
 ```sql
 SELECT [TotalSalesAmount] = SUM(SalesAmount)
@@ -114,63 +114,63 @@ WHERE d.FiscalYear = 2004
   AND t.SalesTerritoryGroup = 'North America'
 ```
 
-Odtworzyliśmy `DimDate` i `DimSalesTerritory` jako stoły okrężne. W rezultacie kwerenda pokazała następujący plan kwerendy, który ma wiele operacji przenoszenia emisji:
+Tworzenie `DimDate` i `DimSalesTerritory` jak tabele działające w trybie okrężnym. W efekcie zapytanie wykazało następujący plan zapytania, który ma wiele operacji przenoszenia emisji:
 
-![Plan kwerend okrężnych](./media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg)
+![Plan zapytania okrężnego](./media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg)
 
-Ponownie `DimDate` utworzyliśmy `DimSalesTerritory` i jako zreplikowane tabele i uruchomiliśmy kwerendę ponownie. Wynikowy plan kwerend jest znacznie krótszy i nie ma żadnych ruchów emisji.
+Ponownie utworzono `DimDate` i `DimSalesTerritory` jako zreplikowane tabele i ponownie uruchomiono zapytanie. Wynikający z tego plan zapytania jest znacznie krótszy i nie są przenoszone żadne emisje.
 
-![Zreplikowany plan kwerend](./media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg)
+![Zreplikowany plan zapytania](./media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg)
 
-## <a name="performance-considerations-for-modifying-replicated-tables"></a>Zagadnienia dotyczące wydajności modyfikowania tabel replikowanych
+## <a name="performance-considerations-for-modifying-replicated-tables"></a>Zagadnienia dotyczące wydajności związane z modyfikowaniem zreplikowanych tabel
 
-Sql Analytics implementuje replikowaną tabelę, utrzymując główną wersję tabeli. Kopiuje wersję główną do pierwszej bazy danych dystrybucji w każdym węźle obliczeniowym. Gdy nastąpi zmiana, SQL Analytics najpierw aktualizuje wersję główną, a następnie odbudowuje tabele w każdym węźle obliczeniowym. Przebudowa replikowanej tabeli obejmuje kopiowanie tabeli do każdego węzła obliczeniowego, a następnie tworzenie indeksów.  Na przykład zreplikowana tabela na DW2000c ma 5 kopii danych.  Kopia wzorcowa i pełna kopia w każdym węźle obliczeniowym.  Wszystkie dane są przechowywane w bazach danych dystrybucji. Usługa SQL Analytics używa tego modelu do obsługi szybszych instrukcji modyfikacji danych i elastycznych operacji skalowania.
+Usługi SQL Analytics implementują zreplikowaną tabelę przez utrzymywanie głównej wersji tabeli. Kopiuje wersję główną do pierwszej bazy danych dystrybucji w każdym węźle obliczeniowym. W przypadku zmiany, usługa SQL Analytics najpierw aktualizuje wersję główną, a następnie ponownie kompiluje tabele w każdym węźle obliczeniowym. Odbudowa zreplikowanej tabeli obejmuje skopiowanie tabeli do każdego węzła obliczeniowego, a następnie utworzenie indeksów.  Na przykład zreplikowana tabela na DW2000c ma 5 kopii danych.  Kopia główna i pełna kopia na każdym węźle obliczeniowym.  Wszystkie dane są przechowywane w bazach danych dystrybucji. Analiza SQL używa tego modelu do obsługi szybszych instrukcji modyfikacji danych i elastycznych operacji skalowania.
 
-Przebudowy są wymagane po:
+Ponowne kompilacje są wymagane po:
 
 - Dane są ładowane lub modyfikowane
-- Wystąpienie Synapse SQL jest skalowane do innego poziomu
-- Definicja tabeli jest aktualizowana
+- Wystąpienie SQL Synapse jest skalowane do innego poziomu
+- Definicja tabeli została zaktualizowana
 
-Przebudowy nie są wymagane po:
+Ponowne kompilacje nie są wymagane po:
 
-- Wstrzymanie operacji
-- Wznawianie operacji
+- Wstrzymaj operację
+- Wznów operację
 
-Przebudowa nie odbywa się natychmiast po zmodyfikowaniu danych. Zamiast tego przebudowa jest wyzwalana przy pierwszym wybraniu kwerendy z tabeli.  Kwerenda, która wyzwoliła przebudowę, odczytuje natychmiast z głównej wersji tabeli, podczas gdy dane są asynchronicznie kopiowane do każdego węzła obliczeniowego. Dopóki kopia danych nie zostanie ukończona, kolejne kwerendy będą nadal używać głównej wersji tabeli.  Jeśli jakiekolwiek działanie występuje w przypadku replikowanej tabeli, która wymusza inną przebudowę, kopia danych zostanie unieważniona, a następna instrukcja select wyzwoli dane do ponownego skopiowania.
+Ponowne kompilowanie nie następuje natychmiast po zmodyfikowaniu danych. Zamiast tego, ponowne kompilowanie jest wyzwalane podczas pierwszego wybierania zapytania z tabeli.  Zapytanie, które wyzwoliło odbudowę natychmiast, od wersji głównej tabeli, gdy dane są asynchronicznie kopiowane do każdego węzła obliczeniowego. Do momentu ukończenia kopiowania danych kolejne zapytania będą nadal używać wersji głównej tabeli.  Jeśli dowolne działanie dotyczy zreplikowanej tabeli, która wymusza kolejną ponowną kompilację, kopiowanie danych jest unieważnione i kolejna instrukcja SELECT wyzwoli dane, które zostaną ponownie skopiowane.
 
-### <a name="use-indexes-conservatively"></a>Używaj indeksów zachowawczo
+### <a name="use-indexes-conservatively"></a>Używaj indeksów w sposób ostrożny
 
-Standardowe praktyki indeksowania mają zastosowanie do tabel replikowanych. SQL Analytics odbudowuje każdy indeks tabeli replikowanej w ramach przebudowy. Indeksy należy używać tylko wtedy, gdy przyrost wydajności przewyższa koszt odbudowy indeksów.
+Standardowe rozwiązania indeksowania mają zastosowanie do zreplikowanych tabel. Analiza bazy danych SQL odbudowuje każdy replikowany indeks tabeli w ramach odbudowy. Indeksy należy stosować tylko wtedy, gdy wydajność zwiększa koszt odbudowy indeksów.
 
-### <a name="batch-data-load"></a>Ładowanie danych partii
+### <a name="batch-data-load"></a>Ładowanie danych wsadowych
 
-Podczas ładowania danych do tabel replikowanych, spróbuj zminimalizować przebudowy przez przetwarzanie wsadowe ładunków razem. Wykonaj wszystkie obciążenia wsadowe przed uruchomieniem instrukcji select.
+Podczas ładowania danych do zreplikowanych tabel, spróbuj zminimalizować kompilacje w partiach zbiorczo. Wykonaj wszystkie obciążenia wsadowe przed uruchomieniem instrukcji SELECT.
 
-Na przykład ten wzorzec obciążenia ładuje dane z czterech źródeł i wywołuje cztery przebudowuje.
+Na przykład ten wzorzec ładowania ładuje dane z czterech źródeł i wywołuje cztery ponowne kompilacje.
 
         Load from source 1.
-- Wybierz wyzwalacze instrukcji odbudować 1.
-        Obciążenie ze źródła 2.
-- Wybierz wyzwalacze instrukcji odbudować 2.
-- Obciążenie ze źródła 3.
-- Wybierz wyzwalacze instrukcji odbudować 3.
-- Obciążenie ze źródła 4.
-- Wybierz wyzwalacze instrukcji odbudować 4.
+- Wybierz wyzwalacz instrukcji Kompiluj ponownie 1.
+        Załaduj ze źródła 2.
+- Wybierz wyzwalacz instrukcji Kompiluj ponownie 2.
+- Załaduj ze źródła 3.
+- SELECT Statement wyzwala kompilację ponownie 3.
+- Załaduj ze źródła 4.
+- Select instrukcji Trigger Kompiluj ponownie 4.
 
-Na przykład ten wzorzec obciążenia ładuje dane z czterech źródeł, ale wywołuje tylko jedną przebudowę.
+Na przykład ten wzorzec ładowania ładuje dane z czterech źródeł, ale wywołuje tylko jedną rekompilację.
 
-- Obciążenie ze źródła 1.
-- Obciążenie ze źródła 2.
-- Obciążenie ze źródła 3.
-- Obciążenie ze źródła 4.
-- Wybierz wyzwalacze instrukcji przebudowy.
+- Załaduj ze źródła 1.
+- Załaduj ze źródła 2.
+- Załaduj ze źródła 3.
+- Załaduj ze źródła 4.
+- Wybierz opcję Kompiluj ponownie wyzwalacze instrukcji.
 
-### <a name="rebuild-a-replicated-table-after-a-batch-load"></a>Odbudowywać zreplikowaną tabelę po załadowaniu wsadowym
+### <a name="rebuild-a-replicated-table-after-a-batch-load"></a>Kompiluj zreplikowaną tabelę po załadowaniu partii
 
-Aby zapewnić spójne czasy wykonywania kwerendy, należy rozważyć wymuszenie kompilacji replikowanych tabel po załadowaniu wsadowym. W przeciwnym razie pierwsza kwerenda będzie nadal używać przenoszenia danych do ukończenia kwerendy.
+Aby zapewnić spójne czasy wykonywania zapytań, rozważ wymuszenie skompilowania zreplikowanych tabel po załadowaniu partii. W przeciwnym razie pierwsze zapytanie będzie nadal używać przenoszenia danych do ukończenia zapytania.
 
-Ta kwerenda używa [pliku sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) DMV do listy replikowanych tabel, które zostały zmodyfikowane, ale nie zostały przebudowane.
+To zapytanie używa DMV [sys. pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby wyświetlić zreplikowane tabele, które zostały zmodyfikowane, ale nie zostały odbudowane.
 
 ```sql
 SELECT [ReplicatedTable] = t.[name]
@@ -183,7 +183,7 @@ SELECT [ReplicatedTable] = t.[name]
     AND p.[distribution_policy_desc] = 'REPLICATE'
 ```
 
-Aby wyzwolić przebudowę, uruchom następującą instrukcję dla każdej tabeli w poprzednim wyjściu.
+Aby wyzwolić ponowną kompilację, uruchom następującą instrukcję dla każdej tabeli w poprzednich danych wyjściowych.
 
 ```sql
 SELECT TOP 1 * FROM [ReplicatedTable]
@@ -191,9 +191,9 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby utworzyć tabelę replikowaną, należy użyć jednej z następujących instrukcji:
+Aby utworzyć zreplikowaną tabelę, należy użyć jednej z następujących instrukcji:
 
-- [TWORZENIE TABELI (SQL Analytics)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [TWORZENIE TABELI JAKO WYBIERZ (SQL Analytics)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (analiza SQL)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE jako wybrane (analiza SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-Aby uzyskać przegląd tabel rozproszonych, zobacz [tabele rozproszone](sql-data-warehouse-tables-distribute.md).
+Aby zapoznać się z omówieniem tabel rozproszonych, zobacz [tabele rozproszone](sql-data-warehouse-tables-distribute.md).

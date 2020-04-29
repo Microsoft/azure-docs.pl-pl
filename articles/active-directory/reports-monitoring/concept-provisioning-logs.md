@@ -1,6 +1,6 @@
 ---
-title: Udostępnianie obsługi dzienników w portalu usługi Azure Active Directory (wersja zapoznawcza) | Dokumenty firmy Microsoft
-description: Wprowadzenie do raportów aktywności inicjowania obsługi administracyjnej w portalu usługi Azure Active Directory
+title: Dzienniki aprowizacji w portalu Azure Active Directory (wersja zapoznawcza) | Microsoft Docs
+description: Wprowadzenie do raportów dotyczących działań związanych z obsługą administracyjną w portalu Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,58 +18,58 @@ ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 30cc8be6ad9ebffcad58c5b2412ae15ff3f26fa5
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81113376"
 ---
-# <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Inicjowanie obsługi administracyjnej raportów w portalu usługi Azure Active Directory (wersja zapoznawcza)
+# <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Raporty dotyczące aprowizacji w portalu Azure Active Directory (wersja zapoznawcza)
 
-Architektura raportowania w usłudze Azure Active Directory (Azure AD) składa się z następujących składników:
+Architektura raportowania w Azure Active Directory (Azure AD) składa się z następujących składników:
 
 - **Działanie** 
-    - **Logowania** — informacje o użyciu zarządzanych aplikacji i działań logowania użytkownika.
-    - **Dzienniki inspekcji Dzienniki** - [inspekcji](concept-audit-logs.md) zawierają informacje o aktywności systemowej o użytkownikach i zarządzaniu grupami, zarządzanych aplikacjach i działaniach katalogowych.
-    - **Dzienniki inicjowania obsługi administracyjnej** — podaj działanie systemowe dotyczące użytkowników, grup i ról, które są aprowidzone przez usługę inicjowania obsługi administracyjnej usługi Azure AD. 
+    - **Logowania** — informacje na temat użycia zarządzanych aplikacji i działań związanych z logowaniem użytkowników.
+    - **Dzienniki inspekcji dzienników**inspekcji zapewniają informacje o aktywności systemu dotyczące zarządzania użytkownikami i grupami, zarządzane aplikacje i działania w katalogu.[Audit logs](concept-audit-logs.md)  - 
+    - **Dzienniki aprowizacji** — zapewniają działania systemowe dotyczące użytkowników, grup i ról, które są obsługiwane przez usługę aprowizacji usługi Azure AD. 
 
-- **Zabezpieczenia** 
-    - **Ryzykowne logowania** — ryzykowne [logowanie](concept-risky-sign-ins.md) jest wskaźnikiem próby logowania, która mogła zostać wykonana przez osobę, która nie jest prawowitym właścicielem konta użytkownika.
-    - **Użytkownicy oflagowani ze względu na ryzyko** — ryzykowny [użytkownik](concept-user-at-risk.md) jest wskaźnikiem dla konta użytkownika, które mogło zostać naruszone.
+- **Bezpieczeństwo** 
+    - **Ryzykowne logowania** — [ryzykowne logowanie](concept-risky-sign-ins.md) jest wskaźnikiem próby logowania, które mogło zostać wykonane przez kogoś, kto nie jest uprawnionym właścicielem konta użytkownika.
+    - **Użytkownicy oflagowani do ryzyka** — [ryzykowny użytkownik](concept-user-at-risk.md) jest wskaźnikiem konta użytkownika, które mogło zostać naruszone.
 
-W tym temacie przedstawiono przegląd raportu inicjowania obsługi administracyjnej.
+Ten temat zawiera omówienie raportu aprowizacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 ### <a name="who-can-access-the-data"></a>Kto ma dostęp do danych?
-* Użytkownicy w rolach Administrator zabezpieczeń, Czytnik zabezpieczeń, Czytnik raportów, Administrator aplikacji i Administrator aplikacji w chmurze
+* Użytkownicy w rolach administrator zabezpieczeń, czytelnik zabezpieczeń, czytelnik raportu, administrator aplikacji i administrator aplikacji w chmurze
 * Administratorzy globalni
 
 
-### <a name="what-azure-ad-license-do-you-need-to-access-provisioning-activities"></a>Jakiej licencji usługi Azure AD jest potrzebny do uzyskania dostępu do działań inicjowania obsługi administracyjnej?
+### <a name="what-azure-ad-license-do-you-need-to-access-provisioning-activities"></a>Jaka licencja usługi Azure AD jest wymagana w celu uzyskania dostępu do działań aprowizacji?
 
-Dzierżawa musi mieć skojarzoną z nią licencję usługi Azure AD Premium, aby wyświetlić cały raport aktywności inicjowania obsługi administracyjnej. Aby uaktualnić swoją wersję usługi Azure Active Directory, zobacz [Wprowadzenie do usługi Azure Active Directory w wersji Premium](../fundamentals/active-directory-get-started-premium.md). 
+Dzierżawca musi mieć skojarzoną licencję Azure AD — wersja Premium, aby wyświetlić raport dotyczący całej aktywności aprowizacji. Aby uaktualnić swoją wersję usługi Azure Active Directory, zobacz [Wprowadzenie do usługi Azure Active Directory w wersji Premium](../fundamentals/active-directory-get-started-premium.md). 
 
 ## <a name="provisioning-logs"></a>Dzienniki aprowizowania
 
-Dzienniki inicjowania obsługi administracyjnej zawierają odpowiedzi na następujące pytania:
+Dzienniki aprowizacji zapewniają odpowiedzi na następujące pytania:
 
-* Jakie grupy zostały pomyślnie utworzone w ServiceNow?
+* Które grupy zostały pomyślnie utworzone w usługi ServiceNow?
 * Jak role zostały zaimportowane z Amazon Web Services?
-* Co użytkownicy zostali bezskutecznie utworzone w DropBox?
+* Które użytkowników nie zostały pomyślnie utworzone w usłudze DropBox?
 
-Dzienniki inicjowania obsługi administracyjnej można uzyskać, wybierając **dzienniki inicjowania obsługi administracyjnej** w sekcji **Monitorowanie** bloku **usługi Azure Active Directory** w [witrynie Azure portal](https://portal.azure.com). Może upłynąć do dwóch godzin dla niektórych rekordów inicjowania obsługi administracyjnej, aby wyświetlić w portalu.
+Dostęp do dzienników aprowizacji można uzyskać, wybierając pozycję **dzienniki aprowizacji** w sekcji **monitorowanie** w bloku **Azure Active Directory** w [Azure Portal](https://portal.azure.com). W przypadku niektórych rekordów aprowizacji w portalu może upłynąć do dwóch godzin.
 
 ![Dzienniki aprowizowania](./media/concept-provisioning-logs/access-provisioning-logs.png "Dzienniki aprowizowania")
 
 
-Dziennik inicjowania obsługi administracyjnej ma domyślny widok listy, który pokazuje:
+Dziennik aprowizacji zawiera domyślny widok listy, który pokazuje:
 
 - Tożsamość
 - Akcja
 - System źródłowy
 - System docelowy
-- Status
+- Stan
 - Data
 
 
@@ -77,7 +77,7 @@ Dziennik inicjowania obsługi administracyjnej ma domyślny widok listy, który 
 
 Możesz dostosować widok listy, klikając pozycję **Kolumny** na pasku narzędzi.
 
-![Wybór kolumny](./media/concept-provisioning-logs/column-chooser.png "Wybór kolumny")
+![Wybór kolumn](./media/concept-provisioning-logs/column-chooser.png "Wybór kolumn")
 
 Dzięki temu możesz wyświetlić dodatkowe pola lub usunąć pola, które są już wyświetlane.
 
@@ -88,9 +88,9 @@ Wybierz element w widoku listy, aby uzyskać bardziej szczegółowe informacje.
 ![Szczegółowe informacje](./media/concept-provisioning-logs/steps.png "Filtr")
 
 
-## <a name="filter-provisioning-activities"></a>Filtrowanie działań inicjowania obsługi administracyjnej
+## <a name="filter-provisioning-activities"></a>Filtrowanie działań aprowizacji
 
-Można filtrować dane inicjowania obsługi administracyjnej. Niektóre wartości filtru są dynamicznie wypełniane na podstawie dzierżawy. Jeśli na przykład nie masz żadnych zdarzeń tworzenia w dzierżawie, nie będzie opcji filtrowania do tworzenia.
+Możesz filtrować dane aprowizacji. Niektóre wartości filtru są dynamicznie wypełniane na podstawie dzierżawy. Jeśli na przykład nie masz żadnych zdarzeń tworzenia w dzierżawie, nie będzie dostępna opcja filtru dla operacji tworzenia.
 W widoku domyślnym można wybrać następujące filtry:
 
 - Tożsamość
@@ -101,7 +101,7 @@ W widoku domyślnym można wybrać następujące filtry:
 
 ![Filtr](./media/concept-provisioning-logs/default-filter.png "Filtr")
 
-**Filtr Tożsamości** umożliwia określenie nazwy lub tożsamości, na której Ci zależy. Ta tożsamość może być użytkownik, grupa, rola lub inny obiekt. Można wyszukiwać według nazwy lub identyfikatora obiektu. Identyfikator różni się w zależności od scenariusza. Na przykład podczas inicjowania obsługi administracyjnej obiektu z usługi Azure AD do SalesForce identyfikator źródła jest identyfikatorem obiektu użytkownika w usłudze Azure AD, podczas gdy identyfikator docelowy jest identyfikatorem użytkownika w salesforce. Podczas inicjowania obsługi administracyjnej z workday do usługi Active Directory identyfikator źródłowy jest identyfikatorem pracownika pracownika workday. Należy zauważyć, że nazwa użytkownika nie zawsze może być obecny w identity kolumny. Zawsze będzie jeden identyfikator. 
+Filtr **tożsamości** umożliwia określenie nazwy lub tożsamości, o której Cię interesują. Ta tożsamość może być użytkownikiem, grupą, rolą lub innym obiektem. Można wyszukiwać według nazwy lub identyfikatora obiektu. Identyfikator różni się w zależności od scenariusza. Na przykład podczas aprowizacji obiektu z usługi Azure AD do usług SalesForce identyfikator źródłowy jest IDENTYFIKATORem obiektu użytkownika w usłudze Azure AD, a TargetID jest IDENTYFIKATORem użytkownika w usłudze Salesforce. Po zainicjowaniu obsługi administracyjnej od dnia roboczego do Active Directory identyfikator źródła to identyfikator pracownika procesu roboczego programu Workday. Należy zauważyć, że nazwa użytkownika może nie zawsze występować w kolumnie tożsamość. Zawsze będzie istnieć jeden identyfikator. 
 
 
 Filtr **Data** umożliwia zdefiniowanie przedziału czasu dla zwracanych danych.  
@@ -113,10 +113,10 @@ Możliwe wartości:
 - 24 godziny
 - Niestandardowy zakres czasu
 
-Po wybraniu niestandardowego przedziału czasu można skonfigurować datę rozpoczęcia i datę zakończenia.
+Po wybraniu niestandardowego przedziału czasu można skonfigurować datę początkową i datę końcową.
 
 
-Filtr **Stan** umożliwia wybranie:
+Filtr **stanu** umożliwia wybranie:
 
 - Wszystkie
 - Powodzenie
@@ -125,46 +125,46 @@ Filtr **Stan** umożliwia wybranie:
 
 
 
-Filtr **Akcja** umożliwia filtrowanie:
+Filtr **akcji** umożliwia filtrowanie:
 
 - Utwórz 
-- Aktualizacja
-- Usuń
+- Aktualizowanie
+- Usuwanie
 - Wyłączanie
 - Inne
 
-Ponadto do filtrów widoku domyślnego można również ustawić następujące filtry:
+Dodatkowo, do filtrów widoku domyślnego, można również ustawić następujące filtry:
 
 - Identyfikator zadania
 - Identyfikator cyklu
-- Zmień identyfikator
+- Identyfikator zmiany
 - Identyfikator źródła
-- Identyfikator celu
+- Identyfikator docelowy
 - Aplikacja
 
 
-![Wybieranie pola](./media/concept-provisioning-logs/add-filter.png "Wybieranie pola")
+![Wybierz pole](./media/concept-provisioning-logs/add-filter.png "Wybierz pole")
 
 
-- **Identyfikator zadania** — unikatowy identyfikator zadania jest skojarzony z każdą aplikacją, dla której włączono inicjowanie obsługi administracyjnej.   
+- **Identyfikator zadania** — unikatowy identyfikator zadania jest skojarzony z każdą aplikacją, dla której włączono obsługę administracyjną.   
 
-- **Identyfikator cyklu** — jednoznacznie identyfikuje cykl inicjowania obsługi administracyjnej. Można udostępnić ten identyfikator do obsługi, aby wyszukać cykl, w którym wystąpiło to zdarzenie.
+- **Identyfikator cyklu** — jednoznacznie identyfikuje cykl aprowizacji. Ten identyfikator można udostępnić do obsługi, aby wyszukać cykl, w którym wystąpiło zdarzenie.
 
-- **Zmień identyfikator** — unikatowy identyfikator zdarzenia inicjowania obsługi administracyjnej. Można udostępnić ten identyfikator do obsługi, aby wyszukać zdarzenie inicjowania obsługi administracyjnej.   
+- **Zmień identyfikator** — unikatowy identyfikator dla zdarzenia aprowizacji. Ten identyfikator można udostępnić do obsługi wyszukania zdarzenia aprowizacji.   
 
 
-- **System źródłowy** — umożliwia określenie, gdzie tożsamość jest coraz aprowizowana z. Na przykład podczas inicjowania obsługi administracyjnej obiektu z usługi Azure AD do ServiceNow, system źródłowy jest Azure AD. 
+- **System źródłowy** — umożliwia określenie lokalizacji, z której jest inicjowana tożsamość. Na przykład podczas aprowizacji obiektu z usługi Azure AD do usługi ServiceNow, system źródłowy to Azure AD. 
 
-- **System docelowy** — umożliwia określenie, gdzie tożsamość jest coraz aprowizowana do. Na przykład podczas inicjowania obsługi administracyjnej obiektu z usługi Azure AD do ServiceNow, system docelowy jest ServiceNow. 
+- **System docelowy** — umożliwia określenie lokalizacji, w której ma zostać zainicjowana tożsamość. Na przykład podczas aprowizacji obiektu z usługi Azure AD do usługi ServiceNow system docelowy to usługi ServiceNow. 
 
 - **Aplikacja** — umożliwia wyświetlanie tylko rekordów aplikacji o nazwie wyświetlanej zawierającej określony ciąg.
 
  
 
-## <a name="provisioning-details"></a>Szczegóły inicjowania obsługi administracyjnej 
+## <a name="provisioning-details"></a>Szczegóły aprowizacji 
 
-Po wybraniu elementu w widoku listy inicjowania obsługi administracyjnej, można uzyskać więcej szczegółów na temat tego elementu.
-Szczegóły są pogrupowane na podstawie następujących kategorii:
+Po wybraniu elementu w widoku listy aprowizacji uzyskasz więcej szczegółowych informacji na temat tego elementu.
+Szczegóły są pogrupowane w oparciu o następujące kategorie:
 
 - Kroki
 
@@ -181,12 +181,12 @@ Szczegóły są pogrupowane na podstawie następujących kategorii:
 
 ### <a name="steps"></a>Kroki
 
-Na karcie **Kroki** przedstawiono kroki podjęte w celu aprowizowania obiektu. Inicjowanie obsługi administracyjnej obiektu może składać się z czterech kroków: 
+Na karcie **kroki** przedstawiono kroki, które należy wykonać w celu aprowizacji obiektu. Inicjowanie obsługi obiektu może składać się z czterech kroków: 
 
-- Importowanie obiektu
-- Określanie, czy obiekt znajduje się w zakresie
-- Dopasowywalaj obiekt między źródłem a obiektem docelowym
-- Obiekt aprowizowania (podejmij działanie — może to być tworzenie, aktualizowanie, usuwanie lub wyłączanie)
+- Importuj obiekt
+- Określanie, czy obiekt jest w zakresie
+- Dopasuj obiekt między źródłem i elementem docelowym
+- Inicjowanie obiektu (podejmowanie akcji — może to być tworzenie, aktualizowanie, usuwanie lub wyłączanie)
 
 
 
@@ -201,51 +201,51 @@ Karta **Rozwiązywanie problemów i zalecenia** zawiera kod błędu i przyczynę
 
 ### <a name="modified-properties"></a>Zmodyfikowane właściwości
 
-**Zmodyfikowane właściwości** pokazuje starą wartość i nową wartość. W przypadkach, gdy nie ma starej wartości, stara kolumna wartości jest pusta. 
+**Zmodyfikowane właściwości** pokazuje starą wartość i nową wartość. W przypadku braku starej wartości kolumna stara wartość jest pusta. 
 
 
 ### <a name="summary"></a>Podsumowanie
 
-Karta **podsumowanie** zawiera omówienie tego, co się stało i identyfikatory obiektu w systemie źródłowym i docelowym. 
+Karta **Podsumowanie** zawiera przegląd informacji o tym, co się stało i identyfikatory dla obiektu w systemie źródłowym i docelowym. 
 
 ## <a name="what-you-should-know"></a>Co należy wiedzieć
 
-- Portal Azure przechowuje zgłaszane dane inicjowania obsługi administracyjnej przez 30 dni, jeśli masz wersji premium i 7 dni, jeśli masz bezpłatną wersję..
+- W Azure Portal są przechowywane zgłoszone dane aprowizacji przez 30 dni, jeśli masz wersję Premium i 7 dni, jeśli masz bezpłatną wersję.
 
-- Atrybut Zmień identyfikator można użyć jako unikatowego identyfikatora. Jest to, na przykład, przydatne podczas interakcji z pomocą techniczną produktu.
+- Można użyć atrybutu identyfikatora zmiany jako unikatowego identyfikatora. Jest to przydatne na przykład podczas współdziałania z pomocą techniczną produktu.
 
-- Obecnie nie ma opcji pobierania danych aprowizujących.
+- Obecnie nie ma możliwości pobrania danych aprowizacji.
 
-- Obecnie nie ma obsługi analizy dzienników.
+- Obecnie nie ma obsługi usługi log Analytics.
 
-- Po dodaniu dostępu do dzienników inicjowania obsługi administracyjnej z kontekstu aplikacji, nie automatycznie filtrować zdarzenia do określonej aplikacji sposób dzienniki inspekcji zrobić.
+- W przypadku uzyskiwania dostępu do dzienników aprowizacji z kontekstu aplikacji nie są automatycznie filtrowane zdarzenia do konkretnej aplikacji w sposób, w jaki dzienniki inspekcji.
 
 ## <a name="error-codes"></a>Kody błędów
 
-Skorzystaj z poniższej tabeli, aby lepiej zrozumieć, jak rozwiązywać błędy, które można znaleźć w dziennikach inicjowania obsługi administracyjnej. W przypadku brakujących kodów błędów prześlij opinię za pomocą łącza u dołu tej strony. 
+Skorzystaj z poniższej tabeli, aby lepiej zrozumieć, jak rozwiązywać błędy, które można znaleźć w dziennikach aprowizacji. W przypadku brakujących kodów błędów Prześlij opinię przy użyciu linku w dolnej części tej strony. 
 
 |Kod błędu|Opis|
 |---|---|
-|Konflikt, EntryConflict|Popraw wartości atrybutów powodujących konflikt w usłudze Azure AD lub aplikacji lub przejrzyj dopasowaną konfigurację atrybutu, jeśli konto użytkownika powodujące konflikt miało zostać dopasowane i przejęte. Zapoznaj się z [poniższą dokumentacją,](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) aby uzyskać więcej informacji na temat konfigurowania pasujących atrybutów.|
-|TooManyRequests (Prośby o nie)|Aplikacja docelowa odrzuciła tę próbę aktualizacji użytkownika, ponieważ jest przeciążony i odbiera zbyt wiele żądań. Nie ma nic do zrobienia. Ta próba zostanie automatycznie wycofana. Firma Microsoft została również powiadomiona o tym problemie.|
-|InternalServerError |Aplikacja docelowa zwróciła nieoczekiwany błąd. Może występować problem z usługą aplikacji docelowej, który uniemożliwia działanie tego problemu. Ta próba zostanie automatycznie wycofana w ciągu 40 minut.|
-|InsufficientRights, MethodNotAllowed, NotPermitted, Unauthorized| Usługa Azure AD mogła uwierzytelnić się za pomocą aplikacji docelowej, ale nie została autoryzowana do wykonania aktualizacji. Proszę przejrzeć wszelkie instrukcje dostarczone przez aplikację docelową, jak również odpowiedniego [samouczka](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)aplikacji .|
-|Nieprzetworzalnaentność|Aplikacja docelowa zwróciła nieoczekiwaną odpowiedź. Konfiguracja aplikacji docelowej może nie być poprawna lub może występować problem z usługą aplikacji docelowej, który uniemożliwia działanie tego problemu.|
-|WebExceptionProtocolError |Wystąpił błąd protokołu HTTP podczas łączenia się z aplikacją docelową. Nie ma nic do zrobienia. Ta próba zostanie automatycznie wycofana w ciągu 40 minut.|
-|InvalidAnchor (Inwalida, że)|Użytkownik, który został wcześniej utworzony lub dopasowany przez usługę inicjowania obsługi administracyjnej już nie istnieje. Sprawdź, czy użytkownik istnieje. Aby wymusić ponowne dopasowanie wszystkich użytkowników, użyj interfejsu API programu MS Graph, aby [ponownie uruchomić zadanie](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Należy zauważyć, że ponowne uruchomienie inicjowania obsługi administracyjnej spowoduje początkowy cykl, który może zająć trochę czasu. Usuwa również pamięć podręczną, której usługa inicjowania obsługi administracyjnej używa do działania, co oznacza, że wszyscy użytkownicy i grupy w dzierżawie będą musiały zostać ponownie ocenione i niektóre zdarzenia inicjowania obsługi administracyjnej mogą zostać usunięte.|
-|Nienałożony | Aplikacja docelowa zwróciła nieoczekiwaną odpowiedź. Konfiguracja aplikacji może być nieprawidłowa lub może występować problem z usługą aplikacji docelowej, który uniemożliwia działanie tej aplikacji. Proszę przejrzeć wszelkie instrukcje dostarczone przez aplikację docelową, jak również odpowiedniego [samouczka](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)aplikacji . |
-|MandatoryFieldsMissing, Brakwartości |Nie można utworzyć użytkownika, ponieważ brakuje wymaganych wartości. Popraw brakujące wartości atrybutów w rekordzie źródłowym lub przejrzyj dopasowaną konfigurację atrybutu, aby upewnić się, że wymagane pola nie zostaną pominięte. [Dowiedz się więcej](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) o konfigurowaniu pasujących atrybutów.|
-|SchemaAttributeNotFound |Nie można wykonać operacji, ponieważ określono atrybut, który nie istnieje w aplikacji docelowej. Zapoznaj się z [dokumentacją](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) dostosowywania atrybutów i upewnij się, że konfiguracja jest poprawna.|
-|InternalError |Wystąpił błąd usługi wewnętrznej w usłudze inicjowania obsługi administracyjnej usługi Azure AD. Nie ma nic do zrobienia. Ta próba zostanie automatycznie ponowiona w ciągu 40 minut.|
-|Domena nieprawidłowa |Nie można wykonać operacji z powodu wartości atrybutu zawierającej nieprawidłową nazwę domeny. Zaktualizuj nazwę domeny użytkownika lub dodaj ją do listy dozwolonych w aplikacji docelowej. |
-|Limit czasu |Nie można ukończyć operacji, ponieważ aplikacja docelowa trwała zbyt długo, aby odpowiedzieć. Nie ma nic do zrobienia. Ta próba zostanie automatycznie ponowiona w ciągu 40 minut.|
-|LicenseLimitExceeded|Nie można utworzyć użytkownika w aplikacji docelowej, ponieważ nie ma dostępnych licencji dla tego użytkownika. Zaopatrzyć się w dodatkowe licencje dla aplikacji docelowej lub przejrzeć przypisania użytkowników i konfiguracji mapowania atrybutów, aby upewnić się, że poprawni użytkownicy są przypisane z poprawnymi atrybutami.|
-|DuplicateTargetEntries (Zduplikowane celeety)  |Nie można ukończyć operacji, ponieważ znaleziono więcej niż jednego użytkownika w aplikacji docelowej ze skonfigurowanymi pasującymi atrybutami. Usuń zduplikowanego użytkownika z aplikacji docelowej lub ponownie skonfiguruj mapowania atrybutów zgodnie z opisem [w tym miejscu](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
-|DuplicateSourceEntries (Zduplikowane źródłowych) | Nie można ukończyć operacji, ponieważ znaleziono więcej niż jednego użytkownika ze skonfigurowanymi pasującymi atrybutami. Usuń zduplikowanego użytkownika lub skonfiguruj ponownie mapowania atrybutów zgodnie z opisem [w tym miejscu](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
+|Konflikt, EntryConflict|Popraw wartości atrybutów powodujących konflikt w usłudze Azure AD lub aplikacji albo sprawdź zgodną konfigurację atrybutów, jeśli powodujące konflikt konto użytkownika ma zostać dopasowane i przejęte. Zapoznaj się z poniższą [dokumentacją](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) , aby uzyskać więcej informacji na temat konfigurowania pasujących atrybutów.|
+|TooManyRequests|Aplikacja docelowa odrzuciła próbę zaktualizowania użytkownika, ponieważ jest przeciążona i otrzymuje zbyt wiele żądań. Nie ma nic do zrobienia. Ta próba zostanie automatycznie wycofana. Firma Microsoft otrzymała również powiadomienie o tym problemie.|
+|InternalServerError |Aplikacja docelowa zwróciła nieoczekiwany błąd. Może wystąpić problem z usługą w aplikacji docelowej, która uniemożliwia wykonanie tej pracy. Ta próba zostanie automatycznie wycofana w ciągu 40 minut.|
+|InsufficientRights, MethodNotAllowed, NotPermitted, nieautoryzowane| Usługa Azure AD mogła uwierzytelnić się w aplikacji docelowej, ale nie ma autoryzacji do wykonania tej aktualizacji. Przejrzyj wszelkie instrukcje dostarczone przez aplikację docelową oraz odpowiedni [samouczek](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)aplikacji.|
+|UnprocessableEntity|Aplikacja docelowa zwróciła nieoczekiwaną odpowiedź. Konfiguracja aplikacji docelowej może być niepoprawna lub wystąpił problem z aplikacją docelową, która uniemożliwia wykonywanie tego działania.|
+|WebExceptionProtocolError |Wystąpił błąd protokołu HTTP podczas nawiązywania połączenia z aplikacją docelową. Nie ma nic do zrobienia. Ta próba zostanie automatycznie wycofana w ciągu 40 minut.|
+|InvalidAnchor|Użytkownik, który został wcześniej utworzony lub dopasowany przez usługę aprowizacji, już nie istnieje. Sprawdź, czy użytkownik istnieje. Aby wymusić ponowne dopasowanie wszystkich użytkowników, należy [ponownie uruchomić zadanie](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http)przy użyciu programu MS interfejs API programu Graph. Należy pamiętać, że ponowne uruchomienie aprowizacji wywoła cykl początkowy, co może zająć trochę czasu. Powoduje również usunięcie pamięci podręcznej używanej przez usługę aprowizacji do działania, co oznacza, że wszyscy użytkownicy i grupy w dzierżawie będą musieli ponownie ocenić i można porzucić pewne zdarzenia aprowizacji.|
+|Nie zaimplementowano | Aplikacja docelowa zwróciła nieoczekiwaną odpowiedź. Konfiguracja aplikacji może być niepoprawna lub wystąpił problem z usługą dla aplikacji docelowej, która uniemożliwia wykonanie tej pracy. Przejrzyj wszelkie instrukcje dostarczone przez aplikację docelową oraz odpowiedni [samouczek](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)aplikacji. |
+|MandatoryFieldsMissing, MissingValues |Nie można utworzyć użytkownika, ponieważ brakuje wymaganych wartości. Popraw brakujące wartości atrybutów w rekordzie źródłowym lub przejrzyj zgodną konfigurację atrybutów, aby upewnić się, że wymagane pola nie zostały pominięte. [Dowiedz się więcej](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) o konfigurowaniu pasujących atrybutów.|
+|SchemaAttributeNotFound |Nie można wykonać operacji, ponieważ określono atrybut, który nie istnieje w aplikacji docelowej. Zapoznaj się z [dokumentacją](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) dotyczącą dostosowywania atrybutów i upewnij się, że konfiguracja jest poprawna.|
+|InternalError |Wystąpił wewnętrzny błąd usługi w usłudze Azure AD Provisioning. Nie ma nic do zrobienia. Ta próba zostanie ponowiona automatycznie w ciągu 40 minut.|
+|InvalidDomain |Nie można wykonać operacji z powodu wartości atrybutu zawierającej nieprawidłową nazwę domeny. Zaktualizuj nazwę domeny użytkownika lub Dodaj ją do listy dozwolonych w aplikacji docelowej. |
+|Limit czasu |Nie można ukończyć operacji, ponieważ aplikacja docelowa zbyt długo nie odpowiadała. Nie ma nic do zrobienia. Ta próba zostanie ponowiona automatycznie w ciągu 40 minut.|
+|LicenseLimitExceeded|Nie można utworzyć użytkownika w aplikacji docelowej, ponieważ nie ma żadnych dostępnych licencji dla tego użytkownika. Uzyskaj dodatkowe licencje dla aplikacji docelowej lub przejrzyj przypisania użytkowników i konfigurację mapowania atrybutów, aby upewnić się, że poprawni użytkownicy są przypisani przy użyciu poprawnych atrybutów.|
+|DuplicateTargetEntries  |Nie można ukończyć operacji, ponieważ znaleziono więcej niż jednego użytkownika w aplikacji docelowej ze skonfigurowanymi pasującymi atrybutami. Usuń zduplikowanego użytkownika z aplikacji docelowej lub ponownie skonfiguruj mapowania atrybutów zgodnie z opisem w [tym miejscu](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
+|DuplicateSourceEntries | Nie można ukończyć operacji, ponieważ znaleziono więcej niż jednego użytkownika ze skonfigurowanymi pasującymi atrybutami. Usuń zduplikowanego użytkownika lub Zmień konfigurację mapowań atrybutów zgodnie z opisem w [tym miejscu](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Sprawdzanie stanu inicjowania obsługi administracyjnej przez użytkowników](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)
-* [Problem z konfigurowaniem inicjowania obsługi administracyjnej przez użytkownika aplikacji usługi Azure AD Gallery](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem)
+* [Sprawdź stan aprowizacji użytkowników](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)
+* [Wystąpił problem podczas konfigurowania aprowizacji użytkowników w aplikacji z galerii usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem)
 
 

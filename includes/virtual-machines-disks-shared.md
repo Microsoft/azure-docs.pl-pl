@@ -9,21 +9,21 @@ ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: c3e5beaef7fcc9d407103834e2040957ff32984c
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81008560"
 ---
-Dyski udostępnione platformy Azure (wersja zapoznawcza) to nowa funkcja dla dysków zarządzanych platformy Azure, która umożliwia jednoczesne dołączanie dysku zarządzanego do wielu maszyn wirtualnych (VM). Dołączanie dysku zarządzanego do wielu maszyn wirtualnych umożliwia wdrożenie nowych lub migrację istniejących aplikacji klastrowanych na platformę Azure.
+Azure Shared disks (wersja zapoznawcza) to nowa funkcja dysków zarządzanych przez platformę Azure, która umożliwia równoczesne dołączanie dysku zarządzanego do wielu maszyn wirtualnych. Dołączenie dysku zarządzanego do wielu maszyn wirtualnych pozwala wdrożyć nowe lub migrować istniejące aplikacje klastrowane na platformę Azure.
 
 ## <a name="how-it-works"></a>Jak to działa
 
-Maszyny wirtualne w klastrze mogą odczytywać lub zapisywać na dołączonym dysku na podstawie rezerwacji wybranej przez aplikację klastrowane przy użyciu [trwałych rezerwacji SCSI](https://www.t10.org/members/w_spc3.htm) (SCSI PR). SCSI PR jest standardem branżowym, który jest w siecią san (network) w środowisku lokalnym. Włączenie funkcji ŚT SCSI na dysku zarządzanym umożliwia migrację tych aplikacji na platformę Azure w stanie— jest.
+Maszyny wirtualne w klastrze mogą odczytywać lub zapisywać na dołączonym dysku na podstawie rezerwacji wybranych przez aplikację klastrowaną przy użyciu [rezerwacji trwałych SCSI](https://www.t10.org/members/w_spc3.htm) (SCSI PR). SCSI PR to standardowy branża, wykorzystywana przez aplikacje działające w sieci magazynowania (SAN) w środowisku lokalnym. Włączenie żądania ściągnięcia SCSI na dysku zarządzanym umożliwia migrowanie tych aplikacji na platformę Azure.
 
-Udostępnianie dysków zarządzanych oferują udostępniony magazyn bloków, do którego można uzyskać dostęp z wielu maszyn wirtualnych, są one udostępniane jako numery jednostek logicznych (LUN). Nazwy LU są następnie przedstawiane inicjatorowi (VM) z obiektu docelowego (dysku). Te numery LUN wyglądają jak bezpośrednio dołączonej pamięci masowej (DAS) lub dysku lokalnego do maszyny Wirtualnej.
+Udostępnianie dysków zarządzanych oferuje udostępniony magazyn blokowy, do którego można uzyskać dostęp z wielu maszyn wirtualnych, są one udostępniane jako numery jednostek logicznych (LUN). Jednostki LUN są następnie prezentowane inicjatorowi (VM) z miejsca docelowego (dysku). Te jednostki LUN wyglądają jak bezpośrednio dołączone do magazynu (DAS) lub dysk lokalny na maszynę wirtualną.
 
-Udostępnione dyski zarządzane nie oferują natywnie w pełni zarządzanego systemu plików, do który można uzyskać dostęp przy użyciu usług SMB/NFS. Należy użyć menedżera klastra, takiego jak Klaster trybu failover systemu Windows Server (WSFC) lub Rozrusznik, który obsługuje komunikację węzła klastra, a także blokowanie zapisu.
+Udostępnione dyski zarządzane nie oferują natywnie w pełni zarządzanego systemu plików, do którego można uzyskać dostęp przy użyciu protokołu SMB/NFS. Należy użyć Menedżera klastra, takiego jak Windows Server failover Cluster (WSFC) lub Pacemaker, który obsługuje komunikację węzłów klastra, a także blokowanie zapisu.
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -37,100 +37,100 @@ Udostępnione dyski zarządzane nie oferują natywnie w pełni zarządzanego sys
 
 ### <a name="windows"></a>Windows
 
-Większość klastrowania opartego na systemie Windows opiera się na wydziale WSFC, który obsługuje całą podstawową infrastrukturę komunikacji węzłów klastra, umożliwiając aplikacjom korzystanie z wzorców dostępu równoległego. WSFC włącza opcje csv i inne niż csv w zależności od wersji systemu Windows Server. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie klastra trybu failover](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
+Większość klastrów opartych na systemie Windows kompiluje się w usłudze WSFC, która obsługuje wszystkie podstawowe infrastruktury komunikacji węzłów klastra, co umożliwia aplikacjom korzystanie z wzorców dostępu równoległego. W zależności od używanej wersji systemu Windows Server usługi WSFC umożliwiają zarówno używanie woluminów CSV, jak i nieopartych na woluminach CSV. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie klastra trybu failover](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
 
-Niektóre popularne aplikacje działające w WSFC obejmują:
+Niektóre popularne aplikacje działające w usłudze WSFC obejmują:
 
-- Wystąpienia klastra trybu failover programu SQL Server (FCI)
-- Skalowany w poziomie serwer plików (SoFS)
-- Serwer plików do użytku ogólnego (obciążenie wywołują)
-- Dysk profilu użytkownika serwera usług pulpitu zdalnego (RDS UPD)
+- SQL Server wystąpienia klastra trybu failover (FCI)
+- Serwer plików skalowalny w poziomie (SoFS)
+- Serwer plików do użytku ogólnego (obciążenie IW)
+- Dysk profilu użytkownika serwera Pulpit zdalny (RDS UPD)
 - SAP ASCS/SCS
 
 ### <a name="linux"></a>Linux
 
-Klastry Linuksa mogą korzystać z menedżerów klastrów, takich jak [Pacemaker.](https://wiki.clusterlabs.org/wiki/Pacemaker) Rozrusznik serca opiera się na [corosync,](http://corosync.github.io/corosync/)umożliwiając komunikację klastra dla aplikacji wdrożonych w środowiskach o wysokiej dostępności. Niektóre typowe klastrowane systemy plików obejmują [ocfs2](https://oss.oracle.com/projects/ocfs2/) i [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). Możesz manipulować rezerwacjami i rejestracjami za pomocą narzędzi, takich jak [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) i [sg_persist](https://linux.die.net/man/8/sg_persist).
+Klastry systemu Linux mogą korzystać z menedżerów klastra, takich jak [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker kompiluje w [Corosync](http://corosync.github.io/corosync/), co umożliwia komunikację klastra w przypadku aplikacji wdrożonych w środowiskach o wysokiej dostępności. Niektóre typowe klastrowane systemy plików to [OCFS2](https://oss.oracle.com/projects/ocfs2/) i [GFS2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). Można manipulować rezerwacjami i rejestracjami przy użyciu narzędzi, takich jak [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) i [sg_persist](https://linux.die.net/man/8/sg_persist).
 
-## <a name="persistent-reservation-flow"></a>Przepływ rezerwacji trwałej
+## <a name="persistent-reservation-flow"></a>Trwały przepływ rezerwacji
 
-Na poniższym diagramie przedstawiono przykładową aplikację klastrowane bazy danych 2 węzłów, która wykorzystuje informacje PR SCSI, aby włączyć pracy awaryjnej z jednego węzła do drugiego.
+Na poniższym diagramie przedstawiono przykładową klastrowaną aplikację bazy danych 2-węzłową, która wykorzystuje funkcję SCSI PR do przełączania trybu failover z jednego węzła do drugiego.
 
-![Klaster dwóch węzłów. Aplikacja uruchomiona w klastrze obsługuje dostęp do dysku](media/virtual-machines-disks-shared-disks/shared-disk-updated-two-node-cluster-diagram.png)
+![Klaster z dwoma węzłami. Aplikacja działająca w klastrze obsługuje dostęp do dysku](media/virtual-machines-disks-shared-disks/shared-disk-updated-two-node-cluster-diagram.png)
 
 Przepływ jest następujący:
 
-1. Aplikacja klastrowana uruchomiona na platformie Azure VM1 i VM2 rejestruje zamiar odczytu lub zapisu na dysku.
-1. Wystąpienie aplikacji na VM1 następnie trwa wyłączną rezerwację do zapisu na dysku.
-1. Ta rezerwacja jest wymuszana na dysku platformy Azure i bazy danych można teraz zapisywać wyłącznie na dysku. Wszelkie zapisy z wystąpienia aplikacji na VM2 nie powiedzie się.
-1. Jeśli wystąpienie aplikacji na VM1 ulegnie awarii, wystąpienie na maszynie VM2 może teraz zainicjować przemijają się w zależności od pracy awaryjnej bazy danych i przejęcia dysku.
-1. Ta rezerwacja jest teraz wymuszana na dysku platformy Azure i dysk nie będzie już akceptować zapisów z maszyny Wirtualnej1. Będzie akceptować zapisy tylko z VM2.
-1. Aplikacja klastrowana może zakończyć pracy awaryjnej bazy danych i obsługiwać żądania z VM2.
+1. Klastrowana aplikacja działająca na platformie Azure VM1 i VM2 rejestruje swój cel odczytu lub zapisu na dysku.
+1. Wystąpienie aplikacji w witrynie VM1 pobiera wyłączną rezerwację do zapisu na dysku.
+1. Ta rezerwacja jest wymuszana na dysku platformy Azure, a baza danych może teraz zapisywać dane na dysku. Wszystkie zapisy z wystąpienia aplikacji w systemie VM2 nie powiodą się.
+1. Jeśli wystąpienie aplikacji w witrynie VM1 ulegnie awarii, wystąpienie w usłudze VM2 może teraz inicjować pracę w trybie failover bazy danych i przejmowanie dysku.
+1. Ta rezerwacja jest teraz wymuszana na dysku platformy Azure, a dysk nie akceptuje już operacji zapisu z VM1. Akceptuje tylko zapisy z VM2.
+1. Klastrowana aplikacja może zakończyć pracę w trybie failover bazy danych i obsłużyć żądania z VM2.
 
-Na poniższym diagramie przedstawiono inne typowe obciążenie klastrowane składające się z wielu węzłów odczytujących dane z dysku do uruchamiania procesów równoległych, takich jak szkolenie modeli uczenia maszynowego.
+Na poniższym diagramie przedstawiono inne typowe obciążenie klastrowane składające się z wielu węzłów odczytywania danych z dysku na potrzeby uruchamiania procesów równoległych, takich jak szkolenie modeli uczenia maszynowego.
 
-![Czterowęzłowy klaster maszyn wirtualnych, każdy węzeł rejestruje zamiar zapisu, aplikacja przyjmuje wyłączną rezerwację, aby prawidłowo obsługiwać wyniki zapisu](media/virtual-machines-disks-shared-disks/shared-disk-updated-machine-learning-trainer-model.png)
+![Klaster z czterema węzłami VM, każdy węzeł rejestruje przeznaczenie do zapisu, aplikacja pobiera wyłączną rezerwację, aby prawidłowo obsługiwać wyniki zapisu](media/virtual-machines-disks-shared-disks/shared-disk-updated-machine-learning-trainer-model.png)
 
 Przepływ jest następujący:
 
 1. Aplikacja klastrowana uruchomiona na wszystkich maszynach wirtualnych rejestruje zamiar odczytu lub zapisu na dysku.
-1. Wystąpienie aplikacji na maszynie VM1 przyjmuje wyłączną rezerwację do zapisu na dysku podczas otwierania odczytów na dysku z innych maszyn wirtualnych.
+1. Wystąpienie aplikacji na VM1 pobiera wyłączną rezerwację do zapisu na dysku podczas otwierania odczytów na dysku z innych maszyn wirtualnych.
 1. Ta rezerwacja jest wymuszana na dysku platformy Azure.
-1. Wszystkie węzły w klastrze można teraz odczytać z dysku. Tylko jeden węzeł zapisuje wyniki na dysku w imieniu wszystkich węzłów w klastrze.
+1. Wszystkie węzły w klastrze mogą teraz odczytywać z dysku. Tylko jeden węzeł zapisuje wyniki z powrotem na dysku w imieniu wszystkich węzłów w klastrze.
 
-### <a name="ultra-disks-reservation-flow"></a>Przepływ rezerwacji dysków ultra
+### <a name="ultra-disks-reservation-flow"></a>Przepływ rezerwacji Ultra disks
 
-Dyski ultra oferują dodatkową przepustnicę, w sumie dwie przepustnice. W związku z tym przepływ rezerwacji dysków ultra może działać zgodnie z opisem we wcześniejszej sekcji lub może ograniczać i dystrybuować wydajność bardziej szczegółową.
+Ultra disks oferuje dodatkową przepustowość w przypadku łącznej liczby dwóch przepustnic. Ze względu na to, przepływ rezerwacji Ultra disks może współdziałać zgodnie z opisem w poprzedniej sekcji lub bardziej szczegółowym Ograniczeniem i dystrybucją wydajności.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text=" ":::
 
-## <a name="ultra-disk-performance-throttles"></a>Przepustnice wydajności ultradysków dysków
+## <a name="ultra-disk-performance-throttles"></a>Ograniczenia wydajności Ultra Disk
 
-Dyski ultra mają unikalną możliwość pozwalając na ustawienie wydajności, ujawniając modyfikowalne atrybuty i umożliwiając ich modyfikowanie. Domyślnie istnieją tylko dwa modyfikowalne atrybuty, ale udostępnione dyski ultra mają dwa dodatkowe atrybuty.
+Funkcja Ultra disks ma unikatową funkcję umożliwiającą ustawienie wydajności przez ujawnienie modyfikowalnych atrybutów i umożliwienie ich modyfikacji. Domyślnie istnieją tylko dwa modyfikowalne atrybuty, ale współużytkowane Ultra disks mają dwa dodatkowe atrybuty.
 
 
 |Atrybut  |Opis  |
 |---------|---------|
-|DiskIOPSReadWrite     |Całkowita liczba we/wy dozwolone na wszystkich maszynach wirtualnych montażu dysku udziału z dostępem do zapisu.         |
-|DiskMBpsReadWrite (DiskMBpsReadWrite)     |Całkowita przepływność (MB/s) dozwolona na wszystkich maszynach wirtualnych montujących dysk udostępniony z dostępem do zapisu.         |
-|DiskIOPSTyp tylko*     |Całkowita liczba we/wy dozwolone na wszystkich maszynach wirtualnych montujących dysk udostępniony jako ReadOnly.         |
-|DiskMBpsTyp tylko*     |Całkowita przepływność (MB/s) dozwolona na wszystkich maszynach wirtualnych montujących dysk udostępniony jako ReadOnly.         |
+|DiskIOPSReadWrite     |Całkowita liczba operacji we/wy dozwolonych dla wszystkich maszyn wirtualnych instalujących udział dysku z dostępem do zapisu.         |
+|DiskMBpsReadWrite     |Całkowita przepływność (MB/s) dozwolona przez wszystkie maszyny wirtualne instalująca dysk udostępniony z dostępem do zapisu.         |
+|DiskIOPSReadOnly*     |Całkowita liczba operacji we/wy dozwolonych dla wszystkich maszyn wirtualnych instalujących dysk udostępniony jako tylko do odczytu.         |
+|DiskMBpsReadOnly*     |Całkowita przepływność (MB/s) dozwolona przez wszystkie maszyny wirtualne instalująca dysk udostępniony jako tylko do odczytu.         |
 
-\*Dotyczy tylko współdzielonych dysków ultra
+\*Dotyczy tylko współużytkowanych dysków o najwyższej rozdzielczości
 
-Następujące formuły wyjaśniają, jak można ustawić atrybuty wydajności, ponieważ można je modyfikować przez użytkownika:
+Poniższe wzory wyjaśniają, jak można ustawić atrybuty wydajności, ponieważ są one modyfikowane przez użytkowników:
 
-- DiskIOPSReadWrite/DiskIOPSCzytaj tylko: 
-    - Limity we/wy we/wy 300 IOPS/GiB, maksymalnie 160 000 we/wy na dysk
-    - Minimum of 100 IOPS
-    - DiskIOPSReadWrite + DiskIOPSReadOnly jest co najmniej 2 IOPS / GiB
-- DiskMBpsRead Zapis/DiskMBpsReadOnly:
-    - Limit przepływności pojedynczego dysku wynosi 256 KiB/s dla każdego aprowizowanego we/wy, maksymalnie do 2000 MB/s na dysk
-    - Minimalna gwarantowana przepustowość na dysku wynosi 4KiB/s dla każdego aprowizowanego we/wy, przy ogólnym poziomie wyjściowym minimum 1 MB/s
+- DiskIOPSReadWrite/DiskIOPSReadOnly: 
+    - Limity IOPS 300 IOPS/GiB, maksymalnie 160K operacji we/wy na dysk
+    - Co najmniej 100 operacji we/wy na sekundę
+    - DiskIOPSReadWrite + DiskIOPSReadOnly to co najmniej 2 IOPS/GiB
+- DiskMBpsRead zapisu/DiskMBpsReadOnly:
+    - Limit przepływności pojedynczego dysku to 256 KiB/s dla każdej z zainicjowanych operacji we/wy, maksymalnie 2000 s MB na dysk
+    - Minimalną gwarantowaną przepływność na dysk to 4KiB/s dla każdej zainicjowanej operacji we/wy, a ogólna podstawowa linia bazowa wynosi 1 MB/s
 
 ### <a name="examples"></a>Przykłady
 
-Poniższe przykłady przedstawiają kilka scenariuszy, które pokazują, jak ograniczanie może pracować z udostępnionych dysków ultra, w szczególności.
+W poniższych przykładach przedstawiono kilka scenariuszy, które pokazują, jak ograniczenie może współdziałać z udostępnionymi dyskami o najwyższej wydajności.
 
-#### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Klaster dwóch węzłów przy użyciu udostępnionych woluminów klastra
+#### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Klaster z dwoma węzłami przy użyciu udostępnionych woluminów klastra
 
-Poniżej przedstawiono przykład 2-węzłowego WSFC przy użyciu klastrowanych woluminów udostępnionych. W tej konfiguracji obie maszyny wirtualne mają jednoczesny dostęp do zapisu do dysku, co powoduje, że przepustnica ReadWrite jest dzielona między dwie maszyny wirtualne i nie jest używana dławienie readonly.
+Poniżej znajduje się przykład 2-węzłowego usługi WSFC korzystającej z udostępnionych woluminów klastra. W przypadku tej konfiguracji obie maszyny wirtualne mają jednoczesny dostęp do zapisu do dysku, co powoduje, że ograniczenie ReadWrite jest dzielone na dwie maszyny wirtualne i nie jest używane ograniczenie tylko do odczytu.
 
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV dwa węzły ultra przykład":::
-
-:::image-end:::
-
-#### <a name="two-node-cluster-without-cluster-share-volumes"></a>Klaster dwóch węzłów bez woluminów udziału klastra
-
-Poniżej przedstawiono przykład 2-węzłowego WSFC, który nie używa klastrowanych woluminów udostępnionych. W tej konfiguracji tylko jedna maszyna wirtualna ma dostęp do zapisu na dysku. Powoduje to, że przepustnica ReadWrite jest używany wyłącznie dla podstawowej maszyny Wirtualnej i Przepustnicy ReadOnly używane tylko przez pomocniczego.
-
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="CSV dwa węzły nie csv ultra przykład dysku":::
+:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Przykładowy plik CSV dwa węzły":::
 
 :::image-end:::
 
-#### <a name="four-node-linux-cluster"></a>Klaster Linuksa z czterema węzłami
+#### <a name="two-node-cluster-without-cluster-share-volumes"></a>Klaster z dwoma węzłami bez woluminów udziałów klastra
 
-Poniżej przedstawiono przykład 4-węzłowego klastra Linuksa z pojedynczym modułem zapisu i trzema czytnikami skalowa w poziomie. W tej konfiguracji tylko jedna maszyna wirtualna ma dostęp do zapisu na dysku. Powoduje to, że przepustnica ReadWrite jest używana wyłącznie dla podstawowej maszyny Wirtualnej i przepustnicy ReadOnly są dzielone przez pomocnicze maszyny wirtualne.
+Poniżej znajduje się przykład 2-węzłowego usługi WSFC, która nie korzysta z udostępnionych woluminów klastra. W przypadku tej konfiguracji tylko jedna maszyna wirtualna ma dostęp do zapisu na dysku. Powoduje to, że ograniczenie ReadWrite jest używane wyłącznie dla podstawowej maszyny wirtualnej i ograniczenie tylko do odczytu używane przez pomocniczą.
 
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Przykład ultra ograniczania przepustowości czterech węzłów":::
+:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Dwa węzły w formacie CSV — przykład braku dysku CSV":::
+
+:::image-end:::
+
+#### <a name="four-node-linux-cluster"></a>Klaster z systemem Linux z czterema węzłami
+
+Poniżej znajduje się przykładowy klaster z systemem Linux z 4 węzłami z pojedynczym modułem zapisywania i trzema czytnikami skalowalnymi w poziomie. W przypadku tej konfiguracji tylko jedna maszyna wirtualna ma dostęp do zapisu na dysku. Powoduje to, że ograniczenie ReadWrite jest używane wyłącznie dla podstawowej maszyny wirtualnej i ograniczenie tylko do odczytu przez pomocnicze maszyny wirtualne.
+
+:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Przykład o czterech węzłach Ultra":::
 
 :::image-end:::

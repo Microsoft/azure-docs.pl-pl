@@ -1,6 +1,6 @@
 ---
-title: Przykłady interfejsu wiersza polecenia platformy Azure — dołączanie i używanie dysków z danymi
-description: Ten skrypt tworzy zestaw skalowania maszyny wirtualnej platformy Azure oraz dołącza i przygotowuje dyski danych za pomocą interfejsu wiersza polecenia platformy Azure.
+title: Przykłady interfejsu wiersza polecenia platformy Azure — dołączanie i używanie dysków danych
+description: Ten skrypt tworzy zestaw skalowania maszyn wirtualnych platformy Azure i dołącza i przygotowuje dyski danych przy użyciu interfejsu wiersza polecenia platformy Azure.
 author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
@@ -10,10 +10,10 @@ ms.date: 03/27/2018
 ms.author: jushiman
 ms.custom: mvc
 ms.openlocfilehash: 7f8f84639095e4c495bfd24c534ee7c9a64136e5
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81010430"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-the-azure-cli"></a>Dołączanie dysków danych i ich używanie z zestawem skalowania maszyn wirtualnych za pomocą interfejsu wiersza polecenia platformy Azure

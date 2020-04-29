@@ -1,6 +1,6 @@
 ---
-title: Zasady i warunki rynku komercyjnego | Azure
-description: Zasady i warunki portalu Microsoft commercial marketplace mają zastosowanie do wszystkich wydawców i ofert w portalu Microsoft Azure Marketplace.
+title: Komercyjne zasady i postanowienia dotyczące portalu Marketplace | Azure
+description: Zasady i postanowienia komercyjnego portalu firmy Microsoft dotyczą wszystkich wydawców i ofert w Microsoft Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: dsindona
 ms.openlocfilehash: d2fdf40dde287a65548f1db04d34ed3cf67d0374
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81262166"
 ---
-# <a name="commercial-marketplace-policies-and-terms"></a>Zasady i warunki rynku komercyjnego
+# <a name="commercial-marketplace-policies-and-terms"></a>Zasady i warunki komercyjnej platformy handlowej
 
 >[!Note]
->"Komercyjny rynek firmy Microsoft" oznacza platformę należącą do firmy Microsoft lub obsługiwaną, niezależnie od nazwy, za pośrednictwem której oferty mogą być prezentowane klientom lub nabywane przez klientów. O ile nie określono inaczej, rynek komercyjny obejmuje witrynę Microsoft Azure Marketplace i microsoft appsource.
+>"Komercyjne oprogramowanie Microsoft Marketplace" oznacza platformę firmową firmy Microsoft lub jej firmę, ale o nazwie, za pośrednictwem której oferty mogą być prezentowane lub przejęte przez klientów. O ile nie określono inaczej, komercyjna witryna Marketplace zawiera Microsoft Azure Marketplace i Microsoft AppSource.
 
-Dziękujemy za zainteresowanie ofertami wydawniczym na rynku komercyjnym. Zobowiązujemy się do współpracy z Tobą w celu stworzenia bogatego źródła rozwiązań w chmurze i linii ofert biznesowych, które zachwycają klientów na całym świecie i pomagają budować Twój biznes.
+Dziękujemy za zainteresowanie publikowaniem ofert na komercyjnym rynku. Firma Microsoft dokłada starań, aby utworzyć bogate źródło rozwiązań w chmurze i oferty biznesowe, dzięki czemu klienci na całym świecie i pomogą Ci w tworzeniu firmy.
 
-Oferty na rynku muszą być zgodne z naszymi zasadami i warunkami. Aktualizujemy te zasady i warunki od czasu do czasu, aby zapewnić dobre wrażenia klientów i zapewnić partnerom możliwość odniesienia sukcesu. Jeśli masz opinię na temat naszych zasad lub warunków, poinformuj nas o tym, komentując je na [forum portalu Azure Marketplace i Microsoft AppSource.](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)
+Oferty w portalu Marketplace muszą być zgodne z naszymi zasadami i postanowieniami. Aktualizujemy te zasady i terminy od czasu do czasu, aby pomóc w zapewnieniu dobrego środowiska klienta i zapewnienia partnerom możliwości sukcesu. Jeśli masz opinię na temat naszych zasad lub warunków, poinformuj nas o komentarzach w [witrynie Azure Marketplace i forum Microsoft AppSource](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
 
 ## <a name="policies-and-terms"></a>Zasady i postanowienia
 
@@ -35,6 +35,6 @@ Oferty na rynku muszą być zgodne z naszymi zasadami i warunkami. Aktualizujemy
 
 ## <a name="next-steps"></a>Następne kroki
 
-Odwiedź stronę [przewodnika po publikacjach w portalu marketplace.](./marketplace-publishers-guide.md)
+Odwiedź stronę [podręcznika publikowania w witrynie komercyjnej](./marketplace-publishers-guide.md) .
 
 ---

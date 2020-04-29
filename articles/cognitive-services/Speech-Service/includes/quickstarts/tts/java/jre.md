@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: Syntetyzowanie mowy, Java (Windows, Linux, macOS) - Usługa mowy'
+title: 'Szybki Start: synteza mowy, Java (Windows, Linux, macOS) — usługa mowy'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku Szybki start nauczysz się tworzyć prostą aplikację Java, która przechwytuje i syntetyzuje mowę z tekstu i odtwarza ją z domyślnym głośnikiem.
+description: W tym przewodniku szybki start dowiesz się, jak utworzyć prostą aplikację Java, która przechwytuje i syntezuje mowę z tekstu i odtwarza ją z domyślnym głośnikem.
 services: cognitive-services
 author: yulin-li
 manager: nitinme
@@ -11,23 +11,23 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: yulili
 ms.openlocfilehash: 31bfe77c85723d6c24872f1e52ede60936f7804e
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81274795"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zanim zaczniesz, upewnij się, że:
+Przed rozpoczęciem upewnij się, że:
 
 > [!div class="checklist"]
-> * [Tworzenie zasobu mowy platformy Azure](../../../../get-started.md)
-> * [Konfigurowanie środowiska programistycznego i tworzenie pustego projektu](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
+> * [Tworzenie zasobu usługi Azure Speech](../../../../get-started.md)
+> * [Skonfiguruj środowisko deweloperskie i Utwórz pusty projekt](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
 
 ## <a name="add-sample-code"></a>Dodawanie przykładowego kodu
 
-1. Aby dodać nową pustą klasę do projektu Java, wybierz **pozycję Plik** > **nowej** > **klasy**.
+1. Aby dodać nową pustą klasę do projektu Java, wybierz pozycję **plik** > **Nowa** > **Klasa**.
 
 1. W oknie **Nowa klasa Java** wprowadź ciąg **speechsdk.quickstart** w polu **Pakiet** i **Main** w polu **Nazwa**.
 
@@ -45,14 +45,14 @@ Zanim zaczniesz, upewnij się, że:
 
 ## <a name="build-and-run-the-app"></a>Kompilowanie i uruchamianie aplikacji
 
-Naciśnij klawisz F11 lub wybierz pozycję **Uruchom** > **debugowanie**.
-Wprowadź tekst po wyświetleniu monitu, a usłyszysz syntetyzowany dźwięk odtwarzany z domyślnego głośnika.
+Naciśnij klawisz F11 lub wybierz polecenie **Uruchom** > **debugowanie**.
+Wprowadź tekst po wyświetleniu monitu, aby słyszeć dźwięk, który jest odtwarzany z domyślnego głośnika.
 
 ## <a name="next-steps"></a>Następne kroki
 
 [!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Tworzenie niestandardowego głosu](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
-- [Nagrywanie niestandardowych próbek głosu](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
+- [Rejestruj niestandardowe przykłady głosu](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

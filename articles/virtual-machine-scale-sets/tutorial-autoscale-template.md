@@ -1,5 +1,5 @@
 ---
-title: Samouczek — automatyczne skalowanie zestawu skalowania za pomocą szablonów platformy Azure
+title: Samouczek — Skalowanie automatyczne zestawu skalowania przy użyciu szablonów platformy Azure
 description: Dowiedz się, jak za pomocą szablonów usługi Azure Resource Manager automatycznie skalować zestaw skalowania maszyn wirtualnych w odpowiedzi na wzrosty i spadki zapotrzebowania na procesor CPU
 author: ju-shim
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: jushiman
 ms.custom: mvc
 ms.openlocfilehash: 02fe74a2dad7da655969c5c9523c696657425e49
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81011314"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Samouczek: skalowanie automatyczne zestawu skalowania maszyn wirtualnych przy użyciu szablonu platformy Azure
@@ -24,7 +24,7 @@ Podczas tworzenia zestawu skalowania musisz zdefiniować liczbę wystąpień mas
 > * Testy obciążeniowe wystąpień maszyn wirtualnych i wyzwalanie reguł skalowania automatycznego
 > * Skalowanie automatyczne do wewnątrz po zmniejszeniu zapotrzebowania
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -68,11 +68,11 @@ W tej regule są używane następujące parametry:
 | *metricName*      | Metryka wydajności, która jest monitorowana i na której są stosowane akcje zestawu skalowania.                                                   | Procentowe użycie procesora CPU  |
 | *timeGrain*       | Częstotliwość zbierania metryk do analizy.                                                                   | 1 min        |
 | *timeAggregation* | Określa sposób agregacji metryk zebranych do celów analizy.                                                | Średnia         |
-| *czasWindow*      | Przedział czasu monitorowania, po którym wartość metryki jest porównywana z wartością progową.                                   | 5 minut       |
-| *Operator*        | Operator używany do porównywania danych metryki z wartością progową.                                                     | Większe niż    |
-| *Próg*       | Wartość, która powoduje wyzwolenie akcji przez regułę skalowania automatycznego.                                                      | 70%             |
-| *Kierunku*       | Określa, czy podczas stosowania reguły ma nastąpić skalowanie w pionie czy w poziomie.                                              | Zwiększ        |
-| *Typu*            | Wskazuje, że liczba wystąpień maszyn wirtualnych powinna zostać zmieniona o określoną wartość.                                    | Liczba zmian    |
+| *timeWindow*      | Przedział czasu monitorowania, po którym wartość metryki jest porównywana z wartością progową.                                   | 5 minut       |
+| *zakład*        | Operator używany do porównywania danych metryki z wartością progową.                                                     | Większe niż    |
+| *próg*       | Wartość, która powoduje wyzwolenie akcji przez regułę skalowania automatycznego.                                                      | 70%             |
+| *wskazywa*       | Określa, czy podczas stosowania reguły ma nastąpić skalowanie w pionie czy w poziomie.                                              | Zwiększ        |
+| *Wprowadź*            | Wskazuje, że liczba wystąpień maszyn wirtualnych powinna zostać zmieniona o określoną wartość.                                    | Liczba zmian    |
 | *value*           | Określa liczbę wystąpień maszyn wirtualnych podlegających skalowaniu w pionie lub w poziomie podczas stosowania reguły.                                             | 3               |
 | *cooldown*        | Przedział czasu przed ponownym zastosowaniem reguły, który gwarantuje, że akcje skalowania automatycznego zaczną obowiązywać. | 5 minut       |
 
@@ -136,7 +136,7 @@ W poniższym przykładzie zdefiniowano regułę umożliwiającą skalowanie w pi
 ## <a name="create-an-autoscaling-scale-set"></a>Tworzenie automatycznego zestawu skalowania
 Za pomocą przykładowego szablonu utworzymy zestaw skalowania i zastosujemy reguły automatycznego skalowania. Możesz [przejrzeć cały szablon](https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json) lub [wyświetlić jego sekcję dostawcy zasobów *Microsoft.insights/autoscalesettings*](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/autoscale.json#L220).
 
-Najpierw utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w lokalizacji *eastus:*
+Najpierw utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus

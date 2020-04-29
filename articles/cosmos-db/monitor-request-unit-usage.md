@@ -1,66 +1,66 @@
 ---
-title: Monitorowanie użycia przepływności operacji w usłudze Azure Cosmos DB
-description: Dowiedz się, jak monitorować przepływność lub żądanie użycia jednostki operacji w usłudze Azure Cosmos DB. Właściciele konta usługi Azure Cosmos DB mogą zrozumieć, które operacje przyjmują więcej jednostek żądania.
+title: Monitoruj użycie przepływności operacji w Azure Cosmos DB
+description: Dowiedz się, jak monitorować przepływność i użycie jednostek żądań operacji w Azure Cosmos DB. Właściciele konta Azure Cosmos DB mogą zrozumieć, które operacje zajmują więcej jednostek żądań.
 ms.service: cosmos-db
 ms.topic: conceptual
 author: kanshiG
 ms.author: govindk
 ms.date: 04/09/2020
 ms.openlocfilehash: bc39ef199a5d40d3eaa75023277d3e00b93e131a
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81115432"
 ---
-# <a name="how-to-monitor-throughput-or-request-unit-usage-of-an-operation-in-azure-cosmos-db"></a>Jak monitorować przepływność lub żądanie użycia jednostki operacji w usłudze Azure Cosmos DB
+# <a name="how-to-monitor-throughput-or-request-unit-usage-of-an-operation-in-azure-cosmos-db"></a>Jak monitorować przepływność lub zażądać użycia jednostek operacji w Azure Cosmos DB
 
-Usługa Azure Monitor for Azure Cosmos DB udostępnia widok metryki do monitorowania konta i tworzenia pulpitów nawigacyjnych. Metryki usługi Azure Cosmos DB są zbierane domyślnie, ta funkcja nie wymaga, aby włączyć lub skonfigurować coś jawnie. **Metryka Całkowita liczba jednostek żądań** jest używana do uzyskania użycia jednostek żądań dla różnych typów operacji. Później można analizować, które operacje używane większość przepływności. Domyślnie dane przepływności są agregowane w odstępach jednominutowych. Można jednak zmienić jednostkę agregacji, zmieniając opcję szczegółowości czasu.
+Azure Monitor dla Azure Cosmos DB zawiera widok metryk do monitorowania konta i tworzenia pulpitów nawigacyjnych. Metryki Azure Cosmos DB są zbierane domyślnie. Ta funkcja nie wymaga jawnie włączania ani konfigurowania niczego. Metryka **łączna liczba jednostek żądań** służy do uzyskiwania użycia jednostek żądań dla różnych typów operacji. Później można analizować, których operacji używa większość przepływności. Domyślnie dane przepływności są agregowane w przedziale czasu jednej minuty. Można jednak zmienić jednostkę agregacji, zmieniając opcję stopnia szczegółowości czasu.
 
 Istnieją dwa sposoby analizowania danych użycia jednostki żądania:
 
-* W danym przedziale czasowym, które operacje przyjmują więcej jednostek żądań.
-* Które operacje w ogóle dominują obciążenia przez zużywanie więcej jednostek żądania.
-Ta analiza pozwala skupić się na operacjach, takich jak wstawianie, upsert i przyjrzeć się ich indeksowania. Możesz dowiedzieć się, czy jesteś ponad/poniżej indeksowania określonych pól i zmodyfikować [zasady indeksowania,](index-policy.md#include-exclude-paths) aby uwzględnić lub wykluczyć ścieżki.
+* W danym przedziale czasu operacje zajmują więcej jednostek żądań.
+* Które operacje ogólnie przeważają w obciążeniu, zużywając więcej jednostek żądania.
+Ta analiza umożliwia skoncentrowanie się na operacjach, takich jak INSERT, upsert i spójrz na ich indeksowanie. Możesz sprawdzić, czy w obszarze indeksowania określone pola i zmodyfikować [zasady indeksowania](index-policy.md#include-exclude-paths) , aby uwzględnić lub wykluczyć ścieżki.
 
-Jeśli zauważysz, że niektóre zapytania przyjmują więcej jednostek żądań, możesz podjąć działania, takie jak:
+Jeśli zauważysz, że niektóre zapytania zajmują więcej jednostek żądań, możesz wykonać następujące czynności:
 
-* Jeśli żądasz odpowiedniej ilości danych, ponownie rozważ, jeśli poprosisz o odpowiednią ilość danych.
-* Zmodyfikuj kwerendę, aby użyć indeksu z klauzulą filtru.
-* Wykonywanie tańszych wywołań funkcji UDF.
-* Zdefiniuj klucze partycji, aby zminimalizować brak zapytania do różnych partycji.
-* Można również użyć metryki kwerendy zwrócone w odpowiedzi na wezwanie, szczegóły dziennika diagnostycznego i odnoszą się do [dostrajania wydajności kwerendy](sql-api-query-metrics.md) artykułu, aby dowiedzieć się więcej na temat wykonywania kwerendy.
-* Można rozpocząć od sumy, a następnie spojrzeć na avg wykorzystania przy użyciu odpowiedniego wymiaru.
+* Rozważ ponowne zażądanie, jeśli żądasz odpowiedniej ilości danych.
+* Zmodyfikuj zapytanie tak, aby używało indeksu z klauzulą Filter.
+* Wykonywanie mniej kosztownych wywołań funkcji UDF.
+* Zdefiniuj klucze partycji, aby zminimalizować wentylator poza zapytania do różnych partycji.
+* Aby dowiedzieć się więcej na temat wykonywania zapytań, można również użyć metryk kwerendy zwracanych w odpowiedzi na wywołanie, szczegóły dziennika diagnostycznego i zapoznaj się z artykułem dotyczącym [dostrajania wydajności zapytań](sql-api-query-metrics.md) .
+* Możesz zacząć od sum, a następnie przyjrzeć się średniemu wykorzystaniu przy użyciu odpowiedniego wymiaru.
 
-## <a name="view-the-total-request-unit-usage-metric"></a>Wyświetlanie metryki całkowitego użycia jednostki żądania
+## <a name="view-the-total-request-unit-usage-metric"></a>Wyświetl metrykę użycia całkowitej jednostki żądania
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-1. Wybierz **pozycję Monitor** z lewego paska nawigacyjnego i wybierz pozycję **Metryki**.
+1. Wybierz pozycję **monitor** na pasku nawigacyjnym po lewej stronie i wybierz pozycję **metryki**.
 
-   ![Okienko Metryki w usłudze Azure Monitor](./media/monitor-request-unit-usage/monitor-metrics-blade.png)
+   ![Okienko metryki w Azure Monitor](./media/monitor-request-unit-usage/monitor-metrics-blade.png)
 
-1. W okienku **Metryki** > **Wybierz zasób** > wybierz wymaganą **subskrypcję**i **grupę zasobów**. W przypadku **typu zasobu**wybierz pozycję **Konta usługi Azure Cosmos DB**, wybierz jedno z istniejących kont usługi Azure Cosmos i wybierz pozycję **Zastosuj**.
+1. W okienku **metryki** > **Wybierz zasób** > wybierz wymaganą **subskrypcję**i **grupę zasobów**. W polu **Typ zasobu**wybierz pozycję **konta Azure Cosmos DB**, wybierz jedno z istniejących kont usługi Azure Cosmos i wybierz pozycję **Zastosuj**.
 
-   ![Wybierz konto usługi Azure Cosmos DB, aby wyświetlić metryki](./media/monitor-request-unit-usage/select-cosmos-db-account.png)
+   ![Wybierz konto Azure Cosmos DB, aby wyświetlić metryki](./media/monitor-request-unit-usage/select-cosmos-db-account.png)
 
-1. Następnie wybierz metrykę **Łączna liczba jednostek żądań** z listy dostępnych danych. Aby dowiedzieć się szczegółowo o wszystkich dostępnych danych na tej liście, zobacz [Metryki według](monitor-cosmos-db-reference.md) kategorii artykułu. W tym przykładzie wybierzmy **opcję Całkowita liczba jednostek żądań** i **Średnia** jako wartość agregacji. Oprócz tych szczegółów można również wybrać **zakres czasu** i **szczegółowość czasu** metryk. Maksymalnie możesz wyświetlać dane z ostatnich 30 dni.  Po zastosowaniu filtru wykres jest wyświetlany na podstawie filtru. Można zobaczyć średnią liczbę jednostek żądań zużytych na minutę dla wybranego okresu.  
+1. Następnie wybierz metrykę **łączna liczba jednostek żądań** z listy dostępnych metryk. Aby uzyskać szczegółowe informacje na temat wszystkich dostępnych metryk na tej liście, zobacz artykuł [metryki według kategorii](monitor-cosmos-db-reference.md) . W tym przykładzie wybieramy **sumę jednostek żądań** i **średnią** jako wartość agregacji. Oprócz tych szczegółów można także wybrać **zakres czasu** i **stopień szczegółowości** metryk. Co więcej, można wyświetlić metryki z ostatnich 30 dni.  Po zastosowaniu filtru na podstawie filtru zostanie wyświetlony wykres. W wybranym okresie można zobaczyć średnią liczbę jednostek żądań zużytych na minutę.  
 
-   ![Wybieranie metryki z witryny Azure portal](./media/monitor-request-unit-usage/request-unit-usage-metric.png)
+   ![Wybierz metrykę z Azure Portal](./media/monitor-request-unit-usage/request-unit-usage-metric.png)
 
-## <a name="filters-for-request-unit-usage"></a>Filtry do użycia jednostki żądania
+## <a name="filters-for-request-unit-usage"></a>Filtry dotyczące użycia jednostek żądania
 
-Można również filtrować dane i uzyskać wykresy wyświetlane przez określony **Nazwa Kolekcji**, **Nazwa bazy danych**, **OperationType**, **Region**, **Status**i **StatusCode**. Opcje **Dodawania filtru** i **Rozlicz podziały** umożliwiają filtrowanie użycia jednostki żądania i grupowanie metryk.
+Można również filtrować metryki i uzyskiwać wykresy wyświetlane przez konkretną **CollectionName**, **DatabaseName**, **OperationType**, **region**, **status**i **StatusCode**. Opcje **Dodaj filtr** i **Zastosuj podział** umożliwiają filtrowanie użycia jednostek żądań i grupowanie metryk.
 
-Aby uzyskać użycie jednostki żądania dla każdej operacji według sumy(sumy) lub średniej, wybierz opcję **Zastosuj dzielenie** i wybierz **typ operacji** oraz wartość filtru, jak pokazano na poniższej ilustracji:
+Aby uzyskać użycie jednostki żądania dla każdej operacji według sum (sum) lub średniej, wybierz pozycję **Zastosuj podział** i wybierz pozycję **Typ operacji** oraz wartość filtru, jak pokazano na poniższej ilustracji:
 
-   ![Jednostki żądania usługi Cosmos DB dla operacji w monitorze platformy Azure](./media/monitor-request-unit-usage/request-unit-usage-operations.png)
+   ![Cosmos DB jednostek żądań dla operacji w usłudze Azure monitor](./media/monitor-request-unit-usage/request-unit-usage-operations.png)
 
-Jeśli chcesz zobaczyć użycie jednostki żądania według kolekcji, wybierz **Zastosuj dzielenie** i wybierz nazwę kolekcji jako filtr. Zobaczysz czat podobny do następującego z wyborem kolekcji na pulpicie nawigacyjnym. Następnie można wybrać określoną nazwę kolekcji, aby wyświetlić więcej szczegółów:
+Jeśli chcesz zobaczyć użycie jednostki żądania według kolekcji, wybierz pozycję **Zastosuj podział** i wybierz nazwę kolekcji jako filtr. Zobaczysz czat podobny do poniższego, który umożliwia wybranie kolekcji na pulpicie nawigacyjnym. Następnie możesz wybrać określoną nazwę kolekcji, aby wyświetlić więcej szczegółów:
 
-   ![Jednostki żądania usługi Cosmos DB dla wszystkich operacji przez kolekcję na monitorze platformy Azure](./media/monitor-request-unit-usage/request-unit-usage-collection.png)
+   ![Cosmos DB jednostki żądań dla wszystkich operacji przez kolekcję w usłudze Azure monitor](./media/monitor-request-unit-usage/request-unit-usage-collection.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Monitoruj dane usługi Azure Cosmos DB przy użyciu [ustawień diagnostycznych](cosmosdb-monitor-resource-logs.md) na platformie Azure.
-* [Inspekcja operacji płaszczyzny sterowania usługi Azure Cosmos DB](audit-control-plane-logs.md)
+* Monitoruj Azure Cosmos DB dane przy użyciu [ustawień diagnostycznych](cosmosdb-monitor-resource-logs.md) na platformie Azure.
+* [Inspekcja operacji Azure Cosmos DB kontroli płaszczyzny](audit-control-plane-logs.md)

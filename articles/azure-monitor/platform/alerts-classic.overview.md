@@ -1,98 +1,98 @@
 ---
-title: Omówienie alertów klasycznych w usłudze Azure Monitor
-description: Klasyczne alerty są przestarzałe. Alerty umożliwiają monitorowanie metryk zasobów platformy Azure, zdarzeń lub dzienników i otrzymywać powiadomienia o spełnieniu określonego warunku.
+title: Przegląd klasycznych alertów w Azure Monitor
+description: Alerty klasyczne są przestarzałe. Alerty umożliwiają monitorowanie metryk zasobów platformy Azure, zdarzeń lub dzienników oraz powiadamianie o spełnieniu warunku określonego przez użytkownika.
 ms.topic: conceptual
 ms.date: 05/19/2018
 ms.subservice: alerts
 ms.openlocfilehash: e9c269db870f582c176783a4654b5de251e24412
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114503"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>What are classic alerts in Microsoft Azure? (Czym są alerty klasyczne na platformie Microsoft Azure?)
 
 > [!NOTE]
-> W tym artykule opisano sposób tworzenia starszych alertów metryki klasycznej. Usługa Azure Monitor obsługuje teraz [nowsze alerty metryki w czasie zbliżonym do rzeczywistego i nowe środowisko alertów.](../../azure-monitor/platform/alerts-overview.md) Klasyczne alerty są [wycofane,](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement)choć nadal w ograniczonym użyciu dla zasobów, które nie obsługują jeszcze nowych alertów. 
+> W tym artykule opisano sposób tworzenia starszych klasycznych alertów dotyczących metryk. Azure Monitor teraz obsługuje [nowsze alerty metryk niemal w czasie rzeczywistym i nowe środowisko alertów](../../azure-monitor/platform/alerts-overview.md). Alerty klasyczne są [wycofywane](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement), mimo że nadal są ograniczone dla zasobów, które jeszcze nie obsługują nowych alertów. 
 >
 
-Alerty umożliwiają konfigurowanie warunków za wiele danych i powiadamianie, gdy warunki są zgodne z najnowszymi danymi monitorowania.
+Alerty umożliwiają konfigurowanie warunków dla danych i otrzymywanie powiadomień, gdy warunki są zgodne z najnowszymi danymi monitorowania.
 
-## <a name="old-and-new-alerting-capabilities"></a>Stare i nowe funkcje ostrzegania
+## <a name="old-and-new-alerting-capabilities"></a>Stare i nowe funkcje alertów
 
-W przeszłości usługa Azure Monitor, usługa Application Insights, log analytics i kondycja usługi miały oddzielne funkcje alertów. Nadgodziny, platforma Azure ulepszone i połączone zarówno interfejs użytkownika i różne metody alertów. Konsolidacja jest nadal w toku.
+W przeszłości Azure Monitor, Application Insights, Log Analytics i Service Health miały osobne funkcje alertów. W nadgodzinach, platforma Azure ulepszona i połączona zarówno z interfejsem użytkownika, jak i różnymi metodami alertów. Konsolidacja jest nadal w toku.
 
-Alerty klasyczne można wyświetlać tylko na ekranie użytkownika alertów klasycznych w witrynie Azure Portal. Ten ekran zostanie wyświetlony za pomocą przycisku **Wyświetl klasyczne alerty** na ekranie alertów. 
+Alerty klasyczne można wyświetlać tylko na ekranie klasycznych alertów użytkownika w witrynie Azure Portal. Ten ekran jest wyświetlany na przycisku **Wyświetl klasyczne alerty** na ekranie alertów. 
 
- ![Opcje alertów w witrynie Azure portal](media/alerts-classic.overview/monitor-alert-screen2.png)
+ ![Opcje alertów w Azure Portal](media/alerts-classic.overview/monitor-alert-screen2.png)
 
-Nowe środowisko użytkownika alertów ma następujące korzyści w przypadku klasycznych alertów:
-- **Lepszy system powiadomień** — wszystkie nowsze alerty używają grup akcji, które są nazwane grupami powiadomień i akcji, które mogą być ponownie używane w wielu alertach. Alerty klasyczne metryki i starsze alerty usługi Log Analytics nie używają grup akcji.
-- **Ujednolicone środowisko tworzenia** — wszystkie tworzenie alertów dla metryk, dzienników i dziennika aktywności w usłudze Azure Monitor, usługa Log Analytics i usługa Application Insights jest w jednym miejscu.
-- **Wyświetlanie zwolnionych alertów usługi Log Analytics w witrynie Azure portal** — teraz można również zobaczyć również zwolnione alerty usługi Log Analytics w ramach subskrypcji. Wcześniej były one w osobnym portalu.
-- **Oddzielenie uruchomionych alertów i reguł alertów** — reguły alertów (definicja warunku wyzwalającego alert) i Uruchomione alerty (wystąpienie uruchamiania reguły alertu) są zróżnicowane, więc widoki operacyjne i konfiguracyjne są oddzielone.
-- **Lepszy przepływ pracy** — nowe środowisko tworzenia alertów prowadzi użytkownika w procesie konfigurowania reguły alertów, co ułatwia odnajdywanie właściwych rzeczy, na których można uzyskać alert.
-- **Inteligentne alerty konsolidacji** i **ustawiania stanu alertów** — nowsze alerty obejmują funkcje automatycznego grupowania pokazujące podobne alerty razem w celu zmniejszenia przeciążenia w interfejsie użytkownika. 
+Nowe możliwości użytkownika dotyczące alertów mają następujące zalety w porównaniu z klasycznymi alertami:
+- **Lepszy system powiadomień** — wszystkie nowsze alerty używają grup akcji, które są nazwanymi grupami powiadomień i akcji, które mogą być ponownie używane w wielu alertach. Klasyczne alerty metryk i starsze alerty Log Analytics nie używają grup akcji.
+- **Ujednolicone środowisko tworzenia** — wszystkie tworzenie alertów dotyczących metryk, dzienników i dzienników aktywności w Azure Monitor, Log Analytics i Application Insights jest w jednym miejscu.
+- **Wyświetl wyzwolone alerty log Analytics w Azure Portal** — teraz można zobaczyć wyzwolone alerty log Analytics w subskrypcji. Wcześniej były one w osobnym portalu.
+- **Rozdzielenie wywołanych alertów i reguł alertów** — reguły alertów (definicja warunku wyzwalającego Alert), a następnie wyzwolone alerty (wystąpienie reguły alertu jest wyzwalane) są rozróżniane, więc widoki operacyjne i konfiguracyjne są rozdzielone.
+- **Lepszy przepływ pracy** — nowe środowisko tworzenia alertów prowadzi użytkownika przez proces konfigurowania reguły alertu, co ułatwia odkrywanie właściwych rzeczy w celu uzyskania alertów.
+- **Alerty inteligentne konsolidacja** i **Ustawianie stanu alertu** — nowsze alerty obejmują funkcję grupowania podwójnego pokazującą podobne alerty, aby zredukować Przeciążenie w interfejsie użytkownika. 
 
-Nowsze alerty metryki mają następujące korzyści w stosunku do alertów metryki klasycznej:
-- **Poprawiono opóźnienie:** nowsze alerty metryki mogą być uruchamiane tak często, jak co minutę. Starsze alerty metryki zawsze są uruchamiane z częstotliwością 5 minut. Nowsze alerty zwiększają mniejsze opóźnienie od wystąpienia problemu do powiadomienia lub akcji (od 3 do 5 minut). Starsze alerty są 5 do 15 minut w zależności od typu.  Alerty dziennika zazwyczaj mają 10 do 15 minut opóźnienia ze względu na czas potrzebny do pozyskiwania dzienników, ale nowsze metody przetwarzania skracają ten czas. 
-- **Obsługa metryk wielowymiarowych:** można alertować o metrykach wymiarowych, co pozwala monitorować interesujący segment metryki.
-- **Większa kontrola nad warunkami metryki:** Można zdefiniować bogatsze reguły alertów. Nowsze alerty obsługują monitorowanie maksymalnych, minimalnych, średnich i całkowitych wartości metryk.
-- **Połączone monitorowanie wielu metryk:** można monitorować wiele metryk (obecnie maksymalnie dwie metryki) za pomocą jednej reguły. Alert jest wyzwalany, jeśli obie metryki naruszają ich odpowiednie progi dla określonego okresu.
-- **Lepszy system powiadomień:** Wszystkie nowsze alerty używają [grup akcji,](../../azure-monitor/platform/action-groups.md)które są nazwane grupami powiadomień i akcji, które mogą być ponownie używane w wielu alertach.  Alerty klasyczne metryki i starsze alerty usługi Log Analytics nie używają grup akcji. 
-- **Metryki z dzienników** (publiczna wersja zapoznawcza): Rejestrowanie danych przechodzących do usługi Log Analytics można teraz wyodrębnić i przekonwertować na metryki usługi Azure Monitor, a następnie alerty na tak jak inne metryki. Zobacz [Alerty (klasyczne)](alerts-classic.overview.md) dla terminologii specyficzne dla klasycznych alertów. 
+Nowsze alerty dotyczące metryk mają następujące korzyści dotyczące klasycznego alertu dotyczącego metryki:
+- **Ulepszone opóźnienie**: nowsze alerty metryczne mogą być uruchamiane w ciągu co najmniej jednej minuty. Starsze alerty metryk są zawsze uruchamiane z częstotliwością wynoszącą 5 minut. Nowsze alerty zwiększają mniejsze opóźnienie od wystąpienia problemu do powiadomienia lub akcji (od 3 do 5 minut). Starsze alerty są od 5 do 15 minut w zależności od typu.  Alerty dzienników zwykle mają od 10 do 15 minut opóźnienia z powodu czasu potrzebnego na pozyskiwanie dzienników, ale nowsze metody przetwarzania skracają ten czas. 
+- **Obsługa wielowymiarowych metryk**: można generować alerty dla metryk wymiarowych, co pozwala monitorować interesujący segment metryki.
+- **Większa kontrola nad warunkami metryk**: można zdefiniować bogatsze reguły alertów. Nowsze alerty obsługują monitorowanie wartości maksymalnej, minimalnej, średniej i całkowitej metryk.
+- **Połączone monitorowanie wielu metryk**: można monitorować wiele metryk (obecnie do dwóch metryk) przy użyciu jednej reguły. Alert jest wyzwalany, jeśli obydwie metryki naruszają odpowiednie progi przez określony czas.
+- **Lepszy system powiadomień**: wszystkie nowsze alerty używają [grup akcji](../../azure-monitor/platform/action-groups.md), które są nazwanymi grupami powiadomień i akcji, które mogą być ponownie używane w wielu alertach.  Klasyczne alerty metryk i starsze alerty Log Analytics nie używają grup akcji. 
+- **Metryki z dzienników** (publiczna wersja zapoznawcza): dane dziennika do log Analytics mogą być teraz wyodrębniane i konwertowane na metryki Azure monitor, a następnie otrzymywane z alertami podobnie jak inne metryki. Zobacz [alerty (klasyczne)](alerts-classic.overview.md) , aby zapoznać się z terminologią specyficzną dla alertów klasycznych. 
 
 
-## <a name="classic-alerts-on-azure-monitor-data"></a>Klasyczne alerty dotyczące danych usługi Azure Monitor
-Dostępne są dwa typy alertów klasycznych — alerty metryki i alerty dziennika aktywności.
+## <a name="classic-alerts-on-azure-monitor-data"></a>Klasyczne alerty dotyczące danych Azure Monitor
+Dostępne są dwa typy alertów klasycznych — alerty metryk i alerty dzienników aktywności.
 
-* **Alerty metryki klasycznej** — ten alert wyzwala, gdy wartość określonej metryki przekracza próg, który można przypisać. Alert generuje powiadomienie, gdy ten próg zostanie przekroczony i warunek alertu jest spełniony. W tym momencie alert jest uważany za "Aktywowany". Generuje kolejne powiadomienie, gdy jest "Rozwiązany" - to znaczy, gdy próg zostanie przekroczony ponownie i warunek nie jest już spełniony.
+* **Klasyczne alerty metryk** — ten alert jest wyzwalany, gdy wartość określonej metryki przekroczy przypisany próg. Alert generuje powiadomienie w przypadku przekroczenia progu i spełnienia warunku alertu. W tym momencie alert jest uznawany za aktywowany. Generuje inne powiadomienie, gdy jest "rozwiązane" — to znaczy, gdy próg zostanie przekroczony, a warunek nie jest już spełniany.
 
-* **Alerty dziennika aktywności klasycznej** — alert dziennika przesyłania strumieniowego, który wyzwala wpis zdarzenia dziennik aktywności, który spełnia kryteria filtrowania. Te alerty mają tylko jeden stan "Aktywowany". Aparat alertów po prostu stosuje kryteria filtrowania do każdego nowego zdarzenia. Nie wyszukuje, aby znaleźć starsze wpisy. Te alerty mogą powiadamiać użytkownika o wystąpieniu nowego zdarzenia kondycji usługi lub gdy użytkownik lub aplikacja wykonuje operację w ramach subskrypcji, na przykład "Usuń maszynę wirtualną".
+* **Alerty dziennika aktywności klasycznej** — alert dziennika przesyłania strumieniowego, który jest wyzwalany dla wpisu zdarzenia dziennika aktywności, który odpowiada kryteriom filtrowania. Te alerty mają tylko jeden stan "aktywowany". Aparat alertów po prostu stosuje kryteria filtrowania do każdego nowego zdarzenia. Nie wyszukuje starszych wpisów. Te alerty mogą powiadamiać użytkownika o wystąpieniu nowego zdarzenia Service Health lub gdy użytkownik lub aplikacja wykonuje operację w ramach subskrypcji, na przykład "Usuń maszynę wirtualną".
 
-W przypadku danych dziennika zasobów dostępnych za pośrednictwem usługi Azure Monitor należy kierować dane do usługi Log Analytics i używać alertu kwerendy dziennika. Usługa Log Analytics korzysta teraz z [nowej metody alertów](../../azure-monitor/platform/alerts-overview.md) 
+W przypadku danych dzienników zasobów dostępnych za pomocą Azure Monitor należy skierować dane do Log Analytics i użyć alertu zapytania dziennika. Log Analytics teraz używa [nowej metody alertów](../../azure-monitor/platform/alerts-overview.md) 
 
-Na poniższym diagramie podsumowano źródła danych w usłudze Azure Monitor i, pod względem koncepcyjnym, jak można alertować o tych danych.
+Poniższy diagram podsumowuje źródła danych w Azure Monitor i pojęciowo, w jaki sposób można ostrzec o tych danych.
 
-![Wyjaśniono alerty](media/alerts-classic.overview/Alerts_Overview_Resource_v5.png)
+![Objaśniono alerty](media/alerts-classic.overview/Alerts_Overview_Resource_v5.png)
 
 ## <a name="taxonomy-of-alerts-classic"></a>Taksonomia alertów (klasyczny)
-Platforma Azure używa następujących terminów do opisywania klasycznych alertów i ich funkcji:
-* **Alert** — definicja kryteriów (co najmniej jedna reguła lub warunki), która staje się aktywowana po spełnieniu.
-* **Aktywny** — stan, w którym spełnione są kryteria zdefiniowane przez alert klasyczny.
-* **Rozwiązano** — stan, w którym kryteria zdefiniowane przez alert klasyczny nie są już spełniane po spełnieniu wcześniej.
-* **Powiadomienie** - akcja podjęta na podstawie klasycznego alertu staje się aktywna.
-* **Akcja** — określone wywołanie wysłane do odbiorcy powiadomienia (na przykład wysłanie adresu e-mail lub opublikowanie adresu URL elementu webhook). Powiadomienia mogą zwykle wyzwalać wiele akcji.
+Na platformie Azure są używane następujące warunki do opisywania klasycznych alertów i ich funkcji:
+* **Alert** — definicja kryteriów (co najmniej jedna reguła lub warunki), które zostaną aktywowane po spełnieniu.
+* Stan **aktywny** — gdy spełnione są kryteria zdefiniowane przez alert klasyczny.
+* **Rozwiązano** — stan, gdy kryteria zdefiniowane przez alert klasyczny nie są już spełnione po wcześniejszym spełnieniu.
+* **Powiadomienie** — Akcja podejmowana na podstawie klasycznego alertu, który staje się aktywny.
+* **Akcja** — określone wywołanie wysyłane do odbiorcy powiadomienia (na przykład wysyłanie pocztą e-mail adresu lub ogłaszanie na adres URL elementu webhook). Powiadomienia zazwyczaj mogą wyzwalać wiele akcji.
 
-## <a name="how-do-i-receive-a-notification-from-an-azure-monitor-classic-alert"></a>Jak otrzymać powiadomienie z klasycznego alertu usługi Azure Monitor?
-Historycznie alerty platformy Azure z różnych usług używane własne wbudowane metody powiadomień. 
+## <a name="how-do-i-receive-a-notification-from-an-azure-monitor-classic-alert"></a>Jak mogę odebrać powiadomienie z Azure Monitor klasycznego alertu?
+W przeszłości alerty platformy Azure z różnych usług używały własnych wbudowanych metod powiadomień. 
 
-Usługa Azure Monitor utworzyła grupę powiadomień wielokrotnegoużytnia o nazwie *grupy akcji*. Grupy akcji określają zestaw odbiorników dla powiadomienia. Za każdym razem, gdy zostanie aktywowany alert, który odwołuje się do grupy akcji, wszyscy odbiorcy otrzymują to powiadomienie. Grupy akcji umożliwiają ponowne użycie grupowania odbiorników (na przykład listy inżynierów dyżurnych) w wielu obiektach alertów. Grupy akcji obsługują powiadomienia, publikując na adresie URL elementu webhook oprócz adresów e-mail, numerów SMS i wielu innych akcji.  Aby uzyskać więcej informacji, zobacz [grupy akcji](../../azure-monitor/platform/action-groups.md). 
+Azure Monitor utworzyć grupowanie powiadomień wielokrotnego użytku o nazwie *grupy akcji*. Grupy akcji określają zestaw odbiorników dla powiadomienia. Za każdym razem, gdy zostanie uaktywniony alert odwołujący się do grupy akcji, wszyscy odbiorcy otrzymają to powiadomienie. Grupy akcji umożliwiają ponowne użycie grupowania odbiorników (na przykład listy inżynierów połączeń) w wielu obiektach alertów. Grupy akcji obsługują powiadomienie, ogłaszając na adres URL elementu webhook, a także adresy e-mail, numery SMS i inne czynności.  Aby uzyskać więcej informacji, zobacz [grupy akcji](../../azure-monitor/platform/action-groups.md). 
 
-Starsze alerty dziennika aktywności klasycznej używają grup akcji.
+Starsze alerty klasycznego dziennika aktywności korzystają z grup akcji.
 
-Jednak starsze alerty metryki nie używają grup akcji. Zamiast tego można skonfigurować następujące akcje: 
-- Wysyłaj powiadomienia e-mail do administratora usługi, do współadministratorów lub na dodatkowe adresy e-mail, które określisz.
-- Wywołanie elementu webhook, który umożliwia uruchamianie dodatkowych akcji automatyzacji.
+Jednak starsze alerty metryk nie korzystają z grup akcji. Zamiast tego można skonfigurować następujące akcje: 
+- Wysyłaj powiadomienia e-mail do administratora usługi, współadministratorzy lub adresy e-mail określone przez użytkownika.
+- Wywoływanie elementu webhook, który umożliwia uruchamianie dodatkowych akcji automatyzacji.
 
-Elementy webhooks umożliwia automatyzację i korygowanie, na przykład za pomocą:
+Elementy webhook umożliwiają automatyzację i korygowanie, na przykład przy użyciu:
 - Element Runbook usługi Azure Automation
 - Funkcja platformy Azure
 - Aplikacja logiki platformy Azure
 - usługa innej firmy
 
 ## <a name="next-steps"></a>Następne kroki
-Uzyskaj informacje o regułach alertów i konfigurowaniu ich przy użyciu:
+Uzyskaj informacje na temat reguł alertów i skonfiguruj je przy użyciu:
 
 * Dowiedz się więcej o [metrykach](data-platform.md)
-* Konfigurowanie [klasycznych alertów metryk za pośrednictwem witryny Azure portal](alerts-classic-portal.md)
-* Konfigurowanie [klasycznych alertów metrycznych programu PowerShell](alerts-classic-portal.md)
-* Konfigurowanie [klasycznego interfejsu wiersza polecenia alertów metrycznych (CLI)](alerts-classic-portal.md)
-* Konfigurowanie [klasycznego interfejsu API interfejsu API interfejsu REST monitora azure monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* Dowiedz się więcej o [Dzienniku aktywności](platform-logs-overview.md)
-* Konfigurowanie [alertów dziennika aktywności za pośrednictwem witryny Azure portal](activity-log-alerts.md)
-* Konfigurowanie [alertów dziennika aktywności za pośrednictwem Menedżera zasobów](alerts-activity-log.md)
-* Przeglądanie [schematu programu webhook alertu dziennika aktywności](activity-log-alerts-webhook.md)
-* Dowiedz się więcej o [grupach akcji](action-groups.md)
-* Konfigurowanie [nowszych alertów](alerts-metric.md)
+* Konfigurowanie [klasycznych alertów metryk za pośrednictwem Azure Portal](alerts-classic-portal.md)
+* Konfigurowanie [klasycznych alertów metryk programu PowerShell](alerts-classic-portal.md)
+* Konfigurowanie [klasycznego alertu metryki interfejsu wiersza polecenia (CLI)](alerts-classic-portal.md)
+* Konfigurowanie [klasycznych alertów metryk Azure monitor interfejs API REST](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* Dowiedz się więcej o [dzienniku aktywności](platform-logs-overview.md)
+* Konfigurowanie [alertów dziennika aktywności za pośrednictwem Azure Portal](activity-log-alerts.md)
+* Konfigurowanie [alertów dziennika aktywności za pośrednictwem Menedżer zasobów](alerts-activity-log.md)
+* Przejrzyj [schemat elementu webhook alertu dziennika aktywności](activity-log-alerts-webhook.md)
+* Dowiedz się więcej na temat [grup akcji](action-groups.md)
+* Skonfiguruj [nowsze alerty](alerts-metric.md)

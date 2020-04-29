@@ -1,89 +1,89 @@
 ---
-title: Aktualizowanie aplikacji logiki & uruchomieniu do migracji alertów
-description: Dowiedz się, jak zmodyfikować elementy webhook, aplikacje logiki i elementy runbook, aby przygotować się do dobrowolnej migracji.
+title: Aktualizowanie aplikacji logiki & elementów Runbook dla migracji alertów
+description: Dowiedz się, jak modyfikować elementy webhook, Logic Apps i Runbook, aby przygotować się do dobrowolnej migracji.
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
 ms.openlocfilehash: f31fcc07bed0287c2f86ca4fe52bf02a2a1d2a71
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114407"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Przygotowywanie aplikacji logiki i elementów Runbook do migracji reguł alertów klasycznych
 
-Zgodnie [z wcześniejszymi zapowiedziami](monitoring-classic-retirement.md)klasyczne alerty w usłudze Azure Monitor są wycofywane we wrześniu 2019 r. (pierwotnie w lipcu 2019 r.). Narzędzie do migracji jest dostępne w witrynie Azure portal dla klientów, którzy używają klasycznych reguł alertów i którzy sami chcą wyzwolić migrację.
+Zgodnie z [dotychczas ogłoszone](monitoring-classic-retirement.md), klasyczne alerty w Azure monitor są wycofywane we wrześniu 2019 (wersja była pierwotnie 2019 lipca). Narzędzie do migracji jest dostępne w Azure Portal do klientów korzystających z klasycznych reguł alertów i którzy chcą wyzwolić migrację.
 
 > [!NOTE]
-> Ze względu na opóźnienie we wprowadzaniu narzędzia migracji data wycofania dla migracji alertów klasycznych została przedłużona do 31 sierpnia 2019 r. z pierwotnie ogłoszonej daty 30 czerwca 2019 r.
+> Z powodu opóźnienia w wycofywaniu narzędzia migracji Data wycofania migracji klasycznych alertów została rozszerzona do 31 sierpnia 2019 od pierwotnie ogłoszonej daty 30 czerwca 2019.
 
-Jeśli zdecydujesz się dobrowolnie migrować klasyczne reguły alertów do nowych reguł alertów, należy pamiętać, że istnieją pewne różnice między tymi dwoma systemami. W tym artykule wyjaśniono te różnice i jak można przygotować się do zmiany.
+Jeśli zdecydujesz się na dobrowolne Migrowanie reguł alertów klasycznych do nowych reguł alertów, pamiętaj, że istnieją pewne różnice między tymi dwoma systemami. W tym artykule opisano te różnice i sposób przygotowania do zmiany.
 
-## <a name="api-changes"></a>Zmiany api
+## <a name="api-changes"></a>Zmiany interfejsu API
 
-Interfejsy API, które tworzą klasyczne`microsoft.insights/alertrules`reguły alertów i nimi zarządzają ( )`microsoft.insights/metricalerts`różnią się od interfejsów API, które tworzą nowe alerty metryki i zarządzają nimi ( ). Jeśli programowo utworzyć i zarządzać klasyczne reguły alertów dzisiaj, zaktualizować skrypty wdrażania do pracy z nowymi interfejsami API.
+Interfejsy API, które tworzą i zarządzają klasycznymi`microsoft.insights/alertrules`regułami alertów (), różnią się od interfejsów API,`microsoft.insights/metricalerts`które tworzą nowe alerty metryk () i zarządzają nimi. W przypadku programistycznego tworzenia i zarządzania klasycznymi regułami alertów należy zaktualizować skrypty wdrażania, aby współpracowały z nowymi interfejsami API.
 
-Poniższa tabela jest odwołaniem do interfejsów programowych dla alertów klasycznych i nowych:
+Poniższa tabela zawiera odwołanie do interfejsów programistycznych zarówno dla klasycznego, jak i nowego alertu:
 
-|         |Alerty klasyczne  |Nowe alerty metryki |
+|         |Alerty klasyczne  |Nowe alerty metryk |
 |---------|---------|---------|
-|Interfejs API REST     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
-|Interfejs wiersza polecenia platformy Azure     | [alert monitora az](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [alert o metrykach monitora az](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|Interfejs API REST     | [Microsoft. Insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [Microsoft. Insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
+|Interfejs wiersza polecenia platformy Azure     | [AZ monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [AZ Monitoruj metryki alertu](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [Dokumentacja](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Dokumentacja](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
-| Szablon usługi Azure Resource Manager | [W przypadku klasycznych alertów](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Nowe alerty dotyczące metryk](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
+| Szablon usługi Azure Resource Manager | [W przypadku alertów klasycznych](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Nowe alerty metryki](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
 ## <a name="notification-payload-changes"></a>Zmiany ładunku powiadomień
 
-Format ładunku powiadomień różni się nieco między [klasycznymi regułami alertów](alerts-webhooks.md) a [nowymi alertami metryk.](alerts-metric-near-real-time.md#payload-schema) Jeśli masz żadnych webhook, aplikacji logiki lub runbook akcje, które są wyzwalane przez klasyczne reguły alertów, należy zaktualizować te punkty końcowe powiadomień, aby zaakceptować format ładunku nowych alertów metryki.
+Format ładunku powiadomień jest nieco inny między [klasycznymi regułami alertów](alerts-webhooks.md) i [nowymi alertami metryki](alerts-metric-near-real-time.md#payload-schema). Jeśli masz akcje elementu webhook, aplikacji logiki lub elementu Runbook, które są wyzwalane przez klasyczne reguły alertów, musisz zaktualizować te punkty końcowe powiadomień, aby akceptowały format ładunku nowych alertów metryk.
 
-Poniższa tabela służy do mapowania pól ładunku elementu webhook z formatu klasycznego na nowy format:
+Skorzystaj z poniższej tabeli, aby zmapować pola ładunku elementu webhook z klasycznego formatu do nowego formatu:
 
-|  |Alerty klasyczne  |Nowe alerty metryki |
+|  |Alerty klasyczne  |Nowe alerty metryk |
 |---------|---------|---------|
-|Czy alert został aktywowany lub rozwiązany?    | **Stan**       | **data.status** |
-|Informacje kontekstowe o wpisie     | **Kontekście**        | **data.context**        |
-|Sygnatura czasowa, w której alert został aktywowany lub rozwiązany     | **sygnatura czasowa context.time**       | **data.context.timestamp**        |
+|Czy alert został aktywowany lub rozwiązany?    | **Stany**       | **Data. status** |
+|Informacje kontekstowe dotyczące alertu     | **Context**        | **Data. Context**        |
+|Sygnatura czasowa, o której alert został aktywowany lub rozwiązany     | **Context. timestamp**       | **Data. Context. timestamp**        |
 | Identyfikator reguły alertu | **context.id** | **data.context.id** |
 | Nazwa reguły alertu | **context.name** | **data.context.name** |
-| Opis reguły alertu | **context.description** | **data.context.description** |
-| Warunek reguły alertu | **context.condition** | **data.context.condition** |
-| Nazwa metryki | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
-| Agregacja czasu (jak metryka jest agregowana w oknie oceny)| **context.condition.timeAgregacja** | **context.condition.timeAgregacja** |
-| Okres oceny | **context.condition.windowSize** | **data.context.condition.windowZmiaśnia** |
-| Operator (jak porównywana jest zagregowana wartość metryki z wartością progową) | **context.condition.operator** | **data.context.condition.operator** |
-| Próg | **context.condition.threshold** | **data.context.condition.allOf[0].próg** |
-| Wartość metryczna | **context.condition.metricWartość** | **data.context.condition.allOf[0].metricValue** |
-| Identyfikator subskrypcji | **identyfikator context.subscriptionId** | **identyfikator data.context.subscriptionId** |
-| Grupa zasobów zasobu, którego dotyczy problem | **context.resourceGroup** | **data.context.resourceGroup** |
-| Nazwa zasobu, którego dotyczy problem | **nazwa pliku context.resourceName** | **data.context.resourceName** |
-| Typ zasobu, którego dotyczy problem | **context.resourceType** | **data.context.resourceType** |
-| Identyfikator zasobu, którego dotyczy problem | **identyfikator context.resource** | **identyfikator data.context.resourceId** |
-| Bezpośrednie łącze do strony podsumowania zasobów portalu | **context.portalLink** | **data.context.portalLink** |
-| Niestandardowe pola ładunku, które mają być przekazywane do elementu webhook lub aplikacji logiki | **Właściwości** | **data.properties** |
+| Opis reguły alertu | **Context. Description** | **Data. Context. Description** |
+| Warunek reguły alertu | **Context. Condition** | **Data. Context. Condition** |
+| Nazwa metryki | **Context. Condition. metricname** | **Data. Context. Condition. allOf [0]. metricname** |
+| Agregacja czasu (stopień agregowania metryki w oknie oceny)| **Context. Condition. timeAggregation** | **Context. Condition. timeAggregation** |
+| Okres próbny | **Context. Condition. windowSize** | **Data. Context. Condition. windowSize** |
+| Operator (jak zagregowana wartość metryki jest porównywana z progiem) | **Context. Condition. operator** | **Data. Context. Condition. operator** |
+| Próg | **Context. Condition. Threshold** | **Data. Context. Condition. allOf [0]. próg** |
+| Wartość metryki | **Context. Condition. metricValue** | **Data. Context. Condition. allOf [0]. metricValue** |
+| Identyfikator subskrypcji | **Context. Identyfikator subskrypcji** | **Data. Context. Identyfikator subskrypcji** |
+| Grupa zasobów zasobu, którego to dotyczy | **Context. resources** | **Data. Context. resources** |
+| Nazwa zasobu, którego to dotyczy | **Context. resourceName** | **Data. Context. resourceName** |
+| Typ zasobu, którego to dotyczy | **Context. ResourceType** | **Data. Context. ResourceType** |
+| Identyfikator zasobu zasobu, którego to dotyczy | **Context. resourceId** | **Data. Context. resourceId** |
+| Bezpośredni link do strony podsumowania zasobów portalu | **Context. portalLink** | **Data. Context. portalLink** |
+| Pola ładunków niestandardowych do przesłania do elementu webhook lub aplikacji logiki | **aœciwoœci** | **Data. Properties** |
 
-Ładunki są podobne, jak widać. W poniższej sekcji przedstawiono następujące informacje:
+Ładunki są podobne, jak widać. W poniższej sekcji przedstawiono:
 
-- Szczegółowe informacje na temat modyfikowania aplikacji logiki do pracy z nowym formatem.
-- Przykład owy, który analizuje ładunek powiadomień dla nowych alertów.
+- Szczegółowe informacje o modyfikowaniu aplikacji logiki w celu pracy z nowym formatem.
+- Przykład elementu Runbook, który analizuje ładunek powiadomienia dla nowych alertów.
 
-## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>Modyfikowanie aplikacji logiki w celu odebrania powiadomienia o alertach metryk
+## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>Modyfikowanie aplikacji logiki w celu otrzymywania powiadomienia o alercie
 
-Jeśli używasz aplikacji logiki z alertami klasycznymi, należy zmodyfikować kod aplikacji logiki, aby przeanalizować ładunek alertów nowej metryki. Wykonaj następujące kroki:
+Jeśli używasz usługi Logic Apps z alertami klasycznymi, musisz zmodyfikować kod aplikacji logiki, aby przeanalizować nowy ładunek alertów metryk. Wykonaj następujące kroki:
 
 1. Utwórz nową aplikację logiki.
 
-1. Użyj szablonu "Azure Monitor — Metrics Alert Handler". Ten szablon ma wyzwalacz **żądania HTTP** z odpowiednim zdefiniowanym schematem.
+1. Użyj szablonu "Azure Monitor-Metrics Handler". Ten szablon ma wyzwalacz **żądania HTTP** z zdefiniowanym odpowiednim schematem.
 
-    ![logika-app-szablon](media/alerts-migration/logic-app-template.png "Szablon alertu metryki")
+    ![Logika — aplikacja — szablon](media/alerts-migration/logic-app-template.png "Szablon alertu metryki")
 
-1. Dodaj akcję do hosta logiki przetwarzania.
+1. Dodaj akcję do hostowania logiki przetwarzania.
 
-## <a name="use-an-automation-runbook-that-receives-a-metric-alert-notification"></a>Użyj systemu runbook automatyzacji, który odbiera powiadomienie o alertach metryki
+## <a name="use-an-automation-runbook-that-receives-a-metric-alert-notification"></a>Korzystanie z elementu Runbook usługi Automation, który odbiera powiadomienie o alercie
 
-Poniższy przykład zawiera kod programu PowerShell do użycia w życiówce. Ten kod można przeanalizować ładunki dla reguł alertów klasycznej metryki i nowych reguł alertów metryki.
+Poniższy przykład zawiera kod programu PowerShell do użycia w elemencie Runbook. Ten kod może analizować ładunki dla zarówno klasycznych reguł alertów metryk, jak i nowych reguł alertów dotyczących metryk.
 
 ```PowerShell
 ## Example PowerShell code to use in a runbook to handle parsing of both classic and new metric alerts.
@@ -150,17 +150,17 @@ else {
 
 ```
 
-Pełny przykład uruchomieniu, który zatrzymuje maszynę wirtualną po wyzwoleniu alertu, zobacz [dokumentację usługi Azure Automation.](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook)
+Pełny przykład elementu Runbook, który zatrzyma maszynę wirtualną w przypadku wyzwolenia alertu, znajduje się w [dokumentacji Azure Automation](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook).
 
-## <a name="partner-integration-via-webhooks"></a>Integracja z partnerami za pośrednictwem elementów webhook
+## <a name="partner-integration-via-webhooks"></a>Integracja z partnerem za pośrednictwem elementów webhook
 
-Większość [naszych partnerów, którzy integrują się z klasycznymi alertami,](https://docs.microsoft.com/azure/azure-monitor/platform/partners) obsługuje już nowsze alerty metryczne za pośrednictwem ich integracji. Znane integracje, które już działają z nowymi alertami metryk są:
+Większość [naszych partnerów, którzy integrują się z klasycznymi alertami,](https://docs.microsoft.com/azure/azure-monitor/platform/partners) już obsługują nowsze alerty metryki za pomocą ich integracji. Znane integracji, które już pracują z nowymi alertami metryk są następujące:
 
 - [PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)
-- [Znak 4](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/)
+- [Aplikacji signl4](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/)
 
-Jeśli używasz integracji partnera, który nie jest wymieniony w tym miejscu, upewnij się z dostawcą integracji, że integracja działa z nowymi alertami metryki.
+Jeśli używasz integracji partnera, która nie jest wymieniona w tym miejscu, potwierdź u dostawcy integracji, że integracja współpracuje z nowymi alertami metryk.
 
 ## <a name="next-steps"></a>Następne kroki
 

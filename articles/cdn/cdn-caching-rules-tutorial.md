@@ -15,16 +15,16 @@ ms.date: 04/20/2018
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: 3d52b9a6842c13e9141fd081e10156e3866c163f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81254312"
 ---
 # <a name="tutorial-set-azure-cdn-caching-rules"></a>Samouczek — konfigurowanie reguł buforowania usługi Azure CDN
 
 > [!NOTE] 
-> Reguły buforowania są dostępne tylko dla **usługi Azure CDN Standard firmy Verizon** i Azure **CDN Standard z profilów Akamai.** W przypadku **usługi Azure CDN z** profilów firmy Microsoft należy użyć aparatu reguł standardowych dla [usługi](cdn-standard-rules-engine-reference.md) **Azure CDN Premium z** profilów Verizon, należy użyć aparatu reguł [Verizon Premium](cdn-rules-engine.md) w portalu **Zarządzanie** dla podobnych funkcji.
+> Reguły buforowania są dostępne tylko dla **Azure CDN Standard from Verizon** i **Azure CDN Standard from Akamai** profile. Aby uzyskać **Azure CDN z profilów firmy Microsoft** , należy użyć [standardowego aparatu reguł](cdn-standard-rules-engine-reference.md) dla **Azure CDN Premium w** profilach Verizon, należy użyć [aparatu reguł Verizon w warstwie Premium](cdn-rules-engine.md) w portalu **zarządzania** , aby uzyskać podobną funkcjonalność.
  
 
 W tym samouczku opisano, jak można użyć reguł buforowania usługi Azure Content Delivery Network (CDN) do ustawiania lub modyfikowania domyślnego zachowania wygaśnięcia pamięci podręcznej globalnie i w warunkach niestandardowych — np. w przypadku ścieżki adresu URL i rozszerzenia pliku. Usługa Azure CDN oferuje dwa typy reguł buforowania:
@@ -32,7 +32,7 @@ W tym samouczku opisano, jak można użyć reguł buforowania usługi Azure Cont
 
 - Niestandardowe reguły buforowania: można skonfigurować co najmniej jedną niestandardową regułę buforowania dla każdego punktu końcowego w profilu. Niestandardowe reguły buforowania pasują do określonych ścieżek i rozszerzeń plików, są przetwarzane kolejno i zastępują globalną regułę buforowania, jeśli została ustawiona. 
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > - Otwórz stronę reguł buforowania.
 > - Utwórz globalną regułę buforowania.

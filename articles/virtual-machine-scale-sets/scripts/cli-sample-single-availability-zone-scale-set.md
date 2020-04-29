@@ -1,6 +1,6 @@
 ---
-title: Przykłady interfejsu wiersza polecenia platformy Azure — zestaw skalowania jednostrefowego
-description: Ten skrypt tworzy zestaw skalowania maszyny wirtualnej platformy Azure z uruchomionym Ubuntu w jednej strefie dostępności.
+title: Przykłady interfejsu wiersza polecenia platformy Azure — zestaw skalowania z jedną strefą
+description: Ten skrypt tworzy zestaw skalowania maszyn wirtualnych platformy Azure z systemem Ubuntu w jednej strefie dostępności.
 author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
@@ -10,10 +10,10 @@ ms.date: 03/27/2018
 ms.author: jushiman
 ms.custom: mvc
 ms.openlocfilehash: cd41f21c5390ca0d2c62c1989d46f3d4c0ec36f8
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81011008"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-the-azure-cli"></a>Tworzenie jednostrefowego zestawu skalowania maszyn wirtualnych za pomocą interfejsu wiersza polecenia platformy Azure

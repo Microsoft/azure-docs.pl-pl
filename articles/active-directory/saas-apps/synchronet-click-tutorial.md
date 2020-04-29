@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (Logowanie jednokrotne) z przyciskiem "SynchroNet CLICK" | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a przyciskiem CLICK w usłudze SynchroNet.
+title: 'Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą SynchroNet kliknij pozycję | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory a SynchroNet KLIKNIĘCIEm.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,131 +16,131 @@ ms.date: 04/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f10e9abbc3f298e1ac0697b43fb3b4b6b3d25abd
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81265594"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-synchronet-click"></a>Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (Logowanie jednokrotne) z przyciskiem "SynchroNet CLICK"
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-synchronet-click"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z SynchroNet KLIKNIĘCIEm
 
-W tym samouczku dowiesz się, jak zintegrować przycisk KLIK W usłudze SynchroNet z usługą Azure Active Directory (Azure AD). Po zintegrowaniu przycisku KLIK W usłudze SynchroNet z usługą Azure AD można:
+W tym samouczku dowiesz się, jak zintegrować usługę SynchroNet, klikając pozycję Azure Active Directory (Azure AD). Po zintegrowaniu SynchroNet z usługą Azure AD można:
 
-* Kontrola w usłudze Azure AD, który ma dostęp do KLIKNU SIECI SynchroNet.
-* Włącz użytkownikom automatyczne logowanie do przycisku Klik w usłudze SynchroNet za pomocą ich kont usługi Azure AD.
-* Zarządzaj kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
+* Kontrolka w usłudze Azure AD, która ma dostęp do SynchroNet kliknięcia.
+* Zezwól użytkownikom na automatyczne logowanie się, aby SynchroNet kliknięcia przy użyciu swoich kont usługi Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby rozpocząć, potrzebujesz następujących elementów:
+Aby rozpocząć, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto.](https://azure.microsoft.com/free/)
-* Subskrypcja z włączoną funkcją logowania jednokrotnego (SSO) w sieci SynchroNet CLICK.
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
+* SynchroNet kliknij pozycję subskrypcja z włączonym logowaniem jednokrotnym (SSO).
 
 > [!NOTE]
-> Identyfikator tej aplikacji jest stałą wartością ciągu, więc tylko jedno wystąpienie można skonfigurować w jednej dzierżawie.
+> Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-W tym samouczku można skonfigurować i przetestować samouszeńców usługi Azure AD w środowisku testowym.
+W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* SynchroNet CLICK obsługuje sso inicjowane przez **SP**
-* Po skonfigurowaniu przycisku SynchroNet CLICK można wymusić kontrolę sesji, które chronią eksfiltrację i infiltrację poufnych danych organizacji w czasie rzeczywistym. Kontrola sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymusić kontrolę nad sesją za pomocą programu Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* SynchroNet kliknij pozycję Obsługa logowania jednokrotnego w usłudze **SP**
+* Po skonfigurowaniu SynchroNet kliknij pozycję można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-synchronet-click-from-the-gallery"></a>Dodawanie Przycisku KLIKNIJ SynchroNet z galerii
+## <a name="adding-synchronet-click-from-the-gallery"></a>Dodawanie SynchroNet kliknięcia z galerii
 
-Aby skonfigurować integrację przycisku KLIKA synchronetu z usługą Azure AD, należy dodać przycisk KLIK W usłudze SynchroNet z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację SynchroNet, kliknij pozycję w usłudze Azure AD, musisz dodać SynchroNet z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) przy użyciu konta służbowego lub konta firmy Microsoft.
-1. W lewym okienku nawigacji wybierz usługę **Azure Active Directory.**
-1. Przejdź do **aplikacji korporacyjnych,** a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
-1. W sekcji **Dodaj z galerii** wpisz **przycisk SynchroNet CLICK** w polu wyszukiwania.
-1. Wybierz **przycisk SynchroNet CLICK** z panelu wyników, a następnie dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. W sekcji **Dodaj z galerii** wpisz **SynchroNet kliknij** w polu wyszukiwania.
+1. Wybierz pozycję **SynchroNet** w panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-synchronet-click"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD dla przycisku kliknięcia sieci SynchroNet
+## <a name="configure-and-test-azure-ad-single-sign-on-for-synchronet-click"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla SynchroNet
 
-Konfigurowanie i testowanie usługi Azure AD SSO za pomocą przycisku SynchroNet CLICK przy użyciu użytkownika testowego o nazwie **B.Simon**. Aby jedno przysłowie działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w aplikacji SynchroNet CLICK.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą SynchroNet, klikając przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w SynchroNet kliknięcia.
 
-Aby skonfigurować i przetestować jedno i ponowne uszy usługi Azure AD za pomocą przycisku KLIK w usłudze SynchroNet, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą SynchroNet kliknij, wykonaj następujące bloki konstrukcyjne:
 
-1. **[Skonfiguruj samouszeńcę usługi Azure AD](#configure-azure-ad-sso)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD za pomocą usługi B.Simon.
-    1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić B.Simon używać logowania jednokrotnego usługi Azure AD.
-1. **[Skonfiguruj logowanie jednokrotne przycisków SSO z przyciskiem myszy SynchroNet CLICK](#configure-synchronet-click-sso)** - aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
-    1. **[Utwórz użytkownika testowego SynchroNet CLICK](#create-synchronet-click-test-user)** — aby mieć odpowiednik B.Simon w synchroNet CLICK, który jest połączony z reprezentacją użytkownika usługi Azure AD.
-1. **[Test SSO](#test-sso)** - aby sprawdzić, czy konfiguracja działa.
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+    1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
+1. **[Skonfiguruj SynchroNet kliknij pozycję Logowanie jednokrotne](#configure-synchronet-click-sso)** — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+    1. **[Utwórz SynchroNet kliknij pozycję Testuj użytkownika](#create-synchronet-click-test-user)** — Aby uzyskać odpowiednik elementu B. Simon w SynchroNet kliknij, który jest połączony z reprezentacją użytkownika usługi Azure AD.
+1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azure portal.
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie Integracja aplikacji **SynchroNet CLICK** znajdź sekcję **Zarządzaj** i wybierz **opcję logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie **SynchroNet kliknij pozycję** integracja aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** kliknij ikonę edycji/pióra dla **podstawowej konfiguracji SAML,** aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. W sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
+1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
-    W polu tekstowym **Podpisz adres URL** wpisz adres URL:`https://click.synchronet.com`
+    W polu tekstowym **adres URL logowania** wpisz adres URL:`https://click.synchronet.com`
 
-1. Aplikacja SynchroNet CLICK oczekuje potwierdzeń SAML w określonym formacie, który wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych, gdzie jako **adres e-mail** jest mapowany z **user.mail**. Aplikacja SynchroNet CLICK oczekuje, że **adres e-mail** zostanie zamapowany na **user.userprincipalname**, więc musisz edytować mapowanie atrybutów, klikając ikonę **Edytuj** i zmienić mapowanie atrybutów.
+1. SynchroNet kliknięcie aplikacji oczekuje potwierdzenia SAML w określonym formacie, co wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych, gdzie **EmailAddress** jest zamapowany z **użytkownikiem. mail**. SynchroNet kliknij pozycję aplikacja oczekuje, że **EmailAddress** mają być mapowane przy użyciu elementu **User. userPrincipalName**, więc musisz edytować Mapowanie atrybutów, klikając ikonę **Edytuj** i zmieniając mapowanie atrybutu.
 
     ![image](common/edit-attribute.png)
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** w sekcji **Certyfikat podpisywania SAML** kliknij przycisk kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-W tej sekcji utworzysz użytkownika testowego w witrynie Azure portal o nazwie B.Simon.
+W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-1. Z lewego okienka w witrynie Azure portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
-1. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
-1. We właściwościach **Użytkownika** wykonaj następujące kroki:
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** username@companydomain.extensionwprowadź pole . Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji włączysz B.Simon do korzystania z logowania jednokrotnego platformy Azure, udzielając dostępu do przycisku KLIK W sieci SynchroNet.
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure, przyznając dostęp do SynchroNet kliknięcia.
 
-1. W portalu Azure wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **Wszystkie aplikacje**.
-1. Na liście aplikacji wybierz pozycję **SynchroNet CLICK**.
-1. Na stronie przegląd aplikacji znajdź sekcję **Zarządzaj** i wybierz pozycję **Użytkownicy i grupy**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Na liście Aplikacje wybierz pozycję SynchroNet, a **następnie kliknij pozycję**.
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 
    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
-1. Wybierz **pozycję Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym Dodawanie **przydziału.**
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 
-    ![Łącze Dodaj użytkownika](common/add-assign-user.png)
+    ![Link Dodaj użytkownika](common/add-assign-user.png)
 
-1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B.Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-1. W oknie dialogowym **Dodawanie przydziału** kliknij przycisk **Przypisz.**
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-## <a name="configure-synchronet-click-sso"></a>Konfigurowanie jednoliczenia przycisków SSO przycisków SYC
+## <a name="configure-synchronet-click-sso"></a>Konfigurowanie SynchroNet kliknij pozycję Logowanie jednokrotne
 
-Aby skonfigurować logowanie jednokrotne po stronie **KLIK w sieci SynchroNet,** należy wysłać **adres URL metadanych federacji aplikacji** do zespołu pomocy technicznej [SynchroNet CLICK](mailto:tickets@synchronet.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować Logowanie jednokrotne na stronie **SynchroNet** , musisz wysłać **adres URL metadanych federacji aplikacji** do [SynchroNet kliknij zespół pomocy technicznej](mailto:tickets@synchronet.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
-### <a name="create-synchronet-click-test-user"></a>Utwórz użytkownika testowego SynchroNet CLICK
+### <a name="create-synchronet-click-test-user"></a>Utwórz SynchroNet użytkownika testowego
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w SynchroNet CLICK. Praca z [zespołem pomocy technicznej SynchroNet CLICK,](mailto:tickets@synchronet.com) aby dodać użytkowników na platformie SynchroNet CLICK. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w SynchroNet kliknij. Korzystając z [SynchroNet, kliknij pozycję zespół pomocy technicznej](mailto:tickets@synchronet.com) , aby dodać użytkowników w SynchroNet kliknij platformę. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
-## <a name="test-sso"></a>Test SSO 
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka SynchroNet CLICK w Panelu dostępu należy automatycznie zalogować się do przycisku KLIK W sieci SynchroNet, dla którego skonfigurowano logującą się logującą log. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka SynchroNet w panelu dostępu należy automatycznie zalogować się do SynchroNet, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
@@ -148,8 +148,8 @@ Po kliknięciu kafelka SynchroNet CLICK w Panelu dostępu należy automatycznie 
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Spróbuj przycisku SynchroNet CLICK z usługą Azure AD](https://aad.portal.azure.com/)
+- [Wypróbuj SynchroNet z usługą Azure AD](https://aad.portal.azure.com/)
 
-- [Co to jest kontrola sesji w usłudze Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Jak chronić SynchroNet CLICK z zaawansowaną widocznością i kontrolą](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Jak chronić SynchroNet, klikając z zaawansowaną widocznością i kontrolkami](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

@@ -1,5 +1,5 @@
 ---
-title: Punkt końcowy kontenera kwerendy zamiany tekstu na mowę
+title: Wykonywanie zapytania dotyczącego punktu końcowego kontenera zamiany tekstu na mowę
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,15 +9,15 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: b2a621a23a81e4fb4f47e7c99d780211973e30a0
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81275233"
 ---
-Kontener udostępnia [interfejsy API oparte na rest.](../rest-text-to-speech.md) Dostępnych jest wiele [przykładowych projektów kodu źródłowego](https://github.com/Azure-Samples/Cognitive-Speech-TTS) dla dostępnych odmian platformy, struktury i języka.
+Kontener zapewnia [interfejsy API punktu końcowego oparte na protokole REST](../rest-text-to-speech.md). Istnieje wiele [przykładowych projektów kodu źródłowego](https://github.com/Azure-Samples/Cognitive-Speech-TTS) dla dostępnych wariantów platformy, architektury i języka.
 
-W kontenerze *Standardowy tekst na mowę* należy polegać na ustawieniach regionalnych i głosach pobranego tagu obrazu. Na przykład, jeśli pobrałeś `latest` tag, `en-US` domyślne `JessaRUS` ustawienia regionalne są i głos. Argument `{VOICE_NAME}` będzie wtedy [`en-US-JessaRUS`](../language-support.md#standard-voices). Zobacz przykład SSML poniżej:
+Przy użyciu *standardowego kontenera zamiany tekstu na mowę* należy zależeć od ustawień regionalnych i głosu pobranego tagu obrazu. Na przykład jeśli pobrano `latest` znacznik, domyślne ustawienia regionalne to `en-US` i `JessaRUS` głos. Następnie `{VOICE_NAME}` argument będzie [`en-US-JessaRUS`](../language-support.md#standard-voices). Zobacz przykład SSML poniżej:
 
 ```xml
 <speak version="1.0" xml:lang="en-US">
@@ -27,9 +27,9 @@ W kontenerze *Standardowy tekst na mowę* należy polegać na ustawieniach regio
 </speak>
 ```
 
-Jednak w przypadku *niestandardowego tekstu na mowę* musisz uzyskać **głos / model** z [niestandardowego portalu głosowego](https://aka.ms/custom-voice-portal). Nazwa modelu niestandardowego jest synonimem nazwy głosowej. Przejdź do strony **Szkolenia** i skopiuj `{VOICE_NAME}` głos / **model,** aby użyć go jako argumentu.
+Jednak w przypadku *niestandardowej zamiany tekstu na mowę* należy uzyskać **dźwięk/model** z [niestandardowego portalu głosowego](https://aka.ms/custom-voice-portal). Niestandardowa nazwa modelu jest równoznaczna z nazwą głosu. Przejdź do strony **szkoleń** i skopiuj **dźwięk/model** , który ma być używany jako `{VOICE_NAME}` argument.
 <br><br>
-:::image type="content" source="../media/custom-voice/custom-voice-model-voice-name.png" alt-text="Niestandardowy model głosu - nazwa głosowa":::
+:::image type="content" source="../media/custom-voice/custom-voice-model-voice-name.png" alt-text="Niestandardowy model głosowy — nazwa głosu":::
 
 Zobacz przykład SSML poniżej:
 
@@ -41,7 +41,7 @@ Zobacz przykład SSML poniżej:
 </speak>
 ```
 
-Skonstruujmy żądanie HTTP POST, zapewniając kilka nagłówków i ładunek danych. Zastąp symbol zastępczy `{VOICE_NAME}` własną wartością.
+Utwórzmy żądanie HTTP POST, dostarczając kilka nagłówków i ładunek danych. Zastąp `{VOICE_NAME}` symbol zastępczy własną wartością.
 
 ```curl
 curl -s -v -X POST http://localhost:5000/speech/synthesize/cognitiveservices/v1 \
@@ -53,8 +53,8 @@ curl -s -v -X POST http://localhost:5000/speech/synthesize/cognitiveservices/v1 
 
 To polecenie:
 
-* Konstruuje żądanie HTTP `speech/synthesize/cognitiveservices/v1` POST dla punktu końcowego.
+* Tworzy żądanie HTTP POST dla `speech/synthesize/cognitiveservices/v1` punktu końcowego.
 * Określa `Accept` nagłówek`audio/*`
-* Określa `Content-Type` nagłówek `application/ssml+xml`, aby uzyskać więcej informacji, zobacz treść [żądania](../rest-text-to-speech.md#request-body).
-* Określa `X-Microsoft-OutputFormat` nagłówek `riff-16khz-16bit-mono-pcm`, aby uzyskać więcej opcji, zobacz wyjście [audio](../rest-text-to-speech.md#audio-outputs).
-* Wysyła żądanie [języka znaczników syntezy mowy (SSML)](../speech-synthesis-markup.md) podane `{VOICE_NAME}` do punktu końcowego.
+* Określa `Content-Type` nagłówek `application/ssml+xml`, aby uzyskać więcej informacji, zobacz [treść żądania](../rest-text-to-speech.md#request-body).
+* Określa `X-Microsoft-OutputFormat` nagłówek `riff-16khz-16bit-mono-pcm`, aby uzyskać więcej opcji, zobacz [dane wyjściowe audio](../rest-text-to-speech.md#audio-outputs).
+* Wysyła żądanie [SSML (Speech synteza Markup Language)](../speech-synthesis-markup.md) przyznany `{VOICE_NAME}` punktowi końcowemu.

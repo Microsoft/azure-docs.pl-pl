@@ -1,50 +1,50 @@
 ---
-title: Uaktualnianie węzłów klastra w celu używania dysków zarządzanych platformy Azure
-description: Poniżej opisano, jak uaktualnić istniejący klaster sieci szkieletowej usług, aby używać dysków zarządzanych platformy Azure z niewielkim lub żadnym przestojem klastra.
+title: Uaktualnianie węzłów klastra do korzystania z usługi Azure Managed disks
+description: Oto jak uaktualnić istniejący klaster Service Fabric, aby używać usługi Azure Managed disks z niewielkim lub żadnym przestojem klastra.
 ms.topic: how-to
 ms.date: 4/07/2020
 ms.openlocfilehash: 5f4698718a35970e47de2a0ee6d053802c8ef919
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80991215"
 ---
-# <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Uaktualnianie węzłów klastra w celu używania dysków zarządzanych platformy Azure
+# <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Uaktualnianie węzłów klastra do korzystania z usługi Azure Managed disks
 
-[Dyski zarządzane platformy Azure](../virtual-machines/windows/managed-disks-overview.md) są zalecaną ofertą magazynu dysków do użytku z maszynami wirtualnymi platformy Azure do trwałego przechowywania danych. Można zwiększyć odporność obciążeń sieci szkieletowej usług, uaktualniając zestawy skalowania maszyny wirtualnej, które są podstawą typów węzłów do używania dysków zarządzanych. Poniżej opisano, jak uaktualnić istniejący klaster sieci szkieletowej usług, aby używać dysków zarządzanych platformy Azure z niewielkim lub żadnym przestojem klastra.
+[Azure Managed disks](../virtual-machines/windows/managed-disks-overview.md) to zalecana oferta magazynu dyskowego do użycia z maszynami wirtualnymi platformy Azure na potrzeby trwałego magazynowania danych. Odporność obciążeń Service Fabric można zwiększyć, uaktualniając zestawy skalowania maszyn wirtualnych, które podstawą typy węzłów w celu używania dysków zarządzanych. Oto jak uaktualnić istniejący klaster Service Fabric, aby używać usługi Azure Managed disks z niewielkim lub żadnym przestojem klastra.
 
-Ogólna strategia uaktualniania węzła klastra sieci szkieletowej usług w celu użycia dysków zarządzanych jest:
+Ogólna strategia uaktualniania Service Fabric węzła klastra do korzystania z usługi Managed disks to:
 
-1. Wdrażanie w przeciwnym razie zduplikowany zestaw skalowania maszyny wirtualnej tego typu, ale z [managedDisk](https://docs.microsoft.com/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) obiektu dodane do `osDisk` sekcji szablonu wdrożenia zestawu skalowania maszyny wirtualnej. Nowy zestaw skalowania powinien być powiązany z tym samym modułem równoważenia obciążenia /IP co oryginał, aby klienci nie doświadczali awarii usługi podczas migracji.
+1. Wdróż duplikat zestawu skalowania maszyn wirtualnych w innym przypadku tego typu węzła, ale z obiektem [managedDisk](https://docs.microsoft.com/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) dodanym `osDisk` do sekcji szablonu wdrożenia zestawu skalowania maszyn wirtualnych. Nowy zestaw skalowania powinien być powiązany z tym samym modułem równoważenia obciążenia/IP jako oryginalny, dzięki czemu klienci nie napotykają przerwy w działaniu usługi podczas migracji.
 
-2. Gdy zarówno oryginalne, jak i uaktualnione zestawy skalowania są uruchomione obok siebie, wyłącz oryginalne wystąpienia węzłów po jednym naraz, tak aby usługi systemowe (lub repliki usług stanowych) były migrowane do nowego zestawu skalowania.
+2. Po uruchomieniu zarówno oryginalnego, jak i uaktualnionego zestawu skalowania obok siebie należy wyłączyć oryginalne wystąpienia węzłów pojedynczo, tak aby usługi systemowe (lub repliki usług stanowych) były migrowane do nowego zestawu skalowania.
 
 3. Sprawdź, czy klaster i nowe węzły są w dobrej kondycji, a następnie usuń oryginalny zestaw skalowania i stan węzła dla usuniętych węzłów.
 
-W tym artykule przejdziesz przez kroki uaktualniania typu węzła podstawowego przykładowego klastra w celu użycia dysków zarządzanych, unikając przestojów klastra (patrz uwaga poniżej). Stan początkowy przykładowego klastra testowego składa się z jednego typu węzła [Silver trwałość](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster), poparte jednym zestawem skali z pięciu węzłów.
+W tym artykule opisano kroki uaktualniania podstawowego typu węzła przykładowego klastra do korzystania z dysków zarządzanych, unikając czasu przestoju klastra (patrz Uwaga poniżej). Początkowy stan przykładowego klastra testowego składa się z jednego typu węzła o [trwałości Silver](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster), który jest objęty jednym zestawem skalowania z pięcioma węzłami.
 
 > [!CAUTION]
-> Wystąpi awaria w tej procedurze tylko wtedy, gdy masz zależności od klastra DNS (na przykład podczas uzyskiwania dostępu do [Eksploratora sieci szkieletowej usług).](service-fabric-visualizing-your-cluster.md) [Najlepszym rozwiązaniem architektury dla usług front-end](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) jest mieć pewnego rodzaju moduł [równoważenia obciążenia](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) przed typami węzłów, aby umożliwić wymianę węzłów bez awarii.
+> W tej procedurze wystąpi awaria tylko wtedy, gdy istnieją zależności w systemie DNS klastra (na przykład podczas uzyskiwania dostępu do [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). [Najlepszym rozwiązaniem w zakresie architektury dla usług frontonu](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) jest posiadanie pewnego rodzaju [modułu równoważenia obciążenia](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) przed typami węzłów w celu zapewnienia możliwości wymiany węzłów bez przestoju.
 
-Oto [szablony i polecenia cmdlet](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) dla usługi Azure Resource Manager, które użyliśmy do ukończenia scenariusza uaktualnienia. Zmiany szablonu zostaną wyjaśnione w [Deploy uaktualniony zestaw skalowania dla typu węzła podstawowego](#deploy-an-upgraded-scale-set-for-the-primary-node-type) poniżej.
+Poniżej przedstawiono [Szablony i polecenia cmdlet](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) dla Azure Resource Manager, które zostaną użyte do ukończenia scenariusza uaktualniania. Zmiany w szablonie zostaną omówione w temacie [Wdróż uaktualniony zestaw skalowania dla typu węzła podstawowego](#deploy-an-upgraded-scale-set-for-the-primary-node-type) poniżej.
 
 ## <a name="set-up-the-test-cluster"></a>Konfigurowanie klastra testowego
 
-Skonfigurujmy początkowy klaster testowy sieci szkieletowej usług. Najpierw [pobierz](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) przykładowe szablony Menedżera zasobów platformy Azure, których użyjemy do ukończenia tego scenariusza.
+Skonfigurujmy wstępny klaster testowy Service Fabric. Najpierw [Pobierz](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) przykładowe szablony usługi Azure Resource Manager, które zostaną użyte do wykonania tego scenariusza.
 
-Następnie zaloguj się do swojego konta platformy Azure.
+Następnie zaloguj się do konta platformy Azure.
 
 ```powershell
 # Sign in to your Azure account
 Login-AzAccount -SubscriptionId "<subscription ID>"
 ```
 
-Poniższe polecenia poprowadzą Cię przez generowanie nowego certyfikatu z podpisem własnym i wdrażanie klastra testowego. Jeśli masz już certyfikat, którego chcesz użyć, przejdź do [użyj istniejącego certyfikatu, aby wdrożyć klaster](#use-an-existing-certificate-to-deploy-the-cluster).
+Poniższe polecenia przeprowadzą Cię przez proces generowania nowego certyfikatu z podpisem własnym i wdrożenia klastra testowego. Jeśli masz już certyfikat, którego chcesz użyć, Pomiń, aby [użyć istniejącego certyfikatu do wdrożenia klastra](#use-an-existing-certificate-to-deploy-the-cluster).
 
-### <a name="generate-a-self-signed-certificate-and-deploy-the-cluster"></a>Generowanie certyfikatu z podpisem własnym i wdrażanie klastra
+### <a name="generate-a-self-signed-certificate-and-deploy-the-cluster"></a>Wygeneruj certyfikat z podpisem własnym i Wdróż klaster
 
-Najpierw przypisz zmienne potrzebne do wdrożenia klastra sieci szkieletowej usług. Dostosuj wartości `resourceGroupName`dla `certSubjectName` `parameterFilePath`, `templateFilePath` , i dla określonego konta i środowiska:
+Najpierw Przypisz zmienne, które będą potrzebne do wdrożenia klastra Service Fabric. `resourceGroupName`Dostosuj wartości dla `certSubjectName`, `parameterFilePath`, i `templateFilePath` dla określonego konta i środowiska:
 
 ```powershell
 # Assign deployment variables
@@ -57,11 +57,11 @@ $parameterFilePath = "C:\Initial-1NodeType-UnmanagedDisks.parameters.json"
 ```
 
 > [!NOTE]
-> Przed uruchomieniem `certOutputFolder` polecenia w celu wdrożenia nowego klastra sieci szkieletowej usług upewnij się, że lokalizacja istnieje na komputerze lokalnym.
+> Upewnij się, `certOutputFolder` że lokalizacja istnieje na komputerze lokalnym przed uruchomieniem polecenia, aby wdrożyć nowy klaster Service Fabric.
 
-Następnie otwórz plik [*Initial-1NodeType-UnmanagedDisks.parameters.json*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) i `clusterName` dostosuj `dnsName` wartości i odpowiada wartościom dynamicznym ustawionym w programie PowerShell i zapisz zmiany.
+Następnie otwórz plik [*Initial-1NodeType-UnmanagedDisks. Parameters. JSON*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) i Dostosuj wartości dla `clusterName` i `dnsName` , aby odpowiadały wartościom dynamicznym ustawionym w programie PowerShell, i Zapisz zmiany.
 
-Następnie wdrożyć klaster testowy sieci szkieletowej usług:
+Następnie wdróż klaster testowy Service Fabric:
 
 ```powershell
 # Deploy the initial test cluster
@@ -74,7 +74,7 @@ New-AzServiceFabricCluster `
     -ParameterFile $parameterFilePath
 ```
 
-Po zakończeniu wdrażania zlokalizuj plik`$certPfx` *.pfx* ( ) na komputerze lokalnym i zaimportuj go do magazynu certyfikatów:
+Po zakończeniu wdrażania zlokalizuj plik *PFX* (`$certPfx`) na komputerze lokalnym i zaimportuj go do magazynu certyfikatów:
 
 ```powershell
 cd c:\certificates
@@ -86,11 +86,11 @@ Import-PfxCertificate `
      -Password (ConvertTo-SecureString Password!1 -AsPlainText -Force)
 ```
 
-Operacja zwróci odcisk palca certyfikatu, który będzie używany do [łączenia się z nowym klastrem](#connect-to-the-new-cluster-and-check-health-status) i sprawdzania jego stanu kondycji. (Pomiń następującą sekcję, która jest alternatywnym podejściem do wdrażania klastra).
+Operacja zwróci odcisk palca certyfikatu, który zostanie użyty do [nawiązania połączenia z nowym klastrem](#connect-to-the-new-cluster-and-check-health-status) i sprawdzenia jego stanu kondycji. (Pomiń poniższą sekcję, która stanowi alternatywne podejście do wdrożenia klastra).
 
-### <a name="use-an-existing-certificate-to-deploy-the-cluster"></a>Wdrażanie klastra za pomocą istniejącego certyfikatu
+### <a name="use-an-existing-certificate-to-deploy-the-cluster"></a>Używanie istniejącego certyfikatu do wdrożenia klastra
 
-Można również użyć istniejącego certyfikatu usługi Azure Key Vault, aby wdrożyć klaster testowy. Aby to zrobić, musisz [uzyskać odwołania do usługi Key Vault](#obtain-your-key-vault-references) i odcisk palca certyfikatu.
+Do wdrożenia klastra testowego można także użyć istniejącego certyfikatu Azure Key Vault. Aby to zrobić, musisz [uzyskać odwołania do Key Vault](#obtain-your-key-vault-references) i odcisku palca certyfikatu.
 
 ```powershell
 # Key Vault variables
@@ -99,12 +99,12 @@ $sourceVaultValue = "/subscriptions/########-####-####-####-############/resourc
 $thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
 ```
 
-Otwórz plik [*Initial-1NodeType-UnmanagedDisks.parameters.json*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) i zmień `clusterName` `dnsName` wartości dla i na coś wyjątkowego.
+Otwórz plik [*Initial-1NodeType-UnmanagedDisks. Parameters. JSON*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) i zmień wartości dla `clusterName` i `dnsName` na unikatową.
 
-Na koniec należy wyznaczyć nazwę grupy zasobów `templateFilePath` dla `parameterFilePath` klastra i ustawić lokalizacje plików *Initial-1NodeType-UnmanagedDisks:*
+Na koniec należy wyznaczyć nazwę grupy zasobów dla klastra i ustawić `templateFilePath` `parameterFilePath` lokalizacje plików *początkowego-1NodeType-UnmanagedDisks* :
 
 > [!NOTE]
-> Wyznaczona grupa zasobów musi już istnieć i znajdować się w tym samym regionie co Magazyn kluczy.
+> Wskazana Grupa zasobów musi już istnieć i znajdować się w tym samym regionie co Key Vault.
 
 ```powershell
 # Deploy the new scale set (upgraded to use managed disks) into the primary node type.
@@ -113,7 +113,7 @@ $templateFilePath = "C:\Upgrade-1NodeType-2ScaleSets-ManagedDisks.json"
 $parameterFilePath = "C:\Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json"
 ```
 
-Na koniec uruchom następujące polecenie, aby wdrożyć początkowy klaster testowy:
+Na koniec Uruchom następujące polecenie, aby wdrożyć początkowy klaster testowy:
 
 ```powershell
 New-AzResourceGroupDeployment `
@@ -126,9 +126,9 @@ New-AzResourceGroupDeployment `
     -Verbose
 ```
 
-### <a name="connect-to-the-new-cluster-and-check-health-status"></a>Łączenie się z nowym klastrem i sprawdzanie stanu kondycji
+### <a name="connect-to-the-new-cluster-and-check-health-status"></a>Nawiąż połączenie z nowym klastrem i sprawdź stan kondycji
 
-Połącz się z klastrem i upewnij się, że `clusterName` `thumb` wszystkie pięć jego węzłów jest w dobrej kondycji (zastępując zmienne i zmienne dla klastra):
+Połącz się z klastrem i upewnij się, że wszystkie pięć jego węzłów są w dobrej `clusterName` kondycji (zastępując zmienne i `thumb` dla klastra):
 
 ```powershell
 # Connect to the cluster
@@ -149,23 +149,23 @@ Connect-ServiceFabricCluster `
 Get-ServiceFabricClusterHealth
 ```
 
-Dzięki takiejowi procedura uaktualniania jest gotowa.
+Dzięki temu wszystko jest gotowe do rozpoczęcia procedury uaktualniania.
 
-## <a name="deploy-an-upgraded-scale-set-for-the-primary-node-type"></a>Wdrażanie uaktualnionego zestawu skalowania dla typu węzła podstawowego
+## <a name="deploy-an-upgraded-scale-set-for-the-primary-node-type"></a>Wdróż uaktualniony zestaw skalowania dla typu węzła podstawowego
 
-Aby uaktualnić lub *skalować pionowo*typ węzła, musimy wdrożyć kopię zestawu skalowania maszyny wirtualnej tego typu węzła, który w `nodeTypeRef`przeciwnym `subnet`razie `loadBalancerBackendAddressPools`jest identyczny z oryginalnym zestawem skalowania (w tym odwołaniem do tego samego , i ), z tą różnicą, że zawiera żądane uaktualnienie/zmiany i własną oddzielną podsieci i przychodzącą pulę adresów NAT. Ponieważ uaktualniamy typ węzła podstawowego, nowy zestaw`isPrimary: true`skalowania zostanie oznaczony jako podstawowy ( ), podobnie jak oryginalny zestaw skalowania. (W przypadku uaktualnień typu węzła innych niż podstawowe po prostu pomiń to.)
+W celu uaktualnienia lub *skalowania w pionie*, typu węzła, musimy wdrożyć kopię zestawu skalowania maszyn wirtualnych typu węzła, który jest inny niż oryginalny zestaw skalowania (w tym odwołania do tego samego `nodeTypeRef`, `subnet`i `loadBalancerBackendAddressPools`), z tą różnicą, że zawiera żądane uaktualnienie/zmiany i własną pulę adresów NAT dla ruchu przychodzącego. Ponieważ uaktualniamy typ węzła podstawowego, nowy zestaw skalowania zostanie oznaczony jako podstawowy (`isPrimary: true`), podobnie jak oryginalny zestaw skalowania. (W przypadku uaktualnień typu węzła innego niż podstawowe, należy po prostu pominąć to).
 
-Dla wygody wymagane zmiany zostały już wprowadzone w pliku [szablonu](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.json) *Upgrade-1NodeType-2ScaleSets-ManagedDisks.* [parameters](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json)
+Dla wygody wymagane zmiany zostały już wprowadzone [w plikach](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json) [szablonu](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.json) *upgrade-1NodeType-2ScaleSets-ManagedDisks* .
 
-W poniższych sekcjach szczegółowo opisano zmiany szablonu. Jeśli wolisz, możesz pominąć wyjaśnienie i przejść do [następnego kroku procedury uaktualniania](#obtain-your-key-vault-references).
+W poniższych sekcjach opisano szczegółowo zmiany szablonu. Jeśli wolisz, możesz pominąć wyjaśnienie i przejść do [następnego kroku procedury uaktualniania](#obtain-your-key-vault-references).
 
 ### <a name="update-the-cluster-template-with-the-upgraded-scale-set"></a>Aktualizowanie szablonu klastra za pomocą uaktualnionego zestawu skalowania
 
-Poniżej przedstawiono modyfikacje sekcji po sekcji oryginalnego szablonu wdrożenia klastra w celu dodania uaktualnionego zestawu skalowania dla typu węzła podstawowego.
+Poniżej przedstawiono modyfikacje sekcji dotyczące oryginalnego szablonu wdrożenia klastra w celu dodania uaktualnionego zestawu skalowania dla typu węzła podstawowego.
 
 #### <a name="parameters"></a>Parametry
 
-Dodaj parametry nazwy wystąpienia, liczby i rozmiaru nowego zestawu skalowania. Należy `vmNodeType1Name` zauważyć, że jest unikatowy dla nowego zestawu skalowania, podczas gdy wartości liczby i rozmiaru są identyczne z oryginalnym zestawem skalowania.
+Dodaj parametry dla nazwy wystąpienia, liczby i rozmiaru nowego zestawu skalowania. Należy pamiętać `vmNodeType1Name` , że jest ona unikatowa dla nowego zestawu skalowania, podczas gdy wartości Count i size są identyczne z oryginalnym zestawem skalowania.
 
 **Plik szablonu**
 
@@ -204,7 +204,7 @@ Dodaj parametry nazwy wystąpienia, liczby i rozmiaru nowego zestawu skalowania.
 
 ### <a name="variables"></a>Zmienne
 
-W sekcji `variables` szablon wdrożenia dodaj wpis dla puli adresów przychodzącego translatora adresów nowego zestawu skalowania.
+W sekcji szablon `variables` wdrożenia Dodaj wpis dla puli adresów NAT dla ruchu przychodzącego nowego zestawu skalowania.
 
 **Plik szablonu**
 
@@ -214,15 +214,15 @@ W sekcji `variables` szablon wdrożenia dodaj wpis dla puli adresów przychodzą
 
 ### <a name="resources"></a>Zasoby
 
-W sekcji *zasoby* szablonu wdrożenia dodaj nowy zestaw skalowania maszyny wirtualnej, mając na uwadze następujące rzeczy:
+W sekcji *zasoby* szablonu wdrożenia Dodaj nowy zestaw skalowania maszyn wirtualnych, pamiętając o następujących kwestiach:
 
-* Nowy zestaw skalowania odwołuje się do tego samego typu węzła co oryginał:
+* Nowy zestaw skalowania odwołuje się do tego samego typu węzła co oryginalny:
 
     ```json
     "nodeTypeRef": "[parameters('vmNodeType0Name')]",
     ```
 
-* Nowy zestaw skalowania odwołuje się do tego samego adresu wewnętrznej bazy danych modułu równoważenia obciążenia i podsieci (ale używa innej puli przychodzącej usługi NAT modułu równoważenia obciążenia):
+* Nowy zestaw skalowania odwołuje się do tego samego adresu zaplecza i podsieci usługi równoważenia obciążenia (ale używa innej puli NAT dla ruchu przychodzącego modułu równoważenia obciążenia):
 
    ```json
     "loadBalancerBackendAddressPools": [
@@ -240,13 +240,13 @@ W sekcji *zasoby* szablonu wdrożenia dodaj nowy zestaw skalowania maszyny wirtu
     }
    ```
 
-* Podobnie jak oryginalny zestaw skalowania, nowy zestaw skalowania jest oznaczony jako typ węzła podstawowego. (Podczas uaktualniania typów węzłów innych niż podstawowe pomiń tę zmianę).
+* Podobnie jak w przypadku oryginalnego zestawu skalowania, nowy zestaw skalowania jest oznaczony jako podstawowy typ węzła. (Podczas uaktualniania typów węzłów innych niż podstawowe należy pominąć tę zmianę).
 
     ```json
     "isPrimary": true,
     ```
 
-* W przeciwieństwie do oryginalnego zestawu skalowania nowy zestaw skalowania jest uaktualniany do używania dysków zarządzanych.
+* W przeciwieństwie do oryginalnego zestawu skalowania, nowy zestaw skalowania jest uaktualniany do korzystania z dysków zarządzanych.
 
     ```json
     "managedDisk": {
@@ -254,33 +254,33 @@ W sekcji *zasoby* szablonu wdrożenia dodaj nowy zestaw skalowania maszyny wirtu
     }
     ```
 
-Po zaimplementowanie wszystkich zmian w plikach szablonu i parametrów przejdź do następnej sekcji, aby uzyskać odwołania do usługi Key Vault i wdrożyć aktualizacje w klastrze.
+Po zaimplementowaniu wszystkich zmian w plikach szablonu i parametrów przejdź do następnej sekcji, aby uzyskać informacje dotyczące Key Vault i wdrożyć aktualizacje w klastrze.
 
-### <a name="obtain-your-key-vault-references"></a>Uzyskiwanie odwołań do magazynu kluczy
+### <a name="obtain-your-key-vault-references"></a>Uzyskaj informacje o Key Vault
 
-Aby wdrożyć zaktualizowaną konfigurację, najpierw uzyskasz kilka odwołań do certyfikatu klastra przechowywanych w magazynie kluczy. Najprostszym sposobem znalezienia tych wartości jest za pośrednictwem witryny Azure portal. Będą potrzebne:
+Aby wdrożyć zaktualizowaną konfigurację, należy najpierw uzyskać kilka odwołań do certyfikatu klastra przechowywanego w Key Vault. Najprostszym sposobem znalezienia tych wartości jest użycie Azure Portal. Będą potrzebne:
 
-* **Adres URL magazynu kluczy certyfikatu klastra.** Z magazynu kluczy w witrynie Azure portal wybierz **certyfikaty** > Żądany**identyfikator tajny***certyfikatu:* > 
+* **Adres URL Key Vault certyfikatu klastra.** Na Key Vault w Azure Portal wybierz pozycję **Certyfikaty** > *żądany* > **Identyfikator tajny**certyfikatu:
 
     ```powershell
     $certUrlValue="https://sftestupgradegroup.vault.azure.net/secrets/sftestupgradegroup20200309235308/dac0e7b7f9d4414984ccaa72bfb2ea39"
     ```
 
-* **Odcisk palca certyfikatu klastra.** (Prawdopodobnie masz już to, jeśli [masz połączenie z początkowym klastrem,](#connect-to-the-new-cluster-and-check-health-status) aby sprawdzić jego stan kondycji). Z tego samego bloku certyfikatu **(Certyfikaty** > *Żądany certyfikat)* w witrynie Azure portal, skopiuj **X.509 SHA-1 Odcisk palca (w szesnasty)**:
+* **Odcisk palca certyfikatu klastra.** (Prawdopodobnie jest już to konieczne, jeśli [nawiązano połączenie z początkowym klastrem](#connect-to-the-new-cluster-and-check-health-status) w celu sprawdzenia jego stanu kondycji). W tym samym bloku certyfikatu (**Certyfikaty** > *żądanego certyfikatu*) w Azure Portal Skopiuj **odcisk palca SHA-1 programu X. 509 (szesnastkowo)**:
 
     ```powershell
     $thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
     ```
 
-* **Identyfikator zasobu magazynu kluczy.** W witrynie Magazynu kluczy w witrynie Azure portal wybierz**identyfikator zasobu** **Właściwości:** > 
+* **Identyfikator zasobu Key Vault.** Na Key Vault w Azure Portal wybierz pozycję **Właściwości** > **Identyfikator zasobu**:
 
     ```powershell
     $sourceVaultValue = "/subscriptions/########-####-####-####-############/resourceGroups/sftestupgradegroup/providers/Microsoft.KeyVault/vaults/sftestupgradegroup"
     ```
 
-### <a name="deploy-the-updated-template"></a>Wdrażanie zaktualizowanego szablonu
+### <a name="deploy-the-updated-template"></a>Wdróż zaktualizowany szablon
 
-Dostosuj `parameterFilePath` i `templateFilePath` w razie potrzeby, a następnie uruchom następujące polecenie:
+Dostosuj `parameterFilePath` i `templateFilePath` w razie konieczności, a następnie uruchom następujące polecenie:
 
 ```powershell
 # Deploy the new scale set (upgraded to use managed disks) into the primary node type.
@@ -297,15 +297,15 @@ New-AzResourceGroupDeployment `
     -Verbose
 ```
 
-Po zakończeniu wdrażania sprawdź kondycję klastra ponownie i upewnij się, że wszystkie dziesięć węzłów (pięć w oryginalnym i pięć w nowym zestawie skalowania) są w dobrej kondycji.
+Po zakończeniu wdrożenia Sprawdź kondycję klastra ponownie i upewnij się, że wszystkie dziesięć węzłów (pięć w oryginalnym i pięciu) jest w dobrej kondycji.
 
 ```powershell
 Get-ServiceFabricClusterHealth
 ```
 
-## <a name="migrate-seed-nodes-to-the-new-scale-set"></a>Migrowanie węzłów źródłowych do nowego zestawu skalowania
+## <a name="migrate-seed-nodes-to-the-new-scale-set"></a>Migrowanie węzłów inicjatora do nowego zestawu skalowania
 
-Teraz jesteśmy gotowi, aby rozpocząć wyłączanie węzłów oryginalnego zestawu skalowania. Gdy te węzły stają się wyłączone, usługi systemowe i węzły źródłowe migrują do maszyn wirtualnych nowego zestawu skalowania, ponieważ jest on również oznaczony jako typ węzła podstawowego.
+Teraz można rozpocząć wyłączanie węzłów oryginalnego zestawu skalowania. Po wyłączeniu tych węzłów usługi systemowe i węzły inicjatora są migrowane do maszyn wirtualnych nowego zestawu skalowania, ponieważ są również oznaczone jako podstawowy typ węzła.
 
 ```powershell
 # Disable the nodes in the original scale set.
@@ -317,16 +317,16 @@ foreach($name in $nodeNames){
 }
 ```
 
-Eksplorator sieci szkieletowej usług służy do monitorowania migracji węzłów źródłowych do nowego zestawu skalowania i postępu węzłów w oryginalnym zestawie skalowania ze *stanu Wyłączanie* na *Wyłączone.*
+Użyj Service Fabric Explorer do monitorowania migracji węzłów inicjatora do nowego zestawu skalowania, a postęp węzłów w pierwotnym zestawie skalowania można *wyłączyć* , aby *wyłączyć stan wyłączony* .
 
-![Eksplorator sieci szkieletowej usług przedstawiający stan wyłączonych węzłów](./media/upgrade-managed-disks/service-fabric-explorer-node-status.png)
+![Service Fabric Explorer wyświetlania stanu wyłączonych węzłów](./media/upgrade-managed-disks/service-fabric-explorer-node-status.png)
 
 > [!NOTE]
-> Może upłynąć trochę czasu, aby zakończyć operację wyłączania we wszystkich węzłach oryginalnego zestawu skalowania. Aby zagwarantować spójność danych, tylko jeden węzeł źródłowy może ulec zmianie w danym momencie. Każda zmiana węzła źródłowego wymaga aktualizacji klastra; w ten sposób zastąpienie węzła źródłowego wymaga dwóch uaktualnień klastra (po jednym dla dodawania i usuwania węzła). Uaktualnienie pięciu węzłów źródłowych w tym przykładowym scenariuszu spowoduje dziesięć uaktualnień klastra.
+> Ukończenie operacji wyłączania dla wszystkich węzłów oryginalnego zestawu skalowania może zająć trochę czasu. W celu zagwarantowania spójności danych tylko jeden węzeł inicjatora może ulec zmianie jednocześnie. Każda zmiana węzła inicjatora wymaga aktualizacji klastra; w ten sposób wymiana węzła inicjatora wymaga dwóch uaktualnień klastra (jednego z nich do dodania i usunięcia węzła). Uaktualnienie pięciu węzłów inicjatora w tym przykładowym scenariuszu spowoduje przeprowadzenie dziesięciu uaktualnień klastra.
 
-## <a name="remove-the-original-scale-set"></a>Usuwanie oryginalnego zestawu skalowania
+## <a name="remove-the-original-scale-set"></a>Usuń oryginalny zestaw skalowania
 
-Po zakończeniu operacji wyłączania usuń zestaw skalowania.
+Po zakończeniu operacji wyłączania Usuń zestaw skalowania.
 
 ```powershell
 # Remove the original scale set
@@ -340,11 +340,11 @@ Remove-AzVmss `
 Write-Host "Removed scale set $scaleSetName"
 ```
 
-W Eksploratorze sieci szkieletowej usług usunięte węzły (a tym samym *stan kondycji klastra)* będą teraz wyświetlane w stanie *Błąd.*
+W Service Fabric Explorer usunięte węzły (i w rezultacie *stan kondycji klastra*) będą teraz wyświetlane w stanie *błędu* .
 
-![Eksplorator sieci szkieletowej usług przedstawiający wyłączone węzły w stanie błędu](./media/upgrade-managed-disks/service-fabric-explorer-disabled-nodes-error-state.png)
+![Service Fabric Explorer pokazywania wyłączonych węzłów w stanie błąd](./media/upgrade-managed-disks/service-fabric-explorer-disabled-nodes-error-state.png)
 
-Usuń przestarzałe węzły z klastra sieci szkieletowej usług, aby przywrócić stan kondycji klastra do *ok*.
+Usuń przestarzałe węzły z klastra Service Fabric, aby przywrócić stan kondycji klastra na *OK*.
 
 ```powershell
 # Remove node states for the deleted scale set
@@ -354,22 +354,22 @@ foreach($name in $nodeNames){
 }
 ```
 
-![Eksplorator sieci szkieletowej usług z usuniętymi węzłami w dół w stanie błędu](./media/upgrade-managed-disks/service-fabric-explorer-healthy-cluster.png)
+![Service Fabric Explorer z węzłami w dół z usuniętym stanem błędu](./media/upgrade-managed-disks/service-fabric-explorer-healthy-cluster.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym instruktażu przedstawiono sposób uaktualniania zestawów skalowania maszyny wirtualnej klastra sieci szkieletowej usług w celu używania dysków zarządzanych przy jednoczesnym unikaniu przerw w działaniu usługi podczas procesu. Aby uzyskać więcej informacji na tematy pokrewne, zapoznaj się z następującymi zasobami.
+W tym instruktażu pokazano, jak uaktualnić zestawy skalowania maszyn wirtualnych klastra Service Fabric, aby używać dysków zarządzanych przy jednoczesnym uniknięciu przerwy w działaniu usługi w trakcie procesu. Aby uzyskać więcej informacji na temat powiązanych tematów, zapoznaj się z następującymi zasobami.
 
 Instrukcje:
 
 * [Skalowanie w górę węzła klastra usługi Service Fabric podstawowego typu](service-fabric-scale-up-node-type.md)
 
-* [Konwertowanie szablonu zestawu skalowania na dyski zarządzane](../virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md.md)
+* [Konwertowanie szablonu zestawu skalowania w celu korzystania z dysków zarządzanych](../virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md.md)
 
-* [Usuwanie typu węzła sieci szkieletowej usług](service-fabric-how-to-remove-node-type.md)
+* [Usuwanie Service Fabric typu węzła](service-fabric-how-to-remove-node-type.md)
 
 Zobacz też:
 
-* [Przykład: uaktualnianie węzłów klastra do używania dysków zarządzanych platformy Azure](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage)
+* [Przykład: Uaktualnij węzły klastra, aby korzystać z usługi Azure Managed disks](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage)
 
 * [Zagadnienia dotyczące skalowania w pionie](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations)

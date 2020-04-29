@@ -1,6 +1,6 @@
 ---
-title: Dostęp do wolnych dzienników zapytań — interfejsu wiersza polecenia platformy Azure — usługa Azure Database dla bazy mariadb
-description: W tym artykule opisano sposób uzyskiwania dostępu do powolnych dzienników w usłudze Azure Database dla MariaDB przy użyciu narzędzia wiersza polecenia interfejsu wiersza polecenia platformy Azure CLI.
+title: Dostęp do dzienników wolnych zapytań — interfejs wiersza polecenia platformy Azure — Azure Database for MariaDB
+description: W tym artykule opisano, jak uzyskać dostęp do wolnych dzienników w Azure Database for MariaDB przy użyciu narzędzia wiersza polecenia platformy Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
@@ -8,29 +8,29 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: 75efdd8ed855fe78651fce5828aacb2384052ae5
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81270540"
 ---
-# <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Konfigurowanie wolnych dzienników kwerend i uzyskiwanie do nich dostępu przy użyciu interfejsu wiersza polecenia platformy Azure
-Możesz pobrać dzienniki wolnych zapytań usługi Azure Database dla MariaDB przy użyciu narzędzia azure cli, narzędzia wiersza polecenia platformy Azure.
+# <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Konfigurowanie i uzyskiwanie dostępu do dzienników wolnych zapytań za pomocą interfejsu wiersza polecenia platformy Azure
+Możesz pobrać Azure Database for MariaDB dzienników wolnych zapytań za pomocą interfejsu wiersza polecenia platformy Azure, narzędzia wiersza poleceń platformy Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby przejść przez ten przewodnik, potrzebujesz:
-- [Usługa Azure Database dla serwera MariaDB](quickstart-create-mariadb-server-database-using-azure-cli.md)
-- [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) lub usługa Azure Cloud Shell w przeglądarce
+Aby krokowo poprowadzić ten przewodnik, musisz:
+- [Serwer Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-cli.md)
+- [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) lub Azure Cloud Shell w przeglądarce
 
 ## <a name="configure-logging"></a>Konfigurowanie rejestrowania
-Serwer można skonfigurować tak, aby miał dostęp do dziennika wolnych zapytań MySQL, wykonując następujące czynności:
-1. Włącz rejestrowanie wolnych zapytań, ustawiając parametr **dziennika kwerendy\_powolnej\_** na ON.
-2. Wybierz miejsce, w którym należy wyprowadzić dzienniki przy użyciu **danych wyjściowych dziennika\_**. Aby wysłać dzienniki zarówno do magazynu lokalnego, jak i do dzienników diagnostycznych monitora Azure Monitor, wybierz opcję **Plik**. Aby wysyłać dzienniki tylko do dzienników monitora platformy Azure, wybierz **opcję Brak**
-3. Dostosuj inne parametry, takie jak **długi\_czas zapytania\_** i **rejestrowanie\_powolnych\_instrukcji administratora\_**.
+Serwer można skonfigurować tak, aby mógł uzyskać dostęp do dziennika wolnych zapytań programu MySQL, wykonując następujące czynności:
+1. Włącz rejestrowanie wolnych zapytań, ustawiając parametr **dziennika\_wolnych zapytań\_** na wartość włączone.
+2. Wybierz lokalizację, do której mają być wyprowadzane dzienniki, aby użyć **danych wyjściowych dziennika\_**. Aby wysłać dzienniki do magazynu lokalnego i Azure Monitor dzienników diagnostycznych, wybierz pozycję **plik**. Aby wysyłać dzienniki tylko do dzienników Azure Monitor, zaznacz opcję **Brak**
+3. Dostosuj inne parametry, takie jak **długi\_czas\_zapytania** i **Rejestruj\_wolne\_instrukcje\_administratora**.
 
-Aby dowiedzieć się, jak ustawić wartość tych parametrów za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [Jak skonfigurować parametry serwera](howto-configure-server-parameters-cli.md).
+Aby dowiedzieć się, jak ustawić wartości tych parametrów za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [How to configure Server Parameters](howto-configure-server-parameters-cli.md).
 
-Na przykład następujące polecenie interfejsu wiersza polecenia włącza dziennik kwerend powolnych, ustawia długi czas kwerendy na 10 sekund, a następnie wyłącza rejestrowanie instrukcji powolnego administratora. Na koniec wyświetla listę opcji konfiguracji dla przeglądu.
+Na przykład następujące polecenie interfejsu wiersza polecenia włącza dziennik wolnych zapytań, ustawia długi czas zapytania na 10 sekund, a następnie wyłącza rejestrowanie powolnej instrukcji administratora. Na koniec wyświetla listę opcji konfiguracji dla przeglądu.
 ```azurecli-interactive
 az mariadb server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver --value ON
 az mariadb server configuration set --name log_output --resource-group myresourcegroup --server mydemoserver --value FILE
@@ -39,20 +39,20 @@ az mariadb server configuration set --name log_slow_admin_statements --resource-
 az mariadb server configuration list --resource-group myresourcegroup --server mydemoserver
 ```
 
-## <a name="list-logs-for-azure-database-for-mariadb-server"></a>Listy dzienników dla usługi Azure Database dla serwera MariaDB
-Jeśli **log_output** jest skonfigurowany do "Pliku", można uzyskać dostęp do dzienników bezpośrednio z magazynu lokalnego serwera. Aby wyświetlić listę dostępnych wolnych plików dziennika zapytań dla serwera, uruchom polecenie [listy dzienników serwera az mariadb.](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list)
+## <a name="list-logs-for-azure-database-for-mariadb-server"></a>Wyświetlanie listy dzienników dla Azure Database for MariaDB Server
+Jeśli **log_output** jest skonfigurowany do "plik", można uzyskać dostęp do dzienników bezpośrednio z magazynu lokalnego na serwerze. Aby wyświetlić listę dostępnych wolnych plików dziennika zapytań dla serwera, uruchom polecenie [AZ MariaDB Server-Logs list](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list) .
 
-Pliki dziennika dla serwera **można wyświetlić mydemoserver.mariadb.database.azure.com** w grupie zasobów **myresourcegroup**. Następnie przekieruj listę plików dziennika do pliku tekstowego o nazwie **log\_files\_list.txt**.
+Możesz wyświetlić listę plików dziennika dla serwera **mydemoserver.MariaDB.Database.Azure.com** w **obszarze Grupa zasobów**. Następnie należy skierować listę plików dziennika do pliku tekstowego o nazwie **pliki\_dziennika\_list. txt**.
 ```azurecli-interactive
 az mariadb server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
-## <a name="download-logs-from-the-server"></a>Pobieranie dzienników z serwera
-Jeśli **log_output** jest skonfigurowany do "Pliku", można pobrać poszczególne pliki dziennika z serwera za pomocą polecenia [pobierania az mariadb server-logs.](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-download)
+## <a name="download-logs-from-the-server"></a>Pobierz dzienniki z serwera
+Jeśli **log_output** jest skonfigurowany do "plik", można pobrać pojedyncze pliki dziennika z serwera za pomocą polecenia [AZ MariaDB Server-Logs Download](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-download) .
 
-Poniższy przykład służy do pobierania określonego pliku dziennika dla serwera **mydemoserver.mariadb.database.azure.com** w ramach grupy zasobów **myresourcegroup** do środowiska lokalnego.
+Użyj poniższego przykładu, aby pobrać określony plik dziennika dla serwera **mydemoserver.MariaDB.Database.Azure.com** w **obszarze Grupa zasobów zasobu do** środowiska lokalnego.
 ```azurecli-interactive
 az mariadb server-logs download --name mysql-slow-mydemoserver-2018110800.log --resource-group myresourcegroup --server mydemoserver
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej o [wolnych dziennikach zapytań w usłudze Azure Database for MariaDB](concepts-server-logs.md).
+- Dowiedz się więcej o [wolnych dziennikach zapytań w Azure Database for MariaDB](concepts-server-logs.md).

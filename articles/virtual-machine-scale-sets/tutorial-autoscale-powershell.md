@@ -1,5 +1,5 @@
 ---
-title: Samouczek — automatyczne skalowanie zestawu skalowania za pomocą programu Azure PowerShell
+title: Samouczek — Skalowanie automatyczne zestawu skalowania przy użyciu Azure PowerShell
 description: Dowiedz się, jak za pomocą programu Azure PowerShell automatycznie skalować zestaw skalowania maszyn wirtualnych w odpowiedzi na wzrosty i spadki zapotrzebowania na procesor CPU
 author: ju-shim
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: jushiman
 ms.custom: mvc
 ms.openlocfilehash: b2451779119ab8fb6c1446631797ce32fd376146
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81009002"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Samouczek: skalowanie automatyczne zestawu skalowania maszyn wirtualnych przy użyciu programu Azure PowerShell
@@ -27,7 +27,7 @@ Podczas tworzenia zestawu skalowania musisz zdefiniować liczbę wystąpień mas
 > * Testy obciążeniowe wystąpień maszyn wirtualnych i wyzwalanie reguł skalowania automatycznego
 > * Skalowanie automatyczne do wewnątrz po zmniejszeniu zapotrzebowania
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 Jest to znany problem, który ma wpływ na moduł programu Azure PowerShell w wersji 6.8.1 lub nowszej, w tym bieżącą wersję programu Azure Cloud Shell. Ten samouczek można uruchamiać tylko przy użyciu modułu programu Azure PowerShell w wersji od 6.0.0 do 6.8.0. Uruchom polecenie `Get-Module -ListAvailable AzureRM`, aby dowiedzieć się, jaka wersja jest używana. Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzureRmAccount`, aby utworzyć połączenie z platformą Azure.
 
@@ -66,11 +66,11 @@ W tej regule są używane następujące parametry:
 
 | Parametr               | Wyjaśnienie                                                                                                         | Wartość          |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
-| *-MetricName (Nazwa metryczna)*           | Metryka wydajności, która jest monitorowana i na której są stosowane akcje zestawu skalowania.                                                   | Procentowe użycie procesora CPU |
+| *-Metricname*           | Metryka wydajności, która jest monitorowana i na której są stosowane akcje zestawu skalowania.                                                   | Procentowe użycie procesora CPU |
 | *-TimeGrain*            | Częstotliwość zbierania metryk do analizy.                                                                   | 1 min       |
 | *-MetricStatistic*      | Określa sposób agregacji metryk zebranych do celów analizy.                                                | Średnia        |
 | *-TimeWindow*           | Przedział czasu monitorowania, po którym wartość metryki jest porównywana z wartością progową.                                   | 5 minut      |
-| *-Operator*             | Operator używany do porównywania danych metryki z wartością progową.                                                     | Większe niż   |
+| *-— Operator*             | Operator używany do porównywania danych metryki z wartością progową.                                                     | Większe niż   |
 | *-Threshold*            | Wartość, która powoduje wyzwolenie akcji przez regułę skalowania automatycznego.                                                      | 70%            |
 | *-ScaleActionDirection* | Określa, czy podczas stosowania reguły ma nastąpić skalowanie w górę czy w dół.                                             | Zwiększ       |
 | *-ScaleActionScaleType* | Wskazuje, że liczba wystąpień maszyn wirtualnych powinna zostać zmieniona o określoną wartość.                                    | Liczba zmian   |
@@ -129,7 +129,7 @@ $myScaleProfile = New-AzureRmAutoscaleProfile `
 ```
 
 
-## <a name="apply-autoscale-profile-to-a-scale-set"></a>Stosowanie profilu skalowania automatycznego do zestawu skalowania
+## <a name="apply-autoscale-profile-to-a-scale-set"></a>Zastosuj profil skalowania automatycznego do zestawu skalowania
 Ostatni krok polega na zastosowaniu profilu skalowania automatycznego do zestawu skalowania. Od tej pory zestaw skalowania może automatycznie przeprowadzać skalowanie w pionie lub w poziomie na podstawie zapotrzebowania aplikacji. Zastosuj profil skalowania automatycznego za pomocą polecenia [Add-AzureRmAutoscaleSetting](/powershell/module/AzureRM.Insights/Add-AzureRmAutoscaleSetting):
 
 ```azurepowershell-interactive
@@ -145,7 +145,7 @@ Add-AzureRmAutoscaleSetting `
 ## <a name="generate-cpu-load-on-scale-set"></a>Generowanie obciążenia procesora CPU w zestawie skalowania
 Przetestowanie reguł skalowania automatycznego wymaga wygenerowania obciążenia procesora CPU na wystąpieniach maszyn wirtualnych w zestawie skalowania. Symulowane obciążenie procesora CPU powoduje uruchomienie skalowania w poziomie przez reguły skalowania automatycznego, a w efekcie zwiększenie liczby wystąpień maszyn wirtualnych. Gdy symulowane obciążenie procesora CPU zmniejszy się, nastąpi automatyczne skalowanie w pionie i ograniczenie liczby wystąpień maszyn wirtualnych.
 
-Aby wyświetlić listę portów NAT umożliwiających połączenie z wystąpieniami maszyn wirtualnych w zestawie skalowania, najpierw pobierz obiekt modułu równoważenia obciążenia za pomocą polecenia [Get-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer). Następnie wyświetl przychodzące reguły TRANSLATORA za pomocą [get-AzureRmLoadBalancerInboundNatRuleConfig:](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig)
+Aby wyświetlić listę portów NAT umożliwiających połączenie z wystąpieniami maszyn wirtualnych w zestawie skalowania, najpierw pobierz obiekt modułu równoważenia obciążenia za pomocą polecenia [Get-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer). Następnie Wyświetl reguły NAT dla ruchu przychodzącego za pomocą [Get-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig):
 
 ```azurepowershell-interactive
 # Get the load balancer object
@@ -180,7 +180,7 @@ IpAddress
 52.168.121.216
 ```
 
-Utwórz połączenie zdalne z pierwszym wystąpieniem maszyny wirtualnej. Podaj swój publiczny adres IP i numer portu wymaganego wystąpienia maszyny wirtualnej, jak pokazano w poprzednich poleceniach. Po wyświetleniu monitu wprowadź poświadczenia używane podczas tworzenia zestawu skalowania (domyślnie w przykładowych poleceniach są to *azureuser* i *\@P ssw0rd!*). Jeśli korzystasz z usługi Azure Cloud Shell, wykonaj ten krok przy użyciu wiersza polecenia lokalnego programu PowerShell lub klienta pulpitu zdalnego. W poniższym przykładzie nawiązano połączenie z wystąpieniem maszyny wirtualnej *0*:
+Utwórz połączenie zdalne z pierwszym wystąpieniem maszyny wirtualnej. Podaj swój publiczny adres IP i numer portu wymaganego wystąpienia maszyny wirtualnej, jak pokazano w poprzednich poleceniach. Po wyświetleniu monitu wprowadź poświadczenia używane podczas tworzenia zestawu skalowania (domyślnie w przykładowych poleceniach są *azureuser* i *\@P ssw0rd!*). Jeśli korzystasz z usługi Azure Cloud Shell, wykonaj ten krok przy użyciu wiersza polecenia lokalnego programu PowerShell lub klienta pulpitu zdalnego. W poniższym przykładzie nawiązano połączenie z wystąpieniem maszyny wirtualnej *0*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001
@@ -209,7 +209,7 @@ Aby narzędzie**CPU Stress** mogło kontynuować działanie, pozostaw otwarte ob
 
 
 ## <a name="monitor-the-active-autoscale-rules"></a>Monitorowanie aktywnych reguł skalowania automatycznego
-Do monitorowania liczby wystąpień maszyn wirtualnych w zestawie skalowania służy pętla **while**. Trwa 5 minut dla skalowania automatycznego, aby rozpocząć proces skalowania w poziomie w odpowiedzi na obciążenie procesora cpu generowane przez **CPUStress** na każdym z wystąpień maszyny Wirtualnej:
+Do monitorowania liczby wystąpień maszyn wirtualnych w zestawie skalowania służy pętla **while**. Skalowanie automatyczne skalowanie jest trwa 5 minut, aby rozpocząć proces skalowania w poziomie w odpowiedzi na obciążenie procesora CPU wygenerowane przez **CPUStress** na poszczególnych WYSTĄPIENIACH maszyn wirtualnych:
 
 ```azurepowershell-interactive
 while (1) {Get-AzureRmVmssVM `

@@ -1,5 +1,5 @@
 ---
-title: Przykłady interfejsu wiersza polecenia platformy Azure — tworzenie zestawu skalowania maszyny wirtualnej
+title: Przykłady interfejsu wiersza polecenia platformy Azure — Tworzenie zestawu skalowania maszyn wirtualnych
 description: Ten skrypt umożliwia utworzenie zestawu skalowania maszyn wirtualnych platformy Azure z systemem operacyjnym Ubuntu i powiązanymi zasobami sieciowymi łącznie z modułem równoważenia obciążenia.
 author: ju-shim
 tags: azure-resource-manager
@@ -10,10 +10,10 @@ ms.date: 03/27/2018
 ms.author: jushiman
 ms.custom: mvc
 ms.openlocfilehash: c7f03d0f6dd31d85de8c3f917895e965585eb6ed
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81010396"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure

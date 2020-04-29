@@ -1,6 +1,6 @@
 ---
 title: Logika przetwarzania reguł usługi Azure Firewall
-description: Zapora azure ma reguły NAT, reguły sieciowe i reguły aplikacji. Reguły są przetwarzane zgodnie z typem reguły.
+description: Zapora platformy Azure ma reguły NAT, reguły sieci i reguły aplikacji. Reguły są przetwarzane zgodnie z typem reguły.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,41 +8,41 @@ ms.topic: article
 ms.date: 04/10/2020
 ms.author: victorh
 ms.openlocfilehash: 93677b3e473ab825665fed5590ac345a8cfcc300
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81113447"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Logika przetwarzania reguł usługi Azure Firewall
-Reguły translatora i translatora kontaktów z siecią, reguły sieci i reguły aplikacji można skonfigurować w zaporze platformy Azure. Kolekcje reguł są przetwarzane zgodnie z typem reguły w kolejności priorytetu, niższe numery do wyższych liczb od 100 do 65 000. Nazwa kolekcji reguł może zawierać tylko litery, cyfry, podkreślenia, kropki lub łączniki. Musi zaczynać się od litery lub liczby, a kończyć literą, cyfrą lub podkreśleniem. Maksymalna długość nazwy wynosi 80 znaków.
+Reguły translatora adresów sieciowych, reguły sieci i aplikacje można skonfigurować w zaporze platformy Azure. Kolekcje reguł są przetwarzane zgodnie z typem reguły w kolejności priorytetów, niższymi liczbami od 100 do 65 000. Nazwa kolekcji reguł może zawierać tylko litery, cyfry, podkreślenia, kropki lub łączniki. Musi zaczynać się literą lub cyfrą oraz kończyć się literą, cyfrą lub podkreśleniem. Maksymalna długość nazwy to 80 znaków.
 
-Najlepiej jest początkowo miejsca numerów priorytetu kolekcji reguł w 100 przyrostów (100, 200, 300 i tak dalej), więc masz miejsce, aby dodać więcej kolekcji reguł w razie potrzeby.
+Najlepiej wstępnie umieścić numery priorytetów kolekcji reguł w przyrostach 100 (100, 200, 300 itd.), aby w razie potrzeby dodać więcej kolekcji reguł.
 
 > [!NOTE]
-> Jeśli włączysz filtrowanie oparte na analizie zagrożeń, te reguły mają najwyższy priorytet i są zawsze przetwarzane jako pierwsze. Filtrowanie analizy zagrożeń może odmówić ruchu przed przetworzeniem skonfigurowanych reguł. Aby uzyskać więcej informacji, zobacz [filtrowanie oparte na analizie zagrożeń zapory platformy Azure](threat-intel.md).
+> W przypadku włączenia filtrowania opartego na analizie zagrożeń te reguły mają najwyższy priorytet i są zawsze przetwarzane jako pierwsze. Filtrowanie analizy zagrożeń może odmówić ruchu przed przetworzeniem skonfigurowanych reguł. Aby uzyskać więcej informacji, zobacz [filtrowanie oparte na analizie zagrożeń platformy Azure](threat-intel.md).
 
 ## <a name="outbound-connectivity"></a>Łączność wychodząca
 
-### <a name="network-rules-and-applications-rules"></a>Reguły sieci i reguły aplikacji
+### <a name="network-rules-and-applications-rules"></a>Reguły sieci i zasady dotyczące aplikacji
 
-Jeśli skonfigurujesz reguły sieciowe i reguły aplikacji, reguły sieciowe są stosowane w kolejności priorytetów przed regułami aplikacji. Zasady wygasają. Jeśli więc dopasowanie zostanie znalezione w regule sieci, żadne inne reguły nie są przetwarzane.  Jeśli nie ma dopasowania reguły sieciowej i jeśli protokół jest HTTP, HTTPS lub MSSQL, pakiet jest następnie oceniany przez reguły aplikacji w kolejności priorytetu. Jeśli nadal nie zostanie znalezione żadne dopasowanie, pakiet jest oceniany względem [kolekcji reguł infrastruktury](infrastructure-fqdns.md). Jeśli wciąż nie zostanie znalezione dopasowanie, pakiet zostanie domyślnie odrzucony.
+W przypadku konfigurowania reguł sieci i reguł aplikacji reguły sieci są stosowane w kolejności priorytetu przed regułami aplikacji. Reguły są przerywane. Dlatego w przypadku znalezienia dopasowania w regule sieciowej nie są przetwarzane żadne inne reguły.  Jeśli nie ma dopasowania reguły sieci i jeśli protokół to HTTP, HTTPS lub MSSQL, pakiet jest następnie oceniany przez reguły aplikacji w kolejności priorytetów. Jeśli nadal nie zostanie znalezione dopasowanie, pakiet jest oceniany względem [kolekcji reguł infrastruktury](infrastructure-fqdns.md). Jeśli wciąż nie zostanie znalezione dopasowanie, pakiet zostanie domyślnie odrzucony.
 
 ## <a name="inbound-connectivity"></a>Łączność przychodząca
 
-### <a name="nat-rules"></a>Reguły translatora i sieci zuchwów
+### <a name="nat-rules"></a>Reguły NAT
 
-Przychodzącą łączność z Internetem można włączyć, konfigurując translację docelowego adresu sieciowego (DNAT) zgodnie z opisem w [samouczku: Filtrowanie ruchu przychodzącego za pomocą usługi Azure Firewall DNAT przy użyciu portalu Azure](tutorial-firewall-dnat.md). Reguły translatora i obrotu są stosowane w priorytecie przed regułami sieciowymi. Jeśli zostanie znalezione dopasowanie, zostanie dodana niejawna odpowiednia reguła sieciowa zezwalana na przetłumaczony ruch. Aby przesłonić to zachowanie, jawnie dodaj kolekcję reguł sieci z regułami odmowy zgodnymi z przetłumaczonym ruchem.
+Przychodzące połączenie internetowe można włączyć przez skonfigurowanie translacji adresów sieciowych (DNAT), zgodnie z opisem w [samouczku: filtrowanie ruchu przychodzącego za pomocą zapory platformy Azure DNAT przy użyciu Azure Portal](tutorial-firewall-dnat.md). Reguły NAT są stosowane w priorytecie przed regułami sieci. Jeśli zostanie znalezione dopasowanie, niejawna odpowiadająca reguła sieci umożliwia dodanie przetłumaczonego ruchu. Aby przesłonić to zachowanie, jawnie dodaj kolekcję reguł sieci z regułami odmowy zgodnymi z przetłumaczonym ruchem.
 
-Reguły aplikacji nie są stosowane dla połączeń przychodzących. Jeśli więc chcesz filtrować przychodzący ruch HTTP/S, należy użyć Zapory aplikacji sieci Web (WAF). Aby uzyskać więcej informacji, zobacz [Co to jest Zapora aplikacji sieci Web platformy Azure?](../web-application-firewall/overview.md)
+Reguły aplikacji nie są stosowane do połączeń przychodzących. Dlatego jeśli chcesz filtrować ruch przychodzący HTTP/S, należy użyć zapory aplikacji sieci Web (WAF). Aby uzyskać więcej informacji, zobacz [co to jest Zapora aplikacji sieci Web platformy Azure?](../web-application-firewall/overview.md)
 
 ## <a name="examples"></a>Przykłady
 
-Poniższe przykłady przedstawiają wyniki niektórych z tych kombinacji reguł.
+Poniższe przykłady pokazują wyniki niektórych kombinacji reguł.
 
 ### <a name="example-1"></a>Przykład 1
 
-Połączenie z google.com jest dozwolone z powodu pasującej reguły sieciowej.
+Połączenie z usługą google.com jest dozwolone z powodu zgodnej reguły sieci.
 
 **Reguła sieci**
 
@@ -51,52 +51,52 @@ Połączenie z google.com jest dozwolone z powodu pasującej reguły sieciowej.
 
 |name  |Protocol (Protokół)  |Typ źródła  |Element źródłowy  |Typ docelowy  |Adres docelowy  |Porty docelowe|
 |---------|---------|---------|---------|----------|----------|--------|
-|Zezwalaj na sieć Web     |TCP|Adres IP|*|Adres IP|*|80 443
+|Zezwalaj — sieć Web     |TCP|Adres IP|*|Adres IP|*|80 443
 
 **Reguła aplikacji**
 
 - Akcja: Odmów
 
-|name  |Typ źródła  |Element źródłowy  |Protokół:Port|Docelowe nazwy FQDN|
+|name  |Typ źródła  |Element źródłowy  |Protokół: Port|Docelowe nazwy FQDN|
 |---------|---------|---------|---------|----------|----------|
-|Deny-google     |Adres IP|*|http:80,https:443|google.com
+|Odmów — Google     |Adres IP|*|http: 80, https: 443|google.com
 
 **Wynik**
 
-Połączenie z google.com jest dozwolone, ponieważ pakiet jest zgodny z regułą *sieci zezwalaj na sieć sieci web.* Przetwarzanie reguł zatrzymuje się w tym momencie.
+Połączenie z usługą google.com jest dozwolone, ponieważ pakiet jest zgodny z regułą *Zezwalaj-sieci Web* . Przetwarzanie reguły zostało zatrzymane w tym momencie.
 
 ### <a name="example-2"></a>Przykład 2
 
-Ruch SSH jest odrzucany, ponieważ wyższy priorytet *Odmawia zbieranie* reguł sieciowych blokuje go.
+Odmowa ruchu SSH, ponieważ wyższy priorytet *odmówi* kolekcji reguł sieci.
 
-**Zbieranie reguł sieciowych 1**
+**Kolekcja reguł sieciowych 1**
 
-- Nazwa: Zezwalaj na zbieranie
+- Name: Allow-Collection
 - Priorytet: 200
 - Akcja: Zezwalaj
 
 |name  |Protocol (Protokół)  |Typ źródła  |Element źródłowy  |Typ docelowy  |Adres docelowy  |Porty docelowe|
 |---------|---------|---------|---------|----------|----------|--------|
-|Zezwalaj na SSH     |TCP|Adres IP|*|Adres IP|*|22
+|Zezwalaj — SSH     |TCP|Adres IP|*|Adres IP|*|22
 
-**Zbieranie reguł sieciowych 2**
+**Kolekcja reguł sieci 2**
 
-- Nazwa: Deny-collection
+- Nazwa: Odmów — zbieranie
 - Priorytet: 100
 - Akcja: Odmów
 
 |name  |Protocol (Protokół)  |Typ źródła  |Element źródłowy  |Typ docelowy  |Adres docelowy  |Porty docelowe|
 |---------|---------|---------|---------|----------|----------|--------|
-|Deny-SSH (Odmów-SSH)     |TCP|Adres IP|*|Adres IP|*|22
+|Odmów — SSH     |TCP|Adres IP|*|Adres IP|*|22
 
 **Wynik**
 
-Połączenia SSH są odrzucane, ponieważ kolekcja reguł sieci o wyższym priorytecie blokuje ją. Przetwarzanie reguł zatrzymuje się w tym momencie.
+Odmowa połączeń SSH, ponieważ kolekcja reguł sieci o wyższym priorytecie jest blokowana. Przetwarzanie reguły zostało zatrzymane w tym momencie.
 
-## <a name="rule-changes"></a>Zmiany reguł
+## <a name="rule-changes"></a>Zmiany reguły
 
-Jeśli zmienisz regułę, aby odmówić wcześniej dozwolonego ruchu, wszystkie odpowiednie istniejące sesje zostaną usunięte.
+Jeśli zmienisz regułę tak, aby odmówił wcześniej dozwolony ruch, wszelkie odpowiednie istniejące sesje zostaną usunięte.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak [wdrożyć i skonfigurować Zaporę platformy Azure](tutorial-firewall-deploy-portal.md).
+- Dowiedz się [, jak wdrożyć i skonfigurować zaporę platformy Azure](tutorial-firewall-deploy-portal.md).

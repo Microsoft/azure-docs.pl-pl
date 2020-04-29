@@ -1,29 +1,29 @@
 ---
 title: Indeksowanie w usłudze Azure Cosmos DB
-description: Dowiedz się, jak działa indeksowanie w usłudze Azure Cosmos DB, różne rodzaje indeksów, takich jak Zakres, Przestrzenne, indeksy złożone obsługiwane.
+description: Dowiedz się, jak indeksowanie działa w Azure Cosmos DB, różne rodzaje indeksów, takie jak zakres, przestrzenny, obsługiwane indeksy złożone.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: thweiss
 ms.openlocfilehash: 684799ee12715c789910accf80aa5b4afec763d4
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273243"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indeksowanie w usłudze Azure Cosmos DB — omówienie
 
-Usługa Azure Cosmos DB to niezależna od schematu baza danych, która umożliwia iterację aplikacji bez konieczności zajmowania się zarządzaniem schematem lub indeksem. Domyślnie usługa Azure Cosmos DB automatycznie indeksuje każdą właściwość dla wszystkich elementów w [kontenerze](databases-containers-items.md#azure-cosmos-containers) bez konieczności definiowania dowolnego schematu lub konfigurowania indeksów pomocniczych.
+Azure Cosmos DB to baza danych niezależny od schematu, która pozwala na iterację aplikacji bez konieczności rozwiązywania problemów z zarządzaniem schematami i indeksami. Domyślnie Azure Cosmos DB automatycznie indeksuje każdą właściwość dla wszystkich elementów w [kontenerze](databases-containers-items.md#azure-cosmos-containers) bez konieczności definiowania schematu lub konfigurowania indeksów pomocniczych.
 
-Celem tego artykułu jest wyjaśnienie sposobu indeksowania danych przez usługę Azure Cosmos DB i wykorzystania tych indeksów do podwyższenia wydajności zapytań. Zaleca się, aby przejść przez tę sekcję przed zbadaniem, jak dostosować [zasady indeksowania](index-policy.md).
+Celem tego artykułu jest wyjaśnienie sposobu indeksowania danych przez usługę Azure Cosmos DB i wykorzystania tych indeksów do podwyższenia wydajności zapytań. Zaleca się przechodzenie przez tę sekcję przed rozpoczęciem dostosowywania [zasad indeksowania](index-policy.md).
 
-## <a name="from-items-to-trees"></a>Od przedmiotów do drzew
+## <a name="from-items-to-trees"></a>Z elementów do drzew
 
-Za każdym razem, gdy element jest przechowywany w kontenerze, jego zawartość jest rzutowana jako dokument JSON, a następnie konwertowana na reprezentację drzewa. Oznacza to, że każda właściwość tego elementu jest reprezentowana jako węzeł w drzewie. Pseudo węzeł główny jest tworzony jako element nadrzędny do wszystkich właściwości pierwszego poziomu elementu. Węzły liścia zawierają rzeczywiste wartości skalarne przenoszone przez element.
+Za każdym razem, gdy element jest przechowywany w kontenerze, jego zawartość jest rzutowana jako dokument JSON, a następnie konwertowana na reprezentację drzewa. Oznacza to, że każda Właściwość tego elementu jest reprezentowana jako węzeł w drzewie. Węzeł pseudo root jest tworzony jako element nadrzędny dla wszystkich właściwości pierwszego poziomu elementu. Węzły liścia zawierają rzeczywiste wartości skalarne przenoszone przez element.
 
-Na przykład należy wziąć pod uwagę ten element:
+Rozważmy na przykład ten element:
 
 ```json
     {
@@ -39,17 +39,17 @@ Na przykład należy wziąć pod uwagę ten element:
     }
 ```
 
-Byłoby reprezentowane przez następujące drzewo:
+Powinna być reprezentowana przez następujące drzewo:
 
 ![Poprzedni element reprezentowany jako drzewo](./media/index-overview/item-as-tree.png)
 
-Należy zauważyć, jak tablice są kodowane w drzewie: każdy wpis w tablicy pobiera węzeł pośredni oznaczony indeksem tego wpisu w tablicy (0, 1 itp.).
+Zwróć uwagę, jak tablice są kodowane w drzewie: każdy wpis w tablicy pobiera pośredni węzeł z etykietą z indeksem tego wpisu w tablicy (0, 1 itd.).
 
-## <a name="from-trees-to-property-paths"></a>Od drzew do ścieżek właściwości
+## <a name="from-trees-to-property-paths"></a>Z drzew do ścieżek właściwości
 
-Powodem, dla którego usługa Azure Cosmos DB przekształca elementy w drzewa, jest to, że umożliwia właściwości, do których mają być odwoływane przez ich ścieżki w obrębie tych drzew. Aby uzyskać ścieżkę dla właściwości, możemy przechodzić przez drzewo z węzła głównego do tej właściwości i łączyć etykiety każdego węzła przechodzinego.
+Powód, dla którego Azure Cosmos DB przekształcania elementów na drzewa, jest, ponieważ umożliwia odwoływanie się do właściwości przez ich ścieżki w ramach tych drzew. Aby uzyskać ścieżkę do właściwości, można przejść przez drzewo z węzła głównego do tej właściwości i połączyć etykiety każdego przechodzącego węzła.
 
-Oto ścieżki dla każdej właściwości z przykładowego elementu opisanego powyżej:
+Poniżej znajdują się ścieżki każdej właściwości z przykładowego elementu opisanego powyżej:
 
     /locations/0/country: "Germany"
     /locations/0/city: "Berlin"
@@ -60,15 +60,15 @@ Oto ścieżki dla każdej właściwości z przykładowego elementu opisanego pow
     /exports/0/city: "Moscow"
     /exports/1/city: "Athens"
 
-Po zapisaniu elementu usługa Azure Cosmos DB skutecznie indeksuje ścieżkę każdej właściwości i jej odpowiednią wartość.
+Po zapisaniu elementu Azure Cosmos DB efektywnie indeksuje ścieżkę każdej właściwości i odpowiadającą jej wartość.
 
-## <a name="index-kinds"></a>Rodzaje indeksu
+## <a name="index-kinds"></a>Rodzaje indeksów
 
-Usługa Azure Cosmos DB obsługuje obecnie trzy rodzaje indeksów.
+Azure Cosmos DB obecnie obsługuje trzy rodzaje indeksów.
 
 ### <a name="range-index"></a>Indeks zakresu
 
-**Indeks zakresu** jest oparty na uporządkowanej strukturze przypominającej drzewo. Rodzaj indeksu zakresu jest używany dla:
+Indeks **zakresu** jest oparty na uporządkowanej strukturze podobnej do drzewa. Rodzaj indeksu zakresu jest używany dla:
 
 - Zapytania o równość:
 
@@ -85,12 +85,12 @@ Usługa Azure Cosmos DB obsługuje obecnie trzy rodzaje indeksów.
     SELECT * FROM c WHERE ARRAY_CONTAINS(c.tags, "tag1")
     ```
 
-- Zakres zapytań:
+- Zapytania zakresu:
 
    ```sql
    SELECT * FROM container c WHERE c.property > 'value'
    ```
-  (pracuje `>`dla `<` `>=`, `<=` `!=`, , , ),
+  (działa dla `>`, `<`, `>=` `<=`,, `!=`)
 
 - Sprawdzanie obecności właściwości:
 
@@ -98,53 +98,53 @@ Usługa Azure Cosmos DB obsługuje obecnie trzy rodzaje indeksów.
    SELECT * FROM c WHERE IS_DEFINED(c.property)
    ```
 
-- Dopasowania prefiksu ciągu (słowo kluczowe CONTAINS nie będzie korzystać z indeksu zakresu):
+- Dopasowanie prefiksu ciągu (zawiera słowo kluczowe nie będzie korzystać z indeksu zakresu):
 
    ```sql
    SELECT * FROM c WHERE STARTSWITH(c.property, "value")
    ```
 
-- `ORDER BY`Kwerendy:
+- `ORDER BY`wybiera
 
    ```sql
    SELECT * FROM container c ORDER BY c.property
    ```
 
-- `JOIN`Kwerendy:
+- `JOIN`wybiera
 
    ```sql
    SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'
    ```
 
-Indeksy zakresu mogą być używane w przypadku wartości skalarnych (ciąg lub liczba).
+Indeksów zakresu można używać w przypadku wartości skalarnych (String lub Number).
 
 ### <a name="spatial-index"></a>Indeks przestrzenny
 
-**Indeksy przestrzenne** umożliwiają efektywne zapytania dotyczące obiektów geoprzestrzennych, takich jak - punkty, linie, wielokąty i wielobiegi. Te zapytania używają słów kluczowych ST_DISTANCE, ST_WITHIN, ST_INTERSECTS. Oto kilka przykładów, które używają rodzaju indeksu przestrzennego:
+Indeksy **przestrzenne** umożliwiają wydajne zapytania dotyczące obiektów geoprzestrzennych, takich jak punkty, linie, wielokąty i MultiPolygon. Te zapytania używają ST_DISTANCE, ST_WITHIN ST_INTERSECTS słów kluczowych. Poniżej przedstawiono kilka przykładów, które używają rodzaju indeksu przestrzennego:
 
-- Zapytania dotyczące odległości geoprzestrzennej:
+- Zapytania dotyczące odległości geograficznej:
 
    ```sql
    SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40
    ```
 
-- Geoprzestrzenne w zapytaniach:
+- Geoprzestrzenne w ramach zapytań:
 
    ```sql
    SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })
    ```
 
-- Zapytania o przecinanie geograficzne:
+- Zapytania z przecięciem geograficznym:
 
    ```sql
    SELECT * FROM c WHERE ST_INTERSECTS(c.property, { 'type':'Polygon', 'coordinates': [[ [31.8, -5], [32, -5], [31.8, -5] ]]  })  
    ```
 
-Indeksy przestrzenne mogą być używane na poprawnie sformatowanych obiektach [GeoJSON.](geospatial.md) Punkty, LineStrings, Wielokąty i Wielopolony są obecnie obsługiwane.
+Indeksów przestrzennych można używać w poprawnie sformatowanych obiektach [GEOJSON](geospatial.md) . Punkty, LineStrings, wielokąty i wielowielokąty są obecnie obsługiwane.
 
 ### <a name="composite-indexes"></a>Indeksy złożone
 
-**Indeksy złożone** zwiększają wydajność podczas wykonywania operacji na wielu polach. Rodzaj indeksu złożonego jest używany do:
+Indeksy **złożone** zwiększają wydajność podczas wykonywania operacji na wielu polach. Typ indeksu złożonego jest używany dla:
 
 - `ORDER BY`zapytania dotyczące wielu właściwości:
 
@@ -152,39 +152,39 @@ Indeksy przestrzenne mogą być używane na poprawnie sformatowanych obiektach [
  SELECT * FROM container c ORDER BY c.property1, c.property2
 ```
 
-- Zapytania z filtrem `ORDER BY`i . Te kwerendy mogą korzystać z indeksu złożonego, jeśli właściwość filter jest dodawany do klauzuli. `ORDER BY`
+- Wykonuje zapytania z filtrem `ORDER BY`i. Te zapytania mogą korzystać z indeksu złożonego, jeśli do `ORDER BY` klauzuli zostanie dodana Właściwość Filter.
 
 ```sql
  SELECT * FROM container c WHERE c.property1 = 'value' ORDER BY c.property1, c.property2
 ```
 
-- Kwerendy z filtrem na co najmniej dwie właściwości, w których co najmniej jedna właściwość jest filtrem równości
+- Wykonuje zapytania z filtrem dla dwóch lub więcej właściwości, w których co najmniej jedna właściwość jest filtrem równości
 
 ```sql
  SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
 ```
 
-Tak długo, jak jeden predykat filtru używa jednego z rodzaju indeksu, aparat zapytań oceni to najpierw przed skanowaniem reszty. Na przykład, jeśli masz zapytanie SQL, takie jak`SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
+Tak długo, jak jeden predykat filtru używa jednego z rodzajów indeksu, aparat zapytań obliczy to przed skanowaniem reszty. Na przykład jeśli masz zapytanie SQL, takie jak`SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
 
-* Powyższa kwerenda najpierw filtruje wpisy, w których firstName = "Andrew" przy użyciu indeksu. Następnie przekazuje wszystkie wpisy firstName = "Andrew" za pośrednictwem kolejnego potoku, aby ocenić predykatu filtru CONTAINS.
+* Powyższe zapytanie najpierw filtruje wpisy, w których firstName = "Andrew" przy użyciu indeksu. Następnie przekazuje wszystkie wpisy firstName = "Andrew" przy użyciu kolejnego potoku, aby obliczyć predykat zawierający filtr.
 
-* Można przyspieszyć kwerendy i uniknąć pełnego skanowania kontenera podczas korzystania z funkcji, które nie używają indeksu (np. zawiera), dodając dodatkowe predykaty filtru, które używają indeksu. Kolejność klauzul filtrowania nie jest ważna. Aparat zapytań jest dowiedzieć się, które predykaty są bardziej selektywne i odpowiednio uruchomić kwerendę.
+* Można przyspieszyć zapytania i uniknąć pełnego skanowania kontenera podczas korzystania z funkcji, które nie używają indeksu (np. CONTAINS) przez dodanie dodatkowych predykatów filtru, które używają indeksu. Kolejność klauzul filtru nie jest ważna. Aparat zapytań będzie określać, które predykaty są bardziej wybiórcze i odpowiednio uruchomić zapytanie.
 
 
-## <a name="querying-with-indexes"></a>Wykonywanie zapytań z indeksami
+## <a name="querying-with-indexes"></a>Wykonywanie zapytań przy użyciu indeksów
 
-Ścieżki wyodrębnione podczas indeksowania danych ułatwiają wyszukiwanie indeksu podczas przetwarzania kwerendy. Dopasowując `WHERE` klauzulę kwerendy z listą ścieżek indeksowanych, można bardzo szybko zidentyfikować elementy, które pasują do predykatu kwerendy.
+Ścieżki wyodrębnione podczas indeksowania danych ułatwiają wyszukiwanie w indeksie podczas przetwarzania zapytania. Dopasowując `WHERE` klauzulę zapytania z listą ścieżek indeksowanych, można łatwo zidentyfikować elementy, które pasują do predykatu zapytania.
 
-Rozważmy na przykład następującą kwerendę: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. Predykat kwerendy (filtrowanie elementów, gdzie dowolna lokalizacja ma "Francja" jako swój kraj) będzie pasować do ścieżki wyróżnionej na czerwono poniżej:
+Rozważmy na przykład następujące zapytanie: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. Predykat zapytania (filtrowanie dla elementów, gdzie każda lokalizacja ma wartość "Francja", ponieważ jego kraj) będzie odpowiadał ścieżce wyróżnionej w kolorze czerwonym poniżej:
 
-![Dopasowywanie określonej ścieżki w drzewie](./media/index-overview/matching-path.png)
+![Dopasowanie określonej ścieżki w drzewie](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> Klauzula, `ORDER BY` która zleca jedną właściwość *zawsze* potrzebuje indeksu zakresu i zakończy się niepowodzeniem, jeśli ścieżka, do którego się odwołuje, nie ma. Podobnie kwerendy, `ORDER BY` która zamówienia przez wiele właściwości *zawsze* potrzebuje indeksu złożonego.
+> `ORDER BY` Klauzula, która porządkuje według pojedynczej właściwości, *zawsze* wymaga indeksu zakresu i zakończy się niepowodzeniem, jeśli ścieżka, do której się odwołuje, nie ma takiej wartości. Podobnie, `ORDER BY` zapytanie, które porządkuje wiele właściwości, *zawsze* wymaga indeksu złożonego.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Więcej informacji na temat indeksowania można przeczytać w następujących artykułach:
+Przeczytaj więcej na temat indeksowania w następujących artykułach:
 
 - [Zasady indeksowania](index-policy.md)
 - [Jak zarządzać zasadami indeksowania](how-to-manage-indexing-policy.md)

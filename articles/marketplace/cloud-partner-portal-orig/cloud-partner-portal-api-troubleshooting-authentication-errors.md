@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie typowych błędów uwierzytelniania | Azure Marketplace
-description: Zapewnia pomoc w przypadku typowych błędów uwierzytelniania podczas korzystania z interfejsów API portalu partnerów w chmurze.
+title: Rozwiązywanie typowych błędów uwierzytelniania | Portal Azure Marketplace
+description: Zapewnia pomoc dotyczącą typowych błędów uwierzytelniania podczas korzystania z portal Cloud Partner interfejsów API.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,31 +8,31 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: d8fd1eb4bef987b4a8605e4be780512a914ec8b5
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255995"
 ---
 # <a name="troubleshooting-common-authentication-errors"></a>Rozwiązywanie typowych błędów uwierzytelniania
 
 > [!NOTE]
-> Interfejsy API portalu partnerów w chmurze są zintegrowane z centrum partnerów i będą nadal działać po migracji ofert do Centrum partnerów. Integracja wprowadza niewielkie zmiany. Przejrzyj zmiany wymienione w [aplikacji Cloud Partner Portal API Reference,](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) aby upewnić się, że kod będzie nadal działać po migracji do Centrum partnerów.
+> Interfejsy API portal Cloud Partner są zintegrowane z centrum partnerskim i będą nadal działały po przeprowadzeniu migracji ofert do Centrum partnerskiego. W ramach integracji wprowadzono niewielkie zmiany. Przejrzyj zmiany wymienione w [Portal Cloud partner dokumentacja interfejsu API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) , aby upewnić się, że kod będzie nadal działał po migracji do Centrum partnerskiego.
 
-Ten artykuł zawiera pomoc dotyczącą typowych błędów uwierzytelniania podczas korzystania z interfejsów API portalu partnerów w chmurze.
+Ten artykuł zawiera informacje o typowych błędach uwierzytelniania podczas korzystania z portal Cloud Partner interfejsów API.
 
 ## <a name="unauthorized-error"></a>Nieautoryzowany błąd
 
-Jeśli konsekwentnie pojawia `401 unauthorized` się błędy, sprawdź, czy masz prawidłowy token dostępu.  Jeśli jeszcze tego nie zrobiono, utwórz podstawową aplikację usługi Azure Active Directory (Azure AD) i jednostkę usługi zgodnie z opisem w [obszarze Użyj portalu, aby utworzyć aplikację i jednostkę usługi Azure Active Directory, która może uzyskać dostęp do zasobów.](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) Następnie użyj aplikacji lub prostego żądania HTTP POST, aby zweryfikować swój dostęp.  W celu uzyskania tokenu dostępu zostanie podany identyfikator dzierżawy, identyfikator aplikacji, identyfikator obiektu i klucz tajny, jak pokazano na poniższej ilustracji:
+Jeśli stale pojawiają `401 unauthorized` się błędy, sprawdź, czy masz prawidłowy token dostępu.  Jeśli jeszcze tego nie zrobiono, Utwórz podstawową aplikację Azure Active Directory (Azure AD) i nazwę główną usługi zgodnie z opisem w temacie [Korzystanie z portalu, aby utworzyć aplikację Azure Active Directory i nazwę główną usługi, które mogą uzyskiwać dostęp do zasobów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Następnie do zweryfikowania dostępu Użyj aplikacji lub prostego żądania POST protokołu HTTP.  W celu uzyskania tokenu dostępu zostanie uwzględniony identyfikator dzierżawy, identyfikator aplikacji, identyfikator obiektu i klucz tajny, jak pokazano na poniższej ilustracji:
 
 ![Rozwiązywanie problemów z błędem 401](./media/cloud-partner-portal-api-troubleshooting-authentication-errors/troubleshooting-401-error.jpg)
 
 
 ## <a name="forbidden-error"></a>Błąd „Niedozwolone”
 
-Jeśli `403 forbidden` zostanie wyświetlony błąd, upewnij się, że do konta wydawcy dodano właściwą jednostkę usługi w portalu cloud partner.
-Wykonaj kroki opisane na stronie [Wymagania wstępne,](./cloud-partner-portal-api-prerequisites.md) aby dodać jednostkę usługi do portalu.
+Jeśli `403 forbidden` wystąpi błąd, upewnij się, że poprawna jednostka usługi została dodana do konta wydawcy w Portal Cloud partner.
+Postępuj zgodnie z instrukcjami na stronie [wymagania wstępne](./cloud-partner-portal-api-prerequisites.md) , aby dodać nazwę główną usługi do portalu.
 
-Jeśli dodano właściwego podmiotu usługi, sprawdź wszystkie inne informacje. Należy zwrócić szczególną uwagę na identyfikator obiektu wprowadzony w portalu. Istnieją dwa identyfikatory obiektów na stronie rejestracji aplikacji usługi Azure Active Directory i należy użyć lokalnego identyfikatora obiektu. Prawidłową wartość można znaleźć, przechodząc do strony **Rejestracje aplikacji** i klikając nazwę aplikacji w obszarze **Zarządzana aplikacja w katalogu lokalnym**. Spowoduje to przejście do właściwości lokalnych aplikacji, gdzie można znaleźć poprawny identyfikator obiektu na stronie **Właściwości,** jak pokazano na poniższym rysunku. Upewnij się również, że używasz poprawnego identyfikatora wydawcy podczas dodawania jednostki usługi i wywołania interfejsu API.
+Jeśli została dodana poprawna jednostka usługi, sprawdź wszystkie pozostałe informacje. Zwróć szczególną uwagę na identyfikator obiektu wprowadzony w portalu. Na stronie rejestracji aplikacji Azure Active Directory znajdują się dwa identyfikatory obiektów i należy użyć lokalnego identyfikatora obiektu. Poprawną wartość można znaleźć, przechodząc do strony **rejestracje aplikacji** aplikacji i klikając nazwę aplikacji **w obszarze zarządzana aplikacja w katalogu lokalnym**. Spowoduje to przejście do właściwości lokalnych aplikacji, gdzie można znaleźć prawidłowy identyfikator obiektu na stronie **Właściwości** , jak pokazano na poniższej ilustracji. Ponadto upewnij się, że podczas dodawania nazwy głównej usługi i wywołania interfejsu API używasz poprawnego identyfikatora wydawcy.
 
 ![Rozwiązywanie problemów z błędem 403](./media/cloud-partner-portal-api-troubleshooting-authentication-errors/troubleshooting-403-error.jpg)

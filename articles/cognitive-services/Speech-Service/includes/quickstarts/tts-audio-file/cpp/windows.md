@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: synteza mowy w pliku audio, C++ (Windows) - usługa mowy'
+title: 'Szybki Start: synteza mowy w pliku audio, C++ (Windows) — usługa mowy'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,19 +11,19 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: wolfma
 ms.openlocfilehash: 2703756a748d8e57321e54b3a9cb961916d337b6
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81274962"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zanim zaczniesz, upewnij się, że:
+Przed rozpoczęciem upewnij się, że:
 
 > [!div class="checklist"]
-> * [Tworzenie zasobu mowy platformy Azure](../../../../get-started.md)
-> * [Konfigurowanie środowiska programistycznego i tworzenie pustego projektu](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
+> * [Tworzenie zasobu usługi Azure Speech](../../../../get-started.md)
+> * [Skonfiguruj środowisko deweloperskie i Utwórz pusty projekt](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
 
 ## <a name="add-sample-code"></a>Dodawanie przykładowego kodu
 
@@ -72,17 +72,17 @@ Zanim zaczniesz, upewnij się, że:
 
 1. Zastąp ciąg `YourServiceRegion`[regionem](~/articles/cognitive-services/Speech-Service/regions.md) skojarzonym z subskrypcją (na przykład `westus` w przypadku subskrypcji bezpłatnej wersji próbnej).
 
-1. Zastąp ciąg `helloworld.wav` własną nazwę pliku.
+1. Zamień ciąg `helloworld.wav` na własną nazwę pliku.
 
-1. Na pasku menu wybierz pozycję Zapisz**wszystkie** **pliki** > .
+1. Na pasku menu wybierz kolejno opcje **plik** > **Zapisz wszystko**.
 
 ## <a name="build-and-run-the-application"></a>Kompilowanie i uruchamianie aplikacji
 
-1. Na pasku menu **wybierz** > build**build solution,** aby utworzyć aplikację. Kod powinien teraz zostać skompilowany bez błędów.
+1. Na pasku menu wybierz kolejno opcje **Kompiluj** > kompilacje**rozwiązanie** , aby skompilować aplikację. Kod powinien teraz zostać skompilowany bez błędów.
 
-1. Wybierz **debugowanie** > **rozpocznij debugowanie** (lub naciśnij klawisz **F5),** aby uruchomić aplikację **helloworld.**
+1. Wybierz **Debuguj** > **Rozpocznij debugowanie** (lub naciśnij klawisz **F5**), aby uruchomić aplikację **HelloWorld** .
 
-1. Tekst jest konwertowany na mowę i zapisywany w określonych danych audio.
+1. Tekst zostanie przekonwertowany na mowę i zapisany w określonych danych audio.
 
    ```text
    Speech synthesized to [helloworld.wav] for text [Hello world!]
@@ -92,7 +92,7 @@ Zanim zaczniesz, upewnij się, że:
 
 [!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Tworzenie niestandardowego głosu](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
-- [Nagrywanie niestandardowych próbek głosu](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
+- [Rejestruj niestandardowe przykłady głosu](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

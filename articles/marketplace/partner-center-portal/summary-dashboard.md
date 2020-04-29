@@ -1,6 +1,6 @@
 ---
-title: Pulpit nawigacyjny podsumowania dla analiz Centrum partnerów w portalu Commercial Marketplace
-description: Dowiedz się, jak uzyskać dostęp do wykresów, trendów i wartości danych zagregowanych, które podsumowują aktywność w portalu marketplace z pulpitu nawigacyjnego Podsumowanie w Centrum partnerów.
+title: Pulpit nawigacyjny podsumowania dla analiz Centrum partnerskiego w komercyjnej witrynie Marketplace
+description: Dowiedz się, jak uzyskiwać dostęp do grafów, trendów i wartości zagregowanych danych, które podsumowują aktywność witryny Marketplace z poziomu pulpitu nawigacyjnego podsumowanie w centrum partnerskim.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,117 +8,117 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: 86bce85c6ec273b4ab5f9f00cbae68fc054f53f5
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81262404"
 ---
-# <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny podsumowania w analizie rynku komercyjnego
+# <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny podsumowania w komercyjnej analizie Marketplace
 
-Ten artykuł zawiera informacje na temat pulpitu nawigacyjnego podsumowanie w Centrum partnerów. Ten pulpit nawigacyjny wyświetla wykresy, trendy i wartości danych zagregowanych, które podsumowują aktywność w rynku dla Twoich ofert.
+Ten artykuł zawiera informacje na temat pulpitu nawigacyjnego podsumowanie w centrum partnerskim. Ten pulpit nawigacyjny wyświetla wykresy, trendy i wartości zagregowanych danych, które podsumowują aktywność witryny Marketplace dla ofert.
 
-Aby uzyskać dostęp do pulpitu nawigacyjnego Podsumowanie, otwórz **[pulpit nawigacyjny Analizuj](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** w obszarze Komercyjnego portalu Marketplace.
+Aby uzyskać dostęp do pulpitu nawigacyjnego podsumowanie, Otwórz **[pulpit nawigacyjny Analizuj](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** w obszarze komercyjny Portal Marketplace.
 
 >[!NOTE]
-> Szczegółowe definicje terminologii analitycznej można znaleźć w części [Często zadawane pytania i terminologia dotyczące analizy rynku komercyjnego.](./faq-terminology.md)
+> Aby uzyskać szczegółowe definicje terminologii dotyczącej analizy, zobacz [często zadawane pytania i terminologię dotyczącą komercyjnej analizy portalu Marketplace](./faq-terminology.md).
 
 ## <a name="summary-dashboard"></a>Pulpit nawigacyjny Podsumowanie
 
-Pulpit nawigacyjny **Podsumowanie** przedstawia przegląd na podstawie każdego typu oferty. **Statystyki** pokazują krytyczne informacje w skrócie i zapewniają szeroki obraz aktywności sprzedażowej twoich ofert. Te raporty można wizualizować za pomocą pulpitu nawigacyjnego **Podsumowanie.** W tym artykule przedstawiono więcej szczegółów na temat każdego z następujących elementów:
+Pulpit nawigacyjny **podsumowania** przedstawia przegląd w zależności od typu oferty. **Szczegółowe** informacje są wyświetlane w skrócie i zapewniają szeroką gamę działań sprzedaży oferowanych przez oferty. Możesz wizualizować te raporty przy użyciu pulpitu nawigacyjnego **Podsumowanie** . Ten artykuł zawiera więcej informacji na temat każdego z następujących elementów:
 
 - [Zakres dat](#date-range)
-- [Sekcja Podsumowanie](#summary-section)
-- [Klienci według geografii](#customers-by-geography)
-- [Wykresy trendów wzrostu](#growth-trend-charts)
-- [Ranking klientów](#customer-leaderboard)
-- [Trend liczenia miejsc](#seat-count-trend)
-- [Darmowe wersje próbne Trend zamówień SaaS](#free-trials-saas-orders-trend)
+- [Sekcja podsumowania](#summary-section)
+- [Klienci według lokalizacji geograficznej](#customers-by-geography)
+- [Wykresy trendu wzrostu](#growth-trend-charts)
+- [Rankingów klienta](#customer-leaderboard)
+- [Trend liczby stanowisk](#seat-count-trend)
+- [Trend zamówień SaaS bezpłatnych wersji próbnych](#free-trials-saas-orders-trend)
 
-## <a name="elements-of-the-summary-dashboard"></a>Elementy pulpitu nawigacyjnego Podsumowanie
+## <a name="elements-of-the-summary-dashboard"></a>Elementy pulpitu podsumowania
 
-W poniższych sekcjach opisano sposób korzystania z pulpitu nawigacyjnego podsumowania i sposobu odczytywania danych.
+W poniższych sekcjach opisano, jak używać pulpitu nawigacyjnego podsumowanie i jak odczytywać dane.
 
 ### <a name="date-range"></a>Zakres dat
 
-Wybór zakresu dat można znaleźć w prawym górnym rogu każdej strony. Dostosuj dane wyjściowe wykresów stron **Podsumowanie,** wybierając zakres dat na podstawie ostatnich 3, 6 lub 12 miesięcy lub wybierając niestandardowy zakres dat o maksymalnym czasie trwania 12 miesięcy. Domyślny zakres dat to sześć miesięcy.
+Wybór zakresu dat można znaleźć w prawym górnym rogu każdej strony. Dostosuj dane wyjściowe wykresów stron **podsumowujących** , wybierając zakres dat na podstawie ostatnich 3, 6 lub 12 miesięcy lub wybierając niestandardowy zakres dat o maksymalnym okresie wynoszącym 12 miesięcy. Domyślny zakres dat to sześć miesięcy.
 
-![Pulpit nawigacyjny analizy centrum partnerów](./media/analyze-dashboard.png)
+![Pulpit nawigacyjny analizy Centrum partnerskiego](./media/analyze-dashboard.png)
 
-### <a name="summary-section"></a>Sekcja Podsumowanie
+### <a name="summary-section"></a>Sekcja podsumowania
 
-W sekcji Podsumowanie jest wyświetlana liczba wszystkich utworzonych zamówień, nabytych klientów i użycia zgłoszonych w wybranym zakresie dat. Częściowy bieżący miesiąc zostanie wykluczony z obliczeń tych metryk. Na przykład: Jeśli wybrano przedział czasu 6M, godziny użycia są obliczane dla sześciu miesięcy poprzedzających bieżący miesiąc. Jeśli wybrano niestandardowy zakres dat, część z bieżącego miesiąca zostanie wykluczona z obliczeń.
+Sekcja podsumowania zawiera liczbę utworzonych zamówień, nabytych klientów i użycie w ramach wybranego zakresu dat. Częściowo bieżący miesiąc zostanie wykluczony z obliczeń tych metryk. Na przykład: Jeśli wybrano przedział czasu 6 min, godziny użycia są obliczane przez sześć miesięcy przed bieżącym miesiącem. W przypadku wybrania niestandardowego zakresu dat wartość częściowa od bieżącego miesiąca zostanie wykluczona z obliczenia.
 
 ![Trendy wzrostu na pulpicie nawigacyjnym podsumowania](./media/summary-summary-section.png)
 
-#### <a name="reading-the-summary-section"></a>Czytanie sekcji podsumowania
+#### <a name="reading-the-summary-section"></a>Odczytywanie sekcji podsumowania
 
-- **Zamówienia**: Liczba wszystkich zakupionych zamówień (z wyłączeniem anulowanych zamówień) dla ofert, które do tej pory opublikowałeś.
-- **Klienci**: Liczba wszystkich klientów, którzy zakupili Twoje oferty i mają co najmniej jedno nieza anulowane zamówienie.
-- **Znormalizowane godziny użytkowania:** Zdefiniowane jako godziny użycia znormalizowane w celu uwzględnienia liczby rdzeni maszyn wirtualnych ([liczba rdzeni maszyn wirtualnych] x [godziny użycia pierwotnego]). Maszyny wirtualne oznaczone jako "SHAREDCORE" używają 1/6 (lub 0,1666) jako mnożnika [liczba rdzeni maszyn wirtualnych].
-- **Nieprzetworzone godziny użytkowania:** czas działania maszyn wirtualnych pod względem godzin. Wartość procentowa obok **łącznej liczby zamówień**, całkowita liczba **klientów,** **znormalizowane godziny użytkowania,** **nieprzetworzone godziny użytkowania,** **wizyty na stronie**i wezwania do **akcji** reprezentują ilość wzrostu użycia dla wybranego zakresu dat ([użycie w ostatnim miesiącu — użycie pierwszego miesiąca])/ użycie pierwszego miesiąca). Jak opisano powyżej, częściowa kwota bieżącego miesiąca zostanie wykluczona z tej metryki.
-- **Trendy wzrostu:** Jeśli najedziesz kursorem na kolumny wykresu, wykresy słupkowe wyświetlają wartość dla każdego miesiąca.
-- **Zielony trójkąt skierowany w górę**: Wskazuje na pozytywny trend wzrostu.
-- **Czerwony trójkąt skierowany w dół**: Wskazuje ujemny trend wzrostu w stosunku do poprzedniego miesiąca.
+- **Orders**: liczba zakupionych zamówień (wyklucza anulowane zamówienia) dla ofert, które zostały już opublikowane.
+- **Klienci**: liczba wszystkich klientów, którzy kupili oferty i mają co najmniej jedno nieanulowane zamówienie.
+- **Znormalizowane godziny użycia**: zdefiniowane jako godziny użycia znormalizowane dla konta dla liczby rdzeni maszyn wirtualnych ([liczba rdzeni maszyn wirtualnych] x [godz. użycia pierwotnego]). Maszyny wirtualne oznaczone jako "SHAREDCORE" wykorzystują 1/6 (lub 0,1666) jako mnożnik [liczba rdzeni maszyn wirtualnych].
+- **Godziny użycia pierwotnego**: czas, przez który maszyny wirtualne były uruchamiane w godzinach. Wartość procentowa obok **łącznej liczby zamówień**, **łącznej liczby klientów**, **znormalizowanych godzin użycia**, **godzin użycia nieprzetworzonego**, **odwiedzin stron**oraz **wywołania akcji** przedstawiają stopień wzrostu użycia dla wybranego zakresu dat ([ostatnie użycie miesiąca – pierwsze użycie miesiąca])/użycie pierwszego miesiąca). Zgodnie z powyższym opisem, częściowa kwota bieżącego miesiąca zostanie wykluczona z tej metryki.
+- **Trendy wzrostu**: po umieszczeniu wskaźnika myszy na kolumnach wykresu wykresy słupkowe wyświetlają wartość dla każdego miesiąca.
+- **Zielony trójkąt skierowany w górę**: wskazuje pozytywny trend wzrostu.
+- **Czerwony trójkąt skierowany w dół**: wskazuje trend ujemnego wzrostu względem poprzedniego miesiąca.
 
-### <a name="customers-by-geography"></a>Klienci według geografii
+### <a name="customers-by-geography"></a>Klienci według lokalizacji geograficznej
 
-Mapa cieplna **Klienci według lokalizacji** geograficznie wyświetla liczbę klientów na mapie świata.
+Mapę cieplną **klienci według lokalizacji geograficznej** wyświetlają liczbę klientów na mapie światowej.
 
-![Klienci według lokalizacji geograficznej w pulpicie nawigacyjnym podsumowania](./media/summary-customers-by-geography.png)
+![Pulpit nawigacyjny podsumowania klientów według lokalizacji geograficznej](./media/summary-customers-by-geography.png)
 
 - Możesz przenieść mapę, aby wyświetlić dokładną lokalizację.
-- Można powiększyć określoną lokalizację.
-- Mapa cieplna ma dodatkową siatkę do wyświetlania szczegółów liczby klientów, liczby zamówień, znormalizowanych godzin użytkowania w określonej lokalizacji.
-- Możesz wyszukiwać i wybierać kraj w siatce, aby powiększyć lokalizację na mapie. Powróć oryginalny widok, naciskając przycisk **Początek** na mapie.
-- **Nowy** klient zakupił jedną z twoich ofert po raz pierwszy w ciągu miesiąca w wybranym zakresie dat.
+- Możesz powiększyć do określonej lokalizacji.
+- Mapę cieplną ma dodatkową siatkę, aby wyświetlić szczegółowe informacje o liczbie klientów, liczbie zamówień, znormalizowanych godzinach użycia w określonej lokalizacji.
+- Możesz wyszukać i wybrać kraj w siatce, aby powiększyć do lokalizacji na mapie. Przywróć widok oryginalny, naciskając przycisk Home ( **Strona główna** ) na mapie.
+- **Nowy** klient zakupił jedną z ofert po raz pierwszy w miesiącu w ramach wybranego zakresu dat.
 
-### <a name="growth-trend-charts"></a>Wykresy trendów wzrostu
+### <a name="growth-trend-charts"></a>Wykresy trendu wzrostu
 
-Możesz wyświetlać trendy na podstawie wzrostu **zakupionych zamówień** (w tym anulowanych zamówień), **nabytych klientów** (w tym utraconych klientów) i **zgłoszonych użycia,** które są wyświetlane miesiąc po miesiącu zgodnie z wybranym zakresem dat. Możesz dalej analizować te trendy, wybierając łącza poniżej wykresu, które przechodzą do odpowiednich **stron zamówienia,** **użycia,** **klienta**lub **aplikacji Marketplace Insights.**
+Trendy można wyświetlać w oparciu o wzrost liczby **zakupionych zamówień** (w tym zamówień anulowanych), **klientów nabytych** (w tym utraconych klientów) i zgłoszonych danych **użycia** , które są wyświetlane w miesiącu według miesiąca zgodnie z wybranym zakresem dat. Można przeanalizować te trendy, wybierając linki poniżej wykresu, co umożliwia przejście do odpowiednich stron **zamówienia**, **użycia**, **klienta**lub **szczegółowego wglądu w dane witryny Marketplace** .
 
-Wizyty na stronie oferty w portalu Marketplace i wykresy trendów **wezwania do działania** są wyświetlane dla witryny Azure marketplace i usługi AppSource na dwóch kartach.
+Strony oferty w witrynie Marketplace **odwiedzane i wywołujące** wykresy trendów związanych z akcją są wyświetlane w witrynie Azure Marketplace i AppSource na dwóch kartach.
 
-![Wizyty na stronie i wykresy trendów połączeń z działaniami na pulpicie nawigacyjnym podsumowania](./media/summary-page-visits-and-cta.png)
+![Odwiedziny stron i wywoływanie akcji wykresy trendów na pulpicie nawigacyjnym podsumowania](./media/summary-page-visits-and-cta.png)
 
-Wykres **zamówień według ofert** organizuje zamówienia zgodnie z nazwą oferty.
+Wykres **zamówienia według oferty** organizuje zamówienia zgodnie z nazwą oferty.
 
-Wykres kołowy **zamówień według kanału sprzedaży** organizuje zamówienia (w tym zamówienia anulowane przez klientów) w wybranym zakresie dat według kanału sprzedaży. Kanał sprzedaży to rodzaj umowy licencyjnej używanej przez klientów do zakupu platformy Azure, która jest dostawcą rozwiązań w chmurze (CSP), przedsiębiorstwem, przedsiębiorstwem za pośrednictwem sprzedawcy, GTM i płatności zgodnie z tobą.
+Wykres kołowy **zamówienia według kanału sprzedaży** organizuje zamówienia (w tym zamówienia, które zostały anulowane przez klientów) w wybranym zakresie dat według kanału sprzedaży. Kanał sprzedaży to typ umowy licencyjnej używanej przez klientów do kupowania platformy Azure, czyli dostawcy rozwiązań w chmurze (CSP), przedsiębiorstwa, przedsiębiorstwa przez odsprzedawcę, GTM i płatność zgodnie z rzeczywistym użyciem.
 
-**Wykorzystanie przez oferty** i **wykorzystanie przez wykresy** kołowe kanału sprzedaży przedstawiają podział użycia według najlepszych ofert i kanałów sprzedaży, odpowiednio. Wewnętrzny wykres kołowy reprezentuje użycie nieprzetworzone, a zewnętrzny wykres kołowy reprezentuje znormalizowane użycie.
+**Użycie przez oferty** i **użycie przez** wykresy kołowe kanałów sprzedaży przedstawia podział użycia odpowiednio do najlepszych ofert i kanałów sprzedaży. Wewnętrzny wykres kołowy reprezentuje pierwotne użycie i zewnętrzny wykres kołowy reprezentuje znormalizowane użycie.
 
-**Zamówienia według typu licencji w portalu Marketplace** i użycie według wykresów kołowych typu licencji w portalu **Marketplace** wyświetlają podział zamówień i użycia według ich odpowiedniego typu licencji. Typy licencji obejmują:
+Na wykresach kołowych typ licencji w **witrynie Marketplace** i **użycie według typów licencji witryny Marketplace** są wyświetlane podział zamówień i użycia według ich typu licencji. Typy licencji obejmują:
 
-- **Rozliczane za pośrednictwem platformy Azure:** Microsoft rozlicza klientów w Twoim imieniu, gdy zdecydujesz się sprzedać ofertę za pośrednictwem firmy Microsoft z tego typu licencji. Typy płatności obejmują płatność zgodnie z rzeczywistym wezwaniem za pomocą karty kredytowej lub fakturowania enterprise.
-- **Przynieś własną licencję:** Firma Microsoft nie rozlicza klientów za ich użycie w ramach tego typu oferty marketplace. To użycie jest wymienione jako **Pobierz teraz (za darmo)** na rynku.
-- **Bezpłatne**: Firma Microsoft nie rozlicza klientów za ich użycie w ramach tego typu oferty marketplace. To użycie jest wymienione jako **bezpłatna wersja próbna** na rynku.
-- **Microsoft jako sprzedawca**: Reprezentuje oferty sprzedawane przez sprzedawców firmy Microsoft w ramach **programu Cloud Solution Provider (CSP).**
+- **Rozliczanie za pomocą platformy Azure**: Firma Microsoft rozlicza klientów w Twoim imieniu w przypadku wybrania sprzedaży oferty przez firmę Microsoft przy użyciu tego typu licencji. Typy płatności obejmują płatność zgodnie z rzeczywistym użyciem za pośrednictwem karty kredytowej lub fakturowania w przedsiębiorstwie.
+- **Bring Your Own License**: Firma Microsoft nie rozlicza klientów za korzystanie z tego typu oferty portalu Marketplace. To użycie jest wymienione jako **Pobierz teraz (bezpłatnie)** w portalu Marketplace.
+- **Bezpłatna**: Firma Microsoft nie nalicza opłat za użycie tego typu oferty portalu Marketplace. To użycie jest wymienione jako **bezpłatna wersja próbna** w portalu Marketplace.
+- **Firma Microsoft jako odsprzedawca**: reprezentuje oferty sprzedane przez odsprzedawców firmy Microsoft jako część **programu dostawcy rozwiązań w chmurze (CSP)**.
 
-### <a name="customer-leaderboard"></a>Ranking klientów
+### <a name="customer-leaderboard"></a>Rankingów klienta
 
-50 najlepszych klientów z największą liczbą zamówień jest wyświetlanych na *tablicy liderów*, posortowanych według najwyższej liczby zamówień i procentu zamówienia.
+Najlepsi 50 klientów z największą liczbą zamówień są wyświetlane na *tablicy lidera*, posortowane według najwyższej liczby porządkowej i procentowej kolejności.
 
-- Wybierz klienta, aby wyświetlić szczegóły profilu, zamówienia uporządkowane według oferty lub zamówienia uporządkowane według typu licencji platformy Azure i kanału cenowego.
-- Wykres pączków **Oferty według zamówień** przedstawia cztery najlepsze oferty (według liczby zamówień), a pozostałe oferty pogrupowane jako "Rest All".
-- **Znormalizowane wykorzystanie według oferty** wykres pierścieniowy przedstawia pięć najlepszych ofert według użycia.
+- Wybierz klienta, aby wyświetlić jego szczegóły profilu, zamówienia uporządkowane według oferty lub zamówienia uporządkowane według typu licencji platformy Azure i kanału cenowego.
+- Wykres pierścieniowy **oferty wg zamówień** przedstawia cztery pierwsze oferty (według liczby porządkowej), a pozostałe oferty pogrupowane jako "REST All".
+- Wykres pierścieniowy z **znormalizowanym użyciem według oferty** przedstawia pięć najważniejszych ofert według użycia.
 
 > [!NOTE]
-> Dane osobowe Klienta będą przedstawiane tylko wtedy, gdy klient wyraził na to zgodę. Można wyświetlić te informacje, jeśli zalogowano się na poziomie uprawnień roli **właściciela.** Użytkownicy z rolą **Współautor** nie będą mogli wyświetlać tych informacji. [Dowiedz się więcej o rolach i uprawnieniach użytkowników](./manage-account.md#define-user-roles-and-permissions).
+> Dane osobowe klienta będą prezentowane tylko wtedy, gdy klient udostępnił zgodę. Te informacje można wyświetlić, jeśli zalogowano się na poziomie uprawnień roli **właściciela** . Użytkownicy z rolą **współautor** nie będą mogli wyświetlić tych informacji. [Dowiedz się więcej o rolach i uprawnieniach użytkowników](./manage-account.md#define-user-roles-and-permissions).
 
-### <a name="seat-count-trend"></a>Trend liczby miejsc
+### <a name="seat-count-trend"></a>Trend liczby stanowisk
 
-**Zamówienia według wykresu na miejsce/ na miejscu** przedstawiają podział wszystkich zamówień zakupionych zgodnie z modelem cenowym. Wykres **trendu liczby miejsc** przedstawia miejsca w porównaniu z zamówieniami zakupionymi dla wszystkich ofert oprogramowania na miejsce Software as a Service (SaaS).
+Wykres **order by-stanowisko/na lokacja** przedstawia podział wszystkich zamówień zakupionych zgodnie z modelem cen. Wykres **trendu liczby stanowisk** przedstawia stanowiska i zamówienia zakupione dla wszystkich ofert dla oprogramowania na stanowisko jako usługa (SaaS).
 
-### <a name="free-trials-saas-orders-trend"></a>Darmowe wersje próbne Trend zamówień SaaS
+### <a name="free-trials-saas-orders-trend"></a>Trend zamówień SaaS bezpłatnych wersji próbnych
 
-**Bezpłatny okres próbny Wykres trendu zamówień SaaS** przedstawia trend zamówień na bezpłatne wersje próbne SaaS oferuje 30-dniowy okres próbny.
+Wykres **trendu bezpłatnej wersji próbnej SaaS** przedstawia trend zamówień na potrzeby bezpłatnych testów SaaS oferowanych przez 30-dniowy okres próbny.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać przegląd raportów analitycznych dostępnych w komercyjnym rynku Centrum partnerów, zobacz [Analytics dla rynku komercyjnego w Centrum partnerów.](./analytics.md)
-- Aby uzyskać informacje o zamówieniach w formacie graficznym i do pobrania, zobacz [Pulpit nawigacyjny zamówień w analizie rynku komercyjnego](./orders-dashboard.md).
-- W przypadku maszyny wirtualnej (VM) oferuje użycie i metryki rozliczeniowe taryfowe, zobacz [Pulpit nawigacyjny użycia w analizie komercyjnego rynku.](./usage-dashboard.md)
-- Aby uzyskać szczegółowe informacje o klientach, w tym trendy wzrostu, zobacz [Pulpit nawigacyjny klientów w analizie rynku komercyjnego.](./customer-dashboard.md)
-- Aby uzyskać listę żądań pobierania w ciągu ostatnich 30 dni, zobacz [Pulpit nawigacyjny pobierania w analizie rynku komercyjnego](./downloads-dashboard.md).
-- Aby wyświetlić skonsolidowany widok opinii klientów dotyczących ofert w witrynie Azure Marketplace i AppSource, zobacz [Pulpit nawigacyjny ocen i opinii w analizie komercyjnego portalu marketplace.](./ratings-reviews.md)
-- W przypadku często zadawanych pytań dotyczących analityki rynku komercyjnego i kompleksowego słownika terminów danych zobacz [Często zadawane pytania i terminologia w celu analizy rynku komercyjnego.](./faq-terminology.md)
+- Aby zapoznać się z omówieniem raportów analitycznych dostępnych na rynku komercyjnym centrum partnerskiego, zobacz [Analiza portalu komercyjnego w centrum partnerskim](./analytics.md).
+- Aby uzyskać informacje o zamówieniach w formacie graficznym i do pobrania, zobacz temat [Zamówienie pulpitu nawigacyjnego w portalu komercyjnej analizy Marketplace](./orders-dashboard.md).
+- W przypadku maszyn wirtualnych (VM) są dostępne metryki dotyczące użycia i taryfowego rozliczania, zobacz [pulpit nawigacyjny użycia w portalu komercyjnej analizy Marketplace](./usage-dashboard.md).
+- Aby uzyskać szczegółowe informacje na temat klientów, w tym trendów wzrostu, zobacz [pulpit nawigacyjny klienta w komercyjnej analizie portalu Marketplace](./customer-dashboard.md).
+- Aby uzyskać listę żądań pobierania w ciągu ostatnich 30 dni, zobacz [pulpit nawigacyjny w portalu komercyjnej analizy Marketplace](./downloads-dashboard.md).
+- Aby wyświetlić skonsolidowany widok opinii klientów na temat ofert w witrynie Azure Marketplace i AppSource, zobacz [pulpit nawigacyjny oceny i przeglądów w portalu komercyjnej analizy Marketplace](./ratings-reviews.md).
+- Często zadawane pytania dotyczące analizy komercyjnej portalu Marketplace i kompleksowego słownika warunków dotyczących danych można znaleźć [w temacie często zadawane pytania i terminologia dotyczące komercyjnej analizy w portalu Marketplace](./faq-terminology.md).

@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie wieloma bazami danych za pomocą pul elastycznych
-description: Zarządzanie wieloma bazami danych SQL — setki i tysiące — przy użyciu pul elastycznych i skalowanie ich. Jedna cena za zasoby, które można dystrybuować w razie potrzeby.
+description: Zarządzanie i skalowanie wielu baz danych SQL — setki i tysiące — przy użyciu pul elastycznych. Jedna cena za zasoby, które można dystrybuować w razie potrzeby.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 04/09/2020
 ms.openlocfilehash: 3252ecb030234e4c5543c07dfb4fc702f850a73e
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80998990"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastyczne pule pozwalają na zarządzanie wieloma bazami danych Azure SQL oraz ich skalowanie
@@ -24,31 +24,31 @@ Pule elastyczne usługi SQL Database to proste i niedrogie rozwiązanie do zarz�
 
 ## <a name="what-are-sql-elastic-pools"></a>Co to są pule elastyczne SQL
 
-Deweloperzy SaaS tworzą aplikacje w oparciu o warstwy danych w dużej skali składające się z wielu baz danych. Typowym wzorcem aplikacji jest udostępnianie jednej bazy danych dla każdego klienta. Ale różni klienci często mają różne i nieprzewidywalne wzorce użycia i trudno jest przewidzieć wymagania dotyczące zasobów każdego użytkownika poszczególnych baz danych. Tradycyjnie, masz dwie opcje:
+Deweloperzy SaaS tworzą aplikacje w oparciu o warstwy danych w dużej skali składające się z wielu baz danych. Typowym wzorcem aplikacji jest udostępnianie jednej bazy danych dla każdego klienta. Jednak różni klienci często mają różne i nieprzewidywalne wzorce użycia i trudno jest przewidzieć wymagania dotyczące zasobów poszczególnych użytkowników poszczególnych baz danych. Tradycyjnie masz dwie opcje:
 
-- Zasoby nadmiernej aprowizyjno-administracyjnej oparte na szczytowym zużyciu i nad płacą, lub
-- Niedostatezasiążenie, aby zaoszczędzić koszty, kosztem wydajności i satysfakcji klienta podczas szczytów.
+- Zasoby nadmiernej aprowizacji w oparciu o szczytowe użycie i za pośrednictwem płacenia
+- W ramach zastrzegania kosztów, kosztem wydajności i zadowoleniem klientów podczas szczytu.
 
-Pule elastyczne rozwiązać ten problem, zapewniając, że bazy danych uzyskać zasoby wydajności, których potrzebują, gdy ich potrzebują. Udostępniają one prosty mechanizm alokacji zasobów w ramach przewidywalnego budżetu. Aby dowiedzieć się więcej na temat wzorców projektowych dla aplikacji SaaS wykorzystujących pule elastyczne, zobacz artykuł [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Wzorce projektowe dla wielodostępnych aplikacji SaaS korzystających z usługi Azure SQL Database).
+Pule elastyczne rozwiązują ten problem, upewniając się, że bazy danych uzyskują potrzebne im zasoby wydajności, gdy ich potrzebują. Udostępniają one prosty mechanizm alokacji zasobów w ramach przewidywalnego budżetu. Aby dowiedzieć się więcej na temat wzorców projektowych dla aplikacji SaaS wykorzystujących pule elastyczne, zobacz artykuł [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Wzorce projektowe dla wielodostępnych aplikacji SaaS korzystających z usługi Azure SQL Database).
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
 > [!IMPORTANT]
-> W przypadku pule elastycznych nie pobierana jest opłata za bazę danych. Opłaty są naliczane za każdą godzinę, gdy pula istnieje przy najwyższych eDTU lub punktach wirtualnych, niezależnie od użycia lub tego, czy pula była aktywna przez mniej niż godzinę.
+> Nie jest naliczana opłata za bazę danych dla pul elastycznych. Opłaty są naliczane za każdą godzinę, gdy pula istnieje z największą liczbą jednostek eDTU lub rdzeni wirtualnych, niezależnie od użycia lub od tego, czy pula była aktywna przez czas krótszy niż godzina.
 
-Pule elastyczne umożliwiają deweloperowi zakup zasobów dla puli współużytkowanych przez wiele baz danych, aby pomieścić nieprzewidywalne okresy użycia przez poszczególne bazy danych. Zasoby dla puli można skonfigurować na podstawie [modelu zakupu opartego](sql-database-service-tiers-dtu.md) na UU lub [modelu zakupu opartego na parcie wirtualnym](sql-database-service-tiers-vcore.md). Zapotrzebowanie na zasoby dla puli zależy od zagregowanego wykorzystania jego baz danych. Ilość zasobów dostępnych dla puli jest kontrolowana przez budżet dewelopera. Deweloper po prostu dodaje bazy danych do puli, ustawia minimalne i maksymalne zasoby dla baz danych (minimalnych i maksymalnych DTU lub minimalnych lub maksymalnych procesorów wirtualnych w zależności od wybranego modelu pozyskiwania zasobów), a następnie ustawia zasoby puli na podstawie ich budżetu. Korzystając z pul, deweloper może bezproblemowo rozwijać swoją usługę od niewielkiego startupu do dojrzałego biznesu w coraz większej skali.
+Pule elastyczne umożliwiają deweloperom kupowanie zasobów dla puli współdzielonej przez wiele baz danych w celu uwzględnienia nieprzewidywalnych okresów użycia poszczególnych baz danych. Zasoby dla puli można skonfigurować na podstawie [modelu zakupu opartego](sql-database-service-tiers-dtu.md) na jednostkach DTU lub [modelu zakupu opartego na rdzeń wirtualny](sql-database-service-tiers-vcore.md). Wymagania dotyczące zasobów dla puli są określane przez zagregowane wykorzystanie jego baz danych. Ilość zasobów dostępnych dla puli jest kontrolowana przez budżet dewelopera. Deweloper po prostu dodaje bazy danych do puli, ustawia minimalną i maksymalną ilość zasobów dla baz danych (minimalną i maksymalną DTU lub minimalną lub maksymalną rdzeni wirtualnych w zależności od wybranego modelu odzyskania), a następnie ustawia zasoby puli na podstawie ich budżetu. Korzystając z pul, deweloper może bezproblemowo rozwijać swoją usługę od niewielkiego startupu do dojrzałego biznesu w coraz większej skali.
 
-Poszczególne bazy danych w ramach puli mają możliwość elastycznego skalowania automatycznego w określonym zakresie parametrów. Pod dużym obciążeniem bazy danych może zużywać więcej zasobów, aby zaspokoić zapotrzebowanie. Bazy danych przy lekkich obciążeniach zużywają mniej, a bazy danych bez obciążenia nie zużywają żadnych zasobów. Aprowizacja zasobów dla całej puli zamiast pojedynczych baz danych upraszcza zadania związane z zarządzaniem. Dodatkowo masz przewidywalny budżet na pulę. Dodatkowe zasoby można dodać do istniejącej puli bez przestojów bazy danych, z tą różnicą, że bazy danych mogą wymagać przeniesienia w celu zapewnienia dodatkowych zasobów obliczeniowych dla nowej rezerwacji jednostek eDTU. Podobnie jeśli dodatkowe zasoby nie są już potrzebne, można je usunąć z istniejącej puli w dowolnym momencie. Można również dodawać bazy danych do puli lub odejmować je z niej. Jeśli baza danych przewidywalnie niewystarczająco wykorzystuje zasoby, należy ją przenieść.
+Poszczególne bazy danych w ramach puli mają możliwość elastycznego skalowania automatycznego w określonym zakresie parametrów. Pod dużym obciążeniem baza danych może zużywać więcej zasobów w celu spełnienia wymagań. Bazy danych w mniejszych obciążeniach zużywają mniej, a bazy danych nie zużywają żadnych zasobów. Aprowizacja zasobów dla całej puli zamiast pojedynczych baz danych upraszcza zadania związane z zarządzaniem. Dodatkowo istnieje przewidywalny budżet dla puli. Dodatkowe zasoby można dodać do istniejącej puli bez przestojów związanych z bazą danych, z tą różnicą, że konieczne jest przeniesienie baz danych w celu zapewnienia dodatkowych zasobów obliczeniowych dla nowej rezerwacji jednostek eDTU. Podobnie, jeśli dodatkowe zasoby nie są już potrzebne, można je usunąć z istniejącej puli w dowolnym momencie. Można również dodawać bazy danych do puli lub odejmować je z niej. Jeśli baza danych przewidywalnie niewystarczająco wykorzystuje zasoby, należy ją przenieść.
 
 > [!NOTE]
-> Podczas przenoszenia baz danych do lub z puli elastycznej, nie ma przestojów, z wyjątkiem krótkiego okresu czasu (w kolejności sekund) na końcu operacji, gdy połączenia bazy danych są odrzucane.
+> Podczas przechodzenia baz danych do lub z puli elastycznej nie ma przestojów z wyjątkiem krótkiego czasu (w kolejności sekund) na końcu operacji, gdy połączenia bazy danych są porzucane.
 
-## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Kiedy należy wziąć pod uwagę pulę elastyczną bazy danych SQL
+## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Kiedy należy uwzględnić pulę elastyczną SQL Database
 
 Pule są odpowiednie dla wielu baz danych o określonych wzorcach użycia. Dla danej bazy danych ten wzorzec charakteryzuje się niskim średnim wykorzystaniem oraz stosunkowo rzadkimi okresami zwiększonego użycia.
 
-Im więcej baz danych możesz dodać do puli, tym większe uzyskujesz oszczędności. W zależności od wzorca wykorzystania aplikacji jest możliwe, aby zobaczyć oszczędności z zaledwie dwóch baz danych S3.
+Im więcej baz danych możesz dodać do puli, tym większe uzyskujesz oszczędności. W zależności od wzorca wykorzystania aplikacji możliwe jest wyświetlanie oszczędności z użyciem co najmniej dwóch baz danych S3.
 
 Poniższe sekcje ułatwiają zrozumienie, jak ocenić, czy dodanie konkretnej kolekcji baz danych do puli może być korzystne. W przykładach użyto pul warstwy Standardowa, ale te same zasady mają zastosowanie także do pul w warstwach Podstawowa i Premium.
 
@@ -58,17 +58,17 @@ Na poniższej ilustracji pokazano przykład bazy danych, która przez większoś
 
    ![pojedyncza baza danych odpowiednia dla puli](./media/sql-database-elastic-pool/one-database.png)
 
-W przedstawionym okresie pięciu minut baza danych DB1 odnotowuje wzrost użycia do 90 DTU, ale jej całkowite średnie użycie jest mniejsze niż pięć DTU. Rozmiar obliczeń S3 jest wymagany do uruchomienia tego obciążenia w jednej bazie danych, ale pozostawia to większość zasobów nieużywane w okresach niskiej aktywności.
+W przedstawionym okresie pięciu minut baza danych DB1 odnotowuje wzrost użycia do 90 DTU, ale jej całkowite średnie użycie jest mniejsze niż pięć DTU. Do uruchomienia tego obciążenia w pojedynczej bazie danych jest wymagany rozmiar obliczeń S3, ale nie są one używane w okresach niskiego działania.
 
 Pula umożliwia udostępnienie tych nieużywanych jednostek DTU wielu bazom danych, a tym samym zmniejsza liczbę potrzebnych jednostek DTU i obniża koszty ogólne.
 
-Rozwijając poprzedni przykład, załóżmy, że istnieją dodatkowe bazy danych o podobnych wzorcach użycia jak baza danych DB1. W następnych dwóch poniższych rysunkach wykorzystanie czterech baz danych i 20 baz danych jest warstwowe na tym samym wykresie, aby zilustrować nienakładający się charakter ich wykorzystania w czasie przy użyciu modelu zakupu opartego na UTU:
+Rozwijając poprzedni przykład, załóżmy, że istnieją dodatkowe bazy danych o podobnych wzorcach użycia jak baza danych DB1. W następnych dwóch poniższych ilustracjach użycie czterech baz danych i 20 baz danych odbywa się na tym samym wykresie, aby zilustrować nienakładający się charakter ich użycia w czasie przy użyciu modelu zakupu opartego na jednostkach DTU:
 
    ![cztery bazy danych z wzorcem użycia odpowiednim dla puli](./media/sql-database-elastic-pool/four-databases.png)
 
    ![dwadzieścia baz danych z wzorcem użycia odpowiednim dla puli](./media/sql-database-elastic-pool/twenty-databases.png)
 
-Zagregowane użycie jednostek DTU we wszystkich 20 bazach danych przedstawia czarna linia na poprzednim rysunku. Pokazuje ona, że zagregowane użycie jednostek DTU nigdy nie przekracza 100 DTU i wskazuje, że te 20 baz danych może współużytkować 100 jednostek eDTU w tym okresie. Powoduje to 20-krotne zmniejszenie jednostek DTU i 13-krotną obniżkę ceny w porównaniu z umieszczeniem każdej z baz danych w rozmiarach obliczeniowych S3 dla pojedynczych baz danych.
+Zagregowane użycie jednostek DTU we wszystkich 20 bazach danych przedstawia czarna linia na poprzednim rysunku. Pokazuje ona, że zagregowane użycie jednostek DTU nigdy nie przekracza 100 DTU i wskazuje, że te 20 baz danych może współużytkować 100 jednostek eDTU w tym okresie. Wynikiem tego jest spadek 20x w DTU i obniżka ceny trzynastokrotnie niższą w porównaniu do umieszczania każdej bazy danych w rozmiarach S3 dla pojedynczych baz danych.
 
 Ten przykład jest idealny z następujących przyczyn:
 
@@ -78,156 +78,156 @@ Ten przykład jest idealny z następujących przyczyn:
 
 Cena puli jest funkcją jednostek eDTU puli. Chociaż cena jednostki eDTU dla puli jest 1,5 raza większa niż cena jednostki DTU dla pojedynczej bazy danych, **jednostki eDTU puli mogą być współdzielone przez wiele baz danych, a tym samym potrzebna jest mniejsza całkowita liczba jednostek eDTU**. Te różnice w cenie i współużytkowanie jednostek eDTU są podstawą potencjalnych oszczędności, które mogą zapewnić pule.
 
-Następujące reguły kciuka związane z liczbą baz danych i wykorzystania bazy danych pomóc zapewnić, że pula zapewnia zmniejszenie kosztów w porównaniu do przy użyciu rozmiarów obliczeń dla pojedynczych baz danych.
+Poniższe reguły dotyczące liczby baz danych i wykorzystania baz danych pomagają zapewnić, że Pula zapewnia zredukowany koszt w porównaniu z użyciem rozmiarów obliczeniowych dla pojedynczych baz danych.
 
 ### <a name="minimum-number-of-databases"></a>Minimalna liczba baz danych
 
-Jeśli łączna ilość zasobów dla pojedynczych baz danych jest więcej niż 1,5 x zasobów potrzebnych do puli, a następnie puli elastycznej jest bardziej opłacalne.
+Jeśli zagregowana ilość zasobów dla pojedynczych baz danych jest większa niż 1,5 x zasobów wymaganych dla puli, wówczas elastyczna Pula jest bardziej opłacalna.
 
-***Przykład modelu zakupów opartego na UTU***<br>
-Co najmniej dwie bazy danych S3 lub co najmniej 15 baz danych S0 są potrzebne dla puli 100 jednostek eDTU, aby była bardziej opłacalna niż przy użyciu rozmiarów obliczeniowych dla pojedynczych baz danych.
+***Przykład modelu zakupu opartego na jednostkach DTU***<br>
+Co najmniej dwie bazy danych S3 lub co najmniej 15 baz danych S0 są konieczne, aby Pula jednostek eDTU 100 była bardziej opłacalna niż użycie rozmiarów obliczeń dla pojedynczych baz danych.
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Maksymalna liczba baz danych z równoczesnymi szczytami użycia
 
-Udostępniając zasoby, nie wszystkie bazy danych w puli można jednocześnie używać zasobów do limitu dostępnego dla pojedynczych baz danych. Im mniej baz danych, które jednocześnie szczyt, tym niższe zasoby puli można ustawić i bardziej opłacalne puli staje. Ogólnie rzecz biorąc, nie więcej niż 2/3 (lub 67%) baz danych w puli powinny jednocześnie osiągnąć najwyższy poziom do limitu zasobów.
+Udostępniając zasoby, nie wszystkie bazy danych w puli mogą jednocześnie używać zasobów do limitu dostępnego dla pojedynczych baz danych. Im mniejsza liczba baz danych, które jednocześnie są szczytowe, tym niższe zasoby puli można ustawić, a obciążenie puli stanie się coraz bardziej ekonomiczne. Ogólnie rzecz biorąc, nie więcej niż 2/3 (lub 67%) bazy danych w puli powinny jednocześnie mieć wartość szczytową dla limitów zasobów.
 
-***Przykład modelu zakupów opartego na UTU***
+***Przykład modelu zakupu opartego na jednostkach DTU***
 
-Aby zmniejszyć koszty dla trzech baz danych S3 w puli 200 eDTU, co najwyżej dwie z tych baz danych mogą jednocześnie osiągać szczytowe użycie. W przeciwnym razie, jeśli więcej niż dwie z tych czterech baz danych S3 jednocześnie osiągają szczytowe użycie, rozmiar puli musiałby zostać zwiększony do ponad 200 eDTU. Jeśli pula zostanie przesięknięta do ponad 200 jednostek eDTU, więcej baz danych S3 musiałoby zostać dodanych do puli, aby utrzymać koszty niższe niż rozmiary obliczeń dla pojedynczych baz danych.
+Aby zmniejszyć koszty dla trzech baz danych S3 w puli 200 eDTU, co najwyżej dwie z tych baz danych mogą jednocześnie osiągać szczytowe użycie. W przeciwnym razie, jeśli więcej niż dwie z tych czterech baz danych S3 jednocześnie osiągają szczytowe użycie, rozmiar puli musiałby zostać zwiększony do ponad 200 eDTU. Jeśli rozmiar puli zostanie zmieniony na ponad 200 jednostek eDTU, do puli należy dodać więcej baz danych S3, aby zachować koszty mniejsze niż rozmiary obliczeniowe dla pojedynczych baz danych.
 
-W tym przykładzie nie uwzględnia wykorzystania innych baz danych w puli. Jeśli wszystkie bazy danych mają jakiś poziom użycia w dowolnym danym momencie czasu, wówczas mniej niż 2/3 (lub 67%) baz danych może jednocześnie osiągać szczytowe użycie.
+Należy zauważyć, że w tym przykładzie nie jest brane pod uwagę użycie innych baz danych w puli. Jeśli wszystkie bazy danych mają jakiś poziom użycia w dowolnym danym momencie czasu, wówczas mniej niż 2/3 (lub 67%) baz danych może jednocześnie osiągać szczytowe użycie.
 
 ### <a name="resource-utilization-per-database"></a>Wykorzystanie zasobów na bazę danych
 
 Duża różnica między szczytowym i średnim użyciem bazy danych wskazuje na dłuższe okresy niewielkiego wykorzystania i krótkie okresy wysokiego wykorzystania. Ten wzorzec użycia jest idealny dla współużytkowania zasobów między bazami danych. Bazę danych należy rozważyć do umieszczenia w puli, jeśli jej szczytowe użycie jest ponad 1,5 raza większe niż jej średnie użycie.
 
-**Przykład modelu zakupów oparty na jednostkach DTU:** Baza danych S3, która osiąga wartość szczytową do 100 DTU i średnio używa 67 procesorów DTU lub mniej, jest dobrym kandydatem do udostępniania eDTU w puli. Również baza danych S1, która osiąga szczytowe użycie 20 DTU, a przeciętnie używa 13 DTU lub mniej, jest dobrym kandydatem do umieszczenia w puli.
+**Przykład modelu zakupu opartego na**jednostkach DTU: baza danych S3, która ma szczyt do 100 DTU i średnio używa 67 DTU lub mniej, jest dobrym kandydatem do udostępniania jednostek eDTU w puli. Również baza danych S1, która osiąga szczytowe użycie 20 DTU, a przeciętnie używa 13 DTU lub mniej, jest dobrym kandydatem do umieszczenia w puli.
 
-## <a name="how-do-i-choose-the-correct-pool-size"></a>Jak wybrać odpowiedni rozmiar basenu
+## <a name="how-do-i-choose-the-correct-pool-size"></a>Jak mogę wybrać poprawnego rozmiaru puli
 
-Najlepszy rozmiar puli zależy od zasobów agregujących potrzebnych dla wszystkich baz danych w puli. Wiąże się to z określeniem następujących elementów:
+Najlepszy rozmiar puli zależy od zagregowanych zasobów potrzebnych dla wszystkich baz danych w puli. Obejmuje to określenie następujących czynności:
 
-- Maksymalna ilość zasobów wykorzystywanych przez wszystkie bazy danych w puli (maksymalne DTU lub maksymalne wartości wirtualne w zależności od wybranego modelu pozyskiwania zasobów).
+- Maksymalna liczba zasobów używanych przez wszystkie bazy danych w puli (maksymalna DTU lub maksymalna rdzeni wirtualnych w zależności od wybranego modelu odzyskania).
 - Maksymalna liczba bajtów magazynu wykorzystana przez wszystkie bazy danych w puli.
 
-Aby uzyskać dostępne warstwy usług i limity dla każdego modelu zasobów, zobacz [model zakupu oparty na USŁUDZE DTU](sql-database-service-tiers-dtu.md) lub model zakupów oparty na [parcie wirtualnym](sql-database-service-tiers-vcore.md).
+Aby uzyskać dostępne warstwy usług i limity dla każdego modelu zasobów, zobacz [model zakupu oparty na](sql-database-service-tiers-dtu.md) jednostkach DTU lub [model zakupu oparty na rdzeń wirtualny](sql-database-service-tiers-vcore.md).
 
-Poniższe kroki mogą pomóc w oszacowaniu, czy pula jest bardziej opłacalna niż pojedyncze bazy danych:
+Poniższe kroki ułatwiają oszacowanie, czy pula jest bardziej opłacalna niż pojedyncze bazy danych:
 
-1. Oszacuj eDTU lub vCore potrzebne dla puli w następujący sposób:
+1. Oszacuj jednostek eDTU lub rdzeni wirtualnych wymagany dla puli w następujący sposób:
 
-   W przypadku modelu zakupu opartego na jednostka DTU: MAX(<*Całkowita liczba DBs* X średnie wykorzystanie DTU na> *DB,*<br>  
+   W przypadku modelu zakupu opartego na jednostkach DTU: MAX (<*całkowita liczba baz danych* X *średnia użycie jednostek DTU na bazę danych*>,<br>  
    <*liczba baz danych jednocześnie osiągających szczyt użycia* X *użycie szczytowe jednostek DTU na bazę danych*)
 
-   W przypadku modelu zakupu opartego na procesorach vCore: MAX(<*Całkowita liczba* mb X średnie wykorzystanie vCore na> *DB,*<br>  
-   <*Liczba jednocześnie szczytowych gnpp* X *Szczytowe wykorzystanie vCore na DB*)
+   W przypadku modelu zakupu opartego na rdzeń wirtualny: MAX (<*całkowita liczba baz danych* X *średnia użycie rdzeń wirtualny na bazę danych*>,<br>  
+   <*Liczba współbieżnie szczytowych baz danych* X *szczytowe wykorzystanie rdzeń wirtualny na bazę danych*)
 
 2. Oszacuj miejsce do magazynowania wymagane dla puli przez dodanie liczby bajtów potrzebnych dla wszystkich baz danych w puli. Następnie określ rozmiar puli (w jednostkach eDTU), który zapewni tę ilość miejsca przechowywania.
-3. W przypadku modelu zakupów opartego na UJ należy przyjąć większą wartość szacunków eDTU z kroku 1 i 2. W przypadku modelu zakupu opartego na wynikach vCore należy wziąć oszacowanie koru wirtualnego z kroku 1.
-4. Zobacz [stronę cennika bazy danych SQL](https://azure.microsoft.com/pricing/details/sql-database/) i znajdź najmniejszy rozmiar puli, który jest większy niż szacowany krok 3.
-5. Porównaj cenę puli z kroku 5 z ceną przy użyciu odpowiednich rozmiarów obliczeń dla pojedynczych baz danych.
+3. W przypadku modelu zakupu opartego na jednostkach DTU należy uzyskać więcej wartości szacunkowych jednostek eDTU z kroku 1 i 2. W przypadku modelu zakupu opartego na rdzeń wirtualny należy uzyskać oszacowanie rdzeń wirtualny z kroku 1.
+4. Zapoznaj się z [cennikiem SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) i Znajdź najmniejszy rozmiar puli większy niż oszacowanie od kroku 3.
+5. Porównaj cenę puli z kroku 5 z ceną za korzystanie z odpowiednich rozmiarów obliczeń dla pojedynczych baz danych.
 
 > [!IMPORTANT]
-> Jeśli liczba baz danych w puli zbliża się do maksymalnej obsługiwanej, należy wziąć pod uwagę [zarządzanie zasobami w gęstych pulach elastycznych.](sql-database-elastic-pool-resource-management.md)
+> Jeśli liczba baz danych w puli zbliża się do maksymalnej obsługiwanej wartości, należy wziąć pod uwagę [Zarządzanie zasobami w ramach gęstych pul elastycznych](sql-database-elastic-pool-resource-management.md).
 > 
 
-## <a name="using-other-sql-database-features-with-elastic-pools"></a>Korzystanie z innych funkcji bazy danych SQL z pulami elastycznymi
+## <a name="using-other-sql-database-features-with-elastic-pools"></a>Korzystanie z innych funkcji SQL Database z elastycznymi pulami
 
-### <a name="elastic-jobs-and-elastic-pools"></a>Elastyczne zadania i elastyczne baseny
+### <a name="elastic-jobs-and-elastic-pools"></a>Zadania elastyczne i elastyczne pule
 
 W przypadku puli zadania zarządzania są uproszczone dzięki uruchamianiu skryptów w **[zadaniach elastycznych](elastic-jobs-overview.md)**. Zadanie elastyczne eliminuje większość monotonnych czynności związanych z dużą liczbą baz danych.
 
 Aby uzyskać więcej informacji na temat innych narzędzi do pracy z wieloma bazami danych, zobacz artykuł dotyczący [skalowania w poziomie za pomocą usługi Azure SQL Database](sql-database-elastic-scale-introduction.md).
 
-### <a name="business-continuity-options-for-databases-in-an-elastic-pool"></a>Opcje ciągłości działania baz danych w puli elastycznej
+### <a name="business-continuity-options-for-databases-in-an-elastic-pool"></a>Opcje ciągłości biznesowej dla baz danych w puli elastycznej
 
 Bazy danych w puli obsługują te same [funkcje ciągłości działalności biznesowej](sql-database-business-continuity.md), które są dostępne dla pojedynczych baz danych.
 
 - **Przywracanie do określonego momentu**
 
-  Przywracanie w czasie używa automatycznych kopii zapasowych bazy danych w celu odzyskania bazy danych w puli do określonego punktu w czasie. Zobacz [Przywracanie do punktu w czasie](sql-database-recovery-using-backups.md#point-in-time-restore).
+  Przywracanie do określonego momentu używa automatycznych kopii zapasowych bazy danych w celu odzyskania bazy danych w puli do konkretnego punktu w czasie. Zobacz [Przywracanie do punktu w czasie](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 - **Przywracanie geograficzne**
 
-  Przywracanie geograficzne zapewnia domyślną opcję odzyskiwania, gdy baza danych jest niedostępna z powodu zdarzenia w regionie, w którym znajduje się baza danych. Zobacz [Przywracanie bazy danych SQL platformy Azure lub pracy awaryjnej do pomocniczego](sql-database-disaster-recovery.md)
+  Przywracanie geograficzne zapewnia domyślną opcję odzyskiwania, gdy baza danych jest niedostępna z powodu zdarzenia w regionie, w którym jest hostowana baza danych. Zobacz [przywracanie Azure SQL Database lub przełączanie do trybu failover do pomocniczego](sql-database-disaster-recovery.md)
 
 - **Aktywna replikacja geograficzna**
 
-  W przypadku aplikacji, które mają bardziej agresywne wymagania dotyczące odzyskiwania niż przywracanie geograficzne, należy skonfigurować [active replikację geograficzną](sql-database-active-geo-replication.md) lub [grupę automatycznego trybu failover](sql-database-auto-failover-group.md).
+  W przypadku aplikacji, które mają bardziej agresywne wymagania dotyczące odzyskiwania niż w przypadku przywracania geograficznego, można skonfigurować [aktywną replikację geograficzną](sql-database-active-geo-replication.md) lub [grupę autotrybu failover](sql-database-auto-failover-group.md).
 
-## <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>Tworzenie nowej puli elastycznej bazy danych SQL przy użyciu portalu Azure
+## <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>Tworzenie nowej SQL Database elastycznej puli przy użyciu Azure Portal
 
-Istnieją dwa sposoby tworzenia puli elastycznej w witrynie Azure portal.
+Istnieją dwa sposoby tworzenia elastycznej puli w Azure Portal.
 
-1. Przejdź do [witryny Azure portal,](https://portal.azure.com) aby utworzyć pulę elastyczną. Wyszukaj i wybierz **pozycję Azure SQL**.
-2. Wybierz **+Dodaj,** aby otworzyć stronę **opcji Wybierz wdrożenie SQL.** Dodatkowe informacje o pulach elastycznych można wyświetlić, wybierając pozycję **Pokaż szczegóły** na **kafelku Bazy danych.**
-3. Na **kafelku Bazy danych** wybierz pozycję **Pula elastyczna** w menu rozwijanym **Typ zasobu,** a następnie wybierz pozycję **Utwórz**:
+1. Przejdź do [Azure Portal](https://portal.azure.com) , aby utworzyć pulę elastyczną. Wyszukaj i wybierz pozycję **Azure SQL**.
+2. Wybierz pozycję **+ Dodaj** , aby otworzyć stronę **Wybieranie opcji wdrożenia SQL** . Dodatkowe informacje na temat pul elastycznych można wyświetlić, wybierając pozycję **Pokaż szczegóły** na kafelku **bazy danych** .
+3. Na kafelku **bazy danych** wybierz pozycję **Pula elastyczna** na liście rozwijanej **Typ zasobu** , a następnie wybierz pozycję **Utwórz**:
 
    ![Tworzenie puli elastycznej](./media/sql-database-elastic-pool/create-elastic-pool.png)
 
 
-1. Lub można utworzyć pulę elastyczną, przechodząc do istniejącego serwera SQL platformy Azure i klikając **przycisk + Nowa pula,** aby utworzyć pulę bezpośrednio do tego serwera.
+1. Można też utworzyć pulę elastyczną, przechodząc do istniejącego serwera SQL Azure, a następnie klikając pozycję **+ Nowa pula** , aby utworzyć pulę bezpośrednio na tym serwerze.
 
 > [!NOTE]
 > Można utworzyć wiele pul na serwerze, ale nie można dodawać baz danych z różnych serwerów do tej samej puli.
 
-Warstwa usług puli określa funkcje dostępne dla gumek w puli i maksymalną ilość zasobów dostępnych dla każdej bazy danych. Aby uzyskać szczegółowe informacje, zobacz Limity zasobów dla pul elastycznych w [modelu DTU](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes). Aby uzyskać limity zasobów oparte na pulach elastycznych, zobacz [limity zasobów oparte na pulach opartych na parciach wirtualnych — pule elastyczne](sql-database-vcore-resource-limits-elastic-pools.md).
+Warstwa usługi puli określa funkcje dostępne dla elastycznych pul i maksymalną ilość zasobów dostępnych dla każdej bazy danych. Aby uzyskać szczegółowe informacje, zobacz limity zasobów dla pul elastycznych w [modelu DTU](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes). W przypadku limitów zasobów opartych na rdzeń wirtualny dla pul elastycznych zobacz [limity zasobów opartych na rdzeń wirtualny — pule elastyczne](sql-database-vcore-resource-limits-elastic-pools.md).
 
-Aby skonfigurować zasoby i ceny puli, kliknij pozycję **Konfiguruj pulę**. Następnie wybierz warstwę usług, dodaj bazy danych do puli i skonfiguruj limity zasobów dla puli i jej baz danych.
+Aby skonfigurować zasoby i Cennik puli, kliknij pozycję **Konfiguruj pulę**. Następnie wybierz warstwę usług, Dodaj bazy danych do puli i skonfiguruj limity zasobów dla puli i jej baz danych.
 
-Po zakończeniu konfigurowania puli możesz kliknąć przycisk "Zastosuj", nazwać pulę i kliknąć przycisk "OK", aby utworzyć pulę.
+Po zakończeniu konfigurowania puli można kliknąć pozycję "Zastosuj", nazwę puli, a następnie kliknąć przycisk "OK", aby utworzyć pulę.
 
 ## <a name="monitor-an-elastic-pool-and-its-databases"></a>Monitorowanie puli elastycznej i jej baz danych
 
-W witrynie Azure portal można monitorować wykorzystanie puli elastycznej i baz danych w tej puli. Można również wprowadzić zestaw zmian w puli elastycznej i przesłać wszystkie zmiany w tym samym czasie. Zmiany te obejmują dodawanie lub usuwanie baz danych, zmienianie ustawień puli elastycznej lub zmienianie ustawień bazy danych.
+W Azure Portal można monitorować wykorzystanie puli elastycznej i baz danych w tej puli. Możesz również wprowadzić zestaw zmian w puli elastycznej i przesłać wszystkie zmiany w tym samym czasie. Te zmiany obejmują dodawanie lub usuwanie baz danych, zmienianie ustawień puli elastycznej lub zmienianie ustawień bazy danych.
 
-Aby rozpocząć monitorowanie puli elastycznej, znajdź i otwórz elastyczną pulę w portalu. Najpierw zobaczysz ekran, który zawiera przegląd stanu puli elastycznej. Obejmuje to:
+Aby rozpocząć monitorowanie puli elastycznej, Znajdź i Otwórz pulę elastyczną w portalu. Zobaczysz ekran, który zawiera przegląd stanu puli elastycznej. Obejmuje to następujące działania:
 
-- Monitorowanie wykresów przedstawiających użycie zasobów w puli elastycznej
-- Najnowsze alerty i zalecenia dotyczące puli elastycznej, jeśli są dostępne
+- Wykresy monitorowania przedstawiające użycie zasobów puli elastycznej
+- Ostatnie alerty i zalecenia, jeśli są dostępne dla puli elastycznej
 
 Na poniższej ilustracji przedstawiono przykładową pulę elastyczną:
 
-![Widok z basenu](./media/sql-database-elastic-pool-manage-portal/basic.png)
+![Widok puli](./media/sql-database-elastic-pool-manage-portal/basic.png)
 
-Jeśli chcesz uzyskać więcej informacji na temat puli, możesz kliknąć dowolną z dostępnych informacji w tym przeglądzie. Kliknięcie wykresu **wykorzystania zasobów** spowoduje wyświetlenie widoku Monitorowania platformy Azure, w którym można dostosować metryki i przedział czasu wyświetlany na wykresie. Kliknięcie wszystkich dostępnych powiadomień spowoduje, że przejdziesz do bloku, w którego zostaną wyświetlone pełne szczegóły tego alertu lub zalecenia.
+Aby uzyskać więcej informacji na temat puli, można kliknąć dowolne z dostępnych informacji w tym omówieniu. Kliknięcie wykresu **wykorzystania zasobów** spowoduje przejście do widoku monitorowanie platformy Azure, w którym można dostosować metryki i przedziały czasu wyświetlane na wykresie. Kliknięcie dowolnego z dostępnych powiadomień spowoduje przejście do bloku zawierającego szczegółowe informacje o tym alercie lub rekomendacji.
 
-Jeśli chcesz monitorować bazy danych wewnątrz puli, możesz kliknąć na **Wykorzystanie zasobów bazy danych** w sekcji **Monitorowanie** menu zasobów po lewej stronie.
+Jeśli chcesz monitorować bazy danych w puli, kliknij pozycję **użycie zasobów bazy danych** w sekcji **monitorowanie** w menu zasób po lewej stronie.
 
-![Strona wykorzystania zasobów bazy danych](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
+![Strona użycia zasobów bazy danych](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
 
 ### <a name="to-customize-the-chart-display"></a>Aby dostosować wyświetlanie wykresu
 
-Można edytować wykres i stronę metryki, aby wyświetlić inne metryki, takie jak procent procesora CPU, procent we/wy danych i procent we/wy dziennika używane.
+Można edytować wykres i stronę metryki, aby wyświetlić inne metryki, takie jak procent procesora CPU, procent operacji we/wy danych i użyta wartość procentowa operacji we/wy dziennika.
 
-W formularzu **Edytuj wykres** można wybrać stały zakres czasu lub kliknąć **niestandardowe,** aby wybrać dowolne okno 24-godzinne w ciągu ostatnich dwóch tygodni, a następnie wybrać zasoby do monitorowania.
+Na formularzu **edytowania wykresu** można wybrać stały zakres czasu lub kliknąć opcję **niestandardowy** , aby zaznaczyć okno 24-godzinne w ciągu ostatnich dwóch tygodni, a następnie wybrać zasoby do monitorowania.
 
 ### <a name="to-select-databases-to-monitor"></a>Aby wybrać bazy danych do monitorowania
 
-Domyślnie na wykresie w bloku **Wykorzystanie zasobów bazy danych** będzie wyświetlane 5 najlepszych baz danych przez jednostki DTU lub CPU (w zależności od warstwy usług). Możesz przełączyć bazy danych na tym wykresie, zaznaczając i odznaczając bazy danych z listy poniżej wykresu za pomocą pól wyboru po lewej stronie.
+Domyślnie wykres w bloku **użycie zasobów bazy danych** będzie przedstawiał 5 najważniejszych baz danych według jednostek DTU lub CPU (w zależności od warstwy usług). Możesz przełączać bazy danych na tym wykresie, wybierając i usuwając zaznaczenie baz danych z listy poniżej wykresu za pomocą pól wyboru po lewej stronie.
 
-Można również wybrać więcej metryk do wyświetlania obok siebie w tej tabeli bazy danych, aby uzyskać pełniejszy widok wydajności baz danych.
+Możesz również wybrać więcej metryk, aby wyświetlić je obok siebie w tej tabeli bazy danych, aby uzyskać pełniejszy widok wydajności baz danych.
 
-Aby uzyskać więcej informacji, zobacz [tworzenie alertów bazy danych SQL w witrynie Azure portal](sql-database-insights-alerts-portal.md).
+Aby uzyskać więcej informacji, zobacz [tworzenie alertów SQL Database w Azure Portal](sql-database-insights-alerts-portal.md).
 
 ## <a name="customer-case-studies"></a>Analizy przypadków klientów
 
 - [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
 
-  SnelStart używane pul elastycznych z usługi Azure SQL Database, aby szybko rozszerzyć swoje usługi biznesowe w tempie 1000 nowych baz danych SQL platformy Azure miesięcznie.
+  SnelStart używane pule elastyczne z Azure SQL Database, aby szybko rozwijać swoje usługi biznesowe według stawki 1 000 nowej bazy danych Azure SQL na miesiąc.
 
 - [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
 
-  Umbraco używa pul elastycznych z usługą Azure SQL Database do szybkiego udostępniania i skalowania usług dla tysięcy dzierżawców w chmurze.
+  Umbraco używa pul elastycznych z Azure SQL Database, aby szybko inicjować i skalować usługi dla tysięcy dzierżawców w chmurze.
 
 - [Daxko/CSI](https://customers.microsoft.com/story/726277-csi-daxko-partner-professional-service-azure)    
 
-   Program Daxko/CSI używa pul elastycznych z usługą Azure SQL Database w celu przyspieszenia cyklu programowania i zwiększenia obsługi klienta i wydajności.    
+   Daxko/CSI korzysta z elastycznych pul z Azure SQL Database, aby przyspieszyć cykl programowania i zwiększyć wydajność usług i klientów.    
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać informacje o cenach, zobacz [Ceny puli elastycznej](https://azure.microsoft.com/pricing/details/sql-database/elastic).
-- Aby skalować pule elastyczne, zobacz [Skalowanie basenów elastycznych](sql-database-elastic-pool-scale.md) i [Skaluj pulę elastyczną — przykładowy kod](scripts/sql-database-monitor-and-scale-pool-powershell.md)
+- Aby uzyskać informacje o cenach, zobacz [Cennik puli elastycznej](https://azure.microsoft.com/pricing/details/sql-database/elastic).
+- Aby skalować pule elastyczne, zobacz [skalowanie pul elastycznych](sql-database-elastic-pool-scale.md) i [skalowanie elastycznej puli — przykładowego kodu](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 - Aby dowiedzieć się więcej na temat wzorców projektowych dla aplikacji SaaS wykorzystujących pule elastyczne, zobacz artykuł [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Wzorce projektowe dla wielodostępnych aplikacji SaaS korzystających z usługi Azure SQL Database).
-- Aby uzyskać samouczek SaaS przy użyciu basenów elastycznych, zobacz [Wprowadzenie do aplikacji SaaS Wingtip](sql-database-wtp-overview.md).
-- Aby dowiedzieć się więcej o zarządzaniu zasobami w pulach elastycznych z wieloma bazami danych, zobacz [Zarządzanie zasobami w gęstych pulach elastycznych](sql-database-elastic-pool-resource-management.md).
+- Aby zapoznać się z samouczkiem SaaS przy użyciu pul elastycznych, zobacz [wprowadzenie do aplikacji Wingtip SaaS](sql-database-wtp-overview.md).
+- Aby dowiedzieć się więcej o zarządzaniu zasobami w pulach elastycznych z wieloma bazami danych, zobacz [Zarządzanie zasobami w ramach gęstych pul elastycznych](sql-database-elastic-pool-resource-management.md).

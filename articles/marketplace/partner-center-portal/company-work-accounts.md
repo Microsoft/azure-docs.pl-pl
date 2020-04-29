@@ -1,6 +1,6 @@
 ---
-title: Konta służbowe i Centrum partnerów
-description: Jak sprawdzić, czy firma ma konto służbowe skonfigurowane w firmie Microsoft, utworzyć nowe konto służbowe lub skonfigurować wiele kont służbowych do użycia w Centrum partnerów.
+title: Firmowe konta służbowe i centrum partnerskie
+description: Jak sprawdzić, czy firma ma konto służbowe skonfigurowane w firmie Microsoft, utworzyć nowe konto służbowe lub skonfigurować wiele kont służbowych do użycia z centrum partnerskim.
 author: dsindona
 ms.author: parthp
 ms.service: marketplace
@@ -8,50 +8,50 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.openlocfilehash: 3c0ee2f8d5291f7904435dea32d913adeaaf25c5
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81262370"
 ---
-# <a name="company-work-accounts-and-partner-center"></a>Konta służbowe i Centrum partnerów
+# <a name="company-work-accounts-and-partner-center"></a>Firmowe konta służbowe i centrum partnerskie
 
-Centrum partnerów używa kont służbowych firmy, znanych również jako dzierżawy usługi Azure Active Directory (AD), do zarządzania dostępem do kont dla wielu użytkowników, kontroli uprawnień, grup hostów i aplikacji oraz obsługi danych profilu. Łącząc firmową domenę służbowego konta e-mail z kontem Centrum partnerów, pracownicy firmy mogą zalogować się do Centrum partnerskiego, aby zarządzać ofertami w portalu marketplace przy użyciu własnych nazw użytkowników konta służbowego i haseł.
+Centrum partnerskie korzysta z firmowych kont służbowych, znanych również jako dzierżawy Azure Active Directory (AD), do zarządzania dostępem do kont dla wielu użytkowników, kontroli uprawnień, grup hostów i aplikacji oraz zachowywania danych profilu. Łącząc firmową domenę kont poczty e-mail z kontem Centrum partnerskiego, pracownicy firmy mogą zalogować się do Centrum partnerskiego, aby zarządzać ofertami z witryny Marketplace przy użyciu własnych nazw użytkowników i haseł kont służbowych.
 
 ## <a name="check-whether-your-company-already-has-a-work-account"></a>Sprawdź, czy Twoja firma ma już konto służbowe
 
-Jeśli Twoja firma zasubskrybowała usługę w chmurze firmy Microsoft, taką jak Azure, Microsoft Intune lub Office 365, masz już domenę służbowego konta e-mail (nazywaną również dzierżawą usługi Azure Active Directory), która może być używana z Centrum partnerów.
+Jeśli Twoja firma subskrybuje usługę firmy Microsoft w chmurze, taką jak Azure, Microsoft Intune lub Office 365, masz już służbową domenę konta e-mail (nazywaną również dzierżawą Azure Active Directory), która może być używana z centrum partnerskim.
 
 Wykonaj następujące kroki, aby sprawdzić:
-1. Zaloguj się do portalu https://portal.azure.comadministracyjnego platformy Azure pod adresem .
-2. Wybierz **pozycję Azure Active Directory** z menu nawigacji po lewej stronie, a następnie wybierz pozycję **Niestandardowe nazwy domen**.
-3. Jeśli masz już konto służbowe, twoja nazwa domeny zostanie wyświetlona.
+1. Zaloguj się do portalu administracyjnego platformy Azure pod https://portal.azure.comadresem.
+2. Wybierz pozycję **Azure Active Directory** w menu nawigacji po lewej stronie, a następnie wybierz pozycję **niestandardowe nazwy domen**.
+3. Jeśli masz już konto służbowe, nazwa domeny zostanie wyświetlona.
 
-Jeśli Twoja firma nie ma jeszcze konta służbowego, zostanie utworzone podczas procesu rejestracji Centrum partnerów.
+Jeśli firma nie ma jeszcze konta służbowego, zostanie ona utworzona w trakcie procesu rejestracji Centrum partnerskiego.
 
 ## <a name="set-up-multiple-work-accounts"></a>Konfigurowanie wielu kont służbowych
 
-Przed podjęciem decyzji o użyciu istniejącego konta służbowego należy wziąć pod uwagę, ilu użytkowników na koncie służbowym będzie musiało uzyskać dostęp do Centrum partnerów. Jeśli masz na koncie służbowym użytkowników, którzy nie będą musieli uzyskiwać dostępu do Centrum partnerów, warto rozważyć utworzenie wielu kont służbowych, tak aby tylko ci użytkownicy, którzy będą musieli uzyskać dostęp do Centrum partnerów, są reprezentowani na określonym koncie.
+Przed podjęciem decyzji o użyciu istniejącego konta służbowego należy wziąć pod uwagę liczbę użytkowników, którzy będą musieli uzyskać dostęp do Centrum partnerskiego. Jeśli użytkownicy znajdują się na koncie służbowym, które nie muszą uzyskiwać dostępu do Centrum partnerskiego, warto rozważyć utworzenie wielu kont służbowych, tak aby tylko Ci użytkownicy, którzy musieli uzyskać dostęp do Centrum partnerskiego, zostali reprezentowani na określonym koncie.
 
-## <a name="create-a-new-work-account"></a>Tworzenie nowego konta służbowego
+## <a name="create-a-new-work-account"></a>Utwórz nowe konto służbowe
 
-Aby utworzyć nowe konto służbowe dla swojej firmy, wykonaj poniższe czynności. Może być konieczne żądanie pomocy od osoby, która ma uprawnienia administracyjne na koncie microsoft azure firmy.
+Aby utworzyć nowe konto służbowe dla swojej firmy, wykonaj poniższe kroki. Może być konieczne zażądanie pomocy od osoby, która ma uprawnienia administracyjne na koncie Microsoft Azure Twojej firmy.
 
 1. Zaloguj się do [Portalu Microsoft Azure](https://portal.azure.com).
-2. Z lewego menu nawigacyjnego wybierz pozycję**Użytkownicy** **usługi Azure Active Directory** -> .
-3. Wybierz **pozycję Nowy użytkownik** i utwórz nowe konto służbowe platformy Azure, wprowadzając nazwę i adres e-mail. Upewnij się, że **rola katalog jest ustawiona** na **Użytkownik** i zaznacz pole wyboru **Pokaż hasło** u dołu, aby wyświetlić i zanotować hasło z automatycznymwygenerowanym.
-4. Wybierz **pozycję Utwórz,** aby zapisać nowego użytkownika.
+2. W menu nawigacji po lewej stronie wybierz pozycję **Azure Active Directory** -> **Użytkownicy**Azure Active Directory.
+3. Wybierz pozycję **nowy użytkownik** i Utwórz nowe konto służbowe platformy Azure, wprowadzając nazwę i adres e-mail. Upewnij się, że **rola katalogu** jest ustawiona na **użytkownika** , a następnie zaznacz pole wyboru **Pokaż hasło** u dołu, aby wyświetlić i zanotować hasło generowane automatycznie.
+4. Wybierz pozycję **Utwórz** , aby zapisać nowego użytkownika.
 
-Adres e-mail konta użytkownika musi być zweryfikowaną nazwą domeny w katalogu. Możesz wyświetlić listę wszystkich zweryfikowanych domen w katalogu, wybierając**niestandardowe nazwy domen** usługi Azure Active **Directory** -> w menu nawigacji po lewej stronie.
+Adres e-mail konta użytkownika musi być zweryfikowaną nazwą domeny w Twoim katalogu. Aby wyświetlić listę wszystkich zweryfikowanych domen w katalogu, wybierz pozycję **Azure Active Directory** -> **niestandardowe nazwy domen** w menu nawigacji po lewej stronie.
 
-Aby dowiedzieć się więcej o dodawaniu domen niestandardowych w usłudze Azure Active Directory, zobacz [Dodawanie lub kojarzenie domeny w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain).
+Aby dowiedzieć się więcej o dodawaniu domen niestandardowych w Azure Active Directory, zobacz [Dodawanie lub kojarzenie domeny w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain).
 
-## <a name="troubleshoot-work-email-sign-in"></a>Rozwiązywanie problemów z umowy logowania się za służbową pocztą e-mail
+## <a name="troubleshoot-work-email-sign-in"></a>Rozwiązywanie problemów z logowaniem do służbowej poczty e-mail
 
-Jeśli masz problemy z zalogowaniem się do konta służbowego (znanego również jako dzierżawa usługi Azure AD), znajdź scenariusz na poniższym diagramie, który najlepiej pasuje do Twojej sytuacji i wykonaj zalecane kroki.
+Jeśli masz problemy z logowaniem się do konta służbowego (znanego również jako dzierżawy usługi Azure AD), Znajdź scenariusz na poniższym diagramie, który najlepiej odpowiada Twojej sytuacji, i wykonaj zalecane kroki.
 
-![Diagram rozwiązywania problemów z logowaniem do konta służbowego](./media/onboarding-aad-flow.png)
+![Diagram służący do rozwiązywania problemów z logowaniem do konta służbowego](./media/onboarding-aad-flow.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zarządzanie kontem w portalu marketplace komercyjnego w Centrum partnerskim](./manage-account.md) 
+- [Zarządzanie kontem komercyjnej witryny Marketplace w centrum partnerskim](./manage-account.md) 

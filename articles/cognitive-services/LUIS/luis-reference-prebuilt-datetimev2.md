@@ -1,7 +1,7 @@
 ---
-title: Wstępnie utworzone jednostki DatetimeV2 — usługa LUIS
+title: Wstępnie skompilowane jednostki DatetimeV2 — LUIS
 titleSuffix: Azure Cognitive Services
-description: Ten artykuł zawiera wstępnie utworzone informacje o jednostce datetimeV2 w zrozumieni język (LUIS).
+description: Ten artykuł zawiera wstępnie skompilowane informacje o jednostkach datetimeV2 w Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,26 +12,26 @@ ms.topic: reference
 ms.date: 04/13/2020
 ms.author: diberry
 ms.openlocfilehash: 33f8b787119e1c5d6d1a1bb28c94d9791a1c048e
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81272614"
 ---
-# <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Wstępnie skompilowana jednostka DatetimeV2 dla aplikacji usługi LUIS
+# <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>DatetimeV2 prekompilowaną jednostkę dla aplikacji LUIS
 
-Wstępnie skompilowana encja **datetimeV2** wyodrębnia wartości daty i godziny. Te wartości są rozpoznawane w znormalizowanym formacie dla programów klienckich do wykorzystania. Gdy wypowiedź ma datę lub godzinę, która nie jest ukończona, usługa LUIS zawiera _zarówno przeszłe, jak i przyszłe wartości_ w odpowiedzi punktu końcowego. Ponieważ ta jednostka jest już przeszkolony, nie trzeba dodawać wypowiedzi przykład zawierający datetimeV2 do intencji aplikacji.
+Prebudowana jednostka **datetimeV2** wyodrębnia wartości daty i godziny. Te wartości są rozwiązywane w standardowym formacie dla programów klienckich do użycia. Gdy wypowiedź ma datę lub godzinę, która nie została ukończona, LUIS zawiera _wartości przeszłe i przyszłe_ w odpowiedzi punktu końcowego. Ponieważ ta jednostka jest już przeszkolone, nie trzeba dodawać przykładowej wyrażenia długości zawierającej datetimeV2 do intencji aplikacji.
 
 ## <a name="types-of-datetimev2"></a>Typy datetimeV2
-DatetimeV2 jest zarządzany z repozytorium GitHub [w tekście aparatów rozpoznawania.](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml)
+DatetimeV2 jest zarządzany przez [Aparaty rozpoznawania tekstu —](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) repozytorium GitHub.
 
-## <a name="example-json"></a>Przykład JSON
+## <a name="example-json"></a>Przykładowy kod JSON
 
-Poniżej przedstawiono następującą wypowiedź i jego częściową odpowiedź JSON.
+Poniżej przedstawiono wypowiedź i jego częściową odpowiedź JSON.
 
 `8am on may 2nd 2019`
 
-#### <a name="v3-response"></a>[Odpowiedź V3](#tab/1-1)
+#### <a name="v3-response"></a>[Odpowiedź v3](#tab/1-1)
 
 ```json
 "entities": {
@@ -53,7 +53,7 @@ Poniżej przedstawiono następującą wypowiedź i jego częściową odpowiedź 
 }
 ```
 
-#### <a name="v3-verbose-response"></a>[Odpowiedź pełne V3](#tab/1-2)
+#### <a name="v3-verbose-response"></a>[Pełna odpowiedź w wersji 3](#tab/1-2)
 
 ```json
 
@@ -91,7 +91,7 @@ Poniżej przedstawiono następującą wypowiedź i jego częściową odpowiedź 
 }
 ```
 
-#### <a name="v2-response"></a>[Odpowiedź V2](#tab/1-3)
+#### <a name="v2-response"></a>[Odpowiedź w wersji 2](#tab/1-3)
 
 ```json
 "entities": [
@@ -115,18 +115,18 @@ Poniżej przedstawiono następującą wypowiedź i jego częściową odpowiedź 
 
 |Nazwa właściwości |Typ i opis właściwości|
 |---|---|
-|Jednostka|**string** - Tekst wyodrębniony z wypowiedź z typem daty, godziny, zakresu dat lub zakresu czasu.|
-|type|**string** - Jeden z [podtypów datetimeV2](#subtypes-of-datetimev2)
-|Startindex|**int** — indeks w wypowiedź, w którym rozpoczyna się jednostka.|
-|Endindex|**int** — indeks w wypowiedź, w którym kończy się jednostka.|
+|Jednostka|**ciąg** tekstowy wyodrębniony z wypowiedź z typem daty, godziny, zakresu dat lub zakresem czasu.|
+|type|**ciąg** — jeden z [podtypów datetimeV2](#subtypes-of-datetimev2)
+|Indeks|**int** — indeks w wypowiedź, w którym rozpoczyna się jednostka.|
+|endIndex|**int** — indeks w wypowiedź, w którym następuje zakończenie obiektu.|
 |rozwiązanie|Ma `values` tablicę, która ma jedną, dwie lub cztery [wartości rozdzielczości](#values-of-resolution).|
-|end|Wartość końcowa godziny lub zakresu dat w tym `value`samym formacie co . Używane tylko `type` `daterange`wtedy, gdy jest , `timerange`lub`datetimerange`|
+|end|Wartość końcowa godziny lub zakresu dat w tym samym formacie co `value`. Używane tylko wtedy `type` , `daterange`gdy `timerange`jest, lub`datetimerange`|
 
 * * *
 
 ## <a name="subtypes-of-datetimev2"></a>Podtypy datetimeV2
 
-Prekompilowana jednostka **datetimeV2** ma następujące podtypy, a przykłady każdego z nich znajdują się w poniższej tabeli:
+Wstępnie utworzona jednostka **datetimeV2** ma następujące podtypy, a przykłady z nich są podane w poniższej tabeli:
 * `date`
 * `time`
 * `daterange`
@@ -134,21 +134,21 @@ Prekompilowana jednostka **datetimeV2** ma następujące podtypy, a przykłady k
 * `datetimerange`
 
 
-## <a name="values-of-resolution"></a>Wartości rozdzielczości
-* Tablica ma jeden element, jeśli data lub godzina w wypowiedź jest w pełni określony i jednoznaczne.
-* Tablica ma dwa elementy, jeśli datetimeV2 wartość jest niejednoznaczna. Niejednoznaczność obejmuje brak określonego roku, czasu lub zakresu czasu. Zobacz [niejednoznaczne daty](#ambiguous-dates) dla przykładów. Gdy czas jest niejednoznaczny dla A.M. lub P.M., obie wartości są uwzględniane.
-* Tablica ma cztery elementy, jeśli wypowiedź ma dwa elementy z niejednoznaczności. Ta niejednoznaczność obejmuje elementy, które mają:
-  * Zakres dat lub dat niejednoznaczny w odniesieniu do roku
-  * Przedział czasu lub czasu, który jest niejednoznaczny w odniesieniu do a.m. lub po południu. Na przykład 3:00 3 kwietnia.
+## <a name="values-of-resolution"></a>Wartości rozwiązania
+* Tablica ma jeden element, jeśli data lub godzina w wypowiedź jest w pełni określona i niejednoznaczna.
+* Tablica ma dwa elementy, jeśli wartość datetimeV2 jest niejednoznaczna. Niejednoznaczność obejmuje brak określonego roku, godziny lub zakresu czasu. Zobacz [niejednoznaczne daty](#ambiguous-dates) dla przykładów. Kiedy czas jest niejednoznaczny dla A.M. lub P.M. są uwzględniane obie wartości.
+* Tablica ma cztery elementy, jeśli wypowiedź ma dwa elementy z niejednoznaczności. Ta niejednoznaczność zawiera elementy, które mają:
+  * Data lub zakres dat, który jest niejednoznaczny dla roku.
+  * Czas lub zakres czasu, który jest niejednoznaczny od do rano lub po południu. Na przykład 3:00 kwietnia.
 
 Każdy element `values` tablicy może mieć następujące pola:
 
 |Nazwa właściwości|Opis właściwości|
 |--|--|
-|Timex|zakres czasu, daty lub daty wyrażony w formacie TIMEX zgodnym ze [standardem ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i atrybutami TIMEX3 dla adnotacji przy użyciu języka TimeML.|
-|Mod|termin używany do opisywania sposobu `before`używania wartości, takich jak , `after`.|
-|type|Podtyp, który może być jednym `datetime`z `date` `time`następujących `daterange` `timerange`elementów: , , , , , `datetimerange`, , `duration`. `set`|
-|value|**Opcjonalne.** Obiekt datetime w formacie yyyy-MM-dd (data), HH:mm:ss (time) yyyy-MM-dd HH:mm:ss (datetime). Jeśli `type` `duration`tak, wartość jest liczbą sekund (czas trwania) <br/> Używane tylko `type` `datetime` wtedy, gdy jest lub `date`, `time`lub "czas trwania.|
+|Timex|godzina, Data lub zakres dat wyrażony w formacie TIMEX, który jest zgodny ze [standardem ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i atrybutami TIMEX3 dla adnotacji przy użyciu języka TimeML.|
+|Funkcja|termin używany do opisywania sposobu używania wartości takich jak `before`,. `after`|
+|type|Podtyp, `datetime`który może być jednym z następujących elementów:, `date`, `time` `daterange` `timerange` `datetimerange`,,,, `duration`,. `set`|
+|value|**Opcjonalny.** Obiekt DateTime w formacie RRRR-MM-DD (Date), gg: mm: SS (Time) RRRR-MM-DD GG: mm: SS (DateTime). Jeśli `type` jest `duration`, wartość jest liczbą sekund (czas trwania) <br/> Używane tylko wtedy `type` , `datetime` gdy `date`jest `time`lub, lub "Duration".|
 
 ## <a name="valid-date-values"></a>Prawidłowe wartości daty
 
@@ -160,26 +160,26 @@ Każdy element `values` tablicy może mieć następujące pola:
 
 ## <a name="ambiguous-dates"></a>Niejednoznaczne daty
 
-Jeśli data może być w przeszłości lub w przyszłości, usługa LUIS zawiera obie wartości. Przykładem jest wypowiedź, która zawiera miesiąc i datę bez roku.
+Jeśli data może przypadać w przeszłości lub w przyszłości, LUIS zawiera obie wartości. Przykładem jest wypowiedź, który obejmuje miesiąc i datę bez roku.
 
-Na przykład biorąc pod uwagę następujące wypowiedź:
+Na przykład, uwzględniając następujące wypowiedź:
 
 `May 2nd`
 
-* Jeśli dzisiejsza data to 3 maja 2017 r., usługa LUIS udostępnia wartości zarówno "2017-05-02", jak i "2018-05-02" jako wartości.
-* Gdy dzisiejsza data to 1 maja 2017 r., usługa LUIS udostępnia wartości zarówno "2016-05-02", jak i "2017-05-02" jako wartości.
+* Jeśli dzisiejszą datą jest trzecia 2017, LUIS ma zarówno "2017-05-02", jak i "2018-05-02" jako wartości.
+* Gdy dzisiejsza data wynosi 1 maja 2017, LUIS określa zarówno "2016-05-02", jak i "2017-05-02" jako wartości.
 
-Poniższy przykład przedstawia rozdzielczość jednostki "może 2nd". Uchwała zakłada, że dzisiejsza data jest datą między 2 maja 2017 a 1 maja 2018.
-Pola `X` z `timex` w polu są części daty, które nie są jawnie określone w wypowiedź.
+W poniższym przykładzie pokazano rozdzielczość jednostki "może być druga". W tym rozwiązaniu przyjęto założenie, że dzisiejsza data jest datą z przedziału od 2 maja 2017 do 1 maja 2018.
+Pola z `X` w `timex` polu są częściami daty, które nie są jawnie określone w wypowiedź.
 
 ## <a name="date-resolution-example"></a>Przykład rozpoznawania dat
 
 
-Poniżej przedstawiono następującą wypowiedź i jego częściową odpowiedź JSON.
+Poniżej przedstawiono wypowiedź i jego częściową odpowiedź JSON.
 
 `May 2nd`
 
-#### <a name="v3-response"></a>[Odpowiedź V3](#tab/2-1)
+#### <a name="v3-response"></a>[Odpowiedź v3](#tab/2-1)
 
 ```json
 "entities": {
@@ -204,7 +204,7 @@ Poniżej przedstawiono następującą wypowiedź i jego częściową odpowiedź 
 }
 ```
 
-#### <a name="v3-verbose-response"></a>[Odpowiedź pełne V3](#tab/2-2)
+#### <a name="v3-verbose-response"></a>[Pełna odpowiedź w wersji 3](#tab/2-2)
 
 ```json
 "entities": {
@@ -244,7 +244,7 @@ Poniżej przedstawiono następującą wypowiedź i jego częściową odpowiedź 
 }
 ```
 
-#### <a name="v2-response"></a>[Odpowiedź V2](#tab/2-3)
+#### <a name="v2-response"></a>[Odpowiedź w wersji 2](#tab/2-3)
 
 ```json
   "entities": [
@@ -274,13 +274,13 @@ Poniżej przedstawiono następującą wypowiedź i jego częściową odpowiedź 
 
 ## <a name="date-range-resolution-examples-for-numeric-date"></a>Przykłady rozpoznawania zakresu dat dla daty numerycznej
 
-Jednostka `datetimeV2` wyodrębnia zakresy dat i godzin. Pola `start` `end` i określają początek i koniec zakresu. Dla wypowiedź `May 2nd to May 5th`, usługa LUIS zawiera wartości **daterange** dla bieżącego roku i następnego roku. W `timex` tym polu `XXXX` wartości wskazują niejednoznaczność roku. `P3D`wskazuje, że okres wynosi trzy dni.
+`datetimeV2` Jednostka wyodrębnia zakresy dat i godzin. Pola `start` i `end` określają początek i koniec zakresu. W przypadku wypowiedź `May 2nd to May 5th`Luis zawiera wartości **DateRange** dla bieżącego roku i następnego roku. W `timex` polu `XXXX` wartości wskazują niejednoznaczność roku. `P3D`wskazuje, że okres jest dłuższy niż trzy dni.
 
-Poniżej przedstawiono następującą wypowiedź i jego częściową odpowiedź JSON.
+Poniżej przedstawiono wypowiedź i jego częściową odpowiedź JSON.
 
 `May 2nd to May 5th`
 
-#### <a name="v3-response"></a>[Odpowiedź V3](#tab/3-1)
+#### <a name="v3-response"></a>[Odpowiedź v3](#tab/3-1)
 
 ```json
 
@@ -309,7 +309,7 @@ Poniżej przedstawiono następującą wypowiedź i jego częściową odpowiedź 
 ```
 
 
-#### <a name="v3-verbose-response"></a>[Odpowiedź pełne V3](#tab/3-2)
+#### <a name="v3-verbose-response"></a>[Pełna odpowiedź w wersji 3](#tab/3-2)
 
 ```json
 
@@ -352,7 +352,7 @@ Poniżej przedstawiono następującą wypowiedź i jego częściową odpowiedź 
 }
 ```
 
-#### <a name="v2-response"></a>[Odpowiedź V2](#tab/3-3)
+#### <a name="v2-response"></a>[Odpowiedź w wersji 2](#tab/3-3)
 
 ```json
 "entities": [
@@ -378,13 +378,13 @@ Poniżej przedstawiono następującą wypowiedź i jego częściową odpowiedź 
 
 ## <a name="date-range-resolution-examples-for-day-of-week"></a>Przykłady rozpoznawania zakresu dat dla dnia tygodnia
 
-W poniższym przykładzie pokazano, jak usługa LUIS `Tuesday to Thursday`używa **datetimeV2** do rozwiązania wypowiedź . W tym przykładzie bieżąca data to 19 czerwca. Usługa LUIS zawiera wartości **datarange** dla obu zakresów dat, które poprzedzają i są zgodne z bieżącą datą.
+Poniższy przykład pokazuje, jak LUIS używa **datetimeV2** do rozwiązywania wypowiedź `Tuesday to Thursday`. W tym przykładzie bieżąca data to 19 czerwca. LUIS zawiera wartości **DateRange** dla obu zakresów dat, które poprzedzają bieżącą datę i obserwują ją.
 
-Poniżej przedstawiono następującą wypowiedź i jego częściową odpowiedź JSON.
+Poniżej przedstawiono wypowiedź i jego częściową odpowiedź JSON.
 
 `Tuesday to Thursday`
 
-#### <a name="v3-response"></a>[Odpowiedź V3](#tab/4-1)
+#### <a name="v3-response"></a>[Odpowiedź v3](#tab/4-1)
 
 ```json
 "entities": {
@@ -411,7 +411,7 @@ Poniżej przedstawiono następującą wypowiedź i jego częściową odpowiedź 
 }
 ```
 
-#### <a name="v3-verbose-response"></a>[Odpowiedź pełne V3](#tab/4-2)
+#### <a name="v3-verbose-response"></a>[Pełna odpowiedź w wersji 3](#tab/4-2)
 
 ```json
 "entities": {
@@ -453,7 +453,7 @@ Poniżej przedstawiono następującą wypowiedź i jego częściową odpowiedź 
 }
 ```
 
-#### <a name="v2-response"></a>[Odpowiedź V2](#tab/4-3)
+#### <a name="v2-response"></a>[Odpowiedź w wersji 2](#tab/4-3)
 
 ```json
   "entities": [
@@ -478,23 +478,23 @@ Poniżej przedstawiono następującą wypowiedź i jego częściową odpowiedź 
 * * *
 
 ## <a name="ambiguous-time"></a>Niejednoznaczny czas
-Tablica wartości ma dwa elementy czasu, jeśli czas lub zakres czasu jest niejednoznaczny. Gdy jest niejednoznaczny czas, wartości mają zarówno A.M. i p.m. Razy.
+Tablica wartości ma dwa elementy czasu, jeśli czas lub zakres czasu jest niejednoznaczny. Gdy istnieje niejednoznaczny czas, wartości mają zarówno wartość A.M. i P.M. trzykrotn.
 
 ## <a name="time-range-resolution-example"></a>Przykład rozdzielczości zakresu czasu
 
-DatetimeV2 Odpowiedź JSON została zmieniona w interfejsie API V3. Poniższy przykład pokazuje, jak usługa LUIS używa **datetimeV2** do rozwiązania wypowiedź, która ma zakres czasu.
+Odpowiedź JSON DatetimeV2 została zmieniona w interfejsie API v3. Poniższy przykład pokazuje, jak LUIS używa **datetimeV2** do rozwiązywania wypowiedź, który ma zakres czasu.
 
-Zmiany z interfejsu API V2:
-* `datetimeV2.timex.type`właściwość nie jest już zwracana, ponieważ `datetimev2.type`jest zwracana na poziomie nadrzędnym.
-* Nazwa `datetimeV2.value` obiektu została zmieniona na `datetimeV2.timex`.
+Zmiany z interfejsu API v2:
+* `datetimeV2.timex.type`Właściwość nie jest już zwracana, `datetimev2.type`ponieważ jest zwracana na poziomie nadrzędnym.
+* Nazwa `datetimeV2.value` właściwości została zmieniona na `datetimeV2.timex`.
 
-Poniżej przedstawiono następującą wypowiedź i jego częściową odpowiedź JSON.
+Poniżej przedstawiono wypowiedź i jego częściową odpowiedź JSON.
 
 `from 6pm to 7pm`
 
-#### <a name="v3-response"></a>[Odpowiedź V3](#tab/5-1)
+#### <a name="v3-response"></a>[Odpowiedź v3](#tab/5-1)
 
-Następujący JSON jest `verbose` z parametrem ustawionym na: `false`
+Poniższy kod JSON jest z `verbose` parametrem ustawionym `false`na:
 
 ```JSON
 
@@ -517,9 +517,9 @@ Następujący JSON jest `verbose` z parametrem ustawionym na: `false`
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[Odpowiedź pełne V3](#tab/5-2)
+#### <a name="v3-verbose-response"></a>[Pełna odpowiedź w wersji 3](#tab/5-2)
 
-Następujący JSON jest `verbose` z parametrem ustawionym na: `true`
+Poniższy kod JSON jest z `verbose` parametrem ustawionym `true`na:
 
 ```json
 
@@ -557,7 +557,7 @@ Następujący JSON jest `verbose` z parametrem ustawionym na: `true`
     }
 }
 ```
-#### <a name="v2-response"></a>[Odpowiedź V2](#tab/5-3)
+#### <a name="v2-response"></a>[Odpowiedź w wersji 2](#tab/5-3)
 
 ```json
   "entities": [
@@ -582,13 +582,13 @@ Następujący JSON jest `verbose` z parametrem ustawionym na: `true`
 
 * * *
 
-## <a name="time-resolution-example"></a>Przykład rozdzielczości czasu
+## <a name="time-resolution-example"></a>Przykład czasu rozwiązania
 
-Poniżej przedstawiono następującą wypowiedź i jego częściową odpowiedź JSON.
+Poniżej przedstawiono wypowiedź i jego częściową odpowiedź JSON.
 
 `8am`
 
-#### <a name="v3-response"></a>[Odpowiedź V3](#tab/6-1)
+#### <a name="v3-response"></a>[Odpowiedź v3](#tab/6-1)
 
 ```json
 "entities": {
@@ -609,7 +609,7 @@ Poniżej przedstawiono następującą wypowiedź i jego częściową odpowiedź 
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[Odpowiedź pełne V3](#tab/6-2)
+#### <a name="v3-verbose-response"></a>[Pełna odpowiedź w wersji 3](#tab/6-2)
 
 ```json
 "entities": {
@@ -645,7 +645,7 @@ Poniżej przedstawiono następującą wypowiedź i jego częściową odpowiedź 
     }
 }
 ```
-#### <a name="v2-response"></a>[Odpowiedź V2](#tab/6-3)
+#### <a name="v2-response"></a>[Odpowiedź w wersji 2](#tab/6-3)
 
 ```json
 "entities": [
@@ -669,20 +669,20 @@ Poniżej przedstawiono następującą wypowiedź i jego częściową odpowiedź 
 
 * * *
 
-## <a name="deprecated-prebuilt-datetime"></a>Przestarzały wstępnie utworzony datetime
+## <a name="deprecated-prebuilt-datetime"></a>Przestarzała prebudowana Data i godzina
 
-`datetime` Wstępnie utworzony element jest przestarzały i zastąpiony przez **datetimeV2**.
+`datetime` Wstępnie utworzona jednostka jest przestarzała i zastąpiona przez **datetimeV2**.
 
-Aby `datetime` zastąpić `datetimeV2` ją w aplikacji usługi LUIS, wykonaj następujące czynności:
+Aby zastąpić `datetime` `datetimeV2` w aplikacji Luis, wykonaj następujące czynności:
 
-1. Otwórz okienko **Jednostki** interfejsu internetowego usługi LUIS.
-2. Usuń wstępnie skompilowany encję **datetime.**
-3. Kliknij **pozycję Dodaj wstępnie skompilowany element**
-4. Wybierz **datetimeV2** i kliknij przycisk **Zapisz**.
+1. Otwórz okienko **jednostki** w interfejsie sieci Web Luis.
+2. Usuń wstępnie utworzoną jednostkę **DateTime** .
+3. Kliknij pozycję **Dodaj prekompilowaną jednostkę**
+4. Wybierz pozycję **datetimeV2** , a następnie kliknij pozycję **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [punkcie końcowym przewidywania V3](luis-migration-api-v3.md).
+Dowiedz się więcej o [punkcie końcowym przewidywania v3](luis-migration-api-v3.md).
 
-Dowiedz się więcej o [wymiarze,](luis-reference-prebuilt-dimension.md)encjach [poczty e-mail](luis-reference-prebuilt-email.md) i [numerze](luis-reference-prebuilt-number.md).
+Dowiedz się więcej na temat [wymiaru](luis-reference-prebuilt-dimension.md), jednostek [poczty e-mail](luis-reference-prebuilt-email.md) i [liczby](luis-reference-prebuilt-number.md).
 

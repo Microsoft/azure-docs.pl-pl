@@ -1,6 +1,6 @@
 ---
-title: Migrowanie profilu usługi Azure CDN z verizon standard do verizon premium
-description: Dowiedz się więcej o szczegółach migracji profilu z Verizon Standard do Verizon Premium.
+title: Migruj profil Azure CDN ze standardu Verizon do Verizon Premium
+description: Zapoznaj się ze szczegółami dotyczącymi migracji profilu ze standardu Verizon do Verizon Premium.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -16,39 +16,39 @@ ms.date: 06/21/2018
 ms.author: allensu
 ms.custom: ''
 ms.openlocfilehash: 61c472281c64fba451bb9b05f69ebee09bc763fd
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260460"
 ---
-# <a name="migrate-an-azure-cdn-profile-from-standard-verizon-to-premium-verizon"></a>Migrowanie profilu usługi Azure CDN ze standardu Verizon do premium Verizon
+# <a name="migrate-an-azure-cdn-profile-from-standard-verizon-to-premium-verizon"></a>Migrowanie profilu Azure CDN ze standardowego Verizon do warstwy Premium Verizon
 
-Podczas tworzenia profilu usługi Azure Content Delivery Network (CDN) do zarządzania punktami końcowymi usługa Azure CDN oferuje cztery różne produkty do wyboru. Aby uzyskać informacje o różnych produktach i ich dostępnych funkcjach, zobacz [Porównanie funkcji usługi Azure CDN.](cdn-features.md)
+Po utworzeniu profilu usługi Azure Content Delivery Network (CDN) w celu zarządzania punktami końcowymi Azure CDN oferuje cztery różne produkty, spośród których można wybierać. Aby uzyskać informacje o różnych produktach i ich dostępnych funkcjach, zobacz [porównanie Azure CDN funkcji produktu](cdn-features.md).
 
-Jeśli utworzysz **standard usługi Azure CDN standard z** profilu Verizon i używasz go do zarządzania punktami końcowymi usługi CDN, możesz uaktualnić go do **usługi Azure CDN Premium z** profilu Verizon. Podczas uaktualniania punkty końcowe sieci CDN i wszystkie dane zostaną zachowane. 
+Jeśli utworzono **Standard Azure CDN z poziomu profilu Verizon** i korzystasz z niego do zarządzania punktami końcowymi usługi CDN, możesz uaktualnić go do **Azure CDN Premium z profilu Verizon** . Po uaktualnieniu punkty końcowe usługi CDN i wszystkie Twoje dane zostaną zachowane. 
 
 > [!IMPORTANT]
-> Po uaktualnieniu do **usługi Azure CDN Premium z** profilu Verizon nie można później przekonwertować go z powrotem do **standardu usługi Azure CDN z** profilu Verizon.
+> Po uaktualnieniu do **Azure CDN Premium z poziomu profilu Verizon** nie można później przekonwertować go z powrotem do **Azure CDN standardowego z profilu Verizon** .
 > 
 
-Aby uaktualnić profil **standardu usługi Azure CDN z** poziomu verizon, skontaktuj się z [pomocą techniczną firmy Microsoft](https://azure.microsoft.com/support/options/).
+Aby uaktualnić **Standard Azure CDN z profilu Verizon** , skontaktuj się z [Pomoc techniczna firmy Microsoft](https://azure.microsoft.com/support/options/).
 
 ## <a name="profile-comparison"></a>Porównanie profilu
-**Profile usługi Azure CDN Premium firmy Verizon** mają następujące kluczowe różnice w porównaniu z **usługą Azure CDN Standard w** profilach verizon:
-- W przypadku niektórych funkcji usługi Azure CDN, takich jak [kompresja,](cdn-improve-performance.md) [reguły buforowania](cdn-caching-rules.md)i [filtrowanie geograficzne,](cdn-restrict-access-by-country.md)nie można używać interfejsu usługi Azure CDN, należy użyć portalu Verizon za pomocą przycisku **Zarządzaj.**
-- Interfejs API: W przeciwieństwie do standardu Verizon nie można używać interfejsu API do kontrolowania tych funkcji, które są dostępne z portalu Premium Verizon. Można jednak użyć interfejsu API do kontrolowania innych typowych funkcji, takich jak tworzenie/usuwanie punktu końcowego, czyszczenie/ładowanie buforowanych zasobów oraz włączanie/wyłączanie domeny niestandardowej.
-- Ceny: Premium Verizon ma inną strukturę cen dla transferów danych niż Standard Verizon. Aby uzyskać więcej informacji, zobacz [Ceny sieci dostarczania zawartości](https://azure.microsoft.com/pricing/details/cdn/).
+**Azure CDN Premium from profile Verizon** mają następujące kluczowe różnice w stosunku do **Azure CDN standardowych z profilów Verizon** :
+- W przypadku niektórych funkcji Azure CDN takich jak [kompresja](cdn-improve-performance.md), [reguły buforowania](cdn-caching-rules.md)i [filtrowanie geograficzne](cdn-restrict-access-by-country.md)nie można użyć interfejsu Azure CDN, należy użyć portalu Verizon za pomocą przycisku **Zarządzaj** .
+- Interfejs API: w przeciwieństwie do standardu Verizon, nie można używać interfejsu API do kontrolowania tych funkcji, które są dostępne z poziomu portalu Premium Verizon. Można jednak użyć interfejsu API do sterowania innymi typowymi funkcjami, takimi jak tworzenie/usuwanie punktu końcowego, przeczyszczanie/ładowanie buforowanych zasobów oraz włączanie/wyłączanie domeny niestandardowej.
+- Cennik: Verizon Premium ma inną strukturę cenową dla transferów danych niż standardowa Verizon. Aby uzyskać więcej informacji, zobacz [Cennik usługi Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
 
-**Profile usługi Azure CDN Premium firmy Verizon** mają następujące dodatkowe funkcje:
-- [Uwierzytelnianie tokenu:](cdn-token-auth.md)Umożliwia użytkownikom uzyskanie i użycie tokenu do pobierania bezpiecznych zasobów.
-- [Aparat reguł:](cdn-rules-engine.md)Umożliwia dostosowanie sposobu obsługi żądań HTTP.
+**Azure CDN Premium from profile Verizon** mają następujące dodatkowe funkcje:
+- [Uwierzytelnianie tokenu](cdn-token-auth.md): umożliwia użytkownikom uzyskiwanie i używanie tokenu w celu pobierania bezpiecznych zasobów.
+- [Aparat reguł](cdn-rules-engine.md): umożliwia dostosowywanie sposobu obsługi żądań HTTP.
 - Zaawansowane narzędzia analityczne:
    - [Szczegółowa analiza HTTP](cdn-advanced-http-reports.md)
-   - [Analiza wydajności brzegowej](cdn-edge-performance.md)
+   - [Analiza wydajności Edge](cdn-edge-performance.md)
    - [Analiza w czasie rzeczywistym](cdn-real-time-alerts.md)
 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o silniku reguł, zobacz [odwołanie do aparatu reguł usługi Azure CDN](cdn-rules-engine-reference.md).
+Aby dowiedzieć się więcej o aparacie reguł, zobacz [Informacje o aparacie Azure CDN reguł](cdn-rules-engine-reference.md).
 

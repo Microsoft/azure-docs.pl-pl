@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie wygasaniem zawartości sieci Web w usłudze Azure CDN | Dokumenty firmy Microsoft
-description: Dowiedz się, jak zarządzać wygaśnięciem zawartości usługi Azure Web Apps/Cloud Services, ASP.NET lub IIS w usłudze Azure CDN.
+title: Zarządzanie wygasaniem zawartości sieci Web w Azure CDN | Microsoft Docs
+description: Dowiedz się, jak zarządzać wygasaniem zawartości usługi Azure Web Apps/Cloud Services, ASP.NET lub IIS w Azure CDN.
 services: cdn
 documentationcenter: .NET
 author: asudbring
@@ -15,86 +15,86 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: allensu
 ms.openlocfilehash: 4598e6cee6ffbaaeb2a99727842fcd17fe0046c7
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260568"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Zarządzanie wygasaniem zawartości internetowej w usłudze Azure CDN
 > [!div class="op_single_selector"]
 > * [Zawartość sieci Web platformy Azure](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Magazyn obiektów Blob platformy Azure](cdn-manage-expiration-of-blob-content.md)
+> * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 > 
 
-Pliki z publicznie dostępnych serwerów sieci web pochodzenia mogą być buforowane w usłudze Azure Content Delivery Network (CDN) do czasu ich upływu czasu wygaśnięcia (TTL). Czas wygaśnięcia jest `Cache-Control` określany przez nagłówek w odpowiedzi HTTP z serwera pochodzenia. W tym artykule `Cache-Control` opisano sposób ustawiania nagłówków dla funkcji aplikacji sieci Web usługi Microsoft Azure App Service, usług w chmurze Azure, aplikacji ASP.NET i witryn internetowych usług informacyjnych (IIS), z których wszystkie są skonfigurowane w podobny sposób. `Cache-Control` Nagłówek można ustawić za pomocą plików konfiguracyjnych lub programowo. 
+Pliki z publicznie dostępnych źródeł serwerów sieci Web mogą być buforowane w usłudze Azure Content Delivery Network (CDN), dopóki nie upłynie czas wygaśnięcia (TTL). Czas wygaśnięcia jest określany przez `Cache-Control` nagłówek w odpowiedzi HTTP z serwera pochodzenia. W tym artykule opisano sposób ustawiania `Cache-Control` nagłówków dla Web Apps funkcji Microsoft Azure App Service, Cloud Services platformy Azure, aplikacji ASP.NET oraz witryn Internet Information Services (IIS), które są skonfigurowane w podobny sposób. `Cache-Control` Nagłówek można ustawić przy użyciu plików konfiguracyjnych lub programowo. 
 
-Ustawienia pamięci podręcznej można również kontrolować za pomocą portalu Azure, ustawiając [reguły buforowania sieci CDN](cdn-caching-rules.md). Jeśli utworzysz jedną lub więcej reguł buforowania i ustawisz ich zachowanie buforowania na **Zastąpal** lub **Pomiń pamięć podręczną,** ustawienia buforowania podane przez źródło, omówione w tym artykule, są ignorowane. Aby uzyskać informacje na temat ogólnych pojęć buforowania, zobacz [Jak działa buforowanie](cdn-how-caching-works.md).
+Ustawienia pamięci podręcznej można również kontrolować przy użyciu Azure Portal przez ustawienie [reguł buforowania usługi CDN](cdn-caching-rules.md). Jeśli utworzysz co najmniej jedną regułę buforowania i ustawisz zachowanie buforowania w celu **przesłonięcia** lub **obejścia pamięci podręcznej**, ustawienia buforowania podane w tym artykule zostaną zignorowane. Aby uzyskać informacje na temat ogólnych pojęć dotyczących buforowania, zobacz [jak działa buforowanie](cdn-how-caching-works.md).
 
 > [!TIP]
-> Można ustawić brak czasu wygaśnięcia w pliku. W takim przypadku usługa Azure CDN automatycznie stosuje domyślny czas wygaśnięcia z siedmiodniowym kursem, chyba że skonfigurowane są reguły buforowania w witrynie Azure portal. Ten domyślny czas wygaśnięcia ma zastosowanie tylko do ogólnych optymalizacji dostarczania w sieci Web. W przypadku optymalizacji dużych plików domyślny czas wygaśnięcia wynosi jeden dzień, a w przypadku optymalizacji przesyłania strumieniowego multimediów domyślny czas wygaśnięcia wynosi jeden rok.
+> Możesz ustawić brak czasu wygaśnięcia dla pliku. W takim przypadku Azure CDN automatycznie stosuje domyślny czas wygaśnięcia o wartości siedem dni, chyba że w Azure Portal skonfigurowano reguły buforowania. Ten domyślny czas TTL dotyczy tylko optymalizacji ogólnego dostarczania w sieci Web. W przypadku optymalizacji dużych plików domyślny czas wygaśnięcia wynosi jeden dzień, a w przypadku optymalizacji przesyłania strumieniowego multimediów domyślny czas wygaśnięcia wynosi jeden rok.
 > 
-> Aby uzyskać więcej informacji na temat działania usługi Azure CDN w celu przyspieszenia dostępu do plików i innych zasobów, zobacz [Omówienie sieci dostarczania zawartości platformy Azure](cdn-overview.md).
+> Aby uzyskać więcej informacji o tym, jak działa Azure CDN, aby przyspieszyć dostęp do plików i innych zasobów, zobacz [Omówienie usługi Azure Content Delivery Network](cdn-overview.md).
 > 
 
-## <a name="setting-cache-control-headers-by-using-cdn-caching-rules"></a>Ustawianie nagłówków cache-control przy użyciu reguł buforowania sieci CDN
-Preferowaną metodą ustawiania nagłówka `Cache-Control` serwera sieci web jest użycie reguł buforowania w witrynie Azure portal. Aby uzyskać więcej informacji na temat reguł buforowania sieci CDN, zobacz [Kontrolowanie zachowania buforowania usługi Azure CDN za pomocą reguł buforowania](cdn-caching-rules.md).
+## <a name="setting-cache-control-headers-by-using-cdn-caching-rules"></a>Ustawianie nagłówków kontroli pamięci podręcznej przy użyciu reguł buforowania sieci CDN
+Preferowaną metodą ustawiania `Cache-Control` nagłówka serwera sieci Web jest użycie reguł buforowania w Azure Portal. Aby uzyskać więcej informacji na temat reguł buforowania usługi CDN, zobacz [kontrola Azure CDN buforowania przy użyciu reguł buforowania](cdn-caching-rules.md).
 
 > [!NOTE] 
-> Reguły buforowania są dostępne tylko dla **usługi Azure CDN Standard firmy Verizon** i Azure **CDN Standard z profilów Akamai.** W przypadku profilów **usługi Azure CDN Premium z verizon** należy użyć aparatu reguł usługi Azure [CDN](cdn-rules-engine.md) w portalu **zarządzania** dla podobnych funkcji.
+> Reguły buforowania są dostępne tylko dla **Azure CDN Standard from Verizon** i **Azure CDN Standard from Akamai** profile. W przypadku **Azure CDN Premium z profilów Verizon** należy użyć [aparatu reguł Azure CDN](cdn-rules-engine.md) w portalu **zarządzania** , aby korzystać z podobnych funkcji.
 
-**Aby przejść do strony reguł buforowania sieci CDN:**
+**Aby przejść do strony reguły buforowania usługi CDN**:
 
-1. W witrynie Azure portal wybierz profil usługi CDN, a następnie wybierz punkt końcowy serwera sieci web.
+1. W Azure Portal wybierz profil CDN, a następnie wybierz punkt końcowy dla serwera sieci Web.
 
 1. W lewym okienku w obszarze Ustawienia zaznacz pole **Reguły buforowania**.
 
-   ![Przycisk reguł buforowania sieci CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
+   ![Przycisk reguły buforowania usługi CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
 
    Zostanie wyświetlona strona **Reguły buforowania**.
 
-   ![Strona buforowania sieci CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
+   ![Strona buforowania usługi CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
 
 
-**Aby ustawić nagłówki cache-control serwera sieci web przy użyciu globalnych reguł buforowania:**
+**Aby ustawić nagłówki kontroli pamięci podręcznej serwera sieci Web przy użyciu globalnych reguł buforowania:**
 
-1. W obszarze **Globalne reguły buforowania**ustaw **zachowanie buforowania ciągów zapytań** tak, aby **ignoruj ciągi zapytań** i ustaw **zachowanie buforowania** na **Zastąpalanie**.
+1. W obszarze **globalne reguły buforowania**Ustaw **zachowanie buforowania ciągu zapytania** , aby **zignorować ciągi zapytań** i ustawić **zachowanie buforowania** w celu **przesłonięcia**.
       
-1. W przypadku **czasu wygaśnięcia pamięci podręcznej**wprowadź 3600 w polu **Sekundy** lub 1 w polu **Godziny.** 
+1. W przypadku **czasu wygaśnięcia pamięci podręcznej**wprowadź 3600 w polu **sekundy** lub 1 w polu **godziny** . 
 
-   ![Przykład globalnych reguł buforowania sieci CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
+   ![Przykład globalnych zasad buforowania usługi CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
 
-   Ta globalna reguła buforowania ustawia czas trwania pamięci podręcznej jednej godziny i wpływa na wszystkie żądania do punktu końcowego. Zastępuje wszystkie `Cache-Control` nagłówki `Expires` lub HTTP, które są wysyłane przez serwer pochodzenia określony przez punkt końcowy.   
+   Ta Globalna reguła buforowania ustawia czas trwania pamięci podręcznej o jedną godzinę i ma wpływ na wszystkie żądania do punktu końcowego. Zastępuje wszystkie `Cache-Control` nagłówki lub `Expires` http, które są wysyłane przez serwer pochodzenia określony przez punkt końcowy.   
 
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
-**Aby ustawić nagłówki cache-control pliku serwera sieci web przy użyciu niestandardowych reguł buforowania:**
+**Aby ustawić nagłówki kontroli pamięci podręcznej pliku serwera sieci Web przy użyciu niestandardowych reguł buforowania:**
 
-1. W obszarze **Niestandardowe reguły buforowania**utwórz dwa warunki dopasowania:
+1. W obszarze **niestandardowe reguły buforowania**Utwórz dwa warunki dopasowywania:
 
-     a. Dla pierwszego warunku dopasowania ustaw warunek `/webfolder1/*` **dopasowania** na **Ścieżkę** i wprowadź wartość **Dopasowania**. Ustaw **zachowanie buforowania,** aby **zastąpić** i wprowadź 4 w polu **Godziny.**
+     a. W przypadku pierwszego warunku dopasowywania Ustaw **warunek dopasowania** na wartość **Path** , a następnie wprowadź `/webfolder1/*` dla **wartości dopasowywania**. Ustaw **zachowanie buforowania** w celu **przesłonięcia** i wprowadź 4 w polu **godziny** .
 
-     b. W przypadku drugiego warunku dopasowania ustaw `/webfolder1/file1.txt` warunek **dopasowania** na **Ścieżkę** i wprowadź wartość **Dopasowania**. Ustaw **zachowanie buforowania,** aby **zastąpić** i wprowadź 2 w polu **Godziny.**
+     b. W przypadku drugiego warunku dopasowywania Ustaw **warunek dopasowania** na wartość **Path** i wprowadź `/webfolder1/file1.txt` dla **wartości dopasowywania**. Ustaw **zachowanie buforowania** w celu **przesłonięcia** i wprowadź wartość 2 w polu **godziny** .
 
     ![Przykład niestandardowych reguł buforowania usługi CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 
-    Pierwsza niestandardowa reguła buforowania ustawia czas trwania pamięci `/webfolder1` podręcznej wynoszący cztery godziny dla wszystkich plików w folderze na serwerze pochodzenia określonym przez punkt końcowy. Druga reguła zastępuje pierwszą regułę `file1.txt` tylko dla pliku i ustawia czas trwania pamięci podręcznej wynoszący dwie godziny.
+    Pierwsza Niestandardowa reguła buforowania ustawia czas trwania pamięci podręcznej wynoszący cztery `/webfolder1` godziny dla wszystkich plików w folderze na serwerze źródłowym określonym przez punkt końcowy. Druga reguła zastępuje pierwszą regułę tylko dla `file1.txt` pliku i ustawia dla niej okres istnienia pamięci podręcznej wynoszący 2 godziny.
 
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 
-## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Ustawianie nagłówków cache-control przy użyciu plików konfiguracyjnych
-W przypadku zawartości statycznej, takiej jak obrazy i arkusze stylów, można kontrolować częstotliwość aktualizacji, modyfikując pliki konfiguracyjne **applicationHost.config** lub **Web.config** dla aplikacji sieci web. Aby ustawić `Cache-Control` nagłówek zawartości, użyj `<system.webServer>/<staticContent>/<clientCache>` elementu w każdym pliku.
+## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Ustawianie nagłówków kontroli pamięci podręcznej przy użyciu plików konfiguracji
+W przypadku zawartości statycznej, takiej jak obrazy i arkusze stylów, można kontrolować częstotliwość aktualizacji, modyfikując pliki konfiguracyjne **ApplicationHost. config** lub **Web. config** dla aplikacji sieci Web. Aby ustawić `Cache-Control` nagłówek zawartości, użyj `<system.webServer>/<staticContent>/<clientCache>` elementu w obu plikach.
 
-### <a name="using-applicationhostconfig-files"></a>Korzystanie z plików ApplicationHost.config
-**Plik ApplicationHost.config** jest plikiem głównym systemu konfiguracji usług IIS. Ustawienia konfiguracji w pliku **ApplicationHost.config** mają wpływ na wszystkie aplikacje w witrynie, ale są zastępowane przez ustawienia wszystkich plików **Web.config,** które istnieją dla aplikacji sieci web.
+### <a name="using-applicationhostconfig-files"></a>Korzystanie z plików ApplicationHost. config
+Plik **ApplicationHost. config** jest plikiem głównym systemu konfiguracji usług IIS. Ustawienia konfiguracji w pliku **ApplicationHost. config** mają wpływ na wszystkie aplikacje w lokacji, ale są zastępowane przez ustawienia plików **Web. config** istniejących dla aplikacji sieci Web.
 
-### <a name="using-webconfig-files"></a>Korzystanie z plików Web.config
-Za pomocą pliku **Web.config** można dostosować sposób zachowania całej aplikacji sieci web lub określonego katalogu w aplikacji sieci web. Zazwyczaj w folderze głównym aplikacji sieci web znajduje się co najmniej jeden plik **Web.config.** Dla każdego pliku **Web.config** w określonym folderze ustawienia konfiguracji mają wpływ na wszystko w tym folderze i jego podfolderach, chyba że zostaną zastąpione na poziomie podfolderu przez inny plik **Web.config.** 
+### <a name="using-webconfig-files"></a>Korzystanie z plików Web. config
+Za pomocą pliku **Web. config** można dostosować sposób zachowania całej aplikacji sieci Web lub określonego katalogu w aplikacji sieci Web. Zazwyczaj masz co najmniej jeden plik **Web. config** w folderze głównym aplikacji sieci Web. Dla każdego pliku **Web. config** w określonym folderze Ustawienia konfiguracji mają wpływ na wszystko w tym folderze i jego podfolderach, chyba że zostaną zastąpione na poziomie podfolderu przez inny plik **Web. config** . 
 
-Na przykład można ustawić `<clientCache>` element w pliku **Web.config** w folderze głównym aplikacji sieci web, aby buforować całą zawartość statyczną w aplikacji sieci web przez trzy dni. Można również dodać plik **Web.config** w podfolderze z bardziej `\frequent`zmienną `<clientCache>` zawartością (na przykład) i ustawić jego element do buforowania zawartości podfolderu przez sześć godzin. Wynik netto jest taki, że zawartość w całej witrynie sieci web `\frequent` jest buforowana przez trzy dni, z wyjątkiem dowolnej zawartości w katalogu, która jest buforowana tylko przez sześć godzin.  
+Na przykład można ustawić `<clientCache>` element w pliku **Web. config** w folderze głównym aplikacji sieci Web w celu buforowania całej zawartości statycznej w aplikacji sieci Web przez trzy dni. Możesz również dodać plik **Web. config** w podfolderze o większej liczbie zmiennych (na przykład `\frequent`) i ustawić jego `<clientCache>` element do buforowania zawartości podfolderu przez sześć godzin. Wynikiem jest to, że zawartość całej witryny sieci Web jest buforowana przez trzy dni, z wyjątkiem zawartości w `\frequent` katalogu, która jest buforowana przez zaledwie sześć godzin.  
 
-W poniższym przykładzie pliku konfiguracyjnego XML pokazano, jak ustawić element, `<clientCache>` aby określić maksymalny wiek trzech dni:  
+Poniższy przykład pliku konfiguracji XML pokazuje, jak ustawić element, `<clientCache>` aby określić maksymalny wiek trzech dni:  
 
 ```xml
 <configuration>
@@ -106,19 +106,19 @@ W poniższym przykładzie pliku konfiguracyjnego XML pokazano, jak ustawić elem
 </configuration>
 ```
 
-Aby użyć atrybutu **cacheControlMaxAge,** należy ustawić wartość atrybutu **cacheControlMode** na `UseMaxAge`. To ustawienie spowodowało, że `Cache-Control: max-age=<nnn>`nagłówek HTTP i dyrektywa mają zostać dodane do odpowiedzi. Format wartości przedziału czasu dla atrybutu **cacheControlMaxAge** to `<days>.<hours>:<min>:<sec>`. Jego wartość jest konwertowana na sekundy `Cache-Control` `max-age` i jest używana jako wartość dyrektywy. Aby uzyskać więcej `<clientCache>` informacji na temat elementu, zobacz [Client Cache \<klientaCache>](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+Aby użyć atrybutu **cacheControlMaxAge** , należy ustawić wartość atrybutu **cacheControlMode** na `UseMaxAge`. To ustawienie spowodowało dodanie nagłówka HTTP i dyrektywy `Cache-Control: max-age=<nnn>`do odpowiedzi. Format wartości TimeSpan dla atrybutu **cacheControlMaxAge** jest `<days>.<hours>:<min>:<sec>`. Jego wartość jest konwertowana na sekundy i jest używana jako wartość `Cache-Control` `max-age` dyrektywy. Aby uzyskać więcej informacji na `<clientCache>` temat elementu, zobacz [>\<ClientCache pamięci podręcznej klienta ](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
-## <a name="setting-cache-control-headers-programmatically"></a>Programowo ustawianie nagłówków cache-control
-W przypadku aplikacji ASP.NET można sterować zachowaniem buforowania sieci CDN programowo, ustawiając właściwość **HttpResponse.Cache** interfejsu API platformy .NET. Aby uzyskać informacje na temat właściwości **HttpResponse.Cache,** zobacz [HttpResponse.Cache Właściwości](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) i [HttpCachePolicy Class](/dotnet/api/system.web.httpcachepolicy).  
+## <a name="setting-cache-control-headers-programmatically"></a>Programistyczne Ustawianie nagłówków kontroli pamięci podręcznej
+W przypadku aplikacji ASP.NET można programowo kontrolować zachowanie buforowania usługi CDN przez ustawienie właściwości **HttpResponse. cache** interfejsu API platformy .NET. Aby uzyskać informacje na temat właściwości **HttpResponse. cache** , zobacz [HttpResponse. cache Property](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) i [HttpCachePolicy class](/dotnet/api/system.web.httpcachepolicy).  
 
-Aby programowo buforować zawartość aplikacji w ASP.NET, wykonaj następujące kroki:
-   1. Sprawdź, czy zawartość jest oznaczona `HttpCacheability` `Public`jako buforowa, ustawiając na . 
-   1. Ustaw walidator pamięci podręcznej, `HttpCachePolicy` wywołując jedną z następujących metod:
-      - Wywołanie, `SetLastModified` aby ustawić wartość `Last-Modified` sygnatury czasowej dla nagłówka.
-      - Wywołanie, `SetETag` aby ustawić `ETag` wartość nagłówka.
-   1. Opcjonalnie należy określić czas wygaśnięcia pamięci podręcznej, wywołując, `SetExpires` aby ustawić wartość nagłówka. `Expires` W przeciwnym razie stosuje się domyślną heurystykę pamięci podręcznej opisaną wcześniej w tym dokumencie.
+Aby programowo przechować zawartość aplikacji w ASP.NET, wykonaj następujące kroki:
+   1. Sprawdź, czy zawartość jest oznaczona jako buforowana przez ustawienie `HttpCacheability` do `Public`. 
+   1. Ustaw moduł sprawdzania poprawności pamięci podręcznej, wywołując `HttpCachePolicy` jedną z następujących metod:
+      - Wywołaj `SetLastModified` , aby ustawić wartość sygnatury `Last-Modified` czasowej dla nagłówka.
+      - Wywołanie `SetETag` ustawiania wartości dla `ETag` nagłówka.
+   1. Opcjonalnie określ czas wygaśnięcia pamięci podręcznej, `SetExpires` wywołując, aby ustawić wartość dla `Expires` nagłówka. W przeciwnym razie stosowane są domyślne algorytmy heurystyczne pamięci podręcznej opisane wcześniej w tym dokumencie.
 
-Na przykład do buforowania zawartości przez jedną godzinę, dodaj następujący kod Języka C#:  
+Na przykład, aby buforować zawartość przez jedną godzinę, Dodaj następujący kod w języku C#:  
 
 ```csharp
 // Set the caching parameters.
@@ -128,10 +128,10 @@ Response.Cache.SetLastModified(DateTime.Now);
 ```
 
 ## <a name="testing-the-cache-control-header"></a>Testowanie nagłówka Cache-Control
-Możesz łatwo zweryfikować ustawienia czasu wygaśnięcia zawartości sieci Web. Za pomocą [narzędzi programistycznych](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)przeglądarki sprawdź, czy `Cache-Control` zawartość sieci Web zawiera nagłówek odpowiedzi. Można również użyć narzędzia, takiego jak **wget**, [Postman](https://www.getpostman.com/)lub [Fiddler,](https://www.telerik.com/fiddler) aby sprawdzić nagłówki odpowiedzi.
+Można łatwo zweryfikować ustawienia czasu wygaśnięcia zawartości sieci Web. Za pomocą [narzędzi deweloperskich](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)przeglądarki Sprawdź, czy zawartość sieci Web zawiera nagłówek `Cache-Control` odpowiedzi. Do sprawdzenia nagłówków odpowiedzi można także użyć narzędzia, takiego jak **Wget**, [Poster](https://www.getpostman.com/)lub [programu Fiddler](https://www.telerik.com/fiddler) .
 
 ## <a name="next-steps"></a>Następne kroki
-* [Przeczytaj szczegółowe informacje o elementów **clientCache**](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
-* [Przeczytaj dokumentację właściwości **HttpResponse.Cache**](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) 
-* [Przeczytaj dokumentację **klasy HttpCachePolicy**](/dotnet/api/system.web.httpcachepolicy)  
-* [Dowiedz się więcej o pojęciach dotyczących buforowania](cdn-how-caching-works.md)
+* [Przeczytaj szczegóły dotyczące elementu **clientCache**](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
+* [Zapoznaj się z dokumentacją właściwości **HttpResponse. cache**](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) 
+* [Zapoznaj się z dokumentacją **klasy HttpCachePolicy**](/dotnet/api/system.web.httpcachepolicy)  
+* [Informacje o pojęciach dotyczących buforowania](cdn-how-caching-works.md)

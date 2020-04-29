@@ -1,7 +1,7 @@
 ---
-title: Nagrywanie niestandardowych próbek głosu — usługa mowy
+title: Rejestruj niestandardowe próbki głosu — usługa mowy
 titleSuffix: Azure Cognitive Services
-description: Spersonaliuj niestandardowy głos o jakości produkcyjnej, przygotowując solidny skrypt, zatrudniając dobry talent głosowy i nagrywając profesjonalnie.
+description: Utwórz niestandardowy dźwięk z jakością produkcyjną, przygotowując niezawodny skrypt, wykonując dobry talent głosu i rejestrując profesjonalny.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,213 +11,213 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
 ms.openlocfilehash: 2897fe2e0cc8aeb929b0a33f5cdaba9c60f2a244
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81261588"
 ---
-# <a name="record-voice-samples-to-create-a-custom-voice"></a>Nagrywanie próbek głosu w celu utworzenia niestandardowego głosu
+# <a name="record-voice-samples-to-create-a-custom-voice"></a>Rejestruj przykłady głosu, aby utworzyć niestandardowy głos
 
-Tworzenie wysokiej jakości produkcji niestandardowy głos od podstaw nie jest przypadkowym przedsięwzięciem. Centralnym elementem niestandardowego głosu jest duża kolekcja próbek audio ludzkiej mowy. Ważne jest, aby te nagrania audio były wysokiej jakości. Wybierz talent głosowy, który ma doświadczenie w tworzeniu tego rodzaju nagrań, i poproś ich o nagranie przez kompetentnego inżyniera nagrywania przy użyciu profesjonalnego sprzętu.
+Tworzenie niestandardowego, niestandardowego głosu dla produkcji nie jest zobowiązaniem niezależnym. Centralny składnik niestandardowego głosu to duża kolekcja próbek audio dla człowieka. Należy koniecznie zapewnić wysoką jakość tych nagrań dźwiękowych. Wybierz talent głosu, który ma doświadczenie z tym rodzajem nagrań, i poproś go o nagranie przez właściwy inżynier ds. nagrywania przy użyciu profesjonalnego sprzętu.
 
-Zanim jednak będzie można wykonać te nagrania, potrzebujesz skryptu: słów, które zostaną wypowiedziane przez twój talent głosowy, aby stworzyć próbki audio. Aby uzyskać najlepsze wyniki, skrypt musi mieć dobry zasięg fonetyczny i wystarczającą różnorodność, aby trenować niestandardowy model głosu.
+Przed wprowadzeniem tych nagrań potrzebny jest skrypt: słowa, które będą wymawiane przez Talente głosu do tworzenia próbek audio. Aby uzyskać najlepsze wyniki, Twój skrypt musi mieć dobre pokrycie fonetyczne i dostateczną odmianę do uczenia niestandardowego modelu głosu.
 
-Wiele małych, ale ważnych szczegółów wchodzi w tworzenie profesjonalnego nagrywania głosu. Ten przewodnik jest planem działania dla procesu, który pomoże Ci uzyskać dobre, spójne wyniki.
+Wiele małych, ale ważnych szczegółów, aby utworzyć profesjonalne nagrywanie głosu. Ten przewodnik jest planem procesu, który pomoże Ci uzyskać dobre, spójne wyniki.
 
 > [!TIP]
-> Aby uzyskać najwyższą jakość wyników, rozważ zaangażowanie firmy Microsoft w celu opracowania niestandardowego głosu. Firma Microsoft ma duże doświadczenie w produkcji wysokiej jakości głosów dla własnych produktów, w tym Cortany i pakietu Office.
+> Aby uzyskać najwyższej jakości wyniki, rozważ zaangażowanie firmy Microsoft w rozwój niestandardowego głosu. Firma Microsoft ma rozległe doświadczenie w zakresie tworzenia głosów o wysokiej jakości dla własnych produktów, w tym Cortany i pakietu Office.
 
 ## <a name="voice-recording-roles"></a>Role nagrywania głosu
 
-Istnieją cztery podstawowe role w niestandardowym projekcie nagrywania głosu:
+Istnieje cztery podstawowe role w projekcie niestandardowego nagrywania głosu:
 
 Rola|Przeznaczenie
 -|-
-Talent głosowy        |Głos tej osoby będzie podstawą niestandardowego głosu.
-Inżynier nagrywania  |Nadzoruje techniczne aspekty nagrywania i obsługuje urządzenie rejestrujące.
-Dyrektor            |Przygotowuje scenariusz i trenerów talent głosu wydajność.
-Edytor              |Finalizuje pliki audio i przygotowuje je do przesłania do portalu Niestandardowy głos.
+Talent głosu        |Ten głos osoby będzie stanowić podstawę niestandardowego głosu.
+Inżynier rejestrowania  |Widzi techniczne aspekty nagrania i obsługuje urządzenia rejestrujące.
+General            |Przygotowuje skrypt i zaautokaruje wydajność talent głosu.
+Edytor              |Kończy pliki audio i przygotowuje je do przekazania do niestandardowego portalu głosowego.
 
-Osoba może wypełnić więcej niż jedną rolę. Ten przewodnik zakłada, że będziesz przede wszystkim wypełniać rolę reżysera i zatrudniać zarówno talent głosowy, jak i inżyniera nagrywania. Jeśli chcesz zrobić nagrania samodzielnie, ten artykuł zawiera pewne informacje na temat roli inżyniera nagrywania. Rola edytora nie jest potrzebna dopiero po sesji, więc może być wykonywana przez reżysera lub inżyniera nagrywania.
+Osoba może wypełnić więcej niż jedną rolę. W tym przewodniku przyjęto założenie, że użytkownik będzie przede wszystkim wypełniać rolę dyrektora i zatrudniać zarówno talent głosu, jak i inżyniera rejestrująca Jeśli chcesz samodzielnie nagrać nagrania, ten artykuł zawiera pewne informacje o roli inżyniera. Rola edytora nie jest wymagana do momentu zakończenia sesji, więc może być wykonywana przez dyrektora lub inżyniera rejestratora.
 
-## <a name="choose-your-voice-talent"></a>Wybierz swój talent głosowy
+## <a name="choose-your-voice-talent"></a>Wybierz talent głosu
 
-Aktorzy z doświadczeniem w pracy lektora lub postaci głosowej tworzą dobry niestandardowy talent głosowy. Często można również znaleźć odpowiedni talent wśród spikerów i czytelników.
+Aktory ze środowiskami w VoiceOver lub znakami głosowymi czynią dobre niestandardowe Talente. Można również często znaleźć odpowiednie talent wśród anonsów i grup dyskusyjnych.
 
-Wybierz talent głosowy, którego naturalny głos ci się podoba. Możliwe jest tworzenie unikalnych "charakter" głosy, ale jest to o wiele trudniejsze dla większości talentów, aby wykonać je konsekwentnie, a wysiłek może powodować obciążenie głosu.
-
-> [!TIP]
-> Ogólnie rzecz biorąc, unikaj używania rozpoznawalnych głosów do tworzenia niestandardowego głosu — o ile oczywiście twoim celem nie jest uzyskanie głosu celebrytów. Mniej znane głosy są zwykle mniej rozpraszające dla użytkowników.
-
-Najważniejszym czynnikiem przy wyborze talentu głosowego jest spójność. Twoje nagrania powinny brzmieć tak, jakby zostały wykonane tego samego dnia w tym samym pomieszczeniu. Możesz podejść do tego ideału poprzez dobre praktyki nagrywania i inżynierii.
-
-Twój głos talent jest drugą połowę równania. Muszą być w stanie mówić ze stałą szybkością, poziomem głośności, tonem i tonem. Wyraźna dykcja jest koniecznością. Talent musi również być w stanie ściśle kontrolować ich zmienność boiska, emocjonalny wpływ, i maniery mowy.
-
-Nagrywanie niestandardowych próbek głosu może być bardziej fatiguing niż inne rodzaje pracy głosowej. Większość talentów głosowych może nagrywać przez dwie lub trzy godziny dziennie. Ogranicz sesje do trzech lub czterech w tygodniu, z dniem wolnym między nimi, jeśli to możliwe.
-
-Nagrania wykonane dla modelu głosu powinny być neutralne emocjonalnie. Oznacza to, że smutna wypowiedź nie powinna być odczytywana w smutny sposób. Nastrój można dodać do syntetyzowanej mowy później za pomocą kontroli prozody. Pracuj ze swoim talentem głosowym, aby opracować "personę", która definiuje ogólny dźwięk i emocjonalny ton niestandardowego głosu. W tym procesie, będziesz wskazać, co "neutralne" brzmi jak dla tej persona.
-
-Persona może mieć, na przykład, naturalnie optymistyczną osobowość. Tak więc "ich" głos może nosić nutę optymizmu, nawet jeśli mówią neutralnie. Jednak taka cecha osobowości powinna być subtelna i spójna. Słuchaj odczytów przez istniejące głosy, aby zorientować się, do czego dążysz.
+Wybierz pozycję Voice talent, z której polubisz głos naturalny. Istnieje możliwość tworzenia unikatowych głosów "Character", ale jest to znacznie trudniejsze w przypadku większości talent w celu ich spójnego działania, a nakład pracy może spowodować nadużycie.
 
 > [!TIP]
-> Zazwyczaj będziesz chciał posiadać nagrania głosowe, które robisz. Twój talent głosowy powinien być podatny na umowę o pracę na wynajem dla projektu.
+> Ogólnie rzecz biorąc, Unikaj używania rozpoznawalnych głosów do tworzenia niestandardowego głosu — chyba że oczywiście celem jest utworzenie głosu osobistości. Małe znane głosy są zwykle mniej rozpraszane dla użytkowników.
+
+Najważniejszym czynnikiem do wybierania głosu talent jest spójność. Nagrania powinny być odtwarzane w taki sam sposób, jak w tym samym dniu w tym samym pokoju. Można to idealne rozwiązanie dzięki dobrym praktykom rejestrowania i inżynierom.
+
+Talent głosu to druga połowa równania. Muszą być w stanie mówić ze stałą częstotliwością, poziomem głośności, pozostałością i kolorem. Należy wyczyścić diction. Talent musi mieć możliwość ścisłej kontroli ich zmienności, emocjonalnej wpływ na mowę i mannerisms mowy.
+
+Nagrywanie niestandardowych przykładów głosowych może być bardziej fatiguing niż inne rodzaje pracy głosowej. Większość talent głosu może zarejestrować się przez dwa lub trzy godziny dziennie. Ogranicz liczbę sesji do trzech lub czterech tygodni, z których każdy ma wartość z zakresu od do do między, jeśli to możliwe.
+
+Nagrania dla modelu głosowego powinny być tys neutralne. Oznacza to, że smutna wypowiedź nie powinna być odczytywana w sposób SAD. Nastrój można dodać do wydanej mowy później za pomocą kontrolek Prosody. Skontaktuj się z talentą głosu, aby utworzyć "Persona", która definiuje ogólny dźwięk i emocjonalneję niestandardowego głosu. W procesie należy określić, co to jest "neutralny" dźwięk, jak dla danej osoby.
+
+Osoba może mieć, na przykład, charakter naturalny. Dlatego głos "ich" może mieć zanotowanie optimism nawet wtedy, gdy mówisz w sposób neutralny. Jednak taka cecha ma charakter delikatny i spójny. Odsłuchaj odczyty według istniejących głosów, aby uzyskać pomysł dotyczący tego, czego potrzebujesz.
+
+> [!TIP]
+> Zazwyczaj należy nawiązać własne nagranie głosowe. Twoja talent głosu powinna być przedstawiona dla kontraktu dotyczącego pracy w ramach zatrudnienia dla projektu.
 
 ## <a name="create-a-script"></a>Tworzenie skryptu
 
-Punktem wyjścia dowolnej niestandardowej sesji nagrywania głosu jest skrypt, który zawiera wypowiedzi, które mają być wypowiedziane przez talent głosu. (Termin "wypowiedzi" obejmuje zarówno pełne zdania, jak i krótsze frazy).
+Punktem początkowym dowolnej niestandardowej sesji nagrywania głosu jest skrypt, który zawiera wyrażenia długości do wymowy przez talent głosu. (Termin "wyrażenia długości" obejmuje zarówno pełne zdania, jak i krótsze frazy.
 
-Wypowiedzi w skrypcie mogą pochodzić z dowolnego miejsca: fikcji, non-fiction, transkrypcji przemówień, raportów prasowych i wszystkiego, co jest dostępne w formie drukowanej. Jeśli chcesz upewnić się, że Twój głos dobrze radzi sobie z konkretnymi rodzajami słów (takimi jak terminologia medyczna lub żargon programowania), możesz chcieć dołączyć zdania z prac naukowych lub dokumentów technicznych. Aby uzyskać krótką dyskusję na temat potencjalnych kwestii prawnych, zobacz sekcję ["Legalność".](#legalities) Możesz również napisać własny tekst.
+Wyrażenia długości w skrypcie mogą pochodzić z dowolnego miejsca: fikcja, nie fikcyjne, transkrypcje mowy, raporty o nowościach i inne elementy dostępne w formie drukowanej. Jeśli chcesz się upewnić, że Twój głos jest dobrze na konkretnych rodzajach wyrazów (takich jak Terminologia medyczna lub żargon programowania), możesz chcieć uwzględnić zdania z dokumentów badania uniwersyteckieowych lub dokumentacji technicznej. Krótkie omówienie potencjalnych problemów prawnych można znaleźć w sekcji ["prawa"](#legalities) . Możesz również napisać własny tekst.
 
-Twoje wypowiedzi nie muszą pochodzić z tego samego źródła lub tego samego rodzaju źródła. Nie muszą nawet mieć ze sobą nic wspólnego. Jeśli jednak w aplikacji mowy użyjesz zestawów fraz (na przykład "Pomyślnie się zalogowałeś"), upewnij się, że są one uwzględniane w skrypcie. To da twojemu własnemu głosowi większą szansę na wypowiedzenie tych zwrotów. A jeśli zdecydujesz się użyć nagrania zamiast syntetyzowanej mowy, będziesz już mieć je w tym samym głosie.
+Twoje wyrażenia długości nie muszą pochodzić z tego samego źródła ani tego samego rodzaju źródła. Nie trzeba nawet niczego robić ze sobą. Jeśli jednak użyjesz opcji Ustaw zwroty (na przykład "pomyślnie zalogowano") w aplikacji mowy, upewnij się, że zostały one uwzględnione w skrypcie. Dzięki temu niestandardowy głos będzie lepszym rozwiązaniem do wymawiania tych fraz. A jeśli zdecydujesz się na użycie nagrania zamiast syntezy głosu, będziesz już mieć ten sam głos.
 
-Podczas gdy spójność jest kluczem do wyboru talentu głosowego, różnorodność jest cechą charakterystyczną dobrego skryptu. Skrypt powinien zawierać wiele różnych słów i zdań o różnych długościach zdań, strukturach i nastrojach. Każdy dźwięk w języku powinien być reprezentowany wielokrotnie i w wielu kontekstach *(tzw. zasięg fonetyczny).*
+Chociaż spójność jest kluczem podczas wybierania głosu talent, odmianą jest Hallmark dobrego skryptu. Skrypt powinien zawierać wiele różnych słów i zdań z różnymi długościami, strukturami i nastrójami zdań. Każdy dźwięk w języku powinien być reprezentowany wielokrotnie i w wielu kontekstach (nazywanych *pokryciem fonetycznym*).
 
-Ponadto tekst powinien zawierać wszystkie sposoby, w jakie dany dźwięk może być reprezentowany na piśmie, i umieszczać każdy dźwięk w różnych miejscach w zdaniach. Zarówno zdania deklaratywne, jak i pytania powinny być uwzględniane i odczytywane z odpowiednią intonacją.
+Ponadto tekst powinien zawierać wszystkie sposoby reprezentowania określonego dźwięku na piśmie oraz umieścić każdy dźwięk w różnych miejscach w zdaniach. Oba zdania deklaratywne i pytania powinny być zawarte i odczytywane przy użyciu odpowiednich intonation.
 
-Trudno jest napisać skrypt, który zapewnia *wystarczającą ilość* danych, aby umożliwić portalowi mowy niestandardowej tworzenie dobrego głosu. W praktyce najprostszym sposobem, aby skrypt, który osiąga niezawodne pokrycie fonetyczne jest uwzględnienie dużej liczby próbek. Standardowe głosy, które zapewnia firma Microsoft, zostały zbudowane z dziesiątek tysięcy wypowiedzi. Należy być przygotowanym do nagrywania od kilku do kilku tysięcy wypowiedzi co najmniej do tworzenia niestandardowego głosu jakości produkcji.
+Trudno jest napisać skrypt, który zapewnia *wystarczającą ilość* danych, aby umożliwić portalowi Custom Speech tworzenie dobrego głosu. W rzeczywistości Najprostszym sposobem, aby skrypt, który osiąga niezawodne pokrycie fonetyczne, ma uwzględniać dużą liczbę próbek. Standardowe głosy udostępniane przez firmę Microsoft zostały skompilowane na podstawie dziesiątek tysięcy wyrażenia długości. Należy przygotować się do zarejestrowania kilku tysięcy wyrażenia długości na co najmniej, aby utworzyć niestandardowy dźwięk o jakości produkcyjnej.
 
-Sprawdź dokładnie skrypt pod kątem błędów. Jeśli to możliwe, niech ktoś inny też to sprawdzi. Po uruchomieniu przez skrypt ze swoim talentem, prawdopodobnie złapiesz jeszcze kilka błędów.
+Sprawdź uważnie skrypt pod kątem błędów. Jeśli to możliwe, należy ją także sprawdzić. Gdy uruchamiasz skrypt za pomocą talent, prawdopodobnie wychwytuje kilka błędów.
 
 ### <a name="script-format"></a>Format skryptu
 
-Skrypt można napisać w programie Microsoft Word. Skrypt jest używany podczas sesji nagrywania, dzięki czemu można go skonfigurować w dowolny sposób, w jaki można łatwo pracować. Utwórz plik tekstowy wymagany przez portal Custom Voice oddzielnie.
+Skrypt można napisać w programie Microsoft Word. Skrypt jest przeznaczony do użycia podczas sesji rejestrowania, więc można go skonfigurować w dowolny sposób, w jaki można łatwo korzystać z programu. Utwórz plik tekstowy, który jest wymagany przez niestandardowy Portal głosowy osobno.
 
 Podstawowy format skryptu zawiera trzy kolumny:
 
-* Liczba wypowiedź, począwszy od 1. Numerowanie ułatwia wszystkim w studio odwoływanie się do konkretnej wypowiedzi ("spróbujmy ponownie numer 356"). Za pomocą funkcji numerowania akapitu programu Word można automatycznie numerować wiersze tabeli.
-* Pusta kolumna, w której zapiszesz numer lub kod czasu każdej wypowiedź, aby ułatwić znalezienie go w gotowym nagraniu.
-* Tekst samego wypowiedź.
+* Liczba wypowiedź, rozpoczynając od 1. Numerowanie ułatwia wszystkim osobom w programie Studio odwoływanie się do określonego wypowiedź ("Spróbuj ponownie użyć numeru 356"). Możesz użyć funkcji numeracji akapitów wyrazów, aby automatycznie numerować wiersze tabeli.
+* Pusta kolumna, w której zostanie zapisany kod Take Number lub Time każdego wypowiedźu, aby ułatwić znalezienie go w gotowym rejestrowaniu.
+* Tekst samej wypowiedź.
 
 ![Przykładowy skrypt](media/custom-voice/script.png)
 
 > [!NOTE]
-> Większość studiów nagrywa w krótkich segmentach znanych jako *trwa*. Każde take zazwyczaj zawiera 10 do 24 wypowiedzi. Po prostu zauważyć, że numer take jest wystarczające, aby znaleźć wypowiedź później. Jeśli nagrywasz w studiu, które woli nagrywać dłużej, warto zanotować kod czasu. Studio będzie miało widoczny wyświetlacz czasu.
+> Większość Studios rekordu w krótkich segmentach znanych jako *trwają*. Każda z nich przyjmuje zwykle od 10 do 24 wyrażenia długości. Po prostu przenotuj liczbę z przejęcia, aby znaleźć wypowiedź później. Jeśli rejestrujesz się w programie Studio, który preferuje dłuższe nagrania, zamiast tego należy zwrócić uwagę na kod czasu. Studio będzie widoczne w widocznym czasie.
 
-Pozostaw wystarczająco dużo miejsca po każdym wierszu, aby pisać notatki. Upewnij się, że żadna wypowiedź nie jest podzielona między strony. Ponuń strony i wydrukuj skrypt na jednej stronie papieru.
+Aby pisać notatki, pozostaw wystarczającą ilość miejsca po każdym wierszu. Upewnij się, że żaden wypowiedź nie jest podzielony między stronami. Ponumeruj strony i wydrukuj swój skrypt po jednej stronie arkusza.
 
-Wydrukuj trzy kopie scenariusza: jeden dla talentu, jeden dla inżyniera i jeden dla reżysera (ciebie). Zamiast zszywek użyj spinacza do papieru: doświadczony artysta głosowy oddzieli strony, aby uniknąć hałasu podczas obracania stron.
+Drukuj trzy kopie skryptu: jeden dla talent, jeden dla inżyniera i jeden dla dyrektora (ty). Użyj klipu papierowego zamiast zszywek: doświadczony wykonawca dla głosu oddzieli strony, aby uniknąć konieczności tworzenia szumów, ponieważ strony są włączone.
 
-### <a name="legalities"></a>Legalności
+### <a name="legalities"></a>Prawa
 
-Zgodnie z prawem autorskim, czytanie przez aktora tekstu chronionego prawem autorskim może być spektaklem, za który autor utworu powinien otrzymać rekompensatę. Ta wydajność nie będzie rozpoznawalna w produkcie końcowym, niestandardowy głos. Mimo to legalność używania w tym celu utworu chronionego prawem autorskim nie jest dobrze ugruntowana. Firma Microsoft nie może udzielać porad prawnych w tej sprawie; skonsultuj się z własną radą.
+W obszarze prawo autorskie odczytywanie tekstu z prawami autorskimi może być wydajnością, dla którego autor utworu powinien być kompensowany. Ta wydajność nie będzie rozpoznawalna w końcowym produkcie, niestandardowym. W związku z tym, legalność korzystania z pracy chronionej prawem autorskim do tego celu nie jest dobrze ustalona. Firma Microsoft nie może udzielić porady prawnej dotyczącej tego problemu. Zapoznaj się z własnymi prawnikami.
 
-Na szczęście można całkowicie uniknąć tych problemów. Istnieje wiele źródeł tekstu, którego możesz użyć bez zgody lub licencji.
+Na szczęście można całkowicie uniknąć tych problemów. Istnieje wiele źródeł tekstu, których można użyć bez uprawnień lub licencji.
 
 |Źródło tekstu|Opis|
 |-|-|
-|[CMU Korpus Arktyczny](http://festvox.org/cmu_arctic/)|Około 1100 zdań wybranych z prac poza prawem autorskim specjalnie do wykorzystania w projektach syntezy mowy. Doskonały punkt wyjścia.|
-|Działa już nie<br>zgodnie z prawami autorskimi|Zazwyczaj prace opublikowane przed 1923 rokiem. W języku angielskim [Project Gutenberg](https://www.gutenberg.org/) oferuje dziesiątki tysięcy takich prac. Możesz skupić się na nowszych pracach, ponieważ język będzie bliższy współczesnemu językowi angielskiemu.|
-|Prace&nbsp;rządowe|Dzieła utworzone przez rząd Stanów Zjednoczonych nie są chronione prawami autorskimi w Stanach Zjednoczonych, chociaż rząd może rościć sobie prawa autorskie w innych krajach/regionach.|
-|Domena publiczna|Utwory, do których prawa autorskie zostały wyraźnie zniechęcene lub które zostały przeznaczone do domeny publicznej. W niektórych jurysdykcjach zrzeczenie się praw autorskich może nie być możliwe.|
-|Utwory licencjonowane|Utwory rozpowszechniane na licencji takiej jak Creative Commons lub GNU Free Documentation License (GFDL). Wikipedia używa GFDL. Niektóre licencje mogą jednak nakładać ograniczenia dotyczące wydajności licencjonowanej zawartości, które mogą mieć wpływ na tworzenie niestandardowego modelu głosu, dlatego należy uważnie przeczytać licencję.|
+|[CMU Arctic korpus](http://festvox.org/cmu_arctic/)|Informacje o 1100 zdaniach wybranych przed prawami autorskimi są przeznaczone do użycia w projektach syntezy mowy. Doskonały punkt wyjścia.|
+|Nie działa już<br>w obszarze prawa autorskie|Zwykle działa opublikowany przed 1923. W przypadku języka angielskiego [Projekt Gutenberg](https://www.gutenberg.org/) zawiera dziesiątki tysięcy takich utworów. Możesz chcieć skupić się na nowszych działaniach, ponieważ język będzie bliżej nowoczesnego języka angielskiego.|
+|Działa&nbsp;dla instytucji rządowych|Program Works utworzony przez Stany Zjednoczone władze rządowe nie ma prawa autorskiego w Stany Zjednoczone, chociaż rząd może zatwierdzić prawa autorskie w innych krajach/regionach.|
+|Domena publiczna|Działa, w przypadku których prawa autorskie zostały jawnie odkazane lub które zostały dedykowane dla domeny publicznej. Odstąpienie praw autorskich w niektórych jurysdykcjach może nie być możliwe.|
+|Legalnie licencjonowane działania|Program współpracuje z licencją, taką jak Creative Commons Attribution lub licencję bezpłatna dokumentacja (GFDL). Program Wikipedia używa GFDL. Niektóre licencje mogą jednak nałożyć ograniczenia dotyczące wydajności licencjonowanej zawartości, która może mieć wpływ na tworzenie niestandardowego modelu głosu, dlatego należy uważnie przeczytać licencję.|
 
 ## <a name="recording-your-script"></a>Nagrywanie skryptu
 
-Nagrywaj swój scenariusz w profesjonalnym studiu nagraniowym, które specjalizuje się w pracy głosowej. Będą mieli budkę nagraniową, odpowiedni sprzęt i odpowiednich ludzi do jego obsługi. Opłaca się nie skąpić na nagraniu.
+Zarejestruj swój skrypt w profesjonalnej wersji programu Studio, która jest wyspecjalizowana w pracy głosowej. Będą mieć zarejestrowany kabinę, właściwy sprzęt i odpowiednie osoby, które będą mogły je obsługiwać. Nie skimp podczas rejestrowania.
 
-Omów swój projekt z inżynierem nagrań studia i posłuchaj ich rad. Nagrywanie powinno mieć niewielką kompresję zakresu dynamicznego lub nie powinno być ono możliwe (maksymalnie 4:1). Bardzo ważne jest, aby dźwięk miał stałą głośność i wysoki stosunek sygnału do szumu, a jednocześnie był wolny od niepożądanych dźwięków.
+Dyskutuj o projekcie za pomocą inżyniera rejestratora Studio i posłuchaj ich opinii. Nagrywanie powinno mieć małą lub niewielką kompresję zakresu dynamicznego (maksymalnie 4:1). Niezwykle ważne jest, aby dźwięk miał spójny wolumin i wysoki współczynnik sygnału do szumu, bez zbędnych dźwięków.
 
-### <a name="do-it-yourself"></a>Zrób to sam
+### <a name="do-it-yourself"></a>Zrób to samodzielnie
 
-Jeśli chcesz zrobić nagranie samodzielnie, zamiast iść do studia nagraniowego, oto krótki podkład. Dzięki wzrostowi nagrywania w domu i podcastingu, łatwiej niż kiedykolwiek znaleźć dobre porady i zasoby nagraniowe online.
+Jeśli chcesz samodzielnie nagrywać, zamiast przechodzenia do programu nagrywania Studio, Oto krótkie. Dzięki powiększeniu możliwości rejestrowania i wykastowania w domu łatwiej jest łatwo znaleźć odpowiednie opinie i zasoby w trybie online.
 
-Twoja "kabina nagraniowa" powinna być małym pomieszczeniem bez zauważalnego echa lub "tonu pomieszczenia". Powinien być tak cichy i dźwiękoszczelny, jak to możliwe. Zasłony na ścianach mogą być stosowane w celu zmniejszenia echa i neutralizacji lub "zakleszczać" dźwięk pomieszczenia.
+"Kabina nagrywania" powinna być małym pomieszczenie bez zauważalnego ECHA lub "tonu pokoju". Powinien być możliwie cichy i soundproof, jak to możliwe. Drapes na ściany mogą służyć do redukcji echa i neutralizacji lub "deaden" dźwięku pokoju.
 
-Użyj wysokiej jakości studyjnego mikrofonu pojemnościowego (w skrócie mikrofonu) przeznaczonego do nagrywania głosu. Sennheiser, AKG, a nawet nowsze mikrofony Zoom mogą przynieść dobre rezultaty. Możesz kupić mikrofon lub wypożyczyć go w lokalnej wypożyczalni audiowizuacjowej. Poszukaj jednego z interfejsem USB. Ten typ mikrofonu wygodnie łączy element mikrofonu, przedwzmacniacza i konwerter analogowo-cyfrowy w jeden pakiet, upraszczając podłączanie.
+Używaj mikrofonu o wysokiej jakości ("MIC"), który jest przeznaczony do nagrywania głosu. Sennheiser, AKG, a nawet nowsze powiększenie MICS mogą dać dobre wyniki. Możesz kupić mikrofon lub wystawić go od lokalnego wynajmu w języku dźwiękowym. Poszukaj jednego z interfejsem USB. Ten typ mikrofonu wygodnie łączy element Microphone, Preamp i Przetwornik analogowo-cyfrowy w jednym pakiecie, upraszczając podłączenie.
 
-Można również użyć mikrofonu analogowego. Wiele wypożyczalni oferuje "vintage" mikrofony znane ze swojego charakteru głosowego. Należy pamiętać, że profesjonalna przekładnia analogowa wykorzystuje zrównoważone złącza XLR, a nie wtyczkę 1/4 cala używaną w sprzęcie konsumenckim. Jeśli pójdziesz analogowy, będziesz również potrzebować przedwzmacniacz i interfejs audio komputera z tych złączy.
+Możesz również użyć mikrofonu analogowego. Wiele domów dzierżawy oferuje "" "," znanej "Mikrotelefony do ich znaku głosowego. Należy zauważyć, że profesjonalne narzędzia analogowe korzystają ze zrównoważonych łączników XLR, a nie do 1/4-calowych wtyków używanych w sprzęcie konsumenckim. Jeśli przejdziesz do trybu analogowego, musisz również mieć Preamp i interfejs audio komputera z tymi łącznikami.
 
-Zainstaluj mikrofon na stojaku lub wysięgniku i zainstaluj filtr pop przed mikrofonem, aby wyeliminować hałas z spółgłosek "plosive", takich jak "p" i "b". Niektóre mikrofony są wyposażone w uchwyt zawieszenia, który izoluje je od wibracji w stojaku, co jest pomocne.
+Zainstaluj mikrofon w stojaku lub wysięgniku i zainstaluj filtr pop przed mikrofonem, aby wyeliminować hałas z "plosive", takich jak "p" i "b". Niektóre Mikrotelefony są dołączone do instalacji zawieszenia, która izoluje je od drgań w stojaku, co jest przydatne.
 
-Talent głosowy musi pozostawać w stałej odległości od mikrofonu. Użyj taśmy na podłodze, aby zaznaczyć, gdzie powinny stać. Jeśli talent woli siedzieć, należy zwrócić szczególną ostrożność, aby monitorować odległość mikrofonu i unikać hałasu krzesła.
+Talent głosu musi pozostać w spójnej odległości od mikrofonu. Użyj taśmy na podłożu, aby oznaczyć miejsce, w którym powinny się odistnieć. Jeśli talent woli, weź pod uwagę szczególną uwagę na monitorowanie odległości MIC i unikanie hałasu z krzesła.
 
-Użyj stojaka, aby zatrzymać skrypt. Unikaj wędkowania stojaka, aby mógł odbijać dźwięk w kierunku mikrofonu.
+Użyj stojaka do przechowywania skryptu. Należy unikać Angling, aby mógł on odzwierciedlać dźwięk w kierunku mikrofonu.
 
-Osoba obsługująca urządzenie rejestrujące — inżynier — powinna znajdować się w oddzielnym pomieszczeniu od talentu, w jakiś sposób porozmawiać z talentem w kabinie nagraniowej *(tor talkback).*
+Osoba pracująca nad urządzeniem rejestrującym — inżynier musi znajdować się w oddzielnym pokoju od talent, dzięki czemu można komunikować się z talent w kabinie nagrywania ( *obwód TalkBack).*
 
-Nagrywanie powinno zawierać jak najmniej szumów, z celem 80-db stosunek sygnału do szumu lub lepiej.
+Nagranie powinno zawierać możliwie najmniejszą liczbę szumów, a celem jest przeprowadzenie przez 80-lub lepszego współczynnika sygnału do szumu.
 
-Słuchaj uważnie nagrania ciszy w "kabinie", dowiedzieć się, gdzie każdy hałas pochodzi z, i wyeliminować przyczynę. Częstymi źródłami hałasu są otwory wentylacyjne, świetlówki, ruch na pobliskich drogach i wentylatory sprzętu (nawet notebooki mogą mieć wentylatory). Mikrofony i kable mogą odbierać hałas elektryczny z pobliskiego okablowania prądu przemiennego, zwykle szum lub szum. Brzęczenie może być również spowodowane przez *pętlę uziemienia,* co jest spowodowane posiadaniem sprzętu podłączonego do więcej niż jednego obwodu elektrycznego.
+Nasłuchuje blisko nagrań ciszy w "kabinie", na którym znajduje się dowolny hałas i eliminuje przyczynę. Typowymi źródłami szumu są otwory powietrza, stateczniki fluorescencyjne, ruch w pobliżu dróg i wentylatory (nawet komputery z notesem mogą mieć wentylatory). Mikrofony i kable mogą pobrać szum elektryczny z pobliżu okablowania AC, zazwyczaj Hum lub brzęczyk. Brzęczyk może być również spowodowany przez *pętlę uziemienia*, która jest spowodowana przez urządzenia podłączone do więcej niż jednego obwodu elektrycznego.
 
 > [!TIP]
-> W niektórych przypadkach można użyć korektora lub wtyczki oprogramowania redukcji szumów, aby usunąć szumy z nagrań, chociaż zawsze najlepiej jest zatrzymać go u źródła.
+> W niektórych przypadkach można użyć korektora lub wtyczki oprogramowania do redukcji szumów, aby pomóc w usunięciu szumów z nagrań, chociaż zawsze najlepszym rozwiązaniem jest zatrzymanie go w źródle.
 
-Ustaw poziomy tak, aby większość dostępnego zakresu dynamicznego nagrywania cyfrowego była używana bez nadmiernego. Oznacza to, że dźwięk jest głośny, ale nie tak głośny, że staje się zniekształcony. Przykład przebiegu dobrego nagrania jest pokazany na poniższej ilustracji:
+Ustaw poziomy tak, aby większość dostępnego dynamicznego zakresu rejestrowania cyfrowego była używana bez powiększania. Oznacza to, że Ustaw głośność audio, ale nie tak, aby stała się zniekształcona. Na poniższej ilustracji przedstawiono przykład przebiegu dobrego rejestrowania:
 
 ![Dobry przebieg nagrywania](media/custom-voice/good-recording.png)
 
-Tutaj używana jest większość zakresu (wysokości), ale najwyższe szczyty sygnału nie docierają do górnej lub dolnej części okna. Widać również, że cisza na nagraniu przybliża cienką poziomą linię, wskazującą niską podłogę. To nagranie ma akceptowalny zakres dynamiki i stosunek sygnału do szumu.
+W tym miejscu jest używana większość zakresu (Height), ale najwyższe wartości szczytowe sygnału nie docierają do góry ani do dołu okna. Można też zobaczyć, że cisz w nagraniu ma przybliżoną cienkią linię, wskazującą na niską podłogę szumu. To nagranie ma akceptowalny współczynnik zakresu dynamicznego i sygnału do szumu.
 
-Nagrywaj bezpośrednio do komputera za pośrednictwem wysokiej jakości interfejsu audio lub portu USB, w zależności od używanego mikrofonu. Dla analogowych, zachować łańcuch audio proste: mikrofon, przedwzmacniacz, interfejs audio, komputer. Możesz licencjonować zarówno [Avid Pro Tools,](https://www.avid.com/en/pro-tools) jak i [Adobe Audition](https://www.adobe.com/products/audition.html) co miesiąc po rozsądnych kosztach. Jeśli budżet jest bardzo napięty, spróbuj wolnego [Audacity](https://www.audacityteam.org/).
+Rejestruj bezpośrednio na komputerze za pośrednictwem interfejsu audio o wysokiej jakości lub portu USB, w zależności od używanego mikrofonu. W przypadku analogu należy zachować prosty łańcuch audio: MIC, Preamp, Audio Interface, Computer. W rozsądnych kosztach można licencjonować zarówno [Narzędzia Avid Pro](https://www.avid.com/en/pro-tools) , jak i [Adobe Audition](https://www.adobe.com/products/audition.html) . Jeśli budżet jest niezwykle ścisły, wypróbuj bezpłatną [Audacity](https://www.audacityteam.org/).
 
-Nagrywaj na poziomie 44,1 kHz 16-bitowy monofoniczny (jakość CD) lub lepszy. Aktualna najnowocześniejsza jest 48 kHz 24-bit, jeśli sprzęt obsługuje go. Przed przesłaniem go do portalu Custom Voice możesz pobrać próbkę dźwięku w dół do 16 kHz 16-bitowej. Mimo to opłaca się mieć wysokiej jakości oryginalne nagranie w przypadku, gdy potrzebne są zmiany.
+Rejestruj o 44,1 kHz 16-bitowej monophonic (jakość dysku CD) lub lepiej. Bieżący stan grafiki to 48 kHz 24-bitowy, jeśli sprzęt obsługuje tę funkcję. Przed przesłaniem danych do niestandardowego portalu głosowego należy przepróbkować dźwięk do 16-bitowej wersji $ kHz. W dalszym ciągu są potrzebne oryginalne nagranie w przypadku modyfikacji zdarzeń.
 
-Idealnie, mają różne osoby służą w roli reżysera, inżyniera i talentu. Nie próbuj robić tego wszystkiego sam. W celowniku, jedna osoba może być zarówno dyrektor i inżynier.
+Najlepiej, aby inne osoby mogły korzystać z ról dyrektorów, inżynierów i talentów. Nie próbuj nic robić. W szczypania, jedna osoba może być zarówno dyrektorem, jak i inżynierem.
 
 ### <a name="before-the-session"></a>Przed sesją
 
-Aby uniknąć marnowania czasu studyjnego, uruchom skrypt ze swoim talentem głosowym przed sesją nagraniową. Podczas gdy talent głosowy zapozna się z tekstem, mogą wyjaśnić wymowę nieznanych słów.
+Aby uniknąć marnowania czasu Studio, uruchom skrypt za pomocą talent głosu przed sesją rejestrowania. Gdy talent głosu zapoznaje się z tekstem, może wyjaśnić odmowę dowolnego nieznanego wyrazu.
 
 > [!NOTE]
-> Większość studiów nagraniowych oferuje elektroniczne wyświetlanie skryptów w kabinie nagraniowej. W takim przypadku wpisz notatki przebiegu bezpośrednio w dokumencie skryptu. Nadal jednak będziesz chciał, aby kopia papierowa robić notatki podczas sesji. Większość inżynierów będzie chciała mieć również wydruk. I nadal będziesz chciał trzecią drukowaną kopię jako kopię zapasową dla talentu w przypadku, gdy komputer jest w dół.
+> Większość rejestrowania Studios oferuje elektroniczny sposób wyświetlania skryptów w kabinie nagrywania. W takim przypadku wpisz notatki do wykonania bezpośrednio w dokumencie skryptu. Nadal chcesz, aby kopia papieru była zanotować w trakcie sesji, chociaż. Większość inżynierów będzie mieć również twardą kopię. I nadal chcesz utworzyć trzecią drukowaną kopię jako kopię zapasową dla talent w przypadku, gdy komputer nie działa.
 
-Twój głos talent może zapytać, które słowo chcesz podkreślić w wypowiedzi ("słowo operacyjne"). Powiedz im, że chcesz naturalnej lektury bez szczególnego nacisku. Nacisk można dodać, gdy mowa jest syntetyzowana; nie powinno być częścią oryginalnego nagrania.
+Talent głosu może zażądać, który wyraz ma zostać wyróżniony w wypowiedź ("słowo operacyjne"). Poinformuj ich o tym, że chcesz czytać naturalny bez określonego nacisku. Można dodać wyróżnienie w przypadku, gdy funkcja rozpoznawania mowy jest syntezą; nie powinna być częścią oryginalnego nagrywania.
 
-Skierować talent do wymawiania słów wyraźnie. Każde słowo skryptu powinno być wymawiane w formie pisemnej. Dźwięki nie powinny być pomijane lub niewyraźne razem, jak to jest powszechne w swobodnej mowie, *chyba że zostały napisane w ten sposób w skrypcie*.
+Skieruj talent, aby wymawiał słowa odrębnie. Każdy wyraz skryptu powinien znajdować się jako zapisany. DYwięki nie należy pomijać ani następować ze sobą, jak często jest to bardzo popularne, chyba że zostały *one zapisaną w skrypcie*.
 
-|Tekst pisemny|Niechciana swobodna wymowa|
+|Tekst pisany|Niechciane wymowa|
 |-|-|
-|nigdy się nie podda|nigdy się nie podda|
-|są cztery światła|są cztery światła|
-|jaka jest pogoda dzisiaj|jaka jest pogoda dzisiaj|
-|przywitaj się z moim małym przyjacielem|przywitaj się z moim przyjacielem lil'|
+|nigdy nie przekazywać Ci|nigdy nie przekazywać Ci|
+|Istnieją cztery sygnalizatory|Istnieją cztery sygnalizatory|
+|jak dziś Pogoda|jak dzisiaj "Pogoda"|
+|Powiedz Witaj znajomemu|Powiedz Witaj znajomemu Lil "|
 
-Talent *nie* powinien dodawać wyraźnych przerw między słowami. Zdanie powinno nadal płynąć naturalnie, nawet gdy brzmi trochę formalnie. To drobne rozróżnienie może podjąć praktykę, aby uzyskać prawo.
+Talent *nie* powinna dodawać odrębnych pauz między wyrazami. Zdanie powinno nadal przepływać naturalnie, nawet przy jednoczesnym wymuszeniu niewielkiej formalnej. To dokładne rozróżnienie może potrwać od razu.
 
-### <a name="the-recording-session"></a>Sesja nagraniowa
+### <a name="the-recording-session"></a>Sesja rejestrowania
 
-Utwórz nagranie odwołania lub *plik dopasowania* typowego wypowiedź na początku sesji. Poproś talent, aby powtórzył tę linię na każdej lub więcej stronie. Za każdym razem należy porównać nowe nagranie z odniesieniem. Praktyka ta pomaga talent zachować spójność w objętości, tempo, wysokość i intonacji. Tymczasem inżynier może użyć pliku dopasowania jako odniesienia dla poziomów i ogólnej spójności dźwięku.
+Utwórz nagranie odwołania lub *plik dopasowania* dla typowej wypowiedź na początku sesji. Podawaj talent, aby powtórzyć ten wiersz każdej strony lub tak. Za każdym razem Porównaj nowe nagranie z odwołaniem. Takie rozwiązanie pomaga talent zachować spójność w zakresie woluminów, tempo, skoku i intonation. W tym czasie inżynier może użyć pliku dopasowania jako odniesienia dla poziomów i ogólnej spójności dźwięku.
 
-Plik dopasowania jest szczególnie ważny po wznowieniu nagrywania po przerwie lub w innym dniu. Będziesz chciał zagrać kilka razy dla talentu i poprosić ich o powtarzanie za każdym razem, dopóki nie pasują dobrze.
+Plik dopasowania jest szczególnie ważny podczas wznawiania nagrywania po przerwie lub w innym dniu. Należy to zrobić kilka razy dla talent i ponowienia ich powtarzania za każdym razem, dopóki nie zostaną one dopasowane.
 
-Trenerzy swój talent wziąć głęboki oddech i zatrzymać się na chwilę przed każdą wypowiedź. Nagraj kilka sekund ciszy między wypowiedziami. Słowa powinny być wymawiane w ten sam sposób za każdym razem, gdy się pojawiają, biorąc pod uwagę kontekst. Na przykład "record" jako zlecenie jest wymawiane inaczej niż "record" jako rzeczownik.
+Zaczekaj na talent, aby zająć się głęboką oddechą i wstrzymywać przez chwilę przed każdym wypowiedźem. Zanotuj kilka sekund wyciszenia między wyrażenia długości. Wyrazy należy wymusić w taki sam sposób, w jaki się pojawiają, biorąc pod uwagę kontekst. Na przykład "Record" jako zlecenie jest wymawiane inaczej od "Record" jako rzeczownik.
 
-Nagraj dobre pięć sekund ciszy przed pierwszym nagraniem, aby uchwycić "dźwięk pokoju". Ta praktyka pomaga portalowi Custom Voice kompensować wszelkie pozostałe szumy w nagraniach.
-
-> [!TIP]
-> Wszystko, czego naprawdę potrzebujesz do uchwycenia, to talent głosowy, dzięki czemu możesz nagrać tylko swoje linie, aby nagrać monofoniczne (jednokanałowe) nagranie. Jeśli jednak nagrywasz w trybie stereo, możesz użyć drugiego kanału do nagrywania paplaniny w sterowni, aby uchwycić dyskusję na temat poszczególnych linii lub ma. Usuń tę ścieżkę z wersji przesłanej do portalu Niestandardowy głos.
-
-Słuchaj uważnie, za pomocą słuchawek, do talentu głosowego wydajności. Szukasz dobrej, ale naturalnej dykcji, poprawnej wymowy i braku niechcianych dźwięków. Nie wahaj się poprosić swojego talentu, aby ponownie nagrać wypowiedź, która nie spełnia tych standardów.
+Zanotuj dobre pięć sekund ciszenia przed pierwszym nagraniem, aby przechwycić "sygnał pokoju". To rozwiązanie pomaga w niestandardowym portalu głosu kompensować wszystkie pozostałe szumy w nagraniach.
 
 > [!TIP]
-> Jeśli używasz dużej liczby wypowiedzi, pojedynczy wypowiedź może nie mieć zauważalny wpływ na wynikowy głos niestandardowy. Bardziej celowe może być po prostu zanotowanie wszelkich wypowiedzi z problemami, wykluczenie ich z zestawu danych i sprawdzenie, jak twój niestandardowy głos się zmieni. Zawsze możesz wrócić do studia i nagrać pominięte próbki później.
+> Wszystko, co jest potrzebne do przechwycenia, to talenta głosu, dzięki czemu można nagrywać monophonic (jeden kanał) tylko w swoich wierszach. Jeśli jednak nagrywasz w stereo, możesz użyć drugiego kanału, aby nagrać czat w pokoju kontroli w celu przechwycenia dyskusji w konkretnych wierszach lub przeniesieniu. Usuń tę ścieżkę z wersji, która została przekazana do niestandardowego portalu głosowego.
 
-Zanotuj numer podjęcia lub kod czasu w skrypcie dla każdej wypowiedź. Poproś inżyniera, aby zaznaczył każdą wypowiedź w metadanych lub arkuszu sygnalizacji nagrania.
+Nasłuchiwanie blisko wydajności talent głosu przy użyciu słuchawek. Szukasz dobrych, ale naturalnych diction, Popraw wymowę i brak niechcianych dźwięków. Nie niechętnie zezwalają, aby poprosił talent o ponowne zarejestrowanie wypowiedź, które nie spełnia tych standardów.
 
-Ruszaj regularne przerwy i zapewnij napój, aby pomóc twojemu talentowi głosowemu utrzymać swój głos w dobrej formie.
+> [!TIP]
+> W przypadku korzystania z dużej liczby wyrażenia długości jeden wypowiedź może nie mieć zauważalnego wpływu na wynikowy niestandardowy głos. Może być bardziej przydatny do zwykłego zanotowania wszelkich wyrażenia długości z problemami, wykluczania ich z zestawu danych i sprawdzenia, jak nastąpi wyłączenie niestandardowego głosu. Zawsze możesz wrócić do programu Studio i nagrać pominięte próbki później.
 
-### <a name="after-the-session"></a>Po zakończeniu sesji
+Należy zwrócić uwagę na kod Take lub Time w skrypcie dla każdego wypowiedźu. Poproszenie inżyniera o oznaczeniu każdego wypowiedź w metadanych lub arkuszu wskaźnika rejestrowania.
 
-Nowoczesne studia nagraniowe działają na komputerach. Po zakończeniu sesji otrzymasz jeden lub więcej plików audio, a nie taśmę. Pliki te będą prawdopodobnie WAV lub AIFF w jakości CD (44.1 kHz 16-bit) lub lepiej. 24-bitowa 48 kHz jest powszechna i pożądana. Wyższe częstotliwość próbkowania, takie jak 96 kHz, na ogół nie są potrzebne.
+Podejmij regularne przerwy i zapewnij napoje, które pomogą Ci w talent głosu w dobrym kształcie.
 
-Portal Niestandardowy głos wymaga, aby każda wypowiedź pod warunkiem, aby znajdować się w jego własnym pliku. Każdy plik audio dostarczony przez studio zawiera wiele wypowiedzi. Głównym zadaniem postprodukcyjnym jest więc podzielenie nagrań i przygotowanie ich do przesłania. Inżynier nagrywania może umieścić znaczniki w pliku (lub pod warunkiem, oddzielny arkusz sygnalizacji), aby wskazać, gdzie rozpoczyna się każda wypowiedź.
+### <a name="after-the-session"></a>Po sesji
 
-Użyj notatek, aby znaleźć dokładnie żądane, a następnie użyj narzędzia do edycji dźwięku, takiego jak [Avid Pro Tools,](https://www.avid.com/en/pro-tools) [Adobe Audition](https://www.adobe.com/products/audition.html)lub free [Audacity](https://www.audacityteam.org/), aby skopiować każdą wypowiedź do nowego pliku.
+Nowoczesne nagrywanie Studios jest uruchamiane na komputerach. Na końcu sesji otrzymujesz co najmniej jeden plik audio, a nie taśmę. Pliki te prawdopodobnie będą w formacie WAV lub AIFF w jakości CD (16-bitowym 44,1 kHz) lub lepiej. 48 kHz 24-bitowe są popularne i pożądane. Wyższe szybkości próbkowania, takie jak 96 kHz, zazwyczaj nie są koniecznie.
 
-Zostaw tylko około 0,2 sekundy ciszy na początku i na końcu każdego klipu, z wyjątkiem pierwszego. Ten plik powinien zaczynać się od pełnej pięciosekundowej ciszy. Nie używaj edytora audio do "wyzerować" ciche części pliku. Włączenie "tonu pomieszczenia" pomoże algorytmom Custom Voice skompensować wszelkie resztki szumów tła.
+Niestandardowy Portal głosowy wymaga, aby każdy dostarczony wypowiedź miał własny plik. Każdy plik audio dostarczany przez Studio zawiera wiele wyrażenia długości. Podstawowe zadanie poprodukcyjne polega na rozdzieleniu nagrań i przygotowania ich do przesłania. Inżynier rejestrowania może umieścić znaczniki w pliku (lub podać osobny arkusz kontrolny), aby wskazać, gdzie są uruchamiane poszczególne wypowiedź.
 
-Słuchaj każdego pliku uważnie. Na tym etapie możesz edytować małe niechciane dźwięki, które przegapiłeś podczas nagrywania, takie jak niewielkie wargi przed linią, ale uważaj, aby nie usunąć żadnej rzeczywistej mowy. Jeśli nie możesz naprawić pliku, usuń go z zestawu danych i zwróć uwagę, że to zrobiłeś.
+Użyj notatek, aby znaleźć dokładne informacje, a następnie użyj narzędzia do edycji dźwięku, takiego jak [Avid Pro Tools](https://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html)lub Free [Audacity](https://www.audacityteam.org/), aby skopiować każdy wypowiedź do nowego pliku.
 
-Przekonwertować każdy plik do 16 bitów i częstotliwość próbkowania 16 kHz przed zapisaniem i, jeśli nagrałeś studio gadać, usunąć drugi kanał. Zapisz każdy plik w formacie WAV, nazywając pliki numerem wypowiedź ze skryptu.
+Pozostaw tylko około 0,2 sekund wyciszenia na początku i na końcu każdego klipu, z wyjątkiem pierwszego. Ten plik powinien rozpoczynać się od pełnego pięciu sekund wyciszenia. Nie używaj edytora dźwięku do elementów dyskretnych "zero out" pliku. Dołączenie "tonu pokoju" ułatwi niestandardowe algorytmy głosu, które wynagradzają wszystkie pozostałe szumy tła.
 
-Na koniec utwórz *transkrypcję,* która kojarzy każdy plik WAV z wersją tekstową odpowiedniej wypowiedź. [Tworzenie niestandardowych czcionek głosowych](how-to-customize-voice-font.md) zawiera szczegóły wymaganego formatu. Tekst można skopiować bezpośrednio ze skryptu. Następnie utwórz plik Zip plików WAV i transkrypcję tekstu.
+Uważnie nasłuchiwanie każdego pliku. Na tym etapie można edytować małe niechciane dźwięki, które nie zostały pominięte podczas nagrywania, takie jak niewielka smack lip przed wierszem, ale należy zachować ostrożność, aby nie usuwać żadnej rzeczywistej mowy. Jeśli nie możesz naprawić pliku, usuń go z zestawu danych i pamiętaj, że zostało to zrobione.
 
-Archiwizuj oryginalne nagrania w bezpiecznym miejscu na wypadek, gdyby były potrzebne później. Zachowaj również skrypt i notatki.
+Przekonwertuj każdy plik na 16 bitów i szybkość próbkowania 16 kHz przed zapisaniem i, jeśli nagrano czat Studio, Usuń drugi kanał. Zapisz każdy plik w formacie WAV, nazywając je numerem wypowiedź ze skryptu.
+
+Na koniec Utwórz *transkrypcję* , która kojarzy każdy plik WAV z wersją tekstową odpowiedniego wypowiedź. [Tworzenie niestandardowych czcionek głosowych](how-to-customize-voice-font.md) zawiera szczegółowe informacje o wymaganym formacie. Możesz skopiować tekst bezpośrednio ze skryptu. Następnie utwórz plik zip plików WAV i transkrypcję tekstu.
+
+Archiwizuj oryginalne nagrania w bezpiecznym miejscu, jeśli będą potrzebne później. Zachowaj swój skrypt i notatki.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Możesz przesłać nagrania i utworzyć swój niestandardowy głos.
+Wszystko jest gotowe do przekazania swoich nagrań i utworzenia niestandardowego głosu.
 
 > [!div class="nextstepaction"]
 > [Tworzenie niestandardowych czcionek głosowych](how-to-customize-voice-font.md)

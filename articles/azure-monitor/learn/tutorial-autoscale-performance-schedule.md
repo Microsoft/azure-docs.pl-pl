@@ -9,10 +9,10 @@ ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
 ms.openlocfilehash: a4502a9ec7866d9b1ecb0f2aa2257e759fd417c8
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81114688"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Tworzenie ustawienia automatycznego skalowania dla zasobów platformy Azure na podstawie danych wydajności lub harmonogramu
@@ -27,7 +27,7 @@ W tym samouczku zostaną wykonane następujące czynności:
 > * Wyzwalanie akcji skalowania na zewnątrz i obserwowanie spadku liczby wystąpień
 > * Czyszczenie zasobów
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne](https://azure.microsoft.com/free/) konto przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="log-in-to-the-azure-portal"></a>Logowanie do witryny Azure Portal
 
@@ -126,7 +126,7 @@ Aby wyzwolić warunek skalowania do wewnątrz we właśnie utworzonym ustawieniu
 
 2. Szybko ponownie załaduj stronę ponad 10 razy.
 
-3. W okienku nawigacji po lewej stronie wybierz opcję **Monitor**. Po załadowaniu strony wybierz kartę **Skalowanie automatyczne.**
+3. W okienku nawigacji po lewej stronie wybierz opcję **Monitor**. Po załadowaniu strony wybierz kartę **Skalowanie automatyczne** .
 
 4. Z listy wybierz plan usługi App Service używany w tym samouczku.
 
@@ -145,7 +145,7 @@ Warunek skalowania na zewnątrz w ustawieniu automatycznego skalowania jest wyzw
 
 2. Załaduj witrynę Azure Portal.
 
-3. W okienku nawigacji po lewej stronie wybierz opcję **Monitor**. Po załadowaniu strony wybierz kartę **Skalowanie automatyczne.**
+3. W okienku nawigacji po lewej stronie wybierz opcję **Monitor**. Po załadowaniu strony wybierz kartę **Skalowanie automatyczne** .
 
 4. Z listy wybierz plan usługi App Service używany w tym samouczku.
 

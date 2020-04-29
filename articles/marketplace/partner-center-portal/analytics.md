@@ -1,6 +1,6 @@
 ---
-title: Analityka dla rynku komercyjnego w Centrum partnerów
-description: Omówienie uzyskiwania dostępu do raportów analitycznych w celu monitorowania sprzedaży, oceny skuteczności i optymalizacji ofert w marketplace.
+title: Analiza komercyjnego portalu Marketplace w centrum partnerskim
+description: Omówienie uzyskiwania dostępu do raportów analitycznych w celu monitorowania sprzedaży, oceny wydajności i optymalizowania ofert w portalu Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,29 +8,29 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: 41b9c5244ce9d468d9bf0fb7bafa719b4e6f55ac
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81262285"
 ---
-# <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analityka dla rynku komercyjnego w Centrum partnerów
+# <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analiza komercyjnego portalu Marketplace w centrum partnerskim
 
-Dowiedz się, jak uzyskać dostęp do raportów analitycznych w Centrum partnerów firmy Microsoft, aby monitorować sprzedaż, oceniać wydajność i optymalizować oferty w portalu Marketplace. Jako partner możesz monitorować oferty, korzystając z wykresów wizualizacji danych i wglądu obsługiwanych przez Centrum partnerów, i znaleźć sposoby maksymalizacji sprzedaży. Ulepszone narzędzia analityczne umożliwiają działanie na podstawie wyników wydajności i utrzymywanie lepszych relacji z klientami i sprzedawcami.
+Dowiedz się, jak uzyskiwać dostęp do raportów analitycznych w centrum partnerskim firmy Microsoft w celu monitorowania sprzedaży, oceny wydajności i optymalizowania ofert w portalu Marketplace. Jako partner możesz monitorować swoje oferty za pomocą wizualizacji danych i grafów szczegółowych obsługiwanych przez centrum partnerskie oraz znaleźć sposoby maksymalizowania sprzedaży. Udoskonalone narzędzia analityczne umożliwiają wykonywanie działań na wynikach wydajności i obsługę lepszych relacji z klientami i odsprzedawcami.
 
-## <a name="partner-center-analytics-tools"></a>Narzędzia analityczne Centrum partnerów
+## <a name="partner-center-analytics-tools"></a>Narzędzia do analizy Centrum partnerskiego
 
-Aby uzyskać dostęp do narzędzi analitycznych Centrum partnerów, otwórz pulpit nawigacyjny **[Analizy](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** w obszarze Rynek komercyjny.
+Aby uzyskać dostęp do narzędzi do analiz Centrum partnerskiego, Otwórz pulpit nawigacyjny **[Analizuj](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** w obszarze komercyjny Portal Marketplace.
 
 >[!NOTE]
-> Szczegółowe definicje terminologii analitycznej można znaleźć w części [Często zadawane pytania i terminologia dotyczące analizy rynku komercyjnego.](./faq-terminology.md)
+> Aby uzyskać szczegółowe definicje terminologii dotyczącej analizy, zobacz [często zadawane pytania i terminologię dotyczącą komercyjnej analizy portalu Marketplace](./faq-terminology.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać wykresy, trendy i wartości danych agregujących, które podsumowują aktywność w portalu marketplace dla Twojej oferty, zobacz [Podsumowanie pulpitu nawigacyjnego w analizie rynku komercyjnego.](./summary-dashboard.md)
-- Aby uzyskać informacje o zamówieniach w formacie graficznym i do pobrania, zobacz [Pulpit nawigacyjny zamówień w analizie rynku komercyjnego](./orders-dashboard.md).
-- W przypadku maszyny wirtualnej (VM) oferuje użycie i metryki rozliczeniowe taryfowe, zobacz [Pulpit nawigacyjny użycia w analizie komercyjnego rynku.](./usage-dashboard.md)
-- Aby uzyskać szczegółowe informacje o klientach, w tym trendy wzrostu, zobacz [Pulpit nawigacyjny klientów w analizie rynku komercyjnego.](./customer-dashboard.md)
-- Aby uzyskać listę żądań pobierania w ciągu ostatnich 30 dni, zobacz [Pulpit nawigacyjny pobierania w analizie rynku komercyjnego](./downloads-dashboard.md).
-- Aby wyświetlić skonsolidowany widok opinii klientów dotyczących ofert w witrynie Azure Marketplace i AppSource, zobacz [Pulpit nawigacyjny ocen i opinii w analizie komercyjnego portalu marketplace.](./ratings-reviews.md)
-- W przypadku często zadawanych pytań dotyczących analityki rynku komercyjnego i kompleksowego słownika terminów danych zobacz [Często zadawane pytania i terminologia w celu analizy rynku komercyjnego.](./faq-terminology.md)
+- W przypadku grafów, trendów i wartości zagregowanych danych, które podsumowują aktywność witryny Marketplace dla oferty, zobacz [pulpit nawigacyjny podsumowania w portalu komercyjnej analizy Marketplace](./summary-dashboard.md).
+- Aby uzyskać informacje o zamówieniach w formacie graficznym i do pobrania, zobacz temat [Zamówienie pulpitu nawigacyjnego w portalu komercyjnej analizy Marketplace](./orders-dashboard.md).
+- W przypadku maszyn wirtualnych (VM) są dostępne metryki dotyczące użycia i taryfowego rozliczania, zobacz [pulpit nawigacyjny użycia w portalu komercyjnej analizy Marketplace](./usage-dashboard.md).
+- Aby uzyskać szczegółowe informacje na temat klientów, w tym trendów wzrostu, zobacz [pulpit nawigacyjny klienta w komercyjnej analizie portalu Marketplace](./customer-dashboard.md).
+- Aby uzyskać listę żądań pobierania w ciągu ostatnich 30 dni, zobacz [pulpit nawigacyjny w portalu komercyjnej analizy Marketplace](./downloads-dashboard.md).
+- Aby wyświetlić skonsolidowany widok opinii klientów na temat ofert w witrynie Azure Marketplace i AppSource, zobacz [pulpit nawigacyjny oceny i przeglądów w portalu komercyjnej analizy Marketplace](./ratings-reviews.md).
+- Często zadawane pytania dotyczące analizy komercyjnej portalu Marketplace i kompleksowego słownika warunków dotyczących danych można znaleźć [w temacie często zadawane pytania i terminologia dotyczące komercyjnej analizy w portalu Marketplace](./faq-terminology.md).

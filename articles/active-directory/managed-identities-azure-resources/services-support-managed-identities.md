@@ -1,6 +1,6 @@
 ---
-title: Usługi platformy Azure obsługujące tożsamości zarządzane — usługa Azure AD
-description: Lista usług obsługujących tożsamości zarządzane dla zasobów platformy Azure i uwierzytelniania usługi Azure AD
+title: Usługi platformy Azure, które obsługują tożsamości zarządzane — Azure AD
+description: Lista usług, które obsługują zarządzane tożsamości dla zasobów platformy Azure i uwierzytelniania usługi Azure AD
 services: active-directory
 author: MarkusVi
 ms.author: markvi
@@ -11,15 +11,15 @@ ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 45a248300cd61a0e57b9f35c8905d7c335069a27
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80991283"
 ---
-# <a name="services-that-support-managed-identities-for-azure-resources"></a>Usługi obsługujące tożsamości zarządzane dla zasobów platformy Azure
+# <a name="services-that-support-managed-identities-for-azure-resources"></a>Usługi obsługujące zarządzane tożsamości dla zasobów platformy Azure
 
-Tożsamości zarządzane dla zasobów platformy Azure zapewniają usługom platformy Azure automatycznie zarządzaną tożsamość w usłudze Azure Active Directory. Przy użyciu tożsamości zarządzanej można uwierzytelnić do dowolnej usługi, która obsługuje uwierzytelnianie usługi Azure AD bez poświadczeń w kodzie. Jesteśmy w trakcie integrowania tożsamości zarządzanych dla zasobów platformy Azure i uwierzytelniania usługi Azure AD na platformie Azure. Często sprawdzaj aktualizacje.
+Zarządzane tożsamości dla zasobów platformy Azure zapewniają usługi platformy Azure z automatycznie zarządzaną tożsamością w Azure Active Directory. Przy użyciu tożsamości zarządzanej można uwierzytelniać się w dowolnej usłudze, która obsługuje uwierzytelnianie usługi Azure AD bez poświadczeń w kodzie. Jesteśmy w trakcie integrowania tożsamości zarządzanych dla zasobów platformy Azure i uwierzytelniania usługi Azure AD na platformie Azure. Sprawdzaj często aktualizacje.
 
 > [!NOTE]
 > Tożsamości zarządzane dla zasobów platformy Azure to nowa nazwa usługi znanej wcześniej jako Tożsamość usługi zarządzanej (MSI).
@@ -32,13 +32,13 @@ Następujące usługi platformy Azure obsługują tożsamości zarządzane dla z
 
 | Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisany system | ![Dostępne][check] | ![Dostępne][check] | Wersja zapoznawcza | Wersja zapoznawcza | 
-| Użytkownik przypisany | ![Dostępne][check] | ![Dostępne][check] | Wersja zapoznawcza | Wersja zapoznawcza |
+| Przypisany system | ![Udostępnione][check] | ![Udostępnione][check] | Wersja zapoznawcza | Wersja zapoznawcza | 
+| Przypisane przez użytkownika | ![Udostępnione][check] | ![Udostępnione][check] | Wersja zapoznawcza | Wersja zapoznawcza |
 
-Zapoznaj się z następującą listą, aby skonfigurować tożsamość zarządzaną dla maszyn wirtualnych platformy Azure (w regionach, jeśli są dostępne):
+Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla usługi Azure Virtual Machines (w regionach, w których są dostępne):
 
 - [Azure Portal](qs-configure-portal-windows-vm.md)
-- [PowerShell](qs-configure-powershell-windows-vm.md)
+- [Narzędzia](qs-configure-powershell-windows-vm.md)
 - [Interfejs wiersza polecenia platformy Azure](qs-configure-cli-windows-vm.md)
 - [Szablony usługi Azure Resource Manager](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
@@ -47,13 +47,13 @@ Zapoznaj się z następującą listą, aby skonfigurować tożsamość zarządza
 
 |Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisany system | ![Dostępne][check] | Wersja zapoznawcza | Wersja zapoznawcza | Wersja zapoznawcza |
-| Użytkownik przypisany | ![Dostępne][check] | Wersja zapoznawcza | Wersja zapoznawcza | Wersja zapoznawcza |
+| Przypisany system | ![Udostępnione][check] | Wersja zapoznawcza | Wersja zapoznawcza | Wersja zapoznawcza |
+| Przypisane przez użytkownika | ![Udostępnione][check] | Wersja zapoznawcza | Wersja zapoznawcza | Wersja zapoznawcza |
 
-Zapoznaj się z następującą listą, aby skonfigurować tożsamość zarządzaną dla zestawów skalowania maszyny wirtualnej platformy Azure (w regionach, jeśli są dostępne):
+Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla usługi Azure Virtual Machine Scale Sets (w regionach, w których są dostępne):
 
 - [Azure Portal](qs-configure-portal-windows-vm.md)
-- [PowerShell](qs-configure-powershell-windows-vm.md)
+- [Narzędzia](qs-configure-powershell-windows-vm.md)
 - [Interfejs wiersza polecenia platformy Azure](qs-configure-cli-windows-vm.md)
 - [Szablony usługi Azure Resource Manager](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
@@ -62,66 +62,66 @@ Zapoznaj się z następującą listą, aby skonfigurować tożsamość zarządza
 
 | Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisany system | ![Dostępne][check] | ![Dostępne][check] | ![Dostępne][check] | ![Dostępne][check] |
-| Użytkownik przypisany | ![Dostępne][check] | ![Dostępne][check]  | ![Dostępne][check]  | ![Dostępne][check] |
+| Przypisany system | ![Udostępnione][check] | ![Udostępnione][check] | ![Udostępnione][check] | ![Udostępnione][check] |
+| Przypisane przez użytkownika | ![Udostępnione][check] | ![Udostępnione][check]  | ![Udostępnione][check]  | ![Udostępnione][check] |
 
-Zapoznaj się z następującą listą, aby skonfigurować tożsamość zarządzaną dla usługi Azure App Service (w regionach, jeśli są dostępne):
+Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla Azure App Service (w regionach, w których są dostępne):
 
 - [Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [Interfejs wiersza polecenia platformy Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
-- [Szablon usługi Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+- [Szablon Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### <a name="azure-blueprints"></a>Azure Blueprints
 
 |Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisany system | ![Dostępne][check] | ![Dostępne][check] | Niedostępne | Niedostępne |
-| Użytkownik przypisany | ![Dostępne][check] | ![Dostępne][check] | Niedostępne | Niedostępne |
+| Przypisany system | ![Udostępnione][check] | ![Udostępnione][check] | Niedostępne | Niedostępne |
+| Przypisane przez użytkownika | ![Udostępnione][check] | ![Udostępnione][check] | Niedostępne | Niedostępne |
 
-Zapoznaj się z następującą listą, aby użyć tożsamości zarządzanej za pomocą [planów platformy Azure:](../../governance/blueprints/overview.md)
+Zapoznaj się z poniższą listą, aby użyć zarządzanej tożsamości z [planami platformy Azure](../../governance/blueprints/overview.md):
 
-- [Portal Azure — przypisanie planu](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
-- [INTERFEJS API REST — przypisanie planu](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
+- [Azure Portal — przypisanie strategii](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
+- [Interfejs API REST — przypisanie planu](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
 
 ### <a name="azure-functions"></a>Azure Functions
 
 Typ tożsamości zarządzanej |Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisany system | ![Dostępne][check] | ![Dostępne][check] | ![Dostępne][check] | ![Dostępne][check] |
-| Użytkownik przypisany | ![Dostępne][check] | ![Dostępne][check]  | ![Dostępne][check]  | ![Dostępne][check]  |
+| Przypisany system | ![Udostępnione][check] | ![Udostępnione][check] | ![Udostępnione][check] | ![Udostępnione][check] |
+| Przypisane przez użytkownika | ![Udostępnione][check] | ![Udostępnione][check]  | ![Udostępnione][check]  | ![Udostępnione][check]  |
 
-Zapoznaj się z następującą listą, aby skonfigurować tożsamość zarządzaną dla usługi Azure Functions (w regionach, jeśli są dostępne):
+Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla Azure Functions (w regionach, w których są dostępne):
 
 - [Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [Interfejs wiersza polecenia platformy Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
-- [Szablon usługi Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+- [Szablon Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### <a name="azure-logic-apps"></a>Azure Logic Apps
 
 Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisany system | ![Dostępne][check] | ![Dostępne][check] | Niedostępne | ![Dostępne][check] |
-| Użytkownik przypisany | ![Dostępne][check] | ![Dostępne][check] | Niedostępne | ![Dostępne][check] |
+| Przypisany system | ![Udostępnione][check] | ![Udostępnione][check] | Niedostępne | ![Udostępnione][check] |
+| Przypisane przez użytkownika | ![Udostępnione][check] | ![Udostępnione][check] | Niedostępne | ![Udostępnione][check] |
 
 
-Zapoznaj się z następującą listą, aby skonfigurować tożsamość zarządzaną dla usługi Azure Logic Apps (w regionach, jeśli są dostępne):
+Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla Azure Logic Apps (w regionach, w których są dostępne):
 
 - [Azure Portal](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
-- [Szablon usługi Azure Resource Manager](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
+- [Szablon Azure Resource Manager](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
 
 Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisany system | ![Dostępne][check] | ![Dostępne][check] | Niedostępne | ![Dostępne][check] |
-| Użytkownik przypisany | Niedostępne | Niedostępne | Niedostępne | Niedostępne |
+| Przypisany system | ![Udostępnione][check] | ![Udostępnione][check] | Niedostępne | ![Udostępnione][check] |
+| Przypisane przez użytkownika | Niedostępne | Niedostępne | Niedostępne | Niedostępne |
 
-Zapoznaj się z następującą listą, aby skonfigurować tożsamość zarządzaną dla usługi Azure Data Factory V2 (w regionach, jeśli są dostępne):
+Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla Azure Data Factory v2 (w regionach, w których są dostępne):
 
 - [Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
-- [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
+- [Narzędzia](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
@@ -129,112 +129,112 @@ Zapoznaj się z następującą listą, aby skonfigurować tożsamość zarządza
 
 Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisany system | ![Dostępne][check] | ![Dostępne][check] | Niedostępne | ![Dostępne][check] |
-| Użytkownik przypisany | Wersja zapoznawcza | Wersja zapoznawcza | Niedostępne | Wersja zapoznawcza |
+| Przypisany system | ![Udostępnione][check] | ![Udostępnione][check] | Niedostępne | ![Udostępnione][check] |
+| Przypisane przez użytkownika | Wersja zapoznawcza | Wersja zapoznawcza | Niedostępne | Wersja zapoznawcza |
 
-Zapoznaj się z następującą listą, aby skonfigurować tożsamość zarządzaną dla usługi Azure API Management (w regionach, jeśli są dostępne):
+Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla usługi Azure API Management (w regionach, w których są dostępne):
 
-- [Szablon usługi Azure Resource Manager](/azure/api-management/api-management-howto-use-managed-service-identity)
+- [Szablon Azure Resource Manager](/azure/api-management/api-management-howto-use-managed-service-identity)
 
 ### <a name="azure-container-instances"></a>Azure Container Instances
 
 Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisany system | Linux: Wersja zapoznawcza<br>Windows: Niedostępne | Niedostępne | Niedostępne | Niedostępne |
-| Użytkownik przypisany | Linux: Wersja zapoznawcza<br>Windows: Niedostępne | Niedostępne | Niedostępne | Niedostępne |
+| Przypisany system | Linux: wersja zapoznawcza<br>Windows: niedostępne | Niedostępne | Niedostępne | Niedostępne |
+| Przypisane przez użytkownika | Linux: wersja zapoznawcza<br>Windows: niedostępne | Niedostępne | Niedostępne | Niedostępne |
 
-Zapoznaj się z następującą listą, aby skonfigurować tożsamość zarządzaną dla wystąpień kontenerów platformy Azure (w regionach, jeśli są dostępne):
+Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla Azure Container Instances (w regionach, w których są dostępne):
 
 - [Interfejs wiersza polecenia platformy Azure](~/articles/container-instances/container-instances-managed-identity.md)
-- [Szablon usługi Azure Resource Manager](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
+- [Szablon Azure Resource Manager](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
 - [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
 
 ### <a name="azure-container-registry-tasks"></a>Usługa Azure Container Registry Tasks
 
 Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisany system | ![Dostępne][check] | Niedostępne | Niedostępne | Niedostępne |
-| Użytkownik przypisany | Wersja zapoznawcza | Niedostępne | Niedostępne | Niedostępne |
+| Przypisany system | ![Udostępnione][check] | Niedostępne | Niedostępne | Niedostępne |
+| Przypisane przez użytkownika | Wersja zapoznawcza | Niedostępne | Niedostępne | Niedostępne |
 
-Zapoznaj się z następującą listą, aby skonfigurować tożsamość zarządzaną dla zadań rejestru kontenerów platformy Azure (w regionach, jeśli są dostępne):
+Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla Azure Container Registry zadań (w regionach, w których są dostępne):
 
 - [Interfejs wiersza polecenia platformy Azure](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
 
 ### <a name="azure-service-fabric"></a>Azure Service Fabric
-[Tożsamość zarządzana dla aplikacji sieci szkieletowej usług](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) jest w wersji zapoznawczej i jest dostępna we wszystkich regionach.
+[Tożsamość zarządzana dla aplikacji Service Fabric](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) jest w wersji zapoznawczej i jest dostępna we wszystkich regionach.
 
 Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisany system | ![Dostępne][check] | Niedostępne | Niedostępne | niedostępne |
-| Użytkownik przypisany | ![Dostępne][check] | Niedostępne | Niedostępne |Niedostępne |
+| Przypisany system | ![Udostępnione][check] | Niedostępny | Niedostępny | Niedostępne |
+| Przypisane przez użytkownika | ![Udostępnione][check] | Niedostępny | Niedostępny |Niedostępny |
 
-Zapoznaj się z następującą listą, aby skonfigurować tożsamość zarządzaną dla aplikacji sieci szkieletowej usług Azure we wszystkich regionach:
-- [Szablon usługi Azure Resource Manager](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
+Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla aplikacji Service Fabric platformy Azure we wszystkich regionach:
+- [Szablon Azure Resource Manager](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
 
-## <a name="azure-services-that-support-azure-ad-authentication"></a>Usługi platformy Azure obsługujące uwierzytelnianie usługi Azure AD
+## <a name="azure-services-that-support-azure-ad-authentication"></a>Usługi platformy Azure, które obsługują uwierzytelnianie usługi Azure AD
 
-Następujące usługi obsługują uwierzytelnianie usługi Azure AD i zostały przetestowane przy użyciu usług klienckich, które używają tożsamości zarządzanych dla zasobów platformy Azure.
+Poniższe usługi obsługują uwierzytelnianie usługi Azure AD i zostały przetestowane przy użyciu usług klienckich, które korzystają z tożsamości zarządzanych dla zasobów platformy Azure.
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Zapoznaj się z następującą listą, aby skonfigurować dostęp do usługi Azure Resource Manager:
+Zapoznaj się z poniższą listą, aby skonfigurować dostęp do Azure Resource Manager:
 
-- [Przypisywanie dostępu za pośrednictwem portalu Azure](howto-assign-access-portal.md)
-- [Przypisywanie dostępu za pośrednictwem programu PowerShell](howto-assign-access-powershell.md)
+- [Przypisz dostęp za pośrednictwem Azure Portal](howto-assign-access-portal.md)
+- [Przypisywanie dostępu za pomocą programu PowerShell](howto-assign-access-powershell.md)
 - [Przypisywanie dostępu za pośrednictwem interfejsu wiersza polecenia platformy Azure](howto-assign-access-CLI.md)
-- [Przypisywanie dostępu za pomocą szablonu usługi Azure Resource Manager](../../role-based-access-control/role-assignments-template.md)
+- [Przypisywanie dostępu za pomocą szablonu Azure Resource Manager](../../role-based-access-control/role-assignments-template.md)
 
-| Chmura | Identyfikator zasobu | Stan |
+| Chmurowa | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
-| Azure Global | `https://management.azure.com/`| ![Dostępne][check] |
-| Azure Government | `https://management.usgovcloudapi.net/` | ![Dostępne][check] |
-| Azure (Niemcy) | `https://management.microsoftazure.de/` | ![Dostępne][check] |
-| Azure w Chinach — 21Vianet | `https://management.chinacloudapi.cn` | ![Dostępne][check] |
+| Globalne platformy Azure | `https://management.azure.com/`| ![Udostępnione][check] |
+| Azure Government | `https://management.usgovcloudapi.net/` | ![Udostępnione][check] |
+| Azure (Niemcy) | `https://management.microsoftazure.de/` | ![Udostępnione][check] |
+| Azure w Chinach — 21Vianet | `https://management.chinacloudapi.cn` | ![Udostępnione][check] |
 
 ### <a name="azure-key-vault"></a>W usłudze Azure Key Vault
 
-| Chmura | Identyfikator zasobu | Stan |
+| Chmurowa | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
-| Azure Global | `https://vault.azure.net`| ![Dostępne][check] |
-| Azure Government | `https://vault.usgovcloudapi.net` | ![Dostępne][check] |
-| Azure (Niemcy) |  `https://vault.microsoftazure.de` | ![Dostępne][check] |
-| Azure w Chinach — 21Vianet | `https://vault.azure.cn` | ![Dostępne][check] |
+| Globalne platformy Azure | `https://vault.azure.net`| ![Udostępnione][check] |
+| Azure Government | `https://vault.usgovcloudapi.net` | ![Udostępnione][check] |
+| Azure (Niemcy) |  `https://vault.microsoftazure.de` | ![Udostępnione][check] |
+| Azure w Chinach — 21Vianet | `https://vault.azure.cn` | ![Udostępnione][check] |
 
 ### <a name="azure-data-lake"></a>Azure Data Lake 
 
-| Chmura | Identyfikator zasobu | Stan |
+| Chmurowa | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
-| Azure Global | `https://datalake.azure.net/` | ![Dostępne][check] |
-| Azure Government |  | Niedostępne |
-| Azure (Niemcy) |   | Niedostępne |
-| Azure w Chinach — 21Vianet |  | Niedostępne |
+| Globalne platformy Azure | `https://datalake.azure.net/` | ![Udostępnione][check] |
+| Azure Government |  | Niedostępny |
+| Azure (Niemcy) |   | Niedostępny |
+| Azure w Chinach — 21Vianet |  | Niedostępny |
 
 ### <a name="azure-sql"></a>Azure SQL 
 
-| Chmura | Identyfikator zasobu | Stan |
+| Chmurowa | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
-| Azure Global | `https://database.windows.net/` | ![Dostępne][check] |
-| Azure Government | `https://database.usgovcloudapi.net/` | ![Dostępne][check] |
-| Azure (Niemcy) | `https://database.cloudapi.de/` | ![Dostępne][check] |
-| Azure w Chinach — 21Vianet | `https://database.chinacloudapi.cn/` | ![Dostępne][check] |
+| Globalne platformy Azure | `https://database.windows.net/` | ![Udostępnione][check] |
+| Azure Government | `https://database.usgovcloudapi.net/` | ![Udostępnione][check] |
+| Azure (Niemcy) | `https://database.cloudapi.de/` | ![Udostępnione][check] |
+| Azure w Chinach — 21Vianet | `https://database.chinacloudapi.cn/` | ![Udostępnione][check] |
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
 
-| Chmura | Identyfikator zasobu | Stan |
+| Chmurowa | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
-| Azure Global | `https://eventhubs.azure.net` | ![Dostępne][check] |
-| Azure Government |  | Niedostępne |
-| Azure (Niemcy) |   | Niedostępne |
-| Azure w Chinach — 21Vianet |  | Niedostępne |
+| Globalne platformy Azure | `https://eventhubs.azure.net` | ![Udostępnione][check] |
+| Azure Government |  | Niedostępny |
+| Azure (Niemcy) |   | Niedostępny |
+| Azure w Chinach — 21Vianet |  | Niedostępny |
 
 ### <a name="azure-service-bus"></a>Azure Service Bus
 
-| Chmura | Identyfikator zasobu | Stan |
+| Chmurowa | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
-| Azure Global | `https://servicebus.azure.net`  | ![Dostępne][check] |
-| Azure Government |  | ![Dostępne][check] |
-| Azure (Niemcy) |   | Niedostępne |
-| Azure w Chinach — 21Vianet |  | Niedostępne |
+| Globalne platformy Azure | `https://servicebus.azure.net`  | ![Udostępnione][check] |
+| Azure Government |  | ![Udostępnione][check] |
+| Azure (Niemcy) |   | Niedostępny |
+| Azure w Chinach — 21Vianet |  | Niedostępny |
 
 
 
@@ -246,12 +246,12 @@ Zapoznaj się z następującą listą, aby skonfigurować dostęp do usługi Azu
 
 ### <a name="azure-storage-blobs-and-queues"></a>Obiekty blob i kolejki usługi Azure Storage
 
-| Chmura | Identyfikator zasobu | Stan |
+| Chmurowa | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
-| Azure Global | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | ![Dostępne][check] |
-| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | ![Dostępne][check] |
-| Azure (Niemcy) | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | ![Dostępne][check] |
-| Azure w Chinach — 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | ![Dostępne][check] |
+| Globalne platformy Azure | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | ![Udostępnione][check] |
+| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | ![Udostępnione][check] |
+| Azure (Niemcy) | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | ![Udostępnione][check] |
+| Azure w Chinach — 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | ![Udostępnione][check] |
 
 
 
@@ -264,15 +264,15 @@ Zapoznaj się z następującą listą, aby skonfigurować dostęp do usługi Azu
 
 ### <a name="azure-analysis-services"></a>Azure Analysis Services
 
-| Chmura | Identyfikator zasobu | Stan |
+| Chmurowa | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
-| Azure Global | `https://*.asazure.windows.net` | ![Dostępne][check] |
-| Azure Government | `https://*.asazure.usgovcloudapi.net` | ![Dostępne][check] |
-| Azure (Niemcy) | `https://*.asazure.cloudapi.de` | ![Dostępne][check] |
-| Azure w Chinach — 21Vianet | `https://*.asazure.chinacloudapi.cn` | ![Dostępne][check] |
+| Globalne platformy Azure | `https://*.asazure.windows.net` | ![Udostępnione][check] |
+| Azure Government | `https://*.asazure.usgovcloudapi.net` | ![Udostępnione][check] |
+| Azure (Niemcy) | `https://*.asazure.cloudapi.de` | ![Udostępnione][check] |
+| Azure w Chinach — 21Vianet | `https://*.asazure.chinacloudapi.cn` | ![Udostępnione][check] |
 
 > [!Note]
-> Usługa Microsoft Power BI obsługuje również [tożsamości zarządzane](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity).
+> Program Microsoft Power BI [obsługuje również zarządzane tożsamości](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity).
 
 
-[check]: media/services-support-managed-identities/check.png "Dostępne"
+[check]: media/services-support-managed-identities/check.png "Udostępnione"

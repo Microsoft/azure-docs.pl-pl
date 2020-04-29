@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: Synteza mowy, C# (UWP) - Usługa mowy'
+title: 'Szybki Start: synteza mowy, C# (platformy UWP) — usługa mowy'
 titleSuffix: Azure Cognitive Services
-description: W tym artykule utworzysz aplikację w języku C# dla platformy uniwersalnej systemu Windows (UWP) przy użyciu zestawu Speech SDK usługi Cognitive Services. Syntetyzujesz mowę z tekstu w czasie rzeczywistym do głośnika urządzenia. Aplikacja jest zbudowana z pakietem NuGet zestawu SDK mowy i programem Microsoft Visual Studio 2019.
+description: W tym artykule utworzysz aplikację w języku C# dla platformy uniwersalnej systemu Windows (UWP) przy użyciu zestawu Speech SDK usługi Cognitive Services. Wykorzystasz mowę z tekstu w czasie rzeczywistym do głośnika Twojego urządzenia. Aplikacja została skompilowana z pakietem NuGet zestawu mowy SDK i Microsoft Visual Studio 2019.
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: yinhew
 ms.openlocfilehash: 89fc5fddffb291942b8f3a4db3dfdf4ccd6cf46a
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81275289"
 ---
 > [!NOTE]
@@ -22,45 +22,45 @@ ms.locfileid: "81275289"
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zanim zaczniesz, upewnij się, że:
+Przed rozpoczęciem upewnij się, że:
 
 > [!div class="checklist"]
-> * [Tworzenie zasobu mowy platformy Azure](../../../../get-started.md)
-> * [Konfigurowanie środowiska programistycznego i tworzenie pustego projektu](../../../../quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
+> * [Tworzenie zasobu usługi Azure Speech](../../../../get-started.md)
+> * [Skonfiguruj środowisko deweloperskie i Utwórz pusty projekt](../../../../quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
 
 ## <a name="add-sample-code"></a>Dodawanie przykładowego kodu
 
-Teraz dodaj kod XAML, który definiuje interfejs użytkownika aplikacji i dodaj implementację w języku C# bez kodu.
+Teraz Dodaj kod XAML, który definiuje interfejs użytkownika aplikacji, a następnie Dodaj implementację kodu w języku C#.
 
-1. W **Eksploratorze rozwiązań**otwórz `MainPage.xaml`.
+1. W **Eksplorator rozwiązań**Otwórz `MainPage.xaml`program.
 
-1. W widoku XAML projektanta wstaw następujący fragment kodu XAML do `<Grid>` znacznika **Siatka** (między i): `</Grid>`
+1. W widoku XAML projektanta Wstaw następujący fragment kodu XAML do tagu **Grid** (między `<Grid>` i `</Grid>`):
 
    [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/text-to-speech/helloworld/MainPage.xaml#StackPanel)]
 
-1. W **Eksploratorze rozwiązań**otwórz `MainPage.xaml.cs`plik źródłowy związany z kodem . (Jest zgrupowany `MainPage.xaml`w obszarze .)
+1. W **Eksplorator rozwiązań**Otwórz plik `MainPage.xaml.cs`źródłowy związany z kodem. (Jest ono pogrupowane `MainPage.xaml`w.)
 
-1. Zastąp cały kod w nim z następującym fragmentem kodu:
+1. Zastąp cały kod w nim następującym fragmentem kodu:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/text-to-speech/helloworld/MainPage.xaml.cs#code)]
 
-1. W programie obsługi `Speak_ButtonClicked` pliku źródłowego `YourSubscriptionKey`znajdź ciąg i zastąp go kluczem subskrypcji.
+1. W programie `Speak_ButtonClicked` obsługi pliku źródłowego Znajdź ciąg `YourSubscriptionKey`i zastąp go kluczem subskrypcji.
 
-1. W `Speak_ButtonClicked` programie obsługi znajdź `YourServiceRegion`ciąg i zastąp go [regionem](~/articles/cognitive-services/Speech-Service/regions.md) skojarzonym z subskrypcją. (Na przykład `westus` użyj bezpłatnej subskrypcji próbnej).
+1. W programie `Speak_ButtonClicked` obsługi Znajdź ciąg `YourServiceRegion`i zastąp go [regionem](~/articles/cognitive-services/Speech-Service/regions.md) skojarzonym z subskrypcją. (Na przykład użyj `westus` subskrypcji bezpłatnej wersji próbnej).
 
-1. Na pasku menu wybierz **pozycję Zapisz** > **wszystko,** aby zapisać zmiany.
+1. Na pasku menu wybierz kolejno opcje **plik** > **Zapisz wszystko** , aby zapisać zmiany.
 
 ## <a name="build-and-run-the-application"></a>Kompilowanie i uruchamianie aplikacji
 
-Teraz możesz przystąpić do tworzenia i testowania aplikacji.
+Teraz możesz przystąpić do kompilowania i testowania aplikacji.
 
-1. Na pasku menu wybierz pozycję **Build** > **Build Solution** to build the application. Kod powinien teraz zostać skompilowany bez błędów.
+1. Na pasku menu wybierz polecenie **Kompiluj** > **kompilację rozwiązania** , aby skompilować aplikację. Kod powinien teraz zostać skompilowany bez błędów.
 
-1. Aby uruchomić aplikację, wybierz **opcję Debugowanie** > **rozpocznij debugowanie** (lub naciśnij **klawisz F5).** Zostanie **wyświetlene okno helloworld.**
+1. Wybierz **Debuguj** > **Rozpocznij debugowanie** (lub naciśnij klawisz **F5**), aby uruchomić aplikację. Zostanie wyświetlone okno **HelloWorld** .
 
-   ![Przykładowa aplikacja do syntezy mowy platformy uniwersalnej systemu w języku C# — szybki start](~/articles/cognitive-services/Speech-Service/media/sdk/qs-text-to-speech-uwp-helloworld-window.png)
+   ![Przykładowa aplikacja syntezy mowy platformy UWP w języku C# — Szybki Start](~/articles/cognitive-services/Speech-Service/media/sdk/qs-text-to-speech-uwp-helloworld-window.png)
 
-1. Wprowadź tekst w tokwaku tekstu i kliknij przycisk **Mów**. Tekst jest przesyłany do usługi Mowy i syntetyzowany do mowy, która jest odtwarzana na głośniku.
+1. Wprowadź tekst w polu tekstowym, a następnie kliknij przycisk **mów**. Twój tekst jest przesyłany do usługi mowy i można go wyrównać do mowy, który jest odtwarzany na głośniku.
 
     ![Interfejs użytkownika syntezy mowy](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-uwp-ui-result.png)
 
@@ -68,7 +68,7 @@ Teraz możesz przystąpić do tworzenia i testowania aplikacji.
 
 [!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Tworzenie niestandardowego głosu](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
-- [Nagrywanie niestandardowych próbek głosu](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
+- [Rejestruj niestandardowe przykłady głosu](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

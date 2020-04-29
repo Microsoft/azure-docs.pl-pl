@@ -14,22 +14,22 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: fa0cf5d698bc2186928e0db19be173ec725485e8
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80985936"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenariusze i dostępność funkcji usługi Media Services w centrach danych
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Sprawdź najnowszą wersję usługi [Media Services w wersji 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji z wersji 2 do v3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
 Usługa Microsoft Azure Media Services (AMS) umożliwia bezpieczne przekazywanie, przechowywanie, kodowanie i tworzenie pakietów zawartości wideo lub audio na potrzeby transmisji strumieniowej na żądanie i na żywo do różnych klientów (np. odbiorników TV, komputerów i urządzeń przenośnych).
 
 Usługa AMS działa w wielu centrach danych na całym świecie. Te centra danych są grupowane w regiony geograficzne, dzięki czemu można elastycznie wybierać miejsca do kompilowania aplikacji. Możesz zapoznać się z [listą regionów i ich lokalizacji](https://azure.microsoft.com/regions/). 
 
-W tym temacie przedstawiono typowe scenariusze dostarczania zawartości [na żywo](#live_scenarios) lub na żądanie. Temat zawiera także szczegółowe informacje o dostępności funkcji i usług multimedialnych w centrach danych.
+W tym temacie przedstawiono typowe scenariusze dostarczania zawartości na [żywo](#live_scenarios) lub na żądanie. Temat zawiera także szczegółowe informacje o dostępności funkcji i usług multimedialnych w centrach danych.
 
 ## <a name="overview"></a>Omówienie
 
@@ -41,7 +41,7 @@ Do rozpoczęcia korzystania z usługi Azure Media Services potrzebne są:
 * Konto usługi Azure Media Services. Aby uzyskać więcej informacji, zobacz temat [Tworzenie konta](media-services-portal-create-account.md).
 * Punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**.
 
-    Po utworzeniu konta AMS **domyślny** punkt końcowy przesyłania strumieniowego jest dodawany do twojego konta w stanie **Zatrzymane.** Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania, punkt końcowy przesyłania strumieniowego musi mieć stan **Uruchomiony**.
+    Po utworzeniu konta AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego w stanie **zatrzymanym** . Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania, punkt końcowy przesyłania strumieniowego musi mieć stan **Uruchomiony**.
 
 ### <a name="commonly-used-objects-when-developing-against-the-ams-odata-model"></a>Najczęściej używane obiekty podczas projektowania w modelu AMS OData
 
@@ -151,9 +151,9 @@ Klienci usługi AMS mogą skalować punkty końcowe przesyłania strumieniowego,
 
     Punkty końcowe przesyłania strumieniowego **Premium** są odpowiednie w przypadku zaawansowanych obciążeń, ponieważ zapewniają dedykowaną i skalowalną pojemność przepustowości. Klienci, którzy mają punkt końcowy przesyłania strumieniowego **Premium**, domyślnie uzyskują jedną jednostkę przesyłania strumieniowego (SU, streaming unit). Punkt końcowy przesyłania strumieniowego można skalować poprzez dodawanie jednostek SU. Każdy jednostka SU zwiększa pojemność przepustowości aplikacji. Aby uzyskać więcej informacji na temat skalowania punktów końcowych przesyłania strumieniowego **Premium**, zobacz temat [Skalowanie punktów końcowych przesyłania strumieniowego](media-services-portal-scale-streaming-endpoints.md).
 
-* Konto usługi Media Services jest skojarzone z typem jednostki zarezerwowanej określającym szybkość, z jaką są przetwarzane zadania przetwarzania multimediów. Można wybrać między następującymi typami jednostek zarezerwowanych: **S1**, **S2**lub **S3**. Na przykład to samo zadanie kodowania jest wykonywane szybciej przy użyciu typu jednostki zarezerwowanej **S2** niż w przypadku użycia typu **S1**.
+* Konto usługi Media Services jest skojarzone z typem jednostki zarezerwowanej określającym szybkość, z jaką są przetwarzane zadania przetwarzania multimediów. Można wybrać następujące typy jednostek zarezerwowanych: **S1**, **S2**lub **S3**. Na przykład to samo zadanie kodowania jest wykonywane szybciej przy użyciu typu jednostki zarezerwowanej **S2** niż w przypadku użycia typu **S1**.
 
-    Oprócz określania typu jednostki zarezerwowanej można określić, aby aprowizować konto za pomocą **jednostek zarezerwowanych** (RUs). Liczba zainicjowanych jednostek zarezerwowanych określa liczbę zadań multimedialnych, które mogą być przetwarzane jednocześnie w ramach danego konta.
+    Oprócz określania typu jednostki zarezerwowanej możesz określić, aby udostępnić konto za pomocą **jednostek zarezerwowanych** (jednostek ru). Liczba zainicjowanych jednostek zarezerwowanych określa liczbę zadań multimedialnych, które mogą być przetwarzane jednocześnie w ramach danego konta.
 
     >[!NOTE]
     >Jednostki zarezerwowane przekształcają wszystkie operacje przetwarzania multimediów do postaci równoległej, uwzględniając zadania Indeksowania za pomocą usługi Azure Media Indexer. Jednak w przeciwieństwie do kodowania zadania indeksowania nie są przetwarzane szybciej przy użyciu szybszych jednostek zarezerwowanych.
@@ -169,7 +169,7 @@ Ta sekcja zawiera szczegółowe informacje o dostępności funkcji usługi Media
 
 #### <a name="availability"></a>Dostępność
 
-Użyj [usługi Azure Products by Region,](https://azure.microsoft.com/global-infrastructure/services/?products=media-services&regions=all) aby ustalić, czy usługa Media Services jest dostępna w określonym centrum danych.
+Użyj [produktów platformy Azure według regionów,](https://azure.microsoft.com/global-infrastructure/services/?products=media-services&regions=all) aby określić, czy Media Services jest dostępna w konkretnym centrum danych.
 
 ### <a name="streaming-endpoints"></a>Punkty końcowe przesyłania strumieniowego 
 
@@ -204,7 +204,7 @@ Usługa AMS oferuje dwa kodery na żądanie: **Media Encoder Standard** i **Medi
 Analiza multimediów to kolekcja składników mowy i obrazu, które ułatwiają organizacjom i przedsiębiorstwom pozyskiwanie przydatnych informacji z posiadanych plików wideo. Aby uzyskać więcej informacji, zobacz temat [Przegląd analiz usługi Azure Media Services](media-services-analytics-overview.md).
 
 > [!NOTE]
-> Niektóre procesory multimediów analitycznych zostaną wycofane. W przypadku dat wycofania zobacz temat [starszych składników.](legacy-components.md)
+> Niektóre procesory multimediów analitycznych zostaną wycofane. Aby uzyskać daty wycofania, zobacz temat [starsze składniki](legacy-components.md) .
 
 #### <a name="availability"></a>Dostępność
 
@@ -217,7 +217,7 @@ Analiza multimediów to kolekcja składników mowy i obrazu, które ułatwiają 
 |Azure Media Redactor|Ogólna dostępność|Wszystkie|
 |Azure Media Video Thumbnails|Wersja zapoznawcza|Wszystkie|
 
-### <a name="protection"></a>Ochrona
+### <a name="protection"></a>Protection
 
 Usługi Microsoft Azure Media Services umożliwiają zabezpieczenie multimediów od momentu wysłania danych z komputera w ramach procesów przechowywania, przetwarzania i dostarczania. Aby uzyskać więcej informacji, zobacz temat [Ochrona zawartości usługi AMS](media-services-content-protection-overview.md).
 
@@ -257,7 +257,7 @@ Aby uzyskać więcej informacji, zobacz sekcję opisującą [skalowanie](#scalin
 
 ## <a name="additional-notes"></a>Uwagi dodatkowe
 
-* Widevine jest usługą świadczoną przez Google Inc. i podlega warunkom korzystania z usługi oraz Polityce prywatności Firmy Google, Inc.
+* Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
 
 ## <a name="next-steps"></a>Następne kroki
 
