@@ -1,6 +1,6 @@
 ---
-title: Interakcja z urządzeniem IoT Plug and Play Preview połączonym z twoim rozwiązaniem Azure IoT | Dokumenty firmy Microsoft
-description: Funkcja Node.js umożliwia łączenie się z urządzeniem IoT Plug and Play Preview i interakcję z nim, które jest połączone z rozwiązaniem IoT usługi Azure.
+title: Współpracuj z urządzeniem usługi IoT Plug and Play w wersji zapoznawczej podłączonym do rozwiązania Azure IoT | Microsoft Docs
+description: Użyj środowiska Node. js, aby nawiązać połączenie z urządzeniem usługi IoT Plug and Play w wersji zapoznawczej i korzystać z niego, które jest połączone z rozwiązaniem Azure IoT.
 author: miagdp
 ms.author: miag
 ms.date: 12/27/2019
@@ -9,21 +9,21 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 9962763e647faddc5a2179f304aeb3fa8ca256e8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75550744"
 ---
-# <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-nodejs"></a>Szybki start: interakcja z urządzeniem IoT Plug and Play Preview podłączonym do rozwiązania (Node.js)
+# <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-nodejs"></a>Szybki Start: współdziałanie z urządzeniem IoT Plug and Play w wersji zapoznawczej, które jest połączone z rozwiązaniem (Node. js)
 
 [!INCLUDE [iot-pnp-quickstarts-3-selector.md](../../includes/iot-pnp-quickstarts-3-selector.md)]
 
-Podgląd ioT Plug and Play upraszcza IoT, umożliwiając interakcję z możliwościami urządzenia bez znajomości implementacji urządzenia źródłowego. Ten przewodnik Szybki start pokazuje, jak używać node.js do łączenia się z urządzeniem Typu Plug and Play IoT podłączonym do rozwiązania i sterowania nim.
+Wersja zapoznawcza Plug and Play IoT upraszcza IoT, umożliwiając współpracę z możliwościami urządzenia bez znajomości podstawowej implementacji urządzenia. W tym przewodniku szybki start pokazano, jak używać środowiska Node. js do nawiązywania połączenia z urządzeniem IoT Plug and Play i kontrolowania go, który jest połączony z rozwiązaniem.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten szybki start, potrzebujesz node.js na komputerze deweloperskim. Możesz pobrać najnowszą zalecaną wersję dla wielu platform z [nodejs.org](https://nodejs.org).
+Aby ukończyć ten przewodnik Szybki Start, musisz mieć program Node. js na swoim komputerze deweloperskim. Najnowszą zalecaną wersję można pobrać dla wielu platform z [NodeJS.org](https://nodejs.org).
 
 Możesz sprawdzić bieżącą wersję środowiska Node.js na komputerze deweloperskim przy użyciu następującego polecenia:
 
@@ -35,7 +35,7 @@ node --version
 
 [!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
-Uruchom następujące polecenie, aby uzyskać _parametry połączenia centrum IoT_ dla koncentratora (uwaga do późniejszego użycia):
+Uruchom następujące polecenie, aby uzyskać _Parametry połączenia usługi IoT Hub_ dla Twojego centrum (Uwaga do użycia później):
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
@@ -43,21 +43,21 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 ## <a name="run-the-sample-device"></a>Uruchamianie przykładowego urządzenia
 
-W tym przewodniku Szybki start można użyć przykładowego czujnika środowiska, który jest napisany w pliku Node.js jako urządzenie Typu Plug and Play IoT. Poniższe instrukcje pokazują, jak zainstalować i uruchomić urządzenie:
+W tym przewodniku szybki start użyto przykładowego czujnika środowiska, który został zapisany w środowisku Node. js jako urządzenie Plug and Play IoT. Poniższe instrukcje przedstawiają sposób instalowania i uruchamiania urządzenia:
 
-1. Otwórz okno terminala w wybranym katalogu. Wykonaj następujące polecenie, aby sklonować [przykłady usługi Azure IoT dla](https://github.com/azure-samples/azure-iot-samples-node) repozytorium Usługi Node.js GitHub w tej lokalizacji:
+1. Otwórz okno terminalu w wybranym katalogu. Wykonaj następujące polecenie, aby sklonować [przykłady usługi Azure IoT dla repozytorium GitHub środowiska Node. js](https://github.com/azure-samples/azure-iot-samples-node) do tej lokalizacji:
 
     ```cmd/sh
     git clone https://github.com/azure-samples/azure-iot-samples-node
     ```
 
-1. To okno terminalu będzie teraz używane jako terminal _urządzenia._ Przejdź do folderu sklonowanego repozytorium i przejdź do folderu **/azure-iot-samples-node/digital-twins/Quickstarts/Device.** Zainstaluj wszystkie zależności, uruchamiając następujące polecenie:
+1. To okno terminalu będzie teraz używane jako terminal _urządzenia_ . Przejdź do folderu sklonowanego repozytorium i przejdź do folderu **/Azure-IoT-Samples-Node/Digital-Twins/QuickStarts/Device** . Zainstaluj wszystkie zależności, uruchamiając następujące polecenie:
 
     ```cmd/sh
     npm install
     ```
 
-1. Konfigurowanie _ciągu połączenia urządzenia:_
+1. Skonfiguruj _Parametry połączenia urządzenia_:
 
     ```cmd/sh
     set DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
@@ -69,41 +69,41 @@ W tym przewodniku Szybki start można użyć przykładowego czujnika środowiska
     node sample_device.js
     ```
 
-1. Zobaczysz komunikaty informujące, że urządzenie wysłało pewne informacje i zgłosiło się w trybie online. Oznacza to, że urządzenie rozpoczęło wysyłanie danych telemetrycznych do koncentratora i jest teraz gotowe do odbierania poleceń i aktualizacji właściwości. Nie zamykaj tego terminalu, będziesz go potrzebować później, aby potwierdzić, że próbki usług również zadziałały.
+1. Zobaczysz komunikaty informujące, że urządzenie wysłało pewne informacje i zakończyło się w trybie online. Oznacza to, że urządzenie rozpoczęło wysyłanie danych telemetrycznych do centrum i jest teraz gotowe do odbierania poleceń i aktualizacji właściwości. Nie zamykaj tego terminala. będzie on potrzebny później w celu potwierdzenia, że także zadziałały również przykłady usługi.
 
-## <a name="run-the-sample-solution"></a>Uruchamianie roztworu próbki
+## <a name="run-the-sample-solution"></a>Uruchom przykładowe rozwiązanie
 
-W tym przewodniku Szybki start można użyć przykładowego rozwiązania IoT w node.js do interakcji z przykładowym urządzeniem.
+W tym przewodniku szybki start użyjesz przykładowego rozwiązania IoT w języku Node. js do współpracy z przykładowym urządzeniem.
 
-1. Otwórz kolejne okno terminala (będzie to twój terminal _serwisowy)._ Przejdź do folderu sklonowanego repozytorium i przejdź do folderu **/azure-iot-samples-node/digital-twins/Quickstarts/Service** folder. Zainstaluj wszystkie zależności, uruchamiając następujące polecenie:
+1. Otwórz inne okno terminalu (będzie to Terminal _usługi_ ). Przejdź do folderu sklonowanego repozytorium i przejdź do folderu **/Azure-IoT-Samples-Node/Digital-Twins/QuickStarts/Service** . Zainstaluj wszystkie zależności, uruchamiając następujące polecenie:
 
     ```cmd/sh
     npm install
     ```
 
-1. Skonfiguruj _parametry połączenia centrum IoT,_ aby umożliwić usłudze łączenie się z nim:
+1. Skonfiguruj _Parametry połączenia usługi IoT Hub_ , aby umożliwić usłudze łączenie się z nią:
 
     ```cmd/sh
     set IOTHUB_CONNECTION_STRING=<YourIoTHubConnectionString>
     ```
 
-### <a name="read-a-property"></a>Odczytanie właściwości
+### <a name="read-a-property"></a>Odczytaj Właściwość
 
-1. Po podłączeniu _urządzenia_ do jego terminala został wyświetlony następujący komunikat wskazujący jego stan online:
+1. Po podłączeniu _urządzenia_ do terminalu zobaczysz następujący komunikat wskazujący jego stan online:
 
     ```cmd/sh
     reported state property as online
     ```
 
-1. W folderze **/azure-iot-samples-node/digital-twins/Quickstarts/Service** otwórz plik **get_digital_twin.js**. Zastąp symbol zastępczy `<DEVICE_ID_GOES_HERE>` identyfikatorem urządzenia i zapisz plik.
+1. W folderze **/Azure-IoT-Samples-Node/Digital-Twins/QuickStarts/Service** otwórz plik **get_digital_twin. js**. Zastąp `<DEVICE_ID_GOES_HERE>` symbol ZASTĘPCZy identyfikatorem urządzenia i Zapisz plik.
 
-1. Przejdź do terminalu _serwisowego_ i użyj następującego polecenia, aby uruchomić próbkę do odczytu informacji o urządzeniu:
+1. Przejdź do terminalu _usługi_ i użyj następującego polecenia, aby uruchomić przykład do odczytu informacji o urządzeniu:
 
     ```cmd/sh
     node get_digital_twin.js
     ```
 
-1. W wyjściu terminala _serwisowego_ przewiń do składnika. `environmentalSensor` Widzisz, że `state` nieruchomość została zgłoszona jako _online:_
+1. W danych wyjściowych terminalu _usług_ przewiń do `environmentalSensor` składnika. Zobaczysz, że `state` właściwość została zgłoszona jako _online_:
 
     ```JSON
     "environmentalSensor": {
@@ -118,11 +118,11 @@ W tym przewodniku Szybki start można użyć przykładowego rozwiązania IoT w n
     }
     ```
 
-### <a name="update-a-writable-property"></a>Aktualizowanie właściwości zapisywalnej
+### <a name="update-a-writable-property"></a>Aktualizowanie właściwości z możliwością zapisu
 
-1. Otwórz plik **update_digital_twin_property.js**.
+1. Otwórz plik **update_digital_twin_property. js**.
 
-1. Na początku pliku jest zestaw stałych zdefiniowanych za pomocą symboli zastępczych wielkich liter. Zastąp `<DEVICE_ID_GOES_HERE>` symbol zastępczy rzeczywistym identyfikatorem urządzenia, zaktualizuj pozostałe stałe następującymi wartościami i zapisz plik:
+1. Na początku pliku istnieje zestaw stałych definiowany z dużymi symbolami zastępczymi. Zastąp `<DEVICE_ID_GOES_HERE>` symbol zastępczy rzeczywistym identyfikatorem urządzenia, zaktualizuj pozostałe stałe przy użyciu następujących wartości, a następnie Zapisz plik:
 
     ```javascript
     const interfaceInstanceName = 'environmentalSensor';
@@ -130,13 +130,13 @@ W tym przewodniku Szybki start można użyć przykładowego rozwiązania IoT w n
     const propertyValue = 42;
     ```
 
-1. Przejdź do terminalu _serwisowego_ i użyj następującego polecenia, aby uruchomić próbkę do aktualizacji właściwości:
+1. Przejdź do terminalu _usługi_ i użyj następującego polecenia, aby uruchomić przykład do aktualizacji właściwości:
 
     ```cmd/sh
     node update_digital_twin_property.js
     ```
 
-1. Dane wyjściowe terminala _serwisowego_ pokazują zaktualizowane informacje o urządzeniu. Przewiń `environmentalSensor` do komponentu, aby zobaczyć nową wartość jasności 42.
+1. Dane wyjściowe terminalu _usługi_ przedstawiają zaktualizowane informacje o urządzeniu. Przewiń do `environmentalSensor` składnika, aby wyświetlić nową wartość jasności 42.
 
     ```json
     "environmentalSensor": {
@@ -156,19 +156,19 @@ W tym przewodniku Szybki start można użyć przykładowego rozwiązania IoT w n
     }
     ```
 
-1. Przejdź do _terminalu urządzenia,_ zobaczysz, że urządzenie otrzymało aktualizację:
+1. Przejdź do terminalu _urządzenia_ , zobaczysz, że urządzenie otrzymało aktualizację:
 
     ```cmd/sh
     Received an update for brightness: 42
     updated the property
     ```
-2. Wróć do terminalu _serwisowego_ i uruchom poniższe polecenie, aby ponownie uzyskać informacje o urządzeniu, aby potwierdzić, że właściwość została zaktualizowana.
+2. Wróć do terminalu _usługi_ i uruchom poniższe polecenie, aby ponownie uzyskać informacje o urządzeniu, aby potwierdzić, że właściwość została zaktualizowana.
     
     ```cmd/sh
     node get_digital_twin.js
     ```
 
-3. W wyjściu terminala `environmentalSensor` _serwisowego_ pod komponentem zostanie wyświetlona zaktualizowana wartość jasności. Uwaga: może upłynąć trochę czasu, aby urządzenie ukończyło aktualizację. Można powtórzyć ten krok, dopóki urządzenie faktycznie przetworzy aktualizację właściwości.
+3. W danych wyjściowych terminalu _usługi_ pod `environmentalSensor` składnikiem zostanie wyświetlona zaktualizowana wartość jasności. Uwaga: ukończenie aktualizacji może zająć trochę czasu. Ten krok można powtórzyć do momentu rzeczywistego przetworzenia przez urządzenie aktualizacji właściwości.
     
     ```json
     "environmentalSensor": {
@@ -196,11 +196,11 @@ W tym przewodniku Szybki start można użyć przykładowego rozwiązania IoT w n
     }
     ```
 
-### <a name="invoke-a-command"></a>Wywoływanie polecenia
+### <a name="invoke-a-command"></a>Wywołaj polecenie
 
-1. Otwórz plik **invoke_command.js**.
+1. Otwórz plik **invoke_command. js**.
 
-1. Na początku pliku zastąp symbol zastępczy `<DEVICE_ID_GOES_HERE>` rzeczywistym identyfikatorem urządzenia. Zaktualizuj pozostałe stałe za pomocą następujących wartości, a następnie zapisz plik:
+1. Na początku pliku Zastąp `<DEVICE_ID_GOES_HERE>` symbol zastępczy rzeczywistym identyfikatorem urządzenia. Zaktualizuj pozostałe stałe przy użyciu następujących wartości, a następnie Zapisz plik:
 
     ```javascript
     const interfaceInstanceName = 'environmentalSensor';
@@ -208,13 +208,13 @@ W tym przewodniku Szybki start można użyć przykładowego rozwiązania IoT w n
     const commandArgument = '<For the environmental sensor, this value does not matter. Any string will do.>'; 
     ```
 
-1. Przejdź do terminalu _serwisowego._ Użyj następującego polecenia, aby uruchomić próbkę do wywoływania polecenia:
+1. Przejdź do terminalu _usługi_ . Użyj następującego polecenia, aby uruchomić próbkę wywołującą polecenie:
 
     ```cmd/sh
     node invoke_command.js
     ```
 
-1. Wyjście w terminalu _serwisowym_ powinno być wyświetlane następujące potwierdzenie:
+1. Dane wyjściowe w terminalu _usługi_ powinny zawierać następujące potwierdzenie:
 
     ```cmd/sh
     invoking command blink on interface instanceenvironmentalSensor for device <device ID>...
@@ -226,7 +226,7 @@ W tym przewodniku Szybki start można użyć przykładowego rozwiązania IoT w n
     }
     ```
 
-1. Przejdź do terminalu _urządzenia,_ zobaczysz, że polecenie zostało potwierdzone:
+1. Przejdź do terminalu _urządzenia_ , zobaczysz, że polecenie zostało potwierdzone:
 
     ```cmd/sh
     received command: blink for interfaceInstance: environmentalSensor
@@ -237,7 +237,7 @@ W tym przewodniku Szybki start można użyć przykładowego rozwiązania IoT w n
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start dowiesz się, jak podłączyć urządzenie Typu Plug and Play do rozwiązania IoT. Aby dowiedzieć się więcej o tworzeniu rozwiązania współdziałanego z urządzeniami IoT Plug and Play, zobacz:
+W tym przewodniku szybki start przedstawiono sposób nawiązywania połączenia z urządzeniem IoT Plug and Play w rozwiązaniu IoT. Aby dowiedzieć się więcej na temat tworzenia rozwiązania, które współdziała z urządzeniami Plug and Play IoT, zobacz:
 
 > [!div class="nextstepaction"]
-> [Instrukcje: łączenie się z urządzeniem i interakcję z nim](howto-develop-solution.md)
+> [Instrukcje: Nawiązywanie połączenia z urządzeniem i korzystanie z niego](howto-develop-solution.md)

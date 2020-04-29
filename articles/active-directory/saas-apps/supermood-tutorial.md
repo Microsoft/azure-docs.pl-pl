@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (SSO) z supermood | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a supermood.
+title: 'Samouczek: integracja z logowaniem jednokrotnym (SSO) w Azure Active Directory Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i nastrój.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,75 +16,75 @@ ms.date: 12/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: acb3704541e4c573da4d5331ee10a9c7256162e1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75640163"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-supermood"></a>Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (SSO) z supermood
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-supermood"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z nastrój
 
-W tym samouczku dowiesz się, jak zintegrować supermood z usługą Azure Active Directory (Azure AD). Po zintegrowaniu Supermood z usługą Azure AD można:
+W tym samouczku dowiesz się, jak zintegrować z usługą Azure Active Directory (Azure AD). Po zintegrowaniu z usługą Azure AD można:
 
-* Kontrola w usłudze Azure AD, który ma dostęp do Supermood.
-* Włącz użytkownikom automatyczne logowanie do supermood za pomocą ich kont usługi Azure AD.
-* Zarządzaj kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
+* Kontrolka w usłudze Azure AD, która ma dostęp do naprawy.
+* Zezwól użytkownikom na automatyczne logowanie się do swoich kont usługi Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby rozpocząć, potrzebujesz następujących elementów:
+Aby rozpocząć, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto.](https://azure.microsoft.com/free/)
-* Supermood subskrypcji z włączoną funkcją logowania jednokrotnego (SSO).
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
+* Subskrypcja obsługująca Logowanie jednokrotne (SSO).
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-W tym samouczku można skonfigurować i przetestować samouszeńców usługi Azure AD w środowisku testowym.
+W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Supermood obsługuje **sp i IDP** zainicjowane SSO
-* Supermood obsługuje inicjowanie obsługi administracyjnej użytkowników **just in time**
+* Naddostawcy tożsamości obsługuje logowanie jednokrotne **w** ramach dostawcy
+* Nadstrój obsługuje Inicjowanie obsługi użytkowników **just in Time**
 
-## <a name="adding-supermood-from-the-gallery"></a>Dodawanie Supermood z galerii
+## <a name="adding-supermood-from-the-gallery"></a>Dodawanie nastroju z galerii
 
-Aby skonfigurować integrację supermood do usługi Azure AD, należy dodać Supermood z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację w usłudze Azure AD, należy dodać nadzbiór z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) przy użyciu konta służbowego lub konta firmy Microsoft.
-1. W lewym okienku nawigacji wybierz usługę **Azure Active Directory.**
-1. Przejdź do **aplikacji korporacyjnych,** a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
-1. W sekcji **Dodaj z galerii** wpisz **Supermood** w polu wyszukiwania.
-1. Wybierz **pozycję Supermood** z panelu wyników, a następnie dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. W sekcji **Dodaj z galerii** **w polu wyszukiwania wpisz ciąg** .
+1. Wybierz pozycję **PRZESTRÓJ** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-supermood"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD dla usługi Supermood
+## <a name="configure-and-test-azure-ad-single-sign-on-for-supermood"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD na potrzeby nastrojenia
 
-Konfigurowanie i testowanie usługi Azure AD SSO z Supermood przy użyciu użytkownika testowego o nazwie **B.Simon**. Aby użytkownik łączony sytuować działał, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w supermood.
+Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD przy użyciu konta użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w dowolnym nastroju.
 
-Aby skonfigurować i przetestować usługę Azure AD SSO za pomocą supermood, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu nadstrojenia, wykonaj następujące bloki konstrukcyjne:
 
-1. **[Skonfiguruj samouszeńcę usługi Azure AD](#configure-azure-ad-sso)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-    * **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD za pomocą usługi B.Simon.
-    * **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić B.Simon używać logowania jednokrotnego usługi Azure AD.
-1. **[Skonfiguruj supermood SSO](#configure-supermood-sso)** - aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
-    * **[Utwórz supermood użytkownika testowego](#create-supermood-test-user)** — mieć odpowiednik B.Simon w Supermood, który jest połączony z reprezentacji usługi Azure AD użytkownika.
-1. **[Test SSO](#test-sso)** - aby sprawdzić, czy konfiguracja działa.
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+    * **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+    * **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
+1. **[Konfigurowanie logowania jednokrotnego](#configure-supermood-sso)** w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
+    * **[Utwórz użytkownika testowego](#create-supermood-test-user)** , aby uzyskać odpowiednika B. Simon w nadsobie, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azure portal.
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie Integracja aplikacji **Supermood** znajdź sekcję **Zarządzaj** i wybierz **opcję logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji z **nastrójiem** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** kliknij ikonę edycji/pióra dla **podstawowej konfiguracji SAML,** aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. W sekcji **Podstawowa konfiguracja SAML,** jeśli chcesz skonfigurować aplikację w trybie inicjowanym **przez IDP,** wykonaj następujące czynności:
+1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    a. Sprawdź **ustaw dodatkowe adresy URL**.
+    a. Zaznacz **opcję Ustaw dodatkowe adresy URL**.
     
-    b. W polach tekstowych **Stan przekazywania** wpisz adres URL:`https://supermood.co/auth/sso/saml20`
+    b. W polu tekstowym **Stan przekazywania** wpisz adres URL:`https://supermood.co/auth/sso/saml20`
 
 1. Kliknij przycisk **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania przez **dostawcę usług**:
 
@@ -92,84 +92,84 @@ Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azu
 
 1. Kliknij przycisk **Zapisz**.
 
-1. Supermood aplikacja oczekuje potwierdzeń SAML w określonym formacie, który wymaga, aby dodać niestandardowe mapowania atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
+1. Aplikacja z nastrójiem oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
     ![image](common/default-attributes.png)
 
-1. Oprócz powyższej, Aplikacja Supermood oczekuje kilka więcej atrybutów, które mają być przekazywane z powrotem w odpowiedzi SAML, które są pokazane poniżej. Te atrybuty są również wstępnie wypełnione, ale można je przejrzeć zgodnie z wymaganiami.
+1. Oprócz powyższego aplikacja z góry oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je sprawdzić zgodnie z wymaganiami.
 
     | Nazwa | Atrybut źródłowy|
     | ---------------| ------|
     | firstName | user.givenname |
     | lastName | user.surname |
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** w sekcji **Certyfikat podpisywania SAML** kliknij przycisk kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-W tej sekcji utworzysz użytkownika testowego w witrynie Azure portal o nazwie B.Simon.
+W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-1. Z lewego okienka w witrynie Azure portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
-1. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
-1. We właściwościach **Użytkownika** wykonaj następujące kroki:
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** username@companydomain.extensionwprowadź pole . Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji włączysz B.Simon do korzystania z logowania jednokrotnego platformy Azure, przyznając dostęp do Supermood.
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure, przyznając dostęp do niego.
 
-1. W portalu Azure wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **Wszystkie aplikacje**.
-1. Na liście aplikacji wybierz pozycję **Supermood**.
-1. Na stronie przegląd aplikacji znajdź sekcję **Zarządzaj** i wybierz pozycję **Użytkownicy i grupy**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Z listy **aplikacje wybierz pozycję**nadstawianie.
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 
    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
-1. Wybierz **pozycję Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym Dodawanie **przydziału.**
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 
-    ![Łącze Dodaj użytkownika](common/add-assign-user.png)
+    ![Link Dodaj użytkownika](common/add-assign-user.png)
 
-1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B.Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-1. W oknie dialogowym **Dodawanie przydziału** kliknij przycisk **Przypisz.**
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-## <a name="configure-supermood-sso"></a>Konfigurowanie sytcha liczby SSO Supermood
+## <a name="configure-supermood-sso"></a>Skonfiguruj nastrój Logowanie jednokrotne
 
-1. Przejdź do panelu administracyjnego Supermood.co jako Administrator zabezpieczeń.
+1. Przejdź do panelu administratora Supermood.co jako administrator zabezpieczeń.
 
-1. Kliknij **moje konto** (w lewym dolnym rogu) i **zaloguj się jednokrotnie .**
+1. Kliknij pozycję **Moje konto** (z lewej strony) i logowanie jednokrotne **(SSO)**.
 
-    ![Certyfikat pojedynczy](./media/supermood-tutorial/tutorial_supermood_single.png)
+    ![Pojedynczy certyfikat](./media/supermood-tutorial/tutorial_supermood_single.png)
 
-1. W **konfiguracjach SAML 2.0**kliknij pozycję **Dodaj konfigurację SAML 2.0 dla domeny poczty e-mail.**
+1. Na **konfiguracji protokołu saml 2,0**kliknij pozycję **dodaj konfigurację SAML 2,0 dla domeny poczty e-mail**.
 
-    ![Dodano certyfikat](./media/supermood-tutorial/tutorial_supermood_add.png)
+    ![Dodawanie certyfikatu](./media/supermood-tutorial/tutorial_supermood_add.png)
 
-1. Na **dodaj konfigurację SAML 2.0 dla domeny poczty e-mail**. w tej sekcji wykonaj następujące czynności:
+1. Na **Dodaj konfigurację SAML 2,0 dla domeny poczty e-mail**. wykonaj następujące czynności:
 
-    ![Certyfikat saml](./media/supermood-tutorial/tutorial_supermood_saml.png)
+    ![Certyfikat SAML certyfikatu](./media/supermood-tutorial/tutorial_supermood_saml.png)
 
-    a. W **domenie poczty e-mail dla tego** pola tekstowego dostawcy tożsamości wpisz domenę.
+    a. W polu tekstowym **domena poczty e-mail dla tego dostawcy tożsamości** wpisz swoją domenę.
 
-    b. W obszarze **Użyj adresu URL metadanych** wklej **adres URL metadanych federacji aplikacji** skopiowany z witryny Azure portal.
+    b. W polu tekstowym **Użyj adresu URL metadanych** wklej **adres URL metadanych federacji aplikacji** , który został skopiowany z Azure Portal.
 
-    d. Kliknij przycisk **Dodaj**.
+    c. Kliknij pozycję **Dodaj**.
 
-### <a name="create-supermood-test-user"></a>Utwórz użytkownika testowego Supermood
+### <a name="create-supermood-test-user"></a>Utwórz użytkownika testowego z nastrójem
 
-W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w Supermood. Supermood obsługuje just-in-time inicjowania obsługi administracyjnej użytkownika, który jest domyślnie włączony. W tej sekcji nie musisz niczego robić. Jeśli użytkownik jeszcze nie istnieje w Supermood, nowy jest tworzony po uwierzytelnieniu. Jeśli chcesz ręcznie utworzyć użytkownika, skontaktuj się z [zespołem pomocy technicznej Supermood](mailto:hello@supermood.fr).
+W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w ramach nastrój. Nadstrój obsługuje Inicjowanie obsługi użytkowników just in Time, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik jeszcze nie istnieje, zostanie on utworzony po uwierzytelnieniu. Jeśli musisz ręcznie utworzyć użytkownika, skontaktuj się z [pomocą techniczną](mailto:hello@supermood.fr).
 
-## <a name="test-sso"></a>Test SSO 
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Supermood w Panelu dostępu, powinieneś być automatycznie zalogowany do Supermood, dla którego skonfigurowano logującą się logującą logującą. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka prenastroju w panelu dostępu należy automatycznie zalogować się do góry, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
@@ -177,4 +177,4 @@ Po kliknięciu kafelka Supermood w Panelu dostępu, powinieneś być automatyczn
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Wypróbuj supermood z usługą Azure AD](https://aad.portal.azure.com/)
+- [Wypróbuj nastrój przy użyciu usługi Azure AD](https://aad.portal.azure.com/)
