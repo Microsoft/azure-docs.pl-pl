@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
 ms.openlocfilehash: da46cf826da40658883d22692e5038b09d222907
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75974529"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Samouczek: monitorowanie dzienników i metryk usługi Azure Firewall
@@ -22,7 +22,7 @@ Niektóre z tych dzienników są dostępne za pośrednictwem portalu. Dzienniki 
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Włączanie rejestrowania za pośrednictwem witryny Azure Portal
@@ -44,7 +44,7 @@ Przed rozpoczęciem tego samouczka należy przeczytać sekcję dotyczącą [dzie
 Od wykonania tej procedury w celu włączenia rejestrowania diagnostycznego może upłynąć kilka minut, zanim dane pojawią się w dziennikach. Jeśli na początku nie widzisz żadnych danych, sprawdź ponownie za kilka minut.
 
 1. W witrynie Azure Portal otwórz grupę zasobów zapory, a następnie kliknij zaporę.
-2. W obszarze **Monitorowanie**kliknij pozycję **Ustawienia diagnostyczne**.
+2. W obszarze **monitorowanie**kliknij pozycję **Ustawienia diagnostyczne**.
 
    W przypadku usługi Azure Firewall są dostępne dwa dzienniki specyficzne dla usługi:
 
