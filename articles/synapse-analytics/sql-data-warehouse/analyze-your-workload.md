@@ -1,6 +1,6 @@
 ---
 title: Analizowanie obciążenia
-description: Techniki analizowania priorytetów zapytań dla obciążenia w usłudze Azure Synapse Analytics.
+description: Techniki analizowania priorytetyzacji zapytań dla obciążenia w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -12,23 +12,23 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 6a38fe65b4aedf4f594531f5e9cd8cf9b5dfaac7
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631237"
 ---
 # <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analizowanie obciążenia w usłudze Azure Synapse Analytics
 
-Techniki analizowania obciążenia usługi Synapse SQL w usłudze Azure Synapse Analytics.
+Techniki analizowania obciążeń SQL Synapse w usłudze Azure Synapse Analytics.
 
 ## <a name="resource-classes"></a>Klasy zasobów
 
-Synapse SQL udostępnia klasy zasobów do przypisywania zasobów systemowych do kwerend.  Aby uzyskać więcej informacji na temat klas zasobów, zobacz [Klasy zasobów & zarządzanie obciążeniem .](resource-classes-for-workload-management.md)  Kwerendy będą czekać, jeśli klasa zasobów przypisana do kwerendy potrzebuje więcej zasobów niż są obecnie dostępne.
+Synapse SQL udostępnia klasy zasobów do przypisywania zasobów systemowych do zapytań.  Aby uzyskać więcej informacji na temat klas zasobów, zobacz [klasy zasobów & zarządzanie obciążeniami](resource-classes-for-workload-management.md).  Zapytania zaczekają, jeśli klasa zasobów przypisana do zapytania będzie potrzebowała więcej zasobów niż jest to obecnie dostępne.
 
-## <a name="queued-query-detection-and-other-dmvs"></a>Wykrywanie zapytań w kolejce i inne dmvs
+## <a name="queued-query-detection-and-other-dmvs"></a>Wykrywanie zapytań w kolejce i inne widoków DMV
 
-DmV służy `sys.dm_pdw_exec_requests` do identyfikowania kwerend, które czekają w kolejce współbieżności. Zapytania oczekujące na gniazdo współbieżności mają stan **zawieszone**.
+Możesz użyć DMV, `sys.dm_pdw_exec_requests` aby identyfikować zapytania, które oczekują w kolejce współbieżności. Zapytania oczekujące na gniazdo współbieżności mają stan **zawieszone**.
 
 ```sql
 SELECT  r.[request_id]                           AS Request_ID
@@ -41,7 +41,7 @@ FROM    sys.dm_pdw_exec_requests r
 ;
 ```
 
-Role zarządzania obciążeniem `sys.database_principals`można wyświetlać za pomocą pliku .
+Role zarządzania obciążeniami można przeglądać przy `sys.database_principals`użyciu programu.
 
 ```sql
 SELECT  ro.[name]           AS [db_role_name]
@@ -51,7 +51,7 @@ AND     ro.[is_fixed_role]  = 0
 ;
 ```
 
-Poniższa kwerenda pokazuje, do której roli jest przypisany każdy użytkownik.
+Następujące zapytanie pokazuje, do której roli każdy użytkownik jest przypisany.
 
 ```sql
 SELECT  r.name AS role_principal_name
@@ -65,12 +65,12 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 
 Synapse SQL ma następujące typy oczekiwania:
 
-* **LocalQueriesConcurrencyResourceType:** Zapytania, które znajdują się poza ramą gniazda współbieżności. Zapytania DMV i funkcje `SELECT @@VERSION` systemowe, takie jak przykłady zapytań lokalnych.
-* **UserConcurrencyResourceType:** Zapytania, które znajdują się wewnątrz struktury gniazda współbieżności. Kwerendy względem tabel użytkowników końcowych reprezentują przykłady, które mogłyby używać tego typu zasobu.
-* **DmsConcurrencyResourceType**: Oczekiwania wynikające z operacji przenoszenia danych.
-* **BackupConcurrencyResourceType:** Ten czas oczekiwania wskazuje, że kopia zapasowa bazy danych jest kopią zapasową. Maksymalna wartość dla tego typu zasobu wynosi 1. Jeśli w tym samym czasie zażądano wielu kopii zapasowych, pozostałe kolejki. Ogólnie zaleca się minimalny czas między kolejnymi migawkami 10 minut.
+* **LocalQueriesConcurrencyResourceType**: zapytania, które znajdują się poza platformą miejsc współbieżności. Zapytania DMV i funkcje systemowe, takie `SELECT @@VERSION` jak przykłady zapytań lokalnych.
+* **UserConcurrencyResourceType**: zapytania, które znajdują się wewnątrz struktury gniazda współbieżności. Zapytania dotyczące tabel użytkowników końcowych przedstawiają przykłady, które mogłyby używać tego typu zasobu.
+* **DmsConcurrencyResourceType**: czeka na wyniki operacji przenoszenia danych.
+* **BackupConcurrencyResourceType**: to poczekanie wskazuje, że tworzona jest kopia zapasowa bazy danych. Maksymalna wartość dla tego typu zasobu to 1. Jeśli w tym samym czasie zażądano wielu kopii zapasowych, kolejka innych. Ogólnie rzecz biorąc zalecamy minimalny czas między kolejnymi migawkami 10 minut.
 
-DMV `sys.dm_pdw_waits` można użyć, aby zobaczyć, które zasoby żądanie oczekuje na.
+`sys.dm_pdw_waits` DMV może służyć do sprawdzenia, które zasoby oczekują na żądanie.
 
 ```sql
 SELECT  w.[wait_id]
@@ -107,7 +107,7 @@ WHERE    w.[session_id] <> SESSION_ID()
 ;
 ```
 
-DMV `sys.dm_pdw_resource_waits` pokazuje informacje oczekiwania dla danej kwerendy. Czas oczekiwania zasobów mierzy czas oczekiwania na zasoby, które mają być dostarczone. Czas oczekiwania na sygnał to czas potrzebny na zaplanowanie zapytania na procesor CPU przez podstawowe serwery SQL.
+`sys.dm_pdw_resource_waits` DMV pokazuje informacje o poczekaniu dla danego zapytania. Czas oczekiwania zasobu mierzy czas oczekiwania na udostępnienie zasobów. Czas oczekiwania na sygnał to czas potrzebny na bazowe serwery SQL do zaplanowania zapytania na procesor CPU.
 
 ```sql
 SELECT  [session_id]
@@ -126,7 +126,7 @@ WHERE    [session_id] <> SESSION_ID()
 ;
 ```
 
-Można również użyć `sys.dm_pdw_resource_waits` DMV obliczyć, ile gniazd współbieżności zostały przyznane.
+Można również użyć DMV Oblicz `sys.dm_pdw_resource_waits` , ile miejsc współbieżności zostało przydzielone.
 
 ```sql
 SELECT  SUM([concurrency_slots_used]) as total_granted_slots
@@ -137,7 +137,7 @@ AND     [session_id]     <> session_id()
 ;
 ```
 
-`sys.dm_pdw_wait_stats` DMV może być używany do historycznej analizy trendów czeka.
+`sys.dm_pdw_wait_stats` DMV może służyć do analizy trendu historycznego oczekiwania.
 
 ```sql
 SELECT   w.[pdw_node_id]
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat zarządzania użytkownikami bazy danych i zabezpieczeniami, zobacz [Zabezpieczanie bazy danych w synapse SQL](sql-data-warehouse-overview-manage-security.md). Aby uzyskać więcej informacji o tym, jak większe klasy zasobów mogą poprawić jakość indeksu magazynu kolumn klastrowanych, zobacz [Odbudowanie indeksów w celu poprawy jakości segmentu](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Aby uzyskać więcej informacji na temat zarządzania użytkownikami i zabezpieczeniami bazy danych, zobacz temat [Zabezpieczanie bazy danych w programie Synapse SQL](sql-data-warehouse-overview-manage-security.md). Aby uzyskać więcej informacji o tym, jak większe klasy zasobów mogą ulepszyć jakość klastrowanego indeksu magazynu kolumn, zobacz Ponowne [Kompilowanie indeksów w celu zwiększenia jakości segmentu](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).

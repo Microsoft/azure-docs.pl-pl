@@ -1,6 +1,6 @@
 ---
-title: Używanie etykiet do instrumencie zapytań
-description: Porady dotyczące używania etykiet do instrumencie zapytań w puli synapse SQL do tworzenia rozwiązań.
+title: Używanie etykiet do Instrumentacji zapytań
+description: Porady dotyczące używania etykiet do Instrumentacji zapytań w puli SQL Synapse na potrzeby tworzenia rozwiązań.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,21 +12,21 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 5e2cd03ae878e80139a7f7a8ba67cef15b24d571
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633490"
 ---
-# <a name="using-labels-to-instrument-queries-in-synapse-sql-pool"></a>Używanie etykiet do instrumencie zapytań w puli Synapse SQL
+# <a name="using-labels-to-instrument-queries-in-synapse-sql-pool"></a>Używanie etykiet do Instrumentacji zapytań w puli SQL Synapse
 
-W tym artykule znajdują się wskazówki dotyczące opracowywania rozwiązań przy użyciu etykiet do instrumencie zapytań w puli SQL.
+W tym artykule przedstawiono wskazówki dotyczące opracowywania rozwiązań przy użyciu etykiet do Instrumentacji zapytań w puli SQL.
 
-Porady dotyczące używania etykiet do instrumencie zapytań w usłudze Azure SQL Data Warehouse do tworzenia rozwiązań.
+Porady dotyczące używania etykiet do Instrumentacji zapytań w Azure SQL Data Warehouse do tworzenia rozwiązań.
 
 ## <a name="what-are-labels"></a>Co to są etykiety?
 
-Pula SQL obsługuje koncepcję o nazwie etykiety zapytań. Przed wejściem w jakąkolwiek głębię przyjrzyjmy się przykładowi:
+Pula SQL obsługuje koncepcję o nazwie etykiety zapytań. Przed przejściem do dowolnej głębokości Przyjrzyjmy się przykładowi:
 
 ```sql
 SELECT *
@@ -35,13 +35,13 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-Ostatni wiersz oznacza ciąg "Moja etykieta zapytania" do kwerendy. Ten tag jest przydatne, ponieważ etykieta jest w stanie zapytania za pośrednictwem DMVs.
+Ostatni wiersz określa ciąg "My Query Label" w zapytaniu. Ten tag jest przydatny, ponieważ etykieta jest z możliwością zapytania przez widoków DMV.
 
-Wykonywanie zapytań o etykiety zapewnia mechanizm lokalizowania zapytań o problemy i pomaga zidentyfikować postęp za pośrednictwem uruchomienia ELT.
+Wykonywanie zapytań dotyczących etykiet zapewnia mechanizm lokalizowania zapytań o problemy oraz ułatwiający identyfikację postępu przez uruchomienie ELT.
 
-Dobra konwencja nazewnictwa naprawdę pomaga. Na przykład rozpoczęcie etykiety z PROJEKTU, PROCEDURY, INSTRUKCJI lub KOMENTARZ jednoznacznie identyfikuje kwerendę wśród całego kodu w formancie źródłowym.
+Dobrą konwencją nazewnictwa są naprawdę pomocne. Na przykład uruchomienie etykiety z projektem, procedurą, INSTRUKCJą lub KOMENTARZEm jednoznacznie identyfikuje zapytanie między całym kodem w kontroli źródła.
 
-Następująca kwerenda używa dynamicznego widoku zarządzania do wyszukiwania według etykiety:
+Następujące zapytanie używa dynamicznego widoku zarządzania do wyszukiwania według etykiety:
 
 ```sql
 SELECT  *
@@ -51,8 +51,8 @@ WHERE   r.[label] = 'My Query Label'
 ```
 
 > [!NOTE]
-> Istotne jest, aby umieścić nawiasy kwadratowe lub cudzysłowy wokół etykiety słowa podczas wykonywania zapytań. Etykieta jest słowem zastrzeżonym i powoduje błąd, gdy nie jest rozdzielany.
+> Podczas wykonywania zapytań należy umieścić nawiasy kwadratowe lub podwójne cudzysłowy wokół etykiety wyrazu. Etykieta jest słowem zastrzeżonym i powoduje błąd, gdy nie zostanie on rozdzielony.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej wskazówek dotyczących rozwoju, zobacz [omówienie rozwoju](sql-data-warehouse-overview-develop.md).
+Aby uzyskać więcej porad programistycznych, zobacz [Omówienie projektowania](sql-data-warehouse-overview-develop.md).

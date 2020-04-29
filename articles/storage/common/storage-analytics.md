@@ -1,6 +1,6 @@
 ---
-title: Zbieranie danych dotyczących dzienników i danych dotyczących metryk za pomocą usługi Azure Storage | Dokumenty firmy Microsoft
-description: Analiza magazynu umożliwia śledzenie danych metryk dla wszystkich usług magazynu i zbieranie dzienników dla obiektów Blob, Queue i magazynu tabel.
+title: Zbieranie danych dzienników i metryk przy użyciu usługi Azure Storage Analytics | Microsoft Docs
+description: Analityka magazynu umożliwia śledzenie danych metryk dla wszystkich usług magazynu oraz zbieranie dzienników dla magazynu obiektów blob, kolejek i tabel.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -9,42 +9,42 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 4ad9f13bcdf36b67400adb62d58ee260ff256bb3
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80637144"
 ---
 # <a name="storage-analytics"></a>Analityka magazynu
 
-Usługa Azure Storage Analytics wykonuje rejestrowanie i udostępnia dane metryki dla konta magazynu. Te dane można używać do śledzenia żądań, analizowania trendów użycia i diagnozowania problemów z kontem magazynu.
+Analityka magazynu platformy Azure wykonuje rejestrowanie i udostępnia dane metryk dla konta magazynu. Za pomocą tych danych można śledzić żądania, analizować trendy użycia i diagnozować problemy z kontem magazynu.
 
-Aby korzystać z analizy magazynu, należy włączyć ją indywidualnie dla każdej usługi, którą chcesz monitorować. Można go włączyć w [witrynie Azure portal](https://portal.azure.com). Aby uzyskać szczegółowe informacje, zobacz [Monitorowanie konta magazynu w witrynie Azure portal](storage-monitor-storage-account.md). Można również włączyć usługi Storage Analytics programowo za pośrednictwem interfejsu API REST lub biblioteki klienta. Użyj [funkcji Ustaw właściwości usługi obiektów blob,](/rest/api/storageservices/set-blob-service-properties) [Ustaw właściwości usługi kolejki,](/rest/api/storageservices/set-queue-service-properties) [Ustaw właściwości usługi tabeli](/rest/api/storageservices/set-table-service-properties)i Ustaw właściwości [usługi plików,](/rest/api/storageservices/Get-File-Service-Properties) aby włączyć analizę magazynu dla każdej usługi.
+Aby użyć analityka magazynu, należy włączyć ją indywidualnie dla każdej usługi, którą chcesz monitorować. Można ją włączyć z poziomu [Azure Portal](https://portal.azure.com). Aby uzyskać szczegółowe informacje, zobacz [Monitorowanie konta magazynu w Azure Portal](storage-monitor-storage-account.md). Możesz również włączyć analityka magazynu programowo za pośrednictwem interfejsu API REST lub biblioteki klienta. Aby włączyć analityka magazynu dla każdej usługi, użyj [Właściwości Ustawianie usługi obiektów BLOB](/rest/api/storageservices/set-blob-service-properties), [Ustawianie właściwości usługi kolejki](/rest/api/storageservices/set-queue-service-properties), [Ustawianie właściwości usługi Table](/rest/api/storageservices/set-table-service-properties)i [Ustawianie właściwości usługi plików](/rest/api/storageservices/Get-File-Service-Properties) .
 
-Zagregowane dane są przechowywane w dobrze znanym obiekcie blob (do rejestrowania) i w dobrze znanych tabelach (dla metryk), które mogą być dostępne przy użyciu interfejsów API usługi obiektów Blob i usługi tabel.
+Zagregowane dane są przechowywane w dobrze znanym obiekcie BLOB (na potrzeby rejestrowania) i w dobrze znanych tabelach (dla metryk), do których można uzyskać dostęp za pomocą interfejsów API Blob service i Table service.
 
-Usługa Storage Analytics ma limit 20 TB ilości przechowywanych danych, która jest niezależna od całkowitego limitu dla twojego konta magazynu. Aby uzyskać więcej informacji na temat limitów kont magazynu, zobacz [Cele skalowalności i wydajności dla standardowych kont magazynu](scalability-targets-standard-account.md).
+Analityka magazynu ma limit 20 TB ilości przechowywanych danych, które są niezależne od łącznego limitu dla konta magazynu. Aby uzyskać więcej informacji na temat limitów kont magazynu, zobacz [cele skalowalności i wydajności dla kont magazynu w warstwie Standardowa](scalability-targets-standard-account.md).
 
-Aby uzyskać szczegółowy przewodnik dotyczący korzystania z analizy magazynu i innych narzędzi do identyfikowania, diagnozowania i rozwiązywania problemów związanych z usługą Azure Storage, zobacz [Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
+Aby uzyskać szczegółowy przewodnik dotyczący używania analityka magazynu i innych narzędzi do identyfikowania, diagnozowania i rozwiązywania problemów związanych z usługą Azure Storage, zobacz [monitorowanie, diagnozowanie i rozwiązywanie problemów z Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
-## <a name="billing-for-storage-analytics"></a>Rozliczenia za analizę pamięci masowej
+## <a name="billing-for-storage-analytics"></a>Rozliczanie dla analityka magazynu
 
-Wszystkie dane metryki są zapisywane przez usługi konta magazynu. W rezultacie każda operacja zapisu wykonywana przez storage analytics jest rozliczalna. Ponadto ilość miejsca do magazynowania używanego przez dane metryki jest również rozliczane.
+Wszystkie dane metryk są zapisywane przez usługi konta magazynu. W związku z tym każda operacja zapisu wykonywana przez analityka magazynu jest rozliczana. Dodatkowo opłaty za magazyn używany przez dane metryk są również płatne.
 
-Następujące akcje wykonywane przez storage Analytics podlegają rozliczaniu:
+Następujące akcje wykonywane przez analityka magazynu są rozliczane:
 
-* Żądania utworzenia obiektów blob do rejestrowania.
-* Żądania tworzenia jednostek tabeli dla metryk.
+* Żądania tworzenia obiektów BLOB do rejestrowania.
+* Żądania utworzenia jednostek tabeli dla metryk.
 
-Jeśli skonfigurowano zasady przechowywania danych, nie są naliczane opłaty za usuwanie transakcji, gdy usługa Storage Analytics usuwa stare dane dotyczące rejestrowania i metryki. Jednak transakcje usuwania z klienta są rozliczane. Aby uzyskać więcej informacji na temat zasad przechowywania, zobacz [Ustawianie zasad przechowywania danych analizy magazynu](https://msdn.microsoft.com/library/azure/hh343263.aspx).
+W przypadku skonfigurowania zasad przechowywania danych nie jest naliczana opłata za usuwanie transakcji, gdy analityka magazynu usuwa stare dane rejestrowania i metryk. Jednak usuwanie transakcji z klienta jest obciążane. Aby uzyskać więcej informacji na temat zasad przechowywania, zobacz [Ustawianie zasad przechowywania danych analityka magazynu](https://msdn.microsoft.com/library/azure/hh343263.aspx).
 
-### <a name="understanding-billable-requests"></a>Opis żądań podlegania rozliczania
+### <a name="understanding-billable-requests"></a>Zrozumienie żądań rozliczanych
 
-Każde żądanie złożone do usługi magazynu konta jest rozliczane lub niepodejmowalne. Usługa Storage Analytics rejestruje każde indywidualne żądanie wykonane w usłudze, w tym komunikat o stanie, który wskazuje sposób obsługi żądania. Podobnie usługa Storage Analytics przechowuje metryki zarówno dla usługi, jak i operacji interfejsu API tej usługi, w tym wartości procentowe i liczbę niektórych komunikatów o stanie. Razem te funkcje mogą pomóc w analizowaniu żądań podlegania rozliczaniu, wprowadzaniu ulepszeń w aplikacji i diagnozowaniu problemów z żądaniami do usług. Aby uzyskać więcej informacji na temat rozliczeń, zobacz [Opis rozliczeń usługi Azure Storage — przepustowość, transakcje i pojemność](https://docs.microsoft.com/archive/blogs/windowsazurestorage/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
+Każde żądanie wysłane do usługi magazynu konta jest obciążane lub nieobciążane. Analityka magazynu rejestruje każde żądanie wysyłane do usługi, w tym komunikat o stanie, który wskazuje, jak zostało obsłużone żądanie. Podobnie analityka magazynu przechowuje metryki dla usługi i operacji interfejsu API tej usługi, w tym wartości procentowe i liczby niektórych komunikatów o stanie. Funkcje te mogą pomóc analizować żądania rozliczane, wprowadzać ulepszenia aplikacji i diagnozować problemy z żądaniami do usług. Aby uzyskać więcej informacji na temat rozliczeń, zobacz [Opis rozliczeń, transakcji i pojemności usługi Azure Storage](https://docs.microsoft.com/archive/blogs/windowsazurestorage/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
 
-Patrząc na dane analizy magazynu, można użyć tabel w [analizie magazynu logged operacji i komunikatów o stanie,](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) aby określić, jakie żądania są rozliczane. Następnie można porównać dzienniki i dane metryki do komunikatów o stanie, aby sprawdzić, czy zostały obciążone za określone żądanie. Tabele w poprzednim temacie można również użyć do zbadania dostępności usługi magazynu lub operacji pojedynczego interfejsu API.
+Podczas wyszukiwania analityka magazynu danych można użyć tabel w temacie [analityka magazynu zarejestrowane operacje i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) , aby określić, które żądania są rozliczane. Następnie można porównać dane dzienników i metryk do komunikatów o stanie, aby sprawdzić, czy opłata została naliczona za określone żądanie. Możesz również użyć tabel w poprzednim temacie, aby zbadać dostępność usługi magazynu lub operacji poszczególnych interfejsów API.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Monitorowanie konta magazynu w witrynie Azure Portal](storage-monitor-storage-account.md)
-* [Dane analizy magazynu](storage-analytics-metrics.md)
+* [Metryki analityka magazynu](storage-analytics-metrics.md)
 * [Rejestrowanie analityki magazynu](storage-analytics-logging.md)

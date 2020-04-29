@@ -1,52 +1,52 @@
 ---
-title: Dodatek routingu aplikacji HTTP w usłudze Azure Kubernetes (AKS)
-description: Użyj dodatku routingu aplikacji HTTP, aby uzyskać dostęp do aplikacji wdrożonych w usłudze Azure Kubernetes Service (AKS).
+title: Dodatek routingu aplikacji protokołu HTTP w usłudze Azure Kubernetes Service (AKS)
+description: Dodatek routingu aplikacji protokołu HTTP umożliwia dostęp do aplikacji wdrożonych w usłudze Azure Kubernetes Service (AKS).
 services: container-service
 author: lachie83
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
 ms.openlocfilehash: 6ffc9daaf1b87fc9fb6ebbb0f2787f07282afe5e
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80632402"
 ---
 # <a name="http-application-routing"></a>Routing aplikacji protokołu HTTP
 
-Rozwiązanie routingu aplikacji HTTP ułatwia dostęp do aplikacji, które są wdrażane w klastrze usługi Azure Kubernetes (AKS). Gdy rozwiązanie jest włączone, konfiguruje [kontroler transferu danych przychodzących](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) w klastrze AKS. W miarę wdrażania aplikacji rozwiązanie tworzy również publicznie dostępne nazwy DNS dla punktów końcowych aplikacji.
+Rozwiązanie do routingu aplikacji HTTP ułatwia uzyskiwanie dostępu do aplikacji wdrożonych w klastrze usługi Azure Kubernetes Service (AKS). Po włączeniu rozwiązania konfiguruje on [kontroler](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) transferu danych przychodzących w klastrze AKS. Po wdrożeniu aplikacji rozwiązanie tworzy również publicznie dostępne nazwy DNS dla punktów końcowych aplikacji.
 
-Gdy dodatek jest włączony, tworzy strefę DNS w ramach subskrypcji. Aby uzyskać więcej informacji o koszcie DNS, zobacz [Cennik DNS][dns-pricing].
+Gdy dodatek jest włączony, tworzy strefę DNS w Twojej subskrypcji. Aby uzyskać więcej informacji na temat kosztu usługi DNS, zobacz [Cennik usługi DNS][dns-pricing].
 
 > [!CAUTION]
-> Dodatek routingu aplikacji HTTP umożliwia szybkie tworzenie kontrolera transferu danych przychodzących i uzyskiwanie dostępu do aplikacji. Ten dodatek nie jest zalecany do użytku produkcyjnego. Aby uzyskać gotowe do produkcji wdrożenia transferu danych przychodzących, które zawierają wiele replik i obsługę protokołu TLS, zobacz [Tworzenie kontrolera transferu danych przychodzących HTTPS](https://docs.microsoft.com/azure/aks/ingress-tls).
+> Dodatek routingu aplikacji protokołu HTTP jest przeznaczony do szybkiego tworzenia kontrolera transferu danych przychodzących i uzyskiwania dostępu do aplikacji. Ten dodatek nie jest zalecany do użycia w środowisku produkcyjnym. W przypadku gotowych do produkcji wdrożeń przychodzących obejmujących wiele replik i obsługę protokołu TLS zobacz [Tworzenie kontrolera protokołu HTTPS](https://docs.microsoft.com/azure/aks/ingress-tls).
 
 ## <a name="http-routing-solution-overview"></a>Omówienie rozwiązania routingu HTTP
 
-Dodatek wdraża dwa składniki: [kontroler transferu danych przychodzących Kubernetes][ingress] i kontroler zewnętrznego [DNS.][external-dns]
+Dodatek wdraża dwa składniki: kontroler transferu danych przychodzących [Kubernetes][ingress] i [zewnętrzny kontroler DNS][external-dns] .
 
-- **Kontroler transferu danych przychodzących:** Kontroler transferu danych przychodzących jest narażony na działanie Internetu przy użyciu usługi Kubernetes typu LoadBalancer. Kontroler transferu danych przychodzących obserwuje i implementuje [zasoby transferu Danych Przychodzących Kubernetes,][ingress-resource]które tworzą trasy do punktów końcowych aplikacji.
-- **Zewnętrzny kontroler DNS**: Obserwuje zasoby transferu danych Przychodzących kubernetes i tworzy rekordy DNS A w strefie DNS specyficznej dla klastra.
+- **Kontroler**ruchu przychodzącego: kontroler transferu danych przychodzących jest dostępny dla Internetu za pomocą usługi Kubernetes typu modułu równoważenia obciążenia. Kontroler transferu danych przychodzących służy do obserwowania i implementowania [zasobów Kubernetes][ingress-resource], które tworzą trasy do punktów końcowych aplikacji.
+- **Kontroler zewnętrzny DNS**: czujki dla zasobów przychodzących Kubernetes i tworzy rekordy A systemu DNS w strefie DNS specyficznej dla klastra.
 
 ## <a name="deploy-http-routing-cli"></a>Wdrażanie routingu HTTP: interfejs wiersza polecenia
 
-Dodatek routingu aplikacji HTTP można włączyć za pomocą interfejsu wiersza polecenia platformy Azure podczas wdrażania klastra AKS. Aby to zrobić, użyj [polecenia az aks create][az-aks-create] z argumentem. `--enable-addons`
+Dodatek routingu aplikacji protokołu HTTP można włączyć przy użyciu interfejsu wiersza polecenia platformy Azure podczas wdrażania klastra AKS. Aby to zrobić, użyj polecenia [AZ AKS Create][az-aks-create] z `--enable-addons` argumentem.
 
 ```azurecli
 az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
 ```
 
 > [!TIP]
-> Jeśli chcesz włączyć wiele dodatków, podaj je jako listę oddzieloną przecinkami. Na przykład, aby włączyć routing i monitorowanie `--enable-addons http_application_routing,monitoring`aplikacji HTTP, użyj formatu .
+> Jeśli chcesz włączyć wiele dodatków, podaj je jako listę rozdzieloną przecinkami. Aby na przykład włączyć Routing i monitorowanie aplikacji HTTP, użyj formatu `--enable-addons http_application_routing,monitoring`.
 
-Routingu HTTP można również włączyć w istniejącym klastrze AKS za pomocą polecenia [az aks enable-addons.][az-aks-enable-addons] Aby włączyć routing HTTP w istniejącym klastrze, dodaj `--addons` parametr i określ *http_application_routing,* jak pokazano w poniższym przykładzie:
+Routing protokołu HTTP można także włączyć w istniejącym klastrze AKS przy użyciu polecenia [AZ AKS Enable-dodatkis][az-aks-enable-addons] . Aby włączyć routing HTTP w istniejącym klastrze, Dodaj `--addons` parametr i określ *http_application_routing* , jak pokazano w następującym przykładzie:
 
 ```azurecli
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
 ```
 
-Po wdrożeniu lub zaktualizowaniu klastra użyj polecenia [az aks show,][az-aks-show] aby pobrać nazwę strefy DNS. Ta nazwa jest potrzebna do wdrażania aplikacji w klastrze AKS.
+Po wdrożeniu lub zaktualizowaniu klastra użyj polecenia [AZ AKS show][az-aks-show] , aby pobrać nazwę strefy DNS. Ta nazwa jest wymagana do wdrażania aplikacji w klastrze AKS.
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
@@ -57,26 +57,26 @@ Wynik
 9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
 
 
-## <a name="deploy-http-routing-portal"></a>Wdrażanie routingu HTTP: portal
+## <a name="deploy-http-routing-portal"></a>Wdrażanie routingu HTTP: Portal
 
-Dodatek routingu aplikacji HTTP można włączyć za pośrednictwem witryny Azure portal podczas wdrażania klastra AKS.
+Dodatek routingu aplikacji protokołu HTTP można włączyć za pomocą Azure Portal podczas wdrażania klastra AKS.
 
 ![Włączanie funkcji routingu HTTP](media/http-routing/create.png)
 
-Po wdrożeniu klastra przejdź do automatycznie utworzonej grupy zasobów AKS i wybierz strefę DNS. Zanotuj nazwę strefy DNS. Ta nazwa jest potrzebna do wdrażania aplikacji w klastrze AKS.
+Po wdrożeniu klastra przejdź do utworzonej grupy zasobów AKS i wybierz strefę DNS. Zanotuj nazwę strefy DNS. Ta nazwa jest wymagana do wdrażania aplikacji w klastrze AKS.
 
-![Pobierz nazwę strefy DNS](media/http-routing/dns.png)
+![Pobieranie nazwy strefy DNS](media/http-routing/dns.png)
 
 ## <a name="use-http-routing"></a>Korzystanie z routingu HTTP
 
-Rozwiązanie routingu aplikacji HTTP może być wyzwalane tylko w zasobach transferu danych przychodzących, które są oś tym, co następuje:
+Rozwiązanie do routingu aplikacji HTTP może być wyzwalane tylko w przypadku zasobów przychodzących, które są opatrzone adnotacją w następujący sposób:
 
 ```yaml
 annotations:
   kubernetes.io/ingress.class: addon-http-application-routing
 ```
 
-Utwórz plik o nazwie **samples-http-application-routing.yaml** i skopiuj w następującym pliku YAML. W wierszu 43 należy zaktualizować `<CLUSTER_SPECIFIC_DNS_ZONE>` nazwę strefy DNS zebraną w poprzednim kroku tego artykułu.
+Utwórz plik o nazwie **Samples-http-Application-Routing. YAML** i skopiuj go do poniższego YAML. W wierszu 43 zaktualizuj `<CLUSTER_SPECIFIC_DNS_ZONE>` nazwę strefy DNS zebraną w poprzednim kroku tego artykułu.
 
 
 ```yaml
@@ -135,7 +135,7 @@ spec:
         path: /
 ```
 
-Użyj [polecenia kubectl apply,][kubectl-apply] aby utworzyć zasoby.
+Użyj polecenia [polecenia kubectl Apply][kubectl-apply] , aby utworzyć zasoby.
 
 ```bash
 $ kubectl apply -f samples-http-application-routing.yaml
@@ -145,7 +145,7 @@ service "party-clippy" created
 ingress "party-clippy" created
 ```
 
-Użyj cURL lub przeglądarki, aby przejść do nazwy hosta określonej w sekcji hosta pliku samples-http-application-routing.yaml. Aplikacja może potrwać do jednej minuty, zanim będzie dostępna przez Internet.
+Użyj Zwinięciea lub przeglądarki, aby przejść do nazwy hosta określonej w sekcji Host w pliku Samples-http-Application-Routing. YAML. Aplikacja może upłynąć do 1 minuty, zanim będzie dostępna za pośrednictwem Internetu.
 
 ```bash
 $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
@@ -168,17 +168,17 @@ $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 
 ```
 
-## <a name="remove-http-routing"></a>Usuwanie routingu HTTP
+## <a name="remove-http-routing"></a>Usuń Routing HTTP
 
-Rozwiązanie routingu HTTP można usunąć przy użyciu interfejsu wiersza polecenia platformy Azure. Aby to zrobić, uruchom następujące polecenie, zastępując nazwę klastra i grupy zasobów AKS.
+Rozwiązanie do routingu HTTP można usunąć za pomocą interfejsu wiersza polecenia platformy Azure. Aby to zrobić, uruchom następujące polecenie, zastępując klaster AKS i nazwę grupy zasobów.
 
 ```azurecli
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
-Gdy dodatek routingu aplikacji HTTP jest wyłączony, niektóre zasoby kubernetes mogą pozostać w klastrze. Zasoby te obejmują *configMaps* i *wpisy tajne*i są tworzone w obszarze nazw *systemu kube.* Aby zachować czysty klaster, można usunąć te zasoby.
+Gdy dodatek routingu aplikacji protokołu HTTP jest wyłączony, niektóre zasoby Kubernetes mogą pozostać w klastrze. Te zasoby obejmują *configMaps* i wpisy *tajne*i są tworzone w przestrzeni nazw *polecenia-system* . Aby zachować czysty klaster, możesz chcieć usunąć te zasoby.
 
-Poszukaj zasobów *routingu addon-http-application* przy użyciu następujących poleceń [get kubectl:][kubectl-get]
+Poszukaj *dodatków-http-Application-Routing* zasobów przy użyciu następujących poleceń [polecenia kubectl Get][kubectl-get] :
 
 ```console
 kubectl get deployments --namespace kube-system
@@ -187,7 +187,7 @@ kubectl get configmaps --namespace kube-system
 kubectl get secrets --namespace kube-system
 ```
 
-Poniższy przykładowy wynik pokazuje configMaps, które powinny zostać usunięte:
+Następujące przykładowe dane wyjściowe przedstawiają configMaps, które powinny zostać usunięte:
 
 ```
 $ kubectl get configmaps --namespace kube-system
@@ -198,17 +198,17 @@ kube-system   addon-http-application-routing-tcp-services                0      
 kube-system   addon-http-application-routing-udp-services                0      9m7s
 ```
 
-Aby usunąć zasoby, użyj polecenia [kubectl delete.][kubectl-delete] Określ typ zasobu, nazwę zasobu i obszar nazw. Poniższy przykład usuwa jedną z poprzednich configmaps:
+Aby usunąć zasoby, użyj polecenia [polecenia kubectl Delete][kubectl-delete] . Określ typ zasobu, nazwę zasobu i przestrzeń nazw. Poniższy przykład usuwa jeden z poprzednich configmaps:
 
 ```console
 kubectl delete configmaps addon-http-application-routing-nginx-configuration --namespace kube-system
 ```
 
-Powtórz poprzedni `kubectl delete` krok dla wszystkich zasobów *routingu addon-http-application,* które pozostały w klastrze.
+Powtórz poprzedni `kubectl delete` krok dla wszystkich zasobów *routingu protokołu HTTP i aplikacji* , które pozostały w klastrze.
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-Polecenie [logi kubectl][kubectl-logs] służy do wyświetlania dzienników aplikacji dla aplikacji External-DNS. Dzienniki powinny potwierdzić, że rekord DNS A i TXT został pomyślnie utworzony.
+Użyj [polecenia kubectl dzienników][kubectl-logs] , aby wyświetlić dzienniki aplikacji dla zewnętrznej aplikacji DNS. Dzienniki powinny potwierdzić pomyślne utworzenie rekordu DNS a i TXT.
 
 ```
 $ kubectl logs -f deploy/addon-http-application-routing-external-dns -n kube-system
@@ -217,11 +217,11 @@ time="2018-04-26T20:36:19Z" level=info msg="Updating A record named 'party-clipp
 time="2018-04-26T20:36:21Z" level=info msg="Updating TXT record named 'party-clippy' to '"heritage=external-dns,external-dns/owner=default"' for Azure DNS zone '471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io'."
 ```
 
-Te rekordy można również zobaczyć w zasobie strefy DNS w witrynie Azure portal.
+Te rekordy mogą być również widoczne w zasobie strefy DNS w Azure Portal.
 
-![Pobierz rekordy DNS](media/http-routing/clippy.png)
+![Pobieranie rekordów DNS](media/http-routing/clippy.png)
 
-Polecenie [logi kubectl][kubectl-logs] służy do wyświetlania dzienników aplikacji dla kontrolera transferu danych przychodzących Nginx. Dzienniki powinny potwierdzić `CREATE` zasób transferu danych przychodzących i przeładowanie kontrolera. Cała aktywność HTTP jest rejestrowana.
+Użyj [polecenia kubectl dzienników][kubectl-logs] , aby wyświetlić dzienniki aplikacji dla kontrolera Nginx transferu danych przychodzących. Dzienniki powinny potwierdzić zasób transferu `CREATE` danych przychodzących i załadować ponownie kontroler. Wszystkie aktywności HTTP są rejestrowane.
 
 ```bash
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system
@@ -274,7 +274,7 @@ ingress "party-clippy" deleted
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać informacje na temat instalowania kontrolera transferu danych przychodzących zabezpieczonych przez protokół HTTPS w usłudze AKS, zobacz [Https Ingress on Azure Kubernetes Service (AKS)][ingress-https].
+Aby uzyskać informacje na temat sposobu instalowania kontrolera transferu danych zabezpieczonych przy użyciu protokołu HTTPS w programie AKS, zobacz https transferal in [Azure Kubernetes Service (AKS)][ingress-https].
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create

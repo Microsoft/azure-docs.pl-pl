@@ -1,28 +1,28 @@
 ---
-title: Powiązanie danych wejściowych magazynu obiektów Blob platformy Azure dla usług Azure Functions
-description: Dowiedz się, jak dostarczać dane magazynu obiektów Blob platformy Azure do funkcji platformy Azure.
+title: Powiązanie danych wejściowych magazynu obiektów blob platformy Azure dla Azure Functions
+description: Dowiedz się, jak dostarczyć dane usługi Azure Blob Storage do funkcji platformy Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: 33db9a8d86e02db2076cdb85170d466697930b96
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633885"
 ---
-# <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Powiązanie danych wejściowych magazynu obiektów Blob platformy Azure dla usług Azure Functions
+# <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Powiązanie danych wejściowych magazynu obiektów blob platformy Azure dla Azure Functions
 
-Powiązanie wejściowe umożliwia odczyt danych magazynu obiektów blob jako dane wejściowe do funkcji platformy Azure.
+Powiązanie danych wejściowych umożliwia odczytywanie danych usługi BLOB Storage jako danych wejściowych do funkcji platformy Azure.
 
-Aby uzyskać informacje na temat szczegółów konfiguracji i konfiguracji, zobacz [omówienie](./functions-bindings-storage-blob.md).
+Aby uzyskać informacje na temat konfiguracji i szczegółów konfiguracji, zobacz [Omówienie](./functions-bindings-storage-blob.md).
 
 ## <a name="example"></a>Przykład
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
-Poniższy przykład jest [funkcją Języka C#,](functions-dotnet-class-library.md) która używa wyzwalacza kolejki i powiązania wejściowego obiektu blob. Komunikat kolejki zawiera nazwę obiektu blob, a funkcja rejestruje rozmiar obiektu blob.
+Poniższy przykład to [funkcja języka C#](functions-dotnet-class-library.md) , która używa wyzwalacza kolejki i wejściowego powiązania obiektu BLOB. Komunikat kolejki zawiera nazwę obiektu BLOB, a funkcja rejestruje rozmiar obiektu BLOB.
 
 ```csharp
 [FunctionName("BlobInput")]
@@ -35,13 +35,13 @@ public static void Run(
 }
 ```
 
-# <a name="c-script"></a>[Skrypt języka C#](#tab/csharp-script)
+# <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
 <!--Same example for input and output. -->
 
-W poniższym przykładzie przedstawiono powiązania wejściowe i wyjściowe obiektu blob w pliku *function.json* i kod [skryptu C# (csx),](functions-reference-csharp.md) który używa powiązań. Funkcja tworzy kopię tekstowego obiektu blob. Funkcja jest wyzwalana przez komunikat kolejki, który zawiera nazwę obiektu blob do skopiowania. Nowy obiekt blob nosi nazwę *{originalblobname}-Copy*.
+Poniższy przykład przedstawia powiązania danych wejściowych i wyjściowych obiektów BLOB w pliku *Function. JSON* i kodzie [skryptu C# (CSX)](functions-reference-csharp.md) , który używa powiązań. Funkcja tworzy kopię tekstu obiektu BLOB. Funkcja jest wyzwalana przez komunikat kolejki, który zawiera nazwę obiektu BLOB do skopiowania. Nowy obiekt BLOB ma nazwę *{originalblobname}-Copy*.
 
-W pliku *function.json* `queueTrigger` właściwość metadanych jest używana do `path` określania nazwy obiektu blob we właściwościach:
+W pliku *Function. JSON* Właściwość `queueTrigger` metadanych służy do określania nazwy obiektu BLOB we `path` właściwościach:
 
 ```json
 {
@@ -72,9 +72,9 @@ W pliku *function.json* `queueTrigger` właściwość metadanych jest używana d
 }
 ```
 
-W sekcji [konfiguracji](#configuration) opisano te właściwości.
+W sekcji [Konfiguracja](#configuration) objaśniono te właściwości.
 
-Oto kod skryptu języka C#:
+Oto kod skryptu w języku C#:
 
 ```cs
 public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, ILogger log)
@@ -88,9 +88,9 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 
 <!--Same example for input and output. -->
 
-W poniższym przykładzie przedstawiono powiązania wejściowe i wyjściowe obiektu blob w pliku *function.json* i [kod JavaScript,](functions-reference-node.md) który używa powiązań. Funkcja tworzy kopię obiektu blob. Funkcja jest wyzwalana przez komunikat kolejki, który zawiera nazwę obiektu blob do skopiowania. Nowy obiekt blob nosi nazwę *{originalblobname}-Copy*.
+Poniższy przykład przedstawia powiązania danych wejściowych i wyjściowych obiektów BLOB w pliku *Function. JSON* i [kodzie JavaScript](functions-reference-node.md) , który używa powiązań. Funkcja tworzy kopię obiektu BLOB. Funkcja jest wyzwalana przez komunikat kolejki, który zawiera nazwę obiektu BLOB do skopiowania. Nowy obiekt BLOB ma nazwę *{originalblobname}-Copy*.
 
-W pliku *function.json* `queueTrigger` właściwość metadanych jest używana do `path` określania nazwy obiektu blob we właściwościach:
+W pliku *Function. JSON* Właściwość `queueTrigger` metadanych służy do określania nazwy obiektu BLOB we `path` właściwościach:
 
 ```json
 {
@@ -121,7 +121,7 @@ W pliku *function.json* `queueTrigger` właściwość metadanych jest używana d
 }
 ```
 
-W sekcji [konfiguracji](#configuration) opisano te właściwości.
+W sekcji [Konfiguracja](#configuration) objaśniono te właściwości.
 
 Oto kod JavaScript:
 
@@ -137,9 +137,9 @@ module.exports = function(context) {
 
 <!--Same example for input and output. -->
 
-W poniższym przykładzie przedstawiono powiązania wejściowe i wyjściowe obiektu blob w pliku *function.json* i [kod python,](functions-reference-python.md) który używa powiązań. Funkcja tworzy kopię obiektu blob. Funkcja jest wyzwalana przez komunikat kolejki, który zawiera nazwę obiektu blob do skopiowania. Nowy obiekt blob nosi nazwę *{originalblobname}-Copy*.
+Poniższy przykład przedstawia powiązania danych wejściowych i wyjściowych obiektów BLOB w pliku *Function. JSON* i [kodzie Python](functions-reference-python.md) , który używa powiązań. Funkcja tworzy kopię obiektu BLOB. Funkcja jest wyzwalana przez komunikat kolejki, który zawiera nazwę obiektu BLOB do skopiowania. Nowy obiekt BLOB ma nazwę *{originalblobname}-Copy*.
 
-W pliku *function.json* `queueTrigger` właściwość metadanych jest używana do `path` określania nazwy obiektu blob we właściwościach:
+W pliku *Function. JSON* Właściwość `queueTrigger` metadanych służy do określania nazwy obiektu BLOB we `path` właściwościach:
 
 ```json
 {
@@ -172,9 +172,9 @@ W pliku *function.json* `queueTrigger` właściwość metadanych jest używana d
 }
 ```
 
-W sekcji [konfiguracji](#configuration) opisano te właściwości.
+W sekcji [Konfiguracja](#configuration) objaśniono te właściwości.
 
-Oto kod Pythona:
+Oto kod języka Python:
 
 ```python
 import logging
@@ -190,12 +190,12 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
 
 Ta sekcja zawiera następujące przykłady:
 
-* [Wyzwalacz HTTP, wyszukuj nazwę obiektu blob z ciągu kwerendy](#http-trigger-look-up-blob-name-from-query-string)
-* [Wyzwalacz kolejki, odbieranie nazwy obiektu blob z wiadomości kolejki](#queue-trigger-receive-blob-name-from-queue-message)
+* [Wyzwalacz HTTP, wyszukiwanie nazwy obiektu BLOB na podstawie ciągu zapytania](#http-trigger-look-up-blob-name-from-query-string)
+* [Wyzwalacz kolejki, Odbierz nazwę obiektu BLOB z komunikatu kolejki](#queue-trigger-receive-blob-name-from-queue-message)
 
-#### <a name="http-trigger-look-up-blob-name-from-query-string"></a>Wyzwalacz HTTP, wyszukuj nazwę obiektu blob z ciągu kwerendy
+#### <a name="http-trigger-look-up-blob-name-from-query-string"></a>Wyzwalacz HTTP, wyszukiwanie nazwy obiektu BLOB na podstawie ciągu zapytania
 
- W poniższym przykładzie przedstawiono `HttpTrigger` funkcję Java, która używa adnotacji do odbierania parametru zawierającego nazwę pliku w kontenerze magazynu obiektów blob. Adnotacja `BlobInput` następnie odczytuje plik i przekazuje jego `byte[]`zawartość do funkcji jako .
+ W poniższym przykładzie pokazano funkcję języka Java, która używa `HttpTrigger` adnotacji do otrzymywania parametru zawierającego nazwę pliku w kontenerze magazynu obiektów BLOB. `BlobInput` Adnotacja następnie odczytuje plik i przekazuje jego zawartość do funkcji jako `byte[]`.
 
 ```java
   @FunctionName("getBlobSizeHttp")
@@ -218,9 +218,9 @@ Ta sekcja zawiera następujące przykłady:
   }
 ```
 
-#### <a name="queue-trigger-receive-blob-name-from-queue-message"></a>Wyzwalacz kolejki, odbieranie nazwy obiektu blob z wiadomości kolejki
+#### <a name="queue-trigger-receive-blob-name-from-queue-message"></a>Wyzwalacz kolejki, Odbierz nazwę obiektu BLOB z komunikatu kolejki
 
- W poniższym przykładzie pokazano funkcję `QueueTrigger` Java, która używa adnotacji do odbierania wiadomości zawierającej nazwę pliku w kontenerze magazynu obiektów blob. Adnotacja `BlobInput` następnie odczytuje plik i przekazuje jego `byte[]`zawartość do funkcji jako .
+ Poniższy przykład pokazuje funkcję języka Java, która używa `QueueTrigger` adnotacji do odbierania komunikatu zawierającego nazwę pliku w kontenerze magazynu obiektów BLOB. `BlobInput` Adnotacja następnie odczytuje plik i przekazuje jego zawartość do funkcji jako `byte[]`.
 
 ```java
   @FunctionName("getBlobSize")
@@ -240,17 +240,17 @@ Ta sekcja zawiera następujące przykłady:
   }
 ```
 
-W [bibliotece środowiska wykonawczego](/java/api/overview/azure/functions/runtime)funkcji `@BlobInput` Języka Java użyj adnotacji na temat parametrów, których wartość będzie pochodzić z obiektu blob.  Ta adnotacja może być używana z natywnymi typami `Optional<T>`Java, POJO lub wartościami nullable przy użyciu .
+W [bibliotece środowiska uruchomieniowego funkcji Java](/java/api/overview/azure/functions/runtime)Użyj `@BlobInput` adnotacji w parametrach, których wartość pochodzi z obiektu BLOB.  Tej adnotacji można używać w przypadku natywnych typów Java, Pojo lub wartości null `Optional<T>`przy użyciu.
 
 ---
 
 ## <a name="attributes-and-annotations"></a>Atrybuty i adnotacje
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
-W [bibliotekach klas języka C#](functions-dotnet-class-library.md)użyj [atrybutu BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs).
+W [bibliotekach klas języka C#](functions-dotnet-class-library.md)Użyj [obiektu blobattribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs).
 
-Konstruktor atrybutu przyjmuje ścieżkę do obiektu `FileAccess` blob i parametr wskazujący odczyt lub zapis, jak pokazano w poniższym przykładzie:
+Konstruktor atrybutu przyjmuje ścieżkę do obiektu BLOB i `FileAccess` parametr wskazujący odczyt lub zapis, jak pokazano w następującym przykładzie:
 
 ```csharp
 [FunctionName("BlobInput")]
@@ -264,7 +264,7 @@ public static void Run(
 
 ```
 
-Można ustawić `Connection` właściwość, aby określić konto magazynu do użycia, jak pokazano w poniższym przykładzie:
+Możesz ustawić `Connection` właściwość, aby określić konto magazynu do użycia, jak pokazano w następującym przykładzie:
 
 ```csharp
 [FunctionName("BlobInput")]
@@ -277,66 +277,66 @@ public static void Run(
 }
 ```
 
-Za pomocą `StorageAccount` atrybutu można określić konto magazynu na poziomie klasy, metody lub parametru. Aby uzyskać więcej informacji, zobacz [Wyzwalacz - atrybuty i adnotacje](./functions-bindings-storage-blob-trigger.md#attributes-and-annotations).
+Możesz użyć `StorageAccount` atrybutu, aby określić konto magazynu na poziomie klasy, metody lub parametru. Aby uzyskać więcej informacji, zobacz [wyzwalacz-atrybuty i adnotacje](./functions-bindings-storage-blob-trigger.md#attributes-and-annotations).
 
-# <a name="c-script"></a>[Skrypt języka C#](#tab/csharp-script)
+# <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
 Atrybuty nie są obsługiwane przez skrypt języka C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Atrybuty nie są obsługiwane przez javascript.
+Atrybuty nie są obsługiwane przez język JavaScript.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Atrybuty nie są obsługiwane przez Pythona.
+Atrybuty nie są obsługiwane przez język Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Atrybut `@BlobInput` daje dostęp do obiektu blob, który wyzwolił funkcję. Jeśli używasz tablicy bajtowej z `dataType` `binary`atrybutem, ustaw na . Szczegółowe informacje można znaleźć w [przykładzie wprowadzania.](#example)
+Ten `@BlobInput` atrybut daje dostęp do obiektu BLOB, który wyzwolił funkcję. Jeśli używasz tablicy bajtowej z atrybutem, ustaw wartość `dataType` `binary`. Aby uzyskać szczegółowe informacje, zobacz [przykład danych wejściowych](#example) .
 
 ---
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
-W poniższej tabeli opisano właściwości konfiguracji powiązania, które można `Blob` ustawić w pliku *function.json* i atrybut.
+W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `Blob` atrybucie.
 
-|właściwość function.json | Właściwość atrybutu |Opis|
+|Function. JSON — Właściwość | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Typu** | Nie dotyczy | Musi być `blob`ustawiona na . |
-|**Kierunku** | Nie dotyczy | Musi być `in`ustawiona na . Wyjątki są odnotowane w sekcji [użycia.](#usage) |
-|**Nazwa** | Nie dotyczy | Nazwa zmiennej reprezentującej obiekt blob w kodzie funkcji.|
-|**Ścieżka** |**Ścieżka obiektu BlobPath** | Ścieżka do obiektu blob. |
-|**Połączenia** |**Połączenia**| Nazwa ustawienia aplikacji, która zawiera [ciąg połączenia magazynu](../storage/common/storage-configure-connection-string.md) do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji zaczyna się od "AzureWebJobs", można określić tylko pozostałą część nazwy tutaj. Na przykład jeśli `connection` ustawisz "MyStorage", funkcja środowiska wykonawczego szuka ustawienia aplikacji o nazwie "AzureWebJobsMyStorage". Jeśli pozostawisz `connection` puste, środowisko wykonawcze Functions używa domyślnego ciągu połączenia `AzureWebJobsStorage`Magazyn w ustawieniu aplikacji o nazwie .<br><br>Parametry połączenia muszą być dla konta magazynu ogólnego przeznaczenia, a nie konta magazynu tylko dla [obiektów blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|Nie dotyczy | **Dostęp** | Wskazuje, czy będziesz czytać czy pisać. |
+|**Wprowadź** | n/d | Musi być ustawiony na `blob`. |
+|**wskazywa** | n/d | Musi być ustawiony na `in`. Wyjątki są zanotowane w sekcji [użycie](#usage) . |
+|**Nazwij** | n/d | Nazwa zmiennej, która reprezentuje obiekt BLOB w kodzie funkcji.|
+|**ścieżka** |**Blobpath ścieżką** | Ścieżka do obiektu BLOB. |
+|**połączenia** |**Połączenia**| Nazwa ustawienia aplikacji, które zawiera [Parametry połączenia magazynu](../storage/common/storage-configure-connection-string.md) , które będą używane dla tego powiązania. Jeśli nazwa ustawienia aplikacji zaczyna się od "AzureWebJobs", w tym miejscu możesz określić tylko resztę nazwy. Jeśli na przykład ustawisz `connection` opcję "Moja magazyn", środowisko uruchomieniowe funkcji wyszukuje ustawienie aplikacji o nazwie "AzureWebJobsMyStorage". Jeśli pozostawisz `connection` puste, środowisko uruchomieniowe funkcji używa domyślnych parametrów połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.<br><br>Parametry połączenia muszą być kontem magazynu ogólnego przeznaczenia, a nie [kontem magazynu obsługującym tylko obiekty blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|n/d | **Dostęp** | Wskazuje, czy będą odczytywane i zapisywane. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Sposób użycia
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 [!INCLUDE [functions-bindings-blob-storage-input-usage.md](../../includes/functions-bindings-blob-storage-input-usage.md)]
 
-# <a name="c-script"></a>[Skrypt języka C#](#tab/csharp-script)
+# <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-input-usage.md](../../includes/functions-bindings-blob-storage-input-usage.md)]
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Dostęp do danych `context.bindings.<NAME>` `<NAME>` obiektów blob przy użyciu miejsca, w którym jest zgodny z wartością zdefiniowaną w *pliku function.json*.
+Dostęp do danych obiektów `context.bindings.<NAME>` BLOB `<NAME>` przy użyciu metody WHERE odpowiada wartości zdefiniowanej w *funkcji Function. JSON*.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Dostęp do danych obiektów blob za pośrednictwem parametru wpisanego jako [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Szczegółowe informacje można znaleźć w [przykładzie wprowadzania.](#example)
+Dostęp do danych obiektów BLOB za pomocą parametru, który został określony jako [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Aby uzyskać szczegółowe informacje, zobacz [przykład danych wejściowych](#example) .
 
 # <a name="java"></a>[Java](#tab/java)
 
-Atrybut `@BlobInput` daje dostęp do obiektu blob, który wyzwolił funkcję. Jeśli używasz tablicy bajtowej z `dataType` `binary`atrybutem, ustaw na . Szczegółowe informacje można znaleźć w [przykładzie wprowadzania.](#example)
+Ten `@BlobInput` atrybut daje dostęp do obiektu BLOB, który wyzwolił funkcję. Jeśli używasz tablicy bajtowej z atrybutem, ustaw wartość `dataType` `binary`. Aby uzyskać szczegółowe informacje, zobacz [przykład danych wejściowych](#example) .
 
 ---
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Uruchamianie funkcji po zmianie danych magazynu obiektów blob](./functions-bindings-storage-blob-trigger.md)
-- [Zapisywanie danych magazynu obiektów blob z funkcji](./functions-bindings-storage-blob-output.md)
+- [Uruchom funkcję, gdy zmieniają się dane magazynu obiektów BLOB](./functions-bindings-storage-blob-trigger.md)
+- [Zapisywanie danych usługi BLOB Storage z funkcji](./functions-bindings-storage-blob-output.md)

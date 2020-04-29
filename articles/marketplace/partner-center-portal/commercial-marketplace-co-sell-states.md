@@ -1,6 +1,6 @@
 ---
-title: Kody stanu i prowincji co-sell | Azure Marketplace
-description: Użyj tych kodów stanu i prowincji, gdy podaj informacje kontaktowe na stronie Co-sell oferty.
+title: Kody stanu i województwa współsprzedawanego | Portal Azure Marketplace
+description: Użyj tych kodów województwa podczas udostępniania informacji kontaktowych na stronie współsprzedaży oferty.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,81 +8,81 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 782f2d6facb28630989f086a68c551314e02e48e
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80619359"
 ---
-# <a name="co-sell-state-and-province-codes"></a>Kody stanu i prowincji co-sell
+# <a name="co-sell-state-and-province-codes"></a>Kody stanu i województwa współsprzedawanego
 
-Jeśli ma to zastosowanie, użyj tych kodów, aby podać informacje o stanie/prowincji, [podając informacje kontaktowe na stronie Co-sell oferty.](commercial-marketplace-co-sell.md#contacts)
+Jeśli ma to zastosowanie, Użyj tych kodów, aby podać informacje o stanie/prowincji podczas [udostępniania informacji kontaktowych na stronie współpracownika oferty](commercial-marketplace-co-sell.md#contacts).
 
-## <a name="us-states-and-territories"></a>Stany i terytoria USA
+## <a name="us-states-and-territories"></a>Stany USA i terytoria
 
-|   Nazwa państwa i terytorium          |   Code    |
+|   Nazwa stanu i regionu          |   Code    |
 |-------------------------------------|-----------|
-| Alabama                             | Stany Zjednoczone-AL     |
-| Alaska                              | Stany Zjednoczone-AK     |
-| Arizona                             | Stany Zjednoczone-AZ     |
-| Arkansas                            | Stany Zjednoczone-AR     |
-| Kalifornia                          | Stany Zjednoczone-Ca     |
-| Kolorado                            | Stany Zjednoczone-CO     |
-| Connecticut                         | Stany Zjednoczone-CT     |
-| Delaware                            | Stany Zjednoczone-DE     |
-| Floryda                             | Stany Zjednoczone-FL     |
-| Gruzja                             | Stany Zjednoczone-GA     |
-| Hawaje                              | STANY ZJEDNOCZONE-HI     |
-| Idaho                               | Identyfikator STANÓW Zjednoczonych     |
-| Illinois                            | Stany Zjednoczone-IL     |
-| Indiana                             | Us-in (STANY ZJEDNOCZONE)     |
-| Iowa                                | Stany Zjednoczone-IA     |
-| Kansas                              | Stany Zjednoczone-KS     |
-| Kentucky                            | Stany Zjednoczone-KY     |
-| Louisiana                           | Stany Zjednoczone-LA     |
-| Maine                               | Stany Zjednoczone-ME     |
-| Maryland                            | Us-MD     |
-| Massachusetts                       | Stany Zjednoczone-Ma     |
-| Michigan                            | Us-MI     |
-| Minnesota                           | Stany Zjednoczone-MN     |
-| Mississippi                         | Stany Zjednoczone-MS     |
-| Missouri                            | Stany Zjednoczone-MO     |
-| Montana                             | Stany Zjednoczone-MT     |
-| Nebraska                            | Stany Zjednoczone-NE     |
-| Nevada                              | Stany Zjednoczone-NV     |
-| New Hampshire                       | Stany Zjednoczone-NH     |
-| New Jersey                          | Stany Zjednoczone-NJ     |
-| New Mexico                          | Stany Zjednoczone-NM     |
-| Nowy Jork                            | Stany Zjednoczone -NY     |
-| Karolina Północna                      | Stany Zjednoczone-NC     |
-| North Dakota                        | Stany Zjednoczone-Nd     |
-| Ohio                                | Stany Zjednoczone-OH     |
-| Oklahoma                            | Stany Zjednoczone-OK     |
-| Oregon                              | USA LUB     |
-| Pensylwania                        | Stany Zjednoczone-Pa     |
-| Rhode Island                        | Stany Zjednoczone-RI     |
-| Karolina Południowa                      | Stany Zjednoczone-SC     |
-| Dakota Południowa                        | Stany Zjednoczone-SD     |
-| Tennessee                           | Stany Zjednoczone-TN     |
-| Teksas                               | Stany Zjednoczone-TX     |
-| Utah                                | Stany Zjednoczone-UT     |
-| Vermont                             | Stany Zjednoczone-VT     |
-| Wirginia                            | Stany Zjednoczone-VA     |
-| Waszyngton                          | Stany Zjednoczone-WA     |
-| Wirginia Zachodnia                       | Stany Zjednoczone-WV     |
-| Wisconsin                           | Stany Zjednoczone-WI     |
-| Wyoming                             | Stany Zjednoczone-WY     |
-| Dystrykt Kolumbii                | Stany Zjednoczone-DC     |
-| Samoa Amerykańskie                      | STANY ZJEDNOCZONE-AS     |
-| Guam                                | Stany Zjednoczone-GU     |
-| Mariany Północne            | Amerykański poseł do Parlamentu Europejskiego     |
+| Alabama                             | US-AL     |
+| Alaska                              | US — KLUCZA UWIERZYTELNIANIA     |
+| Arizona                             | US-AZ     |
+| Arkansas                            | US-AR     |
+| Kalifornia                          | US — CA     |
+| Kolorado                            | US — CO     |
+| Connecticut                         | US-CT     |
+| Delaware                            | US-DE     |
+| Floryda                             | US-FL     |
+| Gruzja                             | US — GA     |
+| Hawaje                              | US — WITAJ     |
+| Idaho                               | US — IDENTYFIKATOR     |
+| Illinois                            | US — IL     |
+| Indiana                             | US-IN     |
+| Iowa                                | US — IA     |
+| Kansas                              | US-KS     |
+| Kentucky                            | US — KY     |
+| Louisiana                           | US — LA     |
+| Maine                               | US-ME     |
+| Maryland                            | US-MD     |
+| Massachusetts                       | US — MA     |
+| Michigan                            | US-MI     |
+| Minnesota                           | US-MN     |
+| Mississippi                         | US-MS     |
+| Missouri                            | US-MO     |
+| Montana                             | US-MT     |
+| Nebraska                            | US — NE     |
+| Nevada                              | US — NV     |
+| New Hampshire                       | US — NH     |
+| New Jersey                          | US — NJ     |
+| New Mexico                          | US – NM     |
+| Nowy Jork                            | US — POLSKA     |
+| Karolina Północna                      | US-NC     |
+| North Dakota                        | US-ND     |
+| Ohio                                | STANY USA     |
+| Oklahoma                            | US — OK     |
+| Oregon                              | US-LUB     |
+| Pensylwania                        | US-PA     |
+| Rhode Island                        | US — RI     |
+| Karolina Południowa                      | US-SC     |
+| Dakota Południowa                        | US-SD     |
+| Tennessee                           | US-TN     |
+| Teksas                               | US-TX     |
+| Utah                                | US-UT     |
+| Vermont                             | US — VT     |
+| Wirginia                            | US — VA     |
+| Waszyngton                          | US-WA     |
+| Wirginia Zachodnia                       | US — WV     |
+| Wisconsin                           | US-WI     |
+| Wyoming                             | US — WY     |
+| Dystrykt Kolumbii                | US — DC     |
+| Samoa Amerykańskie                      | US-AS     |
+| Guam                                | US — GU     |
+| Mariany Północne            | US — MP     |
 | Portoryko                         | US-PR     |
-| Stany Zjednoczone Minor Outlying Islands | Stany Zjednoczone-UM    |
-| Wyspy Dziewicze Stanów Zjednoczonych                 | Stany Zjednoczone-VI    |
+| Stany Zjednoczone odległe mniejsze wyspy | US-UM    |
+| Wyspy Dziewicze Stanów Zjednoczonych                 | US-VI    |
 
-## <a name="canadian-provinces-and-territories"></a>Kanadyjskie prowincje i terytoria
+## <a name="canadian-provinces-and-territories"></a>Prowincje i terytoria kanadyjskie
 
-|   Nazwa prowincji i terytorium       |   Code    |
+|   Nazwa województwa i regionu       |   Code    |
 |-------------------------------------|-----------|
 | Alberta                             |  CA-AB    |
 | Kolumbia Brytyjska                    |  CA-BC    |
@@ -99,9 +99,9 @@ Jeśli ma to zastosowanie, użyj tych kodów, aby podać informacje o stanie/pro
 | Jukon                               |  CA-YT    |
 
 
-## <a name="australian-states-and-territories"></a>Australijskie stany i terytoria
+## <a name="australian-states-and-territories"></a>Stany i terytoria australijskie
 
-|   Nazwa państwa i terytorium          |   Code    |
+|   Nazwa stanu i regionu          |   Code    |
 |-------------------------------------|-----------|
 | Nowa Południowa Walia                     |  AU-NSW   |
 | Queensland                          |  AU-QLD   |
@@ -115,4 +115,4 @@ Jeśli ma to zastosowanie, użyj tych kodów, aby podać informacje o stanie/pro
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [opcji współsprzedaży w Centrum partnerów](./commercial-marketplace-co-sell.md).
+- Dowiedz się więcej o [opcji "co sprzedajesz" w centrum partnerskim](./commercial-marketplace-co-sell.md).

@@ -12,20 +12,20 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 3efd8a776542616a9ceefba331b06406540905a8
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633322"
 ---
-# <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Zarządzanie i monitorowanie znaczenia obciążenia w usłudze Azure Synapse Analytics
+# <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Zarządzanie i monitorowanie ważności obciążeń w usłudze Azure Synapse Analytics
 
-Zarządzanie i monitorowanie zarządzania poziomem zarządzania żądaniem Synapse SQL w usłudze Synapse platformy Azure przy użyciu obiektów DMV i widoków wykazu.
+Zarządzaj i monitoruj Synapse ważność żądania SQL na poziomie na platformie Azure Synapse przy użyciu widoków widoków DMV i wykazu.
 
-## <a name="monitor-importance"></a>Monitorowanie ważności
+## <a name="monitor-importance"></a>Ważność monitora
 
-Monitorowanie ważności przy użyciu nowej kolumny ważności w widoku zarządzania dynamicznego [sys.dm_pdw_exec_requests.](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-Poniższa kwerenda monitorująca pokazuje czas przesyłania i czas rozpoczęcia kwerend. Przejrzyj czas przesyłania i czas rozpoczęcia wraz ze znaczeniem, aby zobaczyć, jak ważne wpłynęło planowanie.
+Monitoruj ważność przy użyciu kolumny Nowa ważność w dynamicznym widoku zarządzania [sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
+Poniższe zapytanie monitorowania przedstawia czas przesyłania i godzinę rozpoczęcia dla zapytań. Przejrzyj czas przesyłania i czas rozpoczęcia wraz z ważnością, aby zobaczyć, jak znaczenie ma wpływ na planowanie.
 
 ```sql
 SELECT s.login_name, r.status, r.importance, r.submit_time, r.start_time
@@ -35,11 +35,11 @@ SELECT s.login_name, r.status, r.importance, r.submit_time, r.start_time
 ORDER BY r.start_time
 ```
 
-Aby dokładniej przyjrzeć się harmonogramowi zapytań, użyj widoków katalogu.
+Aby dojrzeć się do sposobu planowania zapytań, użyj widoków wykazu.
 
-## <a name="manage-importance-with-catalog-views"></a>Zarządzanie ważnośćą za pomocą widoków katalogu
+## <a name="manage-importance-with-catalog-views"></a>Zarządzanie ważnośćmi przy użyciu widoków wykazu
 
-Widok katalogu sys.workload_management_workload_classifiers zawiera informacje o klasyfikatorach. Aby wykluczyć klasyfikatory zdefiniowane przez system, które mapują do klas zasobów, wykonaj następujący kod:
+Widok wykazu sys. workload_management_workload_classifiers zawiera informacje na temat klasyfikatorów. Aby wykluczyć klasyfikatory zdefiniowane przez system, które są mapowane na klasy zasobów, wykonaj następujący kod:
 
 ```sql
 SELECT *
@@ -47,7 +47,7 @@ SELECT *
   WHERE classifier_id > 12
 ```
 
-Widok katalogu [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)zawiera informacje o parametrach używanych do tworzenia klasyfikatora.  Poniższa kwerenda pokazuje, że ExecReportsClassifier został utworzony na ```membername``` parametr dla wartości z ExecutiveReports:
+Widok wykazu, [sys. workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), zawiera informacje na temat parametrów używanych podczas tworzenia klasyfikatora.  Poniższe zapytanie pokazuje, że ExecReportsClassifier został utworzony na ```membername``` parametrze dla wartości z ExecutiveReports:
 
 ```sql
 SELECT c.name,cd.classifier_type, classifier_value
@@ -57,10 +57,10 @@ SELECT c.name,cd.classifier_type, classifier_value
   WHERE c.name = 'ExecReportsClassifier'
 ```
 
-![wyniki kwerendy](./media/sql-data-warehouse-how-to-manage-and-monitor-workload-importance/wlm-query-results.png)
+![wyniki zapytania](./media/sql-data-warehouse-how-to-manage-and-monitor-workload-importance/wlm-query-results.png)
 
-Aby uprościć błędy w rozwiązywaniu problemów, zalecamy usunięcie mapowania ról klasy zasobów podczas tworzenia klasyfikatorów obciążenia. Poniższy kod zwraca istniejące członkostwa roli klasy zasobów. Uruchom sp_droprolemember dla każdego ```membername``` zwróconego z odpowiedniej klasy zasobów.
-Poniżej znajduje się przykład sprawdzania istnienia przed upuszczeniem klasyfikatora obciążenia:
+Aby uprościć Rozwiązywanie problemów z błędną klasyfikacją, zaleca się usunięcie mapowań ról klasy zasobów podczas tworzenia klasyfikatorów obciążeń. Poniższy kod zwraca istniejące członkostwa ról klasy zasobów. Uruchom sp_droprolemember dla każdej ```membername``` zwróconej klasy zasobów.
+Poniżej znajduje się przykład sprawdzania istnienia przed porzuceniem klasyfikatora obciążenia:
 
 ```sql
 IF EXISTS (SELECT 1 FROM sys.workload_management_workload_classifiers WHERE name = 'ExecReportsClassifier')
@@ -71,7 +71,7 @@ GO
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać więcej informacji na temat klasyfikacji, zobacz [Klasyfikacja obciążeń](sql-data-warehouse-workload-classification.md).
-- Aby uzyskać więcej informacji na temat ważności, zobacz [Znaczenie obciążenia pracą](sql-data-warehouse-workload-importance.md)
+- Aby uzyskać więcej informacji na temat ważności, zobacz [ważność obciążenia](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
 > [Przejdź do konfigurowania ważności obciążenia](sql-data-warehouse-how-to-configure-workload-importance.md)

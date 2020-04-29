@@ -1,6 +1,6 @@
 ---
-title: Harmonogramy konserwacji puli sql synapse
-description: Planowanie konserwacji umożliwia klientom planowanie o konieczności zaplanowanych zdarzeń konserwacji, których usługa Azure Synapse Analytics używa do wdrażania nowych funkcji, uaktualnień i poprawek.
+title: Harmonogramy konserwacji dla puli SQL Synapse
+description: Planowanie konserwacji umożliwia klientom zaplanowanie niezbędnych zaplanowanych zdarzeń konserwacji, których usługa Azure Synapse Analytics używa do tworzenia nowych funkcji, uaktualnień i poprawek.
 services: synapse-analytics
 author: antvgski
 manager: craigg
@@ -11,92 +11,92 @@ ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.openlocfilehash: 43fc32e910c51e8b70e15aa49584a18e5b703fca
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631612"
 ---
-# <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Zarządzanie aktualizacjami i konserwacją usług umożliwia zarządzanie aktualizacjami i konserwacją serwisów
+# <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Korzystanie z harmonogramów konserwacji do zarządzania aktualizacjami i konserwacją usług
 
-Funkcja harmonogramu konserwacji integruje powiadomienia o planowanej konserwacji kondycji usługi, monitor sprawdzania kondycji zasobów i usługę planowania konserwacji dla puli usług Synapse SQL (hurtownia danych) w ramach usługi Azure Synapse Analytics.
+Funkcja harmonogramu konserwacji integruje Service Health planowane powiadomienia o konserwacji, Resource Health monitorowanie i usługę planowania konserwacji dla puli SQL Synapse (magazyn danych) w ramach usługi Azure Synapse Analytics.
 
-Należy użyć planowania konserwacji, aby wybrać przedział czasu, gdy jest to wygodne do odbierania nowych funkcji, uaktualnień i poprawek. Należy wybrać podstawowe i dodatkowe okno konserwacji w okresie siedmiu dni, każde okno musi znajdować się w oddzielnych zakresach dziennych.
+Należy użyć funkcji planowanie konserwacji, aby wybrać przedział czasu, gdy jest wygodne do otrzymywania nowych funkcji, uaktualnień i poprawek. Musisz wybrać podstawowe i pomocnicze okno obsługi w ciągu siedmiu dni, każde okno musi znajdować się w różnych zakresach dni.
 
-Na przykład można zaplanować okno podstawowe w sobotę 22:00 do niedzieli 01:00, a następnie zaplanować dodatkowe okno w środę 19:00 do 22:00. Jeśli nie można wykonać konserwacji podczas podstawowego okna konserwacji, spróbuje ponownie przeprowadzić konserwację podczas dodatkowego okna konserwacji. Konserwacja usługi może czasami wystąpić zarówno podczas okien podstawowych, jak i pomocniczych. Aby zapewnić szybkie zakończenie wszystkich operacji konserwacyjnych, dw400c i niższe warstwy magazynu danych mogą zakończyć konserwację poza wyznaczonym oknem konserwacji.
+Na przykład można zaplanować podstawowe okno soboty Sobota 22:00 do niedzieli 01:00, a następnie zaplanować okno pomocnicze w środę 19:00 do 22:00. Jeśli nie można wykonać konserwacji w podstawowym oknie obsługi, spróbuje przeprowadzić konserwację ponownie w oknie konserwacji dodatkowej. Obsługa usługi może się odbywać w obu oknach podstawowych i pomocniczych. Aby zapewnić szybkie zakończenie wszystkich operacji konserwacyjnych, DW400c i niższe warstwy magazynu danych mogą zakończyć konserwację poza wydzielonym oknem obsługi.
 
-Wszystkie nowo utworzone wystąpienia magazynu danych będą miały zdefiniowany przez system harmonogram konserwacji stosowany podczas wdrażania. Harmonogram można edytować natychmiast po zakończeniu wdrażania.
+Wszystkie nowo utworzone wystąpienia magazynu danych będą miały zdefiniowany przez system harmonogram konserwacji stosowany podczas wdrażania. Harmonogram można edytować zaraz po zakończeniu wdrażania.
 
-Chociaż okno konserwacji może wynosić od trzech do ośmiu godzin, nie oznacza to, że magazyn danych będzie w trybie offline na czas trwania. Konserwacja może wystąpić w dowolnym momencie w tym oknie i należy się spodziewać pojedynczego rozłączenia w tym okresie trwającym ~5 -6 minut, gdy usługa wdraża nowy kod do magazynu danych. DW400c i niższe mogą wystąpić wiele krótkich strat w łączności w różnych okresach podczas okna konserwacji. Po uruchomieniu konserwacji wszystkie aktywne sesje zostaną anulowane, a nieuprawione transakcje zostaną wycofane. Aby zminimalizować przestoje wystąpienia, upewnij się, że magazyn danych nie ma długotrwałych transakcji przed wybranym okresem konserwacji.
+Mimo że okno obsługi może być od trzech do ośmiu godzin nie oznacza to, że magazyn danych będzie w trybie offline przez czas trwania. Konserwacja może wystąpić w dowolnym momencie w tym oknie i należy oczekiwać pojedynczego rozłączenia w tym okresie przez trwałą 5 -6 minut, ponieważ usługa wdraża nowy kod w magazynie danych. DW400c i Lower mogą mieć wiele krótkich strat w łączności w różnym czasie w oknie obsługi. Po rozpoczęciu konserwacji wszystkie aktywne sesje zostaną anulowane, a transakcje niezatwierdzone zostaną wycofane. Aby zminimalizować przestoje wystąpienia, upewnij się, że magazyn danych nie ma długotrwałych transakcji przed wybranym okresem konserwacji.
 
-Wszystkie operacje konserwacji należy zakończyć w ramach określonych okien konserwacji, chyba że jesteśmy zobowiązani do wdrożenia aktualizacji zależne od czasu. Jeśli magazyn danych zostanie wstrzymany podczas zaplanowanej konserwacji, zostanie zaktualizowany podczas operacji wznawiania. Zostaniesz powiadomiony natychmiast po zakończeniu konserwacji magazynu danych.
+Wszystkie operacje konserwacji powinny zakończyć się w określonych oknach obsługi, chyba że wymagane jest wdrożenie aktualizacji poufnej czasu. Jeśli magazyn danych jest wstrzymany podczas zaplanowanej konserwacji, zostanie on zaktualizowany podczas operacji wznawiania. Po zakończeniu konserwacji magazynu danych zostanie wyświetlone powiadomienie.
 
 ## <a name="alerts-and-monitoring"></a>Alerty i monitorowanie
 
-Integracja z powiadomieniami kondycji usługi i monitorem kontroli kondycji zasobów umożliwia klientom śledzenie zbliżających się działań konserwacyjnych. Ta automatyzacja korzysta z usługi Azure Monitor. Możesz zdecydować, w jaki sposób chcesz otrzymywać powiadomienia o zbliżających się zdarzeniach konserwacji. Można również wybrać, które zautomatyzowane przepływy pomogą Ci zarządzać przestojami i zminimalizować wpływ na wydajność.
+Integracja z Service Health powiadomieniami i monitorowaniem Resource Health kontrola pozwala klientom na uzyskanie informacji o zbliżającej się aktywności. Ta Automatyzacja wykorzystuje Azure Monitor. Możesz zdecydować, jak chcesz otrzymywać powiadomienia o zbliżającym się zdarzeniu konserwacji. Ponadto możesz wybrać, które automatyczne przepływy będą pomocne w zarządzaniu przestojami i minimalizacji wpływu operacyjnego.
 
-Powiadomienie z 24-godzinnym wyprzedzeniem poprzedza wszystkie zdarzenia konserwacji, które nie są dla DWC400c i niższych warstw.
+Powiadomienie z góry 24-godzinne poprzedza wszystkie zdarzenia konserwacji, które nie są używane w przypadku DWC400c i niższych warstw.
 
 > [!NOTE]
-> W przypadku, gdy jesteśmy zobowiązani do wdrożenia aktualizacji krytycznej czas, zaawansowane czasy powiadomień mogą być znacznie skrócone.
+> W przypadku, gdy wymagane jest wdrożenie aktualizacji krytycznej czasu, zaawansowane czasy powiadomień mogą być znacząco ograniczone.
 
-Jeśli otrzymasz powiadomienie z wyprzedzeniem, że konserwacja będzie mieć miejsce, ale konserwacja nie może być wykonana w okresie w powiadomieniu, otrzymasz powiadomienie o anulowaniu. Konserwacja zostanie wznowiona w następnym zaplanowanym okresie konserwacji.
+Jeśli otrzymasz z wyprzedzeniem powiadomienie, że konserwacja zostanie przeprowadzona, ale nie będzie można przeprowadzić konserwacji w okresie powiadomienia, otrzymasz powiadomienie o anulowaniu. Następnie konserwacja zostanie wznowiona w następnym zaplanowanym okresie konserwacji.
 
-Wszystkie aktywne zdarzenia konserwacji są wyświetlane w **sekcji Kondycja usługi — planowana konserwacja.** Historia kondycji usługi zawiera pełny zapis przeszłych zdarzeń. Konserwację można monitorować za pośrednictwem pulpitu nawigacyjnego portalu sprawdzania kondycji usługi Azure podczas aktywnego zdarzenia.
+Wszystkie aktywne zdarzenia konserwacji są wyświetlane w sekcji **konserwacja Service Health-planowana** . Historia Service Health obejmuje pełny zapis przeszłych zdarzeń. Konserwację można monitorować za pomocą pulpitu nawigacyjnego portalu Azure Service Health Check podczas aktywnego zdarzenia.
 
 ### <a name="maintenance-schedule-availability"></a>Dostępność harmonogramu konserwacji
 
-Nawet jeśli planowanie konserwacji nie jest dostępne w wybranym regionie, można w dowolnym momencie wyświetlić i edytować harmonogram konserwacji. Gdy planowanie konserwacji staje się dostępne w twoim regionie, zidentyfikowany harmonogram natychmiast stanie się aktywny w puli synapse SQL.
+Nawet jeśli planowanie konserwacji nie jest dostępne w wybranym regionie, można w dowolnym momencie wyświetlać i edytować harmonogram konserwacji. Gdy planowanie konserwacji stanie się dostępne w Twoim regionie, określony harmonogram natychmiast stanie się aktywny w puli SQL Synapse.
 
 ## <a name="view-a-maintenance-schedule"></a>Wyświetlanie harmonogramu konserwacji
 
-Domyślnie wszystkie nowo utworzone wystąpienia magazynu danych mają osiem godzin podstawowe i pomocnicze okno konserwacji stosowane podczas wdrażania. Jak wskazano powyżej, można zmienić okna, jak tylko wdrożenie zostanie zakończone. Żadne czynności konserwacyjne nie będą przeprowadzane poza oknami obsługi bez wcześniejszego powiadomienia.
+Domyślnie wszystkie nowo utworzone wystąpienia magazynu danych mają osiem godzin podstawowe i pomocnicze okno obsługi zastosowane podczas wdrażania. Jak wspomniano powyżej, można zmienić system Windows po zakończeniu wdrażania. Żadne czynności konserwacyjne nie będą przeprowadzane poza oknami obsługi bez wcześniejszego powiadomienia.
 
-Aby wyświetlić harmonogram konserwacji zastosowany do puli sql synapse, wykonaj następujące kroki:
+Aby wyświetlić harmonogram konserwacji, który został zastosowany do puli SQL Synapse, wykonaj następujące czynności:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
-2. Wybierz pulę Sql Synapse, którą chcesz wyświetlić.
-3. Wybrana pula języka SQL Synapse zostanie otwarta w bloku przeglądu. Harmonogram konserwacji zastosowany do magazynu danych jest wyświetlany poniżej **harmonogramu konserwacji**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+2. Wybierz pulę SQL Synapse, którą chcesz wyświetlić.
+3. Wybrana Pula Synapse SQL zostanie otwarta w bloku przegląd. Harmonogram konserwacji, który jest stosowany do magazynu danych, zostanie wyświetlony poniżej **harmonogramu konserwacji**.
 
-![Ostrze przeglądowe](./media/maintenance-scheduling/clear-overview-blade.PNG)
+![Blok przegląd](./media/maintenance-scheduling/clear-overview-blade.PNG)
 
-## <a name="change-a-maintenance-schedule"></a>Zmienianie harmonogramu konserwacji
+## <a name="change-a-maintenance-schedule"></a>Zmiana harmonogramu konserwacji
 
-Harmonogram konserwacji można zaktualizować lub zmienić w dowolnym momencie. Jeśli wybrane wystąpienie przechodzi aktywny cykl konserwacji, ustawienia zostaną zapisane. Będą one aktywne podczas następnego zidentyfikowanego okresu konserwacji. [Dowiedz się więcej](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o monitorowaniu magazynu danych podczas aktywnego zdarzenia konserwacji.
+Harmonogram konserwacji można aktualizować lub zmieniać w dowolnym momencie. Jeśli wybrane wystąpienie przechodzi przez aktywny cykl konserwacji, ustawienia zostaną zapisane. Staną się one aktywne w następnym określonym okresie konserwacji. [Dowiedz się więcej](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o monitorowaniu magazynu danych podczas aktywnego zdarzenia konserwacji.
 
-## <a name="identifying-the-primary-and-secondary-windows"></a>Identyfikowanie okien podstawowych i pomocniczych
+## <a name="identifying-the-primary-and-secondary-windows"></a>Identyfikowanie podstawowych i pomocniczych okien
 
-Okna podstawowe i pomocnicze muszą mieć oddzielne zakresy dni. Przykładem jest podstawowe okno wtorek na czwartek i pomocnicze okna sobota-niedziela.
+Podstawowe i pomocnicze okna muszą mieć oddzielne zakresy dni. Przykładem jest główne okno wtorek – czwartek i dodatkowe okno soboty — niedziela.
 
-Aby zmienić harmonogram konserwacji puli sql synapse, wykonaj następujące kroki:
+Aby zmienić harmonogram konserwacji dla puli SQL Synapse, wykonaj następujące czynności:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
-2. Wybierz pulę Sql Synapse, którą chcesz zaktualizować. Strona zostanie otwarta na bloku przeglądu.
-Otwórz stronę ustawień harmonogramu konserwacji, wybierając **łącze podsumowania harmonogram konserwacji** w bloku przeglądu. Możesz też wybrać opcję **Harmonogram konserwacji** w menu zasobów po lewej stronie.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+2. Wybierz pulę SQL Synapse, którą chcesz zaktualizować. Strona zostanie otwarta w bloku przegląd.
+Otwórz stronę ustawienia harmonogramu konserwacji, wybierając łącze **Podsumowanie harmonogramu konserwacji** w bloku przegląd. Lub wybierz opcję **harmonogram konserwacji** w menu zasobów po lewej stronie.
 
-    ![Opcje tarczy przeglądowej](./media/maintenance-scheduling/maintenance-change-option.png)
+    ![Opcje bloku przegląd](./media/maintenance-scheduling/maintenance-change-option.png)
 
-3. Zidentyfikuj preferowany zakres dni dla podstawowego okna konserwacji, korzystając z opcji u góry strony. To zaznaczenie określa, czy okno podstawowe będzie miało miejsce w dzień powszedni, czy w weekend. Wybór zaktualizuje wartości rozwijane.
-Podczas podglądu niektóre regiony mogą jeszcze nie obsługiwać pełnego zestawu dostępnych opcji **dnia.**
+3. Określ preferowany zakres dni dla głównego okna obsługi przy użyciu opcji w górnej części strony. Wybór ten określa, czy okno podstawowe będzie miało miejsce w dniu tygodnia, czy w weekendy. Wybór spowoduje zaktualizowanie wartości listy rozwijanej.
+W trakcie okresu zapoznawczego niektóre regiony mogą jeszcze nie obsługiwać pełny zestaw dostępnych opcji **dnia** .
 
-   ![Ostrze ustawień konserwacji](./media/maintenance-scheduling/maintenance-settings-page.png)
+   ![Blok ustawień konserwacji](./media/maintenance-scheduling/maintenance-settings-page.png)
 
-4. Wybierz preferowane podstawowe i dodatkowe okna konserwacji, korzystając z pól listy rozwijanej:
-   - **Dzień:** Preferowany dzień do wykonania konserwacji podczas wybranego okna.
-   - **Godzina rozpoczęcia:** Preferowany czas rozpoczęcia okna konserwacji.
-   - **Przedział czasu:** Preferowany czas trwania przedziału czasu.
+4. Wybierz preferowane główne i pomocnicze okna obsługi przy użyciu pól listy rozwijanej:
+   - **Dzień**: preferowany dzień przeprowadzenia konserwacji w wybranym oknie.
+   - **Godzina rozpoczęcia**: preferowany czas rozpoczęcia okna obsługi.
+   - **Przedział czasu**: preferowany czas trwania przedziału czasu.
 
-   Obszar **podsumowania harmonogramu** u dołu bloku jest aktualizowany na podstawie wybranych wartości.
+   Obszar **Podsumowanie harmonogramu** w dolnej części bloku zostanie zaktualizowany na podstawie wybranych wartości.
   
-5. Wybierz **pozycję Zapisz**. Zostanie wyświetlony komunikat z potwierdzeniem, że nowy harmonogram jest teraz aktywny.
+5. Wybierz pozycję **Zapisz**. Zostanie wyświetlony komunikat z potwierdzeniem, że nowy harmonogram jest teraz aktywny.
 
-   Jeśli zapisujesz harmonogram w regionie, który nie obsługuje planowania konserwacji, zostanie wyświetlony następujący komunikat. Ustawienia zostaną zapisane i uaktywnone, gdy funkcja stanie się dostępna w wybranym regionie.
+   W przypadku zapisywania harmonogramu w regionie, który nie obsługuje planowania konserwacji, zostanie wyświetlony następujący komunikat. Twoje ustawienia są zapisywane i stają się aktywne, gdy funkcja stanie się dostępna w wybranym regionie.
 
    ![Komunikat o dostępności regionu](./media/maintenance-scheduling/maintenance-not-active-toast.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dowiedz się więcej](../../azure-monitor/platform/alerts-metric.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o tworzeniu, wyświetlaniu i zarządzaniu alertami przy użyciu usługi Azure Monitor.
+- [Dowiedz się więcej](../../azure-monitor/platform/alerts-metric.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) na temat tworzenia i wyświetlania alertów oraz zarządzania nimi przy użyciu Azure monitor.
 - [Dowiedz się więcej](../..//azure-monitor/platform/alerts-log-webhook.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o akcjach elementu webhook dla reguł alertów dziennika.
 - [Dowiedz się więcej](../..//azure-monitor/platform/action-groups.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Tworzenie grup akcji i zarządzanie nimi.
-- [Dowiedz się więcej](../../service-health/service-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o usłudze Azure Service Health.
+- [Dowiedz się więcej](../../service-health/service-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o Azure Service Health.

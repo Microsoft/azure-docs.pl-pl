@@ -1,7 +1,7 @@
 ---
-title: Możliwość interpretowania modelu w usłudze Azure Machine Learning
+title: Interpretowanie modeli w Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak wyjaśnić, dlaczego model tworzy prognozy przy użyciu sdk usługi Azure Machine Learning. Może służyć podczas szkolenia i wnioskowania, aby zrozumieć, jak model sprawia, że prognozy.
+description: Dowiedz się, jak wyjaśnić, dlaczego model wykonuje przewidywania przy użyciu zestawu SDK Azure Machine Learning. Może być używany podczas szkoleń i wnioskowania, aby zrozumieć, jak model wykonuje przewidywania.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,113 +11,113 @@ author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/02/2020
 ms.openlocfilehash: fcb837af85a54102e8c9eafc33249af9dba6b5ce
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631424"
 ---
-# <a name="model-interpretability-in-azure-machine-learning"></a>Możliwość interpretowania modelu w usłudze Azure Machine Learning
+# <a name="model-interpretability-in-azure-machine-learning"></a>Interpretowanie modeli w Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-## <a name="overview-of-model-interpretability"></a>Omówienie możliwości interpretowania modelu
+## <a name="overview-of-model-interpretability"></a>Przegląd interpretacji modelu
 
-Zdolność interpretacyjną ma kluczowe znaczenie zarówno dla analityków danych, audytorów, jak i decydentów biznesowych, aby zapewnić zgodność z polityką firmy, standardami branżowymi i przepisami rządowymi:
+Interpretacja jest niezwykle ważna dla analityków danych, audytorów i osób podejmujących decyzje biznesowe, które są takie same, aby zapewnić zgodność z zasadami firmy, standardami branżowymi i przepisami rządowymi:
 
-+ Analitycy danych potrzebują możliwości wyjaśnienia swoich modeli kierownictwu i zainteresowanym stronom, aby mogli zrozumieć wartość i dokładność swoich wyników. Wymagają one również interpretability do debugowania swoich modeli i podejmowania świadomych decyzji o tym, jak je poprawić. 
++ Osoby odpowiedzialne za dane muszą wyjaśnić swoje modele do kierownictwa i udziałowców, aby mogli zrozumieć wartość i dokładność ich wyników. Wymagają one również interpretacji do debugowania modeli i podejmowania świadomych decyzji o sposobie ich udoskonalania. 
 
-+ Kontrolerzy prawni potrzebują narzędzi do walidacji modeli w odniesieniu do zgodności z przepisami i monitorowania wpływu decyzji modeli na ludzi. 
++ Biegli rewidenci wymagają narzędzi do weryfikowania modeli w odniesieniu do zgodności z przepisami i monitorowania sposobu, w jaki te decyzje mają wpływ na ludzi. 
 
-+ Decydenci biznesowi potrzebują spokoju, mając możliwość zapewnienia przejrzystości użytkownikom końcowym. To pozwala im zdobyć i utrzymać zaufanie.
++ Twórcy zajmujący się decyzjami biznesowymi muszą mieć możliwość zapewnienia przejrzystości użytkownikom końcowym. Pozwala to na otrzymywanie i zachowanie zaufania.
 
 
-Umożliwienie wyjaśnienia modelu uczenia maszynowego jest ważne w dwóch głównych fazach opracowywania modelu:
-+ W fazie szkolenia, jako projektanci modeli i oceniający mogą używać interpretability danych wyjściowych modelu do weryfikacji hipotez i budowania zaufania z zainteresowanymi stronami. Używają również wgląd w modelu do debugowania, sprawdzania poprawności zachowania modelu odpowiada ich celom i sprawdzić, czy nie jest to nieuczciwość modelu lub nieistotne funkcje.
+Umożliwienie wyjaśnienia modelu uczenia maszynowego jest ważne w przypadku dwóch głównych etapów tworzenia modeli:
++ W fazie uczenia się projektanci modeli i oceniający mogą wykorzystać dane wyjściowe z możliwością interpretacji modelu do zweryfikowania pożądanych elementów i utworzenia relacji zaufania z uczestnikami projektu. Wykorzystują one również wgląd w model do debugowania, sprawdzanie poprawności zachowania modelu dopasowuje się do ich celów i sprawdza, czy istnieją niesprawiedliwe funkcje modelu.
 
-+ W fazie wnioskowania przejrzystość wokół wdrożonych modeli umożliwia kierownictwu zrozumienie "po wdrożeniu" sposobu działania modelu i sposobu, w jaki jego decyzje traktują ludzi w prawdziwym życiu i wpływają na ich decyzje. 
++ W fazie inferencing, tak jakby miał przezroczystość w porównaniu ze wdrożonymi modelami, pozwala kierownictwu zrozumieć "po wdrożeniu", jak działa model i jakie decyzje są traktowane i wpływają na użytkowników w czasie rzeczywistym. 
 
-## <a name="interpretability-with-azure-machine-learning"></a>Możliwość interpretowania za pomocą usługi Azure Machine Learning
+## <a name="interpretability-with-azure-machine-learning"></a>Interpretowanie przy użyciu Azure Machine Learning
 
-Klasy interpretowalności są udostępniane za pośrednictwem wielu pakietów SDK: (Dowiedz się, jak [zainstalować pakiety SDK dla usługi Azure Machine Learning)](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+Klasy z możliwością interpretacji są udostępniane za pomocą wielu pakietów SDK: (Dowiedz się, jak [zainstalować pakiety SDK dla Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py))
 
-* `azureml.interpret`, pakiet główny, zawierający funkcje obsługiwane przez firmę Microsoft.
+* `azureml.interpret`Pakiet główny zawierający funkcje obsługiwane przez firmę Microsoft.
 
-* `azureml.contrib.interpret`, podgląd i funkcje eksperymentalne, które można wypróbować.
+* `azureml.contrib.interpret`, wersja zapoznawcza i eksperymentalne funkcje, które można wypróbować.
 
-* `azureml.train.automl.automlexplainer`pakietu do interpretacji zautomatyzowanych modeli uczenia maszynowego.
+* `azureml.train.automl.automlexplainer`Pakiet służący do interpretacji automatycznych modeli uczenia maszynowego.
 
-Użyj `pip install azureml-interpret` `pip install azureml-interpret-contrib` i do ogólnego `pip install azureml-interpret-contrib` użytku oraz do użytku automl, aby uzyskać pakiety interpretability.
+Używaj `pip install azureml-interpret` i `pip install azureml-interpret-contrib` do ogólnego użytku, a `pip install azureml-interpret-contrib` dla AutoML użyć do uzyskania pakietów do interpretacji.
 
 
 > [!IMPORTANT]
-> Zawartość w `contrib` obszarze nazw nie jest w pełni obsługiwana. W miarę dojrzalej funkcji eksperymentalnych będą one stopniowo przenoszone do głównej przestrzeni nazw.
+> Zawartość w `contrib` przestrzeni nazw nie jest w pełni obsługiwana. Gdy eksperymentalne funkcje stają się dojrzałe, zostaną stopniowo przenoszone do głównej przestrzeni nazw.
 .
 
 
 
 ## <a name="how-to-interpret-your-model"></a>Jak interpretować model
 
-Korzystając z klas i metod w SDK, można:
-+ Wyjaśnij przewidywanie modelu, generując wartości ważności operacji dla całego modelu i/lub poszczególnych punktów danych. 
-+ Osiągnij możliwość interpretacji modelu na rzeczywistych zestawach danych na dużą skalę, podczas szkolenia i wnioskowania.
-+ Użyj interaktywnego pulpitu nawigacyjnego wizualizacji, aby odnajdować wzorce w danych i objaśnieniach w czasie szkolenia
+Korzystając z klas i metod w zestawie SDK, można:
++ Wyjaśnij prognozowanie modelu, generując wartości ważności funkcji dla całego modelu i/lub poszczególnych punktów. 
++ Zapewnij spójność modelu w rzeczywistych zestawach danych na dużą skalę podczas szkoleń i wnioskowania.
++ Korzystanie z interaktywnego pulpitu nawigacyjnego wizualizacji w celu odnajdywania wzorców danych i wyjaśnień w czasie uczenia
 
 
-W uczeniu maszynowym **funkcje** są polami danych używanymi do przewidywania docelowego punktu danych. Na przykład, aby przewidzieć ryzyko kredytowe, mogą być używane pola danych dotyczące wieku, rozmiaru konta i wieku konta. W takim przypadku wiek, rozmiar konta i wiek konta to **funkcje**. Znaczenie funkcji informuje, jak każde pole danych wpłynęło na prognozy modelu. Na przykład wiek może być intensywnie używany w przewidywaniu, podczas gdy rozmiar konta i wiek nie mają znaczącego wpływu na wartości przewidywania. Ten proces umożliwia analitykom danych wyjaśnienie wynikowych prognoz, dzięki czemu interesariusze mają wgląd w to, jakie funkcje są najważniejsze w modelu.
+W uczeniu maszynowym **funkcje** są polami danych używanymi do przewidywania docelowego punktu danych. Na przykład w celu przewidywania ryzyka kredytowego mogą być używane pola danych dla wieku, rozmiaru konta i wieku konta. W tym przypadku wiek, rozmiar konta i wiek konta są **funkcjami**. Ważność funkcji informuje o tym, jak każde pole danych ma wpływ na przewidywania modelu. Na przykład wiek może być wielokrotnie używany w prognozie, podczas gdy rozmiar konta i wiek nie mają znaczącego wpływu na wartości prognoz. Ten proces umożliwia analitykom danych wyjaśnienie powstających prognoz, dzięki czemu zainteresowane strony mają wgląd w to, jakie funkcje są najważniejsze w modelu.
 
-Tutaj dowiesz się więcej o obsługiwanych technikach interpretowania, obsługiwanych modelach uczenia maszynowego i obsługiwanych środowiskach uruchamiania.
+Poznaj obsługiwane techniki interpretacji, obsługiwane modele uczenia maszynowego i obsługiwane środowiska uruchomieniowe tutaj.
 
 
-## <a name="supported-interpretability-techniques"></a>Obsługiwane techniki interpretowania
+## <a name="supported-interpretability-techniques"></a>Obsługiwane techniki interpretacji
 
- `azureml-interpret`wykorzystuje techniki interpretowania opracowane w [Interpret-Community](https://github.com/interpretml/interpret-community/), pakiet python open source do szkolenia modeli interpretacyjnych i pomaga wyjaśnić blackbox systemów AI. [Interpret-Community](https://github.com/interpretml/interpret-community/) służy jako gospodarz dla obsługiwanych objaśnień tego SDK i obecnie obsługuje następujące techniki interpretowania:
+ `azureml-interpret`używa technik interpretacji opracowanych w ramach [interpretacji Community](https://github.com/interpretml/interpret-community/), pakietu języka Python Open Source na potrzeby uczenia modeli, które mogą być interpretowane i pomagają w wyjaśnieniu systemów Blackbox AI. [Interpretuj — społeczność](https://github.com/interpretml/interpret-community/) służy jako host dla obsługiwanych przez niego OBJAŚNIEŃ zestawu SDK i obecnie obsługuje następujące techniki interpretowania:
 
-|Technika interpretalności|Opis|Typ|
+|Metoda interpretacji|Opis|Typ|
 |--|--|--------------------|
-|1. Objaśnienie drzewa SHAP| [SHAP](https://github.com/slundberg/shap)'s tree explainer, który koncentruje się na wielomianowym czasie szybkiego algorytmu szacowania wartości SHAP specyficznego dla **drzew i zespołów drzew.**|Specyficzne dla modelu|
-|2. Shap Głębokie Objaśnienie| Na podstawie wyjaśnień [shap,](https://github.com/slundberg/shap)Deep Explainer "jest szybkim algorytmem przybliżenia wartości SHAP w modelach uczenia głębokiego, który opiera się na połączeniu z DeepLIFT opisanym w [dokumencie SHAP NIPS.](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions) Obsługiwane są modele **TensorFlow** i modele **Keras korzystające** z zaplecza TensorFlow (istnieje również wstępna obsługa pyTorch)".|Specyficzne dla modelu|
-|3. Objaśnienie liniowe SHAP| Objaśnienie liniowe [SHAP](https://github.com/slundberg/shap)oblicza wartości SHAP dla **modelu liniowego,** opcjonalnie uwzględniając korelacje między obiektami.|Specyficzne dla modelu|
-|4. Objaśnienie jądra SHAP| Objaśnienie jądra [SHAP](https://github.com/slundberg/shap)używa specjalnie ważonej lokalnej regresji liniowej do oszacowania wartości SHAP dla **dowolnego modelu.**|Model-agnostyk|
-|5. Mimic Explainer (Globalny surogat)| Mimic explainer opiera się na idei szkolenia [globalnych modeli zastępczych](https://christophm.github.io/interpretable-ml-book/global.html) naśladować modele blackbox. Globalny model zastępczy jest modelem z natury interpretowalnym, który jest przeszkolony w celu przybliżenia prognoz **dowolnego modelu czarnej skrzynki** tak dokładnie, jak to możliwe. Analitycy danych mogą interpretować model zastępczy, aby wyciągnąć wnioski na temat modelu czarnej skrzynki. Można użyć jednego z następujących modeli interpretowalnych jako modelu zastępczego: LightGBM (LGBMExplainableModel), Regresja liniowa (LinearExplainableModel), Stochastic Gradient Descent explainable model (SGDExplainableModel) i Decision Tree (DecisionTreeExplainableModel).|Model-agnostyk|
-|6. Objaśnienie ważności funkcji permutacji (PFI)| Znaczenie funkcji permutacji to technika używana do wyjaśniania modeli klasyfikacji i regresji, która jest inspirowana [papierem Breiman's Random Forests](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (patrz sekcja 10). Na wysokim poziomie sposób, w jaki działa, polega na losowym tasowaniu danych po jednej funkcji naraz dla całego zestawu danych i obliczaniu, jak bardzo zmienia się metryka wydajności odsetek. Im większa zmiana, tym ważniejsza jest ta funkcja. PFI może wyjaśnić ogólne zachowanie **dowolnego modelu bazowego,** ale nie wyjaśnia poszczególnych prognoz. |Model-agnostyk|
+|1. Objaśnienie drzewa kształtu| Klasyfikator drzewa [kształtu](https://github.com/slundberg/shap), który koncentruje się na algorytmie oceny wartości szybkiego kształtu czasu wielomianu, który jest specyficzny dla **drzew i ich kompletów drzew**.|Specyficzne dla modelu|
+|2. kształt szczegółowy Wyjaśnij| W oparciu o objaśnienie z [kształtu](https://github.com/slundberg/shap), szczegółowy opis "jest algorytmem zbliżeniowym o dużej szybkości, dla wartości kształtu w modelach uczenia głębokiego, które kompilują się w połączeniu z DeepLIFT opisanym w [dokumencie kształt NIPS](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). Obsługiwane są modele **TensorFlow** i modele **Keras** korzystające z zaplecza TensorFlow (istnieje również wstępna pomoc techniczna dla PyTorch) ".|Specyficzne dla modelu|
+|3. KSZTAŁTowy objaśnienie liniowe| Funkcja wyjaśniająca liniowy [kształtu](https://github.com/slundberg/shap)oblicza wartości kształtu dla **modelu liniowego**, opcjonalnie rozliczanie korelacji między funkcjami.|Specyficzne dla modelu|
+|4. kształt objaśnienia jądra| Wyjaśnienie jądra [kształtu](https://github.com/slundberg/shap)używa specjalnie ważonej lokalnej regresji liniowej do oszacowania wartości kształtu dla **dowolnego modelu**.|Model — niezależny od|
+|5. wyjaśnienie śladu (globalny Surogat)| Objaśnienie śladów opiera się na pomysłie na [globalne modele wieloskładnikowe](https://christophm.github.io/interpretable-ml-book/global.html) do naśladowania modeli blackbox. Globalny model zastępczy jest modelem, który jest interpretowany wewnętrznie, aby przybliżyć prognozy **dowolnego czarnego modelu** , jak to możliwe. Naukowcy danych mogą interpretować model zastępczy, aby rysować wnioski o modelu czarnego pudełka. Można użyć jednego z następujących modeli interpretowanych jako model zastępczy: LightGBM (LGBMExplainableModel), regresja liniowa (LinearExplainableModel), Gradient stochastycznego, który jest bardziej wyjaśniony model (SGDExplainableModel) i drzewo decyzyjne (DecisionTreeExplainableModel).|Model — niezależny od|
+|6. Opis ważności funkcji permutacji (PFI)| Ważność funkcji permutacji jest techniką używaną do wyjaśnienia modeli klasyfikacji i regresji, które są [sponsorowane przez papier Breimanych lasów](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (patrz sekcja 10). Na wysokim poziomie, w jaki działa, jest to spowodowane losowo Shuffling danych jedną funkcją w danym czasie dla całego zestawu danych i obliczaniem, ile jest Metryka wydajności. Im większa zmiana, tym bardziej ważna jest funkcja. PFI może wyjaśnić ogólne zachowanie **dowolnego modelu bazowego** , ale nie wyjaśnia poszczególnych prognoz. |Model — niezależny od|
 
 
 
 
-Oprócz opisanych powyżej technik interpretalności, wspieramy inny [objaśnienie oparte na SHAP,](https://github.com/slundberg/shap)tzw. `TabularExplainer` W zależności od `TabularExplainer` modelu, używa jednego z obsługiwanych objaśnień SHAP:
+Oprócz opisanych powyżej technik interpretacji obsługujemy inne [objaśnienie oparte na kształtach](https://github.com/slundberg/shap), zwane `TabularExplainer`. W zależności od modelu program `TabularExplainer` używa jednego z obsługiwanych objaśnień kształtu:
 
-* TreeExplainer dla wszystkich modeli opartych na drzewach
+* TreeExplainer dla wszystkich modeli opartych na drzewie
 * DeepExplainer dla modeli DNN
 * LinearExplainer dla modeli liniowych
 * KernelExplainer dla wszystkich innych modeli
 
-`TabularExplainer`poczyniła również znaczące ulepszenia w zakresie funkcji i wydajności w stosunku do bezpośrednich objaśnień SHAP:
+`TabularExplainer`Ponadto wprowadzono znaczące ulepszenia funkcji i wydajności w odniesieniu do wyjaśnień bezpośredniego kształtu:
 
-* **Podsumowanie zestawu danych inicjowania**. W przypadkach, gdy szybkość wyjaśnienia jest najważniejsza, podsumowujemy zestaw danych inicjowania i generujemy niewielki zestaw reprezentatywnych próbek, co przyspiesza generowanie wartości ogólnego i indywidualnego znaczenia funkcji.
-* **Pobieranie próbek zestawu danych ewaluacyjnych**. Jeśli użytkownik przechodzi w dużym zestawie próbek oceny, ale faktycznie nie potrzebuje wszystkich z nich do oceny, próbkowanie parametr może być ustawiona na true, aby przyspieszyć obliczanie ogólnych objaśnień modelu.
+* **Podsumowanie zestawu danych inicjalizacji**. W przypadkach, gdy najważniejsza jest szybkość wyjaśnienia, podsumowujemy zestaw danych inicjalizacji i generuje mały zestaw reprezentatywnych próbek, co przyspiesza generowanie ogólnych i indywidualnych wartości ważności funkcji.
+* **Próbkowanie zestawu danych oceny**. Jeśli użytkownik przejdzie do dużego zestawu próbek ewaluacyjnych, ale nie potrzebuje wszystkich ich do oceny, parametr próbkowania może być ustawiony na wartość true, aby przyspieszyć Obliczanie ogólnych wyjaśnień modelu.
 
 Na poniższym diagramie przedstawiono bieżącą strukturę obsługiwanych objaśnień.
 
-[![Architektura tłumaczeń uczenia maszynowego](./media/how-to-machine-learning-interpretability/interpretability-architecture.png)](./media/how-to-machine-learning-interpretability/interpretability-architecture.png#lightbox)
+[![Architektura Machine Learningj interpretacji](./media/how-to-machine-learning-interpretability/interpretability-architecture.png)](./media/how-to-machine-learning-interpretability/interpretability-architecture.png#lightbox)
 
 
 ## <a name="supported-machine-learning-models"></a>Obsługiwane modele uczenia maszynowego
 
-Pakiet `azureml.interpret` zestawu SDK obsługuje modele przeszkolone w następujących formatach zestawu danych:
+`azureml.interpret` Pakiet zestawu SDK obsługuje modele przeszkolone przy użyciu następujących formatów zestawu danych:
 - `numpy.array`
 - `pandas.DataFrame`
 - `iml.datatypes.DenseData`
 - `scipy.sparse.csr_matrix`
 
-Funkcje objaśnienia akceptują zarówno modele, jak i potoki jako dane wejściowe. Jeśli model jest dostarczany, model musi `predict` implementować funkcję przewidywania lub `predict_proba` który jest zgodny z konwencją Scikit. Jeśli model nie obsługuje tego, można zawinąć modelu w funkcji, `predict` która `predict_proba` generuje taki sam wynik jak lub w Scikit i użyć tej funkcji otoki z wybranym objaśnienia. Jeśli potok jest podana, funkcja objaśnienia zakłada, że uruchomiony skrypt potoku zwraca przewidywanie. Korzystając z tej `azureml.interpret` techniki zawijania, może obsługiwać modele przeszkolone za pośrednictwem struktur uczenia głębokiego PyTorch, TensorFlow i Keras, a także klasycznych modeli uczenia maszynowego.
+Funkcje wyjaśniające akceptują zarówno modele, jak i potoki jako dane wejściowe. Jeśli jest dostarczany model, model musi implementować funkcję `predict` przewidywania lub `predict_proba` , która jest zgodna z Konwencją Scikit. Jeśli model nie obsługuje tego, możesz otoczyć model funkcją, która generuje taki sam wynik jak `predict` lub `predict_proba` w Scikit, i Użyj tej funkcji otoki z wybranym objaśnieniem. Jeśli podano potok, funkcja wyjaśnienie zakłada, że skrypt uruchomionego potoku zwraca prognozę. Dzięki tej metodzie zawijania `azureml.interpret` można obsługiwać modele przeszkolone przez PyTorch, TensorFlow i Kerase środowiska uczenia głębokiego, a także klasyczne modele uczenia maszynowego.
 
-## <a name="local-and-remote-compute-target"></a>Lokalny i zdalny cel obliczeniowy
+## <a name="local-and-remote-compute-target"></a>Lokalne i zdalne miejsce docelowe obliczeń
 
-Pakiet `azureml.interpret` jest przeznaczony do pracy z lokalnymi i zdalnymi obiektami docelowymi obliczeniowymi. Jeśli działa lokalnie, funkcje SDK nie skontaktują się z żadnymi usługami platformy Azure. 
+`azureml.interpret` Pakiet jest przeznaczony do pracy z lokalnymi i zdalnymi obiektami docelowymi obliczeniowymi. W przypadku uruchomienia lokalnego funkcje zestawu SDK nie będą kontaktować się z żadnymi usługami platformy Azure. 
 
-Można uruchomić wyjaśnienie zdalnie na platformie Azure Machine Learning Compute i rejestrować informacje o objaśnieniu w usłudze historii uruchamiania usługi Azure Machine Learning. Po zarejestrowaniu tych informacji raporty i wizualizacje z wyjaśnienia są łatwo dostępne w usłudze Azure Machine Learning studio do analizy użytkowników.
+Wyjaśnienie można uruchomić zdalnie na Azure Machine Learning COMPUTE i zalogować informacje o wyjaśnieniu do usługi historii Azure Machine Learning uruchomienia. Po zarejestrowaniu tych informacji raporty i wizualizacje z wyjaśnienia są łatwo dostępne w programie Azure Machine Learning Studio na potrzeby analizy użytkowników.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [instrukcje dotyczące](how-to-machine-learning-interpretability-aml.md) włączania możliwości interpretowania dla modeli szkoleniowych zarówno lokalnie, jak i na zdalnych zasobach obliczeniowych usługi Azure Machine Learning. Zobacz [przykładowe notesy,](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) aby uzyskać dodatkowe scenariusze.
+Zapoznaj się z artykułem jak włączyć funkcję interpretacji dla modeli — zarówno lokalnie, [jak](how-to-machine-learning-interpretability-aml.md) i na Azure Machine Learning zdalnych zasobów obliczeniowych. Zobacz [przykładowe notesy](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) , aby uzyskać dodatkowe scenariusze.

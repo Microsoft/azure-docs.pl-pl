@@ -1,53 +1,53 @@
 ---
-title: Używanie usługi OpenFaaS z usługą Azure Kubernetes Service (AKS)
-description: Dowiedz się, jak wdrożyć i używać OpenFaaS w klastrze usługi Azure Kubernetes (AKS) do tworzenia funkcji bezserwerowych z kontenerami.
+title: Korzystanie z OpenFaaS z usługą Azure Kubernetes Service (AKS)
+description: Dowiedz się, jak wdrażać i używać OpenFaaS w klastrze usługi Azure Kubernetes Service (AKS) w celu kompilowania funkcji bezserwerowych za pomocą kontenerów.
 author: justindavies
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
 ms.openlocfilehash: 95039573c607f516755f08f1ebad8b968416ec8b
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631473"
 ---
-# <a name="using-openfaas-on-aks"></a>Korzystanie z OpenFaaS w aks
+# <a name="using-openfaas-on-aks"></a>Korzystanie z OpenFaaS na AKS
 
-[OpenFaaS][open-faas] jest platformą do tworzenia funkcji bezserwerowych za pomocą kontenerów. Jako projekt open source zyskał on przyjęcie na dużą skalę w społeczności. Ten dokument zawiera szczegółowe informacje dotyczące instalowania i używania programu OpenFaas w klastrze usługi Azure Kubernetes (AKS).
+[OpenFaaS][open-faas] to struktura służąca do kompilowania funkcji bezserwerowych za pomocą kontenerów. Jako projekt Open Source uzyskano w społeczności wdrożenie na dużą skalę. Ten dokument zawiera szczegółowe informacje dotyczące instalowania i używania OpenFaas w klastrze usługi Azure Kubernetes Service (AKS).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać kroki opisane w tym artykule, potrzebujesz następujących czynności.
+Aby wykonać kroki opisane w tym artykule, potrzebne są następujące elementy.
 
-* Podstawowa wiedza o Kubernetes.
-* Klaster usługi Azure Kubernetes (AKS) i poświadczenia usługi AKS skonfigurowane w systemie deweloperskim.
-* Narzędzie interfejsu wiersza polecenia platformy Azure zainstalowane w systemie dewelopera.
-* Narzędzia wiersza polecenia Git zainstalowane w systemie.
+* Podstawowe informacje o Kubernetes.
+* Klaster usługi Azure Kubernetes Service (AKS) i poświadczenia AKS skonfigurowane w systemie deweloperskim.
+* Interfejs wiersza polecenia platformy Azure został zainstalowany w systemie deweloperskim.
+* Narzędzia wiersza polecenia usługi git zainstalowane w systemie.
 
-## <a name="add-the-openfaas-helm-chart-repo"></a>Dodawanie repozytorium wykresu helm OpenFaaS
+## <a name="add-the-openfaas-helm-chart-repo"></a>Dodawanie repozytorium wykresu OpenFaaS Helm
 
-Przejdź [https://shell.azure.com](https://shell.azure.com) do otwierania usługi Azure Cloud Shell w przeglądarce.
+Przejdź do [https://shell.azure.com](https://shell.azure.com) okna, aby otworzyć Azure Cloud Shell w przeglądarce.
 
-OpenFaaS utrzymuje własne wykresy helm, aby być na bieżąco ze wszystkimi najnowszymi zmianami.
+OpenFaaS utrzymuje własne wykresy Helm, aby zapewnić aktualność wraz ze wszystkimi najnowszymi zmianami.
 
 ```console
 helm repo add openfaas https://openfaas.github.io/faas-netes/
 helm repo update
 ```
 
-## <a name="deploy-openfaas"></a>Wdrażanie OpenFaaS
+## <a name="deploy-openfaas"></a>Wdróż OpenFaaS
 
-Dobrym rozwiązaniem jest, że funkcje OpenFaaS i OpenFaaS powinny być przechowywane we własnej przestrzeni nazw Kubernetes.
+Dobrym sposobem jest przechowywanie funkcji OpenFaaS i OpenFaaS w ich własnej przestrzeni nazw Kubernetes.
 
-Utwórz obszar nazw dla systemu OpenFaaS i funkcji:
+Utwórz przestrzeń nazw dla systemu OpenFaaS i funkcji:
 
 ```console
 kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml
 ```
 
-Generowanie hasła do interfejsu API interfejsu użytkownika OpenFaaS i interfejsu API REST:
+Generuj hasło dla portalu interfejsu użytkownika OpenFaaS i interfejsu API REST:
 
 ```console
 # generate a random password
@@ -58,11 +58,11 @@ kubectl -n openfaas create secret generic basic-auth \
 --from-literal=basic-auth-password="$PASSWORD"
 ```
 
-Możesz uzyskać wartość klucza `echo $PASSWORD`tajnego za pomocą .
+Wartość wpisu tajnego można uzyskać za pomocą `echo $PASSWORD`parametru.
 
-Hasło, które tutaj tworzymy, będzie używane przez wykres helm, aby włączyć uwierzytelnianie podstawowe w bramie OpenFaaS, która jest narażona na Działanie Internetu za pośrednictwem programu LoadBalancer w chmurze.
+Utworzone tutaj hasło będzie używane przez wykres Helm w celu włączenia uwierzytelniania podstawowego na bramie OpenFaaS, która jest dostępna w Internecie za pomocą modułu równoważenia obciążenia w chmurze.
 
-Wykres helm dla OpenFaaS znajduje się w sklonowanym repozytorium. Ten wykres służy do wdrażania programu OpenFaaS w klastrze AKS.
+Wykres Helm dla OpenFaaS jest zawarty w sklonowanym repozytorium. Ten wykres służy do wdrażania OpenFaaS w klastrze AKS.
 
 ```console
 helm upgrade openfaas --install openfaas/openfaas \
@@ -94,13 +94,13 @@ To verify that openfaas has started, run:
   kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
 ```
 
-Publiczny adres IP jest tworzony w celu uzyskania dostępu do bramy OpenFaaS. Aby pobrać ten adres IP, użyj polecenia [kubectl get service.][kubectl-get] Przypisanie adresu IP do usługi może potrwać minutę.
+Publiczny adres IP jest tworzony w celu uzyskania dostępu do bramy OpenFaaS. Aby pobrać ten adres IP, użyj polecenia [polecenia kubectl Get Service][kubectl-get] . Przypisanie adresu IP do usługi może potrwać minutę.
 
 ```console
 kubectl get service -l component=gateway --namespace openfaas
 ```
 
-Wyjście.
+Rozdzielczości.
 
 ```output
 NAME               TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)          AGE
@@ -108,34 +108,34 @@ gateway            ClusterIP      10.0.156.194   <none>         8080/TCP        
 gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
 ```
 
-Aby przetestować system OpenFaaS, przejdź do zewnętrznego adresu IP na `http://52.186.64.52:8080` porcie 8080, w tym przykładzie. Zostanie wyświetlony monit o zalogowanie się. Aby pobrać hasło, `echo $PASSWORD`wprowadź .
+Aby przetestować system OpenFaaS, przejdź do zewnętrznego adresu IP w porcie 8080, `http://52.186.64.52:8080` w tym przykładzie. Zostanie wyświetlony monit o zalogowanie się. Aby pobrać hasło, wprowadź `echo $PASSWORD`.
 
 ![Interfejs użytkownika OpenFaaS](media/container-service-serverless/openfaas.png)
 
-Na koniec zainstaluj plik CLI OpenFaaS. W tym przykładzie użyto brew, zobacz [Dokumentacja interfejsu wiersza polecenia OpenFaaS, aby][open-faas-cli] uzyskać więcej opcji.
+Na koniec Zainstaluj interfejs wiersza polecenia OpenFaaS. W tym przykładzie użyto rozwiązania brew, zapoznaj się z [dokumentacją interfejsu wiersza polecenia OpenFaaS][open-faas-cli] w celu uzyskania dodatkowych opcji.
 
 ```console
 brew install faas-cli
 ```
 
-Ustaw `$OPENFAAS_URL` publiczny adres IP znaleziony powyżej.
+Ustaw `$OPENFAAS_URL` na publiczny adres IP znaleziony powyżej.
 
-Zaloguj się za pomocą interfejsu wiersza polecenia platformy Azure:
+Zaloguj się przy użyciu interfejsu wiersza polecenia platformy Azure:
 
 ```console
 export OPENFAAS_URL=http://52.186.64.52:8080
 echo -n $PASSWORD | ./faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
 ```
 
-## <a name="create-first-function"></a>Tworzenie pierwszej funkcji
+## <a name="create-first-function"></a>Utwórz pierwszą funkcję
 
-Teraz, gdy OpenFaaS działa, utwórz funkcję za pomocą portalu OpenFaas.
+Teraz, gdy OpenFaaS działa, Utwórz funkcję przy użyciu portalu OpenFaas.
 
-Kliknij na **Wdrażanie nowej funkcji** i wyszukaj **Figlet**. Wybierz funkcję Figlet i kliknij przycisk **Wdrażanie**.
+Kliknij pozycję **Wdróż nową funkcję** i Wyszukaj **FIGlet**. Wybierz funkcję FIGlet, a następnie kliknij pozycję **Wdróż**.
 
 ![Figlet](media/container-service-serverless/figlet.png)
 
-Użyj curl wywołać funkcję. Zastąp adres IP w poniższym przykładzie adresem bramy OpenFaas.
+Użyj zwinięciea, aby wywołać funkcję. W poniższym przykładzie Zastąp adres IP używany przez bramę OpenFaas.
 
 ```console
 curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
@@ -152,25 +152,25 @@ Dane wyjściowe:
 
 ```
 
-## <a name="create-second-function"></a>Tworzenie drugiej funkcji
+## <a name="create-second-function"></a>Create — Druga funkcja
 
-Teraz utwórz drugą funkcję. W tym przykładzie zostanie wdrożony przy użyciu interfejsu wiersza polecenia OpenFaaS i zawiera niestandardowy obraz kontenera i pobieranie danych z usługi Cosmos DB. Kilka elementów należy skonfigurować przed utworzeniem funkcji.
+Teraz Utwórz drugą funkcję. Ten przykład zostanie wdrożony przy użyciu interfejsu wiersza polecenia OpenFaaS i zawiera niestandardowy obraz kontenera oraz pobranie danych z Cosmos DB. Przed utworzeniem funkcji należy skonfigurować kilka elementów.
 
-Najpierw utwórz nową grupę zasobów dla usługi Cosmos DB.
+Najpierw utwórz nową grupę zasobów dla Cosmos DB.
 
 ```azurecli-interactive
 az group create --name serverless-backing --location eastus
 ```
 
-Wdrażanie wystąpienia usługi CosmosDB w rodzaju `MongoDB`. Wystąpienie wymaga unikatowej `openfaas-cosmos` nazwy, aktualizacji do czegoś unikatowego dla środowiska.
+Wdróż wystąpienie CosmosDB rodzaju `MongoDB`. Wystąpienie musi mieć unikatową nazwę i aktualizować `openfaas-cosmos` ją do swojego środowiska.
 
 ```azurecli-interactive
 az cosmosdb create --resource-group serverless-backing --name openfaas-cosmos --kind MongoDB
 ```
 
-Pobierz ciąg połączenia bazy danych Cosmos i przechowywać go w zmiennej.
+Pobierz parametry połączenia z bazą danych Cosmos i Zapisz ją w zmiennej.
 
-Zaktualizuj `--resource-group` wartość argumentu do nazwy grupy `--name` zasobów, a argument do nazwy bazy danych usługi Cosmos.
+Zaktualizuj wartość `--resource-group` argumentu do nazwy grupy zasobów, a `--name` argument na nazwę Cosmos DB.
 
 ```azurecli-interactive
 COSMOS=$(az cosmosdb list-connection-strings \
@@ -180,7 +180,7 @@ COSMOS=$(az cosmosdb list-connection-strings \
   --output tsv)
 ```
 
-Teraz wypełnij cosmos DB danymi testowymi. Utwórz plik `plans.json` o nazwie i skopiuj w następującym json.
+Teraz Wypełnij Cosmos DB danymi testowymi. Utwórz plik o nazwie `plans.json` i skopiuj w poniższym kodzie JSON.
 
 ```json
 {
@@ -194,15 +194,15 @@ Teraz wypełnij cosmos DB danymi testowymi. Utwórz plik `plans.json` o nazwie i
 }
 ```
 
-Użyj narzędzia *mongoimport,* aby załadować wystąpienie usługi CosmosDB z danymi.
+Użyj narzędzia *mongoimport* , aby załadować wystąpienie CosmosDB z danymi.
 
-W razie potrzeby zainstaluj narzędzia MongoDB. Poniższy przykład instaluje te narzędzia przy użyciu naparowania, zobacz [dokumentację MongoDB][install-mongo] dla innych opcji.
+W razie konieczności Zainstaluj narzędzia MongoDB. Poniższy przykład instaluje te narzędzia za pomocą rozwiązania brew, zapoznaj się z [dokumentacją MongoDB][install-mongo] w celu uzyskania innych opcji.
 
 ```console
 brew install mongodb
 ```
 
-Załaduj dane do bazy danych.
+Załaduj dane do bazy danych programu.
 
 ```console
 mongoimport --uri=$COSMOS -c plans < plans.json
@@ -215,20 +215,20 @@ Dane wyjściowe:
 2018-02-19T14:42:14.918+0000    imported 1 document
 ```
 
-Uruchom następujące polecenie, aby utworzyć funkcję. Zaktualizuj `-g` wartość argumentu za pomocą adresu bramy OpenFaaS.
+Uruchom następujące polecenie, aby utworzyć funkcję. Zaktualizuj wartość `-g` argumentu przy użyciu adresu bramy OpenFaaS.
 
 ```console
 faas-cli deploy -g http://52.186.64.52:8080 --image=shanepeckham/openfaascosmos --name=cosmos-query --env=NODE_ENV=$COSMOS
 ```
 
-Po wdrożeniu powinien zostać wyświetlony nowo utworzony punkt końcowy OpenFaaS dla tej funkcji.
+Po wdrożeniu należy zobaczyć nowo utworzony punkt końcowy OpenFaaS dla funkcji.
 
 ```output
 Deployed. 202 Accepted.
 URL: http://52.186.64.52:8080/function/cosmos-query
 ```
 
-Przetestuj funkcję za pomocą curl. Zaktualizuj adres IP za pomocą adresu bramy OpenFaaS.
+Przetestuj funkcję przy użyciu zwinięcia. Zaktualizuj adres IP przy użyciu adresu bramy OpenFaaS.
 
 ```console
 curl -s http://52.186.64.52:8080/function/cosmos-query
@@ -240,13 +240,13 @@ Dane wyjściowe:
 [{"ID":"","Name":"two_person","FriendlyName":"","PortionSize":"","MealsPerWeek":"","Price":72,"Description":"Our basic plan, delivering 3 meals per week, which will feed 1-2 people."}]
 ```
 
-Można również przetestować funkcję w interfejsie użytkownika OpenFaaS.
+Możesz również przetestować funkcję w interfejsie użytkownika OpenFaaS.
 
 ![tekst alternatywny](media/container-service-serverless/OpenFaaSUI.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Możesz nadal uczyć się z warsztatów OpenFaaS za pośrednictwem zestawu praktycznych laboratoriów, które obejmują takie tematy, jak tworzenie własnego bota GitHub, korzystanie z wpisów tajnych, wyświetlanie metryk i automatyczne skalowanie.
+Możesz w dalszym ciągu dowiedzieć się więcej na temat warsztatów OpenFaaS za pomocą zestawu praktycznych laboratoriów, na przykład jak utworzyć własny bot GitHub, zużywać wpisy tajne, wyświetlać metryki i skalowanie automatyczne.
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/

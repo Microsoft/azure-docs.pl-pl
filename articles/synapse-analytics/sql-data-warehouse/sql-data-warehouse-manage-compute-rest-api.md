@@ -1,5 +1,5 @@
 ---
-title: Pauza, wznowienie, skalowanie za pomocą interfejsów API REST
+title: Wstrzymywanie, wznawianie i skalowanie przy użyciu interfejsów API REST
 description: Zarządzanie mocą obliczeniową w magazynie danych usługi Azure Synapse Analytics za pomocą interfejsów API REST.
 services: synapse-analytics
 author: kevinvngo
@@ -12,19 +12,19 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 4efd5c63af9f09d41733e8e172270410245977ec
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633198"
 ---
-# <a name="rest-apis-for-azure-sql-data-warehouse"></a>INTERFEJSY API REST dla usługi Azure SQL Data Warehouse
+# <a name="rest-apis-for-azure-sql-data-warehouse"></a>Interfejsy API REST dla Azure SQL Data Warehouse
 
-Interfejsy API REST do zarządzania obliczeniami w magazynie danych usługi Azure Synapse Analytics.
+Interfejsy API REST do zarządzania obliczeniami w usłudze Azure Synapse Analytics Data Warehouse.
 
 ## <a name="scale-compute"></a>Skalowanie zasobów obliczeniowych
 
-Aby zmienić jednostki magazynu danych, użyj interfejsu API [Tworzenie lub Aktualizowanie rest bazy danych.](/rest/api/sql/databases/createorupdate?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) W poniższym przykładzie ustawia jednostki magazynu danych na DW1000 dla bazy danych MySQLDW, która jest hostowana na serwerze MyServer. Serwer znajduje się w grupie zasobów platformy Azure o nazwie ResourceGroup1.
+Aby zmienić jednostki magazynu danych, należy użyć interfejsu API REST [tworzenia lub aktualizacji bazy danych](/rest/api/sql/databases/createorupdate?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) . Poniższy przykład ustawia jednostki magazynu danych wartości DW1000 dla bazy danych MySQLDW, która jest hostowana na serwerze Server. Serwer należy do grupy zasobów platformy Azure o nazwie ResourceGroup1.
 
 ```
 PATCH https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -37,43 +37,43 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-## <a name="pause-compute"></a>Wstrzymanie obliczeń
+## <a name="pause-compute"></a>Wstrzymywanie obliczeń
 
-Aby wstrzymać bazę danych, użyj interfejsu API Wstrzymaj rest [bazy danych.](/rest/api/sql/databases/pause?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Poniższy przykład wstrzymuje bazę danych o nazwie Database02 hostowane na serwerze o nazwie Server01. Serwer znajduje się w grupie zasobów platformy Azure o nazwie ResourceGroup1.
+Aby wstrzymać bazę danych, należy użyć interfejsu API REST usługi [Pause Database](/rest/api/sql/databases/pause?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) . Poniższy przykład wstrzymuje bazę danych o nazwie Database02 hostowaną na serwerze o nazwie Serwer01. Serwer należy do grupy zasobów platformy Azure o nazwie ResourceGroup1.
 
 ```
 POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/pause?api-version=2014-04-01-preview HTTP/1.1
 ```
 
-## <a name="resume-compute"></a>Wznów obliczeń
+## <a name="resume-compute"></a>Wznów Obliczanie
 
-Aby uruchomić bazę danych, użyj interfejsu API [REST bazy danych wznowić.](/rest/api/sql/databases/resume?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) W poniższym przykładzie rozpoczyna się baza danych o nazwie Database02 hostowana na serwerze o nazwie Server01. Serwer znajduje się w grupie zasobów platformy Azure o nazwie ResourceGroup1.
+Aby uruchomić bazę danych, należy użyć interfejsu API REST [wznawiania bazy danych](/rest/api/sql/databases/resume?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) . W poniższym przykładzie jest uruchamiana baza danych o nazwie Database02 hostowana na serwerze o nazwie Serwer01. Serwer należy do grupy zasobów platformy Azure o nazwie ResourceGroup1.
 
 ```
 POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/resume?api-version=2014-04-01-preview HTTP/1.1
 ```
 
-## <a name="check-database-state"></a>Sprawdzanie stanu bazy danych
+## <a name="check-database-state"></a>Sprawdź stan bazy danych
 
 > [!NOTE]
-> Obecnie sprawdź stan bazy danych może powrócić online, gdy baza danych jest ukończenie przepływu pracy online, co powoduje błędy połączenia. Może być konieczne dodanie 2 do 3 minut opóźnienia w kodzie aplikacji, jeśli używasz tego wywołania interfejsu API do wyzwalania prób połączenia.
+> Obecnie sprawdzanie stanu bazy danych może zwrócić do trybu ONLINE, gdy baza danych kończy przepływ pracy w trybie online, co powoduje błędy połączeń. W przypadku korzystania z tego wywołania interfejsu API w celu wyzwalania prób połączenia może być konieczne dodanie 2 do 3 minut opóźnienia w kodzie aplikacji.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01 HTTP/1.1
 ```
 
-## <a name="get-maintenance-schedule"></a>Uzyskaj harmonogram konserwacji
+## <a name="get-maintenance-schedule"></a>Pobierz harmonogram konserwacji
 
-Sprawdź harmonogram konserwacji, który został ustawiony dla magazynu danych.
+Sprawdź harmonogram konserwacji, który został ustawiony dla hurtowni danych.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
 
 ```
 
-## <a name="set-maintenance-schedule"></a>Ustawianie harmonogramu konserwacji
+## <a name="set-maintenance-schedule"></a>Ustaw harmonogram konserwacji
 
-Aby ustawić i zaktualizować harmonogram konserwacji w istniejącym magazynie danych.
+Ustawianie i aktualizowanie harmonogramu konserwacji w istniejącym magazynie danych.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1

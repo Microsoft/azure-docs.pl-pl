@@ -1,6 +1,6 @@
 ---
-title: Przydziały i limity w usłudze Azure Media Services
-description: W tym temacie opisano przydziały i limity w usługach Microsoft Azure Media Services.
+title: Przydziały i limity w Azure Media Services
+description: W tym temacie opisano limity przydziału i limity w Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,101 +12,101 @@ ms.topic: article
 ms.date: 04/01/2020
 ms.author: juliako
 ms.openlocfilehash: e9855a02a57d71793f3a5d6c5ce01cbfda341b70
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80632224"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
-# <a name="azure-media-services-quotas-and-limits"></a>Przydziały i limity usługi Azure Media Services
+# <a name="azure-media-services-quotas-and-limits"></a>Przydziały i limity Azure Media Services
 
-W tym artykule wymieniono niektóre z najczęstszych limitów usług Microsoft Azure Media Services, które są czasami nazywane przydziałami.
+W tym artykule wymieniono niektóre z najczęstszych limitów Microsoft Azure Media Services, które są również czasami nazywane przydziałami.
 
 > [!NOTE]
-> W przypadku zasobów, które nie są stałe, otwórz bilet pomocy technicznej, aby poprosić o zwiększenie przydziałów. Nie należy tworzyć dodatkowych kont usługi Azure Media Services w celu uzyskania wyższych limitów.
+> W przypadku zasobów, które nie zostały naprawione, należy otworzyć bilet pomocy technicznej w celu poproszenia o zwiększenie limitów przydziału. Nie należy tworzyć dodatkowych kont Azure Media Services próbujących uzyskać wyższe limity.
 
 ## <a name="account-limits"></a>Limity kont
 
 | Zasób | Limit domyślny | 
 | --- | --- | 
-| [Konta usługi Media Services](media-services-account-concept.md) w jednej subskrypcji | 25 (stały) |
+| [Media Services kont](media-services-account-concept.md) w ramach jednej subskrypcji | 25 (stały) |
 
-## <a name="asset-limits"></a>Limity aktywów
-
-| Zasób | Limit domyślny | 
-| --- | --- | 
-| [Zasoby](assets-concept.md) na konto usługi Media Services | 1 000 000|
-
-## <a name="storage-limits"></a>Limity magazynowania
+## <a name="asset-limits"></a>Limity zasobów
 
 | Zasób | Limit domyślny | 
 | --- | --- | 
-| Rozmiar pliku| W niektórych scenariuszach istnieje limit maksymalnego rozmiaru pliku obsługiwanego do przetwarzania w umiaźnym programie Media Services. <sup>(1)</sup> |
+| [Zasoby](assets-concept.md) na konto Media Services | 1 000 000|
+
+## <a name="storage-limits"></a>Limity magazynu
+
+| Zasób | Limit domyślny | 
+| --- | --- | 
+| Rozmiar pliku| W niektórych scenariuszach obowiązuje limit maksymalnego rozmiaru pliku, który jest obsługiwany przez przetwarzanie w Media Services. <sup>jedno</sup> |
 | [Konta magazynu](storage-account-concept.md) | 100<sup>(2)</sup> (stałe) |
 
-<sup>1</sup> Maksymalny rozmiar obsługiwany dla pojedynczego obiektu blob wynosi obecnie do 5 TB w usłudze Azure Blob Storage. Dodatkowe limity mają zastosowanie w usłudze Media Services na podstawie rozmiarów maszyn wirtualnych, które są używane przez usługę. Limit rozmiaru ma zastosowanie do przekazywalnych plików, a także plików, które są generowane w wyniku przetwarzania usługi Media Services (kodowania lub analizowania). Jeśli plik źródłowy jest większy niż 260 GB, zadanie prawdopodobnie zakończy się niepowodzeniem. 
+<sup>1</sup> maksymalny rozmiar obsługiwany przez pojedynczy obiekt BLOB jest obecnie do 5 TB na platformie Azure Blob Storage. Dodatkowe limity są stosowane w Media Services na podstawie rozmiarów maszyn wirtualnych używanych przez usługę. Limit rozmiaru dotyczy przekazywanych plików, a także plików, które są generowane w wyniku przetwarzania Media Services (kodowanie lub analizowanie). Jeśli rozmiar pliku źródłowego przekracza 260 GB, prawdopodobnie zadanie zakończy się niepowodzeniem. 
 
-W poniższej tabeli przedstawiono limity dla jednostek zarezerwowanych nośników S1, S2 i S3. Jeśli plik źródłowy jest większy niż limity zdefiniowane w tabeli, zadanie kodowania kończy się niepowodzeniem. Jeśli kodujesz źródła rozdzielczości 4K o długim czasie trwania, musisz używać jednostek zarezerwowanych nośników S3, aby osiągnąć wymaganą wydajność. Jeśli masz zawartość 4K, która jest większa niż limit 260 GB w jednostkach zarezerwowanych nośników S3, otwórz bilet pomocy technicznej.
+W poniższej tabeli przedstawiono limity jednostek zarezerwowanych multimediów S1, S2 i S3. Jeśli plik źródłowy jest większy niż limity zdefiniowane w tabeli, zadanie kodowania kończy się niepowodzeniem. Jeśli zakodujesz źródła rozpoznawania 4 KB o długim czasie trwania, musisz użyć jednostek zarezerwowanych multimediów S3, aby osiągnąć potrzebną wydajność. Jeśli masz zawartość 4K o rozmiarze większym niż limit 260 GB w jednostkach zarezerwowanych multimediów S3, Otwórz bilet pomocy technicznej.
 
-|Typ jednostki zarezerwowanej nośnika|Maksymalny rozmiar wejścia (GB)|
+|Typ jednostki zarezerwowanej multimediów|Maksymalny rozmiar danych wejściowych (GB)|
 |---|---|
 |S1 |    26|
 |S2    | 60|
 |S3    |260|
 
-<sup>2</sup> Konta magazynu muszą pochodzić z tej samej subskrypcji platformy Azure.
+<sup>2</sup> konta magazynu muszą znajdować się w tej samej subskrypcji platformy Azure.
 
-## <a name="jobs-encoding--analyzing-limits"></a>Limity zadań (kodowanie & analizowanie)
-
-| Zasób | Limit domyślny | 
-| --- | --- | 
-| [Zadania](transforms-jobs-concept.md) na konto usługi Media Services | 500 000 <sup>(3)</sup> (stałe)|
-| Dane wejściowe zlecenia na zadanie | 50 (stała)|
-| Wyjścia zlecenia na zadanie | 20 (stała) |
-| [Przekształcenia](transforms-jobs-concept.md) na konto usługi Media Services | 100 (stała)|
-| Przekształcanie wyjść w przekształcaniu | 20 (stała) |
-| Pliki na dane wejściowe zadania|10 (stała)|
-
-<sup>3</sup> Ta liczba obejmuje zadania w kolejce, zakończone, aktywne i anulowane. Nie obejmuje usuniętych zadań. 
-
-Każdy rekord zadania na koncie starszym niż 90 dni zostanie automatycznie usunięty, nawet jeśli całkowita liczba rekordów jest niższa od maksymalnego limitu. 
-
-## <a name="live-streaming-limits"></a>Limity transmisji na żywo
+## <a name="jobs-encoding--analyzing-limits"></a>Limity zadań (analizowanie & kodowania)
 
 | Zasób | Limit domyślny | 
 | --- | --- | 
-| [Wydarzenia na żywo](live-events-outputs-concept.md) <sup>(4)</sup> na konto usługi Media Services |5|
-| Wyjścia na żywo na wydarzenie na żywo |3 <sup>(5)</sup> |
-| Maksymalny czas trwania wyjścia na żywo | 25 godzin |
+| [Zadania](transforms-jobs-concept.md) na konto Media Services | 500 000 <sup>(3)</sup> (stałe)|
+| Dane wejściowe zadania na zadanie | 50 (stałe)|
+| Dane wyjściowe zadania na zadanie | 20 (stałe) |
+| [Przekształcenia](transforms-jobs-concept.md) na konto Media Services | 100 (stałe)|
+| Przekształcanie danych wyjściowych w transformacji | 20 (stałe) |
+| Pliki na dane wejściowe zadania|10 (stałe)|
 
-<sup>4</sup> Aby uzyskać szczegółowe informacje na temat limitów zdarzeń na żywo, zobacz [porównanie typów zdarzeń na żywo i limity](live-event-types-comparison.md).
+<sup>3</sup> ta liczba obejmuje zadania w kolejce, zakończone, aktywne i anulowane. Nie obejmuje ono usuniętych zadań. 
 
-<sup>5</sup> Wyjścia na żywo rozpoczynają się podczas tworzenia i zatrzymują się po usunięciu.
+Każdy rekord zadania na koncie starszej niż 90 dni zostanie automatycznie usunięty, nawet jeśli łączna liczba rekordów jest mniejsza niż maksymalny limit przydziału. 
 
-## <a name="packaging--delivery-limits"></a>Limity dostaw opakowań &
+## <a name="live-streaming-limits"></a>Limity przesyłania strumieniowego na żywo
 
 | Zasób | Limit domyślny | 
 | --- | --- | 
-| [Przesyłanie strumieniowe punktów końcowych (zatrzymane](streaming-endpoint-concept.md) lub uruchomione) na konto usługi Media Services|2 |
+| [Zdarzenia na żywo](live-events-outputs-concept.md) <sup>(4)</sup> na konto Media Services |5|
+| Dane wyjściowe na żywo na żywo |3 <sup>(5)</sup> |
+| Maksymalny czas trwania danych wyjściowych na żywo | 25 godzin |
+
+<sup>4</sup> Aby uzyskać szczegółowe informacje na temat limitów zdarzeń na żywo, zobacz [porównanie i limity typów zdarzeń na żywo](live-event-types-comparison.md).
+
+<sup>5</sup> danych wyjściowych na żywo rozpocznie się po utworzeniu i Zatrzymaj po usunięciu.
+
+## <a name="packaging--delivery-limits"></a>& limity dostarczania pakietów
+
+| Zasób | Limit domyślny | 
+| --- | --- | 
+| [Punkty końcowe przesyłania strumieniowego](streaming-endpoint-concept.md) (zatrzymane lub uruchomione) dla konta Media Services|2 |
 | [Filtry manifestów dynamicznych](filters-dynamic-manifest-overview.md)|100|
 | [Zasady przesyłania strumieniowego](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
-| Unikatowe [lokalizatory przesyłania strumieniowego skojarzone](streaming-locators-concept.md) z zasobem jednocześnie | 100<sup>(7)</sup> (stała) |
+| Unikatowe [lokalizatory przesyłania strumieniowego](streaming-locators-concept.md) skojarzone z elementem zawartości w jednym momencie | 100<sup>(7)</sup> (stałe) |
 
-<sup>6</sup> Podczas korzystania z niestandardowych [zasad przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streamingpolicies)należy zaprojektować ograniczony zestaw takich zasad dla konta usługi Media Service i ponownie użyć ich dla lokalizatorów przesyłania strumieniowego, gdy są potrzebne te same opcje szyfrowania i protokoły. Nie należy tworzyć nowych zasad przesyłania strumieniowego dla każdego lokalizatora przesyłania strumieniowego.
+<sup>6</sup> Jeśli używasz niestandardowych [zasad przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streamingpolicies), należy zaprojektować ograniczony zestaw takich zasad dla konta usługi Media Service i ponownie użyć ich do StreamingLocators za każdym razem, gdy potrzebne są te same opcje szyfrowania i protokoły. Nie należy tworzyć nowych zasad przesyłania strumieniowego dla każdego lokalizatora przesyłania strumieniowego.
 
-<sup>7</sup> Lokalizatory przesyłania strumieniowego nie są przeznaczone do zarządzania kontrolą dostępu dla użytkownika. Aby nadać różne uprawnienia poszczególnym użytkownikom, użyj rozwiązań do zarządzania prawami cyfrowymi (DRM, Digital Rights Management).
+<sup>7</sup> lokalizatorów przesyłania strumieniowego nie są przeznaczone do zarządzania kontrolą dostępu dla poszczególnych użytkowników. Aby nadać różne uprawnienia poszczególnym użytkownikom, użyj rozwiązań do zarządzania prawami cyfrowymi (DRM, Digital Rights Management).
 
 ## <a name="protection-limits"></a>Limity ochrony
 
 | Zasób | Limit domyślny | 
 | --- | --- | 
 | Opcje dla [zasad klucza zawartości](content-key-policy-concept.md) |30 | 
-| Licencje miesięcznie dla każdego typu DRM w usłudze dostarczania kluczy usługi Media Services na konto|1 000 000|
+| Licencje na miesiąc dla każdego z typów DRM w usłudze Media Services Key Delivery na konto|1 000 000|
 
 ## <a name="support-ticket"></a>Bilet pomocy technicznej
 
-W przypadku zasobów, które nie są stałe, można poprosić o podniesione przydziały, otwierając [bilet pomocy technicznej](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Dołącz szczegółowe informacje w żądaniu na żądane zmiany przydziału, scenariusze przypadków użycia i regionów wymaganych. <br/>**Nie** twórz dodatkowych kont usługi Azure Media Services w celu uzyskania wyższych limitów.
+W przypadku zasobów, które nie zostały naprawione, możesz poprosił o wypróbowanie przydziałów, otwierając [bilet pomocy technicznej](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Dołącz szczegółowe informacje w żądaniu dotyczące żądanych zmian przydziału, scenariuszy przypadków użycia i wymaganych regionów. <br/>**Nie** twórz dodatkowych kont usługi Azure Media Services w celu uzyskania wyższych limitów.
 
 ## <a name="next-steps"></a>Następne kroki
 

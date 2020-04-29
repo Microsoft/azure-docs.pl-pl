@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Dodawanie wystąpienia zarządzanego do grupy trybu failover'
-description: Dowiedz się, jak skonfigurować grupę trybu failover dla wystąpienia zarządzanego usługi Azure SQL Database.
+title: 'Samouczek: dodawanie wystąpienia zarządzanego do grupy trybu failover'
+description: Dowiedz się, jak skonfigurować grupę trybu failover dla Azure SQL Database wystąpienia zarządzanego.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -13,25 +13,25 @@ ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
 ms.openlocfilehash: 0f1a56fa6ea38acd8061180407eb47fe416b61e9
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631713"
 ---
-# <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Samouczek: Dodawanie wystąpienia zarządzanego bazy danych SQL do grupy trybu failover
+# <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Samouczek: dodawanie wystąpienia zarządzanego SQL Database do grupy trybu failover
 
-Dodawanie wystąpienia zarządzanego bazy danych SQL do grupy trybu failover. W tym artykule dowiesz się, jak:
+Dodaj wystąpienie zarządzane SQL Database do grupy trybu failover. W tym artykule dowiesz się, jak:
 
 > [!div class="checklist"]
 > - Tworzenie podstawowego wystąpienia zarządzanego
-> - Utwórz pomocnicze wystąpienie zarządzane jako część [grupy trybu failover](sql-database-auto-failover-group.md). 
+> - Utwórz dodatkowe wystąpienie zarządzane jako część [grupy trybu failover](sql-database-auto-failover-group.md). 
 > - Testowanie pracy w trybie failover
 
   > [!NOTE]
-  > - Podczas przechodzenia przez ten samouczek upewnij się, że konfigurujesz zasoby z [wymaganiami wstępnymi do konfigurowania grup trybu failover dla wystąpienia zarządzanego](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
-  > - Tworzenie wystąpienia zarządzanego może zająć dużo czasu. W rezultacie ten samouczek może potrwać kilka godzin. Aby uzyskać więcej informacji na temat czasów inicjowania obsługi administracyjnej, zobacz [operacje zarządzania wystąpieniami zarządzanymi](sql-database-managed-instance.md#managed-instance-management-operations). 
-  > - Wystąpienia zarządzane uczestniczące w grupie trybu failover wymagają [usługi ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) lub dwóch połączonych bram sieci VPN. Ten samouczek zawiera kroki dotyczące tworzenia i łączenia bram sieci VPN. Pomiń te kroki, jeśli masz już skonfigurowany program ExpressRoute. 
+  > - Korzystając z tego samouczka, należy się upewnić, że skonfigurowano zasoby z [wymaganiami wstępnymi dotyczącymi konfigurowania grup trybu failover dla wystąpienia zarządzanego](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
+  > - Tworzenie wystąpienia zarządzanego może zająć dużo czasu. W związku z tym ten samouczek może trwać kilka godzin. Aby uzyskać więcej informacji o czasach udostępniania, zobacz [operacje zarządzania wystąpieniami zarządzanymi](sql-database-managed-instance.md#managed-instance-management-operations). 
+  > - Wystąpienia zarządzane uczestniczące w grupie trybu failover wymagają [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) lub dwóch podłączonych bram sieci VPN. Ten samouczek zawiera instrukcje dotyczące tworzenia i łączenia bram sieci VPN. Pomiń te kroki, jeśli skonfigurowano już ExpressRoute. 
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -39,45 +39,45 @@ Dodawanie wystąpienia zarządzanego bazy danych SQL do grupy trybu failover. W 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Aby ukończyć kroki tego samouczka, upewnij się, że dysponujesz następującymi elementami: 
 
-- Subskrypcja platformy Azure. [Utwórz bezpłatne konto,](https://azure.microsoft.com/free/) jeśli jeszcze go nie masz.
+- Subskrypcja platformy Azure. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) , jeśli jeszcze go nie masz.
 
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Aby ukończyć samouczek, upewnij się, że masz następujące elementy:
+# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+Aby ukończyć ten samouczek, upewnij się, że masz następujące elementy:
 
-- Subskrypcja platformy Azure. [Utwórz bezpłatne konto,](https://azure.microsoft.com/free/) jeśli jeszcze go nie masz.
+- Subskrypcja platformy Azure. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) , jeśli jeszcze go nie masz.
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 ---
 
 
-## <a name="1---create-resource-group-and-primary-managed-instance"></a>1 - Tworzenie grupy zasobów i podstawowego wystąpienia zarządzanego
-W tym kroku utworzysz grupę zasobów i podstawowe wystąpienie zarządzane dla grupy trybu failover przy użyciu witryny Azure portal lub programu PowerShell. 
+## <a name="1---create-resource-group-and-primary-managed-instance"></a>1 — Tworzenie grupy zasobów i podstawowego wystąpienia zarządzanego
+W tym kroku utworzysz grupę zasobów i podstawowe wystąpienie zarządzane dla grupy trybu failover przy użyciu Azure Portal lub programu PowerShell. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal) 
 
-Utwórz grupę zasobów i podstawowe wystąpienie zarządzane za pomocą witryny Azure Portal. 
+Utwórz grupę zasobów i główne wystąpienie zarządzane przy użyciu Azure Portal. 
 
-1. Wybierz **sql platformy Azure** w menu po lewej stronie witryny Azure portal. Jeśli **usługi Azure SQL** nie ma na liście, wybierz wszystkie **usługi**, a następnie wpisz sql azure w polu wyszukiwania. (Opcjonalnie) Wybierz gwiazdkę obok **programu Azure SQL,** aby ją ulubieć, i dodaj ją jako element w nawigacji po lewej stronie. 
-1. Wybierz **+ Dodaj,** aby otworzyć stronę **opcji Wybierz wdrożenie SQL.** Dodatkowe informacje o różnych bazach danych można wyświetlić, wybierając pozycję Pokaż szczegóły na kafelku Bazy danych.
-1. Wybierz **pozycję Utwórz** na kafelku **wystąpieniami zarządzanymi SQL.** 
+1. Wybierz pozycję **Azure SQL** w menu po lewej stronie Azure Portal. Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie wpisz SQL Azure w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie. 
+1. Wybierz pozycję **+ Dodaj** , aby otworzyć stronę **Wybieranie opcji wdrożenia SQL** . Aby wyświetlić dodatkowe informacje o różnych bazach danych, wybierz pozycję Pokaż szczegóły na kafelku bazy danych.
+1. Wybierz pozycję **Utwórz** na kafelku **wystąpienia zarządzane SQL** . 
 
     ![Wybierz wystąpienie zarządzane](media/sql-database-managed-instance-failover-group-tutorial/select-managed-instance.png)
 
-1. Na stronie **Tworzenie wystąpienia zarządzanego bazy danych SQL platformy Azure** na karcie **Podstawy**
-    1. W obszarze **Szczegóły projektu**wybierz **subskrypcję** z listy rozwijanej, a następnie wybierz pozycję **Utwórz nową** grupę zasobów. Wpisz nazwę grupy zasobów, na `myResourceGroup`przykład . 
-    1. W obszarze **Szczegóły wystąpienia zarządzanego**podaj nazwę wystąpienia zarządzanego i region, w którym chcesz wdrożyć wystąpienie zarządzane. Pozostaw **magazyn Compute + przy** wartościach domyślnych. 
-    1. W obszarze **Konto administratora**podaj login administratora, taki jak `azureuser`, i złożone hasło administratora. 
+1. Na stronie **tworzenie Azure SQL Database wystąpienia zarządzanego** na karcie **podstawowe**
+    1. W obszarze **szczegóły projektu**wybierz **subskrypcję** z listy rozwijanej, a następnie wybierz opcję **Utwórz nową** grupę zasobów. Wpisz nazwę grupy zasobów, na przykład `myResourceGroup`. 
+    1. W obszarze **szczegóły wystąpienia zarządzanego**Podaj nazwę wystąpienia zarządzanego oraz region, w którym chcesz wdrożyć wystąpienie zarządzane. Pozostaw wartości domyślne w obszarze **obliczenia i magazyn** . 
+    1. W obszarze **konto administratora**Podaj nazwę logowania administratora, `azureuser`na przykład i złożone hasło administratora. 
 
-    ![Tworzenie podstawowego MI](media/sql-database-managed-instance-failover-group-tutorial/primary-sql-mi-values.png)
+    ![Utwórz podstawowe MI](media/sql-database-managed-instance-failover-group-tutorial/primary-sql-mi-values.png)
 
-1. Pozostaw pozostałe ustawienia przy wartościach domyślnych i wybierz **pozycję Przejrzyj + utwórz,** aby przejrzeć ustawienia wystąpienia zarządzanego. 
-1. Wybierz **pozycję Utwórz,** aby utworzyć główne wystąpienie zarządzane. 
+1. Pozostaw pozostałe ustawienia w wartości domyślne, a następnie wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć ustawienia wystąpienia zarządzanego. 
+1. Wybierz pozycję **Utwórz** , aby utworzyć podstawowe wystąpienie zarządzane. 
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
 
-Utwórz grupę zasobów i podstawowe wystąpienie zarządzane za pomocą programu PowerShell. 
+Utwórz grupę zasobów i podstawowe wystąpienie zarządzane przy użyciu programu PowerShell. 
 
    ```powershell-interactive
    # Connect-AzAccount
@@ -380,7 +380,7 @@ Utwórz grupę zasobów i podstawowe wystąpienie zarządzane za pomocą program
    Write-host "Primary managed instance created successfully."
    ```
 
-Ta część samouczka używa następujących poleceń cmdlet programu PowerShell:
+W tej części samouczka są stosowane następujące polecenia cmdlet programu PowerShell:
 
 | Polecenie | Uwagi |
 |---|---|
@@ -388,103 +388,103 @@ Ta część samouczka używa następujących poleceń cmdlet programu PowerShell
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Tworzy sieć wirtualną.  |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Dodaje konfigurację podsieci do sieci wirtualnej. | 
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Pobiera sieć wirtualną w grupie zasobów. | 
-| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Pobiera podsieci w sieci wirtualnej. | 
+| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Pobiera podsieć w sieci wirtualnej. | 
 | [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | Tworzy sieciową grupę zabezpieczeń. | 
 | [New-AzRouteTable](/powershell/module/az.network/new-azroutetable) | Tworzy tabelę tras. |
 | [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) | Aktualizuje konfigurację podsieci dla sieci wirtualnej.  |
 | [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | Aktualizuje sieć wirtualną.  |
-| [Grupa bezpieczeństwa Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) | Pobiera grupę zabezpieczeń sieci. |
-| [Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetworksecurityruleconfig)| Dodaje konfigurację reguł zabezpieczeń sieciowych do sieciowej grupy zabezpieczeń. |
-| [Grupa bezpieczeństwa Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) | Aktualizuje sieciową grupę zabezpieczeń.  | 
-| [Dodatek AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) | Dodaje trasę do tabeli tras. |
-| [Tabela Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) | Aktualizuje tabelę tras.  |
-| [Nowy-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Tworzy wystąpienie zarządzanej usługi Azure SQL Database.  |
+| [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) | Pobiera sieciową grupę zabezpieczeń. |
+| [Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetworksecurityruleconfig)| Dodaje konfigurację reguły zabezpieczeń sieci do sieciowej grupy zabezpieczeń. |
+| [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) | Aktualizuje sieciową grupę zabezpieczeń.  | 
+| [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) | Dodaje trasę do tabeli tras. |
+| [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) | Aktualizuje tabelę tras.  |
+| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Tworzy Azure SQL Database wystąpienie zarządzane.  |
 
 ---
 
-## <a name="2---create-secondary-virtual-network"></a>2 - Tworzenie dodatkowej sieci wirtualnej
-Jeśli używasz witryny Azure portal do tworzenia wystąpienia zarządzanego, należy utworzyć sieć wirtualną oddzielnie, ponieważ istnieje wymóg, że podsieć podstawowego i pomocniczego wystąpienia zarządzanego nie mają nakładających się zakresów. Jeśli używasz programu PowerShell do konfigurowania wystąpienia zarządzanego, przejdź do kroku 3. 
+## <a name="2---create-secondary-virtual-network"></a>2 — Tworzenie dodatkowej sieci wirtualnej
+Jeśli używasz Azure Portal, aby utworzyć wystąpienie zarządzane, musisz oddzielnie utworzyć sieć wirtualną, ponieważ istnieje wymóg, aby podsieć podstawowego i pomocniczego wystąpienia zarządzanego nie miała nakładających się zakresów. Jeśli używasz programu PowerShell do konfigurowania wystąpienia zarządzanego, przejdź do kroku 3. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal) 
-Aby zweryfikować zakres podsieci podstawowej sieci wirtualnej, wykonaj następujące kroki:
-1. W [witrynie Azure portal](https://portal.azure.com)przejdź do grupy zasobów i wybierz sieć wirtualną dla wystąpienia podstawowego. 
-1. Wybierz **podsieci** w obszarze **Ustawienia** i zanotuj **zakres adresów**. Zakres adresów podsieci sieci wirtualnej dla pomocniczego wystąpienia zarządzanego nie może nakładać się na to. 
+Aby sprawdzić zakres podsieci podstawowej sieci wirtualnej, wykonaj następujące kroki:
+1. W [Azure Portal](https://portal.azure.com)przejdź do grupy zasobów i wybierz sieć wirtualną dla wystąpienia podstawowego. 
+1. W obszarze **Ustawienia** wybierz pozycję **podsieci** i zanotuj **zakres adresów**. Zakres adresów podsieci sieci wirtualnej dla pomocniczego wystąpienia zarządzanego nie może się nakładać. 
 
 
    ![Podsieć podstawowa](media/sql-database-managed-instance-failover-group-tutorial/verify-primary-subnet-range.png)
 
-Aby utworzyć sieć wirtualną, wykonaj następujące czynności:
+Aby utworzyć sieć wirtualną, wykonaj następujące kroki:
 
-1. W [witrynie Azure portal](https://portal.azure.com)wybierz pozycję **Utwórz zasób** i wyszukaj *sieć wirtualną*. 
-1. Wybierz opcję **Sieć wirtualna** opublikowaną przez firmę Microsoft, a następnie wybierz pozycję **Utwórz** na następnej stronie. 
-1. Wypełnij pola wymagane do skonfigurowania sieci wirtualnej pomocniczego wystąpienia zarządzanego, a następnie wybierz pozycję **Utwórz**. 
+1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **Utwórz zasób** i Wyszukaj *sieć wirtualną*. 
+1. Wybierz opcję **Virtual Network** publikowaną przez firmę Microsoft, a następnie wybierz pozycję **Utwórz** na następnej stronie. 
+1. Wypełnij pola wymagane, aby skonfigurować sieć wirtualną dla pomocniczego wystąpienia zarządzanego, a następnie wybierz pozycję **Utwórz**. 
 
-   W poniższej tabeli przedstawiono wartości niezbędne dla pomocniczej sieci wirtualnej:
+   W poniższej tabeli przedstawiono wartości niezbędne do zapewnienia dodatkowej sieci wirtualnej:
 
     | **Pole** | Wartość |
     | --- | --- |
-    | **Nazwa** |  Nazwa sieci wirtualnej, która ma być używana przez `vnet-sql-mi-secondary`pomocnicze wystąpienie zarządzane, takie jak . |
-    | **Przestrzeń adresowa** | Przestrzeń adresowa sieci wirtualnej, `10.128.0.0/16`na przykład . | 
-    | **Subskrypcja** | Subskrypcja, w której znajduje się główne wystąpienie zarządzane i grupa zasobów. |
+    | **Nazwa** |  Nazwa sieci wirtualnej, która ma być używana przez pomocnicze wystąpienie zarządzane, na przykład `vnet-sql-mi-secondary`. |
+    | **Przestrzeń adresowa** | Przestrzeń adresowa sieci wirtualnej, na przykład `10.128.0.0/16`. | 
+    | **Subskrypcja** | Subskrypcja, w której znajduje się główne wystąpienie zarządzane i Grupa zasobów. |
     | **Region** | Lokalizacja, w której zostanie wdrożone pomocnicze wystąpienie zarządzane. |
-    | **Podsieci** | Nazwa podsieci. `default`jest domyślnie dostępna. |
-    | **Zakres adresów**| Zakres adresów podsieci. Musi to być inny niż zakres adresów podsieci używany przez `10.128.0.0/24`sieć wirtualną podstawowego wystąpienia zarządzanego, na przykład .  |
+    | **Podsieci** | Nazwa podsieci. `default`jest dostarczany domyślnie. |
+    | **Zakres adresów**| Zakres adresów dla podsieci. Ta wartość musi być inna niż zakres adresów podsieci używany przez sieć wirtualną głównego wystąpienia zarządzanego, na przykład `10.128.0.0/24`.  |
     | &nbsp; | &nbsp; |
 
     ![Dodatkowe wartości sieci wirtualnej](media/sql-database-managed-instance-failover-group-tutorial/secondary-virtual-network.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
 
-Ten krok jest konieczne tylko wtedy, gdy używasz witryny Azure Portal do wdrażania wystąpienia zarządzanego. Przejdź do kroku 3, jeśli używasz programu PowerShell. 
+Ten krok jest wymagany tylko wtedy, gdy używasz Azure Portal do wdrożenia wystąpienia zarządzanego. Przejdź do kroku 3, jeśli używasz programu PowerShell. 
 
 ---
 
-## <a name="3---create-a-secondary-managed-instance"></a>3 - Tworzenie pomocniczego wystąpienia zarządzanego
-W tym kroku utworzysz pomocnicze wystąpienie zarządzane w witrynie Azure Portal, która również skonfiguruje sieć między dwoma wystąpieniami zarządzanymi. 
+## <a name="3---create-a-secondary-managed-instance"></a>3 — Tworzenie pomocniczego wystąpienia zarządzanego
+W tym kroku utworzysz dodatkowe wystąpienie zarządzane w Azure Portal, które również skonfiguruje sieć między dwoma wystąpieniami zarządzanymi. 
 
 Drugie wystąpienie zarządzane musi:
-- Bądź pusty. 
-- Mają inny zakres podsieci i adresu IP niż główne wystąpienie zarządzane. 
+- Być pusty. 
+- Ma inną podsieć i zakres adresów IP niż podstawowe wystąpienie zarządzane. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal) 
 
-Utwórz pomocnicze wystąpienie zarządzane przy użyciu witryny Azure Portal. 
+Utwórz pomocnicze wystąpienie zarządzane przy użyciu Azure Portal. 
 
-1. Wybierz **sql platformy Azure** w menu po lewej stronie witryny Azure portal. Jeśli **usługi Azure SQL** nie ma na liście, wybierz wszystkie **usługi**, a następnie wpisz sql azure w polu wyszukiwania. (Opcjonalnie) Wybierz gwiazdkę obok **programu Azure SQL,** aby ją ulubieć, i dodaj ją jako element w nawigacji po lewej stronie. 
-1. Wybierz **+ Dodaj,** aby otworzyć stronę **opcji Wybierz wdrożenie SQL.** Dodatkowe informacje o różnych bazach danych można wyświetlić, wybierając pozycję Pokaż szczegóły na kafelku Bazy danych.
-1. Wybierz **pozycję Utwórz** na kafelku **wystąpieniami zarządzanymi SQL.** 
+1. Wybierz pozycję **Azure SQL** w menu po lewej stronie Azure Portal. Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie wpisz SQL Azure w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie. 
+1. Wybierz pozycję **+ Dodaj** , aby otworzyć stronę **Wybieranie opcji wdrożenia SQL** . Aby wyświetlić dodatkowe informacje o różnych bazach danych, wybierz pozycję Pokaż szczegóły na kafelku bazy danych.
+1. Wybierz pozycję **Utwórz** na kafelku **wystąpienia zarządzane SQL** . 
 
     ![Wybierz wystąpienie zarządzane](media/sql-database-managed-instance-failover-group-tutorial/select-managed-instance.png)
 
-1. Na karcie **Podstawy** na stronie **Tworzenie wystąpienia zarządzanego bazy danych SQL azure** wypełnij pola wymagane do skonfigurowania pomocniczego wystąpienia zarządzanego. 
+1. Na karcie **podstawy** na stronie **Tworzenie Azure SQL Database wystąpienia zarządzanego** wprowadź wymagane pola, aby skonfigurować dodatkowe wystąpienie zarządzane. 
 
-   W poniższej tabeli przedstawiono wartości niezbędne dla pomocniczego wystąpienia zarządzanego:
+   W poniższej tabeli przedstawiono wartości niezbędne do pomocniczego wystąpienia zarządzanego:
  
     | **Pole** | Wartość |
     | --- | --- |
     | **Subskrypcja** |  Subskrypcja, w której znajduje się główne wystąpienie zarządzane. |
-    | **Grupa zasobów**| Grupa zasobów, w której znajduje się główne wystąpienie zarządzane. |
+    | **Grupa zasobów**| Grupa zasobów, w której znajduje się podstawowe wystąpienie zarządzane. |
     | **Nazwa wystąpienia zarządzanego** | Nazwa nowego pomocniczego wystąpienia zarządzanego, takiego jak`sql-mi-secondary`  | 
     | **Region**| Lokalizacja pomocniczego wystąpienia zarządzanego.  |
-    | **Identyfikator logowania administratora wystąpienia zarządzanego** | Login, którego chcesz użyć dla nowego pomocniczego `azureuser`wystąpienia zarządzanego, takiego jak . |
-    | **Hasło** | Złożone hasło, które będzie używane przez logowania administratora dla nowego pomocniczego wystąpienia zarządzanego.  |
+    | **Identyfikator logowania administratora wystąpienia zarządzanego** | Nazwa logowania, która ma być używana dla nowego pomocniczego wystąpienia zarządzanego, na `azureuser`przykład. |
+    | **Hasło** | Złożone hasło, które będzie używane przez nazwę logowania administratora dla nowego wystąpienia zarządzanego.  |
     | &nbsp; | &nbsp; |
 
-1. Na karcie **Sieć** dla **sieci wirtualnej**wybierz z listy rozwijanej sieć wirtualną utworzoną dla pomocniczego wystąpienia zarządzanego.
+1. Na karcie **Sieć** dla **Virtual Network**wybierz sieć wirtualną utworzoną dla pomocniczego wystąpienia zarządzanego z listy rozwijanej.
 
-   ![Sieć pomocnicza MI](media/sql-database-managed-instance-failover-group-tutorial/networking-settings-for-secondary-mi.png)
+   ![Pomocnicza sieć MI](media/sql-database-managed-instance-failover-group-tutorial/networking-settings-for-secondary-mi.png)
 
-1. Na karcie **Ustawienia dodatkowe** w obszarze **Replikacja geograficzna**wybierz opcję **Tak,** aby _użyć jako pomocniczego trybu failover_. Wybierz główne wystąpienie zarządzane z listy rozwijanej. 
-    1. Upewnij się, że sortowanie i strefa czasowa jest zgodna z podstawowym wystąpieniem zarządzanym. Podstawowe wystąpienie zarządzane utworzone w tym `SQL_Latin1_General_CP1_CI_AS` samouczku `(UTC) Coordinated Universal Time` używane domyślne sortowania i strefy czasowej. 
+1. Na karcie **Ustawienia dodatkowe** na potrzeby **replikacji geograficznej**wybierz opcję **tak** , aby _użyć jej jako pomocniczej pracy w trybie failover_. Wybierz z listy rozwijanej podstawowe wystąpienie zarządzane. 
+    1. Upewnij się, że sortowanie i strefa czasowa są zgodne z podstawowym wystąpieniem zarządzanym. Główne wystąpienie zarządzane utworzone w tym samouczku użyło domyślnego `SQL_Latin1_General_CP1_CI_AS` sortowania i strefy `(UTC) Coordinated Universal Time` czasowej. 
 
-   ![Sieć pomocnicza MI](media/sql-database-managed-instance-failover-group-tutorial/secondary-mi-failover.png)
+   ![Pomocnicza sieć MI](media/sql-database-managed-instance-failover-group-tutorial/secondary-mi-failover.png)
 
-1. Wybierz **pozycję Przejrzyj + utwórz,** aby przejrzeć ustawienia pomocniczego wystąpienia zarządzanego. 
-1. Wybierz **pozycję Utwórz,** aby utworzyć pomocnicze wystąpienie zarządzane. 
+1. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć ustawienia dla pomocniczego wystąpienia zarządzanego. 
+1. Wybierz pozycję **Utwórz** , aby utworzyć pomocnicze wystąpienie zarządzane. 
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
 
-Utwórz pomocnicze wystąpienie zarządzane przy użyciu programu PowerShell. 
+Utwórz dodatkowe wystąpienie zarządzane przy użyciu programu PowerShell. 
 
    ```powershell-interactive
    # Configure secondary virtual network
@@ -706,7 +706,7 @@ Utwórz pomocnicze wystąpienie zarządzane przy użyciu programu PowerShell.
    Write-host "Secondary managed instance created successfully."
    ```
 
-Ta część samouczka używa następujących poleceń cmdlet programu PowerShell:
+W tej części samouczka są stosowane następujące polecenia cmdlet programu PowerShell:
 
 | Polecenie | Uwagi |
 |---|---|
@@ -714,68 +714,68 @@ Ta część samouczka używa następujących poleceń cmdlet programu PowerShell
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Tworzy sieć wirtualną.  |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Dodaje konfigurację podsieci do sieci wirtualnej. | 
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Pobiera sieć wirtualną w grupie zasobów. | 
-| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Pobiera podsieci w sieci wirtualnej. | 
+| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Pobiera podsieć w sieci wirtualnej. | 
 | [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | Tworzy sieciową grupę zabezpieczeń. | 
 | [New-AzRouteTable](/powershell/module/az.network/new-azroutetable) | Tworzy tabelę tras. |
 | [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) | Aktualizuje konfigurację podsieci dla sieci wirtualnej.  |
 | [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | Aktualizuje sieć wirtualną.  |
-| [Grupa bezpieczeństwa Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) | Pobiera grupę zabezpieczeń sieci. |
-| [Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetworksecurityruleconfig)| Dodaje konfigurację reguł zabezpieczeń sieciowych do sieciowej grupy zabezpieczeń. |
-| [Grupa bezpieczeństwa Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) | Aktualizuje sieciową grupę zabezpieczeń.  | 
-| [Dodatek AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) | Dodaje trasę do tabeli tras. |
-| [Tabela Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) | Aktualizuje tabelę tras.  |
-| [Nowy-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Tworzy wystąpienie zarządzanej usługi Azure SQL Database.  |
+| [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) | Pobiera sieciową grupę zabezpieczeń. |
+| [Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetworksecurityruleconfig)| Dodaje konfigurację reguły zabezpieczeń sieci do sieciowej grupy zabezpieczeń. |
+| [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) | Aktualizuje sieciową grupę zabezpieczeń.  | 
+| [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) | Dodaje trasę do tabeli tras. |
+| [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) | Aktualizuje tabelę tras.  |
+| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Tworzy Azure SQL Database wystąpienie zarządzane.  |
 
 ---
 
-## <a name="4---create-primary-gateway"></a>4 - Tworzenie bramy podstawowej 
-Aby dwa wystąpienia zarządzane uczestniczyły w grupie trybu failover, musi istnieć usługa ExpressRoute lub brama skonfigurowana między sieciami wirtualnymi dwóch wystąpień zarządzanych, aby umożliwić komunikację sieciową. Jeśli zdecydujesz się skonfigurować usługę [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) zamiast łączyć dwie bramy sieci VPN, przejdź do [kroku 7](#7---create-a-failover-group).  
+## <a name="4---create-primary-gateway"></a>4 — Tworzenie bramy podstawowej 
+W przypadku dwóch wystąpień zarządzanych, które mają być uwzględnione w grupie trybu failover, musi istnieć albo ExpressRoute, albo Brama skonfigurowana między sieciami wirtualnymi dwóch wystąpień zarządzanych, aby umożliwić komunikację sieciową. Jeśli zdecydujesz się skonfigurować [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) zamiast łączyć dwie bramy sieci VPN, przejdź do [kroku 7](#7---create-a-failover-group).  
 
-W tym artykule przedstawiono kroki tworzenia dwóch bram sieci VPN i łączenia ich, ale można przejść do przodu do tworzenia grupy trybu failover, jeśli zamiast tego skonfigurowano usługę ExpressRoute. 
+Ten artykuł zawiera instrukcje tworzenia dwóch bram sieci VPN i łączenia ich, ale można przejść do tworzenia grupy trybu failover, jeśli zamiast tego została skonfigurowana ExpressRoute. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Utwórz bramę dla sieci wirtualnej podstawowego wystąpienia zarządzanego przy użyciu witryny Azure Portal. 
+Utwórz bramę dla sieci wirtualnej głównego wystąpienia zarządzanego przy użyciu Azure Portal. 
 
 
-1. W [witrynie Azure portal](https://portal.azure.com)przejdź do grupy zasobów i wybierz zasób **sieci wirtualnej** dla podstawowego wystąpienia zarządzanego. 
-1. Wybierz **podsieci** w obszarze **Ustawienia,** a następnie wybierz pozycję, aby dodać nową **podsieć bramy**. Pozostaw wartości domyślne. 
+1. W [Azure Portal](https://portal.azure.com)przejdź do grupy zasobów, a następnie wybierz zasób **sieci wirtualnej** dla podstawowego wystąpienia zarządzanego. 
+1. W obszarze **Ustawienia** wybierz pozycję **podsieci** , a następnie wybierz opcję, aby dodać nową **podsieć bramy**. Pozostaw wartości domyślne. 
 
-   ![Dodaj bramę dla podstawowego wystąpienia zarządzanego](media/sql-database-managed-instance-failover-group-tutorial/add-subnet-gateway-primary-vnet.png)
+   ![Dodawanie bramy dla podstawowego wystąpienia zarządzanego](media/sql-database-managed-instance-failover-group-tutorial/add-subnet-gateway-primary-vnet.png)
 
-1. Po utworzeniu bramy podsieci wybierz pozycję **Utwórz zasób** z lewego okienka nawigacji, a następnie wpisz `Virtual network gateway` pole wyszukiwania. Wybierz zasób **bramy sieci wirtualnej** opublikowany przez **firmę Microsoft**. 
+1. Po utworzeniu bramy podsieci wybierz pozycję **Utwórz zasób** w lewym okienku nawigacji, a następnie wpisz `Virtual network gateway` w polu wyszukiwania. Wybierz zasób **bramy sieci wirtualnej** Opublikowany przez **firmę Microsoft**. 
 
-   ![Tworzenie nowej bramy sieci wirtualnej](media/sql-database-managed-instance-failover-group-tutorial/create-virtual-network-gateway.png)
+   ![Utwórz nową bramę sieci wirtualnej](media/sql-database-managed-instance-failover-group-tutorial/create-virtual-network-gateway.png)
 
-1. Wypełnij pola wymagane do skonfigurowania bramy podstawowego wystąpienia zarządzanego. 
+1. Wypełnij pola wymagane, aby skonfigurować bramę jako podstawowe wystąpienie zarządzane. 
 
    W poniższej tabeli przedstawiono wartości niezbędne dla bramy dla podstawowego wystąpienia zarządzanego:
  
     | **Pole** | Wartość |
     | --- | --- |
     | **Subskrypcja** |  Subskrypcja, w której znajduje się główne wystąpienie zarządzane. |
-    | **Nazwa** | Nazwa bramy sieci wirtualnej, `primary-mi-gateway`na przykład . | 
+    | **Nazwa** | Nazwa bramy sieci wirtualnej, na przykład `primary-mi-gateway`. | 
     | **Region** | Region, w którym znajduje się główne wystąpienie zarządzane. |
     | **Typ bramy** | wybierz pozycję **VPN**. |
-    | **Typ sieci VPN** | Wybierz **trasę opartą na trasie** |
-    | **Numer jednostki magazynowej**| Pozostaw `VpnGw1`domyślnie . |
-    | **Lokalizacja**| Lokalizacja, w której znajduje się główne wystąpienie zarządzane i podstawowa sieć wirtualna.   |
-    | **Sieć wirtualna**| Wybierz sieć wirtualną utworzoną w sekcji `vnet-sql-mi-primary`2, na przykład . |
+    | **Typ sieci VPN** | Wybierz pozycję **oparta na trasach** |
+    | **Magazyn**| Pozostaw wartość domyślną `VpnGw1`. |
+    | **Lokalizacja**| Lokalizacja, w której znajduje się podstawowe wystąpienie zarządzane i podstawowa Sieć wirtualna.   |
+    | **Sieć wirtualna**| Wybierz sieć wirtualną, która została utworzona w sekcji 2, na przykład `vnet-sql-mi-primary`. |
     | **Publiczny adres IP**| Wybierz pozycję**Utwórz nowy**. |
-    | **Nazwa publicznego adresu IP**| Wprowadź nazwę adresu IP, na `primary-gateway-IP`przykład . |
+    | **Nazwa publicznego adresu IP**| Wprowadź nazwę adresu IP, na przykład `primary-gateway-IP`. |
     | &nbsp; | &nbsp; |
 
-1. Pozostaw inne wartości jako domyślne, a następnie wybierz **pozycję Przejrzyj + utwórz,** aby przejrzeć ustawienia bramy sieci wirtualnej.
+1. Pozostaw pozostałe wartości jako domyślne, a następnie wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć ustawienia bramy sieci wirtualnej.
 
    ![Ustawienia bramy podstawowej](media/sql-database-managed-instance-failover-group-tutorial/settings-for-primary-gateway.png)
 
-1. Wybierz **pozycję Utwórz,** aby utworzyć nową bramę sieci wirtualnej. 
+1. Wybierz pozycję **Utwórz** , aby utworzyć nową bramę sieci wirtualnej. 
 
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
 
-Utwórz bramę dla sieci wirtualnej podstawowego wystąpienia zarządzanego przy użyciu programu PowerShell. 
+Utwórz bramę dla sieci wirtualnej głównego wystąpienia zarządzanego przy użyciu programu PowerShell. 
 
    ```powershell-interactive
    # Create primary gateway
@@ -808,52 +808,52 @@ Utwórz bramę dla sieci wirtualnej podstawowego wystąpienia zarządzanego przy
    $primaryGateway
    ```
 
-Ta część samouczka używa następujących poleceń cmdlet programu PowerShell:
+W tej części samouczka są stosowane następujące polecenia cmdlet programu PowerShell:
 
 | Polecenie | Uwagi |
 |---|---|
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Pobiera sieć wirtualną w grupie zasobów. |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Dodaje konfigurację podsieci do sieci wirtualnej. | 
 | [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | Aktualizuje sieć wirtualną.  |
-| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Pobiera podsieci w sieci wirtualnej. |
+| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Pobiera podsieć w sieci wirtualnej. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Tworzy publiczny adres IP.  | 
-| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Tworzy konfigurację IP dla bramy sieci wirtualnej |
-| [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Tworzy bramę sieci wirtualnej |
+| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Tworzy konfigurację adresu IP bramy Virtual Network |
+| [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Tworzy bramę Virtual Network |
 
 
 ---
 
 
-## <a name="5---create-secondary-gateway"></a>5 - Tworzenie bramy pomocniczej 
-W tym kroku utwórz bramę dla sieci wirtualnej pomocniczego wystąpienia zarządzanego przy użyciu portalu Azure, 
+## <a name="5---create-secondary-gateway"></a>5 — Tworzenie bramy dodatkowej 
+W tym kroku należy utworzyć bramę dla sieci wirtualnej w ramach pomocniczego wystąpienia zarządzanego przy użyciu Azure Portal, 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Korzystając z witryny Azure portal, powtórz kroki opisane w poprzedniej sekcji, aby utworzyć podsieć sieci wirtualnej i bramę dla pomocniczego wystąpienia zarządzanego. Wypełnij pola wymagane do skonfigurowania bramy pomocniczego wystąpienia zarządzanego. 
+Korzystając z Azure Portal, powtórz kroki opisane w poprzedniej sekcji, aby utworzyć podsieć i bramę sieci wirtualnej dla pomocniczego wystąpienia zarządzanego. Wypełnij pola wymagane, aby skonfigurować bramę dla pomocniczego wystąpienia zarządzanego. 
 
    W poniższej tabeli przedstawiono wartości niezbędne dla bramy dla pomocniczego wystąpienia zarządzanego:
 
    | **Pole** | Wartość |
    | --- | --- |
    | **Subskrypcja** |  Subskrypcja, w której znajduje się pomocnicze wystąpienie zarządzane. |
-   | **Nazwa** | Nazwa bramy sieci wirtualnej, `secondary-mi-gateway`na przykład . | 
+   | **Nazwa** | Nazwa bramy sieci wirtualnej, na przykład `secondary-mi-gateway`. | 
    | **Region** | Region, w którym znajduje się pomocnicze wystąpienie zarządzane. |
    | **Typ bramy** | wybierz pozycję **VPN**. |
-   | **Typ sieci VPN** | Wybierz **trasę opartą na trasie** |
-   | **Numer jednostki magazynowej**| Pozostaw `VpnGw1`domyślnie . |
-   | **Lokalizacja**| Lokalizacja, w której znajduje się pomocnicze wystąpienie zarządzane i pomocnicza sieć wirtualna.   |
-   | **Sieć wirtualna**| Wybierz sieć wirtualną utworzoną w sekcji `vnet-sql-mi-secondary`2, na przykład . |
+   | **Typ sieci VPN** | Wybierz pozycję **oparta na trasach** |
+   | **Magazyn**| Pozostaw wartość domyślną `VpnGw1`. |
+   | **Lokalizacja**| Lokalizacja, w której znajduje się pomocnicze wystąpienie zarządzane i pomocnicza Sieć wirtualna.   |
+   | **Sieć wirtualna**| Wybierz sieć wirtualną, która została utworzona w sekcji 2, na przykład `vnet-sql-mi-secondary`. |
    | **Publiczny adres IP**| Wybierz pozycję**Utwórz nowy**. |
-   | **Nazwa publicznego adresu IP**| Wprowadź nazwę adresu IP, na `secondary-gateway-IP`przykład . |
+   | **Nazwa publicznego adresu IP**| Wprowadź nazwę adresu IP, na przykład `secondary-gateway-IP`. |
    | &nbsp; | &nbsp; |
 
-   ![Ustawienia bramy pomocniczej](media/sql-database-managed-instance-failover-group-tutorial/settings-for-secondary-gateway.png)
+   ![Ustawienia bramy dodatkowej](media/sql-database-managed-instance-failover-group-tutorial/settings-for-secondary-gateway.png)
 
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
 
-Utwórz bramę dla sieci wirtualnej pomocniczego wystąpienia zarządzanego przy użyciu programu PowerShell. 
+Utwórz bramę dla sieci wirtualnej w pomocniczym wystąpieniu zarządzanym przy użyciu programu PowerShell. 
 
    ```powershell-interactive
    # Create the secondary gateway
@@ -889,53 +889,53 @@ Utwórz bramę dla sieci wirtualnej pomocniczego wystąpienia zarządzanego przy
    $secondaryGateway
    ```
 
-Ta część samouczka używa następujących poleceń cmdlet programu PowerShell:
+W tej części samouczka są stosowane następujące polecenia cmdlet programu PowerShell:
 
 | Polecenie | Uwagi |
 |---|---|
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Pobiera sieć wirtualną w grupie zasobów. |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Dodaje konfigurację podsieci do sieci wirtualnej. | 
 | [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | Aktualizuje sieć wirtualną.  |
-| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Pobiera podsieci w sieci wirtualnej. |
+| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Pobiera podsieć w sieci wirtualnej. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Tworzy publiczny adres IP.  | 
-| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Tworzy konfigurację IP dla bramy sieci wirtualnej |
-| [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Tworzy bramę sieci wirtualnej |
+| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Tworzy konfigurację adresu IP bramy Virtual Network |
+| [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Tworzy bramę Virtual Network |
 
 ---
 
 
-## <a name="6---connect-the-gateways"></a>6 - Podłączanie bram
-W tym kroku utwórz dwukierunkowe połączenie między dwiema bramami dwóch sieci wirtualnych. 
+## <a name="6---connect-the-gateways"></a>6 — łączenie bram
+W tym kroku utworzysz dwukierunkową opcję połączenia między dwiema bramami dwóch sieci wirtualnych. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Połącz dwie bramy przy użyciu witryny Azure portal. 
+Połącz dwie bramy przy użyciu Azure Portal. 
 
 
-1. Wybierz **pozycję Utwórz zasób** z [witryny Azure portal](https://portal.azure.com).
-1. Wpisz `connection` pole wyszukiwania, a następnie naciśnij klawisz Enter do wyszukiwania, który przeniesie Cię do zasobu **Połączenie** opublikowanego przez firmę Microsoft.
-1. Wybierz **pozycję Utwórz,** aby utworzyć połączenie. 
-1. Na karcie **Podstawy** wybierz następujące wartości, a następnie wybierz przycisk **OK**. 
-    1. Wybierz `VNet-to-VNet` **dla typu Połączenie**. 
+1. Wybierz pozycję **Utwórz zasób** na podstawie [Azure Portal](https://portal.azure.com).
+1. Wpisz `connection` w polu wyszukiwania, a następnie naciśnij klawisz ENTER, aby przeszukać, co spowoduje przejście do zasobu **połączenia** opublikowanego przez firmę Microsoft.
+1. Wybierz pozycję **Utwórz** , aby utworzyć połączenie. 
+1. Na karcie **podstawowe** wybierz poniższe wartości, a następnie wybierz przycisk **OK**. 
+    1. Wybierz `VNet-to-VNet` pozycję dla **typu połączenia**. 
     1. Wybierz subskrypcję z listy rozwijanej. 
-    1. Wybierz grupę zasobów dla wystąpienia zarządzanego w rozwijanej. 
+    1. Z listy rozwijanej wybierz grupę zasobów dla wystąpienia zarządzanego. 
     1. Wybierz lokalizację podstawowego wystąpienia zarządzanego z listy rozwijanej 
-1. Na karcie **Ustawienia** wybierz lub wprowadź następujące wartości, a następnie wybierz przycisk **OK:**
-    1. Wybierz podstawową bramę sieciową dla pierwszej `Primary-Gateway`bramy sieci **wirtualnej,** na przykład .  
-    1. Wybierz pomocniczą bramę sieciową dla drugiej `Secondary-Gateway`bramy sieci **wirtualnej,** na przykład . 
-    1. Zaznacz pole wyboru obok pozycji **Ustanawianie łączności dwukierunkowej**. 
-    1. Pozostaw domyślną nazwę połączenia podstawowego lub zmień jej nazwę na wybraną wartość. 
-    1. Podaj **klucz udostępniony (PSK)** dla `mi1m2psk`połączenia, na przykład . 
+1. Na karcie **Ustawienia** wybierz lub wprowadź następujące wartości, a następnie wybierz przycisk **OK**:
+    1. Wybierz bramę sieci podstawowej dla **pierwszej bramy sieci wirtualnej**, na przykład `Primary-Gateway`.  
+    1. Wybierz bramę sieci pomocniczej dla **drugiej bramy sieci wirtualnej**, na przykład `Secondary-Gateway`. 
+    1. Zaznacz pole wyboru obok pozycji **Ustanów łączność dwukierunkową**. 
+    1. Pozostaw domyślną nazwę połączenia podstawowego lub Zmień nazwę na wybraną wartość. 
+    1. Podaj **klucz współużytkowany (PSK)** dla połączenia, na przykład `mi1m2psk`. 
 
-   ![Tworzenie połączenia bramy](media/sql-database-managed-instance-failover-group-tutorial/create-gateway-connection.png)
+   ![Utwórz połączenie bramy](media/sql-database-managed-instance-failover-group-tutorial/create-gateway-connection.png)
 
-1. Na karcie **Podsumowanie** przejrzyj ustawienia połączenia dwukierunkowego, a następnie wybierz przycisk **OK,** aby utworzyć połączenie. 
+1. Na karcie **Podsumowanie** Sprawdź ustawienia połączenia dwukierunkowego, a następnie wybierz przycisk **OK** , aby utworzyć połączenie. 
 
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
 
-Połącz dwie bramy za pomocą programu PowerShell. 
+Połącz dwie bramy przy użyciu programu PowerShell. 
 
    ```powershell-interactive
    # Connect the primary to secondary gateway
@@ -954,37 +954,37 @@ Połącz dwie bramy za pomocą programu PowerShell.
    $secondaryGWConnection
    ```
 
-Ta część samouczka używa następującego polecenia cmdlet programu PowerShell:
+W tej części samouczka jest stosowane następujące polecenie cmdlet programu PowerShell:
 
 | Polecenie | Uwagi |
 |---|---|
-| [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | Tworzy połączenie między dwiema bramami sieci wirtualnej.   |
+| [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | Tworzy połączenie między dwoma bramami sieci wirtualnej.   |
 
 ---
 
 
-## <a name="7---create-a-failover-group"></a>7 - Tworzenie grupy trybu failover
+## <a name="7---create-a-failover-group"></a>7. Tworzenie grupy trybu failover
 W tym kroku utworzysz grupę trybu failover i dodasz do niej oba wystąpienia zarządzane. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Utwórz grupę trybu failover przy użyciu witryny Azure portal. 
+Utwórz grupę trybu failover przy użyciu Azure Portal. 
 
 
-1. Wybierz **sql platformy Azure** w menu po lewej stronie [witryny Azure portal](https://portal.azure.com). Jeśli **usługi Azure SQL** nie ma na liście, wybierz wszystkie **usługi**, a następnie wpisz sql azure w polu wyszukiwania. (Opcjonalnie) Wybierz gwiazdkę obok **programu Azure SQL,** aby ją ulubieć, i dodaj ją jako element w nawigacji po lewej stronie. 
-1. Wybierz podstawowe wystąpienie zarządzane utworzone w pierwszej `sql-mi-primary`sekcji, takie jak . 
-1. W obszarze **Ustawienia**przejdź do **pozycji Grupy trybu failover wystąpienia,** a następnie wybierz pozycję **Dodaj grupę,** aby otworzyć stronę **Grupa trybu failover wystąpienia.** 
+1. Wybierz pozycję **Azure SQL** w menu po lewej stronie [Azure Portal](https://portal.azure.com). Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie wpisz SQL Azure w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie. 
+1. Wybierz główne wystąpienie zarządzane utworzone w pierwszej sekcji, na przykład `sql-mi-primary`. 
+1. W obszarze **Ustawienia**przejdź do pozycji **grupy trybu failover wystąpienia** , a następnie wybierz pozycję **Dodaj grupę** , aby otworzyć stronę **Grupa trybu failover wystąpienia** . 
 
    ![Dodawanie grupy trybu failover](media/sql-database-managed-instance-failover-group-tutorial/add-failover-group.png)
 
-1. Na stronie **Grupa trybu failover wystąpienia** wpisz nazwę grupy `failovergrouptutorial` trybu failover, na przykład, `sql-mi-secondary` a następnie wybierz pomocnicze wystąpienie zarządzane, na przykład z listy rozwijanej. Wybierz **pozycję Utwórz,** aby utworzyć grupę trybu failover. 
+1. Na stronie **Grupa trybu failover wystąpienia** wpisz nazwę grupy trybu failover, na przykład, `failovergrouptutorial` a następnie wybierz pomocnicze wystąpienie zarządzane, takie jak `sql-mi-secondary` z listy rozwijanej. Wybierz pozycję **Utwórz** , aby utworzyć grupę trybu failover. 
 
-   ![Tworzenie grupy trybu failover](media/sql-database-managed-instance-failover-group-tutorial/create-failover-group.png)
+   ![Utwórz grupę trybu failover](media/sql-database-managed-instance-failover-group-tutorial/create-failover-group.png)
 
-1. Po zakończeniu wdrażania grupy trybu failover zostaniesz przejmąc się z powrotem do strony **grupy trybu failover.** 
+1. Po zakończeniu wdrażania grupy trybu failover nastąpi powrót do strony **grupy trybu failover** . 
 
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
 Utwórz grupę trybu failover przy użyciu programu PowerShell. 
 
    ```powershell-interactive
@@ -996,39 +996,39 @@ Utwórz grupę trybu failover przy użyciu programu PowerShell.
    $failoverGroup
    ```
 
-Ta część samouczka używa następującego polecenia cmdlet programu PowerShell:
+W tej części samouczka jest stosowane następujące polecenie cmdlet programu PowerShell:
 
 | Polecenie | Uwagi |
 |---|---|
-| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Tworzy nową grupę trybu failover wystąpienia zarządzanego usługi Azure SQL Database.  |
+| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Tworzy nową grupę Azure SQL Database trybu failover wystąpienia zarządzanego.  |
 
 
 ---
 
 
-## <a name="8---test-failover"></a>8 - Test pracy awaryjnej
-W tym kroku zakończy się niepowodzeniem grupy trybu failover na serwerze pomocniczym, a następnie po awarii przy użyciu witryny Azure portal. 
+## <a name="8---test-failover"></a>8 — testowanie pracy w trybie failover
+W tym kroku nastąpi niepowodzenie grupy trybu failover na serwerze pomocniczym, a następnie powrót po awarii przy użyciu Azure Portal. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Przetestuj przewija po awarii przy użyciu witryny Azure portal. 
+Testowanie pracy w trybie failover przy użyciu Azure Portal. 
 
 
-1. Przejdź do _pomocniczego_ wystąpienia zarządzanego w [witrynie Azure portal](https://portal.azure.com) i wybierz grupy trybu **failover wystąpienia** w ustawieniach. 
-1. Przejrzyj, które wystąpienie zarządzane jest podstawowym, a które wystąpienie zarządzane jest pomocnicze. 
-1. Wybierz **opcję Przewijanie awaryjne,** a następnie wybierz pozycję **Tak** w ostrzeżeniu o rozłączeniu sesji TDS. 
+1. Przejdź do _pomocniczego_ wystąpienia zarządzanego w [Azure Portal](https://portal.azure.com) a następnie wybierz pozycję **grupy trybu failover dla wystąpienia** w obszarze Ustawienia. 
+1. Sprawdź, które wystąpienie zarządzane jest podstawowym, a którym wystąpieniem zarządzanym jest pomocniczy. 
+1. Wybierz pozycję **tryb failover** , a następnie wybierz pozycję **tak** na ostrzeżenie o rozłączeniu sesji tds. 
 
    ![Praca awaryjna grupy trybu failover](media/sql-database-managed-instance-failover-group-tutorial/failover-mi-failover-group.png)
 
-1. Sprawdź, które wystąpienie manged jest podstawowym i które wystąpienie jest pomocnicze. Jeśli przełączenie w stan fail over powiodło się, dwa wystąpienia powinny mieć przełączane role. 
+1. Sprawdź, które zarządzane wystąpienie jest podstawowym i jakie wystąpienie jest serwerem pomocniczym. Jeśli przełączenie w tryb failover powiodło się, dwa wystąpienia powinny mieć przypisane role. 
 
-   ![Wystąpienia zarządzane zmieniły role po przełączeniu awaryjnym](media/sql-database-managed-instance-failover-group-tutorial/mi-switched-after-failover.png)
+   ![Wystąpienia zarządzane mają przełączane role po zakończeniu pracy w trybie failover](media/sql-database-managed-instance-failover-group-tutorial/mi-switched-after-failover.png)
 
-1. Przejdź do nowego _pomocniczego_ wystąpienia zarządzanego i wybierz opcję **Przewijanie awaryjne** ponownie, aby zakończyć niepowodzeniem wystąpienia podstawowego z powrotem do roli podstawowej. 
+1. Przejdź do nowego _pomocniczego_ wystąpienia zarządzanego i ponownie wybierz **tryb failover** w celu niepowodzenia wystąpienia podstawowego z powrotem do roli podstawowej. 
 
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Przetestuj przewijaniec awaryjny przy użyciu programu PowerShell. 
+# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+Testowanie pracy w trybie failover przy użyciu programu PowerShell. 
 
    ```powershell-interactive
     
@@ -1062,30 +1062,30 @@ Przywróć grupę trybu failover z powrotem do serwera podstawowego:
        -Location $location -Name $failoverGroupName
    ```
 
-Ta część samouczka używa następujących poleceń cmdlet programu PowerShell:
+W tej części samouczka są stosowane następujące polecenia cmdlet programu PowerShell:
 
 | Polecenie | Uwagi |
 |---|---|
-| [Grupa Get-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) | Pobiera lub wyświetla listy grup trybu failover wystąpienia zarządzanego.| 
-| [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | Wykonuje przeżycie awaryjne grupy trybu failover wystąpienia zarządzanego. | 
+| [Get-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) | Pobiera lub wyświetla grupy trybu failover wystąpienia zarządzanego.| 
+| [Przełącznik-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | Wykonuje tryb failover grupy trybu failover wystąpienia zarządzanego. | 
 
 ---
 
 
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
-Oczyść zasoby, najpierw usuwając wystąpienie zarządzane, następnie klaster wirtualny, następnie wszystkie pozostałe zasoby, a na koniec grupę zasobów. 
+Wyczyść zasoby, usuwając najpierw wystąpienie zarządzane, klaster wirtualny, wszystkie pozostałe zasoby i wreszcie grupę zasobów. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-1. Przejdź do grupy zasobów w [witrynie Azure portal](https://portal.azure.com). 
-1. Wybierz wystąpienia zarządzane, a następnie wybierz pozycję **Usuń**. Wpisz `yes` pole tekstowe, aby potwierdzić, że chcesz usunąć zasób, a następnie wybierz pozycję **Usuń**. Ten proces może zająć trochę czasu, aby zakończyć w tle i dopóki nie zostanie to zrobione, nie będzie można usunąć *wirtualnego klastra* lub innych zasobów zależnych. Monitoruj usuwanie na karcie Działanie, aby potwierdzić, że wystąpienie zarządzane zostało usunięte. 
-1. Po usunięciu wystąpienia zarządzanego usuń *klaster wirtualny,* zaznaczając go w grupie zasobów, a następnie wybierając pozycję **Usuń**. Wpisz `yes` pole tekstowe, aby potwierdzić, że chcesz usunąć zasób, a następnie wybierz pozycję **Usuń**. 
-1. Usuń wszystkie pozostałe zasoby. Wpisz `yes` pole tekstowe, aby potwierdzić, że chcesz usunąć zasób, a następnie wybierz pozycję **Usuń**. 
-1. Usuń grupę zasobów, wybierając pozycję **Usuń grupę zasobów,** wpisując nazwę grupy zasobów, `myResourceGroup`a następnie wybierając polecenie **Usuń**. 
+1. Przejdź do grupy zasobów w [Azure Portal](https://portal.azure.com). 
+1. Wybierz wystąpienia zarządzane, a następnie wybierz pozycję **Usuń**. Wpisz `yes` w polu tekstowym, aby potwierdzić, że chcesz usunąć zasób, a następnie wybierz pozycję **Usuń**. Ten proces może potrwać trochę czasu w tle, a do momentu ukończenia nie będzie można usunąć *klastra wirtualnego* ani żadnych innych zasobów zależnych. Monitoruj pozycję Usuń na karcie działanie, aby potwierdzić, że zarządzane wystąpienie zostało usunięte. 
+1. Po usunięciu wystąpienia zarządzanego Usuń *klaster wirtualny* , wybierając go w grupie zasobów, a następnie wybierając pozycję **Usuń**. Wpisz `yes` w polu tekstowym, aby potwierdzić, że chcesz usunąć zasób, a następnie wybierz pozycję **Usuń**. 
+1. Usuń wszystkie pozostałe zasoby. Wpisz `yes` w polu tekstowym, aby potwierdzić, że chcesz usunąć zasób, a następnie wybierz pozycję **Usuń**. 
+1. Aby usunąć grupę zasobów, wybierz pozycję **Usuń grupę zasobów**, wpisz nazwę grupy zasobów, `myResourceGroup`a następnie wybierz pozycję **Usuń**. 
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
 
-Należy usunąć grupę zasobów dwa razy. Usunięcie grupy zasobów po raz pierwszy spowoduje usunięcie wystąpienia zarządzanego i klastrów `Remove-AzResourceGroup : Long running operation failed with status 'Conflict'.`wirtualnych, ale spowoduje niepowodzenie z komunikatem o błędzie . Uruchom polecenie Usuń-AzResourceGroup po raz drugi, aby usunąć wszystkie zasoby resztkowe, a także grupę zasobów.
+Należy dwukrotnie usunąć grupę zasobów. Usunięcie grupy zasobów po raz pierwszy spowoduje usunięcie wystąpienia zarządzanego i klastrów wirtualnych, ale zakończy się niepowodzeniem z komunikatem `Remove-AzResourceGroup : Long running operation failed with status 'Conflict'.`o błędzie. Uruchom polecenie Remove-AzResourceGroup po raz drugi, aby usunąć wszystkie zasoby pozostałe oraz grupę zasobów.
 
 ```powershell-interactive
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
@@ -1094,7 +1094,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 Write-host "Removing residual resources and resouce group..."
 ```
 
-Ta część samouczka używa następującego polecenia cmdlet programu PowerShell:
+W tej części samouczka jest stosowane następujące polecenie cmdlet programu PowerShell:
 
 | Polecenie | Uwagi |
 |---|---|
@@ -1104,7 +1104,7 @@ Ta część samouczka używa następującego polecenia cmdlet programu PowerShel
 
 ## <a name="full-script"></a>Pełny skrypt
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
 [!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-managed-instance-to-failover-group-az-ps.ps1 "Add managed instance to a failover group")]
 
 W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
@@ -1115,30 +1115,30 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Tworzy sieć wirtualną.  |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Dodaje konfigurację podsieci do sieci wirtualnej. | 
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Pobiera sieć wirtualną w grupie zasobów. | 
-| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Pobiera podsieci w sieci wirtualnej. | 
+| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Pobiera podsieć w sieci wirtualnej. | 
 | [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | Tworzy sieciową grupę zabezpieczeń. | 
 | [New-AzRouteTable](/powershell/module/az.network/new-azroutetable) | Tworzy tabelę tras. |
 | [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) | Aktualizuje konfigurację podsieci dla sieci wirtualnej.  |
 | [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | Aktualizuje sieć wirtualną.  |
-| [Grupa bezpieczeństwa Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) | Pobiera grupę zabezpieczeń sieci. |
-| [Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetworksecurityruleconfig)| Dodaje konfigurację reguł zabezpieczeń sieciowych do sieciowej grupy zabezpieczeń. |
-| [Grupa bezpieczeństwa Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) | Aktualizuje sieciową grupę zabezpieczeń.  | 
-| [Dodatek AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) | Dodaje trasę do tabeli tras. |
-| [Tabela Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) | Aktualizuje tabelę tras.  |
-| [Nowy-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Tworzy wystąpienie zarządzanej usługi Azure SQL Database.  |
-| [Get-AzSqlInstance (Nieumieja)](/powershell/module/az.sql/get-azsqlinstance)| Zwraca informacje o wystąpieniu zarządzanej bazy danych SQL platformy Azure. |
+| [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) | Pobiera sieciową grupę zabezpieczeń. |
+| [Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetworksecurityruleconfig)| Dodaje konfigurację reguły zabezpieczeń sieci do sieciowej grupy zabezpieczeń. |
+| [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) | Aktualizuje sieciową grupę zabezpieczeń.  | 
+| [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) | Dodaje trasę do tabeli tras. |
+| [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) | Aktualizuje tabelę tras.  |
+| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Tworzy Azure SQL Database wystąpienie zarządzane.  |
+| [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance)| Zwraca informacje o wystąpieniu zarządzanej bazy danych Azure SQL. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Tworzy publiczny adres IP.  | 
-| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Tworzy konfigurację IP dla bramy sieci wirtualnej |
-| [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Tworzy bramę sieci wirtualnej |
-| [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | Tworzy połączenie między dwiema bramami sieci wirtualnej.   |
-| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Tworzy nową grupę trybu failover wystąpienia zarządzanego usługi Azure SQL Database.  |
-| [Grupa Get-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) | Pobiera lub wyświetla listy grup trybu failover wystąpienia zarządzanego.| 
-| [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | Wykonuje przeżycie awaryjne grupy trybu failover wystąpienia zarządzanego. | 
+| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Tworzy konfigurację adresu IP bramy Virtual Network |
+| [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Tworzy bramę Virtual Network |
+| [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | Tworzy połączenie między dwoma bramami sieci wirtualnej.   |
+| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Tworzy nową grupę Azure SQL Database trybu failover wystąpienia zarządzanego.  |
+| [Get-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) | Pobiera lub wyświetla grupy trybu failover wystąpienia zarządzanego.| 
+| [Przełącznik-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | Wykonuje tryb failover grupy trybu failover wystąpienia zarządzanego. | 
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów. | 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal) 
 
-Nie ma żadnych skryptów dostępnych dla witryny Azure portal.
+Brak skryptów dostępnych dla Azure Portal.
 
 ---
 
@@ -1148,13 +1148,13 @@ W tym samouczku skonfigurowano grupę trybu failover między dwoma wystąpieniam
 
 > [!div class="checklist"]
 > - Tworzenie podstawowego wystąpienia zarządzanego
-> - Utwórz pomocnicze wystąpienie zarządzane jako część [grupy trybu failover](sql-database-auto-failover-group.md). 
+> - Utwórz dodatkowe wystąpienie zarządzane jako część [grupy trybu failover](sql-database-auto-failover-group.md). 
 > - Testowanie pracy w trybie failover
 
-Przejdź do następnego przewodnika Szybki start, jak połączyć się z wystąpieniem zarządzanym i jak przywrócić bazę danych do wystąpienia zarządzanego: 
+Przejdź do następnego przewodnika Szybki Start dotyczącego sposobu nawiązywania połączenia z wystąpieniem zarządzanym i sposobu przywracania bazy danych do wystąpienia zarządzanego: 
 
 > [!div class="nextstepaction"]
-> [Łączenie się z wystąpieniem](sql-database-managed-instance-configure-vm.md)
-> [zarządzanym Przywracanie bazy danych do wystąpienia zarządzanego](sql-database-managed-instance-get-started-restore.md)
+> [Nawiązywanie połączenia z wystąpieniem](sql-database-managed-instance-configure-vm.md)
+> zarządzanym[przywracanie bazy danych do wystąpienia zarządzanego](sql-database-managed-instance-get-started-restore.md)
 
 

@@ -1,6 +1,6 @@
 ---
 title: Korzystanie z widoków T-SQL
-description: Porady dotyczące korzystania z widoków T-SQL i tworzenia rozwiązań w puli synapse SQL.
+description: Porady dotyczące korzystania z widoków T-SQL i opracowywania rozwiązań w puli SQL Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,55 +12,55 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 76442368fe4b3e498f622a8a3cd5b5b973f16bd6
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633395"
 ---
 # <a name="views-in-synapse-sql-pool"></a>Widoki w puli SQL Synapse
 
-Widoki mogą być używane na wiele różnych sposobów, aby poprawić jakość rozwiązania.
+Widoki mogą być używane na wiele różnych sposobów ulepszania jakości rozwiązania.
 
-Pula SQL obsługuje zarówno widoki standardowe, jak i zmaterializowane. Obie są tabelami wirtualnymi utworzonymi za pomocą wyrażeń SELECT i prezentowanymi kwerendom jako tabele logiczne.
+Pula SQL obsługuje widoki standardowe i materiałowe. Obie są tabelami wirtualnymi utworzonymi za pomocą SELECT Expressions i prezentowanych jako tabele logiczne.
 
-Widoki hermetyzują złożoność obliczeń wspólnych danych i dodaj warstwę abstrakcji do zmian obliczeniowych, dzięki czemu nie ma potrzeby przepisywania kwerend.
+Widoki hermetyzują złożoność wspólnych obliczeń danych i dodają warstwę abstrakcji do obliczeń zmian, aby nie trzeba było ponownie pisać zapytań.
 
 ## <a name="standard-view"></a>Widok standardowy
 
-Widok standardowy oblicza swoje dane za każdym razem, gdy widok jest używany. Na dysku nie są przechowywane żadne dane. Ludzie zazwyczaj używają widoków standardowych jako narzędzia, które pomaga organizować obiekty logiczne i kwerendy w bazie danych.
+Widok standardowy oblicza swoje dane za każdym razem, gdy widok jest używany. Brak danych przechowywanych na dysku. Użytkownicy zazwyczaj używają widoków standardowych jako narzędzia, które ułatwiają organizowanie obiektów logicznych i zapytań w bazie danych.
 
-Aby użyć widoku standardowego, kwerenda musi bezpośrednio odwoływać się do niego. Aby uzyskać więcej informacji, zobacz tworzenie dokumentacji [WIDOKU.](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+Aby użyć widoku standardowego, zapytanie musi nawiązać bezpośrednie odwołanie do niego. Aby uzyskać więcej informacji, zobacz dokumentację [tworzenia widoku](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
 
-Widoki w puli SQL są przechowywane tylko jako metadane. W związku z tym następujące opcje nie są dostępne:
+Widoki w puli SQL są przechowywane jako metadane. W związku z tym następujące opcje nie są dostępne:
 
-* Nie ma opcji wiązania schematu
-* Nie można aktualizować tabel bazowych za pomocą widoku
-* Widoki nie mogą być tworzone za ich doami zaaukańctwo
-* Nie ma wsparcia dla podpowiedzi EXPAND/NOEXPAND
-* W puli SQL nie ma widoków indeksowanych
+* Brak opcji powiązania schematu
+* Nie można zaktualizować tabel bazowych w widoku
+* Nie można tworzyć widoków za pośrednictwem tabel tymczasowych
+* Nie ma obsługi wskazówek rozwiń/NOEXPAND
+* Brak indeksowanych widoków w puli SQL
 
-Widoki standardowe mogą być używane do wymuszania sprzężeń zoptymalizowanych pod kątem wydajności między tabelami. Na przykład widok może zawierać nadmiarowy klucz dystrybucji jako część kryteriów łączenia, aby zminimalizować przenoszenie danych.
+Widoki standardowe mogą być używane do wymuszania przełączeń zoptymalizowanych pod kątem wydajności między tabelami. Na przykład widok może zawierać nadmiarowy klucz dystrybucji jako część kryteriów sprzężenia, aby zminimalizować przenoszenie danych.
 
-Inną zaletą widoku może być wymuszenie określonej kwerendy lub dołączenie do podpowiedzi. Korzystanie z widoków w ten sposób gwarantuje, że sprzężenia są zawsze wykonywane w sposób optymalny, unikając konieczności użytkowników do zapamiętania poprawnej konstrukcji dla ich sprzężenia.
+Inną zaletą widoku może być wymuszenie konkretnej kwerendy lub dołączenia wskazówki. Użycie widoków w ten sposób gwarantuje, że sprzężenia są zawsze wykonywane w optymalny sposób, unikając potrzeb użytkowników do zapamiętania odpowiedniej konstrukcji sprzężeń.
 
 ## <a name="materialized-view"></a>Zmaterializowany widok
 
-Zmaterializowany widok wstępnie oblicza, przechowuje i przechowuje swoje dane w puli SQL, podobnie jak w tabeli. Za każdym razem, gdy używany jest zmaterialowany widok, nie jest wymagana żadna ponowna obliczenie.
+Widok z materiałami umożliwia wstępne obliczenie, przechowywanie i przechowywanie danych w puli SQL w taki sam sposób jak tabela. Za każdym razem, gdy jest używany widok materiałowy, nie jest wymagana żadna konieczność obliczenia.
 
-Gdy dane są ładowane do tabel podstawowych, pula SQL synchronicznie odświeża zmaterializowane widoki.  Optymalizator kwerend automatycznie używa wdrożonych zmaterializowanych widoków, aby zwiększyć wydajność kwerendy, nawet jeśli widoki nie są odwoływane w kwerendzie.  
+W miarę ładowania danych do tabel bazowych, Pula SQL synchronicznie odświeża widoki z materiałami.  Optymalizator zapytań automatycznie używa wdrożonych widoków w celu zwiększenia wydajności zapytań, nawet jeśli w zapytaniu nie ma odwołań do widoków.  
 
-Zapytania korzystające najbardziej ze zmaterializowanych widoków są złożone zapytania (zazwyczaj kwerendy ze sprzężenia i agregacji) w dużych tabelach, które produkują mały zestaw wyników.  
+Zapytania korzystające z większości widoków z materiałami są złożonymi zapytaniami (zwykle zapytania z sprzężeniami i agregacjami) w dużych tabelach, które tworzą mały zestaw wyników.  
 
-Szczegółowe informacje na temat składni widoku materializowanego i innych wymagań można znaleźć w [1944 R. Tworzenie zmaterializowanego widoku jako wybierz](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
+Aby uzyskać szczegółowe informacje na temat składniowe widoku i innych wymagań, zapoznaj się z tematem [Tworzenie przykładowego widoku jako wyboru](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
 
-Aby uzyskać wskazówki dotyczące dostrajania zapytań, sprawdź [dostrajanie wydajności za pomocą zmaterializowanych widoków](performance-tuning-materialized-views.md).
+Aby uzyskać wskazówki dotyczące dostrajania zapytań, sprawdź [dostrajanie wydajności w widokach z materiałami](performance-tuning-materialized-views.md).
 
 ## <a name="example"></a>Przykład
 
-Typowy wzorzec aplikacji jest ponowne tworzenie tabel przy użyciu CREATE TABLE AS SELECT (CTAS), po którym następuje wzorzec zmiany nazwy obiektu podczas ładowania danych.  
+Typowym wzorcem aplikacji jest ponowne tworzenie tabel przy użyciu CREATE TABLE jako SELECT (CTAS), a następnie zmiany nazwy wzorca obiektu podczas ładowania danych.  
 
-Poniższy przykład dodaje nowe rekordy daty do wymiaru daty. Zwróć uwagę, jak najpierw tworzona jest nowa tabela, DimDate_New, a następnie zmieniona nazwa, aby zastąpić oryginalną wersję tabeli.
+Poniższy przykład dodaje nowe rekordy dat do wymiaru daty. Zwróć uwagę, jak nowa tabela, DimDate_New, została najpierw utworzona, a następnie zmieniono jej nazwę, aby zastąpić oryginalną wersję tabeli.
 
 ```sql
 CREATE TABLE dbo.DimDate_New
@@ -79,12 +79,12 @@ RENAME OBJECT DimDate_New TO DimDate;
 
 ```
 
-Jednak takie podejście może spowodować tabele pojawiające się i znikają z widoku użytkownika wraz z wydawaniem "tabela nie istnieje" komunikaty o błędach.
+Jednak takie podejście może spowodować, że tabele pojawiają się i znikają z widoku użytkownika wraz z wygenerowaniem komunikatów o błędach "tabela nie istnieje".
 
-Widoki mogą służyć do zapewnienia użytkownikom spójnej warstwy prezentacji, podczas gdy nazwy obiektów leżących pod spodem są zmieniane. Zapewniając dostęp do danych za pośrednictwem widoków, użytkownicy nie potrzebują widoczności w tabelach źródłowych.
+Widoki mogą służyć do zapewnienia użytkownikom spójnej warstwy prezentacji podczas zmiany nazwy obiektów bazowych. Zapewniając dostęp do danych za pomocą widoków, użytkownicy nie potrzebują wglądu w tabele źródłowe.
 
-Ta warstwa zapewnia spójne środowisko użytkownika, zapewniając jednocześnie, że projektanci magazynu danych mogą ewoluować model danych. Możliwość ewoluowania podstawowych tabel oznacza, że projektanci mogą używać CTAS, aby zmaksymalizować wydajność podczas procesu ładowania danych.
+Ta warstwa zapewnia spójne środowisko użytkownika, a jednocześnie zapewnia, że projektanci magazynu danych mogą rozwijać model danych. Możliwość rozwijania tabel bazowych oznacza, że projektanci mogą używać CTAS do maksymalizowania wydajności podczas procesu ładowania danych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej wskazówek dotyczących programowania, zobacz [omówienie tworzenia puli SQL](sql-data-warehouse-overview-develop.md).
+Aby uzyskać więcej porad programistycznych, zobacz [programowanie puli SQL — Omówienie](sql-data-warehouse-overview-develop.md).

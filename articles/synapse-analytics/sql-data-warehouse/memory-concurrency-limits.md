@@ -1,6 +1,6 @@
 ---
-title: Ograniczenia pamięci i współbieżności
-description: Wyświetlanie limitów pamięci i współbieżności przydzielonych do różnych poziomów wydajności i klas zasobów w usłudze Azure Synapse Analytics.
+title: Limity pamięci i współbieżności
+description: Wyświetl limity pamięci i współbieżności przydzielono do różnych poziomów wydajności i klas zasobów w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -12,23 +12,23 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 56ab49949b4ea2a92bc591042b2d43a7f7b2dc63
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80632684"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limity pamięci i współbieżności dla usługi Azure Synapse Analytics
 
-Wyświetlanie limitów pamięci i współbieżności przydzielonych do różnych poziomów wydajności i klas zasobów w usłudze Azure Synapse Analytics.  
+Wyświetl limity pamięci i współbieżności przydzielono do różnych poziomów wydajności i klas zasobów w usłudze Azure Synapse Analytics.  
 
-## <a name="data-warehouse-capacity-settings"></a>Ustawienia pojemności magazynu danych
+## <a name="data-warehouse-capacity-settings"></a>Ustawienia wydajności magazynu danych
 
-W poniższych tabelach przedstawiono maksymalną pojemność magazynu danych na różnych poziomach wydajności. Aby zmienić poziom wydajności, zobacz [Skalowanie obliczeń — portal](quickstart-scale-compute-portal.md).
+W poniższych tabelach przedstawiono maksymalną pojemność hurtowni danych na różnych poziomach wydajności. Aby zmienić poziom wydajności, zobacz [skalowanie obliczeniowe — Portal](quickstart-scale-compute-portal.md).
 
 ### <a name="service-levels"></a>Poziomy usług
 
-Poziomy usług wahają się od DW100c do DW30000c.
+Poziomy usług mieszczą się w zakresie od DW100c do DW30000c.
 
 | Poziom wydajności | Węzły obliczeniowe | Dystrybucje na węzeł obliczeniowy | Pamięć na magazyn danych (GB) |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
@@ -49,25 +49,25 @@ Poziomy usług wahają się od DW100c do DW30000c.
 | DW15000c          | 30            | 2                              |  9000                          |
 | DW30000c          | 60            | 1                              | 18000                          |
 
-Maksymalny poziom usług to DW30000c, który ma 60 węzłów obliczeniowych i jedną dystrybucję na węzeł obliczeniowy. Na przykład magazyn danych o pojemności 600 TB w dw30000c przetwarza około 10 TB na węzeł obliczeniowy.
+Maksymalny poziom usług to DW30000c, który ma 60 węzłów obliczeniowych i jedną dystrybucję na węzeł obliczeniowy. Na przykład magazyn danych 600 TB w procesach DW30000c około 10 TB na węzeł obliczeniowy.
 
-## <a name="concurrency-maximums-for-workload-groups"></a>Maksymalne wartości współbieżności dla grup obciążenia
+## <a name="concurrency-maximums-for-workload-groups"></a>Maksymalne wartości współbieżności dla grup obciążeń
 
-Wraz z [wprowadzeniem grup obciążenia](sql-data-warehouse-workload-isolation.md)pojęcie gniazda współbieżności nie ma już zastosowania.  Zasoby na żądanie są przydzielane w procentach i określone w definicji grupy obciążenia.  Jednak nawet przy usuwaniu gniazd współbieżności istnieją minimalne ilości zasobów potrzebnych dla zapytań na podstawie poziomu usługi.  W poniższej tabeli zdefiniowano minimalną ilość zasobów potrzebnych na zapytanie między poziomami usług i skojarzoną współbieżność, którą można osiągnąć.
+Po wprowadzeniu [grup obciążeń](sql-data-warehouse-workload-isolation.md)nie ma już zastosowania koncepcji dotyczącej miejsc współbieżności.  Zasoby na żądanie są przypisywane na podstawie procentowej i określone w definicji grupy obciążeń.  Jednak nawet w przypadku usuwania miejsc współbieżności w poszczególnych zapytaniach jest wymagana minimalna ilość zasobów na podstawie poziomu usługi.  W poniższej tabeli zdefiniowano minimalną ilość zasobów wymaganych na zapytanie między poziomami usług i skojarzoną współbieżność, która może zostać osiągnięta.
 
-|Poziom usług|Maksymalna liczba równoczesnych zapytań|Min % wspieranych dla REQUEST_MIN_RESOURCE_GRANT_PERCENT|
+|Poziom usług|Maksymalna liczba współbieżnych zapytań|Minimalna wartość% obsługiwana dla REQUEST_MIN_RESOURCE_GRANT_PERCENT|
 |---|---|---|
 |DW100c|4|25%|
-|DW200c|8|12.5%|
+|DW200c|8|12,5%|
 |DW300c|12|8%|
-|DW400c|16|6.25%|
+|DW400c|16|6,25%|
 |DW500c.|20|5%|
 |DW1000c|32|3%|
 |DW1500c|32|3%|
 |DW2000c|48|2%|
 |DW2500c|48|2%|
-|DW3000c|64|1.5%|
-|DW5000c|64|1.5%|
+|DW3000c|64|1,5%|
+|DW5000c|64|1,5%|
 |DW6000c|128|0,75%|
 |DW7500c|128|0,75%|
 |DW10000c|128|0,75%|
@@ -77,13 +77,13 @@ Wraz z [wprowadzeniem grup obciążenia](sql-data-warehouse-workload-isolation.m
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>Maksymalne wartości współbieżności dla klas zasobów
 
-Aby upewnić się, że każda kwerenda ma wystarczającą ilość zasobów do wydajnej pracy, usługa SQL Analytics w usłudze Azure Synapse śledzi wykorzystanie zasobów przez przypisywanie gniazd współbieżności do każdej kwerendy. System umieszcza zapytania w kolejce na podstawie znaczeń znaczeń i współbieżności. Kwerendy czekać w kolejce, aż dostępna jest wystarczająca liczba gniazd współbieżności. [Znaczenie](sql-data-warehouse-workload-importance.md) i współbieżność szczeliny określają priorytety procesora CPU. Aby uzyskać więcej informacji, zobacz [Analizowanie obciążenia](analyze-your-workload.md)
+Aby upewnić się, że każda kwerenda ma wystarczającą ilość zasobów do wydajnego wykonywania, usługa SQL Analytics w usłudze Azure Synapse śledzi wykorzystanie zasobów przez przypisanie do każdego zapytania miejsc współbieżności. System umieszcza zapytania w kolejce na podstawie ważności i miejsc współbieżności. Zapytania oczekują w kolejce do momentu udostępnienia wystarczającej liczby miejsc współbieżności. [Znaczenie](sql-data-warehouse-workload-importance.md) i miejsca współbieżności określają priorytety procesora. Aby uzyskać więcej informacji, zobacz [Analizowanie obciążenia](analyze-your-workload.md)
 
 **Statyczne klasy zasobów**
 
-W poniższej tabeli przedstawiono maksymalną liczbę równoczesnych zapytań i gniazd współbieżności dla każdej [statycznej klasy zasobów](resource-classes-for-workload-management.md).  
+W poniższej tabeli przedstawiono maksymalną liczbę współbieżnych zapytań i miejsc współbieżności dla każdej [klasy zasobów statycznych](resource-classes-for-workload-management.md).  
 
-| Poziom usług | Maksymalna liczba równoczesnych zapytań | Dostępne gniazda współbieżności | Szczeliny używane przez staticrc10 | Szczeliny używane przez staticrc20 | Szczeliny używane przez staticrc30 | Szczeliny używane przez staticrc40 | Szczeliny używane przez staticrc50 | Szczeliny używane przez staticrc60 | Szczeliny używane przez staticrc70 | Szczeliny używane przez staticrc80 |
+| Poziom usług | Maksymalna liczba współbieżnych zapytań | Dostępne gniazda współbieżności | Gniazda używane przez staticrc10 | Gniazda używane przez staticrc20 | Gniazda używane przez staticrc30 | Gniazda używane przez staticrc40 | Gniazda używane przez staticrc50 | Gniazda używane przez staticrc60 | Gniazda używane przez staticrc70 | Gniazda używane przez staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
 | DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
@@ -104,9 +104,9 @@ W poniższej tabeli przedstawiono maksymalną liczbę równoczesnych zapytań i 
 
 **Dynamiczne klasy zasobów**
 
-W poniższej tabeli przedstawiono maksymalną liczbę równoczesnych zapytań i gniazd współbieżności dla każdej [klasy zasobów dynamicznych](resource-classes-for-workload-management.md). Dynamiczne klasy zasobów używają alokacji procentowej pamięci 3-10-22-70 dla małych i średnich i dużych klas zasobów na wszystkich poziomach usług.
+W poniższej tabeli przedstawiono maksymalną liczbę współbieżnych zapytań i miejsc współbieżności dla każdej [klasy zasobów dynamicznych](resource-classes-for-workload-management.md). Dynamiczne klasy zasobów używają 3-10-22-70 alokacji procentowej pamięci dla małych i średnich klas zasobów xlarge na wszystkich poziomach usług.
 
-| Poziom usług | Maksymalna liczba równoczesnych zapytań | Dostępne gniazda współbieżności | Szczeliny używane przez smallrc | Szczeliny używane przez mediumrc | Szczeliny używane przez largerc | Szczeliny używane przez xlargerc |
+| Poziom usług | Maksymalna liczba współbieżnych zapytań | Dostępne gniazda współbieżności | Gniazda używane przez smallrc | Gniazda używane przez mediumrc | Gniazda używane przez largerc | Gniazda używane przez xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
 | DW100c        |  4                         |    4                        | 1                     |  1                     |  1                    |   2                    |
 | DW200c        |  8                         |    8                        | 1                     |  1                     |  1                    |   5                    |
@@ -125,11 +125,11 @@ W poniższej tabeli przedstawiono maksymalną liczbę równoczesnych zapytań i 
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
-Gdy nie ma wystarczającej liczby gniazd współbieżności wolne do rozpoczęcia wykonywania kwerendy, kwerendy są umieszczane w kolejce i wykonywane na podstawie ważności.  Jeśli istnieje równoważne znaczenie, kwerendy są wykonywane na zasadzie pierwszego w, pierwszego wyjścia.  Po zakończeniu kwerendy i liczba zapytań i gniazd spadnie poniżej limitów, USŁUGA SQL Data Warehouse zwalnia zapytania w kolejce.
+Gdy nie ma wystarczającej liczby miejsc współbieżności, aby rozpocząć wykonywanie zapytania, zapytania są umieszczane w kolejce i wykonywane na podstawie ważności.  W przypadku istnienia równoważnej ważności zapytania są wykonywane na pierwszej, pierwszej zasadzie.  Ponieważ zakończył się zapytania, a liczba zapytań i gniazd spadnie poniżej limitów, SQL Data Warehouse zwalnia w kolejce zapytań.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat wykorzystania klas zasobów w celu dalszej optymalizacji obciążenia, zapoznaj się z następującymi artykułami:
+Aby dowiedzieć się więcej na temat sposobu korzystania z klas zasobów w celu dalszej optymalizacji obciążenia, zapoznaj się z następującymi artykułami:
 
-* [Klasy zasobów do zarządzania obciążeniem](resource-classes-for-workload-management.md)
+* [Klasy zasobów do zarządzania obciążeniami](resource-classes-for-workload-management.md)
 * [Analizowanie obciążenia](analyze-your-workload.md)

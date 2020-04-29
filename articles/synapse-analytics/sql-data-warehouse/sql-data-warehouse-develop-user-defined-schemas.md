@@ -1,6 +1,6 @@
 ---
-title: Korzystanie ze schematów zdefiniowanych przez użytkownika
-description: Porady dotyczące używania schematów zdefiniowanych przez użytkownika T-SQL do opracowywania rozwiązań w puli SQL Synapse.
+title: Używanie schematów zdefiniowanych przez użytkownika
+description: Wskazówki dotyczące korzystania ze schematów zdefiniowanych przez użytkownika w języku T-SQL do tworzenia rozwiązań w Synapse puli SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,50 +12,50 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 7144fa75d156ca7aed9d8215592f89c167cfb221
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633466"
 ---
 # <a name="user-defined-schemas-in-synapse-sql-pool"></a>Schematy zdefiniowane przez użytkownika w puli SQL Synapse
-W tym artykule koncentruje się na dostarczaniu kilku wskazówek dotyczących korzystania z schematów zdefiniowanych przez użytkownika T-SQL do opracowywania rozwiązań w puli SQL Synapse.
+Ten artykuł koncentruje się na dostarczaniu kilku porad dotyczących korzystania ze schematów zdefiniowanych przez użytkownika w języku T-SQL do tworzenia rozwiązań w Synapse puli SQL.
 
-## <a name="schemas-for-application-boundaries"></a>Schematy dla granic aplikacji
+## <a name="schemas-for-application-boundaries"></a>Schematy granic aplikacji
 
-Tradycyjne magazyny danych często używają oddzielnych baz danych do tworzenia granic aplikacji na podstawie obciążenia, domeny lub zabezpieczeń. 
+Tradycyjne magazyny danych często używają osobnych baz danych do tworzenia granic aplikacji na podstawie obciążenia, domeny lub zabezpieczeń. 
 
-Na przykład tradycyjny magazyn danych programu SQL Server może zawierać tymczasową bazę danych, bazę danych magazynu danych i niektóre bazy danych składnicy danych. W tej topologii każda baza danych działa jako obwiednia obciążenia i zabezpieczeń w architekturze.
+Przykładowo uproszczony magazyn danych SQL Server może obejmować tymczasową bazę danych, bazę danych i dane składni danych. W tej topologii każda baza danych działa jako granica obciążenia i zabezpieczeń w architekturze.
 
-Z drugiej strony pula SQL uruchamia całe obciążenie magazynu danych w jednej bazie danych. Sprzężenia między bazami danych nie są dozwolone. Pula SQL oczekuje, że wszystkie tabele używane przez magazyn mają być przechowywane w jednej bazie danych.
+Z kolei Pula SQL uruchamia całe obciążenie magazynu danych w jednej bazie danych. Sprzężenia między bazami danych nie są dozwolone. Pula SQL oczekuje, że wszystkie tabele używane przez magazyn są przechowywane w jednej bazie danych.
 
 > [!NOTE]
-> Pula SQL nie obsługuje zapytań między bazami danych dowolnego rodzaju. W związku z tym implementacje magazynu danych, które wykorzystują ten wzorzec, będą musiały zostać zmienione.
+> Pula SQL nie obsługuje zapytań między bazami danych dowolnego rodzaju. W związku z tym należy skorygować implementacje magazynu danych korzystające z tego wzorca.
 > 
 > 
 
 ## <a name="recommendations"></a>Zalecenia
-Poniżej przedstawiono zalecenia dotyczące konsolidacji obciążeń, zabezpieczeń, domeny i granic funkcjonalnych przy użyciu schematów zdefiniowanych przez użytkownika:
+Poniżej znajdują się zalecenia dotyczące konsolidowania obciążeń, zabezpieczeń, domeny i granic funkcjonalnych przy użyciu schematów zdefiniowanych przez użytkownika:
 
-- Użyj jednej bazy danych puli SQL, aby uruchomić całe obciążenie magazynu danych.
-- Skonsoliduj istniejące środowisko magazynu danych, aby użyć jednej bazy danych puli SQL.
-- Wykorzystaj **schematy zdefiniowane przez użytkownika,** aby zapewnić granicę wcześniej zaimplementowane przy użyciu baz danych.
+- Użyj jednej bazy danych puli SQL do uruchomienia całego obciążenia magazynu danych.
+- Konsoliduj istniejące środowisko magazynu danych, aby korzystać z jednej bazy danych puli SQL.
+- Korzystaj ze **schematów zdefiniowanych przez użytkownika** , aby zapewnić granicę zaimplementowaną wcześniej przy użyciu baz danych.
 
-Jeśli schematy zdefiniowane przez użytkownika nie były używane wcześniej, masz czystą planszę. Użyj starej nazwy bazy danych jako podstawy dla schematów zdefiniowanych przez użytkownika w bazie danych puli SQL.
+Jeśli schemat zdefiniowany przez użytkownika nie był wcześniej używany, to masz czysty. Użyj starej nazwy bazy danych jako podstawy dla schematów zdefiniowanych przez użytkownika w bazie danych puli SQL.
 
-Jeśli schematy zostały już użyte, masz kilka opcji:
+Jeśli schematy zostały już użyte, możesz skorzystać z kilku opcji:
 
-- Usuń nazwy schematów starszych i zacznij od nowa.
-- Zachowaj starsze nazwy schematu przez wstępnie oczekujące na nazwę starszego schematu do nazwy tabeli.
-- Zachowaj starsze nazwy schematu, implementując widoki nad tabelą w dodatkowym schemacie, aby odtworzyć starą strukturę schematu.
+- Usuń starsze nazwy schematów i zacznij od nowa.
+- Zachowaj starsze nazwy schematów, przede wszystkim do nazwy tabeli w starszej wersji.
+- Zachowaj starsze nazwy schematów, implementując widoki w tabeli w dodatkowym schemacie, aby ponownie utworzyć starą strukturę schematu.
 
 > [!NOTE]
-> Przy pierwszej inspekcji opcja 3 może wydawać się najbardziej atrakcyjną opcją. Jednak diabeł tkwi w szczegółach. Widoki są odczytywane tylko w puli SQL. Wszelkie dane lub modyfikacji tabeli należy wykonać względem tabeli bazowej. Opcja 3 wprowadza również warstwę widoków do systemu. Możesz chcieć nadać tej dodatkowej myśli, jeśli używasz już widoków w architekturze.
+> Przy pierwszej inspekcji Opcja 3 może wyglądać jak najbardziej atrakcyjny opcję. Devil jest jednak szczegółowy. Widoki są tylko do odczytu w puli SQL. Wszelkie modyfikacje danych lub tabel należy wykonać w odniesieniu do tabeli podstawowej. Opcja 3 wprowadza również warstwę widoków w systemie. Jeśli używasz już widoków w danej architekturze, możesz zadawać to kilka dodatkowych myśli.
 > 
 > 
 
 ### <a name="examples"></a>Przykłady:
-Zaimplementuj schematy zdefiniowane przez użytkownika na podstawie nazw baz danych:
+Implementowanie schematów zdefiniowanych przez użytkownika na podstawie nazw baz danych:
 
 ```sql
 CREATE SCHEMA [stg]; -- stg previously database name for staging database
@@ -73,7 +73,7 @@ CREATE TABLE [edw].[customer] -- create data warehouse tables in the edw schema
 );
 ```
 
-Zachowaj starsze nazwy schematów przez wstępnie oczekujące je do nazwy tabeli. Użyj schematów dla granicy obciążenia:
+Zachowaj starsze nazwy schematów przed zaczekaniem ich na nazwę tabeli. Użyj schematów dla granicy obciążenia:
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -119,10 +119,10 @@ FROM    [edw].customer
 ```
 
 > [!NOTE]
-> Wszelkie zmiany w strategii schematu wymaga przeglądu modelu zabezpieczeń dla bazy danych. W wielu przypadkach można uprościć model zabezpieczeń, przypisując uprawnienia na poziomie schematu. Jeśli wymagane są bardziej szczegółowe uprawnienia, można użyć ról bazy danych.
+> Wszelkie zmiany strategii schematu wymagają przeglądu modelu zabezpieczeń bazy danych. W wielu przypadkach może być możliwe uproszczenie modelu zabezpieczeń przez przypisanie uprawnień na poziomie schematu. Jeśli wymagane są bardziej szczegółowe uprawnienia, można użyć ról bazy danych.
 > 
 > 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej wskazówek dotyczących rozwoju, zobacz [omówienie rozwoju](sql-data-warehouse-overview-develop.md).
+Aby uzyskać więcej porad programistycznych, zobacz [Omówienie projektowania](sql-data-warehouse-overview-develop.md).
 

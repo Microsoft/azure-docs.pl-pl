@@ -1,6 +1,6 @@
 ---
 title: Konfigurowanie znaczenia obciążenia
-description: Dowiedz się, jak ustawić ważność poziomu żądań w usłudze Azure Synapse Analytics.
+description: Dowiedz się, jak ustawić ważność poziomu żądania w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -12,25 +12,25 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 0ab7b8be8780f7edb2734d99587bc7709ced9436
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633365"
 ---
 # <a name="configure-workload-importance-in-azure-synapse-analytics"></a>Konfigurowanie ważności obciążenia w usłudze Azure Synapse Analytics
 
-Ustawienie ważności w Synapse SQL dla platformy Azure Synapse umożliwia wpływ na planowanie zapytań. Kwerendy o wyższym znaczeniu będą zaplanowane do uruchomienia przed kwerendami o niższym znaczeniu. Aby przypisać znaczenie do kwerend, należy utworzyć klasyfikator obciążenia.
+Ustawienie znaczenia w Synapse SQL dla usługi Azure Synapse pozwala na wpływ na planowanie zapytań. Zapytania o wyższym znaczeniu zostaną zaplanowane do uruchomienia przed zapytaniami o niższej ważności. Aby przypisać ważność do zapytań, należy utworzyć klasyfikator obciążeń.
 
-## <a name="create-a-workload-classifier-with-importance"></a>Tworzenie klasyfikatora obciążenia z ważnością
+## <a name="create-a-workload-classifier-with-importance"></a>Tworzenie klasyfikatora obciążeń o ważności
 
-Często w scenariuszu magazynu danych masz użytkowników, którzy potrzebują ich zapytania, aby uruchomić szybko.  Użytkownik może być kierownictwo firmy, którzy muszą uruchamiać raporty lub użytkownik może być analitykiem z kwerendą adhoc. Tworzenie klasyfikatora obciążenia, aby przypisać znaczenie do kwerendy.  Poniższe przykłady używają nowej składni [klasyfikatora tworzenia obciążenia,](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) aby utworzyć dwa klasyfikatory. `Membername`może być pojedynczym użytkownikiem lub grupą. Klasyfikacje poszczególnych użytkowników mają pierwszeństwo przed klasyfikacjami ról. Aby znaleźć istniejących użytkowników magazynu danych, uruchom:
+Często w scenariuszu hurtowni danych masz użytkowników, którzy potrzebują swoich zapytań do szybkiego uruchomienia.  Użytkownik może być dyrektorem firmy, którzy muszą uruchamiać raporty lub użytkownik może być analitykiem, na którym działa zapytanie ad hoc. Tworzysz klasyfikator obciążeń, aby przypisać ważność do zapytania.  W poniższych przykładach użyto nowej składni [klasyfikatora tworzenia obciążenia](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) w celu utworzenia dwóch klasyfikatorów. `Membername`może być pojedynczym użytkownikiem lub grupą. Klasyfikacje poszczególnych użytkowników mają pierwszeństwo przed klasyfikacjami ról. Aby znaleźć istniejących użytkowników magazynu danych, uruchom polecenie:
 
 ```sql
 Select name from sys.sysusers
 ```
 
-Aby utworzyć klasyfikator obciążenia, dla użytkownika o wyższym znaczeniu uruchomić:
+Aby utworzyć klasyfikator obciążeń dla użytkownika o wyższej ważności:
 
 ```sql
 CREATE WORKLOAD CLASSIFIER ExecReportsClassifier  
@@ -40,7 +40,7 @@ CREATE WORKLOAD CLASSIFIER ExecReportsClassifier 
 
 ```
 
-Aby utworzyć klasyfikator obciążenia dla użytkownika z uruchomionymi kwerendami adhoc o niższym znaczeniu:  
+Aby utworzyć klasyfikator obciążeń dla użytkownika, na którym są wykonywane zapytania ad hoc z niższym przebiegiem ważności:  
 
 ```sql
 CREATE WORKLOAD CLASSIFIER AdhocClassifier  
@@ -51,8 +51,8 @@ CREATE WORKLOAD CLASSIFIER AdhocClassifier 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji na temat zarządzania [obciążeniem,](sql-data-warehouse-workload-classification.md) zobacz Klasyfikacja obciążeń
-- Aby uzyskać więcej informacji na temat ważności, zobacz [Znaczenie obciążenia pracą](sql-data-warehouse-workload-importance.md)
+- Aby uzyskać więcej informacji na temat zarządzania obciążeniem, zobacz [Klasyfikacja obciążeń](sql-data-warehouse-workload-classification.md)
+- Aby uzyskać więcej informacji na temat ważności, zobacz [ważność obciążenia](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
-> [Przejdź do zarządzania i monitorowania znaczenia obciążenia](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)
+> [Przejdź do pozycji Zarządzaj i monitoruj ważność obciążenia](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)

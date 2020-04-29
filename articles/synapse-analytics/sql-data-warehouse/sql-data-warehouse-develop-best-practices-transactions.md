@@ -1,6 +1,6 @@
 ---
 title: Optymalizacja transakcji
-description: Dowiedz się, jak zoptymalizować wydajność kodu transakcyjnego w Synapse SQL, minimalizując ryzyko długich wycofywania.
+description: Dowiedz się, jak zoptymalizować wydajność kodu transakcyjnego w programie Synapse SQL, jednocześnie minimalizując ryzyko długotrwałego wycofywania.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,47 +12,47 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 0139c581e6660622f1ab6db9f407725816377a6d
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633559"
 ---
-# <a name="optimizing-transactions-in-synapse-sql"></a>Optymalizacja transakcji w synapse SQL
+# <a name="optimizing-transactions-in-synapse-sql"></a>Optymalizowanie transakcji w programie SQL Synapse
 
-Dowiedz się, jak zoptymalizować wydajność kodu transakcyjnego w Synapse SQL, minimalizując ryzyko długich wycofywania.
+Dowiedz się, jak zoptymalizować wydajność kodu transakcyjnego w programie Synapse SQL, jednocześnie minimalizując ryzyko długotrwałego wycofywania.
 
 ## <a name="transactions-and-logging"></a>Transakcje i rejestrowanie
 
-Transakcje są ważnym składnikiem aparatu relacyjnej bazy danych. Transakcje są używane podczas modyfikacji danych. Te transakcje mogą być jawne lub niejawne. Instrukcje POJEDYNCZE INSERT, UPDATE i DELETE są przykładami niejawnych transakcji. Jawne transakcje używają BEGIN TRAN, COMMIT TRAN lub ROLLBACK TRAN. Jawne transakcje są zazwyczaj używane, gdy wiele instrukcji modyfikacji muszą być powiązane ze sobą w jednej jednostce atomowej.
+Transakcje są ważnym składnikiem aparatu relacyjnej bazy danych. Transakcje są używane podczas modyfikacji danych. Te transakcje mogą być jawne lub niejawne. Pojedyncze instrukcje INSERT, UPDATE i DELETE to wszystkie przykłady niejawnych transakcji. Transakcje jawne używają instrukcji BEGIN przeładunek, Zatwierdź transakcję lub Wycofaj ładunek. Jawne transakcje są zwykle używane, gdy wielokrotne instrukcje modyfikacji muszą być powiązane ze sobą w jednej jednostce niepodzielnej.
 
-Zmiany w bazie danych są śledzone przy użyciu dzienników transakcji. Każda dystrybucja ma swój własny dziennik transakcji. Zapisy dziennika transakcji są automatyczne. Nie jest wymagana konfiguracja. Jednak podczas gdy ten proces gwarantuje zapis wprowadza obciążenie w systemie. Można zminimalizować ten wpływ, pisząc transakcyjnie wydajny kod. Transakcyjnie skuteczny kod zasadniczo dzieli się na dwie kategorie.
+Zmiany w bazie danych są śledzone przy użyciu dzienników transakcji. Każda dystrybucja ma swój własny dziennik transakcji. Zapisy w dzienniku transakcji są automatyczne. Nie jest wymagana żadna konfiguracja. Jednak mimo że ten proces gwarantuje, że zapis wprowadza narzuty w systemie. Ten wpływ można zminimalizować przez zapisanie wydajnego kodu transactionowego. W szerokim stopniu funkcjonalny kod jest podzielony na dwie kategorie.
 
-* W miarę możliwości używaj minimalnych konstrukcji rejestrowania
-* Przetwarzaj dane przy użyciu partii o określonym zakresie, aby uniknąć pojedynczych długotrwałych transakcji
-* Przyjęcie wzorca przełączania partycji dla dużych modyfikacji danej partycji
+* Używaj minimalnych konstrukcji rejestrowania wszędzie tam, gdzie to możliwe
+* Przetwarzaj dane przy użyciu partii o określonym zakresie, aby uniknąć długotrwałych transakcji długoterminowych
+* Przyjęcie wzorca przełączania partycji dla dużych modyfikacji w danej partycji
 
-## <a name="minimal-vs-full-logging"></a>Minimalne a pełne rejestrowanie
+## <a name="minimal-vs-full-logging"></a>Rejestrowanie minimalne i pełne
 
-W przeciwieństwie do w pełni zalogowanych operacji, które używają dziennika transakcji do śledzenia każdej zmiany wiersza, minimalnie rejestrowane operacje śledzą tylko alokacje zasięgu i zmiany meta-danych. W związku z tym minimalne rejestrowanie obejmuje rejestrowanie tylko informacje, które są wymagane do wycofania transakcji po awarii lub jawnego żądania (ROLLBACK TRAN). Ponieważ znacznie mniej informacji jest śledzonych w dzienniku transakcji, minimalnie zarejestrowana operacja działa lepiej niż operacja o podobnej wielkości w pełni rejestrowane. Ponadto, ponieważ mniej zapisów przejść do dziennika transakcji, znacznie mniejsza ilość danych dziennika jest generowany i tak jest bardziej we/wy wydajne.
+W przeciwieństwie do w pełni zarejestrowanej operacji, która korzysta z dziennika transakcji do śledzenia każdej zmiany w wierszu, co najmniej zarejestrowane operacje śledzą tylko zmiany w zakresie alokacji i metadanych. W związku z tym minimalne rejestrowanie polega na rejestrowaniu tylko informacji wymaganych do wycofania transakcji po awarii lub w przypadku jawnego żądania (Wycofaj wyjątek). Gdy mniej informacji jest śledzonych w dzienniku transakcji, minimalna zarejestrowana operacja jest lepsza niż w pełni zarejestrowana operacja. Ponadto, ponieważ mniejsza liczba zapisów to dziennik transakcji, jest generowanych dużo mniejszych ilości danych dziennika i dlatego jest to większa wydajność operacji we/wy.
 
-Limity bezpieczeństwa transakcji dotyczą tylko w pełni zarejestrowanych operacji.
+Limity bezpieczeństwa transakcji mają zastosowanie tylko do w pełni zarejestrowanych operacji.
 
 > [!NOTE]
-> Minimalnie rejestrowane operacje mogą uczestniczyć w jawnych transakcjach. Ponieważ wszystkie zmiany w strukturach alokacji są śledzone, możliwe jest wycofanie minimalnie zarejestrowanych operacji.
+> Operacje o minimalnym zarejestrowaniu mogą uczestniczyć w jawnych transakcjach. Ponieważ wszystkie zmiany struktur alokacji są śledzone, możliwe jest wycofanie operacji o minimalnym zarejestrowaniu.
 
-## <a name="minimally-logged-operations"></a>Minimalnie rejestrowane operacje
+## <a name="minimally-logged-operations"></a>Operacje o minimalnym rejestrowaniu
 
-Następujące operacje mogą być rejestrowane minimalnie:
+Następujące operacje mogą być w sposób minimalny zarejestrowane:
 
-* TWORZENIE TABELI JAKO WYBIERZ ([CTAS](sql-data-warehouse-develop-ctas.md))
-* Wstawić.. Wybierz
+* CREATE TABLE jako SELECT ([CTAs](sql-data-warehouse-develop-ctas.md))
+* Wstaw.. ZAZNACZENIA
 * CREATE INDEX
-* ODBUDUJ INDEKS ZMIAN
+* ALTER INDEX REBUILD
 * DROP INDEX
-* OBCINANIE TABELI
-* TABELA UPUSZCZANIA
-* ZMIEŃ PARTYCJĘ PRZEŁĄCZNIKA TABELI
+* TRUNCATE TABLE
+* USUŃ TABELĘ
+* ALTER TABLE SWITCH PARTITION
 
 <!--
 - MERGE
@@ -61,31 +61,31 @@ Następujące operacje mogą być rejestrowane minimalnie:
 -->
 
 > [!NOTE]
-> Limit bezpieczeństwa transakcji nie ma wpływu na wewnętrzne operacje przenoszenia danych (takie jak BROADCAST i SHUFFLE).
+> Nie ma to wpływ na operacje wewnętrznego przenoszenia danych (takie jak EMISJa i losowo).
 
-## <a name="minimal-logging-with-bulk-load"></a>Minimalne rejestrowanie przy obciążeniu masowym
+## <a name="minimal-logging-with-bulk-load"></a>Minimalne rejestrowanie przy ładowaniu zbiorczym
 
-CTAS i INSERT... SELECT są zarówno operacje obciążenia zbiorczego. Jednak oba są pod wpływem definicji tabeli docelowej i zależą od scenariusza obciążenia. W poniższej tabeli wyjaśniono, kiedy operacje masowe są rejestrowane w całości lub minimalnie:  
+CTAS i Wstaw... SELECT to operacje ładowania zbiorczego. Jednak oba mają wpływ na definicję tabeli docelowej i zależą od scenariusza ładowania. W poniższej tabeli wyjaśniono, kiedy operacje zbiorcze są w pełni lub co najmniej rejestrowane:  
 
-| Indeks podstawowy | Scenariusz obciążenia | Tryb rejestrowania |
+| Indeks podstawowy | Scenariusz ładowania | Tryb rejestrowania |
 | --- | --- | --- |
 | Sterta |Dowolne |**Minimalny** |
-| Indeks klastrowany |Pusta tabela docelowa |**Minimalny** |
-| Indeks klastrowany |Załadowane wiersze nie nakładają się na istniejące strony w docelowych |**Minimalny** |
-| Indeks klastrowany |Załadowane wiersze nakładają się na istniejące strony w docelowych |Pełne |
-| Indeks klastrowanego magazynu kolumn |Rozmiar partii >= 102 400 na partycję wyrównaną dystrybucją |**Minimalny** |
-| Indeks klastrowanego magazynu kolumn |Rozmiar partii < 102 400 na partycję wyrównaną dystrybucją |Pełne |
+| Klastrowany indeks |Pusta tabela docelowa |**Minimalny** |
+| Klastrowany indeks |Załadowane wiersze nie nakładają się na istniejące strony w miejscu docelowym |**Minimalny** |
+| Klastrowany indeks |Załadowane wiersze nakładają się na istniejące strony w miejscu docelowym |Pełne |
+| Klastrowany indeks magazynu kolumn |Rozmiar wsadu >= 102 400 na wyrównanej dystrybucji partycji |**Minimalny** |
+| Klastrowany indeks magazynu kolumn |Rozmiar wsadu < 102 400 na rozkład wyrównany do partycji |Pełne |
 
-Warto zauważyć, że wszelkie zapisy do aktualizacji indeksów pomocniczych lub nieklastrowanych zawsze będą w pełni rejestrowane operacje.
+Warto zauważyć, że wszystkie zapisy do aktualizacji pomocniczych lub nieklastrowanych indeksów będą zawsze w pełni zarejestrowane.
 
 > [!IMPORTANT]
-> Baza danych puli SQL Synapse ma 60 dystrybucji. W związku z tym przy założeniu, że wszystkie wiersze są równomiernie rozłożone i lądowania w jednej partycji, partia będzie musiał zawierać 6,144,000 wierszy lub większe, aby być minimalnie rejestrowane podczas zapisywania do indeksu klastrowanego magazynu kolumn. Jeśli tabela jest podzielony na partycje i wiersze są wstawiane zakres granic partycji, a następnie trzeba będzie 6,144,000 wierszy na granicę partycji przy założeniu, że nawet dystrybucji danych. Każda partycja w każdej dystrybucji musi niezależnie przekraczać próg wiersza 102 400, aby wstawić było minimalnie zalogowane do dystrybucji.
+> Synapse baza danych puli SQL ma dystrybucje 60. W związku z tym, przy założeniu, że wszystkie wiersze są równomiernie dystrybuowane i wypełnianie w pojedynczej partycji, partia będzie musiała zawierać 6 144 000 wierszy lub większa do minimalnej rejestracji podczas zapisywania w klastrowanym indeksie magazynu kolumn. Jeśli tabela jest podzielona na partycje i wstawiane wiersze rozciągają się na granice partycji, w granicach partycji będą potrzebne 6 144 000 wierszy, przy założeniu, że nawet dystrybucji danych. Każda partycja w każdej dystrybucji musi niezależnie przekroczyć próg wiersza 102 400 dla operacji INSERT, który ma być minimalnym zalogowaniem do dystrybucji.
 
-Ładowanie danych do tabeli niepuste z indeksem klastrowanym często może zawierać mieszaninę wierszy w pełni rejestrowane i minimalnie rejestrowane. Indeks klastrowany jest zbilansowanym drzewem (b-drzewo) stron. Jeśli strona zapisywana jest już zawiera wiersze z innej transakcji, a następnie te zapisy będą w pełni rejestrowane. Jeśli jednak strona jest pusta, zapis na tej stronie będzie minimalnie rejestrowany.
+Ładowanie danych do niepustej tabeli z indeksem klastrowanym może często zawierać kombinację całkowicie zarejestrowanych i minimalnych zarejestrowanych wierszy. Klastrowany indeks to zrównoważone drzewo (b-Tree) stron. Jeśli strona, w której jest zapisywana, zawiera już wiersze z innej transakcji, te zapisy zostaną w pełni zarejestrowane. Jeśli jednak strona jest pusta, zapis na tej stronie zostanie zapisany w sposób minimalny.
 
-## <a name="optimizing-deletes"></a>Optymalizacja usuwania
+## <a name="optimizing-deletes"></a>Optymalizowanie usunięć
 
-DELETE jest w pełni zarejestrowaną operacją.  Jeśli chcesz usunąć dużą ilość danych w tabeli lub partycji, `SELECT` często ma większy sens do danych, które chcesz zachować, które mogą być uruchamiane jako minimalnie rejestrowane operacji.  Aby wybrać dane, utwórz nową tabelę z [programem CTAS](sql-data-warehouse-develop-ctas.md).  Po utworzeniu użyj [funkcji ZMIEŃ nazwę,](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) aby zamienić starą tabelę na nowo utworzoną tabelę.
+Usuwanie jest operacją w pełni zarejestrowana.  Jeśli konieczne jest usunięcie dużej ilości danych w tabeli lub partycji, często jest to bardziej zrozumiałe dla `SELECT` danych, które mają być przechowywane, które mogą być uruchamiane jako zarejestrowane minimalnie.  Aby wybrać dane, Utwórz nową tabelę z [CTAs](sql-data-warehouse-develop-ctas.md).  Po utworzeniu Użyj [nazwy](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby zamienić starą tabelę na nowo utworzoną tabelę.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -115,13 +115,13 @@ RENAME OBJECT [dbo].[FactInternetSales]   TO [FactInternetSales_old];
 RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
-## <a name="optimizing-updates"></a>Optymalizacja aktualizacji
+## <a name="optimizing-updates"></a>Optymalizowanie aktualizacji
 
-UPDATE jest w pełni zarejestrowaną operacją.  Jeśli trzeba zaktualizować dużą liczbę wierszy w tabeli lub partycji, często może być znacznie bardziej wydajne użycie minimalnie rejestrowane operacji, takich jak [CTAS,](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) aby to zrobić.
+Aktualizacja jest w pełni zarejestrowanej operacji.  Jeśli trzeba zaktualizować dużą liczbę wierszy w tabeli lub partycji, często może być dużo bardziej wydajna, aby użyć operacji zarejestrowanej minimalnie, takiej jak [CTAs](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
 
-W poniższym przykładzie pełna aktualizacja tabeli została przekonwertowana na CTAS, dzięki czemu możliwe jest minimalne rejestrowanie.
+W poniższym przykładzie aktualizacja pełnej tabeli została przekonwertowane na CTAS, aby możliwe było minimalne rejestrowanie.
 
-W takim przypadku retrospektywnie dodajemy kwotę rabatu do sprzedaży w tabeli:
+W takim przypadku do sprzedaży w tabeli należy ponownie dodać kwotę rabatu:
 
 ```sql
 --Step 01. Create a new table containing the "Update".
@@ -178,21 +178,21 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Ponowne tworzenie dużych tabel może korzystać z funkcji zarządzania obciążeniem puli Synapse SQL. Aby uzyskać więcej informacji, zobacz [Klasy zasobów do zarządzania obciążeniem](resource-classes-for-workload-management.md).
+> Ponowne utworzenie dużych tabel może skorzystać z używania funkcji zarządzania obciążeniami w puli SQL Synapse. Aby uzyskać więcej informacji, zobacz [klasy zasobów dla zarządzania obciążeniami](resource-classes-for-workload-management.md).
 
-## <a name="optimizing-with-partition-switching"></a>Optymalizacja za pomocą przełączania partycji
+## <a name="optimizing-with-partition-switching"></a>Optymalizacja przy użyciu przełączania partycji
 
-W przypadku modyfikacji na dużą skalę wewnątrz [partycji tabeli,](sql-data-warehouse-tables-partition.md)to wzorzec przełączania partycji ma sens. Jeśli modyfikacja danych jest znacząca i obejmuje wiele partycji, iteracja za pośrednictwem partycji osiąga ten sam wynik.
+Jeśli jest to na przykład w przypadku modyfikacji o dużej skali wewnątrz [partycji tabeli](sql-data-warehouse-tables-partition.md), to zrozumiały jest wzorzec przełączania partycji. Jeśli modyfikacja danych jest istotna i obejmuje wiele partycji, a następnie iteracja na partycjach uzyskuje ten sam wynik.
 
-Kroki wykonywania przełącznika partycji są następujące:
+Kroki prowadzące do przełączenia partycji są następujące:
 
-1. Tworzenie pustej partycji
-2. Wykonaj "update" jako CTAS
-3. Przełączanie istniejących danych do tabeli out
-4. Przełączanie nowych danych
-5. Czyszczenie danych
+1. Tworzenie pustej partycji out
+2. Wykonaj operację "Update" jako CTAS
+3. Przełącz istniejące dane do tabeli out
+4. Przełącz nowe dane
+5. Wyczyść dane
 
-Jednak aby ułatwić identyfikację partycji do przełączania, należy utworzyć następującą procedurę pomocnika.  
+Aby jednak ułatwić zidentyfikowanie partycji do przełączenia, Utwórz następującą procedurę pomocnika.  
 
 ```sql
 CREATE PROCEDURE dbo.partition_data_get
@@ -238,9 +238,9 @@ OPTION (LABEL = 'dbo.partition_data_get : CTAS : #ptn_data')
 GO
 ```
 
-Ta procedura maksymalizuje ponowne użycie kodu i utrzymuje przykład przełączania partycji bardziej kompaktowy.
+Ta procedura maksymalizuje ponowne użycie kodu i utrzymuje przykład większej kompaktowania na dysku.
 
-Poniższy kod demonstruje kroki wymienione wcześniej, aby osiągnąć pełną procedurę przełączania partycji.
+Poniższy kod ilustruje powyższe kroki, aby uzyskać procedurę przełączania pełnej partycji.
 
 ```sql
 --Create a partitioned aligned empty table to switch out the data
@@ -343,11 +343,11 @@ DROP TABLE dbo.FactInternetSales_in
 DROP TABLE #ptn_data
 ```
 
-## <a name="minimize-logging-with-small-batches"></a>Minimalizowanie rejestrowania za pomocą małych partii
+## <a name="minimize-logging-with-small-batches"></a>Minimalizacja rejestrowania z małymi partiami
 
-W przypadku operacji modyfikacji dużych danych może mieć sens dzielenie operacji na fragmenty lub partie w celu zakresu jednostki pracy.
+W przypadku dużych operacji modyfikacji danych warto podzielić operację na fragmenty lub partie, aby określić zakres jednostki pracy.
 
-Poniższy kod jest przykładem roboczym. Rozmiar partii został ustawiony na trywialną liczbę, aby wyróżnić technikę. W rzeczywistości wielkość partii byłaby znacznie większa.
+Poniższy kod jest przykładem roboczym. Rozmiar wsadu został ustawiony na wartość typu prostego, aby wyróżnić technikę. W rzeczywistości rozmiar wsadu byłby znacznie większy.
 
 ```sql
 SET NO_COUNT ON;
@@ -407,16 +407,16 @@ END
 
 ## <a name="pause-and-scaling-guidance"></a>Wskazówki dotyczące wstrzymywania i skalowania
 
-Synapse SQL umożliwia [wstrzymanie, wznowienie i skalowanie](sql-data-warehouse-manage-compute-overview.md) puli SQL na żądanie. Po wstrzymaniu lub skalowaniu puli SQL ważne jest, aby zrozumieć, że wszelkie transakcje w locie są natychmiast zakończone; powoduje, że wszelkie otwarte transakcje mają zostać wycofane. Jeśli obciążenie zostało wystawione długo działa i niekompletne modyfikacji danych przed wstrzymanie lub skalowania operacji, a następnie tej pracy należy cofnąć. To cofanie może mieć wpływ na czas potrzebny do wstrzymania lub skalowania puli SQL.
+Synapse SQL umożliwia [wstrzymywanie, wznawianie i skalowanie](sql-data-warehouse-manage-compute-overview.md) puli SQL na żądanie. W przypadku wstrzymania lub skalowania puli SQL należy zrozumieć, że wszystkie transakcje związane z lotem są kończone natychmiastowo; powoduje wycofywanie wszelkich otwartych transakcji. Jeśli obciążenie wystawiło długotrwałą i niekompletną modyfikację danych przed operacją wstrzymania lub skalowania, należy to zrobić. To cofnięcie może mieć wpływ na czas oczekiwania na wstrzymanie lub skalowanie puli SQL.
 
 > [!IMPORTANT]
-> Zarówno `UPDATE` `DELETE` i są w pełni rejestrowane operacje, a więc te operacje cofania/ponawiania może trwać znacznie dłużej niż równoważne minimalnie rejestrowane operacje.
+> Zarówno `UPDATE` , `DELETE` jak i są w pełni zarejestrowane operacje, więc operacje cofania/ponawiania mogą trwać znacznie dłużej niż równoważne operacje, które nie zostały zarejestrowane w sposób minimalny.
 
-Najlepszym scenariuszem jest umożliwienie transakcji modyfikacji danych lotu przed wstrzymaniem lub skalowaniem puli SQL. Jednak ten scenariusz nie zawsze może być praktyczne. Aby zmniejszyć ryzyko długotrwałego wycofywania, należy wziąć pod uwagę jedną z następujących opcji:
+Najlepszym scenariuszem jest umożliwienie wykonywania transakcji modyfikacji danych lotu przed zawstrzymywaniem lub skalowaniem puli SQL. Jednak ten scenariusz może nie zawsze być praktyczny. Aby zmniejszyć ryzyko długotrwałego wycofywania, należy wziąć pod uwagę jedną z następujących opcji:
 
-* Przepisz długotrwałe operacje przy użyciu [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* Podziel operację na kawałki; pracy na podzbiorze wierszy
+* Ponownie Napisz długotrwałe operacje przy użyciu [CTAs](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* Przerwij operację do fragmentów; działanie na podzestawie wierszy
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [Transakcje w Synapse SQL,](sql-data-warehouse-develop-transactions.md) aby dowiedzieć się więcej o poziomach izolacji i limitach transakcyjnych.  Aby zapoznać się z omówieniem innych sprawdzonych rozwiązań, zobacz [Najważniejsze wskazówki dotyczące magazynu danych SQL](sql-data-warehouse-best-practices.md).
+Zobacz [transakcje w programie Synapse SQL](sql-data-warehouse-develop-transactions.md) , aby dowiedzieć się więcej na temat poziomów izolacji i limitów transakcyjnych.  Aby zapoznać się z innymi najlepszymi rozwiązaniami, zobacz [SQL Data Warehouse Best Practices](sql-data-warehouse-best-practices.md).

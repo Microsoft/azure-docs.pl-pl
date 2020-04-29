@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie woluminami w macierzy wirtualnej StorSimple | Dokumenty firmy Microsoft
-description: W tym artykule opisano StorSimple Device Manager i wyjaśnia, jak go używać do zarządzania woluminami w storsimple virtual array.
+title: Zarządzanie woluminami w macierzy wirtualnej StorSimple | Microsoft Docs
+description: W tym artykule opisano Menedżer urządzeń StorSimple i wyjaśniono, jak używać go do zarządzania woluminami w macierzy wirtualnej StorSimple.
 services: storsimple
 documentationcenter: ''
 author: manuaery
@@ -15,29 +15,29 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 2dbbe6bcd4957a108cc3eae4d41816b130cf8f07
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633863"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Use StorSimple Device Manager service to manage volumes on the StorSimple Virtual Array (Zarządzanie wirtualną tablicą woluminów za pomocą usługi StorSimple Device Manager)
 
 ## <a name="overview"></a>Omówienie
 
-W tym samouczku wyjaśniono, jak używać usługi StorSimple Device Manager do tworzenia woluminów w macierzy wirtualnej StorSimple i zarządzania nimi.
+W tym samouczku wyjaśniono, jak za pomocą usługi StorSimple Menedżer urządzeń tworzyć woluminy i zarządzać nimi w macierzy wirtualnej StorSimple.
 
-Usługa StorSimple Device Manager jest rozszerzeniem w portalu Azure, które umożliwia zarządzanie rozwiązaniem StorSimple za pomocą jednego interfejsu internetowego. Oprócz zarządzania udziałami i woluminami można użyć usługi StorSimple Device Manager do wyświetlania urządzeń i zarządzania nimi, wyświetlania alertów oraz wyświetlania zasad tworzenia kopii zapasowych i zarządzania nimi oraz zarządzania nimi.
+Usługa StorSimple Menedżer urządzeń jest rozszerzeniem Azure Portal, które umożliwia zarządzanie rozwiązaniem StorSimple z poziomu jednego interfejsu internetowego. Oprócz zarządzania udziałami i woluminami, można użyć usługi StorSimple Menedżer urządzeń do wyświetlania i zarządzania urządzeniami, wyświetlania alertów oraz wyświetlania zasad tworzenia kopii zapasowych i wykazów kopii zapasowych oraz zarządzania nimi.
 
 ## <a name="volume-types"></a>Typy woluminów
 
-StorSimple woluminy mogą być:
+StorSimple woluminy mogą być następujące:
 
-* **Lokalnie przypięte:** Dane w tych woluminach pozostają na tablicy przez cały czas i nie wyciekają do chmury.
-* **Warstwowe:** Dane w tych woluminach mogą wyciekać do chmury. Podczas tworzenia woluminu warstwowego około 10 % miejsca jest aprowizowana w warstwie lokalnej, a 90 % miejsca jest aprowiowane w chmurze. Na przykład jeśli aprowizowana wolumin 1 TB, 100 GB będzie znajdować się w przestrzeni lokalnej i 900 GB będą używane w chmurze, gdy warstwy danych. To z kolei oznacza, że jeśli zabraknie całego miejsca lokalnego na urządzeniu, nie można aprowizować wolumin warstwowy (ponieważ 10 % wymagane w warstwie lokalnej nie będą dostępne).
+* **Przypięty lokalnie**: dane w tych woluminach pozostają w całej macierzy i nie zostaną rozlane do chmury.
+* **Warstwowe**: dane w tych woluminach mogą zostać rozlane do chmury. Podczas tworzenia woluminu warstwowego zostanie zainicjowana około 10% miejsca w warstwie lokalnej i zostanie zainicjowana 90% miejsca w chmurze. Na przykład jeśli Zainicjowano obsługę woluminu o pojemności 1 TB, 100 GB będzie znajdować się w miejscu lokalnym, a w chmurze zostanie użyta 900 GB. To z kolei oznacza, że w przypadku braku całego lokalnego miejsca na urządzeniu nie można zainicjować obsługi administracyjnej woluminu warstwowego (ponieważ 10% wymagane w warstwie lokalnej nie będzie dostępne).
 
-### <a name="provisioned-capacity"></a>Pojemność aprowizowana
-Zobacz poniższą tabelę, aby uzyskać maksymalną pojemność aprowizacji dla każdego typu woluminu.
+### <a name="provisioned-capacity"></a>Przyobsługiwana pojemność
+Zapoznaj się z poniższą tabelą dotyczącą maksymalnej alokowanej pojemności dla każdego typu woluminu.
 
 | **Identyfikator limitu**                                       | **Limit**     |
 |------------------------------------------------------------|---------------|
@@ -46,76 +46,76 @@ Zobacz poniższą tabelę, aby uzyskać maksymalną pojemność aprowizacji dla 
 | Minimalny rozmiar woluminu przypiętego lokalnie                    | 50 GB         |
 | Maksymalny rozmiar woluminu przypiętego lokalnie                    | 200 GB        |
 
-## <a name="the-volumes-blade"></a>Ostrze Woluminy
-Menu **Woluminy** w bloku podsumowania usługi StorSimple wyświetla listę woluminów magazynu w danej macierzy StorSimple i umożliwia zarządzanie nimi.
+## <a name="the-volumes-blade"></a>Blok woluminy
+Menu **woluminy** w bloku podsumowania usługi StorSimple wyświetla listę woluminów magazynu w danej macierzy StorSimple i umożliwia zarządzanie nimi.
 
-![Tarcza objętościowa](./media/storsimple-virtual-array-manage-volumes/volumes-blade.png)
+![Blok woluminów](./media/storsimple-virtual-array-manage-volumes/volumes-blade.png)
 
 Wolumin składa się z serii atrybutów:
 
-* **Nazwa woluminu** — opisowa nazwa, która musi być unikatowa i pomaga zidentyfikować wolumin.
-* **Status** — może być w trybie online lub offline. Jeśli wolumin jest w trybie offline, nie jest widoczny dla inicjatorów (serwerów), którzy mają dostęp do korzystania z woluminu.
-* **Typ** — wskazuje, czy wolumin jest **warstwowy** (domyślnie) czy **przypięty lokalnie.**
-* **Pojemność** — określa ilość danych używanych w porównaniu do całkowitej ilości danych, które mogą być przechowywane przez inicjatora (serwera).
-* **Kopia zapasowa** — w przypadku tablicy wirtualnej StorSimple wszystkie woluminy są automatycznie włączane do tworzenia kopii zapasowych.
-* **Połączone hosty** — określa inicjatorów (serwery), które mają dostęp do tego woluminu.
+* **Nazwa woluminu** — nazwa opisowa, która musi być unikatowa i pomaga identyfikować wolumin.
+* **Stan** — może być w trybie online lub offline. Jeśli wolumin jest w trybie offline, nie jest on widoczny dla inicjatorów (serwerów), które mają dostęp do korzystania z woluminu.
+* **Typ** — wskazuje, czy wolumin jest **warstwowy** (domyślnie) czy **przypięty lokalnie**.
+* **Pojemność** — określa ilość danych używanych w porównaniu do całkowitej ilości danych, które mogą być przechowywane przez inicjatora (serwer).
+* **Kopia zapasowa** — w przypadku macierzy wirtualnej StorSimple wszystkie woluminy są automatycznie włączane na potrzeby tworzenia kopii zapasowych.
+* **Połączone hosty** — określa inicjatory (serwery), które mają dostęp do tego woluminu.
 
 ![Szczegóły woluminów](./media/storsimple-virtual-array-manage-volumes/volume-details.png)
 
-Użyj instrukcji w tym samouczku, aby wykonać następujące zadania:
+Skorzystaj z instrukcji przedstawionych w tym samouczku, aby wykonać następujące zadania:
 
-* Dodawanie woluminu
+* Dodaj wolumin
 * Modyfikowanie woluminu
-* Przejań wolumin do trybu offline
+* Przełącz wolumin w tryb offline
 * Usuwanie woluminu
 
-## <a name="add-a-volume"></a>Dodawanie woluminu
+## <a name="add-a-volume"></a>Dodaj wolumin
 
-1. W bloku podsumowanie usługi StorSimple kliknij przycisk **+ Dodaj wolumin** z paska poleceń. Spowoduje to otwarcie bloku **Dodaj wolumin.**
+1. W bloku podsumowania usługi StorSimple kliknij pozycję **+ Dodaj wolumin** na pasku poleceń. Spowoduje to otwarcie bloku **Dodawanie woluminu** .
    
     ![Dodawanie woluminu](./media/storsimple-virtual-array-manage-volumes/add-volume.png)
-2. W bloku **Dodaj głośność** wykonaj następujące czynności:
+2. W bloku **Dodaj wolumin** wykonaj następujące czynności:
    
    * W polu **Nazwa woluminu** wprowadź unikatową nazwę woluminu. Nazwa musi być ciągiem zawierającym od 3 do 127 znaków.
-   * Na liście rozwijanej **Typ** określ, czy wolumin **warstwowy** lub **lokalnie przypięty.** W przypadku obciążeń wymagających gwarancji lokalnych, małych opóźnień i wyższej wydajności wybierz **opcję Lokalnie przypięty wolumin**. W przypadku wszystkich innych danych wybierz wolumin **warstwowy.**
-   * W polu **Pojemność** określ rozmiar woluminu. Wolumin warstwowy musi mieć wartość od 500 GB do 5 TB, a wolumin przypięty lokalnie musi mieć od 50 GB do 500 GB.
-   * * Kliknij **pozycję Połączone hosty**, wybierz rekord kontroli dostępu (ACR) odpowiadający inicjatorowi iSCSI, który chcesz połączyć z tym woluminem, a następnie kliknij przycisk **Wybierz**.
-3. Aby dodać nowego połączonego hosta, kliknij pozycję **Dodaj nowy**, wprowadź nazwę hosta i jego nazwę kwalifikowaną iSCSI (IQN), a następnie kliknij przycisk **Dodaj**.
+   * Z listy rozwijanej **Typ** wybierz, czy chcesz utworzyć wolumin **przypięty** **warstwowy** lub lokalnie. W przypadku obciążeń wymagających lokalnych gwarancji, małych opóźnień i większej wydajności Wybierz **wolumin przypięty lokalnie**. Dla wszystkich innych danych wybierz opcję wolumin **warstwowy** .
+   * W polu **pojemność** Określ rozmiar woluminu. Wolumin warstwowy musi zawierać się w przedziale od 500 GB do 5 TB, a wolumin przypięty lokalnie musi mieć wartość z zakresu od 50 GB do 500 GB.
+   * * Kliknij pozycję **połączone hosty**, wybierz rekord kontroli dostępu (ACR) odpowiadający inicjatorowi iSCSI, który ma zostać połączony z tym woluminem, a następnie kliknij pozycję **Wybierz**.
+3. Aby dodać nowy połączony host, kliknij przycisk **Dodaj nowy**, wprowadź nazwę hosta i jego kwalifikowaną nazwę iSCSI (IQN), a następnie kliknij przycisk **Dodaj**.
    
     ![Dodawanie woluminu](./media/storsimple-virtual-array-manage-volumes/volume-add-acr.png)
-4. Po zakończeniu konfigurowania woluminu kliknij przycisk **Utwórz**. Wolumin zostanie utworzony z określonymi ustawieniami i zostanie wyświetlone powiadomienie o pomyślnym utworzeniu tego samego. Domyślnie kopia zapasowa zostanie włączona dla woluminu.
-5. Aby potwierdzić, że wolumin został pomyślnie utworzony, przejdź do **bloku Woluminy.** Wolumin powinien być widoczny na liście.
+4. Po zakończeniu konfigurowania woluminu kliknij przycisk **Utwórz**. Wolumin zostanie utworzony przy użyciu określonych ustawień i zostanie wyświetlone powiadomienie dotyczące pomyślnego utworzenia tego samego. Domyślnie kopia zapasowa zostanie włączona dla woluminu.
+5. Aby upewnić się, że wolumin został pomyślnie utworzony, przejdź do bloku **woluminy** . Powinien zostać wyświetlony wymieniony wolumin.
    
-    ![Tworzenie woluminów powodem sukcesu](./media/storsimple-virtual-array-manage-volumes/volume-success.png)
+    ![Powodzenie tworzenia woluminu](./media/storsimple-virtual-array-manage-volumes/volume-success.png)
 
 ## <a name="modify-a-volume"></a>Modyfikowanie woluminu
 
-Zmodyfikuj wolumin, gdy trzeba zmienić hosty uzyskujące dostęp do woluminu. Inne atrybuty woluminu nie mogą być modyfikowane po utworzeniu woluminu.
+Należy zmodyfikować wolumin, gdy trzeba zmienić hosty, które uzyskują dostęp do woluminu. Nie można zmodyfikować innych atrybutów woluminu po utworzeniu woluminu.
 
 #### <a name="to-modify-a-volume"></a>Aby zmodyfikować wolumin
 
-1. W **ustawieniach Woluminy** w bloku podsumowania usługi StorSimple wybierz tablicę wirtualną, na której znajduje się wolumin, który chcesz zmodyfikować.
-2. **Wybierz** wolumin i kliknij pozycję **Połączone hosty,** aby wyświetlić aktualnie połączony host i zmodyfikować go na innym serwerze.
+1. **W bloku** podsumowania usługi StorSimple wybierz macierz wirtualną, w której znajduje się wolumin, który chcesz zmodyfikować.
+2. **Wybierz** wolumin, a następnie kliknij pozycję **połączone hosty** , aby wyświetlić aktualnie podłączony Host i zmodyfikować go na inny serwer.
    
-    ![Edytuj głośność](./media/storsimple-virtual-array-manage-volumes/volume-edit-acr.png)
-3. Zapisz zmiany, klikając pasek poleceń **Zapisz.** Określone ustawienia zostaną zastosowane, a zostanie wyświetlone powiadomienie.
+    ![Edytuj wolumin](./media/storsimple-virtual-array-manage-volumes/volume-edit-acr.png)
+3. Zapisz zmiany, klikając pasek poleceń **Zapisz** . Określone ustawienia zostaną zastosowane i zostanie wyświetlone powiadomienie.
 
-## <a name="take-a-volume-offline"></a>Przejań wolumin do trybu offline
+## <a name="take-a-volume-offline"></a>Przełącz wolumin w tryb offline
 
-Może być konieczne przełączeniu woluminu w tryb offline, gdy planujesz go zmodyfikować lub usunąć. Gdy wolumin jest w trybie offline, nie jest dostępny dla dostępu do odczytu i zapisu. Wolumin należy wykonać w trybie offline na hoście, a także na urządzeniu.
+Może zajść potrzeba przełączenia woluminu w tryb offline, gdy planujesz go zmodyfikować lub usunąć. Gdy wolumin jest w trybie offline, nie jest dostępny do odczytu i zapisu. Należy przełączyć wolumin w tryb offline na hoście, a także na urządzeniu.
 
-#### <a name="to-take-a-volume-offline"></a>Aby przetraktować wolumin w trybie offline
+#### <a name="to-take-a-volume-offline"></a>Aby przełączyć wolumin w tryb offline
 
 1. Upewnij się, że dany wolumin nie jest używany przed przełączeniem go w tryb offline.
-2. Najpierw przejmij wolumin w tryb offline na hoście. Eliminuje to wszelkie potencjalne ryzyko uszkodzenia danych na woluminie. Aby uzyskać szczegółowe kroki, zapoznaj się z instrukcjami dotyczącymi systemu operacyjnego hosta.
-3. Po przejadaniu woluminu na hoście w trybie offline przejmij wolumin w tablicy w tryb offline, wykonując następujące czynności:
+2. Najpierw Przełącz wolumin do trybu offline na hoście. Eliminuje to potencjalne ryzyko uszkodzenia danych na woluminie. Aby zapoznać się z określonymi krokami, zapoznaj się z instrukcjami dotyczącymi systemu operacyjnego hosta.
+3. Gdy wolumin na hoście jest w trybie offline, zrób wolumin w macierzy w trybie offline, wykonując następujące czynności:
    
-   * W **ustawieniach Woluminy** w bloku podsumowania usługi StorSimple wybierz tablicę wirtualną, na której znajduje się wolumin, który chcesz przełączyć do trybu offline.
-   * **Wybierz** wolumin i kliknij **...** (na przemian kliknij prawym przyciskiem myszy w tym wierszu) i z menu kontekstowego wybierz pozycję **Przejmij do trybu offline**.
+   * **W bloku** podsumowania usługi StorSimple wybierz macierz wirtualną, w której znajduje się wolumin, który ma zostać przełączony w tryb offline.
+   * **Wybierz** wolumin, a następnie kliknij przycisk **...** (Alternatywnie kliknij prawym przyciskiem myszy w tym wierszu) i z menu kontekstowego wybierz polecenie **Przełącz do trybu offline**.
      
         ![Wolumin w trybie offline](./media/storsimple-virtual-array-manage-volumes/volume-offline.png)
-   * Przejrzyj informacje w bloku **Przejmij tryb offline** i potwierdź akceptację operacji. Kliknij **pozycję Przejmij do trybu offline,** aby przetraktować wolumin. Zostanie wyświetlone powiadomienie o operacji w toku.
-   * Aby potwierdzić, że wolumin został pomyślnie przesuń do trybu offline, przejdź do **bloku Woluminy.** Stan woluminu powinien być widoczny w trybie offline.
+   * Przejrzyj informacje w bloku **Przełącz do trybu offline** i Potwierdź akceptację operacji. Kliknij polecenie **Przełącz do trybu offline** , aby przełączyć wolumin w tryb offline. Zobaczysz powiadomienie o trwającej operacji.
+   * Aby upewnić się, że wolumin został pomyślnie przełączony w tryb offline, przejdź do bloku **woluminy** . Stan woluminu powinien być widoczny jako offline.
      
        ![Potwierdzenie woluminu w trybie offline](./media/storsimple-virtual-array-manage-volumes/volume-offline-confirm.png)
 
@@ -130,12 +130,12 @@ Wykonaj następujące kroki, aby usunąć wolumin.
 
 #### <a name="to-delete-a-volume"></a>Aby usunąć wolumin
 
-1. W **ustawieniach Woluminy** w bloku podsumowania usługi StorSimple wybierz tablicę wirtualną, na której znajduje się wolumin, który chcesz usunąć.
-2. **Wybierz** wolumin i kliknij **...** (na przemian kliknij prawym przyciskiem myszy w tym wierszu) i z menu kontekstowego wybierz polecenie **Usuń**.
+1. **W bloku** podsumowania usługi StorSimple wybierz macierz wirtualną, w której znajduje się wolumin, który chcesz usunąć.
+2. **Wybierz** wolumin, a następnie kliknij przycisk **...** (Alternatywnie kliknij prawym przyciskiem myszy w tym wierszu) i z menu kontekstowego wybierz pozycję **Usuń**.
    
     ![Usuwanie woluminu](./media/storsimple-virtual-array-manage-volumes/volume-delete.png)
-3. Sprawdź stan woluminu, który chcesz usunąć. Jeśli wolumin, który chcesz usunąć, nie jest w trybie offline, najpierw przejmij go w tryb offline, wykonując czynności opisane w [obszarze Przemij wolumin](#take-a-volume-offline)w tryb offline .
-4. Po wyświetleniu monitu o potwierdzenie w bloku **Usuń** zaakceptuj potwierdzenie i kliknij przycisk **Usuń**. Wolumin zostanie teraz usunięty, a w bloku **Woluminy** zostanie wyświetlona zaktualizowana lista woluminów w macierzy wirtualnej.
+3. Sprawdź stan woluminu, który chcesz usunąć. Jeśli wolumin, który chcesz usunąć, nie jest w trybie offline, najpierw Przełącz go do trybu offline, wykonując czynności opisane w sekcji [Zrób wolumin w trybie offline](#take-a-volume-offline).
+4. Po wyświetleniu monitu o potwierdzenie w bloku **Usuń** Zaakceptuj potwierdzenie i kliknij przycisk **Usuń**. Wolumin zostanie usunięty, a blok **woluminy** wyświetli zaktualizowaną listę woluminów w ramach macierzy wirtualnej.
 
 ## <a name="next-steps"></a>Następne kroki
 

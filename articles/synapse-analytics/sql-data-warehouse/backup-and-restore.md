@@ -1,6 +1,6 @@
 ---
-title: Tworzenie kopii zapasowych i przywracanie — migawki, geobeksy
-description: Dowiedz się, jak działa tworzenie kopii zapasowych i przywracanie w puli SQL usługi Azure Synapse Analytics. Użyj kopii zapasowych, aby przywrócić magazyn danych do punktu przywracania w regionie podstawowym. Użyj geograficznie nadmiarowych kopii zapasowych, aby przywrócić do innego regionu geograficznego.
+title: Tworzenie kopii zapasowych i przywracanie migawek, geograficznie nadmiarowych
+description: Dowiedz się, jak wykonywanie kopii zapasowych i przywracanie działa w puli SQL usługi Azure Synapse Analytics. Użyj kopii zapasowych, aby przywrócić magazyn danych do punktu przywracania w regionie podstawowym. Użyj geograficznie nadmiarowych kopii zapasowych do przywrócenia w innym regionie geograficznym.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,29 +12,29 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
 ms.openlocfilehash: 1d82c7c22bb5aeb2740884b0d7ede4a4d8f07f86
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631216"
 ---
-# <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Tworzenie kopii zapasowych i przywracanie w puli SQL synapse platformy Azure
+# <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Tworzenie kopii zapasowych i przywracanie danych w puli SQL Synapse platformy Azure
 
-Dowiedz się, jak używać kopii zapasowych i przywracania w puli SQL Usługi Azure Synapse. Punkty przywracania puli SQL umożliwia odzyskiwanie lub kopiowanie magazynu danych do poprzedniego stanu w regionie podstawowym. Użyj geograficznych kopii zapasowych magazynu danych, aby przywrócić je do innego regionu geograficznego.
+Dowiedz się, jak używać funkcji tworzenia kopii zapasowych i przywracania w puli SQL Synapse platformy Azure. Użyj punktów przywracania puli SQL, aby odzyskać lub skopiować magazyn danych do poprzedniego stanu w regionie podstawowym. Użyj geograficznie nadmiarowych kopii zapasowych magazynu danych do przywrócenia w innym regionie geograficznym.
 
 ## <a name="what-is-a-data-warehouse-snapshot"></a>Co to jest migawka magazynu danych
 
-*Migawka magazynu danych* tworzy punkt przywracania, który można wykorzystać do odzyskania lub skopiowania magazynu danych do poprzedniego stanu.  Ponieważ pula SQL jest systemem rozproszonym, migawka magazynu danych składa się z wielu plików, które znajdują się w magazynie platformy Azure. Migawki przechwytują przyrostowe zmiany z danych przechowywanych w magazynie danych.
+*Migawka magazynu danych* tworzy punkt przywracania, którego można użyć do odzyskania lub skopiowania magazynu danych do poprzedniego stanu.  Ponieważ pula SQL jest systemem rozproszonym, migawka magazynu danych składa się z wielu plików znajdujących się w usłudze Azure Storage. Migawki przechwytują zmiany przyrostowe z danych przechowywanych w magazynie danych.
 
-*Przywracanie magazynu danych* to nowy magazyn danych, który jest tworzony z punktu przywracania istniejącego lub usuniętego magazynu danych. Przywracanie magazynu danych jest istotną częścią każdej strategii ciągłości biznesowej i odzyskiwania po awarii, ponieważ ponownie tworzy dane po przypadkowym zepsuniu lub usunięciu. Magazyn danych jest również zaawansowanym mechanizmem do tworzenia kopii magazynu danych do celów testowych lub rozwojowych.  Szybkość przywracania puli SQL może się różnić w zależności od rozmiaru bazy danych i lokalizacji źródłowego i docelowego magazynu danych.
+*Przywracanie magazynu danych* jest nowym magazynem danych, który jest tworzony na podstawie punktu przywracania istniejącego lub usuniętego magazynu danych. Przywrócenie magazynu danych jest istotną częścią strategii ciągłości działania i odzyskiwania po awarii, ponieważ powoduje ponowne utworzenie danych po przypadkowe uszkodzenia lub usunięciu. Magazyn danych jest również zaawansowanym mechanizmem tworzenia kopii magazynu danych na potrzeby testowania lub projektowania.  Stawki za przywracanie puli SQL mogą się różnić w zależności od rozmiaru bazy danych i lokalizacji źródłowego i docelowego magazynu danych.
 
 ## <a name="automatic-restore-points"></a>Automatyczne punkty przywracania
 
-Migawki są wbudowaną funkcją usługi, która tworzy punkty przywracania. Nie trzeba włączać tej funkcji. Jednak pula SQL powinna być w stanie aktywnym do tworzenia punktu przywracania. Jeśli pula SQL jest często wstrzymywana, automatyczne punkty przywracania mogą nie zostać utworzone, więc upewnij się, że utworzono punkt przywracania zdefiniowany przez użytkownika przed wstrzymaniem puli SQL. Automatyczne przywracanie punktów obecnie nie mogą być usunięte przez użytkowników, jak usługa używa tych punktów przywracania do obsługi SLA do odzyskiwania.
+Migawki to wbudowana funkcja usługi, która tworzy punkty przywracania. Nie musisz włączać tej funkcji. Jednak Pula SQL powinna znajdować się w stanie aktywnym do tworzenia punktów przywracania. Jeśli pula SQL została wstrzymana często, automatyczne punkty przywracania mogą nie zostać utworzone, dlatego należy utworzyć punkt przywracania zdefiniowany przez użytkownika przed wstrzymaniem puli SQL. Automatyczne punkty przywracania obecnie nie mogą zostać usunięte przez użytkowników, ponieważ usługa używa tych punktów przywracania do obsługi umowy SLA na potrzeby odzyskiwania.
 
-Migawki magazynu danych są pobierane przez cały dzień, tworząc punkty przywracania, które są dostępne przez siedem dni. Tego okresu przechowywania nie można zmienić. Pula SQL obsługuje ośmiogodzinny cel punktu odzyskiwania (RPO). Magazyn danych w regionie podstawowym można przywrócić z jednej z migawek wykonanych w ciągu ostatnich siedmiu dni.
+Migawki magazynu danych są wykonywane przez cały dzień tworzenia punktów przywracania dostępnych przez siedem dni. Nie można zmienić tego okresu przechowywania. Pula SQL obsługuje osiem godzin cel punktu odzyskiwania (RPO). Magazyn danych można przywrócić w regionie podstawowym z jednej z migawek wykonanych w ciągu ostatnich siedmiu dni.
 
-Aby zobaczyć, kiedy została uruchomiona ostatnia migawka, uruchom tę kwerendę w puli SQL online.
+Aby sprawdzić, kiedy Ostatnia migawka została rozpoczęta, Uruchom to zapytanie w puli SQL online.
 
 ```sql
 select   top 1 *
@@ -45,66 +45,66 @@ order by run_id desc
 
 ## <a name="user-defined-restore-points"></a>Punkty przywracania zdefiniowane przez użytkownika
 
-Ta funkcja umożliwia ręczne wyzwalanie migawek w celu utworzenia punktów przywracania magazynu danych przed i po dużych modyfikacjach. Ta funkcja zapewnia, że punkty przywracania są logicznie spójne, co zapewnia dodatkową ochronę danych w przypadku przerw w obciążeniu lub błędów użytkownika w celu szybkiego czasu odzyskiwania. Zdefiniowane przez użytkownika punkty przywracania są dostępne przez siedem dni i są automatycznie usuwane w Twoim imieniu. Nie można zmienić okresu przechowywania punktów przywracania zdefiniowanych przez użytkownika. **42 zdefiniowane przez użytkownika punkty przywracania** są gwarantowane w dowolnym momencie, więc muszą zostać [usunięte](https://go.microsoft.com/fwlink/?linkid=875299) przed utworzeniem innego punktu przywracania. Migawki można wyzwolić, aby utworzyć zdefiniowane przez użytkownika punkty przywracania za pośrednictwem programu [PowerShell](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) lub witryny Azure portal.
+Ta funkcja umożliwia ręczne wyzwalanie migawek do tworzenia punktów przywracania magazynu danych przed i po dużych modyfikacjach. Ta funkcja zapewnia, że punkty przywracania są logicznie spójne, co zapewnia dodatkową ochronę danych w przypadku wszelkich przerw w obciążeniu lub błędów użytkowników w celu szybkiego odzyskiwania. Punkty przywracania zdefiniowane przez użytkownika są dostępne przez siedem dni i są automatycznie usuwane w Twoim imieniu. Nie można zmienić okresu przechowywania zdefiniowanych przez użytkownika punktów przywracania. **42 punkty przywracania zdefiniowane przez użytkownika** są gwarantowane w dowolnym momencie, dlatego należy je [usunąć](https://go.microsoft.com/fwlink/?linkid=875299) przed utworzeniem innego punktu przywracania. Możesz wyzwolić migawki, aby utworzyć punkty przywracania zdefiniowane przez użytkownika za pomocą [programu PowerShell](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) lub Azure Portal.
 
 > [!NOTE]
-> Jeśli potrzebujesz punktów przywracania dłuższych niż 7 dni, zagłosuj na tę możliwość [tutaj](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). Można również utworzyć zdefiniowany przez użytkownika punkt przywracania i przywrócić z nowo utworzonego punktu przywracania do nowego magazynu danych. Po przywróceniu masz pulę SQL w trybie online i można wstrzymać ją na czas nieokreślony, aby zaoszczędzić koszty obliczeniowe. Wstrzymana baza danych wiąże się z opłatami za magazyn po kursie usługi Azure Premium Storage. Jeśli potrzebujesz aktywnej kopii przywróconego magazynu danych, możesz wznowić, co powinno potrwać tylko kilka minut.
+> Jeśli wymagane jest przywracanie punktów dłużej niż 7 dni, należy zagłosować na [tę funkcję.](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points) Można również utworzyć punkt przywracania zdefiniowany przez użytkownika i przywrócić go z nowo utworzonego punktu przywracania do nowego magazynu danych. Po przywróceniu masz pulę SQL w trybie online i można ją wstrzymać w nieskończoność, aby zaoszczędzić koszty obliczeń. Wstrzymana baza danych wiąże się z opłatami za magazyn według stawki za Premium Storage platformy Azure. Jeśli potrzebujesz aktywnej kopii przywróconego magazynu danych, możesz wznowić działanie, które powinno trwać tylko kilka minut.
 
-### <a name="restore-point-retention"></a>Przywracanie przechowywania punktów
+### <a name="restore-point-retention"></a>Przechowywanie punktów przywracania
 
-Poniżej wymieniono szczegóły dotyczące okresów przechowywania punktów przywracania:
+Poniżej znajdują się szczegółowe informacje dotyczące okresów przechowywania punktów przywracania:
 
-1. Pula SQL usuwa punkt przywracania, gdy osiągnie 7-dniowy okres przechowywania **i** gdy istnieją co najmniej 42 całkowite punkty przywracania (w tym zdefiniowane przez użytkownika i automatyczne).
-2. Migawki nie są pobierane, gdy pula SQL jest wstrzymana.
-3. Wiek punktu przywracania jest mierzona przez bezwzględne dni kalendarzowe od czasu, gdy punkt przywracania jest pobierana, w tym gdy pula SQL jest wstrzymana.
-4. W dowolnym momencie pula SQL jest gwarantowana, aby móc przechowywać do 42 zdefiniowanych przez użytkownika punktów przywracania i 42 automatyczne punkty przywracania, o ile te punkty przywracania nie osiągnęły 7-dniowego okresu przechowywania
-5. Jeśli zostanie podjęta migawka, pula SQL jest następnie wstrzymana na dłużej niż 7 dni, a następnie wznawia, punkt przywracania będzie się powtarzał, dopóki nie będzie 42 całkowitych punktów przywracania (w tym zdefiniowanych przez użytkownika i automatycznych)
+1. Pula SQL usuwa punkt przywracania, gdy trafi na 7-dniowy okres przechowywania **i** ma co najmniej 42 całkowitej liczby punktów przywracania (w tym zdefiniowane przez użytkownika i automatyczne).
+2. Migawki nie są wykonywane, gdy pula SQL jest wstrzymana.
+3. Wiek punktu przywracania jest mierzony przez bezwzględne dni kalendarzowe od momentu, w którym jest wykonywana punkt przywracania, w tym gdy pula SQL jest wstrzymana.
+4. W dowolnym momencie Pula SQL ma możliwość przechowywania do 42 punktów przywracania zdefiniowanych przez użytkownika i 42 punktów przywracania automatycznego, o ile te punkty przywracania nie osiągnęły 7-dniowego okresu przechowywania
+5. Jeśli tworzona jest migawka, Pula SQL jest wstrzymana przez więcej niż 7 dni, a następnie wznawia się, punkt przywracania będzie trwały do momentu, w którym są 42 całkowite punkty przywracania (w tym zdefiniowane przez użytkownika i automatyczne)
 
-### <a name="snapshot-retention-when-a-sql-pool-is-dropped"></a>Przechowywanie migawek po upuszczeniu puli SQL
+### <a name="snapshot-retention-when-a-sql-pool-is-dropped"></a>Przechowywanie migawek w przypadku porzucenia puli SQL
 
-Po upuszczeniu puli SQL, ostateczna migawka jest tworzony i zapisywany przez siedem dni. Pulę SQL można przywrócić do końcowego punktu przywracania utworzonego podczas usuwania. Jeśli pula SQL zostanie upuszczona w stanie wstrzymania, nie jest pobierana migawka. W tym scenariuszu upewnij się, że utworzysz punkt przywracania zdefiniowany przez użytkownika przed upuszczeniem puli SQL.
+Po strąceniu puli SQL tworzona jest Ostatnia migawka, która jest zapisywana przez siedem dni. Pulę SQL można przywrócić do końcowego punktu przywracania utworzonego podczas usuwania. Jeśli pula SQL zostanie porzucona w stanie wstrzymania, migawka nie jest wykonywana. W tym scenariuszu należy utworzyć zdefiniowany przez użytkownika punkt przywracania przed usunięciem puli SQL.
 
 > [!IMPORTANT]
-> Jeśli usuniesz logiczne wystąpienie serwera SQL, wszystkie bazy danych, które należą do wystąpienia są również usuwane i nie można odzyskać. Nie można przywrócić usuniętego serwera.
+> Usunięcie logicznego wystąpienia programu SQL Server spowoduje również usunięcie wszystkich baz danych, które należą do wystąpienia, i nie będzie można ich odzyskać. Nie można przywrócić usuniętego serwera.
 
-## <a name="geo-backups-and-disaster-recovery"></a>Kopie geograficzne i odzyskiwanie po awarii
+## <a name="geo-backups-and-disaster-recovery"></a>Tworzenie kopii zapasowych i odzyskiwanie po awarii
 
-Geograficzna kopia zapasowa jest tworzona raz dziennie do [sparowanego centrum danych](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Punkt ochrony danych dla przywracania geograficznego trwa 24 godziny. Można przywrócić kopię zapasową geograficzną na serwerze w dowolnym innym regionie, w którym jest obsługiwana pula SQL. Geo-kopia zapasowa zapewnia, że można przywrócić magazyn danych w przypadku, gdy nie można uzyskać dostępu do punktów przywracania w regionie podstawowym.
+Geograficzna kopia zapasowa jest tworzona raz dziennie dla [sparowanego centrum danych](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Cel punktu odzyskiwania w przypadku przywracania geograficznego wynosi 24 godziny. Można przywrócić geograficzną kopię zapasową do serwera w dowolnym innym regionie, w którym jest obsługiwana Pula SQL. Geograficzna kopia zapasowa zapewnia możliwość przywrócenia magazynu danych na wypadek, gdyby nie można było uzyskać dostępu do punktów przywracania w regionie podstawowym.
 
 > [!NOTE]
-> Jeśli potrzebujesz krótszego celu ochrony danych rpo dla kopii zapasowych geograficznych, zagłosuj na tę funkcję [tutaj](https://feedback.azure.com/forums/307516-sql-data-warehouse). Można również utworzyć zdefiniowany przez użytkownika punkt przywracania i przywrócić z nowo utworzonego punktu przywracania do nowego magazynu danych w innym regionie. Po przywróceniu masz magazyn danych w trybie online i można wstrzymać go na czas nieokreślony, aby zaoszczędzić koszty obliczeń. Wstrzymana baza danych wiąże się z opłatami za magazyn po kursie usługi Azure Premium Storage. Jeśli potrzebujesz aktywnej kopii magazynu danych, możesz wznowić, co powinno potrwać tylko kilka minut.
+> Jeśli potrzebujesz krótszego celu punktu odzyskiwania dla geograficznie kopii zapasowych, zagłosuj na tę funkcję [tutaj](https://feedback.azure.com/forums/307516-sql-data-warehouse). Można również utworzyć zdefiniowany przez użytkownika punkt przywracania i przywrócić go z nowo utworzonego punktu przywracania do nowego magazynu danych w innym regionie. Po przywróceniu będziesz mieć magazyn danych w trybie online i można go wstrzymać w nieskończoność, aby zaoszczędzić koszty obliczeniowe. Wstrzymana baza danych wiąże się z opłatami za magazyn według stawki za Premium Storage platformy Azure. Jeśli potrzebujesz aktywnej kopii hurtowni danych, możesz wznowić działanie, które powinno trwać tylko kilka minut.
 
-## <a name="backup-and-restore-costs"></a>Koszty tworzenia kopii zapasowych i przywracania
+## <a name="backup-and-restore-costs"></a>Koszty tworzenia kopii zapasowej i przywracania
 
-Można zauważyć, że rachunek platformy Azure ma element zamówienia dla magazynu i element zamówienia dla magazynu odzyskiwania po awarii. Opłata za magazyn to całkowity koszt przechowywania danych w regionie podstawowym wraz ze zmianami przyrostowymi przechwyconymi przez migawki. Aby uzyskać bardziej szczegółowe wyjaśnienie sposobu ładowania migawek, zobacz [Opis naliczania opłat za migawki.](/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Opłata geograficznie nadmiarowa pokrywa koszty przechowywania kopii zapasowych geograficznych.  
+Na rachunku za platformę Azure zostanie wystawiony element line for Storage i element line dla magazynu odzyskiwania po awarii. Opłata za magazyn to łączny koszt przechowywania danych w regionie podstawowym wraz ze zmianami przyrostowymi przechwytywanymi przez migawki. Aby uzyskać bardziej szczegółowy opis sposobu, w jaki są rozliczane migawki, zapoznaj się z tematem [jak naliczanie opłat za migawki](/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Opłata za nadmiarowy geograficznie obejmuje koszt przechowywania kopii zapasowych.  
 
-Całkowity koszt podstawowego magazynu danych i siedem dni zmian migawki jest zaokrąglana do najbliższej tb. Na przykład jeśli magazyn danych jest 1,5 TB i migawki przechwytuje 100 GB, są naliczane opłaty za 2 TB danych według stawek usługi Azure Premium Storage.
+Łączny koszt podstawowego magazynu danych i siedem dni zmian migawek jest zaokrąglany do najbliższej TB. Na przykład jeśli magazyn danych to 1,5 TB, a migawki przechwytuje 100 GB, opłaty są naliczane za 2 TB danych w ramach stawek za usługę Azure Premium Storage.
 
-Jeśli używasz magazynu geograficznie nadmiarowego, otrzymasz oddzielną opłatę za magazyn. Magazyn geograficznie nadmiarowy jest rozliczany według standardowej szybkości dostępu do odczytu geograficznie nadmiarowej (RA-GRS).
+W przypadku korzystania z magazynu geograficznie nadmiarowego otrzymujesz oddzielną opłatą za magazyn. Magazyn Geograficznie nadmiarowy jest rozliczany zgodnie ze standardową szybkością magazynowania geograficznego do odczytu (RA-GRS).
 
-Aby uzyskać więcej informacji na temat cen usługi Azure Synapse, zobacz [Cennik usługi Azure Synapse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/). Nie są naliczane opłaty za wyjście danych podczas przywracania w różnych regionach.
+Aby uzyskać więcej informacji o cenach usługi Azure Synapse, zobacz [Cennik usługi Azure Synapse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/). Nie jest naliczana opłata za dane wychodzące podczas przywracania między regionami.
 
 ## <a name="restoring-from-restore-points"></a>Przywracanie z punktów przywracania
 
 Każda migawka tworzy punkt przywracania, który reprezentuje czas rozpoczęcia migawki. Aby przywrócić magazyn danych, należy wybrać punkt przywracania i wydać polecenie przywracania.  
 
-Można zachować przywrócony magazyn danych i bieżący lub usunąć jeden z nich. Jeśli chcesz zastąpić bieżący magazyn danych przywróconym magazynem danych, możesz zmienić jego nazwę za pomocą [alter database (puli SQL)](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) z opcją MODYFIKUJ NAZWĘ.
+Możesz zachować przywrócony magazyn danych i bieżący lub usunąć jeden z nich. Jeśli chcesz zamienić bieżący magazyn danych na przywrócony magazyn danych, możesz zmienić jego nazwę przy użyciu [instrukcji ALTER DATABASE (SQL Pool)](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) z opcją Modify Name.
 
-Aby przywrócić magazyn danych, zobacz [Przywracanie puli SQL](sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal).
+Aby przywrócić magazyn danych, zobacz [przywracanie puli SQL](sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal).
 
-Aby przywrócić usunięty lub wstrzymany magazyn danych, można [utworzyć bilet pomocy technicznej](sql-data-warehouse-get-started-create-support-ticket.md).
+Aby przywrócić usunięty lub wstrzymany magazyn danych, możesz [utworzyć bilet pomocy technicznej](sql-data-warehouse-get-started-create-support-ticket.md).
 
-## <a name="cross-subscription-restore"></a>Przywracanie subskrypcji krzyżowej
+## <a name="cross-subscription-restore"></a>Przywracanie między subskrypcjami
 
-Jeśli chcesz bezpośrednio przywrócić subskrypcję, zagłosuj na tę funkcję [tutaj](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Przywróć na inny serwer logiczny i ["Przenieś"](/azure/azure-resource-manager/resource-group-move-resources?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) serwer w ramach subskrypcji, aby wykonać przywracanie subskrypcji krzyżowej.
+Jeśli musisz bezpośrednio przywrócić subskrypcję, zagłosuj na tę funkcję w [tym miejscu](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Przywróć na inny serwer logiczny i ["Przenieś"](/azure/azure-resource-manager/resource-group-move-resources?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) serwer między subskrypcjami, aby przeprowadzić przywracanie między subskrypcjami.
 
-## <a name="geo-redundant-restore"></a>Przywracanie geograficznie nadmiarowe
+## <a name="geo-redundant-restore"></a>Przywracanie nadmiarowe geograficznie
 
-[Pulę SQL](sql-data-warehouse-restore-from-geo-backup.md#restore-from-an-azure-geographical-region-through-powershell) można przywrócić do dowolnego regionu obsługującego pulę SQL na wybranym poziomie wydajności.
+Możesz [przywrócić pulę SQL](sql-data-warehouse-restore-from-geo-backup.md#restore-from-an-azure-geographical-region-through-powershell) do dowolnego regionu obsługującego pulę SQL na wybranym poziomie wydajności.
 
 > [!NOTE]
-> Aby wykonać przywracanie geograficznie nadmiarowe, nie można zrezygnować z tej funkcji.
+> Aby wykonać przywracanie Geograficznie nadmiarowy, nie trzeba wymusić tej funkcji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat planowania awarii, zobacz [Omówienie ciągłości biznesowej](../../sql-database/sql-database-business-continuity.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Aby uzyskać więcej informacji na temat planowania awarii, zobacz temat [ciągłość](../../sql-database/sql-database-business-continuity.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) działania — Omówienie

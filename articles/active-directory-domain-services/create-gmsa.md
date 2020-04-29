@@ -1,6 +1,6 @@
 ---
-title: Grupowe konta usług zarządzanych dla usług domenowych usługi Azure AD | Dokumenty firmy Microsoft
-description: Dowiedz się, jak utworzyć konto usługi zarządzanej grupy (gMSA) do użytku z domenami zarządzanymi Usług domenowych Usługi active directory platformy Azure
+title: Konta usług zarządzane przez grupę dla Azure AD Domain Services | Microsoft Docs
+description: Dowiedz się, jak utworzyć konto usługi zarządzane przez grupę (gMSA) do użycia z domenami zarządzanymi Azure Active Directory Domain Services
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -12,71 +12,71 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: iainfou
 ms.openlocfilehash: 5955f52cda73630f371a46f83ac0fb9a252b80e3
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80655485"
 ---
-# <a name="create-a-group-managed-service-account-gmsa-in-azure-ad-domain-services"></a>Tworzenie konta usługi zarządzanej grupy (gMSA) w usługach domenowych usługi Azure AD
+# <a name="create-a-group-managed-service-account-gmsa-in-azure-ad-domain-services"></a>Tworzenie konta usługi zarządzanego przez grupę (gMSA) w Azure AD Domain Services
 
-Aplikacje i usługi często potrzebują tożsamości, aby uwierzytelnić się za pomocą innych zasobów. Na przykład usługa sieci web może wymagać uwierzytelnienia za pomocą usługi bazy danych. Jeśli aplikacja lub usługa ma wiele wystąpień, takich jak farma serwerów sieci web, ręczne tworzenie i konfigurowanie tożsamości dla tych zasobów staje się czasochłonne.
+Aplikacje i usługi często wymagają tożsamości do samodzielnego uwierzytelnienia z innymi zasobami. Na przykład może być konieczne uwierzytelnienie usługi sieci Web za pomocą usługi bazy danych. Jeśli aplikacja lub usługa ma wiele wystąpień, takich jak farma serwerów sieci Web, ręczne tworzenie i Konfigurowanie tożsamości dla tych zasobów jest czasochłonne.
 
-Zamiast tego konto usługi zarządzanej grupy (gMSA) można utworzyć w domenie zarządzanej usług domenowych Usługi azure AD (Azure AD DS) platformy Azure. System operacyjny Windows automatycznie zarządza poświadczeniami gMSA, co upraszcza zarządzanie dużymi grupami zasobów.
+Zamiast tego można utworzyć konto usługi zarządzane przez grupę (gMSA) w domenie zarządzanej Azure Active Directory Domain Services (Azure AD DS). System operacyjny Windows automatycznie zarządza poświadczeniami dla gMSA, co upraszcza zarządzanie dużymi grupami zasobów.
 
-W tym artykule pokazano, jak utworzyć gMSA w domenie zarządzanej usług Ad DS platformy Azure przy użyciu programu Azure PowerShell.
+W tym artykule opisano sposób tworzenia gMSA w domenie zarządzanej AD DS platformy Azure przy użyciu Azure PowerShell.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Aby ukończyć ten artykuł, potrzebne są następujące zasoby i uprawnienia:
+Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 
 * Aktywna subskrypcja platformy Azure.
-    * Jeśli nie masz subskrypcji platformy Azure, [utwórz konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Dzierżawa usługi Azure Active Directory skojarzona z subskrypcją, zsynchronizowana z katalogiem lokalnym lub katalogiem tylko w chmurze.
-    * W razie potrzeby [utwórz dzierżawę usługi Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z kontem.][associate-azure-ad-tenant]
-* Domena zarządzana usługami domenowymi Usługi Active Directory platformy Azure włączona i skonfigurowana w dzierżawie usługi Azure AD.
-    * W razie potrzeby wykonaj samouczek, aby [utworzyć i skonfigurować wystąpienie usług domenowych Usługi domenowe Active Directory][create-azure-ad-ds-instance]platformy Azure .
-* Maszyna wirtualna z zarządzaniem systemem Windows Server, która jest przyłączona do domeny zarządzanej usług Azure AD DS.
-    * W razie potrzeby wykonaj samouczek, aby [utworzyć maszynę wirtualną do zarządzania][tutorial-create-management-vm].
+    * Jeśli nie masz subskrypcji platformy Azure, [Utwórz konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Dzierżawa usługi Azure Active Directory skojarzona z subskrypcją, zsynchronizowana z katalogiem lokalnym lub katalogiem w chmurze.
+    * W razie konieczności [Utwórz dzierżawę Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z Twoim kontem][associate-azure-ad-tenant].
+* Azure Active Directory Domain Services zarządzana domena włączona i skonfigurowana w dzierżawie usługi Azure AD.
+    * W razie potrzeby Uzupełnij samouczek, aby [utworzyć i skonfigurować wystąpienie Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+* Maszyna wirtualna zarządzania systemem Windows Server, która jest dołączona do domeny zarządzanej AD DS platformy Azure.
+    * W razie potrzeby Ukończ samouczek, aby [utworzyć maszynę wirtualną zarządzania][tutorial-create-management-vm].
 
-## <a name="managed-service-accounts-overview"></a>Omówienie kont zarządzanych usług
+## <a name="managed-service-accounts-overview"></a>Omówienie zarządzanych kont usług
 
-Samodzielne konto usługi zarządzanej (sMSA) to konto domeny, którego hasło jest zarządzane automatycznie. Takie podejście upraszcza zarządzanie główną nazwą usługi (SPN) i umożliwia delegowane zarządzanie innym administratorom. Nie trzeba ręcznie tworzyć i obracać poświadczenia dla konta.
+Autonomiczne zarządzane konto usługi (autonomiczne) to konto domeny, którego hasło jest zarządzane automatycznie. Takie podejście upraszcza zarządzanie główną nazwą usługi (SPN) i umożliwia delegowanie zarządzania innym administratorom. Nie musisz ręcznie tworzyć i obracać poświadczeń dla konta.
 
-Konto usługi zarządzanej grupy (gMSA) zapewnia takie samo uproszczenie zarządzania, ale dla wielu serwerów w domenie. GMSA umożliwia wszystkie wystąpienia usługi hostowane w farmie serwerów używać tej samej jednostki usługi dla protokołów wzajemnego uwierzytelniania do pracy. Gdy gMSA jest używany jako podmiot usługi, system operacyjny Windows ponownie zarządza hasłem konta zamiast polegać na administratorze.
+Konto usługi zarządzane przez grupę (gMSA) zapewnia takie samo Uproszczenie zarządzania, ale dla wielu serwerów w domenie. GMSA umożliwia wszystkim wystąpieniem usługi hostowanej w farmie serwerów używanie tej samej jednostki usługi dla protokołów uwierzytelniania wzajemnego do pracy. Gdy gMSA jest używany jako nazwa główna usługi, system operacyjny Windows ponownie zarządza hasłem konta, zamiast polegać na administratorach.
 
-Aby uzyskać więcej informacji, zobacz [omówienie kont zarządzanych usług grupy (gMSA).][gmsa-overview]
+Aby uzyskać więcej informacji, zobacz [Omówienie kont usług zarządzanych przez grupę (gMSA)][gmsa-overview].
 
-## <a name="using-service-accounts-in-azure-ad-ds"></a>Korzystanie z kont usług w usługach AD DS
+## <a name="using-service-accounts-in-azure-ad-ds"></a>Korzystanie z kont usług w usłudze Azure AD DS
 
-Ponieważ domeny zarządzane usług Azure AD DS są zablokowane i zarządzane przez firmę Microsoft, istnieją pewne zagadnienia podczas korzystania z kont usług:
+Ponieważ domeny zarządzane w usłudze Azure AD DS są blokowane i zarządzane przez firmę Microsoft, podczas korzystania z kont usług należy wziąć pod uwagę pewne zagadnienia:
 
-* Tworzenie kont usług w niestandardowych jednostkach organizacyjnych (OU) w domenie zarządzanej.
-    * Nie można utworzyć konta usługi we wbudowanych *użytkownikach AADDC* lub *komputerach AADDC.*
-    * Zamiast tego [utwórz niestandardową jednostkę organizacyjną][create-custom-ou] w domenie zarządzanej usług Azure AD DS, a następnie utwórz konta usługi w tej niestandardowej jednostki organizacyjnej.
+* Utwórz konta usług w niestandardowych jednostkach organizacyjnych (OU) w domenie zarządzanej.
+    * Nie można utworzyć konta usługi w wbudowanych jednostkach *AADDC users* lub *AADDC Computers* .
+    * Zamiast tego należy [utworzyć niestandardową jednostkę organizacyjną][create-custom-ou] w domenie zarządzanej AD DS platformy Azure, a następnie utworzyć konta usług w tej niestandardowej jednostce organizacyjnej.
 * Klucz główny usług dystrybucji kluczy (KDS) jest wstępnie utworzony.
-    * Klucz główny KDS służy do generowania i pobierania haseł dla gMSA. W usłudze Azure AD DS katalog główny kds jest tworzony dla Ciebie.
-    * Nie masz uprawnień do tworzenia innego lub wyświetlania domyślnego klucza głównego KDS.
+    * Klucz główny KDS służy do generowania i pobierania haseł dla kont gMSA. Na platformie Azure AD DS jest tworzony certyfikat główny KDS.
+    * Nie masz uprawnień do utworzenia innego lub wyświetlenie domyślnego klucza głównego KDS.
 
-## <a name="create-a-gmsa"></a>Tworzenie gMSA
+## <a name="create-a-gmsa"></a>Utwórz gMSA
 
-Najpierw utwórz niestandardową jednostkę organizacyjną przy użyciu polecenia cmdlet [New-ADOrganizationalUnit.][New-AdOrganizationalUnit] Aby uzyskać więcej informacji na temat tworzenia niestandardowych procesorów operacyjnych i zarządzania nimi, zobacz [Niestandardowe instalacje organizacyjne w usługach Azure AD DS][create-custom-ou].
+Najpierw utwórz niestandardową jednostkę organizacyjną przy użyciu polecenia cmdlet [New-ADOrganizationalUnit][New-AdOrganizationalUnit] . Aby uzyskać więcej informacji na temat tworzenia niestandardowych jednostek organizacyjnych i zarządzania nimi, zobacz [niestandardowe jednostki organizacyjne w usłudze Azure AD DS][create-custom-ou].
 
 > [!TIP]
-> Aby wykonać te kroki w celu utworzenia gMSA, [użyj maszyny Wirtualnej zarządzania][tutorial-create-management-vm]. Ta maszyna wirtualna zarządzania powinna mieć już wymagane polecenia cmdlet programu AD PowerShell i połączenie z domeną zarządzaną.
+> Aby wykonać te kroki w celu utworzenia gMSA, [Użyj maszyny wirtualnej zarządzania][tutorial-create-management-vm]. Ta maszyna wirtualna zarządzania powinna mieć już wymagane polecenia cmdlet programu PowerShell usługi AD i połączenie z domeną zarządzaną.
 
-Poniższy przykład tworzy niestandardową jednostkę organizacyjną o nazwie *myNewOU* w domenie zarządzanej usługi Azure AD DS o nazwie *aaddscontoso.com*. Użyj własnej jednostki organizacyjnej i nazwy domeny zarządzanej:
+Poniższy przykład tworzy niestandardową jednostkę organizacyjną o nazwie *myNewOU* w domenie zarządzanej AD DS platformy Azure o nazwie *aaddscontoso.com*. Użyj własnej jednostki organizacyjnej i nazwy domeny zarządzanej:
 
 ```powershell
 New-ADOrganizationalUnit -Name "myNewOU" -Path "DC=aaddscontoso,DC=COM"
 ```
 
-Teraz utwórz gMSA przy użyciu polecenia cmdlet [New-ADServiceAccount.][New-ADServiceAccount] Zdefiniowano następujące przykładowe parametry:
+Teraz Utwórz element gMSA przy użyciu polecenia cmdlet [New-ADServiceAccount][New-ADServiceAccount] . Zdefiniowano następujące przykładowe parametry:
 
-* **-Nazwa** jest ustawiona na *WebFarmSvc*
-* **-Path** Parametr określa niestandardową jednostkę organizacyjną dla gMSA utworzonej w poprzednim kroku.
-* Wpisy DNS i nazwy główne usługi są ustawiane dla *WebFarmSvc.aaddscontoso.com*
-* Podmioty w *AADDSCONTOSO-SERVER$* mogą pobrać hasło używać tożsamości.
+* **-Name** jest ustawiona na *WebFarmSvc*
+* **-Path —** parametr określa niestandardową jednostkę organizacyjną dla gMSA utworzonych w poprzednim kroku.
+* Wpisy DNS i nazwy główne usług są ustawiane dla *WebFarmSvc.aaddscontoso.com*
+* Podmioty zabezpieczeń w *AADDSCONTOSO-Server $* mogą pobrać hasło Użyj tożsamości.
 
 Określ własne nazwy i nazwy domen.
 
@@ -93,11 +93,11 @@ New-ADServiceAccount -Name WebFarmSvc `
     -PrincipalsAllowedToRetrieveManagedPassword AADDSCONTOSO-SERVER$
 ```
 
-Aplikacje i usługi można teraz skonfigurować tak, aby w razie potrzeby korzystały z gMSA.
+Teraz można skonfigurować aplikacje i usługi do korzystania z gMSA w razie potrzeby.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat gMSA, zobacz [Wprowadzenie do grupowych kont usług zarządzanych][gmsa-start].
+Aby uzyskać więcej informacji na temat kont gMSA, zobacz [wprowadzenie do kont usług zarządzanych przez grupę][gmsa-start].
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

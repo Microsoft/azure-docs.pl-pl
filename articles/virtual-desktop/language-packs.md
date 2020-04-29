@@ -1,6 +1,6 @@
 ---
-title: Instalowanie pakietów językowych na maszynach wirtualnych z systemem Windows 10 na pulpicie wirtualnym systemu Windows — Azure
-description: Jak zainstalować pakiety językowe dla wielosesyjnych maszyn wirtualnych systemu Windows 10 na pulpicie wirtualnym systemu Windows.
+title: Instalowanie pakietów językowych na maszynach wirtualnych z systemem Windows 10 w programie Virtual Desktop systemu Windows — Azure
+description: Jak zainstalować pakiety językowe dla maszyn wirtualnych z systemem Windows 10 dla wielu sesji na pulpicie wirtualnym systemu Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,86 +9,86 @@ ms.date: 04/03/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: c40df9d821e069e2cd5ff0c42d5841f6b9041c96
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80634037"
 ---
 # <a name="install-language-packs"></a>Instalowanie pakietów językowych
 
-Podczas konfigurowania wdrożeń pulpitu wirtualnego systemu Windows na całym świecie warto upewnić się, że wdrożenie obsługuje wiele języków. Pakiety językowe można zainstalować na obrazie maszyny wirtualnej systemu Windows 10 Enterprise, aby obsługiwać dowolną liczbę języków, ile potrzebuje twoja organizacja. W tym artykule dowiesz się, jak zainstalować pakiety językowe i przechwytywać obrazy, które pozwalają użytkownikom wybrać własne języki wyświetlania.
+W przypadku konfigurowania wdrożeń klasycznych pulpitów systemu Windows w trybie międzynarodowym warto upewnić się, że wdrożenie obsługuje wiele języków. Pakiety językowe można zainstalować na obrazie maszyny wirtualnej z wieloma sesjami systemu Windows 10 Enterprise, aby obsługiwać dowolną liczbę języków potrzebnych w organizacji. W tym artykule przedstawiono sposób instalowania pakietów językowych i przechwytywania obrazów umożliwiających użytkownikom wybieranie własnych języków wyświetlania.
 
-Dowiedz się więcej o wdrażaniu maszyny wirtualnej na platformie Azure w [witrynie Tworzenie maszyny wirtualnej systemu Windows w strefie dostępności za pomocą portalu Azure.](../virtual-machines/windows/create-portal-availability-zone.md)
+Dowiedz się więcej o tym, jak wdrożyć maszynę wirtualną na platformie Azure na stronie [Tworzenie maszyny wirtualnej z systemem Windows w strefie dostępności przy użyciu Azure Portal](../virtual-machines/windows/create-portal-availability-zone.md).
 
 >[!NOTE]
->Ten artykuł dotyczy wielosesyjnych maszyn wirtualnych systemu Windows 10 Enterprise.
+>Ten artykuł ma zastosowanie do wielosesyjnych maszyn wirtualnych z systemem Windows 10 Enterprise.
 
 ## <a name="install-a-language-pack"></a>Instalowanie pakietu językowego
 
-Aby utworzyć obraz maszyny Wirtualnej z pakietami językowymi, należy najpierw zainstalować pakiety językowe na komputerze i przechwycić jego obraz.
+Aby utworzyć obraz maszyny wirtualnej z pakietami językowymi, należy najpierw zainstalować pakiety językowe na komputerze i przechwycić obraz.
 
 Aby zainstalować pakiety językowe:
 
 1. Zaloguj się jako administrator.
-2. Upewnij się, że zainstalowano wszystkie najnowsze aktualizacje systemu Windows i Sklepu Windows.
-3. Przejdź do **ustawienia** > **czas & regionu języka** > **Region**.
-4. W obszarze **Kraj lub region**wybierz preferowany kraj lub region z menu rozwijanego.
-    W tym przykładzie wybierzemy **Francję**, jak pokazano na poniższym zrzucie ekranu:
+2. Upewnij się, że zainstalowano wszystkie najnowsze aktualizacje systemu Windows i sklepu Windows.
+3. Przejdź do pozycji **Ustawienia** > **czas &** > **region**języka.
+4. W obszarze **kraj lub region**wybierz preferowany kraj lub region z menu rozwijanego.
+    W tym przykładzie wybieramy pozycję **Francja**, jak pokazano na poniższym zrzucie ekranu:
 
-    ![Zrzut ekranu strony Region. Regionem obecnie wybranym jest Francja.](media/region-page-france.png)
+    ![Zrzut ekranu strony regionu. Aktualnie wybrany region to Francja.](media/region-page-france.png)
 
-5. Następnie wybierz **pozycję Język**, a następnie wybierz pozycję **Dodaj język**. Wybierz język, który chcesz zainstalować z listy, a następnie wybierz pozycję **Dalej**.
-6. Po otwarciu okna **Zainstaluj funkcje języka** zaznacz pole wyboru z etykietą **Zainstaluj język i ustaw jako język wyświetlania systemu Windows**.
+5. Po wybraniu tej opcji wybierz pozycję **Język**, a następnie wybierz pozycję **Dodaj język**. Wybierz język, który chcesz zainstalować z listy, a następnie wybierz pozycję **dalej**.
+6. Gdy zostanie otwarte okno **Instalowanie funkcji języka** , zaznacz pole wyboru z etykietą **Zainstaluj pakiet językowy i Ustaw jako mój język wyświetlania systemu Windows**.
 7. Wybierz pozycję **Zainstaluj**.
-8. Aby dodać wiele języków jednocześnie, wybierz **pozycję Dodaj język**, a następnie powtórz proces, aby dodać język w krokach 5 i 6. Powtórz ten proces dla każdego języka, który chcesz zainstalować. Można jednak ustawić tylko jeden język jako język wyświetlania naraz.
+8. Aby dodać wiele języków jednocześnie, wybierz pozycję **Dodaj język**, a następnie powtórz ten proces, aby dodać język w krokach 5 i 6. Powtórz ten proces dla każdego języka, który chcesz zainstalować. Można jednak ustawić tylko jeden język jako język wyświetlania w danym momencie.
 
-    Przejdźmy przez szybką demonstrację wizualną. Poniższe obrazy pokazują, jak zainstalować pakiety języka francuskiego i holenderskiego, a następnie ustawić francuski jako język wyświetlania.
+    Zacznijmy od szybkiego pokazu wizualnego. Na poniższych ilustracjach przedstawiono sposób instalowania pakietów języka francuskiego i holenderskiego, a następnie ustawiania języka francuskiego jako język wyświetlania.
 
-    ![Zrzut ekranu strony Język na początku procesu. Wybranym językiem wyświetlania systemu Windows jest język angielski.](media/language-page-default.png)
+    ![Zrzut ekranu przedstawiający stronę języka na początku procesu. Wybrany język wyświetlania systemu Windows jest w języku angielskim.](media/language-page-default.png)
 
-    ![Zrzut ekranu okna wyboru języka. Użytkownik wprowadził "francuski" do paska wyszukiwania, aby znaleźć pakiety w języku francuskim.](media/select-language-french.png)
+    ![Zrzut ekranu przedstawiający okno wyboru języka. Użytkownik wprowadził wartość "francuski" na pasku wyszukiwania, aby znaleźć francuskie pakiety językowe.](media/select-language-french.png)
 
-    ![Zrzut ekranu przedstawiający stronę Funkcje języka instalacji. Język francuski jest wybierany jako preferowany język. Wybrane opcje to "Ustaw mój język wyświetlania", "Zainstaluj pakiet językowy", "Rozpoznawanie mowy" i "Pismo ręczne".](media/install-language-features.png)
+    ![Zrzut ekranu przedstawiający stronę funkcje języka instalacji. Jako preferowany język jest wybrany francuski. Wybrane opcje to "Ustaw mój język wyświetlania", "Zainstaluj pakiet językowy", "Rozpoznawanie mowy" i "pismo ręczne".](media/install-language-features.png)
 
-    Po zainstalowaniu pakietów językowych na liście języków powinny pojawić się nazwy pakietów językowych.
+    Po zainstalowaniu pakietów językowych powinny zostać wyświetlone nazwy pakietów językowych na liście języków.
 
-    ![Zrzut ekranu strony języka z zainstalowanymi nowymi pakietami językowymi. Pakiety językowe języka francuskiego i niderlandzkiego są wymienione w "preferowanych językach".](media/language-page-complete.png)
+    ![Zrzut ekranu przedstawiający stronę języka z zainstalowanymi nowymi pakietami językowymi. Pakiety językowe francuskie i Holandia są wymienione w obszarze "preferowane języki".](media/language-page-complete.png)
 
-9. Jeśli pojawi się okno z prośbą o wylogowanie się z sesji. Wyloguj się, a następnie zaloguj się ponownie. Język wyświetlania powinien być teraz wybranym językiem.
+9. Jeśli zostanie wyświetlone okno z prośbą o wylogowanie się z sesji użytkownika. Wyloguj się, a następnie zaloguj się ponownie. Język wyświetlania powinien teraz być wybranym językiem.
 
-10.  Przejdź do **panelu sterowania** > **Zegar i Region regionu** > **Region**.
+10.  Przejdź do pozycji **panel** > sterowania**i** > **region**region.
 
-11.  Po otwarciu okna **Region** wybierz kartę **Administracja,** a następnie wybierz pozycję **Kopiuj ustawienia**.
+11.  Po otwarciu okna **regionu** wybierz kartę **Administracja** , a następnie wybierz pozycję **Kopiuj ustawienia**.
 
-12.  Zaznacz pola wyboru oznaczone jako **Ekran powitalny i konta systemowe oraz** **Nowe konta użytkowników**.
+12.  Zaznacz pola wyboru z etykietami **ekran powitalny i konta systemowe** oraz **nowe konta użytkowników**.
 
-13.  Kliknij przycisk **OK**.
+13.  Wybierz przycisk **OK**.
 
-14.  Otworzy się okno z poleceniem ponownego uruchomienia sesji. Wybierz **pozycję Uruchom ponownie teraz**.
+14.  Zostanie otwarte okno z informacją o ponownym uruchomieniu sesji. Wybierz pozycję **Uruchom ponownie teraz**.
 
-15.  Po zalogowaniu się wróć do panelu **sterowania** > **Zegar i** > **Region**.
+15.  Po ponownym zalogowaniu Wróć do pozycji **panel** > sterowania**i** > **region**regionu.
 
-16.  Wybierz kartę **Administracja.**
+16.  Wybierz kartę **Administracja** .
 
-17.  Wybierz **pozycję Zmień ustawienia regionalne systemu**.
+17.  Wybierz pozycję **Zmień ustawienia regionalne systemu**.
 
-18. W menu rozwijanym w obszarze **Bieżące ustawienia regionalne systemu**wybierz język ustawień regionalnych, którego chcesz użyć. Następnie wybierz **przycisk OK**.
+18. W menu rozwijanym w obszarze **bieżące ustawienia regionalne systemu**wybierz język ustawień regionalnych, który ma być używany. Następnie wybierz **przycisk OK**.
 
-19. Wybierz **ponownie uruchom teraz,** aby ponownie uruchomić sesję.
+19. Wybierz pozycję **Uruchom ponownie teraz** , aby ponownie uruchomić sesję.
 
-Gratulacje, zainstalowałeś pakiety językowe!
+Gratulacje, zainstalowano pakiety językowe.
 
-Przed kontynuowaniem upewnij się, że w systemie są zainstalowane najnowsze wersje systemu Windows i sklepu Windows.
+Przed kontynuowaniem upewnij się, że w systemie zainstalowano najnowsze wersje systemu Windows i sklepu Windows.
 
 ## <a name="sysprep"></a>Sysprep
 
-Następnie należy sysprep komputera, aby przygotować go do procesu przechwytywania obrazu.
+Następnie należy przygotować program Sysprep do maszyny w celu przygotowania go do procesu przechwytywania obrazu.
 
-Aby sysprep urządzenia:
+Aby przeprowadzić Sysprep na komputerze:
 
 1. Uruchom program Windows PowerShell jako administrator.
-2. Uruchom następujące polecenie cmdlet, aby przejść do właściwego katalogu:
+2. Uruchom następujące polecenie cmdlet, aby przejść do poprawnego katalogu:
    
     ```powershell
     cd Windows\System32\Sysprep
@@ -100,50 +100,50 @@ Aby sysprep urządzenia:
     .\sysprep.exe
     ```
 
-4. Po otwarciu okna Narzędzie przygotowania systemu zaznacz pole wyboru o nazwie **Generalize**, a następnie przejdź do **opcji zamykania** systemu i wybierz polecenie **Zamknij** z menu rozwijanego.
+4. Po otwarciu okna narzędzia przygotowywania systemu zaznacz pole wyboru z etykietą **generalize**, a następnie przejdź do **opcji Zamknij** i wybierz pozycję **Zamknij** z menu rozwijanego.
 
 >[!NOTE]
->Proces syprep potrwa kilka minut. Po zamknięciu maszyny Wirtualnej sesja zdalna zostanie odłączona.
+>Ukończenie procesu syprep może potrwać kilka minut. Gdy maszyna wirtualna zostanie ZAMKNIĘTA, Sesja zdalna zostanie rozłączona.
 
-### <a name="resolve-sysprep-errors"></a>Rozwiązywanie problemów z programem sysprep
+### <a name="resolve-sysprep-errors"></a>Rozwiązywanie błędów narzędzia Sysprep
 
-Jeśli podczas procesu sysprep zostanie wyświetlony komunikat o błędzie, oto co należy zrobić:
+Jeśli podczas procesu Sysprep zobaczysz komunikat o błędzie, Oto co należy zrobić:
 
-1. Otwórz **dysk C** i przejdź do Systemu **Windows** > **System32 Sysprep** > **Panther**, a następnie otwórz plik **setuperr.**
+1. Otwórz **dysk C** i przejdź do pozycji **Windows** > **system32 Sysprep** > **Panther**, a następnie otwórz plik **Setuperr** .
 
-   Tekst w pliku błędu powie Ci, że musisz odinstalować określony pakiet językowy, jak pokazano na poniższej ilustracji. Skopiuj nazwę pakietu językowego dla następnego kroku.
+   Tekst w pliku błędu informuje o konieczności odinstalowania określonego pakietu językowego, jak pokazano na poniższej ilustracji. Skopiuj nazwę pakietu językowego dla następnego kroku.
 
-   ![Zrzut ekranu pliku setuperra. Tekst z nazwą pakietu jest wyróżniony na ciemnoniebieski.](media/setuperr-package-name.png)
+   ![Zrzut ekranu przedstawiający plik Setuperr. Tekst z nazwą pakietu zostanie wyróżniony kolorem ciemnoniebieskim.](media/setuperr-package-name.png)
 
-2. Otwórz nowe okno programu PowerShell i uruchom następujące polecenie cmdlet o nazwie pakietu skopiowanej w kroku 2, aby usunąć pakiet językowy:
+2. Otwórz nowe okno programu PowerShell i uruchom następujące polecenie cmdlet z nazwą pakietu skopiowaną w kroku 2, aby usunąć pakiet językowy:
 
    ```powershell
    Remove-AppxPackage <package name>
    ```
 
-3. Sprawdź, czy pakiet został usunięty, ponownie `Remove-AppxPackage` uruchamiając polecenie cmdlet. Jeśli pakiet został pomyślnie usunięty, powinien zostać wyświetlony komunikat informujący, że pakiet, który próbujesz usunąć, nie istnieje.
+3. Upewnij się, że pakiet został usunięty, ponownie uruchamiając `Remove-AppxPackage` polecenie cmdlet. Jeśli pakiet został pomyślnie usunięty, powinien zostać wyświetlony komunikat informujący o tym, że pakiet, który próbujesz usunąć, nie istnieje.
 
-4. Ponownie `sysprep.exe` uruchom polecenie cmdlet.
+4. Ponownie uruchom `sysprep.exe` polecenie cmdlet.
 
-## <a name="capture-the-image"></a>Przechwytywanie obrazu
+## <a name="capture-the-image"></a>Przechwyć obraz
 
-Teraz, gdy system jest gotowy, można przechwycić obraz, dzięki czemu inni użytkownicy mogą rozpocząć korzystanie z maszyn wirtualnych na podstawie systemu bez konieczności powtarzania procesu konfiguracji.
+Teraz, gdy system jest gotowy, możesz przechwycić obraz, aby inni użytkownicy mogli rozpocząć korzystanie z maszyn wirtualnych w oparciu o system bez konieczności powtarzania procesu konfiguracji.
 
 Aby przechwycić obraz:
 
-1. Przejdź do witryny Azure portal i wybierz nazwę komputera skonfigurowanego w [aplikacji Zainstaluj pakiet językowy](#install-a-language-pack) i [narzędzie sysprep](#sysprep).
+1. Przejdź do Azure Portal i wybierz nazwę komputera, który został skonfigurowany w [instalacji pakietu językowego](#install-a-language-pack) i [narzędzia Sysprep](#sysprep).
 
-2. Wybierz **pozycję Przechwytywanie**.
+2. Wybierz pozycję **Przechwyć**.
 
-3. Wprowadź nazwę obrazu w polu **Nazwa** i przypisz ją do grupy zasobów za pomocą menu rozwijanego **Grupa zasobów,** jak pokazano na poniższej ilustracji.
+3. Wprowadź nazwę obrazu w polu **Nazwa** i przypisz ją do grupy zasobów przy użyciu menu rozwijanego **Grupa zasobów** , jak pokazano na poniższej ilustracji.
 
-   ![Zrzut ekranu okna Utwórz obraz. Nazwa nadana przez użytkownika temu obrazowi testowego to "vmwvd-image-fr" i przypisała ją do grupy zasobów "testwvdimagerg".](media/create-image.png)
+   ![Zrzut ekranu przedstawiający okno Tworzenie obrazu. Nazwa, którą użytkownik udzielił do tego obrazu testu, to "vmwvd-Image-fr" i przypisano ją do grupy zasobów "testwvdimagerg".](media/create-image.png)
 
-4. Wybierz **pozycję Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 
-5. Poczekaj kilka minut na zakończenie procesu przechwytywania. Gdy obraz jest gotowy, powinien zostać wyświetlony komunikat w Centrum powiadomień informujący o przechwyceniu obrazu.
+5. Poczekaj kilka minut na zakończenie procesu przechwytywania. Gdy obraz jest gotowy, w centrum powiadomień powinien zostać wyświetlony komunikat informujący o przechwyceniu obrazu.
 
-Teraz można wdrożyć maszynę wirtualną przy użyciu nowego obrazu. Podczas wdrażania maszyny Wirtualnej należy postępować zgodnie z instrukcjami w [obszarze Tworzenie maszyny wirtualnej systemu Windows w strefie dostępności za pomocą portalu Azure.](../virtual-machines/windows/create-portal-availability-zone.md)
+Teraz możesz wdrożyć maszynę wirtualną przy użyciu nowego obrazu. Podczas wdrażania maszyny wirtualnej upewnij się, że postępuj zgodnie z instrukcjami w temacie [Tworzenie maszyny wirtualnej z systemem Windows w strefie dostępności przy użyciu Azure Portal](../virtual-machines/windows/create-portal-availability-zone.md).
 
 ### <a name="how-to-change-display-language-for-standard-users"></a>Jak zmienić język wyświetlania dla użytkowników standardowych
 
@@ -151,8 +151,8 @@ Użytkownicy standardowi mogą zmieniać język wyświetlania na swoich maszynac
 
 Aby zmienić język wyświetlania:
 
-1. Przejdź do **ustawień języka**. Jeśli nie wiesz, gdzie to jest, możesz wprowadzić **język** w pasku wyszukiwania w menu Start.
+1. Przejdź do pozycji **Ustawienia języka**. Jeśli nie wiesz, gdzie to jest, możesz wprowadzić **Język** na pasku wyszukiwania w menu Start.
 
-2. W menu rozwijanym Język wyświetlania systemu Windows wybierz język, którego chcesz używać jako języka wyświetlania.
+2. Z menu rozwijanego Język wyświetlania systemu Windows wybierz język, który ma być używany jako język wyświetlania.
 
-3. Wyloguj się z sesji, a następnie zaloguj się z powrotem. Język wyświetlania powinien być teraz wybrany w kroku 2.
+3. Wyloguj się z sesji, a następnie zaloguj się ponownie. Język wyświetlania powinien teraz być tym, który został wybrany w kroku 2.

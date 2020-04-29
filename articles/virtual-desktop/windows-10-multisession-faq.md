@@ -1,5 +1,5 @@
 ---
-title: Często zadawane pytania dotyczące wielu sesji systemu Windows 10 Enterprise — Azure
+title: Często zadawane pytania dotyczące systemu Windows 10 Enterprise — Azure
 description: Często zadawane pytania i najlepsze rozwiązania dotyczące korzystania z wielu sesji systemu Windows 10 Enterprise dla pulpitu wirtualnego systemu Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -9,99 +9,99 @@ ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: d7ea99e2ee8e2882c211ee17acec70222dc058a8
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80637101"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Wiele sesji systemu Windows 10 Enterprise — często zadawane pytania
 
-W tym artykule zawiera odpowiedzi na często zadawane pytania i wyjaśniono najlepsze rozwiązania dotyczące wielu sesji systemu Windows 10 Enterprise.
+W tym artykule przedstawiono odpowiedzi na często zadawane pytania i opisano najlepsze rozwiązania dotyczące wielu sesji systemu Windows 10 Enterprise.
  
-## <a name="what-is-windows-10-enterprise-multi-session"></a>Co to jest windows 10 Enterprise multi-session?
+## <a name="what-is-windows-10-enterprise-multi-session"></a>Co to jest wiele sesji systemu Windows 10 Enterprise?
 
-Windows 10 Enterprise multi-session, dawniej znany jako Windows 10 Enterprise for Virtual Desktops (EVD), to nowy host sesji pulpitu zdalnego, który umożliwia wiele równoczesnych sesji interaktywnych. Wcześniej tylko system Windows Server mógł to zrobić. Ta funkcja zapewnia użytkownikom znane środowisko systemu Windows 10, podczas gdy it może korzystać z zalet kosztów wielu sesji i korzystać z istniejących licencji dla systemu Windows dla użytkownika zamiast licencji dostępu klienta usług pulpitu zdalnego (CAL). Aby uzyskać więcej informacji na temat licencji i cen, zobacz [Ceny pulpitu wirtualnego systemu Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/). 
+Wiele sesji systemu Windows 10 Enterprise, wcześniej znanych jako Windows 10 Enterprise dla pulpitów wirtualnych (EVD), jest nowym hostem sesji Pulpit zdalny, który umożliwia wielu współbieżnych sesji interakcyjnych. Wcześniej tylko system Windows Server może to zrobić. Ta funkcja zapewnia użytkownikom znane środowisko systemu Windows 10, a jednocześnie może korzystać z zalet kosztów wielu sesji i korzystać z istniejącej licencjonowania systemu Windows w przypadku użytkowników zamiast licencji dostępu klienta usług pulpitu zdalnego. Aby uzyskać więcej informacji o licencjach i cenach, zobacz [Cennik pulpitu wirtualnego systemu Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/). 
  
-## <a name="how-many-users-can-simultaneously-have-an-interactive-session-on-windows-10-enterprise-multi-session"></a>Ilu użytkowników może jednocześnie mieć interaktywną sesję w systemie Windows 10 Enterprise w wielu sesjach?
+## <a name="how-many-users-can-simultaneously-have-an-interactive-session-on-windows-10-enterprise-multi-session"></a>Ilu użytkowników może jednocześnie korzystać z interaktywnej sesji w wielu sesjach systemu Windows 10 Enterprise?
 
-Liczba sesji interaktywnych, które mogą być aktywne w tym samym czasie, zależy od zasobów sprzętowych systemu (vCPU, pamięci, dysku i vGPU), sposobu, w jaki użytkownicy korzystają z aplikacji po zalogowaniu się do sesji i jak duże jest obciążenie systemu. Zalecamy sprawdzenie poprawności wydajności systemu, aby dowiedzieć się, ilu użytkowników możesz mieć w wielu sesjach systemu Windows 10 Enterprise. Aby dowiedzieć się więcej, zobacz [Ceny pulpitu wirtualnego systemu Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/). 
+Liczba interaktywnych sesji, które mogą być aktywne w tym samym czasie, zależy od zasobów sprzętowych systemu (vCPU, pamięci, dysku i vGPU), sposobu korzystania przez użytkowników z aplikacji podczas logowania się do sesji oraz intensywnego obciążenia systemu. Sugerujemy sprawdzenie wydajności systemu, aby poznać liczbę użytkowników, którzy mogą korzystać z wielu sesji systemu Windows 10 Enterprise. Aby dowiedzieć się więcej, zobacz [Cennik pulpitu wirtualnego systemu Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/). 
  
-## <a name="why-does-my-application-report-windows-10-enterprise-multi-session-as-a-server-operating-system"></a>Dlaczego moja aplikacja raportuje windows 10 Enterprise multi-session jako system operacyjny Server?
+## <a name="why-does-my-application-report-windows-10-enterprise-multi-session-as-a-server-operating-system"></a>Dlaczego moja aplikacja raportuje wiele sesji systemu Windows 10 Enterprise jako system operacyjny serwera?
 
-Windows 10 Enterprise multi-session to wirtualna wersja systemu Windows 10 Enterprise. Jedną z różnic jest to, że ten system operacyjny (OS) zgłasza [ProductType](/windows/win32/cimwin32prov/win32-operatingsystem) jako o wartości 3, taką samą wartość jak Windows Server. Ta właściwość utrzymuje system operacyjny zgodny z istniejącymi narzędziami do zarządzania RDSH, aplikacjami obsługującymi wiele sesji RDSH i głównie optymalizacjami wydajności systemu niskiego poziomu dla środowisk RDSH. Niektóre instalatory aplikacji mogą blokować instalację w systemie Windows 10 w wielu sesjach w zależności od tego, czy wykrywają ProductType jest ustawiona na Klienta. Jeśli aplikacja nie zostanie zainstalowana, skontaktuj się z dostawcą aplikacji, aby uzyskać zaktualizowaną wersję. 
+Wiele sesji systemu Windows 10 Enterprise to wersja wirtualna systemu Windows 10 Enterprise. Jedna z różnic polega na tym, że ten system operacyjny (OS) raportuje element [ProductType](/windows/win32/cimwin32prov/win32-operatingsystem) jako wartość 3 o takiej samej wartości jak system Windows Server. Ta właściwość utrzymuje system operacyjny zgodny z istniejącymi narzędziami do zarządzania hostami usług pulpitu zdalnego, aplikacjami obsługującymi wiele sesji hosta usług pulpitu zdalnego i większością optymalizacji wydajności systemu niskiego poziomu dla środowisk hosta usług pulpitu zdalnego. Niektóre Instalatory aplikacji mogą blokować instalację w wielu sesjach systemu Windows 10, w zależności od tego, czy wykrywane są ustawienia ProductType dla klienta. Jeśli Twoja aplikacja nie zostanie zainstalowana, skontaktuj się z dostawcą aplikacji w celu uzyskania zaktualizowanej wersji. 
  
-## <a name="can-i-run-windows-10-enterprise-multi-session-on-premises"></a>Czy mogę uruchamiać w środowisku lokalnym system Windows 10 Enterprise wielosesyjny?
+## <a name="can-i-run-windows-10-enterprise-multi-session-on-premises"></a>Czy można uruchomić wiele sesji systemu Windows 10 Enterprise w środowisku lokalnym?
 
-Windows 10 Enterprise multi-session nie można uruchomić w lokalnych środowiskach produkcyjnych, ponieważ jest zoptymalizowany pod kątem usługi pulpitu wirtualnego systemu Windows dla platformy Azure. Jest to sprzeczne z umową licencyjną, aby uruchomić windows 10 Enterprise multi-session poza platformą Azure do celów produkcyjnych. Wielosesyjna sesja systemu Windows 10 Enterprise nie zostanie aktywowana w lokalnych usługach zarządzania kluczami (KMS).
+Nie można uruchomić wielu sesji systemu Windows 10 Enterprise w lokalnych środowiskach produkcyjnych, ponieważ są one zoptymalizowane pod kątem usługi pulpitu wirtualnego systemu Windows dla platformy Azure. Jest to umowa licencyjna na uruchamianie wielu sesji systemu Windows 10 Enterprise poza platformą Azure w celach produkcyjnych. Nie można aktywować wielu sesji systemu Windows 10 Enterprise w przypadku lokalnych usług zarządzania kluczami (KMS).
  
-## <a name="how-do-i-customize-the-windows-10-enterprise-multi-session-image-for-my-organization"></a>Jak dostosować obraz wielosesyjny systemu Windows 10 Enterprise dla mojej organizacji?
+## <a name="how-do-i-customize-the-windows-10-enterprise-multi-session-image-for-my-organization"></a>Jak mogę dostosować obraz wielosesyjny systemu Windows 10 Enterprise dla mojej organizacji?
 
-Maszynę wirtualną (VM) można uruchomić na platformie Azure za pomocą systemu Windows 10 Windows 10 Enterprise i dostosować ją, instalując aplikacje LOB, sysprep/generalize, a następnie utworzyć obraz za pomocą portalu Azure.  
+Maszynę wirtualną (VM) można uruchomić na platformie Azure z obsługą wielu sesji dla systemu Windows 10 Enterprise i dostosować ją przez zainstalowanie aplikacji LOB, narzędzia sysprep/generalize, a następnie utworzenie obrazu przy użyciu Azure Portal.  
  
-Aby rozpocząć, utwórz maszynę wirtualną na platformie Azure za pomocą systemu Windows 10 Enterprise multi-session. Zamiast uruchamiania maszyny Wirtualnej na platformie Azure, można pobrać wirtualną wersję dysku twardego bezpośrednio. Następnie możesz użyć pobranego dysku VHD, aby utworzyć nową maszynę wirtualną generacji 1 na komputerze z systemem Windows 10 z włączoną funkcją Hyper-V.
+Aby rozpocząć, Utwórz maszynę wirtualną na platformie Azure przy użyciu wielu sesji systemu Windows 10 Enterprise. Zamiast uruchamiać maszynę wirtualną na platformie Azure, możesz bezpośrednio pobrać dysk VHD. Następnie będzie można użyć pobranego dysku VHD, aby utworzyć nową maszynę wirtualną generacji 1 na komputerze z systemem Windows 10 z włączoną funkcją Hyper-V.
 
-Dostosuj obraz do swoich potrzeb, instalując aplikacje LOB i sysprep obrazu. Po zakończeniu dostosowywania przekaż obraz na platformę Azure z wirtualnym dyskiem wirtualnym wewnątrz. Następnie pobierz pulpit wirtualny systemu Windows z portalu Azure Marketplace i użyj go do wdrożenia nowej puli hostów z obrazem dostosowanym.
+Dostosuj obraz do swoich potrzeb przez zainstalowanie aplikacji biznesowych i obrazu programu Sysprep. Po zakończeniu dostosowywania Przekaż obraz do platformy Azure przy użyciu wirtualnego dysku twardego. Następnie należy pobrać pulpit wirtualny systemu Windows z witryny Azure Marketplace i użyć go do wdrożenia nowej puli hostów z dostosowanym obrazem.
  
-## <a name="how-do-i-manage-windows-10-enterprise-multi-session-after-deployment"></a>Jak zarządzać wieloma sesjami systemu Windows 10 Enterprise po wdrożeniu?
+## <a name="how-do-i-manage-windows-10-enterprise-multi-session-after-deployment"></a>Jak mogę zarządzać wielosesyjną obsługą systemu Windows 10 Enterprise po wdrożeniu?
 
-Można użyć dowolnego obsługiwanego narzędzia konfiguracyjnego, ale zalecamy program Menedżer konfiguracji w wersji 1906, ponieważ obsługuje on wiele sesji systemu Windows 10 Enterprise. Obecnie pracujemy nad pomocą techniczną usługi Microsoft Intune.
+Możesz użyć dowolnego obsługiwanego narzędzia konfiguracji, ale zalecamy Configuration Manager wersji 1906, ponieważ obsługuje wielosesyjny system Windows 10 Enterprise. Obecnie pracujemy nad Microsoft Intune pomocą techniczną.
  
-## <a name="can-windows-10-enterprise-multi-session-be-azure-active-directory-ad-joined"></a>Czy system Windows 10 Enterprise może być przyłączony do usługi Azure Active Directory (AD)?
+## <a name="can-windows-10-enterprise-multi-session-be-azure-active-directory-ad-joined"></a>Czy dla wielu sesji systemu Windows 10 Enterprise można przyłączyć Azure Active Directory (AD)?
 
-Windows 10 Enterprise multi-session jest obecnie obsługiwany jako hybrydowy azure ad-joined. Po przyłączeniu do wielu sesji systemu Windows 10 Enterprise użyj istniejącego obiektu zasad grupy, aby włączyć rejestrację usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Planowanie implementacji hybrydowego dołączania usługi Azure Active Directory.](../active-directory/devices/hybrid-azuread-join-plan.md)
+Wielosesyjna obsługa systemu Windows 10 Enterprise jest obecnie obsługiwana w przypadku hybrydowej usługi Azure AD. Po przyłączeniu do domeny wielu sesji systemu Windows 10 Enterprise Użyj istniejącego obiektu zasady grupy, aby włączyć rejestrację usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Planowanie wdrożenia hybrydowego dołączania Azure Active Directory](../active-directory/devices/hybrid-azuread-join-plan.md).
  
-## <a name="where-can-i-find-the-windows-10-enterprise-multi-session-image"></a>Gdzie można znaleźć obraz wielosesyjny systemu Windows 10 Enterprise?
+## <a name="where-can-i-find-the-windows-10-enterprise-multi-session-image"></a>Gdzie mogę znaleźć obraz wielosesyjny dla systemu Windows 10 Enterprise?
 
-Windows 10 Enterprise multi-session znajduje się w galerii platformy Azure. Aby go znaleźć, przejdź do witryny Azure portal i wyszukaj wersję Windows 10 Enterprise for Virtual Desktops. Aby uzyskać obraz zintegrowany z pakietem Office Pro Plus, przejdź do portalu Azure i wyszukaj system Microsoft Windows 10 + Office 365 ProPlus.
+Wiele sesji systemu Windows 10 Enterprise znajduje się w galerii platformy Azure. Aby je znaleźć, przejdź do Azure Portal i Wyszukaj pozycję Windows 10 Enterprise for Virtual Desktops Release. Aby zapoznać się z obrazem zintegrowanym z pakietem Office Pro Plus, przejdź do Azure Portal i Wyszukaj pozycję Microsoft Windows 10 + Office 365 ProPlus.
 
-## <a name="which-windows-10-enterprise-multi-session-image-should-i-use"></a>Którego obrazu wielosesyjnego systemu Windows 10 Enterprise należy użyć?
+## <a name="which-windows-10-enterprise-multi-session-image-should-i-use"></a>Którego obrazu z obsługą wielu sesji systemu Windows 10 Enterprise należy używać?
 
-Galeria platformy Azure zawiera kilka wersji, w tym windows 10 Enterprise multi-session, wersja 1809 i Windows 10 Enterprise multi-session, wersja 1903. Zalecamy użycie najnowszej wersji w celu zwiększenia wydajności i niezawodności.
+Galeria systemu Azure zawiera kilka wersji, w tym wiele sesji systemu Windows 10 Enterprise, w wersji 1809 i Windows 10 Enterprise z wieloma sesjami, wersja 1903. Zalecamy użycie najnowszej wersji, aby zwiększyć wydajność i niezawodność.
  
-## <a name="which-windows-10-enterprise-multi-session-versions-are-supported"></a>Które wersje wielosesyjne dla systemu Windows 10 Enterprise są obsługiwane?
+## <a name="which-windows-10-enterprise-multi-session-versions-are-supported"></a>Które wersje wielosesyjne systemu Windows 10 są obsługiwane?
 
-Windows 10 Enterprise multi-session, wersje 1809 i nowsze są obsługiwane i są dostępne w galerii platformy Azure. Te wersje są zgodne z tą samą zasadą pomocy technicznej co windows 10 Enterprise, co oznacza, że wiosenna wersja jest obsługiwana przez 18 miesięcy, a wersja jesienna przez 30 miesięcy.
+Wiele sesji systemu Windows 10 Enterprise, wersje 1809 i nowsze są obsługiwane i są dostępne w galerii platformy Azure. Te wersje są zgodne z tymi samymi zasadami cyklu życia, jak system Windows 10 Enterprise, co oznacza, że wersja Wiosenna jest obsługiwana przez 18 miesięcy i za 30 miesięcy.
  
-## <a name="which-profile-management-solution-should-i-use-for-windows-10-enterprise-multi-session"></a>Którego rozwiązania do zarządzania profilami należy używać w systemie Windows 10 Enterprise w wielu sesjach?
+## <a name="which-profile-management-solution-should-i-use-for-windows-10-enterprise-multi-session"></a>Którego rozwiązania do zarządzania profilami należy używać w przypadku wielu sesji dla systemu Windows 10 Enterprise?
 
-Zaleca się używanie kontenerów profilu FSLogix podczas konfigurowania systemu Windows 10 Enterprise w środowiskach nietrwałych lub innych scenariuszach, które wymagają profilu przechowywanego centralnie. FSLogix zapewnia, że profil użytkownika jest dostępny i aktualny dla każdej sesji użytkownika. Firma Microsoft zaleca również użycie kontenera profilu FSLogix do przechowywania profilu użytkownika w dowolnym udziale SMB z odpowiednimi uprawnieniami, ale w razie potrzeby można przechowywać profile użytkowników w magazynie obiektów blob strony platformy Azure. Użytkownicy pulpitów wirtualnych systemu Windows mogą korzystać z FSLogix bez dodatkowych kosztów.
+Zalecamy używanie kontenerów profilów FSLogix podczas konfigurowania systemu Windows 10 Enterprise w środowiskach nietrwałych lub w innych scenariuszach, które wymagają profilu przechowywanego centralnie. FSLogix gwarantuje, że profil użytkownika jest dostępny i aktualny dla każdej sesji użytkownika. Zalecamy również używanie kontenera profilu FSLogix do przechowywania profilu użytkownika w dowolnym udziale SMB z odpowiednimi uprawnieniami, ale w razie potrzeby można przechowywać profile użytkowników w usłudze Azure Page BLOB Storage. Użytkownicy pulpitu wirtualnego systemu Windows mogą korzystać z FSLogix bez dodatkowych kosztów.
  
-Aby uzyskać więcej informacji na temat konfigurowania kontenera profilu FSLogix, zobacz [Konfigurowanie kontenera profilu FSLogix](create-host-pools-user-profile.md#configure-the-fslogix-profile-container).  
+Aby uzyskać więcej informacji o konfigurowaniu kontenera profilu FSLogix, zobacz [Konfigurowanie kontenera profilu FSLogix](create-host-pools-user-profile.md#configure-the-fslogix-profile-container).  
 
-## <a name="which-license-do-i-need-to-access-windows-10-enterprise-multi-session"></a>Której licencji potrzebuję, aby uzyskać dostęp do wielu sesji systemu Windows 10 Enterprise?
+## <a name="which-license-do-i-need-to-access-windows-10-enterprise-multi-session"></a>Jakiej licencji muszę uzyskać dostęp do wielu sesji systemu Windows 10 Enterprise?
 
-Aby uzyskać pełną listę odpowiednich licencji, zobacz [Ceny pulpitu wirtualnego systemu Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+Aby uzyskać pełną listę odpowiednich licencji, zobacz [Cennik pulpitu wirtualnego systemu Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/).
 
-## <a name="why-do-my-apps-disappear-after-i-sign-out"></a>Dlaczego moje aplikacje znikają po wylogowanie?
+## <a name="why-do-my-apps-disappear-after-i-sign-out"></a>Dlaczego moje aplikacje znikają po wylogowaniu?
 
-Dzieje się tak, ponieważ używasz systemu Windows 10 Enterprise multi-session z rozwiązaniem do zarządzania profilem, takim jak FSLogix. Rozwiązanie administratora lub profilu skonfigurowało system do usuwania profilów użytkowników po wylogowywania się użytkowników. Ta konfiguracja oznacza, że gdy system usuwa profil użytkownika po wylogowywania się, usuwa również wszystkie aplikacje zainstalowane podczas sesji. Jeśli chcesz zachować zainstalowane aplikacje, musisz poprosić administratora o udostępnienie tych aplikacji wszystkim użytkownikom w środowisku pulpitu wirtualnego systemu Windows.
+Dzieje się tak, ponieważ korzystasz z wielu sesji systemu Windows 10 Enterprise z rozwiązaniem do zarządzania profilami, takim jak FSLogix. Rozwiązanie administratora lub profilu skonfigurowała system do usuwania profilów użytkowników podczas wylogowywania użytkowników. Ta konfiguracja oznacza, że gdy system usunie Twój profil użytkownika po wylogowaniu, spowoduje również usunięcie wszystkich aplikacji zainstalowanych podczas sesji. Jeśli chcesz zachować zainstalowane aplikacje, musisz polecić administratorowi obsługę tych aplikacji dla wszystkich użytkowników w środowisku pulpitu wirtualnego systemu Windows.
 
-## <a name="how-do-i-make-sure-apps-dont-disappear-when-users-sign-out"></a>Jak upewnić się, że aplikacje nie znikają po wylogowanie się użytkowników?
+## <a name="how-do-i-make-sure-apps-dont-disappear-when-users-sign-out"></a>Jak mogę upewnij się, że aplikacje nie znikną po wylogowaniu się użytkowników?
 
-Większość zwirtualizowanych środowisk jest domyślnie skonfigurowana, aby uniemożliwić użytkownikom instalowanie dodatkowych aplikacji w swoich profilach. Jeśli chcesz upewnić się, że aplikacja nie zniknie, gdy użytkownik wyloguje się z pulpitu wirtualnego systemu Windows, musisz udostępnić tę aplikację dla wszystkich profili użytkowników w twoim środowisku. Aby uzyskać więcej informacji na temat inicjowania obsługi administracyjnej aplikacji, zapoznaj się z tymi zasobami:
+Większość zwirtualizowanych środowisk jest domyślnie konfigurowana, aby uniemożliwić użytkownikom instalowanie dodatkowych aplikacji w swoich profilach. Jeśli chcesz mieć pewność, że aplikacja nie znika, gdy użytkownik wyloguje się z pulpitu wirtualnego systemu Windows, musisz zainicjować obsługę administracyjną tej aplikacji dla wszystkich profilów użytkowników w danym środowisku. Aby uzyskać więcej informacji na temat aprowizacji aplikacji, zapoznaj się z następującymi zasobami:
 
-- [Publikowanie wbudowanych aplikacji na pulpicie wirtualnym systemu Windows](publish-apps.md)
-- [Opcje wiersza wiersza polecenia obsługi pakietu aplikacji DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
-- [Pakiet Add-AppxProvisionedPackage](https://docs.microsoft.com/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
+- [Publikowanie wbudowanych aplikacji w systemie Windows Virtual Desktop](publish-apps.md)
+- [Opcje wiersza polecenia obsługi pakietu aplikacji DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
+- [Add-AppxProvisionedPackage](https://docs.microsoft.com/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
 
-## <a name="how-do-i-make-sure-users-dont-download-and-install-apps-from-the-microsoft-store"></a>Jak upewnić się, że użytkownicy nie pobierają i nie instalują aplikacji ze sklepu Microsoft Store?
+## <a name="how-do-i-make-sure-users-dont-download-and-install-apps-from-the-microsoft-store"></a>Jak mogę upewnić się, że użytkownicy nie będą pobierać i instalować aplikacji z Microsoft Store?
 
-Możesz wyłączyć aplikację Ze sklepu Microsoft Store, aby upewnić się, że użytkownicy nie pobierają dodatkowych aplikacji poza aplikacjami, które zostały już dla nich aprowizowane.
+Możesz wyłączyć aplikację Microsoft Store, aby upewnić się, że użytkownicy nie pobierają dodatkowych aplikacji poza aplikacje, dla których już Zainicjowano obsługę administracyjną.
 
-Aby wyłączyć aplikację Ze Sklepu:
+Aby wyłączyć aplikację ze sklepu:
 
-1. Utwórz nową zasadę grupy.
-2. Wybierz pozycję**Szablony administracyjne** >  **konfiguracji** > komputera**Składniki systemu Windows**.
-3. Wybierz **pozycję Sklep**.
-4. Wybierz **aplikację sklepu**.
-5. Wybierz **wyłączone**, a następnie wybierz **przycisk OK**.
+1. Utwórz nowy zasady grupy.
+2. Wybierz pozycję **Konfiguracja** > komputera**Szablony administracyjne** > **składniki systemu Windows**.
+3. Wybierz pozycję **sklep**.
+4. Wybierz pozycję **aplikacja ze sklepu**.
+5. Wybierz pozycję **wyłączone**, a następnie wybierz przycisk **OK**.
 6. Wybierz przycisk **Zastosuj**.
  
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o pulpitach wirtualnych systemu Windows i wielu sesjach systemu Windows 10 Enterprise:
+Aby dowiedzieć się więcej o wielu sesjach systemu Windows Virtual Desktop i Windows 10 Enterprise:
 
-- Przeczytaj naszą [dokumentację podglądu pulpitu wirtualnego systemu Windows](overview.md)
-- Odwiedź naszą [maszynę do pracy w systemie Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)
-- Konfigurowanie wdrożenia pulpitu wirtualnego systemu Windows za pomocą [samouczków pulpitu wirtualnego systemu Windows](tenant-setup-azure-active-directory.md)
+- Przeczytaj [dokumentację dotyczącą systemu Windows Virtual Desktop w wersji zapoznawczej](overview.md)
+- Odwiedź naszą [TechCommunity pulpitu wirtualnego systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)
+- Konfigurowanie wdrożenia pulpitu wirtualnego systemu Windows przy użyciu [samouczków pulpitu wirtualnego systemu Windows](tenant-setup-azure-active-directory.md)
