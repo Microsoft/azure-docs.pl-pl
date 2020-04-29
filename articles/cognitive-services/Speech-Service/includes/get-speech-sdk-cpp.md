@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.openlocfilehash: 5a06a0663601c221dd456b9cf4437cb9f32a18f8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81399879"
 ---
 :::row:::
     :::column span="3":::
-        C++ Speech SDK jest dostępny w systemach Windows, Linux i macOS. Aby uzyskać więcej informacji, zobacz <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
+        Zestaw SDK mowy C++ jest dostępny w systemach Windows, Linux i macOS. Aby uzyskać więcej informacji, zobacz <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft. CognitiveServices. <span class="docon docon-navigate-external x-hidden-focus"> </span>Speech </a>.
     :::column-end:::
     :::column:::
         <br>
@@ -25,26 +25,26 @@ ms.locfileid: "81399879"
 
 #### <a name="c-nuget-package"></a>Pakiet NuGet języka C++
 
-Zestawu SDK mowy języka C++ można zainstalować `Install-Package` w **Menedżerze pakietów** za pomocą następującego polecenia.
+Zestaw SDK mowy C++ można zainstalować z **Menedżera pakietów** przy użyciu następującego `Install-Package` polecenia.
 
 ```powershell
 Install-Package Microsoft.CognitiveServices.Speech
 ```
 
-#### <a name="c-binaries-and-header-files"></a>Pliki binarne języka C++ i pliki nagłówkowe
+#### <a name="c-binaries-and-header-files"></a>Plik binarny języka C++ i pliki nagłówkowe
 
-Alternatywnie C++ Speech SDK można zainstalować z plików binarnych. Pobierz pakiet SDK jako <a href="https://aka.ms/csspeech/linuxbinary" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> pakiet .tar</a> i rozpakuj pliki w wybranym katalogu. Zawartość tego pakietu (które zawierają pliki nagłówkowe dla architektur docelowych x86 i x64) są uporządkowane w następujący sposób:
+Alternatywnie zestaw SDK mowy C++ można zainstalować z plików binarnych. Pobierz zestaw SDK jako <a href="https://aka.ms/csspeech/linuxbinary" target="_blank">pakiet <span class="docon docon-navigate-external x-hidden-focus"></span> tar</a> i rozpakuj pliki w wybranym katalogu. Zawartość tego pakietu (obejmująca pliki nagłówkowe dla architektury docelowej x86 i x64) jest następująca:
 
   | Ścieżka                   | Opis                                          |
   |------------------------|------------------------------------------------------|
   | `license.md`           | Licencja                                              |
   | `ThirdPartyNotices.md` | Uwagi dotyczące innych firm                                  |
-  | `include`              | Pliki nagłówkowe języka C++                                 |
+  | `include`              | Pliki nagłówkowe dla języka C++                                 |
   | `lib/x64`              | Natywna biblioteka x64 do łączenia z aplikacją |
   | `lib/x86`              | Natywna biblioteka x86 do łączenia z aplikacją |
 
-  Aby utworzyć aplikację, skopiuj lub przenieś wymagane pliki binarne (i biblioteki) do środowiska programistycznego. Uwzględnij je zgodnie z wymaganiami w procesie kompilacji.
+  Aby utworzyć aplikację, skopiuj lub Przenieś wymagane pliki binarne (i biblioteki) do środowiska deweloperskiego. Uwzględnij je zgodnie z potrzebami w procesie kompilacji.
 
-#### <a name="additional-resources"></a>Zasoby dodatkowe
+#### <a name="additional-resources"></a>Dodatkowe zasoby
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp" target="_blank">Windows, Linux i macOS Szybki start Kod źródłowy C++<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp" target="_blank">Windows, Linux i macOS — kod źródłowy języka C++<span class="docon docon-navigate-external x-hidden-focus"></span></a>

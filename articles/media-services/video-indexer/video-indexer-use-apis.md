@@ -1,7 +1,7 @@
 ---
 title: Korzystanie z interfejsu API usługi Video Indexer
 titleSuffix: Azure Media Services
-description: W tym artykule opisano, jak rozpocząć pracę z interfejsem API indeksatora wideo usługi Media Services.
+description: W tym artykule opisano, jak rozpocząć pracę z interfejsem API usługi Azure Media Services Video Indexer.
 services: media-services
 author: Juliako
 manager: femila
@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 04/13/2020
 ms.author: juliako
 ms.openlocfilehash: 82bdb177cf4d9c400d1b13ba7178658089950557
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81314330"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Samouczek: używanie interfejsu API usługi Video Indexer
 
-Video Indexer konsoliduje różne technologie sztucznej inteligencji audio i wideo (AI) oferowane przez firmę Microsoft w jedną zintegrowaną usługę, ułatwiając rozwój. Interfejsy API zostały zaprojektowane tak, aby umożliwić deweloperom skupienie się na korzystaniu z technologii AI multimediów bez obawy o skalę, globalny zasięg, dostępność i niezawodność platform w chmurze. Za pomocą interfejsu API możesz przesyłać pliki, ukazywać szczegółowe informacje wideo, uzyskać adresy URL osadzonych informacji i widżetów graczy i nie tylko.
+Video Indexer konsoliduje różne technologie audio i wideo sztuczne inteligencje (AI) oferowane przez firmę Microsoft w ramach jednej zintegrowanej usługi, co upraszcza programowanie. Interfejsy API zostały zaprojektowane, aby umożliwić deweloperom skoncentrowanie się na zużywaniu technologii multimedialnych, bez konieczności przejmowania się skalowaniem, globalnym zasięgiem, dostępnością i niezawodnością platform chmurowych. Możesz użyć interfejsu API do przekazywania plików, uzyskiwać szczegółowe informacje o wideo, uzyskiwać adresy URL z możliwością osadzania i elementów widget i nie tylko.
 
-Podczas tworzenia konta indeksatora wideo możesz wybrać bezpłatne konto próbne (gdzie otrzymujesz określoną liczbę bezpłatnych minut indeksowania) lub opcję płatną (w której nie jesteś ograniczony przez przydział). Dzięki bezpłatnej wersji próbnej indeksator wideo zapewnia użytkownikom witryny do 600 minut bezpłatnego indeksowania i do 2400 minut bezpłatnego indeksowania dla użytkowników interfejsu API. Za pomocą opcji płatnej można utworzyć konto indeksatora wideo [połączone z subskrypcją platformy Azure i kontem usługi Azure Media Services.](connect-to-azure.md) Naliczane są opłaty za minuty indeksowania, a także opłaty powiązane z kontem usługi Azure Media Services.
+Podczas tworzenia konta Video Indexer możesz wybrać bezpłatne konto próbne (w przypadku wybrania pewnej liczby bezpłatnych minut indeksowania) lub opcji płatnej (w przypadku których limit przydziału nie jest ograniczony). Dzięki bezpłatnej wersji próbnej Video Indexer zapewnia do 600 minut bezpłatnego indeksowania do użytkowników witryny sieci Web oraz do 2400 minut wolnego indeksowania do użytkowników interfejsu API. Za pomocą płatnej opcji utworzysz konto Video Indexer, które jest [połączone z subskrypcją platformy Azure i kontem Azure Media Services](connect-to-azure.md). Naliczane są opłaty za minuty indeksowania, a także opłaty powiązane z kontem usługi Azure Media Services.
 
 W tym artykule pokazano, jak deweloperzy mogą korzystać z [interfejsu API usługi Video Indexer](https://api-portal.videoindexer.ai/).
 
@@ -29,25 +29,25 @@ W tym artykule pokazano, jak deweloperzy mogą korzystać z [interfejsu API usł
 
 1. Zaloguj się w [portalu dla deweloperów usługi Video Indexer](https://api-portal.videoindexer.ai/).
     
-    ![Zaloguj się do portalu dewelopera indeksatora wideo](./media/video-indexer-use-apis/video-indexer-api01.png)
+    ![Zaloguj się do portalu Video Indexer Developer](./media/video-indexer-use-apis/video-indexer-api01.png)
 
    > [!Important]
    > * Musisz użyć tego samego dostawcy, który został użyty podczas tworzenia konta w usłudze Video Indexer.
-   > * Osobiste konta Google i Microsoft (Outlook/Live) mogą być używane tylko dla kont próbne. Konta połączone z platformą Azure wymagają usługi Azure AD.
-   > * Na wiadomość e-mail może istnieć tylko jedno aktywne konto. Jeśli użytkownik spróbuje zalogować się za user@gmail.com user@gmail.com pomocą LinkedIn, a później za pomocą Google, ten ostatni wyświetli stronę błędu, mówiąc, że użytkownik już istnieje.
+   > * Osobiste konta Google i Microsoft (Outlook/Live) mogą być używane tylko w przypadku kont próbnych. Konta połączone z platformą Azure wymagają usługi Azure AD.
+   > * Na adres e-mail może istnieć tylko jedno aktywne konto. Jeśli użytkownik próbuje zalogować się przy user@gmail.com użyciu usługi LinkedIn lub nowszej user@gmail.com w przypadku usługi Google, zostanie wyświetlona strona błędu z informacją o tym, że użytkownik już istnieje.
 
 2. Subskrybuj.
 
-    Wybierz kartę [Produkty.](https://api-portal.videoindexer.ai/products) Następnie wybierz pozycję Autoryzacja i subskrybuj.
+    Wybierz kartę [produkty](https://api-portal.videoindexer.ai/products) . Następnie wybierz pozycję autoryzacja i Subskrybuj.
     
-    ![Karta Produkty w portalu dla deweloperów indeksatora wideo](./media/video-indexer-use-apis/video-indexer-api02.png)
+    ![Karta produkty w portalu Video Indexer Developer](./media/video-indexer-use-apis/video-indexer-api02.png)
 
     > [!NOTE]
     > Nowi użytkownicy automatycznie subskrybują autoryzację.
     
-    Po zasubskrybowaniu możesz zobaczyć subskrypcję oraz klucze podstawowe i pomocnicze. Te klucze należy chronić. Powinno się ich używać tylko w kodzie serwera. Nie powinny być dostępne po stronie klienta (.js, .html i tak dalej).
+    Po zasubskrybowaniu możesz zobaczyć swoją subskrypcję oraz klucze podstawowe i pomocnicze. Te klucze należy chronić. Powinno się ich używać tylko w kodzie serwera. Nie powinny być dostępne po stronie klienta (. js,. html itp.).
 
-    ![Subskrypcja i klucze w portalu deweloperskim indeksatora wideo](./media/video-indexer-use-apis/video-indexer-api03.png)
+    ![Subskrypcja i klucze w portalu Video Indexer Developer](./media/video-indexer-use-apis/video-indexer-api03.png)
 
 > [!TIP]
 > Usługa Video Indexer może używać klucza pojedynczej subskrypcji do łączenia się z wieloma kontami usługi Video Indexer. Te konta usługi Video Indexer można następnie połączyć z różnymi kontami usługi Media Services.
@@ -58,19 +58,19 @@ Po zasubskrybowaniu interfejsu API autoryzacji można uzyskać tokeny dostępu. 
 
 Każde wywołanie interfejsu API operacji powinno być skojarzone z tokenem dostępu zgodnym z zakresem autoryzacji wywołania.
 
-- Poziom użytkownika: tokeny dostępu na poziomie użytkownika umożliwiają wykonywanie operacji na poziomie **użytkownika.** Na przykład uzyskiwanie informacji o skojarzonych kontach.
-- Poziom konta: tokeny dostępu na poziomie konta umożliwiają wykonywanie operacji na poziomie **konta** lub na poziomie **wideo.** Na przykład prześlij film, wystaw wszystkie filmy, uzyskaj wgląd w film i tak dalej.
-- Poziom wideo: tokeny dostępu na poziomie wideo umożliwiają wykonywanie operacji na określonym **filmie.** Na przykład możesz uzyskać wgląd w wideo, pobrać podpisy, pobrać widżety i tak dalej.
+- Poziom użytkownika: tokeny dostępu na poziomie użytkownika umożliwiają wykonywanie operacji na poziomie **użytkownika** . Na przykład uzyskiwanie informacji o skojarzonych kontach.
+- Poziom konta: tokeny dostępu na poziomie konta umożliwiają wykonywanie operacji na poziomie **konta** lub **wideo** . Na przykład Przekaż wideo, Wyświetl wszystkie filmy wideo, Uzyskaj szczegółowe informacje wideo i tak dalej.
+- Poziom wideo: tokeny dostępu na poziomie wideo umożliwiają wykonywanie operacji na konkretnym **filmie wideo**. Na przykład Uzyskaj szczegółowe informacje wideo, pliki do pobrania, Pobierz widżety i tak dalej.
 
-Można kontrolować, czy te tokeny są tylko do odczytu lub jeśli pozwalają na edycję, określając **allowEdit=true/false**.
+Możesz kontrolować, czy te tokeny są tylko do odczytu, czy też zezwalają na edycję, określając **AllowEdit = true/false**.
 
-W przypadku większości scenariuszy między serwerami prawdopodobnie użyjesz tego samego **tokenu konta,** ponieważ obejmuje on zarówno operacje **na koncie,** jak i operacje **wideo.** Jeśli jednak planujesz nawiązywać połączenia po stronie klienta do indeksatora wideo (na przykład z języka JavaScript), chcesz użyć tokenu dostępu do **wideo,** aby uniemożliwić klientom uzyskanie dostępu do całego konta. Jest to również powód, dla którego podczas osadzania kodu klienta indeksatora wideo w kliencie (na przykład przy użyciu **widżetu Pobierz statystyki** lub **widżetu Pobierz odtwarzacz)** należy podać token dostępu do **wideo.**
+W przypadku większości scenariuszy serwer-serwer prawdopodobnie używasz tego samego tokenu **konta** , ponieważ obejmuje on operacje na **kontach** i operacje **wideo** . Jeśli jednak planujesz nawiązanie połączeń po stronie klienta z Video Indexer (na przykład z poziomu języka JavaScript), użyj tokenu dostępu **wideo** , aby uniemożliwić klientom uzyskiwanie dostępu do całego konta. Jest to również powód, aby podczas osadzania Video Indexer kod klienta na kliencie (na przykład za pomocą **widżetu Get Insights** lub **uzyskać Widżet odtwarzacza**), należy podać token dostępu **wideo** .
 
 Aby ułatwić sprawę, można uzyskać informacje o kontach za pomocą pozycji **Authorization** API (Interfejs API autoryzacji) > **GetAccounts** (Pobierz konta) bez wcześniejszego pobierania tokenu użytkownika. Można również zażądać informacji o kontach z ważnymi tokenami, co umożliwia pominięcie dodatkowego wywołania w celu pobrania tokenu konta.
 
-Tokeny dostępu wygasają po godzinie. Przed skorzystaniem z interfejsu API operacji upewnij się, że token dostępu jest ważny. Jeśli wygaśnie, ponownie zadzwoń do interfejsu API autoryzacji, aby uzyskać nowy token dostępu.
+Tokeny dostępu wygasają po godzinie. Przed skorzystaniem z interfejsu API operacji upewnij się, że token dostępu jest ważny. Jeśli wygaśnie, wywołaj ponownie interfejs API autoryzacji, aby uzyskać nowy token dostępu.
 
-Możesz rozpocząć integrację z interfejsem API. Zapoznaj się ze [szczegółowymi opisami poszczególnych interfejsów API REST usługi Video Indexer](https://api-portal.videoindexer.ai/).
+Możesz rozpocząć Integrowanie z interfejsem API. Zapoznaj się ze [szczegółowymi opisami poszczególnych interfejsów API REST usługi Video Indexer](https://api-portal.videoindexer.ai/).
 
 ## <a name="account-id"></a>Identyfikator konta
 
@@ -82,11 +82,11 @@ Identyfikator konta to parametr wymagany we wszystkich wywołaniach interfejsu A
     2. Przejdź do strony **Settings** (Ustawienia).
     3. Skopiuj identyfikator konta.
 
-        ![Ustawienia indeksatora wideo i identyfikator konta](./media/video-indexer-use-apis/account-id.png)
+        ![Ustawienia Video Indexer i identyfikator konta](./media/video-indexer-use-apis/account-id.png)
 
 * Uzyskiwanie identyfikatora konta za pomocą **portalu dla deweloperów usługi Video Indexer**.
 
-    Użyj interfejsu [API pobierz konto.](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account?)
+    Użyj interfejsu API [uzyskiwania konta](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account?) .
 
     > [!TIP]
     > Tokeny dostępu dla kont możesz wygenerować, definiując atrybut`generateAccessTokens=true`.
@@ -103,9 +103,9 @@ Identyfikator konta to parametr wymagany we wszystkich wywołaniach interfejsu A
 
 W tej sekcji przedstawiono kilka zaleceń dotyczących korzystania z interfejsu API usługi Video Indexer.
 
-- Jeśli planujesz przekazać film, zaleca się umieszczenie pliku w jakiejś publicznej lokalizacji sieciowej (na przykład w usłudze OneDrive). Uzyskaj link do pliku wideo, a następnie podaj ten adres URL jako parametr przekazywania pliku.
+- Jeśli planujesz przekazać wideo, zaleca się umieszczenie pliku w pewnej lokalizacji w sieci publicznej (na przykład w usłudze OneDrive). Uzyskaj link do pliku wideo, a następnie podaj ten adres URL jako parametr przekazywania pliku.
 
-    Adres URL przekazywany do usługi Video Indexer musi wskazywać plik multimedialny (audio lub wideo). Niektóre linki generowane przez usługę OneDrive prowadzą do zawierających te pliki stron HTML. Łatwa weryfikacja adresu URL polega na wklejeniu go do przeglądarki — jeśli plik rozpocznie pobieranie, prawdopodobnie będzie to dobry adres URL. Jeśli przeglądarka renderuje wizualizację, prawdopodobnie nie jest to łącze do pliku, ale do strony HTML.
+    Adres URL przekazywany do usługi Video Indexer musi wskazywać plik multimedialny (audio lub wideo). Niektóre linki generowane przez usługę OneDrive prowadzą do zawierających te pliki stron HTML. Łatwą weryfikację adresu URL jest wklejenie go do przeglądarki — Jeśli plik rozpocznie pobieranie, prawdopodobnie jest to dobry adres URL. Jeśli przeglądarka renderuje wizualizację, prawdopodobnie nie jest to link do pliku, ale do strony HTML.
 
 - Wywołanie dla konkretnego pliku wideo interfejsu API, który pobiera szczegółowe informacje o wideo, powoduje pobranie w zawartości odpowiedzi szczegółowych danych wyjściowych JSON. [W tym temacie omówiono szczegółowo zwracane informacje JSON](video-indexer-output-json-v2.md).
 
@@ -207,13 +207,13 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Omówienie usługi Video Indexer](video-indexer-overview.md)
 - [Regiony](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Sprawdź szczegóły wyjścia JSON](video-indexer-output-json-v2.md)
-- Zapoznaj się z [przykładowym kodem,](https://github.com/Azure-Samples/media-services-video-indexer) który pokazuje ważny aspekt przekazywania i indeksowania filmu. Po wil kodu daje dobry pomysł, jak korzystać z naszego interfejsu API dla podstawowych funkcji. Zapoznaj się z komentarzami i zapoznaj się z naszymi poradami w zakresie najlepszych praktyk.
+- [Badanie szczegółów wyjściowego JSON](video-indexer-output-json-v2.md)
+- Zapoznaj się z [przykładowym kodem](https://github.com/Azure-Samples/media-services-video-indexer) , który demonstruje istotny aspekt przekazywania i indeksowania wideo. Po będzie kodu zawarto informacje na temat korzystania z naszego interfejsu API na potrzeby podstawowych funkcji. Zapoznaj się z komentarzami wbudowanymi i zwróć uwagę na nasze wskazówki dotyczące najlepszych rozwiązań.
 

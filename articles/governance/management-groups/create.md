@@ -1,92 +1,92 @@
 ---
-title: Tworzenie grup zarządzania w celu organizowania zasobów — Zarządzanie usługą Azure
-description: Dowiedz się, jak tworzyć grupy zarządzania platformy Azure do zarządzania wieloma zasobami przy użyciu portalu, usługi Azure PowerShell i interfejsu wiersza polecenia platformy Azure.
+title: Tworzenie grup zarządzania w celu organizowania zasobów — zarządzanie platformą Azure
+description: Dowiedz się, jak utworzyć grupy zarządzania platformy Azure, aby zarządzać wieloma zasobami przy użyciu portalu, Azure PowerShell i interfejsu wiersza polecenia platformy Azure.
 ms.date: 04/15/2020
 ms.topic: conceptual
 ms.openlocfilehash: 34815089367512c4aa54f148c118a669625d0ea3
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81381581"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Tworzenie grup zarządzania na potrzeby organizowania zasobów i zarządzania nimi
 
-Grupy zarządzania to kontenery ułatwiające zarządzanie dostępem, zasadami i zgodnością z wieloma subskrypcjami. Utwórz te kontenery, aby utworzyć skuteczną i wydajną hierarchię, która może być używana z [zasadami azure](../policy/overview.md) i [kontrolami dostępu opartymi na rolach platformy Azure.](../../role-based-access-control/overview.md) Aby uzyskać więcej informacji na temat grup zarządzania, zobacz [Organizowanie zasobów za pomocą grup zarządzania platformy Azure](overview.md).
+Grupy zarządzania to kontenery ułatwiające zarządzanie dostępem, zasadami i zgodnością w wielu subskrypcjach. Utwórz te kontenery, aby utworzyć efektywną i wydajną hierarchię, która może być używana z [Azure Policy](../policy/overview.md) i [kontroli dostępu opartej na rolach platformy Azure](../../role-based-access-control/overview.md). Aby uzyskać więcej informacji na temat grup zarządzania, zobacz [organizowanie zasobów przy użyciu grup zarządzania platformy Azure](overview.md).
 
-Pierwsza grupa zarządzania utworzona w katalogu może potrwać do 15 minut. Istnieją procesy, które są uruchamiane po raz pierwszy, aby skonfigurować usługę grup zarządzania na platformie Azure dla katalogu. Otrzymasz powiadomienie po zakończeniu procesu. Aby uzyskać więcej informacji, zobacz [początkową konfigurację grup zarządzania](./overview.md#initial-setup-of-management-groups).
+Wykonanie pierwszej grupy zarządzania utworzonej w katalogu może potrwać do 15 minut. Istnieją procesy, które są uruchamiane po raz pierwszy w celu skonfigurowania usługi grup zarządzania na platformie Azure dla katalogu. Po zakończeniu procesu otrzymasz powiadomienie. Aby uzyskać więcej informacji, zobacz [początkowa konfiguracja grup zarządzania](./overview.md#initial-setup-of-management-groups).
 
 ## <a name="create-a-management-group"></a>Tworzenie grupy zarządzania
 
-Każdy użytkownik usługi Azure AD w dzierżawie może utworzyć grupę zarządzania bez uprawnienia do zapisu grupy zarządzania przypisane do tego użytkownika. Ta nowa grupa zarządzania będzie elementem podrzędnym głównej grupy zarządzania, a twórca otrzyma przypisanie roli "Właściciel". Usługa grupy zarządzania umożliwia tę możliwość, dzięki czemu przypisania ról nie są potrzebne na poziomie głównym. Żaden użytkownik nie ma dostępu do głównej grupy zarządzania podczas jej tworzenia. Aby uniknąć przeszkód związanych ze znalezieniem globalnych administratorów usługi Azure AD, aby rozpocząć korzystanie z grup zarządzania, zezwalamy na tworzenie początkowych grup zarządzania w katalogu głównym  
-Poziom.
+Każdy użytkownik usługi Azure AD w dzierżawie może utworzyć grupę zarządzania bez uprawnienia do zapisu grupy zarządzania przypisanej do tego użytkownika. Ta nowa grupa zarządzania będzie elementem podrzędnym głównej grupy zarządzania, a twórca otrzyma przypisanie roli "właściciel". Usługa Grupa zarządzania umożliwia taką możliwość, aby przypisania ról nie były koniecznie na poziomie głównym. Brak dostępu użytkowników do głównej grupy zarządzania podczas jej tworzenia. Aby uniknąć progu wyszukiwania administratorów globalnych usługi Azure AD do rozpoczęcia korzystania z grup zarządzania, zezwalamy na tworzenie początkowych grup zarządzania w katalogu głównym  
+poziomie.
 
-Grupę zarządzania można utworzyć przy użyciu portalu, [szablonu Menedżera zasobów,](../../azure-resource-manager/templates/deploy-to-tenant.md#create-management-group)programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
+Grupę zarządzania można utworzyć przy użyciu portalu, [szablonu Menedżer zasobów](../../azure-resource-manager/templates/deploy-to-tenant.md#create-management-group), programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-### <a name="create-in-portal"></a>Tworzenie w portalu
+### <a name="create-in-portal"></a>Utwórz w portalu
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 
-1. Wybierz pozycję Zarządzanie **wszystkimi usługami** > **+ zarządzanie**.
+1. Wybierz kolejno pozycje **wszystkie usługi** > **Zarządzanie i nadzór**.
 
-1. Wybierz **zarządzanie kosztami + rozliczenia**
+1. Wybierz **Cost Management i rozliczanie**
 
-1. Na stronie Zarządzanie kosztami + Rozliczenia — grupy zarządzania wybierz pozycję **Grupy zarządzania**
+1. Na stronie Cost Management i grupy zarządzania rozliczeniami wybierz pozycję **grupy zarządzania**
 
-1. Wybierz **+ Dodaj grupę zarządzania**.
+1. Wybierz pozycję **+ Dodaj grupę zarządzania**.
 
    :::image type="content" source="./media/main.png" alt-text="Strona do pracy z grupami zarządzania" border="false":::
 
 1. Wypełnij pole Identyfikator grupy zarządzania.
 
-   - **Identyfikator grupy zarządzania** jest unikatowym identyfikatorem katalogu, który jest używany do przesyłania poleceń w tej grupie zarządzania. Ten identyfikator nie jest edytowalny po utworzeniu, ponieważ jest używany w całym systemie platformy Azure do identyfikowania tej grupy. Główna [grupa zarządzania](overview.md#root-management-group-for-each-directory) jest tworzona automatycznie przy identyfikatorze, który jest identyfikatorem usługi Azure Active Directory. W przypadku wszystkich innych grup zarządzania przypisz unikatowy identyfikator.
-   - Pole nazwy wyświetlanej to nazwa wyświetlana w witrynie Azure portal. Oddzielna nazwa wyświetlana jest opcjonalnym polem podczas tworzenia grupy zarządzania i może być  
-     Czas.
+   - **Identyfikator grupy zarządzania** jest unikatowym identyfikatorem katalogu, który jest używany do przesyłania poleceń z tej grupy zarządzania. Tego identyfikatora nie można edytować po utworzeniu, ponieważ jest on używany w całym systemie Azure do identyfikowania tej grupy. [Główna Grupa zarządzania](overview.md#root-management-group-for-each-directory) jest automatycznie tworzona z identyfikatorem, który jest identyfikatorem Azure Active Directory. W przypadku wszystkich innych grup zarządzania przypisz unikatowy identyfikator.
+   - Pole Nazwa wyświetlana to nazwa wyświetlana w Azure Portal. Oddzielna nazwa wyświetlana jest polem opcjonalnym podczas tworzenia grupy zarządzania i można ją zmienić w dowolnym  
+     pierwszym.
 
-   :::image type="content" source="./media/create_context_menu.png" alt-text="Okienko Opcje tworzenia nowej grupy zarządzania" border="false":::
+   :::image type="content" source="./media/create_context_menu.png" alt-text="Okienko opcji do tworzenia nowej grupy zarządzania" border="false":::
 
 1. Wybierz pozycję **Zapisz**.
 
 ### <a name="create-in-powershell"></a>Tworzenie w programie PowerShell
 
-W przypadku programu PowerShell użyj polecenia cmdlet [New-AzManagementGroup,](/powershell/module/az.resources/new-azmanagementgroup) aby utworzyć nową grupę zarządzania.
+W przypadku programu PowerShell Użyj polecenia cmdlet [New-AzManagementGroup](/powershell/module/az.resources/new-azmanagementgroup) , aby utworzyć nową grupę zarządzania.
 
 ```azurepowershell-interactive
 New-AzManagementGroup -GroupName 'Contoso'
 ```
 
-**Nazwa grupy** jest tworzonym unikatowym identyfikatorem. Ten identyfikator jest używany przez inne polecenia do odwoływania się do tej grupy i nie można go zmienić później.
+**Grupaname** jest tworzonym unikatowym identyfikatorem. Ten identyfikator jest używany przez inne polecenia do odwoływania się do tej grupy i nie można go zmienić później.
 
-Jeśli chcesz, aby grupa zarządzania wyświetlała inną nazwę w witrynie Azure portal, dodaj parametr **DisplayName.** Na przykład, aby utworzyć grupę zarządzania o nazwie grupy Contoso i nazwie wyświetlanej "Grupa Contoso", należy użyć następującego polecenia cmdlet:
+Jeśli chcesz, aby grupa zarządzania pokazywała inną nazwę w Azure Portal, Dodaj parametr **DisplayName** . Aby na przykład utworzyć grupę zarządzania z grupą Contoso i nazwę wyświetlaną "Grupa contoso", użyj następującego polecenia cmdlet:
 
 ```azurepowershell-interactive
 New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group'
 ```
 
-W poprzednich przykładach nowa grupa zarządzania jest tworzona w głównej grupie zarządzania. Aby określić inną grupę zarządzania jako element nadrzędny, należy użyć parametru **ParentId.**
+W powyższych przykładach Nowa grupa zarządzania jest tworzona w ramach głównej grupy zarządzania. Aby określić inną grupę zarządzania jako nadrzędną, użyj parametru **parentID** .
 
 ```azurepowershell-interactive
 $parentGroup = Get-AzManagementGroup -GroupName Contoso
 New-AzManagementGroup -GroupName 'ContosoSubGroup' -ParentId $parentGroup.id
 ```
 
-### <a name="create-in-azure-cli"></a>Tworzenie w usłudze Azure CLI
+### <a name="create-in-azure-cli"></a>Tworzenie w interfejsie wiersza polecenia platformy Azure
 
-W przypadku interfejsu wiersza polecenia interfejsu wiersza polecenia platformy Azure użyj polecenia [tworzenia grupy zarządzania kontem AZ,](/cli/azure/account/management-group?view=azure-cli-latest#az-account-management-group-create) aby utworzyć nową grupę zarządzania.
+Aby utworzyć nową grupę zarządzania, użyj polecenia [AZ Account Management-Group Create](/cli/azure/account/management-group?view=azure-cli-latest#az-account-management-group-create) w interfejsie Azure.
 
 ```azurecli-interactive
 az account management-group create --name Contoso
 ```
 
-**Nazwa** jest tworzony unikatowy identyfikator. Ten identyfikator jest używany przez inne polecenia do odwoływania się do tej grupy i nie można go zmienić później.
+**Nazwa** jest tworzonym unikatowym identyfikatorem. Ten identyfikator jest używany przez inne polecenia do odwoływania się do tej grupy i nie można go zmienić później.
 
-Jeśli chcesz, aby grupa zarządzania wyświetlała inną nazwę w witrynie Azure portal, dodaj parametr **nazwy wyświetlanej.** Na przykład, aby utworzyć grupę zarządzania o nazwie grupy Contoso i nazwie wyświetlanej "Grupa Contoso", użyj następującego polecenia:
+Jeśli chcesz, aby grupa zarządzania pokazywała inną nazwę w Azure Portal, Dodaj parametr **Display-Name** . Aby na przykład utworzyć grupę zarządzania z grupą Contoso i nazwę wyświetlaną "Grupa contoso", użyj następującego polecenia:
 
 ```azurecli-interactive
 az account management-group create --name Contoso --display-name 'Contoso Group'
 ```
 
-W poprzednich przykładach nowa grupa zarządzania jest tworzona w głównej grupie zarządzania. Aby określić inną grupę zarządzania jako element nadrzędny, należy użyć parametru **nadrzędnego** i podać nazwę grupy nadrzędnej.
+W powyższych przykładach Nowa grupa zarządzania jest tworzona w ramach głównej grupy zarządzania. Aby określić inną grupę zarządzania jako nadrzędną, należy użyć parametru **nadrzędnego** i podać nazwę grupy nadrzędnej.
 
 ```azurecli-interactive
 az account management-group create --name ContosoSubGroup --parent Contoso

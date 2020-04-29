@@ -1,6 +1,6 @@
 ---
-title: Odwoływanie się do obrazu niestandardowego w szablonie zestawu skalowania platformy Azure
-description: Dowiedz się, jak dodać obraz niestandardowy do istniejącego szablonu zestawu skalowania maszyny wirtualnej platformy Azure
+title: Odwoływanie się do niestandardowego obrazu w szablonie zestawu skalowania platformy Azure
+description: Dowiedz się, jak dodać obraz niestandardowy do istniejącego szablonu zestawu skalowania maszyn wirtualnych platformy Azure
 author: mimckitt
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: mimckitt
 ms.openlocfilehash: 3965090239949b5e1116ceebe427728e49ffafe4
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273702"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Add a custom image to an Azure scale set template (Dodawanie obrazu niestandardowego do szablonu zestawu skalowania platformy Azure)
 
-W tym artykule pokazano, jak zmodyfikować [szablon zestawu skalowania podstawowego](virtual-machine-scale-sets-mvss-start.md) do wdrożenia z obrazu niestandardowego.
+W tym artykule pokazano, jak zmodyfikować [podstawowy szablon zestawu skalowania](virtual-machine-scale-sets-mvss-start.md) w celu wdrożenia go z obrazu niestandardowego.
 
-## <a name="change-the-template-definition"></a>Zmienianie definicji szablonu
-W [poprzednim artykule](virtual-machine-scale-sets-mvss-start.md) utworzyliśmy podstawowy szablon zestawu skalowania. Teraz użyjemy tego wcześniejszego szablonu i zmodyfikujemy go, aby utworzyć szablon, który wdraża zestaw skalowania z obrazu niestandardowego.  
+## <a name="change-the-template-definition"></a>Zmiana definicji szablonu
+W [poprzednim artykule](virtual-machine-scale-sets-mvss-start.md) został utworzony podstawowy szablon zestawu skalowania. Teraz użyjemy tego wcześniejszego szablonu i zmodyfikujesz go, aby utworzyć szablon, który wdraża zestaw skalowania na podstawie obrazu niestandardowego.  
 
 ### <a name="creating-a-managed-disk-image"></a>Tworzenie obrazu dysku zarządzanego
 
-Jeśli masz już niestandardowy obraz dysku zarządzanego (zasób typu), `Microsoft.Compute/images`możesz pominąć tę sekcję.
+Jeśli masz już niestandardowy obraz dysku zarządzanego (zasób typu `Microsoft.Compute/images`), możesz pominąć tę sekcję.
 
-Najpierw dodaj `sourceImageVhdUri` parametr, który jest identyfikatorem URI do uogólnionego obiektu blob w usłudze Azure Storage, który zawiera obraz niestandardowy do wdrożenia.
+Najpierw Dodaj `sourceImageVhdUri` parametr, który jest identyfikatorem URI do uogólnionego obiektu BLOB w usłudze Azure Storage, który zawiera obraz niestandardowy do wdrożenia.
 
 
 ```diff
@@ -44,7 +44,7 @@ Najpierw dodaj `sourceImageVhdUri` parametr, który jest identyfikatorem URI do 
    "variables": {},
 ```
 
-Następnie dodaj zasób `Microsoft.Compute/images`typu , który jest obrazem dysku zarządzanego na `sourceImageVhdUri`podstawie uogólnionego obiektu blob znajdującego się w URI . Ten obraz musi znajdować się w tym samym regionie co zestaw skalowania, który go używa. We właściwościach obrazu określ typ systemu operacyjnego, lokalizację obiektu blob (z parametru) `sourceImageVhdUri` i typ konta magazynu:
+Następnie Dodaj zasób typu `Microsoft.Compute/images`, który jest obrazem dysku zarządzanego na podstawie uogólnionego obiektu BLOB znajdującego się w identyfikatorze `sourceImageVhdUri`URI. Ten obraz musi znajdować się w tym samym regionie co zestaw skalowania, który go używa. We właściwościach obrazu określ typ systemu operacyjnego, lokalizację obiektu BLOB (z `sourceImageVhdUri` parametru) i typ konta magazynu:
 
 ```diff
    "resources": [
@@ -71,7 +71,7 @@ Następnie dodaj zasób `Microsoft.Compute/images`typu , który jest obrazem dys
 
 ```
 
-W zasobie zestawu skalowania dodaj klauzulę odnoszącą `dependsOn` się do obrazu niestandardowego, aby upewnić się, że obraz zostanie utworzony przed próbą wdrożenia z tego obrazu zestawu skalowania:
+W zasobów zestawu skalowania Dodaj `dependsOn` klauzulę odwołującą się do obrazu niestandardowego, aby upewnić się, że obraz został utworzony przed próbą wdrożenia zestawu skalowania z tego obrazu:
 
 ```diff
        "location": "[resourceGroup().location]",
@@ -86,9 +86,9 @@ W zasobie zestawu skalowania dodaj klauzulę odnoszącą `dependsOn` się do obr
 
 ```
 
-### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Zmienianie właściwości zestawu skalowania w celu użycia obrazu dysku zarządzanego
+### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Zmienianie właściwości zestawu skalowania w celu korzystania z obrazu dysku zarządzanego
 
-W `imageReference` zestawie `storageProfile`skalowania zamiast określania wydawcy, oferty, sku i wersji obrazu platformy `id` należy `Microsoft.Compute/images` określić zasób:
+`imageReference` W `storageProfile`zestawie skalowania zamiast określania wydawcy, oferty, jednostki SKU i wersji obrazu platformy należy określić `id` `Microsoft.Compute/images` zasób:
 
 ```json
          "virtualMachineProfile": {
@@ -100,7 +100,7 @@ W `imageReference` zestawie `storageProfile`skalowania zamiast określania wydaw
            "osProfile": {
 ```
 
-W tym przykładzie `resourceId` użyj funkcji, aby uzyskać identyfikator zasobu obrazu utworzonego w tym samym szablonie. Jeśli obraz dysku zarządzanego został wcześniej utworzony, należy podać identyfikator tego obrazu. Ten identyfikator musi być w `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`formularzu: .
+W tym przykładzie Użyj `resourceId` funkcji, aby pobrać identyfikator zasobu obrazu utworzonego w tym samym szablonie. Jeśli wcześniej utworzono obraz dysku zarządzanego, należy podać identyfikator tego obrazu. Ten identyfikator musi mieć postać: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
 
 
 ## <a name="next-steps"></a>Następne kroki

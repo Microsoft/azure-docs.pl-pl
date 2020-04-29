@@ -1,55 +1,55 @@
 ---
-title: Opis blokowania zasobów
-description: Dowiedz się więcej o opcjach blokowania w planach platformy Azure, aby chronić zasoby podczas przypisywania planu.
+title: Zrozumienie blokowania zasobów
+description: Dowiedz się więcej na temat opcji blokowania w planach platformy Azure w celu ochrony zasobów podczas przypisywania planu.
 ms.date: 03/25/2020
 ms.topic: conceptual
 ms.openlocfilehash: 94ed8efd0d6c654cba129dfc69fbfe5add7a0824
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81383587"
 ---
-# <a name="understand-resource-locking-in-azure-blueprints"></a>Opis blokowania zasobów w planach platformy Azure
+# <a name="understand-resource-locking-in-azure-blueprints"></a>Zrozumienie blokowania zasobów w planach platformy Azure
 
-Tworzenie spójnych środowisk na dużą skalę jest naprawdę cenne tylko wtedy, gdy istnieje mechanizm, aby utrzymać tę spójność. W tym artykule wyjaśniono, jak działa blokowanie zasobów w planach platformy Azure. Aby zobaczyć przykład blokowania zasobów i stosowania _przypisań odmów,_ zobacz samouczek [ochrony nowych zasobów.](../tutorials/protect-new-resources.md)
+Tworzenie spójnych środowisk na dużą skalę jest naprawdę cenne, jeśli istnieje mechanizm zapewnienia spójności. W tym artykule wyjaśniono, jak blokada zasobów działa w planach platformy Azure. Aby zapoznać się z przykładem blokowania zasobów i stosowania _przypisań Odmów_, zobacz artykuł [Ochrona nowych zasobów](../tutorials/protect-new-resources.md) .
 
 > [!NOTE]
-> Blokady zasobów wdrożone przez plany platformy Azure są stosowane tylko do zasobów wdrożonych przez przypisanie planu. Istniejące zasoby, takie jak te w grupach zasobów, które już istnieją, nie mają blokad dodanych do nich.
+> Blokady zasobów wdrożone przez plany platformy Azure są stosowane tylko do zasobów wdrożonych przez przypisanie planu. Istniejące zasoby, takie jak te w grupach zasobów, które już istnieją, nie mają do nich dodanych blokad.
 
-## <a name="locking-modes-and-states"></a>Tryby i stany blokowania
+## <a name="locking-modes-and-states"></a>Tryby blokowania i Stany
 
-Tryb blokowania ma zastosowanie do przypisania planu i ma trzy opcje: **Nie blokuj**, **Nie tylko do odczytu**lub **Nie usuwaj**. Tryb blokowania jest skonfigurowany podczas wdrażania artefaktów podczas przypisywania planu. Inny tryb blokowania można ustawić, aktualizując przypisanie planu.
-Tryby blokowania nie można jednak zmienić poza planami platformy Azure.
+Tryb blokowania ma zastosowanie do przypisania planu i ma trzy opcje: **nie blokuj**, **tylko do odczytu**lub nie **usuwaj**. Tryb blokowania jest konfigurowany podczas wdrażania artefaktu podczas jego przypisywania. Inny tryb blokowania można ustawić, aktualizując przypisanie planu.
+Nie można jednak zmienić trybów blokowania poza planami platformy Azure.
 
-Zasoby utworzone przez artefakty w przypisaniu planu mają cztery stany: **Nie zablokowany,** Nie można **edytować,** **usuwać**lub **nie można usunąć**. Każdy typ artefaktu może być w stanie **Nie zablokowany.** Poniższa tabela może służyć do określenia stanu zasobu:
+Zasoby utworzone przez artefakty w przypisaniu planu mają cztery stany: **nie zablokowane**, **tylko do odczytu**, **nie można edytować/usuwać**ani **nie mogą go usunąć**. Każdy typ artefaktu może być w stanie **niezablokowanym** . Poniższa tabela może służyć do określenia stanu zasobu:
 
 |Tryb|Typ zasobu artefaktu|Stan|Opis|
 |-|-|-|-|
-|Nie zamykaj|*|Nie zablokowany|Zasoby nie są chronione przez plany platformy Azure. Ten stan jest również używany dla zasobów dodanych do artefaktu grupy tylko do **odczytu** lub **Nie usuwaj** z zewnątrz przypisania planu.|
-|Tylko do odczytu|Grupa zasobów|Nie można edytować / usunąć|Grupa zasobów jest tylko do odczytu i nie można modyfikować znaczników w grupie zasobów. Nie zablokowane zasoby mogą być **dodawane,** przenoszone, zmieniane lub usuwane z tej grupy zasobów.|
-|Tylko do odczytu|Grupa niebędąca zasobami|Tylko do odczytu|Zasobu nie można w żaden sposób zmienić — bez zmian i nie można go usunąć.|
-|Nie usuwaj|*|Nie można usunąć|Zasoby można zmienić, ale nie można ich usunąć. Nie zablokowane zasoby mogą być **dodawane,** przenoszone, zmieniane lub usuwane z tej grupy zasobów.|
+|Nie blokuj|*|Niezablokowane|Zasoby nie są chronione przez plany platformy Azure. Ten stan jest również używany w przypadku zasobów dodanych do elementu " **tylko do odczytu** " lub nie **usuwaj** artefaktu grupy zasobów spoza przypisania planu.|
+|Tylko do odczytu|Grupa zasobów|Nie można edytować/usunąć|Grupa zasobów jest tylko do odczytu i nie można modyfikować tagów w grupie zasobów. **Niezablokowane** zasoby mogą być dodawane, przenoszone, zmieniane lub usuwane z tej grupy zasobów.|
+|Tylko do odczytu|Grupa niezasobów|Tylko do odczytu|Nie można zmienić zasobu w jakikolwiek sposób — brak zmian i nie można go usunąć.|
+|Nie usuwaj|*|Nie można usunąć|Zasoby można zmienić, ale nie można ich usunąć. **Niezablokowane** zasoby mogą być dodawane, przenoszone, zmieniane lub usuwane z tej grupy zasobów.|
 
-## <a name="overriding-locking-states"></a>Zastępowanie stanów blokowania
+## <a name="overriding-locking-states"></a>Zastępowanie Stanów blokowania
 
-Zazwyczaj jest możliwe dla kogoś z odpowiedniej [kontroli dostępu opartej](../../../role-based-access-control/overview.md) na rolach (RBAC) w subskrypcji, takich jak "Właściciel" roli, aby mieć możliwość zmiany lub usunięcia dowolnego zasobu. Ten dostęp nie jest w przypadku, gdy plany azure stosuje blokowanie w ramach wdrożonego przypisania. Jeśli przypisanie zostało ustawione za pomocą opcji **Tylko do odczytu** lub **Nie usuwaj,** nawet właściciel subskrypcji nie może wykonać zablokowanej akcji na chronionym zasobie.
+Jest to zwykle możliwe dla kogoś z odpowiednią [rolą kontroli dostępu opartej na rolach](../../../role-based-access-control/overview.md) (RBAC) w ramach subskrypcji, takiej jak rola "właściciel", aby umożliwić zmianę lub usunięcie dowolnego zasobu. Ten dostęp nie jest dozwolony w przypadku, gdy plany platformy Azure stosują blokowanie w ramach wdrożonego przypisania. Jeśli przypisanie zostało ustawione przy użyciu opcji **tylko do odczytu** lub **nie usuwaj** , a właściciel subskrypcji może wykonać zablokowaną akcję dla chronionego zasobu.
 
-Ten środek zabezpieczeń chroni spójność zdefiniowanego planu i środowiska, które zostało zaprojektowane do tworzenia przed przypadkowym lub programowym usunięciem lub zmianą.
+Ten środek zabezpieczeń chroni spójność zdefiniowanego planu i środowiska, które zostało zaprojektowane do tworzenia z przypadkowego lub programowego usunięcia lub zmiany.
 
-### <a name="assign-at-management-group"></a>Przypisywanie w grupie zarządzania
+### <a name="assign-at-management-group"></a>Przypisz w grupie zarządzania
 
-Dodatkową opcją, aby uniemożliwić właścicielom subskrypcji usunięcie przypisania planu, jest przypisanie planu do grupy zarządzania. W tym scenariuszu tylko **właściciele** grupy zarządzania mają uprawnienia potrzebne do usunięcia przypisania planu.
+Dodatkowa opcja uniemożliwiająca właścicielom subskrypcji usuwanie przypisania strategii polega na przypisaniu planu do grupy zarządzania. W tym scenariuszu tylko **właściciele** grupy zarządzania mają uprawnienia, które są konieczne do usunięcia przypisania planu.
 
-Aby przypisać plan do grupy zarządzania zamiast subskrypcji, wywołanie interfejsu API REST zmienia się w następującą o następującej wyglądzie:
+Aby przypisać plan do grupy zarządzania zamiast subskrypcji, wywołanie interfejsu API REST zmieni się, aby wyglądać następująco:
 
 ```http
 PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{assignmentMG}/providers/Microsoft.Blueprint/blueprintAssignments/{assignmentName}?api-version=2018-11-01-preview
 ```
 
-Grupa zarządzania `{assignmentMG}` zdefiniowana przez musi znajdować się w hierarchii grupy zarządzania lub być tą samą grupą zarządzania, w której jest zapisywana definicja planu.
+Grupa zarządzania zdefiniowana przez `{assignmentMG}` musi znajdować się w hierarchii grupy zarządzania lub być tą samą grupą zarządzania, w której jest zapisywana definicja planu.
 
-Treść żądania przypisania planu wygląda następująco:
+Treść żądania przypisania strategii wygląda następująco:
 
 ```json
 {
@@ -85,39 +85,39 @@ Treść żądania przypisania planu wygląda następująco:
 }
 ```
 
-Kluczową różnicą w tej treści żądania i jeden `properties.scope` jest przypisany do subskrypcji jest właściwością. Ta wymagana właściwość musi być ustawiona na subskrypcję, do których ma zastosowanie przypisanie planu. Subskrypcja musi być bezpośrednim podrzędnym hierarchii grupy zarządzania, w którym jest przechowywane przypisanie planu.
+Kluczową różnicą w tej treści żądania i jedną przypisaną do subskrypcji jest `properties.scope` właściwość. Ta wymagana właściwość musi być ustawiona na subskrypcję, do której ma zastosowanie przypisanie planu. Subskrypcja musi być bezpośrednim elementem podrzędnym hierarchii grupy zarządzania, w której jest przechowywane przypisanie planu.
 
 > [!NOTE]
-> Plan przypisany do zakresu grupy zarządzania nadal działa jako przypisanie planu poziomu subskrypcji. Jedyną różnicą jest, gdzie przypisanie planu jest przechowywany, aby uniemożliwić właścicielom subskrypcji usunięcie przypisania i skojarzonych blokad.
+> Plan przypisany do zakresu grupy zarządzania nadal działa jako przypisanie strategii na poziomie subskrypcji. Jedyną różnicą jest to, że przypisanie strategii jest przechowywane, aby uniemożliwić właścicielom subskrypcji usuwanie przypisania i skojarzonych blokad.
 
-## <a name="removing-locking-states"></a>Usuwanie stanów blokowania
+## <a name="removing-locking-states"></a>Usuwanie Stanów blokowania
 
-Jeśli konieczne staje się zmodyfikowanie lub usunięcie zasobu chronionego przez przypisanie, istnieją dwa sposoby, aby to zrobić.
+Jeśli konieczna będzie modyfikacja lub usunięcie zasobu chronionego przez przypisanie, istnieją dwa sposoby tego celu.
 
 - Aktualizowanie przypisania planu do trybu blokowania **nie blokuj**
-- Usuwanie przypisania planu
+- Usuń przypisanie planu
 
-Po usunięciu przypisania blokady utworzone przez plany platformy Azure są usuwane. Jednak zasób pozostaje w tyle i musiałby zostać usunięty za pomocą zwykłych środków.
+Po usunięciu przypisania blokady utworzone przez plany platformy Azure są usuwane. Zasób jest jednak pozostawiony i musi zostać usunięty w normalny sposób.
 
-## <a name="how-blueprint-locks-work"></a>Jak działają blokady planu
+## <a name="how-blueprint-locks-work"></a>Jak działają blokowane plany
 
-Akcja [odmowy odmowy rbac](../../../role-based-access-control/deny-assignments.md) jest stosowana do zasobów artefaktów podczas przypisywania planu, jeśli w zadaniu wybrano opcję **Tylko do odczytu** lub **Nie usuwaj.** Akcja odmowy jest dodawana przez zarządzaną tożsamość przypisania planu i może zostać usunięta z zasobów artefaktu tylko przez tę samą tożsamość zarządzaną. Ten środek zabezpieczeń wymusza mechanizm blokowania i zapobiega usunięciu blokady planu poza planami platformy Azure.
+Akcja Odmów [przypisania](../../../role-based-access-control/deny-assignments.md) kontroli RBAC jest stosowana do zasobów artefaktu podczas przypisywania planu, jeśli przypisanie zabrało opcję **tylko do odczytu** lub **nie usuwaj** . Akcja Odmów jest dodawana przez zarządzaną tożsamość przypisania planu i może zostać usunięta tylko z zasobów artefaktów przez tę samą tożsamość zarządzaną. Ta miara zabezpieczeń wymusza mechanizm blokowania i uniemożliwia usunięcie blokady planu poza planami platformy Azure.
 
-:::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Przypisanie odmowy planu w grupie zasobów" border="false":::
+:::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Zablokuj przypisanie do grupy zasobów" border="false":::
 
-[Właściwości przypisania odmowy](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) każdego trybu są następujące:
+[Właściwości przypisania Odmów](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) dla każdego trybu są następujące:
 
-|Tryb |Uprawnienia.Akcje |Uprawnienia.NotActions |Zleceniodawcy[i]. Typu |ExcludePrincipals[i]. Identyfikator | DoNotApplyToChildScopes |
+|Tryb |Uprawnienia. akcje |Uprawnienia. nonaruszone |Podmioty zabezpieczeń [i]. Wprowadź |ExcludePrincipals [i]. #C1 | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Tylko do odczytu |**\*** |**\*/czytaj** |SystemDefiniowany (wszyscy) |przypisanie planu i zdefiniowane przez użytkownika w **wykluczonychPrincipals** |Grupa zasobów — _true_; Zasób — _fałsz_ |
-|Nie usuwaj |**\*/delete** | |SystemDefiniowany (wszyscy) |przypisanie planu i zdefiniowane przez użytkownika w **wykluczonychPrincipals** |Grupa zasobów — _true_; Zasób — _fałsz_ |
+|Tylko do odczytu |**\*** |**\*/read** |SystemDefined (wszyscy) |przypisanie strategii i zdefiniowane przez użytkownika w **excludedPrincipals** |Grupa zasobów — _true_; Zasób — _Fałsz_ |
+|Nie usuwaj |**\*/** | |SystemDefined (wszyscy) |przypisanie strategii i zdefiniowane przez użytkownika w **excludedPrincipals** |Grupa zasobów — _true_; Zasób — _Fałsz_ |
 
 > [!IMPORTANT]
-> Usługa Azure Resource Manager buforuje szczegóły przypisania roli przez maksymalnie 30 minut. W rezultacie odmowa przypisania odmówić akcji na zasoby planu nie może być natychmiast w pełni skuteczne. W tym okresie może być możliwe usunięcie zasobu przeznaczonego do ochrony przez blokady planu.
+> Azure Resource Manager buforuje Szczegóły przydziału roli przez maksymalnie 30 minut. W związku z tym odmowa akcji Odmów przypisań na zasoby strategii może nie być od razu całkowicie w pełni funkcjonalna. W tym czasie może być możliwe usunięcie zasobu przeznaczonego do ochrony przez blokady planu.
 
-## <a name="exclude-a-principal-from-a-deny-assignment"></a>Wykluczanie głównego zobowiązanego z przypisania odmowy
+## <a name="exclude-a-principal-from-a-deny-assignment"></a>Wyklucz podmiot zabezpieczeń z przypisania Odmów
 
-W niektórych scenariuszach projektowania lub zabezpieczeń może być konieczne wykluczenie podmiotu zabezpieczeń z [przypisania odmowy,](../../../role-based-access-control/deny-assignments.md) które tworzy przypisanie planu. Ten krok jest wykonywany w interfejsie API REST przez dodanie maksymalnie pięciu wartości do **tablicy excludedPrincipals** we właściwości **blokad** podczas [tworzenia przypisania](/rest/api/blueprints/assignments/createorupdate). Następująca definicja przypisania jest przykładem treści żądania, która zawiera **excludedPrincipals:**
+W niektórych scenariuszach projektowych lub zabezpieczających może być konieczne wykluczenie podmiotu zabezpieczeń z [przydziału Odmów](../../../role-based-access-control/deny-assignments.md) , które tworzy. Ten krok jest realizowany w interfejsie API REST przez dodanie maksymalnie pięciu wartości do tablicy **excludedPrincipals** we właściwości **Locks** podczas [tworzenia przypisania](/rest/api/blueprints/assignments/createorupdate). Następująca definicja przypisania jest przykładem treści żądania, która zawiera **excludedPrincipals**:
 
 ```json
 {
@@ -159,9 +159,9 @@ W niektórych scenariuszach projektowania lub zabezpieczeń może być konieczne
 }
 ```
 
-## <a name="exclude-an-action-from-a-deny-assignment"></a>Wykluczanie akcji z przypisania odmowy
+## <a name="exclude-an-action-from-a-deny-assignment"></a>Wyklucz akcję z przypisania odmowy
 
-Podobnie jak [wykluczając podmiot zabezpieczeń](#exclude-a-principal-from-a-deny-assignment) przy [przypisaniu odmowy](../../../role-based-access-control/deny-assignments.md) w przypisaniu planu, można wykluczyć określone [operacje RBAC](../../../role-based-access-control/resource-provider-operations.md). W obrębie bloku **properties.locks,** w tym samym miejscu, w które **wykluczonePrincipals** **jest, excludedActions** można dodać:
+Podobnie jak w przypadku [wykluczenia podmiotu zabezpieczeń](#exclude-a-principal-from-a-deny-assignment) [w przypisaniu planu](../../../role-based-access-control/deny-assignments.md) , można wykluczyć określone [operacje RBAC](../../../role-based-access-control/resource-provider-operations.md). W bloku **właściwości. blokady** w tym samym miejscu, w którym znajduje się **excludedPrincipals** , można dodać **excludedActions** :
 
 ```json
 "locks": {
@@ -177,12 +177,12 @@ Podobnie jak [wykluczając podmiot zabezpieczeń](#exclude-a-principal-from-a-de
 },
 ```
 
-Chociaż **excludedPrincipals** musi być jawne, **excludedActions wpisy** mogą używać `*` do dopasowywania symboli wieloznacznych operacji RBAC.
+Chociaż **excludedPrincipals** musi być jawne, wpisy **excludedActions** mogą używać `*` do dopasowania symboli wieloznacznych operacji RBAC.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Postępuj zgodnie z samouczka [ochrony nowych zasobów.](../tutorials/protect-new-resources.md)
-- Dowiedz się więcej o [cyklu życia planu](lifecycle.md).
+- Postępuj zgodnie z samouczkiem [Ochrona nowych zasobów](../tutorials/protect-new-resources.md) .
+- Uzyskaj informacje na temat [cyklu życia strategii](lifecycle.md).
 - Dowiedz się, jak używać [parametrów statycznych i dynamicznych](parameters.md).
 - Dowiedz się, jak dostosować [kolejność sekwencjonowania strategii](sequencing-order.md).
 - Dowiedz się, jak [zaktualizować istniejące przypisania](../how-to/update-existing-assignments.md).

@@ -1,7 +1,7 @@
 ---
-title: Podstawy syntezy mowy - Obsługa mowy
+title: Podstawy syntezy mowy — usługa mowy
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak za pomocą SDK mowy do konwertowania tekstu na mowę. W tym artykule dowiesz się o konstrukcji obiektów, obsługiwanych formatach wyjściowych audio i niestandardowych opcjach konfiguracji syntezy mowy.
+description: Dowiedz się, jak używać zestawu Speech SDK do konwersji zamiany tekstu na mowę. Ten artykuł zawiera informacje na temat konstruowania obiektów, obsługiwanych formatów danych wyjściowych audio oraz niestandardowych opcji konfiguracji dla syntezy mowy.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -12,23 +12,23 @@ ms.date: 04/14/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-sixteen
 ms.openlocfilehash: 74f762dd0004bf72b703d0f611a16762b1ff028d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81399544"
 ---
 # <a name="learn-the-basics-of-speech-synthesis"></a>Poznaj podstawy syntezy mowy
 
-W tym artykule nauczysz się typowych wzorców projektowych do wykonywania syntezy tekstu na mowę przy użyciu SDK mowy. Zacznij od podstawowej konfiguracji i syntezy i przejdź do bardziej zaawansowanych przykładów tworzenia aplikacji niestandardowych, w tym:
+W tym artykule przedstawiono typowe wzorce projektowania służące do wykonywania syntezy zamiany tekstu na mowę przy użyciu zestawu Speech SDK. Najpierw należy wykonać podstawowe czynności konfiguracyjne i synteza, a następnie przejść do bardziej zaawansowanych przykładów tworzenia aplikacji niestandardowych, takich jak:
 
 * Uzyskiwanie odpowiedzi jako strumieni w pamięci
-* Dostosowywanie częstotliwości próbkowania danych wyjściowych i szybkości transmisji bitów
-* Przesyłanie żądań syntezy przy użyciu SSML (język znaczników syntezy mowy)
+* Dostosowywanie szybkości próbkowania danych wyjściowych i szybkości transmisji bitów
+* Przesyłanie żądań syntezy przy użyciu SSML (język oznaczeń syntezy mowy)
 * Korzystanie z głosów neuronowych
 
 > [!TIP]
-> Jeśli nie miałeś okazji ukończyć jednego z naszych szybkich startów, zachęcamy do kopania opon i wypróbowania rozpoznawania mowy dla siebie.
+> Jeśli nie masz możliwości wykonania jednego z naszych przewodników Szybki Start, zachęcamy do rozpoczęcia opon i wypróbowania rozpoznawania mowy dla siebie.
 > * [Rozpoznawanie mowy przy użyciu mikrofonu](quickstarts/text-to-speech.md)
 
 ::: zone pivot="programming-language-csharp"

@@ -1,6 +1,6 @@
 ---
 title: Zapora aplikacji sieci Web platformy Azure — często zadawane pytania
-description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Zapory aplikacji sieci Web w drzwiach frontowych platformy Azure
+description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące zapory aplikacji sieci Web na platformie Azure
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -9,72 +9,72 @@ ms.topic: article
 ms.date: 09/25/2019
 ms.author: victorh
 ms.openlocfilehash: fefbb038cec0c061f1fd191a77164880372555a0
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81314320"
 ---
-# <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Często zadawane pytania dotyczące Zapory aplikacji sieci Web platformy Azure w usłudze Azure Front Door Service
+# <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Często zadawane pytania dotyczące zapory aplikacji sieci Web platformy Azure w usłudze Azure Front-drzwiczk
 
-Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące funkcji i funkcji zapory aplikacji sieci Web platformy Azure (WAF). 
+W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące funkcji i funkcji zapory aplikacji sieci Web (WAF) platformy Azure. 
 
-## <a name="what-is-azure-waf"></a>Co to jest azure WAF?
+## <a name="what-is-azure-waf"></a>Co to jest Azure WAF?
 
-Usługa Azure WAF to zapora aplikacji sieci web, która pomaga chronić aplikacje sieci web przed typowymi zagrożeniami, takimi jak iniekcja SQL, skrypty między witrynami i inne exploity sieci Web. Można zdefiniować zasady WAF składające się z kombinacji reguł niestandardowych i zarządzanych, aby kontrolować dostęp do aplikacji sieci web.
+Azure WAF to Zapora aplikacji sieci Web, która pomaga chronić aplikacje sieci Web przed typowymi zagrożeniami, takimi jak iniekcja SQL, skrypty między lokacjami i inne sieci Web. Można zdefiniować zasady WAF, które składają się z kombinacji reguł niestandardowych i zarządzanych w celu kontrolowania dostępu do aplikacji sieci Web.
 
-Zasady usługi Azure WAF można zastosować do aplikacji sieci web hostowanych w usłudze Application Gateway lub Azure Front Doors.
+Zasady usługi Azure WAF można stosować do aplikacji sieci Web hostowanych na Application Gateway lub na drzwiach frontonu platformy Azure.
 
-## <a name="what-is-waf-on-azure-front-door"></a>Co to jest usługa WAF w drzwiach frontowych platformy Azure? 
+## <a name="what-is-waf-on-azure-front-door"></a>Co to jest WAF na platformie Azure — drzwiczki? 
 
-Usługa Azure Front Door to wysoce skalowalna, globalnie rozproszona sieć dostarczania aplikacji i zawartości. Usługa Azure WAF, po zintegrowaniu z drzwiami frontowymi, zatrzymuje ataki typu "odmowa usługi" i ukierunkowane aplikacje na krawędzi sieci platformy Azure, blisko źródeł ataków przed wejściem do sieci wirtualnej, oferuje ochronę bez utraty wydajności.
+Drzwi frontonu platformy Azure to wysoce skalowalna, globalnie dystrybuowana aplikacja i usługa Content Delivery Network. Usługa Azure WAF, która jest zintegrowana z przednim Drzwiem, kończy ataki typu "odmowa usługi" i "ukierunkowane na aplikacje" na granicy sieci platformy Azure, a przed wprowadzeniem sieci wirtualnej zapewnia ochronę bez utraty wydajności.
 
 ## <a name="does-azure-waf-support-https"></a>Czy usługa Azure WAF obsługuje protokół HTTPS?
 
-Drzwi wejściowe oferują rozładowywanie TLS. WAF jest natywnie zintegrowany z drzwiami frontowymi i może sprawdzić żądanie po jego odszyfrowaniu.
+Drzwi przednich oferują odciążanie protokołu TLS. WAF jest natywnie zintegrowana z przednimi drzwiami i może sprawdzić żądanie po jego odszyfrowaniu.
 
-## <a name="does-azure-waf-support-ipv6"></a>Czy usługa Azure WAF obsługuje IPv6?
+## <a name="does-azure-waf-support-ipv6"></a>Czy usługa Azure WAF obsługuje protokół IPv6?
 
-Tak. Ograniczenie protokołu IP można skonfigurować dla protokołu IPv4 i IPv6.
+Tak. Można skonfigurować ograniczenie adresów IP dla protokołów IPv4 i IPv6.
 
-## <a name="how-up-to-date-are-the-managed-rule-sets"></a>Jak aktualne są zestawy reguł zarządzanych?
+## <a name="how-up-to-date-are-the-managed-rule-sets"></a>Jak aktualne są zarządzane zestawy reguł?
 
-Dokładamy wszelkich starań, aby nadążyć za zmieniającym się krajobrazem zagrożeń. Po zaktualizowaniu nowej reguły jest dodawana do domyślnego zestawu reguł z nowym numerem wersji.
+Naszym najlepszym rozwiązaniem jest zmiana krajobrazu zagrożenia. Po zaktualizowaniu nowej reguły zostanie ona dodana do domyślnego zestawu reguł przy użyciu nowego numeru wersji.
 
-## <a name="what-is-the-propagation-time-if-i-make-a-change-to-my-waf-policy"></a>Jaki jest czas propagacji, jeśli zmienię zasady WAF?
+## <a name="what-is-the-propagation-time-if-i-make-a-change-to-my-waf-policy"></a>Jaki jest czas propagacji w przypadku wprowadzenia zmiany zasad WAFymi?
 
-Wdrażanie zasad WAF globalnie zwykle trwa około 5 minut i często kończy się wcześniej.
+Wdrożenie zasad WAF globalnie zwykle trwa około 5 minut i często kończy się wkrótce.
 
 ## <a name="can-waf-policies-be-different-for-different-regions"></a>Czy zasady WAF mogą być różne dla różnych regionów?
 
-Po zintegrowaniu z drzwiami frontowymi WAF jest zasobem globalnym. Ta sama konfiguracja ma zastosowanie we wszystkich lokalizacjach drzwi przednich.
+Po zintegrowaniu z przednim drzwi WAF jest zasobem globalnym. Ta sama konfiguracja ma zastosowanie do wszystkich miejsc z przodu.
  
-## <a name="how-do-i-limit-access-to-my-back-end-to-be-from-front-door-only"></a>Jak ograniczyć dostęp do zaplecza, aby był tylko z drzwi wejściowych?
+## <a name="how-do-i-limit-access-to-my-back-end-to-be-from-front-door-only"></a>Jak mogę ograniczyć dostęp do mojego zaplecza tylko z przodu?
 
-Można skonfigurować listę kontroli dostępu do adresów IP w zapleczu, aby umożliwić tylko wychodzące zakresy adresów IP drzwiami frontowymi i odmówić bezpośredniego dostępu z Internetu. Tagi usługi są obsługiwane do użycia w sieci wirtualnej. Ponadto można sprawdzić, czy pole nagłówka HTTP hosta X-Forwarded-Host jest prawidłowe dla aplikacji sieci web.
+Możesz skonfigurować listę Access Control IP w zapleczu, aby zezwolić tylko na wychodzące zakresy adresów IP z przodu i odmówić dostępu z Internetu. Tagi usług są obsługiwane, aby można było używać ich w sieci wirtualnej. Ponadto możesz sprawdzić, czy pole nagłówka HTTP X-forwardd-host jest prawidłowe dla Twojej aplikacji sieci Web.
 
-## <a name="which-azure-waf-options-should-i-choose"></a>Które opcje usługi Azure WAF wybrać?
+## <a name="which-azure-waf-options-should-i-choose"></a>Które opcje usługi Azure WAF należy wybrać?
 
-Istnieją dwie opcje podczas stosowania zasad usługi WAF na platformie Azure. WAF z usługą Azure Front Door to globalnie rozproszone rozwiązanie zabezpieczające dla krawędzi. WAF z bramą aplikacji to regionalne, dedykowane rozwiązanie. Zalecamy wybranie rozwiązania na podstawie ogólnych wymagań dotyczących wydajności i zabezpieczeń. Aby uzyskać więcej informacji, zobacz [Równoważenie obciążenia za pomocą pakietu dostarczania aplikacji platformy Azure.](https://docs.microsoft.com/azure/frontdoor/front-door-lb-with-azure-app-delivery-suite)
+Istnieją dwie opcje stosowania zasad WAFymi na platformie Azure. WAF z platformą Azure front-drzwi to globalne, rozproszone rozwiązanie do zabezpieczeń. WAF with Application Gateway to regionalne, dedykowane rozwiązanie. Zalecamy wybranie rozwiązania na podstawie ogólnych wymagań dotyczących wydajności i zabezpieczeń. Aby uzyskać więcej informacji, zobacz [równoważenie obciążenia przy użyciu pakietu dostarczania aplikacji platformy Azure](https://docs.microsoft.com/azure/frontdoor/front-door-lb-with-azure-app-delivery-suite).
 
 
-## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>Czy obsługujesz te same funkcje WAF na wszystkich zintegrowanych platformach?
+## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>Czy te same funkcje WAF są obsługiwane we wszystkich zintegrowanych platformach?
 
-Obecnie reguły ModSec CRS 2.2.9, CRS 3.0 i CRS 3.1 są obsługiwane tylko w u portalu aplikacji WAF. Reguły domyślnego zestawu reguł z ograniczeniem stawek, filtrowaniem geograficznym i zarządzaniem platformą Azure są obsługiwane tylko w usłudze WAF w drzwiach frontowych platformy Azure.
+Obecnie reguły ModSec KSR 2.2.9, KSR 3,0 i KSR 3,1 są obsługiwane tylko w Application Gateway. Reguły ograniczania, filtrowania geograficznego i zarządzanego zestawu reguł platformy Azure są obsługiwane tylko w przypadku WAF na platformie Azure.
 
-## <a name="is-ddos-protection-integrated-with-front-door"></a>Czy ochrona Przed Atakami DDoS jest zintegrowana z drzwiami przednimi? 
+## <a name="is-ddos-protection-integrated-with-front-door"></a>Czy ochrona DDoS jest zintegrowana z przednimi drzwiami? 
 
-Usługa Azure Front Door, która jest globalnie rozpowszechniana na krawędziach sieci platformy Azure, może absorbować i geograficznie izolować ataki dużych woluminów. Można utworzyć niestandardowe zasady WAF, aby automatycznie blokować i ograniczać szybkość ataków http(ów), które mają znane podpisy. Ponadto można włączyć standard ochrony przed atakami DDoS w sieci wirtualnej, w której są wdrażane zaplecze. Klienci standardu Ochrony DDoS platformy Azure otrzymują dodatkowe korzyści, w tym ochronę kosztów, gwarancję umowy SLA i dostęp do ekspertów z zespołu szybkiego reagowania DDoS, aby uzyskać natychmiastową pomoc podczas ataku.
+Ogólnie dystrybuowane na krawędziach sieci platformy Azure, drzwi frontonu platformy Azure mogą wchłonąć i geograficznie izolować duże ataki. Można utworzyć niestandardowe zasady WAF, aby automatycznie blokować i ograniczać liczbę ataków http (s), które mają znane sygnatury. Więcej informacji można DDoS Protection włączyć w sieci wirtualnej, w której zostaną wdrożone zaplecza. Klienci w Azure DDoS Protection standard otrzymują dodatkowe korzyści, w tym ochronę kosztów, gwarancję SLA i dostęp do ekspertów z zespołu szybkiego reagowania na DDoS w celu uzyskania natychmiastowej pomocy w trakcie ataku.
 
-## <a name="why-do-additional-requests-above-the-threshold-configured-for-my-rate-limit-rule-get-passed-to-my-backend-server"></a>Dlaczego dodatkowe żądania powyżej progu skonfigurowane dla reguły limitu szybkości są przekazywane do mojego serwera wewnętrznej bazy danych?
+## <a name="why-do-additional-requests-above-the-threshold-configured-for-my-rate-limit-rule-get-passed-to-my-backend-server"></a>Dlaczego dodatkowe żądania powyżej progu skonfigurowanego dla reguły limitu szybkości są przenoszone do serwera wewnętrznej bazy danych?
 
-Reguła limitu szybkości może ograniczyć nienormalnie duży ruch z dowolnego adresu IP klienta. Można skonfigurować próg liczby żądań sieci web dozwolonych z adresu IP klienta w czasie jednej minuty lub pięciu minut. W przypadku kontroli szybkości szczegółowej ograniczanie szybkości można łączyć z dodatkowymi warunkami dopasowania, takimi jak dopasowywanie parametrów HTTP(S). 
+Reguła limitu szybkości może ograniczyć nietypowy ruch z dowolnego adresu IP klienta. Można skonfigurować próg liczby żądań sieci Web dozwolonych przez adres IP klienta w ciągu jednej minuty lub pięciu minut. W przypadku kontroli nad wskaźnikiem szczegółowości można łączyć ograniczenia szybkości z dodatkowymi warunkami dopasowania, takimi jak dopasowanie parametrów HTTP (S). 
 
-Żądania od tego samego klienta często docierają do tego samego serwera drzwi frontowych. W takim przypadku zobaczysz dodatkowe żądania powyżej progu natychmiast zablokować. 
+Żądania od tego samego klienta często docierają do tego samego serwera front-drzwi. W takim przypadku zobaczysz dodatkowe żądania powyżej progu natychmiastowego zablokowania. 
 
-Jednak jest możliwe, że żądania od tego samego klienta mogą dotrzeć do innego serwera drzwiach frontowych, który nie odświeżył jeszcze licznika limitu szybkości. Na przykład klient może otworzyć nowe połączenie dla każdego żądania, a próg jest niski. W takim przypadku pierwsze żądanie do nowego serwera drzwiach frontowych przejdzie sprawdzanie limitu szybkości. Próg limitu szybkości jest zwykle ustawiony na wysoki, aby bronić się przed atakami typu "odmowa usługi" z dowolnego adresu IP klienta. W przypadku bardzo niskiego progu mogą zostać wyświetlene dodatkowe żądania powyżej progu.
+Jednak jest możliwe, że żądania od tego samego klienta mogą dotrzeć do innego serwera frontonu, który nie odświeżył jeszcze licznika Limit szybkości. Na przykład klient może otworzyć nowe połączenie dla każdego żądania, a wartość progowa jest niska. W takim przypadku pierwsze żądanie do nowego serwera frontonu przejdzie do sprawdzenia limitu szybkości. Próg limitu szybkości jest zwykle ustawiony na wartość wysoki, aby chronić przed atakami typu "odmowa usługi" z dowolnego adresu IP klienta. W przypadku bardzo niskich progów mogą pojawić się dodatkowe żądania powyżej progu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [Zaporze aplikacji sieci Web platformy Azure](../overview.md).
-- Dowiedz się więcej o [drzwiach frontowych platformy Azure](../../frontdoor/front-door-overview.md).
+- Dowiedz się więcej o [zaporze aplikacji sieci Web platformy Azure](../overview.md).
+- Dowiedz się więcej na temat [zewnętrznych drzwi platformy Azure](../../frontdoor/front-door-overview.md).

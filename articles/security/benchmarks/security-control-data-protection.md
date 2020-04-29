@@ -1,6 +1,6 @@
 ---
-title: Kontrola zabezpieczeń platformy Azure — ochrona danych
-description: Ochrona danych kontroli zabezpieczeń platformy Azure
+title: Kontrola zabezpieczeń platformy Azure — Ochrona danych
+description: Ochrona danych w usłudze Azure Security Control
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
@@ -8,127 +8,127 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 035894c80e619851264aae91daa2d7852d156964
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81408544"
 ---
-# <a name="security-control-data-protection"></a>Kontrola bezpieczeństwa: Ochrona danych
+# <a name="security-control-data-protection"></a>Kontrola zabezpieczeń: Ochrona danych
 
-Zalecenia dotyczące ochrony danych koncentrują się na rozwiązywaniu problemów związanych z szyfrowaniem, listami kontroli dostępu, kontrolą dostępu opartą na tożsamości i rejestrowaniem inspekcji w celu uzyskania dostępu do danych.
+Zalecenia dotyczące ochrony danych koncentrują się na rozwiązywaniu problemów dotyczących szyfrowania, list kontroli dostępu, kontroli dostępu opartej na tożsamościach i rejestrowania inspekcji dostępu do danych.
 
-## <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Prowadzenie wykazu informacji poufnych
+## <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: przechowywanie spisu poufnych informacji
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4.1 | 13.1 | Klient |
+| 4.1 | 13,1 | Klient |
 
-Tagi ułatwią śledzenie zasobów platformy Azure, które przechowują lub przetwarzają poufne informacje.
+Użyj tagów, aby pomóc w śledzeniu zasobów platformy Azure, które przechowują lub przetwarzają informacje poufne.
 
-- [Jak tworzyć i używać tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-## <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: Systemy izolowania przechowujące lub przetwarzające informacje poufne
+## <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: Izoluj systemy przechowujące lub przetwarzające informacje poufne
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4.2 | 13.2, 2.10 | Klient |
+| 4.2 | 13,2, 2,10 | Klient |
 
-Zaimplementuj izolację przy użyciu oddzielnych subskrypcji i grup zarządzania dla poszczególnych domen zabezpieczeń, takich jak typ środowiska i poziom wrażliwości danych. Można ograniczyć poziom dostępu do zasobów platformy Azure, które wymagają aplikacji i środowisk korporacyjnych. Możesz kontrolować dostęp do zasobów platformy Azure za pomocą kontroli dostępu opartej na rolach usługi Azure Active Directory. 
+Zaimplementuj izolację przy użyciu osobnych subskrypcji i grup zarządzania dla poszczególnych domen zabezpieczeń, takich jak typ środowiska i poziom czułości danych. Możesz ograniczyć poziom dostępu do zasobów platformy Azure, których wymagają aplikacje i środowiska korporacyjne. Dostęp do zasobów platformy Azure można kontrolować za pośrednictwem Azure Active Directory kontroli dostępu opartej na rolach. 
 
 - [Jak utworzyć dodatkowe subskrypcje platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
-- [Jak utworzyć grupy zarządzania](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Jak utworzyć Grupy zarządzania](https://docs.microsoft.com/azure/governance/management-groups/create)
 
-- [Jak tworzyć i używać tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-## <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3: Monitorowanie i blokowanie nieautoryzowanego przesyłania poufnych informacji
+## <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4,3: Monitoruj i blokuj nieautoryzowany transfer informacji poufnych
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4.3 | 13.3 | Udostępnione |
+| 4.3 | 13,3 | Shared |
 
-Korzystaj z rozwiązania innej firmy z portalu Azure Marketplace na obwodach sieci, które monitoruje nieautoryzowane przesyłanie poufnych informacji i blokuje takie transfery, jednocześnie ostrzegając specjalistów od zabezpieczeń informacji.
+Skorzystaj z rozwiązania innej firmy w witrynie Azure Marketplace w sieci obwodowej, które monitoruje do nieautoryzowanego transferu poufnych informacji i blokuje takie transfery podczas powiadamiania specjalistów ds. bezpieczeństwa informacji.
 
-W przypadku podstawowej platformy zarządzanej przez firmę Microsoft firma Microsoft traktuje całą zawartość klienta jako wrażliwą i chroni przed utratą i narażeniem danych klientów. Aby zapewnić bezpieczeństwo danych klientów na platformie Azure, firma Microsoft wdrożyła i utrzymuje zestaw niezawodnych mechanizmów kontroli i możliwości ochrony danych.
+W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Microsoft traktuje całą zawartość klienta jako poufną i chroniącą przed utratą i narażeniem danych przez klienta. Aby zapewnić bezpieczeństwo danych klienta na platformie Azure, firma Microsoft wdrożyła i utrzymuje pakiet niezawodnych kontroli i możliwości ochrony danych.
 
-- [Opis ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Zrozumienie ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-## <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Szyfrowanie wszystkich poufnych informacji podczas przesyłania
+## <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: Szyfruj wszystkie poufne informacje podczas przesyłania
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4.4 | 14.4 | Udostępnione |
+| 4.4 | 14,4 | Shared |
 
-Szyfruj wszystkie poufne informacje podczas przesyłania. Upewnij się, że klienci łączący się z zasobami platformy Azure są w stanie negocjować TLS 1.2 lub więcej.
+Szyfruj wszystkie poufne informacje podczas przesyłania. Upewnij się, że wszyscy klienci łączący się z zasobami platformy Azure mogą negocjować protokół TLS 1,2 lub nowszy.
 
-W stosownych przypadkach należy postępować zgodnie z zaleceniami usługi Azure Security Center dotyczącymi szyfrowania w spoczynku i szyfrowania podczas przesyłania.
+Postępuj zgodnie z zaleceniami Azure Security Center na potrzeby szyfrowania w czasie spoczynku i szyfrowania podczas przesyłania, jeśli ma to zastosowanie.
 
-- [Opis szyfrowania podczas przesyłania za pomocą platformy Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Informacje o szyfrowaniu podczas przesyłania na platformę Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
 
-## <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: Identyfikowanie poufnych danych za pomocą aktywnego narzędzia do wykrywania
+## <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4,5: Użyj aktywnego narzędzia do odnajdywania, aby identyfikować poufne dane
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4.5 | 14.5 | Udostępnione |
+| 4.5 | 14,5 | Shared |
 
-Jeśli żadna funkcja nie jest dostępna dla określonej usługi na platformie Azure, użyj aktywnego narzędzia do odnajdywania innych firm, aby zidentyfikować wszystkie poufne informacje przechowywane, przetwarzane lub przesyłane przez systemy technologiczne organizacji, w tym te znajdujące się na miejscu lub u zdalnego dostawcy usług, i zaktualizować spis poufnych informacji organizacji.
+Jeśli dla konkretnej usługi na platformie Azure nie jest dostępna żadna funkcja, użyj narzędzia do odnajdywania aktywnego innej firmy, aby zidentyfikować wszystkie informacje poufne przechowywane, przetwarzane lub przekazywane przez systemy technologiczne organizacji, w tym te znajdujące się w lokacji lub u dostawcy usług zdalnych, a także aktualizować spis informacji poufnych organizacji.
 
-Usługa Azure Information Protection umożliwia identyfikowanie poufnych informacji w dokumentach usługi Office 365.
+Użyj Azure Information Protection, aby identyfikować poufne informacje w dokumentach pakietu Office 365.
 
-Użyj usługi Azure SQL Information Protection, aby pomóc w klasyfikacji i etykietowaniu informacji przechowywanych w bazach danych SQL azure.
+Użyj usługi Azure SQL Information Protection, aby pomóc w klasyfikacji i etykietowania informacji przechowywanych w bazach danych Azure SQL Database.
 
-- [Jak zaimplementować usługę Azure SQL Data Discovery](https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification)
+- [Jak wdrożyć usługę Azure SQL Data Discovery](https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification)
 
-- [Jak zaimplementować usługę Azure Information Protection](https://docs.microsoft.com/azure/information-protection/deployment-roadmap)
+- [Jak zaimplementować Azure Information Protection](https://docs.microsoft.com/azure/information-protection/deployment-roadmap)
 
-- [Opis ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Zrozumienie ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-## <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Korzystanie z kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
+## <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4.6 | 14.6 | Klient |
+| 4.6 | 14,6 | Klient |
 
-Użyj usługi Azure AD RBAC, aby kontrolować dostęp do danych i zasobów, w przeciwnym razie użyć metod kontroli dostępu określonych w usłudze.
+Funkcja RBAC usługi Azure AD pozwala kontrolować dostęp do danych i zasobów, w przeciwnym razie używać metod kontroli dostępu specyficznych dla usługi.
 
-- [Jak skonfigurować rbac na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Jak skonfigurować RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
-## <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: Wymuszanie kontroli dostępu za pomocą funkcji zapobiegania utracie danych opartych na hoście
+## <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4,7: Wymuś kontrolę dostępu przy użyciu ochrony przed utratą danych opartą na hoście
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4.7 | 14.7 | Udostępnione |
+| 4,7 | 14,7 | Shared |
 
-Jeśli jest to wymagane do zapewnienia zgodności z zasobami obliczeniowymi, należy zaimplementować narzędzie innej firmy, takie jak zautomatyzowane rozwiązanie zapobiegania utracie utraty danych oparte na hoście, aby wymusić kontrole dostępu do danych nawet wtedy, gdy dane są kopiowane z systemu.
+Jeśli jest to wymagane na potrzeby zgodności zasobów obliczeniowych, zaimplementuj narzędzie innej firmy, takie jak automatyczne rozwiązanie do ochrony przed utratą danych oparte na hoście, aby wymusić kontrolę dostępu do danych nawet wtedy, gdy dane są kopiowane poza system.
 
-W przypadku podstawowej platformy, która jest zarządzana przez firmę Microsoft, firma Microsoft traktuje całą zawartość klienta jako wrażliwą i dokłga mierze chroni przed utratą i ekspozycją danych klientów. Aby zapewnić bezpieczeństwo danych klientów na platformie Azure, firma Microsoft wdrożyła i utrzymuje zestaw niezawodnych mechanizmów kontroli i możliwości ochrony danych.
+W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Microsoft traktuje całą zawartość klienta jako poufną i nadaje im dużą długość, aby chronić przed utratą i narażeniem danych przez klienta. Aby zapewnić bezpieczeństwo danych klienta na platformie Azure, firma Microsoft wdrożyła i utrzymuje pakiet niezawodnych kontroli i możliwości ochrony danych.
 
-- [Opis ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Zrozumienie ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-## <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: Szyfrowanie poufnych informacji w spoczynku
+## <a name="48-encrypt-sensitive-information-at-rest"></a>4,8: Szyfruj poufne informacje w spoczynku
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4.8 | 14.8 | Klient |
+| 4,8 | 14,8 | Klient |
 
-Użyj szyfrowania w spoczynku na wszystkich zasobach platformy Azure. Firma Microsoft zaleca zezwolenie platformie Azure na zarządzanie kluczami szyfrowania, jednak w niektórych przypadkach istnieje opcja zarządzania własnymi kluczami. 
+Używaj szyfrowania w spoczynku dla wszystkich zasobów platformy Azure. Firma Microsoft zaleca, aby platforma Azure mogła zarządzać kluczami szyfrowania, jednak istnieje możliwość zarządzania własnymi kluczami w niektórych wystąpieniach. 
 
-- [Opis szyfrowania w spoczynku na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+- [Informacje o szyfrowaniu na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
 
 - [Jak skonfigurować klucze szyfrowania zarządzane przez klienta](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal)
 
-## <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: Rejestrowanie i ostrzeganie o zmianach w krytycznych zasobach platformy Azure
+## <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4,9: Rejestruj i Ostrzegaj o zmianach krytycznych zasobów platformy Azure
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4.9 | 14.9 | Klient |
+| 4,9 | 14,9 | Klient |
 
-Użyj usługi Azure Monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dotyczące tego, kiedy zmiany mają miejsce w krytycznych zasobach platformy Azure.
+Użyj Azure Monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dotyczące sytuacji, w których zmiany dotyczą najważniejszych zasobów platformy Azure.
 
-- [Jak tworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz następną kontrolę zabezpieczeń: [Zarządzanie lukami w zabezpieczeniach](security-control-vulnerability-management.md)
+- Zobacz następną kontrolę zabezpieczeń: [Zarządzanie](security-control-vulnerability-management.md) lukami w zabezpieczeniach

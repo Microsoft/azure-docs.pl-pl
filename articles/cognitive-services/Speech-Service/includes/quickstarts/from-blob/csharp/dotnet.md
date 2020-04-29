@@ -5,41 +5,41 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
 ms.openlocfilehash: 8c63c979300af4c180751b3824def0cb974ee186
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400937"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zanim zaczniesz, upewnij się, że:
+Przed rozpoczęciem upewnij się, że:
 
 > [!div class="checklist"]
-> * [Konfigurowanie środowiska programistycznego i tworzenie pustego projektu](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programmming-language-csharp)
-> * [Tworzenie zasobu mowy platformy Azure](../../../../get-started.md)
+> * [Skonfiguruj środowisko deweloperskie i Utwórz pusty projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programmming-language-csharp)
+> * [Tworzenie zasobu usługi Azure Speech](../../../../get-started.md)
 > * [Przekazywanie pliku źródłowego do obiektu blob platformy Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 ## <a name="open-your-project-in-visual-studio"></a>Otwieranie projektu w programie Visual Studio
 
-Pierwszym krokiem jest, aby upewnić się, że projekt jest otwarty w programie Visual Studio.
+Pierwszym krokiem jest upewnienie się, że projekt jest otwarty w programie Visual Studio.
 
 1. Uruchom program Visual Studio 2019.
-2. Załaduj `Program.cs`projekt i otwórz .
+2. Załaduj projekt i Otwórz `Program.cs`go.
 
-## <a name="add-a-reference-to-newtonsoftjson"></a>Dodaj odwołanie do pliku Newtonsoft.Json
+## <a name="add-a-reference-to-newtonsoftjson"></a>Dodawanie odwołania do pliku Newtonsoft. JSON
 
-1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **helloworld,** a następnie wybierz pozycję **Zarządzaj pakietami NuGet,** aby wyświetlić Menedżera pakietów NuGet.
-1. W prawym górnym rogu znajdź pole rozwijane **Źródło pakietu** i **`nuget.org`** upewnij się, że jest zaznaczone.
+1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt **HelloWorld** , a następnie wybierz pozycję **Zarządzaj pakietami NuGet** , aby wyświetlić Menedżera pakietów NuGet.
+1. W prawym górnym rogu Znajdź pole listy rozwijanej **Źródło pakietu** i upewnij się, że **`nuget.org`** jest zaznaczone.
 1. W lewym górnym rogu wybierz pozycję **Przeglądaj**.
-1. W polu wyszukiwania wpisz *newtonsoft.json* i **wybierz**enter .
-1. Z wyników wyszukiwania wybierz pakiet [**Newtonsoft.Json,**](https://www.nuget.org/packages/Newtonsoft.Json) a następnie wybierz pozycję **Zainstaluj,** aby zainstalować najnowszą stabilną wersję.
+1. W polu wyszukiwania wpisz *Newtonsoft. JSON* i wybierz **Enter**.
+1. Z wyników wyszukiwania wybierz pakiet [**Newtonsoft. JSON**](https://www.nuget.org/packages/Newtonsoft.Json) , a następnie wybierz pozycję **Zainstaluj** , aby zainstalować najnowszą stabilną wersję.
 1. Zaakceptuj wszystkie umowy i licencje, aby rozpocząć instalację.
-   Po zainstalowaniu pakietu w oknie **Konsoli Menedżera pakietów** pojawi się potwierdzenie.
+   Po zainstalowaniu pakietu w oknie **konsola Menedżera pakietów** zostanie wyświetlone potwierdzenie.
 
-## <a name="start-with-some-boilerplate-code"></a>Zacznij od kodu standardowego
+## <a name="start-with-some-boilerplate-code"></a>Zacznij od pewnego kodu standardowego
 
-Dodajmy kod, który działa jako szkielet dla naszego projektu.
+Dodajmy kod, który działa jako szkielet dla projektu.
 
 ```csharp
 class Program
@@ -79,12 +79,12 @@ class Program
 
 [!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
 
-## <a name="json-wrappers"></a>Opakowania JSON
+## <a name="json-wrappers"></a>Otoki JSON
 
-Jako rest interfejsu API przyjmować żądania w formacie JSON, a także zwraca wyniki w JSON możemy wchodzić z nimi przy użyciu tylko ciągów, ale to nie jest zalecane.
-Aby ułatwić zarządzanie żądaniami i odpowiedziami, zadeklarujemy kilka klas do użycia do serializacji / deserializacji JSON.
+Jako że żądania API REST w formacie JSON i zwracają wyniki w kodzie JSON, możemy z nich korzystać tylko przy użyciu ciągów, ale nie jest to zalecane.
+Aby ułatwić zarządzanie żądaniami i odpowiedziami, deklarujemy kilka klas do użycia na potrzeby serializowania/deserializacji kodu JSON.
 
-Śmiało i umieścić swoje `TranscribeAsync`deklaracje po .
+Przejdź dalej i po `TranscribeAsync`.
 
 ```csharp
 public class ModelIdentity
@@ -185,9 +185,9 @@ public class TranscriptionDefinition
 }
 ```
 
-## <a name="create-and-configure-an-http-client"></a>Tworzenie i konfigurowanie klienta http
-Pierwszą rzeczą, której potrzebujemy, jest klient http, który ma poprawny podstawowy adres URL i zestaw uwierzytelniania.
-Wstaw ten `TranscribeAsync`kod w pliku .
+## <a name="create-and-configure-an-http-client"></a>Tworzenie i Konfigurowanie klienta http
+Najpierw musimy być klientem http z prawidłowym podstawowym adresem URL i zestawem uwierzytelniania.
+Wstaw ten kod w `TranscribeAsync`.
 
 ```csharp
 var client = new HttpClient
@@ -201,8 +201,8 @@ var client = new HttpClient
 };
 ```
 
-## <a name="generate-a-transcription-request"></a>Generowanie żądania transkrypcji
-Następnie wygenerujemy żądanie transkrypcji. Dodaj ten `TranscribeAsync`kod do pliku .
+## <a name="generate-a-transcription-request"></a>Generuj żądanie transkrypcji
+Następnie wygenerujemy żądanie transkrypcji. Dodaj ten kod do `TranscribeAsync`.
 
 ```csharp
 var transcriptionDefinition =
@@ -218,7 +218,7 @@ sc.Headers.ContentType = JsonMediaTypeFormatter.DefaultMediaType;
 ```
 
 ## <a name="send-the-request-and-check-its-status"></a>Wyślij żądanie i sprawdź jego stan
-Teraz publikujemy żądanie w usłudze mowy i sprawdzamy początkowy kod odpowiedzi. Ten kod odpowiedzi po prostu wskaże, czy usługa otrzymała żądanie. Usługa zwróci adres URL w nagłówkach odpowiedzi, która jest lokalizacją, w której będzie przechowywać stan transkrypcji.
+Teraz wyślemy żądanie do usługi mowy i Sprawdzamy początkowy kod odpowiedzi. Ten kod odpowiedzi będzie po prostu wskazywać, czy usługa odebrała żądanie. Usługa zwróci adres URL w nagłówkach odpowiedzi, które są lokalizacją przechowywania stanu transkrypcji.
 
 ```csharp
 Uri transcriptionLocation = null;
@@ -235,11 +235,11 @@ using (var response = await client.PostAsync($"{SpeechToTextBasePath}Transcripti
 ```
 
 ## <a name="wait-for-the-transcription-to-complete"></a>Poczekaj na zakończenie transkrypcji
-Ponieważ usługa przetwarza transkrypcji asynchronicznie, musimy sondować jego status tak często. Sprawdzamy co 5 sekund.
+Ponieważ usługa przetwarza proces transkrypcji asynchronicznie, musimy wykonać sondowanie pod kątem jego stanu co do tego często. Sprawdzimy co 5 sekund.
 
-Możemy sprawdzić stan, pobierając zawartość pod adresem URL, który otrzymaliśmy po opublikowaniu żądania. Kiedy przywracamy zawartość, możemy deserialize go do jednej z naszych klasy pomocnika, aby ułatwić interakcję z.
+Stan można sprawdzić, pobierając zawartość pod adresem URL, który otrzymał po wysłaniu żądania. Po otrzymaniu zawartości, deserializacjimy ją na jedną z naszych klas pomocnika, aby ułatwić korzystanie z programu.
 
-Oto kod sondowania z wyświetlaniem stanu dla wszystkiego, z wyjątkiem pomyślnego zakończenia, zrobimy to dalej.
+Oto kod sondowania z wyświetlaniem stanu dla wszystkiego, z wyjątkiem pomyślnego zakończenia, zajmiemy się tym dalej.
 
 ```csharp
 Console.WriteLine($"Created transcription at location {transcriptionLocation}.");
@@ -293,8 +293,8 @@ Console.ReadKey();
 ```
 
 ## <a name="display-the-transcription-results"></a>Wyświetlanie wyników transkrypcji
-Po pomyślnym zakończeniu transkrypcji usługi wyniki będą przechowywane w innym adresie URL, który możemy uzyskać z odpowiedzi na stan. W tym miejscu zwracamy się z prośbą o pobranie tych wyników do pliku tymczasowego przed ich odczytaniem i deserializacją.
-Po załadowaniu wyników możemy wydrukować je na konsoli. Dodaj następujący kod `case "Succeeded":` do etykiety.
+Gdy usługa pomyślnie ukończy transkrypcję, wyniki będą przechowywane w innym adresie URL, który można uzyskać z odpowiedzi na stan. Oto prośba o pobranie tych wyników do pliku tymczasowego przed rozpoczęciem odczytywania i deserializacji.
+Po załadowaniu wyników można wydrukować je w konsoli programu. Dodaj następujący kod do `case "Succeeded":` etykiety.
 
 ```csharp
 completed = true;
@@ -307,7 +307,7 @@ File.Delete(filename);
 ```
 
 ## <a name="check-your-code"></a>Sprawdź swój kod
-W tym momencie kod powinien wyglądać następująco: (Dodaliśmy kilka komentarzy do tej wersji)
+W tym momencie kod powinien wyglądać następująco: (dodaliśmy Komentarze do tej wersji)
 
 ```csharp
 using Newtonsoft.Json;
@@ -547,13 +547,13 @@ namespace BatchClient
 }
 ```
 
-## <a name="build-and-run-your-app"></a>Tworzenie i uruchamianie aplikacji
+## <a name="build-and-run-your-app"></a>Kompilowanie i uruchamianie aplikacji
 
-Teraz możesz przystąpić do tworzenia aplikacji i testowania rozpoznawania mowy za pomocą usługi Mowy.
+Teraz wszystko jest gotowe do skompilowania aplikacji i przetestowania rozpoznawania mowy przy użyciu usługi mowy.
 
-1. **Skompiluj kod** — na pasku menu programu Visual Studio wybierz pozycję **Build** > **Build Solution**.
-2. **Uruchom aplikację** — na pasku menu wybierz pozycję **Debugowanie** > **rozpocznij debugowanie** lub naciśnij **klawisz F5**.
-3. **Rozpocznij rozpoznawanie** - poprosi Cię o wymówienia frazy w języku angielskim. Mowa jest wysyłana do usługi Mowy, transkrybowana jako tekst i renderowana w konsoli.
+1. **Skompiluj kod** — na pasku menu programu Visual Studio wybierz polecenie **Kompiluj** > **kompilację rozwiązania**.
+2. **Uruchom aplikację** — z poziomu paska menu wybierz **Debuguj** > **Rozpocznij debugowanie** lub naciśnij klawisz **F5**.
+3. **Rozpocznij rozpoznawanie** — spowoduje to wyświetlenie monitu o rozmowę w języku angielskim. Twoja mowa jest wysyłana do usługi mowy, uzyskanego jako tekst i renderowany w konsoli programu.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,56 +1,56 @@
 ---
-title: Planowanie aplikacji — usługa LUIS
-description: Określ odpowiednie intencje aplikacji i encje, a następnie utwórz plany aplikacji w usłudze Language Understanding Intelligent Services (LUIS).
+title: Planowanie aplikacji — LUIS
+description: Zaplanuj odpowiednie intencje i jednostki dotyczące aplikacji, a następnie utwórz plany aplikacji w Language Understanding Intelligent Services (LUIS).
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: dfed27a05973a2ea2e9a97eaa1c233b847b33d87
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81382303"
 ---
-# <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planowanie schematu aplikacji usługi LUIS za pomocą domeny podmiotu i wyodrębniania danych
+# <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planowanie schematu aplikacji LUIS przy użyciu domeny podmiotu i wyodrębniania danych
 
-Schemat aplikacji usługi LUIS zawiera [intencje](luis-glossary.md#intent) i [encje](luis-glossary.md#entity) istotne dla [domeny](luis-glossary.md#domain)podmiotu . Intencje klasyfikują [wypowiedzi](luis-glossary.md#utterance)użytkownika, a jednostki wyodrębniają dane z wypowiedzi użytkownika.
+Schemat aplikacji LUIS zawiera [intencje](luis-glossary.md#intent) i [jednostki](luis-glossary.md#entity) powiązane z Twoją [domeną](luis-glossary.md#domain)podmiotu. Zamiary klasyfikują [wyrażenia długości](luis-glossary.md#utterance)użytkownika i jednostki wyodrębnią dane z wyrażenia długości użytkownika.
 
-## <a name="identify-your-domain"></a>Identyfikowanie domeny
+## <a name="identify-your-domain"></a>Zidentyfikuj domenę
 
-Aplikacja usługi LUIS jest skoncentrowana wokół domeny tematu. Na przykład możesz mieć aplikację turystyczną, która obsługuje rezerwację biletów, lotów, hoteli i wypożyczonych samochodów. Inna aplikacja może dostarczać treści związane z ćwiczeniami, śledzeniem wysiłków fitness i wyznaczaniem celów. Identyfikowanie domeny pomaga znaleźć słowa lub frazy, które są istotne dla Twojej domeny.
+Aplikacja LUIS jest wyśrodkowana wokół domeny podmiotu. Na przykład może istnieć aplikacja podróży, która obsługuje rezerwacje biletów, lotów, hoteli i samochodów. Inna aplikacja może zapewnić zawartość powiązaną z wykonywaniem, śledzeniem wysiłków związanych z sprawnością i ustawianiem celów. Zidentyfikowanie domeny ułatwia znalezienie wyrazów lub fraz, które są istotne dla Twojej domeny.
 
 > [!TIP]
-> Usługa LUIS oferuje [wstępnie utworzone domeny](luis-how-to-use-prebuilt-domains.md) dla wielu typowych scenariuszy. Sprawdź, czy możesz użyć wstępnie utworzonej domeny jako punktu wyjścia dla aplikacji.
+> LUIS oferuje [prebudowane domeny](luis-how-to-use-prebuilt-domains.md) dla wielu typowych scenariuszy. Sprawdź, czy możesz użyć wstępnie skompilowanej domeny jako punktu wyjścia dla aplikacji.
 
 ## <a name="identify-your-intents"></a>Zidentyfikuj swoje intencje
 
-Pomyśl o [intencjach,](luis-concept-intent.md) które są ważne dla zadania aplikacji.
+Pomyśl o [intencjach](luis-concept-intent.md) , które są ważne dla zadania aplikacji.
 
-Weźmy przykład aplikacji turystycznej, z funkcjami rezerwacji lotu i sprawdzenia pogody w miejscu docelowym użytkownika. Można zdefiniować `BookFlight` `GetWeather` i intencje dla tych akcji.
+Przyjrzyjmy się przykładowi do aplikacji podróży z funkcjami do rezerwacji lotu i sprawdzania pogody w miejscu docelowym użytkownika. Można zdefiniować `BookFlight` i `GetWeather` intencje dla tych działań.
 
-W bardziej złożonej aplikacji z większą licznymi funkcjami masz więcej intencji i należy je dokładnie zdefiniować, aby intencje nie były zbyt specyficzne. Na przykład `BookFlight` `BookHotel` i może być konieczne oddzielne `BookInternationalFlight` `BookDomesticFlight` intencje, ale i może być zbyt podobne.
+W bardziej złożonej aplikacji z większą liczbą funkcji masz więcej intencji i należy je dokładnie definiować, aby nie było to intencje. `BookFlight` Na przykład `BookHotel` może być konieczne osobne zamiary, ale `BookInternationalFlight` i `BookDomesticFlight` mogą być zbyt podobne.
 
 > [!NOTE]
-> Jest najlepszym rozwiązaniem, aby użyć tylko tyle intencji, jak trzeba wykonać funkcje aplikacji. Jeśli zdefiniujesz zbyt wiele intencji, staje się trudniejsze dla usługi LUIS do poprawnego klasyfikowania wypowiedzi. Jeśli zdefiniujesz zbyt mało, mogą one być tak ogólne, że nakładają się na siebie.
+> Najlepszym rozwiązaniem jest użycie tylko tyle rzeczy, ile potrzebujesz do wykonywania funkcji aplikacji. Jeśli określisz zbyt wiele intencji, będzie trudniejsze, aby LUIS prawidłowo klasyfikować wyrażenia długości. Jeśli zdefiniujesz zbyt kilka, może to być ogólny, że nakładają się na siebie.
 
-Jeśli nie trzeba identyfikować ogólną intencję użytkownika, dodaj wszystkie `None` wypowiedzi przykładowych użytkowników do intencji. Jeśli aplikacja staje się wymagająca więcej intencji, możesz je utworzyć później.
+Jeśli nie musisz identyfikować ogólnych założeń użytkowników, Dodaj do `None` zamiaru wszystkie przykładowe wyrażenia długości użytkownika. Jeśli aplikacja zostanie powiększona o potrzebę bardziej zamiarów, można utworzyć je później.
 
-## <a name="create-example-utterances-for-each-intent"></a>Tworzenie przykładowych wypowiedzi dla każdej intencji
+## <a name="create-example-utterances-for-each-intent"></a>Utwórz przykład wyrażenia długości dla każdego zamiaru
 
-Na początek należy unikać tworzenia zbyt wiele wypowiedzi dla każdego zamiaru. Po określeniu intencji, utwórz 15 do 30 wypowiedzi przykład na intencji. Każda wypowiedź powinna się różnić od wcześniej dostarczonych wypowiedzi. Dobra różnorodność w wypowiedziach obejmuje ogólną liczbę słów, wybór wyrazów, czas czasownika i [interpunkcję](luis-reference-application-settings.md#punctuation-normalization).
+Aby zacząć od, należy unikać tworzenia zbyt wielu wyrażenia długości dla każdego zamiaru. Po ustaleniu intencji należy utworzyć na przykład wyrażenia długości od 15 do 30. Każdy wypowiedź powinien różnić się od wcześniej podanej wyrażenia długości. Dobra odmiana wyrażenia długości zawierać ogólną liczbę słów, wybór wyrazów, intensywność i [znaki interpunkcyjne](luis-reference-application-settings.md#punctuation-normalization).
 
-Aby uzyskać więcej informacji, zobacz [opis dobrych wypowiedzi dla aplikacji usługi LUIS](luis-concept-utterance.md).
+Aby uzyskać więcej informacji, zobacz temat [wyrażenia długości for Luis Apps](luis-concept-utterance.md).
 
 ## <a name="identify-your-entities"></a>Identyfikowanie jednostek
 
-W wypowiedzi przykład identyfikować jednostki, które mają wyodrębnione. Aby zarezerwować lot, potrzebujesz informacji, takich jak miejsce docelowe, data, linia lotnicza, kategoria biletu i klasa podróży. Utwórz jednostki dla tych typów danych, a następnie oznacz [jednostki](luis-concept-entity-types.md) w wypowiedziach przykładowych. Jednostki są ważne dla realizacji intencji.
+W przykładzie wyrażenia długości Określ jednostki, które mają zostać wyodrębnione. Aby zaksięgować lot, potrzebne są informacje, takie jak lokalizacja docelowa, Data, linia lotnicza, Kategoria biletu i Klasa podróży. Utwórz jednostki dla tych typów danych, a następnie Oznacz [jednostki](luis-concept-entity-types.md) w przykładzie wyrażenia długości. Jednostki są ważne do wykonywania zamierzeń.
 
-Podczas określania jednostek, które mają być używane w aplikacji, należy pamiętać, że istnieją różne typy jednostek do przechwytywania relacji między typami obiektów. [Jednostki w usłudze LUIS](luis-concept-entity-types.md) zawiera więcej szczegółów na temat różnych typów.
+Podczas określania obiektów, które mają być używane w aplikacji, należy pamiętać, że istnieją różne typy jednostek do przechwytywania relacji między typami obiektów. [Jednostki w Luis](luis-concept-entity-types.md) zapewniają więcej szczegółowych informacji o różnych typach.
 
 > [!TIP]
-> Usługa LUIS oferuje wstępnie utworzone jednostki dla [typowych,](luis-prebuilt-entities.md) konwersacyjnych scenariuszy użytkownika. Należy rozważyć użycie wstępnie utworzonych jednostek jako punktu wyjścia dla tworzenia aplikacji.
+> LUIS oferuje [wstępnie utworzone jednostki](luis-prebuilt-entities.md) na potrzeby typowych scenariuszy użytkownika. Rozważ użycie wstępnie utworzonych jednostek jako punktu wyjścia do tworzenia aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Uczenie się życia rozwoju usługi LUIS](luis-concept-app-iteration.md)
+> [Uczenie się LUIS Development lifecylce](luis-concept-app-iteration.md)
 

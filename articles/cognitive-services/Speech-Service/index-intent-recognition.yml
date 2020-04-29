@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: Dokumentacja rozpoznawania intencji
-summary: Rozpoznawanie intencji za pomocą usług rozpoznawania mowy i języka (LUIS) umożliwia transkrypcję strumieni audio w czasie rzeczywistym do tekstu, jednocześnie identyfikując intencje i jednostki.
+summary: Rozpoznawanie intencji przy użyciu usług rozpoznawania mowy i Language Understanding (LUIS) umożliwia zachowanie transkrypcji strumieni audio w czasie rzeczywistym w celu identyfikowania zamiar i jednostek.
 metadata:
-  title: Dokumentacja rozpoznawania intencji — samouczki, informacje o interfejsie API — usługi Azure Cognitive Services | Dokumenty firmy Microsoft
+  title: Dokumentacja funkcji rozpoznawania zamierzeń — samouczki i dokumentacja interfejsu API — Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -12,25 +12,25 @@ metadata:
   ms.date: 03/10/2020
   ms.author: trbye
   ms.openlocfilehash: 65b3f2322c4683eedef8cdfbc328664d4597df58
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/16/2020
+  ms.lasthandoff: 04/29/2020
   ms.locfileid: "81401486"
 landingContent:
-- title: Rozpoznawanie intencji — informacje
+- title: Informacje o rozpoznawaniu przeznaczenie
   linkLists:
   - linkListType: quickstart
     links:
     - text: Rozpoznawanie mowy, intencji i jednostek
       url: quickstarts/intent-recognition.md
-- title: Rozwijaj się z uznaniem intencji
+- title: Programowanie przy użyciu rozpoznawania intencji
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Rozpoznawanie intencji mowy przy użyciu usługi LUIS i języka C#
       url: how-to-recognize-intents-from-speech-csharp.md
-- title: Dokumentacja
+- title: Tematy pomocy
   linkLists:
   - linkListType: reference
     links:
@@ -40,5 +40,5 @@ landingContent:
       url: ../luis/developer-reference-resource.md
     - text: Obsługa języków
       url: ../luis/luis-language-support.md#languages-supported
-    - text: Ceny rozpoznawania intencji
+    - text: Cennik rozpoznawania intencji
       url: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services

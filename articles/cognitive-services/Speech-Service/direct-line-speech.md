@@ -1,7 +1,7 @@
 ---
-title: Direct Line Speech - Usługa mowy
+title: Direct line — mowę — usługa mowy
 titleSuffix: Azure Cognitive Services
-description: Omówienie funkcji, możliwości i ograniczeń dla asystentów głosowych korzystających z direct line speech z zestawem SDK (Speech Software Development Kit).
+description: Omówienie funkcji, możliwości i ograniczeń dla asystentów głosowych korzystających z bezpośredniej mowy wiersza z zestawem SDK (Speech Software Development Kit).
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -11,60 +11,60 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
 ms.openlocfilehash: 6dc125b68af8f9a07731aaae9d858c19c51f934f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81402391"
 ---
 # <a name="what-is-direct-line-speech"></a>Co to jest mowa Direct Line?
 
-**Direct Line Speech** to solidne, kompleksowe rozwiązanie do tworzenia elastycznego, rozszerzalnego asystenta głosowego. Jest zasilany przez Bot Framework i jego kanał Direct Line Speech, który jest zoptymalizowany pod kątem interakcji głosowych, voice-out z botami.
+**Bezpośrednia funkcja rozpoznawania wierszy** to niezawodne, kompleksowe rozwiązanie służące do tworzenia elastycznych, rozszerzalnych asystentów głosowych. Jest on obsługiwany przez platformę bot i kanał mowy linii Direct, który jest zoptymalizowany pod kątem komunikacji głosowej z botów.
 
-[Asystenci głosowi](voice-assistants.md) słuchają użytkowników i podejmują działania w odpowiedzi, często odwzchłają. Używają [mowy do tekstu](speech-to-text.md) do transkrypcji mowy użytkownika, a następnie podjąć działania w języku naturalnym zrozumienia tekstu. Ta akcja często obejmuje dane wyjściowe wypowiedziane z asystenta wygenerowane za [pomocą zamiany tekstu na mowę.](text-to-speech.md)
+[Asystenci głosowani](voice-assistants.md) nasłuchują użytkowników i podejmują działania w odpowiedzi, często mówiąc z powrotem. Używają [zamiany mowy na tekst](speech-to-text.md) , aby transkrypcja mowę użytkownika, a następnie podejmować działania dotyczące interpretacji języka naturalnego tekstu. Ta akcja często obejmuje głosowanie danych wyjściowych wygenerowanego przez asystenta z funkcją [zamiany tekstu na mowę](text-to-speech.md).
 
-Direct Line Speech oferuje najwyższy poziom personalizacji i wyrafinowania dla asystentów głosowych. Jest przeznaczony do konwersacji scenariuszy, które są otwarte, naturalne lub hybrydy z dwóch z zakończenia zadania lub polecenia i kontroli użytkowania. Ten wysoki stopień elastyczności ma większą złożoność, a scenariusze, które są ograniczone do dobrze zdefiniowanych zadań przy użyciu danych wejściowych języka naturalnego, mogą chcieć rozważyć [polecenia niestandardowe (Wersja zapoznawcza)](custom-commands.md) dla usprawnionego środowiska rozwiązania.
+Funkcja bezpośrednie linie rozpoznawania mowy oferuje najwyższy poziom dostosowania i złożoności dla asystentów głosowych. Jest ona przeznaczona dla scenariuszy konwersacji, które są otwartymi, naturalnymi lub hybrydowymi z dwoma z ukończeniem zadania lub użyciem kontroli poleceń. Taka wysoka elastyczność ma większą złożoność, a scenariusze, które są ograniczone do dobrze zdefiniowanych zadań przy użyciu danych wejściowych języka naturalnego, mogą chcieć rozważyć użycie [poleceń niestandardowych (wersja zapoznawcza)](custom-commands.md) w celu usprawnienia rozwiązania.
 
-## <a name="getting-started-with-direct-line-speech"></a>Wprowadzenie do direct line speech
+## <a name="getting-started-with-direct-line-speech"></a>Wprowadzenie do bezpośredniej obsługi mowy w wierszu
 
-Pierwszymi krokami tworzenia asystenta głosowego przy użyciu direct line speech jest [uzyskanie klucza subskrypcji mowy,](get-started.md)utworzenie nowego bota skojarzonego z tą subskrypcją i połączenie bota z kanałem Direct Line Speech.
+Pierwszym etapem tworzenia asystenta głosowego za pomocą polecenia Direct line Speech jest [uzyskanie klucza subskrypcji mowy](get-started.md), utworzenie nowego bot skojarzonego z tą subskrypcją i połączenie bot z kanałem mowy linii bezpośredniej.
 
-   ![Diagram koncepcyjny przepływu usługi aranżacji mowy wiersza bezpośredniego](media/voice-assistants/overview-directlinespeech.png "Przepływ kanału mowy")
+   ![Diagram koncepcyjny przepływu usługi aranżacji mowy liniowej](media/voice-assistants/overview-directlinespeech.png "Przepływ kanału mowy")
 
-Aby uzyskać kompletny, krok po kroku przewodnik dotyczący tworzenia prostego asystenta głosowego za pomocą direct line speech, zobacz [samouczek umożliwiający obsługę mowy bota za pomocą zestawu SDK mowy i kanału Direct Line Speech](tutorial-voice-enable-your-bot-speech-sdk.md).
+Aby zapoznać się z kompletnym przewodnikiem krok po kroku dotyczącym tworzenia prostego asystenta głosowego przy użyciu bezpośredniej linii rozpoznawania mowy, zobacz [Samouczek dotyczący zamiany mowy na bot za pomocą zestawu Speech SDK i kanału mowy Direct line](tutorial-voice-enable-your-bot-speech-sdk.md).
 
-Oferujemy również przewodniki Szybki start zaprojektowany, aby szybko uruchomić kod i szybko nauczyć się interfejsów API. Ta tabela zawiera listę przewodników Szybki start asystenta głosowego uporządkowanych według języka i platformy.
+Oferujemy również Przewodniki Szybki Start zaprojektowane z założeniami szybkiego uruchamiania kodu i uczenia interfejsów API. Ta tabela zawiera listę przewodników Szybki Start, zorganizowanych według języka i platformy.
 
 | Szybki start | Platforma | Dokumentacja interfejsu API |
 |------------|----------|---------------|
-| C#, UWP | Windows | [Przeglądaj](https://aka.ms/csspeech/csharpref) |
+| C#, PLATFORMY UWP | Windows | [Przeglądaj](https://aka.ms/csspeech/csharpref) |
 | Java | Windows, macOS, Linux | [Przeglądaj](https://aka.ms/csspeech/javaref) |
 | Java | Android | [Przeglądaj](https://aka.ms/csspeech/javaref) |
 
 ## <a name="sample-code"></a>Przykładowy kod
 
-Przykładowy kod do tworzenia asystenta głosowego jest dostępny w usłudze GitHub. Te przykłady obejmują aplikację kliencką do łączenia się z asystentem w kilku popularnych językach programowania.
+Przykładowy kod służący do tworzenia asystenta głosowego jest dostępny w witrynie GitHub. Te przykłady obejmują aplikację kliencką do łączenia się z asystentem w kilku popularnych językach programowania.
 
-* [Próbki asystenta głosowego (SDK)](https://aka.ms/csspeech/samples)
-* [Samouczek: Głos włącz asystenta za pomocą zestawu SDK mowy, C #](tutorial-voice-enable-your-bot-speech-sdk.md)
+* [Przykłady asystenta głosowego (SDK)](https://aka.ms/csspeech/samples)
+* [Samouczek: Włączanie głosu przez asystenta przy użyciu zestawu Speech SDK, C #](tutorial-voice-enable-your-bot-speech-sdk.md)
 
 ## <a name="customization"></a>Dostosowywanie
 
-Asystenci głosowi zbudowani przy użyciu usługi Mowy mogą korzystać z pełnego zakresu opcji dostosowywania dostępnych dla [zamiany mowy na tekst,](speech-to-text.md) [zamiany tekstu na mowę](text-to-speech.md)i [niestandardowego wyboru słów kluczowych.](speech-devices-sdk-create-kws.md)
+Asystentów głosowych utworzonych za pomocą usługi mowy mogą korzystać z pełnego zakresu opcji dostosowywania dostępnych na potrzeby [zamiany mowy na tekst](speech-to-text.md), zamiany [tekstu na mowę](text-to-speech.md)i [niestandardowego słowa kluczowego](speech-devices-sdk-create-kws.md).
 
 > [!NOTE]
-> Opcje dostosowywania różnią się w zależności od języka/ustawień regionalnych (patrz [Obsługiwane języki).](supported-languages.md)
+> Opcje dostosowywania różnią się w zależności od języka/ustawień regionalnych (zobacz [obsługiwane języki](supported-languages.md)).
 
-Direct Line Speech i związane z nią funkcje dla asystentów głosowych są idealnym uzupełnieniem [rozwiązania Virtual Assistant i szablonu Enterprise.](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) Chociaż Direct Line Speech może współpracować z dowolnym zgodnym botem, te zasoby zapewniają bazę odniesienia wielokrotnego użytku dla wysokiej jakości konwersacyjnych, a także typowe umiejętności i modele pomocnicze, aby szybko rozpocząć pracę.
+Bezpośrednia obsługa mowy liniowej i skojarzonych z nią funkcji dla asystentów głosowych jest idealnym uzupełnieniem rozwiązania do obsługi [asystenta wirtualnego i szablonu przedsiębiorstwa](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Mimo że funkcja Direct line Speech może współdziałać z dowolnymi zgodnymi bot, te zasoby zapewniają linię bazową wielokrotnego użytku dla środowisk komunikacji o wysokiej jakości, a także często wspierane umiejętności i modele umożliwiające szybkie rozpoczęcie pracy.
 
-## <a name="reference-docs"></a>Dokumenty referencyjne
+## <a name="reference-docs"></a>Dokumentacja dokumentacji
 
 * [Zestaw SDK rozpoznawania mowy](speech-sdk-reference.md)
 * [Usługa Azure Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Uzyskaj bezpłatny klucz subskrypcji usługi mowy](get-started.md)
-* [Pobierz sdk mowy](speech-sdk.md)
+* [Uzyskaj bezpłatnie klucz subskrypcji usługi mowy](get-started.md)
+* [Pobieranie zestawu Speech SDK](speech-sdk.md)
 * [Tworzenie i wdrażanie podstawowego bota](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
-* [Pobierz rozwiązanie Virtual Assistant i szablon Enterprise](https://github.com/Microsoft/AI)
+* [Pobierz rozwiązanie dla Asystenta wirtualnego i szablonu przedsiębiorstwa](https://github.com/Microsoft/AI)

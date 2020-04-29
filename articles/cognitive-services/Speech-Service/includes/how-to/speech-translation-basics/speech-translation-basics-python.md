@@ -5,32 +5,32 @@ ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
 ms.openlocfilehash: 17d8c0157fcd478d01452167d240fb67daeeda5b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81399584"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym artykule założono, że masz konto platformy Azure i subskrypcję usługi mowy. Jeśli nie masz konta i subskrypcji, [wypróbuj bezpłatną usługę Mowy.](../../../get-started.md)
+W tym artykule przyjęto założenie, że masz konto platformy Azure i subskrypcję usługi mowy. Jeśli nie masz konta i subskrypcji, [Wypróbuj usługę mowy bezpłatnie](../../../get-started.md).
 
 ## <a name="install-the-speech-sdk"></a>Instalowanie zestawu SDK usługi Mowa
 
-Zanim będzie można coś zrobić, musisz zainstalować pakiet SDK mowy. W zależności od platformy postępuj zgodnie z instrukcjami w sekcji <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Pobierz zestaw <span class="docon docon-navigate-external x-hidden-focus"></span> SDK mowy</a> w artykule Zestaw SDK mowy.
+Przed wykonaniem jakichkolwiek czynności należy zainstalować zestaw Speech SDK. W zależności od używanej platformy postępuj zgodnie z instrukcjami w sekcji <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">pobieranie zestawu <span class="docon docon-navigate-external x-hidden-focus"></span> Speech SDK</a> artykułu zestawu Speech SDK.
 
 ## <a name="import-dependencies"></a>Importowanie zależności
 
-Aby uruchomić przykłady w tym artykule, dołącz następujące `import` instrukcje w górnej części pliku kodu języka Python.
+Aby uruchomić przykłady z tego artykułu, należy uwzględnić następujące `import` instrukcje w górnej części pliku kodu w języku Python.
 
 ```python
 import os
 import azure.cognitiveservices.speech as speechsdk
 ```
 
-## <a name="sensitive-data-and-environment-variables"></a>Dane wrażliwe i zmienne środowiskowe
+## <a name="sensitive-data-and-environment-variables"></a>Dane poufne i zmienne środowiskowe
 
-Przykładowy kod źródłowy w tym artykule zależy od zmiennych środowiskowych do przechowywania poufnych danych, takich jak klucz subskrypcji zasobów mowy i regionu. Plik kodu języka Python zawiera dwie wartości, które są przypisane `SPEECH__SUBSCRIPTION__KEY` `SPEECH__SERVICE__REGION`ze zmiennych środowiskowych maszyn hosta, a mianowicie i . Obie te zmienne znajdują się w zakresie globalnym, dzięki czemu są dostępne w ramach definicji funkcji pliku kodu. Aby uzyskać więcej informacji na temat zmiennych środowiskowych, zobacz [zmienne środowiskowe i konfiguracja aplikacji](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
+Przykładowy kod źródłowy opisany w tym artykule zależy od zmiennych środowiskowych w celu przechowywania poufnych danych, takich jak klucz subskrypcji zasobów mowy i region. Plik kodu w języku Python zawiera dwie wartości, które są przypisane ze zmiennych środowiskowych komputerów- `SPEECH__SUBSCRIPTION__KEY` hostów `SPEECH__SERVICE__REGION`, a mianowicie i. Obie te zmienne znajdują się w zakresie globalnym, dzięki czemu są dostępne w definicji funkcji pliku kodu. Aby uzyskać więcej informacji na temat zmiennych środowiskowych, zobacz [zmienne środowiskowe i konfiguracja aplikacji](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
 
 ```python
 speech_key, service_region = os.environ['SPEECH__SUBSCRIPTION__KEY'], os.environ['SPEECH__SERVICE__REGION']
@@ -38,19 +38,19 @@ speech_key, service_region = os.environ['SPEECH__SUBSCRIPTION__KEY'], os.environ
 
 ## <a name="create-a-speech-translation-configuration"></a>Tworzenie konfiguracji tłumaczenia mowy
 
-Aby wywołać usługę mowy przy użyciu SDK [`SpeechTranslationConfig`][config]mowy, należy utworzyć plik . Ta klasa zawiera informacje o subskrypcji, takie jak klucz i skojarzony region, punkt końcowy, host lub token autoryzacji.
+Aby wywołać usługę mowy przy użyciu zestawu Speech SDK, należy utworzyć [`SpeechTranslationConfig`][config]. Ta klasa zawiera informacje o subskrypcji, takie jak klucz i skojarzony region, punkt końcowy, Host lub Token autoryzacji.
 
 > [!TIP]
-> Niezależnie od tego, czy wykonujesz rozpoznawanie mowy, syntezę mowy, tłumaczenie czy rozpoznawanie intencji, zawsze tworzysz konfigurację.
+> Bez względu na to, czy wykonujesz rozpoznawanie mowy, synteza mowy, tłumaczenie czy rozpoznawanie intencji, zawsze utworzysz konfigurację.
 
-Istnieje kilka sposobów, które można [`SpeechTranslationConfig`][config]zainicjować:
+Istnieje kilka sposobów na zainicjowanie [`SpeechTranslationConfig`][config]:
 
-* Z subskrypcją: przekaż klucz i skojarzony region.
-* Z punktem końcowym: przekazać w punkcie końcowym usługi mowy. Klucz lub token autoryzacji jest opcjonalny.
-* Z hostem: przekaż adres hosta. Klucz lub token autoryzacji jest opcjonalny.
-* Z tokenem autoryzacji: przekaż w tokenie autoryzacji i skojarzonym regionie.
+* Z subskrypcją: Przekaż klucz i skojarzony region.
+* Z punktem końcowym: Pass w punkcie końcowym usługi mowy. Klucz lub Token autoryzacji jest opcjonalny.
+* Z hostem: Przekaż adres hosta. Klucz lub Token autoryzacji jest opcjonalny.
+* Z tokenem autoryzacji: Przekaż Token autoryzacji i skojarzony region.
 
-Przyjrzyjmy się, [`SpeechTranslationConfig`][config] jak jest tworzony przy użyciu klucza i regionu. Zobacz stronę [pomocy technicznej regionu,](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) aby znaleźć identyfikator regionu.
+Przyjrzyjmy się w jaki sposób [`SpeechTranslationConfig`][config] jest tworzony przy użyciu klucza i regionu. Aby znaleźć identyfikator regionu, zobacz stronę [Obsługa regionów](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) .
 
 ```python
 from_language, to_language = 'en-US', 'de'
@@ -60,9 +60,9 @@ def translate_speech_to_text():
             subscription=speech_key, region=service_region)
 ```
 
-## <a name="change-source-language"></a>Zmienianie języka źródłowego
+## <a name="change-source-language"></a>Zmień język źródłowy
 
-Jednym z typowych zadań tłumaczenia mowy jest określenie języka wejściowego (lub źródłowego). Przyjrzyjmy się, jak można zmienić język wprowadzania na włoski. W kodzie interakcji [`SpeechTranslationConfig`][config] z wystąpieniem, `speech_recognition_language` przypisując do właściwości.
+Jednym z typowych zadań tłumaczenia mowy jest określenie języka danych wejściowych (lub źródłowych). Przyjrzyjmy się sposobom zmiany języka wejściowego na włoski. W kodzie można korzystać z [`SpeechTranslationConfig`][config] wystąpienia, przypisując do `speech_recognition_language` właściwości.
 
 ```python
 def translate_speech_to_text():
@@ -73,11 +73,11 @@ def translate_speech_to_text():
     translation_config.speech_recognition_language = from_language
 ```
 
-Właściwość [`speech_recognition_language`][recognitionlang] oczekuje ciąg formatu ustawień regionalnych języka. Dowolną wartość można podać w kolumnie **Ustawienia regionalne** na liście obsługiwanych [ustawień regionalnych/języków](../../../language-support.md).
+[`speech_recognition_language`][recognitionlang] Właściwość oczekuje ciągu formatu ustawień regionalnych. Na liście obsługiwanych [ustawień regionalnych/języków](../../../language-support.md)można podać dowolną wartość w kolumnie **Ustawienia regionalne** .
 
 ## <a name="add-translation-language"></a>Dodawanie języka tłumaczenia
 
-Innym typowym zadaniem tłumaczenia mowy jest określenie docelowych języków tłumaczenia, co najmniej jeden jest wymagany, ale obsługiwane są wielokrotności. We wliczeniu kodu: docelowych języka tłumaczeniowego zarówno w języku francuskim, jak i niemieckim.
+Innym typowym zadaniem tłumaczenia mowy jest określenie docelowych języków tłumaczenia, ale co najmniej jeden jest wymagany, ale obsługiwane są różne. W poniższym fragmencie kodu zarówno francuski, jak i niemiecki jako elementy docelowe języka tłumaczenia.
 
 ```python
 def translate_speech_to_text():
@@ -91,13 +91,13 @@ def translate_speech_to_text():
     translation_config.add_target_language("de")
 ```
 
-Przy każdym [`add_target_language`][addlang]wywołaniu określono nowy docelowy język tłumaczenia. Innymi słowy, gdy mowa jest rozpoznawana z języka źródłowego, każde tłumaczenie docelowe jest dostępne jako część wynikowej operacji tłumaczenia.
+W przypadku każdego wywołania [`add_target_language`][addlang]do programu określony jest nowy docelowy język tłumaczenia. Innymi słowy, gdy rozpoznawanie mowy jest rozpoznawane w języku źródłowym, każde docelowe tłumaczenie jest dostępne jako część wyniku operacji tłumaczenia.
 
-## <a name="initialize-a-translation-recognizer"></a>Inicjowanie aparatu tłumaczenia
+## <a name="initialize-a-translation-recognizer"></a>Inicjowanie aparatu rozpoznawania tłumaczenia
 
-Po utworzeniu przycisku [`SpeechTranslationConfig`][config], następnym krokiem [`TranslationRecognizer`][recognizer]jest zainicjowanie pliku . Podczas inicjowania [`TranslationRecognizer`][recognizer], musisz przekazać go `translation_config`. Obiekt konfiguracji zawiera poświadczenia, które usługa mowy wymaga, aby sprawdzić poprawność żądania.
+Po utworzeniu [`SpeechTranslationConfig`][config], następnym krokiem jest zainicjowanie [`TranslationRecognizer`][recognizer]. Po zainicjowaniu [`TranslationRecognizer`][recognizer]elementu należy przekazać go `translation_config`. Obiekt Configuration zawiera poświadczenia wymagane przez usługę mowy do zweryfikowania Twojego żądania.
 
-Jeśli rozpoznajesz mowę przy użyciu domyślnego mikrofonu urządzenia, oto jak [`TranslationRecognizer`][recognizer] powinno wyglądać:
+Jeśli rozpoznajesz mowę przy użyciu domyślnego mikrofonu urządzenia, Oto jak [`TranslationRecognizer`][recognizer] powinien wyglądać:
 
 ```python
 def translate_speech_to_text():
@@ -111,12 +111,12 @@ def translate_speech_to_text():
             translation_config=translation_config)
 ```
 
-Jeśli chcesz określić urządzenie wejściowe audio, musisz utworzyć [`AudioConfig`][audioconfig] i `audio_config` podać parametr podczas [`TranslationRecognizer`][recognizer]inicjowania pliku .
+Jeśli chcesz określić urządzenie wejściowe audio, należy utworzyć [`AudioConfig`][audioconfig] i podać `audio_config` parametr podczas inicjowania. [`TranslationRecognizer`][recognizer]
 
 > [!TIP]
-> [Dowiedz się, jak uzyskać identyfikator urządzenia dla urządzenia wejściowego audio](../../../how-to-select-audio-input-devices.md).
+> [Dowiedz się, jak uzyskać identyfikator urządzenia dla wejściowego urządzenia audio](../../../how-to-select-audio-input-devices.md).
 
-Najpierw odwołujesz się `AudioConfig` do obiektu w następujący sposób:
+Najpierw należy odwołać się do `AudioConfig` obiektu w następujący sposób:
 
 ```python
 def translate_speech_to_text():
@@ -132,7 +132,7 @@ def translate_speech_to_text():
             translation_config=translation_config, audio_config=audio_config)
 ```
 
-Jeśli chcesz podać plik audio zamiast mikrofonu, nadal musisz podać plik `audioConfig`. Jednak podczas tworzenia [`AudioConfig`][audioconfig], zamiast wywoływania `use_default_microphone=True`z , będziesz `filename="path-to-file.wav"` dzwonić `filename` i podać parametr.
+Jeśli chcesz podać plik audio zamiast używać mikrofonu, nadal musisz podać `audioConfig`. [`AudioConfig`][audioconfig]Jednak podczas tworzenia, zamiast wywoływania przy `use_default_microphone=True`użyciu, należy wywołać metodę `filename="path-to-file.wav"` i podać `filename` parametr.
 
 ```python
 def translate_speech_to_text():
@@ -150,7 +150,7 @@ def translate_speech_to_text():
 
 ## <a name="translate-speech"></a>Tłumaczenie mowy
 
-Aby przetłumaczyć mowę, zestaw SDK mowy opiera się na wejściu mikrofonu lub pliku audio. Rozpoznawanie mowy występuje przed tłumaczeniem mowy. Po zainicjowaniu wszystkich obiektów wywołaj funkcję rozpoznawania i uzyskaj wynik.
+Aby tłumaczyć mowę, zestaw Speech SDK polega na użyciu mikrofonu lub wejściowego pliku audio. Rozpoznawanie mowy występuje przed tłumaczeniem mowy. Po zainicjowaniu wszystkich obiektów wywołaj funkcję rozpoznawania-raz i uzyskaj wynik.
 
 ```python
 import os
@@ -189,16 +189,16 @@ translate_speech_to_text()
 
 Aby uzyskać więcej informacji na temat zamiany mowy na tekst, zobacz [podstawy rozpoznawania mowy](../../../speech-to-text-basics.md).
 
-## <a name="synthesize-translations"></a>Syntetyzowanie tłumaczeń
+## <a name="synthesize-translations"></a>Synteza tłumaczeń
 
-Po pomyślnym rozpoznawaniu mowy i tłumaczeniu wynik zawiera wszystkie tłumaczenia w słowniku. Klucz [`translations`][translations] słownika jest językiem tłumaczenia docelowego, a wartością jest przetłumaczony tekst. Rozpoznaną mowę można przetłumaczyć, a następnie zsyntetyzować w innym języku (mowa na mowę).
+Po pomyślnym przeprowadzeniu rozpoznawania mowy i tłumaczeniu, wynik zawiera wszystkie tłumaczenia w słowniku. Klucz [`translations`][translations] słownika to docelowy język tłumaczenia, a wartość to przetłumaczony tekst. Rozpoznaną mowę można przetłumaczyć, a następnie wyróżnić w innym języku (zamiana mowy na mowę).
 
 ### <a name="event-based-synthesis"></a>Synteza oparta na zdarzeniach
 
-Obiekt `TranslationRecognizer` udostępnia `Synthesizing` zdarzenie. Zdarzenie jest uruchamiane kilka razy i zapewnia mechanizm pobierania syntetyzowanego dźwięku z wyniku rozpoznawania tłumaczenia. Jeśli tłumaczysz na wiele języków, zobacz [ręczna synteza](#manual-synthesis). Określ głos syntezy, przypisując [`voice_name`][voicename] i `Synthesizing` zapewnij program obsługi zdarzeń dla zdarzenia, pobierz dźwięk. Poniższy przykład zapisuje przetłumaczony dźwięk jako plik *wav.*
+`TranslationRecognizer` Obiekt ujawnia `Synthesizing` zdarzenie. Zdarzenie zostanie wyzwolone kilka razy i udostępnia mechanizm umożliwiający pobranie dźwięku z tłumaczenia z wyniku rozpoznawania. W przypadku tłumaczenia na wiele języków, zobacz [synteza ręczna](#manual-synthesis). Określ głos syntezy, przypisując [`voice_name`][voicename] i podając procedurę obsługi zdarzeń dla `Synthesizing` zdarzenia, Pobierz dźwięk. Poniższy przykład zapisuje przetłumaczony dźwięk jako plik *. wav* .
 
 > [!IMPORTANT]
-> Synteza oparta na zdarzeniach działa tylko z jednym tłumaczeniem, **nie** należy dodawać wielu języków tłumaczenia docelowego. Ponadto [`voice_name`][voicename] powinien być tym samym językiem co język tłumaczenia docelowego, na przykład; `"de"` może być `"de-DE-Hedda"`mapowana na .
+> Synteza oparta na zdarzeniach działa tylko w przypadku jednego tłumaczenia **, nie należy dodawać** wielu docelowych języków tłumaczenia. Ponadto [`voice_name`][voicename] powinien być to ten sam język, w którym znajduje się docelowy język tłumaczenia, na przykład. `"de"` można zamapować `"de-DE-Hedda"`na.
 
 ```python
 import os
@@ -250,9 +250,9 @@ def get_result_text(reason, result):
 translate_speech_to_text()
 ```
 
-### <a name="manual-synthesis"></a>Ręczna synteza
+### <a name="manual-synthesis"></a>Synteza ręczna
 
-Słownik [`translations`][translations] może służyć do syntezy dźwięku z tekstu tłumaczenia. Iteracja każdego tłumaczenia i syntetyzowanie tłumaczenia. Podczas tworzenia `SpeechSynthesizer` wystąpienia `SpeechConfig` obiekt musi mieć [`speech_synthesis_voice_name`][speechsynthesisvoicename] jego właściwość ustawioną na żądany głos. Poniższy przykład tłumaczy na pięć języków, a każde tłumaczenie jest następnie syntetyzowane do pliku audio w odpowiednim języku neuronowym.
+[`translations`][translations] Słownik może służyć do syntezowania dźwięku z tekstu tłumaczenia. Wykonaj iterację każdego tłumaczenia i wytłumacz tłumaczenie. Podczas tworzenia `SpeechSynthesizer` wystąpienia `SpeechConfig` obiekt musi mieć ustawioną [`speech_synthesis_voice_name`][speechsynthesisvoicename] właściwość na żądany głos. W poniższym przykładzie przekładają się na pięć języków, a każde tłumaczenie jest następnie wydane do pliku audio w odpowiednim języku neuronowych.
 
 ```python
 import os

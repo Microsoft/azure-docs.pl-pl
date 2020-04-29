@@ -1,6 +1,6 @@
 ---
 title: Składniki & wymagania wstępne
-description: Szczegółowe informacje o wszystkim, co potrzebne do rozpoczęcia pracy z usługą Azure Security Center dla wymagań wstępnych usługi IoT.
+description: Szczegóły dotyczące wszystkiego, czego potrzebujesz, aby rozpocząć pracę z Azure Security Centerami dotyczącymi wymagań wstępnych usługi IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,31 +16,31 @@ ms.workload: na
 ms.date: 09/25/2019
 ms.author: mlottner
 ms.openlocfilehash: fb5c42ad490ed04f14ff150093a44b552434ed9e
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81310578"
 ---
-# <a name="azure-security-center-for-iot-prerequisites"></a>Wymagania wstępne usługi Azure Security Center dla IoT
+# <a name="azure-security-center-for-iot-prerequisites"></a>Azure Security Center wymagań wstępnych usługi IoT
 
-Ten artykuł zawiera wyjaśnienie różnych składników usługi Azure Security Center dla IoT, co należy rozpocząć, i wyjaśnia podstawowe pojęcia, aby ułatwić zrozumienie usługi.
+W tym artykule opisano różne składniki Azure Security Center usługi IoT, co należy zacząć i wyjaśniono podstawowe pojęcia ułatwiające zrozumienie usługi.
 
 ## <a name="minimum-requirements"></a>Minimalne wymagania
 
-- Warstwa standardowa usługi IoT Hub
-  - Uprawnienia poziomu **właściciela** roli RBAC
-- [Obszar roboczy analizy dzienników](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
-- Usługa Azure Security Center (zalecane)
-  - Korzystanie z usługi Azure Security Center jest zaleceniem, a nie wymaganiem. Bez usługi Azure Security Center nie będzie można wyświetlić innych zasobów platformy Azure w centrum IoT Hub.
+- Warstwa standardowa IoT Hub
+  - Uprawnienia na poziomie **właściciela** roli RBAC
+- [Log Analytics obszar roboczy](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+- Azure Security Center (zalecane)
+  - Korzystanie z Azure Security Center jest zaleceniem, a nie wymaganiem. Bez Azure Security Center nie będzie można wyświetlać innych zasobów platformy Azure w ramach usługi IoT Hub.
 
-## <a name="working-with-azure-security-center-for-iot-service"></a>Praca z usługą Azure Security Center dla usługi IoT
+## <a name="working-with-azure-security-center-for-iot-service"></a>Praca z Azure Security Center dla usługi IoT
 
-Usługa Azure Security Center dla szczegółowych informacji i raportowania IoT jest dostępna przy użyciu usługi Azure IoT Hub i Usługi Azure Security Center. Aby włączyć usługę Azure Security Center dla IoT w centrum Usługi Azure IoT, wymagane jest konto z uprawnieniami na poziomie **właściciela.** Po włączeniu asc dla IoT w centrum IoT Hub, Usługa Azure Security Center dla szczegółowych usług IoT są wyświetlane jako funkcja **zabezpieczeń** w usłudze Azure IoT Hub i jako **IoT** w Usłudze Azure Security Center.
+Azure Security Center usługi IoT Insights i raportowania są dostępne za pomocą usług Azure IoT Hub i Azure Security Center. Aby włączyć Azure Security Center IoT na platformie Azure IoT Hub, wymagane jest konto z uprawnieniami na poziomie **właściciela** . Po włączeniu funkcji ASC dla IoT w IoT Hub Azure Security Center usługi IoT Insights będą wyświetlane jako funkcja **zabezpieczeń** w usłudze Azure IoT Hub oraz jako **IoT** w Azure Security Center.
 
-## <a name="supported-service-regions"></a>Obsługiwane regiony usług
+## <a name="supported-service-regions"></a>Obsługiwane regiony usługi
 
-Usługa Azure Security Center dla IoT jest obecnie obsługiwana dla centrów IoT w następujących regionach platformy Azure:
+Azure Security Center usługi IoT jest obecnie obsługiwana w przypadku centrów IoT w następujących regionach platformy Azure:
 
 - Środkowe stany USA
 - Wschodnie stany USA
@@ -48,7 +48,7 @@ Usługa Azure Security Center dla IoT jest obecnie obsługiwana dla centrów IoT
 - Zachodnio-środkowe stany USA
 - Zachodnie stany USA
 - Zachodnie stany USA 2
-- Środkowe Stany Zjednoczone Południowe
+- Południowo-środkowe stany USA
 - Północno-środkowe stany USA
 - Kanada Środkowa
 - Kanada Wschodnia
@@ -70,23 +70,23 @@ Usługa Azure Security Center dla IoT jest obecnie obsługiwana dla centrów IoT
 - Indie Środkowe
 - Indie Południowe
 
-Usługa Azure Security Center for IoT kieruje cały ruch ze wszystkich regionów europejskich do regionalnego centrum danych w Europie Zachodniej i wszystkich pozostałych regionów do regionalnego centrum danych w stanach Centralnych Stanów Zjednoczonych.
+Azure Security Center usługi IoT kieruje cały ruch ze wszystkich regionów europejskich do regionalnego centrum danych Europa Zachodnia i wszystkie pozostałe regiony do centralnych, regionalnych centrów danych.
 
-## <a name="wheres-my-iot-hub"></a>Gdzie jest moje Centrum IoT?
+## <a name="wheres-my-iot-hub"></a>Gdzie mam IoT Hub?
 
-Sprawdź lokalizację usługi IoT Hub, aby zweryfikować dostępność usługi przed rozpoczęciem.
+Sprawdź lokalizację IoT Hub, aby zweryfikować dostępność usługi przed rozpoczęciem.
 
-1. Otwórz centrum IoT Hub.
+1. Otwórz IoT Hub.
 1. Kliknij pozycję **Przegląd**.
-1. Sprawdź, czy wyświetlana lokalizacja jest zgodna z jednym z [obsługiwanych regionów serwisu.](#supported-service-regions)
+1. Sprawdź, czy podana lokalizacja odpowiada jednemu z [obsługiwanych regionów usługi](#supported-service-regions).
 
 ## <a name="supported-platforms-for-agents"></a>Obsługiwane platformy dla agentów
 
-Usługa Azure Security Center dla agentów IoT obsługuje rosnącą listę urządzeń i platform. Zobacz [listę obsługiwanych platform,](how-to-deploy-agent.md) aby sprawdzić istniejącą lub planowaną bibliotekę urządzeń.
+Azure Security Center dla agentów IoT obsługuje rosnącą listę urządzeń i platform. Zapoznaj się z [listą obsługiwanych platform](how-to-deploy-agent.md) , aby sprawdzić istniejącą lub zaplanowaną bibliotekę urządzeń.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przeczytaj [omówienie](overview.md) zabezpieczeń usługi Azure IoT
-- Dowiedz się, jak [włączyć usługę](quickstart-onboard-iot-hub.md)
-- Przeczytaj często zadawane pytania dotyczące [Centrum zabezpieczeń platformy Azure dla IoT](resources-frequently-asked-questions.md)
-- Dowiedz się, jak [poznać usługi Azure Security Center dla alertów IoT](concept-security-alerts.md)
+- Przeczytaj [Omówienie](overview.md) zabezpieczeń usługi Azure IoT
+- Dowiedz się [, jak włączyć usługę](quickstart-onboard-iot-hub.md)
+- Przeczytaj [Azure Security Center dla usługi IoT — często zadawane pytania](resources-frequently-asked-questions.md)
+- Dowiedz się, jak [zrozumieć Azure Security Center alertów IoT](concept-security-alerts.md)

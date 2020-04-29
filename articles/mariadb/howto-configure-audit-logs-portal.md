@@ -1,73 +1,73 @@
 ---
-title: Dzienniki inspekcji dostępu — witryna Azure portal — usługa Azure Database for MariaDB
-description: W tym artykule opisano sposób konfigurowania dzienników inspekcji i uzyskiwania do nich dostępu z witryny Azure Database z witryny Azure Portal.
+title: Dzienniki inspekcji dostępu — Azure Portal — Azure Database for MariaDB
+description: W tym artykule opisano sposób konfigurowania i uzyskiwania dostępu do dzienników inspekcji w programie Azure Database for MariaDB z Azure Portal.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: 506bf076c955beb5c5e57811bbdb42bfedb8cbe3
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81382966"
 ---
-# <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Konfigurowanie dzienników inspekcji i uzyskiwanie do nich dostępu w witrynie Azure portal
+# <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Konfigurowanie i dostęp do dzienników inspekcji w Azure Portal
 
-Można skonfigurować [usługi Azure Database dla dzienników inspekcji MariaDB](concepts-audit-logs.md) i ustawień diagnostycznych z witryny Azure portal.
+Można skonfigurować [Azure Database for MariaDB dzienników inspekcji](concepts-audit-logs.md) i ustawień diagnostycznych z Azure Portal.
 
 > [!IMPORTANT]
-> Funkcja dziennika inspekcji jest obecnie w wersji zapoznawczej.
+> Funkcje dziennika inspekcji są obecnie dostępne w wersji zapoznawczej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby przejść przez ten przewodnik, potrzebujesz:
+Aby krokowo poprowadzić ten przewodnik, musisz:
 
-- [Usługa Azure Database dla serwera MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md)
+- [Serwer Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md)
 
 ## <a name="configure-audit-logging"></a>Konfigurowanie rejestrowania inspekcji
 
-Włączanie i konfigurowanie rejestrowania inspekcji.
+Włącz i skonfiguruj rejestrowanie inspekcji.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-1. Wybierz swoją usługę Azure Database dla serwera MariaDB.
+1. Wybierz serwer Azure Database for MariaDB.
 
-1. W sekcji **Ustawienia** na pasku bocznym wybierz pozycję **Parametry serwera**.
+1. W sekcji **Ustawienia** na pasku bocznym wybierz opcję **parametry serwera**.
     ![Parametry serwera](./media/howto-configure-audit-logs-portal/server-parameters.png)
 
-1. Zaktualizuj parametr **audit_log_enabled** do on.
+1. Zaktualizuj parametr **audit_log_enabled** na wartość on.
     ![Włączanie dzienników inspekcji](./media/howto-configure-audit-logs-portal/audit-log-enabled.png)
 
-1. Wybierz [typy zdarzeń,](concepts-audit-logs.md#configure-audit-logging) które mają być rejestrowane, aktualizując **parametr audit_log_events.**
+1. Wybierz [typy zdarzeń](concepts-audit-logs.md#configure-audit-logging) , które mają być rejestrowane, aktualizując parametr **audit_log_events** .
     ![Zdarzenia dziennika inspekcji](./media/howto-configure-audit-logs-portal/audit-log-events.png)
 
-1. Dodaj wszystkich użytkowników MariaDB, które mają zostać wykluczone z rejestrowania, aktualizując **parametr audit_log_exclude_users.** Określ użytkowników, podając ich nazwę użytkownika MariaDB.
-    ![Dziennik inspekcji wyklucza użytkowników](./media/howto-configure-audit-logs-portal/audit-log-exclude-users.png)
+1. Dodaj wszystkich użytkowników MariaDB do wykluczenia z rejestrowania przez zaktualizowanie parametru **audit_log_exclude_users** . Określ użytkowników, podając ich nazwę użytkownika MariaDB.
+    ![Dziennik inspekcji — Wyklucz użytkowników](./media/howto-configure-audit-logs-portal/audit-log-exclude-users.png)
 
 1. Po zmianie parametrów możesz kliknąć przycisk **Zapisz**. Możesz też **odrzucić** zmiany.
     ![Zapisywanie](./media/howto-configure-audit-logs-portal/save-parameters.png)
 
 ## <a name="set-up-diagnostic-logs"></a>Konfigurowanie dzienników diagnostycznych
 
-1. W sekcji **Monitorowanie** na pasku bocznym wybierz pozycję **Ustawienia diagnostyczne**.
+1. W sekcji **monitorowanie** na pasku bocznym wybierz pozycję **Ustawienia diagnostyczne**.
 
-1. Kliknij na "+ Dodaj ![ustawienie diagnostyczne" Dodaj ustawienie diagnostyczne](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
+1. Kliknij pozycję "+ Dodaj ustawienie diagnostyczne" ![Dodaj ustawienie diagnostyczne](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
 
 1. Podaj nazwę ustawienia diagnostycznego.
 
-1. Określ, które pochłaniacze danych mają być wysyłane dzienniki inspekcji (konto magazynu, centrum zdarzeń i/lub obszar roboczy usługi Log Analytics).
+1. Określ, które ujścia danych mają wysyłać dzienniki inspekcji (konto magazynu, centrum zdarzeń i/lub Log Analytics obszar roboczy).
 
-1. Wybierz "MySqlAuditLogs" jako typ dziennika.
-![Konfigurowanie ustawienia diagnostycznego](./media/howto-configure-audit-logs-portal/configure-diagnostic-setting.png)
+1. Wybierz pozycję "MySqlAuditLogs" jako typ dziennika.
+![Konfiguruj ustawienie diagnostyczne](./media/howto-configure-audit-logs-portal/configure-diagnostic-setting.png)
 
-1. Po skonfigurowaniu pochłaniacze danych do potoku dzienników inspekcji, można **kliknąć**zapisz .
-![Zapisz ustawienie diagnostyczne](./media/howto-configure-audit-logs-portal/save-diagnostic-setting.png)
+1. Po skonfigurowaniu ujścia danych do potoków dzienników inspekcji do programu można kliknąć przycisk **Zapisz**.
+![Zapisz ustawienia diagnostyczne](./media/howto-configure-audit-logs-portal/save-diagnostic-setting.png)
 
-1. Dostęp do dzienników inspekcji, eksplorując je w sink danych. Może upłynąć do 10 minut, aby pojawili się dzienniki.
+1. Uzyskaj dostęp do dzienników inspekcji, przepoznając je w skonfigurowanych ujściach danych. Wyświetlenie dzienników może potrwać do 10 minut.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [dziennikach inspekcji](concepts-audit-logs.md) w usłudze Azure Database for MariaDB
-- Dowiedz się, jak skonfigurować dzienniki inspekcji w wierszu [polecenia platformy Azure](howto-configure-audit-logs-cli.md)
+- Dowiedz się więcej o [dziennikach inspekcji](concepts-audit-logs.md) w Azure Database for MariaDB
+- Dowiedz się, jak skonfigurować dzienniki inspekcji w [interfejsie wiersza polecenia platformy Azure](howto-configure-audit-logs-cli.md)

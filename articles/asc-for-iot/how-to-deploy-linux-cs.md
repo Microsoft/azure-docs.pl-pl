@@ -1,6 +1,6 @@
 ---
-title: Zainstaluj & wdrożyć agenta Systemu Linux C#
-description: Dowiedz się, jak zainstalować agenta Usługi Azure Security Center dla IoT zarówno w systemie Linux 32-bitowym, jak i 64-bitowym.
+title: Zainstaluj & Wdróż agenta C# w systemie Linux
+description: Dowiedz się, jak zainstalować Azure Security Center dla agenta IoT zarówno na 32-bitowym, jak i 64-bitowym systemie Linux.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 07/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 40c6ea91fd84a0f088ed770cd7c4c3ea7b8b1c91
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311141"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Wdrażanie agenta zabezpieczeń usługi Azure Security Center dla IoT opartego na języku C# dla systemu Linux
 
-W tym przewodniku wyjaśniono, jak zainstalować i wdrożyć agenta zabezpieczeń usługi Azure Security Center dla usługi IoT C w systemie Linux.
+W tym przewodniku wyjaśniono, jak zainstalować i wdrożyć Azure Security Center dla agenta zabezpieczeń opartych na usłudze IoT C# w systemie Linux.
 
 Niniejszy przewodnik zawiera informacje na temat wykonywania następujących czynności:
 
@@ -36,63 +36,63 @@ Niniejszy przewodnik zawiera informacje na temat wykonywania następujących czy
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby uzyskać więcej informacji na temat innych platform i smaków agentów, zobacz [Wybieranie odpowiedniego agenta zabezpieczeń](how-to-deploy-agent.md).
+W przypadku innych platform i rodzajów agentów zobacz [Wybieranie odpowiedniego agenta zabezpieczeń](how-to-deploy-agent.md).
 
-1. Aby wdrożyć agenta zabezpieczeń, lokalne prawa administratora są wymagane na komputerze, na którym chcesz zainstalować.
+1. W celu wdrożenia agenta zabezpieczeń wymagane są uprawnienia administratora lokalnego na komputerze, na którym ma zostać zainstalowana.
 
 1. [Utwórz moduł zabezpieczeń](quickstart-create-security-twin.md) dla urządzenia.
 
 ## <a name="installation"></a>Instalacja
 
-Aby wdrożyć agenta zabezpieczeń, należy wykonać następujące czynności:
+Aby wdrożyć agenta zabezpieczeń, wykonaj następujące czynności:
 
-1. Pobierz najnowszą wersję do swojego komputera z [GitHub](https://aka.ms/iot-security-github-cs).
+1. Pobierz najnowszą wersję na swoją maszynę z usługi [GitHub](https://aka.ms/iot-security-github-cs).
 
-1. Wyodrębnij zawartość pakietu i przejdź do folderu _/Install._
+1. Wyodrębnij zawartość pakietu i przejdź do folderu _/Install_ .
 
-1. Dodaj uruchomione uprawnienia do **skryptu InstallSecurityAgent,** uruchamiając`chmod +x InstallSecurityAgent.sh`
+1. Dodaj uruchomione uprawnienia do **skryptu InstallSecurityAgent** , uruchamiając`chmod +x InstallSecurityAgent.sh`
 
-1. Następnie uruchom następujące polecenie z **uprawnieniami głównymi:**
+1. Następnie uruchom następujące polecenie z **uprawnieniami głównymi**:
 
    ```
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
    ```
 
-   Aby uzyskać więcej informacji na temat parametrów uwierzytelniania, zobacz [Jak skonfigurować uwierzytelnianie](concept-security-agent-authentication-methods.md).
+   Aby uzyskać więcej informacji na temat parametrów uwierzytelniania, zobacz [jak skonfigurować uwierzytelnianie](concept-security-agent-authentication-methods.md).
 
-Ten skrypt wykonuje następujące akcje:
+Ten skrypt wykonuje następujące czynności:
 
 - Instaluje wymagania wstępne.
 
-- Dodaje użytkownika usługi (z wyłączonym logiem interaktywnym).
+- Dodaje użytkownika usługi (z wyłączonym logowaniem interakcyjnym).
 
-- Instaluje agenta jako **demona** — zakłada, że urządzenie używa **systemd** dla klasycznego modelu wdrażania.
+- Instaluje agenta jako **demon** — zakłada, że urządzenie używa **systemu** w ramach klasycznego modelu wdrażania.
 
-- Konfiguruje **sudoers,** aby agent do niektórych zadań jako root.
+- Konfiguruje **sudo** , aby umożliwić agentowi wykonywanie określonych zadań jako głównych.
 
-- Konfiguruje agenta z podanymi parametrami uwierzytelniania.
+- Konfiguruje agenta przy użyciu podanych parametrów uwierzytelniania.
 
-Aby uzyskać dodatkową pomoc, uruchom skrypt za pomocą parametru –help:`./InstallSecurityAgent.sh --help`
+Aby uzyskać dodatkową pomoc, uruchom skrypt za pomocą parametru – help:`./InstallSecurityAgent.sh --help`
 
 ### <a name="uninstall-the-agent"></a>Odinstalowywanie agenta
 
-Aby odinstalować agenta, uruchom skrypt `./InstallSecurityAgent.sh -u`z parametrem –u: .
+Aby odinstalować agenta, uruchom skrypt za pomocą parametru – u: `./InstallSecurityAgent.sh -u`.
 
 > [!NOTE]
-> Odinstaluj nie usuwa brakujących wymagań wstępnych, które zostały zainstalowane podczas instalacji.
+> Dezinstalacja nie usuwa żadnych brakujących wymagań wstępnych, które zostały zainstalowane podczas instalacji.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-1. Sprawdź stan wdrożenia, uruchamiając:
+1. Sprawdź stan wdrożenia, uruchamiając następujące:
 
     `systemctl status ASCIoTAgent.service`
 
 1. Włącz rejestrowanie.
-   Jeśli agent nie uruchamia się, włącz rejestrowanie, aby uzyskać więcej informacji.
+   Jeśli uruchomienie agenta nie powiedzie się, Włącz rejestrowanie, aby uzyskać więcej informacji.
 
-   Włącz rejestrowanie, korzystając z:
+   Włącz rejestrowanie, wykonując następujące instrukcje:
 
-   1. Otwórz plik konfiguracyjny do edycji w dowolnym edytorze Linuksa:
+   1. Otwórz plik konfiguracji do edycji w dowolnym edytorze systemu Linux:
 
         `vi /var/ASCIoTAgent/General.config`
 
@@ -105,25 +105,25 @@ Aby odinstalować agenta, uruchom skrypt `./InstallSecurityAgent.sh -u`z paramet
       <add key="logFilePath" value="IotAgentLog.log"/>
       ```
 
-       Wartość **logFilePath** jest konfigurowalna.
+       Wartość **LogFilePath** można skonfigurować.
 
        > [!NOTE]
-       > Zalecamy wyłączenie **off** wylogowania po zakończeniu rozwiązywania problemów. Pozostawienie **on** logowania zwiększa rozmiar pliku dziennika i użycie danych.
+       > Zalecamy **wyłączenie wylogowywania po zakończeniu** rozwiązywania problemów. Pozostawienie **logowania powoduje zwiększenie** rozmiaru pliku dziennika i użycie danych.
 
    1. Uruchom ponownie agenta, uruchamiając:
 
        `systemctl restart ASCIoTAgent.service`
 
-   1. Wyświetl plik dziennika, aby uzyskać więcej informacji na temat błędu.
+   1. Przejrzyj plik dziennika, aby uzyskać więcej informacji o błędzie.
 
-       Lokalizacja pliku dziennika to:`/var/ASCIoTAgent/IotAgentLog.log`
+       Lokalizacja pliku dziennika:`/var/ASCIoTAgent/IotAgentLog.log`
 
-       Zmień ścieżkę lokalizacji pliku zgodnie z nazwą wybraną dla **logFilePath** w kroku 2.
+       Zmień ścieżkę lokalizacji pliku zgodnie z nazwą wybraną dla **LogFilePath** w kroku 2.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przeczytaj [omówienie](overview.md) usługi Azure Security Center dla IoT
-- Dowiedz się więcej o usłudze Azure Security Center dla [architektury](architecture.md) IoT
+- Przeczytaj Azure Security Center dla usługi IoT [— Omówienie](overview.md)
+- Dowiedz się więcej o [architekturze](architecture.md) Azure Security Center dla usługi IoT
 - Włącz [usługę](quickstart-onboard-iot-hub.md)
-- Przeczytaj [często](resources-frequently-asked-questions.md) zadawane pytania
-- Opis [alertów](concept-security-alerts.md)
+- Przeczytaj [często zadawane pytania](resources-frequently-asked-questions.md)
+- Informacje o [alertach](concept-security-alerts.md)

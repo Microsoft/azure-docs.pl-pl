@@ -1,169 +1,169 @@
 ---
-title: 'Szybki start: tworzenie nowej aplikacji w portalu usługi LUIS'
-description: W tym przewodniku Szybki start można utworzyć podstawowe części aplikacji, intencje i jednostki, a także przetestować z wypowiedź próbki w portalu usługi LUIS.
+title: 'Szybki Start: Tworzenie nowej aplikacji w portalu LUIS'
+description: W tym przewodniku szybki start utworzysz podstawowe elementy aplikacji, intencje i jednostki, a także test z przykładową wypowiedźą w portalu LUIS.
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.openlocfilehash: 2d601646c43c0f0d99dc6934cf1f1c960e0b0f79
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81382581"
 ---
-# <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Szybki start: tworzenie nowej aplikacji w portalu usługi LUIS
+# <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Szybki Start: Tworzenie nowej aplikacji w portalu LUIS
 
-W tym przewodniku Szybki start tworzysz nową aplikację w portalu usługi LUIS. Najpierw utwórz podstawowe części aplikacji, **intencje**i **encje**. Następnie przetestuj aplikację, zapewniając wypowiedź przykładowego użytkownika w interaktywnym panelu testowym, aby uzyskać przewidywaną intencję.
+W tym przewodniku szybki start utworzysz nową aplikację w portalu LUIS. Najpierw Utwórz podstawowe elementy aplikacji, **intencje**i **jednostki**. Następnie przetestuj aplikację, dostarczając przykładowej wypowiedź użytkownika w panelu testów interakcyjnych w celu uzyskania przewidywanych zamierzeń.
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
 ## <a name="create-an-app"></a>Tworzenie aplikacji
 
-1. Wybierz **+ Nowa aplikacja do konwersacji** z paska narzędzi kontekstu, a następnie wybierz pozycję Nowa aplikacja do **konwersacji**.
+1. Wybierz pozycję **+ Nowa aplikacja dla konwersacji** z poziomu paska narzędzi kontekstu, a następnie wybierz pozycję **Nowa aplikacja do konwersacji**.
 
     > [!div class="mx-imgBorder"]
-    > [![Tworzenie nowej aplikacji w portalu usługi LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
+    > [![Utwórz nową aplikację w portalu LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
 
-1. W wyskakującym oknie skonfiguruj aplikację z następującymi ustawieniami, a następnie wybierz pozycję **Gotowe**.
+1. W oknie podręcznym Skonfiguruj aplikację przy użyciu następujących ustawień, a następnie wybierz pozycję **gotowe**.
 
    |Nazwa ustawienia| Wartość | Przeznaczenie|
    |--|--|--|
-   |Nazwa|`myEnglishApp`|Unikatowa nazwa aplikacji usługi LUIS<br>wymagany|
-   |Culture|**Polski**|Język wypowiedzi użytkowników, **en-us**<br>wymagany|
+   |Nazwa|`myEnglishApp`|Unikatowa nazwa aplikacji LUIS<br>wymagany|
+   |Culture|**Angielski**|Język wyrażenia długości od użytkowników, **en-us**<br>wymagany|
    |Opis (opcjonalnie)|`App made with LUIS Portal`|Opis aplikacji<br>optional|
-   |Zasób przewidywania (opcjonalnie) |-  |Nie wybieraj. Usługa LUIS udostępnia klucz startowy do bezpłatnego użycia do tworzenia i 1000 żądań punktu końcowego przewidywania. |
+   |Zasób predykcyjny (opcjonalnie) |-  |Nie wybieraj. LUIS udostępnia klucz początkowy do użycia bezpłatnie na potrzeby tworzenia i 1 000 żądań punktu końcowego przewidywania. |
 
-   ![Wprowadzanie nowych ustawień aplikacji](./media/get-started-portal-build-app/create-new-app-settings.png)
+   ![Wprowadź nowe ustawienia aplikacji](./media/get-started-portal-build-app/create-new-app-settings.png)
 
 ## <a name="create-intents"></a>Tworzenie intencji
 
-Po utworzeniu aplikacji usługi LUIS należy utworzyć intencje. Intencje to sposób kategoryzowanie tekstu od użytkowników. Na przykład aplikacja zasobów ludzkich może mieć dwie funkcje. Aby pomóc ludziom:
+Po utworzeniu aplikacji LUIS należy utworzyć intencje. Intencje są sposobem na klasyfikowanie tekstu od użytkowników. Na przykład aplikacja kadrs może mieć dwie funkcje. Aby ułatwić użytkownikom:
 
- 1. Znajdź i ubiegaj się o pracę
- 1. Znajdź formularze do ubiegania się o pracę
+ 1. Znajdź i Zastosuj do zadań
+ 1. Znajdowanie formularzy do zastosowania w przypadku zadań
 
-Dwie różne _intencje_ aplikacji są zgodne z następującymi intencjami:
+Dwie różne _intencje_ dotyczące aplikacji są wyrównane do następujących intencji:
 
-|Intencja|Przykładowy tekst użytkownika<br>znany jako _wypowiedź_|
+|Intencja|Przykładowy tekst od użytkownika<br>znane jako _wypowiedź_|
 |--|--|
 |ApplyForJob|`I want to apply for the new software engineering position in Cairo.`|
-|Znajdź formę|`Where is the job transfer form hrf-123456?`|
+|FindForm|`Where is the job transfer form hrf-123456?`|
 
-Aby utworzyć intencje, wykonaj następujące kroki:
+Aby utworzyć intencje, wykonaj następujące czynności:
 
-1. Po utworzeniu aplikacji znajdujesz się na stronie **Intencje** w sekcji **Kompilacja.** Wybierz **pozycję Utwórz**.
+1. Po utworzeniu aplikacji znajduje się na stronie **intencje** w sekcji **kompilacja** . Wybierz przycisk **Utwórz**.
 
-   [![Wybierz pozycję Utwórz, aby utworzyć nową intencję](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
+   [![Wybierz pozycję Utwórz, aby utworzyć nowy cel](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
-1. Wprowadź nazwę intencji, `FindForm`a następnie wybierz pozycję **Gotowe**.
+1. Wprowadź nazwę `FindForm`celu, a następnie wybierz pozycję **gotowe**.
 
-## <a name="add-an-example-utterance"></a>Dodawanie przykładowego wypowiedź
+## <a name="add-an-example-utterance"></a>Dodawanie przykładu wypowiedź
 
-Po utworzeniu intencji należy dodać przykładowe wypowiedzi. Przykładowe wypowiedzi to tekst wprowadzany przez użytkownika w botie czatu lub innej aplikacji klienckiej. Mapują zamiar tekstu użytkownika do intencji usługi LUIS.
+Po utworzeniu zamiarów należy dodać przykład wyrażenia długości. Przykład wyrażenia długości jest tekstem, który użytkownik wprowadza w programie Chat bot lub innej aplikacji klienckiej. Umożliwiają one mapowanie zamiaru tekstu użytkownika na LUIS zamiar.
 
-W tym przykładzie `FindForm` intencji aplikacji przykład wypowiedzi będą zawierać numer formularza. Aplikacja kliencka potrzebuje numeru formularza, aby spełnić żądanie użytkownika, dlatego ważne jest, aby uwzględnić go w wypowiedź.
+Na potrzeby tego przykładowej `FindForm` aplikacji Przykładowa wyrażenia długości będzie zawierać numer formularza. Aplikacja kliencka wymaga, aby numer formularza spełniał żądanie użytkownika, więc należy go uwzględnić w wypowiedź.
 
 > [!div class="mx-imgBorder"]
-> [![Wprowadź przykładowe wypowiedzi dla intencji FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
+> [![Wprowadź przykład wyrażenia długości dla zamiaru FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
 
-Dodaj następujące 15 wypowiedzi przykład `FindForm` do intencji.
+Dodaj do `FindForm` zamiaru 15-przykładową wyrażenia długości.
 
 |#|Przykładowe wypowiedzi|
 |--|--|
-|1|Szukam hrf-123456|
-|2|Gdzie jest formularz hrf-234591?|
-|3|hrf-345623, gdzie jest|
-|4|Czy można wysłać mi hrf-345794|
-|5|Czy muszę hrf-234695 ubiegać się o pracę wewnętrzną?|
-|6|Czy mój menedżer musi wiedzieć, że ubiegam się o pracę w HRF-234091|
-|7|Gdzie mogę wysłać hrf-234918? Czy otrzymam otrzymaną odpowiedź e-mail?|
-|8|hrf-234555|
-|9|Kiedy zaktualizowano hrf-234987?|
-|10|Czy używam formularza hrf-876345, aby ubiegać się o stanowiska inżynierskie|
-|11|Czy do mojego otwartego req została przesłana nowa wersja hrf-765234?|
-|12|Czy używam hrf-234234 do pracy na arenie międzynarodowej?|
-|13|hrf-234598 błąd ortograficzny|
-|14|będzie hrf-234567 być edytowane dla nowych wymagań|
-|15|hrf-123456, hrf-123123, hrf-234567|
+|1|Szukasz elementu HRF-123456|
+|2|Gdzie jest HRF-234591?|
+|3|HRF-345623, gdzie to|
+|4|Czy jest możliwe wysłanie mi HRF-345794|
+|5|Czy potrzebuję HRF-234695 do zastosowania w ramach zadania wewnętrznego?|
+|6|Czy mój Menedżer musi wiedzieć, że stosujem się do zadania z HRF-234091|
+|7|Gdzie mogę wysłać HRF-234918? Czy otrzymuję odpowiedź na wiadomość e-mail, która została odebrana?|
+|8|HRF-234555|
+|9|Kiedy został HRF-234987 zaktualizowany?|
+|10|Do zastosowania w przypadku stanowisk inżynieryjnych należy użyć formy HRF-876345|
+|11|Czy została przesłana Nowa wersja HRF-765234 dla mojego otwartego żądania?|
+|12|Czy do zadań międzynarodowych jest używany HRF-234234?|
+|13|HRF-234598 błąd pisowni|
+|14|HRF-234567 można edytować w celu uzyskania nowych wymagań|
+|15|HRF-123456, HRF-123123, HRF-234567|
 
-Zgodnie z projektem te wypowiedzi przykład różnią się w następujący sposób:
+Zgodnie z projektem, te przykładowe wyrażenia długości różnią się w następujący sposób:
 
-* długość wypowiedź
-* [Interpunkcja](luis-reference-application-settings.md#punctuation-normalization)
-* wybór słów
-* czasownik napięta (jest, był, będzie)
-* kolejność słów
+* Długość wypowiedź
+* [interpunkcyjny](luis-reference-application-settings.md#punctuation-normalization)
+* wybór wyrazów
+* intensywność czasownika (is, jest, będzie)
+* kolejność wyrazów
 
 
-## <a name="create-a-regular-expression-entity"></a>Tworzenie encji wyrażenia regularnego
+## <a name="create-a-regular-expression-entity"></a>Tworzenie jednostki wyrażenia regularnego
 
-Aby zwrócić numer formularza w odpowiedzi przewidywania środowiska uruchomieniowego, formularz musi być oznaczony jako jednostka. Ponieważ tekst numeru formularza ma dużą strukturę, można go oznaczyć za pomocą encji wyrażenia regularnego. Utwórz encję, wykonując następujące czynności:
+Aby zwrócić numer formularza w odpowiedzi przewidywania środowiska uruchomieniowego, formularz musi być oznaczony jako jednostka. Ponieważ tekst z numerem formularza jest wysoce strukturalny, można oznaczyć go przy użyciu jednostki wyrażenia regularnego. Utwórz jednostkę, wykonując następujące czynności:
 
-1. Wybierz **elementy** z menu po lewej stronie.
+1. Wybierz pozycję **jednostki** z menu po lewej stronie.
 
-1. Wybierz **pozycję Utwórz** na stronie **Elementy.**
+1. Na stronie **jednostki** wybierz pozycję **Utwórz** .
 
-1. Wprowadź nazwę `Human Resources Form Number`, wybierz typ encji **Regex,** a następnie wybierz **przycisk Dalej**.
+1. Wprowadź nazwę `Human Resources Form Number`, wybierz typ podmiotu **wyrażenia regularnego** , a następnie wybierz przycisk **dalej**.
 
-   ![Tworzenie encji wyrażenia regularnego](./media/get-started-portal-build-app/create-regular-expression-entity.png)
+   ![Utwórz jednostkę wyrażenia regularnego](./media/get-started-portal-build-app/create-regular-expression-entity.png)
 
-1. Wprowadź wyrażenie wyrażenie regularne ( `hrf-[0-9]{6}`**RegEx**), . Ten wpis jest zgodny `hrf-`ze znakami dosłownym i pozwala na dokładnie 6 cyfr, a następnie wybierz pozycję **Utwórz**.
+1. Wprowadź wyrażenie regularne **(wyrażeń regularnych),** `hrf-[0-9]{6}`. Ten wpis jest zgodny ze znakami `hrf-`literału, i zezwala na dokładnie 6 cyfr, a następnie wybierz pozycję **Utwórz**.
 
-   ![Wprowadź wyrażenie regularne dla encji](./media/get-started-portal-build-app/create-regular-expression-entity-with-expression.png)
+   ![Wprowadź wyrażenie regularne dla jednostki](./media/get-started-portal-build-app/create-regular-expression-entity-with-expression.png)
 
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Dodawanie przykładowych wypowiedzi do intencji None
 
-Intencja **Brak** jest intencją rezerwy i nie powinna być pusta. Ten zamiar powinien zawierać jedną wypowiedź dla każdego 10 wypowiedzi przykład, które zostały dodane dla innych intencji aplikacji.
+Opcja **Brak** jest zamiarem rezerwowym i nie powinna być pusta. Ta metoda powinna zawierać jeden wypowiedź na każdy 10 przykład wyrażenia długości, który został dodany do innych intencji aplikacji.
 
-Wypowiedzi przykładowe **intencji none** powinny znajdować się poza domeną aplikacji klienckiej.
+Przykładowa metoda wyrażenia długości **nie** powinna być poza domeną aplikacji klienckiej.
 
-1. Wybierz **opcję Intencje** z lewego menu, a następnie wybierz **pozycję Brak** z listy intencji.
+1. Wybierz pozycję **intencje** w menu po lewej stronie, a następnie wybierz pozycję **Brak** z listy intencje.
 
-1. Dodaj następujące wypowiedzi przykład do intencji:
+1. Dodaj następujący przykład wyrażenia długości do celu:
 
-   |Brak intencji przykład wypowiedzi|
+   |Brak przykładu zamiaru wyrażenia długości|
    |--|
    |Barking dogs are annoying (Szczekające psy są irytujące)|
    |Order a pizza for me (Zamów dla mnie pizzę)|
    |Penguins in the ocean (Pingwiny w oceanie)|
 
-   Dla tej aplikacji te wypowiedzi przykład są poza domeną. Jeśli domena zawiera zwierzęta, żywność lub ocean, należy użyć różnych wypowiedzi przykład dla **None** intencji.
+   W przypadku tej aplikacji te przykładowe wyrażenia długości znajdują się poza domeną. Jeśli domena obejmuje zwierzęta, żywność lub ocean, należy użyć innego przykładu wyrażenia długości dla opcji **Brak** .
 
 ## <a name="train-the-app"></a>Uczenie aplikacji
 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-## <a name="look-at-the-regular-expression-entity-in-the-example-utterances"></a>Spójrz na jednostkę wyrażenia regularnego w wypowiedziach przykładowych
+## <a name="look-at-the-regular-expression-entity-in-the-example-utterances"></a>Przyjrzyj się jednostce wyrażenia regularnego w przykładzie wyrażenia długości
 
-1. Sprawdź, czy encja znajduje się w intencji **FindForm,** wybierając **intencje** z lewego menu. Następnie wybierz polecenie **Znajdź formę.**
+1. Sprawdź, czy jednostka została znaleziona w **FindForm** zamiaru, wybierając pozycję **intencje** w menu po lewej stronie. Następnie wybierz pozycję **FindForm** zamierzenia.
 
-   Jednostka jest oznaczona, gdzie pojawia się w wypowiedzi przykład. Jeśli chcesz wyświetlić oryginalny tekst zamiast nazwy encji, przełącz **widok jednostek** z paska narzędzi.
+   Jednostka jest oznaczona, gdzie pojawia się w przykładzie wyrażenia długości. Jeśli chcesz zobaczyć oryginalny tekst zamiast nazwy jednostki, przełącz **Widok jednostek** z paska narzędzi.
 
    > [!div class="mx-imgBorder"]
-   > [![Wszystkie przykładowe wypowiedzi oznaczone jednostkami](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
+   > [![Wszystkie przykładowe wyrażenia długości oznaczone obiektami](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
 
-## <a name="test-your-new-app-with-the-interactive-test-pane"></a>Testowanie nowej aplikacji za pomocą interaktywnego okienka testowego
+## <a name="test-your-new-app-with-the-interactive-test-pane"></a>Testowanie nowej aplikacji za pomocą interaktywnego okienka testów
 
-Użyj interaktywnego **okienka testowego** w portalu usługi LUIS, aby sprawdzić, czy jednostka jest wyodrębniana z nowych wypowiedzi, których aplikacja jeszcze nie widziała.
+Użyj interaktywnego okienka **testowego** w portalu Luis, aby sprawdzić, czy jednostka została wyodrębniona z nowej wyrażenia długości, która nie była jeszcze widoczna dla aplikacji.
 
-1. Wybierz **opcję Testuj** z prawego górnego menu.
+1. Wybierz pozycję **Testuj** w prawym górnym menu.
 
-1. Dodaj nową wypowiedź, a następnie naciśnij klawisz Enter:
+1. Dodaj nowy wypowiedź, a następnie naciśnij klawisz ENTER:
 
    ```Is there a form named hrf-234098```
 
-    Wybierz **sprawdź,** aby zobaczyć prognozy jednostek.
+    Wybierz pozycję **Sprawdź** , aby zobaczyć przewidywania jednostek.
 
    > [!div class="mx-imgBorder"]
-   > ![Testowanie nowej wypowiedź w okienku testu](./media/get-started-portal-build-app/test-new-utterance.png)
+   > ![Test New wypowiedź w okienku testów](./media/get-started-portal-build-app/test-new-utterance.png)
 
-   Najlepszym przewidywanym zamiarem jest poprawnie **FindForm** z ponad 90% zaufania (0.977). Jednostka **Numer formularza zasobów ludzkich** jest wyodrębniany o wartości hrf-234098.
+   Najbardziej przewidywany cel jest prawidłowo **FindForm** z ponad 90% pewnością (0,977). Jednostka **numeru formularza zasobów ludzkich** jest wyodrębniana z wartością hrf-234098.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Po zakończeniu pracy z tym przewodnikiem Szybki start i nie przejście do następnego przewodnika Szybki start wybierz **pozycję Moje aplikacje** z górnego menu nawigacji. Następnie zaznacz pole wyboru po lewej stronie aplikacji z listy i wybierz pozycję **Usuń** z paska narzędzi kontekstu nad listą.
+Po zakończeniu korzystania z tego przewodnika Szybki Start i przechodzenia do następnego przewodnika Szybki Start wybierz pozycję **Moje aplikacje** w górnym menu nawigacji. Następnie zaznacz pole wyboru po lewej stronie z listy i wybierz pozycję **Usuń** z paska narzędzi kontekstu powyżej listy.
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [2. Wdrażanie aplikacji](get-started-portal-deploy-app.md)
+> [2. Wdróż aplikację](get-started-portal-deploy-app.md)

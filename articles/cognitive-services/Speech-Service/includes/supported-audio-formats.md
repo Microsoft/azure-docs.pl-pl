@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 03/16/2020
 ms.author: trbye
 ms.openlocfilehash: 2aec3cc96e123da57166f1c304254d520a96e156
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81400493"
 ---
-Domyślnym formatem przesyłania strumieniowego dźwięku jest WAV (16 kHz lub 8kHz, 16-bitowe i mono PCM). Poza WAV / PCM obsługiwane są również skompresowane formaty wejściowe wymienione poniżej. [Dodatkowa konfiguracja](../how-to-use-codec-compressed-audio-input-streams.md) jest potrzebna, aby włączyć formaty wymienione poniżej.
+Domyślny format przesyłania strumieniowego audio to WAV (16kHz lub 8kHz, 16-bitowy i mono PCM). Na zewnątrz WAV/PCM obsługiwane są również skompresowane formaty danych wejściowych wymienione poniżej. Aby włączyć formaty wymienione poniżej, wymagana jest [dodatkowa konfiguracja](../how-to-use-codec-compressed-audio-input-streams.md) .
 
-- Mp3
+- FORMATU
 - OPUS/OGG
 - FLAC
-- ALAW w kontenerze wav
-- MULAW w kontenerze wav
+- ALAW w kontenerze WAV
+- MULAW w kontenerze WAV

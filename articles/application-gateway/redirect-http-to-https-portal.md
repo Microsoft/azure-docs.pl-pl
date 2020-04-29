@@ -1,6 +1,6 @@
 ---
-title: Przekierowanie http do HTTPS w portalu — brama aplikacji azure
-description: Dowiedz się, jak utworzyć bramę aplikacji z przekierowanym ruchem z HTTP do HTTPS za pomocą witryny Azure portal.
+title: Przekierowywanie protokołu HTTP do protokołu HTTPS w portalu — Application Gateway platformy Azure
+description: Dowiedz się, jak utworzyć bramę aplikacji z przekierowanym ruchem z protokołu HTTP do HTTPS przy użyciu Azure Portal.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: cd33d23a506bd86b9651af3d4c3bbca01673a7a4
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81312096"
 ---
-# <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Tworzenie bramy aplikacji z przekierowaniem HTTP do HTTPS przy użyciu portalu Azure
+# <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Tworzenie bramy aplikacji przy użyciu protokołu HTTP w celu przekierowania HTTPS za pomocą Azure Portal
 
-Za pomocą portalu Azure można utworzyć [bramę aplikacji](overview.md) z certyfikatem dla zakończenia protokołu TLS. Reguła routingu służy do przekierowywania ruchu HTTP do portu HTTPS w bramie aplikacji. W tym przykładzie można również utworzyć [zestaw skalowania maszyny wirtualnej](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) dla puli wewnętrznej bazy danych bramy aplikacji, która zawiera dwa wystąpienia maszyny wirtualnej.
+Za pomocą Azure Portal można utworzyć [bramę aplikacji](overview.md) z certyfikatem na potrzeby zakończenia protokołu TLS. Reguła routingu służy do przekierowywania ruchu HTTP do portu HTTPS w bramie aplikacji. W tym przykładzie utworzysz również [zestaw skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) dla puli zaplecza bramy aplikacji, która zawiera dwa wystąpienia maszyn wirtualnych.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -24,18 +24,18 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 > * Tworzenie certyfikatu z podpisem własnym
 > * Konfigurowanie sieci
 > * Tworzenie bramy aplikacji z certyfikatem
-> * Dodawanie odbiornika i reguły przekierowania
+> * Dodaj odbiornik i regułę przekierowania
 > * Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu domyślnej puli zaplecza
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Ten samouczek wymaga modułu programu Azure PowerShell w wersji 1.0.0 lub nowszej do utworzenia certyfikatu i zainstalowania usług IIS. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Aby uruchomić polecenia w tym samouczku, `Login-AzAccount` należy również uruchomić, aby utworzyć połączenie z platformą Azure.
+Ten samouczek wymaga modułu Azure PowerShell w wersji 1.0.0 lub nowszej, aby można było utworzyć certyfikat i zainstalować usługi IIS. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Aby uruchomić polecenia z tego samouczka, należy również uruchomić `Login-AzAccount` polecenie, aby utworzyć połączenie z platformą Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Tworzenie certyfikatu z podpisem własnym
 
-Do użytku w produkcji należy zaimportować prawidłowy certyfikat podpisany przez zaufanego dostawcę. W tym samouczku utworzysz certyfikat z podpisem własnym przy użyciu polecenia [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). Korzystając z polecenia [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) i zwróconego odcisku palca, możesz wyeksportować plik pfx z certyfikatu.
+Do użycia w środowisku produkcyjnym należy zaimportować prawidłowy certyfikat podpisany przez zaufanego dostawcę. W tym samouczku utworzysz certyfikat z podpisem własnym przy użyciu polecenia [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). Korzystając z polecenia [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) i zwróconego odcisku palca, możesz wyeksportować plik pfx z certyfikatu.
 
 ```powershell
 New-SelfSignedCertificate `
@@ -88,100 +88,100 @@ Sieć wirtualna jest potrzebna do komunikacji między utworzonymi zasobami. W ty
      ![Tworzenie sieci wirtualnej](./media/create-url-route-portal/application-gateway-vnet.png)
 
 7. Kliknij przycisk **OK**, aby utworzyć sieć wirtualną i podsieć.
-8. W obszarze **Konfiguracja ip frontu**upewnij się, że **typ adresu IP** jest **publiczny,** a **opcja Utwórz nowy** jest zaznaczona. Wprowadź *myAGPublicIPAddress* dla nazwy. Zaakceptuj wartości domyślne dla innych ustawień, a następnie kliknij przycisk **OK**.
-9. W obszarze **Konfiguracja odbiornika**wybierz **https**, a następnie wybierz pozycję **Wybierz plik** i przejdź do pliku *c:\appgwcert.pfx* i wybierz pozycję **Otwórz**.
+8. W obszarze **Konfiguracja adresu IP frontonu**upewnij się, że **Typ adresu IP** jest **publiczny**, i wybierz pozycję **Utwórz nowy** . Wprowadź *myAGPublicIPAddress* dla nazwy. Zaakceptuj wartości domyślne dla innych ustawień, a następnie kliknij przycisk **OK**.
+9. W obszarze **Konfiguracja odbiornika**wybierz **pozycję https**, a następnie wybierz pozycję **Wybierz plik** i przejdź do pliku *c:\appgwcert.pfx* , a następnie wybierz pozycję **Otwórz**.
 10. Wpisz *appgwcert* dla nazwy certyfikatu i *Azure123456!* jako hasło.
-11. Pozostaw zaporę aplikacji sieci Web wyłączona, a następnie wybierz przycisk **OK**.
-12. Przejrzyj ustawienia na stronie podsumowania, a następnie wybierz przycisk **OK,** aby utworzyć zasoby sieciowe i bramę aplikacji. Utworzenie bramy aplikacji może potrwać kilka minut, poczekaj, aż wdrożenie zakończy się pomyślnie, zanim przejdzie do następnej sekcji.
+11. Pozostaw wyłączoną zaporę aplikacji sieci Web, a następnie wybierz przycisk **OK**.
+12. Przejrzyj ustawienia na stronie Podsumowanie, a następnie wybierz przycisk **OK** , aby utworzyć zasoby sieciowe i bramę aplikacji. Utworzenie bramy aplikacji może potrwać kilka minut, przed przejściem do następnej sekcji poczekaj na zakończenie wdrożenia.
 
 ### <a name="add-a-subnet"></a>Dodawanie podsieci
 
-1. Wybierz **pozycję Wszystkie zasoby** w menu po lewej stronie, a następnie wybierz **myVNet** z listy zasobów.
-2. Wybierz **pozycję Podsieci**, a następnie kliknij pozycję **Podsieć**.
+1. Wybierz pozycję **wszystkie zasoby** w menu po lewej stronie, a następnie wybierz pozycję **myVNet** z listy zasoby.
+2. Wybierz pozycję **podsieci**, a następnie kliknij pozycję **podsieć**.
 
     ![Tworzenie podsieci](./media/create-url-route-portal/application-gateway-subnet.png)
 
-3. Wpisz *myBackendSubnet* dla nazwy podsieci.
-4. Wpisz *10.0.2.0/24* dla zakresu adresów, a następnie wybierz **PRZYCISK OK**.
+3. Wpisz *myBackendSubnet* jako nazwę podsieci.
+4. W polu Zakres adresów wpisz *10.0.2.0/24* , a następnie wybierz przycisk **OK**.
 
-## <a name="add-a-listener-and-redirection-rule"></a>Dodawanie odbiornika i reguły przekierowania
+## <a name="add-a-listener-and-redirection-rule"></a>Dodaj odbiornik i regułę przekierowania
 
-### <a name="add-the-listener"></a>Dodawanie odbiornika
+### <a name="add-the-listener"></a>Dodaj odbiornik
 
-Najpierw dodaj odbiornik o nazwie *myListener* dla portu 80.
+Najpierw Dodaj odbiornik o nazwie *Listen* dla portu 80.
 
-1. Otwórz grupę zasobów **myResourceGroupAG** i wybierz **myAppGateway**.
-2. Wybierz **pozycję Detektory,** a następnie wybierz pozycję **+ Podstawowe**.
-3. Wpisz *MyListener* dla nazwy.
-4. Wpisz *httpPort* dla nowej nazwy portu frontowego i *80* dla portu.
-5. Upewnij się, że protokół jest ustawiony na **HTTP**, a następnie wybierz **przycisk OK**.
+1. Otwórz grupę zasobów **myResourceGroupAG** i wybierz pozycję **myAppGateway**.
+2. Wybierz pozycję **detektory** , a następnie pozycję **+ podstawowa**.
+3. Wpisz *nazwę* .
+4. Wpisz *httpPort* dla nowej nazwy portu frontonu i *80* dla portu.
+5. Upewnij się, że protokół jest ustawiony na **http**, a następnie wybierz przycisk **OK**.
 
 ### <a name="add-a-routing-rule-with-a-redirection-configuration"></a>Dodawanie reguły routingu z konfiguracją przekierowania
 
-1. W **aplikacji myAppGateway**wybierz pozycję **Reguły,** a następnie wybierz pozycję **+Żądaj reguły routingu**.
-2. W przypadku **nazwy reguły**wpisz *Rule2*.
-3. Upewnij się, że **mylistener** jest wybrany dla odbiornika.
-4. Kliknij kartę **Cele wewnętrznej bazy danych** i wybierz pozycję Typ **celu** jako *przekierowanie*.
-5. W polu **Typ przekierowania**wybierz opcję **Stałe**.
-6. W polu **Cel przekierowania**wybierz pozycję **Odbiornik**.
-7. Upewnij się, że **odbiornik docelowy** jest ustawiony na **appGatewayHttpListener**.
-8. W przypadku **ciągu zapytania Dołącz** i **uwzględnij ścieżkę** wybierz pozycję *Tak*.
+1. W obszarze **myAppGateway**wybierz pozycję **reguły** , a następnie wybierz pozycję **+ reguła routingu żądania**.
+2. W polu **Nazwa reguły**wpisz *ograniczeniem zakresu wystąpień*.
+3. Upewnij **się, że** wybrano dla odbiornika odbiornik.
+4. Kliknij kartę **cele zaplecza** i wybierz **Typ docelowy** jako *przekierowania*.
+5. W obszarze **Typ przekierowania**wybierz pozycję **trwały**.
+6. W obszarze **cel przekierowania**wybierz pozycję **odbiornik**.
+7. Upewnij się, że **docelowy odbiornik** jest ustawiony na **appGatewayHttpListener**.
+8. W polu **Uwzględnij ciąg zapytania** i **Dołącz ścieżkę** wybierz opcję *tak*.
 9. Wybierz pozycję **Dodaj**.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Tworzenie zestawu skalowania maszyn wirtualnych
 
 W tym przykładzie utworzysz zestaw skalowania maszyn wirtualnych, aby zapewnić serwery dla puli zaplecza w bramie aplikacji.
 
-1. W lewym górnym rogu portalu wybierz pozycję **+Utwórz zasób**.
+1. W lewym górnym rogu portalu wybierz pozycję **+ Utwórz zasób**.
 2. Wybierz pozycję **Compute**.
-3. W polu wyszukiwania wpisz *zestaw skalowania* i naciśnij klawisz Enter.
-4. Wybierz **pozycję Zestaw skalowania maszyny wirtualnej**, a następnie wybierz pozycję **Utwórz**.
-5. W przypadku **nazwy zestawu skalowania maszyny wirtualnej**wpisz *myvmss*.
-6. W przypadku obrazu dysku systemu operacyjnego** upewnij się, że wybrano **centrum danych systemu Windows Server 2016.**
-7. W obszarze **Grupa zasobów**wybierz **myResourceGroupAG**.
-8. W przypadku **nazwy użytkownika**wpisz *azureuser*.
-9. W przypadku **hasła**wpisz *Azure123456!* i potwierdź hasło.
-10. Dla **liczby wystąpień,** upewnij się, że wartość wynosi **2**.
-11. W **przypadku opcji Rozmiar instancji**wybierz **D2s_v3**.
-12. W obszarze **Sieć**upewnij się, że **opcja Wybierz równoważenie obciążenia** jest ustawiona na **Brama aplikacji**.
-13. Upewnij się, że **brama aplikacji** jest ustawiona na **myAppGateway**.
+3. W polu wyszukiwania wpisz *skalowanie* i naciśnij klawisz ENTER.
+4. Wybierz pozycję **zestaw skalowania maszyn wirtualnych**, a następnie wybierz pozycję **Utwórz**.
+5. Dla **opcji Nazwa zestawu skalowania maszyn wirtualnych**wpisz *myvmss*.
+6. W przypadku obrazu dysku systemu operacyjnego * * upewnij się, że wybrano pozycję **Windows Server 2016 Datacenter** .
+7. W obszarze **Grupa zasobów**wybierz pozycję **myResourceGroupAG**.
+8. W obszarze **Nazwa użytkownika**wpisz *azureuser*.
+9. W obszarze **hasło**wpisz *Azure123456!* i Potwierdź hasło.
+10. W polu **Liczba wystąpień**upewnij się, że wartość jest równa **2**.
+11. W obszarze **rozmiar wystąpienia**wybierz pozycję **D2s_v3**.
+12. W obszarze **Sieć**upewnij się, że opcja **Opcje równoważenia obciążenia** jest ustawiona na **Application Gateway**.
+13. Upewnij się, że **Brama aplikacji** jest ustawiona na **myAppGateway**.
 14. Upewnij się, że **podsieć** jest ustawiona na **myBackendSubnet**.
-15. Wybierz **pozycję Utwórz**.
+15. Wybierz przycisk **Utwórz**.
 
-### <a name="associate-the-scale-set-with-the-proper-backend-pool"></a>Skojarz zestaw skalowania z odpowiednią pulą wewnętrznej bazy danych
+### <a name="associate-the-scale-set-with-the-proper-backend-pool"></a>Kojarzenie zestawu skalowania z odpowiednią pulą zaplecza
 
-Interfejs użytkownika portalu zestawu skalowania maszyny wirtualnej tworzy nową pulę wewnętrznej bazy danych dla zestawu skalowania, ale chcesz skojarzyć ją z istniejącą aplikacjąGatewayBackendPool.
+Interfejs użytkownika portalu zestawu skalowania maszyn wirtualnych tworzy nową pulę zaplecza dla zestawu skalowania, ale chcesz skojarzyć ją z istniejącym appGatewayBackendPool.
 
-1. Otwórz grupę zasobów **myResourceGroupAg.**
-2. Wybierz **myAppGateway**.
-3. Wybierz **pulę wewnętrznej bazy danych**.
-4. Wybierz **myAppGatewaymyvmss**.
-5. Wybierz **pozycję Usuń wszystkie obiekty docelowe z puli wewnętrznej bazy danych**.
+1. Otwórz grupę zasobów **myResourceGroupAg** .
+2. Wybierz pozycję **myAppGateway**.
+3. Wybierz pozycję **Pule zaplecza**.
+4. Wybierz pozycję **myAppGatewaymyvmss**.
+5. Wybierz pozycję **Usuń wszystkie elementy docelowe z puli zaplecza**.
 6. Wybierz pozycję **Zapisz**.
-7. Po zakończeniu tego procesu wybierz pulę zaplecza **myAppGatewaymyvmss,** wybierz pozycję **Usuń,** a następnie **przycisk OK,** aby potwierdzić.
+7. Po zakończeniu tego procesu wybierz pulę zaplecza **myAppGatewaymyvmss** , wybierz pozycję **Usuń** , a następnie kliknij przycisk **OK** , aby potwierdzić.
 8. Wybierz pozycję **appGatewayBackendPool**.
-9. W obszarze **Obiekty docelowe**wybierz pozycję **VMSS**.
-10. W obszarze **VMSS**wybierz **myvmss**.
-11. W obszarze **Konfiguracje interfejsu sieciowego**wybierz **myvmssNic**.
+9. W obszarze **obiekty docelowe**wybierz pozycję **VMSS**.
+10. W obszarze **VMSS**wybierz opcję **myvmss**.
+11. W obszarze **konfiguracje interfejsu sieciowego**wybierz pozycję **myvmssNic**.
 12. Wybierz pozycję **Zapisz**.
 
 ### <a name="upgrade-the-scale-set"></a>Uaktualnianie zestawu skalowania
 
-Na koniec należy uaktualnić zestaw skalowania z tymi zmianami.
+Na koniec należy uaktualnić zestaw skalowania przy użyciu tych zmian.
 
-1. Wybierz zestaw skalowania **myvmss.**
+1. Wybierz zestaw skalowania **myvmss** .
 2. W obszarze **Ustawienia** wybierz pozycję **Wystąpienia**.
-3. Zaznacz oba wystąpienia, a następnie wybierz pozycję **Uaktualnij**.
-4. Wybierz pozycję **Tak**, aby potwierdzić.
-5. Po zakończeniu, wróć do **myAppGateway** i wybierz **backend baseny**. Teraz powinieneś zobaczyć, że **appGatewayBackendPool** ma dwa cele, a **myAppGatewaymyvmss** ma zero celów.
-6. Wybierz **myAppGatewaymyvmss**, a następnie wybierz pozycję **Usuń**.
+3. Wybierz oba wystąpienia, a następnie wybierz pozycję **Uaktualnij**.
+4. Kliknij przycisk **Tak**, aby potwierdzić.
+5. Po zakończeniu tego procesu Wróć do **myAppGateway** i wybierz pozycję **Pule zaplecza**. Należy teraz zobaczyć, że **appGatewayBackendPool** ma dwa elementy docelowe, a **myAppGatewaymyvmss** nie ma żadnych elementów docelowych.
+6. Wybierz pozycję **myAppGatewaymyvmss**, a następnie wybierz pozycję **Usuń**.
 7. Wybierz przycisk **OK**, aby potwierdzić.
 
 ### <a name="install-iis"></a>Instalowanie usług IIS
 
-Łatwym sposobem zainstalowania usługi IIS w zestawie skalowania jest użycie programu PowerShell. W portalu kliknij ikonę powłoki chmury i upewnij się, że program **PowerShell** jest zaznaczony.
+Łatwym sposobem instalowania usług IIS na zestawie skalowania jest użycie programu PowerShell. W portalu kliknij ikonę Cloud Shell i upewnij się, że wybrano opcję **PowerShell** .
 
-Wklej następujący kod do okna programu PowerShell i naciśnij klawisz Enter.
+Wklej następujący kod do okna programu PowerShell i naciśnij klawisz ENTER.
 
 ```azurepowershell
 $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
@@ -201,19 +201,19 @@ Update-AzVmss `
 
 ### <a name="upgrade-the-scale-set"></a>Uaktualnianie zestawu skalowania
 
-Po zmianie wystąpień za pomocą programów IIS należy ponownie uaktualnić zestaw skalowania za pomocą tej zmiany.
+Po zmianie wystąpień z usługami IIS należy ponownie uaktualnić zestaw skalowania przy użyciu tej zmiany.
 
-1. Wybierz zestaw skalowania **myvmss.**
+1. Wybierz zestaw skalowania **myvmss** .
 2. W obszarze **Ustawienia** wybierz pozycję **Wystąpienia**.
-3. Zaznacz oba wystąpienia, a następnie wybierz pozycję **Uaktualnij**.
-4. Wybierz pozycję **Tak**, aby potwierdzić.
+3. Wybierz oba wystąpienia, a następnie wybierz pozycję **Uaktualnij**.
+4. Kliknij przycisk **Tak**, aby potwierdzić.
 
 ## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
 
-Publiczny adres IP aplikacji można uzyskać ze strony Przegląd bramy aplikacji.
+Publiczny adres IP aplikacji można uzyskać na stronie Przegląd usługi Application Gateway.
 
-1. Wybierz **myAppGateway**.
-2. Na stronie **Przegląd** zanotuj adres IP w obszarze **Publiczny adres IP frontu**.
+1. Wybierz pozycję **myAppGateway**.
+2. Na stronie **Przegląd** Zwróć uwagę na adres IP w obszarze **publiczny adres IP frontonu**.
 
 3. Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki. Na przykład: http://52.170.203.149
 
@@ -225,4 +225,4 @@ Publiczny adres IP aplikacji można uzyskać ze strony Przegląd bramy aplikacji
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak [utworzyć bramę aplikacji z wewnętrznym przekierowaniem](redirect-internal-site-powershell.md).
+Dowiedz się, jak [utworzyć bramę aplikacji przy użyciu wewnętrznego przekierowania](redirect-internal-site-powershell.md).

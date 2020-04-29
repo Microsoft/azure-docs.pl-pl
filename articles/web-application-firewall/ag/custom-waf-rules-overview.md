@@ -1,6 +1,6 @@
 ---
-title: Reguły niestandardowe zapory aplikacji sieci Azure (WAF) w wersji 2 w bramie aplikacji
-description: Ten artykuł zawiera omówienie reguł niestandardowych zapory aplikacji sieci Web (WAF) w wersji 2 w usłudze Azure Application Gateway.
+title: Niestandardowe reguły zapory aplikacji sieci Web (WAF) v2 na Application Gateway
+description: Ten artykuł zawiera omówienie reguł niestandardowych zapory aplikacji sieci Web (WAF) v2 na platformie Azure Application Gateway.
 services: web-application-firewall
 ms.topic: article
 author: vhorne
@@ -8,36 +8,36 @@ ms.service: web-application-firewall
 ms.date: 04/14/2020
 ms.author: victorh
 ms.openlocfilehash: c0f802f5113e38e811c110ee913099e76fa7be0b
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81383809"
 ---
-# <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Niestandardowe reguły zapory aplikacji sieci Web w wersji 2 w bramie aplikacji platformy Azure
+# <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Reguły niestandardowe dla zapory aplikacji sieci Web V2 na platformie Azure Application Gateway
 
-Zapora aplikacji azure gateway web application (WAF) w wersji 2 jest wyposażona w wstępnie skonfigurowany zestaw reguł zarządzanych przez platformę, który oferuje ochronę przed wieloma różnymi typami ataków. Ataki te obejmują skrypty między witrynami, iniekcji SQL i innych. Jeśli jesteś administratorem WAF, możesz napisać własne reguły, aby rozszerzyć podstawowe reguły zestawu reguł (CRS). Reguły mogą blokować lub zezwalać na żądany ruch na podstawie kryteriów dopasowania.
+Usługa Azure Application Gateway Web Application Firewall (WAF) v2 zawiera wstępnie skonfigurowane, zarządzane przez platform zestaw reguł, który oferuje ochronę wielu różnych typów ataków. Ataki te obejmują wykonywanie skryptów między lokacjami, iniekcja kodu SQL i inne. Jeśli jesteś administratorem WAF, możesz chcieć napisać własne reguły, aby rozszerzyć reguły podstawowego zestawu reguł (KSR). Reguły mogą blokować lub zezwalać na żądany ruch na podstawie kryteriów dopasowywania.
 
-Reguły niestandardowe umożliwiają tworzenie własnych reguł, które są oceniane dla każdego żądania, który przechodzi przez WAF. Reguły te mają wyższy priorytet niż pozostałe reguły w zestawach reguł zarządzanych. Reguły niestandardowe zawierają nazwę reguły, priorytet reguły i tablicę pasujących warunków. Jeśli te warunki są spełnione, podejmowana jest akcja (aby zezwolić lub zablokować).
+Reguły niestandardowe umożliwiają tworzenie własnych reguł, które są oceniane dla każdego żądania, które przechodzi przez WAF. Reguły te mają wyższy priorytet niż pozostałe reguły w zarządzanych zestawach reguł. Reguły niestandardowe zawierają nazwę reguły, priorytet reguły i tablicę pasujących warunków. Jeśli te warunki są spełnione, podejmowana jest akcja (do zezwalania lub blokowania).
 
-Na przykład można zablokować wszystkie żądania z adresu IP w zakresie 192.168.5.4/24. W tej regule operatorem jest *IPMatch*, matchValues to zakres adresów IP (192.168.5.4/24), a akcja polega na zablokowaniu ruchu. Można również ustawić nazwę i priorytet reguły.
+Na przykład można zablokować wszystkie żądania z adresu IP w zakresie 192.168.5.4/24. W tej regule operator to *IPMatch*, matchValues jest zakresem adresów IP (192.168.5.4/24), a akcja polega na zablokowaniu ruchu. Należy również ustawić nazwę i priorytet reguły.
 
-Reguły niestandardowe obsługują używanie logiki mieszania, aby bardziej zaawansowane reguły, które odpowiadają twoim potrzebom zabezpieczeń. Na przykład (Warunek 1 **i** Warunek 2) **lub** Warunek 3). Oznacza to, że jeśli warunek 1 **i** warunek 2 są spełnione **lub** jeśli warunek 3 jest spełniony, WAF należy podjąć akcję określoną w regułie niestandardowej.
+Reguły niestandardowe obsługują używanie logiki złożonej do bardziej zaawansowanych reguł, które zaspokajają potrzeby związane z bezpieczeństwem. Na przykład (warunek 1 **i** warunek 2) **lub** warunek 3). Oznacza to, że jeśli spełniony jest warunek 1 **i** warunek 2 **lub** spełniony jest warunek 3, WAF powinien wykonać akcję określoną w regule niestandardowej.
 
-Różne warunki dopasowania w ramach tej samej reguły są zawsze potęgowane przy użyciu **i**. Na przykład zablokuj ruch z określonego adresu IP i tylko wtedy, gdy korzysta z określonej przeglądarki.
+Różne warunki dopasowywania w ramach tej samej reguły są zawsze składane przy użyciu **i**. Na przykład Zablokuj ruch z określonego adresu IP i tylko wtedy, gdy korzystają z określonej przeglądarki.
 
-Jeśli chcesz **lub** dwa różne warunki, te dwa warunki muszą być w różnych zasadach. Na przykład zablokuj ruch z określonego adresu IP lub zablokuj ruch, jeśli używa określonej przeglądarki.
+Jeśli chcesz **lub** dwa różne warunki, te dwa warunki muszą być w różnych regułach. Na przykład Zablokuj ruch z określonego adresu IP lub Zablokuj ruch, jeśli korzysta z określonej przeglądarki.
 
 > [!NOTE]
-> Maksymalna liczba reguł niestandardowych WAF wynosi 100. Aby uzyskać więcej informacji na temat limitów bramy aplikacji, zobacz [Limity subskrypcji i usług platformy Azure, przydziały i ograniczenia](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
+> Maksymalna liczba reguł niestandardowych WAF to 100. Aby uzyskać więcej informacji na temat limitów Application Gateway, zobacz [limity subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
-Wyrażenia regularne są również obsługiwane w regułach niestandardowych, podobnie jak w zestawy reguł KSR. Aby zapoznać się z przykładami, zobacz Przykłady 3 i 5 w [1944 r. Tworzenie i używanie niestandardowych reguł zapory aplikacji sieci Web](create-custom-waf-rules.md).
+Wyrażenia regularne są również obsługiwane w regułach niestandardowych, podobnie jak w zestawach reguł KSR. Aby zapoznać się z przykładami, zobacz przykłady 3 i 5 w temacie [Tworzenie i używanie niestandardowych reguł zapory aplikacji sieci Web](create-custom-waf-rules.md).
 
-## <a name="allowing-vs-blocking"></a>Zezwalanie na blokowanie a blokowanie
+## <a name="allowing-vs-blocking"></a>Zezwalanie na a blokowanie
 
-Zezwalanie i blokowanie ruchu jest proste w niestandardowych regułach. Na przykład można zablokować cały ruch pochodzący z zakresu adresów IP. Można wprowadzić inną regułę, aby zezwolić na ruch, jeśli żądanie pochodzi z określonej przeglądarki.
+Zezwalanie i blokowanie ruchu jest proste z regułami niestandardowymi. Na przykład można zablokować cały ruch pochodzący z zakresu adresów IP. Można utworzyć kolejną regułę zezwalającą na ruch, jeśli żądanie pochodzi z określonej przeglądarki.
 
-Aby na coś zezwolić, upewnij się, że `-Action` parametr jest ustawiony na **Zezwalaj**. Aby coś zablokować, `-Action` upewnij się, że parametr jest ustawiony na **Block**.
+Aby zezwolić na coś, upewnij się `-Action` , że parametr jest ustawiony na **Zezwalaj**. Aby zablokować coś, upewnij się, `-Action` że parametr jest ustawiony do **blokowania**.
 
 ```azurepowershell
 $AllowRule = New-AzApplicationGatewayFirewallCustomRule `
@@ -55,7 +55,7 @@ $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-Poprzednia `$BlockRule` jest mapowana na następującą regułę niestandardową w usłudze Azure Resource Manager:
+Poprzednie `$BlockRule` mapowania do następującej reguły niestandardowej w Azure Resource Manager:
 
 ```json
 "customRules": [
@@ -86,9 +86,9 @@ Poprzednia `$BlockRule` jest mapowana na następującą regułę niestandardową
     ], 
 ```
 
-Ta reguła niestandardowa zawiera nazwę, priorytet, akcję i tablicę pasujących warunków, które muszą być spełnione, aby akcja została zrealizowana. Aby uzyskać więcej informacji na temat tych pól, zobacz następujące opisy pól. Na przykład reguły niestandardowe zobacz [Tworzenie i używanie niestandardowych reguł zapory aplikacji sieci Web](create-custom-waf-rules.md).
+Ta reguła niestandardowa zawiera nazwę, priorytet, akcję i tablicę pasujących warunków, które muszą zostać spełnione, aby akcja została wykonana. Aby uzyskać więcej informacji na temat tych pól, zobacz następujące opisy pól. Aby zapoznać się z przykładowymi regułami niestandardowymi, zobacz [Tworzenie i używanie niestandardowych reguł zapory aplikacji sieci Web](create-custom-waf-rules.md).
 
-## <a name="fields-for-custom-rules"></a>Pola reguł niestandardowych
+## <a name="fields-for-custom-rules"></a>Pola dla reguł niestandardowych
 
 ### <a name="name-optional"></a>Nazwa [opcjonalnie]
 
@@ -96,36 +96,36 @@ Nazwa reguły.  Pojawia się w dziennikach.
 
 ### <a name="priority-required"></a>Priorytet [wymagany]
 
-- Określa kolejność wyceny reguły. Im niższa wartość, tym wcześniejsza ocena reguły. Dopuszczalny zakres wynosi od 1 do 100. 
-- Musi być unikatowa we wszystkich regułach niestandardowych. Reguła o priorytecie 40 jest oceniana przed regułą o priorytecie 80.
+- Określa kolejność wyceny. Im niższa wartość, tym wcześniejsza Ocena reguły. Dozwolony zakres to od 1-100. 
+- Musi być unikatowa dla wszystkich reguł niestandardowych. Reguła z priorytetem 40 jest szacowana przed regułą z priorytetem 80.
 
 ### <a name="rule-type-required"></a>Typ reguły [wymagane]
 
 Obecnie musi być **MatchRule**.
 
-### <a name="match-variable-required"></a>Dopasuj zmienną [wymagane]
+### <a name="match-variable-required"></a>Match — zmienna [wymagana]
 
-Musi być jedną ze zmiennych:
+Musi być jedną z zmiennych:
 
-- RemoteAddr – adres IP/nazwa hosta połączenia komputera zdalnego
-- RequestMethod — metoda żądania HTTP (GET, POST, PUT, DELETE itd.)
+- RemoteAddr — adres IP/nazwa hosta połączenia z komputerem zdalnym
+- RequestMethod — Metoda żądania HTTP (GET, POST, PUT, DELETE itd.)
 - QueryString — zmienna w identyfikatorze URI
-- PostArgs — argumenty wysyłane w treści POST. Reguły niestandardowe używające tej zmiennej dopasowania są stosowane tylko wtedy, gdy nagłówek "Typ zawartości" jest ustawiony na "application/x-www-form-urlencoded" i "multipart/form-data".
+- PostArgs — argumenty wysyłane w treści wpisu. Reguły niestandardowe używające tej zmiennej Match są stosowane tylko wtedy, gdy nagłówek "Content-Type" jest ustawiony na wartość "application/x-www-form-urlencoded" i "wieloczęściowy/form-Data".
 - RequestUri — identyfikator URI żądania
 - RequestHeaders — nagłówki żądania
-- RequestBody — zawiera całą treść żądania jako całość. Reguły niestandardowe używające tej zmiennej dopasowania są stosowane tylko wtedy, gdy nagłówek "Typ zawartości" jest ustawiony na "application/x-www-form-urlencoded". 
-- RequestCookies – Pliki cookie wniosku
+- Elemencie requestbody — zawiera całą treść żądania jako całość. Reguły niestandardowe używające tej zmiennej Match są stosowane tylko wtedy, gdy nagłówek "Content-Type" jest ustawiony na wartość "application/x-www-form-urlencoded". 
+- RequestCookies — pliki cookie żądania
 
-### <a name="selector-optional"></a>Selektor [opcjonalnie]
+### <a name="selector-optional"></a>Selektor [opcjonalny]
 
-Opisuje pole matchVariable kolekcji. Na przykład jeśli matchVariable jest RequestHeaders, selektor może znajdować się w nagłówku *user-agent.*
+Opisuje pole kolekcji matchVariable. Na przykład jeśli matchVariable jest RequestHeaders, selektor może znajdować się w nagłówku *User-Agent* .
 
-### <a name="operator-required"></a>Operator [wymagane]
+### <a name="operator-required"></a>Operator [Required]
 
 Musi być jednym z następujących operatorów:
 
-- IPMatch - używany tylko wtedy, gdy zmienna dopasowania jest *RemoteAddr*
-- Równe — dane wejściowe są takie same jak matchvalue
+- IPMatch — używany tylko wtedy, gdy zmienna Match jest *RemoteAddr*
+- Equal — wartość wejściowa jest taka sama jak MatchValue
 - Contains
 - LessThan
 - GreaterThan
@@ -133,38 +133,38 @@ Musi być jednym z następujących operatorów:
 - GreaterThanOrEqual
 - BeginsWith
 - EndsWith
-- Regex
-- Geomatch (wersja zapoznawcza)
+- Wyrażeń
+- Geodopasowanie (wersja zapoznawcza)
 
-### <a name="negate-condition-optional"></a>Warunek zanegowania [opcjonalnie]
+### <a name="negate-condition-optional"></a>Negate warunek [opcjonalny]
 
-Neguje bieżący warunek.
+Wyklucza bieżący warunek.
 
-### <a name="transform-optional"></a>Przekształcanie [opcjonalnie]
+### <a name="transform-optional"></a>Przekształć [opcjonalnie]
 
-Lista ciągów z nazwami przekształceń do wykonania przed próbą dopasowania. Mogą to być następujące przekształcenia:
+Lista ciągów z nazwami transformacji, które należy wykonać przed próbą dopasowania. Mogą to być następujące przekształcenia:
 
 - Małe litery
 - Trim
-- Kod Url
-- Urlencode 
-- Usuńulki
-- HtmlEntityDecode (Kod htmlentitydecode)
+- UrlDecode
+- UrlEncode 
+- RemoveNulls
+- HtmlEntityDecode
 
-### <a name="match-values-required"></a>Wartości dopasowania [wymagane]
+### <a name="match-values-required"></a>Dopasuj wartości [wymagane]
 
-Lista wartości do dopasowania, które można uznać za *OR*'ed. Na przykład mogą to być adresy IP lub inne ciągi. Format wartości zależy od poprzedniego operatora.
+Lista wartości do dopasowania, które mogą być uważane za "jako" *lub*"Ed". Mogą to być na przykład adresy IP lub inne ciągi. Format wartości zależy od poprzedniego operatora.
 
-### <a name="action-required"></a>Działanie [wymagane]
+### <a name="action-required"></a>Akcja [wymagane]
 
-- Zezwalaj — autoryzuje transakcję, pomijając wszystkie inne reguły. Określone żądanie jest dodawane do listy dozwolonych i po dopasowaniu żądanie zatrzymuje dalszą ocenę i jest wysyłane do puli wewnętrznej bazy danych. Reguły, które znajdują się na liście dozwolonych, nie są oceniane pod kątem dalszych reguł niestandardowych ani reguł zarządzanych.
-- Blok — blokuje transakcję na podstawie *SecDefaultAction* (tryb wykrywania/zapobiegania). Podobnie jak zezwalaj akcji, gdy żądanie jest oceniane i dodawane do listy zablokowanych, ocena jest zatrzymana i żądanie jest blokowane. Każde żądanie po tym spełnia te same warunki nie zostaną ocenione i po prostu zostaną zablokowane. 
-- Log — umożliwia zapis reguły do dziennika, ale pozwala pozostałe reguły uruchomić do oceny. Inne reguły niestandardowe są oceniane w kolejności priorytetu, a następnie reguły zarządzane.
+- Zezwalaj — autoryzuje transakcję, pomijając wszystkie inne reguły. Określone żądanie jest dodawane do listy dozwolonych i po dopasowaniu, żądanie przestanie być dalszej oceny i zostanie wysłane do puli zaplecza. Reguły, które znajdują się na liście dozwolonych, nie są oceniane dla żadnych dalszych reguł niestandardowych lub reguł zarządzanych.
+- Block — blokuje transakcję na podstawie *SecDefaultAction* (tryb wykrywania/zapobiegania). Podobnie jak akcja zezwalania, gdy żądanie jest oceniane i dodawane do listy zablokowanych, szacowanie zostanie zatrzymane, a żądanie jest zablokowane. Każde żądanie, które spełnia te same warunki, nie będzie oceniane i zostanie zablokowane. 
+- Log — umożliwia zapis reguły w dzienniku, ale umożliwia wykonywanie pozostałych reguł na potrzeby oceny. Inne reguły niestandardowe są oceniane w kolejności priorytetu, po którym następuje reguła zarządzana.
 
-## <a name="geomatch-custom-rules-preview"></a>Reguły niestandardowe geomatchu (wersja zapoznawcza)
+## <a name="geomatch-custom-rules-preview"></a>Reguły niestandardowe geodopasowania (wersja zapoznawcza)
 
-Reguły niestandardowe umożliwiają tworzenie dostosowanych reguł do potrzeb aplikacji i zasad zabezpieczeń. Możesz ograniczyć dostęp do aplikacji internetowych według kraju/regionu. Aby uzyskać więcej informacji, zobacz [Geomatch reguły niestandardowe (wersja zapoznawcza)](geomatch-custom-rules.md).
+Reguły niestandardowe pozwalają tworzyć dostosowane reguły spełniające dokładne potrzeby aplikacji i zasad zabezpieczeń. Możesz ograniczyć dostęp do aplikacji sieci Web według kraju/regionu. Aby uzyskać więcej informacji, zobacz temat [zasady niestandardowe geodopasowania (wersja zapoznawcza)](geomatch-custom-rules.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po zapoznaniu się z regułami niestandardowymi [utwórz własne reguły niestandardowe](create-custom-waf-rules.md).
+Po poznaniu reguł niestandardowych [Utwórz własne reguły niestandardowe](create-custom-waf-rules.md).

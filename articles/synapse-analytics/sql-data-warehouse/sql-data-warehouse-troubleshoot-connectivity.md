@@ -1,6 +1,6 @@
 ---
 title: Rozwiązywanie problemów z łącznością
-description: Rozwiązywanie problemów z łącznością w puli sql synapse.
+description: Rozwiązywanie problemów z łącznością w puli SQL Synapse.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -12,63 +12,63 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: d69c8dd28b946df3fff500c31c7cdefa4767c0c4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81408210"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Rozwiązywanie problemów z łącznością
 
-W tym artykule wymieniono typowe techniki rozwiązywania problemów związane z łączeniem się z bazą danych usługi SQL Analytics.
+W tym artykule przedstawiono typowe techniki rozwiązywania problemów dotyczące łączenia się z bazą danych SQL Analytics.
 
 ## <a name="check-service-availability"></a>Sprawdź dostępność usługi
 
-Sprawdź, czy usługa jest dostępna. W witrynie Azure portal przejdź do puli sql synapse, z którą próbujesz się połączyć. W lewym panelu TOC kliknij **przycisk Diagnozuj i rozwiązuj problemy**.
+Sprawdź, czy usługa jest dostępna. W Azure Portal przejdź do puli SQL Synapse, z którą próbujesz nawiązać połączenie. W panelu po lewej stronie kliknij pozycję **diagnozowanie i rozwiązywanie problemów**.
 
-![Wybierz kondycję zasobów](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
+![Wybierz kondycję zasobu](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-Tutaj zostanie wyświetlony stan puli SQL Synapse. Jeśli usługa nie jest wyświetlana jako **Dostępna,** sprawdź dalsze kroki.
+W tym miejscu zostanie wyświetlony stan puli SQL Synapse. Jeśli usługa nie jest wyświetlana jako **dostępna**, należy zapoznać się z kolejnymi krokami.
 
-![Dostępna usługa](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
+![Usługa dostępna](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Jeśli kondycja zasobu pokazuje, że wystąpienie puli Synapse SQL jest wstrzymane lub skalowanie, postępuj zgodnie ze wskazówkami, aby wznowić wystąpienie.
+Jeśli Kondycja zasobów pokazuje, że wystąpienie puli SQL Synapse jest wstrzymane lub skalowane, postępuj zgodnie ze wskazówkami, aby wznowić wystąpienie.
 
-![Usługa wstrzymana](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) Dodatkowe informacje o kondycji zasobów można znaleźć tutaj.
+![Usługa wstrzymała](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) dodatkowe informacje na temat Resource Health można znaleźć tutaj.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Sprawdzanie istnienia wstrzymania lub operacji skalowania
 
-Sprawdź w portalu, czy wystąpienie puli synapse SQL jest wstrzymane lub skalowanie.
+Sprawdź Portal, aby sprawdzić, czy wystąpienie puli SQL Synapse jest wstrzymane lub skalowane.
 
-![Usługa wstrzymana](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
+![Usługa została wstrzymana](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Jeśli widzisz, że usługa jest wstrzymana lub skalowanie, sprawdź, czy nie jest w harmonogramie konserwacji. W portalu dla puli synapse SQL *przegląd puli*, zobaczysz wybrany harmonogram konserwacji.
+Jeśli zobaczysz, że usługa jest wstrzymana lub skalowania, sprawdź, czy nie jest ona wyświetlana w harmonogramie konserwacji. W portalu *dla puli SQL*usługi Synapse zostanie wyświetlony wybrany harmonogram konserwacji.
 
-![Harmonogram konserwacji przeglądowej](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
+![Harmonogram konserwacji — Omówienie](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-W przeciwnym razie skontaktuj się z administratorem IT, aby sprawdzić, czy ta konserwacja nie jest zaplanowanym wydarzeniem. Aby wznowić wystąpienie usługi SQL Analytics, wykonaj [następujące kroki](pause-and-resume-compute-portal.md).
+W przeciwnym razie skontaktuj się z administratorem IT, aby sprawdzić, czy ta konserwacja nie jest zaplanowana. Aby wznowić wystąpienie usługi SQL Analytics, wykonaj następujące [kroki](pause-and-resume-compute-portal.md).
 
 ## <a name="check-your-firewall-settings"></a>Sprawdzanie ustawień zapory
 
-Baza danych SQL Analytics komunikuje się za pośrednictwem portu 1433.Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być blokowany przez zaporę sieciową. W takim przypadku nie będzie można nawiązać połączenia z serwerem usługi Azure SQL Database, chyba że dział IT otworzy port 1433. Dodatkowe informacje na temat konfiguracji zapory można znaleźć [tutaj](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
+Baza danych SQL Analytics komunikuje się przez port 1433.Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być blokowany przez zaporę sieciową. W takim przypadku nie będzie można nawiązać połączenia z serwerem usługi Azure SQL Database, chyba że dział IT otworzy port 1433. Dodatkowe informacje na temat konfiguracji zapory można znaleźć [tutaj](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Sprawdzanie ustawień sieci wirtualnej/punktu końcowego usługi
 
-Jeśli otrzymujesz błędy 40914 i 40615, zobacz [opis błędu i rozdzielczość tutaj](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
+Jeśli otrzymujesz błędy 40914 i 40615, zobacz [Opis błędu i rozwiązanie tutaj](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
 
 ## <a name="check-for-the-latest-drivers"></a>Sprawdzanie, czy są zainstalowane najnowsze sterowniki
 
 ### <a name="software"></a>Oprogramowanie
 
-Sprawdź, czy używasz najnowszych narzędzi do łączenia się z pulą SQL Synapse:
+Upewnij się, że używasz najnowszych narzędzi do nawiązania połączenia z pulą Synapse SQL:
 
 - SSMS
 - Azure Data Studio
-- Narzędzia danych programu SQL Server (visual studio)
+- Narzędzia danych SQL Server (Visual Studio)
 
 ### <a name="drivers"></a>Sterowniki
 
-Upewnij się, że używasz najnowszych wersji sterowników.Korzystanie ze starszej wersji sterowników może spowodować nieoczekiwane zachowania, ponieważ starsze sterowniki mogą nie obsługiwać nowych funkcji.
+Upewnij się, że korzystasz z najnowszej wersji sterownika.Używanie starszej wersji sterowników może spowodować nieoczekiwane zachowanie, ponieważ starsze sterowniki mogą nie obsługiwać nowych funkcji.
 
 - [ODBC](/sql/connect/odbc/download-odbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [JDBC](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -77,7 +77,7 @@ Upewnij się, że używasz najnowszych wersji sterowników.Korzystanie ze starsz
 
 ## <a name="check-your-connection-string"></a>Sprawdzanie parametrów połączenia
 
-Upewnij się, że parametry połączenia zostały prawidłowo ustawione.  Poniżej znajduje się kilka przykładów.  Dodatkowe informacje na temat [parametrów połączeń można znaleźć tutaj](sql-data-warehouse-connection-strings.md).
+Upewnij się, że parametry połączenia zostały prawidłowo ustawione.  Poniżej przedstawiono przykłady.  Dodatkowe informacje na temat [parametrów połączeń można znaleźć tutaj](sql-data-warehouse-connection-strings.md).
 
 Parametry połączenia sterownika ADO.NET
 
@@ -85,13 +85,13 @@ Parametry połączenia sterownika ADO.NET
 Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
-Ciąg połączenia ODBC
+Parametry połączenia ODBC
 
 ```csharp
 Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
 ```
 
-Php Parametry połączenia
+Parametry połączenia PHP
 
 ```PHP
 Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database}\r\nUser Name: {your_user_name}\r\n\r\nPHP Data Objects(PDO) Sample Code:\r\n\r\ntry {\r\n   $conn = new PDO ( \"sqlsrv:server = tcp:{your_server}.database.windows.net,1433; Database = {your_database}\", \"{your_user_name}\", \"{your_password_here}\");\r\n    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );\r\n}\r\ncatch ( PDOException $e ) {\r\n   print( \"Error connecting to SQL Server.\" );\r\n   die(print_r($e));\r\n}\r\n\rSQL Server Extension Sample Code:\r\n\r\n$connectionInfo = array(\"UID\" => \"{your_user_name}\", \"pwd\" => \"{your_password_here}\", \"Database\" => \"{your_database}\", \"LoginTimeout\" => 30, \"Encrypt\" => 1, \"TrustServerCertificate\" => 0);\r\n$serverName = \"tcp:{your_server}.database.windows.net,1433\";\r\n$conn = sqlsrv_connect($serverName, $connectionInfo);
@@ -105,12 +105,12 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>Sporadyczne problemy z połączeniami
 
-Sprawdź, czy serwer nie jest mocno obciążony, a w kolejce nie ma dużej liczby żądań. Może być konieczne skalowanie w górę puli SQL Synapse dla dodatkowych zasobów.
+Sprawdź, czy serwer nie jest mocno obciążony, a w kolejce nie ma dużej liczby żądań. Może być konieczne skalowanie w górę puli SQL Synapse w celu uzyskania dodatkowych zasobów.
 
 ## <a name="common-error-messages"></a>Typowe komunikaty o błędach
 
-Błędy 40914 i 40615, zobacz [opis błędu i rozdzielczość tutaj](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
+Błędy 40914 i 40615, zobacz [Opis i rozdzielczość błędu tutaj](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
 
-## <a name="still-having-connectivity-issues"></a>Nadal masz problemy z łącznością?
+## <a name="still-having-connectivity-issues"></a>Nadal występują problemy z łącznością?
 
-Utwórz [bilet pomocy technicznej,](sql-data-warehouse-get-started-create-support-ticket.md) aby zespół inżynierów mógł Cię wspierać.
+Utwórz [bilet pomocy technicznej](sql-data-warehouse-get-started-create-support-ticket.md) , aby zespół inżynieryjny mógł je obsługiwać.

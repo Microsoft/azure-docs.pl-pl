@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: Dokumentacja hostingu
-summary: Kontenery usługi mowy są dostępne zarówno dla scenariuszy zamiany mowy na tekst, jak i zamiany tekstu na mowę, obejmujących modele standardowe lub dostosowane.
+summary: Kontenery usługi mowy są dostępne zarówno w scenariuszach zamiany mowy na tekst, jak i zamiany tekstu na mowę, obejmujących standardowe lub dostosowane modele.
 metadata:
-  title: Dokumentacja hostingu — samouczki, informacje o interfejsie API — usługi Azure Cognitive Services | Dokumenty firmy Microsoft
+  title: Dokumentacja hostingu — samouczki i dokumentacja interfejsu API — Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -12,13 +12,13 @@ metadata:
   ms.date: 03/23/2020
   ms.author: trbye
   ms.openlocfilehash: 640c1b8e9c51059bc4c296ef93a4e6dd54ea7a42
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/16/2020
+  ms.lasthandoff: 04/29/2020
   ms.locfileid: "81401512"
 landingContent:
-- title: O hostingu
+- title: Hosting — informacje
   linkLists:
   - linkListType: concept
     links:
@@ -28,15 +28,15 @@ landingContent:
       url: speech-container-howto-on-premises.md
     - text: Kontenery usługi Mowa w wystąpieniach kontenerów na platformie Azure
       url: deploy-speech-on-container-instances.md
-- title: Tworzenie i konfigurowanie
+- title: Utwórz i skonfiguruj
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Tworzenie zasobu mowy platformy Azure
+    - text: Tworzenie zasobu usługi Azure Speech
       url: get-started.md#new-resource
     - text: Konfigurowanie kontenerów usługi Mowa
       url: speech-container-configuration.md
-- title: Dokumentacja
+- title: Tematy pomocy
   linkLists:
   - linkListType: reference
     links:

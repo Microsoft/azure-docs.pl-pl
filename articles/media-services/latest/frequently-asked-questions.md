@@ -1,6 +1,6 @@
 ---
-title: Często zadawane pytania dotyczące usługi Azure Media Services w wersji 3| Dokumenty firmy Microsoft
-description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure Media Services w wersji 3.
+title: Azure Media Services v3 — często zadawane pytania | Microsoft Docs
+description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Azure Media Services wersji 3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,192 +12,192 @@ ms.topic: article
 ms.date: 04/07/2020
 ms.author: juliako
 ms.openlocfilehash: 713acbd098255af2869d7a462c9990f3d7e10bf1
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81309182"
 ---
-# <a name="media-services-v3-frequently-asked-questions"></a>Często zadawane pytania dotyczące usługi Media Services w wersji 3
+# <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 — często zadawane pytania
 
-Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure Media Services w wersji 3.
+Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Azure Media Services wersji 3.
 
 ## <a name="general"></a>Ogólne
 
-### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Jakie role platformy Azure mogą wykonywać akcje w zasobach usługi Azure Media Services? 
+### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Jakie role platformy Azure mogą wykonywać akcje na Azure Media Services zasobach? 
 
-Zobacz [Kontrola dostępu oparta na rolach (RBAC) dla kont usługi Media Services](rbac-overview.md).
+Zobacz [kontroli dostępu opartej na rolach (RBAC) dla kont Media Services](rbac-overview.md).
 
-### <a name="how-do-i-stream-to-apple-ios-devices"></a>Jak przesyłać strumieniowo na urządzenia Apple z systemem iOS?
+### <a name="how-do-i-stream-to-apple-ios-devices"></a>Jak mogę strumieniowo z urządzeniami Apple iOS?
 
-Upewnij się, że na końcu ścieżki (po **/manifestu** adres URL) masz **(format=m3u8-aapl),** aby poinformować serwer pochodzenia przesyłania strumieniowego o zwrocie zawartości HTTP Live Streaming (HLS) do użycia na urządzeniach natywnych apple iOS. Aby uzyskać szczegółowe informacje, zobacz [Dostarczanie zawartości](dynamic-packaging-overview.md).
+Upewnij się, że masz **(format = M3U8-AAPL)** na końcu ścieżki (po części **/manifest** adresu URL), aby poinformować serwer źródłowy przesyłania strumieniowego, aby ZWRACAŁ zawartość http Live Streaming (HLS) do użycia na urządzeniach natywnych Apple iOS. Aby uzyskać szczegółowe informacje, zobacz [dostarczanie zawartości](dynamic-packaging-overview.md).
 
-### <a name="how-do-i-configure-media-reserved-units"></a>Jak skonfigurować jednostki zarezerwowane dla nośników?
+### <a name="how-do-i-configure-media-reserved-units"></a>Jak mogę skonfigurować jednostki zarezerwowane multimediów?
 
-W przypadku zadań Analizy audio i analizy wideo, które są wyzwalane przez usługi Media Services w wersji 3 lub indeksator wideo, zaleca się aprowizycji konta za pomocą 10 jednostek zarezerwowanych nośników S3 (MRU). Jeśli potrzebujesz więcej niż 10 mru S3, otwórz bilet pomocy technicznej za pomocą [witryny Azure portal](https://portal.azure.com/).
+W przypadku zadań analizy audio i analizy wideo, które są wyzwalane przez Media Services v3 lub Video Indexer, zalecamy udostępnienie konta przy użyciu 10 jednostek zarezerwowanych multimediów (MRUs). Jeśli potrzebujesz więcej niż 10 MRUs S3, Otwórz bilet pomocy technicznej przy użyciu [Azure Portal](https://portal.azure.com/).
 
 Aby uzyskać szczegółowe informacje, zobacz [Skalowanie przetwarzania multimediów](media-reserved-units-cli-how-to.md).
 
-### <a name="what-is-the-recommended-method-to-process-videos"></a>Jaka jest zalecana metoda przetwarzania filmów?
+### <a name="what-is-the-recommended-method-to-process-videos"></a>Jaka jest zalecana metoda przetwarzania wideo?
 
-Użyj [przekształceń,](https://docs.microsoft.com/rest/api/media/transforms) aby skonfigurować typowe zadania kodowania lub analizowania klipów wideo. Każda transformacja opisuje przepis lub przepływ zadań do przetwarzania plików wideo lub audio. Zadanie [Job](https://docs.microsoft.com/rest/api/media/jobs) to rzeczywiste żądanie do usługi Media Services, aby zastosować przekształcenie do wejściowej zawartości wideo lub audio. Po utworzeniu transformu można przesłać zadania przy użyciu interfejsów API usługi Media Services lub dowolnego z opublikowanych sks. Aby uzyskać więcej informacji, zobacz [Przekształcenia i zadania](transforms-jobs-concept.md).
+Za pomocą [transformacji](https://docs.microsoft.com/rest/api/media/transforms) można skonfigurować typowe zadania związane z kodowaniem lub analizowaniem filmów wideo. Każde przekształcenie opisuje przepis lub przepływ pracy zadań do przetwarzania plików wideo lub audio. [Zadanie](https://docs.microsoft.com/rest/api/media/jobs) to rzeczywiste żądanie Media Services, aby zastosować transformację do wejściowej zawartości wideo lub audio. Po utworzeniu przekształcenia można przesłać zadania za pomocą interfejsów API Media Services lub dowolnego z opublikowanych zestawów SDK. Aby uzyskać więcej informacji, zobacz [Przekształcenia i zadania](transforms-jobs-concept.md).
 
-### <a name="i-uploaded-encoded-and-published-a-video-why-wont-the-video-play-when-i-try-to-stream-it"></a>Przesłałem, zakodowałem i opublikowałem film. Dlaczego film nie zostanie odtwochły się, gdy próbuję go przesłać strumieniowo?
+### <a name="i-uploaded-encoded-and-published-a-video-why-wont-the-video-play-when-i-try-to-stream-it"></a>Wideo zostało przekazane, zakodowane i opublikowane. Dlaczego film wideo nie jest odtwarzany podczas próby przesyłania strumieniowego?
 
-Jednym z najczęstszych powodów jest to, że nie masz punktu końcowego przesyłania strumieniowego, z którego próbujesz odtworzyć w stanie uruchamianie.
+Jedną z najczęstszych przyczyn jest to, że nie masz punktu końcowego przesyłania strumieniowego, z którego próbujesz odtworzyć stan działania.
 
-### <a name="how-does-pagination-work"></a>Jak działa podział na strony?
+### <a name="how-does-pagination-work"></a>Jak działa stronicowanie?
 
-Podczas korzystania z podziału na strony, należy zawsze użyć następnego łącza do wyliczenia kolekcji i nie zależy od określonego rozmiaru strony. Aby uzyskać szczegółowe informacje i przykłady, zobacz [Filtrowanie, zamawianie, stronicowanie](entities-overview.md).
+W przypadku korzystania z stronicowania należy zawsze używać następnego linku do wyliczania kolekcji i nie zależy od określonego rozmiaru strony. Aby uzyskać szczegółowe informacje i przykłady, zobacz [filtrowanie, porządkowanie, stronicowanie](entities-overview.md).
 
-### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Jakie funkcje nie są jeszcze dostępne w usłudze Azure Media Services w wersji 3?
+### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Jakie funkcje nie są jeszcze dostępne w wersji Azure Media Services v3?
 
-Aby uzyskać szczegółowe informacje, zobacz [Luki w funkcjach w odniesieniu do interfejsów API w wersji 2](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
+Aby uzyskać szczegółowe informacje, zobacz [luki w funkcji w odniesieniu do interfejsów API w wersji 2](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
 
-### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Jaki jest proces przenoszenia konta usługi Media Services między subskrypcjami?  
+### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Jaki jest proces przechodzenia konta Media Services między subskrypcjami?  
 
-Aby uzyskać szczegółowe informacje, zobacz [Przenoszenie konta usługi Media Services między subskrypcjami](media-services-account-concept.md).
+Aby uzyskać szczegółowe informacje, zobacz [Przechodzenie do konta Media Services między subskrypcjami](media-services-account-concept.md).
 
 ## <a name="live-streaming"></a>Transmisja strumieniowa na żywo 
 
-### <a name="how-do-i-stop-the-live-stream-after-the-broadcast-is-done"></a>Jak zatrzymać transmisję na żywo po zakończeniu transmisji?
+### <a name="how-do-i-stop-the-live-stream-after-the-broadcast-is-done"></a>Jak mogę zatrzymać strumień na żywo po zakończeniu emisji?
 
-Można podejść do niego od strony klienta lub po stronie serwera.
+Można to rozejść po stronie klienta lub po stronie serwera.
 
 #### <a name="client-side"></a>Po stronie klienta
 
-Aplikacja sieci web powinna monitować użytkownika, jeśli chce zakończyć emisję podczas zamykania przeglądarki. Jest to zdarzenie przeglądarki, które aplikacja sieci web może obsłużyć.
+Aplikacja sieci Web powinna monitować użytkownika o zakończenie emisji w trakcie zamykania przeglądarki. Jest to zdarzenie przeglądarki, które może obsłużyć aplikacja sieci Web.
 
 #### <a name="server-side"></a>Po stronie serwera
 
-Możesz monitorować zdarzenia na żywo, subskrybując zdarzenia usługi Azure Event Grid. Aby uzyskać więcej informacji, zobacz [schemat zdarzenia EventGrid](media-services-event-schemas.md#live-event-types).
+Możesz monitorować zdarzenia na żywo, subskrybując zdarzenia Azure Event Grid. Aby uzyskać więcej informacji, zobacz [schemat zdarzeń EventGrid](media-services-event-schemas.md#live-event-types).
 
 Można:
 
-* [Subskrybuj](reacting-to-media-services-events.md) zdarzenia na poziomie strumienia [Microsoft.Media.LiveEventEncoderRozłączone](media-services-event-schemas.md#liveeventencoderdisconnected) zdarzenia i monitoruj, że nie ma żadnych ponownych połączeń na chwilę, aby zatrzymać i usunąć wydarzenie na żywo.
-* [Subskrybuj](reacting-to-media-services-events.md) zdarzenia [pulsu](media-services-event-schemas.md#liveeventingestheartbeat) na poziomie ścieżki. Jeśli wszystkie ścieżki mają przychodzące bitrate spada do 0 lub ostatni sygnatura czasu nie jest już zwiększenie, można bezpiecznie zamknąć zdarzenia na żywo. Zdarzenia pulsu są co 20 sekund dla każdego utworu, więc może to być nieco pełne.
+* [Zasubskrybuj](reacting-to-media-services-events.md) zdarzenia [Microsoft. Media. LiveEventEncoderDisconnected](media-services-event-schemas.md#liveeventencoderdisconnected) na poziomie strumienia i monitoruj, że żadne ponowne połączenia nie są dostępne przez pewien czas, aby zatrzymać i usunąć wydarzenie na żywo.
+* [Zasubskrybuj](reacting-to-media-services-events.md) zdarzenia [pulsu](media-services-event-schemas.md#liveeventingestheartbeat) poziomu śledzenia. Jeśli wszystkie ścieżki mają przychodzącą szybkość transmisji bitów do 0 lub Ostatnia sygnatura czasowa nie rośnie, można bezpiecznie zamknąć wydarzenie na żywo. Zdarzenia pulsu są dostępne co 20 sekund dla każdej ścieżki, więc może być to bit.
 
-###  <a name="how-do-i-insert-breaksvideos-and-image-slates-during-a-live-stream"></a>Jak wstawić przerwy/filmy i plansze obrazów podczas transmisji na żywo?
+###  <a name="how-do-i-insert-breaksvideos-and-image-slates-during-a-live-stream"></a>Jak mogę Wstawianie pęknięć/filmów wideo i obrazów w strumieniu na żywo?
 
-Kodowanie na żywo usługi Media Services w wersji 3 nie obsługuje jeszcze wstawiania tablic wideo lub obrazów podczas transmisji na żywo. 
+Kodowanie na żywo w programie Media Services V3 nie obsługuje jeszcze wstawiania obrazów wideo lub obrazu podczas przesyłania strumieniowego na żywo. 
 
-Do przełączania źródłowego wideo można użyć [kodera lokalnego na żywo.](recommended-on-premises-live-encoders.md) Wiele aplikacji zapewnia możliwość przełączania źródeł, w tym Telestream Wirecast, Switcher Studio (na iOS) i OBS Studio (bezpłatna aplikacja).
+Możesz użyć [lokalnego kodera](recommended-on-premises-live-encoders.md) do przełączania źródłowego wideo. Wiele aplikacji zapewnia możliwość przełączania źródeł, w tym Wirecast Telestream, przełączników Studio (w systemach iOS) i OBS Studio (bezpłatna aplikacja).
 
 ## <a name="content-protection"></a>Ochrona zawartości
 
-### <a name="should-i-use-aes-128-clear-key-encryption-or-a-drm-system"></a>Czy należy używać szyfrowania kluczy wyczyszczanych aes-128 lub systemu DRM?
+### <a name="should-i-use-aes-128-clear-key-encryption-or-a-drm-system"></a>Czy należy używać szyfrowania kluczowego AES-128 lub systemu DRM?
 
-Klienci często zastanawiają się, czy powinni używać szyfrowania AES, czy systemu DRM. Główną różnicą między tymi dwoma systemami jest to, że przy szyfrowaniu AES klucz zawartości jest przesyłany do klienta za pośrednictwem protokołu TLS, dzięki czemu klucz jest szyfrowany podczas przesyłania, ale bez dodatkowego szyfrowania ("w postaci przezroczystej"). W rezultacie klucz, który jest używany do odszyfrowania zawartości jest dostępny dla odtwarzacza klienta i można go wyświetlić w śledzenia sieci na kliencie w postaci zwykłego tekstu. Szyfrowanie klucza ściąglowego AES-128 jest odpowiednie w przypadkach użycia, w których widz jest stroną zaufaną (na przykład szyfrowanie firmowych filmów wideo dystrybuowanych w firmie, które mają być wyświetlane przez pracowników).
+Klienci często zastanawiają się, czy powinni używać szyfrowania AES, czy systemu DRM. Główną różnicą między tymi dwoma systemami jest szyfrowanie AES, klucz zawartości jest przesyłany do klienta za pośrednictwem protokołu TLS, dzięki czemu klucz jest szyfrowany podczas przesyłania, ale bez dodatkowego szyfrowania ("w czyszczeniu"). W związku z tym klucz używany do odszyfrowywania zawartości jest dostępny dla odtwarzacza klienta i może być wyświetlany w wyniku śledzenia sieci na kliencie w postaci zwykłego tekstu. Szyfrowanie za pomocą klucza AES-128 jest odpowiednie do przypadków użycia, w których przeglądarka jest zaufaną stroną (na przykład w przypadku szyfrowania wideo firmowych dystrybuowanych przez pracowników).
 
-Systemy DRM, takie jak PlayReady, Widevine i FairPlay, zapewniają dodatkowy poziom szyfrowania klucza używanego do odszyfrowywania zawartości w porównaniu z wyczyszczeniem klucza AES-128. Klucz zawartości jest szyfrowany do klucza chronionego przez środowisko wykonawcze DRM oprócz szyfrowania na poziomie transportu dostarczonego przez TLS. Ponadto odszyfrowywanie jest obsługiwane w bezpiecznym środowisku na poziomie systemu operacyjnego, gdzie jest trudniejsze dla złośliwego użytkownika do ataku. Zalecamy drm w przypadkach użycia, w których przeglądarka może nie być zaufaną stroną i potrzebujesz najwyższego poziomu zabezpieczeń.
+Systemy DRM, takie jak PlayReady, Widevine i FairPlay, zapewniają dodatkowy poziom szyfrowania na klucz używany do odszyfrowywania zawartości w porównaniu z kluczem czystym AES-128. Klucz zawartości jest szyfrowany do klucza chronionego przez środowisko uruchomieniowe DRM poza szyfrowaniem na poziomie transportu udostępnionym przez protokół TLS. Ponadto odszyfrowywanie jest obsługiwane w bezpiecznym środowisku na poziomie systemu operacyjnego, co utrudnia złośliwemu użytkownikowi ataki. Zalecamy używanie technologii DRM w przypadku przypadków użycia, w których przeglądarka może nie być zaufaną stroną i potrzebujesz najwyższego poziomu zabezpieczeń.
 
-### <a name="how-do-i-show-a-video-to-only-users-who-have-a-specific-permission-without-using-azure-ad"></a>Jak wyświetlić klip wideo tylko użytkownikom, którzy mają określone uprawnienia, bez korzystania z usługi Azure AD?
+### <a name="how-do-i-show-a-video-to-only-users-who-have-a-specific-permission-without-using-azure-ad"></a>Jak mogę pokazać wideo tylko użytkownikom z określonym uprawnieniem bez korzystania z usługi Azure AD?
 
-Nie trzeba używać żadnego określonego dostawcy tokenu, takich jak usługa Azure Active Directory (Azure AD). Można utworzyć własnego dostawcę [JWT](https://jwt.io/) (tak zwana usługa bezpiecznego tokenu lub STS) przy użyciu szyfrowania klucza asymetrycznego. W niestandardowym sts, można dodać oświadczeń na podstawie logiki biznesowej.
+Nie musisz używać żadnego określonego dostawcy tokenów, takiego jak Azure Active Directory (Azure AD). Za pomocą szyfrowania klucza asymetrycznego można utworzyć własnego dostawcę [JWT](https://jwt.io/) (tzw. Secure Token Service lub STS). W niestandardowej usłudze STS można dodawać oświadczenia na podstawie logiki biznesowej.
 
-Upewnij się, że wystawca, publiczność i oświadczenia są dokładnie zgodne między `ContentKeyPolicyRestriction` tym, `ContentKeyPolicy`co jest w JWT, a wartością używaną w pliku .
+Upewnij się, że wystawcy, odbiorcy i oświadczenia wszystkie pasują dokładnie do tych, które są używane `ContentKeyPolicyRestriction` w TOKENach `ContentKeyPolicy`JWT, i wartość użyta w.
 
-Aby uzyskać więcej informacji, zobacz [Ochrona zawartości przy użyciu szyfrowania dynamicznego usługi Media Services](content-protection-overview.md).
+Aby uzyskać więcej informacji, zobacz [Ochrona zawartości przy użyciu Media Services szyfrowania dynamicznego](content-protection-overview.md).
 
-### <a name="how-and-where-did-i-get-a-jwt-token-before-using-it-to-request-a-license-or-key"></a>Jak i gdzie mogę uzyskać token JWT przed użyciem go do żądania licencji lub klucza?
+### <a name="how-and-where-did-i-get-a-jwt-token-before-using-it-to-request-a-license-or-key"></a>Jak i gdzie uzyskać token JWT przed użyciem go w celu zażądania licencji lub klucza?
 
-W przypadku produkcji należy mieć usługę bezpiecznego tokenu (czyli usługę sieci web), która wystawia token JWT na żądanie HTTPS. Do testu można użyć kodu pokazanego w metodzie zdefiniowanej `GetTokenAsync` w [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+W przypadku produkcji należy mieć usługę Secure Token Service (czyli usługę sieci Web), która wystawia token JWT przy żądaniu HTTPS. Dla testu można użyć kodu pokazanego w `GetTokenAsync` metodzie zdefiniowanej w [program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 
-Gracz zwraca żądanie, po uwierzytelnienie użytkownika, do STS dla takiego tokenu i przypisuje go jako wartość tokenu. Można użyć [interfejsu API programu Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/).
+Gracz wysyła żądanie, po uwierzytelnieniu użytkownika w usłudze STS dla takiego tokenu i przypisuje go jako wartość tokenu. Możesz użyć [interfejsu API Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/).
 
-Na przykład uruchamiania STS z kluczem symetrycznym lub asymetrycznym można znaleźć w [narzędziu JWT](https://aka.ms/jwt). Na przykład odtwarzacza opartego na usłudze Azure Media Player przy użyciu takiego tokenu JWT można znaleźć w [narzędziu do testowania multimediów platformy Azure.](https://aka.ms/amtest) (Rozwiń **łącze player_settings,** aby wyświetlić dane wejściowe tokenu).
+Przykład uruchamiania usługi STS z kluczem symetrycznym lub kluczem asymetrycznym można znaleźć w [narzędziu JWT](https://aka.ms/jwt). Przykład odtwarzacza oparty na Azure Media Player użyciu takiego tokenu JWT można znaleźć w [narzędziu Azure Media Test Tool](https://aka.ms/amtest). (Rozwiń łącze **player_settings** , aby zobaczyć dane wejściowe tokenu).
 
-### <a name="how-do-i-authorize-requests-to-stream-videos-with-aes-encryption"></a>Jak autoryzować żądania przesyłania strumieniowego filmów za pomocą szyfrowania AES?
+### <a name="how-do-i-authorize-requests-to-stream-videos-with-aes-encryption"></a>Jak mogę autoryzować żądania przesyłania strumieniowego wideo przy użyciu szyfrowania AES?
 
-Prawidłowe podejście jest użycie usługi bezpiecznego tokenu. W STS, w zależności od profilu użytkownika, dodaj różne oświadczenia (takie jak "Użytkownik premium", "Użytkownik podstawowy", "Bezpłatny użytkownik próbny"). Z różnych oświadczeń w JWT, użytkownik może zobaczyć różne treści. Dla różnych treści lub `ContentKeyPolicyRestriction` zasobów, `RequiredClaims` będzie miał odpowiednią wartość.
+Poprawne podejście polega na użyciu usługi bezpiecznego tokenu. W programie STS, w zależności od profilu użytkownika, Dodaj różne oświadczenia (takie jak "użytkownik Premium", "użytkownik podstawowy", "bezpłatna wersja próbna użytkownika"). Przy użyciu różnych oświadczeń w tokenie JWT użytkownik może zobaczyć inną zawartość. Dla różnych zawartości lub zasobów `ContentKeyPolicyRestriction` będzie miała odpowiadająca `RequiredClaims` wartość.
 
-Użyj interfejsów API usługi Azure Media Services do konfigurowania dostarczania licencji/kluczy i szyfrowania zasobów (jak pokazano w [tym przykładzie).](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)
+Użyj Azure Media Services interfejsów API do konfigurowania dostarczania licencji/kluczy i szyfrowania zasobów (jak pokazano w [tym przykładzie](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
 
 Aby uzyskać więcej informacji, zobacz:
 
 - [Omówienie ochrony zawartości](content-protection-overview.md)
 - [Projektowanie systemu ochrony zawartości przy użyciu technologii multi-DRM z kontrolą dostępu](design-multi-drm-system-with-access-control.md)
 
-### <a name="should-i-use-http-or-https"></a>Czy powinienem używać protokołu HTTP lub HTTPS?
+### <a name="should-i-use-http-or-https"></a>Czy należy używać protokołu HTTP, czy HTTPS?
 Aplikacja odtwarzacza ASP.NET MVC musi obsługiwać następujące elementy:
 
-* Uwierzytelnianie użytkowników za pośrednictwem usługi Azure AD, która jest w obszarze HTTPS.
-* Wymiana JWT między klientem a usługą Azure AD, która jest w obszarze HTTPS.
-* Nabycie licencji DRM przez klienta, które musi być w obszarze HTTPS, jeśli dostarczanie licencji jest dostarczane przez program Media Services. Pakiet produktów PlayReady nie upoważnia protokołu HTTPS do dostarczania licencji. Jeśli serwer licencji PlayReady znajduje się poza usługą Media Services, można użyć protokołu HTTP lub HTTPS.
+* Uwierzytelnianie użytkowników za pośrednictwem usługi Azure AD, która jest objęta protokołem HTTPS.
+* Wymiana JWT między klientem a usługą Azure AD, która jest objęta protokołem HTTPS.
+* Pozyskiwanie licencji DRM przez klienta, które musi znajdować się w protokole HTTPS, jeśli dostarczanie licencji jest zapewnione przez Media Services. Pakiet produktów PlayReady nie wymaga protokołu HTTPS do dostarczania licencji. Jeśli Twój serwer licencji PlayReady znajduje się poza Media Services, możesz użyć protokołu HTTP lub HTTPS.
 
-Aplikacja ASP.NET player używa protokołu HTTPS jako najlepszego rozwiązania, więc program Media Player znajduje się na stronie https. Jednak protokół HTTP jest preferowany do przesyłania strumieniowego, więc należy wziąć pod uwagę te problemy z zawartością mieszaną:
+Aplikacja odtwarzacza ASP.NET używa protokołu HTTPS zgodnie z najlepszymi rozwiązaniami, więc Media Player znajduje się na stronie w obszarze protokołu HTTPS. Jednak protokół HTTP jest preferowany do przesyłania strumieniowego, dlatego należy wziąć pod uwagę następujące problemy związane z zawartością mieszaną:
 
-* Przeglądarka nie zezwala na zawartość mieszaną. Ale wtyczki, takie jak Silverlight i wtyczka OSMF dla Smooth i DASH, na to pozwalają. Zawartość mieszana jest problemem bezpieczeństwa ze względu na zagrożenie możliwością wstrzykiwania złośliwego języka JavaScript, co może narazić dane klientów na ryzyko. Przeglądarki domyślnie blokują tę funkcję. Jedynym sposobem obejść to jest po stronie serwera (pochodzenia), umożliwiając wszystkie domeny (niezależnie od HTTPS lub HTTP). To chyba też nie jest dobry pomysł.
-* Unikaj mieszanej zawartości. Zarówno aplikacja odtwarzacza, jak i odtwarzacz multimedialny powinny używać protokołu HTTP lub HTTPS. Podczas odtwarzania zawartości mieszanej technologia SilverlightSS wymaga wyczyszczenie ostrzeżenia o zawartości mieszanej. Technologia FlashSS obsługuje zawartość mieszaną bez ostrzeżenia o zawartości mieszanej.
-* Jeśli punkt końcowy przesyłania strumieniowego został utworzony przed sierpniem 2014 r., nie będzie obsługiwać protokołu HTTPS. W takim przypadku należy utworzyć i używać nowego punktu końcowego przesyłania strumieniowego dla protokołu HTTPS.
+* Przeglądarka nie zezwala na zawartość mieszaną. Ale wtyczki, takie jak Silverlight i wtyczka OSMF, obsługują gładkie i PAUZy. Zawartość mieszana to problem z bezpieczeństwem z powodu zagrożenia związanego z możliwością iniekcji złośliwego kodu JavaScript, co może stanowić zagrożenie dla danych klientów. Przeglądarki blokują tę funkcję domyślnie. Jedynym sposobem obejścia tego problemu jest to, że po stronie serwera (pochodzenia) można zezwalać na wszystkie domeny (niezależnie od protokołu HTTPS lub HTTP). To prawdopodobnie nie jest dobrym pomysłem.
+* Unikaj mieszanej zawartości. Zarówno aplikacja odtwarzacza, jak i Media Player powinny używać protokołu HTTP lub HTTPS. W przypadku odtwarzania zawartości mieszanej Technologia Silverlight wymaga wyczyszczenia ostrzeżenia o zawartości mieszanej. Błyskowa techniczna obsługuje zawartość mieszaną bez ostrzeżenia o zawartości mieszanej.
+* Jeśli punkt końcowy przesyłania strumieniowego został utworzony przed 2014 sierpnia, nie będzie obsługiwał protokołu HTTPS. W takim przypadku Utwórz i Użyj nowego punktu końcowego przesyłania strumieniowego dla protokołu HTTPS.
 
-### <a name="what-about-live-streaming"></a>A co z transmisją na żywo?
+### <a name="what-about-live-streaming"></a>Co z przesyłaniem strumieniowym na żywo?
 
-Można użyć dokładnie tego samego projektu i implementacji, aby chronić transmisje na żywo w umiań Media Services, traktując zasób skojarzony z programem jako zasób VOD. Aby zapewnić ochronę multi-DRM zawartości na żywo, zastosuj tę samą konfigurację/przetwarzanie do zasobu, tak jakby był to zasób VOD przed skojarzeniem zasobu z wyjściem na żywo.
+Można użyć dokładnie tego samego projektu i implementacji, aby chronić przesyłanie strumieniowe na żywo w Media Services przez traktowanie zasobu skojarzonego z programem jako elementu zawartości VOD. Aby zapewnić ochronę przy użyciu technologii wielowątkowości na żywo, Zastosuj tę samą konfigurację/przetwarzanie do zasobu, tak jakby był to zasób VOD przed skojarzeniem elementu zawartości z danymi wyjściowymi na żywo.
 
-### <a name="what-about-license-servers-outside-media-services"></a>Co z serwerami licencji poza usługą Media Services?
+### <a name="what-about-license-servers-outside-media-services"></a>Co o serwerach licencji poza Media Services?
 
-Często klienci inwestowali w farmie serwerów licencji we własnym centrum danych lub w jedno hostowane przez dostawców usług DRM. Dzięki ochronie zawartości usługi Media Services można pracować w trybie hybrydowym. Zawartość może być hostowana i dynamicznie chroniona w programie Media Services, podczas gdy licencje DRM są dostarczane przez serwery spoza usługi Media Services. W takim przypadku należy wziąć pod uwagę następujące zmiany:
+Często klienci zainwestowali w farmę serwerów licencji we własnym centrum danych lub w jednym hostowanym przez dostawców usług DRM. Za pomocą Media Services Content Protection można działać w trybie hybrydowym. Zawartość może być hostowana i dynamicznie chroniona w Media Services, natomiast licencje DRM są dostarczane przez serwery poza Media Services. W takim przypadku należy wziąć pod uwagę następujące zmiany:
 
-* Sts musi wystawiać tokeny, które są dopuszczalne i mogą być weryfikowane przez farmę serwerów licencji. Na przykład serwery licencji Widevine dostarczone przez firmę Axinom wymagają określonego certyfikatu JWT zawierającego komunikat o uprawnieniach. Musisz mieć STS do wydania takiego JWT. 
-* Nie trzeba już konfigurować usługi dostarczania licencji w programie Media Services. Podczas konfigurowania należy podać adresy URL nabycia licencji (dla PlayReady, Widevine i `ContentKeyPolicy`FairPlay).
+* Usługa STS musi wydać tokeny, które są akceptowalne i mogą być weryfikowane przez farmę serwerów licencji. Na przykład serwery licencji Widevine udostępniane przez Axinom wymagają określonego tokenu JWT, który zawiera komunikat o uprawnieniach. Musisz mieć usługę STS, aby wystawić taki token JWT. 
+* Nie trzeba już konfigurować usługi dostarczania licencji w Media Services. Podczas konfigurowania `ContentKeyPolicy`programu należy podać adresy URL pozyskiwania licencji (dla oprogramowania PlayReady, Widevine i FairPlay).
 
 > [!NOTE]
-> Widevine jest usługą świadczoną przez Google i podlega warunkom korzystania z usługi i polityce prywatności Google.
+> Widevine to usługa świadczona przez firmę Google, która podlega postanowieniom dotyczącym usług i zasadom zachowania poufności informacji w firmie Google.
 
-## <a name="media-services-v2-vs-v3"></a>Usługi multimedialne w wersji 2 a 3 
+## <a name="media-services-v2-vs-v3"></a>Media Services V2 a v3 
 
-### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>Czy mogę używać witryny Azure portal do zarządzania zasobami w wersji 3?
+### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>Czy mogę używać Azure Portal do zarządzania zasobami v3?
 
-Obecnie można użyć [witryny Azure portal](https://portal.azure.com/) do:
+Obecnie można użyć [Azure Portal](https://portal.azure.com/) , aby:
 
-* Zarządzanie [zdarzeniami na żywo](live-events-outputs-concept.md) w udziale usługi Media Services w wersji 3. 
-* Wyświetlanie (nie zarządzanie) [zasobami](assets-concept.md)w wersji 3 . 
-* [Uzyskaj informacje o uzyskiwaniu dostępu do interfejsów API](access-api-portal.md). 
+* Zarządzanie [zdarzeniami na żywo](live-events-outputs-concept.md) w Media Services v3. 
+* Wyświetl [zasoby](assets-concept.md)v3 (nie Zarządzaj). 
+* [Uzyskaj informacje na temat uzyskiwania dostępu do interfejsów API](access-api-portal.md). 
 
-W przypadku wszystkich innych zadań zarządzania (na przykład [przekształceń i zadań](transforms-jobs-concept.md) oraz [ochrony zawartości)](content-protection-overview.md)użyj [interfejsu API REST,](https://docs.microsoft.com/rest/api/media/)interfejsu [wiersza polecenia platformy Azure](https://aka.ms/ams-v3-cli-ref)lub jednego z [obsługiwanych zestawów SDK.](media-services-apis-overview.md#sdks)
+W przypadku wszystkich innych zadań zarządzania (na przykład [transformacji i zadań](transforms-jobs-concept.md) oraz [ochrony zawartości](content-protection-overview.md)) należy użyć [interfejsu API REST](https://docs.microsoft.com/rest/api/media/), interfejsu [wiersza polecenia platformy Azure](https://aka.ms/ams-v3-cli-ref)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Czy istnieje koncepcja AssetFile w wersji 3?
 
-Koncepcja `AssetFile` została usunięta z interfejsu API usługi Media Services, aby oddzielić usługi Media Services od zależności SDK magazynu. Teraz usługa Azure Storage, a nie usługi Media Services, przechowuje informacje, które należy do sdk magazynu. 
+`AssetFile` Koncepcja została usunięta z interfejsu API Media Services, aby oddzielić Media Services od zależności zestawu SDK magazynu. Teraz usługa Azure Storage, nie Media Services, utrzymuje informacje, które należą do zestawu SDK magazynu. 
 
-Aby uzyskać więcej informacji, zobacz [Migrowanie do usługi Media Services w wersji 3](media-services-v2-vs-v3.md).
+Aby uzyskać więcej informacji, zobacz [Migrowanie do Media Services v3](media-services-v2-vs-v3.md).
 
-### <a name="where-did-client-side-storage-encryption-go"></a>Gdzie było szyfrowanie pamięci masowej po stronie klienta?
+### <a name="where-did-client-side-storage-encryption-go"></a>Gdzie działa szyfrowanie magazynu po stronie klienta?
 
-Teraz zaleca się użycie szyfrowania magazynu po stronie serwera (które jest domyślnie włączone). Aby uzyskać więcej informacji, zobacz [Szyfrowanie usługi Azure Storage Service dla danych w spoczynku](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+Zalecamy teraz korzystanie z szyfrowania magazynu po stronie serwera (domyślnie włączone). Aby uzyskać więcej informacji, zobacz [szyfrowanie usługi Storage platformy Azure dla danych przechowywanych w spoczynku](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
 ## <a name="offline-streaming"></a>Przesyłanie strumieniowe w trybie offline
 
-### <a name="fairplay-streaming-for-ios"></a>Przesyłanie strumieniowe FairPlay dla systemu iOS
+### <a name="fairplay-streaming-for-ios"></a>FairPlay Streaming dla systemu iOS
 
-Poniższe często zadawane pytania zapewniają pomoc w rozwiązywaniu problemów z przesyłaniem strumieniowym FairPlay w trybie offline dla systemu iOS.
+Poniższe często zadawane pytania zapewniają pomoc w rozwiązywaniu problemów z FairPlay przesyłania strumieniowego w trybie offline dla systemu iOS.
 
-#### <a name="why-does-only-audio-play-but-not-video-during-offline-mode"></a>Dlaczego odtwarzany jest tylko dźwięk, ale nie wideo w trybie offline?
+#### <a name="why-does-only-audio-play-but-not-video-during-offline-mode"></a>Dlaczego dźwięk jest odtwarzany tylko w trybie offline, ale nie wideo?
 
-To zachowanie wydaje się być według projektu przykładowej aplikacji. Gdy w trybie offline występuje alternatywna ścieżka audio (co ma miejsce w przypadku HLS), zarówno system iOS 10, jak i iOS 11 domyślnie mają alternatywną ścieżkę audio. Aby skompensować to zachowanie w trybie offline FPS, usuń alternatywną ścieżkę audio ze strumienia. Aby to zrobić w umiań multimediów, dodaj filtr manifestu dynamicznego **tylko audio=false**. Innymi słowy adres URL HLS kończy się na **.ism/manifest(format=m3u8-aapl,audio-only=false)**. 
+Takie zachowanie wydaje się być projektem przykładowej aplikacji. Jeśli istnieje alternatywna ścieżka audio (w przypadku programu HLS) w trybie offline, zarówno system iOS 10, jak i iOS 11 domyślnie są alternatywną ścieżką audio. Aby zrekompensować to zachowanie w trybie offline w trybie online, Usuń alternatywną ścieżkę audio ze strumienia. Aby to zrobić na Media Services, Dodaj filtr manifestu dynamicznego **tylko-false**. Innymi słowy, adres URL HLS ma koniec **. ISM/manifest (format = M3U8-AAPL, audio-Only = false)**. 
 
-#### <a name="why-does-it-still-play-audio-only-without-video-during-offline-mode-after-i-add-audio-onlyfalse"></a>Dlaczego nadal odtwarza dźwięk tylko bez wideo w trybie offline po dodaniu tylko audio = false?
+#### <a name="why-does-it-still-play-audio-only-without-video-during-offline-mode-after-i-add-audio-onlyfalse"></a>Dlaczego nadal Odtwarzaj tylko dźwięk bez wideo w trybie offline po dodaniu tylko audio = FAŁSZ?
 
-W zależności od projektu klucza pamięci podręcznej dla sieci dostarczania zawartości zawartość może być buforowana. Przeczyść pamięć podręczną.
+W zależności od projektu klucza pamięci podręcznej dla usługi Content Delivery Network zawartość może być buforowana. Przeczyść pamięć podręczną.
 
-#### <a name="is-fps-offline-mode-supported-on-ios-11-in-addition-to-ios-10"></a>Czy tryb offline FPS jest obsługiwany w iOS 11 oprócz systemu iOS 10?
+#### <a name="is-fps-offline-mode-supported-on-ios-11-in-addition-to-ios-10"></a>Czy w systemie iOS 11 oprócz systemu iOS 10 jest obsługiwany tryb offline FPS?
 
-Tak. Tryb offline FPS jest obsługiwany dla iOS 10 i iOS 11.
+Tak. Tryb offline FPS jest obsługiwany w systemach iOS 10 i iOS 11.
 
-#### <a name="why-cant-i-find-the-document-offline-playback-with-fairplay-streaming-and-http-live-streaming-in-the-fps-server-sdk"></a>Dlaczego nie mogę znaleźć dokumentu "Odtwarzanie w trybie offline z przesyłaniem strumieniowym FairPlay i strumieniowaniem na żywo HTTP" w SDK serwera FPS?
+#### <a name="why-cant-i-find-the-document-offline-playback-with-fairplay-streaming-and-http-live-streaming-in-the-fps-server-sdk"></a>Dlaczego nie mogę znaleźć dokumentu "odtwarzanie w trybie offline za pomocą FairPlay streaming i HTTP Live Streaming" w zestawie SDK serwera FPS?
 
-Od czasu, gdy program FPS Server SDK w wersji 4, ten dokument został scalony w "FairPlay Streaming Programming Guide".
+Ponieważ zestaw FPS SDK serwera w wersji 4, ten dokument został scalony w przewodniku programowania strumieniowego FairPlay.
 
-#### <a name="what-is-the-downloadedoffline-file-structure-on-ios-devices"></a>Jaka jest struktura pobranych/offline na urządzeniach z systemem iOS?
+#### <a name="what-is-the-downloadedoffline-file-structure-on-ios-devices"></a>Co to jest struktura plików pobierana/w trybie offline na urządzeniach z systemem iOS?
 
-Pobrana struktura plików na urządzeniu z systemem iOS wygląda następująco na poniższym zrzucie ekranu. Folder `_keys` przechowuje pobrane licencje FPS z jednym plikiem sklepu dla każdego hosta usługi licencji. W `.movpkg` folderze jest przechowywane treści audio i wideo. 
+Pobrana struktura plików na urządzeniu z systemem iOS wygląda podobnie do poniższego zrzutu ekranu. `_keys` Folder przechowuje pobrane licencje FPS z jednym plikiem magazynu dla każdego hosta usługi licencjonowania. `.movpkg` Folder przechowuje zawartość audio i wideo. 
 
-Pierwszy folder o nazwie, która kończy się kreską, po której następuje numer, zawiera zawartość wideo. Wartość liczbowa jest szczytową przepustowością wersji wideo. Drugi folder o nazwie, która kończy się kreską, po której następuje 0, zawiera zawartość audio. Trzeci folder `Data` o nazwie zawiera główną listę odtwarzania zawartości FPS. Na koniec plik boot.xml zawiera `.movpkg` pełny opis zawartości folderu. 
+Pierwszy folder o nazwie kończącej się znakiem łącznika, po którym następuje cyfra, zawiera zawartość wideo. Wartość liczbowa to Szczytowa przepustowość odwzorowania wideo. Drugi folder o nazwie kończącej się znakiem łącznika, po którym następuje 0, zawiera zawartość audio. Trzeci folder o nazwie `Data` zawiera główną listę odtwarzania zawartości fps. Na koniec plik Boot. xml zawiera pełny opis zawartości `.movpkg` folderu. 
 
-![Struktura plików trybu offline dla przykładowej aplikacji FairPlay na iOS](media/offline-fairplay-for-ios/offline-fairplay-file-structure.png)
+![Struktura plików trybu offline dla przykładowej aplikacji FairPlay iOS](media/offline-fairplay-for-ios/offline-fairplay-file-structure.png)
 
-Oto przykładowy plik boot.xml:
+Oto przykładowy plik Boot. XML:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -227,40 +227,40 @@ Oto przykładowy plik boot.xml:
 </HLSMoviePackage>
 ```
 
-### <a name="widevine-streaming-for-android"></a>Widevine streaming dla Androida
+### <a name="widevine-streaming-for-android"></a>Widevine Streaming dla systemu Android
 
-#### <a name="how-can-i-deliver-persistent-licenses-offline-enabled-for-some-clientsusers-and-non-persistent-licenses-offline-disabled-for-others-do-i-have-to-duplicate-the-content-and-use-separate-content-keys"></a>Jak dostarczać licencje trwałe (włączone w trybie offline) dla niektórych klientów/użytkowników i licencje nietrwałe (wyłączone w trybie offline) dla innych? Czy muszę powielać zawartość i używać oddzielnych kluczy zawartości?
+#### <a name="how-can-i-deliver-persistent-licenses-offline-enabled-for-some-clientsusers-and-non-persistent-licenses-offline-disabled-for-others-do-i-have-to-duplicate-the-content-and-use-separate-content-keys"></a>Jak można dostarczać trwałe licencje (z włączonymi trybem offline) dla niektórych klientów i nietrwałych licencji (wyłączone w trybie offline) dla innych użytkowników? Czy muszę duplikować zawartość i używać oddzielnych kluczy zawartości?
 
-Ponieważ usługi Media Services w wersji `StreamingLocator` 3 zezwala na zasób ma wiele wystąpień, można mieć:
+Ponieważ Media Services wersja 3 umożliwia zasobom posiadanie wielu `StreamingLocator` wystąpień, można:
 
-* Jedno `ContentKeyPolicy` `license_type = "persistent"`wystąpienie `ContentKeyPolicyRestriction` z `"persistent"`, z `StreamingLocator`roszczeniem na , i jego .
-* Innym `ContentKeyPolicy` przypadku `license_type="nonpersistent"` `ContentKeyPolicyRestriction` z , `"nonpersistent`z `StreamingLocator`roszczeniem na ", i jego .
-* Dwa `StreamingLocator` wystąpienia, które `ContentKey` mają różne wartości.
+* Jedno `ContentKeyPolicy` wystąpienie z `license_type = "persistent"`, `ContentKeyPolicyRestriction` z funkcją Claim `"persistent"`on i jego `StreamingLocator`.
+* Inne `ContentKeyPolicy` wystąpienie z `license_type="nonpersistent"`, `ContentKeyPolicyRestriction` z elementem Claim `"nonpersistent`on "i" `StreamingLocator`.
+* Dwa `StreamingLocator` wystąpienia o różnych `ContentKey` wartościach.
 
-W zależności od logiki biznesowej niestandardowego STS różne oświadczenia są wystawiane w tokenie JWT. Za pomocą tokenu można uzyskać tylko odpowiednią licencję i można odtworzyć tylko odpowiedni adres URL.
+W zależności od logiki biznesowej niestandardowej usługi STS różne oświadczenia są wystawiane w tokenie JWT. Za pomocą tokenu można uzyskać tylko odpowiednią licencję i można odtworzyć tylko odpowiedni adres URL.
 
 #### <a name="what-is-the-mapping-between-the-widevine-and-media-services-drm-security-levels"></a>Co to jest mapowanie między poziomami zabezpieczeń Widevine i Media Services DRM?
 
-"Przegląd architektury WIDEvine DRM firmy Google" definiuje trzy poziomy zabezpieczeń. Jednak [dokumentacja usługi Azure Media Services w szablonie licencji Widevine](widevine-license-template-overview.md) przedstawia pięć poziomów zabezpieczeń (wymagania dotyczące niezawodności klienta dla odtwarzania). W tej sekcji wyjaśniono, jak mapy poziomów zabezpieczeń.
+"Przegląd architektury DRM" Widevine "definiuje trzy poziomy zabezpieczeń. Jednak [dokumentacja Azure Media Services na szablonie licencji Widevine](widevine-license-template-overview.md) zawiera pięć poziomów zabezpieczeń (wymagania dotyczące niezawodności klientów na potrzeby odtwarzania). W tej sekcji opisano sposób mapowania poziomów zabezpieczeń.
 
-Oba zestawy poziomów zabezpieczeń są definiowane przez Google Widevine. Różnica polega na poziomie użycia: architektura lub interfejs API. Pięć poziomów zabezpieczeń są używane w interfejsie API Widevine. Obiekt, `content_key_specs` który `security_level`zawiera , jest deserialized i przekazywane do usługi dostarczania globalnego Widevine przez usługę licencjonowania Azure Media Services Widevine licencji. W poniższej tabeli przedstawiono mapowanie między dwoma zestawami poziomów zabezpieczeń.
+Oba zestawy poziomów zabezpieczeń są definiowane przez firmę Google Widevine. Różnica jest na poziomie użycia: architektura lub interfejs API. W interfejsie API Widevine są używane pięć poziomów zabezpieczeń. `content_key_specs` Obiekt, który zawiera `security_level`, jest deserializowany i przeszedł do usługi dostarczania globalnego Widevine przez usługę licencji Widevine Azure Media Services. W poniższej tabeli przedstawiono mapowanie między dwoma zestawami poziomów zabezpieczeń.
 
 | **Poziomy zabezpieczeń zdefiniowane w architekturze Widevine** |**Poziomy zabezpieczeń używane w interfejsie API Widevine**|
 |---|---| 
-| **Poziom zabezpieczeń 1:** Wszystkie przetwarzanie zawartości, kryptografia i kontrola są wykonywane w środowisku zaufanego wykonywania (TEE). W niektórych modelach implementacji przetwarzanie zabezpieczeń może być wykonywane w różnych układach.|**security_level=5**: Krypto, dekodowanie i cała obsługa nośnika (skompresowanego i nieskompresowanego) muszą być obsługiwane w tee ze sprzętem.<br/><br/>**security_level=4**: Krypto i dekodowanie zawartości muszą być wykonywane w tee wspieranej przez sprzęt.|
-**Poziom zabezpieczeń 2:** Kryptografia (ale nie przetwarzanie wideo) jest wykonywana w tee. Odszyfrowane bufory są zwracane do domeny aplikacji i przetwarzane za pośrednictwem oddzielnego sprzętu wideo lub oprogramowania. Jednak na poziomie 2 informacje kryptograficzne są nadal przetwarzane tylko w ramach TEE.| **security_level=3**: Materiał klucza i operacje kryptograficzne muszą być wykonywane w tee z kopii sprzętowej. |
-| **Poziom zabezpieczeń 3:** Na urządzeniu nie ma tee. Można podjąć odpowiednie środki w celu ochrony informacji kryptograficznych i odszyfrowanej zawartości w systemie operacyjnym hosta. Implementacja poziomu 3 może również zawierać sprzętowy aparat kryptograficzny, ale zwiększa tylko wydajność, a nie zabezpieczenia. | **security_level=2**: Wymagane jest krypto oprogramowania i zaciemniony dekoder.<br/><br/>**security_level=1**: Wymagane jest oparte na oprogramowaniu krypto white-box.|
+| **Poziom zabezpieczeń 1**: cała zawartość, Kryptografia i kontrola są wykonywane w ramach zaufanego środowiska wykonawczego (tee). W niektórych modelach implementacji przetwarzanie zabezpieczeń może być wykonywane w różnych mikroukładach.|**security_level = 5**: Kryptografia, dekodowanie i cała obsługa nośnika (skompresowana i nieskompresowana) musi być obsługiwana w ramach tee sprzętowego.<br/><br/>**security_level = 4**: Kryptografia i dekodowanie zawartości należy wykonać w ramach tee sprzętowego.|
+**Poziom zabezpieczeń 2**: Kryptografia (ale nie przetwarzanie wideo) jest wykonywana w tee. Odszyfrowane bufory są zwracane do domeny aplikacji i przetwarzane przez oddzielnego sprzętu wideo lub oprogramowania. Jednak na poziomie 2 informacje kryptograficzne są nadal przetwarzane tylko w ramach TEE.| **security_level = 3**: materiał klucza i operacje kryptograficzne muszą być wykonywane w ramach tee sprzętowego. |
+| **Poziom zabezpieczeń 3**: na urządzeniu nie ma tee. Odpowiednie środki można podjąć w celu ochrony informacji kryptograficznych i odszyfrowanej zawartości w systemie operacyjnym hosta. Implementacja poziomu 3 może również obejmować sprzętowy aparat kryptograficzny, ale zwiększa tylko wydajność, a nie zabezpieczenia. | **security_level = 2**: wymagane jest Kryptografia oprogramowania i niesłonięty dekoder.<br/><br/>**security_level = 1**: wymagana jest Kryptografia białego okna oparta na oprogramowaniu.|
 
 #### <a name="why-does-content-download-take-so-long"></a>Dlaczego pobieranie zawartości trwa tak długo?
 
 Istnieją dwa sposoby poprawy szybkości pobierania:
 
-* Włącz sieć dostarczania zawartości, aby użytkownicy częściej trafiali do punktu końcowego pochodzenia/przesyłania strumieniowego do pobierania zawartości. Jeśli użytkownik osiągnie punkt końcowy przesyłania strumieniowego, każdy segment HLS lub dash fragment jest dynamicznie pakowane i szyfrowane. Mimo że to opóźnienie jest w skali milisekund dla każdego segmentu lub fragmentu, gdy masz godzinny film, skumulowane opóźnienie może być duże i spowodować dłuższe pobieranie.
-* Daj użytkownikom możliwość selektywnego pobierania warstw jakości wideo i ścieżek audio zamiast całej zawartości. W trybie offline nie ma sensu pobierać wszystkich warstw jakości. Istnieją dwa sposoby osiągnięcia tego celu:
+* Umożliwia włączenie usługi Content Delivery Network w celu uzyskania większej liczby użytkowników niż punkt końcowy źródła/przesyłania strumieniowego na potrzeby pobierania zawartości. Jeśli użytkownik trafi punkt końcowy przesyłania strumieniowego, każdy segment HLS lub fragment KRESKi jest dynamicznie spakowany i szyfrowany. Pomimo tego, że opóźnienie jest skalowane w milisekundach dla każdego segmentu lub fragmentu, jeśli masz wideo o długim czasie, skumulowane opóźnienie może być duże i spowodować dłuższe pobieranie.
+* Udostępnij użytkownikom opcję selektywnego pobierania warstw jakości wideo i ścieżek audio zamiast całej zawartości. W trybie offline nie ma żadnego punktu na pobranie wszystkich warstw jakości. Istnieją dwa sposoby osiągnięcia tego celu:
 
-  * Kontrolowane przez klienta: aplikacja odtwarzacza automatycznie wybiera lub użytkownik wybiera warstwę jakości wideo i ścieżki audio do pobrania.
-  * Sterowanie usługą: Za pomocą funkcji manifestu dynamicznego w usłudze Azure Media Services można utworzyć filtr (globalny), który ogranicza listę odtwarzania HLS lub DASH MPD do jednej warstwy jakości wideo i wybranych ścieżek audio. Następnie adres URL pobierania przedstawiony użytkownikom będzie zawierał ten filtr.
+  * Kontrolowane przez klienta: aplikacja odtwarzacza automatycznie wybiera lub wybiera użytkownika, warstwę jakości wideo i ścieżki audio do pobrania.
+  * Kontrolowane przez usługę: można użyć funkcji manifestu dynamicznego w Azure Media Services, aby utworzyć filtr (globalny), który ogranicza HLS listy odtwarzania lub PAUZy do jednej warstwy jakości wideo i wybrane ścieżki audio. Następnie adres URL pobierania przedstawiony dla użytkowników będzie zawierać ten filtr.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Omówienie usługi Media Services w wersji 3](media-services-overview.md)
+[Media Services wersja 3 — Omówienie](media-services-overview.md)

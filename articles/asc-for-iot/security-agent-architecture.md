@@ -1,6 +1,6 @@
 ---
 title: Architektura agenta zabezpieczeń
-description: Poznaj architekturę agenta zabezpieczeń dla agentów używanych w usłudze Azure Security Center dla IoT.
+description: Informacje o architekturze agentów zabezpieczeń agentów używanych w Azure Security Center dla usługi IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,51 +16,51 @@ ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 9029ece923b7cda09c7a57d07736791e241c9e70
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81310682"
 ---
 # <a name="security-agent-reference-architecture"></a>Architektura referencyjna agenta zabezpieczeń
 
-Usługa Azure Security Center for IoT udostępnia architekturę referencyjną dla agentów zabezpieczeń, które rejestrują, przetwarzają, agregują i wysyłają dane zabezpieczeń za pośrednictwem usługi IoT Hub.
+Azure Security Center dla usługi IoT oferuje architekturę referencyjną dla agentów zabezpieczeń, które rejestrują, przetwarzają, agregują i wysyłają dane zabezpieczeń za IoT Hub.
 
-Agenci zabezpieczeń są przeznaczone do pracy w ograniczonym środowisku IoT i są wysoce konfigurowalne pod względem wartości, które zapewniają w porównaniu do zasobów, które zużywają.
+Agenci zabezpieczeń są zaprojektowani do pracy w ograniczonym środowisku IoT i są wysoce dostosowywane pod względem wartości, które zapewniają w porównaniu z zasobami, których używają.
 
 Agenci zabezpieczeń obsługują następujące funkcje:
 
-- Zbieranie nieprzetworzonych zdarzeń zabezpieczeń z podstawowego systemu operacyjnego (Linux, Windows). Aby dowiedzieć się więcej o dostępnych modułach zbierających dane zabezpieczeń, zobacz [Usługa Azure Security Center dla konfiguracji agenta IoT](how-to-agent-configuration.md).
+- Zbieraj surowe zdarzenia zabezpieczeń z bazowego systemu operacyjnego (Linux, Windows). Aby dowiedzieć się więcej na temat dostępnych modułów zbierających dane zabezpieczeń, zobacz [Azure Security Center for IoT — Konfiguracja agenta](how-to-agent-configuration.md).
 
-- Agreguj nieprzetworzone zdarzenia zabezpieczeń do wiadomości wysyłanych za pośrednictwem usługi IoT Hub.
+- Agregowanie nieprzetworzonych zdarzeń zabezpieczeń do komunikatów wysyłanych za poorednictwem IoT Hub.
 
-- Uwierzytelnij się przy użyciu istniejącej tożsamości urządzenia lub dedykowanej tożsamości modułu. Aby dowiedzieć się więcej, zobacz [Metody uwierzytelniania agenta zabezpieczeń.](concept-security-agent-authentication-methods.md)
+- Uwierzytelnianie przy użyciu istniejącej tożsamości urządzenia lub dedykowanej tożsamości modułu. Zobacz [metody uwierzytelniania agentów zabezpieczeń](concept-security-agent-authentication-methods.md) , aby dowiedzieć się więcej.
 
-- Konfigurować zdalnie za pomocą **azureiotsecurity** moduł bliźniaczej reprezentacji. Aby dowiedzieć się więcej, zobacz [Konfigurowanie usługi Azure Security Center dla agenta IoT](how-to-agent-configuration.md).
+- Skonfiguruj zdalnie za pomocą sznurka modułu **azureiotsecurity** . Aby dowiedzieć się więcej, zobacz [konfigurowanie Azure Security Center dla agenta IoT](how-to-agent-configuration.md).
 
-Usługa Azure Security Center dla agentów zabezpieczeń IoT są opracowywane jako projekty typu open source i są dostępne w usłudze GitHub:
+Azure Security Center dla agentów zabezpieczeń IoT są tworzone jako projekty open source i dostępne w serwisie GitHub:
 
-- [Usługa Azure Security Center dla agenta opartego na języku IoT C](https://github.com/Azure/Azure-IoT-Security-Agent-C)
-- [Usługa Azure Security Center dla agenta opartego na języku IoT C#](https://github.com/Azure/Azure-IoT-Security-Agent-CS)
+- [Azure Security Center dla agenta usługi IoT C](https://github.com/Azure/Azure-IoT-Security-Agent-C)
+- [Azure Security Center dla agenta opartego na programie IoT C#](https://github.com/Azure/Azure-IoT-Security-Agent-CS)
 
 ## <a name="agent-supported-platforms"></a>Platformy obsługiwane przez agenta
 
-Usługa Azure Security Center for IoT oferuje różne agentów instalatora dla systemu Windows 32-bitowego i 64-bitowego oraz to samo dla systemu Linux 32-bitowego i 64-bitowego. Upewnij się, że masz odpowiedni instalator agenta dla każdego z twoich urządzeń zgodnie z poniższą tabelą:
+Azure Security Center dla IoT oferuje różnych agentów Instalatora dla systemu Windows w wersji 32 i 64-bitowych, a w przypadku wersji 32-bitowej i 64-bitowej Linux. Upewnij się, że dysponujesz odpowiednim instalatorem agenta dla każdego urządzenia, zgodnie z poniższą tabelą:
 
 | Architektura | Linux | Windows |    Szczegóły|
 |----------|----------------------------------------------|-------------|-------------------------------------------|
-| 32bit  | C  | C#  ||
-| 64bit  | C# lub C           | C#      | Zalecamy używanie agenta C dla urządzeń z bardziej ograniczonymi lub minimalnymi zasobami urządzenia.|
+| bitowe  | C  | C#  ||
+| -  | C# lub C           | C#      | Zalecamy używanie agenta C dla urządzeń z bardziej ograniczonymi lub minimalnymi zasobami urządzeń.|
 |
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule dowiesz się o architekturze agenta zabezpieczeń Usługi Azure Security Center dla IoT oraz dostępnych instalatorach.
+W tym artykule przedstawiono Azure Security Center informacje dotyczące architektury agentów zabezpieczeń IoT i dostępnych instalatorów.
 
-Aby kontynuować pracę z usługą Azure Security Center dla wdrożenia IoT, należy użyć następujących artykułów:
+Aby kontynuować wprowadzenie do usługi Azure Security Center na potrzeby wdrażania IoT, użyj następujących artykułów:
 
-- Opis [metod uwierzytelniania agenta zabezpieczeń](concept-security-agent-authentication-methods.md)
-- Wybieranie i wdrażanie [agenta zabezpieczeń](how-to-deploy-agent.md)
-- Przejrzyj wymagania wstępne [usługi](service-prerequisites.md) Azure Security Center dla IoT
-- Dowiedz się, jak [włączyć usługę Azure Security Center dla usługi IoT w centrum IoT Hub](quickstart-onboard-iot-hub.md)
-- Dowiedz się więcej o usłudze z [często zadawanych pytań dotyczących usługi Azure Security Center for IoT](resources-frequently-asked-questions.md)
+- Informacje na temat [metod uwierzytelniania agentów zabezpieczeń](concept-security-agent-authentication-methods.md)
+- Wybierz i Wdróż [agenta zabezpieczeń](how-to-deploy-agent.md)
+- Przejrzyj Azure Security Center [wymagań wstępnych usługi](service-prerequisites.md) IoT
+- Dowiedz się, jak [włączyć usługę Azure Security Center dla usługi IoT w IoT Hub](quickstart-onboard-iot-hub.md)
+- Dowiedz się więcej o usłudze z [Azure Security Center na potrzeby usługi IoT — często zadawane pytania](resources-frequently-asked-questions.md)

@@ -6,79 +6,79 @@ ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
 ms.openlocfilehash: 4a2d9f382045db2aeab80d9ecf5a05b031bcbc9e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400102"
 ---
-W tym przewodniku Szybki start dowiesz się, jak używać SDK urządzeń mowy dla systemu Android do tworzenia produktu obsługującego mowę lub używania go jako urządzenia [do transkrypcji konwersacji.](../conversation-transcription-service.md)
+W tym przewodniku szybki start dowiesz się, jak utworzyć produkt z obsługą mowy przy użyciu zestawu Speech Devices SDK dla systemu Android lub użyć go jako urządzenia [transkrypcji konwersacji](../conversation-transcription-service.md) .
 
-Ten przewodnik wymaga konta [usługi Azure Cognitive Services](../get-started.md) z zasobem usługi mowy. Jeśli nie masz konta, możesz użyć [bezpłatnej wersji próbnej](https://azure.microsoft.com/try/cognitive-services/), aby uzyskać klucz subskrypcji.
+Ten przewodnik wymaga konta [Cognitive Services platformy Azure](../get-started.md) z zasobem usługi mowy. Jeśli nie masz konta, możesz użyć [bezpłatnej wersji próbnej](https://azure.microsoft.com/try/cognitive-services/), aby uzyskać klucz subskrypcji.
 
-Kod źródłowy dla przykładowej aplikacji jest dołączony do zestawu SDK urządzeń mowy. Jest również [dostępny na GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
+Kod źródłowy przykładowej aplikacji jest dołączony do zestawu Speech Devices SDK. Jest ona również [dostępna w witrynie GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem korzystania z sdk urządzeń mowy należy:
+Przed rozpoczęciem korzystania z zestawu SDK usługi Speech Devices należy:
 
-- Postępuj zgodnie z instrukcjami dostarczonymi wraz z [zestawem programistycznym,](../get-speech-devices-sdk.md) aby włączyć urządzenie.
+- Aby włączyć urządzenie, postępuj zgodnie z instrukcjami dostarczonymi z Twoim [zestawem deweloperskim](../get-speech-devices-sdk.md) .
 
-- Pobierz najnowszą wersję [sdk urządzeń mowy](https://aka.ms/sdsdk-download)i wyodrębnij plik zip do katalogu roboczego.
+- Pobierz najnowszą wersję [zestawu Speech Devices SDK](https://aka.ms/sdsdk-download)i wyodrębnij plik zip do katalogu roboczego.
 
   > [!NOTE]
-  > Ten przewodnik Szybki start zakłada, że aplikacja jest wyodrębniona do C:\SDSDK\Android-Sample-Release
+  > W tym przewodniku szybki start przyjęto założenie, że aplikacja została wyodrębniona do C:\SDSDK\Android-Sample-Release
 
-- Aby uzyskać [klucz subskrypcji platformy Azure dla usługi Mowy](../get-started.md)
+- Aby uzyskać [klucz subskrypcji platformy Azure dla usługi mowy](../get-started.md)
 
-- Jeśli planujesz używać transkrypcji konwersacji, musisz użyć [okrągłego urządzenia mikrofonowego,](../get-speech-devices-sdk.md) a ta funkcja jest obecnie dostępna tylko dla "en-US" i "zh-CN" w regionach "centralus" i "eastasia". Aby użyć transkrypcji konwersacji, w jednym z tych regionów musi być używany klucz mowy.
+- Jeśli planujesz korzystanie z transkrypcji konwersacji, musisz użyć [okrągłego urządzenia mikrofonu](../get-speech-devices-sdk.md) , a ta funkcja jest obecnie dostępna tylko dla "en-us" i "zh-CN" w regionach "środkowe" i "eastasia". Aby można było używać transkrypcji konwersacji, w jednym z tych regionów musi znajdować się klucz mowy.
 
-- Jeśli planujesz używać usługi Mowy do identyfikowania intencji (lub akcji) z wypowiedzi użytkowników, musisz subskrypcji [usługi rozumienia języka (LUIS).](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) Aby dowiedzieć się więcej o usłudze LUIS i rozpoznawaniu intencji, zobacz [Rozpoznawanie intencji mowy za pomocą usługi LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
+- Jeśli planujesz używać usługi mowy do identyfikowania intencji (lub działań) z wyrażenia długości użytkownika, będziesz potrzebować subskrypcji [usługi Language Understanding Service (Luis)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) . Aby dowiedzieć się więcej na temat LUIS i rozpoznawania intencji, zobacz [rozpoznawanie mowy w języku Luis, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
-  Można [utworzyć prosty model usługi LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/) lub użyć przykładowego modelu usługi LUIS, LUIS-example.json. Przykładowy model usługi LUIS jest dostępny w [witrynie pobierania SDK SDK urządzeń mowy.](https://aka.ms/sdsdk-luis) Aby przekazać plik JSON modelu do [portalu usługi LUIS,](https://www.luis.ai/home)wybierz pozycję **Importuj nową aplikację**, a następnie wybierz plik JSON.
+  Można [utworzyć prosty model Luis](https://docs.microsoft.com/azure/cognitive-services/luis/) lub użyć przykładowego modelu LUIS, Luis-example. JSON. Przykładowy model LUIS jest dostępny w [witrynie pobierania zestawu SDK urządzeń mowy](https://aka.ms/sdsdk-luis). Aby przekazać plik JSON modelu do [portalu Luis](https://www.luis.ai/home), wybierz pozycję **Importuj nową aplikację**, a następnie wybierz plik JSON.
 
-- Zainstaluj [Android Studio](https://developer.android.com/studio/) i [Vysor](https://vysor.io/download/) na swoim komputerze.
+- Zainstaluj [Android Studio](https://developer.android.com/studio/) i [Vysor](https://vysor.io/download/) na komputerze.
 
 ## <a name="set-up-the-device"></a>Konfigurowanie urządzenia
 
 1. Uruchom Vysor na komputerze.
 
-   ![Vysor (Wysor)](../media/speech-devices-sdk/qsg-3.png)
+   ![Vysor](../media/speech-devices-sdk/qsg-3.png)
 
 1. Urządzenie powinno być wyświetlane w obszarze **Wybierz urządzenie**. Wybierz przycisk **Widok** obok urządzenia.
 
-1. Połącz się z siecią bezprzewodową, wybierając ikonę folderu, a następnie wybierz pozycję **Ustawienia** > **sieci WLAN**.
+1. Połącz się z siecią bezprzewodową, wybierając ikonę folderu, a następnie wybierz pozycję **Ustawienia** > **Sieć WLAN**.
 
    ![Vysor WLAN](../media/speech-devices-sdk/qsg-4.png)
 
    > [!NOTE]
-   > Jeśli twoja firma ma zasady dotyczące łączenia urządzeń z systemem Wi-Fi, musisz uzyskać adres MAC i skontaktować się z działem IT, aby dowiedzieć się, jak połączyć go z firmową siecią Wi-Fi.
+   > Jeśli firma ma zasady dotyczące łączenia urządzeń z systemem Wi-Fi, należy uzyskać adres MAC i skontaktować się z działem IT w celu połączenia go z siecią Wi-Fi firmy.
    >
-   > Aby znaleźć adres MAC zestawu deweloperskiego, wybierz ikonę folderu plików na pulpicie zestawu deweloperskiego.
+   > Aby znaleźć adres MAC zestawu dev Kit, wybierz ikonę folderu plików na pulpicie zestawu deweloperskiego.
    >
    > ![Folder plików Vysor](../media/speech-devices-sdk/qsg-10.png)
    >
-   > Wybierz **pozycję Ustawienia**. Wyszukaj "adres mac", a następnie wybierz **adres** > Mac**Advanced WLAN**. Zapisz adres MAC, który pojawia się u dołu okna dialogowego.
+   > Wybierz pozycję **Ustawienia**. Wyszukaj ciąg "adres MAC", a następnie wybierz pozycję **adres** > Mac**zaawansowanej sieci WLAN**. Zapisz adres MAC, który pojawia się w dolnej części okna dialogowego.
    >
-   > ![Adres MAC Vysor](../media/speech-devices-sdk/qsg-11.png)
+   > ![Vysor adres MAC](../media/speech-devices-sdk/qsg-11.png)
    >
-   > Niektóre firmy mogą mieć limit czasu na czas, przez jaki urządzenie może być podłączone do systemu Wi-Fi. Może być konieczne przedłużenie rejestracji zestawu deweloperskiego w systemie Wi-Fi po określonej liczbie dni.
+   > Niektóre firmy mogą mieć limit czasu, przez jaki urządzenie może być połączone z systemem Wi-Fi. Może być konieczne przeciągnięcie rejestracji zestawu deweloperów w systemie Wi-Fi po określonej liczbie dni.
 
 ## <a name="run-the-sample-application"></a>Uruchamianie przykładowej aplikacji
 
-Aby sprawdzić poprawność konfiguracji zestawu deweloperskiego, skompiluj i zainstaluj przykładową aplikację:
+Aby sprawdzić poprawność instalacji zestawu deweloperskiego, skompiluj i zainstaluj aplikację przykładową:
 
-1. Uruchom Android Studio.
+1. Rozpocznij Android Studio.
 
 1. Wybierz pozycję **Open an existing Android Studio project** (Otwórz istniejący projekt Android Studio).
 
-   ![Android Studio — otwieranie istniejącego projektu](../media/speech-devices-sdk/qsg-5.png)
+   ![Android Studio otworzyć istniejącego projektu](../media/speech-devices-sdk/qsg-5.png)
 
-1. Przejdź do folderu C:\SDSDK\Android-Sample-Release\example. Wybierz **przycisk OK,** aby otworzyć przykładowy projekt.
+1. Przejdź do C:\SDSDK\Android-Sample-Release\example. Wybierz **przycisk OK** , aby otworzyć przykładowy projekt.
 
-1. Skonfiguruj gradle, aby odwoływać się do SDK mowy. Poniższe pliki można znaleźć pod **Gradle Scripts** w Android Studio.
+1. Skonfiguruj Gradle, aby odwoływać się do zestawu Speech SDK. Następujące pliki można znaleźć w obszarze **skrypty Gradle** w Android Studio.
 
-    Zaktualizuj **build.gradle(Project:example)**, blok allprojects powinien być zgodny z poniższymi, dodając wiersze maven.
+    Zaktualizuj element **Build. Gradle (Project: example)**, blok allprojects powinien odpowiadać poniżej, dodając linie Maven.
 
     ```xml
     allprojects {
@@ -93,15 +93,15 @@ Aby sprawdzić poprawność konfiguracji zestawu deweloperskiego, skompiluj i za
     }
     ```
 
-    Zaktualizuj **build.gradle(Module:app),** dodając ten wiersz do sekcji zależności. 
+    Zaktualizuj program **Build. Gradle (module: App)** , dodając ten wiersz do sekcji zależności. 
     
     ```xml
     implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.11.0'
     ```
     
-1. Dodaj klucz subskrypcji mowy do kodu źródłowego. Jeśli chcesz spróbować rozpoznawania intencji, należy również dodać klucz subskrypcji [usługi language understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) i identyfikator aplikacji.
+1. Dodaj swój klucz subskrypcji mowy do kodu źródłowego. Jeśli chcesz wypróbować funkcję rozpoznawania intencji, Dodaj również klucz subskrypcji [usługi Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) i identyfikator aplikacji.
 
-   W przypadku mowy i usługi LUIS informacje są dostępne w pliku MainActivity.java:
+   W przypadku mowy i LUIS informacje trafiają do MAINS. Java:
 
    ```java
     // Subscription
@@ -112,71 +112,71 @@ Aby sprawdzić poprawność konfiguracji zestawu deweloperskiego, skompiluj i za
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-   Jeśli używasz transkrypcji konwersacji, klucz mowy i informacje o regionie są również potrzebne w conversation.java:
+   Jeśli używasz transkrypcji konwersacji, informacje o kluczu mowy i regionie są również potrzebne w konwersacji. Java:
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
    ```
 
-1. Domyślnym słowem kluczowym jest "Komputer". Możesz też wypróbować jedno z innych słów kluczowych, takich jak "Maszyna" lub "Asystent". Pliki zasobów dla tych alternatywnych słów kluczowych znajdują się w SDK urządzeń mowy w folderze słów kluczowych. Na przykład C:\SDSDK\Android-Sample-Release\keyword\Computer zawiera pliki używane dla słowa kluczowego "Komputer".
+1. Słowo kluczowe default ma wartość "Computer". Możesz również wypróbować jeden z innych podanych słów kluczowych, takich jak "Machine" lub "Assistant". Pliki zasobów dla tych alternatywnych słów kluczowych znajdują się w zestawie SDK urządzeń mowy w folderze słów kluczowych. Na przykład C:\SDSDK\Android-Sample-Release\keyword\Computer zawiera pliki używane dla słowa kluczowego "Computer".
 
    > [!TIP]
-   > Można również [utworzyć niestandardowe słowo kluczowe](../speech-devices-sdk-create-kws.md).
+   > Możesz również [utworzyć niestandardowe słowo kluczowe](../speech-devices-sdk-create-kws.md).
 
-   Aby użyć nowego słowa kluczowego, `MainActivity.java`zaktualizuj następujące dwa wiersze w pliku programu i skopiuj pakiet słów kluczowych do aplikacji. Na przykład, aby użyć słowa kluczowego "Machine" z pakietu słów kluczowych kws-machine.zip:
+   Aby użyć nowego słowa kluczowego, zaktualizuj następujące dwa wiersze w `MainActivity.java`i skopiuj pakiet słów kluczowych do aplikacji. Na przykład, aby użyć słowa kluczowego "Machine" ze słowa kluczowego KWS-Machine. zip:
 
-   - Skopiuj pakiet słów kluczowych do folderu "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\".
-   - Zaktualizuj `MainActivity.java` słowo kluczowe i nazwę pakietu:
+   - Skopiuj pakiet słowa kluczowego do folderu "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\".
+   - Zaktualizuj `MainActivity.java` za pomocą słowa kluczowego i nazwy pakietu:
 
      ```java
      private static final String Keyword = "Machine";
      private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
      ```
 
-1. Zaktualizuj następujące linie, które zawierają ustawienia geometrii tablicy mikrofonu:
+1. Zaktualizuj następujące wiersze, które zawierają ustawienia geometrii tablicy mikrofonu:
 
    ```java
    private static final String DeviceGeometry = "Circular6+1";
    private static final String SelectedGeometry = "Circular6+1";
    ```
 
-   W tej tabeli wymieniono obsługiwane wartości:
+   Ta tabela zawiera listę obsługiwanych wartości:
 
    | Zmienna | Znaczenie | Dostępne wartości |
    | -------- | ------- | ---------------- |
-   | `DeviceGeometry` | Konfiguracja mikrofonu fizycznego | W przypadku okrągłego zestawu deweloperów:`Circular6+1` |
-   |          |         | W przypadku zestawu deweloperów liniowych:`Linear4` |
-   | `SelectedGeometry` | Konfiguracja mikrofonu oprogramowania | W przypadku okrągłego zestawu deweloperskiego, który używa wszystkich mikrofonów:`Circular6+1` |
-   |          |         | W przypadku okrągłego zestawu deweloperskiego, który wykorzystuje cztery mikrofony:`Circular3+1` |
-   |          |         | W przypadku zestawu deweloperskiego liniowego, który używa wszystkich mikrofonów:`Linear4` |
-   |          |         | W przypadku zestawu deweloperskiego liniowego, który używa dwóch mikrofonów:`Linear2` |
+   | `DeviceGeometry` | Konfiguracja fizycznego mikrofonu | Dla cyklicznego zestawu dev Kit:`Circular6+1` |
+   |          |         | W przypadku zestawu liniowego dla deweloperów:`Linear4` |
+   | `SelectedGeometry` | Konfiguracja mikrofonu oprogramowania | Dla cyklicznego zestawu deweloperskiego, który używa wszystkich Mics:`Circular6+1` |
+   |          |         | Dla cyklicznego zestawu deweloperskiego, który używa czterech Mics:`Circular3+1` |
+   |          |         | W przypadku zestawu liniowego dev, który używa wszystkich Mics:`Linear4` |
+   |          |         | W przypadku zestawu liniowego dev, który używa dwóch Mics:`Linear2` |
 
-1. Aby utworzyć aplikację, w menu **Uruchom** wybierz polecenie **Uruchom "app"**. Zostanie wyświetlone okno dialogowe **Wybieranie celu wdrożenia.**
+1. Aby skompilować aplikację, w menu **Uruchom** wybierz polecenie **Uruchom aplikację**. Zostanie wyświetlone okno dialogowe **Wybieranie celu wdrożenia** .
 
-1. Wybierz urządzenie, a następnie wybierz **przycisk OK,** aby wdrożyć aplikację na urządzeniu.
+1. Wybierz urządzenie, a następnie wybierz przycisk **OK** , aby wdrożyć aplikację na urządzeniu.
 
-   ![Okno dialogowe Wybieranie obiektu docelowego wdrożenia](../media/speech-devices-sdk/qsg-7.png)
+   ![Okno dialogowe Wybieranie celu wdrożenia](../media/speech-devices-sdk/qsg-7.png)
 
-1. Przykładowa aplikacja SDK urządzeń mowy uruchamia i wyświetla następujące opcje:
+1. Aplikacja Przykładowa zestawu SDK urządzeń mowy uruchamia się i wyświetla następujące opcje:
 
-   ![Przykładowa przykładowa aplikacja i opcje zestawów SDK urządzeń mowy](../media/speech-devices-sdk/qsg-8.png)
+   ![Przykładowa aplikacja i opcje zestawu SDK urządzeń rozpoznawania mowy](../media/speech-devices-sdk/qsg-8.png)
 
-1. Wypróbuj nowe demo transkrypcji konwersacji. Rozpocznij transkrypcję za pomocą "Rozpocznij sesję". Domyślnie każdy jest gościem. Jeśli jednak masz podpisy głosowe uczestnika, można `/video/participants.properties` je umieścić w pliku na urządzeniu. Aby wygenerować podpis głosowy, spójrz na [Transkrypcji konwersacji (SDK)](../how-to-use-conversation-transcription-service.md).
+1. Wypróbuj nową wersję demonstracyjną transkrypcji konwersacji. Rozpocznij jego przepisywania z opcją "Rozpocznij sesję". Domyślnie wszyscy są gośćmi. Jeśli jednak masz podpisy głosu uczestników, można je umieścić w pliku `/video/participants.properties` na urządzeniu. Aby wygenerować podpis głosowy, spójrz na [transkrypcja konwersacje (SDK)](../how-to-use-conversation-transcription-service.md).
 
-   ![Aplikacja do transkrypcji konwersacji demo](../media/speech-devices-sdk/qsg-15.png)
+   ![Aplikacja do transkrypcji konwersacji demonstracyjnej](../media/speech-devices-sdk/qsg-15.png)
 
-1. Eksperyment!
+1. Doświadczenia!
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Jeśli nie można połączyć się z urządzeniem mowy. Wpisz następujące polecenie w oknie wiersza polecenia. Zwróci listę urządzeń:
+Jeśli nie możesz nawiązać połączenia z urządzeniem mowy. Wpisz następujące polecenie w oknie wiersza polecenia. Zwróci listę urządzeń:
 
 ```powershell
  adb devices
 ```
 
 > [!NOTE]
-> To polecenie używa mostka debugowania systemu Android, `adb.exe`który jest częścią instalacji Programu Android Studio. To narzędzie znajduje się w\[języku C:\Użytkownicy nazwa użytkownika]\AppData\Local\Android\Sdk\platform-tools. Możesz dodać ten katalog do ścieżki, aby ułatwić `adb`wywoływanie . W przeciwnym razie należy określić pełną ścieżkę do instalacji adb.exe w każdym wywołaniu `adb`polecenia .
+> To polecenie używa Android Debug Bridge, `adb.exe`, który jest częścią instalacji Android Studio. To narzędzie znajduje się w nazwie\[użytkownika C:\Users] \AppData\Local\Android\Sdk\platform-Tools. Możesz dodać ten katalog do ścieżki, aby był wygodniejszy do wywoływania `adb`. W przeciwnym razie należy określić pełną ścieżkę do instalacji programu ADB. exe w każdym poleceniu, które wywołuje `adb`.
 >
-> Jeśli widzisz błąd, `no devices/emulators found` sprawdź, czy kabel USB jest podłączony i upewnij się, że używany jest kabel wysokiej jakości.
+> Jeśli zobaczysz błąd `no devices/emulators found` , sprawdź, czy kabel USB jest podłączony, i upewnij się, że jest używany kabel wysokiej jakości.

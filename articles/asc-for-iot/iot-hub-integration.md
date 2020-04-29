@@ -1,6 +1,6 @@
 ---
 title: Usługa bez agentów zabezpieczeń
-description: Wprowadzenie do wbudowanego przepływu pracy usługi Azure Security Center dla IoT.
+description: Rozpocznij pracę z wbudowanym przepływem pracy Azure Security Center dla usługi IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,28 +16,28 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 175ed3b06e9d2b0293dd6c72e9a0713ca01be4a3
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81310903"
 ---
-# <a name="get-started-with-built-in-iot-hub-integration"></a>Wprowadzenie do wbudowanej integracji z centrum IoT
+# <a name="get-started-with-built-in-iot-hub-integration"></a>Rozpocznij pracę z wbudowaną integracją IoT Hub
 
-Ta opcja umożliwia korzystanie z usługi bez korzystania z usługi Azure Security Center dla agentów zabezpieczeń IoT.
+Ta opcja umożliwia korzystanie z usługi bez korzystania z Azure Security Center dla agentów zabezpieczeń IoT.
 
-## <a name="enable-built-in-iot-hub-integration"></a>Włączanie wbudowanej integracji z centrum IoT
+## <a name="enable-built-in-iot-hub-integration"></a>Włącz wbudowaną integrację IoT Hub
 
-Aby włączyć monitorowanie zarządzania tożsamościami urządzeń, wzorców komunikacji między urządzeniami i chmury do urządzenia, wykonaj następujące czynności, aby uruchomić usługę:
+Aby włączyć monitorowanie zarządzania tożsamościami urządzeń, urządzeń do chmury oraz wzorców komunikacji z chmurą i urządzeniami, wykonaj następujące czynności w celu uruchomienia usługi:
 
-1. Otwórz **centrum IoT Hub**.
-1. Wybierz menu **Przegląd zabezpieczeń.**
-1. Kliknij **pozycję Zabezpiecz rozwiązanie IoT** i wypełnij formularz dołączania.
+1. Otwórz **IoT Hub**.
+1. Wybierz menu **Przegląd zabezpieczeń** .
+1. Kliknij pozycję **Zabezpiecz swoje rozwiązanie IoT** i wypełnij formularz dołączania.
 
-Gratulacje! Ukończono włączenie usługi Azure Security Center dla IoT w centrum IoT Hub.
+Gratulacje! Zakończono Włączanie Azure Security Center usługi IoT na IoT Hub.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Konfigurowanie [rozwiązania](quickstart-configure-your-solution.md)
+- Skonfiguruj [rozwiązanie](quickstart-configure-your-solution.md)
 - [Tworzenie modułów zabezpieczeń](quickstart-create-security-twin.md)
 - Konfigurowanie [alertów niestandardowych](quickstart-create-custom-alerts.md)

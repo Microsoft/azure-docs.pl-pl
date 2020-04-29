@@ -1,6 +1,6 @@
 ---
 title: Opcje wdrożenia
-description: Rozpocznij zrozumienie podstawowego przepływu pracy usługi Azure Security Center dla funkcji i usługi IoT.
+description: Zacznij od zapoznania się z podstawowym przepływem pracy Azure Security Center dla funkcji i usług IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,37 +16,37 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 452372f187e97a95b9eee88936b15a0409dd4fe0
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311386"
 ---
 # <a name="get-started-with-azure-security-center-for-iot"></a>Wprowadzenie do usługi Azure Security Center dla IoT
 
-Ten artykuł zawiera wyjaśnienie różnych składników usługi Azure Security Center dla IoT i wyjaśniono, jak rozpocząć pracę z usługą przy użyciu dwóch możliwych opcji wdrażania.
+W tym artykule opisano różne składniki Azure Security Center usługi IoT i wyjaśniono, jak rozpocząć pracę z usługą przy użyciu dwóch możliwych opcji wdrażania.
 
 ## <a name="deployment-options"></a>Opcje wdrożenia
 
-Wybierz scenariusz usługi, który najlepiej spełnia wymagania urządzenia IoT i środowiska.
+Wybierz scenariusz usługi, który najlepiej spełnia wymagania dotyczące urządzenia IoT i środowiska.
 
 ### <a name="built-in-deployment"></a>Wbudowane wdrożenie
 
-Korzystając z bezproblemowej, wbudowanej opcji wdrażania, usługa Azure Security Center dla IoT można szybko zintegrować z centrum IoT Hub i zapewnić analizę zabezpieczeń konfiguracji centrum IoT, tożsamości urządzenia i zarządzania oraz wzorców komunikacji z urządzeniami centralnymi.
+Korzystając z płynnej, wbudowanej opcji wdrażania, Azure Security Center dla usługi IoT można szybko zintegrować z IoT Hub i zapewniać analizę zabezpieczeń konfiguracji usługi IoT Hub, tożsamości i zarządzania urządzeniami oraz wzorców komunikacji urządzeń centralnych.
 
-Uruchom [wbudowane wdrożenie](iot-hub-integration.md) z funkcją monitorowania i zaleceń usługi IoT Hub.
+Rozpocznij [wdrożenie wbudowane](iot-hub-integration.md) , które ma IoT Hub monitorowanie i zalecenia.
     <br>
 
-### <a name="enhanced-deployment"></a>Ulepszone wdrażanie
+### <a name="enhanced-deployment"></a>Ulepszone wdrożenie
 
-Aby uzyskać rozszerzone funkcje zabezpieczeń, wdrażanie usługi Azure Security Center dla agentów IoT oprócz włączania zabezpieczeń usługi IoT Hub zapewnia zbieranie zdarzeń opartych na agentach, analizę i wykrywanie zagrożeń kluczowych danych zabezpieczeń z urządzeń IoT, a także kompleksowe funkcje zarządzania postawą zabezpieczeń.
+W celu zapewnienia zwiększonych możliwości zabezpieczeń wdrożenie Azure Security Center dla agentów IoT Oprócz włączenia zabezpieczeń IoT Hub zapewnia oparte na agentach zbieranie zdarzeń, analizowanie i wykrywanie zagrożeń najważniejszych danych zabezpieczeń z urządzeń IoT oraz kompleksowe możliwości zarządzania stanmi zabezpieczeń.
 
-Rozpocznij [rozszerzone wdrożenie](security-agents.md) z kompleksowym rozwiązaniem do zarządzania ochroną przed zagrożeniami i bezpieczeństwem opartym na agentach.
+Rozpocznij [wdrożenie rozszerzone](security-agents.md) , które zapewnia oparte na agencie kompleksowe rozwiązanie do zarządzania Stanami zagrożeń i zabezpieczeniami.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Włączanie [usługi Azure Security Center dla IoT](quickstart-onboard-iot-hub.md)
-- Konfigurowanie [rozwiązania](quickstart-configure-your-solution.md)
+- Włącz [Azure Security Center IoT](quickstart-onboard-iot-hub.md)
+- Skonfiguruj [rozwiązanie](quickstart-configure-your-solution.md)
 - [Tworzenie modułów zabezpieczeń](quickstart-create-security-twin.md)
 - Konfigurowanie [alertów niestandardowych](quickstart-create-custom-alerts.md)
 - [Wdrażanie agenta zabezpieczeń](how-to-deploy-agent.md)

@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: Dokumentacja zamiany mowy na tekst
-summary: Zamiana mowy na tekst z usługi Mowy, znanej również jako rozpoznawanie mowy, umożliwia transkrypcję strumieni audio w czasie rzeczywistym i wsadową do tekstu.
+summary: Zamiana mowy na tekst z usługi mowy, znanej również jako rozpoznawanie mowy, umożliwia w czasie rzeczywistym i transkrypcję partii strumieni audio w tekście.
 metadata:
-  title: Dokumentacja zamiany mowy na tekst — samouczki, informacje o interfejsie API — usługi Azure Cognitive Services | Dokumenty firmy Microsoft
+  title: Dokumentacja dotycząca zamiany mowy na tekst — samouczki, dokumentacja interfejsu API — Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -12,13 +12,13 @@ metadata:
   ms.date: 03/19/2020
   ms.author: trbye
   ms.openlocfilehash: 717c4e0322b48eca0acfacd20ed527a629bd1ff0
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/16/2020
+  ms.lasthandoff: 04/29/2020
   ms.locfileid: "81401406"
 landingContent:
-- title: Informacje o zamianie mowy na tekst
+- title: Informacje o zamiany mowy na tekst
   linkLists:
   - linkListType: overview
     links:
@@ -36,7 +36,7 @@ landingContent:
       url: quickstarts/speech-to-text-from-file.md
     - text: Rozpoznawanie mowy przechowywanej w usłudze Blob Storage
       url: quickstarts/from-blob.md
-- title: Tworzenie za pomocą zamiany mowy na tekst
+- title: Programowanie za pomocą zamiany mowy na tekst
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -68,5 +68,5 @@ landingContent:
       url: language-support.md#speech-to-text
     - text: Często zadawane pytania dotyczące zamiany mowy na tekst
       url: faq-stt.md
-    - text: Ceny zamiany mowy na tekst
+    - text: Cennik zamiany mowy na tekst
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services

@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: konfigurowanie platformy deweloperów'
+title: 'Szybki Start: Konfigurowanie platformy deweloperskiej'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku Szybki start dowiesz się, jak zainstalować zestaw SDK mowy dla preferowanej platformy i kombinacji języka programowania.
+description: W tym przewodniku szybki start dowiesz się, jak zainstalować zestaw Speech SDK dla preferowanej platformy i kombinacji języka programowania.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -12,13 +12,13 @@ ms.date: 04/04/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-three
 ms.openlocfilehash: 67ade64cdb3b2da6f78f77beb4d0cdc993715c9a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400860"
 ---
-# <a name="quickstart-setup-development-environment"></a>Szybki start: konfigurowanie środowiska programistycznego
+# <a name="quickstart-setup-development-environment"></a>Szybki Start: Konfigurowanie środowiska deweloperskiego
 
 ::: zone pivot="programming-language-csharp"
 
@@ -70,7 +70,7 @@ ms.locfileid: "81400860"
 
 **Wybierz środowisko docelowe**
 
-# <a name="java-runtime"></a>[Środowisko wykonawcze Java](#tab/jre)
+# <a name="java-runtime"></a>[Środowisko uruchomieniowe Java](#tab/jre)
 
 [!INCLUDE [jre](../includes/quickstarts/platform/java-jre.md)]
 

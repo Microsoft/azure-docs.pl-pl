@@ -1,6 +1,6 @@
 ---
 title: Rozwiązywanie problemów z uruchamianiem agenta zabezpieczeń (Linux)
-description: Rozwiązywanie problemów z pracą z usługą Azure Security Center dla agentów zabezpieczeń IoT dla systemu Linux.
+description: Rozwiązywanie problemów z pracą z Azure Security Centerami dla agentów zabezpieczeń IoT dla systemu Linux.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,53 +16,53 @@ ms.workload: na
 ms.date: 07/25/2019
 ms.author: mlottner
 ms.openlocfilehash: 935a99dd34b0a4e3d4970e8d91f9332d2bc1489a
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81310564"
 ---
 # <a name="security-agent-troubleshoot-guide-linux"></a>Przewodnik rozwiązywania problemów z agentem zabezpieczeń (Linux)
 
 W tym artykule wyjaśniono, jak rozwiązać potencjalne problemy w procesie uruchamiania agenta zabezpieczeń.
 
-Usługa Azure Security Center dla agenta IoT uruchamia się samodzielnie natychmiast po instalacji. Proces uruchamiania agenta obejmuje odczytywanie konfiguracji lokalnej, łączenie się z usługą Azure IoT Hub i pobieranie zdalnej konfiguracji bliźniaczej reprezentacji. Niepowodzenie w jednym z tych kroków może spowodować niepowodzenie agenta zabezpieczeń.
+Azure Security Center dla agenta IoT jest samoczynnie uruchamiany natychmiast po zakończeniu instalacji. Proces uruchamiania agenta obejmuje odczytywanie konfiguracji lokalnej, nawiązywanie połączenia z usługą Azure IoT Hub i pobieranie konfiguracji zdalnej przędzy. Niepowodzenie w jednym z tych kroków może spowodować niepowodzenie działania agenta zabezpieczeń.
 
 W tym przewodniku rozwiązywania problemów dowiesz się, jak:
 
 > [!div class="checklist"]
-> * Sprawdzanie poprawności, czy agent zabezpieczeń jest uruchomiony
-> * Uzyskaj błędy agenta zabezpieczeń
-> * Opis i korygowanie błędów agenta zabezpieczeń
+> * Sprawdź, czy Agent zabezpieczeń jest uruchomiony
+> * Pobieranie błędów agenta zabezpieczeń
+> * Zrozumienie i korygowanie błędów agentów zabezpieczeń
 
-## <a name="validate-if-the-security-agent-is-running"></a>Sprawdzanie poprawności, czy agent zabezpieczeń jest uruchomiony
+## <a name="validate-if-the-security-agent-is-running"></a>Sprawdź, czy Agent zabezpieczeń jest uruchomiony
 
-1. Aby sprawdzić poprawność jest agent zabezpieczeń jest uruchomiony, poczekaj kilka minut po zainstalowaniu agenta i uruchom następujące polecenie.
+1. Aby sprawdzić, czy Agent zabezpieczeń jest uruchomiony, zaczekaj kilka minut po zainstalowaniu agenta i uruchom następujące polecenie.
      <br>
 
-    **Agent C**
+    **Agent języka C**
 
     ```bash
     grep "ASC for IoT Agent initialized" /var/log/syslog
     ```
 
-    **Agent języka C#**
+    **Agent C#**
 
     ```bash
     grep "Agent is initialized!" /var/log/syslog
     ```
 
-1. Jeśli polecenie zwraca pusty wiersz, agent zabezpieczeń nie może uruchomić pomyślnie.
+1. Jeśli polecenie zwróci pusty wiersz, Agent zabezpieczeń nie został uruchomiony pomyślnie.
 
-## <a name="force-stop-the-security-agent"></a>Wymusz zatrzymanie agenta zabezpieczeń
+## <a name="force-stop-the-security-agent"></a>Wymuś zatrzymanie agenta zabezpieczeń
 
-W przypadkach, gdy agent zabezpieczeń nie może uruchomić, zatrzymaj agenta za pomocą następującego polecenia, a następnie przejdź do poniższej tabeli błędów:
+W przypadkach, gdy nie można uruchomić agenta zabezpieczeń, Zatrzymaj agenta za pomocą poniższego polecenia, a następnie przejdź do tabeli błędów poniżej:
 
 ```bash
 systemctl stop ASCIoTAgent.service
 ```
 
-## <a name="get-security-agent-errors"></a>Uzyskaj błędy agenta zabezpieczeń
+## <a name="get-security-agent-errors"></a>Pobieranie błędów agenta zabezpieczeń
 
 1. Pobierz błędy agenta zabezpieczeń, uruchamiając następujące polecenie:
 
@@ -70,60 +70,60 @@ systemctl stop ASCIoTAgent.service
     grep ASCIoTAgent /var/log/syslog
     ```
 
-1. Polecenie get security agent error pobiera wszystkie dzienniki utworzone przez agenta Usługi Azure Security Center dla IoT. Poniższa tabela służy do zrozumienia błędów i podjęcia poprawnych kroków w celu skorygowania.
+1. Polecenie Pobierz błąd agenta zabezpieczeń pobiera wszystkie dzienniki utworzone przez Azure Security Center dla agenta IoT. Skorzystaj z poniższej tabeli, aby poznać błędy i wykonać odpowiednie czynności naprawcze.
 
 > [!Note]
-> Dzienniki błędów są wyświetlane w porządku chronologicznym. Pamiętaj, aby zanotować sygnaturę czasą każdego błędu, aby pomóc w korygcie.
+> Dzienniki błędów są wyświetlane w kolejności chronologicznej. Pamiętaj, aby zanotować sygnaturę czasową każdego błędu, aby ułatwić korygowanie.
 
 ## <a name="restart-the-agent"></a>Ponowne uruchamianie agenta
 
-1. Po zlokalizowaniu i naprawieniu błędu agenta zabezpieczeń spróbuj ponownie uruchomić agenta, uruchamiając następujące polecenie.
+1. Po znalezieniu i naprawieniu błędu agenta zabezpieczeń spróbuj ponownie uruchomić agenta, uruchamiając następujące polecenie.
 
     ```bash
     systemctl restart ASCIoTAgent.service
     ```
 
-1. Powtórz poprzedni proces, aby pobrać zatrzymać i pobrać błędy, jeśli agent nadal nie zakończy się niepowodzeniem procesu uruchamiania.
+1. Powtórz poprzedni proces, aby pobrać zatrzymanie i pobrać błędy, jeśli Agent nadal kończy pracę.
 
-## <a name="understand-security-agent-errors"></a>Opis błędów agenta zabezpieczeń
+## <a name="understand-security-agent-errors"></a>Omówienie błędów agenta zabezpieczeń
 
-Większość błędów agenta zabezpieczeń jest wyświetlana w następującym formacie:
+Większość błędów agentów zabezpieczeń jest wyświetlanych w następującym formacie:
 
 ```
 Azure Security Center for IoT agent encountered an error! Error in: {Error Code}, reason: {Error sub code}, extra details: {error specific details}
 ```
 
-| Kod błędu | Kod podrzędny błędu | Szczegóły błędu | Korygowanie C | Korygowanie C # |
+| Kod błędu | Kod podrzędny błędu | Szczegóły błędu | Koryguj C | Koryguj C # |
 |:-----------|:---------------|:--------|:------------|:------------|
-| Konfiguracja lokalna | Brak konfiguracji | W lokalnym pliku konfiguracyjnym brakuje konfiguracji. Komunikat o błędzie powinien określać, którego klucza brakuje. | Dodaj brakujący klucz do pliku /var/LocalConfiguration.json, aby uzyskać szczegółowe informacje, zobacz [cs-localconfig-reference.](azure-iot-security-local-configuration-c.md)| Dodaj brakujący klucz do pliku General.config, zobacz [c#-localconfig-reference, aby](azure-iot-security-local-configuration-csharp.md) uzyskać szczegółowe informacje. |
-| Konfiguracja lokalna | Konfiguracja analizy przechyłki | Nie można przeanalizować wartości konfiguracji. Komunikat o błędzie powinien określać, którego klucza nie można przeanalizować. Wartość konfiguracji nie może być analizowana, ponieważ wartość nie jest w typie oczekiwanym lub wartość jest poza zakresem. | Napraw wartość klucza w pliku /var/LocalConfiguration.json, aby był zgodny ze schematem LocalConfiguration, zobacz [c#-localconfig-reference, aby](azure-iot-security-local-configuration-csharp.md) uzyskać szczegółowe informacje. |  Napraw wartość klucza w pliku General.config, aby był zgodny ze schematem, zobacz [cs-localconfig-reference, aby](azure-iot-security-local-configuration-c.md) uzyskać szczegółowe informacje.|
-| Konfiguracja lokalna | Format pliku | Nie można przeanalizować pliku konfiguracji. | Plik konfiguracyjny jest uszkodzony, pobierz agenta i zainstaluj ponownie. | |
-| Konfiguracja zdalna | Limit czasu | Agent nie może pobrać azureiotsecurity moduł twin w okresie limitu czasu. | Upewnij się, że konfiguracja uwierzytelniania jest poprawna i spróbuj ponownie. | Agent nie może pobrać azureiotsecurity moduł twin w okresie limitu czasu. | Upewnij się, że konfiguracja uwierzytelniania jest poprawna i spróbuj ponownie. |
-| Authentication | Plik nie istnieje | Plik w danej ścieżce nie istnieje. | Upewnij się, że plik istnieje w danej ścieżce lub przejdź do pliku **LocalConfiguration.json** i zmień konfigurację **Programu FilePath.** | Upewnij się, że plik istnieje w danej ścieżce lub przejdź do pliku **Authentication.config** i zmień konfigurację **filePath.**|
-| Authentication | Uprawnienie do pliku | Agent nie ma wystarczających uprawnień do otwierania pliku. | Nadaj **asciotagent** użytkownika odczytać uprawnienia do pliku w danej ścieżce. | Upewnij się, że plik jest dostępny. |
-| Authentication | Format pliku | Dany plik nie jest w prawidłowym formacie. | Upewnij się, że plik jest w poprawnym formacie. Obsługiwane typy plików to .pfx i .pem. | Upewnij się, że plik jest prawidłowym plikiem certyfikatu. |
-| Authentication | Brak autoryzacji | Agent nie mógł uwierzytelnić się względem usługi IoT Hub z podanymi poświadczeniami. | Sprawdź poprawność konfiguracji uwierzytelniania w pliku LocalConfiguration, przejdź przez konfigurację uwierzytelniania i upewnij się, że wszystkie szczegóły są poprawne, sprawdź, czy klucz tajny w pliku pasuje do uwierzytelnionej tożsamości. | Sprawdź poprawność konfiguracji uwierzytelniania w pliku Authentication.config, przejdź przez konfigurację uwierzytelniania i upewnij się, że wszystkie szczegóły są poprawne, a następnie sprawdź, czy klucz tajny w pliku jest zgodny z uwierzytelnioną tożsamością.
-| Authentication | Nie znaleziono | Urządzenie / moduł został znaleziony. | Sprawdź poprawność konfiguracji uwierzytelniania — upewnij się, że nazwa hosta jest poprawna, urządzenie istnieje w centrum IoT Hub i ma moduł bliźniaczej reprezentacji azureiotsecurity. |  Sprawdź poprawność konfiguracji uwierzytelniania — upewnij się, że nazwa hosta jest poprawna, urządzenie istnieje w centrum IoT Hub i ma moduł bliźniaczej reprezentacji azureiotsecurity. |
-| Authentication | Brak konfiguracji | W pliku *Authentication.config* brakuje konfiguracji. Komunikat o błędzie powinien określać, którego klucza brakuje. | Dodaj brakujący klucz do pliku *LocalConfiguration.json.*| Dodaj brakujący klucz do pliku *Authentication.config,* aby uzyskać szczegółowe informacje, zobacz [c#-localconfig-reference.](azure-iot-security-local-configuration-csharp.md) |
-| Authentication | Konfiguracja analizy przechyłki | Nie można przeanalizować wartości konfiguracji. Komunikat o błędzie powinien określać, którego klucza nie można przeanalizować. Nie można przeanalizować wartości konfiguracji, ponieważ wartość nie jest typu oczekiwanego lub wartość jest poza zakresem. |Napraw wartość klucza w pliku **LocalConfiguration.json.** |Utrwalić wartość klucza w **pliku Authentication.config,** aby dopasować schemat, zobacz [cs-localconfig-reference, aby](azure-iot-security-local-configuration-c.md) uzyskać szczegółowe informacje.|
+| Konfiguracja lokalna | Brakująca konfiguracja | Brak konfiguracji w lokalnym pliku konfiguracyjnym. Komunikat o błędzie powinien określać, który klucz nie istnieje. | Dodaj brakujący klucz do pliku/var/LocalConfiguration.json, aby uzyskać szczegółowe informacje, zobacz [CS-localconfig-Reference](azure-iot-security-local-configuration-c.md) .| Dodaj brakujący klucz do pliku General. config, zobacz [c#-localconfig-Reference](azure-iot-security-local-configuration-csharp.md) , aby uzyskać szczegółowe informacje. |
+| Konfiguracja lokalna | Niemożliwa analiza konfiguracji | Nie można przeanalizować wartości konfiguracji. Komunikat o błędzie powinien określać, który klucz nie może zostać przeanalizowany. Nie można przeanalizować wartości konfiguracji, ponieważ wartość nie znajduje się w oczekiwanym typie lub wartość znajduje się poza zakresem. | Popraw wartość klucza w pliku/var/LocalConfiguration.json, tak aby był zgodny ze schematem LocalConfiguration, zobacz [c#-localconfig-Reference](azure-iot-security-local-configuration-csharp.md) , aby uzyskać szczegółowe informacje. |  Popraw wartość klucza w pliku General. config, tak aby był zgodny ze schematem, zobacz [CS-localconfig-Reference](azure-iot-security-local-configuration-c.md) , aby uzyskać szczegółowe informacje.|
+| Konfiguracja lokalna | Format pliku | Nie można przeanalizować pliku konfiguracji. | Plik konfiguracji jest uszkodzony, pobierz agenta i zainstaluj go ponownie. | |
+| Konfiguracja zdalna | Limit czasu | Agent nie może pobrać sznurka modułu azureiotsecurity w określonym limicie czasu. | Upewnij się, że konfiguracja uwierzytelniania jest poprawna, i spróbuj ponownie. | Agent nie może pobrać sznurka modułu azureiotsecurity w ramach limitu czasu. | Upewnij się, że konfiguracja uwierzytelniania jest poprawna, i spróbuj ponownie. |
+| Uwierzytelnianie | Plik nie istnieje | Plik w danej ścieżce nie istnieje. | Upewnij się, że plik istnieje w podanej ścieżce lub przejdź do pliku **LocalConfiguration. JSON** , a następnie Zmień konfigurację **ścieżki** . | Upewnij się, że plik istnieje w danej ścieżce lub przejdź do pliku **Authentication. config** , a następnie Zmień konfigurację **ścieżki** .|
+| Uwierzytelnianie | Uprawnienie do pliku | Agent nie ma wystarczających uprawnień, aby otworzyć plik. | Nadaj użytkownikowi **asciotagent** uprawnienia do odczytu pliku w danej ścieżce. | Upewnij się, że plik jest dostępny. |
+| Uwierzytelnianie | Format pliku | Dany plik ma nieprawidłowy format. | Upewnij się, że plik jest w poprawnym formacie. Obsługiwane typy plików to PFX i PEM. | Upewnij się, że plik jest prawidłowym plikiem certyfikatu. |
+| Uwierzytelnianie | Brak autoryzacji | Agent nie może uwierzytelnić się w odniesieniu do IoT Hub z podanym poświadczeniami. | Sprawdź poprawność konfiguracji uwierzytelniania w pliku LocalConfiguration, przejdź przez konfigurację uwierzytelniania i upewnij się, że wszystkie szczegóły są poprawne, i sprawdź, czy wpis tajny w pliku jest zgodny z uwierzytelnioną tożsamością. | Sprawdź poprawność konfiguracji uwierzytelniania w pliku Authentication. config, przejdź przez konfigurację uwierzytelniania i upewnij się, że wszystkie szczegóły są poprawne, a następnie sprawdź, czy wpis tajny w pliku jest zgodny z uwierzytelnioną tożsamością.
+| Uwierzytelnianie | Nie znaleziono | Znaleziono urządzenie/moduł. | Sprawdź poprawność konfiguracji uwierzytelniania — upewnij się, że nazwa hosta jest poprawna, urządzenie istnieje w IoT Hub i ma moduł azureiotsecurity bliźniaczy. |  Sprawdź poprawność konfiguracji uwierzytelniania — upewnij się, że nazwa hosta jest poprawna, urządzenie istnieje w IoT Hub i ma moduł azureiotsecurity bliźniaczy. |
+| Uwierzytelnianie | Brakująca konfiguracja | Brak konfiguracji w pliku *Authentication. config* . Komunikat o błędzie powinien określać, który klucz nie istnieje. | Dodaj brakujący klucz do pliku *LocalConfiguration. JSON* .| Dodaj brakujący klucz do pliku *Authentication. config* , aby uzyskać szczegółowe informacje, zobacz [c#-localconfig-Reference](azure-iot-security-local-configuration-csharp.md) . |
+| Uwierzytelnianie | Niemożliwa analiza konfiguracji | Nie można przeanalizować wartości konfiguracji. Komunikat o błędzie powinien określać, który klucz nie może zostać przeanalizowany. Nie można przeanalizować wartości konfiguracji, ponieważ wartość nie jest oczekiwanego typu lub wartość znajduje się poza zakresem. |Popraw wartość klucza w pliku **LocalConfiguration. JSON** . |Popraw wartość klucza w pliku **Authentication. config** , aby dopasować schemat, zobacz [CS-localconfig-Reference](azure-iot-security-local-configuration-c.md) , aby uzyskać szczegółowe informacje.|
 |
 
 ## <a name="restart-the-agent"></a>Ponowne uruchamianie agenta
 
-1. Po zlokalizowaniu i naprawieniu błędu agenta zabezpieczeń uruchom ponownie agenta, uruchamiając następujące polecenie:
+1. Po znalezieniu i naprawieniu błędu agenta zabezpieczeń należy ponownie uruchomić agenta, uruchamiając następujące polecenie:
 
     ```bash
     systemctl restart ASCIoTAgent.service
     ```
 
-1. W razie potrzeby powtórz poprzednie procesy, aby wymusić zatrzymanie agenta i pobrać błędy, jeśli agent nadal kończy niepowodzenie procesu uruchamiania.
+1. W razie potrzeby powtórz poprzednie procesy, aby wymusić zatrzymanie agenta i pobrać błędy, jeśli Agent nadal kończy pracę.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przeczytaj [omówienie](overview.md) usługi Azure Security Center dla IoT
-- Dowiedz się więcej o usłudze Azure Security Center dla [architektury](architecture.md) IoT
-- Włączanie usługi Azure Security Center dla [usługi](quickstart-onboard-iot-hub.md) IoT
-- Przeczytaj często zadawane pytania dotyczące usługi Azure Security Center for [IoT](resources-frequently-asked-questions.md)
-- Dowiedz się, jak uzyskać dostęp do [nieprzetworzonych danych zabezpieczeń](how-to-security-data-access.md)
-- Zrozumienie [rekomendacji](concept-recommendations.md)
-- Opis [alertów](concept-security-alerts.md) zabezpieczeń
+- Przeczytaj Azure Security Center dla usługi IoT [— Omówienie](overview.md)
+- Dowiedz się więcej o [architekturze](architecture.md) Azure Security Center dla usługi IoT
+- Włączanie Azure Security Center dla [usługi](quickstart-onboard-iot-hub.md) IoT
+- Przeczytaj Azure Security Center dla usługi IoT [— często zadawane pytania](resources-frequently-asked-questions.md)
+- Dowiedz się, jak uzyskać dostęp do [danych pierwotnych zabezpieczeń](how-to-security-data-access.md)
+- Omówienie [zaleceń](concept-recommendations.md)
+- Informacje o [alertach](concept-security-alerts.md) zabezpieczeń

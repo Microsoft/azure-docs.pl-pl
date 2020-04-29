@@ -1,7 +1,7 @@
 ---
-title: Jak używać automatycznego wykrywania języka mowy na tekst
+title: Jak używać automatycznego wykrywania języka dla zamiany mowy na tekst
 titleSuffix: Azure Cognitive Services
-description: Zestaw SDK mowy obsługuje automatyczne wykrywanie języka mowy na tekst. Podczas korzystania z tej funkcji, audio pod warunkiem, jest porównywany z podanej listy języków i najbardziej prawdopodobne dopasowanie jest określana. Zwrócona wartość może następnie służyć do wybierania modelu języka używanego do mowy na tekst.
+description: Zestaw Speech SDK obsługuje automatyczne wykrywanie języka dla zamiany mowy na tekst. W przypadku korzystania z tej funkcji, podany dźwięk jest porównywany z podaną listą języków i jest określana najprawdopodobniej. Zwracana wartość może następnie zostać użyta do wybrania modelu języka używanego do zamiany mowy na tekst.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -12,29 +12,29 @@ ms.date: 03/16/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: fefbe793fa4a6b90ba9bf8d468d42dcbd315759c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81402212"
 ---
-# <a name="automatic-language-detection-for-speech-to-text"></a>Automatyczne wykrywanie języka mowy na tekst
+# <a name="automatic-language-detection-for-speech-to-text"></a>Automatyczne wykrywanie języka dla zamiany mowy na tekst
 
-Automatyczne wykrywanie języka służy do określenia najbardziej prawdopodobne dopasowanie audio przekazywane do SDK mowy w porównaniu z listą podanych języków. Wartość zwracana przez automatyczne wykrywanie języka jest następnie używana do wybierania modelu języka mowy na tekst, zapewniając dokładniejszą transkrypcję. Aby zobaczyć, które języki są dostępne, zobacz [Obsługa języków](language-support.md).
+Funkcja automatycznego wykrywania języka służy do określania najbardziej pasującego dźwięku przekazanego do zestawu Speech SDK w porównaniu z listą podanych języków. Wartość zwracana przez funkcję automatycznego wykrywania języka służy do wybierania modelu języka dla zamiany mowy na tekst, co zapewnia dokładniejsze transkrypcje. Aby zobaczyć, które języki są dostępne, zobacz temat [Obsługa języków](language-support.md).
 
-W tym artykule dowiesz się, jak użyć `AutoDetectSourceLanguageConfig` do skonstruowania `SpeechRecognizer` obiektu i pobrać wykryty język.
+W tym artykule dowiesz się, jak utworzyć `AutoDetectSourceLanguageConfig` `SpeechRecognizer` obiekt i pobrać wykryty język przy użyciu programu.
 
 > [!IMPORTANT]
-> Ta funkcja jest dostępna tylko dla SDK mowy dla języka C#, C++, Java i Python.
+> Ta funkcja jest dostępna tylko dla zestawu Speech SDK dla języków C#, C++, Java i Python.
 
-## <a name="automatic-language-detection-with-the-speech-sdk"></a>Automatyczne wykrywanie języka za pomocą sdk mowy
+## <a name="automatic-language-detection-with-the-speech-sdk"></a>Automatyczne wykrywanie języka za pomocą zestawu Speech SDK
 
-Automatyczne wykrywanie języka ma obecnie limit po stronie usług dwóch języków na wykrycie. Należy pamiętać o tym `AudoDetectSourceLanguageConfig` ograniczeniu podczas budowy obiektu. W poniższych przykładach utworzysz `AutoDetectSourceLanguageConfig`program , a `SpeechRecognizer`następnie użyje go do skonstruowania pliku .
+Funkcja automatycznego wykrywania języka ma obecnie limit dwóch języków na wykrycie po stronie usług. To ograniczenie należy wziąć pod uwagę podczas konstruowania `AudoDetectSourceLanguageConfig` obiektu. W poniższych przykładach utworzysz `AutoDetectSourceLanguageConfig`, a następnie użyjesz go do utworzenia. `SpeechRecognizer`
 
 > [!TIP]
-> Można również określić model niestandardowy, który ma być używany podczas wykonywania mowy na tekst. Aby uzyskać więcej informacji, zobacz [Automatyczne wykrywanie języka za pomocą modelu niestandardowego.](#use-a-custom-model-for-automatic-language-detection)
+> Możesz również określić model niestandardowy, który ma być używany podczas wykonywania zamiany mowy na tekst. Aby uzyskać więcej informacji, zobacz [Korzystanie z modelu niestandardowego na potrzeby automatycznego wykrywania języka](#use-a-custom-model-for-automatic-language-detection).
 
-Poniższe fragmenty kodu ilustrują sposób używania automatycznego wykrywania języka w aplikacjach:
+Poniższe fragmenty kodu ilustrują sposób korzystania z automatycznego wykrywania języka w aplikacjach:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -118,11 +118,11 @@ detected_language = auto_detect_source_language_result.language
 
 ::: zone-end
 
-## <a name="use-a-custom-model-for-automatic-language-detection"></a>Automatyczne wykrywanie języka za pomocą modelu niestandardowego
+## <a name="use-a-custom-model-for-automatic-language-detection"></a>Używanie modelu niestandardowego do automatycznego wykrywania języka
 
-Oprócz wykrywania języka przy użyciu modeli usługi mowy, można określić model niestandardowy dla rozszerzonego rozpoznawania. Jeśli model niestandardowy nie jest dostarczany, usługa użyje domyślnego modelu języka.
+Oprócz wykrywania języka przy użyciu modeli usługi Speech Service można określić model niestandardowy do rozszerzonego rozpoznawania. Jeśli niestandardowy model nie zostanie podany, usługa użyje domyślnego modelu języka.
 
-Poniższe fragmenty kodu ilustrują sposób określania modelu niestandardowego w wywołaniu usługi Mowy. Jeśli wykryty język `en-US`jest , to używany jest model domyślny. Jeśli wykryty język `fr-FR`jest , a następnie punkt końcowy dla modelu niestandardowego jest używany:
+Poniższe fragmenty kodu ilustrują sposób określania niestandardowego modelu w wywołaniu usługi mowy. Jeśli wykryty język to `en-US`, używany jest domyślny model. Jeśli wykryty język to `fr-FR`, używany jest punkt końcowy dla modelu niestandardowego:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -184,4 +184,4 @@ AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig =
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dokumentacja referencyjna SDK mowy](speech-sdk.md)
+- [Dokumentacja referencyjna zestawu Speech SDK](speech-sdk.md)

@@ -5,20 +5,20 @@ ms.topic: include
 ms.date: 03/13/2020
 ms.author: trbye
 ms.openlocfilehash: e475a58c56a16e984d15f2cc8d06f73268868852
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81399531"
 ---
-## <a name="additional-language-and-platform-support"></a>Dodatkowa obsługa języka i platformy
+## <a name="additional-language-and-platform-support"></a>Dodatkowy język i obsługa platformy
 
-Jeśli klikniesz tę kartę, prawdopodobnie nie widzisz artykułu z podstawami w ulubionym języku programowania. Nie martw się, mamy dodatkowe przykłady kodu dostępne na GitHub. Użyj tabeli, aby znaleźć odpowiednią próbkę dla języka programowania i kombinacji platformy/systemu operacyjnego.
+Jeśli kliknięto na tej karcie, prawdopodobnie nie widzisz artykułu podstawowe w ulubionym języku programowania. Nie martw się, oferujemy dodatkowe przykłady kodu dostępne w serwisie GitHub. Skorzystaj z tabeli, aby znaleźć odpowiedni przykład dla Twojego języka programowania i kombinacji platformy/systemu operacyjnego.
 
 | Język    | Przykłady kodu                                                                                                                            |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| C#          | [.NET Framework][csharp-netframework], [.NET Core][csharp-netcore], [UWP][csharp-uwp], [Unity][csharp-unity], [Xamarin][csharp-xamarin] |
-| C++         | [Szybki start][cpp-quickstarts], [Próbki][cpp-samples]                                                                                  |
+| C#          | [.NET Framework][csharp-netframework], [.NET Core][csharp-netcore], [platformy UWP][csharp-uwp], [Unity][csharp-unity], [Xamarin][csharp-xamarin] |
+| C++         | [Przewodniki Szybki Start][cpp-quickstarts], [przykłady][cpp-samples]                                                                                  |
 | Java        | [Android][java-android], [JRE][java-jre]                                                                                                |
 | JavaScript  | [Przeglądarka][js-browser]                                                                                                                   |
 | Node.js     | [Windows, Linux, macOS][node-js]                                                                                                        |

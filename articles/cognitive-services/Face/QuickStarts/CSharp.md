@@ -11,22 +11,22 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: 69d3f1a7f0c455275a212401110459abb1b8d8d0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81403405"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Szybki start: wykrywanie twarzy na obrazie przy użyciu interfejsu API REST rozpoznawania twarzy i języka C#
 
-W tym przewodniku Szybki start użyjesz interfejsu API rest usługi Azure Face z c#, aby wykryć ludzkie twarze na obrazie.
+W tym przewodniku szybki start użyjemy interfejsu API REST platformy Azure dla języka C# w celu wykrywania twarzy na obrazie.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Klucz subskrypcji Face. Klucz subskrypcji bezpłatnej wersji próbnej możesz uzyskać na stronie [Wypróbuj usługi Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Możesz też postępować zgodnie z instrukcjami w aplikacji [Utwórz konto usług Cognitive Services,](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) aby zasubskrybować usługę Face i uzyskać klucz.
-- Dowolna wersja [programu Visual Studio 2015 lub 2017](https://www.visualstudio.com/downloads/).
+- Klucz subskrypcji programu Marketo. Klucz subskrypcji bezpłatnej wersji próbnej możesz uzyskać na stronie [Wypróbuj usługi Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Lub postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby subskrybować usługę i uzyskać klucz.
+- Dowolna wersja programu [Visual Studio 2015 lub 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-the-visual-studio-project"></a>Tworzenie projektu programu Visual Studio
 
@@ -52,7 +52,7 @@ using System.Text;
 
 ### <a name="add-essential-fields"></a>Dodawanie podstawowych pól
 
-Dodaj klasę **Program** zawierającą następujące pola. Te dane służą do określania sposobu nawiązywania połączenia z usługą rozpoznawania twarzy i lokalizacji, z której można pobrać dane wejściowe. Należy zaktualizować `subscriptionKey` pole o wartość klucza subskrypcji i może być konieczne `uriBase` zmienić ciąg, tak aby zawierał ciąg końcowy zasobu.
+Dodaj klasę **programu** zawierającą następujące pola. Te dane służą do określania sposobu nawiązywania połączenia z usługą rozpoznawania twarzy i lokalizacji, z której można pobrać dane wejściowe. Musisz zaktualizować `subscriptionKey` pole przy użyciu wartości klucza subskrypcji i może zajść potrzeba zmiany `uriBase` ciągu tak, aby zawierał ciąg punktu końcowego zasobu.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -72,7 +72,7 @@ namespace DetectFace
 
 ### <a name="receive-image-input"></a>Odbieranie danych wejściowych obrazu
 
-Dodaj poniższy kod do metody **Main** w klasie **Program**. Ten kod zapisuje monit do konsoli z prośbą o wprowadzenie adresu URL obrazu. Następnie wywołuje inną metodę, **MakeAnalysisRequest**, aby przetworzyć obraz w tej lokalizacji.
+Dodaj poniższy kod do metody **Main** w klasie **Program**. Ten kod zapisuje monit do konsoli programu z prośbą o wprowadzenie adresu URL obrazu. Następnie wywołuje inną metodę, **MakeAnalysisRequest**, aby przetworzyć obraz w tej lokalizacji.
 
 ```csharp
         static void Main(string[] args)
@@ -156,7 +156,7 @@ Metody pomocnicze zostaną zdefiniowanie w poniższych krokach.
 
 ### <a name="process-the-input-image-data"></a>Przetwarzanie danych obrazu wejściowego
 
-Dodaj następującą metodę do klasy **Program**. Ta metoda konwertuje obraz o określonym adresie URL na tablicę bajtów.
+Dodaj następującą metodę do klasy **Program**. Ta metoda konwertuje obraz pod określonym adresem URL na tablicę bajtów.
 
 ```csharp
         // Returns the contents of the specified file as a byte array.
@@ -173,7 +173,7 @@ Dodaj następującą metodę do klasy **Program**. Ta metoda konwertuje obraz o 
 
 ### <a name="parse-the-json-response"></a>Analizowanie odpowiedzi w formacie JSON
 
-Dodaj następującą metodę do klasy **Program**. Ta metoda formatuje dane wejściowe JSON, aby były łatwiejsze do odczytu. Aplikacja zapisze te dane ciągu do konsoli. Następnie można zamknąć klasę i obszar nazw.
+Dodaj następującą metodę do klasy **Program**. Ta metoda umożliwia łatwiejsze odczytywanie danych wejściowych JSON. Aplikacja zapisze te dane ciągu do konsoli. Następnie można zamknąć klasę i przestrzeń nazw.
 
 ```csharp
         // Formats the given JSON string by adding line breaks and indents.
@@ -342,7 +342,7 @@ Odpowiedź oznaczająca powodzenie będzie zawierać dane dotyczące rozpoznawan
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start utworzono prostą aplikację konsoli .NET, która używa wywołań REST z usługą Azure Face do wykrywania twarzy w obrazie i zwracania ich atrybutów. Następnie zapoznaj się z dokumentacją referencyjną interfejsu API rozpoznawania twarzy, aby dowiedzieć się więcej na temat obsługiwanych scenariuszy.
+W tym przewodniku szybki start utworzono prostą aplikację konsolową platformy .NET, która używa wywołań REST w usłudze Azure twarzy, aby wykrywać twarze w obrazie i zwracać ich atrybuty. Następnie zapoznaj się z dokumentacją referencyjną interfejsu API rozpoznawania twarzy, aby dowiedzieć się więcej na temat obsługiwanych scenariuszy.
 
 > [!div class="nextstepaction"]
 > [Interfejs API rozpoznawania twarzy](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

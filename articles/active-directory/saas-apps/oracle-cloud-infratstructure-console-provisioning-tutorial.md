@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Konfigurowanie konsoli infrastruktury Oracle Cloud Infrastructure Console do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure Active Directory | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak automatycznie aprowizować i usuwać aprowizyję kont użytkowników z usługi Azure AD na Oracle Cloud Infrastructure Console.
+title: 'Samouczek: Konfigurowanie konsoli infrastruktury w chmurze firmy Oracle do automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
+description: Dowiedz się, jak automatycznie udostępniać i cofać obsługę administracyjną kont użytkowników z usługi Azure AD w konsoli infrastruktury chmury firmy Oracle.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,177 +16,177 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: Zhchia
 ms.openlocfilehash: 5aa33529a1957b6e7728b3a87bacf6bb91d987ae
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81378953"
 ---
-# <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie konsoli infrastruktury Oracle Cloud Infrastructure Console do automatycznego inicjowania obsługi administracyjnej przez użytkowników
+# <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie konsoli infrastruktury w chmurze firmy Oracle do automatycznego aprowizacji użytkowników
 
-W tym samouczku opisano kroki, które należy wykonać zarówno w oracle cloud infrastructure console, jak i usłudze Azure Active Directory (Azure AD) w celu skonfigurowania automatycznego inicjowania obsługi administracyjnej użytkowników. Po skonfigurowaniu usługa Azure AD automatycznie aprowizacji i usuwania przepisów użytkowników i grup do [Oracle Cloud Infrastructure Console](https://www.oracle.com/cloud/free/?source=:ow:o:p:nav:0916BCButton&intcmp=:ow:o:p:nav:0916BCButton) przy użyciu usługi Azure AD inicjowania obsługi administracyjnej. Aby uzyskać ważne informacje na temat działania tej usługi, działania i często zadawanych pytań, zobacz [Automatyzacja inicjowania obsługi administracyjnej i usuwania obsługi administracyjnej aplikacji SaaS za pomocą usługi Azure Active Directory](../manage-apps/user-provisioning.md). 
+W tym samouczku opisano kroki, które należy wykonać w konsoli infrastruktury chmurowej firmy Oracle i Azure Active Directory (Azure AD) w celu skonfigurowania automatycznego aprowizacji użytkowników. Po skonfigurowaniu usługa Azure AD automatycznie inicjuje i cofa obsługę administracyjną użytkowników i grup w [konsoli infrastruktury chmurowej firmy Oracle](https://www.oracle.com/cloud/free/?source=:ow:o:p:nav:0916BCButton&intcmp=:ow:o:p:nav:0916BCButton) przy użyciu usługi Azure AD Provisioning. Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania aplikacji SaaS przy użyciu programu Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Obsługiwane możliwości
 > [!div class="checklist"]
-> * Tworzenie użytkowników w konsoli Oracle Cloud Infrastructure Console
-> * Usuwanie użytkowników w oracle cloud infrastructure console, gdy nie wymagają już dostępu
-> * Synchronizacja atrybutów użytkowników między usługą Azure AD a konsolą Oracle Cloud Infrastructure Console
-> * Aprowizuj grupy i członkostwa w grupach w oracle cloud infrastructure console
-> * [Logowanie jednokrotne w](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-cloud-tutorial) konsoli Oracle Cloud Infrastructure Console (zalecane)
+> * Tworzenie użytkowników w konsoli infrastruktury w chmurze firmy Oracle
+> * Usuń użytkowników w konsoli infrastruktury firmy Oracle, gdy nie wymagają już dostępu
+> * Utrzymywanie synchronizacji atrybutów użytkowników między usługą Azure AD i konsolą infrastruktury w chmurze firmy Oracle
+> * Udostępnianie grup i członkostw w grupach w konsoli infrastruktury w chmurze firmy Oracle
+> * [Logowanie](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-cloud-tutorial) jednokrotne do konsoli infrastruktury firmy Oracle w chmurze (zalecane)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku zakłada, że masz już następujące wymagania wstępne:
+Scenariusz opisany w tym samouczku założono, że masz już następujące wymagania wstępne:
 
 * [Dzierżawa usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* Konto użytkownika w usłudze Azure AD z [uprawnieniami](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) do konfigurowania obsługi administracyjnej (np. administrator aplikacji, administrator aplikacji w chmurze, właściciel aplikacji lub administrator globalny). 
-* [Dzierżawa](https://www.oracle.com/cloud/sign-in.html?intcmp=OcomFreeTier&source=:ow:o:p:nav:0916BCButton)Oracle Cloud Infrastructure Control .
-* Konto użytkownika w Oracle Cloud Infrastructure Control z uprawnieniami administratora.
+* Konto użytkownika w usłudze Azure AD z [uprawnieniami](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) do konfigurowania aprowizacji (np. Administrator aplikacji, administrator aplikacji w chmurze, właściciel aplikacji lub Administrator globalny). 
+* [Dzierżawa](https://www.oracle.com/cloud/sign-in.html?intcmp=OcomFreeTier&source=:ow:o:p:nav:0916BCButton)usługi Cloud Infrastructure kontroli firmy Oracle.
+* Konto użytkownika w kontrolce infrastruktury chmurowej Oracle z uprawnieniami administratora.
 
-## <a name="step-1-plan-your-provisioning-deployment"></a>Krok 1. Planowanie wdrożenia inicjowania obsługi administracyjnej
-1. Dowiedz [się, jak działa usługa inicjowania obsługi administracyjnej](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Określ, kto będzie w [zakresie inicjowania obsługi administracyjnej](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Określ, jakie dane mają [być mapowane między usługą Azure AD a konsolą Oracle Cloud Infrastructure Console](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+## <a name="step-1-plan-your-provisioning-deployment"></a>Krok 1. Planowanie wdrożenia aprowizacji
+1. Dowiedz się [, jak działa usługa aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Określ, kto będzie [objęty zakresem aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Określ, które dane mają być [mapowane między usługą Azure AD i konsolą infrastruktury w chmurze firmy Oracle](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-oracle-cloud-infrastructure-console-to-support-provisioning-with-azure-ad"></a>Krok 2. Configure Oracle Cloud Infrastructure Console to support provisioning with Azure AD
+## <a name="step-2-configure-oracle-cloud-infrastructure-console-to-support-provisioning-with-azure-ad"></a>Krok 2. Konfigurowanie konsoli infrastruktury w chmurze firmy Oracle do obsługi aprowizacji za pomocą usługi Azure AD
 
-1. Zaloguj się do portalu administracyjnego Oracle Cloud Infrastructure Console. W lewym górnym rogu ekranu przejdź do **pozycji Federacja tożsamości >**.
+1. Zaloguj się do portalu administracyjnego konsoli infrastruktury w chmurze firmy Oracle. W lewym górnym rogu ekranu przejdź do **tożsamości > federacyjnej**.
 
     ![Administrator Oracle](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/identity.png)
 
-2. Kliknij adres URL wyświetlany na stronie obok konsoli oracle identity cloud service console.
+2. Kliknij adres URL wyświetlany na stronie obok pozycji Oracle Identity Cloud Service Console.
 
-    ![Oracle URL](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/url.png)
+    ![Adres URL programu Oracle](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/url.png)
 
-3. Kliknij **dodaj dostawcę tożsamości,** aby utworzyć nowego dostawcę tożsamości. Zapisz identyfikator IdP, który ma być używany jako część adresu URL dzierżawy. Kliknij ikonę plus obok karty **Aplikacje,** aby utworzyć narzędzie AppRole klienta OAuth i Grant IDCS Identity Domain Administrator.
+3. Kliknij pozycję **Dodaj dostawcę tożsamości** , aby utworzyć nowego dostawcę tożsamości. Zapisz identyfikator dostawcy tożsamości, który ma być używany jako część adresu URL dzierżawy. Kliknij ikonę plusa obok karty **aplikacje** , aby utworzyć klienta OAuth i udzielić IDCS APPROLE administrator domeny tożsamości.
 
     ![Ikona chmury Oracle](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/add.png)
 
-4. Wykonaj poniższe zrzuty ekranu, aby skonfigurować aplikację. Po zakończeniu konfiguracji kliknij **zapisz**.
+4. Aby skonfigurować aplikację, postępuj zgodnie z poniższymi zrzutami ekranu. Po zakończeniu konfiguracji kliknij pozycję **Zapisz**.
 
-    ![Konfiguracja Oracle](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/configuration.png)
+    ![Konfiguracja programu Oracle](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/configuration.png)
 
-    ![Zasady emisji tokenów Oracle](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/token-issuance.png)
+    ![Zasady wystawiania tokenów Oracle](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/token-issuance.png)
 
-5. W obszarze konfiguracji kartę aplikacji rozwiń opcję **Informacje ogólne,** aby pobrać identyfikator klienta i klucz tajny klienta.
+5. Na karcie konfiguracje aplikacji rozwiń opcję **Informacje ogólne** , aby pobrać identyfikator klienta i klucz tajny klienta.
 
-    ![Generowanie tokenów Oracle](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/general-information.png)
+    ![Generowanie tokenu Oracle](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/general-information.png)
 
-6. Aby wygenerować tajny token Base64 zakodować identyfikator klienta i klucz tajny klienta w formacie **identyfikator klienta:Klucz tajny klienta**. Zapisz tajny token. Ta wartość zostanie wprowadzona w polu **Token tajny** na karcie inicjowania obsługi administracyjnej aplikacji Oracle Cloud Infrastructure Console w witrynie Azure portal.
+6. Aby wygenerować klucz tajny Base64, zakodować identyfikator klienta i klucz tajny klienta w formacie **Identyfikator klienta: wpis tajny klienta**. Zapisz token tajny. Ta wartość zostanie wprowadzona w polu **token tajny** na karcie aprowizacji aplikacji w konsoli infrastruktury w chmurze firmy Oracle w Azure Portal.
 
-## <a name="step-3-add-oracle-cloud-infrastructure-console-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie konsoli Oracle Cloud Infrastructure Console z galerii aplikacji usługi Azure AD
+## <a name="step-3-add-oracle-cloud-infrastructure-console-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie konsoli środowiska Oracle Cloud Infrastructure z galerii aplikacji usługi Azure AD
 
-Dodaj oracle cloud infrastructure console z galerii aplikacji usługi Azure AD, aby rozpocząć zarządzanie inicjowania obsługi administracyjnej do Oracle Cloud Infrastructure Console. Jeśli wcześniej skonfigurowałeś Oracle Cloud Infrastructure Console dla aplikacji jednośliomowej, możesz użyć tej samej aplikacji. Jednak zaleca się utworzenie oddzielnej aplikacji podczas testowania integracji początkowo. Dowiedz się więcej o dodawaniu aplikacji z galerii [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Dodaj konsolę infrastruktury firmy Oracle z galerii aplikacji usługi Azure AD, aby rozpocząć zarządzanie obsługą w konsoli infrastruktury firmy Oracle. Jeśli wcześniej skonfigurowano konsolę usługi Oracle Cloud Infrastructure dla logowania jednokrotnego, możesz użyć tej samej aplikacji. Jednak zaleca się utworzenie osobnej aplikacji podczas wstępnego testowania integracji. Dowiedz się więcej o dodawaniu aplikacji z galerii [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Krok 4. Określanie, kto będzie w zakresie inicjowania obsługi administracyjnej 
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Krok 4. Zdefiniuj, kto będzie w zakresie aprowizacji 
 
-Usługa inicjowania obsługi administracyjnej usługi Azure AD umożliwia zakres, który będzie aprowidzony na podstawie przypisania do aplikacji i lub na podstawie atrybutów użytkownika / grupy. Jeśli wybierzesz zakres, który będzie aprowizowany do aplikacji na podstawie przypisania, można użyć następujących [kroków,](../manage-apps/assign-user-or-group-access-portal.md) aby przypisać użytkowników i grupy do aplikacji. Jeśli zdecydujesz się na zakres, który będzie aprowizować wyłącznie na podstawie atrybutów użytkownika lub grupy, można użyć filtru zakresu, jak opisano [w tym miejscu](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+Usługa Azure AD Provisioning umożliwia określenie zakresu użytkowników, którzy będą obsługiwani w oparciu o przypisanie do aplikacji i lub na podstawie atrybutów użytkownika/grupy. Jeśli wybierzesz zakres, który zostanie zainicjowany do aplikacji na podstawie przypisania, możesz wykonać następujące [kroki](../manage-apps/assign-user-or-group-access-portal.md) , aby przypisać użytkowników i grupy do aplikacji. Jeśli zdecydujesz się na określenie zakresu, który zostanie zainicjowany na podstawie atrybutów użytkownika lub grupy, możesz użyć filtru określania zakresu, zgodnie z opisem w [tym miejscu](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-* Podczas przypisywania użytkowników i grup do konsoli Oracle Cloud Infrastructure Console należy wybrać rolę inną niż **Dostęp domyślny**. Użytkownicy z rolą dostępu domyślnego są wykluczeni z inicjowania obsługi administracyjnej i będą oznaczane jako nieuwzdrowsze w dziennikach inicjowania obsługi administracyjnej. Jeśli jedyną rolą dostępową w aplikacji jest domyślna rola dostępu, można [zaktualizować manifest aplikacji,](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) aby dodać dodatkowe role. 
+* Podczas przypisywania użytkowników i grup do konsoli infrastruktury w chmurze firmy Oracle należy wybrać rolę inną niż **domyślny dostęp**. Użytkownicy z domyślną rolą dostępu są wykluczeni z aprowizacji i zostaną oznaczeni jako nieskutecznie uprawnieni do dzienników aprowizacji. Jeśli jedyną rolą dostępną w aplikacji jest domyślna rola dostępu, można [zaktualizować manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) , aby dodać dodatkowe role. 
 
-* Zacznij od małych. Przetestuj z małym zestawem użytkowników i grup przed wprowadzeniem do wszystkich. Gdy zakres inicjowania obsługi administracyjnej jest ustawiony na przypisanych użytkowników i grup, można kontrolować to, przypisując jednego lub dwóch użytkowników lub grup do aplikacji. Gdy zakres jest ustawiony dla wszystkich użytkowników i grup, można określić [filtr zakresu na podstawie atrybutów](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Zacznij od małych. Przetestuj przy użyciu małego zestawu użytkowników i grup przed przekazaniem ich do wszystkich osób. W przypadku wybrania dla zakresu aprowizacji przypisanych użytkowników i grup można kontrolować ten sposób, przypisując do aplikacji jednego lub dwóch użytkowników lub grupy. Gdy zakres jest ustawiony dla wszystkich użytkowników i grup, można określić [Filtr określania zakresu na podstawie atrybutu](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-oracle-cloud-infrastructure-console"></a>Krok 5. Konfigurowanie automatycznego inicjowania obsługi administracyjnej w konsoli Oracle Cloud Infrastructure Console 
+## <a name="step-5-configure-automatic-user-provisioning-to-oracle-cloud-infrastructure-console"></a>Krok 5. Konfigurowanie automatycznej aprowizacji użytkowników do konsoli infrastruktury w chmurze firmy Oracle 
 
-W tej sekcji można przejść przez kroki konfigurowania usługi inicjowania obsługi administracyjnej usługi Azure AD do tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w aplikacji TestApp na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
+Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w programie TestApp na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-oracle-cloud-infrastructure-console-in-azure-ad"></a>Aby skonfigurować automatyczne inicjowanie obsługi administracyjnej dla konsoli Oracle Cloud Infrastructure Console w usłudze Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-oracle-cloud-infrastructure-console-in-azure-ad"></a>Aby skonfigurować automatyczną obsługę administracyjną dla konsoli infrastruktury chmury firmy Oracle w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje przedsiębiorstwa**, a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz pozycję **Oracle Cloud Infrastructure Console**.
+2. Na liście Aplikacje wybierz pozycję **konsola infrastruktury w chmurze firmy Oracle**.
 
-    ![Łącze Konsoli infrastruktury oracle w chmurze na liście Aplikacje](common/all-applications.png)
+    ![Link konsoli infrastruktury w chmurze firmy Oracle na liście aplikacji](common/all-applications.png)
 
-3. Wybierz kartę **Inicjowanie obsługi administracyjnej.**
+3. Wybierz kartę **aprowizacji** .
 
-    ![Karta Inicjowanie obsługi administracyjnej](common/provisioning.png)
+    ![Karta aprowizacji](common/provisioning.png)
 
-4. Ustaw **tryb inicjowania obsługi administracyjnej** na **Automatyczny**.
+4. Ustaw **tryb aprowizacji** na **automatyczny**.
 
-    ![Karta Inicjowanie obsługi administracyjnej](common/provisioning-automatic.png)
+    ![Karta aprowizacji](common/provisioning-automatic.png)
 
-5. W sekcji **Poświadczenia administratora** wprowadź adres URL `https://<IdP ID>.identity.oraclecloud.com/admin/v1` **dzierżawy** w formacie . Na przykład: `https://idcs-0bfd023ff2xx4a98a760fa2c31k92b1d.identity.oraclecloud.com/admin/v1`. Wprowadź wartość tokenu tajnego pobraną wcześniej w **tokenie tajnym**. Kliknij **przycisk Testuj połączenie,** aby upewnić się, że usługa Azure AD może łączyć się z konsolą Oracle Cloud Infrastructure Console. Jeśli połączenie nie powiedzie się, upewnij się, że twoje konto Oracle Cloud Infrastructure Console ma uprawnienia administratora i spróbuj ponownie.
+5. W sekcji **poświadczenia administratora** wprowadź **adres URL dzierżawy** w formacie `https://<IdP ID>.identity.oraclecloud.com/admin/v1` . Na przykład: `https://idcs-0bfd023ff2xx4a98a760fa2c31k92b1d.identity.oraclecloud.com/admin/v1`. Wprowadź wcześniej pobraną wartość tokenu tajnego w polu **token tajny**. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może połączyć się z konsolą infrastruktury firmy Oracle. Jeśli połączenie nie powiedzie się, upewnij się, że konto konsoli infrastruktury w chmurze firmy Oracle ma uprawnienia administratora, a następnie spróbuj ponownie.
 
-    ![Inicjowania obsługi](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/provisioning.png)
+    ![aprowizacji](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/provisioning.png)
 
-6. W polu **Wiadomość e-mail z powiadomieniem** wprowadź adres e-mail osoby lub grupy, która powinna otrzymywać powiadomienia o błędach inicjowania obsługi administracyjnej, i zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu.**
+6. W polu **adres E-mail powiadomienia** wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail po wystąpieniu błędu** .
 
-    ![Wiadomość e-mail z powiadomieniem](common/provisioning-notification-email.png)
+    ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
 7. Wybierz pozycję **Zapisz**.
 
-8. W sekcji **Mapowania** wybierz pozycję **Synchronizuj użytkowników usługi Azure Active Directory z konsolą Oracle Cloud Infrastructure Console**.
+8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkownicy z konsolą infrastruktury w chmurze firmy Oracle**.
 
-9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do Oracle Cloud Infrastructure Console w sekcji **Mapowanie atrybutów.** Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w Oracle Cloud Infrastructure Console dla operacji aktualizacji. Jeśli zdecydujesz się zmienić [pasujący atrybut docelowy,](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)musisz upewnić się, że interfejs API oracle cloud infrastructure console obsługuje filtrowanie użytkowników na podstawie tego atrybutu. Wybierz przycisk **Zapisz,** aby zatwierdzić wszelkie zmiany.
-
-      |Atrybut|Typ|
-      |---|---|
-      |displayName|Ciąg|
-      |userName|Ciąg|
-      |aktywne|Wartość logiczna|
-      |title|Ciąg|
-      |wiadomości e-mail[wpisz eq "praca"].wartość|Ciąg|
-      |preferowany Język|Ciąg|
-      |name.givenName|Ciąg|
-      |nazwa.familyName|Ciąg|
-      |adresy[wpisz eq "praca"].sformatowany|Ciąg|
-      |adresy[wpisz eq "praca"].miejscowość|Ciąg|
-      |adresy[wpisz eq "praca"].region|Ciąg|
-      |adresy[wpisz eq "praca"].postalCode|Ciąg|
-      |adresy[wpisz eq "praca"].kraj|Ciąg|
-      |adresy[wpisz eq "praca"].streetAddress|Ciąg|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|Ciąg|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|Ciąg|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|Ciąg|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|Ciąg|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Dokumentacja|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|Ciąg|
-      |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:bypassNotification|Wartość logiczna|
-      |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:isFederatedUser|Wartość logiczna|
-
-10. W sekcji **Mapowania** wybierz pozycję **Synchronizuj grupy usługi Azure Active Directory z konsolą Oracle Cloud Infrastructure Console**.
-
-11. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD do Oracle Cloud Infrastructure Console w sekcji **Mapowanie atrybutów.** Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania grup w Oracle Cloud Infrastructure Console dla operacji aktualizacji. Wybierz przycisk **Zapisz,** aby zatwierdzić wszelkie zmiany.
+9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do konsoli infrastruktury w chmurze firmy Oracle, w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane w celu dopasowania do kont użytkowników w konsoli infrastruktury w chmurze Oracle dla operacji aktualizacji. Jeśli zdecydujesz się zmienić [pasujący atrybut docelowy](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), należy się upewnić, że interfejs API konsoli infrastruktury chmury firmy Oracle obsługuje filtrowanie użytkowników na podstawie tego atrybutu. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
       |Atrybut|Typ|
       |---|---|
-      |displayName|Ciąg|
-      |identyfikator zewnętrzny|Ciąg|
+      |displayName|String|
+      |userName|String|
+      |aktywne|Boolean|
+      |title|String|
+      |wiadomości e-mail [Type EQ "Work"]. Value|String|
+      |preferredLanguage|String|
+      |Nazwa. imię|String|
+      |Nazwa. rodzina|String|
+      |adresy [typ EQ "Work"]. sformatowane|String|
+      |adresy [typ EQ "Work"]. locale|String|
+      |addresss [Type EQ "Work"]. region|String|
+      |addresss [Type EQ "Work"]. KodPocztowy|String|
+      |addresss [Type EQ "Work"]. Country|String|
+      |adresy [typ EQ "Work"]. streetAddress|String|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|String|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|String|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|String|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|String|
+      |urn: IETF: params: Standard scim: schematy: Oracle: IDCs: Extension: User: User: bypassNotification|Boolean|
+      |urn: IETF: params: Standard scim: schematy: Oracle: IDCs: Extension: User: User: isFederatedUser|Boolean|
+
+10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do konsoli infrastruktury w chmurze firmy Oracle**.
+
+11. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD do konsoli infrastruktury w chmurze firmy Oracle, w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane w celu dopasowania do grup w konsoli infrastruktury w chmurze firmy Oracle dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
+
+      |Atrybut|Typ|
+      |---|---|
+      |displayName|String|
+      |externalId|String|
       |elementy członkowskie|Dokumentacja|
 
-12. Aby skonfigurować filtry zakresu, zapoznaj się z poniższymi instrukcjami podanymi w [samouczku filtru zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Aby włączyć usługę inicjowania obsługi administracyjnej usługi Azure AD dla konsoli Oracle Cloud Infrastructure Console, zmień **stan inicjowania obsługi administracyjnej** **na Włączone** w sekcji **Ustawienia.**
+13. Aby włączyć usługę Azure AD Provisioning dla programu Oracle Cloud Infrastructure Console, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
-    ![Stan inicjowania obsługi administracyjnej włączony](common/provisioning-toggle-on.png)
+    ![Stan aprowizacji jest przełączany](common/provisioning-toggle-on.png)
 
-14. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić Oracle Cloud Infrastructure Console, wybierając żądane wartości w **zakresie** w sekcji **Ustawienia.**
+14. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić w konsoli infrastruktury chmurowej firmy Oracle, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
 
-    ![Zakres inicjowania obsługi administracyjnej](common/provisioning-scope.png)
+    ![Zakres aprowizacji](common/provisioning-scope.png)
 
-15. Gdy będziesz gotowy do aprowienia, kliknij przycisk **Zapisz**.
+15. Gdy wszystko będzie gotowe do udostępnienia, kliknij przycisk **Zapisz**.
 
-    ![Zapisywanie konfiguracji inicjowania obsługi administracyjnej](common/provisioning-configuration-save.png)
+    ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
-Ta operacja rozpoczyna początkowy cykl synchronizacji wszystkich użytkowników i grup zdefiniowanych w **zakresie** w sekcji **Ustawienia.** Początkowy cykl trwa dłużej niż kolejne cykle, które występują co około 40 minut, tak długo, jak usługa inicjowania obsługi administracyjnej usługi Azure AD jest uruchomiona. 
+Ta operacja uruchamia początkowy cykl synchronizacji wszystkich użytkowników i grup zdefiniowanych w **zakresie** w sekcji **Ustawienia** . Cykl początkowy trwa dłużej niż kolejne cykle, które wystąpiły co około 40 minut, o ile usługa Azure AD Provisioning jest uruchomiona. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Krok 6. Monitorowanie wdrożenia
-Po skonfigurowaniu inicjowania obsługi administracyjnej użyj następujących zasobów do monitorowania wdrożenia:
+Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania wdrożenia:
 
-* Użyj [dzienników inicjowania obsługi administracyjnej,](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) aby określić, którzy użytkownicy zostali pomyślnie lub bezskutecznie udostępnieni
-* Sprawdź [pasek postępu,](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) aby zobaczyć stan cyklu inicjowania obsługi administracyjnej i jak blisko jest do zakończenia
-* Jeśli konfiguracja inicjowania obsługi administracyjnej wydaje się być w stanie złej kondycji, aplikacja przejdzie do kwarantanny. Dowiedz się więcej o stanach kwarantanny [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+* Użyj [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , aby określić, którzy użytkownicy zostali zainicjowani pomyślnie lub niepomyślnie
+* Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
+* Jeśli konfiguracja aprowizacji wydaje się być w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Więcej informacji o Stanach kwarantanny znajduje się [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Zarządzanie inicjowanie obsługi administracyjnej kont użytkowników dla aplikacji dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i otrzymywać raporty dotyczące aktywności inicjowania obsługi administracyjnej](../manage-apps/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../manage-apps/check-status-user-account-provisioning.md)

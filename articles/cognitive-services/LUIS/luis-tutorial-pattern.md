@@ -1,18 +1,18 @@
 ---
-title: 'Samouczek: Wzorce - LUIS'
-description: Użyj wzorców, aby zwiększyć intencji i przewidywania jednostki, zapewniając mniej wypowiedzi przykład w tym samouczku. Wzorzec jest dostarczany jako przykład wypowiedź szablonu, który zawiera składnię do identyfikowania jednostek i tekstu ignorowanego.
+title: 'Samouczek: wzorce — LUIS'
+description: Użyj wzorców, aby zwiększyć zamiar i prognozowanie jednostek, jednocześnie dostarczając mniejszą liczbę przykładów wyrażenia długości w tym samouczku. Wzorzec jest dostępny jako przykład wypowiedź szablonu, który zawiera składnię identyfikującą jednostki i tekst, który można zignorować.
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.openlocfilehash: 826334fafd04a6357f529b1dc07408ff1c15ce5c
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81380768"
 ---
-# <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Samouczek: Dodawanie typowych formatów wypowiedź szablonu wzorca w celu poprawy prognoz
+# <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Samouczek: Dodawanie typowych formatów wypowiedź szablonów wzorców w celu usprawnienia prognoz
 
-W tym samouczku użyj wzorców, aby zwiększyć intencji i przewidywania jednostki, co pozwala na zapewnienie mniej wypowiedzi przykład. Wzorzec jest wypowiedź szablonu przypisany do intencji, która zawiera składnię do identyfikowania jednostek i tekstu ignorowane.
+W tym samouczku Użyj wzorców, aby zwiększyć cel i prognozowanie jednostek, co pozwala na dostarczenie mniejszej przykładowej wyrażenia długości. Wzorzec to szablon wypowiedź przypisany do zamiaru, który zawiera składnię identyfikującą jednostki i tekst, który można zignorować.
 
 **Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
 
@@ -24,40 +24,40 @@ W tym samouczku użyj wzorców, aby zwiększyć intencji i przewidywania jednost
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="utterances-in-intent-and-pattern"></a>Wypowiedzi w intencji i wzorzec
+## <a name="utterances-in-intent-and-pattern"></a>Wyrażenia długości w zamierzeniu i wzorcu
 
-Istnieją dwa typy wypowiedzi przechowywane w aplikacji usługi LUIS:
+Istnieją dwa typy wyrażenia długości przechowywanych w aplikacji LUIS:
 
-* Przykładowe wypowiedzi w intencji
-* Wypowiedzi szablonu we wzorcu
+* Przykład wyrażenia długości w zamierzeniu
+* Wyrażenia długości szablonu we wzorcu
 
-Dodawanie wypowiedzi szablonu jako wzorca pozwala podać mniej wypowiedzi przykład ogólnej do intencji.
+Dodanie wyrażenia długości szablonu jako wzorca pozwala na zapewnienie mniejszej ilości przykładowych wyrażenia długości do zamiaru.
 
-Wzorzec jest stosowany jako kombinacja dopasowywania tekstu i uczenia maszynowego.  Wypowiedź szablonu we wzorcu, wraz z wypowiedzi przykład w intencji, dać usługi LUIS lepsze zrozumienie, jakie wypowiedzi pasują do intencji.
+Wzorzec jest stosowany jako kombinacja dopasowania tekstu i uczenia maszynowego.  Szablon wypowiedź we wzorcu, wraz z przykładem wyrażenia długości w zamiarze, zapewnia LUIS lepiej zrozumieć, co wyrażenia długości pasuje do zamiaru.
 
 ## <a name="import-example-app-and-clone-to-new-version"></a>Importowanie przykładowej aplikacji i klonowanie do nowej wersji
 
 Wykonaj następujące czynności:
 
-1.  Pobierz i zapisz [plik JSON aplikacji](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
+1.  Pobierz i Zapisz [plik JSON aplikacji](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
 
-1. Zaimportuj JSON do nowej aplikacji do [portalu usługi LUIS w wersji zapoznawczej](https://preview.luis.ai). Na stronie **Moje aplikacje** wybierz pozycję **+ Nowa aplikacja do konwersacji**, a następnie wybierz pozycję **Importuj jako JSON**. Wybierz plik pobrany w poprzednim kroku.
+1. Zaimportuj plik JSON do nowej aplikacji w [portalu Luis w wersji zapoznawczej](https://preview.luis.ai). Na stronie **Moje aplikacje** wybierz pozycję **+ Nowa aplikacja do konwersacji**, a następnie wybierz pozycję **Importuj jako plik JSON**. Wybierz plik pobrany w poprzednim kroku.
 
-1. W sekcji **Zarządzanie** na karcie **Wersje** wybierz aktywną wersję, a następnie wybierz pozycję **Klonuj**. Nazwij sklonowaną wersję `patterns`. Klonowanie to dobry sposób na testowanie różnych funkcji usługi LUIS bez wpływu na oryginalną wersję aplikacji. Ponieważ nazwa wersji jest używana jako część trasy adresu URL, nie może ona zawierać żadnych znaków, które są nieprawidłowe w adresie URL.
+1. W sekcji **Zarządzanie** na karcie **wersje** wybierz aktywną wersję, a następnie wybierz pozycję **Klonuj**. Nadaj nazwę sklonowanej wersji `patterns`. Klonowanie to dobry sposób na testowanie różnych funkcji usługi LUIS bez wpływu na oryginalną wersję aplikacji. Ponieważ nazwa wersji jest używana jako część trasy adresu URL, nie może ona zawierać żadnych znaków, które są nieprawidłowe w adresie URL.
 
 ## <a name="create-new-intents-and-their-utterances"></a>Tworzenie nowych intencji i ich wypowiedzi
 
-Dwie intencje znaleźć menedżera lub bezpośredniego menedżera raportów, na podstawie tekstu wypowiedź. Trudność polega na tym, że te dwa zamiary _oznaczają_ różne rzeczy, ale większość słów jest taka sama. Tylko kolejność słów jest inna. Aby intencja została poprawnie przewidzieć, musiałaby mieć wiele przykładów.
+Te dwa intencje odszukają Menedżera lub bezpośrednich raportów kierownika na podstawie tekstu wypowiedź. Trudności polegają na tym, że dwa intencje _oznaczają_ różne elementy, ale większość wyrazów jest taka sama. Tylko kolejność wyrazów jest inna. Aby zamiar został prawidłowo przewidywalna, konieczne byłoby posiadanie wielu przykładów.
 
-1. Wybierz **pozycję Zbuduj** z paska nawigacyjnego.
+1. Na pasku nawigacyjnym wybierz pozycję **kompilacja** .
 
-1. Na stronie **Intencje** wybierz pozycję **+ Utwórz,** aby utworzyć nową intencję.
+1. Na stronie **intencje** wybierz pozycję **+ Utwórz** , aby utworzyć nowy cel.
 
 1. Wprowadź ciąg `OrgChart-Manager` w wyświetlonym oknie dialogowym, a następnie wybierz pozycję **Done** (Gotowe).
 
     ![Okno podręczne Create new message (Tworzenie nowej wiadomości)](media/luis-tutorial-pattern/hr-create-new-intent-popup.png)
 
-1. Dodaj przykładowe wypowiedzi do intencji. Te wypowiedzi nie są _dokładnie_ podobne, ale mają wzorzec, który można wyodrębnić.
+1. Dodaj przykładowe wypowiedzi do intencji. Te wyrażenia długości nie są _dokładnie_ takie same, ale mają wzorzec, który można wyodrębnić.
 
     |Przykładowe wypowiedzi|
     |--|
@@ -71,7 +71,7 @@ Dwie intencje znaleźć menedżera lub bezpośredniego menedżera raportów, na 
 
 1. Wybierz pozycję **Intents** (Intencje) na lewym pasku nawigacyjnym.
 
-1. Wybierz **+ Utwórz,** aby utworzyć nową intencję. Wprowadź ciąg `OrgChart-Reports` w wyświetlonym oknie dialogowym, a następnie wybierz pozycję **Done** (Gotowe).
+1. Wybierz pozycję **+ Utwórz** , aby utworzyć nowy cel. Wprowadź ciąg `OrgChart-Reports` w wyświetlonym oknie dialogowym, a następnie wybierz pozycję **Done** (Gotowe).
 
 1. Dodaj przykładowe wypowiedzi do intencji.
 
@@ -99,7 +99,7 @@ Dwie intencje znaleźć menedżera lub bezpośredniego menedżera raportów, na 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Przejdź na koniec adresu URL na pasku adresu i `Who is the boss of Jill Jones?`zastąp _YOUR_QUERY_HERE:_ .
+1. Przejdź na koniec adresu URL na pasku adresu i Zastąp _YOUR_QUERY_HERE_ : `Who is the boss of Jill Jones?`.
 
     ```json
     {
@@ -189,16 +189,16 @@ Dwie intencje znaleźć menedżera lub bezpośredniego menedżera raportów, na 
     }
     ```
 
-Wyniki dwóch głównych intencji są bliskie, ale najwyższy zamiar nie jest znacząco wysoki (ponad 60%) i nie jest wystarczająco daleko powyżej następnego zamiaru wynik.
+Wyniki dwóch głównych intencji są bliskie, ale najwyższy cel nie jest znacząco wysoki (ponad 60%) i nie jest wystarczająco dużo więcej niż Ocena następnego celu.
 
-Ponieważ szkolenie usługi LUIS nie jest dokładnie taka sama za każdym razem (istnieje trochę zmienności), te dwa najlepsze wyniki można odwrócić w następnym cyklu szkolenia. Wynikiem jest to, że może zostać zwrócona nieprawidłowa intencja.
+Ponieważ szkolenia LUIS nie są dokładnie takie same (istnieją różnice między nimi), te dwa najważniejsze wyniki mogą odwrócić w następnym cyklu szkoleniowym. Wynikiem jest to, że może zostać zwrócona nieprawidłowa intencja.
 
 Aby poprawny wynik intencji był znacznie wyższy procentowo i bardziej oddalony od następnego najwyższego wyniku, należy użyć wzorców.
 
 Pozostaw drugie okno przeglądarki otwarte. Będzie potrzebne w dalszej części samouczka.
 
 ## <a name="template-utterances"></a>Wypowiedzi szablonu
-Ze względu na charakter domeny tematu zasobów ludzkich istnieje kilka typowych sposobów zadawania pytań o relacje z pracownikami w organizacjach. Przykład:
+Ze względu na charakter domeny podmiotu zasobów ludzkich istnieje kilka typowych metod zaproszenia o relacje między pracownikami w organizacjach. Przykład:
 
 |Wypowiedzi|
 |--|
@@ -211,18 +211,18 @@ Przykładowe wypowiedzi szablonu dla tej intencji obejmują:
 
 |Przykładowe wypowiedzi szablonu|Znaczenie składni|
 |--|--|
-|`Who does {Employee} report to[?]`|Wymienne`{Employee}`<br>Ignoruj`[?]`|
-|`Who reports to {Employee}[?]`|Wymienne`{Employee}`<br>Ignoruj`[?]`|
+|`Who does {Employee} report to[?]`|wymienne`{Employee}`<br>Ignoruj`[?]`|
+|`Who reports to {Employee}[?]`|wymienne`{Employee}`<br>Ignoruj`[?]`|
 
-Składnia `{Employee}` oznacza lokalizację jednostki w ramach wypowiedzi szablonu oraz to, która to jednostka. Opcjonalna składnia `[?]`, oznacza wyrazy lub [znaki interpunkcyjne,](luis-reference-application-settings.md#punctuation-normalization) które są opcjonalne. Usługa LUIS dopasowuje wypowiedź, ignorując opcjonalny tekst w nawiasie.
+Składnia `{Employee}` oznacza lokalizację jednostki w ramach wypowiedzi szablonu oraz to, która to jednostka. Opcjonalna składnia, `[?]`, znaki wyrazów lub [interpunkcja](luis-reference-application-settings.md#punctuation-normalization) , która jest opcjonalna. Usługa LUIS dopasowuje wypowiedź, ignorując opcjonalny tekst w nawiasie.
 
-Chociaż składnia wygląda jak wyrażenie regularne, nie jest wyrażeniem regularnym. Obsługiwana jest tylko składnia w nawiasie klamrowym, `{}`, i nawiasie kwadratowym, `[]`. Mogą być one zagnieżdżone na najwyżej dwóch poziomach.
+Chociaż składnia wygląda podobnie do wyrażenia regularnego, nie jest wyrażeniem regularnym. Obsługiwana jest tylko składnia w nawiasie klamrowym, `{}`, i nawiasie kwadratowym, `[]`. Mogą być one zagnieżdżone na najwyżej dwóch poziomach.
 
-Aby wzorzec, który ma być dopasowany do wypowiedź, _najpierw_ jednostki w wypowiedź muszą odpowiadać jednostek w wypowiedź szablonu. Oznacza to, że jednostki muszą mieć wystarczającą liczbę przykładów w wypowiedziach przykładowych z wysokim stopniem przewidywania, zanim wzorce z jednostkami zakończy się pomyślnie. Jednak szablon nie pomaga w przewidywaniu jednostek, tylko intencji.
+Aby wzorzec pasował do elementu wypowiedź, _najpierw_ jednostki w wypowiedź muszą być zgodne z jednostkami w szablonie wypowiedź. Oznacza to, że jednostki muszą mieć wystarczającą liczbę przykładów na przykład wyrażenia długości z dużym przewidywaniam, zanim wzorce z jednostkami zakończą się pomyślnie. Jednak szablon nie pomaga w przewidywaniu jednostek, tylko intencji.
 
 **Wzorce umożliwiają dostarczenie mniejszej liczby wypowiedzi przykładowych, jednak jeśli jednostki nie zostaną wykryte, nie zostanie znalezione dopasowanie dla wzorca.**
 
-### <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>Dodawanie wzorców intencji programu OrgChart-Manager
+### <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>Dodaj wzorce dla zamiaru schematu organizacyjnego — Menedżer
 
 1. Wybierz pozycję **Build** (Kompiluj) w górnym menu.
 
@@ -239,9 +239,9 @@ Aby wzorzec, który ma być dopasowany do wypowiedź, _najpierw_ jednostki w wyp
     |`Who is {Employee}['s] supervisor[?]`|
     |`Who is the boss of {Employee}[?]`|
 
-    Te wypowiedzi szablonu obejmują **Employee** jednostki z notacji nawiasu kręcone.
+    Te szablony wyrażenia długości obejmują jednostkę **Employee** z notacją nawiasu klamrowego.
 
-1. Podczas gdy nadal na wzorce strony, wybierz **OrgChart-Reports** intencji, a następnie wprowadź następujące wypowiedzi szablonu:
+1. Na stronie wzorce wybierz opcję **schemat organizacyjny — raporty** , a następnie wprowadź następujący wyrażenia długości szablonu:
 
     |Wypowiedzi szablonu|
     |:--|
@@ -254,13 +254,13 @@ Aby wzorzec, który ma być dopasowany do wypowiedź, _najpierw_ jednostki w wyp
 
 ### <a name="query-endpoint-when-patterns-are-used"></a>Punkt końcowy zapytania, gdy są używane wzorce
 
-Teraz, gdy wzorce są dodawane do aplikacji, pociągu, publikowania i kwerendy aplikacji w punkcie końcowym środowiska wykonawczego przewidywanie.
+Teraz, gdy wzorce są dodawane do aplikacji, uczenie, publikowanie i wysyłanie zapytań do aplikacji w punkcie końcowym przewidywania środowiska uruchomieniowego.
 
-1. Wybierz **pociąg**. Po zakończeniu szkolenia wybierz **pozycję Publikuj** i wybierz miejsce **produkcyjne,** a następnie wybierz opcję **Gotowe**.
+1. Wybierz pozycję **uczenie**. Po zakończeniu szkolenia wybierz pozycję **Publikuj** i wybierz miejsce **produkcyjne** , a następnie wybierz pozycję **gotowe**.
 
-1. Po zakończeniu publikowania przełącz karty przeglądarki z powrotem do karty adresu URL punktu końcowego.
+1. Po zakończeniu publikowania Przełącz karty przeglądarki z powrotem na kartę adres URL punktu końcowego.
 
-1. Przejdź na koniec adresu URL na pasku adresu i zastąp _YOUR_QUERY_HERE:_`Who is the boss of Jill Jones?`
+1. Przejdź na koniec adresu URL na pasku adresu i Zastąp _YOUR_QUERY_HERE_ :`Who is the boss of Jill Jones?`
 
     ```json
     {
@@ -350,11 +350,11 @@ Teraz, gdy wzorce są dodawane do aplikacji, pociągu, publikowania i kwerendy a
     }
     ```
 
-Przewidywanie intencji jest teraz znacznie bardziej pewny siebie, a następny najwyższy wynik intencji jest znacznie niższy. Te dwa zamiary nie będzie flip-flop podczas treningu.
+Prognoza intencji jest teraz znacznie bardziej nieświadoma, a następna wartość oceny najwyższego celu jest znacznie niższa. Te dwa intencje nie będą przerzucać flop podczas uczenia się.
 
 ### <a name="working-with-optional-text-and-prebuilt-entities"></a>Praca z tekstem opcjonalnym i wstępnie skompilowanymi jednostkami
 
-Poprzednie wypowiedzi szablonu wzorca w tym samouczku miały kilka przykładów opcjonalnego tekstu, np. użycie formy dzierżawczej pod postacią litery s `'s` (dotyczy języka angielskiego) i stosowanie znaku zapytania `?`. Załóżmy, że należy zezwolić na bieżące i przyszłe daty w tekście wypowiedź.
+Poprzednie wypowiedzi szablonu wzorca w tym samouczku miały kilka przykładów opcjonalnego tekstu, np. użycie formy dzierżawczej pod postacią litery s `'s` (dotyczy języka angielskiego) i stosowanie znaku zapytania `?`. Załóżmy, że musisz zezwolić na bieżące i przyszłe daty w tekście wypowiedź.
 
 Przykładowe wypowiedzi:
 
@@ -365,9 +365,9 @@ Przykładowe wypowiedzi:
 |OrgChart-Manager|`Who will be Jill Jones manager in a month?`|
 |OrgChart-Manager|`Who will be Jill Jones manager on March 3?`|
 
-Każdy z tych przykładów używa czasowników w różnych czasach: `was`, `is`, `will be`, a także daty: `March 3`, `now` i `in a month`, których usługa LUIS potrzebuje do poprawnego przewidywania. Należy zauważyć, że dwa ostatnie przykłady w tabeli używają prawie tego samego tekstu z wyjątkiem `in` i `on`.
+Każdy z tych przykładów używa czasowników w różnych czasach: `was`, `is`, `will be`, a także daty: `March 3`, `now` i `in a month`, których usługa LUIS potrzebuje do poprawnego przewidywania. Zwróć uwagę, że ostatnie dwa przykłady w tabeli używają niemal tego samego tekstu, z `in` wyjątkiem `on`i.
 
-Przykładowe wypowiedzi szablonu, które pozwalają na te opcjonalne informacje:
+Przykładowy wyrażenia długości szablonu, który zezwala na te informacje opcjonalne:
 
 |Intencja|Przykładowe wypowiedzi z opcjonalnym tekstem i wstępnie skompilowanymi jednostkami|
 |:--|:--|
@@ -378,11 +378,11 @@ Przykładowe wypowiedzi szablonu, które pozwalają na te opcjonalne informacje:
 Korzystanie z opcjonalnych składni z nawiasami kwadratowymi, `[]`, sprawia, że ten opcjonalny tekst jest łatwy do dodania do wypowiedzi szablonu i może być zagnieżdżony najwyżej do drugiego poziomu, `[[]]`, a także może zawierać tekst lub jednostki.
 
 
-**Pytanie: Dlaczego wszystkie `w` litery, pierwsza litera w każdej wypowiedź szablonu, małe litery? Czy nie powinny być opcjonalnie wielkie lub małe litery?** Wypowiedź przesłana do punktu końcowego zapytania przez aplikację kliencką jest konwertowana na małe litery. Wypowiedź szablonu może zaczynać się dużą lub małą literą, podobnie jak wypowiedź punktu końcowego. Porównanie odbywa się zawsze po konwersji na małe litery.
+**Pytanie: dlaczego wszystkie `w` litery, pierwsza litera w każdym szablonie wypowiedź, małe litery? Nie powinno być opcjonalnie wielkie czy małe?** Wypowiedź przesłana do punktu końcowego zapytania przez aplikację kliencką jest konwertowana na małe litery. Wypowiedź szablonu może zaczynać się dużą lub małą literą, podobnie jak wypowiedź punktu końcowego. Porównanie odbywa się zawsze po konwersji na małe litery.
 
 **Pytanie: dlaczego wstępnie skompilowany numer nie jest częścią wypowiedzi szablonu, jeśli March 3 (3 marca) jest przewidziany zarówno jako liczba `3`, jak i data `March 3`?** Wypowiedź szablonu kontekstowo używa daty — albo dosłownie jak w wypowiedzi `March 3`, albo abstrakcyjnie jak w wypowiedzi `in a month`. Data może zawierać liczbę, ale liczba nie musi być zawsze postrzegana jako data. Należy zawsze używać jednostki najlepiej reprezentującej typ, który ma być zwracany w wynikach przewidywania JSON.
 
-**Pytanie: co z niepoprawnie zapisanymi wypowiedziami, takimi jak `Who will {Employee}['s] manager be on March 3?`.** Gramatycznie różne czasy czasowników, takie jak tu, gdzie `will` i `be` są rozdzielone, muszą być nową wypowiedzią szablonu. Istniejąca wypowiedź szablonu nie będzie z tym zgodna. Mimo że intencja wypowiedzi nie została zmieniona, zmieniło się umieszczenie słowa w wypowiedzi. Ta zmiana ma wpływ na przewidywanie w usłudze LUIS. Można [grupować i lub](#use-the-or-operator-and-groups) czasowników, aby połączyć te wypowiedzi.
+**Pytanie: co z niepoprawnie zapisanymi wypowiedziami, takimi jak `Who will {Employee}['s] manager be on March 3?`.** Gramatycznie różne czasy czasowników, takie jak tu, gdzie `will` i `be` są rozdzielone, muszą być nową wypowiedzią szablonu. Istniejąca wypowiedź szablonu nie będzie z tym zgodna. Mimo że intencja wypowiedzi nie została zmieniona, zmieniło się umieszczenie słowa w wypowiedzi. Ta zmiana ma wpływ na przewidywanie w usłudze LUIS. Aby połączyć te wyrażenia długości [, można grupować i lub](#use-the-or-operator-and-groups) wystawić zlecenia.
 
 **Pamiętaj: najpierw znajdowane są jednostki, a następnie dopasowywany jest wzorzec.**
 
@@ -396,13 +396,13 @@ Korzystanie z opcjonalnych składni z nawiasami kwadratowymi, `[]`, sprawia, że
     |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
     |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
-2. Wybierz **pozycję Trenuj** na pasku nawigacyjnym, aby szkolić aplikację.
+2. Wybierz pozycję **szkolenie** na pasku nawigacyjnym, aby szkolić aplikację.
 
-3. Po zakończeniu szkolenia wybierz **test** w górnej części panelu, aby otworzyć panel testowy.
+3. Po zakończeniu szkolenia wybierz pozycję **Testuj** w górnej części panelu, aby otworzyć panel testowania.
 
 4. Wprowadź kilka testowych wypowiedzi, aby sprawdzić, czy wzorzec jest dopasowany i czy wynik intencji jest znacząco wysoki.
 
-    Po wprowadzeniu pierwszej wypowiedzi wybierz polecenie **Inspect** (Sprawdź) w obszarze wyniku, dzięki czemu można zobaczyć wszystkie wyniki przewidywania. Każda wypowiedź powinna mieć intencji **OrgChart-Manager** i należy wyodrębnić wartości dla jednostek Pracownika i datetimeV2.
+    Po wprowadzeniu pierwszej wypowiedzi wybierz polecenie **Inspect** (Sprawdź) w obszarze wyniku, dzięki czemu można zobaczyć wszystkie wyniki przewidywania. Każdy wypowiedź powinien mieć zamiarowy **schemat organizacyjny** i powinien wyodrębnić wartości dla jednostek pracownika i datetimeV2.
 
     |Wypowiedź|
     |--|
@@ -413,45 +413,45 @@ Korzystanie z opcjonalnych składni z nawiasami kwadratowymi, `[]`, sprawia, że
     |`Who will be Jill Jones manager next Month`|
     |`Who will be Jill Jones manager in a month?`|
 
-Wszystkie te wypowiedzi znalazły jednostki wewnątrz, dlatego pasują do tego samego wzorca i mają wysoki wynik przewidywania. Dodano kilka wzorców, które będą pasować do wielu odmian wypowiedzi. Nie trzeba dodawać żadnych wypowiedzi przykład w intencji, aby wypowiedź szablonu pracy we wzorcu.
+Wszystkie te wypowiedzi znalazły jednostki wewnątrz, dlatego pasują do tego samego wzorca i mają wysoki wynik przewidywania. Dodano kilka wzorców, które będą odpowiadały wielu wahaniom wyrażenia długości. Nie musisz dodawać żadnego przykładu wyrażenia długości w celu, aby szablon wypowiedź działał we wzorcu.
 
-To wykorzystanie wzorów pod warunkiem:
-* Wyższe wyniki prognoz
-* Z tych samych wypowiedzi przykład w intencji
-* Z zaledwie kilkoma dobrze skonstruowanymi wypowiedziami szablonu we wzorcu
+Takie użycie wzorców:
+* Wyższe wyniki przewidywania
+* Z tym samym przykładem wyrażenia długości w zamiarze
+* Za pomocą zaledwie kilku dobrze skonstruowanych szablonów wyrażenia długości w wzorcu
 
-### <a name="use-the-or-operator-and-groups"></a>Użyj operatora i grup OR
+### <a name="use-the-or-operator-and-groups"></a>Używanie operatora OR i grup
 
-Kilka z poprzednich wypowiedzi szablonu są bardzo blisko. Użyj **grupy** `()` i **składni OR,** `|` aby zmniejszyć wypowiedzi szablonu.
+Kilka z poprzedniego wyrażenia długości szablonu jest bardzo blisko. Użyj **grupy** `()` i **lub** `|` składni, aby zmniejszyć wyrażenia długości szablonu.
 
-Następujące wzorce 2 można połączyć w `()` jeden `|` wzorzec przy użyciu grupy i składni OR.
+Poniższe 2 wzorce mogą łączyć się w jeden wzorzec przy użyciu grupy `()` i lub `|` składni.
 
 |Intencja|Przykładowe wypowiedzi z opcjonalnym tekstem i wstępnie skompilowanymi jednostkami|
 |--|--|
 |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
 |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
-Nowa wypowiedź szablonu będzie:
+Nowy szablon wypowiedź będzie:
 
 `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
 
-Używa **grupy** wokół wymaganego czasu czasownika `in` i `on` opcjonalne i **z lub** rury między nimi.
+Powoduje to użycie **grupy** wokół wymaganego przedziału i opcjonalne `in` i `on` z **lub** z potokiem między nimi.
 
-1. Na stronie **Wzorce** wybierz filtr **OrgChart-Manager.** Zawęź listę, wyszukując `manager`.
+1. Na stronie **wzorce** wybierz filtr **schemat organizacyjny — Menedżer** . Zawęź listę, wyszukując frazę `manager`.
 
-1. Zachowaj jedną wersję wypowiedź szablonu (do edycji w następnym kroku) i usuń inne odmiany.
+1. Zachowaj jedną wersję szablonu wypowiedź (do edycji w następnym kroku) i Usuń inne różnice.
 
 1. Zmień wypowiedź szablonu na: 
 
     `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`
 
-2. Wybierz **pozycję Trenuj** na pasku nawigacyjnym, aby szkolić aplikację.
+2. Wybierz pozycję **szkolenie** na pasku nawigacyjnym, aby szkolić aplikację.
 
-3. Po zakończeniu szkolenia wybierz **test** w górnej części panelu, aby otworzyć panel testowy.
+3. Po zakończeniu szkolenia wybierz pozycję **Testuj** w górnej części panelu, aby otworzyć panel testowania.
 
-    Użyj okienka testowego, aby przetestować wersje wypowiedź:
+    Użyj okienka test do testowania wersji wypowiedź:
 
-    |Wypowiedzi do wprowadzenia w okienku testowym|
+    |Wyrażenia długości do wprowadzenia w okienku testu|
     |--|
     |`Who is Jill Jones manager this month`|
     |`Who is Jill Jones manager on July 5th`|
@@ -460,11 +460,11 @@ Używa **grupy** wokół wymaganego czasu czasownika `in` i `on` opcjonalne i **
     |`Who will be Jill Jones manager in a month`|
     |`Who will be Jill Jones manager on July 5th`|
 
-Za pomocą większej składni wzorca, można zmniejszyć liczbę wypowiedzi szablonu, które mają być utrzymywane w aplikacji, a jednocześnie o wysoki wynik prognozowania.
+Używając większej składni wzorców, można zmniejszyć liczbę wyrażenia długości szablonów, które mają być utrzymywane w aplikacji, przy jednoczesnym zachowaniu wysokiej prognozowanych wyników.
 
-### <a name="use-the-utterance-beginning-and-ending-anchors"></a>Używanie zakotwiczenia początkowego i końcowego wypowiedź
+### <a name="use-the-utterance-beginning-and-ending-anchors"></a>Używanie kotwic początkowych i końcowych wypowiedź
 
-Składnia wzorca zawiera początkową i końcową składnię `^`zakotwiczenia wypowiedzi edyty, . Zakotwiczenia wypowiedź początku i zakończenia mogą być używane razem do kierowania bardzo konkretne i ewentualnie dosłowne wypowiedź lub używane oddzielnie do intencji docelowej.
+Składnia wzorca zapewnia początkową i końcową składnię zakotwiczenia wypowiedź karetki `^`. Kotwice początkową i końcową wypowiedź mogą być używane razem w celu określania wartości docelowej i możliwego do oddzielenia literału wypowiedź lub użycia oddzielnie do celów docelowych.
 
 ## <a name="using-patternany-entity"></a>Używanie jednostki Pattern.any
 
@@ -496,29 +496,29 @@ Różna długość zawiera wyrazy, które mogą wprowadzać usługę LUIS w bł�
 |Who authored {FormName}[?] (Kto jest autorem {Nazwa_formularza}[?])|
 |{FormName} is published in French[?] (Czy {Nazwa_formularza} jest publikowany w języku francuskim [?])|
 
-### <a name="add-example-utterances-with-patternany"></a>Dodawanie przykładowych wypowiedzi za pomocą pattern.any
+### <a name="add-example-utterances-with-patternany"></a>Dodaj przykład wyrażenia długości ze wzorcem. any
 
 1. Wybierz pozycję **Build** (Kompiluj) na górnym pasku nawigacyjnym i wybierz pozycję **Intents** (Intencje) na lewym pasku nawigacyjnym.
 
 1. Z listy intencji wybierz pozycję **FindForm** (Znajdź formularz).
 
-1. Dodaj kilka przykładowych wypowiedzi. Tekst, który powinien być przewidywany jako Pattern.any jest **pogrubioną czcionką**. Nazwa formularza jest trudne do określenia z innych słów wokół niego w wypowiedź. Pattern.any pomoże, zaznaczając granice jednostki.
+1. Dodaj przykład wyrażenia długości. Tekst, który powinien być przewidziany jako wzorzec. dowolny jest **pogrubiony tekst**. Nazwa formularza jest trudna do określenia z innych wyrazów w wypowiedź. Wzorzec. wszystkie będą pomocne poprzez oznaczenie granic jednostki.
 
     |Przykładowa wypowiedź|Nazwa formularza|
     |--|--|
-    |Where is the form **What to do when a fire breaks out in the Lab** and who needs to sign it after I read it? (Gdzie jest formularz Postępowanie w razie pożaru w laboratorium i kto musi go podpisać, gdy go przeczytam?)|Co zrobić, gdy w laboratorium wybuchnie pożar
-    |Where is **Request relocation from employee new to the company 2018 version 5** on the server? (Gdzie jest formularz Żądanie przeniesienia nowego pracownika do firmy 2018 wersja 5 na serwerze?)|Wniosek o przeniesienie pracownika do firmy|
-    |Who authored "**Health and wellness requests on the main campus**" and what is the most current version? (Kto jest autorem formularza „Wymagania dotyczące zdrowia i dobrego samopoczucia na głównym kampusie” i jaka jest najbardziej aktualna wersja?)|Wnioski o zdrowie i dobre samopoczucie na głównym kampusie|
-    |I'm looking for the form named "**Office move request including physical assets**". (Szukam formularza o nazwie „Żądanie przeniesienia biura łącznie z zasobami fizycznymi”.) |Żądanie przeniesienia pakietu Office, w tym zasoby fizyczne|
+    |Where is the form **What to do when a fire breaks out in the Lab** and who needs to sign it after I read it? (Gdzie jest formularz Postępowanie w razie pożaru w laboratorium i kto musi go podpisać, gdy go przeczytam?)|Co zrobić, gdy pożar zostanie przerwany w laboratorium
+    |Where is **Request relocation from employee new to the company 2018 version 5** on the server? (Gdzie jest formularz Żądanie przeniesienia nowego pracownika do firmy 2018 wersja 5 na serwerze?)|Żądaj relokacji od pracownika nowego do firmy|
+    |Who authored "**Health and wellness requests on the main campus**" and what is the most current version? (Kto jest autorem formularza „Wymagania dotyczące zdrowia i dobrego samopoczucia na głównym kampusie” i jaka jest najbardziej aktualna wersja?)|Żądania dotyczące kondycji i wellness na głównym kampusie|
+    |I'm looking for the form named "**Office move request including physical assets**". (Szukam formularza o nazwie „Żądanie przeniesienia biura łącznie z zasobami fizycznymi”.) |Żądanie przeniesienia pakietu Office z uwzględnieniem zasobów fizycznych|
 
     Bez jednostki Pattern.any usługa LUIS może mieć trudność ze zrozumieniem, gdzie kończy się tytuł formularza ze względu na wiele różnych nazw formularzy.
 
 ### <a name="create-a-patternany-entity"></a>Tworzenie jednostki Pattern.any
-Jednostka Pattern.any wyodrębnia jednostki o różnej długości. Działa tylko we wzorcu, ponieważ wzorzec oznacza początek i koniec elementu ze składnią.
+Jednostka Pattern.any wyodrębnia jednostki o różnej długości. Działa tylko we wzorcu, ponieważ wzorzec oznacza początek i koniec jednostki z składnią.
 
 1. Wybierz pozycję **Entities** (Jednostki) na lewym pasku nawigacyjnym.
 
-1. Wybierz **+ Utwórz** `FormName`, wprowadź nazwę i wybierz **Deseń.any** jako typ. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **+ Utwórz**, wprowadź nazwę `FormName`i wybierz opcję **wzorzec. dowolny** jako typ. Wybierz przycisk **Utwórz**.
 
 ### <a name="add-a-pattern-that-uses-the-patternany"></a>Dodawanie wzorca, który używa jednostki Pattern.any
 
@@ -554,9 +554,9 @@ Jednostka Pattern.any wyodrębnia jednostki o różnej długości. Działa tylko
 
 Jeśli zauważysz, że Twój wzorzec, gdy zawiera jednostkę Pattern.any, niepoprawnie wyodrębnia jednostki, użyj elementu [explicit list](reference-pattern-syntax.md#explicit-lists) (listy jawnej), aby rozwiązać ten problem.
 
-## <a name="what-did-this-tutorial-accomplish"></a>Co ten poradnik osiągnąć?
+## <a name="what-did-this-tutorial-accomplish"></a>Co zrobił ten samouczek?
 
-W tym samouczku dodano wzorce, aby pomóc usługi LUIS przewidzieć intencji ze znacznie wyższy wynik bez konieczności dodawania więcej wypowiedzi przykład. Oznaczanie jednostek i tekst możliwy do zignorowania pozwoliły usłudze LUIS na zastosowanie wzorca do szerszego zakresu wypowiedzi.
+W tym samouczku dodano wzorce umożliwiające LUIS przewidywalność zamiaru z znacznie wyższym wynikiem, bez konieczności dodawania więcej przykładowych wyrażenia długości. Oznaczanie jednostek i tekst możliwy do zignorowania pozwoliły usłudze LUIS na zastosowanie wzorca do szerszego zakresu wypowiedzi.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

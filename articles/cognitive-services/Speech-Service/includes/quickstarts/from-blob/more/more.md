@@ -5,24 +5,24 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: trbye
 ms.openlocfilehash: 76640d00343cf2d58aa128550e2001779d80d6f2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400978"
 ---
-## <a name="additional-language-and-platform-support"></a>Dodatkowa obsługa języka i platformy
+## <a name="additional-language-and-platform-support"></a>Dodatkowy język i obsługa platformy
 
-Jeśli klikniesz tę kartę, prawdopodobnie nie widzisz szybkiego startu w ulubionym języku programowania. Nie martw się, mamy dodatkowe materiały szybkiego startu i przykłady kodu dostępne w usłudze GitHub. Użyj tabeli, aby znaleźć odpowiednią próbkę dla języka programowania i kombinacji platformy/systemu operacyjnego.
+Jeśli kliknięto tę kartę, prawdopodobnie nie widzisz przewodnika Szybki Start w ulubionym języku programowania. Nie martw się, oferujemy dodatkowe materiały szybkiego startu i przykłady kodu dostępne w serwisie GitHub. Skorzystaj z tabeli, aby znaleźć odpowiedni przykład dla Twojego języka programowania i kombinacji platformy/systemu operacyjnego.
 
-| Język | Dodatkowe przewodniki Szybki start | Przykłady kodu |
+| Język | Dodatkowe Przewodniki Szybki Start | Przykłady kodu |
 |--|--|--|
-| C# | [Z pliku mic][1-mic], [From][1-file] | [.NET Framework][dotnet], [.NET Core][netcore], [UWP][uwp], [Unity][unity], [Xamarin][xamarin] |
-| C++ | [Z pliku mic][2-mic], [From][2-file] | [Windows][cpp-windows], [Linux][cpp-linux], [macOS][cpp-mac] |
-| Java | [Z pliku mic][3-mic], [From][3-file] | [Android][java-android], [JRE][java-jre] |
-| JavaScript | [Przeglądarka z mikrofonu][js-browser], [Node.js z pliku][js-node] | [Windows, Linux, macOS][js-code] |
+| C# | [Od mikrofonu][1-mic], [z pliku][1-file] | [.NET Framework][dotnet], [.NET Core][netcore], [platformy UWP][uwp], [Unity][unity], [Xamarin][xamarin] |
+| C++ | [Od mikrofonu][2-mic], [z pliku][2-file] | [Windows][cpp-windows], [Linux][cpp-linux], [macOS][cpp-mac] |
+| Java | [Od mikrofonu][3-mic], [z pliku][3-file] | [Android][java-android], [JRE][java-jre] |
+| JavaScript | [Przeglądarka z pliku z użyciem mikrofonu][js-browser], [Node. js][js-node] | [Windows, Linux, macOS][js-code] |
 | Obiektowy C | [iOS z mikrofonu][obj-iOS-qck], [macOS z mikrofonu][obj-macOS-qck] | [iOS][obj-iOS], [macOS][obj-macOS] |
-| Python | [Z pliku mic][4-mic], [From][4-file] | [Windows, Linux, macOS][python] |
+| Python | [Od mikrofonu][4-mic], [z pliku][4-file] | [Windows, Linux, macOS][python] |
 | Swift | [iOS z mikrofonu][swift-iOS-qck], [macOS z mikrofonu][swift-macOS-qck] | [iOS][swift-iOS], [macOS][swift-macOS] |
 
 [1-mic]: ../../../../quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp

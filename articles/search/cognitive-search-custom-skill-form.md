@@ -1,7 +1,7 @@
 ---
 title: Niestandardowa umiejętność rozpoznawania formularzy (C#)
 titleSuffix: Azure Cognitive Search
-description: Dowiedz się, jak utworzyć niestandardową umiejętność rozpoznawania formularzy przy użyciu języka C# i programu Visual Studio.
+description: Dowiedz się, jak utworzyć niestandardową umiejętność aparatu rozpoznawania formularzy przy użyciu języka C# i programu Visual Studio.
 manager: nitinme
 author: PatrickFarley
 ms.author: pafarley
@@ -9,51 +9,51 @@ ms.service: cognitive-search
 ms.topic: article
 ms.date: 01/21/2020
 ms.openlocfilehash: 713b790c432f0e416392243262aed4b0fcda8892
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81274577"
 ---
-# <a name="example-create-a-form-recognizer-custom-skill"></a>Przykład: Tworzenie niestandardowej umiejętności rozpoznawania formularzy
+# <a name="example-create-a-form-recognizer-custom-skill"></a>Przykład: Utwórz niestandardową umiejętność aparatu rozpoznawania formularzy
 
-W tym przykładzie narzędzia umiejętności usługi Azure Cognitive Search dowiesz się, jak utworzyć niestandardową umiejętność rozpoznawania formularzy przy użyciu języka C# i programu Visual Studio. Aparat rozpoznawania formularzy analizuje dokumenty i wyodrębnia pary klucz/wartość oraz dane tabeli. Zapakowanie aparatu rozpoznawania formularzy do [niestandardowego interfejsu umiejętności](cognitive-search-custom-skill-interface.md)można dodać tę funkcję jako krok w potoku wzbogacania end-to-end. Potoku można następnie załadować dokumenty i wykonać inne przekształcenia.
+Na tym przykładzie usługi Azure Wyszukiwanie poznawcze zestawu umiejętności dowiesz się, jak utworzyć niestandardową umiejętność aparatu rozpoznawania formularzy przy użyciu języka C# i programu Visual Studio. Aparat rozpoznawania formularzy analizuje dokumenty i wyodrębnia pary klucz/wartość oraz dane tabeli. Przez otokę aparatu rozpoznawania formularzy do [niestandardowego interfejsu umiejętności](cognitive-search-custom-skill-interface.md)można dodać tę funkcję jako krok do kompleksowego potoku wzbogacania. Potok może następnie załadować dokumenty i wykonać inne przekształcenia.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (dowolna wersja).
-- Co najmniej pięć form tego samego typu. Można użyć przykładowych danych dostarczonych z tym przewodnikiem.
+- Co najmniej pięć formularzy tego samego typu. Możesz użyć przykładowych danych dostarczanych z tym przewodnikiem.
 
-## <a name="create-a-form-recognizer-resource"></a>Tworzenie zasobu aparatu rozpoznawania formularzy
+## <a name="create-a-form-recognizer-resource"></a>Tworzenie zasobu aparatu rozpoznawania formularza
 
 [!INCLUDE [create resource](../cognitive-services/form-recognizer/includes/create-resource.md)]
 
 ## <a name="train-your-model"></a>Trenowanie modelu
 
-Przed użyciem tej umiejętności należy wyszkolić model aparatu rozpoznawania formularzy za pomocą formularzy wejściowych. Postępuj zgodnie z [przewodnikiem szybki start cURL,](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/curl-train-extract) aby dowiedzieć się, jak szkolić model. Można użyć przykładowych formularzy podanych w tym przewodniku Szybki start lub użyć własnych danych. Po przeszkoleniu modelu skopiuj jego wartość identyfikatora do bezpiecznej lokalizacji.
+Przed rozpoczęciem korzystania z tej umiejętności należy przeprowadzić uczenie modelu aparatu rozpoznawania formularzy przy użyciu formularzy wejściowych. Postępuj zgodnie z [przewodnikiem Szybki Start](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/curl-train-extract) , aby dowiedzieć się, jak szkolić model. Możesz użyć przykładowych formularzy dostarczonych w tym przewodniku szybki start lub można użyć własnych danych. Po przeszkoleniu modelu skopiuj jego wartość identyfikatora do bezpiecznej lokalizacji.
 
-## <a name="set-up-the-custom-skill"></a>Konfigurowanie umiejętności niestandardowych
+## <a name="set-up-the-custom-skill"></a>Skonfiguruj niestandardową umiejętność
 
-W tym samouczku użyto projektu [AnalyzeForm](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Vision/AnalyzeForm) w repozytorium Usługi [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) GitHub. Sklonuj to repozytorium na komputerze lokalnym i przejdź do **wizji/analizyform/** w celu uzyskania dostępu do projektu. Następnie otwórz _analyzeform.csproj_ w programie Visual Studio. Ten projekt tworzy zasób funkcji platformy Azure, który spełnia [niestandardowy interfejs umiejętności](cognitive-search-custom-skill-interface.md) i może służyć do wzbogacania usługi Azure Cognitive Search. Przyjmuje dokumenty formularza jako dane wejściowe i wyprowadza (jako tekst) pary klucz/wartość, które określisz.
+W tym samouczku jest stosowany projekt [AnalyzeForm](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Vision/AnalyzeForm) w repozytorium GitHub [umiejętności zarządzania](https://github.com/Azure-Samples/azure-search-power-skills) w witrynie Azure Search. Sklonuj to repozytorium na komputerze lokalnym i przejdź do **elementu Vision/AnalyzeForm/** , aby uzyskać dostęp do projektu. Następnie otwórz _AnalyzeForm. csproj_ w programie Visual Studio. Ten projekt tworzy zasób funkcji platformy Azure, który spełnia [niestandardowy interfejs umiejętności](cognitive-search-custom-skill-interface.md) i może służyć do wzbogacania wyszukiwanie poznawcze platformy Azure. Przyjmuje dokumenty formularza jako dane wejściowe i wyprowadza (jako tekst) pary klucz/wartość, które określisz.
 
-Najpierw dodaj zmienne środowiskowe na poziomie projektu. Znajdź projekt **AnalyzeForm** w lewym okienku, kliknij go prawym przyciskiem myszy i wybierz polecenie **Właściwości**. W oknie **Właściwości** kliknij kartę **Debugowanie,** a następnie znajdź pole **Zmienne środowisko.** Kliknij **przycisk Dodaj,** aby dodać następujące zmienne:
-* `FORMS_RECOGNIZER_ENDPOINT_URL`z wartością ustawioną na adres URL punktu końcowego.
-* `FORMS_RECOGNIZER_API_KEY`z wartością ustawioną na klucz subskrypcji.
+Najpierw Dodaj zmienne środowiskowe na poziomie projektu. Znajdź projekt **AnalyzeForm** w lewym okienku, kliknij go prawym przyciskiem myszy, a następnie wybierz polecenie **Właściwości**. W oknie **Właściwości** kliknij kartę **debugowanie** , a następnie znajdź pole **zmienne środowiskowe** . Kliknij przycisk **Dodaj** , aby dodać następujące zmienne:
+* `FORMS_RECOGNIZER_ENDPOINT_URL`wartość ustawiona na adres URL punktu końcowego.
+* `FORMS_RECOGNIZER_API_KEY`wartość ustawiona na klucz subskrypcji.
 * `FORMS_RECOGNIZER_MODEL_ID`z wartością ustawioną na identyfikator przeszkolonego modelu.
-* `FORMS_RECOGNIZER_RETRY_DELAY`z wartością ustawioną na 1000. Ta wartość jest czas w milisekundach, że program będzie czekać przed ponowieniem próby kwerendy.
-* `FORMS_RECOGNIZER_MAX_ATTEMPTS`z wartością ustawioną na 100. Ta wartość jest liczba razy program będzie kwerendy usługi podczas próby uzyskania pomyślnej odpowiedzi.
+* `FORMS_RECOGNIZER_RETRY_DELAY`wartość ustawiona na 1000. Ta wartość to czas (w milisekundach) oczekiwania programu przed ponowieniem próby wykonania zapytania.
+* `FORMS_RECOGNIZER_MAX_ATTEMPTS`wartość ustawiona na 100. Ta wartość jest tym, ile razy program wyśle zapytanie do usługi podczas próby uzyskania pomyślnej odpowiedzi.
 
-Następnie otwórz _AnalyzeForm.cs_ i znajdź `fieldMappings` zmienną, która odwołuje się do pliku *field-mappings.json.* Ten plik (i zmienna, która się do niego odwołuje) definiuje listę kluczy, które chcesz wyodrębnić z formularzy i etykietę niestandardową dla każdego klucza. Na przykład wartość `{ "Address:", "address" }, { "Invoice For:", "recipient" }` oznacza, że skrypt zapisze tylko `Address:` wartości `Invoice For:` dla wykrytych i pól, a etykiety te wartości z `"address"` i `"recipient"`, odpowiednio.
+Następnie otwórz _AnalyzeForm.cs_ i Znajdź `fieldMappings` zmienną, która odwołuje się do pliku *mapowania pól. JSON* . Ten plik (oraz zmienna odwołująca się do niego) definiuje listę kluczy, które mają zostać wyodrębnione z formularzy, oraz etykietę niestandardową dla każdego klucza. `{ "Address:", "address" }, { "Invoice For:", "recipient" }` Na przykład wartość oznacza, że skrypt będzie zapisywał tylko wartości dla wykrytych `Address:` i `Invoice For:` pól, a następnie oznaczy te wartości odpowiednio znakami `"recipient"` `"address"` i.
 
-Na koniec należy `contentType` zwrócić uwagę na zmienną. Ten skrypt uruchamia dany model rozpoznawania formularzy na zdalnych dokumentach, `application/json`do których odwołuje się adres URL, więc typem zawartości jest . Jeśli chcesz analizować pliki lokalne, dołączając ich strumienie bajtów do `contentType` żądań HTTP, musisz zmienić odpowiedni [typ MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types) dla pliku.
+Na koniec Zwróć uwagę `contentType` na zmienną. Ten skrypt uruchamia dany model aparatu rozpoznawania formularzy w dokumentach zdalnych, do których odwołuje się adres URL, więc typ `application/json`zawartości to. Jeśli chcesz analizować pliki lokalne przez uwzględnienie ich strumieni bajtów w żądaniach HTTP, należy zmienić `contentType` na odpowiedni [Typ MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types) dla pliku.
 
 ## <a name="test-the-function-from-visual-studio"></a>Testowanie funkcji z programu Visual Studio
 
-Po edycji projektu zapisz go i ustaw projekt **AnalyzeForm** jako projekt startowy w programie Visual Studio (jeśli nie jest jeszcze ustawiony). Następnie naciśnij **klawisz F5,** aby uruchomić tę funkcję w środowisku lokalnym. Użyj usługi REST, takiej jak [Postman,](https://www.postman.com/) aby wywołać tę funkcję.
+Po edytowaniu projektu, Zapisz go i ustaw projekt **AnalyzeForm** jako projekt startowy w programie Visual Studio (jeśli nie został jeszcze ustawiony). Naciśnij klawisz **F5** , aby uruchomić funkcję w środowisku lokalnym. Użyj usługi REST, takiej jak [Poster](https://www.postman.com/) , aby wywołać funkcję.
 
 ### <a name="http-request"></a>Żądanie HTTP
 
-Zostanie złożony następujący wniosek, aby wywołać funkcję.
+Należy wykonać następujące żądanie wywołania funkcji.
 
 ```HTTP
 POST https://localhost:7071/api/analyze-form
@@ -61,7 +61,7 @@ POST https://localhost:7071/api/analyze-form
 
 ### <a name="request-body"></a>Treść żądania
 
-Zacznij od poniższego szablonu treści żądania.
+Rozpocznij od szablonu treści żądania poniżej.
 
 ```json
 {
@@ -77,19 +77,19 @@ Zacznij od poniższego szablonu treści żądania.
 }
 ```
 
-W tym miejscu należy podać adres URL formularza, który ma ten sam typ co formularze, z którymi został przeszkolony. Do celów testowych można użyć jednego z formularzy treningowych. Jeśli po cURL szybki start, formularze będą znajdować się w koncie magazynu obiektów blob platformy Azure. Otwórz Eksploratora usługi Azure Storage, znajdź plik formularza, kliknij go prawym przyciskiem myszy i wybierz pozycję **Pobierz podpis dostępu współdzielonego**. Następne okno dialogowe zapewni adres URL i token sygnatury dostępu Współdzielonego. Wprowadź te ciągi `"formUrl"` `"formSasToken"` w i pola treści żądania, odpowiednio.
+W tym miejscu należy podać adres URL formularza, który ma ten sam typ co przeszkolone formularze. Do celów testowych możesz użyć jednego z Twoich formularzy szkoleniowych. Jeśli korzystasz z tego przewodnika Szybki Start, Twoje formularze będą znajdować się na koncie usługi Azure Blob Storage. Otwórz Eksplorator usługi Azure Storage, zlokalizuj plik formularza, kliknij go prawym przyciskiem myszy, a następnie wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**. Następne okno dialogowe udostępnia adres URL i token sygnatury dostępu współdzielonego. Wprowadź te ciągi odpowiednio w `"formUrl"` polach `"formSasToken"` i treści żądania.
 
 > [!div class="mx-imgBorder"]
-> ![Eksplorator magazynu platformy Azure; wybrany jest dokument pdf](media/cognitive-search-skill-form/form-sas.png)
+> ![Eksplorator usługi Azure Storage; wybrano dokument PDF](media/cognitive-search-skill-form/form-sas.png)
 
-Jeśli chcesz analizować zdalny dokument, który nie jest w magazynie obiektów `"formUrl"` blob `"formSasToken"` platformy Azure, wklej jego adres URL w polu i pozostaw pole puste.
+Jeśli chcesz analizować dokument zdalny, który nie znajduje się w usłudze Azure Blob Storage, wklej jego adres URL `"formUrl"` w polu i pozostaw `"formSasToken"` pole puste.
 
 > [!NOTE]
-> Gdy umiejętność jest zintegrowana z zestawem umiejętności, adres URL i token będą dostarczane przez wyszukiwanie poznawcze.
+> Gdy umiejętność jest zintegrowana z zestawu umiejętności, adres URL i token będą udostępniane przez Wyszukiwanie poznawcze.
 
 ### <a name="response"></a>Odpowiedź
 
-Powinna zostać wyświetlna odpowiedź podobna do poniższego przykładu:
+Powinna zostać wyświetlona odpowiedź podobna do poniższego przykładu:
 
 ```json
 {
@@ -109,17 +109,17 @@ Powinna zostać wyświetlna odpowiedź podobna do poniższego przykładu:
 
 ## <a name="publish-the-function-to-azure"></a>Publikowanie funkcji na platformie Azure
 
-Jeśli jesteś zadowolony z zachowania funkcji, można go opublikować.
+Gdy zachowanie funkcji jest zadowalające, można je opublikować.
 
-1. W **Eksploratorze rozwiązań** w programie Visual Studio kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Publikuj**. Wybierz pozycję **Utwórz nowy** > **publikowanie**.
+1. W **Eksplorator rozwiązań** w programie Visual Studio kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Publikuj**. Wybierz pozycję **Utwórz nową** > **publikację**.
 1. Jeśli program Visual Studio nie został jeszcze połączony z kontem platformy Azure, wybierz pozycję **Dodaj konto....**
-1. Postępuj zgodnie z instrukcjami wyświetlanymi na ekranie. Określ unikatową nazwę usługi aplikacji, subskrypcji platformy Azure, grupy zasobów, planu hostingu i konta magazynu, którego chcesz użyć. Jeśli jeszcze ich nie masz, możesz utworzyć nową grupę zasobów, nowy plan hostingu i nowe konto magazynu. Po zakończeniu wybierz pozycję **Utwórz**.
-1. Po zakończeniu wdrażania zwróć uwagę na adres URL witryny. Ten adres URL to adres aplikacji funkcji na platformie Azure. Zapisz go w lokalizacji tymczasowej.
-1. W [witrynie Azure portal](https://portal.azure.com)przejdź do grupy `AnalyzeForm` zasobów i poszukaj opublikowanej funkcji. W sekcji **Zarządzanie** powinny zostać wyświetlona sekcja Klucze hosta. Skopiuj *domyślny* klucz hosta i zapisz go w lokalizacji tymczasowej.
+1. Postępuj zgodnie z instrukcjami wyświetlanymi na ekranie. Określ unikatową nazwę usługi App Service, subskrypcję platformy Azure, grupę zasobów, plan hostingu i konto magazynu, którego chcesz użyć. Jeśli jeszcze tego nie zrobiono, możesz utworzyć nową grupę zasobów, nowy plan hostingu i nowe konto magazynu. Po zakończeniu wybierz pozycję **Utwórz**.
+1. Po zakończeniu wdrażania Zwróć uwagę na adres URL witryny. Ten adres URL jest adresem aplikacji funkcji na platformie Azure. Zapisz ją w lokalizacji tymczasowej.
+1. W [Azure Portal](https://portal.azure.com)przejdź do grupy zasobów, a następnie wyszukaj opublikowaną `AnalyzeForm` funkcję. W sekcji **Zarządzanie** powinny zostać wyświetlone klucze hosta. Skopiuj *domyślny* klucz hosta i Zapisz go w lokalizacji tymczasowej.
 
-## <a name="connect-to-your-pipeline"></a>Łączenie się z rurociągiem
+## <a name="connect-to-your-pipeline"></a>Nawiązywanie połączenia z potokiem
 
-Aby użyć tej umiejętności w potoku wyszukiwania poznawczego, musisz dodać definicję umiejętności do swojego zestawu umiejętności. Następujący blok JSON jest przykładową definicją umiejętności (należy zaktualizować dane wejściowe i wyjściowe, aby odzwierciedlić określony scenariusz i środowisko zestaw umiejętności). Zamień `AzureFunctionEndpointUrl` na adres `AzureFunctionDefaultHostKey` URL funkcji i zastąp kluczem hosta.
+Aby skorzystać z tej umiejętności w potoku Wyszukiwanie poznawcze, musisz dodać definicję umiejętności do zestawu umiejętności. Poniższy blok JSON jest przykładową definicją umiejętności (należy zaktualizować dane wejściowe i wyjściowe, aby odzwierciedlały określony scenariusz i środowisko zestawu umiejętności). Zamień `AzureFunctionEndpointUrl` na adres URL funkcji i Zamień `AzureFunctionDefaultHostKey` na swój klucz hosta.
 
 ```json
 { 
@@ -162,10 +162,10 @@ Aby użyć tej umiejętności w potoku wyszukiwania poznawczego, musisz dodać d
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku utworzono niestandardową umiejętność z usługi Azure Form Aparat rozpoznawania. Aby dowiedzieć się więcej o umiejętnościach niestandardowych, zobacz następujące zasoby. 
+W tym przewodniku utworzono niestandardową umiejętność z usługi rozpoznawania formularzy platformy Azure. Aby dowiedzieć się więcej o umiejętnościach niestandardowych, zobacz następujące zasoby. 
 
-* [Umiejętności zasilania usługi Azure Search: repozytorium umiejętności niestandardowych](https://github.com/*zure-Samples/azure-search-power-skills)
-* [Dodawanie umiejętności niestandardowych do potoku wzbogacania si.](cognitive-search-custom-skill-interface.md)
+* [Azure Search umiejętności dotyczące oszczędzania mocy: repozytorium umiejętności niestandardowych](https://github.com/*zure-Samples/azure-search-power-skills)
+* [Dodaj niestandardową umiejętność do potoku wzbogacania AI](cognitive-search-custom-skill-interface.md)
 * [Definiowanie zestawu umiejętności](cognitive-search-defining-skillset.md)
-* [Tworzenie zestawu umiejętności (REST)](https://docs.microsoft.com/rest/api/*earchservice/create-skillset)
+* [Utwórz zestawu umiejętności (REST)](https://docs.microsoft.com/rest/api/*earchservice/create-skillset)
 * [Mapuj wzbogacone pola](cognitive-search-output-field-mapping.md)

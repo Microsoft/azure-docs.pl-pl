@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: synteza mowy z prelegentem - usługa mowy'
+title: 'Szybki Start: synteza mowy z usługą głośnik-mowę'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku Szybki start użyjesz zestawu SDK mowy do konwersji tekstu na syntetyzowaną mowę i odtworzenia danych wyjściowych na głośniku.
+description: W tym przewodniku szybki start użyjesz zestawu Speech SDK do przekonwertowania tekstu na mowę i odtworzenia danych wyjściowych na prelegentze.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -12,13 +12,13 @@ ms.date: 02/10/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: e624c6c291dcd3ac17571cd93d67ac909d04f3d4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400383"
 ---
-# <a name="quickstart-synthesize-speech-to-a-speaker"></a>Szybki start: synteza mowy z prelegentem
+# <a name="quickstart-synthesize-speech-to-a-speaker"></a>Szybki Start: synteza mowy z prelegentem
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/tts/header.md)]

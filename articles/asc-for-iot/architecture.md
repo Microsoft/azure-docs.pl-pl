@@ -1,6 +1,6 @@
 ---
 title: Architektura rozwiązania
-description: Dowiedz się więcej o przepływie informacji w usłudze Azure Security Center dla IoT.
+description: Dowiedz się więcej o przepływie informacji w Azure Security Center usługi IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,56 +16,56 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 4cc7d1982555f058a4ea23f7d8a6fdc2d83e484d
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311747"
 ---
 # <a name="azure-security-center-for-iot-architecture"></a>Architektura usługi Azure Security Center dla IoT
 
-W tym artykule opisano architekturę systemu funkcjonalnego usługi Azure Security Center dla rozwiązania IoT.
+W tym artykule wyjaśniono architekturę systemu funkcjonalnego Azure Security Center rozwiązania IoT.
 
-## <a name="azure-security-center-for-iot-components"></a>Usługa Azure Security Center dla składników IoT
+## <a name="azure-security-center-for-iot-components"></a>Azure Security Center dla składników IoT
 
-Usługa Azure Security Center for IoT składa się z następujących składników:
+Azure Security Center IoT składa się z następujących składników:
 
-- Integracja z centrum IoT
+- Integracja IoT Hub
 - Agenci urządzeń (opcjonalnie)
-- Wyślij sdk wiadomości zabezpieczających
+- Wyślij zestaw SDK komunikatów zabezpieczeń
 - Potok analizy
 
-### <a name="azure-security-center-for-iot-workflows"></a>Usługi Azure Security Center dla przepływów pracy IoT
+### <a name="azure-security-center-for-iot-workflows"></a>Azure Security Center dla przepływów pracy IoT
 
-Usługa Azure Security Center dla IoT działa w jednym z dwóch przepływów pracy funkcji: wbudowanym i rozszerzonym
+Azure Security Center IoT działa w jednym z dwóch przepływów pracy funkcji: wbudowanych i ulepszonych
 
 ### <a name="built-in"></a>Wbudowane
 
-W trybie **wbudowanym** usługa Azure Security Center dla IoT jest włączona po wybraniu opcji **zabezpieczeń** w centrum IoT Hub. Oferując monitorowanie w czasie rzeczywistym, rekomendacje i alerty, tryb wbudowany oferuje widoczność urządzenia jednoetapowego i niezrównane zabezpieczenia. Tryb wbudowany nie wymaga instalacji agenta na żadnych urządzeniach i wykorzystuje zaawansowaną analizę zarejestrowanych działań do analizowania i ochrony urządzenia terenowego.
+W trybie **wbudowanym** Azure Security Center usługi IoT jest włączane po wybraniu opcji Włącz opcję **zabezpieczenia** w IoT Hub. Zapewnianie monitorowania w czasie rzeczywistym, zaleceń i alertów, wbudowany tryb oferuje jednoetapową widoczność urządzenia i niedopasowane zabezpieczenia. Tryb kompilacji nie wymaga instalacji agenta na żadnym urządzeniu i używa zaawansowanej analizy na zarejestrowanych działaniach, aby przeanalizować i chronić urządzenie pola.
 
 ### <a name="enhanced"></a>Rozszerzone
 
-W trybie **rozszerzonym** po włączeniu opcji **Zabezpieczenia** w centrum IoT hub i zainstalowaniu usługi Azure Security Center dla agentów urządzeń IoT na urządzeniach agenci zbierają, agregują i analizują nieprzetworzone zdarzenia zabezpieczeń z urządzeń. Surowe zdarzenia zabezpieczeń mogą obejmować połączenia IP, tworzenie procesów, loginy użytkowników i inne informacje istotne dla zabezpieczeń. Usługa Azure Security Center dla agentów urządzeń IoT obsługuje również agregację zdarzeń, aby uniknąć wysokiej przepływności sieci. Agenci są wysoce konfigurowalny, co pozwala na korzystanie z nich do określonych zadań, takich jak wysyłanie tylko ważnych informacji w najszybszej umowy SLA lub do agregowania obszernych informacji o zabezpieczeniach i kontekstu w większych segmentach, unikając wyższych kosztów usług.
+W trybie **rozszerzonym** po włączeniu opcji **zabezpieczeń** w IoT Hub i zainstalowaniu Azure Security Center dla agentów urządzeń IoT na urządzeniach Agenci zbierają, agregują i analizują surowe zdarzenia zabezpieczeń z urządzeń. Surowe zdarzenia zabezpieczeń mogą obejmować połączenia IP, tworzenie procesów, logowania użytkowników i inne informacje związane z zabezpieczeniami. Azure Security Center dla agentów urządzeń IoT obsługują również agregację zdarzeń, aby zapobiec dużej przepływności sieci. Agenci są w wysokim stopniu dostosowywany, co pozwala na korzystanie z nich do określonych zadań, takich jak wysyłanie tylko ważnych informacji z najszybszą umową SLA lub agregowanie szczegółowych informacji o zabezpieczeniach i kontekstu w dużych segmentach, co pozwala uniknąć wyższych kosztów usługi.
 
 ![Architektura usługi Azure Security Center dla IoT](./media/architecture/azure-iot-security-architecture.png)
 
-Agenci urządzeń i inne aplikacje używają **sdk wiadomości zabezpieczeń platformy Azure** do wysyłania informacji o zabezpieczeniach do usługi Azure IoT Hub. Usługa IoT Hub odbiera te informacje i przekazuje ją do usługi Azure Security Center for IoT.
+Agenci urządzeń i inne aplikacje używają **zestawu SDK komunikatów zabezpieczeń platformy Azure** do wysyłania informacji o zabezpieczeniach do usługi Azure IoT Hub. IoT Hub pobiera te informacje i przekazuje je do Azure Security Center usługi IoT.
 
-Po włączeniu usługi Azure Security Center dla IoT, oprócz przesyłanych dalej danych, Usługa IoT Hub wysyła również wszystkie swoje wewnętrzne dane do analizy przez usługę Azure Security Center dla IoT. Dane te obejmują dzienniki operacji w chmurze urządzenia, tożsamości urządzeń i konfigurację koncentratora. Wszystkie te informacje pomaga utworzyć potok analizy Usługi Azure Security Center dla IoT.
+Gdy Azure Security Center usługi IoT zostanie włączona, oprócz danych przekazywanych przez program IoT Hub wysyła także wszystkie dane wewnętrzne do analizy przez Azure Security Center dla IoT. Te dane obejmują dzienniki operacji w chmurze urządzenia, tożsamości urządzeń i konfigurację centrum. Wszystkie te informacje ułatwiają tworzenie Azure Security Center dla potoku analizy IoT.
 
-Potok analizy usługi Azure Security Center for IoT otrzymuje również dodatkowe strumienie analizy zagrożeń z różnych źródeł w firmach Microsoft i partnerów firmy Microsoft. Usługa Azure Security Center for IoT cały potok analizy działa z każdą konfiguracją klienta wykonaną w usłudze (na przykład alertami niestandardowymi i użyciem sdk wiadomości zabezpieczeń wysyłania).
+Azure Security Center dla potoku usługi IoT Analytics odbiera również dodatkowe strumienie analizy zagrożeń z różnych źródeł w ramach firmy Microsoft i partnerów firmy Microsoft. Azure Security Center dla całego potoku analizy usługi IoT działa z każdą konfiguracją klienta w usłudze (taką jak niestandardowe alerty i użycie zestawu SDK komunikatów o zabezpieczeniach wysyłania).
 
-Za pomocą potoku analizy usługa Azure Security Center dla IoT łączy wszystkie strumienie informacji w celu wygenerowania zaleceń i alertów podlegania działaniu. Potok zawiera zarówno niestandardowe reguły utworzone przez badaczy zabezpieczeń i ekspertów, jak i modele uczenia maszynowego wyszukujące odchylenie od standardowego zachowania urządzenia i analizy ryzyka.
+Korzystając z potoku analizy, Azure Security Center dla usługi IoT łączy wszystkie strumienie informacji w celu generowania zaleceń i alertów z możliwością wykonania akcji. Potok zawiera zarówno reguły niestandardowe utworzone przez badaczy zabezpieczeń, jak i ekspertów, jak również modele uczenia maszynowego poszukujące odchyleń od standardowych zachowań urządzeń i analizy ryzyka.
 
-Usługa Azure Security Center dla zaleceń i alertów IoT (dane wyjściowe potoku analizy) jest zapisywany w obszarze roboczym usługi Log Analytics każdego klienta. Uwzględnienie nieprzetworzonych zdarzeń w obszarze roboczym, a także alertów i zaleceń umożliwia szczegółowe badania i zapytania przy użyciu dokładnych szczegółów wykrytych podejrzanych działań.
+Azure Security Center do zaleceń i alertów usługi IoT (dane wyjściowe potoku analiz) są zapisywane w obszarze roboczym Log Analytics każdego klienta. Uwzględnianie nieprzetworzonych zdarzeń w obszarze roboczym, a także alertów i zaleceń pozwala na głębokie badanie szczegółowe oraz zapytania wykorzystujące dokładne szczegóły wykrytych podejrzanych działań.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule poznaliście podstawową architekturę i przepływ pracy rozwiązania Usługi Azure Security Center dla IoT. Aby dowiedzieć się więcej na temat wymagań wstępnych, jak rozpocząć i włączyć rozwiązanie zabezpieczeń w Centrum IoT, zobacz następujące artykuły:
+W tym artykule przedstawiono informacje o podstawowej architekturze i przepływie pracy Azure Security Center na potrzeby rozwiązania IoT. Aby dowiedzieć się więcej o wymaganiach wstępnych, sposobach rozpoczynania i włączania rozwiązania zabezpieczeń w IoT Hub, zobacz następujące artykuły:
 
 - [Wymagania wstępne usługi](service-prerequisites.md)
 - [Wprowadzenie](getting-started.md)
 - [Konfigurowanie rozwiązania](quickstart-configure-your-solution.md)
-- [Włączanie zabezpieczeń w Centrum IoT](quickstart-onboard-iot-hub.md)
-- [Usługa Azure Security Center for IoT – często zadawane pytania](resources-frequently-asked-questions.md)
+- [Włącz zabezpieczenia w IoT Hub](quickstart-onboard-iot-hub.md)
+- [Azure Security Center często zadawane pytania dotyczące usługi IoT](resources-frequently-asked-questions.md)
 - [Azure Security Center for IoT security alerts (Alerty zabezpieczeń usługi Azure Security Center dla IoT)](concept-security-alerts.md)

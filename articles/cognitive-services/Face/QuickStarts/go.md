@@ -1,7 +1,7 @@
 ---
 title: 'Szybki start: wykrywanie twarzy na obrazie przy użyciu interfejsu API REST i języka Go'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku Szybki start można wykryć twarze z obrazu za pomocą usługi Twarz z go.
+description: W tym przewodniku szybki start wykryjesz twarze z obrazu za pomocą usługi twarzy.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: b3e6f5746df6197938d3a91de5ff11b1a311d762
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81402946"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Szybki start: wykrywanie twarzy na obrazie przy użyciu interfejsu API REST i języka Go
 
-W tym przewodniku Szybki start użyjesz interfejsu API rest usługi Azure Face z go do wykrywania ludzkich twarzy w obrazie.
+W tym przewodniku szybki start użyjemy interfejsu API REST platformy Azure — w celu wykrywania ludzkich twarzy na obrazie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Klucz subskrypcji Face. Klucz subskrypcji bezpłatnej wersji próbnej możesz uzyskać na stronie [Wypróbuj usługi Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Możesz też postępować zgodnie z instrukcjami w aplikacji [Utwórz konto usług Cognitive Services,](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) aby zasubskrybować usługę Face i uzyskać klucz.
+- Klucz subskrypcji programu Marketo. Klucz subskrypcji bezpłatnej wersji próbnej możesz uzyskać na stronie [Wypróbuj usługi Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Lub postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby subskrybować usługę i uzyskać klucz.
 - Edytor kodu, taki jak program [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="write-the-script"></a>Pisanie skryptu
@@ -108,11 +108,11 @@ func main() {
 }
 ```
 
-Należy zaktualizować wartość za `subscriptionKey` pomocą klucza subskrypcji i `uriBase` zmienić ciąg tak, aby zawierał prawidłowy ciąg punktu końcowego.
+Musisz zaktualizować `subscriptionKey` wartość przy użyciu klucza subskrypcji i zmienić `uriBase` ciąg tak, aby zawierał poprawny ciąg punktu końcowego.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-Możesz również zmienić pole `imageUrl`, aby wskazywało na Twój obraz wejściowy. Można również zmienić `returnFaceAttributes` pole określające, które atrybuty twarzy mają zostać pobrane.
+Możesz również zmienić pole `imageUrl`, aby wskazywało na Twój obraz wejściowy. Możesz również zmienić `returnFaceAttributes` pole określające atrybuty kroju do pobrania.
 
 ## <a name="run-the-script"></a>Uruchamianie skryptu
 
@@ -311,7 +311,7 @@ W konsoli powinien zostać wyświetlony ciąg JSON danych wykrytej twarzy. Nast�
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start została natwo z napisem aplikacja konsoli Go, która wywołuje usługę Azure Face w celu wykrycia twarzy w obrazie i zwrócenia ich atrybutów. Następnie zapoznaj się z dokumentacją referencyjną interfejsu API rozpoznawania twarzy, aby dowiedzieć się więcej.
+W tym przewodniku szybki start została zapisana Aplikacja konsolowa języka go, która wywołuje usługę Azure twarzy, aby wykrywać twarze w obrazie i zwracać ich atrybuty. Następnie zapoznaj się z dokumentacją referencyjną interfejsu API rozpoznawania twarzy, aby dowiedzieć się więcej.
 
 > [!div class="nextstepaction"]
 > [Interfejs API rozpoznawania twarzy](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

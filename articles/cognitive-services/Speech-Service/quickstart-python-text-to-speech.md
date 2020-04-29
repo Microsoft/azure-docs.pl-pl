@@ -1,7 +1,7 @@
 ---
-title: Konwertowanie tekstu na mowę, Python — usługa mowy
+title: Konwertowanie zamiany tekstu na mowę i języka Python na mowę
 titleSuffix: Azure Cognitive Services
-description: W tym artykule dowiesz się, jak konwertować tekst na mowę przy użyciu języka Python i interfejsu API REST od zamiany tekstu na mowę. Przykładowy tekst zawarty w tym przewodniku ma strukturę języka znaczników syntezy mowy (SSML). Dzięki temu można wybrać głos i język odpowiedzi mowy.
+description: W tym artykule opisano sposób konwertowania zamiany tekstu na mowę przy użyciu języka Python i interfejsu API REST zamiany tekstu na mowę. Przykładowy tekst zawarty w tym przewodniku jest uporządkowany jako SSML (Speech Syntezing Language). Pozwala to na wybranie głosu i języka odpowiedzi na mowę.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -11,23 +11,23 @@ ms.topic: how-to
 ms.date: 04/13/2020
 ms.author: trbye
 ms.openlocfilehash: 171fdb033cba422d8ba580da3ab54db88ca20872
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81400829"
 ---
-# <a name="convert-text-to-speech-using-python"></a>Konwertowanie tekstu na mowę przy użyciu języka Python
+# <a name="convert-text-to-speech-using-python"></a>Konwertowanie zamiany tekstu na mowę przy użyciu języka Python
 
-W tym artykule dowiesz się, jak konwertować tekst na mowę za pomocą języka Python i interfejsu API REST między tekstem na mowę. Treść żądania w tym przewodniku jest skonstruowana jako [język znaczników syntezy mowy (SSML),](speech-synthesis-markup.md)który pozwala wybrać głos i język odpowiedzi.
+W tym artykule opisano sposób konwertowania zamiany tekstu na mowę przy użyciu języka Python i interfejsu API REST zamiany tekstu na mowę. Treść żądania w tym przewodniku jest uporządkowana jako [SSML (Speech syntezing Language)](speech-synthesis-markup.md), która umożliwia wybranie głosu i języka odpowiedzi.
 
-Ten artykuł wymaga [konta usługi Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) z zasobem usługi mowy. Jeśli nie masz konta, możesz użyć [bezpłatnej wersji próbnej](get-started.md), aby uzyskać klucz subskrypcji.
+Ten artykuł wymaga [konta Cognitive Services platformy Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) z zasobem usługi mowy. Jeśli nie masz konta, możesz użyć [bezpłatnej wersji próbnej](get-started.md), aby uzyskać klucz subskrypcji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Środowisko Python 2.7.x lub 3.x
-* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual <span class="docon docon-navigate-external x-hidden-focus"> </span>Studio </a>, <a href="https://code.visualstudio.com/download" target="_blank">Visual Studio Code <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>lub ulubiony edytor tekstu
-* Klucz subskrypcji platformy Azure dla usługi Mowy
+* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>, <a href="https://code.visualstudio.com/download" target="_blank">Visual Studio Code <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>lub ulubiony Edytor tekstu
+* Klucz subskrypcji platformy Azure dla usługi mowy
 
 ## <a name="create-a-project-and-import-required-modules"></a>Tworzenie projektu i importowanie wymaganych modułów
 
@@ -43,11 +43,11 @@ from xml.etree import ElementTree
 > [!NOTE]
 > Jeśli nie korzystano z tych modułów, konieczne będzie ich zainstalowanie przed uruchomieniem programu. Aby zainstalować te pakiety, uruchom polecenie `pip install requests`.
 
-Moduły te są używane do pisania odpowiedzi mowy do pliku z sygnaturą czasową, konstruowania żądania HTTP i wywołania interfejsu API zamiany tekstu na mowę.
+Te moduły są używane do zapisywania odpowiedzi mowy do pliku z sygnaturą czasową, konstruowania żądania HTTP i wywoływania interfejsu API zamiany tekstu na mowę.
 
 ## <a name="set-the-subscription-key-and-create-a-prompt-for-tts"></a>Ustawianie klucza subskrypcji i tworzenie monitu dla usługi TTS
 
-W następnych kilku sekcjach utworzysz metody obsługi autoryzacji, wywołasz interfejs API zamiany tekstu na mowę i sprawdź poprawność odpowiedzi. Zacznijmy od dodania kodu, który zapewnia, że ten przykład będzie działać z Python 2.7.x i 3.x.
+W kilku następnych sekcjach utworzysz metody do obsługi autoryzacji, Wywołaj interfejs API zamiany tekstu na mowę i zweryfikuje odpowiedź. Zacznijmy od dodania kodu, który sprawdza, czy ten przykład będzie działał z językiem Python 2.7. x i 3. x.
 
 ```python
 try:
@@ -56,7 +56,7 @@ except NameError:
     pass
 ```
 
-Następnie utwórzmy klasę. W tym miejscu umieścimy nasze metody wymiany tokenów i wywołanie interfejsu API zamiany tekstu na mowę.
+Następnie Utwórzmy klasę. W tym miejscu umieścimy nasze metody wymiany tokenów i wywołująmy interfejs API zamiany tekstu na mowę.
 
 ```python
 class TextToSpeech(object):
@@ -67,15 +67,15 @@ class TextToSpeech(object):
         self.access_token = None
 ```
 
-Jest `subscription_key` to unikatowy klucz z witryny Azure portal. `tts`monituje użytkownika o wprowadzenie tekstu, który zostanie przekonwertowany na mowę. To dane wejściowe jest ciągiem literału, więc znaki nie muszą być zmienione. Na koniec `timestr` pobiera bieżący czas, którego użyjemy do nadawanie nazwy pliku.
+`subscription_key` Jest to klucz unikatowy z Azure Portal. `tts`monituje użytkownika o wprowadzenie tekstu, który zostanie przekonwertowany na mowę. Ta wartość wejściowa jest literałem ciągu, dlatego znaki nie muszą być wyprowadzane. Na koniec `timestr` pobiera bieżącą godzinę, przy użyciu której będziemy nazwać plik.
 
 ## <a name="get-an-access-token"></a>Pobranie tokenu dostępu
 
-Interfejs API REST między tekstem na mowę wymaga tokenu dostępu do uwierzytelniania. Aby uzyskać token dostępu, wymagana jest wymiana. W tym przykładzie wymienia klucz subskrypcji usługi `issueToken` mowy dla tokenu dostępu przy użyciu punktu końcowego.
+Interfejs API REST zamiany tekstu na mowę wymaga tokenu dostępu do uwierzytelniania. Aby uzyskać token dostępu, wymagany jest program Exchange. Ten przykład umożliwia wymianę klucza subskrypcji usługi mowy dla tokenu dostępu przy użyciu `issueToken` punktu końcowego.
 
-W tym przykładzie przyjęto założenie, że subskrypcja usługi mowy znajduje się w regionie Zachodnie stany USA. Jeśli używasz innego regionu, zaktualizuj wartość dla `fetch_token_url`. Aby uzyskać pełną listę, zobacz [Regiony](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+W tym przykładzie przyjęto założenie, że subskrypcja usługi mowy znajduje się w regionie zachodnie stany USA. Jeśli używasz innego regionu, zaktualizuj wartość parametru `fetch_token_url`. Aby uzyskać pełną listę, zobacz [regiony](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
-Skopiuj `TextToSpeech` ten kod do klasy:
+Skopiuj ten kod do `TextToSpeech` klasy:
 
 ```python
 def get_token(self):
@@ -88,23 +88,23 @@ def get_token(self):
 ```
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat uwierzytelniania, zobacz [Uwierzytelnianie przy użyciu tokenu dostępu](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
+> Aby uzyskać więcej informacji na temat uwierzytelniania, zobacz [uwierzytelnianie przy użyciu tokenu dostępu](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
 
-## <a name="make-a-request-and-save-the-response"></a>Złożyć wniosek i zapisać odpowiedź
+## <a name="make-a-request-and-save-the-response"></a>Utwórz żądanie i Zapisz odpowiedź
 
-W tym miejscu masz zamiar utworzyć żądanie i zapisać odpowiedź mowy. Najpierw musisz ustawić `base_url` i `path`. W tym przykładzie przyjęto założenie, że używasz punktu końcowego zachodniego us. Jeśli zasób jest zarejestrowany w innym regionie, należy zaktualizować plik `base_url`. Aby uzyskać więcej informacji, zobacz [Regiony usługi mowy](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Tutaj można skompilować żądanie i zapisać odpowiedź na mowę. Najpierw należy ustawić `base_url` i `path`. W tym przykładzie przyjęto założenie, że używasz regionu zachodnie stany USA. Jeśli zasób jest zarejestrowany w innym regionie, upewnij się, że Zaktualizowano `base_url`. Aby uzyskać więcej informacji, zobacz [regiony usługi mowy](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-Następnie należy dodać wymagane nagłówki dla żądania. Upewnij się, `User-Agent` że aktualizacja o nazwie zasobu (znajduje się `X-Microsoft-OutputFormat` w witrynie Azure portal) i ustawić preferowane dane wyjściowe audio. Aby uzyskać pełną listę formatów wyjściowych, zobacz [Wyjścia audio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+Następnie musisz dodać wymagane nagłówki dla żądania. Upewnij się, że Zaktualizowano `User-Agent` o nazwę zasobu (znajdującą się w Azure Portal), i ustaw `X-Microsoft-OutputFormat` na preferowane dane wyjściowe dźwięku. Aby zapoznać się z pełną listą formatów danych wyjściowych, zobacz [wyjście audio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
-Następnie skonstruuj treść żądania przy użyciu języka znaczników syntezy mowy (SSML). Ten przykład definiuje strukturę i `tts` używa danych wejściowych utworzonych wcześniej.
+Następnie Skonstruuj treść żądania przy użyciu języka SSML (Speech Syntezing Language). Ten przykład definiuje strukturę i używa utworzonych wcześniej `tts` danych wejściowych.
 
 >[!NOTE]
-> W tym przykładzie użyto czcionki głosowej. `Guy24kRUS` Aby uzyskać pełną listę głosów/języków dostarczonych przez firmę Microsoft, zobacz [Obsługa języków](language-support.md).
-> Jeśli chcesz stworzyć unikalny, rozpoznawalny głos dla swojej marki, zobacz [Tworzenie niestandardowych czcionek głosowych.](how-to-customize-voice-font.md)
+> Ten przykład używa czcionki `Guy24kRUS` głosowej. Aby zapoznać się z pełną listą podanych głosów/języków firmy Microsoft, zobacz temat [Obsługa języków](language-support.md).
+> Jeśli interesuje Cię tworzenie unikatowego, rozpoznawalnego głosu dla marki, zobacz [Tworzenie niestandardowych czcionek głosowych](how-to-customize-voice-font.md).
 
-Na koniec złożysz wniosek do usługi. Jeśli żądanie zakończy się pomyślnie i zwracany jest kod stanu 200, odpowiedź na mowę jest zapisywana w pliku oznaczonym sygnaturą czasową.
+Na koniec zostanie wysłane żądanie do usługi. Jeśli żądanie zakończy się pomyślnie i zostanie zwrócony kod stanu 200, odpowiedź mowy jest zapisywana w pliku z sygnaturą czasową.
 
-Skopiuj `TextToSpeech` ten kod do klasy:
+Skopiuj ten kod do `TextToSpeech` klasy:
 
 ```python
 def save_audio(self):
@@ -139,7 +139,7 @@ def save_audio(self):
 
 ## <a name="put-it-all-together"></a>Zebranie wszystkich elementów
 
-To już prawie koniec. Ostatnim krokiem jest tworzenie wystąpienia klasy i wywołanie funkcji.
+To już prawie koniec. Ostatnim krokiem jest utworzenie wystąpienia klasy i wywołanie funkcji.
 
 ```python
 if __name__ == "__main__":
@@ -151,13 +151,13 @@ if __name__ == "__main__":
 
 ## <a name="run-the-sample-app"></a>Uruchamianie przykładowej aplikacji
 
-To wszystko, możesz uruchomić przykładową aplikację zamiany tekstu na mowę. Z wiersza polecenia (lub sesji terminalowej) przejdź do katalogu projektu, a następnie uruchom:
+To wszystko, co jest gotowe do uruchamiania przykładowej aplikacji zamiany tekstu na mowę. Z wiersza polecenia (lub sesji terminalowej) przejdź do katalogu projektu, a następnie uruchom:
 
 ```console
 python tts.py
 ```
 
-Po wyświetleniu monitu wpisz wszystko, co chcesz przekonwertować z tekstu na mowę. Jeśli powiedzie się, plik mowy znajduje się w folderze projektu. Odtwórz go za pomocą ulubionego odtwarzacza multimedialnego.
+Po wyświetleniu monitu wpisz w dowolny sposób, który ma zostać przekonwertowany z tekstu na mowę. Jeśli to się powiedzie, plik mowy znajduje się w folderze projektu. Odtwórz go przy użyciu ulubionego odtwarzacza multimedialnego.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -168,9 +168,9 @@ Upewnij się, że wszystkie poufne informacje, takie jak klucze subskrypcji, zos
 > [!div class="nextstepaction"]
 > [Poznaj przykłady dla języka Python w serwisie GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Dokumentacja interfejsu API zamiany tekstu na mowę](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
-* [Konwertowanie tekstu na mowę za pomocą języka Python i speech SDK](quickstarts/speech-to-text-from-microphone.md)
+* [Konwertowanie zamiany tekstu na mowę przy użyciu języka Python i zestawu Speech SDK](quickstarts/speech-to-text-from-microphone.md)
 * [Tworzenie niestandardowych czcionek głosowych](how-to-customize-voice-font.md)
-* [Nagrywanie próbek głosu w celu utworzenia niestandardowego głosu](record-custom-voice-samples.md)
+* [Rejestruj przykłady głosu, aby utworzyć niestandardowy głos](record-custom-voice-samples.md)

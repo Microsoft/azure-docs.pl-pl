@@ -1,43 +1,43 @@
 ---
 title: Praca z jednostkami zdalnymi w środowisku Unity
-description: Samouczek, który pokazuje, jak pracować z jednostkami ARR.
+description: Samouczek pokazujący sposób pracy z jednostkami ARR.
 author: florianborn71
 ms.author: flborn
 ms.date: 02/01/2020
 ms.topic: tutorial
 ms.openlocfilehash: db1f6a53121e05b29f7e3441af027985a141bc2e
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81310206"
 ---
-# <a name="tutorial-working-with-remote-entities-in-unity"></a>Samouczek: Praca z jednostkami zdalnymi w unity
+# <a name="tutorial-working-with-remote-entities-in-unity"></a>Samouczek: Praca z jednostkami zdalnymi w środowisku Unity
 
-[Samouczek: Konfigurowanie projektu Unity od podstaw](project-setup.md) pokazało, jak skonfigurować nowy projekt Unity do pracy z renderowaniem zdalnym platformy Azure. W tym samouczku przyjrzymy się najbardziej typowe funkcje, które każdy użytkownik ARR potrzebuje.
+[Samouczek: Konfigurowanie projektu Unity od podstaw](project-setup.md) przedstawia sposób konfigurowania nowego projektu środowiska Unity do pracy z renderowaniem zdalnym platformy Azure. W tym samouczku Przyjrzyjmy się najbardziej typowym funkcjom, które wymagają każdemu użytkownikowi.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
-> * Wybieraj obiekty za pomocą promieni odlewanych.
-> * Zastądnij stany obiektu, takie jak kolor tinty, stan zaznaczenia i widoczność.
-> * Usuwanie encji zdalnych.
-> * Przenoszenie zdalnych elementów.
-> * Użyj wyciętych płaszczyzn, aby zajrzeć do wnętrza obiektów.
+> * Wybierz obiekty korzystające z Cast ray.
+> * Przesłoń Stany obiektów, takie jak kolor tinty, stan zaznaczenia i widoczność.
+> * Usuń jednostki zdalne.
+> * Przenoszenie zdalnych obiektów.
+> * Wykorzystaj płaszczyzny wycinania, aby wyszukiwać wewnątrz obiektów.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Ten samouczek opiera się na [tutorialu: Konfigurowanie projektu Unity od podstaw](project-setup.md).
+* Ten samouczek jest oparty na [samouczku: Konfigurowanie projektu Unity od podstaw](project-setup.md).
 
 > [!TIP]
-> [Repozytorium przykładów ARR](https://github.com/Azure/azure-remote-rendering) zawiera przygotowane projekty Unity dla wszystkich samouczków w folderze *Unity,* których można użyć jako odwołanie.
+> [Repozytorium przykładów ARR](https://github.com/Azure/azure-remote-rendering) zawiera przygotowane projekty Unity dla wszystkich samouczków w folderze *Unity* , których można użyć jako odwołania.
 
-## <a name="pick-objects"></a>Wybieranie obiektów
+## <a name="pick-objects"></a>Wybierz obiekty
 
-Chcemy wchodzić w interakcje z obiektami, więc pierwszą rzeczą, której potrzebujemy, jest zbieranie obiektów pod kursorem myszy.
+Chcemy współdziałać z obiektami, więc najpierw potrzebujemy do wyboru obiektów w obszarze kursora myszy.
 
-Utwórz [nowy skrypt](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) o nazwie **RemoteRaycaster** i zastąp całą jego zawartość poniższym kodem:
+Utwórz [Nowy skrypt](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) o nazwie **RemoteRaycaster** i Zastąp jego całą zawartość następującym kodem:
 
 ```csharp
 using Microsoft.Azure.RemoteRendering;
@@ -113,16 +113,16 @@ Dodaj ten składnik do obiektu *RemoteRendering* w scenie.
 
 > [!WARNING]
 >
-> Składnik *RemoteRaycaster* wymaga, aby składnik *ARRServiceUnity* został dołączony do tego samego obiektu. *ARRServiceUnity* jest klasą pomocnika, aby uzyskać dostęp do niektórych funkcji ARR łatwiej. Jednak w scenie może istnieć tylko jedno wystąpienie tego składnika. W związku z tym należy dodać wszystkie składniki, które wymagają *ARRServiceUnity* do tego samego GameObject.
-> Jeśli chcesz uzyskać dostęp do funkcji ARR z wielu obiektów gry, dodaj składnik *ARRServiceUnity* tylko do jednego z nich i odwołaj się do tego w innych skryptach lub uzyskaj bezpośredni dostęp do funkcji ARR.
+> Składnik *RemoteRaycaster* wymaga dołączenia składnika *ARRServiceUnity* do tego samego obiektu. *ARRServiceUnity* to Klasa pomocnika, która ułatwia dostęp do niektórych funkcji arr. Jednak może istnieć tylko jedno wystąpienie tego składnika w scenie. W związku z tym należy dodać wszystkie składniki, które wymagają *ARRServiceUnity* do tego samego gry.
+> Aby uzyskać dostęp do funkcji ARR z wielu obiektów gry, należy dodać składnik *ARRServiceUnity* tylko do jednego z nich i odwołać się do niego w innych skryptach lub bezpośrednio uzyskać dostęp do funkcji arr.
 
-Naciśnij przycisk odtwarzania, połącz się z sesją i załaduj model. Teraz wskaż obiekty w scenie i obserwuj wyjście konsoli. Należy wydrukować nazwę obiektu każdej części, nad którą najechasz kursorem.
+Naciśnij kolejno pozycje Odtwórz, Połącz z sesją i Załaduj model. Teraz wskaż obiekty w scenie i obejrzyj dane wyjściowe konsoli. Powinien drukować nazwę obiektu każdej części, którą umieścisz nad.
 
 ## <a name="highlight-objects"></a>Wyróżnianie obiektów
 
-Następnym krokiem chcemy przekazać wizualną informację zwrotną, na które części modelu wskazuje użytkownik. Aby to osiągnąć, dołączamy [HierarchiczneStateOverrideComponent](../../overview/features/override-hierarchical-state.md) do jednostki, którą wybraliśmy. Ten składnik może służyć do włączania lub wyłączania różnych funkcji na obiekcie. Tutaj używamy go, aby ustawić kolor odcienia i włączyć [renderowanie konturu](../../overview/features/outlines.md).
+Następnym krokiem jest przedstawienie opinii wizualnych, które części modelu wskazują na użytkownika. Aby to osiągnąć, dołączymy [HierarchicalStateOverrideComponent](../../overview/features/override-hierarchical-state.md) do jednostki, która została pobrana. Ten składnik może służyć do włączania lub wyłączania różnych funkcji w obiekcie. W tym miejscu używamy go do ustawienia koloru tinty i włączenia [renderowania konturu](../../overview/features/outlines.md).
 
-Utwórz inny plik skryptu o nazwie **RemoteModelEntity** i zastąp jego zawartość następującym kodem:
+Utwórz inny plik skryptu o nazwie **RemoteModelEntity** i Zastąp jego zawartość następującym kodem:
 
 ```csharp
 using System.Collections;
@@ -192,11 +192,11 @@ public class RemoteModelEntity : MonoBehaviour
 }
 ```
 > [!CAUTION]
-> Nie przypisuj tego skryptu do żadnego obiektu gry, ponieważ zostanie on przypisany programowo przez poniższy kod.
+> Nie przypisuj tego skryptu do żadnego obiektu gry, ponieważ zostanie on przypisywany programowo przez Poniższy kod.
 
-Następnie musimy rozszerzyć nasz *RemoteRaycaster,* aby dodać składnik *RemoteModelEntity* do obiektu, który właśnie wybraliśmy.
+W następnej kolejności musimy rozciągnąć nasze *RemoteRaycaster* , aby dodać składnik *RemoteModelEntity* do obiektu, który właśnie został wybrany.
 
-Dodaj następujący kod do implementacji **programu RemoteRaycaster** i usuń zduplikowane funkcje:
+Dodaj następujący kod do implementacji **RemoteRaycaster** i Usuń zduplikowane funkcje:
 
 ```csharp
     private RemoteModelEntity focusedModel = null;
@@ -242,11 +242,11 @@ Dodaj następujący kod do implementacji **programu RemoteRaycaster** i usuń zd
     }
 ```
 
-Uruchom projekt i wskaż model, powinien on zobaczyć, że otrzymuje czerwony odcień i biały kontur zaznaczenia.
+Uruchom projekt i wskaż model, zobaczysz, że otrzymujesz czerwoną tintę i biały kontur zaznaczenia.
 
-## <a name="isolate-the-selected-object"></a>Wyizolowanie zaznaczonego obiektu
+## <a name="isolate-the-selected-object"></a>Izoluj wybrany obiekt
 
-Innym zastosowaniem [HierarchiiStateOverrideComponent](../../overview/features/override-hierarchical-state.md) jest możliwość zastąpienia widoczności. Dzięki temu można wyizolować zaznaczony obiekt od reszty modelu. Otwórz skrypt **RemoteModelEntity,** dodaj następujący kod i usuń zduplikowane funkcje:
+Innym zastosowaniem [HierarchicalStateOverrideComponent](../../overview/features/override-hierarchical-state.md) jest możliwość przesłonięcia widoczności. Umożliwia to wyizolowanie zaznaczonego obiektu od reszty modelu. Otwórz skrypt **RemoteModelEntity** , Dodaj następujący kod i Usuń zduplikowane funkcje:
 
 ```csharp
     private bool isolated = false;
@@ -304,9 +304,9 @@ Innym zastosowaniem [HierarchiiStateOverrideComponent](../../overview/features/o
     }
 ```
 
-Ten kod opiera się na posiadaniu składnika zastępowania stanu w najwyższym obiekcie w hierarchii, co sprawia, że wszystkie obiekty są niewidoczne. Następnie ponownie zastępuje widoczność zaznaczonego obiektu, aby ten jeden obiekt był widoczny. W związku z tym musimy utworzyć składnik zastępowania stanu w obiekcie głównym.
+Ten kod polega na wykorzystaniu składnika zastępującego stan w obiekcie najwyższego poziomu w hierarchii, co sprawia, że wszystkie obiekty są niewidoczne. Następnie zastępuje widoczność ponownie w wybranym obiekcie, aby można było wyświetlić jeden obiekt. W związku z tym musimy utworzyć składnik zastąpienia stanu w obiekcie głównym.
 
-Otwórz skrypt **RemoteRendering** i wstaw poniższy kod u góry funkcji *LoadModel:*
+Otwórz skrypt **RemoteRendering** i Wstaw poniższy kod w górnej części funkcji *LoadModel* :
 
 ```csharp
     public async void LoadModel()
@@ -319,7 +319,7 @@ Otwórz skrypt **RemoteRendering** i wstaw poniższy kod u góry funkcji *LoadMo
     }
 ```
 
-Wreszcie potrzebujemy sposobu, aby przełączyć widoczność. Otwórz skrypt **Programu RemoteRaycaster** i zastąp funkcję *Update:*
+Na koniec potrzebuję metody przełączania widoczności. Otwórz skrypt **RemoteRaycaster** i Zastąp funkcję *Update* :
 
 ```csharp
     private void Update()
@@ -340,15 +340,15 @@ Wreszcie potrzebujemy sposobu, aby przełączyć widoczność. Otwórz skrypt **
     }
 ```
 
-Uruchom kod i kliknij prawym przyciskiem myszy część modelu. Reszta modelu zniknie i tylko podświetlony element pozostanie widoczny.
+Uruchom kod i kliknij prawym przyciskiem myszy część modelu. Pozostała część modelu zniknie i tylko wyróżniony element pozostanie widoczny.
 
-## <a name="remove-gameobject-instances-of-remote-entities"></a>Usuwanie wystąpień GameObject encji zdalnych
+## <a name="remove-gameobject-instances-of-remote-entities"></a>Usuń wystąpienia obiektu gameobject zdalnych obiektów
 
-Być może zauważyłeś, że kod utrzymuje tworzenie obiektów, ale nigdy nie czyści ich. Jest to również widoczne w panelu hierarchii obiektów. Po rozwinięciu hierarchii obiektów zdalnych podczas symulacji za każdym razem, gdy najedziesz kursorem na nową część modelu, pojawia się coraz więcej obiektów.
+Być może zauważono, że kod ciągle tworzy obiekty, ale nigdy nie czyści ich. Jest to również widoczne w panelu Hierarchia obiektów. Po rozszerzeniu zdalnej hierarchii obiektów podczas symulacji zobaczysz więcej i więcej obiektów pojawiających się za każdym razem, gdy umieścisz na nowej części modelu.
 
-Posiadanie wielu obiektów w scenie negatywnie wpływa na wydajność. Należy zawsze oczyścić obiekty, które nie są już potrzebne.
+Wiele obiektów w scenie ma negatywny wpływ na wydajność. Należy zawsze czyścić obiekty, które nie są już potrzebne.
 
-Wstaw poniższy kod do skryptu **RemoteRaycaster** i usuń zduplikowane funkcje:
+Wstaw poniższy kod do skryptu **RemoteRaycaster** i Usuń zduplikowane funkcje:
 
 ```csharp
     private void ClearFocus()
@@ -372,7 +372,7 @@ Wstaw poniższy kod do skryptu **RemoteRaycaster** i usuń zduplikowane funkcje:
 
 ## <a name="move-objects"></a>Przenoszenie obiektów
 
-W następnym kroku chcemy przenieść zaznaczony obiekt. W skrypcie **RemoteRaycaster** wstaw ten kod i usuń zduplikowaną funkcję:
+Następnym krokiem jest przeniesienie zaznaczonego obiektu. W skrypcie **RemoteRaycaster** Wstaw ten kod i Usuń zduplikowaną funkcję:
 
 ```csharp
     private Vector3 lastPosition = Vector3.zero;
@@ -412,9 +412,9 @@ W następnym kroku chcemy przenieść zaznaczony obiekt. W skrypcie **RemoteRayc
 ```
 
 > [!IMPORTANT]
-> Jeśli uruchomisz ten kod, zauważysz, że nic się nie dzieje. Dzieje się tak dlatego, że zmiana przekształcenia obiektu nie powoduje automatycznej synchronizacji zmiany stanu na serwerze ze względu na wydajność. Zamiast tego należy ręcznie wypchnąć tę zmianę stanu na serwer lub włączyć **SyncEveryFrame** w składniku *RemoteEntitySyncObject.*
+> W przypadku uruchomienia tego kodu można zauważyć, że nic się nie dzieje. Dzieje się tak, ponieważ zmiana przekształcenia obiektu nie powoduje automatycznej synchronizacji zmiany stanu na serwerze, ze względu na wydajność. Zamiast tego należy wykonać ręcznie wypychanie zmiany stanu do serwera lub włączenie **SyncEveryFrame** na składniku *RemoteEntitySyncObject* .
 
-Otwórz skrypt **RemoteModelEntity** i dodaj ten wiersz:
+Otwórz skrypt **RemoteModelEntity** i Dodaj następujący wiersz:
 
 ```csharp
     public void OnEnable()
@@ -425,15 +425,15 @@ Otwórz skrypt **RemoteModelEntity** i dodaj ten wiersz:
     }
 ```
 
-Ponowne uruchomienie kodu powinno być możliwe do kliknięcia lewym przyciskiem myszy na obiekcie i przeciągnąć go wokół.
+Aby ponownie uruchomić kod, powinno być możliwe kliknięcie obiektu lewym przyciskiem myszy i przeciągnięcie go.
 
-## <a name="add-a-cut-plane"></a>Dodawanie płaszczyzny cięcia
+## <a name="add-a-cut-plane"></a>Dodaj płaszczyznę wycinania
 
-Ostatnią funkcją, którą chcemy wypróbować w tym samouczku, jest użycie [ciętych płaszczyzn](../../overview/features/cut-planes.md). Wycięta płaszczyzna odcina części renderowanych obiektów, tak aby można było zajrzeć do nich.
+Ostatnia funkcja, którą chcemy wypróbować w tym samouczku, używa [wycinania płaszczyzn](../../overview/features/cut-planes.md). Wycięta płaszczyzna odcinania części renderowanych obiektów, takich jak można się zajrzeć.
 
-Utwórz nowy GameObject w scenie **CutPlane**. Utwórz nowy skrypt i nazwij go **RemoteCutPlane**. Dodaj składnik do nowego GameObject.
+Utwórz nową Gręobject w **CutPlane**sceny. Utwórz nowy skrypt i Wywołaj go **RemoteCutPlane**. Dodaj składnik do nowej gry.
 
-Otwórz plik skryptu i zastąp jego zawartość następującym kodem:
+Otwórz plik skryptu i Zastąp jego zawartość następującym kodem:
 
 ```csharp
 using Microsoft.Azure.RemoteRendering;
@@ -487,11 +487,11 @@ public class RemoteCutPlane : MonoBehaviour
 }
 ```
 
-Po uruchomieniu kodu teraz, należy zobaczyć, jak model jest przeciąć otwarte przez płaszczyznę. Można wybrać obiekt *CutPlane* i przenieść go i obrócić w oknie *Scena.* Płaszczyznę cięcia można włączać i wyłączać, wyłączając obiekt płaszczyzny cięcia.
+Gdy uruchamiasz teraz swój kod, powinieneś zobaczyć, jak model jest wycięty przez płaszczyznę. Można wybrać obiekt *CutPlane* i przenieść go i obrócić w oknie *sceny* . Możesz włączyć i wyłączyć wycinanie płaszczyzny, wyłączając obiekt płaszczyzny wycinania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Znasz teraz najważniejsze funkcje interakcji z obiektami zdalnymi. W następnym samouczku przyjrzymy się dostosowywaniu wyglądu sceny.
+Znasz teraz najważniejsze funkcje współdziałania z obiektami zdalnymi. W następnym samouczku Przyjrzyjmy się dostosowaniu wyglądu sceny.
 
 > [!div class="nextstepaction"]
-> [Samouczek: Zmiana środowiska i materiałów](changing-environment-and-materials.md)
+> [Samouczek: zmiana środowiska i materiałów](changing-environment-and-materials.md)

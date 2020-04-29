@@ -1,7 +1,7 @@
 ---
 title: Dostępność scenariusza — usługa mowy
 titleSuffix: Azure Cognitive Services
-description: Pakiet SDK mowy zawiera wiele scenariuszy w różnych językach programowania i środowiskach. Nie wszystkie scenariusze są dostępne we wszystkich językach programowania lub wszystkich środowiskach jeszcze. Poniżej wymieniono dostępność każdego scenariusza.
+description: Zestaw Speech SDK oferuje wiele scenariuszy w różnych językach programowania i środowiskach. Nie wszystkie scenariusze są jeszcze dostępne we wszystkich językach programowania lub w wszystkich środowiskach. Poniżej przedstawiono dostępność każdego scenariusza.
 services: cognitive-services
 author: chrisbasoglu
 manager: xdh
@@ -11,52 +11,52 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cbasoglu
 ms.openlocfilehash: a72e5055a3b0f858a732ec28eeab511b09dd450c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81400145"
 ---
 # <a name="scenario-availability"></a>Dostępność scenariusza
 
-Pakiet SDK mowy zawiera wiele scenariuszy w różnych językach programowania i środowiskach. Nie wszystkie scenariusze są dostępne we wszystkich językach programowania lub wszystkich środowiskach jeszcze. Poniżej wymieniono dostępność każdego scenariusza.
+Zestaw Speech SDK oferuje wiele scenariuszy w różnych językach programowania i środowiskach. Nie wszystkie scenariusze są jeszcze dostępne we wszystkich językach programowania lub w wszystkich środowiskach. Poniżej przedstawiono dostępność każdego scenariusza.
 
-- **Rozpoznawanie mowy (SR), lista fraz, intencja, tłumaczenie i kontenery lokalne**
+- **Rozpoznawanie mowy (SR), lista fraz, intencje, tłumaczenia i kontenery lokalne**
   - C++/Windows & Linux & macOS
-  - C# (Framework & .NET Core)/Windows & & platformy uniwersalnej systemu Windows Unity & platformy Xamarin & Linux & macOS
-  - Java (Jre i Android)
-  - JavaScript (Brower i NodeJS)
+  - C# (Framework & .NET Core)/Windows & platformy UWP & Unity & Xamarin & Linux & macOS
+  - Java (JRE i Android)
+  - JavaScript (przeglądarce i NodeJS)
   - Python
   - Swift
   - Obiektowy C  
 - **Zamiana tekstu na mowę (TTS)**
   - C++/Windows & Linux
-  - C#/Windows & & jedność & platformy uniwersalnej systemu windows
-  - Java (Jre i Android)
+  - C#/Windows & platformy UWP & Unity
+  - Java (JRE i Android)
   - Python
   - Swift
   - Obiektowy C
-  - Tts REST API może służyć w każdej innej sytuacji.
-- **Wykrywanie słów kluczowych (KWS)**
+  - Interfejs API REST usługi TTS może być używany w każdej innej sytuacji.
+- **Wykrywania trendów słowa kluczowego (KWS)**
   - C++/Windows & Linux
   - C#/Windows & Linux
-  - Python/ Windows & Linux
-  - Java / Windows & Linux & Android (Speech Devices SDK)
-  - Funkcja wykrywania słów kluczowych (KWS) może działać z dowolnym typem mikrofonu, oficjalna obsługa KWS jest jednak obecnie ograniczona do macierzy mikrofonów znalezionych w sprzęcie Usługi Azure Kinect DK lub na zestaw SDK urządzeń mowy
+  - Python/Windows & Linux
+  - Java/Windows & Linux & Android (Speech Devices SDK)
+  - Funkcja wykrywania trendów słowa kluczowego (KWS) może działać z dowolnym typem mikrofonu, oficjalną obsługą KWS, ale jest obecnie ograniczona do tablic mikrofonów znajdujących się na sprzęcie platformy Azure urządzenia Kinect DK lub zestawu Speech Devices SDK
 - **Asystenci głosowi**
   - C++/Windows & Linux & macOS
   - C#/Windows
-  - Java / Windows & Linux & macOS & Android (Speech Devices SDK)
+  - Java/Windows & Linux & macOS & Android (Speech Devices SDK)
 - **Transkrypcja konwersacji**
   - C++/Windows & Linux
-  - C# (Framework & .NET Core)/Windows & platformy uniwersalnej systemu Windows & Linux
-  - Java / Windows & Linux & Android (Speech Devices SDK)
-- **Konwersacja na wielu urządzeniach**
+  - C# (Framework & .NET Core)/Windows & platformy UWP & Linux
+  - Java/Windows & Linux & Android (Speech Devices SDK)
+- **Konwersacja z obsługą kilku urządzeń**
   - C++/Windows
   - C# (Framework & .NET Core)/Windows
-- **Transkrypcja centrum obsługi**
-  - REST API i może być stosowany w każdej sytuacji
-- **Kodek Skompresowane wejście audio**
+- **Transkrypcja centrum wywołania**
+  - Interfejs API REST i może być używany w dowolnej sytuacji
+- **Koder-dekoder skompresowanego sygnału audio**
   - C++/Linux
-  - C#/Linux
+  - /Linux C#
   - Java/Linux, Android i iOS

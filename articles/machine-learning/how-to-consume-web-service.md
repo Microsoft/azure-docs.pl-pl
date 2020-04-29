@@ -1,7 +1,7 @@
 ---
-title: Tworzenie klienta dla modelu wdrożonego jako usługa sieci Web
+title: Utwórz klienta dla modelu wdrożonego jako usługa sieci Web
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak wywołać punkt końcowy usługi sieci web, który został wygenerowany, gdy model został wdrożony z usługi Azure Machine Learning. Punkt końcowy udostępnia interfejs API REST, który można wywołać, aby wykonać wnioskowanie z modelem. Utwórz klientów dla tego interfejsu API przy użyciu wybranego języka programowania.
+description: Dowiedz się, jak wywołać punkt końcowy usługi sieci Web wygenerowany, gdy model został wdrożony z Azure Machine Learning. Punkt końcowy uwidacznia interfejs API REST, który można wywołać w celu wykonania wnioskowania z modelem. Tworzenie klientów dla tego interfejsu API przy użyciu wybranego języka programowania.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,41 +12,41 @@ ms.reviewer: larryfr
 ms.date: 04/14/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0222b63323c4e546628d790fabb881eba006494e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81383393"
 ---
-# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Korzystanie z modelu usługi Azure Machine Learning wdrożonego jako usługa sieci web
+# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Korzystanie z modelu Azure Machine Learning wdrożonego jako usługa sieci Web
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Wdrażanie modelu usługi Azure Machine Learning jako usługi sieci web tworzy punkt końcowy interfejsu API REST. Można wysłać dane do tego punktu końcowego i odbierać prognozy zwrócone przez model. W tym dokumencie dowiedz się, jak utworzyć klientów dla usługi sieci web przy użyciu języka C#, Go, Java i Python.
+Wdrożenie modelu Azure Machine Learning jako usługi sieci Web powoduje utworzenie punktu końcowego interfejsu API REST. Dane można wysyłać do tego punktu końcowego i odbierać prognozę zwracaną przez model. W tym dokumencie dowiesz się, jak tworzyć klientów dla usługi sieci Web przy użyciu języków C#, go, Java i Python.
 
-Usługę sieci web można utworzyć podczas wdrażania modelu w środowisku lokalnym, wystąpienia kontenerów platformy Azure, usługi Azure Kubernetes lub tablic y bramy programowalne w terenie (FPGA). Pobieranie identyfikatora URI używanego do uzyskiwania dostępu do usługi sieci web przy użyciu [sdk usługi Azure Machine Learning.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) Jeśli uwierzytelnianie jest włączone, można również użyć SDK, aby uzyskać klucze uwierzytelniania lub tokeny.
+Usługa sieci Web jest tworzona podczas wdrażania modelu w środowisku lokalnym, Azure Container Instances, usługi Azure Kubernetes lub tablic bram opartych na polach (FPGA). Użytkownik pobiera identyfikator URI służący do uzyskiwania dostępu do usługi sieci Web przy użyciu [zestawu SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Jeśli jest włączone uwierzytelnianie, można również pobrać klucze uwierzytelniania lub tokeny przy użyciu zestawu SDK.
 
-Ogólny przepływ pracy do tworzenia klienta korzystającego z usługi sieci web uczenia maszynowego jest:
+Ogólny przepływ pracy służący do tworzenia klienta korzystającego z usługi sieci Web Machine Learning to:
 
-1. Użyj sdk, aby uzyskać informacje o połączeniu.
+1. Użyj zestawu SDK, aby uzyskać informacje o połączeniu.
 1. Określ typ danych żądania używanych przez model.
-1. Utwórz aplikację, która wywołuje usługę sieci web.
+1. Utwórz aplikację, która wywołuje usługę sieci Web.
 
 > [!TIP]
-> Przykłady w tym dokumencie są tworzone ręcznie bez użycia specyfikacji OpenAPI (Swagger). Jeśli włączono specyfikację OpenAPI dla wdrożenia, można użyć narzędzi, takich jak [swagger-codegen](https://github.com/swagger-api/swagger-codegen) do tworzenia bibliotek klienta dla usługi.
+> Przykłady w tym dokumencie są tworzone ręcznie bez użycia specyfikacji OpenAPI (Swagger). Jeśli została włączona Specyfikacja OpenAPI dla danego wdrożenia, można użyć narzędzi, takich jak [Swagger-codegen](https://github.com/swagger-api/swagger-codegen) , aby utworzyć biblioteki klienckie dla usługi.
 
 ## <a name="connection-information"></a>Informacje o połączeniu
 
 > [!NOTE]
-> Użyj zestawu SDK usługi Azure Machine Learning, aby uzyskać informacje o usłudze sieci web. To jest SDK języka Python. Można użyć dowolnego języka, aby utworzyć klienta dla usługi.
+> Użyj zestawu SDK Azure Machine Learning, aby uzyskać informacje o usłudze sieci Web. To jest zestaw SDK języka Python. Możesz użyć dowolnego języka, aby utworzyć klienta dla usługi.
 
-Klasa [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) zawiera informacje potrzebne do utworzenia klienta. Następujące `Webservice` właściwości są przydatne do tworzenia aplikacji klienckiej:
+Klasa [Azure. Core. WebService](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) zawiera informacje potrzebne do utworzenia klienta. Następujące `Webservice` właściwości są przydatne podczas tworzenia aplikacji klienckiej:
 
-* `auth_enabled`- Jeśli uwierzytelnianie za `True`pomocą klucza jest włączone, ; w `False`przeciwnym razie , .
-* `token_auth_enabled`- Jeśli uwierzytelnianie tokenu jest włączone, `True`; w `False`przeciwnym razie , .
-* `scoring_uri`- Adres INTERFEJSU API REST.
-* `swagger_uri`- Adres specyfikacji OpenAPI. Ten identyfikator URI jest dostępny, jeśli włączono automatyczne generowanie schematu. Aby uzyskać więcej informacji, zobacz [Wdrażanie modeli za pomocą usługi Azure Machine Learning](how-to-deploy-and-where.md).
+* `auth_enabled`-Jeśli uwierzytelnianie klucza jest włączone, `True` w przeciwnym `False`razie.
+* `token_auth_enabled`-Jeśli uwierzytelnianie tokenu jest włączone, `True`; w przeciwnym `False`razie.
+* `scoring_uri`— Adres interfejsu API REST.
+* `swagger_uri`-Adres specyfikacji OpenAPI. Ten identyfikator URI jest dostępny po włączeniu automatycznego generowania schematu. Aby uzyskać więcej informacji, zobacz [Wdrażanie modeli przy użyciu Azure Machine Learning](how-to-deploy-and-where.md).
 
-Istnieją trzy sposoby pobierania tych informacji dla wdrożonych usług sieci web:
+Istnieją trzy sposoby pobierania tych informacji dla wdrożonych usług sieci Web:
 
 * Podczas wdrażania modelu `Webservice` obiekt jest zwracany z informacjami o usłudze:
 
@@ -57,7 +57,7 @@ Istnieją trzy sposoby pobierania tych informacji dla wdrożonych usług sieci w
     print(service.swagger_uri)
     ```
 
-* Można użyć `Webservice.list` do pobrania listy wdrożonych usług sieci web dla modeli w obszarze roboczym. Można dodać filtry, aby zawęzić listę zwróconych informacji. Aby uzyskać więcej informacji na temat tego, co można filtrować, zobacz dokumentację referencyjną [Webservice.list.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py)
+* Możesz użyć `Webservice.list` , aby pobrać listę wdrożonych usług sieci Web dla modeli w obszarze roboczym. Filtry można dodać, aby zawęzić listę zwracanych informacji. Aby uzyskać więcej informacji o tym, co można filtrować, zobacz dokumentację dotyczącą usługi [WebService. list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) .
 
     ```python
     services = Webservice.list(ws)
@@ -65,7 +65,7 @@ Istnieją trzy sposoby pobierania tych informacji dla wdrożonych usług sieci w
     print(services[0].swagger_uri)
     ```
 
-* Jeśli znasz nazwę wdrożonej usługi, możesz utworzyć nowe `Webservice`wystąpienie programu i podać nazwę obszaru roboczego i usługi jako parametry. Nowy obiekt zawiera informacje o wdrożonej usłudze.
+* Jeśli znasz nazwę wdrożonej usługi, możesz utworzyć nowe wystąpienie programu `Webservice`i podać nazwę obszaru roboczego i usługi jako parametry. Nowy obiekt zawiera informacje o wdrożonej usłudze.
 
     ```python
     service = Webservice(workspace=ws, name='myservice')
@@ -73,36 +73,36 @@ Istnieją trzy sposoby pobierania tych informacji dla wdrożonych usług sieci w
     print(service.swagger_uri)
     ```
 
-### <a name="secured-web-service"></a>Zabezpieczona usługa internetowa
+### <a name="secured-web-service"></a>Zabezpieczona usługa sieci Web
 
-Jeśli wdrożona usługa internetowa została zabezpieczona przy użyciu certyfikatu TLS/SSL, można użyć [protokołu HTTPS](https://en.wikipedia.org/wiki/HTTPS) do nawiązania połączenia z usługą przy użyciu identyfikatora URI oceniania lub swaggera. Protokół HTTPS pomaga zabezpieczyć komunikację między klientem a usługą sieci web, szyfrując komunikację między nimi. Szyfrowanie używa [zabezpieczeń warstwy transportu (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS jest czasami nadal określane jako *Secure Sockets Layer* (SSL), który był poprzednikiem TLS.
+Jeśli wdrożona usługa sieci Web została zabezpieczona przy użyciu certyfikatu TLS/SSL, możesz użyć [protokołu HTTPS](https://en.wikipedia.org/wiki/HTTPS) , aby nawiązać połączenie z usługą przy użyciu identyfikatora URI tworzenia oceny lub struktury Swagger. Protokół HTTPS pomaga w zabezpieczeniu komunikacji między klientem a usługą sieci Web przez szyfrowanie komunikacji między nimi. Szyfrowanie używa [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). Protokół TLS jest czasami nazywany *SSL* (SSL), który był POPRZEDNIKIEM protokołu TLS.
 
 > [!IMPORTANT]
-> Usługi sieci Web wdrożone przez usługę Azure Machine Learning obsługują tylko usługę TLS w wersji 1.2. Podczas tworzenia aplikacji klienckiej, upewnij się, że obsługuje tę wersję.
+> Usługi sieci Web wdrożone przez Azure Machine Learning obsługują tylko protokół TLS w wersji 1,2. Podczas tworzenia aplikacji klienckiej upewnij się, że jest ona obsługiwana w tej wersji.
 
-Aby uzyskać więcej informacji, zobacz [Zabezpieczanie usługi sieci web za pośrednictwem usługi Azure Machine Learning za pomocą protokołu TLS.](how-to-secure-web-service.md)
+Aby uzyskać więcej informacji, zobacz [Korzystanie z protokołu TLS w celu zabezpieczenia usługi sieci Web za pomocą Azure Machine Learning](how-to-secure-web-service.md).
 
 ### <a name="authentication-for-services"></a>Uwierzytelnianie dla usług
 
-Usługa Azure Machine Learning oferuje dwa sposoby kontrolowania dostępu do usług sieci web.
+Azure Machine Learning zapewnia dwa sposoby kontroli dostępu do usług sieci Web.
 
-|Metoda uwierzytelniania|Aci|AKS|
+|Metoda uwierzytelniania|ACI|AKS|
 |---|---|---|
-|Klucz|Domyślnie wyłączone| Domyślnie włączone|
-|Token| Niedostępne| Domyślnie wyłączone |
+|Key|Domyślnie wyłączone| Domyślnie włączone|
+|Token| Niedostępny| Domyślnie wyłączone |
 
-Podczas wysyłania żądania do usługi, która jest zabezpieczona za pomocą klucza lub tokenu, użyj __nagłówka Autoryzacja,__ aby przekazać klucz lub token. Klucz lub token musi być `Bearer <key-or-token>`sformatowany jako , gdzie `<key-or-token>` jest klucz lub wartość tokenu.
+Podczas wysyłania żądania do usługi, która jest zabezpieczona za pomocą klucza lub tokenu, użyj nagłówka __autoryzacji__ w celu przekazania klucza lub tokenu. Klucz lub token musi być sformatowany jako `Bearer <key-or-token>`, gdzie `<key-or-token>` jest wartością klucza lub tokenu.
 
-#### <a name="authentication-with-keys"></a>Uwierzytelnianie za pomocą kluczy
+#### <a name="authentication-with-keys"></a>Uwierzytelnianie przy użyciu kluczy
 
-Po włączeniu uwierzytelniania dla wdrożenia, automatycznie utworzyć klucze uwierzytelniania.
+Po włączeniu uwierzytelniania dla wdrożenia automatycznie tworzone są klucze uwierzytelniania.
 
-* Uwierzytelnianie jest domyślnie włączone podczas wdrażania w usłudze Azure Kubernetes.
-* Uwierzytelnianie jest domyślnie wyłączone podczas wdrażania w wystąpieniach kontenera platformy Azure.
+* Uwierzytelnianie jest domyślnie włączone podczas wdrażania w usłudze Azure Kubernetes Service.
+* Podczas wdrażania programu w celu Azure Container Instances uwierzytelnianie jest domyślnie wyłączone.
 
-Aby kontrolować uwierzytelnianie, należy użyć tego parametru `auth_enabled` podczas tworzenia lub aktualizowania wdrożenia.
+Aby kontrolować uwierzytelnianie, użyj `auth_enabled` parametru podczas tworzenia lub aktualizowania wdrożenia.
 
-Jeśli uwierzytelnianie jest włączone, `get_keys` można użyć tej metody do pobrania podstawowego i pomocniczego klucza uwierzytelniania:
+Jeśli jest włączone uwierzytelnianie, można użyć `get_keys` metody, aby pobrać podstawowy i pomocniczy klucz uwierzytelniania:
 
 ```python
 primary, secondary = service.get_keys()
@@ -110,18 +110,18 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Jeśli chcesz ponownie wygenerować [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)klucz, użyj programu .
+> Jeśli musisz ponownie wygenerować klucz, użyj [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
 
-#### <a name="authentication-with-tokens"></a>Uwierzytelnianie za pomocą tokenów
+#### <a name="authentication-with-tokens"></a>Uwierzytelnianie przy użyciu tokenów
 
-Po włączeniu uwierzytelniania tokenu dla usługi sieci web użytkownik musi dostarczyć token JWT usługi Azure Machine Learning do usługi sieci web, aby uzyskać do niego dostęp. 
+Po włączeniu uwierzytelniania tokenów dla usługi sieci Web użytkownik musi podać Azure Machine Learning token JWT do usługi sieci Web, aby uzyskać do niej dostęp. 
 
-* Uwierzytelnianie tokenu jest domyślnie wyłączone podczas wdrażania w usłudze Azure Kubernetes.
-* Uwierzytelnianie tokenu nie jest obsługiwane podczas wdrażania w wystąpieniach kontenera platformy Azure.
+* Uwierzytelnianie tokenu jest domyślnie wyłączone podczas wdrażania w usłudze Azure Kubernetes Service.
+* Uwierzytelnianie tokenu nie jest obsługiwane w przypadku wdrażania do Azure Container Instances.
 
-Aby kontrolować uwierzytelnianie `token_auth_enabled` tokenu, należy użyć parametru podczas tworzenia lub aktualizowania wdrożenia.
+Aby kontrolować uwierzytelnianie tokenu, użyj `token_auth_enabled` parametru podczas tworzenia lub aktualizowania wdrożenia.
 
-Jeśli uwierzytelnianie tokenu jest włączone, można użyć `get_token` metody, aby pobrać token okaziciela i że czas wygaśnięcia tokenów:
+Jeśli jest włączone uwierzytelnianie tokenu, można użyć `get_token` metody, aby pobrać token okaziciela i czas wygaśnięcia tokenów:
 
 ```python
 token, refresh_by = service.get_token()
@@ -129,11 +129,11 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Musisz zażądać nowego tokenu po czasie `refresh_by` tokenu. 
+> Po upływie `refresh_by` czasu tokenu trzeba będzie zażądać nowego tokenu. 
 
-## <a name="request-data"></a>Żądania danych
+## <a name="request-data"></a>Dane żądania
 
-Interfejs API REST oczekuje, że treść żądania będzie dokumentem JSON o następującej strukturze:
+Interfejs API REST oczekuje treści żądania jako dokumentu JSON o następującej strukturze:
 
 ```json
 {
@@ -145,9 +145,9 @@ Interfejs API REST oczekuje, że treść żądania będzie dokumentem JSON o nas
 ```
 
 > [!IMPORTANT]
-> Struktura danych musi odpowiadać oczekiwaniom skryptu i modelu oceniania w usłudze. Skrypt oceniania może zmodyfikować dane przed przekazaniem go do modelu.
+> Struktura danych musi być zgodna z oczekiwanym skryptem oceniania i modelem w usłudze. Skrypt oceniania może zmodyfikować dane przed przekazaniem ich do modelu.
 
-Na przykład model w [Train w przykładzie notesu](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) oczekuje tablicy 10 liczb. Skrypt oceniania w tym przykładzie tworzy tablicę Numpy z żądania i przekazuje ją do modelu. W poniższym przykładzie przedstawiono dane, na które oczekuje ta usługa:
+Na przykład model w [pouczeniu w ramach](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) przykładu w notesie oczekuje tablicy o wartości 10 cyfr. Skrypt oceniania w tym przykładzie tworzy tablicę numpy z żądania i przekazuje ją do modelu. W poniższym przykładzie przedstawiono dane, których oczekuje ta usługa:
 
 ```json
 {
@@ -169,14 +169,14 @@ Na przykład model w [Train w przykładzie notesu](https://github.com/Azure/Mach
 }
 ```
 
-Usługa sieci web może akceptować wiele zestawów danych w jednym żądaniu. Zwraca dokument JSON zawierający tablicę odpowiedzi.
+Usługa sieci Web może akceptować wiele zestawów danych w jednym żądaniu. Zwraca dokument JSON zawierający tablicę odpowiedzi.
 
 ### <a name="binary-data"></a>Dane binarne
 
-Aby uzyskać informacje na temat włączania obsługi danych binarnych w usłudze, zobacz [Dane binarne](how-to-deploy-and-where.md#binary).
+Aby uzyskać informacje na temat włączania obsługi danych binarnych w usłudze, zobacz [dane binarne](how-to-deploy-and-where.md#binary).
 
 > [!TIP]
-> Włączenie obsługi danych binarnych odbywa się w pliku score.py używanym przez wdrożony model. Z klienta użyj funkcji HTTP języka programowania. Na przykład następujący fragment kodu wysyła zawartość pliku JPG do usługi sieci web:
+> Włączenie obsługi danych binarnych odbywa się w pliku score.py używanym przez wdrożony model. Z poziomu klienta Użyj funkcji HTTP języka programowania. Na przykład poniższy fragment kodu wysyła zawartość pliku JPG do usługi sieci Web:
 >
 > ```python
 > import requests
@@ -186,13 +186,13 @@ Aby uzyskać informacje na temat włączania obsługi danych binarnych w usłudz
 > res = request.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/> octet-stream'})
 > ```
 
-### <a name="cross-origin-resource-sharing-cors"></a>Współużytkowy przydział zasobów między źródłami (CORS)
+### <a name="cross-origin-resource-sharing-cors"></a>Współużytkowanie zasobów między źródłami (CORS)
 
-Aby uzyskać informacje na temat włączania obsługi cors w usłudze, zobacz [Udostępnianie zasobów między źródłami](how-to-deploy-and-where.md#cors).
+Aby uzyskać informacje na temat włączania obsługi mechanizmu CORS w usłudze, zobacz [udostępnianie zasobów między źródłami](how-to-deploy-and-where.md#cors).
 
-## <a name="call-the-service-c"></a>Zadzwoń do usługi (C#)
+## <a name="call-the-service-c"></a>Wywoływanie usługi (C#)
 
-W tym przykładzie pokazano, jak używać języka C# do wywołania usługi sieci web utworzonej na podstawie [train w przykładzie notesu:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)
+W tym przykładzie pokazano, jak używać języka C# do wywoływania usługi sieci Web utworzonej na podstawie [szkolenia w ramach przykładu notesu](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) :
 
 ```csharp
 using System;
@@ -273,15 +273,15 @@ namespace MLWebServiceClient
 }
 ```
 
-Zwracane wyniki są podobne do następującego dokumentu JSON:
+Zwrócone wyniki są podobne do następującego dokumentu JSON:
 
 ```json
 [217.67978776218715, 224.78937091757172]
 ```
 
-## <a name="call-the-service-go"></a>Zadzwoń do usługi (Go)
+## <a name="call-the-service-go"></a>Wywoływanie usługi (go)
 
-W tym przykładzie pokazano, jak używać Go do wywołania usługi sieci web utworzonej na podstawie [train w przykładzie notesu:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)
+W tym przykładzie pokazano, jak używać języka go do wywoływania usługi sieci Web utworzonej na podstawie [szkolenia w ramach przykładu notesu](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) :
 
 ```go
 package main
@@ -365,15 +365,15 @@ func main() {
 }
 ```
 
-Zwracane wyniki są podobne do następującego dokumentu JSON:
+Zwrócone wyniki są podobne do następującego dokumentu JSON:
 
 ```json
 [217.67978776218715, 224.78937091757172]
 ```
 
-## <a name="call-the-service-java"></a>Zadzwoń do usługi (Java)
+## <a name="call-the-service-java"></a>Wywoływanie usługi (Java)
 
-W tym przykładzie pokazano, jak używać języka Java do wywoływania usługi sieci web utworzonej na podstawie przykładu [Train within notebook:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)
+W tym przykładzie pokazano, jak używać języka Java do wywoływania usługi sieci Web utworzonej na podstawie [szkolenia w ramach przykładu notesu](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) :
 
 ```java
 import java.io.IOException;
@@ -445,15 +445,15 @@ public class App {
 }
 ```
 
-Zwracane wyniki są podobne do następującego dokumentu JSON:
+Zwrócone wyniki są podobne do następującego dokumentu JSON:
 
 ```json
 [217.67978776218715, 224.78937091757172]
 ```
 
-## <a name="call-the-service-python"></a>Wywołanie usługi (Python)
+## <a name="call-the-service-python"></a>Wywoływanie usługi (Python)
 
-W tym przykładzie pokazano, jak używać języka Python do wywoływania usługi sieci web utworzonej na podstawie train [w przykładzie notesu:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)
+W tym przykładzie pokazano, jak używać języka Python do wywoływania usługi sieci Web utworzonej na podstawie [szkolenia w ramach przykładu notesu](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) :
 
 ```python
 import requests
@@ -505,7 +505,7 @@ resp = requests.post(scoring_uri, input_data, headers=headers)
 print(resp.text)
 ```
 
-Zwracane wyniki są podobne do następującego dokumentu JSON:
+Zwrócone wyniki są podobne do następującego dokumentu JSON:
 
 ```JSON
 [217.67978776218715, 224.78937091757172]
@@ -513,12 +513,12 @@ Zwracane wyniki są podobne do następującego dokumentu JSON:
 
 ## <a name="consume-the-service-from-power-bi"></a>Korzystanie z usługi z poziomu usługi Power BI
 
-Usługa Power BI obsługuje korzystanie z usług Azure Machine Learning w celu wzbogacenia danych w usłudze Power BI o prognozy. 
+Power BI obsługuje użycie usług sieci Web Azure Machine Learning do wzbogacania danych w Power BI z przewidywaniami. 
 
-Aby wygenerować usługę sieci Web obsługiwaną do użycia w usłudze Power BI, schemat musi obsługiwać format wymagany przez usługę Power BI. [Dowiedz się, jak utworzyć schemat obsługiwany przez program Power BI](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#example-entry-script).
+Aby wygenerować usługę sieci Web obsługiwaną do użycia w Power BI, schemat musi obsługiwać format wymagany przez Power BI. [Dowiedz się, jak utworzyć schemat obsługiwany przez Power BI](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#example-entry-script).
 
-Po wdrożeniu usługi sieci web jest zużywalna z przepływów danych usługi Power BI. [Dowiedz się, jak korzystać z usługi azure machine learning w usłudze Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+Po wdrożeniu usługi sieci Web jest ona zużywana z Power BI przepływów danych. [Dowiedz się, jak korzystać z usługi sieci web Azure Machine Learning z Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby wyświetlić architekturę referencyjną do oceniania w czasie rzeczywistym modeli języka Python i uczenia głębokiego, przejdź do [centrum architektury platformy Azure.](/azure/architecture/reference-architectures/ai/realtime-scoring-python)
+Aby wyświetlić architekturę referencyjną dla oceny w czasie rzeczywistym dla modeli Python i głębokiego uczenia, przejdź do [centrum architektury platformy Azure](/azure/architecture/reference-architectures/ai/realtime-scoring-python).

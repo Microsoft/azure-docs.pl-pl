@@ -11,15 +11,15 @@ ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: 2171bbaea065ce1ab3a8d90f32e6ea6dc1f1e821
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81404225"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Samouczek: Moderowanie wideo i transkrypcji
 
-W tym samouczku dowiesz się, jak zbudować kompletne rozwiązanie moderowania wideo i transkrypcji z umiarem wspomaganym maszynowo i integracją przeglądów ludzkich.
+W ramach tego samouczka nauczysz się, jak utworzyć kompletne rozwiązanie do moderowania wideo i transkrypcji z integracją z pomocąą maszynową i analizą przez człowieka.
 
 Ten samouczek przedstawia sposób wykonania następujących czynności:
 
@@ -34,17 +34,17 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Zarejestruj się w [witrynie](https://contentmoderator.cognitive.microsoft.com/) sieci Web narzędzia Content Moderator Review i utwórz tagi niestandardowe. Jeśli potrzebujesz pomocy w tym kroku, zobacz [Używanie tagów.](Review-Tool-User-Guide/tags.md)
+- Utwórz konto w witrynie internetowej [Narzędzia do przeglądu Content moderator](https://contentmoderator.cognitive.microsoft.com/) i tworzenie tagów niestandardowych. Zobacz [Używanie tagów](Review-Tool-User-Guide/tags.md) , jeśli potrzebujesz pomocy w tym kroku.
 
-    ![zrzut ekranu przedstawiający niestandardowe tagi moderowania wideo](images/video-tutorial-custom-tags.png)
-- Aby uruchomić przykładową aplikację, potrzebujesz konta platformy Azure, zasobu usługi Azure Media Services, zasobu moderatora zawartości platformy Azure i poświadczeń usługi Azure Active Directory. Aby uzyskać instrukcje dotyczące sposobu uzyskania tych zasobów, zobacz przewodnik [interfejsu API moderowania wideo.](video-moderation-api.md)
-- Pobierz [aplikację konsoli recenzji wideo](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) z GitHub.
+    ![zrzut ekranu tagów niestandardowych moderowania wideo](images/video-tutorial-custom-tags.png)
+- Do uruchomienia przykładowej aplikacji jest potrzebne konto platformy Azure, zasób Azure Media Services, zasób usługi Azure Content Moderator i poświadczenia Azure Active Directory. Aby uzyskać instrukcje dotyczące sposobu uzyskania tych zasobów, zobacz Przewodnik po [interfejsie API moderowania wideo](video-moderation-api.md) .
+- Pobierz [aplikację konsolową Przejrzyj wideo](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) z usługi GitHub.
 
 ## <a name="enter-credentials"></a>Wprowadź poświadczenia
 
-Edytuj `App.config` plik i dodaj nazwę dzierżawy usługi Active Directory, punkty `#####`końcowe usługi i klucze subskrypcji wskazane przez program . Potrzebne są następujące informacje:
+Edytuj `App.config` plik i Dodaj Active Directory nazwę dzierżawy, punkty końcowe usługi i klucze subskrypcji wskazane przez `#####`. Potrzebne są następujące informacje:
 
-|Klucz|Opis|
+|Key|Opis|
 |-|-|
 |`AzureMediaServiceRestApiEndpoint`|Punkt końcowy interfejsu API platformy Azure Media Services (AMS)|
 |`ClientSecret`|Klucz subskrypcji dla platformy Azure Media Services|
@@ -54,11 +54,11 @@ Edytuj `App.config` plik i dodaj nazwę dzierżawy usługi Active Directory, pun
 |`ContentModeratorApiEndpoint`|Punkt końcowy dla interfejsu API usługi Content Moderator|
 |`ContentModeratorTeamId`|Identyfikator zespołu dla usługi Content Moderator|
 
-## <a name="examine-the-main-code"></a>Sprawdź kod główny
+## <a name="examine-the-main-code"></a>Badanie kodu głównego
 
 Klasa `Program` w pliku `Program.cs` jest głównym punktem wejścia do aplikacji służącej do moderowania wideo.
 
-### <a name="methods-of-program-class"></a>Metody programu klasy
+### <a name="methods-of-program-class"></a>Metody klasy programu
 
 |Metoda|Opis|
 |-|-|
@@ -82,7 +82,7 @@ Metoda `Main()` obsługuje następujące argumenty wiersza polecenia:
 Jeśli nie argumentów wiersza polecenia, metoda `Main()` wywołuje `GetUserInputs()`. Ta metoda prosi użytkownika o wprowadzenie ścieżki do pojedynczego pliku wideo oraz określenie, czy ma zostać wygenerowana transkrypcja tekstu.
 
 > [!NOTE]
-> Aplikacja konsoli używa [interfejsu API indeksatora multimediów Azure](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) do generowania transkrypcji z ścieżki audio przekazanego wideo. Wyniki są podane w formacie WebVTT. Aby uzyskać więcej informacji na temat tego formatu, zobacz temat [Web Video Text Tracks Format](https://developer.mozilla.org/docs/Web/API/WebVTT_API) (Format ścieżek tekstowych wideo w sieci Web).
+> Aplikacja konsolowa używa [interfejsu API Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) , aby generować transkrypcje z przesłanej ścieżki audio wideo. Wyniki są podane w formacie WebVTT. Aby uzyskać więcej informacji na temat tego formatu, zobacz temat [Web Video Text Tracks Format](https://developer.mozilla.org/docs/Web/API/WebVTT_API) (Format ścieżek tekstowych wideo w sieci Web).
 
 ### <a name="initialize-and-processvideo-methods"></a>Inicjowanie metod ProcessVideo
 
@@ -110,7 +110,7 @@ Metoda `ProcessVideo()` jest dość prosta w obsłudze. Wykonuje kolejno następ
 
 W poniższych sekcjach omówiono bardziej szczegółowo niektóre procesy wywoływane przez metodę `ProcessVideo()`. 
 
-## <a name="compress-the-video"></a>Kompresowanie wideo
+## <a name="compress-the-video"></a>Kompresuj wideo
 
 Aby zminimalizować ruch sieciowy, aplikacja konwertuje pliki wideo do formatu H.264 (MPEG-4 AVC) i skaluje je do maksymalnej szerokości 640 pikseli. Koder-dekoder H.264 jest zalecany ze względu na wysoką wydajność (współczynnik kompresji). Kompresja jest wykonywana przy użyciu bezpłatnego narzędzia wiersza polecenia `ffmpeg`, które zostało dołączone do folderu `Lib` usługi Visual Studio. Pliki wejściowe mogą być w dowolnym formacie obsługiwanym przez wiersz polecenia `ffmpeg`, który obsługuje najpopularniejsze formaty plików wideo oraz koderów-dekoderów.
 
@@ -135,7 +135,7 @@ Ten kod wykonuje następujące kroki:
 
 Metoda zwraca nazwę skompresowanego pliku wyjściowego.
 
-## <a name="upload-and-moderate-the-video"></a>Przesyłanie i moderowanie filmu
+## <a name="upload-and-moderate-the-video"></a>Przekazywanie i umiarkowane wideo
 
 Wideo należy przechowywać na platformie Azure Media Services, zanim będzie je można przetworzyć przy użyciu usługi moderowania zawartości. Klasa `Program` w pliku `Program.cs` ma krótką metodę `CreateVideoStreamingRequest()`, która zwraca obiekt reprezentujący żądanie przesyłania strumieniowego użyte do przekazania wideo.
 
@@ -151,7 +151,7 @@ Te linie wykonują następujące zadania:
 - Ustawiają flagę `GenerateVTT` żądania, jeśli użytkownik zażądał transkrypcji tekstu.
 - Wywołują metodę `CreateAzureMediaServicesJobToModerateVideo()`, aby wykonać przekazywanie i otrzymać wynik.
 
-## <a name="examine-video-moderation-code"></a>Sprawdź kod moderacji wideo
+## <a name="examine-video-moderation-code"></a>Sprawdzanie kodu moderowania wideo
 
 Metoda `CreateAzureMediaServicesJobToModerateVideo()` znajduje się w pliku `VideoModerator.cs`, który zawiera większą część kodu współpracującego z platformą Azure Media Services. Kod źródłowy metody został przedstawiony w następującym fragmencie.
 
@@ -164,7 +164,7 @@ Ten kod wykonuje następujące zadania:
 - Przesyła zadanie przekazując plik i rozpoczynając przetwarzanie.
 - Pobiera wyniki moderacji, transkrypcję tekstu (jeśli jest to wymagane) oraz inne informacje.
 
-## <a name="sample-video-moderation-output"></a>Przykładowe wyjście moderowania wideo
+## <a name="sample-video-moderation-output"></a>Przykładowe dane wyjściowe moderowania wideo
 
 Wynikiem zadania moderowania wideo (zobacz [przewodnik Szybki start dotyczący moderowania wideo](video-moderation-api.md)) jest struktura danych JSON zawierająca wyniki moderowania. Te wyniki zawierają podział fragmentów (zrzuty) w ramach wideo, z których każdy zawiera zdarzenia (klipy) wraz z ramkami kluczy oflagowanymi na potrzeby przeglądu. Każda ramka klucza jest oceniana w zależności od tego, jakie jest prawdopodobieństwo, że zawiera treści dla dorosłych lub treści o charakterze erotycznym. W poniższym przykładzie przedstawiono odpowiedź w formacie JSON:
 
@@ -223,11 +223,11 @@ Wynikiem zadania moderowania wideo (zobacz [przewodnik Szybki start dotyczący m
 Transkrypcja dźwięku z wideo jest generowana również wtedy, gdy została ustawiona flaga `GenerateVTT`.
 
 > [!NOTE]
-> Aplikacja konsoli używa [interfejsu API indeksatora multimediów Azure](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) do generowania transkrypcji z ścieżki audio przekazanego wideo. Wyniki są podane w formacie WebVTT. Aby uzyskać więcej informacji na temat tego formatu, zobacz temat [Web Video Text Tracks Format](https://developer.mozilla.org/docs/Web/API/WebVTT_API) (Format ścieżek tekstowych wideo w sieci Web).
+> Aplikacja konsolowa używa [interfejsu API Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) , aby generować transkrypcje z przesłanej ścieżki audio wideo. Wyniki są podane w formacie WebVTT. Aby uzyskać więcej informacji na temat tego formatu, zobacz temat [Web Video Text Tracks Format](https://developer.mozilla.org/docs/Web/API/WebVTT_API) (Format ścieżek tekstowych wideo w sieci Web).
 
-## <a name="create-a-human-review"></a>Tworzenie ludzkiej recenzji
+## <a name="create-a-human-review"></a>Tworzenie przeglądu przez ludzi
 
-Proces moderowania zwraca listę ramek kluczy z wideo oraz transkrypcję ścieżek audio. Następnym krokiem jest utworzenie recenzji w narzędziu Content Moderator Review dla moderatorów ludzkich. Po cofnięciu do metody `ProcessVideo()` w pliku `Program.cs` widoczne jest wywołanie metody `CreateVideoReviewInContentModerator()`. Ta metoda jest częścią klasy `videoReviewApi`, która znajduje się w pliku `VideoReviewAPI.cs` i została przedstawiona tutaj.
+Proces moderowania zwraca listę ramek kluczy z wideo oraz transkrypcję ścieżek audio. Następnym krokiem jest utworzenie przeglądu w narzędziu do przeglądu Content Moderator dla moderatorów ludzkich. Po cofnięciu do metody `ProcessVideo()` w pliku `Program.cs` widoczne jest wywołanie metody `CreateVideoReviewInContentModerator()`. Ta metoda jest częścią klasy `videoReviewApi`, która znajduje się w pliku `VideoReviewAPI.cs` i została przedstawiona tutaj.
 
 [!code-csharp[CreateVideoReviewInContentModerator](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=42-69)]
 
@@ -279,7 +279,7 @@ Transkrypcja jest publikowana jako element zawartości platformy AMS. Aby przepr
 
 Po niezbędnej konfiguracji platformy AMS pobieranie odbywa się przez wywołanie metody `DownloadAssetToLocal()`, funkcji rodzajowej, która kopiuje element zawartości platformy AMS do pliku lokalnego.
 
-## <a name="moderate-the-transcript"></a>Moderowanie transkrypcji
+## <a name="moderate-the-transcript"></a>Umiarkowane transkrypcję
 
 Ponieważ jest łatwy dostęp do transkrypcji, można ją przeskanować i użyć w przeglądzie. Tworzenie przeglądu wchodzi w zakres metody `CreateVideoReviewInContentModerator()`, która wywołuje metodę `GenerateTextScreenProfanity()` w celu wykonania zadania. Z kolei ta metoda wywołuje metodę `TextScreen()`, która obejmuje większość funkcjonalności.
 
@@ -299,7 +299,7 @@ Najpierw należy zainicjować wszystkie zmienne i kolekcje.
 
 ### <a name="parse-the-transcript-for-captions"></a>Analizowanie transkrypcji do napisów
 
-Następnie należy przeanalizować transkrypcję w formacie VTT na potrzeby napisów i znaczników czasu. Narzędzie Recenzja wyświetla te podpisy na karcie Transkrypcja na ekranie recenzji wideo. Znaczniki czasu są używane do synchronizacji napisów z odpowiednimi ramkami wideo.
+Następnie należy przeanalizować transkrypcję w formacie VTT na potrzeby napisów i znaczników czasu. Narzędzie Recenzja wyświetla te podpisy na karcie transkrypcja na ekranie Recenzja wideo. Znaczniki czasu są używane do synchronizacji napisów z odpowiednimi ramkami wideo.
 
 [!code-csharp[TextScreen2](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=528-567)]
 
@@ -314,7 +314,7 @@ Następnie należy zeskanować przeanalizowane napisy tekstowe za pomocą teksto
 
 [!code-csharp[TextScreen3](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=568-653)]
 
-### <a name="text-moderation-breakdown"></a>Podział moderowania tekstu
+### <a name="text-moderation-breakdown"></a>Podział tekstu na moderowanie
 
 `TextScreen()` jest metodą mającą istotne znaczenie, więc opiszmy ją dokładniej.
 
@@ -359,7 +359,7 @@ Total Elapsed Time: 00:05:56.8420355
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku skonfigurować aplikację, która&mdash;moderuje zawartość wideo, w tym zawartość&mdash;transkrypcji i tworzy recenzje w narzędziu Recenzja. Następnie dowiedz się więcej o szczegółach moderacji wideo.
+W tym samouczku opisano konfigurowanie aplikacji, która pozwala na umiarkowaną zawartość&mdash;wideo, w&mdash;tym transkrypcję zawartości i tworzenie przeglądów w narzędziu do przeglądu. Następnie Dowiedz się więcej na temat szczegółów moderowania wideo.
 
 > [!div class="nextstepaction"]
-> [Moderowanie wideo](./video-moderation-human-review.md)
+> [Moderowanie filmów wideo](./video-moderation-human-review.md)

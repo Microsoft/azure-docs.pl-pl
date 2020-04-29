@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: uruchamianie sdk urządzeń mowy w systemie Windows, Linux lub Android — usługa mowy'
+title: 'Szybki Start: uruchamianie zestawu Speech Devices SDK w systemie Windows, Linux lub Android — usługa rozpoznawania mowy'
 titleSuffix: Azure Cognitive Services
-description: Wymagania wstępne i instrukcje dotyczące rozpoczynania pracy z zestawem SDK urządzeń mowy systemu Windows, Linux lub Android.
+description: Wymagania wstępne i instrukcje dotyczące rozpoczynania pracy z zestawem SDK urządzeń z systemem Windows, Linux lub Android.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -12,13 +12,13 @@ ms.date: 02/20/2020
 ms.author: trbye
 zone_pivot_groups: platforms-set-of-three
 ms.openlocfilehash: 9303661efc65eb660093c01643073650f360f564
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400091"
 ---
-# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows-linux-or-android"></a>Szybki start: uruchamianie przykładowej aplikacji SDK urządzeń mowy w systemie Windows, Linux lub Android
+# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows-linux-or-android"></a>Szybki Start: uruchamianie przykładowej aplikacji zestawu Speech Devices SDK w systemie Windows, Linux lub Android
 
 ::: zone pivot="platform-windows"
 [!INCLUDE [Windows platform](includes/speech-devices-sdk-windows-quickstart.md)]
@@ -35,4 +35,4 @@ ms.locfileid: "81400091"
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Przejrzyj informacje o wersji](devices-sdk-release-notes.md)
+> [Zapoznaj się z informacjami o wersji](devices-sdk-release-notes.md)

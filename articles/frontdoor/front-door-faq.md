@@ -1,6 +1,6 @@
 ---
-title: Drzwi frontowe platformy Azure — często zadawane pytania
-description: Ta strona zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure Front Door
+title: Moje drzwi platformy Azure — często zadawane pytania
+description: Na tej stronie znajdują się odpowiedzi na często zadawane pytania dotyczące zewnętrznych drzwi platformy Azure
 services: frontdoor
 documentationcenter: ''
 author: sohamnchatterjee
@@ -12,158 +12,158 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
 ms.openlocfilehash: e2785baab27f5bfc996b57607816062195a19b2b
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81313756"
 ---
-# <a name="frequently-asked-questions-for-azure-front-door"></a>Często zadawane pytania dotyczące usług Azure Front Door
+# <a name="frequently-asked-questions-for-azure-front-door"></a>Często zadawane pytania dotyczące drzwi platformy Azure
 
-Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące funkcji i funkcji usługi Azure Front Door. Jeśli nie widzisz odpowiedzi na swoje pytanie, możesz skontaktować się z nami za pośrednictwem następujących kanałów (w kolejności eskalacji):
+W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące funkcji i funkcjonalnych drzwi platformy Azure. Jeśli nie widzisz odpowiedzi na pytanie, możesz skontaktować się z nami za pomocą następujących kanałów (w kolejności eskalacji):
 
-1. Komentarze w tym artykule.
-2. [Głos użytkownika usługi Azure Front Door](https://feedback.azure.com/forums/217313-networking?category_id=345025).
-3. **Pomoc techniczna firmy Microsoft:** Aby utworzyć nowe żądanie pomocy technicznej, w witrynie Azure portal na karcie **Pomoc** wybierz przycisk **Pomoc + pomoc,** a następnie wybierz pozycję Nowe żądanie pomocy **technicznej**.
+1. Sekcja komentarzy w tym artykule.
+2. [Azure front drzwi UserVoice](https://feedback.azure.com/forums/217313-networking?category_id=345025).
+3. **Pomoc techniczna firmy Microsoft:** Aby utworzyć nowe żądanie obsługi, w Azure Portal na karcie **Pomoc** wybierz przycisk **Pomoc i obsługa techniczna** , a następnie wybierz pozycję **nowe żądanie obsługi**.
 
 ## <a name="general"></a>Ogólne
 
 ### <a name="what-is-azure-front-door"></a>Co to jest Azure Front Door?
 
-Usługa Azure Front Door to usługa sieci dostarczania aplikacji (ADN) oferująca różne funkcje równoważenia obciążenia warstwy 7 dla aplikacji. Zapewnia dynamiczne przyspieszanie witryny (DSA) wraz z globalnym równoważeniem obciążenia z niemal trybem failover w czasie rzeczywistym. Jest to usługa o wysokiej dostępności i skalowalna, która jest w pełni zarządzana przez platformę Azure.
+Azure Front Drzwiczks to Application Delivery Network (wdrożenie) jako usługa, oferując różne możliwości równoważenia obciążenia warstwy 7 dla aplikacji. Zapewnia to przyspieszenie lokacji dynamicznej (DSA) wraz z globalnym równoważeniem obciążenia, które umożliwia przejście w tryb failover niemal w czasie rzeczywistym. Jest to wysoce dostępna i skalowalna usługa, która jest w pełni zarządzana przez platformę Azure.
 
-### <a name="what-features-does-azure-front-door-support"></a>Jakie funkcje obsługują usługi Azure Front Door?
+### <a name="what-features-does-azure-front-door-support"></a>Jakie funkcje obsługuje usługa Azure front-drzwi?
 
-Usługa Azure Front Door obsługuje dynamiczne przyspieszanie witryny (DSA), odciążanie TLS/SSL i odwrót TLS od końca do końca, zapora aplikacji sieci Web, koligację sesji opartą na plikach cookie, routing oparty na ścieżce adresów URL, bezpłatne certyfikaty i zarządzanie wieloma domenami i inne. Aby uzyskać pełną listę obsługiwanych funkcji, zobacz [Omówienie drzwi frontowych platformy Azure](front-door-overview.md).
+Platformy Azure Front-drzwiczki obsługują funkcję dynamicznego przyspieszania witryn (DSA), odciążania protokołów TLS/SSL i kompleksowego protokołu TLS, zapory aplikacji sieci Web, koligacji sesji opartej na plikach cookie, routingu opartego na ścieżkach URL, bezpłatnych certyfikatów i zarządzania wieloma domenami. Aby uzyskać pełną listę obsługiwanych funkcji, zobacz [Omówienie drzwi platformy Azure](front-door-overview.md).
 
-### <a name="what-is-the-difference-between-azure-front-door-and-azure-application-gateway"></a>Jaka jest różnica między drzwiami frontowymi platformy Azure a bramą aplikacji platformy Azure?
+### <a name="what-is-the-difference-between-azure-front-door-and-azure-application-gateway"></a>Jaka jest różnica między usługami frontonu platformy Azure i Application Gateway platformy Azure?
 
-Podczas gdy zarówno drzwi frontowe, jak i brama aplikacji są modułami równoważenia obciążenia warstwy 7 (HTTP/HTTPS), podstawową różnicą jest to, że drzwiami frontowymi są usługą globalną, podczas gdy brama aplikacji jest usługą regionalną. Drzwi frontowe mogą równoważyć obciążenie między różnymi jednostkami skali/klastrami/jednostkami stempla w różnych regionach, ale brama aplikacji umożliwia równoważenie obciążenia między maszynami wirtualnymi/kontenerami itp., które znajduje się w jednostce skalowania.
+Chociaż zarówno przód, jak i Application Gateway są modułami równoważenia obciążenia warstwy 7 (HTTP/HTTPS), podstawowa różnica polega na tym, że przód drzwi jest usługą globalną, a Application Gateway to usługa regionalna. Podczas gdy drzwi tylne mogą równoważyć obciążenie między różnymi jednostkami skalowania/klastrów/jednostkami sygnatur w różnych regionach, Application Gateway umożliwia Równoważenie obciążenia między maszynami wirtualnymi i kontenerami itp., które jest w jednostce skalowania.
 
-### <a name="when-should-we-deploy-an-application-gateway-behind-front-door"></a>Kiedy należy wdrożyć bramę aplikacji za drzwiami frontowymi?
+### <a name="when-should-we-deploy-an-application-gateway-behind-front-door"></a>Kiedy należy wdrożyć Application Gateway za drzwiami przednimi?
 
-Kluczowe scenariusze, dla których należy używać bramy aplikacji za drzwiami frontowymi, to:
+Najważniejsze scenariusze, dla których należy używać Application Gateway za drzwiami przednimi:
 
-- Drzwi frontowe mogą wykonywać równoważenie obciążenia oparte na ścieżce tylko na poziomie globalnym, ale jeśli chcesz jeszcze bardziej załadować ruch równoważenia w sieci wirtualnej (VNET), należy użyć bramy aplikacji.
-- Ponieważ drzwi frontowe nie działa na poziomie maszyny Wirtualnej/kontenera, więc nie można wykonać opróżniania połączenia. Jednak brama aplikacji umożliwia opróżnianie połączenia. 
-- Dzięki bramie aplikacji za afd, można osiągnąć 100% odciążanie TLS/SSL i trasy tylko żądania HTTP w ich sieci wirtualnej (VNET).
-- Drzwi frontowe i brama aplikacji obsługują koligalności sesji. Drzwi frontowe mogą kierować kolejny ruch z sesji użytkownika do tego samego klastra lub wewnętrznej bazy danych w danym regionie, brama aplikacji może kierować affinitize ruchu do tego samego serwera w klastrze.  
+- Z przodu drzwi można korzystać z równoważenia obciążenia opartego na ścieżkach tylko na poziomie globalnym, ale jeśli jedna z nich chce, aby równoważyć obciążenie ruchem jeszcze bardziej w ramach ich sieci wirtualnych (VNET), powinny używać Application Gateway.
+- Ponieważ tylne drzwi nie działają na poziomie maszyny wirtualnej/kontenera, więc nie można ich opróżniać. Jednak Application Gateway umożliwia opróżnianie połączeń. 
+- Za pomocą Application Gateway za AFD, jeden może osiągnąć 100% protokołu TLS/SSL i rozsyłać tylko żądania HTTP w ramach ich sieci wirtualnych (VNET).
+- Drzwiczki z przodu i Application Gateway obsługują koligacje sesji. Podczas gdy drzwi tylne mogą kierować ruch z sesji użytkownika do tego samego klastra lub zaplecza w danym regionie, Application Gateway może kierować ruch do tego samego serwera w klastrze.  
 
-### <a name="can-we-deploy-azure-load-balancer-behind-front-door"></a>Czy możemy wdrożyć moduł równoważenia obciążenia platformy Azure za drzwiami frontowymi?
+### <a name="can-we-deploy-azure-load-balancer-behind-front-door"></a>Czy można wdrażać Azure Load Balancer za drzwiami przednimi?
 
-Usługa Azure Front Door potrzebuje publicznego adresu VIP lub publicznie dostępnej nazwy DNS, aby przekierować ruch. Wdrażanie modułu równoważenia obciążenia platformy Azure za drzwiami frontowymi jest typowym przypadkiem użycia.
+Drzwi frontonu platformy Azure muszą mieć publiczny adres VIP lub publicznie dostępną nazwę DNS, aby skierować ruch do programu. Wdrożenie Azure Load Balancer za drzwiami przednimi to typowy przypadek użycia.
 
-### <a name="what-protocols-does-azure-front-door-support"></a>Jakie protokoły obsługują usługi Azure Front Door?
+### <a name="what-protocols-does-azure-front-door-support"></a>Jakie protokoły są obsługiwane przez platformę Azure front-drzwi?
 
-Drzwi frontowe platformy Azure obsługują protokół HTTP, HTTPS i HTTP/2.
+Platforma Azure front-drzwi obsługuje protokoły HTTP, HTTPS i HTTP/2.
 
-### <a name="how-does-azure-front-door-support-http2"></a>W jaki sposób usługi Azure Front Door obsługują protokół HTTP/2?
+### <a name="how-does-azure-front-door-support-http2"></a>Jak usługa Azure front-drzwi obsługuje protokół HTTP/2?
 
-Obsługa protokołu HTTP/2 jest dostępna tylko dla klientów łączących się z usługą Azure Front Door. Komunikacja do zaplecza w puli wewnętrznej bazy danych jest za pośrednictwem PROTOKOŁU HTTP/1.1. Obsługa protokołu HTTP/2 jest domyślnie włączona.
+Obsługa protokołu HTTP/2 jest dostępna dla klientów nawiązujących połączenie z usługami frontonu platformy Azure. Komunikacja do zaplecza w puli zaplecza jest za pośrednictwem protokołu HTTP/1.1. Obsługa protokołu HTTP/2 jest włączona domyślnie.
 
-### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Jakie zasoby są obecnie obsługiwane jako część puli zaplecza?
+### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Jakie zasoby są obecnie obsługiwane w ramach puli zaplecza?
 
-Pule zaplecza mogą składać się z magazynu, aplikacji sieci Web, wystąpień kubernetes lub innej niestandardowej nazwy hosta, która ma łączność publiczną. Usługa Azure Front Door wymaga, aby zaplecze były definiowane za pośrednictwem publicznego adresu IP lub publicznie rozpoznawanej nazwy hosta DNS. Członkowie pul zaplecza mogą znajdować się w różnych strefach, regionach lub nawet poza platformą Azure, o ile mają łączność publiczną.
+Pule zaplecza mogą składać się z magazynu, aplikacji sieci Web, wystąpień Kubernetes lub dowolnej innej niestandardowej nazwy hosta z łącznością publiczną. Drzwi frontonu platformy Azure wymagają, aby te punkty końcowe były zdefiniowane za pośrednictwem publicznego adresu IP lub publicznie rozpoznawalnej nazwy hosta DNS. Elementy członkowskie pul zaplecza mogą znajdować się między strefami, regionami lub nawet poza platformą Azure, o ile mają łączność publiczną.
 
-### <a name="what-regions-is-the-service-available-in"></a>W jakich regionach jest dostępna usługa?
+### <a name="what-regions-is-the-service-available-in"></a>Jakie regiony są dostępne w ramach usługi?
 
-Usługa Azure Front Door jest usługą globalną i nie jest powiązana z żadnym określonym regionem platformy Azure. Jedyną lokalizacją, którą należy określić podczas tworzenia drzwi frontowych, jest lokalizacja grupy zasobów, która zasadniczo określa, gdzie będą przechowywane metadane dla grupy zasobów. Sam zasób drzwi frontowych jest tworzony jako zasób globalny, a konfiguracja jest wdrażana globalnie dla wszystkich punktów obecności (Punktu obecności). 
+Drzwi frontonu platformy Azure to usługa globalna i nie jest ona powiązana z żadnym określonym regionem świadczenia usługi Azure. Jedyną lokalizacją, którą należy określić podczas tworzenia drzwi czołowych, jest lokalizacja grupy zasobów, która zasadniczo określa, gdzie będą przechowywane metadane dla grupy zasobów. Sam zasób z drzwiami jest tworzony jako zasób globalny, a konfiguracja jest wdrażana globalnie we wszystkich punktach obecności. 
 
-### <a name="what-are-the-pop-locations-for-azure-front-door"></a>Jakie są lokalizacje pop dla drzwi frontowych platformy Azure?
+### <a name="what-are-the-pop-locations-for-azure-front-door"></a>Jakie są lokalizacje POP dla drzwi frontonu platformy Azure?
 
-Usługa Azure Front Door ma taką samą listę lokalizacji POP (Point of Presence) jak usługa Azure CDN firmy Microsoft. Aby uzyskać pełną listę naszych punktów obecności, zapoznaj się [z lokalizacjami pop usługi Azure CDN firmy Microsoft.](https://docs.microsoft.com/azure/cdn/cdn-pop-locations)
+Drzwi frontonu platformy Azure mają tę samą listę lokalizacji POP (punkt obecności) jako Azure CDN od firmy Microsoft. Aby uzyskać pełną listę naszych punktów obecności, należy odnieść się [Azure CDN lokalizacji pop od firmy Microsoft](https://docs.microsoft.com/azure/cdn/cdn-pop-locations).
 
-### <a name="is-azure-front-door-a-dedicated-deployment-for-my-application-or-is-it-shared-across-customers"></a>Czy usługa Azure Front Door jest dedykowanym wdrożeniem dla mojej aplikacji, czy jest współużytkowana przez klientów?
+### <a name="is-azure-front-door-a-dedicated-deployment-for-my-application-or-is-it-shared-across-customers"></a>Czy na platformie Azure z przodu jest dedykowane wdrożenie dla mojej aplikacji lub czy jest ono współużytkowane przez klientów?
 
-Usługa Azure Front Door to globalnie rozproszona usługa wielodostępna. Tak więc infrastruktura dla drzwi frontowych jest dzielona przez wszystkich swoich klientów. Jednak tworząc profil drzwi frontowych, można zdefiniować określoną konfigurację wymaganą dla aplikacji i żadne zmiany wprowadzone do drzwi frontowych wpływ innych konfiguracji drzwi frontowych.
+Drzwi frontonu platformy Azure to globalnie dystrybuowana usługa wielodostępna. Dlatego infrastruktura dla drzwi przednich jest współdzielona przez wszystkich klientów. Jednak przez utworzenie profilu frontu drzwi należy zdefiniować konkretną konfigurację wymaganą dla aplikacji, a zmiany wprowadzone do przodu nie mają wpływu na inne konfiguracje drzwi z przodu.
 
-### <a name="is-http-https-redirection-supported"></a>Czy przekierowanie HTTP->https jest obsługiwane?
+### <a name="is-http-https-redirection-supported"></a>Czy obsługiwane jest przekierowanie HTTPS >HTTP?
 
-Tak. W rzeczywistości usługi Azure Front Door obsługuje przekierowanie hosta, ścieżki i ciągu zapytania, a także część przekierowania adresu URL. Dowiedz się więcej o [przekierowaniu adresu URL](front-door-url-redirect.md). 
+Tak. Z tego względu drzwi frontonu platformy Azure obsługują przekierowania hosta, ścieżki i ciągu zapytania, jak również część przekierowania adresów URL. Dowiedz się więcej na temat [przekierowywania adresów URL](front-door-url-redirect.md). 
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>W jakiej kolejności są przetwarzane reguły routingu?
 
-Trasy dla drzwi wejściowych nie są uporządkowane, a określona trasa jest wybierana na podstawie najlepszego dopasowania. Dowiedz się więcej o [tym, jak drzwiami frontowymi dopasowywać żądania do reguły routingu](front-door-route-matching.md).
+Trasy dla drzwi przednich nie są uporządkowane, a określona trasa jest wybierana na podstawie najlepszego dopasowania. Dowiedz się więcej o tym [, w jaki sposób przód jest zgodny z żądaniami do reguły routingu](front-door-route-matching.md).
 
-### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>Jak zablokować dostęp do wewnętrznej bazy danych tylko do drzwi frontowych platformy Azure?
+### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>Jak mogę zablokować dostęp do mojego zaplecza tylko do drzwi platformy Azure z przodu?
 
-Aby zablokować aplikację, aby akceptować ruch tylko z określonych drzwiach frontowych, należy skonfigurować listy ACL adresów IP dla wewnętrznej bazy danych, a następnie ograniczyć ruch w wewnętrznej bazy danych do określonej wartości nagłówka "X-Azure-FDID" wysyłanego przez drzwiami frontowymi. Poniższe kroki są wyszczególnione w następujący sposób:
+Aby zablokować aplikację w celu akceptowania tylko ruchu pochodzącego z określonych czołowych drzwi, należy skonfigurować listy ACL adresów IP dla zaplecza, a następnie ograniczyć ruch w zapleczu do określonej wartości nagłówka "X-Azure-FDID" wysyłanego przez zewnętrzne drzwi. Poniższe kroki są szczegółowo opisane poniżej:
 
-- Skonfiguruj usługę IP ACLing dla zaplecza, aby akceptować ruch z przestrzeni adresów IP zaplecza usługi Azure Front Door i tylko usług infrastruktury platformy Azure. Zapoznaj się z poniższymi informacjami IP, aby zapoznać się z informacjami o wewnętrznej wartości:
+- Skonfiguruj ACLing IP dla zaplecza, aby akceptować ruch z przestrzeni adresów IP zaplecza platformy Azure i usług infrastruktury platformy Azure. Zapoznaj się z poniższymi informacjami dotyczącymi adresu IP ACLing zaplecza:
  
-    - Zapoznaj się z sekcją *AzureFrontDoor.Backend* w [zakresach adresów IP platformy Azure i tagach usług](https://www.microsoft.com/download/details.aspx?id=56519) dla zakresu adresów IP zaplecza IPv4 drzwi frontowych lub możesz również użyć tagu usługi *AzureFrontDoor.Backend* w [sieciowych grupach zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) lub z [zaporą azure.](https://docs.microsoft.com/azure/firewall/service-tags)
-    - Miejsce ip zaplecza **IPv6** drzwi frontowych, gdy są objęte tagiem usługi, nie jest wymieniony w pliku JSON zakresów adresów IP platformy Azure. Jeśli szukasz wyraźnego zakresu adresów IPv6, jest on obecnie ograniczony do`2a01:111:2050::/44`
-    - [podstawowe usługi infrastruktury](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) platformy Azure za pośrednictwem `168.63.129.16` zwirtualizowanych adresów IP hosta:`169.254.169.254`
+    - Zapoznaj się z sekcją *AzureFrontDoor. zaplecza* w obszarze zakresy adresów IP [platformy Azure i Tagi usług](https://www.microsoft.com/download/details.aspx?id=56519) dla zakresu adresu IP zaplecza IPv4 lub można także użyć znacznika usługi *AzureFrontDoor. zaplecza* w [grupach zabezpieczeń sieci](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) lub z [zaporą platformy Azure](https://docs.microsoft.com/azure/firewall/service-tags).
+    - Przestrzeń adresów IP zaplecza **protokołu IPv6** znajdujących się na początku i objęta tagiem usługi nie znajduje się na liście w pliku JSON zakresów adresów IP platformy Azure. Jeśli szukasz jawnego zakresu adresów IPv6, jest on obecnie ograniczony do`2a01:111:2050::/44`
+    - [Podstawowe usługi infrastruktury](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) platformy Azure za pomocą zwirtualizowanych adresów IP hosta `168.63.129.16` : i`169.254.169.254`
 
     > [!WARNING]
-    > Przestrzeń IP wewnętrznej bazy danych frontowych drzwi może ulec zmianie później, jednak zanim to nastąpi, zintegrowalibyśmy się z [zakresami adresów IP platformy Azure i tagami usług.](https://www.microsoft.com/download/details.aspx?id=56519) Firma Microsoft zaleca, aby subskrybować [zakresy adresów IP platformy Azure i tagi usług](https://www.microsoft.com/download/details.aspx?id=56519) dla wszelkich zmian lub aktualizacji.
+    > Przestrzeń adresów IP zaplecza z drzwiami może ulec zmianie później, jednak zapewnimy, że przed takim wdrożeniem będziemy zintegrowane z [zakresem adresów IP i tagami usług platformy Azure](https://www.microsoft.com/download/details.aspx?id=56519). Zalecamy, aby zasubskrybować [zakresy adresów IP platformy Azure i Tagi usług](https://www.microsoft.com/download/details.aspx?id=56519) dla wszelkich zmian lub aktualizacji.
 
--    Wykonaj operację GET na drzwiach frontowych z wersją interfejsu API lub nowszą. `2020-01-01` W wywołaniu interfejsu `frontdoorID` API poszukaj pola. Filtruj nagłówek przychodzący '**X-Azure-FDID**' wysłany przez drzwi frontowe `frontdoorID`do wewnętrznej bazy danych z wartością jako wartość pola . 
+-    Wykonaj operację pobierania na swoich drzwiach z przodu przy użyciu wersji `2020-01-01` interfejsu API lub nowszej. W wywołaniu interfejsu API poszukaj `frontdoorID` pola. Odfiltruj w przychodzącym nagłówku "**X-Azure-FDID**" wysyłanym przez tylne drzwi do zaplecza przy użyciu wartości `frontdoorID`jako pola. 
 
-### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>Czy adres IP dowolnej emisji może ulec zmianie w ciągu całego okresu istnienia moich drzwi frontowych?
+### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>Czy adres IP emisji jest zmieniany w okresie istnienia moich zewnętrznych drzwi?
 
-Adres IP dowolnej emisji frontend dla drzwi frontowych zazwyczaj nie powinien się zmieniać i może pozostać statyczny przez cały okres istnienia drzwi wejściowych. Nie ma jednak **żadnych gwarancji** na to samo. Uprzejmie nie należy przyjmować żadnych bezpośrednich zależności od IP.
+Adres IP usługi frontonu dla drzwi przednich nie powinien się zwykle zmieniać i może pozostawać statyczny w okresie istnienia drzwi z przodu. Nie ma jednak **żadnych gwarancji** dla tego samego. W adresie IP nie są wykonywane żadne bezpośrednie zależności.
 
-### <a name="does-azure-front-door-support-static-or-dedicated-ips"></a>Czy usługi Azure Front Door obsługują statyczne lub dedykowane adresy IP?
+### <a name="does-azure-front-door-support-static-or-dedicated-ips"></a>Czy usługa Azure front-drzwi obsługuje statyczne lub dedykowane adresy IP?
 
-Nie, usługi Azure Front Door obecnie nie obsługuje statycznych lub dedykowanych adresów IP emisji frontowej. 
+Nie, przed drzwiami platformy Azure nie są obecnie obsługiwane statyczne lub dedykowane adresy IP emisji. 
 
-### <a name="does-azure-front-door-support-x-forwarded-for-headers"></a>Czy usługi Azure Front Door obsługują nagłówki x-forwarded-for?
+### <a name="does-azure-front-door-support-x-forwarded-for-headers"></a>Czy usługa Azure Front-drzwiczk obsługuje x-Forwards-for Headers?
 
-Tak, usługi Azure Front Door obsługuje nagłówki X-Forwarded-For, X-Forwarded-Host i X-Forwarded-Proto. Dla X-Forwarded-For, jeśli nagłówek był już obecny, następnie drzwiami frontowymi dołącza ip gniazda klienta do niego. W przeciwnym razie dodaje nagłówek z ip gniazda klienta jako wartość. W przypadku X-Forwarded-Host i X-Forwarded-Proto wartość jest zastępowana.
+Tak, usługa Azure Front-drzwiczk obsługuje nagłówki X-Forward-for, X-Forwarded-Host i X-Forwarded-proto. Dla elementu X-forwardd-for, jeśli nagłówek już istnieje, drzwi do przodu dołączają do niego adres IP gniazda klienta. W przeciwnym razie dodaje nagłówek z adresem IP gniazda klienta jako wartość. Dla X-forwardd-Host i X-Forwarded-proto wartość zostanie zastąpiona.
 
-Dowiedz się więcej o [obsługiwanych przez drzwi frontowe nagłówkach HTTP](front-door-http-headers-protocol.md).  
+Dowiedz się więcej o [nagłówkach HTTP z obsługą przednią drzwi](front-door-http-headers-protocol.md).  
 
-### <a name="how-long-does-it-take-to-deploy-an-azure-front-door-does-my-front-door-still-work-when-being-updated"></a>Jak długo trwa wdrażanie drzwi trakcjowych platformy Azure? Czy drzwi wejściowe nadal działają po aktualizacji?
+### <a name="how-long-does-it-take-to-deploy-an-azure-front-door-does-my-front-door-still-work-when-being-updated"></a>Jak długo trwa wdrażanie drzwi platformy Azure z góry? Czy moje tylne drzwi nadal działają po aktualizacji?
 
-Nowe tworzenie drzwi frontowych lub wszelkie aktualizacje istniejących drzwi frontowych trwa około 3 do 5 minut dla wdrożenia globalnego. Oznacza to, że w ciągu około 3 do 5 minut konfiguracja drzwi frontowych zostanie wdrożona we wszystkich naszych klientach na całym świecie.
+Nowe tworzenie do przodu lub wszelkie aktualizacje istniejących przednich drzwi zajmują od 3 do 5 minut na wdrożenie globalne. Oznacza to, że od 3 do 5 minut konfiguracja drzwi do przodu zostanie wdrożona we wszystkich ogólnych punktach obecności.
 
-Uwaga — niestandardowe aktualizacje certyfikatów TLS/SSL zajmują około 30 minut do wdrożenia na całym świecie.
+Uwaga — niestandardowe aktualizacje certyfikatu TLS/SSL trwają około 30 minut, aby można je było wdrożyć globalnie.
 
-Wszelkie aktualizacje tras lub pul zaplecza itp są bezproblemowe i spowoduje zero przestojów (jeśli nowa konfiguracja jest poprawna). Aktualizacje certyfikatów są również niepodzielne i nie powodują żadnych awarii, chyba że przejście z "AfD Managed" na "Użyj własnego certyfikatu" lub odwrotnie.
+Wszystkie aktualizacje tras lub pul zaplecza itp. są bezproblemowe i spowodują zero przestojów (Jeśli nowa konfiguracja jest poprawna). Aktualizacje certyfikatów są również niepodzielne i nie spowodują awarii, chyba że zostanie przełączone z "AFD Managed" na "Użyj własnego certyfikatu" lub na odwrót.
 
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
-### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>Czy usługa Azure Front Door może równoważyć obciążenie lub kierować ruch w sieci wirtualnej?
+### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>Czy można zrównoważyć ruch z przodu platformy Azure lub kierowaniu ruchu w sieci wirtualnej?
 
-Usługa Azure Front Door (AFD) wymaga publicznego adresu IP lub publicznie rozpoznawanej nazwy DNS do kierowania ruchu. Tak więc odpowiedź jest nie AFD bezpośrednio nie można routisku w sieci wirtualnej, ale przy użyciu bramy aplikacji lub azure load balancer pomiędzy rozwiąże ten scenariusz.
+Drzwi frontonu platformy Azure (AFD) wymagają publicznego adresu IP lub publicznie rozpoznawalnej nazwy DNS, aby kierować ruchem. Dlatego odpowiedź nie jest AFD bezpośrednio w ramach sieci wirtualnej, ale użycie Application Gateway lub Azure Load Balancer między nimi spowoduje rozwiązanie tego scenariusza.
 
-### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door"></a>Jakie są różne limity czasu i limity dla usługi Azure Front Door?
+### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door"></a>Jakie są różne limity czasu i limity dotyczące zewnętrznych drzwi platformy Azure?
 
-Dowiedz się więcej o wszystkich [udokumentowanych limitach czasu i limitach dla drzwiach frontowych platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits).
+Dowiedz się więcej na temat wszystkich udokumentowanych [limitów czasu i limitów dla drzwi platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits).
 
 ## <a name="performance"></a>Wydajność
 
-### <a name="how-does-azure-front-door-support-high-availability-and-scalability"></a>W jaki sposób usługi Azure Front Door obsługują wysoką dostępność i skalowalność?
+### <a name="how-does-azure-front-door-support-high-availability-and-scalability"></a>Jak platforma Azure front-drzwi obsługuje wysoką dostępność i skalowalność?
 
-Usługa Azure Front Door to globalnie rozproszona platforma wielodostępna o dużej pojemności, która zaspokaja potrzeby aplikacji w zakresie skalowalności. Dostarczane z krawędzi globalnej sieci firmy Microsoft, drzwi frontowe zapewnia globalne możliwości równoważenia obciążenia, który pozwala na awaryjne nad całą aplikacją lub nawet poszczególnych mikrousług w regionach lub różnych chmurach.
+Drzwi frontonu platformy Azure to globalnie dystrybuowana platforma z wieloma dzierżawcami z ogromnymi ilościami pojemności, które spełniają potrzeby skalowalności aplikacji. Od brzegu sieci globalnej firmy Microsoft drzwi do przodu udostępniają globalną funkcję równoważenia obciążenia, która umożliwia przechodzenie w tryb failover całej aplikacji lub nawet poszczególnych mikrousług między regionami lub różnymi chmurami.
 
 ## <a name="tls-configuration"></a>Konfiguracja protokołu TLS
 
-### <a name="what-tls-versions-are-supported-by-azure-front-door"></a>Jakie wersje TLS są obsługiwane przez usługi Azure Front Door?
+### <a name="what-tls-versions-are-supported-by-azure-front-door"></a>Jakie wersje protokołu TLS są obsługiwane przez moje drzwi platformy Azure?
 
-Wszystkie profile drzwi przednich utworzone po wrześniu 2019 r. używają protokołu TLS 1.2 jako domyślnego minimum.
+Wszystkie profile frontonu utworzone po wrzesień 2019 używają protokołu TLS 1,2 jako domyślnego minimum.
 
-Drzwi wejściowe obsługują TLS w wersjach 1.0, 1.1 i 1.2. TLS 1.3 nie jest jeszcze obsługiwany.
+Drzwi z przodu obsługują protokół TLS w wersji 1,0, 1,1 i 1,2. Protokół TLS 1,3 nie jest jeszcze obsługiwany.
 
-### <a name="what-certificates-are-supported-on-azure-front-door"></a>Jakie certyfikaty są obsługiwane w usłudze Azure Front Door?
+### <a name="what-certificates-are-supported-on-azure-front-door"></a>Jakie certyfikaty są obsługiwane w ramach zewnętrznych drzwi platformy Azure?
 
-Aby włączyć protokół HTTPS do bezpiecznego dostarczania zawartości w domenie niestandardowej drzwiami frontowymi, można użyć certyfikatu zarządzanego przez usługi Azure Front Door lub użyć własnego certyfikatu.
-Opcja zarządzana drzwiami frontowymi udostępnia standardowy certyfikat TLS/SSL za pośrednictwem digicert i jest przechowywana w przechowalni kluczy do drzwi przednich. Jeśli zdecydujesz się użyć własnego certyfikatu, możesz dołączać certyfikat z obsługiwanego urzędu certyfikacji i może być standardowym certyfikatem TLS, certyfikatem rozszerzonej weryfikacji, a nawet certyfikatem wieloznacznym. Certyfikaty z podpisem własnym nie są obsługiwane. Dowiedz [się, jak włączyć protokół HTTPS dla domeny niestandardowej](https://aka.ms/FrontDoorCustomDomainHTTPS).
+Aby włączyć protokół HTTPS w celu bezpiecznego dostarczania zawartości w domenie niestandardowej z drzwiami niestandardowymi, możesz wybrać użycie certyfikatu zarządzanego przez usługę Azure front-drzwi lub użyć własnego certyfikatu.
+Opcja zarządzana przed drzwiami udostępnia standardowy certyfikat TLS/SSL za pośrednictwem DigiCert i jest przechowywany w Key Vaultch przednich drzwi. Jeśli zdecydujesz się na korzystanie z własnego certyfikatu, możesz dołączyć certyfikat z obsługiwanego urzędu certyfikacji i może być to standardowy protokół TLS, rozszerzony certyfikat weryfikacji, a nawet certyfikat z symbolami wieloznacznymi. Certyfikaty z podpisem własnym nie są obsługiwane. Dowiedz się [, jak włączyć protokół HTTPS dla domeny niestandardowej](https://aka.ms/FrontDoorCustomDomainHTTPS).
 
-### <a name="does-front-door-support-autorotation-of-certificates"></a>Czy drzwi frontowe obsługują autorotację certyfikatów?
+### <a name="does-front-door-support-autorotation-of-certificates"></a>Czy przód drzwi obsługuje autorotację certyfikatów?
 
-W przypadku opcji certyfikatu zarządzanego drzwiami frontowymi certyfikaty są autorotated przez drzwiami frontowymi. Jeśli używasz certyfikatu zarządzanego drzwiami frontowymi i widzisz, że data wygaśnięcia certyfikatu jest mniejsza niż 60 dni, złóż bilet pomocy technicznej.
-</br>W przypadku własnego niestandardowego certyfikatu TLS/SSL autorotacja nie jest obsługiwana. Podobnie jak po raz pierwszy skonfigurowano ją dla danej domeny niestandardowej, należy wskazać drzwiami frontowymi na właściwą wersję certyfikatu w magazynie kluczy i upewnić się, że podmiot usługi dla drzwi y frontowej nadal ma dostęp do magazynu kluczy. Ta zaktualizowana operacja wdrażania certyfikatów przez drzwiami frontowymi jest niepodzielna i nie powoduje żadnego wpływu na produkcję, pod warunkiem, że nazwa podmiotu lub sieci SAN dla certyfikatu nie ulegnie zmianie.
+W przypadku opcji certyfikat zarządzany przed drzwiami certyfikaty są obracane na podstawie drzwi. Jeśli używasz certyfikatu zarządzanego z drzwiami i zobaczysz, że data wygaśnięcia certyfikatu jest mniejsza niż 60 dni, zapoznaj się z biletem pomocy technicznej.
+</br>W przypadku własnego niestandardowego certyfikatu TLS/SSL, autorotacja nie jest obsługiwane. Podobnie jak w przypadku, gdy został on skonfigurowany po raz pierwszy dla danej domeny niestandardowej, należy wskazać przód drzwi do odpowiedniej wersji certyfikatu w Key Vault i upewnić się, że jednostka usługi dla drzwi zewnętrznych nadal ma dostęp do Key Vault. Ta zaktualizowana operacja wdrażania certyfikatu przez drzwi tylne jest niepodzielna i nie powoduje żadnego wpływu na produkcję, gdy nazwa podmiotu lub sieć SAN dla certyfikatu nie ulegają zmianie.
 
-### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door"></a>Jakie są bieżące mechanizmy szyfrowania obsługiwane przez usługi Azure Front Door?
+### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door"></a>Jakie są bieżące mechanizmy szyfrowania obsługiwane przez frontony platformy Azure?
 
-W przypadku protokołu TLS1.2 obsługiwane są następujące mechanizmy szyfrowania
+W przypadku protokołu TLS 1.2 obsługiwane są następujące mechanizmy szyfrowania
 
 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 
-W przypadku korzystania z domen niestandardowych z włączoną funkcją protokołu TLS1.0/1.1 obsługiwane są następujące mechanizmy szyfrowania:
+W przypadku używania domen niestandardowych z włączonym protokołem TLS 1.0/1.1 obsługiwane są następujące mechanizmy szyfrowania:
 
 - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
@@ -186,54 +186,54 @@ W przypadku korzystania z domen niestandardowych z włączoną funkcją protoko�
 - TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 - TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 
-### <a name="can-i-configure-tls-policy-to-control-tls-protocol-versions"></a>Czy mogę skonfigurować zasady TLS do kontrolowania wersji protokołu TLS?
+### <a name="can-i-configure-tls-policy-to-control-tls-protocol-versions"></a>Czy można skonfigurować zasady protokołu TLS w celu kontrolowania wersji protokołu TLS?
 
-Minimalną wersję protokołu TLS można skonfigurować w drzwiach frontowych platformy Azure w ustawieniach HTTPS domeny niestandardowej za pośrednictwem witryny Azure portal lub [interfejsu API rest platformy Azure.](https://docs.microsoft.com/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion) Obecnie można wybierać między 1.0 i 1.2.
+Można skonfigurować minimalną wersję protokołu TLS na platformie Azure Front drzwiczki w ustawieniach protokołu HTTPS domeny niestandardowej za pośrednictwem Azure Portal lub [interfejsu API REST platformy Azure](https://docs.microsoft.com/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). Obecnie można wybrać między 1,0 a 1,2.
 
-### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>Czy mogę skonfigurować drzwi frontowe tak, aby obsługiwać tylko określone mechanizmy szyfrowania?
+### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>Czy można skonfigurować drzwiczki frontonu w celu obsługi tylko określonych mechanizmów szyfrowania?
 
-Nie, konfigurowanie drzwi frontowych dla określonych zestawów szyfrowania nie jest obsługiwane. Można jednak uzyskać własny niestandardowy certyfikat TLS/SSL od urzędu certyfikacji (na przykład Verisign, Entrust lub Digicert) i mieć określone mechanizmy szyfrowania oznaczone na certyfikacie, gdy go wygenerowano. 
+Nie, Konfigurowanie drzwi zewnętrznych dla określonych mechanizmów szyfrowania nie jest obsługiwane. Można jednak uzyskać własny niestandardowy certyfikat TLS/SSL z urzędu certyfikacji (Powiedz VeriSign, powierzyć lub DigiCert) i mieć określone mechanizmy szyfrowania oznaczone w certyfikacie podczas jego generowania. 
 
-### <a name="does-front-door-support-ocsp-stapling"></a>Czy drzwi frontowe obsługują zszywanie OCSP?
+### <a name="does-front-door-support-ocsp-stapling"></a>Czy drzwi z przodu obsługują zszywanie protokołu OCSP?
 
-Tak, zszywanie OCSP jest domyślnie obsługiwane przez drzwi frontowe i nie jest wymagana żadna konfiguracja.
+Tak, zszywanie protokołu OCSP jest domyślnie obsługiwane przez frontony i nie jest wymagana żadna konfiguracja.
 
-### <a name="does-azure-front-door-also-support-re-encryption-of-traffic-to-the-backend"></a>Czy usługi Azure Front Door obsługują również ponowne szyfrowanie ruchu do wewnętrznej bazy danych?
+### <a name="does-azure-front-door-also-support-re-encryption-of-traffic-to-the-backend"></a>Czy usługa Azure front-drzwi obsługuje również ponowne szyfrowanie ruchu do zaplecza?
 
-Tak, usługi Azure Front Door obsługuje odciążanie protokołu TLS/SSL i end to end TLS, który ponownie szyfruje ruch do wewnętrznej bazy danych. W rzeczywistości, ponieważ połączenia z wewnętrznej bazy danych zdarzyć za pośrednictwem jego publicznych adresów IP, zaleca się skonfigurować drzwi frontowe do używania protokołu HTTPS jako protokołu przekazywania.
+Tak, platforma Azure Front-drzwiczk obsługuje odciążanie protokołu TLS/SSL i kompleksową transpozycję TLS, która powoduje ponowne zaszyfrowanie ruchu do zaplecza. W rzeczywistości, ponieważ połączenia z zapleczem odbywają się za pośrednictwem publicznego adresu IP, zaleca się skonfigurowanie drzwi frontonu do korzystania z protokołu HTTPS jako protokół przekazywania dalej.
 
-### <a name="does-front-door-support-self-signed-certificates-on-the-backend-for-https-connection"></a>Czy drzwiami frontowymi obsługują certyfikaty z podpisem własnym w wewnętrznej bazy danych dla połączenia HTTPS?
+### <a name="does-front-door-support-self-signed-certificates-on-the-backend-for-https-connection"></a>Czy drzwi z podpisem własnym obsługują certyfikaty z podpisem własnym w ramach zaplecza dla połączenia HTTPS?
 
-Nie, certyfikaty z podpisem własnym nie są obsługiwane w drzwiach frontowych i ograniczenie dotyczy obu:
+Nie, certyfikaty z podpisem własnym nie są obsługiwane w przypadku drzwi zewnętrznych, a ograniczenie dotyczy obydwu:
 
-1. **Zaplecze:** Nie można używać certyfikatów z podpisem własnym podczas przekazywania ruchu jako sondy kondycji HTTPS lub HTTPS lub wypełniania pamięci podręcznej dla reguł od początku do routingu z włączoną buforowanie.
-2. **Frontend:** Nie można używać certyfikatów z podpisem własnym podczas używania własnego niestandardowego certyfikatu TLS/SSL do włączania protokołu HTTPS w domenie niestandardowej.
+1. **Zastąp: nie**można użyć certyfikatów z podpisem własnym podczas przekazywania ruchu jako sond kondycji protokołu HTTPS lub HTTPS lub wypełniania pamięci podręcznej z poziomu źródła dla reguł routingu z włączonym buforowaniem.
+2. **Fronton**: nie można używać certyfikatów z podpisem własnym podczas korzystania z własnego NIESTANDARDOWEGO certyfikatu TLS/SSL do włączania protokołu HTTPS w domenie niestandardowej.
 
-### <a name="why-is-https-traffic-to-my-backend-failing"></a>Dlaczego ruch HTTPS do wewnętrznej bazy danych nie działa?
+### <a name="why-is-https-traffic-to-my-backend-failing"></a>Dlaczego ruch HTTPS do mojej wewnętrznej bazy danych kończy się niepowodzeniem?
 
-W przypadku pomyślnych połączeń HTTPS z zapleczem, czy dla sond kondycji lub przekazywania żądań, mogą istnieć dwa powody, dla których ruch HTTPS może zakończyć się niepowodzeniem:
+W przypadku pomyślnego nawiązania połączenia HTTPS z zaplecem niezależnie od tego, czy są używane sondy kondycji, czy przekazywanie żądań, może istnieć dwa przyczyny niepowodzenia ruchu HTTPS:
 
-1. **Niezgodność nazwy podmiotu certyfikatu:** W przypadku połączeń HTTPS drzwiami frontowymi oczekują, że wewnętrznej bazy danych jest prezentowany certyfikat z prawidłowego urzędu certyfikacji o nazwie podmiotu odpowiadającej nazwie hosta wewnętrznej bazy danych. Na przykład jeśli nazwa hosta wewnętrznej bazy `myapp-centralus.contosonews.net` danych jest ustawiona i certyfikat, który znajduje się `myapp-centralus.contosonews.net` w `*myapp-centralus*.contosonews.net` wewnętrznej bazy danych podczas uzgadniania TLS ani nie ma ani w nazwie podmiotu, drzwi frontowe odmówią połączenia i spowoduje błąd. 
-    1. **Rozwiązanie:** Chociaż nie jest to zalecane z punktu widzenia zgodności, można obejść ten błąd, wyłączając sprawdzanie nazwy podmiotu certyfikatu dla drzwi frontowych. Jest to obecne w obszarze Ustawienia w witrynie Azure portal i w obszarze BackendPoolsSettings w interfejsie API.
-2. **Certyfikat hosta zaplecza z nieprawidłowego urzędu certyfikacji:** Tylko certyfikaty z [prawidłowych urzędów certyfikacji](/azure/frontdoor/front-door-troubleshoot-allowed-ca) mogą być używane w wewnętrznej bazy danych z drzwiami frontowymi. Certyfikaty z wewnętrznych certyfikatów kasowych lub certyfikatów z podpisem własnym są niedozwolone.
+1. **Niezgodność nazwy podmiotu certyfikatu**: w przypadku połączeń HTTPS, drzwiczki z przodu oczekują, że zaplecze przedstawia certyfikat z prawidłowego urzędu certyfikacji z nazwami podmiotu pasującymi do nazwy hosta zaplecza. Jeśli na przykład nazwa hosta zaplecza jest ustawiona na `myapp-centralus.contosonews.net` , a certyfikat, którego zaplecze prezentuje się podczas UZGADNIANIA protokołu TLS `myapp-centralus.contosonews.net` , `*myapp-centralus*.contosonews.net` nie ma ani w nazwie podmiotu, drzwi tylne odmówią połączenia i spowodują wystąpienie błędu. 
+    1. **Rozwiązanie**: Chociaż nie jest to zalecane w punktu widzenia zgodności, można obejść ten błąd, wyłączając Sprawdzanie nazwy podmiotu certyfikatu dla drzwi z przodu. Ta opcja jest dostępna w obszarze Ustawienia w Azure Portal i w obszarze BackendPoolsSettings w interfejsie API.
+2. **Certyfikat hostingu zaplecza z nieprawidłowego urzędu certyfikacji**: można używać tylko certyfikatów z [prawidłowych urzędów certyfikacji](/azure/frontdoor/front-door-troubleshoot-allowed-ca) w zapleczu z przednimi drzwiami. Certyfikaty z wewnętrznych urzędów certyfikacji lub certyfikatów z podpisem własnym są niedozwolone.
 
 ## <a name="diagnostics-and-logging"></a>Diagnostyka i rejestrowanie
 
-### <a name="what-types-of-metrics-and-logs-are-available-with-azure-front-door"></a>Jakie typy metryk i dzienników są dostępne w usłudze Azure Front Door?
+### <a name="what-types-of-metrics-and-logs-are-available-with-azure-front-door"></a>Jakie typy metryk i dzienników są dostępne z usługami Azure front-drzwi?
 
-Aby uzyskać informacje na temat dzienników i innych funkcji diagnostycznych, zobacz [Monitorowanie metryk i dzienników dla drzwi frontowych](front-door-diagnostics.md).
+Aby uzyskać informacje na temat dzienników i innych funkcji diagnostycznych, zobacz [monitorowanie metryk i dzienników dla drzwi zewnętrznych](front-door-diagnostics.md).
 
-### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>Jakie są zasady przechowywania w dziennikach diagnostycznych?
+### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>Co to są zasady przechowywania w dziennikach diagnostycznych?
 
-Przepływ dzienników diagnostycznych do konta magazynu klientów, a klienci mogą ustawić zasady przechowywania na podstawie ich preferencji. Dzienniki diagnostyczne mogą być również wysyłane do dzienników usługi Event Hub lub Azure Monitor. Aby uzyskać więcej informacji, zobacz [Diagnostyka drzwi y frontowej platformy Azure](front-door-diagnostics.md).
+Dzienniki diagnostyczne przepływają do konta magazynu klientów i klienci mogą ustawić zasady przechowywania na podstawie ich preferencji. Dzienniki diagnostyczne można także wysyłać do centrum zdarzeń lub dzienników Azure Monitor. Aby uzyskać więcej informacji, zobacz [Diagnostyka z przodu platformy Azure](front-door-diagnostics.md).
 
-### <a name="how-do-i-get-audit-logs-for-azure-front-door"></a>Jak uzyskać dzienniki inspekcji dla drzwi frontowych platformy Azure?
+### <a name="how-do-i-get-audit-logs-for-azure-front-door"></a>Jak mogę pobrać dzienników inspekcji dla drzwi frontonu platformy Azure?
 
-Dzienniki inspekcji są dostępne dla drzwi y frontowe platformy Azure. W portalu kliknij pozycję **Dziennik aktywności** w bloku menu drzwi frontowych, aby uzyskać dostęp do dziennika inspekcji. 
+Dzienniki inspekcji są dostępne dla drzwi frontonu platformy Azure. W portalu kliknij pozycję **Dziennik aktywności** w bloku menu swojego drzwi czołowych, aby uzyskać dostęp do dziennika inspekcji. 
 
-### <a name="can-i-set-alerts-with-azure-front-door"></a>Czy mogę ustawić alerty za pomocą drzwi frontowych platformy Azure?
+### <a name="can-i-set-alerts-with-azure-front-door"></a>Czy mogę ustawić alerty za pomocą usług Azure front-drzwi?
 
-Tak, usługi Azure Front Door obsługuje alerty. Alerty są konfigurowane na metryki. 
+Tak, frontony platformy Azure obsługują alerty. Alerty są konfigurowane na metrykach. 
 
 ## <a name="next-steps"></a>Następne kroki
 

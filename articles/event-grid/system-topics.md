@@ -1,6 +1,6 @@
 ---
-title: Tematy systemu w usłudze Azure Event Grid
-description: Opisuje tematy systemu w usłudze Azure Event Grid.
+title: Tematy systemowe w Azure Event Grid
+description: Opisuje tematy systemowe w Azure Event Grid.
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 46bceeb31fa38068c6c4f9f3a86ed556ad39effb
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393150"
 ---
-# <a name="system-topics-in-azure-event-grid"></a>Tematy systemu w usłudze Azure Event Grid
-Usługa Azure Event Grid tworzy tematy systemowe podczas tworzenia pierwszej subskrypcji zdarzeń dla źródła zdarzeń platformy Azure. Obecnie usługa Event Grid nie tworzy tematów systemowych dla źródeł tematów utworzonych przed 15 marca 2020 r. Dla wszystkich źródeł tematów utworzonych w tej dacie lub później usługa Event Grid automatycznie tworzy tematy systemowe. W tym artykule opisano **tematy systemu** w usłudze Azure Event Grid.
+# <a name="system-topics-in-azure-event-grid"></a>Tematy systemowe w Azure Event Grid
+Usługa Azure Event Grid tworzy tematy systemowe podczas tworzenia pierwszej subskrypcji zdarzeń dla źródła zdarzeń platformy Azure. Obecnie Event Grid nie tworzy tematów systemowych dla źródeł tematów, które zostały utworzone przed Mar, 15, 2020. W przypadku wszystkich źródeł tematu utworzonych w dniu lub po tej dacie Event Grid automatycznie tworzy tematy systemowe. W tym artykule opisano **Tematy systemowe** w Azure Event Grid.
 
 > [!NOTE]
-> Ta funkcja nie jest obecnie włączona dla chmury azure dla instytucji rządowych. 
+> Ta funkcja nie jest obecnie włączona dla Azure Government Cloud. 
 
 ## <a name="overview"></a>Omówienie
-Podczas tworzenia pierwszej subskrypcji zdarzeń dla źródła zdarzeń platformy Azure, takich jak konto usługi Azure Storage, proces inicjowania obsługi administracyjnej dla subskrypcji tworzy dodatkowy zasób typu **Microsoft.EventGrid/systemTopics**. Po usunięciu ostatniej subskrypcji zdarzenia w źródle zdarzeń platformy Azure temat systemowy jest automatycznie usuwany.
+Podczas tworzenia pierwszej subskrypcji zdarzeń dla źródła zdarzeń platformy Azure, takiego jak konto usługi Azure Storage, proces aprowizacji subskrypcji tworzy dodatkowy zasób typu **Microsoft. EventGrid/systemTopics**. Po usunięciu ostatniej subskrypcji zdarzeń do źródła zdarzeń platformy Azure temat systemowy zostanie automatycznie usunięty.
 
-Temat systemowy nie ma zastosowania do scenariuszy tematów niestandardowych, czyli tematów siatki zdarzeń i domen siatki zdarzeń. 
+Temat systemowy nie ma zastosowania do scenariuszy niestandardowych tematów, czyli Event Grid tematów i Event Grid domen. 
 
 ## <a name="location"></a>Lokalizacja
-Dla źródeł zdarzeń platformy Azure, które znajdują się w określonym regionie/lokalizacji, temat systemu jest tworzony w tej samej lokalizacji co źródło zdarzeń platformy Azure. Na przykład jeśli utworzysz subskrypcję zdarzeń dla magazynu obiektów blob platformy Azure we wschodnich systemach USA, temat systemowy zostanie utworzony we wschodnich systemach USA. W przypadku globalnych źródeł zdarzeń platformy Azure, takich jak subskrypcje platformy Azure, grupy zasobów lub usługi Azure Maps, usługa Event Grid tworzy temat systemu w lokalizacji **globalnej.** 
+W przypadku źródeł zdarzeń platformy Azure, które znajdują się w określonym regionie/lokalizacji, temat systemowy jest tworzony w tej samej lokalizacji, w której znajduje się źródło zdarzeń platformy Azure. Jeśli na przykład utworzysz subskrypcję zdarzeń dla magazynu obiektów blob platformy Azure w regionie Wschodnie stany USA, temat systemowy zostanie utworzony w regionie Wschodnie stany USA. W przypadku globalnych źródeł zdarzeń platformy Azure, takich jak subskrypcje platformy Azure, grupy zasobów lub Azure Maps, Event Grid tworzy temat systemowy w lokalizacji **globalnej** . 
 
 ## <a name="resource-group"></a>Grupa zasobów 
-Ogólnie rzecz biorąc temat systemu jest tworzony w tej samej grupie zasobów, w których znajduje się źródło zdarzeń platformy Azure. W przypadku subskrypcji zdarzeń utworzonych w zakresie subskrypcji platformy Azure temat systemowy jest tworzony w ramach grupy zasobów **Default-EventGrid**. Jeśli grupa zasobów nie istnieje, usługa Azure Event Grid tworzy ją przed utworzeniem tematu systemu. 
+Ogólnie rzecz biorąc, temat systemowy jest tworzony w tej samej grupie zasobów, w której znajduje się źródło zdarzeń platformy Azure. W przypadku subskrypcji zdarzeń utworzonych w ramach zakresu subskrypcji platformy Azure temat systemowy jest tworzony w ramach grupy zasobów **default-EventGrid**. Jeśli grupa zasobów nie istnieje, Azure Event Grid ją utworzyć przed utworzeniem tematu systemowego. 
 
-Podczas próby usunięcia grupy zasobów z kontem magazynu, zobaczysz temat systemowy na liście zasobów, których dotyczy problem.  
+Podczas próby usunięcia grupy zasobów przy użyciu konta magazynu zostanie wyświetlony temat system na liście zasobów, których to dotyczy.  
 
 ![Usuwanie grupy zasobów](./media/system-topics/delete-resource-group.png)
 

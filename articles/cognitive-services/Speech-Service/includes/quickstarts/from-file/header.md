@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: rozpoznawanie mowy z pliku audio — usługa mowy'
+title: 'Szybki Start: Rozpoznawanie mowy z pliku audio — usługa mowy'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: trevorbye
@@ -10,16 +10,16 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: trbye
 ms.openlocfilehash: a7c91775411f100a92dfcb0a7199dd4b25f6eca4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400526"
 ---
-W tym przewodniku Szybki start użyjesz [SDK mowy](~/articles/cognitive-services/speech-service/speech-sdk.md) do rozpoznawania mowy z pliku audio. Po spełnieniu kilku wymagań wstępnych rozpoznawanie mowy z pliku wymaga tylko kilku kroków:
+W tym przewodniku szybki start użyjesz [zestawu Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) do rozpoznawania mowy z pliku dźwiękowego. Po spełnieniu kilku wymagań wstępnych, rozpoznawanie mowy z pliku obejmuje tylko kilka kroków:
 > [!div class="checklist"]
 > * Utwórz `SpeechConfig` obiekt z klucza subskrypcji i regionu.
-> * Utwórz `AudioConfig` obiekt określający obiekt . Nazwa pliku WAV.
-> * Utwórz `SpeechRecognizer` obiekt `SpeechConfig` przy `AudioConfig` użyciu obiektów i obiektów z góry.
-> * Za `SpeechRecognizer` pomocą obiektu, uruchom proces rozpoznawania dla pojedynczej wypowiedź.
-> * Sprawdź `SpeechRecognitionResult` zwrócony.
+> * Utwórz `AudioConfig` obiekt, który określa. Nazwa pliku WAV.
+> * Utwórz `SpeechRecognizer` Obiekt przy użyciu obiektów `SpeechConfig` i `AudioConfig` z powyższych.
+> * Za pomocą `SpeechRecognizer` obiektu, Rozpocznij proces rozpoznawania dla pojedynczego wypowiedź.
+> * Sprawdź zwracaną wartość `SpeechRecognitionResult` .

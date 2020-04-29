@@ -1,6 +1,6 @@
 ---
 title: Kontrola zabezpieczeń platformy Azure — rejestrowanie i monitorowanie
-description: Rejestrowanie i monitorowanie kontroli zabezpieczeń platformy Azure
+description: Rejestrowanie i monitorowanie za pomocą usługi Azure Security Control
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
@@ -8,151 +8,151 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: e58df0997c62a131a3c9987369f8e076a62d6654
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81408342"
 ---
-# <a name="security-control-logging-and-monitoring"></a>Kontrola bezpieczeństwa: rejestrowanie i monitorowanie
+# <a name="security-control-logging-and-monitoring"></a>Kontrola zabezpieczeń: rejestrowanie i monitorowanie
 
-Rejestrowanie i monitorowanie zabezpieczeń koncentruje się na działaniach związanych z włączaniem, nabywaniem i przechowywaniem dzienników inspekcji dla usług platformy Azure.
+Funkcja rejestrowania i monitorowania zabezpieczeń koncentruje się na działaniach związanych z włączaniem, uzyskiwaniem i przechowywaniem dzienników inspekcji dla usług platformy Azure.
 
-## <a name="21-use-approved-time-synchronization-sources"></a>2.1: Korzystanie z zatwierdzonych źródeł synchronizacji czasu
+## <a name="21-use-approved-time-synchronization-sources"></a>2,1: Użyj źródeł synchronizacji zatwierdzonego czasu
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
 | 2.1 | 6.1 | Microsoft |
 
-Firma Microsoft przechowuje źródła czasu dla zasobów platformy Azure, jednak masz możliwość zarządzania ustawieniami synchronizacji czasu dla zasobów obliczeniowych.
+Firma Microsoft przechowuje źródła czasu dla zasobów platformy Azure, ale istnieje możliwość zarządzania ustawieniami synchronizacji czasu dla zasobów obliczeniowych.
 
-- [Jak skonfigurować synchronizację czasu dla zasobów obliczeniowych systemu Azure Windows](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)
+- [Jak skonfigurować synchronizację czasu dla zasobów obliczeniowych systemu Windows Azure](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)
 
 - [Jak skonfigurować synchronizację czasu dla zasobów obliczeniowych systemu Azure Linux](https://docs.microsoft.com/azure/virtual-machines/linux/time-sync)
 
-## <a name="22-configure-central-security-log-management"></a>2.2: Konfigurowanie centralnego zarządzania dziennikami zabezpieczeń
+## <a name="22-configure-central-security-log-management"></a>2,2: Skonfiguruj centralne zarządzanie dziennikami zabezpieczeń
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 2.2 | 6.5, 6.6 | Klient |
+| 2.2 | 6,5, 6,6 | Klient |
 
-Pozyskiwania dzienników za pośrednictwem usługi Azure Monitor do agregowania danych zabezpieczeń generowanych przez urządzenia końcowego, zasoby sieciowe i inne systemy zabezpieczeń. W usłudze Azure Monitor użyj obszaru roboczego analizy dzienników do wykonywania zapytań i wykonywania analiz oraz użyj kont usługi Azure Storage do długoterminowego/archiwizacji magazynu.
+Pozyskiwanie dzienników za pośrednictwem Azure Monitor do agregowania danych zabezpieczeń wygenerowanych przez urządzenia, zasoby sieciowe i inne systemy zabezpieczeń. W Azure Monitor należy używać Log Analytics obszarów roboczych do wykonywania zapytań i wykonywania analiz oraz używania kont usługi Azure Storage do przechowywania długoterminowego/archiwizowania.
 
-Alternatywnie można włączyć i na pokładzie danych do usługi Azure Sentinel lub innej firmy SIEM. 
+Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innych firm. 
 
-- [Jak ować na pokładzie usługi Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
-- [Jak zbierać dzienniki i metryki platformy za pomocą usługi Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
 
-- [Jak zbierać wewnętrzne dzienniki hostów platformy Azure Virtual Machine za pomocą usługi Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)
+- [Jak zbierać dzienniki wewnętrznego hosta maszyny wirtualnej platformy Azure z Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)
 
-- [Jak rozpocząć pracę z usługą Azure Monitor i integracją siem innych firm](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
+- [Jak rozpocząć pracę z usługą Azure Monitor i integracją SIEM innej firmy](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-## <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: Włączanie rejestrowania inspekcji zasobów platformy Azure
+## <a name="23-enable-audit-logging-for-azure-resources"></a>2,3: Włączanie rejestrowania inspekcji dla zasobów platformy Azure
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 2.3 | 6.2, 6.3 | Klient |
+| 2.3 | 6,2, 6,3 | Klient |
 
 Włącz ustawienia diagnostyczne w zasobach platformy Azure, aby uzyskać dostęp do dzienników inspekcji, zabezpieczeń i diagnostyki. Dzienniki aktywności, które są automatycznie dostępne, obejmują źródło zdarzeń, datę, użytkownika, sygnaturę czasową, adresy źródłowe, adresy docelowe i inne przydatne elementy.
 
-- [Jak zbierać dzienniki i metryki platformy za pomocą usługi Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
 
-- [Opis rejestrowania i różnych typów dzienników na platformie Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)
+- [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)
 
-## <a name="24-collect-security-logs-from-operating-systems"></a>2.4: Zbieranie dzienników zabezpieczeń z systemów operacyjnych
+## <a name="24-collect-security-logs-from-operating-systems"></a>2,4: Zbierz dzienniki zabezpieczeń z systemów operacyjnych
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 2.4 | 6.2, 6.3 | Klient |
+| 2.4 | 6,2, 6,3 | Klient |
 
-Jeśli zasób obliczeniowy jest własnością firmy Microsoft, firma Microsoft jest odpowiedzialna za jego monitorowanie. Jeśli zasób obliczeniowy jest własnością organizacji, jest odpowiedzialny za jego monitorowanie. Za pomocą usługi Azure Security Center można monitorować system operacyjny. Dane zbierane przez Centrum zabezpieczeń z systemu operacyjnego obejmują typ i wersję systemu operacyjnego, system operacyjny (dzienniki zdarzeń systemu Windows), uruchomione procesy, nazwę komputera, adresy IP i zalogowanego użytkownika. Agent analizy dzienników zbiera również pliki zrzutu awaryjnego.
+Jeśli zasób obliczeniowy należy do firmy Microsoft, firma Microsoft jest odpowiedzialna za ich monitorowanie. Jeśli zasób obliczeniowy należy do organizacji, odpowiedzialność za jego monitorowanie. Aby monitorować system operacyjny, można użyć Azure Security Center. Dane zbierane przez Security Center z systemu operacyjnego obejmują typ i wersję systemu operacyjnego, system operacyjny (dzienniki zdarzeń systemu Windows), uruchomione procesy, nazwę komputera, adresy IP i zalogowanego użytkownika. Agent Log Analytics również zbiera pliki zrzutu awaryjnego.
 
-- [Jak zbierać wewnętrzne dzienniki hostów platformy Azure Virtual Machine za pomocą usługi Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)
+- [Jak zbierać dzienniki wewnętrznego hosta maszyny wirtualnej platformy Azure z Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)
 
-- [Opis zbierania danych usługi Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)
+- [Omówienie zbierania danych Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)
 
-## <a name="25-configure-security-log-storage-retention"></a>2.5: Konfigurowanie przechowywania magazynu dzienników zabezpieczeń
+## <a name="25-configure-security-log-storage-retention"></a>2,5: Konfigurowanie przechowywania magazynu dzienników zabezpieczeń
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
 | 2.5 | 6.4 | Klient |
 
-W usłudze Azure Monitor ustaw okres przechowywania obszaru roboczego usługi Log Analytics zgodnie z przepisami dotyczącymi zgodności obowiązującymi w organizacji. Użyj kont usługi Azure Storage dla magazynu długoterminowego/archiwizacji.
+W Azure Monitor Skonfiguruj okres przechowywania Log Analytics obszaru roboczego zgodnie z przepisami w zakresie zgodności w organizacji. Używaj kont usługi Azure Storage do przechowywania długoterminowego/archiwizowania.
 
-- [Zmienianie okresu przechowywania danych w usłudze Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Zmień okres przechowywania danych w Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
 - [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)
 
-## <a name="26-monitor-and-review-logs"></a>2.6: Monitorowanie i przeglądanie dzienników
+## <a name="26-monitor-and-review-logs"></a>2,6: dzienniki monitorowania i przeglądania
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
 | 2,6 | 6.7 | Klient |
 
-Analizuj i monitoruj dzienniki pod kątem nietypowego zachowania i regularnie przeglądaj wyniki. Użyj obszaru roboczego analizy dzienników usługi Azure Monitor, aby przeglądać dzienniki i wykonywać kwerendy dotyczące danych dziennika.
+Analizuj i monitoruj dzienniki pod kątem nietypowego zachowania i regularnie Przeglądaj wyniki. Użyj Azure Monitor Log Analytics obszaru roboczego do przeglądania dzienników i wykonywania zapytań dotyczących danych dziennika.
 
-Alternatywnie można włączyć i na pokładzie danych do usługi Azure Sentinel lub innej firmy SIEM. 
+Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innych firm. 
 
-- [Jak ować na pokładzie usługi Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
-- [Opis obszaru roboczego analizy dzienników](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+- [Informacje o obszarze roboczym Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
 
-- [Jak wykonywać zapytania niestandardowe w usłudze Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+- [Jak wykonywać niestandardowe zapytania w Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
 
-## <a name="27-enable-alerts-for-anomalous-activities"></a>2.7: Włączanie alertów o nietypowych działaniach
+## <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: Włączanie alertów dla nietypowych działań
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
 | 2.7 | 6.8 | Klient |
 
-Użyj usługi Azure Security Center z obszarem roboczym usługi Log Analytics do monitorowania i ostrzegania o nietypowej aktywności znalezionej w dziennikach zabezpieczeń i zdarzeniach.
+Użyj Azure Security Center z Log Analytics obszarem roboczym do monitorowania i generowania alertów dotyczących nietypowego działania znalezionego w dziennikach i zdarzeniach zabezpieczeń.
 
-Alternatywnie można włączyć i na pokładzie danych do usługi Azure Sentinel.
+Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej.
 
-- [Jak ować na pokładzie usługi Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
-- [Jak zarządzać alertami w usłudze Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+- [Jak zarządzać alertami w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
 
-- [Jak ostrzegać o danych dziennika analizy dziennika](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+- [Jak ostrzec dane dziennika usługi log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
 
-## <a name="28-centralize-anti-malware-logging"></a>2.8: Scentralizuj rejestrowanie przed złośliwym oprogramowaniem
+## <a name="28-centralize-anti-malware-logging"></a>2,8: scentralizowanie rejestrowania chroniącego przed złośliwym oprogramowaniem
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
 | 2,8 | 8.6 | Klient |
 
-Włącz zbieranie zdarzeń ochrony przed złośliwym oprogramowaniem dla maszyn wirtualnych platformy Azure i usług w chmurze.
+Włącz zbieranie zdarzeń chroniących przed złośliwym kodem dla Virtual Machines platformy Azure i Cloud Services.
 
-- [Jak skonfigurować oprogramowanie antywirusowe Microsoft Antimalware for Virtual Machines](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmmicrosoftantimalwareextension?view=azuresmps-4.0.0)
+- [Jak skonfigurować oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft dla Virtual Machines](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmmicrosoftantimalwareextension?view=azuresmps-4.0.0)
 
-- [Jak skonfigurować oprogramowanie Antywirusowe dla usług w chmurze](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
+- [Jak skonfigurować oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft dla Cloud Services](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
 
-- [Opis ochrony przed złośliwym oprogramowaniem firmy Microsoft](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+- [Informacje na temat ochrony przed złośliwym oprogramowaniem firmy Microsoft](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 
-## <a name="29-enable-dns-query-logging"></a>2.9: Włączanie rejestrowania zapytań DNS
+## <a name="29-enable-dns-query-logging"></a>2,9: Włączanie rejestrowania zapytań DNS
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
 | 2.9 | 8.7 | Klient |
 
-Zaimplementuj rozwiązanie innej firmy z usługi Azure Marketplace dla rozwiązania do rejestrowania DNS zgodnie z potrzebami organizacji.  
+Zaimplementuj rozwiązanie innych firm z witryny Azure Marketplace na potrzeby rejestrowania w systemie DNS, zgodnie z potrzebami organizacji.  
 
-## <a name="210-enable-command-line-audit-logging"></a>2.10: Włącz rejestrowanie inspekcji wiersza polecenia
+## <a name="210-enable-command-line-audit-logging"></a>2,10: Włączanie rejestrowania inspekcji w wierszu polecenia
 
-| Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
+| Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 2,10 | 8.8 | Klient |
+| 2,10 | 8,8 | Klient |
 
-Użyj programu Microsoft Monitoring Agent na wszystkich obsługiwanych maszynach wirtualnych systemu Azure Windows, aby zarejestrować zdarzenie tworzenia procesu i pole CommandLine.   W przypadku obsługiwanych maszyn wirtualnych systemu Azure Linux można ręcznie skonfigurować rejestrowanie konsoli na podstawie węzła i używać sysloga do przechowywania danych.  Ponadto użyj obszaru roboczego analizy dzienników usługi Azure Monitor, aby przeglądać dzienniki i wykonywać kwerendy na zarejestrowanych danych z maszyn wirtualnych platformy Azure. 
+Użyj Microsoft Monitoring Agent na wszystkich obsługiwanych maszynach wirtualnych z systemem Windows Azure, aby zarejestrować zdarzenie tworzenia procesu i pole wiersza polecenia.   W przypadku obsługiwanych maszyn wirtualnych z systemem Linux na platformie Azure można ręcznie skonfigurować rejestrowanie konsoli dla poszczególnych węzłów i użyć dziennika systemowego do przechowywania danych.  Należy również użyć obszaru roboczego Log Analytics Azure Monitor do przeglądania dzienników i wykonywania zapytań dotyczących zarejestrowanych danych z usługi Azure Virtual Machines. 
 
 - [Zbieranie danych w usłudze Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
 
-- [Jak wykonywać zapytania niestandardowe w usłudze Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+- [Jak wykonywać niestandardowe zapytania w Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
 
 - [Syslog data sources in Azure Monitor (Źródła danych usługi Syslog w usłudze Azure Monitor)](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-syslog)
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz następną kontrolę zabezpieczeń: [kontrola tożsamości i dostępu](security-control-identity-access-control.md)
+- Zobacz następną kontrolę zabezpieczeń: [tożsamość i Access Control](security-control-identity-access-control.md)

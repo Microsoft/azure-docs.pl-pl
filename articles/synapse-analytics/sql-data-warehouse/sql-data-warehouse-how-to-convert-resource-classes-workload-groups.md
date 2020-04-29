@@ -1,6 +1,6 @@
 ---
-title: Konwertowanie klasy zasobów na grupę obciążenia
-description: Dowiedz się, jak utworzyć grupę obciążenia podobną do klasy zasobów w usłudze Azure SQL Data Warehouse.
+title: Konwertowanie klasy zasobów na grupę obciążeń
+description: Dowiedz się, jak utworzyć grupę obciążeń podobną do klasy zasobów w Azure SQL Data Warehouse.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -12,22 +12,22 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 5d73ba8f21fe7731fb751d42a8497ff8e1ebba7d
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81383621"
 ---
-# <a name="convert-resource-classes-to-workload-groups"></a>Konwertuj klasy zasobów na grupy obciążeń
+# <a name="convert-resource-classes-to-workload-groups"></a>Konwertowanie klas zasobów na grupy obciążeń
 
-Grupy obciążenia zapewniają mechanizm izolowania i przechowywania zasobów systemowych.  Ponadto grupy obciążenia umożliwiają ustawianie reguł wykonywania dla uruchomionych w nich żądań.  Reguła wykonywania limitu czasu kwerendy umożliwia anulowanie kwerend ucieczki bez interwencji użytkownika.  W tym artykule wyjaśniono, jak wziąć istniejącą klasę zasobów i utworzyć grupę obciążenia o podobnej konfiguracji.  Ponadto zostanie dodana opcjonalna reguła limitu czasu kwerendy.
+Grupy obciążeń zapewniają mechanizm izolowania i zawierania zasobów systemowych.  Ponadto grupy obciążeń umożliwiają ustawianie reguł wykonywania dla żądań w nich uruchomionych.  Reguła wykonywania limitu czasu zapytania umożliwia anulowanie zapytań dotyczących przemijających bez interwencji użytkownika.  W tym artykule wyjaśniono, jak zastosować istniejącą klasę zasobów i utworzyć grupę obciążeń z podobną konfiguracją.  Dodatkowo dodawana jest opcjonalna reguła limitu czasu zapytania.
 
 > [!NOTE]
-> Zobacz [mieszanie przydziałów klasy zasobów z klasyfikatorów](sql-data-warehouse-workload-classification.md#mixing-resource-class-assignments-with-classifiers) sekcji w dokumencie koncepcyjnym [klasyfikacji obciążenia,](sql-data-warehouse-workload-classification.md) aby uzyskać wskazówki dotyczące używania grup obciążenia i klas zasobów w tym samym czasie.
+> Zobacz [mieszanie przypisań klasy zasobów z klasyfikatorami](sql-data-warehouse-workload-classification.md#mixing-resource-class-assignments-with-classifiers) w dokumencie koncepcji [klasyfikacji obciążenia](sql-data-warehouse-workload-classification.md) , aby uzyskać wskazówki dotyczące używania grup obciążeń i klas zasobów w tym samym czasie.
 
-## <a name="understanding-the-existing-resource-class-configuration"></a>Opis istniejącej konfiguracji klasy zasobów
+## <a name="understanding-the-existing-resource-class-configuration"></a>Zrozumienie istniejącej konfiguracji klasy zasobów
 
-Grupy obciążenia wymagają `REQUEST_MIN_RESOURCE_GRANT_PERCENT` parametru o nazwie, który określa procent całkowitych zasobów systemowych przydzielonych na żądanie.  Alokacja zasobów odbywa się dla [klas zasobów](resource-classes-for-workload-management.md#what-are-resource-classes) przez przydzielanie gniazd współbieżności.  Aby określić wartość, `REQUEST_MIN_RESOURCE_GRANT_PERCENT`dla której ma być określona <link tbd> wartość, należy użyć pliku sys.dm_workload_management_workload_groups_stats DMV.  Na przykład poniższa kwerenda zwraca wartość, która `REQUEST_MIN_RESOURCE_GRANT_PERCENT` może służyć parametrowi do utworzenia grupy obciążenia podobnej do staticrc40.
+Grupy obciążeń wymagają parametru o nazwie `REQUEST_MIN_RESOURCE_GRANT_PERCENT` , który określa procent łącznych zasobów systemowych przyznanych na żądanie.  Alokacja zasobów jest wykonywana dla [klas zasobów](resource-classes-for-workload-management.md#what-are-resource-classes) przez alokowanie miejsc współbieżności.  Aby określić wartość do określenia `REQUEST_MIN_RESOURCE_GRANT_PERCENT`, użyj wykazu sys. dm_workload_management_workload_groups_stats <link tbd> DMV.  Na przykład poniższe zapytanie zapytania zwraca wartość, która może być użyta dla `REQUEST_MIN_RESOURCE_GRANT_PERCENT` parametru w celu utworzenia grupy obciążeń podobnej do staticrc40.
 
 ```sql
 SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant_percent
@@ -36,15 +36,15 @@ SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant
 ```
 
 > [!NOTE]
-> Grupy obciążenia działają na podstawie procentu całkowitych zasobów systemowych.  
+> Grupy obciążeń działają na podstawie wartości procentowej ogólnych zasobów systemowych.  
 
-Ponieważ grupy obciążenia działają na podstawie procentu ogólnych zasobów systemowych, podczas skalowania w górę i w dół, procent zasobów przydzielonych do statycznych klas zasobów w stosunku do ogólnych zasobów systemowych zmienia się.  Na przykład staticrc40 w DW1000c przydziela 9,6% całkowitych zasobów systemowych.  Na DW2000c przeznacza się 19,2 proc.  Ten model jest podobny, jeśli chcesz skalować w górę dla współbieżności w porównaniu do przydzielania większej ilości zasobów na żądanie.
+Ponieważ grupy obciążeń działają na podstawie wartości procentowej ogólnych zasobów systemowych, podczas skalowania w górę i w dół, procent zasobów przypisywanych do klas zasobów statycznych względem ogólnych zmian zasobów systemu.  Na przykład staticrc40 w DW1000c przydziela 9,6% ogólnych zasobów systemowych.  O godzinie DW2000c przydzielono 19,2%.  Ten model jest podobny, jeśli chcesz skalować w górę w celu zapewnienia współbieżności i przydzielania większej liczby zasobów na żądanie.
 
-## <a name="create-workload-group"></a>Tworzenie grupy obciążeń
+## <a name="create-workload-group"></a>Utwórz grupę obciążeń
 
-Za pomocą `REQUEST_MIN_RESOURCE_GRANT_PERCENT`znanej , można użyć <link> składni TWORZENIE GRUPY OBCIĄŻENIA, aby utworzyć grupę obciążenia.  Opcjonalnie można `MIN_PERCENTAGE_RESOURCE` określić, że jest większa niż zero, aby wyizolować zasoby dla grupy obciążenia.  Ponadto można opcjonalnie `CAP_PERCENTAGE_RESOURCE` określić mniej niż 100, aby ograniczyć ilość zasobów, które grupa obciążenia może korzystać.  
+Ze znanymi `REQUEST_MIN_RESOURCE_GRANT_PERCENT`, można użyć SKŁADNI Utwórz grupę <link> obciążeń, aby utworzyć grupę obciążeń.  Opcjonalnie możesz określić `MIN_PERCENTAGE_RESOURCE` , że jest większy niż zero, aby izolować zasoby dla grupy obciążenia.  Ponadto można opcjonalnie określić `CAP_PERCENTAGE_RESOURCE` mniej niż 100, aby ograniczyć ilość zasobów, które może zużywać Grupa obciążeń.  
 
-Poniższy przykład `MIN_PERCENTAGE_RESOURCE` ustawia przeznaczyć 9,6% zasobów systemowych `wgDataLoads` i gwarantuje, że jedno zapytanie będzie w stanie uruchomić cały czas.  Ponadto `CAP_PERCENTAGE_RESOURCE` jest ustawiona na 38,4% i ogranicza tę grupę obciążenia do czterech równoczesnych żądań.  Ustawiając `QUERY_EXECUTION_TIMEOUT_SEC` parametr na 3600, każda kwerenda, która działa dłużej niż 1 godzinę, zostanie automatycznie anulowana.
+Poniższy przykład ustawia `MIN_PERCENTAGE_RESOURCE` do dedykowania 9,6% zasobów systemowych `wgDataLoads` i gwarantuje, że jedno zapytanie będzie mogło działać przez cały czas.  Ponadto `CAP_PERCENTAGE_RESOURCE` jest ustawiony na 38,4% i ogranicza tę grupę obciążeń do czterech współbieżnych żądań.  Ustawienie `QUERY_EXECUTION_TIMEOUT_SEC` parametru na 3600 spowoduje automatyczne anulowanie wszystkich zapytań, które są uruchamiane przez więcej niż 1 godzinę.
 
 ```sql
 CREATE WORKLOAD GROUP wgDataLoads WITH  
@@ -56,10 +56,10 @@ CREATE WORKLOAD GROUP wgDataLoads WITH
 
 ## <a name="create-the-classifier"></a>Tworzenie klasyfikatora
 
-Wcześniej mapowanie zapytań do klas zasobów zostało wykonane za pomocą [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Aby osiągnąć te same funkcje i mapować żądania do grup obciążeń, należy użyć składni [CREATE WORKLOAD CLASSIFIER.](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  Korzystanie z sp_addrolemember umożliwia tylko mapowanie zasobów na żądanie na podstawie loginu.  Klasyfikator zapewnia dodatkowe opcje oprócz logowania, takie jak:
+Poprzednio mapowanie zapytań do klas zasobów zostało wykonane z [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Aby osiągnąć te same funkcje i mapować żądania do grup obciążeń, użyj składni [KLASYFIKATORA obciążeń](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Za pomocą sp_addrolemember można mapować zasoby na żądanie na podstawie nazwy logowania.  Klasyfikator zapewnia dodatkowe opcje oprócz logowania, takie jak:
     - label
     - sesja
-    - czas Poniższy przykład przypisuje zapytania `AdfLogin` z logowania, które mają `factloads` również option `wgDataLoads` [label](sql-data-warehouse-develop-label.md) ustawiony na grupę obciążenia utworzone powyżej.
+    - czas w poniższym przykładzie przypisuje zapytania z `AdfLogin` nazwy logowania, które również mają ustawioną `factloads` `wgDataLoads` [etykietę opcji](sql-data-warehouse-develop-label.md) na grupę obciążeń utworzoną powyżej.
 
 ```sql
 CREATE WORKLOAD CLASSIFIER wcDataLoads WITH  
@@ -68,9 +68,9 @@ CREATE WORKLOAD CLASSIFIER wcDataLoads WITH
  ,WLM_LABEL = 'factloads')
 ```
 
-## <a name="test-with-a-sample-query"></a>Testowanie za pomocą przykładowej kwerendy
+## <a name="test-with-a-sample-query"></a>Testowanie za pomocą przykładowego zapytania
 
-Poniżej znajduje się przykładowe zapytanie i kwerenda DMV, aby upewnić się, że grupa obciążenia i klasyfikator są poprawnie skonfigurowane.
+Poniżej znajduje się przykładowe zapytanie i zapytanie DMV, aby upewnić się, że grupa obciążeń i klasyfikator są prawidłowo skonfigurowane.
 
 ```sql
 SELECT SUSER_SNAME() --should be 'AdfLogin'
@@ -90,5 +90,5 @@ SELECT request_id, [label], classifier_name, group_name, command
 
 - [Izolacja obciążenia](sql-data-warehouse-workload-isolation.md)
 - [Jak utworzyć grupę obciążeń](quickstart-configure-workload-isolation-tsql.md)
-- [TWORZENIE KLASYFIKATORA OBCIĄŻENIA (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?&view=azure-sqldw-latest)
-- [TWORZENIE GRUPY OBCIĄŻEŃ (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
+- [Utwórz klasyfikator obciążeń (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?&view=azure-sqldw-latest)
+- [Utwórz grupę obciążeń (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)

@@ -1,7 +1,7 @@
 ---
 title: 'Samouczek: uruchamianie modelu TensorFlow w języku Python — Custom Vision Service'
 titleSuffix: Azure Cognitive Services
-description: Uruchom model TensorFlow w języku Python. Ten artykuł dotyczy tylko modeli eksportowanych z projektów klasyfikacji obrazów w usłudze Niestandardowa wizja.
+description: Uruchom model TensorFlow w języku Python. Ten artykuł dotyczy tylko modeli wyeksportowanych z projektów klasyfikacji obrazów w usłudze Custom Vision.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: 6fcbd84b3cda4adace9c1229f5ed03c3dce68fc0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81404131"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Samouczek: uruchamianie modelu TensorFlow w języku Python
@@ -22,7 +22,7 @@ ms.locfileid: "81404131"
 W tym przewodniku Szybki start opisano, jak po [wyeksportowaniu modelu TensorFlow](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) z usługi Custom Vision Service użyć tego modelu lokalnie w celu klasyfikowania obrazów.
 
 > [!NOTE]
-> Ten samouczek dotyczy tylko modeli eksportowanych z projektów klasyfikacji obrazów.
+> Ten samouczek dotyczy tylko modeli wyeksportowanych z projektów klasyfikacji obrazów.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -31,7 +31,7 @@ Aby korzystać z tego samouczka, wykonaj następujące czynności:
 - Zainstaluj język Python 2.7+ lub Python 3.5+.
 - Zainstaluj program pip.
 
-Następnie musisz zainstalować następujące pakiety:
+Następnie należy zainstalować następujące pakiety:
 
 ```
 pip install tensorflow
@@ -68,7 +68,7 @@ with open(labels_filename, 'rt') as lf:
 
 ## <a name="prepare-an-image-for-prediction"></a>Przygotowanie obrazu do przewidywania
 
-Istnieje kilka kroków, które należy wykonać, aby przygotować obraz do prognozowania. Te kroki są podobne do manipulacji obrazem podczas uczenia:
+Istnieje kilka kroków, które należy wykonać, aby przygotować obraz do przewidywania. Te kroki są podobne do manipulacji obrazem podczas uczenia:
 
 ### <a name="open-the-file-and-create-an-image-in-the-bgr-color-space"></a>Otwieranie pliku i tworzenie obrazu w przestrzeni kolorów BGR
 
@@ -88,7 +88,7 @@ image = update_orientation(image)
 image = convert_to_opencv(image)
 ```
 
-### <a name="handle-images-with-a-dimension-1600"></a>Obsługa obrazów o wymiarze >1600
+### <a name="handle-images-with-a-dimension-1600"></a>Obsługa obrazów z wymiarem >1600
 
 ```Python
 # If the image has either w or h greater than 1600 we resize it down respecting
@@ -172,7 +172,7 @@ def update_orientation(image):
 
 ## <a name="predict-an-image"></a>Przewidywanie obrazu
 
-Gdy obraz jest przygotowany jako tensor, możemy wysłać go za pośrednictwem modelu do przewidywania:
+Po przygotowaniu obrazu jako dwuelementowego można wysłać go za pomocą modelu w celu przewidywania:
 
 ```Python
 
@@ -210,7 +210,7 @@ Wyniki uruchomienia tensora obrazu za pośrednictwem modelu trzeb będzie wtedy 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Następnie dowiedz się, jak zawinąć model w aplikację mobilną:
+Następnie Dowiedz się, jak otoczyć model w aplikacji mobilnej:
 * [Używanie wyeksportowanego modelu TensorFlow w aplikacji systemu Android](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
 * [Używanie wyeksportowanego modelu CoreML w aplikacji języka Swift systemu iOS](https://go.microsoft.com/fwlink/?linkid=857726)
 * [Używanie wyeksportowanego modelu CoreML w aplikacji systemu iOS na platformie Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)

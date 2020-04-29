@@ -1,6 +1,6 @@
 ---
-title: Programy obsługi zdarzeń usługi Azure Event Grid
-description: Zawiera opis obsługiwanych programów obsługi zdarzeń dla usługi Azure Event Grid. Automatyzacja platformy Azure, funkcje, centra zdarzeń, połączenia hybrydowe, aplikacje logiki, magistrala usług, magazyn kolejek, elementy webhook.
+title: Obsługa zdarzeń Azure Event Grid
+description: Opisuje obsługiwane procedury obsługi zdarzeń dla Azure Event Grid. Azure Automation, funkcje, Event Hubs, Połączenia hybrydowe, Logic Apps, Service Bus, Queue Storage, elementy webhook.
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,80 +8,80 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 73118823aec9b8d4bd872986b13f19496240c0b9
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393438"
 ---
-# <a name="event-handlers-in-azure-event-grid"></a>Programy obsługi zdarzeń w usłudze Azure Event Grid
+# <a name="event-handlers-in-azure-event-grid"></a>Programy obsługi zdarzeń w Azure Event Grid
 
-Program obsługi zdarzeń jest miejscem, w którym jest wysyłane zdarzenie. Program obsługi podejmuje kilka dalszych działań do przetwarzania zdarzenia. Kilka usług platformy Azure są automatycznie skonfigurowane do obsługi zdarzeń. Można również użyć dowolnego elementu WebHook do obsługi zdarzeń. Element WebHook nie musi być hostowany na platformie Azure do obsługi zdarzeń. Usługa Event Grid obsługuje tylko punkty końcowe https webhook.
+Program obsługi zdarzeń jest miejscem, w którym zdarzenie jest wysyłane. Procedura obsługi wykonuje kilka dalszych działań w celu przetworzenia zdarzenia. Kilka usług platformy Azure jest automatycznie konfigurowanych do obsługi zdarzeń. Możesz również użyć dowolnego elementu webhook do obsługi zdarzeń. Elementy webhook nie muszą być hostowane na platformie Azure, aby obsługiwać zdarzenia. Event Grid obsługuje tylko punkty końcowe elementu webhook protokołu HTTPS.
 
-Ten artykuł zawiera łącza do zawartości dla każdego programu obsługi zdarzeń.
+Ten artykuł zawiera linki do zawartości dla każdego programu obsługi zdarzeń.
 
 ## <a name="azure-automation"></a>Azure Automation
 
-Usługa Azure Automation umożliwia przetwarzanie zdarzeń za pomocą automatycznych śmiób.
+Użyj Azure Automation, aby przetwarzać zdarzenia za pomocą zautomatyzowanych elementów Runbook.
 
 |Tytuł  |Opis  |
 |---------|---------|
-|[Samouczek: Automatyzacja platformy Azure z siatką zdarzeń i zespołami Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Utwórz maszynę wirtualną, która wysyła zdarzenie. Zdarzenie wyzwala element runbook automatyzacji, który oznacza maszynę wirtualną i wyzwala komunikat, który jest wysyłany do kanału usługi Microsoft Teams. |
+|[Samouczek: Azure Automation z Event Grid i Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Utwórz maszynę wirtualną, która wysyła zdarzenie. Zdarzenie wyzwala element Runbook usługi Automation, który oznacza maszynę wirtualną, i wyzwala komunikat wysyłany do kanału Microsoft Teams. |
 
 ## <a name="azure-functions"></a>Azure Functions
 
-Użyj usługi Azure Functions dla bezserwerowej odpowiedzi na zdarzenia.
+Użyj Azure Functions, aby uzyskać bezserwerową odpowiedź do zdarzeń.
 
 W przypadku używania usługi Azure Functions jako procedury obsługi należy korzystać z wyzwalaczy usługi Event Grid, a nie ogólnych wyzwalaczy HTTP. Usługa Event Grid automatycznie weryfikuje wyzwalacze funkcji usługi Event Grid. W przypadku ogólnych wyzwalaczy HTTP trzeba zaimplementować [odpowiedź weryfikacji](security-authentication.md#webhook-event-delivery).
 
 |Tytuł  |Opis  |
 |---------|---------|
-| [Szybki start: obsługa zdarzeń za pomocą funkcji](custom-event-to-function.md) | Wysyła zdarzenie niestandardowe do funkcji do przetwarzania. |
-| [Wyzwalacz siatki zdarzeń dla funkcji platformy Azure](../azure-functions/functions-bindings-event-grid.md) | Omówienie używania wyzwalacza siatki zdarzeń w funkcjach. |
-| [Samouczek: automatyzacja zmiany rozmiaru przesłanych obrazów przy użyciu siatki zdarzeń](resize-images-on-storage-blob-upload-event.md) | Użytkownicy przesyłają obrazy za pośrednictwem aplikacji internetowej na konto magazynu. Po utworzeniu obiektu blob magazynu usługa Event Grid wysyła zdarzenie do aplikacji funkcji, która zmienia rozmiar przekazanego obrazu. |
-| [Samouczek: przesyłanie strumieniowe dużych zbiorów danych do magazynu danych](event-grid-event-hubs-integration.md) | Gdy Centra zdarzeń tworzy plik przechwytywania, usługa Event Grid wysyła zdarzenie do aplikacji funkcji. Aplikacja pobiera plik Przechwytywania i migruje dane do magazynu danych. |
-| [Samouczek: przykłady integracji usługi Azure Service Bus to Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Usługa Event Grid wysyła wiadomości z tematu usługi Service Bus do aplikacji funkcji i aplikacji logiki. |
+| [Szybki Start: obsługa zdarzeń za pomocą funkcji](custom-event-to-function.md) | Wysyła niestandardowe zdarzenie do funkcji do przetworzenia. |
+| [Wyzwalacz Event Grid dla Azure Functions](../azure-functions/functions-bindings-event-grid.md) | Omówienie korzystania z wyzwalacza Event Grid w funkcjach. |
+| [Samouczek: Automatyzowanie zmiany rozmiarów załadowanych obrazów przy użyciu Event Grid](resize-images-on-storage-blob-upload-event.md) | Użytkownicy mogą przekazywać obrazy za poorednictwem aplikacji sieci Web do konta magazynu. Po utworzeniu obiektu blob magazynu Event Grid wysyła zdarzenie do aplikacji funkcji, która zmienia rozmiar przekazanego obrazu. |
+| [Samouczek: przesyłanie strumieniowe danych Big Data do magazynu danych](event-grid-event-hubs-integration.md) | Gdy Event Hubs tworzy plik przechwytywania, Event Grid wysyła zdarzenie do aplikacji funkcji. Aplikacja pobiera plik przechwytywania i migruje dane do magazynu danych. |
+| [Samouczek: przykłady dotyczące Azure Event Grid integracji Azure Service Bus](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid wysyła wiadomości z tematu Service Bus do aplikacji funkcji i aplikacji logiki. |
 
 ## <a name="event-hubs"></a>Event Hubs
 
-Użyj Centrum zdarzeń, gdy rozwiązanie pobiera zdarzenia szybciej niż może przetwarzać zdarzenia. Aplikacja przetwarza zdarzenia z Centrów zdarzeń w swoim własnym harmonogramie. Można skalować przetwarzania zdarzeń do obsługi zdarzeń przychodzących.
+Użyj Event Hubs, gdy rozwiązanie pobiera zdarzenia szybciej niż może przetworzyć zdarzenia. Aplikacja przetwarza zdarzenia z Event Hubs zgodnie z harmonogramem. Przetwarzanie zdarzenia można skalować w celu obsługi zdarzeń przychodzących.
 
-Centra zdarzeń może działać jako źródło zdarzeń lub program obsługi zdarzeń. W poniższym artykule pokazano, jak używać centrów zdarzeń jako programu obsługi.
+Event Hubs może działać jako źródło zdarzenia lub procedura obsługi zdarzeń. W poniższym artykule przedstawiono sposób użycia Event Hubs jako programu obsługi programu.
 
 |Tytuł  |Opis  |
 |---------|---------|
-| [Szybki start: kierowanie zdarzeń niestandardowych do centrów zdarzeń platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure i siatki zdarzeń](custom-event-to-eventhub.md) | Wysyła zdarzenie niestandardowe do centrum zdarzeń do przetwarzania przez aplikację. |
-| [Szablon Menedżera zasobów: temat niestandardowy i punkt końcowy centrów zdarzeń](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Szablon Menedżera zasobów, który tworzy subskrypcję dla tematu niestandardowego. Wysyła zdarzenia do usługi Azure Event Hubs. |
+| [Szybki Start: kierowanie zdarzeń niestandardowych do usługi Azure Event Hubs przy użyciu interfejsu wiersza polecenia platformy Azure i Event Grid](custom-event-to-eventhub.md) | Wysyła niestandardowe zdarzenie do centrum zdarzeń w celu przetworzenia przez aplikację. |
+| [Szablon Menedżer zasobów: temat niestandardowy i Event Hubs punkt końcowy](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Szablon Menedżer zasobów, który tworzy subskrypcję tematu niestandardowego. Wysyła zdarzenia do Event Hubs platformy Azure. |
 
 ## <a name="hybrid-connections"></a>Połączenia hybrydowe
 
-Użyj usługi Azure Relay połączeń hybrydowych do wysyłania zdarzeń do aplikacji, które znajdują się w sieci przedsiębiorstwa i nie mają publicznie dostępnego punktu końcowego.
+Użyj Połączenia hybrydowe Azure Relay, aby wysyłać zdarzenia do aplikacji znajdujących się w sieci przedsiębiorstwa i nie mają publicznie dostępnego punktu końcowego.
 
 |Tytuł  |Opis  |
 |---------|---------|
-| [Samouczek: wysyłanie zdarzeń do połączenia hybrydowego](custom-event-to-hybrid-connection.md) | Wysyła zdarzenie niestandardowe do istniejącego połączenia hybrydowego do przetwarzania przez aplikację odbiornika. |
+| [Samouczek: wysyłanie zdarzeń do połączenia hybrydowego](custom-event-to-hybrid-connection.md) | Wysyła niestandardowe zdarzenie do istniejącego połączenia hybrydowego w celu przetworzenia przez aplikację odbiornika. |
 
 ## <a name="logic-apps"></a>Logic Apps
 
-Aplikacje logiki za pomocą automatyzacji procesów biznesowych do reagowania na zdarzenia.
+Użyj Logic Apps, aby zautomatyzować procesy biznesowe w celu reagowania na zdarzenia.
 
 |Tytuł  |Opis  |
 |---------|---------|
-| [Samouczek: monitorowanie zmian na maszynach wirtualnych za pomocą usługi Azure Event Grid i aplikacji logiki](monitor-virtual-machine-changes-event-grid-logic-app.md) | Aplikacja logiki monitoruje zmiany na maszynie wirtualnej i wysyła wiadomości e-mail o tych zmianach. |
-| [Samouczek: wysyłanie powiadomień e-mail o zdarzeniach usługi Azure IoT Hub przy użyciu aplikacji logiki](publish-iot-hub-events-to-logic-apps.md) | Aplikacja logiki wysyła wiadomość e-mail z powiadomieniem za każdym razem, gdy urządzenie jest dodawane do centrum IoT Hub. |
-| [Samouczek: przykłady integracji usługi Azure Service Bus to Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Usługa Event Grid wysyła wiadomości z tematu usługi Service Bus do aplikacji funkcji i aplikacji logiki. |
+| [Samouczek: monitorowanie zmian maszyny wirtualnej przy użyciu Azure Event Grid i Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | Aplikacja logiki monitoruje zmiany w maszynie wirtualnej i wysyła wiadomości e-mail o tych zmianach. |
+| [Samouczek: wysyłanie powiadomień e-mail dotyczących zdarzeń usługi Azure IoT Hub przy użyciu Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Aplikacja logiki wysyła wiadomość e-mail z powiadomieniem za każdym razem, gdy urządzenie zostanie dodane do centrum IoT. |
+| [Samouczek: przykłady dotyczące Azure Event Grid integracji Azure Service Bus](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid wysyła wiadomości z tematu Service Bus do aplikacji funkcji i aplikacji logiki. |
 
 ## <a name="service-bus"></a>Service Bus
 
 ### <a name="service-bus-queues"></a>Kolejki usługi Service Bus
 
-Zdarzenia w usłudze Event Grid można kierować bezpośrednio do kolejek usługi Service Bus do użycia w buforowaniu lub poleceniach & scenariuszy kontroli w aplikacjach korporacyjnych.
+Można kierować zdarzenia w Event Grid bezpośrednio do kolejek Service Bus do użycia w scenariuszach buforowania lub & poleceń w aplikacjach dla przedsiębiorstw.
 
-W witrynie Azure portal, podczas tworzenia subskrypcji zdarzeń, wybierz "Kolejka usługi Service Bus" jako typ punktu końcowego, a następnie kliknij przycisk "wybierz punkt końcowy", aby wybrać kolejkę usługi Service Bus.
+W Azure Portal podczas tworzenia subskrypcji zdarzeń wybierz pozycję "Service Bus kolejki" jako typ punktu końcowego, a następnie kliknij pozycję "Wybierz punkt końcowy", aby wybrać kolejkę Service Bus.
 
-#### <a name="using-cli-to-add-a-service-bus-queue-handler"></a>Dodawanie programu obsługi kolejki usługi Service Bus za pomocą interfejsu wiersza polecenia
+#### <a name="using-cli-to-add-a-service-bus-queue-handler"></a>Używanie interfejsu wiersza polecenia do dodawania procedury obsługi kolejki Service Bus
 
-W przypadku interfejsu wiersza polecenia platformy Azure poniższy przykład subskrybuje i łączy temat siatki zdarzeń z kolejką usługi Service Bus:
+W przypadku interfejsu wiersza polecenia platformy Azure Poniższy przykład subskrybuje i łączy temat usługi Event Grid z kolejką Service Bus:
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.
@@ -95,15 +95,15 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1
 ```
 
-### <a name="service-bus-topics"></a>Tematy usługi Service Bus
+### <a name="service-bus-topics"></a>Tematy Service Bus
 
-Zdarzenia w usłudze Event Grid można kierować bezpośrednio do tematów usługi Service Bus w celu obsługi zdarzeń systemu Azure za pomocą tematów usługi Service Bus lub w przypadku scenariuszy obsługi & sterowania wiadomościami.
+Zdarzenia w Event Grid można kierować bezpośrednio do tematów Service Bus, aby obsłużyć zdarzenia systemu Azure za pomocą tematów Service Bus lub w przypadku scenariuszy z obsługą poleceń &.
 
-W witrynie Azure portal, podczas tworzenia subskrypcji zdarzeń, wybierz "Temat usługi Service Bus" jako typ punktu końcowego, a następnie kliknij "wybierz i punkt końcowy", aby wybrać temat usługi Service Bus.
+W Azure Portal podczas tworzenia subskrypcji zdarzeń wybierz pozycję "Service Bus temat" jako typ punktu końcowego, a następnie kliknij pozycję "Wybierz i punkt końcowy", aby wybrać temat Service Bus.
 
-#### <a name="using-cli-to-add-a-service-bus-topic-handler"></a>Dodawanie programu obsługi tematów usługi Service Bus za pomocą interfejsu wiersza polecenia
+#### <a name="using-cli-to-add-a-service-bus-topic-handler"></a>Używanie interfejsu wiersza polecenia w celu dodania procedury obsługi tematu Service Bus
 
-W przypadku interfejsu wiersza polecenia platformy Azure poniższy przykład subskrybuje i łączy temat siatki zdarzeń z kolejką usługi Service Bus:
+W przypadku interfejsu wiersza polecenia platformy Azure Poniższy przykład subskrybuje i łączy temat usługi Event Grid z kolejką Service Bus:
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.
@@ -119,24 +119,24 @@ az eventgrid event-subscription create \
 
 ## <a name="queue-storage"></a>Queue Storage
 
-Użyj magazynu kolejki, aby odbierać zdarzenia, które muszą zostać pobrane. Magazyn kolejki może być używany, gdy masz długotrwały proces, który trwa zbyt długo, aby odpowiedzieć. Wysyłając zdarzenia do magazynu kolejki, aplikacja może ściągać i przetwarzać zdarzenia według własnego harmonogramu.
+Używaj magazynu kolejek do odbierania zdarzeń wymagających ściągnięcia. Możesz użyć magazynu kolejek, gdy masz długotrwały proces, który trwa zbyt długo. Wysyłając zdarzenia do magazynu kolejek, aplikacja może ściągać i przetwarzać zdarzenia zgodnie z własnym harmonogramem.
 
 |Tytuł  |Opis  |
 |---------|---------|
-| [Szybki start: kierowanie zdarzeń niestandardowych do magazynu kolejki platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure i siatki zdarzeń](custom-event-to-queue-storage.md) | W tym artykule opisano sposób wysyłania zdarzeń niestandardowych do magazynu kolejki. |
+| [Szybki Start: kierowanie zdarzeń niestandardowych do usługi Azure queue storage przy użyciu interfejsu wiersza polecenia platformy Azure i Event Grid](custom-event-to-queue-storage.md) | Opisuje sposób wysyłania zdarzeń niestandardowych do magazynu kolejki. |
 
 ## <a name="webhooks"></a>Elementy webhook
 
-Użyj webhooks dla konfigurowalnych punktów końcowych, które reagują na zdarzenia.
+Użyj elementów webhook dla dostosowywalnych punktów końcowych, które reagują na zdarzenia.
 
 |Tytuł  |Opis  |
 |---------|---------|
-| Szybki start: tworzenie i rozsyłanie zdarzeń niestandardowych za pomocą — [narzędzia Azure CLI,](custom-event-quickstart.md) [PowerShell](custom-event-quickstart-powershell.md)i [portalu](custom-event-quickstart-portal.md). | Pokazuje, jak wysyłać niestandardowe zdarzenia do elementu WebHook. |
-| Szybki start: kierowanie zdarzeń magazynu obiektów Blob do niestandardowego punktu końcowego sieci Web za pomocą — [narzędzia Azure CLI,](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) [PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json)i [portalu](blob-event-quickstart-portal.md). | Pokazuje, jak wysyłać zdarzenia magazynu obiektów blob do elementu WebHook. |
-| [Szybki start: wysyłanie zdarzeń rejestru kontenerów](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Pokazuje, jak używać interfejsu wiersza polecenia platformy Azure do wysyłania zdarzeń rejestru kontenerów. |
-| [Omówienie: odbieranie zdarzeń do punktu końcowego HTTP](receive-events.md) | W tym artykule opisano, jak sprawdzić poprawność punktu końcowego HTTP do odbierania zdarzeń z subskrypcji zdarzeń i odbierać i deserializacji zdarzeń. |
+| Szybki Start: Tworzenie i kierowanie zdarzeń niestandardowych za pomocą [interfejsu wiersza polecenia platformy Azure](custom-event-quickstart.md), [programu PowerShell](custom-event-quickstart-powershell.md)i [portalu](custom-event-quickstart-portal.md). | Pokazuje, jak wysyłać zdarzenia niestandardowe do elementu webhook. |
+| Szybki Start: kierowanie zdarzeń usługi BLOB Storage do niestandardowego punktu końcowego sieci Web przy użyciu [interfejsu wiersza polecenia platformy Azure](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json), [programu PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json)i [portalu](blob-event-quickstart-portal.md). | Pokazuje, jak wysyłać zdarzenia magazynu obiektów BLOB do elementu webhook. |
+| [Szybki Start: wysyłanie zdarzeń rejestru kontenera](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Pokazuje, w jaki sposób używać interfejsu wiersza polecenia platformy Azure do wysyłania zdarzeń Container Registry. |
+| [Przegląd: odbieranie zdarzeń do punktu końcowego HTTP](receive-events.md) | Opisuje sposób sprawdzania poprawności punktu końcowego HTTP w celu odbierania zdarzeń z subskrypcji zdarzeń oraz odbierania i deserializacji zdarzeń. |
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby zapoznać się z wprowadzeniem do usługi Event Grid, zobacz [Wprowadzenie do usługi Azure Event Grid](overview.md).
-* Aby szybko rozpocząć korzystanie z usługi Event Grid, zobacz [Tworzenie i rozsyłanie zdarzeń niestandardowych za pomocą usługi Azure Event Grid](custom-event-quickstart.md).
+* Aby szybko rozpocząć korzystanie z Event Grid, zobacz [Tworzenie i kierowanie zdarzeń niestandardowych z Azure Event Grid](custom-event-quickstart.md).

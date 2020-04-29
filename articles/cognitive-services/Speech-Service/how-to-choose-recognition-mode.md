@@ -1,7 +1,7 @@
 ---
-title: Wybieranie trybu rozpoznawania mowy za pomocą SDK mowy
+title: Wybieranie trybu rozpoznawania mowy przy użyciu zestawu Speech SDK
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak wybrać najlepszy tryb rozpoznawania podczas korzystania z SDK mowy.
+description: Dowiedz się, jak wybrać najlepszy tryb rozpoznawania przy użyciu zestawu Speech SDK.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -12,25 +12,25 @@ ms.date: 03/10/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: 5fdca371e9188ef69068ddbcaa416cbb2b44054c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81402158"
 ---
-# <a name="choose-a-speech-recognition-mode"></a>Wybieranie trybu rozpoznawania mowy
+# <a name="choose-a-speech-recognition-mode"></a>Wybierz tryb rozpoznawania mowy
 
-Rozważając operacje rozpoznawania mowy na tekst, [zestaw SDK mowy](speech-sdk.md) udostępnia wiele trybów przetwarzania mowy. Koncepcyjnie, czasami nazywany *tryb rozpoznawania*. W tym artykule porównano różne tryby rozpoznawania.
+Gdy rozważasz operacje rozpoznawania zamiany mowy na tekst, [zestaw mowy SDK](speech-sdk.md) udostępnia wiele trybów przetwarzania mowy. Koncepcyjnie, czasami nazywane *trybem rozpoznawania*. W tym artykule porównano różne tryby rozpoznawania.
 
 ## <a name="recognize-once"></a>Rozpoznaj raz
 
-Jeśli chcesz przetworzyć każdy wypowiedź po jednym "zdaniu" naraz, użyj funkcji "rozpoznaj raz". Ta metoda wykryje rozpoznaną wypowiedź z danych wejściowych, począwszy od początku wykrytej mowy do następnej pauzy. Zazwyczaj pauza oznacza koniec zdania lub wiersza myśli.
+Jeśli chcesz przetwarzać każdy wypowiedź jeden "zdanie" w czasie, użyj funkcji "Rozpoznaj raz". Ta metoda wykrywa rozpoznane wypowiedź z danych wejściowych, rozpoczynając od początku wykrytej mowy do następnego wstrzymania. Zwykle pauza oznacza koniec zdania lub linii.
 
-Na końcu jednego rozpoznanego wypowiedź usługa zatrzymuje przetwarzania dźwięku z tego żądania. Maksymalny limit rozpoznawania to czas trwania zdania wynoszący 20 sekund.
+Po zakończeniu jednego rozpoznanego wypowiedź usługa przerywa przetwarzanie dźwięku z tego żądania. Maksymalny limit rozpoznawania to czas trwania zdania wynoszący 20 sekund.
 
 ::: zone pivot="programming-language-csharp"
 
-Aby uzyskać więcej `RecognizeOnceAsync` informacji na temat korzystania z tej funkcji, zobacz [dokumenty SDK mowy .NET](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechRecognizer_RecognizeOnceAsync).
+Aby uzyskać więcej informacji na temat `RecognizeOnceAsync` korzystania z funkcji, zobacz dokumentację [zestawu Speech SDK dla platformy .NET](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechRecognizer_RecognizeOnceAsync).
 
 ```csharp
 var result = await recognizer.RecognizeOnceAsync();
@@ -39,7 +39,7 @@ var result = await recognizer.RecognizeOnceAsync();
 ::: zone-end
 ::: zone pivot="programming-language-cpp"
 
-Aby uzyskać więcej `RecognizeOnceAsync` informacji na temat korzystania z tej funkcji, zobacz [dokumenty SDK mowy języka C++.](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#recognizeonceasync)
+Aby uzyskać więcej informacji na temat `RecognizeOnceAsync` korzystania z funkcji, zobacz [Dokumentacja zestawu SDK języka C++](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#recognizeonceasync).
 
 ```cpp
 auto result = recognize->RecognizeOnceAsync().get();
@@ -48,7 +48,7 @@ auto result = recognize->RecognizeOnceAsync().get();
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-Aby uzyskać więcej `recognizeOnceAsync` informacji na temat korzystania z tej funkcji, zobacz [dokumenty Java Speech SDK](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechRecognizer.recognizeOnceAsync?view=azure-java-stable).
+Aby uzyskać więcej informacji na temat `recognizeOnceAsync` korzystania z funkcji, zobacz dokumentację [języka Java Speech SDK](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechRecognizer.recognizeOnceAsync?view=azure-java-stable).
 
 ```java
 SpeechRecognitionResult result = recognizer.recognizeOnceAsync().get();
@@ -57,7 +57,7 @@ SpeechRecognitionResult result = recognizer.recognizeOnceAsync().get();
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-Aby uzyskać więcej `recognize_once` informacji na temat korzystania z tej funkcji, zobacz [dokumenty SDK mowy języka Python](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python#recognize-once------azure-cognitiveservices-speech-speechrecognitionresult).
+Aby uzyskać więcej informacji na temat `recognize_once` korzystania z funkcji, zobacz dokumentację [zestawu Speech SDK](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python#recognize-once------azure-cognitiveservices-speech-speechrecognitionresult)dla języka Python.
 
 ```python
 result = speech_recognizer.recognize_once()
@@ -66,13 +66,13 @@ result = speech_recognizer.recognize_once()
 ::: zone-end
 ::: zone pivot="programming-language-more"
 
-Aby uzyskać dodatkowe języki, zobacz [dokumenty odwołania do SDK mowy](speech-to-text.md#speech-sdk-reference-docs).
+Dodatkowe języki można znaleźć w [dokumentacji referencyjnej dotyczącej zestawu Speech SDK](speech-to-text.md#speech-sdk-reference-docs).
 
 ::: zone-end
 
 ## <a name="continuous"></a>Ciągłe
 
-Jeśli potrzebujesz długotrwałego rozpoznawania, użyj funkcji start i odpowiadające im do ciągłego rozpoznawania. Funkcja start rozpocznie się i będzie kontynuować przetwarzanie wszystkich wypowiedzi, dopóki nie wywołasz funkcji zatrzymania lub dopóki nie minie zbyt dużo czasu w ciszy. Korzystając z trybu ciągłego, należy zarejestrować się do różnych zdarzeń, które będą uruchamiane po wystąpieniu. Na przykład zdarzenie "rozpoznane" jest uruchamiane w przypadku rozpoznawania mowy. Musisz mieć program obsługi zdarzeń w miejscu do obsługi rozpoznawania.
+Jeśli potrzebujesz długotrwałego rozpoznawania, użyj funkcji Start i odpowiednich zatrzymywania do ciągłego rozpoznawania. Funkcja Start zostanie uruchomiona i kontynuuje przetwarzanie wszystkich wyrażenia długości do momentu wywołania funkcji zatrzymania lub do czasu przekroczenia zbyt dużo czasu. W przypadku korzystania z trybu ciągłego należy zadbać o zarejestrowanie się w różnych zdarzeniach, które będą uruchamiane po wystąpieniu. Na przykład zdarzenie "rozpoznane" wyzwalane w przypadku wystąpienia funkcji rozpoznawania mowy. Musisz mieć procedurę obsługi zdarzeń w celu obsługi rozpoznawania.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -154,17 +154,17 @@ speech_recognizer.stop_continuous_recognition()
 ::: zone-end
 ::: zone pivot="programming-language-more"
 
-Aby uzyskać dodatkowe języki, zobacz [dokumenty odwołania do SDK mowy](speech-to-text.md#speech-sdk-reference-docs).
+Dodatkowe języki można znaleźć w [dokumentacji referencyjnej dotyczącej zestawu Speech SDK](speech-to-text.md#speech-sdk-reference-docs).
 
 ::: zone-end
 
-## <a name="dictation"></a>Dyktowania
+## <a name="dictation"></a>Dyktowanie
 
-Korzystając z ciągłego rozpoznawania, można włączyć przetwarzanie dyktowania za pomocą odpowiedniej funkcji "włącz dyktowanie". Ten tryb spowoduje, że wystąpienie konfiguracji mowy będzie interpretować opisy wyrazów struktur zdań, takich jak znaki interpunkcyjne. Na przykład wypowiedź "Czy mieszkasz w znaku zapytania miasta" będzie interpretowana jako tekst "Czy mieszkasz w mieście?".
+W przypadku korzystania z ciągłego rozpoznawania można włączyć przetwarzanie dyktowania przy użyciu odpowiedniej funkcji "Włącz dyktowanie". Ten tryb spowoduje, że wystąpienie konfiguracji mowy interpretuje opisy wyrazów struktur zdań, takich jak interpunkcja. Na przykład "wypowiedź" czy "czy" na żywo "jest interpretowany jako tekst" czy jesteś w mieście? ".
 
 ::: zone pivot="programming-language-csharp"
 
-Aby uzyskać więcej `EnableDictation` informacji na temat korzystania z tej funkcji, zobacz [dokumenty SDK mowy .NET](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.enabledictation?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechConfig_EnableDictation).
+Aby uzyskać więcej informacji na temat `EnableDictation` korzystania z funkcji, zobacz dokumentację [zestawu Speech SDK dla platformy .NET](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.enabledictation?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechConfig_EnableDictation).
 
 ```csharp
 // Enable diction
@@ -174,7 +174,7 @@ SpeechConfig.EnableDictation();
 ::: zone-end
 ::: zone pivot="programming-language-cpp"
 
-Aby uzyskać więcej `EnableDictation` informacji na temat korzystania z tej funkcji, zobacz [dokumenty SDK mowy języka C++.](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#enabledictation)
+Aby uzyskać więcej informacji na temat `EnableDictation` korzystania z funkcji, zobacz [Dokumentacja zestawu SDK języka C++](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#enabledictation).
 
 ```cpp
 // Enable diction
@@ -184,7 +184,7 @@ SpeechConfig->EnableDictation();
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-Aby uzyskać więcej `enableDictation` informacji na temat korzystania z tej funkcji, zobacz [dokumenty Java Speech SDK](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechConfig.enableDictation?view=azure-java-stable).
+Aby uzyskać więcej informacji na temat `enableDictation` korzystania z funkcji, zobacz dokumentację [języka Java Speech SDK](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechConfig.enableDictation?view=azure-java-stable).
 
 ```java
 // Enable diction
@@ -194,7 +194,7 @@ SpeechConfig.enableDictation();
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-Aby uzyskać więcej `enable_dictation` informacji na temat korzystania z tej funkcji, zobacz [dokumenty SDK mowy języka Python](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#enable-dictation--).
+Aby uzyskać więcej informacji na temat `enable_dictation` korzystania z funkcji, zobacz dokumentację [zestawu Speech SDK](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#enable-dictation--)dla języka Python.
 
 ```python
 # Enable diction
@@ -204,11 +204,11 @@ SpeechConfig.enable_dictation()
 ::: zone-end
 ::: zone pivot="programming-language-more"
 
-Aby uzyskać dodatkowe języki, zobacz [dokumenty odwołania do SDK mowy](speech-to-text.md#speech-sdk-reference-docs).
+Dodatkowe języki można znaleźć w [dokumentacji referencyjnej dotyczącej zestawu Speech SDK](speech-to-text.md#speech-sdk-reference-docs).
 
 ::: zone-end
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Poznaj dodatkowe przykłady zestawów SDK mowy w usłudze GitHub](https://aka.ms/csspeech/samples)
+> [Poznaj dodatkowe przykłady zestawu Speech SDK w witrynie GitHub](https://aka.ms/csspeech/samples)

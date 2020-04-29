@@ -1,47 +1,47 @@
 ---
-title: Automatyzacja wdrażania zasobów aplikacji funkcji na platformie Azure
-description: Dowiedz się, jak utworzyć szablon usługi Azure Resource Manager, który wdraża aplikację funkcji.
+title: Automatyzowanie wdrożenia zasobów aplikacji funkcji na platformie Azure
+description: Dowiedz się, jak utworzyć szablon Azure Resource Manager, który wdraża aplikację funkcji.
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 7155a3fa9481ef5f2da62d85d4a932ad5e8e8ab1
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81382521"
 ---
-# <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatyzacja wdrażania zasobów dla aplikacji funkcji w usłudze Azure Functions
+# <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatyzowanie wdrażania zasobów dla aplikacji funkcji w Azure Functions
 
-Za pomocą szablonu usługi Azure Resource Manager można wdrożyć aplikację funkcji. W tym artykule opisano wymagane zasoby i parametry w tym celu. Może być konieczne wdrożenie dodatkowych zasobów, w zależności od [wyzwalaczy i powiązań](functions-triggers-bindings.md) w aplikacji funkcji.
+Za pomocą szablonu Azure Resource Manager można wdrożyć aplikację funkcji. W tym artykule opisano wymagane zasoby i parametry. Może być konieczne wdrożenie dodatkowych zasobów w zależności od [wyzwalaczy i powiązań](functions-triggers-bindings.md) w aplikacji funkcji.
 
 Aby uzyskać więcej informacji na temat tworzenia szablonów, zobacz [Tworzenie szablonów usługi Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
-Przykładowe szablony można znaleźć w:
-- [Aplikacja funkcyjna na planie zużycia]
-- [Aplikacja funkcji w planie usługi Azure App Service]
+Aby zapoznać się z przykładowymi szablonami, zobacz:
+- [Aplikacja funkcji w planie zużycia]
+- [Aplikacja funkcji na Azure App Service planie]
 
 ## <a name="required-resources"></a>Wymagane zasoby
 
-Wdrożenie usługi Azure Functions zazwyczaj składa się z tych zasobów:
+Wdrożenie Azure Functions zwykle składa się z następujących zasobów:
 
-| Zasób                                                                           | Wymaganie | Odwołanie do składni i właściwości                                                         |   |
+| Zasób                                                                           | Wymaganie | Informacje o składni i właściwościach                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
-| Aplikacja funkcji                                                                     | Wymagany    | [Microsoft.Web/witryny](/azure/templates/microsoft.web/sites)                             |   |
-| Konto [usługi Azure Storage](../storage/index.yml)                                   | Wymagany    | [Microsoft.Storage/storageKondyje](/azure/templates/microsoft.storage/storageaccounts) |   |
-| Składnik [Usługi Application Insights](../azure-monitor/app/app-insights-overview.md) | Optional (Opcjonalność)    | [Microsoft.Insights/składniki](/azure/templates/microsoft.insights/components)         |   |
-| [Plan hostingowy](./functions-scale.md)                                             | Opcjonalnie<sup>1</sup>    | [Microsoft.Web/farmy serwerów](/azure/templates/microsoft.web/serverfarms)                 |   |
+| Aplikacja funkcji                                                                     | Wymagany    | [Microsoft. Web/witryny](/azure/templates/microsoft.web/sites)                             |   |
+| Konto [usługi Azure Storage](../storage/index.yml)                                   | Wymagany    | [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
+| Składnik [Application Insights](../azure-monitor/app/app-insights-overview.md) | Optional    | [Microsoft. Insights/składniki](/azure/templates/microsoft.insights/components)         |   |
+| [Plan hostingu](./functions-scale.md)                                             | Opcjonalne<sup>1</sup>    | [Microsoft. Web/dopuszczalna](/azure/templates/microsoft.web/serverfarms)                 |   |
 
-<sup>1.</sup> Plan hostingowy jest wymagany tylko wtedy, gdy zdecydujesz się uruchomić aplikację funkcyjną w [planie Premium](./functions-premium-plan.md) lub w planie usługi [App Service.](../app-service/overview-hosting-plans.md)
+<sup>1</sup> Plan hostingu jest wymagany tylko wtedy, gdy użytkownik zdecyduje się na uruchomienie aplikacji funkcji w [planie Premium](./functions-premium-plan.md) lub w [planie App Service](../app-service/overview-hosting-plans.md).
 
 > [!TIP]
-> Chociaż nie jest to wymagane, zdecydowanie zaleca się skonfigurowanie usługi Application Insights dla aplikacji.
+> Chociaż nie jest to wymagane, zdecydowanie zaleca się skonfigurowanie Application Insights aplikacji.
 
 <a name="storage"></a>
 ### <a name="storage-account"></a>Konto magazynu
 
-Konto magazynu platformy Azure jest wymagane dla aplikacji funkcji. Potrzebne jest konto ogólnego przeznaczenia, które obsługuje obiekty BLOB, tabele, kolejki i pliki. Aby uzyskać więcej informacji, zobacz [Wymagania dotyczące konta usługi Azure Functions storage](storage-considerations.md#storage-account-requirements).
+Konto usługi Azure Storage jest wymagane dla aplikacji funkcji. Potrzebujesz konta ogólnego przeznaczenia, które obsługuje obiekty blob, tabele, kolejki i pliki. Aby uzyskać więcej informacji, zobacz [Azure Functions wymagania dotyczące konta magazynu](storage-considerations.md#storage-account-requirements).
 
 ```json
 {
@@ -56,11 +56,11 @@ Konto magazynu platformy Azure jest wymagane dla aplikacji funkcji. Potrzebne je
 }
 ```
 
-Ponadto właściwość `AzureWebJobsStorage` musi być określona jako ustawienie aplikacji w konfiguracji lokacji. Jeśli aplikacja funkcji nie używa usługi Application Insights do `AzureWebJobsDashboard` monitorowania, należy również określić jako ustawienie aplikacji.
+Ponadto Właściwość `AzureWebJobsStorage` musi być określona jako ustawienie aplikacji w konfiguracji lokacji. Jeśli aplikacja funkcji nie używa Application Insights do monitorowania, należy również określić `AzureWebJobsDashboard` jako ustawienie aplikacji.
 
-Środowisko uruchomieniowe usługi `AzureWebJobsStorage` Azure Functions używa ciągu połączenia do tworzenia kolejek wewnętrznych.  Gdy usługa Application Insights nie jest włączona, środowisko wykonawcze używa ciągu `AzureWebJobsDashboard` połączenia do logowania się do magazynu tabel platformy Azure i zasilania karty **Monitor** w portalu.
+Środowisko uruchomieniowe Azure Functions używa `AzureWebJobsStorage` parametrów połączenia do tworzenia kolejek wewnętrznych.  Gdy Application Insights nie jest włączona, środowisko uruchomieniowe używa `AzureWebJobsDashboard` parametrów połączenia do rejestrowania w usłudze Azure Table Storage i włączania karty **monitor** w portalu.
 
-Te właściwości są określone `appSettings` w `siteConfig` kolekcji w obiekcie:
+Te właściwości są określone w `appSettings` kolekcji w `siteConfig` obiekcie:
 
 ```json
 "appSettings": [
@@ -77,7 +77,7 @@ Te właściwości są określone `appSettings` w `siteConfig` kolekcji w obiekci
 
 ### <a name="application-insights"></a>Application Insights
 
-Usługa Application Insights jest zalecana do monitorowania aplikacji funkcyjnych. Zasób usługi Application Insights jest definiowany za pomocą typu **Microsoft.Insights/components** i **rodzaju sieci Web:**
+Application Insights jest zalecana do monitorowania aplikacji funkcji. Zasób Application Insights jest zdefiniowany za pomocą typu **Microsoft. Insights/Components** i **sieci Web**:
 
 ```json
         {
@@ -96,7 +96,7 @@ Usługa Application Insights jest zalecana do monitorowania aplikacji funkcyjnyc
         },
 ```
 
-Ponadto klucz instrumentacji musi być dostarczony do aplikacji `APPINSIGHTS_INSTRUMENTATIONKEY` funkcji przy użyciu ustawienia aplikacji. Ta właściwość jest `appSettings` określona `siteConfig` w kolekcji w obiekcie:
+Ponadto klucz Instrumentacji musi być dostarczany do aplikacji funkcji przy użyciu ustawienia `APPINSIGHTS_INSTRUMENTATIONKEY` aplikacji. Ta właściwość jest określona w `appSettings` kolekcji w `siteConfig` obiekcie:
 
 ```json
 "appSettings": [
@@ -109,14 +109,14 @@ Ponadto klucz instrumentacji musi być dostarczony do aplikacji `APPINSIGHTS_INS
 
 ### <a name="hosting-plan"></a>Plan hostingu
 
-Definicja planu hostingowego jest różna i może być jedną z następujących elementów:
-* [Plan zużycia](#consumption) (domyślnie)
+Definicja planu hostingu jest różna i może być jedną z następujących czynności:
+* [Plan zużycia](#consumption) (wartość domyślna)
 * [Plan Premium](#premium)
-* [Plan usługi aplikacji](#app-service-plan)
+* [Plan App Service](#app-service-plan)
 
 ### <a name="function-app"></a>Aplikacja funkcji
 
-Zasób aplikacji funkcji jest definiowany przy użyciu zasobu typu **Microsoft.Web/sites** i kind **functionapp:**
+Zasób aplikacji funkcji jest definiowany przy użyciu zasobu typu **Microsoft. Web/Sites** i typu **functionapp**:
 
 ```json
 {
@@ -133,18 +133,18 @@ Zasób aplikacji funkcji jest definiowany przy użyciu zasobu typu **Microsoft.W
 ```
 
 > [!IMPORTANT]
-> Jeśli jawnie definiujesz plan hostingu, dodatkowy element będzie potrzebny w tablicy dependsOn:`"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"`
+> Jeśli jawnie definiujesz plan hostingu, w tablicy dependsOn musi być wymagany dodatkowy element:`"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"`
 
 Aplikacja funkcji musi zawierać następujące ustawienia aplikacji:
 
 | Nazwa ustawienia                 | Opis                                                                               | Przykładowe wartości                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
-| AzureWebJobsStorage          | Parametry połączenia z kontem magazynu używanym przez środowisko wykonawcze Functions do kolejkowania wewnętrznego | Zobacz [konto magazynu](#storage)       |
-| FUNCTIONS_EXTENSION_VERSION  | Wersja środowiska wykonawczego usługi Azure Functions                                                | `~2`                                  |
-| FUNCTIONS_WORKER_RUNTIME     | Stos języka, który ma być używany do funkcji w tej aplikacji                                   | `dotnet`, `node` `java`, `python`, , lub`powershell` |
-| WEBSITE_NODE_DEFAULT_VERSION | Jest to konieczne `node` tylko w przypadku korzystania ze stosu języków, określa wersję, której chcesz użyć              | `10.14.1`                             |
+| AzureWebJobsStorage          | Parametry połączenia z kontem magazynu, które są używane przez środowisko uruchomieniowe funkcji dla kolejki wewnętrznej | Zobacz [konto magazynu](#storage)       |
+| FUNCTIONS_EXTENSION_VERSION  | Wersja środowiska uruchomieniowego Azure Functions                                                | `~2`                                  |
+| FUNCTIONS_WORKER_RUNTIME     | Stos języka, który ma być używany dla funkcji w tej aplikacji                                   | `dotnet`, `node`, `java`, `python`lub`powershell` |
+| WEBSITE_NODE_DEFAULT_VERSION | Wymagany tylko w przypadku używania `node` stosu języka, określa wersję do użycia              | `10.14.1`                             |
 
-Te właściwości są określone `appSettings` w `siteConfig` kolekcji we właściwości:
+Te właściwości są określone w `appSettings` kolekcji we `siteConfig` właściwości:
 
 ```json
 "properties": {
@@ -173,17 +173,17 @@ Te właściwości są określone `appSettings` w `siteConfig` kolekcji we właś
 
 <a name="consumption"></a>
 
-## <a name="deploy-on-consumption-plan"></a>Wdrażanie w planie zużycia
+## <a name="deploy-on-consumption-plan"></a>Wdróż w planie zużycia
 
-Plan zużycia automatycznie przydziela moc obliczeniową, gdy kod jest uruchomiony, skaluje się w poziomie niezbędnym do obsługi obciążenia, a następnie skaluje się, gdy kod nie jest uruchomiony. Nie musisz płacić za bezczynne maszyny wirtualne i nie musisz rezerwować zdolności produkcyjnych z wyprzedzeniem. Aby dowiedzieć się więcej, zobacz [Skala i hosting usług Azure Functions](functions-scale.md#consumption-plan).
+Plan zużycia automatycznie przydziela moc obliczeniową, gdy kod jest uruchomiony, skaluje się w miarę potrzeb do obsługi obciążenia, a następnie skaluje się, gdy kod nie jest uruchomiony. Nie musisz uiszczać bezczynnych maszyn wirtualnych i nie musisz zarezerwować z góry pojemności. Aby dowiedzieć się więcej, zobacz [Azure Functions skalowanie i hosting](functions-scale.md#consumption-plan).
 
-Aby uzyskać przykładowy szablon Usługi Azure Resource Manager, zobacz [Aplikacja funkcji w planie zużycia].
+Aby zapoznać się z przykładowym szablonem Azure Resource Manager, zobacz [aplikacji funkcji w planie zużycia].
 
 ### <a name="create-a-consumption-plan"></a>Tworzenie planu zużycia
 
-Plan zużycia nie musi być zdefiniowany. Jeden zostanie automatycznie utworzony lub wybrany na podstawie regionu podczas tworzenia samego zasobu aplikacji funkcji.
+Nie trzeba definiować planu zużycia. Jeden zostanie automatycznie utworzony lub wybrany w poszczególnych regionach podczas tworzenia zasobu aplikacji funkcji.
 
-Plan zużycia jest specjalnym typem zasobu "serverfarm". W systemie Windows można go `Dynamic` określić `computeMode` przy `sku` użyciu wartości i właściwości:
+Plan zużycia jest specjalnym typem zasobu "farma serwerów". Dla systemu Windows można określić za pomocą `Dynamic` wartości właściwości `computeMode` i: `sku`
 
 ```json
 {  
@@ -206,15 +206,15 @@ Plan zużycia jest specjalnym typem zasobu "serverfarm". W systemie Windows moż
 ```
 
 > [!NOTE]
-> Plan zużycia nie może być jawnie zdefiniowany dla systemu Linux. Zostanie utworzony automatycznie.
+> Nie można jawnie zdefiniować planu zużycia dla systemu Linux. Zostanie ona utworzona automatycznie.
 
-Jeśli jawnie zdefiniujesz plan zużycia, należy `serverFarmId` ustawić właściwość w aplikacji, tak aby wskazuje identyfikator zasobu planu. Należy upewnić się, że `dependsOn` aplikacja funkcji ma ustawienie dla planu, jak również.
+W przypadku jawnego definiowania planu zużycia należy ustawić `serverFarmId` Właściwość aplikacji tak, aby wskazywała na identyfikator zasobu planu. Upewnij się, że aplikacja funkcji ma również `dependsOn` ustawienia dla planu.
 
 ### <a name="create-a-function-app"></a>Tworzenie aplikacji funkcji
 
 #### <a name="windows"></a>Windows
 
-W systemie Windows plan zużycia wymaga dwóch dodatkowych `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` `WEBSITE_CONTENTSHARE`ustawień w konfiguracji lokacji: i . Te właściwości skonfigurować konto magazynu i ścieżkę pliku, gdzie kod aplikacji funkcji i konfiguracji są przechowywane.
+W systemie Windows plan zużycia wymaga dwóch dodatkowych ustawień w konfiguracji lokacji: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` i. `WEBSITE_CONTENTSHARE` Te właściwości konfigurują konto magazynu i ścieżkę pliku, w którym są przechowywane kod i konfiguracja aplikacji funkcji.
 
 ```json
 {
@@ -261,7 +261,7 @@ W systemie Windows plan zużycia wymaga dwóch dodatkowych `WEBSITE_CONTENTAZURE
 
 #### <a name="linux"></a>Linux
 
-W systemie Linux aplikacja funkcji `kind` musi `functionapp,linux`mieć ustawioną `reserved` na , `true`i musi mieć właściwość ustawioną na:
+W systemie `kind` Linux aplikacja funkcji musi mieć ustawioną wartość `functionapp,linux`i musi mieć ustawioną `reserved` Właściwość: `true`
 
 ```json
 {
@@ -303,13 +303,13 @@ W systemie Linux aplikacja funkcji `kind` musi `functionapp,linux`mieć ustawion
 
 <a name="premium"></a>
 
-## <a name="deploy-on-premium-plan"></a>Wdrażanie w planie Premium
+## <a name="deploy-on-premium-plan"></a>Wdróż w planie Premium
 
-Plan Premium oferuje takie samo skalowanie jak plan zużycia, ale zawiera dedykowane zasoby i dodatkowe możliwości. Aby dowiedzieć się więcej, zobacz [Azure Functions Premium Plan](./functions-premium-plan.md).
+Plan Premium oferuje takie same skalowanie jak w przypadku planu zużycia, ale obejmuje zasoby dedykowane i dodatkowe możliwości. Aby dowiedzieć się więcej, zobacz [Azure Functions plan Premium](./functions-premium-plan.md).
 
 ### <a name="create-a-premium-plan"></a>Tworzenie planu Premium
 
-Plan Premium jest specjalnym typem zasobu "serverfarm". Można go określić za `EP1` `EP2`pomocą `EP3` opcji `Name` , lub `sku` wartości właściwości w [obiekcie opisu](https://docs.microsoft.com/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object).
+Plan Premium jest specjalnym typem zasobu "farma serwerów". Można go określić za pomocą albo `EP1` `EP2`lub `EP3` dla wartości `Name` właściwości w `sku` [obiekcie Description](https://docs.microsoft.com/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object).
 
 ```json
 {
@@ -334,7 +334,7 @@ Plan Premium jest specjalnym typem zasobu "serverfarm". Można go określić za 
 
 ### <a name="create-a-function-app"></a>Tworzenie aplikacji funkcji
 
-Aplikacja funkcji na planie Premium `serverFarmId` musi mieć właściwość ustawioną na identyfikator zasobu planu utworzonego wcześniej. Ponadto plan Premium wymaga dwóch dodatkowych ustawień w `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` `WEBSITE_CONTENTSHARE`konfiguracji witryny: i . Te właściwości skonfigurować konto magazynu i ścieżkę pliku, gdzie kod aplikacji funkcji i konfiguracji są przechowywane.
+Aplikacja funkcji w planie Premium musi mieć ustawioną `serverFarmId` właściwość na identyfikator zasobu utworzonego wcześniej planu. Ponadto plan Premium wymaga dwóch dodatkowych ustawień w konfiguracji lokacji: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` i. `WEBSITE_CONTENTSHARE` Te właściwości konfigurują konto magazynu i ścieżkę pliku, w którym są przechowywane kod i konfiguracja aplikacji funkcji.
 
 ```json
 {
@@ -384,15 +384,15 @@ Aplikacja funkcji na planie Premium `serverFarmId` musi mieć właściwość ust
 
 <a name="app-service-plan"></a>
 
-## <a name="deploy-on-app-service-plan"></a>Wdrażanie w planie usługi aplikacji
+## <a name="deploy-on-app-service-plan"></a>Wdróż w planie App Service
 
-W planie usługi app service aplikacja funkcji działa na dedykowanych maszynach wirtualnych na jednostkach SKU basic, Standard i Premium, podobnie jak aplikacje sieci web. Aby uzyskać szczegółowe informacje na temat działania planu usługi app service, zobacz [szczegółowe omówienie planów usługi Azure App Service.](../app-service/overview-hosting-plans.md)
+W planie App Service aplikacja funkcji jest uruchamiana na dedykowanych maszynach wirtualnych w jednostkach SKU w warstwach Podstawowa, standardowa i Premium, podobnie jak w przypadku aplikacji sieci Web. Aby uzyskać szczegółowe informacje na temat działania planu App Service, zobacz [szczegółowe Omówienie planów Azure App Service](../app-service/overview-hosting-plans.md).
 
-Aby uzyskać przykładowy szablon usługi Azure Resource Manager, zobacz [Aplikacja funkcji w planie usługi Azure App Service].
+Aby zapoznać się z przykładowym szablonem Azure Resource Manager, zobacz [Function App on Azure App Service plan].
 
 ### <a name="create-an-app-service-plan"></a>Tworzenie planu usługi App Service
 
-Plan usługi aplikacji jest zdefiniowany przez zasób "farma serwerowa".
+Plan App Service jest definiowany przez zasób "farma serwerów".
 
 ```json
 {
@@ -410,7 +410,7 @@ Plan usługi aplikacji jest zdefiniowany przez zasób "farma serwerowa".
 }
 ```
 
-Aby uruchomić aplikację na `kind` Linuksie, `Linux`należy również ustawić na:
+Aby uruchomić aplikację w systemie Linux, należy również ustawić `kind` `Linux`:
 
 ```json
 {
@@ -431,7 +431,7 @@ Aby uruchomić aplikację na `kind` Linuksie, `Linux`należy również ustawić 
 
 ### <a name="create-a-function-app"></a>Tworzenie aplikacji funkcji
 
-Aplikacja funkcji w planie usługi app `serverFarmId` service musi mieć właściwość ustawioną na identyfikator zasobu planu utworzonego wcześniej.
+Aplikacja funkcji w planie App Service musi mieć ustawioną `serverFarmId` właściwość na identyfikator zasobu utworzonego wcześniej planu.
 
 ```json
 {
@@ -470,7 +470,7 @@ Aplikacja funkcji w planie usługi app `serverFarmId` service musi mieć właśc
 }
 ```
 
-Aplikacje systemu Linux `linuxFxVersion` powinny `siteConfig`również zawierać właściwość w obszarze . Jeśli po prostu wdrażasz kod, wartość tego jest określana przez żądany stos środowiska wykonawczego:
+Aplikacje systemu Linux powinny również zawierać `linuxFxVersion` właściwość w `siteConfig`obszarze. Jeśli po prostu wdrażasz kod, wartość tego elementu jest określana na podstawie żądanego stosu środowiska uruchomieniowego:
 
 | Stos            | Przykładowa wartość                                         |
 |------------------|-------------------------------------------------------|
@@ -516,7 +516,7 @@ Aplikacje systemu Linux `linuxFxVersion` powinny `siteConfig`również zawierać
 }
 ```
 
-W przypadku [wdrażania niestandardowego obrazu kontenera](./functions-create-function-linux-custom-image.md)należy `linuxFxVersion` określić go za pomocą konfiguracji umożliwiającej pobranie obrazu, tak jak w [aplikacji Web App for Containers](/azure/app-service/containers). Ponadto, `WEBSITES_ENABLE_APP_SERVICE_STORAGE` ustaw `false`, ponieważ zawartość aplikacji znajduje się w samym kontenerze:
+W przypadku [wdrażania niestandardowego obrazu kontenera](./functions-create-function-linux-custom-image.md)należy określić go wraz z `linuxFxVersion` konfiguracją umożliwiającą ściąganie obrazu, jak w [Web App for Containers](/azure/app-service/containers). Ponadto ustaw wartość `WEBSITES_ENABLE_APP_SERVICE_STORAGE` `false`, ponieważ zawartość aplikacji znajduje się w kontenerze:
 
 ```json
 {
@@ -574,10 +574,10 @@ W przypadku [wdrażania niestandardowego obrazu kontenera](./functions-create-fu
 
 ## <a name="customizing-a-deployment"></a>Dostosowywanie wdrożenia
 
-Aplikacja funkcji ma wiele zasobów podrzędnych, które można użyć w wdrożeniu, w tym ustawienia aplikacji i opcje kontroli źródła. Można również usunąć **źródłokontroli podrzędnego** zasobu i zamiast tego użyć innej [opcji wdrażania.](functions-continuous-deployment.md)
+Aplikacja funkcji ma wiele zasobów podrzędnych, których można użyć we wdrożeniu, w tym ustawienia aplikacji i opcje kontroli źródła. Możesz również wybrać opcję usunięcia zasobu podrzędnego **sourcecontrols** , a zamiast tego użyć innej [opcji wdrażania](functions-continuous-deployment.md) .
 
 > [!IMPORTANT]
-> Aby pomyślnie wdrożyć aplikację przy użyciu usługi Azure Resource Manager, ważne jest, aby zrozumieć, jak zasoby są wdrażane na platformie Azure. W poniższym przykładzie konfiguracje najwyższego poziomu są stosowane przy użyciu **siteConfig**. Ważne jest, aby ustawić te konfiguracje na najwyższym poziomie, ponieważ przekazują informacje do środowiska uruchomieniowego funkcji i aparatu wdrażania. Informacje najwyższego poziomu są wymagane przed zastosowaniem **podrzędnych źródełkontroli/zasobu sieci web.** Chociaż jest możliwe, aby skonfigurować te ustawienia w zasobie **config/appSettings** na poziomie podrzędnym, w niektórych przypadkach aplikacja funkcji musi zostać wdrożona *przed* **zastosowaniem config/appSettings.** Na przykład podczas korzystania z funkcji z [aplikacjami logiki,](../logic-apps/index.yml)funkcje są zależnością innego zasobu.
+> Aby pomyślnie wdrożyć aplikację przy użyciu Azure Resource Manager, ważne jest, aby zrozumieć, jak zasoby są wdrażane na platformie Azure. W poniższym przykładzie konfiguracje najwyższego poziomu są stosowane przy użyciu **siteConfig**. Ważne jest, aby ustawić te konfiguracje na najwyższym poziomie, ponieważ przekazuje informacje do środowiska uruchomieniowego funkcji i aparatu wdrażania. Przed zastosowaniem podrzędnego zasobu **sourcecontrols/sieci Web** wymagane są informacje najwyższego poziomu. Chociaż istnieje możliwość skonfigurowania tych ustawień w ramach zasobu **konfiguracji/AppSettings** na poziomie podrzędnym, w niektórych przypadkach należy wdrożyć aplikację funkcji *przed* zastosowaniem **konfiguracji/AppSettings** . Na przykład podczas korzystania z funkcji z [Logic Apps](../logic-apps/index.yml), funkcje są zależne od innego zasobu.
 
 ```json
 {
@@ -641,28 +641,28 @@ Aplikacja funkcji ma wiele zasobów podrzędnych, które można użyć w wdroże
 }
 ```
 > [!TIP]
-> Ten szablon używa wartości ustawień aplikacji [projektu,](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) która ustawia katalog podstawowy, w którym aparat wdrażania funkcji (Kudu) szuka kodu do wdrożenia. W naszym repozytorium nasze funkcje znajdują się w podfolderze folderu **src.** Tak więc w poprzednim przykładzie ustawiamy wartość `src`ustawień aplikacji na . Jeśli funkcje znajdują się w katalogu głównym repozytorium lub jeśli nie wdrażasz z kontroli źródła, możesz usunąć tę wartość ustawień aplikacji.
+> Ten szablon używa wartości ustawień aplikacji [projektu](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) , która ustawia katalog podstawowy, w którym aparat wdrażania funkcji (kudu) wyszukuje kod do wdrożenia. Nasze funkcje w naszym repozytorium znajdują się w podfolderze folderu **src** . Dlatego w poprzednim przykładzie ustawimy wartość ustawienia aplikacji na `src`. Jeśli Twoje funkcje znajdują się w katalogu głównym repozytorium lub nie są wdrażane z kontroli źródła, możesz usunąć tę wartość ustawienia aplikacji.
 
 ## <a name="deploy-your-template"></a>Wdrażanie szablonu
 
-Można użyć dowolnego z następujących sposobów wdrożenia szablonu:
+Aby wdrożyć szablon, można użyć dowolnego z poniższych sposobów:
 
-* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+* [Narzędzia](../azure-resource-manager/templates/deploy-powershell.md)
 * [Interfejs wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md)
 * [Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
-* [Interfejs API REST](../azure-resource-manager/templates/deploy-rest.md)
+* [INTERFEJS API REST](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Przycisk Wdróż na platformie Azure
 
-Zastąp ```<url-encoded-path-to-azuredeploy-json>``` wersją pliku [zakodowaną w adresie URL](https://www.bing.com/search?q=url+encode) w usłudze `azuredeploy.json` GitHub.
+Zamień ```<url-encoded-path-to-azuredeploy-json>``` na [zakodowaną w adresie URL](https://www.bing.com/search?q=url+encode) wersję ścieżki nieprzetworzonego `azuredeploy.json` pliku w serwisie GitHub.
 
-Oto przykład, który używa znaczników:
+Oto przykład, który używa promocji:
 
 ```markdown
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>)
 ```
 
-Oto przykład, który używa html:
+Oto przykład, który używa języka HTML:
 
 ```html
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"></a>
@@ -670,7 +670,7 @@ Oto przykład, który używa html:
 
 ### <a name="deploy-using-powershell"></a>Wdrażanie przy użyciu programu PowerShell
 
-Następujące polecenia programu PowerShell tworzą grupę zasobów i wdrażają szablon, który tworzy aplikację funkcji z wymaganymi zasobami. Aby uruchomić lokalnie, musisz mieć zainstalowany [program Azure PowerShell.](/powershell/azure/install-az-ps) Uruchom, [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) aby się zalogować.
+Następujące polecenia programu PowerShell tworzą grupę zasobów i wdrażają szablon, który tworzy aplikację funkcji z wymaganymi zasobami. Aby uruchomić lokalnie, musisz mieć zainstalowaną [Azure PowerShell](/powershell/azure/install-az-ps) . Uruchom [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) , aby się zalogować.
 
 ```powershell
 # Register Resource Providers if they're not already registered
@@ -687,11 +687,11 @@ $TemplateParams = @{"appName" = "<function-app-name>"}
 New-AzResourceGroupDeployment -ResourceGroupName "MyResourceGroup" -TemplateFile template.json -TemplateParameterObject $TemplateParams -Verbose
 ```
 
-Aby przetestować to wdrożenie, można użyć [szablonu takiego jak ten,](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json) który tworzy aplikację funkcji w systemie Windows w planie zużycia. Zamień `<function-app-name>` unikatową nazwę aplikacji funkcyjnej.
+Aby przetestować to wdrożenie, możesz użyć [szablonu takiego jak ten](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json) , który tworzy aplikację funkcji w systemie Windows w planie zużycia. Zamień `<function-app-name>` na unikatową nazwę aplikacji funkcji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o opracowywaniu i konfigurowaniu funkcji platformy Azure.
+Dowiedz się więcej na temat sposobu tworzenia i konfigurowania Azure Functions.
 
 * [Dokumentacja usługi Azure Functions dla deweloperów](functions-reference.md)
 * [Jak skonfigurować ustawienia aplikacji funkcji platformy Azure](functions-how-to-use-azure-function-app-settings.md)
@@ -699,5 +699,5 @@ Dowiedz się więcej o opracowywaniu i konfigurowaniu funkcji platformy Azure.
 
 <!-- LINKS -->
 
-[Aplikacja funkcyjna na planie zużycia]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
-[Aplikacja funkcji w planie usługi Azure App Service]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
+[Aplikacja funkcji w planie zużycia]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
+[Aplikacja funkcji na Azure App Service planie]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json

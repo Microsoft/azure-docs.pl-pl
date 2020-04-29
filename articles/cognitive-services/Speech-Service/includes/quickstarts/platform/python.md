@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
 ms.openlocfilehash: 924532318fc6638059bbe9eef0065349463523ae
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400872"
 ---
-W tym przewodniku pokazano, jak zainstalować [pakiet SDK mowy](~/articles/cognitive-services/speech-service/speech-sdk.md) dla języka Python. Jeśli chcesz, aby nazwa pakietu zaczęła się `pip install azure-cognitiveservices-speech`samodzielnie, uruchom program .
+W tym przewodniku przedstawiono sposób instalowania [zestawu Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) dla języka Python. Jeśli chcesz, aby nazwa pakietu była już uruchomiona, uruchom `pip install azure-cognitiveservices-speech`polecenie.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -19,28 +19,28 @@ W tym przewodniku pokazano, jak zainstalować [pakiet SDK mowy](~/articles/cogni
 
 - Pakiet zestawu Speech SDK dla języka Python jest dostępny dla tych systemów operacyjnych:
   - Windows: x64 i x86
-  - Mac: macOS X w wersji 10.12 lub nowszej
-  - Linux: Ubuntu 16.04/18.04, Debian 9, RHEL 7/8, CentOS 7/8 na x64
+  - Mac: macOS X w wersji 10,12 lub nowszej
+  - Linux: Ubuntu 16.04/18.04, Debian 9, RHEL 7/8, CentOS 7/8 w x64
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Obsługiwane platformy Linux będą wymagały`libssl` zainstalowania niektórych bibliotek `libasound2` (do obsługi warstwy bezpiecznych gniazd i do obsługi dźwięku). Zapoznaj się z poniższą dystrybucją, aby uzyskać polecenia potrzebne do zainstalowania poprawnych wersji tych bibliotek.
+- Na obsługiwanych platformach systemu Linux wymagane są pewne biblioteki`libssl` (na potrzeby obsługi protokołu Secure `libasound2` Sockets Layer i obsługi dźwięku). Zapoznaj się z dystrybucją poniżej, aby zapoznać się z poleceniami wymaganymi do zainstalowania odpowiednich wersji tych bibliotek.
 
-  - Na Ubuntu uruchom następujące polecenia, aby zainstalować wymagane pakiety:
+  - W systemie Ubuntu Uruchom następujące polecenia, aby zainstalować wymagane pakiety:
 
         ```sh
         sudo apt-get update
         sudo apt-get install build-essential libssl1.0.0 libasound2
         ```
 
-  - W Debianie 9 uruchom następujące polecenia, aby zainstalować wymagane pakiety:
+  - W systemie Debian 9 Uruchom następujące polecenia, aby zainstalować wymagane pakiety:
 
         ```sh
         sudo apt-get update
         sudo apt-get install build-essential libssl1.0.2 libasound2
         ```
 
-  - W programie RHEL/CentOS 8 uruchom następujące polecenia, aby zainstalować wymagane pakiety:
+  - W systemie RHEL/CentOS 8 Uruchom następujące polecenia, aby zainstalować wymagane pakiety:
 
         ```sh
         sudo yum update
@@ -48,45 +48,45 @@ W tym przewodniku pokazano, jak zainstalować [pakiet SDK mowy](~/articles/cogni
         ```
 
 > [!NOTE]
-> Na RHEL/CentOS 8 postępuj zgodnie z instrukcjami [dotyczącymi konfigurowania OpenSSL dla systemu Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> W systemie RHEL/CentOS 8 postępuj zgodnie z instrukcjami dotyczącymi [sposobu konfigurowania OpenSSL dla systemu Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
-- W systemie Windows potrzebujesz [programu Microsoft Visual C++ redystrybucyjny dla programu Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) dla swojej platformy. Należy pamiętać, że zainstalowanie tego po raz pierwszy może wymagać ponownego uruchomienia systemu Windows przed kontynuowaniem tego przewodnika.
-- I wreszcie, trzeba [Python 3.5 do 3.8](https://www.python.org/downloads/). Aby sprawdzić instalację, otwórz wiersz polecenia, wpisz polecenie `python --version` i sprawdź wynik. Jeśli jest poprawnie zainstalowany, otrzymasz odpowiedź "Python 3.5.1" lub podobny.
+- W systemie Windows wymagany jest [Microsoft Visual C++ redystrybucyjny dla programu Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) dla danej platformy. Należy pamiętać, że zainstalowanie tego programu po raz pierwszy może wymagać ponownego uruchomienia systemu Windows przed kontynuowaniem pracy z tym przewodnikiem.
+- Na koniec należy potrzebować języka [Python 3,5 do 3,8](https://www.python.org/downloads/). Aby sprawdzić instalację, Otwórz wiersz polecenia i wpisz polecenie `python --version` i sprawdź wynik. Jeśli jest zainstalowana prawidłowo, otrzymasz odpowiedź "Python 3.5.1" lub podobną.
 
-## <a name="install-the-speech-sdk-from-pypi"></a>Instalowanie pakietu SDK mowy z usługi PyPI
+## <a name="install-the-speech-sdk-from-pypi"></a>Instalowanie zestawu Speech SDK z PyPI
 
-Jeśli używasz własnego środowiska lub narzędzi do tworzenia, uruchom następujące polecenie, aby zainstalować zestaw SDK mowy z [PyPI](https://pypi.org/). Dla użytkowników programu Visual Studio Code przejdź do następnej podsekcji dla instalacji z przewodnikiem.
+Jeśli używasz własnego środowiska lub narzędzi do kompilacji, uruchom następujące polecenie, aby zainstalować zestaw Speech SDK z [PyPI](https://pypi.org/). W przypadku użytkowników z Visual Studio Code przejdź do następnej podsekcji instalacji z przewodnikiem.
 
 ```sh
 pip install azure-cognitiveservices-speech
 ```
 
-Jeśli korzystasz z systemu macOS, może być konieczne `pip` uruchomienie następującego polecenia, aby polecenie powyżej działało:
+W przypadku korzystania z programu macOS może być konieczne uruchomienie następującego polecenia w celu uzyskania powyższego `pip` polecenia:
 
 ```sh
 python3 -m pip install --upgrade pip
 ```
 
-Po pomyślnym zainstalowaniu `pip` `azure-cognitiveservices-speech`można użyć pakietu SDK mowy, importując obszar nazw do projektów języka Python.
+Po pomyślnym `pip` zainstalowaniu `azure-cognitiveservices-speech`programu można użyć zestawu Speech SDK przez zaimportowanie przestrzeni nazw do projektów języka Python.
 
 ```py
 import azure.cognitiveservices.speech as speechsdk
 ```
 
-## <a name="install-the-speech-sdk-using-visual-studio-code"></a>Instalowanie pakietu SDK mowy przy użyciu kodu programu Visual Studio
+## <a name="install-the-speech-sdk-using-visual-studio-code"></a>Instalowanie zestawu Speech SDK przy użyciu Visual Studio Code
 
-1. Pobierz i zainstaluj najnowszą obsługiwana wersję [Pythona](https://www.python.org/downloads/) dla swojej platformy, 3.5 do 3.8.
-   - Użytkownicy systemu Windows upewnij się, aby wybrać "Dodaj Python do ścieżki" podczas procesu instalacji.
+1. Pobierz i zainstaluj najnowszą obsługiwaną wersję języka [Python](https://www.python.org/downloads/) dla danej platformy, 3,5 do 3,8.
+   - Użytkownicy systemu Windows pamiętaj o wybraniu opcji "Dodaj język Python do ścieżki" podczas procesu instalacji.
 1. Pobierz i zainstaluj program [Visual Studio Code](https://code.visualstudio.com/Download).
-1. Otwórz program Visual Studio Code i zainstaluj rozszerzenie języka Python. Z menu **wybierz polecenie** > **Rozszerzenia** **preferencji** > plików. Wyszukaj **Pythona** i kliknij przycisk **Zainstaluj**.
+1. Otwórz program Visual Studio Code i zainstaluj rozszerzenie języka Python. Wybierz opcję**rozszerzenia** **preferencji** >  **plików** > z menu. Wyszukaj środowisko **Python** i kliknij przycisk **Instaluj**.
 
    ![Instalowanie rozszerzenia języka Python](~/articles/cognitive-services/speech-service/media/sdk/qs-python-vscode-python-extension.png)
 
-1. Również z poziomu kodu programu Visual Studio zainstaluj pakiet Języka Python zestawu SDK mowy ze zintegrowanego wiersza polecenia:
-   1. Otwórz terminal (z menu rozwijanego **Terminal** > **New Terminal**)
-   1. W otwieranym terminalu wprowadź polecenie`python -m pip install azure-cognitiveservices-speech`
+1. Ponadto z poziomu Visual Studio Code Zainstaluj pakiet języka Python zestawu mowy SDK z poziomu wiersza polecenia zintegrowanego:
+   1. Otwórz Terminal (z menu rozwijanego, > **Nowy terminal**terminalu **)**
+   1. W otwartym terminalu wprowadź polecenie`python -m pip install azure-cognitiveservices-speech`
 
-Jeśli jesteś nowy w programie Visual Studio Code, zapoznaj się z bardziej rozbudowaną [dokumentacją kodu programu Visual Studio.](https://code.visualstudio.com/docs) Aby uzyskać więcej informacji na temat kodu programu Visual Studio i języka Python, zobacz [Samouczek pythona kodu programu Visual Studio](https://code.visualstudio.com/docs/python/python-tutorial).
+Jeśli jesteś nowym do Visual Studio Code, zapoznaj się z bardziej obszerną [dokumentacją Visual Studio Code](https://code.visualstudio.com/docs). Aby uzyskać więcej informacji na temat Visual Studio Code i języka Python, zobacz [Przewodnik po Visual Studio Code Python](https://code.visualstudio.com/docs/python/python-tutorial).
 
 ## <a name="support-and-updates"></a>Pomoc techniczna i aktualizacje
 

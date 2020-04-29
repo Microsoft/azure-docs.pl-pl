@@ -11,31 +11,31 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: 59c121f09858114cecfaeb45e257315d1ab92935
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81403423"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Szybki start: wykrywanie twarzy na obrazie przy użyciu interfejsu API REST i języka Java
 
-W tym przewodniku Szybki start użyjesz interfejsu API rest usługi Azure Face z oprogramowaniem Java do wykrywania ludzkich twarzy w obrazie.
+W tym przewodniku szybki start użyjesz interfejsu API REST platformy Azure dla języka Java w celu wykrywania twarzy na obrazie.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem. 
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) . 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Klucz subskrypcji Face. Klucz subskrypcji bezpłatnej wersji próbnej możesz uzyskać na stronie [Wypróbuj usługi Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Możesz też postępować zgodnie z instrukcjami w aplikacji [Utwórz konto usług Cognitive Services,](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) aby zasubskrybować usługę Face i uzyskać klucz.
+- Klucz subskrypcji programu Marketo. Klucz subskrypcji bezpłatnej wersji próbnej możesz uzyskać na stronie [Wypróbuj usługi Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Lub postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby subskrybować usługę i uzyskać klucz.
 - Wybrane środowisko IDE Java.
 
 ## <a name="create-the-java-project"></a>Tworzenie projektu języka Java
 
-1. Utwórz nową aplikację Java wiersza polecenia w ide i dodać **Main** klasy z **główną** metodą.
+1. Utwórz nową aplikację Java w wierszu polecenia w środowisku IDE i Dodaj klasę **główną** przy użyciu metody **Main** .
 1. Zaimportuj poniższe biblioteki do projektu języka Java. Jeśli używasz programu Maven, współrzędne programu Maven są udostępniane w każdej bibliotece.
-   - [Klient HTTP Apache](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.6)
-   - [Apache HTTP core](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.10)
+   - [Klient Apache HTTP](https://hc.apache.org/downloads.cgi) (org. Apache. httpcomponents: HttpClient: 4.5.6)
+   - [Apache HTTP Core](https://hc.apache.org/downloads.cgi) (org. Apache. httpcomponents: httpcore: 4.4.10)
    - [Biblioteka JSON](https://github.com/stleary/JSON-java) (org.json:json:20180130)
-   - [Rejestrowanie Apache Commons](https://commons.apache.org/proper/commons-logging/download_logging.cgi) (commons-logging:commons-logging:1.1.2)
+   - [Rejestrowanie Apache Commons Attribution](https://commons.apache.org/proper/commons-logging/download_logging.cgi) (Commons Attribution-logging: Commons Attribution-logging: 1.1.2)
 
 ## <a name="add-face-detection-code"></a>Dodawanie kodu służącego do wykrywania twarzy
 
@@ -65,7 +65,7 @@ import org.json.JSONObject;
 
 ### <a name="add-essential-fields"></a>Dodawanie podstawowych pól
 
-Zamień **Main** klasy z następującym kodem. Te dane służą do określania sposobu nawiązywania połączenia z usługą rozpoznawania twarzy i lokalizacji, z której można pobrać dane wejściowe. Należy zaktualizować `subscriptionKey` pole o wartość klucza subskrypcji i zmienić `uriBase` ciąg tak, aby zawierał prawidłowy ciąg punktu końcowego. Możesz również ustawić wartość `imageWithFaces` na ścieżkę, która wskazuje na inny plik obrazu.
+Zastąp klasę **Main** poniższym kodem. Te dane służą do określania sposobu nawiązywania połączenia z usługą rozpoznawania twarzy i lokalizacji, z której można pobrać dane wejściowe. Musisz zaktualizować `subscriptionKey` pole przy użyciu wartości klucza subskrypcji i zmienić `uriBase` ciąg tak, aby zawierał prawidłowy ciąg punktu końcowego. Możesz również ustawić wartość `imageWithFaces` na ścieżkę, która wskazuje na inny plik obrazu.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -88,7 +88,7 @@ public class Main {
 
 ### <a name="call-the-face-detection-rest-api"></a>Wywoływanie interfejsu API REST wykrywania twarzy
 
-Dodaj **metodę główną** z następującym kodem. Tworzy on wywołanie REST do interfejsu API rozpoznawania twarzy w celu wykrycia informacji o twarzy na obrazie zdalnym (ciąg `faceAttributes` określa, które atrybuty dotyczące twarzy mają zostać pobrane). Następnie zapisuje dane wyjściowe do ciągu JSON.
+Dodaj metodę **Main** przy użyciu następującego kodu. Tworzy on wywołanie REST do interfejsu API rozpoznawania twarzy w celu wykrycia informacji o twarzy na obrazie zdalnym (ciąg `faceAttributes` określa, które atrybuty dotyczące twarzy mają zostać pobrane). Następnie zapisuje dane wyjściowe do ciągu JSON.
 
 ```Java
     public static void main(String[] args) {
@@ -122,7 +122,7 @@ Dodaj **metodę główną** z następującym kodem. Tworzy on wywołanie REST do
 
 ### <a name="parse-the-json-response"></a>Analizowanie odpowiedzi w formacie JSON
 
-Bezpośrednio poniżej powyższego kodu dodaj następujący blok, który służy do konwertowania zwróconych danych JSON do bardziej czytelnego formatu przed wyświetleniem ich w konsoli. Na koniec zamknij blok try-catch, **metodę główną** i **Klasę Main.**
+Bezpośrednio poniżej powyższego kodu dodaj następujący blok, który służy do konwertowania zwróconych danych JSON do bardziej czytelnego formatu przed wyświetleniem ich w konsoli. Na koniec Zamknij blok try-catch, Metoda **Main** i **Main** Class.
 
 ```Java
             if (entity != null)
@@ -248,7 +248,7 @@ Skompiluj kod i uruchom go. Odpowiedź oznaczająca powodzenie będzie zawierać
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start utworzono prostą aplikację konsoli Java, która używa wywołań REST do interfejsu API azure face do wykrywania twarzy w obrazie i zwracania ich atrybutów. Następnie dowiesz się, jak wykonać inne operacje za pomocą tych funkcji w aplikacji systemu Android.
+W tym przewodniku szybki start utworzono prostą aplikację konsolową języka Java, która używa wywołań REST do interfejs API rozpoznawania twarzy platformy Azure, aby wykrywać twarze w obrazie i zwracać ich atrybuty. Następnie dowiesz się, jak wykonać inne operacje za pomocą tych funkcji w aplikacji systemu Android.
 
 > [!div class="nextstepaction"]
 > [Samouczek: tworzenie aplikacji systemu Android wykrywającej i oznaczającej ramką twarze](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)

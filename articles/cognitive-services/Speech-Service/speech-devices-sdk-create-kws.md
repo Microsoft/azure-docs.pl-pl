@@ -1,7 +1,7 @@
 ---
 title: Tworzenie niestandardowych słów kluczowych — usługa mowy
 titleSuffix: Azure Cognitive Services
-description: Urządzenie zawsze nasłuchuje słowa kluczowego (lub frazy). Gdy użytkownik mówi słowo kluczowe, urządzenie wysyła wszystkie kolejne audio do chmury, dopóki użytkownik przestanie mówić. Dostosowywanie słowa kluczowego to skuteczny sposób na odróżnienie urządzenia i wzmocnienie marki.
+description: Urządzenie zawsze nasłuchuje słowa kluczowego (lub frazy). Gdy użytkownik wyświetla słowo kluczowe, urządzenie wysyła wszystkie kolejne audio do chmury, dopóki użytkownik nie przestanie mówić. Dostosowanie słowa kluczowego jest skutecznym sposobem na odróżnienie urządzenia i wzmocnienie oznakowania.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -11,45 +11,45 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 ms.author: trbye
 ms.openlocfilehash: 8e67d624c77eb838f7646731bbdedd8f97f81b96
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81400059"
 ---
-# <a name="create-a-custom-keyword-using-speech-studio"></a>Tworzenie niestandardowego słowa kluczowego przy użyciu Programu Mowy
+# <a name="create-a-custom-keyword-using-speech-studio"></a>Tworzenie niestandardowego słowa kluczowego przy użyciu programu Speech Studio
 
-Urządzenie zawsze nasłuchuje słowa kluczowego (lub frazy). Na przykład "Hey Cortana" to słowo kluczowe dla asystenta Cortany. Gdy użytkownik mówi słowo kluczowe, urządzenie wysyła wszystkie kolejne audio do chmury, dopóki użytkownik przestanie mówić. Dostosowywanie słowa kluczowego to skuteczny sposób na odróżnienie urządzenia i wzmocnienie marki.
+Urządzenie zawsze nasłuchuje słowa kluczowego (lub frazy). Na przykład "Hey Cortana" to słowo kluczowe dla Asystenta Cortany. Gdy użytkownik wyświetla słowo kluczowe, urządzenie wysyła wszystkie kolejne audio do chmury, dopóki użytkownik nie przestanie mówić. Dostosowanie słowa kluczowego jest skutecznym sposobem na odróżnienie urządzenia i wzmocnienie oznakowania.
 
-Z tego artykułu dowiesz się, jak utworzyć niestandardowe słowo kluczowe dla urządzenia.
+W tym artykule dowiesz się, jak utworzyć niestandardowe słowo kluczowe dla urządzenia.
 
-## <a name="create-your-keyword"></a>Tworzenie słowa kluczowego
+## <a name="create-your-keyword"></a>Utwórz słowo kluczowe
 
-Aby można było użyć niestandardowego słowa kluczowego, musisz utworzyć słowo kluczowe za pomocą strony [Niestandardowe słowo kluczowe](https://aka.ms/sdsdk-wakewordportal) w [Studiu mowy](https://aka.ms/sdsdk-speechportal). Po podaniem słowa kluczowego tworzy plik, który można wdrożyć na urządzeniu.
+Aby można było użyć niestandardowego słowa kluczowego, należy utworzyć słowo kluczowe przy użyciu strony [niestandardowe słowo kluczowe](https://aka.ms/sdsdk-wakewordportal) w programie [Speech Studio](https://aka.ms/sdsdk-speechportal). Po podaniu słowa kluczowego tworzy plik, który jest wdrażany na urządzeniu.
 
-1. Przejdź do [Studia mowy](https://aka.ms/sdsdk-speechportal) i Zaloguj **się** lub, jeśli nie masz jeszcze subskrypcji mowy, wybierz pozycję [**Utwórz subskrypcję**](https://go.microsoft.com/fwlink/?linkid=2086754).
+1. Przejdź do programu [Speech Studio](https://aka.ms/sdsdk-speechportal) i **Zaloguj się** lub, jeśli nie masz jeszcze subskrypcji mowy, wybierz pozycję [**Utwórz subskrypcję**](https://go.microsoft.com/fwlink/?linkid=2086754).
 
-1. Na stronie [Niestandardowe słowo kluczowe](https://aka.ms/sdsdk-wakewordportal) utwórz **nowy projekt**. 
+1. Na stronie [niestandardowe słowo kluczowe](https://aka.ms/sdsdk-wakewordportal) Utwórz **Nowy projekt**. 
 
-1. Wprowadź **nazwę**, opcjonalny **opis**i wybierz język. Będziesz potrzebował jednego projektu na język, a obsługa jest obecnie ograniczona do języka en-US.
+1. Wprowadź **nazwę**i opcjonalny **Opis**, a następnie wybierz język. Potrzebny będzie jeden projekt dla każdego języka i pomoc techniczna jest obecnie ograniczona do języka en-US.
 
-    ![Opis projektu słowa kluczowego](media/custom-keyword/custom-kws-portal-new-project.png)
+    ![Opisz swój projekt słowa kluczowego](media/custom-keyword/custom-kws-portal-new-project.png)
 
-1. Wybierz projekt z listy. 
+1. Wybierz swój projekt z listy. 
 
     ![Wybierz projekt słowa kluczowego](media/custom-keyword/custom-kws-portal-project-list.png)
 
-1. Aby uruchomić nowy model słowa kluczowego, kliknij **opcję Trenuj model**.
+1. Aby rozpocząć nowy model słów kluczowych, kliknij pozycję **Testuj model**.
 
-1. Wprowadź **nazwę** dla modelu słowa kluczowego oraz **opcjonalny opis** i wpisz wybrane **słowo kluczowe,** a następnie kliknij przycisk **Dalej**. Mamy kilka [wskazówek,](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) które pomogą wybrać skuteczne słowo kluczowe.
+1. Wprowadź **nazwę** modelu słowa kluczowego i opcjonalny **Opis** , a następnie wpisz **słowo kluczowe** , a następnie kliknij przycisk **dalej**. Mamy pewne [wskazówki](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) ułatwiające wybór efektywnego słowa kluczowego.
 
-    ![Wpisz słowo kluczowe](media/custom-keyword/custom-kws-portal-new-model.png)
+    ![Wprowadź słowo kluczowe](media/custom-keyword/custom-kws-portal-new-model.png)
 
-1. Portal będzie teraz tworzyć wymowę kandydatów dla słowa kluczowego. Odsłuchaj każdego kandydata, klikając przyciski odtwarzania i usuń czeki obok wszystkich błędnych wymow. Po zaznaczeniu tylko dobrej wymowy kliknij przycisk **Trenuj,** aby rozpocząć generowanie słowa kluczowego. 
+1. Portal utworzy teraz wymowy kandydatów dla słowa kluczowego. Nasłuchiwanie poszczególnych kandydatów przez kliknięcie przycisku Odtwórz i usunięcie kontroli obok wszelkich wymowy, które są nieprawidłowe. Gdy sprawdzane są tylko dobre wymowy, kliknij pozycję **uczenie** , aby rozpocząć generowanie słowa kluczowego. 
 
     ![Przejrzyj słowo kluczowe](media/custom-keyword/custom-kws-portal-choose-prons.png)
 
-1. Może upłynąć do trzydziestu minut dla modelu, które mają być generowane. Lista słów kluczowych zmieni się z **Przetwarzanie** na **Pomyślnie** po zakończeniu modelu. Następnie można pobrać plik.
+1. Wygenerowanie modelu może potrwać do 30 minut. Lista słów kluczowych zmieni się z **przetwarzania** na **powodzenie** , gdy model zostanie ukończony. Następnie można pobrać plik.
 
     ![Przejrzyj słowo kluczowe](media/custom-keyword/custom-kws-portal-download-model.png)
 
@@ -57,4 +57,4 @@ Aby można było użyć niestandardowego słowa kluczowego, musisz utworzyć sł
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przetestuj niestandardowe słowo kluczowe za pomocą narzędzia [SDK Szybki start funkcji Urządzenia mowy](https://aka.ms/sdsdk-quickstart).
+Przetestuj niestandardowe słowo kluczowe przy użyciu [zestawu Speech Devices SDK szybkiego startu](https://aka.ms/sdsdk-quickstart).

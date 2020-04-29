@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.openlocfilehash: 3d9718d7c1b3182d1f7bc16cd81b38635c051a85
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81399878"
 ---
 :::row:::
     :::column span="3":::
-        Podczas tworzenia dla systemu Android, istnieją dwa SDK mowy dostępne. SDK mowy Java jest dostępny natywnie jako pakiet systemu Android lub .NET Speech SDK może być używany z **xamarin.Android,** ponieważ implementuje .NET Standard 2.0.
+        Podczas tworzenia aplikacji dla systemu Android dostępne są dwa zestawy SDK mowy. Zestaw SDK mowy języka Java jest dostępny natywnie jako pakiet systemu Android lub zestaw SDK mowy platformy .NET może być używany z **interfejsem Xamarin. Android** w miarę implementowania .NET Standard 2,0.
     :::column-end:::
     :::column:::
         <br>
@@ -31,13 +31,13 @@ ms.locfileid: "81399878"
 
 :::row:::
     :::column span="3":::
-        Xamarin.Android stanowi kompletny zestaw Android SDK dla deweloperów platformy .NET.  Twórz całkowicie natywne aplikacje dla systemu Android przy użyciu języka C# lub F# w programie Visual Studio. Aby uzyskać więcej informacji, zobacz <a href="https://docs.microsoft.com/xamarin/android/" target="_blank">Xamarin.Android <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
+        Xamarin.Android stanowi kompletny zestaw Android SDK dla deweloperów platformy .NET.  Twórz całkowicie natywne aplikacje dla systemu Android przy użyciu języka C# lub F# w programie Visual Studio. Aby uzyskać więcej informacji, zobacz <a href="https://docs.microsoft.com/xamarin/android/" target="_blank">Xamarin. <span class="docon docon-navigate-external x-hidden-focus"></span> Android</a>
     :::column-end:::
     :::column:::
         <br>
         <div class="icon is-large">
             <img alt="Xamarin" src="https://docs.microsoft.com/media/logos/logo_xamarin.svg" width="60px">
-            &nbsp;&nbsp; ❤️        <img alt="Android" src="https://docs.microsoft.com/media/logos/logo_android.svg" width="60px">
+            &nbsp;❤️ &nbsp;        <img alt="Android" src="https://docs.microsoft.com/media/logos/logo_android.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::

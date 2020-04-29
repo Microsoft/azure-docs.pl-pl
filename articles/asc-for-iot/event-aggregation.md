@@ -1,6 +1,6 @@
 ---
 title: Agregacja zdarzeń
-description: Dowiedz się więcej o agregacji zdarzeń usługi Azure Security Center dla IoT.
+description: Dowiedz się więcej na temat Azure Security Center dla agregacji zdarzeń IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,89 +16,89 @@ ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
 ms.openlocfilehash: f72ef8cc5161bd6f885249e7d39344a57fa2368e
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311415"
 ---
-# <a name="azure-security-center-for-iot-event-aggregation"></a>Usługa Azure Security Center dla agregacji zdarzeń IoT
+# <a name="azure-security-center-for-iot-event-aggregation"></a>Azure Security Center dla agregacji zdarzeń IoT
 
-Usługa Azure Security Center dla agentów zabezpieczeń IoT zbiera dane i zdarzenia systemowe z urządzenia lokalnego i wysyła te dane do chmury platformy Azure w celu przetwarzania i analizy. Agent zabezpieczeń zbiera wiele typów zdarzeń urządzenia, w tym nowy proces i nowe zdarzenia połączenia. Zarówno nowy proces, jak i nowe zdarzenia połączenia mogą się legalnie występować często na urządzeniu w ciągu sekundy i chociaż jest to ważne dla niezawodnych i kompleksowych zabezpieczeń, liczba wiadomości, które agenci zabezpieczeń są zmuszeni wysyłać, może szybko osiągnąć lub przekroczyć limity przydziału i kosztów usługi IoT Hub. Jednak te zdarzenia zawierają bardzo cenne informacje zabezpieczające, które mają kluczowe znaczenie dla ochrony urządzenia.
+Azure Security Center dla agentów zabezpieczeń IoT zbiera dane i zdarzenia systemowe z urządzenia lokalnego i wysyła te dane do chmury platformy Azure w celu przetworzenia i analizy. Agent zabezpieczeń zbiera wiele typów zdarzeń urządzeń, w tym nowy proces i nowe zdarzenia połączenia. Zarówno nowy proces, jak i nowe zdarzenia połączeń mogą być często wykonywane na urządzeniu w ciągu sekundy, a chociaż ważne dla niezawodnego i kompleksowego zabezpieczenia, liczba agentów zabezpieczeń komunikatów jest zmuszona do przesłania lub przekroczenia limitu przydziału IoT Hub i kosztów. Zdarzenia te zawierają jednak wysoce cenne informacje zabezpieczające, które są kluczowe dla ochrony urządzenia.
 
-Aby zmniejszyć dodatkowy przydział i koszty przy jednoczesnym zachowaniu ochrony urządzeń, Usługa Azure Security Center dla agentów IoT agreguje te typy zdarzeń.
+Aby zmniejszyć dodatkowy przydział i koszty przy zachowaniu ochrony urządzeń, Azure Security Center dla agentów IoT agregują te typy zdarzeń.
 
-Agregacja zdarzeń jest domyślnie **włączona** i chociaż nie jest to zalecane, można ręcznie **wyłączyć** w dowolnym momencie.
+Agregacja zdarzeń jest domyślnie **włączona** i chociaż nie jest zalecana, można ją **wyłączyć** ręcznie w dowolnym momencie.
 
 Agregacja jest obecnie dostępna dla następujących typów zdarzeń:
 
-* ProcesTworzenie
-* PołączenieTworzenie
-* ProcessTerminate (tylko windows)
+* ProcessCreate
+* ConnectionCreate
+* ProcessTerminate (tylko system Windows)
 
 ## <a name="how-does-event-aggregation-work"></a>Jak działa agregacja zdarzeń?
 
-Gdy agregacja zdarzeń jest pozostawiona **w programie,** Usługa Azure Security Center dla agentów IoT agreguje zdarzenia dla okresu interwału lub przedziału czasu.
-Po upływie okresu interwału agent wysyła zagregowane zdarzenia do chmury platformy Azure w celu dalszej analizy.
-Zdarzenia zagregowane są przechowywane w pamięci do momentu wysłania do chmury platformy Azure.
+Po podaniu agregacji **On**zdarzeń Azure Security Center dla agentów IoT agreguje zdarzenia dla okresu interwału lub przedziału czasu.
+Po upływie okresu interwału Agent wysyła zagregowane zdarzenia do chmury platformy Azure w celu przeprowadzenia dalszej analizy.
+Zagregowane zdarzenia są przechowywane w pamięci do momentu wysłania ich do chmury platformy Azure.
 
-Aby zmniejszyć zużycie pamięci agenta, gdy agent zbiera identyczne zdarzenie do zdarzenia, które jest już przechowywane w pamięci, agent zwiększa liczbę trafień tego konkretnego zdarzenia. Po upływie przedziału czasu agregacji agent wysyła liczbę trafień każdego określonego typu zdarzenia, które wystąpiło. Agregacja zdarzeń jest po prostu agregacją liczby trafień każdego zebranego typu zdarzenia.
+Aby zmniejszyć wykorzystanie pamięci przez agenta, za każdym razem, gdy Agent zbiera identyczne zdarzenie do takiego, który jest już przechowywany w pamięci, Agent zwiększa liczbę trafień tego zdarzenia. Gdy przejdzie przedział czasu agregacji, Agent wysyła liczbę trafień każdego określonego typu zdarzenia, które wystąpiło. Agregacja zdarzeń jest po prostu agregacją liczby trafień każdego zebranego typu zdarzenia.
 
-Zdarzenia są uważane za identyczne tylko wtedy, gdy spełnione są następujące warunki:
+Zdarzenia są uważane za identyczne tylko wtedy, gdy są spełnione następujące warunki:
 
-* ProcessCreate events - gdy **commandLine**, **plik wykonywalny**, **nazwa użytkownika**i identyfikator **użytkownika** są identyczne
-* ConnectionCreate events - gdy **polecenie Wiersz,** **identyfikator użytkownika,** **kierunek,** **adres lokalny,** **adres zdalny,****protokół i **port docelowy** są identyczne
-* Zdarzenia ProcessTerminate — gdy stan **pliku wykonywalnego** i **zakończenia** jest identyczny
+* Zdarzenia ProcessCreate — gdy są identyczne elementy **CommandLine**, **Executable**, **username**i **UserID**
+* Zdarzenia ConnectionCreate — gdy **wiersz polecenia**, **userId, nazwa użytkownika**, **kierunek**, **adres lokalny**, **adres zdalny**, * * protokół i **port docelowy** są identyczne
+* Zdarzenia ProcessTerminate — gdy **plik wykonywalny** i **stan zakończenia** są identyczne
 
-### <a name="working-with-aggregated-events"></a>Praca z zdarzeniami zagregowanymi
+### <a name="working-with-aggregated-events"></a>Praca z zagregowanymi zdarzeniami
 
-Podczas agregacji właściwości zdarzeń, które nie są agregowane są odrzucane i pojawiają się w analizie dziennika o wartości 0.
+Podczas agregacji właściwości zdarzeń, które nie są agregowane, są odrzucane i pojawiają się w usłudze log Analytics z wartością 0.
 
-* ProcessCreate events - **processId**, and parentProcessId are set to 0 ProcessCreate events - processId , and parentProcessId are set to 0 ProcessCreate events — processId , and **parentProcessId** are set to 0 ProcessCre
-* ConnectionCreate events - **processId**, a **port źródłowy** są ustawione na 0
+* Zdarzenia ProcessCreate- **ProcessId**i **parentProcessId** są ustawione na 0
+* Zdarzenia ConnectionCreate — **Identyfikator procesu**i **port źródłowy** są ustawione na 0
 
 ## <a name="event-aggregation-based-alerts"></a>Alerty oparte na agregacji zdarzeń
 
-Po analizie usługa Azure Security Center for IoT tworzy alerty zabezpieczeń dla podejrzanych zdarzeń zagregowanych. Alerty utworzone na podstawie zdarzeń zagregowanych są wyświetlane tylko raz dla każdego zdarzenia zagregowanego.
+Po analizie Azure Security Center dla usługi IoT tworzy alerty zabezpieczeń dla podejrzanych zdarzeń agregowanych. Alerty utworzone na podstawie zagregowanych zdarzeń są wyświetlane tylko raz dla każdego zagregowanego zdarzenia.
 
-Czas rozpoczęcia agregacji, czas zakończenia i liczba trafień dla każdego zdarzenia są rejestrowane w polu **Event ExtraDetails** w usłudze Log Analytics do użycia podczas badań.
+Czas rozpoczęcia agregacji, czas zakończenia i liczba trafień dla każdego zdarzenia są rejestrowane w polu usługi Event **ExtraDetails** w log Analytics do użycia podczas badania.
 
-Każde zdarzenie zagregowane reprezentuje 24-godzinny okres zebranych alertów. Korzystając z menu opcji zdarzeń w lewym górnym rogu każdego zdarzenia, można **odrzucić** każde pojedyncze zdarzenie zagregowane.
+Każde zagregowane zdarzenie przedstawia 24-godzinny okres zebranych alertów. Korzystając z menu Opcje zdarzenia w lewym górnym rogu każdego zdarzenia, można **odrzucić** każde pojedyncze zagregowane zdarzenie.
 
-## <a name="event-aggregation-twin-configuration"></a>Konfiguracja bliźniaczej reprezentacji agregacji zdarzeń
+## <a name="event-aggregation-twin-configuration"></a>Konfiguracja dwuosiowa agregacji zdarzeń
 
-Wprowadzać zmiany w konfiguracji usługi Azure Security Center dla agregacji zdarzeń IoT wewnątrz [obiektu konfiguracji agenta](how-to-agent-configuration.md) tożsamości bliźniaczej reprezentacji modułu **modułu azureiotsecurity** modułu.
+Wprowadź zmiany w konfiguracji Azure Security Center dla agregacji zdarzeń IoT w [obiekcie konfiguracji agenta](how-to-agent-configuration.md) dla **nieazureiotsecurityego** modułu w module.
 
 | Nazwa konfiguracji | Możliwe wartości | Szczegóły | Uwagi |
 |:-----------|:---------------|:--------|:--------|
-| agregacjaEnabledProcessTworzenie | wartość logiczna | Włączanie / wyłączanie agregacji zdarzeń dla zdarzeń tworzenia procesu |
-| agregacjaIntervalProcessTworzenie | Ciąg timespan ISO8601 | Interwał agregacji dla zdarzeń tworzenia procesu |
-| agregacjaEnabledConnectionTworzenie | wartość logiczna| Włączanie / wyłączanie agregacji zdarzeń dla zdarzeń tworzenia połączenia |
-| agregacjaIntervalConnectionTworzenie | Ciąg timespan ISO8601 | Interwał agregacji dla zdarzeń tworzenia połączenia |
-| agregacjaEnabledProcessTerminate | wartość logiczna | Włączanie / wyłączanie agregacji zdarzeń dla zdarzeń zakończenia procesu | Tylko Windows|
-| agregacjaIntervalProcessTerminate | Ciąg timespan ISO8601 | Interwał agregacji dla zdarzeń zakończenia procesu | Tylko Windows|
+| aggregationEnabledProcessCreate | wartość logiczna | Włącz/Wyłącz agregację zdarzeń dla zdarzeń tworzenia procesu |
+| aggregationIntervalProcessCreate | Ciąg TimeSpan ISO8601 | Interwał agregacji dla zdarzeń tworzenia procesu |
+| aggregationEnabledConnectionCreate | wartość logiczna| Włącz/Wyłącz agregację zdarzeń dla zdarzeń tworzenia połączenia |
+| aggregationIntervalConnectionCreate | Ciąg TimeSpan ISO8601 | Interwał agregacji dla zdarzeń tworzenia połączenia |
+| aggregationEnabledProcessTerminate | wartość logiczna | Włącz/Wyłącz agregację zdarzeń dla zdarzeń zakończenia procesu | Tylko Windows|
+| aggregationIntervalProcessTerminate | Ciąg TimeSpan ISO8601 | Interwał agregacji dla zdarzeń zakończenia procesu | Tylko Windows|
 |
 
 ## <a name="default-configurations-settings"></a>Ustawienia konfiguracji domyślnej
 
 | Nazwa konfiguracji | Wartości domyślne |
 |:-----------|:---------------|
-| agregacjaEnabledProcessTworzenie | true |
-| agregacjaIntervalProcessTworzenie | "PT1H"|
-| agregacjaEnabledConnectionTworzenie | true |
-| agregacjaIntervalConnectionTworzenie | "PT1H"|
-| agregacjaEnabledProcessTerminate | true |
-| agregacjaIntervalProcessTerminate | "PT1H"|
+| aggregationEnabledProcessCreate | true |
+| aggregationIntervalProcessCreate | PT1H|
+| aggregationEnabledConnectionCreate | true |
+| aggregationIntervalConnectionCreate | PT1H|
+| aggregationEnabledProcessTerminate | true |
+| aggregationIntervalProcessTerminate | PT1H|
 |
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule dowiesz się o usłudze Azure Security Center dla agregacji agentów zabezpieczeń IoT i dostępnych opcji konfiguracji zdarzeń.
+W tym artykule przedstawiono informacje dotyczące agregacji agentów zabezpieczeń IoT Azure Security Center i dostępnych opcji konfiguracji zdarzeń.
 
-Aby kontynuować pracę z usługą Azure Security Center dla wdrożenia IoT, należy użyć następujących artykułów:
+Aby kontynuować wprowadzenie do usługi Azure Security Center na potrzeby wdrażania IoT, użyj następujących artykułów:
 
-- Poznaj [metody uwierzytelniania agenta zabezpieczeń](concept-security-agent-authentication-methods.md)
-- Wybieranie i wdrażanie [agenta zabezpieczeń](how-to-deploy-agent.md)
-- Sprawdź [wymagania wstępne usługi](service-prerequisites.md) IoT usługi Azure Security Center
-- Dowiedz się, jak [włączyć usługę Azure Security Center dla usługi IoT w centrum IoT Hub](quickstart-onboard-iot-hub.md)
-- Dowiedz się więcej o usłudze z [często zadawanych pytań dotyczących usługi Azure Security Center for IoT](resources-frequently-asked-questions.md)
+- Informacje na temat [metod uwierzytelniania agentów zabezpieczeń](concept-security-agent-authentication-methods.md)
+- Wybierz i Wdróż [agenta zabezpieczeń](how-to-deploy-agent.md)
+- Przegląd [wymagań wstępnych dotyczących usługi](service-prerequisites.md) IoT Azure Security Center
+- Dowiedz się, jak [włączyć usługę Azure Security Center dla usługi IoT w IoT Hub](quickstart-onboard-iot-hub.md)
+- Dowiedz się więcej o usłudze z [Azure Security Center na potrzeby usługi IoT — często zadawane pytania](resources-frequently-asked-questions.md)

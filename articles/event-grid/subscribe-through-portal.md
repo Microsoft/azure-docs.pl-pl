@@ -1,6 +1,6 @@
 ---
-title: Subskrypcje usługi Azure Event Grid za pośrednictwem portalu
-description: W tym artykule opisano sposób tworzenia subskrypcji usługi Event Grid dla obsługiwanych źródeł, takich jak usługa Azure Blob Storage, przy użyciu witryny Azure portal.
+title: Subskrypcje Azure Event Grid za poorednictwem portalu
+description: W tym artykule opisano sposób tworzenia Event Grid subskrypcji dla obsługiwanych źródeł, takich jak Azure Blob Storage, przy użyciu Azure Portal.
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,64 +8,64 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 599f48ed241010d8551bd110c7f778c9ef508eac
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393177"
 ---
-# <a name="subscribe-to-events-through-portal"></a>Subskrybowanie wydarzeń za pośrednictwem portalu
+# <a name="subscribe-to-events-through-portal"></a>Subskrybowanie zdarzeń za poorednictwem portalu
 
-W tym artykule opisano sposób tworzenia subskrypcji usługi Event Grid za pośrednictwem portalu.
+W tym artykule opisano sposób tworzenia subskrypcji Event Grid za pomocą portalu.
 
 ## <a name="create-event-subscriptions"></a>Tworzenie subskrypcji zdarzeń
 
-Aby utworzyć subskrypcję usługi Event Grid dla dowolnego [z obsługiwanych źródeł zdarzeń,](overview.md#event-sources)należy wykonać następujące kroki. W tym artykule pokazano, jak utworzyć subskrypcję usługi Event Grid dla subskrypcji platformy Azure.
+Aby utworzyć subskrypcję Event Grid dla dowolnego z obsługiwanych [źródeł zdarzeń](overview.md#event-sources), wykonaj następujące czynności. W tym artykule przedstawiono sposób tworzenia subskrypcji Event Grid dla subskrypcji platformy Azure.
 
 1. Wybierz pozycję **Wszystkie usługi**.
 
    ![Wybierz wszystkie usługi](./media/subscribe-through-portal/select-all-services.png)
 
-1. Wyszukaj **subskrypcje w siatce zdarzeń** i wybierz ją z dostępnych opcji.
+1. Wyszukaj **Event Grid subskrypcje** i wybierz ją z dostępnych opcji.
 
-   ![Wyszukiwanie](./media/subscribe-through-portal/search.png)
+   ![Wyszukaj](./media/subscribe-through-portal/search.png)
 
 1. Wybierz pozycję **+ Subskrypcja zdarzeń**.
 
    ![Dodawanie subskrypcji](./media/subscribe-through-portal/add-subscription.png)
 
-1. Wybierz typ subskrypcji, którą chcesz utworzyć. Na przykład, aby zasubskrybować zdarzenia dla subskrypcji platformy Azure, wybierz **subskrypcje platformy Azure** i subskrypcję docelową.
+1. Wybierz typ subskrypcji, którą chcesz utworzyć. Aby na przykład subskrybować zdarzenia dla subskrypcji platformy Azure, wybierz pozycję **subskrypcje platformy Azure** i subskrypcja docelowa.
 
    ![Wybierz subskrypcję platformy Azure](./media/subscribe-through-portal/azure-subscription.png)
 
-1. Aby zasubskrybować wszystkie typy zdarzeń dla tego źródła zdarzeń, należy zachować opcję **Subskrybuj wszystkie typy zdarzeń.** W przeciwnym razie wybierz typy zdarzeń dla tej subskrypcji.
+1. Aby subskrybować wszystkie typy zdarzeń dla tego źródła zdarzeń, należy zaznaczyć opcję **Zasubskrybuj wszystkie typy zdarzeń** . W przeciwnym razie wybierz typy zdarzeń dla tej subskrypcji.
 
    ![Wybierz typy zdarzeń](./media/subscribe-through-portal/select-event-types.png)
 
-1. Podaj dodatkowe szczegóły dotyczące subskrypcji zdarzeń, takie jak punkt końcowy obsługi zdarzeń i nazwa subskrypcji.
+1. Podaj dodatkowe szczegóły dotyczące subskrypcji zdarzeń, takie jak punkt końcowy dla zdarzeń obsługi i nazwa subskrypcji.
 
    ![Podaj szczegóły subskrypcji](./media/subscribe-through-portal/provide-subscription-details.png)
 
-1. Aby włączyć martwe literowanie i dostosować zasady ponawiania prób, wybierz opcję **Dodatkowe funkcje**.
+1. Aby włączyć obsługę wiadomości utraconych i dostosować zasady ponawiania, wybierz pozycję **dodatkowe funkcje**.
 
-   ![Wybieranie dodatkowych obiektów](./media/subscribe-through-portal/select-additional-features.png)
+   ![Wybierz dodatkowe funkcje](./media/subscribe-through-portal/select-additional-features.png)
 
-1. Wybierz kontener do przechowywania zdarzeń, które nie są dostarczane, i ustawić sposób wysyłania ponownych prób.
+1. Wybierz kontener, który ma być używany do przechowywania zdarzeń, które nie są dostarczane, i Ustaw sposób wysyłania ponownych prób.
 
-   ![Włączanie martwego napisu i ponawiania próby](./media/subscribe-through-portal/set-deadletter-retry.png)
+   ![Włącz obsługę utraconych wiadomości i ponów próbę](./media/subscribe-through-portal/set-deadletter-retry.png)
 
 1. Po zakończeniu wybierz pozycję **Utwórz**.
 
-## <a name="create-subscription-on-resource"></a>Tworzenie subskrypcji w zasobie
+## <a name="create-subscription-on-resource"></a>Utwórz subskrypcję dla zasobu
 
-Niektóre źródła zdarzeń obsługują tworzenie subskrypcji zdarzeń za pośrednictwem interfejsu portalu dla tego zasobu. Wybierz źródło zdarzenia i **poszukaj zdarzenia** w lewym okienku.
+Niektóre źródła zdarzeń obsługują tworzenie subskrypcji zdarzeń za pomocą interfejsu portalu dla tego zasobu. Wybierz źródło zdarzenia i Wyszukaj **zdarzenia** w okienku po lewej stronie.
 
 ![Podaj szczegóły subskrypcji](./media/subscribe-through-portal/resource-events.png)
 
-Portal przedstawia opcje tworzenia subskrypcji zdarzeń, które są istotne dla tego źródła.
+W portalu przedstawiono opcje tworzenia subskrypcji zdarzeń, która jest odpowiednia dla tego źródła.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać informacje o dostarczaniu zdarzeń i ponownych próbach, [w ucho.](delivery-and-retry.md)
+* Aby uzyskać informacje dotyczące dostarczania i ponawiania zdarzeń, [Event Grid dostarczania komunikatów i ponawiania próby](delivery-and-retry.md).
 * Aby zapoznać się z wprowadzeniem do usługi Event Grid, zobacz [Wprowadzenie do usługi Azure Event Grid](overview.md).
-* Aby szybko rozpocząć korzystanie z usługi Event Grid, zobacz [Tworzenie i rozsyłanie zdarzeń niestandardowych za pomocą usługi Azure Event Grid](custom-event-quickstart.md).
+* Aby szybko rozpocząć korzystanie z Event Grid, zobacz [Tworzenie i kierowanie zdarzeń niestandardowych z Azure Event Grid](custom-event-quickstart.md).

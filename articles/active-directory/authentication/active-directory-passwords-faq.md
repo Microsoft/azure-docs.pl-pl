@@ -1,6 +1,6 @@
 ---
-title: Samoobsługowe resetowanie haseł — usługa Azure Active Directory
-description: Często zadawane pytania dotyczące samoobsługowego resetowania hasła usługi Azure AD
+title: Często zadawane pytania dotyczące samoobsługowego resetowania hasła — Azure Active Directory
+description: Często zadawane pytania dotyczące samoobsługowego resetowania hasła w usłudze Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,275 +12,275 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d1246b5b980f60c2f3e65aa5b32a7d79dd6efc7d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81407172"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Często zadawane pytania dotyczące zarządzania hasłami
 
-Poniżej przedstawiono kilka często zadawanych pytań (FAQ) dotyczących wszystkich rzeczy związanych z resetowaniem hasła.
+Poniżej przedstawiono niektóre często zadawane pytania dotyczące operacji resetowania hasła.
 
-Jeśli masz ogólne pytanie dotyczące usługi Azure Active Directory (Azure AD) i samoobsługowego resetowania haseł (SSPR), na które nie udzielono odpowiedzi, możesz poprosić społeczność o pomoc na [forum usługi Azure AD.](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD) Członkami społeczności są inżynierowie, menedżerowie produktów, MVPs i inni informatycy.
+Jeśli masz ogólne pytanie dotyczące Azure Active Directory (Azure AD) i samoobsługowego resetowania hasła (SSPR), które nie są tutaj dostępne, możesz uzyskać pomoc dotyczącą społeczności na [Forum usługi Azure AD](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Członkowie społeczności obejmują inżynierów, menedżerów produktów, MVP i innych specjalistów IT.
 
-To często zadawane pytania jest podzielone na następujące sekcje:
+Często zadawane pytania są podzielone na następujące sekcje:
 
-* [Pytania dotyczące rejestracji resetowania hasła](#password-reset-registration)
-* [Pytania dotyczące resetowania hasła](#password-reset)
+* [Pytania dotyczące rejestracji resetowania haseł](#password-reset-registration)
+* [Pytania dotyczące resetowania haseł](#password-reset)
 * [Pytania dotyczące zmiany hasła](#password-change)
 * [Pytania dotyczące raportów zarządzania hasłami](#password-management-reports)
-* [Pytania dotyczące zapisywania haseł](#password-writeback)
+* [Pytania dotyczące funkcji zapisywania zwrotnego haseł](#password-writeback)
 
 ## <a name="password-reset-registration"></a>Rejestracja w funkcji resetowania haseł
 
-* **P: Czy moi użytkownicy mogą rejestrować własne dane resetowania hasła?**
+* **P: Czy moi użytkownicy rejestrują swoje własne dane resetowania hasła?**
 
-  > **Odpowiedź:** tak. Tak długo, jak resetowanie hasła jest włączone i są licencjonowane,https://aka.ms/ssprsetup) użytkownicy mogą przejść do portalu rejestracji resetowania hasła ( aby zarejestrować swoje informacje uwierzytelniania. Użytkownicy mogą również rejestrowaćhttps://myapps.microsoft.com)się za pośrednictwem Panelu dostępu ( . Aby zarejestrować się w Panelu dostępu, muszą wybrać swoje zdjęcie profilowe, wybrać **opcję Profil**, a następnie wybrać opcję Zarejestruj **hasło resetowania.**
+  > **Odpowiedź:** tak. Dopóki funkcja resetowania hasła jest włączona i jest licencjonowana, użytkownicy mogą przejść do portalu rejestracji resetowania haseł (https://aka.ms/ssprsetup) aby zarejestrować swoje informacje uwierzytelniania. Użytkownicy mogą również rejestrować się za pomocą panelu dostępuhttps://myapps.microsoft.com)(. Aby zarejestrować się w panelu dostępu, należy wybrać swój obraz profilu, wybrać pozycję **profil**, a następnie wybrać opcję **zarejestruj do resetowania hasła** .
   >
   >
-* **Pyt.: Jeśli włączę resetowanie hasła dla grupy, a następnie zdecydować się włączyć go dla wszystkich są moi użytkownicy wymagane ponownej rejestracji?**
+* **P: Jeśli włączam funkcję resetowania haseł dla grupy, a następnie zdecyduje się ją włączyć dla wszystkich użytkowników, wymagane jest ponowne zarejestrowanie?**
 
-  > **Odpowiedź:** Nie. Użytkownicy, którzy wypełnili dane uwierzytelnienia, nie muszą ponownie się rejestrować.
+  > **Odpowiedź:** Nie. Użytkownicy, którzy wypełnili dane uwierzytelniania, nie muszą być ponownie rejestrowani.
   >
   >
-* **Pyt.: Czy mogę zdefiniować dane resetowania hasła w imieniu moich użytkowników?**
+* **P: Czy można definiować dane resetowania haseł w imieniu moich użytkowników?**
 
-  > **Odp.:** Tak, możesz to zrobić za pomocą usługi Azure AD Connect, programu PowerShell, [portalu Azure lub](https://portal.azure.com)centrum [administracyjnego usługi Microsoft 365.](https://admin.microsoft.com) Aby uzyskać więcej informacji, zobacz [Dane używane przez samoobsługowe resetowanie hasła usługi Azure AD](howto-sspr-authenticationdata.md).
+  > Odp **.:** Tak, można to zrobić za pomocą Azure AD Connect, programu PowerShell, [Azure Portal](https://portal.azure.com)lub [Centrum administracyjnego Microsoft 365](https://admin.microsoft.com). Aby uzyskać więcej informacji, zobacz dane używane przez funkcję samoobsługowego [resetowania hasła w usłudze Azure AD](howto-sspr-authenticationdata.md).
   >
   >
-* **Pyt.: Czy można synchronizować dane w przypadku pytań zabezpieczających z lokalnych?**
+* **P: Czy można synchronizować dane z pytaniami zabezpieczeń z lokalnego?**
 
-  > **Odp.:** Nie, dziś nie jest to możliwe.
+  > Odp **.:** Nie. nie jest to obecnie możliwe.
   >
   >
-* **Pyt.: Czy moi użytkownicy mogą rejestrować dane w taki sposób, że inni użytkownicy nie widzą tych danych?**
+* **P: Czy moi użytkownicy mogą rejestrować dane w taki sposób, że inni użytkownicy nie będą widzieć tych danych?**
 
-  > **Odpowiedź:** tak. Gdy użytkownicy rejestrują dane przy użyciu portalu rejestracji resetowania hasła, dane są zapisywane w prywatnych polach uwierzytelniania, które są widoczne tylko dla administratorów globalnych i użytkownika.
+  > **Odpowiedź:** tak. Gdy użytkownicy rejestrują dane przy użyciu portalu rejestracji resetowania haseł, dane są zapisywane w prywatnych polach uwierzytelniania, które są widoczne tylko dla administratorów globalnych i użytkownika.
   >
   >
-* **P: Czy moi użytkownicy muszą być zarejestrowani, zanim będą mogli użyć resetowania hasła?**
+* **P: Czy wszyscy użytkownicy muszą zostać zarejestrowani, zanim będą mogli używać resetowania haseł?**
 
-  > **Odpowiedź:** Nie. Jeśli zdefiniujesz wystarczającą ilość informacji uwierzytelniających w ich imieniu, użytkownicy nie muszą się rejestrować. Resetowanie hasła działa tak długo, jak długo zostały prawidłowo sformatowane dane przechowywane w odpowiednich polach w katalogu.
+  > **Odpowiedź:** Nie. Jeśli zdefiniujesz wystarczającą ilość informacji o uwierzytelnianiu w ich imieniu, użytkownicy nie będą musieli rejestrować. Resetowanie hasła działa tak długo, jak prawidłowo sformatowane dane przechowywane w odpowiednich polach w katalogu.
   >
   >
-* **Pyt.: Czy mogę zsynchronizować lub ustawić pola telefonu uwierzytelniania, uwierzytelniania lub alternatywnego telefonu uwierzytelniania w imieniu moich użytkowników?**
+* **P: Czy można synchronizować lub ustawiać pola numer telefonu uwierzytelniania, adres e-mail uwierzytelniania lub alternatywny numer telefonu uwierzytelniania w imieniu użytkowników?**
 
-  > **Odp.:** Pola, które mogą być ustawione przez administratora globalnego są zdefiniowane w artykule [Wymagania dotyczące danych SSPR](howto-sspr-authenticationdata.md).
+  > Odp **.:** Pola, które mogą być ustawiane przez administratora globalnego, są zdefiniowane w artykule [SSPR wymagania dotyczące danych](howto-sspr-authenticationdata.md).
   >
   >
-* **Pyt.: W jaki sposób portal rejestracji określa, które opcje mają być wyświetlane użytkownikom?**
+* **P: w jaki sposób Portal rejestracji określa, które opcje mają być widoczne dla użytkowników?**
 
-  > **Odp.:** Portal rejestracji resetowania hasła zawiera tylko opcje, które zostały włączone dla użytkowników. Te opcje znajdują się w sekcji **Zasady resetowania hasła użytkownika** na karcie **Konfiguruj** katalog. Jeśli na przykład nie włączysz pytań zabezpieczających, użytkownicy nie będą mogli zarejestrować się w tej opcji.
+  > Odp **.:** W portalu rejestracji resetowania haseł są wyświetlane tylko opcje, które zostały włączone dla użytkowników. Te opcje są dostępne w sekcji **Zasady resetowania hasła użytkownika** na karcie **Konfiguracja** Twojego katalogu. Jeśli na przykład nie włączysz pytań zabezpieczających, użytkownicy nie będą mogli zarejestrować się w tej opcji.
   >
   >
 * **P: Kiedy użytkownik jest uważany za zarejestrowany?**
 
-  > **Odp.:** Użytkownik jest uważany za zarejestrowanego dla sspr, gdy zarejestrował co najmniej **liczbę metod wymaganych do zresetowania** hasła ustawionego w [witrynie Azure portal](https://portal.azure.com).
+  > Odp **.:** Użytkownik jest uznawany za zarejestrowany dla SSPR, gdy zarejestrowali co najmniej **liczbę metod wymaganych do zresetowania** hasła, które zostało ustawione w [Azure Portal](https://portal.azure.com).
   >
   >
 
 ## <a name="password-reset"></a>Resetowanie hasła
 
-* **Pyt.: Czy uniemożliwiasz użytkownikom wielokrotne próby zresetowania hasła w krótkim czasie?**
+* **P: czy uniemożliwiasz użytkownikom wielokrotne podejmowanie prób resetowania hasła w krótkim czasie?**
 
-  > **Odp.:** Tak, istnieją funkcje zabezpieczeń wbudowane w resetowanie hasła, aby chronić je przed niewłaściwym użyciem. 
+  > Odp **.:** Tak, istnieją funkcje zabezpieczeń wbudowane w funkcję resetowania hasła w celu ochrony przed nieprawidłowym użyciem. 
   >
-  > Użytkownicy mogą wypróbować tylko pięć prób resetowania hasła w ciągu 24 godzin, zanim zostaną zablokowani na 24 godziny. 
+  > Użytkownicy mogą wypróbować tylko pięć prób resetowania hasła w okresie 24 godzin, zanim zostaną one zablokowane przez 24 godziny. 
   >
-  > Użytkownicy mogą próbować zweryfikować numer telefonu, wysłać WIADOMOŚĆ SMS lub zweryfikować pytania zabezpieczające i odpowiedzi tylko pięć razy w ciągu godziny, zanim zostaną zablokowane na 24 godziny. 
+  > Użytkownicy mogą próbować sprawdzić numer telefonu, wysłać wiadomość SMS lub zweryfikować pytania zabezpieczające i odpowiedzi tylko pięć razy w ciągu godziny przed zablokowaniem ich przez 24 godziny. 
   >
-  > Użytkownicy mogą wysłać wiadomość e-mail maksymalnie 10 razy w ciągu 10 minut, zanim zostanie zablokowana na 24 godziny.
+  > Użytkownicy mogą wysyłać wiadomości e-mail maksymalnie 10 razy w ciągu 10 minut, zanim zostaną zablokowane przez 24 godziny.
   >
-  > Liczniki są resetowane, gdy użytkownik zresetuje swoje hasło.
+  > Liczniki są resetowane po zresetowaniu hasła przez użytkownika.
   >
   >
-* **P: Jak długo należy czekać na otrzymanie wiadomości e-mail, SMS lub połączenia telefonicznego z resetowania hasła?**
+* **P: jak długo należy czekać na odebranie wiadomości e-mail, wiadomości SMS lub połączenia telefonicznego od resetowania hasła?**
 
-  > **Odp.:** Wiadomości e-mail, wiadomości SMS i połączenia telefoniczne powinny nadejść w mniej niż minutę. Normalny przypadek wynosi od 5 do 20 sekund.
-  > Jeśli nie otrzymasz powiadomienia w tym przedziale czasowym:
+  > Odp **.:** Adresy e-mail, wiadomości SMS i rozmowy telefoniczne powinny się pojawić w ciągu minuty. Normalna wielkość wynosi od 5 do 20 sekund.
+  > Jeśli powiadomienie nie zostanie odebrane w tym przedziale czasowym:
   > * Sprawdź folder wiadomości-śmieci.
-  > * Sprawdź, czy numer lub adres e-mail, z którymi się kontaktujesz, jest tym, którego oczekujesz.
-  > * Sprawdź, czy dane uwierzytelniania w katalogu są poprawnie sformatowane, na przykład +1 4255551234 lub *contoso.com użytkownika\@*. 
-* **Pyt.: Jakie języki są obsługiwane przez resetowanie hasła?**
+  > * Sprawdź, czy numer lub adres e-mail, z którym nawiązano kontakt, jest oczekiwany.
+  > * Sprawdź, czy dane uwierzytelniania w katalogu są poprawnie sformatowane, na przykład + 1 4255551234 lub *user\@contoso.com*. 
+* **P: jakie języki są obsługiwane przez zresetowanie hasła?**
 
-  > **Odp.:** Interfejs użytkownika resetowania hasła, wiadomości SMS i połączenia głosowe są zlokalizowane w tych samych językach, które są obsługiwane w usłudze Office 365.
+  > Odp **.:** Interfejs użytkownika służący do resetowania haseł, wiadomości SMS i połączenia głosowe są zlokalizowane w tych samych językach, które są obsługiwane w pakiecie Office 365.
   >
   >
-* **Pyt.: Jakie części środowiska resetowania hasła są oznaczane po ustawieniu elementów znakowania organizacyjnego na karcie konfigurowania mojego katalogu?**
+* **P: jakie części środowiska resetowania hasła są znakowane, gdy ustawiam pozycje znakowania organizacyjnego na karcie Konfiguracja mojego katalogu?**
 
-  > **Odp.:** Portal resetowania hasła pokazuje logo organizacji i umożliwia skonfigurowanie łącza "Skontaktuj się z administratorem", aby wskazać niestandardowy adres e-mail lub adres URL. Każda wiadomość e-mail wysyłana przez resetowanie hasła zawiera logo, kolory i nazwę organizacji w treści wiadomości e-mail i jest dostosowana do ustawień dla tej konkretnej nazwy.
+  > Odp **.:** Portal resetowania haseł pokazuje logo organizacji i umożliwia skonfigurowanie linku "Skontaktuj się z administratorem", aby wskazać niestandardową wiadomość e-mail lub adres URL. Wszystkie wiadomości e-mail wysyłane przez Resetowanie hasła obejmują logo, kolory i nazwę organizacji w treści wiadomości e-mail i są dostosowane do ustawień tej konkretnej nazwy.
   >
   >
-* **Pyt.: Jak mogę edukować użytkowników o tym, gdzie można zresetować hasła?**
+* **P: Jak mogę poinformować użytkowników o tym, gdzie przejdź, aby zresetować swoje hasła?**
 
-  > **Odp.:** Wypróbuj niektóre z sugestii w naszym artykule [wdrażania sspr.](howto-sspr-deployment.md#plan-communications)
+  > Odp **.:** Wypróbuj niektóre z sugestii w naszym artykule dotyczącym [wdrażania SSPR](howto-sspr-deployment.md#plan-communications) .
   >
   >
-* **P: Czy mogę korzystać z tej strony z urządzenia mobilnego?**
+* **P: Czy można użyć tej strony na urządzeniu przenośnym?**
 
-  > **Odp.:** Tak, ta strona działa na urządzeniach mobilnych.
+  > Odp **.:** Tak, ta strona działa na urządzeniach przenośnych.
   >
   >
-* **Pyt.: Czy obsługujesz odblokowywanie lokalnych kont usługi Active Directory, gdy użytkownicy resetują swoje hasła?**
+* **P: Czy chcesz obsługiwać odblokowywanie lokalnych kont Active Directory, gdy użytkownicy zresetują swoje hasła?**
 
-  > **Odpowiedź:** tak. Gdy użytkownik resetuje swoje hasło, jeśli stornia zwrotne hasła zostało wdrożone za pośrednictwem usługi Azure AD Connect, to konto tego użytkownika jest automatycznie odblokowywane podczas resetowania hasła.
+  > **Odpowiedź:** tak. Gdy użytkownik resetuje swoje hasło, jeśli funkcję zapisywania zwrotnego haseł została wdrożona za pomocą Azure AD Connect, konto tego użytkownika zostanie automatycznie odblokowane po zresetowaniu hasła.
   >
   >
-* **Pyt.: Jak mogę zintegrować resetowanie hasła bezpośrednio do środowiska logowania na pulpicie użytkownika?**
+* **P: Jak mogę zintegrować resetowanie haseł bezpośrednio z interfejsem logowania do pulpitu użytkownika?**
 
-  > **Odp.:** Jeśli jesteś klientem usługi Azure AD Premium, możesz zainstalować program Microsoft Identity Manager bez dodatkowych kosztów i wdrożyć lokalne rozwiązanie resetowania hasła.
+  > Odp **.:** Jeśli jesteś klientem Azure AD — wersja Premium, możesz zainstalować Microsoft Identity Manager bez dodatkowych kosztów i wdrożyć lokalne rozwiązanie do resetowania haseł.
   >
   >
-* **Pyt.: Czy mogę ustawić różne pytania zabezpieczające dla różnych ustawień regionalnych?**
+* **P: Czy można ustawić różne pytania zabezpieczające dla różnych ustawień regionalnych?**
 
-  > **Odp.:** Nie, dziś nie jest to możliwe.
+  > Odp **.:** Nie. nie jest to obecnie możliwe.
   >
   >
-* **Pyt.: Ile pytań można skonfigurować dla opcji uwierzytelniania pytań zabezpieczających?**
+* **P: Ile pytań można skonfigurować dla opcji uwierzytelniania pytań zabezpieczających?**
 
-  > **Odp.:** W [witrynie Azure Portal](https://portal.azure.com)można skonfigurować maksymalnie 20 niestandardowych pytań zabezpieczających.
+  > Odp **.:** W [Azure Portal](https://portal.azure.com)można skonfigurować maksymalnie 20 niestandardowych pytań zabezpieczających.
   >
   >
-* **P: Jak długo mogą być pytania zabezpieczające?**
+* **P: jak długo mogą być pytania zabezpieczające?**
 
-  > **Odp.:** Pytania zabezpieczające mogą mieć od 3 do 200 znaków.
+  > Odp **.:** Pytania zabezpieczające mogą składać się z od 3 do 200 znaków.
   >
   >
-* **P: Jak długo mogą być odpowiedzi na pytania zabezpieczające?**
+* **P: jak długo można udzielić odpowiedzi na pytania zabezpieczające?**
 
-  > **Odp.:** Odpowiedzi mogą mieć od 3 do 40 znaków.
+  > Odp **.:** Odpowiedzi mogą składać się z od 3 do 40 znaków.
   >
   >
-* **P: Czy zduplikowane odpowiedzi na pytania zabezpieczające są odrzucane?**
+* **P: czy odpowiedzi na pytania zabezpieczające są zduplikowane?**
 
-  > **Odp.:** Tak, odrzucamy zduplikowane odpowiedzi na pytania zabezpieczające.
+  > Odp **.:** Tak, odrzucamy zduplikowane odpowiedzi na pytania zabezpieczające.
   >
   >
-* **Pyt.: Czy użytkownik może zarejestrować to samo pytanie zabezpieczające więcej niż raz?**
+* **P: czy użytkownik może zarejestrować to samo pytanie zabezpieczeń więcej niż raz?**
 
-  > **Odpowiedź:** Nie. Po zarejestrowaniu określonego pytania przez użytkownika nie może zarejestrować się na to pytanie po raz drugi.
+  > **Odpowiedź:** Nie. Po zarejestrowaniu określonego pytania przez użytkownika nie można zarejestrować tego pytania w drugim momencie.
   >
   >
-* **Pyt.: Czy można ustawić minimalny limit pytań zabezpieczających do rejestracji i resetowania?**
+* **P: Czy można ustawić minimalny limit pytań zabezpieczających na potrzeby rejestracji i resetowania?**
 
-  > **Odp.:** Tak, jeden limit można ustawić dla rejestracji, a drugi do resetowania. Do rejestracji może być wymaganych od trzech do pięciu pytań zabezpieczających, a do zresetowania może być wymagane od trzech do pięciu pytań.
+  > Odp **.:** Tak, można ustawić jeden limit na potrzeby rejestracji i drugi do resetowania. Do rejestracji można wymagać od trzech do pięciu pytań zabezpieczających, a do resetowania można wymagać od trzech do pięciu pytań.
   >
   >
-* **Pyt.: Skonfigurowano moje zasady, aby wymagać od użytkowników używania pytań zabezpieczających do resetowania, ale administratorzy platformy Azure wydają się być skonfigurowani inaczej.**
+* **P: skonfigurowano zasady, aby wymagać od użytkowników używania pytań zabezpieczających do resetowania, ale Administratorzy platformy Azure pozornie konfigurują się inaczej.**
 
-  > **Odp.:** Jest to oczekiwane zachowanie. Firma Microsoft wymusza silną domyślną zasadę resetowania hasła z użyciem dwóch bram dla dowolnej roli administratora platformy Azure. Uniemożliwia to administratorom korzystanie z pytań zabezpieczających. Więcej informacji na temat tej zasady można znaleźć w [artykule Zasady i ograniczenia haseł w usłudze Azure Active Directory.](concept-sspr-policy.md)
+  > Odp **.:** Jest to oczekiwane zachowanie. Firma Microsoft wymusza silną domyślną zasadę resetowania hasła z użyciem dwóch bram dla dowolnej roli administratora platformy Azure. Pozwala to administratorom na korzystanie z pytań zabezpieczających. Więcej informacji na temat tych zasad można znaleźć w temacie [zasady haseł i ograniczenia w artykule Azure Active Directory](concept-sspr-policy.md) .
   >
   >
-* **Pyt.: Jeśli użytkownik zarejestrował więcej niż maksymalna liczba pytań wymaganych do zresetowania, w jaki sposób pytania zabezpieczające są wybierane podczas resetowania?**
+* **P: Jeśli użytkownik zarejestrował ponad maksymalną liczbę pytań wymaganych do zresetowania, w jaki sposób są wybrane pytania zabezpieczające podczas resetowania?**
 
-  > **O:** *N* liczba pytań zabezpieczających są wybierane losowo z całkowitej liczby pytań, dla których użytkownik zarejestrował się, gdzie *N* jest kwotą ustawioną dla opcji Liczba **pytań wymaganych do zresetowania.** Na przykład jeśli użytkownik zarejestrował pięć pytań zabezpieczających, ale tylko trzy są wymagane do zresetowania hasła, trzy z pięciu pytań są wybierane losowo i są prezentowane po zresetowaniu. Aby zapobiec wbijaniu pytań, jeśli użytkownik otrzymuje odpowiedzi na pytania źle proces wyboru rozpoczyna się od nowa.
+  > Odp **.:** *n* liczba pytań zabezpieczających jest wybierana losowo z łącznej liczby pytań, na które użytkownik zarejestrował, gdzie *N* to kwota ustawiona dla **liczby pytań wymaganych do zresetowania** opcji. Na przykład jeśli użytkownik zarejestrował pięć pytań zabezpieczających, ale tylko trzy są wymagane do zresetowania hasła, trzy z pięciu pytań są losowo wybierane i są wyświetlane podczas resetowania. Aby zapobiec utracie pytania, jeśli użytkownik otrzyma odpowiedzi na pytania niewłaściwe, proces wyboru zostanie uruchomiony.
   >
   >
-* **P: Jak długo są ważne jednorazowe kody dostępu do poczty e-mail i SMS?**
+* **P: jak długo są ważne nieprawidłowe kody dostępu wiadomości e-mail i SMS?**
 
-  > **Odp.:** Okres istnienia sesji resetowania hasła wynosi 15 minut. Od początku operacji resetowania hasła użytkownik ma 15 minut na zresetowanie hasła. Jednorazowy kod dostępu do wiadomości e-mail i SMS jest ważny przez 5 minut podczas sesji resetowania hasła.
+  > Odp **.:** Okres istnienia sesji dla resetowania hasła wynosi 15 minut. Od rozpoczęcia operacji resetowania hasła użytkownik ma 15 minut na zresetowanie hasła. Jednorazowy kod dostępu wiadomości e-mail i SMS jest ważny przez 5 minut podczas sesji resetowania hasła.
   >
   >
-* **P: Czy mogę zablokować użytkownikom zresetowanie hasła?**
+* **P: Czy mogę zablokować użytkownikom możliwość resetowania swojego hasła?**
 
-  > **Odp.:** Tak, jeśli używasz grupy do włączania funkcji SSPR, możesz usunąć indywidualnego użytkownika z grupy, która umożliwia użytkownikom resetowanie hasła. Jeśli użytkownik jest administratorem globalnym, zachowa możliwość zresetowania hasła i nie można go wyłączyć.
+  > Odp **.:** Tak. w przypadku używania grupy do włączania SSPR można usunąć pojedynczego użytkownika z grupy, który umożliwia użytkownikom Resetowanie hasła. Jeśli użytkownik jest administratorem globalnym, będzie mieć możliwość resetowania hasła i nie można go wyłączyć.
   >
   >
 
 ## <a name="password-change"></a>Zmiana hasła
 
-* **P: Gdzie moi użytkownicy powinni zmieniać swoje hasła?**
+* **P: gdzie wszyscy użytkownicy mogą zmieniać swoje hasła?**
 
-  > **Odp.:** Użytkownicy mogą zmieniać swoje hasła w dowolnym miejscu, w miejscu, w których widzą swoje zdjęcie profilowe lub ikonę, na przykład w prawym górnym rogu portalu [usługi Office 365](https://portal.office.com) lub [w panelu dostępu.](https://myapps.microsoft.com) Użytkownicy mogą zmieniać swoje hasła na [stronie Profil panelu dostępu](https://account.activedirectory.windowsazure.com/r#/profile). Użytkownicy mogą również zostać poproszeni o automatyczną zmianę haseł na stronie logowania usługi Azure AD, jeśli ich hasła wygasły. Na koniec użytkownicy mogą przejść bezpośrednio do [portalu zmiany hasła usługi Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) bezpośrednio, jeśli chcą zmienić swoje hasła.
+  > Odp **.:** Użytkownicy mogą zmieniać swoje hasła w dowolnym miejscu, w którym widzisz swój obraz lub ikonę profilu, na przykład w prawym górnym rogu portalu [Office 365](https://portal.office.com) lub [panelu dostępu](https://myapps.microsoft.com) . Użytkownicy mogą zmieniać hasła na [stronie profilu panelu dostępu](https://account.activedirectory.windowsazure.com/r#/profile). Użytkownicy mogą również poprosić o zmianę haseł automatycznie na stronie logowania usługi Azure AD, jeśli hasło wygasło. Na koniec użytkownicy mogą przejść do [portalu zmiany hasła usługi Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) bezpośrednio, jeśli chcą zmienić swoje hasła.
   >
   >
-* **Pyt.: Czy moi użytkownicy mogą być powiadamiani w portalu pakietu Office, gdy ich hasło lokalne wygaśnie?**
+* **P: Czy wszyscy użytkownicy będą powiadamiani w portalu Office po wygaśnięciu hasła lokalnego?**
 
-  > **Odp.:** Tak, jest to możliwe w przypadku korzystania z usług federacyjnych Active Directory (AD FS). Jeśli używasz usług AD FS, postępuj zgodnie z instrukcjami zawartymi w artykule [Wysyłanie oświadczeń zasad haseł z usługami AD FS.](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) Jeśli używasz synchronizacji skrótów haseł, nie jest to obecnie możliwe. Nie synchronizujemy zasad haseł z katalogów lokalnych, więc nie możemy publikować powiadomień o wygaśnięciu w środowisku w chmurze. W obu przypadkach możliwe jest również [powiadomienie użytkowników, których hasła wkrótce wygasną za pośrednictwem programu PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  > Odp **.:** Tak. obecnie jest to możliwe, jeśli używasz Active Directory Federation Services (AD FS). Jeśli używasz AD FS, postępuj zgodnie z instrukcjami zawartymi w artykule [wysyłanie oświadczeń dotyczących zasad haseł przy użyciu AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) artykułu. Jeśli używasz synchronizacji skrótów haseł, nie jest to obecnie możliwe. Zasady haseł nie są synchronizowane z katalogów lokalnych, dlatego nie jest możliwe wysyłanie powiadomień o wygaśnięciu do środowiska chmury. W obu przypadkach możliwe jest również [powiadomienie użytkowników, których hasła wkrótce wygasną za pomocą programu PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
   >
   >
 * **P: Czy mogę zablokować użytkownikom możliwość zmiany hasła?**
 
-  > **Odp.:** W przypadku użytkowników korzystających z chmury nie można blokować zmian haseł. W przypadku użytkowników lokalnych można ustawić opcję **Użytkownik nie może zmienić hasła** na zaznaczoną. Wybrani użytkownicy nie mogą zmienić hasła.
+  > Odp **.:** W przypadku użytkowników tylko w chmurze nie można zablokować zmian haseł. Dla użytkowników lokalnych można ustawić opcję **nie można zmienić hasła** na wybraną. Wybranym użytkownikom nie można zmienić hasła.
   >
   >
 
 ## <a name="password-management-reports"></a>Raporty zarządzania hasłami
 
-* **Pyt.: Jak długo trwa wyświetlanie danych w raportach zarządzania hasłami?**
+* **P: jak długo trwa wyświetlanie danych w raportach zarządzania hasłami?**
 
-  > **Odp.:** Dane powinny być wyświetlane w raportach zarządzania hasłami w ciągu 5 do 10 minut. W niektórych przypadkach może upłynąć do godziny.
+  > Odp **.:** Dane powinny być wyświetlane w raportach zarządzania hasłami w ciągu 5 – 10 minut. W niektórych przypadkach może upłynąć do godziny.
   >
   >
-* **Pyt.: Jak filtrować raporty zarządzania hasłami?**
+* **P: jak można filtrować raporty zarządzania hasłami?**
 
-  > **Odp.:** Aby filtrować raporty zarządzania hasłami, wybierz małe szkło powiększające po skrajnej prawej stronie etykiet kolumn, w górnej części raportu. Jeśli chcesz wykonać bogatsze filtrowanie, możesz pobrać raport do programu Excel i utworzyć tabelę przestawną.
+  > Odp **.:** Aby odfiltrować raporty zarządzania hasłami, wybierz małe szkło powiększające z prawej strony etykiet kolumn w górnej części raportu. Jeśli chcesz przeprowadzić bardziej zaawansowane filtrowanie, możesz pobrać raport do programu Excel i utworzyć tabelę przestawną.
   >
   >
-* **Pyt.: Jaka jest maksymalna liczba zdarzeń przechowywanych w raportach zarządzania hasłami?**
+* **P: Jaka jest maksymalna liczba zdarzeń przechowywanych w raportach zarządzania hasłami?**
 
-  > **Odp.:** W raportach zarządzania hasłami przechowywanych jest do 75 000 zdarzeń resetowania hasła lub resetowania hasła, które trwają do 30 dni. Pracujemy nad rozszerzeniem tej liczby o więcej zdarzeń.
+  > Odp **.:** Do 75 000 zdarzeń rejestracji lub resetowania haseł są przechowywane w raportach zarządzania hasłami, z powrotem przez 30 dni. Pracujemy nad rozwinięciem tej liczby, aby uwzględnić więcej zdarzeń.
   >
   >
-* **Pyt.: Jak daleko wstecz raporty zarządzania hasłami?**
+* **P: jak daleko wstecz są raporty dotyczące zarządzania hasłami?**
 
-  > **Odp.:** Raporty zarządzania hasłami pokazują operacje, które wystąpiły w ciągu ostatnich 30 dni. Na razie, jeśli chcesz zarchiwizować te dane, możesz okresowo pobierać raporty i zapisywać je w osobnej lokalizacji.
+  > Odp **.:** Raporty zarządzania hasłami pokazują operacje, które wystąpiły w ciągu ostatnich 30 dni. Teraz, jeśli trzeba zarchiwizować te dane, możesz pobrać raporty okresowo i zapisać je w oddzielnej lokalizacji.
   >
   >
-* **Pyt.: Czy istnieje maksymalna liczba wierszy, które mogą pojawić się w raportach zarządzania hasłami?**
+* **P: czy istnieje maksymalna liczba wierszy, które mogą być wyświetlane w raportach zarządzania hasłami?**
 
-  > **Odpowiedź:** tak. Maksymalnie 75 000 wierszy może pojawić się w obu raportach zarządzania hasłami, niezależnie od tego, czy są one wyświetlane w interfejsie użytkownika, czy są pobierane.
+  > **Odpowiedź:** tak. W każdym z raportów zarządzania hasłami może znajdować się maksymalnie 75 000 wierszy, niezależnie od tego, czy są one wyświetlane w interfejsie użytkownika, czy pobierane.
   >
   >
-* **Pyt.: Czy istnieje interfejs API, aby uzyskać dostęp do danych raportowania resetowania hasła lub rejestracji?**
+* **P: czy istnieje interfejs API do uzyskiwania dostępu do danych raportowania lub resetowania haseł?**
 
-  > **Odpowiedź:** tak. Aby dowiedzieć się, jak uzyskać dostęp do danych raportowania resetowania hasła, zobacz [odwołanie interfejsu API REST usługi Azure Log Analytics](/rest/api/loganalytics/).
+  > **Odpowiedź:** tak. Aby dowiedzieć się, jak uzyskać dostęp do danych raportowania resetowania haseł, zobacz [Informacje o interfejsie API REST usługi Azure log Analytics](/rest/api/loganalytics/).
   >
   >
 
 ## <a name="password-writeback"></a>Zapisywanie zwrotne haseł
 
-* **Pyt.: Jak zapisy zwrotne hasła działają za kulisami?**
+* **P: w jaki sposób zapisywanie zwrotne haseł działa w tle?**
 
-  > **Odp.:** Zobacz artykuł [Jak działa stornowanie hasła,](howto-sspr-writeback.md) aby wyjaśnić, co się dzieje po włączeniu zapisywania zwrotnego hasła i jak dane przepływają przez system z powrotem do środowiska lokalnego.
+  > Odp **.:** Zapoznaj się z artykułem [jak działa funkcja zapisywania zwrotnego haseł](howto-sspr-writeback.md) , aby dowiedzieć się, co się dzieje po włączeniu funkcji zapisywania zwrotnego haseł oraz sposobie powrotu danych przez system do środowiska lokalnego.
   >
   >
-* **Pyt.: Jak długo trwa zapisywanie zwrotne hasła do pracy? Czy istnieje opóźnienie synchronizacji, jak istnieje z synchronizacją skrótów haseł?**
+* **P: jak długo trwa zapisywanie funkcji zapisywania zwrotnego haseł? Czy istnieje opóźnienie synchronizacji takie jak w przypadku synchronizacji skrótów haseł?**
 
-  > **Odp.:** Zapisywanie zwrotne hasła jest natychmiastowe. Jest to potok synchroniczne, który działa zasadniczo inaczej niż synchronizacja skrótów haseł. Zapisywanie hasła umożliwia użytkownikom uzyskanie opinii w czasie rzeczywistym na temat powodzenia resetowania lub zmiany hasła. Średni czas pomyślnego zapisu hasła wynosi poniżej 500 ms.
+  > Odp **.:** Zapisywanie zwrotne haseł jest błyskawiczne. Jest to potok synchroniczny, który działa zasadniczo inaczej niż synchronizacja skrótów haseł. Zapisywanie zwrotne haseł umożliwia użytkownikom uzyskiwanie informacji o powodzeniu operacji resetowania lub zmiany hasła. Średni czas pomyślnego stornowania hasła jest równy 500 ms.
   >
   >
-* **Pyt.: Jeśli moje konto lokalne jest wyłączone, w jaki sposób wpływa to na moje konto w chmurze i dostęp?**
+* **P: jeśli moje konto lokalne jest wyłączone, w jaki sposób ma to wpływ na konto w chmurze i dostęp?**
 
-  > **Odp.:** Jeśli identyfikator lokalny jest wyłączony, identyfikator chmury i dostęp zostaną również wyłączone w następnym interwale synchronizacji za pośrednictwem usługi Azure AD Connect. Domyślnie ta synchronizacja jest co 30 minut.
+  > Odp **.:** Jeśli Twój identyfikator lokalny jest wyłączony, identyfikator chmury i dostęp zostaną również wyłączone przy następnym interwale synchronizacji za pomocą Azure AD Connect. Domyślnie ta synchronizacja jest co 30 minut.
   >
   >
-* **Pyt.: Jeśli moje konto lokalne jest ograniczone przez lokalną zasadę haseł usługi Active Directory, czy samoo wiele osób jest przestrzegane przez te zasady po zmianie hasła?**
+* **P: Jeśli konto lokalne jest ograniczone przez lokalne zasady haseł Active Directory, czy SSPR przestrzegać tych zasad w przypadku zmiany hasła?**
 
-  > **Odp.:** Tak, samooprędne i przestrzega lokalnych zasad haseł usługi Active Directory. Ta zasada obejmuje typowe zasady haseł domeny usługi Active Directory, a także wszelkie zdefiniowane, szczegółowe zasady haseł, które są przeznaczone dla użytkownika.
+  > Odp **.:** Tak, SSPR opiera się na i przestrzega zasad przez lokalne zasady haseł Active Directory. Zasady te obejmują typowe zasady haseł domen Active Directory, a także wszystkie zdefiniowane, szczegółowe zasady haseł, które są przeznaczone dla użytkownika.
   >
   >
-* **Pyt.: Do jakich typów kont działa zapisywanie zwrotne haseł?**
+* **P: jakie typy kont działają dla zapisywania zwrotnego haseł?**
 
-  > **Odp.:** Stornowanie hasła działa dla kont użytkowników, które są synchronizowane z lokalnej usługi Active Directory do usługi Azure AD, w tym federacyjne, haszysz haseł zsynchronizowane i użytkowników autentication przekazywania.
+  > Odp **.:** Zapisywanie zwrotne haseł działa w przypadku kont użytkowników synchronizowanych z Active Directory lokalnych do usługi Azure AD, w tym federacyjnych, podłączanych skrótami haseł i użytkowników przekazujących Autentication.
   >
   >
-* **P: Czy stornia zwrotnego hasła wymusza zasady haseł mojej domeny?**
+* **P: czy zapisywanie zwrotne haseł wymusza zasady haseł mojej domeny?**
 
-  > **Odpowiedź:** tak. Zmiana czasu zapisywania haseł wymusza wiek, historię, złożoność, filtry i wszelkie inne ograniczenia, które można wprowadzić w przypadku haseł w domenie lokalnej.
+  > **Odpowiedź:** tak. Zapisywanie zwrotne haseł wymusza okres ważności hasła, historię, złożoność, filtry i wszelkie inne ograniczenia, które mogą być stosowane do haseł w domenie lokalnej.
   >
   >
-* **P: Czy zapisywanie zwrotnego hasła jest bezpieczne?  Jak mogę mieć pewność, że nie zhakuję się?**
+* **P: czy zapisywanie zwrotne haseł jest zabezpieczone?  Jak można się upewnić, że nie mogę pobrać zaatakowana?**
 
-  > **Odp.:** Tak, zapisywanie zwrotne hasła jest bezpieczne. Aby dowiedzieć się więcej o wielu warstwach zabezpieczeń zaimplementowanych przez usługę zapisywania zwrotnego hasła, zapoznaj się z [sekcją Zabezpieczenia stornia hasła](concept-sspr-writeback.md#password-writeback-security) w artykule [Omówienie przeglądu zapisu hasła.](howto-sspr-writeback.md)
+  > Odp **.:** Tak, zapisywanie zwrotne haseł jest bezpieczne. Aby dowiedzieć się więcej o wielu warstwach zabezpieczeń zaimplementowanych przez usługę zapisywania zwrotnego haseł, zapoznaj się z sekcją [zabezpieczenia zapisywania zwrotnego haseł](concept-sspr-writeback.md#password-writeback-security) w artykule [Omówienie zapisywania zwrotnego haseł](howto-sspr-writeback.md) .
   >
   >
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Jak wykonać pomyślne wdrożenie funkcji samoobsługowego resetowania haseł?](howto-sspr-deployment.md)
-* [Resetowanie lub zmienianie hasła](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Resetowanie lub zmiana hasła](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Rejestrowanie na potrzeby samoobsługowego resetowania haseł](../user-help/active-directory-passwords-reset-register.md)
 * [Czy masz pytanie dotyczące licencjonowania?](concept-sspr-licensing.md)
 * [Jakie dane są używane przez funkcję samoobsługowego resetowania haseł i jakie dane powinny zostać wypełnione dla użytkowników?](howto-sspr-authenticationdata.md)
@@ -289,4 +289,4 @@ To często zadawane pytania jest podzielone na następujące sekcje:
 * [Co to jest funkcja zapisywania zwrotnego haseł i dlaczego jest ona tak ważna?](howto-sspr-writeback.md)
 * [Jak zgłosić działanie funkcji samoobsługowego resetowania haseł?](howto-sspr-reporting.md)
 * [Jakie są dostępne opcje funkcji samoobsługowego resetowania haseł i do czego one służą?](concept-sspr-howitworks.md)
-* [Myślę, że coś jest zepsute. Jak rozwiązać problem z łatem SSPR?](active-directory-passwords-troubleshoot.md)
+* [Myślę, że coś jest zerwane. Jak mogę Rozwiązywanie problemów z SSPR?](active-directory-passwords-troubleshoot.md)
