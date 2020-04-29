@@ -5,26 +5,26 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
 ms.openlocfilehash: 7106e139108681e1908b20d2daac5e619a63555d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81421750"
 ---
-Obsługa skompresowanego dźwięku jest zaimplementowana za pomocą [GStreamer](https://gstreamer.freedesktop.org). Ze względów licencyjnych pliki binarne GStreamer nie są kompilowane i połączone z zestawem SDK mowy. Zamiast tego biblioteka otoki zawierająca te funkcje musi zostać zbudowana i dostarczona z aplikacjami przy użyciu sdk.
+Obsługa skompresowanego dźwięku jest implementowana przy użyciu [GStreamer](https://gstreamer.freedesktop.org). Ze względów licencjonowania GStreamer pliki binarne nie są kompilowane i połączone z zestawem Speech SDK. Zamiast tego Biblioteka otoki zawierająca te funkcje musi być skompilowana i dostarczana z aplikacjami korzystającymi z zestawu SDK.
 
-Aby utworzyć tę bibliotekę otoki, najpierw pobierz i zainstaluj [SDK GStreamer](https://gstreamer.freedesktop.org/data/pkg/ios/1.16.0/gstreamer-1.0-devel-1.16.0-ios-universal.pkg). Następnie pobierz projekt **Xcode** dla [biblioteki otoki](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios/compressed-streams/GStreamerWrapper).
+Aby skompilować tę bibliotekę otoki, najpierw Pobierz i zainstaluj [zestaw SDK GStreamer](https://gstreamer.freedesktop.org/data/pkg/ios/1.16.0/gstreamer-1.0-devel-1.16.0-ios-universal.pkg). Następnie Pobierz projekt **Xcode** dla [biblioteki otoki](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios/compressed-streams/GStreamerWrapper).
 
-Otwórz projekt w **xcode** i skompiluj go dla **ogólnego urządzenia z systemem iOS** docelowego — *nie* będzie działać, aby utworzyć go dla określonego obiektu docelowego.
+Otwórz projekt w programie **Xcode** i skompiluj go dla **ogólnego celu urządzenia z systemem iOS** — *nie* będzie on działał w celu skompilowania go dla określonego celu.
 
-Krok kompilacji wygeneruje dynamiczny pakiet ramowy z biblioteką `GStreamerWrapper.framework`dynamiczną dla wszystkich niezbędnych architektur o nazwie .
+Krok kompilacja spowoduje wygenerowanie dynamicznego zestawu struktury z biblioteką dynamiczną dla wszystkich potrzebnych architektur o nazwie `GStreamerWrapper.framework`.
 
-Ta struktura musi być uwzględniona we wszystkich aplikacjach, które używają skompresowanych strumieni audio z SDK usługi mowy.
+Ta struktura musi być uwzględniona we wszystkich aplikacjach, które używają skompresowanych strumieni audio z zestawem SDK usługi Speech Service.
 
-Aby to osiągnąć, zastosuj następujące ustawienia w projekcie **Xcode:**
+Zastosuj następujące ustawienia w projekcie **Xcode** , aby to zrobić:
 
-1. Skopiuj `GStreamerWrapper.framework` właśnie utworzony i ramy zestawu SDK mowy usług Cognitive Services, które można pobrać [z tego miejsca,](https://aka.ms/csspeech/iosbinary)do katalogu zawierającego przykładowy projekt.
+1. Skopiuj właśnie `GStreamerWrapper.framework` utworzoną i strukturę zestawu Speech SDK Cognitive Services, który można pobrać z tego [miejsca](https://aka.ms/csspeech/iosbinary), do katalogu zawierającego przykładowy projekt.
 1. Dostosuj ścieżki do struktur w *ustawieniach projektu*.
-   1. Na karcie **Ogólne** w nagłówku **Osadzone pliki binarne** dodaj bibliotekę SDK jako platformę: **Dodaj osadzone pliki binarne** > **Dodaj inne...** > Przejdź do wybranego katalogu i wybierz obie struktury.
+   1. Na karcie **Ogólne** w nagłówku **osadzone pliki binarne** Dodaj bibliotekę zestawu SDK jako strukturę: **Dodaj osadzone pliki binarne** > **Dodaj inne...** > przejdź do wybranego katalogu i wybierz obie platformy.
    1. Przejdź do karty **Build Settings** (Ustawienia kompilacji) i aktywuj ustawienia **All** (Wszystko).
 1. Dodaj katalog `$(SRCROOT)/..` do pozycji _Framework Search Paths_ (Ścieżki wyszukiwania struktury) w ramach nagłówka **Search Paths** (Ścieżki wyszukiwania).

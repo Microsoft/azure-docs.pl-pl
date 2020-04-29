@@ -1,6 +1,6 @@
 ---
-title: Użyj opcji GROUP BY w synapse SQL
-description: Synapse SQL pozwala na tworzenie rozwiązań poprzez implementowanie różnych opcji GROUP BY.
+title: Korzystanie z opcji Grupuj według w programie Synapse SQL
+description: Synapse SQL umożliwia tworzenie rozwiązań przez implementację różnych opcji Grupuj według.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -12,34 +12,34 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
 ms.openlocfilehash: 261f75344d250ae8a8d9687f4bcd80535d11716b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81429046"
 ---
-# <a name="group-by-options-in-synapse-sql"></a>Opcje GRUPY WEDŁUG w synapse SQL
-Synapse SQL pozwala na tworzenie rozwiązań poprzez implementowanie różnych opcji GROUP BY. 
+# <a name="group-by-options-in-synapse-sql"></a>Grupowanie według opcji w Synapse SQL
+Synapse SQL umożliwia tworzenie rozwiązań przez implementację różnych opcji Grupuj według. 
 
-## <a name="what-does-group-by-do"></a>Co robi GRUPA BY
+## <a name="what-does-group-by-do"></a>Co robi Grupuj według
 
-Klauzula [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL agreguje dane do zestawu podsumowań wierszy.
+Klauzula [Group by](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL agreguje dane do zestawu podsumowującego wierszy.
 
-SQL na żądanie obsługuje cały zakres opcji GROUP BY. Pula SQL obsługuje ograniczoną liczbę opcji GROUP BY.
+SQL na żądanie obsługuje cały zakres opcji Grupuj według. Pula SQL obsługuje ograniczoną liczbę opcji Grupuj według.
 
-## <a name="group-by-options-supported-in-sql-pool"></a>Opcje GRUPY WEDŁUG obsługiwane w puli SQL
+## <a name="group-by-options-supported-in-sql-pool"></a>Grupowanie według opcji obsługiwanych w puli SQL
 
-GRUPA WEDŁUG ma kilka opcji, które nie obsługuje puli SQL. Te opcje mają obejścia, które są następujące:
+Grupuj według zawiera pewne opcje, których Pula SQL nie obsługuje. Dostępne są następujące rozwiązania:
 
-* GRUPA WEDŁUG Z ROLLUP
-* ZESTAWY GRUPOWANIA
-* GRUPA WEDŁUG Z CUBE
+* Grupuj według z pakietem zbiorczym
+* ZESTAWY GRUPUJĄCE
+* Grupuj według modułu
 
-### <a name="rollup-and-grouping-sets-options"></a>Opcje zestawów zestawienia i grupowania
+### <a name="rollup-and-grouping-sets-options"></a>Opcje zestawu zbiorczego i grupowania
 
-Najprostszą opcją w tym miejscu jest użycie UNION ALL do wykonania zestawienia, a nie poleganie na jawnej składni. Wynik jest dokładnie taki sam
+Najprostszą opcją jest użycie UNION ALL, aby wykonać pakiet zbiorczy, zamiast polegać na jawnej składni. Wynik jest dokładnie taki sam
 
-W poniższym przykładzie użyto instrukcji GROUP BY z opcją ROLLUP:
+Poniższy przykład używa instrukcji GROUP BY z opcją ROLLUP:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -54,13 +54,13 @@ GROUP BY ROLLUP (
 ;
 ```
 
-Przy użyciu funkcji ROLLUP w poprzednim przykładzie żąda następujących agregacji:
+Przy użyciu pakietu zbiorczego poprzedni przykład żąda następujących agregacji:
 
 * Kraj i region
 * Kraj
 * Suma końcowa
 
-Aby zastąpić rollup i zwrócić te same wyniki, można użyć UNION ALL i jawnie określić wymagane agregacje:
+Aby zastąpić pakiet zbiorczy i zwrócić te same wyniki, można użyć klauzuli UNION ALL i jawnie określić wymagane agregacje:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -87,13 +87,13 @@ FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey;
 ```
 
-Aby zastąpić ZESTAWY GRUPOWANIA, stosuje się zasadę próbki. Wystarczy utworzyć wszystkie sekcje UNION dla poziomów agregacji, które mają być wyświetlane.
+Aby zastąpić zestawy grupowania, stosowana jest zasada przykładowa. Wystarczy utworzyć tylko sekcje UNION dla poziomów agregacji, które mają być wyświetlane.
 
 ### <a name="cube-options"></a>Opcje modułu
 
-Możliwe jest utworzenie GRUPY PRZEZ Z CUBE przy użyciu podejścia UNION ALL. Problem polega na tym, że kod może szybko stać się uciążliwe i nieporęczne. Aby rozwiązać ten problem, można użyć tego bardziej zaawansowanego podejścia.
+Można utworzyć grupę według modułu przy użyciu metody UNION ALL. Problem polega na tym, że kod może szybko stać się skomplikowany i nieporęczny. Aby rozwiązać ten problem, można użyć bardziej zaawansowanego podejścia.
 
-Pierwszym krokiem jest zdefiniowanie "modułu", który definiuje wszystkie poziomy agregacji, które chcemy utworzyć. Zanotuj CROSS JOIN dwóch tabel pochodnych, ponieważ generuje wszystkie poziomy. Reszta kodu służy do formatowania.
+Pierwszym krokiem jest zdefiniowanie elementu "Cube", który definiuje wszystkie poziomy agregacji, które chcemy utworzyć. Zwróć uwagę na SPRZĘŻENIe krzyżowe dwóch tabel pochodnych w miarę generowania wszystkich poziomów. Pozostała część kodu jest w trakcie formatowania.
 
 ```sql
 CREATE TABLE #Cube
@@ -124,9 +124,9 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-Na poniższej ilustracji przedstawiono wyniki [tworzenia tabeli as select:](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+Na poniższej ilustracji przedstawiono wyniki [CREATE TABLE jako wybrane](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest):
 
-![Grupowanie według kostki](./media/develop-group-by-options/develop-group-by-cube.png)
+![Grupuj według modułu](./media/develop-group-by-options/develop-group-by-cube.png)
 
 Drugim krokiem jest określenie tabeli docelowej do przechowywania wyników pośrednich:
 
@@ -151,7 +151,7 @@ WITH
 ;
 ```
 
-Trzecim krokiem jest pętla nad modułem kolumn wykonujących agregację. Kwerenda zostanie uruchomiony raz dla każdego wiersza w tabeli tymczasowej #Cube. Wyniki są przechowywane w tabeli temp #Results:
+Trzeci krok polega na przejściu w pętli względem modułu kolumn wykonujących agregację. Zapytanie zostanie uruchomione jednokrotnie dla każdego wiersza w #Cube tabeli tymczasowej. Wyniki są przechowywane w tabeli tymczasowej #Results:
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -175,7 +175,7 @@ BEGIN
 END
 ```
 
-Na koniec można zwrócić wyniki, czytając z #Results tabeli tymczasowej:
+Na koniec można zwrócić wyniki, odczytując z tabeli tymczasowej #Results:
 
 ```sql
 SELECT *
@@ -184,8 +184,8 @@ ORDER BY 1,2,3
 ;
 ```
 
-Rozbijając kod na sekcje i generowania konstrukcji pętli, kod staje się łatwiejsze w zarządzaniu i utrzymania.
+Dzieląc kod na sekcje i generując konstrukcję zapętlenia, kod jest łatwiejsze do zarządzania i łatwość utrzymania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej wskazówek dotyczących rozwoju, zobacz [omówienie rozwoju](develop-overview.md).
+Aby uzyskać więcej porad programistycznych, zobacz [Omówienie projektowania](develop-overview.md).

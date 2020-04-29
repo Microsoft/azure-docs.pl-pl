@@ -1,6 +1,6 @@
 ---
-title: Kody błędów interfejsu API REST — usługa Azure Key Vault
-description: Te kody błędów mogą zostać zwrócone przez operację w usłudze sieci web usługi Azure Key Vault.
+title: Kody błędów interfejsu API REST — Azure Key Vault
+description: Te kody błędów mogą być zwracane przez operację na Azure Key Vault usłudze sieci Web.
 keywords: ''
 services: machine-learning
 author: msmbaldwin
@@ -11,30 +11,30 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
 ms.openlocfilehash: bbb30c0ad41babca4158391c9e4e5c5d4d25cbf9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81432062"
 ---
-# <a name="azure-key-vault-rest-api-error-codes"></a>Kody błędów interfejsu API rest usługi Azure Key Vault
+# <a name="azure-key-vault-rest-api-error-codes"></a>Kody błędów interfejsu API REST Azure Key Vault
  
-Następujące kody błędów mogą zostać zwrócone przez operację w usłudze sieci web usługi Azure Key Vault.
+Następujące kody błędów mogą zostać zwrócone przez operację w usłudze sieci Web Azure Key Vault.
  
-## <a name="http-401-unauthenticated-request"></a>HTTP 401: Nieuwierzylityczne żądanie
+## <a name="http-401-unauthenticated-request"></a>HTTP 401: żądanie nieuwierzytelnione
 
-401 oznacza, że żądanie jest nieuwierzyfowane dla magazynu kluczy. 
+401 oznacza, że żądanie nie jest uwierzytelniane dla Key Vault. 
 
-Żądanie jest uwierzytelnione, jeśli:
+Żądanie jest uwierzytelniane, jeśli:
 
-- Magazyn kluczy zna tożsamość wywołującego; I
-- Wywołujący może próbować uzyskać dostęp do zasobów usługi Key Vault. 
+- Magazyn kluczy wie tożsamość obiektu wywołującego; lub
+- Obiekt wywołujący może próbować uzyskać dostęp do zasobów Key Vault. 
 
-Istnieje kilka różnych powodów, dla których wniosek może zwrócić 401.
+Istnieje kilka różnych powodów, dla których żądanie może zwrócić 401.
 
-### <a name="no-authentication-token-attached-to-the-request"></a>Do żądania nie jest dołączony token uwierzytelniania. 
+### <a name="no-authentication-token-attached-to-the-request"></a>Brak tokenu uwierzytelniania dołączonego do żądania. 
 
-Oto przykładowe żądanie PUT, ustawienie wartości klucza tajnego:
+Oto przykładowe żądanie PUT, ustawiając wartość wpisu tajnego:
 
 ``` 
 PUT https://putreqexample.vault.azure.net//secrets/DatabaseRotatingPassword?api-version=7.0 HTTP/1.1
@@ -51,15 +51,15 @@ Content-Length: 31
 }
 ```
 
-Nagłówek "Autoryzacja" jest tokenem dostępu, który jest wymagany przy każdym wywołaniu do magazynu kluczy dla operacji na płaszczyznach danych. Jeśli brakuje nagłówka, odpowiedź musi być 401.
+Nagłówek "Autoryzacja" jest tokenem dostępu, który jest wymagany w przypadku każdego wywołania Key Vault dla operacji w ramach płaszczyzny danych. Jeśli brakuje nagłówka, odpowiedź musi być 401.
 
-### <a name="the-token-lacks-the-correct-resource-associated-with-it"></a>Token nie ma poprawnego zasobu skojarzonego z nim. 
+### <a name="the-token-lacks-the-correct-resource-associated-with-it"></a>Z tokenem nie jest skojarzony prawidłowy zasób. 
 
-Podczas żądania tokenu dostępu z punktu końcowego usługi Azure OAUTH parametr o nazwie "zasób" jest obowiązkowe. Wartość jest ważna dla dostawcy tokenu, ponieważ obejmuje token dla jego zamierzonego użycia. Zasób dla **wszystkich** tokenów, aby uzyskać dostęp do magazynu kluczy jest *\/https: /vault.keyvault.net* (bez końcowego ukośnika).
+Podczas żądania tokenu dostępu z punktu końcowego usługi Azure OAUTH parametr o nazwie "Resource" jest obowiązkowy. Wartość jest ważna dla dostawcy tokenów, ponieważ zakresy tokenów dla zamierzonego użycia. Zasób dla **wszystkich** tokenów mających dostęp do Key Vault to *https\/:/Vault.keyvault.NET* (bez końcowego ukośnika).
 
 ### <a name="the-token-is-expired"></a>Token wygasł
 
-Tokeny są zakodowane base64, a wartości można dekodować w witrynach sieci Web, takich jak [http://jwt.calebb.net](http://jwt.calebb.net). Oto powyższy token zdekodowany:
+Tokeny są kodowane algorytmem Base64, a wartości można zdekodować w witrynach [http://jwt.calebb.net](http://jwt.calebb.net)sieci Web, takich jak. Poniżej przedstawiono zdekodowane tokeny:
 
 ```
     {
@@ -87,20 +87,20 @@ Tokeny są zakodowane base64, a wartości można dekodować w witrynach sieci We
 [signature]
 ```
 
-Widzimy wiele ważnych części w tym tokenie:
+W tym tokenie możemy zobaczyć wiele ważnych części:
 
-- aud (publiczność): zasób tokenu. Należy zauważyć, <https://vault.azure.net>że jest to . Ten token NIE będzie działać dla wszystkich zasobów, które nie są jawnie zgodne z tą wartością, takich jak wykres.
-- iat (wydane w): Liczba znaczników od początku epoki, kiedy token został wydany.
-- nbf (nie wcześniej): Liczba znaczników od początku epoki, gdy ten token staje się prawidłowy.
-- exp (wygaśnięcie): liczba znaczników od początku epoki po wygaśnięciu tego tokenu.
-- appid (identyfikator aplikacji): identyfikator GUID dla identyfikatora aplikacji, który tego żądania.
-- tid (identyfikator dzierżawy): identyfikator GUID dla identyfikatora dzierżawy głównego zobowiązanego, który złożył to żądanie
+- AUD (odbiorcy): zasób tokenu. Zwróć uwagę, że <https://vault.azure.net>jest to. Ten token nie będzie działał w przypadku wszystkich zasobów, które nie pasują jawnie do tej wartości, takiej jak Graph.
+- IAT (wystawiony na): liczba taktów od momentu rozpoczęcia epoki podczas wystawiania tokenu.
+- NBF (nie wcześniej): liczba taktów od momentu rozpoczęcia epoki, gdy ten token będzie prawidłowy.
+- EXP (Wygaśnięcie): liczba taktów od momentu rozpoczęcia epoki po wygaśnięciu tego tokenu.
+- AppID (Identyfikator aplikacji): identyfikator GUID dla identyfikatora aplikacji wysyłającego to żądanie.
+- TID (identyfikator dzierżawy): identyfikator GUID dla identyfikatora dzierżawcy podmiotu zabezpieczeń tworzącego to żądanie
 
-Ważne jest, aby wszystkie wartości były poprawnie identyfikowane w tokenie, aby żądanie działało. Jeśli wszystko jest poprawne, żądanie nie spowoduje 401.
+Należy pamiętać, że wszystkie wartości są prawidłowo identyfikowane w tokenie, aby żądanie działało. Jeśli wszystkie elementy są poprawne, żądanie nie będzie wynikiem 401.
 
 ### <a name="troubleshooting-401"></a>Rozwiązywanie problemów 401
 
-401s powinny być badane z punktu generowania tokenu, przed żądanie jest składany do magazynu kluczy. Ogólnie kod jest używany do żądania tokenu. Po odebraniu tokenu jest on przekazywany do żądania magazynu kluczy. Jeśli kod jest uruchomiony lokalnie, można użyć Fiddler do `https://login.microsoftonline.com`przechwytywania żądania/odpowiedzi do . Żądanie wygląda następująco:
+401s należy zbadać od momentu wygenerowania tokenu przed wysłaniem żądania do magazynu kluczy. Zazwyczaj kod jest używany do żądania tokenu. Po odebraniu tokenu zostanie on przekazany do żądania Key Vault. Jeśli kod jest uruchomiony lokalnie, można użyć programu Fiddler do przechwycenia żądania/odpowiedzi do `https://login.microsoftonline.com`. Żądanie wygląda następująco:
 
 ``` 
 POST https://login.microsoftonline.com/<key vault tenant ID>/oauth2/token HTTP/1.1
@@ -112,59 +112,59 @@ Content-Length: 192
 resource=https%3A%2F%2Fvault.azure.net&client_id=<registered-app-ID>&client_secret=<registered-app-secret>&client_info=1&grant_type=client_credentials
 ```
 
-Następujące informacje dostarczone przez użytkownika papka być poprawne:
+Następujące informacje podane przez użytkownika Mush być poprawne:
 
 - Identyfikator dzierżawy magazynu kluczy
-- Wartość zasobu ustawiona na https%3A%2F%2Fvault.azure.net (zakodowany adres URL)
+- Wartość zasobu ustawiona na https %3 A %2 F %2 F. Azure. NET (zakodowany adres URL)
 - Identyfikator klienta
 - Klucz tajny klienta
 
-Upewnij się, że reszta żądania jest prawie identyczna.
+Upewnij się, że pozostała część żądania jest niemal identyczna.
 
-Jeśli można uzyskać tylko token dostępu odpowiedzi, można go dekodować (jak pokazano powyżej), aby upewnić się, identyfikator dzierżawy, identyfikator klienta (identyfikator aplikacji) i zasobu.
+Jeśli można uzyskać tylko token dostępu do odpowiedzi, można zdekodować go (jak pokazano powyżej), aby upewnić się, że identyfikator dzierżawy, identyfikator klienta (Identyfikator aplikacji) i zasób.
 
-## <a name="http-403-insufficient-permissions"></a>HTTP 403: Niewystarczające uprawnienia
+## <a name="http-403-insufficient-permissions"></a>HTTP 403: niewystarczające uprawnienia
 
-HTTP 403 oznacza, że żądanie zostało uwierzytelnione (zna żądaną tożsamość), ale tożsamość nie ma uprawnień dostępu do żądanego zasobu. Istnieją dwie przyczyny:
+HTTP 403 oznacza, że żądanie zostało uwierzytelnione (zna tożsamość żądającą), ale tożsamość nie ma uprawnień dostępu do żądanego zasobu. Istnieją dwie przyczyny:
 
-- Nie ma żadnych zasad dostępu dla tożsamości.
-- Adres IP żądanego zasobu nie jest umieszczany na białej liście w ustawieniach zapory magazynu kluczy.
+- Brak zasad dostępu dla tożsamości.
+- Adres IP zażądanego zasobu nie jest listy dozwolonych w ustawieniach zapory magazynu kluczy.
 
-HTTP 403 często występuje, gdy aplikacja klienta nie używa identyfikatora klienta, który klient uważa, że jest. Zwykle oznacza to, że zasady dostępu nie jest poprawnie skonfigurowany dla rzeczywistej tożsamości wywołującej.
+Protokół HTTP 403 często występuje, gdy aplikacja klienta nie korzysta z identyfikatora klienta, który uważa klient. Zazwyczaj oznacza to, że zasady dostępu nie są poprawnie skonfigurowane dla rzeczywistej tożsamości wywołującej.
 
 ### <a name="troubleshooting-403"></a>Rozwiązywanie problemów 403
 
-Najpierw włącz rejestrowanie. Aby uzyskać instrukcje, jak to zrobić, zobacz [rejestrowanie usługi Azure Key Vault](logging.md)).
+Najpierw Włącz rejestrowanie. Aby uzyskać instrukcje, jak to zrobić, zobacz [Azure Key Vault Logging (rejestrowanie](logging.md)).
 
-Po włączeniu rejestrowania można określić, czy 403 jest ze względu na zasady dostępu lub zasady zapory.
+Po włączeniu rejestrowania można określić, czy 403 jest spowodowane zasadami dostępu czy zasadami zapory.
 
-#### <a name="error-due-to-firewall-policy"></a>Wystąpił błąd spowodowany zasadami zapory
+#### <a name="error-due-to-firewall-policy"></a>Błąd spowodowany zasadami zapory
 
-"Adres klienta (00.00.00.00) nie jest autoryzowany, a osoba dzwoniąca nie jest usługą zaufaną"
+"Adres klienta (00.00.00.00) nie jest autoryzowany, a element wywołujący nie jest zaufaną usługą"
 
-Istnieje ograniczona lista "usług zaufanych platformy Azure". Witryny sieci Web platformy Azure **nie** są zaufaną usługą platformy Azure. Aby uzyskać więcej informacji, zobacz wpis w blogu [Key Vault Firewall access by Azure App Services](https://azidentity.azurewebsites.net/post/2019/01/03/key-vault-firewall-access-by-azure-app-services).
+Istnieje ograniczona lista "zaufanych usług platformy Azure". Witryny sieci Web systemu Azure **nie** są zaufaną usługą platformy Azure. Aby uzyskać więcej informacji, zobacz wpis w blogu [Key Vault dostęp przez zaporę za pomocą usługi Azure App Services](https://azidentity.azurewebsites.net/post/2019/01/03/key-vault-firewall-access-by-azure-app-services).
 
-Aby działała, należy dodać adres IP witryny sieci Web platformy Azure do magazynu kluczy.
+Należy dodać adres IP witryny sieci Web systemu Azure do Key Vault, aby można było jej używać.
 
-Jeśli ze względu na zasady dostępu: znajdź identyfikator obiektu dla żądania i upewnij się, że identyfikator obiektu pasuje do obiektu, do którego użytkownik próbuje przypisać zasady dostępu. Często w UAd znajduje się wiele obiektów o tej samej nazwie, więc wybór właściwego jest bardzo ważny. Usuwając i ponownie dodając zasady dostępu, można sprawdzić, czy istnieje wiele obiektów o tej samej nazwie.
+Jeśli z powodu zasad dostępu: Znajdź identyfikator obiektu dla żądania i upewnij się, że identyfikator obiektu jest zgodny z obiektem, do którego użytkownik próbuje przypisać zasady dostępu. W usłudze AAD często występuje wiele obiektów o tej samej nazwie, więc wybranie odpowiedniej opcji jest bardzo ważne. Przez usunięcie i ponowne dodanie zasad dostępu można sprawdzić, czy istnieją wiele obiektów o tej samej nazwie.
 
-Ponadto większość zasad dostępu nie wymaga użycia "Autoryzowanej aplikacji", jak pokazano w portalu. Autoryzowana aplikacja jest używana dla scenariuszy uwierzytelniania "w imieniu", które są rzadkie. 
+Ponadto większość zasad dostępu nie wymaga używania "autoryzowanej aplikacji", jak pokazano w portalu. Autoryzowane aplikacje są używane w scenariuszach uwierzytelniania "w imieniu", które są rzadkie. 
 
 
-## <a name="http-429-too-many-requests"></a>HTTP 429: Zbyt wiele żądań
+## <a name="http-429-too-many-requests"></a>HTTP 429: zbyt wiele żądań
 
-Ograniczanie występuje, gdy liczba żądań przekracza podane maksimum dla przedziału czasowego. Jeśli wystąpi ograniczanie przepustowości, odpowiedzią magazynu kluczy będzie HTTP 429. Określono maksymalne wartości dla typów złożonych wniosków. Na przykład: utworzenie klucza 2048-bitowego modułu HSM wynosi 5 żądań na 10 sekund, ale wszystkie inne transakcje modułu HSM mają limit żądania 1000/10 sekund. Dlatego ważne jest, aby zrozumieć, jakie typy wywołań są dokonywane podczas określania przyczyny ograniczania przepustowości.
-Ogólnie rzecz biorąc żądania do magazynu kluczy są ograniczone do 2000 żądań/10 sekund. Exceptions are Key Operations, as documented in [Key Vault service limits](service-limits.md)
+Ograniczanie przepływności występuje, gdy liczba żądań przekracza określoną wartość maksymalną dla przedziału czasu. W przypadku ograniczenia przepustowości Key Vault odpowiedzi będzie HTTP 429. Określono maksymalne wartości dla typów żądań. Na przykład: Tworzenie klucza modułu HSM 2048-bitowego jest 5 żądań na 10 sekund, ale wszystkie inne transakcje modułu HSM mają limit 1000 żądania/10 sekund. W związku z tym ważne jest, aby zrozumieć, jakie typy wywołań są wykonywane podczas określania przyczyny ograniczenia przepustowości.
+Ogólnie rzecz biorąc, żądania do Key Vault są ograniczone do 2000 żądań/10 sekund. Wyjątki to kluczowe operacje, zgodnie z opisem w [Key Vault limity usługi](service-limits.md)
 
 ### <a name="troubleshooting-429"></a>Rozwiązywanie problemów 429
-Ograniczanie jest opracowywał przy użyciu następujących technik:
+Ograniczanie przepływności odbywa się przy użyciu następujących technik:
 
-- Zmniejsz liczbę żądań do magazynu kluczy, określając, czy istnieją wzorce żądanego zasobu i próbując buforować je w aplikacji wywołującej. 
+- Zmniejsz liczbę żądań skierowanych do Key Vault, określając, czy istnieją wzorce do żądanego zasobu, i spróbuj wykonać ich buforowanie w aplikacji wywołującej. 
 
-- Gdy wystąpi ograniczanie przepustowości usługi Key Vault, dostosuj kod żądania, aby użyć wykładniczego wycofywania do ponowienia próby. Algorytm jest wyjaśniony tutaj: [Jak dławić aplikację](overview-throttling.md#how-to-throttle-your-app-in-response-to-service-limits)
+- Gdy nastąpi ograniczenie Key Vault, Dostosuj kod żądania, aby użyć wykładniczej wycofywania do ponawiania próby. Ten algorytm został wyjaśniony tutaj: [Jak ograniczyć swoją aplikację](overview-throttling.md#how-to-throttle-your-app-in-response-to-service-limits)
 
-- Jeśli liczba żądań nie może być zmniejszona przez buforowanie i czasowe wycofywanie nie działa, należy rozważyć podzielenie kluczy do wielu magazynów kluczy. Limit usługi dla pojedynczej subskrypcji wynosi 5-krotnie limit indywidualnego magazynu kluczy. Jeśli używasz więcej niż 5 Magazyny kluczy, należy wziąć pod uwagę przy użyciu wielu subskrypcji. 
+- Jeśli liczba żądań nie może zostać zmniejszona przez buforowanie i wycofywania czasu nie działa, należy rozważyć rozdzielenie kluczy do wielu magazynów kluczy. Limit usługi dla pojedynczej subskrypcji to pięciokrotną limit Key Vault poszczególnych. W przypadku korzystania z więcej niż 5 magazynów kluczy należy wziąć pod uwagę używanie wielu subskrypcji. 
 
-Szczegółowe wskazówki, w tym żądanie zwiększenia limitów, można znaleźć tutaj: [Wskazówki dotyczące ograniczania przepustowości magazynu kluczy](overview-throttling.md)
+Szczegółowe wskazówki, w tym żądanie zwiększenia limitów, można znaleźć tutaj: [Key Vault wskazówki dotyczące ograniczania przepustowości](overview-throttling.md)
 
 

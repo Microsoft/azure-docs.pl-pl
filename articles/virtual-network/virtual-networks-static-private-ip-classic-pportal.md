@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie prywatnych adresów IP dla maszyn wirtualnych (klasycznych) — witryna Azure portal | Dokumenty firmy Microsoft
-description: Dowiedz się, jak skonfigurować prywatne adresy IP dla maszyn wirtualnych (Classic) przy użyciu witryny Azure portal.
+title: Konfigurowanie prywatnych adresów IP dla maszyn wirtualnych (klasycznych) — Azure Portal | Microsoft Docs
+description: Dowiedz się, jak skonfigurować prywatne adresy IP dla maszyn wirtualnych (klasycznych) przy użyciu Azure Portal.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -16,13 +16,13 @@ ms.date: 02/04/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0bc080ed41f32ae2af018e9316e67ab38c2d0650
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81449905"
 ---
-# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-portal"></a>Konfigurowanie prywatnych adresów IP dla maszyny wirtualnej (Classic) przy użyciu witryny Azure portal
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-portal"></a>Skonfiguruj prywatne adresy IP dla maszyny wirtualnej (klasycznej) przy użyciu Azure Portal
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
@@ -30,57 +30,57 @@ ms.locfileid: "81449905"
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-W tym artykule opisano klasyczny model wdrażania. Statyczny prywatny adres IP można również [zarządzać statycznym adresem IP w modelu wdrażania Menedżera zasobów](virtual-networks-static-private-ip-arm-pportal.md).
+W tym artykule opisano klasyczny model wdrażania. Można także [zarządzać statycznym prywatnym adresem IP w modelu wdrażania Menedżer zasobów](virtual-networks-static-private-ip-arm-pportal.md).
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-Przykładowe kroki, które należy oczekiwać prostego środowiska już utworzone. Jeśli chcesz uruchomić kroki, ponieważ są one wyświetlane w tym dokumencie, najpierw skompiluj środowisko testowe opisane w [create a vnet](virtual-networks-create-vnet-classic-pportal.md).
+Przykładowe kroki, które należy wykonać, oczekują na utworzenie prostego środowiska. Jeśli chcesz uruchomić kroki w taki sposób, aby były wyświetlane w tym dokumencie, najpierw Skompiluj środowisko testowe opisane w temacie [Tworzenie sieci wirtualnej](virtual-networks-create-vnet-classic-pportal.md).
 
-## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>Jak określić statyczny prywatny adres IP podczas tworzenia maszyny Wirtualnej
-Aby utworzyć maszynę wirtualną o nazwie *DNS01* w podsieci *FrontEnd* sieci wirtualnej o nazwie *TestVNet* o statycznym prywatnym adresie IP *192.168.1.101,* wykonaj następujące kroki:
+## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>Jak określić statyczny prywatny adres IP podczas tworzenia maszyny wirtualnej
+Aby utworzyć maszynę wirtualną o nazwie *DNS01* w podsieci *frontonu* sieci wirtualnej o nazwie *TestVNet* ze statycznym prywatnym adresem IP *192.168.1.101*, wykonaj następujące czynności:
 
 1. W przeglądarce przejdź do witryny https://portal.azure.com i, jeśli to konieczne, zaloguj się przy użyciu konta platformy Azure.
-2. Wybierz **pozycję NOWE** > **centrum danych** > **systemu Windows Server 2012 R2**, zwróć uwagę, że na liście **Wybierz model wdrożenia** jest już wyświetlany **klasyczny**, a następnie wybierz pozycję **Utwórz**.
+2. Wybierz pozycję **Nowy** > **obliczeniowy** > **system Windows Server 2012 R2 Datacenter**, Zauważ, że lista **Wybierz model wdrażania ma** już **klasyczne**, a następnie wybierz pozycję **Utwórz**.
    
-    ![Tworzenie maszyny wirtualnej w witrynie Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure01.png)
-3. W obszarze **Tworzenie maszyny Wirtualnej**wprowadź nazwę maszyny Wirtualnej, która ma zostać utworzona *(DNS01* w scenariuszu), konto administratora lokalnego i hasło.
+    ![Tworzenie maszyny wirtualnej w Azure Portal](./media/virtual-networks-static-ip-classic-pportal/figure01.png)
+3. W obszarze **Utwórz maszynę wirtualną**wprowadź nazwę maszyny wirtualnej, która ma zostać utworzona (*DNS01* w tym scenariuszu), konto administratora lokalnego i hasło.
    
-    ![Tworzenie maszyny wirtualnej w witrynie Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure02.png)
-4. Wybierz **opcjonalną konfigurację** > **sieci** > **wirtualnej,** a następnie wybierz **testvnet**. Jeśli **TestVNet** nie jest dostępny, upewnij się, że używasz centralnej lokalizacji *w stanach zjednoczonych* i utworzono środowisko testowe opisane na początku tego artykułu.
+    ![Tworzenie maszyny wirtualnej w Azure Portal](./media/virtual-networks-static-ip-classic-pportal/figure02.png)
+4. Wybierz opcję **opcjonalna konfiguracja** > **Network** > **Virtual Network**sieci, a następnie wybierz pozycję **TestVNet**. Jeśli **TestVNet** jest niedostępny, upewnij się, że używasz lokalizacji *środkowe stany USA* i utworzono środowisko testowe opisane na początku tego artykułu.
    
-    ![Tworzenie maszyny wirtualnej w witrynie Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure03.png)
-5. W obszarze **Sieć**upewnij się, że aktualnie wybrana podsieć jest *FrontEnd*, a następnie wybierz **pozycję Adres IP**, w obszarze **Przypisanie adresu IP** wybierz **statyczne**, a następnie wprowadź *192.168.1.101* dla **adresu IP,** jak poniżej.
+    ![Tworzenie maszyny wirtualnej w Azure Portal](./media/virtual-networks-static-ip-classic-pportal/figure03.png)
+5. W obszarze **Sieć**upewnij się, że aktualnie wybrana podsieć to *fronton*, a następnie wybierz pozycję **adresy IP**, w obszarze **przypisanie adresu IP** wybierz pozycję **statyczny**, a następnie wprowadź *192.168.1.101* dla **adresu IP** , jak pokazano poniżej.
    
-    ![Tworzenie maszyny wirtualnej w witrynie Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure04.png)    
-6. Wybierz **przycisk OK** w obszarze **Adresy IP**wybierz pozycję **OK** w obszarze **Sieć**, a następnie wybierz pozycję **OK** w obszarze **Opcjonalna konfigura .**
-7. W obszarze **Tworzenie maszyny wirtualnej**wybierz pozycję **Utwórz**. Zwróć uwagę na poniższy kafelek wyświetlany na pulpicie nawigacyjnym:
+    ![Tworzenie maszyny wirtualnej w Azure Portal](./media/virtual-networks-static-ip-classic-pportal/figure04.png)    
+6. Wybierz pozycję **OK** w obszarze **adresy IP**, wybierz pozycję **OK** w obszarze **Sieć**, a następnie wybierz pozycję **OK** w obszarze **Konfiguracja opcjonalna**.
+7. W obszarze **Utwórz maszynę wirtualną**wybierz pozycję **Utwórz**. Zwróć uwagę na kafelek poniżej wyświetlany na pulpicie nawigacyjnym:
    
-    ![Tworzenie maszyny wirtualnej w witrynie Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure05.png)
+    ![Tworzenie maszyny wirtualnej w Azure Portal](./media/virtual-networks-static-ip-classic-pportal/figure05.png)
 
-## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Jak pobrać statyczne prywatne informacje o adresie IP dla maszyny Wirtualnej
-Aby wyświetlić statyczne prywatne informacje o adresie IP dla maszyny Wirtualnej utworzonej za pomocą powyższych kroków, wykonaj poniższe kroki.
+## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Jak pobrać informacje o statycznym prywatnym adresie IP dla maszyny wirtualnej
+Aby wyświetlić informacje o statycznym prywatnym adresie IP dla maszyny wirtualnej utworzonej za pomocą powyższych kroków, wykonaj poniższe kroki.
 
-1. W witrynie Azure portal wybierz pozycję PRZEGLĄDAJ > WSZYSTKIE**maszyny wirtualne (klasyczne)** > **DNS01** > **Wszystkie ustawienia** > **adresów IP** i zwróć uwagę na przypisanie adresu IP i adres IP, jak poniżej. **BROWSE ALL**
+1. W Azure Portal wybierz pozycję **Przeglądaj wszystkie** > **maszyny wirtualne (klasyczne)** > **DNS01** > **wszystkie ustawienia** > **adresy IP** i zwróć uwagę na przypisanie adresu IP i adres IP, jak pokazano poniżej.
    
-    ![Tworzenie maszyny wirtualnej w witrynie Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure06.png)
+    ![Tworzenie maszyny wirtualnej w Azure Portal](./media/virtual-networks-static-ip-classic-pportal/figure06.png)
 
-## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Jak usunąć statyczny prywatny adres IP z maszyny Wirtualnej
+## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Jak usunąć statyczny prywatny adres IP z maszyny wirtualnej
 
-W obszarze **Adresy IP**wybierz pozycję **Dynamiczny** z prawej strony **przypisania adresu IP**, wybierz pozycję **Zapisz**, a następnie wybierz pozycję **Tak**, jak pokazano na poniższym rysunku:
+W obszarze **adresy IP**wybierz **pozycję dynamiczny** z prawej strony **przypisanie adresu IP**, wybierz pozycję **Zapisz**, a następnie wybierz pozycję **tak**, jak pokazano na poniższej ilustracji:
    
     ![Create VM in Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure07.png)
 
-## <a name="how-to-add-a-static-private-ip-address-to-an-existing-vm"></a>Jak dodać statyczny prywatny adres IP do istniejącej maszyny Wirtualnej
+## <a name="how-to-add-a-static-private-ip-address-to-an-existing-vm"></a>Jak dodać statyczny prywatny adres IP do istniejącej maszyny wirtualnej
 
-1. W obszarze **Adresy IP**, pokazane wcześniej, wybierz **pozycję Statyczne** po prawej stronie **przypisania adresu IP**.
-2. Wpisz *192.168.1.101* dla **adresu IP**, wybierz **zapisz**, a następnie **wybierz**tak .
+1. W obszarze **adresy IP**, pokazane wcześniej, wybierz pozycję **statyczny** po prawej stronie **przypisywania adresów IP**.
+2. Wpisz *192.168.1.101* dla **adresu IP**, wybierz pozycję **Zapisz**, a następnie wybierz pozycję **tak**.
 
-## <a name="set-ip-addresses-within-the-operating-system"></a>Ustawianie adresów IP w systemie operacyjnym
+## <a name="set-ip-addresses-within-the-operating-system"></a>Ustaw adresy IP w ramach systemu operacyjnego
 
-Zaleca się, aby nie statycznie przypisywać prywatny adres IP przypisany do maszyny wirtualnej platformy Azure w systemie operacyjnym maszyny wirtualnej, chyba że jest to konieczne. Jeśli ręcznie ustawisz prywatny adres IP w systemie operacyjnym, upewnij się, że jest to ten sam adres, co prywatny adres IP przypisany do maszyny Wirtualnej platformy Azure lub możesz utracić łączność z maszyną wirtualną. Nigdy nie należy ręcznie przypisywać publicznego adresu IP przypisanego do maszyny wirtualnej platformy Azure w systemie operacyjnym maszyny wirtualnej.
+Zaleca się, aby nie przypisywać statycznie prywatnego adresu IP przypisanego do maszyny wirtualnej platformy Azure w ramach systemu operacyjnego maszyny wirtualnej, o ile nie jest to konieczne. Jeśli ręcznie ustawisz prywatny adres IP w ramach systemu operacyjnego, upewnij się, że jest to ten sam adres, co prywatny adres IP przypisany do maszyny wirtualnej platformy Azure, lub możesz utracić łączność z maszyną wirtualną. Nigdy nie należy ręcznie przypisywać publicznego adresu IP przypisanego do maszyny wirtualnej platformy Azure w ramach systemu operacyjnego maszyny wirtualnej.
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [zarezerwowanych publicznych](virtual-networks-reserved-public-ip.md) adresach IP.
-* Dowiedz się więcej o publicznych adresach [IP (ILPIP) na poziomie wystąpienia.](virtual-networks-instance-level-public-ip.md)
-* Zapoznaj się z [zastrzeżonymi interfejsami API odpoczynku IP](https://msdn.microsoft.com/library/azure/dn722420.aspx).
+* Dowiedz się więcej na temat [zarezerwowanych publicznych adresów IP](virtual-networks-reserved-public-ip.md) .
+* Dowiedz się więcej o publicznych adresach [IP na poziomie wystąpienia (ILPIP)](virtual-networks-instance-level-public-ip.md) .
+* Zapoznaj się z [interfejsami API REST zastrzeżony adres IP](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 

@@ -1,6 +1,6 @@
 ---
-title: Ładowanie danych samouczka z usługi Azure Data Lake Storage
-description: Użyj tabel zewnętrznych PolyBase, aby załadować dane z usługi Azure Data Lake Storage dla synapse SQL.
+title: Samouczek ładowania danych z Azure Data Lake Storage
+description: Użyj wielobazowych tabel zewnętrznych, aby załadować dane z Azure Data Lake Storage dla Synapse SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,45 +12,45 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 9713d73ee132f743ceea98cbaca6a83f36fd3a45
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416113"
 ---
-# <a name="load-data-from-azure-data-lake-storage-for-sql-analytics"></a>Ładowanie danych z usługi Azure Data Lake Storage for SQL Analytics
+# <a name="load-data-from-azure-data-lake-storage-for-sql-analytics"></a>Ładowanie danych z Azure Data Lake Storage na potrzeby analiz SQL
 
-W tym przewodniku opisano, jak używać tabel zewnętrznych PolyBase do ładowania danych z usługi Azure Data Lake Storage. Mimo że można uruchamiać kwerendy adhoc na danych przechowywanych w magazynie usługi Data Lake, zaleca się importowanie danych w celu uzyskania najlepszej wydajności.
+W tym przewodniku opisano, jak używać wielobazowych tabel zewnętrznych do ładowania danych z Azure Data Lake Storage. Mimo że można uruchamiać zapytania ad hoc dotyczące danych przechowywanych w Data Lake Storage, zalecamy zaimportowanie danych w celu uzyskania najlepszej wydajności.
 
 > [!NOTE]  
-> Alternatywą dla ładowania jest [instrukcja COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) aktualnie w publicznej wersji zapoznawczej.  Instrukcja COPY zapewnia największą elastyczność. Aby przekazać opinię na temat instrukcji COPY, wyślij sqldwcopypreview@service.microsoft.comwiadomość e-mail na następującą listę dystrybucyjną: .
+> Alternatywą do załadowania jest [instrukcja Copy](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) w publicznej wersji zapoznawczej.  Instrukcja COPY zapewnia największą elastyczność. Aby przesłać opinię na temat instrukcji COPY, Wyślij wiadomość e-mail na następującą listę dystrybucyjną: sqldwcopypreview@service.microsoft.com.
 >
 > [!div class="checklist"]
 >
-> * Tworzenie obiektów bazy danych wymaganych do załadowania z magazynu usługi Data Lake.
-> * Połącz się z katalogiem magazynu usługi Data Lake.
-> * Załaduj dane do magazynu danych.
+> * Utwórz obiekty bazy danych wymagane do załadowania z Data Lake Storage.
+> * Nawiązywanie połączenia z katalogiem Data Lake Storage.
+> * Ładowanie danych do magazynu danych.
 
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Zanim rozpoczniesz ten samouczek, pobierz i zainstaluj najnowszą wersję programu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
-Aby uruchomić ten samouczek, potrzebujesz:
+Aby uruchomić ten samouczek, potrzebne są:
 
-* Pula SQL. Zobacz [Tworzenie puli SQL i danych kwerend](create-data-warehouse-portal.md).
-* Konto magazynu usługi Data Lake. Zobacz [Wprowadzenie do usługi Azure Data Lake Storage](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Dla tego konta magazynu należy skonfigurować lub określić jeden z następujących poświadczeń do załadowania: klucz konta magazynu, użytkownik aplikacji usługi Azure Directory lub użytkownika usługi AAD, który ma odpowiednią rolę RBAC do konta magazynu.
+* Pula SQL. Zobacz [Tworzenie puli SQL i wykonywanie zapytań dotyczących danych](create-data-warehouse-portal.md).
+* Konto Data Lake Storage. Zobacz [wprowadzenie do Azure Data Lake Storage](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). W przypadku tego konta magazynu musisz skonfigurować lub określić jedno z następujących poświadczeń do załadowania: klucz konta magazynu, użytkownik aplikacji usługi Azure Directory lub użytkownik AAD, który ma odpowiednią rolę RBAC dla konta magazynu.
 
-## <a name="create-a-credential"></a>Tworzenie poświadczenia
+## <a name="create-a-credential"></a>Utwórz poświadczenie
 
-Możesz pominąć tę sekcję i przejść do "Utwórz zewnętrzne źródło danych" podczas uwierzytelniania przy użyciu przekazywania usługi AAD. Poświadczenia o zakresie bazy danych nie jest wymagane do utworzenia lub określone podczas korzystania z usługi AAD przekazywania, ale upewnij się, że użytkownik usługi AAD ma odpowiednią rolę RBAC (czytnik danych obiektów blob magazynu, współautor lub rola właściciela) do konta magazynu. Więcej szczegółów przedstawiono [tutaj](https://techcommunity.microsoft.com/t5/Azure-SQL-Data-Warehouse/How-to-use-PolyBase-by-authenticating-via-AAD-pass-through/ba-p/862260).
+Możesz pominąć tę sekcję i przejść do "Tworzenie zewnętrznego źródła danych" podczas uwierzytelniania za pomocą usługi AAD. Nie trzeba tworzyć ani określać poświadczeń z zakresem bazy danych w przypadku korzystania z usługi AAD Pass-through, ale upewnij się, że użytkownik usługi AAD ma odpowiednią rolę RBAC (czytnik danych obiektów blob magazynu, współautor lub rolę właściciela) na koncie magazynu. Więcej szczegółów znajduje się [tutaj](https://techcommunity.microsoft.com/t5/Azure-SQL-Data-Warehouse/How-to-use-PolyBase-by-authenticating-via-AAD-pass-through/ba-p/862260).
 
-Aby uzyskać dostęp do konta Data Lake Storage, musisz utworzyć klucz główny bazy danych, aby zaszyfrować klucz tajny poświadczeń. Następnie należy utworzyć poświadczenia o określonym zakresie bazy danych do przechowywania klucza tajnego. Podczas uwierzytelniania przy użyciu podmiotów usługi (użytkownik aplikacji usługi Azure Directory), poświadczenia o zakresie bazy danych przechowuje poświadczenia jednostki usługi skonfigurowane w Usłudze AAD. Można również użyć poświadczenia o zakresie bazy danych do przechowywania klucza konta magazynu dla Gen2.
+Aby uzyskać dostęp do konta Data Lake Storage, musisz utworzyć klucz główny bazy danych, aby zaszyfrować klucz tajny poświadczeń. Następnie należy utworzyć poświadczenia z zakresem bazy danych w celu przechowywania klucza tajnego. Podczas uwierzytelniania za pomocą nazw głównych usługi (użytkownik aplikacji katalogu platformy Azure) poświadczenia w zakresie bazy danych przechowują poświadczenia jednostki usługi skonfigurowane w usłudze AAD. Można również użyć poświadczenia w zakresie bazy danych do przechowywania klucza konta magazynu dla Gen2.
 
-Aby połączyć się z magazynem usługi Usługi przy użyciu podmiotów usługi, należy **najpierw** utworzyć aplikację usługi Azure Active Directory, utworzyć klucz dostępu i udzielić aplikacji dostępu do konta usługi Data Lake Storage. Aby uzyskać instrukcje, zobacz [Uwierzytelnij w usłudze Azure Data Lake Storage przy użyciu usługi Active Directory](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Aby połączyć się z Data Lake Storage przy użyciu jednostek usługi, należy **najpierw** utworzyć aplikację Azure Active Directory, utworzyć klucz dostępu i udzielić aplikacji dostępu do konta Data Lake Storage. Aby uzyskać instrukcje, zobacz [uwierzytelnianie w Azure Data Lake Storage przy użyciu Active Directory](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-Zaloguj się do puli SQL z użytkownikiem posiadającym uprawnienia na poziomie CONTROL i wykonaj następujące instrukcje SQL dla bazy danych:
+Zaloguj się do puli SQL przy użyciu użytkownika mającego uprawnienia na poziomie kontroli i wykonaj następujące instrukcje SQL w bazie danych:
 
 ```sql
 -- A: Create a Database Master Key.
@@ -93,7 +93,7 @@ WITH
 
 ## <a name="create-the-external-data-source"></a>Tworzenie zewnętrznego źródła danych
 
-Użyj tego polecenia [UTWÓRZ ZEWNĘTRZNE ŹRÓDŁO DANYCH,](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) ABY zapisać lokalizację danych. Jeśli uwierzytelniasz się za pomocą przekazywania AAD, parametr CREDENTIAL nie jest wymagany. Jeśli uwierzytelniasz się przy użyciu tożsamości zarządzanej dla punktów końcowych usługi, postępuj zgodnie z tą [dokumentacją,](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#azure-sql-data-warehouse-polybase) aby skonfigurować zewnętrzne źródło danych.
+To polecenie [Utwórz zewnętrzne źródło danych](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) służy do przechowywania lokalizacji danych. W przypadku uwierzytelniania za pomocą przekazywania usługi AAD parametr CREDENTIAL nie jest wymagany. Jeśli uwierzytelniasz się przy użyciu tożsamości zarządzanej dla punktów końcowych usługi, postępuj zgodnie z tą [dokumentacją](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#azure-sql-data-warehouse-polybase) , aby skonfigurować zewnętrzne źródło danych.
 
 ```sql
 -- C (for Gen1): Create an external data source
@@ -121,10 +121,10 @@ WITH (
 );
 ```
 
-## <a name="configure-data-format"></a>Konfigurowanie formatu danych
+## <a name="configure-data-format"></a>Konfiguruj format danych
 
-Aby zaimportować dane z magazynu usługi Data Lake, należy określić format pliku zewnętrznego. Ten obiekt definiuje sposób zapisywania plików w magazynie usługi Data Lake.
-Aby uzyskać pełną listę, zapoznaj się z naszą dokumentacją T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+Aby zaimportować dane z Data Lake Storage, należy określić format pliku zewnętrznego. Ten obiekt definiuje sposób pisania plików w Data Lake Storage.
+Aby zapoznać się z pełną listą, zapoznaj się z dokumentacją języka T-SQL [Create External File Format](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ```sql
 -- D: Create an external file format
@@ -146,7 +146,7 @@ WITH
 
 ## <a name="create-the-external-tables"></a>Tworzenie tabel zewnętrznych
 
-Po określeniu źródła danych i formatu pliku można przystąpić do tworzenia tabel zewnętrznych. Tabele zewnętrzne to sposób interakcji z danymi zewnętrznymi. Parametr lokalizacji może określać plik lub katalog. Jeśli określa katalog, wszystkie pliki w katalogu zostaną załadowane.
+Teraz, po określeniu źródła danych i formatu pliku, możesz utworzyć tabele zewnętrzne. Tabele zewnętrzne są sposobem korzystania z danych zewnętrznych. Parametr Location może określać plik lub katalog. W przypadku wybrania katalogu zostaną załadowane wszystkie pliki w katalogu.
 
 ```sql
 -- D: Create an External Table
@@ -174,24 +174,24 @@ WITH
 
 ```
 
-## <a name="external-table-considerations"></a>Zagadnienia dotyczące tabeli zewnętrznej
+## <a name="external-table-considerations"></a>Zagadnienia dotyczące tabel zewnętrznych
 
-Tworzenie zewnętrznego stołu jest łatwe, ale istnieją pewne niuanse, które należy omówić.
+Tworzenie tabeli zewnętrznej jest proste, ale istnieje kilka wszystkie szczegóły, które należy omówić.
 
-Tabele zewnętrzne są silnie wpisywane. Oznacza to, że każdy wiersz pozyskiwania danych musi spełniać definicję schematu tabeli.
-Jeśli wiersz nie jest zgodny z definicją schematu, wiersz zostanie odrzucony z obciążenia.
+Tabele zewnętrzne mają silną typ. Oznacza to, że każdy wiersz danych do pozyskiwania musi spełniać definicję schematu tabeli.
+Jeśli wiersz nie jest zgodny z definicją schematu, wiersz zostanie odrzucony od obciążenia.
 
-Opcje REJECT_TYPE i REJECT_VALUE umożliwiają zdefiniowanie liczby wierszy lub procentu danych w tabeli końcowej. Podczas ładowania, jeśli wartość odrzucenia zostanie osiągnięta, obciążenie nie powiedzie się. Najczęstszą przyczyną odrzuconych wierszy jest niezgodność definicji schematu. Na przykład jeśli kolumna jest niepoprawnie podane schemat int, gdy dane w pliku jest ciągiem, każdy wiersz nie można załadować.
+Opcje REJECT_TYPE i REJECT_VALUE umożliwiają zdefiniowanie liczby wierszy lub wartości procentowej danych, które muszą być obecne w końcowej tabeli. Podczas ładowania, jeśli zostanie osiągnięta wartość odrzucenia, ładowanie nie powiedzie się. Najbardziej typową przyczyną odrzuconych wierszy jest niezgodność definicji schematu. Na przykład jeśli kolumna ma nieprawidłowo określony schemat int, gdy dane w pliku są ciągiem, każdy wiersz nie zostanie załadowany.
 
-Data Lake Storage Gen1 używa kontroli dostępu opartej na rolach (RBAC) do kontrolowania dostępu do danych. Oznacza to, że podmiot zabezpieczeń usługi musi mieć uprawnienia do odczytu do katalogów zdefiniowanych w parametrze lokalizacji i do podstawowych podstawowych katalogów i plików. Dzięki temu PolyBase do uwierzytelniania i ładowania tych danych.
+Data Lake Storage Gen1 używa Access Control opartego na rolach (RBAC) do kontrolowania dostępu do danych. Oznacza to, że jednostka usługi musi mieć uprawnienia do odczytu do katalogów zdefiniowanych w parametrze Location i do elementów podrzędnych katalogu końcowego i plików. Dzięki temu można uwierzytelniać i ładować dane przy podstawie podstawowej.
 
 ## <a name="load-the-data"></a>Ładowanie danych
 
-Aby załadować dane z magazynu usługi Data Lake, użyj instrukcji [CREATE TABLE AS SELECT (Transact-SQL).](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+Aby załadować dane z Data Lake Storage Użyj instrukcji [CREATE TABLE as Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
 
-CTAS tworzy nową tabelę i wypełnia ją wynikami instrukcji select. CTAS definiuje nową tabelę, aby mieć te same kolumny i typy danych, jak wyniki select instrukcji. Jeśli wybierzesz wszystkie kolumny z tabeli zewnętrznej, nowa tabela będzie repliką kolumn i typów danych w tabeli zewnętrznej.
+CTAS tworzy nową tabelę i wypełnia ją wynikami instrukcji SELECT. CTAS definiuje nową tabelę w taki sposób, aby zawierała te same kolumny i typy danych co wyniki instrukcji SELECT. W przypadku wybrania wszystkich kolumn z tabeli zewnętrznej Nowa tabela jest repliką kolumn i typów danych w tabeli zewnętrznej.
 
-W tym przykładzie tworzymy tabelę rozproszoną skrótu o nazwie DimProduct z naszej tabeli zewnętrznej DimProduct_external.
+W tym przykładzie tworzymy tabelę rozproszoną z mieszaniem o nazwie DimProduct z naszej tabeli zewnętrznej DimProduct_external.
 
 ```sql
 
@@ -202,11 +202,11 @@ SELECT * FROM [dbo].[DimProduct_external]
 OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 ```
 
-## <a name="optimize-columnstore-compression"></a>Optymalizacja kompresji magazynu kolumn
+## <a name="optimize-columnstore-compression"></a>Optymalizowanie kompresji magazynu kolumn
 
-Domyślnie tabele są definiowane jako indeks klastrowanego magazynu kolumn. Po zakończeniu ładowania niektóre wiersze danych mogą nie zostać skompresowane do magazynu kolumn.  Istnieje wiele powodów, dla których może się to zdarzyć. Aby dowiedzieć się więcej, zobacz [zarządzanie indeksami magazynu kolumn](sql-data-warehouse-tables-index.md).
+Domyślnie tabele są zdefiniowane jako klastrowany indeks magazynu kolumn. Po zakończeniu ładowania niektóre wiersze danych mogą nie zostać skompresowane do magazynu kolumn.  Istnieje wiele powodów, dla których może się to zdarzyć. Aby dowiedzieć się więcej, zobacz [Zarządzanie indeksami magazynu kolumn](sql-data-warehouse-tables-index.md).
 
-Aby zoptymalizować wydajność kwerend i kompresji magazynu kolumn po obciążeniu, odbuduj tabelę, aby wymusić indeks magazynu kolumn do kompresji wszystkich wierszy.
+Aby zoptymalizować wydajność zapytań i kompresję magazynu kolumn po załadowaniu, należy ponownie skompilować tabelę, aby wymusić, że indeks magazynu kolumn będzie kompresowany ze wszystkimi wierszami.
 
 ```sql
 
@@ -214,31 +214,31 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 
 ```
 
-## <a name="optimize-statistics"></a>Optymalizacja statystyk
+## <a name="optimize-statistics"></a>Optymalizowanie statystyk
 
-Najlepiej jest utworzyć statystyki jednokolumnowe natychmiast po załadowaniu. Istnieją pewne możliwości wyboru statystyk. Na przykład jeśli utworzysz statystyki jednokolumnowe w każdej kolumnie może zająć dużo czasu, aby odbudować wszystkie statystyki. Jeśli wiesz, że niektóre kolumny nie będą w predykatach kwerendy, możesz pominąć tworzenie statystyk dla tych kolumn.
+Najlepiej jest utworzyć statystyki pojedynczej kolumny bezpośrednio po załadowaniu. Istnieją pewne możliwości statystyczne. Na przykład w przypadku tworzenia statystyk z jedną kolumną dla każdej kolumny może upłynąć dużo czasu, aby ponownie skompilować wszystkie statystyki. Jeśli wiesz, że niektóre kolumny nie będą znajdować się w predykatach zapytań, możesz pominąć tworzenie statystyk dla tych kolumn.
 
-Jeśli zdecydujesz się utworzyć statystyki jednokolumnowe dla każdej kolumny każdej tabeli, możesz użyć przykładu `prc_sqldw_create_stats` kodu procedury składowanej w [artykule statystyk.](sql-data-warehouse-tables-statistics.md)
+Jeśli zdecydujesz się utworzyć statystykę jednokolumnową dla każdej kolumny każdej tabeli, możesz użyć przykładowego `prc_sqldw_create_stats` kodu procedury składowanej w artykule [Statystyka](sql-data-warehouse-tables-statistics.md) .
 
-Poniższy przykład jest dobrym punktem wyjścia do tworzenia statystyk. Tworzy jednokolumnowe statystyki dla każdej kolumny w tabeli wymiarów i dla każdej kolumny łączącej w tabelach faktów. Zawsze możesz później dodać statystyki jedno- lub wielokolumnowe do innych kolumn tabeli faktów.
+Poniższy przykład jest dobrym punktem wyjścia do tworzenia statystyk. Tworzy statystykę jednokolumnową dla każdej kolumny w tabeli wymiarów i dla każdej kolumny sprzężenia w tabelach faktów. Można zawsze dodawać pojedyncze lub wielokolumnowe statystyki do innych kolumn tabeli faktów w późniejszym czasie.
 
-## <a name="achievement-unlocked"></a>Osiągnięcie odblokowane!
+## <a name="achievement-unlocked"></a>Nieodblokowane osiągnięcie!
 
-Pomyślnie załadowano dane do magazynu danych. Świetna robota!
+Dane zostały pomyślnie załadowane do magazynu danych. Wspaniałe zadanie!
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku utworzono tabele zewnętrzne w celu zdefiniowania struktury danych przechowywanych w udziale gen1 magazynu usługi Data Lake, a następnie użyto instrukcji PolyBase CREATE TABLE AS SELECT do załadowania danych do magazynu danych.
+W tym samouczku utworzono tabele zewnętrzne w celu zdefiniowania struktury danych przechowywanych w Data Lake Storage Gen1, a następnie użyto CREATE TABLE instrukcji "SELECT Base" w celu załadowania danych do magazynu danych.
 
 Zostały wykonane następujące zadania:
 > [!div class="checklist"]
 >
-> * Utworzone obiekty bazy danych wymagane do załadowania z magazynu usługi Data Lake.
-> * Połączony z katalogiem magazynu usługi Data Lake.
-> * Załadowano dane do magazynu danych.
+> * Utworzono obiekty bazy danych wymagane do załadowania z Data Lake Storage.
+> * Połączono z katalogiem Data Lake Storage.
+> * Załadowano dane do hurtowni danych.
 >
 
-Ładowanie danych jest pierwszym krokiem do opracowania rozwiązania magazynu danych przy użyciu usługi Azure Synapse Analytics. Zapoznaj się z naszymi zasobami rozwojowymi.
+Ładowanie danych to pierwszy krok tworzenia rozwiązania magazynu danych przy użyciu usługi Azure Synapse Analytics. Zapoznaj się z naszymi zasobami programistycznymi.
 
 > [!div class="nextstepaction"]
-> [Dowiedz się, jak tworzyć tabele do magazynowania danych](sql-data-warehouse-tables-overview.md)
+> [Dowiedz się, jak opracowywać tabele na potrzeby magazynowania danych](sql-data-warehouse-tables-overview.md)

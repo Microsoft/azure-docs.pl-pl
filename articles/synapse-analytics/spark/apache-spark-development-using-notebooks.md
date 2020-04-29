@@ -1,6 +1,6 @@
 ---
-title: Tworzenie, tworzenie i obsługa notesów usługi Azure Synapse Studio (wersja zapoznawcza)
-description: W tym artykule dowiesz się, jak tworzyć i tworzyć notesy usługi Azure Synapse Studio (wersja zapoznawcza) w celu przygotowania i wizualizacji danych.
+title: Tworzenie, opracowywanie i konserwowanie notesów platformy Azure Synapse Studio (wersja zapoznawcza)
+description: W tym artykule dowiesz się, jak tworzyć i opracowywać notesy usługi Azure Synapse Studio (wersja zapoznawcza) w celu przygotowania i wizualizacji danych.
 services: synapse analytics
 author: ruixinxu
 ms.service: synapse-analytics
@@ -10,82 +10,82 @@ ms.date: 04/15/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.openlocfilehash: 506339cefa90fb17bedfc946f70cb4d7d8047cf2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81430229"
 ---
-# <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Tworzenie, tworzenie i obsługa notesów usługi Azure Synapse Studio (wersja zapoznawcza)
+# <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Tworzenie, opracowywanie i konserwowanie notesów platformy Azure Synapse Studio (wersja zapoznawcza)
 
-Notes usługi Azure Synapse Studio (wersja zapoznawcza) to interfejs sieci web do tworzenia plików zawierających kod na żywo, wizualizacje i tekst narracyjny. Notesy są dobrym miejscem do sprawdzania poprawności pomysłów i korzystania z szybkich eksperymentów, aby uzyskać szczegółowe informacje na podstawie danych. Notesy są również szeroko stosowane w przygotowywaniu danych, wizualizacji danych, uczeniu maszynowym i innych scenariuszach big data.
+Notes usługi Azure Synapse Studio (wersja zapoznawcza) to interfejs sieci Web służący do tworzenia plików, które zawierają kod na żywo, wizualizacje i tekst opisowy. Notesy są dobrym miejscem do weryfikowania pomysłów i używania szybkich eksperymentów w celu uzyskania szczegółowych informacji na podstawie danych. Notesy są również szeroko używane podczas przygotowywania danych, wizualizacji danych, uczenia maszynowego i innych scenariuszy danych Big Data.
 
 Za pomocą notesu usługi Azure Synapse Studio można:
 
-* Zacznij z zerowym nakładem konfiguracyjnym.
-* Zabezpieczanie danych dzięki wbudowanym funkcjom zabezpieczeń przedsiębiorstwa.
-* Analizowanie danych w formatach nieprzetworzonych (CSV, txt, JSON itp.), przetworzonych formatach plików (parkiet, Delta Lake, ORC itp.) i tabelaricznych plików danych SQL względem spark i SQL.
-* Bądź produktywny dzięki ulepszonym funkcjom tworzenia i wbudowanej wizualizacji danych.
+* Wprowadzenie do pracy z konfiguracją zero.
+* Zachowaj bezpieczeństwo danych dzięki wbudowanym funkcjom zabezpieczeń przedsiębiorstwa.
+* Analizuj dane w formatach RAW (CSV, txt, JSON itp.), przetwarzanych formatach plików (Parquet, Delta Lake, ORC itp.) i plikach danych tabelarycznych SQL dla platformy Spark i SQL.
+* Wydajniej dzięki ulepszonym funkcjom tworzenia i wbudowanej wizualizacji danych.
 
-W tym artykule opisano sposób używania notesów w usłudze Azure Synapse Studio.
+W tym artykule opisano sposób korzystania z notesów w usłudze Azure Synapse Studio.
 
 ## <a name="create-a-notebook"></a>Tworzenie notesu
 
-Istnieją dwa sposoby tworzenia notesu. Można utworzyć nowy notes lub zaimportować istniejący notes do obszaru roboczego Usługi Azure Synapse z **Eksploratora obiektów**. Notesy usługi Azure Synapse Studio mogą rozpoznawać standardowe pliki IPYNB notebooka Jupyter.
+Istnieją dwa sposoby tworzenia notesu. Możesz utworzyć nowy Notes lub zaimportować istniejący Notes do obszaru roboczego usługi Azure Synapse z **Eksplorator obiektów**. Notesy usługi Azure Synapse Studio mogą rozpoznawać standardowe pliki IPYNB Jupyter Notebook.
 
-![synapsy-tworzenie-import-notebook](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
+![Synapse-Create-import-Notes](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
 
 ## <a name="develop-notebooks"></a>Tworzenie notesów
 
-Notesy składają się z komórek, które są pojedynczymi blokami kodu lub tekstu, które można uruchomić niezależnie lub jako grupa.
+Notesy składają się z komórek, które są pojedynczymi blokami kodu lub tekstu, które mogą być uruchamiane niezależnie lub jako Grupa.
 
-### <a name="add-a-cell"></a>Dodawanie komórki
+### <a name="add-a-cell"></a>Dodaj komórkę
 
 Istnieje wiele sposobów dodawania nowej komórki do notesu.
 
-1. Rozwiń lewy górny **przycisk + Komórka** i wybierz pozycję Dodaj **komórkę kodu** lub Dodaj **komórkę tekstową**.
+1. Rozwiń górny lewy przycisk **+ komórkę** , a następnie wybierz pozycję **Dodaj komórkę kodu** lub **Dodaj komórkę tekstową**.
 
-    ![przycisk dodaj komórkę z komórką](./media/apache-spark-development-using-notebooks/synapse-add-cell-1.png)
+    ![przycisk dodawania komórek z komórką](./media/apache-spark-development-using-notebooks/synapse-add-cell-1.png)
 
-2. Umieść wskaźnik myszy na przestrzeni między dwiema komórkami i wybierz pozycję **Dodaj kod** lub **Dodaj tekst**.
+2. Umieść kursor nad przestrzenią między dwiema komórkami, a następnie wybierz pozycję **Dodaj kod** lub **Dodaj tekst**.
 
-    ![dodawanie komórki między przestrzenią](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
+    ![Dodaj komórkę między spacjami](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
 
-3. Użyj [klawiszy skrótów w trybie polecenia](#shortcut-keys-under-command-mode). Naciśnij **klawisz A,** aby wstawić komórkę nad bieżącą komórką. Naciśnij **klawisz B,** aby wstawić komórkę pod bieżącą komórką.
+3. Użyj [klawiszy skrótów w trybie polecenia](#shortcut-keys-under-command-mode). Naciśnij klawisz **,** aby wstawić komórkę powyżej bieżącej komórki. Naciśnij klawisz **B** , aby wstawić komórkę poniżej bieżącej komórki.
 
 ### <a name="set-a-primary-language"></a>Ustawianie języka podstawowego
 
-Notesy usługi Azure Synapse Studio obsługują cztery języki iskier:
+Notesy usługi Azure Synapse Studio obsługują cztery języki Spark:
 
-* pyspark (python)
-* iskra (Scala)
+* pyspark (Python)
+* Spark (Scala)
 * sparkSQL
 * Spark.NET (C#)
 
-Język podstawowy można ustawić dla nowych dodanych komórek z listy rozwijanej na górnym pasku poleceń.
+Można ustawić język podstawowy dla nowych dodanych komórek z listy rozwijanej na górnym pasku poleceń.
 
-   ![domyślny język synapsy](./media/apache-spark-development-using-notebooks/synapse-default-language.png)
+   ![Default-Synapse-Language](./media/apache-spark-development-using-notebooks/synapse-default-language.png)
 
-### <a name="use-multiple-languages"></a>Używanie wielu języków
+### <a name="use-multiple-languages"></a>Korzystanie z wielu języków
 
-Można użyć wielu języków w jednym notesie, określając poprawne polecenie magiczne języka na początku komórki. W poniższej tabeli wymieniono magiczne polecenia przełączania języków komórek.
+Możesz użyć wielu języków w jednym notesie, określając poprawne polecenie Language Magic na początku komórki. Poniższa tabela zawiera listę poleceń Magic do przełączania języków komórek.
 
-|Magiczne polecenie |Język | Opis |  
+|Magic — polecenie |Język | Opis |  
 |---|------|-----|
-|%%pyspark| Python | Wykonywanie kwerendy **języka Python** względem kontekstu platformy Spark.  |
-|%%iskra| Scala | Wykonywanie kwerendy **Scala** względem kontekstu platformy Spark.  |  
-|%%sql| SparkSQL ( SparkSQL ) | Wykonaj kwerendę **SparkSQL** względem kontekstu platformy Spark.  |
-|%%csharp | Spark.NET C # | Wykonaj **kwerendę Spark.NET C#** względem kontekstu platformy Spark. |
+|%% pyspark| Python | Wykonaj zapytanie w języku **Python** względem kontekstu platformy Spark.  |
+|%% Spark| Scala | Wykonaj zapytanie **Scala** względem kontekstu Spark.  |  
+|%% SQL| SparkSQL | Wykonaj zapytanie **SparkSQL** względem kontekstu Spark.  |
+|%% CSharp | Spark.NET C # | Wykonaj zapytanie **Spark.NET języka C#** względem kontekstu platformy Spark. |
 
-Poniższa ilustracja jest przykładem sposobu pisania kwerendy PySpark przy użyciu polecenia **%%pyspark** magic lub kwerendy SparkSQL z poleceniem **%%sql** magic w notesie **Spark(Scala).** Należy zauważyć, że podstawowy język notesu jest ustawiony na Scala.
+Na poniższej ilustracji przedstawiono przykład sposobu pisania zapytania PySpark przy użyciu polecenia **%% PySpark** Magic lub zapytania SparkSQL z poleceniem **%% SQL** Magic w notesie **Spark (Scala)** . Zwróć uwagę, że podstawowy język notesu jest ustawiony na Scala.
 
-   ![synapsa-iskra-magia](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
+   ![Synapse-Spark-MAGICS](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
 ### <a name="use-temp-tables-to-reference-data-across-languages"></a>Używanie tabel tymczasowych do odwoływania się do danych w różnych językach
 
-W notesie Synapse Studio nie można odwoływać się do danych ani zmiennych bezpośrednio w różnych językach. W spark tabeli tymczasowej można odwoływać się w różnych językach. Oto przykład sposobu odczytywania `Scala` dataframe `PySpark` `SparkSQL` i przy użyciu tabeli tymczasowej platformy Spark jako obejście problemu.
+Nie można odwoływać się do danych ani zmiennych bezpośrednio w różnych językach w notesie programu Synapse Studio. W platformie Spark można odwoływać się do tabeli tymczasowej w różnych językach. Oto przykład sposobu odczytywania `Scala` ramki danych w `PySpark` i `SparkSQL` używania tabeli tymczasowej platformy Spark jako obejścia.
 
-1. W komórce 1 odczytuj moduł DataFrame z łącznika puli SQL przy użyciu scali i utwórz tabelę tymczasową.
+1. W komórce 1 Odczytaj element Dataframe z łącznika puli SQL przy użyciu Scala i Utwórz tabelę tymczasową.
 
    ```scala
    %%scala
@@ -93,128 +93,128 @@ W notesie Synapse Studio nie można odwoływać się do danych ani zmiennych bez
    scalaDataFrame.registerTempTable( "mydataframetable" )
    ```
 
-2. W komórce 2 kwerendy danych przy użyciu programu Spark SQL.
+2. W komórce 2 zbadaj dane przy użyciu platformy Spark SQL.
    
    ```sql
    %%sql
    SELECT * FROM mydataframetable
    ```
 
-3. W 3 komórki użyj danych w PySpark.
+3. W komórce 3 Użyj danych z PySpark.
 
    ```python
    %%pyspark
    myNewPythonDataFrame = spark.sql("SELECT * FROM mydataframetable")
    ```
 
-### <a name="ide-style-intellisense"></a>IntelliSense w stylu IDE
+### <a name="ide-style-intellisense"></a>Technologia IntelliSense w stylu IDE
 
-Notesy usługi Azure Synapse Studio są zintegrowane z edytorem Monaco, aby wprowadzić intellisense w stylu IDE do edytora komórek. Podświetlenie składni, kreator błędów i automatyczne uzupełnianie kodu pomagają szybciej pisać kod i identyfikować problemy.
+Notesy usługi Azure Synapse Studio są zintegrowane z edytorem Monako w celu przełączenia funkcji IntelliSense w stylu IDE do edytora komórek. Wyróżnianie składni, tworzenie błędów i automatyczne uzupełnianie kodu ułatwia pisanie kodu i szybsze identyfikowanie problemów.
 
 Funkcje IntelliSense są na różnych poziomach dojrzałości dla różnych języków. Skorzystaj z poniższej tabeli, aby zobaczyć, co jest obsługiwane.
 
-|Języki| Wyróżnienie składni | Znacznik błędu składni  | Zakończenie kodu składni | Uzupełnianie kodu zmiennej| Zakończenie kodu funkcji systemu| Zakończenie kodu funkcji użytkownika| Inteligentne wcięcie | Składanie kodu|
+|Języki| Wyróżnianie składni | Znacznik błędu składniowy  | Uzupełnianie kodu składni | Uzupełnianie kodu zmiennej| Uzupełnianie kodu funkcji systemu| Uzupełnianie kodu funkcji użytkownika| Inteligentne wcięcie | Składanie kodu|
 |--|--|--|--|--|--|--|--|--|
 |PySpark (Python)|Tak|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
-|Iskra (Scala)|Tak|Tak|Tak|Tak|-|-|-|Tak|
-|SparkSQL ( SparkSQL )|Tak|Tak|-|-|-|-|-|-|
+|Spark (Scala)|Tak|Tak|Tak|Tak|-|-|-|Tak|
+|SparkSQL|Tak|Tak|-|-|-|-|-|-|
 |Spark.NET (C#)|Tak|-|-|-|-|-|-|-|
 
-### <a name="format-text-cell-with-toolbar-buttons"></a>Formatowanie komórki tekstowej za pomocą przycisków paska narzędzi
+### <a name="format-text-cell-with-toolbar-buttons"></a>Formatowanie komórki tekstowej przy użyciu przycisków paska narzędzi
 
-Za pomocą przycisków formatowania na pasku narzędzi komórek tekstowych można wykonywać typowe akcje oznaczania. Zawiera pogrubienie tekstu, kursywę tekstu, wstawianie fragmentów kodu, wstawianie nieurządzonej listy, wstawianie uporządkowanej listy i wstawianie obrazu z adresu URL.
+Za pomocą przycisków formatowania na pasku narzędzi komórki tekstowe można wykonywać typowe działania dotyczące promocji. Zawiera tekst pogrubiony, tekst italicizing, wstawianie fragmentów kodu, wstawianie listy nieuporządkowanej, wstawianie uporządkowanej listy i Wstawianie obrazu z adresu URL.
 
-  ![pasek narzędzi synapse-text-cell](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
+  ![Synapse-Text-Cell-Toolbar](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
 
-### <a name="undo-cell-operations"></a>Cofanie operacji komórek
-Kliknij przycisk **Cofnij** lub naciśnij klawisze **Ctrl+Z,** aby odwołać ostatnią operację komórki. Teraz możesz cofnąć do najnowszych 20 historycznych akcji komórek. 
+### <a name="undo-cell-operations"></a>Operacje cofania komórek
+Kliknij przycisk **Cofnij** lub naciśnij **klawisze CTRL + z** , aby odwołać ostatnią operację komórki. Teraz można cofnąć maksymalnie 20 akcji w ramach komórki historycznej. 
 
-   ![synapsy-cofnij komórki](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
+   ![Synapse-Undo-Cells](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
 
 ### <a name="move-a-cell"></a>Przenoszenie komórki
 
-Wybierz wielokropek (...) aby uzyskać dostęp do menu akcji dodatkowych komórek po prawej stronie. Następnie wybierz pozycję **Przenieś komórkę w górę** lub Przenieś **komórkę w dół,** aby przenieść bieżącą komórkę. 
+Wybierz wielokropek (...), aby uzyskać dostęp do menu akcji dodatkowych po prawej stronie. Następnie wybierz pozycję **Przenieś komórkę w górę** lub **Przenieś komórkę w dół** , aby przenieść bieżącą komórkę. 
 
-Można również użyć [klawiszy skrótów w trybie polecenia](#shortcut-keys-under-command-mode). Naciśnij **klawisze Ctrl+Alt+↑,** aby przenieść bieżącą komórkę w górę. Naciśnij **klawisze Ctrl+Alt+↓,** aby przesunąć bieżącą komórkę w dół.
+Możesz również użyć [klawiszy skrótów w trybie polecenia](#shortcut-keys-under-command-mode). Naciśnij **kombinację klawiszy Ctrl + Alt + ↑** , aby przenieść bieżącą komórkę w górę. Naciśnij **kombinację klawiszy Ctrl + Alt + ↓** , aby przenieść bieżącą komórkę w dół.
 
-   ![move-a-cell](./media/apache-spark-development-using-notebooks/synapse-move-cells.png)
+   ![Przenieś jako komórkę](./media/apache-spark-development-using-notebooks/synapse-move-cells.png)
 
-### <a name="delete-a-cell"></a>Usuwanie komórki
+### <a name="delete-a-cell"></a>Usuń komórkę
 
-Aby usunąć komórkę, zaznacz elipsy (...) aby uzyskać dostęp do menu akcji dodatkowych komórek po prawej stronie, a następnie wybierz pozycję **Usuń komórkę**. 
+Aby usunąć komórkę, wybierz wielokropek (...), aby uzyskać dostęp do menu Akcje dodatkowe komórki, a następnie wybierz pozycję **Usuń komórkę**. 
 
-Można również użyć [klawiszy skrótów w trybie polecenia](#shortcut-keys-under-command-mode). Naciśnij **klawisz D,D,** aby usunąć bieżącą komórkę.
+Możesz również użyć [klawiszy skrótów w trybie polecenia](#shortcut-keys-under-command-mode). Naciśnij **d, d,** aby usunąć bieżącą komórkę.
   
-   ![delete-a-cell](./media/apache-spark-development-using-notebooks/synapse-delete-cell.png)
+   ![delete-a-Cell](./media/apache-spark-development-using-notebooks/synapse-delete-cell.png)
 
-### <a name="collapse-a-cell-input"></a>Zwijanie danych wejściowych komórki
-Kliknij przycisk strzałki u dołu bieżącej komórki, aby ją zwinąć. Aby ją rozwinąć, kliknij przycisk strzałki, gdy komórka jest zwinięta.
+### <a name="collapse-a-cell-input"></a>Zwiń dane wejściowe komórki
+Kliknij przycisk strzałki w dolnej części bieżącej komórki, aby go zwinąć. Aby ją rozwinąć, kliknij przycisk strzałki, gdy komórka jest zwinięta.
 
-   ![zwijanie-komórka-wejście](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-input.gif)
+   ![Zwiń komórki wejściowe](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-input.gif)
 
-### <a name="collapse-a-cell-output"></a>Zwijanie danych wyjściowych komórki
+### <a name="collapse-a-cell-output"></a>Zwiń dane wyjściowe komórki
 
-Kliknij przycisk **zwiń wyjście** w lewym górnym rogu bieżącego wyjścia komórki, aby go zwinąć. Aby ją rozwinąć, kliknij pozycję **Pokaż dane wyjściowe komórki,** gdy dane wyjściowe komórki są zwinięte.
+Kliknij przycisk **Zwiń dane wyjściowe** w lewym górnym rogu bieżącej komórki wyjściowej, aby je zwinąć. Aby ją rozwinąć, kliknij pozycję **Pokaż dane wyjściowe komórki** , gdy dane wyjściowe komórki są zwinięte.
 
-   ![zwijanie komórki-wyjście](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-output.gif)
+   ![Zwiń komórki](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-output.gif)
 
 ## <a name="run-notebooks"></a>Uruchamianie notesów
 
-Komórki kodu w notesie można uruchamiać pojedynczo lub wszystkie naraz. Stan i postęp każdej komórki są reprezentowane w notesie.
+Komórki kodu w notesie można uruchamiać pojedynczo lub wszystkie jednocześnie. Stan i postęp każdej komórki są reprezentowane w notesie.
 
-### <a name="run-a-cell"></a>Uruchamianie komórki
+### <a name="run-a-cell"></a>Uruchom komórkę
 
 Istnieje kilka sposobów uruchamiania kodu w komórce.
 
-1. Umieść wskaźnik myszy na komórce, którą chcesz uruchomić, a następnie wybierz przycisk **Uruchom komórkę** lub naciśnij **klawisze Ctrl+Enter**.
+1. Umieść kursor na komórce, którą chcesz uruchomić, a następnie wybierz przycisk **Uruchom komórkę** lub naciśnij **klawisze CTRL + ENTER**.
 
-   ![komórka run-1](./media/apache-spark-development-using-notebooks/synapse-run-cell.png)
+   ![Run-Cell-1](./media/apache-spark-development-using-notebooks/synapse-run-cell.png)
 
 
-2. Aby uzyskać dostęp do menu dodatkowych akcji komórek po prawej stronie, wybierz elipsy (**...**). Następnie wybierz pozycję **Uruchom komórkę**.
+2. Aby uzyskać dostęp do menu akcji dodatkowych po prawej stronie, wybierz wielokropek (**...**). Następnie wybierz pozycję **Uruchom komórkę**.
 
-   ![komórka run-2](./media/apache-spark-development-using-notebooks/synapse-run-cell-2.png)
+   ![Run-Cell-2](./media/apache-spark-development-using-notebooks/synapse-run-cell-2.png)
    
-3. Użyj [klawiszy skrótów w trybie polecenia](#shortcut-keys-under-command-mode). Naciśnij **klawisze Shift+Enter,** aby uruchomić bieżącą komórkę, a następnie zaznacz komórkę poniżej. Naciśnij **klawisze Alt+Enter,** aby uruchomić bieżącą komórkę i wstawić nową komórkę poniżej.
+3. Użyj [klawiszy skrótów w trybie polecenia](#shortcut-keys-under-command-mode). Naciśnij klawisze **SHIFT + ENTER** , aby uruchomić bieżącą komórkę i wybierz komórkę poniżej. Naciśnij klawisze **ALT + ENTER** , aby uruchomić bieżącą komórkę i Wstaw nową komórkę poniżej.
 
 
 ### <a name="run-all-cells"></a>Uruchom wszystkie komórki
-Kliknij przycisk **Uruchom wszystko,** aby po kolei uruchomić wszystkie komórki w bieżącym notesie.
+Kliknij przycisk **Uruchom wszystko** , aby uruchomić wszystkie komórki w bieżącym notesie w sekwencji.
 
-   ![wszystkie komórki run](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
+   ![Run-All-Cells](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
 
 ### <a name="run-all-cells-above-or-below"></a>Uruchom wszystkie komórki powyżej lub poniżej
 
-Aby uzyskać dostęp do menu dodatkowych akcji komórek po prawej stronie, wybierz elipsy (**...**). Następnie wybierz pozycję **Uruchom komórki powyżej,** aby kolejno uruchomić wszystkie komórki nad prądem. Wybierz **pozycję Uruchom komórki poniżej,** aby kolejno uruchomić wszystkie komórki poniżej bieżącego.
+Aby uzyskać dostęp do menu akcji dodatkowych po prawej stronie, wybierz wielokropek (**...**). Następnie wybierz pozycję **Uruchom komórki powyżej** , aby uruchomić wszystkie komórki znajdujące się nad bieżącą sekwencją. Wybierz pozycję **Uruchom komórki poniżej** , aby uruchomić wszystkie komórki znajdujące się pod bieżącą sekwencją.
 
-   ![komórki run-powyżej lub poniżej](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
+   ![Run-Cells-above-lub-below](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
 
 ### <a name="cell-status-indicator"></a>Wskaźnik stanu komórki
 
-Stan wykonywania komórki krok po kroku jest wyświetlany pod komórką, aby ułatwić wyświetlanie jej bieżącego postępu. Po zakończeniu uruchamiania komórki podsumowanie wykonania z całkowitym czasem trwania i czasem zakończenia są wyświetlane i przechowywane tam do wykorzystania w przyszłości.
+Poniżej komórki zostanie wyświetlony stan wykonania komórki krok po kroku, aby ułatwić wyświetlenie bieżącego postępu. Po zakończeniu przebiegu komórki zostanie wyświetlone podsumowanie wykonywania z łącznym czasem trwania i zakończenia, które będą przechowywane w przyszłości.
 
-![stan komórki](./media/apache-spark-development-using-notebooks/synapse-cell-status.png)
+![komórka-status](./media/apache-spark-development-using-notebooks/synapse-cell-status.png)
 
-### <a name="spark-progress-indicator"></a>Wskaźnik postępu iskierki
+### <a name="spark-progress-indicator"></a>Wskaźnik postępu platformy Spark
 
-Notes usługi Azure Synapse Studio jest oparty wyłącznie na platformie Spark. Komórki kodu są wykonywane zdalnie w puli platformy Spark. Wskaźnik postępu zadania platformy Spark jest dostarczany z paskiem postępu w czasie rzeczywistym, który ułatwia zrozumienie stanu wykonania zadania.
-
-
-![wskaźnik postępu iskrowego](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
-
-### <a name="spark-session-config"></a>Config sesji Iskry
-
-Można określić czas trwania limitu czasu, liczbę i rozmiar executorów, aby nadać bieżącej sesji Spark w **konfiguracji sesji**. Uruchom ponownie sesję platformy Spark, aby zmiany konfiguracji zostały wprowadzone. Wszystkie buforowane zmienne notesu są wyczyszczone.
-
-![sesja-mgmt](./media/apache-spark-development-using-notebooks/synapse-spark-session-mgmt.png)
+Notes usługi Azure Synapse Studio jest całkowicie oparty na platformie Spark. Komórki kodu są wykonywane zdalnie w puli Spark. Zostanie wyświetlony wskaźnik postępu zadania platformy Spark z paskiem postępu w czasie rzeczywistym, który pomoże zrozumieć stan wykonywania zadania.
 
 
-## <a name="bring-data-to-a-notebook"></a>Wprowadzanie danych do notesu
+![Spark-Progress-wskaźnik](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
 
-Można załadować dane z usługi Azure Blob Storage, Azure Data Lake Store Gen 2 i puli SQL, jak pokazano w przykładach kodu poniżej.
+### <a name="spark-session-config"></a>Konfiguracja sesji platformy Spark
 
-### <a name="read-a-csv-from-azure-data-lake-store-gen2-as-a-spark-dataframe"></a>Odczytanie pliku CSV z usługi Azure Data Lake Store Gen2 jako elementu Spark DataFrame
+Możesz określić czas trwania limitu czasu, liczbę i rozmiar wykonawców, który ma zostać przypisany do bieżącej sesji platformy Spark w obszarze **Konfigurowanie sesji**. Aby zmiany konfiguracji zaczęły obowiązywać, należy ponownie uruchomić sesję platformy Spark. Wszystkie buforowane zmienne notesu są wyczyszczone.
+
+![Zarządzanie sesjami](./media/apache-spark-development-using-notebooks/synapse-spark-session-mgmt.png)
+
+
+## <a name="bring-data-to-a-notebook"></a>Przenoszenie danych do notesu
+
+Dane można ładować z usługi Azure Blob Storage, Azure Data Lake Store Gen 2 i puli SQL, jak pokazano w poniższych przykładach kodu.
+
+### <a name="read-a-csv-from-azure-data-lake-store-gen2-as-a-spark-dataframe"></a>Odczytaj plik CSV z Azure Data Lake Store Gen2 jako element Dataframe platformy Spark
 
 ```python
 from pyspark.sql import SparkSession
@@ -233,7 +233,7 @@ df1 = spark.read.option('header', 'true') \
 
 ```
 
-#### <a name="read-a-csv-from-azure-blob-storage-as-a-spark-dataframe"></a>Odczytanie pliku CSV z usługi Azure Blob Storage jako elementu Spark DataFrame
+#### <a name="read-a-csv-from-azure-blob-storage-as-a-spark-dataframe"></a>Odczytaj plik CSV z usługi Azure Blob Storage jako element Dataframe platformy Spark
 
 ```python
 
@@ -255,32 +255,32 @@ df = spark.read.option("header", "true") \
 
 ```
 
-### <a name="read-data-from-the-primary-storage-account"></a>Odczytywanie danych z podstawowego konta magazynu
+### <a name="read-data-from-the-primary-storage-account"></a>Odczytaj dane z podstawowego konta magazynu
 
-Dostęp do danych można uzyskać bezpośrednio na koncie magazynu podstawowego. Nie ma potrzeby podawania tajnych kluczy. W Eksploratorze danych kliknij prawym przyciskiem myszy plik i wybierz pozycję **Nowy notes,** aby wyświetlić nowy notes z automatyczniegenerowanym ekstraktorem danych.
+Dostęp do danych można uzyskać bezpośrednio na podstawowym koncie magazynu. Nie ma potrzeby dostarczania kluczy tajnych. W Eksplorator danych kliknij prawym przyciskiem myszy plik i wybierz pozycję **Nowy Notes** , aby wyświetlić nowy Notes z wygenerowanym automatycznie programem wyodrębniania danych.
 
-![danych do komórki](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
+![dane do komórki](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
 
-## <a name="visualize-data-in-a-notebook"></a>Wizualizacja danych w notesie
+## <a name="visualize-data-in-a-notebook"></a>Wizualizowanie danych w notesie
 
-### <a name="display"></a>Display()
+### <a name="display"></a>Display ()
 
-Widok wyników tabelaryjskich jest wyposażony w opcję utworzenia wykresu słupkowego, wykresu liniowego, wykresu kołowego, wykresu punktowego i wykresu warstwowego. Można wizualizować dane bez konieczności pisania kodu. Wykresy można dostosować w **opcji wykresu**. 
+Widok wyników tabelarycznych jest dostępny z opcją tworzenia wykresu słupkowego, wykresu liniowego, wykresu kołowego, wykresu punktowego i wykresu warstwowego. Możesz wizualizować dane bez konieczności pisania kodu. Wykresy można dostosować w **opcjach wykresu**. 
 
-Dane wyjściowe **poleceń magic %%sql** są domyślnie wyświetlane w widoku renderowanego stołu. Można wywołać **display(`<DataFrame name>`)** na Spark DataFrames lub Resilient Distributed Datasets (RDD) funkcja do produkcji renderowanego widoku tabeli.
+Dane wyjściowe poleceń Magic **%% SQL** są wyświetlane domyślnie w widoku renderowanej tabeli. Aby utworzyć renderowany widok tabeli, można wywołać funkcję **Display (`<DataFrame name>`)** na platformie Spark dataframes lub odporną na błędy rozproszone zestawy danych (RDD).
 
-   ![wbudowane wykresy](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)
+   ![Wykresy wbudowane](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)
 
 ### <a name="displayhtml"></a>DisplayHTML()
 
-Można renderować biblioteki HTML lub interaktywne, takie jak **bokeh,** za pomocą **displayHTML()**.
+Można renderować biblioteki HTML lub interaktywne, takie jak **bokeh**, przy użyciu **displayHTML ()**.
 
-Poniższy obraz jest przykładem kreślenia glifów na mapie za pomocą **bokeh**.
+Na poniższej ilustracji przedstawiono przykład kreślenia symboli na mapie za pomocą **bokeh**.
 
-   ![bokeh-przykład](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
+   ![bokeh — przykład](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
    
 
-Uruchom poniższy przykładowy kod, aby narysować obraz powyżej.
+Uruchom następujący przykładowy kod, aby narysować Powyższy obraz.
 
 ```python
 from bokeh.plotting import figure, output_file
@@ -312,83 +312,83 @@ displayHTML(html)
 
 ```
 
-## <a name="save-notebooks"></a>Zapisywanie notesów
+## <a name="save-notebooks"></a>Zapisuj notesy
 
-W obszarze roboczym można zapisać pojedynczy notes lub wszystkie notesy.
+Możesz zapisać pojedynczy Notes lub wszystkie notesy w obszarze roboczym.
 
-1. Aby zapisać zmiany wprowadzone w jednym notesie, wybierz przycisk **Publikuj** na pasku poleceń notesu.
+1. Aby zapisać zmiany wprowadzone w pojedynczym notesie, wybierz przycisk **Publikuj** na pasku poleceń notesu.
 
-   ![publikuj-notes](./media/apache-spark-development-using-notebooks/synapse-publish-notebook.png)
+   ![Publikowanie — Notes](./media/apache-spark-development-using-notebooks/synapse-publish-notebook.png)
 
 2. Aby zapisać wszystkie notesy w obszarze roboczym, wybierz przycisk **Opublikuj wszystko** na pasku poleceń obszaru roboczego. 
 
-   ![publikowanie wszystkich](./media/apache-spark-development-using-notebooks/synapse-publish-all.png)
+   ![Publikuj — wszystko](./media/apache-spark-development-using-notebooks/synapse-publish-all.png)
 
-We właściwościach notesu można skonfigurować, czy podczas zapisywania mają być uwzględniane dane wyjściowe komórki.
+We właściwościach notesu można określić, czy podczas zapisywania mają być uwzględniane dane wyjściowe komórki.
 
-   ![właściwości notesu](./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png)
+   ![Notes — właściwości](./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png)
 
-## <a name="magic-commands"></a>Magiczne polecenia
-W notesach usługi Azure Synapse Studio można używać znanych magicznych poleceń Jupyter. Sprawdź poniższą listę jako aktualne dostępne magiczne polecenia. Poinformuj nas o przypadkach użycia w usłudze GitHub, abyśmy mogli nadal tworzyć więcej magicznych poleceń, aby spełnić Twoje potrzeby.
+## <a name="magic-commands"></a>Magic — polecenia
+Możesz użyć znanych poleceń Jupyter Magic w notesach usługi Azure Synapse Studio. Sprawdź poniższą listę jako bieżące dostępne polecenia Magic. Przekaż nam swoje przypadki użycia w serwisie GitHub, aby można było dalej tworzyć bardziej magicowe polecenia, aby zaspokoić Twoje potrzeby.
 
-Dostępne magie wierszy: [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
+Dostępne magicznki wiersza: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [% czasu](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
 
-Dostępne magie komórek: [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages)
+Dostępne magicy komórki: [%% Time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%% timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%% Capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%% WriteFile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%% SQL](#use-multiple-languages), [%% pyspark](#use-multiple-languages), [%% Spark](#use-multiple-languages), [%% CSharp](#use-multiple-languages)
 
 ## <a name="shortcut-keys"></a>Klawisze skrótów
 
-Podobnie jak w przypadku notesów Jupyter, notesy usługi Azure Synapse Studio mają modalny interfejs użytkownika. Klawiatura wykonuje różne czynności w zależności od trybu, w którym znajduje się komórka notebooka. Notesy Synapse Studio obsługują następujące dwa tryby dla danej komórki kodu: tryb poleceń i tryb edycji.
+Podobnie jak w przypadku notesów Jupyter, notesy platformy Azure Synapse Studio mają interfejs użytkownika modalnego. Klawiatura wykonuje różne czynności w zależności od trybu, w którym znajduje się komórka notesu. Notesy programu Synapse Studio obsługują następujące dwa tryby dla danej komórki kodu: Tryb poleceń i tryb edycji.
 
-1. Komórka jest w trybie polecenia, gdy nie ma kursora tekstowego z monitem o wpisanie. Gdy komórka jest w trybie polecenia, można edytować notes jako całość, ale nie wpisywać do poszczególnych komórek. Wprowadź tryb poleceń, naciskając `ESC` lub używając myszy, aby kliknąć poza obszarem edytora komórki.
+1. Komórka jest w trybie polecenia, gdy nie ma kursora tekstu z monitem o wpisanie. Gdy komórka jest w trybie poleceń, można edytować Notes jako całość, ale nie do pojedynczych komórek. Przejdź do trybu polecenia, `ESC` naciskając lub klikając myszą poza obszarem edytora komórki.
 
    ![tryb polecenia](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
 
-2. Tryb edycji jest wskazywany przez kursor tekstowy z prośbą o wpisanie tekstu w obszarze edytora. Gdy komórka jest w trybie edycji, nie można wpisać do komórki. Wejdź w `Enter` tryb edycji, naciskając lub klikając myszą, aby kliknąć obszar edytora komórki.
+2. Tryb edycji jest wskazywany przez kursor tekstowy z monitem o wpisanie w obszarze edytora. Gdy komórka jest w trybie edycji, nie można wpisać do komórki. Przejdź do trybu edycji, `Enter` naciskając lub klikając myszą w obszarze edytora komórki.
    
    ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
 
 ### <a name="shortcut-keys-under-command-mode"></a>Klawisze skrótów w trybie polecenia
 
-Za pomocą następujących skrótów klawiszy można łatwiej nawigować i uruchamiać kod w notesach usługi Azure Synapse.
+Korzystając z następujących skrótów klawiaturowych, można łatwiej nawigować i uruchamiać kod w notesach usługi Azure Synapse.
 
-| Akcja |Skróty notesu Synapse Studio  |
+| Akcja |Skróty notesu programu Synapse Studio  |
 |--|--|
 |Uruchom bieżącą komórkę i wybierz poniżej | Shift+Enter |
-|Uruchom bieżącą komórkę i wstaw poniżej | Alt+Enter |
+|Uruchom bieżącą komórkę i Wstaw poniżej | Alt+Enter |
 |Zaznacz komórkę powyżej| W górę |
-|Zaznacz komórkę poniżej| W dół |
+|Wybierz komórkę poniżej| W dół |
 |Wstaw komórkę powyżej| A |
 |Wstaw komórkę poniżej| B |
-|Rozszerzanie zaznaczonych komórek powyżej| Shift+w górę |
-|Rozszerzanie zaznaczonych komórek poniżej| Shift+w dół|
-|Przenoszenie komórki w górę| Ctrl+Alt+↑ |
-|Przenoszenie komórki w dół| Ctrl+Alt+↓ |
-|Usuwanie zaznaczonych komórek| D, D |
-|Przełączanie do trybu edycji| Enter |
+|Rozciągnij zaznaczone komórki powyżej| Shift + Strzałka w górę |
+|Rozciągnij zaznaczone komórki poniżej| Shift + Strzałka w dół|
+|Przenieś komórkę w górę| Ctrl + Alt + ↑ |
+|Przenieś komórkę w dół| Ctrl + Alt + ↓ |
+|Usuń zaznaczone komórki| D, D |
+|Przełącz do trybu edycji| Enter |
 
 ### <a name="shortcut-keys-under-edit-mode"></a>Klawisze skrótów w trybie edycji
 
-Korzystając z następujących skrótów klawiszy, można łatwiej nawigować i uruchamiać kod w notesach usługi Azure Synapse w trybie edycji.
+Korzystając z następujących skrótów klawiaturowych, można łatwiej nawigować i uruchamiać kod w notesach usługi Azure Synapse w trybie edycji.
 
-| Akcja |Skróty do notesu Synapse Studio  |
+| Akcja |Skróty notesu programu Synapse Studio  |
 |--|--|
-|Przesuwanie kursora w górę | W górę |
-|Przenoszenie kursora w dół|W dół|
+|Przenieś kursor w górę | W górę |
+|Przenieś kursor w dół|W dół|
 |Cofanie|Ctrl + Z|
 |Ponów|Ctrl + Y|
-|Komentarz/Odkomentowanie|Ctrl + /|
-|Usuwanie wyrazu przed|Ctrl + Obszar wsteczny|
-|Usuń słowo po|Ctrl + Usuń|
-|Przejdź do początku komórki|Ctrl + Strona główna|
-|Przejdź do końca komórki |Ctrl + Koniec|
+|Skomentuj/Usuń komentarz|Ctrl +/|
+|Usuń słowo przed|Ctrl + Backspace|
+|Usuń słowo po|CTRL + DELETE|
+|Przejdź do początku komórki|Ctrl + Home|
+|Przejdź do końca komórki |Ctrl + End|
 |Przejdź o jedno słowo w lewo|Ctrl + w lewo|
-|Przejdź o jedno słowo w prawo|Ctrl + prawy|
+|Przejdź o jedno słowo w prawo|Ctrl + w prawo|
 |Zaznacz wszystkie|Ctrl + A|
-|Wcięcie| Ctrl + ]|
-|Dedent ( Dedent )|Ctrl + [|
-|Przełączanie do trybu poleceń| Esc |
+|Wyświetlane| Ctrl +]|
+|Zmniejsz wcięcie|CTRL + [|
+|Przełącz do trybu polecenia| Esc |
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [.NET dla apache Spark dokumentacji](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Dokumentacja platformy .NET dla Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

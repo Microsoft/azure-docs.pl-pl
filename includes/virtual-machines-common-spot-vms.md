@@ -8,95 +8,95 @@ ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 4063751a71cd9cecc424dfe3daddaecfd9ea4071
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81421929"
 ---
-Korzystanie z maszyn wirtualnych spot pozwala na wykorzystanie naszej niewykorzystanej pojemności przy znacznych oszczędnościach kosztów. W dowolnym momencie, gdy platforma Azure potrzebuje pojemności z powrotem, infrastruktura platformy Azure będzie eksmitować maszyny wirtualne spot. W związku z tym maszyny wirtualne spot są idealne dla obciążeń, które mogą obsługiwać przerwy, takie jak zadania przetwarzania wsadowego, środowiska deweloperów/testów, duże obciążenia obliczeniowe i inne.
+Korzystanie z maszyn wirtualnych na miejscu pozwala korzystać z nieużywanej pojemności przy znaczącym obciążeniu kosztów. W dowolnym momencie, gdy platforma Azure wymaga przywrócenia pojemności, infrastruktura platformy Azure wyłączy maszyny wirtualne. W związku z tym maszyny wirtualne są doskonałe dla obciążeń, które mogą obsłużyć przerwy, takie jak zadania przetwarzania wsadowego, środowiska deweloperskie/testowe, duże obciążenia obliczeniowe i inne.
 
-Ilość dostępnej pojemności może się różnić w zależności od rozmiaru, regionu, połówka dnia i innych. Podczas wdrażania maszyn wirtualnych spot platforma Azure przydzieli maszyny wirtualne, jeśli dostępna jest pojemność, ale dla tych maszyn wirtualnych nie ma żadnej umowy SLA. Spot VM nie oferuje gwarancji wysokiej dostępności. W dowolnym momencie, gdy platforma Azure potrzebuje pojemności z powrotem, infrastruktura platformy Azure będzie eksmitować maszyny wirtualne spot z powiadomieniem 30 sekund. 
+Ilość dostępnej pojemności może się różnić w zależności od rozmiaru, regionu, pory dnia i innych. Podczas wdrażania maszyn wirtualnych w miejscu platforma Azure przydzieli maszyny wirtualne, jeśli będzie dostępna pojemność, ale nie ma umowy SLA dla tych maszyn wirtualnych. Na maszynie wirtualnej nie są dostępne gwarancje wysokiej dostępności. W dowolnym momencie, gdy platforma Azure potrzebuje pojemności z powrotem, infrastruktura platformy Azure wyłączy maszyny wirtualne z 30 sekund. 
 
 
-## <a name="eviction-policy"></a>Zasady eksmisji
+## <a name="eviction-policy"></a>Zasady wykluczania
 
-Maszyny wirtualne mogą być eksmitowane na podstawie pojemności lub maksymalnej ceny, którą ustawisz. W przypadku maszyn wirtualnych zasady eksmisji jest ustawiona na *Deallocate,* który przenosi eksmitowanych maszyn wirtualnych do stanu zatrzymanego-deallokowane, co pozwala na ponowne wdrożenie eksmitowanych maszyn wirtualnych w późniejszym czasie. Jednak ponowne przydzielanie maszyn wirtualnych spot będzie zależeć od dostępnej pojemności punktowej. Zdelegalizowane maszyny wirtualne będą wliczane do limitu podstawowego limitu vCPU i zostanie naliczona opłata za dyski bazowe. 
+Maszyny wirtualne można wykluczyć w oparciu o pojemność lub maksymalną ustawioną cenę. W przypadku maszyn wirtualnych zasady wykluczenia są ustawiane na wartość *unallocate* , która przenosi wykluczone maszyny wirtualne do stanu zatrzymania bez alokacji, umożliwiając ponowne wdrożenie wykluczonych maszyn wirtualnych w późniejszym czasie. Ponowne przydzielanie dodatkowych maszyn wirtualnych będzie jednak zależne od dostępnej pojemności. Cofnięte alokacje maszyn wirtualnych będą wliczane do limitu przydziału usługi vCPUe i zostanie naliczona opłata za dyski bazowe. 
 
-Użytkownicy mogą wyrazić zgodę na otrzymywanie powiadomień w maszynie wirtualnej za pośrednictwem [usługi Azure Scheduled Events.](../articles/virtual-machines/linux/scheduled-events.md) Spowoduje to powiadomienie, jeśli maszyny wirtualne są eksmitowane i będziesz miał 30 sekund, aby zakończyć wszystkie zadania i wykonać zadania zamknięcia przed eksmisją. 
+Użytkownicy mogą zrezygnować z otrzymywania powiadomień w ramach maszyny wirtualnej za pomocą [usługi Azure Scheduled Events](../articles/virtual-machines/linux/scheduled-events.md). Spowoduje to powiadomienie użytkownika, jeśli maszyny wirtualne zostaną wykluczone, a użytkownik będzie miał 30 sekund na ukończenie zadań i wykonanie zadań zamknięcia przed wykluczeniem. 
 
 
 | Opcja | Wynik |
 |--------|---------|
-| Cena maksymalna jest ustawiona na >= aktualna cena. | Maszyna wirtualna jest wdrażana, jeśli dostępna jest pojemność i przydział. |
-| Cena maksymalna jest ustawiona na < aktualną cenę. | Maszyna wirtualna nie jest wdrażana. Pojawi się komunikat o błędzie, że cena maksymalna musi być >= aktualna cena. |
-| Ponowne uruchamianie maszyny Wirtualnej zatrzymania/przydzielenia, jeśli cena maksymalna jest >= aktualna cena | Jeśli istnieje pojemność i przydział, maszyna wirtualna jest wdrażana. |
-| Ponowne uruchamianie maszyny Wirtualnej zatrzymania/przydzielenia, jeśli cena maksymalna jest < bieżącej cenie | Pojawi się komunikat o błędzie, że cena maksymalna musi być >= aktualna cena. | 
-| Cena maszyny Wirtualnej wzrosła i jest teraz > maksymalnej cenie. | Maszyna wirtualna zostanie eksmitowana. Otrzymasz powiadomienie z 30 s przed rzeczywistą eksmisją. | 
-| Po eksmisji cena maszyny Wirtualnej wraca do < maksymalnej cenie. | Maszyna wirtualna nie zostanie automatycznie uruchomiona ponownie. Możesz ponownie uruchomić maszynę wirtualną samodzielnie, a zostanie naliczona po bieżącej cenie. |
-| Jeśli cena maksymalna jest ustawiona na`-1` | Maszyna wirtualna nie zostanie eksmitowana ze względu na ceny. Maksymalna cena będzie aktualną ceną, do ceny standardowych maszyn wirtualnych. Nigdy nie zostaniesz obciążony powyżej standardowej ceny.| 
-| Zmiana ceny maksymalnej | Musisz zdelocate maszyny Wirtualnej, aby zmienić cenę maksymalną. Zdemiuzuj alokację maszyny Wirtualnej, ustaw nową cenę maksymalną, a następnie zaktualizuj maszynę wirtualną. |
+| Cena maksymalna jest ustawiona na >= aktualna cena. | Maszyna wirtualna jest wdrażana, jeśli dostępne są zasoby i zasoby. |
+| Cena maksymalna jest ustawiona na < bieżącej ceny. | Maszyna wirtualna nie została wdrożona. Zostanie wyświetlony komunikat o błędzie, że maksymalna cena musi być >= aktualna cena. |
+| Ponowne uruchamianie maszyny wirtualnej Zatrzymaj/Cofnij przydział, jeśli maksymalna cena jest >= aktualna cena | W przypadku pojemności i przydziału, maszyna wirtualna jest wdrażana. |
+| Ponowne uruchamianie maszyny wirtualnej Zatrzymaj/Cofnij przydział, jeśli maksymalna cena jest < bieżącej cenie | Zostanie wyświetlony komunikat o błędzie, że maksymalna cena musi być >= aktualna cena. | 
+| Cena maszyny wirtualnej została zakończona i teraz > Cena maksymalna. | Maszyna wirtualna zostanie wykluczona. Przed rzeczywistym wykluczeniem otrzymasz powiadomienie 30 s. | 
+| Po wykluczeniu cena maszyny wirtualnej jest powracana do < maksymalnej ceny. | Maszyna wirtualna nie zostanie automatycznie uruchomiona. Możesz ponownie uruchomić maszynę wirtualną, a opłata będzie naliczana według bieżącej ceny. |
+| Jeśli maksymalna cena jest ustawiona na`-1` | Ta maszyna wirtualna nie zostanie wykluczona ze względu na ceny. Cena maksymalna to cena bieżąca, do ceny standardowych maszyn wirtualnych. Nigdy nie będzie naliczana opłata powyżej standardowej ceny.| 
+| Zmiana maksymalnej ceny | Aby zmienić maksymalną cenę, należy cofnąć przydział maszyny wirtualnej. Cofnij przydział maszyny wirtualnej, ustaw nową cenę maksymalną, a następnie zaktualizuj maszynę wirtualną. |
 
 ## <a name="limitations"></a>Ograniczenia
 
-Następujące rozmiary maszyn wirtualnych nie są obsługiwane dla maszyn wirtualnych punktowych:
+Następujące rozmiary maszyn wirtualnych nie są obsługiwane w przypadku maszyn wirtualnych na miejscu:
  - Seria B
- - Wersje promocyjne o dowolnym rozmiarze (takie jak Rozmiary promocyjne Dv2, NV, NC, H)
+ - Promocja wersji dowolnego rozmiaru (na przykład Dv2, NV, w obszarze rozmiary promocji)
 
-Maszyny wirtualne punktowe nie mogą obecnie używać tymczasowych dysków systemu operacyjnego.
+Na maszynach wirtualnych nie można obecnie używać tymczasowych dysków systemu operacyjnego.
 
-Maszyny wirtualne punktowe można wdrożyć w dowolnym regionie, z wyjątkiem platformy Microsoft Azure China 21Vianet.
+Dodatkowe maszyny wirtualne można wdrożyć w dowolnym regionie, z wyjątkiem Microsoft Azure Chinach 21Vianet.
 
 ## <a name="pricing"></a>Cennik
 
-Ceny maszyn wirtualnych punktowych są zmienne na podstawie regionu i jednostki SKU. Aby uzyskać więcej informacji, zobacz Ceny maszyn wirtualnych dla [systemów Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) i [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
+Ceny maszyn wirtualnych na miejscu są zmienne, na podstawie regionu i jednostki SKU. Aby uzyskać więcej informacji, zobacz cennik maszyn wirtualnych dla [systemów](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) i Windows. 
 
 
-W przypadku zmiennych cen możesz ustawić cenę maksymalną w dolarach amerykańskich (USD), używając do 5 miejsc po przecinku. Na przykład wartość `0.98765`będzie maksymalna cena $0.98765 USD za godzinę. Jeśli ustawisz maksymalną `-1`cenę, maszyna wirtualna nie zostanie eksmitowana na podstawie ceny. Cena za maszynę wirtualną będzie bieżącą ceną spot lub ceną standardowej maszyny Wirtualnej, która kiedykolwiek jest mniejsza, o ile dostępna jest pojemność i przydział.
+W przypadku zmiennych cenowych istnieje możliwość ustawienia maksymalnej ceny w dolarach amerykańskich (USD) przy użyciu maksymalnie 5 miejsc dziesiętnych. Na przykład wartość `0.98765`będzie cena maksymalna $0,98765 USD za godzinę. Jeśli ustawisz maksymalną cenę `-1`, maszyna wirtualna nie zostanie wykluczona na podstawie ceny. Cena maszyny wirtualnej to aktualna cena za ilość miejsca lub cena standardowej maszyny wirtualnej, która kiedykolwiek jest mniejsza, o ile jest dostępna pojemność i przydział.
 
 
 ##  <a name="frequently-asked-questions"></a>Często zadawane pytania
 
-**P.** Po utworzeniu jest spot VM taka sama jak zwykła standardowa maszyna wirtualna?
+**P:** Po utworzeniu, czy na maszynie wirtualnej jest taka sama jak zwykła Standardowa maszyna wirtualna?
 
-**Odp.:** Tak, z wyjątkiem nie ma umowy SLA dla maszyn wirtualnych punktowych i mogą one zostać eksmitowane w dowolnym momencie.
-
-
-**P.** Co zrobić, gdy dostajesz eksmitowany, ale nadal potrzebujesz pojemności?
-
-**Odp.:** Jeśli potrzebujesz pojemności od razu, zaleca się używanie standardowych maszyn wirtualnych zamiast maszyn wirtualnych typu spot.
+Odp **.:** Tak, z tą różnicą, że nie ma umowy SLA dla maszyn wirtualnych i można je wykluczyć w dowolnym momencie.
 
 
-**P.** Jak zarządza się przydziałem dla maszyn wirtualnych punktowych?
+**P:** Co należy zrobić po wykluczeniu, ale nadal potrzebujesz pojemności?
 
-**Odp.:** Maszyny wirtualne punktowe będą miały oddzielną pulę przydziałów. Przydział punktowy będzie współużytkowany między maszynami wirtualnymi i wystąpieniami zestawu skalowania. Aby uzyskać więcej informacji, zobacz [Azure subscription and service limits, quotas, and constraints (Limity, przydziały i ograniczenia usług i subskrypcji platformy Azure)](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
-
-
-**P.** Czy mogę poprosić o dodatkowy przydział na spot?
-
-**Odp.:** Tak, można przesłać wniosek o zwiększenie przydziału dla maszyn wirtualnych punktowych za pośrednictwem [standardowego procesu żądania przydziału](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+Odp **.:** Zalecamy używanie standardowych maszyn wirtualnych zamiast maszyn wirtualnych na miejscu, jeśli potrzebujesz pojemności od razu.
 
 
-**P.** Jakie kanały obsługują maszyny wirtualne spot?
+**P:** Jak są zarządzane limity przydziału dla maszyn wirtualnych na miejscu?
 
-**Odp.:** Zobacz poniższą tabelę dostępności maszyn wirtualnych w miejscu.
+Odp **.:** Maszyny wirtualne na miejscu będą mieć oddzielną pulę przydziałów. Przydział punktowy będzie współużytkowany między maszynami wirtualnymi i wystąpieniami zestawów skalowania. Aby uzyskać więcej informacji, zobacz [Azure subscription and service limits, quotas, and constraints (Limity, przydziały i ograniczenia usług i subskrypcji platformy Azure)](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+
+
+**P:** Czy mogę zażądać dodatkowego przydziału na miejscu?
+
+Odp **.:** Tak, będzie można przesłać żądanie w celu zwiększenia limitu przydziału dla maszyn wirtualnych na miejscu za pośrednictwem [standardowego procesu żądania limitu przydziału](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+
+
+**P:** Jakie kanały obsługują maszyny wirtualne na miejscu?
+
+Odp **.:** Zapoznaj się z tabelą poniżej, aby uzyskać dostęp do dodatkowych maszyn wirtualnych.
 
 <a name="channel"></a>
 
-| Kanały platformy Azure               | Dostępność maszyn wirtualnych w miejscu platformy Azure       |
+| Kanały platformy Azure               | Dostępność maszyn wirtualnych na platformie Azure       |
 |------------------------------|-----------------------------------|
 | Enterprise Agreement         | Tak                               |
 | Płatność zgodnie z rzeczywistym użyciem                | Tak                               |
-| Dostawca usług w chmurze (CSP) | [Skontaktuj się ze swoim partnerem](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Dostawca usług w chmurze (CSP) | [Skontaktuj się z partnerem](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Umowa klienta firmy Microsoft | Tak                               |
-| Zalety                     | Niedostępne                     |
-| Sponsorowane                    | Niedostępne                     |
+| Korzyści                     | Niedostępne                     |
+| Sponsorowan                    | Niedostępne                     |
 | Bezpłatna wersja próbna                   | Niedostępne                     |
 
 
-**P.** Gdzie mogę zadać pytania?
+**P:** Gdzie mogę publikować pytania?
 
-**Odp.:** Możesz opublikować i oznaczyć swoje pytanie na `azure-spot` Q&[A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+Odp **.:** Możesz ogłosić pytanie i oznaczyć je za pomocą `azure-spot` [elementu Q&a](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
 
 

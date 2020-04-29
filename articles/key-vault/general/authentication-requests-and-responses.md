@@ -1,6 +1,6 @@
 ---
 title: Uwierzytelnianie, żądania i odpowiedzi
-description: Uwierzytelnij się w uerce w celu korzystania z usługi Key Vault
+description: Uwierzytelnianie w usłudze AD przy użyciu Key Vault
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -11,67 +11,67 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 33e3bc13e67e268b82bf517033b4b1c7c51c361f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81430892"
 ---
 # <a name="authentication-requests-and-responses"></a>Uwierzytelnianie, żądania i odpowiedzi
 
-Usługa Azure Key Vault obsługuje żądania i odpowiedzi sformatowane w formacie JSON. Żądania do usługi Azure Key Vault są kierowane do prawidłowego adresu URL usługi Azure Key Vault przy użyciu protokołu HTTPS z niektórymi parametrami adresu URL i encoded żądań i odpowiedzi w Usłudze JSON.
+Azure Key Vault obsługuje żądania i odpowiedzi sformatowane w formacie JSON. Żądania do Azure Key Vault są kierowane do prawidłowego adresu URL Azure Key Vault przy użyciu protokołu HTTPS z niektórymi parametrami adresu URL i treściami żądania i odpowiedzi zakodowanych w formacie JSON.
 
-W tym temacie opisano szczegółowe informacje dotyczące usługi Azure Key Vault. Aby uzyskać ogólne informacje dotyczące korzystania z interfejsów usługi Azure REST, w tym uwierzytelniania/autoryzacji i sposobu uzyskiwania tokenu dostępu, zobacz Odwołanie interfejsu [API usługi Azure REST](https://docs.microsoft.com/rest/api/azure).
+W tym temacie omówiono specyficzne dla usługi Azure Key Vault. Aby uzyskać ogólne informacje na temat korzystania z interfejsów REST platformy Azure, w tym uwierzytelniania/autoryzacji i uzyskiwania tokenu dostępu, zobacz [Dokumentacja interfejsu API REST platformy Azure](https://docs.microsoft.com/rest/api/azure).
 
 ## <a name="request-url"></a>Adres URL żądania  
- Operacje zarządzania kluczami używają operacji HTTP DELETE, GET, PATCH, PUT i HTTP POST, a operacje kryptograficzne w stosunku do istniejących kluczowych obiektów używają PROTOKOŁU HTTP POST. Klienci, którzy nie obsługują określonych zleceń HTTP, mogą również używać protokołu HTTP POST przy użyciu nagłówka X-HTTP-REQUEST w celu określenia zamierzonego zlecenia; żądania, które zwykle nie wymagają treści, powinny zawierać pustą treść podczas korzystania z protokołu HTTP POST, na przykład podczas korzystania z postu zamiast usuwania.  
+ Operacje zarządzania kluczami używają operacji DELETE, GET, PATCH, PUT i https protokołu HTTP dla istniejących obiektów kluczy. Użyj protokołu HTTP POST. Klienci, którzy nie mogą obsługiwać określonych czasowników HTTP, mogą również używać protokołu HTTP POST przy użyciu nagłówka X-HTTP-REQUEST do określenia zamierzonego zlecenia; żądania, które zwykle nie wymagają treści, powinny zawierać pustą treść przy użyciu polecenia POST protokołu HTTP, na przykład podczas korzystania z polecenia POST zamiast DELETE.  
 
- Aby pracować z obiektami w usłudze Azure Key Vault, poniżej przedstawiono przykładowe adresy URL:  
+ Aby można było korzystać z obiektów w Azure Key Vault, przykładowe adresy URL:  
 
-- Aby utworzyć klucz o nazwie TESTKEY w przechowalni kluczy —`PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
+- Aby utworzyć klucz o nazwie TESTKEY w Key Vault use-`PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
 
-- Aby zaimportować klucz o nazwie IMPORTEDKEY do magazynu kluczy —`POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
+- Aby ZAIMPORTOWAĆ klucz o nazwie IMPORTEDKEY do Key Vault Użyj-`POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
 
-- Aby uzyskać klucz tajny o nazwie MYSECRET w przechowalni kluczy -`GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
+- Aby uzyskać wpis tajny o nazwie dbsecret w Key Vault use-`GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
 
-- Aby podpisać skrót przy użyciu klucza o nazwie TESTKEY w umia dla magazynu kluczy -`POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
+- Aby PODPISać skrót przy użyciu klucza o nazwie TESTKEY w Key Vault use-`POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
 
-  Upoważnienie do złożenia wniosku do Magazynu kluczy jest zawsze następujące,`https://{keyvault-name}.vault.azure.net/`  
+  Urząd żądania do Key Vault jest zawsze następujący:`https://{keyvault-name}.vault.azure.net/`  
 
-  Klucze są zawsze przechowywane w /keys path, Wpisy tajne są zawsze przechowywane w /secrets path.  
+  Klucze są zawsze przechowywane pod ścieżką/Keys, wpisy tajne są zawsze przechowywane pod ścieżką/Secrets.  
 
 ## <a name="api-version"></a>Wersja interfejsu API  
- Usługa Azure Key Vault obsługuje przechowywanie wersji protokołu w celu zapewnienia zgodności z klientami na poziomie down,, chociaż nie wszystkie możliwości będą dostępne dla tych klientów. Klienci muszą `api-version` użyć parametru ciągu kwerendy, aby określić wersję protokołu, który obsługują, ponieważ nie ma wartości domyślnej.  
+ Usługa Azure Key Vault obsługuje przechowywanie wersji protokołów w celu zapewnienia zgodności z klientami niskiego poziomu, chociaż nie wszystkie możliwości będą dostępne dla tych klientów. Klienci muszą użyć parametru `api-version` ciągu zapytania, aby określić wersję protokołu, którą obsługują, ponieważ nie ma wartości domyślnej.  
 
- Wersje protokołów usługi Azure Key Vault są zgodne ze schematem numerowania dat przy użyciu elementu {YYYY}. {MM}. {DD}.  
+ Wersje protokołów Azure Key Vault są zgodne ze schematem numerowania dat przy użyciu funkcji {rrrr}. {MM}. Format {DD}.  
 
 ## <a name="request-body"></a>Treść żądania  
- Zgodnie ze specyfikacją HTTP operacje GET nie mogą mieć treści żądania, a operacje POST i PUT muszą mieć treść żądania. Treść w operacjach DELETE jest opcjonalna w http.  
+ Zgodnie ze specyfikacją protokołu HTTP operacje GET nie mogą zawierać treści żądania, a operacje POST i PUT muszą mieć treść żądania. Treść w operacjach usuwania jest opcjonalna w protokole HTTP.  
 
- O ile w opisie operacji nie zaznaczono inaczej, typ zawartości treści żądania musi być application/json i musi zawierać szeregowaną konformanta obiektu JSON do typu zawartości.  
+ O ile nie wskazano inaczej w opisie operacji, typem zawartości treści żądania musi być Application/JSON i musi zawierać serializowany obiekt JSON zgodny z typem zawartości.  
 
- O ile w opisie operacji nie zaznaczono inaczej, nagłówek Żądania zaakceptuj musi zawierać typ nośnika application/json.  
+ O ile nie wskazano inaczej w opisie operacji, nagłówek żądania Accept musi zawierać typ nośnika Application/JSON.  
 
-## <a name="response-body"></a>Organ odpowiedzi  
- O ile w opisie operacji nie zaznaczono inaczej, typ zawartości treści odpowiedzi zarówno udanych, jak i nieudanych operacji będzie application/json i zawiera szczegółowe informacje o błędzie.  
+## <a name="response-body"></a>Treść odpowiedzi  
+ O ile nie wskazano inaczej w opisie operacji, typ zawartości treści odpowiedzi dla operacji zakończonych powodzeniem i zakończonych niepowodzeniem będzie miał wartość Application/JSON i zawiera szczegółowe informacje o błędzie.  
 
-## <a name="using-http-post"></a>Korzystanie z protokołu HTTP POST  
- Niektórzy klienci mogą nie być w stanie używać niektórych zleceń HTTP, takich jak PATCH lub DELETE. Usługa Azure Key Vault obsługuje protokół HTTP POST jako alternatywę dla tych klientów, pod warunkiem że klient zawiera również nagłówek "X-HTTP-METHOD" do konkretnego oryginalnego zlecenia HTTP. Obsługa protokołu HTTP POST jest odnotowana dla każdego interfejsu API zdefiniowanego w tym dokumencie.  
+## <a name="using-http-post"></a>Korzystanie z polecenia POST protokołu HTTP  
+ Niektórzy klienci mogą nie być w stanie używać niektórych zleceń HTTP, takich jak PATCH lub DELETE. Azure Key Vault obsługuje POST protokołu HTTP jako alternatywę dla tych klientów pod warunkiem, że klient zawiera również nagłówek "X-HTTP-METHOD" do określonego pierwotnego zlecenia HTTP. Obsługa protokołu HTTP POST jest zapisywana dla każdego interfejsu API zdefiniowanego w tym dokumencie.  
 
 ## <a name="error-responses"></a>Odpowiedzi na błędy  
  Obsługa błędów będzie używać kodów stanu HTTP. Typowe wyniki to:  
 
-- 2xx – Sukces: Używany do normalnej pracy. Organ reagowania będzie zawierał oczekiwany wynik  
+- 2xx — sukces: używany do normalnego działania. Treść odpowiedzi będzie zawierać oczekiwany wynik  
 
-- 3xx – Przekierowanie: 304 "Nie zmodyfikowany" może zostać zwrócony w celu spełnienia warunkowego GET. Inne kody 3xx mogą być używane w przyszłości do wskazywania zmian DNS i ścieżki.  
+- 3xx — przekierowanie: 304 "nie zmodyfikowano" może zostać zwrócony do spełnienia warunkowego GET. Inne kody 3xx mogą być używane w przyszłości, aby wskazać zmiany w systemie DNS i ścieżce.  
 
-- 4xx - Błąd klienta: Używany do złych żądań, brakujących kluczy, błędów składni, nieprawidłowych parametrów, błędów uwierzytelniania itp. Treść odpowiedzi będzie zawierać szczegółowe wyjaśnienie błędu.  
+- 4xx — Błąd klienta: używany dla nieprawidłowych żądań, brakujące klucze, błędy składniowe, nieprawidłowe parametry, błędy uwierzytelniania itd. Treść odpowiedzi będzie zawierać szczegółowe wyjaśnienie błędu.  
 
-- 5xx – Błąd serwera: Używany do wewnętrznych błędów serwera. Treść odpowiedzi będzie zawierać podsumowane informacje o błędzie.  
+- 5xx — błąd serwera: używany do wewnętrznego błędu serwera. Treść odpowiedzi będzie zawierać podsumowanie informacji o błędzie.  
 
-  System jest przeznaczony do pracy za serwerem proxy lub zaporą. W związku z tym klient może otrzymać inne kody błędów.  
+  System został zaprojektowany tak, aby działał za serwerem proxy lub zaporą. W związku z tym klient może otrzymać inne kody błędów.  
 
-  Usługa Azure Key Vault zwraca również informacje o błędzie w treści odpowiedzi, gdy wystąpi problem. Treść odpowiedzi jest sformatowana json i przyjmuje formę:  
+  Azure Key Vault zwraca również informacje o błędzie w treści odpowiedzi w przypadku wystąpienia problemu. Treść odpowiedzi jest sformatowana w formacie JSON i ma postać:  
 
 ```  
 
@@ -88,12 +88,12 @@ W tym temacie opisano szczegółowe informacje dotyczące usługi Azure Key Vaul
 
 ```  
 
-## <a name="authentication"></a>Authentication  
- Wszystkie żądania do usługi Azure Key Vault MUSZĄ być uwierzytelnione. Usługa Azure Key Vault obsługuje tokeny dostępu usługi Azure Active Directory, które można uzyskać przy użyciu usługi OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
+## <a name="authentication"></a>Uwierzytelnianie  
+ Wszystkie żądania do Azure Key Vault muszą być uwierzytelnione. Azure Key Vault obsługuje tokeny dostępu Azure Active Directory, które można uzyskać za pomocą OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
- Aby uzyskać więcej informacji na temat rejestrowania aplikacji i uwierzytelniania w celu korzystania z usługi Azure Key Vault, zobacz [Rejestrowanie aplikacji klienckiej w usłudze Azure AD.](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad)
+ Aby uzyskać więcej informacji na temat rejestrowania aplikacji i uwierzytelniania w celu korzystania z Azure Key Vault, zobacz [Rejestrowanie aplikacji klienckiej w usłudze Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).
  
- Tokeny dostępu muszą być wysyłane do usługi przy użyciu nagłówka autoryzacji HTTP:  
+ Tokeny dostępu należy wysyłać do usługi przy użyciu nagłówka autoryzacji HTTP:  
 
 ```  
 PUT /keys/MYKEY?api-version=<api_version>  HTTP/1.1  
@@ -101,7 +101,7 @@ Authorization: Bearer <access_token>
 
 ```  
 
- Gdy token dostępu nie zostanie dostarczony lub gdy token nie zostanie zaakceptowany przez usługę, błąd HTTP 401 zostanie zwrócony do klienta i będzie zawierał nagłówek WWW-Authenticate, na przykład:  
+ Gdy nie dostarczono tokenu dostępu lub gdy usługa nie akceptuje tokenu, do klienta zostanie zwrócony błąd HTTP 401 i zostanie uwzględniony nagłówek WWW-Authenticate, na przykład:  
 
 ```  
 401 Not Authorized  
@@ -109,9 +109,9 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 ```  
 
- Parametry w nagłówku WWW-Authenticate to:  
+ Parametry w nagłówku WWW-Authenticate są następujące:  
 
--   autoryzacja: Adres usługi autoryzacji OAuth2, która może służyć do uzyskania tokenu dostępu dla żądania.  
+-   Autoryzacja: adres usługi autoryzacji OAuth2, która może zostać użyta w celu uzyskania tokenu dostępu dla żądania.  
 
 -   zasób: nazwa zasobu (`https://vault.azure.net`) do użycia w żądaniu autoryzacji.  
 

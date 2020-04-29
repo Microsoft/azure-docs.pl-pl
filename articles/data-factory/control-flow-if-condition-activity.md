@@ -1,6 +1,6 @@
 ---
-title: Jeśli działanie kondycji w usłudze Azure Data Factory
-description: If Condition działania umożliwia kontrolowanie przepływu przetwarzania na podstawie warunku.
+title: Działanie if Condition w Azure Data Factory
+description: Działanie if Condition umożliwia sterowanie przepływem przetwarzania na podstawie warunku.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 9b491c4f0cc99395c44d989bf19fa2a7b03da696
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417167"
 ---
-# <a name="if-condition-activity-in-azure-data-factory"></a>Jeśli działanie kondycji w usłudze Azure Data Factory
+# <a name="if-condition-activity-in-azure-data-factory"></a>Działanie if Condition w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Działanie If Condition pełni taką samą rolę, co instrukcja if w językach programowania. Powoduje ono obliczenie zestawu działań, gdy warunek zostanie obliczony na wartość `true`, oraz innego zestawu działań, gdy warunek zostanie obliczony na wartość `false`. 
@@ -67,19 +67,19 @@ Działanie If Condition pełni taką samą rolę, co instrukcja if w językach p
 
 Właściwość | Opis | Dozwolone wartości | Wymagany
 -------- | ----------- | -------------- | --------
-name | Nazwa działania if-condition. | Ciąg | Tak
-type | Musi być ustawiona na **IfCondition** | Ciąg | Tak
-wyrażenie | Wyrażenie, które musi być obliczone na wartość true lub false | Wyrażenie z wartością logiczną typu wynik | Tak
-ifTrueActivities (Działania ifTrueActivities) | Zestaw działań wykonywanych, gdy wyrażenie `true`ocenia . | Tablica | Tak
-ifFalseAkcje | Zestaw działań wykonywanych, gdy wyrażenie `false`ocenia . | Tablica | Tak
+name | Nazwa działania if-Condition. | String | Tak
+type | Musi być ustawiona na **IfCondition** | String | Tak
+wyrażenie | Wyrażenie, które musi oszacować do wartości true lub false. | Wyrażenie z typem wyniku Boolean | Tak
+ifTrueActivities | Zestaw działań, które są wykonywane, gdy wynikiem wyrażenia jest wyrażenie `true`. | Tablica | Tak
+ifFalseActivities | Zestaw działań, które są wykonywane, gdy wynikiem wyrażenia jest wyrażenie `false`. | Tablica | Tak
 
 ## <a name="example"></a>Przykład
-Potok w tym przykładzie kopiuje dane z folderu wejściowego do folderu wyjściowego. Folder wyjściowy jest określany przez wartość parametru potoku: routeSelection. Jeśli wartość routeSelection jest true, dane są kopiowane do outputPath1. A jeśli wartość routeSelection jest false, dane są kopiowane do outputPath2. 
+Potok w tym przykładzie kopiuje dane z folderu wejściowego do folderu wyjściowego. Folder wyjściowy jest określany przez wartość parametru potoku: routeSelection. Jeśli wartość routeSelection ma wartość true, dane są kopiowane do outputPath1. A jeśli wartością routeSelection jest false, dane są kopiowane do outputPath2. 
 
 > [!NOTE]
-> Ta sekcja zawiera definicje JSON i przykładowe polecenia programu PowerShell do uruchomienia potoku. Aby uzyskać przewodnik z instrukcjami krok po kroku, aby utworzyć potok fabryki danych przy użyciu definicji programu Azure PowerShell i JSON, zobacz [samouczek: tworzenie fabryki danych przy użyciu programu Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> Ta sekcja zawiera definicje JSON i przykładowe polecenia programu PowerShell umożliwiające uruchomienie potoku. Aby zapoznać się z instrukcjami krok po kroku dotyczącymi tworzenia potoku Data Factory przy użyciu definicji Azure PowerShell i JSON, zobacz [Samouczek: Tworzenie fabryki danych przy użyciu Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Potok z działaniem IF-Condition (Adfv2QuickStartPipeline.json)
+### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Potok z działaniem IF-Condition (Adfv2QuickStartPipeline. JSON)
 
 ```json
 {
@@ -180,7 +180,7 @@ Potok w tym przykładzie kopiuje dane z folderu wejściowego do folderu wyjścio
 }
 ```
 
-Innym przykładem wyrażenia jest: 
+Innym przykładem dla wyrażenia jest: 
 
 ```json
 "expression":  {
@@ -190,7 +190,7 @@ Innym przykładem wyrażenia jest:
 ```
 
 
-### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Usługa połączona usługi Azure Storage (AzureStorageLinkedService.json)
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Połączona usługa Azure Storage (AzureStorageLinkedService. JSON)
 
 ```json
 {
@@ -204,8 +204,8 @@ Innym przykładem wyrażenia jest:
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Sparametryzowany zestaw danych obiektów blob platformy Azure (blobDataset.json)
-Potok ustawia **folderPath** do wartości **outputPath1** lub **outputPath2** parametru potoku. 
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Sparametryzowany zestaw danych obiektów blob platformy Azure (BlobDataset. JSON)
+Potok ustawia **folderPath** na wartość **outputPath1** lub **outputPath2** parametru potoku. 
 
 ```json
 {
@@ -231,7 +231,7 @@ Potok ustawia **folderPath** do wartości **outputPath1** lub **outputPath2** pa
 }
 ```
 
-### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Parametr potoku JSON (PipelineParameters.json)
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Plik JSON parametru potoku (PipelineParameters. JSON)
 
 ```json
 {
@@ -246,7 +246,7 @@ Potok ustawia **folderPath** do wartości **outputPath1** lub **outputPath2** pa
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Te polecenia zakładają, że pliki JSON zostały zapisane w folderze: C:\ADF. 
+W tych poleceniach przyjęto założenie, że pliki JSON zostały zapisane w folderze: C:\ADF. 
 
 ```powershell
 Connect-AzAccount
@@ -288,7 +288,7 @@ $result.Error -join "`r`n"
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz inne działania przepływu sterowania obsługiwane przez fabrykę danych: 
+Zobacz inne działania przepływu sterowania obsługiwane przez Data Factory: 
 
 - [Działanie wykonywania potoku](control-flow-execute-pipeline-activity.md)
 - [Dla każdego działania](control-flow-for-each-activity.md)

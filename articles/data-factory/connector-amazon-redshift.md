@@ -1,6 +1,6 @@
 ---
-title: Kopiowanie danych z amazon redshift
-description: Dowiedz się, jak kopiować dane z usługi Amazon Redshift do obsługiwanych magazynów danych ujścia przy użyciu usługi Azure Data Factory.
+title: Kopiowanie danych z usługi Amazon RedShift
+description: Informacje o sposobie kopiowania danych z usługi Amazon RedShift do obsługiwanych magazynów danych ujścia przy użyciu Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.author: jingwang
@@ -12,60 +12,60 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: ce63da745fb84ebccd57b246fc934f595dd7cda1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418256"
 ---
-# <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiowanie danych z usługi Amazon Redshift przy użyciu usługi Azure Data Factory
-> [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
+# <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiowanie danych z usługi Amazon RedShift przy użyciu Azure Data Factory
+> [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-amazon-redshift-connector.md)
 > * [Bieżąca wersja](connector-amazon-redshift.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
-W tym artykule opisano, jak używać działania kopiowania w usłudze Azure Data Factory do kopiowania danych z usługi Amazon Redshift. Opiera się na [omówienie działania kopiowania](copy-activity-overview.md) artykuł, który przedstawia ogólny przegląd działania kopiowania.
+W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z usługi Amazon RedShift. Jest ona oparta na [przeglądzie działania kopiowania](copy-activity-overview.md) , która przedstawia ogólne omówienie działania kopiowania.
 
 ## <a name="supported-capabilities"></a>Obsługiwane możliwości
 
-To złącze Amazon Redshift jest obsługiwane dla następujących działań:
+Ten łącznik Amazon RedShift jest obsługiwany dla następujących działań:
 
-- [Kopiowanie aktywności](copy-activity-overview.md) z [obsługiwaną macierzą źródło/ujście](copy-activity-overview.md)
-- [Działanie odnośnika](control-flow-lookup-activity.md)
+- [Działanie kopiowania](copy-activity-overview.md) z [obsługiwaną macierzą źródłową/ujścia](copy-activity-overview.md)
+- [Działanie Lookup](control-flow-lookup-activity.md)
 
-Można skopiować dane z Amazon Redshift do dowolnego obsługiwanego magazynu danych ujścia. Aby uzyskać listę magazynów danych, które są obsługiwane jako źródła/pochłaniacze przez działanie kopiowania, zobacz tabelę [Obsługiwane magazyny danych.](copy-activity-overview.md#supported-data-stores-and-formats)
+Dane z usługi Amazon RedShift można skopiować do dowolnego obsługiwanego magazynu danych ujścia. Listę magazynów danych obsługiwanych jako źródła/ujścia przez działanie kopiowania można znaleźć w tabeli [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-W szczególności ten łącznik Amazon Redshift obsługuje pobieranie danych z redshift przy użyciu kwerendy lub wbudowanej obsługi Redshift UNLOAD.
+W każdym przypadku ten łącznik usługi Amazon RedShift obsługuje pobieranie danych z usługi RedShift przy użyciu zapytania lub wbudowanej obsługi ZWALNIAnia RedShift.
 
 > [!TIP]
-> Aby osiągnąć najlepszą wydajność podczas kopiowania dużych ilości danych z redshift, należy rozważyć użycie wbudowanego redshift UNLOAD przez Amazon S3. Zobacz [Użyj UNLOAD, aby skopiować dane z sekcji Amazon Redshift, aby](#use-unload-to-copy-data-from-amazon-redshift) uzyskać szczegółowe informacje.
+> Aby osiągnąć najlepszą wydajność podczas kopiowania dużych ilości danych z RedShift, należy rozważyć użycie wbudowanej usługi RedShift UNLOAD za pośrednictwem usługi Amazon S3. Aby uzyskać szczegółowe informacje, zobacz sekcję korzystanie z usługi [Unload w celu skopiowania danych z usługi Amazon RedShift](#use-unload-to-copy-data-from-amazon-redshift) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* W przypadku kopiowania danych do lokalnego magazynu danych przy użyciu [środowiska uruchomieniowego integracji hostowanego przez użytkownika](create-self-hosted-integration-runtime.md)należy przyznać środowisko wykonawcze integracji (użyj adresu IP komputera) dostęp do klastra Amazon Redshift. Aby uzyskać [instrukcje, zobacz Autoryzowanie dostępu do klastra.](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html)
-* Jeśli kopiujesz dane do magazynu danych platformy Azure, zobacz [Zakresy adresów IP usługi Azure Data Center](https://www.microsoft.com/download/details.aspx?id=41653) dla obliczeń adres IP i zakresy SQL używane przez centra danych platformy Azure.
+* W przypadku kopiowania danych do lokalnego magazynu danych przy użyciu [Samoobsługowego Integration Runtime](create-self-hosted-integration-runtime.md)Udziel Integration Runtime (Użyj adresu IP maszyny) dostępu do klastra Amazon RedShift. Aby uzyskać instrukcje [, zobacz Autoryzuj dostęp do klastra](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) .
+* Jeśli kopiujesz dane do magazynu danych platformy Azure, zobacz [zakres adresów IP centrów danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653) dla adresu IP obliczeń i zakresów SQL używanych przez centra danych platformy Azure.
 
 ## <a name="getting-started"></a>Wprowadzenie
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-W poniższych sekcjach znajdują się szczegółowe informacje o właściwościach, które są używane do definiowania jednostek usługi Data Factory specyficznych dla łącznika Amazon Redshift.
+Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek Data Factory specyficznych dla łącznika Amazon RedShift.
 
-## <a name="linked-service-properties"></a>Połączone właściwości usługi
+## <a name="linked-service-properties"></a>Właściwości połączonej usługi
 
-Następujące właściwości są obsługiwane dla usługi połączonej Amazon Redshift:
+Dla połączonej usługi Amazon RedShift są obsługiwane następujące właściwości:
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type | Właściwość typu musi być ustawiona na: **AmazonRedshift** | Tak |
-| serwer |Adres IP lub nazwa hosta serwera Amazon Redshift. |Tak |
-| port |Numer portu TCP używany przez serwer Amazon Redshift do nasłuchiwać połączeń klientów. |Nie, wartość domyślna to 5439 |
-| database |Nazwa bazy danych Amazon Redshift. |Tak |
-| nazwa użytkownika |Nazwa użytkownika, który ma dostęp do bazy danych. |Tak |
-| hasło |Hasło do konta użytkownika. Oznacz to pole jako SecureString, aby bezpiecznie przechowywać go w fabryce danych lub [odwołaj się do klucza tajnego przechowywanego w usłudze Azure Key Vault.](store-credentials-in-key-vault.md) |Tak |
-| connectVia | [Środowisko wykonawcze integracji,](concepts-integration-runtime.md) które mają być używane do łączenia się z magazynem danych. Można użyć środowiska uruchomieniowego integracji platformy Azure lub środowiska wykonawczego integracji hostowanego samodzielnie (jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli nie zostanie określony, używa domyślnego środowiska wykonawczego integracji platformy Azure. |Nie |
+| type | Właściwość Type musi mieć wartość: **AmazonRedshift** | Tak |
+| serwer |Adres IP lub nazwa hosta serwera Amazon RedShift. |Tak |
+| port |Numer portu TCP używanego przez serwer Amazon RedShift do nasłuchiwania połączeń klientów. |Nie, wartość domyślna to 5439 |
+| database |Nazwa bazy danych Amazon RedShift. |Tak |
+| nazwa użytkownika |Nazwa użytkownika, który ma dostęp do bazy danych programu. |Tak |
+| hasło |Hasło konta użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Tak |
+| Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Możesz użyć Azure Integration Runtime lub samodzielnego Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
 
 **Przykład:**
 
@@ -95,18 +95,18 @@ Następujące właściwości są obsługiwane dla usługi połączonej Amazon Re
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 
-Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania zestawów danych, zobacz artykuł [o zestawach danych.](concepts-datasets-linked-services.md) Ta sekcja zawiera listę właściwości obsługiwanych przez zestaw danych Amazon Redshift.
+Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania zestawów danych, zobacz artykuł [zestawy danych](concepts-datasets-linked-services.md) . Ta sekcja zawiera listę właściwości obsługiwanych przez zestaw danych Amazon RedShift.
 
-Aby skopiować dane z usługi Amazon Redshift, obsługiwane są następujące właściwości:
+Aby skopiować dane z usługi Amazon RedShift, obsługiwane są następujące właściwości:
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type | Właściwość typu zestawu danych musi być ustawiona na: **AmazonRedshiftTable** | Tak |
-| Schematu | Nazwa schematu. |Nie (jeśli określono "zapytanie" w źródle działania)  |
-| tabela | Nazwa tabeli. |Nie (jeśli określono "zapytanie" w źródle działania)  |
-| tableName | Nazwa tabeli ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z powrotem. Użyj `schema` `table` i dla nowego obciążenia. | Nie (jeśli określono "zapytanie" w źródle działania) |
+| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **AmazonRedshiftTable** | Tak |
+| schematy | Nazwa schematu. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
+| tabela | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
+| tableName | Nazwa tabeli ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. Użyj `schema` i `table` dla nowego obciążenia. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
-**Przykład**
+**Przyklad**
 
 ```json
 {
@@ -124,25 +124,25 @@ Aby skopiować dane z usługi Amazon Redshift, obsługiwane są następujące w�
 }
 ```
 
-Jeśli używasz `RelationalTable` wpisanego zestawu danych, jest on nadal obsługiwany w stanie gotowym do użycia, podczas gdy zaleca się użycie nowego w przyszłości.
+Jeśli używasz `RelationalTable` określonego zestawu danych, jest on nadal obsługiwany w stanie takim, w jakim będziesz mieć możliwość korzystania z nowej usługi.
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
 
-Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania działań, zobacz [Pipelines](concepts-pipelines-activities.md) artykułu. Ta sekcja zawiera listę właściwości obsługiwanych przez źródło Amazon Redshift.
+Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania działań, zobacz artykuł [potoki](concepts-pipelines-activities.md) . Ta sekcja zawiera listę właściwości obsługiwanych przez źródło Amazon RedShift.
 
-### <a name="amazon-redshift-as-source"></a>Amazon Redshift jako źródło
+### <a name="amazon-redshift-as-source"></a>Amazon RedShift jako źródło
 
-Aby skopiować dane z amazon redshift, ustaw typ źródła w działaniu kopiowania na **AmazonRedshiftSource**. Następujące właściwości są obsługiwane w sekcji **źródła** działania kopiowania:
+Aby skopiować dane z Amazon RedShift, ustaw typ źródła w działaniu Copy na **AmazonRedshiftSource**. W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type | Właściwość typu źródła działania kopiowania musi być ustawiona na: **AmazonRedshiftSource** | Tak |
-| query |Użyj kwerendy niestandardowej, aby odczytać dane. Na przykład: wybierz * z MyTable. |Nie (jeśli określono "nazwa tabela" w zestawie danych) |
-| redshiftUnloadSettings | Grupa właściwości podczas korzystania z Amazon Redshift UNLOAD. | Nie |
-| s3LinkedServiceName | Odnosi się do Amazon S3 do wykorzystania jako sklep tymczasowy, określając nazwę usługi połączone typu "AmazonS3". | Tak w przypadku korzystania z funkcji UNLOAD |
-| nazwa łyżki | Wskaż zasobnik S3 do przechowywania danych tymczasowych. Jeśli nie zostanie podana usługa Data Factory generuje ją automatycznie.  | Tak w przypadku korzystania z funkcji UNLOAD |
+| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **AmazonRedshiftSource** | Tak |
+| query |Użyj zapytania niestandardowego do odczytywania danych. Na przykład: select * from MyTable. |Nie (Jeśli określono "TableName" w zestawie danych) |
+| redshiftUnloadSettings | Grupa właściwości podczas korzystania z narzędzia Amazon RedShift UNLOAD. | Nie |
+| s3LinkedServiceName | Odwołuje się do usługi Amazon S3, która ma być używana jako magazyn tymczasowy, określając nazwę połączonej usług typu "AmazonS3". | Tak, jeśli używasz opcji UNLOAD |
+| zasobnikname | Wskaż zasobnik S3, aby przechowywać dane pośrednie. Jeśli nie zostanie podany, Usługa Data Factory automatycznie wygeneruje ją.  | Tak, jeśli używasz opcji UNLOAD |
 
-**Przykład: Źródło Amazon Redshift w aktywności kopiowania przy użyciu funkcji UNLOAD**
+**Przykład: Źródło Amazon RedShift w działaniu kopiowania przy użyciu UNLOAD**
 
 ```json
 "source": {
@@ -158,17 +158,17 @@ Aby skopiować dane z amazon redshift, ustaw typ źródła w działaniu kopiowan
 }
 ```
 
-Dowiedz się więcej o tym, jak efektywnie kopiować dane z usługi Amazon Redshift za pomocą funkcji UNLOAD z następnej sekcji.
+Dowiedz się więcej na temat sposobu korzystania z usługi UNLOAD w celu wydajnego kopiowania danych z usługi Amazon RedShift z kolejnej sekcji.
 
-## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Kopiowanie danych z usługi Amazon Redshift za pomocą funkcji UNLOAD
+## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Korzystanie z usługi UNLOAD do kopiowania danych z usługi Amazon RedShift
 
-[UNLOAD](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) to mechanizm dostarczony przez Amazon Redshift, który może zwolnić wyniki zapytania do jednego lub więcej plików na Amazon Simple Storage Service (Amazon S3). Jest to sposób zalecany przez Amazon do kopiowania dużego zestawu danych z Redshift.
+[Unload](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) to mechanizm zapewniany przez usługę Amazon RedShift, który może zwolnić wyniki zapytania do jednego lub kilku plików w usłudze Amazon Simple Storage Service (Amazon S3). Jest to sposób zalecane przez Amazon do kopiowania dużych zestawów danych z RedShift.
 
-**Przykład: kopiowanie danych z usługi Amazon Redshift do usługi Azure SQL Data Warehouse przy użyciu funkcji UNLOAD, kopia etapowa i PolyBase**
+**Przykład: Kopiuj dane z Amazon RedShift do Azure SQL Data Warehouse przy użyciu UNLOAD, kopii etapowej i bazy danych**
 
-W tym przykładowym przypadku użycia sieka dane z amazon redshift do Amazon S3 skonfigurowane w "redshiftUnloadSettings", a następnie skopiować dane z Amazon S3 do azure blob, jak określono w "stagingSettings", wreszcie użyj PolyBase załadować dane do magazynu danych SQL. Cały format tymczasowy jest obsługiwany przez działanie kopiowania poprawnie.
+W przypadku tego przykładowego przypadku użycia działanie Copy powoduje odładowanie danych z Amazon RedShift do Amazon S3 zgodnie z konfiguracją w "redshiftUnloadSettings", a następnie skopiowanie danych z usługi Amazon S3 do obiektu blob platformy Azure zgodnie z definicją w "stagingSettings", a następnie użycie bazy danych w celu załadowania do SQL Data Warehouse. Cały format tymczasowy jest obsługiwany przez działanie kopiowania prawidłowo.
 
-![Przesunięcie zwięzłe do przepływu pracy kopiowania SQL DW](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
+![Przepływ pracy kopiowania RedShift do magazynu danych SQL](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 "activities":[
@@ -214,28 +214,28 @@ W tym przykładowym przypadku użycia sieka dane z amazon redshift do Amazon S3 
 ]
 ```
 
-## <a name="data-type-mapping-for-amazon-redshift"></a>Mapowanie typu danych dla amazon redshift
+## <a name="data-type-mapping-for-amazon-redshift"></a>Mapowanie typu danych dla Amazon RedShift
 
-Podczas kopiowania danych z usługi Amazon Redshift są używane następujące mapowania z typów danych Amazon Redshift do tymczasowych typów danych usługi Azure Data Factory. Zobacz [Mapowania schematu i typu danych,](copy-activity-schema-and-type-mapping.md) aby dowiedzieć się, jak aktywność kopiowania mapuje schemat źródłowy i typ danych do ujścia.
+Podczas kopiowania danych z usługi Amazon RedShift następujące mapowania są używane z typów danych Amazon RedShift do Azure Data Factory danych pośrednich. Zobacz [Mapowanie schematu i typu danych](copy-activity-schema-and-type-mapping.md) , aby dowiedzieć się, jak działanie kopiowania mapuje schemat źródłowy i typ danych do ujścia.
 
-| Typ danych Amazon Redshift | Tymczasowy typ danych fabryki danych |
+| Amazon RedShift — typ danych | Typ danych pośrednich fabryki danych |
 |:--- |:--- |
-| Bigint |Int64 |
-| Boolean |Ciąg |
-| Char |Ciąg |
+| BIGINT |Int64 |
+| TYPU |String |
+| DELIKATN |String |
 | DATE |DateTime |
-| Dziesiętnych |Wartość dziesiętna |
+| DOKŁADNOŚCI |Wartość dziesiętna |
 | PODWÓJNA PRECYZJA |Double |
 | LICZBA CAŁKOWITA |Int32 |
 | LICZBA RZECZYWISTA |Single |
-| Smallint |Int16 |
-| TEKST |Ciąg |
-| Sygnatury czasowej |DateTime |
-| Varchar |Ciąg |
+| SMALLINT |Int16 |
+| TEKST |String |
+| ZNACZNIK czasu |DateTime |
+| VARCHAR |String |
 
-## <a name="lookup-activity-properties"></a>Właściwości działania odnośnika
+## <a name="lookup-activity-properties"></a>Właściwości działania Lookup
 
-Aby dowiedzieć się więcej o właściwościach, sprawdź [działanie odnośnika](control-flow-lookup-activity.md).
+Aby dowiedzieć się więcej o właściwościach, sprawdź [działanie Lookup (wyszukiwanie](control-flow-lookup-activity.md)).
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać listę magazynów danych obsługiwanych jako źródła i pochłaniacze przez działanie kopiowania w usłudze Azure Data Factory, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).
+Listę magazynów danych obsługiwanych jako źródła i ujścia przez działanie kopiowania w Azure Data Factory można znaleźć w temacie [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

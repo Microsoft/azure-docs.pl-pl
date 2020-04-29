@@ -5,22 +5,22 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: trbye
 ms.openlocfilehash: b84db9eee473b14f2ba078ed1be77f6165a5f3b9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81422248"
 ---
-## <a name="additional-language-and-platform-support"></a>Dodatkowa obsługa języka i platformy
+## <a name="additional-language-and-platform-support"></a>Dodatkowy język i obsługa platformy
 
-Jeśli klikniesz tę kartę, prawdopodobnie nie widzisz szybkiego startu w ulubionym języku programowania. Nie martw się, mamy dodatkowe materiały szybkiego startu i przykłady kodu dostępne w usłudze GitHub. Użyj tabeli, aby znaleźć odpowiednią próbkę dla języka programowania i kombinacji platformy/systemu operacyjnego.
+Jeśli kliknięto tę kartę, prawdopodobnie nie widzisz przewodnika Szybki Start w ulubionym języku programowania. Nie martw się, oferujemy dodatkowe materiały szybkiego startu i przykłady kodu dostępne w serwisie GitHub. Skorzystaj z tabeli, aby znaleźć odpowiedni przykład dla Twojego języka programowania i kombinacji platformy/systemu operacyjnego.
 
 | Język    | Przykłady kodu                                                                                   |
 |-------------|------------------------------------------------------------------------------------------------|
-| C#          | [.NET Framework][dotnet], [.NET Core][netcore], [UWP][uwp], [Unity][unity], [Xamarin][xamarin] |
+| C#          | [.NET Framework][dotnet], [.NET Core][netcore], [platformy UWP][uwp], [Unity][unity], [Xamarin][xamarin] |
 | C++         | [Windows][cpp-windows], [Linux][cpp-linux], [macOS][cpp-mac]                                   |
 | Java        | [Android][java-android], [JRE][java-jre]                                                       |
-| JavaScript  | [Przeglądarka, Node.js][js-code]                                                                    |
+| JavaScript  | [Przeglądarka, Node. js][js-code]                                                                    |
 | Obiektowy C | [iOS][obj-iOS], [macOS][obj-macOS]                                                             |
 | Python      | [Windows, Linux, macOS][python]                                                                |
 | Swift       | [iOS][swift-iOS], [macOS][swift-macOS]                                                         |

@@ -1,6 +1,6 @@
 ---
-title: Przekształcanie danych przy użyciu działania Hadoop MapReduce
-description: Dowiedz się, jak przetwarzać dane, uruchamiając programy Programu MapReduce usługi Hadoop w klastrze usługi Azure HDInsight z fabryki danych platformy Azure.
+title: Przekształcanie danych przy użyciu działania MapReduce usługi Hadoop
+description: Dowiedz się, jak przetwarzać dane przez uruchamianie programów MapReduce Hadoop w klastrze usługi Azure HDInsight z fabryki danych Azure.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -11,25 +11,25 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 01/16/2018
 ms.openlocfilehash: e3060f7e36f9e2696194da12c3c800555103d271
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418919"
 ---
-# <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania Programu Hadoop MapReduce w usłudze Azure Data Factory
+# <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania MapReduce usługi Hadoop w Azure Data Factory
 
-> [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
+> [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-map-reduce.md)
 > * [Bieżąca wersja](transform-data-using-hadoop-map-reduce.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Działanie HDInsight MapReduce w [potoku](concepts-pipelines-activities.md) fabryki danych wywołuje program MapReduce na [własny](compute-linked-services.md#azure-hdinsight-linked-service) lub [na żądanie](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) klastra HDInsight. W tym artykule opiera się na [działaniach transformacji danych,](transform-data.md) który przedstawia ogólny przegląd transformacji danych i obsługiwanych działań transformacji.
+Działanie usługi HDInsight MapReduce w [potoku](concepts-pipelines-activities.md) Data Factory wywołuje program MapReduce na swoim klastrze [usługi](compute-linked-services.md#azure-hdinsight-linked-service) HDInsight lub [na żądanie](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) . W tym artykule przedstawiono artykuł [działania przekształcania danych](transform-data.md) , który zawiera ogólne omówienie transformacji danych i obsługiwanych działań transformacji.
 
-Jeśli jesteś nowy w usłudze Azure Data Factory, przeczytaj [wprowadzenie do usługi Azure Data Factory](introduction.md) i wykonaj samouczek: [Samouczek: przekształć dane](tutorial-transform-data-spark-powershell.md) przed przeczytaniem tego artykułu.
+Jeśli jesteś nowym do Azure Data Factory, przeczytaj artykuł [wprowadzenie do Azure Data Factory](introduction.md) i wykonaj samouczek: [Samouczek: Przekształcanie danych](tutorial-transform-data-spark-powershell.md) przed przeczytaniem tego artykułu.
 
-Zobacz [Świnia](transform-data-using-hadoop-pig.md) i [gałąź,](transform-data-using-hadoop-hive.md) aby uzyskać szczegółowe informacje na temat uruchamiania skryptów Pig/Hive w klastrze HDInsight z potoku przy użyciu działań HIInight Pig i Hive.
+Aby uzyskać szczegółowe informacje na temat uruchamiania skryptów świń/Hive w klastrze usługi HDInsight z poziomu potoku przy użyciu działań dotyczących trzody chlewnej i Hive, zobacz [świnie](transform-data-using-hadoop-pig.md) i [Hive](transform-data-using-hadoop-hive.md) .
 
 ## <a name="syntax"></a>Składnia
 
@@ -65,21 +65,21 @@ Zobacz [Świnia](transform-data-using-hadoop-pig.md) i [gałąź,](transform-dat
 | Właściwość          | Opis                              | Wymagany |
 | ----------------- | ---------------------------------------- | -------- |
 | name              | Nazwa działania                     | Tak      |
-| description       | Tekst opisujący, do czego jest używane działanie | Nie       |
-| type              | W przypadku działania MapReduce typem działania jest HDinsightMapReduce | Tak      |
-| linkedServiceName | Odwołanie do klastra HDInsight zarejestrowanego jako usługa połączona w fabryce danych. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz Artykuł [dotyczący powiązanych usług obliczeń.](compute-linked-services.md) | Tak      |
-| Classname         | Nazwa klasy, która ma zostać wykonana         | Tak      |
-| jarLinkedSługa  | Odwołanie do usługi Linked Service usługi Azure Storage używanej do przechowywania plików Jar. Jeśli nie określisz tej usługi połączonej, używana jest usługa linked service usługi Azure Storage zdefiniowana w usłudze połączonej usługi HDInsight. | Nie       |
-| jarFilePath       | Podaj ścieżkę do plików Jar przechowywanych w usłudze Azure Storage, o których mowa w jarLinkedService. W nazwie pliku rozróżniana jest wielkość liter. | Tak      |
-| jarlibs ( jarlibs )           | Tablica ciągów ścieżki do plików biblioteki Jar, do których odwołuje się zadanie przechowywane w usłudze Azure Storage zdefiniowanej w jarLinkedService. W nazwie pliku rozróżniana jest wielkość liter. | Nie       |
-| getDebugInfo      | Określa, kiedy pliki dziennika są kopiowane do usługi Azure Storage używane przez klaster HDInsight (lub) określone przez jarLinkedService. Dozwolone wartości: Brak, Zawsze lub Błąd. Wartość domyślna: None. | Nie       |
-| Argumenty         | Określa tablicę argumentów dla zadania Hadoop. Argumenty są przekazywane jako argumenty wiersza polecenia do każdego zadania. | Nie       |
-| Definiuje           | Określ parametry jako pary klucz/wartość do odwoływania się w skrypcie gałęzi. | Nie       |
+| description       | Tekst opisujący działanie używanego działania | Nie       |
+| type              | Dla działania MapReduce typem działania jest HDinsightMapReduce | Tak      |
+| linkedServiceName | Odwołanie do klastra usługi HDInsight zarejestrowanego jako połączona usługa w Data Factory. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) . | Tak      |
+| Nazwą         | Nazwa klasy, która ma zostać wykonana         | Tak      |
+| jarLinkedService  | Odwołanie do połączonej usługi Azure Storage użytej do przechowywania plików jar. Jeśli nie określisz tej połączonej usługi, zostanie użyta połączona usługa Azure Storage zdefiniowana w połączonej usłudze HDInsight. | Nie       |
+| jarFilePath       | Podaj ścieżkę do plików jar przechowywanych w magazynie platformy Azure, do których odwołuje się jarLinkedService. W nazwie pliku rozróżniana jest wielkość liter. | Tak      |
+| jarlibs           | Tablica ciągów ścieżek do plików z biblioteką jar, do których odwołuje się zadanie przechowywane w magazynie platformy Azure zdefiniowanym w jarLinkedService. W nazwie pliku rozróżniana jest wielkość liter. | Nie       |
+| GetDebugInfo —      | Określa, kiedy pliki dziennika są kopiowane do usługi Azure Storage używanej przez klaster HDInsight (lub) określonej przez jarLinkedService. Dozwolone wartości: brak, zawsze lub niepowodzenie. Wartość domyślna: None. | Nie       |
+| argumentu         | Określa tablicę argumentów zadania usługi Hadoop. Argumenty są przesyłane jako argumenty wiersza polecenia do każdego zadania. | Nie       |
+| definiuje           | Określ parametry jako pary klucz/wartość dla odwołania w skrypcie Hive. | Nie       |
 
 
 
 ## <a name="example"></a>Przykład
-Za pomocą programu HDInsight MapReduce Activity można uruchomić dowolny plik jar MapReduce w klastrze HDInsight. W poniższej przykładowej definicji JSON potoku działania HDInsight jest skonfigurowany do uruchamiania pliku Mahout JAR.
+Możesz użyć działania MapReduce usługi HDInsight, aby uruchomić dowolny plik JAR MapReduce w klastrze usługi HDInsight. W poniższej przykładowej definicji JSON potoku, działanie usługi HDInsight jest skonfigurowane do uruchamiania pliku JAR Mahout.
 
 ```json
 {
@@ -112,16 +112,16 @@ Za pomocą programu HDInsight MapReduce Activity można uruchomić dowolny plik 
     }
 }
 ```
-W sekcji **argumenty** można określić dowolne argumenty programu MapReduce. W czasie wykonywania zostanie wyświetlonych kilka dodatkowych argumentów (na przykład: mapreduce.job.tags) z platformy MapReduce. Aby odróżnić argumenty z MapReduce argumenty, należy rozważyć użycie zarówno opcji i wartości jako argumenty, jak pokazano w poniższym przykładzie (-s, --input, --output itp., są opcje natychmiast po ich wartości).
+Można określić dowolne argumenty dla programu MapReduce w sekcji **argumenty** . W czasie wykonywania zobaczysz kilka dodatkowych argumentów (na przykład: MapReduce. job. Tags) ze środowiska MapReduce Framework. Aby odróżnić argumenty od argumentów MapReduce, należy rozważyć użycie obu opcji i wartości jako argumentów, jak pokazano w poniższym przykładzie (-s,--Input,--Output itp., są opcjami natychmiast po ich wartości).
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz następujące artykuły, które wyjaśniają, jak przekształcać dane w inny sposób:
+Zapoznaj się z następującymi artykułami, które wyjaśniają sposób przekształcania danych w inny sposób:
 
 * [Działanie U-SQL](transform-data-using-data-lake-analytics.md)
-* [Aktywność gałęzi](transform-data-using-hadoop-hive.md)
-* [Aktywność świń](transform-data-using-hadoop-pig.md)
-* [Aktywność w serwisie Hadoop Streaming](transform-data-using-hadoop-streaming.md)
-* [Aktywność iskierki](transform-data-using-spark.md)
+* [Działanie Hive](transform-data-using-hadoop-hive.md)
+* [Aktywność trzody chlewnej](transform-data-using-hadoop-pig.md)
+* [Działanie przesyłania strumieniowego Hadoop](transform-data-using-hadoop-streaming.md)
+* [Działanie platformy Spark](transform-data-using-spark.md)
 * [Niestandardowe działanie platformy .NET](transform-data-using-dotnet-custom-activity.md)
-* [Działanie wsadowe uczenia maszynowego](transform-data-using-machine-learning.md)
+* [Działanie wykonywania wsadowego Machine Learning](transform-data-using-machine-learning.md)
 * [Działanie procedury składowanej](transform-data-using-stored-procedure.md)

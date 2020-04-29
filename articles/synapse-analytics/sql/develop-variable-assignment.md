@@ -1,6 +1,6 @@
 ---
-title: Przypisywanie zmiennych za pomocą synapsy SQL
-description: W tym artykule znajdziesz wskazówki dotyczące przypisywania zmiennych T-SQL za pomocą synapse SQL.
+title: Przypisywanie zmiennych przy użyciu języka SQL Synapse
+description: W tym artykule znajdziesz wskazówki dotyczące przypisywania zmiennych T-SQL za pomocą języka SQL Synapse.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,26 +10,26 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: b2a596b71ee7e5f58e01d5bc10b330f6f54a69d2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81428669"
 ---
-# <a name="assigning-variables-with-synapse-sql"></a>Przypisywanie zmiennych za pomocą synapsy SQL
+# <a name="assigning-variables-with-synapse-sql"></a>Przypisywanie zmiennych przy użyciu języka SQL Synapse
 
-W tym artykule znajdziesz wskazówki dotyczące przypisywania zmiennych T-SQL za pomocą synapse SQL.
+W tym artykule znajdziesz wskazówki dotyczące przypisywania zmiennych T-SQL za pomocą języka SQL Synapse.
 
-## <a name="setting-variables-with-declare"></a>Ustawianie zmiennych za pomocą DECLARE
+## <a name="setting-variables-with-declare"></a>Ustawianie zmiennych przy użyciu deklaracji DECLARE
 
-Zmienne w synapse SQL `DECLARE` są ustawiane przy użyciu instrukcji lub `SET` instrukcji. Inicjowanie zmiennych za pomocą DECLARE jest jednym z najbardziej elastycznych sposobów ustawiania wartości zmiennej w synapse SQL.
+Zmienne w Synapse SQL są ustawiane przy `DECLARE` użyciu instrukcji lub `SET` instrukcji. Inicjowanie zmiennych przy użyciu deklaracji jest jednym z najbardziej elastycznych sposobów ustawiania wartości zmiennej w Synapse SQL.
 
 ```sql
 DECLARE @v  int = 0
 ;
 ```
 
-Można również użyć DECLARE, aby ustawić więcej niż jedną zmienną naraz. Nie można użyć SELECT lub UPDATE, aby wykonać następujące czynności:
+Można również użyć DECLARE, aby ustawić więcej niż jedną zmienną jednocześnie. Nie można użyć opcji SELECT ani UPDATE w celu wykonania następujących czynności:
 
 ```sql
 DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Smith')
@@ -37,7 +37,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-Nie można zainicjować i użyć zmiennej w tej samej instrukcji DECLARE. Aby zilustrować, poniższy przykład nie *@p1* jest dozwolone, ponieważ jest inicjowane i używane w tej samej instrukcji DECLARE. Poniższy przykład zawiera błąd.
+Nie można zainicjować i użyć zmiennej w tej samej instrukcji DECLARE. Aby zilustrować, Poniższy przykład nie jest dozwolony, ponieważ *@p1* jest zainicjowany i używany w tej samej instrukcji DECLARE. Poniższy przykład zawiera błąd.
 
 ```sql
 DECLARE @p1 int = 0
@@ -45,11 +45,11 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## <a name="setting-values-with-set"></a>Ustawianie wartości za pomocą SET
+## <a name="setting-values-with-set"></a>Ustawianie wartości przy użyciu zestawu
 
-SET jest powszechną metodą ustawiania pojedynczej zmiennej.
+SET to wspólna metoda ustawiania pojedynczej zmiennej.
 
-Następujące instrukcje są wszystkie prawidłowe sposoby, aby ustawić zmienną z SET:
+Następujące instrukcje są prawidłowymi sposobami ustawiania zmiennej przy użyciu zestawu:
 
 ```sql
 SET     @v = (Select max(database_id) from sys.databases);
@@ -58,12 +58,12 @@ SET     @v = @v+1;
 SET     @v +=1;
 ```
 
-Za pomocą SET można ustawić tylko jedną zmienną naraz. Jednakże podmioty podmiotów łączenia są dopuszczalne.
+Można ustawić tylko jedną zmienną naraz z ZESTAWem. Jednak operatory złożone są dozwolone.
 
 ## <a name="limitations"></a>Ograniczenia
 
-Nie można użyć UPDATE do przypisania zmiennych.
+Nie można używać aktualizacji do przypisywania zmiennych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej wskazówek dotyczących programowania, zobacz [Synapse SQL development overview](develop-overview.md) article.
+Aby uzyskać więcej porad programistycznych, zobacz artykuł [Omówienie programowania w programie Synapse dla języka SQL](develop-overview.md) .

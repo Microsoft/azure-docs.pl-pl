@@ -1,52 +1,52 @@
 ---
 title: Ograniczenia
-description: Ograniczenia kodu dla funkcji SDK
+description: Ograniczenia dotyczące kodu dla funkcji zestawu SDK
 author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
 ms.openlocfilehash: b6e501cdc1d5091a27d86406c6919587bedb261a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417695"
 ---
 # <a name="limitations"></a>Ograniczenia
 
-Wiele funkcji ma rozmiar, liczbę lub inne ograniczenia.
+Niektóre funkcje mają rozmiar, liczbę lub inne ograniczenia.
 
-## <a name="azure-frontend"></a>Azure Frontend
+## <a name="azure-frontend"></a>Fronton platformy Azure
 
-* Całkowita azurefrontend wystąpień na proces: 16.
-* Całkowita usługa AzureSession wystąpień na AzureFrontend: 16.
+* Łączna liczba wystąpień AzureFrontend na proces: 16.
+* Łączna liczba wystąpień AzureSession na AzureFrontend: 16.
 
 ## <a name="objects"></a>Obiekty
 
-* Całkowita dopuszczalna liczba obiektów pojedynczego typu (Entity, CutPlaneComponent itp.): 16 777 215.
-* Całkowita dopuszczalna aktywna płaszczyzna cięcia: 8.
+* Łączna liczba dozwolonych obiektów pojedynczego typu (Entity, CutPlaneComponent itp.): 16 777 215.
+* Łączna liczba aktywnych płaszczyzn wycinania: 8.
 
 ## <a name="materials"></a>Materiały
 
-* Łączna wartość dopuszczalnych materiałów w aktach trwałych: 65 535.
+* Łączna liczba dozwolonych materiałów w elemencie zawartości: 65 535.
 
 ## <a name="overall-number-of-polygons"></a>Ogólna liczba wielokątów
 
-Dopuszczalna liczba wielokątów dla wszystkich załadowanych modeli zależy od rozmiaru maszyny Wirtualnej przekazywanej do [interfejsu API REST zarządzania sesją:](../how-tos/session-rest-api.md#create-a-session)
+Dozwolona liczba wielokątów dla wszystkich załadowanych modeli zależy od rozmiaru maszyny wirtualnej, która została przeniesiona do [interfejsu API REST zarządzania sesją](../how-tos/session-rest-api.md#create-a-session):
 
 | Rozmiar maszyny wirtualnej | Maksymalna liczba wielokątów |
 |:--------|:------------------|
-|Standardowych| 20 milionów |
-|Premium| bez limitu |
+|Standardowa| 20 000 000 |
+|tytułu| bez limitu |
 
 
-## <a name="platform-limitations"></a>Ograniczenia platformy
+## <a name="platform-limitations"></a>Ograniczenia dotyczące platformy
 
-**Pulpit systemu Windows 10**
+**Windows 10 Desktop**
 
-* Wdrożenie "PC Standalone" z Unity nie jest obsługiwane. Zamiast tego należy użyć platformy uniwersalnej systemu wyurzcie.Use UWP instead.
-* Platforma uniwersalna systemu Windows/x86 jest jedyną obsługiwana platformą platformy platformy uniwersalnej systemu Windows. Platforma uniwersalna systemupos m.in.
+* Wdrożenie "samodzielne komputera" z aparatu Unity nie jest obsługiwane. Zamiast tego użyj platformy UWP.
+* PLATFORMY UWP/x86 jest jedyną obsługiwaną platformą platformy UWP. PLATFORMY UWP/x64 nie jest obsługiwane.
 
-**Okręg wyborczy Hololens 2**
+**Urządzenie HoloLens 2**
 
-* [Funkcja renderowania z kamery fotowoltaiczowej](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) nie jest obsługiwana.
+* Funkcja [renderowania z aparatu PV](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) nie jest obsługiwana.

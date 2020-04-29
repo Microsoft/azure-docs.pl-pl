@@ -1,6 +1,6 @@
 ---
-title: Typy zagnieżdżone parkietu kwerendy przy użyciu sql na żądanie (wersja zapoznawcza)
-description: W tym artykule dowiesz się, jak zbadać typy zagnieżdżone parkietu.
+title: Parquet typów zagnieżdżonych zapytania przy użyciu języka SQL na żądanie (wersja zapoznawcza)
+description: W tym artykule dowiesz się, jak wykonywać zapytania dotyczące zagnieżdżonych typów Parquet.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,26 +10,26 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: a1e3d3c7494aa75b3f6d481d12135316791772d4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431659"
 ---
-# <a name="query-parquet-nested-types-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Typy zagnieżdżone parkietu kwerendy przy użyciu sql na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics
+# <a name="query-parquet-nested-types-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Parquet typy zagnieżdżone zapytania przy użyciu języka SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
-W tym artykule dowiesz się, jak napisać kwerendę przy użyciu języka SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics.  Ta kwerenda będzie odczytywać typy zagnieżdżone parkietu.
+W tym artykule dowiesz się, jak napisać zapytanie przy użyciu języka SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics.  To zapytanie będzie odczytywać Parquet typy zagnieżdżone.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed przeczytaniem pozostałej części tego artykułu zapoznaj się z następującymi artykułami:
 
-- [Konfiguracja po raz pierwszy](query-data-storage.md#first-time-setup)
+- [Konfiguracja pierwszego czasu](query-data-storage.md#first-time-setup)
 - [Wymagania wstępne](query-data-storage.md#prerequisites)
 
-## <a name="project-nested-or-repeated-data"></a>Zagnieżdżone lub powtarzane dane projektu
+## <a name="project-nested-or-repeated-data"></a>Dane zagnieżdżone lub powtórzone projektu
 
-Poniższa kwerenda odczytuje plik *justSimpleArray.parquet.* Wyświetla wszystkie kolumny z pliku Parkietu, w tym zagnieżdżone lub powtarzane dane.
+Następujące zapytanie odczytuje plik *justSimpleArray. Parquet* . Projektuje wszystkie kolumny z pliku Parquet, w tym zagnieżdżone lub powtórzone dane.
 
 ```sql
 SELECT
@@ -41,9 +41,9 @@ FROM
     ) AS [r];
 ```
 
-## <a name="access-elements-from-nested-columns"></a>Dostęp do elementów z kolumn zagnieżdżonych
+## <a name="access-elements-from-nested-columns"></a>Dostęp do elementów z zagnieżdżonych kolumn
 
-Następująca kwerenda odczytuje plik *structExample.parquet* i pokazuje, jak powierzchni elementów zagnieżdżonej kolumny:
+Następujące zapytanie odczytuje plik *structExample. Parquet* i pokazuje, jak elementy powierzchni zagnieżdżonej kolumny:
 
 ```sql
 SELECT
@@ -68,9 +68,9 @@ FROM
     ) AS [r];
 ```
 
-## <a name="access-elements-from-repeated-columns"></a>Dostęp do elementów z powtarzających się kolumn
+## <a name="access-elements-from-repeated-columns"></a>Dostęp do elementów z powtórzonych kolumn
 
-Następująca kwerenda odczytuje plik *justSimpleArray.parquet* i używa [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) do pobierania **elementu skalarnego** z powtarzanej kolumny, takiej jak Array lub Map:
+Następujące zapytanie odczytuje plik *justSimpleArray. Parquet* i używa [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) do pobierania elementu **skalarnego** z wewnątrz powtórzonej kolumny, takiej jak tablica lub mapa:
 
 ```sql
 SELECT
@@ -85,7 +85,7 @@ FROM
     ) AS [r];
 ```
 
-Następująca kwerenda odczytuje plik *mapExample.parquet* i używa [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) do pobierania elementu **nieskalarnego** z powtarzanej kolumny, takiej jak Array lub Map:
+Następujące zapytanie odczytuje plik *mapExample. Parquet* i używa [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) do pobierania **nieskalarnego** elementu z wewnątrz powtórzonej kolumny, takiej jak tablica lub mapa:
 
 ```sql
 SELECT
@@ -100,4 +100,4 @@ FROM
 
 ## <a name="next-steps"></a>Następne kroki
 
-W następnym artykule pokazano, jak [kwerendy plików JSON](query-json-files.md).
+W następnym artykule przedstawiono sposób [wykonywania zapytań dotyczących plików JSON](query-json-files.md).

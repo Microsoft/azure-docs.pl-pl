@@ -1,6 +1,6 @@
 ---
-title: Samouczek analityka danych — analizowanie zestawów danych azure open w usłudze Azure Synapse Studio za pomocą funkcji SQL na żądanie (wersja zapoznawcza)
-description: W tym samouczku dowiesz się, jak łatwo przeprowadzić analizę danych odkrywczych łącząc różne zestawy danych Azure Open przy użyciu sql na żądanie (wersja zapoznawcza) i wizualizować wyniki w usłudze Azure Synapse Studio.
+title: Samouczek analityków danych — używanie usługi SQL na żądanie (wersja zapoznawcza) do analizowania otwartych zestawów danych platformy Azure w usłudze Azure Synapse Studio (wersja zapoznawcza)
+description: W ramach tego samouczka dowiesz się, jak łatwo przeprowadzać analizę danych w nauce łączącej różne otwarte zestawy datadataset przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) i wizualizować wyniki w usłudze Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,21 +10,21 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 1080001cb222f91503080914d7fb253e5ee82626
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81423229"
 ---
-# <a name="use-sql-on-demand-preview-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio-preview"></a>Analiza otwartych zestawów danych platformy Azure Open i wizualizacja wyników w usłudze Azure Synapse Studio (wersja zapoznawcza) umożliwia korzystanie z języka SQL na żądanie (wersja zapoznawcza)
+# <a name="use-sql-on-demand-preview-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio-preview"></a>Korzystanie z SQL na żądanie (wersja zapoznawcza) w celu analizowania otwartych zestawów danych platformy Azure i wizualizacji wyników w usłudze Azure Synapse Studio (wersja zapoznawcza)
 
-W tym samouczku dowiesz się, jak przeprowadzić analizę danych odkrywczych, łącząc różne zestawy danych azure open przy użyciu języka SQL na żądanie, a następnie wizualizując wyniki w usłudze Azure Synapse Studio.
+W ramach tego samouczka nauczysz się przeprowadzać analizę danych w postaci poznawczej, łącząc różne usługi Azure Open DataSets przy użyciu funkcji SQL na żądanie, a następnie wizualizując wyniki w usłudze Azure Synapse Studio.
 
-W szczególności analizujesz [zestaw danych Taksówki w Nowym Jorku (NYC),](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) który zawiera daty/godziny odbioru i nadania, lokalizacje odbioru i nadania, odległości podróży, wyszczególnione taryfy, typy stawek, typy płatności i liczbę pasażerów zgłoszonych przez kierowcę.
+W szczególności przeanalizuje [zestaw danych o taksówkach w Nowym Jorku (NYC)](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) , który obejmuje daty i godziny pobierania i wyłączania, lokalizacje pobierania i upuszczania, odległości podróży, opłaty za elementy, typy stawek, typy płatności oraz liczby osób zgłaszanych przez sterowniki.
 
-Celem analizy jest znalezienie trendów w zmianach liczby przejazdów taksówką w czasie. Analizuj dwa inne zestawy danych platformy Azure Open[(święta i](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) [dane pogodowe),](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)aby zrozumieć odstające liczby przejazdów taksówką.
+Celem analizy jest znalezienie trendów w zakresie zmian liczby kolarstwuówek w czasie. Analizujesz dwa inne otwarte zestawy danych platformy Azure ([dni wolne](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) i [dane pogodowe](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)), aby zrozumieć, jakie wartości odstają się w liczbie taksówkówek kolarstwu.
 
-## <a name="create-credentials"></a>Tworzenie poświadczeń
+## <a name="create-credentials"></a>Utwórz poświadczenia
 
 ```sql
 -- There is no secret. We are using public storage account which doesn't need a secret.
@@ -46,9 +46,9 @@ GO
 
 ## <a name="automatic-schema-inference"></a>Automatyczne wnioskowanie schematu
 
-Ponieważ dane są przechowywane w formacie pliku Parkietu, dostępne jest automatyczne wnioskowanie schematu, dzięki czemu można łatwo wysyłać zapytania do danych bez konieczności wystawiania typów danych wszystkich kolumn w plikach. Ponadto można wykorzystać mechanizm kolumny wirtualnej i funkcję ścieżki pliku, aby odfiltrować określony podzbiór plików.
+Ponieważ dane są przechowywane w formacie pliku Parquet, automatyczne wnioskowanie schematu jest dostępne, dzięki czemu jeden może łatwo wysyłać zapytania o dane bez konieczności wyświetlania listy typów danych wszystkich kolumn w plikach. Ponadto jedna z nich może korzystać z funkcji Virtual Column i FilePath, aby odfiltrować określony podzbiór plików.
 
-Najpierw zapoznajmy się z danymi taksówki NYC, uruchamiając następującą kwerendę:
+Najpierw zapoznaj się z danymi z NYC taksówkami, uruchamiając następujące zapytanie:
 
 ```sql
 SELECT TOP 100 * FROM
@@ -58,11 +58,11 @@ SELECT TOP 100 * FROM
     ) AS [nyc]
 ```
 
-Poniżej przedstawiono fragment wyników dla danych taksówki NYC:
+Poniżej przedstawiono fragment wyniku dla danych NYC Taksówki:
 
-![fragment kodu wyników](./media/tutorial-data-analyst/1.png)
+![fragment wyniku](./media/tutorial-data-analyst/1.png)
 
-Podobnie możemy zbadać zestaw danych dni wolnych od pracy przy użyciu następującej kwerendy:
+Podobnie możemy zbadać zestaw danych dni urlopu publicznego przy użyciu następującej kwerendy:
 
 ```sql
 SELECT TOP 100 * FROM
@@ -72,11 +72,11 @@ SELECT TOP 100 * FROM
     ) AS [holidays]
 ```
 
-Poniżej przedstawiono fragment kodu wyników dla zestawu danych dni wolnych od pracy:
+Poniżej przedstawiono fragment wyniku dla publicznego zestawu danych dni wolnych:
 
-![fragment wyników 2](./media/tutorial-data-analyst/2.png)
+![fragment wyniku 2](./media/tutorial-data-analyst/2.png)
 
-Wreszcie możemy również zbadać zestaw danych pogodowych za pomocą następującej kwerendy:
+Wreszcie możemy również badać zestaw danych pogody przy użyciu następującej kwerendy:
 
 ```sql
 SELECT
@@ -88,15 +88,15 @@ FROM
     ) AS [weather]
 ```
 
-Poniżej przedstawiono fragment wyników dla zestawu danych pogodowych:
+Poniżej przedstawiono fragment wyniku dla zestawu danych pogody:
 
-![fragment wyników 3](./media/tutorial-data-analyst/3.png)
+![fragment wyniku 3](./media/tutorial-data-analyst/3.png)
 
-Więcej informacji na temat znaczenia poszczególnych kolumn można znaleźć w opisach zestawów danych [NYC Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/), [Public Holidays](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/)i [Weather Data.](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)
+Możesz dowiedzieć się więcej na temat znaczenia poszczególnych kolumn w opisach [NYCych](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)samochodów, [świąt publicznych](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/)i [danych pogody](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/) .
 
-## <a name="time-series-seasonality-and-outlier-analysis"></a>Szeregi czasowe, sezonowość i analiza odstający
+## <a name="time-series-seasonality-and-outlier-analysis"></a>Analiza szeregów czasowych, sezonowości i nieprzestających
 
-Możesz łatwo podsumować roczną liczbę przejazdów taksówką za pomocą następującej kwerendy:
+Można łatwo podsumowywać roczną liczbę kolarstwuówek, korzystając z następującej kwerendy:
 
 ```sql
 SELECT
@@ -112,20 +112,20 @@ GROUP BY YEAR(tpepPickupDateTime)
 ORDER BY 1 ASC
 ```
 
-Poniżej przedstawiono fragment wyników dla rocznej liczby przejazdów taksówką:
+Poniżej przedstawiono fragment wyniku dla corocznej liczby kolarstwuówek:
 
-![fragment wyników 4](./media/tutorial-data-analyst/4.png)
+![fragment wyniku 4](./media/tutorial-data-analyst/4.png)
 
-Dane można wizualizować w Synapse Studio, przełączając się z widoku Tabela na Wykres. Można wybierać spośród różnych typów wykresów (obszar, słupk, kolumna, linia, kołowy i punktowy). W takim przypadku wykreślmy wykres kolumnowy z kolumną Kategoria ustawioną na "current_year":
+Dane można wizualizować w programie Synapse Studio, przełączając się z tabeli do widoku wykresu. Można wybierać między różnymi typami wykresów (obszar, pasek, kolumna, linia, wykres kołowy i punktowy). W tym przypadku przykreślmy wykres kolumnowy z kolumną Category ustawioną na wartość "current_year":
 
-![wizualizacja wyników 5](./media/tutorial-data-analyst/5.png)
+![Wizualizacja wyników 5](./media/tutorial-data-analyst/5.png)
 
-Z tej wizualizacji widać wyraźnie tendencję zmniejszającą się liczbę przejazdów na przestrzeni lat, prawdopodobnie ze względu na niedawną zwiększoną popularność firm współdzielonych.
+W tej wizualizacji trend zmniejszania liczby kolarstwu przez lata może być wyraźnie widoczny, najprawdopodobniej z powodu niedawnej zwiększonej popularności firm partnerskich udostępniania.
 
 > [!NOTE]
-> W momencie pisania tego samouczka dane za 2019 są niekompletne, więc na ten rok napada ogromny spadek liczby przejazdów.
+> W momencie pisania tego samouczka dane dla 2019 są niekompletne, więc w danym roku istnieje ogromna liczba kolarstwu.
 
-Następnie skupmy naszą analizę na jednym roku, na przykład 2016. Następująca kwerenda zwraca dzienną liczbę przejazdów w ciągu tego roku:
+Następnie skupmy nasze analizy w jednym roku, na przykład 2016. Następujące zapytanie zwraca dzienną liczbę kolarstwu w tym roku:
 
 ```sql
 SELECT
@@ -141,17 +141,17 @@ GROUP BY CAST([tpepPickupDateTime] AS DATE)
 ORDER BY 1 ASC
 ```
 
-Poniżej przedstawiono fragment wyników dla tej kwerendy:
+Poniżej przedstawiono fragment wyniku dla tego zapytania:
 
-![fragment wyników 6](./media/tutorial-data-analyst/6.png)
+![fragment wyniku 6](./media/tutorial-data-analyst/6.png)
 
-Ponownie możemy łatwo wizualizować dane, kreśląc wykres kolumnowy z kolumną Kategoria "current_day" i Legenda (seria) "rides_per_day".
+Ponownie można łatwo wizualizować dane, Wykreśl wykres kolumnowy z kolumną kategorii "current_day" i kolumną Legenda (serie) "rides_per_day".
 
-![wizualizacja wyników 7](./media/tutorial-data-analyst/7.png)
+![Wizualizacja wyników 7](./media/tutorial-data-analyst/7.png)
 
-Z fabuły można zaobserwować, że istnieje tygodniowy wzór, z sobotnim szczytem. W miesiącach letnich, istnieje mniej przejazdów taksówką ze względu na okres wakacji. Jednak istnieją również pewne znaczne spadki liczby przejazdów taksówką bez wyraźnego wzorca, kiedy i dlaczego występują.
+Z wykresu można zauważyć, że istnieje tygodniowy wzorzec, z szczytem w sobotę. W trakcie roku letniego występuje mniej kolarstwuów z powodu okresu urlopowego. Jednak istnieją również pewne znaczące przerwy w liczbie taksówki kolarstwu bez jasnego wzorca, kiedy i dlaczego się pojawiają.
 
-Następnie sprawdźmy, czy te krople są potencjalnie skorelowane z dniami ustawowo wolnych od pracy, dołączając do przejazdów taksówką w Nowym Jorku z zestawem danych dni wolnych od pracy:
+Następnie Zobaczmy, czy te porzucania są potencjalnie skorelowane z świętami, dołączając NYC taksówki kolarstwu do publicznego zestawu danych dni wolnych:
 
 ```sql
 WITH taxi_rides AS
@@ -186,13 +186,13 @@ LEFT OUTER JOIN public_holidays p on t.current_day = p.date
 ORDER BY current_day ASC
 ```
 
-![wizualizacja wyników 8](./media/tutorial-data-analyst/8.png)
+![Wizualizacja wyników 8](./media/tutorial-data-analyst/8.png)
 
-Tym razem chcemy podkreślić liczbę przejazdów taksówką w czasie świąt państwowych. W tym celu wybierzemy kolumny "brak" dla kolumny Kategoria i "rides_per_day" oraz "holiday" jako kolumny Legend (seria).
+Tym razem chcemy wyróżnić liczbę kolarstwuówek w dni wolne od pracy. W tym celu wybierzesz opcję "Brak" dla kolumny kategorii i "rides_per_day" oraz "święta" jako kolumny legendy (serie).
 
-![wizualizacja wyników 9](./media/tutorial-data-analyst/9.png)
+![Wizualizacja wyników 9](./media/tutorial-data-analyst/9.png)
 
-Z działki wyraźnie widać, że w czasie świąt państwowych liczba przejazdów taksówką jest niższa. Jednak nadal jest jeden niewyjaśniony ogromny spadek w dniu 23 stycznia. Sprawdźmy pogodę w Nowym Jorku w tym dniu, odpytując zestaw danych pogodowych:
+Z wykresu można jasno zauważyć, że w przypadku dni wolnych liczba kolarstwu jest niższa. Jednak w dalszym ciągu nie są dostępne żadne niewyjaśnione ogromne dane. Sprawdźmy Pogoda w NYC w tym dniu, wykonując zapytania dotyczące zestawu danych pogody:
 
 ```sql
 SELECT
@@ -219,17 +219,17 @@ FROM
 WHERE countryorregion = 'US' AND CAST([datetime] AS DATE) = '2016-01-23' AND stationname = 'JOHN F KENNEDY INTERNATIONAL AIRPORT'
 ```
 
-![wizualizacja wyników 10](./media/tutorial-data-analyst/10.png)
+![Wizualizacja wyników 10](./media/tutorial-data-analyst/10.png)
 
-Wyniki zapytania wskazują, że spadek liczby przejazdów taksówką był spowodowany:
+Wyniki zapytania wskazują, że porzucanie w wielu taksówkach kolarstwu było spowodowane:
 
-- zamieć w tym dniu w Nowym Jorku, jak nie było ciężki śnieg (~ 30 cm)
-- było zimno (temperatura poniżej zera stopni Celsjusza)
-- i wietrznie (~10m/s)
+- Blizzard w tym dniu w NYC, ponieważ trwało śnieg (~ 30 cm)
+- była zimna (temperatura poniżej 0 stopni Celsjusza)
+- i wiatr (~ 10 mln/s)
 
-W tym samouczku pokazano, jak analityk danych może szybko przeprowadzić analizę danych odkrywczych, łatwo połączyć różne zestawy danych przy użyciu języka SQL na żądanie i wizualizować wyniki przy użyciu usługi Azure Synapse Studio.
+W tym samouczku pokazano, jak analityk danych może szybko przeprowadzić analizę danych poznawczej, a także łatwo łączyć z innymi zestawami, korzystając z SQL na żądanie, i wizualizować wyniki przy użyciu usługi Azure Synapse Studio.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj [się z artykułem Połącz sql na żądanie z programem Power BI Desktop & utworzyć artykuł o raporcie,](tutorial-connect-power-bi-desktop.md) aby dowiedzieć się, jak połączyć sql na żądanie z programem Power BI Desktop i utworzyć raporty.
+Zapoznaj się z artykułem [łączenie SQL na żądanie Power BI Desktop & tworzenia raportu](tutorial-connect-power-bi-desktop.md) , aby dowiedzieć się, jak nawiązać połączenie z usługą SQL na żądanie w celu Power BI Desktop i tworzenia raportów.
  

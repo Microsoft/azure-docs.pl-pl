@@ -1,6 +1,6 @@
 ---
 title: Parametryzacja przepływów mapowania danych
-description: Dowiedz się, jak parametryzować przepływ danych mapowania z potoków fabryki danych
+description: Dowiedz się, jak Sparametryzuj przepływ danych mapowania z potoków usługi Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -8,69 +8,69 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: 82660cdb4ab6523bae7608fe3b071f20cb3603f8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81419174"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>Parametryzacja przepływów mapowania danych
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)] 
 
-Mapowanie przepływów danych w usłudze Azure Data Factory obsługuje użycie parametrów. Można zdefiniować parametry wewnątrz definicji przepływu danych, które można następnie używać w wyrażeniach. Wartości parametrów można ustawić za pomocą potoku wywołującego za pośrednictwem działania Wykonaj przepływ danych. Dostępne są trzy opcje ustawiania wartości w wyrażeniach aktywności przepływu danych:
+Mapowanie przepływów danych w Azure Data Factory obsługuje używanie parametrów. Można definiować parametry wewnątrz definicji przepływu danych, których można używać w całym wyrażeniu. Wartości parametrów mogą być ustawiane przez potok wywołujący za pośrednictwem działania wykonaj przepływ danych. Dostępne są trzy opcje ustawiania wartości w wyrażeniach działania przepływu danych:
 
-* Użyj języka wyrażenia przepływu sterowania rurociągiem, aby ustawić wartość dynamiczną
-* Ustawianie wartości dynamicznej za pomocą języka wyrażenia przepływu danych
-* Użyj albo języka wyrażenia, aby ustawić statyczną wartość literału
+* Używanie języka wyrażeń przepływu sterowania potoku do ustawiania wartości dynamicznej
+* Używanie języka wyrażeń przepływu danych do ustawiania wartości dynamicznej
+* Użyj dowolnego języka wyrażeń, aby ustawić statyczną wartość literału
 
-Ta funkcja umożliwia elastyczne i wielokrotnego użytku przepływy danych ogólnego przeznaczenia. Za pomocą tych parametrów można parametryzować ustawienia przepływu danych i wyrażenia.
+Użyj tej funkcji, aby zapewnić przepływ danych ogólnego przeznaczenia, elastyczne i wielokrotnego użytku. Za pomocą tych parametrów można Sparametryzuj ustawienia przepływu danych i wyrażenia.
 
-## <a name="create-parameters-in-a-mapping-data-flow"></a>Tworzenie parametrów w przepływie danych mapowania
+## <a name="create-parameters-in-a-mapping-data-flow"></a>Tworzenie parametrów w mapowaniu przepływu danych
 
-Aby dodać parametry do przepływu danych, kliknij pustą część obszaru roboczego przepływu danych, aby wyświetlić ogólne właściwości. W okienku ustawień zostanie wyświetlony zakładka o nazwie **Parametr**. Wybierz **pozycję Nowy,** aby wygenerować nowy parametr. Dla każdego parametru należy przypisać nazwę, wybrać typ i opcjonalnie ustawić wartość domyślną.
+Aby dodać parametry do przepływu danych, kliknij pustą część kanwy przepływu danych, aby wyświetlić właściwości ogólne. W okienku Ustawienia zostanie wyświetlona karta o nazwie **Parameter**. Wybierz pozycję **Nowy** , aby wygenerować nowy parametr. Dla każdego parametru należy przypisać nazwę, wybrać typ i opcjonalnie ustawić wartość domyślną.
 
-![Tworzenie parametrów przepływu danych](media/data-flow/create-params.png "Tworzenie parametrów przepływu danych")
+![Utwórz parametry przepływu danych](media/data-flow/create-params.png "Utwórz parametry przepływu danych")
 
-## <a name="use-parameters-in-a-mapping-data-flow"></a>Używanie parametrów w przepływie danych mapowania 
+## <a name="use-parameters-in-a-mapping-data-flow"></a>Używanie parametrów w mapowaniu przepływu danych 
 
-Parametry mogą być odwoływane w dowolnym wyrażeniu przepływu danych. Parametry zaczynają się od $ i są niezmienne. Listę dostępnych parametrów znajdziesz wewnątrz Konstruktora wyrażeń na karcie **Parametry.**
+Parametry mogą być przywoływane w dowolnym wyrażeniu przepływu danych. Parametry zaczynają się od $ i są niezmienne. Listę dostępnych parametrów można znaleźć w Konstruktorze wyrażeń na karcie **Parametry** .
 
 ![Wyrażenie parametru przepływu danych](media/data-flow/parameter-expression.png "Wyrażenie parametru przepływu danych")
 
-Można szybko dodać dodatkowe parametry, wybierając **nowy parametr** i określając nazwę i typ.
+Możesz szybko dodać dodatkowe parametry, wybierając pozycję **Nowy parametr** i podając nazwę i typ.
 
 ![Wyrażenie parametru przepływu danych](media/data-flow/new-parameter-expression.png "Wyrażenie parametru przepływu danych")
 
 ### <a name="passing-in-a-column-name-as-a-parameter"></a>Przekazywanie nazwy kolumny jako parametru
 
-Typowym wzorcem jest przekazywanie w nazwie kolumny jako wartość parametru. Aby odwołać się do kolumny skojarzonej z parametrem, `byName()` należy użyć funkcji. Pamiętaj, aby przerzucać kolumnę do odpowiedniego `toString()`typu za pomocą funkcji odlewania, takiej jak .
+Typowym wzorcem jest przekazywanie nazwy kolumny jako wartości parametru. Aby odwołać się do kolumny skojarzonej z parametrem `byName()` , użyj funkcji. Należy pamiętać, aby rzutować kolumnę na odpowiedni typ z funkcją rzutowania taką `toString()`jak.
 
-Na przykład, jeśli chcesz zamapować kolumnę `columnName`ciągu na podstawie parametru, `toString(byName($columnName))`można dodać transformację kolumny pochodnej równą .
+Na przykład jeśli chcesz zmapować kolumnę ciągu opartą na parametrze `columnName`, można dodać pochodną transformację kolumny równą. `toString(byName($columnName))`
 
-![Przekazywanie nazwy kolumny jako parametru](media/data-flow/parameterize-column-name.png "Przekazywanie nazwy kolumny jako paramete")
+![Przekazywanie nazwy kolumny jako parametru](media/data-flow/parameterize-column-name.png "Przekazywanie w nazwie kolumny jako paramete")
 
 ## <a name="assign-parameter-values-from-a-pipeline"></a>Przypisywanie wartości parametrów z potoku
 
-Po utworzeniu przepływu danych z parametrami, można go wykonać z potoku z execute data flow działania. Po dodaniu działania do kanwy potoku zostaną wyświetlone dostępne parametry przepływu danych na karcie **Parametry** działania.
+Po utworzeniu przepływu danych z parametrami można wykonać je z potoku za pomocą działania wykonaj przepływ danych. Po dodaniu działania do kanwy potoku zostaną wyświetlone dostępne parametry przepływu danych na karcie **Parametry** działania.
 
-![Ustawianie parametru Przepływ danych](media/data-flow/parameter-assign.png "Ustawianie parametru Przepływ danych")
+![Ustawianie parametru przepływu danych](media/data-flow/parameter-assign.png "Ustawianie parametru przepływu danych")
 
-Jeśli typem danych parametru jest ciąg, po kliknięciu pola tekstowego w celu ustawiania wartości parametrów można wprowadzić potok lub wyrażenie przepływu danych. Jeśli wybierzesz wyrażenie potoku, zostanie wyświetlony panel wyrażenia potoku. Upewnij się, że funkcje potoku są `'@{<expression>}'`uwzględniane w składni interpolacji ciągów, na przykład:
+Jeśli typ danych parametru to ciąg, po kliknięciu pola tekstowego, aby ustawić wartości parametrów, możesz wprowadzić potok lub wyrażenie przepływu danych. W przypadku wybrania wyrażenia potoku zostanie wyświetlony panel wyrażenia potoku. Upewnij się, że w składni interpolacji ciągu użyto `'@{<expression>}'`funkcji potoku, na przykład:
 
 ```'@{pipeline().RunId}'```
 
-Jeśli parametr nie jest typu ciąg, zawsze będą prezentowane z Konstruktorem wyrażeń przepływu danych. W tym miejscu można wprowadzić dowolne wyrażenia lub wartości literału, które mają być zgodne z typem danych parametru. Poniżej znajdują się przykłady wyrażenia przepływu danych i ciąg literał z konstruktora wyrażeń:
+Jeśli parametr nie jest typu String, zawsze będzie wyświetlany Konstruktor wyrażeń przepływu danych. W tym miejscu możesz wprowadzić dowolne wartości wyrażenia lub literału, które pasują do typu danych parametru. Poniżej znajdują się przykłady wyrażenia przepływu danych i ciąg literału z konstruktora wyrażeń:
 
 * ```toInteger(Role)```
 * ```'this is my static literal string'```
 
-Każdy przepływ danych mapowania może mieć dowolną kombinację parametrów wyrażenia potoku i przepływu danych. 
+Każdy przepływ danych mapowania może mieć dowolną kombinację parametrów potoków i przepływów danych. 
 
-![Próbka parametrów przepływu danych](media/data-flow/parameter-example.png "Próbka parametrów przepływu danych")
+![Przykład parametrów przepływu danych](media/data-flow/parameter-example.png "Przykład parametrów przepływu danych")
 
 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Wykonywanie działania przepływu danych](control-flow-execute-data-flow-activity.md)
-* [Sterowanie wyrażeniami przepływu](control-flow-expression-language-functions.md)
+* [Działanie wykonywania przepływu danych](control-flow-execute-data-flow-activity.md)
+* [Wyrażenia przepływu sterowania](control-flow-expression-language-functions.md)

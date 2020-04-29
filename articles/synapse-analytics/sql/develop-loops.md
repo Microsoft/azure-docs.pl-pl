@@ -1,6 +1,6 @@
 ---
 title: Korzystanie z pętli T-SQL
-description: Porady dotyczące korzystania z pętli T-SQL, zastępowania kursorów i opracowywania powiązanych rozwiązań za pomocą puli SQL w synapse SQL.
+description: Porady dotyczące korzystania z pętli T-SQL, zastępowania kursorów i opracowywania powiązanych rozwiązań z pulą SQL w Synapse SQL.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -11,28 +11,28 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: baff2806b1a8c3c99546365c2496238c24b2b243
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81429956"
 ---
-# <a name="using-t-sql-loops-in-synapse-sql"></a>Korzystanie z pętli T-SQL w synapse SQL
-W tym artykule przedstawiono podstawowe wskazówki dotyczące korzystania z pętli T-SQL, zastępowania kursorów i opracowywania powiązanych rozwiązań za pomocą puli SQL w języku Synapse SQL.
+# <a name="using-t-sql-loops-in-synapse-sql"></a>Używanie pętli T-SQL w programie SQL Synapse
+Ten artykuł zawiera istotne porady dotyczące korzystania z pętli T-SQL, zastępowania kursorów i tworzenia powiązanych rozwiązań z pulą SQL w Synapse SQL.
 
 ## <a name="purpose-of-while-loops"></a>Przeznaczenie pętli WHILE
 
-Synapse SQL obsługuje [while](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver15) pętli wielokrotnie wykonywania bloków instrukcji. Ta pętla WHILE jest kontynuowana tak długo, jak długo określone warunki są prawdziwe lub dopóki kod specjalnie kończy pętlę przy użyciu break słowa kluczowego. 
+Synapse SQL obsługuje pętlę [while](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver15) do wielokrotnego wykonywania bloków instrukcji. Ta Pętla WHILE działa tak długo, jak określone warunki są prawdziwe lub do momentu, aż kod zakończy pętlę przy użyciu słowa kluczowego BREAK. 
 
-Pętle w puli SQL są przydatne do zastępowania kursorów zdefiniowanych w kodzie SQL. Na szczęście prawie wszystkie kursory, które są napisane w kodzie SQL są szybko do przodu, tylko do odczytu odmiany. Tak więc pętle [WHILE] są świetną alternatywą dla wymiany kursorów.
+Pętle w puli SQL są przydatne do zastępowania kursorów zdefiniowanych w kodzie SQL. Na szczęście prawie wszystkie kursory, które są zapisywane w kodzie SQL, są do przodu, tylko do odczytu. Tak więc pętle [WHILE] są świetną alternatywą dla zastępowania kursorów.
 
 ## <a name="replacing-cursors-in-sql-pool"></a>Zastępowanie kursorów w puli SQL
 
-Przed nurkowaniem należy rozważyć następujące pytanie: "Czy ten kursor może zostać przepisany w celu użycia operacji opartych na zestawach?" W wielu przypadkach odpowiedź brzmi tak i często jest najlepszym podejściem. Operacja oparta na zestawie często wykonuje szybciej niż iteracyjne podejście wiersz po wierszu.
+Przed napisaniem w programie należy wziąć pod uwagę następujące kwestie: "czy można ponownie napisać ten kursor, aby użyć operacji ustawionych?". W wielu przypadkach odpowiedź ma wartość yes i jest często najlepszym rozwiązaniem. Operacja oparta na zestawie często wykonuje się szybciej niż iteracyjne, sekwencyjne wiersz po wierszu.
 
-Kursory tylko do odczytu do przodu można łatwo zastąpić konstrukcją pętli. Poniższy kod jest prostym przykładem. W tym przykładzie kodu aktualizuje statystyki dla każdej tabeli w bazie danych. Przez iteracji nad tabelami w pętli, każde polecenie wykonuje w sekwencji.
+Szybkie przewijanie kursorów tylko do odczytu jest łatwo zastępowane przez konstrukcję pętli. Poniższy kod jest prostym przykładem. Ten przykład kodu aktualizuje statystyki dla każdej tabeli w bazie danych. Przez iterację w tabelach w pętli, każde polecenie wykonuje sekwencję.
 
-Najpierw utwórz tabelę tymczasową zawierającą unikatowy numer wiersza używany do identyfikowania poszczególnych instrukcji:
+Najpierw utwórz tabelę tymczasową zawierającą unikatowy numer wiersza służący do identyfikowania poszczególnych instrukcji:
 
 ```sql
 CREATE TABLE #tbl
@@ -47,7 +47,7 @@ FROM    sys.tables
 ;
 ```
 
-Po drugie, zainicjować zmienne wymagane do wykonania pętli:
+Następnie zainicjuj zmienne wymagane do wykonania pętli:
 
 ```sql
 DECLARE @nbr_statements INT = (SELECT COUNT(*) FROM #tbl)
@@ -55,7 +55,7 @@ DECLARE @nbr_statements INT = (SELECT COUNT(*) FROM #tbl)
 ;
 ```
 
-Teraz pętla nad instrukcjami wykonującymi je po jednym na raz:
+Teraz instrukcje pętli over wykonujeją je pojedynczo:
 
 ```sql
 WHILE   @i <= @nbr_statements
@@ -66,7 +66,7 @@ BEGIN
 END
 ```
 
-Na koniec upuść tabelę tymczasową utworzoną w pierwszym kroku
+Na koniec Usuń tabelę tymczasową utworzoną w pierwszym kroku
 
 ```sql
 DROP TABLE #tbl;
@@ -74,4 +74,4 @@ DROP TABLE #tbl;
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej wskazówek dotyczących rozwoju, zobacz [omówienie rozwoju](develop-overview.md).
+Aby uzyskać więcej porad programistycznych, zobacz [Omówienie projektowania](develop-overview.md).

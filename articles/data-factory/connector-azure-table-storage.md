@@ -1,6 +1,6 @@
 ---
-title: Kopiowanie danych do i z magazynu tabel platformy Azure
-description: Dowiedz się, jak kopiować dane z obsługiwanych magazynów źródłowych do magazynu tabel platformy Azure lub z magazynu tabel do obsługiwanych magazynów ujścia przy użyciu usługi Data Factory.
+title: Kopiowanie danych do i z usługi Azure Table Storage
+description: Informacje o kopiowaniu danych z obsługiwanych magazynów źródłowych do usługi Azure Table Storage lub z magazynu tabel do obsługiwanych magazynów ujścia przy użyciu Data Factory.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -12,21 +12,21 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/27/2019
 ms.openlocfilehash: 6edd32f8f3579238d1f08f55ce9fb1528fa5d211
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417492"
 ---
-# <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Kopiowanie danych do i z magazynu tabel platformy Azure przy użyciu usługi Azure Data Factory
+# <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Kopiowanie danych do i z usługi Azure Table Storage przy użyciu Azure Data Factory
 
-> [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
+> [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-azure-table-connector.md)
 > * [Bieżąca wersja](connector-azure-table-storage.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-W tym artykule opisano, jak używać działania kopiowania w usłudze Azure Data Factory do kopiowania danych do i z magazynu tabel platformy Azure. Opiera się na [omówienie działania kopiowania,](copy-activity-overview.md) który przedstawia ogólne omówienie działania kopiowania.
+W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych do i z usługi Azure Table Storage. Jest ona oparta na [przeglądzie działania kopiowania](copy-activity-overview.md) , która przedstawia ogólne omówienie działania kopiowania.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -34,33 +34,33 @@ W tym artykule opisano, jak używać działania kopiowania w usłudze Azure Data
 
 Ten łącznik usługi Azure Table Storage jest obsługiwany dla następujących działań:
 
-- [Kopiowanie aktywności](copy-activity-overview.md) z [obsługiwaną macierzą źródło/ujście](copy-activity-overview.md)
-- [Działanie odnośnika](control-flow-lookup-activity.md)
+- [Działanie kopiowania](copy-activity-overview.md) z [obsługiwaną macierzą źródłową/ujścia](copy-activity-overview.md)
+- [Działanie Lookup](control-flow-lookup-activity.md)
 
-Można skopiować dane z dowolnego obsługiwanego magazynu danych źródłowych do magazynu tabel. Można również skopiować dane z magazynu tabel do dowolnego obsługiwanego magazynu danych ujścia. Aby uzyskać listę magazynów danych, które są obsługiwane jako źródła lub pochłaniacze przez działanie kopiowania, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) tabeli.
+Dane można kopiować z dowolnego obsługiwanego źródłowego magazynu danych do usługi Table Storage. Możesz również skopiować dane z magazynu tabel do dowolnego obsługiwanego magazynu danych ujścia. Listę magazynów danych obsługiwanych jako źródła lub ujścia przez działanie kopiowania można znaleźć w tabeli [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-W szczególności ten łącznik tabeli platformy Azure obsługuje kopiowanie danych przy użyciu uwierzytelniania podpisu współdzielonego dostępu do konta i usługi.
+W każdym przypadku ten łącznik tabeli platformy Azure obsługuje kopiowanie danych przy użyciu uwierzytelniania sygnatury dostępu współdzielonego z użyciem klucza konta i usługi.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-W poniższych sekcjach znajdują się szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych specyficznych dla magazynu tabel.
+Poniższe sekcje zawierają szczegółowe informacje dotyczące właściwości, które są używane do definiowania jednostek Data Factory specyficznych dla magazynu tabel.
 
-## <a name="linked-service-properties"></a>Połączone właściwości usługi
+## <a name="linked-service-properties"></a>Właściwości połączonej usługi
 
-### <a name="use-an-account-key"></a>Używanie klucza konta
+### <a name="use-an-account-key"></a>Użyj klucza konta
 
-Usługę połączony usługi Azure Storage można utworzyć przy użyciu klucza konta. Zapewnia fabryce danych globalny dostęp do magazynu. Obsługiwane są następujące właściwości.
+Połączoną usługę Azure Storage można utworzyć przy użyciu klucza konta. Zapewnia fabrykę danych z dostępem globalnym do magazynu. Obsługiwane są następujące właściwości.
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type | Właściwość typu musi być ustawiona na **AzureTableStorage**. |Tak |
-| Parametry połączenia | Określ informacje potrzebne do nawiązania połączenia z magazynem dla właściwości connectionString. <br/>Można również umieścić klucz konta w usłudze Azure Key Vault i wyciągnąć konfigurację `accountKey` z ciągu połączenia. Więcej informacji można znaleźć w poniższych przykładach i [poświadczeniach sklepu w usłudze Azure Key Vault.](store-credentials-in-key-vault.md) |Tak |
-| connectVia | [Środowisko uruchomieniowe integracji,](concepts-integration-runtime.md) które ma być używane do łączenia się z magazynem danych. Można użyć środowiska uruchomieniowego integracji platformy Azure lub środowiska wykonawczego integracji hostowanego samodzielnie (jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli nie zostanie określony, używa domyślnego środowiska wykonawczego integracji platformy Azure. |Nie |
+| type | Właściwość Type musi być ustawiona na wartość **AzureTableStorage**. |Tak |
+| Parametry połączenia | Określ informacje, które są konieczne do nawiązania połączenia z magazynem dla właściwości connectionString. <br/>Możesz również umieścić klucz konta w Azure Key Vault i ściągnąć `accountKey` konfigurację z parametrów połączenia. Zapoznaj się z poniższymi przykładami i [Zapisz poświadczenia w Azure Key Vault](store-credentials-in-key-vault.md) artykule, aby uzyskać więcej szczegółów. |Tak |
+| Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Możesz użyć Azure Integration Runtime lub samodzielnego Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
 
 >[!NOTE]
->Jeśli używasz usługi połączonej typu "AzureStorage", nadal jest obsługiwana w stanie takim, w jakim jest, podczas gdy zaleca się użycie tego nowego typu usługi połączonej "AzureTableStorage" w przyszłości.
+>Jeśli używasz połączonej usługi typu "AzureStorage", jest ona nadal obsługiwana w stanie takim, w jakim będziesz mieć możliwość użycia nowego typu połączonej usługi "AzureTableStorage" do przodu.
 
 **Przykład:**
 
@@ -80,7 +80,7 @@ Usługę połączony usługi Azure Storage można utworzyć przy użyciu klucza 
 }
 ```
 
-**Przykład: klucz konta magazynu w usłudze Azure Key Vault**
+**Przykład: Zapisz klucz konta w Azure Key Vault**
 
 ```json
 {
@@ -106,30 +106,30 @@ Usługę połączony usługi Azure Storage można utworzyć przy użyciu klucza 
 }
 ```
 
-### <a name="use-shared-access-signature-authentication"></a>Korzystanie z uwierzytelniania podpisu dostępu współdzielonego
+### <a name="use-shared-access-signature-authentication"></a>Korzystanie z uwierzytelniania sygnatury dostępu współdzielonego
 
-Można również utworzyć usługę połączoną magazynu przy użyciu podpisu dostępu udostępnionego. Zapewnia fabryce danych ograniczony/czasowy dostęp do wszystkich/określonych zasobów w magazynie.
+Możesz również utworzyć połączoną usługę Storage przy użyciu sygnatury dostępu współdzielonego. Zapewnia ona fabrykę danych z ograniczonym dostępnym przez czas dostępem do wszystkich/określonych zasobów w magazynie.
 
-Podpis dostępu współdzielonego zapewnia delegowany dostęp do zasobów na koncie magazynu. Można go użyć do przyznania klientowi ograniczone uprawnienia do obiektów na koncie magazynu przez określony czas i z określonym zestawem uprawnień. Nie musisz udostępniać kluczy dostępu do konta. Sygnatura dostępu współdzielonego jest identyfikatorem URI, który obejmuje w swoich parametrach zapytania wszystkie informacje niezbędne do uwierzytelnionego dostępu do zasobu magazynu. Aby uzyskać dostęp do zasobów magazynu z podpisem dostępu współdzielonego, klient musi przekazać tylko w podpisie dostępu współdzielonego do odpowiedniego konstruktora lub metody. Aby uzyskać więcej informacji na temat podpisów dostępu współdzielonego, zobacz [Podpisy dostępu udostępnionego: Zrozumienie modelu podpisu dostępu współdzielonego](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Sygnatura dostępu współdzielonego zapewnia delegowany dostęp do zasobów na koncie magazynu. Można jej użyć do udzielenia klientowi ograniczonych uprawnień do obiektów na koncie magazynu przez określony czas i z określonym zestawem uprawnień. Nie musisz udostępniać kluczy dostępu do konta. Sygnatura dostępu współdzielonego to identyfikator URI, który obejmuje parametry zapytania wszystkie informacje niezbędne do uzyskania dostępu uwierzytelnionego do zasobu magazynu. Aby uzyskać dostęp do zasobów magazynu za pomocą sygnatury dostępu współdzielonego, klient musi przekazać sygnaturę dostępu współdzielonego tylko do odpowiedniego konstruktora lub metody. Aby uzyskać więcej informacji na temat sygnatur dostępu współdzielonego, zobacz [sygnatury dostępu współdzielonego: Opis modelu sygnatury dostępu współdzielonego](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> Usługa Data Factory obsługuje teraz zarówno **podpisy dostępu współdzielonego usługi,** jak i **podpisy dostępu współdzielonego na koncie.** Aby uzyskać więcej informacji na temat podpisów dostępu współdzielonego, zobacz [Udzielanie ograniczonego dostępu do zasobów usługi Azure Storage przy użyciu sygnatur dostępu współdzielonego (SAS).](../storage/common/storage-sas-overview.md) 
+> Data Factory obsługuje teraz zarówno **sygnatury dostępu współdzielonego usługi** , jak i **sygnatury dostępu współdzielonego konta**. Aby uzyskać więcej informacji na temat sygnatur dostępu współdzielonego, zobacz [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](../storage/common/storage-sas-overview.md). 
 
 > [!TIP]
-> Aby wygenerować podpis dostępu współdzielonego usługi dla konta magazynu, można wykonać następujące polecenia programu PowerShell. Wymień symbole zastępcze i przyznaj wymagane uprawnienia.
+> Aby wygenerować sygnaturę dostępu współdzielonego usługi dla konta magazynu, można wykonać następujące polecenia programu PowerShell. Zastąp symbole zastępcze i Udziel wymaganych uprawnień.
 > `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
-Aby użyć uwierzytelniania podpisu dostępu współdzielonego, obsługiwane są następujące właściwości.
+Aby można było korzystać z uwierzytelniania sygnatury dostępu współdzielonego, obsługiwane są następujące właściwości.
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type | Właściwość typu musi być ustawiona na **AzureTableStorage**. |Tak |
-| sasuri ( sasuri ) | Określ identyfikator URI sygnatury dostępu współdzielonego identyfikatora URI podpisu dostępu udostępnionego do tabeli. <br/>Oznacz to pole jako SecureString, aby bezpiecznie przechowywać go w fabryce danych. Token Sygnatury dostępu Współdzielonego można również umieścić w usłudze Azure Key Vault, aby wykorzystać automatyczną rotację i usunąć część tokenu. Więcej informacji można znaleźć w poniższych przykładach i [poświadczeniach sklepu w usłudze Azure Key Vault.](store-credentials-in-key-vault.md) | Tak |
-| connectVia | [Środowisko uruchomieniowe integracji,](concepts-integration-runtime.md) które ma być używane do łączenia się z magazynem danych. Można użyć środowiska uruchomieniowego integracji platformy Azure lub środowiska wykonawczego integracji hostowanego samodzielnie (jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli nie zostanie określony, używa domyślnego środowiska wykonawczego integracji platformy Azure. |Nie |
+| type | Właściwość Type musi być ustawiona na wartość **AzureTableStorage**. |Tak |
+| sasUri | Określ identyfikator URI SAS sygnatury dostępu współdzielonego do tabeli. <br/>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory. Token sygnatury dostępu współdzielonego można również umieścić w Azure Key Vault, aby wykorzystać funkcję autorotacji i usunąć część tokenu. Zapoznaj się z poniższymi przykładami i [Zapisz poświadczenia w Azure Key Vault](store-credentials-in-key-vault.md) artykule, aby uzyskać więcej szczegółów. | Tak |
+| Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Możesz użyć Azure Integration Runtime lub samodzielnego Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
 
 >[!NOTE]
->Jeśli używasz usługi połączonej typu "AzureStorage", nadal jest obsługiwana w stanie takim, w jakim jest, podczas gdy zaleca się użycie tego nowego typu usługi połączonej "AzureTableStorage" w przyszłości.
+>Jeśli używasz połączonej usługi typu "AzureStorage", jest ona nadal obsługiwana w stanie takim, w jakim będziesz mieć możliwość użycia nowego typu połączonej usługi "AzureTableStorage" do przodu.
 
 **Przykład:**
 
@@ -152,7 +152,7 @@ Aby użyć uwierzytelniania podpisu dostępu współdzielonego, obsługiwane są
 }
 ```
 
-**Przykład: klucz konta magazynu w usłudze Azure Key Vault**
+**Przykład: Zapisz klucz konta w Azure Key Vault**
 
 ```json
 {
@@ -181,22 +181,22 @@ Aby użyć uwierzytelniania podpisu dostępu współdzielonego, obsługiwane są
 }
 ```
 
-Podczas tworzenia identyfikatora URI podpisu dostępu udostępnionego należy wziąć pod uwagę następujące kwestie:
+Podczas tworzenia identyfikatora URI sygnatury dostępu współdzielonego należy wziąć pod uwagę następujące kwestie:
 
-- Ustaw odpowiednie uprawnienia do odczytu/zapisu dla obiektów na podstawie sposobu, w jaki usługa połączona (odczyt, zapis, odczyt/zapis) jest używana w fabryce danych.
-- Ustaw czas **wygaśnięcia** odpowiednio. Upewnij się, że dostęp do obiektów magazynu nie wygasa w aktywnym okresie potoku.
-- Identyfikator URI powinny być tworzone na poziomie tabeli prawo na podstawie potrzeby.
+- Ustaw odpowiednie uprawnienia do odczytu/zapisu dla obiektów na podstawie sposobu używania połączonej usługi (odczyt, zapis, odczyt/zapis) w fabryce danych.
+- Ustaw odpowiednio **czas wygaśnięcia** . Upewnij się, że dostęp do obiektów magazynu nie wygasa w aktywnym okresie potoku.
+- Identyfikator URI należy utworzyć na poziomie właściwej tabeli w zależności od potrzeb.
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 
-Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania zestawów danych, zobacz artykuł [Zestawy danych.](concepts-datasets-linked-services.md) Ta sekcja zawiera listę właściwości obsługiwanych przez zestaw danych tabeli platformy Azure.
+Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania zestawów danych, zobacz artykuł [zestawy danych](concepts-datasets-linked-services.md) . Ta sekcja zawiera listę właściwości obsługiwanych przez zestaw danych tabeli platformy Azure.
 
-Aby skopiować dane do i z tabeli platformy Azure, ustaw właściwość typu zestawu danych na **AzureTable**. Obsługiwane są następujące właściwości.
+Aby skopiować dane do i z tabeli platformy Azure, ustaw właściwość Type zestawu danych na **Azure**. Obsługiwane są następujące właściwości.
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type | Właściwość typu zestawu danych musi być ustawiona na **AzureTable**. |Tak |
-| tableName |Nazwa tabeli w wystąpieniu bazy danych magazynu tabel, do których odwołuje się usługa połączona. |Tak |
+| type | Właściwość Type zestawu danych musi być ustawiona na wartość **Azure**. |Tak |
+| tableName |Nazwa tabeli w wystąpieniu bazy danych magazynu tabel, do której odwołuje się połączona usługa. |Tak |
 
 **Przykład:**
 
@@ -218,59 +218,59 @@ Aby skopiować dane do i z tabeli platformy Azure, ustaw właściwość typu zes
 }
 ```
 
-### <a name="schema-by-data-factory"></a>Schemat według fabryki danych
+### <a name="schema-by-data-factory"></a>Schemat według Data Factory
 
-W przypadku magazynów danych wolnych od schematu, takich jak tabela Azure, usługa Data Factory wywnioskować schemat w jeden z następujących sposobów:
+W przypadku magazynów danych bez schematu, takich jak Azure Table, Data Factory wnioskuje schemat w jeden z następujących sposobów:
 
-* Jeśli określisz mapowanie kolumn w działaniu kopiowania, usługa Data Factory użyj listy kolumn po stronie źródłowej do pobierania danych. W takim przypadku jeśli wiersz nie zawiera wartości dla kolumny, wartość null jest dla niego podana.
-* Jeśli nie określisz mapowania kolumn w działaniu kopiowania, usługa Data Factory wyjmuje schemat przy użyciu pierwszego wiersza w danych. W takim przypadku jeśli pierwszy wiersz nie zawiera pełnego schematu (np. niektóre kolumny mają wartość null), niektóre kolumny są pomijane w wyniku operacji kopiowania.
+* Jeśli określisz Mapowanie kolumn w działaniu kopiowania, Data Factory Użyj listy kolumn po stronie źródłowej, aby pobrać dane. W takim przypadku, jeśli wiersz nie zawiera wartości dla kolumny, zostanie dla niego podana wartość null.
+* Jeśli nie określisz mapowania kolumn w działaniu kopiowania, Data Factory wnioskuje schemat przy użyciu pierwszego wiersza w danych. W tym przypadku, jeśli pierwszy wiersz nie zawiera pełnego schematu (np. niektóre kolumny mają wartość null), niektóre kolumny są pominięte w wyniku operacji kopiowania.
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
 
-Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania działań, zobacz [Pipelines](concepts-pipelines-activities.md) artykułu. Ta sekcja zawiera listę właściwości obsługiwanych przez źródło tabeli platformy Azure i ujście.
+Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania działań, zobacz artykuł [potoki](concepts-pipelines-activities.md) . Ta sekcja zawiera listę właściwości obsługiwanych przez źródło i obiekt ujścia tabeli platformy Azure.
 
-### <a name="azure-table-as-a-source-type"></a>Tabela platformy Azure jako typ źródłowy
+### <a name="azure-table-as-a-source-type"></a>Tabela platformy Azure jako typ źródła
 
-Aby skopiować dane z tabeli platformy Azure, ustaw typ źródła w działaniu kopiowania na **AzureTableSource**. Następujące właściwości są obsługiwane w sekcji **źródła** działania kopiowania.
+Aby skopiować dane z tabeli platformy Azure, ustaw typ źródła w działaniu Copy na **AzureTableSource**. W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości.
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type | Właściwość typu źródła działania kopiowania musi być ustawiona na **AzureTableSource**. |Tak |
-| azureTableSourceQuery |Użyj niestandardowej kwerendy magazynu tabeli do odczytu danych. Zobacz przykłady w poniższej sekcji. |Nie |
-| azureTableSourceIgnoreTableNotFound |Wskazuje, czy nie istnieje wyjątek tabeli.<br/>Dozwolone wartości to **Prawda** i **Fałsz** (domyślnie). |Nie |
+| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość **AzureTableSource**. |Tak |
+| azureTableSourceQuery |Użyj zapytania magazynu tabel niestandardowych do odczytu danych. Zobacz przykłady w poniższej sekcji. |Nie |
+| azureTableSourceIgnoreTableNotFound |Wskazuje, czy zezwolić na wyjątek nieistniejącej tabeli.<br/>Dozwolone wartości to **true** i **false** (wartość domyślna). |Nie |
 
-### <a name="azuretablesourcequery-examples"></a>przykłady azureTableSourceQuery
+### <a name="azuretablesourcequery-examples"></a>Przykłady azureTableSourceQuery
 
 >[!NOTE]
->Upłynie czas realizacji operacji kwerendy tabeli platformy Azure w ciągu 30 [sekund, zgodnie z wymuszanym przez usługę Azure Table service](https://docs.microsoft.com/rest/api/storageservices/setting-timeouts-for-table-service-operations). Dowiedz się, jak zoptymalizować kwerendę z [projektu do wykonywania zapytań](../storage/tables/table-storage-design-for-query.md) w artykule.
+>Operacja zapytania tabeli platformy Azure zostanie przeprowadzona w ciągu 30 sekund jako [wymuszonego przez Table Service platformy Azure](https://docs.microsoft.com/rest/api/storageservices/setting-timeouts-for-table-service-operations). Dowiedz się, jak zoptymalizować zapytanie z [projektu w celu zbadania](../storage/tables/table-storage-design-for-query.md) artykułu.
 
-W usłudze Azure Data Factory, jeśli chcesz filtrować dane względem kolumny typu datetime, zapoznaj się z tym przykładem:
+W Azure Data Factory, jeśli chcesz filtrować dane przy użyciu kolumny typu DateTime, zapoznaj się z tym przykładem:
 
 ```json
 "azureTableSourceQuery": "LastModifiedTime gt datetime'2017-10-01T00:00:00' and LastModifiedTime le datetime'2017-10-02T00:00:00'"
 ```
 
-Jeśli chcesz filtrować dane względem kolumny typu ciągu, zapoznaj się z tym przykładem:
+Jeśli chcesz filtrować dane przy użyciu kolumny typu String, zapoznaj się z tym przykładem:
 
 ```json
 "azureTableSourceQuery": "LastModifiedTime ge '201710010000_0000' and LastModifiedTime le '201710010000_9999'"
 ```
 
-Jeśli używasz parametru potoku, należy rzutować wartość datetime do prawidłowego formatu zgodnie z poprzednimi próbkami.
+W przypadku użycia parametru potoku należy rzutować wartość DateTime na odpowiedni format zgodnie z poprzednimi przykładami.
 
 ### <a name="azure-table-as-a-sink-type"></a>Tabela platformy Azure jako typ ujścia
 
-Aby skopiować dane do tabeli platformy Azure, ustaw typ ujścia w działaniu kopiowania na **AzureTableSink**. Następujące właściwości są obsługiwane w sekcji ujście działania **kopiowania.**
+Aby skopiować dane do tabeli platformy Azure, ustaw typ ujścia w działaniu Copy na **AzureTableSink**. W sekcji **ujścia** działania kopiowania są obsługiwane następujące właściwości.
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type | Właściwość typu ujścia działania kopiowania musi być ustawiona na **AzureTableSink**. |Tak |
-| azureTableDefaultPartitionKeyValue |Domyślna wartość klucza partycji, która może być używana przez obiekt sink. |Nie |
-| azureTablePartitionKeyName |Określ nazwę kolumny, której wartości są używane jako klucze partycji. Jeśli nie określono, "AzureTableDefaultPartitionKeyValue" jest używany jako klucz partycji. |Nie |
+| type | Właściwość Type ujścia działania Copy musi być ustawiona na wartość **AzureTableSink**. |Tak |
+| azureTableDefaultPartitionKeyValue |Domyślna wartość klucza partycji, która może być używana przez ujścia. |Nie |
+| azureTablePartitionKeyName |Określ nazwę kolumny, której wartości są używane jako klucze partycji. Jeśli nie zostanie określony, jako klucz partycji zostanie użyta wartość "AzureTableDefaultPartitionKeyValue". |Nie |
 | azureTableRowKeyName |Określ nazwę kolumny, której wartości kolumn są używane jako klucz wiersza. Jeśli nie zostanie określony, użyj identyfikatora GUID dla każdego wiersza. |Nie |
-| azureTableInsertType |Tryb wstawiania danych do tabeli platformy Azure. Ta właściwość określa, czy istniejące wiersze w tabeli danych wyjściowych z pasującymi kluczami partycji i wierszy mają swoje wartości zastąpione lub scalone. <br/><br/>Dozwolone wartości są **scalane** (domyślnie) i **zastępują**. <br/><br> To ustawienie ma zastosowanie na poziomie wiersza, a nie na poziomie tabeli. Żadna z tych opcji nie usuwa wierszy w tabeli danych wyjściowych, które nie istnieją w danych wejściowych. Aby dowiedzieć się, jak działają ustawienia scalania i zamieniania, zobacz [Wstawianie lub scalanie encji](https://msdn.microsoft.com/library/azure/hh452241.aspx) oraz [Wstawianie lub zamienianie encji](https://msdn.microsoft.com/library/azure/hh452242.aspx). |Nie |
-| writeBatchSize |Wstawia dane do tabeli platformy Azure, gdy wpisanieBatchSize lub writeBatchTimeout zostanie trafiony.<br/>Dozwolone wartości to liczba całkowita (liczba wierszy). |Nie (wartość domyślna to 10 000) |
-| writeBatchTimeout |Wstawia dane do tabeli platformy Azure, gdy wpisanieBatchSize lub writeBatchTimeout zostanie trafiony.<br/>Dozwolone wartości są timespan. Przykładem jest "00:20:00" (20 minut). |Nie (wartość domyślna to 90 sekund, domyślny limit czasu klienta magazynu) |
+| azureTableInsertType |Tryb wstawiania danych do tabeli platformy Azure. Ta właściwość określa, czy istniejące wiersze w tabeli wyjściowej ze zgodnymi partycjami i kluczami wierszy mają zamienione lub scalone wartości. <br/><br/>Dozwolone wartości to **merge** (wartość domyślna) i **Zamień**. <br/><br> To ustawienie jest stosowane na poziomie wiersza, a nie na poziomie tabeli. Żadna z tych opcji nie powoduje usunięcia wierszy w tabeli wyjściowej, które nie istnieją w danych wejściowych. Aby dowiedzieć się, jak działają ustawienia scalania i zamieniania, zobacz [Wstawianie lub scalanie](https://msdn.microsoft.com/library/azure/hh452241.aspx) jednostki oraz [Wstawianie lub zamienianie jednostki](https://msdn.microsoft.com/library/azure/hh452242.aspx). |Nie |
+| writeBatchSize |Wstawia dane do tabeli platformy Azure, gdy trafi writeBatchSize lub writeBatchTimeout.<br/>Dozwolone wartości to liczba całkowita (liczba wierszy). |Nie (domyślnie 10 000) |
+| writeBatchTimeout |Wstawia dane do tabeli platformy Azure, gdy trafi writeBatchSize lub writeBatchTimeout.<br/>Dozwolone wartości to TimeSpan. Przykładem jest "00:20:00" (20 minut). |Nie (wartość domyślna to 90 sekund, domyślny limit czasu klienta magazynu) |
 
 **Przykład:**
 
@@ -307,9 +307,9 @@ Aby skopiować dane do tabeli platformy Azure, ustaw typ ujścia w działaniu ko
 
 ### <a name="azuretablepartitionkeyname"></a>azureTablePartitionKeyName
 
-Zamapuj kolumnę źródłową do kolumny docelowej przy użyciu właściwości **"translator",** zanim będzie można użyć kolumny docelowej jako azureTablePartitionKeyName.
+Mapowanie kolumny źródłowej do kolumny docelowej przy użyciu właściwości **"Translator"** , aby można było użyć kolumny docelowej jako azureTablePartitionKeyName.
 
-W poniższym przykładzie kolumna źródłowska DivisionID jest mapowana na kolumnę docelową DivisionID:
+W poniższym przykładzie kolumna źródłowa DivisionID jest mapowana na kolumnę docelową DivisionID:
 
 ```json
 "translator": {
@@ -318,7 +318,7 @@ W poniższym przykładzie kolumna źródłowska DivisionID jest mapowana na kolu
 }
 ```
 
-"DivisionID" jest określony jako klucz partycji.
+Jako klucz partycji określono wartość "DivisionID".
 
 ```json
 "sink": {
@@ -327,26 +327,26 @@ W poniższym przykładzie kolumna źródłowska DivisionID jest mapowana na kolu
 }
 ```
 
-## <a name="data-type-mapping-for-azure-table"></a>Mapowanie typów danych dla tabeli platformy Azure
+## <a name="data-type-mapping-for-azure-table"></a>Mapowanie typu danych dla tabeli platformy Azure
 
-Podczas kopiowania danych z i do tabeli platformy Azure następujące mapowania są używane z typów danych tabeli azure do danych tymczasowe typy danych fabryki danych. Aby dowiedzieć się, jak działanie kopiowania mapuje schemat źródłowy i typ danych do ujścia, zobacz [Mapowanie schematu i typów danych](copy-activity-schema-and-type-mapping.md).
+Podczas kopiowania danych z i do tabeli platformy Azure następujące mapowania są używane w ramach typów danych tabeli platformy Azure do Data Factory danych pośrednich. Aby dowiedzieć się, jak działanie kopiowania mapuje schemat źródłowy i typ danych na ujścia, zobacz [Mapowanie schematu i typu danych](copy-activity-schema-and-type-mapping.md).
 
-Podczas przenoszenia danych do i z tabeli platformy Azure następujące [mapowania zdefiniowane przez tabelę platformy Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx) są używane z typów OData tabeli platformy Azure do typu .NET i odwrotnie.
+Po przeniesieniu danych do i z tabeli platformy Azure następujące [mapowania zdefiniowane przez usługę Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx) Table są używane w ramach typów OData w tabeli platformy Azure do typu .NET i na odwrót.
 
-| Typ danych tabeli platformy Azure | Tymczasowy typ danych data factory | Szczegóły |
+| Typ danych tabeli platformy Azure | Data Factory typ danych pośrednich | Szczegóły |
 |:--- |:--- |:--- |
-| Edm.Binary (Edm.Binary) |bajt[] |Tablica bajtów o masie do 64 KB. |
+| EDM. Binary |Byte [] |Tablica bajtów do 64 KB. |
 | Edm.Boolean |bool |Wartość logiczna. |
-| Edm.DateTime |DateTime |Wartość 64-bitowa wyrażona jako skoordynowany czas uniwersalny (UTC). Obsługiwany zakres DateTime rozpoczyna się o północy, 1 stycznia 1601 r. r. (C.E.), UTC. Zakres kończy się 31 grudnia 9999. |
+| EDM. DateTime |DateTime |Wartość 64-bitowa wyrażona jako uniwersalny czas koordynowany (UTC). Obsługiwany zakres DateTime rozpoczyna się od północy, 1 stycznia, 1601 N.E. (0001), UTC. Zakres zostaje zakończony 31 grudnia 9999. |
 | Edm.Double |double |64-bitowa wartość zmiennoprzecinkowa. |
-| Edm.Guid (Edm.Guid) |Guid (identyfikator GUID) |128-bitowy unikatowy identyfikator globalny. |
-| Edm.Int32 |Int32 |32-bitowa ć całkowita. |
-| Edm.Int64 |Int64 |64-bitowa ć całkowita. |
-| Edm.String |Ciąg |Wartość zakodowana w stanie UTF-16. Wartości ciągu mogą mieć maksymalnie 64 KB. |
+| EDM. GUID |Guid (identyfikator GUID) |128-bitowy unikatowy identyfikator globalny. |
+| Edm.Int32 |Int32 |32-bitowa liczba całkowita. |
+| Edm.Int64 |Int64 |64-bitowa liczba całkowita. |
+| Edm.String |String |Wartość zakodowana w formacie UTF-16. Wartości ciągu mogą należeć do 64 KB. |
 
-## <a name="lookup-activity-properties"></a>Właściwości działania odnośnika
+## <a name="lookup-activity-properties"></a>Właściwości działania Lookup
 
-Aby dowiedzieć się więcej o właściwościach, sprawdź [działanie odnośnika](control-flow-lookup-activity.md).
+Aby dowiedzieć się więcej o właściwościach, sprawdź [działanie Lookup (wyszukiwanie](control-flow-lookup-activity.md)).
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać listę magazynów danych obsługiwanych jako źródła i pochłaniacze przez działanie kopiowania w fabryce danych, zobacz [Obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).
+Listę magazynów danych obsługiwanych jako źródła i ujścia przez działanie kopiowania w Data Factory można znaleźć w temacie [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

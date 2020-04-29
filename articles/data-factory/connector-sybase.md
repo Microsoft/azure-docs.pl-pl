@@ -1,6 +1,6 @@
 ---
-title: Kopiowanie danych z platformy Sybase przy użyciu usługi Azure Data Factory
-description: Dowiedz się, jak skopiować dane z usługi Sybase do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku usługi Azure Data Factory.
+title: Kopiowanie danych z programu Sybase przy użyciu Azure Data Factory
+description: Informacje o kopiowaniu danych z programu Sybase do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,60 +12,60 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: 495d16efcc26fc336a87c0f2d88f5202ab0b4a3e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416614"
 ---
-# <a name="copy-data-from-sybase-using-azure-data-factory"></a>Kopiowanie danych z platformy Sybase przy użyciu usługi Azure Data Factory
-> [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
+# <a name="copy-data-from-sybase-using-azure-data-factory"></a>Kopiowanie danych z programu Sybase przy użyciu Azure Data Factory
+> [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-onprem-sybase-connector.md)
-> * [Aktualna wersja](connector-sybase.md)
+> * [Bieżąca wersja](connector-sybase.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-W tym artykule opisano, jak używać działania kopiowania w usłudze Azure Data Factory do kopiowania danych z bazy danych Sybase. Opiera się na [omówienie działania kopiowania](copy-activity-overview.md) artykuł, który przedstawia ogólny przegląd działania kopiowania.
+W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z bazy danych programu Sybase. Jest ona oparta na [przeglądzie działania kopiowania](copy-activity-overview.md) , która przedstawia ogólne omówienie działania kopiowania.
 
 ## <a name="supported-capabilities"></a>Obsługiwane możliwości
 
-Ten łącznik Sybase jest obsługiwany dla następujących działań:
+Ten łącznik programu Sybase jest obsługiwany dla następujących działań:
 
-- [Kopiowanie aktywności](copy-activity-overview.md) z [obsługiwaną macierzą źródło/ujście](copy-activity-overview.md)
-- [Działanie odnośnika](control-flow-lookup-activity.md)
+- [Działanie kopiowania](copy-activity-overview.md) z [obsługiwaną macierzą źródłową/ujścia](copy-activity-overview.md)
+- [Działanie Lookup](control-flow-lookup-activity.md)
 
-Można skopiować dane z bazy danych Sybase do dowolnego obsługiwanego magazynu danych ujścia. Aby uzyskać listę magazynów danych, które są obsługiwane jako źródła/pochłaniacze przez działanie kopiowania, zobacz tabelę [Obsługiwane magazyny danych.](copy-activity-overview.md#supported-data-stores-and-formats)
+Dane z bazy danych programu Sybase można kopiować do dowolnego obsługiwanego magazynu danych ujścia. Listę magazynów danych obsługiwanych jako źródła/ujścia przez działanie kopiowania można znaleźć w tabeli [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-W szczególności to złącze Sybase obsługuje:
+W tym przypadku ten łącznik programu Sybase obsługuje:
 
-- SAP Sybase SQL Anywhere (ASA) **w wersji 16 i powyżej;** IQ i ASE nie są obsługiwane.
-- Kopiowanie danych przy użyciu uwierzytelniania **podstawowego** lub **uwierzytelniania systemu Windows.**
+- SAP Sybase SQL w dowolnym miejscu (ASA) **w wersji 16 lub nowszej**; IQ i ASE nie są obsługiwane.
+- Kopiowanie danych przy użyciu uwierzytelniania **podstawowego** lub **systemu Windows** .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby użyć tego łącznika Sybase, należy:
+Aby użyć tego łącznika programu Sybase, należy wykonać następujące:
 
-- Konfigurowanie środowiska wykonawczego integracji hostowanego samodzielnie. Zobacz [self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) artykułu, aby uzyskać szczegółowe informacje.
-- Zainstaluj [dostawcę danych dla Sybase iAnywhere.Data.SQLAnywhere](https://go.microsoft.com/fwlink/?linkid=324846) 16 lub wyższej na komputerze środowiska wykonawczego integracji.
+- Skonfiguruj samodzielny Integration Runtime. Aby uzyskać szczegółowe informacje, zobacz artykuł [Integration Runtime samodzielny](create-self-hosted-integration-runtime.md) .
+- Zainstaluj [dostawcę danych dla programu Sybase iAnywhere. Data. SQLAnywhere](https://go.microsoft.com/fwlink/?linkid=324846) 16 lub nowszego na maszynie Integration Runtime.
 
 ## <a name="getting-started"></a>Wprowadzenie
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-W poniższych sekcjach znajdują się szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych specyficznych dla łącznika Sybase.
+Poniższe sekcje zawierają szczegółowe informacje dotyczące właściwości, które są używane do definiowania jednostek Data Factory specyficznych dla łącznika programu Sybase.
 
-## <a name="linked-service-properties"></a>Połączone właściwości usługi
+## <a name="linked-service-properties"></a>Właściwości połączonej usługi
 
-Następujące właściwości są obsługiwane dla usługi połączonej Sybase:
+Dla połączonej usługi Sybase są obsługiwane następujące właściwości:
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type | Właściwość typu musi być ustawiona na: **Sybase** | Tak |
-| serwer | Nazwa serwera Sybase. |Tak |
-| database | Nazwa bazy danych Sybase. |Tak |
-| authenticationType | Typ uwierzytelniania używany do łączenia się z bazą danych Sybase.<br/>Dozwolone wartości to: **Podstawowe**i **Windows**. |Tak |
-| nazwa użytkownika | Określ nazwę użytkownika, aby połączyć się z bazą danych Sybase. |Tak |
-| hasło | Określ hasło dla konta użytkownika określonego dla nazwy użytkownika. Oznacz to pole jako SecureString, aby bezpiecznie przechowywać go w fabryce danych lub [odwołaj się do klucza tajnego przechowywanego w usłudze Azure Key Vault.](store-credentials-in-key-vault.md) |Tak |
-| connectVia | [Środowisko wykonawcze integracji,](concepts-integration-runtime.md) które mają być używane do łączenia się z magazynem danych. Środowisko wykonawcze integracji hostowane samodzielnie jest wymagane, jak wspomniano w [wymaganiach wstępnych.](#prerequisites) |Tak |
+| type | Właściwość Type musi mieć wartość: **Sybase** | Tak |
+| serwer | Nazwa serwera programu Sybase. |Tak |
+| database | Nazwa bazy danych programu Sybase. |Tak |
+| authenticationType | Typ uwierzytelniania używany do nawiązywania połączenia z bazą danych programu Sybase.<br/>Dozwolone wartości to: **Basic**i **Windows**. |Tak |
+| nazwa użytkownika | Określ nazwę użytkownika, aby połączyć się z bazą danych programu Sybase. |Tak |
+| hasło | Określ hasło dla konta użytkownika określonego dla nazwy użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Tak |
+| Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Samodzielna Integration Runtime jest wymagana, jak wspomniano w [wymaganiach wstępnych](#prerequisites). |Tak |
 
 **Przykład:**
 
@@ -94,16 +94,16 @@ Następujące właściwości są obsługiwane dla usługi połączonej Sybase:
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 
-Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania zestawów danych, zobacz artykuł [o zestawach danych.](concepts-datasets-linked-services.md) Ta sekcja zawiera listę właściwości obsługiwanych przez zestaw danych Sybase.
+Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania zestawów danych, zobacz artykuł [zestawy danych](concepts-datasets-linked-services.md) . Ta sekcja zawiera listę właściwości obsługiwanych przez zestaw danych programu Sybase.
 
-Aby skopiować dane z usługi Sybase, obsługiwane są następujące właściwości:
+Aby skopiować dane z programu Sybase, obsługiwane są następujące właściwości:
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type | Właściwość typu zestawu danych musi być ustawiona na: **SybaseTable** | Tak |
-| tableName | Nazwa tabeli w bazie danych Sybase. | Nie (jeśli określono "zapytanie" w źródle działania) |
+| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **Sybase** | Tak |
+| tableName | Nazwa tabeli w bazie danych programu Sybase. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
-**Przykład**
+**Przyklad**
 
 ```json
 {
@@ -120,20 +120,20 @@ Aby skopiować dane z usługi Sybase, obsługiwane są następujące właściwo�
 }
 ```
 
-Jeśli używasz `RelationalTable` wpisanego zestawu danych, jest on nadal obsługiwany w stanie gotowym do użycia, podczas gdy zaleca się użycie nowego w przyszłości.
+Jeśli używasz `RelationalTable` określonego zestawu danych, jest on nadal obsługiwany w stanie takim, w jakim będziesz mieć możliwość korzystania z nowej usługi.
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
 
-Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania działań, zobacz [Pipelines](concepts-pipelines-activities.md) artykułu. Ta sekcja zawiera listę właściwości obsługiwanych przez źródło Sybase.
+Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania działań, zobacz artykuł [potoki](concepts-pipelines-activities.md) . Ta sekcja zawiera listę właściwości obsługiwanych przez źródło programu Sybase.
 
 ### <a name="sybase-as-source"></a>Sybase jako źródło
 
-Aby skopiować dane z usługi Sybase, w sekcji **źródła** działania kopiowania obsługiwane są następujące właściwości:
+Aby skopiować dane z programu Sybase, w sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type | Właściwość typu źródła działania kopiowania musi być ustawiona na: **SybaseSource** | Tak |
-| query | Użyj niestandardowej kwerendy SQL, aby odczytać dane. Na przykład: `"SELECT * FROM MyTable"`. | Nie (jeśli określono "nazwa tabela" w zestawie danych) |
+| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **SybaseSource** | Tak |
+| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM MyTable"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**
 
@@ -167,19 +167,19 @@ Aby skopiować dane z usługi Sybase, w sekcji **źródła** działania kopiowan
 ]
 ```
 
-Jeśli używasz `RelationalSource` wpisanego źródła, jest ono nadal obsługiwane w stanie as-is, podczas gdy zaleca się użycie nowego w przyszłości.
+Jeśli używasz `RelationalSource` typu source, nadal jest ono obsługiwane w stanie takim, w jakim będziesz mieć możliwość użycia nowego.
 
-## <a name="data-type-mapping-for-sybase"></a>Mapowanie typu danych dla sybase
+## <a name="data-type-mapping-for-sybase"></a>Mapowanie typu danych dla programu Sybase
 
-Podczas kopiowania danych z usługi Sybase używane są następujące mapowania z typów danych Sybase do tymczasowych typów danych usługi Azure Data Factory. Zobacz [Mapowania schematu i typu danych,](copy-activity-schema-and-type-mapping.md) aby dowiedzieć się, jak aktywność kopiowania mapuje schemat źródłowy i typ danych do ujścia.
+Podczas kopiowania danych z programu Sybase następujące mapowania są używane z typów danych programu Sybase do Azure Data Factory danych pośrednich. Zobacz [Mapowanie schematu i typu danych](copy-activity-schema-and-type-mapping.md) , aby dowiedzieć się, jak działanie kopiowania mapuje schemat źródłowy i typ danych do ujścia.
 
-Sybase obsługuje typy T-SQL. Aby uzyskać tabelę mapowania z typów SQL do tymczasowych typów danych usługi Azure Data Factory, zobacz [Sekcję mapowania typów danych usługi Azure SQL Database Connector — sekcja mapowania typów danych.](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database)
+Program Sybase obsługuje typy T-SQL. Aby uzyskać tabelę mapowania z typów SQL w celu Azure Data Factory pośrednich typów danych, zobacz sekcję [Mapowanie typów danych z łącznika Azure SQL Database](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database) .
 
-## <a name="lookup-activity-properties"></a>Właściwości działania odnośnika
+## <a name="lookup-activity-properties"></a>Właściwości działania Lookup
 
-Aby dowiedzieć się więcej o właściwościach, sprawdź [działanie odnośnika](control-flow-lookup-activity.md).
+Aby dowiedzieć się więcej o właściwościach, sprawdź [działanie Lookup (wyszukiwanie](control-flow-lookup-activity.md)).
 
 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać listę magazynów danych obsługiwanych jako źródła i pochłaniacze przez działanie kopiowania w usłudze Azure Data Factory, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).
+Listę magazynów danych obsługiwanych jako źródła i ujścia przez działanie kopiowania w Azure Data Factory można znaleźć w temacie [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

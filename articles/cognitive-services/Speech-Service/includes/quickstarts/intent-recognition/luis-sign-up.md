@@ -6,45 +6,45 @@ ms.topic: include
 ms.date: 01/27/2020
 ms.author: trbye
 ms.openlocfilehash: a41c9dc888e85baf021712e3302da7ae6106db47
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81421772"
 ---
-Aby ukończyć szybki start rozpoznawania intencji, musisz utworzyć konto usługi LUIS i projekt przy użyciu portalu usługi LUIS w wersji zapoznawczej. Ten szybki start wymaga tylko subskrypcji usługi LUIS. Subskrypcja usługi mowy *nie jest* wymagana.
+Aby ukończyć funkcję szybkiego startu rozpoznawania intencji, musisz utworzyć konto LUIS i projekt przy użyciu portalu LUIS w wersji zapoznawczej. Ten przewodnik Szybki Start wymaga tylko subskrypcji LUIS. Subskrypcja usługi mowy *nie jest* wymagana.
 
-Pierwszą rzeczą, którą musisz zrobić, to utworzyć konto usługi LUIS i aplikację przy użyciu portalu usługi LUIS w wersji zapoznawczej. Aplikacja usługi LUIS, który tworzysz użyje wstępnie utworzonej domeny do automatyzacji domowej, która zapewnia intencje, jednostki i wypowiedzi przykład. Po zakończeniu będziesz mieć punkt końcowy usługi LUIS uruchomiony w chmurze, który można wywołać przy użyciu SDK mowy. 
+Pierwszą czynnością, którą należy wykonać, jest utworzenie konta LUIS i aplikacji za pomocą portalu LUIS w wersji zapoznawczej. Utworzona aplikacja LUIS będzie używać prekompilowanej domeny do automatyzacji domowej, która zapewnia intencje, jednostki i przykład wyrażenia długości. Po zakończeniu będziesz mieć punkt końcowy LUIS uruchomiony w chmurze, który można wywołać przy użyciu zestawu Speech SDK. 
 
-Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć aplikację usługi LUIS:
+Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć aplikację LUIS:
 
-* <a href="https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app" target="_blank">Szybki start: tworzenie wstępnie utworzonej aplikacji domeny<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app" target="_blank">Szybki Start: Tworzenie wbudowanej aplikacji domeny<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
-Po zakończeniu potrzebne są cztery rzeczy:
+Gdy skończysz, będziesz potrzebować czterech rzeczy:
 
-* Ponowne publikowanie z **włączeniem funkcji wysuwanie mowy**
-* Klucz **podstawowy** usługi LUIS
-* Twoja **lokalizacja** usługi LUIS
-* Identyfikator **aplikacji usługi** LUIS
+* Zastąp ponownie Publikowanie przy użyciu narzędzia **Speech napełnianiu**
+* **Klucz podstawowy** Luis
+* **Lokalizacja** Luis
+* **Identyfikator aplikacji** Luis
 
-Oto, gdzie można znaleźć te informacje w [portalu wersji zapoznawczej usługi LUIS:](https://preview.luis.ai/)
+Oto, gdzie można znaleźć te informacje w [portalu Luis w wersji zapoznawczej](https://preview.luis.ai/):
 
-1. W portalu podglądu usługi LUIS wybierz aplikację, a następnie wybierz przycisk **Publikuj.**
+1. W portalu LUIS w wersji zapoznawczej wybierz aplikację, a następnie wybierz przycisk **Publikuj** .
 
-2. Wybierz gniazdo **Produkcyjne,** jeśli `en-US` używasz opcji **przełączania zasysania mowy** do pozycji **Włączone.** Następnie wybierz przycisk **Publikuj.**
+2. Wybierz miejsce **produkcyjne** , jeśli używasz opcji `en-US` Przełącz pozycję **Speech napełnianiu** do pozycji **wł** . Następnie wybierz przycisk **Publikuj** .
 
     > [!IMPORTANT]
-    > **Zasysanie mowy** jest wysoce zalecane, ponieważ poprawi dokładność rozpoznawania mowy.
+    > **Napełnianiu mowy** jest zdecydowanie zalecane, ponieważ poprawi dokładność rozpoznawania mowy.
 
     > [!div class="mx-imgBorder"]
-    > ![Publikowanie usługi LUIS w punkcie końcowym](../../../media/luis/publish-app-popup.png)
+    > ![Publikuj LUIS w punkcie końcowym](../../../media/luis/publish-app-popup.png)
 
-3. W portalu usługi LUIS w wersji zapoznawczej wybierz pozycję **Zarządzaj,** a następnie wybierz pozycję **Zasoby platformy Azure**. Na tej stronie znajdziesz klucz usługi LUIS i lokalizację (czasami nazywane _regionem)._
-
-   > [!div class="mx-imgBorder"]
-   > ![Klucz i lokalizacja usługi LUIS](../../../media/luis/luis-key-region.png)
-
-4. Po dojście do klucza i lokalizacji potrzebny jest identyfikator aplikacji. Wybierz **ustawienia aplikacji** — identyfikator aplikacji jest dostępny na tej stronie.
+3. W portalu LUIS w wersji zapoznawczej wybierz pozycję **Zarządzaj**, a następnie wybierz pozycję **zasoby platformy Azure**. Na tej stronie znajdziesz klucz LUIS i lokalizację (czasami określany jako _region_).
 
    > [!div class="mx-imgBorder"]
-   > ![Identyfikator aplikacji usługi LUIS](../../../media/luis/luis-app-id.png)
+   > ![Klucz LUIS i lokalizacja](../../../media/luis/luis-key-region.png)
+
+4. Po uzyskaniu klucza i lokalizacji będziesz potrzebować identyfikatora aplikacji. Wybierz pozycję **Ustawienia aplikacji** — na tej stronie jest dostępny identyfikator aplikacji.
+
+   > [!div class="mx-imgBorder"]
+   > ![Identyfikator aplikacji LUIS](../../../media/luis/luis-app-id.png)

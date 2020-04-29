@@ -1,5 +1,5 @@
 ---
-title: Potok monitora uruchamia usługę Azure Synapse Studio (wersja zapoznawcza)
+title: Monitorowanie uruchomionych potoków Azure Synapse Studio (wersja zapoznawcza)
 description: Użyj usługi Azure Synapse Studio do monitorowania przebiegów potoku obszaru roboczego.
 services: synapse-analytics
 author: matt1883
@@ -9,46 +9,46 @@ ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
 ms.openlocfilehash: 712dc62e29229f03dec12afdf18edbf55667dbdf
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81430788"
 ---
-# <a name="use-azure-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Monitorowanie przebiegów potoku obszaru roboczego za pomocą usługi Azure Synapse Studio
+# <a name="use-azure-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Monitorowanie uruchomień potoku obszaru roboczego za pomocą usługi Azure Synapse Studio
 
-Za pomocą usługi Azure Synapse Analytics można tworzyć złożone potoki, które mogą automatyzować i aranżować działania związane z przenoszeniem danych, transformacją danych i obliczeniami w ramach rozwiązania. Potoki można tworzyć i monitorować za pomocą usługi Azure Synapse Studio (wersja zapoznawcza).
+Usługa Azure Synapse Analytics umożliwia tworzenie złożonych potoków, które mogą zautomatyzować i zorganizować przenoszenie danych, Przekształcanie danych i działania obliczeniowe w ramach rozwiązania. Możesz tworzyć i monitorować te potoki przy użyciu usługi Azure Synapse Studio (wersja zapoznawcza).
 
-W tym artykule wyjaśniono, jak monitorować przebiegi potoku, co pozwala mieć oko na najnowszy stan, problemy i postęp rurociągów.
+W tym artykule wyjaśniono, jak monitorować uruchomienia potoków, co pozwala na śledzenie najnowszego stanu, problemów i postępu potoku.
 
-## <a name="access-the-list-of-pipeline-runs"></a>Dostęp do listy przebiegów potoku
+## <a name="access-the-list-of-pipeline-runs"></a>Dostęp do listy uruchomień potoku
 
-Aby wyświetlić listę uruchomień potoku w obszarze roboczym, najpierw [otwórz studio Synapse i](https://web.azuresynapse.net/) wybierz obszar roboczy.
+Aby wyświetlić listę uruchomień potoków w obszarze roboczym, najpierw [Otwórz usługę Azure Synapse Studio](https://web.azuresynapse.net/) i wybierz swój obszar roboczy.
 
-![Zaloguj się do obszaru roboczego](./media/common/login-workspace.png)
+![Logowanie do obszaru roboczego](./media/common/login-workspace.png)
 
-Po otwarciu obszaru roboczego wybierz sekcję **Monitor** po lewej stronie.
+Po otwarciu obszaru roboczego wybierz sekcję **monitorowanie** po lewej stronie.
 
-![Wybierz koncentrator Monitor](./media/common/left-nav.png)
+![Wybierz pozycję Monitor Hub](./media/common/left-nav.png)
 
-Wybierz **Potok uruchamia,** aby wyświetlić listę przebiegów potoku.
+Wybierz pozycję **uruchomienia potoku** , aby wyświetlić listę uruchomień potoku.
 
-![Wybierz przebiegi potoku](./media/how-to-monitor-pipeline-runs/monitor-hub-nav-pipelineruns.png)
+![Wybierz uruchomienia potoku](./media/how-to-monitor-pipeline-runs/monitor-hub-nav-pipelineruns.png)
 
-## <a name="filtering-your-pipeline-runs"></a>Filtrowanie przebiegów potoku
+## <a name="filtering-your-pipeline-runs"></a>Filtrowanie uruchomień potoku
 
-Możesz filtrować listę uruchomień potoku do tych, które Cię interesują. Filtry w górnej części ekranu umożliwiają określenie pola, w którym chcesz filtrować.
+Możesz filtrować listę uruchomień potoków do interesujących Cię elementów. Filtry w górnej części ekranu umożliwiają określenie pola, do którego chcesz filtrować.
 
-Na przykład można filtrować widok, aby wyświetlić tylko potok działa dla potoku o nazwie "holiday":
+Na przykład można filtrować widok, aby zobaczyć tylko uruchomienia potoku dla potoku o nazwie "dni wolne":
 
-![Przycisk Filtruj](./media/common/filter-button.png)
+![Przycisk filtrowania](./media/common/filter-button.png)
 
-![Filtr próbki](./media/how-to-monitor-pipeline-runs/filter-example.png)
+![Przykładowy filtr](./media/how-to-monitor-pipeline-runs/filter-example.png)
 
-## <a name="viewing-details-about-a-specific-pipeline-run"></a>Wyświetlanie szczegółów dotyczących określonego przebiegu potoku
+## <a name="viewing-details-about-a-specific-pipeline-run"></a>Wyświetlanie szczegółów dotyczących określonego uruchomienia potoku
 
-Aby wyświetlić szczegółowe informacje o przebiegu potoku, wybierz uruchomienie potoku. Następnie wyświetl przebiegi działania skojarzone z uruchomieniem potoku. Jeśli potok jest nadal uruchomiony, można monitorować postęp. 
+Aby wyświetlić szczegóły dotyczące uruchomienia potoku, wybierz uruchomienie potoku. Następnie Wyświetl uruchomienia działania skojarzone z uruchomieniem potoku. Jeśli potok nadal działa, można monitorować postęp. 
   
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat monitorowania aplikacji, zobacz [monitor apache aplikacji Spark](how-to-monitor-spark-applications.md) artykułu. 
+Aby dowiedzieć się więcej o monitorowaniu aplikacji, zobacz artykuł [monitorowanie Apache Spark aplikacji](how-to-monitor-spark-applications.md) . 

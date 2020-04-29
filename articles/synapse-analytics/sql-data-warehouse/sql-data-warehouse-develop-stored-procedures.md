@@ -1,6 +1,6 @@
 ---
 title: Korzystanie z procedur składowanych
-description: Porady dotyczące opracowywania rozwiązań przez implementowanie procedur przechowywanych w puli SQL Synapse.
+description: Wskazówki dotyczące opracowywania rozwiązań przez zaimplementowanie procedur składowanych w puli SQL Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,48 +11,48 @@ ms.date: 04/02/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 3ffdf7a66c2562b43fc2ed02bb088ab1095118fb
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416154"
 ---
-# <a name="using-stored-procedures-in-synapse-sql-pool"></a>Korzystanie z procedur przechowywanych w puli SQL synapse
+# <a name="using-stored-procedures-in-synapse-sql-pool"></a>Korzystanie z procedur składowanych w puli Synapse SQL
 
-Ten artykuł zawiera wskazówki dotyczące tworzenia rozwiązań puli SQL przez implementowanie procedur przechowywanych.
+Ten artykuł zawiera wskazówki dotyczące opracowywania rozwiązań puli SQL przez zaimplementowanie procedur składowanych.
 
-## <a name="what-to-expect"></a>Czego się spodziewać
+## <a name="what-to-expect"></a>Czego oczekiwać
 
-Pula SQL obsługuje wiele funkcji T-SQL, które są używane w programie SQL Server. Co ważniejsze, istnieją funkcje specyficzne skalowaj w poziomie, których można użyć, aby zmaksymalizować wydajność rozwiązania.
+Pula SQL obsługuje wiele funkcji T-SQL, które są używane w SQL Server. Co ważniejsze, dostępne są funkcje skalowania w poziomie, których można użyć w celu zmaksymalizowania wydajności rozwiązania.
 
-Ponadto, aby pomóc w utrzymaniu skali i wydajności puli SQL, istnieją dodatkowe funkcje i funkcje, które mają różnice w zachowaniu.
+Ponadto, aby ułatwić zachowanie skalowalności i wydajności puli SQL, dostępne są dodatkowe funkcje, które mają różnice behawioralne.
 
 ## <a name="introducing-stored-procedures"></a>Wprowadzenie procedur składowanych
 
-Procedury przechowywane są doskonałym sposobem hermetyzacji kodu SQL, który jest przechowywany w pobliżu danych puli SQL. Procedury przechowywane pomagają również deweloperom modularyzować swoje rozwiązania, hermetyzując kod w zarządzane jednostki, ułatwiając w ten sposób większą możliwość ponownego użycia kodu. Każda procedura składowana może również akceptować parametry, aby uczynić je jeszcze bardziej elastycznymi.
+Procedury składowane to świetny sposób hermetyzowania kodu SQL, który jest przechowywany blisko danych puli SQL. Procedury składowane ułatwiają deweloperom modularyzacji swoich rozwiązań poprzez Hermetyzowanie kodu w jednostki zarządzane, co ułatwia lepsze wielokrotne wykorzystywanie kodu. Każda procedura składowana może również akceptować parametry, aby zapewnić im jeszcze większą elastyczność.
 
-Pula SQL zapewnia uproszczoną i usprawnione implementacji procedury składowanej. Największą różnicą w porównaniu do programu SQL Server jest to, że procedura składowana nie jest wstępnie skompilowany kod.
+Pula SQL stanowi uproszczoną i udoskonaloną implementację procedury składowanej. Największą różnicą w porównaniu do SQL Server jest to, że procedura składowana nie jest wstępnie skompilowanym kodem.
 
-Ogólnie rzecz biorąc dla magazynów danych czas kompilacji jest mały w porównaniu do czasu, jaki zajmuje uruchamianie zapytań względem dużych woluminów danych. Jest ważniejsze, aby upewnić się, że kod procedury składowanej jest poprawnie zoptymalizowany pod kątem dużych zapytań.
+Ogólnie rzecz biorąc, w przypadku magazynów danych czas kompilacji jest mały w porównaniu do czasu potrzebnego do uruchamiania zapytań dotyczących dużych ilości danych. Należy upewnić się, że kod procedury składowanej jest poprawnie zoptymalizowany pod kątem dużych zapytań.
 
 > [!TIP]
-> Celem jest zapisanie godzin, minut i sekund, a nie milisekund. Dlatego warto myśleć o procedurach przechowywanych jako kontenerach dla logiki SQL.
+> Celem jest oszczędność godzin, minut i sekund, a nie milisekund. Dlatego warto traktować procedury składowane jako kontenery dla logiki SQL.
 
-Gdy pula SQL wykonuje procedurę składowaną, instrukcje SQL są analizowane, tłumaczone i optymalizowane w czasie wykonywania. Podczas tego procesu każda instrukcja jest konwertowana na zapytania rozproszone. Kod SQL, który jest wykonywany względem danych jest inny niż przesłane zapytanie.
+Gdy pula SQL wykonuje procedurę przechowywaną, instrukcje SQL są analizowane, tłumaczone i optymalizowane w czasie wykonywania. W trakcie tego procesu każda instrukcja jest konwertowana na zapytania rozproszone. Kod SQL, który jest wykonywany względem danych, różni się od przesłanego zapytania.
 
-## <a name="nesting-stored-procedures"></a>Procedury przechowywane zagnieżdżania
+## <a name="nesting-stored-procedures"></a>Zagnieżdżanie procedur składowanych
 
-Gdy procedury składowane wywołać inne procedury składowane lub wykonać dynamiczny SQL, a następnie wewnętrznej procedury składowanej lub wywołania kodu mówi się, że zagnieżdżone.
+Gdy procedury składowane wywołują inne procedury składowane lub wykonują dynamiczną instrukcję SQL, wewnętrzna procedura składowana lub wywołanie kodu są określane jako zagnieżdżone.
 
-Pula SQL obsługuje maksymalnie osiem poziomów zagnieżdżenia. Natomiast poziom gniazda w programie SQL Server wynosi 32.
+Pula SQL obsługuje maksymalnie osiem poziomów zagnieżdżenia. Natomiast poziom zagnieżdżenia w SQL Server to 32.
 
-Wywołanie procedury składowanej najwyższego poziomu jest równoznaczne z poziomem zagnieżdżenia 1.
+Wywołanie procedury składowanej najwyższego poziomu jest równe zagnieżdżeniu poziomu 1.
 
 ```sql
 EXEC prc_nesting
 ```
 
-Jeśli procedura składowana również wykonuje inne wywołanie EXEC, poziom gniazda zwiększa się do dwóch.
+Jeśli procedura składowana wykonuje również inne wywołanie programu EXEC, poziom zagnieżdżenia zwiększy się do dwóch.
 
 ```sql
 CREATE PROCEDURE prc_nesting
@@ -62,7 +62,7 @@ GO
 EXEC prc_nesting
 ```
 
-Jeśli druga procedura następnie wykonuje niektóre dynamiczne SQL, poziom gniazda zwiększa się do trzech.
+Jeśli druga procedura wykonuje następnie dynamiczny SQL, poziom zagnieżdżenia rośnie do trzech.
 
 ```sql
 CREATE PROCEDURE prc_nesting_2
@@ -72,28 +72,28 @@ GO
 EXEC prc_nesting
 ```
 
-Pula SQL nie obsługuje obecnie [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). W związku z tym należy śledzić poziom gniazda. Jest mało prawdopodobne, że przekroczysz limit poziomu ośmiu gniazd. Ale jeśli to zrobisz, należy przerobić kod, aby dopasować poziomy zagnieżdżenia w tym limicie.
+Pula SQL nie obsługuje obecnie [programu@NESTLEVEL@](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). W związku z tym należy śledzić poziom zagnieżdżenia. Jest mało prawdopodobne, że zostanie przekroczony limit ośmiu poziomów zagnieżdżenia. Ale jeśli to zrobisz, musisz ponownie obsłużyć swój kod, aby dopasować poziomy zagnieżdżenia w ramach tego limitu.
 
-## <a name="insertexecute"></a>Wstawić.. Wykonać
+## <a name="insertexecute"></a>Wstaw.. WYKONANA
 
-Pula SQL nie pozwala na korzystanie z zestawu wyników procedury składowanej z insert instrukcji. Istnieje jednak alternatywne podejście, którego można użyć. Na przykład zobacz artykuł dotyczący [tabel tymczasowych](sql-data-warehouse-tables-temporary.md).
+Pula SQL nie zezwala na używanie zestawu wyników procedury składowanej z instrukcją INSERT. Istnieje jednak alternatywna metoda, której można użyć. Aby zapoznać się z przykładem, zapoznaj się z artykułem dotyczącym [tabel tymczasowych](sql-data-warehouse-tables-temporary.md).
 
 ## <a name="limitations"></a>Ograniczenia
 
-Istnieją pewne aspekty procedur przechowywanych transact-SQL, które nie są implementowane w puli SQL, które są następujące:
+Istnieją pewne aspekty procedur składowanych Transact-SQL, które nie są zaimplementowane w puli SQL, które są następujące:
 
 * tymczasowe procedury składowane
-* policzone procedury składowane
+* numerowane procedury składowane
 * rozszerzone procedury składowane
-* Procedury przechowywane w clr
-* opcja szyfrowania
-* opcja replikacji
-* parametry wycenione w tabeli
-* Parametry tylko do odczytu
+* Procedury składowane CLR
+* Opcja szyfrowania
+* Opcja replikacji
+* parametry z wartościami przechowywanymi w tabeli
+* parametry tylko do odczytu
 * parametry domyślne
-* konteksty wykonania
+* konteksty wykonywania
 * return, instrukcja
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej wskazówek dotyczących rozwoju, zobacz [omówienie rozwoju](sql-data-warehouse-overview-develop.md).
+Aby uzyskać więcej porad programistycznych, zobacz [Omówienie projektowania](sql-data-warehouse-overview-develop.md).

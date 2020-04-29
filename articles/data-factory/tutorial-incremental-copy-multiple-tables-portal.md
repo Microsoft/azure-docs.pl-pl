@@ -1,5 +1,5 @@
 ---
-title: Przyrostowo kopiuj wiele tabel za pomocą witryny Azure Portal
+title: Przyrostowe kopiowanie wielu tabel przy użyciu Azure Portal
 description: W tym samouczku utworzysz potok usługi Azure Data Factory służący do przyrostowego kopiowania danych różnicowych z wielu tabel w lokalnej bazie danych SQL Server do bazy danych Azure SQL Database.
 services: data-factory
 ms.author: yexu
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/20/2018
 ms.openlocfilehash: 290ddf9a99d421bbf6303675fd544e81b637d070
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81419276"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Przyrostowe ładowanie danych z wielu tabel w programie SQL Server do bazy danych Azure SQL Database
@@ -56,7 +56,7 @@ Poniżej przedstawiono ważne czynności związane z tworzeniem tego rozwiązani
 
     b. Utwórz dwa działania lookup. Użyj pierwszego działania Lookup do pobrania ostatniej wartości limitu. Użyj drugiego działania Lookup do pobrania nowej wartości limitu. Te wartości limitu są przekazywane do działania Copy.
 
-    d. Utwórz działanie Copy, które kopiuje wiersze z magazynu danych źródłowych o wartości kolumny limitu większej niż poprzednia wartość limitu i mniejszej niż nowa wartość limitu. Następnie kopiuje dane różnicowe ze źródłowego magazynu danych do usługi Azure Blob Storage jako nowy plik.
+    c. Utwórz działanie Copy, które kopiuje wiersze z magazynu danych źródłowych o wartości kolumny limitu większej niż poprzednia wartość limitu i mniejszej niż nowa wartość limitu. Następnie kopiuje dane różnicowe ze źródłowego magazynu danych do usługi Azure Blob Storage jako nowy plik.
 
     d. Utwórz działanie StoredProcedure, które aktualizuje wartość limitu dla potoku przy następnym uruchomieniu. 
 
@@ -65,17 +65,17 @@ Poniżej przedstawiono ważne czynności związane z tworzeniem tego rozwiązani
     ![Przyrostowe ładowanie danych](media/tutorial-incremental-copy-multiple-tables-portal/high-level-solution-diagram.png)
 
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne](https://azure.microsoft.com/free/) konto przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * **SQL Server**. Użyj lokalnej bazy danych SQL Server jako źródłowego magazynu danych w tym samouczku. 
-* **Baza danych SQL platformy Azure**. Jako magazyn danych ujścia używana jest baza danych SQL. Jeśli nie masz bazy danych SQL, utwórz ją, wykonując czynności przedstawione w artykule [Tworzenie bazy danych Azure SQL Database](../sql-database/sql-database-get-started-portal.md). 
+* **Azure SQL Database**. Jako magazyn danych ujścia używana jest baza danych SQL. Jeśli nie masz bazy danych SQL, utwórz ją, wykonując czynności przedstawione w artykule [Tworzenie bazy danych Azure SQL Database](../sql-database/sql-database-get-started-portal.md). 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Tworzenie tabel źródłowych w bazie danych SQL Server
 
 1. Otwórz program SQL Server Management Studio, a następnie nawiąż połączenie z lokalną bazą danych programu SQL Server.
 
-1. W **Eksploratorze serwera**kliknij prawym przyciskiem myszy bazę danych i wybierz polecenie **Nowe zapytanie**.
+1. W **Eksplorator serwera**kliknij prawym przyciskiem myszy bazę danych, a następnie wybierz polecenie **nowe zapytanie**.
 
 1. Uruchom następujące polecenie SQL względem bazy danych w celu utworzenia tabel o nazwach `customer_table` i `project_table`:
 
@@ -114,9 +114,9 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne](https://azure.
 ### <a name="create-destination-tables-in-your-azure-sql-database"></a>Tworzenie tabel docelowych w bazie danych Azure SQL Database
 1. Otwórz program SQL Server Management Studio i nawiąż połączenie z bazą danych Azure SQL Database.
 
-1. W **Eksploratorze serwera**kliknij prawym przyciskiem myszy bazę danych i wybierz polecenie **Nowe zapytanie**.
+1. W **Eksplorator serwera**kliknij prawym przyciskiem myszy bazę danych, a następnie wybierz polecenie **nowe zapytanie**.
 
-1. Uruchom następujące polecenie SQL względem bazy danych `customer_table` SQL `project_table`platformy Azure, aby utworzyć tabele o nazwie i:  
+1. Uruchom następujące polecenie SQL względem bazy danych Azure SQL Database, aby utworzyć tabele `customer_table` o `project_table`nazwach i:  
     
     ```sql
     create table customer_table
@@ -135,7 +135,7 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne](https://azure.
     ```
 
 ### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Tworzenie innej tabeli w bazie danych Azure SQL Database do przechowywania wartości górnego limitu
-1. Uruchom następujące polecenie SQL względem bazy danych SQL `watermarktable` platformy Azure, aby utworzyć tabelę o nazwie do przechowywania wartości znaku wodnego: 
+1. Uruchom następujące polecenie SQL względem bazy danych Azure SQL Database, aby utworzyć tabelę o `watermarktable` nazwie do przechowywania wartości limitu: 
     
     ```sql
     create table watermarktable
@@ -175,11 +175,11 @@ END
 ```
 
 ### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Tworzenie typów danych i dodatkowych procedur składowanych w bazie danych Azure SQL Database
-Uruchom następującą kwerendę, aby utworzyć dwie procedury przechowywane i dwa typy danych w bazie danych SQL platformy Azure. Służą one do scalania danych z tabel źródłowych w tabelach docelowych.
+Uruchom następujące zapytanie, aby utworzyć dwie procedury składowane i dwa typy danych w bazie danych SQL Azure. Służą one do scalania danych z tabel źródłowych w tabelach docelowych.
 
-Aby ułatwić podróż, używamy bezpośrednio tych procedur przechowywanych przekazując dane delta za pośrednictwem zmiennej tabeli, a następnie scalając je do magazynu docelowego. Należy zachować ostrożność, że nie oczekuje "dużą" liczbę wierszy delta (więcej niż 100) do przechowywania w zmiennej tabeli.  
+Aby ułatwić rozpoczęcie podróży, należy bezpośrednio użyć tych procedur składowanych przekazujących dane różnicowe za pośrednictwem zmiennej tabeli, a następnie scalić je z magazynem docelowym. Należy zachować ostrożność, ponieważ nie jest oczekiwana "duża liczba wierszy różnicowych (więcej niż 100), które mają być przechowywane w zmiennej tabeli.  
 
-Jeśli trzeba scalić dużą liczbę wierszy delta do magazynu docelowego, sugerujemy użycie działania kopiowania, aby skopiować wszystkie dane delta do tymczasowej tabeli "przejściowe" w magazynie docelowym, a następnie skonsformować własną procedurę składowaną bez użycia zmiennej tabeli, aby scalić je z tabeli "przejściowe" do tabeli "final". 
+Jeśli konieczne jest scalenie dużej liczby wierszy różnicowych z magazynem docelowym, sugerujemy użycie działania kopiowania w celu skopiowania wszystkich danych różnicowych do tymczasowej tabeli "przemieszczania" w magazynie docelowym, a następnie skompilowanie własnej procedury składowanej bez użycia zmiennej tabeli, aby scalić je z tabeli "przemieszczanie" do tabeli "Final". 
 
 
 ```sql
@@ -233,13 +233,13 @@ END
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
 1. Uruchom przeglądarkę internetową **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
-2. W menu po lewej stronie wybierz pozycję **Utwórz fabrykę** > **danych****analizy** > zasobów: 
+2. Z menu po lewej stronie wybierz pozycję **Utwórz** > **Analytics** > **Data Factory**analizy zasobów: 
    
    ![Wybór usługi Data Factory w okienku „Nowy”](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 3. Na stronie **Nowa fabryka danych** wprowadź wartość **ADFMultiIncCopyTutorialDF** w polu **nazwa**. 
  
-   Nazwa fabryki danych platformy Azure musi być **unikatowa globalnie.** Jeśli pojawi się czerwony wykrzyknik z poniższym błędem, zmień nazwę fabryki danych (np. twojanazwaADFIncCopyTutorialDF) i spróbuj utworzyć ją ponownie. Artykuł [Data Factory — Naming Rules (Usługa Data Factory — reguły nazewnictwa)](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
+   Nazwa fabryki danych Azure musi być **globalnie unikatowa**. Jeśli pojawi się czerwony wykrzyknik z poniższym błędem, zmień nazwę fabryki danych (np. twojanazwaADFIncCopyTutorialDF) i spróbuj utworzyć ją ponownie. Artykuł [Data Factory — Naming Rules (Usługa Data Factory — reguły nazewnictwa)](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
   
    `Data factory name "ADFIncCopyTutorialDF" is not available`
 
@@ -247,7 +247,7 @@ END
 5. Dla opcji **Grupa zasobów** wykonaj jedną z następujących czynności:
      
     - Wybierz pozycję **Użyj istniejącej**, a następnie wybierz istniejącą grupę zasobów z listy rozwijanej. 
-    - Wybierz **pozycję Utwórz nowy**i wprowadź nazwę grupy zasobów.   
+    - Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę grupy zasobów.   
     Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
 6. Wybierz opcję **V2** w obszarze **Wersja**.
 7. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
@@ -264,10 +264,10 @@ Podczas przenoszenia danych z magazynu danych w sieci prywatnej (lokalnej) do ma
 
 1. Na karcie **Produkty Integration Runtime** kliknij pozycję **+ Nowy**. 
 
-1. W oknie **Ustawienia środowiska wykonawczego integracji** wybierz pozycję **Wykonaj działania związane z przenoszeniem i wysyłaniem danych do obliczeń zewnętrznych,** a następnie kliknij przycisk **Kontynuuj**. 
+1. W oknie **konfiguracja Integration Runtime** wybierz pozycję **Wykonaj przenoszenie danych i wysyłaj działania do obliczeń zewnętrznych**, a następnie kliknij przycisk **Kontynuuj**. 
 
-1. Wybierz **pozycję Hostowany samodzielnie**i kliknij przycisk **Kontynuuj**. 
-1. Wprowadź **pozycję MySelfHostedIR** dla **name**, a następnie kliknij przycisk **Utwórz**. 
+1. Wybierz pozycję **samodzielny**, a następnie kliknij przycisk **Kontynuuj**. 
+1. Wprowadź **MySelfHostedIR** jako **nazwę**, a następnie kliknij przycisk **Utwórz**. 
 
 1. Kliknij pozycję **Click here to launch the express setup for this computer** (Kliknij tutaj, aby uruchomić instalację ekspresową dla tego komputera) w sekcji **Opcja 1: Instalacja ekspresowa**. 
 
@@ -298,9 +298,9 @@ W tym kroku połączysz lokalną bazę danych programu SQL Server z fabryką dan
     1. W polu **Nazwa bazy danych** wprowadź nazwę bazy danych programu SQL Server, która zawiera dane źródłowe. Tworzenie tabeli i wstawienie danych do tej bazy danych zostało przeprowadzone w ramach wymagań wstępnych. 
     1. W polu **Typ uwierzytelniania** wybierz **typ uwierzytelniania**, którego chcesz używać podczas łączenia się z bazą danych. 
     1. W polu **Nazwa użytkownika** wprowadź nazwę użytkownika mającego dostęp do bazy danych programu SQL Server. Jeśli musisz użyć znaku ukośnika (`\`) w nazwie konta użytkownika lub nazwie serwera, użyj znaku ucieczki (`\`). Może to być na przykład `mydomain\\myuser`.
-    1. W przypadku **hasła**wprowadź **hasło** użytkownika. 
+    1. W polu **hasło**wprowadź **hasło** użytkownika. 
     1. Aby sprawdzić, czy fabryka danych może połączyć się z bazą danych programu SQL Server, kliknij pozycję **Testuj połączenie**. Usuń wszelkie błędy, tak aby połączenie zostało nawiązane pomyślnie. 
-    1. Aby zapisać usługę połączony, kliknij przycisk **Zakończ**.
+    1. Aby zapisać połączoną usługę, kliknij przycisk **Zakończ**.
 
 ### <a name="create-the-azure-sql-database-linked-service"></a>Tworzenie połączonej usługi Azure SQL Database
 W ostatnim kroku utworzysz połączoną usługę w celu połączenia źródłowej bazy danych programu SQL Server z fabryką danych. W tym kroku połączysz docelową bazę danych (bazę danych ujścia) Azure SQL Database z fabryką danych. 
@@ -313,9 +313,9 @@ W ostatnim kroku utworzysz połączoną usługę w celu połączenia źródłowe
     1. Z listy rozwijanej **Nazwa serwera** wybierz nazwę serwera Azure SQL Database. 
     1. W polu **Nazwa bazy danych** wybierz bazę danych Azure SQL Database, w której zostały utworzone tabele customer_table i project_table w ramach wymagań wstępnych. 
     1. W polu **Nazwa użytkownika** wprowadź nazwę użytkownika mającego dostęp do bazy danych Azure SQL Database. 
-    1. W przypadku **hasła**wprowadź **hasło** użytkownika. 
+    1. W polu **hasło**wprowadź **hasło** użytkownika. 
     1. Aby sprawdzić, czy fabryka danych może połączyć się z bazą danych programu SQL Server, kliknij pozycję **Testuj połączenie**. Usuń wszelkie błędy, tak aby połączenie zostało nawiązane pomyślnie. 
-    1. Aby zapisać usługę połączony, kliknij przycisk **Zakończ**.
+    1. Aby zapisać połączoną usługę, kliknij przycisk **Zakończ**.
 
 1. Upewnij się, że lista zawiera dwie połączone usługi. 
    
@@ -328,9 +328,9 @@ W tym kroku utworzysz zestawy danych reprezentujące źródło danych, docelową
 
 1. W lewym okienku kliknij pozycję **+ (plus)**, a następnie kliknij pozycję **Zestaw danych**.
 
-1. W oknie **Nowy zestaw danych** wybierz pozycję SQL **Server**, kliknij przycisk **Kontynuuj**. 
+1. W oknie **Nowy zestaw danych** wybierz pozycję **SQL Server**, kliknij przycisk **Kontynuuj**. 
 
-1. W przeglądarce sieci Web zostanie otwarta nowa karta służąca do konfigurowania zestawu danych. W widoku drzewa jest również widoczny zestaw danych. U dołu karty **Ogólne** w oknie właściwości wprowadź wartość **SourceDataset** w polu **Nazwa**. 
+1. W przeglądarce sieci Web zostanie otwarta nowa karta służąca do konfigurowania zestawu danych. W widoku drzewa zostanie również wyświetlony zestaw danych. U dołu karty **Ogólne** w oknie właściwości wprowadź wartość **SourceDataset** w polu **Nazwa**. 
 
 1. Przejdź do karty **Połączenie** w oknie właściwości, a następnie wybierz pozycję **SqlServerLinkedService** w polu **Połączona usługa**. Nie należy wybierać tabeli w tym miejscu. Działanie Copy w potoku korzysta z zapytania SQL do załadowania danych, a nie całej tabeli.
 
@@ -340,9 +340,9 @@ W tym kroku utworzysz zestawy danych reprezentujące źródło danych, docelową
 ### <a name="create-a-sink-dataset"></a>Tworzenie ujścia zestawu danych
 1. W lewym okienku kliknij pozycję **+ (plus)**, a następnie kliknij pozycję **Zestaw danych**.
 
-1. W oknie **Nowy zestaw danych** wybierz pozycję Azure SQL **Database**i kliknij przycisk **Kontynuuj**. 
+1. W oknie **Nowy zestaw danych** wybierz pozycję **Azure SQL Database**, a następnie kliknij przycisk **Kontynuuj**. 
 
-1. W przeglądarce sieci Web zostanie otwarta nowa karta służąca do konfigurowania zestawu danych. W widoku drzewa jest również widoczny zestaw danych. U dołu karty **Ogólne** w oknie właściwości wprowadź wartość **SinkDataset** w polu **Nazwa**.
+1. W przeglądarce sieci Web zostanie otwarta nowa karta służąca do konfigurowania zestawu danych. W widoku drzewa zostanie również wyświetlony zestaw danych. U dołu karty **Ogólne** w oknie właściwości wprowadź wartość **SinkDataset** w polu **Nazwa**.
 
 1. Przejdź do karty **Parametry** w oknie Właściwości i wykonaj następujące czynności: 
 
@@ -350,11 +350,11 @@ W tym kroku utworzysz zestawy danych reprezentujące źródło danych, docelową
     1. Wprowadź wartość **SinkTableName** w polu **nazwa** i wartość **Ciąg** w polu **typ**. Ten zestaw danych otrzymuje wartość **SinkTableName** jako parametr. Parametr SinkTableName jest ustawiany dynamicznie przez potok w czasie wykonywania. Działanie ForEach w potoku przeprowadza iterację po liście nazw i przekazuje nazwę tabeli do tego zestawu danych w każdej iteracji.
    
     ![Zestaw danych będący ujściem — właściwości](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
-1. Przełącz się do karty **Połączenie** w oknie Właściwości i wybierz pozycję **AzureSqlDatabaseLinkedService** for **Linked service**. W obszarze właściwości **Tabela** kliknij pozycję **Dodaj zawartość dynamiczną**.   
+1. Przejdź do karty **połączenie** w okno właściwości i wybierz pozycję **AzureSqlDatabaseLinkedService** dla **połączonej usługi**. W obszarze właściwości **Tabela** kliknij pozycję **Dodaj zawartość dynamiczną**.   
     
-1. W oknie **Dodawanie zawartości dynamicznej** wybierz pozycję **SinkTableName** w sekcji **Parametry.** 
+1. W oknie **Dodawanie zawartości dynamicznej** wybierz pozycję **SinkTableName** w sekcji **Parametry** . 
  
-1. Po kliknięciu **przycisku**@datasetZakończ , zobaczysz " (). SinkTableName" jako nazwa tabeli.
+1. Po kliknięciu przycisku **Zakończ**zostanie wyświetlona wartość "@dataset(). SinkTableName "jako nazwę tabeli.
 
    ![Zestaw danych będący ujściem — połączenie](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
@@ -363,7 +363,7 @@ W tym kroku utworzysz zestaw danych do przechowywania wartości górnego limitu.
 
 1. W lewym okienku kliknij pozycję **+ (plus)**, a następnie kliknij pozycję **Zestaw danych**.
 
-1. W oknie **Nowy zestaw danych** wybierz pozycję Azure SQL **Database**i kliknij przycisk **Kontynuuj**. 
+1. W oknie **Nowy zestaw danych** wybierz pozycję **Azure SQL Database**, a następnie kliknij przycisk **Kontynuuj**. 
 
 1. U dołu karty **Ogólne** w oknie właściwości wprowadź wartość **WatermarkDataset** w polu **Nazwa**.
 1. Przejdź do karty **Połączenie** i wykonaj następujące czynności: 
@@ -388,13 +388,13 @@ Potok przyjmuje listę nazw tabel jako parametr. Działanie ForEach służy do p
 
 1. W lewym okienku kliknij pozycję **+ (plus)**, a następnie kliknij pozycję **Potok**.
 
-1. Na karcie **Ogólne** wprowadź pozycję **IncrementalCopyPipeline** for **Name**. 
+1. Na karcie **Ogólne** wprowadź **IncrementalCopyPipeline** w polu **Nazwa**. 
 
 1. Na karcie **Parametry** wykonaj następujące czynności: 
 
     1. Kliknij pozycję **+ Nowy**. 
     1. Wprowadź ciąg **tableList** jako **nazwę** parametru. 
-    1. Wybierz **tablicę** dla **typu**parametru .
+    1. Wybierz opcję **Tablica** dla **typu**parametru.
 
 1. W przyborniku **Działania** rozwiń pozycję **Iteracja i warunki**, a następnie przeciągnij i upuść działanie **ForEach** na powierzchni projektanta potoku. Na karcie **Ogólne** w oknie **Właściwości** wprowadź wartość **IterateSQLTables**. 
 
@@ -419,7 +419,7 @@ Potok przyjmuje listę nazw tabel jako parametr. Działanie ForEach służy do p
         ![Pierwsze działanie Lookup — ustawienia](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-settings.png)
 1. Przeciągnij działanie **Lookup** z przybornika **Działania** i wprowadź wartość **LookupNewWaterMarkActivity** w polu **Nazwa**.
         
-1. Przełącz się do karty **Ustawienia.**
+1. Przejdź do karty **Ustawienia** .
 
     1. Wybierz pozycję **SourceDataset** w obszarze **Zestaw danych będący źródłem**. 
     1. Wybierz pozycję **Zapytanie** w polu **Użyj zapytania**.
@@ -450,17 +450,17 @@ Potok przyjmuje listę nazw tabel jako parametr. Działanie ForEach służy do p
         
 1. Wykonaj następujące czynności:
 
-    1. We **właściwościach zestawu danych**dla **parametru SinkTableName** wprowadź . `@{item().TABLE_NAME}`
-    1. W **yd.** `@{item().StoredProcedureNameForMergeOperation}`
-    1. W obszarze Typ `@{item().TableType}` **tabeli** należy wprowadzić polecenie .
-    1. W obszarze **Nazwa parametru typu tabela**wprowadź `@{item().TABLE_NAME}`.
+    1. We **właściwościach zestawu danych**dla parametru **SinkTableName** wprowadź `@{item().TABLE_NAME}`wartość.
+    1. Dla właściwości **nazwa procedury składowanej** wprowadź `@{item().StoredProcedureNameForMergeOperation}`.
+    1. W obszarze Właściwość **typu tabeli** wprowadź `@{item().TableType}`wartość.
+    1. W obszarze **Nazwa parametru typu tabeli**wprowadź `@{item().TABLE_NAME}`.
 
     ![Działanie Copy — parametry](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. Przeciągnij działanie **Stored Procedure** (Procedura składowana) z przybornika **Działania** do powierzchni projektanta potoku. Połącz działanie **Copy** z działaniem **Stored Procedure**. 
 
 1. Wybierz działanie **Stored Procedure** w potoku, a następnie wprowadź wartość **StoredProceduretoWriteWatermarkActivity** w polu **Nazwa** na karcie **Ogólne** w oknie **Właściwości**. 
 
-1. Przełącz się na kartę **Konto SQL** i wybierz pozycję **AzureSqlDatabaseLinkedService** for **Linked Service**.
+1. Przejdź do karty **konto SQL** , a następnie wybierz pozycję **AzureSqlDatabaseLinkedService** dla **połączonej usługi**.
 
     ![Działanie Stored Procedure (Procedura składowana) — konto SQL](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 1. Przejdź do karty **Procedura składowana** i wykonaj następujące czynności:
@@ -472,17 +472,17 @@ Potok przyjmuje listę nazw tabel jako parametr. Działanie ForEach służy do p
         | Nazwa | Typ | Wartość | 
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-        | TableName | Ciąg | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+        | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Działanie procedury składowanej — ustawienia procedury składowanej](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
-1. Wybierz **pozycję Opublikuj wszystko,** aby opublikować jednostki utworzone w usłudze Data Factory. 
+1. Wybierz pozycję **Opublikuj wszystkie** , aby opublikować utworzone jednostki w usłudze Data Factory. 
 
 1. Poczekaj na wyświetlenie komunikatu **Pomyślnie opublikowano**. Aby wyświetlić powiadomienia, kliknij link **Pokaż powiadomienia**. Zamknij okno powiadomień, klikając przycisk **X**.
 
  
 ## <a name="run-the-pipeline"></a>Uruchamianie potoku
 
-1. Na pasku narzędzi potoku kliknij pozycję **Dodaj wyzwalacz**i kliknij przycisk **Wyzwalaj teraz**.     
+1. Na pasku narzędzi dla potoku kliknij pozycję **Dodaj wyzwalacz**, a następnie kliknij pozycję **Wyzwól teraz**.     
 
 1. W oknie **Uruchamianie potoku** wprowadź następującą wartość dla parametru **tableList**, a następnie kliknij pozycję **Zakończ**. 
 
@@ -583,7 +583,7 @@ VALUES
 
 ## <a name="rerun-the-pipeline"></a>Ponowne uruchamianie potoku
 1. W oknie przeglądarki sieci Web przejdź do karty **Edycja** po lewej stronie. 
-1. Na pasku narzędzi potoku kliknij pozycję **Dodaj wyzwalacz**i kliknij przycisk **Wyzwalaj teraz**.   
+1. Na pasku narzędzi dla potoku kliknij pozycję **Dodaj wyzwalacz**, a następnie kliknij pozycję **Wyzwól teraz**.   
 1. W oknie **Uruchamianie potoku** wprowadź następującą wartość dla parametru **tableList**, a następnie kliknij pozycję **Zakończ**. 
 
     ```
@@ -610,7 +610,7 @@ VALUES
 1. Kliknij link **Wyświetl uruchomienia działania** w kolumnie **Akcje**. Zostaną wyświetlone wszystkie uruchomienia działania skojarzone z wybranym uruchomieniem potoku. 
 
 ## <a name="review-the-final-results"></a>Przegląd wyników końcowych
-W programie SQL Server Management Studio uruchom następujące kwerendy względem docelowej bazy danych SQL, aby sprawdzić, czy zaktualizowane/nowe dane zostały skopiowane z tabel źródłowych do tabel docelowych. 
+W SQL Server Management Studio Uruchom następujące zapytania względem docelowej bazy danych SQL, aby sprawdzić, czy zaktualizowane/nowe dane zostały skopiowane z tabel źródłowych do tabel docelowych. 
 
 **Zapytanie** 
 ```sql

@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
 ms.openlocfilehash: ccc7fcd748323e05f21edcfff1535085d2cdbdc7
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81421810"
 ---
-Obsługa skompresowanego dźwięku jest zaimplementowana za pomocą [GStreamer](https://gstreamer.freedesktop.org). Ze względów licencyjnych pliki binarne GStreamer nie są kompilowane i połączone z zestawem SDK mowy. Zamiast tego musisz użyć wstępnie utworzonych plików binarnych dla systemu Android. Aby pobrać wstępnie utworzone biblioteki, zobacz [instalowanie dla tworzenia systemu Android](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
+Obsługa skompresowanego dźwięku jest implementowana przy użyciu [GStreamer](https://gstreamer.freedesktop.org). Ze względów licencjonowania GStreamer pliki binarne nie są kompilowane i połączone z zestawem Speech SDK. Zamiast tego należy użyć wstępnie skompilowanych plików binarnych dla systemu Android. Aby pobrać wstępnie skompilowane biblioteki, zobacz [Instalowanie aplikacji dla systemu Android](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
 
-Ciąg `libgstreamer_android.so` jest wymagany. Upewnij się, że wtyczki GStreamer są połączone w `libgstreamer_android.so`pliku .
+Ciąg `libgstreamer_android.so` jest wymagany. Upewnij się, że wtyczki GStreamer są połączone `libgstreamer_android.so`.
 
 ```makefile
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 \
@@ -21,7 +21,7 @@ GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 \
     opus wavparse alaw mulaw flac
 ```
 
-Przykład `Android.mk` i `Application.mk` plik są podane poniżej. Wykonaj następujące kroki, `gstreamer` aby`libgstreamer_android.so`utworzyć obiekt udostępniony: .
+Poniżej znajduje `Android.mk` się `Application.mk` przykład i plik. Wykonaj następujące kroki, aby utworzyć `gstreamer` obiekt współużytkowany:`libgstreamer_android.so`.
 
 ```makefile
 # Android.mk
@@ -76,7 +76,7 @@ APP_PLATFORM = android-21
 APP_BUILD_SCRIPT = Android.mk
 ```
 
-Możesz tworzyć `libgstreamer_android.so` za pomocą następującego polecenia na Ubuntu 16.04 lub 18.04. Następujące wiersze poleceń zostały przetestowane tylko dla [GStreamer Android w wersji 1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/gstreamer-1.0-android-universal-1.14.4.tar.bz2) z [Androidem NDK b16b.](https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip)
+Można skompilować `libgstreamer_android.so` za pomocą następującego polecenia w systemie Ubuntu 16,04 lub 18,04. Następujące wiersze polecenia zostały przetestowane tylko dla [GStreamer Android Version 1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/gstreamer-1.0-android-universal-1.14.4.tar.bz2) z [systemem Android NDK b16b.](https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip)
 
 ```sh
 # Assuming wget and unzip already installed on the system
@@ -108,4 +108,4 @@ ndk-build -C $(pwd)/gstreamer "NDK_APPLICATION_MK=Application.mk" APP_ABI=armeab
 #ndk-build -C $(pwd)/gstreamer "NDK_APPLICATION_MK=Application.mk" APP_ABI=x86 NDK_LIBS_OUT=$(pwd)
 ```
 
-Po zbudowaniu`libgstreamer_android.so`obiektu udostępnionego ( ) deweloper aplikacji musi umieścić obiekt udostępniony w aplikacji systemu Android, dzięki czemu można go załadować przez zestaw SDK mowy.
+Po skompilowaniu obiektu udostępnionego`libgstreamer_android.so`() Deweloper aplikacji musi umieścić obiekt współużytkowany w aplikacji systemu Android, aby można go było załadować za pomocą narzędzia Speech SDK.

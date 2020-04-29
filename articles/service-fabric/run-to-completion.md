@@ -1,28 +1,28 @@
 ---
-title: Semantyka RunToCompletion w sieci szkieletowej usług
-description: W tym artykule Opis semantyki RunToCompletion w sieci szkieletowej usług.
+title: Semantyka RunToCompletion w Service Fabric
+description: Opisuje semantykę RunToCompletion w Service Fabric.
 author: shsha-msft
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: shsha
 ms.openlocfilehash: adf4b11412aa752144d4ed4fef06d2de1d76598d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431295"
 ---
-# <a name="runtocompletion"></a>RunToCompletion (RunToCompletion)
+# <a name="runtocompletion"></a>RunToCompletion
 
-Począwszy od wersji 7.1, sieć szkieletowa usług obsługuje semantykę **RunToCompletion** dla [kontenerów][containers-introduction-link] i aplikacji [wykonywalnych gościa.][guest-executables-introduction-link] Te semantyka umożliwiają aplikacje i usługi, które wypełniają zadanie i kończą, w przeciwieństwie do zawsze uruchomionych aplikacji i usług.
+Począwszy od wersji 7,1, Service Fabric obsługuje semantykę **RunToCompletion** dla [kontenerów][containers-introduction-link] i aplikacji [wykonywalnych gościa][guest-executables-introduction-link] . Te semantyki umożliwiają aplikacje i usługi, które ukończą zadanie i zakończą działanie, w przeciwieństwie do, zawsze działających aplikacji i usług.
 
-Przed przystąpieniem do tego artykułu zalecamy zapoznanie się z [modelem aplikacji sieci szkieletowej usług][application-model-link] i [modelem hostingu sieci szkieletowej usług.][hosting-model-link]
+Przed przejściem do tego artykułu zalecamy zapoznanie się z [modelem aplikacji Service Fabric][application-model-link] i [Service Fabric modelem hostingu][hosting-model-link].
 
 > [!NOTE]
-> Semantyka RunToCompletion nie jest obecnie obsługiwana dla usług napisanych przy użyciu modelu programowania [reliable services.][reliable-services-link]
+> Semantyka RunToCompletion nie jest obecnie obsługiwana w przypadku usług pisanych przy użyciu modelu programowania [Reliable Services][reliable-services-link] .
  
-## <a name="runtocompletion-semantics-and-specification"></a>Semantyka i specyfikacja RunToCompletion
-Semantyka RunToCompletion może być określona jako **ExecutionPolicy** podczas [importowania ServiceManifest][application-and-service-manifests-link]. Określone zasady są dziedziczone przez wszystkie Pakiety kodu składające się z ServiceManifest. Poniższy fragment kodu ApplicationManifest.xml zawiera przykład.
+## <a name="runtocompletion-semantics-and-specification"></a>RunToCompletion, semantyka i Specyfikacja
+Semantykę RunToCompletion można określić jako **ExecutionPolicy** podczas importowania elementu [servicemanifest][application-and-service-manifests-link]. Określone zasady są dziedziczone przez wszystkie CodePackages tworzące servicemanifest. Poniższy fragment kodu ApplicationManifest. xml zawiera przykład.
 
 ```xml
 <ServiceManifestImport>
@@ -32,22 +32,22 @@ Semantyka RunToCompletion może być określona jako **ExecutionPolicy** podczas
   </Policies>
 </ServiceManifestImport>
 ```
-**ExecutionPolicy** umożliwia następujące dwa atrybuty:
+**ExecutionPolicy** zezwala na następujące dwa atrybuty:
 * **Typ:** **RunToCompletion** jest obecnie jedyną dozwoloną wartością dla tego atrybutu.
-* **Uruchom ponownie:** Ten atrybut określa zasady ponownego uruchamiania, który jest stosowany do CodePackages obejmujące ServicePackage, na niepowodzenie. A CodePackage zamykania z **kodem zakończenia niezerowe** jest uważany za nie powiodło się. Dozwolone wartości dla tego atrybutu są **OnFailure** i **Nigdy** z **OnFailure** jest domyślna.
+* **Uruchom ponownie:** Ten atrybut określa zasady ponownego uruchamiania, które są stosowane do CodePackages zawierającego pakiet servicepackage, w przypadku niepowodzenia. CodePackage kończący się **niezerowym kodem zakończenia** jest traktowany jako zakończony niepowodzeniem. Dozwolone wartości tego atrybutu to **OnFailure** i **nigdy nie** są **domyślne** .
 
-Z zasadami ponownego uruchamiania **ustawionymi na OnFailure**, jeśli dowolne CodePackage nie powiedzie się **(kod zakończenia niezerowego),** zostanie ponownie uruchomiony, z wycofywaniem między powtarzającymi się błędami. Z zasadami ponownego uruchamiania **ustawionymi**na Nigdy , jeśli dowolne CodePackage nie powiedzie się, stan wdrożenia DeployedServicePackage jest oznaczony jako **Failed,** ale inne pakiety kodu mogą kontynuować wykonywanie. Jeśli wszystkie Pakiety kodu obejmujące ServicePackage uruchomić do pomyślnego zakończenia **(kod zakończenia 0),** stan wdrożenia DeployedServicePackage jest oznaczony jako **RanToCompletion**. 
+Gdy zasady ponownego uruchamiania zostały ustawione na wartość **OnFailure (niepowodzenie**), w przypadku niepowodzenia CodePackage **(niezerowy kod zakończenia)** zostanie on ponownie uruchomiony z powrotem z tyłu między powtarzanymi awariami. Gdy zasady ponownego uruchamiania mają wartość **nigdy**, w przypadku niepowodzenia CodePackage stan wdrożenia DeployedServicePackage zostanie oznaczony jako **Niepowodzenie** , ale inne CodePackages mogą kontynuować wykonywanie. Jeśli wszystkie CodePackages tworzące pakiet servicepackage do pomyślnego ukończenia **(kod zakończenia 0)**, stan wdrożenia DeployedServicePackage zostanie oznaczony jako **RanToCompletion**. 
 
-## <a name="complete-example-using-runtocompletion-semantics"></a>Kompletny przykład przy użyciu semantyki RunToCompletion
+## <a name="complete-example-using-runtocompletion-semantics"></a>Ukończ przykład przy użyciu semantyki RunToCompletion
 
-Przyjrzyjmy się kompletny przykład przy użyciu semantyki RunToCompletion.
+Spójrzmy na kompletny przykład przy użyciu semantyki RunToCompletion.
 
 > [!IMPORTANT]
-> W poniższym przykładzie przyjęto założenie, że należy zapoznać się z tworzeniem [aplikacji kontenerów systemu Windows przy użyciu sieci szkieletowej usług i platformy Docker][containers-getting-started-link].
+> W poniższym przykładzie założono znajomość tworzenia [aplikacji kontenera systemu Windows przy użyciu Service Fabric i platformy Docker][containers-getting-started-link].
 >
-> W tym przykładzie odwołuje się mcr.microsoft.com/windows/nanoserver:1809. Kontenery systemu Windows Server nie są zgodne ze wszystkimi wersjami systemu operacyjnego hosta. Aby dowiedzieć się więcej, zobacz [Zgodność wersji kontenera systemu Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+> Ten przykład odwołuje się do mcr.microsoft.com/windows/nanoserver:1809. Kontenery systemu Windows Server nie są zgodne ze wszystkimi wersjami systemu operacyjnego hosta. Aby dowiedzieć się więcej, zobacz [zgodność wersji kontenera systemu Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-W następujący sposób ServiceManifest.xml opisano ServicePackage składający się z dwóch Pakietów Kodu, które reprezentują kontenery. *RunToCompletionCodePackage1* tylko rejestruje komunikat do **stdout** i kończy pracę. *RunToCompletionCodePackage2* pinguje adres sprzężenia zwrotnego na chwilę, a następnie kończy pracę z kodem zakończenia **0,** **1** lub **2**.
+Następujący element servicemanifest. XML opisuje pakiet servicepackage składający się z dwóch CodePackagesów, które reprezentują kontenery. *RunToCompletionCodePackage1* po prostu rejestruje komunikat do strumienia **stdout** i kończy pracę. *RunToCompletionCodePackage2* wysyła polecenie ping do adresu sprzężenia zwrotnego, a następnie kończy działanie z kodem zakończenia równym **0**, **1** lub **2**.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -78,7 +78,7 @@ W następujący sposób ServiceManifest.xml opisano ServicePackage składający 
 </ServiceManifest>
 ```
 
-W poniższym pliku ApplicationManifest.xml opisano aplikację opartą na omówieniu powyżej pliku ServiceManifest.xml. Określa **RunToCompletion** **ExecutionPolicy** for *WindowsRunToCompletionServicePackage* z zasadą ponownego uruchamiania **OnFailure**. Po aktywacji *WindowsRunToCompletionServicePackage*, jego składowe Pakiety Kodowe zostaną uruchomione. *RunToCompletionCodePackage1* należy zakończyć pomyślnie przy pierwszej aktywacji. Jednak *RunToCompletionCodePackage2* może zakończyć się **niepowodzeniem (kod zakończenia niezerowego),** w którym to przypadku zostanie ponownie uruchomiony, ponieważ zasadą ponownego uruchamiania jest **OnFailure**.
+Poniższy ApplicationManifest. XML opisuje aplikację opartą na pliku servicemanifest. XML opisanym powyżej. Określa **RunToCompletion** **ExecutionPolicy** dla *WindowsRunToCompletionServicePackage* z zasadami ponownego uruchamiania o wartości **OnFailure**. Po aktywacji *WindowsRunToCompletionServicePackage*zostanie uruchomiony jego składnik CodePackages. *RunToCompletionCodePackage1* powinna zakończyć się powodzeniem przy pierwszej aktywacji. Jednak *RunToCompletionCodePackage2* może zakończyć się niepowodzeniem **(kod zakończenia inny niż zero)**, w tym przypadku zostanie on ponownie uruchomiony, ponieważ zasady ponownego uruchamiania **są błędne**.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -102,22 +102,22 @@ W poniższym pliku ApplicationManifest.xml opisano aplikację opartą na omówie
   </DefaultServices>
 </ApplicationManifest>
 ```
-## <a name="querying-deployment-status-of-a-deployedservicepackage"></a>Wykonywanie zapytań o stan wdrożenia pakietu DeployedServicePackage
-Stan wdrożenia deployedServicePackage można zbadać z programu PowerShell przy użyciu [get-ServiceFabricDeployedServicePackage][deployed-service-package-link] lub z języka C# przy użyciu [interfejsu API FabricClient][fabric-client-link] [GetDeployedServicePackageListAsync(String, Uri, String)][deployed-service-package-fabricclient-link]
+## <a name="querying-deployment-status-of-a-deployedservicepackage"></a>Wykonywanie zapytania dotyczącego stanu wdrożenia elementu DeployedServicePackage
+Ze stanem wdrożenia DeployedServicePackage można wykonywać zapytania z programu PowerShell przy użyciu polecenia [Get-ServiceFabricDeployedServicePackage][deployed-service-package-link] lub z języka C# przy użyciu [FabricClient][fabric-client-link] API [GetDeployedServicePackageListAsync (String, URI, String)][deployed-service-package-fabricclient-link]
 
-## <a name="considerations-when-using-runtocompletion-semantics"></a>Zagadnienia dotyczące korzystania z semantyki Funkcji Doukończenia
+## <a name="considerations-when-using-runtocompletion-semantics"></a>Zagadnienia dotyczące korzystania z semantyki RunToCompletion
 
-Następujące punkty należy zauważyć dla bieżącej obsługi RunToCompletion.
-* Te semantyka są obsługiwane tylko dla [kontenerów][containers-introduction-link] i aplikacji [wykonywalnych gościa.][guest-executables-introduction-link]
-* Scenariusze uaktualniania dla aplikacji z semantyka RunToCompletion nie są dozwolone. Użytkownicy powinni w razie potrzeby usuwać i odtwarzać takie aplikacje.
-* Zdarzenia trybu failover może spowodować CodePackages do ponownego wykonania po pomyślnym zakończeniu, w tym samym węźle lub innych węzłów klastra. Przykładami zdarzeń trybu failover są, ponowne uruchomienie węzła i uaktualnienia środowiska uruchomieniowego sieci szkieletowej usług w węźle.
+W przypadku bieżącej obsługi RunToCompletion należy zwrócić uwagę na następujące kwestie.
+* Te semantyki są obsługiwane tylko w przypadku [kontenerów][containers-introduction-link] i aplikacji [wykonywalnych gościa][guest-executables-introduction-link] .
+* Scenariusze uaktualniania dla aplikacji z semantyką RunToCompletion są niedozwolone. Użytkownicy powinni usunąć i ponownie utworzyć takie aplikacje, w razie potrzeby.
+* Zdarzenia trybu failover mogą spowodować ponowne uruchomienie CodePackages po pomyślnym zakończeniu, w tym samym węźle lub w innych węzłach klastra. Przykłady zdarzeń trybu failover to, że węzeł jest ponownie uruchamiany i Service Fabric uaktualnienia środowiska uruchomieniowego w węźle.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz następujące artykuły, aby uzyskać powiązane informacje.
+Zapoznaj się z następującymi artykułami dotyczącymi pokrewnych informacji.
 
-* [Tkanina serwisowa i kontenery.][containers-introduction-link]
-* [Sieć szkieletowa usług i pliki wykonywalne gościa.][guest-executables-introduction-link]
+* [Service Fabric i kontenery.][containers-introduction-link]
+* [Service Fabric i pliki wykonywalne gościa.][guest-executables-introduction-link]
 
 <!-- Links -->
 [containers-introduction-link]: service-fabric-containers-overview.md

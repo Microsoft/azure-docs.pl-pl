@@ -1,6 +1,6 @@
 ---
-title: Aktywność elementu Webhook w fabryce danych platformy Azure
-description: Działanie elementu webhook nie kontynuuje wykonywania potoku, dopóki nie sprawdza poprawności dołączonego zestawu danych z określonymi kryteriami określonymi przez użytkownika.
+title: Działanie elementu webhook w Azure Data Factory
+description: Działanie elementu webhook nie kontynuuje wykonywania potoku do momentu zweryfikowania dołączonego zestawu danych z określonymi kryteriami, które użytkownik określi.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: 4056550ae0a71138d136878fc7e3aa5f6f8f4180
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417882"
 ---
-# <a name="webhook-activity-in-azure-data-factory"></a>Aktywność elementu Webhook w fabryce danych platformy Azure
+# <a name="webhook-activity-in-azure-data-factory"></a>Działanie elementu webhook w Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Działanie elementu webhook można kontrolować wykonywanie potoków za pośrednictwem kodu niestandardowego. Dzięki aktywności elementu webhook kod klientów może wywołać punkt końcowy i przekazać mu adres URL wywołania zwrotnego. Uruchomienie potoku czeka na wywołanie zwrotne, zanim przejdzie do następnego działania.
+Działanie elementu webhook może kontrolować wykonywanie potoków za pomocą kodu niestandardowego. Za pomocą działania elementu webhook kod klienci może wywoływać punkt końcowy i przekazać go do adresu URL wywołania zwrotnego. Uruchomienie potoku oczekuje na wywołanie wywołania zwrotnego przed przejściem do następnego działania.
 
 ## <a name="syntax"></a>Składnia
 
@@ -55,27 +55,27 @@ Działanie elementu webhook można kontrolować wykonywanie potoków za pośredn
 
 Właściwość | Opis | Dozwolone wartości | Wymagany
 -------- | ----------- | -------------- | --------
-**Nazwa** | Nazwa działania elementu webhook. | Ciąg | Tak |
-**Typu** | Musi być ustawiona na "WebHook". | Ciąg | Tak |
-**Metoda** | Metoda interfejsu API REST dla docelowego punktu końcowego. | Ciąg. Obsługiwanym typem jest "POST". | Tak |
-**Adres url** | Docelowy punkt końcowy i ścieżka. | Ciąg lub wyrażenie z **wynikiemType** wartość ciągu. | Tak |
-**Nagłówki** | Nagłówki, które są wysyłane do żądania. Oto przykład, który ustawia język i wpisz `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`na żądanie: . | Ciąg lub wyrażenie z **wynikiemType** wartość ciągu. | Tak. Wymagany `Content-Type` jest `"headers":{ "Content-Type":"application/json"}` nagłówek podobny. |
-**Ciała** | Reprezentuje ładunek, który jest wysyłany do punktu końcowego. | Prawidłowe JSON lub wyrażenie z **wynikiemType** wartość JSON. Zobacz [Żądanie schematu ładunku](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) dla schematu ładunku żądania. | Tak |
-**Uwierzytelniania** | Metoda uwierzytelniania używana do wywoływania punktu końcowego. Obsługiwane typy to "Basic" i "ClientCertificate". Aby uzyskać więcej informacji, zobacz [Authentication](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication) (Uwierzytelnianie). Jeśli uwierzytelnianie nie jest wymagane, wyklucz tę właściwość. | Ciąg lub wyrażenie z **wynikiemType** wartość ciągu. | Nie |
-**timeout** | Jak długo działanie czeka na wywołanie zwrotne określone przez **callBackUri** do wywołania. Wartość domyślna to 10 minut ("00:10:00"). Wartości mają format TimeSpan *d*. *hh*:*mm*:*ss*. | Ciąg | Nie |
-**Raport stanu wywołania zwrotnego** | Umożliwia użytkownikowi zgłaszanie stanu niepowodzenia działania elementu webhook. | Wartość logiczna | Nie |
+**Nazwij** | Nazwa działania elementu webhook. | String | Tak |
+**Wprowadź** | Musi być ustawiona na "webhook". | String | Tak |
+**Method** | Metoda interfejsu API REST dla docelowego punktu końcowego. | Ciąg. Obsługiwany typ to "POST". | Tak |
+**url** | Docelowy punkt końcowy i ścieżka. | Ciąg lub wyrażenie z wartością **ResultType** ciągu. | Tak |
+**nagłówka** | Nagłówki wysyłane do żądania. Oto przykład, który ustawia język i typ żądania: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Ciąg lub wyrażenie z wartością **ResultType** ciągu. | Tak. Wymagany `Content-Type` jest następujący `"headers":{ "Content-Type":"application/json"}` nagłówek. |
+**jednostce** | Reprezentuje ładunek, który jest wysyłany do punktu końcowego. | Prawidłowy kod JSON lub wyrażenie z wartością **ResultType** JSON. Zobacz [schemat ładunku żądania](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) dla schematu ładunku żądania. | Tak |
+**ponowne** | Metoda uwierzytelniania użyta do wywołania punktu końcowego. Obsługiwane typy to "Basic" i "ClientCertificate". Aby uzyskać więcej informacji, zobacz [Authentication](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication) (Uwierzytelnianie). Jeśli uwierzytelnianie nie jest wymagane, Wyklucz tę właściwość. | Ciąg lub wyrażenie z wartością **ResultType** ciągu. | Nie |
+**timeout** | Jak długo działanie czeka na wywołanie wywołania zwrotnego określonego przez **callBackUri** . Wartość domyślna to 10 minut ("00:10:00"). Wartości mają format TimeSpan *d*. *hh*:*mm*:*SS*. | String | Nie |
+**Stan raportu dla wywołania zwrotnego** | Umożliwia użytkownikowi zgłaszanie stanu niepowodzenia działania elementu webhook. | Boolean | Nie |
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 
 Działanie elementu webhook obsługuje następujące typy uwierzytelniania.
 
 ### <a name="none"></a>Brak
 
-Jeśli uwierzytelnianie nie jest wymagane, nie należy dołączać właściwości **uwierzytelniania.**
+Jeśli uwierzytelnianie nie jest wymagane, nie należy uwzględniać właściwości **uwierzytelnianie** .
 
 ### <a name="basic"></a>Podstawowy
 
-Określ nazwę użytkownika i hasło do użycia z uwierzytelnianiem podstawowym.
+Określ nazwę użytkownika i hasło, które mają być używane z uwierzytelnianiem podstawowym.
 
 ```json
 "authentication":{
@@ -87,7 +87,7 @@ Określ nazwę użytkownika i hasło do użycia z uwierzytelnianiem podstawowym.
 
 ### <a name="client-certificate"></a>Certyfikat klienta
 
-Określ zakodowaną w bazie podstawową zawartość pliku PFX i hasło.
+Określ zawartość pliku PFX i hasło w formacie base64.
 
 ```json
 "authentication":{
@@ -99,7 +99,7 @@ Określ zakodowaną w bazie podstawową zawartość pliku PFX i hasło.
 
 ### <a name="managed-identity"></a>Tożsamość zarządzana
 
-Użyj tożsamości zarządzanej fabryki danych, aby określić identyfikator URI zasobu, dla którego jest wymagany token dostępu. Aby wywołać interfejs API `https://management.azure.com/`zarządzania zasobami platformy Azure, należy użyć programu . Aby uzyskać więcej informacji na temat działania tożsamości zarządzanych, zobacz [omówienie tożsamości zarządzanych dla zasobów platformy Azure.](/azure/active-directory/managed-identities-azure-resources/overview)
+Użyj tożsamości zarządzanej fabryki danych, aby określić identyfikator URI zasobu, dla którego żądano tokenu dostępu. Aby wywołać interfejs API zarządzania zasobami platformy Azure, `https://management.azure.com/`Użyj programu. Aby uzyskać więcej informacji o tym, jak działają zarządzane tożsamości, zobacz [Omówienie zarządzanych tożsamości dla zasobów platformy Azure](/azure/active-directory/managed-identities-azure-resources/overview).
 
 ```json
 "authentication": {
@@ -109,21 +109,21 @@ Użyj tożsamości zarządzanej fabryki danych, aby określić identyfikator URI
 ```
 
 > [!NOTE]
-> Jeśli fabryka danych jest skonfigurowana z repozytorium Git, należy przechowywać poświadczenia w usłudze Azure Key Vault, aby używać uwierzytelniania podstawowego lub certyfikatu klienta. Usługa Azure Data Factory nie przechowuje haseł w usłudze Git.
+> Jeśli Fabryka danych została skonfigurowana przy użyciu repozytorium git, musisz przechowywać poświadczenia w Azure Key Vault, aby używać uwierzytelniania podstawowego lub certyfikatu klienta. Azure Data Factory nie zapisuje haseł w usłudze git.
 
 ## <a name="additional-notes"></a>Uwagi dodatkowe
 
-Fabryka danych przekazuje dodatkową właściwość **callBackUri** w treści wysyłane do punktu końcowego adresu URL. Usługa Data Factory oczekuje, że ten identyfikator URI zostanie wywołany przed określoną wartością limitu czasu. Jeśli identyfikator URI nie jest wywoływany, działanie kończy się niepowodzeniem ze stanem "TimedOut".
+Data Factory przekazuje dodatkową właściwość **callBackUri** w treści wysyłanej do punktu końcowego adresu URL. Data Factory oczekuje, że ten identyfikator URI będzie wywoływany przed określoną wartością limitu czasu. Jeśli identyfikator URI nie zostanie wywołany, działanie kończy się niepowodzeniem ze stanem "TimedOut".
 
-Działanie elementu webhook kończy się niepowodzeniem, gdy wywołanie niestandardowego punktu końcowego nie powiedzie się. Każdy komunikat o błędzie można dodać do treści wywołania zwrotnego i używane w późniejszym działaniu.
+Działanie elementu webhook kończy się niepowodzeniem, gdy wywołanie do niestandardowego punktu końcowego zakończy się niepowodzeniem. Dowolny komunikat o błędzie można dodać do treści wywołania zwrotnego i użyć w późniejszym działaniu.
 
-Dla każdego wywołania interfejsu API REST, czas oczekiwania klienta, jeśli punkt końcowy nie odpowiada w ciągu jednej minuty. To zachowanie jest standardową najlepszą praktyką http. Aby rozwiązać ten problem, zaimplementuj wzorzec 202. W bieżącym przypadku punkt końcowy zwraca 202 (Zaakceptowane) i sonduje klienta.
+W przypadku każdego wywołania interfejsu API REST klient przekracza limit czasu, jeśli punkt końcowy nie odpowie w ciągu minuty. To zachowanie jest standardowym najlepszym rozwiązaniem HTTP. Aby rozwiązać ten problem, zaimplementuj wzorzec 202. W bieżącym przypadku punkt końcowy zwraca 202 (zaakceptowane) i sondy klienta.
 
-Jednominutowy limit czasu na żądanie nie ma nic wspólnego z limitem czasu działania. Ten ostatni jest używany do oczekiwania na wywołanie zwrotne określone przez **callbackUri**.
+Limit czasu dla żądania nie ma nic do wykonania z limitem czasu działania. Ten ostatni jest używany do oczekiwania na wywołanie zwrotne określone przez **callbackUri**.
 
-Treść przekazana z powrotem do wywołania zwrotnego identyfikatora URI musi być prawidłowa JSON. Ustaw `Content-Type` nagłówek `application/json`na .
+Treść przeniesiona z powrotem do identyfikatora URI wywołania zwrotnego musi być prawidłowym kodem JSON. Ustaw `Content-Type` nagłówek na `application/json`.
 
-Korzystając z **raportu stanu na wywołanie zwrotnym** właściwości, należy dodać następujący kod do treści podczas oddzwaniania zwrotnego:
+Korzystając ze **stanu raportu dla właściwości wywołania zwrotnego** , należy dodać następujący kod do treści podczas wywołania zwrotnego:
 
 ```json
 {
@@ -142,7 +142,7 @@ Korzystając z **raportu stanu na wywołanie zwrotnym** właściwości, należy 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz następujące działania przepływu sterowania obsługiwane przez fabrykę danych:
+Zobacz następujące działania przepływu sterowania obsługiwane przez Data Factory:
 
 - [Działanie If Condition](control-flow-if-condition-activity.md)
 - [Działanie wykonywania potoku](control-flow-execute-pipeline-activity.md)

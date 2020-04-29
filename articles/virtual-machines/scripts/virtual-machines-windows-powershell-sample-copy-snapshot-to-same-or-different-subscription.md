@@ -14,19 +14,19 @@ ms.workload: infrastructure
 ms.date: 02/28/2019
 ms.author: ramankum
 ms.openlocfilehash: d5f110d8cf3324fa02a5b2e2500f743c57b1d229
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81452285"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>Kopiowanie migawki dysku zarządzanego do tej samej lub innej subskrypcji przy użyciu programu PowerShell
 
-Ten skrypt kopiuje migawkę dysku zarządzanego do tej samej lub innej subskrypcji. Użyj tego skryptu dla następujących scenariuszy:
+Ten skrypt kopiuje migawkę dysku zarządzanego do tej samej lub innej subskrypcji. Użyj tego skryptu w następujących scenariuszach:
 
-1. Migrowanie migawki w magazynie w wersji Premium (Premium_LRS) do magazynu standardowego (Standard_LRS lub Standard_ZRS), aby zmniejszyć koszty.
-1. Migrowanie migawki z magazynu lokalnie nadmiarowego (Premium_LRS, Standard_LRS) do magazynu nadmiarowego strefy (Standard_ZRS), aby korzystać z większej niezawodności magazynu ZRS.
-1. Przenieś migawkę do innej subskrypcji w tym samym regionie, aby uzyskać dłuższe przechowywanie.
+1. Przeprowadź migrację migawki w usłudze Premium Storage (Premium_LRS) do magazynu w warstwie Standardowa (Standard_LRS lub Standard_ZRS), aby zmniejszyć koszty.
+1. Przeprowadź migrację migawki z magazynu lokalnie nadmiarowego (Premium_LRS, Standard_LRS) do magazynu Strefowo nadmiarowego (Standard_ZRS), aby korzystać z wyższej niezawodności magazynu ZRS.
+1. Przenieś migawkę do innej subskrypcji w tym samym regionie w celu dłuższego przechowywania.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 

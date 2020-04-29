@@ -1,6 +1,6 @@
 ---
-title: Filtrowanie aktywności w fabryce danych platformy Azure
-description: Działanie Filtr filtruje dane wejściowe.
+title: Działanie filtrowania w Azure Data Factory
+description: Działanie filtru filtruje dane wejściowe.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.openlocfilehash: 2c8ada22b4492bef0239b6f811d5a7bd58e58510
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417221"
 ---
-# <a name="filter-activity-in-azure-data-factory"></a>Filtrowanie aktywności w fabryce danych platformy Azure
-Za pomocą działania filtru w potoku można zastosować wyrażenie filtru do tablicy wejściowej. 
+# <a name="filter-activity-in-azure-data-factory"></a>Działanie filtrowania w Azure Data Factory
+Możesz użyć działania filtru w potoku, aby zastosować wyrażenie filtru do tablicy wejściowej. 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## <a name="syntax"></a>Składnia
@@ -39,14 +39,14 @@ Za pomocą działania filtru w potoku można zastosować wyrażenie filtru do ta
 
 Właściwość | Opis | Dozwolone wartości | Wymagany
 -------- | ----------- | -------------- | --------
-name | Nazwa `Filter` działania. | Ciąg | Tak
-type | Musi być ustawiony na **filtrowanie**. | Ciąg | Tak
-Warunek | Warunek, który ma być używany do filtrowania danych wejściowych. | Wyrażenie | Tak
-Elementy | Tablica wejściowa, na której należy zastosować filtr. | Wyrażenie | Tak
+name | Nazwa `Filter` działania. | String | Tak
+type | Musi być ustawiona na wartość **Filter**. | String | Tak
+rozgrzewa | Warunek, który ma być używany do filtrowania danych wejściowych. | Wyrażenie | Tak
+produktów | Tablica wejściowa, w której ma zostać zastosowany filtr. | Wyrażenie | Tak
 
 ## <a name="example"></a>Przykład
 
-W tym przykładzie potok ma dwa działania: **Filter** i **ForEach**. Działanie Filtr jest skonfigurowane do filtrowania tablicy wejściowej dla elementów o wartości większej niż 3. ForEach działania następnie iteruje nad filtrowane wartości i ustawia **test** zmiennej do bieżącej wartości.
+W tym przykładzie potok ma dwie działania: **Filter** i **foreach**. Działanie filtru jest skonfigurowane do filtrowania tablicy wejściowej dla elementów o wartości większej niż 3. Działanie ForEach następnie wykonuje iterację nad filtrowanymi wartościami i ustawia zmienną **test** na bieżącą wartość.
 
 ```json
 {
@@ -113,7 +113,7 @@ W tym przykładzie potok ma dwa działania: **Filter** i **ForEach**. Działanie
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz inne działania przepływu sterowania obsługiwane przez fabrykę danych: 
+Zobacz inne działania przepływu sterowania obsługiwane przez Data Factory: 
 
 - [Działanie If Condition](control-flow-if-condition-activity.md)
 - [Działanie wykonywania potoku](control-flow-execute-pipeline-activity.md)

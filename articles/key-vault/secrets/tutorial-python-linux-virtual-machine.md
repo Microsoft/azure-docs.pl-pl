@@ -11,13 +11,13 @@ ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
 ms.openlocfilehash: df089f0338a177c08f4d9e88d55b501fd12f88f2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81423319"
 ---
-# <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Samouczek: Przechowywanie wpisów tajnych w usłudze Azure Key Vault za pomocą maszyny Wirtualnej systemu Linux i aplikacji Języka Python
+# <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Samouczek: korzystanie z maszyny wirtualnej z systemem Linux i aplikacji w języku Python do przechowywania wpisów tajnych w programie Azure Key Vault
 
 Usługa Azure Key Vault umożliwia ochronę wpisów tajnych, takich jak klucze interfejsu API i parametry połączenia bazy danych potrzebne do uzyskania dostępu do aplikacji, usługi oraz zasoby informatyczne.
 
@@ -35,15 +35,15 @@ Zanim przejdziesz dalej, zapoznaj się z [podstawowymi pojęciami dotyczącymi u
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Git](https://git-scm.com/downloads).
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+* Usługi [git](https://git-scm.com/downloads).
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 * [Interfejs wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) lub usługa Azure Cloud Shell.
 
 [!INCLUDE [Azure Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="understand-managed-service-identity"></a>Zapoznanie się z tożsamością usługi zarządzanej
 
-Usługa Azure Key Vault może bezpiecznie przechowywać poświadczenia, aby nie były one w kodzie. Aby je pobrać, należy uwierzytelnić się w usłudze Azure Key Vault. Jednak aby uwierzytelniać się w usłudze Key Vault, potrzebne są poświadczenia. Jest to klasyczny problem dotyczący uruchamiania. Dzięki platformie Azure i usłudze Azure Active Directory (Azure AD) tożsamość usługi zarządzanej udostępnia „tożsamość uruchamiania”, która ułatwia rozpoczęcie wykonywania czynności.
+Azure Key Vault mogą bezpiecznie przechowywać poświadczenia, aby nie znajdowały się w kodzie. Aby je pobrać, należy uwierzytelnić się w usłudze Azure Key Vault. Jednak aby uwierzytelniać się w usłudze Key Vault, potrzebne są poświadczenia. Jest to klasyczny problem dotyczący uruchamiania. Dzięki platformie Azure i usłudze Azure Active Directory (Azure AD) tożsamość usługi zarządzanej udostępnia „tożsamość uruchamiania”, która ułatwia rozpoczęcie wykonywania czynności.
 
 Po włączeniu tożsamości usługi zarządzanej dla usługi platformy Azure, takiej jak Virtual Machines, App Service lub Functions, platforma Azure tworzy jednostkę usługi dla wystąpienia usługi w usłudze Azure AD. Wprowadza ona poświadczenia dla jednostki usługi do wystąpienia usługi.
 
@@ -76,9 +76,9 @@ Możesz używać tej grupy zasobów w całym samouczku.
 
 Następnie utworzysz magazyn kluczy w grupie zasobów utworzonej w poprzednim kroku. Podaj następujące informacje:
 
-* Nazwa magazynu kluczy: Nazwa musi być ciągiem 3-24 znaków i musi zawierać tylko 0-9, a-z, A-Z i łączniki (-).
+* Nazwa magazynu kluczy: nazwa musi być ciągiem zawierającym 3-24 znaków i może zawierać tylko 0-9, a-z, A-Z i łączniki (-).
 * Nazwa grupy zasobów.
-* Lokalizacja: **Zachodnie stany USA**.
+* Lokalizacja: **zachodnie stany USA**.
 
 ```azurecli-interactive
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"

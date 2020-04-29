@@ -1,6 +1,6 @@
 ---
 title: Strojenie wydajności za pomocą zmaterializowanych widoków
-description: Zalecenia i zagadnienia, które należy znać podczas używania zmaterializowanych widoków w celu zwiększenia wydajności kwerendy.
+description: Zalecenia i zagadnienia, które należy znać w przypadku używania widoków z materiałami, aby zwiększyć wydajność zapytań.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,99 +11,99 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.openlocfilehash: 6a3235d5edc5249bbbdc2e79dac8575ad26fd5e1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417025"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Strojenie wydajności za pomocą zmaterializowanych widoków
 
-Zmaterializowane widoki w puli SQL Synapse zapewniają metodę niskiej konserwacji dla złożonych zapytań analitycznych, aby uzyskać szybką wydajność bez zmiany zapytania. W tym artykule omówiono ogólne wskazówki dotyczące korzystania ze zmaterializowanych widoków.
+Widoki z materiałami w puli SQL Synapse zapewniają niską metodę konserwacji dla złożonych zapytań analitycznych w celu uzyskania szybkiej wydajności bez żadnej zmiany w zapytaniu. W tym artykule omówiono ogólne wskazówki dotyczące korzystania z widoków z materiałami.
 
-Zmaterializowane widoki w puli SQL zapewniają metodę niskiej konserwacji dla złożonych zapytań analitycznych, aby uzyskać szybką wydajność bez żadnych zmian kwerend. W tym artykule omówiono ogólne wskazówki dotyczące korzystania ze zmaterializowanych widoków.
+Widoki z materiałami w puli SQL zapewniają niską metodę konserwacji dla złożonych zapytań analitycznych w celu uzyskania szybkiej wydajności bez żadnej zmiany w zapytaniu. W tym artykule omówiono ogólne wskazówki dotyczące korzystania z widoków z materiałami.
 
-## <a name="materialized-views-vs-standard-views"></a>Widoki zmaterializowane a widoki standardowe
+## <a name="materialized-views-vs-standard-views"></a>Widoki z materiałami i widoki standardowe
 
-Pula SQL obsługuje widoki standardowe i zmaterializowane.  Obie są tabelami wirtualnymi utworzonymi za pomocą wyrażeń SELECT i prezentowanymi kwerendom jako tabele logiczne.  Widoki hermetyzują złożoność obliczeń wspólnych danych i dodaj warstwę abstrakcji do zmian obliczeniowych, dzięki czemu nie ma potrzeby przepisywania kwerend.  
+Pula SQL obsługuje widoki standardowe i z materiałami.  Obie są tabelami wirtualnymi utworzonymi za pomocą SELECT Expressions i prezentowanych jako tabele logiczne.  Widoki hermetyzują złożoność wspólnych obliczeń danych i dodają warstwę abstrakcji do obliczeń zmian, aby nie trzeba było ponownie pisać zapytań.  
 
-Widok standardowy oblicza swoje dane za każdym razem, gdy widok jest używany.  Na dysku nie są przechowywane żadne dane. Ludzie zazwyczaj używają widoków standardowych jako narzędzia, które pomaga organizować obiekty logiczne i kwerendy w bazie danych.  Aby użyć widoku standardowego, kwerenda musi bezpośrednio odwoływać się do niego.
+Widok standardowy oblicza swoje dane za każdym razem, gdy widok jest używany.  Brak danych przechowywanych na dysku. Użytkownicy zazwyczaj używają widoków standardowych jako narzędzia, które ułatwiają organizowanie obiektów logicznych i zapytań w bazie danych.  Aby użyć widoku standardowego, zapytanie musi nawiązać bezpośrednie odwołanie do niego.
 
-Zmaterializowany widok wstępnie oblicza, przechowuje i przechowuje swoje dane w puli SQL, podobnie jak w tabeli.  Za każdym razem, gdy używany jest zmaterialowany widok, nie jest wymagana żadna ponowna obliczenie.  Dlatego kwerendy, które używają wszystkich lub podzbiór danych w widokach materializowanych można uzyskać większą wydajność.  Co więcej, kwerendy można użyć zmaterializowanego widoku bez bezpośredniego odwoływania się do niego, więc nie ma potrzeby zmiany kodu aplikacji.  
+Widok z materiałami umożliwia wstępne obliczenie, przechowywanie i przechowywanie danych w puli SQL w taki sam sposób jak tabela.  Za każdym razem, gdy jest używany widok materiałowy, nie jest wymagana żadna konieczność obliczenia.  Dlatego, że zapytania, które używają wszystkich lub podzbiór danych w widokach z możliwością, mogą uzyskać lepszą wydajność.  Jeszcze lepsze zapytania mogą korzystać z widoku z materiałami bez bezpośredniego odniesienia do niego, dlatego nie trzeba zmieniać kodu aplikacji.  
 
-Większość wymagań dotyczących widoku standardowego nadal ma zastosowanie do widoku zmaterializowanego. Szczegółowe informacje na temat składni widoku materializowanego i innych wymagań można znaleźć w [1939 R.](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+Większość wymagań dotyczących widoku standardowego nadal stosuje się do widoku z materiałami. Aby uzyskać szczegółowe informacje na temat składniowe widoku i innych wymagań, zapoznaj się z artykułem [Tworzenie widoku z materiałami jako wybrane](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 | Porównanie                     | Widok                                         | Zmaterializowany widok
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
 |Definicja widoku                 | Przechowywane w puli SQL.              | Przechowywane w puli SQL.
-|Wyświetlanie zawartości                    | Generowane za każdym razem, gdy widok jest używany.   | Wstępnie przetworzone i przechowywane w puli SQL podczas tworzenia widoku. Aktualizowane w miarę dodawania danych do tabel bazowych.
+|Wyświetlanie zawartości                    | Generowane za każdym razem, gdy widok jest używany.   | Wstępnie przetworzony i przechowywany w puli SQL podczas tworzenia widoku. Zaktualizowano w miarę dodawania danych do tabel bazowych.
 |Odświeżanie danych                    | Zawsze aktualizowane                               | Zawsze aktualizowane
-|Szybkość pobierania danych widoku ze złożonych zapytań     | Powolny                                         | Szybko  
-|Dodatkowa pamięć masowa                   | Nie                                           | Tak
-|Składnia                          | TWORZENIE WIDOKU                                  | TWORZENIE ZMATERIALIZOWANEGO WIDOKU JAKO ZAZNACZANIE
+|Szybkość pobierania danych widoku z złożonych zapytań     | Opóźnienie                                         | Fast  
+|Dodatkowy magazyn                   | Nie                                           | Tak
+|Składnia                          | UTWÓRZ WIDOK                                  | UTWÓRZ WIDOK Z MATERIAŁAMI JAKO WYBRANY
 
-## <a name="benefits-of-using-materialized-views"></a>Korzyści z używania zmaterializowanych widoków
+## <a name="benefits-of-using-materialized-views"></a>Zalety korzystania z widoków z materiałami
 
-Prawidłowo zaprojektowany zmaterializowany widok zapewnia następujące korzyści:
+Właściwie zaprojektowany widok z materiałami zapewnia następujące korzyści:
 
-- Skróć czas wykonywania złożonych zapytań za pomocą funkcji JOIN i agregacji. Im bardziej złożona kwerenda, tym wyższy potencjał oszczędzania czasu wykonywania. Największa korzyść uzyskuje się, gdy koszt obliczeń kwerendy jest wysoki, a wynikowy zestaw danych jest mały.  
-- Optymalizator w puli SQL może automatycznie używać wdrożonych zmaterializowanych widoków w celu poprawy planów wykonywania kwerend.  Ten proces jest przejrzysty dla użytkowników zapewniających szybszą wydajność zapytań i nie wymaga od kwerend bezpośredniego odwoływania się do zmaterializowanych widoków.
-- Wymagaj niskiej konserwacji widoków.  Wszystkie przyrostowe zmiany danych z tabel bazowych są automatycznie dodawane do zmaterializowanych widoków w sposób synchroniczne.  Ten projekt umożliwia wykonywanie zapytań zmaterializowanych widoków w celu zwrócenia tych samych danych, co bezpośrednie wykonywanie zapytań o tabele podstawowe.
-- Dane w zmaterializowanym widoku mogą być rozłożone inaczej niż w tabelach bazowych.  
-- Dane w zmaterializowanych widokach uzyskuje takie same korzyści wysokiej dostępności i odporności jak dane w zwykłych tabelach.  
+- Skrócenie czasu wykonywania złożonych zapytań za pomocą sprzężeń i funkcji agregujących. Im bardziej skomplikowane jest zapytanie, tym większy potencjał do zapisu w czasie wykonywania. Jest to najbardziej korzystne, gdy koszt obliczeń zapytania jest wysoki, a wynikający z nich zestaw danych jest mały.  
+- Optymalizator w puli SQL może automatycznie używać wdrożonych widoków w celu usprawnienia planów wykonywania zapytań.  Ten proces jest niewidoczny dla użytkowników, którzy zapewniają szybszą wydajność zapytań i nie wymagają zapytań, aby skierować bezpośrednie odwołanie do widoków z materiałami.
+- Wymagaj niskiej konserwacji w widokach.  Wszystkie przyrostowe zmiany danych z tabel podstawowych są automatycznie dodawane do podzielnych widoków w sposób synchroniczny.  Ten projekt umożliwia wykonywanie zapytań dotyczących danych w postaci materiałów, które zwracają te same dane, co bezpośrednio zapytania dotyczące tabel podstawowych.
+- Dane w widoku z materiałami mogą być dystrybuowane inaczej od tabel podstawowych.  
+- Dane w widokach z materiałami uzyskują takie same korzyści wysokiej dostępności i odporności jak dane w regularnych tabelach.  
 
-Zmaterializowane widoki zaimplementowane w puli SQL zapewniają również następujące dodatkowe korzyści:
+Widoki z materiałami zaimplementowane w puli SQL oferują również następujące dodatkowe korzyści:
 
-W porównaniu z innymi dostawcami magazynu danych zmaterializowane widoki zaimplementowane w usłudze Azure SQL Data Warehouse zapewniają również następujące dodatkowe korzyści:
+W porównaniu z innymi dostawcami magazynu danych, widoki z materiałami zaimplementowane w Azure SQL Data Warehouse oferują również następujące dodatkowe korzyści:
 
-- Automatyczne i synchroniczne odświeżanie danych ze zmianami danych w tabelach bazowych. Nie jest wymagana żadna akcja użytkownika.
-- Szeroka obsługa funkcji agregujących. Zobacz [TWORZENIE ZMATERIALIZOWANEGO WIDOKU JAKO SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
-- Obsługa zalecenia zmaterializowanego widoku specyficzne dla kwerendy.  Zobacz [OBJAŚNIENIE (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+- Automatyczne i synchroniczne odświeżanie danych ze zmianami danych w tabelach podstawowych. Nie jest wymagane wykonanie jakiejkolwiek czynności przez użytkownika.
+- Szeroka Obsługa funkcji agregujących. Zobacz [Tworzenie widoku z materiałami jako Select (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+- Wsparcie dla zalecenia dotyczącego widoku z materiałami specyficznymi dla zapytań.  Zobacz [wyjaśnienie (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="common-scenarios"></a>Typowe scenariusze  
 
-Widoki materializowane są zwykle używane w następujących scenariuszach:
+Widoki z materiałami są zwykle używane w następujących scenariuszach:
 
-**Potrzeba poprawy wydajności złożonych zapytań analitycznych w stosunku do dużych ilości danych**
+**Trzeba poprawić wydajność złożonych zapytań analitycznych na dużą ilość danych**
 
-Złożone zapytania analityczne zazwyczaj używają więcej funkcji agregacji i sprzężeń tabeli, powodując więcej operacji ciężkich obliczeniowych, takich jak przetasowania i sprzężenia w wykonywaniu kwerend.  Dlatego te zapytania trwać dłużej, szczególnie na dużych tabelach.  
+Złożone zapytania analityczne zwykle używają większej liczby funkcji agregacji i sprzężeń tabel, co sprawia, że wykonywanie większej liczby operacji obliczeniowych, takich jak losowe i sprzężenie w trakcie wykonywania zapytania.  To dlatego, że te zapytania trwają dłużej, szczególnie w przypadku dużych tabel.  
 
-Użytkownicy mogą tworzyć zmaterializowane widoki dla danych zwracanych ze wspólnych obliczeń zapytań, więc nie jest wymagana ponowna obliczenie, gdy te dane są potrzebne przez kwerendy, co pozwala na niższy koszt obliczeń i szybszą odpowiedź na zapytania.
+Użytkownicy mogą tworzyć materialne widoki dla danych zwracanych ze wspólnych obliczeń zapytań, więc nie jest wymagana konieczność ponownego obliczenia, gdy te dane są zbędne przez zapytania, co umożliwia obniżenie kosztów obliczeniowych i szybsze reagowanie na zapytania.
 
-**Potrzebujesz szybszej wydajności bez zmian w kwerendach lub minimalnych**
+**Potrzeba szybszej wydajności bez ani minimalnej zmiany zapytania**
 
-Zmiany schematu i kwerend w pulach SQL są zazwyczaj ograniczone do minimum w celu obsługi regularnych operacji ETL i raportowania.  Użytkownicy mogą używać zmaterializowanych widoków do dostrajania wydajności kwerendy, jeśli koszt ponoszony przez widoki może zostać przesunięty przez wzrost wydajności kwerendy.
+Zmiany schematu i zapytania w pulach SQL zwykle są ograniczone do obsługi zwykłych operacji ETL i raportowania.  Użytkownicy mogą używać widoków z materiałami dla dostrajania wydajności zapytań, jeśli koszty związane z widokami mogą być przesunięte przez zysk w wyniku zapytania.
 
-W porównaniu do innych opcji dostrajania, takich jak skalowanie i zarządzanie statystykami, jest to znacznie mniej istotna zmiana produkcji, aby utworzyć i utrzymać zmaterializowany widok, a jego potencjalny przyrost wydajności jest również wyższy.
+W porównaniu z innymi opcjami dostrajania, takimi jak skalowanie i Zarządzanie statystykami, jest to znacznie mniej wpływające na wydajność produkcji, aby utworzyć i zachować materiałowy widok, a jego potencjalny wzrost wydajności jest również większy.
 
-- Tworzenie lub utrzymywanie zmaterializowanych widoków nie ma wpływu na kwerendy uruchomione względem tabel podstawowych.
-- Optymalizator kwerendy może automatycznie używać wdrożonych widoków materialowanych bez bezpośredniego odwołania do widoku w kwerendzie. Ta funkcja zmniejsza potrzebę zmiany zapytania w dostrajaniu wydajności.
+- Tworzenie lub obsługa widoków z materiałami nie ma wpływu na zapytania działające względem tabel podstawowych.
+- Optymalizator zapytań może automatycznie używać wdrożonych widoków, bez bezpośredniego odwołania do widoku w zapytaniu. Ta funkcja zmniejsza konieczność zmiany zapytania w dostrajania wydajności.
 
-**Potrzebujesz innej strategii dystrybucji danych, aby uzyskać szybszą wydajność zapytań**
+**Potrzebna inna strategia dystrybucji danych w celu przyspieszenia wykonywania zapytań**
 
-Pula SQL to rozproszony system przetwarzania równoległego (MPP).   Dane w tabeli puli SQL są dystrybuowane w 60 węzłach przy użyciu jednej z trzech [strategii dystrybucji](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (skrótu, round_robin lub replikowane).  
+Pula SQL jest systemem rozproszonym do masowego przetwarzania równoległego (MPP).   Dane w tabeli puli SQL są dystrybuowane między 60 węzłami przy użyciu jednej z trzech [strategii dystrybucji](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (mieszanie, round_robin lub zreplikowane).  
 
-Dystrybucja danych jest określona w czasie tworzenia tabeli i pozostaje niezmieniona, dopóki tabela nie zostanie porzucona. Zmaterializowany widok będący tabelą wirtualną na dysku obsługuje dystrybucje skrótów i round_robin danych.  Użytkownicy mogą wybrać dystrybucję danych, która różni się od tabel podstawowych, ale optymalna dla wydajności zapytań, które używają widoków najczęściej.  
+Dystrybucja danych jest określana w czasie tworzenia tabeli i pozostaje niezmieniona, dopóki tabela nie zostanie porzucona. Widok z materiałami jest tabelą wirtualną na dysku obsługującym dystrybucję danych i round_robin.  Użytkownicy mogą wybrać dystrybucję danych inną niż tabele podstawowe, ale optymalną dla wydajności zapytań, które korzystają z większości widoków.  
 
-## <a name="design-guidance"></a>Wskazówki dotyczące projektu
+## <a name="design-guidance"></a>Wskazówki dotyczące projektowania
 
-Oto ogólne wskazówki dotyczące korzystania ze zmaterializowanych widoków w celu zwiększenia wydajności kwerendy:
+Poniżej przedstawiono ogólne wskazówki dotyczące korzystania z widoków z materiałami w celu zwiększenia wydajności zapytań:
 
 **Projektowanie dla obciążenia**
 
-Przed rozpoczęciem tworzenia zmaterializowanych widoków, ważne jest, aby mieć głębokie zrozumienie obciążenia pod względem wzorców zapytań, ważność, częstotliwość i rozmiar danych wynikowych.  
+Przed rozpoczęciem tworzenia wyspecjalizowanych widoków należy mieć dogłębne zrozumienie obciążeń związanych ze wzorcami zapytań, ważnością, częstotliwością i rozmiarem danych uzyskanych.  
 
-Użytkownicy mogą uruchamiać WITH_RECOMMENDATIONS EXPLAIN <SQL_statement> dla zmaterializowanych widoków zalecanych przez optymalizator kwerend.  Ponieważ te zalecenia są specyficzne dla kwerendy, zmaterializowany widok, który przynosi korzyści pojedynczej kwerendzie, może nie być optymalny dla innych zapytań w tym samym obciążeniu.  
+Użytkownicy mogą uruchamiać WITH_RECOMMENDATIONS WYJAŚNIj <SQL_statement> dla widoków z materiałami zalecanymi przez optymalizator zapytań.  Ponieważ te zalecenia są specyficzne dla zapytań, widok z materiałami, który korzysta z pojedynczego zapytania, może nie być optymalny dla innych zapytań w tym samym obciążeniu.  
 
-Oceń te zalecenia, mając na uwadze potrzeby związane z obciążeniem pracą.  Idealne zmaterializowane widoki to te, które przynoszą korzyści wydajności obciążenia.  
+Oceń te zalecenia z uwzględnieniem potrzeb związanych z obciążeniem.  Idealnymi widokami materiałowymi są te, które korzystają z wydajności obciążeń.  
 
-**Należy pamiętać o kompromisie między szybszymi zapytaniami a kosztami**
+**Weź pod uwagę kompromis między szybszymi zapytaniami i kosztem**
 
-Dla każdego zmaterializowanego widoku jest koszt przechowywania danych i koszt utrzymania widoku.  Wraz ze zmianami danych w tabelach bazowych zwiększa się rozmiar zmaterializowanego widoku, a jego struktura fizyczna również się zmienia.  Aby uniknąć obniżenia wydajności kwerendy, każdy zmaterializowany widok jest obsługiwany oddzielnie przez aparat puli SQL.  
+Dla każdego widoku z materiałami istnieje koszt magazynowania danych i koszt utrzymania widoku.  Wraz ze zmianami danych w tabelach podstawowych rozmiar widoku z materiałami wzrasta i jego struktura fizyczna również ulega zmianie.  Aby uniknąć obniżenia wydajności zapytań, każdy widok z materiałami jest obsługiwany oddzielnie przez aparat puli SQL.  
 
-Obciążenie konserwacji zwiększa się, gdy zwiększa się liczba zmaterializowanych widoków i zmian w tabeli bazowej.   Użytkownicy powinni sprawdzić, czy koszt poniesiony ze wszystkich zmaterializowanych widoków może być równoważony przez wzrost wydajności kwerendy.  
+Obciążenie pracą konserwacyjną jest wyższe, gdy liczba widoków z materiałami i zmianami w tabeli podstawowej rośnie.   Użytkownicy powinni sprawdzić, czy koszt ponoszony ze wszystkich widoków z materiałami może być przesunięty przez wzrost wydajności zapytania.  
 
-Tę kwerendę można uruchomić dla listy zmaterializowanych widoków w bazie danych:
+To zapytanie można uruchomić, aby wyświetlić listę przykładowego widoku w bazie danych:
 
 ```sql
 SELECT V.name as materialized_view, V.object_id
@@ -111,13 +111,13 @@ FROM sys.views V
 JOIN sys.indexes I ON V.object_id= I.object_id AND I.index_id < 2;
 ```
 
-Opcje zmniejszania liczby zmaterializowanych widoków:
+Opcje zmniejszania liczby widoków z materiałami:
 
-- Identyfikowanie typowych zestawów danych często używanych przez złożone zapytania w obciążeniu.  Utwórz zmaterializowane widoki do przechowywania tych zestawów danych, dzięki czemu optymalizator może używać ich jako bloków konstrukcyjnych podczas tworzenia planów wykonania.  
+- Identyfikuj typowe zestawy danych często używane przez złożone zapytania w obciążeniu.  Utwórz widoki z materiałami do przechowywania tych zestawów danych, aby Optymalizator mógł używać ich jako bloków konstrukcyjnych podczas tworzenia planów wykonywania.  
 
-- Upuść zmaterializowane widoki, które mają niskie użycie lub nie są już potrzebne.  Wyłączony widok materialized nie jest zachowywany, ale nadal ponosi koszty magazynu.  
+- Porzuć widoki z materiałami, które mają niskie użycie lub nie są już potrzebne.  Wyłączony widok materiałowy nie jest obsługiwany, ale nadal wiąże się z nim koszt magazynu.  
 
-- Łączenie zmaterializowanych widoków utworzonych w tych samych lub podobnych tabelach bazowych, nawet jeśli ich dane nie nakładają się na siebie.  Połączenie zmaterializowanych widoków może spowodować większy rozmiar niż suma oddzielnych widoków, jednak koszt konserwacji widoku powinien zostać zmniejszony.  Przykład:
+- Połącz widoki z materiałami utworzone w tej samej lub podobnej tabeli podstawowej nawet wtedy, gdy ich dane nie nakładają się na siebie.  Łączenie widoków z materiałami może skutkować większym widokiem w rozmiarze niż suma oddzielnych widoków, ale koszt konserwacji widoku powinien zostać zredukowany.  Przykład:
 
 ```sql
 
@@ -143,25 +143,25 @@ GROUP BY A, C
 
 **Nie wszystkie dostrajanie wydajności wymaga zmiany zapytania**
 
-Optymalizator puli SQL może automatycznie używać wdrożonych zmaterializowanych widoków w celu zwiększenia wydajności kwerendy.  Ta obsługa jest stosowana w sposób przejrzysty do kwerend, które nie odwołują się do widoków i kwerend, które używają agregatów nieobsługiwał w tworzeniu zmaterializowanych widoków.  Nie jest wymagana żadna zmiana kwerendy. Można sprawdzić plan szacowanego wykonania kwerendy, aby potwierdzić, czy używany jest widok zmaterializowany.  
+Optymalizator puli SQL może automatycznie używać wdrożonych widoków w celu zwiększenia wydajności zapytań.  Ta obsługa jest zastosowana w sposób niewidoczny dla zapytań, które nie odwołują się do widoków i zapytań, które używają wartości zagregowanych nieobsługiwanych w przypadku tworzenia widoków w materiałach.  Nie jest wymagana żadna zmiana zapytania. Można sprawdzić szacowany plan wykonywania zapytania, aby potwierdzić, czy jest używany widok z materiałami.  
 
-**Monitoruj zmaterializowane widoki**
+**Monitorowanie widoków z materiałami**
 
-Zmaterializowany widok jest przechowywany w puli SQL, podobnie jak tabela z indeksem klastrowanego magazynu kolumn (CCI).  Odczyt danych z zmaterializowanego widoku obejmuje skanowanie segmentów indeksu CCI i stosowanie wszelkich przyrostowych zmian z tabel bazowych. Gdy liczba zmian przyrostowych jest zbyt wysoka, rozpoznawanie kwerendy z zmaterializowanego widoku może trwać dłużej niż bezpośrednie wykonywanie zapytań w tabelach bazowych.  
+Widok z materiałami jest przechowywany w puli SQL tak samo jak tabela z klastrowanym indeksem magazynu kolumn (WIK).  Odczytywanie danych z widoku z materiałami obejmuje skanowanie segmentów indeksu WIK i stosowanie wszelkich zmian przyrostowych z tabel podstawowych. Gdy liczba zmian przyrostowych jest zbyt duża, rozpoznawanie zapytania z widoku z materiałami może trwać dłużej niż bezpośrednio zapytania w tabelach bazowych.  
 
-Aby uniknąć pogorszenia wydajności kwerendy, dobrą praktyką jest uruchomienie [PDW_SHOWMATERIALIZEDVIEWOVERHEAD DBCC](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) w celu monitorowania overhead_ratio widoku (total_rows / max(1, base_view_row)).  Użytkownicy powinni odbudować zmaterializowany widok, jeśli jego overhead_ratio jest zbyt wysoka.
+Aby uniknąć obniżenia wydajności zapytań, dobrym sposobem jest uruchomienie [polecenia DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) w celu monitorowania overhead_ratio widoku (total_rows/Max (1, base_view_row)).  Użytkownicy powinni odbudować materiałowy widok, jeśli jego overhead_ratio jest zbyt duży.
 
-**Zmaterializowane buforowanie widoku i zestawu wyników**
+**Widok materiałowy i buforowanie zestawu wyników**
 
-Te dwie funkcje są wprowadzane w puli SQL w tym samym czasie dostrajania wydajności kwerendy.  Buforowanie zestawu wyników służy do uzyskiwania wysokiej współbieżności i szybkiej odpowiedzi z powtarzających się zapytań względem danych statycznych.  
+Te dwie funkcje są wprowadzane w puli SQL w tym samym czasie na potrzeby dostrajania wydajności zapytań.  Buforowanie zestawu wyników służy do uzyskiwania dużej współbieżności i szybkiej reakcji od powtarzających się zapytań na dane statyczne.  
 
-Aby użyć buforowanego wyniku, formularz kwerendy żądającej pamięci podręcznej musi być zgodny z kwerendą, która wyprodukowała pamięć podręczną.  Ponadto wynik buforowane musi mieć zastosowanie do całej kwerendy.  
+Aby można było użyć buforowanego wyniku, formularz żądania pamięci podręcznej musi pasować do zapytania, które spowodowało wytworzenie pamięci podręcznej.  Ponadto, buforowany wynik musi dotyczyć całego zapytania.  
 
-Zmaterializowane widoki umożliwiają zmiany danych w tabelach bazowych.  Dane w zmaterializowanych widokach można zastosować do fragmentu kwerendy.  Ta obsługa umożliwia te same zmaterializowane widoki, które mają być używane przez różne kwerendy, które współużytkuje niektóre obliczenia dla szybszej wydajności.
+Widoki z materiałami umożliwiają wprowadzanie zmian w tabelach podstawowych.  Dane w widokach z materiałami mogą być stosowane do fragmentu zapytania.  Obsługuje to te same widoki, które mogą być używane przez różne zapytania, które udostępniają pewne obliczenia w celu zwiększenia wydajności.
 
 ## <a name="example"></a>Przykład
 
-W tym przykładzie użyto zapytania podobnego do TPCDS, które znajduje klientów, którzy wydają więcej pieniędzy za pośrednictwem katalogu niż w sklepach, identyfikują preferowanych klientów i ich kraj pochodzenia.   Kwerenda polega na wybraniu TOP 100 rekordów z unii trzech instrukcji sub-SELECT obejmujących SUM() i GROUP BY.
+W tym przykładzie używamy zapytania przypominającego TPCDS, które umożliwia znalezienie klientów, którzy spędzają więcej pieniędzy za pośrednictwem wykazu niż w sklepach, zidentyfikuj preferowanych klientów i ich kraj pochodzenia.   Zapytanie obejmuje wybranie pierwszych 100 rekordów z Unii trzech instrukcji SELECT sub obejmujących SUM () i GROUP BY.
 
 ```sql
 WITH year_total AS (
@@ -279,7 +279,7 @@ ORDER BY t_s_secyear.customer_id
 OPTION ( LABEL = 'Query04-af359846-253-3');
 ```
 
-Sprawdź plan szacowanego wykonania kwerendy.  Istnieje 18 przetasowań i 17 łączy operacji, które zajmują więcej czasu, aby wykonać. Teraz utwórzmy jeden zmaterializowany widok dla każdej z trzech instrukcji sub-SELECT.
+Sprawdź szacowany plan wykonywania zapytania.  Istnieje 18 operacji wylosowania i 17 sprzężeń, co zajmuje więcej czasu. Teraz Utwórzmy jeden pojedynczy widok dla każdej z trzech instrukcji podrzędnych SELECT.
 
 ```sql
 CREATE materialized view nbViewSS WITH (DISTRIBUTION=HASH(customer_id)) AS
@@ -360,12 +360,12 @@ GROUP BY c_customer_id
 
 ```
 
-Sprawdź plan wykonania oryginalnej kwerendy ponownie.  Teraz liczba łączy zmienia się z 17 na 5 i nie ma już shuffle.  Kliknij ikonę Operacji filtruj w planie, a jego lista wyjściowa pokazuje, że dane są odczytywane z zmaterializowanych widoków zamiast z tabel bazowych.  
+Sprawdź ponownie plan wykonania oryginalnego zapytania.  Teraz liczba sprzężeń zmienia się z 17 na 5 i nie ma już trybu losowego.  Kliknij ikonę operacji filtrowania w planie, jej lista wyjściowa pokazuje, że dane są odczytywane z widoków z materiałami zamiast tabel podstawowych.  
 
  ![Plan_Output_List_with_Materialized_Views](./media/performance-tuning-materialized-views/output-list.png)
 
-Z zmaterializowanych widoków, to samo zapytanie działa znacznie szybciej bez zmiany kodu.  
+W przypadku widoków z materiałami to samo zapytanie działa znacznie szybciej bez zmiany kodu.  
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej wskazówek dotyczących programowania, zobacz [Omówienie rozwoju puli sql synapse](sql-data-warehouse-overview-develop.md).
+Aby uzyskać więcej porad programistycznych, zobacz [Omówienie tworzenia puli SQL Synapse](sql-data-warehouse-overview-develop.md).

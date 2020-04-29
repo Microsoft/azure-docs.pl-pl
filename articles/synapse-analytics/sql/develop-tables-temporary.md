@@ -1,6 +1,6 @@
 ---
-title: Używanie tabel tymczasowych z programem Synapse SQL
-description: Podstawowe wskazówki dotyczące używania tabel tymczasowych w języku Synapse SQL.
+title: Używanie tabel tymczasowych z Synapse SQL
+description: Podstawowe wskazówki dotyczące używania tabel tymczasowych w programie SQL Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,29 +11,29 @@ ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 090f453771dba6f537ad60605c6e9b96f3ca9957
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81428760"
 ---
-# <a name="temporary-tables-in-synapse-sql"></a>Tabele tymczasowe w języku Synapse SQL
+# <a name="temporary-tables-in-synapse-sql"></a>Tabele tymczasowe w Synapse SQL
 
-Ten artykuł zawiera podstawowe wskazówki dotyczące korzystania z tabel tymczasowych i podkreśla zasady tabel tymczasowych na poziomie sesji w synapse SQL. 
+Ten artykuł zawiera podstawowe wskazówki dotyczące używania tabel tymczasowych i wyróżnia zasady tabel tymczasowych na poziomie sesji w programie Synapse SQL. 
 
-Zarówno pula SQL, jak i zasoby SQL na żądanie (wersja zapoznawcza) mogą korzystać z tabel tymczasowych. SQL na żądanie ma ograniczenia, które zostały omówione na końcu tego artykułu. 
+Zarówno zasoby puli SQL, jak i SQL na żądanie (wersja zapoznawcza) mogą korzystać z tabel tymczasowych. SQL na żądanie zawiera ograniczenia, które zostały omówione na końcu tego artykułu. 
 
 ## <a name="what-are-temporary-tables"></a>Co to są tabele tymczasowe?
 
-Tabele tymczasowe są przydatne podczas przetwarzania danych, szczególnie podczas transformacji, gdzie wyniki pośrednie są przejściowe. W przypadku programu Synapse SQL na poziomie sesji istnieją tabele tymczasowe.  Są one widoczne tylko dla sesji, w której zostały utworzone. W związku z tym są one automatycznie usuwane po wylogowaniu się tej sesji. 
+Tabele tymczasowe są przydatne podczas przetwarzania danych, zwłaszcza podczas przekształcania, w którym wyniki pośrednie są przejściowe. W przypadku języka SQL Synapse tabele tymczasowe istnieją na poziomie sesji.  Są one widoczne tylko dla sesji, w której zostały utworzone. W związku z tym są one automatycznie porzucane podczas wylogowywania sesji. 
 
 ## <a name="temporary-tables-in-sql-pool"></a>Tabele tymczasowe w puli SQL
 
-W zasobie puli SQL tabele tymczasowe oferują korzyści z wydajności, ponieważ ich wyniki są zapisywane w magazynie lokalnym, a nie zdalnym.
+W przypadku zasobu puli SQL tabele tymczasowe oferują korzyść wydajności, ponieważ ich wyniki są zapisywane w lokalnym, a nie w magazynie zdalnym.
 
 ### <a name="create-a-temporary-table"></a>Tworzenie tabeli tymczasowej
 
-Tabele tymczasowe są tworzone przez prefiks nazwy tabeli z `#`.  Przykład:
+Tabele tymczasowe są tworzone przez utworzenie prefiksu nazwy tabeli z `#`.  Przykład:
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -53,7 +53,7 @@ WITH
 )
 ```
 
-Tabele tymczasowe można również `CTAS` utworzyć przy użyciu dokładnie tego samego podejścia:
+Tabele tymczasowe można także tworzyć przy `CTAS` użyciu dokładnie takiej samej metody:
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -94,12 +94,12 @@ GROUP BY
 ```
 
 > [!NOTE]
-> `CTAS`jest potężnym poleceniem i ma dodatkową zaletę, że jest wydajny w korzystaniu z miejsca dziennika transakcji. 
+> `CTAS`jest zaawansowanym poleceniem i ma dodatkową zaletę, która jest wydajna podczas korzystania z przestrzeni dzienników transakcji. 
 > 
 > 
 
-### <a name="dropping-temporary-tables"></a>Upuszczanie tabel tymczasowych
-Po utworzeniu nowej sesji nie powinny istnieć żadne tabele tymczasowe.  Jeśli jednak wywołujesz tę samą procedurę składowaną, która tworzy tymczasową `CREATE TABLE` o tej samej nazwie, aby `DROP`upewnić się, że instrukcje są skuteczne, użyj prostego sprawdzenia przedistłości z: 
+### <a name="dropping-temporary-tables"></a>Usuwanie tabel tymczasowych
+Po utworzeniu nowej sesji nie powinny istnieć tabele tymczasowe.  Jednakże w przypadku wywołania tej samej procedury składowanej, która tworzy tymczasową o tej samej nazwie, aby upewnić się `CREATE TABLE` , że instrukcje zostały wykonane pomyślnie, należy użyć prostej kontroli `DROP`wstępnej z: 
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
@@ -108,16 +108,16 @@ BEGIN
 END
 ```
 
-Spójność kodowania jest dobrą praktyką, aby użyć tego wzorca dla tabel i tabel tymczasowych.  Dobrym pomysłem jest również `DROP TABLE` usunięcie tabel tymczasowych po zakończeniu pracy z nimi.  
+Aby zapewnić spójność kodowania, dobrym sposobem jest użycie tego wzorca dla tabel i tabel tymczasowych.  Dobrym pomysłem `DROP TABLE` jest również usunięcie tabel tymczasowych po zakończeniu pracy z nimi.  
 
-W rozwoju procedury składowanej jest często, aby zobaczyć polecenia drop wiązane razem na końcu procedury, aby upewnić się, że te obiekty są czyszczone.
+W opracowywaniu procedury składowanej, często widzisz polecenia upuszczania powiązane razem na końcu procedury, aby upewnić się, że te obiekty zostały oczyszczone.
 
 ```sql
 DROP TABLE #stats_ddl
 ```
 
-### <a name="modularizing-code"></a>Modułowość kodu
-Tabele tymczasowe mogą być używane w dowolnym miejscu w sesji użytkownika. Tę funkcję można następnie wykorzystać, aby ułatwić modularyzację kodu aplikacji.  Aby zademonstrować, następująca procedura składowana generuje DDL, aby zaktualizować wszystkie statystyki w bazie danych według nazwy statystycznej:
+### <a name="modularizing-code"></a>Kod Modularizing
+Tabel tymczasowych można używać w dowolnym miejscu w sesji użytkownika. Można następnie wykorzystać tę możliwość do modularyzacji kodu aplikacji.  W celu zademonstrowania następującej procedury składowanej generuje kod DDL w celu zaktualizowania wszystkich statystyk w bazie danych według nazwy statystycznej:
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
@@ -191,11 +191,11 @@ FROM    t1
 GO
 ```
 
-Na tym etapie jedyną czynnością, która wystąpiła jest utworzenie procedury składowanej, która generuje #stats_ddl tabeli tymczasowej.  Procedura składowana spada #stats_ddl jeśli już istnieje. Ta kropla gwarantuje, że nie zakończy się niepowodzeniem, jeśli zostanie uruchomiony więcej niż jeden raz w ramach sesji.  
+Na tym etapie jedyną akcją, która miała miejsce, jest utworzenie procedury składowanej, która generuje #stats_ddl tabelę tymczasową.  Procedura składowana opuszcza #stats_ddl, jeśli już istnieje. To porzucanie gwarantuje, że nie kończy się niepowodzeniem w przypadku uruchomienia więcej niż raz w ramach sesji.  
 
-Ponieważ nie ma `DROP TABLE` na końcu procedury składowanej, po zakończeniu procedury składowanej, utworzona tabela pozostaje i może być odczytywana poza procedurą składowaną.  
+Ponieważ nie ma `DROP TABLE` na końcu procedury składowanej, po zakończeniu procedury składowanej utworzona tabela pozostaje i można ją odczytać poza procedurą składowaną.  
 
-W przeciwieństwie do innych baz danych programu SQL Server, Synapse SQL umożliwia użycie tabeli tymczasowej poza procedurą, która go utworzyła.  Tabele tymczasowe utworzone za pośrednictwem puli SQL mogą być używane w **dowolnym miejscu** wewnątrz sesji. W rezultacie będziesz mieć bardziej modułowy i łatwe w zarządzaniu kod, jak pokazano w poniższym przykładzie:
+W przeciwieństwie do innych baz danych SQL Server program SQL Server Synapse umożliwia korzystanie z tabeli tymczasowej poza procedurą, która ją utworzyła.  Tabele tymczasowe utworzone za pośrednictwem puli SQL mogą być używane w **dowolnym miejscu** w ramach sesji. W związku z tym będziesz mieć więcej kodu modularnego i możliwego do zarządzania, jak pokazano w poniższym przykładzie:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -216,21 +216,21 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-### <a name="temporary-table-limitations"></a>Tymczasowe ograniczenia tabeli
+### <a name="temporary-table-limitations"></a>Ograniczenia tabeli tymczasowej
 
-Pula SQL ma kilka ograniczeń implementacji dla tabel tymczasowych:
+Pula SQL ma kilka ograniczeń implementacji tabel tymczasowych:
 
-- Obsługiwane są tylko tabele tymczasowe o zakresie sesji.  Globalne tabele tymczasowe nie są obsługiwane.
-- Widoków nie można tworzyć w tabelach tymczasowych.
-- Tabele tymczasowe można tworzyć tylko z dystrybucją mieszania lub okrężnego.  Replikowana tymczasowa dystrybucja tabeli nie jest obsługiwana. 
+- Obsługiwane są tylko tabele tymczasowe w zakresie sesji.  Globalne tabele tymczasowe nie są obsługiwane.
+- Nie można tworzyć widoków w tabelach tymczasowych.
+- Tabele tymczasowe można tworzyć tylko za pomocą rozkładu mieszania lub działania okrężnego.  Zreplikowana tymczasowa dystrybucja tabel nie jest obsługiwana. 
 
-## <a name="temporary-tables-in-sql-on-demand-preview"></a>Tabele tymczasowe w języku SQL na żądanie (wersja zapoznawcza)
+## <a name="temporary-tables-in-sql-on-demand-preview"></a>Tabele tymczasowe na żądanie SQL (wersja zapoznawcza)
 
-Tabele tymczasowe w sql na żądanie są obsługiwane, ale ich użycie jest ograniczone. Nie można ich używać w kwerendach docelowych plików. 
+Tabele tymczasowe na żądanie SQL są obsługiwane, ale ich użycie jest ograniczone. Nie mogą być używane w zapytaniach, które są plikami docelowymi. 
 
-Na przykład nie można dołączyć do tabeli tymczasowej z danymi z plików w magazynie. Liczba tabel tymczasowych jest ograniczona do 100, a ich całkowity rozmiar jest ograniczony do 100 MB.
+Na przykład nie można przyłączyć tabeli tymczasowej z danymi z plików w magazynie. Liczba tabel tymczasowych jest ograniczona do 100, a ich łączny rozmiar jest ograniczony do 100 MB.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat tworzenia tabel, zobacz [Projektowanie tabel przy użyciu synapse zasobów SQL](develop-tables-overview.md) artykułu.
+Aby dowiedzieć się więcej na temat opracowywania tabel, zobacz artykuł [Projektowanie tabel przy użyciu zasobów Synapse SQL](develop-tables-overview.md) .
 

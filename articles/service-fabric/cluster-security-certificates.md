@@ -1,70 +1,70 @@
 ---
-title: Uwierzytelnianie oparte na certyfikatach X.509 w klastrze sieci szkieletowej usług
-description: Dowiedz się więcej o uwierzytelnianiu opartym na certyfikatach w klastrach sieci szkieletowej usług oraz o wykrywaniu, ograniczaniu i rozwiązywaniu problemów związanych z certyfikatami.
+title: Uwierzytelnianie oparte na certyfikatach X. 509 w klastrze Service Fabric
+description: Informacje o uwierzytelnianiu opartym na certyfikatach w klastrach Service Fabric i sposobach wykrywania, łagodzenia i rozwiązywania problemów związanych z certyfikatem.
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.custom: sfrev
 ms.openlocfilehash: 699015e322c599dea996b3a8b9dbc0a4589440ab
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81429670"
 ---
-# <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>Uwierzytelnianie oparte na certyfikatach X.509 w klastrach sieci szkieletowej usług
+# <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>Uwierzytelnianie oparte na certyfikatach X. 509 w klastrach Service Fabric
 
-Ten artykuł stanowi uzupełnienie wprowadzenia do [zabezpieczeń klastra sieci szkieletowej](service-fabric-cluster-security.md)usług i przechodzi do szczegółów uwierzytelniania opartego na certyfikatach w klastrach sieci szkieletowej usług. Zakładamy, że czytelnik jest zaznajomiony z podstawowych pojęć zabezpieczeń, a także z formantów, które usługa sieci szkieletowej udostępnia do kontrolowania zabezpieczeń klastra.  
+Ten artykuł uzupełnia wprowadzenie do [Service Fabric zabezpieczenia klastra](service-fabric-cluster-security.md)i zawiera szczegółowe informacje dotyczące uwierzytelniania opartego na certyfikatach w klastrach Service Fabric. Przyjęto założenie, że czytelnik jest zaznajomiony z podstawowymi pojęciami dotyczącymi zabezpieczeń, a także z kontrolkami, które Service Fabric uwidaczniają kontrolę nad bezpieczeństwem klastra.  
 
 Tematy objęte tym tytułem:
 
-* Podstawowe informacje o uwierzytelnianiu oparte na certyfikatach
-* Tożsamość i ich odpowiednie role
+* Podstawowe informacje dotyczące uwierzytelniania opartego na certyfikatach
+* Tożsamości i ich odpowiednie role
 * Reguły konfiguracji certyfikatów
 * Rozwiązywanie problemów i często zadawane pytania
 
-## <a name="certificate-based-authentication-basics"></a>Podstawowe informacje o uwierzytelnianiu oparte na certyfikatach
-Jako krótki odświeżacz, w bezpieczeństwie certyfikat jest instrumentem przeznaczonym do powiązania informacji dotyczących jednostki (podmiotu) z ich posiadaniem pary asymetrycznych kluczy kryptograficznych, a więc stanowi podstawową konstrukcję kryptografii klucza publicznego. Klucze reprezentowane przez certyfikat mogą być używane do ochrony danych lub do udowodnienia tożsamości posiadaczy kluczy; w połączeniu z systemem infrastruktury kluczy publicznych (PKI) certyfikat może reprezentować dodatkowe cechy jego podmiotu, takie jak własność domeny internetowej lub niektóre uprawnienia przyznane mu przez wystawcę certyfikatu (znanego jako urząd certyfikacji lub urząd certyfikacji). Powszechną aplikacją certyfikatów jest obsługa protokołu kryptograficznego TLS (Transport Layer Security), umożliwiającego bezpieczną komunikację za pośrednictwem sieci komputerowej. W szczególności klient i serwer używają certyfikatów, aby zapewnić prywatność i integralność komunikacji, a także przeprowadzić wzajemne uwierzytelnianie.
+## <a name="certificate-based-authentication-basics"></a>Podstawowe informacje dotyczące uwierzytelniania opartego na certyfikatach
+Jako krótki odświeżacz, w zabezpieczeniach, certyfikat jest instrumentem przeznaczonym do wiązania informacji dotyczących jednostki (podmiot) do ich posiadania pary asymetrycznych kluczy kryptograficznych i dlatego stanowi podstawową konstrukcję kryptografii klucza publicznego. Klucze reprezentowane przez certyfikat mogą służyć do ochrony danych lub do potwierdzania tożsamości posiadaczy kluczy; gdy jest używany w połączeniu z systemem infrastruktury kluczy publicznych (PKI), certyfikat może reprezentować dodatkowe cechy jego tematu, takie jak własność domeny internetowej lub określone uprawnienia przyznane mu przez wystawcę certyfikatu (znany jako urząd certyfikacji lub urząd certyfikacji). Typowa aplikacja certyfikatów obsługuje protokół kryptograficzny Transport Layer Security (TLS), co umożliwia bezpieczną komunikację w sieci komputerowej. Klient i serwer używają certyfikatów do zapewnienia prywatności i integralności ich komunikacji oraz do przeprowadzania wzajemnego uwierzytelniania.
 
-W sieci szkieletowej usług podstawowa warstwa klastra (Federation) również opiera się na TLS (wśród innych protokołów), aby osiągnąć niezawodną, bezpieczną sieć uczestniczących węzłów. Połączenia z klastrem za pośrednictwem interfejsów API klienta sieci szkieletowej usług używają protokołu TLS, a także do ochrony ruchu, a także do ustanawiania tożsamości stron. W szczególności, gdy jest używany do uwierzytelniania w sieci szkieletowej usług, certyfikat może służyć do udowodnienia następujących oświadczeń: a) osoba obsługująca poświadczenia certyfikatu jest w posiadaniu klucza prywatnego certyfikatu b) skrót SHA-1 certyfikatu ("odcisk palca") pasuje do deklaracji zawartej w definicji klastra lub c) wyróżniająca się nazwa pospolitowa podmiotu certyfikatu jest zgodna z deklaracją zawartą w definicji klastra , a wystawca certyfikatu jest znany lub zaufany.
+W Service Fabric podstawowa warstwa klastra (Federacji) również kompiluje protokół TLS (między innymi protokołami) w celu zapewnienia niezawodnej, bezpiecznej sieci węzłów uczestniczących. Połączenia do klastra za pośrednictwem interfejsów API klienta Service Fabric używają protokołu TLS oraz do ochrony ruchu, a także do ustanowienia tożsamości stron. W odniesieniu do uwierzytelniania w Service Fabric certyfikat może być używany do potwierdzenia następujących oświadczeń: a) prezenter poświadczeń certyfikatu posiadający klucz prywatny certyfikatu b) skrót SHA-1 certyfikatu (odcisk palca) jest zgodny z deklaracją uwzględnioną w definicji klastra, lub c) Wspólna nazwa podmiotu wyróżniającego certyfikatu jest zgodna z deklaracją uwzględnioną w definicji klastra , a wystawca certyfikatu jest znany lub zaufany.
 
-Na powyższej liście "b" jest potocznie znane jako "przypinanie odcisku palca"; w takim przypadku deklaracja odnosi się do określonego certyfikatu, a siła schematu uwierzytelniania opiera się na założeniu, że jest niewykonalne obliczeniowo, aby utworzyć certyfikat, który wytwarza taką samą wartość mieszania jak inny, a jednocześnie jest prawidłowym, dobrze ukształtowanym obiektem we wszystkich innych aspektach. Pozycja "c" stanowi alternatywną formę deklarowania świadectwa, w przypadku gdy siła systemu opiera się na połączeniu przedmiotu świadectwa i organu wydającego. W takim przypadku deklaracja odnosi się do klasy certyfikatów - wszelkie dwa certyfikaty o tych samych cechach są uważane za w pełni równoważne. 
+Na powyższej liście "b" jest colloquially znany jako "Przypinanie odcisku palca"; w tym przypadku deklaracja odnosi się do określonego certyfikatu, a siła schematu uwierzytelniania opiera się na zapewnieniu, że nie jest ona w stanie w sposób nieprzewidziany do sfałszowania certyfikatu, który tworzy taką samą wartość skrótu jak inna, podczas gdy nadal jest prawidłowy, dobrze sformułowany obiekt we wszystkich innych aspektach. Element "c" reprezentuje alternatywną formę deklarowania certyfikatu, w którym siła schematu jest połączona z kombinacją podmiotu certyfikatu i urzędu wystawiającego certyfikaty. W tym przypadku deklaracja odnosi się do klasy certyfikatów — wszystkie dwa certyfikaty o tej samej charakterystyce są uznawane za w pełni równoważne. 
 
-W poniższych sekcjach szczegółowo opisano, w jaki sposób środowisko uruchomieniowe sieci szkieletowej usług używa i sprawdza certyfikaty w celu zapewnienia zabezpieczeń klastra.
+W poniższych sekcjach wyjaśniono, jak środowisko uruchomieniowe Service Fabric używa i sprawdza poprawność certyfikatów w celu zapewnienia bezpieczeństwa klastra.
 
-## <a name="identities-and-their-respective-roles"></a>Tożsamość i ich odpowiednie role
-Przed zagłębieniem się w szczegóły uwierzytelniania lub zabezpieczania kanałów komunikacyjnych ważne jest, aby wymienić uczestniczące podmioty i odpowiadające im role, które odgrywają w klastrze:
-- środowisko uruchomieniowe sieci szkieletowej usług, określane jako "system": zestaw usług, które zapewniają abstrakcje i funkcje reprezentujące klaster. Odnosząc się do komunikacji w klastrze między wystąpieniami systemu, użyjemy terminu "tożsamość klastra"; podczas odwoływania się do klastra jako adresata/obiektu docelowego ruchu spoza klastra, użyjemy terminu "tożsamość serwera".
-- hostowane aplikacje, określane jako "aplikacje": kod dostarczony przez właściciela klastra, który jest aranżowany i wykonywany w klastrze
-- klienci: jednostki mogą łączyć się z funkcjami i wykonywać je w klastrze zgodnie z konfiguracją klastra. Rozróżniamy dwa poziomy uprawnień - odpowiednio "użytkownik" i "admin". Klient "użytkownik" jest ograniczony przede wszystkim do operacji tylko do odczytu (ale nie wszystkie funkcje tylko do odczytu), podczas gdy klient "admin" ma nieograniczony dostęp do funkcji klastra. (Aby uzyskać więcej informacji, zobacz [Role zabezpieczeń w klastrze sieci szkieletowej usług).](service-fabric-cluster-security-roles.md)
-- (Tylko na platformie Azure) usługi sieci szkieletowej usług, które organizują i udostępniają formanty do działania i zarządzania klastrami sieci szkieletowej usług, określane jako po prostu "usługa". W zależności od środowiska "usługa" może odnosić się do dostawcy zasobów sieci szkieletowej usługi Azure lub innych dostawców zasobów będących własnością zespołu sieci szkieletowej usług i obsługiwanych przez zespół sieci szkieletowej usług.
+## <a name="identities-and-their-respective-roles"></a>Tożsamości i ich odpowiednie role
+Przed przekazaniem szczegółów dotyczących uwierzytelniania lub zabezpieczania kanałów komunikacji należy zwrócić uwagę na listę uczestniczących aktorów oraz odpowiednie role, które odgrywają w klastrze:
+- środowisko uruchomieniowe Service Fabric, określane jako "system": zestaw usług, które zapewniają abstrakcje i funkcje reprezentujące klaster. W przypadku odwoływania się do komunikacji w klastrze między wystąpieniami systemu zostanie użyty termin "tożsamość klastra"; w przypadku odwoływania się do klastra jako odbiorcy/celu ruchu spoza klastra używany jest termin "tożsamość serwera".
+- aplikacje hostowane, określane jako "aplikacje": kod dostarczony przez właściciela klastra, który jest zorganizowany i wykonywany w klastrze
+- Klienci: jednostki, które mogą nawiązywać połączenia i wykonywać funkcje w klastrze, zgodnie z konfiguracją klastra. Rozróżniamy odpowiednio dwa poziomy uprawnień — "użytkownik" i "admin". Klient "użytkownik" jest ograniczony głównie do operacji tylko do odczytu (ale nie wszystkich funkcji tylko do odczytu), natomiast klient "admin" ma nieograniczony dostęp do funkcjonalności klastra. (Aby uzyskać więcej informacji, zobacz [role zabezpieczeń w klastrze Service Fabric](service-fabric-cluster-security-roles.md)).
+- (Tylko platforma Azure) usługi Service Fabric, które organizują i uwidaczniają kontrolki do działania i zarządzania klastrami Service Fabric, zwanymi po prostu "usługą". W zależności od środowiska "usługa" może odwoływać się do dostawcy zasobów usługi Azure Service Fabric lub innych dostawców zasobów należących do zespołu Service Fabric.
 
-W bezpiecznym klastrze każda z tych ról może być skonfigurowana z własną, odrębną tożsamością, zadeklarowaną jako parowanie wstępnie zdefiniowanej nazwy roli i odpowiadających jej poświadczeń. Usługa Sieci szkieletowej obsługuje deklarowanie poświadczeń jako certyfikatów lub jednostki usługi opartej na domenie. (Obsługiwane są również tożsamości oparte na systemie Windows/Kerberos, ale wykraczają poza zakres tego artykułu; odnoszą się do [zabezpieczeń opartych na systemie Windows w klastrach sieci szkieletowej usług.)](service-fabric-windows-cluster-windows-security.md) W klastrach platformy Azure role klientów mogą być również deklarowane jako [tożsamości oparte na usłudze Azure Active Directory.](service-fabric-cluster-creation-setup-aad.md)
+W zabezpieczonym klastrze każdą z tych ról można skonfigurować przy użyciu własnej, odrębnej tożsamości, zadeklarowanej jako parowanie wstępnie zdefiniowanej nazwy roli i odpowiedniego poświadczenia. Service Fabric obsługuje deklarowanie poświadczeń jako certyfikatów lub nazwy głównej usługi opartej na domenie. (Identyfikatory systemu Windows-/Kerberos-based są również obsługiwane, ale wykraczają poza zakres tego artykułu; zapoznaj się z [zabezpieczeniami opartymi na systemie Windows w klastrach Service Fabric](service-fabric-windows-cluster-windows-security.md).) W klastrach platformy Azure role klientów mogą być również deklarowane jako [tożsamości oparte na Azure Active Directory](service-fabric-cluster-creation-setup-aad.md).
 
-Jak nawiązywał do powyżej, środowisko uruchomieniowe sieci szkieletowej usług definiuje dwa poziomy uprawnień w klastrze: "admin" i "user". Klient administratora i składnik "system" będą działać z uprawnieniami "admin", a więc są niewyróżniające się od siebie. Po ustanowieniu połączenia w/do klastra uwierzytelniony wywoływacz zostanie przyznany przez środowisko uruchomieniowe sieci szkieletowej usług jedną z dwóch ról jako podstawa dla późniejszej autoryzacji. W poniższych sekcjach dokładnie przeanalizujemy uwierzytelnianie.
+Jak sugerowali powyżej, środowisko uruchomieniowe Service Fabric definiuje dwa poziomy uprawnień w klastrze: "admin" i "User". Klient administracyjny i składnik "system" mogą działać z uprawnieniami administratora i dlatego nie można ich odróżnić od siebie. Po nawiązaniu połączenia z klastrem, uwierzytelniony obiekt wywołujący zostanie udzielony przez Service Fabric środowisko uruchomieniowe jednej z dwóch ról jako podstawy dla kolejnej autoryzacji. Szczegółowe omówienie uwierzytelniania znajdziesz w poniższych sekcjach.
 
 ## <a name="certificate-configuration-rules"></a>Reguły konfiguracji certyfikatów
-### <a name="validation-rules"></a>Reguły sprawdzania poprawności
-Ustawienia zabezpieczeń klastra sieci szkieletowej usług opisują zasadniczo następujące aspekty:
-- typ uwierzytelniania; jest to czas tworzenia, niezmienne charakterystyczne dla klastra. Przykładami takich ustawień są "ClusterCredentialType", "ServerCredentialType", a dozwolone wartości to "none", "x509" lub "windows". W tym artykule skupiono się na uwierzytelnianiu typu x509.
-- (uwierzytelnianie) zasady walidacji; te ustawienia są ustawiane przez właściciela klastra i opisują, które poświadczenia są akceptowane dla danej roli. Przykłady zostaną szczegółowo zbadane bezpośrednio poniżej.
-- ustawienia używane do dostosowywania lub subtelnej zmiany wyniku uwierzytelniania; przykłady tutaj obejmują flagi (de-) ograniczenie wymuszania list odwołania certyfikatów itp.
+### <a name="validation-rules"></a>Reguły walidacji
+Ustawienia zabezpieczeń klastra Service Fabric opisują w zasadzie następujące aspekty:
+- Typ uwierzytelniania; jest to czas utworzenia, niezmienne cechy charakterystyczne klastra. Przykładami takich ustawień są "ClusterCredentialType", "ServerCredentialType", a dozwolone wartości to "none", "x509" lub "Windows". Ten artykuł koncentruje się na uwierzytelnianiu typu x509.
+- Reguły walidacji (uwierzytelnianie); te ustawienia są ustawiane przez właściciela klastra i opisują, które poświadczenia są akceptowane dla danej roli. Przykłady zostaną sprawdzone na głębokości bezpośrednio poniżej.
+- ustawienia służące do dostosowywania lub niewielkich zmian wyniku uwierzytelniania; Przykłady obejmują flagi (de-) ograniczają wymuszanie list odwołania certyfikatów itd.
 
 > [!NOTE]
-> Przykłady konfiguracji klastra poniżej są fragmenty manifestu klastra w formacie XML, jako najbardziej strawione format, który obsługuje bezpośrednio funkcje sieci szkieletowej usług opisane w tym artykule. Te same ustawienia mogą być wyrażone bezpośrednio w reprezentacji JSON definicji klastra, czy autonomiczny manifest klastra json lub szablon mangement zasobów platformy Azure.
+> Przykłady konfiguracji klastra podane poniżej stanowią fragmenty z manifestu klastra w formacie XML, ponieważ najbardziej szyfrowany format, który obsługuje bezpośrednio funkcje Service Fabric opisane w tym artykule. Te same ustawienia można wyrazić bezpośrednio w reprezentacjach JSON definicji klastra, niezależnie od tego, czy jest to autonomiczny manifest klastra JSON, czy szablon zarządzania zasobami platformy Azure.
 
-Reguła sprawdzania poprawności certyfikatu składa się z następujących elementów:
+Reguła walidacji certyfikatu składa się z następujących elementów:
 - odpowiednia rola: klient, klient administracyjny (rola uprzywilejowana)
-- poświadczenie zaakceptowane dla roli, zadeklarowane przez odcisk palca lub nazwę pospolitą podmiotu
+- poświadczenie zaakceptowane dla roli, zadeklarowane za pomocą odcisku palca lub nazwy pospolitej podmiotu
 
-#### <a name="thumbprint-based-certificate-validation-declarations"></a>Deklaracje sprawdzania poprawności certyfikatów oparte na odciskach palców
-W przypadku reguł sprawdzania poprawności opartych na odciskach palców poświadczenia przedstawione przez wywołującego żądającego połączenia w/do klastra zostaną sprawdzone w następujący sposób:
-  - poświadczenie jest prawidłowym, dobrze sformułowanym certyfikatem: jego łańcuch może być zbudowany, podpisy są zgodne
-  - certyfikat jest ważny czas (NotBefore <= teraz < NotAfter)
-  - skrót SHA-1 certyfikatu jest zgodny z deklaracją, jako porównanie ciągów bez uwzględniania wielkości liter, z wyłączeniem wszystkich odstępów
+#### <a name="thumbprint-based-certificate-validation-declarations"></a>Deklaracje weryfikacji certyfikatu opartego na odcisku palca
+W przypadku reguł weryfikacji opartych na odcisku palca poświadczenia przedstawione przez wywołującego żądające połączenia w/do klastra zostaną zweryfikowane w następujący sposób:
+  - poświadczenie jest prawidłowym poprawnie sformułowanym certyfikatem: jego łańcuch może być zbudowany, dopasowanie podpisów
+  - certyfikat jest prawidłowy (NotBefore <= Now < NotAfter)
+  - skrót SHA-1 certyfikatu pasuje do deklaracji, jako porównanie ciągów bez uwzględniania wielkości liter, z wyłączeniem wszystkich białych znaków
 
-Wszelkie błędy zaufania napotkane podczas tworzenia łańcucha lub sprawdzania poprawności zostaną pominięte dla deklaracji opartych na odciskach palców, z wyjątkiem wygasłych certyfikatów — chociaż istnieją również przepisy dotyczące tego przypadku. W szczególności błędy związane z: stan odwołania jest nieznany lub w trybie offline, niezaufany root, nieprawidłowe użycie klucza, częściowy łańcuch są uważane za błędy niealne; Założeniem w tym przypadku jest to, że certyfikat jest jedynie kopertą dla pary kluczy - bezpieczeństwo polega na tym, że właściciel klastra ustanowił w miejscach środek zabezpieczający klucz prywatny.
+Wszelkie błędy zaufania napotkane podczas tworzenia łańcucha lub walidacji zostaną pominięte dla deklaracji opartych na odcisku palca, z wyjątkiem wygasłych certyfikatów — mimo że w tym przypadku istnieją postanowienia. W odniesieniu do błędów związanych z: stan odwołania jest nieznany lub w trybie offline, niezaufanego certyfikatu głównego, nieprawidłowe użycie klucza, łańcuch częściowy jest traktowany jako Błędy niekrytyczne; w tym przypadku, w tym przypadku, jest to, że certyfikat jest tylko kopertą pary kluczy — zabezpieczenia polegają na tym, że właściciel klastra ustawił w miejscu miary, aby zabezpieczyć klucz prywatny.
 
-Poniższy fragment manifestu klastra jest przykładem takiego zestawu reguł sprawdzania poprawności opartych na odciskach palców:
+Poniższy fragment z manifestu klastra exemplifies taki zestaw reguł walidacji opartych na odcisku palca:
 
 ```xml
 <Section Name="Security">
@@ -77,25 +77,25 @@ Poniższy fragment manifestu klastra jest przykładem takiego zestawu reguł spr
 </Section>
 ```
 
-Każdy z powyższych wpisów odnosi się do określonej tożsamości, jak opisano wcześniej; każdy wpis umożliwia również określenie wielu wartości, jako listy ciągów oddzielonych przecinkami. W tym przykładzie po pomyślnym sprawdzeniu poprawności poświadczeń przychodzących prezenter certyfikatu z odciskiem palca SHA-1 'd5ec... 4264" otrzyma rolę "admina"; odwrotnie, rozmówca uwierzytelniający się z certyfikatem '7c8f... 01b0" zostanie przyznana rola "użytkownika", ograniczona głównie do operacji tylko do odczytu. Wywołujący przychodzący, który przedstawia certyfikat, którego odcisk palca jest abcd ... 1234" lub "ef01... 5678' zostaną zaakceptowane jako węzeł równorzędny w klastrze. Wreszcie klient łączący się z punktem końcowym zarządzania klastra będzie oczekiwać odcisk palca certyfikatu serwera jest ef01... 5678'. 
+Każdy z powyższych wpisów odnosi się do określonej tożsamości zgodnie z wcześniejszym opisem. Każdy wpis umożliwia również określenie wielu wartości, jako listę ciągów rozdzielanych przecinkami. W tym przykładzie, po pomyślnym zweryfikowaniu poświadczeń przychodzących, prezenter certyfikatu z odciskiem palca SHA-1 5ec... 4264 "zostanie przyznana rola" admin "; odwrotnie, obiekt wywołujący uwierzytelniający się przy użyciu certyfikatu "7c8f... 01b0 "zostanie przyznana rola" użytkownika ", ograniczona do wszystkich operacji tylko do odczytu. Wywołujący ruch przychodzący, który przedstawia certyfikat, którego odcisk palca to "abcd... 1234 ' lub ' EF01... 5678 ' zostanie zaakceptowany jako węzeł równorzędny w klastrze. Na koniec klient łączący się z punktem końcowym zarządzania klastra będzie oczekiwał odcisku palca certyfikatu serwera jako "EF01... 5678 '. 
 
-Jak wspomniano wcześniej, sieci szkieletowej usług nie zawiera przepisów dotyczących przyjmowania wygasłych certyfikatów; Powodem jest to, że certyfikaty mają ograniczony okres istnienia i, po zadeklarowaniu przez odcisk palca (który odwołuje się do określonego wystąpienia certyfikatu), zezwalając na wygaśnięcie certyfikatu spowoduje albo niepowodzenie połączenia z klastrem, albo bezpośrednie zwinięcie klastra. Zbyt łatwo jest zapomnieć lub zaniedbywać obracanie certyfikatu przypiętego odciskiem palca i niestety odzyskanie z takiej sytuacji jest trudne.
+Jak wspomniano wcześniej, Service Fabric stanowi wprowadzenie do akceptowania wygasłych certyfikatów; przyczyną jest to, że certyfikaty mają ograniczony okres istnienia i, po zadeklarowaniu przez odcisk palca (odwołujące się do określonego wystąpienia certyfikatu), co pozwala na wygaśnięcie certyfikatu, spowoduje nawiązanie połączenia z klastrem lub niepowodzenie jego zwinięcia. Jest to bardzo proste, zapomniane lub zaniedbanie rotacji certyfikatu przypiętego odcisku palca, a tym samym jest trudne odzyskiwanie z takiej sytuacji.
 
-W tym celu właściciel klastra może jawnie stwierdzić, że certyfikaty z podpisem własnym zadeklarowane za pomocą odcisku palca uznaje się za ważne, w następujący sposób:
+W tym celu właściciel klastra może jawnie stwierdzać, że certyfikaty z podpisem własnym zadeklarowane za pomocą odcisku palca są uznawane za prawidłowe, w następujący sposób:
 
 ```xml
   <Section Name="Security">
     <Parameter Name="AcceptExpiredPinnedClusterCertificate" Value="true" />
   </Section>
 ```
-To zachowanie nie obejmuje certyfikatów wystawionych przez urząd certyfikacji; gdyby tak było, cofnięty, znany z naruszenia wygasłego certyfikatu mógłby stać się "ważny", gdy tylko nie figuruje już na liście odwołania certyfikatu urzędu certyfikacji, a tym samym stanowi zagrożenie dla bezpieczeństwa. W przypadku certyfikatów z podpisem własnym właściciel klastra jest uważany za jedyną stronę odpowiedzialną za zabezpieczenie klucza prywatnego certyfikatu, co nie ma miejsca w przypadku certyfikatów wystawionych przez urząd certyfikacji — właściciel klastra może nie wiedzieć, w jaki sposób i kiedy ich certyfikat został uznany za naruszony.
+Takie zachowanie nie obejmuje certyfikatów wystawionych przez urząd certyfikacji. w takim przypadku certyfikat odwołany, znany jako uznany za naruszony może stać się "prawidłowy", gdy tylko nie będzie się znajdować na liście odwołania certyfikatów urzędu certyfikacji i w ten sposób stanowić zagrożenie bezpieczeństwa. W przypadku certyfikatów z podpisem własnym właściciel klastra jest traktowany jako jedyną osobę odpowiedzialną za ochronę klucza prywatnego certyfikatu, który nie jest używany w przypadku certyfikatów wystawionych przez urzędy certyfikacji — właściciel klastra może nie wiedzieć, jak lub kiedy certyfikat został zadeklarowany jako naruszony.
 
-#### <a name="common-name-based-certificate-validation-declarations"></a>Deklaracje sprawdzania poprawności certyfikatów oparte na nazwach pospolitych
-Deklaracje oparte na nazwach pospolitych przyjmują jedną z następujących form:
-- nazwa pospolita podmiotu (tylko)
-- nazwa potoczna tematu z przypinaniem wystawcy
+#### <a name="common-name-based-certificate-validation-declarations"></a>Wspólne deklaracje walidacji certyfikatu oparte na nazwach
+Wspólne deklaracje oparte na nazwach przyjmują jedną z następujących form:
+- Nazwa pospolita podmiotu (tylko)
+- Nazwa pospolita podmiotu z przypinaniem wystawcy
 
-Najpierw rozważmy fragment manifestu klastra przykładem obu stylów deklaracji:
+Pozwól nam najpierw rozważyć wyciąg z manifestu klastra exemplifying oba style deklaracji:
 ```xml
     <Section Name="Security/ServerX509Names">
       <Parameter Name="server.demo.system.servicefabric.azure-int" Value="" />
@@ -104,18 +104,18 @@ Najpierw rozważmy fragment manifestu klastra przykładem obu stylów deklaracji
       <Parameter Name="cluster.demo.system.servicefabric.azure-int" Value="1b45...844d,d7fe...26c8,3ac7...6960,96ea...fb5e" />
     </Section>
 ```
-Deklaracje odnoszą się odpowiednio do tożsamości serwera i klastra; należy zauważyć, że deklaracje oparte na CN mają własne sekcje w manifeście klastra, oddzielone od standardowego "Zabezpieczenia". W obu deklaracjach "Nazwa" reprezentuje nazwę pospolitą przedmiotu wyróżniającą certyfikatu, a pole "Wartość" reprezentuje oczekiwanego wystawcę w następujący sposób:
+Deklaracje odnoszą się odpowiednio do tożsamości serwera i klastra; Należy zauważyć, że deklaracje oparte na CN mają własne sekcje w manifeście klastra, niezależnie od standardowego "zabezpieczenia". W obu deklaracjach, "name" reprezentuje wspólną nazwę podmiotu w certyfikacie, a pole "value" reprezentuje oczekiwanego wystawcy w następujący sposób:
 
-- w pierwszym przypadku deklaracja stwierdza, że element nazwy pospolitej wyróżniający certyfikat serwera powinien być zgodny z ciągiem "server.demo.system.servicefabric.azure-int"; puste pole "Wartość" oznacza oczekiwanie, że katalog główny łańcucha certyfikatów jest zaufany w węźle/komputerze, na którym certyfikat serwera jest sprawdzany; w systemie Windows oznacza to, że certyfikat może łańcuch do dowolnego certyfikatu zainstalowanego w magazynie "Trusted Root CA";
-- w drugim przypadku deklaracja stwierdza, że prezenter certyfikatu jest akceptowany jako węzeł równorzędny w klastrze, jeśli nazwa pospolita certyfikatu jest zgodna z ciągiem "cluster.demo.system.servicefabric.azure-int", *a* odcisk palca bezpośredniego wystawcy certyfikatu pasuje do jednego z wpisów oddzielonych przecinkami w polu "Wartość". (Ten typ reguły jest potocznie nazywany "nazwą pospolitą z przypinaniem wystawcy".)
+- w pierwszym przypadku deklaracja stwierdza, że element nazwy pospolitej podmiotu certyfikatu serwera powinien pasować do ciągu "Server. demonstracyjn. System. servicefabric. Azure-int"; puste pole "value" wskazuje, że katalog główny łańcucha certyfikatów jest zaufany w węźle/komputerze, na którym jest sprawdzany certyfikat serwera; w systemie Windows oznacza to, że certyfikat może być powiązany z dowolnym certyfikatem zainstalowanym w magazynie "zaufany główny urząd certyfikacji".
+- w drugim przypadku deklaracja stwierdza, że prezenter certyfikatu jest akceptowany jako węzeł równorzędny w klastrze, jeśli nazwa pospolita certyfikatu jest zgodna z ciągiem "Cluster. demonstracyjn. System. servicefabric. Azure-int" *i* odcisk palca bezpośredniego wystawcy certyfikatu jest zgodny z jednym z wpisów oddzielonych przecinkami w polu "value". (Ten typ reguły jest colloquially znany jako "nazwa pospolita z przypinaniem wystawcy".)
 
-W obu przypadkach łańcuch certyfikatu jest zbudowany i oczekuje się, że będzie wolny od błędów; oznacza to, że błędy odwołania, częściowy łańcuch lub błędy zaufania z nieprawidłowym czasem są uważane za krytyczne, a sprawdzanie poprawności certyfikatu zakończy się niepowodzeniem. Przypinanie wystawców spowoduje uznanie stanu "niezaufany katalog główny" za błąd nieobjęty krytyczną; wbrew pozorom jest to bardziej rygorystyczna forma walidacji, ponieważ pozwala właścicielowi klastra ograniczyć zestaw autoryzowanych/akceptowanych emitentów do własnej infrastruktury kluczy publicznych.
+W obu przypadkach łańcuch certyfikatu jest zbudowany i oczekuje się, że jest on bez błędów; oznacza to, że błędy odwołania, łańcuch częściowy lub nieprawidłowe Błędy zaufania są uznawane za krytyczne i sprawdzanie poprawności certyfikatu zakończy się niepowodzeniem. Przypinanie wystawców spowoduje rozważenie stanu niezaufanego elementu głównego jako błędu niekrytycznego; Pomimo wyglądu jest to ściślejsza forma weryfikacji, ponieważ umożliwia właścicielowi klastra ograniczenie zestawu autoryzowanych/akceptowanych wystawców do własnej infrastruktury kluczy publicznych.
 
-Po zbudowaniu łańcucha certyfikatów jest on sprawdzany względem standardowych zasad TLS/SSL z zadeklarowanym podmiotem jako nazwą zdalną; certyfikat będzie uważany za zgodny, jeśli jego nazwa zwyczajowa podmiotu lub którykolwiek z jego tematów alternatywnych nazw pasuje do deklaracji CN z manifestu klastra. Symbole wieloznaczne są obsługiwane w tym przypadku, a dopasowanie ciągu jest niewrażliwe na wielkości liter.
+Po skompilowaniu łańcucha certyfikatów zostanie on sprawdzony pod kątem standardowych zasad protokołu TLS/SSL z zadeklarowanym podmiotem jako nazwa zdalna; certyfikat będzie uznawany za dopasowanie, jeśli jego wspólna nazwa podmiotu lub jakakolwiek z nazw alternatywnych podmiotu jest zgodna z deklaracją CN z manifestu klastra. W tym przypadku symbole wieloznaczne są obsługiwane, a w przypadku dopasowania ciągu nie jest rozróżniana wielkość liter.
 
-(Należy wyjaśnić, że sekwencja opisana powyżej może być wykonana dla każdego typu użycia klucza zadeklarowanego przez certyfikat; jeśli certyfikat określa użycie klucza uwierzytelniania klienta, łańcuch jest zbudowany i oceniany najpierw dla roli klienta. W przypadku powodzenia, ocena kończy się i sprawdzania poprawności jest pomyślny. Jeśli certyfikat nie ma użycia uwierzytelniania klienta lub sprawdzanie poprawności nie powiodło się, środowisko uruchomieniowe sieci szkieletowej usług skompiluje i oceni łańcuch uwierzytelniania serwera.)
+(Należy wyjaśnić, że sekwencja opisana powyżej może zostać wykonana dla każdego typu użycia klucza zadeklarowanego w certyfikacie; Jeśli certyfikat określa użycie klucza uwierzytelniania klienta, łańcuch zostanie skompilowany i oceniony jako pierwszy dla roli klienta. W razie sukcesu Ocena zakończy się pomyślnie i sprawdzanie poprawności zakończy się powodzeniem. Jeśli certyfikat nie ma użycia uwierzytelniania klienta lub Walidacja nie powiodła się, środowisko uruchomieniowe Service Fabric będzie kompilować i oszacować łańcuch do uwierzytelniania serwera).
 
-Aby zakończyć przykład, poniższy fragment ilustruje deklarowanie certyfikatów klientów według nazwy pospolitej:
+Aby ukończyć ten przykład, Poniższy fragment ilustruje deklarowanie certyfikatów klienta według nazwy pospolitej:
 ```xml
     <Section Name="Security/AdminClientX509Names">
       <Parameter Name="admin.demo.client.servicefabric.azure-int" Value="1b45...844d,d7fe...26c8,3ac7...6960,96ea...fb5e" />
@@ -125,26 +125,26 @@ Aby zakończyć przykład, poniższy fragment ilustruje deklarowanie certyfikat�
     </Section>
 ```
 
-Powyższe deklaracje odpowiadają odpowiednio tożsamości administratora i użytkownika; sprawdzanie poprawności certyfikatów zadeklarowanych w ten sposób jest dokładnie tak, jak opisano w poprzednich przykładach certyfikatów klastra i serwera.
+Powyższe deklaracje odpowiadają odpowiednio tożsamościom administratora i użytkownika; Sprawdzanie poprawności certyfikatów zadeklarowanych w ten sposób jest dokładnie opisane w poprzednich przykładach w przypadku certyfikatów klastra i serwera.
 
 > [!NOTE]
-> Deklaracje oparte na nazwach pospolitych mają na celu uproszczenie rotacji i ogólnie zarządzanie certyfikatami klastra. Zaleca się jednak przestrzeganie następujących zaleceń w celu zapewnienia ciągłej dostępności i bezpieczeństwa klastra:
-  * preferuj przypinanie wystawcy do polegania na zaufanych korzeniach
-  * uniknięcia mieszania emitentów z różnych PKI
-  * zapewnić, aby wszyscy oczekiwani emitenci są wymienieni w deklaracji certyfikatu; niedopasowanie wystawcy spowoduje nieudaną weryfikację
-  * upewnij się, że punkty końcowe zasad certyfikatów infrastruktury kluczy publicznych są wykrywalne, dostępne i dostępne — oznacza to, że punkty końcowe AIA, CRL lub OCSP są zadeklarowane na certyfikacie liścia i że są dostępne, aby można było ukończyć tworzenie łańcucha certyfikatów.
+> Wspólne deklaracje oparte na nazwach są przeznaczone do uproszczenia rotacji, a ogólnie zarządzania certyfikatami klastra. Zaleca się jednak przestrzeganie następujących zaleceń w celu zapewnienia ciągłej dostępności i bezpieczeństwa klastra:
+  * Preferuj Przypinanie wystawcy, aby polegać na zaufanych korzeniach
+  * Unikaj mieszania wystawcy z różnych infrastruktur kluczy publicznych
+  * Upewnij się, że wszystkie oczekiwane wystawcy są wymienione w deklaracji certyfikatu; niezgodność wystawcy spowoduje niepowodzenie weryfikacji
+  * Upewnij się, że punkty końcowe zasad certyfikatów infrastruktury kluczy publicznych są wykrywalne, dostępne i dostępne — oznacza to, że punkty końcowe AIA, listy CRL lub protokołu OCSP są deklarowane w certyfikacie liścia i są dostępne, aby można było ukończyć Kompilowanie łańcucha certyfikatów.
 
-Łącząc to wszystko razem, po otrzymaniu żądania połączenia w klastrze zabezpieczonym certyfikatami X.509, środowisko uruchomieniowe sieci szkieletowej usług użyje ustawień zabezpieczeń klastra do sprawdzania poprawności poświadczeń strony zdalnej, jak opisano powyżej; Jeśli się powiedzie, osoba dzwoniąca/zdalnego jest uważana za uwierzytelnioną. Jeśli poświadczenia są zgodne z wieloma regułami sprawdzania poprawności, środowisko wykonawcze przyzna wywołującemu najwyższą uprzywilejowaną rolę dowolnej z dopasowanych reguł. 
+Powiązane ze sobą, po odebraniu żądania połączenia w klastrze zabezpieczonym za pomocą certyfikatów X. 509, środowisko uruchomieniowe Service Fabric będzie używać ustawień zabezpieczeń klastra do weryfikowania poświadczeń strony zdalnej zgodnie z opisem powyżej; Jeśli to się powiedzie, jednostka wywołująca/zdalna jest uważana za uwierzytelnioną. Jeśli poświadczenie jest zgodne z wieloma regułami walidacji, środowisko uruchomieniowe przydzieli obiektowi wywołującemu najwyższe uprzywilejowane role dowolnych zgodnych reguł. 
 
 ### <a name="presentation-rules"></a>Reguły prezentacji
-W poprzedniej sekcji opisano, jak działa uwierzytelnianie w klastrze zabezpieczonym certyfikatem; w tej sekcji wyjaśniono, jak środowisko uruchomieniowe sieci szkieletowej usług sam odnajduje i ładuje certyfikaty, których używa do komunikacji w klastrze; nazywamy je zasadami "prezentacji".
+W poprzedniej sekcji opisano, jak uwierzytelnianie działa w klastrze zabezpieczonym certyfikatem; w tej sekcji wyjaśniono, jak samo środowisko uruchomieniowe Service Fabric odnajduje i ładuje certyfikaty, których używa do komunikacji w klastrze; Nazywamy te reguły "prezentacja".
 
-Podobnie jak w przypadku reguł sprawdzania poprawności, reguły prezentacji określają rolę i skojarzoną deklarację poświadczeń, wyrażoną za pomocą odcisku palca lub nazwy pospolitej. W przeciwieństwie do reguł sprawdzania poprawności deklaracje oparte na nazwach pospolitych nie mają przepisów dotyczących przypinania wystawcy; pozwala to na większą elastyczność, a także lepszą wydajność. Reguły prezentacji są zadeklarowane w sekcji "Typ węzła" manifestu klastra dla każdego typu węzła odrębnego; ustawienia są podzielone od sekcji Zabezpieczenia klastra, aby umożliwić każdemu typowi węzła pełną konfigurację w jednej sekcji. W klastrach usługi Azure Service Fabric deklaracje certyfikatów typu węzła domyślnie do odpowiednich ustawień w sekcji Zabezpieczenia definicji klastra.
+Podobnie jak w przypadku reguł walidacji, reguły prezentacji określają rolę i skojarzoną deklarację poświadczeń, wyrażoną przez odcisk palca lub nazwę pospolitą. W przeciwieństwie do reguł walidacji, wspólne deklaracje oparte na nazwach nie mają przepisów dotyczących przypinania wystawcy. zapewnia to większą elastyczność i lepszą wydajność. Reguły prezentacji są deklarowane w sekcjach "NodeType" manifestu klastra dla każdego typu odrębnego węzła; ustawienia są podzielone z sekcji zabezpieczeń klastra, aby zezwolić na każdy typ węzła na pełną konfigurację w jednej sekcji. W klastrach usługi Azure Service Fabric, węzeł typu węzła domyślnie określa odpowiednie ustawienia w sekcji Zabezpieczenia definicji klastra.
 
-#### <a name="thumbprint-based-certificate-presentation-declarations"></a>Deklaracje prezentacji certyfikatów oparte na odciskach palców
-Jak opisano wcześniej, środowisko uruchomieniowe sieci szkieletowej usług rozróżnia jego rolę jako elementu równorzędnego innych węzłów w klastrze i jako serwer dla operacji zarządzania klastrem. Zasadniczo te ustawienia mogą być konfigurowane wyraźnie, ale w praktyce mają tendencję do wyrównania. W dalszej części tego artykułu zakładamy, że ustawienia są zgodne z prostotą.
+#### <a name="thumbprint-based-certificate-presentation-declarations"></a>Deklaracje prezentacji certyfikatu opartego na odcisku palca
+Jak opisano wcześniej, środowisko uruchomieniowe Service Fabric rozróżnia rolę równorzędną innych węzłów w klastrze oraz jako serwer operacji zarządzania klastrem. W zasadzie te ustawienia można skonfigurować odrębnie, ale w przypadku, w którym mają one być wyrównane. W pozostałej części tego artykułu przyjęto, że ustawienia są zgodne dla uproszczenia.
 
-Rozważmy następujący fragment manifestu klastra:
+Rozważmy następujący fragment z manifestu klastra:
 ```xml
   <NodeTypes>
     <NodeType Name="nt1vm">
@@ -156,10 +156,10 @@ Rozważmy następujący fragment manifestu klastra:
     </NodeType>
   </NodeTypes>
 ```
-Element "ClusterCertificate" demonstruje pełny schemat, w tym parametry opcjonalne ("X509FindValueSecondary") lub te z odpowiednimi ustawieniami domyślnymi ("X509StoreName"); inne deklaracje przedstawiają skrócony formularz. Powyższa deklaracja certyfikatu klastra stanowi, że ustawienia zabezpieczeń węzłów typu "nt1vm" są inicjowane za pomocą certyfikatu 'cc71.. 1984" jako podstawowy, a '49e2.. 19d6' świadectwo jako świadectwo wtórne; oczekuje się, że oba certyfikaty zostaną\'znalezione w magazynie certyfikatów LocalMachine My (lub w ścieżce równoważnej linuksa, *var/lib/sfcerts).*
+Element "ClusterCertificate" demonstruje pełny schemat, w tym parametry opcjonalne ("X509FindValueSecondary") lub te z odpowiednimi wartościami domyślnymi ("X509StoreName"); inne deklaracje pokazują Skrócony formularz. Deklaracja certyfikatu klastra powyżej wskazuje, że ustawienia zabezpieczeń węzłów typu "nt1vm" są inicjowane z certyfikatem "cc71. 1984 ' jako podstawowa i "49e2... certyfikat 19d6 jako pomocniczy; oczekuje się, że oba certyfikaty znajdują się w\'magazynie certyfikatów LocalMachine my "(lub w równoważnej ścieżce systemu Linux, *var/lib/sfcerts*).
 
-#### <a name="common-name-based-certificate-presentation-declarations"></a>Deklaracje prezentacji certyfikatów oparte na nazwach pospolitych
-Certyfikaty typu węzła mogą być również zadeklarowane przez nazwę pospolitą podmiotu, jak na przykładzie poniżej:
+#### <a name="common-name-based-certificate-presentation-declarations"></a>Wspólne deklaracje prezentacji certyfikatu opartego na nazwach
+Typ węzła certyfikaty można także zadeklarować według nazwy pospolitej podmiotu, jak exemplified poniżej:
 
 ```xml
   <NodeTypes>
@@ -171,134 +171,134 @@ Certyfikaty typu węzła mogą być również zadeklarowane przez nazwę pospoli
   </NodeTypes>
 ```
 
-Dla obu typów deklaracji węzeł sieci szkieletowej usług odczytuje konfigurację podczas uruchamiania, lokalizuje i ładuje określone certyfikaty i sortuje je w porządku malejącym atrybutu NotAfter; wygasłe certyfikaty są ignorowane, a pierwszy element listy jest wybierany jako poświadczenie klienta dla każdego połączenia sieci szkieletowej usług, które zostało podjęte przez ten węzeł. (W efekcie sieci szkieletowej usług faworyzuje najdalej wygasający certyfikat.)
+Dla każdego typu deklaracji węzeł Service Fabric odczytuje konfigurację podczas uruchamiania, lokalizuje i ładuje określone certyfikaty i sortuje je w kolejności malejącej według ich atrybutu NotAfter; wygasłe certyfikaty są ignorowane, a pierwszy element listy jest wybierany jako poświadczenie klienta dla dowolnych połączeń Service Fabricych podejmowanych przez ten węzeł. (W efekcie Service Fabric preferuje najdalej certyfikat wygasający).
 
-Należy zauważyć, że w przypadku deklaracji prezentacji opartych na nazwie pospolitej certyfikat jest uważany za zgodny, jeśli jego nazwa pospolita podmiotu jest równa pola X509FindValue (lub X509FindValueSecondary) jako uwzględniającego wielkość liter, dokładne porównanie ciągów. Jest to w przeciwieństwie do reguł sprawdzania poprawności, która obsługuje dopasowywanie symboli wieloznacznych, a także porównania ciągów bez uwzględniania wielkości liter.  
+Należy pamiętać, że w przypadku deklaracji prezentacji opartych na typowych nazwach certyfikat jest uznawany za dopasowanie, jeśli nazwa pospolita podmiotu jest równa wartości pola X509FindValue (lub X509FindValueSecondary) deklaracji jako uwzględniającego wielkość liter, dokładne porównanie ciągów. Jest to w przeciwieństwie do reguł walidacji, które obsługują Dopasowywanie symboli wieloznacznych, a także Porównywanie ciągów bez uwzględniania wielkości liter.  
 
-### <a name="miscellaneous-certificate-configuration-settings"></a>Różne ustawienia konfiguracji certyfikatów
-Wcześniej wspomniano, że ustawienia zabezpieczeń klastra sieci szkieletowej usług umożliwiają również subtelną zmianę zachowania kodu uwierzytelniania. Chociaż artykuł na [temat ustawień klastra sieci szkieletowej usług](service-fabric-cluster-fabric-settings.md) reprezentuje kompleksową i najbardziej aktualną listę ustawień, rozwiniemy znaczenie wybranych kilku ustawień zabezpieczeń w tym miejscu, aby zakończyć pełną uwidocznić na podstawie uwierzytelniania opartego na certyfikatach. Dla każdego ustawienia wyjaśnimy intencji, domyślne wartości/zachowania, jak to wpływa na uwierzytelnianie i jakie wartości są dopuszczalne.
+### <a name="miscellaneous-certificate-configuration-settings"></a>Różne ustawienia konfiguracji certyfikatu
+Wspomniano wcześniej, że ustawienia zabezpieczeń klastra Service Fabric umożliwiają również zachowanie niewielkich zmian w zachowaniu kodu uwierzytelniania. Artykuł w [Service Fabric ustawieniach klastra](service-fabric-cluster-fabric-settings.md) przedstawia kompleksową i najbardziej aktualną listę ustawień, dlatego na podstawie wybranych tutaj kilku ustawień zabezpieczeń rozwiniemy w celu pełnego udostępnienia uwierzytelniania opartego na certyfikatach. Dla każdego ustawienia wyjaśnimy zamierzenie, wartość domyślną/zachowanie, jak ma to wpływ na uwierzytelnianie i jakie wartości są akceptowalne.
 
-Jak wspomniano, sprawdzanie poprawności certyfikatu zawsze oznacza budowanie i ocenę łańcucha certyfikatu. W przypadku certyfikatów wystawionych przez urząd certyfikacji to pozornie proste wywołanie interfejsu API systemu operacyjnego zazwyczaj wiąże się z kilkoma wywołaniami wychodzącymi do różnych punktów końcowych wystawiającej infrastruktury kluczy publicznych, buforowania odpowiedzi i tak dalej. Biorąc pod uwagę częstość występowania wywołań sprawdzania poprawności certyfikatów w klastrze sieci szkieletowej usług, wszelkie problemy w punktach końcowych infrastruktury kluczy publicznych mogą spowodować zmniejszenie dostępności klastra lub bezpośredni podział. Chociaż nie można pominąć wywołań wychodzących (zobacz poniżej w sekcji CZĘSTO ZADAWANE PYTANIA, aby uzyskać więcej informacji na ten temat), następujące ustawienia mogą służyć do maskowania błędów sprawdzania poprawności spowodowanych niepowodzeniem wywołań crl.
+Jak wspomniano wcześniej, sprawdzanie poprawności certyfikatu zawsze implikuje Kompilowanie i ocenianie łańcucha certyfikatu. W przypadku certyfikatów wystawionych przez urząd certyfikacji to pozornie proste wywołanie interfejsu API systemu operacyjnego powoduje zwykle kilka wywołań wychodzących do różnych punktów końcowych wystawiającej infrastrukturę PKI, buforowanie odpowiedzi i tak dalej. W przypadku występowania wywołań weryfikacji certyfikatów w klastrze Service Fabric wszystkie problemy z punktami końcowymi infrastruktury PKI mogą spowodować zredukowanie dostępności klastra lub niewłaściwego podziału. Nie można pominąć wywołań wychodzących (zobacz poniżej w sekcji często zadawane pytania, aby uzyskać więcej informacji na ten temat). można użyć następujących ustawień w celu zamaskowania błędów walidacji spowodowanych błędami wywołań listy CRL.
 
-  * CrlCheckingFlag - w sekcji "Bezpieczeństwo" ciąg przekonwertowany na UINT. Wartość tego ustawienia jest używana przez sieć szkieletową usług do maskowania błędów stanu łańcucha certyfikatów przez zmianę zachowania budynku łańcucha; jest przekazywana do wywołania Certyfikatu Certyfikatu Win32 CryptoAPI [CertGetCertificateChain](https://docs.microsoft.com/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) jako parametr "dwFlags" i może być ustawiona na dowolną prawidłową kombinację flag zaakceptowanych przez funkcję. Wartość 0 wymusza środowisko uruchomieniowe sieci szkieletowej usług do ignorowania błędów stanu zaufania — nie jest to zalecane, ponieważ jego użycie stanowiłoby znaczną ekspozycję zabezpieczeń. Wartość domyślna to 0x40000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT).
+  * CrlCheckingFlag — w sekcji "zabezpieczenia" ciąg przekonwertowany na UINT. Wartość tego ustawienia jest używana przez Service Fabric do maskowania błędów stanu łańcucha certyfikatów przez zmianę zachowania tworzenia łańcucha; jest ona przenoszona do wywołania interfejsu [CertGetCertificateChain](https://docs.microsoft.com/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) systemu Win32 jako parametr "flagiDW" i może być ustawiona na dowolną prawidłową kombinację flag akceptowanych przez funkcję. Wartość 0 wymusza ignorowanie wszelkich błędów stanu zaufania przez środowisko uruchomieniowe Service Fabric. nie jest to zalecane, ponieważ jego użycie stanowiłoby znaczące narażenie na bezpieczeństwo. Wartość domyślna to 0x40000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT).
 
-  Kiedy używać: do testowania lokalnego, z certyfikatami z podpisem własnym lub certyfikatami dewelopera, które nie są w pełni ukształtowane/nie mają odpowiedniej infrastruktury klucza publicznego do obsługi certyfikatów. Może również wykorzystywać jako łagodzenie w środowiskach wypaczonych powietrzem podczas przejścia między PKI.
+  Kiedy używać: do testowania lokalnego z certyfikatami z podpisem własnym lub certyfikatów deweloperów, które nie są w pełni uformowane/nie mają właściwej infrastruktury kluczy publicznych do obsługi certyfikatów. Mogą również używać jako ograniczenia w środowiskach gapped powietrze podczas przejścia między infrastruktur kluczy publicznych.
 
-  Sposób użycia: weźmiemy przykład, który wymusza sprawdzanie odwołania, aby uzyskać dostęp tylko do buforowanych adresów URL. Zakładając:
+  Jak używać: zajmiemy się przykładem, aby wymusić sprawdzenie odwołania w celu uzyskania dostępu tylko do buforowanych adresów URL. Łożono
   ```C++
   #define CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY         0x80000000
   ```
-  następnie deklaracja w manifeście klastra staje się:
+  następnie deklaracja w manifeście klastra:
   ```xml
     <Section Name="Security">
       <Parameter Name="CrlCheckingFlag" Value="0x80000000" />
     </Section>
   ```
 
-  * IgnoreCrlOfflineError - w sekcji "Bezpieczeństwo" wartość logiczna z domyślną wartością "false". Reprezentuje skrót do wygaszania stanu błędu budynku łańcucha "odwołanie w trybie offline" (lub kolejny stan błędu sprawdzania poprawności zasad łańcucha).
+  * IgnoreCrlOfflineError — w sekcji "Security" wartość logiczna z wartością domyślną "false". Reprezentuje skrót służący do pomijania stanu błędu tworzenia łańcucha "odwoływania w trybie offline" (lub kolejnego stanu błędu walidacji zasad łańcucha).
 
-  Kiedy używać: testowanie lokalne lub certyfikaty dewelopera nie są poparte odpowiednią pki. Należy używać jako środki zaradcze w środowiskach wypatrzanych powietrzem lub gdy wiadomo, że pki są niedostępne.
+  Kiedy używać: testowanie lokalne lub z certyfikatami deweloperskimi, które nie są obsługiwane przez właściwą infrastrukturę PKI. Używaj jako środków zaradczych w środowiskach gapped Air lub gdy infrastruktura PKI jest niedostępna.
 
-  Sposób użycia:
+  Jak używać:
   ```xml
     <Section Name="Security">
       <Parameter Name="IgnoreCrlOfflineError" Value="true" />
     </Section>
   ```
 
-  Inne godne uwagi ustawienia (wszystkie w sekcji "Zabezpieczenia"):
-  * AcceptExpiredPinnedClusterCertificate — omówione w sekcji poświęconej weryfikacji certyfikatu opartego na odciskach palców; umożliwia akceptowanie wygasłych certyfikatów klastra z podpisem własnym. 
-  * CertificateExpirySafetyMargin - interwał, wyrażony w minutach poprzedzających sygnaturę czasową certyfikatu NotAfter i podczas którego certyfikat jest uważany za zagrożony wygaśnięciem. Usługa Service Fabric monitoruje certyfikaty klastra i okresowo emituje raporty dotyczące kondycji dotyczące ich pozostałej dostępności. W przedziale "bezpieczeństwa" te raporty dotyczące zdrowia są podwyższone do stanu "ostrzeżenie". Wartość domyślna to 30 dni.
-  * CertificateHealthReportingInterval - kontroluje częstotliwość raportów kondycji dotyczących pozostałej ważności czasu certyfikatów klastra. Raporty będą emitowane tylko raz w tym przedziale. Wartość jest wyrażona w sekundach, z domyślną wartością 8 godzin.
-  * EnforcePrevalidationOnSecurityChanges - logiczne, kontroluje zachowanie uaktualnienia klastra po wykryciu zmian ustawień zabezpieczeń. Jeśli ustawiona jest wartość "true", uaktualnienie klastra będzie próbowało upewnić się, że co najmniej jeden z certyfikatów pasujących do dowolnej reguł prezentacji może przekazać odpowiednią regułę sprawdzania poprawności. Wstępna weryfikacja jest wykonywana przed zastosowaniem nowych ustawień do dowolnego węzła, ale jest uruchamiana tylko w węźle obsługującym podstawową replikę usługi Menedżera klastrów w momencie inicjowania uaktualnienia. W chwili pisania tego zapisu ustawienie ma wartość domyślną "false" i zostanie ustawiona na "true" dla nowych klastrów sieci szkieletowej usług Azure z wersją środowiska wykonawczego, począwszy od 7.1.
+  Inne istotne ustawienia (wszystkie w sekcji "zabezpieczenia"):
+  * AcceptExpiredPinnedClusterCertificate — omówione w sekcji przeznaczonej dla weryfikacji certyfikatu opartego na odcisku palca; zezwala na akceptowanie wygasłych certyfikatów klastra z podpisem własnym. 
+  * CertificateExpirySafetyMargin — interwał wyrażony w minutach przed sygnaturą czasową NotAfter certyfikatu i w trakcie którego certyfikat jest traktowany jako zagrożony dla wygaśnięcia. Service Fabric monitoruje certyfikaty klastra i okresowo emituje raporty kondycji na ich pozostałej dostępności. W interwale "bezpieczeństwo" te raporty kondycji są podniesione do stanu "ostrzeżenie". Wartość domyślna to 30 dni.
+  * CertificateHealthReportingInterval — określa częstotliwość raportów kondycji dotyczących pozostałego czasu ważności certyfikatów klastra. Raporty będą emitowane tylko raz dla tego interwału. Wartość jest wyrażona w sekundach, a domyślna to 8 godzin.
+  * EnforcePrevalidationOnSecurityChanges — wartość logiczna steruje zachowaniem uaktualniania klastra podczas wykrywania zmian ustawień zabezpieczeń. Jeśli ustawiono wartość "true", uaktualnienie klastra podejmie próbę upewnienia się, że co najmniej jeden certyfikat pasujący do dowolnej z reguł prezentacji może przekazać odpowiednią regułę walidacji. Przed zainstalowaniem nowych ustawień do dowolnego węzła zostanie wykonane wstępne sprawdzanie poprawności, ale jest ono uruchamiane tylko w węźle hostującym podstawową replikę usługi Cluster Manager w momencie inicjowania uaktualnienia. W przypadku tego zapisu ustawienie ma wartość "false" i zostanie ustawione na wartość "true" dla nowych klastrów usługi Azure Service Fabric z wersją środowiska uruchomieniowego rozpoczynającą się od 7,1.
  
-### <a name="end-to-end-scenario-examples"></a>Scenariusz end-to-end (przykłady)
-Przyjrzeliśmy się regułom prezentacji, regułom sprawdzania poprawności i podkręcaniu flag, ale jak to wszystko działa razem? W tej sekcji będziemy pracować przez dwa przykłady end-to-end pokazujące, jak ustawienia zabezpieczeń mogą być wykorzystywane do bezpiecznego uaktualniania klastra. Należy zauważyć, że nie ma to być wyczerpująca rozprawa na temat prawidłowego zarządzania certyfikatami w sieci szkieletowej usług, poszukaj artykułu towarzyszącego na ten temat.
+### <a name="end-to-end-scenario-examples"></a>Kompleksowy scenariusz (przykłady)
+Zostały wyszukane reguły prezentacji, reguły walidacji i dostosowywanie flag, ale w jaki sposób wszystko to działa razem? W tej sekcji przeprowadzimy dwie kompleksowe przykłady pokazujące, w jaki sposób można wykorzystać ustawienia zabezpieczeń w celu zapewnienia bezpiecznego uaktualniania klastra. Należy pamiętać, że nie jest to kompleksowe Dissertation na temat właściwego zarządzania certyfikatami w Service Fabric, poszukaj w tym temacie artykułu towarzyszącego.
 
-Rozdzielenie zasad prezentacji i walidacji rodzi oczywiste pytanie (lub obawy) dotyczące tego, czy mogą się one różnić i jakie byłyby konsekwencje. Jest rzeczywiście możliwe, że wybór certyfikatu uwierzytelniania przez węzeł nie przejdzie reguł sprawdzania poprawności innego węzła. W rzeczywistości ta rozbieżność jest główną przyczyną incydentów związanych z uwierzytelnianiem. Jednocześnie oddzielenie tych reguł umożliwia klastrowi kontynuowanie pracy podczas uaktualniania, które zmienia ustawienia zabezpieczeń klastra. Należy wziąć pod uwagę, że rozszerzając najpierw reguły sprawdzania poprawności jako pierwszy krok, wszystkie węzły klastra będą zbiegać się w nowych ustawieniach, podczas gdy nadal przy użyciu bieżących poświadczeń. 
+Rozdzielenie reguł prezentacji i walidacji stanowi oczywiste pytanie (lub istotność), czy mogą się rozbieżne i jakie konsekwencje byłyby. Istnieje również możliwość, że wybór węzła certyfikatu uwierzytelniania nie spowoduje przekazania reguł walidacji innego węzła. W rzeczywistości ta rozbieżność stanowi główną przyczynę incydentów związanych z uwierzytelnianiem. W tym samym czasie oddzielenie tych reguł pozwala klastrowi kontynuować działanie podczas uaktualniania, co powoduje zmianę ustawień zabezpieczeń klastra. Należy wziąć pod uwagę, że dzięki rozszerzeniu pierwszej reguły sprawdzania poprawności do pierwszego kroku wszystkie węzły klastra zostaną zbieżne w nowych ustawieniach przy zachowaniu bieżących poświadczeń. 
 
-Przypomnijmy, że w klastrze sieci szkieletowej usług uaktualnienie postępuje przez (maksymalnie 5) "domen uaktualnienia" lub UD. Tylko węzły w bieżącym UD są uaktualniane/zmieniane w danym momencie, a uaktualnienie przejdzie do następnego UD tylko wtedy, gdy umożliwia to dostępność klastra. (Aby uzyskać więcej informacji, zobacz [uaktualnienia klastra sieci szkieletowej](service-fabric-cluster-upgrade.md) usług i inne artykuły na ten sam temat). Zmiany certyfikatów/zabezpieczeń są szczególnie ryzykowne, ponieważ mogą izolować węzły od klastra lub pozostawić klaster na krawędzi utraty kworum.
+Należy przypomnieć, że w klastrze Service Fabric postęp uaktualniania (do 5) "uaktualnienie domen" lub "do". Tylko węzły w bieżącym UD są uaktualniane/zmieniane w danym momencie, a uaktualnienie przejdzie do kolejnego UD tylko wtedy, gdy będzie to możliwe. (Zobacz [aktualizacje klastrów Service Fabric](service-fabric-cluster-upgrade.md) i inne artykuły w tym samym temacie, aby uzyskać więcej informacji.) Zmiany certyfikatu/zabezpieczeń są szczególnie ryzykowne, ponieważ mogą izolować węzły z klastra lub pozostawić klaster na granicy utraty kworum.
 
-Do opisania ustawień zabezpieczeń węzła użyjemy następującego notacji:
+Użyjemy następującej notacji do opisania ustawień zabezpieczeń węzła:
 
-Nk: {P:{TP=A}, V:{TP=A}}, gdzie:
-  - 'Nk' reprezentuje węzeł w domenie uaktualnienia *k*
-  - "P" reprezentuje bieżące reguły prezentacji węzła (przy założeniu, że odnosimy się tylko do certyfikatów klastra); 
-  - "V" reprezentuje bieżące reguły sprawdzania poprawności węzła (tylko certyfikat klastra)
-  - 'TP=A' reprezentuje deklarację opartą na odciskach palców (TP), przy czym "A" jest odciskiem palca certyfikatu
-  - "CN=B" oznacza deklarację opartą na nazwie zwyczajowej (CN), przy czym "B" jest nazwą pospolitą przedmiotu certyfikatu 
+Te: {P:{TP = A}, V:{TP = A}}, gdzie:
+  - "Te" reprezentuje węzeł w domenie uaktualnienia *k*
+  - "P" reprezentuje bieżące reguły prezentacji węzła (przy założeniu, że odwołuje się tylko do certyfikatów klastra); 
+  - "V" reprezentuje bieżące reguły walidacji węzła (tylko certyfikat klastra)
+  - "TP = A" reprezentuje deklarację opartą na odcisku palca (TP) z "A", która jest odciskiem palca certyfikatu
+  - "CN = B" reprezentuje wspólną deklarację opartą na nazwach (CN), przy czym "B" jest nazwą pospolitą podmiotu certyfikatu 
 
-#### <a name="rotating-a-cluster-certificate-declared-by-thumbprint"></a>Obracanie certyfikatu klastra zadeklarowanego za pomocą odcisku palca
-W poniższej sekwencji opisano, jak uaktualnienie dwuetapowe może służyć do bezpiecznego wprowadzenia certyfikatu klastra pomocniczego, zadeklarowanego przez odcisk palca; pierwsza faza wprowadza nową deklarację certyfikatu do reguł walidacji, a drugi etap wprowadza ją do reguł prezentacji:
-  - stan początkowy: N0 = {P:{TP=A}, V:{TP=A}}, ... Nk = {P:{TP=A}, V:{TP=A}} - klaster jest w spoczynku, wszystkie węzły mają wspólną konfigurację
-  - po ukończeniu uaktualnienia domeny 0: N0 = {P:{TP=A}, V:{TP=A, TP=B}}, ... Nk = {P:{TP=A}, V:{TP=A}} - węzły w UD0 przedstawią certyfikat A i zaakceptują certyfikaty A lub B; wszystkie inne węzły obecne i akceptują tylko certyfikat A
-  - po ukończeniu ostatniej domeny uaktualnienia: N0 = {P:{TP=A}, V:{TP=A, TP=B}}, ... Nk = {P:{TP=A}, V:{TP=A, TP=B}} - wszystkie węzły mają certyfikat A, wszystkie węzły będą akceptować certyfikat A lub B
+#### <a name="rotating-a-cluster-certificate-declared-by-thumbprint"></a>Obracanie certyfikatu klastra zadeklarowanego przez odcisk palca
+Poniższa sekwencja opisuje, jak można użyć uaktualnienia 2-etapowego, aby bezpiecznie wprowadzić pomocniczy certyfikat klastra, zadeklarowany przez odcisk palca; Pierwsza faza wprowadza nową deklarację certyfikatu w regułach walidacji, a druga faza wprowadza ją w regułach prezentacji:
+  - stan początkowy: N0 = {P:{TP = A}, V:{TP = A}},... Te = {P:{TP = A}, V:{TP = A}} — klaster jest w stanie spoczynku, wszystkie węzły mają wspólną konfigurację
+  - Po zakończeniu uaktualniania domeny 0: N0 = {P:{TP = A}, V:{TP = A, TP = B}},... Te = {P:{TP = A}, V:{TP = A}} — węzły w UD0 będą zawierać certyfikat A i akceptują certyfikaty A lub B; wszystkie inne węzły obecne i akceptują tylko certyfikat
+  - Po zakończeniu ostatniej domeny uaktualnienia: N0 = {P:{TP = A}, V:{TP = A, TP = B}},... Te = {P:{TP = A}, V:{TP = A, TP = B}} — wszystkie węzły obecne są certyfikat A, wszystkie węzły akceptują certyfikat A lub B
       
-W tym momencie klaster jest ponownie w równowadze, a druga faza uaktualnienia / zmiany ustawień zabezpieczeń może rozpocząć:
-  - po ukończeniu uaktualnienia domeny 0: N0 = {P:{TP=A, TP=B}, V:{TP=A, TP=B}}, ... Nk = {P:{TP=A}, V:{TP=A, TP=B}} - węzły w UD0 zaczną prezentować B, który jest akceptowany przez inny węzeł w klastrze.
-  - po ukończeniu ostatniej domeny uaktualnienia: N0 = {P:{TP=A, TP=B}, V:{TP=A, TP=B}}, ... Nk = {P:{TP=A, TP=B}, V:{TP=A, TP=B}} - wszystkie węzły przełączyły się na okazywanie certyfikatu B. Certyfikat A może być teraz wycofany/usunięty z definicji klastra z kolejnym zestawem uaktualnień.
+W tym momencie klaster jest ponownie w równowadze, a druga faza uaktualnienia/zmiany ustawień zabezpieczeń może rozpocząć się:
+  - Po zakończeniu uaktualniania domeny 0: N0 = {P:{TP = A, TP = B}, V:{TP = A, TP = B}},... Te = {P:{TP = A}, V:{TP = A, TP = B}}-węzły w UD0 rozpoczną prezentowanie B, który jest akceptowany przez każdy inny węzeł w klastrze.
+  - Po zakończeniu ostatniej domeny uaktualnienia: N0 = {P:{TP = A, TP = B}, V:{TP = A, TP = B}},... Te = {P:{TP = A, TP = B}, V:{TP = A, TP = B}} — wszystkie węzły zostały przełączone w celu przesłania certyfikatu B. certyfikat A można teraz wycofać/usunąć z definicji klastra przy użyciu kolejnego zestawu uaktualnień.
 
-#### <a name="converting-a-cluster-from-thumbprint--to-common-name-based-certificate-declarations"></a>Konwertowanie klastra z odcisków palców na deklaracje certyfikatów oparte na nazwach pospolitych
-Podobnie zmiana typu deklaracji certyfikatu (z odcisku palca na nazwę pospolitą) będzie zgodna z tym samym wzorcem, co powyżej. Należy zauważyć, że reguły sprawdzania poprawności zezwalają na deklarowanie certyfikatów danej roli za pomocą odcisku palca i nazwy pospolitej w tej samej definicji klastra. Natomiast zasady prezentacji dopuszczają tylko jedną formę deklaracji. Nawiasem mówiąc, bezpieczne podejście do konwersji certyfikat klastra z odcisku palca na nazwę pospolitą jest wprowadzenie zamierzonego certyfikatu docelowego najpierw za pomocą odcisku palca, a następnie zmiana tej deklaracji na pospolitą na opartą na nazwie. W poniższym przykładzie założymy, że odcisk palca "A" i nazwa pospolita podmiotu "B" odnoszą się do tego samego certyfikatu. 
+#### <a name="converting-a-cluster-from-thumbprint--to-common-name-based-certificate-declarations"></a>Konwertowanie klastra z odcisku palca do deklaracji certyfikatów opartych na nazwie
+Podobnie zmiana typu deklaracji certyfikatu (od odcisku palca do nazwy pospolitej) będzie zgodna z tym samym wzorcem, jak powyżej. Należy pamiętać, że reguły sprawdzania poprawności umożliwiają deklarowanie certyfikatów danej roli przez odcisk palca i nazwę pospolitą w tej samej definicji klastra. Z kolei, Chociaż reguły prezentacji zezwalają tylko na jedną formę deklaracji. W przypadku incydentu bezpieczne podejście do konwertowania certyfikatu klastra z odciskiem palca na nazwę pospolitą polega na wprowadzeniu zamierzonego certyfikatu docelowego najpierw według odcisku palca, a następnie zmiany tej deklaracji na nazwę pospolitą opartą na nazwie. W poniższym przykładzie przyjęto założenie, że odcisk palca "A" i wspólna nazwa podmiotu "B" odwołują się do tego samego certyfikatu. 
 
-  - stan początkowy: N0 = {P:{TP=A}, V:{TP=A}}, ... Nk = {P:{TP=A}, V:{TP=A}} - klaster jest w spoczynku, wszystkie węzły mają wspólną konfigurację, przy czym A jest podstawowym odciskiem palca certyfikatu
-  - po ukończeniu uaktualnienia domeny 0: N0 = {P:{TP=A}, V:{TP=A, CN=B}}, ... Nk = {P:{TP=A}, V:{TP=A}} - węzły w UD0 przedstawią certyfikat A i zaakceptują certyfikaty z nadrukiem palca A lub nazwą zwyczajową B; wszystkie inne węzły obecne i akceptują tylko certyfikat A
-  - po ukończeniu ostatniej domeny uaktualnienia: N0 = {P:{TP=A}, V:{TP=A, CN=B}}, ... Nk = {P:{TP=A}, V:{TP=A, CN=B}} - wszystkie węzły prezentują certyfikat A, wszystkie węzły będą akceptować certyfikat A (TP) lub B (CN)
+  - stan początkowy: N0 = {P:{TP = A}, V:{TP = A}},... Te = {P:{TP = A}, V:{TP = A}} — klaster jest w stanie spoczynku, wszystkie węzły mają wspólną konfigurację z odciskiem palca certyfikatu podstawowego
+  - Po zakończeniu uaktualniania domeny 0: N0 = {P:{TP = A}, V:{TP = A, CN = B}},... Te = {P:{TP = A}, V:{TP = A}} — węzły w UD0 będą zawierać certyfikat A i akceptują certyfikaty z odciskiem palca A lub pospolitą nazwą B; wszystkie inne węzły obecne i akceptują tylko certyfikat
+  - Po zakończeniu ostatniej domeny uaktualnienia: N0 = {P:{TP = A}, V:{TP = A, CN = B}},... Te = {P:{TP = A}, V:{TP = A, CN = B}} — wszystkie węzły obecne certyfikatu A, wszystkie węzły akceptują certyfikat A (TP) lub B (CN)
 
-W tym momencie możemy kontynuować zmianę reguł prezentacji z kolejnym uaktualnieniem:
-  - po ukończeniu uaktualnienia domeny 0: N0 = {P:{CN=B}, V:{TP=A, CN=B}}, ... Nk = {P:{TP=A}, V:{TP=A, CN=B}} - węzły w UD0 przedstawią certyfikat B znaleziony przez CN i zaakceptują certyfikaty z nadrukiem palca A lub nazwą pospolitą B; wszystkie inne węzły obecne i akceptują tylko certyfikat A, wybrany za pomocą odcisku palca
-  - po ukończeniu ostatniej domeny uaktualnienia: N0 = {P:{CN=B}, V:{TP=A, CN=B}}, ... Nk = {P:{CN=B}, V:{TP=A, CN=B}} - wszystkie węzły obecne certyfikat B znalezione przez CN, wszystkie węzły zaakceptują certyfikat A (TP) lub B (CN)
+W tym momencie możemy kontynuować Zmienianie reguł prezentacji przy kolejnym uaktualnieniu:
+  - Po zakończeniu uaktualniania domeny 0: N0 = {P:{CN = B}, V:{TP = A, CN = B}},... Te = {P:{TP = A}, V:{TP = A, CN = B}} — węzły w UD0 będą prezentować certyfikat B znaleziony przez CN i akceptują certyfikaty z odciskiem palca A lub nazwa pospolita B; wszystkie inne węzły są obecne i akceptują tylko certyfikaty wybrane przez odcisk palca
+  - Po zakończeniu ostatniej domeny uaktualnienia: N0 = {P:{CN = B}, V:{TP = A, CN = B}},... Te = {P:{CN = B}, V:{TP = A, CN = B}} — wszystkie węzły są obecne certyfikat B znaleziony przez CN, wszystkie węzły akceptują certyfikat A (TP) lub B (CN)
     
-Zakończenie fazy 2 oznacza również konwersję klastra na certyfikaty oparte na nazwach pospolitych; deklaracje sprawdzania poprawności oparte na odciskach palców można usunąć w kolejnym uaktualnieniu klastra.
+Zakończenie fazy 2 oznacza także konwersję klastra do typowych certyfikatów opartych na nazwach. deklaracje weryfikacji na podstawie odcisku palca można usunąć podczas kolejnego uaktualniania klastra.
 
 > [!NOTE]
-> W klastrach usługi Azure Service Fabric przepływy pracy przedstawione powyżej są organizowane przez dostawcę zasobów sieci szkieletowej usług; właściciel klastra jest nadal odpowiedzialny za inicjowanie obsługi administracyjnej certyfikatów do klastra zgodnie ze wskazanymi regułami (prezentacja lub sprawdzanie poprawności) i jest zachęcany do wykonywania zmian w wielu krokach.
+> W klastrach usługi Azure Service Fabric wymienione powyżej przepływy pracy są zorganizowane przez dostawcę zasobów Service Fabric; Właściciel klastra nadal jest odpowiedzialny za Inicjowanie obsługi certyfikatów w klastrze zgodnie ze wskazanymi regułami (prezentacją lub walidacją) i zachęca się do wykonywania zmian w wielu krokach.
 
-W osobnym artykule zajmiemy się tematem zarządzania i inicjowania obsługi administracyjnej certyfikatów do klastra sieci szkieletowej usług.
+W osobnym artykule omówiono zarządzanie certyfikatami i inicjowanie ich obsługi w klastrze Service Fabric.
 
 ## <a name="troubleshooting-and-frequently-asked-questions"></a>Rozwiązywanie problemów i często zadawane pytania
-Podczas debugowania problemów związanych z uwierzytelnianiem w klastrach sieci szkieletowej usług nie jest łatwe, mamy nadzieję, że następujące wskazówki i wskazówki mogą pomóc. Najprostszym sposobem rozpoczęcia badania jest zbadanie dzienników zdarzeń sieci szkieletowej usług w węzłach klastra — niekoniecznie tylko tych, które wykazują objawy, ale także węzłów, które są w górę, ale nie mogą połączyć się z jednym z ich sąsiadów. W systemie Windows zdarzenia o istotnym znaczeniu są zazwyczaj rejestrowane w kanałach "Dzienniki aplikacji i usług\Microsoft-ServiceFabric\Admin" lub "Operacyjne". Czasami może być [pomocne, aby włączyć capi2 rejestrowania,](https://docs.microsoft.com/archive/blogs/benjaminperkins/enable-capi2-event-logging-to-troubleshoot-pki-and-ssl-certificate-issues)aby uchwycić więcej szczegółów dotyczących sprawdzania poprawności certyfikatu, pobieranie CRL / CTL itp (Czy pamiętaj, aby wyłączyć go po zakończeniu repro, może to być dość pełne.)
+Debugowanie problemów związanych z uwierzytelnianiem w klastrach Service Fabric nie jest proste, dlatego hopeful następujące wskazówki i porady mogą pomóc. Najprostszym sposobem rozpoczęcia badania jest zbadanie Service Fabric dzienników zdarzeń w węzłach klastra — niekoniecznie są to tylko te, które pokazują objawy, ale również węzły, które są, ale nie mogą połączyć się z jednym z ich sąsiadów. W systemie Windows zdarzenia o znaczeniu są zwykle rejestrowane odpowiednio w kanałach "Applications and Services Logs\Microsoft-ServiceFabric\Admin" lub "działa". Czasami może być pomocne [włączenie rejestrowania CAPI2](https://docs.microsoft.com/archive/blogs/benjaminperkins/enable-capi2-event-logging-to-troubleshoot-pki-and-ssl-certificate-issues), aby przechwycić więcej szczegółów dotyczących sprawdzania poprawności certyfikatu, pobierania list CRL/CTL itd. (należy pamiętać, aby wyłączyć go po zakończeniu odtwórzu, może być całkiem pełne).
 
-Typowe objawy, które objawiają się w klastrze występują problemy z uwierzytelnianiem są: 
-  - węzły są w dół/jazda na rowerze 
-  - próby połączenia są odrzucane
-  - próby połączenia są przesuwem czasu
+Typowe objawy polegające na tym, że w klastrze występują problemy z uwierzytelnianiem: 
+  - węzły są wyłączone/cykliczne 
+  - próby połączenia zostały odrzucone
+  - Przekroczono limit czasu próby połączenia
 
-Każdy z objawów może być spowodowany przez różne problemy, a ta sama przyczyna może wykazywać różne objawy; jako takie, po prostu wymienimy małą próbkę typowych problemów, z zaleceniami dotyczącymi ich naprawienia. 
+Każdy ze objawów może być spowodowany przez różne problemy, a ta sama główna przyczyna może pokazywać różne manifesty; w związku z tym zostanie wystawiona tylko niewielki przykład typowych problemów z zaleceniami dotyczącymi ich rozwiązywania. 
 
-* Węzły mogą wymieniać wiadomości, ale nie można nawiązać połączenia. Możliwą przyczyną niepowodzenia połączenia jest błąd "certyfikat nie dopasowywał się" — jedna ze stron w połączeniach sieci szkieletowej usług z siecią szkieletową usług przedstawia certyfikat, który nie spełnia reguł sprawdzania poprawności adresata. Może towarzyszyć jeden z następujących błędów: 
+* Węzły mogą wymieniać komunikaty, ale nie mogą się łączyć. Możliwa przyczyna przerwania połączenia to błąd "certyfikat niezgodny" — jedna ze stron w ramach połączeń Service Fabric-Service Fabrica przedstawia certyfikat, który nie powoduje wykonania reguł walidacji odbiorcy. Może towarzyszyć jeden z następujących błędów: 
   ```C++
   0x80071c44    -2147017660 FABRIC_E_SERVER_AUTHENTICATION_FAILED
   ```
-  Aby zdiagnozować/zbadać dalej: na każdym z węzłów próbujących połączenie, należy określić, który certyfikat jest prezentowany; sprawdź certyfikat i spróbuj emulować reguły sprawdzania poprawności (sprawdź odcisk palca lub wspólną nazwę równości, sprawdź odciski palców wystawcy, jeśli są określone).
+  Aby zdiagnozować/zbadać więcej: w każdym z węzłów próbujących nawiązać połączenie Sprawdź, który certyfikat jest prezentowany; Sprawdź certyfikat i wypróbuj i Emuluj reguły walidacji (Sprawdź odciski palca lub nazwa pospolita równości, sprawdź odciski palców wystawcy, jeśli zostały określone).
 
-  Innym częstym towarzyszącym kodem błędu może być:
+  Inny typowy towarzyszący kod błędu może być następujący:
   ```C++
   0x800b0109    -2146762487 CERT_E_UNTRUSTEDROOT
   ```
-  W takim przypadku certyfikat jest zadeklarowany nazwą pospolitą i stosuje się jedną z następujących właściwości:
-    - wystawcy nie są przypięte, a certyfikat główny nie jest zaufany lub
-    - emitenci są przypięte, ale deklaracja nie zawiera odcisk palca bezpośredniego wystawcy tego certyfikatu
+  W takim przypadku certyfikat jest zadeklarowany za pomocą nazwy pospolitej i stosuje jedną z następujących czynności:
+    - emitenci nie są przypięti, a certyfikat główny nie jest zaufany lub
+    - wystawcy są przypięte, ale deklaracja nie zawiera odcisku palca bezpośredniego wystawcy tego certyfikatu
 
-* Węzeł jest w górę, ale nie może połączyć się z innymi węzłami; inne węzły nie odbierają ruchu przychodzącego z węzła, który ulegnie awarii. W takim przypadku jest możliwe, że ładowanie certyfikatu nie powiedzie się w węźle lokalnym. Poszukaj następujących błędów:
-  - nie znaleziono certyfikatu — upewnij się, że certyfikaty zadeklarowane w regułach prezentacji mogą być rozpoznawane przez zawartość magazynu certyfikatów LocalMachine\My (lub zgodnie z określoną). 
-    Możliwe przyczyny awarii mogą obejmować: 
+* Węzeł jest w górę, ale nie może połączyć się z innymi węzłami; inne węzły nie odbierają ruchu przychodzącego z węzła, który się nie powiodło. W takim przypadku istnieje możliwość, że ładowanie certyfikatu w węźle lokalnym nie powiedzie się. Wyszukaj następujące błędy:
+  - nie znaleziono certyfikatu — upewnij się, że certyfikaty zadeklarowane w regułach prezentacji mogą być rozpoznawane przez zawartość magazynu certyfikatów LocalMachine\My (lub określony). 
+    Możliwe przyczyny niepowodzenia: 
       - nieprawidłowe znaki w deklaracji odcisku palca
       - certyfikat nie jest zainstalowany
       - certyfikat wygasł
-      - deklaracja nazwy pospolitej zawiera prefiks "CN="
-      - deklaracja określa symbol wieloznaczny i nie istnieje dokładne dopasowanie w magazynie certyfikatów (deklaracja: CN=*.mojadomena.com, rzeczywisty certyfikat: CN=server.mydomain.com)
+      - Deklaracja Common Name zawiera prefiks "CN =".
+      - Deklaracja określa symbol wieloznaczny i nie istnieje dokładne dopasowanie w magazynie certyfikatów (Deklaracja: CN = *. moja domena. com, rzeczywisty certyfikat: CN = Server. moja domena. com)
 
-  - nieznane poświadczenia - wskazuje brakujący klucz prywatny odpowiadający certyfikatowi, zazwyczaj któremu towarzyszy kod błędu: 
+  - nieznane poświadczenia — wskazuje, że brakuje klucza prywatnego odpowiadającego certyfikatowi, zazwyczaj towarzyszy mu kod błędu: 
     ```C++ 
     0x8009030d  -2146893043 SEC_E_UNKNOWN_CREDENTIALS
     0x8009030e  -2146893042 SEC_E_NO_CREDENTIALS
     ```
-    Aby temu zaradzić, sprawdź istnienie klucza prywatnego; weryfikacji SFAdmins jest przyznawany "read|execute" dostęp do klucza prywatnego.
+    Aby rozwiązać ten fakt, sprawdź istnienie klucza prywatnego; Sprawdź, czy SFAdmins udzielono dostępu "Odczyt | wykonywanie" do klucza prywatnego.
 
-  - zły typ dostawcy - wskazuje certyfikat Crypto New Generation (CNG) ("Dostawca magazynu kluczy oprogramowania firmy Microsoft"); w tej chwili usługa Service Fabric obsługuje tylko certyfikaty CAPI1. Zazwyczaj towarzyszy mu kod błędu:
+  - zły typ dostawcy — wskazuje certyfikat kryptografii nowej generacji (CNG) ("Dostawca magazynu kluczy oprogramowania firmy Microsoft"); w tej chwili Service Fabric obsługuje tylko certyfikaty CAPI1. Zwykle towarzyszy kod błędu:
     ```C++
     0x80090014  -2146893804 NTE_BAD_PROV_TYPE
     ```
-    Aby rozwiązać ten problem, ponownie utwórz certyfikat klastra przy użyciu dostawcy CAPI1 (np. Więcej informacji na temat dostawców kryptograficznych można znaleźć [w opisie dostawców kryptograficznych](https://docs.microsoft.com/windows/win32/seccertenroll/understanding-cryptographic-providers)
+    Aby rozwiązać ten certyfikat, należy utworzyć go ponownie przy użyciu CAPI1 (np. "Microsoft Enhanced RSA And AES Cryptographic Provider"). Aby uzyskać więcej informacji na temat dostawców usług kryptograficznych, zobacz [opis dostawców usług kryptograficznych](https://docs.microsoft.com/windows/win32/seccertenroll/understanding-cryptographic-providers) .
 

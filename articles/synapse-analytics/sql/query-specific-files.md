@@ -1,6 +1,6 @@
 ---
-title: Używanie metadanych plików w kwerendach
-description: Funkcja OPENROWE udostępnia informacje o plikach i ścieżkach dotyczących każdego pliku używanego w kwerendzie do filtrowania lub analizowania danych na podstawie nazwy pliku i/lub ścieżki folderu.
+title: Korzystanie z metadanych plików w zapytaniach
+description: Funkcja OPENROWSET udostępnia informacje o pliku i ścieżce dotyczące każdego pliku użytego w zapytaniu do filtrowania lub analizowania danych na podstawie nazwy pliku i/lub ścieżki folderu.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,34 +10,34 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 40a8e2c153ec3d8e7b4007340b9433a38f9ccc89
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431555"
 ---
-# <a name="using-file-metadata-in-queries"></a>Używanie metadanych plików w kwerendach
+# <a name="using-file-metadata-in-queries"></a>Korzystanie z metadanych plików w zapytaniach
 
-Usługa SQL on-demand Query może obsługiwać wiele plików i folderów zgodnie z opisem w [artykule Foldery kwerend i wiele plików.](query-folders-multiple-csv-files.md) W tym artykule dowiesz się, jak używać informacji o metadanych dotyczących nazw plików i folderów w kwerendach.
+Usługa zapytań na żądanie SQL może rozdzielić wiele plików i folderów zgodnie z opisem w artykule [foldery zapytań i wiele plików](query-folders-multiple-csv-files.md) . W tym artykule dowiesz się, jak używać informacji metadanych o nazwach plików i folderów w zapytaniach.
 
-Czasami może być konieczne poznanie, który plik lub źródło folderu jest skorelowane z określonym wierszem w zestawie wyników.
+Czasami może być konieczne sprawdzenie, który plik lub źródło folderu jest skorelowane z określonym wierszem w zestawie wyników.
 
-Można użyć `filepath` funkcji `filename` i zwrócić nazwy plików i/lub ścieżkę w zestawie wyników. Możesz też użyć ich do filtrowania danych na podstawie nazwy pliku i/lub ścieżki folderu. Te funkcje są opisane w [sekcji](develop-storage-files-overview.md#filename-function) składni funkcji nazwa pliku i [funkcja ścieżki pliku](develop-storage-files-overview.md#filepath-function). Poniżej znajdziesz krótkie opisy wzdłuż próbek.
+Można użyć funkcji `filepath` i `filename` zwrócić nazwy plików i/lub ścieżki w zestawie wyników. Można też użyć ich do filtrowania danych na podstawie nazwy pliku i/lub ścieżki folderu. Te funkcje są opisane w sekcji składnia [Nazwa](develop-storage-files-overview.md#filename-function) i [ścieżka funkcji](develop-storage-files-overview.md#filepath-function). Poniżej znajdziesz krótkie opisy dotyczące przykładów.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed przeczytaniem pozostałej części tego artykułu zapoznaj się z następującymi wymaganiami wstępnymi:
 
-- [Konfiguracja po raz pierwszy](query-data-storage.md#first-time-setup)
+- [Konfiguracja pierwszego czasu](query-data-storage.md#first-time-setup)
 - [Wymagania wstępne](query-data-storage.md#prerequisites)
 
 ## <a name="functions"></a>Funkcje
 
-### <a name="filename"></a>Pod nazwą
+### <a name="filename"></a>Nazwa pliku
 
 Ta funkcja zwraca nazwę pliku, z którego pochodzi wiersz.
 
-W poniższym przykładzie odczytuje pliki danych NYC Yellow Taxi z ostatnich trzech miesięcy 2017 r. i zwraca liczbę przejazdów na plik. Część kwerendy OPENROWSET określa, które pliki będą odczytywane.
+Poniższy przykład odczytuje pliki danych NYC żółtej taksówki dla ostatnich trzech miesięcy 2017 i zwraca liczbę kolarstwu na plik. Część OPENROWSET zapytania określa, które pliki zostaną odczytane.
 
 ```sql
 SELECT
@@ -52,7 +52,7 @@ ORDER BY
     [filename];
 ```
 
-Poniższy przykład pokazuje, jak *nazwa pliku()* może służyć w klauzuli WHERE do filtrowania plików do odczytu. Uzyskuje dostęp do całego folderu w części OPENROWSET kwerendy i filtruje pliki w klauzuli WHERE.
+Poniższy przykład pokazuje, jak *Nazwa pliku ()* może być używana w klauzuli WHERE do filtrowania plików do odczytu. Uzyskuje dostęp do całego folderu w części OPENROWSET zapytania i filtruje pliki w klauzuli WHERE.
 
 Wyniki będą takie same jak w poprzednim przykładzie.
 
@@ -71,14 +71,14 @@ ORDER BY
     [filename];
 ```
 
-### <a name="filepath"></a>Filepath
+### <a name="filepath"></a>Parametr
 
-Funkcja ścieżka pliku zwraca pełną lub częściową ścieżkę:
+Funkcja FilePath zwraca pełną lub częściową ścieżkę:
 
-- Po wywołaniu bez parametru zwraca pełną ścieżkę pliku, z której pochodzi wiersz.
-- Po wywołaniu z parametrem zwraca część ścieżki, która pasuje do symbolu wieloznacznego na pozycji określonej w parametrze. Na przykład wartość parametru 1 zwróci część ścieżki, która pasuje do pierwszego symbolu wieloznacznego.
+- Gdy wywoływana bez parametru, zwraca pełną ścieżkę pliku, z której pochodzi wiersz.
+- Gdy wywoływana z parametrem, zwraca część ścieżki, która pasuje do symbolu wieloznacznego na pozycji określonej w parametrze. Na przykład wartość parametru 1 zwróci część ścieżki, która pasuje do pierwszego symbolu wieloznacznego.
 
-W poniższym przykładzie odczytuje pliki danych NEWB Yellow Taxi z ostatnich trzech miesięcy 2017 r. Zwraca liczbę przejazdów na ścieżkę pliku. Część kwerendy OPENROWSET określa, które pliki będą odczytywane.
+Poniższy przykład odczytuje NYC żółte pliki danych z taksówką dla ostatnich trzech miesięcy 2017. Zwraca liczbę kolarstwu na ścieżkę pliku. Część OPENROWSET zapytania określa, które pliki zostaną odczytane.
 
 ```sql
 SELECT
@@ -114,9 +114,9 @@ ORDER BY
     filepath;
 ```
 
-Poniższy przykład pokazuje, jak *filepath()* może służyć w klauzuli WHERE do filtrowania plików do odczytu.
+Poniższy przykład pokazuje, jak w klauzuli WHERE można użyć *ścieżki FilePath ()* w celu przefiltrowania plików, które mają być odczytywane.
 
-Symbole wieloznaczne można używać w części OPENROWSET kwerendy i filtrować pliki w klauzuli WHERE. Wyniki będą takie same jak w poprzednim przykładzie.
+Możesz użyć symboli wieloznacznych w składniku OPENROWSET zapytania i filtrować pliki w klauzuli WHERE. Wyniki będą takie same jak w poprzednim przykładzie.
 
 ```sql
 SELECT
@@ -161,4 +161,4 @@ ORDER BY
 
 ## <a name="next-steps"></a>Następne kroki
 
-W następnym artykule dowiesz się, jak wysyłać zapytania do [plików Parkietu](query-parquet-files.md).
+W następnym artykule dowiesz się, jak [wykonywać zapytania dotyczące plików Parquet](query-parquet-files.md).

@@ -1,6 +1,6 @@
 ---
 title: Używanie wpisów tajnych usługi Azure Key Vault w działaniach potoku
-description: Dowiedz się, jak pobrać przechowywane poświadczenia z magazynu kluczy platformy Azure i używać ich podczas przebiegów potoku fabryki danych.
+description: Dowiedz się, jak pobrać przechowywane poświadczenia z magazynu kluczy Azure i korzystać z nich podczas uruchamiania potoków usługi Data Factory.
 services: data-factory
 author: ChrisLound
 manager: anandsub
@@ -11,64 +11,64 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
 ms.openlocfilehash: f2531ebfd8b1eafc04fa6eda660b0eec3d1147f2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417074"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Używanie wpisów tajnych usługi Azure Key Vault w działaniach potoku
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Poświadczenia lub wartości tajne można przechowywać w magazynie azure key vault i używać ich podczas wykonywania potoku, aby przekazać do swoich działań.
+Poświadczenia lub wartości tajne można przechowywać w Azure Key Vault i używać ich podczas wykonywania potoku w celu przekazania do działań.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Ta funkcja opiera się na tożsamości zarządzanej fabrycznie danych.  Dowiedz się, jak to działa z [zarządzanej tożsamości dla usługi Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) i upewnij się, że fabryka danych jest skojarzona.
+Ta funkcja opiera się na tożsamości zarządzanej przez fabrykę danych.  Dowiedz się, jak działa z [tożsamości zarządzanej dla Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) i upewnij się, że Fabryka danych ma już skojarzoną.
 
 ## <a name="steps"></a>Kroki
 
-1. Otwórz właściwości fabryki danych i skopiuj wartość identyfikatora aplikacji tożsamości zarządzanej.
+1. Otwórz właściwości fabryki danych i skopiuj wartość identyfikatora aplikacji zarządzanej tożsamości.
 
     ![Wartość tożsamości zarządzanej](media/how-to-use-azure-key-vault-secrets-pipeline-activities/managedidentity.png)
 
-2. Otwórz zasady dostępu do magazynu kluczy i dodaj uprawnienia tożsamości zarządzanej do wpisów tajnych pobierz i lista.
+2. Otwórz zasady dostępu do magazynu kluczy i Dodaj uprawnienia zarządzanej tożsamości, aby uzyskać i wyświetlić wpisy tajne.
 
-    ![Zasady dostępu do usługi Key Vault](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png)
+    ![Zasady dostępu Key Vault](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png)
 
-    ![Zasady dostępu do usługi Key Vault](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png)
+    ![Zasady dostępu Key Vault](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png)
 
-    Kliknij **pozycję Dodaj**, a następnie kliknij pozycję **Zapisz**.
+    Kliknij przycisk **Dodaj**, a następnie kliknij przycisk **Zapisz**.
 
-3. Przejdź do klucza tajnego magazynu kluczy i skopiuj tajny identyfikator.
+3. Przejdź do wpisu tajnego Key Vault i skopiuj identyfikator wpisu tajnego.
 
-    ![Tajny identyfikator](media/how-to-use-azure-key-vault-secrets-pipeline-activities/secretidentifier.png)
+    ![Identyfikator wpisu tajnego](media/how-to-use-azure-key-vault-secrets-pipeline-activities/secretidentifier.png)
 
-    Zanotuj tajny identyfikator URI, który chcesz uzyskać podczas uruchamiania potoku fabryki danych.
+    Zanotuj swój tajny identyfikator URI, który chcesz uzyskać podczas przebiegu potoku fabryki danych.
 
-4. W potoku usługi Data Factory dodaj nową aktywność w sieci Web i skonfiguruj ją w następujący sposób.  
+4. W potoku Data Factory Dodaj nowe działanie sieci Web i skonfiguruj je w następujący sposób.  
 
     |Właściwość  |Wartość  |
     |---------|---------|
-    |Bezpieczne wyjście     |True         |
-    |Adres URL     |[Tajna wartość identyfikatora URI]?api-version=7.0         |
+    |Bezpieczne wyjście     |Prawda         |
+    |Adres URL     |[Tajna wartość identyfikatora URI]? API-version = 7.0         |
     |Metoda     |GET         |
-    |Authentication     |Tożsamość usługi zarządzanej         |
+    |Uwierzytelnianie     |Tożsamość usługi zarządzanej         |
     |Zasób        |https://vault.azure.net       |
 
-    ![Aktywność w sieci Web](media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png)
+    ![Aktywność sieci Web](media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png)
 
     > [!IMPORTANT]
-    > Musisz dodać **?api-version=7.0** na końcu tajnego identyfikatora URI.  
+    > Musisz dodać **? API-version = 7.0** na końcu TAJNEGO identyfikatora URI.  
 
     > [!CAUTION]
-    > Ustaw opcję Bezpieczne wyjście na true, aby zapobiec rejestrowaniu wartości tajnej w postaci zwykłego tekstu.  Wszelkie dalsze działania, które zużywają tę wartość powinny mieć ich bezpieczne wejście opcja ustawiona na true.
+    > Ustaw opcję bezpieczne wyjście na wartość true, aby uniemożliwić Logowanie wartości klucza tajnego w postaci zwykłego tekstu.  Wszelkie dalsze działania, które zużywają tę wartość, powinny mieć ustawioną opcję bezpiecznego wprowadzania wartość true.
 
-5. Aby użyć wartości w innym działaniu, użyj następującego wyrażenia ** @activitykodu ("Web1").output.value**.
+5. Aby użyć wartości w innym działaniu, użyj następującego wyrażenia ** @activitykodu ("sieci Web 1"). Output. Value**.
 
     ![Wyrażenie kodu](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się, jak używać usługi Azure Key Vault do przechowywania poświadczeń dla magazynów danych i obliczeń, zobacz [Poświadczenia magazynu w usłudze Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
+Aby dowiedzieć się, jak używać Azure Key Vault do przechowywania poświadczeń dla magazynów danych i obliczeń, zobacz temat [przechowywanie poświadczeń w programie Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)

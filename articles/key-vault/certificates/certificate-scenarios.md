@@ -1,6 +1,6 @@
 ---
-title: Wprowadzenie do certyfikatów usługi Key Vault
-description: W poniższych scenariuszach opisano kilka podstawowych zastosowań usługi zarządzania certyfikatami usługi Key Vault, w tym dodatkowe kroki wymagane do utworzenia pierwszego certyfikatu w magazynie kluczy.
+title: Rozpoczynanie pracy z certyfikatami usługi Key Vault
+description: Poniższe scenariusze przedstawiają kilka podstawowych zastosowań usługi zarządzania certyfikatami Key Vault, w tym dodatkowe kroki wymagane do utworzenia pierwszego certyfikatu w magazynie kluczy.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -11,116 +11,116 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 5881314f0d3c62e7d6181ebd7bb27a5e0e87729a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431945"
 ---
-# <a name="get-started-with-key-vault-certificates"></a>Wprowadzenie do certyfikatów usługi Key Vault
-W poniższych scenariuszach opisano kilka podstawowych zastosowań usługi zarządzania certyfikatami usługi Key Vault, w tym dodatkowe kroki wymagane do utworzenia pierwszego certyfikatu w magazynie kluczy.
+# <a name="get-started-with-key-vault-certificates"></a>Rozpoczynanie pracy z certyfikatami usługi Key Vault
+Poniższe scenariusze przedstawiają kilka podstawowych zastosowań usługi zarządzania certyfikatami Key Vault, w tym dodatkowe kroki wymagane do utworzenia pierwszego certyfikatu w magazynie kluczy.
 
-Przedstawiono następujące elementy:
-- Tworzenie pierwszego certyfikatu usługi Key Vault
-- Tworzenie certyfikatu z urzędem certyfikacji, który współpracuje z magazynem kluczy
-- Tworzenie certyfikatu z urzędem certyfikacji, który nie jest partnerem usługi Key Vault
+Przedstawiono następujące kwestie:
+- Tworzenie pierwszego certyfikatu Key Vault
+- Tworzenie certyfikatu z urzędem certyfikacji, który jest partnerem z Key Vault
+- Tworzenie certyfikatu z urzędem certyfikacji, który nie jest partnerem z Key Vault
 - Importowanie certyfikatu
 
 ## <a name="certificates-are-complex-objects"></a>Certyfikaty są obiektami złożonymi
-Certyfikaty składają się z trzech powiązanych ze sobą zasobów połączonych ze sobą jako certyfikat usługi Key Vault; metadanych certyfikatu, klucza i klucza tajnego.
+Certyfikaty składają się z trzech powiązanych zasobów połączonych razem jako certyfikat Key Vault. metadane certyfikatu, klucz i wpis tajny.
 
 
 ![Certyfikaty są złożone](../media/azure-key-vault.png)
 
 
-## <a name="creating-your-first-key-vault-certificate"></a>Tworzenie pierwszego certyfikatu usługi Key Vault  
- Aby można było utworzyć certyfikat w magazynie kluczy (KV), kroki 1 i 2 muszą zostać pomyślnie wykonane, a magazyn kluczy musi istnieć dla tego użytkownika/ organizacji.  
+## <a name="creating-your-first-key-vault-certificate"></a>Tworzenie pierwszego certyfikatu Key Vault  
+ Aby można było utworzyć certyfikat w Key Vault (KV), należy pomyślnie wykonać kroki wymagane przez 1 i 2, a dla tego użytkownika/organizacji musi istnieć Magazyn kluczy.  
 
-**Krok 1** - Dostawcy urzędu certyfikacji (CA)  
--   Na pokładzie jako administrator IT, administrator infrastruktury kluczy publicznych lub osoba zarządzająca kontami w kasach, dla danej firmy (np. Contoso) jest warunkiem wstępnym używania certyfikatów usługi Key Vault.  
-    Następujące kluczowe dostawcy usług kryjucego kluczy są następującymi dostawcami współpracującymi z usługą Key Vault:  
-    -   DigiCert - Key Vault oferuje certyfikaty OV TLS/SSL z DigiCert.  
-    -   GlobalSign - Key Vault oferuje certyfikaty OV TLS/SSL z GlobalSign.  
+**Krok 1** — dostawcy urzędu certyfikacji  
+-   Dołączanie do programu jako administrator IT, administrator infrastruktury PKI lub każda osoba zarządzająca kontami z urzędami certyfikacji dla danej firmy (np. Firma Contoso) jest warunkiem wstępnym korzystania z certyfikatów Key Vault.  
+    Następujące urzędy certyfikacji są bieżącymi dostawcami partnerskimi z Key Vault:  
+    -   DigiCert — Key Vault oferuje OV protokołu TLS/SSL z DigiCert.  
+    -   GlobalSign — Key Vault oferuje OV protokołu TLS/SSL z GlobalSign.  
 
-**Krok 2** — administrator konta dla dostawcy urzędu certyfikacji tworzy poświadczenia, które mają być używane przez magazyn klucza do rejestrowania, odnawiania i używania certyfikatów TLS/SSL za pośrednictwem usługi Key Vault.
+**Krok 2** . Administrator konta dla dostawcy urzędu certyfikacji tworzy poświadczenia, które mają być używane przez Key Vault do rejestrowania, odnawiania i używania certyfikatów TLS/SSL za pośrednictwem Key Vault.
 
-**Krok 3** — administrator contoso wraz z pracownikiem firmy Contoso (użytkownikm usługi Key Vault), który jest właścicielem certyfikatów, w zależności od urzędu certyfikacji, mogą uzyskać certyfikat od administratora lub bezpośrednio z konta w ucho.  
+**Krok 3** — administrator firmy Contoso, a także pracownik firmy contoso (Key Vault użytkownika), który jest właścicielem certyfikatów, w zależności od urzędu certyfikacji, może uzyskać certyfikat od administratora lub bezpośrednio z konta z urzędem certyfikacji.  
 
-- Rozpocznij operację dodawania poświadczeń do magazynu kluczy, ustawiając zasób [wystawcy certyfikatu.](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) Wystawca certyfikatu jest jednostką reprezentowaną w usłudze Azure Key Vault (KV) jako zasób CertificateIssuer. Służy do dostarczania informacji o źródle certyfikatu KV; nazwa wystawcy, dostawca, poświadczenia i inne szczegóły administracyjne.
+- Rozpocznij operację dodawania poświadczeń do magazynu kluczy przez ustawienie zasobu [wystawcy certyfikatu](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) . Wystawca certyfikatu jest jednostką reprezentowaną w Azure Key Vault (KV) jako zasób CertificateIssuer. Służy do przekazywania informacji o źródle certyfikatu KV; Nazwa wystawcy, dostawca, poświadczenia i inne szczegóły administracyjne.
   - Np. MyDigiCertIssuer  
     -   Dostawca  
-    -   Poświadczenia — poświadczenia konta urzędu certyfikacji. Każdy urząd certyfikacji ma swoje własne dane.  
+    -   Poświadczenia — poświadczenia konta urzędu certyfikacji. Każdy urząd certyfikacji ma własne określone dane.  
 
-    Aby uzyskać więcej informacji na temat tworzenia kont u dostawców urzędu certyfikacji, zobacz powiązany wpis w [blogu Usługi Key Vault](https://aka.ms/kvcertsblog).  
+    Aby uzyskać więcej informacji na temat tworzenia kont z dostawcami urzędów certyfikacji, zobacz pokrewny wpis w [blogu Key Vault](https://aka.ms/kvcertsblog).  
 
-**Krok 3.1** - [Konfigurowanie kontaktów certyfikatów](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) dla powiadomień. Jest to kontakt dla użytkownika usługi Key Vault. Usługa Key Vault nie wymusza tego kroku.  
+**Krok 3,1** — Konfigurowanie [kontaktów certyfikatów](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) na potrzeby powiadomień. Jest to kontakt dla Key Vault użytkownika. Key Vault nie wymusza tego kroku.  
 
-Uwaga — ten proces, za pomocą kroku 3.1, jest operacją jednorazową.  
+Uwaga — Ten proces, przez krok 3,1, jest operacją jednorazowej.  
 
-## <a name="creating-a-certificate-with-a-ca-partnered-with-key-vault"></a>Tworzenie certyfikatu z urzędem certyfikacji współpracującym z magazynem kluczy
+## <a name="creating-a-certificate-with-a-ca-partnered-with-key-vault"></a>Tworzenie certyfikatu z urzędem certyfikacji partner z Key Vault
 
-![Tworzenie certyfikatu za pomocą urzędu certyfikacji partnerskiego usługi Key Vault](../media/certificate-authority-2.png)
+![Tworzenie certyfikatu za pomocą Key Vault partnerskiego urzędu certyfikacji](../media/certificate-authority-2.png)
 
-**Krok 4** - Poniższe opisy odpowiadają zielonym ponumerowanym stopniom na poprzednim diagramie.  
-  (1) - Na powyższym diagramie aplikacja tworzy certyfikat, który wewnętrznie zaczyna się od utworzenia klucza w magazynie kluczy.  
-  (2) — magazyn kluczy wysyła żądanie certyfikatu TLS/SSL do urzędu certyfikacji.  
-  (3) — twoje sondy aplikacji, w pętli i procesu oczekiwania, dla magazynu kluczy do ukończenia certyfikatu. Tworzenie certyfikatu kończy się, gdy usługa Key Vault otrzyma odpowiedź od urzędu certyfikacji z certyfikatem X.509.  
-  (4) — urząd certyfikacji odpowiada na żądanie certyfikatu TLS/SSL usługi Key Vault certyfikatem X509 TLS/SSL.  
-  (5) — Tworzenie nowego certyfikatu kończy się połączeniem certyfikatu X509 dla urzędu certyfikacji.  
+**Krok 4** . Poniższe opisy odnoszą się do zielonych numerowanych kroków na powyższym diagramie.  
+  (1) — na powyższym diagramie aplikacja tworzy certyfikat, który wewnętrznie zaczyna od utworzenia klucza w magazynie kluczy.  
+  (2) — Key Vault wysyła żądanie certyfikatu TLS/SSL do urzędu certyfikacji.  
+  (3) — Twoja aplikacja sonduje, w pętli i w procesie oczekiwania, do Key Vault do ukończenia certyfikatu. Tworzenie certyfikatu kończy się, gdy usługa Key Vault otrzyma odpowiedź od urzędu certyfikacji z certyfikatem X.509.  
+  (4) — urząd certyfikacji odpowiada na żądanie certyfikatu TLS/SSL Key Vault przy użyciu certyfikatu x509 TLS/SSL.  
+  (5) — nowe utworzenie certyfikatu kończy się na połączeniu z połączeniem certyfikatu x509 urzędu certyfikacji.  
 
-  Użytkownik usługi Key Vault — tworzy certyfikat, określając zasadę
+  Key Vault User — tworzy certyfikat przez określenie zasad
 
-  -   Powtórz w razie potrzeby  
+  -   Powtórz w razie konieczności  
   -   Ograniczenia zasad  
-      -   Właściwości X509  
+      -   Właściwości x509  
       -   Kluczowe właściwości  
-      -   Odwołanie do dostawcy - > ex. MyDigiCertIssure  
-      -   Informacje o odnowieniu - > ex. 90 dni przed wygaśnięciem  
+      -   Odwołanie dostawcy — > np. MyDigiCertIssure  
+      -   Informacje o odnowieniu — > np. 90 dni przed wygaśnięciem  
 
-  - Proces tworzenia certyfikatu jest zwykle procesem asynchronizacyjnym i obejmuje sondowanie magazynu kluczy dla stanu operacji tworzenia certyfikatu.  
-[Uzyskaj operację certyfikatu](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
-      -   Status: ukończony, nie powiódł się z informacją o błędzie lub anulowany  
-      -   Ze względu na opóźnienie do utworzenia można zainicjować operację anulowania. Anulowanie może, ale nie musi być skuteczne.  
+  - Proces tworzenia certyfikatu jest zwykle procesem asynchronicznym i obejmuje sondowanie magazynu kluczy w celu utworzenia operacji tworzenia certyfikatu.  
+[Pobierz operację certyfikatu](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
+      -   Stan: ukończono, Niepowodzenie i informacje o błędzie lub, anulowano  
+      -   Ze względu na opóźnienie do utworzenia można zainicjować operację anulowania. Anulowanie może być nieskuteczne.  
 
 ## <a name="import-a-certificate"></a>Importowanie certyfikatu  
- Alternatywnie – certyfikat można zaimportować do usługi Key Vault — PFX lub PEM.  
+ Alternatywnie — można zaimportować certyfikat do Key Vault — PFX lub PEM.  
 
- Certyfikat importu — wymaga, aby PEM lub PFX były na dysku i miały klucz prywatny. 
--   Należy określić: nazwę przechowalni i nazwę certyfikatu (zasada jest opcjonalna)
+ Importuj certyfikat — wymaga, aby PEM lub PFX znajdować się na dysku i mieć klucz prywatny. 
+-   Należy określić: nazwę magazynu i nazwę certyfikatu (zasady są opcjonalne)
 
--   Pliki PEM / PFX zawierają atrybuty, które KV może przeanalizować i użyć do wypełniania zasad certyfikatów. Jeśli zasady certyfikatów są już określone, KV spróbuje dopasować dane z pliku PFX / PEM.  
+-   Pliki PEM/PFX zawierają atrybuty, które mogą być przeanalizowane i używane do wypełniania zasad certyfikatów. Jeśli zasady certyfikatów są już określone, KV spróbuje dopasować dane z pliku PFX/PEM.  
 
--   Po zakończeniu importu kolejne operacje będą używać nowych zasad (nowych wersji).  
+-   Po zakończeniu importowania kolejne operacje będą korzystać z nowych zasad (nowych wersji).  
 
--   Jeśli nie ma żadnych dalszych operacji, pierwszą rzeczą, jaką robi Usługa Key Vault, jest wysłanie powiadomienia o wygaśnięciu. 
+-   Jeśli nie ma żadnych dalszych operacji, w pierwszej kolejności Key Vault jest wysyłana informacja o wygaśnięciu. 
 
--   Ponadto użytkownik może edytować zasady, która działa w momencie importowania, ale zawiera wartości domyślne, w których nie określono żadnych informacji podczas importowania. Np. brak informacji o emitentze  
+-   Ponadto użytkownik może edytować zasady, które są funkcjonalne w czasie importowania, ale zawierają wartości domyślne, gdy nie zostały określone żadne informacje podczas importowania. Np. Brak informacji o wystawcy  
 
-### <a name="formats-of-import-we-support"></a>Obsługiwane przez nas formaty importu
-Obsługujemy następujący typ formatu pliku Importuj dla PEM. Pojedynczy certyfikat zakodowany pem wraz z zakodowanym, niezaszyfrowanym kluczem PKCS#8, który ma
+### <a name="formats-of-import-we-support"></a>Obsługiwane formaty importowania
+Obsługujemy następujący typ importu dla formatu pliku PEM. Jeden certyfikat szyfrowany przez PEM wraz z zakodowanym niezaszyfrowanym kluczem PKCS # 8, który ma następujące
 
------BEGIN CERTIFICATE----- -----END CERTIFICATE-----
+-----ROZPOCZNIJ CERTYFIKAT----------CERTYFIKAT KOŃCOWY-----
 
------POCZYNAJ KLUCZ PRYWATNY----- -----NAKAZ KLUCZ PRYWATNY-----
+-----ROZPOCZNIJ KLUCZ PRYWATNY----------KOŃCOWYM KLUCZEM PRYWATNYM-----
 
-Przy scalaniu certyfikatów obsługujemy 2 formaty oparte na PEM. Można scalić pojedynczy certyfikat zakodowany pkcs#8 lub zakodowany plik P7B zakodowany base64. -----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
+W przypadku scalania certyfikatów obsługiwane są 2 formaty oparte na PEM. Można scalić pojedynczy certyfikat zakodowany PKCS # 8 lub plik P7B szyfrowany algorytmem Base64. -----ROZPOCZNIJ CERTYFIKAT----------CERTYFIKAT KOŃCOWY-----
 
 Obecnie nie obsługujemy kluczy EC w formacie PEM.
 
-## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Tworzenie certyfikatu z urzędem certyfikacji, który nie jest partnerem usługi Key Vault  
- Ta metoda umożliwia pracę z innymi urzędami certyfikacji niż dostawcy współpracujący z usługą Key Vault, co oznacza, że organizacja może pracować z wybranym urzędem certyfikacji.  
+## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Tworzenie certyfikatu z urzędem certyfikacji niepartnerskim Key Vault  
+ Ta metoda umożliwia pracę z innymi urzędami certyfikacji niż dostawcami partnerskimi Key Vault, co oznacza, że organizacja może pracować z wybranym urzędem certyfikacji.  
 
-![Tworzenie certyfikatu z własnym urzędem certyfikacji](../media/certificate-authority-1.png)  
+![Tworzenie certyfikatu przy użyciu własnego urzędu certyfikacji](../media/certificate-authority-1.png)  
 
- Poniższe opisy kroków odpowiadają zielonymi literami kroków na poprzednim diagramie.  
+ Poniższe opisy kroków odpowiadają zielonym listom kroków z poprzedniego diagramu.  
 
-  (1) - Na powyższym diagramie aplikacja tworzy certyfikat, który wewnętrznie zaczyna się od utworzenia klucza w magazynie kluczy.  
+  (1) — na powyższym diagramie aplikacja tworzy certyfikat, który wewnętrznie zaczyna od utworzenia klucza w magazynie kluczy.  
 
-  (2) — Usługa Key Vault zwraca do aplikacji żądanie podpisywania certyfikatów (CSR).  
+  (2) — Key Vault zwraca do aplikacji żądanie podpisania certyfikatu (CSR).  
 
-  (3) - Aplikacja przekazuje CSR do wybranego urzędu certyfikacji.  
+  (3) — aplikacja przekazuje CSR do wybranego urzędu certyfikacji.  
 
-  (4) — wybrany urząd certyfikacji odpowiada certyfikatem X509.  
+  (4) — wybrany urząd certyfikacji odpowiada za pomocą certyfikatu x509.  
 
-  (5) — aplikacja kończy tworzenie nowego certyfikatu połączeniem certyfikatu X509 z urzędu certyfikacji.
+  (5) — Twoja aplikacja kończy Tworzenie nowego certyfikatu przy użyciu fuzji certyfikatu x509 z urzędu certyfikacji.
 

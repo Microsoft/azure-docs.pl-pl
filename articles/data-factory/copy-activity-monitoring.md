@@ -1,6 +1,6 @@
 ---
 title: Monitorowanie działania kopiowania
-description: Dowiedz się, jak monitorować wykonywanie działań kopiowania w usłudze Azure Data Factory.
+description: Dowiedz się więcej na temat monitorowania wykonywania działania kopiowania w Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,68 +12,68 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: jingwang
 ms.openlocfilehash: 47824095e892ca3c919d2d871feb612758ab2308
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417848"
 ---
 # <a name="monitor-copy-activity"></a>Monitorowanie działania kopiowania
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-W tym artykule opisano sposób monitorowania wykonywania działania kopiowania w usłudze Azure Data Factory. Opiera się na [omówienie działania kopiowania](copy-activity-overview.md) artykuł, który przedstawia ogólny przegląd działania kopiowania.
+W tym artykule opisano sposób monitorowania wykonywania działania kopiowania w Azure Data Factory. Jest ona oparta na [przeglądzie działania kopiowania](copy-activity-overview.md) , która przedstawia ogólne omówienie działania kopiowania.
 
 ## <a name="monitor-visually"></a>Monitorowanie wizualne
 
-Po utworzeniu i opublikowaniu potoku w usłudze Azure Data Factory można skojarzyć go z wyzwalaczem lub ręcznie rozpocząć uruchamianie ad hoc. Można monitorować wszystkie uruchomień potoku natywnie w środowisku użytkownika usługi Azure Data Factory. Dowiedz się więcej o monitorowaniu usługi Azure Data Factory w ujęciu ogólnym, [monitoruj wizualnie usługę Azure Data Factory.](monitor-visually.md)
+Po utworzeniu i opublikowaniu potoku w Azure Data Factory można skojarzyć go z wyzwalaczem lub ręcznie uruchomić przebieg ad hoc. Wszystkie uruchomienia potoków można monitorować natywnie w środowisku użytkownika Azure Data Factory. Poznaj ogólne informacje o monitorowaniu Azure Data Factory na podstawie [wizualnie monitorowanych Azure Data Factory](monitor-visually.md).
 
-Aby monitorować działanie Kopiowanie, przejdź do fabryki danych **Author & Monitor interfejsu** użytkownika. Na karcie **Monitor** zobaczysz listę uruchomień potoku, kliknij łącze **nazwa potoku,** aby uzyskać dostęp do listy działań uruchamianych w potoku.
+Aby monitorować przebieg działania kopiowania, przejdź do interfejsu użytkownika narzędzia Monitor fabryki danych **&** . Na karcie **monitor** zostanie wyświetlona lista uruchomień potoku, kliknij link **Nazwa potoku** , aby uzyskać dostęp do listy uruchomień działania w ramach uruchomienia potoku.
 
-![Monitorowanie przebiegu aktywności kopiowania](./media/copy-activity-overview/monitor-pipeline-run.png)
+![Monitoruj przebiegi działania kopiowania](./media/copy-activity-overview/monitor-pipeline-run.png)
 
-Na tym poziomie można zobaczyć łącza do kopiowania danych wejściowych, danych wyjściowych i błędów (jeśli działanie kopiowania nie powiedzie się), a także statystyki, takie jak czas trwania/stan. Kliknięcie przycisku **Szczegóły** (okulary) obok nazwy działania kopiowania daje głębokie szczegóły dotyczące wykonywania działania kopiowania. 
+Na tym poziomie można zobaczyć linki do danych wejściowych, danych wyjściowych i błędów działania kopiowania (w przypadku niepowodzenia uruchomienia działania kopiowania), a także statystyki, takie jak czas trwania/stan. Kliknięcie przycisku **szczegóły** (okularów) obok nazwy działania kopiowania spowoduje udostępnienie szczegółowych informacji dotyczących wykonywania działania kopiowania. 
 
-![Monitorowanie przebiegu aktywności kopiowania](./media/copy-activity-overview/monitor-copy-activity-run.png)
+![Monitoruj przebiegi działania kopiowania](./media/copy-activity-overview/monitor-copy-activity-run.png)
 
-W tym graficznym widoku monitorowania usługa Azure Data Factory przedstawia informacje o wykonaniu działania kopiowania, w tym wolumin odczytu/zapisu danych, liczbę plików/wierszy danych skopiowanych ze źródła do ujścia, przepływność, konfiguracje zastosowane dla scenariusza kopiowania, kroki działania kopiowania przechodzi z odpowiednimi czasami trwania i szczegółami i inne. Zapoznaj się z [tą tabelą](#monitor-programmatically) na każdej możliwej metryki i jej szczegółowy opis. 
+W tym widoku graficznym monitorowania Azure Data Factory przedstawia informacje o wykonywaniu działania kopiowania, w tym woluminy do odczytu/zapisu danych, liczba plików/wierszy danych skopiowanych ze źródła do ujścia, przepływność, konfiguracje zastosowane do scenariusza kopiowania, kroki kopiowania odbywają się za pomocą odpowiednich czasów trwania i szczegółów. Zapoznaj się z [tą tabelą](#monitor-programmatically) dla każdej możliwej metryki i jej szczegółowego opisu. 
 
-W niektórych scenariuszach po uruchomieniu działania kopiowania w fabryce danych zobaczysz **"Porady dotyczące dostrajania wydajności"** u góry widoku monitorowania aktywności kopiowania, jak pokazano w przykładzie. Porady informują o wąskim gardle zidentyfikowanym przez podajnikU ADF dla określonego uruchomienia kopii, wraz z sugestią, co należy zmienić, aby zwiększyć przepływność kopiowania. Dowiedz się więcej o [poradach dotyczących automatycznego dostrajania wydajności](copy-activity-performance-troubleshooting.md#performance-tuning-tips).
+W niektórych scenariuszach, gdy uruchomisz działanie kopiowania w Data Factory, zobaczysz **"porady dotyczące dostrajania wydajności"** w górnej części widoku monitorowanie działania kopiowania, jak pokazano w przykładzie. Porady wskazują na wąskie gardła identyfikowane przez ADF dla określonej kopii, a także sugestię dotyczącą tego, co należy zmienić, aby zwiększyć przepływność kopiowania. Dowiedz się więcej na temat [porad dotyczących dostrajania automatycznego](copy-activity-performance-troubleshooting.md#performance-tuning-tips)zwiększania wydajności.
 
-Szczegóły **wykonania** na dole i czas trwania opisuje kluczowe kroki działania kopiowania przechodzi, co jest szczególnie przydatne do rozwiązywania problemów z wydajnością kopiowania. Wąskie gardło przebiegu kopii jest tym, który ma najdłuższy czas trwania. Zobacz [Rozwiązywanie problemów z wydajnością działania kopiowania,](copy-activity-performance-troubleshooting.md) co reprezentuje każdy etap, oraz szczegółowe wskazówki dotyczące rozwiązywania problemów.
+**Szczegóły i czas trwania ostatniego wykonania** opisują kluczowe kroki działania kopiowania, które jest szczególnie przydatne w przypadku rozwiązywania problemów z wydajnością kopiowania. Wąskie gardła przebiegu kopii są takie same, jak najdłuższy czas trwania. Zapoznaj się z informacjami o [rozwiązywaniu problemów z wydajnością operacji kopiowania](copy-activity-performance-troubleshooting.md) na potrzeby poszczególnych etapów i szczegółowe wskazówki dotyczące rozwiązywania problemów.
 
-**Przykład: Kopiowanie z amazon S3 do usługi Azure Data Lake Storage Gen2**
+**Przykład: Kopiuj z usługi Amazon S3 do Azure Data Lake Storage Gen2**
 
-![Szczegóły uruchomienia działania kopiowania monitoruj](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
+![Monitoruj szczegóły uruchomienia działania kopiowania](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
 
 ## <a name="monitor-programmatically"></a>Monitoruj programowo
 
-Szczegóły wykonania działania kopiowania i właściwości wydajności są również zwracane w sekcji **Wynik** > uruchomienia kopiowania**Output,** który jest używany do renderowania widoku monitorowania interfejsu użytkownika. Poniżej znajduje się pełna lista właściwości, które mogą być zwracane. Zobaczysz tylko właściwości, które mają zastosowanie do scenariusza kopiowania. Aby uzyskać informacje dotyczące sposobu monitorowania działań działania w ujęciu programowym w ogóle, zobacz [Programowo monitorować fabrykę danych platformy Azure](monitor-programmatically.md).
+Szczegóły wykonania działania kopiowania i charakterystyki wydajności są również zwracane w sekcji > **danych wyjściowych** działania **Uruchom działanie kopiowania**, która jest używana do renderowania widoku monitorowania interfejsu użytkownika. Poniżej znajduje się kompletna lista właściwości, które mogą zostać zwrócone. Zobaczysz tylko właściwości, które mają zastosowanie do Twojego scenariusza kopiowania. Aby uzyskać informacje o tym, jak ogólnie monitorować uruchomienia działań, zobacz programowe [monitorowanie fabryki danych Azure](monitor-programmatically.md).
 
-| Nazwa właściwości  | Opis | Jednostka w wyjściu |
+| Nazwa właściwości  | Opis | Jednostka w danych wyjściowych |
 |:--- |:--- |:--- |
-| Dataread | Rzeczywista ilość danych odczytywanych ze źródła. | Wartość Int64 w bajtach |
-| dataWritten (daneWritten) | Rzeczywiste instalowanie danych zapisanych/zatwierdzonych do ujścia. Rozmiar może się `dataRead` różnić od rozmiaru, ponieważ odnosi się do sposobu przechowywania danych przez każdy magazyn danych. | Wartość Int64 w bajtach |
-| plikiCzytaj | Liczba plików odczytywanych ze źródła opartego na plikach. | Wartość Int64 (bez jednostki) |
-| filesWritten (plikSpis) | Liczba plików zapisanych/zatwierdzonych do ujścia opartego na plikach. | Wartość Int64 (bez jednostki) |
-| źródłoPeakConnections | Szczytowa liczba równoczesnych połączeń nawiązanych z magazynem danych źródłowych podczas wykonywania działania Kopiowanie. | Wartość Int64 (bez jednostki) |
-| sinkPeakConnections (zlew) | Szczytowa liczba równoczesnych połączeń nawiązanych do magazynu danych ujścia podczas wykonywania działania Kopiowanie. | Wartość Int64 (bez jednostki) |
-| wierszeCzyczytaj | Liczba wierszy odczytanych ze źródła (nie dotyczy kopii binarnej). | Wartość Int64 (bez jednostki) |
-| Rowscopied | Liczba wierszy skopiowanych do ujścia (nie dotyczy kopii binarnej). | Wartość Int64 (bez jednostki) |
-| rzędySkowane | Liczba niezgodnych wierszy, które zostały pominięte. Niezgodne wiersze można pominąć, ustawiając `enableSkipIncompatibleRow` wartość true. | Wartość Int64 (bez jednostki) |
-| kopiowanieDuration | Czas trwania uruchomienia kopii. | Wartość Int32, w sekundach |
-| danych | Szybkość przesyłania danych. | Liczba zmiennoprzecinkowy w KBps |
-| źródłoPeakConnections | Szczytowa liczba równoczesnych połączeń nawiązanych z magazynem danych źródłowych podczas wykonywania działania Kopiowanie. | Wartość Int32 (bez jednostki) |
-| sinkPeakConnections (zlew)| Szczytowa liczba równoczesnych połączeń nawiązanych do magazynu danych ujścia podczas wykonywania działania Kopiowanie.| Wartość Int32 (bez jednostki) |
-| sqlDwPolyBase | Czy PolyBase jest używany, gdy dane są kopiowane do magazynu danych SQL. | Wartość logiczna |
-| redshiftUnload | Czy UNLOAD jest używany, gdy dane są kopiowane z Redshift. | Wartość logiczna |
-| hdfsDistcp | Czy DistCp jest używany, gdy dane są kopiowane z hdfs. | Wartość logiczna |
-| effectiveIntegrationRuntime | Środowisko wykonawcze integracji (IR) lub środowiska wykonawcze używane `<IR name> (<region if it's Azure IR>)`do zasilania uruchomienia działania w formacie . | Tekst (ciąg znaków) |
-| używanejintegracji danychjednostki | Skuteczne jednostki integracji danych podczas kopiowania. | Wartość Int32 |
-| używaneParallelCopies | Efektywne równolegleCopies podczas kopiowania. | Wartość Int32 |
-| redirectRowPath | Ścieżka do dziennika pominiętych niekompatybilnych wierszy w `redirectIncompatibleRowSettings` magazynie obiektów blob skonfigurowanych we właściwości. Patrz [Odporność na uszkodzenia](copy-activity-overview.md#fault-tolerance). | Tekst (ciąg znaków) |
-| executionDetails | Więcej szczegółów na temat etapów, przez które przechodzi działanie Kopiowanie, oraz odpowiednich kroków, czasów trwania, konfiguracji itd. Nie zaleca się analizować tej sekcji, ponieważ może się to zmienić. Aby lepiej zrozumieć, w jaki sposób pomaga zrozumieć i rozwiązywać problemy z wydajnością kopiowania, zapoznaj się [z sekcją Monitoruj wizualnie.](#monitor-visually) | Tablica |
-| perfRekomematację | Kopiuj wskazówki dotyczące dostrajania wydajności. Szczegółowe informacje można znaleźć w [poradach dotyczących dostrajania wydajności.](copy-activity-performance-troubleshooting.md#performance-tuning-tips) | Tablica |
+| Odczyt DataReady | Rzeczywista ilość danych odczytywanych ze źródła. | Wartość Int64, w bajtach |
+| zapisywana | Rzeczywista instalacja danych zapisywana/zatwierdzona do ujścia. Rozmiar może różnić się od `dataRead` rozmiaru, ponieważ odnosi się do tego, jak każdy magazyn danych przechowuje dane. | Wartość Int64, w bajtach |
+| filesRead | Liczba plików odczytywanych ze źródła opartego na plikach. | Wartość Int64 (brak jednostki) |
+| filesWritten | Liczba plików, które zostały zapełnione/przekazane do ujścia opartego na plikach. | Wartość Int64 (brak jednostki) |
+| sourcePeakConnections | Szczytowa liczba jednoczesnych połączeń ustanowionych w źródłowym magazynie danych podczas uruchomienia działania kopiowania. | Wartość Int64 (brak jednostki) |
+| sinkPeakConnections | Szczytowa liczba jednoczesnych połączeń ustanowionych do magazynu danych ujścia podczas uruchomienia działania kopiowania. | Wartość Int64 (brak jednostki) |
+| rowsRead | Liczba wierszy odczytanych ze źródła (nie dotyczy kopiowania binarnego). | Wartość Int64 (brak jednostki) |
+| rowsCopied | Liczba wierszy skopiowanych do ujścia (nie dotyczy kopiowania binarnego). | Wartość Int64 (brak jednostki) |
+| rowsSkipped | Liczba niezgodnych wierszy, które zostały pominięte. Aby można było pominąć niezgodne wiersze, można ustawić `enableSkipIncompatibleRow` wartość true. | Wartość Int64 (brak jednostki) |
+| copyDuration | Czas trwania kopiowania. | Wartość Int32 (w sekundach) |
+| danych | Szybkość transferu danych. | Liczba zmiennoprzecinkowa w KB/s |
+| sourcePeakConnections | Szczytowa liczba jednoczesnych połączeń ustanowionych w źródłowym magazynie danych podczas uruchomienia działania kopiowania. | Wartość Int32 (brak jednostki) |
+| sinkPeakConnections| Szczytowa liczba jednoczesnych połączeń ustanowionych do magazynu danych ujścia podczas uruchomienia działania kopiowania.| Wartość Int32 (brak jednostki) |
+| sqlDwPolyBase | Określa, czy baza danych jest używana, gdy dane są kopiowane do SQL Data Warehouse. | Boolean |
+| redshiftUnload | Czy ZWALNIAnie jest używane, gdy dane są kopiowane z RedShift. | Boolean |
+| hdfsDistcp | Określa, czy pomocą distcp jest używany, gdy dane są kopiowane z systemu plików HDFS. | Boolean |
+| effectiveIntegrationRuntime | Środowisko Integration Runtime (IR) lub środowisko uruchomieniowe służące do włączania uruchomienia działania w formacie `<IR name> (<region if it's Azure IR>)`. | Tekst (ciąg) |
+| usedDataIntegrationUnits | Efektywna jednostka integracji danych podczas kopiowania. | Wartość Int32 |
+| usedParallelCopies | Efektywna parallelCopies podczas kopiowania. | Wartość Int32 |
+| redirectRowPath | Ścieżka do dziennika pominiętych niezgodnych wierszy w magazynie obiektów BLOB skonfigurowanym we `redirectIncompatibleRowSettings` właściwości. Zobacz [odporność na uszkodzenia](copy-activity-overview.md#fault-tolerance). | Tekst (ciąg) |
+| executionDetails | Więcej szczegółów na temat etapów działania kopiowania oraz odpowiednich czynności, czasów trwania, konfiguracji itd. Nie zalecamy przeanalizowania tej sekcji, ponieważ może ona ulec zmianie. Aby lepiej zrozumieć, jak ułatwia zrozumienie i rozwiązywanie problemów z wydajnością kopiowania, zapoznaj się z sekcją [Monitoruj wizualizację](#monitor-visually) . | Tablica |
+| perfRecommendation | Kopiuj wskazówki dotyczące dostrajania wydajności. Aby uzyskać szczegółowe informacje, zobacz [porady dotyczące dostrajania wydajności](copy-activity-performance-troubleshooting.md#performance-tuning-tips) . | Tablica |
 
 **Przykład:**
 
@@ -151,8 +151,8 @@ Szczegóły wykonania działania kopiowania i właściwości wydajności są ró
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz inne artykuły dotyczące działania kopiowania:
+Zapoznaj się z innymi artykułami dotyczącymi działania kopiowania:
 
-\-[Omówienie działania kopiowania](copy-activity-overview.md)
+\-[Przegląd działania kopiowania](copy-activity-overview.md)
 
 \- [Wydajność działania kopiowania](copy-activity-performance.md)

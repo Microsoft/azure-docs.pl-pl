@@ -1,6 +1,6 @@
 ---
-title: Zasoby do tworzenia funkcji Synapse SQL
-description: Koncepcje rozwoju, decyzje projektowe, zalecenia i techniki kodowania dla Synapse SQL.
+title: Zasoby służące do opracowywania funkcji SQL Synapse
+description: Koncepcje dotyczące programowania, decyzje projektowe, zalecenia i techniki kodowania dla języka SQL Synapse.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -11,19 +11,19 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: ba6ceec3064c5c876ca899ab58881e23913b9701
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81429020"
 ---
-# <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Projektowania decyzji i technik kodowania funkcji Synapse SQL w usłudze Azure Synapse Analytics
-W tym artykule znajdziesz listę zasobów dla puli SQL i SQL na żądanie (wersja zapoznawcza) funkcje Synapse SQL. Zalecane artykuły są podzielone na dwie sekcje: Kluczowe decyzje projektowe oraz techniki programowania i kodowania.
+# <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Projektowanie decyzji i technik kodowania dla funkcji SQL Synapse w usłudze Azure Synapse Analytics
+W tym artykule znajdziesz listę zasobów dla puli SQL i funkcji SQL na żądanie (wersja zapoznawcza) usługi Synapse SQL. Zalecane artykuły są podzielone na dwie sekcje: najważniejsze decyzje projektowe i techniki programowania i kodowania.
 
-Celem tych artykułów jest pomoc w opracowaniu optymalnego podejścia technicznego dla składników SQL Synapse w ramach analizy Synapse Analytics.
+Celem tych artykułów jest ułatwienie opracowywania optymalnego podejścia technicznego dla składników SQL Synapse w programie Synapse Analytics.
 
-## <a name="key-design-decisions"></a>Kluczowe decyzje projektowe
-W poniższych artykułach podkreślono pojęcia i decyzje projektowe dotyczące rozwoju języka SQL Synapse:
+## <a name="key-design-decisions"></a>Najważniejsze decyzje projektowe
+Artykuły poniżej wyróżniają koncepcje i decyzje projektowe dotyczące programowania w programie SQL Synapse:
 
 |                                                          |   Pula SQL   | SQL na żądanie |
 | -----------------------------------------------------    | ---- | ---- |
@@ -37,12 +37,12 @@ W poniższych artykułach podkreślono pojęcia i decyzje projektowe dotyczące 
 | [Statystyki](develop-tables-statistics.md)            | Tak | Tak |
 | [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                                             | Tak | Nie |
 | [Tabele zewnętrzne](develop-tables-external-tables.md) | Tak | Tak |
-| [CETA](develop-tables-cetas.md)                     | Tak | Tak |
+| [CETAS](develop-tables-cetas.md)                     | Tak | Tak |
 
 
 ## <a name="recommendations"></a>Zalecenia
 
-Poniżej znajdziesz podstawowe artykuły, które podkreślają konkretne techniki kodowania, porady i zalecenia dotyczące rozwoju:
+Poniżej znajdziesz podstawowe artykuły, które podkreślają konkretne techniki kodowania, porady i zalecenia dotyczące programowania:
 
 |                                            | Pula SQL | SQL na żądanie |
 | ------------------------------------------ | ------------------ | ----------------------- |
@@ -56,5 +56,5 @@ Poniżej znajdziesz podstawowe artykuły, które podkreślają konkretne technik
 | [Przypisanie zmiennej](develop-variable-assignment.md) | Tak                | Tak                     |
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji referencyjnych, zobacz [instrukcje T-SQL puli SQL](../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Aby uzyskać więcej informacji, zobacz [instrukcje usługi SQL Pool T-SQL](../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 

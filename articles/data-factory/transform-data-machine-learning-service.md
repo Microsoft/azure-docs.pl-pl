@@ -1,6 +1,6 @@
 ---
-title: Wykonywanie potoków usługi Azure Machine Learning
-description: Dowiedz się, jak uruchomić potoki usługi Azure Machine Learning w potokach usługi Azure Data Factory.
+title: Wykonaj potoki Azure Machine Learning
+description: Dowiedz się, jak uruchamiać potoki Azure Machine Learning w potokach Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,19 +11,19 @@ author: djpmsft
 manager: anandsub
 ms.date: 10/10/2019
 ms.openlocfilehash: f033651eb7e52ba60cce9b74941a4ef0eb376d2b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81419004"
 ---
-# <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Wykonywanie potoków usługi Azure Machine Learning w fabryce danych platformy Azure
+# <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Wykonaj potoki Azure Machine Learning w Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Uruchom potoki usługi Azure Machine Learning jako krok w potokach usługi Azure Data Factory. Działanie Potok wykonywania uczenia maszynowego umożliwia przewidywanie partii scenariuszy, takich jak identyfikowanie możliwych domyślnych kredytów, określanie tonacji i analizowanie wzorców zachowania klientów.
+Uruchom potoki Azure Machine Learning jako krok w potokach Azure Data Factory. Działanie Machine Learning wykonywania potoku włącza scenariusze prognozowania partii, takie jak identyfikowanie możliwych wartości domyślnych pożyczek, Określanie tonacji oraz analizowanie wzorców zachowania klientów.
 
-Poniższy film zawiera sześciominutowe wprowadzenie i demonstrację tej funkcji.
+Poniższe funkcje wideo to sześć minut wprowadzenie i pokazanie tej funkcji.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/How-to-execute-Azure-Machine-Learning-service-pipelines-in-Azure-Data-Factory/player]
 
@@ -52,24 +52,24 @@ Poniższy film zawiera sześciominutowe wprowadzenie i demonstrację tej funkcji
 
 Właściwość | Opis | Dozwolone wartości | Wymagany
 -------- | ----------- | -------------- | --------
-name | Nazwa działania w potoku | Ciąg | Tak
-type | Typ działania to "AzureMLExecutePipeline" | Ciąg | Tak
-linkedServiceName | Usługa połączona z usługą Azure Machine Learning | Odwołanie do usługi połączonej | Tak
-mlPipelineId (ida) | Identyfikator opublikowanego potoku usługi Azure Machine Learning | Ciąg (lub wyrażenie z wynikiemTylią ciągu) | Tak
-nazwa eksperymentu | Uruchom nazwę eksperymentu historii przebiegu potoku usługi Machine Learning | Ciąg (lub wyrażenie z wynikiemTylią ciągu) | Nie
-mlPipelineParameters | Klucz, pary wartości mają być przekazywane do opublikowanego punktu końcowego potoku usługi Azure Machine Learning. Klucze muszą być zgodne z nazwami parametrów potoku zdefiniowanych w opublikowanym potoku usługi Machine Learning | Obiekt z parami wartości klucza (lub wyrażenie z wynikiemType obiektu) | Nie
-mlParentRunId | Identyfikator uruchomienia potoku nadrzędnego usługi Azure Machine Learning | Ciąg (lub wyrażenie z wynikiemTylią ciągu) | Nie
-continueOnStepFailure | Czy kontynuować wykonywanie innych kroków w potoku uczenia maszynowego, jeśli krok zakończy się niepowodzeniem | wartość logiczna | Nie
+name | Nazwa działania w potoku | String | Tak
+type | Typ działania to "AzureMLExecutePipeline" | String | Tak
+linkedServiceName | Połączona usługa do Azure Machine Learning | Odwołanie do połączonej usługi | Tak
+mlPipelineId | Identyfikator opublikowanego potoku Azure Machine Learning | Ciąg (lub wyrażenie z typem ResultType ciągu) | Tak
+eksperymentname | Nazwa eksperymentu uruchomienia dla Machine Learning uruchomienia potoku | Ciąg (lub wyrażenie z typem ResultType ciągu) | Nie
+mlPipelineParameters | Klucz, pary wartości do przesłania do opublikowanego punktu końcowego potoku Azure Machine Learning. Klucze muszą być zgodne z nazwami parametrów potoku zdefiniowanych w opublikowanym potoku Machine Learning | Obiekt z parami wartości klucza (lub wyrażeniem z obiektem ResultType) | Nie
+mlParentRunId | Identyfikator uruchomienia potoku Azure Machine Learning nadrzędnego | Ciąg (lub wyrażenie z typem ResultType ciągu) | Nie
+continueOnStepFailure | Czy kontynuować wykonywanie innych kroków w potoku Machine Learning uruchomienie w przypadku niepowodzenia kroku | wartość logiczna | Nie
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz następujące artykuły, które wyjaśniają, jak przekształcać dane w inny sposób:
+Zapoznaj się z następującymi artykułami, które wyjaśniają sposób przekształcania danych w inny sposób:
 
-* [Wykonywanie działania przepływ danych](control-flow-execute-data-flow-activity.md)
+* [Działanie wykonywania przepływu danych](control-flow-execute-data-flow-activity.md)
 * [Działanie U-SQL](transform-data-using-data-lake-analytics.md)
-* [Aktywność gałęzi](transform-data-using-hadoop-hive.md)
-* [Aktywność świń](transform-data-using-hadoop-pig.md)
-* [Działanie mapreduce](transform-data-using-hadoop-map-reduce.md)
-* [Aktywność w serwisie Hadoop Streaming](transform-data-using-hadoop-streaming.md)
-* [Aktywność iskierki](transform-data-using-spark.md)
+* [Działanie Hive](transform-data-using-hadoop-hive.md)
+* [Aktywność trzody chlewnej](transform-data-using-hadoop-pig.md)
+* [Działanie MapReduce](transform-data-using-hadoop-map-reduce.md)
+* [Działanie przesyłania strumieniowego Hadoop](transform-data-using-hadoop-streaming.md)
+* [Działanie platformy Spark](transform-data-using-spark.md)
 * [Niestandardowe działanie platformy .NET](transform-data-using-dotnet-custom-activity.md)
 * [Działanie procedury składowanej](transform-data-using-stored-procedure.md)

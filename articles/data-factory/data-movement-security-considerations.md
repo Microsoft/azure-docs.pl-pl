@@ -1,6 +1,6 @@
 ---
-title: Zagadnienia związane z zabezpieczeniami
-description: W tym artykule opisano podstawową infrastrukturę zabezpieczeń, której używają usługi przenoszenia danych w usłudze Azure Data Factory w celu zabezpieczenia danych.
+title: Zagadnienia dotyczące bezpieczeństwa
+description: Opisuje podstawową infrastrukturę zabezpieczeń, za pomocą której usługi przenoszenia danych w Azure Data Factory używać w celu zabezpieczania danych.
 services: data-factory
 ms.author: abnarain
 author: nabhishek
@@ -12,31 +12,31 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
 ms.openlocfilehash: bb3f22223bd64c06cfa4a5f6ffabe7b128dff1d5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416463"
 ---
-#  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Zagadnienia dotyczące zabezpieczeń dotyczące przenoszenia danych w usłudze Azure Data Factory
-> [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
+#  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Zagadnienia dotyczące zabezpieczeń dotyczące przenoszenia danych w Azure Data Factory
+> [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 >
 > * [Wersja 1](v1/data-factory-data-movement-security-considerations.md)
 > * [Bieżąca wersja](data-movement-security-considerations.md)
 
  [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-W tym artykule opisano podstawową infrastrukturę zabezpieczeń, której usługi przenoszenia danych w usłudze Azure Data Factory używają w celu zabezpieczenia danych. Zasoby do zarządzania fabryką danych są oparte na infrastrukturze zabezpieczeń platformy Azure i wykorzystują wszystkie możliwe środki bezpieczeństwa oferowane przez platformę Azure.
+W tym artykule opisano podstawową infrastrukturę zabezpieczeń, za pomocą której usługi przenoszenia danych w Azure Data Factory mogą pomóc w zabezpieczeniu danych. Zasoby zarządzania Data Factory są oparte na infrastrukturze zabezpieczeń platformy Azure i wykorzystują wszystkie możliwe środki bezpieczeństwa oferowane przez platformę Azure.
 
-W ramach rozwiązania fabryki danych jest tworzony co najmniej jeden [potok](concepts-pipelines-activities.md) danych. Potoki to logiczne grupy działań, które wspólnie wykonują zadanie. Te potoki znajdują się w regionie, w którym utworzono fabrykę danych. 
+W ramach rozwiązania fabryki danych jest tworzony co najmniej jeden [potok](concepts-pipelines-activities.md) danych. Potoki to logiczne grupy działań, które wspólnie wykonują zadanie. Te potoki znajdują się w regionie, w którym została utworzona Fabryka danych. 
 
-Mimo że usługa Data Factory jest dostępna tylko w kilku regionach, usługa przenoszenia danych jest [dostępna globalnie,](concepts-integration-runtime.md#integration-runtime-location) aby zapewnić zgodność danych, wydajność i zmniejszone koszty transferu danych wychodzących. 
+Mimo że Data Factory jest dostępna tylko w kilku regionach, Usługa przenoszenia danych jest [dostępna globalnie](concepts-integration-runtime.md#integration-runtime-location) w celu zapewnienia zgodności danych, wydajności i obniżenia kosztów ruchu wychodzącego w sieci. 
 
-Usługa Azure Data Factory nie przechowuje żadnych danych z wyjątkiem poświadczeń usługi połączonej dla magazynów danych w chmurze, które są szyfrowane przy użyciu certyfikatów. Za pomocą usługi Data Factory można tworzyć oparte na danych przepływy pracy w celu organizowania przepływu danych między [obsługiwanymi magazynami danych](copy-activity-overview.md#supported-data-stores-and-formats)i przetwarzania danych przy użyciu [usług obliczeniowych](compute-linked-services.md) w innych regionach lub w środowisku lokalnym. Można również monitorować przepływy pracy i zarządzać nimi przy użyciu zestawów SDK i usługi Azure Monitor.
+Azure Data Factory nie przechowuje żadnych danych z wyjątkiem poświadczeń połączonej usługi dla magazynów danych w chmurze, które są szyfrowane przy użyciu certyfikatów. Program Data Factory umożliwia tworzenie przepływów pracy opartych na danych w celu organizowania przenoszenia danych między [obsługiwanymi magazynami danych](copy-activity-overview.md#supported-data-stores-and-formats)oraz przetwarzania danych przy użyciu [usług obliczeniowych](compute-linked-services.md) w innych regionach lub w środowisku lokalnym. Możesz również monitorować przepływy pracy i zarządzać nimi za pomocą zestawów SDK i Azure Monitor.
 
-Data Factory posiada certyfikat:
+Data Factory został certyfikowany dla:
 
-| **[Certyfikacja CSA STAR](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)** |
+| **[Wydawanie certyfikatów w witrynie CSA STAR](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)** |
 | :----------------------------------------------------------- |
 | **[ISO 20000-1:2011](https://www.microsoft.com/trustcenter/Compliance/ISO-20000-1)** |
 | **[ISO 22301:2012](https://www.microsoft.com/trustcenter/compliance/iso-22301)** |
@@ -47,81 +47,81 @@ Data Factory posiada certyfikat:
 | **[SOC 1, 2, 3](https://www.microsoft.com/trustcenter/compliance/soc)** |
 | **[HIPAA BAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
 
-Jeśli interesuje Cię zgodność z usługą Azure i sposób, w jaki platforma Azure zabezpiecza własną infrastrukturę, odwiedź [Centrum zaufania firmy Microsoft.](https://microsoft.com/en-us/trustcenter/default.aspx) Aby uzyskać najnowszą listę wszystkich ofert https://aka.ms/AzureCompliancezgodności platformy Azure, sprawdź - .
+Jeśli interesuje Cię zgodność z platformą Azure i sposób zabezpieczania infrastruktury przez platformę Azure, odwiedź [Centrum zaufania firmy Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx). Aby uzyskać najnowszą listę wszystkich kontroli zgodności z platformą Azure — https://aka.ms/AzureCompliance.
 
-W tym artykule przejrzyjmy zagadnienia dotyczące zabezpieczeń w następujących dwóch scenariuszach przenoszenia danych: 
+W tym artykule opisano zagadnienia dotyczące zabezpieczeń w następujących dwóch scenariuszach przenoszenia danych: 
 
-- **Scenariusz chmury:** W tym scenariuszu zarówno źródła, jak i miejsca docelowego są publicznie dostępne za pośrednictwem Internetu. Należą do nich zarządzane usługi magazynu w chmurze, takie jak Usługa Azure Storage, usługa Azure SQL Data Warehouse, usługa Azure SQL Database, usługa Azure Data Lake Store, Amazon S3, Amazon Redshift, usługi SaaS, takie jak Salesforce, oraz protokoły internetowe, takie jak FTP i OData. Znajdź pełną listę obsługiwanych źródeł danych w [obsługiwanych magazynach danych i formatach](copy-activity-overview.md#supported-data-stores-and-formats).
-- **Scenariusz hybrydowy:** W tym scenariuszu źródło lub miejsce docelowe znajduje się za zaporą lub wewnątrz lokalnej sieci firmowej. Lub magazyn danych znajduje się w sieci prywatnej lub sieci wirtualnej (najczęściej źródłowej) i nie jest publicznie dostępny. Serwery bazy danych hostowane na maszynach wirtualnych również mieszczą się w tym scenariuszu.
+- **Scenariusz chmury**: w tym scenariuszu zarówno źródło, jak i miejsce docelowe są publicznie dostępne przez Internet. Obejmują one zarządzane usługi magazynu w chmurze, takie jak Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon RedShift, SaaS Services, takie jak Salesforce i protokoły sieci Web, takie jak FTP i OData. Zapoznaj się z pełną listą obsługiwanych źródeł danych w [obsługiwanych sklepach i formatach danych](copy-activity-overview.md#supported-data-stores-and-formats).
+- **Scenariusz hybrydowy**: w tym scenariuszu Źródło lub miejsce docelowe znajduje się za zaporą lub wewnątrz lokalnej sieci firmowej. Magazyn danych znajduje się w sieci prywatnej lub sieci wirtualnej (najczęściej w źródle) i nie jest publicznie dostępny. Serwery baz danych hostowane na maszynach wirtualnych są również objęte tym scenariuszem.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="cloud-scenarios"></a>Scenariusze dotyczące chmury
+## <a name="cloud-scenarios"></a>Scenariusze chmury
 
 ### <a name="securing-data-store-credentials"></a>Zabezpieczanie poświadczeń magazynu danych
 
-- **Przechowywanie zaszyfrowanych poświadczeń w magazynie zarządzanym usługi Azure Data Factory**. Usługa Data Factory pomaga chronić poświadczenia magazynu danych, szyfrując je za pomocą certyfikatów zarządzanych przez firmę Microsoft. Certyfikaty te są obracane co dwa lata (co obejmuje odnawianie certyfikatów i migrację poświadczeń). Aby uzyskać więcej informacji na temat zabezpieczeń usługi Azure Storage, zobacz [omówienie zabezpieczeń usługi Azure Storage](../security/fundamentals/storage-overview.md).
-- **Przechowuj poświadczenia w usłudze Azure Key Vault**. Poświadczenia magazynu danych można również przechowywać w [usłudze Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Fabryka danych pobiera poświadczenia podczas wykonywania działania. Aby uzyskać więcej informacji, zobacz [Przechowywanie poświadczeń w usłudze Azure Key Vault](store-credentials-in-key-vault.md).
+- **Przechowuj poświadczenia zaszyfrowane w magazynie zarządzanym Azure Data Factory**. Data Factory pomaga chronić poświadczenia magazynu danych przez szyfrowanie ich certyfikatami zarządzanymi przez firmę Microsoft. Te certyfikaty są obracane co dwa lata (co obejmuje odnowienie certyfikatu i migrację poświadczeń). Aby uzyskać więcej informacji o zabezpieczeniach usługi Azure Storage, zobacz [Omówienie zabezpieczeń usługi Azure Storage](../security/fundamentals/storage-overview.md).
+- **Przechowuj poświadczenia w Azure Key Vault**. Możesz również przechowywać poświadczenia magazynu danych w [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory Pobiera poświadczenia podczas wykonywania działania. Aby uzyskać więcej informacji, zobacz [przechowywanie poświadczeń w Azure Key Vault](store-credentials-in-key-vault.md).
 
-### <a name="data-encryption-in-transit"></a>Szyfrowanie danych podczas przesyłania danych
-Jeśli magazyn danych w chmurze obsługuje protokół HTTPS lub TLS, wszystkie transfery danych między usługami przenoszenia danych w fabryce danych a magazynem danych w chmurze są przesyłane za pośrednictwem bezpiecznego kanału HTTPS lub TLS.
-
-> [!NOTE]
-> Wszystkie połączenia z usługą Azure SQL Database i usługą Azure SQL Data Warehouse wymagają szyfrowania (SSL/TLS), gdy dane są przesyłane do i z bazy danych. Podczas tworzenia potoku przy użyciu JSON, dodaj właściwość szyfrowania i ustaw ją na **true** w ciągu połączenia. W przypadku usługi Azure Storage można użyć **protokołu HTTPS** w ciągu połączenia.
+### <a name="data-encryption-in-transit"></a>Szyfrowanie danych podczas przesyłania
+Jeśli magazyn danych w chmurze obsługuje protokół HTTPS lub TLS, wszystkie transfery danych między usługami przenoszenia danych w Data Factory i magazynem danych w chmurze są realizowane za pośrednictwem protokołu HTTPS lub TLS bezpiecznego kanału.
 
 > [!NOTE]
-> Aby włączyć szyfrowanie podczas przesyłania danych z oracle, wykonaj jedną z poniższych opcji:
-> 1. Na serwerze Oracle przejdź do programu Oracle Advanced Security (OAS) i skonfiguruj ustawienia szyfrowania, które obsługuje szyfrowanie Triple-DES (3DES) i Advanced Encryption Standard (AES), szczegółowe informacje można znaleźć [tutaj.](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759) ADF automatycznie negocjuje metodę szyfrowania, aby używać metody skonfigurowanej w UA podczas ustanawiania połączenia z Oracle.
-> 2. W usłudze ADF można dodać EncryptionMethod=1 w ciągu połączenia (w usłudze połączonej). Spowoduje to użycie protokołu SSL/TLS jako metody szyfrowania. Aby użyć tego, należy wyłączyć ustawienia szyfrowania innych niż SSL w OAS po stronie serwera Oracle, aby uniknąć konfliktu szyfrowania.
+> Wszystkie połączenia do Azure SQL Database i Azure SQL Data Warehouse wymagają szyfrowania (SSL/TLS), podczas przesyłania danych do i z bazy danych. Podczas tworzenia potoku przy użyciu formatu JSON należy dodać właściwość szyfrowania i ustawić jej **wartość na true** w parametrach połączenia. W przypadku usługi Azure Storage można użyć **protokołu HTTPS** w parametrach połączenia.
 
 > [!NOTE]
-> Używana wersja TLS to 1.2.
+> Aby włączyć szyfrowanie podczas przesyłania danych z programu Oracle, wykonaj jedną z poniższych opcji:
+> 1. W programie Oracle Server przejdź do pozycji Oracle Advanced Security (OAS) i skonfiguruj ustawienia szyfrowania, które obsługują szyfrowanie Triple-DES (3DES) i Advanced Encryption Standard (AES). Aby uzyskać szczegółowe informacje, zapoznaj się z [tym](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759) artykułem. Funkcja ADF automatycznie negocjuje metodę szyfrowania, aby użyć konfiguracji w OAS podczas ustanawiania połączenia z bazą danych Oracle.
+> 2. W podajniku APD można dodać EncryptionMethod = 1 w parametrach połączenia (w połączonej usłudze). Spowoduje to użycie protokołu SSL/TLS jako metody szyfrowania. Aby to użyć, należy wyłączyć ustawienia szyfrowania inne niż SSL w programie OAS na stronie serwera Oracle, aby uniknąć konfliktu szyfrowania.
+
+> [!NOTE]
+> Używana wersja protokołu TLS to 1,2.
 
 ### <a name="data-encryption-at-rest"></a>Szyfrowanie danych w spoczynku
-Niektóre magazyny danych obsługują szyfrowanie danych w spoczynku. Zaleca się włączenie mechanizmu szyfrowania danych dla tych magazynów danych. 
+Niektóre magazyny danych obsługują szyfrowanie danych magazynowanych. Zalecamy włączenie mechanizmu szyfrowania danych dla tych magazynów danych. 
 
 #### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
-Przezroczyste szyfrowanie danych (TDE) w usłudze Azure SQL Data Warehouse pomaga chronić przed zagrożeniem złośliwą aktywnością, wykonując szyfrowanie w czasie rzeczywistym i odszyfrowywanie danych w spoczynku. To zachowanie jest niewidoczny dla klienta. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie bazy danych w magazynie danych SQL](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
+Transparent Data Encryption (TDE) w Azure SQL Data Warehouse pomaga chronić przed zagrożeniami złośliwych działań, wykonując szyfrowanie i odszyfrowywanie danych w czasie rzeczywistym. To zachowanie jest niewidoczne dla klienta. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie bazy danych w SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
-Usługa Azure SQL Database obsługuje również przezroczyste szyfrowanie danych (TDE), które pomaga chronić przed zagrożeniem złośliwą aktywnością, wykonując szyfrowanie w czasie rzeczywistym i odszyfrowywanie danych, bez konieczności wprowadzania zmian w aplikacji. To zachowanie jest niewidoczny dla klienta. Aby uzyskać więcej informacji, zobacz [Przezroczyste szyfrowanie danych dla bazy danych SQL i magazynu danych](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+Azure SQL Database obsługuje również funkcję transparent Data Encryption (TDE), która pomaga chronić przed zagrożeniami złośliwego działania przez wykonywanie szyfrowania i odszyfrowywania danych w czasie rzeczywistym bez konieczności wprowadzania zmian w aplikacji. To zachowanie jest niewidoczne dla klienta. Aby uzyskać więcej informacji, zobacz [przezroczyste szyfrowanie danych dla SQL Database i magazynu danych](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
-Usługa Azure Data Lake Store zapewnia również szyfrowanie danych przechowywanych na koncie. Po włączeniu usługa Data Lake Store automatycznie szyfruje dane przed utrwalaniem i odszyfrowywaniem przed pobraniem, dzięki czemu jest przezroczysta dla klienta, który uzyskuje dostęp do danych. Aby uzyskać więcej informacji, zobacz [Zabezpieczenia w magazynie usługi Azure Data Lake](../data-lake-store/data-lake-store-security-overview.md). 
+Azure Data Lake Store również zapewnia szyfrowanie danych przechowywanych na koncie. Po włączeniu Data Lake Store automatycznie szyfruje dane przed utrwaleniem i odszyfrowaniem przed pobraniem, co sprawia, że jest ono niewidoczne dla klienta, który uzyskuje dostęp do danych. Aby uzyskać więcej informacji, zobacz [zabezpieczenia w Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md). 
 
-#### <a name="azure-blob-storage-and-azure-table-storage"></a>Magazyn obiektów Blob platformy Azure i magazyn tabel platformy Azure
-Usługa Azure Blob storage i usługa Azure Table storage obsługują szyfrowanie usługi storage (SSE), które automatycznie szyfruje dane przed utrwaleniem w magazynie i odszyfrowuje przed pobraniem. Aby uzyskać więcej informacji, zobacz [Szyfrowanie usługi Azure Storage Service dla danych w spoczynku](../storage/common/storage-service-encryption.md).
+#### <a name="azure-blob-storage-and-azure-table-storage"></a>Azure Blob Storage i Azure Table Storage
+Usługa Azure Blob Storage i usługa Azure Table Storage obsługują szyfrowanie usługi Storage (SSE), które automatycznie szyfruje dane przed utrwaleniem do magazynu i odszyfrowuje przed pobraniem. Aby uzyskać więcej informacji, zobacz [szyfrowanie usługi Storage platformy Azure dla danych przechowywanych w spoczynku](../storage/common/storage-service-encryption.md).
 
 #### <a name="amazon-s3"></a>Amazon S3
-Amazon S3 obsługuje zarówno szyfrowanie danych klienta, jak i serwera w stanie spoczynku. Aby uzyskać więcej informacji, zobacz [Ochrona danych przy użyciu szyfrowania](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html).
+Firma Amazon S3 obsługuje szyfrowanie danych między klientem i serwerem. Aby uzyskać więcej informacji, zobacz [Ochrona danych przy użyciu szyfrowania](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html).
 
 #### <a name="amazon-redshift"></a>Amazon Redshift
-Amazon Redshift obsługuje szyfrowanie klastrów dla danych w spoczynku. Aby uzyskać więcej informacji, zobacz [Amazon Redshift Database Encryption](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). 
+Amazon RedShift obsługuje szyfrowanie klastra dla danych przechowywanych w spoczynku. Aby uzyskać więcej informacji, zobacz temat [szyfrowanie bazy danych Amazon RedShift](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). 
 
 #### <a name="salesforce"></a>SalesForce
-Salesforce obsługuje szyfrowanie platformy Shield, które umożliwia szyfrowanie wszystkich plików, załączników i pól niestandardowych. Aby uzyskać więcej informacji, zobacz [Opis przepływu uwierzytelniania OAuth serwera sieci Web](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
+Usługi Salesforce obsługują szyfrowanie platformy osłony, które umożliwiają szyfrowanie wszystkich plików, załączników i pól niestandardowych. Aby uzyskać więcej informacji, zobacz [Omówienie przepływu uwierzytelniania OAuth serwera sieci Web](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
 
 ## <a name="hybrid-scenarios"></a>Scenariusze hybrydowe
-Scenariusze hybrydowe wymagają samodzielnego hostowanego środowiska wykonawczego integracji do zainstalowania w sieci lokalnej, wewnątrz sieci wirtualnej (Azure) lub wewnątrz wirtualnej chmury prywatnej (Amazon). Środowisko uruchomieniowe integracji hostowanego samodzielnie musi mieć dostęp do lokalnych magazynów danych. Aby uzyskać więcej informacji na temat środowiska uruchomieniowego integracji hostowanego samodzielnie, zobacz [Jak utworzyć i skonfigurować środowisko uruchomieniowe integracji hostowanego samodzielnie.](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime) 
+Scenariusze hybrydowe wymagają, aby środowisko Integration Runtime było instalowane w sieci lokalnej, wewnątrz sieci wirtualnej (Azure) lub wewnątrz wirtualnej chmury prywatnej (Amazon). Własne środowisko Integration Runtime musi mieć dostęp do lokalnych magazynów danych. Aby uzyskać więcej informacji na temat środowiska Integration Runtime (własne środowisko uruchomieniowe), zobacz [jak utworzyć i skonfigurować własne środowisko Integration Runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime). 
 
-![samodzielnie hostowane kanały wykonawcze integracji](media/data-movement-security-considerations/data-management-gateway-channels.png)
+![własne kanały środowiska Integration Runtime](media/data-movement-security-considerations/data-management-gateway-channels.png)
 
-Kanał poleceń umożliwia komunikację między usługami przenoszenia danych w fabryce danych a samodzielnym czasem wykonywania integracji. Komunikat zawiera informacje związane z działalnością. Kanał danych służy do przesyłania danych między lokalnymi magazynami danych a magazynami danych w chmurze.    
+Kanał polecenia umożliwia komunikację między usługami przenoszenia danych w ramach Data Factory i samodzielnego środowiska Integration Runtime. Komunikacja zawiera informacje związane z działaniem. Kanał danych służy do przesyłania danych między lokalnymi magazynami danych i magazynami danych w chmurze.    
 
 ### <a name="on-premises-data-store-credentials"></a>Poświadczenia lokalnego magazynu danych
-Poświadczenia mogą być przechowywane w fabryce danych lub [odwoływać się przez fabrykę danych](store-credentials-in-key-vault.md) w czasie wykonywania z usługi Azure Key Vault. Jeśli przechowywanie poświadczeń w fabryce danych, jest zawsze przechowywane zaszyfrowane w środowisku uruchomieniowym integracji hostowanej samodzielnie. 
+Poświadczenia mogą być przechowywane w usłudze Fabryka danych lub [odwoływać się do nich przez fabrykę danych](store-credentials-in-key-vault.md) podczas środowiska uruchomieniowego z Azure Key Vault. W przypadku przechowywania poświadczeń w usłudze Fabryka danych są one zawsze przechowywane w postaci zaszyfrowanej w ramach własnego środowiska Integration Runtime. 
  
-- **Przechowywanie poświadczeń lokalnie**. Jeśli bezpośrednio użyjesz polecenia cmdlet **Set-AzDataFactoryV2LinkedService** z ciągami połączeń i poświadczeniami wbudowanymi w JSON, usługa połączona jest szyfrowana i przechowywana w czasie wykonywania integracji hostowanej samodzielnie.  W takim przypadku poświadczenia przepływają za pośrednictwem usługi zaplecza azure, która jest bardzo bezpieczna, do komputera integracji hostowanego samodzielnie, gdzie jest ostatecznie szyfrowana i przechowywana. Środowisko wykonawcze integracji hostowanej samodzielnie używa interfejsu [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) systemu Windows do szyfrowania poufnych danych i informacji o poświadczeniach.
+- **Przechowuj poświadczenia lokalnie**. Jeśli bezpośrednio używasz polecenia cmdlet **Set-AzDataFactoryV2LinkedService** z parametrami połączenia i poświadczeniami wbudowanymi w kod JSON, połączona usługa jest zaszyfrowana i zapisywana w środowisku Integration Runtime.  W takim przypadku poświadczenia są przesyłane za pomocą usługi zaplecza platformy Azure, która jest niezwykle bezpieczna, do samodzielnej maszyny integracyjnej, w której jest ona zaszyfrowana i przechowywana. Własne środowisko Integration runtime używa funkcji [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) systemu Windows do szyfrowania poufnych danych i informacji o poświadczeniach.
 
-- **Przechowuj poświadczenia w usłudze Azure Key Vault**. Poświadczenia magazynu danych można również przechowywać w [usłudze Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Fabryka danych pobiera poświadczenia podczas wykonywania działania. Aby uzyskać więcej informacji, zobacz [Przechowywanie poświadczeń w usłudze Azure Key Vault](store-credentials-in-key-vault.md).
+- **Przechowuj poświadczenia w Azure Key Vault**. Możesz również przechowywać poświadczenia magazynu danych w [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory Pobiera poświadczenia podczas wykonywania działania. Aby uzyskać więcej informacji, zobacz [przechowywanie poświadczeń w Azure Key Vault](store-credentials-in-key-vault.md).
 
-- **Przechowywanie poświadczeń lokalnie bez przepływu poświadczeń za pośrednictwem zaplecza platformy Azure do środowiska wykonawczego integracji hostowanego samodzielnie.** Jeśli chcesz szyfrować i przechowywać poświadczenia lokalnie w środowisku uruchomieniowym integracji hostowanej bez konieczności przepływu poświadczeń za pośrednictwem wewnętrznej bazy danych, wykonaj kroki opisane w [obszarze Szyfruj poświadczenia dla lokalnych magazynów danych w usłudze Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Wszystkie złącza obsługują tę opcję. Środowisko wykonawcze integracji hostowanej samodzielnie używa interfejsu [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) systemu Windows do szyfrowania poufnych danych i informacji o poświadczeniach. 
+- **Przechowuj poświadczenia lokalnie bez przekazywania poświadczeń za pomocą zaplecza platformy Azure do własnego środowiska Integration Runtime**. Jeśli chcesz zaszyfrować i przechowywać poświadczenia lokalnie w środowisku środowiska Integration Runtime (samodzielne) bez konieczności przekazywania poświadczeń za pomocą zaplecza usługi Data Factory, wykonaj kroki opisane w temacie [szyfrowanie poświadczeń dla lokalnych magazynów danych w Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Wszystkie łączniki obsługują tę opcję. Własne środowisko Integration runtime używa funkcji [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) systemu Windows do szyfrowania poufnych danych i informacji o poświadczeniach. 
 
-   Użyj polecenia cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredCredential** do szyfrowania poświadczeń usługi połączonej i poufnych szczegółów w połączonej usłudze. Następnie można użyć JSON zwrócone (z **EncryptedCredential** element w ciągu połączenia) do utworzenia połączonej usługi przy użyciu polecenia cmdlet **Set-AzDataFactoryV2LinkedService.**  
+   Użyj polecenia cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** , aby zaszyfrować poświadczenia połączonej usługi i szczegółowe informacje poufne w połączonej usłudze. Następnie można użyć zwróconego JSON (z elementem **EncryptedCredential** w parametrach połączenia), aby utworzyć połączoną usługę za pomocą polecenia cmdlet **Set-AzDataFactoryV2LinkedService** .  
 
 
-#### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>Porty używane podczas szyfrowania połączonej usługi w czasie wykonywania integracji hostowanej samodzielnie
-Domyślnie program PowerShell używa portu 8060 na komputerze z własnym hostowanym czasem wykonywania integracji w celu bezpiecznej komunikacji. W razie potrzeby można zmienić ten port.  
+#### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>Porty używane podczas szyfrowania połączonej usługi w ramach własnego środowiska Integration Runtime
+Domyślnie program PowerShell używa portu 8060 na komputerze przy użyciu własnego środowiska Integration Runtime na potrzeby bezpiecznej komunikacji. W razie potrzeby można zmienić ten port.  
 
 ![Port HTTPS dla bramy](media/data-movement-security-considerations/https-port-for-gateway.png)
 
@@ -129,73 +129,73 @@ Domyślnie program PowerShell używa portu 8060 na komputerze z własnym hostowa
 
 
 ### <a name="encryption-in-transit"></a>Szyfrowanie podczas transferu
-Wszystkie transfery danych są za pośrednictwem bezpiecznego kanału HTTPS i TLS przez TCP, aby zapobiec atakom typu man-in-the-middle podczas komunikacji z usługami platformy Azure.
+Wszystkie transfery danych są nawiązywane za pośrednictwem protokołu HTTPS Secure Channel i TLS over TCP, aby zapobiec atakom typu man-in-the-Middle podczas komunikacji z usługami platformy Azure.
 
-Można również użyć [protokołu IPSec VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md) lub [usługi Azure ExpressRoute,](../expressroute/expressroute-introduction.md) aby dodatkowo zabezpieczyć kanał komunikacji między siecią lokalną a platformą Azure.
+W celu dodatkowego zabezpieczenia kanału komunikacyjnego między siecią lokalną i platformą Azure można również użyć [protokołu IPSec VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md) lub [Azure ExpressRoute](../expressroute/expressroute-introduction.md) .
 
-Usługa Azure Virtual Network jest logiczną reprezentacją sieci w chmurze. Sieć lokalną można połączyć z siecią wirtualną, konfigurując sieć VPN IPSec (lokacja lokacja) lub ExpressRoute (prywatna komunikacja równorzędna).    
+Usługa Azure Virtual Network to logiczna reprezentacja sieci w chmurze. Sieć lokalną można połączyć z siecią wirtualną przez skonfigurowanie protokołu IPSec VPN (lokacja-lokacja) lub ExpressRoute (prywatna Komunikacja równorzędna).    
 
-W poniższej tabeli podsumowano zalecenia konfiguracji środowiska wykonawczego integracji sieciowej i samodzielnej integracji na podstawie różnych kombinacji lokalizacji źródłowych i docelowych dla hybrydowego przenoszenia danych.
+Poniższa tabela zawiera podsumowanie zaleceń dotyczących sieci i samodzielnego środowiska Integration Runtime na podstawie różnych kombinacji lokalizacji źródłowej i docelowej na potrzeby przenoszenia danych hybrydowych.
 
 | Element źródłowy      | Element docelowy                              | Konfiguracja sieci                    | Instalacja środowiska Integration Runtime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Lokalnie | Maszyny wirtualne i usługi w chmurze wdrożone w sieciach wirtualnych | IPSec VPN (punkt-lokacja lub lokacja) | Środowisko wykonawcze integracji hostowanego samodzielnie należy zainstalować na maszynie wirtualnej platformy Azure w sieci wirtualnej.  |
-| Lokalnie | Maszyny wirtualne i usługi w chmurze wdrożone w sieciach wirtualnych | Usługa ExpressRoute (prywatna komunikacja równorzędna)           | Środowisko wykonawcze integracji hostowanego samodzielnie należy zainstalować na maszynie wirtualnej platformy Azure w sieci wirtualnej.  |
-| Lokalnie | Usługi oparte na platformie Azure, które mają publiczny punkt końcowy | Usługa ExpressRoute (komunikacja równorzędna firmy Microsoft)            | Środowisko wykonawcze integracji hostowanego samodzielnie można zainstalować lokalnie lub na maszynie wirtualnej platformy Azure. |
+| Lokalnie | Maszyny wirtualne i usługi w chmurze wdrożone w sieciach wirtualnych | IPSec sieci VPN (punkt-lokacja lub lokacja-lokacja) | Własne środowisko Integration Runtime należy zainstalować na maszynie wirtualnej platformy Azure w sieci wirtualnej.  |
+| Lokalnie | Maszyny wirtualne i usługi w chmurze wdrożone w sieciach wirtualnych | ExpressRoute (prywatna Komunikacja równorzędna)           | Własne środowisko Integration Runtime należy zainstalować na maszynie wirtualnej platformy Azure w sieci wirtualnej.  |
+| Lokalnie | Usługi oparte na platformie Azure, które mają publiczny punkt końcowy | ExpressRoute (Komunikacja równorzędna firmy Microsoft)            | Własne środowisko Integration runtime można zainstalować lokalnie lub na maszynie wirtualnej platformy Azure. |
 
-Na poniższych obrazach przedstawiono użycie środowiska wykonawczego integracji hostowanej przez własny host do przenoszenia danych między lokalną bazą danych a usługami platformy Azure przy użyciu usługi ExpressRoute i IPSec VPN (z usługą Azure Virtual Network):
+Na poniższych ilustracjach przedstawiono użycie własnego środowiska Integration Runtime do przeniesienia danych między lokalną bazą danych i usługami platformy Azure przy użyciu ExpressRoute i sieci VPN IPSec (z usługą Azure Virtual Network):
 
 **ExpressRoute**
 
-![Używanie usługi ExpressRoute z bramą](media/data-movement-security-considerations/express-route-for-gateway.png) 
+![Korzystanie z ExpressRoute z bramą](media/data-movement-security-considerations/express-route-for-gateway.png) 
 
-**IPSec VPN**
+**IPSec sieci VPN**
 
-![Sieć VPN IPSec z bramą](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
+![IPSec VPN z bramą](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-addresses"></a><a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a>Konfiguracje zapory i zezwalaj na konfigurowanie listy adresów IP
+### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-addresses"></a><a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a>Konfiguracja zapory i lista dozwolonych ustawień dla adresów IP
 
-#### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Wymagania dotyczące zapory sieci lokalnej/prywatnej    
-W przedsiębiorstwie zapora firmowa działa na centralnym routerze organizacji. Zapora systemu Windows działa jako demon na komputerze lokalnym, na którym jest zainstalowane środowisko uruchomieniowe integracji hostowanego samodzielnie. 
+#### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Wymagania dotyczące zapory dla sieci lokalnej/prywatnej    
+W przedsiębiorstwie firmowa Zapora jest uruchamiana na centralnym routerze organizacji. Zapora systemu Windows jest uruchamiana jako demon na komputerze lokalnym, na którym jest zainstalowany własny środowisko Integration Runtime. 
 
-Poniższa tabela zawiera wymagania dotyczące portów wychodzących i domen dla zapór firmowych:
+W poniższej tabeli przedstawiono wymagania dotyczące portów i domen wychodzących dla zapór firmowych:
 
 [!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
 > [!NOTE] 
-> Może być konieczne zarządzanie portami lub konfigurowanie listy dozwolonych dla domen na poziomie zapory firmowej, zgodnie z wymaganiami odpowiednich źródeł danych. W tej tabeli używa tylko usługi Azure SQL Database, usługi Azure SQL Data Warehouse i Usługi Azure Data Lake Store jako przykłady.   
+> Może być konieczne zarządzanie portami lub Konfigurowanie listy dozwolonych domen na poziomie zapory firmowej zgodnie z wymaganiami odpowiednich źródeł danych. W tej tabeli są stosowane przykłady Azure SQL Database, Azure SQL Data Warehouse i Azure Data Lake Store.   
 
-Poniższa tabela zawiera wymagania dotyczące portów przychodzących dla Zapory systemu Windows:
+W poniższej tabeli przedstawiono wymagania dotyczące portów ruchu przychodzącego dla zapory systemu Windows:
 
 | Porty wejściowe | Opis                              |
 | ------------- | ---------------------------------------- |
-| 8060 (TCP)    | Wymagane przez polecenie cmdlet szyfrowania programu PowerShell, zgodnie z opisem w [szyfruj poświadczenia dla lokalnych magazynów danych w usłudze Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md)i przez aplikację menedżera poświadczeń, aby bezpiecznie ustawić poświadczenia dla lokalnych magazynów danych w środowisku uruchomieniowym integracji hostowanej samodzielnie. |
+| 8060 (TCP)    | Wymagane przez polecenie cmdlet szyfrowania programu PowerShell, zgodnie z opisem w artykule [szyfrowanie poświadczeń dla lokalnych magazynów danych w Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md)oraz przez aplikację Menedżer poświadczeń w celu bezpiecznego ustawiania poświadczeń dla lokalnych magazynów danych w ramach własnego środowiska Integration Runtime. |
 
-![Wymagania dotyczące portu bramy](media/data-movement-security-considerations/gateway-port-requirements.png) 
+![Wymagania dotyczące portów bramy](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
-#### <a name="ip-configurations-and-allow-list-setting-up-in-data-stores"></a>Konfiguracje adresów IP i zezwalaj na konfigurowanie listy w magazynach danych
-Niektóre magazyny danych w chmurze wymagają również zezwalania na adres IP komputera uzyskującego dostęp do magazynu. Upewnij się, że adres IP komputera wykonawczego integracji hostowanego jest dozwolone lub odpowiednio skonfigurowane w zaporze.
+#### <a name="ip-configurations-and-allow-list-setting-up-in-data-stores"></a>Konfiguracje IP i lista dozwolonych ustawień w magazynach danych
+Niektóre magazyny danych w chmurze wymagają również, aby adres IP komputera miał dostęp do magazynu. Upewnij się, że adres IP maszyny z obsługą środowiska Integration Runtime jest odpowiednio dozwolony lub skonfigurowany w zaporze.
 
-Następujące magazyny danych w chmurze wymagają zezwolenia na adres IP komputera wykonawczego integracji hostowanego samodzielnie. Niektóre z tych magazynów danych, domyślnie, może nie wymagać listy dozwolonych. 
+Następujące magazyny danych w chmurze wymagają zezwolenia na adres IP komputera Integration Runtime. Niektóre z tych magazynów danych domyślnie mogą nie wymagać listy dozwolonych. 
 
 - [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
-- [Magazyn danych SQL platformy Azure](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
+- [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
-**Czy środowisko uruchomieniowe integracji hostowane samodzielnie może być współużytkowane w różnych fabrykach danych?**
+**Czy samodzielne środowisko Integration Runtime może być współużytkowane przez różne fabryki danych?**
 
 Tak. Więcej szczegółów można znaleźć [tutaj](https://azure.microsoft.com/blog/sharing-a-self-hosted-integration-runtime-infrastructure-with-multiple-data-factories/).
 
-**Jakie są wymagania dotyczące portu dla środowiska uruchomieniowego integracji hostowanego samodzielnie do pracy?**
+**Jakie są wymagania dotyczące portów dla środowiska Integration Runtime, które mają być obsługiwane?**
 
-Środowisko wykonawcze integracji hostowanego samodzielnie sprawia, że połączenia oparte na protokonasie HTTP mają dostęp do Internetu. Porty wychodzące 443 muszą zostać otwarte dla środowiska wykonawczego integracji hostowanego samodzielnie, aby nawiązać to połączenie. Otwórz port przychodzący 8060 tylko na poziomie komputera (nie na poziomie zapory firmowej) dla aplikacji menedżera poświadczeń. Jeśli usługa Azure SQL Database lub usługa Azure SQL Data Warehouse jest używana jako źródło lub miejsce docelowe, należy również otworzyć port 1433. Aby uzyskać więcej informacji, zobacz [konfiguracje zapory i zezwolić na konfigurowanie listy dla adresów IP](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) sekcji. 
+Własne środowisko Integration Runtime umożliwia nawiązywanie połączeń opartych na protokole HTTP z dostępem do Internetu. Porty wychodzące 443 muszą być otwarte dla własnego środowiska Integration Runtime, aby nawiązać to połączenie. Otwórz port przychodzący 8060 tylko na poziomie komputera (nie na poziomie zapory firmowej) dla aplikacji Menedżer poświadczeń. Jeśli Azure SQL Database lub Azure SQL Data Warehouse jest używany jako źródło lub miejsce docelowe, należy również otworzyć port 1433. Aby uzyskać więcej informacji, zobacz sekcję [konfiguracje zapory i lista dozwolonych ustawień dla adresów IP](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) . 
 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać informacje na temat wydajności działania kopiowania danych w usłudze Azure Data Factory, zobacz [Przewodnik wydajności i dostrajania działania kopiowania.](copy-activity-performance.md)
+Aby uzyskać informacje o wydajności działania kopiowania Azure Data Factory, zobacz [Przewodnik dotyczący wydajności i dostrajania działania kopiowania](copy-activity-performance.md).
 
  

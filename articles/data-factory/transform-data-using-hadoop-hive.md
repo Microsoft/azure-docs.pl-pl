@@ -1,6 +1,6 @@
 ---
-title: Przekształcanie danych przy użyciu działania Gałęzi Hadoop
-description: Dowiedz się, jak za pomocą działania gałęzi w fabryce danych platformy Azure do uruchamiania zapytań hive w klastrze HDInsight na żądanie/własne.
+title: Przekształcanie danych za pomocą działania programu Hive platformy Hadoop
+description: Dowiedz się, jak za pomocą działania programu Hive w usłudze Azure Data Factory uruchamiać zapytania programu Hive na żądanie/własny klaster usługi HDInsight.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -12,23 +12,23 @@ manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/15/2019
 ms.openlocfilehash: 8c5c917e12b1314c40763f58a7723a4df787ffa0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418936"
 ---
-# <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania gałęzi usługi Hadoop w usłudze Azure Data Factory
+# <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania programu Hive platformy Hadoop w Azure Data Factory
 
-> [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
+> [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-hive-activity.md)
 > * [Bieżąca wersja](transform-data-using-hadoop-hive.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Działanie hive hdinsight w [potoku](concepts-pipelines-activities.md) fabryki danych wykonuje zapytania hive na [własny](compute-linked-services.md#azure-hdinsight-linked-service) lub [na żądanie](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) klastra HDInsight. W tym artykule opiera się na [działaniach transformacji danych,](transform-data.md) który przedstawia ogólny przegląd transformacji danych i obsługiwanych działań transformacji.
+Działanie programu Hive w usłudze HDInsight w [potoku](concepts-pipelines-activities.md) Data Factory wykonuje zapytania Hive w klastrze usługi HDInsight w [twoim własnym](compute-linked-services.md#azure-hdinsight-linked-service) lub [na żądanie](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) . W tym artykule przedstawiono artykuł [działania przekształcania danych](transform-data.md) , który zawiera ogólne omówienie transformacji danych i obsługiwanych działań transformacji.
 
-Jeśli jesteś nowy w usłudze Azure Data Factory, przeczytaj [wprowadzenie do usługi Azure Data Factory](introduction.md) i wykonaj [samouczek: przekształć dane](tutorial-transform-data-spark-powershell.md) przed przeczytaniem tego artykułu. 
+Jeśli jesteś nowym do Azure Data Factory, przeczytaj artykuł [wprowadzenie do Azure Data Factory](introduction.md) i wykonaj [Samouczek: Przekształcanie danych](tutorial-transform-data-spark-powershell.md) przed przeczytaniem tego artykułu. 
 
 ## <a name="syntax"></a>Składnia
 
@@ -61,24 +61,24 @@ Jeśli jesteś nowy w usłudze Azure Data Factory, przeczytaj [wprowadzenie do u
 | Właściwość            | Opis                                                  | Wymagany |
 | ------------------- | ------------------------------------------------------------ | -------- |
 | name                | Nazwa działania                                         | Tak      |
-| description         | Tekst opisujący, do czego jest używane działanie                | Nie       |
-| type                | W przypadku aktywności hive typ działania to HDinsightHive        | Tak      |
-| linkedServiceName   | Odwołanie do klastra HDInsight zarejestrowanego jako usługa połączona w fabryce danych. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz Artykuł [dotyczący powiązanych usług obliczeń.](compute-linked-services.md) | Tak      |
-| scriptLinkedService | Odwołanie do usługi Linked Service usługi Azure Storage używane do przechowywania skryptu hive do wykonania. Jeśli nie określisz tej usługi połączonej, używana jest usługa linked service usługi Azure Storage zdefiniowana w usłudze połączonej usługi HDInsight. | Nie       |
-| scriptPath          | Podaj ścieżkę do pliku skryptu przechowywanego w usłudze Azure Storage, o której mowa w scriptLinkedService. W nazwie pliku rozróżniana jest wielkość liter. | Tak      |
-| getDebugInfo        | Określa, kiedy pliki dziennika są kopiowane do usługi Azure Storage używane przez klaster HDInsight (lub) określone przez scriptLinkedService. Dozwolone wartości: Brak, Zawsze lub Błąd. Wartość domyślna: None. | Nie       |
-| Argumenty           | Określa tablicę argumentów dla zadania Hadoop. Argumenty są przekazywane jako argumenty wiersza polecenia do każdego zadania. | Nie       |
-| Definiuje             | Określ parametry jako pary klucz/wartość do odwoływania się w skrypcie gałęzi. | Nie       |
-| Querytimeout        | Wartość limitu czasu kwerendy (w minutach). Ma zastosowanie, gdy klaster HDInsight jest włączony z włączonym pakietem zabezpieczeń przedsiębiorstwa. | Nie       |
+| description         | Tekst opisujący działanie używanego działania                | Nie       |
+| type                | W przypadku działania programu Hive typem działania jest HDinsightHive        | Tak      |
+| linkedServiceName   | Odwołanie do klastra usługi HDInsight zarejestrowanego jako połączona usługa w Data Factory. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) . | Tak      |
+| Elementu scriptlinkedservice | Odwołanie do połączonej usługi Azure Storage użytej do przechowania skryptu Hive do wykonania. Jeśli nie określisz tej połączonej usługi, zostanie użyta połączona usługa Azure Storage zdefiniowana w połączonej usłudze HDInsight. | Nie       |
+| scriptPath          | Podaj ścieżkę do pliku skryptu przechowywanego w usłudze Azure Storage, która jest określona przez elementu scriptlinkedservice. W nazwie pliku rozróżniana jest wielkość liter. | Tak      |
+| GetDebugInfo —        | Określa, kiedy pliki dziennika są kopiowane do usługi Azure Storage używanej przez klaster HDInsight (lub) określonej przez elementu scriptlinkedservice. Dozwolone wartości: brak, zawsze lub niepowodzenie. Wartość domyślna: None. | Nie       |
+| argumentu           | Określa tablicę argumentów zadania usługi Hadoop. Argumenty są przesyłane jako argumenty wiersza polecenia do każdego zadania. | Nie       |
+| definiuje             | Określ parametry jako pary klucz/wartość dla odwołania w skrypcie Hive. | Nie       |
+| queryTimeout        | Wartość limitu czasu zapytania (w minutach). Stosowane, gdy klaster usługi HDInsight ma pakiet Enterprise Security włączony. | Nie       |
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz następujące artykuły, które wyjaśniają, jak przekształcać dane w inny sposób: 
+Zapoznaj się z następującymi artykułami, które wyjaśniają sposób przekształcania danych w inny sposób: 
 
 * [Działanie U-SQL](transform-data-using-data-lake-analytics.md)
-* [Aktywność świń](transform-data-using-hadoop-pig.md)
-* [Działanie mapreduce](transform-data-using-hadoop-map-reduce.md)
-* [Aktywność w serwisie Hadoop Streaming](transform-data-using-hadoop-streaming.md)
-* [Aktywność iskierki](transform-data-using-spark.md)
+* [Aktywność trzody chlewnej](transform-data-using-hadoop-pig.md)
+* [Działanie MapReduce](transform-data-using-hadoop-map-reduce.md)
+* [Działanie przesyłania strumieniowego Hadoop](transform-data-using-hadoop-streaming.md)
+* [Działanie platformy Spark](transform-data-using-spark.md)
 * [Niestandardowe działanie platformy .NET](transform-data-using-dotnet-custom-activity.md)
-* [Działanie wsadowe uczenia maszynowego](transform-data-using-machine-learning.md)
+* [Działanie wykonywania wsadowego Machine Learning](transform-data-using-machine-learning.md)
 * [Działanie procedury składowanej](transform-data-using-stored-procedure.md)

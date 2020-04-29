@@ -1,6 +1,6 @@
 ---
 title: Najlepsze rozwiązania dotyczące ładowania danych
-description: Zalecenia i optymalizacje wydajności dotyczące ładowania danych do synapse SQL
+description: Zalecenia i optymalizacje wydajności dotyczące ładowania danych do programu SQL Synapse
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,15 +12,15 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: b80fe79a2c27de7dbaaa2edccf7b4598c6c63f47
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431048"
 ---
-# <a name="best-practices-for-loading-data-for-data-warehousing"></a>Najważniejsze wskazówki dotyczące ładowania danych do magazynowania danych
+# <a name="best-practices-for-loading-data-for-data-warehousing"></a>Najlepsze rozwiązania dotyczące ładowania danych na potrzeby magazynowania danych
 
-Zalecenia i optymalizacje wydajności do ładowania danych
+Zalecenia i optymalizacje wydajności dotyczące ładowania danych
 
 ## <a name="preparing-data-in-azure-storage"></a>Przygotowywanie danych w usłudze Azure Storage
 
@@ -36,9 +36,9 @@ Duże pliki skompresowane można podzielić na mniejsze.
 
 ## <a name="running-loads-with-enough-compute"></a>Uruchamianie zadań ładowania przy użyciu wystarczających zasobów obliczeniowych
 
-Aby uzyskać większą szybkość ładowania, uruchamiaj tylko jedno zadanie ładowania naraz. Jeśli nie jest to możliwe, uruchamiaj jak najmniejszą liczbę zadań ładowania jednocześnie. Jeśli oczekujesz zadania ładowania dużych, należy rozważyć skalowanie puli SQL przed obciążeniem.
+Aby uzyskać większą szybkość ładowania, uruchamiaj tylko jedno zadanie ładowania naraz. Jeśli nie jest to możliwe, uruchamiaj jak najmniejszą liczbę zadań ładowania jednocześnie. Jeśli spodziewasz się dużego zadania ładowania, rozważ przeskalowanie puli SQL przed obciążeniem.
 
-Aby uruchamiać zadania ładowania przy użyciu odpowiednich zasobów obliczeniowych, utwórz użytkowników ładujących na potrzeby uruchamiania ładowania. Przypisz każdego użytkownika ładującego do określonej klasy zasobów lub grupy obciążenia. Aby uruchomić obciążenie, zaloguj się jako jeden z użytkowników ładowania, a następnie uruchom obciążenie. Ładowanie zostanie uruchomione przy użyciu klasy zasobów przypisanej do użytkownika.  Jest to prostsza metoda niż zmienianie klasy zasobów użytkownika odpowiednio do bieżących potrzeb.
+Aby uruchamiać zadania ładowania przy użyciu odpowiednich zasobów obliczeniowych, utwórz użytkowników ładujących na potrzeby uruchamiania ładowania. Przypisz każdego użytkownika ładującego do określonej klasy zasobów lub grupy obciążeń. Aby uruchomić ładowanie, zaloguj się jako jeden z użytkowników ładujących, a następnie uruchom obciążenie. Ładowanie zostanie uruchomione przy użyciu klasy zasobów przypisanej do użytkownika.  Jest to prostsza metoda niż zmienianie klasy zasobów użytkownika odpowiednio do bieżących potrzeb.
 
 ### <a name="example-of-creating-a-loading-user"></a>Przykład tworzenia użytkownika ładującego
 
@@ -58,13 +58,13 @@ Nawiąż połączenie z bazą danych magazynu danych i utwórz użytkownika. W p
    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
 ```
 
-Aby uruchomić obciążenie z zasobami dla klas zasobów staticRC20, zaloguj się jako LoaderRC20 i uruchom obciążenie.
+Aby uruchomić obciążenie za pomocą zasobów dla klas zasobów staticRC20, zaloguj się jako LoaderRC20 i uruchom obciążenie.
 
-Lepszym rozwiązaniem jest uruchamianie ładowania przy użyciu statycznych, a nie dynamicznych klas zasobów. Za pomocą klas zasobów statycznych gwarantuje te same zasoby, niezależnie od [jednostek magazynu danych](resource-consumption-models.md). W przypadku użycia dynamicznej klasy zasobów zasoby różnią się w zależności od poziomu usług. W przypadku dynamicznych klas zasobów niższy poziom usług oznacza, że prawdopodobnie konieczne będzie użycie większej klasy zasobów na potrzeby użytkownika ładującego.
+Lepszym rozwiązaniem jest uruchamianie ładowania przy użyciu statycznych, a nie dynamicznych klas zasobów. Korzystanie z klas zasobów statycznych gwarantuje te same zasoby, niezależnie od [jednostek magazynu danych](resource-consumption-models.md). W przypadku użycia dynamicznej klasy zasobów zasoby różnią się w zależności od poziomu usług. W przypadku dynamicznych klas zasobów niższy poziom usług oznacza, że prawdopodobnie konieczne będzie użycie większej klasy zasobów na potrzeby użytkownika ładującego.
 
 ## <a name="allowing-multiple-users-to-load"></a>Umożliwianie ładowania danych wielu użytkownikom
 
-Często istnieje potrzeba umożliwienia ładowania danych do magazynu danych wielu użytkownikom. Ładowanie za pomocą [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) wymaga uprawnień CONTROL bazy danych.  Uprawnienia kontrolne (CONTROL) zapewniają dostęp z prawem kontroli do wszystkich schematów. Być może nie chcesz, aby wszyscy użytkownicy, którzy wykonują zadania ładowania, mieli dostęp z prawem kontroli do wszystkich schematów. Aby ograniczyć uprawnienia, użyj instrukcji DENY CONTROL.
+Często istnieje potrzeba umożliwienia ładowania danych do magazynu danych wielu użytkownikom. Ładowanie przy użyciu [CREATE TABLE jako Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) wymaga uprawnień kontroli bazy danych.  Uprawnienia kontrolne (CONTROL) zapewniają dostęp z prawem kontroli do wszystkich schematów. Być może nie chcesz, aby wszyscy użytkownicy, którzy wykonują zadania ładowania, mieli dostęp z prawem kontroli do wszystkich schematów. Aby ograniczyć uprawnienia, użyj instrukcji DENY CONTROL.
 
 Rozważmy na przykład dwa schematy bazy danych, schema_A dla działu A i schema_B dla działu B. Załóżmy, że użytkownicy bazy danych o nazwie user_A i user_B są użytkownikami ładującymi technologii PolyBase w działach A i B. Obaj użytkownicy otrzymali uprawnienia CONTROL do bazy danych. Osoby, które utworzyły schematy A i B, teraz blokują swoje schematy przy użyciu instrukcji DENY:
 
@@ -73,7 +73,7 @@ Rozważmy na przykład dwa schematy bazy danych, schema_A dla działu A i schema
    DENY CONTROL ON SCHEMA :: schema_B TO user_A;
 ```
 
-User_A i user_B są teraz zablokowane ze schematu innego departamentu.
+User_A i user_B są teraz zablokowane w schemacie innego działu.
 
 ## <a name="loading-to-a-staging-table"></a>Ładowanie do tabeli przejściowej
 
@@ -88,9 +88,9 @@ Indeksy magazynu kolumn wymagają dużej ilości pamięci w celu skompresowania 
 - Aby mieć pewność, że użytkownik ładujący ma wystarczająco dużo pamięci do uzyskania maksymalnej szybkości kompresji, korzystaj z użytkowników ładujących będących członkami średnich lub dużych klas zasobów.
 - Załaduj wystarczającą liczbę wierszy, aby całkowicie wypełnić nowe grupy wierszy. Podczas ładowania zbiorczego każde 1 048 576 wierszy jest kompresowanych bezpośrednio do magazynu kolumn jako pełna grupa wierszy. W przypadku zadań ładowania z liczbą wierszy mniejszą niż 102 400 wiersze są przekazywane do magazynu delta, gdzie są przechowywane w indeksie b-drzewa. W przypadku załadowania zbyt małej liczby wierszy wszystkie wiersze mogą zostać przekazane do magazynu delta, a nie natychmiast skompresowane do formatu magazynu kolumn.
 
-## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Zwiększ rozmiar partii podczas korzystania z interfejsu API SQLBulkCopy lub BCP
+## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Zwiększ rozmiar wsadu podczas korzystania z interfejsu API SQLBulkCopy lub BCP
 
-Jak wspomniano wcześniej, ładowanie z PolyBase zapewni najwyższą przepływność z puli Synapse SQL. Jeśli nie można użyć PolyBase do załadowania i należy użyć INTERFEJSU API SQLBulkCopy (lub BCP) należy rozważyć zwiększenie rozmiaru partii dla lepszej przepływności - dobrą regułą jest rozmiar partii od 100K do 1M wierszy.
+Jak wspomniano wcześniej, ładowanie z użyciem bazy danych Base oferuje najwyższą przepływność przy użyciu puli SQL Synapse. Jeśli nie można użyć podstawy do załadowania i należy użyć interfejsu API SQLBulkCopy (lub BCP), należy rozważyć zwiększenie rozmiaru wsadu w celu uzyskania lepszej przepływności — dobrą regułą przewijania jest rozmiar wsadu między 100 000 do 1M wierszy.
 
 ## <a name="handling-loading-failures"></a>Postępowanie w przypadku błędów ładowania
 
@@ -106,9 +106,9 @@ Jeśli w ciągu dnia wykonujesz kilka tysięcy lub więcej wstawień, utwórz pa
 
 ## <a name="creating-statistics-after-the-load"></a>Tworzenie statystyk po załadowaniu
 
-Aby poprawić wydajność zapytań, należy utworzyć statystyki dla wszystkich kolumn wszystkich tabel po pierwszym załadowaniu danych, a następnie po każdej istotnej zmianie danych.  Można to zrobić ręcznie lub włączyć [automatyczne tworzenie statystyk](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Aby poprawić wydajność zapytań, należy utworzyć statystyki dla wszystkich kolumn wszystkich tabel po pierwszym załadowaniu danych, a następnie po każdej istotnej zmianie danych.  Można to zrobić ręcznie lub włączyć funkcję [AutoCreate Statistics](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-Aby zapoznać się ze szczegółowym opisem statystyk, zobacz temat [Statystyki](develop-tables-statistics.md). W poniższym przykładzie pokazano, jak ręcznie tworzyć statystyki na pięciu kolumnach tabeli Customer_Speed.
+Aby zapoznać się ze szczegółowym opisem statystyk, zobacz temat [Statystyki](develop-tables-statistics.md). Poniższy przykład pokazuje, jak ręcznie utworzyć statystyki dla pięciu kolumn tabeli Customer_Speed.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);

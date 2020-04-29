@@ -1,34 +1,34 @@
 ---
-title: Pakiety kodu inicjatora w sieci szkieletowej usług
-description: W tym artykule opisano pakiety kodu inicjatora w sieci szkieletowej usług.
+title: CodePackages inicjatora w Service Fabric
+description: Opisuje CodePackages inicjatora w Service Fabric.
 author: shsha-msft
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: shsha
 ms.openlocfilehash: 8483e00f55d0dd49ba57db58b99b237ce0a169e5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81430632"
 ---
-# <a name="initializer-codepackages"></a>Pakiety kodu inicjatora
+# <a name="initializer-codepackages"></a>Pakiety CodePackage inicjatora
 
-Począwszy od wersji 7.1, sieć szkieletowa usług obsługuje **pakiety kodu inicjatora** dla [kontenerów][containers-introduction-link] i aplikacji [wykonywalnych gościa.][guest-executables-introduction-link] Pakiety kodu inicjatora umożliwiają wykonywanie inicjalizacji w zakresie ServicePackage przed rozpoczęciem wykonywania innych pakietów kodu. Ich związek z ServicePackage jest analogiczna do tego, co [SetupEntryPoint][setup-entry-point-link] jest dla CodePackage.
+Począwszy od wersji 7,1, Service Fabric obsługuje **inicjator CodePackages** dla [kontenerów][containers-introduction-link] i aplikacji [wykonywalnych gościa][guest-executables-introduction-link] . Inicjator CodePackages zapewnia możliwość wykonania inicjalizacji w zakresie servicepackage przed rozpoczęciem wykonywania innych operacji CodePackages. Ich relacje z pakietem servicepackage są analogiczne do [SetupEntryPoint][setup-entry-point-link] CodePackage.
 
-Przed przystąpieniem do tego artykułu zalecamy zapoznanie się z [modelem aplikacji sieci szkieletowej usług][application-model-link] i [modelem hostingu sieci szkieletowej usług.][hosting-model-link]
+Przed przejściem do tego artykułu zalecamy zapoznanie się z [modelem aplikacji Service Fabric][application-model-link] i [Service Fabric modelem hostingu][hosting-model-link].
 
 > [!NOTE]
-> Pakiety kodu inicjatora nie są obecnie obsługiwane dla usług napisanych przy użyciu modelu programowania [reliable services.][reliable-services-link]
+> Inicjatory CodePackages nie są obecnie obsługiwane w przypadku usług pisanych przy użyciu modelu programowania [Reliable Services][reliable-services-link] .
  
-## <a name="semantics"></a>Semantyka
+## <a name="semantics"></a>Semantyki
 
-Oczekuje się, że pakiet kodu inicjatora zostanie uruchomiony do **pomyślnego zakończenia (kod zakończenia 0).** Nie powiodło się Initializer CodePackage jest ponownie uruchamiany, dopóki nie zostanie pomyślnie ukończony. Wiele pakietów kodu inicjatora są dozwolone i są wykonywane do **pomyślnego zakończenia,** **sekwencyjnie**, **w określonej kolejności** przed innymi Pakiety kodu w ServicePackage rozpocząć wykonywanie.
+Oczekiwany jest CodePackage inicjatora do **pomyślnego ukończenia (kod zakończenia 0)**. CodePackage inicjatora nie powiodło się, dopóki nie zakończy się pomyślnie. Wiele CodePackages inicjatorów jest dozwolonych i jest wykonywanych w celu **pomyślnego zakończenia**, **sekwencyjne** **w określonej kolejności** , zanim inne CodePackages w servicepackage zakończą wykonywanie.
 
-## <a name="specifying-initializer-codepackages"></a>Określanie pakietów kodów inicjatora
-Można oznaczyć CodePackage jako inicjatora, ustawiając **atrybut inicjatora** **true** w ServiceManifest. Gdy istnieje wiele pakietów kodu inicjatora, ich kolejność wykonywania można określić za pomocą atrybutu **ExecOrder.** **ExecOrder** musi być nieadywersyfikatorem całkowitym i jest prawidłowy tylko dla pakietów kodowych inicjatora. Initializer CodePackages z niższymi wartościami **ExecOrder** są wykonywane jako pierwsze. Jeśli **ExecOrder** nie jest określony dla initializer CodePackage, przyjmuje się domyślną wartość 0. Względna kolejność wykonywania initializer CodePackages o tej samej wartości **ExecOrder** jest nieokreślony.
+## <a name="specifying-initializer-codepackages"></a>Określanie CodePackages inicjatora
+Można oznaczyć CodePackage jako inicjator przez ustawienie atrybutu **inicjatora** na **true** w elemencie servicemanifest. Jeśli istnieje wiele CodePackages inicjatora, ich kolejność wykonywania może być określona za pomocą atrybutu **ExecOrder** . **ExecOrder** musi być nieujemną liczbą całkowitą i jest prawidłowy tylko dla inicjatora CodePackages. CodePackages inicjatora o niższych wartościach **ExecOrder** są wykonywane jako pierwsze. Jeśli **ExecOrder** nie zostanie określony dla inicjatora CodePackage, przyjmuje się wartość domyślną 0. Nie określono względnej kolejności wykonywania inicjatora CodePackages z tą samą wartością **ExecOrder** .
 
-Następujący fragment servicemanifest opisuje trzy Pakiety kodu, z których dwa są oznaczone jako inicjatory. Gdy ten ServicePackage jest aktywowany, *InitCodePackage0* jest wykonywany jako pierwszy, ponieważ ma najniższą wartość **ExecOrder**. Po pomyślnym zakończeniu (kod zakończenia 0) *InitCodePackage0*, *InitCodePackage1* jest wykonywany. Na koniec po pomyślnym zakończeniu *InitCodePackage1,* *WorkloadCodePackage* jest wykonywany.
+Poniższy fragment kodu servicemanifest opisuje trzy CodePackages dwa, które są oznaczone jako inicjatory. Gdy ten pakiet servicepackage jest aktywowany, *InitCodePackage0* jest wykonywane jako pierwsze, ponieważ ma najniższą wartość **ExecOrder**. Po pomyślnym zakończeniu (kod zakończenia 0) z *InitCodePackage0*, *InitCodePackage1* jest wykonywane. Na koniec po pomyślnym *InitCodePackage1*zakończeniu InitCodePackage1 *WorkloadCodePackage* jest wykonywane.
 
 ```xml
 <CodePackage Name="InitCodePackage0" Version="1.0" Initializer="true" ExecOrder="0">
@@ -43,16 +43,16 @@ Następujący fragment servicemanifest opisuje trzy Pakiety kodu, z których dwa
   ...
 </CodePackage>
 ```
-## <a name="complete-example-using-initializer-codepackages"></a>Kompletny przykład przy użyciu pakietów kodowych inicjatora
+## <a name="complete-example-using-initializer-codepackages"></a>Ukończ przykład przy użyciu inicjatora CodePackages
 
-Przyjrzyjmy się kompletnym przykładzie przy użyciu initializer CodePackages.
+Spójrzmy na kompletny przykład przy użyciu inicjatora CodePackages.
 
 > [!IMPORTANT]
-> W poniższym przykładzie przyjęto założenie, że należy zapoznać się z tworzeniem [aplikacji kontenerów systemu Windows przy użyciu sieci szkieletowej usług i platformy Docker][containers-getting-started-link].
+> W poniższym przykładzie założono znajomość tworzenia [aplikacji kontenera systemu Windows przy użyciu Service Fabric i platformy Docker][containers-getting-started-link].
 >
-> W tym przykładzie odwołuje się mcr.microsoft.com/windows/nanoserver:1809. Kontenery systemu Windows Server nie są zgodne ze wszystkimi wersjami systemu operacyjnego hosta. Aby dowiedzieć się więcej, zobacz [Zgodność wersji kontenera systemu Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+> Ten przykład odwołuje się do mcr.microsoft.com/windows/nanoserver:1809. Kontenery systemu Windows Server nie są zgodne ze wszystkimi wersjami systemu operacyjnego hosta. Aby dowiedzieć się więcej, zobacz [zgodność wersji kontenera systemu Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Następujące ServiceManifest.xml opiera się na ServiceManifest fragment kodu opisane wcześniej. *InitCodePackage0*, *InitCodePackage1* i *WorkloadCodePackage* są pakiety kodu, które reprezentują kontenery. Po aktywacji *InitCodePackage0* jest wykonywany jako pierwszy. Rejestruje komunikat do pliku i kończy pracę. Następnie *initCodePackage1* jest wykonywany, który również rejestruje komunikat do pliku i kończy pracę. Na koniec *workloadCodePackage* rozpoczyna wykonywanie. Rejestruje również wiadomość do pliku, wyprowadza zawartość pliku do **stdout,** a następnie pingi na zawsze.
+Następujący plik servicemanifest. XML kompiluje się w opisany wcześniej fragmencie kodu servicemanifest. *InitCodePackage0*, *InitCodePackage1* i *WorkloadCodePackage* są CodePackages, które reprezentują kontenery. Po aktywacji *InitCodePackage0* jest wykonywane najpierw. Rejestruje on komunikat do pliku i kończy pracę. Następnie jest wykonywana *InitCodePackage1* , która również rejestruje komunikat w pliku i kończy pracę. Na koniec *WorkloadCodePackage* rozpoczyna wykonywanie. Rejestruje także komunikat do pliku, wyprowadza zawartość pliku do **stdout** , a następnie wysyła polecenie ping do nieograniczonego.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -93,7 +93,7 @@ Następujące ServiceManifest.xml opiera się na ServiceManifest fragment kodu o
 </ServiceManifest>
 ```
 
-W poniższym pliku ApplicationManifest.xml opisano aplikację opartą na omówieniu powyżej pliku ServiceManifest.xml. Należy zauważyć, że określa ten sam **mount woluminu** dla wszystkich kontenerów, czyli **C:\WorkspaceOnHost** jest zainstalowany w **C:\WorkspaceOnContainer** na wszystkich trzech kontenerów. Efekt netto jest, że wszystkie kontenery zapisu do tego samego pliku dziennika w kolejności, w jakiej są aktywowane.
+Poniższy ApplicationManifest. XML opisuje aplikację opartą na pliku servicemanifest. XML opisanym powyżej. Należy pamiętać, że ta sama instalacja **woluminu** jest taka sama dla wszystkich kontenerów, tj. **C:\WorkspaceOnHost** jest instalowana w **C:\WorkspaceOnContainer** we wszystkich trzech kontenerach. Efektem netto jest to, że wszystkie kontenery są zapisywane w tym samym pliku dziennika w kolejności, w której zostały aktywowane.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -127,7 +127,7 @@ W poniższym pliku ApplicationManifest.xml opisano aplikację opartą na omówie
   </DefaultServices>
 </ApplicationManifest>
 ```
-Po pomyślnym aktywowaniu pakietu ServicePackage zawartość **języka C:\WorkspaceOnHost\log.txt** powinna być następująca.
+Po pomyślnym aktywowaniu pakietu servicepackage zawartość **C:\WorkspaceOnHost\log.txt** powinna być następująca.
 
 ```console
 C:\Users\test>type C:\WorkspaceOnHost\log.txt
@@ -138,10 +138,10 @@ Hi from WorkloadCodePackage.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz następujące artykuły, aby uzyskać powiązane informacje.
+Zapoznaj się z następującymi artykułami dotyczącymi pokrewnych informacji.
 
-* [Tkanina serwisowa i kontenery.][containers-introduction-link]
-* [Sieć szkieletowa usług i pliki wykonywalne gościa.][guest-executables-introduction-link]
+* [Service Fabric i kontenery.][containers-introduction-link]
+* [Service Fabric i pliki wykonywalne gościa.][guest-executables-introduction-link]
 
 <!-- Links -->
 [containers-introduction-link]: service-fabric-containers-overview.md

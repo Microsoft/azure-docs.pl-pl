@@ -1,6 +1,6 @@
 ---
-title: Kopiowanie i przekształcanie danych w bazie danych SQL usługi Azure
-description: Dowiedz się, jak kopiować dane do i z usługi Azure SQL Database i przekształcać dane w bazie danych SQL azure przy użyciu usługi Azure Data Factory.
+title: Kopiowanie i Przekształcanie danych w Azure SQL Database
+description: Dowiedz się, jak kopiować dane do i z Azure SQL Database oraz przekształcać dane w Azure SQL Database przy użyciu Azure Data Factory.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -12,75 +12,75 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
 ms.openlocfilehash: db55e685fb50c89eb850e1b9ee9dcf13d20fb614
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417539"
 ---
-# <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiowanie i przekształcanie danych w bazie danych SQL usługi Azure przy użyciu usługi Azure Data Factory
+# <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w Azure SQL Database przy użyciu Azure Data Factory
 
-> [!div class="op_single_selector" title1="Wybierz wersję usługi Azure Data Factory, której używasz:"]
+> [!div class="op_single_selector" title1="Wybierz używaną wersję Azure Data Factory:"]
 > * [Wersja 1](v1/data-factory-azure-sql-connector.md)
 > * [Bieżąca wersja](connector-azure-sql-database.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-W tym artykule opisano, jak używać działania kopiowania w usłudze Azure Data Factory do kopiowania danych z i do bazy danych SQL azure i do przekształcania danych w bazie danych SQL azure. Aby dowiedzieć się więcej o usłudze Azure Data Factory, przeczytaj [artykuł wprowadzający](introduction.md).
+W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z i do Azure SQL Database oraz do przekształcania danych w Azure SQL Database. Aby dowiedzieć się więcej na temat Azure Data Factory, Przeczytaj [artykuł wprowadzający](introduction.md).
 
 ## <a name="supported-capabilities"></a>Obsługiwane możliwości
 
-Ten łącznik bazy danych SQL platformy Azure jest obsługiwany dla następujących działań:
+Ten łącznik Azure SQL Database jest obsługiwany dla następujących działań:
 
-- [Kopiowanie aktywności](copy-activity-overview.md) z [obsługiwaną tabelą macierzy źródła/ujścia](copy-activity-overview.md)
+- [Działanie kopiowania](copy-activity-overview.md) z [obsługiwaną tabelą macierzy źródłowej/ujścia](copy-activity-overview.md)
 - [Mapowanie przepływu danych](concepts-data-flow-overview.md)
-- [Działanie odnośnika](control-flow-lookup-activity.md)
+- [Działanie Lookup](control-flow-lookup-activity.md)
 - [Działanie GetMetadata](control-flow-get-metadata-activity.md)
 
-W przypadku działania kopiowania ten łącznik bazy danych SQL platformy Azure obsługuje następujące funkcje:
+W przypadku działania kopiowania ten łącznik Azure SQL Database obsługuje następujące funkcje:
 
-- Kopiowanie danych przy użyciu uwierzytelniania SQL i uwierzytelniania tokenu aplikacji usługi Azure Active Directory (Azure AD) przy użyciu jednostki usługi lub tożsamości zarządzanych dla zasobów platformy Azure.
-- Jako źródło pobieranie danych przy użyciu kwerendy SQL lub procedury składowanej.
-- Jako ujście dołączanie danych do tabeli docelowej lub wywoływanie procedury składowanej z niestandardową logiką podczas kopiowania.
+- Kopiowanie danych przy użyciu uwierzytelniania SQL i usługi Azure Active Directory (Azure AD) uwierzytelnianie tokenu aplikacji z jednostką usług lub tożsamościami zarządzanymi dla zasobów platformy Azure.
+- Jako źródło, pobieranie danych przy użyciu zapytania SQL lub procedury składowanej.
+- Jako ujścia Dodaj dane do tabeli docelowej lub wywoływanie procedury składowanej z logiką niestandardową podczas kopiowania.
 
 >[!NOTE]
->Usługa Azure SQL Database [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current) nie jest teraz obsługiwana przez ten łącznik. Aby obejść, można użyć [ogólnego łącznika ODBC](connector-odbc.md) i sterownika ODBC programu SQL Server za pośrednictwem środowiska wykonawczego integracji hostowanego samodzielnie. Postępuj zgodnie z [tymi wskazówkami](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current) z konfiguracjami pobierania sterowników ODBC i ciągów połączeń.
+>[Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current) Azure SQL Database nie jest teraz obsługiwana przez ten łącznik. Aby obejść ten krok, można użyć [ogólnego łącznika ODBC](connector-odbc.md) i sterownika SQL Server ODBC za pośrednictwem własnego środowiska Integration Runtime. Postępuj zgodnie z [tymi wskazówkami](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current) przy użyciu opcji pobierania sterowników ODBC i parametrów połączenia.
 
 > [!IMPORTANT]
-> Jeśli kopiujesz dane przy użyciu środowiska wykonawczego integracji usługi Azure Data Factory, skonfiguruj [zaporę programu Azure SQL Server,](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) aby usługi platformy Azure mogły uzyskać dostęp do serwera.
-> Jeśli kopiujesz dane przy użyciu środowiska uruchomieniowego integracji hostowanego samodzielnie, skonfiguruj zaporę programu Azure SQL Server, aby zezwoliła na odpowiedni zakres adresów IP. Ten zakres obejmuje adres IP komputera, który jest używany do łączenia się z usługą Azure SQL Database.
+> W przypadku kopiowania danych przy użyciu środowiska Azure Data Factory Integration Runtime Skonfiguruj [zaporę SQL Server platformy Azure](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) , aby umożliwić usługom platformy Azure dostęp do serwera.
+> Jeśli skopiujesz dane przy użyciu własnego środowiska Integration Runtime, skonfiguruj zaporę usługi Azure SQL Server tak, aby zezwalała na odpowiedni zakres adresów IP. Ten zakres obejmuje adres IP maszyny, który jest używany do nawiązywania połączenia z Azure SQL Database.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek usługi Azure Data Factory specyficznych dla łącznika bazy danych SQL platformy Azure.
+Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek Azure Data Factory specyficznych dla łącznika Azure SQL Database.
 
-## <a name="linked-service-properties"></a>Połączone właściwości usługi
+## <a name="linked-service-properties"></a>Właściwości połączonej usługi
 
-Te właściwości są obsługiwane dla usługi połączonej usługi Azure SQL Database:
+Te właściwości są obsługiwane dla Azure SQL Database połączonej usługi:
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type | Właściwość **typu** musi być ustawiona na **AzureSqlDatabase**. | Tak |
-| Parametry połączenia | Określ informacje potrzebne do nawiązania połączenia z wystąpieniem bazy danych SQL platformy Azure dla właściwości **connectionString.** <br/>Można również umieścić hasło lub klucz jednostkowy usługi w usłudze Azure Key Vault. Jeśli jest to uwierzytelnianie `password` SQL, pociągnij konfigurację z ciągu połączenia. Aby uzyskać więcej informacji, zobacz przykład JSON po tabeli i [poświadczenia sklepu w usłudze Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
-| servicePrincipalId | Określ identyfikator klienta aplikacji. | Tak, podczas korzystania z uwierzytelniania usługi Azure AD z jednostką usługi |
-| servicePrincipalKey | Określ klucz aplikacji. Oznacz to pole jako **SecureString,** aby bezpiecznie przechowywać go w usłudze Azure Data Factory lub [odwoływać się do klucza tajnego przechowywanego w usłudze Azure Key Vault.](store-credentials-in-key-vault.md) | Tak, podczas korzystania z uwierzytelniania usługi Azure AD z jednostką usługi |
-| Dzierżawy | Określ informacje o dzierżawie, takie jak nazwa domeny lub identyfikator dzierżawy, w ramach którego znajduje się aplikacja. Pobierz go, najeżdżając myszą w prawym górnym rogu witryny Azure portal. | Tak, podczas korzystania z uwierzytelniania usługi Azure AD z jednostką usługi |
-| connectVia | To [środowisko wykonawcze integracji](concepts-integration-runtime.md) jest używane do łączenia się z magazynem danych. Można użyć środowiska uruchomieniowego integracji platformy Azure lub środowiska uruchomieniowego integracji hostowanego samodzielnie, jeśli magazyn danych znajduje się w sieci prywatnej. Jeśli nie zostanie określony, używany jest domyślny środowiska wykonawczego integracji platformy Azure. | Nie |
+| type | Właściwość **Type** musi być ustawiona na wartość **AzureSqlDatabase**. | Tak |
+| Parametry połączenia | Określ informacje, które są konieczne do nawiązania połączenia z wystąpieniem Azure SQL Database dla właściwości **ConnectionString** . <br/>Możesz również umieścić hasło lub klucz jednostki usługi w Azure Key Vault. Jeśli jest to uwierzytelnianie SQL, należy ściągnąć `password` konfigurację z parametrów połączenia. Aby uzyskać więcej informacji, zobacz przykład JSON po zalogowaniu do tabeli i [przechowywania w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
+| servicePrincipalId | Określ identyfikator klienta aplikacji. | Tak, w przypadku korzystania z uwierzytelniania usługi Azure AD za pomocą nazwy głównej usługi |
+| servicePrincipalKey | Określ klucz aplikacji. Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Azure Data Factory lub [odwołać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak, w przypadku korzystania z uwierzytelniania usługi Azure AD za pomocą nazwy głównej usługi |
+| dzierżaw | Określ informacje o dzierżawie, takie jak nazwa domeny lub identyfikator dzierżawy, w której znajduje się aplikacja. Pobierz ją przez umieszczenie kursora myszy w prawym górnym rogu Azure Portal. | Tak, w przypadku korzystania z uwierzytelniania usługi Azure AD za pomocą nazwy głównej usługi |
+| Właściwością connectvia | To [środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Jeśli magazyn danych znajduje się w sieci prywatnej, możesz użyć środowiska Azure Integration Runtime lub własnego środowiska Integration Runtime. Jeśli nie zostanie określony, zostanie użyta domyślna usługa Azure Integration Runtime. | Nie |
 
-W przypadku różnych typów uwierzytelniania należy zapoznać się z następującymi sekcjami dotyczącymi wymagań wstępnych i przykładów JSON:
+W przypadku różnych typów uwierzytelniania zapoznaj się z poniższymi sekcjami dotyczącymi wymagań wstępnych i próbek JSON odpowiednio:
 
 - [Uwierzytelnianie SQL](#sql-authentication)
-- [Uwierzytelnianie tokenu aplikacji usługi Azure AD: podmiot zabezpieczeń usługi](#service-principal-authentication)
-- [Uwierzytelnianie tokenu aplikacji usługi Azure AD: tożsamości zarządzane dla zasobów platformy Azure](#managed-identity)
+- [Uwierzytelnianie tokenu aplikacji usługi Azure AD: Nazwa główna usługi](#service-principal-authentication)
+- [Uwierzytelnianie tokenu aplikacji usługi Azure AD: zarządzane tożsamości dla zasobów platformy Azure](#managed-identity)
 
 >[!TIP]
->Jeśli natkniesz się na błąd z kodem błędu "UserErrorFailedToConnectToSqlServer" i komunikatem typu `Pooling=false` "Limit sesji dla bazy danych jest XXX i został osiągnięty", dodaj do ciągu połączenia i spróbuj ponownie.
+>Jeśli wystąpi błąd z kodem błędu "UserErrorFailedToConnectToSqlServer" i komunikatem "limit sesji dla bazy danych to XXX i został osiągnięty," Dodaj `Pooling=false` do parametrów połączenia i spróbuj ponownie.
 
 ### <a name="sql-authentication"></a>Uwierzytelnianie SQL
 
-#### <a name="linked-service-example-that-uses-sql-authentication"></a>Przykład połączonej usługi, która używa uwierzytelniania SQL
+#### <a name="linked-service-example-that-uses-sql-authentication"></a>Przykład połączonej usługi korzystającej z uwierzytelniania SQL
 
 ```json
 {
@@ -98,7 +98,7 @@ W przypadku różnych typów uwierzytelniania należy zapoznać się z następuj
 }
 ```
 
-**Hasło w usłudze Azure Key Vault** 
+**Hasło w Azure Key Vault** 
 
 ```json
 {
@@ -126,32 +126,32 @@ W przypadku różnych typów uwierzytelniania należy zapoznać się z następuj
 
 ### <a name="service-principal-authentication"></a>Uwierzytelnianie jednostki usługi
 
-Aby użyć uwierzytelniania tokenu aplikacji usługi Azure AD opartego na usłudze, wykonaj następujące kroki:
+Aby skorzystać z uwierzytelniania tokena aplikacji opartego na jednostce usługi Azure AD, wykonaj następujące kroki:
 
-1. [Utwórz aplikację usługi Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) z witryny Azure portal. Zanotuj nazwę aplikacji i następujące wartości definiujące usługę połączone:
+1. [Utwórz aplikację Azure Active Directoryową](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) z Azure Portal. Zanotuj nazwę aplikacji oraz następujące wartości, które definiują połączoną usługę:
 
     - Identyfikator aplikacji
     - Klucz aplikacji
     - Identyfikator dzierżawy
 
-2. [Aprowizuj administratora usługi Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) dla serwera SQL Server platformy Azure w witrynie Azure portal, jeśli jeszcze tego nie zrobiono. Administrator usługi Azure AD musi być użytkownikiem usługi Azure AD lub grupą usługi Azure AD, ale nie może być jednostką usługi. Ten krok jest wykonywany tak, że w następnym kroku można użyć tożsamości usługi Azure AD, aby utworzyć użytkownika zawartej bazy danych dla jednostki usługi.
+2. Jeśli jeszcze tego nie zrobiono, [zainicjuj Azure Active Directory administratorem](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) usługi Azure SQL Server na Azure Portal. Administrator usługi Azure AD musi być użytkownikiem usługi Azure AD lub grupą usługi Azure AD, ale nie może być główną usługą. Ten krok jest wykonywany w celu utworzenia użytkownika zawartej bazy danych dla jednostki usługi przy użyciu tożsamości usługi Azure AD.
 
-3. [Tworzenie użytkowników zawartej bazy danych](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) dla jednostki usługi. Połącz się z bazą danych z lub do którego chcesz skopiować dane przy użyciu narzędzi, takich jak SQL Server Management Studio, z tożsamością usługi Azure AD, która ma co najmniej alter dowolnego użytkownika uprawnienia. Uruchom następujący program T-SQL: 
+3. [Utwórz użytkowników zawartej bazy danych](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) dla jednostki usługi. Nawiąż połączenie z bazą danych z lub, do której chcesz skopiować dane przy użyciu narzędzi takich jak SQL Server Management Studio, z tożsamością usługi Azure AD, która ma co najmniej zmienione uprawnienia użytkownika. Uruchom następujące T-SQL: 
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. Udziel jednostki usługi potrzebne uprawnienia, jak zwykle w przypadku użytkowników SQL lub innych. Uruchom następujący kod. Aby uzyskać więcej opcji, zobacz [ten dokument](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+4. Przyznaj jednostce usługi odpowiednie uprawnienia, które zwykle są przeznaczone dla użytkowników SQL lub innych. Uruchom następujący kod. Aby uzyskać więcej informacji, zobacz [ten dokument](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     ALTER ROLE [role name] ADD MEMBER [your application name];
     ```
 
-5. Konfigurowanie połączonej usługi azure SQL Database w usłudze Azure Data Factory.
+5. Skonfiguruj połączoną usługę Azure SQL Database w Azure Data Factory.
 
 
-#### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Przykład usługi połączonej, która używa uwierzytelniania głównego usługi
+#### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Przykład połączonej usługi korzystającej z uwierzytelniania jednostki usługi
 
 ```json
 {
@@ -175,29 +175,29 @@ Aby użyć uwierzytelniania tokenu aplikacji usługi Azure AD opartego na usłud
 }
 ```
 
-### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a>Tożsamości zarządzane do uwierzytelniania zasobów platformy Azure
+### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a>Zarządzane tożsamości na potrzeby uwierzytelniania zasobów platformy Azure
 
-Fabryka danych może być skojarzona z [tożsamością zarządzaną dla zasobów platformy Azure,](data-factory-service-identity.md) która reprezentuje określoną fabrykę danych. Tej tożsamości zarządzanej można użyć do uwierzytelniania usługi Azure SQL Database. Wyznaczona fabryka może uzyskiwać dostęp do danych z bazy danych lub do niej do bazy danych przy użyciu tej tożsamości.
+Fabryka danych może być skojarzona z [zarządzaną tożsamością dla zasobów platformy Azure](data-factory-service-identity.md) , które reprezentują określoną fabrykę danych. Tej tożsamości zarządzanej można użyć do uwierzytelniania Azure SQL Database. Wydaną fabrykę mogą uzyskać dostęp do danych z lub do bazy danych lub z niej kopiować przy użyciu tej tożsamości.
 
-Aby użyć uwierzytelnienia tożsamości zarządzanej, wykonaj następujące kroki.
+Aby korzystać z uwierzytelniania tożsamości zarządzanej, wykonaj następujące kroki.
 
-1. [Aprowizuj administratora usługi Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) dla serwera SQL Server platformy Azure w witrynie Azure portal, jeśli jeszcze tego nie zrobiono. Administrator usługi Azure AD może być użytkownikiem usługi Azure AD lub grupą usługi Azure AD. Jeśli przyznasz grupie z zarządzaną tożsamością rolę administratora, pomiń kroki 3 i 4. Administrator ma pełny dostęp do bazy danych.
+1. Jeśli jeszcze tego nie zrobiono, [zainicjuj Azure Active Directory administratorem](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) usługi Azure SQL Server na Azure Portal. Administrator usługi Azure AD może być użytkownikiem usługi Azure AD lub grupą usługi Azure AD. Jeśli grupa ma zarządzaną tożsamość rolę administratora, Pomiń kroki 3 i 4. Administrator ma pełny dostęp do bazy danych programu.
 
-2. [Tworzenie użytkowników zawartej bazy danych](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) dla tożsamości zarządzanej usługi Azure Data Factory. Połącz się z bazą danych z lub do którego chcesz skopiować dane przy użyciu narzędzi, takich jak SQL Server Management Studio, z tożsamością usługi Azure AD, która ma co najmniej alter dowolnego użytkownika uprawnienia. Uruchom następujący program T-SQL: 
+2. [Utwórz użytkowników zawartej bazy danych](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) dla Azure Data Factory tożsamości zarządzanej. Nawiąż połączenie z bazą danych z lub, do której chcesz skopiować dane przy użyciu narzędzi takich jak SQL Server Management Studio, z tożsamością usługi Azure AD, która ma co najmniej zmienione uprawnienia użytkownika. Uruchom następujące T-SQL: 
   
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. Udziel tożsamości zarządzanej przez usługę Data Factory, wymaganych uprawnień, jak zwykle dla użytkowników SQL i innych osób. Uruchom następujący kod. Aby uzyskać więcej opcji, zobacz [ten dokument](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+3. Przyznaj Data Factoryj zarządzanej tożsamości, które są potrzebne w zwykły sposób dla użytkowników SQL i innych. Uruchom następujący kod. Aby uzyskać więcej informacji, zobacz [ten dokument](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     ALTER ROLE [role name] ADD MEMBER [your Data Factory name];
     ```
 
-4. Konfigurowanie połączonej usługi azure SQL Database w usłudze Azure Data Factory.
+4. Skonfiguruj połączoną usługę Azure SQL Database w Azure Data Factory.
 
-**Przykład**
+**Przyklad**
 
 ```json
 {
@@ -217,16 +217,16 @@ Aby użyć uwierzytelnienia tożsamości zarządzanej, wykonaj następujące kro
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 
-Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania zestawów danych, zobacz [Zestawy danych](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). 
+Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania zestawów danych, zobacz [zestawy danych](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). 
 
-Następujące właściwości są obsługiwane dla zestawu danych usługi Azure SQL Database:
+Następujące właściwości są obsługiwane dla Azure SQL Database zestawu danych:
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type | Właściwość **typu** zestawu danych musi być ustawiona na **AzureSqlTable**. | Tak |
-| Schematu | Nazwa schematu. |Nie dla źródła, tak dla zlewu  |
-| tabela | Nazwa tabeli/widoku. |Nie dla źródła, tak dla zlewu  |
-| tableName | Nazwa tabeli/widoku ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z powrotem. W przypadku nowego `schema` `table`obciążenia, użycia i programu . | Nie dla źródła, tak dla zlewu |
+| type | Właściwość **Type** zestawu danych musi być ustawiona na wartość **wartość azuresqltable**. | Tak |
+| schematy | Nazwa schematu. |Nie dla źródła, tak dla ujścia  |
+| tabela | Nazwa tabeli/widoku. |Nie dla źródła, tak dla ujścia  |
+| tableName | Nazwa tabeli/widoku ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. W przypadku nowych obciążeń Użyj `schema` i `table`. | Nie dla źródła, tak dla ujścia |
 
 #### <a name="dataset-properties-example"></a>Przykład właściwości zestawu danych
 
@@ -251,26 +251,26 @@ Następujące właściwości są obsługiwane dla zestawu danych usługi Azure S
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
 
-Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania działań, zobacz [Potoki](concepts-pipelines-activities.md). Ta sekcja zawiera listę właściwości obsługiwanych przez źródło i ujście bazy danych SQL azure.
+Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania działań, zobacz [potoki](concepts-pipelines-activities.md). Ta sekcja zawiera listę właściwości obsługiwanych przez źródło i ujścia Azure SQL Database.
 
-### <a name="azure-sql-database-as-the-source"></a>Usługa Azure SQL Database jako źródło
+### <a name="azure-sql-database-as-the-source"></a>Azure SQL Database jako źródło
 
-Aby skopiować dane z usługi Azure SQL Database, następujące właściwości są obsługiwane w sekcji **źródła** działania kopiowania:
+Aby skopiować dane z Azure SQL Database, w sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type | Właściwość **typu** źródła działania kopiowania musi być ustawiona na **AzureSqlSource**. Typ "SqlSource" jest nadal obsługiwany ze zgodnością z powrotem. | Tak |
-| sqlReaderQuery | Ta właściwość używa niestandardowej kwerendy SQL do odczytu danych. Może to być na przykład `select * from MyTable`. | Nie |
-| nazwa sqlReaderStoredProcedureName | Nazwa procedury składowanej, która odczytuje dane z tabeli źródłowej. Ostatnia instrukcja SQL musi być instrukcją SELECT w procedurze składowanej. | Nie |
-| przechowywaneParametryprocedure | Parametry procedury składowanej.<br/>Dozwolone wartości to pary nazw lub wartości. Nazwy i wielkość liter parametrów muszą być zgodne z nazwami i wielkością liter parametrów procedury składowanej. | Nie |
-| Isolationlevel | Określa zachowanie blokowania transakcji dla źródła SQL. Dozwolone wartości to: **ReadCommitted** (default), **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. Więcej informacji można znaleźć [w tym dok.](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) | Nie |
+| type | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **AzureSqlSource**. Typ "sqlsource" jest nadal obsługiwany w celu zapewnienia zgodności z poprzednimi wersjami. | Tak |
+| sqlReaderQuery | Ta właściwość używa niestandardowego zapytania SQL do odczytywania danych. Może to być na przykład `select * from MyTable`. | Nie |
+| sqlReaderStoredProcedureName | Nazwa procedury składowanej, która odczytuje dane z tabeli źródłowej. Ostatnia instrukcja SQL musi być instrukcją SELECT w procedurze składowanej. | Nie |
+| storedProcedureParameters | Parametry procedury składowanej.<br/>Dozwolone wartości to pary nazw lub wartości. Nazwy i wielkość liter parametrów muszą być zgodne z nazwami i wielkością liter parametrów procedury składowanej. | Nie |
+| isolationLevel | Określa zachowanie blokowania transakcji dla źródła SQL. Dozwolone wartości to: **READCOMMITTED** (wartość domyślna), **READUNCOMMITTED**, **REPEATABLEREAD**, **Serializable**, **migawka**. Aby uzyskać więcej informacji, zapoznaj się z [tym dokumentem](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) . | Nie |
 
-**Uwagi do uwag:**
+**Punkty do uwagi:**
 
-- Jeśli **sqlReaderQuery** jest określony dla **usługi AzureSqlSource**, działanie kopiowania uruchamia tę kwerendę względem źródła bazy danych SQL Azure, aby uzyskać dane. Można również określić procedurę składowaną, określając **sqlReaderStoredProcedureName** i **storedProcedureParameters,** jeśli procedura składowana przyjmuje parametry.
-- Jeśli nie określisz **sqlReaderQuery** lub **sqlReaderStoredProcedureName**, kolumny zdefiniowane w sekcji "struktura" zestawu danych JSON są używane do konstruowania kwerendy. Kwerenda `select column1, column2 from mytable` jest uruchamiana w bazie danych SQL Azure. Jeśli definicja zestawu danych nie ma "struktury", wszystkie kolumny są wybierane z tabeli.
+- Jeśli **sqlReaderQuery** jest określony dla **AzureSqlSource**, działanie Copy uruchamia to zapytanie względem źródła Azure SQL Database, aby uzyskać dane. Można również określić procedurę składowaną, określając **sqlReaderStoredProcedureName** i **storedProcedureParameters** , jeśli procedura składowana pobiera parametry.
+- Jeśli nie określisz opcji **sqlReaderQuery** ani **sqlReaderStoredProcedureName**, kolumny zdefiniowane w sekcji "Structure" w kodzie JSON zestawu danych są używane do konstruowania zapytania. Zapytanie `select column1, column2 from mytable` jest uruchamiane względem Azure SQL Database. Jeśli definicja zestawu danych nie ma "struktury", wszystkie kolumny są wybierane z tabeli.
 
-#### <a name="sql-query-example"></a>Przykład kwerendy SQL
+#### <a name="sql-query-example"></a>Przykład zapytania SQL
 
 ```json
 "activities":[
@@ -357,25 +357,25 @@ END
 GO
 ```
 
-### <a name="azure-sql-database-as-the-sink"></a>Usługa Azure SQL Database jako ujście
+### <a name="azure-sql-database-as-the-sink"></a>Azure SQL Database jako ujścia
 
 > [!TIP]
-> Dowiedz się więcej o obsługiwanych zachowaniach zapisu, konfiguracjach i najlepszych praktykach z [najlepszych rozwiązań dotyczących ładowania danych do bazy danych SQL Azure.](#best-practice-for-loading-data-into-azure-sql-database)
+> Dowiedz się więcej o obsługiwanych zachowaniach zapisu, konfiguracjach i najlepszych rozwiązaniach od [najlepszych rozwiązań dotyczących ładowania danych do Azure SQL Database](#best-practice-for-loading-data-into-azure-sql-database).
 
-Aby skopiować dane do usługi Azure SQL Database, następujące właściwości są obsługiwane w sekcji ujście działania **kopiowania:**
+Aby skopiować dane do Azure SQL Database, w sekcji **ujścia** działania kopiowania są obsługiwane następujące właściwości:
 
 | Właściwość | Opis | Wymagany |
 |:--- |:--- |:--- |
-| type | Właściwość **typu** ujścia działania kopiowania musi być ustawiona na **AzureSqlSink**. Typ "SqlSink" jest nadal obsługiwany ze zgodnością z powrotem. | Tak |
-| writeBatchSize | Liczba wierszy do wstawienia do tabeli SQL *na partię*.<br/> Dozwoloną wartością jest **liczba całkowita** (liczba wierszy). Domyślnie usługa Azure Data Factory dynamicznie określa odpowiedni rozmiar partii na podstawie rozmiaru wiersza. | Nie |
-| writeBatchTimeout | Czas oczekiwania na zakończenie operacji wstawiania partii przed jej przesuniem czasu.<br/> Dozwoloną wartością jest **timespan**. Przykładem jest "00:30:00" (30 minut). | Nie |
-| preCopyScript | Określ kwerendę SQL dla działania kopiowania do uruchomienia przed zapisaniem danych w bazie danych SQL Azure. Jest wywoływana tylko raz na uruchomienie kopii. Ta właściwość służy do czyszczenia wstępnie załadowanych danych. | Nie |
-| nazwa sqlWriterStoredProcedureName | Nazwa procedury składowanej, która definiuje sposób stosowania danych źródłowych do tabeli docelowej. <br/>Ta procedura *składowana jest wywoływana na partię*. W przypadku operacji, które są uruchamiane tylko raz i nie mają nic `preCopyScript` wspólnego z danymi źródłowymi, na przykład usuń lub obcięć, użyj właściwości. | Nie |
-| przechowywaneProcedureTableTypeParameterName |Nazwa parametru typu tabeli określonego w procedurze składowanej.  |Nie |
-| sqlWriterTableType (Typ tabeli maszyn sqlWriterTableType) |Nazwa typu tabeli, która ma być używana w procedurze składowanej. Działanie kopiowania sprawia, że dane są przenoszone dostępne w tabeli tymczasowej z tego typu tabeli. Kod procedury składowanej można następnie scalić dane, które są kopiowane z istniejącymi danymi. |Nie |
-| przechowywaneParametryprocedure |Parametry procedury składowanej.<br/>Dozwolone wartości to pary nazw i wartości. Nazwy i wielkość liter parametrów muszą być zgodne z nazwami i wielkością liter parametrów procedury składowanej. | Nie |
-| tableOpcja | Określa, czy tabela ujścia ma być automatycznie tworzędliwa, jeśli nie istnieje na podstawie schematu źródłowego. Automatyczne tworzenie tabeli nie jest obsługiwane, gdy zlew określa procedurę składowaną lub kopia etapowa jest skonfigurowana w działaniu kopiowania. Dozwolone wartości to: `none` (domyślnie), `autoCreate`. |Nie |
-| disableMetricsCollection | Fabryka danych zbiera metryki, takie jak usługi DTU bazy danych SQL azure do optymalizacji wydajności kopiowania i zaleceń. Jeśli chodzi o to zachowanie, `true` określ, aby go wyłączyć. | Nie (domyślnie jest) `false` |
+| type | Właściwość **Type** ujścia działania Copy musi być ustawiona na wartość **AzureSqlSink**. Typ "sqlsink" jest nadal obsługiwany w celu zapewnienia zgodności z poprzednimi wersjami. | Tak |
+| writeBatchSize | Liczba wierszy do wstawienia do tabeli SQL *na partię*.<br/> Dozwolona wartość to liczba **całkowita** (liczba wierszy). Domyślnie Azure Data Factory dynamicznie określa odpowiedni rozmiar wsadu na podstawie rozmiaru wiersza. | Nie |
+| writeBatchTimeout | Czas oczekiwania na zakończenie operacji wstawiania wsadowego przed przekroczeniem limitu czasu.<br/> Dozwolona wartość to **TimeSpan**. Przykładem jest "00:30:00" (30 minut). | Nie |
+| preCopyScript | Określ zapytanie SQL dla działania kopiowania, które ma zostać uruchomione przed zapisaniem danych w Azure SQL Database. Jest on wywoływany tylko raz dla każdego przebiegu kopiowania. Ta właściwość służy do czyszczenia wstępnie załadowanych danych. | Nie |
+| sqlWriterStoredProcedureName | Nazwa procedury składowanej, która definiuje sposób zastosowania danych źródłowych do tabeli docelowej. <br/>Ta procedura składowana jest *wywoływana na partię*. W przypadku operacji, które są uruchamiane tylko raz i nie mają niczego do wykonania z danymi źródłowymi, na przykład Usuń lub Obetnij `preCopyScript` , użyj właściwości. | Nie |
+| storedProcedureTableTypeParameterName |Nazwa parametru typu tabeli określona w procedurze składowanej.  |Nie |
+| sqlWriterTableType |Nazwa typu tabeli, która ma zostać użyta w procedurze składowanej. Działanie kopiowania sprawia, że dane są dostępne w tabeli tymczasowej z tym typem tabeli. Kod procedury składowanej może następnie scalić dane, które są kopiowane z istniejącymi danymi. |Nie |
+| storedProcedureParameters |Parametry procedury składowanej.<br/>Dozwolone wartości to pary nazw i wartości. Nazwy i wielkość liter parametrów muszą być zgodne z nazwami i wielkością liter parametrów procedury składowanej. | Nie |
+| tableOption | Określa, czy tabela ujścia ma być automatycznie tworzona, jeśli nie istnieje na podstawie schematu źródłowego. Funkcja autotworzenia tabeli nie jest obsługiwana, gdy obiekt ujścia określa procedurę przechowywaną lub kopię etapową skonfigurowaną w działaniu kopiowania. Dozwolone wartości to: `none` (domyślnie), `autoCreate`. |Nie |
+| disableMetricsCollection | Data Factory zbiera metryki, takie jak Azure SQL Database DTU na potrzeby optymalizacji wydajności kopiowania i zaleceń. W przypadku tego zachowania należy określić `true` , aby je wyłączyć. | Nie (domyślnie `false`) |
 
 **Przykład 1: Dołączanie danych**
 
@@ -410,9 +410,9 @@ Aby skopiować dane do usługi Azure SQL Database, następujące właściwości 
 ]
 ```
 
-**Przykład 2: Wywołanie procedury składowanej podczas kopiowania**
+**Przykład 2: wywoływanie procedury składowanej podczas kopiowania**
 
-Dowiedz się więcej szczegółów z [Wywołać procedurę składowaną z ujścia SQL](#invoke-a-stored-procedure-from-a-sql-sink).
+Dowiedz się więcej szczegółowo od [wywołania procedury składowanej z ujścia bazy danych SQL](#invoke-a-stored-procedure-from-a-sql-sink).
 
 ```json
 "activities":[
@@ -450,33 +450,33 @@ Dowiedz się więcej szczegółów z [Wywołać procedurę składowaną z ujści
 ]
 ```
 
-## <a name="best-practice-for-loading-data-into-azure-sql-database"></a>Najważniejsze wskazówki dotyczące ładowania danych do bazy danych SQL usługi Azure
+## <a name="best-practice-for-loading-data-into-azure-sql-database"></a>Najlepsze rozwiązanie w zakresie ładowania danych do Azure SQL Database
 
-Podczas kopiowania danych do usługi Azure SQL Database może być wymagane inne zachowanie zapisu:
+Podczas kopiowania danych do Azure SQL Database może być wymagane inne zachowanie zapisu:
 
-- [Dołącz](#append-data): Moje dane źródłowe mają tylko nowe rekordy.
-- [Upsert](#upsert-data): Moje dane źródłowe mają zarówno wstawia i aktualizacje.
-- [Zastąp](#overwrite-the-entire-table): Chcę za każdym razem przeładować całą tabelę wymiarów.
-- [Pisanie z niestandardową logiką:](#write-data-with-custom-logic)Potrzebuję dodatkowego przetwarzania przed ostatecznym wstawieniem do tabeli docelowej.
+- [Dołącz](#append-data): moje dane źródłowe mają tylko nowe rekordy.
+- [Upsert](#upsert-data): moje dane źródłowe są wstawiane i aktualizowane.
+- [Zastąp](#overwrite-the-entire-table): chcę ponownie załadować całą tabelę wymiarów za każdym razem.
+- [Zapisz z logiką niestandardową](#write-data-with-custom-logic): Potrzebuję dodatkowego przetwarzania przed ostatnim wstawieniem do tabeli docelowej.
 
-Zapoznaj się z odpowiednimi sekcjami dotyczącymi konfigurowania usługi Azure Data Factory i najlepszych rozwiązań.
+Zapoznaj się z odpowiednimi sekcjami dotyczącymi konfigurowania programu w Azure Data Factory i najlepszych rozwiązaniach.
 
-### <a name="append-data"></a>Dołączanie danych
+### <a name="append-data"></a>Dołącz dane
 
-Dołączanie danych jest domyślnym zachowaniem tego łącznika ujścia bazy danych SQL platformy Azure. Usługa Azure Data Factory wykonuje zbiorcze wstawianie, aby skutecznie zapisywać w tabeli. Można skonfigurować źródło i sink odpowiednio w działania kopiowania.
+Dołączanie danych jest domyślnym zachowaniem tego łącznika Azure SQL Database sink. Azure Data Factory wykonuje zbiorcze Wstawianie w celu wydajnego zapisu w tabeli. Można odpowiednio skonfigurować źródło i ujścia w działaniu kopiowania.
 
 ### <a name="upsert-data"></a>Wykonywanie operacji upsert dla danych
 
-**Wariant 1:** Jeśli masz dużą ilość danych do skopiowania, użyj następującej metody, aby wykonać ofertę dodatkową: 
+**Opcja 1:** Jeśli masz dużą ilość danych do skopiowania, użyj następującego podejścia, aby wykonać upsert: 
 
-- Najpierw należy użyć [tabeli tymczasowej o zakresie bazy danych,](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current#database-scoped-global-temporary-tables-azure-sql-database) aby zbiorczo załadować wszystkie rekordy przy użyciu działania kopiowania. Ponieważ operacje względem tabel tymczasowych o zakresie bazy danych nie są rejestrowane, można załadować miliony rekordów w ciągu kilku sekund.
-- Uruchom działanie procedury składowanej w usłudze Azure Data Factory, aby zastosować instrukcję [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) lub INSERT/UPDATE. Użyj tabeli tymczasowej jako źródła, aby wykonać wszystkie aktualizacje lub wstawia jako pojedynczą transakcję. W ten sposób zmniejsza się liczba operacji w obie strony i dzienników. Po zakończeniu działania procedury składowanej tabela tymczasowa może zostać obcięta, aby była gotowa do następnego cyklu upsert.
+- Najpierw należy użyć [tymczasowej tabeli o zakresie bazy danych](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current#database-scoped-global-temporary-tables-azure-sql-database) do ładowania zbiorczego wszystkich rekordów przy użyciu działania kopiowania. Ponieważ operacje dotyczące tabel tymczasowych z zakresem bazy danych nie są rejestrowane, można ładować miliony rekordów w kilka sekund.
+- Uruchom działanie procedury składowanej w Azure Data Factory, aby zastosować instrukcję [merge](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) lub Insert/Update. Użyj tabeli tymczasowej jako źródła, aby wykonać wszystkie aktualizacje lub wstawioną jako pojedynczą transakcję. W ten sposób liczba operacji błądzenia i dzienników jest ograniczona. Na końcu działania procedury składowanej tabela tymczasowa może zostać obcięta, aby była gotowa do następnego cyklu upsert.
 
-Na przykład w usłudze Azure Data Factory można utworzyć potok z **działaniem kopiowania** połączone z **działaniem procedury przechowywanej.** Pierwszy kopiuje dane z magazynu źródłowego do tabeli tymczasowej usługi Azure SQL Database, na przykład **##UpsertTempTable**, jako nazwę tabeli w zestawie danych. Następnie ten ostatni wywołuje procedurę składowaną, aby scalić dane źródłowe z tabeli tymczasowej do tabeli docelowej i oczyścić tabelę tymczasową.
+Przykładowo w Azure Data Factory można utworzyć potok z **działaniem kopiowania** łańcucha z **działaniem procedury składowanej**. Dawniej kopiuje dane z magazynu źródłowego do Azure SQL Database tabeli tymczasowej, na przykład **# #UpsertTempTable**, jako nazwę tabeli w zestawie danych. Następnie drugi wywołuje procedurę przechowywaną, aby scalić dane źródłowe z tabeli tymczasowej do tabeli docelowej i oczyścić tabelę tymczasową.
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
-W bazie danych należy zdefiniować procedurę składowaną z logiką SCALANIA, podobnie jak w poniższym przykładzie, który jest wskazywany na poprzednie działanie procedury składowanej. Załóżmy, że celem jest **tabela Marketing** z trzema kolumnami: **ProfileID**, **State**i **Category**. Wykonaj upsert na podstawie **kolumny ProfileID.**
+W bazie danych Zdefiniuj procedurę składowaną z logiką scalania, taką jak Poniższy przykład, który jest wskazywany przez poprzednią aktywność procedury składowanej. Załóżmy, że element docelowy jest tabelą **marketingową** z trzema kolumnami: **ProfileID**, **State**i **Category**. Wykonaj upsert na podstawie kolumny **ProfileID** .
 
 ```sql
 CREATE PROCEDURE [dbo].[spMergeData]
@@ -495,28 +495,28 @@ BEGIN
 END
 ```
 
-**Wariant 2:** Można również [wywołać procedurę składowaną w ramach działania kopiowania](#invoke-a-stored-procedure-from-a-sql-sink). Takie podejście uruchamia każdą partię `writeBatchSize` (zgodnie z zasadami właściwości) w tabeli źródłowej zamiast przy użyciu zbiorczego wstawiania jako domyślnego podejścia w działaniu kopiowania.
+**Opcja 2:** Możesz również wybrać opcję [wywołania procedury składowanej w ramach działania kopiowania](#invoke-a-stored-procedure-from-a-sql-sink). Takie podejście uruchamia każdą partię (zgodnie z `writeBatchSize` właściwością) w tabeli źródłowej, zamiast używać instrukcji BULK INSERT jako podejścia domyślnego w działaniu kopiowania.
 
-### <a name="overwrite-the-entire-table"></a>Zastępowanie całej tabeli
+### <a name="overwrite-the-entire-table"></a>Zastąp całą tabelę
 
-Właściwość **preCopyScript** można skonfigurować w ujściu działania kopiowania. W takim przypadku dla każdego działania kopiowania, który jest uruchamiany, usługa Azure Data Factory uruchamia najpierw skrypt. Następnie uruchamia kopię, aby wstawić dane. Na przykład, aby zastąpić całą tabelę najnowszymi danymi, określ skrypt, aby najpierw usunąć wszystkie rekordy przed zbiorczym załadowaniem nowych danych ze źródła.
+Właściwość **preCopyScript** można skonfigurować w ujścia działania kopiowania. W tym przypadku dla każdego działania kopiowania, które działa, Azure Data Factory uruchamia najpierw skrypt. Następnie uruchamia kopię, aby wstawić dane. Na przykład aby zastąpić całą tabelę najnowszymi danymi, należy określić skrypt, aby najpierw usunąć wszystkie rekordy przed zbiorczym załadowaniem nowych danych ze źródła.
 
-### <a name="write-data-with-custom-logic"></a>Zapis danych za pomocą niestandardowej logiki
+### <a name="write-data-with-custom-logic"></a>Zapisz dane za pomocą logiki niestandardowej
 
-Kroki zapisywania danych za pomocą logiki niestandardowej są podobne do opisanych w sekcji [Dane Upsert.](#upsert-data) Jeśli musisz zastosować dodatkowe przetwarzanie przed ostatecznym wstawieniem danych źródłowych do tabeli docelowej, na dużą skalę można wykonać jedną z dwóch czynności:
+Kroki zapisu danych za pomocą logiki niestandardowej są podobne do tych opisanych w sekcji [dane upsert](#upsert-data) . Jeśli musisz zastosować dodatkowe przetwarzanie przed ostatnim wstawieniem danych źródłowych do tabeli docelowej, możesz wykonać jedną z dwóch czynności:
 
-- Wczytaj do tabeli tymczasowej o określonym zakresie bazy danych, a następnie wywołaj procedurę składowaną. 
-- Wywołać procedurę składowaną podczas kopiowania.
+- Załaduj do tabeli tymczasowej z zakresem bazy danych, a następnie Wywołaj procedurę składowaną. 
+- Wywołaj procedurę przechowywaną podczas kopiowania.
 
 ## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a><a name="invoke-a-stored-procedure-from-a-sql-sink"></a>Wywoływanie procedury składowanej z ujścia SQL
 
-Podczas kopiowania danych do usługi Azure SQL Database można również skonfigurować i wywołać procedurę składowaną określoną przez użytkownika z dodatkowymi parametrami dla każdej partii tabeli źródłowej. Funkcja procedury składowanej korzysta z [parametrów wycenionych w tabeli](https://msdn.microsoft.com/library/bb675163.aspx).
+Podczas kopiowania danych do Azure SQL Database można także skonfigurować i wywołać procedurę składowaną określoną przez użytkownika z dodatkowymi parametrami każdej partii tabeli źródłowej. Funkcja procedury składowanej wykorzystuje parametry z [wartościami przechowywanymi w tabeli](https://msdn.microsoft.com/library/bb675163.aspx).
 
-Można użyć procedury składowanej, gdy wbudowane mechanizmy kopiowania nie służą do celu. Przykładem jest, gdy chcesz zastosować dodatkowe przetwarzanie przed ostatecznym wstawieniem danych źródłowych do tabeli docelowej. Niektóre dodatkowe przykłady przetwarzania są, gdy chcesz scalić kolumny, wyszukać dodatkowe wartości i wstawić do więcej niż jednej tabeli.
+Można użyć procedury składowanej, gdy wbudowane mechanizmy kopiowania nie służą do tego celu. Przykładem jest to, że chcesz zastosować dodatkowe przetwarzanie przed ostatnim wstawieniem danych źródłowych do tabeli docelowej. Niektóre dodatkowe przykłady przetwarzania są potrzebne do scalania kolumn, wyszukiwania dodatkowych wartości i wstawiania do więcej niż jednej tabeli.
 
-W poniższym przykładzie pokazano, jak użyć procedury składowanej, aby wykonać upsert do tabeli w usłudze Azure SQL Database. Załóżmy, że dane wejściowe i zlew **Tabela marketingowa** mają po trzy kolumny: **ProfileID**, **State**i **Category**. Wykonaj upsert na podstawie **kolumny ProfileID** i zastosuj ją tylko dla określonej kategorii o nazwie "ProductA".
+Poniższy przykład przedstawia sposób użycia procedury składowanej do wykonania upsert w tabeli w Azure SQL Database. Załóżmy, że dane wejściowe i tabela **marketingu** ujścia mają trzy kolumny: **ProfileID**, **stan**i **Kategoria**. Zrób upsert na podstawie kolumny **ProfileID** i Zastosuj ją tylko dla określonej kategorii o nazwie "Product".
 
-1. W bazie danych zdefiniuj typ tabeli o takiej samej nazwie jak **sqlWriterTableType**. Schemat typu tabeli jest taki sam jak schemat zwracany przez dane wejściowe.
+1. W swojej bazie danych Zdefiniuj typ tabeli o tej samej nazwie co **sqlWriterTableType**. Schemat typu tabeli jest taki sam jak schemat zwrócony przez dane wejściowe.
 
     ```sql
     CREATE TYPE [dbo].[MarketingType] AS TABLE(
@@ -526,7 +526,7 @@ W poniższym przykładzie pokazano, jak użyć procedury składowanej, aby wykon
     )
     ```
 
-2. W bazie danych zdefiniuj procedurę składowaną o tej samej nazwie co **sqlWriterStoredProcedureName**. Obsługuje dane wejściowe z określonego źródła i scala się z tabelą danych wyjściowych. Nazwa parametru typu tabeli w procedurze składowanej jest taka sama jak **nazwa tabeli** zdefiniowana w zestawie danych.
+2. W bazie danych Zdefiniuj procedurę składowaną o takiej samej nazwie jak **sqlWriterStoredProcedureName**. Obsługuje dane wejściowe z określonego źródła i scala do tabeli danych wyjściowych. Nazwa parametru typu tabeli w procedurze składowanej jest taka sama jak **tabelaname** zdefiniowana w zestawie danych.
 
     ```sql
     CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -543,7 +543,7 @@ W poniższym przykładzie pokazano, jak użyć procedury składowanej, aby wykon
     END
     ```
 
-3. W usłudze Azure Data Factory zdefiniuj sekcję **ujścia SQL** w działaniu kopiowania w następujący sposób:
+3. W Azure Data Factory Zdefiniuj sekcję **ujścia SQL** w działaniu kopiowania w następujący sposób:
 
     ```json
     "sink": {
@@ -561,99 +561,99 @@ W poniższym przykładzie pokazano, jak użyć procedury składowanej, aby wykon
 
 ## <a name="mapping-data-flow-properties"></a>Mapowanie właściwości przepływu danych
 
-Podczas przekształcania danych w przepływie danych mapowania, można odczytywać i zapisywać do tabel z usługi Azure SQL Database. Aby uzyskać więcej informacji, zobacz [transformację źródła](data-flow-source.md) i [transformację ujścia](data-flow-sink.md) w przepływach danych mapowania.
+Podczas przekształcania danych w mapowaniu przepływu danych można odczytywać i zapisywać w tabelach z Azure SQL Database. Aby uzyskać więcej informacji, zobacz [przekształcenie źródłowe](data-flow-source.md) i [przekształcanie ujścia](data-flow-sink.md) w mapowaniu przepływów danych.
 
 ### <a name="source-transformation"></a>Transformacja źródła
 
-Ustawienia specyficzne dla usługi Azure SQL Database są dostępne na karcie **Opcje źródłowe** transformacji źródła. 
+Ustawienia specyficzne dla Azure SQL Database są dostępne na karcie **Opcje źródła** transformacji źródłowej. 
 
-**Wejście:** Wybierz, czy punktujesz źródło przy ```Select * from <table-name>```tabeli (odpowiednik) czy wprowadzasz niestandardową kwerendę SQL.
+**Dane wejściowe:** Wybierz, czy chcesz wskazać źródło w tabeli (równoważnej ```Select * from <table-name>```), czy wprowadzić niestandardowe zapytanie SQL.
 
-**Kwerenda:** Jeśli w polu wejściowym zostanie wybrana kwerenda, wprowadź kwerendę SQL dla źródła. To ustawienie zastępuje dowolną tabelę wybraną w zestawie danych. **Klauzule Order By** nie są obsługiwane w tym miejscu, ale można ustawić pełną instrukcję SELECT FROM. Można również użyć funkcji tabeli zdefiniowanych przez użytkownika. **select * z udfGetData()** jest UDF w języku SQL, który zwraca tabelę. Ta kwerenda spowoduje powstanie tabeli źródłowej, która będzie używana w przepływie danych. Korzystanie z zapytań jest również doskonałym sposobem, aby zmniejszyć wiersze do testowania lub wyszukiwania. 
+**Zapytanie**: w przypadku wybrania zapytania w polu wejściowym wprowadź zapytanie SQL dla źródła. To ustawienie przesłania każdą tabelę, która została wybrana w zestawie danych. Klauzule **order by** nie są obsługiwane w tym miejscu, ale można ustawić pełną instrukcję SELECT FROM. Można również użyć funkcji tabeli zdefiniowanej przez użytkownika. **SELECT * FROM udfGetData ()** to format UDF w języku SQL, który zwraca tabelę. To zapytanie spowoduje utworzenie tabeli źródłowej, której można użyć w przepływie danych. Używanie zapytań jest również doskonałym sposobem zredukowania liczby wierszy do testowania lub wyszukiwania. 
 
 * Przykład SQL:```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**Rozmiar partii:** Wprowadź rozmiar partii, aby podzielić duże dane na odczyty.
+**Rozmiar wsadu**: wprowadź rozmiar partii, aby podzielić duże ilości danych na odczyt.
 
-**Poziom izolacji:** Domyślna wartość źródeł SQL w przepływie danych mapowania jest odczytywana niezatwierdzone. W tym miejscu można zmienić poziom izolacji na jedną z następujących wartości:
-* Odczytu zatwierdzonego
-* Odczyt niezatwierdzony
-* Powtarzalny odczyt
-* Serializacji
-* Brak (ignorowanie poziomu izolacji)
+**Poziom izolacji**: wartość domyślna dla źródeł SQL w mapowaniu przepływu danych jest odczytana. Poziom izolacji można zmienić tutaj na jedną z następujących wartości:
+* Odczytaj zatwierdzone
+* Odczytaj niezatwierdzone
+* Odczyt powtarzalny
+* Serializable
+* Brak (Ignoruj poziom izolacji)
 
 ![Poziom izolacji](media/data-flow/isolationlevel.png "Poziom izolacji")
 
-### <a name="sink-transformation"></a>Transformacja zlewu
+### <a name="sink-transformation"></a>Przekształcanie ujścia
 
-Ustawienia specyficzne dla usługi Azure SQL Database są dostępne na karcie **Ustawienia** transformacji ujścia.
+Ustawienia specyficzne dla Azure SQL Database są dostępne na karcie **Ustawienia** transformacji ujścia.
 
-**Metoda aktualizacji:** Określa, jakie operacje są dozwolone w miejscu docelowym bazy danych. Domyślnie zezwalaj tylko na wstawia. Aby zaktualizować, upsert lub usunąć wiersze, transformacja alter-rowu jest wymagana do oznaczania wierszy dla tych akcji. W przypadku aktualizacji, upserts i deletes, kolumna klucza lub kolumny muszą być ustawione, aby określić, który wiersz do zmiany.
+**Metoda aktualizacji:** Określa, jakie operacje są dozwolone w miejscu docelowym bazy danych. Domyślnie zezwala na operacje wstawiania. Aby zaktualizować, upsert lub usunąć wiersze, przekształcenie ALTER Row jest wymagane do tagowania wierszy dla tych działań. W przypadku aktualizacji, upserts i usunięć należy ustawić kolumnę klucza lub kolumny, aby określić, który wiersz ma być zmieniany.
 
-![Kolumny kluczy](media/data-flow/keycolumn.png "Kolumny kluczy")
+![Kolumny klucza](media/data-flow/keycolumn.png "Kolumny klucza")
 
-Nazwa kolumny, którą wybierzesz jako klucz w tym miejscu, będzie używana przez podajnik ADF jako część kolejnej aktualizacji, upsert, delete. W związku z tym należy wybrać kolumnę, która istnieje w mapowaniu ujścia. Jeśli nie chcesz zapisywać wartości w tej kolumnie klucza, kliknij przycisk "Pomiń kolumny kluczy".
+Nazwa kolumny, która jest wybierana jako klucz, będzie używana przez ADF w ramach kolejnej aktualizacji, Upsert, Usuń. W związku z tym należy wybrać kolumnę, która istnieje w mapowaniu ujścia. Jeśli chcesz, aby nie zapisywać wartości w tej kolumnie klucza, kliknij przycisk "Pomiń zapisywanie kolumn kluczy".
 
-**Akcja tabeli:** Określa, czy wszystkie wiersze mają być ponownietworzone, czy usuwane z tabeli docelowej przed zapisaniem.
-* Brak: Nie zostaną wykonane żadne działania w tabeli.
-* Odtwórz: Tabela zostanie upuszczona i odtworzona. Wymagane, jeśli dynamicznie tworzysz nową tabelę.
-* Obcinanie: Wszystkie wiersze z tabeli docelowej zostaną usunięte.
+**Akcja tabeli:** Określa, czy należy ponownie utworzyć lub usunąć wszystkie wiersze z tabeli docelowej przed zapisem.
+* Brak: w tabeli nie zostanie wykonana żadna akcja.
+* Utwórz ponownie: tabela zostanie porzucona i utworzona ponownie. Wymagane w przypadku dynamicznego tworzenia nowej tabeli.
+* Obcinanie: wszystkie wiersze z tabeli docelowej zostaną usunięte.
 
-**Rozmiar partii**: Określa, ile wierszy jest zapisywanych w każdym zasobniku. Większe rozmiary partii poprawić kompresji i optymalizacji pamięci, ale ryzyko z wyjątków pamięci podczas buforowania danych.
+**Rozmiar wsadu**: określa, ile wierszy jest zapisywanych w każdym przedziale. Większe rozmiary partii zwiększają optymalizację kompresji i pamięci, ale grozi wyjątkami dotyczącymi pamięci podczas buforowania danych.
 
-**Skrypty SQL przed i po opublikowaniu:** Wprowadź wielowierszowe skrypty SQL, które będą wykonywane przed zapisaniem danych (przetwarzania wstępnego) i po zapisaniu danych (przetwarzania końcowego) w bazie danych sink
+**Wstępne i gotowe skrypty SQL**: wprowadź wielowierszowe skrypty SQL, które zostaną wykonane przed (przetwarzanie wstępne) i po wykonaniu (po przetworzeniu) dane są zapisywane w bazie danych ujścia
 
-![skrypty przetwarzania sql przed i po](media/data-flow/prepost1.png "Skrypty przetwarzania SQL")
+![wstępne i końcowe skrypty przetwarzania SQL](media/data-flow/prepost1.png "Skrypty przetwarzania SQL")
 
-## <a name="data-type-mapping-for-azure-sql-database"></a>Mapowanie typów danych dla bazy danych SQL usługi Azure
+## <a name="data-type-mapping-for-azure-sql-database"></a>Mapowanie typu danych dla Azure SQL Database
 
-Gdy dane są kopiowane z lub do usługi Azure SQL Database, następujące mapowania są używane z typów danych usługi Azure SQL Database do tymczasowych typów danych usługi Azure Data Factory. Aby dowiedzieć się, jak działanie kopiowania mapuje schemat źródłowy i typ danych do ujścia, zobacz [Mapowanie schematu i typów danych](copy-activity-schema-and-type-mapping.md).
+Gdy dane są kopiowane z lub do Azure SQL Database, następujące mapowania są używane z Azure SQL Database typów danych do Azure Data Factory pośrednich typów danych. Aby dowiedzieć się, jak działanie kopiowania mapuje schemat źródłowy i typ danych na ujścia, zobacz [Mapowanie schematu i typu danych](copy-activity-schema-and-type-mapping.md).
 
-| Typ danych bazy danych SQL usługi Azure | Tymczasowy typ danych usługi Azure Data Factory |
+| Typ danych Azure SQL Database | Azure Data Factory typ danych pośrednich |
 |:--- |:--- |
 | bigint |Int64 |
-| binarny |Bajt[] |
-| bit |Wartość logiczna |
-| char |Ciąg, Char[] |
+| binarny |Byte [] |
+| bit |Boolean |
+| char |String, Char [] |
 | date |DateTime |
 | Datetime (data/godzina) |DateTime |
 | datetime2 |DateTime |
-| Datetimeoffset |Datetimeoffset |
+| DateTimeOffset |DateTimeOffset |
 | Wartość dziesiętna |Wartość dziesiętna |
-| Atrybut FILESTREAM (varbinary(max)) |Bajt[] |
+| FILESTREAM — atrybut (varbinary (max)) |Byte [] |
 | Liczba zmiennoprzecinkowa |Double |
-| image |Bajt[] |
+| image |Byte [] |
 | int |Int32 |
 | pieniędzy |Wartość dziesiętna |
-| nchar |Ciąg, Char[] |
-| Ntext |Ciąg, Char[] |
+| nchar |String, Char [] |
+| ntext |String, Char [] |
 | numeryczne |Wartość dziesiętna |
-| nvarchar |Ciąg, Char[] |
-| rzeczywiste |Single |
-| Rowversion |Bajt[] |
+| nvarchar |String, Char [] |
+| liczba rzeczywista |Single |
+| rowversion |Byte [] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Wartość dziesiętna |
-| Sql_variant |Obiekt |
-| tekst |Ciąg, Char[] |
+| sql_variant |Obiekt |
+| tekst |String, Char [] |
 | time |przedział_czasu |
-| sygnatura czasowa |Bajt[] |
+| sygnatura czasowa |Byte [] |
 | tinyint |Byte |
 | uniqueidentifier |Guid (identyfikator GUID) |
-| varbinary |Bajt[] |
-| varchar |Ciąg, Char[] |
+| varbinary |Byte [] |
+| varchar |String, Char [] |
 | xml |Xml |
 
 >[!NOTE]
-> Dla typów danych, które mapują do dziesiętnego typu tymczasowego, obecnie Usługa Azure Data Factory obsługuje dokładność do 28. Jeśli masz dane z dokładnością większą niż 28, należy rozważyć konwersję na ciąg w zapytaniu SQL.
+> W przypadku typów danych, które są mapowane na typ pośredni dziesiętny, obecnie Azure Data Factory obsługuje precyzję do 28. Jeśli masz dane o dokładności większej niż 28, Rozważ przekonwertowanie na ciąg w kwerendzie SQL.
 
-## <a name="lookup-activity-properties"></a>Właściwości działania odnośnika
+## <a name="lookup-activity-properties"></a>Właściwości działania Lookup
 
-Aby dowiedzieć się więcej o właściwościach, sprawdź [działanie odnośnika](control-flow-lookup-activity.md).
+Aby dowiedzieć się więcej o właściwościach, sprawdź [działanie Lookup (wyszukiwanie](control-flow-lookup-activity.md)).
 
 ## <a name="getmetadata-activity-properties"></a>Właściwości działania GetMetadata
 
-Aby dowiedzieć się więcej o właściwościach, sprawdź [działanie GetMetadata](control-flow-get-metadata-activity.md) 
+Aby uzyskać szczegółowe informacje na temat właściwości, sprawdź [działanie GetMetadata](control-flow-get-metadata-activity.md) 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać listę magazynów danych obsługiwanych jako źródła i pochłaniacze przez działanie kopiowania w usłudze Azure Data Factory, zobacz [Obsługiwane magazyny danych i formaty](copy-activity-overview.md#supported-data-stores-and-formats).
+Listę magazynów danych obsługiwanych jako źródła i ujścia przez działanie kopiowania w Azure Data Factory można znaleźć w temacie [obsługiwane magazyny i formaty danych](copy-activity-overview.md#supported-data-stores-and-formats).

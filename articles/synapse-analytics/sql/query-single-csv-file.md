@@ -1,6 +1,6 @@
 ---
-title: Kwerenda plików CSV przy użyciu SQL na żądanie (wersja zapoznawcza)
-description: W tym artykule dowiesz się, jak wysyłać zapytania do pojedynczych plików CSV w różnych formatach plików przy użyciu języka SQL na żądanie (wersja zapoznawcza).
+title: Wykonywanie zapytań dotyczących plików CSV za pomocą SQL na żądanie (wersja zapoznawcza)
+description: W tym artykule dowiesz się, jak wykonywać zapytania dotyczące pojedynczych plików CSV z różnymi formatami plików przy użyciu funkcji SQL na żądanie (wersja zapoznawcza).
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,37 +10,37 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 3d09692c06bcdffbb070f545950092592e417838
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431594"
 ---
-# <a name="query-csv-files"></a>Kwerenda plików CSV
+# <a name="query-csv-files"></a>Pliki CSV zapytania
 
-W tym artykule dowiesz się, jak zbadać pojedynczy plik CSV przy użyciu języka SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics. Pliki CSV mogą mieć różne formaty: 
+W tym artykule dowiesz się, jak wysyłać zapytania do pojedynczego pliku CSV przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics. Pliki CSV mogą mieć różne formaty: 
 
 - Z wierszem nagłówka i bez niego
-- Wartości rozdzielane przecinkami i kartami
-- Zakończenia linii w stylu systemu Windows i Uniksa
-- Wartości niecytowane i cytowane oraz znaki ucieczki
+- Wartości rozdzielane przecinkami i tabulatorami
+- Zakończenia wierszy stylu systemu Windows i systemu UNIX
+- Wartości bez cudzysłowu i cudzysłowy oraz znaki ucieczki
 
-Wszystkie powyższe odmiany zostaną omówione poniżej.
+Wszystkie powyższe zmiany zostaną omówione poniżej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed przeczytaniem pozostałej części tego artykułu zapoznaj się z następującymi artykułami:
 
-- [Konfiguracja po raz pierwszy](query-data-storage.md#first-time-setup)
+- [Konfiguracja pierwszego czasu](query-data-storage.md#first-time-setup)
 - [Wymagania wstępne](query-data-storage.md#prerequisites)
 
-## <a name="windows-style-new-line"></a>Nowa linia w stylu systemu Windows
+## <a name="windows-style-new-line"></a>Nowy wiersz w stylu systemu Windows
 
-W poniższej kwerendzie pokazano, jak odczytać plik CSV bez wiersza nagłówka, z nowym wierszem w stylu systemu Windows i kolumnami rozdzielanych przecinkami.
+Poniższe zapytanie pokazuje, jak odczytać plik CSV bez wiersza nagłówka, z nowym wierszem w stylu systemu Windows i kolumnami rozdzielonymi przecinkami.
 
 Podgląd pliku:
 
-![Pierwsze 10 wierszy pliku CSV bez nagłówka, nowy wiersz w stylu Windows.](./media/query-single-csv-file/population.png)
+![Pierwsze 10 wierszy pliku CSV bez nagłówka, nowy wiersz stylu systemu Windows.](./media/query-single-csv-file/population.png)
 
 ```sql
 SELECT *
@@ -61,13 +61,13 @@ WHERE
     AND year = 2017;
 ```
 
-## <a name="unix-style-new-line"></a>Nowa linia w stylu uniksa
+## <a name="unix-style-new-line"></a>Nowy wiersz w stylu systemu UNIX
 
-W poniższej kwerendzie pokazano sposób odczytywania pliku bez wiersza nagłówka z nowym wierszem w stylu Uniksa i kolumnami rozdzielanych przecinkami. Zwróć uwagę na inną lokalizację pliku w porównaniu z innymi przykładami.
+Następujące zapytanie pokazuje, jak odczytać plik bez wiersza nagłówka, z nowym wierszem w stylu systemu UNIX i kolumnami rozdzielanymi przecinkami. Zanotuj inną lokalizację pliku w porównaniu z innymi przykładami.
 
 Podgląd pliku:
 
-![Pierwsze 10 wierszy pliku CSV bez wiersza nagłówka i z nową linią w stylu uniksa.](./media/query-single-csv-file/population-unix.png)
+![Pierwsze 10 wierszy pliku CSV bez wiersza nagłówka i w stylu systemu UNIX nowy wiersz.](./media/query-single-csv-file/population-unix.png)
 
 ```sql
 SELECT *
@@ -90,11 +90,11 @@ WHERE
 
 ## <a name="header-row"></a>Wiersz nagłówka
 
-W poniższej kwerendzie pokazano, jak odczytać plik z wierszem nagłówka, z nowym wierszem w stylu Uniksa i kolumnami rozdzielanych przecinkami. Zwróć uwagę na inną lokalizację pliku w porównaniu z innymi przykładami.
+Następujące zapytanie pokazuje, jak wczytać plik z wierszem nagłówka, z nowym wierszem w stylu systemu UNIX i kolumnami rozdzielanymi przecinkami. Zanotuj inną lokalizację pliku w porównaniu z innymi przykładami.
 
 Podgląd pliku:
 
-![Pierwsze 10 wierszy pliku CSV z wierszem nagłówka i z nową linią w stylu uniksa.](./media/query-single-csv-file/population-unix-hdr.png)
+![Pierwsze 10 wierszy pliku CSV z wierszem nagłówka i z nowym wierszem w stylu systemu UNIX.](./media/query-single-csv-file/population-unix-hdr.png)
 
 ```sql
 SELECT *
@@ -117,11 +117,11 @@ WHERE
 
 ## <a name="custom-quote-character"></a>Niestandardowy znak cudzysłowu
 
-W poniższej kwerendzie pokazano sposób odczytywania pliku z wierszem nagłówka z nowym wierszem w stylu Uniksa, kolumnami rozdzielanym przecinkami i wartościami cytowanymi. Zwróć uwagę na inną lokalizację pliku w porównaniu z innymi przykładami.
+Następujące zapytanie pokazuje, jak odczytywać plik z wierszem nagłówka z nowym wierszem systemu UNIX, kolumnami rozdzielonymi przecinkami i wartościami z cudzysłowu. Zanotuj inną lokalizację pliku w porównaniu z innymi przykładami.
 
 Podgląd pliku:
 
-![Pierwsze 10 wierszy pliku CSV z wierszem nagłówka i z nową linią i wartościami cytowanymi w stylu uniksańskim.](./media/query-single-csv-file/population-unix-hdr-quoted.png)
+![Pierwsze 10 wierszy pliku CSV z wierszem nagłówka i w stylu systemu UNIX nowy wiersz i ujęte w cudzysłów wartości.](./media/query-single-csv-file/population-unix-hdr-quoted.png)
 
 ```sql
 SELECT *
@@ -145,15 +145,15 @@ WHERE
 ```
 
 > [!NOTE]
-> Ta kwerenda zwróci te same wyniki, jeśli pominięto parametr FIELDQUOTE, ponieważ domyślną wartością dla funkcji FIELDQUOTE jest podwójna wycena.
+> To zapytanie zwróci te same wyniki, jeśli pominięto parametr FIELDQUOTE, ponieważ wartość domyślna dla FIELDQUOTE jest podwójnym cudzysłowem.
 
-## <a name="escaping-characters"></a>Ucieczka znaków
+## <a name="escaping-characters"></a>Znaki ucieczki
 
-W poniższej kwerendzie pokazano sposób odczytywania pliku z wierszem nagłówka, z nowym wierszem w stylu Uniksa, kolumnami rozdzielanym przecinkami i charem ucieczki używanym dla ogranicznika pola (przecinka) w obrębie wartości. Zwróć uwagę na inną lokalizację pliku w porównaniu z innymi przykładami.
+Następujące zapytanie pokazuje, jak odczytywać plik z wierszem nagłówka z nowym wierszem systemu UNIX, kolumnami rozdzielonymi przecinkami oraz znakiem ucieczki używanym przez Ogranicznik pola (przecinek) w obrębie wartości. Zanotuj inną lokalizację pliku w porównaniu z innymi przykładami.
 
 Podgląd pliku:
 
-![Pierwsze 10 wierszy pliku CSV z wierszem nagłówka i z unix-style nowej linii i char escape używane dla ogranicznika pola.](./media/query-single-csv-file/population-unix-hdr-escape.png)
+![Pierwsze 10 wierszy pliku CSV z wierszem nagłówka oraz z nowym wierszem w stylu systemu UNIX i znakiem ucieczki używanym do ogranicznika pola.](./media/query-single-csv-file/population-unix-hdr-escape.png)
 
 ```sql
 SELECT *
@@ -176,15 +176,15 @@ WHERE
 ```
 
 > [!NOTE]
-> Ta kwerenda zakończy się niepowodzeniem, jeśli ESCAPECHAR nie jest określony, ponieważ przecinek w "Slov,enia" będzie traktowany jako ogranicznik pola zamiast części nazwy kraju. "Slov,enia" będzie traktowany jako dwie kolumny. W związku z tym określony wiersz będzie miał jedną kolumnę więcej niż inne wiersze i jedną kolumnę więcej niż zdefiniowano w klauzuli WITH.
+> To zapytanie nie powiedzie się, jeśli ESCAPECHAR nie zostanie określony, ponieważ przecinek w "slov, enia" byłby traktowany jako ogranicznik pola zamiast części nazwy kraju. "Slov, enia" byłyby traktowane jak dwie kolumny. W związku z tym, konkretny wiersz może mieć jedną kolumnę więcej niż pozostałe wiersze, a jedna kolumna jest większa niż zdefiniowana w klauzuli WITH.
 
-## <a name="tab-delimited-files"></a>Pliki rozdzielane kartą
+## <a name="tab-delimited-files"></a>Pliki rozdzielane tabulatorami
 
-W poniższej kwerendzie pokazano sposób odczytywania pliku z wierszem nagłówka z nowym wierszem w stylu Uniksa i kolumnami rozdzielanych kartą. Zwróć uwagę na inną lokalizację pliku w porównaniu z innymi przykładami.
+Następujące zapytanie pokazuje, jak odczytywać plik z wierszem nagłówka, z nowym wierszem w stylu systemu UNIX i kolumnami rozdzielanymi tabulatorami. Zanotuj inną lokalizację pliku w porównaniu z innymi przykładami.
 
 Podgląd pliku:
 
-![Pierwsze 10 wierszy pliku CSV z wierszem nagłówka i z unix-style nowy wiersz i tab ogranicznik.](./media/query-single-csv-file/population-unix-hdr-tsv.png)
+![Pierwsze 10 wierszy pliku CSV z wierszem nagłówka i z separatorem nowej linii i tabulatora w stylu systemu UNIX.](./media/query-single-csv-file/population-unix-hdr-tsv.png)
 
 ```sql
 SELECT *
@@ -206,14 +206,14 @@ WHERE
     AND year = 2017
 ```
 
-## <a name="returning-subset-of-columns"></a>Zwracany podzbiór kolumn
+## <a name="returning-subset-of-columns"></a>Zwracanie podzbioru kolumn
 
-Do tej pory określono schemat pliku CSV przy użyciu with i listę wszystkich kolumn. Można określić tylko kolumny, które są faktycznie potrzebne w zapytaniu przy użyciu numeru porządkowego dla każdej potrzebnej kolumny. Pominięto również kolumny bez zainteresowania.
+Do tej pory określono schemat plików CSV za pomocą polecenia WITH i lista wszystkich kolumn. W zapytaniu można określić tylko kolumny, które są w rzeczywistości potrzebne, używając numeru porządkowego dla każdej kolumny. Pomijasz również kolumny bez zainteresowania.
 
-Następująca kwerenda zwraca liczbę odrębnych nazw krajów w pliku, określając tylko kolumny, które są potrzebne:
+Następujące zapytanie zwraca liczbę różnych nazw krajów w pliku, określając tylko te kolumny, które są zbędne:
 
 > [!NOTE]
-> Spójrz na with klauzuli w zapytaniu poniżej i należy pamiętać, że istnieje "2" (bez cudzysłowów) na końcu wiersza, gdzie można zdefiniować *[country_name]* kolumny. Oznacza to, że kolumna *[country_name]* jest drugą kolumną w pliku. Kwerenda zignoruje wszystkie kolumny w pliku z wyjątkiem drugiej.
+> Zapoznaj się z klauzulą WITH w zapytaniach poniżej i zwróć uwagę na to, że w kolumnie *[country_name]* znajduje się wartość "2" (bez cudzysłowów). Oznacza to, że kolumna *[country_name]* jest drugą kolumną w pliku. Zapytanie zignoruje wszystkie kolumny w pliku poza drugim.
 
 ```sql
 SELECT
@@ -234,7 +234,7 @@ WITH (
 
 ## <a name="next-steps"></a>Następne kroki
 
-W kolejnych artykułach dowiesz się, jak:
+W następnych artykułach pokazano, jak:
 
-- [Kwerenda plików parkietu](query-parquet-files.md)
-- [Wykonywanie zapytań o foldery i wiele plików](query-folders-multiple-csv-files.md)
+- [Wykonywanie zapytania dotyczącego plików Parquet](query-parquet-files.md)
+- [Wykonywanie zapytań dotyczących folderów i wielu plików](query-folders-multiple-csv-files.md)

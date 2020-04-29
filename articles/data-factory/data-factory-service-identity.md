@@ -1,6 +1,6 @@
 ---
 title: Tożsamość zarządzana dla usługi Data Factory
-description: Dowiedz się więcej o tożsamości zarządzanej dla usługi Azure Data Factory.
+description: Informacje o tożsamości zarządzanej Azure Data Factory.
 services: data-factory
 author: linda33wj
 manager: shwang
@@ -11,53 +11,53 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jingwang
 ms.openlocfilehash: d47450f3252074d3bae8df97766bf8858fca5972
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416595"
 ---
 # <a name="managed-identity-for-data-factory"></a>Tożsamość zarządzana dla usługi Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Ten artykuł pomaga zrozumieć, co jest zarządzana tożsamości dla fabryki danych (dawniej znany jako tożsamość usługi zarządzanej/MSI) i jak to działa.
+Ten artykuł pomaga zrozumieć, co to jest tożsamość zarządzana Data Factory (znana wcześniej jako tożsamość usługi zarządzanej/MSI) i jak działa.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Omówienie
 
-Podczas tworzenia fabryki danych można utworzyć tożsamość zarządzaną wraz z tworzeniem fabryki. Tożsamość zarządzana jest aplikacją zarządzaną zarejestrowaną w usłudze Azure Active Directory i reprezentuje tę fabrykę określonych danych.
+Podczas tworzenia fabryki danych można utworzyć zarządzaną tożsamość wraz z tworzeniem fabryczną. Zarządzana tożsamość to zarządzana aplikacja zarejestrowana do Azure Active Directory i reprezentuje tę konkretną fabrykę danych.
 
-Tożsamość zarządzana dla usługi Data Factory korzysta z następujących funkcji:
+Tożsamość zarządzana dla Data Factory korzysta z następujących funkcji:
 
-- [Poświadczenia magazynu w usłudze Azure Key Vault](store-credentials-in-key-vault.md), w którym to przypadku tożsamość zarządzana fabrycznie danych jest używana do uwierzytelniania usługi Azure Key Vault.
-- Łączniki, w tym [magazyn obiektów blob platformy Azure,](connector-azure-blob-storage.md) [usługa Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [usługa Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [usługa Azure SQL Database](connector-azure-sql-database.md)i usługa Azure SQL Data [Warehouse](connector-azure-sql-data-warehouse.md).
-- [Aktywność w sieci Web](control-flow-web-activity.md).
+- [Poświadczenie magazynu w Azure Key Vault](store-credentials-in-key-vault.md), w którym ma być używana tożsamość zarządzana fabryki danych do Azure Key Vault uwierzytelniania.
+- Łączniki, w tym [Magazyn obiektów blob platformy Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md)i [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md).
+- [Działanie sieci Web](control-flow-web-activity.md).
 
-## <a name="generate-managed-identity"></a>Generowanie tożsamości zarządzanej
+## <a name="generate-managed-identity"></a>Generuj tożsamość zarządzaną
 
-Tożsamość zarządzana dla usługi Data Factory jest generowana w następujący sposób:
+Tożsamość zarządzana dla Data Factory jest generowana w następujący sposób:
 
-- Podczas tworzenia fabryki danych za pośrednictwem **witryny Azure portal lub programu PowerShell**tożsamość zarządzana będzie zawsze tworzona automatycznie.
-- Podczas tworzenia fabryki danych za pomocą **SDK,** tożsamość zarządzana zostanie utworzona tylko wtedy, gdy określisz "Tożsamość = nowa FactoryIdentity()" w obiekcie fabrycznym do utworzenia. Zobacz przykład w [.NET Szybki start - tworzenie fabryki danych](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
-- Podczas tworzenia fabryki danych za pośrednictwem **interfejsu REST API**tożsamość zarządzana zostanie utworzona tylko wtedy, gdy określisz sekcję "tożsamość" w treści żądania. Zobacz przykład w [rest szybki start - tworzenie fabryki danych](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
+- Podczas tworzenia fabryki danych za poorednictwem **Azure Portal lub programu PowerShell**, tożsamość zarządzana zawsze zostanie utworzona automatycznie.
+- Podczas tworzenia fabryki danych za pomocą **zestawu SDK**tożsamość zarządzana zostanie utworzona tylko wtedy, gdy w obiekcie fabryki zostanie określona wartość "Identity = New FactoryIdentity ()". Zobacz przykład w programie [.NET — szybki start — tworzenie fabryki danych](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
+- Podczas tworzenia fabryki danych przy użyciu **interfejsu API REST**tożsamość zarządzana zostanie utworzona tylko wtedy, gdy w treści żądania określono sekcję "Identity". Zobacz przykład w temacie [Szybki Start — tworzenie fabryki danych](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 
-Jeśli okaże się, że fabryka danych nie ma skojarzonej tożsamości zarządzanej po [pobraniu instrukcji tożsamości zarządzanej,](#retrieve-managed-identity) możesz ją wygenerować, aktualizując fabrykę danych za pomocą inicjatora tożsamości programowo:
+Jeśli okaże się, że Fabryka danych nie jest skojarzona z tożsamością [zarządzaną](#retrieve-managed-identity) , można ją jawnie wygenerować, aktualizując jednocześnie fabrykę danych przy użyciu inicjatora tożsamości:
 
 - [Generowanie tożsamości zarządzanej przy użyciu programu PowerShell](#generate-managed-identity-using-powershell)
 - [Generowanie tożsamości zarządzanej przy użyciu interfejsu API REST](#generate-managed-identity-using-rest-api)
-- [Generowanie tożsamości zarządzanej przy użyciu szablonu usługi Azure Resource Manager](#generate-managed-identity-using-an-azure-resource-manager-template)
-- [Generowanie tożsamości zarządzanej przy użyciu sdk](#generate-managed-identity-using-sdk)
+- [Generuj zarządzaną tożsamość przy użyciu szablonu Azure Resource Manager](#generate-managed-identity-using-an-azure-resource-manager-template)
+- [Generuj tożsamość zarządzaną za pomocą zestawu SDK](#generate-managed-identity-using-sdk)
 
 >[!NOTE]
->- Nie można zmodyfikować tożsamości zarządzanej. Aktualizowanie fabryki danych, które już mają tożsamość zarządzaną nie będzie miało żadnego wpływu, tożsamość zarządzana jest utrzymywana bez zmian.
->- Jeśli zaktualizujesz fabrykę danych, która ma już tożsamość zarządzaną bez określania parametru "identity" w obiekcie fabrycznym lub bez określania sekcji "tożsamość" w treści żądania REST, zostanie wyświetlony błąd.
+>- Nie można zmodyfikować tożsamości zarządzanej. Aktualizacja fabryki danych, która ma już tożsamość zarządzana nie ma żadnego wpływu, zarządzana tożsamość jest zachowana bez zmian.
+>- W przypadku zaktualizowania fabryki danych, która ma już tożsamość zarządzaną bez określenia parametru "Identity" w obiekcie fabryki lub bez określenia "Identity" w treści żądania REST, zostanie wyświetlony komunikat o błędzie.
 >- Po usunięciu fabryki danych skojarzona tożsamość zarządzana zostanie usunięta.
 
 ### <a name="generate-managed-identity-using-powershell"></a>Generowanie tożsamości zarządzanej przy użyciu programu PowerShell
 
-Wywołanie **Set-AzDataFactoryV2** polecenia ponownie, a następnie widzisz "Tożsamość" pola są nowo generowane:
+Ponownie wywołaj polecenie **Set-AzDataFactoryV2** , a następnie zobaczysz nowo wygenerowane pola "Identity":
 
 ```powershell
 PS C:\WINDOWS\system32> Set-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
@@ -73,13 +73,13 @@ ProvisioningState : Succeeded
 
 ### <a name="generate-managed-identity-using-rest-api"></a>Generowanie tożsamości zarządzanej przy użyciu interfejsu API REST
 
-Zadzwoń poniżej interfejsu API z sekcji "tożsamość" w treści żądania:
+Wywołaj poniżej interfejsu API z sekcją "Identity" w treści żądania:
 
 ```
 PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2018-06-01
 ```
 
-**Treść żądania:** dodaj "identity": { "type": "SystemAssigned" }.
+**Treść żądania**: Dodaj "tożsamość": {"Type": "SystemAssigned"}.
 
 ```json
 {
@@ -92,7 +92,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-**Odpowiedź:** tożsamość zarządzana jest tworzona automatycznie, a sekcja "tożsamość" jest odpowiednio wypełniana.
+**Odpowiedź**: tożsamość zarządzana jest tworzona automatycznie, a sekcja "Identity" jest odpowiednio wypełniana.
 
 ```json
 {
@@ -115,9 +115,9 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-### <a name="generate-managed-identity-using-an-azure-resource-manager-template"></a>Generowanie tożsamości zarządzanej przy użyciu szablonu usługi Azure Resource Manager
+### <a name="generate-managed-identity-using-an-azure-resource-manager-template"></a>Generuj zarządzaną tożsamość przy użyciu szablonu Azure Resource Manager
 
-**Szablon**: dodaj "tożsamość": { "type": "SystemAssigned" }.
+**Szablon**: Dodaj "Identity": {"Type": "SystemAssigned"}.
 
 ```json
 {
@@ -135,9 +135,9 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-### <a name="generate-managed-identity-using-sdk"></a>Generowanie tożsamości zarządzanej przy użyciu sdk
+### <a name="generate-managed-identity-using-sdk"></a>Generuj tożsamość zarządzaną za pomocą zestawu SDK
 
-Wywołanie funkcji create_or_update fabryki danych za pomocą funkcji Identity=new FactoryIdentity(). Przykładowy kod przy użyciu platformy .NET:
+Wywołaj funkcję create_or_update fabryki danych z tożsamością = New FactoryIdentity (). Przykładowy kod korzystający z platformy .NET:
 
 ```csharp
 Factory dataFactory = new Factory
@@ -148,28 +148,28 @@ Factory dataFactory = new Factory
 client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 ```
 
-## <a name="retrieve-managed-identity"></a>Pobieranie tożsamości zarządzanej
+## <a name="retrieve-managed-identity"></a>Pobierz tożsamość zarządzaną
 
-Tożsamość zarządzana można pobrać z witryny Azure portal lub programowo. W poniższych sekcjach przedstawiono niektóre przykłady.
+Tożsamość zarządzaną można pobrać z Azure Portal lub programowo. W poniższych sekcjach przedstawiono kilka przykładów.
 
 >[!TIP]
-> Jeśli nie widzisz tożsamości zarządzanej, [wygeneruj zarządzana tożsamość,](#generate-managed-identity) aktualizując fabrykę.
+> Jeśli nie widzisz tożsamości zarządzanej, [Wygeneruj tożsamość zarządzaną](#generate-managed-identity) , aktualizując fabrykę.
 
-### <a name="retrieve-managed-identity-using-azure-portal"></a>Pobieranie tożsamości zarządzanej przy użyciu portalu Azure
+### <a name="retrieve-managed-identity-using-azure-portal"></a>Pobierz tożsamość zarządzaną za pomocą Azure Portal
 
-Informacje o tożsamości zarządzanej można znaleźć w witrynie Azure portal -> fabrycznie danych właściwości ->.
+Informacje o tożsamości zarządzanej można znaleźć na stronie Azure Portal — > właściwości > fabryki danych.
 
 - Identyfikator obiektu tożsamości zarządzanej
-- Dzierżawa tożsamości zarządzanej
-- Identyfikator aplikacji tożsamości zarządzanej
+- Zarządzana dzierżawa tożsamości
+- Identyfikator zarządzanej aplikacji tożsamości
 
-Informacje o tożsamości zarządzanej pojawią się również podczas tworzenia połączonej usługi obsługującej uwierzytelnianie tożsamości zarządzanej, takie jak azure blob, usługa Azure Data Lake Storage, usługa Azure Key Vault itp.
+Informacje o tożsamości zarządzanej również zostaną wyświetlone podczas tworzenia połączonej usługi, która obsługuje uwierzytelnianie tożsamości zarządzanej, takie jak obiekt blob platformy Azure, Azure Data Lake Storage, Azure Key Vault itd.
 
-Podczas udzielania uprawnień użyj identyfikatora obiektu lub nazwy fabryki danych (jako nazwy tożsamości zarządzanej), aby znaleźć tę tożsamość.
+Podczas udzielania uprawnień Użyj identyfikatora obiektu lub nazwy fabryki danych (jako nazwy tożsamości zarządzanej), aby znaleźć tę tożsamość.
 
 ### <a name="retrieve-managed-identity-using-powershell"></a>Pobieranie tożsamości zarządzanej przy użyciu programu PowerShell
 
-Identyfikator jednostki zarządzanej i identyfikator dzierżawy zostaną zwrócone po otrzymaniu określonej fabryki danych w następujący sposób. Użyj **obiektu PrincipalId,** aby udzielić dostępu:
+Identyfikator podmiotu zabezpieczeń tożsamości zarządzanej i identyfikator dzierżawy zostaną zwrócone, gdy uzyskasz określoną fabrykę danych w następujący sposób. Użyj **PrincipalId** , aby udzielić dostępu:
 
 ```powershell
 PS C:\WINDOWS\system32> (Get-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
@@ -179,7 +179,7 @@ PrincipalId                          TenantId
 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc 72f988bf-XXXX-XXXX-XXXX-2d7cd011db47
 ```
 
-Identyfikator aplikacji można uzyskać, kopiując powyższy identyfikator jednostki, a następnie uruchamiając polecenie poniżej usługi Azure Active Directory z identyfikatorem głównym jako parametrem.
+Identyfikator aplikacji można uzyskać, kopiując powyżej identyfikatora podmiotu zabezpieczeń, a następnie uruchamiając polecenie Azure Active Directory z IDENTYFIKATORem podmiotu zabezpieczeń jako parametr.
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -192,9 +192,9 @@ Type                  : ServicePrincipal
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz następujące tematy, które wprowadzają, kiedy i jak używać tożsamości zarządzanej w fabryce danych:
+Zapoznaj się z następującymi tematami, które wprowadzają, kiedy i jak używać tożsamości zarządzanej przez fabrykę danych:
 
-- [Poświadczenia magazynu w usłudze Azure Key Vault](store-credentials-in-key-vault.md)
-- [Kopiowanie danych z/do usługi Azure Data Lake Store przy użyciu tożsamości zarządzanych do uwierzytelniania zasobów platformy Azure](connector-azure-data-lake-store.md)
+- [Przechowywanie poświadczeń w Azure Key Vault](store-credentials-in-key-vault.md)
+- [Kopiowanie danych z/do Azure Data Lake Store przy użyciu tożsamości zarządzanych na potrzeby uwierzytelniania zasobów platformy Azure](connector-azure-data-lake-store.md)
 
-Zobacz [tożsamości zarządzane dla zasobów platformy Azure Omówienie](/azure/active-directory/managed-identities-azure-resources/overview) więcej tła na temat tożsamości zarządzanych dla zasobów platformy Azure, na których opiera się tożsamość zarządzana fabrycznie danych. 
+Zobacz [zarządzane tożsamości dla zasobów platformy Azure — omówienie](/azure/active-directory/managed-identities-azure-resources/overview) , aby uzyskać więcej informacji na temat tożsamości zarządzanych dla zasobów platformy Azure, na podstawie których jest oparta tożsamość zarządzana w usłudze Data Factory. 

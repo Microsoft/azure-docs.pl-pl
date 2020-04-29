@@ -1,6 +1,6 @@
 ---
-title: Co zrobić w przypadku zakłóceń w działaniu usługi platformy Azure, które mają wpływ na usługę Azure Key Vault — Usługa Azure Key Vault | Dokumenty firmy Microsoft
-description: Dowiedz się, co należy zrobić w przypadku zakłóceń w działaniu usługi platformy Azure, które mają wpływ na usługę Azure Key Vault.
+title: Co zrobić w przypadku przerwania działania usługi platformy Azure, które ma wpływ na Azure Key Vault-Azure Key Vault | Microsoft Docs
+description: Dowiedz się, co należy zrobić w przypadku przerw w działaniu usługi platformy Azure, które ma wpływ na Azure Key Vault.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,34 +10,34 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 96929dcbe3d51589b0c3c0df89671dadb20e37cc
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81422949"
 ---
-# <a name="azure-key-vault-availability-and-redundancy"></a>Dostępność i nadmiarowość usługi Azure Key Vault
+# <a name="azure-key-vault-availability-and-redundancy"></a>Azure Key Vault dostępność i nadmiarowość
 
-Usługa Azure Key Vault oferuje wiele warstw nadmiarowości, aby upewnić się, że klucze i wpisy tajne pozostają dostępne dla aplikacji, nawet jeśli poszczególne składniki usługi nie powiodą się.
+Azure Key Vault funkcje wielu warstw nadmiarowości, aby upewnić się, że klucze i wpisy tajne pozostaną dostępne dla aplikacji, nawet jeśli poszczególne składniki usługi nie powiodą się.
 
-Zawartość magazynu kluczy są replikowane w regionie i do regionu pomocniczego co najmniej 150 mil, ale w tej samej lokalizacji geograficznej. Pozwala to zachować wysoką trwałość kluczy i tajemnic. Zobacz dokument [regionów sparowanych platformy Azure,](../../best-practices-availability-paired-regions.md) aby uzyskać szczegółowe informacje na temat par określonych regionów.
+Zawartość Twojego magazynu kluczy jest replikowana w regionie i do regionu pomocniczego, co najmniej 150 kilometrów, ale w tej samej lokalizacji geograficznej. Zapewnia to wysoką trwałość kluczy i wpisów tajnych. Aby uzyskać szczegółowe informacje na temat konkretnych par regionów, zobacz dokument dotyczący [sparowanych regionów platformy Azure](../../best-practices-availability-paired-regions.md) .
 
-Jeśli poszczególne składniki w usłudze magazynu kluczy nie powiedzie się, alternatywne składniki w regionie krok w celu obsługi żądania, aby upewnić się, że nie ma degradacji funkcjonalności. Nie trzeba podejmować żadnych działań, aby wyzwolić to. Dzieje się to automatycznie i będzie dla Ciebie przezroczyste.
+Jeśli poszczególne składniki w ramach usługi magazynu kluczy zakończą się niepowodzeniem, alternatywne składniki w ramach regionu w celu zapewnienia obsługi żądania, aby upewnić się, że nie ma obniżenia funkcjonalności. Nie trzeba podejmować żadnych działań w celu wyzwolenia tego działania. Odbywa się to automatycznie i będzie niewidoczny dla użytkownika.
 
-W rzadkich przypadkach, gdy cały region platformy Azure jest niedostępny, żądania, które można zrobić z usługi Azure Key Vault w tym regionie są automatycznie kierowane *(nie powiodło się)* do regionu pomocniczego. Gdy region podstawowy jest ponownie dostępny, żądania są kierowane z powrotem *(po awarii z powrotem)* do regionu podstawowego. Ponownie, nie trzeba podejmować żadnych działań, ponieważ dzieje się to automatycznie.
+W rzadkich przypadkach, gdy cały region platformy Azure jest niedostępny, żądania Azure Key Vault w tym regionie są automatycznie kierowane (przełączone do trybu*failover*) do regionu pomocniczego. Gdy region podstawowy jest dostępny ponownie, żądania są przekierowywane z powrotem (*powrót po awarii*) do regionu podstawowego. Ponownie nie trzeba podejmować żadnych działań, ponieważ dzieje się to automatycznie.
 
-Dzięki tej konstrukcji o wysokiej dostępności usługa Azure Key Vault nie wymaga żadnych przestojów w działaniach konserwacyjnych.
+Dzięki temu projektowi o wysokiej dostępności Azure Key Vault nie wymaga przestojów w przypadku aktywności konserwacyjnej.
 
-Istnieje kilka zastrzeżeń, o których należy pamiętać:
+Należy pamiętać o kilku zastrzeżeniach:
 
-* W przypadku prze sprawnienia stanu failover regionu może upłynąć kilka minut, aby usługa została przejęta awaryjnie. Żądania, które są dokonywane w tym czasie może zakończyć się niepowodzeniem, dopóki nie zostanie zakończona pracy awaryjnej.
-* Po zakończeniu pracy awaryjnej magazyn kluczy jest w trybie tylko do odczytu. Żądania, które są obsługiwane w tym trybie są:
-  * Wyświetlanie listy magazynów kluczy
-  * Uzyskaj właściwości magazynów kluczy
-  * Lista wpisów tajnych
-  * Zdobądź sekrety
-  * Klawisze listy
-  * Pobierz (właściwości) kluczy
+* W przypadku przejścia w tryb pracy awaryjnej w celu przełączenia usługi do trybu failover może upłynąć kilka minut. Żądania wykonywane w tym czasie mogą się nie powieść, dopóki nie zakończy się praca awaryjna.
+* Po zakończeniu pracy w trybie failover Magazyn kluczy jest w trybie tylko do odczytu. Żądania obsługiwane w tym trybie są następujące:
+  * Utwórz listę magazynów kluczy
+  * Pobierz właściwości magazynów kluczy
+  * Wyświetl wpisy tajne
+  * Pobierz wpisy tajne
+  * Klucze list
+  * Pobierz (właściwości z) kluczy
   * Szyfrowanie
   * Odszyfrowywanie
   * Zawijanie
@@ -45,5 +45,5 @@ Istnieje kilka zastrzeżeń, o których należy pamiętać:
   * Weryfikuj
   * Znak
   * Backup
-* Po awarii po awarii, wszystkie typy żądań (w tym *odczytu i* zapisu żądań) są dostępne.
+* Po przejściu w tryb failover są dostępne wszystkie typy żądań (łącznie *z* żądaniami odczytu i zapisu).
 

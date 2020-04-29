@@ -1,6 +1,6 @@
 ---
-title: Schematy zdefiniowane przez użytkownika w języku Synapse SQL
-description: W poniższych sekcjach znajdziesz różne wskazówki dotyczące używania schematów zdefiniowanych przez użytkownika T-SQL do opracowywania rozwiązań z możliwością Synapse SQL usługi Azure Synapse Analytics.
+title: Schematy zdefiniowane przez użytkownika w programie Synapse SQL
+description: W poniższych sekcjach znajdziesz różne porady dotyczące korzystania ze schematów zdefiniowanych przez użytkownika w języku T-SQL w celu opracowywania rozwiązań z możliwością Synapseymi w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,43 +10,43 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: ac4753da1405fe6b8cd209bb4899192e9f317aa1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81428708"
 ---
-# <a name="user-defined-schemas-within-synapse-sql"></a>Schematy zdefiniowane przez użytkownika w języku Synapse SQL
+# <a name="user-defined-schemas-within-synapse-sql"></a>Schematy zdefiniowane przez użytkownika w programie Synapse SQL
 
-W poniższych sekcjach znajdziesz różne wskazówki dotyczące używania schematów zdefiniowanych przez użytkownika T-SQL do opracowywania rozwiązań w ramach synapse SQL.
+W poniższych sekcjach znajdziesz różne porady dotyczące korzystania ze schematów zdefiniowanych przez użytkownika w języku T-SQL w celu opracowywania rozwiązań w programie Synapse SQL.
 
-## <a name="schemas-for-application-boundaries"></a>Schematy dla granic aplikacji
+## <a name="schemas-for-application-boundaries"></a>Schematy granic aplikacji
 
-Tradycyjna architektura analizy często używa oddzielnych baz danych do tworzenia granic aplikacji na podstawie obciążenia, domeny lub zabezpieczeń. Na przykład tradycyjna infrastruktura analizy programu SQL Server może zawierać tymczasową bazę danych, bazę danych analizy i bazy danych składnicy danych. W tej topologii każda baza danych działa jako obwiednia obciążenia i zabezpieczeń w architekturze.
+Tradycyjna architektura analityczna często używa oddzielnych baz danych do tworzenia granic aplikacji na podstawie obciążenia, domeny lub zabezpieczeń. Na przykład tradycyjna infrastruktura analityczna SQL Server może obejmować tymczasową bazę danych, bazę danych analitycznych i bazy danych składnicy. W tej topologii każda baza danych działa jako granica obciążenia i zabezpieczeń w architekturze.
 
-Zamiast tego Synapse SQL uruchamia całe obciążenie analizy w jednej bazie danych. Sprzężenia między bazami danych nie są dozwolone. Synapse SQL oczekuje, że wszystkie tabele używane przez magazyn mają być przechowywane w jednej bazie danych.
-
-> [!NOTE]
-> Pule SQL nie obsługują zapytań między bazami danych dowolnego rodzaju. W związku z tym implementacje analityczne, które wykorzystują ten wzorzec, będą musiały zostać zmienione. SQL na żądanie (wersja zapoznawcza) obsługuje kwerendy między bazami danych.
-
-## <a name="user-defined-schema-recommendations"></a>Zalecenia dotyczące schematów zdefiniowane przez użytkownika
-
-Uwzględnione są zalecenia dotyczące konsolidacji obciążeń, zabezpieczeń, domeny i granic funkcjonalnych przy użyciu schematów zdefiniowanych przez użytkownika:
-
-- Użyj jednej bazy danych, aby uruchomić całe obciążenie analityczne.
-- Skonsoliduj istniejące środowisko analityczne, aby użyć jednej bazy danych.
-- Wykorzystaj **schematy zdefiniowane przez użytkownika,** aby zapewnić granicę wcześniej zaimplementowane przy użyciu baz danych.
-
-Jeśli schematy zdefiniowane przez użytkownika nie były używane wcześniej, masz czystą planszę. Użyj starej nazwy bazy danych jako podstawy dla schematów zdefiniowanych przez użytkownika w bazie danych Synapse SQL.
-
-Jeśli schematy zostały już użyte, masz kilka opcji:
-
-- Usuwanie nazw starszych schematów i rozpoczynanie od nowa
-- Zachowaj starsze nazwy schematów przez wstępnie oczekujące na nazwę starszego schematu do nazwy tabeli
-- Zachowaj nazwy schematu starszej, implementując widoki nad tabelą w dodatkowym schemacie, który ponownie tworzy starą strukturę schematu.
+Zamiast tego Synapse SQL uruchamia całe obciążenie analizy w jednej bazie danych. Sprzężenia między bazami danych nie są dozwolone. Synapse SQL oczekuje, że wszystkie tabele używane przez magazyn będą przechowywane w jednej bazie danych.
 
 > [!NOTE]
-> Przy pierwszej kontroli opcja 3 może wydawać się najbardziej atrakcyjnym wyborem. Widoki są odczytywane tylko w synapse SQL. Wszelkie dane lub modyfikacji tabeli należy wykonać względem tabeli bazowej. Opcja 3 wprowadza również warstwę widoków do systemu. Warto nadać tej dodatkowej myśli, jeśli już używasz widoków w architekturze.
+> Pule SQL nie obsługują zapytań między bazami danych dowolnego rodzaju. W związku z tym należy skorygować implementacje analityczne korzystające z tego wzorca. SQL na żądanie (wersja zapoznawcza) obsługuje zapytania obejmujące wiele baz danych.
+
+## <a name="user-defined-schema-recommendations"></a>Zalecenia dotyczące schematu zdefiniowanego przez użytkownika
+
+Uwzględniono zalecenia dotyczące konsolidowania obciążeń, zabezpieczeń, domeny i granic funkcjonalnych przy użyciu schematów zdefiniowanych przez użytkownika:
+
+- Użyj jednej bazy danych, aby uruchomić całe obciążenie analizy.
+- Konsoliduj istniejące środowisko analityczne, aby korzystać z jednej bazy danych.
+- Korzystaj ze **schematów zdefiniowanych przez użytkownika** , aby zapewnić granicę zaimplementowaną wcześniej przy użyciu baz danych.
+
+Jeśli schemat zdefiniowany przez użytkownika nie był wcześniej używany, oznacza to, że masz czysty. Użyj starej nazwy bazy danych jako podstawy dla schematów zdefiniowanych przez użytkownika w bazie danych SQL Synapse.
+
+Jeśli schematy zostały już użyte, możesz skorzystać z kilku opcji:
+
+- Usuń starsze nazwy schematów i zacznij od nowa
+- Zachowaj starsze nazwy schematów przed oczekiwaniem na nazwę starszego schematu w nazwie tabeli
+- Zachowaj starsze nazwy schematów przez zaimplementowanie widoków w tabeli w dodatkowym schemacie, co spowoduje ponowne utworzenie starej struktury schematu.
+
+> [!NOTE]
+> Przy pierwszej inspekcji Opcja 3 może wyglądać jak najbardziej atrakcyjny wybór. Widoki są tylko do odczytu w języku SQL Synapse. Wszelkie modyfikacje danych lub tabel należy wykonać w odniesieniu do tabeli podstawowej. Opcja 3 wprowadza również warstwę widoków w systemie. W przypadku korzystania z widoków w architekturze warto podać inne warunki.
 > 
 > 
 
@@ -70,7 +70,7 @@ CREATE TABLE [edw].[customer] -- create analytics tables in the edw schema
 );
 ```
 
-Zachowaj nazwy schematów starszych przez wstępnie oczekujące je do nazwy tabeli. Użyj schematów dla granicy obciążenia.
+Zachowaj starsze nazwy schematów przed ich nazwą tabeli. Użyj schematów dla granicy obciążenia.
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -116,10 +116,10 @@ FROM    [edw].customer
 ```
 
 > [!NOTE]
-> Wszelkie zmiany w strategii schematu wymaga przeglądu modelu zabezpieczeń dla bazy danych. W wielu przypadkach można uprościć model zabezpieczeń, przypisując uprawnienia na poziomie schematu.
+> Wszelkie zmiany strategii schematu wymagają przeglądu modelu zabezpieczeń bazy danych. W wielu przypadkach może być możliwe uproszczenie modelu zabezpieczeń przez przypisanie uprawnień na poziomie schematu.
 
-Jeśli wymagane są bardziej szczegółowe uprawnienia, można użyć ról bazy danych. Aby uzyskać więcej informacji na temat ról bazy danych, zobacz zarządzanie [rolami bazy danych i użytkownikami](../../analysis-services/analysis-services-database-users.md) artykułu.
+Jeśli wymagane są bardziej szczegółowe uprawnienia, można użyć ról bazy danych. Aby uzyskać więcej informacji na temat ról bazy danych, zobacz artykuł [Zarządzanie rolami bazy danych i użytkownikami](../../analysis-services/analysis-services-database-users.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej wskazówek dotyczących programowania, zobacz [Omówienie rozwoju języka SQL Synapse](develop-overview.md).
+Aby uzyskać więcej porad programistycznych, zobacz [Synapse Development SQL — Omówienie](develop-overview.md).

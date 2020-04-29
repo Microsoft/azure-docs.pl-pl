@@ -1,6 +1,6 @@
 ---
 title: Monitorowanie tworzenia certyfikatów i zarządzanie tym procesem
-description: Scenariusze przedstawiające szereg opcji tworzenia, monitorowania i interakcji z procesem tworzenia certyfikatów za pomocą usługi Key Vault.
+description: Scenariusze ukazujące szereg opcji tworzenia, monitorowania i współpracy z procesem tworzenia certyfikatów przy użyciu Key Vault.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -11,38 +11,38 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 02e13ce81ed2f11c0bb69015a4864c4a1ad55593
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81430970"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Monitorowanie tworzenia certyfikatów i zarządzanie tym procesem
 Dotyczy: Azure
 
-Scenariusze / operacje opisane w tym artykule są następujące:
+Scenariusze/operacje opisane w tym artykule są następujące:
 
-- Poproś o certyfikat KV z obsługiwanym wystawcą
-- Pobierz oczekujące żądanie - stan żądania to "inProgress"
-- Pobierz oczekujące żądanie - stan żądania jest "kompletny"
-- Pobierz oczekujące żądanie - stan oczekującego żądania jest "anulowany" lub "nie powiodło się"
-- Pobierz oczekujące żądanie - stan oczekującego żądania jest "usunięty" lub "zastąpiony"
-- Utwórz (lub Importuj), gdy istnieje oczekujące żądanie - stan to "inProgress"
-- Scalanie, gdy oczekujące żądanie jest tworzone z wystawcą (digicert, na przykład)
-- Żądanie anulowania, gdy stan oczekującego żądania to "inProgress"
+- Zażądaj certyfikatu KV z obsługiwanego wystawcy
+- Pobieranie oczekujących żądań — stan żądania to "w toku"
+- Pobieranie oczekujących żądań — stan żądania to "ukończone"
+- Pobieranie oczekujących żądań oczekujących na żądanie ma stan "anulowane" lub "Niepowodzenie"
+- Pobieranie oczekujących żądań oczekujących na żądanie jest "usunięte" lub "nadpisane"
+- Utwórz (lub zaimportuj), gdy istnieje oczekujące żądanie — stan to "w toku"
+- Scalanie po utworzeniu żądania oczekującego za pomocą wystawcy (na przykład DigiCert)
+- Żądaj anulowania, gdy oczekujące żądanie ma stan "w toku"
 - Usuwanie oczekującego obiektu żądania
 - Ręczne tworzenie certyfikatu KV
-- Scalanie podczas tworzenia oczekującego żądania — ręczne tworzenie certyfikatów
+- Scalanie po utworzeniu oczekującego żądania — ręczne tworzenie certyfikatów
 
-## <a name="request-a-kv-certificate-with-a-supported-issuer"></a>Poproś o certyfikat KV z obsługiwanym wystawcą 
+## <a name="request-a-kv-certificate-with-a-supported-issuer"></a>Zażądaj certyfikatu KV z obsługiwanego wystawcy 
 
 |Metoda|Identyfikator URI żądania|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
-Poniższe przykłady wymagają, aby obiekt o nazwie "mydigicert" był już dostępny w magazynie kluczy u dostawcy wystawcy jako DigiCert. Wystawca certyfikatu jest jednostką reprezentowaną w usłudze Azure Key Vault (KV) jako zasób CertificateIssuer. Służy do dostarczania informacji o źródle certyfikatu KV; nazwa wystawcy, dostawca, poświadczenia i inne szczegóły administracyjne.
+Poniższe przykłady wymagają, aby obiekt o nazwie "mydigicert" był już dostępny w magazynie kluczy z dostawcą wystawcy jako DigiCert. Wystawca certyfikatu jest jednostką reprezentowaną w Azure Key Vault (KV) jako zasób CertificateIssuer. Służy do przekazywania informacji o źródle certyfikatu KV; Nazwa wystawcy, dostawca, poświadczenia i inne szczegóły administracyjne.
 
-### <a name="request"></a>Żądanie
+### <a name="request"></a>Request
 
 ```json
 {
@@ -77,13 +77,13 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-## <a name="get-pending-request---request-status-is-inprogress"></a>Pobierz oczekujące żądanie - stan żądania to "inProgress"
+## <a name="get-pending-request---request-status-is-inprogress"></a>Pobieranie oczekujących żądań — stan żądania to "w toku"
 
 |Metoda|Identyfikator URI żądania|
 |------------|-----------------|
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
-### <a name="request"></a>Żądanie
+### <a name="request"></a>Request
 Pobierz`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 LUB
@@ -91,7 +91,7 @@ LUB
 Pobierz`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
 > [!NOTE]
-> Jeśli *request_id* jest określony w kwerendzie, działa jak filtr. Jeśli *request_id* w kwerendzie i w oczekującym obiekcie są różne, zwracany jest kod stanu http 404.
+> Jeśli *request_id* jest określona w zapytaniu, działa jak filtr. Jeśli *request_id* w zapytaniu i w obiekcie oczekiwania są inne, zwracany jest kod stanu HTTP 404.
 
 ### <a name="response"></a>Odpowiedź
 
@@ -111,9 +111,9 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ```
 
-## <a name="get-pending-request---request-status-is-complete"></a>Pobierz oczekujące żądanie - stan żądania jest "kompletny"
+## <a name="get-pending-request---request-status-is-complete"></a>Pobieranie oczekujących żądań — stan żądania to "ukończone"
 
-### <a name="request"></a>Żądanie
+### <a name="request"></a>Request
 
 |Metoda|Identyfikator URI żądania|
 |------------|-----------------|
@@ -143,9 +143,9 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ```
 
-## <a name="get-pending-request---pending-request-status-is-canceled-or-failed"></a>Pobierz oczekujące żądanie - stan oczekującego żądania jest "anulowany" lub "nie powiodło się"
+## <a name="get-pending-request---pending-request-status-is-canceled-or-failed"></a>Pobieranie oczekujących żądań oczekujących na żądanie ma stan "anulowane" lub "Niepowodzenie"
 
-### <a name="request"></a>Żądanie
+### <a name="request"></a>Request
 
 |Metoda|Identyfikator URI żądania|
 |------------|-----------------|
@@ -180,16 +180,16 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ```
 
 > [!NOTE]
-> Wartość kodu *błędu* może być "Błąd wystawcy certyfikatu" lub "Żądanie odrzucone" na podstawie odpowiednio przez wystawcę lub błąd użytkownika.
+> Wartość *ErrorCode* może być "błędem wystawcy certyfikatu" lub "żądanie odrzucone" na podstawie odpowiednio wystawcy lub błędu użytkownika.
 
-## <a name="get-pending-request---pending-request-status-is-deleted-or-overwritten"></a>Pobierz oczekujące żądanie - stan oczekującego żądania jest "usunięty" lub "zastąpiony"
-Oczekujący obiekt można usunąć lub nadpisać operacją tworzenia/importowania, gdy jego stan nie jest "inProgress".
+## <a name="get-pending-request---pending-request-status-is-deleted-or-overwritten"></a>Pobieranie oczekujących żądań oczekujących na żądanie jest "usunięte" lub "nadpisane"
+Obiekt oczekujący może zostać usunięty lub zastąpiony przez operację tworzenia/importowania, gdy jego stanem nie jest "w toku".
 
 |Metoda|Identyfikator URI żądania|
 |------------|-----------------|
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
-### <a name="request"></a>Żądanie
+### <a name="request"></a>Request
 Pobierz`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 LUB
@@ -209,25 +209,25 @@ StatusCode: 404, ReasonPhrase: 'Not Found'
 
 ```
 
-## <a name="create-or-import-when-pending-request-exists---status-is-inprogress"></a>Utwórz (lub Importuj), gdy istnieje oczekujące żądanie - stan to "inProgress"
-Obiekt oczekującowy ma cztery możliwe stany; "inprogress", "canceled", "failed" lub "completed".
+## <a name="create-or-import-when-pending-request-exists---status-is-inprogress"></a>Utwórz (lub zaimportuj), gdy istnieje oczekujące żądanie — stan to "w toku"
+Obiekt oczekujący ma cztery możliwe Stany; "InProgress", "anulowane", "zakończone niepowodzeniem" lub "ukończone".
 
-Gdy stan oczekującego żądania jest "inprogress", tworzenie (i import) operacje zakończy się niepowodzeniem z kodem stanu http 409 (konflikt).
+Gdy stan oczekującego żądania to "w trakcie", operacje tworzenia (i importowania) zakończą się niepowodzeniem z kodem stanu HTTP 409 (konflikt).
 
 Aby rozwiązać konflikt:
 
-- Jeśli certyfikat jest tworzony ręcznie, można ukończyć certyfikat KV, wykonując scalanie lub usuwanie na oczekującym obiekcie.
+- Jeśli certyfikat jest tworzony ręcznie, można wykonać operację scalania lub usuwania w obiekcie oczekującym.
 
-- Jeśli certyfikat jest tworzony z wystawcą, można poczekać, aż certyfikat zostanie ukończony, zakończy się niepowodzeniem lub zostanie anulowany. Alternatywnie można usunąć obiekt oczekujący.
+- Jeśli certyfikat jest tworzony za pomocą wystawcy, możesz poczekać, aż certyfikat zakończy się niepowodzeniem lub zostanie anulowany. Alternatywnie możesz usunąć obiekt oczekujący.
 
 > [!NOTE]
-> Usunięcie oczekującego obiektu może, ale nie może anulować żądania certyfikatu x509 u dostawcy.
+> Usunięcie obiektu oczekującego może lub nie anuluje żądania certyfikatu x509 z dostawcą.
 
 |Metoda|Identyfikator URI żądania|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
-### <a name="request"></a>Żądanie
+### <a name="request"></a>Request
 
 ```json
 {
@@ -255,16 +255,16 @@ StatusCode: 409, ReasonPhrase: 'Conflict'
 
 ```
 
-## <a name="merge-when-pending-request-is-created-with-an-issuer"></a>Scalanie podczas tworzenia oczekującego żądania z wystawcą
-Scalanie nie jest dozwolone, gdy oczekujący obiekt jest tworzony z wystawcą, ale jest dozwolone, gdy jego stan jest "inProgress". 
+## <a name="merge-when-pending-request-is-created-with-an-issuer"></a>Scal po utworzeniu żądania oczekującego za pomocą wystawcy
+Scalanie jest niedozwolone, gdy obiekt oczekujący jest tworzony za pomocą wystawcy, ale jest dozwolony, gdy jego stan to "w toku". 
 
-Jeśli żądanie utworzenia certyfikatu x509 nie powiedzie się lub zostanie anulowane z jakiegoś powodu, a certyfikat x509 może zostać pobrany za pomocą środków pozapasmowych, można wykonać operację scalania w celu ukończenia certyfikatu KV.
+Jeśli żądanie utworzenia certyfikatu x509 zakończy się niepowodzeniem lub zostanie anulowane z jakiegoś powodu, a certyfikat x509 można pobrać za pośrednictwem środków poza pasmem, można wykonać operację scalania w celu ukończenia certyfikatu KV.
 
 |Metoda|Identyfikator URI żądania|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
 
-### <a name="request"></a>Żądanie
+### <a name="request"></a>Request
 
 ```json
 {
@@ -286,19 +286,19 @@ StatusCode: 403, ReasonPhrase: 'Forbidden'
 
 ```
 
-## <a name="request-a-cancellation-while-the-pending-request-status-is-inprogress"></a>Żądanie anulowania, gdy stan oczekującego żądania to "inProgress"
-Anulowanie rezerwacji można tylko złożyć. Żądanie może, ale nie musi zostać anulowane. Jeśli żądanie nie jest "inProgress", zwracany jest stan http 400 (Złe żądanie).
+## <a name="request-a-cancellation-while-the-pending-request-status-is-inprogress"></a>Żądaj anulowania, gdy oczekujące żądanie ma stan "w toku"
+Można żądać anulowania tylko. Żądanie może lub nie może być anulowane. Jeśli żądanie nie jest "w toku", zwracany jest stan HTTP 400 (Nieprawidłowe żądanie).
 
 |Metoda|Identyfikator URI żądania|
 |------------|-----------------|
-|Patch|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
+|WYSŁANA|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
-### <a name="request"></a>Żądanie
-Patch`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
+### <a name="request"></a>Request
+WYSŁANA`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 LUB
 
-Patch`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
+WYSŁANA`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
 ```json
 {
@@ -327,18 +327,18 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ## <a name="delete-a-pending-request-object"></a>Usuwanie oczekującego obiektu żądania
 
 > [!NOTE]
-> Usunięcie oczekującego obiektu może, ale nie może anulować żądania certyfikatu x509 u dostawcy.
+> Usunięcie oczekującego obiektu może być niemożliwe lub nie anuluje żądania certyfikatu x509 z dostawcą.
 
 |Metoda|Identyfikator URI żądania|
 |------------|-----------------|
 |DELETE|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
-### <a name="request"></a>Żądanie
-Usunąć`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
+### <a name="request"></a>Request
+USUNIĘTY`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 LUB
 
-Usunąć`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
+USUNIĘTY`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
 ### <a name="response"></a>Odpowiedź
 
@@ -357,13 +357,13 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ```
 
 ## <a name="create-a-kv-certificate-manually"></a>Ręczne tworzenie certyfikatu KV
-Certyfikat wystawiony na wybrany urząd certyfikacji można utworzyć za pomocą procesu ręcznego tworzenia. Ustaw nazwę wystawcy na "Nieznany" lub nie precyzuj pola wystawcy.
+W procesie tworzenia ręcznego można utworzyć certyfikat wystawiony z wybranym przez urząd certyfikacji. Ustaw nazwę wystawcy na "nieznany" lub nie określaj pola wystawcy.
 
 |Metoda|Identyfikator URI żądania|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
-### <a name="request"></a>Żądanie
+### <a name="request"></a>Request
 
 ```json
 {
@@ -397,13 +397,13 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-## <a name="merge-when-a-pending-request-is-created---manual-certificate-creation"></a>Scalanie podczas tworzenia oczekującego żądania — ręczne tworzenie certyfikatów
+## <a name="merge-when-a-pending-request-is-created---manual-certificate-creation"></a>Scalanie po utworzeniu oczekującego żądania — ręczne tworzenie certyfikatów
 
 |Metoda|Identyfikator URI żądania|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
 
-### <a name="request"></a>Żądanie
+### <a name="request"></a>Request
 
 ```json
 {
@@ -414,7 +414,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 |Nazwa elementu|Wymagany|Typ|Wersja|Opis|
 |------------------|--------------|----------|-------------|-----------------|
-|x5c|Tak|tablica|\<wprowadzenie> wersji|Łańcuch certyfikatów X509 jako podstawowa tablica 64-strunowa.|
+|x5c|Tak|tablica|\<Wprowadzenie do wersji>|Łańcuch certyfikatu x509 jako podstawową tablicę ciągów 64.|
 
 ### <a name="response"></a>Odpowiedź
 
