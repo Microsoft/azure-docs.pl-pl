@@ -1,6 +1,6 @@
 ---
-title: Hostuj aplikacje internetowe platformy Azure z równoważenia obciążenia w strefie wierzchołka strefy
-description: Używanie rekordu aliasu DNS platformy Azure do hosta aplikacji sieci web z równoważenia obciążenia w wierzchołku strefy
+title: Hostowanie aplikacji sieci Web platformy Azure ze zrównoważonym obciążeniem w wierzchołku strefy
+description: Użyj rekordu aliasu Azure DNS, aby hostować aplikacje sieci Web z równoważeniem obciążenia w wierzchołku strefy
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 08/10/2019
 ms.author: rohink
 ms.openlocfilehash: 8ba96a028d51e6e5503bb4a8e6735b48033c9ba1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76937367"
 ---
-# <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hostuj aplikacje internetowe platformy Azure z równoważenia obciążenia w strefie wierzchołka strefy
+# <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hostowanie aplikacji sieci Web platformy Azure ze zrównoważonym obciążeniem w wierzchołku strefy
 
-Protokół DNS uniemożliwia przypisanie niczego innego niż rekord A lub AAAA w wierzchołku strefy. Przykładowy wierzchołek strefy jest contoso.com. To ograniczenie stanowi problem dla właścicieli aplikacji, którzy mają aplikacje z równoważeniem obciążenia za Usługą Traffic Manager. Nie można wskakiwać profilu usługi Traffic Manager z rekordu wierzchołka strefy. W rezultacie właściciele aplikacji muszą używać obejścia problemu. Przekierowanie w warstwie aplikacji musi zostać przekierowane z wierzchołka strefy do innej domeny. Przykładem jest przekierowanie z contoso.com\.do contoso.com www. Ten układ przedstawia pojedynczy punkt awarii dla funkcji przekierowania.
+Protokół DNS uniemożliwia przypisanie elementów innych niż rekord A lub AAAA w wierzchołku strefy. Przykładem wierzchołka strefy jest contoso.com. To ograniczenie powoduje problem dla właścicieli aplikacji, którzy mają aplikacje o zrównoważonym obciążeniu za Traffic Manager. Nie można wskazać profilu Traffic Manager z rekordu wierzchołka strefy. W związku z tym właściciele aplikacji muszą używać obejścia. Przekierowanie w warstwie aplikacji musi przekierować ze wierzchołka strefy do innej domeny. Przykładem jest przekierowanie z contoso.com do www\.contoso.com. To rozmieszczenie przedstawia single point of failure funkcji redirect.
 
-W rekordach aliasu ten problem już nie istnieje. Teraz właściciele aplikacji można skierować ich rekord apex strefy do profilu usługi Traffic Manager, który ma zewnętrzne punkty końcowe. Właściciele aplikacji mogą wskazywać ten sam profil usługi Traffic Manager, który jest używany dla dowolnej innej domeny w strefie DNS.
+W przypadku rekordów aliasów ten problem już nie istnieje. Teraz właściciele aplikacji mogą wskazywać ich rekord wierzchołka strefy w profilu Traffic Manager, który ma zewnętrzne punkty końcowe. Właściciele aplikacji mogą wskazywać ten sam profil Traffic Manager, który jest używany przez dowolną inną domenę w ramach strefy DNS.
 
-Na przykład contoso.com i www\.contoso.com mogą wskazywać ten sam profil usługi Traffic Manager. Dzieje się tak długo, jak profil usługi Traffic Manager ma skonfigurowane tylko zewnętrzne punkty końcowe.
+Na przykład contoso.com i www\.contoso.com mogą wskazywać na ten sam profil Traffic Manager. Jest to przypadek, o ile profil Traffic Manager ma skonfigurowane tylko zewnętrzne punkty końcowe.
 
-W tym artykule dowiesz się, jak utworzyć rekord aliasu dla wierzchołka domeny i skonfigurować punkty końcowe profilu usługi Traffic Manager dla aplikacji sieci Web.
+W tym artykule dowiesz się, jak utworzyć rekord aliasu dla wierzchołka domeny i skonfigurować punkty końcowe Traffic Manager profilu dla aplikacji sieci Web.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -36,73 +36,73 @@ Przykładowa domena używana w tym samouczku to contoso.com, ale skorzystaj z w�
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów, aby pomieścić wszystkie zasoby użyte w tym artykule.
+Utwórz grupę zasobów, w której mają być przechowywane wszystkie zasoby używane w tym artykule.
 
-## <a name="create-app-service-plans"></a>Tworzenie planów usługi app service
+## <a name="create-app-service-plans"></a>Tworzenie planów App Service
 
-Utwórz dwa plany usługi aplikacji sieci Web w grupie zasobów, korzystając z poniższej tabeli informacji o konfiguracji. Aby uzyskać więcej informacji na temat tworzenia planu usługi app service, zobacz [Zarządzanie planem usługi app service na platformie Azure](../app-service/app-service-plan-manage.md).
+Utwórz dwa plany App Service sieci Web w grupie zasobów, korzystając z poniższej tabeli w celu uzyskania informacji o konfiguracji. Aby uzyskać więcej informacji na temat tworzenia planu App Service, zobacz [Zarządzanie planem App Service na platformie Azure](../app-service/app-service-plan-manage.md).
 
 
 |Nazwa  |System operacyjny  |Lokalizacja  |Warstwa cenowa  |
 |---------|---------|---------|---------|
-|ASP-01     |Windows|Wschodnie stany USA|Dev/Test D1-Shared|
-|ASP-02     |Windows|Środkowe stany USA|Dev/Test D1-Shared|
+|ASP — 01     |Windows|Wschodnie stany USA|Tworzenie i testowanie D1 — udostępnione|
+|ASP — 02     |Windows|Środkowe stany USA|Tworzenie i testowanie D1 — udostępnione|
 
-## <a name="create-app-services"></a>Tworzenie usług aplikacji
+## <a name="create-app-services"></a>Utwórz App Services
 
-Utwórz dwie aplikacje internetowe, po jednej w każdym planie usługi app service.
+Utwórz dwie aplikacje sieci Web, jeden w każdym planie App Service.
 
-1. W lewym górnym rogu strony portalu Azure wybierz pozycję **Utwórz zasób**.
-2. Wpisz **aplikację sieci Web** na pasku wyszukiwania i naciśnij klawisz Enter.
-3. Wybierz **aplikację sieci Web**.
-4. Wybierz **pozycję Utwórz**.
-5. Zaakceptuj ustawienia domyślne i użyj poniższej tabeli, aby skonfigurować dwie aplikacje internetowe:
+1. W lewym górnym rogu strony Azure Portal wybierz pozycję **Utwórz zasób**.
+2. Wpisz ciąg **aplikacja sieci Web** na pasku wyszukiwania i naciśnij klawisz ENTER.
+3. Wybierz pozycję **aplikacja sieci Web**.
+4. Wybierz przycisk **Utwórz**.
+5. Zaakceptuj wartości domyślne i Skorzystaj z poniższej tabeli, aby skonfigurować dwie aplikacje sieci Web:
 
-   |Nazwa<br>(musi być unikatowa w ciągu .azurewebsites.net)|Grupa zasobów |Stos środowiska uruchomieniowego|Region|Plan/lokalizacja usługi aplikacji
+   |Nazwa<br>(musi być unikatowy w obrębie. azurewebsites.net)|Grupa zasobów |Stos środowiska uruchomieniowego|Region|App Service plan/lokalizacja
    |---------|---------|-|-|-------|
-   |Aplikacja-01|Użyj istniejącego<br>Wybieranie grupy zasobów|.NET Core 2.2|Wschodnie stany USA|ASP-01(D1)|
-   |Aplikacja-02|Użyj istniejącego<br>Wybieranie grupy zasobów|.NET Core 2.2|Środkowe stany USA|ASP-02(D1)|
+   |Aplikacja — 01|Użyj istniejącego<br>Wybieranie grupy zasobów|.NET Core 2.2|Wschodnie stany USA|ASP — 01 (D1)|
+   |App-02|Użyj istniejącego<br>Wybieranie grupy zasobów|.NET Core 2.2|Środkowe stany USA|ASP-02 (D1)|
 
-### <a name="gather-some-details"></a>Zbierz kilka szczegółów
+### <a name="gather-some-details"></a>Zbierz szczegóły
 
-Teraz musisz zanotować adres IP i nazwę hosta dla aplikacji internetowych.
+Teraz należy zanotować adres IP i nazwę hosta aplikacji sieci Web.
 
-1. Otwórz grupę zasobów i wybierz pierwszą aplikację internetową **(App-01** w tym przykładzie).
-2. W lewej kolumnie wybierz pozycję **Właściwości**.
-3. Zanotuj adres w obszarze **ADRES URL**i w obszarze **Wychodzące adresy IP** zanotuj pierwszy adres IP na liście. Te informacje będą używane później podczas konfigurowania punktów końcowych usługi Traffic Manager.
-4. Powtórz dla **App-02**.
+1. Otwórz grupę zasobów i wybierz pierwszą aplikację sieci Web (**App-01** w tym przykładzie).
+2. W lewej kolumnie Wybierz pozycję **Właściwości**.
+3. Zwróć uwagę na adres **URL**, a w obszarze **wychodzące adresy IP** Zanotuj pierwszy adres IP na liście. Te informacje będą używane później podczas konfigurowania punktów końcowych Traffic Manager.
+4. Powtórz dla **aplikacji App-02**.
 
 ## <a name="create-a-traffic-manager-profile"></a>Tworzenie profilu usługi Traffic Manager
 
-Utwórz profil usługi Traffic Manager w grupie zasobów. Użyj ustawień domyślnych i wpisz unikatową nazwę w trafficmanager.net przestrzeni nazw.
+Utwórz profil Traffic Manager w grupie zasobów. Użyj wartości domyślnych i wpisz unikatową nazwę w przestrzeni nazw trafficmanager.net.
 
-Aby uzyskać informacje dotyczące tworzenia profilu usługi Traffic Manager, zobacz [Szybki start: Tworzenie profilu usługi Traffic Manager dla aplikacji sieci Web o wysokiej dostępności](../traffic-manager/quickstart-create-traffic-manager-profile.md).
+Aby uzyskać informacje na temat tworzenia profilu Traffic Manager, zobacz [Szybki Start: Tworzenie profilu Traffic Manager dla aplikacji sieci Web o wysokiej](../traffic-manager/quickstart-create-traffic-manager-profile.md)dostępności.
 
 ### <a name="create-endpoints"></a>Tworzenie punktów końcowych
 
-Teraz można utworzyć punkty końcowe dla dwóch aplikacji sieci web.
+Teraz można utworzyć punkty końcowe dla dwóch aplikacji sieci Web.
 
-1. Otwórz grupę zasobów i wybierz profil Usługi Traffic Manager.
-2. W lewej kolumnie wybierz pozycję **Punkty końcowe**.
+1. Otwórz grupę zasobów i wybierz swój profil Traffic Manager.
+2. W lewej kolumnie Wybierz pozycję **punkty końcowe**.
 3. Wybierz pozycję **Dodaj**.
-4. Aby skonfigurować punkty końcowe, użyj poniższej tabeli:
+4. Skorzystaj z poniższej tabeli, aby skonfigurować punkty końcowe:
 
    |Typ  |Nazwa  |Środowisko docelowe  |Lokalizacja  |Niestandardowe ustawienia nagłówka|
    |---------|---------|---------|---------|---------|
-   |Zewnętrzny punkt końcowy     |Koniec 01|Adres IP zarejestrowany dla aplikacji App-01|Wschodnie stany USA|host:\<adres URL zarejestrowany dla aplikacji-01\><br>Przykład: **host:01.azurewebsites.net aplikacji**|
-   |Zewnętrzny punkt końcowy     |Koniec 02|Adres IP zarejestrowany dla app-02|Środkowe stany USA|host:\<adres URL zarejestrowany dla aplikacji-02\><br>Przykład: **host:02.azurewebsites.net aplikacji**
+   |Zewnętrzny punkt końcowy     |Koniec-01|Adres IP zarejestrowany dla aplikacji App-01|Wschodnie stany USA|Host:\<adres URL zarejestrowany dla aplikacji App-01\><br>Przykład: **host: App-01.azurewebsites.NET**|
+   |Zewnętrzny punkt końcowy     |Koniec 02|Adres IP zarejestrowany dla aplikacji App-02|Środkowe stany USA|Host:\<adres URL zarejestrowany dla aplikacji App-02\><br>Przykład: **host: App-02.azurewebsites.NET**
 
-## <a name="create-dns-zone"></a>Tworzenie strefy DNS
+## <a name="create-dns-zone"></a>Utwórz strefę DNS
 
-Do testowania można użyć istniejącej strefy DNS lub utworzyć nową strefę. Aby utworzyć i delegować nową strefę DNS na platformie Azure, zobacz [Samouczek: Hostuj swoją domenę w usłudze Azure DNS](dns-delegate-domain-azure-dns.md).
+Możesz użyć istniejącej strefy DNS do testowania lub można utworzyć nową strefę. Aby utworzyć i delegować nową strefę DNS na platformie Azure, zobacz [Samouczek: Hostowanie domeny w Azure DNS](dns-delegate-domain-azure-dns.md).
 
-## <a name="add-a-txt-record-for-custom-domain-validation"></a>Dodawanie rekordu TXT do sprawdzania poprawności domeny niestandardowej
+## <a name="add-a-txt-record-for-custom-domain-validation"></a>Dodawanie rekordu TXT na potrzeby weryfikacji domeny niestandardowej
 
-Po dodaniu niestandardowej nazwy hosta do aplikacji internetowych zostanie wyszukany określony rekord TXT, aby zweryfikować domenę.
+Po dodaniu niestandardowej nazwy hosta do aplikacji sieci Web szuka określonego rekordu TXT w celu zweryfikowania domeny.
 
 1. Otwórz grupę zasobów i wybierz strefę DNS.
 2. Wybierz pozycję **Zestaw rekordów**.
-3. Dodaj zestaw rekordów, korzystając z poniższej tabeli. Dla tej wartości użyj rzeczywistego adresu URL aplikacji internetowej, który został wcześniej zarejestrowany:
+3. Dodaj zestaw rekordów, korzystając z poniższej tabeli. Dla wartości Użyj rzeczywistego adresu URL aplikacji sieci Web, który został wcześniej zarejestrowany:
 
    |Nazwa  |Typ  |Wartość|
    |---------|---------|-|
@@ -111,53 +111,53 @@ Po dodaniu niestandardowej nazwy hosta do aplikacji internetowych zostanie wyszu
 
 ## <a name="add-a-custom-domain"></a>Dodawanie domeny niestandardowej
 
-Dodaj domenę niestandardową dla obu aplikacji internetowych.
+Dodaj domenę niestandardową dla obu aplikacji sieci Web.
 
-1. Otwórz grupę zasobów i wybierz pierwszą aplikację internetową.
-2. W lewej kolumnie wybierz pozycję **Domeny niestandardowe**.
-3. W obszarze **Domeny niestandardowe**wybierz pozycję **Dodaj domenę niestandardową**.
-4. W obszarze **Domena niestandardowa**wpisz swoją niestandardową nazwę domeny. Na przykład contoso.com.
+1. Otwórz grupę zasobów i wybierz swoją pierwszą aplikację sieci Web.
+2. W lewej kolumnie Wybierz pozycję **domeny niestandardowe**.
+3. W obszarze **domeny niestandardowe**wybierz pozycję **Dodaj domenę niestandardową**.
+4. W obszarze **domena niestandardowa**wpisz swoją niestandardową nazwę domeny. Na przykład contoso.com.
 5. Wybierz przycisk **Weryfikuj**.
 
-   Domena powinna przejść weryfikację i wyświetlić zielone znaczniki wyboru obok **pozycji Dostępność nazwy hosta** i **Własność domeny**.
-5. Wybierz **pozycję Dodaj domenę niestandardową**.
-6. Aby wyświetlić nową nazwa hosta w obszarze **Nazwy hostów przypisane do witryny,** odśwież przeglądarkę. Odświeżanie na stronie nie zawsze pokazuje zmiany od razu.
-7. Powtórz tę procedurę dla drugiej aplikacji internetowej.
+   Twoja domena powinna przekazywać walidację i wyświetlać zielone znaczniki wyboru obok pozycji **Nazwa hosta** i **własność domeny**.
+5. Wybierz pozycję **Dodaj domenę niestandardową**.
+6. Aby wyświetlić nową nazwę hosta w obszarze **nazwy hostów przypisanych do lokacji**, Odśwież przeglądarkę. Odświeżenie na stronie nie zawsze pokazuje zmiany od razu.
+7. Powtórz tę procedurę dla drugiej aplikacji sieci Web.
 
-## <a name="add-the-alias-record-set"></a>Dodawanie zestawu rekordów aliasu
+## <a name="add-the-alias-record-set"></a>Dodaj zestaw rekordów aliasu
 
-Teraz dodaj rekord aliasu dla wierzchołka strefy.
+Teraz Dodaj rekord aliasu dla wierzchołka strefy.
 
 1. Otwórz grupę zasobów i wybierz strefę DNS.
 2. Wybierz pozycję **Zestaw rekordów**.
-3. Dodaj zestaw rekordów, korzystając z poniższej tabeli:
+3. Dodaj zestaw rekordów, korzystając z następującej tabeli:
 
    |Nazwa  |Typ  |Zestaw rekordów aliasu  |Typ aliasu  |Zasób platformy Azure|
    |---------|---------|---------|---------|-----|
-   |@     |A|Tak|Zasób platformy Azure|Traffic Manager - Twój profil|
+   |@     |A|Tak|Zasób platformy Azure|Traffic Manager — Twój profil|
 
 
-## <a name="test-your-web-apps"></a>Testowanie aplikacji internetowych
+## <a name="test-your-web-apps"></a>Testowanie aplikacji sieci Web
 
-Teraz możesz przetestować, aby upewnić się, że możesz dotrzeć do aplikacji sieci web i że jest on równoważenia obciążenia.
+Teraz możesz przeprowadzić test, aby upewnić się, że można nawiązać połączenie z aplikacją sieci Web i że jest ona równoważna.
 
 1. Otwórz przeglądarkę internetową i przejdź do swojej domeny. Na przykład contoso.com. Powinna zostać wyświetlona domyślna strona aplikacji sieci Web.
 2. Zatrzymaj swoją pierwszą aplikację internetową.
 3. Zamknij przeglądarkę internetową i odczekaj kilka minut.
-4. Uruchom przeglądarkę internetową i przejdź do domeny. Domyślna strona aplikacji sieci Web nadal powinna być widoczna.
-5. Zatrzymaj drugą aplikację internetową.
+4. Uruchom przeglądarkę internetową i przejdź do swojej domeny. Nadal powinna zostać wyświetlona domyślna strona aplikacji sieci Web.
+5. Zatrzymywanie drugiej aplikacji sieci Web.
 6. Zamknij przeglądarkę internetową i odczekaj kilka minut.
-7. Uruchom przeglądarkę internetową i przejdź do domeny. Powinien zostać wyświetlony błąd 403, wskazujący, że aplikacja internetowa jest zatrzymana.
-8. Uruchom drugą aplikację internetową.
+7. Uruchom przeglądarkę internetową i przejdź do swojej domeny. Powinien pojawić się błąd 403 wskazujący, że aplikacja sieci Web jest zatrzymana.
+8. Uruchom drugą aplikację sieci Web.
 9. Zamknij przeglądarkę internetową i odczekaj kilka minut.
-10. Uruchom przeglądarkę internetową i przejdź do domeny. Domyślna strona aplikacji sieci Web powinna zostać ponownie wyświetlona.
+10. Uruchom przeglądarkę internetową i przejdź do swojej domeny. Powinna zostać wyświetlona ponownie domyślna strona aplikacji sieci Web.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o rekordach aliasu, zobacz następujące artykuły:
+Aby dowiedzieć się więcej na temat rekordów aliasów, zobacz następujące artykuły:
 
 - [Samouczek: Konfigurowanie rekordu aliasu w celu odwoływania się do publicznego adresu IP platformy Azure](tutorial-alias-pip.md)
 - [Samouczek: konfigurowanie rekordu aliasu w celu obsługi nazw domen wierzchołkowych przy użyciu usługi Traffic Manager](tutorial-alias-tm.md)
 - [Często zadawane pytania na temat systemu DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)
 
-Aby dowiedzieć się, jak przeprowadzić migrację aktywnej nazwy DNS, zobacz [Migrowanie aktywnej nazwy DNS do usługi Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).
+Aby dowiedzieć się, jak przeprowadzić migrację aktywnej nazwy DNS, zobacz [Migrowanie aktywnej nazwy DNS do Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).

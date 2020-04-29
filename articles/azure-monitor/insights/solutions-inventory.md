@@ -1,79 +1,79 @@
 ---
-title: Spis rozwiązań do monitorowania na platformie Azure | Dokumenty firmy Microsoft
-description: Rozwiązania do monitorowania w usłudze Azure Monitor to zbiór reguł logiki, wizualizacji i pozyskiwania danych, które zapewniają metryki przestawne wokół określonego obszaru problemu.  Ten artykuł zawiera listę rozwiązań do monitorowania dostępnych od firmy Microsoft oraz szczegółowe informacje na temat ich metody i częstotliwości zbierania danych.
+title: Spis rozwiązań monitorowania na platformie Azure | Microsoft Docs
+description: Monitorowanie rozwiązań w Azure Monitor to zbiór reguł logiki, wizualizacji i pozyskiwania danych, które zapewniają metryki przestawiane wokół określonego obszaru problemu.  Ten artykuł zawiera listę rozwiązań monitorowania dostępnych od firmy Microsoft i szczegółowych informacji o ich metodzie i częstotliwości zbierania danych.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/26/2018
 ms.openlocfilehash: 7b88d957bce45bf518fc77584f1691de8010459a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77663134"
 ---
-# <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>Szczegóły dotyczące zapasów i zbierania danych dotyczących rozwiązań do monitorowania na platformie Azure
-[Rozwiązania do monitorowania](solutions.md) wykorzystują usługi na platformie Azure, aby zapewnić dodatkowy wgląd w działanie określonej aplikacji lub usługi. Rozwiązania do monitorowania zazwyczaj zbierają dane dziennika i dostarczają zapytań i widoków do analizowania zebranych danych. Rozwiązania do monitorowania można dodać do usługi Azure Monitor dla wszystkich używanych aplikacji i usług. Są one zazwyczaj dostępne bez żadnych kosztów, ale zbierają dane, które mogą wywoływać opłaty za użycie.
+# <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>Szczegóły dotyczące spisu i zbierania danych na potrzeby monitorowania rozwiązań na platformie Azure
+[Rozwiązania do monitorowania](solutions.md) wykorzystują usługi platformy Azure, aby zapewnić dodatkowe informacje o działaniu konkretnej aplikacji lub usługi. Monitorowanie rozwiązań zazwyczaj zbiera dane dzienników i udostępnia zapytania i widoki umożliwiające analizowanie zebranych danych. Możesz dodać rozwiązania do monitorowania do Azure Monitor dla wszystkich używanych aplikacji i usług. Są one zazwyczaj dostępne bezpłatnie, ale zbierają dane, które mogą wywołać opłaty za użycie.
 
-Ten artykuł zawiera listę [rozwiązań montioring](solutions.md) dostępnych od firmy Microsoft z łączami do ich szczegółowej dokumentacji.  Zawiera również informacje na temat ich metody i częstotliwości zbierania danych do usługi Azure Monitor.  Informacje zawarte w tym artykule można wykorzystać do zidentyfikowania różnych dostępnych rozwiązań oraz do zrozumienia wymagań dotyczących przepływu danych i połączeń dla różnych rozwiązań monitorowania.
+Ten artykuł zawiera listę [rozwiązań montioring](solutions.md) dostępnych od firmy Microsoft z linkami do ich szczegółowej dokumentacji.  Zawiera również informacje na temat metody i częstotliwości zbierania danych w Azure Monitor.  Korzystając z informacji w tym artykule, można zidentyfikować różne dostępne rozwiązania oraz poznać wymagania dotyczące przepływu danych i połączenia dla różnych rozwiązań monitorowania.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="list-of-monitoring-solutions"></a>Lista rozwiązań monitorujących
+## <a name="list-of-monitoring-solutions"></a>Lista rozwiązań do monitorowania
 
-W poniższej tabeli wymieniono [rozwiązania do monitorowania](solutions.md) na platformie Azure dostarczone przez firmę Microsoft. Wpis w kolumnie oznacza, że rozwiązanie zbiera dane do usługi Azure Monitor przy użyciu tej metody.  Jeśli rozwiązanie nie ma żadnych kolumn zaznaczone, a następnie zapisuje bezpośrednio do usługi Azure Monitor z innej usługi platformy Azure. Aby uzyskać więcej informacji, kliknij łącze dla każdego z nich, aby uzyskać więcej informacji.
+Poniższa tabela zawiera listę [rozwiązań monitorowania](solutions.md) na platformie Azure udostępnianych przez firmę Microsoft. Wpis w kolumnie oznacza, że rozwiązanie zbiera dane do Azure Monitor za pomocą tej metody.  Jeśli rozwiązanie nie ma wybranych kolumn, zapisuje je bezpośrednio do Azure Monitor z innej usługi platformy Azure. Aby uzyskać więcej informacji, Skorzystaj z linku dla każdej z nich do szczegółowej dokumentacji.
 
-Objaśnienia kolumn są następujące:
+Wyjaśnienia kolumn są następujące:
 
-- **Agent monitorowania firmy Microsoft** — agent używany w systemach Windows i Linux do uruchamiania pakietu zarządzania z firmy SCOM i monitorowania rozwiązań z platformy Azure. W tej konfiguracji agent jest połączony bezpośrednio z usługą Azure Monitor bez połączenia z grupą zarządzania programu Operations Manager. 
-- **Menedżer operacji** — identyczny agent jak agent monitorujący firmy Microsoft. W tej konfiguracji jest [połączony z grupą zarządzania programu Operations Manager,](../platform/om-agents.md) która jest połączona z usługą Azure Monitor. 
--  **Usługa Azure Storage** — rozwiązanie zbiera dane z konta magazynu platformy Azure. 
-- **Wymagany jest program Operations Manager?** - Do zbierania danych przez rozwiązanie monitorujące wymagana jest połączona grupa zarządzania programem Operations Manager. 
-- **Dane agenta programu Operations Manager wysyłane za pośrednictwem grupy zarządzania** — jeśli agent jest [połączony z grupą zarządzania SCOM,](../platform/om-agents.md)dane są wysyłane do usługi Azure Monitor z serwera zarządzania. W takim przypadku agent nie musi łączyć się bezpośrednio z usługą Azure Monitor. Jeśli to pole nie jest zaznaczone, dane są wysyłane z agenta bezpośrednio do usługi Azure Monitor, nawet jeśli agent jest połączony z grupą zarządzania SCOM. Będzie musiał być w stanie komunikować się z usługą Azure Monitor za pośrednictwem [bramy usługi Log Analytics.](../platform/gateway.md)
-- **Częstotliwość zbierania** — określa częstotliwość, że dane są zbierane przez rozwiązanie monitorowania. 
+- **Program Microsoft Monitoring Agent** — Agent używany w systemach Windows i Linux do uruchamiania pakietu zarządzania z rozwiązań programu SCOM i monitorowania z platformy Azure. W tej konfiguracji Agent jest połączony bezpośrednio z Azure Monitor bez połączenia z Operations Manager grupą zarządzania. 
+- **Operations Manager** — identyczny Agent jako program Microsoft Monitoring Agent. W tej konfiguracji jest ona [połączona z Operations Manager grupą zarządzania](../platform/om-agents.md) , która jest połączona z Azure monitor. 
+-  **Azure Storage** — rozwiązanie zbiera dane z konta usługi Azure Storage. 
+- **Operations Manager jest wymagane?** -Połączona Grupa zarządzania Operations Manager jest wymagana do zbierania danych przez rozwiązanie do monitorowania. 
+- **Operations Manager dane agenta wysyłane za pośrednictwem grupy zarządzania** — Jeśli Agent jest [połączony z grupą zarządzania programu SCOM](../platform/om-agents.md), dane są wysyłane do Azure monitor z serwera zarządzania. W takim przypadku Agent nie musi łączyć się bezpośrednio z Azure Monitor. Jeśli to pole nie zostanie zaznaczone, dane są wysyłane bezpośrednio z agenta do Azure Monitor nawet wtedy, gdy Agent jest połączony z grupą zarządzania programu SCOM. Musi mieć możliwość komunikowania się z Azure Monitor za pomocą [bramy log Analytics](../platform/gateway.md).
+- **Częstotliwość zbierania** — określa częstotliwość, z jaką dane są zbierane przez rozwiązanie do monitorowania. 
 
 
 
-| **Rozwiązanie do monitorowania** | **Platforma** | **Agent monitorujący firmy Microsoft** | **Agent programu Operations Manager** | **Magazyn platformy Azure** | **Wymagany jest program Operations Manager?** | **Dane agenta programu Operations Manager wysyłane za pośrednictwem grupy zarządzania** | **Częstotliwość zbierania** |
+| **Rozwiązanie do monitorowania** | **Platforma** | **Program Microsoft Monitoring Agent** | **Agent programu Operations Manager** | **Usługa Azure Storage** | **Operations Manager jest wymagane?** | **Dane agenta Operations Manager wysyłane przez grupę zarządzania** | **Częstotliwość zbierania** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Analiza dziennika aktywności](../platform/activity-log-collect.md) | Azure | | | | | | w sprawie powiadomienia |
+| [Analiza dzienników aktywności](../platform/activity-log-collect.md) | Azure | | | | | | przy powiadomień |
 | [Ocena usługi AD](ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dni |
 | [Stan replikacji usługi AD](ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 dni |
 | [Kondycja agenta](solution-agenthealth.md) | System Windows i Linux | &#8226; | &#8226; | | | &#8226; | 1 min |
-| [Zarządzanie alertami](../platform/alert-management-solution.md) (Nagios) |Linux |&#8226; | | | | |po przyjeździe |
-| [Zarządzanie alertami](../platform/alert-management-solution.md) (Zabbix) |Linux |&#8226; | | | | |1 min |
-| [Zarządzanie alertami](../platform/alert-management-solution.md) (menedżer operacyjny) |Windows | |&#8226; | |&#8226; |&#8226; |3 minuty |
-| [Odzyskiwanie witryny platformy Azure](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | Nie dotyczy |
-| [Łącznik usługi Application Insights (przestarzały)](../platform/app-insights-connector.md) | Azure | | | |  |  | w sprawie powiadomienia |
-| [Hybrydowy pracownik automatyzacji](../../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | Nie dotyczy |
-| [Azure Application Gateway Analytics](azure-networking-analytics.md) | Azure |  |  |  |  |  | w sprawie powiadomienia |
-| **Rozwiązanie do monitorowania** | **Platforma** | **Agent monitorujący firmy Microsoft** | **Agent programu Operations Manager** | **Magazyn platformy Azure** | **Wymagany jest program Operations Manager?** | **Dane agenta programu Operations Manager wysyłane za pośrednictwem grupy zarządzania** | **Częstotliwość zbierania** |
-| [Usługa Azure Network Security Group Analytics (przestarzała)](azure-networking-analytics.md) | Azure |  |  |  |  |  | w sprawie powiadomienia |
-| [Usługa Azure SQL Analytics (wersja zapoznawcza)](azure-sql.md) | Windows | | | | | | 1 min |
-| [Kopia zapasowa](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | w sprawie powiadomienia |
-| [Pojemność i wydajność (wersja zapoznawcza)](capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |po przyjeździe |
-| [Śledzenie zmian](../../automation/change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |[Różni się](../../automation/change-tracking.md#change-tracking-data-collection-details) |
-| [Śledzenie zmian](../../automation/change-tracking.md) |Linux |&#8226; | | | | |[Różni się](../../automation/change-tracking.md#change-tracking-data-collection-details) |
-| [Kontenery](containers.md) | System Windows i Linux | &#8226; | &#8226; |  |  |  | 3 minuty |
-| [Analiza usługi Key Vault](azure-key-vault.md) |Windows | | | | | |w sprawie powiadomienia |
-| [Ocena złośliwego oprogramowania](../../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |Godzinowe |
-| [Monitor wydajności sieci](network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | Uzgadnia TCP co 5 sekund, dane wysyłane co 3 minuty |
-| [Usługi Office 365 Analytics (wersja zapoznawcza)](solution-office-365.md) |Windows | | | | | |w sprawie powiadomienia |
-| **Rozwiązanie do monitorowania** | **Platforma** | **Agent monitorujący firmy Microsoft** | **Agent programu Operations Manager** | **Magazyn platformy Azure** | **Wymagany jest program Operations Manager?** | **Dane agenta programu Operations Manager wysyłane za pośrednictwem grupy zarządzania** | **Częstotliwość zbierania** |
+| [Alert Management](../platform/alert-management-solution.md) (Nagios) |Linux |&#8226; | | | | |przy nadejściu |
+| [Alert Management](../platform/alert-management-solution.md) (Zabbix) |Linux |&#8226; | | | | |1 min |
+| [Alert Management](../platform/alert-management-solution.md) (Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3 minuty |
+| [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | n/d |
+| [Application Insights Connector (przestarzałe)](../platform/app-insights-connector.md) | Azure | | | |  |  | przy powiadomień |
+| [Automation Hybrid Worker](../../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | n/d |
+| [Azure Application Gateway Analytics](azure-networking-analytics.md) | Azure |  |  |  |  |  | przy powiadomień |
+| **Rozwiązanie do monitorowania** | **Platforma** | **Program Microsoft Monitoring Agent** | **Agent programu Operations Manager** | **Usługa Azure Storage** | **Operations Manager jest wymagane?** | **Dane agenta Operations Manager wysyłane przez grupę zarządzania** | **Częstotliwość zbierania** |
+| [Azure Network Security Group Analytics (przestarzałe)](azure-networking-analytics.md) | Azure |  |  |  |  |  | przy powiadomień |
+| [Azure SQL Analytics (wersja zapoznawcza)](azure-sql.md) | Windows | | | | | | 1 min |
+| [Backup](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | przy powiadomień |
+| [Capacity and Performance (wersja zapoznawcza)](capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |przy nadejściu |
+| [Change Tracking](../../automation/change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |[różni się](../../automation/change-tracking.md#change-tracking-data-collection-details) |
+| [Change Tracking](../../automation/change-tracking.md) |Linux |&#8226; | | | | |[różni się](../../automation/change-tracking.md#change-tracking-data-collection-details) |
+| [Containers](containers.md) | System Windows i Linux | &#8226; | &#8226; |  |  |  | 3 minuty |
+| [Key Vault Analytics](azure-key-vault.md) |Windows | | | | | |przy powiadomień |
+| [Ocena złośliwego oprogramowania](../../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |co godzinę |
+| [Monitor wydajności sieci](network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | Uzgadnianie TCP co 5 sekund, dane wysyłane co 3 minuty |
+| [Office 365 Analytics (wersja zapoznawcza)](solution-office-365.md) |Windows | | | | | |przy powiadomień |
+| **Rozwiązanie do monitorowania** | **Platforma** | **Program Microsoft Monitoring Agent** | **Agent programu Operations Manager** | **Usługa Azure Storage** | **Operations Manager jest wymagane?** | **Dane agenta Operations Manager wysyłane przez grupę zarządzania** | **Częstotliwość zbierania** |
 | [Analiza usługi Service Fabric](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 minut |
 | [Mapa usługi](service-map.md) | System Windows i Linux | &#8226; | &#8226; |  |  |  | 15 sekund |
 | [Ocena serwera SQL](sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dni |
-| [Urządzenie SurfaceHub](surface-hubs.md) |Windows |&#8226; | | | | |po przyjeździe |
-| [Ocena programu Operations Manager centrum systemu (wersja zapoznawcza)](scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | siedem dni |
+| [SurfaceHub](surface-hubs.md) |Windows |&#8226; | | | | |przy nadejściu |
+| [System Center Operations Manager Assessment (wersja zapoznawcza)](scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | siedem dni |
 | [Zarządzanie aktualizacjami](../../automation/automation-update-management.md) | Windows |&#8226; |&#8226; | | |&#8226; |co najmniej 2 razy dziennie i 15 minut po zainstalowaniu aktualizacji |
 | [Gotowość do uaktualnienia](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started) | Windows | &#8226; |  |  |  |  | 2 dni |
-| [Monitorowanie VMware (przestarzałe)](vmware.md) | Linux | &#8226; |  |  |  |  | 3 minuty |
-| [Dane przewodowe 2.0 (podgląd)](wire-data.md) |Windows (2012 R2 / 8.1 lub nowsze) |&#8226; |&#8226; | | | | 1 min |
+| [VMware Monitoring (przestarzałe)](vmware.md) | Linux | &#8226; |  |  |  |  | 3 minuty |
+| [Wire Data 2.0 (wersja zapoznawcza)](wire-data.md) |Windows (2012 R2/8,1 lub nowszy) |&#8226; |&#8226; | | | | 1 min |
 
 
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się, jak [zainstalować i używać rozwiązań do monitorowania](solutions.md).
-* Dowiedz się, jak [tworzyć zapytania](../log-query/log-query-overview.md) do analizowania danych zebranych przez rozwiązania monitorowania.
+* Dowiedz się [, jak instalować i używać rozwiązań do monitorowania](solutions.md).
+* Dowiedz się, jak [tworzyć zapytania](../log-query/log-query-overview.md) do analizowania danych zbieranych przez rozwiązania monitorujące.

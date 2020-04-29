@@ -1,6 +1,6 @@
 ---
-title: Parametry listy rozwijanej skoroszytu Monitora platformy Azure
-description: Uprość raportowanie złożone dzięki wstępnie utworzonym i niestandardowych sparametryzowanym skoroszytom zawierającym parametry listy rozwijanej
+title: Azure Monitor parametry rozwijane skoroszytu
+description: Uprość złożone raportowanie ze wstępnie skompilowanymi i niestandardowymi skoroszytami zawierającymi parametry listy rozwijanej
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -10,30 +10,30 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: f3220a363025d80fd7636dbfc3af3d2d9d7bc040
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77658289"
 ---
 # <a name="workbook-drop-down-parameters"></a>Parametry listy rozwijanej skoroszytu
 
-Listy rozwijane umożliwiają użytkownikowi zbieranie co najmniej jednej wartości wejściowej ze znanego zestawu (na przykład wybierz jedno z żądań aplikacji). Rozwijane zapewniają przyjazny dla użytkownika sposób zbierania dowolnych danych wejściowych od użytkowników. Listy rozwijane są szczególnie przydatne w włączaniu filtrowania w interaktywnych raportach. 
+Lista rozwijana Zezwalaj użytkownikowi na zbieranie co najmniej jednej wartości wejściowej z znanego zestawu (na przykład wybierz jedną z żądań aplikacji). Lista rozwijana zapewnia przyjazny dla użytkownika sposób zbierania dowolnych danych wejściowych od użytkowników. Lista rozwijana jest szczególnie przydatna podczas włączania filtrowania raportów interaktywnych. 
 
-Najprostszym sposobem określenia listy rozwijanej jest podanie listy statycznej w ustawieniu parametrów. Bardziej interesującym sposobem jest dynamiczne uzyskanie listy za pośrednictwem kwerendy KQL. Ustawienia parametrów pozwalają również określić, czy jest to pojedynczy czy wielokrotny wybór, a jeśli jest wybierany z wieloma opcjami, sposób formatowania zestawu wyników (ogranicznik, oferta itp.).
+Najprostszym sposobem określenia listy rozwijanej jest podawanie statycznej listy w ustawieniu parametru. Bardziej interesujący jest sposób, aby uzyskać listę dynamicznie za pośrednictwem zapytania KQL. Ustawienia parametrów umożliwiają również określenie, czy jest to pojedynczy, czy wybór wieloznaczny, a jeśli jest to wybór wieloznaczny, w jaki sposób zestaw wyników powinien być sformatowany (ogranicznik, oferta itp.).
 
-## <a name="creating-a-static-drop-down-parameter"></a>Tworzenie statycznego parametru rozwijanego
+## <a name="creating-a-static-drop-down-parameter"></a>Tworzenie statycznego parametru listy rozwijanej
 
 1. Zacznij od pustego skoroszytu w trybie edycji.
-2. Wybierz _pozycję Dodaj parametry_ z łączy w skoroszycie.
-3. Kliknij niebieski przycisk _Dodaj parametr._
-4. W nowym okienku parametrów, które wyskakuje wpisać:
+2. Wybierz pozycję _Dodaj parametry_ z linków w skoroszycie.
+3. Kliknij niebieski przycisk _Dodaj parametr_ .
+4. W okienku Nowy parametr, który jest podręczny ENTER:
     1. Nazwa parametru:`Environment`
     2. Typ parametru:`Drop down`
     3. Wymagane:`checked`
-    4. Zezwól na: `multiple selection``unchecked`
+    4. Zezwalaj `multiple selection`:`unchecked`
     5. Pobierz dane z:`JSON`
-5. W bloku tekstu JSON Input wstaw ten fragment kodu json:
+5. W bloku tekstu wejściowego JSON Wstaw ten fragment kodu JSON:
     ```json
     [
         { "value":"dev", "label":"Development" },
@@ -42,13 +42,13 @@ Najprostszym sposobem określenia listy rozwijanej jest podanie listy statycznej
     ]
     ```
 6. Naciśnij niebieski `Update` przycisk.
-7. Wybierz "Zapisz" na pasku narzędzi, aby utworzyć parametr.
-8. Środowisko parametr będzie rozwijane z trzech wartości.
+7. Wybierz pozycję "Zapisz" na pasku narzędzi, aby utworzyć parametr.
+8. Parametr Environment będzie listą rozwijaną z trzema wartościami.
 
-    ![Obraz przedstawiający tworzenie statycznego utonięcia](./media/workbook-dropdowns/dropdown-create.png)
+    ![Obraz przedstawiający tworzenie statycznej Drown w dół](./media/workbook-dropdowns/dropdown-create.png)
 
-## <a name="creating-a-static-dropdown-with-groups-of-items"></a>Tworzenie listy rozwijanej statycznej z grupami elementów
-Jeśli wynik kwerendy/json zawiera pole "grupa", na liście rozwijanej zostaną wyświetlone grupy wartości. Postępuj zgodnie z powyższą próbką, ale zamiast tego użyj następującego json:
+## <a name="creating-a-static-dropdown-with-groups-of-items"></a>Tworzenie statycznego listy rozwijanej z grupami elementów
+Jeśli wynik zapytania/JSON zawiera pole "Grupa", na liście rozwijanej zostaną wyświetlone grupy wartości. Postępuj zgodnie z powyższym przykładem, ale zamiast tego użyj następującego kodu JSON:
 ```json
 [
     { "value":"dev", "label":"Development", "group":"Development" },
@@ -62,17 +62,17 @@ Jeśli wynik kwerendy/json zawiera pole "grupa", na liście rozwijanej zostaną 
     ![Image showing an example of a grouped dropdown](./media/workbook-dropdowns/grouped-dropDown.png)
 
 
-## <a name="creating-a-dynamic-drop-down-parameter"></a>Tworzenie dynamicznego parametru listy rozwijanej
+## <a name="creating-a-dynamic-drop-down-parameter"></a>Tworzenie dynamicznego parametru rozwijanego
 1. Zacznij od pustego skoroszytu w trybie edycji.
-2. Wybierz _pozycję Dodaj parametry_ z łączy w skoroszycie.
-3. Kliknij niebieski przycisk _Dodaj parametr._
-4. W nowym okienku parametrów, które wyskakuje wpisać:
+2. Wybierz pozycję _Dodaj parametry_ z linków w skoroszycie.
+3. Kliknij niebieski przycisk _Dodaj parametr_ .
+4. W okienku Nowy parametr, który jest podręczny ENTER:
     1. Nazwa parametru:`RequestName`
     2. Typ parametru:`Drop down`
     3. Wymagane:`checked`
-    4. Zezwól na: `multiple selection``unchecked`
+    4. Zezwalaj `multiple selection`:`unchecked`
     5. Pobierz dane z:`Query`
-5. W bloku tekstu JSON Input wstaw ten fragment kodu json:
+5. W bloku tekstu wejściowego JSON Wstaw ten fragment kodu JSON:
 
     ```kusto
         requests
@@ -80,14 +80,14 @@ Jeśli wynik kwerendy/json zawiera pole "grupa", na liście rozwijanej zostaną 
         | order by name asc
     ```
 1. Naciśnij niebieski `Run Query` przycisk.
-2. Wybierz "Zapisz" na pasku narzędzi, aby utworzyć parametr.
-3. RequestName Parametr będzie rozwijane nazwy wszystkich żądań w aplikacji.
+2. Wybierz pozycję "Zapisz" na pasku narzędzi, aby utworzyć parametr.
+3. Parametr RequestName będzie listą rozwijaną nazw wszystkich żądań w aplikacji.
 
     ![Obraz przedstawiający tworzenie dynamicznego listy rozwijanej](./media/workbook-dropdowns/dropdown-dynamic.png)
 
-## <a name="referencing-drop-down-parameter"></a>Odwoływanie się do parametru rozwijanej
-### <a name="in-kql"></a>w KQL
-1. Dodaj formant kwerendy do skoroszytu i wybierz zasób usługi Application Insights.
+## <a name="referencing-drop-down-parameter"></a>Parametr listy rozwijanej odwołującego się
+### <a name="in-kql"></a>W KQL
+1. Dodaj kontrolkę zapytania do skoroszytu i wybierz zasób Application Insights.
 2. W edytorze KQL wprowadź ten fragment kodu
 
     ```kusto
@@ -96,7 +96,7 @@ Jeśli wynik kwerendy/json zawiera pole "grupa", na liście rozwijanej zostaną 
         | summarize Requests = count() by bin(timestamp, 1h)
 
     ```
-3. Spowoduje to rozszerzenie czasu oceny kwerendy do:
+3. Spowoduje to rozwinięcie czasu oceny zapytania, aby:
 
     ```kusto
         requests
@@ -104,15 +104,15 @@ Jeśli wynik kwerendy/json zawiera pole "grupa", na liście rozwijanej zostaną 
         | summarize Requests = count() by bin(timestamp, 1h)
     ```
 
-4. Uruchom kwerendę, aby wyświetlić wyniki. Opcjonalnie renderuj go jako wykres.
+4. Uruchom zapytanie, aby zobaczyć wyniki. Opcjonalnie Renderuj ją jako wykres.
 
-    ![Obraz przedstawiający listy rozwijanej, do którego odwołuje się KQL](./media/workbook-dropdowns/dropdown-reference.png)
+    ![Obraz przedstawiający listę rozwijaną, do której odwołuje się element KQL](./media/workbook-dropdowns/dropdown-reference.png)
 
 
-## <a name="parameter-value-label-selection-and-group"></a>Wartość parametru, etykieta, wybór i grupa
-Kwerenda używana w dynamicznym parametrze rozwijanym powyżej zwraca listę wartości, które są wiernie renderowane w liście rozwijanej. Ale co, jeśli chcesz, aby inna nazwa wyświetlana, lub jeden z nich do wyboru? Parametry rozwijane pozwalają na to za pośrednictwem kolumny wartości, etykiety, zaznaczenia i grupy.
+## <a name="parameter-value-label-selection-and-group"></a>Wartość parametru, etykieta, wybór i Grupa
+Zapytanie użyte w dynamicznym parametrze rozwijanym powyżej tylko zwraca listę wartości, które są renderowane w postaci wiernej na liście rozwijanej. Ale co zrobić, jeśli chcesz wybrać inną nazwę wyświetlaną lub jedną z nich do wybrania? Parametry rozwijane umożliwiają to za pośrednictwem kolumn Value, Label, Selection i Group.
 
-W poniższym przykładzie pokazano, jak uzyskać listę zależności usługi Application Insights, których nazwy wyświetlane są stylizowane na emotikony, ma pierwszy wybrany i jest pogrupowany według nazw operacji.
+Poniższy przykład pokazuje, jak uzyskać listę Application Insights zależności, których nazwy wyświetlane są stylami z emoji, ma pierwszy wybrany i jest pogrupowane według nazw operacji.
 
 ```kusto
 dependencies
@@ -125,19 +125,19 @@ dependencies
     ![Image showing a drop-down parameter using value, label, selection and group options](./media/workbook-dropdowns/dropdown-more-options.png)
 
 
-## <a name="drop-down-parameter-options"></a>Opcje parametrów rozwijanej
+## <a name="drop-down-parameter-options"></a>Opcje parametru listy rozwijanej
 | Parametr | Wyjaśnienie | Przykład |
 | ------------- |:-------------|:-------------|
-| `{DependencyName}` | Wybrana wartość | POBIERZ fabrikamaccount |
-| `{DependencyName:label}` | Wybrana etykieta | 🌐 GET fabrikamaccount |
-| `{DependencyName:value}` | Wybrana wartość | POBIERZ fabrikamaccount |
+| `{DependencyName}` | Wybrana wartość | Pobierz fabrikamaccount |
+| `{DependencyName:label}` | Zaznaczona etykieta | 🌐 GET fabrikamaccount |
+| `{DependencyName:value}` | Wybrana wartość | Pobierz fabrikamaccount |
 
 ## <a name="multiple-selection"></a>Wybór wielokrotny
-Przykłady do tej pory jawnie ustawić parametr, aby wybrać tylko jedną wartość w rozwijanej. Parametry rozwijane `multiple selection` również obsługują - włączenie to jest `Allow multiple selection` tak proste, jak sprawdzenie opcji. 
+Przykładowo jawnie ustaw parametr, aby wybrać tylko jedną wartość z listy rozwijanej. Parametry listy rozwijanej obsługują `multiple selection` również obsługę — włączenie tej `Allow multiple selection` opcji jest proste, ponieważ jest to możliwe. 
 
-Użytkownik ma również możliwość określenia formatu zestawu wyników `delimiter` za `quote with` pomocą ustawień i. Wartość domyślna po prostu zwraca wartości jako kolekcję w tym formularzu: 'a', 'b', 'c'. Mają również możliwość ograniczenia liczby selekcji.
+Użytkownik ma także opcję określania formatu zestawu wyników za pośrednictwem ustawień `delimiter` i. `quote with` Wartość domyślna po prostu zwraca wartości jako kolekcję w tej formie: "a", "b", "c". Mogą także ograniczyć liczbę wybranych opcji.
 
-KQL odwołując się do parametru będzie musiał zmienić do pracy z formatem wyniku. Najczęstszym sposobem, aby włączyć `in` go jest za pośrednictwem operatora.
+KQL odwoływania się do parametru musi się zmienić, aby działał z formatem wyniku. Najbardziej typowym sposobem na włączenie go jest za pośrednictwem `in` operatora.
 
 ```kusto
 dependencies
@@ -145,11 +145,11 @@ dependencies
 | summarize Requests = count() by bin(timestamp, 1h), name
 ```
 
-Oto przykład listy rozwijanej wielokrotnego wyboru w pracy:
+Oto przykład listy rozwijanej z obsługą wielodostępną w pracy:
 
-![Obraz przedstawiający parametr listy rozwijanej wielokrotnego wyboru](./media/workbook-dropdowns/dropdown-multiselect.png)
+![Obraz przedstawiający parametr listy rozwijanej z pojedynczym wybieraniem](./media/workbook-dropdowns/dropdown-multiselect.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Rozpocznij](workbooks-visualizations.md) naukę o skoroszytach wiele rozbudowanych opcji wizualizacji.
+* [Rozpocznij](workbooks-visualizations.md) naukę więcej o skoroszytach wiele opcji rozbudowanych wizualizacji.
 * [Kontroluj](workbooks-access-control.md) i udostępniaj dostęp do zasobów skoroszytu.

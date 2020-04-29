@@ -1,6 +1,6 @@
 ---
 title: Omówienie skoroszytów usługi Azure Monitor
-description: Uprość składanie złożonych raportów dzięki wstępnie utworzonym i niestandardowych sparametryzowanym skoroszytom
+description: Uprość złożone raportowanie za pomocą wstępnie skompilowanych i niestandardowych skoroszytów z parametrami
 author: mrbullwinkle
 manager: carmonm
 services: azure-monitor
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 29e675f3ae35df9211f58d45ad8450566d67a588
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77658238"
 ---
-# <a name="azure-monitor-workbooks"></a>Skoroszyty monitora platformy Azure
+# <a name="azure-monitor-workbooks"></a>Azure Monitor skoroszyty
 
-Skoroszyty zapewniają elastyczną kanwę do analizy danych i tworzenia bogatych raportów wizualnych w witrynie Azure portal. Umożliwiają one korzystanie z wielu źródeł danych z całej platformy Azure i łączenie ich w ujednolicone interaktywne środowisko. 
+Skoroszyty zapewniają elastyczną kanwę do analizy danych i tworzenia bogatych raportów wizualnych w ramach Azure Portal. Umożliwiają one naciskanie na wiele źródeł danych z platformy Azure i łączenie ich w ujednolicone interaktywne środowiska. 
 
 ## <a name="data-sources"></a>Źródła danych
 
-Skoroszyty mogą wysyłać zapytania do danych z wielu źródeł na platformie Azure. Autorzy skoroszytów mogą przekształcać te dane, aby zapewnić wgląd w dostępność, wydajność, użycie i ogólną kondycję podstawowych składników. Na przykład analizowanie dzienników wydajności z maszyn wirtualnych w celu zidentyfikowania wystąpień procesora CPU lub małej ilości pamięci i wyświetlanie wyników jako siatki w raporcie interaktywnym.
+Skoroszyty mogą wykonywać zapytania dotyczące danych z wielu źródeł na platformie Azure. Autorzy skoroszytów mogą przekształcić te dane, aby zapewnić wgląd w dostępność, wydajność, użycie i ogólną kondycję podstawowych składników. Na przykład analizowanie dzienników wydajności z maszyn wirtualnych w celu zidentyfikowania dużych wystąpień procesora lub małej ilości pamięci oraz wyświetlenie wyników jako siatki w raportach interaktywnych.
   
-Ale prawdziwą siłą skoroszytów jest możliwość łączenia danych z różnych źródeł w ramach jednego raportu. Pozwala to na tworzenie widoków zasobów złożonych lub łączy między zasobami, umożliwiając bogatsze dane i szczegółowe informacje, które w przeciwnym razie byłyby niemożliwe.
+Jednak rzeczywista siła skoroszytów to możliwość łączenia danych z różnych źródeł w ramach jednego raportu. Pozwala to na tworzenie złożonych widoków zasobów lub sprzężeń między zasobami, co umożliwia bogatsze dane i szczegółowe informacje, które w przeciwnym razie byłyby niemożliwe.
 
 Skoroszyty są obecnie zgodne z następującymi źródłami danych:
 
@@ -32,99 +32,99 @@ Skoroszyty są obecnie zgodne z następującymi źródłami danych:
 * [Azure Resource Graph](workbooks-data-sources.md#azure-resource-graph)
 * [Alerty (wersja zapoznawcza)](workbooks-data-sources.md#alerts-preview)
 * [Kondycja obciążenia (wersja zapoznawcza)](workbooks-data-sources.md#workload-health-preview)
-* [Kondycja zasobów platformy Azure (wersja zapoznawcza)](workbooks-data-sources.md#azure-resource-health)
-* [Eksplorator danych platformy Azure (wersja zapoznawcza)](workbooks-data-sources.md#azure-data-explorer-preview)
+* [Azure Resource Health (wersja zapoznawcza)](workbooks-data-sources.md#azure-resource-health)
+* [Azure Eksplorator danych (wersja zapoznawcza)](workbooks-data-sources.md#azure-data-explorer-preview)
 
 ## <a name="visualizations"></a>Wizualizacje
 
-Skoroszyty zapewniają bogaty zestaw funkcji wizualizacji danych. Szczegółowe przykłady każdego typu wizualizacji można znaleźć w poniższych przykładowych łączach:
+Skoroszyty zapewniają bogaty zestaw funkcji wizualizacji danych. Aby uzyskać szczegółowe przykłady poszczególnych typów wizualizacji, możesz skorzystać z przykładowych linków poniżej:
 
 * [Tekst](workbooks-visualizations.md#text)
 * [Wykresy](workbooks-visualizations.md#charts)
 * [Siatki](workbooks-visualizations.md#grids)
-* [Płytki](workbooks-visualizations.md#tiles)
-* [Drzew](workbooks-visualizations.md#trees)
-* [Wykresy](workbooks-visualizations.md#graphs)
+* [Okładzin](workbooks-visualizations.md#tiles)
+* [Drzewo](workbooks-visualizations.md#trees)
+* [Diagram](workbooks-visualizations.md#graphs)
 
 ![Przykładowe wizualizacje skoroszytu](./media/workbooks-overview/visualizations.png)
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-Aby zapoznać się ze skoroszytami, najpierw przejdź do usługi Azure Monitor. Można to zrobić, wpisując **Monitor** w polu wyszukiwania w witrynie Azure portal.
+Aby poznać środowisko skoroszytów, najpierw przejdź do usługi Azure Monitor. Można to zrobić, wpisując **monitor** w polu wyszukiwania w Azure Portal.
 
-Następnie wybierz **skoroszyty (podgląd)**.
+Następnie wybierz pozycję **skoroszyty (wersja zapoznawcza)**.
 
-![Zrzut ekranu przedstawiający przycisk podglądu skoroszytów wyróżniony w czerwonym polu](./media/workbooks-overview/workbooks-preview.png)
+![Zrzut ekranu przedstawiający przycisk Podgląd skoroszytów wyróżniony w czerwonym polu](./media/workbooks-overview/workbooks-preview.png)
 
 ### <a name="gallery"></a>Galeria
 
 Spowoduje to przejście do galerii skoroszytów:
 
-![Zrzut ekranu przedstawiający widok galerii skoroszytów usługi Azure Monitor](./media/workbooks-overview/gallery.png)
+![Zrzut ekranu przedstawiający Widok galerii skoroszytów Azure Monitor](./media/workbooks-overview/gallery.png)
 
-### <a name="workbooks-versus-workbook-templates"></a>Skoroszyty i szablony skoroszytów
+### <a name="workbooks-versus-workbook-templates"></a>Skoroszyty a szablony skoroszytu
 
-_Skoroszyt_ jest zielony, a niektóre _szablony skoroszytu_ w kolorze fioletowym. Szablony służą jako wyselekcjonowane raporty, które są przeznaczone do elastycznego ponownego użycia przez wielu użytkowników i zespoły. Otwarcie szablonu powoduje utworzenie przejściowego skoroszytu wypełnionego zawartością szablonu. 
+_Skoroszyt_ można zobaczyć w kolorze zielonym i w różnych _szablonach skoroszytów_ . Szablony służą jako nadzorowane raporty, które są przeznaczone do elastycznego ponownego wykorzystania przez wielu użytkowników i zespoły. Otwarcie szablonu powoduje utworzenie skoroszytu zawierającego zawartość szablonu. 
 
-Można dostosować parametry skoroszytu opartego na szablonie i przeprowadzić analizę bez obawy o złamanie przyszłego doświadczenia raportowania dla współpracowników. Jeśli otworzysz szablon, dokonasz pewnych korekt, a następnie wybierz ikonę zapisz, którą zapiszesz jako skoroszyt, który następnie będzie pokazywał się na zielono, pozostawiając oryginalny szablon nietknięty. 
+Można dostosować parametry skoroszytu opartego na szablonach i przeprowadzać analizę bez obaw o rozdzielenie przyszłego środowiska raportowania dla współpracowników. Jeśli otworzysz szablon, wprowadź pewne zmiany, a następnie wybierz ikonę Zapisz, aby zapisać szablon jako skoroszyt, który będzie wyświetlany w kolorze zielonym, pozostawiając oryginalny szablon bez zmian. 
 
-Pod maską szablony różnią się również od zapisanych skoroszytów. Zapisanie skoroszytu tworzy skojarzony zasób usługi Azure Resource Manager, podczas gdy skoroszyt przejściowy utworzony podczas otwierania szablonu nie ma skojarzonego z nim unikatowego zasobu. Aby dowiedzieć się więcej o tym, jak kontrola dostępu jest zarządzana w skoroszytach, zapoznaj się z [artykułem kontroli dostępu do skoroszytów](workbooks-access-control.md).
+Pod okapem szablony różnią się także od zapisanych skoroszytów. Zapisanie skoroszytu powoduje utworzenie skojarzonego zasobu Azure Resource Manager, podczas gdy po prostu otwierając szablon nie jest skojarzony żaden unikatowy zasób. Aby dowiedzieć się więcej na temat zarządzania kontrolą dostępu w skoroszytach, zobacz [artykuł kontrola dostępu do skoroszytów](workbooks-access-control.md).
 
 ### <a name="exploring-a-workbook-template"></a>Eksplorowanie szablonu skoroszytu
 
-Wybierz **opcję Analiza awarii aplikacji,** aby wyświetlić jeden z domyślnych szablonów skoroszytu aplikacji.
+Wybierz pozycję **Analiza błędów aplikacji** , aby wyświetlić jeden z domyślnych szablonów skoroszytów aplikacji.
 
-![Zrzut ekranu przedstawiający szablon analizy awarii aplikacji](./media/workbooks-overview/failure-analysis.png)
+![Zrzut ekranu szablonu analizy błędów aplikacji](./media/workbooks-overview/failure-analysis.png)
 
-Jak wspomniano wcześniej, otwarcie szablonu tworzy tymczasowy skoroszyt, z którego można wchodzić w interakcje. Domyślnie skoroszyt otwiera się w trybie odczytu, w którym są wyświetlane tylko informacje dotyczące zamierzonego środowiska analizy utworzonego przez autora oryginalnego szablonu.
+Jak wspomniano wcześniej, otwarcie szablonu tworzy tymczasowy skoroszyt, aby móc korzystać z programu. Domyślnie skoroszyt jest otwierany w trybie odczytywania, który wyświetla tylko informacje dla zamierzonego środowiska analizy, które zostało utworzone przez oryginalnego autora szablonu.
 
-W przypadku tego konkretnego skoroszytu środowisko jest interaktywne. Możesz dostosować subskrypcję, aplikacje docelowe i zakres czasu danych, które chcesz wyświetlić. Po dokonaniu tych wyborów siatka żądań HTTP jest również interaktywna, przy czym wybranie pojedynczego wiersza spowoduje zmianę danych renderowanych na dwóch wykresach u dołu raportu.
+W przypadku tego konkretnego skoroszytu środowisko pracy jest interaktywne. Można dostosować subskrypcję, aplikacje przeznaczone dla aplikacji i zakres czasu danych, które mają być wyświetlane. Po dokonaniu wyboru siatka żądań HTTP jest również interaktywna, przy czym wybranie pojedynczego wiersza spowoduje zmianę sposobu renderowania danych na dwóch wykresach w dolnej części raportu.
 
 ### <a name="editing-mode"></a>Tryb edycji
 
-Aby zrozumieć, jak ten szablon skoroszytu jest zebrany, musisz zamienić się w tryb edycji, wybierając pozycję **Edytuj**. 
+Aby zrozumieć, jak ten szablon skoroszytu został umieszczony razem, należy przełączyć się do trybu edycji, wybierając pozycję **Edytuj**. 
 
-![Zrzut ekranu przedstawiający szablon analizy awarii aplikacji](./media/workbooks-overview/edit.png)
+![Zrzut ekranu szablonu analizy błędów aplikacji](./media/workbooks-overview/edit.png)
 
-Po przełączeniu do trybu edycji zauważysz, że po prawej stronie pojawi się kilka pól **edycji** odpowiadających poszczególnym aspektom skoroszytu.
+Po przełączeniu do trybu edycji zobaczysz kilka pól **edycji** , które są wyświetlane z prawej strony w każdym z aspektów skoroszytu.
 
 ![Zrzut ekranu przedstawiający przycisk Edytuj](./media/workbooks-overview/edit-mode.png)
 
-Jeśli wybierzemy przycisk edycji bezpośrednio pod siatką danych żądania, widzimy, że ta część naszego skoroszytu składa się z zapytania Kusto względem danych z zasobu usługi Application Insights.
+Jeśli wybierzesz przycisk Edytuj bezpośrednio pod siatką danych żądania, zobaczysz, że ta część naszego skoroszytu składa się z Kusto zapytania dotyczącego danych z zasobu Application Insights.
 
-![Zrzut ekranu przedstawiający podstawowe zapytanie Kusto](./media/workbooks-overview/kusto.png)
+![Zrzut ekranu bazowego zapytania Kusto](./media/workbooks-overview/kusto.png)
 
-Kliknięcie innych przycisków **Edycji** po prawej stronie spowoduje wyświetlenie szeregu podstawowych składników, które tworzą skoroszyty, takich jak pola tekstowe oparte na [znacznikach,](workbooks-visualizations.md#text)elementy interfejsu użytkownika [wyboru parametrów](workbooks-parameters.md) i inne [typy wykresu/wizualizacji.](workbooks-visualizations.md) 
+Kliknięcie innych przycisków **edycji** po prawej stronie spowoduje wyświetlenie wielu podstawowych składników, które składają się na skoroszyty, takie jak [pola tekstowe](workbooks-visualizations.md#text)oparte na promocji, [elementy interfejsu użytkownika](workbooks-parameters.md) i inne [typy wykresów/wizualizacji](workbooks-visualizations.md). 
 
-Eksplorowanie gotowych szablonów w trybie edycji, a następnie modyfikowanie ich zgodnie z potrzebami i zapisywanie własnego skoroszytu niestandardowego to doskonały sposób, aby dowiedzieć się, co jest możliwe w skoroszytach usługi Azure Monitor.
+Eksplorowanie wstępnie skompilowanych szablonów w trybie edycji, a następnie modyfikowanie ich w celu dopasowania do Twoich potrzeb i zapisanie własnego skoroszytu niestandardowego jest doskonałym sposobem na rozpoczęcie uczenia się, co jest możliwe dzięki Azure Monitor skoroszytów.
 
 ## <a name="pinning-visualizations"></a>Przypinanie wizualizacji
 
-Kroki tekstowe, kwerendy i metryki w skoroszycie można przypiąć za pomocą przycisku pinezki tych elementów, gdy skoroszyt jest w trybie pinezki lub jeśli autor skoroszytu włączył ustawienia dla tego elementu, aby ikona pinezki była widoczna. 
+Kroki dotyczące tekstu, zapytania i metryk w skoroszycie można przypinać przy użyciu przycisku Przypnij dla tych elementów, gdy skoroszyt jest w trybie przypinania lub jeśli Autor skoroszytu włączył ustawienia dla tego elementu, aby ikona pinezki była widoczna. 
 
-Aby uzyskać dostęp do trybu pinezki, kliknij przycisk **Edytuj,** aby przejść do trybu edycji, a następnie wybierz niebieską ikonę pinezki na górnym pasku. Następnie nad polem *Edycji* każdej odpowiedniej części skoroszytu po prawej stronie ekranu pojawi się pojedyncza ikona pinezki.
+Aby uzyskać dostęp do trybu kodu PIN, kliknij przycisk **Edytuj** , aby przejść do trybu edycji, a następnie wybierz niebieską ikonę pinezki na górnym pasku. Po prawej stronie ekranu zostanie wyświetlona ikona numeru PIN odpowiadająca poszczególnym osobom z pola *edycji* .
 
-![Pin doświadczenie](./media/workbooks-overview/pin-experience.png)
+![Obsługa numeru PIN](./media/workbooks-overview/pin-experience.png)
 
 > [!NOTE]
-> Stan skoroszytu jest zapisywany w momencie przypinania, a przypięte skoroszyty na pulpicie nawigacyjnym nie będą aktualizowane, jeśli podstawowy skoroszyt zostanie zmodyfikowany. Aby zaktualizować przypiętą część skoroszytu, należy usunąć i ponownie przypiąć tę część.
+> Stan skoroszytu jest zapisywany w momencie wprowadzenia numeru PIN, a przypięte skoroszyty na pulpicie nawigacyjnym nie będą aktualizowane w przypadku zmodyfikowania źródłowego skoroszytu. Aby można było zaktualizować przypięty skoroszyt, należy usunąć i ponownie przypiąć tę część.
 
 ## <a name="dashboard-time-ranges"></a>Zakresy czasu pulpitu nawigacyjnego
 
-Przypięte części kwerendy skoroszytu będą respektować zakres czasu pulpitu nawigacyjnego, jeśli przypięty element jest skonfigurowany do używania parametru *Zakres czasu.* Wartość zakresu czasu pulpitu nawigacyjnego będzie używana jako wartość parametru zakresu czasu, a każda zmiana zakresu czasu pulpitu nawigacyjnego spowoduje aktualizację przypiętego elementu. Jeśli przypięta część korzysta z zakresu czasu pulpitu nawigacyjnego, zobaczysz podtytuł przypiętej aktualizacji części, aby wyświetlić zakres czasu pulpitu nawigacyjnego za każdym razem, gdy zmienia się zakres czasu. 
+Przypięte fragmenty zapytania skoroszytu będą respektują zakres czasu pulpitu nawigacyjnego, jeśli przypięty element jest skonfigurowany do używania parametru *zakresu czasu* . Wartość zakresu czasu pulpitu nawigacyjnego będzie używana jako wartość parametru zakres czasu, a wszystkie zmiany zakresu czasu pulpitu nawigacyjnego spowodują aktualizację przypiętego elementu. Jeśli przypięta część używa zakresu czasu pulpitu nawigacyjnego, zobaczysz podtytuł aktualizacji przypiętej części, aby pokazać zakres czasu pulpitu nawigacyjnego za każdym razem, gdy zmieni się zakres czasu. 
 
-Ponadto przypięte części skoroszytu przy użyciu parametru zakresu czasu będą automatycznie odświeżane z szybkością określoną przez zakres czasu pulpitu nawigacyjnego. Ostatni raz wyszukiwane zapytanie pojawi się w podtytule przypiętej części.
+Ponadto przypięte fragmenty skoroszytu korzystające z parametru zakresu czasu będą odświeżane w ramach częstotliwości ustalonej przez zakres czasu pulpitu nawigacyjnego. Czas ostatniego uruchomienia zapytania będzie wyświetlany na podtytuł części przypiętej.
 
-Jeśli przypięty krok ma jawnie ustawiony zakres czasu (nie używa parametru zakresu czasu), ten zakres czasu będzie zawsze używany dla pulpitu nawigacyjnego, niezależnie od ustawień pulpitu nawigacyjnego. Podtytuł przypiętej części nie będzie pokazywał zakresu czasu pulpitu nawigacyjnego, a kwerenda nie będzie automatycznie odświeżana na pulpicie nawigacyjnym. Podtytuł pokaże ostatni raz wykonane zapytanie.
+Jeśli przypięty krok ma jawnie ustawiony zakres czasu (nie używa parametru zakresu czasu), ten zakres czasu będzie zawsze używany dla pulpitu nawigacyjnego, niezależnie od ustawień pulpitu nawigacyjnego. Podtytuł przypiętej części nie będzie pokazywał zakresu czasu pulpitu nawigacyjnego, a zapytanie nie będzie odświeżane na pulpicie nawigacyjnym. Podtytuł będzie widoczny podczas ostatniego wykonywania zapytania.
 
 > [!NOTE]
-> Kwerendy korzystające ze źródła danych *korespondencji seryjnej* nie są obecnie obsługiwane podczas przypinania do pulpitów nawigacyjnych.
+> Zapytania korzystające ze źródła danych *scalania* nie są obecnie obsługiwane w przypadku przypinania do pulpitów nawigacyjnych.
 
 ## <a name="sharing-workbook-templates"></a>Udostępnianie szablonów skoroszytów
 
-Po rozpoczęciu tworzenia własnych szablonów skoroszytu możesz udostępnić je szerszej społeczności. Aby dowiedzieć się więcej i zapoznać się z innymi szablonami, które nie są częścią domyślnego widoku galerii usługi Azure Monitor, odwiedź nasze [repozytorium GitHub.](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md) Aby przeglądać istniejące skoroszyty, odwiedź [bibliotekę skoroszytów](https://github.com/microsoft/Application-Insights-Workbooks/tree/master/Workbooks) w usłudze GitHub.
+Po rozpoczęciu tworzenia własnych szablonów skoroszytów warto udostępnić je szerszej społeczności. Aby dowiedzieć się więcej i zapoznać się z innymi szablonami, które nie są częścią domyślnego widoku Galerii Azure Monitor, odwiedź nasze [repozytorium GitHub](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md). Aby przeglądać istniejące skoroszyty, odwiedź [bibliotekę skoroszytów](https://github.com/microsoft/Application-Insights-Workbooks/tree/master/Workbooks) w witrynie GitHub.
 
 ## <a name="next-step"></a>Następny krok
 
-* [Rozpocznij](workbooks-visualizations.md) naukę o skoroszytach wiele rozbudowanych opcji wizualizacji.
+* [Rozpocznij](workbooks-visualizations.md) naukę więcej o skoroszytach wiele opcji rozbudowanych wizualizacji.
 * [Kontroluj](workbooks-access-control.md) i udostępniaj dostęp do zasobów skoroszytu.

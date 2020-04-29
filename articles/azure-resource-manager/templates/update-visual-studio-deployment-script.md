@@ -1,36 +1,36 @@
 ---
-title: Aktualizowanie skryptu wdrażania szablonu programu Visual Studio w celu użycia programu Az PowerShell
-description: Aktualizowanie skryptu wdrażania szablonu programu Visual Studio z usługi AzureRM do programu Az PowerShell
+title: Zaktualizuj skrypt wdrażania szablonów programu Visual Studio, aby użyć polecenia AZ PowerShell
+description: Aktualizuj skrypt wdrożenia szablonu programu Visual Studio z AzureRM do AZ PowerShell
 author: cweining
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: cweining
 ms.openlocfilehash: 357e0289f3237ed32b0801280316225ba5530282
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76963873"
 ---
-# <a name="update-visual-studio-template-deployment-script-to-use-az-powershell-module"></a>Aktualizowanie skryptu wdrażania szablonu programu Visual Studio w celu użycia modułu programu Az PowerShell
+# <a name="update-visual-studio-template-deployment-script-to-use-az-powershell-module"></a>Aktualizuj skrypt wdrożenia szablonu programu Visual Studio, aby użyć polecenia AZ PowerShell module
 
-Visual Studio 16.4 obsługuje przy użyciu modułu Programu Az PowerShell w skrypcie wdrażania szablonu. Jednak visual studio nie automatycznie zainstalować tego modułu. Aby korzystać z modułu Az, należy wykonać cztery kroki:
+Program Visual Studio 16,4 obsługuje używanie modułu AZ PowerShell w skrypcie wdrażania szablonu. Jednak program Visual Studio nie instaluje automatycznie tego modułu. Aby użyć AZ module, należy wykonać cztery kroki:
 
-1. [Odinstalowywanie modułu AzureRM](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module)
-1. [Instalowanie modułu Az](/powershell/azure/install-az-ps)
-1. Aktualizowanie programu Visual Studio do wersji 16.4
-1. Zaktualizuj skrypt wdrażania w projekcie.
+1. [Odinstaluj moduł AzureRM](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module)
+1. [Zainstaluj AZ module](/powershell/azure/install-az-ps)
+1. Aktualizowanie programu Visual Studio do 16,4
+1. Zaktualizuj skrypt wdrożenia w projekcie.
 
-## <a name="update-visual-studio-to-164"></a>Aktualizowanie programu Visual Studio do wersji 16.4
+## <a name="update-visual-studio-to-164"></a>Aktualizowanie programu Visual Studio do 16,4
 
-Zaktualizuj instalację programu Visual Studio do wersji 16.4 lub nowszej. Podczas uaktualniania upewnij się, że składnik programu Azure PowerShell nie jest zaznaczony. Ponieważ zainstalowano moduł Az za pośrednictwem galerii, nie chcesz ponownie zainstalować modułu AzureRM.
+Zaktualizuj instalację programu Visual Studio do wersji 16,4 lub nowszej. Podczas uaktualniania upewnij się, że składnik Azure PowerShell nie jest zaznaczony. Ponieważ zainstalowano AZ module za pomocą galerii, nie chcesz ponownie instalować modułu AzureRM.
 
-Jeśli został już uaktualniony do wersji 16.4 i sterownik azure powershell został sprawdzony, można go odinstalować, uruchamiając Instalator programu Visual Studio. Nie wybieraj składnika programu Azure PowerShell w obciążeniu platformy Azure ani na stronie poszczególnych składników.
+Jeśli uaktualniono już do 16,4, a składnik Azure PowerShell został sprawdzony, można go odinstalować, uruchamiając Instalator programu Visual Studio. Nie wybieraj składnika Azure PowerShell w obciążeniu platformy Azure ani na stronie poszczególnych składników.
 
-## <a name="update-the-deployment-script-in-your-project"></a>Aktualizowanie skryptu wdrażania w projekcie
+## <a name="update-the-deployment-script-in-your-project"></a>Aktualizowanie skryptu wdrożenia w projekcie
 
-Zamień wszystkie wystąpienia ciągu "AzureRm" na "Az" w skrypcie wdrażania. Można odwołać się do poprawek w tym [sednie,](https://gist.github.com/cweining/d2da2479418ea403499c4306dcf4f619) aby zobaczyć zmiany. Aby uzyskać więcej informacji na temat uaktualniania skryptów do modułu Az, zobacz [Migrowanie programu Azure PowerShell z usługi AzureRM do Az](/powershell/azure/migrate-from-azurerm-to-az).
+Zamień wszystkie wystąpienia ciągu "AzureRm" na "AZ" w skrypcie wdrożenia. Możesz odwołać się do poprawek w tym [rejestrze](https://gist.github.com/cweining/d2da2479418ea403499c4306dcf4f619) , aby zobaczyć zmiany. Aby uzyskać więcej informacji na temat uaktualniania skryptów do modułu AZ module, zobacz [migrowanie Azure PowerShell z AzureRM do AZ](/powershell/azure/migrate-from-azurerm-to-az).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o korzystaniu z projektu programu Visual Studio, zobacz [Tworzenie i wdrażanie projektów grup zasobów platformy Azure za pośrednictwem programu Visual Studio.](create-visual-studio-deployment-project.md)
+Aby dowiedzieć się więcej o korzystaniu z projektu programu Visual Studio, zobacz [Tworzenie i wdrażanie projektów grupy zasobów platformy Azure za pośrednictwem programu Visual Studio](create-visual-studio-deployment-project.md).

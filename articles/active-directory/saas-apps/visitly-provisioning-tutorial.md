@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Konfigurowanie usługi Visitly do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure Active Directory | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować usługę Azure Active Directory do automatycznego udostępniania i usuwania kont użytkowników usługi Visitly.
+title: 'Samouczek: Konfigurowanie automatycznego aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i anulowania aprowizacji kont użytkowników.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,91 +16,91 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: 73cc1a58689db7902843f222aa4874a5e188be44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77063171"
 ---
-# <a name="tutorial-configure-visitly-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie funkcji Visitly do automatycznego inicjowania obsługi administracyjnej przez użytkowników
+# <a name="tutorial-configure-visitly-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie automatycznego aprowizacji użytkowników
 
-Celem tego samouczka jest zademonstrowanie kroków, które można wykonać w usłudze Visitly i usłudze Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego inicjowania obsługi administracyjnej i usuwania obsługi administracyjnej użytkowników lub grup do usługi Visitly.
+Celem tego samouczka jest przedstawienie czynności, które należy wykonać w odwiedzaniu i Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizacji i cofania aprowizacji użytkowników lub grup do odwiedzania.
 
 > [!NOTE]
-> W tym samouczku opisano łącznik utworzony na podstawie usługi inicjowania obsługi administracyjnej użytkowników usługi Azure AD. Aby uzyskać ważne informacje na temat działania tej usługi, działania i często zadawanych pytań, zobacz [Automatyzacja inicjowania obsługi administracyjnej i usuwania obsługi administracyjnej aplikacji typu oprogramowanie jako usługa (SaaS) za pomocą usługi Azure Active Directory](../app-provisioning/user-provisioning.md).
+> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania w aplikacjach typu "oprogramowanie jako usługa" (SaaS) z Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Ten łącznik jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat ogólnych warunków korzystania z platformy Microsoft Azure dla funkcji w wersji zapoznawczej, zobacz [Dodatkowe warunki użytkowania w wersji zapoznawczej platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Ten łącznik jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat ogólnych Microsoft Azure warunki użytkowania funkcji w wersji zapoznawczej, zobacz [dodatkowe warunki użytkowania dla Microsoft Azure podglądów](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku zakłada, że masz już następujące wymagania wstępne:
+Scenariusz opisany w tym samouczku założono, że masz już następujące wymagania wstępne:
 
 * Dzierżawa usługi Azure AD
-* [Najemca wizytowy](https://www.visitly.io/pricing/)
-* Konto użytkownika w funkcji Visitly z uprawnieniami administratora
+* [Dzierżawa w trakcie odwiedzin](https://www.visitly.io/pricing/)
+* Konto użytkownika w odwiedzaniu z uprawnieniami administratora
 
-## <a name="assign-users-to-visitly"></a>Przypisywanie użytkowników do visitly 
+## <a name="assign-users-to-visitly"></a>Przypisywanie użytkowników do odwiedzania 
 
-Usługa Azure Active Directory używa koncepcji o nazwie *przydziały,* aby określić, którzy użytkownicy powinni otrzymać dostęp do wybranych aplikacji. W kontekście automatycznego inicjowania obsługi administracyjnej użytkowników tylko użytkownicy lub grupy, które zostały przypisane do aplikacji w usłudze Azure AD są synchronizowane.
+Azure Active Directory używa koncepcji zwanej *zadaniami* w celu określenia, którzy użytkownicy powinni otrzymywać dostęp do wybranych aplikacji. W kontekście automatycznej aprowizacji użytkowników są synchronizowane tylko użytkownicy lub grupy, które zostały przypisane do aplikacji w usłudze Azure AD.
 
-Przed skonfigurowaniem i włączeniem automatycznego inicjowania obsługi administracyjnej użytkownika, zdecydować, którzy użytkownicy lub grupy w usłudze Azure AD potrzebują dostępu do Visitly. Następnie przypisz tych użytkowników lub grupy do Visitly, postępując zgodnie z instrukcjami tutaj:
-* [Przypisywanie użytkownika lub grupy do aplikacji przedsiębiorstwa](../manage-apps/assign-user-or-group-access-portal.md)
+Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników należy zdecydować, którzy użytkownicy lub grupy w usłudze Azure AD potrzebują dostępu do nich. Następnie przypisz tych użytkowników lub grupy do odwiedzania, postępując zgodnie z poniższymi instrukcjami:
+* [Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-visitly"></a>Ważne wskazówki dotyczące przypisywania użytkowników do Visitly 
+## <a name="important-tips-for-assigning-users-to-visitly"></a>Ważne porady dotyczące przypisywania użytkowników do odwiedzania 
 
-* Zaleca się przypisanie jednego użytkownika usługi Azure AD do usługi Visitly, aby przetestować konfigurację automatycznego inicjowania obsługi administracyjnej użytkownika. Dodatkowych użytkowników lub grup można przypisać później.
+* Zalecamy przypisanie pojedynczego użytkownika usługi Azure AD w celu przetestowania automatycznej konfiguracji inicjowania obsługi użytkowników. Dodatkowych użytkowników lub grup można przypisywać później.
 
-* Po przypisaniu użytkownika do funkcji Visitly należy wybrać dowolną prawidłową rolę specyficzną dla aplikacji (jeśli jest dostępna) w oknie dialogowym przypisywania. Użytkownicy z rolą dostępu domyślnego są wykluczeni z inicjowania obsługi administracyjnej.
+* Po przypisaniu użytkownika do odwiedzania należy wybrać dowolną prawidłową rolę specyficzną dla aplikacji (jeśli jest dostępna) w oknie dialogowym przypisanie. Użytkownicy z domyślną rolą dostępu są wykluczeni z aprowizacji.
 
-## <a name="set-up-visitly-for-provisioning"></a>Konfigurowanie visitly do inicjowania obsługi administracyjnej
+## <a name="set-up-visitly-for-provisioning"></a>Skonfiguruj odwiedzanie w celu aprowizacji
 
-Przed skonfigurowaniem visitly do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure AD, należy włączyć system dla zarządzania tożsamościami między domenami (SCIM) in Visitly.
+Przed rozpoczęciem konfigurowania programu w celu automatycznego aprowizacji użytkowników przy użyciu usługi Azure AD należy włączyć funkcję inicjowania obsługi administracyjnej między domenami (standard scim) na stronie odwiedzającej.
 
-1. Zaloguj się do [Visitly](https://app.visitly.io/login). Wybierz **opcję Integracja** > **synchronizacji hostów**.
+1. Zaloguj [się, aby](https://app.visitly.io/login)uzyskać więcej. Wybierz pozycję **integracja** > **hosta synchronizacja**.
 
-    ![Synchronizacja hostów](media/Visitly-provisioning-tutorial/login.png)
+    ![Synchronizacja hosta](media/Visitly-provisioning-tutorial/login.png)
 
-2. Wybierz sekcję **usługi Azure AD.**
+2. Wybierz sekcję **usługi Azure AD** .
 
     ![Sekcja usługi Azure AD](media/Visitly-provisioning-tutorial/integration.png)
 
-3. Skopiuj **klucz interfejsu API**. Te wartości są wprowadzane w polu **Token tajny** na karcie **inicjowanie obsługi administracyjnej** aplikacji Visitly w witrynie Azure portal.
+3. Skopiuj **klucz interfejsu API**. Te wartości są wprowadzane w polu **token tajny** na karcie **aprowizacji** aplikacji do odwiedzania w Azure Portal.
 
     ![Klucz interfejsu API](media/Visitly-provisioning-tutorial/token.png)
 
 
-## <a name="add-visitly-from-the-gallery"></a>Dodaj Visitly z galerii
+## <a name="add-visitly-from-the-gallery"></a>Dodaj wizyty z galerii
 
-Aby skonfigurować usługę Visitly do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure AD, dodaj visitly z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować odwiedzanie w celu automatycznego aprowizacji użytkowników w usłudze Azure AD, Dodaj witrynę z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji SaaS.
 
-Aby dodać Visitly z galerii aplikacji usługi Azure AD, wykonaj następujące kroki.
+Aby dodać witrynę z galerii aplikacji usługi Azure AD, wykonaj następujące kroki.
 
-1. W [witrynie Azure portal](https://portal.azure.com)w lewym okienku nawigacji wybierz pozycję **Azure Active Directory**.
+1. W [Azure Portal](https://portal.azure.com)w okienku nawigacji po lewej stronie wybierz pozycję **Azure Active Directory**.
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do **aplikacji enterprise**, a następnie wybierz pozycję **Wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-3. Aby dodać nową aplikację, wybierz przycisk **Nowa aplikacja** u góry okienka.
+3. Aby dodać nową aplikację, wybierz przycisk **Nowa aplikacja** w górnej części okienka.
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź **pozycję Visitly**, wybierz **pozycję Odwiedź** w panelu wyników, a następnie wybierz pozycję **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wpisz **odwiedzający**, wybierz pozycję **odwiedź** w panelu wyników, a następnie wybierz pozycję **Dodaj** , aby dodać aplikację.
 
     ![Aplikacja Visitly na liście wyników](common/search-new-app.png)
 
-## <a name="configure-automatic-user-provisioning-to-visitly"></a>Konfigurowanie automatycznego inicjowania obsługi administracyjnej dla funkcji Visitly 
+## <a name="configure-automatic-user-provisioning-to-visitly"></a>Konfigurowanie automatycznej aprowizacji użytkowników w celu odwiedzania 
 
-W tej sekcji można przejść przez kroki konfigurowania usługi inicjowania obsługi administracyjnej usługi Azure AD do tworzenia, aktualizowania i wyłączania użytkowników lub grup w funkcji Visitly na podstawie przypisań użytkowników lub grup w usłudze Azure AD.
+Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników lub grup w odwiedzaniu opartym na przypisaniach użytkowników lub grup w usłudze Azure AD.
 
 > [!TIP]
-> Aby włączyć logowanie jednokrotne oparte na SAML dla Visitly, postępuj zgodnie z instrukcjami w [samouczku logowania jednokrotnego Visitly](Visitly-tutorial.md). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej użytkownika, chociaż te dwie funkcje wzajemnie się uzupełniają.
+> Aby włączyć logowanie jednokrotne oparte na protokole SAML, postępuj zgodnie z instrukcjami w [samouczku Logowanie jednokrotne](Visitly-tutorial.md). Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje uzupełniają się wzajemnie.
 
-### <a name="configure-automatic-user-provisioning-for-visitly-in-azure-ad"></a>Konfigurowanie automatycznego inicjowania obsługi administracyjnej dla usługi Visitly w usłudze Azure AD
+### <a name="configure-automatic-user-provisioning-for-visitly-in-azure-ad"></a>Konfigurowanie automatycznego inicjowania obsługi użytkowników w usłudze Azure AD
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). Wybierz **aplikacje dla przedsiębiorstw** > **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje**.
 
     ![Wszystkie aplikacje](common/enterprise-applications.png)
 
@@ -108,59 +108,59 @@ W tej sekcji można przejść przez kroki konfigurowania usługi inicjowania obs
 
     ![Link do aplikacji Visitly na liście aplikacji](common/all-applications.png)
 
-3. Wybierz kartę **Inicjowanie obsługi administracyjnej.**
+3. Wybierz kartę **aprowizacji** .
 
-    ![Karta Inicjowanie obsługi administracyjnej](common/provisioning.png)
+    ![Karta aprowizacji](common/provisioning.png)
 
-4. Ustaw **tryb inicjowania obsługi administracyjnej** na **Automatyczny**.
+4. Ustaw **tryb aprowizacji** na **automatyczny**.
 
-    ![Tryb inicjowania obsługi administracyjnej ustawiony na Automatyczny](common/provisioning-automatic.png)
+    ![Tryb aprowizacji ustawiony na automatyczny](common/provisioning-automatic.png)
 
-5. W sekcji Poświadczenia administratora `https://api.visitly.io/v1/usersync/SCIM` wprowadź wartości **klucza** i interfejsu API pobrane wcześniej odpowiednio w **adresie URL dzierżawy** i **tokenie tajnym.** Wybierz **opcję Testuj połączenie,** aby upewnić się, że usługa Azure AD może łączyć się z usługą Visitly. Jeśli połączenie nie powiedzie się, upewnij się, że twoje konto Visitly ma uprawnienia administratora i spróbuj ponownie.
+5. W sekcji poświadczenia administratora wprowadź odpowiednio `https://api.visitly.io/v1/usersync/SCIM` wartości i **klucze interfejsu API** pobrane wcześniej w **adresie URL dzierżawy** i w **tokenie tajnym**. Wybierz pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może połączyć się z witryną sieci Web. Jeśli połączenie nie powiedzie się, upewnij się, że Twoje konto odwiedzające ma uprawnienia administratora, a następnie spróbuj ponownie.
 
     ![Adres URL dzierżawy + token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. W polu **Wiadomość e-mail z powiadomieniem** wprowadź adres e-mail osoby lub grupy, która powinna otrzymywać powiadomienia o błędach inicjowania obsługi administracyjnej. Zaznacz pole wyboru **Wyślij powiadomienie e-mail w** przypadku wystąpienia błędu.
+6. W polu **E-mail powiadomienia** wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji. Zaznacz pole wyboru **Wyślij powiadomienie e-mail po wystąpieniu błędu** .
 
     ![Wiadomość e-mail z powiadomieniem](common/provisioning-notification-email.png)
 
-7. Wybierz **pozycję Zapisz**.
+7. Wybierz pozycję **Zapisz**.
 
-8. W sekcji **Mapowania** wybierz pozycję **Synchronizuj użytkowników usługi Azure Active Directory do odwiedzenia**.
+8. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory użytkownicy, aby odwiedzać**.
 
-    ![Mapowania użytkowników odwiedzających](media/visitly-provisioning-tutorial/usermapping.png)
+    ![Zapoznaj się z mapowaniami użytkowników](media/visitly-provisioning-tutorial/usermapping.png)
 
-9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do Visitly w sekcji **Mapowania atrybutów.** Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w Visitly dla operacji aktualizacji. Wybierz **pozycję Zapisz,** aby zatwierdzić wszelkie zmiany.
+9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługą Azure AD, aby odwiedzać się w sekcji **mapowania atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane w celu dopasowania do kont użytkowników w odniesieniu do operacji aktualizacji. Wybierz pozycję **Zapisz** , aby zatwierdzić wszelkie zmiany.
 
-    ![Atrybuty użytkownika wizyty](media/visitly-provisioning-tutorial/userattribute.png)
+    ![Odwiedzaj atrybuty użytkownika](media/visitly-provisioning-tutorial/userattribute.png)
 
-10. Aby skonfigurować filtry zakresu, postępuj zgodnie z instrukcjami zawartymi w [samouczku filtru zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Aby skonfigurować filtry zakresu, postępuj zgodnie z instrukcjami w [samouczku filtr zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Aby włączyć usługę inicjowania obsługi administracyjnej usługi Azure AD dla usługi Visitly, zmień **stan inicjowania obsługi administracyjnej** **na Włączone** w sekcji **Ustawienia.**
+11. Aby włączyć usługę Azure AD Provisioning w odwiedzaniu, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
-    ![Stan inicjowania obsługi administracyjnej włączony](common/provisioning-toggle-on.png)
+    ![Stan aprowizacji jest przełączany](common/provisioning-toggle-on.png)
 
-12. Zdefiniuj użytkowników lub grupy, które chcesz udostępnić Visitly, wybierając żądane wartości w **zakresie** w sekcji **Ustawienia.**
+12. Zdefiniuj użytkowników lub grupy, które chcesz udostępnić do odwiedzania, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
 
-    ![Zakres inicjowania obsługi administracyjnej](common/provisioning-scope.png)
+    ![Zakres aprowizacji](common/provisioning-scope.png)
 
-13. Gdy będziesz gotowy do aprowienia, wybierz pozycję **Zapisz**.
+13. Gdy wszystko będzie gotowe do udostępnienia, wybierz pozycję **Zapisz**.
 
-    ![Zapisywanie konfiguracji inicjowania obsługi administracyjnej](common/provisioning-configuration-save.png)
+    ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
-Ta operacja rozpoczyna początkową synchronizację wszystkich użytkowników lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia.** Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje. Aby uzyskać więcej informacji na temat czasu działania użytkowników lub grup do aprowizowania, zobacz [Jak długo potrwa aprowizje użytkowników?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+Ta operacja uruchamia początkową synchronizację wszystkich użytkowników lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia** . Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje. Aby uzyskać więcej informacji o tym, jak długo trwa inicjowanie obsługi użytkowników lub grup, zobacz [jak długo trwa inicjowanie obsługi administracyjnej użytkowników?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users)
 
-Możesz użyć sekcji **Bieżący stan** do monitorowania postępu i obserwowanie łączy do raportu aktywności inicjowania obsługi administracyjnej, w którym opisano wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej usługi Azure AD w usłudze Visitly. Aby uzyskać więcej informacji, zobacz [Sprawdzanie stanu inicjowania obsługi administracyjnej przez użytkowników](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Aby zapoznać się z dziennikami inicjowania obsługi administracyjnej usługi Azure AD, zobacz [Raportowanie automatycznego inicjowania obsługi administracyjnej konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
+Możesz użyć bieżącej sekcji **stanu** , aby monitorować postęp i postępować zgodnie z raportem dotyczącym aktywności aprowizacji, który opisuje wszystkie akcje wykonywane przez usługę Azure AD Provisioning w witrynie sieci Web. Aby uzyskać więcej informacji, zobacz [Sprawdzanie stanu aprowizacji użytkowników](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Aby zapoznać się z dziennikami aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="connector-limitations"></a>Ograniczenia złącza
+## <a name="connector-limitations"></a>Ograniczenia łącznika
 
-Visitly nie obsługuje twardych usuwania. Wszystko jest tylko nietrwałe.
+Nie obsługuje żadnych stałych usunięć. Wszystko jest tylko usuwaniem nieelastycznym.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Zarządzanie aprowewaniem kont użytkowników dla aplikacji przedsiębiorstwa](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i otrzymywać raporty dotyczące aktywności inicjowania obsługi administracyjnej](../app-provisioning/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)

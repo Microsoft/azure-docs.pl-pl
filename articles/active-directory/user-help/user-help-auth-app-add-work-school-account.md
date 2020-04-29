@@ -1,6 +1,6 @@
 ---
-title: Dodawanie konta służbowego do aplikacji Microsoft Authenticator — Azure AD
-description: Dodaj swoje konto służbowe do aplikacji Microsoft Authenticator, aby zweryfikować swoją tożsamość podczas korzystania z weryfikacji dwuskładnikowej.
+title: Dodawanie konta służbowego do aplikacji Microsoft Authenticator — usługa Azure AD
+description: Dodaj konto służbowe do aplikacji Microsoft Authenticator, aby zweryfikować swoją tożsamość przy użyciu weryfikacji dwuskładnikowej.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,48 +12,48 @@ ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: f0cc14a53f7ead7f0a496728d477d7d30857a0fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77063921"
 ---
 # <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Dodawanie konta służbowego do aplikacji Microsoft Authenticator
 
-Jeśli twoja organizacja korzysta z weryfikacji dwuskładnikowej, możesz skonfigurować konto służbowe, aby używać aplikacji Microsoft Authenticator jako jednej z metod weryfikacji.
+Jeśli Twoja organizacja korzysta z weryfikacji dwuetapowej, możesz skonfigurować konto służbowe tak, aby korzystało z aplikacji Microsoft Authenticator jako jednej z metod weryfikacji.
 
 >[!Important]
->Aby można było dodać konto, należy pobrać i zainstalować aplikację Microsoft Authenticator. Jeśli jeszcze tego nie zrobiono, wykonaj czynności opisane w artykule [Pobierz i zainstaluj aplikację.](user-help-auth-app-download-install.md)
+>Aby można było dodać konto, należy pobrać i zainstalować aplikację Microsoft Authenticator. Jeśli jeszcze tego nie zrobiono, wykonaj kroki opisane w artykule [pobieranie i instalowanie aplikacji](user-help-auth-app-download-install.md) .
 
 ## <a name="add-your-work-or-school-account"></a>Dodawanie konta służbowego
 
-1. Na komputerze przejdź do strony [Dodatkowa weryfikacja zabezpieczeń.](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1)
+1. Na komputerze przejdź do strony [dodatkowa Weryfikacja zabezpieczeń](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) .
 
     >[!Note]
-    >Jeśli nie widzisz strony **Dodatkowa weryfikacja zabezpieczeń,** możliwe, że administrator włączył środowisko informacji zabezpieczających (w wersji zapoznawczej). W takim przypadku należy postępować zgodnie z instrukcjami w sekcji [Konfigurowanie informacji zabezpieczających, aby używać aplikacji uwierzytelniającego.](security-info-setup-auth-app.md) Jeśli tak nie jest, należy skontaktować się z działem pomocy technicznej organizacji w celu uzyskania pomocy. Aby uzyskać więcej informacji o informacjach zabezpieczających, zobacz [Omówienie informacji o zabezpieczeniach (wersja zapoznawcza).](user-help-security-info-overview.md)
+    >Jeśli nie widzisz strony **dodatkowej weryfikacji zabezpieczeń** , istnieje możliwość, że administrator włączył środowisko informacje zabezpieczające (wersja zapoznawcza). W takim przypadku należy postępować zgodnie z instrukcjami podanymi w sekcji [Konfigurowanie informacji zabezpieczających do korzystania z aplikacji uwierzytelniania](security-info-setup-auth-app.md) . Jeśli tak się nie dzieje, musisz skontaktować się z działem pomocy technicznej Twojej organizacji w celu uzyskania pomocy. Więcej informacji o zabezpieczeniach znajduje się w temacie Informacje o zabezpieczeniach [(wersja zapoznawcza) — Omówienie](user-help-security-info-overview.md).
 
-2. Zaznacz pole wyboru obok **aplikacji Authenticator**, a następnie wybierz pozycję **Konfiguruj**.
+2. Zaznacz pole wyboru obok pozycji **aplikacja uwierzytelniania**, a następnie wybierz pozycję **Konfiguruj**.
 
-    Zostanie wyświetlona strona **Konfigurowanie aplikacji mobilnej.**
+    Zostanie wyświetlona strona **Konfigurowanie aplikacji mobilnej** .
 
-    ![Ekran, który zapewnia kod QR](./media/user-help-auth-app-download-install/auth-app-barcode.png)
+    ![Ekran, który zawiera kod QR](./media/user-help-auth-app-download-install/auth-app-barcode.png)
 
-3. Otwórz aplikację Microsoft Authenticator, wybierz pozycję **Dodaj konto** z **ikony Dostosuj i kontroluj** w prawym górnym rogu, a następnie wybierz **pozycję Konto służbowe.**
-
-    >[!Note]
-    >Jeśli po raz pierwszy konfigurujesz aplikację Microsoft Authenticator, może pojawić się monit z pytaniem, czy zezwolić aplikacji na dostęp do aparatu (iOS), czy zezwolić aplikacji na robienia zdjęć i nagrywania wideo (Android). Musisz wybrać **opcję Zezwalaj,** aby aplikacja uwierzytelniającego mogła uzyskać dostęp do aparatu, aby zrobić zdjęcie kodu QR w następnym kroku. Jeśli nie zezwolisz na aparat, nadal możesz skonfigurować aplikację uwierzytelniacza, ale musisz ręcznie dodać informacje o kodzie. Aby uzyskać informacje dotyczące ręcznego dodawania kodu, zobacz [Ręczne dodawanie konta do aplikacji](user-help-auth-app-add-account-manual.md).
-
-4. Użyj kamery urządzenia, aby zeskanować kod QR z ekranu **Konfigurowanie aplikacji mobilnej** na komputerze, a następnie wybierz pozycję **Gotowe**.
+3. Otwórz aplikację Microsoft Authenticator, wybierz pozycję **Dodaj konto** na stronie ikona **Dostosowywanie i kontrola** w prawym górnym rogu, a następnie wybierz pozycję **konto służbowe**.
 
     >[!Note]
-    >Jeśli aparat nie może przechwycić kodu QR, możesz ręcznie dodać informacje o koncie do aplikacji Microsoft Authenticator w celu weryfikacji dwuskładnikowej. Aby uzyskać więcej informacji i jak to zrobić, zobacz [Ręczne dodawanie konta](user-help-auth-app-add-account-manual.md).
+    >Jeśli konfigurujesz aplikację Microsoft Authenticator po raz pierwszy, może zostać wyświetlony monit z pytaniem, czy zezwolić aplikacji na dostęp do aparatu (iOS), czy zezwolić aplikacji na wykonywanie zdjęć i nagrywanie wideo (Android). Musisz wybrać opcję **Zezwól** , aby aplikacja Authenticator mogła uzyskać dostęp do Twojego aparatu, aby w następnym kroku uzyskać zdjęcie kodu QR. Jeśli nie zezwolisz na korzystanie z aparatu, nadal możesz skonfigurować aplikację uwierzytelniającej, ale musisz ręcznie dodać informacje o kodzie. Aby dowiedzieć się, jak ręcznie dodać kod, zobacz [Ręczne dodawanie konta do aplikacji](user-help-auth-app-add-account-manual.md).
 
-5. Przejrzyj ekran **Konta** aplikacji na urządzeniu, aby upewnić się, że twoje konto ma rację i że istnieje skojarzony sześciocyfrowy kod weryfikacyjny. Aby uzyskać dodatkowe bezpieczeństwo, kod weryfikacyjny zmienia się co 30 sekund, uniemożliwiając innej osobie wielokrotne używanie kodu.
+4. Za pomocą aparatu urządzenia Przeskanuj kod QR na ekranie **Konfigurowanie aplikacji mobilnej** na komputerze, a następnie wybierz pozycję **gotowe**.
 
-    ![Ekran Konta](./media/user-help-auth-app-download-install/auth-app-accounts.png)
+    >[!Note]
+    >Jeśli aparat fotograficzny nie może przechwycić kodu QR, możesz ręcznie dodać informacje o koncie do aplikacji Microsoft Authenticator na potrzeby weryfikacji dwuskładnikowej. Aby uzyskać więcej informacji i dowiedzieć się, jak to zrobić, zobacz [Ręczne dodawanie konta](user-help-auth-app-add-account-manual.md).
+
+5. Przejrzyj ekran **accounts (konta** ) aplikacji na urządzeniu, aby upewnić się, że Twoje konto jest prawidłowe i że istnieje skojarzony sześciocyfrowy kod weryfikacyjny. W celu zapewnienia dodatkowych zabezpieczeń kod weryfikacyjny zmienia się co 30 sekund, uniemożliwiając komuś wielokrotne użycie kodu.
+
+    ![Ekran konta](./media/user-help-auth-app-download-install/auth-app-accounts.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Po dodaniu kont do aplikacji możesz zalogować się za pomocą aplikacji Authenticator na urządzeniu. Aby uzyskać więcej informacji, zobacz [Logowanie się przy użyciu aplikacji](user-help-auth-app-sign-in.md).
+- Po dodaniu kont do aplikacji możesz zalogować się przy użyciu aplikacji uwierzytelniania na urządzeniu. Aby uzyskać więcej informacji, zobacz [Logowanie przy użyciu aplikacji](user-help-auth-app-sign-in.md).
 
-- W przypadku urządzeń z systemem iOS można również w chmurze uzyskać zapas y poświadczeń konta i powiązanych ustawień aplikacji, takich jak kolejność kont. Aby uzyskać więcej informacji, zobacz [Tworzenie kopii zapasowych i odzyskiwanie za pomocą aplikacji Microsoft Authenticator](user-help-auth-app-backup-recovery.md).
+- W przypadku urządzeń z systemem iOS można również utworzyć kopię zapasową poświadczeń konta i powiązanych ustawień aplikacji, takich jak kolejność kont, w chmurze. Aby uzyskać więcej informacji, zobacz [Tworzenie kopii zapasowych i odzyskiwanie danych za pomocą aplikacji Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

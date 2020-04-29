@@ -1,5 +1,5 @@
 ---
-title: Stan utrwalania w systemie Linux — usługa Azure Event Grid IoT Edge | Dokumenty firmy Microsoft
+title: Stan utrwalania w systemie Linux — Azure Event Grid IoT Edge | Microsoft Docs
 description: Utrwalanie metadanych w systemie Linux
 author: VidyaKukke
 manager: rajarv
@@ -10,26 +10,26 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 12655d2ceb4a1124376d9bddf82194472c98ebb9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77086657"
 ---
 # <a name="persist-state-in-linux"></a>Stan utrwalania w systemie Linux
 
-Tematy i subskrypcje utworzone w module Siatka zdarzeń są domyślnie przechowywane w systemie plików kontenera. Bez trwałości, jeśli moduł zostanie ponownie wydechowany, wszystkie utworzone metadane zostaną utracone. Aby zachować dane między wdrożeniami i ponownymi uruchomień, należy utrwalić dane poza systemem plików kontenera.
+Tematy i subskrypcje utworzone w module Event Grid są domyślnie przechowywane w systemie plików kontenera. Bez trwałości, jeśli moduł zostanie ponownie wdrożony, wszystkie utworzone metadane zostałyby utracone. Aby zachować dane między wdrożeniami i ponownymi uruchomieniami, należy utrzymać dane poza systemem plików kontenera.
 
-Domyślnie tylko metadane są zachowywane, a zdarzenia są nadal przechowywane w pamięci w celu zwiększenia wydajności. Postępuj zgodnie z sekcją persist zdarzenia, aby włączyć trwałość zdarzeń, jak również.
+Domyślnie tylko metadane są utrwalane, a Zdarzenia nadal są przechowywane w pamięci w celu zwiększenia wydajności. Postępuj zgodnie z sekcją zdarzenia utrwalania, aby włączyć również trwałość zdarzenia.
 
-W tym artykule przedstawiono kroki, aby wdrożyć moduł usługi Event Grid z trwałością we wdrożeniach systemu Linux.
+W tym artykule przedstawiono procedurę wdrażania modułu Event Grid z trwałością we wdrożeniach systemu Linux.
 
 > [!NOTE]
->Moduł Siatka zdarzeń działa jako użytkownik o `2000` niskich `eventgriduser`uprawnieniach z identyfikatorem UID i nazwą .
+>Moduł Event Grid działa jako użytkownik z niskim poziomem uprawnień z identyfikatorami UID `2000` i Name `eventgriduser`.
 
-## <a name="persistence-via-volume-mount"></a>Trwałość za pomocą uchwytu objętościowego
+## <a name="persistence-via-volume-mount"></a>Trwałość za pośrednictwem instalacji woluminu
 
- [Woluminy platformy Docker](https://docs.docker.com/storage/volumes/) są używane do zachowania danych we wdrożeniach. Dokowanie umożliwia automatyczne tworzenie woluminu nazwanego w ramach wdrażania modułu Siatki zdarzeń. Ta opcja jest najprostszą opcją. Nazwę woluminu, który ma zostać utworzony w sekcji **Powiązania,** można określić w następujący sposób:
+ [Woluminy platformy Docker](https://docs.docker.com/storage/volumes/) są używane do zachowywania danych między wdrożeniami. Możesz zezwolić platformie Docker na automatyczne tworzenie nazwanego woluminu w ramach wdrażania modułu Event Grid. Ta opcja jest najprostszą opcją. Nazwę woluminu, który ma zostać utworzony, można określić w sekcji **powiązania** w następujący sposób:
 
 ```json
   {
@@ -42,9 +42,9 @@ W tym artykule przedstawiono kroki, aby wdrożyć moduł usługi Event Grid z tr
 ```
 
 >[!IMPORTANT]
->Nie należy zmieniać drugiej części wartości wiązania. Wskazuje na określoną lokalizację w module. Dla modułu Event Grid w systemie Linux musi to być **/app/metadataDb**.
+>Nie zmieniaj drugiej części wartości powiązania. Wskazuje konkretną lokalizację w module. W przypadku modułu Event Grid w systemie Linux musi być **/App/metadataDb**.
 
-Na przykład następująca konfiguracja spowoduje utworzenie woluminu **egmetadataDbVol,** gdzie metadane będą zachowywane.
+Na przykład następująca konfiguracja spowoduje utworzenie woluminu **egmetadataDbVol** , gdzie metadane zostaną utrwalone.
 
 ```json
  {
@@ -77,13 +77,13 @@ Na przykład następująca konfiguracja spowoduje utworzenie woluminu **egmetada
 }
 ```
 
-Zamiast montować wolumin, można utworzyć katalog w systemie hosta i zainstalować ten katalog.
+Zamiast instalować wolumin, można utworzyć katalog w systemie hosta i zainstalować ten katalog.
 
-## <a name="persistence-via-host-directory-mount"></a>Trwałość za pośrednictwem instalacji katalogu hosta
+## <a name="persistence-via-host-directory-mount"></a>Trwałość przy użyciu instalacji katalogu hosta
 
-Zamiast woluminu docker, masz również możliwość zainstalowania folderu hosta.
+Zamiast woluminu platformy Docker można również zainstalować folder hosta.
 
-1. Najpierw utwórz użytkownika o nazwie **eventgriduser** i ID **2000** na komputerze-hoście, uruchamiając następujące polecenie:
+1. Najpierw Utwórz użytkownika o nazwie **eventgriduser** i identyfikatorze **2000** na komputerze hosta, uruchamiając następujące polecenie:
 
     ```sh
     sudo useradd -u 2000 eventgriduser
@@ -99,7 +99,7 @@ Zamiast woluminu docker, masz również możliwość zainstalowania folderu host
     ```sh
     md /myhostdir
     ```
-1. Następnie należy wprowadzić **eventgriduser** właściciela tego folderu, uruchamiając następujące polecenie.
+1. Następnie utwórz właściciela **eventgriduser** tego folderu, uruchamiając następujące polecenie.
 
    ```sh
    sudo chown eventgriduser:eventgriduser -hR <your-directory-name-here>
@@ -110,7 +110,7 @@ Zamiast woluminu docker, masz również możliwość zainstalowania folderu host
     ```sh
     sudo chown eventgriduser:eventgriduser -hR /myhostdir
     ```
-1. Użyj **bindów,** aby zainstalować katalog i ponownie wdrożyć moduł siatki zdarzeń z witryny Azure portal.
+1. Użyj **powiązań** , aby zainstalować katalog i ponownie wdrożyć moduł Event Grid z Azure Portal.
 
     ```json
     {
@@ -157,20 +157,20 @@ Zamiast woluminu docker, masz również możliwość zainstalowania folderu host
     ```
 
     >[!IMPORTANT]
-    >Nie należy zmieniać drugiej części wartości wiązania. Wskazuje na określoną lokalizację w module. Dla modułu Siatki zdarzeń w systemie Linux musi to być **/app/metadataDb** i **/app/eventsDb**
+    >Nie zmieniaj drugiej części wartości powiązania. Wskazuje konkretną lokalizację w module. W przypadku modułu Event Grid w systemie Linux trzeba mieć **/App/metadataDb** i **/App/eventsDb**
 
 
-## <a name="persist-events"></a>Utrwalanie zdarzeń
+## <a name="persist-events"></a>Zdarzenia utrwalania
 
-Aby włączyć trwałość zdarzeń, należy najpierw włączyć trwałość metadanych za pomocą instalacji woluminu lub hosta katalogu mount przy użyciu powyższych sekcji.
+Aby włączyć trwałość zdarzeń, należy najpierw włączyć trwałość metadanych w ramach instalacji woluminu lub instalacji katalogu hosta za pomocą powyższych sekcji.
 
-Ważne rzeczy, na które należy zwrócić uwagę na powtarzające się zdarzenia:
+Ważne kwestie dotyczące utrwalania zdarzeń:
 
-* Utrwalanie zdarzeń jest włączone na podstawie subskrypcji zdarzeń i jest włączona po zamontowaniu woluminu lub katalogu.
-* Trwałość zdarzeń jest skonfigurowana w subskrypcji zdarzeń w czasie tworzenia i nie można go zmodyfikować po utworzeniu subskrypcji zdarzeń. Aby przełączyć trwałość zdarzeń, należy usunąć i ponownie utworzyć subskrypcję zdarzeń.
-* Utrzymujące się zdarzenia jest prawie zawsze wolniejsze niż w operacjach pamięci, jednak różnica prędkości jest w dużym stopniu zależna od charakterystyki dysku. Kompromis między szybkością a niezawodnością jest nieodłącznym elementem wszystkich systemów obsługi wiadomości, ale na ogół staje się zauważalny tylko na dużą skalę.
+* Zdarzenia utrwalania są włączane dla każdej subskrypcji zdarzeń i są zgodą na zamontowanie woluminu lub katalogu.
+* Trwałość zdarzenia jest konfigurowana w subskrypcji zdarzeń podczas tworzenia i nie można jej modyfikować po utworzeniu subskrypcji zdarzeń. Aby przełączać trwałość zdarzeń, należy usunąć i ponownie utworzyć subskrypcję zdarzeń.
+* Utrwalanie zdarzeń jest niemal zawsze wolniejsze niż w przypadku operacji w pamięci, jednak różnica między szybkością zależy od charakterystyki dysku. Kompromis między szybkością i niezawodnością jest nieodłączny dla wszystkich systemów obsługi komunikatów, ale ogólnie mówiąc, tylko w dużej skali.
 
-Aby włączyć trwałość zdarzeń w `persistencePolicy` subskrypcji `true`zdarzeń, ustaw na:
+Aby włączyć trwałość zdarzeń w subskrypcji zdarzeń, ustaw `persistencePolicy` opcję na `true`:
 
  ```json
         {

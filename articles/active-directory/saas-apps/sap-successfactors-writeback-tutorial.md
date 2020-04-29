@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Konfigurowanie storców successfactors w usłudze Azure Active Directory | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować przypis dot.
+title: 'Samouczek: Konfigurowanie zapisywania zwrotnego SuccessFactors w Azure Active Directory | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować zapisywanie zwrotne atrybutów SuccessFactors z usługi Azure AD
 services: active-directory
 author: cmmdesai
 documentationcenter: na
@@ -15,176 +15,176 @@ ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
 ms.openlocfilehash: 2de0cdd32428884170f549afacdbd52c3a10c93f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77060052"
 ---
-# <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-sap-successfactors-preview"></a>Samouczek: Konfigurowanie storazy atrybutu z usługi Azure AD do sap SuccessFactors (Wersja zapoznawcza)
-Celem tego samouczka jest pokazanie kroków, które należy wykonać, aby wykonać atrybuty stornuj z usługi Azure AD do SuccessFactors Employee Central. Jedynym atrybutem obecnie obsługiwanym dla storca zwrotnego jest atrybut e-mail. 
+# <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-sap-successfactors-preview"></a>Samouczek: Konfigurowanie zapisywania zwrotnego atrybutów z usługi Azure AD do oprogramowania SAP SuccessFactors (wersja zapoznawcza)
+Celem tego samouczka jest wyświetlenie czynności, które należy wykonać w celu uzyskania atrybutów zapisywania zwrotnego z usługi Azure AD do SuccessFactors Employee Central. Jedynym atrybutem, który jest obecnie obsługiwany dla zapisywania zwrotnego jest atrybut poczty e-mail. 
 
 ## <a name="overview"></a>Omówienie
 
-Po skonfigurowaniu integracji inicjowania obsługi administracyjnej przy użyciu [funkcji SuccessFactors do lokalnej](sap-successfactors-inbound-provisioning-tutorial.md) aplikacji inicjowania obsługi administracyjnej usługi AD lub aplikacji [SuccessFactors do](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) aplikacji inicjowania obsługi administracyjnej usługi Azure AD można opcjonalnie skonfigurować aplikację SuccessFactors Writeback do zapisywania adresu e-mail z powrotem do SuccessFactors. 
+Po skonfigurowaniu integracji przychodzącej aprowizacji przy użyciu funkcji [SuccessFactors do lokalnej aplikacji do aprowizacji usługi AD](sap-successfactors-inbound-provisioning-tutorial.md) lub [SuccessFactors w aplikacji Azure AD](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) Provisioning można opcjonalnie skonfigurować aplikację zapisywania zwrotnego SuccessFactors, aby zapisać adres E-mail z powrotem do SuccessFactors. 
 
-### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Do kogo najlepiej nadaje się to rozwiązanie do inicjowania obsługi administracyjnej użytkownika?
+### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Dla kogo to rozwiązanie do aprowizacji użytkowników jest najlepiej dopasowane?
 
-To rozwiązanie do inicjowania obsługi administracyjnej dla użytkowników SuccessFactors writeback jest idealnie odpowiednie dla:
+To rozwiązanie SuccessFactors zapisywania zwrotnego użytkownika jest idealnym rozwiązaniem dla:
 
-* Organizacje korzystające z usługi Office 365, które pragną odpisywać autorytatywne atrybuty zarządzane przez IT (takie jak adres e-mail) z powrotem do SuccessFactors
+* Organizacje korzystające z pakietu Office 365, które chcą zapisać zwrotnie autorytatywnych atrybutów zarządzanych przez dział IT (na przykład adres e-mail) z powrotem do SuccessFactors
 
-## <a name="configuring-successfactors-for-the-integration"></a>Konfigurowanie successfactors dla integracji
+## <a name="configuring-successfactors-for-the-integration"></a>Konfigurowanie SuccessFactors na potrzeby integracji
 
-Typowym wymaganiem wszystkich łączników inicjowania obsługi administracyjnej SuccessFactors jest to, że wymagają one poświadczeń konta SuccessFactors z odpowiednimi uprawnieniami do wywoływania interfejsów API OData. W tej sekcji opisano kroki, aby utworzyć konto usługi w SuccessFactors i udzielić odpowiednich uprawnień. 
+Typowym wymaganiem wszystkich łączników aprowizacji SuccessFactors jest to, że wymagają poświadczeń konta SuccessFactors z uprawnieniami do wywoływania interfejsów API usługi SuccessFactors OData. W tej sekcji opisano kroki tworzenia konta usługi w programie SuccessFactors i udzielania odpowiednich uprawnień. 
 
-* [Tworzenie/identyfikowanie konta użytkownika interfejsu API w successfactors](#createidentify-api-user-account-in-successfactors)
-* [Tworzenie roli uprawnień interfejsu API](#create-an-api-permissions-role)
+* [Utwórz/Zidentyfikuj konto użytkownika interfejsu API w SuccessFactors](#createidentify-api-user-account-in-successfactors)
+* [Utwórz rolę uprawnień interfejsu API](#create-an-api-permissions-role)
 * [Tworzenie grupy uprawnień dla użytkownika interfejsu API](#create-a-permission-group-for-the-api-user)
-* [Udziel roli uprawnień grupie uprawnień](#grant-permission-role-to-the-permission-group)
+* [Udziel uprawnienia roli do grupy uprawnień](#grant-permission-role-to-the-permission-group)
 
-### <a name="createidentify-api-user-account-in-successfactors"></a>Tworzenie/identyfikowanie konta użytkownika interfejsu API w successfactors
-Praca z zespołem administracyjnym SuccessFactors lub partnerem implementacji, aby utworzyć lub zidentyfikować konto użytkownika w SuccessFactors, które będą używane do wywoływania interfejsów API OData. Poświadczenia nazwy użytkownika i hasła tego konta będą wymagane podczas konfigurowania aplikacji inicjowania obsługi administracyjnej w usłudze Azure AD. 
+### <a name="createidentify-api-user-account-in-successfactors"></a>Utwórz/Zidentyfikuj konto użytkownika interfejsu API w SuccessFactors
+Skontaktuj się z zespołem administracyjnym SuccessFactors lub partnerem implementacji, aby utworzyć lub zidentyfikować konto użytkownika w usłudze SuccessFactors, które będzie używane do wywoływania interfejsów API usługi OData. Poświadczenia nazwy użytkownika i hasła tego konta będą wymagane podczas konfigurowania aplikacji aprowizacji w usłudze Azure AD. 
 
-### <a name="create-an-api-permissions-role"></a>Tworzenie roli uprawnień interfejsu API
+### <a name="create-an-api-permissions-role"></a>Utwórz rolę uprawnień interfejsu API
 
-* Zaloguj się do SAP SuccessFactors za pomocą konta użytkownika, które ma dostęp do Centrum administracyjnego.
-* Wyszukaj *pozycję Zarządzaj rolami uprawnień,* a następnie wybierz pozycję **Zarządzaj rolami uprawnień** z wyników wyszukiwania.
+* Zaloguj się do platformy SAP SuccessFactors przy użyciu konta użytkownika, które ma dostęp do centrum administracyjnego.
+* Wyszukaj pozycje *Zarządzaj rolami uprawnień*, a następnie wybierz pozycję **Zarządzaj rolami uprawnień** z wyników wyszukiwania.
   ![Zarządzanie rolami uprawnień](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
-* Na liście ról uprawnień kliknij pozycję **Utwórz nowy**.
+* Na liście rola uprawnień kliknij pozycję **Utwórz nową**.
   > [!div class="mx-imgBorder"]
-  > ![Utwórz nową rolę uprawnień](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
-* Dodaj **nazwę roli** i **opis** dla nowej roli uprawnień. Nazwa i opis powinny wskazywać, że rola jest dla uprawnień użycia interfejsu API.
+  > ![Utwórz nową rolę uprawnienia](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
+* Dodaj nazwę i **Opis** **roli** dla nowej roli uprawnienia. Nazwa i opis powinny wskazywać, że rola ma uprawnienia do użycia interfejsu API.
   > [!div class="mx-imgBorder"]
   > ![Szczegóły roli uprawnień](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
-* W obszarze Ustawienia uprawnień kliknij pozycję **Uprawnienie...**, a następnie przewiń listę uprawnień w dół i kliknij pozycję **Zarządzaj narzędziami integracji**. Zaznacz pole wyboru **Zezwalaj administratorowi na dostęp do interfejsu API OData za pomocą uwierzytelniania podstawowego**.
+* W obszarze Ustawienia uprawnień kliknij pozycję **uprawnienie...**, a następnie przewiń w dół listę uprawnień i kliknij pozycję **Zarządzaj narzędzia integracji**. Zaznacz pole wyboru **Zezwalaj administratorowi na dostęp do interfejsu API OData za pomocą uwierzytelniania podstawowego**.
   > [!div class="mx-imgBorder"]
   > ![Zarządzanie narzędziami integracji](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* Przewiń w dół w tym samym polu i wybierz **pozycję Centralny interfejs API pracownika**. Dodaj uprawnienia, jak pokazano poniżej, aby czytać za pomocą interfejsu API ODATA i edytować za pomocą interfejsu API ODATA. Wybierz opcję edycji, jeśli planujesz użyć tego samego konta w scenariuszu Writeback to SuccessFactors. 
+* Przewiń w dół do tego samego pola i wybierz pozycję **Employee Central API**. Dodaj uprawnienia, jak pokazano poniżej, aby czytać przy użyciu interfejsu API ODATA i edytować za pomocą interfejsu API ODATA. Wybierz opcję Edytuj, jeśli planujesz używać tego samego konta do scenariusza zapisywania zwrotnego SuccessFactors. 
   > [!div class="mx-imgBorder"]
-  > ![Odczytanie uprawnień do zapisu](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
-* Kliknij **gotowe**. Kliknij **pozycję Zapisz zmiany**.
+  > ![Odczyt uprawnień do zapisu](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
+* Kliknij przycisk **gotowe**. Kliknij przycisk **Zapisz zmiany**.
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>Tworzenie grupy uprawnień dla użytkownika interfejsu API
 
-* W Centrum administracyjnym SuccessFactors wyszukaj pozycję *Zarządzaj grupami uprawnień*, a następnie wybierz pozycję **Zarządzaj grupami uprawnień** z wyników wyszukiwania.
+* W centrum administracyjnym SuccessFactors Wyszukaj pozycję *Zarządzaj grupami uprawnień*, a następnie wybierz pozycję **Zarządzaj grupami uprawnień** z wyników wyszukiwania.
   > [!div class="mx-imgBorder"]
-  > ![Zarządzanie grupami uprawnień](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
-* W oknie Zarządzanie grupami uprawnień kliknij pozycję **Utwórz nowy**.
+  > ![Zarządzaj grupami uprawnień](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
+* W oknie Zarządzanie grupami uprawnień kliknij pozycję **Utwórz nowe**.
   > [!div class="mx-imgBorder"]
-  > ![Dodawanie nowej grupy](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
-* Dodaj nazwę grupy dla nowej grupy. Nazwa grupy powinna wskazywać, że grupa jest dla użytkowników interfejsu API.
+  > ![Dodaj nową grupę](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
+* Dodaj nazwę grupy dla nowej grupy. Nazwa grupy powinna wskazywać, że grupa jest przeznaczony dla użytkowników interfejsu API.
   > [!div class="mx-imgBorder"]
   > ![Nazwa grupy uprawnień](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
-* Dodaj członków do grupy. Na przykład można wybrać **nazwę użytkownika** z menu rozwijanego Puli osób, a następnie wprowadź nazwę użytkownika konta interfejsu API, które będą używane do integracji. 
+* Dodaj członków do grupy. Można na przykład wybrać pozycję **Nazwa użytkownika** z menu rozwijanego Pula osób, a następnie wprowadzić nazwę użytkownika konta interfejsu API, która będzie używana do integracji. 
   > [!div class="mx-imgBorder"]
   > ![Dodawanie członków grupy](./media/sap-successfactors-inbound-provisioning/add-group-members.png)
-* Kliknij **przycisk Gotowe,** aby zakończyć tworzenie grupy uprawnień.
+* Kliknij pozycję **gotowe** , aby zakończyć tworzenie grupy uprawnień.
 
-### <a name="grant-permission-role-to-the-permission-group"></a>Udziel roli uprawnień grupie uprawnień
+### <a name="grant-permission-role-to-the-permission-group"></a>Udziel uprawnienia roli do grupy uprawnień
 
-* W Centrum administracyjnym SuccessFactors wyszukaj pozycję *Zarządzaj rolami uprawnień*, a następnie wybierz pozycję **Zarządzaj rolami uprawnień** z wyników wyszukiwania.
-* Z **listy ról uprawnień**wybierz rolę utworzoną dla uprawnień użycia interfejsu API.
-* W obszarze **Nadaj tę rolę do...** kliknij przycisk **Dodaj....**
-* Wybierz **pozycję Grupa uprawnień...** z menu rozwijanego, a następnie kliknij polecenie **Wybierz...** aby otworzyć okno Grupy, aby wyszukać i wybrać grupę utworzoną powyżej. 
+* W centrum administracyjnym SuccessFactors Wyszukaj pozycję *Zarządzaj rolami uprawnień*, a następnie wybierz pozycję **Zarządzaj rolami uprawnień** z wyników wyszukiwania.
+* Z **listy rola uprawnień**wybierz rolę utworzoną na potrzeby uprawnień użycia interfejsu API.
+* W obszarze **Przypisz tę rolę do...** kliknij przycisk **Dodaj.** ...
+* Z menu rozwijanego wybierz pozycję **Grupa uprawnień** , a następnie kliknij pozycję **Wybierz...** , aby otworzyć okno grupy, aby wyszukać i wybrać utworzoną powyżej grupę. 
   > [!div class="mx-imgBorder"]
-  > ![Dodawanie grupy uprawnień](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
-* Przejrzyj przyznanie roli uprawnień grupie uprawnień. 
+  > ![Dodaj grupę uprawnień](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
+* Przejrzyj uprawnienia przyznane grupie uprawnień. 
   > [!div class="mx-imgBorder"]
   > ![Szczegóły roli i grupy uprawnień](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* Kliknij **pozycję Zapisz zmiany**.
+* Kliknij przycisk **Zapisz zmiany**.
 
-## <a name="configuring-successfactors-writeback"></a>Konfigurowanie stortowania successfactors
+## <a name="configuring-successfactors-writeback"></a>Konfigurowanie zapisywania zwrotnego SuccessFactors
 
-W tej sekcji przedstawiono kroki 
+Ta sekcja zawiera kroki dla programu 
 
-* [Dodawanie aplikacji łącznika inicjowania obsługi administracyjnej i konfigurowanie łączności z czynnikami SuccessFactors](#part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors)
+* [Dodawanie aplikacji łącznika aprowizacji i Konfigurowanie łączności z usługą SuccessFactors](#part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors)
 * [Konfigurowanie mapowań atrybutów](#part-2-configure-attribute-mappings)
-* [Włączanie i uruchamianie inicjowania obsługi administracyjnej użytkowników](#enable-and-launch-user-provisioning)
+* [Włączanie i uruchamianie aprowizacji użytkowników](#enable-and-launch-user-provisioning)
 
-### <a name="part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors"></a>Część 1: Dodaj aplikację łącznika inicjowania obsługi administracyjnej i skonfiguruj łączność z SuccessFactors
+### <a name="part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors"></a>Część 1. Dodawanie aplikacji łącznika aprowizacji i Konfigurowanie łączności z usługą SuccessFactors
 
-**Aby skonfigurować writeback SuccessFactors:**
+**Aby skonfigurować zapisywanie zwrotne SuccessFactors:**
 
 1. Przejdź do strony <https://portal.azure.com>
 
 2. Na lewym pasku nawigacyjnym wybierz pozycję **Azure Active Directory**
 
-3. Wybierz pozycję **Aplikacje przedsiębiorstwa**, a następnie **wszystkie aplikacje**.
+3. Wybierz **aplikacje przedsiębiorstwa**, a następnie **wszystkie aplikacje**.
 
-4. Wybierz **pozycję Dodaj aplikację**i wybierz kategorię **Wszystkie.**
+4. Wybierz pozycję **Dodaj aplikację**, a następnie wybierz kategorię **wszystkie** .
 
-5. Wyszukaj **wpisanie z powrotem successfactors**i dodaj tę aplikację z galerii.
+5. Wyszukaj funkcję **zapisywania zwrotnego SuccessFactors**i Dodaj tę aplikację z galerii.
 
-6. Po dodaniu aplikacji i wyświetleniu ekranu szczegółów aplikacji wybierz pozycję **Inicjowanie obsługi administracyjnej**
+6. Po dodaniu aplikacji i wyświetleniu ekranu Szczegóły aplikacji wybierz opcję **aprowizacji**
 
-7. Zmienianie **trybu** **inicjowania obsługi administracyjnej** na **automatyczny**
+7. Zmień tryb **aprowizacji** **Mode** na **automatyczny**
 
-8. Wypełnij sekcję **Poświadczenia administratora** w następujący sposób:
+8. Wypełnij sekcję **poświadczenia administratora** w następujący sposób:
 
-   * **Nazwa użytkownika administratora** — wprowadź nazwę użytkownika konta użytkownika interfejsu API SuccessFactors z dołączonym identyfikatorem firmy. Ma format: **nazwa\@użytkownika companyID**
+   * **Nazwa użytkownika administratora** — wprowadź nazwę użytkownika konta użytkownika interfejsu API SuccessFactors z DOŁĄCZONYm identyfikatorem firmy. Ma format: **username\@companyID**
 
-   * **Hasło administratora –** Wprowadź hasło konta użytkownika interfejsu API SuccessFactors. 
+   * **Hasło administratora —** Wprowadź hasło dla konta użytkownika interfejsu API SuccessFactors. 
 
-   * **Adres URL dzierżawy —** Wprowadź nazwę punktu końcowego usług interfejsu API SuccessFactors. Wprowadź tylko nazwę hosta serwera bez http lub https. Ta wartość powinna wyglądać następująco: **api-server-name.successfactors.com**.
+   * **Adres URL dzierżawy —** Wprowadź nazwę punktu końcowego usług interfejsu API OData SuccessFactors. Wprowadź tylko nazwę hosta serwera bez protokołu HTTP lub https. Ta wartość powinna wyglądać następująco: **API-Server-Name.SuccessFactors.com**.
 
-   * **Wiadomość e-mail z powiadomieniem –** Wprowadź swój adres e-mail i zaznacz pole wyboru "Wyślij wiadomość e-mail w przypadku wystąpienia błędu".
+   * **Wiadomość e-mail z powiadomieniem —** Wprowadź adres e-mail, a następnie zaznacz pole wyboru "Wyślij wiadomość e-mail, jeśli wystąpi błąd".
     > [!NOTE]
-    > Usługa inicjowania obsługi administracyjnej usługi Azure AD wysyła powiadomienie e-mail, jeśli zadanie inicjowania obsługi administracyjnej przechodzi do stanu [kwarantanny.](/azure/active-directory/manage-apps/application-provisioning-quarantine-status)
+    > Usługa Azure AD Provisioning wysyła powiadomienie e-mail, jeśli zadanie aprowizacji przejdzie do stanu [kwarantanny](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) .
 
-   * Kliknij przycisk **Testuj połączenie.** Jeśli test połączenia zakończy się pomyślnie, kliknij przycisk **Zapisz** u góry. Jeśli to się nie powiedzie, sprawdź, czy poświadczenia SuccessFactors i adres URL są prawidłowe.
+   * Kliknij przycisk **Testuj połączenie** . Jeśli test połączenia zakończy się pomyślnie, kliknij przycisk **Zapisz** u góry. Jeśli to się nie powiedzie, sprawdź, czy poświadczenia i adres URL SuccessFactors są prawidłowe.
     >[!div class="mx-imgBorder"]
     >![Azure Portal](./media/sap-successfactors-inbound-provisioning/sfwb-provisioning-creds.png)
 
-   * Po pomyślnym zapisaniu poświadczeń w sekcji **Mapowania** zostanie wyświetlone domyślne mapowanie **Synchronizuj użytkowników usługi Azure Active Directory na dane SuccessFactors**
+   * Po pomyślnym zapisaniu poświadczeń w sekcji **mapowania** zostanie wyświetlone mapowanie domyślne **Azure Active Directory użytkowników do SuccessFactors**
 
 ### <a name="part-2-configure-attribute-mappings"></a>Część 2: Konfigurowanie mapowań atrybutów
 
-W tej sekcji skonfigurujesz sposób przepływu danych użytkownika z SuccessFactors do usługi Active Directory.
+W tej sekcji skonfigurujesz sposób przepływu danych przez użytkownika z SuccessFactors do Active Directory.
 
-1. Na karcie Inicjowanie obsługi administracyjnej w obszarze **Mapowania**kliknij pozycję **Synchronizuj użytkowników usługi Azure Active Directory z czynnikami sukcesu**.
+1. Na karcie Inicjowanie obsługi w obszarze **mapowania**kliknij pozycję **Synchronizuj Azure Active Directory użytkowników, aby SuccessFactors**.
 
-1. W polu **Zakres obiektu źródłowego** można wybrać zestawy użytkowników w usłudze Azure AD, które powinny być brane pod uwagę w przypadku stornia zwrotnego, definiując zestaw filtrów opartych na atrybutach. Domyślnym zakresem jest "wszyscy użytkownicy w usłudze Azure AD". 
+1. W polu **Zakres obiektu źródłowego** możesz wybrać, które zestawy użytkowników w usłudze Azure AD mają być uwzględniane w przypadku zapisywania zwrotnego przez zdefiniowanie zestawu filtrów opartych na atrybutach. Zakresem domyślnym jest "Wszyscy użytkownicy w usłudze Azure AD". 
    > [!TIP]
-   > Podczas konfigurowania aplikacji inicjowania obsługi administracyjnej po raz pierwszy, należy przetestować i zweryfikować mapowania atrybutów i wyrażeń, aby upewnić się, że daje pożądany wynik. Firma Microsoft zaleca użycie filtrów zakresu w obszarze **Zakres obiektu źródłowego** do testowania mapowań z kilkoma użytkownikami testowymi z usługi Azure AD. Po sprawdzeniu, że mapowania działają, można usunąć filtr lub stopniowo rozszerzać go, aby uwzględnić więcej użytkowników.
+   > Podczas konfigurowania aplikacji do aprowizacji po raz pierwszy należy przetestować i zweryfikować mapowania atrybutów oraz wyrażenia, aby upewnić się, że daje żądany wynik. Firma Microsoft zaleca używanie filtrów określania zakresu w obszarze **zakres obiektów źródłowych** do testowania mapowań za pomocą kilku użytkowników testowych z usługi Azure AD. Po sprawdzeniu, czy mapowania działają, można usunąć filtr lub stopniowo rozwijać go, aby uwzględnić więcej użytkowników.
 
-1. Pole **Akcje obiektu docelowego** obsługuje tylko operację **Aktualizuj.**
+1. Pole **akcji obiektu docelowego** obsługuje tylko operację **aktualizacji** .
 
-1. W sekcji **Mapowania atrybutów** można zmienić tylko pasujący identyfikator, który jest używany do łączenia profilu użytkownika SuccessFactors z użytkownikiem usługi Azure AD i który atrybut w usłudze Azure AD służy jako źródło wiadomości e-mail. 
+1. W sekcji **mapowania atrybutów** można zmienić tylko pasujący identyfikator, który jest używany do łączenia profilu użytkownika SuccessFactors z użytkownikiem usługi Azure AD i który atrybut w usłudze Azure AD służy jako źródło wiadomości e-mail. 
     >[!div class="mx-imgBorder"]
     >![Azure Portal](./media/sap-successfactors-inbound-provisioning/sfwb-attribute-mapping.png)
 
    >[!NOTE]
-   >Writeback SuccessFactors obsługuje tylko atrybut e-mail. Nie należy **dodawać nowego mapowania** do dodawania nowych atrybutów. 
+   >Zapisywanie zwrotne SuccessFactors obsługuje tylko atrybut poczty e-mail. Nie należy używać **Dodaj nowego mapowania** do dodawania nowych atrybutów. 
 
-1. Aby zapisać mapowania, kliknij przycisk **Zapisz** u góry sekcji Mapowanie atrybutów.
+1. Aby zapisać mapowania, kliknij pozycję **Zapisz** w górnej części sekcji Mapowanie atrybutów.
 
-Po zakończeniu konfiguracji mapowania atrybutów można teraz [włączyć i uruchomić usługę inicjowania obsługi administracyjnej użytkowników](#enable-and-launch-user-provisioning).
+Po zakończeniu konfiguracji mapowania atrybutów możesz teraz [włączyć i uruchomić usługę aprowizacji użytkowników](#enable-and-launch-user-provisioning).
 
-## <a name="enable-and-launch-user-provisioning"></a>Włączanie i uruchamianie inicjowania obsługi administracyjnej użytkowników
+## <a name="enable-and-launch-user-provisioning"></a>Włączanie i uruchamianie aprowizacji użytkowników
 
-Po zakończeniu konfiguracji aplikacji inicjowania obsługi administracyjnej SuccessFactors można włączyć usługę inicjowania obsługi administracyjnej w witrynie Azure portal.
+Po zakończeniu konfiguracji aplikacji SuccessFactorsing (Inicjowanie obsługi administracyjnej) można włączyć usługę aprowizacji w Azure Portal.
 
 > [!TIP]
-> Domyślnie po włączeniu usługi inicjowania obsługi administracyjnej, rozpocznie operacje inicjowania obsługi administracyjnej dla wszystkich użytkowników w zakresie. Jeśli występują błędy w mapowaniu lub problemy z danymi workday, zadanie inicjowania obsługi administracyjnej może zakończyć się niepowodzeniem i przejść do stanu kwarantanny. Aby tego uniknąć, jako najlepszą praktykę, zaleca się skonfigurowanie **filtru zakresu obiektów źródłowych** i przetestowanie mapowań atrybutów z kilkoma użytkownikami testowymi przed uruchomieniem pełnej synchronizacji dla wszystkich użytkowników. Po sprawdzeniu, że mapowania działają i dają pożądane wyniki, można usunąć filtr lub stopniowo rozszerzać go, aby uwzględnić więcej użytkowników.
+> Domyślnie po włączeniu usługi aprowizacji zostaną zainicjowane operacje aprowizacji dla wszystkich użytkowników w zakresie. Jeśli występują błędy w mapowaniu lub problemach z danymi w dniach roboczych, zadanie aprowizacji może się nie powieść i przejść do stanu kwarantanny. Aby tego uniknąć, najlepszym rozwiązaniem jest zalecamy skonfigurowanie filtru **zakresu obiektów źródłowych** i przetestowanie mapowań atrybutów z kilkoma użytkownikami testowymi przed uruchomieniem pełnej synchronizacji dla wszystkich użytkowników. Po sprawdzeniu, czy mapowania działają i dają odpowiednie wyniki, można usunąć filtr lub stopniowo rozwijać go, aby uwzględnić więcej użytkowników.
 
-1. Na karcie **Inicjowanie obsługi administracyjnej** ustaw **stan inicjowania obsługi administracyjnej** **na Włączone**.
+1. Na karcie **aprowizacji** Ustaw **stan aprowizacji** na **włączone**.
 
 2. Kliknij przycisk **Zapisz**.
 
-3. Ta operacja rozpocznie synchronizację początkową, która może zająć zmienną liczbę godzin w zależności od liczby użytkowników w dzierżawie SuccessFactors. Można sprawdzić pasek postępu, aby śledzić postęp cyklu synchronizacji. 
+3. Ta operacja rozpocznie synchronizację początkową, która może potrwać zmienną liczbę godzin w zależności od liczby użytkowników w dzierżawie SuccessFactors. Możesz sprawdzić, czy pasek postępu śledzi postęp cyklu synchronizacji. 
 
-4. W dowolnym momencie sprawdź **inspekcję dzienników** kartę w witrynie Azure portal, aby zobaczyć, jakie akcje usługa inicjowania obsługi administracyjnej wykonała. Dzienniki inspekcji zawierają listę wszystkich zdarzeń synchronizacji wykonywanych przez usługę inicjowania obsługi administracyjnej, takich jak użytkownicy są odczytywane z programu Workday, a następnie dodawane lub aktualizowane do usługi Active Directory. 
+4. W dowolnym momencie sprawdź kartę **dzienniki inspekcji** w Azure Portal, aby zobaczyć, jakie akcje zostały wykonane przez usługę aprowizacji. W dziennikach inspekcji są wyświetlane wszystkie zdarzenia synchronizacji wykonywane przez usługę aprowizacji, takie jak informacje o użytkownikach, które są odczytywane z dnia roboczego, a następnie dodane lub zaktualizowane do Active Directory. 
 
-5. Po zakończeniu synchronizacji początkowej zostanie ono napisać raport podsumowujący inspekcję na karcie **Inicjowanie obsługi administracyjnej,** jak pokazano poniżej.
+5. Po zakończeniu synchronizacji początkowej zostanie zapisany raport z podsumowaniem inspekcji na karcie **aprowizacji** , jak pokazano poniżej.
 
    > [!div class="mx-imgBorder"]
-   > ![Pasek postępu inicjowania obsługi administracyjnej](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
+   > ![Pasek postępu aprowizacji](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i otrzymywać raporty dotyczące aktywności inicjowania obsługi administracyjnej](../app-provisioning/check-status-user-account-provisioning.md)
-* [Dowiedz się, jak skonfigurować logowanie jednokrotne między successfactors a usługą Azure Active Directory](successfactors-tutorial.md)
-* [Dowiedz się, jak zintegrować inne aplikacje SaaS z usługą Azure Active Directory](tutorial-list.md)
-* [Dowiedz się, jak eksportować i importować konfiguracje inicjowania obsługi administracyjnej](../app-provisioning/export-import-provisioning-configuration.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak skonfigurować Logowanie jednokrotne między SuccessFactors i Azure Active Directory](successfactors-tutorial.md)
+* [Dowiedz się, jak zintegrować inne aplikacje SaaS z Azure Active Directory](tutorial-list.md)
+* [Dowiedz się, jak eksportować i importować konfiguracje aprowizacji](../app-provisioning/export-import-provisioning-configuration.md)
 

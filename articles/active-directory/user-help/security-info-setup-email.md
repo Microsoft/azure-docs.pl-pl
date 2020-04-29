@@ -1,6 +1,6 @@
 ---
 title: Konfigurowanie adresu e-mail jako metody weryfikacji — Azure AD
-description: Jak skonfigurować stronę informacje zabezpieczające (wersja zapoznawcza), aby zweryfikować tożsamość przy użyciu adresu e-mail jako metody weryfikacji.
+description: Jak skonfigurować informacje zabezpieczające (wersja zapoznawcza) w celu zweryfikowania tożsamości przy użyciu adresu e-mail jako metody weryfikacji.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,26 +12,26 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: curtand
 ms.openlocfilehash: 9488b96dda15b0ffb794f83826dc299a5f397b77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77064006"
 ---
-# <a name="set-up-an-email-address-as-your-verification-method"></a>Konfigurowanie adresu e-mail jako metody weryfikacji
+# <a name="set-up-an-email-address-as-your-verification-method"></a>Skonfiguruj adres e-mail jako metodę weryfikacji
 
-Aby dodać metodę resetowania hasła, wykonaj następujące czynności. Po skonfigurowaniu tej opcji po raz pierwszy można powrócić do strony **Informacje o zabezpieczeniach,** aby dodać, zaktualizować lub usunąć informacje o zabezpieczeniach.
+Poniższe kroki umożliwiają dodanie metody resetowania hasła. Po wybraniu tej opcji po raz pierwszy możesz wrócić do strony **informacje zabezpieczające** , aby dodać, zaktualizować lub usunąć informacje o zabezpieczeniach.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->Jeśli nie widzisz opcji poczty e-mail, jest możliwe, że twoja organizacja nie zezwala na użycie tej opcji dla metody resetowania hasła. W takim przypadku musisz wybrać inną metodę lub skontaktować się z działem pomocy technicznej organizacji, aby uzyskać więcej pomocy.
+>Jeśli nie widzisz opcji poczty e-mail, być może Twoja organizacja nie zezwala na korzystanie z tej opcji w przypadku metody resetowania hasła. W takim przypadku należy wybrać inną metodę lub skontaktować się z działem pomocy technicznej w organizacji, aby uzyskać pomoc.
 
-## <a name="security-vs-password-reset-verification"></a>Weryfikacja zabezpieczeń a resetowania hasła
+## <a name="security-vs-password-reset-verification"></a>Weryfikacja resetowania hasła do zabezpieczeń
 
-Metody informacji zabezpieczających są używane zarówno do weryfikacji zabezpieczeń dwuskładnikowych, jak i resetowania hasła. Jednak nie wszystkie metody mogą służyć do obu celów.
+Metody informacji zabezpieczających są używane do weryfikacji zabezpieczeń dwuskładnikowych i resetowania hasła. Jednak nie wszystkie metody mogą służyć do obu celów.
 
-| Metoda | Używana do |
+| Metoda | Sposób użycia |
 | ------ | -------- |
 | Aplikacja Authenticator | Weryfikacja dwuskładnikowa i uwierzytelnianie za pomocą resetowania hasła. |
 | Wiadomości SMS | Weryfikacja dwuskładnikowa i uwierzytelnianie za pomocą resetowania hasła. |
@@ -40,71 +40,71 @@ Metody informacji zabezpieczających są używane zarówno do weryfikacji zabezp
 | Konto e-mail | Tylko uwierzytelnianie za pomocą resetowania hasła. Należy wybrać inną metodę na potrzeby weryfikacji dwuskładnikowej. |
 | Pytania zabezpieczające | Tylko uwierzytelnianie za pomocą resetowania hasła. Należy wybrać inną metodę na potrzeby weryfikacji dwuskładnikowej. |
 
-## <a name="set-up-your-email-address-from-the-security-info-page"></a>Konfigurowanie adresu e-mail na stronie Informacje o zabezpieczeniach
+## <a name="set-up-your-email-address-from-the-security-info-page"></a>Konfigurowanie adresu e-mail na stronie z informacjami o zabezpieczeniach
 
-W zależności od ustawień organizacji można użyć adresu e-mail jako jednej z metod informacji zabezpieczających.
+W zależności od ustawień organizacji może być możliwe użycie adresu e-mail jako jednej z metod informacji zabezpieczających.
 
 >[!Note]
->Zalecamy używanie adresu e-mail, który nie wymaga hasła sieciowego, aby uzyskać dostęp. Jeśli nie widzisz opcji wiadomości e-mail, możesz, że Twoja organizacja nie zezwala na używanie wiadomości e-mail do weryfikacji. W takim przypadku musisz wybrać inną metodę lub skontaktować się z administratorem, aby uzyskać więcej pomocy.
+>Zalecamy użycie adresu e-mail, który nie wymaga hasła do sieci, aby uzyskać dostęp do programu. Jeśli nie widzisz opcji poczty e-mail, być może Twoja organizacja nie zezwala na weryfikację za pomocą wiadomości e-mail. W takim przypadku należy wybrać inną metodę lub skontaktować się z administratorem w celu uzyskania dodatkowej pomocy.
 
-### <a name="to-set-up-your-email-address"></a>Aby skonfigurować adres e-mail
+### <a name="to-set-up-your-email-address"></a>Aby skonfigurować swój adres e-mail
 
-1. Zaloguj się na swoje konto służbowe, https://myprofile.microsoft.com/ a następnie przejdź do strony.
+1. Zaloguj się do swojego konta służbowego, a następnie przejdź do https://myprofile.microsoft.com/ strony.
 
-    ![Strona Mój profil z wyróżnionymi linkami informacji o zabezpieczeniach](media/security-info/securityinfo-myprofile-page.png)
+    ![Strona mój profil zawierająca wyróżnione linki do informacji zabezpieczających](media/security-info/securityinfo-myprofile-page.png)
 
-2. Wybierz **pozycję Informacje o zabezpieczeniach** z lewego okienka nawigacji lub z łącza w bloku Informacje o **zabezpieczeniach,** a następnie wybierz pozycję **Dodaj metodę** ze strony Informacje o **zabezpieczeniach.**
+2. W okienku nawigacji po lewej stronie wybierz pozycję **informacje zabezpieczające** lub link w bloku **informacje zabezpieczające** , a następnie wybierz pozycję **Dodaj metodę** ze strony **informacje zabezpieczające** .
 
-    ![Strona informacji o zabezpieczeniach z wyróżnioną opcją Dodaj metodę](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![Strona z informacjami o zabezpieczeniach z wyróżnioną opcją dodawania metody](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-3. Na stronie **Dodawanie metody** wybierz pozycję **Poczta e-mail** z listy rozwijanej, a następnie wybierz pozycję **Dodaj**.
+3. Na stronie **Dodawanie metody** wybierz z listy rozwijanej pozycję **poczta e-mail** , a następnie wybierz pozycję **Dodaj**.
 
-    ![Pole Dodaj metodę z zaznaczoną posokiem e-mail](media/security-info/securityinfo-myprofile-addemail.png)
+    ![Dodaj pole metody z wybraną pocztą e-mail](media/security-info/securityinfo-myprofile-addemail.png)
 
-4. Na stronie **Poczta e-mail** wpisz swój alain@gmail.comadres e-mail (na przykład), a następnie wybierz pozycję **Dalej**.
+4. Na stronie **poczta e-mail** wpisz swój adres e-mail (na przykład alain@gmail.com), a następnie wybierz przycisk **dalej**.
 
-    ![Dodawanie numeru telefonu i wybieranie połączeń telefonicznych](media/security-info/securityinfo-myprofile-emailaddress.png)
+    ![Dodawanie numeru telefonu i Wybieranie połączeń telefonicznych](media/security-info/securityinfo-myprofile-emailaddress.png)
 
     >[!Important]
-    >Ten adres e-mail nie może być twoją służbą ani służbą e-mail.
+    >Ten adres e-mail nie może być służbowym adresem e-mail.
 
-5. Wpisz kod wysłany na określony adres e-mail, a następnie wybierz przycisk **Dalej**.
+5. Wpisz kod wysłany na określony adres e-mail, a następnie wybierz przycisk **dalej**.
 
-    ![Dodawanie numeru telefonu i wybieranie wiadomości tekstowych](media/security-info/securityinfo-myprofile-emailcode.png)
+    ![Dodawanie numeru telefonu i wybieranie wiadomości SMS](media/security-info/securityinfo-myprofile-emailcode.png)
 
-    Twoje informacje zabezpieczające są aktualizowane i możesz użyć swojego adresu e-mail, aby zweryfikować swoją tożsamość podczas resetowania hasła.
+    Informacje zabezpieczające zostały zaktualizowane i można użyć swojego adresu e-mail do zweryfikowania tożsamości podczas korzystania z funkcji resetowania haseł.
 
-## <a name="delete-your-email-address-from-your-security-info-methods"></a>Usuwanie adresu e-mail z metod informacji zabezpieczających
+## <a name="delete-your-email-address-from-your-security-info-methods"></a>Usuń swój adres e-mail z metod informacji zabezpieczających
 
-Jeśli nie chcesz już używać adresu e-mail jako metody informacji zabezpieczających, możesz usunąć go ze strony **Informacje o zabezpieczeniach.**
+Jeśli nie chcesz już używać adresu e-mail jako metody informacji zabezpieczających, możesz usunąć ją ze strony **informacje zabezpieczające** .
 
 >[!Important]
->Jeśli usuniesz swój adres e-mail przez pomyłkę, nie ma sposobu, aby go cofnąć. Musisz dodać metodę ponownie, wykonując kroki opisane w sekcji [Konfigurowanie adresu e-mail](#set-up-your-email-address-from-the-security-info-page) w tym artykule.
+>Jeśli usuniesz adres e-mail przez pomyłkę, nie ma możliwości jego cofnięcia. Musisz ponownie dodać metodę, wykonując czynności opisane w sekcji [Konfigurowanie adresu e-mail](#set-up-your-email-address-from-the-security-info-page) w tym artykule.
 
 ### <a name="to-delete-your-email-address"></a>Aby usunąć swój adres e-mail
 
-1. Na stronie **Informacje o zabezpieczeniach** wybierz łącze **Usuń** obok opcji **Poczta e-mail.**
+1. Na stronie **informacje zabezpieczające** wybierz łącze **Usuń** obok opcji **wiadomości e-mail** .
 
-    ![Łącze, aby usunąć metodę telefonu z informacji zabezpieczających](media/security-info/securityinfo-myprofile-emaildelete.png)
+    ![Link umożliwiający usunięcie metody telefonu z informacji zabezpieczających](media/security-info/securityinfo-myprofile-emaildelete.png)
 
-2. Wybierz **tak** w polu potwierdzenia, aby usunąć konto **e-mail.** Po usunięciu konta e-mail zostanie ono usunięte z informacji zabezpieczających i zniknie ze strony **Informacje o zabezpieczeniach.**
+2. Wybierz opcję **tak** w polu potwierdzenia, aby usunąć konto **e-mail** . Po usunięciu konta e-mail zostanie ono usunięte z informacji zabezpieczających i zniknie ze strony z **informacjami o zabezpieczeniach** .
 
-## <a name="additional-security-info-methods"></a>Dodatkowe metody informacji o zabezpieczeniach
+## <a name="additional-security-info-methods"></a>Dodatkowe metody informacji zabezpieczających
 
-Masz dodatkowe opcje, w jaki sposób twoja organizacja kontaktuje się z Tobą, aby zweryfikować swoją tożsamość, w zależności od tego, co próbujesz zrobić. Dostępne są następujące opcje:
+Dostępne są dodatkowe opcje dotyczące sposobu, w jaki Twoja organizacja kontaktuje się z Twoją tożsamością, w oparciu o to, co you're próbę wykonania. Dostępne są następujące opcje:
 
-- **Authenticator.** Pobierz aplikację uwierzytelniającego i użyj aplikacji uwierzytelniającego, aby uzyskać powiadomienie o zatwierdzeniu lub losowo wygenerowany kod zatwierdzenia do weryfikacji dwuetapowej lub resetowania hasła. Aby uzyskać instrukcje krok po kroku dotyczące konfigurowania i używania aplikacji Microsoft Authenticator, zobacz [Konfigurowanie informacji zabezpieczających do korzystania z aplikacji uwierzytelniającego](security-info-setup-auth-app.md).
+- **Aplikacja uwierzytelniania.** Pobierz aplikację Authenticator i użyj jej do uzyskania powiadomienia o zatwierdzeniu lub losowo wygenerowanego kodu zatwierdzenia na potrzeby weryfikacji dwuetapowej lub resetowania hasła. Instrukcje krok po kroku dotyczące konfigurowania i używania aplikacji Microsoft Authenticator można znaleźć w temacie [set up Security Info to use the Authenticator App](security-info-setup-auth-app.md).
 
-- **Tekst urządzenia mobilnego.** Wpisz numer urządzenia mobilnego i otrzymasz sms-a z kodem, którego użyjesz do weryfikacji dwuetapowej lub resetowania hasła. Aby uzyskać instrukcje krok po kroku dotyczące weryfikacji tożsamości za pomocą wiadomości SMS, zobacz [Konfigurowanie informacji zabezpieczających do korzystania z wiadomości tekstowych (SMS).](security-info-setup-text-msg.md)
+- **Tekst urządzenia przenośnego.** Wprowadź numer urządzenia przenośnego i uzyskaj tekst kodu, który będzie używany do weryfikacji dwuetapowej lub resetowania hasła. Aby uzyskać instrukcje krok po kroku dotyczące weryfikowania tożsamości za pomocą wiadomości tekstowych (SMS), zobacz [Konfigurowanie informacji zabezpieczających do używania wiadomości](security-info-setup-text-msg.md)SMS.
 
-- **Połączenie telefoniczne z urządzeniem mobilnym lub służbowym.** Wprowadź numer urządzenia mobilnego i uzyskaj połączenie telefoniczne w celu weryfikacji dwuetapowej lub zresetowania hasła. Aby uzyskać instrukcje krok po kroku dotyczące weryfikacji tożsamości za pomocą numeru telefonu, zobacz [Konfigurowanie informacji zabezpieczających do korzystania z połączeń telefonicznych.](security-info-setup-phone-number.md)
+- **Urządzenie przenośne lub połączenie telefoniczne.** Wprowadź numer urządzenia przenośnego i otrzymaj połączenie telefoniczne w celu weryfikacji dwuetapowej lub resetowania hasła. Aby uzyskać instrukcje krok po kroku dotyczące weryfikowania tożsamości przy użyciu numeru telefonu, zobacz [Konfigurowanie informacji zabezpieczających do korzystania z połączeń telefonicznych](security-info-setup-phone-number.md).
 
-- **Klucz zabezpieczeń.** Zarejestruj klucz zabezpieczeń zgodny z firmą Microsoft i użyj go wraz z kodem PIN do weryfikacji dwuetapowej lub resetowania hasła. Aby uzyskać instrukcje krok po kroku dotyczące weryfikacji tożsamości za pomocą klucza zabezpieczeń, zobacz [Konfigurowanie informacji zabezpieczających w celu używania klucza zabezpieczeń](security-info-setup-security-key.md).
+- **Klucz zabezpieczeń.** Zarejestruj klucz zabezpieczeń zgodny z firmą Microsoft i użyj go wraz z numerem PIN w celu weryfikacji dwuetapowej lub resetowania hasła. Instrukcje krok po kroku dotyczące weryfikowania tożsamości przy użyciu klucza zabezpieczeń znajdują się w temacie [set up Security Info to use a Security Key](security-info-setup-security-key.md).
 
-- **Pytania zabezpieczające.** Odpowiedz na niektóre pytania zabezpieczające utworzone przez administratora w organizacji. Ta opcja jest dostępna tylko w przypadku resetowania hasła, a nie weryfikacji dwuetapowej. Aby uzyskać instrukcje krok po kroku dotyczące konfigurowania pytań zabezpieczających, zobacz artykuł [Konfigurowanie informacji zabezpieczających do używania pytań zabezpieczających.](security-info-setup-questions.md)
+- **Pytania zabezpieczające.** Odpowiedz na niektóre pytania zabezpieczające utworzone przez administratora w organizacji. Ta opcja jest dostępna tylko do resetowania haseł, a nie do weryfikacji dwuetapowej. Aby uzyskać instrukcje krok po kroku dotyczące konfigurowania pytań zabezpieczających, zobacz artykuł [Konfigurowanie informacji zabezpieczających do używania pytań zabezpieczających](security-info-setup-questions.md) .
 
     >[!Note]
-    >Jeśli brakuje niektórych z tych opcji, jest to najprawdopodobniej, ponieważ organizacja nie zezwala na te metody. W takim przypadku należy wybrać dostępną metodę lub skontaktować się z administratorem, aby uzyskać dodatkową pomoc.
+    >Jeśli brakuje niektórych z tych opcji, prawdopodobnie organizacja nie zezwala na te metody. W takim przypadku należy wybrać dostępną metodę lub skontaktować się z administratorem w celu uzyskania pomocy.
 
 ## <a name="next-steps"></a>Następne kroki
 

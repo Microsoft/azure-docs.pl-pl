@@ -1,6 +1,6 @@
 ---
-title: Wysyłanie klasycznych metryk maszyn wirtualnych systemu Windows do bazy danych metryk usługi Azure Monitor
-description: Wysyłanie metryk systemu operacyjnego gościa do magazynu danych usługi Azure Monitor dla maszyny wirtualnej systemu Windows (klasyczna)
+title: Wysyłanie metryk klasycznej maszyny wirtualnej z systemem Windows do bazy danych metryk Azure Monitor
+description: Wysyłanie metryk systemu operacyjnego gościa do magazynu danych Azure Monitor dla maszyny wirtualnej z systemem Windows (wersja klasyczna)
 author: anirudhcavale
 services: azure-monitor
 ms.topic: conceptual
@@ -8,58 +8,58 @@ ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
 ms.openlocfilehash: 65bb1a3915ece384974da12b4e7a1ad0c1e08133
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77655821"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Wysyłanie metryk systemu operacyjnego gościa do bazy danych metryk usługi Azure Monitor dla maszyny wirtualnej systemu Windows (klasyczna)
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Wysyłanie metryk systemu operacyjnego gościa do bazy danych metryk Azure Monitor dla maszyny wirtualnej z systemem Windows (wersja klasyczna)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[Rozszerzenie diagnostyki](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) usługi Azure Monitor (znane jako "WAD" lub "Diagnostyka") umożliwia zbieranie metryk i dzienników z systemu operacyjnego gościa (systemu operacyjnego gościa) uruchomionego jako część maszyny wirtualnej, usługi w chmurze lub klastra sieci szkieletowej usług. Rozszerzenie może wysyłać dane telemetryczne do [wielu różnych lokalizacji.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
+[Rozszerzenie diagnostyki](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) Azure monitor (znane jako "funkcji wad" lub "Diagnostyka") umożliwia zbieranie metryk i dzienników z systemu operacyjnego gościa (system operacyjny gościa) działającego w ramach maszyny wirtualnej, usługi w chmurze lub klastra Service Fabric. Rozszerzenie może wysyłać dane telemetryczne do [wielu różnych lokalizacji.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
-W tym artykule opisano proces wysyłania metryk wydajności systemu operacyjnego gościa dla maszyny wirtualnej systemu Windows (klasycznej) do bazy danych metryk Usługi Azure Monitor. Począwszy od diagnostyki w wersji 1.11, można zapisywać metryki bezpośrednio w magazynie metryk usługi Azure Monitor, gdzie standardowe metryki platformy są już zbierane. 
+W tym artykule opisano proces wysyłania metryk wydajności systemu operacyjnego gościa dla maszyny wirtualnej z systemem Windows (klasyczny) do bazy danych metryk Azure Monitor. Począwszy od wersji Diagnostics 1,11, można pisać metryki bezpośrednio do magazynu metryk Azure Monitor, w którym są już zbierane metryki platformy standardowej. 
 
-Przechowywanie ich w tej lokalizacji umożliwia dostęp do tych samych akcji, co w przypadku metryk platformy. Akcje obejmują alerty w czasie zbliżonym do rzeczywistego, wykresy, routing, dostęp z interfejsu API REST i inne. W przeszłości rozszerzenie diagnostyki napisał do usługi Azure Storage, ale nie do magazynu danych usługi Azure Monitor. 
+Przechowywanie ich w tej lokalizacji pozwala uzyskać dostęp do tych samych akcji co w przypadku metryk platformy. Akcje obejmują alerty w czasie prawie rzeczywistym, wykresy, routing, dostęp z interfejsu API REST i inne. W przeszłości rozszerzenie diagnostyki Zapisano do usługi Azure Storage, ale nie do Azure Monitor magazynu danych. 
 
-Proces opisany w tym artykule działa tylko na klasycznych maszynach wirtualnych z systemem operacyjnym Windows.
+Proces przedstawiony w tym artykule działa tylko w przypadku klasycznych maszyn wirtualnych z systemem operacyjnym Windows.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Musisz być [administratorem usługi lub współadministratorem](../../cost-management-billing/manage/add-change-subscription-administrator.md) w ramach subskrypcji platformy Azure. 
 
-- Subskrypcja musi być zarejestrowana w [witrynie Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- Twoja subskrypcja musi być zarejestrowana w usłudze [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- Musisz mieć zainstalowany [program Azure PowerShell](/powershell/azure) lub [usługa Azure Cloud Shell.](https://docs.microsoft.com/azure/cloud-shell/overview)
+- Musisz mieć zainstalowaną [Azure PowerShell](/powershell/azure) lub [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) .
 
-- Zasób maszyny Wirtualnej musi znajdować się w [regionie obsługującym metryki niestandardowe](metrics-custom-overview.md#supported-regions).
+- Zasób maszyny wirtualnej musi znajdować się w [regionie, który obsługuje metryki niestandardowe](metrics-custom-overview.md#supported-regions).
 
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Tworzenie klasycznej maszyny wirtualnej i konta magazynu
 
-1. Utwórz klasyczną maszynę wirtualną przy użyciu witryny Azure portal.
-   ![Tworzenie klasycznej maszyny Wirtualnej](./media/collect-custom-metrics-guestos-vm-classic/create-classic-vm.png)
+1. Utwórz klasyczną maszynę wirtualną przy użyciu Azure Portal.
+   ![Tworzenie klasycznej maszyny wirtualnej](./media/collect-custom-metrics-guestos-vm-classic/create-classic-vm.png)
 
-1. Podczas tworzenia tej maszyny Wirtualnej wybierz opcję utworzenia nowego konta magazynu klasycznego. Używamy tego konta magazynu w późniejszych krokach.
+1. Podczas tworzenia tej maszyny wirtualnej wybierz opcję utworzenia nowego konta magazynu klasycznego. To konto magazynu jest używane w dalszych krokach.
 
-1. W witrynie Azure portal przejdź do bloku zasobów **kont magazynu.** Wybierz opcję **Klucze**i zanotuj nazwę konta magazynu i klucz konta magazynu. Te informacje są potrzebne w późniejszych krokach.
+1. W Azure Portal przejdź do bloku zasobów **konta magazynu** . Wybierz pozycję **klucze**i zanotuj nazwę konta magazynu i klucz konta magazynu. Te informacje są potrzebne w dalszych krokach.
    ![Klucze dostępu do magazynu](./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png)
 
 ## <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 
-Utwórz zasadę usługi w dzierżawie usługi Azure Active Directory przy użyciu instrukcji w [obszarze Tworzenie jednostki usługi.](../../active-directory/develop/howto-create-service-principal-portal.md) Należy zwrócić uwagę na następujące czynności podczas przechodzenia przez ten proces: 
+Utwórz zasadę usługi w dzierżawie Azure Active Directory przy użyciu instrukcji w temacie [Create a Service Principal](../../active-directory/develop/howto-create-service-principal-portal.md). Podczas przechodzenia przez ten proces należy pamiętać o następujących kwestiach: 
 - Utwórz nowy klucz tajny klienta dla tej aplikacji.
-- Zapisz klucz i identyfikator klienta do użycia w późniejszych krokach.
+- Zapisz klucz i identyfikator klienta do użycia w dalszych krokach.
 
-Nadaj tej aplikacji uprawnienia "Monitorowanie programu Metryk" do zasobu, dla którego chcesz emitować metryki. Można użyć grupy zasobów lub całej subskrypcji.  
+Nadaj tej aplikacji uprawnienia do monitorowania wydawcy metryk do zasobu, dla którego chcesz emitować metryki. Możesz użyć grupy zasobów lub całej subskrypcji.  
 
 > [!NOTE]
-> Rozszerzenie diagnostyki używa jednostki usługi do uwierzytelniania za pomocą usługi Azure Monitor i emitować metryki dla klasycznej maszyny Wirtualnej.
+> Rozszerzenie diagnostyki używa jednostki usługi do uwierzytelniania względem Azure Monitor i emisji metryk dla klasycznej maszyny wirtualnej.
 
-## <a name="author-diagnostics-extension-configuration"></a>Konfiguracja rozszerzenia diagnostyki autora
+## <a name="author-diagnostics-extension-configuration"></a>Tworzenie konfiguracji rozszerzenia diagnostyki
 
-1. Przygotuj plik konfiguracji rozszerzenia diagnostyki. Ten plik określa, które dzienniki i liczniki wydajności rozszerzenie diagnostyki powinny zbierać dla klasycznej maszyny Wirtualnej. Oto przykład:
+1. Przygotuj plik konfiguracji rozszerzenia diagnostyki. Ten plik określa, które dzienniki i liczniki wydajności mają być zbierane przez rozszerzenie diagnostyki dla klasycznej maszyny wirtualnej. Oto przykład:
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -105,7 +105,7 @@ Nadaj tej aplikacji uprawnienia "Monitorowanie programu Metryk" do zasobu, dla k
     <IsEnabled>true</IsEnabled>
     </DiagnosticsConfiguration>
     ```
-1. W sekcji "SinksConfig" pliku diagnostycznego zdefiniuj nowy ujście usługi Azure Monitor w następujący sposób:
+1. W sekcji "SinksConfig" w pliku diagnostycznym Zdefiniuj nowy obiekt ujścia Azure Monitor w następujący sposób:
 
     ```xml
     <SinksConfig>
@@ -118,7 +118,7 @@ Nadaj tej aplikacji uprawnienia "Monitorowanie programu Metryk" do zasobu, dla k
     </SinksConfig>
     ```
 
-1. W sekcji pliku konfiguracji, w której znajduje się lista liczników wydajności do zebrania, należy kierować liczniki wydajności do ujścia usługi Azure Monitor "AzMonSink".
+1. W sekcji pliku konfiguracji, w której znajduje się lista liczników wydajności do zebrania, Roześlij liczniki wydajności do Azure Monitor ujścia "AzMonSink".
 
     ```xml
     <PerformanceCounters scheduledTransferPeriod="PT1M" sinks="AzMonSink">
@@ -127,7 +127,7 @@ Nadaj tej aplikacji uprawnienia "Monitorowanie programu Metryk" do zasobu, dla k
     </PerformanceCounters>
     ```
 
-1. W konfiguracji prywatnej zdefiniuj konto usługi Azure Monitor. Następnie dodaj informacje o jednostki usługi do użycia do emitowania metryk.
+1. W konfiguracji prywatnej Zdefiniuj konto Azure Monitor. Następnie Dodaj informacje o jednostce usługi do użycia w celu emisji metryk.
 
     ```xml
     <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -143,7 +143,7 @@ Nadaj tej aplikacji uprawnienia "Monitorowanie programu Metryk" do zasobu, dla k
 
 1. Zapisz ten plik lokalnie.
 
-## <a name="deploy-the-diagnostics-extension-to-your-cloud-service"></a>Wdrażanie rozszerzenia diagnostyki w usłudze w chmurze
+## <a name="deploy-the-diagnostics-extension-to-your-cloud-service"></a>Wdróż rozszerzenie diagnostyki w usłudze w chmurze
 
 1. Uruchom program PowerShell i zaloguj się.
 
@@ -151,55 +151,55 @@ Nadaj tej aplikacji uprawnienia "Monitorowanie programu Metryk" do zasobu, dla k
     Login-AzAccount
     ```
 
-1. Zacznij od ustawienia kontekstu klasycznej maszyny Wirtualnej.
+1. Zacznij od ustawienia kontekstu dla klasycznej maszyny wirtualnej.
 
     ```powershell
     $VM = Get-AzureVM -ServiceName <VM’s Service_Name> -Name <VM Name>
     ```
 
-1. Ustaw kontekst klasycznego konta magazynu, który został utworzony przy za pomocą maszyny Wirtualnej.
+1. Ustaw kontekst klasycznego konta magazynu, które zostało utworzone przy użyciu maszyny wirtualnej.
 
     ```powershell
     $StorageContext = New-AzStorageContext -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
     ```
 
-1.  Ustaw ścieżkę pliku diagnostyki na zmienną za pomocą następującego polecenia:
+1.  Ustaw ścieżkę pliku diagnostycznego na zmienną za pomocą następującego polecenia:
 
     ```powershell
     $diagconfig = “<path of the diagnostics configuration file with the Azure Monitor sink configured>”
     ```
 
-1.  Przygotuj aktualizację dla klasycznej maszyny Wirtualnej z plikiem diagnostycznym, który ma skonfigurowany ujście usługi Azure Monitor.
+1.  Przygotuj aktualizację dla klasycznej maszyny wirtualnej z plikiem diagnostycznym, dla którego skonfigurowano obiekt ujścia Azure Monitor.
 
     ```powershell
     $VM_Update = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $diagconfig -VM $VM -StorageContext $Storage_Context
     ```
 
-1.  Wdrażanie aktualizacji na maszynie wirtualnej przez uruchomienie następującego polecenia:
+1.  Wdróż aktualizację na maszynie wirtualnej, uruchamiając następujące polecenie:
 
     ```powershell
     Update-AzureVM -ServiceName "ClassicVMWAD7216" -Name "ClassicVMWAD" -VM $VM_Update.VM
     ```
 
 > [!NOTE]
-> Nadal jest obowiązkowe, aby zapewnić konto magazynu w ramach instalacji rozszerzenia diagnostyki. Wszystkie dzienniki lub liczniki wydajności, które są określone w pliku konfiguracji diagnostyki zostaną zapisane na określonym koncie magazynu.
+> Nadal jest wymagane podanie konta magazynu w ramach instalacji rozszerzenia diagnostyki. Wszystkie dzienniki lub liczniki wydajności, które są określone w pliku konfiguracyjnym diagnostyki, zostaną zapisane na określonym koncie magazynu.
 
-## <a name="plot-the-metrics-in-the-azure-portal"></a>Wykreślanie danych w witrynie Azure portal
+## <a name="plot-the-metrics-in-the-azure-portal"></a>Wykreśl metryki w Azure Portal
 
 1.  Przejdź do witryny Azure Portal. 
 
-1.  W menu po lewej stronie wybierz pozycję **Monitor.**
+1.  W menu po lewej stronie wybierz pozycję **Monitoruj.**
 
-1.  Na bloku **Monitor** wybierz **pozycję Metryki**.
+1.  W bloku **monitor** wybierz pozycję **metryki**.
 
-    ![Nawigowanie do danych](./media/collect-custom-metrics-guestos-vm-classic/navigate-metrics.png)
+    ![Nawigowanie po metrykach](./media/collect-custom-metrics-guestos-vm-classic/navigate-metrics.png)
 
-1. W menu rozwijanym zasoby wybierz klasyczną maszynę wirtualną.
+1. Z menu rozwijanego zasoby Wybierz klasyczną maszynę wirtualną.
 
-1. W menu rozwijanym obszary nazw wybierz pozycję **azure.vm.windows.guest**.
+1. W menu rozwijanym obszary nazw wybierz pozycję **Azure. VM. Windows. gość**.
 
-1. W menu rozwijanym metryki wybierz polecenie **Pamięć\Zatwierdzone bajty w użyciu**.
-   ![Kreśl metryki](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)
+1. W menu rozwijanym metryk wybierz pozycję **pamięć \ zadeklarowane bajty w użyciu**.
+   ![Pomiary wykresów](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Konfigurowanie rozwiązania Oracle Fusion ERP do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure Active Directory | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować usługę Azure Active Directory do automatycznego aprowizowania i usuwania obsługi konta użytkowników do oracle fusion ERP.
+title: 'Samouczek: Konfigurowanie usługi Oracle Fusion ERP do automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Azure Active Directory, aby automatycznie udostępniać i cofać obsługę administracyjną kont użytkowników w programie Oracle Fusion ERP.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,93 +16,93 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: Zhchia
 ms.openlocfilehash: 08a82be5a11ba7b81cd1939fc5b386c161c43480
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77061203"
 ---
-# <a name="tutorial-configure-oracle-fusion-erp-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie oracle fusion ERP do automatycznego inicjowania obsługi administracyjnej przez użytkowników
+# <a name="tutorial-configure-oracle-fusion-erp-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi Oracle Fusion ERP do automatycznej aprowizacji użytkowników
 
-Celem tego samouczka jest zademonstrowanie kroków, które należy wykonać w oracle fusion ERP i usłudze Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizowania i deekwowania użytkowników i/lub grup do oracle fusion ERP.
+Celem tego samouczka jest przedstawienie czynności do wykonania w programie Oracle Fusion ERP i Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizacji i cofania aprowizacji użytkowników i/lub grup w usłudze Oracle Fusion ERP.
 
 > [!NOTE]
->  W tym samouczku opisano łącznik utworzony na podstawie usługi inicjowania obsługi administracyjnej użytkowników usługi Azure AD. Aby uzyskać ważne informacje na temat działania tej usługi, działania i często zadawanych pytań, zobacz [Automatyzacja inicjowania obsługi administracyjnej i usuwania obsługi administracyjnej aplikacji SaaS za pomocą usługi Azure Active Directory](../app-provisioning/user-provisioning.md).
+>  Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania aplikacji SaaS przy użyciu programu Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Ten łącznik jest obecnie w wersji zapoznawczej. Aby uzyskać więcej informacji na temat ogólnych warunków korzystania z platformy Microsoft Azure dla funkcji w wersji Zapoznawczej, zobacz [Dodatkowe warunki użytkowania w wersji Zapoznawczej platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> Ten łącznik jest obecnie w wersji zapoznawczej. Aby uzyskać więcej informacji na temat ogólnych Microsoft Azure warunki użytkowania funkcji w wersji zapoznawczej, zobacz [dodatkowe warunki użytkowania dla Microsoft Azure podglądów](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku zakłada, że masz już następujące wymagania wstępne:
+Scenariusz opisany w tym samouczku założono, że masz już następujące wymagania wstępne:
 
 * Dzierżawa usługi Azure AD
-* Najemca [Oracle Fusion ERP](https://www.oracle.com/applications/erp/).
-* Konto użytkownika w Oracle Fusion ERP z uprawnieniami administratora.
+* [Dzierżawa programu Oracle Fusion](https://www.oracle.com/applications/erp/).
+* Konto użytkownika w programie Oracle Fusion ERP z uprawnieniami administratora.
 
-## <a name="assign-users-to-oracle-fusion-erp"></a>Przypisywanie użytkowników do oracle fusion ERP 
-Usługa Azure Active Directory używa koncepcji o nazwie przydziały, aby określić, którzy użytkownicy powinni otrzymać dostęp do wybranych aplikacji. W kontekście automatycznego inicjowania obsługi administracyjnej użytkowników tylko użytkownicy i/lub grupy, które zostały przypisane do aplikacji w usłudze Azure AD są synchronizowane.
+## <a name="assign-users-to-oracle-fusion-erp"></a>Przypisywanie użytkowników do programu Oracle Fusion ERP 
+Azure Active Directory używa koncepcji zwanej zadaniami w celu określenia, którzy użytkownicy powinni otrzymywać dostęp do wybranych aplikacji. W kontekście automatycznej aprowizacji użytkowników są synchronizowane tylko użytkownicy i/lub grupy, które zostały przypisane do aplikacji w usłudze Azure AD.
 
-Przed skonfigurowaniem i włączeniem automatycznego inicjowania obsługi administracyjnej użytkownicy należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD potrzebują dostępu do oracle fusion ERP. Po podjęciu decyzji można przypisać tych użytkowników i/lub grupy do Oracle Fusion ERP, postępując zgodnie z instrukcjami tutaj:
+Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD potrzebują dostępu do programu Oracle Fusion ERP. Po ustaleniu tych użytkowników i/lub grup można przypisać do programu Oracle Fusion ERP, postępując zgodnie z poniższymi instrukcjami:
  
-* [Przypisywanie użytkownika lub grupy do aplikacji przedsiębiorstwa](../manage-apps/assign-user-or-group-access-portal.md) 
+* [Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](../manage-apps/assign-user-or-group-access-portal.md) 
 
- ## <a name="important-tips-for-assigning-users-to-oracle-fusion-erp"></a>Ważne wskazówki dotyczące przypisywania użytkowników do Oracle Fusion ERP 
+ ## <a name="important-tips-for-assigning-users-to-oracle-fusion-erp"></a>Ważne porady dotyczące przypisywania użytkowników do programu Oracle Fusion ERP 
 
- * Zaleca się, aby jeden użytkownik usługi Azure AD został przypisany do rozwiązania Oracle Fusion ERP w celu przetestowania konfiguracji automatycznego inicjowania obsługi administracyjnej użytkownika. Dodatkowi użytkownicy i/lub grupy mogą być przypisane później.
+ * Zaleca się, aby jeden użytkownik usługi Azure AD został przypisany do programu Oracle Fusion ERP w celu przetestowania automatycznej konfiguracji inicjowania obsługi użytkowników. Dodatkowych użytkowników i/lub grupy można przypisywać później.
 
-* Podczas przypisywania użytkownika do oracle fusion ERP należy wybrać dowolną prawidłową rolę specyficzną dla aplikacji (jeśli jest dostępna) w oknie dialogowym przypisania. Użytkownicy z rolą dostępu domyślnego są wykluczeni z inicjowania obsługi administracyjnej.
+* Podczas przypisywania użytkownika do programu Oracle Fusion ERP należy wybrać dowolną prawidłową rolę specyficzną dla aplikacji (jeśli jest dostępna) w oknie dialogowym przypisania. Użytkownicy z domyślną rolą dostępu są wykluczeni z aprowizacji.
 
-## <a name="set-up-oracle-fusion-erp-for-provisioning"></a>Konfigurowanie rozwiązania Oracle Fusion ERP do inicjowania obsługi administracyjnej
+## <a name="set-up-oracle-fusion-erp-for-provisioning"></a>Konfigurowanie usługi Oracle Fusion ERP na potrzeby aprowizacji
 
-Przed skonfigurowaniem oracle fusion ERP do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure AD należy włączyć inicjowanie obsługi administracyjnej scim w oracle fusion ERP.
+Przed skonfigurowaniem programu Oracle Fusion ERP do automatycznej aprowizacji użytkowników w usłudze Azure AD należy włączyć funkcję aprowizacji Standard scim w usłudze Oracle Fusion ERP.
 
-1. Zaloguj się do [konsoli administracyjnej Oracle Fusion ERP](https://cloud.oracle.com/sign-in)
+1. Logowanie się do [konsoli administratora ERP programu Oracle Fusion](https://cloud.oracle.com/sign-in)
 
-2. Kliknij nawigator w lewym górnym górnym rogu. W obszarze **Narzędzia**wybierz pozycję **Konsola zabezpieczeń**.
+2. Kliknij Nawigator w lewym górnym rogu. W obszarze **Narzędzia**wybierz pozycję **konsola zabezpieczeń**.
 
-    ![Oracle Fusion ERP Dodaj SCIM](media/oracle-fusion-erp-provisioning-tutorial/login.png)
+    ![Oracle Fusion ERP Add Standard scim](media/oracle-fusion-erp-provisioning-tutorial/login.png)
 
-3. Przejdź do **pozycji Użytkownicy**.
+3. Przejdź do **użytkowników**.
     
-    ![Oracle Fusion ERP Dodaj SCIM](media/oracle-fusion-erp-provisioning-tutorial/user.png)
+    ![Oracle Fusion ERP Add Standard scim](media/oracle-fusion-erp-provisioning-tutorial/user.png)
 
-4. Zapisz nazwę użytkownika i hasło dla konta administratora, którego użyjesz do zalogowania się do konsoli administracyjnej Oracle Fusion ERP. Te wartości należy wprowadzić w polach Nazwa użytkownika i **hasło** **administratora** na karcie Inicjowanie obsługi administracyjnej aplikacji Oracle Fusion ERP w witrynie Azure portal.
+4. Zapisz nazwę użytkownika i hasło dla konta użytkownika administratora, którego będziesz używać do logowania się do konsoli administratora usługi ERP Oracle Fusion. Te wartości należy wprowadzić w polach **Nazwa użytkownika** i **hasło** administratora na karcie aprowizacji aplikacji ERP programu Oracle w Azure Portal.
 
-## <a name="add-oracle-fusion-erp-from-the-gallery"></a>Dodaj Oracle Fusion ERP z galerii
+## <a name="add-oracle-fusion-erp-from-the-gallery"></a>Dodawanie programu Oracle Fusion ERP z galerii
 
-Aby skonfigurować oracle fusion ERP do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure AD, należy dodać Oracle Fusion ERP z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować funkcję Oracle Fusion ERP do automatycznego inicjowania obsługi użytkowników w usłudze Azure AD, musisz dodać program Oracle Fusion ERP z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać oracle fusion ERP z galerii aplikacji usługi Azure AD, wykonaj następujące kroki:**
+**Aby dodać program Oracle Fusion ERP z galerii aplikacji usługi Azure AD, wykonaj następujące czynności:**
 
-1. W **[witrynie Azure portal](https://portal.azure.com)** w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
+1. W **[Azure Portal](https://portal.azure.com)** w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do **aplikacji enterprise**, a następnie wybierz pozycję **Wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-3. Aby dodać nową aplikację, wybierz przycisk **Nowa aplikacja** u góry okienka.
+3. Aby dodać nową aplikację, wybierz przycisk **Nowa aplikacja** w górnej części okienka.
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Oracle Fusion ERP**, wybierz **Oracle Fusion ERP** w panelu wyników.
+4. W polu wyszukiwania wprowadź ciąg **Oracle Fusion ERP**, a następnie wybierz pozycję **Oracle Fusion ERP** w panelu wyniki.
 
     ![Aplikacja Oracle Fusion ERP na liście wyników](common/search-new-app.png)
 
- ## <a name="configure-automatic-user-provisioning-to-oracle-fusion-erp"></a>Konfigurowanie automatycznego inicjowania obsługi administracyjnej w oracle fusion ERP 
+ ## <a name="configure-automatic-user-provisioning-to-oracle-fusion-erp"></a>Konfigurowanie automatycznej aprowizacji użytkowników w usłudze Oracle Fusion ERP 
 
-W tej sekcji można przejść przez kroki konfigurowania usługi inicjowania obsługi administracyjnej usługi Azure AD w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w oracle fusion ERP na podstawie przypisania użytkowników i/lub grup w usłudze Azure AD.
+Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w usłudze Oracle Fusion ERP na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
 
 > [!TIP]
-> Możesz również włączyć logowanie jednokrotne oparte na SAML dla Oracle Fusion ERP, postępując zgodnie z instrukcjami podanymi w [samouczku logowania jednokrotnego Oracle Fusion ERP](oracle-fusion-erp-tutorial.md). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej użytkownika, chociaż te dwie funkcje wzajemnie się uzupełniają.
+> Możesz również włączyć logowanie jednokrotne oparte na protokole SAML dla programu Oracle Fusion ERP, postępując zgodnie z instrukcjami podanymi w samouczku Logowanie jednokrotne w [usłudze Oracle Fusion ERP](oracle-fusion-erp-tutorial.md). Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje uzupełniają się wzajemnie.
 
 > [!NOTE]
-> Aby dowiedzieć się więcej o punkcie końcowym SCIM firmy Oracle Fusion ERP, zobacz INTERFEJS API REST, aby zapoznać się [z typowymi funkcjami w chmurze Oracle Applications Cloud.](https://docs.oracle.com/en/cloud/saas/applications-common/18b/farca/index.html)
+> Aby dowiedzieć się więcej o punkcie końcowym usługi Standard scim na platformie ERP firmy Oracle, zapoznaj się z [interfejsem API REST w przypadku typowych funkcji w chmurze aplikacji Oracle](https://docs.oracle.com/en/cloud/saas/applications-common/18b/farca/index.html).
 
-### <a name="to-configure-automatic-user-provisioning-for-fuze-in-azure-ad"></a>Aby skonfigurować automatyczne inicjowanie obsługi administracyjnej dla usługi Fuze w usłudze Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-fuze-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Fuze w usłudze Azure AD:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). Wybierz pozycję **Aplikacje przedsiębiorstwa**, a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -110,69 +110,69 @@ W tej sekcji można przejść przez kroki konfigurowania usługi inicjowania obs
 
     ![Link do aplikacji Oracle Fusion ERP na liście aplikacji](common/all-applications.png)
 
-3. Wybierz kartę **Inicjowanie obsługi administracyjnej.**
+3. Wybierz kartę **aprowizacji** .
 
-    ![Karta Inicjowanie obsługi administracyjnej](common/provisioning.png)
+    ![Karta aprowizacji](common/provisioning.png)
 
-4. Ustaw **tryb inicjowania obsługi administracyjnej** na **Automatyczny**.
+4. Ustaw **tryb aprowizacji** na **automatyczny**.
 
-    ![Karta Inicjowanie obsługi administracyjnej](common/provisioning-automatic.png)
+    ![Karta aprowizacji](common/provisioning-automatic.png)
 
-5. W sekcji **Poświadczenia administratora** wprowadź w `https://ejlv.fa.em2.oraclecloud.com/hcmRestApi/scim/` **adresie URL dzierżawy**. Wprowadź nazwę użytkownika administratora i hasło pobrane wcześniej w polach Nazwa użytkownika i **hasło administratora.** **Admin Username** Kliknij **na połączenie testowe** między usługą Azure AD i Oracle Fusion ERP. 
+5. W sekcji **poświadczenia administratora** wprowadź `https://ejlv.fa.em2.oraclecloud.com/hcmRestApi/scim/` **adres URL dzierżawy**. Wprowadź nazwę użytkownika i hasło administratora, które zostały pobrane wcześniej do pól Nazwa użytkownika i **hasło** **administratora** . Kliknij **Test connection** między usługami Azure AD i Oracle Fusion ERP. 
 
-    ![Oracle Fusion ERP Dodaj SCIM](media/oracle-fusion-erp-provisioning-tutorial/admin.png)
+    ![Oracle Fusion ERP Add Standard scim](media/oracle-fusion-erp-provisioning-tutorial/admin.png)
 
-6. W polu **Wiadomość e-mail z powiadomieniem** wprowadź adres e-mail osoby lub grupy, która powinna otrzymywać powiadomienia o błędach inicjowania obsługi administracyjnej, i zaznacz pole wyboru - **Wyślij powiadomienie e-mail, gdy wystąpi błąd.**
+6. W polu **adres E-mail powiadomienia** wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji, i zaznacz pole wyboru — **Wyślij powiadomienie e-mail, gdy wystąpi awaria**.
 
-    ![Wiadomość e-mail z powiadomieniem](common/provisioning-notification-email.png)
+    ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
 7. Kliknij przycisk **Zapisz**.
 
-8. W sekcji **Mapowania** wybierz pozycję **Synchronizuj użytkowników usługi Azure Active Directory z oracle fusion ERP**.
+8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do programu Oracle Fusion ERP**.
 
-    ![Oracle Fusion ERP Dodaj SCIM](media/oracle-fusion-erp-provisioning-tutorial/user-mapping.png)
+    ![Oracle Fusion ERP Add Standard scim](media/oracle-fusion-erp-provisioning-tutorial/user-mapping.png)
 
-9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do Oracle Fusion ERP w sekcji **Mapowanie atrybutów.** Atrybuty wybrane jako **właściwości dopasowania** są używane do dopasowania kont użytkowników w Oracle Fusion ERP dla operacji aktualizacji. Wybierz przycisk **Zapisz,** aby zatwierdzić wszelkie zmiany.
+9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do programu Oracle Fusion ERP w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowywania do kont użytkowników w programie Oracle Fusion ERP for Update. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    ![Oracle Fusion ERP Dodaj SCIM](media/oracle-fusion-erp-provisioning-tutorial/user-attribute.png)
+    ![Oracle Fusion ERP Add Standard scim](media/oracle-fusion-erp-provisioning-tutorial/user-attribute.png)
 
-10. W sekcji **Mapowania** wybierz pozycję **Synchronizuj grupy usługi Azure Active Directory z oracle fusion ERP**.
+10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do programu Oracle Fusion ERP**.
 
-    ![Mapowania grup Oracle Fusion ERP](media/oracle-fusion-erp-provisioning-tutorial/groupmappings.png)
+    ![Mapowania grup ERP programu Oracle Fusion](media/oracle-fusion-erp-provisioning-tutorial/groupmappings.png)
 
-11. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD do Oracle Fusion ERP w sekcji **Mapowanie atrybutów.** Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania grup w Oracle Fusion ERP dla operacji aktualizacji. Wybierz przycisk **Zapisz,** aby zatwierdzić wszelkie zmiany.
+11. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD z usługą Oracle Fusion ERP, w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania do grup w ramach operacji programu Oracle Fusion ERP for Update. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    ![Atrybuty grupy Oracle Fusion ERP](media/oracle-fusion-erp-provisioning-tutorial/groupattributes.png)
+    ![Atrybuty grupy ERP programu Oracle Fusion](media/oracle-fusion-erp-provisioning-tutorial/groupattributes.png)
 
-12. Aby skonfigurować filtry zakresu, zapoznaj się z poniższymi instrukcjami podanymi w [samouczku filtru zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Aby włączyć usługę inicjowania obsługi administracyjnej usługi Azure AD dla oracle fusion ERP, zmień **stan inicjowania obsługi administracyjnej** **na Włączone** w sekcji **Ustawienia.**
+13. Aby włączyć usługę Azure AD Provisioning dla programu Oracle Fusion ERP, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
-    ![Stan inicjowania obsługi administracyjnej włączony](common/provisioning-toggle-on.png)
+    ![Stan aprowizacji jest przełączany](common/provisioning-toggle-on.png)
 
-14. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić Oracle Fusion ERP, wybierając żądane wartości w **zakresie** w sekcji **Ustawienia.**
+14. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić usłudze Oracle Fusion ERP, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
 
-    ![Zakres inicjowania obsługi administracyjnej](common/provisioning-scope.png)
+    ![Zakres aprowizacji](common/provisioning-scope.png)
 
-15. Gdy będziesz gotowy do aprowienia, kliknij przycisk **Zapisz**.
+15. Gdy wszystko będzie gotowe do udostępnienia, kliknij przycisk **Zapisz**.
 
-    ![Zapisywanie konfiguracji inicjowania obsługi administracyjnej](common/provisioning-configuration-save.png)
+    ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
-    Ta operacja rozpoczyna początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia.** Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które występują co około 40 minut, o ile jest uruchomiona usługa inicjowania obsługi administracyjnej usługi Azure AD. Za pomocą sekcji **Szczegóły synchronizacji** można monitorować postęp i śledzić łącza do raportu aktywności inicjowania obsługi administracyjnej, w którym opisano wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej usługi Azure AD w oracle fusion ERP.
+    Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia** . Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które wystąpiły co około 40 minut, o ile usługa Azure AD Provisioning jest uruchomiona. Możesz użyć sekcji **szczegóły synchronizacji** do monitorowania postępu i postępuj zgodnie z raportem aktywności aprowizacji, który opisuje wszystkie akcje wykonywane przez usługę Azure AD Provisioning w usłudze Oracle Fusion ERP.
 
-    Aby uzyskać więcej informacji na temat sposobu zapoznania się z dziennikami inicjowania obsługi administracyjnej usługi Azure AD, zobacz [Raportowanie automatycznego inicjowania obsługi administracyjnej konta użytkownika.](../app-provisioning/check-status-user-account-provisioning.md)
+    Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="connector-limitations"></a>Ograniczenia złącza
+## <a name="connector-limitations"></a>Ograniczenia łącznika
 
-* Oracle Fusion ERP obsługuje tylko uwierzytelnianie podstawowe dla punktu końcowego SCIM.
-* Oracle Fusion ERP nie obsługuje inicjowania obsługi administracyjnej grup.
-* Role w oracle fusion ERP są mapowane do grup w usłudze Azure AD. Aby przypisać role użytkownikom w oracle fusion ERP z usługi Azure AD, należy przypisać użytkowników do żądanych grup usługi Azure AD, które są nazwane po rolach w oracle fusion ERP.
+* Program Oracle Fusion ERP obsługuje tylko uwierzytelnianie podstawowe dla swojego punktu końcowego Standard scim.
+* Usługa Oracle Fusion ERP nie obsługuje udostępniania grup.
+* Role w usłudze Oracle Fusion ERP są mapowane na grupy w usłudze Azure AD. Aby przypisać role do użytkowników w usłudze Oracle Fusion ERP z usługi Azure AD, należy przypisać użytkowników do żądanych grup usługi Azure AD, które są nazwane po rolach w programie Oracle Fusion ERP.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Zarządzanie inicjowanie obsługi administracyjnej kont użytkowników dla aplikacji dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i otrzymywać raporty dotyczące aktywności inicjowania obsługi administracyjnej](../app-provisioning/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)

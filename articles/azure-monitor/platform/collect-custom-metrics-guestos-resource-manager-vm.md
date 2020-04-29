@@ -1,6 +1,6 @@
 ---
-title: Zbieranie metryk maszyn wirtualnych systemu Windows w monitorze platformy Azure za pomocą szablonu
-description: Wysyłanie metryk systemu operacyjnego gościa do magazynu metryk Usługi Azure Monitor przy użyciu szablonu Menedżera zasobów dla maszyny wirtualnej systemu Windows
+title: Zbieranie metryk maszyn wirtualnych z systemem Windows w Azure Monitor z szablonem
+description: Wysyłanie metryk systemu operacyjnego gościa do Azure Monitor magazynu metryk przy użyciu szablonu Menedżer zasobów dla maszyny wirtualnej z systemem Windows
 author: anirudhcavale
 services: azure-monitor
 ms.topic: conceptual
@@ -8,57 +8,57 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: e747ca89912c36538bfb9d02986629fe57c5adcb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77657371"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Wysyłanie metryk systemu operacyjnego gościa do magazynu metryk Usługi Azure Monitor przy użyciu szablonu Menedżera zasobów dla maszyny wirtualnej systemu Windows
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Wysyłanie metryk systemu operacyjnego gościa do Azure Monitor magazynu metryk przy użyciu szablonu Menedżer zasobów dla maszyny wirtualnej z systemem Windows
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Za pomocą [rozszerzenia diagnostyki](diagnostics-extension-overview.md)usługi Azure Monitor można zbierać metryki i dzienniki z systemu operacyjnego gościa (system operacyjny gościa), który jest uruchomiony jako część maszyny wirtualnej, usługi w chmurze lub klastra sieci szkieletowej usług. Rozszerzenie może wysyłać dane telemetryczne do [wielu różnych lokalizacji.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
+Za pomocą [rozszerzenia diagnostyki](diagnostics-extension-overview.md)Azure monitor można zbierać metryki i dzienniki z systemu operacyjnego gościa (systemu operacyjnego gościa) działającego w ramach maszyny wirtualnej, usługi w chmurze lub klastra Service Fabric. Rozszerzenie może wysyłać dane telemetryczne do [wielu różnych lokalizacji.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
-W tym artykule opisano proces wysyłania metryk wydajności systemu operacyjnego gościa dla maszyny wirtualnej systemu Windows do magazynu danych usługi Azure Monitor. Począwszy od diagnostyki w wersji 1.11, można zapisywać metryki bezpośrednio w magazynie metryk usługi Azure Monitor, gdzie standardowe metryki platformy są już zbierane.
+W tym artykule opisano proces wysyłania metryk wydajności systemu operacyjnego gościa dla maszyny wirtualnej z systemem Windows do magazynu danych Azure Monitor. Począwszy od wersji Diagnostics 1,11, można pisać metryki bezpośrednio do magazynu metryk Azure Monitor, w którym są już zbierane metryki platformy standardowej.
 
-Przechowywanie ich w tej lokalizacji umożliwia dostęp do tych samych akcji dla metryk platformy. Akcje obejmują alerty w czasie zbliżonym do rzeczywistego, wykresy, routing i dostęp z interfejsu API REST i innych. W przeszłości rozszerzenie diagnostyki napisał do usługi Azure Storage, ale nie do magazynu danych usługi Azure Monitor.
+Przechowywanie ich w tej lokalizacji pozwala uzyskać dostęp do tych samych akcji dla metryk platformy. Akcje obejmują alerty w czasie niemal rzeczywistym, wykresy, Routing i dostęp z interfejsu API REST i nie tylko. W przeszłości rozszerzenie diagnostyki Zapisano do usługi Azure Storage, ale nie do Azure Monitor magazynu danych.
 
-Jeśli jesteś nowym użytkownikiem szablonów Menedżera zasobów, dowiedz się więcej o [wdrożeniach szablonów](../../azure-resource-manager/management/overview.md) oraz ich strukturze i składni.
+Jeśli jesteś nowym szablonem Menedżer zasobów, Dowiedz się więcej na temat [wdrożeń szablonów](../../azure-resource-manager/management/overview.md) oraz ich struktury i składni.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja musi być zarejestrowana w [witrynie Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
+- Twoja subskrypcja musi być zarejestrowana w usłudze [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 
-- Musisz mieć zainstalowany [program Azure PowerShell](/powershell/azure) lub [usługa Azure Cloud Shell.](https://docs.microsoft.com/azure/cloud-shell/overview)
+- Musisz mieć zainstalowaną [Azure PowerShell](/powershell/azure) lub [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) .
 
-- Zasób maszyny Wirtualnej musi znajdować się w [regionie obsługującym metryki niestandardowe](metrics-custom-overview.md#supported-regions). 
+- Zasób maszyny wirtualnej musi znajdować się w [regionie, który obsługuje metryki niestandardowe](metrics-custom-overview.md#supported-regions). 
 
 
-## <a name="set-up-azure-monitor-as-a-data-sink"></a>Konfigurowanie usługi Azure Monitor jako ujścia danych
-Rozszerzenie diagnostyki platformy Azure używa funkcji o nazwie "pochłaniacze danych" do kierowania metryk i dzienników do różnych lokalizacji. Poniższe kroki pokazują, jak używać szablonu Menedżera zasobów i programu PowerShell do wdrażania maszyny wirtualnej przy użyciu nowego ujścia danych "Azure Monitor".
+## <a name="set-up-azure-monitor-as-a-data-sink"></a>Konfigurowanie Azure Monitor jako ujścia danych
+Rozszerzenie Diagnostyka Azure używa funkcji o nazwie "ujścia danych" do kierowania metryk i dzienników do różnych lokalizacji. Poniższe kroki pokazują, jak za pomocą szablonu Menedżer zasobów i programu PowerShell wdrożyć maszynę wirtualną przy użyciu nowego ujścia danych "Azure Monitor".
 
-## <a name="author-resource-manager-template"></a>Szablon Menedżera zasobów autora
-W tym przykładzie można użyć publicznie dostępnego przykładowego szablonu. Początkowe szablony https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windowsznajdują się w punkcie .
+## <a name="author-resource-manager-template"></a>Tworzenie szablonu Menedżer zasobów
+Na potrzeby tego przykładu można użyć publicznie dostępnego przykładowego szablonu. Szablony uruchamiania znajdują się https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windowspod adresem.
 
-- **Azuredeploy.json** jest wstępnie skonfigurowanym szablonem Menedżera zasobów do wdrażania maszyny wirtualnej.
+- **Azuredeploy. JSON** jest wstępnie skonfigurowanym szablonem Menedżer zasobów na potrzeby wdrożenia maszyny wirtualnej.
 
-- **Azuredeploy.parameters.json** to plik parametrów, który przechowuje informacje, takie jak nazwa użytkownika i hasło, które chcesz ustawić dla maszyny Wirtualnej. Podczas wdrażania szablon Menedżera zasobów używa parametrów ustawionych w tym pliku.
+- **Azuredeploy. Parameters. JSON** to plik parametrów, który przechowuje informacje takie jak nazwa użytkownika i hasło, które chcesz ustawić dla maszyny wirtualnej. Podczas wdrażania szablon Menedżer zasobów używa parametrów ustawionych w tym pliku.
 
-Pobierz i zapisz oba pliki lokalnie.
+Pobierz i Zapisz oba pliki lokalnie.
 
-### <a name="modify-azuredeployparametersjson"></a>Modyfikowanie pliku azuredeploy.parameters.json
-Otwórz plik *azuredeploy.parameters.json*
+### <a name="modify-azuredeployparametersjson"></a>Modyfikuj azuredeploy. Parameters. JSON
+Otwórz plik *azuredeploy. Parameters. JSON*
 
-1. Wprowadź wartości dla **adminUsername** i **adminPassword** dla maszyny Wirtualnej. Parametry te są używane do zdalnego dostępu do maszyny Wirtualnej. Aby uniknąć porwania maszyny Wirtualnej, NIE należy używać wartości w tym szablonie. Boty skanują internet w poszukiwaniu nazw użytkowników i haseł w publicznych repozytoriach GitHub. Prawdopodobnie będą testować maszyny wirtualne z tymi wartościami domyślnymi.
+1. Wprowadź wartości dla **adminUsername** i **adminPassword** dla maszyny wirtualnej. Te parametry są używane na potrzeby dostępu zdalnego do maszyny wirtualnej. Aby uniknąć przejęcia maszyny wirtualnej, nie używaj wartości z tego szablonu. Botów Skanuj Internet pod kątem nazw użytkowników i haseł w publicznych repozytoriach usługi GitHub. Te wartości domyślne mogą testować maszyny wirtualne.
 
-1. Utwórz unikatową nazwa dns dla maszyny Wirtualnej.
+1. Utwórz unikatowy dnsname dla maszyny wirtualnej.
 
-### <a name="modify-azuredeployjson"></a>Modyfikowanie pliku azuredeploy.json
+### <a name="modify-azuredeployjson"></a>Modyfikuj plik azuredeploy. JSON
 
-Otwórz plik *azuredeploy.json*
+Otwórz plik *azuredeploy. JSON*
 
-Dodaj identyfikator konta magazynu do sekcji **zmiennych** szablonu po wpisie **dla storageAccountName.**
+Dodaj identyfikator konta magazynu do sekcji **zmienne** szablonu po wpisie dla **storageAccountName.**
 
 ```json
 // Find these lines.
@@ -69,7 +69,7 @@ Dodaj identyfikator konta magazynu do sekcji **zmiennych** szablonu po wpisie **
     "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
 ```
 
-Dodaj to rozszerzenie tożsamości usługi zarządzanej (MSI) do szablonu u góry sekcji **zasobów.** Rozszerzenie zapewnia, że usługa Azure Monitor akceptuje metryki, które są emitowane.
+Dodaj to rozszerzenie tożsamość usługi zarządzanej (MSI) do szablonu w górnej części sekcji **resources** . Rozszerzenie gwarantuje, że Azure Monitor akceptuje metryki, które są emitowane.
 
 ```json
 //Find this code.
@@ -94,7 +94,7 @@ Dodaj to rozszerzenie tożsamości usługi zarządzanej (MSI) do szablonu u gór
     },
 ```
 
-Dodaj konfigurację **tożsamości** do zasobu maszyny Wirtualnej, aby upewnić się, że platforma Azure przypisuje tożsamość systemu do rozszerzenia MSI. Ten krok gwarantuje, że maszyna wirtualna może emitować metryki gościa o sobie do usługi Azure Monitor.
+Dodaj konfigurację **tożsamości** do zasobu maszyny wirtualnej, aby upewnić się, że platforma Azure przypisze tożsamość systemową do rozszerzenia MSI. Ten krok zapewnia, że maszyna wirtualna może emitować metryki gościa dotyczące Azure Monitor.
 
 ```json
 // Find this section
@@ -125,7 +125,7 @@ Dodaj konfigurację **tożsamości** do zasobu maszyny Wirtualnej, aby upewnić 
     ...
 ```
 
-Dodaj następującą konfigurację, aby włączyć rozszerzenie diagnostyki na maszynie wirtualnej systemu Windows. W przypadku prostej maszyny wirtualnej opartej na Menedżerze zasobów możemy dodać konfigurację rozszerzenia do tablicy zasobów dla maszyny wirtualnej. Wiersz "pochłania"&mdash; "AzMonSink" i odpowiadające mu "SinksConfig" w dalszej części sekcji&mdash;umożliwiają rozszerzenie do emitowania metryk bezpośrednio do usługi Azure Monitor. W razie potrzeby możesz dodać lub usunąć liczniki wydajności.
+Dodaj następującą konfigurację, aby włączyć rozszerzenie diagnostyki na maszynie wirtualnej z systemem Windows. W przypadku prostej maszyny wirtualnej opartej na Menedżer zasobów można dodać konfigurację rozszerzenia do tablicy zasobów maszyny wirtualnej. Wiersz "ujścia"&mdash; "AzMonSink" i odpowiadający mu "SinksConfig" w dalszej części sekcji&mdash;umożliwiają rozłączenie metryk bezpośrednio do Azure monitor. W razie potrzeby możesz dodawać lub usuwać liczniki wydajności.
 
 
 ```json
@@ -231,60 +231,60 @@ Dodaj następującą konfigurację, aby włączyć rozszerzenie diagnostyki na m
 Zapisz i zamknij oba pliki.
 
 
-## <a name="deploy-the-resource-manager-template"></a>Wdrażanie szablonu Menedżera zasobów
+## <a name="deploy-the-resource-manager-template"></a>Wdrażanie szablonu Menedżer zasobów
 
 > [!NOTE]
-> Musisz być uruchomiony rozszerzenie diagnostyki platformy Azure w wersji 1.5 lub nowszej i mieć **autoUpgradeMinorVersion:** właściwość ustawiona na "true" w szablonie Menedżera zasobów. Platforma Azure następnie ładuje odpowiednie rozszerzenie po uruchomieniu maszyny Wirtualnej. Jeśli nie masz tych ustawień w szablonie, zmień je i ponownie wdrożyj szablon.
+> Musisz mieć uruchomione rozszerzenie Diagnostyka Azure w wersji 1,5 lub nowszej i mieć właściwość **włączoną flagą autoupgrademinorversion**: o wartości "true" w szablonie Menedżer zasobów. Platforma Azure następnie ładuje odpowiednie rozszerzenie podczas uruchamiania maszyny wirtualnej. Jeśli nie masz tych ustawień w szablonie, zmień je i ponownie Wdróż szablon.
 
 
-Aby wdrożyć szablon Usługi Resource Manager, korzystamy z programu Azure PowerShell.
+Aby wdrożyć szablon Menedżer zasobów, wykorzystujemy Azure PowerShell.
 
 1. Uruchom program PowerShell.
-1. Zaloguj się na `Login-AzAccount`platformie Azure przy użyciu programu .
-1. Pobierz listę subskrypcji za `Get-AzSubscription`pomocą programu .
-1. Ustaw subskrypcję używasz do tworzenia/aktualizowania maszyny wirtualnej w:
+1. Zaloguj się do platformy Azure `Login-AzAccount`przy użyciu.
+1. Zapoznaj się z listą subskrypcji `Get-AzSubscription`, korzystając z programu.
+1. Ustaw subskrypcję używaną do tworzenia/aktualizowania maszyny wirtualnej w programie:
 
    ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>"
    ```
-1. Aby utworzyć nową grupę zasobów dla wdrażanych maszyn wirtualnych, uruchom następujące polecenie:
+1. Aby utworzyć nową grupę zasobów dla wdrażanej maszyny wirtualnej, uruchom następujące polecenie:
 
    ```powershell
     New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
-   > Pamiętaj, aby [użyć regionu platformy Azure, który jest włączony dla metryk niestandardowych](metrics-custom-overview.md).
+   > Pamiętaj [, aby korzystać z regionu świadczenia usługi Azure, w którym włączono obsługę metryk niestandardowych](metrics-custom-overview.md).
 
-1. Uruchom następujące polecenia, aby wdrożyć maszynę wirtualną przy użyciu szablonu Menedżera zasobów.
+1. Uruchom następujące polecenia, aby wdrożyć maszynę wirtualną przy użyciu szablonu Menedżer zasobów.
    > [!NOTE]
-   > Jeśli chcesz zaktualizować istniejącą maszynę wirtualną, po prostu dodaj *-Mode Przyrostowe* na końcu następującego polecenia.
+   > Jeśli chcesz zaktualizować istniejącą maszynę wirtualną, po prostu Dodaj *tryb przyrostowy* do końca poniższego polecenia.
 
    ```powershell
    New-AzResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
    ```
 
-1. Po pomyślnym wdrożeniu maszyna wirtualna powinna znajdować się w witrynie Azure portal, emitując metryki do usługi Azure Monitor.
+1. Po pomyślnym wdrożeniu maszyna wirtualna powinna znajdować się w Azure Portal, emitując metryki Azure Monitor.
 
    > [!NOTE]
-   > Możesz napotkać błędy wokół wybranego vmSkuSize. W takim przypadku wróć do pliku azuredeploy.json i zaktualizuj domyślną wartość parametru vmSkuSize. W takim przypadku zalecamy wypróbowanie "Standard_DS1_v2").
+   > Można napotkać błędy dotyczące wybranych vmSkuSize. W takim przypadku Wróć do pliku azuredeploy. JSON i zaktualizuj wartość domyślną parametru vmSkuSize. W tym przypadku zalecamy podjęcie próby "Standard_DS1_v2").
 
-## <a name="chart-your-metrics"></a>Wykres metryki
+## <a name="chart-your-metrics"></a>Tworzenie wykresów metryk
 
 1. Zaloguj się w witrynie Azure Portal.
 
-2. W menu po lewej stronie wybierz pozycję **Monitor**.
+2. W menu po lewej stronie wybierz pozycję **Monitoruj**.
 
-3. Na stronie Monitor wybierz pozycję **Metryki**.
+3. Na stronie monitorowanie wybierz pozycję **metryki**.
 
-   ![Strona Metryki](media/collect-custom-metrics-guestos-resource-manager-vm/metrics.png)
+   ![Strona metryk](media/collect-custom-metrics-guestos-resource-manager-vm/metrics.png)
 
-4. Zmień okres agregacji na **Ostatnie 30 minut**.
+4. Zmień okres agregacji na **ostatni 30 minut**.
 
-5. W menu rozwijanym zasobu wybierz utworzoną maszynę wirtualną. Jeśli nazwa szablonu nie została zmieniona, powinna ona być *simplewinvm2*.
+5. Z menu rozwijanego zasób Wybierz utworzoną maszynę wirtualną. Jeśli nazwa nie została zmieniona w szablonie, powinna być *SimpleWinVM2*.
 
-6. W menu rozwijanym obszary nazw wybierz pozycję **azure.vm.windows.guest**
+6. W menu rozwijanym obszary nazw wybierz pozycję **Azure. VM. Windows. Guest**
 
-7. W menu rozwijanym metryki wybierz polecenie **Bajty\%zatwierdzone w pamięci w użyciu**.
+7. W menu rozwijanym metryk wybierz pozycję **pamięć\%zadeklarowane bajty w użyciu**.
 
 
 ## <a name="next-steps"></a>Następne kroki

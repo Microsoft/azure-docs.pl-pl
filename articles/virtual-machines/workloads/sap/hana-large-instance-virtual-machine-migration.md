@@ -1,6 +1,6 @@
 ---
-title: Migrowanie systemu SAP HANA na platformie Azure (duże wystąpienia) na maszyny wirtualne platformy Azure| Dokumenty firmy Microsoft
-description: Jak przeprowadzić migrację sap HANA na platformie Azure (duże wystąpienia) do maszyn wirtualnych platformy Azure
+title: Migrowanie SAP HANA na platformie Azure (duże wystąpienia) do usługi Azure Virtual Machines | Microsoft Docs
+description: Jak migrować SAP HANA na platformie Azure (duże wystąpienia) do usługi Azure Virtual Machines
 services: virtual-machines-linux
 documentationcenter: ''
 author: bentrin
@@ -14,188 +14,188 @@ ms.date: 02/11/2020
 ms.author: bentrin
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fd1267711871b3e55f1a6229e46ae27b360322f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617039"
 ---
-# <a name="sap-hana-on-azure-large-instance-migration-to-azure-virtual-machines"></a>Migracja sap hana na duże wystąpienie platformy Azure do maszyn wirtualnych platformy Azure
-W tym artykule opisano możliwe scenariusze wdrażania dużych wystąpień platformy Azure i oferuje planowanie i migrację z zminimalizowaniem przestojów przejścia
+# <a name="sap-hana-on-azure-large-instance-migration-to-azure-virtual-machines"></a>SAP HANA migracji dużych wystąpień platformy Azure do platformy Azure Virtual Machines
+W tym artykule opisano możliwe scenariusze wdrażania dużych wystąpień platformy Azure i zawarto podejście do planowania i migracji z zminimalizowanym przestojem przejścia
 
 ## <a name="overview"></a>Omówienie
-Od czasu ogłoszenia dużych wystąpień platformy Azure dla sap HANA (HLI) we wrześniu 2016 r. wielu klientów przyjęło ten sprzęt jako usługę oferującą swoją platformę obliczeniową w pamięci.  W ostatnich latach rozszerzenie rozmiaru maszyny Wirtualnej platformy Azure w połączeniu z obsługą wdrażania skalowania w poziomie HANA przekroczyło zapotrzebowanie większości klientów korporacyjnych na pojemność bazy danych ERP.  Zaczynamy widzieć klientów wyrażających zainteresowanie migracją obciążenia SAP HANA z serwerów fizycznych do maszyn wirtualnych platformy Azure.
-Ten przewodnik nie jest dokumentem konfiguracji krok po kroku. Opisano w nim typowe modele wdrażania i oferuje planowanie i migrację.  Celem jest wywołanie niezbędnych zagadnień do przygotowania, aby zminimalizować przestoje przejścia.
+Ponieważ anonsowanie dużych wystąpień platformy Azure dla SAP HANA (HLI) we wrześniu 2016, wielu klientów przyjmuje ten sprzęt jako ofertę usługi dla swojej platformy obliczeniowej w pamięci.  W ostatnich latach rozszerzenie rozmiaru maszyny wirtualnej platformy Azure w połączeniu z obsługą wdrażania w skali HANA przekroczyło największe zapotrzebowanie na wydajność bazy danych ERP klientów korporacyjnych.  Zaczynamy widzieć klientów, którzy wyrażają zainteresowanie tym, aby migrować SAP HANA obciążenie z serwerów fizycznych do maszyn wirtualnych platformy Azure.
+Ten przewodnik nie jest dokumentem konfiguracji krok po kroku. Opisuje ona typowe modele wdrażania i oferuje zalecenia dotyczące planowania i migracji.  Celem jest wypróbowanie koniecznych zagadnień związanych z przygotowaniem w celu zminimalizowania przestojów przejścia.
 
 ## <a name="assumptions"></a>Założenia
-W tym artykule przedstawiono następujące założenia:
-- Jedynym branym pod uwagę odsetkiem jest jednorodna migracja usługi obliczeniowej bazy danych HANA z hana large instance (HLI) do maszyny Wirtualnej platformy Azure bez znaczącego uaktualnienia lub poprawek oprogramowania. Te drobne aktualizacje obejmują użycie nowszej wersji systemu operacyjnego lub wersji HANA jawnie określonej jako obsługiwanej przez odpowiednie notatki SAP. 
-- Wszystkie działania aktualizacji/uaktualnień należy wykonać przed lub po migracji.  Na przykład SAP HANA MCOS konwersji do wdrożenia MDC. 
-- Podejście migracji, które oferuje najmniej przestojów jest SAP HANA Replikacja systemu. Inne metody migracji nie są częścią zakresu tego dokumentu.
-- Niniejsze wytyczne mają zastosowanie zarówno do jednostek SKU HLI Rev3, jak i Rev4.
-- Architektura wdrażania HANA pozostaje przede wszystkim niezmieniona podczas migracji.  Oznacza to, że system z pojedynczego wystąpienia DR pozostanie w ten sam sposób w miejscu docelowym.
-- Klienci przejrzeli i zrozumieli umowę dotyczącą poziomu usług (SLA) architektury docelowej (przeznaczonej do sprzedaży). 
-- Warunki handlowe między HLI i VM są różne. Klienci powinni monitorować użycie ich maszyn wirtualnych do zarządzania kosztami.
-- Klienci rozumieją, że HLI jest dedykowaną platformą obliczeniową, podczas gdy maszyny wirtualne działają na udostępnionej, ale izolowanej infrastrukturze.
-- Klienci sprawdowali, czy docelowe maszyny wirtualne obsługują zamierzoną architekturę. Aby wyświetlić wszystkie obsługiwane jednostki SKU maszyn wirtualnych certyfikowane do wdrażania sap hana, zobacz [katalog sprzętu SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure).
-- Klienci zatwierdzili plan projektowania i migracji.
-- Planowanie odzyskiwania po awarii maszyny Wirtualnej wraz z lokacji głównej.  Klienci nie mogą używać HLI jako węzła odzyskiwania po awarii dla lokacji głównej uruchomionej na maszynach wirtualnych po migracji.
-- Klienci skopiowali wymagane pliki kopii zapasowych do maszyn wirtualnych, na podstawie wymagań dotyczących odzyskiwania i zgodności biznesowej. Z maszyn wirtualnych dostępnych kopii zapasowych, umożliwia odzyskiwanie punktu w czasie w okresie przejściowym.
-- W przypadku HSR HA klienci muszą skonfigurować i skonfigurować urządzenie STONITH na prowadnice SAP HANA HA dla [SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) i [RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker).  Nie jest wstępnie skonfigurowany jak przypadek HLI.
-- To podejście migracji nie obejmuje jednostek SKU HLI z konfiguracją Optane.
+W tym artykule opisano następujące założenia:
+- Jedyne rozważane zainteresowania to niejednorodna Migracja usługi obliczeniowej bazy danych HANA z dużego wystąpienia Hana (HLI) do maszyny wirtualnej platformy Azure bez znaczących uaktualnień lub poprawek oprogramowania. Te drobne aktualizacje obejmują używanie nowszej wersji systemu operacyjnego lub wersji HANA jawnie ustalonej jako obsługiwane przez odpowiednie uwagi SAP. 
+- Wszystkie działania Updates/Upgrades należy wykonać przed migracją lub po niej.  Na przykład SAP HANA MCOS konwertowanie do wdrożenia MDC. 
+- Podejście do migracji, które będzie oferować najmniejszy przestój, jest SAP HANA replikacji systemu. Inne metody migracji nie są częścią zakresu tego dokumentu.
+- Te wskazówki dotyczą zarówno jednostek SKU rev3, jak i Rev4 z elementu HLI.
+- Architektura wdrażania platformy HANA pozostaje przede wszystkim niezmieniona podczas migracji.  Oznacza to, że system z pojedynczym wystąpieniem odzyskiwania po awarii pozostaje taki sam w miejscu docelowym.
+- Klienci przejrzały i rozumieli Umowa dotycząca poziomu usług (SLA) dla architektury docelowej (do). 
+- Warunki komercyjne między HLIs i maszynami wirtualnymi są różne. Klienci powinni monitorować korzystanie z maszyn wirtualnych w celu zarządzania kosztami.
+- Klienci wiedzą, że wartość HLI jest dedykowaną platformą obliczeniową, podczas gdy maszyny wirtualne działają w infrastrukturze, która została jeszcze udostępniona.
+- Klienci mają zweryfikowane, że docelowe maszyny wirtualne obsługują zamierzoną architekturę. Aby wyświetlić wszystkie obsługiwane jednostki SKU maszyn wirtualnych z certyfikatem wdrożenia SAP HANA, zobacz [Katalog sprzętu SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure).
+- Klienci sprawdziły plan projektu i migracji.
+- Zaplanuj maszynę wirtualną odzyskiwania po awarii wraz z lokacją główną.  Klienci nie mogą używać elementu HLI jako węzła DR dla lokacji głównej działającej na maszynach wirtualnych po migracji.
+- Klienci skopiowali wymagane pliki kopii zapasowej do docelowych maszyn wirtualnych w oparciu o wymagania dotyczące możliwości odzyskiwania i zgodności firmy. Za pomocą kopii zapasowych dostępnych maszyn wirtualnych umożliwia odzyskiwanie do punktu w czasie w okresie przejściowym.
+- W przypadku HSR HA klienci muszą skonfigurować i skonfigurować urządzenie STONITH na SAP HANA przewodniki o wysokiej dostępności dla [SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) i [RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker).  Nie jest to wstępnie skonfigurowane, jak w przypadku programu.
+- To podejście migracji nie obejmuje jednostek SKU Optane z konfiguracją.
 
 ## <a name="deployment-scenarios"></a>Scenariusze wdrażania
-Typowe modele wdrażania z klientami HLI są podsumowane w poniższej tabeli.  Migracja do maszyn wirtualnych platformy Azure dla wszystkich scenariuszy HLI jest możliwe.  Aby korzystać z dodatkowych usług platformy Azure dostępnych, mogą być wymagane drobne zmiany architektury.
+W poniższej tabeli zestawiono typowe modele wdrażania z klientami.  Możliwa jest migracja do maszyn wirtualnych platformy Azure w przypadku wszystkich scenariuszy.  Aby skorzystać z dodatkowych dostępnych usług platformy Azure, mogą być wymagane niewielkie zmiany architektury.
 
-| Identyfikator scenariusza | Scenariusz HLI | Migracji do maszyny Wirtualnej dosłownie? | Uwaga |
+| Identyfikator scenariusza | HLI — scenariusz | Przeprowadzić migrację do maszyny wirtualnej Verbatim? | Dyskusji |
 | --- | --- | --- | --- |
 | 1 | [Pojedynczy węzeł z jednym identyfikatorem SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-one-sid) | Tak | - |
-| 2 | [Pojedynczy węzeł z systemem MCOS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-mcos) | Tak | - |
-| 3 | [Pojedynczy węzeł z odzyskiwania po awarii przy użyciu replikacji magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-using-storage-replication) | Nie | Replikacja magazynu nie jest dostępna na platformie wirtualnej platformy Azure, zmień bieżące rozwiązanie odzyskiwania po awarii na HSR lub kopia zapasowa/przywracanie |
-| 4 | [Pojedynczy węzeł z modułem ODZYSKIWANIA PO (wielofunkcyjnym) przy użyciu replikacji magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-multipurpose-using-storage-replication) | Nie | Replikacja magazynu nie jest dostępna na platformie wirtualnej platformy Azure, zmień bieżące rozwiązanie odzyskiwania po awarii na HSR lub kopia zapasowa/przywracanie |
-| 5 | [HSR z STONITH dla wysokiej dostępności](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#hsr-with-stonith-for-high-availability) | Tak | Brak wstępnie skonfigurowanych identyfikatorów SBD dla docelowych maszyn wirtualnych.  Wybierz i wdrażaj rozwiązanie STONITH.  Możliwe opcje: Azure Fencing Agent (obsługiwany zarówno dla [RHEL,](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) [SLES),](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)SBD |
-| 6 | [Ha z HSR, dr z replikacją magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-with-hsr-and-dr-with-storage-replication) | Nie | Zastąp replikację magazynu na potrzeby odzyskiwania po awarii za pomocą modułu HSR lub kopii zapasowej/przywracania |
-| 7 | [Automatyczne tryb failover hosta (1+1)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#host-auto-failover-11) | Tak | Używanie anf dla udostępnionego magazynu z maszynami wirtualnymi platformy Azure |
-| 8 | [Skalowanie w poziomie ze stanem wstrzymania](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-standby) | Tak | BW/4HANA z maszynami wirtualnymi M128s, M416s, M416ms wykorzystującymi anf tylko do przechowywania |
-| 9 | [Skalowanie w poziomie bez gotowości](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-without-standby) | Tak | BW/4HANA z maszynami wirtualnymi M128s, M416s, M416ms (z anf lub bez) |
-| 10 | [Skalowanie w poziomie przy użyciu odzyskiwania po awarii przy użyciu replikacji magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-dr-using-storage-replication) | Nie | Zastąp replikację magazynu na potrzeby odzyskiwania po awarii za pomocą modułu HSR lub kopii zapasowej/przywracania |
-| 11 | [Pojedynczy węzeł z dr przy użyciu HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-using-hsr) | Tak | - |
-| 12 | [Pojedynczy węzeł HSR do odzyskiwania po awarii (zoptymalizowany pod kątem kosztów)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-hsr-to-dr-cost-optimized) | Tak | - |
-| 13 | [Ha i DR z HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-and-disaster-recovery-with-hsr) | Tak | - |
-| 14 | [Ha i DR z HSR (zoptymalizowane pod względem kosztów)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-and-disaster-recovery-with-hsr-cost-optimized) | Tak | - |
-| 15 | [Skalowanie w poziomie z dr przy użyciu HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-dr-using-hsr) | Tak | BW/4HANA z M128s. Maszyny wirtualne M416s, M416ms (z lub bez użycia ANF do przechowywania) |
+| 2 | [Pojedynczy węzeł z MCOS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-mcos) | Tak | - |
+| 3 | [Pojedynczy węzeł z odzyskiwaniem po awarii przy użyciu replikacji magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-using-storage-replication) | Nie | Replikacja magazynu nie jest dostępna w przypadku platformy wirtualnej platformy Azure, Zmień bieżące rozwiązanie DR na HSR lub Backup/Restore |
+| 4 | [Pojedynczy węzeł z DR (Multipurpose) przy użyciu replikacji magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-multipurpose-using-storage-replication) | Nie | Replikacja magazynu nie jest dostępna w przypadku platformy wirtualnej platformy Azure, Zmień bieżące rozwiązanie DR na HSR lub Backup/Restore |
+| 5 | [HSR z STONITHem w celu zapewnienia wysokiej dostępności](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#hsr-with-stonith-for-high-availability) | Tak | Brak wstępnie skonfigurowanych SBD dla docelowych maszyn wirtualnych.  Wybierz i Wdróż rozwiązanie STONITH.  Możliwe opcje: Agent ogrodzenia platformy Azure (obsługiwany zarówno w [RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker), [SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)), SBD |
+| 6 | [HA z HSR, DR z replikacją magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-with-hsr-and-dr-with-storage-replication) | Nie | Zastąp replikację magazynu dla potrzeb odzyskiwania po awarii przy użyciu usługi HSR lub tworzenia kopii zapasowej/przywracania |
+| 7 | [Przełączenie w tryb failover hosta (1 + 1)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#host-auto-failover-11) | Tak | Korzystanie z usługi ANF dla magazynu udostępnionego z maszynami wirtualnymi platformy Azure |
+| 8 | [Skalowanie w poziomie przy użyciu rezerwy](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-standby) | Tak | 4HANA M128s, M416s, M416ms VM przy użyciu ANF tylko dla magazynu |
+| 9 | [Skalowanie w poziomie bez rezerwy](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-without-standby) | Tak | BW/4HANA z M128s, M416s, M416ms VM (z lub bez użycia ANF for Storage) |
+| 10 | [Skalowanie za pomocą odzyskiwania po awarii przy użyciu replikacji magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-dr-using-storage-replication) | Nie | Zastąp replikację magazynu dla potrzeb odzyskiwania po awarii przy użyciu usługi HSR lub tworzenia kopii zapasowej/przywracania |
+| 11 | [Pojedynczy węzeł z odzyskiwaniem po awarii przy użyciu HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-using-hsr) | Tak | - |
+| 12 | [HSR z jednym węzłem do odzyskiwania po awarii (koszt zoptymalizowany)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-hsr-to-dr-cost-optimized) | Tak | - |
+| 13 | [HA i DR z HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-and-disaster-recovery-with-hsr) | Tak | - |
+| 14 | [HA i DR z HSR (zoptymalizowane pod kątem kosztów)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-and-disaster-recovery-with-hsr-cost-optimized) | Tak | - |
+| 15 | [Skalowanie w poziomie za pomocą narzędzia DR using HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-dr-using-hsr) | Tak | BW/4HANA z M128s. M416s, M416ms maszyny wirtualne (z użyciem programu ANF for Storage lub bez niego) |
 
 
 ## <a name="source-hli-planning"></a>Planowanie źródła (HLI)
-Podczas dołączania serwera HLI zarówno zarządzanie usługami firmy Microsoft, jak i klienci przeszli przez planowanie ustawień obliczeniowych, sieci, magazynu i systemu operacyjnego do uruchamiania bazy danych SAP HANA.  Podobne planowanie musi mieć miejsce dla migracji do maszyny Wirtualnej platformy Azure.
+Podczas dołączania serwera z systemem, zarówno do zarządzania usługami firmy Microsoft, jak i klientów odbywa się zgodnie z planowaniem ustawień dotyczących obliczeń, sieci, magazynu i systemu operacyjnego na potrzeby uruchamiania bazy danych SAP HANA.  Podobne planowanie należy wykonać, aby przeprowadzić migrację na maszynę wirtualną platformy Azure.
 
-### <a name="sap-hana-housekeeping"></a>Sap HANA sprzątanie 
-Jest to dobra praktyka operacyjna, aby uporządkować zawartość bazy danych, tak niechciane, nieaktualne dane lub nieaktualne dzienniki nie są migrowane do nowej bazy danych.  Sprzątanie zazwyczaj polega na usuwaniu lub archiwizowaniu starych, wygasłych lub nieaktywnych danych.  Te działania "higieny danych" powinny być testowane w systemach nieprodukcyjnych w celu sprawdzenia ważności ich przycinania danych przed użyciem produkcji.
+### <a name="sap-hana-housekeeping"></a>SAP HANA dla gospodarstw domowych 
+Dobrym sposobem działania jest uporządkowanego zawartości bazy danych, tak aby niechciane, nieaktualne dane lub stare dzienniki nie były migrowane do nowej bazy danych.  Dla gospodarstw domowych zazwyczaj polega na usunięciu lub archiwizowaniu starych, wygasłych lub nieaktywnych danych.  Te akcje dotyczące "higieny danych" należy przetestować w systemach nieprodukcyjnych w celu sprawdzenia poprawności przycinania danych przed użyciem produkcji.
 
-### <a name="allow-network-connectivity-for-new-vms-and-or-virtual-network"></a>Zezwalaj na łączność sieciową dla nowych maszyn wirtualnych i sieci wirtualnej 
-We wdrożeniu HLI klienta sieć została skonfigurowana na podstawie informacji opisanych w artykule [ARCHITEKTURA SIECI SAP HANA (Duże wystąpienia).](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture) Ponadto routing ruchu sieciowego odbywa się w sposób opisany w sekcji "Routing na platformie Azure".
-- Podczas konfigurowania nowej maszyny Wirtualnej jako obiektu docelowego migracji, Jeśli jest ona umieszczona w istniejącej sieci wirtualnej z zakresami adresów IP już dozwolonymi do łączenia się z HLI, nie jest wymagana żadna dalsza aktualizacja łączności.
-- Jeśli nowa maszyna wirtualna platformy Azure zostanie umieszczona w nowej sieci wirtualnej platformy Microsoft Azure, może znajdować się w innym regionie i być w równoważeniu z istniejącą siecią wirtualną, klucz usługi Usługi Usługi ExpressRoute i identyfikator zasobu z oryginalnego inicjowania obsługi administracyjnej HLI mogą umożliwiać dostęp do tej nowej sieci wirtualnej zasięgu ip sieci.  Koordynuj z usługą Microsoft Service Management, aby włączyć łączność sieci wirtualnej z HLI.  Uwaga: Aby zminimalizować opóźnienia sieci między warstwami aplikacji i bazy danych, warstwy aplikacji i bazy danych muszą znajdować się w tej samej sieci wirtualnej.  
+### <a name="allow-network-connectivity-for-new-vms-and-or-virtual-network"></a>Zezwalaj na łączność sieciową dla nowych maszyn wirtualnych i sieci wirtualnych 
+W przypadku wdrażania klienta, Sieć została skonfigurowana w oparciu o informacje opisane w artykule [SAP HANA (duże wystąpienia) Architektura sieci](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture). Ponadto Routing ruchu sieciowego odbywa się w sposób opisany w sekcji "Routing na platformie Azure".
+- W przypadku konfigurowania nowej maszyny wirtualnej jako lokalizacji docelowej migracji, jeśli znajduje się ona w istniejącej sieci wirtualnej z zakresami adresów IP, które są już dozwolone do łączenia z elementem HLI, nie jest wymagana żadna dodatkowa aktualizacja łączności.
+- Jeśli nowa maszyna wirtualna platformy Azure zostanie umieszczona w nowym Microsoft Azure Virtual Network, może znajdować się w innym regionie i nawiązać połączenie równorzędne z istniejącą siecią wirtualną, klucz usługi ExpressRoute i identyfikator zasobu z oryginalnej metody aprowizacji jest używany do zezwalania na dostęp dla tego nowego zakresu adresów IP sieci wirtualnej.  Koordynuj za pomocą usługi Microsoft Service Management, aby umożliwić łączność z siecią wirtualną.  Uwaga: aby zminimalizować opóźnienie sieci między warstwami aplikacji i bazy danych, zarówno warstwy aplikacji, jak i bazy danych muszą znajdować się w tej samej sieci wirtualnej.  
 
-### <a name="existing-app-layer-availability-set-availability-zones-and-proximity-placement-group-ppg"></a>Istniejący zestaw dostępności warstwy aplikacji, strefy dostępności i grupa miejsc docelowych zbliżeniowych (PPG)
-Bieżący model wdrażania jest wykonywana w celu spełnienia niektórych celów poziomu usług.  W tym ruchu upewnij się, że infrastruktura docelowa będzie spełniać lub przekraczać wyznaczone cele.  
-Bardziej prawdopodobne niż nie, klienci SAP serwery aplikacji są umieszczane w zestawie dostępności.  Jeżeli obecny poziom usług wdrożeniowych jest zadowalający i 
-- Jeśli docelowa maszyna wirtualna przyjmuje nazwę hosta nazwy logicznej HLI, aktualizowanie rozpoznawania adresów usługi nazw domen (DNS) wskazujących adres IP maszyny Wirtualnej będzie działać bez aktualizowania żadnych profili SAP
-- Jeśli nie używasz usługi PPG, należy umieścić wszystkie serwery aplikacji i bazy danych w tej samej strefie, aby zminimalizować opóźnienia sieci.
-- Jeśli używasz ppg, zapoznaj się z sekcją tego dokumentu: "Planowanie miejsca docelowe, zestaw dostępności, strefy dostępności i grupa miejsc docelowych zbliżeniowych (PPG)".
+### <a name="existing-app-layer-availability-set-availability-zones-and-proximity-placement-group-ppg"></a>Istniejący zestaw dostępności warstwy aplikacji, Strefy dostępności i Grupa umieszczania sąsiedztwa (PPG)
+Bieżący model wdrażania jest gotowy do spełnienia określonych celów poziomu usług.  W tym celu upewnij się, że infrastruktura docelowa spełni lub przekroczy określone cele.  
+Serwery aplikacji SAP są coraz większe niż nie, a klienci są umieszczani w zestawie dostępności.  Jeśli bieżący poziom usług wdrożenia jest zadowalający i 
+- Jeśli docelowa maszyna wirtualna przyjmuje nazwę hosta nazwy, aktualizując adres usługi nazw domen (DNS) wskazujący, że IP maszyny wirtualnej będzie działał bez aktualizowania żadnych profilów SAP
+- Jeśli nie korzystasz z programu PPG, pamiętaj, aby umieścić wszystkie serwery aplikacji i bazy danych w tej samej strefie, aby zminimalizować opóźnienie sieci.
+- Jeśli używasz programu PPG, zapoznaj się z sekcją tego dokumentu: "Planowanie docelowe, zestaw dostępności, Strefy dostępności i Grupa umieszczania sąsiedztwa (PPG)".
 
-### <a name="storage-replication-discontinuance-process-if-used"></a>Proces wycofania replikacji magazynu (jeśli jest używany)
-Jeśli replikacja magazynu jest używana jako rozwiązanie odzyskiwania po awarii, należy ją zakończyć (nieplanowane) po zamknięciu aplikacji SAP.  Ponadto ostatni katalog SAP HANA, plik dziennika i dane Kopie zapasowe zostały zreplikowane na zdalne woluminy pamięci masowej DR HLI.  W ten sposób jako środek ostrożności w przypadku awarii podczas przejścia serwera fizycznego do przejścia maszyny Wirtualnej platformy Azure.
+### <a name="storage-replication-discontinuance-process-if-used"></a>Proces zaprzestania replikacji magazynu (jeśli jest używany)
+Jeśli replikacja magazynu jest używana jako rozwiązanie odzyskiwania po awarii, należy ją przerwać (niezaplanowane) po wyłączeniu aplikacji SAP.  Ponadto ostatni SAP HANA wykaz, plik dziennika i kopie zapasowe danych zostały zreplikowane na zdalnych woluminach magazynu DR.  Należy to zrobić jako środek ostrożności w przypadku awarii serwera fizycznego na przejście do maszyny wirtualnej platformy Azure.
 
-### <a name="data-backups-preservation-consideration"></a>Uwzględnienie zachowania kopii zapasowych danych
-Po przejściu do SAP HANA na maszynie Wirtualnej platformy Azure wszystkie kopie zapasowe danych opartych na migawce lub dziennika na HLI nie są łatwo dostępne lub przywracane do maszyny Wirtualnej, jeśli to konieczne. We wczesnym okresie przejściowym, zanim kopia zapasowa oparta na platformie Azure tworzy wystarczającą ilość historii, aby spełnić wymagania odzyskiwania w czasie, zalecamy wykonywanie kopii zapasowych na poziomie pliku oprócz migawek w HLI, dni lub tygodnie przed przecięciem.  Niech te kopie zapasowe zostaną skopiowane do konta usługi Azure Storage dostępnego dla nowej maszyny Wirtualnej SAP HANA.
-Oprócz tworzenia kopii zapasowych zawartości HLI, rozsądne jest, aby pełne kopie zapasowe krajobrazu SAP były łatwo dostępne w przypadku konieczności wycofywania.
+### <a name="data-backups-preservation-consideration"></a>Zagadnienie dotyczące zachowywania kopii zapasowych danych
+Po przecięciu do SAP HANA na maszynie wirtualnej platformy Azure, wszystkie dane oparte na migawce lub kopie zapasowe dzienników na serwerze HLI nie są łatwo dostępne lub dostępnych maszyny wirtualnej w razie potrzeby. Przed rozpoczęciem tworzenia kopii zapasowej opartej na platformie Azure w okresie wczesnego przejścia w celu spełnienia wymagań związanych z odzyskiwaniem do określonych momentów zalecamy utworzenie kopii zapasowych na poziomie plików oprócz migawek, dni lub tygodni przed przecięciem.  Te kopie zapasowe są kopiowane do konta usługi Azure Storage dostępnego dla nowej maszyny wirtualnej SAP HANA.
+Oprócz tworzenia kopii zapasowej zawartości klucza, rozsądne jest posiadanie pełnych kopii zapasowych oprogramowania SAP, które są łatwo dostępne w przypadku, gdy konieczne jest wycofanie.
 
-### <a name="adjusting-system-monitoring"></a>Regulacja monitorowania systemu 
-Klienci używają wielu różnych narzędzi do monitorowania i wysyłania powiadomień o alertach dla systemów w ich środowisku SAP.  Ten element jest tylko wezwanie do odpowiednich działań w celu włączenia zmian do monitorowania i aktualizacji adresatów powiadomień alertów w razie potrzeby.
+### <a name="adjusting-system-monitoring"></a>Dostosowywanie monitorowania systemu 
+Klienci używają wielu różnych narzędzi do monitorowania i wysyłania powiadomień o alertach dla systemów w ramach ich poziomej platformy SAP.  Ten element jest tylko wywołaniem odpowiedniej akcji, aby uwzględnić zmiany dotyczące monitorowania i aktualizowania odbiorców powiadomień o alertach w razie potrzeby.
 
-### <a name="microsoft-operations-team-involvement"></a>Zaangażowanie zespołu operacyjnego firmy Microsoft 
-Otwórz bilet z witryny Azure portal na podstawie istniejącego wystąpienia HLI.  Po utworzeniu biletu pomocy technicznej, inżynier pomocy technicznej skontaktuje się z Tobą za pośrednictwem poczty e-mail.  
+### <a name="microsoft-operations-team-involvement"></a>Uczestnictwo zespołu operacyjnego firmy Microsoft 
+Otwórz bilet z Azure Portal na podstawie istniejącego wystąpienia elementu.  Po utworzeniu biletu pomocy technicznej skontaktuje się z Tobą za pośrednictwem poczty e-mail.  
 
-### <a name="engage-microsoft-account-team"></a>Zaangażuj zespół konta Microsoft
-Planowanie migracji w pobliżu rocznicowego czasu odnowienia kontraktu HLI w celu zminimalizowania niepotrzebnych wydatków na zasoby obliczeniowe. Aby zlikwidować ostrze HLI, konieczne jest skoordynowanie rozwiązania umowy i faktycznego wyłączenia jednostki.
+### <a name="engage-microsoft-account-team"></a>Zaangażowanie konto Microsoft zespołu
+Zaplanuj migrację blisko rocznicowego czasu odnowienia kontraktu HLI, aby zminimalizować niepotrzebnie za pośrednictwem kosztów zasobów obliczeniowych. Aby zlikwidować blok HLI, wymagany jest koordynowanie zakończenia kontraktu i rzeczywiste zamknięcie jednostki.
 
-## <a name="destination-planning"></a>Planowanie miejsca docelowego
-Wstawanie nowej infrastruktury, która zajmie miejsce istniejącej, zasługuje na pewne myślenie, aby zapewnić, że nowy dodatek zmieści się w dużym schemacie rzeczy.  Poniżej znajduje się kilka kluczowych punktów do kontemplacji.
+## <a name="destination-planning"></a>Planowanie docelowe
+Zaplanuj nową infrastrukturę, aby zadbać o to, aby to zrobić, zapewnią konieczność zagwarantowania, że nowe dodanie będzie pasować do dużego schematu rzeczy.  Poniżej przedstawiono niektóre kluczowe punkty dla Contemplation.
 
 ### <a name="resource-availability-in-the-target-region"></a>Dostępność zasobów w regionie docelowym 
-Region wdrażania bieżących serwerów aplikacji SAP zazwyczaj znajduje się w bliskim sąsiedztwie skojarzonych hli.  Jednak HLI są oferowane w mniejszej liczbie lokalizacji niż dostępne regiony platformy Azure.  Podczas migracji fizycznej maszyny Wirtualnej HLI do platformy Azure jest również dobry moment, aby "dostroić" odległość bliskości wszystkich powiązanych usług w celu optymalizacji wydajności.  W ten sposób jednym z kluczowych czynników jest zapewnienie, że wybrany region ma wszystkie wymagane zasoby.  Na przykład dostępność niektórych rodzin maszyn wirtualnych lub oferty strefy platformy Azure dla konfiguracji wysokiej dostępności.
+Bieżący region wdrażania serwerów aplikacji SAP zwykle znajduje się w bliskiej bliskości ze skojarzonym HLIs.  HLIs są jednak oferowane w mniejszej liczbie lokalizacji niż dostępne regiony platformy Azure.  Podczas migrowania fizycznego elementu HLI do maszyny wirtualnej platformy Azure jest to również dobry czas na "precyzyjne dostosowanie" odległości wszystkich powiązanych usług na potrzeby optymalizacji wydajności.  Podczas tego należy wziąć pod uwagę, że w wybranym regionie są wszystkie wymagane zasoby.  Na przykład dostępność określonej rodziny maszyn wirtualnych lub oferowanie stref platformy Azure w celu skonfigurowania wysokiej dostępności.
 
 ### <a name="virtual-network"></a>Sieć wirtualna 
-Klienci muszą wybrać, czy uruchomić nową bazę danych HANA w istniejącej sieci wirtualnej lub utworzyć nową.  Głównym czynnikiem decydującym jest bieżący układ sieci dla środowiska SAP.  Również wtedy, gdy infrastruktura przechodzi z jednej strefy do dwóch stref wdrożenia i używa PPG, nakłada zmiany architektury. Aby uzyskać więcej informacji, zobacz artykuł [Usługi Azure PPG dla optymalnego opóźnienia sieci z aplikacją SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios).   
+Klienci muszą zdecydować, czy uruchomić nową bazę danych HANA w istniejącej sieci wirtualnej, czy utworzyć nową.  Podstawowym czynnikiem decydującym jest bieżący układ sieci dla oprogramowania SAP.  Ponadto, gdy infrastruktura przechodzi z jednej strefy do wdrożenia z dwoma strefami i używa PPG, nakłada zmiany architektury. Aby uzyskać więcej informacji, zobacz artykuł [Azure PPG w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios).   
 
 ### <a name="security"></a>Zabezpieczenia
-Niezależnie od tego, czy nowa maszyna wirtualna SAP HANA znajduje się na nowej lub istniejącej podsieci vnet/, reprezentuje nową usługę o znaczeniu krytycznym dla firmy, która wymaga zabezpieczenia.  Kontrola dostępu zgodna z zasadami zabezpieczeń informacji firmowych powinna zostać oceniona i wdrożona dla tej nowej klasy usług.
+Czy nowa usługa SAP HANA VM wyląduje w nowej lub istniejącej sieci wirtualnej/podsieci, reprezentuje nową, krytyczną usługę biznesową, która wymaga ochrony.  Kontrola dostępu zgodna z zasadami zabezpieczeń informacji o firmie powinna zostać oceniona i wdrożona dla tej nowej klasy usług.
 
-### <a name="vm-sizing-recommendation"></a>Zalecenie dotyczące rozmiaru maszyny Wirtualnej
-Ta migracja jest również okazją do odpowiedniego rozmiaru aparatu obliczeniowego HANA.  Można użyć [widoków systemu](https://help.sap.com/viewer/7c78579ce9b14a669c1f3295b0d8ca16/Cloud/3859e48180bb4cf8a207e15cf25a7e57.html) HANA w połączeniu z HANA Studio, aby zrozumieć zużycie zasobów systemowych, co pozwala na odpowiednie rozmiary w celu zwiększenia wydajności wydatków.
+### <a name="vm-sizing-recommendation"></a>Zalecenie dotyczące zmiany wielkości maszyny wirtualnej
+Ta migracja jest również okazja do odpowiedniego rozmiaru aparatu obliczeniowego platformy HANA.  Jeden z nich może korzystać z [widoków systemu](https://help.sap.com/viewer/7c78579ce9b14a669c1f3295b0d8ca16/Cloud/3859e48180bb4cf8a207e15cf25a7e57.html) Hana w połączeniu z platformą Hana Studio, aby zrozumieć użycie zasobów systemowych, co pozwala na prawidłowe ustalanie wielkości wydatków.
 
 ### <a name="storage"></a>Magazyn 
-Wydajność magazynu jest jednym z czynników, które wpływają na środowisko użytkownika aplikacji SAP.  Bazuj na danej jednostce SKU maszyny wirtualnej, istnieją minimalne konfiguracje magazynu opublikowane przez [SAP HANA Azure virtual machine storage.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) Firma Microsoft zaleca zapoznanie się z tymi minimalnymi specyfikacjami i porównanie z istniejącymi statystykami systemu HLI, aby zapewnić odpowiednią wydajność operacji we/wy dla nowej maszyny wirtualnej HANA.
+Wydajność magazynu to jeden z czynników wpływających na środowisko użytkownika aplikacji SAP.  Na podstawie danej jednostki SKU maszyny wirtualnej jest publikowany minimalny układ magazynu [SAP HANA konfigurację magazynu maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). Zalecamy przejrzenie tych minimalnych wartości i porównanie z istniejącymi statystykami systemu HLI w celu zapewnienia odpowiedniej pojemności i wydajności operacji we/wy dla nowej maszyny wirtualnej platformy HANA.
 
-Jeśli skonfigurujesz ppg dla nowej maszyny Wirtualnej HANA i skojarzonych z nią severs, prześlij bilet pomocy technicznej, aby sprawdzić i zapewnić kolokedycję magazynu i maszyny Wirtualnej. Ponieważ rozwiązanie do tworzenia kopii zapasowych może wymagać zmiany, koszt magazynu należy również ponownie sprawdzić, aby uniknąć niespodzianek wydatków operacyjnych.
+Jeśli skonfigurujesz PPG dla nowej maszyny wirtualnej HANA i skojarzonych z nią serwerów, Prześlij bilet pomocy technicznej w celu sprawdzenia i sprawdzenia wspólnej lokalizacji magazynu i maszyny wirtualnej. Ponieważ może zajść konieczność zmiany rozwiązania do tworzenia kopii zapasowych, należy również oglądany koszt magazynu, aby uniknąć niespodziewanych wydatków operacyjnych.
 
-### <a name="storage-replication-for-disaster-recovery"></a>Replikacja magazynu do odzyskiwania po awarii
-W przypadku HLI replikacja magazynu była oferowana jako domyślna opcja odzyskiwania po awarii. Ta funkcja nie jest domyślną opcją dla sap HANA na maszynie Wirtualnej platformy Azure. Rozważ HSR, tworzenie kopii zapasowych/przywracanie lub inne obsługiwane rozwiązania spełniające Twoje potrzeby biznesowe.
+### <a name="storage-replication-for-disaster-recovery"></a>Replikacja magazynu na potrzeby odzyskiwania po awarii
+Przy użyciu opcji HLI replikacja magazynu została udostępniona jako opcja domyślna dla odzyskiwania po awarii. Ta funkcja nie jest opcją domyślną dla SAP HANA na maszynie wirtualnej platformy Azure. Weź pod uwagę HSR, tworzenie kopii zapasowej/przywracanie lub inne obsługiwane rozwiązania spełniające Twoje wymagania biznesowe.
 
-### <a name="availability-sets-availability-zones-and-proximity-placement-groups"></a>Zestawy dostępności, strefy dostępności i grupy miejsc docelowych zbliżeniowych 
-Aby skrócić odległość między warstwą aplikacji a sap HANA, aby zachować opóźnienie sieci na minimalnym poziomie, nowa maszyna wirtualna bazy danych i bieżące serwery aplikacji SAP powinny być umieszczone w pliku PPG. Zapoznaj się [z grupą miejsc docelowych zbliżeniowych,](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) aby dowiedzieć się, jak zestaw dostępności platformy Azure i strefy dostępności współpracują z programem PPG dla wdrożeń SAP.
-Jeśli członkowie docelowego systemu HANA są wdrażane w więcej niż jednej strefie platformy Azure, klienci powinni mieć jasny widok profilu opóźnienia wybranych stref. Rozmieszczenie składników systemu SAP jest optymalne w odniesieniu do odległości bliższej między aplikacją SAP a bazą danych.  [Narzędzie do testowania opóźnień strefy dostępności](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test) domeny publicznej ułatwia pomiar.  
+### <a name="availability-sets-availability-zones-and-proximity-placement-groups"></a>Zestawy dostępności, Strefy dostępności i grupy umieszczania zbliżeniowe 
+Aby skrócić odległość między warstwą aplikacji i SAP HANA, aby zachować co najmniej opóźnienie sieci, nową maszynę wirtualną bazy danych i bieżące serwery aplikacji SAP należy umieścić w PPG. Zapoznaj się z [grupą umieszczania w sąsiedztwie](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) , aby dowiedzieć się, jak zestaw dostępności platformy Azure i strefy dostępności pracy z PPG dla wdrożeń SAP
+Jeśli elementy docelowe systemu HANA są wdrażane w więcej niż jednej strefie platformy Azure, klienci powinni mieć jasny widok profilu opóźnienia wybranych stref. Rozmieszczenie składników systemu SAP jest optymalne w odniesieniu do proximal odległości między aplikacją SAP a bazą danych.  [Narzędzie Test opóźnienia strefy dostępności](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test) domeny publicznej pomaga ułatwić pomiar.  
 
 
 ### <a name="backup-strategy"></a>Strategia tworzenia kopii zapasowych
-Wielu klientów korzysta już z rozwiązań do tworzenia kopii zapasowych innych firm dla sap HANA na HLI.  W takim przypadku należy skonfigurować tylko dodatkowe chronione bazy danych maszyn wirtualnych i HANA.  Trwające zadania tworzenia kopii zapasowych HLI można teraz nieplanować, jeśli komputer jest likwidowany po migracji.
-Usługa Azure Backup for SAP HANA na maszynie Wirtualnej jest teraz ogólnie dostępna.  Zobacz te łącza, aby uzyskać szczegółowe informacje na temat: [Kopia zapasowa](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database), [Przywracanie](https://docs.microsoft.com/azure/backup/sap-hana-db-restore), Zarządzanie kopią zapasową SAP HANA na maszynach wirtualnych platformy Azure. [Manage](https://docs.microsoft.com/azure/backup/sap-hana-db-manage)
+Wielu klientów korzysta już z rozwiązań do tworzenia kopii zapasowych innych firm, SAP HANA w dniu HLI.  W takim przypadku należy skonfigurować tylko dodatkową chronioną bazę danych maszyny wirtualnej i platformy HANA.  Bieżące zadania tworzenia kopii zapasowej w postaci nieplanowanej są teraz niezaplanowane, jeśli komputer jest likwidowany po migracji.
+Azure Backup SAP HANA na maszynie wirtualnej jest teraz ogólnie dostępna.  Zobacz te linki, aby uzyskać szczegółowe informacje na temat [tworzenia kopii](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database)zapasowych, [przywracania](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)i [zarządzania](https://docs.microsoft.com/azure/backup/sap-hana-db-manage) SAP HANA kopii zapasowych na maszynach wirtualnych platformy Azure.
 
 ### <a name="dr-strategy"></a>Strategia odzyskiwania po awarii
-Jeśli cele poziomu usług pomieścić dłuższy czas odzyskiwania, prosta kopia zapasowa do magazynu obiektów blob i przywrócić w miejscu lub przywrócić do nowej maszyny Wirtualnej jest najprostszą i najtańszą strategią odzyskiwania po awarii.  
-Podobnie jak platforma dużych wystąpień, gdzie HANA DR zazwyczaj odbywa się z HSR; Na maszynie wirtualnej platformy Azure hsr jest również najbardziej naturalnym i natywnym rozwiązaniem SAP HANA DR.  Niezależnie od tego, czy wdrożenie źródłowe jest pojedyncze wystąpienie lub klastrowane, replika infrastruktury źródłowej jest wymagana w regionie odzyskiwania po awarii.
-Ta replika odzyskiwania po awarii zostanie skonfigurowana po zakończeniu migracji podstawowej sieci HLI do maszyny Wirtualnej.  Baza danych DR HANA zarejestruje się w podstawowym wystąpieniu SAP HANA w wystąpieniu maszyny Wirtualnej jako lokacja replikacji pomocniczej.  
+Jeśli cele poziomu usług uwzględniają dłuższy czas odzyskiwania, prosta kopia zapasowa do magazynu obiektów blob i przywracania w miejscu lub przywrócenie nowej maszyny wirtualnej jest najprostszą i tańszą strategią odzyskiwania po awarii.  
+Podobnie jak platforma dużej instancji, w której program HANA DR zwykle odbywa się z HSR; Na maszynie wirtualnej platformy Azure HSR jest to również najbardziej naturalne i natywne rozwiązanie SAP HANA DR.  Niezależnie od tego, czy wdrożenie źródłowe ma pojedyncze wystąpienie, czy jako klastrowane, replika infrastruktury źródłowej jest wymagana w regionie odzyskiwania po awarii.
+Ta replika DR zostanie skonfigurowana po zakończeniu migracji podstawowego programu HLI do maszyny wirtualnej.  Baza danych DR HANA zostanie zarejestrowana w podstawowym SAP HANA w wystąpieniu maszyny wirtualnej jako lokacji dodatkowej replikacji.  
 
 ### <a name="sap-application-server-connectivity-destination-change"></a>Zmiana miejsca docelowego łączności serwera aplikacji SAP
-Migracja HSR powoduje nowy host bazy danych HANA, a tym samym nową nazwa hosta bazy danych dla warstwy aplikacji, profile SAP muszą zostać zmodyfikowane w celu odzwierciedlenia nowej nazwy hosta.  Jeśli przełączanie odbywa się za pomocą rozpoznawania nazw zachowującej nazwę hosta, nie jest wymagana żadna zmiana profilu.
+Migracja HSR skutkuje nowym hostem usługi HANA DB, a więc nową nazwą hosta bazy danych dla warstwy aplikacji, profile SAP należy zmodyfikować, aby odzwierciedlały nową nazwę hosta.  Jeśli przełączenie odbywa się przy użyciu rozpoznawania nazw, które zachowuje nazwę hosta, nie jest wymagana żadna zmiana profilu.
 
 ### <a name="operating-system"></a>System operacyjny
-Obrazy systemu operacyjnego dla HLI i maszyny wirtualnej, mimo że są na tym samym poziomie wersji, SLES 12 SP4 na przykład, nie są identyczne. Klienci muszą zweryfikować wymagane pakiety, poprawki, poprawki, jądra i poprawki zabezpieczeń na HLI, aby zainstalować te same pakiety w docelowych.  Jest obsługiwany do używania HSR do replikacji ze starszego systemu operacyjnego na maszynie wirtualnej z nowszą wersją systemu operacyjnego.  Sprawdź konkretne obsługiwane wersje, przeglądając [notatkę SAP 2763388](https://launchpad.support.sap.com/#/notes/2763388).
+Obrazy systemu operacyjnego dla elementu HLI i maszyny wirtualnej, mimo że nie są na tym samym poziomie wydania, SLES 12 SP4 na przykład nie są identyczne. Aby zainstalować te same pakiety na serwerze docelowym, klienci muszą sprawdzić poprawność wymaganych pakietów, poprawek, poprawek, jądra i poprawek zabezpieczeń.  Jest ona obsługiwana, aby używać HSR do replikowania ze starszej wersji systemu operacyjnego do maszyny wirtualnej z nowszą wersją systemu operacyjnego.  Sprawdź określone obsługiwane wersje, przeglądając [uwagi SAP note 2763388](https://launchpad.support.sap.com/#/notes/2763388).
 
 ### <a name="new-sap-license-request"></a>Nowe żądanie licencji SAP
-Proste wywołanie, aby zażądać nowej licencji SAP dla nowego systemu HANA teraz, gdy został zmigrowany do maszyn wirtualnych.
+Proste żądanie żądania nowej licencji SAP dla nowego systemu HANA teraz, gdy zostanie ono zmigrowane do maszyn wirtualnych.
 
 ### <a name="service-level-agreement-sla-differences"></a>Różnice w umowie dotyczącej poziomu usług (SLA)
-Autorzy lubią wywoływać różnicę w dostępności SLA między HLI i azure maszyny wirtualnej.  Na przykład klastrowane pary HLIs HA oferują dostępność 99,99%. Aby osiągnąć tę samą umowy SLA, należy wdrożyć maszyny wirtualne w strefach dostępności. W tym [artykule](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/) opisano dostępność skojarzonych architektur wdrażania, dzięki czemu klienci mogą odpowiednio zaplanować swoją infrastrukturę docelową.
+Autorzy lubią, aby wywoływać różnice między umowami SLA dostępności między elementami.  Na przykład klastrowane pary HLIs HA oferują dostępność na 99,99%. Aby uzyskać tę samą umowę SLA, należy wdrożyć maszyny wirtualne w strefach dostępności. W tym [artykule](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/) opisano dostępność ze skojarzonymi architekturami wdrażania, aby klienci mogli odpowiednio zaplanować infrastrukturę docelową.
 
 
 ## <a name="migration-strategy"></a>Strategia migracji
-W tym dokumencie omówimy tylko podejście replikacji systemu HANA dla migracji z HLI do maszyny Wirtualnej platformy Azure.  Zależy od wdrożonego rozwiązania magazynu docelowego, proces różni się nieznacznie. Kroki wysokiego poziomu są opisane poniżej.
+W tym dokumencie omówiono tylko podejście do replikacji systemu HANA w przypadku migracji z usługi HLI do maszyny wirtualnej platformy Azure.  Zależy od wdrożonego rozwiązania magazynu docelowego, proces różni się nieznacznie. Kroki wysokiego poziomu opisano poniżej.
 
-### <a name="vm-with-premiumultra-disks-for-data"></a>Maszyna wirtualna z dyskami premium/ultra-dyskami dla danych
-W przypadku maszyn wirtualnych, które są wdrażane z dyskami premium lub ultra-dyskami, standardowa konfiguracja replikacji systemu SAP HANA ma zastosowanie do konfigurowania hsr.  [Artykuł pomocy SAP](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/099caa1959ce4b3fa1144562fa09e163.html) zawiera omówienie kroków związanych z konfigurowaniem replikacji systemu, przejmowaniem systemu pomocniczego, koniecznością powrotu do podstawowego i wyłączaniem replikacji systemu.  Na potrzeby migracji będziemy potrzebować tylko kroki konfiguracji, przejęcia i wyłączenia replikacji.  
+### <a name="vm-with-premiumultra-disks-for-data"></a>Maszyna wirtualna z opcją Premium/Ultra-disks dla danych
+W przypadku maszyn wirtualnych, które są wdrażane z opcją Premium lub Ultra-disks, Standardowa konfiguracja replikacji systemu SAP HANA ma zastosowanie do konfigurowania HSR.  [Artykuł pomocy SAP](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/099caa1959ce4b3fa1144562fa09e163.html) zawiera przegląd kroków związanych z konfigurowaniem replikacji systemu, przejęciem przez system pomocniczy, powrót po awarii do podstawowego i wyłączanie replikacji systemu.  Na potrzeby migracji będzie potrzebna tylko instalacja, przejęcie i wyłączenie kroków replikacji.  
 
-### <a name="vm-with-anf-for-data-and-log-volumes"></a>Maszyna wirtualna z anf dla danych i woluminów dziennika
-Na wysokim poziomie najnowsze migawki magazynu HLI pełnych woluminów danych i dzienników muszą zostać skopiowane do usługi Azure Storage, gdzie są dostępne i możliwe do odzyskania przez docelową maszynę wirtualną HANA.  Proces kopiowania można wykonać za pomocą dowolnych natywnych narzędzi do kopiowania linuksowych.  
+### <a name="vm-with-anf-for-data-and-log-volumes"></a>Maszyna wirtualna z ANF dla woluminów danych i dzienników
+Na wysokim poziomie większość migawek magazynów pełnych danych i dzienników należy skopiować do usługi Azure Storage, gdzie są one dostępne i odzyskiwane przez docelową maszynę wirtualną HANA.  Proces kopiowania można wykonać przy użyciu wszystkich natywnych narzędzi do kopiowania systemu Linux.  
 
 > [!IMPORTANT]
-> Kopiowanie i przesyłanie danych może potrwać wiele godzin w zależności od rozmiaru bazy danych HANA i przepustowości sieci.  Większość procesu kopiowania należy wykonać przed podstawowym przestojem bazy danych HANA.
+> Kopiowanie i transfer danych może zająć kilka godzin, zależnie od rozmiaru bazy danych HANA i przepustowości sieci.  Większość procesu kopiowania należy wykonać z wyprzedzeniem pierwszego przestoju bazy danych HANA.
 
 ### <a name="mcos-to-mdc-conversion"></a>Konwersja MCOS na MDC
-Model wdrażania wielu składników w jednym systemie (MCOS) był używany przez niektórych naszych klientów HLI.  Motywacją było obejście ograniczenia migawki magazynu wielu baz danych (MDC) wcześniejszych wersji systemu SAP HANA.  W modelu MCOS kilka niezależnych wystąpień SAP HANA są ułożone w jednym bloku HLI.  Przy użyciu HSR dla migracji będzie działać poprawnie, ale w wyniku wielu maszyn wirtualnych HANA z jednej dzierżawy DB każdy.  Ten stan końcowy sprawia, że bardziej ruchliwy krajobraz niż to, do czego klient mógł być przyzwyczajony.  Z SAP HANA 2.0 domyślne wdrożenie jest MDC, realną alternatywą jest wykonanie [przeniesienia dzierżawy HANA](https://launchpad.support.sap.com/#/notes/2472478) po migracji HSR.  Ten proces "konsoliduje" te niezależne bazy danych HANA w trybie współużytki w jednym kontenerze HANA.  
+Wiele składników w jednym modelu wdrożenia systemu (MCOS) użyła niektórych z naszych klientów.  Motywacja była obejście ograniczenia migawki magazynu wielu baz danych (MDC) wcześniejszych wersji SAP HANA.  W modelu MCOS kilka niezależnych wystąpień SAP HANA jest ułożone w jeden blok.  Użycie HSR do migracji będzie działało prawidłowo, ale w przypadku wielu maszyn wirtualnych HANA z jedną bazą danych dzierżawy każdy.  Ten stan końcowy jest przeznaczony dla busier krajobrazu niż w przypadku, gdy klient mógł zostać przyzwyczajony do.  W SAP HANA przypadku MDC 2,0 wdrożenie domyślne jest zdolne do przeprowadzenia [przeniesienia dzierżawy Hana](https://launchpad.support.sap.com/#/notes/2472478) po migracji HSR.  Ten proces "konsoliduje" te niezależne bazy danych HANA do współdzierżawców w jednym kontenerze HANA.  
 
-### <a name="application-layer-consideration"></a>Uwzględnienie warstwy aplikacji
-Serwer bazy danych jest postrzegany jako środek systemu SAP.  Wszystkie serwery aplikacji powinny znajdować się w pobliżu bazy danych SAP HANA.  W niektórych przypadkach, gdy wymagane jest nowe użycie ppg, przeniesienie istniejących serwerów aplikacji do ppg, gdzie może być wymagane maszyny wirtualnej HANA.  Tworzenie nowych serwerów aplikacji może być uznane za łatwiejsze, jeśli masz już przydatne szablony wdrażania.  
-Jeśli istniejące serwery aplikacji i nowa maszyna wirtualna HANA są optymalnie zlokalizowane, nie trzeba budować żadnych nowych serwerów aplikacji, chyba że wymagana jest dodatkowa pojemność.  
-Jeśli nowa infrastruktura jest zbudowana w celu zwiększenia dostępności usług, istniejące serwery aplikacji mogą stać się niepotrzebne i powinny zostać zamknięte i usunięte.
-Jeśli docelowa nazwa hosta maszyny Wirtualnej została zmieniona i różni się od nazwy hosta HLI, profile serwera aplikacji SAP muszą zostać dostosowane do punktu nowego hosta.  Jeśli zmienił się tylko adres IP bazy danych HANA, do prowadzenia połączeń przychodzących do nowej maszyny wirtualnej HANA potrzebna jest aktualizacja rekordu DNS.
+### <a name="application-layer-consideration"></a>Rozważenia warstwy aplikacji
+Serwer bazy danych jest wyświetlany jako środek systemu SAP.  Wszystkie serwery aplikacji powinny znajdować się w sąsiedztwie SAP HANA DB.  W niektórych przypadkach, gdy wymagane jest nowe zastosowanie PPG, przeniesienie istniejących serwerów aplikacji na PPG, gdzie może być wymagana maszyna wirtualna HANA.  Tworzenie nowych serwerów aplikacji może być uznawane za łatwiejsze, jeśli masz już szablony wdrażania.  
+Jeśli istniejące serwery aplikacji i Nowa maszyna wirtualna HANA są optymalnie zlokalizowane, nie trzeba kompilować nowych serwerów aplikacji, o ile nie jest wymagana dodatkowa pojemność.  
+W przypadku skompilowania nowej infrastruktury w celu zwiększenia dostępności usługi istniejące serwery aplikacji mogą stać się niepotrzebne i powinny być wyłączone i usunięte.
+Jeśli docelowa nazwa hosta maszyny wirtualnej uległa zmianie i różni się od nazwy hosta protokołu HLI, profile serwera aplikacji SAP należy dostosować, aby wskazywały na nowy host.  Jeśli tylko adres IP bazy danych HANA zostanie zmieniony, do realizacji połączeń przychodzących z nową maszyną wirtualną HANA jest wymagana aktualizacja rekordu DNS.
 
-### <a name="acceptance-test"></a>Test akceptacyjny
-Chociaż migracja z HLI do maszyny Wirtualnej nie wprowadza żadnych istotnych zmian w zawartości bazy danych w porównaniu do migracji heterogeniii, nadal zaleca się sprawdzanie poprawności kluczowych funkcji i aspekt wydajności nowej konfiguracji.  
+### <a name="acceptance-test"></a>Test akceptacji
+Mimo że migracja z programu HLI do maszyny wirtualnej nie wprowadza żadnych istotnych zmian w zawartości bazy danych w porównaniu do migracji heterogenicznej, nadal zalecamy sprawdzenie poprawności kluczowych funkcji i wydajności nowego Instalatora.  
 
-### <a name="cutover-plan"></a>Plan cutover
-Chociaż migracja ta jest prosta, wiąże się jednak z likwidacją istniejącego pb.  Staranne planowanie zachowania systemu źródłowego wraz z skojarzoną z nim zawartością i obrazami kopii zapasowych ma kluczowe znaczenie w przypadku konieczności rezerwowania.  Dobre planowanie oferuje szybsze odwrócenie.   
+### <a name="cutover-plan"></a>Plan uruchomienie produkcyjne
+Mimo że migracja jest prosta w przód, obejmuje jednak likwidację istniejącej bazy danych.  Należy uważnie zaplanować zachowanie systemu źródłowego przy użyciu skojarzonej zawartości, a obrazy kopii zapasowych mają kluczowe znaczenie w przypadku konieczności powrotu do wielkości liter.  Dobrym planowaniem jest zaoferowanie odwrócenia speedier.   
 
 
 ## <a name="post-migration"></a>Zadania po migracji
-Zadanie migracji nie jest wykonywane, dopóki nie bezpiecznie oddzielimy żadnych usług lub łączności zależnej od HLI, aby zapewnić zachowanie integralności danych.  Ponadto zamknij niepotrzebne usługi.  W tej sekcji przywołuje kilka elementów najwyższej klasy.
+Zadanie migracji nie zostanie wykonane, dopóki nie zostanie bezpiecznie oddzielona żadna usługa lub łączność zależna od usługi HLI w celu zapewnienia zachowania integralności danych.  Ponadto Zamknij niepotrzebne usługi.  Ta sekcja wywołuje kilka najważniejszych elementów.
 
-### <a name="decommissioning-the-hli"></a>Likwidacja HLI
-Po pomyślnej migracji bazy danych HANA do maszyny Wirtualnej platformy Azure upewnij się, że w usłudze HLI DB nie są uruchamiane żadne produktywne transakcje biznesowe.  Jednak utrzymanie HLI działa przez pewien czas równa się jego lokalne okno przechowywania kopii zapasowych jest bezpieczną praktyką zapewniając szybsze odzyskiwanie w razie potrzeby.  Dopiero wtedy ostrze HLI powinno zostać wycofane z eksploatacji.  Klienci powinni zawrzeć zobowiązania HLI zawarte w umowie z firmą Microsoft, kontaktując się ze swoimi przedstawicielami firmy Microsoft.
+### <a name="decommissioning-the-hli"></a>Likwidowanie
+Po pomyślnej migracji bazy danych HANA do maszyny wirtualnej platformy Azure upewnij się, że żadne produktywne transakcje biznesowe nie są uruchamiane w bazie danych.  Niemniej jednak przechowywanie wartości w danym okresie jest równe w lokalnym oknie przechowywania kopii zapasowej, jeśli jest to konieczne, zapewniając bezpieczne rozwiązanie do odzyskiwania speedier.  Tylko wtedy powinien zostać zlikwidowany blok HLI.  Klienci powinni w umowie zawrzeć swoje zobowiązania z firmą Microsoft, kontaktując się z przedstawicielami firmy Microsoft.
 
-### <a name="remove-any-proxy-ex-iptables-bigip-configured-for-hli"></a>Usuń dowolny serwer proxy (ex: Iptables, BIGIP) skonfigurowany dla HLI 
-Jeśli usługa serwera proxy, taka jak IPTables jest używana do kierowania ruchu lokalnego do i z HLI, nie jest już potrzebna po pomyślnej migracji do maszyny Wirtualnej.  Jednak ta usługa łączności powinna być przechowywana tak długo, jak długo blok HLI jest nadal stały.  Usługa jest wyłączona dopiero po całkowitym wycofaniu ostrza HLI.
+### <a name="remove-any-proxy-ex-iptables-bigip-configured-for-hli"></a>Usuń wszystkie serwery proxy (np. dołączenie iptables, BIGIP) skonfigurowane dla elementu HLI 
+Jeśli usługa serwera proxy, taka jak dołączenie iptables, jest używana do kierowania ruchu lokalnego do i z elementu HLI, nie jest już wymagana po pomyślnej migracji do maszyny wirtualnej.  Jednak ta usługa łączności powinna być przechowywana przez cały czas, w którym blok.  Zamknij usługę tylko po całkowitym zlikwidowaniu bloku HLI.
 
-### <a name="remove-global-reach-for-hli"></a>Usuwanie globalnego zasięgu dla HLI 
-Globalny zasięg służy do łączenia bramy usługi ExpressRoute klientów z bramą HLI ExpressRoute.  Umożliwia to lokalnym ruchom klientów dotarcie bezpośrednio do dzierżawy HLI bez korzystania z usługi proxy.  To połączenie nie jest już potrzebne w przypadku braku jednostki HLI po migracji.  Podobnie jak w przypadku usługi proxy IPTables, GlobalReach powinny być również przechowywane do czasu, gdy blok HLI zostanie całkowicie wycofany z eksploatacji.
+### <a name="remove-global-reach-for-hli"></a>Usuń Global Reach dla elementu HLI 
+Global Reach służy do łączenia bramy ExpressRoutei klientów z bramą ExpressRoute.  Pozwala on na ruch lokalny klientów, aby uzyskać dostęp do dzierżawy usługi HLI bezpośrednio bez korzystania z usługi proxy.  To połączenie nie jest już potrzebne w przypadku braku jednostki HLI po migracji.  Podobnie jak w przypadku usługi dołączenie iptables proxy, GlobalReach powinien być również utrzymany do momentu całkowitego zlikwidowania bloku.
 
-### <a name="operating-system-subscription--movereuse"></a>Subskrypcja systemu operacyjnego – przenoszenie/ponowne używanie
-Ponieważ serwery maszyn wirtualnych są w stanie i ostrza HLI są likwidowane, subskrypcje systemu operacyjnego można zastąpić lub ponownie, aby uniknąć podwójnego płacenia licencji systemu operacyjnego.
+### <a name="operating-system-subscription--movereuse"></a>Subskrypcja systemu operacyjnego — przenoszenie/ponowne używanie
+Ponieważ serwery maszyn wirtualnych są postawiliśmy i są likwidowane, subskrypcje systemu operacyjnego mogą zostać zastąpione lub użyte ponownie w celu uniknięcia podwójnego płacenia licencji systemu operacyjnego.
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące artykuły:
-- [Konfiguracje i operacje infrastruktury SAP HANA na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
-- [Obciążenia SAP na platformie Azure: lista kontrolna planowania i wdrażania](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist).
+- [SAP HANA konfiguracje i operacje infrastruktury na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
+- [Obciążenia SAP na platformie Azure: planowanie i wdrażanie listy kontrolnej](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist).

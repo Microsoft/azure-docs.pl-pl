@@ -1,6 +1,6 @@
 ---
-title: Znane problemy i ograniczenia związane z migracjami online do wystąpienia zarządzanego usługi Azure SQL Database
-description: Dowiedz się więcej o znanych problemach/ograniczeniach migracji skojarzonych z migracjami online do wystąpienia zarządzanego usługi Azure SQL Database.
+title: Znane problemy i ograniczenia dotyczące migracji w trybie online w celu Azure SQL Database wystąpienia zarządzanego
+description: Informacje na temat znanych problemów/ograniczeń migracji skojarzonych z migracją online w celu Azure SQL Database wystąpienia zarządzanego.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -12,56 +12,56 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 88e2b5894686ee93caecf33e04940803eb75f394
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77648669"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database-managed-instance"></a>Znane problemy/ograniczenia migracji z migracjami online do wystąpienia zarządzanego usługi Azure SQL Database
+# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database-managed-instance"></a>Znane problemy/ograniczenia migracji z migracją online do Azure SQL Database wystąpienia zarządzanego
 
-Znane problemy i ograniczenia, które są skojarzone z migracjami online z sql server do wystąpienia zarządzanego usługi Azure SQL Database są opisane poniżej.
+Poniżej opisano znane problemy i ograniczenia związane z migracją online z SQL Server do Azure SQL Database wystąpienia zarządzanego.
 
 > [!IMPORTANT]
-> W przypadku migracji online programu SQL Server do bazy danych SQL Azure migracja typów danych SQL_variant nie jest obsługiwana.
+> W przypadku migracji w trybie online SQL Server do Azure SQL Database migracja SQL_variant typów danych nie jest obsługiwana.
 
-## <a name="backup-requirements"></a>Wymagania dotyczące tworzenia kopii zapasowych
+## <a name="backup-requirements"></a>Wymagania dotyczące kopii zapasowych
 
 - **Kopie zapasowe z sumą kontrolną**
 
-    Usługa migracji bazy danych platformy Azure używa metody tworzenia kopii zapasowych i przywracania do migracji lokalnych baz danych do wystąpienia zarządzanego bazy danych SQL. Usługa migracji bazy danych Azure obsługuje tylko kopie zapasowe utworzone przy użyciu sumy kontrolnej.
+    Azure Database Migration Service używa metody Backup i Restore do migrowania lokalnych baz danych do SQL Database wystąpienia zarządzanego. Azure Database Migration Service obsługuje tylko kopie zapasowe utworzone przy użyciu sum kontrolnych.
 
-    [Włączanie lub wyłączanie sum kontrolnych kopii zapasowych podczas tworzenia kopii zapasowej lub przywracania (SQL Server)](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017)
+    [Włącz lub Wyłącz sumy kontrolne kopii zapasowych podczas wykonywania kopii zapasowej lub przywracania (SQL Server)](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017)
 
     > [!NOTE]
-    > Jeśli wykonać kopie zapasowe bazy danych z kompresją, suma kontrolna jest zachowaniem domyślnym, chyba że jawnie wyłączone.
+    > Jeśli kopie zapasowe bazy danych są wykonywane przy użyciu kompresji, suma kontrolna jest zachowaniem domyślnym, chyba że zostanie jawnie wyłączona.
 
-    W przypadku migracji w trybie offline, jeśli **wybierzesz, pozwolę usłudze migracji bazy danych platformy Azure...** usługa migracji bazy danych platformy Azure spowoduje, że kopia zapasowa bazy danych zostanie włączona z włączoną opcją sumy kontrolnej.
+    W przypadku migracji w trybie offline w przypadku wybrania opcji **Zezwól na Azure Database Migration Service...**, a następnie Azure Database Migration Service będzie korzystać z kopii zapasowej bazy danych z włączoną opcją sum kontrolnych.
 
 - **Nośnik kopii zapasowej**
 
-    Upewnij się, że każda kopia zapasowa jest przyjmowana na oddzielnym nośniku kopii zapasowej (plikach kopii zapasowych). Usługa migracji bazy danych Azure nie obsługuje kopii zapasowych, które są dołączane do jednego pliku kopii zapasowej. Wykonaj pełną kopię zapasową i zarejestruj kopie zapasowe, aby wyodrębnić pliki kopii zapasowych.
+    Upewnij się, że wszystkie kopie zapasowe są wykonywane na osobnym nośniku kopii zapasowych (pliki kopii zapasowej). Azure Database Migration Service nie obsługuje kopii zapasowych, które są dołączane do pojedynczego pliku kopii zapasowej. Utwórz pełną kopię zapasową i Rejestruj kopie zapasowe w oddzielnych plikach kopii zapasowej.
 
 ## <a name="data-and-log-file-layout"></a>Układ danych i plików dziennika
 
 - **Liczba plików dziennika**
 
-    Usługa migracji bazy danych platformy Azure nie obsługuje baz danych z wieloma plikami dziennika. Jeśli masz wiele plików dziennika, zmniejsz i zreorganizuj je w jeden plik dziennika transakcji. Ponieważ nie można zdalnie rejestrować plików, które nie są puste, należy najpierw wykonać jego kopie zapasowe.
+    Azure Database Migration Service nie obsługuje baz danych z wieloma plikami dziennika. Jeśli masz wiele plików dziennika, Zmniejsz je i uporządkuj je w jeden plik dziennika transakcji. Ponieważ nie można zdalnie rejestrować plików, które nie są puste, należy najpierw utworzyć kopię zapasową pliku dziennika.
 
-## <a name="sql-server-features"></a>Funkcje programu SQL Server
+## <a name="sql-server-features"></a>Funkcje SQL Server
 
-- **Tabele strumienia plików/plików**
+- **FileStream/FileTable**
 
-    Wystąpienie zarządzane bazy danych SQL obecnie nie obsługuje FileStream i FileTables. W przypadku obciążeń zależnych od tych funkcji zaleca się wybranie serwerów SQL uruchomionych na maszynach wirtualnych platformy Azure jako docelowego narzędzia Azure.
+    SQL Database wystąpienie zarządzane obecnie nie obsługuje plików FileStream i FileTable. W przypadku obciążeń zależnych od tych funkcji Zalecamy wybór serwerów SQL działających na maszynach wirtualnych platformy Azure jako element docelowy platformy Azure.
 
 - **Tabele w pamięci**
 
-    Oltp w pamięci jest dostępny w warstwach Premium i Business Critical dla wystąpienia zarządzanego bazy danych SQL; warstwa ogólnego przeznaczenia nie obsługuje protokołu OLTP w pamięci.
+    Pakiet OLTP w pamięci jest dostępny w warstwach Premium i Krytyczne dla działania firmy dla SQL Database wystąpienia zarządzanego; warstwa Ogólnego przeznaczenia nie obsługuje przetwarzania OLTP w pamięci.
 
 ## <a name="migration-resets"></a>Resetowanie migracji
 
 - **Wdrożenia**
 
-    Wystąpienie zarządzane bazy danych SQL to usługa PaaS z automatycznym łataniem i aktualizacjami wersji. Podczas migracji wystąpienia zarządzanego bazy danych SQL aktualizacje niekrytyczne są pomocne do 36 godzin. Następnie (i w przypadku aktualizacji krytycznych), jeśli migracja zostanie zakłócona, proces zostanie zresetowany do stanu pełnego przywracania.
+    SQL Database wystąpienie zarządzane to usługa PaaS z automatyczną poprawką poprawek i aktualizacjami wersji. Podczas migracji SQL Database wystąpienia zarządzanego, aktualizacje niekrytyczne są łatwiejsze do 36 godzin. Następnie (i w przypadku aktualizacji krytycznych), jeśli migracja zostanie zakłócona, proces resetuje do stanu pełnego przywracania.
 
-    Migracja cutover można wywołać tylko po przywróceniu pełnej kopii zapasowej i dogania wszystkie kopie zapasowe dziennika. Jeśli dotyczy to cięć migracji produkcyjnej, skontaktuj się z [aliasem opinii usługi Azure DMS.](mailto:dmsfeedback@microsoft.com)
+    Uruchomienie produkcyjne migracji można wywołać tylko po przywróceniu pełnej kopii zapasowej i przejściu do wszystkich kopii zapasowych dziennika. Jeśli dotyczy to jednorazowe migracji produkcyjnej, skontaktuj się z [aliasem opinii platformy Azure](mailto:dmsfeedback@microsoft.com).

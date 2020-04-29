@@ -1,6 +1,6 @@
 ---
-title: Zastąpienie podsieci usługi Azure Traffic Manager przy użyciu usługi Azure PowerShell | Dokumenty firmy Microsoft
-description: Ten artykuł pomoże Ci zrozumieć, w jaki sposób zastępowanie podsieci Usługi Traffic Manager jest używane do zastępowania metody routingu profilu usługi Traffic Manager w celu kierowania ruchu do punktu końcowego na podstawie adresu IP użytkownika końcowego za pośrednictwem wstępnie zdefiniowanego zakresu adresów IP do mapowań punktów końcowych przy użyciu platformy Azure Powershell.
+title: Przesłonięcie podsieci Traffic Manager platformy Azure przy użyciu Azure PowerShell | Microsoft Docs
+description: Ten artykuł pomoże zrozumieć, jak Traffic Manager przesłonięcia podsieci służy do przesłonięcia metody routingu profilu Traffic Manager, aby skierować ruch do punktu końcowego w oparciu o adres IP użytkownika końcowego za pośrednictwem wstępnie zdefiniowanego zakresu adresów IP na potrzeby mapowania punktów końcowych przy użyciu Azure PowerShell.
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
@@ -10,43 +10,43 @@ ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: rohink
 ms.openlocfilehash: 323093ec78a9486d19496b0ee90e37cb42eea341
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76938417"
 ---
-# <a name="traffic-manager-subnet-override-using-azure-powershell"></a>Zastąpienie podsieci Usługi Traffic Manager przy użyciu programu Azure Powershell
+# <a name="traffic-manager-subnet-override-using-azure-powershell"></a>Traffic Manager przesłonięcia podsieci przy użyciu programu Azure PowerShell
 
-Zastępowanie podsieci Usługi Traffic Manager umożliwia zmianę metody routingu profilu.  Dodanie zastąpienia spowoduje kierowanie ruchu na podstawie adresu IP użytkownika końcowego z wstępnie zdefiniowanym zakresem adresu IP do mapowania punktu końcowego. 
+Przesłonięcie podsieci Traffic Manager umożliwia zmianę metody routingu profilu.  Dodanie przesłonięcia spowoduje przekierowanie ruchu na podstawie adresu IP użytkownika końcowego ze wstępnie zdefiniowanym zakresem adresów IP do mapowania punktu końcowego. 
 
-## <a name="how-subnet-override-works"></a>Jak działa zastępowanie podsieci
+## <a name="how-subnet-override-works"></a>Jak działa przesłonięcie podsieci
 
-Gdy zastąpienia podsieci są dodawane do profilu menedżera ruchu, usługa Traffic Manager najpierw sprawdzi, czy adres IP użytkownika końcowego jest zastępowanie podsieci. Jeśli zostanie znaleziony, kwerenda DNS użytkownika zostanie przekierowana do odpowiedniego punktu końcowego.  Jeśli mapowanie nie zostanie znalezione, Usługa Traffic Manager powróci do oryginalnej metody routingu profilu. 
+Gdy przesłonięcia podsieci są dodawane do profilu usługi Traffic Manager, Traffic Manager najpierw sprawdza, czy istnieje przesłonięcie podsieci dla adresu IP użytkownika końcowego. Jeśli zostanie znaleziony, zapytanie DNS użytkownika zostanie skierowane do odpowiadającego mu punktu końcowego.  Jeśli mapowanie nie zostanie znalezione, Traffic Manager powróci do oryginalnej metody routingu profilu. 
 
-Zakresy adresów IP można określić jako zakresy CIDR (na przykład 1.2.3.0/24) lub jako zakresy adresów (na przykład 1.2.3.4-5.6.7.8). Zakresy adresów IP skojarzone z każdym punktem końcowym muszą być unikatowe dla tego punktu końcowego. Wszelkie nakładanie się zakresów adresów IP między różnymi punktami końcowymi spowoduje odrzucenie profilu przez menedżera ruchu.
+Zakresy adresów IP można określić jako zakresy CIDR (na przykład 1.2.3.0/24) lub jako zakresy adresów (na przykład 1.2.3.4-5.6.7.8). Zakresy adresów IP skojarzone z każdym punktem końcowym muszą być unikatowe dla tego punktu końcowego. Wszelkie nakładanie się zakresów adresów IP między różnymi punktami końcowymi spowoduje odrzucenie profilu przez Traffic Manager.
 
-Istnieją dwa typy profilów routingu, które obsługują zastąpienia podsieci:
+Istnieją dwa typy profilów routingu, które obsługują przesłonięcia podsieci:
 
-* **Geograficzne** — jeśli Usługa Traffic Manager znajdzie zastąpienie podsieci dla adresu IP kwerendy DNS, będzie kierować kwerendę do punktu końcowego, niezależnie od kondycji punktu końcowego.
-* **Wydajność** — jeśli Usługa Traffic Manager znajdzie zastąpienie podsieci dla adresu IP kwerendy DNS, będzie kierować ruch do punktu końcowego tylko wtedy, gdy jest w dobrej kondycji.  Usługa Traffic Manager powróci do heurystyki routingu wydajności, jeśli punkt końcowy zastąpienia podsieci nie jest w dobrej kondycji.
+* **Geograficzna** — Jeśli Traffic Manager odnajdzie przesłonięcie podsieci dla adresu IP zapytania DNS, zostanie on rozesłany do punktu końcowego, niezależnie od kondycji punktu końcowego.
+* **Wydajność** — Jeśli Traffic Manager odnajdzie przesłonięcie podsieci dla adresu IP zapytania DNS, tylko będzie kierować ruch do punktu końcowego, jeśli jest w dobrej kondycji.  Traffic Manager powróci do algorytmu heurystycznego routingu wydajności, jeśli punkt końcowy przesłonięcia podsieci nie jest w dobrej kondycji.
 
-## <a name="create-a-traffic-manager-subnet-override"></a>Tworzenie zastąpienia podsieci usługi Traffic Manager
+## <a name="create-a-traffic-manager-subnet-override"></a>Tworzenie przesłonięcia podsieci Traffic Manager
 
-Aby utworzyć zastąpienie podsieci usługi Traffic Manager, można użyć programu Azure PowerShell, aby dodać podsieci do zastąpienia punktu końcowego usługi Traffic Manager.
+Aby utworzyć przesłonięcie podsieci Traffic Manager, można użyć Azure PowerShell, aby dodać podsieci dla zastąpienia do punktu końcowego Traffic Manager.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Można uruchomić polecenia, które należy wykonać w [usłudze Azure Cloud Shell](https://shell.azure.com/powershell)lub uruchamiając program PowerShell z komputera. Usługa Azure Cloud Shell to bezpłatna powłoka interaktywna. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. Jeśli program PowerShell jest uruchamiany z komputera, potrzebny jest moduł programu Azure PowerShell, 1.0.0 lub nowsze. Można uruchomić, `Get-Module -ListAvailable Az` aby znaleźć zainstalowaną wersję. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli korzystasz z programu PowerShell lokalnie, `Login-AzAccount` musisz również uruchomić, aby zalogować się na platformie Azure.
+Można uruchomić następujące polecenia w [Azure Cloud Shell](https://shell.azure.com/powershell)lub przez uruchomienie programu PowerShell z komputera. Azure Cloud Shell to bezpłatna interaktywna powłoka. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. Po uruchomieniu programu PowerShell z komputera potrzebny jest moduł Azure PowerShell, 1.0.0 lub nowszy. Można uruchomić `Get-Module -ListAvailable Az` , aby znaleźć zainstalowaną wersję. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić `Login-AzAccount` polecenie, aby zalogować się do platformy Azure.
 
 
-1. **Pobierz punkt końcowy programu Traffic Manager:**
+1. **Pobierz punkt końcowy Traffic Manager:**
 
-    Aby włączyć zastępowanie podsieci, pobierz punkt końcowy, który chcesz dodać zastąpienie i zapisać go w zmiennej przy użyciu [get-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
+    Aby włączyć przesłonięcie podsieci, Pobierz punkt końcowy, do którego chcesz dodać przesłonięcie, i Zapisz go w zmiennej przy użyciu polecenia [Get-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
 
-    Zastąp nazwę, nazwę profilu i nazwę grupy zasobów wartościami punktu końcowego, który się zmienia.
+    Zastąp nazwę, nazwa pliku i ResourceGroupName wartościami punktów końcowych, które są zmieniane.
 
     ```powershell
 
@@ -55,7 +55,7 @@ Można uruchomić polecenia, które należy wykonać w [usłudze Azure Cloud She
     ```
 2. **Dodaj zakres adresów IP do punktu końcowego:**
     
-    Aby dodać zakres adresów IP do punktu końcowego, użyjesz [Add-AzTrafficManagerIpAddressRange,](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange?view=azps-2.5.0&viewFallbackFrom=azps-2.4.0) aby dodać zakres.
+    Aby dodać zakres adresów IP do punktu końcowego, użyj polecenie [Add-AzTrafficManagerIpAddressRange](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange?view=azps-2.5.0&viewFallbackFrom=azps-2.4.0) , aby dodać zakres.
 
     ```powershell
 
@@ -69,20 +69,20 @@ Można uruchomić polecenia, które należy wykonać w [usłudze Azure Cloud She
     Add-AzTrafficManagerIPAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
  
     ```
-    Po dodaniu zakresów należy użyć [Set-AzTrafficManagerEndpoint,](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) aby zaktualizować punkt końcowy.
+    Po dodaniu zakresów Użyj polecenie [Set-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) , aby zaktualizować punkt końcowy.
 
     ```powershell
 
     Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $TrafficManagerEndpoint
 
     ```
-Usunięcie zakresu adresów IP można zakończyć za pomocą [Remove-AzTrafficManagerIpAddressRange](https://docs.microsoft.com/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange?view=azps-2.5.0).
+Usuwanie zakresu adresów IP można wykonać za pomocą polecenia [Remove-AzTrafficManagerIpAddressRange](https://docs.microsoft.com/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange?view=azps-2.5.0).
 
-1.  **Pobierz punkt końcowy programu Traffic Manager:**
+1.  **Pobierz punkt końcowy Traffic Manager:**
 
-    Aby włączyć zastępowanie podsieci, pobierz punkt końcowy, który chcesz dodać zastąpienie i zapisać go w zmiennej przy użyciu [get-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
+    Aby włączyć przesłonięcie podsieci, Pobierz punkt końcowy, do którego chcesz dodać przesłonięcie, i Zapisz go w zmiennej przy użyciu polecenia [Get-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
 
-    Zastąp nazwę, nazwę profilu i nazwę grupy zasobów wartościami punktu końcowego, który się zmienia.
+    Zastąp nazwę, nazwa pliku i ResourceGroupName wartościami punktów końcowych, które są zmieniane.
 
     ```powershell
 
@@ -103,7 +103,7 @@ Usunięcie zakresu adresów IP można zakończyć za pomocą [Remove-AzTrafficMa
     Remove-AzTrafficManagerIpAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
 
     ```
-     Po usunięciu zakresów należy użyć [Set-AzTrafficManagerEndpoint,](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) aby zaktualizować punkt końcowy.
+     Po usunięciu zakresów Użyj polecenie [Set-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) , aby zaktualizować punkt końcowy.
 
     ```powershell
 
@@ -112,6 +112,6 @@ Usunięcie zakresu adresów IP można zakończyć za pomocą [Remove-AzTrafficMa
     ```
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o [metodach routingu ruchu](traffic-manager-routing-methods.md)usługi Traffic Manager .
+Dowiedz się więcej o [metodach routingu ruchu](traffic-manager-routing-methods.md)Traffic Manager.
 
-Dowiedz się więcej o [metodzie routingu ruchu podsieci](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method)
+Informacje o [metodzie routingu ruchu podsieci](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method)

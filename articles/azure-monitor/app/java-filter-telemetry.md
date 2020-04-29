@@ -1,33 +1,33 @@
 ---
 title: Filtrowanie danych telemetrycznych usługi Azure Application Insights w aplikacji sieci Web Java
-description: Zmniejsz ruch telemetryczny, odfiltrowując zdarzenia, których nie trzeba monitorować.
+description: Zmniejsz ruch telemetrii, filtrując zdarzenia, które nie muszą być monitorowane.
 ms.topic: conceptual
 ms.date: 3/14/2019
 ms.openlocfilehash: 020e54132e0ca0a9f9ccf0236f94515877015637
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77659921"
 ---
-# <a name="filter-telemetry-in-your-java-web-app"></a>Filtrowanie danych telemetrycznych w aplikacji java web
+# <a name="filter-telemetry-in-your-java-web-app"></a>Filtrowanie danych telemetrycznych w aplikacji sieci Web Java
 
-Filtry umożliwiają wybranie danych telemetrycznych [wysyłanych przez aplikację Java do usługi Application Insights](java-get-started.md). Istnieje kilka gotowych filtrów, których można użyć, a także można napisać własne filtry niestandardowe.
+Filtry umożliwiają wybranie danych telemetrycznych [wysyłanych przez aplikację internetową Java do Application Insights](java-get-started.md). Istnieje kilka wbudowanych filtrów, których można użyć, i można również pisać własne filtry niestandardowe.
 
-Gotowe filtry obejmują:
+Dostępne są następujące filtry:
 
-* Śledzenie poziomu ważności
+* Poziom ważności śledzenia
 * Określone adresy URL, słowa kluczowe lub kody odpowiedzi
-* Szybkie odpowiedzi — czyli żądania, na które aplikacja szybko zareagowała
-* Konkretne nazwy zdarzeń
+* Szybkie odpowiedzi — czyli żądania, do których aplikacja szybko odpowiedziała
+* Nazwy określonych zdarzeń
 
 > [!NOTE]
-> Filtry pochylają dane aplikacji. Na przykład można zdecydować, że w celu zdiagnozowania powolnych odpowiedzi, można ustawić filtr, aby odrzucić szybki czas odpowiedzi. Należy jednak pamiętać, że średni czas odpowiedzi zgłaszany przez usługa Application Insights będzie wtedy wolniejszy niż rzeczywista szybkość, a liczba żądań będzie mniejsza niż rzeczywista liczba.
-> Jeśli jest to problem, należy użyć [próbkowania](../../azure-monitor/app/sampling.md) zamiast.
+> Filtry pochylają metryki aplikacji. Na przykład można zdecydować, że w celu zdiagnozowania powolnych odpowiedzi należy ustawić filtr w celu odrzucania czasów szybkiego reagowania. Należy jednak pamiętać, że średni czas odpowiedzi raportowany przez Application Insights będzie wtedy wolniejszy od prawdziwej szybkości, a liczba żądań będzie mniejsza niż rzeczywista liczba.
+> Jeśli jest to problem, użyj polecenia [próbkowania](../../azure-monitor/app/sampling.md) .
 
 ## <a name="setting-filters"></a>Filtry ustawień
 
-W pliku ApplicationInsights.xml `TelemetryProcessors` dodaj sekcję podobną do tego przykładu:
+W ApplicationInsights. XML Dodaj `TelemetryProcessors` sekcję podobną do tego przykładu:
 
 
 ```XML
@@ -80,11 +80,11 @@ W pliku ApplicationInsights.xml `TelemetryProcessors` dodaj sekcję podobną do 
 
 
 
-[Sprawdź pełny zestaw wbudowanych procesorów](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal/processor).
+[Sprawdź pełen zestaw wbudowanych procesorów](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal/processor).
 
-## <a name="built-in-filters"></a>Wbudowane filtry
+## <a name="built-in-filters"></a>Filtry wbudowane
 
-### <a name="metric-telemetry-filter"></a>Filtr Telemetrii metrycznej
+### <a name="metric-telemetry-filter"></a>Filtr telemetrii metryki
 
 ```XML
 
@@ -93,10 +93,10 @@ W pliku ApplicationInsights.xml `TelemetryProcessors` dodaj sekcję podobną do 
            </Processor>
 ```
 
-* `NotNeeded`- Oddzielona przecinkami lista niestandardowych nazw metryk.
+* `NotNeeded`-Rozdzielana przecinkami lista nazw metryk niestandardowych.
 
 
-### <a name="page-view-telemetry-filter"></a>Filtr Telemetria widoku strony
+### <a name="page-view-telemetry-filter"></a>Filtr telemetrii widoku strony
 
 ```XML
 
@@ -107,12 +107,12 @@ W pliku ApplicationInsights.xml `TelemetryProcessors` dodaj sekcję podobną do 
            </Processor>
 ```
 
-* `DurationThresholdInMS`- Czas trwania odnosi się do czasu, który został przeładowany przez stronę. Jeśli jest to ustawione, strony, które załadowano szybciej niż ten czas, nie są zgłaszane.
-* `NotNeededNames`- Rozdzielona przecinkami lista nazw stron.
-* `NotNeededUrls`- Rozdzielona przecinkami lista fragmentów adresów URL. Na przykład `"home"` odfiltruje wszystkie strony, które mają "home" w adresie URL.
+* `DurationThresholdInMS`-Czas trwania oznacza czas potrzebny do załadowania strony. Jeśli ta wartość jest ustawiona, strony ładowane szybciej niż ten czas nie są zgłaszane.
+* `NotNeededNames`— Rozdzielana przecinkami lista nazw stron.
+* `NotNeededUrls`-Rozdzielana przecinkami lista fragmentów adresów URL. Na przykład `"home"` filtry wszystkie strony, które mają "Home" w adresie URL.
 
 
-### <a name="request-telemetry-filter"></a>Filtr telemetrii żądania
+### <a name="request-telemetry-filter"></a>Filtr telemetryczny żądania
 
 
 ```XML
@@ -128,7 +128,7 @@ W pliku ApplicationInsights.xml `TelemetryProcessors` dodaj sekcję podobną do 
 
 ### <a name="synthetic-source-filter"></a>Filtr źródła syntetycznego
 
-Odfiltrowywają wszystkie dane telemetryczne, które mają wartości we właściwości SyntheticSource. Należą do nich żądania od botów, pająków i testów dostępności.
+Filtruje wszystkie dane telemetryczne, które mają wartości we właściwości SyntheticSource. Obejmują one żądania z botów, pająków i testów dostępności.
 
 Odfiltruj dane telemetryczne dla wszystkich żądań syntetycznych:
 
@@ -138,7 +138,7 @@ Odfiltruj dane telemetryczne dla wszystkich żądań syntetycznych:
            <Processor type="SyntheticSourceFilter" />
 ```
 
-Odfiltrowanie danych telemetrycznych dla określonych źródeł syntetycznych:
+Odfiltruj dane telemetryczne dla określonych źródeł syntetycznych:
 
 
 ```XML
@@ -148,11 +148,11 @@ Odfiltrowanie danych telemetrycznych dla określonych źródeł syntetycznych:
            </Processor>
 ```
 
-* `NotNeeded`- Oddzielona przecinkami lista syntetycznych nazw źródeł.
+* `NotNeeded`-Rozdzielana przecinkami lista nazw źródeł syntetycznych.
 
 ### <a name="telemetry-event-filter"></a>Filtr zdarzeń telemetrii
 
-Filtruje zdarzenia niestandardowe (rejestrowane przy użyciu [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)).
+Filtruje zdarzenia niestandardowe (rejestrowane przy użyciu [poleceń trackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)).
 
 
 ```XML
@@ -163,12 +163,12 @@ Filtruje zdarzenia niestandardowe (rejestrowane przy użyciu [TrackEvent()](../.
 ```
 
 
-* `NotNeededNames`- Rozdzielona przecinkami lista nazw zdarzeń.
+* `NotNeededNames`— Rozdzielana przecinkami lista nazw zdarzeń.
 
 
 ### <a name="trace-telemetry-filter"></a>Filtr telemetrii śledzenia
 
-Filtry dziennika śladów (rejestrowane przy użyciu [TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) lub [moduł zbierający struktury rejestrowania](java-trace-logs.md)).
+Filtruje ślady dziennika (rejestrowane przy użyciu [TrackTrace ()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) lub [modułu zbierającego platformy rejestrowania](java-trace-logs.md)).
 
 ```XML
 
@@ -178,19 +178,19 @@ Filtry dziennika śladów (rejestrowane przy użyciu [TrackTrace()](../../azure-
 ```
 
 * `FromSeverityLevel`prawidłowe wartości to:
-  *  OFF - Odfiltruj WSZYSTKIE ślady
-  *  TRACE — brak filtrowania. równa się poziomowi śledzenia
-  *  INFO - Odfiltruj poziom TRACE
-  *  WARN - Odfiltruj TRACE i INFO
-  *  BŁĄD - Odfiltruj WARN, INFO, TRACE
-  *  CRITICAL - odfiltruj wszystkie, ale KRYTYCZNE
+  *  Wyłącz filtrowanie wszystkich śladów
+  *  Śledzenie — brak filtrowania. równa się na poziomie śledzenia
+  *  INFO — Filtruj poziom śledzenia
+  *  OSTRZEGAj — Filtruj dane śledzenia i informacje
+  *  BŁĄD — filtrowanie ostrzeżeń, informacji, śledzenia
+  *  KRYTYCZNE — Filtruj wszystkie, ale krytyczne
 
 
 ## <a name="custom-filters"></a>Filtry niestandardowe
 
-### <a name="1-code-your-filter"></a>1. Zakoduj swój filtr
+### <a name="1-code-your-filter"></a>1. Zakoduj filtr
 
-W kodzie utwórz klasę, `TelemetryProcessor`która implementuje:
+W kodzie, Utwórz klasę, która implementuje `TelemetryProcessor`:
 
 ```Java
 
@@ -227,9 +227,9 @@ W kodzie utwórz klasę, `TelemetryProcessor`która implementuje:
 ```
 
 
-### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2. Wywołaj filtr w pliku konfiguracyjnym
+### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2. Wywołaj filtr w pliku konfiguracji
 
-W pliku ApplicationInsights.xml:
+W ApplicationInsights. XML:
 
 ```XML
 
@@ -246,9 +246,9 @@ W pliku ApplicationInsights.xml:
 
 ```
 
-### <a name="3-invoke-your-filter-java-spring"></a>3. Wywołaj filtr (Java Spring)
+### <a name="3-invoke-your-filter-java-spring"></a>3. Wywołaj filtr (Sprężyna Java)
 
-W przypadku aplikacji opartych na platformie Spring niestandardowe procesory telemetryczne muszą być zarejestrowane w głównej klasie aplikacji jako bean. Zostaną one następnie automatycznie okablowane po uruchomieniu aplikacji.
+W przypadku aplikacji opartych na strukturze wiosny niestandardowe procesory telemetrii muszą być zarejestrowane w głównej klasie aplikacji jako element. Po uruchomieniu aplikacji zostanie ona przetransmitowana ponownie.
 
 ```Java
 @Bean
@@ -257,15 +257,15 @@ public TelemetryProcessor successFilter() {
 }
 ```
 
-Musisz utworzyć własne parametry filtru `application.properties` i wykorzystać zewnętrzną strukturę konfiguracji Spring Boot, aby przekazać te parametry do filtru niestandardowego. 
+Aby przekazać te parametry do niestandardowego filtru, należy utworzyć `application.properties` własne parametry filtru w i wykorzystać zewnętrzną strukturę rozruchu sprężyny. 
 
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 *Mój filtr nie działa.*
 
-* Sprawdź, czy podano prawidłowe wartości parametrów. Na przykład czasy trwania powinny być liczby całkowite. Nieprawidłowe wartości spowodują, że filtr zostanie zignorowany. Jeśli filtr niestandardowy zgłasza wyjątek od konstruktora lub metody zestawu, zostanie on zignorowany.
+* Sprawdź, czy podano prawidłowe wartości parametrów. Na przykład czasy trwania powinny być liczbami całkowitymi. Nieprawidłowe wartości spowodują, że filtr zostanie zignorowany. Jeśli filtr niestandardowy zgłosi wyjątek z konstruktora lub metody Set, zostanie zignorowany.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Próbkowanie](../../azure-monitor/app/sampling.md) — należy wziąć pod uwagę próbkowanie jako alternatywę, która nie pochyla metryki.
+* [Próbkowanie](../../azure-monitor/app/sampling.md) — należy rozważyć próbkowanie jako alternatywę, która nie pochyla metryk.

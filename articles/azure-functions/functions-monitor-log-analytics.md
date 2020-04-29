@@ -1,44 +1,44 @@
 ---
-title: Monitorowanie funkcji platformy Azure za pomocą dzienników monitora platformy Azure
-description: Dowiedz się, jak używać dzienników usługi Azure Monitor z usługami Azure Functions do monitorowania wykonywania funkcji.
+title: Azure Functions monitorowania z dziennikami Azure Monitor
+description: Dowiedz się, jak używać dzienników Azure Monitor z Azure Functions do monitorowania wykonań funkcji.
 author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: cshoe
 ms.openlocfilehash: 13c72a1cf8a0dd4a1124e51b9ceee04ae04bf261
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77649878"
 ---
-# <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Monitorowanie funkcji platformy Azure za pomocą dzienników monitora platformy Azure
+# <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Azure Functions monitorowania z dziennikami Azure Monitor
 
-Usługa Azure Functions oferuje integrację z [dziennikami usługi Azure Monitor](../azure-monitor/platform/data-platform-logs.md) w celu monitorowania funkcji. W tym artykule pokazano, jak skonfigurować usługi Azure Functions do wysyłania dzienników generowanych przez system i generowanych przez użytkownika do dzienników usługi Azure Monitor.
+Azure Functions oferuje integrację z [dziennikami Azure monitor](../azure-monitor/platform/data-platform-logs.md) do monitorowania funkcji. W tym artykule opisano sposób konfigurowania Azure Functions wysyłania dzienników generowanych przez system i generowanych przez użytkownika w celu Azure Monitor dzienników.
 
-Dzienniki usługi Azure Monitor umożliwiają konsolidację dzienników z różnych zasobów w tym samym obszarze roboczym, gdzie można je analizować za pomocą [zapytań](../azure-monitor/log-query/log-query-overview.md) w celu szybkiego pobierania, konsolidowania i analizowania zebranych danych.  Można tworzyć i testować kwerendy przy użyciu [usługi Log Analytics](../azure-monitor/log-query/portals.md) w witrynie Azure portal, a następnie bezpośrednio analizować dane za pomocą tych narzędzi lub zapisywać zapytania do użycia z wizualizacjami lub [regułami alertów.](../azure-monitor/visualizations.md) [alert rules](../azure-monitor/platform/alerts-overview.md)
+Dzienniki Azure Monitor umożliwiają konsolidowanie dzienników z różnych zasobów w tym samym obszarze roboczym, dzięki czemu można je analizować przy użyciu [zapytań](../azure-monitor/log-query/log-query-overview.md) , aby szybko pobierać, konsolidować i analizować zebrane dane.  Możesz tworzyć i testować zapytania przy użyciu [log Analytics](../azure-monitor/log-query/portals.md) w Azure Portal, a następnie bezpośrednio analizować dane przy użyciu tych narzędzi lub zapisywać zapytania do użycia z [wizualizacjami](../azure-monitor/visualizations.md) lub [regułami alertów](../azure-monitor/platform/alerts-overview.md).
 
-Usługa Azure Monitor używa wersji [języka zapytań Kusto](/azure/kusto/query/) używanego przez Eksploratora danych platformy Azure, który jest odpowiedni dla prostych zapytań dziennika, ale zawiera również zaawansowane funkcje, takie jak agregacje, sprzężenia i inteligentne analizy. Możesz szybko nauczyć się języka zapytań, korzystając z [wielu lekcji.](../azure-monitor/log-query/get-started-queries.md)
+Azure Monitor używa wersji [języka zapytań Kusto](/azure/kusto/query/) używanej przez platformę Azure Eksplorator danych, która jest odpowiednia dla prostych zapytań dzienników, ale również zawiera zaawansowane funkcje, takie jak agregacje, sprzężenia i Inteligentna analiza. Możesz szybko poznać język zapytań przy użyciu [wielu lekcji](../azure-monitor/log-query/get-started-queries.md).
 
 > [!NOTE]
-> Integracja z dziennikami monitora platformy Azure jest obecnie w publicznej wersji zapoznawczej dla aplikacji funkcji działających w systemach Windows Consumption, Premium i dedykowanych planach hostingowych.
+> Integracja z dziennikami Azure Monitor jest obecnie dostępna w publicznej wersji zapoznawczej dla aplikacji funkcji działających w ramach użycia, Premium i dedykowanych planów hostingu systemu Windows.
 
 ## <a name="setting-up"></a>Konfigurowanie
 
-W sekcji **Monitorowanie** wybierz pozycję **Ustawienia diagnostyczne,** a następnie kliknij pozycję **Dodaj ustawienie diagnostyczne**.
+W sekcji **monitorowanie** wybierz pozycję **Ustawienia diagnostyczne** , a następnie kliknij pozycję **Dodaj ustawienie diagnostyczne**.
 
-![Dodawanie ustawienia diagnostycznego](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
+![Dodaj ustawienie diagnostyczne](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
 
-Na stronie **Ustawienia diagnostyki** wybierz pozycję **Wyślij do usługi Log Analytics**, a następnie wybierz obszar roboczy usługi Log Analytics. W **obszarze dziennik** wybierz **functionapplogs**, ta tabela zawiera żądane dzienniki.
+Na stronie **Ustawienia diagnostyki** wybierz pozycję **Wyślij do log Analytics**a następnie wybierz obszar roboczy log Analytics. W obszarze **Dziennik** wybierz **FunctionAppLogs**, ta tabela zawiera odpowiednie dzienniki.
 
-![Dodawanie ustawienia diagnostycznego](media/functions-monitor-log-analytics/choose-table.png)
+![Dodaj ustawienie diagnostyczne](media/functions-monitor-log-analytics/choose-table.png)
 
-## <a name="user-generated-logs"></a>Dzienniki generowane przez użytkowników
+## <a name="user-generated-logs"></a>Dzienniki generowane przez użytkownika
 
-Aby wygenerować dzienniki niestandardowe, można użyć określonej instrukcji rejestrowania w zależności od języka, oto przykładowe fragmenty kodu:
+W celu wygenerowania dzienników niestandardowych można użyć określonej instrukcji rejestrowania w zależności od języka, poniżej przedstawiono przykładowe fragmenty kodu:
 
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```csharp
 log.LogInformation("My app logs here.");
@@ -50,13 +50,13 @@ log.LogInformation("My app logs here.");
 context.getLogger().info("My app logs here.");
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 context.log('My app logs here.');
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/powershell)
+# <a name="powershell"></a>[Narzędzia](#tab/powershell)
 
 ```powershell
 Write-Host "My app logs here."
@@ -70,13 +70,13 @@ logging.info('My app logs here.')
 
 ---
 
-## <a name="querying-the-logs"></a>Wykonywanie zapytań o dzienniki
+## <a name="querying-the-logs"></a>Wykonywanie zapytania dotyczącego dzienników
 
-Aby zbadać wygenerowane dzienniki, przejdź do obszaru roboczego usługi Log Analytics skonfigurowany do wysyłania dzienników funkcji i kliknij pozycję **Dzienniki**.
+Aby wykonać zapytanie dotyczące wygenerowanych dzienników, przejdź do obszaru roboczego Log Analytics skonfigurowanego do wysyłania dzienników funkcji do i kliknij pozycję **dzienniki**.
 
-![Okno kwerendy w obszarze roboczym LA](media/functions-monitor-log-analytics/querying.png)
+![Okno zapytania w obszarze roboczym LA](media/functions-monitor-log-analytics/querying.png)
 
-Usługa Azure Functions zapisuje wszystkie dzienniki w tabeli **FunctionAppLogs,** oto kilka przykładowych zapytań.
+Azure Functions zapisuje wszystkie dzienniki w tabeli **FunctionAppLogs** , poniżej przedstawiono kilka przykładowych zapytań.
 
 ### <a name="all-logs"></a>Wszystkie dzienniki
 
@@ -87,7 +87,7 @@ FunctionAppLogs
 
 ```
 
-### <a name="a-specific-function-logs"></a>Określona funkcja rejestruje
+### <a name="a-specific-function-logs"></a>Określone dzienniki funkcji
 
 ```
 
@@ -108,6 +108,6 @@ FunctionAppLogs
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zapoznaj się z [omówieniem funkcji platformy Azure](functions-overview.md)
-- Dowiedz się więcej o [dziennikach monitora platformy Azure](../azure-monitor/platform/data-platform-logs.md)
+- Zapoznaj się z [omówieniem Azure Functions](functions-overview.md)
+- Dowiedz się więcej o [dziennikach Azure monitor](../azure-monitor/platform/data-platform-logs.md)
 - Dowiedz się więcej o [języku zapytań](../azure-monitor/log-query/get-started-queries.md).

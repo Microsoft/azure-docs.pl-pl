@@ -17,10 +17,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e27287a414a2a4edef3e9090b7d91beb1c70f554
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76897321"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Używanie programu Azure AD Connect Health z usługami AD DS
@@ -59,9 +59,9 @@ Domyślnie zostały wstępnie wybrane cztery liczniki wydajności. Można jednak
 ## <a name="related-links"></a>Powiązane linki
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Instalowanie agenta programu Azure AD Connect Health](how-to-connect-health-agent-install.md)
-* [Operacje kondycji usługi Azure AD Connect](how-to-connect-health-operations.md)
+* [Operacje w programie Azure AD Connect Health](how-to-connect-health-operations.md)
 * [Używanie programu Azure AD Connect Health z usługami AD FS](how-to-connect-health-adfs.md)
-* [Używanie usługi Azure AD Connect Health do synchronizacji](how-to-connect-health-sync.md)
+* [Używanie Azure AD Connect Health do synchronizacji](how-to-connect-health-sync.md)
 * [Azure AD Connect Health — często zadawane pytania](reference-connect-health-faq.md)
-* [Historia wersji usługi Azure AD Connect](reference-connect-health-version-history.md)
+* [Historia wersji Azure AD Connect Health](reference-connect-health-version-history.md)
 

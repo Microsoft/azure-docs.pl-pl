@@ -1,6 +1,6 @@
 ---
-title: Wyświetlanie informacji związanych z prywatnością z portalu Moje konto — Usługa Azure AD
-description: Dowiedz się, jak Twoja organizacja wykorzystuje informacje związane z prywatnością ze strony Prywatność w portalu Moje konto.
+title: Wyświetlanie informacji związanych z prywatnością w portalu My Account — Azure AD
+description: Dowiedz się, w jaki sposób Twoja organizacja używa informacji związanych z prywatnością ze strony prywatność w portalu My account.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,40 +12,40 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
 ms.openlocfilehash: 94187cc7c0c3500a86d47a5f244457ee020581a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77062442"
 ---
-# <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Wyświetlanie sposobu, w jaki Organizacja wykorzystuje dane związane z prywatnością
+# <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Zobacz, jak Twoja organizacja używa danych związanych z prywatnością
 
-Możesz zobaczyć, jak twoja organizacja wykorzystuje Twoje dane, na stronie **Prywatność** w portalu **Moje konto.**
+Możesz zobaczyć, jak Twoja organizacja korzysta z danych ze strony **prywatność** w portalu **My Account** .
 
 ## <a name="view-your-privacy-related-info"></a>Wyświetlanie swoich informacji związanych z prywatnością
 
-1. Zaloguj się na swoje konto służbowe, https://myprofile.microsoft.com/ a następnie przejdź do strony.
+1. Zaloguj się do swojego konta służbowego, a następnie przejdź do https://myprofile.microsoft.com/ strony.
 
-2. Wybierz **pozycję Prywatność** w lewym okienku nawigacji lub wybierz link **Przejrzyj prywatność** z bloku **Prywatność.**
+2. W okienku nawigacji po lewej stronie wybierz opcję **prywatność** lub wybierz łącze **Sprawdź prywatność** z bloku **prywatność** .
 
-    ![Strona Moje konto z wyróżnionymi linkami do prywatności](media/my-account-portal/my-account-portal-privacy.png)
+    ![Strona Moje konto z wyświetlonymi wyróżnionymi linkami prywatności](media/my-account-portal/my-account-portal-privacy.png)
 
 3. Przejrzyj informacje, w tym:
 
-    - **Usług.** Lista usług online, z którymi masz połączenie przy użyciu konta służbowego.
+    - **Services.** Lista Usługi online, z którymi nawiązano połączenie przy użyciu konta służbowego.
 
     - **Warunki użytkowania**. Warunki użytkowania organizacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po wyświetleniach sposobu, w jaki organizacja wykorzystuje dane, możesz:
+Po przejrzeniu sposobu korzystania z danych przez organizację można:
 
-- Wyświetlanie informacji [zabezpieczających](user-help-security-info-overview.md)lub zarządzanie nimi .
+- Wyświetl [informacje zabezpieczające](user-help-security-info-overview.md)lub zarządzaj nimi.
 
-- Wyświetlanie [podłączonych urządzeń](my-account-portal-devices-page.md)lub zarządzanie nimi .
+- Wyświetl podłączone [urządzenia](my-account-portal-devices-page.md)lub zarządzaj nimi.
 
-- Wyświetlanie [organizacji](my-account-portal-organizations-page.md)lub zarządzanie nimi .
+- Wyświetl swoje [organizacje](my-account-portal-organizations-page.md)lub zarządzaj nimi.
 
-- Wyświetlanie [aktywności logowania](my-account-portal-sign-ins-page.md).
+- Wyświetlanie [działania związanego z logowaniem](my-account-portal-sign-ins-page.md).
 
-- Preferencje kontaktowe związane z pakietem Microsoft Office i informacje o prywatności można również wyświetlić na [stronie Prywatności portalu pakietu Office, zabezpieczeń & prywatności](https://portal.office.com/account/#security).
+- Możesz również wyświetlić informacje o preferencjach kontaktu i prywatności dotyczące Microsoft Office w [portalu Office, na stronie prywatność & zabezpieczeń](https://portal.office.com/account/#security).

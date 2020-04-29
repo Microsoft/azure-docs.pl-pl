@@ -1,6 +1,6 @@
 ---
 title: Tożsamość zarządzana w zadaniu ACR
-description: Włącz tożsamość zarządzaną dla zasobów platformy Azure w zadaniu rejestru kontenerów platformy Azure, aby umożliwić zadaniu dostęp do innych zasobów platformy Azure, w tym innych rejestrów kontenerów prywatnych.
+description: Włącz zarządzaną tożsamość zasobów platformy Azure w zadaniu Azure Container Registry, aby umożliwić zadanie dostępu do innych zasobów platformy Azure, w tym innych prywatnych rejestrów kontenerów.
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -9,50 +9,50 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: danlep
 ms.openlocfilehash: f3294698f6973437a23fab798e8daf5642cc9b49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77111771"
 ---
-# <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Używanie tożsamości zarządzanej przez platformę Azure w zadaniach usługi ACR 
+# <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Korzystanie z tożsamości zarządzanej przez platformę Azure w zadaniach ACR 
 
-Włącz [tożsamość zarządzaną zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md) w [zadaniu usługi ACR,](container-registry-tasks-overview.md)aby zadanie uzyskiwać dostęp do innych zasobów platformy Azure bez konieczności podawania poświadczeń ani zarządzania nimi. Na przykład użyj tożsamości zarządzanej, aby włączyć krok zadania, aby wyciągnąć lub wypchnąć obrazy kontenerów do innego rejestru.
+Włącz [zarządzaną tożsamość zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md) w [zadaniu ACR](container-registry-tasks-overview.md), aby zadanie miało dostęp do innych zasobów platformy Azure bez konieczności udostępniania poświadczeń ani zarządzania nimi. Na przykład użyj tożsamości zarządzanej, aby umożliwić krokowi zadania ściąganie lub wypychanie obrazów kontenera do innego rejestru.
 
-W tym artykule dowiesz się, jak używać interfejsu wiersza polecenia platformy Azure, aby włączyć tożsamość zarządzaną przypisaną przez użytkownika lub przypisaną do systemu w zadaniu usługi ACR. Można użyć usługi Azure Cloud Shell lub lokalnej instalacji interfejsu wiersza polecenia platformy Azure. Jeśli chcesz używać go lokalnie, wymagana jest wersja 2.0.68 lub nowsza. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
+W tym artykule dowiesz się, jak korzystać z interfejsu wiersza polecenia platformy Azure w celu włączenia zarządzanej tożsamości przypisanej przez użytkownika lub przypisanej do systemu w ramach zadania ACR. Możesz użyć Azure Cloud Shell lub lokalnej instalacji interfejsu wiersza polecenia platformy Azure. Jeśli chcesz używać go lokalnie, wymagana jest wersja 2.0.68 lub nowsza. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
 
-Na potrzeby ilustracji przykładowe polecenia w tym artykule używają [az acr task create][az-acr-task-create] to create a basic image build task that enables a managed identity. Przykładowe scenariusze uzyskiwania dostępu do zabezpieczonych zasobów z zadania usługi ACR przy użyciu tożsamości zarządzanej można znaleźć na przykład:
+Przykładowe polecenia w tym [artykule służą do tworzenia][az-acr-task-create] podstawowego zadania tworzenia obrazu, które umożliwia tożsamość zarządzaną. Przykładowe scenariusze umożliwiające dostęp do zabezpieczonych zasobów z zadania ACR przy użyciu tożsamości zarządzanej można znaleźć w temacie:
 
 * [Uwierzytelnianie między rejestrami](container-registry-tasks-cross-registry-authentication.md)
-* [Uzyskiwanie dostępu do zasobów zewnętrznych za pomocą wpisów tajnych przechowywanych w usłudze Azure Key Vault](container-registry-tasks-authentication-key-vault.md)
+* [Dostęp do zasobów zewnętrznych przy użyciu wpisów tajnych przechowywanych w Azure Key Vault](container-registry-tasks-authentication-key-vault.md)
 
 ## <a name="why-use-a-managed-identity"></a>Dlaczego warto używać tożsamości zarządzanej?
 
-Tożsamość zarządzana zasobów platformy Azure zapewnia wybrane usługi platformy Azure z automatycznie zarządzaną tożsamością w usłudze Azure Active Directory. Można skonfigurować zadanie usługi ACR z tożsamością zarządzaną, aby zadanie miało dostęp do innych zabezpieczonych zasobów platformy Azure bez podawania poświadczeń w krokach zadania.
+Zarządzana tożsamość zasobów platformy Azure umożliwia wybranie usług platformy Azure z automatyczną tożsamością zarządzaną w Azure Active Directory. Zadanie ACR można skonfigurować przy użyciu tożsamości zarządzanej, aby zadanie miało dostęp do innych zabezpieczonych zasobów platformy Azure bez przekazywania poświadczeń w krokach zadania.
 
-Tożsamości zarządzane są dwa typy:
+Zarządzane tożsamości są dwa typy:
 
-* *Tożsamości przypisane przez użytkownika*, które można przypisać do wielu zasobów i utrzymują się tak długo, jak chcesz. Tożsamości przypisane przez użytkownika są obecnie w wersji zapoznawczej.
+* *Tożsamości przypisane przez użytkownika*, które można przypisać do wielu zasobów i utrzymywać je tak długo, jak chcesz. Tożsamości przypisane przez użytkownika są obecnie w wersji zapoznawczej.
 
-* *Tożsamość przypisana do systemu*, która jest unikatowa dla określonego zasobu, takiego jak zadanie ACR i trwa przez cały okres istnienia tego zasobu.
+* *Tożsamość przypisana przez system*, która jest unikatowa dla określonego zasobu, takiego jak zadanie ACR i obowiązuje w okresie istnienia tego zasobu.
 
-Można włączyć jeden lub oba typy tożsamości w zadaniu ACR. Udziel tożsamości dostępu do innego zasobu, podobnie jak każdy podmiot zabezpieczeń. Po uruchomieniu zadania używa tożsamości, aby uzyskać dostęp do zasobu w dowolnych krokach zadania, które wymagają dostępu.
+W zadaniu ACR można włączyć albo oba typy tożsamości. Przyznaj tożsamości dostęp do innego zasobu, podobnie jak każdy podmiot zabezpieczeń. Gdy zadanie zostanie uruchomione, używa tożsamości w celu uzyskania dostępu do zasobu w dowolnym kroku zadania, który wymaga dostępu.
 
-## <a name="steps-to-use-a-managed-identity"></a>Kroki użycia tożsamości zarządzanej
+## <a name="steps-to-use-a-managed-identity"></a>Procedura używania tożsamości zarządzanej
 
-Wykonaj te kroki wysokiego poziomu, aby użyć tożsamości zarządzanej z zadaniem usługi ACR.
+Wykonaj te czynności wyższego poziomu, aby użyć zarządzanej tożsamości z zadaniem ACR.
 
-### <a name="1-optional-create-a-user-assigned-identity"></a>1. (Opcjonalnie) Tworzenie tożsamości przypisanej przez użytkownika
+### <a name="1-optional-create-a-user-assigned-identity"></a>1. (opcjonalnie) Utwórz tożsamość przypisaną przez użytkownika
 
-Jeśli planujesz używać tożsamości przypisanej przez użytkownika, użyj istniejącej tożsamości lub utwórz tożsamość przy użyciu interfejsu wiersza polecenia platformy Azure lub innych narzędzi platformy Azure. Na przykład użyj polecenia [tworzenia tożsamości az.][az-identity-create] 
+Jeśli planujesz użycie tożsamości przypisanej do użytkownika, Użyj istniejącej tożsamości lub Utwórz tożsamość przy użyciu interfejsu wiersza polecenia platformy Azure lub innych narzędzi platformy Azure. Na przykład użyj polecenia [AZ Identity Create][az-identity-create] . 
 
-Jeśli planujesz używać tylko tożsamości przypisanej do systemu, pomiń ten krok. Podczas tworzenia zadania ACR tworzę tożsamość przypisaną do systemu.
+Jeśli planujesz używać tylko tożsamości przypisanej do systemu, Pomiń ten krok. Podczas tworzenia zadania ACR można utworzyć tożsamość przypisaną przez system.
 
-### <a name="2-enable-identity-on-an-acr-task"></a>2. Włącz tożsamość w zadaniu ACR
+### <a name="2-enable-identity-on-an-acr-task"></a>2. Włącz tożsamość dla zadania ACR
 
-Podczas tworzenia zadania ACR opcjonalnie włącz tożsamość przypisaną przez użytkownika, tożsamość przypisaną do systemu lub obie te te informacje. Na przykład przekazać `--assign-identity` parametr po uruchomieniu [az acr zadanie utworzyć][az-acr-task-create] polecenie w usłudze Azure CLI.
+Podczas tworzenia zadania ACR opcjonalnie należy włączyć tożsamość przypisaną przez użytkownika, tożsamość przypisaną do systemu lub obie te funkcje. Na przykład, należy przekazać `--assign-identity` parametr, gdy uruchamiasz polecenie [AZ ACR Task Create][az-acr-task-create] w interfejsie wiersza polecenia platformy Azure.
 
-Aby włączyć tożsamość przypisaną `--assign-identity` do systemu, `assign-identity [system]`należy przejść bez wartości lub . Poniższe przykładowe polecenie tworzy zadanie systemu Linux z publicznego repozytorium GitHub, które tworzy `hello-world` obraz i umożliwia tożsamości zarządzanej przypisanej przez system:
+Aby włączyć tożsamość przypisaną do systemu, należy `--assign-identity` przekazać bez wartości lub `assign-identity [system]`. Poniższe przykładowe polecenie tworzy zadanie systemu Linux na podstawie publicznego repozytorium GitHub, które kompiluje `hello-world` obraz i umożliwia tożsamość zarządzaną przypisaną przez system:
 
 ```azurecli
 az acr task create \
@@ -64,7 +64,7 @@ az acr task create \
     --assign-identity
 ```
 
-Aby włączyć tożsamość przypisaną `--assign-identity` przez użytkownika, przekaż z wartością *identyfikatora zasobu* tożsamości. Poniższe przykładowe polecenie tworzy zadanie systemu Linux z publicznego repozytorium GitHub, które tworzy `hello-world` obraz i umożliwia tożsamości zarządzanej przypisanej przez użytkownika:
+Aby włączyć tożsamość przypisaną przez użytkownika, należy `--assign-identity` przekazać wartość *identyfikatora zasobu* tożsamości. Poniższe przykładowe polecenie tworzy zadanie systemu Linux na podstawie publicznego repozytorium GitHub, które kompiluje `hello-world` obraz i umożliwia tożsamość zarządzaną przez użytkownika:
 
 ```azurecli
 az acr task create \
@@ -76,22 +76,22 @@ az acr task create \
     --assign-identity <resourceID>
 ```
 
-Identyfikator zasobu tożsamości można uzyskać, uruchamiając polecenie [az identity show.][az-identity-show] Identyfikator zasobu identyfikatora *myUserAssignedIdentity* w grupie zasobów *myResourceGroup* jest w formularzu: 
+Identyfikator zasobu tożsamości można uzyskać, uruchamiając polecenie [AZ Identity show][az-identity-show] . Identyfikator zasobu dla identyfikatora *myUserAssignedIdentity* *w grupie zasobów resourceName* ma postać: 
 
 ```
 "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity"
 ```
 
-### <a name="3-grant-the-identity-permissions-to-access-other-azure-resources"></a>3. Udzielanie uprawnień tożsamości w celu uzyskania dostępu do innych zasobów platformy Azure
+### <a name="3-grant-the-identity-permissions-to-access-other-azure-resources"></a>3. Przyznaj tożsamości uprawnienia dostępu do innych zasobów platformy Azure
 
-W zależności od wymagań zadania przyznaj uprawnienia tożsamości, aby uzyskać dostęp do innych zasobów platformy Azure. Przykłady:
+W zależności od wymagań zadania Przyznaj tożsamości uprawnienia dostępu do innych zasobów platformy Azure. Przykłady:
 
-* Przypisz tożsamość zarządzaną rolę z ściąganiem, wypychaniem i ściąganiem lub innymi uprawnieniami do docelowego rejestru kontenerów na platformie Azure. Aby uzyskać pełną listę ról rejestru, zobacz [Role i uprawnienia rejestru kontenerów platformy Azure](container-registry-roles.md). 
-* Przypisz tożsamość zarządzaną rolę do odczytu wpisów tajnych w magazynie kluczy platformy Azure.
+* Przypisywanie tożsamości zarządzanej roli za pomocą ściągania, wypychania i ściągania lub innych uprawnień do rejestru kontenerów docelowych na platformie Azure. Pełną listę ról rejestru można znaleźć w temacie [Azure Container Registry role i uprawnienia](container-registry-roles.md). 
+* Przypisanie tożsamości zarządzanej roli do odczytu wpisów tajnych w magazynie kluczy platformy Azure.
 
-Użyj [interfejsu wiersza polecenia platformy Azure](../role-based-access-control/role-assignments-cli.md) lub innych narzędzi platformy Azure do zarządzania dostępem do zasobów opartych na rolach. Na przykład uruchom [polecenie tworzenia przypisania roli az,][az-role-assignment-create] aby przypisać tożsamość roli do zasobu. 
+Użyj [interfejsu wiersza polecenia platformy Azure](../role-based-access-control/role-assignments-cli.md) lub innych narzędzi platformy Azure, aby zarządzać dostępem opartym na rolach do zasobów. Na przykład uruchom polecenie [AZ role Assign Create][az-role-assignment-create] , aby przypisać tożsamość roli do zasobu. 
 
-Poniższy przykład przypisuje tożsamości zarządzanej uprawnienia do ściągania z rejestru kontenerów. Polecenie określa *główny identyfikator* tożsamości zadania i *identyfikator zasobu* rejestru docelowego.
+Poniższy przykład przypisuje zarządzanej tożsamości uprawnienia do ściągania z rejestru kontenerów. Polecenie określa *Identyfikator podmiotu zabezpieczeń* tożsamości zadania i *Identyfikator zasobu* docelowego rejestru.
 
 
 ```azurecli
@@ -101,11 +101,11 @@ az role assignment create \
   --role acrpull
 ```
 
-### <a name="4-optional-add-credentials-to-the-task"></a>4. (Opcjonalnie) Dodawanie poświadczeń do zadania
+### <a name="4-optional-add-credentials-to-the-task"></a>4. (opcjonalnie) Dodaj poświadczenia do zadania
 
-Jeśli zadanie wymaga poświadczeń, aby pobierać lub wypychać obrazy do innego rejestru niestandardowego lub uzyskać dostęp do innych zasobów, dodaj poświadczenia do zadania. Uruchom [polecenie dodawania az acr,][az-acr-task-credential-add] aby dodać `--use-identity` poświadczenia, i przekaż parametr, aby wskazać, że tożsamość może uzyskać dostęp do poświadczeń. 
+Jeśli zadanie wymaga poświadczeń do ściągania lub wypychania obrazów do innego niestandardowego rejestru lub do uzyskiwania dostępu do innych zasobów, Dodaj poświadczenia do zadania. Uruchom polecenie [AZ ACR Task Credential Add][az-acr-task-credential-add] , aby dodać poświadczenia, i przekaż `--use-identity` parametr, aby wskazać, że tożsamość może uzyskać dostęp do poświadczeń. 
 
-Na przykład, aby dodać poświadczenia dla tożsamości przypisanej do systemu do uwierzytelniania za `use-identity [system]`pomocą *docelowych*rejestrów kontenerów platformy Azure , przekaż:
+Na przykład aby dodać poświadczenia dla tożsamości przypisanej do systemu w celu uwierzytelnienia w usłudze Azure Container Registry *targetregistry*, `use-identity [system]`Przekaż:
 
 ```azurecli
 az acr task credential add \
@@ -115,7 +115,7 @@ az acr task credential add \
     --use-identity [system]
 ```
 
-Aby dodać poświadczenia dla tożsamości przypisanej przez użytkownika do uwierzytelniania za `use-identity` pomocą *rejestru docelowego,* przekaż z wartością *identyfikatora klienta* tożsamości. Przykład:
+Aby dodać poświadczenia dla tożsamości przypisanej do użytkownika w celu uwierzytelnienia za *targetregistry*pomocą rejestru targetregistry `use-identity` , przekaż wartość *identyfikatora klienta* tożsamości. Przykład:
 
 ```azurecli
 az acr task credential add \
@@ -125,18 +125,18 @@ az acr task credential add \
     --use-identity <clientID>
 ```
 
-Identyfikator klienta tożsamości można uzyskać, uruchamiając polecenie [az identity show.][az-identity-show] Identyfikator klienta jest identyfikatorem GUID `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`formularza .
+Identyfikator klienta tożsamości można uzyskać, uruchamiając polecenie [AZ Identity show][az-identity-show] . Identyfikator klienta jest identyfikatorem GUID formularza `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 ### <a name="5-run-the-task"></a>5. Uruchom zadanie
 
-Po skonfigurowaniu zadania z tożsamością zarządzaną uruchom zadanie. Na przykład, aby przetestować jedno z zadań utworzonych w tym artykule, ręcznie wyzwolić go za pomocą polecenia [az acr uruchamiania zadania.][az-acr-task-run] Jeśli skonfigurowano dodatkowe, zautomatyzowane wyzwalacze zadań, zadanie zostanie uruchomione po automatycznym wyzwoleniu.
+Po skonfigurowaniu zadania z tożsamością zarządzaną Uruchom zadanie. Na przykład w celu przetestowania jednego z zadań utworzonych w tym artykule ręcznie Wyzwól je za pomocą polecenia [AZ ACR Task Run][az-acr-task-run] . Jeśli skonfigurowano dodatkowe, zautomatyzowane Wyzwalacze zadań, zadanie zostanie uruchomione, gdy zostanie wyzwolone automatycznie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule dowiesz się, jak włączyć i używać tożsamości zarządzanej przypisanej przez użytkownika lub przypisanej do systemu w zadaniu usługi ACR. Scenariusze dostępu do zabezpieczonych zasobów z zadania usługi ACR przy użyciu tożsamości zarządzanej można znaleźć na przykład:
+W tym artykule przedstawiono sposób włączania i używania tożsamości zarządzanej przypisanej przez użytkownika lub przypisanej do systemu w ramach zadania ACR. Scenariusze umożliwiające dostęp do zabezpieczonych zasobów z zadania ACR przy użyciu tożsamości zarządzanej można znaleźć w temacie:
 
 * [Uwierzytelnianie między rejestrami](container-registry-tasks-cross-registry-authentication.md)
-* [Uzyskiwanie dostępu do zasobów zewnętrznych za pomocą wpisów tajnych przechowywanych w usłudze Azure Key Vault](container-registry-tasks-authentication-key-vault.md)
+* [Dostęp do zasobów zewnętrznych przy użyciu wpisów tajnych przechowywanych w Azure Key Vault](container-registry-tasks-authentication-key-vault.md)
 
 
 <!-- LINKS - Internal -->

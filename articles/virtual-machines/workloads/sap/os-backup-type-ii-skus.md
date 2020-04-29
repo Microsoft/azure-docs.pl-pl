@@ -1,6 +1,6 @@
 ---
-title: Tworzenie kopii zapasowych i przywracanie systemu SAP HANA na platformie Azure (duże wystąpienia) typu II SKU| Dokumenty firmy Microsoft
-description: Wykonywanie kopii zapasowych i przywracania systemu operacyjnego dla sap HANA na platformie Azure (duże wystąpienia) SKU typu II
+title: Kopia zapasowa i przywracanie systemu operacyjnego SAP HANA na platformie Azure (duże wystąpienia) Typ II SKU | Microsoft Docs
+description: Wykonaj kopię zapasową i Przywróć systemu operacyjnego dla SAP HANA na platformie Azure (duże wystąpienia) Typ II SKU
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
@@ -14,79 +14,79 @@ ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 100e1b974e54d8c0065194bc7beb18f458011434
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77616862"
 ---
-# <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Tworzenie kopii zapasowych i przywracanie systemu operacyjnego dla jednostek SKU typu II sygnatury wersji 3
+# <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Kopia zapasowa i przywracanie systemu operacyjnego dla jednostek SKU typu II poprawki 3
 
-W tym dokumencie opisano kroki wykonywania kopii zapasowej i przywracania na poziomie pliku systemu operacyjnego dla **jednostek SKU typu II** dużych wystąpień wersji 3. 
+W tym dokumencie opisano kroki tworzenia kopii zapasowej i przywracania na poziomie pliku systemu operacyjnego dla **jednostek SKU typu II** o dużych wystąpieniach poprawki 3. 
 
 >[!Important]
-> **Ten artykuł nie dotyczy wdrożeń jednostek SKU typu II w sygnaturach dużych wystąpień wersji 4 HANA.** Rozruch LUNS typu II HANA jednostek dużych wystąpień, które są wdrażane w wersji 4 HANA duże wystąpienia sygnatury mogą być archiwizowane z migawek magazynu, jak to jest w przypadku typu I SKU już w wersji 3 znaczki
+> **Ten artykuł nie ma zastosowania do wdrożeń jednostek SKU typu II w programie Revisions 4 HANA duże wystąpienia.** Można utworzyć kopię zapasową rozruchowych jednostek LUN typu o dużej liczbie wystąpień programu HANA, które są wdrażane w wersji 2
 
 
 >[!NOTE]
->Skrypty kopii zapasowej systemu operacyjnego używają oprogramowania ReaR, które jest wstępnie zainstalowane na serwerze.  
+>Skrypty kopii zapasowej systemu operacyjnego korzystają z oprogramowania tylnego, które jest wstępnie zainstalowane na serwerze.  
 
-Po zakończeniu inicjowania `Service Management` obsługi administracyjnej przez zespół firmy Microsoft, domyślnie serwer jest skonfigurowany z dwoma harmonogramami tworzenia kopii zapasowych w celu utworzenia kopii zapasowej poziomu systemu plików z tyłu systemu operacyjnego. Harmonogramy zadań tworzenia kopii zapasowej można sprawdzić za pomocą następującego polecenia:
+Po zakończeniu aprowizacji przez zespół firmy Microsoft `Service Management` serwer jest domyślnie skonfigurowany przy użyciu dwóch harmonogramów tworzenia kopii zapasowych, aby utworzyć kopię zapasową na poziomie systemu plików z tyłu systemu operacyjnego. Harmonogramy zadań tworzenia kopii zapasowej można sprawdzić za pomocą następującego polecenia:
 ```
 #crontab –l
 ```
-Harmonogram tworzenia kopii zapasowych można zmienić w dowolnym momencie, używając następującego polecenia:
+Harmonogram tworzenia kopii zapasowych można zmienić w dowolnym momencie za pomocą następującego polecenia:
 ```
 #crontab -e
 ```
 ## <a name="how-to-take-a-manual-backup"></a>Jak wykonać ręczną kopię zapasową?
 
-Kopia zapasowa systemu plików systemu operacyjnego jest już zaplanowana przy użyciu **zadania cron.** Można jednak wykonać kopię zapasową na poziomie pliku systemu operacyjnego również ręcznie. Aby wykonać ręczną kopię zapasową, uruchom następujące polecenie:
+Kopia zapasowa systemu plików OS jest zaplanowana przy użyciu **zadania firmy CRONUS** . Można jednak ręcznie wykonać kopię zapasową na poziomie pliku systemu operacyjnego. Aby ręcznie wykonać kopię zapasową, uruchom następujące polecenie:
 
 ```
 #rear -v mkbackup
 ```
-Na poniższym ekranie pokazano przykładową ręczną kopię zapasową:
+Poniższy ekran pokazuje przykład ręcznego tworzenia kopii zapasowej:
 
-![Jak](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
+![Jaka](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
 
 
 ## <a name="how-to-restore-a-backup"></a>Jak przywrócić kopię zapasową?
 
-Możesz przywrócić pełną kopię zapasową lub pojedynczy plik z kopii zapasowej. Aby przywrócić, użyj następującego polecenia:
+Można przywrócić pełną kopię zapasową lub pojedynczy plik z kopii zapasowej. Aby przywrócić, użyj następującego polecenia:
 
 ```
 #tar  -xvf  <backup file>  [Optional <file to restore>]
 ```
-Po przywróceniu plik jest odzyskiwany w bieżącym katalogu roboczym.
+Po przywróceniu plik zostanie odzyskany w bieżącym katalogu roboczym.
 
-Następujące polecenie pokazuje przywracanie pliku */etc/fstabz* kopii zapasowej pliku *backup.tar.gz*
+Następujące polecenie pokazuje przywracanie pliku */etc/fstabfrom* kopii zapasowej pliku *. tar. gz*
 ```
 #tar  -xvf  /osbackups/hostname/backup.tar.gz  etc/fstab 
 ```
 >[!NOTE] 
->Po przywróceniu pliku z kopii zapasowej należy skopiować plik do żądanej lokalizacji.
+>Należy skopiować plik do odpowiedniej lokalizacji po jego przywróceniu z kopii zapasowej.
 
-Poniższy zrzut ekranu przedstawia przywracanie pełnej kopii zapasowej:
+Poniższy zrzut ekranu przedstawia przywracanie kompletnej kopii zapasowej:
 
-![HowtoRestoreaBackup.PNG](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
+![HowtoRestoreaBackup. PNG](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
 
-## <a name="how-to-install-the-rear-tool-and-change-the-configuration"></a>Jak zainstalować narzędzie ReaR i zmienić konfigurację? 
+## <a name="how-to-install-the-rear-tool-and-change-the-configuration"></a>Jak zainstalować narzędzie tylne i zmienić konfigurację? 
 
-Pakiety Relax-and-Recover (ReaR) są **wstępnie zainstalowane** w **jednostkach SKU typu II** dużych wystąpień HANA i nie są wymagane żadne działania od Ciebie. Można bezpośrednio rozpocząć korzystanie z ReaR dla kopii zapasowej systemu operacyjnego.
-Jednak w sytuacji, gdy trzeba zainstalować pakiety we własnym, można wykonać wymienione kroki, aby zainstalować i skonfigurować narzędzie ReaR.
+Pakiety "Osłabij i Odzyskaj" są **wstępnie zainstalowane** w jednostkach **SKU typu II** dużych wystąpień Hana i nie są wymagane żadne akcje. Możesz bezpośrednio rozpocząć korzystanie z tyłu dla kopii zapasowej systemu operacyjnego.
+Jednak w sytuacjach, w których konieczne jest zainstalowanie własnych pakietów, można wykonać wymienione kroki, aby zainstalować i skonfigurować narzędzie tylne.
 
-Aby zainstalować pakiety kopii zapasowych **ReaR,** użyj następujących poleceń:
+Aby zainstalować pakiety kopii zapasowych z **tyłu** , użyj następujących poleceń:
 
-W przypadku systemu operacyjnego **SLES** należy użyć następującego polecenia:
+W przypadku systemu operacyjnego **SLES** Użyj następującego polecenia:
 ```
 #zypper install <rear rpm package>
 ```
-W przypadku systemu operacyjnego **RHEL** należy użyć następującego polecenia: 
+W przypadku systemu operacyjnego **RHEL** Użyj następującego polecenia: 
 ```
 #yum install rear -y
 ```
-Aby skonfigurować narzędzie ReaR, należy zaktualizować parametry **OUTPUT_URL** i **BACKUP_URL** w *pliku /etc/rear/local.conf*.
+Aby skonfigurować narzędzie tylne, należy zaktualizować parametry **OUTPUT_URL** i **BACKUP_URL** w *pliku/etc/Rear/Local.conf*.
 ```
 OUTPUT=ISO
 ISO_MKISOFS_BIN=/usr/bin/ebiso
@@ -99,4 +99,4 @@ EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHAN
 BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
 ```
 
-Poniższy zrzut ekranu przedstawia przywracanie ![pełnej kopii zapasowej: RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
+Poniższy zrzut ekranu przedstawia przywracanie kompletnej kopii zapasowej: ![REARTOOLCONFIGURATION. png](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)

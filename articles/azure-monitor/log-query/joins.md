@@ -1,26 +1,26 @@
 ---
-title: Dołączanie do zapytań dziennika usługi Azure Monitor | Dokumenty firmy Microsoft
-description: Ten artykuł zawiera lekcję dotyczącą używania sprzężeń w kwerendach dziennika usługi Azure Monitor.
+title: Sprzężenia w kwerendach dziennika Azure Monitor | Microsoft Docs
+description: W tym artykule opisano sposób korzystania z sprzężeń w zapytaniach dziennika Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: 2dace6968fbbe69f806c27fb7a46e60c63f78b4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670206"
 ---
-# <a name="joins-in-azure-monitor-log-queries"></a>Dołączanie do zapytań dziennika usługi Azure Monitor
+# <a name="joins-in-azure-monitor-log-queries"></a>Sprzężenia w kwerendach dziennika Azure Monitor
 
 > [!NOTE]
-> Przed ukończeniem tej lekcji należy wykonać wprowadzenie [do usługi Azure Monitor Log Analytics](get-started-portal.md) i [zapytań dziennika usługi Azure Monitor.](get-started-queries.md)
+> Przed ukończeniem tej lekcji należy ukończyć pracę [z Azure Monitor Log Analytics](get-started-portal.md) i [Azure monitor zapytania dziennika](get-started-queries.md) .
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Sprzężenia umożliwiają analizowanie danych z wielu tabel w tej samej kwerendzie. Łączą wiersze dwóch zestawów danych przez pasujące wartości określonych kolumn.
+Sprzężenia umożliwiają analizowanie danych z wielu tabel w tym samym zapytaniu. Scalanie wierszy dwóch zestawów danych przez dopasowanie wartości określonych kolumn.
 
 
 ```Kusto
@@ -37,15 +37,15 @@ SecurityEvent
 | top 10 by Duration desc
 ```
 
-W tym przykładzie pierwszy zestaw danych filtruje dla wszystkich zdarzeń logowania. Jest to połączone z drugim zestawem danych, który filtruje wszystkie zdarzenia wylogowania. Przewidywane kolumny to _Komputer,_ _Konto,_ _TargetLogonId_i _TimeGenerated_. Zestawy danych są skorelowane przez kolumnę udostępnioną _TargetLogonId_. Dane wyjściowe są pojedynczym rekordem na korelację, która ma czas logowania i wylogowania.
+W tym przykładzie pierwszy zestaw danych filtruje wszystkie zdarzenia logowania. Jest to przyłączone do drugiego zestawu danych, który filtruje wszystkie zdarzenia wylogowania. Rzutowane kolumny to _Computer_, _Account_, _TargetLogonId_i _TimeGenerated_. Zestawy danych są skorelowane przez wspólną kolumnę _TargetLogonId_. Dane wyjściowe są pojedynczym rekordem na korelację, która ma zarówno czas logowania, jak i wylogowania.
 
-Jeśli oba zestawy danych mają kolumny o tych samych nazwach, kolumny zestawu danych po prawej stronie otrzymają numer indeksu, więc w tym przykładzie wyniki pokażą _TargetLogonId_ z wartościami z tabeli po lewej stronie i _TargetLogonId1_ z wartościami z tabeli po prawej stronie. W takim przypadku druga kolumna _TargetLogonId1_ `project-away` została usunięta przy użyciu operatora.
+Jeśli oba zestawy danych mają kolumny o tych samych nazwach, kolumny zestawu danych po prawej stronie będą mieć numer indeksu, więc w tym przykładzie wyniki będą wyświetlane jako _TargetLogonId_ z wartościami z tabeli po lewej stronie i _TargetLogonId1_ z wartościami z tabeli po prawej stronie. W takim przypadku druga kolumna _TargetLogonId1_ została usunięta przy użyciu `project-away` operatora.
 
 > [!NOTE]
-> Aby zwiększyć wydajność, należy zachować tylko odpowiednie kolumny połączonych `project` zestawów danych, przy użyciu operatora.
+> Aby zwiększyć wydajność, należy zachować tylko odpowiednie kolumny połączonych zestawów danych przy użyciu `project` operatora.
 
 
-Użyj następującej składni, aby połączyć dwa zestawy danych, a klucz sprzężony ma inną nazwę między dwiema tabelami:
+Użyj następującej składni, aby dołączyć dwa zestawy danych, a przyłączony klucz ma inną nazwę między dwiema tabelami:
 ```
 Table1
 | join ( Table2 ) 
@@ -53,7 +53,7 @@ on $left.key1 == $right.key2
 ```
 
 ## <a name="lookup-tables"></a>Tabele odnośników
-Typowym zastosowaniem sprzężeń jest przy `datatable` użyciu statycznego mapowania wartości przy użyciu, które mogą pomóc w przekształcaniu wyników w bardziej reprezentacyjny sposób. Na przykład, aby wzbogacić dane zdarzenia zabezpieczeń o nazwę zdarzenia dla każdego identyfikatora zdarzenia.
+Typowym zastosowaniem sprzężeń jest użycie statycznego mapowania wartości przy `datatable` użyciu, które mogą pomóc w przekształcaniu wyników na bardziej niemożliwe do wysłania. Na przykład, aby wzbogacić dane zdarzenia zabezpieczeń z nazwą zdarzenia dla każdego identyfikatora zdarzenia.
 
 ```Kusto
 let DimTable = datatable(EventID:int, eventName:string)
@@ -74,31 +74,31 @@ SecurityEvent
 | summarize count() by eventName
 ```
 
-![Łączenie za pomocą datatable](media/joins/dim-table.png)
+![Dołącz do elementu DataTable](media/joins/dim-table.png)
 
-## <a name="join-kinds"></a>Sprzężenie rodzajów
-Określ typ sprzężenia z argumentem _rodzaju._ Każdy typ wykonuje inną dopasować między rekordami danej tabel, jak opisano w poniższej tabeli.
+## <a name="join-kinds"></a>Rodzaje sprzężeń
+Określ typ sprzężenia z argumentem _rodzaju_ . Każdy typ wykonuje różne dopasowania między rekordami podanych tabel, zgodnie z opisem w poniższej tabeli.
 
 | Typ sprzężenia | Opis |
 |:---|:---|
-| innerunique (innerunique) | Jest to domyślny tryb sprzężenia. Najpierw znajdują się wartości dopasowanej kolumny w lewej tabeli, a zduplikowane wartości są usuwane.  Następnie zestaw unikatowych wartości jest dopasowywał się do prawej tabeli. |
-| Wewnętrzny | W wynikach uwzględniono tylko pasujące rekordy w obu tabelach. |
-| lewaka | Wszystkie rekordy w lewej tabeli i pasujące rekordy w prawej tabeli są uwzględniane w wynikach. Niedopasowane właściwości danych wyjściowych zawierają wartości null.  |
-| leftanti | Rekordy z lewej strony, które nie mają dopasowań z prawej strony są uwzględniane w wynikach. Tabela wyników zawiera tylko kolumny z lewej tabeli. |
-| leftsemi (leftsemi) | Rekordy z lewej strony, które mają dopasowania z prawej strony są uwzględniane w wynikach. Tabela wyników zawiera tylko kolumny z lewej tabeli. |
+| innerunique | Jest to domyślny tryb sprzężenia. Najpierw zostaną znalezione wartości dopasowanej kolumny z lewej tabeli, a zduplikowane wartości są usuwane.  Następnie zestaw unikatowych wartości jest dopasowywany do prawej tabeli. |
+| fabryk | Tylko pasujące rekordy w obu tabelach są uwzględniane w wynikach. |
+| leftouter | Wszystkie rekordy w tabeli po lewej i pasujące rekordy w prawej tabeli są zawarte w wynikach. Niedopasowane właściwości wyjściowe zawierają wartości null.  |
+| leftanti | Rekordy z lewej strony, które nie mają dopasowań z prawej strony, są zawarte w wynikach. Tabela wyników zawiera tylko kolumny z tabeli po lewej. |
+| leftsemi | Rekordy z lewej strony, które mają dopasowania od prawej strony, są zawarte w wynikach. Tabela wyników zawiera tylko kolumny z tabeli po lewej. |
 
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 
-Aby uzyskać optymalną wydajność, należy wziąć pod uwagę następujące kwestie:
+W celu uzyskania optymalnej wydajności należy rozważyć następujące kwestie:
 
-- Użyj filtru czasu w każdej tabeli, aby zmniejszyć rekordy, które muszą być oceniane dla sprzężenia.
-- Użyj `where` `project` i zmniejszyć liczbę wierszy i kolumn w tabelach wejściowych przed sprzężeniem.
-- Jeśli jedna tabela jest zawsze mniejsza od drugiej, użyj jej jako lewej strony sprzężenia.
+- Użyj filtru czasu dla każdej tabeli, aby zmniejszyć liczbę rekordów, które muszą zostać ocenione dla sprzężenia.
+- Użyj `where` i `project` , aby zmniejszyć liczbę wierszy i kolumn w tabelach wejściowych przed sprzężeniem.
+- Jeśli jedna tabela jest zawsze mniejsza niż druga, użyj jej jako lewej strony sprzężenia.
 
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz inne lekcje dotyczące korzystania z zapytań dziennika usługi Azure Monitor:
+Zapoznaj się z innymi lekcjami dotyczącymi używania zapytań dzienników Azure Monitor:
 
 - [Operacje dotyczące ciągów](string-operations.md)
 - [Funkcje agregacji](aggregations.md)

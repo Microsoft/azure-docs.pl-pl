@@ -1,7 +1,7 @@
 ---
-title: Zmienianie algorytmu mieszania podpisu dla zaufania jednostki uzależniającej usługi Office 365 — Azure
-description: Ta strona zawiera wskazówki dotyczące zmiany algorytmu SHA dla zaufania federacji za pomocą usługi Office 365
-keywords: SHA1,SHA256,O365,federation,aadconnect,adfs,ad fs,change sha,federation trust,relying party trust
+title: Zmień algorytm wyznaczania wartości skrótu podpisu dla zaufania jednostki uzależnionej Office 365 — Azure
+description: Ta strona zawiera wskazówki dotyczące zmiany algorytmu SHA dla relacji zaufania federacji z pakietem Office 365
+keywords: SHA1, SHA256, O365, Federacja, aadconnect, ADFS, AD FS, zmiana SHA, zaufanie federacji, zaufanie jednostki uzależnionej
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,37 +18,37 @@ ms.date: 10/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2233b434fda628dcf812a62f06541fc4b0296aba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76897337"
 ---
-# <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Zmienianie algorytmu mieszania podpisu dla zaufania jednostki uzależniającej usługi Office 365
+# <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Zmień algorytm wyznaczania wartości skrótu podpisu dla zaufania jednostki uzależnionej pakietu Office 365
 ## <a name="overview"></a>Omówienie
-Usługi federacyjne Active Directory (AD FS) podpisują swoje tokeny w usłudze Microsoft Azure Active Directory, aby upewnić się, że nie można ich manipulować. Ten podpis może być oparty na SHA1 lub SHA256. Usługa Azure Active Directory obsługuje teraz tokeny podpisane za pomocą algorytmu SHA256 i zaleca się ustawienie algorytmu podpisywania tokenów na SHA256 dla najwyższego poziomu zabezpieczeń. W tym artykule opisano kroki potrzebne do skonfigurowania algorytmu podpisywania tokenu na bezpieczniejszym poziomie SHA256.
+Active Directory Federation Services (AD FS) podpisuje tokeny, aby Microsoft Azure Active Directory zapewnić, że nie mogą zostać naruszone. Sygnatura może opierać się na algorytm SHA1 lub SHA256. Azure Active Directory obsługuje teraz tokeny podpisane przy użyciu algorytmu SHA256 i zalecamy ustawienie algorytmu podpisywania tokenu na SHA256 w celu uzyskania wyższego poziomu zabezpieczeń. W tym artykule opisano kroki niezbędne do ustawienia algorytmu podpisywania tokenu na bardziej bezpieczny poziom SHA256.
 
 >[!NOTE]
->Firma Microsoft zaleca użycie SHA256 jako algorytm do podpisywania tokenów, ponieważ jest bezpieczniejszy niż SHA1, ale SHA1 nadal pozostaje obsługiwaną opcją.
+>Firma Microsoft zaleca użycie SHA256 jako algorytm podpisywania tokenów, ponieważ jest bardziej bezpieczny niż SHA1, ale algorytm SHA1 nadal pozostaje obsługiwaną opcją.
 
-## <a name="change-the-token-signing-algorithm"></a>Zmienianie algorytmu podpisywania tokenów
-Po ustawieniu algorytmu podpisu z jednym z dwóch procesów poniżej, ad fs podpisuje tokeny dla usługi Office 365 zaufania jednostki uzależniającej z SHA256. Nie musisz wprowadzać żadnych dodatkowych zmian konfiguracji, a ta zmiana nie ma wpływu na możliwość uzyskania dostępu do usługi Office 365 lub innych aplikacji usługi Azure AD.
+## <a name="change-the-token-signing-algorithm"></a>Zmień algorytm podpisywania tokenu
+Po ustawieniu algorytmu podpisu przy użyciu jednego z dwóch poniższych procesów AD FS podpisuje tokeny zaufania jednostki uzależnionej pakietu Office 365 z SHA256. Nie musisz wprowadzać żadnych dodatkowych zmian konfiguracji i ta zmiana nie ma wpływu na możliwość dostępu do pakietu Office 365 lub innych aplikacji usługi Azure AD.
 
-### <a name="ad-fs-management-console"></a>Konsola zarządzania usługami AD FS
-1. Otwórz konsolę zarządzania usługami AD FS na podstawowym serwerze usług AD FS.
-2. Rozwiń węzeł usług AD FS i kliknij pozycję **Zaufania jednostki uzależnień .**
-3. Kliknij prawym przyciskiem myszy zaufanie jednostki uzależniającej usługi Office 365/Azure i wybierz polecenie **Właściwości**.
-4. Wybierz kartę **Zaawansowane** i wybierz algorytm bezpiecznego mieszania SHA256.
+### <a name="ad-fs-management-console"></a>Konsola zarządzania AD FS
+1. Otwórz konsolę zarządzania AD FS na serwerze podstawowym AD FS.
+2. Rozwiń węzeł AD FS i kliknij pozycję **relacje zaufania jednostek uzależnionych**.
+3. Kliknij prawym przyciskiem myszy relację zaufania jednostki uzależnionej usługi Office 365/Azure i wybierz pozycję **Właściwości**.
+4. Wybierz kartę **Zaawansowane** i wybierz algorytm Secure Hash SHA256.
 5. Kliknij przycisk **OK**.
 
-![Algorytm podpisywania SHA256 - MMC](./media/how-to-connect-fed-sha256-guidance/mmc.png)
+![Algorytm podpisywania SHA256--MMC](./media/how-to-connect-fed-sha256-guidance/mmc.png)
 
-### <a name="ad-fs-powershell-cmdlets"></a>Polecenia cmdlet programu PowerShell usług AD FS
-1. Na dowolnym serwerze usług AD FS otwórz program PowerShell w obszarze uprawnień administratora.
-2. Ustaw algorytm bezpiecznego mieszania przy użyciu polecenia cmdlet **Set-AdfsRelyingPartyTrust.**
+### <a name="ad-fs-powershell-cmdlets"></a>AD FS polecenia cmdlet programu PowerShell
+1. Na dowolnym serwerze AD FS Otwórz program PowerShell w obszarze uprawnienia administratora.
+2. Ustaw algorytm Secure Hash przy użyciu polecenia cmdlet **Set-AdfsRelyingPartyTrust** .
    
    <code>Set-AdfsRelyingPartyTrust -TargetName 'Microsoft Office 365 Identity Platform' -SignatureAlgorithm 'https://www.w3.org/2001/04/xmldsig-more#rsa-sha256'</code>
 
-## <a name="also-read"></a>Przeczytaj także:
-* [Naprawianie zaufania usługi Office 365 za pomocą usługi Azure AD Connect](how-to-connect-fed-management.md#repairthetrust)
+## <a name="also-read"></a>Przeczytaj również
+* [Napraw relację zaufania Office 365 z Azure AD Connect](how-to-connect-fed-management.md#repairthetrust)
 

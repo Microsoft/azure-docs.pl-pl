@@ -1,6 +1,6 @@
 ---
-title: Przykład wykresu metrycznego usługi Azure Monitor
-description: Dowiedz się więcej o wizualizacji danych usługi Azure Monitor.
+title: Przykład wykresu metryki Azure Monitor
+description: Dowiedz się więcej na temat wizualizacji danych Azure Monitor.
 author: vgorbenko
 services: azure-monitor
 ms.topic: conceptual
@@ -8,49 +8,49 @@ ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 1aaeb853a67b36a21a09db57e015029d10cd0c36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77660874"
 ---
-# <a name="metric-chart-examples"></a>Przykłady wykresów metrycznych 
+# <a name="metric-chart-examples"></a>Przykłady wykresu metryki 
 
-Platforma Azure oferuje [ponad tysiąc metryk,](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)z których wiele ma wymiary. Za pomocą [filtrów wymiarów,](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts)stosowania [podziału,](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts)kontrolowania typu wykresu i dostosowywania ustawień wykresu można tworzyć zaawansowane widoki diagnostyczne i pulpity nawigacyjne, które zapewniają wgląd w kondycję infrastruktury i aplikacji. W tym artykule przedstawiono kilka przykładów wykresów, które można utworzyć za pomocą [Eksploratora metryk](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) i wyjaśniono kroki niezbędne do skonfigurowania każdego z tych wykresów.
+Platforma Azure oferuje [tysiące metryk](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported), z których wiele ma wymiary. Przy użyciu [filtrów wymiarów](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), stosowania [dzielenia](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), kontroli typu wykresu i dostosowywania ustawień wykresu można tworzyć zaawansowane widoki diagnostyczne i pulpity nawigacyjne, które zapewniają wgląd w kondycję infrastruktury i aplikacji. W tym artykule przedstawiono przykłady wykresów, które można skompilować przy użyciu [Eksplorator metryk](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) i wyjaśniono kroki niezbędne do skonfigurowania każdego z tych wykresów.
 
-Chcesz podzielić się swoimi przykładami wykresów ze światem? Udostępnij tę stronę na GitHubie i podziel się swoimi przykładami wykresów tutaj!
+Chcesz udostępnić przykłady doskonałych wykresów? Współtworzenie tej strony w witrynie GitHub i udostępnianie własnych przykładów wykresów!
 
-## <a name="website-cpu-utilization-by-server-instances"></a>Wykorzystanie procesora w witrynie sieci Web przez wystąpienia serwera
+## <a name="website-cpu-utilization-by-server-instances"></a>Użycie procesora przez witryny sieci Web według wystąpień serwera
 
-Ten wykres pokazuje, czy procesor CPU dla usługi App Service mieści się w dopuszczalnym zakresie i dzieli go według instancji, aby ustalić, czy obciążenie zostało prawidłowo rozłożone. Na wykresie widać, że aplikacja była uruchomiona na wystąpieniu jednego serwera przed 6:00, a następnie skalowana w górę, dodając kolejne wystąpienie.
+Ten wykres pokazuje, czy procesor dla App Service znajdował się w akceptowalnym zakresie i dzieli go na wystąpienie, aby określić, czy ładowanie zostało prawidłowo rozproszone. Na wykresie można zobaczyć, że aplikacja była uruchomiona w jednym wystąpieniu serwera przed 6 AM, a następnie skalowana przez dodanie kolejnego wystąpienia.
 
 ![Wykres liniowy średniej wartości procentowej procesora według wystąpienia serwera](./media/metric-chart-samples/cpu-by-instance.png)
 
 ### <a name="how-to-configure-this-chart"></a>Jak skonfigurować ten wykres?
 
-Wybierz zasób usługi App Service i znajdź metrykę **Procent procesora CPU.** Następnie kliknij **zastosuj podział** i wybierz wymiar **Wystąpienie.**
+Wybierz zasób App Service i Znajdź metrykę **procentową procesora CPU** . Następnie kliknij przycisk **Zastosuj podział** i wybierz wymiar **wystąpienia** .
 
-## <a name="application-availability-by-region"></a>Dostępność aplikacji według regionu
+## <a name="application-availability-by-region"></a>Dostępność aplikacji według regionów
 
-Wyświetl dostępność aplikacji według regionów, aby określić, które lokalizacje geograficzne mają problemy. Na tym wykresie przedstawiono metrykę dostępności usługi Application Insights. Widać, że monitorowana aplikacja nie ma problemu z dostępnością z centrum danych wschodnich stanów USA, ale występuje problem z częściową dostępnością z zachodnie stany USA i Azji Wschodniej.
+Wyświetl dostępność aplikacji według regionów, aby zidentyfikować lokalizacje geograficzne, w których występują problemy. Ten wykres pokazuje metrykę dostępności Application Insights. Zobaczysz, że monitorowana aplikacja nie ma problemu z dostępnością z wschodniego centrum danych USA, ale występuje problem z częściową dostępnością z regionu zachodnie stany USA, a Azja Wschodnia.
 
 ![Wykres średniej dostępności według lokalizacji](./media/metric-chart-samples/availability-run-location.png)
 
 ### <a name="how-to-configure-this-chart"></a>Jak skonfigurować ten wykres?
 
-Najpierw musisz włączyć monitorowanie dostępności usługi Application Insights dla swojej [witryny](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability) sieci Web. Następnie wybierz zasób usługi Application Insights i wybierz metrykę Dostępność. Zastosuj podział w wymiarze **Lokalizacja uruchom.**
+Najpierw należy włączyć monitorowanie [dostępności Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability) dla witryny sieci Web. Po wybraniu tej opcji zaznacz zasób Application Insights i wybierz metrykę dostępności. Zastosuj podział w wymiarze **lokalizacji przebiegu** .
 
-## <a name="volume-of-storage-account-transactions-by-api-name"></a>Wolumen transakcji na koncie magazynu według nazwy interfejsu API
+## <a name="volume-of-storage-account-transactions-by-api-name"></a>Ilość transakcji konta magazynu według nazwy interfejsu API
 
-Zasób konta magazynu doświadcza nadmiaru transakcji. Metryka transakcji służy do identyfikowania, który interfejs API jest odpowiedzialny za nadmiar obciążenia. Należy zauważyć, że następujący wykres jest skonfigurowany z tym samym wymiarem (nazwa interfejsu API) w filtrowaniu i dzieleniu, aby zawęzić widok tylko do wywołań interfejsu API zainteresowania:
+Zasób konta magazynu ma nadmierną ilość transakcji. Metryki transakcji można użyć do określenia, który interfejs API jest odpowiedzialny za nadmierne obciążenie. Zwróć uwagę, że następujący wykres jest skonfigurowany z tym samym wymiarem (nazwą interfejsu API) w funkcji filtrowania i dzielenia, aby zawęzić widok tylko do wywołań interfejsu API w celu:
 
-![Wykres słupkowy transakcji API](./media/metric-chart-samples/transactions-by-api.png)
+![Wykres słupkowy transakcji interfejsu API](./media/metric-chart-samples/transactions-by-api.png)
 
 ### <a name="how-to-configure-this-chart"></a>Jak skonfigurować ten wykres?
 
-W selektorze danych wybierz konto magazynu i metrykę **Transakcje.** Przełącz typ wykresu na **wykres słupkowy**. Kliknij **pozycję Zastosuj dzielenie** i wybierz **nazwę interfejsu API**wymiaru . Następnie kliknij **filtr Dodaj** i ponownie wybierz wymiar **nazwy interfejsu API.** W oknie dialogowym filtru wybierz interfejsy API, które chcesz wykreślić na wykresie.
+W selektorze metryki wybierz konto magazynu i metrykę **transakcji** . Przełącz typ wykresu na **Wykres słupkowy**. Kliknij przycisk **Zastosuj podział** i wybierz pozycję **nazwa interfejsu API**wymiaru. Następnie ponownie kliknij przycisk **Dodaj filtr** i wybierz wymiar **nazwy interfejsu API** . W oknie dialogowym Filtr Wybierz interfejsy API, które mają być wykreślone na wykresie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [skoroszytach monitora](../../azure-monitor/app/usage-workbooks.md) Platformy Azure
+* Dowiedz się więcej o Azure Monitor [skoroszytach](../../azure-monitor/app/usage-workbooks.md)
 * Dowiedz się więcej o [Eksploratorze metryk](metrics-charts.md)

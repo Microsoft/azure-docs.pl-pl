@@ -1,7 +1,7 @@
 ---
-title: Połączenie wystąpienia zarządzanego usługi Azure SQL dla indeksowania wyszukiwania
+title: Połączenie wystąpienia zarządzanego usługi Azure SQL na potrzeby indeksowania wyszukiwania
 titleSuffix: Azure Cognitive Search
-description: Włącz publiczny punkt końcowy, aby zezwolić na połączenia z wystąpieniami zarządzanymi SQL z indeksatora w usłudze Azure Cognitive Search.
+description: Włącz publiczny punkt końcowy, aby zezwalać na połączenia z wystąpieniami zarządzanymi SQL z indeksatora na platformie Azure Wyszukiwanie poznawcze.
 manager: nitinme
 author: vl8163264128
 ms.author: victliu
@@ -9,45 +9,45 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 65e483fd772e20daa73b465ea17dfa6ecde42233
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76964893"
 ---
-# <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Konfigurowanie połączenia z indeksatora usługi Azure Cognitive Search do wystąpienia zarządzanego sql
+# <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Skonfiguruj połączenie z usługą Azure Wyszukiwanie poznawcze indeksator do wystąpienia zarządzanego SQL
 
-Jak wspomniano w [connecting azure sql database do usługi Azure Cognitive Search przy użyciu indeksatorów,](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)tworzenie indeksatorów dla **wystąpień zarządzanych SQL** jest obsługiwany przez usługę Azure Cognitive Search za pośrednictwem publicznego punktu końcowego.
+Jak zostało to opisane w temacie [łączenie Azure SQL Database z platformą azure wyszukiwanie poznawcze przy użyciu indeksatorów](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), tworzenie indeksatorów z **wystąpieniami zarządzanymi SQL** jest obsługiwane przez usługę Azure wyszukiwanie poznawcze za pośrednictwem publicznego punktu końcowego.
 
-## <a name="create-azure-sql-managed-instance-with-public-endpoint"></a>Tworzenie wystąpienia zarządzanego usługi Azure SQL przy za pomocą publicznego punktu końcowego
-Utwórz wystąpienie zarządzane SQL z wybraną opcją **Włącz publiczny punkt końcowy.**
+## <a name="create-azure-sql-managed-instance-with-public-endpoint"></a>Utwórz wystąpienie zarządzane Azure SQL z publicznym punktem końcowym
+Utwórz wystąpienie zarządzane SQL z wybraną opcją **Włącz publiczny punkt końcowy** .
 
-   ![Włączanie publicznego punktu końcowego](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/enable-public-endpoint.png "Włączanie publicznego punktu końcowego")
+   ![Włącz publiczny punkt końcowy](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/enable-public-endpoint.png "Włącz publiczny punkt końcowy")
 
-## <a name="enable-azure-sql-managed-instance-public-endpoint"></a>Włączanie publicznego punktu końcowego wystąpienia zarządzanego sql platformy Azure
-Można również włączyć publiczny punkt końcowy w istniejącym wystąpieniu zarządzanym SQL w obszarze**Publiczny punkt końcowy** > **sieci** >  **zabezpieczeń** > **Włącz**.
+## <a name="enable-azure-sql-managed-instance-public-endpoint"></a>Włącz publiczny punkt końcowy wystąpienia zarządzanego usługi Azure SQL
+Możesz również włączyć publiczny punkt końcowy na istniejącym wystąpieniu zarządzanym SQL w obszarze **Security** > **Network** > Virtual**Endpoint** > **enable**.
 
-   ![Włączanie publicznego punktu końcowego](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Włączanie publicznego punktu końcowego")
+   ![Włącz publiczny punkt końcowy](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Włącz publiczny punkt końcowy")
 
-## <a name="verify-nsg-rules"></a>Weryfikowanie reguł sieciowych sieci płciowych
-Sprawdź, czy sieciowa grupa zabezpieczeń ma poprawne **reguły zabezpieczeń przychodzących,** które zezwalają na połączenia z usług platformy Azure.
+## <a name="verify-nsg-rules"></a>Weryfikowanie reguł sieciowej grupy zabezpieczeń
+Sprawdź, czy sieciowa Grupa zabezpieczeń ma poprawne **reguły zabezpieczeń ruchu przychodzącego** , które zezwalają na połączenia z usług platformy Azure.
 
-   ![Reguła zabezpieczeń przychodzących nsg](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/nsg-rule.png "Reguła zabezpieczeń przychodzących nsg")
+   ![Reguła zabezpieczeń dla ruchu przychodzącego sieciowej grupy zabezpieczeń](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/nsg-rule.png "Reguła zabezpieczeń dla ruchu przychodzącego sieciowej grupy zabezpieczeń")
 
 > [!NOTE]
-> Indeksatory nadal wymagają, aby wystąpienie zarządzane sql być skonfigurowane z publicznego punktu końcowego w celu odczytu danych.
-> Można jednak ograniczyć dostęp przychodzący do tego publicznego punktu końcowego, zastępując bieżącą regułę (`public_endpoint_inbound`) następującymi regułami 2:
+> Indeksatory nadal wymagają skonfigurowania wystąpienia zarządzanego SQL z publicznym punktem końcowym w celu odczytu danych.
+> Można jednak ograniczyć dostęp przychodzący do tego publicznego punktu końcowego, zastępując bieżącą regułę (`public_endpoint_inbound`) następującymi 2 regułami:
 >
-> * Zezwalanie na dostęp `AzureCognitiveSearch` przychodzący z [tagu usługi](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("SOURCE" = `AzureCognitiveSearch`, "NAME" = `cognitive_search_inbound`)
+> * Zezwalanie na dostęp przychodzący z `AzureCognitiveSearch` [tagu usługi](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) (" `AzureCognitiveSearch`source" =, " `cognitive_search_inbound`Name" =)
 >
-> * Zezwolenie na dostęp przychodzący z adresu IP usługi wyszukiwania, który można uzyskać poprzez pingowanie jego w pełni kwalifikowanej nazwy domeny (np., `<your-search-service-name>.search.windows.net`). ("ŹRÓDŁO" `IP address`= , "NAZWA" = `search_service_inbound`)
+> * Zezwalanie na dostęp przychodzący z adresu IP usługi wyszukiwania, który można uzyskać przez polecenie ping do jego w pełni kwalifikowanej nazwy domeny ( `<your-search-service-name>.search.windows.net`np.). ("Źródło" = `IP address`, "nazwa" = `search_service_inbound`)
 >
-> Dla każdej z tych 2 reguł `3342`ustaw "PORT" `TCP`= , `Any`"PROTOCOL" = , "DESTINATION" = , "ACTION" =`Allow`
+> Dla każdej z tych 2 reguł ustaw wartość "PORT" = `3342`, "Protocol" = `TCP`, "Destination" = `Any`, "Action" =`Allow`
 
-## <a name="get-public-endpoint-connection-string"></a>Pobierz ciąg połączenia publicznego punktu końcowego
-Upewnij się, że używasz ciągu połączenia dla **publicznego punktu końcowego** (port 3342, a nie port 1433).
+## <a name="get-public-endpoint-connection-string"></a>Pobierz parametry połączenia publicznego punktu końcowego
+Upewnij się, że używasz parametrów połączenia dla **publicznego punktu końcowego** (port 3342, nie port 1433).
 
-   ![Publiczny ciąg połączenia punktu końcowego](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-connection-string.png "Publiczny ciąg połączenia punktu końcowego")
+   ![Parametry połączenia publicznego punktu końcowego](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-connection-string.png "Parametry połączenia publicznego punktu końcowego")
 
 ## <a name="next-steps"></a>Następne kroki
-Z konfiguracji na uboczu, można teraz określić wystąpienie zarządzane sql jako źródło danych dla indeksatora usługi Azure Cognitive Search przy użyciu portalu lub interfejsu API REST. Zobacz [Łączenie usługi Azure SQL Database do usługi Azure Cognitive Search przy użyciu indeksatorów, aby](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) uzyskać więcej informacji.
+Za pomocą konfiguracji możesz teraz określić wystąpienie zarządzane SQL jako źródło danych dla indeksatora Wyszukiwanie poznawcze platformy Azure przy użyciu portalu lub interfejsu API REST. Aby uzyskać więcej informacji [, zobacz łączenie Azure SQL Database z usługą Azure wyszukiwanie poznawcze przy użyciu indeksatorów](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) .

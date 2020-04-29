@@ -1,90 +1,90 @@
 ---
-title: Rejestrowanie czasu pozyskiwania danych w usłudze Azure Monitor | Dokumenty firmy Microsoft
-description: Wyjaśniono różne czynniki, które wpływają na opóźnienie w zbieraniu danych dziennika w usłudze Azure Monitor.
+title: Czas pozyskiwania danych dziennika w Azure Monitor | Microsoft Docs
+description: Wyjaśnia różne czynniki wpływające na opóźnienie w zbieraniu danych dzienników w Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
 ms.openlocfilehash: 99d5594dd3ebe3750cb0a09ea803065e2aeb5ba2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77666641"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Czas pozyskiwania danych dziennika w usłudze Azure Monitor
-Usługa Azure Monitor to usługa danych na dużą skalę, która obsługuje tysiące klientów wysyłających terabajty danych każdego miesiąca w rosnącym tempie. Często pojawiają się pytania dotyczące czasu, jaki zajmuje udostępnienie danych dziennika po ich zebraniu. W tym artykule wyjaśniono różne czynniki, które wpływają na to opóźnienie.
+Azure Monitor to usługa danych o dużej skali, która umożliwia tysiącom klientów wysyłanie terabajtów danych co miesiąc w coraz większej tempie. Często zadawane pytania dotyczące czasu potrzebnego do uzyskania danych dziennika stają się dostępne po ich zebraniu. W tym artykule wyjaśniono różne czynniki wpływające na to opóźnienie.
 
-## <a name="typical-latency"></a>Typowe opóźnienie
-Opóźnienie odnosi się do czasu, przez który dane są tworzone w monitorowanym systemie i czasu, który jest dostępny do analizy w usłudze Azure Monitor. Typowe opóźnienie do pozyskiwania danych dziennika wynosi od 2 do 5 minut. Szczególne opóźnienie dla poszczególnych danych będzie się różnić w zależności od różnych czynników wyjaśnionych poniżej.
+## <a name="typical-latency"></a>Typowe opóźnienia
+Opóźnienie dotyczy czasu, w którym dane są tworzone w monitorowanym systemie, oraz czasu, który jest dostępny do analizy w Azure Monitor. Typowy czas oczekiwania na pozyskiwanie danych dziennika wynosi od 2 do 5 minut. Określone opóźnienie dla konkretnych danych będzie się różnić w zależności od różnych czynników opisanych poniżej.
 
 
 ## <a name="factors-affecting-latency"></a>Czynniki wpływające na opóźnienie
-Całkowity czas pozyskiwania dla określonego zestawu danych można podzielić na następujące obszary wysokiego poziomu. 
+Łączny czas pozyskiwania dla określonego zestawu danych można podzielić na następujące obszary wysokiego poziomu. 
 
-- Czas agenta — czas, aby odnajdywać zdarzenie, zbierać go, a następnie wysłać do punktu pozyskiwania usługi Azure Monitor jako rekord dziennika. W większości przypadków ten proces jest obsługiwany przez agenta.
-- Czas potoku — czas przetwarzania rekordu dziennika przez potok pozyskiwania. Obejmuje to analizowanie właściwości zdarzenia i potencjalnie dodawanie informacji obliczeniowych.
-- Czas indeksowania — czas poświęcony na spożycie rekordu dziennika do magazynu dużych zbiorów danych usługi Azure Monitor.
+- Czas agenta — czas na odnalezienie zdarzenia, zebranie go, a następnie wysłanie go do Azure Monitor punktu pozyskiwania jako rekordu dziennika. W większości przypadków ten proces jest obsługiwany przez agenta.
+- Czas potoku — czas przetwarzania rekordu dziennika przez potok pozyskiwania. Obejmuje to analizowanie właściwości zdarzenia i potencjalnie Dodawanie informacji obliczeniowych.
+- Czas indeksowania — czas poświęcony na pozyskiwanie rekordu dziennika do Azure Monitor magazynu danych Big Data.
 
-Szczegóły dotyczące różnych opóźnień wprowadzonych w tym procesie są opisane poniżej.
+Szczegółowe informacje o różnych opóźnieniach wprowadzonych w tym procesie zostały opisane poniżej.
 
 ### <a name="agent-collection-latency"></a>Opóźnienie zbierania agenta
-Agenci i rozwiązania do zarządzania używają różnych strategii do zbierania danych z maszyny wirtualnej, co może mieć wpływ na opóźnienie. Oto kilka konkretnych przykładów:
+Agenci i rozwiązania do zarządzania wykorzystują różne strategie do zbierania danych z maszyny wirtualnej, co może mieć wpływ na opóźnienia. Poniżej wymieniono kilka konkretnych przykładów:
 
-- Zdarzenia systemu Windows, zdarzenia syslog i metryki wydajności są zbierane natychmiast. Liczniki wydajności systemu Linux są sondowane w odstępach 30-sekundowych.
-- Dzienniki i dzienniki niestandardowe usługi IIS są zbierane po zmianie sygnatury czasowych. W przypadku dzienników iis zależy od [harmonogramu najazdów skonfigurowanych w serwisach IIS](data-sources-iis-logs.md). 
-- Rozwiązanie Replikacja usługi Active Directory wykonuje swoją ocenę co pięć dni, podczas gdy rozwiązanie oceny usługi Active Directory przeprowadza cotygodniową ocenę infrastruktury usługi Active Directory. Agent będzie zbierać te dzienniki tylko po zakończeniu oceny.
+- Zdarzenia systemu Windows, zdarzenia dziennika systemowego i metryki wydajności są zbierane natychmiast. Liczniki wydajności systemu Linux są sondowane w 30-sekundowych odstępach czasu.
+- Dzienniki usług IIS i dzienniki niestandardowe są zbierane po zmianie sygnatury czasowej. W przypadku dzienników usług IIS ma to wpływ na [harmonogram przerzucania skonfigurowany w usługach IIS](data-sources-iis-logs.md). 
+- Active Directory rozwiązanie replikacji wykonuje swoją ocenę co pięć dni, podczas gdy rozwiązanie Active Directory Assessment wykonuje cotygodniową ocenę infrastruktury Active Directory. Agent będzie zbierać te dzienniki tylko wtedy, gdy ocena zostanie zakończona.
 
 ### <a name="agent-upload-frequency"></a>Częstotliwość przekazywania agenta
-Aby upewnić się, że agent usługi Log Analytics jest lekki, agent buforuje dzienniki i okresowo przekazuje je do usługi Azure Monitor. Częstotliwość przesyłania waha się od 30 sekund do 2 minut w zależności od typu danych. Większość danych jest przesyłana w mniej niż 1 minutę. Warunki sieciowe mogą negatywnie wpłynąć na opóźnienie tych danych, aby osiągnąć punkt pozyskiwania usługi Azure Monitor.
+Aby zapewnić, że Agent Log Analytics jest lekki, Agent buforuje dzienniki i okresowo przekazuje je do Azure Monitor. Częstotliwość przekazywania różni się od 30 sekund do 2 minut w zależności od typu danych. Większość danych jest przekazywanych w ciągu 1 minuty. Warunki dotyczące sieci mogą mieć negatywny wpływ na opóźnienie tych danych w celu osiągnięcia Azure Monitor punktu pozyskiwania.
 
 ### <a name="azure-activity-logs-resource-logs-and-metrics"></a>Dzienniki aktywności platformy Azure, dzienniki zasobów i metryki
-Dane platformy Azure dodaje dodatkowy czas, aby stać się dostępne w log analytics punkt pozyskiwania do przetwarzania:
+Dane platformy Azure są dodawane do Log Analytics punktu pozyskiwania na potrzeby przetwarzania:
 
-- Dane z dzienników zasobów trwać 2-15 minut, w zależności od usługi platformy Azure. Zobacz [poniższą kwerendę,](#checking-ingestion-time) aby sprawdzić to opóźnienie w twoim środowisku
-- Metryki platformy Azure trwać 3 minuty, aby wysłać do punktu pozyskiwania usługi Log Analytics.
-- Dane dziennika aktywności zajmie około 10-15 minut, które mają być wysyłane do punktu pozyskiwania usługi Log Analytics.
+- Dane z dzienników zasobów trwają 2-15 minut, w zależności od usługi platformy Azure. Zobacz [poniższe zapytanie](#checking-ingestion-time) , aby sprawdzić to opóźnienie w danym środowisku
+- Metryki platformy Azure mogą być wysyłane do punktu pozyskiwania Log Analytics w ciągu 3 minut.
+- Dane dziennika aktywności będą wysyłane o około 10-15 minut do punktu pozyskiwania Log Analytics.
 
-Po udostępnieniu w punkcie pozyskiwania dane trwa dodatkowe 2-5 minut, aby być dostępne dla zapytań.
+Po udostępnieniu w punkcie pozyskiwania danych do wykonywania zapytań zajmują się dodatkowe 2-5 minut.
 
-### <a name="management-solutions-collection"></a>Zbieranie rozwiązań do zarządzania
-Niektóre rozwiązania nie zbierają swoich danych od agenta i mogą używać metody zbierania, która wprowadza dodatkowe opóźnienia. Niektóre rozwiązania zbierają dane w regularnych odstępach czasu bez podejmowania prób zbierania w czasie zbliżonym do rzeczywistego. Konkretne przykłady są następujące:
+### <a name="management-solutions-collection"></a>Kolekcja rozwiązań do zarządzania
+Niektóre rozwiązania nie zbierają danych od agenta i mogą korzystać z metody kolekcji, która wprowadza dodatkowe opóźnienia. Niektóre rozwiązania zbierają dane w regularnych odstępach czasu bez próby zbierania danych w czasie niemal rzeczywistym. Określone przykłady obejmują następujące elementy:
 
-- Rozwiązanie usługi Office 365 sonduje dzienniki aktywności przy użyciu interfejsu API działania zarządzania usługą Office 365, który obecnie nie zapewnia żadnych gwarancji opóźnienia w czasie zbliżonym do rzeczywistego.
-- Rozwiązania Windows Analytics (na przykład update compliance) dane są zbierane przez rozwiązanie z dzienną częstotliwością.
+- Rozwiązanie pakietu Office 365 sonduje dzienniki aktywności przy użyciu interfejsu API działania zarządzania pakietem Office 365, który obecnie nie zapewnia niemal opóźnień opóźnienia w czasie rzeczywistym.
+- Rozwiązania Windows Analytics (Update Compliance na przykład) dane są zbierane przez rozwiązanie z częstotliwością dzienną.
 
-Zapoznaj się z dokumentacją dla każdego rozwiązania, aby określić jego częstotliwość zbierania.
+Zapoznaj się z dokumentacją każdego rozwiązania, aby określić jego częstotliwość zbierania danych.
 
-### <a name="pipeline-process-time"></a>Czas procesu potoku
-Po wprowadzeniu rekordów dziennika do potoku usługi Azure Monitor (zgodnie z zidentyfikowaniem we właściwości [_TimeReceived),](log-standard-properties.md#_timereceived) są one zapisywane do magazynu tymczasowego, aby zapewnić izolację dzierżawy i upewnić się, że dane nie zostaną utracone. Ten proces zazwyczaj dodaje 5-15 sekund. Niektóre rozwiązania do zarządzania implementują cięższe algorytmy do agregowania danych i uzyskiwania szczegółowych informacji podczas przesyłania strumieniowego danych. Na przykład monitorowanie wydajności sieci agreguje przychodzące dane w odstępach 3-minutowych, skutecznie dodając 3-minutowe opóźnienie. Innym procesem, który dodaje opóźnienie jest proces, który obsługuje dzienniki niestandardowe. W niektórych przypadkach ten proces może dodać kilka minut opóźnienia do dzienników, które są zbierane z plików przez agenta.
+### <a name="pipeline-process-time"></a>Potok — czas procesu
+Po pobraniu rekordów dziennika do potoku Azure Monitor (zgodnie z definicją we właściwości [_TimeReceived](log-standard-properties.md#_timereceived) ) są one zapisywane w magazynie tymczasowym w celu zapewnienia izolacji dzierżawy i upewnienia się, że dane nie zostaną utracone. Ten proces zazwyczaj dodaje 5-15 sekund. Niektóre rozwiązania do zarządzania implementują algorytmy cięższe w celu agregowania danych i uzyskiwania szczegółowych informacji, jak dane przesyłane strumieniowo. Na przykład monitorowanie wydajności sieci agreguje dane przychodzące przez 3-minutowy interwały, co skutecznie dodaje 3 minuty opóźnienia. Innym procesem, który dodaje opóźnienie, jest proces obsługujący dzienniki niestandardowe. W niektórych przypadkach ten proces może dodawać kilka minut opóźnienia do dzienników zbieranych z plików przez agenta.
 
-### <a name="new-custom-data-types-provisioning"></a>Nowe niestandardowe typy danych inicjowania obsługi administracyjnej
-Po utworzeniu nowego typu danych niestandardowych z [dziennika niestandardowego](data-sources-custom-logs.md) lub [interfejsu API modułu zbierającego dane](data-collector-api.md)system tworzy dedykowany kontener magazynu. Jest to jednorazowe obciążenie, które występuje tylko przy pierwszym pojawieniu się tego typu danych.
+### <a name="new-custom-data-types-provisioning"></a>Nowe niestandardowe typy danych — Inicjowanie obsługi
+Po utworzeniu nowego typu danych niestandardowych z [dziennika niestandardowego](data-sources-custom-logs.md) lub [interfejsu API modułu zbierającego dane](data-collector-api.md)system tworzy dedykowany kontener magazynu. Jest to jednorazowe obciążenie, które występuje tylko w przypadku pierwszego wyglądu tego typu danych.
 
-### <a name="surge-protection"></a>Ochrona przeciwprzepięciowa
-Priorytetem usługi Azure Monitor jest zapewnienie, że żadne dane klienta nie są tracone, więc system ma wbudowaną ochronę przed przepięciami danych. Obejmuje to bufory, aby zapewnić, że nawet przy ogromnym obciążeniu system będzie nadal funkcjonował. Przy normalnym obciążeniu te formanty dodać mniej niż minutę, ale w ekstremalnych warunkach i awarii mogą dodać znaczny czas przy jednoczesnym zapewnieniu bezpieczeństwa danych.
+### <a name="surge-protection"></a>Ochrona przed przepięciem
+Najważniejszym priorytetem Azure Monitor jest upewnienie się, że żadne dane klienta nie zostaną utracone, dlatego system ma wbudowaną ochronę przed gwałtownym przepięciem danych. Obejmuje to bufory, aby zapewnić, że nawet pod obciążeniem ogromną system będzie działać. W przypadku normalnego obciążenia te kontrolki dodają mniej niż minutę, ale w ekstremalnych warunkach i błędach, które mogą zwiększyć znaczący czas, przy jednoczesnym zapewnieniu bezpieczeństwa danych.
 
 ### <a name="indexing-time"></a>Czas indeksowania
-Istnieje wbudowana równowaga dla każdej platformy dużych zbiorów danych między dostarczaniem analiz i zaawansowanych funkcji wyszukiwania, a nie zapewnia natychmiastowy dostęp do danych. Usługa Azure Monitor umożliwia uruchamianie zaawansowanych zapytań na miliardach rekordów i uzyskanie wyników w ciągu kilku sekund. Jest to możliwe, ponieważ infrastruktura przekształca dane dramatycznie podczas ich pozyskiwania i przechowuje je w unikalnych strukturach kompaktowych. System buforuje dane, dopóki nie będzie ich wystarczającej ilości do utworzenia tych struktur. Należy to zakończyć, zanim rekord dziennika pojawi się w wynikach wyszukiwania.
+Istnieje wbudowana równowaga dla każdej platformy danych Big Data między udostępnianiem analiz i zaawansowanych możliwości wyszukiwania, a nie w celu zapewnienia natychmiastowego dostępu do danych. Azure Monitor pozwala uruchamiać zaawansowane zapytania dotyczące miliardów rekordów i uzyskiwać wyniki w ciągu kilku sekund. Jest to możliwe, ponieważ infrastruktura przekształca dane znacznie podczas jego pozyskiwania i zapisuje je w unikatowych, kompaktowych strukturach. System buforuje dane do momentu uzyskania wystarczającej ilości pamięci do utworzenia tych struktur. Należy to zrobić, aby rekord dziennika pojawił się w wynikach wyszukiwania.
 
-Ten proces trwa obecnie około 5 minut, gdy jest mała ilość danych, ale mniej czasu przy wyższych szybkościach transmisji danych. Wydaje się to sprzeczne z intuicją, ale ten proces umożliwia optymalizację opóźnień dla obciążeń produkcyjnych o dużej objętości.
+Ten proces trwa około 5 minut, gdy istnieje niska ilość danych, ale mniej czasu przy wyższych stawkach danych. To wydaje się nielogiczna, ale ten proces umożliwia optymalizację opóźnienia dla obciążeń produkcyjnych o dużej pojemności.
 
 
 
-## <a name="checking-ingestion-time"></a>Sprawdzanie czasu położenia
-Czas spożycia może się różnić w zależności od zasobów w różnych okolicznościach. Kwerendy dziennika można użyć do identyfikowania określonego zachowania środowiska. W poniższej tabeli określono, jak można określić różne godziny dla rekordu, ponieważ jest on tworzony i wysyłany do usługi Azure Monitor.
+## <a name="checking-ingestion-time"></a>Sprawdzanie czasu pozyskiwania
+Czas pozyskiwania może różnić się w zależności od różnych zasobów w różnych warunkach. Zapytania dzienników służą do identyfikowania określonego zachowania środowiska. W poniższej tabeli opisano, jak można określić różne godziny dla rekordu, które są tworzone i wysyłane do Azure Monitor.
 
 | Krok | Właściwość lub funkcja | Komentarze |
 |:---|:---|:---|
-| Rekord utworzony w źródle danych | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Jeśli źródło danych nie ustawi tej wartości, zostanie ona ustawiona na ten sam czas, co _TimeReceived. |
-| Rekord odebrany przez punkt końcowy pozyskiwania usługi Azure Monitor | [_TimeReceived](log-standard-properties.md#_timereceived) | |
-| Nagrywanie przechowywane w obszarze roboczym i dostępne dla kwerend | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
+| Rekord utworzony w źródle danych | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Jeśli źródło danych nie ustawi tej wartości, zostanie ona ustawiona na ten sam czas co _TimeReceived. |
+| Rekord otrzymany przez Azure Monitor punkt końcowy pozyskiwania | [_TimeReceived](log-standard-properties.md#_timereceived) | |
+| Rekord przechowywany w obszarze roboczym i dostępny dla zapytań | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
 
-### <a name="ingestion-latency-delays"></a>Opóźnienia opóźnienia połknięcia
-Opóźnienie określonego rekordu można zmierzyć, porównując wynik funkcji [ingestion_time()](/azure/kusto/query/ingestiontimefunction) z właściwością _TimeGenerated._ Te dane mogą być używane z różnych agregacji, aby znaleźć, jak zachowuje się opóźnienie pozyskiwania. Sprawdź niektóre percentyl czasu pozyskiwania, aby uzyskać szczegółowe informacje na dużą ilość danych. 
+### <a name="ingestion-latency-delays"></a>Opóźnienia w czasie przyjmowania
+Można mierzyć opóźnienie określonego rekordu, porównując wynik funkcji [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) z właściwością _TimeGenerated_ . Te dane mogą być używane z różnymi agregacjami, aby dowiedzieć się, jak działa opóźnienie pozyskiwania. Zapoznaj się z informacjami o percentylu czasu pozyskiwania, aby uzyskać szczegółowe informacje dotyczące dużej ilości danych. 
 
-Na przykład następująca kwerenda pokaże, które komputery miały najwyższy czas pozyskiwania w ciągu poprzednich 8 godzin: 
+Na przykład następujące zapytanie pokazuje, które komputery mają największy czas pozyskiwania w ciągu poprzednich 8 godzin: 
 
 ``` Kusto
 Heartbeat
@@ -95,9 +95,9 @@ Heartbeat
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
 
-Poprzednie kontrole percentyla są dobre do znajdowania ogólnych trendów w opóźnieniu. Aby zidentyfikować krótkoterminowe skok opóźnienia, przy użyciu`max()`maksymalnego ( ) może być bardziej skuteczne.
+Poprzednie sprawdzenia percentylu są przydatne do znajdowania ogólnych trendów w czasie oczekiwania. Aby zidentyfikować krótkoterminowe gwałtowne opóźnienia, użycie wartości Maximum (`max()`) może być bardziej efektywne.
 
-Jeśli chcesz przejść do szczegółów czasu pozyskiwania dla określonego komputera w danym okresie czasu, użyj następującej kwerendy, która również wizualizuje dane z ostatniego dnia na wykresie: 
+Jeśli chcesz przejść do szczegółów czasu pozyskiwania dla określonego komputera w danym okresie, użyj następującego zapytania, które również wizualizuje dane z ostatniego dnia na wykresie: 
 
 
 ``` Kusto
@@ -109,7 +109,7 @@ Heartbeat
 | render timechart
 ```
  
-Użyj następującej kwerendy, aby pokazać czas pozyskiwania komputera przez kraj/region, w którym się znajdują, w którym jest oparty na ich adresIE IP: 
+Użyj następującego zapytania, aby wyświetlić czas pozyskiwania komputera według kraju/regionu, w którym się znajdują, w oparciu o adres IP: 
 
 ``` Kusto
 Heartbeat 
@@ -119,7 +119,7 @@ Heartbeat
 | summarize percentiles(E2EIngestionLatency,50,95),percentiles(AgentLatency,50,95) by RemoteIPCountry 
 ```
  
-Różne typy danych pochodzących z agenta może mieć inny czas opóźnienia pozyskiwania, więc poprzednie kwerendy mogą być używane z innymi typami. Użyj następującej kwerendy, aby sprawdzić czas pozyskiwania różnych usług platformy Azure: 
+Różne typy danych pochodzące od agenta mogą mieć inny czas opóźnienia pozyskiwania, dlatego poprzednie zapytania mogą być używane z innymi typami. Użyj następującego zapytania, aby zbadać czas pozyskiwania różnych usług platformy Azure: 
 
 ``` Kusto
 AzureDiagnostics 
@@ -130,9 +130,9 @@ AzureDiagnostics
 ```
 
 ### <a name="resources-that-stop-responding"></a>Zasoby, które przestają odpowiadać 
-W niektórych przypadkach zasób może zatrzymać wysyłanie danych. Aby zrozumieć, czy zasób wysyła dane, czy nie, spójrz na jego najnowszy rekord, który może być zidentyfikowany przez standardowe pole _TimeGenerated._  
+W niektórych przypadkach zasób może zatrzymać wysyłanie danych. Aby zrozumieć, czy zasób wysyła dane, zapoznaj się z najnowszym rekordem, który może być identyfikowany przez standardowe pole _TimeGenerated_ .  
 
-Użyj _Pulsu_ tabeli, aby sprawdzić dostępność maszyny Wirtualnej, ponieważ puls jest wysyłany raz na minutę przez agenta. Użyj następującej kwerendy, aby wyświetlić listę aktywnych komputerów, które nie zgłosiły ostatnio pulsu: 
+Użyj tabeli _pulsu_ , aby sprawdzić dostępność maszyny wirtualnej, ponieważ puls jest wysyłany raz na minutę przez agenta. Użyj następującego zapytania, aby wyświetlić listę aktywnych komputerów, które ostatnio nie zgłosiły pulsu: 
 
 ``` Kusto
 Heartbeat  
@@ -142,5 +142,5 @@ Heartbeat
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* Przeczytaj [umowę dotyczącą poziomu usług (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) dla usługi Azure Monitor.
+* Przeczytaj [Umowa dotycząca poziomu usług (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) dla Azure monitor.
 

@@ -1,6 +1,6 @@
 ---
-title: Rozwiązanie Azure VMware — przekazywanie dns z chmury prywatnej do lokalnej
-description: W tym artykule opisano, jak włączyć serwer DNS cloudsimple private cloud do przesyłania dalej wyszukiwania zasobów lokalnych
+title: Rozwiązanie VMware platformy Azure — przekazywanie DNS z chmury prywatnej do lokalnego
+description: Zawiera opis sposobu włączania wyszukiwania zasobów lokalnych w chmurze prywatnej usługi CloudSimple
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 02/29/2020
@@ -9,49 +9,49 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: aa2af4302613aad23bfd78b4883bbb46c5e5ddbb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76961129"
 ---
-# <a name="enable-cloudsimple-private-cloud-dns-servers-to-forward-dns-lookup-of-on-premises-resources-to-your-dns-servers"></a>Włączanie serwerów DNS chmury prywatnej CloudSimple do przekazywania wyszukiwania DNS zasobów lokalnych do serwerów DNS
+# <a name="enable-cloudsimple-private-cloud-dns-servers-to-forward-dns-lookup-of-on-premises-resources-to-your-dns-servers"></a>Włącz serwery DNS chmury prywatnej CloudSimple, aby przekazywać wyszukiwanie w systemie DNS zasobów lokalnych do serwerów DNS
 
-Serwery DNS w chmurze prywatnej mogą przesyłać do serwera DNS wyszukiwanie dns dla dowolnych zasobów lokalnych.  Włączenie wyszukiwania umożliwia private cloud vSphere składników wyszukać wszystkie usługi uruchomione w środowisku lokalnym i komunikować się z nimi przy użyciu w pełni kwalifikowanych nazw domen (FQDN).
+Serwery DNS w chmurze prywatnej mogą przekazywać wyszukiwanie DNS dla wszystkich zasobów lokalnych do serwerów DNS.  Włączenie wyszukiwania umożliwia składnikom vSphere w chmurze prywatnej wyszukiwanie wszystkich usług działających w środowisku lokalnym i komunikowanie się z nimi przy użyciu w pełni kwalifikowanych nazw domen (FQDN).
 
 ## <a name="scenarios"></a>Scenariusze 
 
-Przekazywanie wyszukiwania DNS lokalnego serwera DNS umożliwia korzystanie z chmury prywatnej w następujących scenariuszach:
+Przekazanie wyszukiwania DNS dla lokalnego serwera DNS umożliwia korzystanie z chmury prywatnej w następujących scenariuszach:
 
-* Używanie chmury Private Cloud jako konfiguracji odzyskiwania po awarii dla lokalnego rozwiązania VMware
-* Używanie lokalnej usługi Active Directory jako źródła tożsamości dla usługi Private Cloud vSphere
-* Używanie hcx do migracji maszyn wirtualnych z lokalnego do prywatnego chmury
+* Korzystanie z chmury prywatnej jako konfiguracji odzyskiwania po awarii dla lokalnego rozwiązania VMware
+* Używaj Active Directory lokalnych jako źródła tożsamości dla chmury prywatnej vSphere
+* Korzystanie z HCX do migrowania maszyn wirtualnych z lokalizacji lokalnej do chmury prywatnej
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Połączenie sieciowe musi być obecne z sieci private cloud do sieci lokalnej, aby przekierowanie DNS działało.  Połączenie sieciowe można skonfigurować za pomocą:
+Połączenie sieciowe musi znajdować się w sieci prywatnej chmury w sieci lokalnej na potrzeby przesyłania dalej DNS.  Połączenie sieciowe można skonfigurować przy użyciu:
 
-* [Łączenie się z lokalnego do CloudSimple przy użyciu usługi ExpressRoute](on-premises-connection.md)
-* [Konfigurowanie bramy sieci VPN między lokacjami](https://docs.microsoft.com/azure/vmware-cloudsimple/vpn-gateway#set-up-a-site-to-site-vpn-gateway)
+* [Nawiązywanie połączenia z poziomu lokalnego z CloudSimple za pomocą ExpressRoute](on-premises-connection.md)
+* [Konfigurowanie bramy sieci VPN typu lokacja-lokacja](https://docs.microsoft.com/azure/vmware-cloudsimple/vpn-gateway#set-up-a-site-to-site-vpn-gateway)
 
-Porty zapory muszą być otwarte w tym połączeniu, aby przekierowanie DNS działało.  Używane porty to port TCP 53 lub UDP 53.
+Aby przekazywanie DNS działało, należy otworzyć porty zapory dla tego połączenia.  Używane porty to port TCP 53 lub port UDP 53.
 
 > [!NOTE]
-> Jeśli korzystasz z sieci VPN lokacja lokacja, lokalna podsieć serwera DNS musi zostać dodana jako część prefiksów lokalnych.
+> W przypadku korzystania z sieci VPN typu lokacja-lokacja należy dodać lokalną podsieć serwera DNS jako część prefiksów lokalnych.
 
-## <a name="request-dns-forwarding-from-private-cloud-to-on-premises"></a>Żądanie przekierowania dns z chmury prywatnej do lokalnego
+## <a name="request-dns-forwarding-from-private-cloud-to-on-premises"></a>Żądaj przesyłania dalej DNS z chmury prywatnej do lokalnego
 
-Aby włączyć przekazywanie dns z chmury prywatnej do lokalnej, prześlij [żądanie pomocy technicznej,](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)podając następujące informacje.
+Aby włączyć przesyłanie dalej DNS z chmury prywatnej do lokalnego, Prześlij [żądanie pomocy technicznej](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest), dostarczając poniższe informacje.
 
-* Typ problemu: **Techniczne**
-* Subskrypcja: **subskrypcja, w której wdrożono usługę CloudSimple**
-* Usługa: **Rozwiązanie VMware by CloudSimple**
-* Typ problemu: **Poradnik lub Jak...**
-* Podtyp problemu: **Potrzebujesz pomocy z NW**
-* Podaj nazwę domeny lokalnej w okienku szczegółów.
-* Podaj listę lokalnych serwerów DNS, do których wyszukiwanie będzie przekazywane z chmury prywatnej w okienku szczegółów.
+* Typ problemu: **techniczne**
+* Subskrypcja: **subskrypcja, w ramach której wdrożono usługę CloudSimple**
+* Usługa: **rozwiązanie VMware według CloudSimple**
+* Typ problemu: **poradnik lub jak mogę...**
+* Podtyp problemu: **potrzebna pomoc w połączeniu z NW**
+* W okienku szczegółów Podaj nazwę domeny domeny lokalnej.
+* Podaj listę lokalnych serwerów DNS, do których odnośnik będzie przekazywany z chmury prywatnej w okienku szczegółów.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Dowiedz się więcej o konfiguracji zapory lokalnej](on-premises-firewall-configuration.md)
-* [Lokalna konfiguracja serwera DNS](on-premises-dns-setup.md)
+* [Konfiguracja lokalnego serwera DNS](on-premises-dns-setup.md)

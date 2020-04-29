@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Konfigurowanie płatka śniegu do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure Active Directory | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować usługę Azure Active Directory do automatycznego inicjowania obsługi administracyjnej i usuwania z obsługi administracyjnej kont użytkowników do płatka śniegu.
+title: 'Samouczek: Konfigurowanie płatnej śniegu w celu automatycznego aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Azure Active Directory, aby automatycznie inicjować udostępnianie kont użytkowników i cofać ich obsługę.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,159 +16,159 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 2c5d91894ba35233f3fbebffdff9104edcfdd27b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77063164"
 ---
-# <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie płatka śniegu do automatycznego inicjowania obsługi administracyjnej przez użytkowników
+# <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie płatnej śniegu na potrzeby automatycznego aprowizacji użytkowników
 
-Celem tego samouczka jest zademonstrowanie kroków, które należy wykonać w płatka śniegu i usługi Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizowania i deekwowania użytkowników i/lub grup do płatka śniegu.
+Celem tego samouczka jest przedstawienie kroków, które należy wykonać w śniegu i Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizacji i cofania aprowizacji użytkowników i/lub grup na płatki śniegu.
 
 > [!NOTE]
-> W tym samouczku opisano łącznik utworzony na podstawie usługi inicjowania obsługi administracyjnej użytkowników usługi Azure AD. Aby uzyskać ważne informacje na temat działania tej usługi, działania i często zadawanych pytań, zobacz [Automatyzacja inicjowania obsługi administracyjnej i usuwania obsługi administracyjnej aplikacji SaaS za pomocą usługi Azure Active Directory](../app-provisioning/user-provisioning.md).
+> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania aplikacji SaaS przy użyciu programu Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Ten łącznik jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat ogólnych warunków korzystania z platformy Microsoft Azure dla funkcji w wersji Zapoznawczej, zobacz [Dodatkowe warunki użytkowania w wersji Zapoznawczej platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Ten łącznik jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat ogólnych Microsoft Azure warunki użytkowania funkcji w wersji zapoznawczej, zobacz [dodatkowe warunki użytkowania dla Microsoft Azure podglądów](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku zakłada, że masz już następujące wymagania wstępne:
+Scenariusz opisany w tym samouczku założono, że masz już następujące wymagania wstępne:
 
 * Dzierżawa usługi Azure AD.
-* [Najemca płatka śniegu](https://www.Snowflake.com/pricing/).
-* Konto użytkownika w płatek śniegu z uprawnieniami administratora.
+* [Dzierżawca płatka śniegu](https://www.Snowflake.com/pricing/).
+* Konto użytkownika w śniegu z uprawnieniami administratora.
 
 ## <a name="assigning-users-to-snowflake"></a>Przypisywanie użytkowników do płatka śniegu
 
-Usługa Azure Active Directory używa koncepcji o nazwie *przydziały,* aby określić, którzy użytkownicy powinni otrzymać dostęp do wybranych aplikacji. W kontekście automatycznego inicjowania obsługi administracyjnej użytkowników tylko użytkownicy i/lub grupy, które zostały przypisane do aplikacji w usłudze Azure AD są synchronizowane.
+Azure Active Directory używa koncepcji zwanej *zadaniami* w celu określenia, którzy użytkownicy powinni otrzymywać dostęp do wybranych aplikacji. W kontekście automatycznej aprowizacji użytkowników są synchronizowane tylko użytkownicy i/lub grupy, które zostały przypisane do aplikacji w usłudze Azure AD.
 
-Przed skonfigurowaniem i włączeniem automatycznego inicjowania obsługi administracyjnej użytkowników należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD potrzebują dostępu do płatka śniegu. Po podjęciu decyzji, można przypisać tych użytkowników i / lub grup do Snowflake, postępując zgodnie z instrukcjami tutaj:
-* [Przypisywanie użytkownika lub grupy do aplikacji przedsiębiorstwa](../manage-apps/assign-user-or-group-access-portal.md)
+Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD potrzebują dostępu do płatnego śniegu. Po ustaleniu tych użytkowników i/lub grup można przypisywać do śniegu, postępując zgodnie z poniższymi instrukcjami:
+* [Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-snowflake"></a>Ważne wskazówki dotyczące przypisywania użytkowników do płatka śniegu
+## <a name="important-tips-for-assigning-users-to-snowflake"></a>Ważne porady dotyczące przypisywania użytkowników do śniegu
 
-* Zaleca się, że jeden użytkownik usługi Azure AD jest przypisany do płatka śniegu, aby przetestować konfigurację automatycznego inicjowania obsługi administracyjnej użytkownika. Dodatkowi użytkownicy i/lub grupy mogą być przypisane później.
+* Zaleca się, aby jeden użytkownik usługi Azure AD został przypisany do płatnej śniegu w celu przetestowania automatycznej konfiguracji inicjowania obsługi użytkowników. Dodatkowych użytkowników i/lub grupy można przypisywać później.
 
-* Podczas przypisywania użytkownika do płatka śniegu należy wybrać dowolną prawidłową rolę specyficzną dla aplikacji (jeśli jest dostępna) w oknie dialogowym przypisania. Użytkownicy z rolą **dostępu domyślnego** są wykluczeni z inicjowania obsługi administracyjnej.
+* Podczas przypisywania użytkownika do płaty śniegu należy wybrać dowolną prawidłową rolę specyficzną dla aplikacji (jeśli jest dostępna) w oknie dialogowym przypisania. Użytkownicy z **domyślną rolą dostępu** są wykluczeni z aprowizacji.
 
-## <a name="setup-snowflake-for-provisioning"></a>Konfigurowanie płatka śniegu do inicjowania obsługi administracyjnej
+## <a name="setup-snowflake-for-provisioning"></a>Konfigurowanie zainicjowania obsługi płatnej śniegu
 
-Przed skonfigurowaniem Płatek śniegu do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure AD, należy włączyć inicjowanie obsługi administracyjnej scim na płatek śniegu.
+Przed skonfigurowaniem płatnej śniegu w celu automatycznego aprowizacji użytkowników przy użyciu usługi Azure AD należy włączyć funkcję aprowizacji Standard scim na śniegu.
 
-1. Zaloguj się do konsoli administracyjnej płatka śniegu. Wprowadź zapytanie pokazane poniżej w wyróżnionym arkuszu i kliknij przycisk **Uruchom**.
+1. Zaloguj się do konsoli administracyjnej płatnej śniegu. Wprowadź poniżej zapytanie w wyróżnionym arkuszu, a następnie kliknij przycisk **Uruchom**.
 
     ![Konsola administracyjna płatka śniegu](media/Snowflake-provisioning-tutorial/image00.png)
 
-2.  Token dostępu SCIM zostanie wygenerowany dla dzierżawy płatka śniegu. Aby go odzyskać, kliknij link wyróżniony poniżej.
+2.  Token dostępu Standard scim zostanie wygenerowany dla dzierżawy płatnej. Aby go pobrać, kliknij link wyróżniony poniżej.
 
-    ![Płatek śniegu Dodaj SCIM](media/Snowflake-provisioning-tutorial/image01.png)
+    ![Dodaj Standard SCIMa śniegu](media/Snowflake-provisioning-tutorial/image01.png)
 
-3. Skopiuj wygenerowaną wartość tokenu i kliknij przycisk **Gotowe**. Ta wartość zostanie wprowadzona w polu **Token tajny** na karcie Inicjowanie obsługi administracyjnej aplikacji Płatek śniegu w witrynie Azure portal.
+3. Skopiuj wygenerowaną wartość tokenu i kliknij przycisk **gotowe**. Ta wartość zostanie wprowadzona w polu **token tajny** na karcie aprowizacji aplikacji płatnej śniegu w Azure Portal.
 
-    ![Płatek śniegu Dodaj SCIM](media/Snowflake-provisioning-tutorial/image02.png)
+    ![Dodaj Standard SCIMa śniegu](media/Snowflake-provisioning-tutorial/image02.png)
 
-## <a name="add-snowflake-from-the-gallery"></a>Dodaj płatek śniegu z galerii
+## <a name="add-snowflake-from-the-gallery"></a>Dodaj płatną śnieg z galerii
 
-Aby skonfigurować płatek śniegu do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure AD, należy dodaćSnowflake z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować płatną śnieg w celu automatycznego aprowizacji użytkowników w usłudze Azure AD, musisz odliczać Płatkę z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać płatek śniegu z galerii aplikacji usługi Azure AD, wykonaj następujące kroki:**
+**Aby dodać płatną śnieg z galerii aplikacji usługi Azure AD, wykonaj następujące czynności:**
 
-1. W **[witrynie Azure portal](https://portal.azure.com)** w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
+1. W **[Azure Portal](https://portal.azure.com)** w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do **aplikacji enterprise**, a następnie wybierz pozycję **Wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-3. Aby dodać nową aplikację, wybierz przycisk **Nowa aplikacja** u góry okienka.
+3. Aby dodać nową aplikację, wybierz przycisk **Nowa aplikacja** w górnej części okienka.
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź **płatek śniegu**, wybierz **Płatek śniegu** w panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wprowadź wartość **płatka śniegu**, wybierz pozycję **płatka** śniegu w panelu wyniki, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Aplikacja Snowflake na liście wyników](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-snowflake"></a>Konfigurowanie automatycznego inicjowania obsługi administracyjnej w płatkach śniegu 
+## <a name="configuring-automatic-user-provisioning-to-snowflake"></a>Konfigurowanie automatycznego aprowizacji użytkowników na płatki śniegu 
 
-W tej sekcji można przejść przez kroki konfigurowania usługi inicjowania obsługi administracyjnej usługi Azure AD do tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w płatku śniegu na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
+Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w śniegu na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
 
 > [!TIP]
-> Możesz również włączyć jednokrotne logowanie oparte na SAML dla płatka śniegu, postępując zgodnie z instrukcjami podanymi w [samouczku logowania jednokrotnego płatka śniegu.](Snowflake-tutorial.md) Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej użytkownika, chociaż te dwie funkcje wzajemnie się uzupełniają.
+> Możesz również włączyć logowanie jednokrotne oparte na protokole SAML w przypadku płatka za pośrednictwem języka, postępując zgodnie z instrukcjami podanymi w [samouczku logowanie](Snowflake-tutorial.md)jednokrotne. Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje napadają nawzajem.
 
-### <a name="to-configure-automatic-user-provisioning-for-snowflake-in-azure-ad"></a>Aby skonfigurować automatyczne inicjowanie obsługi administracyjnej dla płatka śniegu w usłudze Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-snowflake-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla płatnych śniegów w usłudze Azure AD:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). Wybierz pozycję **Aplikacje przedsiębiorstwa**, a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz opcję **Płatek śniegu**.
+2. Na liście Aplikacje wybierz pozycję **płatka śnieg**.
 
     ![Link aplikacji Snowflake na liście aplikacji](common/all-applications.png)
 
-3. Wybierz kartę **Inicjowanie obsługi administracyjnej.**
+3. Wybierz kartę **aprowizacji** .
 
-    ![Karta Inicjowanie obsługi administracyjnej](common/provisioning.png)
+    ![Karta aprowizacji](common/provisioning.png)
 
-4. Ustaw **tryb inicjowania obsługi administracyjnej** na **Automatyczny**.
+4. Ustaw **tryb aprowizacji** na **automatyczny**.
 
-    ![Karta Inicjowanie obsługi administracyjnej](common/provisioning-automatic.png)
+    ![Karta aprowizacji](common/provisioning-automatic.png)
 
-5. W sekcji Poświadczenia administratora `https://<Snowflake Account URL>/scim/v2` wprowadź adres URL dzierżawy. Przykład adresu URL dzierżawy:`https://acme.snowflakecomputing.com/scim/v2`
+5. W sekcji poświadczenia administratora wprowadź `https://<Snowflake Account URL>/scim/v2` adres URL dzierżawy. Przykład adresu URL dzierżawy:`https://acme.snowflakecomputing.com/scim/v2`
 
-6. Wprowadź wartość **tokenu uwierzytelniania SCIM** pobraną wcześniej w **tokenie tajnym**. Kliknij **przycisk Testuj połączenie,** aby upewnić się, że usługa Azure AD może łączyć się z płatem śniegu. Jeśli połączenie nie powiedzie się, upewnij się, że twoje konto Snowflake ma uprawnienia administratora i spróbuj ponownie.
+6. Wprowadź wartość **tokenu uwierzytelniania Standard scim** pobraną wcześniej w **tokenie tajnym**. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z płatą Jeśli połączenie zakończy się niepowodzeniem, upewnij się, że Twoje konto płatne w sieci śnieg ma uprawnienia administratora i spróbuj ponownie.
 
     ![Adres URL dzierżawy + token](common/provisioning-testconnection-tenanturltoken.png)
 
-7. W polu **Wiadomość e-mail z powiadomieniem** wprowadź adres e-mail osoby lub grupy, która powinna otrzymywać powiadomienia o błędach inicjowania obsługi administracyjnej, i zaznacz pole wyboru - **Wyślij powiadomienie e-mail, gdy wystąpi błąd.**
+7. W polu **adres E-mail powiadomienia** wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji, i zaznacz pole wyboru — **Wyślij powiadomienie e-mail, gdy wystąpi awaria**.
 
-    ![Wiadomość e-mail z powiadomieniem](common/provisioning-notification-email.png)
+    ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
 8. Kliknij przycisk **Zapisz**.
 
-9. W sekcji **Mapowania** wybierz pozycję **Synchronizuj użytkowników usługi Azure Active Directory z płatkami śniegu**.
+9. W sekcji **mapowania** wybierz opcję **Synchronizuj Azure Active Directory użytkownicy z płatą śniegu**.
 
     ![Mapowania użytkowników płatka śniegu](media/Snowflake-provisioning-tutorial/user-mapping.png)
 
-10. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do płatka śniegu w sekcji **Mapowanie atrybutów.** Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w Płatek śniegu dla operacji aktualizacji. Wybierz przycisk **Zapisz,** aby zatwierdzić wszelkie zmiany.
+10. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do śniegu w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane w celu dopasowania do kont użytkowników w śniegu w przypadku operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
     ![Atrybuty użytkownika płatka śniegu](media/Snowflake-provisioning-tutorial/user-attribute.png)
 
-11. W sekcji **Mapowania** wybierz pozycję **Synchronizuj grupy usługi Azure Active Directory z płatem śniegu**.
+11. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory z płatą śniegu**.
 
-    ![Mapowania grup płatków śniegu](media/Snowflake-provisioning-tutorial/group-mapping.png)
+    ![Mapowania grup płatnych śniegu](media/Snowflake-provisioning-tutorial/group-mapping.png)
 
-12. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD do płatka śniegu w sekcji **Mapowanie atrybutów.** Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania grup w Płatek śniegu dla operacji aktualizacji. Wybierz przycisk **Zapisz,** aby zatwierdzić wszelkie zmiany.
+12. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD do śniegu w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania grup w śniegu dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
     ![Atrybuty grupy płatka śniegu](media/Snowflake-provisioning-tutorial/group-attribute.png)
 
-13. Aby skonfigurować filtry zakresu, zapoznaj się z poniższymi instrukcjami podanymi w [samouczku filtru zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+13. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-14. Aby włączyć usługę inicjowania obsługi administracyjnej usługi Azure AD dla płatka śniegu, zmień **stan inicjowania obsługi administracyjnej** **na Włączone** w sekcji **Ustawienia.**
+14. Aby włączyć usługę Azure AD Provisioning dla płatka śnieg, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
-    ![Stan inicjowania obsługi administracyjnej włączony](common/provisioning-toggle-on.png)
+    ![Stan aprowizacji jest przełączany](common/provisioning-toggle-on.png)
 
-15. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić płatek śniegu, wybierając żądane wartości w **zakresie** w sekcji **Ustawienia.** Jeśli ta opcja nie jest dostępna, skonfiguruj wymagane pola w obszarze Poświadczenia administratora, kliknij przycisk **Zapisz** i odśwież stronę. 
+15. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić śnieg, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** . Jeśli ta opcja jest niedostępna, skonfiguruj wymagane pola w obszarze poświadczenia administratora, a następnie kliknij przycisk **Zapisz** i Odśwież stronę. 
 
-    ![Zakres inicjowania obsługi administracyjnej](common/provisioning-scope.png)
+    ![Zakres aprowizacji](common/provisioning-scope.png)
 
-16. Gdy będziesz gotowy do aprowienia, kliknij przycisk **Zapisz**.
+16. Gdy wszystko będzie gotowe do udostępnienia, kliknij przycisk **Zapisz**.
 
-    ![Zapisywanie konfiguracji inicjowania obsługi administracyjnej](common/provisioning-configuration-save.png)
+    ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
-    Ta operacja rozpoczyna początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia.** Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które występują co około 40 minut, o ile jest uruchomiona usługa inicjowania obsługi administracyjnej usługi Azure AD. Można użyć szczegóły **synchronizacji** sekcji do monitorowania postępu i obserwowanie łączy do raportu aktywności inicjowania obsługi administracyjnej, który opisuje wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej usługi Azure AD na płatek śniegu.
+    Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia** . Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które wystąpiły co około 40 minut, o ile usługa Azure AD Provisioning jest uruchomiona. Możesz użyć sekcji **szczegóły synchronizacji** do monitorowania postępu i postępuj zgodnie z raportem o aktywności aprowizacji, który opisuje wszystkie akcje wykonywane przez usługę Azure AD Provisioning na śniegu.
 
-    Aby uzyskać więcej informacji na temat sposobu zapoznania się z dziennikami inicjowania obsługi administracyjnej usługi Azure AD, zobacz [Raportowanie automatycznego inicjowania obsługi administracyjnej konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md)
+    Aby uzyskać więcej informacji na temat odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md)
 
-## <a name="connector-limitations"></a>Ograniczenia złącza
+## <a name="connector-limitations"></a>Ograniczenia łącznika
 
-* Tokeny SCIM wygenerowane przez płatek śniegu wygasają w ciągu 6 miesięcy. Należy pamiętać, że te muszą być odświeżane, zanim wygasną, aby umożliwić synchronizacji inicjowania obsługi administracyjnej, aby kontynuować pracę. 
+* Tokeny Standard scim wygenerowały płaty śniegu wygaśnie w ciągu 6 miesięcy. Należy pamiętać, że należy je odświeżyć przed wygaśnięciem, aby umożliwić kontynuowanie synchronizacji aprowizacji. 
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Zarządzanie inicjowanie obsługi administracyjnej kont użytkowników dla aplikacji dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md).
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md).
+* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
-* [Dowiedz się, jak przeglądać dzienniki i otrzymywać raporty dotyczące aktywności inicjowania obsługi administracyjnej.](../app-provisioning/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md).

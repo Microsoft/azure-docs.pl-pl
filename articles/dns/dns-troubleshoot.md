@@ -1,6 +1,6 @@
 ---
-title: Przewodnik rozwiązywania problemów — usługa Azure DNS
-description: W tej ścieżce szkoleniowej rozpocznij rozwiązywanie typowych problemów z usługą Azure DNS
+title: Przewodnik rozwiązywania problemów — Azure DNS
+description: W tej ścieżce szkoleniowej Rozpocznij Rozwiązywanie typowych problemów dotyczących Azure DNS
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -8,27 +8,27 @@ ms.topic: article
 ms.date: 09/20/2019
 ms.author: rohink
 ms.openlocfilehash: b5e1624bf852256f6e8fb0b616258f932c5a8998
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76939024"
 ---
-# <a name="azure-dns-troubleshooting-guide"></a>Przewodnik po rozwiązywaniu problemów z usługą Azure DNS
+# <a name="azure-dns-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów Azure DNS
 
-Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z typowymi pytaniami dotyczącymi usługi Azure DNS.
+Ten artykuł zawiera informacje dotyczące rozwiązywania problemów dotyczących typowych pytań Azure DNS.
 
-Jeśli te kroki nie rozwiążą problemu, możesz również wyszukać lub opublikować problem na naszym [forum pomocy technicznej społeczności na MSDN.](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork) Można też otworzyć żądanie pomocy technicznej platformy Azure.
+Jeśli te kroki nie rozwiążą problemu, możesz również wyszukać lub opublikować swój problem na naszym [forum pomocy technicznej w witrynie MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork). Możesz też otworzyć żądanie pomocy technicznej platformy Azure.
 
 
 ## <a name="i-cant-create-a-dns-zone"></a>Nie mogę utworzyć strefy DNS
 
 Aby rozwiązać typowe problemy, spróbuj wykonać następujące kroki:
 
-1.  Przejrzyj dzienniki inspekcji usługi Azure DNS, aby ustalić przyczynę błędu.
+1.  Zapoznaj się z dziennikami inspekcji Azure DNS, aby ustalić przyczynę niepowodzenia.
 2.  Każda nazwa strefy DNS musi być unikatowa w obrębie swojej grupy zasobów. Oznacza to, że dwie strefy DNS o tej samej nazwie nie mogą współużytkować grupy zasobów. Spróbuj użyć innej nazwy strefy lub innej grupy zasobów.
 3.  Możesz zobaczyć błąd „Osiągnięto lub przekroczono maksymalną liczbę stref w subskrypcji {identyfikator subskrypcji}”. Użyj innej subskrypcji platformy Azure, usuń kilka stref lub skontaktuj się z pomocą techniczną platformy Azure w celu podniesienia limitu dla subskrypcji.
-4.  Możesz zobaczyć błąd „Strefa {nazwa strefy} jest niedostępna”. Ten błąd oznacza, że usługa DNS platformy Azure nie mogła przydzielić serwerów nazw dla tej strefy DNS. Spróbuj użyć innej nazwy strefy. Lub jeśli jesteś właścicielem nazwy domeny, możesz skontaktować się z pomocą techniczną platformy Azure, aby przydzielić serwery nazw dla Ciebie.
+4.  Możesz zobaczyć błąd „Strefa {nazwa strefy} jest niedostępna”. Ten błąd oznacza, że usługa DNS platformy Azure nie mogła przydzielić serwerów nazw dla tej strefy DNS. Spróbuj użyć innej nazwy strefy. Lub, jeśli jesteś właścicielem nazwy domeny, możesz skontaktować się z pomocą techniczną platformy Azure, aby przydzielić serwery nazw.
 
 
 ### <a name="recommended-articles"></a>Zalecane artykuły
@@ -40,11 +40,11 @@ Aby rozwiązać typowe problemy, spróbuj wykonać następujące kroki:
 
 Aby rozwiązać typowe problemy, spróbuj wykonać następujące kroki:
 
-1.  Przejrzyj dzienniki inspekcji usługi Azure DNS, aby ustalić przyczynę błędu.
+1.  Zapoznaj się z dziennikami inspekcji Azure DNS, aby ustalić przyczynę niepowodzenia.
 2.  Czy zestaw rekordów już istnieje?  Usługa DNS platformy Azure zarządza rekordami za pomocą *zestawów*, czyli kolekcji rekordów o tej samej nazwie i typie. Jeśli już istnieje rekord o tej danej nazwie i typie, to w celu dodania kolejnego takiego rekordu trzeba poddać edycji istniejący zestaw rekordów.
 3.  Czy próbujesz utworzyć rekord w wierzchołku strefy DNS (w „katalogu głównym” strefy)? Jeśli tak, to konwencja systemu DNS wymaga użycia znaku „@” jako nazwy rekordu. Należy również zauważyć, że standardy DNS nie zezwalają na rekordy CNAME w wierzchołku strefy.
-4.  Czy występuje konflikt dotyczący rekordu CNAME?  Standardy DNS nie zezwalają na rekord CNAME o takiej samej nazwie jak rekord innego typu. Jeśli istnieje już rekord CNAME, utworzenie innego typu rekordu o takiej samej nazwie zakończy się niepowodzeniem.  Analogicznie, utworzenie rekordu CNAME zakończy się niepowodzeniem, jeśli jego nazwa jest taka sama jak nazwa istniejącego rekordu innego typu. Rozwiąż ten konflikt, usuwając drugi rekord lub wybierając inną nazwę rekordu.
-5.  Czy osiągnięto limit liczby zestawów rekordów w strefie DNS? Bieżąca liczba zestawów rekordów oraz najwyższa możliwa liczba zestawów rekordów są pokazane w witrynie Azure Portal w obszarze „Właściwości” danej strefy. Jeśli osiągnąłeś ten limit, usuń niektóre zestawy rekordów lub skontaktuj się z pomocą techniczną platformy Azure, aby podnieść limit zestawu rekordów dla tej strefy, a następnie spróbuj ponownie. 
+4.  Czy występuje konflikt dotyczący rekordu CNAME?  Standardy DNS nie zezwalają na rekordy CNAME o takiej samej nazwie jak rekord dowolnego innego typu. Jeśli istnieje już rekord CNAME, utworzenie innego typu rekordu o takiej samej nazwie zakończy się niepowodzeniem.  Analogicznie, utworzenie rekordu CNAME zakończy się niepowodzeniem, jeśli jego nazwa jest taka sama jak nazwa istniejącego rekordu innego typu. Rozwiąż ten konflikt, usuwając drugi rekord lub wybierając inną nazwę rekordu.
+5.  Czy osiągnięto limit liczby zestawów rekordów w strefie DNS? Bieżąca liczba zestawów rekordów oraz najwyższa możliwa liczba zestawów rekordów są pokazane w witrynie Azure Portal w obszarze „Właściwości” danej strefy. Jeśli osiągnięto ten limit, usuń niektóre zestawy rekordów lub skontaktuj się z pomocą techniczną platformy Azure, aby zgłosić limit zestawu rekordów dla tej strefy, a następnie spróbuj ponownie. 
 
 
 ### <a name="recommended-articles"></a>Zalecane artykuły
@@ -91,7 +91,7 @@ Przykładowe nazwy rekordów SRV (nazwa usługi „sip”, protokół „tcp”)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [strefach i rekordach usługi Azure DNS](dns-zones-records.md)
-* Aby rozpocząć korzystanie z usługi Azure DNS, dowiedz się, jak [utworzyć strefę DNS](dns-getstarted-create-dnszone-portal.md) i [utworzyć rekordy DNS](dns-getstarted-create-recordset-portal.md).
-* Aby przeprowadzić migrację istniejącej strefy DNS, dowiedz się, jak [zaimportować i wyeksportować plik strefy DNS](dns-import-export.md).
+* Informacje o [Azure DNS strefach i rekordach](dns-zones-records.md)
+* Aby rozpocząć korzystanie z Azure DNS, Dowiedz się, jak [utworzyć strefę DNS](dns-getstarted-create-dnszone-portal.md) i [utworzyć rekordy DNS](dns-getstarted-create-recordset-portal.md).
+* Aby przeprowadzić migrację istniejącej strefy DNS, Dowiedz się, jak [importować i eksportować plik strefy DNS](dns-import-export.md).
 

@@ -1,173 +1,173 @@
 ---
-title: Rejestrowanie alertów w usłudze Azure Monitor
-description: Wyzwalanie wiadomości e-mail, powiadomień, wywoływania adresów URL witryn sieci Web (zestawów webhook) lub automatyzacji, gdy określone warunki zapytania analitycznego są spełnione dla alertów platformy Azure.
+title: Alerty dzienników w Azure Monitor
+description: Wyzwalaj wiadomości e-mail, powiadomienia, wywołaj adresy URL witryn sieci Web (webhook) lub automatyzację, gdy określone warunki kwerendy analitycznej są spełnione dla alertów platformy Azure.
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
 ms.openlocfilehash: a6abf4665c27771497037da35f85bb540e6e904e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77665225"
 ---
-# <a name="log-alerts-in-azure-monitor"></a>Rejestrowanie alertów w usłudze Azure Monitor
+# <a name="log-alerts-in-azure-monitor"></a>Alerty dzienników w Azure Monitor
 
-Ten artykuł zawiera szczegółowe informacje alerty dziennika są jednym z typów alertów obsługiwanych w [ramach alertów platformy Azure](../../azure-monitor/platform/alerts-overview.md) i umożliwiają użytkownikom korzystanie z platformy analitycznej platformy Azure jako podstawy do alertów.
+W tym artykule przedstawiono szczegółowe informacje dotyczące alertów dziennika, które są obsługiwane w ramach [alertów platformy Azure](../../azure-monitor/platform/alerts-overview.md) i umożliwiają użytkownikom korzystanie z platformy Azure Analytics na podstawie alertów.
 
-Alert dziennika składa się z reguł wyszukiwania dziennika utworzonych dla [dzienników monitora Azure](../../azure-monitor/learn/tutorial-viewdata.md) lub [usługi Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). Aby dowiedzieć się więcej o jego użyciu, zobacz [tworzenie alertów dziennika na platformie Azure](../../azure-monitor/platform/alerts-log.md)
+Alert dziennika składa się z reguł przeszukiwania dzienników utworzonych dla [dzienników Azure monitor](../../azure-monitor/learn/tutorial-viewdata.md) lub [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). Aby dowiedzieć się więcej na temat użycia, zobacz [tworzenie alertów dziennika na platformie Azure](../../azure-monitor/platform/alerts-log.md)
 
 > [!NOTE]
-> Popularne dane dziennika z [dzienników usługi Azure Monitor są](../../azure-monitor/learn/tutorial-viewdata.md) teraz również dostępne na platformie metrycznej w usłudze Azure Monitor. Aby uzyskać widok szczegółów, [alert metryki dla dzienników](../../azure-monitor/platform/alerts-metric-logs.md)
+> Popularne dane dzienników z [dzienników Azure monitor](../../azure-monitor/learn/tutorial-viewdata.md) są teraz również dostępne na platformie metryk w Azure monitor. Aby wyświetlić szczegóły, [alert dotyczący metryk dzienników](../../azure-monitor/platform/alerts-metric-logs.md)
 
 
-## <a name="log-search-alert-rule---definition-and-types"></a>Reguła alertu wyszukiwania dziennika — definicja i typy
+## <a name="log-search-alert-rule---definition-and-types"></a>Reguła alertu wyszukiwania w dzienniku — definicja i typy
 
-Reguły przechowywania dzienników są tworzone przez usługę Azure Alerts w celu automatycznego wykonywania określonych zapytań dotyczących dzienników w regularnych odstępach czasu.  Jeśli wyniki zapytania pasują do określonych kryteriów, jest tworzony rekord alertu. Reguła może wtedy automatycznie uruchomić jedną lub więcej akcji przy użyciu [grup akcji](../../azure-monitor/platform/action-groups.md). Może być wymagana rola [współautora monitorowania platformy Azure](../../azure-monitor/platform/roles-permissions-security.md) do tworzenia, modyfikowania i aktualizowania alertów dziennika; wraz z prawami do wykonywania & zapytania dostępu dla docelowych(ów) analizy w regułie alertów lub kwerendzie alertów. W przypadku, gdy użytkownik tworzący nie ma dostępu do wszystkich docelowych analytics w reguły alertu lub kwerendy alert - tworzenie reguły może zakończyć się niepowodzeniem lub reguła alertu dziennika zostanie wykonana z częściowymi wynikami.
+Reguły przechowywania dzienników są tworzone przez usługę Azure Alerts w celu automatycznego wykonywania określonych zapytań dotyczących dzienników w regularnych odstępach czasu.  Jeśli wyniki zapytania pasują do określonych kryteriów, jest tworzony rekord alertu. Reguła może wtedy automatycznie uruchomić jedną lub więcej akcji przy użyciu [grup akcji](../../azure-monitor/platform/action-groups.md). Może być wymagana rola [współautor monitorowania platformy Azure](../../azure-monitor/platform/roles-permissions-security.md) służąca do tworzenia, modyfikowania i aktualizowania alertów dzienników. wraz z dostępem & praw wykonywania zapytań dla obiektów docelowych analiz w regule alertów lub kwerendzie alertu. Jeśli użytkownik nie ma dostępu do wszystkich obiektów docelowych analizy w regule alertu lub kwerendzie alertu — Tworzenie reguły może zakończyć się niepowodzeniem lub reguła alertu dziennika zostanie wykonana z częściowymi wynikami.
 
-Reguły wyszukiwania dzienników są definiowane przez następujące szczegóły:
+Reguły przeszukiwania dzienników są definiowane przez następujące szczegóły:
 
-- **Zapytanie dziennika**.  zapytanie uruchamiane po każdym wyzwoleniu reguły alertu.  Rekordy zwracane przez tę kwerendę są używane do określenia, czy alert ma być wyzwalany. Kwerenda analizy może być dla określonego obszaru roboczego usługi Log Analytics lub aplikacji usługi Application Insights, a nawet obejmować [wiele zasobów usługi Log Analytics i usługi Application Insights,](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) pod warunkiem, że użytkownik ma dostęp, a także prawa do zapytań do wszystkich zasobów. 
+- **Zapytanie dziennika**.  zapytanie uruchamiane po każdym wyzwoleniu reguły alertu.  Rekordy zwrócone przez to zapytanie są używane do określenia, czy alert ma zostać wyzwolony. Zapytanie analityczne może dotyczyć określonego obszaru roboczego Log Analytics lub Application Insights aplikacji, a nawet w [wielu log Analytics i Application Insights zasobach](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) , pod warunkiem, że użytkownik ma dostęp, a także uprawnienia zapytania do wszystkich zasobów. 
     > [!IMPORTANT]
-    > obsługa [zapytań między zasobami](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) w alertach dziennika dla usługi Application Insights i alertów dziennika dla usługi Log Analytics skonfigurowanych przy użyciu tylko [interfejsu API scheduledQueryRules.](../../azure-monitor/platform/alerts-log-api-switch.md)
+    > Obsługa [zapytań między zasobami](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) w alertach dziennika Application Insights i rejestrowania alertów dotyczących [log Analytics skonfigurowanych tylko przy użyciu interfejsu API scheduledQueryRules](../../azure-monitor/platform/alerts-log-api-switch.md) .
 
-    Niektóre polecenia analityczne i kombinacje są niezgodne z użyciem w alertach dziennika; aby uzyskać więcej informacji, [Zaloguj kwerendy alertów w usłudze Azure Monitor](../../azure-monitor/platform/alerts-log-query.md).
+    Niektóre polecenia i kombinacje analityczne są niezgodne z użyciem w alertach dziennika; Aby uzyskać więcej szczegółów, [Rejestruj zapytania alertów w Azure monitor](../../azure-monitor/platform/alerts-log-query.md).
 
-- **Okres czasu**.  Określa zakres czasu kwerendy. Zapytanie zwraca tylko rekordy utworzone w tym zakresie czasu bieżącego. Okres czasu ogranicza dane pobierane dla kwerendy dziennika, aby zapobiec nadużyciom i obchodzi polecenia czasu (jak temu) używane w kwerendzie dziennika. <br>*Na przykład Jeśli okres jest ustawiony na 60 minut, a kwerenda jest uruchamiana o godzinie 13:15, tylko rekordy utworzone między 12:15 PM i 13:15 PM jest zwracany do wykonywania kwerendy dziennika. Teraz, jeśli kwerenda dziennika używa polecenia czasu, jak temu (7d), kwerenda dziennika będzie uruchamiana tylko dla danych między 12:15 PM i 13:15 PM - tak, jakby dane istnieją tylko przez ostatnie 60 minut. I nie dla siedmiu dni danych, jak określono w zapytaniu dziennika.*
+- **Okres**.  Określa zakres czasu dla zapytania. Zapytanie zwraca tylko rekordy utworzone w tym zakresie czasu bieżącego. Przedział czasu ogranicza dane pobierane dla zapytania dziennika, aby zapobiec nadużyciu i obejść każde polecenie czasu (na przykład temu) używane w zapytaniu dziennika. <br>*Na przykład jeśli okres jest ustawiony na 60 minut, a zapytanie jest uruchamiane o godzinie 1:15 PM, do wykonania kwerendy dziennika jest zwracane tylko rekordy utworzone między 12:15 PM i 1:15 PM. Teraz, jeśli zapytanie dziennika używa polecenia czasu, takiego jak temu (7D), zapytanie dziennika zostanie uruchomione tylko dla danych między 12:15 PM i 1:15 PM-tak, jakby dane istniały tylko dla ostatnich 60 minut. I nie przez siedem dni dane określone w zapytaniu dziennika.*
 
-- **Częstotliwość**.  Określa, jak często kwerenda powinna być uruchamiana. Może mieć dowolną wartość od 5 minut do 24 godzin. Powinien być równy lub krótszy niż okres.  Jeśli wartość jest większa niż okres czasu, istnieje ryzyko, że rekordy zostaną pominięte.<br>*Rozważmy na przykład okres 30 minut i częstotliwość 60 minut.  Jeśli kwerenda jest uruchamiana o godzinie 1:00, zwraca rekordy między 12:30 a 13:00.  Następnym razem, gdy kwerenda zostanie uruchomiony jest 2:00, kiedy zwróci rekordy między 1:30 i 2:00.  Wszystkie rekordy utworzone między 1:00 a 1:30 nigdy nie będą oceniane.*
+- **Częstotliwość**.  Określa, jak często zapytanie powinno być uruchamiane. Może mieć dowolną wartość z przedziału od 5 minut do 24 godzin. Wartość powinna być równa lub mniejsza niż przedział czasu.  Jeśli wartość jest większa niż przedział czasu, oznacza to, że zostaną pominięte rekordy ryzyka.<br>*Rozważmy na przykład przedział czasu 30 minut i częstotliwość 60 minut.  Jeśli zapytanie jest uruchamiane o godzinie 1:00, zwraca rekordy z przedziału od 12:30 do 1:00 PM.  Przy następnym uruchomieniu zapytania jest 2:00, gdy zwróci rekordy z zakresu od 1:30 do 2:00.  Wszystkie rekordy utworzone w zakresie od 1:00 do 1:30 nigdy nie zostaną ocenione.*
 
-- **Próg**.  Wyniki wyszukiwania dziennika są oceniane w celu ustalenia, czy należy utworzyć alert.  Próg jest różny dla różnych typów reguł alertów wyszukiwania dziennika.
+- **Próg**.  Wyniki przeszukiwania dzienników są oceniane, aby określić, czy ma zostać utworzony alert.  Próg jest różny dla różnych typów reguł alertów wyszukiwania w dziennikach.
 
-Reguły wyszukiwania dziennika, czy to dla [dzienników usługi Azure Monitor](../../azure-monitor/learn/tutorial-viewdata.md) lub [usługi Application Insights,](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events)mogą być dwa typy. Każdy z tych typów jest szczegółowo opisany w kolejnych sekcjach.
+Reguły przeszukiwania dzienników dla [Azure monitor dzienników](../../azure-monitor/learn/tutorial-viewdata.md) lub [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events)mogą być dwa typy. Każdy z tych typów jest szczegółowo opisany w poniższych sekcjach.
 
-- **[Liczba wyników](#number-of-results-alert-rules)**. Pojedynczy alert utworzony, gdy rekordy liczb zwracane przez wyszukiwanie dziennika przekraczają określoną liczbę.
-- **[Pomiar metryczny](#metric-measurement-alert-rules)**.  Alert utworzony dla każdego obiektu w wynikach wyszukiwania dziennika z wartościami przekraczającymi określony próg.
+- **[Liczba wyników](#number-of-results-alert-rules)**. Pojedynczy alert utworzony, gdy rekordy liczbowe zwrócone przez przeszukiwanie dzienników przekraczają określoną liczbę.
+- **[Pomiar metryki](#metric-measurement-alert-rules)**.  Utworzono alert dla każdego obiektu w wynikach przeszukiwania dzienników z wartościami przekraczającymi określony próg.
 
 Różnice między typami reguł alertów są następujące.
 
-- *Liczba reguł alertów wyników* zawsze tworzy pojedynczy alert, podczas gdy reguła alertu *pomiaru metryki* tworzy alert dla każdego obiektu, który przekracza próg.
-- Liczba reguł *alertów wyników* tworzy alert, gdy próg zostanie przekroczony w jednym czasie. Reguły alertów *pomiaru metryki* można utworzyć alert, gdy próg zostanie przekroczony określoną liczbę razy w określonym przedziale czasu.
+- *Liczba* reguł alertów dotyczących wyników zawsze powoduje utworzenie pojedynczego alertu, podczas gdy reguła alertu *pomiaru metryki* tworzy alert dla każdego obiektu, który przekracza wartość progową.
+- Liczba reguł alertów *dotyczących wyników* Utwórz alert, gdy próg zostanie przekroczony pojedynczo. Reguły alertów *pomiaru metryki* mogą utworzyć alert, gdy próg zostanie przekroczony określoną liczbę razy w określonym przedziale czasu.
 
-### <a name="number-of-results-alert-rules"></a>Liczba reguł alertów o wynikach
+### <a name="number-of-results-alert-rules"></a>Liczba reguł alertów dotyczących wyników
 
-Liczba reguł **alertów wyników** tworzy pojedynczy alert, gdy liczba rekordów zwracanych przez kwerendę wyszukiwania przekracza określony próg. Ten typ reguły alertów jest idealny do pracy ze zdarzeniami, takimi jak dzienniki zdarzeń systemu Windows, Syslog, Odpowiedź webapp i dzienniki niestandardowe.  Można utworzyć alert, gdy zostanie utworzone zdarzenie określonego błędu lub gdy wiele zdarzeń błędu są tworzone w określonym okresie czasu.
+Liczba reguł alertów **z wynikami** tworzenia pojedynczego alertu, gdy liczba rekordów zwróconych przez zapytanie wyszukiwania przekracza określoną wartość progową. Ten typ reguły alertów jest idealny do pracy ze zdarzeniami, takimi jak dzienniki zdarzeń systemu Windows, dziennik systemowy, odpowiedź WebApp i dzienniki niestandardowe.  Możesz chcieć utworzyć alert po utworzeniu określonego zdarzenia błędu lub w przypadku utworzenia wielu zdarzeń błędów w określonym przedziale czasu.
 
-**Próg**: Próg dla reguł alertu o wielu wynikach jest większy lub mniejszy niż określona wartość.  Jeśli liczba rekordów zwróconych przez wyszukiwanie dziennika spełnia te kryteria, tworzony jest alert.
+**Próg**: próg dla wielu reguł alertów o wynikach jest większy lub mniejszy niż określona wartość.  Jeśli liczba rekordów zwróconych przez przeszukiwanie dziennika spełnia te kryteria, zostanie utworzony alert.
 
-Aby alerty na pojedyncze zdarzenie, należy ustawić liczbę wyników na większą niż 0 i sprawdzić wystąpienie pojedynczego zdarzenia, który został utworzony od czasu ostatniego uruchomienia kwerendy. Niektóre aplikacje mogą rejestrować sporadyczny błąd, który nie powinien koniecznie podnieść alertu.  Na przykład aplikacja może ponowić próbę procesu, który utworzył zdarzenie błędu, a następnie zakończyć się pomyślnie następnym razem.  W takim przypadku nie można utworzyć alertu, chyba że wiele zdarzeń są tworzone w określonym okresie czasu.  
+Aby otrzymywać alerty dotyczące pojedynczego zdarzenia, należy ustawić liczbę wyników na wartość większą niż 0 i wyszukać wystąpienie pojedynczego zdarzenia, które zostało utworzone od czasu ostatniego uruchomienia zapytania. Niektóre aplikacje mogą rejestrować sporadyczne błędy, które nie powinny być przyczyną zgłoszenia alertu.  Na przykład aplikacja może ponowić próbę wykonania procesu, który utworzył zdarzenie błędu, a następnie powiodło się następnym razem.  W takim przypadku można nie chcieć utworzyć alertu, chyba że w określonym przedziale czasu są tworzone wiele zdarzeń.  
 
-W niektórych przypadkach można utworzyć alert w przypadku braku zdarzenia.  Na przykład proces może rejestrować regularne zdarzenia, aby wskazać, że działa poprawnie.  Jeśli nie rejestruje jednego z tych zdarzeń w określonym przedziale czasu, należy utworzyć alert.  W takim przypadku próg należy ustawić na **mniej niż 1**.
+W niektórych przypadkach może być konieczne utworzenie alertu w przypadku nieobecności zdarzenia.  Na przykład proces może rejestrować regularne zdarzenia, aby wskazać, że działa prawidłowo.  Jeśli nie rejestruje jednego z tych zdarzeń w określonym przedziale czasu, należy utworzyć alert.  W tym przypadku należy ustawić próg na wartość **mniejszą niż 1**.
 
-#### <a name="example-of-number-of-records-type-log-alert"></a>Przykład alertu dziennika typu Liczba rekordów
+#### <a name="example-of-number-of-records-type-log-alert"></a>Przykład liczby rekordów typ alertu dziennika
 
-Rozważ scenariusz, w którym chcesz wiedzieć, kiedy aplikacja oparta na sieci Web daje odpowiedź do użytkowników z kodem 500 (czyli) Błąd serwera wewnętrznego. Należy utworzyć regułę alertu z następującymi szczegółami:  
+Rozważmy scenariusz, w którym chcesz wiedzieć, kiedy aplikacja oparta na sieci Web daje odpowiedzi użytkownikom z kodem 500 (oznacza to, że jest to wewnętrzny błąd serwera). Można utworzyć regułę alertu z następującymi szczegółami:  
 
-- **Zapytanie:** żądania | gdzie wynikKod == "500"<br>
-- **Okres czasu:** 30 minut<br>
-- **Częstotliwość alarmowa:** pięć minut<br>
-- **Wartość progowa:** Większa niż 0<br>
+- **Zapytanie:** żądania | gdzie resultCode = = "500"<br>
+- **Okres:** 30 minut<br>
+- **Częstotliwość alertów:** pięć minut<br>
+- **Wartość progowa:** Większe niż 0<br>
 
-Następnie alert będzie uruchamiać kwerendę co 5 minut, z 30 minut danych - szukać dowolnego rekordu, gdzie kod wyniku był 500. Jeśli zostanie znaleziony nawet jeden taki rekord, uruchamia alert i wyzwala skonfigurowane działanie.
+Następnie alert będzie uruchamiał zapytanie co 5 minut, z 30-minutową ilością danych — w celu wyszukania dowolnego rekordu, gdzie kod wyniku to 500. Jeśli jeden taki rekord zostanie znaleziony, wyzwala alert i wyzwala skonfigurowaną akcję.
 
 ### <a name="metric-measurement-alert-rules"></a>Reguły alertów pomiaru metryki
 
-Reguły alertów **pomiaru metryki** tworzą alert dla każdego obiektu w kwerendzie o wartości przekraczającej określony próg i określony warunek wyzwalacza. W przeciwieństwie do liczby reguł **alertów wyników** reguły alertów **pomiaru metryki** działają, gdy wynik analizy zapewnia szeregi czasowe. Mają one następujące różnice od liczby reguł **alertów wyników.**
+Reguły alertów **pomiaru metryki** tworzą alert dla każdego obiektu w zapytaniu o wartości przekraczającej określony próg i określony warunek wyzwalacza. W przeciwieństwie do liczby reguł alertów **dotyczących wyników** pomiarów metryk, gdy wynik analizy zawiera szeregi czasowe, działają reguły alertów o **pomiarach** . Mają one następujące odrębne różnice od liczby reguł alertów **dotyczących wyników** .
 
-- **Funkcja agregująca**: Określa wykonywane obliczenia i potencjalnie pole liczbowe do zagregowania.  Na przykład **count()** zwraca liczbę rekordów w kwerendzie, **avg(CounterValue)** zwraca średnią pola CounterValue w interwale. Funkcja agregująca w kwerendzie musi mieć nazwę/wywoływana: AggregatedValue i podać wartość liczbową. 
+- **Funkcja agregująca**: określa obliczenie, które jest wykonywane, a potencjalnie wartość pola liczbowego do zagregowania.  Na przykład **liczba ()** zwraca liczbę rekordów w zapytaniu, **średnia (CounterValue)** zwraca średnią pola CounterValue w interwale. Funkcja agregująca w zapytaniu musi mieć nazwę/nazwę: AggregatedValue i podać wartość liczbową. 
 
-- **Pole grupy:** Dla każdego wystąpienia tego pola tworzony jest rekord o wartości zagregowanego i dla każdego z nich może zostać wygenerowany alert.  Na przykład, jeśli chcesz wygenerować alert dla każdego komputera, należy użyć **przez komputer**. W przypadku, gdy istnieje wiele pól grupy określonych w kwerendzie alertów, użytkownik może określić, które pole ma być używane do sortowania wyników przy użyciu parametru **Agreguj na** (metricColumn)
-
-    > [!NOTE]
-    > *Opcja Agreguj włączone* (metricColumn) jest dostępna dla alertów dziennika metryki dla aplikacji i alertów dziennika dla usługi Log Analytics skonfigurowanych tylko [przy użyciu interfejsu API scheduledQueryRules.](../../azure-monitor/platform/alerts-log-api-switch.md)
-
-- **Interwał**: Definiuje przedział czasu, w którym dane są agregowane.  Na przykład, jeśli określono **pięć minut,** rekord zostanie utworzony dla każdego wystąpienia pola grupy zagregowanego w odstępach 5-minutowych w okresie określonym dla alertu.
+- **Pole grupy**: rekord z zagregowaną wartością jest tworzony dla każdego wystąpienia tego pola, a dla każdego z nich można wygenerować alert.  Jeśli na przykład chcesz wygenerować alert dla każdego komputera, użyj **komputera**. W przypadku w zapytaniu alertu określono wiele pól grup, użytkownik może określić pole, które ma być używane do sortowania wyników przy użyciu parametru **Aggregate on** (metricColumn).
 
     > [!NOTE]
-    > Funkcja pojemnika musi być używana w kwerendzie w celu określenia interwału. Ponieważ bin() może spowodować nierówne odstępy czasu — alert automatycznie konwertuje polecenie bin na polecenie bin_at z odpowiednim czasem wykonywania, aby zapewnić wyniki ze stałym punktem. Metryczny typ pomiaru alertu dziennika jest przeznaczony do pracy z zapytaniami o maksymalnie trzech wystąpieniach polecenia bin()
+    > Opcja *agregowania* (metricColumn) jest dostępna dla alertów dziennika typu pomiaru metryki dla alertów dotyczących Application Insights i dzienników [log Analytics skonfigurowanych tylko przy użyciu interfejsu API scheduledQueryRules](../../azure-monitor/platform/alerts-log-api-switch.md) .
+
+- **Interwał**: określa przedział czasu, w którym dane są agregowane.  Na przykład jeśli określono **pięć minut**, rekord zostanie utworzony dla każdego wystąpienia pola grupy zagregowanego w 5-minutowych odstępach czasu w okresie określonym dla alertu.
+
+    > [!NOTE]
+    > Funkcja bin musi być użyta w zapytaniu, aby określić interwał. W miarę jak bin () może powodować nierówne przedziały czasu — alert automatycznie konwertuje bin polecenie na polecenie bin_at przy odpowiednim czasie w czasie wykonywania, aby zapewnić wynik ze stałym punktem. Typ pomiaru metryki alertu dziennika jest przeznaczony do pracy z zapytaniami zawierającymi maksymalnie trzy wystąpienia polecenia bin ()
     
-- **Próg**: Próg dla reguł alertu pomiaru metryki jest definiowany przez wartość zagregowaną i liczbę naruszeń.  Jeśli dowolny punkt danych w wyszukiwaniu dziennika przekracza tę wartość, jest uważany za naruszenie.  Jeśli liczba naruszeń dla dowolnego obiektu w wynikach przekracza określoną wartość, zostanie utworzony alert dla tego obiektu.
+- **Próg**: próg dla reguł alertów pomiaru metryki jest definiowany przez wartość zagregowaną i liczbę naruszeń.  Jeśli którykolwiek z punktów danych w przeszukiwaniu dzienników przekroczy tę wartość, jest traktowany jako naruszenie.  Jeśli liczba naruszeń dla każdego obiektu w wynikach przekroczy określoną wartość, zostanie utworzony alert dla tego obiektu.
 
-Błędna konfiguracja opcji *Agreguj w* lub *metrykiKolumna* może spowodować niewypał reguł alertów. Aby uzyskać więcej informacji, zobacz [rozwiązywanie problemów, gdy reguła alertu pomiaru metryki jest nieprawidłowa](alert-log-troubleshoot.md#metric-measurement-alert-rule-is-incorrect).
+Błąd konfiguracji opcji *Aggregate on* lub *metricColumn* może spowodować awarię reguł alertów. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów, gdy reguła alertu dotyczącego pomiaru metryki jest nieprawidłowa](alert-log-troubleshoot.md#metric-measurement-alert-rule-is-incorrect).
 
 #### <a name="example-of-metric-measurement-type-log-alert"></a>Przykład alertu dziennika typu pomiaru metryki
 
-Należy wziąć pod uwagę scenariusz, w którym chcesz alert, jeśli dowolny komputer przekroczył wykorzystanie procesora 90% trzy razy w ciągu 30 minut.  Należy utworzyć regułę alertu z następującymi szczegółami:  
+Rozważmy scenariusz, w którym chcesz otrzymywać alerty w przypadku, gdy dowolny komputer przekroczy użycie procesora o 90% trzy razy w ciągu 30 minut.  Można utworzyć regułę alertu z następującymi szczegółami:  
 
-- **Zapytanie:** Perf | gdzie ObjectName == "Procesor" i Nazwa licznik == "% czasu procesora" | podsumuj AggregatedValue = avg(CounterValue) przez bin(TimeGenerated, 5m), Komputer<br>
-- **Okres czasu:** 30 minut<br>
-- **Częstotliwość alarmowa:** pięć minut<br>
-- **Logika alertu — próg & warunek:** Większa niż 90<br>
-- **Pole grupy (agregacja):** Komputerze
-- **Alert wyzwalacza oparty na:** Łączna liczba naruszeń większa niż 2<br>
+- **Zapytanie:** Wydajność | gdzie ObjectName = = "Processor" i CounterName = = "czas procesora (%)" | podsumowujący AggregatedValue = AVG (CounterValue) według bin (TimeGenerated, 5 m), Computer<br>
+- **Okres:** 30 minut<br>
+- **Częstotliwość alertów:** pięć minut<br>
+- **Logika alertu — warunek &:** Większe niż 90<br>
+- **Pole grupy (agregowane):** Komputerem
+- **Wyzwalaj alert w oparciu o:** Całkowite naruszenia większe niż 2<br>
 
-Kwerenda utworzy średnią wartość dla każdego komputera w odstępach 5-minutowych.  Ta kwerenda będzie uruchamiana co 5 minut dla danych zebranych w ciągu poprzednich 30 minut. Ponieważ pole grupy (agregacja) wybrany jest kolumnowy "Komputer" - AggregatedValue jest dzielona dla różnych wartości "Komputer" i średnie wykorzystanie procesora dla każdego komputera jest określana dla pojemnika czasu 5 minut.  Przykładowy wynik kwerendy dla (powiedzmy) trzech komputerów, będzie jak poniżej.
+Zapytanie utworzy średnią wartość dla każdego komputera w odstępach 5-minutowych.  To zapytanie będzie uruchamiane co 5 minut w przypadku danych zbieranych w ciągu ostatnich 30 minut. Ponieważ wybrane pole grupy (agregowany) jest kolumną "Computer" — AggregatedValue jest podzielony na różne wartości "Computer" i średnie użycie procesora dla każdego komputera jest określony dla czasu, który jest 5 minut.  Przykładowy wynik zapytania dla (Powiedz) trzy komputery, będzie jak poniżej.
 
 
-|Czasgenerowany [UTC] |Computer (Komputer)  |Wartość zagregowana  |
+|TimeGenerated [UTC] |Computer (Komputer)  |AggregatedValue  |
 |---------|---------|---------|
-|20xx-xx-xxT01:00:00Z     |   srv01.contoso.com      |    72     |
-|20xx-xx-xxT01:00:00Z     |   srv02.contoso.com      |    91     |
-|20xx-xx-xxT01:00:00Z     |   srv03.contoso.com      |    83     |
+|20xx-XX-xxT01:00:00Z     |   srv01.contoso.com      |    72     |
+|20xx-XX-xxT01:00:00Z     |   srv02.contoso.com      |    91     |
+|20xx-XX-xxT01:00:00Z     |   srv03.contoso.com      |    83     |
 |...     |   ...      |    ...     |
-|20xx-xx-xxT01:30:00Z     |   srv01.contoso.com      |    88     |
-|20xx-xx-xxT01:30:00Z     |   srv02.contoso.com      |    84     |
-|20xx-xx-xxT01:30:00Z     |   srv03.contoso.com      |    92     |
+|20xx-XX-xxT01:30:00Z     |   srv01.contoso.com      |    88     |
+|20xx-XX-xxT01:30:00Z     |   srv02.contoso.com      |    84     |
+|20xx-XX-xxT01:30:00Z     |   srv03.contoso.com      |    92     |
 
-Jeśli wynik kwerendy miał być wykreślony, będzie wyświetlany jako.
+Jeśli wynik kwerendy miał zostać wykreślony, zostanie wyświetlony jako.
 
-![Przykładowe wyniki kwerendy](media/alerts-unified-log/metrics-measurement-sample-graph.png)
+![Przykładowe wyniki zapytania](media/alerts-unified-log/metrics-measurement-sample-graph.png)
 
-W tym przykładzie widzimy w pojemnikach po 5 minut dla każdego z trzech komputerów - średnie wykorzystanie procesora obliczone przez 5 minut. Próg 90 jest przekroczony przez srv01 tylko raz na 1:25 bin. Dla porównania, srv02 przekracza próg 90 przy koszach 1:10, 1:15 i 1:25; podczas gdy srv03 przekracza próg 90 o 1:10, 1:15, 1:20 i 1:30.
-Ponieważ alert jest skonfigurowany do wyzwalania na podstawie wszystkich naruszeń są więcej niż dwa, widzimy, że srv02 i srv03 tylko spełniają kryteria. W związku z tym oddzielne alerty zostaną utworzone dla srv02 i srv03, ponieważ przekroczyły próg 90% dwa razy w wielu pojemnikach czasowych.  Jeśli *alert wyzwalacza na podstawie:* parametr został skonfigurowany dla *ciągłych naruszeń* opcji, a następnie alert zostanie uruchomiony **tylko** dla srv03, ponieważ przekroczył próg dla trzech kolejnych pojemników czasu od 1:10 do 1:20. I **nie** dla srv02, ponieważ przekroczył próg przez dwa kolejne kosze czasowe od 1:10 do 1:15.
+W tym przykładzie zobaczymy w pojemnikach 5 minut dla każdego z trzech komputerów — średnie użycie procesora jako obliczone dla 5 minut. Próg 90 został naruszony przez Srw01 tylko raz w zasobniku 1:25. W porównaniu srv02 znajdowały przekracza 90 próg na 1:10, 1:15 i 1:25. Choć srv03 przekracza 90 próg w 1:10, 1:15, 1:20 i 1:30.
+Ponieważ alert jest skonfigurowany do wyzwalania na podstawie łącznej liczby naruszeń jest więcej niż dwa, zobaczymy, że srv02 znajdowały i srv03 spełniają tylko kryteria. W związku z tym należy utworzyć oddzielne alerty dla srv02 znajdowały i srv03, ponieważ próg 90% dwa razy zostanie naruszony w wielu pojemnikach czasowych.  W przypadku *alertu wyzwalacza opartego na:* parametr został skonfigurowany dla opcji *ciągłego naruszania* , a następnie alert zostanie wyzwolony **tylko** dla srv03, ponieważ spowodował naruszenie progu dla trzech kolejnych przedziałów czasu od 1:10 do 1:20. A **nie** dla srv02 znajdowały, ponieważ narusza próg dla dwóch kolejnych przedziałów czasowych od 1:10 do 1:15.
 
-## <a name="log-search-alert-rule---firing-and-state"></a>Reguła alertu wyszukiwania dziennika — wypalanie i stan
+## <a name="log-search-alert-rule---firing-and-state"></a>Reguła alertu wyszukiwania w dzienniku — uruchamianie i stan
 
-Reguły alertów wyszukiwania dziennika działają tylko na logikę, którą tworzysz w kwerendzie. System alertów nie ma żadnego innego kontekstu stanu systemu, intencji lub głównej przyczyny implikowanej przez kwerendę. W związku z tym alerty dziennika są określane jako bez stanu. Warunki są oceniane jako "PRAWDA" lub "FAŁSZ" za każdym razem, gdy są uruchamiane.  Alert zostanie uruchamiany za każdym razem, gdy ocena stanu alertu jest "TRUE", niezależnie od tego, czy jest uruchamiany wcześniej.    
+Reguły alertów wyszukiwania w dzienniku działają tylko na logice skompilowanej w zapytaniu. System alertów nie ma żadnego innego kontekstu stanu systemu, Twojego zamiaru lub głównej przyczyny implikowanej przez zapytanie. W związku z tym alerty dzienników są określane jako Stany mniejsze. Warunki są oceniane jako "TRUE" lub "FALSE" przy każdym uruchomieniu.  Alert zostanie uruchomiony za każdym razem, gdy wynikiem oceny warunku alertu jest "TRUE", niezależnie od tego, że jest on wcześniej uruchamiany.    
 
-Zobaczmy to zachowanie w akcji z praktycznym przykładem. Załóżmy, że mamy regułę alertu dziennika o nazwie *Contoso-Log-Alert*, która jest skonfigurowana w sposób pokazany w [przykładzie podanym dla alertu dziennika dziennika typu Liczba wyników.](#example-of-number-of-records-type-log-alert) Warunek jest niestandardowe zapytanie alertu przeznaczone do wyszukiwania 500 kod wynik w dziennikach. Jeśli w dziennikach zostanie znaleziony kolejny 500 kodów wyników, stan alertu jest spełniony. 
+Zobaczmy to zachowanie w działaniu z praktycznym przykładem. Załóżmy, że mamy regułę alertu dziennika o nazwie *contoso-log-alert*, która jest skonfigurowana tak, jak pokazano w przykładzie podanym w [przykładowym alertu dziennika typu liczba wyników](#example-of-number-of-records-type-log-alert). Warunek to niestandardowa kwerenda alertu zaprojektowana w celu wyszukania 500 kodu wyniku w dziennikach. Jeśli w dziennikach znaleziono co najmniej jeden kod wyniku 500, warunek alertu to true. 
 
-W każdym interwale poniżej system alertów platformy Azure ocenia warunek *contoso-log-alert*.
+W każdym przedziale czasowym system alertów platformy Azure oblicza warunek dotyczący *alertu contoso-log*.
 
 
-| Time    | Liczba rekordów zwracanych przez zapytanie wyszukiwania dziennika | Unikuwarunki dziennika | Wynik 
+| Time    | Liczba rekordów zwracanych przez zapytanie przeszukiwania dzienników | Evalution warunku dziennika | Wynik 
 | ------- | ----------| ----------| ------- 
-| 13:05 | 0 rekordów | 0 nie jest > 0 tak FALSE |  Alert nie uruchamia się. Nie wywoływano żadnych akcji.
-| 13:10 | 2 rekordy | 2 > 0 tak PRAWDA  | Alarmy pożarów i grup akcji o nazwie. Stan alertu ACTIVE.
-| 13:15 | 5 rekordów | 5 > 0 tak PRAWDA  | Alarmy pożarów i grup akcji o nazwie. Stan alertu ACTIVE.
-| 13:20 | 0 rekordów | 0 nie jest > 0 tak FALSE |  Alert nie uruchamia się. Nie wywoływano żadnych akcji. Stan alertu w lewo ACTIVE.
+| 1:05 PM | 0 rekordów | 0 nie jest > 0, więc FALSE |  Alert nie jest wyzwalany. Nie wywołano żadnych akcji.
+| 1:10 PM | 2 rekordy | 2 > 0  | Wyzwolone alerty i grupy akcji o nazwie. Stan alertu jest aktywny.
+| 1:15 PM | 5 rekordów | 5 > 0, tak więc prawda  | Wyzwolone alerty i grupy akcji o nazwie. Stan alertu jest aktywny.
+| 1:20 PM | 0 rekordów | 0 nie jest > 0, więc FALSE |  Alert nie jest wyzwalany. Nie wywołano żadnych akcji. Stan alertu pozostał aktywny.
 
-Jako przykład użycia poprzedniego przypadku:
+Jeśli na przykład użyto poprzedniego przypadku:
 
-O godzinie 13:15 alerty platformy Azure nie mogą określić, czy podstawowe problemy widoczne w 1:10 utrzymują się i jeśli rekordy są nowymi awariami netto lub powtórzeniami starszych błędów o godzinie 13:10. Kwerenda dostarczona przez użytkownika może, ale nie musi uwzględniać wcześniejszych rekordów, a system nie wie. System alertów platformy Azure jest zbudowany, aby błądzić po stronie ostrożności i uruchamia alert i skojarzone akcje ponownie o godzinie 13:15. 
+W przypadku alertów platformy Azure na 1:15 PM nie można ustalić, czy podstawowe problemy występujące w 1:10 utrzymują się, a jeśli rekordy są nowymi awariami netto lub powtarzają się starsze błędy w lokalizacji 1:10PM. Zapytanie udostępnione przez użytkownika może lub nie może uwzględniać wcześniejszych rekordów, a system nie wie. System alertów platformy Azure jest zbudowany z błędem na stronie przestroga i wyzwala alert i skojarzone akcje ponownie o godzinie 1:15. 
 
-O godzinie 13:20, gdy rekordy zerowe są widoczne z kodem wyników 500, alerty platformy Azure nie mogą być pewni, że przyczyna kodu wyniku 500 widoczna o 13:10 i 13:15 jest teraz rozwiązana. Nie wie, czy 500 problemy z błędami zdarzają się z tych samych powodów ponownie. W związku z *tym Contoso-Log-Alert* nie zmienia się na **Rozwiązany** w panelu usługi Azure Alert i/lub powiadomienia nie są wysyłane z informacją, że alert został rozwiązany. Tylko Ty, który rozumie dokładny warunek lub przyczynę logiki osadzonej w zapytaniu analitycznym, możesz [oznaczyć alert jako zamknięty w](alerts-managing-alert-states.md) razie potrzeby.
+O godzinie 1:20 PM, gdy nie są wyświetlane rekordy z 500 kod wyniku, alerty platformy Azure nie mogą mieć pewności, że przyczyna 500 kodu wynikowego w 1:10 PM i 1:15 PM zostanie rozwiązany. Nie wiadomo, czy dla tych samych powodów wystąpią błędy 500. Z tego powodu *firma Contoso-log-alert* nie jest zmieniana na **rozwiązany** w pulpicie nawigacyjnym alertów platformy Azure i/lub powiadomienia nie są wysyłane z informacją o rozwiązaniu alertu. Tylko ty, który rozumie dokładny warunek lub powód dla logiki osadzonej w zapytaniu analitycznym, można [oznaczyć alert jako zamknięty](alerts-managing-alert-states.md) zgodnie z wymaganiami.
 
-## <a name="pricing-and-billing-of-log-alerts"></a>Wycena i rozliczanie alertów dzienników
+## <a name="pricing-and-billing-of-log-alerts"></a>Cennik i rozliczanie alertów dziennika
 
-Ceny mające zastosowanie do alertów dziennika są podane na stronie [cennik usługi Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/) Na rachunkach platformy Azure alerty `microsoft.insights/scheduledqueryrules` dziennika są reprezentowane jako typ z:
+Cennik dotyczący alertów dotyczących dzienników znajduje się na stronie z [cennikiem Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) . Na rachunkach systemu Azure alerty dzienników są reprezentowane jako `microsoft.insights/scheduledqueryrules` typ z:
 
-- Alerty dziennika w usłudze Application Insights wyświetlane z dokładną nazwą alertu wraz z grupą zasobów i właściwościami alertów
-- Alerty dziennika w usłudze Log Analytics wyświetlane z dokładną nazwą alertu wraz z grupą zasobów i właściwościami alertów; podczas tworzenia przy użyciu [interfejsu API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
+- Alerty dzienników dla Application Insights wyświetlane z dokładną nazwą alertu wraz z właściwościami grupy zasobów i alertu
+- Alerty dzienników dla Log Analytics wyświetlane z dokładną nazwą alertu wraz z właściwościami grupy zasobów i alertu; podczas tworzenia przy użyciu [interfejsu API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
 
-[Starszy interfejs API usługi Log Analytics](../../azure-monitor/platform/api-alerts.md) zawiera akcje alertów i harmonogramy w ramach zapisanego wyszukiwania usługi Log Analytics, a nie odpowiednie zasoby platformy [Azure.](../../azure-resource-manager/management/overview.md) W związku z tym, aby włączyć rozliczenia dla takich starszych alertów dziennika utworzonych dla usługi Log Analytics przy użyciu witryny Azure portal **bez** [przełączania się do nowego interfejsu API](../../azure-monitor/platform/alerts-log-api-switch.md) lub za pośrednictwem [starszego interfejsu API usługi Log Analytics](../../azure-monitor/platform/api-alerts.md) — ukryte pseudo reguły alertów są tworzone w celu `microsoft.insights/scheduledqueryrules` rozliczania na platformie Azure. Ukryte reguły pseudo alertów `microsoft.insights/scheduledqueryrules` utworzone dla `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` rozliczeń, jak pokazano, jak wraz z grupy zasobów i właściwości alertów.
+[Starsza wersja interfejsu API log Analytics](../../azure-monitor/platform/api-alerts.md) zawiera akcje alertów i harmonogramy w ramach log Analytics zapisanego wyszukiwania, a nie odpowiednie [zasoby platformy Azure](../../azure-resource-manager/management/overview.md). W związku z tym, aby włączyć rozliczenia dla takich starszych alertów dziennika utworzonych dla Log Analytics przy użyciu Azure Portal **bez** [przełączania do nowego interfejsu API](../../azure-monitor/platform/alerts-log-api-switch.md) lub za pośrednictwem [starszych log Analytics](../../azure-monitor/platform/api-alerts.md) `microsoft.insights/scheduledqueryrules` Ukryte reguły dotyczące alertów, które zostały utworzone `microsoft.insights/scheduledqueryrules` na potrzeby rozliczania, jak pokazano `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` na stronie z właściwościami grupy zasobów i alertu.
 
 > [!NOTE]
-> Jeśli istnieją nieprawidłowe znaki, takie `<, >, %, &, \, ?, /` jak `_` są obecne, zostaną one zastąpione w ukrytej nazwy reguły pseudo alertów, a zatem również na rachunku platformy Azure.
+> Jeśli istnieją nieprawidłowe znaki, `<, >, %, &, \, ?, /` takie jak są obecne, zostaną zastąpione `_` przez wartość w polu Ukryta Nazwa reguły noalertu i w związku z tym również na rachunku na platformie Azure.
 
-Aby usunąć ukryte zasoby scheduleQueryRules utworzone do rozliczania reguł alertów przy użyciu [starszego interfejsu API usługi Log Analytics,](api-alerts.md)użytkownik może wykonać dowolną z następujących czynności:
+Aby usunąć ukryte zasoby scheduleQueryRules utworzone w celu rozliczenia reguł alertów przy użyciu [starszej wersji interfejsu API log Analytics](api-alerts.md), użytkownik może wykonać jedną z następujących czynności:
 
-- Każdy użytkownik może [przełączać preferencje interfejsu API dla reguł alertów w obszarze roboczym usługi Log Analytics](../../azure-monitor/platform/alerts-log-api-switch.md) i bez utraty ich reguł alertów lub monitorowania przenieść do interfejsu [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)zgodny z usługą Azure Resource Manager. W ten sposób wyeliminować potrzebę pseudo ukryte reguły alertów dla rozliczeń.
-- Lub jeśli użytkownik nie chce przełączać preferencji interfejsu API, użytkownik będzie musiał **usunąć** oryginalny harmonogram i akcję alertu przy użyciu [starszego interfejsu API usługi Log Analytics](api-alerts.md) lub usunąć w [witrynie Azure portal oryginalną regułę alertu dziennika](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)
+- Każdy użytkownik może [przełączyć preferencję interfejsu API dla reguł alertów w obszarze roboczym log Analytics](../../azure-monitor/platform/alerts-log-api-switch.md) i bez utraty ich reguł alertów ani monitorować przechodzenie do Azure Resource Manager zgodnych [interfejsów API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Eliminuje to konieczność podejmowania dla rozliczeń bardzo ukrytych reguł alertów.
+- Lub jeśli użytkownik nie chce przełączać preferencji interfejsu API, użytkownik będzie musiał **usunąć** oryginalny harmonogram i akcję alertu przy użyciu [STARSZEJ wersji interfejsu API log Analytics](api-alerts.md) lub usunąć w [Azure Portal oryginalnej regule alertu dziennika](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)
 
-Ponadto dla ukrytego harmonogramuQueryrules zasobów utworzonych do rozliczeń reguł alertów przy użyciu [starszego interfejsu API usługi Log Analytics,](api-alerts.md)każda operacja modyfikacji, taka jak PUT, zakończy się niepowodzeniem. Jako `microsoft.insights/scheduledqueryrules` typ pseudo reguły są na potrzeby rozliczeń reguły alertów utworzone przy użyciu [starszego interfejsu API usługi Log Analytics](api-alerts.md). Wszelkie modyfikacje reguły alertu powinny być wykonywane przy użyciu [starszego interfejsu API usługi Log Analytics](api-alerts.md) (lub) użytkownik może [przełączyć preferencje interfejsu API dla reguł alertów,](../../azure-monitor/platform/alerts-log-api-switch.md) aby zamiast tego używać [scheduledQueryRules API.](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
+Ponadto w przypadku ukrytych zasobów scheduleQueryRules utworzonych na potrzeby rozliczania reguł alertów przy użyciu [starszej wersji interfejsu API log Analytics](api-alerts.md)wszelkie operacje modyfikacji, takie jak Put, zakończą się niepowodzeniem Zasady dotyczące `microsoft.insights/scheduledqueryrules` typu są przeznaczone do celów rozliczania reguł alertów utworzonych przy użyciu [STARSZEJ wersji interfejsu API log Analytics](api-alerts.md). Wszelkie modyfikacje reguły alertów należy wykonać przy użyciu [starszej wersji interfejsu api log Analytics](api-alerts.md) (lub) użytkownik może [przełączyć preferencję interfejsu API, aby reguły alertów](../../azure-monitor/platform/alerts-log-api-switch.md) korzystały z [interfejsu API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) .
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [tworzeniu alertów dziennika na platformie Azure](../../azure-monitor/platform/alerts-log.md).
-* Poznaj [element webhook w alertach dziennika na platformie Azure.](alerts-log-webhook.md)
+* Dowiedz się więcej [na temat tworzenia alertów dziennika na platformie Azure](../../azure-monitor/platform/alerts-log.md).
+* Informacje [o elementach webhook w alertach dziennika na platformie Azure](alerts-log-webhook.md).
 * Dowiedz się więcej o [alertach platformy Azure](../../azure-monitor/platform/alerts-overview.md).
-* Dowiedz się więcej o [usłudze Application Insights](../../azure-monitor/app/analytics.md).
-* Dowiedz się więcej o [usłudze Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+* Dowiedz się więcej o [Application Insights](../../azure-monitor/app/analytics.md).
+* Dowiedz się więcej o [log Analytics](../../azure-monitor/log-query/log-query-overview.md).

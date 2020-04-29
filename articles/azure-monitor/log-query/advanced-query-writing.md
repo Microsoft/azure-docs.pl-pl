@@ -1,27 +1,27 @@
 ---
-title: Zaawansowane zapytania w usłudze Azure Monitor | Dokumenty firmy Microsoft
-description: Ten artykuł zawiera samouczek dotyczący używania portalu Analytics do pisania zapytań w usłudze Azure Monitor.
+title: Zaawansowane zapytania w Azure Monitor | Microsoft Docs
+description: Ten artykuł zawiera samouczek dotyczący używania portalu analizy do pisania zapytań w Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/15/2018
 ms.openlocfilehash: 3d228c62cd2d1bcb7f4515cd698186e2ebcbe929
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670291"
 ---
-# <a name="writing-advanced-queries-in-azure-monitor"></a>Pisanie zaawansowanych zapytań w usłudze Azure Monitor
+# <a name="writing-advanced-queries-in-azure-monitor"></a>Pisanie zaawansowanych zapytań w Azure Monitor
 
 > [!NOTE]
-> Przed ukończeniem tej lekcji należy wykonać wprowadzenie [do usługi Azure Monitor Log Analytics](get-started-portal.md) i wprowadzenie do [zapytań.](get-started-queries.md)
+> Przed ukończeniem tej lekcji należy ukończyć pracę [z Azure Monitor Log Analytics](get-started-portal.md) i [rozpocząć pracę z zapytaniami](get-started-queries.md) .
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-## <a name="reusing-code-with-let"></a>Ponowne przywykczenie kodu z
-Służy `let` do przypisywania wyników do zmiennej i odwoływania się do niej w dalszej części kwerendy:
+## <a name="reusing-code-with-let"></a>Używanie kodu z Let
+Służy `let` do przypisywania wyników do zmiennej i odwoływania się do niej w dalszej części zapytania:
 
 ```Kusto
 // get all events that have level 2 (indicates warning level)
@@ -33,7 +33,7 @@ warning_events
 | summarize count() by Computer 
 ```
 
-Do zmiennych można również przypisać wartości stałe. Obsługuje to metodę konfigurowania parametrów dla pól, które należy zmienić przy każdym wykonaniu kwerendy. W razie potrzeby zmodyfikuj te parametry. Na przykład, aby obliczyć wolne miejsce na dysku i wolną pamięć (w percentyle), w danym oknie czasu:
+Możesz również przypisać stałe wartości do zmiennych. Obsługuje to metodę konfigurowania parametrów dla pól, które należy zmienić przy każdym wykonaniu zapytania. Zmodyfikuj te parametry zgodnie z wymaganiami. Na przykład, aby obliczyć ilość wolnego miejsca na dysku i wolnej pamięci (w percentylach), w danym przedziale czasu:
 
 ```Kusto
 let startDate = datetime(2018-08-01T12:55:02);
@@ -51,10 +51,10 @@ Perf
 union FreeDiskSpace, FreeMemory
 ```
 
-Ułatwia to zmianę czasu rozpoczęcia następnego uruchomienia kwerendy.
+Ułatwia to zmianę początku czasu zakończenia przy następnym uruchomieniu zapytania.
 
-### <a name="local-functions-and-parameters"></a>Funkcje i parametry lokalne
-Instrukcje służą `let` do tworzenia funkcji, które mogą być używane w tej samej kwerendzie. Na przykład zdefiniuj funkcję, która przyjmuje pole datetime (w formacie UTC) i konwertuje je na standardowy format amerykański. 
+### <a name="local-functions-and-parameters"></a>Lokalne funkcje i parametry
+Użyj `let` instrukcji, aby utworzyć funkcje, które mogą być używane w tym samym zapytaniu. Na przykład Zdefiniuj funkcję, która przyjmuje pole DateTime (w formacie UTC) i konwertuje go na format standardowy US. 
 
 ```Kusto
 let utc_to_us_date_format = (t:datetime)
@@ -69,15 +69,15 @@ Event
 ```
 
 ## <a name="print"></a>Drukuj
-`print`zwróci tabelę z pojedynczą kolumną i pojedynczym wierszem, pokazując wynik obliczeń. Jest to często używane w przypadkach, gdy potrzebujesz prostego obliczenia. Na przykład, aby znaleźć bieżący czas w PST i dodać kolumnę z EST:
+`print`zwróci tabelę z pojedynczą kolumną i pojedynczym wierszem, pokazując wynik obliczenia. Jest to często używane w przypadkach, gdy potrzebne jest proste obliczenie. Na przykład, aby znaleźć bieżący czas w pliku PST i dodać kolumnę z opcją EST:
 
 ```Kusto
 print nowPst = now()-8h
 | extend nowEst = nowPst+3h
 ```
 
-## <a name="datatable"></a>Datatable
-`datatable`umożliwia zdefiniowanie zestawu danych. Podać schemat i zestaw wartości, a następnie potok tabeli do innych elementów kwerendy. Na przykład, aby utworzyć tabelę użycia pamięci RAM i obliczyć ich średnią wartość na godzinę:
+## <a name="datatable"></a>Columns
+`datatable`umożliwia zdefiniowanie zestawu danych. Podajesz schemat i zbiór wartości, a następnie potok tabeli w innych elementach zapytania. Na przykład, aby utworzyć tabelę użycia pamięci RAM i obliczyć średnią wartość na godzinę:
 
 ```Kusto
 datatable (TimeGenerated: datetime, usage_percent: double)
@@ -94,7 +94,7 @@ datatable (TimeGenerated: datetime, usage_percent: double)
 | summarize avg(usage_percent) by bin(TimeGenerated, 1h)
 ```
 
-Konstrukcje datatable są również bardzo przydatne podczas tworzenia tabeli odnośnych. Na przykład, aby zamapować dane tabeli, takie jak identyfikatory zdarzeń z tabeli _SecurityEvent,_ `datatable` do typów zdarzeń wymienionych w innym miejscu, utwórz tabelę odnośnika z typami zdarzeń przy użyciu tych danych i dołącz do niej za pomocą danych _SecurityEvent:_
+Konstrukcje DataTable są również bardzo przydatne podczas tworzenia tabeli odnośników. Na przykład, aby mapować dane tabeli, takie jak identyfikatory zdarzeń z tabeli _SecurityEvent_ , do typów zdarzeń wymienionych w innym miejscu, Utwórz tabelę odnośników z typami zdarzeń `datatable` przy użyciu i Dołącz do tego elementu DataTable z danymi _SecurityEvent_ :
 
 ```Kusto
 let eventCodes = datatable (EventID: int, EventType:string)
@@ -123,12 +123,12 @@ SecurityEvent
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz inne lekcje dotyczące korzystania z [języka zapytań Kusto](/azure/kusto/query/) z danymi dziennika usługi Azure Monitor:
+Zapoznaj się z innymi lekcjami dotyczącymi używania [języka zapytań Kusto](/azure/kusto/query/) z danymi dziennika Azure Monitor:
 
 - [Operacje dotyczące ciągów](string-operations.md)
 - [Operacje dotyczące daty i godziny](datetime-operations.md)
 - [Funkcje agregacji](aggregations.md)
 - [Agregacje zaawansowane](advanced-aggregations.md)
 - [Notacja JSON i struktury danych](json-data-structures.md)
-- [Łączy](joins.md)
+- [Sprzężenia](joins.md)
 - [Wykresy](charts.md)

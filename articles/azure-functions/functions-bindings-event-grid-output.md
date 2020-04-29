@@ -1,35 +1,35 @@
 ---
-title: Powiązanie danych wyjściowych usługi Azure Event Grid dla funkcji platformy Azure
-description: Dowiedz się, jak wysłać zdarzenie w usłudze Azure Functions.
+title: Azure Event Grid powiązanie danych wyjściowych dla Azure Functions
+description: Dowiedz się, jak wysłać Zdarzenie Event Grid w Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
 ms.openlocfilehash: e7a2611312ffc33703dd5cc9d0a2d7142ddb0532
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77368950"
 ---
-# <a name="azure-event-grid-output-binding-for-azure-functions"></a>Powiązanie danych wyjściowych usługi Azure Event Grid dla funkcji platformy Azure
+# <a name="azure-event-grid-output-binding-for-azure-functions"></a>Azure Event Grid powiązanie danych wyjściowych dla Azure Functions
 
-Użyj powiązania danych wyjściowych siatki zdarzeń, aby zapisywać zdarzenia w temacie niestandardowym. Dla [tematu niestandardowego](../event-grid/security-authentication.md#custom-topic-publishing)musi być dostępny prawidłowy klucz dostępu .
+Użyj powiązania danych wyjściowych Event Grid do zapisywania zdarzeń w temacie niestandardowym. Musisz mieć prawidłowy [klucz dostępu dla tematu niestandardowego](../event-grid/security-authentication.md#custom-topic-publishing).
 
-Aby uzyskać informacje na temat szczegółów konfiguracji i konfiguracji, zobacz [omówienie](./functions-bindings-event-grid.md).
+Aby uzyskać informacje na temat konfiguracji i szczegółów konfiguracji, zobacz [Omówienie](./functions-bindings-event-grid.md).
 
 > [!NOTE]
-> Powiązanie danych wyjściowych usługi Event Grid nie obsługuje podpisów dostępu współdzielonego (tokeny sygnatury dostępu współdzielonego). Należy użyć klucza dostępu tematu.
+> Powiązanie danych wyjściowych Event Grid nie obsługuje sygnatur dostępu współdzielonego (tokeny SAS). Musisz użyć klucza dostępu tematu.
 
 > [!IMPORTANT]
-> Powiązanie danych wyjściowych siatki zdarzeń jest dostępne tylko dla funkcji 2.x lub nowszego.
+> Powiązanie danych wyjściowych Event Grid jest dostępne tylko dla funkcji 2. x i wyższych.
 
 ## <a name="example"></a>Przykład
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
-W poniższym przykładzie pokazano [funkcję Języka C#,](functions-dotnet-class-library.md) która zapisuje komunikat do tematu niestandardowego usługi Event Grid, przy użyciu wartości zwracanej metody jako danych wyjściowych:
+Poniższy przykład pokazuje [funkcję języka C#](functions-dotnet-class-library.md) , która zapisuje komunikat do Event Grid niestandardowego tematu przy użyciu metody zwracanej wartości jako dane wyjściowe:
 
 ```csharp
 [FunctionName("EventGridOutput")]
@@ -40,7 +40,7 @@ public static EventGridEvent Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTim
 }
 ```
 
-W poniższym przykładzie `IAsyncCollector` pokazano, jak używać interfejsu do wysyłania partii wiadomości.
+Poniższy przykład pokazuje, `IAsyncCollector` jak używać interfejsu do wysyłania partii komunikatów.
 
 ```csharp
 [FunctionName("EventGridAsyncOutput")]
@@ -57,9 +57,9 @@ public static async Task Run(
 }
 ```
 
-# <a name="c-script"></a>[Skrypt języka C#](#tab/csharp-script)
+# <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-W poniższym przykładzie przedstawiono dane powiązania danych powiązania danych wyjściowych siatki zdarzeń w pliku *function.json.*
+Poniższy przykład przedstawia dane wyjściowe powiązania Event Grid w pliku *Function. JSON* .
 
 ```json
 {
@@ -100,9 +100,9 @@ public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-W poniższym przykładzie przedstawiono dane powiązania danych powiązania danych wyjściowych siatki zdarzeń w pliku *function.json.*
+Poniższy przykład przedstawia dane wyjściowe powiązania Event Grid w pliku *Function. JSON* .
 
 ```json
 {
@@ -162,21 +162,21 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Powiązanie danych wyjściowych siatki zdarzeń nie jest dostępne dla języka Python.
+Powiązanie danych wyjściowych Event Grid nie jest dostępne dla języka Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Powiązanie danych wyjściowych siatki zdarzeń nie jest dostępne dla języka Java.
+Powiązanie danych wyjściowych Event Grid nie jest dostępne dla języka Java.
 
 ---
 
 ## <a name="attributes-and-annotations"></a>Atrybuty i adnotacje
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
-W przypadku [bibliotek klas języka C#](functions-dotnet-class-library.md)użyj atrybutu [EventGridAttribute.](https://github.com/Azure/azure-functions-eventgrid-extension/blob/dev/src/EventGridExtension/OutputBinding/EventGridAttribute.cs)
+W przypadku [bibliotek klas języka C#](functions-dotnet-class-library.md)należy użyć atrybutu [EventGridAttribute](https://github.com/Azure/azure-functions-eventgrid-extension/blob/dev/src/EventGridExtension/OutputBinding/EventGridAttribute.cs) .
 
-Konstruktor atrybutu przyjmuje nazwę ustawienia aplikacji, która zawiera nazwę tematu niestandardowego i nazwę ustawienia aplikacji, który zawiera klucz tematu. Aby uzyskać więcej informacji na temat tych ustawień, zobacz [Wyjście — konfiguracja](#configuration). Oto przykład `EventGrid` atrybutu:
+Konstruktor atrybutu przyjmuje nazwę ustawienia aplikacji, która zawiera nazwę tematu niestandardowego i nazwę ustawienia aplikacji, która zawiera klucz tematu. Aby uzyskać więcej informacji na temat tych ustawień, zobacz [Output-Configuration](#configuration). Oto przykład `EventGrid` atrybutu:
 
 ```csharp
 [FunctionName("EventGridOutput")]
@@ -187,67 +187,67 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }
 ```
 
-Pełny przykład można znaleźć na [przykładzie](#example).
+Aby zapoznać się z pełnym przykładem, zobacz [przykład](#example).
 
-# <a name="c-script"></a>[Skrypt języka C#](#tab/csharp-script)
+# <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
 Atrybuty nie są obsługiwane przez skrypt języka C#.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Atrybuty nie są obsługiwane przez javascript.
+Atrybuty nie są obsługiwane przez język JavaScript.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Powiązanie danych wyjściowych siatki zdarzeń nie jest dostępne dla języka Python.
+Powiązanie danych wyjściowych Event Grid nie jest dostępne dla języka Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Powiązanie danych wyjściowych siatki zdarzeń nie jest dostępne dla języka Java.
+Powiązanie danych wyjściowych Event Grid nie jest dostępne dla języka Java.
 
 ---
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
-W poniższej tabeli opisano właściwości konfiguracji powiązania, które można `EventGrid` ustawić w pliku *function.json* i atrybut.
+W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `EventGrid` atrybucie.
 
-|właściwość function.json | Właściwość atrybutu |Opis|
+|Function. JSON — Właściwość | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Typu** | Nie dotyczy | Musi być ustawiona na "eventGrid". |
-|**Kierunku** | Nie dotyczy | Musi być ustawiona na "out". Ten parametr jest ustawiany automatycznie podczas tworzenia powiązania w witrynie Azure portal. |
-|**Nazwa** | Nie dotyczy | Nazwa zmiennej używana w kodzie funkcji reprezentującej zdarzenie. |
-|**topicEndpointUri** |**TopicEndpointUri** | Nazwa ustawienia aplikacji zawierającego identyfikator URI dla tematu `MyTopicEndpointUri`niestandardowego, na przykład . |
-|**topicKeySetting** |**TopicKeySetting (Wzespołowanie tematyczne)** | Nazwa ustawienia aplikacji zawierającego klucz dostępu dla tematu niestandardowego. |
+|**Wprowadź** | n/d | Musi być ustawiona na wartość "eventGrid". |
+|**wskazywa** | n/d | Musi być ustawiona na wartość "out". Ten parametr jest ustawiany automatycznie podczas tworzenia powiązania w Azure Portal. |
+|**Nazwij** | n/d | Nazwa zmiennej używana w kodzie funkcji, która reprezentuje zdarzenie. |
+|**topicEndpointUri** |**TopicEndpointUri** | Nazwa ustawienia aplikacji, która zawiera identyfikator URI tematu niestandardowego, na przykład `MyTopicEndpointUri`. |
+|**topicKeySetting** |**TopicKeySetting** | Nazwa ustawienia aplikacji, która zawiera klucz dostępu dla tematu niestandardowego. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!IMPORTANT]
-> Upewnij się, że ustawiono wartość właściwości `TopicEndpointUri` konfiguracji na nazwę ustawienia aplikacji, która zawiera identyfikator URI tematu niestandardowego. Nie należy określać identyfikatora URI tematu niestandardowego bezpośrednio w tej właściwości.
+> Upewnij się, że wartość właściwości `TopicEndpointUri` konfiguracja jest ustawiona na nazwę ustawienia aplikacji, która zawiera identyfikator URI tematu niestandardowego. Nie określaj identyfikatora URI tematu niestandardowego bezpośrednio w tej właściwości.
 
 ## <a name="usage"></a>Sposób użycia
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
-Wysyłaj wiadomości przy użyciu `out EventGridEvent paramName`parametru metody, takiego jak . Aby napisać wiele wiadomości, `ICollector<EventGridEvent>` `IAsyncCollector<EventGridEvent>` można użyć `out EventGridEvent`lub zamiast .
+Wysyłaj komunikaty przy użyciu parametru metody, takiego `out EventGridEvent paramName`jak. Aby napisać wiele komunikatów, można użyć `ICollector<EventGridEvent>` lub `IAsyncCollector<EventGridEvent>` zamiast. `out EventGridEvent`
 
-# <a name="c-script"></a>[Skrypt języka C#](#tab/csharp-script)
+# <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Wysyłaj wiadomości przy użyciu `out EventGridEvent paramName`parametru metody, takiego jak . W skrypcie C# `paramName` jest `name` wartością określoną we właściwości *function.json*. Aby napisać wiele wiadomości, `ICollector<EventGridEvent>` `IAsyncCollector<EventGridEvent>` można użyć `out EventGridEvent`lub zamiast .
+Wysyłaj komunikaty przy użyciu parametru metody, takiego `out EventGridEvent paramName`jak. W skrypcie języka C# `paramName` jest wartością określoną we `name` właściwości *Function. JSON*. Aby napisać wiele komunikatów, można użyć `ICollector<EventGridEvent>` lub `IAsyncCollector<EventGridEvent>` zamiast. `out EventGridEvent`
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Dostęp do zdarzenia `context.bindings.<name>` wyjściowego przy `<name>` użyciu, `name` gdzie jest wartość określona we właściwości *function.json*.
+Dostęp do zdarzenia wyjściowego przy użyciu `context.bindings.<name>` metody `<name>` WHERE jest wartością określoną we `name` właściwości *Function. JSON*.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Powiązanie danych wyjściowych siatki zdarzeń nie jest dostępne dla języka Python.
+Powiązanie danych wyjściowych Event Grid nie jest dostępne dla języka Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Powiązanie danych wyjściowych siatki zdarzeń nie jest dostępne dla języka Java.
+Powiązanie danych wyjściowych Event Grid nie jest dostępne dla języka Java.
 
 ---
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wysyłanie zdarzenia w sieci zdarzeń](./functions-bindings-event-grid-trigger.md)
+* [Wysyłanie zdarzenia Event Grid](./functions-bindings-event-grid-trigger.md)

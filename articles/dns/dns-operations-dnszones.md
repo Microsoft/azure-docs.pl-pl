@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie strefami DNS w usłudze Azure DNS — PowerShell | Dokumenty firmy Microsoft
-description: Strefy DNS można zarządzać za pomocą programu Azure Powershell. W tym artykule opisano sposób aktualizowania, usuwania i tworzenia stref DNS w usłudze Azure DNS
+title: Zarządzanie strefami DNS w Azure DNS — PowerShell | Microsoft Docs
+description: Strefami DNS można zarządzać przy użyciu programu Azure PowerShell. W tym artykule opisano, jak aktualizować, usuwać i tworzyć strefy DNS na Azure DNS
 services: dns
 documentationcenter: na
 author: rohinkoul
@@ -14,23 +14,23 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: rohink
 ms.openlocfilehash: 0120501aab7f0a63721126bfb5b3d04d9deb42fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76936799"
 ---
-# <a name="how-to-manage-dns-zones-using-powershell"></a>Jak zarządzać strefami DNS za pomocą programu PowerShell
+# <a name="how-to-manage-dns-zones-using-powershell"></a>Jak zarządzać Strefy DNS przy użyciu programu PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
-> * [Powershell](dns-operations-dnszones.md)
+> * [Narzędzia](dns-operations-dnszones.md)
 > * [Klasyczny interfejs wiersza polecenia platformy Azure](dns-operations-dnszones-cli-nodejs.md)
 > * [Interfejs wiersza polecenia platformy Azure](dns-operations-dnszones-cli.md)
 
-W tym artykule pokazano, jak zarządzać strefami DNS przy użyciu programu Azure PowerShell. Strefy DNS można również zarządzać za pomocą wieloplatformowego interfejsu [wiersza polecenia platformy Azure](dns-operations-dnszones-cli.md) lub witryny Azure portal.
+W tym artykule pokazano, jak zarządzać strefami DNS przy użyciu Azure PowerShell. Strefami DNS można także zarządzać za pomocą międzyplatformowego [interfejsu wiersza polecenia platformy Azure](dns-operations-dnszones-cli.md) lub Azure Portal.
 
-Ten przewodnik dotyczy w szczególności publicznych stref DNS. Aby uzyskać informacje na temat używania programu Azure PowerShell do zarządzania strefami prywatnymi w usłudze Azure DNS, zobacz [Wprowadzenie do stref prywatnych dns platformy Azure przy użyciu programu Azure PowerShell](private-dns-getstarted-powershell.md).
+W tym przewodniku zawarto specjalne strefy DNS. Aby uzyskać informacje na temat używania Azure PowerShell do zarządzania strefami prywatnymi w Azure DNS, zobacz Wprowadzenie do [Azure DNS Private Zones przy użyciu Azure PowerShell](private-dns-getstarted-powershell.md).
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -41,23 +41,23 @@ Ten przewodnik dotyczy w szczególności publicznych stref DNS. Aby uzyskać inf
 
 Strefa DNS jest tworzona za pomocą polecenia cmdlet `New-AzureRmDnsZone`.
 
-Poniższy przykład tworzy strefę DNS o nazwie *contoso.com* w grupie zasobów o nazwie *MyResourceGroup:*
+Poniższy przykład tworzy strefę DNS o nazwie *contoso.com* w grupie zasobów o nazwie Moja *resourceName*:
 
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 ```
 
-W poniższym przykładzie pokazano, jak utworzyć strefę DNS z dwoma [tagami Usługi Azure Resource Manager](dns-zones-records.md#tags), project = *demo* i *env = test:*
+Poniższy przykład pokazuje, jak utworzyć strefę DNS z dwoma [Azure Resource Manager tagami](dns-zones-records.md#tags), *Project = Demonstracja* i *ENV = test*:
 
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
 
-Usługa Azure DNS obsługuje również prywatne strefy DNS.  Aby uzyskać więcej informacji na temat prywatnych stref DNS, zobacz [Using Azure DNS for private domains (Używanie usługi Azure DNS dla domen prywatnych)](private-dns-overview.md). Aby uzyskać przykład sposobu tworzenia prywatnej strefy DNS, zobacz [Rozpoczynanie pracy ze strefami prywatnymi usługi Azure DNS przy użyciu programu PowerShell](./private-dns-getstarted-powershell.md).
+Azure DNS obsługuje również prywatne strefy DNS.  Aby uzyskać więcej informacji na temat prywatnych stref DNS, zobacz [Using Azure DNS for private domains (Używanie usługi Azure DNS dla domen prywatnych)](private-dns-overview.md). Aby uzyskać przykład sposobu tworzenia prywatnej strefy DNS, zobacz [Rozpoczynanie pracy ze strefami prywatnymi usługi Azure DNS przy użyciu programu PowerShell](./private-dns-getstarted-powershell.md).
 
-## <a name="get-a-dns-zone"></a>Pobierz strefę DNS
+## <a name="get-a-dns-zone"></a>Pobieranie strefy DNS
 
-Aby pobrać strefę DNS, `Get-AzureRmDnsZone` użyj polecenia cmdlet. Ta operacja zwraca obiekt strefy DNS odpowiadający istniejącej strefie w usłudze Azure DNS. Obiekt zawiera dane o strefie (takie jak liczba zestawów rekordów), ale `Get-AzureRmDnsRecordSet`nie zawiera samych zestawów rekordów (patrz ).
+Aby pobrać strefę DNS, użyj `Get-AzureRmDnsZone` polecenia cmdlet. Ta operacja zwraca obiekt strefy DNS odpowiadający istniejącej strefie w Azure DNS. Obiekt zawiera dane dotyczące strefy (na przykład liczby zestawów rekordów), ale nie zawiera same zestawy rekordów (zobacz `Get-AzureRmDnsRecordSet`).
 
 ```powershell
 Get-AzureRmDnsZone -Name contoso.com –ResourceGroupName MyAzureResourceGroup
@@ -88,13 +88,13 @@ $zoneList = Get-AzureRmDnsZone
 
 ## <a name="update-a-dns-zone"></a>Aktualizowanie strefy DNS
 
-Zmiany w zasobie strefy DNS można wprowadzić przy użyciu polecenia `Set-AzureRmDnsZone`. To polecenie cmdlet nie powoduje aktualizacji żadnego z zestawów rekordów DNS w strefie (zobacz [How to Manage DNS records (Jak zarządzać rekordami DNS)](dns-operations-recordsets.md)). Służy ono wyłącznie do aktualizacji właściwości samego zasobu strefy. Właściwości strefy zapisywalne są obecnie ograniczone do ["tagów" usługi Azure Resource Manager dla zasobu strefy.](dns-zones-records.md#tags)
+Zmiany w zasobie strefy DNS można wprowadzić przy użyciu polecenia `Set-AzureRmDnsZone`. To polecenie cmdlet nie powoduje aktualizacji żadnego z zestawów rekordów DNS w strefie (zobacz [How to Manage DNS records (Jak zarządzać rekordami DNS)](dns-operations-recordsets.md)). Służy ono wyłącznie do aktualizacji właściwości samego zasobu strefy. Właściwości strefy zapisywalnej są obecnie ograniczone do [Azure Resource Manager "tagów" dla zasobu strefy](dns-zones-records.md#tags).
 
 Aby zaktualizować strefę DNS, użyj jednego z następujących dwóch sposobów:
 
 ### <a name="specify-the-zone-using-the-zone-name-and-resource-group"></a>Określanie strefy przy użyciu nazwy strefy i grupy zasobów
 
-Takie podejście zastępuje istniejące znaczniki strefy określonymi wartościami.
+Takie podejście zastępuje istniejące Tagi strefy określonymi wartościami.
 
 ```powershell
 Set-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
@@ -102,7 +102,7 @@ Set-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Ta
 
 ### <a name="specify-the-zone-using-a-zone-object"></a>Określenie strefy przy użyciu obiektu $zone
 
-Takie podejście pobiera istniejący obiekt strefy, modyfikuje znaczniki, a następnie zatwierdza zmiany. W ten sposób istniejące znaczniki mogą być zachowywane.
+Takie podejście pobiera istniejący obiekt strefy, modyfikuje znaczniki, a następnie zatwierdza zmiany. W ten sposób można zachować istniejące Tagi.
 
 ```powershell
 # Get the zone object
@@ -118,11 +118,11 @@ $zone.Tags.Add("status","approved")
 Set-AzureRmDnsZone -Zone $zone
 ```
 
-Podczas `Set-AzureRmDnsZone` korzystania z obiektu [$zone, Etag kontroli](dns-zones-records.md#etags) są używane w celu zapewnienia równoczesnych zmian nie są zastępowane. Można użyć przełącznika opcjonalnego, `-Overwrite` aby pominąć te kontrole.
+W przypadku `Set-AzureRmDnsZone` używania z obiektem $zone [testy ETag](dns-zones-records.md#etags) są używane do zapewnienia, że współbieżne zmiany nie są zastępowane. Aby pominąć te testy, `-Overwrite` można użyć opcjonalnego przełącznika.
 
 ## <a name="delete-a-dns-zone"></a>Usuwanie strefy DNS
 
-Strefy DNS można usunąć `Remove-AzureRmDnsZone` za pomocą polecenia cmdlet.
+Strefy DNS można usunąć przy użyciu `Remove-AzureRmDnsZone` polecenia cmdlet.
 
 > [!NOTE]
 > Usunięcie strefy DNS powoduje również usunięcie wszystkich rekordów DNS w strefie. Tej operacji nie można cofnąć. Jeśli strefa DNS jest używana, po jej usunięciu usługi korzystające z tej strefy będą kończyć się niepowodzeniem.
@@ -154,7 +154,7 @@ Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | R
 
 ```
 
-Podobnie `Set-AzureRmDnsZone`jak w przypadku , `$zone` określenie strefy za pomocą obiektu umożliwia etag kontroli, aby upewnić się, że równoczesne zmiany nie są usuwane. Użyj `-Overwrite` przełącznika, aby pominąć te kontrole.
+Podobnie jak `Set-AzureRmDnsZone`w przypadku, określenie strefy przy `$zone` użyciu obiektu umożliwia sprawdzenie elementów ETag, aby upewnić się, że zmiany współbieżne nie są usuwane. Użyj przełącznika `-Overwrite` , aby pominąć te testy.
 
 ## <a name="confirmation-prompts"></a>Monity o potwierdzenie
 
@@ -170,9 +170,9 @@ Aby uzyskać więcej informacji na temat elementów `-Confirm` i `$ConfirmPrefer
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak [zarządzać zestawami rekordów i rekordami](dns-operations-recordsets.md) w strefie DNS.
+Dowiedz się [, jak zarządzać zestawami rekordów i rekordami](dns-operations-recordsets.md) w strefie DNS.
 <br>
-Dowiedz się, jak [delegować domenę do usługi Azure DNS](dns-domain-delegation.md).
+Dowiedz się, jak [delegować domenę do Azure DNS](dns-domain-delegation.md).
 <br>
-Przejrzyj [dokumentację referencyjną programu Azure DNS PowerShell](/powershell/module/azurerm.dns).
+Zapoznaj się z [dokumentacją programu Azure DNS PowerShell](/powershell/module/azurerm.dns).
 

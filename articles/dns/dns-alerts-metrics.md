@@ -1,6 +1,6 @@
 ---
-title: Metryki i alerty — usługa Azure DNS
-description: Dzięki tej ścieżce szkoleniowej rozpocznij pracę z metrykami i alertami usługi Azure DNS.
+title: Metryki i alerty — Azure DNS
+description: Korzystając z tej ścieżki szkoleniowej, Rozpocznij pracę z Azure DNS metrykami i alertami.
 services: dns
 documentationcenter: na
 author: rohinkoul
@@ -13,56 +13,56 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: rohink
 ms.openlocfilehash: 42acbc0d32b3ce5de4befcf112b68f611ad70542
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76937458"
 ---
-# <a name="azure-dns-metrics-and-alerts"></a>Metryki i alerty usługi Azure DNS
-Usługa Azure DNS to usługa hostingowa dla domen DNS, która zapewnia rozpoznawanie nazw przy użyciu infrastruktury platformy Microsoft Azure. W tym artykule opisano metryki i alerty dla usługi Azure DNS.
+# <a name="azure-dns-metrics-and-alerts"></a>Azure DNS metryki i alerty
+Azure DNS to usługa hostingu dla domen DNS, która umożliwia rozpoznawanie nazw przy użyciu infrastruktury Microsoft Azure. W tym artykule opisano metryki i alerty dla usługi Azure DNS.
 
-## <a name="azure-dns-metrics"></a>Metryki usługi Azure DNS
+## <a name="azure-dns-metrics"></a>Metryki Azure DNS
 
-Usługa Azure DNS udostępnia klientom metryki umożliwiające im monitorowanie określonych aspektów ich stref DNS hostowanych w usłudze. Ponadto za pomocą metryk dns platformy Azure można skonfigurować i odbierać alerty na podstawie warunków zainteresowania. Metryki są dostarczane za pośrednictwem [usługi Azure Monitor.](../azure-monitor/index.yml) Usługa Azure DNS udostępnia następujące metryki za pośrednictwem usługi Azure Monitor dla stref DNS:
+Azure DNS udostępnia metryki dla klientów umożliwiające monitorowanie określonych aspektów stref DNS hostowanych w usłudze. Ponadto za pomocą metryk Azure DNS można konfigurować i odbierać alerty na podstawie warunków zainteresowania. Metryki są udostępniane za pośrednictwem [usługi Azure monitor](../azure-monitor/index.yml). Azure DNS udostępnia następujące metryki za pośrednictwem Azure Monitor dla stref DNS:
 
--   QueryVolume (Wyw.
--   Konto RecordSetCount
--   Ulatnianie recordSetCapacityUtilization
+-   QueryVolume
+-   RecordSetCount
+-   RecordSetCapacityUtilization
 
-Definicję tych [metryk](../azure-monitor/platform/metrics-supported.md#microsoftnetworkdnszones) można również wyświetlić na stronie dokumentacji usługi Azure Monitor.
+[Definicję tych metryk](../azure-monitor/platform/metrics-supported.md#microsoftnetworkdnszones) można również znaleźć na stronie dokumentacji Azure monitor.
 >[!NOTE]
-> W tej chwili te metryki są dostępne tylko dla publicznych stref DNS hostowanych w usłudze Azure DNS. Jeśli masz strefy prywatne hostowane w usłudze Azure DNS, te metryki nie będą dostarczać danych dla tych stref. Ponadto metryki i funkcje alertów jest obsługiwany tylko w chmurze publicznej platformy Azure. Wsparcie dla suwerennych chmur nastąpi w późniejszym czasie. 
+> W tej chwili te metryki są dostępne tylko dla publicznych stref DNS hostowanych w Azure DNS. Jeśli masz strefy prywatne hostowane w Azure DNS, te metryki nie będą dostarczać danych dla tych stref. Ponadto funkcja metryk i alertów jest obsługiwana tylko w chmurze publicznej platformy Azure. Obsługa dla suwerennych chmur będzie występować w późniejszym czasie. 
 
-Najbardziej szczegółowy element, dla którego można zobaczyć metryki, jest strefa DNS. Obecnie nie widać metryk dla poszczególnych rekordów zasobów w strefie.
+Najbardziej szczegółowym elementem, dla którego można zobaczyć metryki, jest strefa DNS. Obecnie nie są wyświetlane metryki dla poszczególnych rekordów zasobów w obrębie strefy.
 
-### <a name="query-volume"></a>Wolumin kwerendy
+### <a name="query-volume"></a>Wolumin zapytania
 
-Metryka *woluminu kwerend* w usłudze Azure DNS pokazuje ilość zapytań DNS (ruch zapytań), które są odbierane przez usługę Azure DNS dla strefy DNS. Jednostką miary jest Liczba, a agregacja jest sumą wszystkich zapytań odebranych w określonym czasie. 
+Metryka *woluminu zapytania* w Azure DNS pokazuje ilość zapytań DNS (ruch zapytań) odbieranych przez Azure DNS dla strefy DNS. Jednostka miary jest liczbą, a agregacja jest sumą wszystkich zapytań odebranych w danym okresie czasu. 
 
-Aby wyświetlić tę metrykę, wybierz środowisko eksploratora metryki (podgląd) na karcie Monitor w witrynie Azure portal. Wybierz strefę DNS z listy rozwijanej Zasób, wybierz metrykę woluminu kwerendy i wybierz pozycję Suma jako agregację. Poniższy zrzut ekranu przedstawia przykład.  Aby uzyskać więcej informacji na temat środowiska Eksploratora metryk i tworzenia [wykresów, zobacz Eksplorator metryk usługi Azure Monitor](../azure-monitor/platform/metrics-charts.md).
+Aby wyświetlić tę metrykę, wybierz pozycję metryki (wersja zapoznawcza) środowisko Eksploratora na karcie monitorowanie w Azure Portal. Wybierz strefę DNS z listy rozwijanej zasób, wybierz metrykę woluminu zapytania, a następnie wybierz pozycję suma jako agregacja. Poniższy zrzut ekranu przedstawia przykład.  Aby uzyskać więcej informacji na temat środowiska Eksplorator metryk i wykresów, zobacz [Azure Monitor Eksplorator metryk](../azure-monitor/platform/metrics-charts.md).
 
-![Wolumin kwerendy](./media/dns-alerts-metrics/dns-metrics-query-volume.png)
+![Wolumin zapytania](./media/dns-alerts-metrics/dns-metrics-query-volume.png)
 
-*Rysunek: Metryki woluminu zapytań dns platformy Azure*
+*Ilustracja: metryki woluminów zapytań Azure DNS*
 
 ### <a name="record-set-count"></a>Liczba zestawów rekordów
-Metryka *Liczba zestawów rekordów* pokazuje liczbę zestawów rekordów w usłudze Azure DNS dla strefy DNS. Wszystkie zestawy rekordów zdefiniowane w strefie są liczone. Jednostką miary jest Liczba, a agregacja jest maksymalna ze wszystkich rekordów. Aby wyświetlić tę metrykę, wybierz środowisko eksploratora **metryki (podgląd)** na karcie **Monitor** w witrynie Azure portal. Wybierz strefę DNS z listy rozwijanej **Zasób,** wybierz metrykę **Liczba zestawów rekordów,** a następnie wybierz **pozycję Max** jako **agregację**. Aby uzyskać więcej informacji na temat środowiska Eksploratora metryk i tworzenia [wykresów, zobacz Eksplorator metryk usługi Azure Monitor](../azure-monitor/platform/metrics-charts.md). 
+Metryka *liczby zestawów rekordów* przedstawia liczbę zestawów rekordów w Azure DNS dla strefy DNS. Zliczane są wszystkie zestawy rekordów zdefiniowane w strefie. Jednostka miary jest liczbą i agregacją jest maksimum wszystkich zestawów rekordów. Aby wyświetlić tę metrykę, wybierz pozycję **metryki (wersja zapoznawcza)** środowisko Eksploratora na karcie **monitorowanie** w Azure Portal. Wybierz strefę DNS z listy rozwijanej **zasób** , wybierz metrykę **zliczania zestawu rekordów** , a następnie wybierz **wartość Max** jako **agregację**. Aby uzyskać więcej informacji na temat środowiska Eksplorator metryk i wykresów, zobacz [Azure Monitor Eksplorator metryk](../azure-monitor/platform/metrics-charts.md). 
 
 ![Liczba zestawów rekordów](./media/dns-alerts-metrics/dns-metrics-record-set-count.png)
 
-*Rysunek: Metryki liczby zestawów rekordów DNS platformy Azure*
+*Ilustracja: metryki liczby zestawów rekordów Azure DNS*
 
 
-### <a name="record-set-capacity-utilization"></a>Rekordowe wykorzystanie pojemności zestawu mocy produkcyjnych
-Metryka *wykorzystania zdolności produkcyjnych zestawu rekordów* w usłudze Azure DNS pokazuje procent wykorzystania pojemności zestawu rekordów dla strefy DNS. Każda strefa DNS w usłudze Azure DNS podlega limitowi zestawu rekordów, który określa maksymalną liczbę zestawów rekordów dozwolonych dla strefy (patrz [limity DNS](dns-zones-records.md#limits)). W związku z tym ta metryka pokazuje, jak blisko jesteś do osiągnięcia limitu Recordset. Na przykład jeśli dla strefy DNS skonfigurowano 500 zestawów rekordów, a strefa ma domyślny limit zestawu rekordów wynoszący 5000, metryka RecordSetCapacityUtilization wyświetli wartość 10% (która jest uzyskiwana przez podzielenie 500 przez 5000). Jednostką miary jest **Wartość procentowa,** a typem **Agregacji** jest **maksimum**. Aby wyświetlić tę metrykę, wybierz środowisko eksploratora metryki (podgląd) na karcie Monitor w witrynie Azure portal. Wybierz strefę DNS z listy rozwijanej Zasób, wybierz metrykę Wykorzystanie pojemności zestawu rekordów i wybierz pozycję Maks. Poniższy zrzut ekranu przedstawia przykład. Aby uzyskać więcej informacji na temat środowiska Eksploratora metryk i tworzenia [wykresów, zobacz Eksplorator metryk usługi Azure Monitor](../azure-monitor/platform/metrics-charts.md). 
+### <a name="record-set-capacity-utilization"></a>Wykorzystanie pojemności zestawu rekordów
+Metryka *wykorzystania pojemności zestawu rekordów* w Azure DNS pokazuje procent wykorzystania pojemności zestawu rekordów dla strefy DNS. Każda strefa DNS w Azure DNS podlega limitowi rekordów, który definiuje maksymalną liczbę zestawów rekordów, które są dozwolone dla strefy (zobacz [limity DNS](dns-zones-records.md#limits)). W związku z tym ta Metryka pokazuje, jak zamykasz limit zestawu rekordów. Na przykład jeśli masz zestawy rekordów 500 skonfigurowane dla strefy DNS, a strefa ma domyślny limit rekordów równy 5000, Metryka RecordSetCapacityUtilization będzie zawierać wartość 10% (uzyskaną przez podzielenie 500 przez 5000). Jednostka miary jest **wartością procentową** , a typ **agregacji** to **maksimum**. Aby wyświetlić tę metrykę, wybierz pozycję metryki (wersja zapoznawcza) środowisko Eksploratora na karcie monitorowanie w Azure Portal. Wybierz strefę DNS z listy rozwijanej zasób, wybierz pozycję zestaw rekordów Metryka wykorzystania pojemności i wybierz wartość maksymalna jako agregację. Poniższy zrzut ekranu przedstawia przykład. Aby uzyskać więcej informacji na temat środowiska Eksplorator metryk i wykresów, zobacz [Azure Monitor Eksplorator metryk](../azure-monitor/platform/metrics-charts.md). 
 
 ![Liczba zestawów rekordów](./media/dns-alerts-metrics/dns-metrics-record-set-capacity-uitlization.png)
 
-*Rysunek: Metryki wykorzystania pojemności zestawu rekordów DNS platformy Azure*
+*Ilustracja: Ustawianie rekordu Azure DNS metryk wykorzystania pojemności*
 
-## <a name="alerts-in-azure-dns"></a>Alerty w usłudze Azure DNS
-Usługa Azure Monitor udostępnia możliwość ostrzegania o dostępnych wartościach metryk. Metryki DNS są dostępne w nowym środowiska konfiguracji alertów. Jak opisano szczegółowo w [dokumentacji alertów usługi Azure Monitor,](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)można wybrać strefę DNS jako zasób, wybrać typ sygnału metryki i skonfigurować logikę alertu i inne parametry, takie jak **Okres** i **Częstotliwość**. Można dodatkowo zdefiniować [grupę akcji,](../azure-monitor/platform/action-groups.md) gdy warunek alertu jest spełniony, przy czym alert zostanie dostarczony za pośrednictwem wybranych akcji. Aby uzyskać więcej informacji na temat konfigurowania alertów dla metryk usługi Azure Monitor, zobacz [Tworzenie, wyświetlanie i zarządzanie alertami za pomocą usługi Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
+## <a name="alerts-in-azure-dns"></a>Alerty w Azure DNS
+Azure Monitor oferuje możliwość zgłaszania alertów dotyczących dostępnych wartości metryk. Metryki DNS są dostępne w nowym środowisku konfiguracji alertów. Jak opisano szczegółowo w [dokumentacji Azure monitor alertów](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md), można wybrać strefy DNS jako zasób, wybrać typ sygnału metryki i skonfigurować logikę alertów oraz inne parametry, takie jak **okres** i **częstotliwość**. Można dodatkowo zdefiniować [grupę akcji](../azure-monitor/platform/action-groups.md) dla momentu spełnienia warunku alertu, zgodnie z którym alert zostanie dostarczony za pośrednictwem wybranych akcji. Aby uzyskać więcej informacji na temat konfigurowania alertów dotyczących metryk Azure Monitor, zobacz [Tworzenie i wyświetlanie alertów oraz zarządzanie nimi przy użyciu Azure monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej o [usłudze Azure DNS](dns-overview.md).
+- Dowiedz się więcej o [Azure DNS](dns-overview.md).

@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Konfigurowanie funkcji proxyclick do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure Active Directory | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować usługę Azure Active Directory do automatycznego inicjowania obsługi administracyjnej i usuwania obsługi administracyjnej kont użytkowników w witrynie Proxyclick.
+title: 'Samouczek: Konfigurowanie Proxyclick dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników w usłudze Proxyclick.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,165 +16,165 @@ ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
 ms.openlocfilehash: 95cb0371c4b2181d8f09991fe6e652c0e939f3e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77063360"
 ---
-# <a name="tutorial-configure-proxyclick-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie proxyclick do automatycznego inicjowania obsługi administracyjnej użytkownika
+# <a name="tutorial-configure-proxyclick-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Proxyclick na potrzeby automatycznego aprowizacji użytkowników
 
-Celem tego samouczka jest zademonstrowanie kroków, które należy wykonać w proxyclick i usługi Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD do automatycznego aprowizowania i de-provision użytkowników i/lub grup do proxyclick.
+Celem tego samouczka jest przedstawienie czynności, które należy wykonać w Proxyclick i Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizacji i cofania aprowizacji użytkowników i/lub grup do Proxyclick.
 
 > [!NOTE]
-> W tym samouczku opisano łącznik utworzony na podstawie usługi inicjowania obsługi administracyjnej użytkowników usługi Azure AD. Aby uzyskać ważne informacje na temat działania tej usługi, działania i często zadawanych pytań, zobacz [Automatyzacja inicjowania obsługi administracyjnej i usuwania obsługi administracyjnej aplikacji SaaS za pomocą usługi Azure Active Directory](../app-provisioning/user-provisioning.md).
+> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania aplikacji SaaS przy użyciu programu Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Ten łącznik jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat ogólnych warunków korzystania z platformy Microsoft Azure dla funkcji w wersji Zapoznawczej, zobacz [Dodatkowe warunki użytkowania w wersji Zapoznawczej platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Ten łącznik jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat ogólnych Microsoft Azure warunki użytkowania funkcji w wersji zapoznawczej, zobacz [dodatkowe warunki użytkowania dla Microsoft Azure podglądów](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku zakłada, że masz już następujące wymagania wstępne:
+Scenariusz opisany w tym samouczku założono, że masz już następujące wymagania wstępne:
 
 * Dzierżawa usługi Azure AD
-* [Dzierżawa proxyclick](https://www.proxyclick.com/pricing)
-* Konto użytkownika w proxyclick z uprawnieniami administratora.
+* [Dzierżawa Proxyclick](https://www.proxyclick.com/pricing)
+* Konto użytkownika w Proxyclick z uprawnieniami administratora.
 
-## <a name="add-proxyclick-from-the-gallery"></a>Dodaj proxyclick z galerii
+## <a name="add-proxyclick-from-the-gallery"></a>Dodaj Proxyclick z galerii
 
-Przed skonfigurowaniem proxyclick do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure AD, należy dodać proxyclick z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji SaaS.
+Przed skonfigurowaniem usługi Proxyclick do automatycznego aprowizacji użytkowników w usłudze Azure AD należy dodać Proxyclick z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać proxyclick z galerii aplikacji usługi Azure AD, wykonaj następujące kroki:**
+**Aby dodać Proxyclick z galerii aplikacji usługi Azure AD, wykonaj następujące czynności:**
 
-1. W **[witrynie Azure portal](https://portal.azure.com)** w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
+1. W **[Azure Portal](https://portal.azure.com)** w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do **aplikacji enterprise**, a następnie wybierz pozycję **Wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-3. Aby dodać nową aplikację, wybierz przycisk **Nowa aplikacja** u góry okienka.
+3. Aby dodać nową aplikację, wybierz przycisk **Nowa aplikacja** w górnej części okienka.
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź **proxyclick**, wybierz **Proxyclick** w panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wprowadź **Proxyclick**, wybierz pozycję **Proxyclick** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Proxyclick na liście wyników](common/search-new-app.png)
 
-## <a name="assigning-users-to-proxyclick"></a>Przypisywanie użytkowników do proxyclick
+## <a name="assigning-users-to-proxyclick"></a>Przypisywanie użytkowników do Proxyclick
 
-Usługa Azure Active Directory używa koncepcji o nazwie *przydziały,* aby określić, którzy użytkownicy powinni otrzymać dostęp do wybranych aplikacji. W kontekście automatycznego inicjowania obsługi administracyjnej użytkowników tylko użytkownicy i/lub grupy, które zostały przypisane do aplikacji w usłudze Azure AD są synchronizowane.
+Azure Active Directory używa koncepcji zwanej *zadaniami* w celu określenia, którzy użytkownicy powinni otrzymywać dostęp do wybranych aplikacji. W kontekście automatycznej aprowizacji użytkowników są synchronizowane tylko użytkownicy i/lub grupy, które zostały przypisane do aplikacji w usłudze Azure AD.
 
-Przed skonfigurowaniem i włączeniem automatycznego inicjowania obsługi administracyjnej użytkowników należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD potrzebują dostępu do funkcji Proxyclick. Po podjęciu decyzji, można przypisać tych użytkowników i / lub grup do Proxyclick, postępując zgodnie z instrukcjami tutaj:
+Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD potrzebują dostępu do Proxyclick. Po ustaleniu tych użytkowników i/lub grup można przypisywać do Proxyclick, postępując zgodnie z poniższymi instrukcjami:
 
-* [Przypisywanie użytkownika lub grupy do aplikacji przedsiębiorstwa](../manage-apps/assign-user-or-group-access-portal.md)
+* [Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-proxyclick"></a>Ważne wskazówki dotyczące przypisywania użytkowników do proxyclick
+### <a name="important-tips-for-assigning-users-to-proxyclick"></a>Ważne wskazówki dotyczące przypisywania użytkowników do Proxyclick
 
-* Zaleca się, że jeden użytkownik usługi Azure AD jest przypisany do proxyclick do testowania konfiguracji automatycznego inicjowania obsługi administracyjnej użytkownika. Dodatkowi użytkownicy i/lub grupy mogą być przypisane później.
+* Zaleca się, aby jeden użytkownik usługi Azure AD został przypisany do Proxyclick w celu przetestowania automatycznej konfiguracji inicjowania obsługi użytkowników. Dodatkowych użytkowników i/lub grupy można przypisywać później.
 
-* Podczas przypisywania użytkownika do aplikacji Proxyclick należy wybrać dowolną prawidłową rolę specyficzną dla aplikacji (jeśli jest dostępna) w oknie dialogowym przypisania. Użytkownicy z rolą **dostępu domyślnego** są wykluczeni z inicjowania obsługi administracyjnej.
+* Podczas przypisywania użytkownika do Proxyclick należy wybrać dowolną prawidłową rolę specyficzną dla aplikacji (jeśli jest dostępna) w oknie dialogowym przypisania. Użytkownicy z **domyślną rolą dostępu** są wykluczeni z aprowizacji.
 
-## <a name="configuring-automatic-user-provisioning-to-proxyclick"></a>Konfigurowanie automatycznego inicjowania obsługi administracyjnej w trybie proxyclick 
+## <a name="configuring-automatic-user-provisioning-to-proxyclick"></a>Konfigurowanie automatycznej aprowizacji użytkowników do Proxyclick 
 
-W tej sekcji można przejść przez kroki konfigurowania usługi inicjowania obsługi administracyjnej usługi Azure AD do tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w proxyclick na podstawie przypisania użytkownika i/lub grupy w usłudze Azure AD.
+Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w programie Proxyclick na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
 
 > [!TIP]
-> Można również włączyć samoocenę jednokrotną opartą na SAML dla proxyclick, postępując zgodnie z instrukcjami podanymi w [samouczku logowania jednokrotnego proxyclick](proxyclick-tutorial.md). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej użytkownika, chociaż te dwie funkcje wzajemnie się uzupełniają.
+> Możesz również włączyć logowanie jednokrotne oparte na protokole SAML dla Proxyclick, postępując zgodnie z instrukcjami podanymi w [samouczku logowanie](proxyclick-tutorial.md)jednokrotne w Proxyclick. Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje napadają nawzajem.
 
-### <a name="to-configure-automatic-user-provisioning-for-proxyclick-in-azure-ad"></a>Aby skonfigurować automatyczne inicjowanie obsługi administracyjnej dla proxyclick w usłudze Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-proxyclick-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Proxyclick w usłudze Azure AD:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). Wybierz pozycję **Aplikacje przedsiębiorstwa**, a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz pozycję **Proxyclick**.
+2. Na liście Aplikacje wybierz pozycję **Proxyclick**.
 
-    ![Łącze Proxyclick na liście Aplikacje](common/all-applications.png)
+    ![Link Proxyclick na liście aplikacji](common/all-applications.png)
 
-3. Wybierz kartę **Inicjowanie obsługi administracyjnej.**
+3. Wybierz kartę **aprowizacji** .
 
-    ![Karta Inicjowanie obsługi administracyjnej](common/provisioning.png)
+    ![Karta aprowizacji](common/provisioning.png)
 
-4. Ustaw **tryb inicjowania obsługi administracyjnej** na **Automatyczny**.
+4. Ustaw **tryb aprowizacji** na **automatyczny**.
 
-    ![Karta Inicjowanie obsługi administracyjnej](common/provisioning-automatic.png)
+    ![Karta aprowizacji](common/provisioning-automatic.png)
 
-5. Aby pobrać **adres URL dzierżawy** i **tajny token** konta proxyclick, postępuj zgodnie z instruktażem, jak opisano w kroku 6.
+5. Aby pobrać **adres URL dzierżawy** i **klucz tajny** konta Proxyclick, postępuj zgodnie z opisem w sekcji Krok 6.
 
-6. Zaloguj się do [konsoli administracyjnej proxyclick](https://app.proxyclick.com/login//?destination=%2Fdefault). Przejdź do **ustawień** > **Integracje** > **Przeglądaj Marketplace**.
+6. Zaloguj się do [konsoli administracyjnej Proxyclick](https://app.proxyclick.com/login//?destination=%2Fdefault). Przejdź do **ustawień** > **Integrations** > **Przeglądaj Portal Marketplace**.
 
-    ![Ustawienia proxyclick](media/proxyclick-provisioning-tutorial/proxyclick09.png)
+    ![Ustawienia Proxyclick](media/proxyclick-provisioning-tutorial/proxyclick09.png)
 
-    ![Integracje proxyclick](media/proxyclick-provisioning-tutorial/proxyclick01.png)
+    ![Integracje Proxyclick](media/proxyclick-provisioning-tutorial/proxyclick01.png)
 
     ![Proxyclick Marketplace](media/proxyclick-provisioning-tutorial/proxyclick02.png)
 
-    Wybierz **usługę Azure AD**. Kliknij **pozycję Zainstaluj teraz**.
+    Wybierz pozycję **Azure AD**. Kliknij przycisk **Instaluj teraz**.
 
-    ![Proxyclick Azure AD](media/proxyclick-provisioning-tutorial/proxyclick03.png)
+    ![Proxyclick usługi Azure AD](media/proxyclick-provisioning-tutorial/proxyclick03.png)
 
-    ![Proxyclick zainstalować](media/proxyclick-provisioning-tutorial/proxyclick04.png)
+    ![Proxyclick Zainstaluj](media/proxyclick-provisioning-tutorial/proxyclick04.png)
 
-    Wybierz **pozycję Inicjowanie obsługi administracyjnej użytkownika** i kliknij przycisk **Rozpocznij integrację**. 
+    Wybierz pozycję **Inicjowanie obsługi użytkowników** , a następnie kliknij pozycję **Rozpocznij integrację**. 
 
-    ![Zainicjowanie obsługi administracyjnej użytkownika zaliczania obsługi administracyjnej przez użytkownika w proxy](media/proxyclick-provisioning-tutorial/proxyclick05.png)
+    ![Proxyclick aprowizacji użytkowników](media/proxyclick-provisioning-tutorial/proxyclick05.png)
 
-    W obszarze**Integracje**ustawień powinien być teraz pokazywał się odpowiedni interfejs użytkownika konfiguracji **ustawień** > . Wybierz **pozycję Ustawienia** w obszarze Azure AD **(Inicjowanie obsługi administracyjnej)**.
+    Odpowiedni interfejs użytkownika konfiguracji ustawień powinien teraz zostać wyświetlony w obszarze **Ustawienia** > **integracji**. Wybierz pozycję **Ustawienia** w obszarze **Azure AD (Inicjowanie obsługi użytkowników)**.
 
-    ![Proxyclick Tworzenie](media/proxyclick-provisioning-tutorial/proxyclick06.png)
+    ![Proxyclick Utwórz](media/proxyclick-provisioning-tutorial/proxyclick06.png)
 
-    Adres URL **dzierżawy** i **token tajny** można znaleźć tutaj.
+    W tym miejscu możesz znaleźć **adres URL dzierżawy** i **token tajny** .
 
-    ![Proxyclick Utwórz token](media/proxyclick-provisioning-tutorial/proxyclick07.png)
+    ![Utwórz token Proxyclick](media/proxyclick-provisioning-tutorial/proxyclick07.png)
 
-7. Po zapełnieniu pól wyświetlanych w kroku 5 kliknij przycisk **Testuj połączenie,** aby upewnić się, że usługa Azure AD może łączyć się z żądaniem proxy. Jeśli połączenie nie powiedzie się, upewnij się, że twoje konto proxyclick ma uprawnienia administratora i spróbuj ponownie.
+7. Po zapełnieniu pól przedstawionych w kroku 5 kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z usługą Proxyclick. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi Proxyclick ma uprawnienia administratora, a następnie spróbuj ponownie.
 
     ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-8. W polu **Wiadomość e-mail z powiadomieniem** wprowadź adres e-mail osoby lub grupy, która powinna otrzymywać powiadomienia o błędach inicjowania obsługi administracyjnej, i zaznacz pole wyboru - **Wyślij powiadomienie e-mail, gdy wystąpi błąd.**
+8. W polu **adres E-mail powiadomienia** wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji, i zaznacz pole wyboru — **Wyślij powiadomienie e-mail, gdy wystąpi awaria**.
 
-    ![Wiadomość e-mail z powiadomieniem](common/provisioning-notification-email.png)
+    ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
 9. Kliknij przycisk **Zapisz**.
 
-10. W sekcji **Mapowania** wybierz pozycję **Synchronizuj użytkowników usługi Azure Active Directory z poleceniem proxyclick**.
+10. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do Proxyclick**.
 
-    ![Mapowania użytkowników proxyclick](media/proxyclick-provisioning-tutorial/Proxyclick-user-mappings.png)
+    ![Proxyclick mapowania użytkowników](media/proxyclick-provisioning-tutorial/Proxyclick-user-mappings.png)
 
-11. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do proxyclick w sekcji **Mapowanie atrybutów.** Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w proxyclick dla operacji aktualizacji. Wybierz przycisk **Zapisz,** aby zatwierdzić wszelkie zmiany.
+11. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, do Proxyclick w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie Proxyclick for Updates. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
     ![Proxyclick atrybuty użytkownika](media/proxyclick-provisioning-tutorial/Proxyclick-user-attribute.png)
 
-13. Aby skonfigurować filtry zakresu, zapoznaj się z poniższymi instrukcjami podanymi w [samouczku filtru zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+13. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-14. Aby włączyć usługę inicjowania obsługi administracyjnej usługi Azure AD dla proxyclick, zmień **stan inicjowania obsługi administracyjnej** **na Włączone** w sekcji **Ustawienia.**
+14. Aby włączyć usługę Azure AD Provisioning dla Proxyclick, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
-    ![Stan inicjowania obsługi administracyjnej włączony](common/provisioning-toggle-on.png)
+    ![Stan aprowizacji jest przełączany](common/provisioning-toggle-on.png)
 
-15. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić proxyclick, wybierając żądane wartości w **zakresie** w **ustawieniach** sekcji.
+15. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić Proxyclick, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
 
-    ![Zakres inicjowania obsługi administracyjnej](common/provisioning-scope.png)
+    ![Zakres aprowizacji](common/provisioning-scope.png)
 
-16. Gdy będziesz gotowy do aprowienia, kliknij przycisk **Zapisz**.
+16. Gdy wszystko będzie gotowe do udostępnienia, kliknij przycisk **Zapisz**.
 
-    ![Zapisywanie konfiguracji inicjowania obsługi administracyjnej](common/provisioning-configuration-save.png)
+    ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
-Ta operacja rozpoczyna początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia.** Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które występują co około 40 minut, o ile jest uruchomiona usługa inicjowania obsługi administracyjnej usługi Azure AD. Za pomocą sekcji **Szczegóły synchronizacji** można monitorować postęp i śledzić łącza do raportu aktywności inicjowania obsługi administracyjnej, w którym opisano wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej usługi Azure AD w witrynie Proxyclick.
+Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia** . Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które wystąpiły co około 40 minut, o ile usługa Azure AD Provisioning jest uruchomiona. Możesz użyć sekcji **szczegóły synchronizacji** do monitorowania postępu i postępuj zgodnie z raportem aktywności aprowizacji, który opisuje wszystkie akcje wykonywane przez usługę Azure AD Provisioning w witrynie Proxyclick.
 
-Aby uzyskać więcej informacji na temat sposobu zapoznania się z dziennikami inicjowania obsługi administracyjnej usługi Azure AD, zobacz [Raportowanie automatycznego inicjowania obsługi administracyjnej konta użytkownika.](../app-provisioning/check-status-user-account-provisioning.md)
+Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="connector-limitations"></a>Ograniczenia złącza
+## <a name="connector-limitations"></a>Ograniczenia łącznika
 
-* Proxyclick wymaga **wiadomości e-mail** i **userName** mieć taką samą wartość źródła. Wszelkie aktualizacje do obu atrybutów zmodyfikuje inną wartość.
-* Proxyclick nie obsługuje inicjowania obsługi administracyjnej dla grup.
+* Proxyclick wymaga, aby **wiadomości e-mail** i **Nazwa użytkownika** miały tę samą wartość źródłową. Wszystkie aktualizacje obu atrybutów spowodują modyfikację drugiej wartości.
+* Proxyclick nie obsługuje aprowizacji dla grup.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Zarządzanie inicjowanie obsługi administracyjnej kont użytkowników dla aplikacji dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i otrzymywać raporty dotyczące aktywności inicjowania obsługi administracyjnej](../app-provisioning/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
 

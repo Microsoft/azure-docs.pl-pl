@@ -1,6 +1,6 @@
 ---
-title: Często zadawane pytania — usługa migracji bazy danych platformy Azure
-description: Często zadawane pytania dotyczące korzystania z usługi migracji bazy danych Platformy Azure do przeprowadzania migracji bazy danych.
+title: Często zadawane pytania — Azure Database Migration Service
+description: Często zadawane pytania dotyczące korzystania z Azure Database Migration Service w celu przeprowadzenia migracji baz danych.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -12,62 +12,62 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: a664f12843585ac7524cf8d51aef156d15d32504
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77650985"
 ---
-# <a name="faq-about-using-azure-database-migration-service"></a>Często zadawane pytania dotyczące korzystania z usługi migracji bazy danych platformy Azure
+# <a name="faq-about-using-azure-database-migration-service"></a>Często zadawane pytania dotyczące korzystania z Azure Database Migration Service
 
-W tym artykule wymieniono często zadawane pytania dotyczące korzystania z usługi migracji bazy danych Azure wraz z powiązanymi odpowiedziami.
+Ten artykuł zawiera listę często zadawanych pytań dotyczących używania Azure Database Migration Service razem z powiązanymi odpowiedziami.
 
 ## <a name="overview"></a>Omówienie
 
-**P. Co to jest usługa migracji bazy danych platformy Azure?**
-Usługa migracji bazy danych Azure to w pełni zarządzana usługa zaprojektowana w celu umożliwienia bezproblemowej migracji z wielu źródeł bazy danych do platform Azure Data przy minimalnym przestoju. Usługa jest obecnie w ogólnej dostępności, a bieżące działania rozwojowe koncentrują się na:
+**P. co to jest Azure Database Migration Service?**
+Azure Database Migration Service to w pełni zarządzana usługa, która umożliwia bezproblemowe Migrowanie z wielu źródeł baz danych do platform danych platformy Azure z minimalnym czasem przestoju. Usługa jest obecnie ogólnie dostępna, z trwającymi działaniami programistycznymi, które koncentrują się na:
 
 * Niezawodność i wydajność.
-* Iteracyjny dodatek par źródłowych i docelowych.
-* Dalsze inwestycje w migracje bez tarcia.
+* Iteracyjne dodawanie par źródłowych-docelowych.
+* Kontynuowanie inwestycji w bezpłatnej migracji.
 
-**P. Jakie pary źródłowe/docelowe obsługuje obecnie usługa migracji bazy danych Platformy Azure?**
-Usługa obsługuje obecnie różne pary źródłowe/docelowe lub scenariusze migracji. Aby uzyskać pełną listę stanu każdego dostępnego scenariusza migracji, zobacz artykuł [Stan scenariuszy migracji obsługiwanych przez usługę migracji bazy danych Platformy Azure](https://docs.microsoft.com/azure/dms/resource-scenario-status).
+**P. Jakie pary źródłowe i docelowe Azure Database Migration Service są obecnie obsługiwane?**
+Usługa obecnie obsługuje różne pary źródłowe/docelowe lub scenariusze migracji. Aby zapoznać się z pełną listą stanu każdego dostępnego scenariusza migracji, zapoznaj się ze [stanem artykułu scenariusze migracji obsługiwane przez Azure Database Migration Service](https://docs.microsoft.com/azure/dms/resource-scenario-status).
 
-Inne scenariusze migracji są w wersji zapoznawczej i wymagają przesłania nominacji za pośrednictwem witryny wersji zapoznawczej systemu DMS. Aby uzyskać pełną listę scenariuszy w wersji zapoznawczej i zarejestrować się, aby wziąć udział w jednej z tych ofert, zobacz [witrynę podglądu DMS](https://aka.ms/dms-preview/).
+Inne scenariusze migracji są w wersji zapoznawczej i wymagają przesłania nominacji za pośrednictwem witryny DMS Preview. Aby zapoznać się z pełną listą scenariuszy w wersji zapoznawczej i zarejestrować się w celu wzięcia udziału w jednej z tych ofert, zobacz [witrynę DMS w wersji zapoznawczej](https://aka.ms/dms-preview/).
 
-**P. Jakie wersje programu SQL Server obsługuje usługa migracji bazy danych Azure jako źródło?**
-Podczas migracji z programu SQL Server obsługiwane źródła usługi migracji bazy danych azure to SQL Server 2005 za pośrednictwem programu SQL Server 2019.
+**P. Jakie wersje SQL Server są obsługiwane przez Azure Database Migration Service jako źródło?**
+W przypadku migrowania z SQL Server obsługiwane źródła dla Azure Database Migration Service są SQL Server 2005 do SQL Server 2019.
 
-**Pyt.: Podczas korzystania z usługi migracji bazy danych Azure, jaka jest różnica między migracji w trybie offline i online?**
-Usługi migracji bazy danych azure można używać do przeprowadzania migracji w trybie offline i online. Po zakończeniu migracji *w trybie offline* przestoj aplikacji rozpoczyna się po rozpoczęciu migracji. W wyniku migracji *online* przestoje są ograniczone do czasu, w który można ograniczyć się pod koniec migracji. Zalecamy przetestowanie migracji offline w celu ustalenia, czy przestój jest dopuszczalny. Jeśli nie jest on dopuszczalny, przeprowadź migrację online.
+**P: w przypadku używania Azure Database Migration Service, jaka jest różnica między trybem offline a migracją online?**
+Azure Database Migration Service można użyć do przeprowadzenia migracji w trybie offline i online. W przypadku migracji w *trybie offline* przestój aplikacji rozpoczyna się po rozpoczęciu migracji. W przypadku migracji w *trybie online* przestoje są ograniczone do czasu, w którym można wyciąć na końcu migracji. Zalecamy przetestowanie migracji offline w celu ustalenia, czy przestój jest dopuszczalny. Jeśli nie jest on dopuszczalny, przeprowadź migrację online.
 
 > [!NOTE]
-> Korzystanie z usługi migracji bazy danych Azure do wykonywania migracji online wymaga utworzenia wystąpienia na podstawie warstwy cenowej Premium. Więcej informacji znajduje się na stronie [cennika](https://azure.microsoft.com/pricing/details/database-migration/) usługi Azure Database Migration Service.
+> Użycie Azure Database Migration Service do przeprowadzenia migracji w trybie online wymaga utworzenia wystąpienia na podstawie warstwy cenowej Premium. Więcej informacji znajduje się na stronie [cennika](https://azure.microsoft.com/pricing/details/database-migration/) usługi Azure Database Migration Service.
 
-**P. Jak usługa migracji bazy danych platformy Azure w porównaniu z innymi narzędziami migracji bazy danych firmy Microsoft, takimi jak Asystent migracji bazy danych (DMA) lub Asystent migracji programu SQL Server (SSMA)?**
-Usługa migracji bazy danych platformy Azure jest preferowaną metodą migracji bazy danych do platformy Microsoft Azure na dużą skalę. Aby uzyskać więcej informacji na temat porównywania usługi migracji bazy danych platformy Azure z innymi narzędziami migracji bazy danych firmy Microsoft oraz zaleceń dotyczących korzystania z usługi w różnych scenariuszach, zobacz blog publikujący w blogu [Differentiating Microsoft Database Migration Tools and Services](https://techcommunity.microsoft.com/t5/microsoft-data-migration/differentiating-microsoft-s-database-migration-tools-and/ba-p/368529).
+**P. jak Azure Database Migration Service porównać z innymi narzędziami do migracji bazy danych firmy Microsoft, takimi jak baza danych Asystent migracji (DMA) lub Asystent migracji do programu SQL Server (ASYSTENCIE migracji)?**
+Azure Database Migration Service jest preferowaną metodą migracji bazy danych na Microsoft Azure na dużą skalę. Aby uzyskać szczegółowe informacje o tym, jak Azure Database Migration Service porównać z innymi narzędziami do migracji bazy danych firmy Microsoft i zalecenia dotyczące korzystania z usługi dla różnych scenariuszy, zobacz ogłaszanie w blogu [odróżnienie narzędzi i usług migracji bazy danych firmy Microsoft](https://techcommunity.microsoft.com/t5/microsoft-data-migration/differentiating-microsoft-s-database-migration-tools-and/ba-p/368529).
 
-**P. Jak usługa migracji bazy danych platformy Azure w porównaniu z ofertą migracji platformy Azure?**
-Usługa Azure Migrate pomaga w migracji lokalnych maszyn wirtualnych do usługi Azure IaaS. Usługa ocenia przydatność migracji i rozmiary oparte na wydajności i zapewnia szacunki kosztów uruchamiania lokalnych maszyn wirtualnych na platformie Azure. Usługa Azure Migrate jest przydatna w przypadku migracji lokalnych obciążeń opartych na maszynach wirtualnych do maszyn wirtualnych platformy Azure IaaS. Jednak w przeciwieństwie do usługi migracji bazy danych Azure usługa migracji usługi Azure Migrate nie jest wyspecjalizowaną usługą migracji bazy danych dla relacyjnych platform baz danych usługi Azure PaaS, takich jak usługa Azure SQL Database lub wystąpienie zarządzanego usługi Azure SQL Database.
+**P. jak Azure Database Migration Service porównać z ofertą Azure Migrate?**
+Azure Migrate pomaga w migracji lokalnych maszyn wirtualnych do usługi Azure IaaS. Usługa ocenia przydatność migracji i ustalanie rozmiarów na podstawie wydajności, a także umożliwia oszacowanie kosztów uruchamiania lokalnych maszyn wirtualnych na platformie Azure. Azure Migrate jest przydatne do przenoszenia i przesunięcia lokalnych obciążeń opartych na maszynach wirtualnych do maszyn wirtualnych platformy Azure IaaS. Jednak, w przeciwieństwie do Azure Database Migration Service, Azure Migrate nie jest wyspecjalizowaną ofertą usługi migracji bazy danych dla platform Azure PaaS relacyjnych baz danych, takich jak Azure SQL Database lub Azure SQL Database wystąpienia zarządzanego.
 
-## <a name="setup"></a>Konfiguracja
+## <a name="setup"></a>Konfigurowanie
 
-**P. Jakie są wymagania wstępne dotyczące korzystania z usługi migracji bazy danych platformy Azure?**
-Istnieje kilka wymagań wstępnych wymaganych, aby upewnić się, że usługa migracji bazy danych Azure działa płynnie podczas wykonywania migracji bazy danych. Niektóre wymagania wstępne mają zastosowanie we wszystkich scenariuszach (pary źródłowe docelowe) obsługiwane przez usługę, podczas gdy inne wymagania wstępne są unikatowe dla określonego scenariusza.
+**P. Jakie są wymagania wstępne dotyczące korzystania z Azure Database Migration Service?**
+Istnieje kilka wymagań wstępnych, aby zapewnić bezproblemowy przebieg Azure Database Migration Service podczas przeprowadzania migracji baz danych. Niektóre wymagania wstępne dotyczą wszystkich scenariuszy (par Source-Target) obsługiwanych przez usługę, a inne wymagania wstępne są unikatowe dla konkretnego scenariusza.
 
-Wymagania wstępne usługi migracji bazy danych platformy Azure, które są wspólne dla wszystkich obsługiwanych scenariuszy migracji obejmują potrzebę:
+Azure Database Migration Service wymagania wstępne, które są wspólne dla wszystkich obsługiwanych scenariuszy migracji, to m.in.:
 
-* Utwórz usługę migracji bazy danych usługi Azure Database dla platformy Azure przy użyciu modelu wdrażania usługi Azure Resource Manager, który zapewnia łączność między lokacjami lokalnymi serwerami źródłowymi przy użyciu usługi [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) lub [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-* Upewnij się, że reguły sieciowej sieci owej sieci nie blokują następujących portów komunikacyjnych 443, 53, 9354, 445, 12000. Aby uzyskać więcej informacji na temat filtrowania ruchu sieciowej sieciowej sieciowej w sieci wirtualnej, zobacz artykuł [Filtrowanie ruchu sieciowego z sieciowymi grupami zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
-* Podczas korzystania z urządzenia zapory przed źródłową bazą danych może być konieczne dodanie reguł zapory, aby umożliwić usłudze migracji usługi Azure Database dostęp do źródłowych baz danych w celu migracji.
+* Utwórz Microsoft Azure Virtual Network dla Azure Database Migration Service przy użyciu modelu wdrażania Azure Resource Manager, który zapewnia łączność między lokacjami z lokalnymi serwerami źródłowymi przy użyciu usługi [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) lub [sieci VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+* Upewnij się, że reguły grupy zabezpieczeń sieci wirtualnej nie blokują następujących portów komunikacyjnych 443, 53, 9354, 445, 12000. Aby uzyskać więcej szczegółów na temat filtrowania ruchu sieciowej grupy zabezpieczeń w sieci wirtualnej, zobacz artykuł [Filtrowanie ruchu sieciowego przy użyciu sieciowych grup zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* W przypadku korzystania z urządzenia zapory przed źródłowymi bazami danych może zajść potrzeba dodania reguł zapory, aby umożliwić Azure Database Migration Service dostęp do źródłowych baz danych na potrzeby migracji.
 
-Aby uzyskać listę wszystkich wymagań wstępnych wymaganych do konkurowania z określonymi scenariuszami migracji przy użyciu usługi migracji bazy danych Platformy Azure, zobacz powiązane samouczki w [dokumentacji](https://docs.microsoft.com/azure/dms/dms-overview) usługi migracji bazy danych platformy Azure na docs.microsoft.com.
+Aby zapoznać się z listą wszystkich wymagań wstępnych, które są wymagane do konkurowania określonych scenariuszy migracji przy użyciu Azure Database Migration Service, zobacz pokrewne samouczki w [dokumentacji](https://docs.microsoft.com/azure/dms/dms-overview) Azure Database Migration Service w witrynie docs.Microsoft.com.
 
-**P. Jak znaleźć adres IP usługi migracji bazy danych Platformy Azure, aby utworzyć listę dozwolonych dla reguł zapory używanych do uzyskiwania dostępu do mojej źródłowej bazy danych w celu migracji?**
-Może być konieczne dodanie reguł zapory umożliwiających usłudze migracji bazy danych platformy Azure dostęp do źródłowej bazy danych w celu migracji. Adres IP usługi jest dynamiczny, ale jeśli używasz usługi ExpressRoute, ten adres jest przypisany prywatnie przez sieć firmową. Najprostszym sposobem zidentyfikowania odpowiedniego adresu IP jest szukanie w tej samej grupie zasobów, co aprowizowany zasób usługi migracji bazy danych Azure Database w celu znalezienia skojarzonego interfejsu sieciowego. Zazwyczaj nazwa zasobu interfejsu sieciowego zaczyna się od prefiksu karty sieciowej, a następnie unikatowa sekwencja znaków i numerów, na przykład NIC-jj6tnztnmarpsskr82rbndyp. Wybierając ten zasób interfejsu sieciowego, można zobaczyć adres IP, który musi zostać uwzględniony na liście dozwolonych na stronie portalu Azure omówienie zasobów.
+**P. Jak mogę znaleźć adres IP dla Azure Database Migration Service, aby można było utworzyć listę dozwolonych reguł zapory używanych do uzyskiwania dostępu do mojej źródłowej bazy danych na potrzeby migracji?**
+Może być konieczne dodanie reguł zapory umożliwiających Azure Database Migration Service dostępu do źródłowej bazy danych na potrzeby migracji. Adres IP usługi jest dynamiczny, ale jeśli używasz ExpressRoute, ten adres jest przypisywany prywatnie przez sieć firmową. Najprostszym sposobem identyfikacji odpowiedniego adresu IP jest wyszukanie w tej samej grupie zasobów co zasób Azure Database Migration Service zainicjowany, aby znaleźć skojarzony interfejs sieciowy. Zwykle nazwa zasobu interfejsu sieciowego zaczyna się od prefiksu karty sieciowej i następuje unikatowy znak i sekwencja numerów, na przykład karta sieciowa-jj6tnztnmarpsskr82rbndyp. Po wybraniu tego zasobu interfejsu sieciowego można zobaczyć adres IP, który musi być uwzględniony na liście dozwolonych na stronie Przegląd zasobów Azure Portal.
 
-Może być również konieczne dołączenie źródła portu, które sql server nasłuchuje na liście dozwolonych. Domyślnie jest to port 1433, ale źródłowy program SQL Server może być skonfigurowany do nasłuchiwać również na innych portach. W takim przypadku należy również uwzględnić te porty na liście dozwolonych. Port, na który nasłuchuje program SQL Server, można określić za pomocą kwerendy dynamicznego widoku zarządzania:
+Może być również konieczne dołączenie źródła portu, które SQL Server nasłuchuje na liście dozwolonych. Domyślnie jest to port 1433, ale źródło SQL Server można skonfigurować do nasłuchiwania na innych portach. W takim przypadku należy również uwzględnić te porty na liście dozwolonych. Możesz określić port, na którym nasłuchuje SQL Server przy użyciu zapytania dynamicznego widoku zarządzania:
 
 ```sql
     SELECT DISTINCT
@@ -76,7 +76,7 @@ Może być również konieczne dołączenie źródła portu, które sql server n
     WHERE local_tcp_port IS NOT NULL
 ```
 
-Można również określić port, który program SQL Server nasłuchuje, odpytując dziennik błędów programu SQL Server:
+Możesz również określić port, który SQL Server nasłuchuje, badając dziennik błędów SQL Server:
 
 ```sql
     USE master
@@ -85,38 +85,38 @@ Można również określić port, który program SQL Server nasłuchuje, odpytuj
     GO
 ```
 
-**P. Jak skonfigurować sieć wirtualną platformy Microsoft Azure?**
-Podczas gdy wiele samouczków firmy Microsoft, które mogą cię przez proces konfigurowania sieci wirtualnej, oficjalna dokumentacja pojawia się w artykule [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+**P. Jak mogę skonfigurować Microsoft Azure Virtual Network?**
+Chociaż wiele samouczków firmy Microsoft, które mogą przeprowadzić Cię przez proces konfigurowania sieci wirtualnej, oficjalna dokumentacja jest wyświetlana w artykule [Virtual Network platformy Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
 ## <a name="usage"></a>Sposób użycia
 
-**P. Co to jest podsumowanie kroków wymaganych do korzystania z usługi migracji bazy danych Azure do przeprowadzenia migracji bazy danych?**
-Podczas typowej, prostej migracji bazy danych:
+**P. co to jest podsumowanie kroków wymaganych do użycia Azure Database Migration Service do przeprowadzenia migracji bazy danych?**
+Podczas typowej migracji prostej bazy danych:
 
 1. Tworzenie docelowych baz danych.
 2. Oceń źródłowe bazy danych.
-    * W przypadku migracji jednorodnych należy ocenić istniejące bazy danych za pomocą [narzędzia DMA](https://www.microsoft.com/download/details.aspx?id=53595).
-    * W przypadku migracji heterogenicznych (ze źródeł konkurencji) należy ocenić istniejące bazy danych za pomocą [programu SSMA](https://aka.ms/get-ssma). Funkcja SSMA służy również do konwertowania obiektów bazy danych i migracji schematu do platformy docelowej.
+    * W przypadku jednorodnych migracji należy ocenić istniejące bazy danych za pomocą usługi [DMA](https://www.microsoft.com/download/details.aspx?id=53595).
+    * W przypadku migracji heterogenicznych (ze źródeł konkurowania) Oceń istniejące bazy danych za pomocą [Asystencie migracji](https://aka.ms/get-ssma). Program ASYSTENCIE migracji umożliwia również Konwertowanie obiektów bazy danych i migrowanie schematu na platformę docelową.
 3. Utwórz wystąpienie usługi Azure Database Migration Service.
-4. Utwórz projekt migracji określający źródłowe bazy danych, docelowe bazy danych i tabele do migracji.
-5. Uruchom pełne obciążenie.
-6. Wybierz kolejne sprawdzanie poprawności.
-7. Wykonaj ręczne przełączanie środowiska produkcyjnego do nowej bazy danych opartej na chmurze.
+4. Utwórz projekt migracji określający źródłową bazę danych, docelowe bazy danych i tabele do migracji.
+5. Rozpocznij pełne ładowanie.
+6. Wybierz kolejną weryfikację.
+7. Ręczne przełączenie środowiska produkcyjnego do nowej bazy danych opartej na chmurze.
 
 ## <a name="troubleshooting-and-optimization"></a>Rozwiązywanie problemów i optymalizacja
 
-**P. Konfiguruję projekt migracji w dms i mam trudności z połączeniem się z źródłową bazą danych. Co należy zrobić?**
-Jeśli masz problemy z połączeniem się z systemem źródłowej bazy danych podczas pracy nad migracją, utwórz maszynę wirtualną w sieci wirtualnej, za pomocą której skonfigurowane jest wystąpienie DMS. Na maszynie wirtualnej powinieneś być w stanie uruchomić test połączenia, na przykład przy użyciu pliku UDL do testowania połączenia z programem SQL Server lub pobraniem Robo 3T w celu przetestowania połączeń MongoDB. Jeśli test połączenia zakończy się pomyślnie, nie powinien mieć problemu z łączeniem się ze źródłową bazą danych. Jeśli test połączenia nie powiedzie się, skontaktuj się z administratorem sieci.
+**P. konfiguruję projekt migracji w usłudze DMS i mam problemy z nawiązywaniem połączenia z moją źródłową bazą danych. Co mam zrobić?**
+Jeśli występują problemy z połączeniem ze źródłowym systemem bazy danych podczas pracy z migracją, należy utworzyć maszynę wirtualną w sieci wirtualnej, dla której skonfigurowano wystąpienie DMS. Na maszynie wirtualnej powinno być możliwe uruchomienie testu połączenia, takiego jak użycie pliku UDL do przetestowania połączenia w celu SQL Server lub pobrania Robo 3T w celu przetestowania połączeń MongoDB. Jeśli test połączenia zakończy się pomyślnie, nie trzeba mieć problemu z połączeniem ze źródłową bazą danych. Jeśli test połączenia nie powiedzie się, skontaktuj się z administratorem sieci.
 
-**P. Dlaczego moja usługa migracji bazy danych Azure jest niedostępna lub zatrzymana?**
-Jeśli użytkownik jawnie zatrzymuje usługę Azure Database Migration Service (DMS) lub jeśli usługa jest nieaktywna przez okres 24 godzin, usługa będzie w stanie zatrzymania lub automatycznego wstrzymania. W każdym przypadku usługa będzie niedostępna i w stanie zatrzymania.  Aby wznowić aktywne migracje, uruchom ponownie usługę.
+**P. Dlaczego moje Azure Database Migration Service niedostępne lub zatrzymane?**
+Jeśli użytkownik jawnie zatrzyma Azure Database Migration Service (DMS) lub jeśli usługa jest nieaktywna przez okres 24 godzin, usługa będzie w stanie zatrzymania lub jest wstrzymana. W każdym przypadku usługa będzie niedostępna i stan zatrzymany.  Aby wznowić migracje aktywne, należy ponownie uruchomić usługę.
 
-**P. Czy są jakieś zalecenia dotyczące optymalizacji wydajności usługi migracji bazy danych platformy Azure?**
-Aby przyspieszyć migrację bazy danych, można wykonać kilka czynności, aby przyspieszyć migrację bazy danych za pomocą usługi:
+**P. Czy istnieją jakieś zalecenia dotyczące optymalizacji wydajności Azure Database Migration Service?**
+Aby przyspieszyć migrację bazy danych przy użyciu usługi, można wykonać kilka czynności:
 
-* Podczas tworzenia wystąpienia usługi należy używać warstwy cenowej ogólnego przeznaczenia wielu procesorów CPU, aby umożliwić usłudze korzystanie z wielu procesorów wirtualnych w celu równoległości i szybszego transferu danych.
-* Tymczasowo skaluj swoje wystąpienie docelowe bazy danych SQL usługi Azure do jednostki SKU warstwy Premium podczas operacji migracji danych, aby zminimalizować ograniczanie przepustowości bazy danych SQL platformy Azure, które mogą mieć wpływ na działania związane z transferem danych podczas korzystania z jednostek SKU niższego poziomu.
+* Użyj warstwy cenowej wielu procesorów Ogólnego przeznaczenia podczas tworzenia wystąpienia usługi, aby umożliwić usłudze korzystanie z wielu procesorów wirtualnych vCPU na potrzeby przetwarzanie równoległe i szybszych transferów danych.
+* Tymczasowo Skaluj wystąpienie obiektu docelowego Azure SQL Database do jednostki SKU warstwy Premium podczas operacji migracji danych, aby zminimalizować Azure SQL Database ograniczanie wydajności, które mogą mieć wpływ na działania transferu danych w przypadku korzystania z jednostek SKU niższego poziomu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zapoznać się z omówieniem usługi migracji bazy danych platformy Azure i dostępności regionalnej, zobacz artykuł [Co to jest usługa migracji bazy danych platformy Azure](dms-overview.md).
+Aby zapoznać się z omówieniem Azure Database Migration Service i regionalnej dostępności, zobacz artykuł [co to jest Azure Database Migration Service](dms-overview.md).

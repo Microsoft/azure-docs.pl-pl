@@ -1,6 +1,6 @@
 ---
-title: Rozwiązanie Azure VMware by CloudSimple — konfigurowanie obciążenia DNS i DHCP dla chmury prywatnej
-description: W tym artykule opisano sposób konfigurowania systemu DNS i DHCP dla aplikacji i obciążeń działających w środowisku cloudsimple private cloud
+title: Rozwiązanie VMware firmy Azure według CloudSimple — Konfigurowanie obciążeń DNS i DHCP dla chmury prywatnej
+description: Opisuje sposób konfigurowania usług DNS i DHCP dla aplikacji i obciążeń działających w środowisku chmury prywatnej CloudSimple
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -9,29 +9,29 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: ef1266b783034cf18dc2b3ea4be5ebc01bc12c70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77024691"
 ---
-# <a name="set-up-dns-and-dhcp-applications-and-workloads-in-your-cloudsimple-private-cloud"></a>Konfigurowanie aplikacji i obciążeń DNS i DHCP w chmurze cloudsimple private cloud
+# <a name="set-up-dns-and-dhcp-applications-and-workloads-in-your-cloudsimple-private-cloud"></a>Konfigurowanie aplikacji DNS i DHCP oraz obciążeń w prywatnej chmurze CloudSimple
 
-Aplikacje i obciążenia uruchomione w środowisku chmury prywatnej wymagają rozpoznawania nazw i usług DHCP do odnośnia i przypisywania adresów IP.  Do świadczenia tych usług wymagana jest odpowiednia infrastruktura DHCP i DNS.  Maszynę wirtualną można skonfigurować w celu świadczenia tych usług w środowisku chmury prywatnej.  
+Aplikacje i obciążenia działające w środowisku chmury prywatnej wymagają rozpoznawania nazw i usług DHCP do wyszukiwania i przypisywania adresów IP.  Aby zapewnić te usługi, wymagana jest właściwa infrastruktura DHCP i DNS.  Można skonfigurować maszynę wirtualną, aby udostępnić te usługi w środowisku chmury prywatnej.  
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Rozproszona grupa portów ze skonfigurowaną siecią VLAN
-* Kierowanie konfiguracji do lokalnych lub internetowych serwerów DNS
-* Szablon maszyny wirtualnej lub iso do tworzenia maszyny wirtualnej
+* Grupa portów rozproszonych z konfiguracją sieci VLAN
+* Kierowanie instalacji do lokalnych lub internetowych serwerów DNS
+* Szablon maszyny wirtualnej lub plik ISO do utworzenia maszyny wirtualnej
 
-## <a name="linux-based-dns-server-setup"></a>Konfiguracja serwera DNS oparta na systemie Linux
+## <a name="linux-based-dns-server-setup"></a>Konfiguracja serwera DNS z systemem Linux
 
-Linux oferuje różne pakiety do konfigurowania serwerów DNS.  Oto [przykładowa konfiguracja firmy DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-ubuntu-18-04) z instrukcjami konfigurowania serwera DNS BIND typu open source.
+System Linux oferuje różne pakiety do konfigurowania serwerów DNS.  Oto [Przykładowa konfiguracja z DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-ubuntu-18-04) z instrukcjami dotyczącymi KONFIGUROWANIA serwera DNS bind "open source".
 
 ## <a name="windows-based-setup"></a>Konfiguracja oparta na systemie Windows
 
-W tych tematach firmy Microsoft opisano sposób konfigurowania serwera Windows jako serwera DNS i serwera DHCP.
+W tych tematach firmy Microsoft opisano sposób konfigurowania serwera z systemem Windows jako serwera DNS i serwera DHCP.
 
-* [Windows Server jako serwer DNS](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
-* [Windows Server jako serwer DHCP](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-top)
+* [Serwer z systemem Windows jako serwer DNS](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
+* [Serwer z systemem Windows jako serwer DHCP](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-top)

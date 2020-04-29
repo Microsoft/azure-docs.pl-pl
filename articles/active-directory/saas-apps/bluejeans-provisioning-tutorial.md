@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Konfigurowanie bluejeans do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure Active Directory | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować usługę Azure Active Directory do automatycznego inicjowania obsługi administracyjnej i wyrównywalego udostępniania kont użytkowników do bluejeans.
+title: 'Samouczek: Konfigurowanie BlueJeans dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników w usłudze BlueJeans.
 services: active-directory
 documentationcenter: ''
 author: zhchia
@@ -17,76 +17,76 @@ ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fcb3fe009a6482c8e512899a952694beaed361a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77059035"
 ---
-# <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie BlueJeans do automatycznego inicjowania obsługi administracyjnej przez użytkowników
+# <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie BlueJeans na potrzeby automatycznego aprowizacji użytkowników
 
-Celem tego samouczka jest zademonstrowanie kroków, które należy wykonać w bluejeans i usługi Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD do automatycznego inicjowania obsługi administracyjnej i de-provision użytkowników i/lub grup do BlueJeans.
+Celem tego samouczka jest przedstawienie czynności, które należy wykonać w BlueJeans i Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizacji i cofania aprowizacji użytkowników i/lub grup do BlueJeans.
 
 > [!NOTE]
-> W tym samouczku opisano łącznik utworzony na podstawie usługi inicjowania obsługi administracyjnej użytkowników usługi Azure AD. Aby uzyskać ważne informacje na temat działania tej usługi, działania i często zadawanych pytań, zobacz [Automatyzacja inicjowania obsługi administracyjnej i usuwania obsługi administracyjnej aplikacji SaaS za pomocą usługi Azure Active Directory](../app-provisioning/user-provisioning.md).
+> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania aplikacji SaaS przy użyciu programu Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku zakłada, że masz już następujące czynności:
+Scenariusz opisany w tym samouczku założono, że masz już następujące elementy:
 
 * Dzierżawa usługi Azure AD
-* Najemca BlueJeans z planem [Mojej Firmy](https://www.BlueJeans.com/pricing) lub lepiej włączony
+* Dzierżawa BlueJeans z planem [My Company](https://www.BlueJeans.com/pricing) lub lepsza
 * Konto użytkownika w BlueJeans z uprawnieniami administratora
 
 > [!NOTE]
-> Integracja inicjowania obsługi administracyjnej usługi Azure AD opiera się na [interfejsie API BlueJeans](https://BlueJeans.github.io/developer), który jest dostępny dla zespołów BlueJeans w planie standardowym lub lepszym.
+> Integracja z obsługą administracyjną usługi Azure AD opiera się na [interfejsie API BlueJeans](https://BlueJeans.github.io/developer), który jest dostępny dla zespołów BlueJeans w planie standardowym lub lepszym.
 
 ## <a name="adding-bluejeans-from-the-gallery"></a>Dodawanie rozwiązania BlueJeans z galerii
 
-Przed skonfigurowaniem BlueJeans do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure AD należy dodać BlueJeans z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji SaaS.
+Przed skonfigurowaniem usługi BlueJeans do automatycznego aprowizacji użytkowników w usłudze Azure AD należy dodać BlueJeans z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać BlueJeans z galerii aplikacji usługi Azure AD, wykonaj następujące kroki:**
+**Aby dodać BlueJeans z galerii aplikacji usługi Azure AD, wykonaj następujące czynności:**
 
-1. W **[witrynie Azure portal](https://portal.azure.com)** w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
+1. W **[Azure Portal](https://portal.azure.com)** w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do **aplikacji enterprise**, a następnie wybierz pozycję **Wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-3. Aby dodać nową aplikację, wybierz przycisk **Nowa aplikacja** u góry okienka.
+3. Aby dodać nową aplikację, wybierz przycisk **Nowa aplikacja** w górnej części okienka.
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź **bluejeans**, wybierz **BlueJeans** w panelu wyników, a następnie wybierz przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wprowadź **BlueJeans**, wybierz pozycję **BlueJeans** w panelu wyników, a następnie wybierz przycisk **Dodaj** , aby dodać aplikację.
 
     ![Rozwiązanie BlueJeans na liście wyników](common/search-new-app.png)
 
 ## <a name="assigning-users-to-bluejeans"></a>Przypisywanie użytkowników do BlueJeans
 
-Usługa Azure Active Directory używa pojęcia o nazwie "przydziały", aby określić, którzy użytkownicy powinni otrzymać dostęp do wybranych aplikacji. W kontekście automatycznego inicjowania obsługi administracyjnej użytkowników tylko użytkownicy i/lub grupy, które zostały "przypisane" do aplikacji w usłudze Azure AD są synchronizowane.
+Azure Active Directory używa koncepcji o nazwie "przydziały", aby określić, którzy użytkownicy powinni otrzymywać dostęp do wybranych aplikacji. W kontekście automatycznej aprowizacji użytkowników są synchronizowane tylko użytkownicy i/lub grupy, które zostały przypisane do aplikacji w usłudze Azure AD.
 
-Przed skonfigurowaniem i włączeniem automatycznego inicjowania obsługi administracyjnej użytkowników należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD potrzebują dostępu do BlueJeans. Po podjęciu decyzji, można przypisać tych użytkowników i / lub grup do BlueJeans, postępując zgodnie z instrukcjami tutaj:
+Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD potrzebują dostępu do BlueJeans. Po ustaleniu tych użytkowników i/lub grup można przypisywać do BlueJeans, postępując zgodnie z poniższymi instrukcjami:
 
-* [Przypisywanie użytkownika lub grupy do aplikacji przedsiębiorstwa](../manage-apps/assign-user-or-group-access-portal.md)
+* [Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-bluejeans"></a>Ważne wskazówki dotyczące przypisywania użytkowników do BlueJeans
 
-* Zaleca się, że jeden użytkownik usługi Azure AD jest przypisany do BlueJeans do testowania konfiguracji automatycznego inicjowania obsługi administracyjnej użytkownika. Dodatkowi użytkownicy i/lub grupy mogą być przypisane później.
+* Zaleca się, aby jeden użytkownik usługi Azure AD został przypisany do BlueJeans w celu przetestowania automatycznej konfiguracji inicjowania obsługi użytkowników. Dodatkowych użytkowników i/lub grupy można przypisywać później.
 
-* Podczas przypisywania użytkownika do BlueJeans należy wybrać dowolną prawidłową rolę specyficzną dla aplikacji (jeśli jest dostępna) w oknie dialogowym przypisania. Użytkownicy z rolą **dostępu domyślnego** są wykluczeni z inicjowania obsługi administracyjnej.
+* Podczas przypisywania użytkownika do BlueJeans należy wybrać dowolną prawidłową rolę specyficzną dla aplikacji (jeśli jest dostępna) w oknie dialogowym przypisania. Użytkownicy z **domyślną rolą dostępu** są wykluczeni z aprowizacji.
 
-## <a name="configuring-automatic-user-provisioning-to-bluejeans"></a>Konfigurowanie automatycznego inicjowania obsługi administracyjnej dla bluejeans
+## <a name="configuring-automatic-user-provisioning-to-bluejeans"></a>Konfigurowanie automatycznej aprowizacji użytkowników do BlueJeans
 
-W tej sekcji można przejść przez kroki konfigurowania usługi inicjowania obsługi administracyjnej usługi Azure AD do tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w BlueJeans na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
+Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w programie BlueJeans na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
 
 > [!TIP]
-> Można również włączyć samooceny jednokrotne oparte na SAML dla BlueJeans, postępując zgodnie z instrukcjami podanymi w [samouczek logowania jednokrotnego BlueJeans](bluejeans-tutorial.md). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej użytkownika, chociaż te dwie funkcje wzajemnie się uzupełniają.
+> Możesz również włączyć logowanie jednokrotne oparte na protokole SAML dla BlueJeans, postępując zgodnie z instrukcjami podanymi w [samouczku logowanie](bluejeans-tutorial.md)jednokrotne w BlueJeans. Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje napadają nawzajem.
 
-### <a name="to-configure-automatic-user-provisioning-for-bluejeans-in-azure-ad"></a>Aby skonfigurować automatyczne inicjowanie obsługi administracyjnej dla bluejeans w usłudze Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-bluejeans-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla BlueJeans w usłudze Azure AD:
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com) i wybierz pozycję **Aplikacje dla przedsiębiorstw**, wybierz pozycję Wszystkie **aplikacje**, a następnie wybierz pozycję **BlueJeans**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **BlueJeans**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -94,68 +94,68 @@ W tej sekcji można przejść przez kroki konfigurowania usługi inicjowania obs
 
     ![Link rozwiązania BlueJeans na liście aplikacji](common/all-applications.png)
 
-3. Wybierz kartę **Inicjowanie obsługi administracyjnej.**
+3. Wybierz kartę **aprowizacji** .
 
-    ![Inicjowanie obsługi administracyjnej BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningTab.png)
+    ![Inicjowanie obsługi BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningTab.png)
 
-4. Ustaw **tryb inicjowania obsługi administracyjnej** na **Automatyczny**.
+4. Ustaw **tryb aprowizacji** na **automatyczny**.
 
-    ![Inicjowanie obsługi administracyjnej BlueJeans](./media/bluejeans-provisioning-tutorial/Bluejeans1.png)
+    ![Inicjowanie obsługi BlueJeans](./media/bluejeans-provisioning-tutorial/Bluejeans1.png)
 
-5. W sekcji **Poświadczenia administratora** wprowadź **nazwę użytkownika administratora**i **hasło administratora** konta BlueJeans. Przykładami tych wartości są:
+5. W sekcji **poświadczenia administratora** wprowadź **nazwę użytkownika admin**i **hasło administratora** konta BlueJeans. Przykłady tych wartości:
 
-   * W polu **Nazwa użytkownika administratora** wypełnij nazwę użytkownika konta administratora w dzierżawie BlueJeans. Przykład: admin@contoso.com.
+   * W polu **Nazwa użytkownika administratora** Wypełnij pole Nazwa użytkownika konta administratora w dzierżawie BlueJeans. Przykład: admin@contoso.com.
 
-   * W polu **Hasło administratora** wypełnij hasło odpowiadające nazwie użytkownika administratora.
+   * W polu **hasło administratora** Wypełnij hasło odpowiednie do nazwy użytkownika administratora.
 
-6. Po zapełnieniu pól wyświetlanych w kroku 5 kliknij przycisk **Testuj połączenie,** aby upewnić się, że usługa Azure AD może łączyć się z BlueJeans. Jeśli połączenie nie powiedzie się, upewnij się, że twoje konto BlueJeans ma uprawnienia administratora i spróbuj ponownie.
+6. Po zapełnieniu pól przedstawionych w kroku 5 kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z usługą BlueJeans. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi BlueJeans ma uprawnienia administratora, a następnie spróbuj ponownie.
 
-    ![Inicjowanie obsługi administracyjnej BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
+    ![Inicjowanie obsługi BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
 
-7. W polu **Wiadomość e-mail z powiadomieniem** wprowadź adres e-mail osoby lub grupy, która powinna otrzymywać powiadomienia o błędach inicjowania obsługi administracyjnej, i zaznacz pole wyboru - **Wyślij powiadomienie e-mail, gdy wystąpi błąd.**
+7. W polu **adres E-mail powiadomienia** wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji, i zaznacz pole wyboru — **Wyślij powiadomienie e-mail, gdy wystąpi awaria**.
 
-    ![Inicjowanie obsługi administracyjnej BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
+    ![Inicjowanie obsługi BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
 
 8. Kliknij przycisk **Zapisz**.
 
-9. W sekcji **Mapowania** wybierz pozycję **Synchronizuj użytkowników usługi Azure Active Directory z bluejeans**.
+9. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do BlueJeans**.
 
-    ![Inicjowanie obsługi administracyjnej BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansMapping.png)
+    ![Inicjowanie obsługi BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansMapping.png)
 
-10. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do BlueJeans w sekcji **Mapowanie atrybutów.** Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w BlueJeans dla operacji aktualizacji. Wybierz przycisk **Zapisz,** aby zatwierdzić wszelkie zmiany.
+10. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, do BlueJeans w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie BlueJeans for Updates. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    ![Inicjowanie obsługi administracyjnej BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansUserMappingAtrributes.png)
+    ![Inicjowanie obsługi BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansUserMappingAtrributes.png)
 
-11. Aby skonfigurować filtry zakresu, zapoznaj się z poniższymi instrukcjami podanymi w [samouczku filtru zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+11. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. Aby włączyć usługę inicjowania obsługi administracyjnej usługi Azure AD dla BlueJeans, zmień **stan inicjowania obsługi administracyjnej** **na Włączone** w sekcji **Ustawienia.**
+12. Aby włączyć usługę Azure AD Provisioning dla BlueJeans, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
-    ![Inicjowanie obsługi administracyjnej BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningStatus.png)
+    ![Inicjowanie obsługi BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningStatus.png)
 
-13. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić BlueJeans, wybierając żądane wartości w **zakresie** w sekcji **Ustawienia.**
+13. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić BlueJeans, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
 
-    ![Inicjowanie obsługi administracyjnej BlueJeans](./media/bluejeans-provisioning-tutorial/UserGroupSelection.png)
+    ![Inicjowanie obsługi BlueJeans](./media/bluejeans-provisioning-tutorial/UserGroupSelection.png)
 
-14. Gdy będziesz gotowy do aprowienia, kliknij przycisk **Zapisz**.
+14. Gdy wszystko będzie gotowe do udostępnienia, kliknij przycisk **Zapisz**.
 
-    ![Inicjowanie obsługi administracyjnej BlueJeans](./media/bluejeans-provisioning-tutorial/SaveProvisioning.png)
+    ![Inicjowanie obsługi BlueJeans](./media/bluejeans-provisioning-tutorial/SaveProvisioning.png)
 
-Ta operacja rozpoczyna początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia.** Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które występują co około 40 minut, o ile jest uruchomiona usługa inicjowania obsługi administracyjnej usługi Azure AD. Można użyć sekcji **Szczegóły synchronizacji** do monitorowania postępu i obserwowanie łączy do raportu aktywności inicjowania obsługi administracyjnej, który opisuje wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej usługi Azure AD w bluejeans.
+Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia** . Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które wystąpiły co około 40 minut, o ile usługa Azure AD Provisioning jest uruchomiona. Możesz użyć sekcji **szczegóły synchronizacji** do monitorowania postępu i postępuj zgodnie z raportem aktywności aprowizacji, który opisuje wszystkie akcje wykonywane przez usługę Azure AD Provisioning w witrynie BlueJeans.
 
-Aby uzyskać więcej informacji na temat sposobu zapoznania się z dziennikami inicjowania obsługi administracyjnej usługi Azure AD, zobacz [Raportowanie automatycznego inicjowania obsługi administracyjnej konta użytkownika.](../app-provisioning/check-status-user-account-provisioning.md)
+Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="connector-limitations"></a>Ograniczenia złącza
+## <a name="connector-limitations"></a>Ograniczenia łącznika
 
-* Bluejeans nie zezwala na nazwy użytkowników przekraczające 30 znaków.
+* BlueJeans nie zezwala na nazwy użytkowników, których długość przekracza 30 znaków.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Zarządzanie inicjowanie obsługi administracyjnej kont użytkowników dla aplikacji dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i otrzymywać raporty dotyczące aktywności inicjowania obsługi administracyjnej](../app-provisioning/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 

@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie połączonymi urządzeniami z portalu Moje konto — Usługa Azure AD
-description: Jak wyświetlić i wyłączyć urządzenia połączone z kontem służbowym na stronie Urządzenia w portalu Moje konto.
+title: Zarządzanie podłączonymi urządzeniami z poziomu portalu My Account — Azure AD
+description: Jak wyświetlać i wyłączać urządzenia połączone z kontem służbowym ze strony urządzenia w portalu My account.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,76 +12,76 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
 ms.openlocfilehash: e273a44c1cbc5a6a6161f059038c7e87973a33d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77062493"
 ---
-# <a name="manage-your-connected-devices-from-the-devices-page"></a>Zarządzanie podłączonymi urządzeniami na stronie Urządzenia
+# <a name="manage-your-connected-devices-from-the-devices-page"></a>Zarządzanie urządzeniami połączonymi ze strony urządzenia
 
-Strona **Urządzenia** w portalu **Moje konto** ułatwia zarządzanie urządzeniami połączonymi z kontem służbowym. Na stronie **Urządzenia** możesz:
+Strona **urządzenia** w portalu **My Account** umożliwia zarządzanie urządzeniami połączonymi z kontem służbowym. Na stronie **urządzenia** można:
 
-- Wyświetlanie urządzeń połączonych kontami służbowymi lub służbowymi.
+- Wyświetl urządzenia połączone z kontem służbowym.
 
-- Wyłącz wszystkie urządzenia, które nie są już własnością, zostały utracone lub które zostały skradzione.
+- Wyłącz wszystkie urządzenia, które nie są już używane, zostały utracone lub skradzione.
 
 >[!Important]
->Ten artykuł jest przeznaczony dla użytkowników próbujących zaktualizować informacje o urządzeniu połączone z kontem służbowym. Jeśli jesteś administratorem szukającym informacji o zarządzaniu urządzeniami dla pracowników i innych zastosowań, zobacz [Dokumentację tożsamości urządzeń](https://docs.microsoft.com/azure/active-directory/devices/index).
+>Ten artykuł jest przeznaczony dla użytkowników próbujących zaktualizować informacje o urządzeniu połączone z kontem służbowym. Jeśli jesteś administratorem, który szuka informacji o zarządzaniu urządzeniami dla pracowników i innych użycia, zobacz [dokumentację dotyczącą tożsamości urządzeń](https://docs.microsoft.com/azure/active-directory/devices/index).
 
 ## <a name="view-your-connected-devices"></a>Wyświetlanie podłączonych urządzeń
 
-1. Zaloguj się na swoje konto służbowe, a następniehttps://myprofile.microsoft.com/) przejdź do strony Moje **konto** (
+1. Zaloguj się do konta służbowego, a następnie przejdź do strony **Moje konto** (https://myprofile.microsoft.com/) strona.
 
-2. Wybierz **pozycję Urządzenia** z lewego okienka nawigacji lub wybierz łącze **Zarządzaj urządzeniami** z bloku **Urządzenia.**
+2. Wybierz pozycję **urządzenia** w okienku nawigacji po lewej stronie lub wybierz łącze **Zarządzaj urządzeniami** w bloku **urządzenia** .
 
-    ![Strona Moje konto z wyróżnionymi linkami Urządzenia](media/my-account-portal/my-account-portal-devices.png)
+    ![Strona Moje konto z wyświetlonymi łączami wyróżnionych urządzeń](media/my-account-portal/my-account-portal-devices.png)
 
-3. Przejrzyj informacje dotyczące podłączonych urządzeń, upewniając się, że wszystkie je rozpoznajesz.
+3. Zapoznaj się z informacjami dotyczącymi połączonych urządzeń, aby upewnić się, że są one rozpoznawane.
 
-    ![Strona urządzenia z połączonymi urządzeniami](media/my-account-portal/my-account-portal-devices-page.png)
+    ![Strona urządzenia, przedstawiająca podłączone urządzenia](media/my-account-portal/my-account-portal-devices-page.png)
 
-## <a name="disable-a-device"></a>Wyłączanie urządzenia
+## <a name="disable-a-device"></a>Wyłącz urządzenie
 
-W każdej chwili możesz wyłączyć dowolne z podłączonych urządzeń. Jest to szczególnie ważne, jeśli urządzenie nie jest ci znane lub jeśli urządzenie zostało zgubione lub skradzione. Po wyłączeniu urządzenia nie może ono być już uwierzytelnione przez organizację i nie będzie mogło uzyskać dostępu do żadnych zasobów organizacji.
+Dowolne z połączonych urządzeń można wyłączyć w dowolnym momencie. Jest to szczególnie ważne, jeśli urządzenie nie jest znane użytkownikowi lub jeśli urządzenie zostało zgubione lub skradzione. Gdy urządzenie nie zostanie już uwierzytelnione przez organizację i nie będzie mogło uzyskać dostępu do żadnych zasobów organizacji.
 
 >[!Important]
->Jeśli urządzenie zostanie wyłączone przez pomyłkę, nie ma możliwości jego cofnięcia. Aby ponownie dodać urządzenie, musisz skontaktować się z administratorem organizacji.
+>Jeśli wyłączysz urządzenie przez pomyłkę, nie ma możliwości jego cofnięcia. Musisz skontaktować się z administratorem organizacji, aby ponownie dodać urządzenie.
 
-1. Wybierz **pozycję Wyłącz** z urządzenia, które chcesz usunąć.
+1. Wybierz opcję **Wyłącz** z urządzenia, które chcesz usunąć.
 
     ![Strona urządzenia z wyróżnionym linkiem Wyłącz](media/my-account-portal/my-account-portal-devices-disable.png)
 
-2. Wybierz **opcję Tak,** aby potwierdzić, że chcesz wyłączyć urządzenie.
+2. Wybierz pozycję **tak** , aby potwierdzić, że chcesz wyłączyć urządzenie.
 
-## <a name="view-a-bitlocker-key"></a>Wyświetlanie klawisza BitLocker
+## <a name="view-a-bitlocker-key"></a>Wyświetlanie klucza funkcji BitLocker
 
-Jeśli urządzenie jest zablokowane lub wystąpił błąd krytyczny, możesz przejść do innego urządzenia i wyświetlić klucz funkcji BitLocker w portalu **Moje konto.**
+Jeśli użytkownik jest zablokowany z urządzenia lub wystąpił błąd krytyczny, można przejść do innego urządzenia i wyświetlić klucz funkcji BitLocker z poziomu portalu **My Account** .
 
-1. Na innym urządzeniu, na którym nie jesteś zablokowany, przejdź do strony **Urządzenia** w portalu **Moje konto.**
+1. Na innym urządzeniu, na którym nie masz blokady, przejdź do strony **urządzenia** w portalu **My Account** .
 
-    ![Strona urządzenia z opcją klawisza BitLocker](media/my-account-portal/my-account-portal-devices-bitlocker.png)
+    ![Strona urządzenia z opcją klucza funkcji BitLocker](media/my-account-portal/my-account-portal-devices-bitlocker.png)
 
-2. Wybierz **pozycję Wyświetl klawisze bitlocker** dla zablokowanego urządzenia i zapisz klawisz BitLocker dla zablokowanego urządzenia.
+2. Wybierz pozycję **Wyświetl klucze funkcji BitLocker** dla zablokowanego urządzenia i Zapisz klucz funkcji BitLocker dla zablokowanego urządzenia.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po wyświetleniach podłączonych urządzeń można:
+Po wyświetleniu połączonych urządzeń można:
 
-- Wybierz, aby wyświetlić [informacje zabezpieczające](user-help-security-info-overview.md)lub zarządzać nimi .
+- Wybierz, aby wyświetlić [informacje zabezpieczające](user-help-security-info-overview.md)lub zarządzać nimi.
 
-- Wyświetlanie [organizacji](my-account-portal-organizations-page.md)i zarządzanie nimi .
+- Wyświetlaj swoje [organizacje](my-account-portal-organizations-page.md)i zarządzaj nimi.
 
-- Wyświetlanie [aktywności logowania](my-account-portal-sign-ins-page.md).
+- Wyświetlanie [działania związanego z logowaniem](my-account-portal-sign-ins-page.md).
 
-- Zobacz, jak organizacja [wykorzystuje dane związane z prywatnością](my-account-portal-privacy-page.md).
+- Zobacz, w jaki sposób organizacja [używa danych związanych z prywatnością](my-account-portal-privacy-page.md).
 
-## <a name="related-office-content"></a>Pokrewna zawartość pakietu Office
+## <a name="related-office-content"></a>Powiązana zawartość pakietu Office
 
-- [Logowanie się w celu zarządzania produktem pakietu Office](https://support.office.com/article/sign-in-to-manage-your-office-product-959ac957-8d37-4ae4-b1b6-d6e4874e013f)
+- [Zaloguj się, aby zarządzać produktem pakietu Office](https://support.office.com/article/sign-in-to-manage-your-office-product-959ac957-8d37-4ae4-b1b6-d6e4874e013f)
 
-- [Przejdź do strony Moje **konto** pakietu Office](https://portal.office.com/account/)
+- [Przejdź do strony **Moje konto** pakietu Office](https://portal.office.com/account/)
 
-- [Przejdź do strony **Instalowanie pakietu** Office My](https://portal.office.com/account/#installs)
+- [Przejdź do strony **Moje instalacje** pakietu Office](https://portal.office.com/account/#installs)
 
-- [Przejdź do strony **Subskrypcje** pakietu Office](https://portal.office.com/account/#subscriptions)
+- [Przejdź do strony **subskrypcji** pakietu Office](https://portal.office.com/account/#subscriptions)

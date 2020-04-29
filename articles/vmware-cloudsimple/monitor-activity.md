@@ -1,7 +1,7 @@
 ---
-title: Monitorowanie aktywności w chmurze prywatnej
+title: Monitoruj aktywność chmury prywatnej
 titleSuffix: Azure VMware Solution by CloudSimple
-description: W tym artykule opisano informacje dotyczące działania w środowisku Azure VMware Solution by CloudSimple, w tym alerty, zdarzenia, zadania i inspekcje.
+description: Opisuje informacje dostępne dla działania w ramach rozwiązania Azure VMware przez środowisko CloudSimple, w tym alerty, zdarzenia, zadania i inspekcje.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/13/2019
@@ -10,104 +10,104 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 1228f3a54e02d4fe7a5133e2bfba55c38e34718a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77019676"
 ---
-# <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>Monitorowanie działania VMware Solution według aktywności CloudSimple
+# <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>Monitoruj rozwiązanie VMware według działania CloudSimple
 
-Dzienniki aktywności CloudSimple zapewniają wgląd w operacje wykonywane w portalu CloudSimple.  Lista zawiera alerty, zdarzenia, zadania i inspekcje.  Użyj dzienników aktywności, aby określić, kto, kiedy i jakie operacje zostały wykonane.  Dzienniki aktywności nie zawierają żadnych operacji odczytu wykonywanych przez użytkownika.
+Dzienniki aktywności CloudSimple zapewniają wgląd w operacje wykonywane w portalu CloudSimple.  Lista zawiera alerty, zdarzenia, zadania i inspekcje.  Użyj dzienników aktywności, aby określić, kto i kiedy operacje zostały wykonane.  Dzienniki aktywności nie obejmują żadnych operacji odczytu wykonywanych przez użytkownika.
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do witryny Azure portal w [https://portal.azure.com](https://portal.azure.com).
+Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="access-the-cloudsimple-portal"></a>Uzyskiwanie dostępu do portalu CloudSimple
 
-Uzyskaj dostęp do [portalu CloudSimple](access-cloudsimple-portal.md).
+Dostęp do [portalu CloudSimple](access-cloudsimple-portal.md).
 
-## <a name="activity-information"></a>Informacje o aktywności
+## <a name="activity-information"></a>Informacje o działaniu
 
-Aby uzyskać dostęp do stron Działania, wybierz **polecenie Aktywność** w menu bocznym.
+Aby uzyskać dostęp do stron działań, wybierz pozycję **działanie** w menu po stronie.
 
-![Omówienie strony aktywności](media/activity-page-overview.png)
+![Przegląd strony działania](media/activity-page-overview.png)
 
-Aby wyświetlić szczegółowe informacje o działaniach na stronie działania, wybierz działanie. Po prawej stronie zostanie otwarty panel szczegółów. Akcje w panelu zależą od typu działania. Kliknij **przycisk X,** aby zamknąć panel.
+Aby wyświetlić szczegółowe informacje o działaniach na stronie działania, wybierz działanie. Po prawej stronie zostanie otwarty panel szczegóły. Akcje w panelu są zależne od typu działania. Kliknij przycisk **X** , aby zamknąć panel.
 
-Kliknij nagłówek kolumny, aby posortować ekran.  Można filtrować kolumny dla określonych wartości do wyświetlenia.  Pobierz raport aktywności, klikając ikonę **Pobierz jako CSV.**
+Kliknij nagłówek kolumny, aby posortować ekran.  Można filtrować kolumny pod kątem określonych wartości do wyświetlenia.  Pobierz raport dotyczący aktywności, klikając ikonę **Pobierz jako plik CSV** .
 
 ## <a name="alerts"></a>Alerty
 
-Alerty są powiadomienia o wszelkich znaczących działań w środowisku CloudSimple.  Alerty obejmują zdarzenia, które wpływają na rozliczenia lub dostęp użytkownika.
+Alerty są powiadomieniami o wszelkich znaczących działaniach w środowisku CloudSimple.  Alerty obejmują zdarzenia, które mają wpływ na rozliczenia lub dostęp użytkownika.
 
-Aby potwierdzić alerty i usunąć je z listy, wybierz jedną lub więcej z listy i kliknij przycisk **Potwierdź**.
+Aby potwierdzić alerty i usunąć je z listy, wybierz co najmniej jedną z listy i kliknij przycisk **Potwierdź**.
 
-Następujące kolumny informacji są dostępne dla alertów. Kliknij **pozycję Edytuj kolumny** i wybierz kolumny, które chcesz wyświetlić.
+W przypadku alertów dostępne są następujące kolumny informacji. Kliknij pozycję **Edytuj kolumny** i wybierz kolumny, które chcesz wyświetlić.
 
 | Kolumna | Opis |
 ------------ | ------------- |
 | Typ alertu | Kategoria alertu.|
 | Time | Czas wystąpienia alertu. |
-| Ważność | Znaczenie wpisu.|
-| Nazwa zasobu | Nazwa przypisana do zasobu, na przykład nazwa chmury prywatnej. |
-| Typ zasobu | Kategoria zasobów: Private Cloud, Cloud Rack. |
+| Ważność | Istotność alertu.|
+| Nazwa zasobu | Nazwa przypisana do zasobu, taka jak nazwa chmury prywatnej. |
+| Typ zasobu | Kategoria zasobu: Chmura prywatna, stojak w chmurze. |
 | Identyfikator zasobu | Identyfikator zasobu. |
-| Opis | Opis tego, co wyzwoliło alert. |
-| Potwierdzony | Wskazanie, czy wpis jest potwierdzony. |
+| Opis | Opis wyzwalania alertu. |
+| Potwierdzony | Wskazanie, czy alert został potwierdzony. |
 
 ## <a name="events"></a>Zdarzenia
 
-Zdarzenia pokazują aktywność użytkownika i systemu w portalu CloudSimple. Strona Zdarzenia zawiera listę działań skojarzonych z określonym zasobem i ważność wpływu.
+Zdarzenia pokazują aktywność użytkownika i systemu w portalu CloudSimple. Na stronie zdarzenia jest wyświetlana aktywność skojarzona z określonym zasobem i ważność wpływu.
 
-Następujące kolumny informacji są dostępne dla alertów. Kliknij **pozycję Edytuj kolumny** i wybierz kolumny, które chcesz wyświetlić.
+W przypadku alertów dostępne są następujące kolumny informacji. Kliknij pozycję **Edytuj kolumny** i wybierz kolumny, które chcesz wyświetlić.
 
 | Kolumna | Opis |
 ------------ | ------------- |
 | Time | Data i godzina wystąpienia zdarzenia. |
-| Typ zdarzenia | Kod numeryczny identyfikujący zdarzenie. |
+| Typ zdarzenia | Kod liczbowy, który identyfikuje zdarzenie. |
 | Ważność | Ważność zdarzenia.|
-| Nazwa zasobu | Nazwa przypisana do zasobu, na przykład nazwa chmury prywatnej. |
-| Typ zasobu | Kategoria zasobów: Private Cloud, Cloud Rack. |
-| Opis | Opis tego, co wyzwoliło alert. |
+| Nazwa zasobu | Nazwa przypisana do zasobu, taka jak nazwa chmury prywatnej. |
+| Typ zasobu | Kategoria zasobu: Chmura prywatna, stojak w chmurze. |
+| Opis | Opis wyzwalania alertu. |
 
 ## <a name="tasks"></a>Zadania
 
-Zadania to działania w chmurze prywatnej, których wykonanie ma potrwać co najmniej 30 sekund. (Działania, które mają potrwać mniej niż 30 sekund, są zgłaszane tylko jako zdarzenia). Otwórz strony Zadania, aby śledzić postęp zadań w chmurze prywatnej.
+Zadania są działaniami w chmurze prywatnej, które powinny trwać 30 sekund lub dłużej. (Działania, które powinny zająć mniej niż 30 sekund, są raportowane tylko jako zdarzenia). Otwórz strony zadań, aby śledzić postęp zadań w chmurze prywatnej.
 
-Następujące kolumny informacji są dostępne dla alertów. Kliknij **pozycję Edytuj kolumny** i wybierz kolumny, które chcesz wyświetlić.
+W przypadku alertów dostępne są następujące kolumny informacji. Kliknij pozycję **Edytuj kolumny** i wybierz kolumny, które chcesz wyświetlić.
 
 | Kolumna | Opis |
 ------------ | ------------- |
 | Identyfikator zadania | Unikatowy identyfikator zadania. |
-| Operacja | Akcja, którą wykonuje zadanie. |
-| Użytkownik | Użytkownik przypisany do wykonania zadania. |
+| Operacja | Akcja wykonywana przez zadanie. |
+| Użytkownik | Użytkownik przypisany do ukończenia zadania. |
 | Nazwa zasobu | Nazwa przypisana do zasobu. |
-| Typ zasobu | Kategoria zasobów: Private Cloud, Cloud Rack. |
+| Typ zasobu | Kategoria zasobu: Chmura prywatna, stojak w chmurze. |
 | Identyfikator zasobu | Identyfikator zasobu. |
-| Rozpoczęcie | Godzina rozpoczęcia zadania. |
+| Uruchamianie | Godzina rozpoczęcia zadania. |
 | End | Godzina zakończenia zadania. |
 | Stan | Bieżący stan zadania. |
-| Upłynęło czasu | Czas, który zajęło wykonanie zadania (jeśli zostało ukończone) lub trwa obecnie (jeśli jest w toku). |
+| Upłynęło czasu | Czas trwania zadania (jeśli został ukończony) lub trwa jego wykonywanie (jeśli jest w toku). |
 | Opis | Opis zadania. |
 
 ## <a name="audit"></a>Inspekcja
 
-Dzienniki inspekcji śledzą aktywność użytkowników. Dzienniki inspekcji służy do monitorowania aktywności użytkowników dla wszystkich użytkowników.
+Dzienniki inspekcji śledzą aktywność użytkownika. Dzienników inspekcji można użyć do monitorowania aktywności użytkowników dla wszystkich użytkowników.
 
-Następujące kolumny informacji są dostępne dla alertów. Kliknij **pozycję Edytuj kolumny** i wybierz kolumny, które chcesz wyświetlić.
+W przypadku alertów dostępne są następujące kolumny informacji. Kliknij pozycję **Edytuj kolumny** i wybierz kolumny, które chcesz wyświetlić.
 
 | Kolumna | Opis |
 ------------ | ------------- |
-| Time | Czas wpisu do audytu. |
-| Operacja | Akcja, którą wykonuje zadanie. |
+| Time | Godzina wpisu inspekcji. |
+| Operacja | Akcja wykonywana przez zadanie. |
 | Użytkownik | Użytkownik przypisany do zadania. |
 | Nazwa zasobu | Nazwa przypisana do zasobu. |
-| Typ zasobu | Kategoria zasobów: Private Cloud, Cloud Rack. |
+| Typ zasobu | Kategoria zasobu: Chmura prywatna, stojak w chmurze. |
 | Identyfikator zasobu | Identyfikator zasobu. |
-| Wynik | Wynik działania, takich jak **Sukces**. |
-| Czas trwania | Czas na wykonanie zadania. |
+| Wynik | Wynik działania, na przykład **powodzenie**. |
+| Czas trwania | Czas na ukończenie zadania. |
 | Opis | Opis akcji. |
 
 ## <a name="next-steps"></a>Następne kroki

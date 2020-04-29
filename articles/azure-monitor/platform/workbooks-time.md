@@ -1,6 +1,6 @@
 ---
-title: Parametry czasu skoroszytów monitora Azure Monitor
-description: Uprość składanie złożonych raportów dzięki wstępnie utworzonym i niestandardowych sparametryzowanym skoroszytom
+title: Azure Monitor parametry czasu dla skoroszytów
+description: Uprość złożone raportowanie za pomocą wstępnie skompilowanych i niestandardowych skoroszytów z parametrami
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -10,69 +10,69 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 380b8a7ce286ab06b6935bf63bf3a0e82f371c2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77658017"
 ---
 # <a name="workbook-time-parameters"></a>Parametry czasu skoroszytu
 
-Parametry czasu umożliwiają użytkownikom ustawienie kontekstu czasu analizy i jest używany przez prawie wszystkie raporty. Jest to stosunkowo proste w konfiguracji i obsłudze — pozwala autorom określić zakresy czasu, które mają być wyświetlane w menu rozwijanej, w tym opcję dla niestandardowych zakresów czasu. 
+Parametry czasu umożliwiają użytkownikom ustawienie kontekstu czasu analizy i jest używany przez niemal wszystkie raporty. Jest stosunkowo prosta w konfiguracji i użycia — umożliwienie autorom określenia zakresów czasu do wyświetlenia na liście rozwijanej, włącznie z opcją dla niestandardowych zakresów czasowych. 
 
 ## <a name="creating-a-time-parameter"></a>Tworzenie parametru czasu
 1. Zacznij od pustego skoroszytu w trybie edycji.
-2. Wybierz _pozycję Dodaj parametry_ z łączy w skoroszycie.
-3. Kliknij niebieski przycisk _Dodaj parametr._
-4. W nowym okienku parametrów, które wyskakuje wpisać:
+2. Wybierz pozycję _Dodaj parametry_ z linków w skoroszycie.
+3. Kliknij niebieski przycisk _Dodaj parametr_ .
+4. W okienku Nowy parametr, który jest podręczny ENTER:
     1. Nazwa parametru:`TimeRange`
     2. Typ parametru:`Time range picker`
     3. Wymagane:`checked`
-    4. Dostępne zakresy czasu: Ostatnia godzina, Ostatnie 12 godzin, Ostatnie 24 godziny, Ostatnie 48 godzin, Ostatnie 3 dni, Ostatnie 7 dni i Zezwalaj na wybór niestandardowego zakresu czasu
-5. Wybierz "Zapisz" na pasku narzędzi, aby utworzyć parametr.
+    4. Dostępne zakresy czasu: Ostatnia godzina, ostatnie 12 godzin, ostatnie 24 godziny, ostatnie 48 godzin, ostatnie 3 dni, ostatnie 7 dni i Zezwalaj na wybór niestandardowego zakresu czasu
+5. Wybierz pozycję "Zapisz" na pasku narzędzi, aby utworzyć parametr.
 
     ![Obraz przedstawiający tworzenie parametru zakresu czasu](./media/workbooks-time/time-settings.png)
 
-Tak będzie wyglądał skoroszyt w trybie odczytu.
+W ten sposób skoroszyt będzie wyglądał jak w trybie odczytu.
 
 ![Obraz przedstawiający parametr zakresu czasu w trybie odczytu](./media/workbooks-time/parameters-time.png)
 
 ## <a name="referencing-a-time-parameter"></a>Odwoływanie się do parametru czasu
-### <a name="via-bindings"></a>Za pośrednictwem wiązań
-1. Dodaj formant kwerendy do skoroszytu i wybierz zasób usługi Application Insights.
-2. Większość formantów skoroszytu obsługuje selektor _zakresu czasu._ Otwórz list rozwijany _Zakres_ czasu `{TimeRange}` i wybierz w grupie parametry pokjąć czas na dole.
-3. Wiąże to parametr zakresu czasu z zakresem czasu wykresu. Zakres czasu przykładowej kwerendy jest teraz Ostatnie 24 godziny.
-4. Uruchom kwerendę, aby zobaczyć wyniki
+### <a name="via-bindings"></a>Za pośrednictwem powiązań
+1. Dodaj kontrolkę zapytania do skoroszytu i wybierz zasób Application Insights.
+2. Większość formantów skoroszytu obsługuje selektor zakresu _czasu_ . Otwórz listę rozwijaną _zakres czasu_ i wybierz `{TimeRange}` w grupie parametry czasu w dolnej części.
+3. To wiąże parametr zakresu czasu z zakresem czasu wykresu. Zakres czasu zapytania przykładowego to teraz ostatnie 24 godziny.
+4. Uruchom zapytanie, aby zobaczyć wyniki
 
-    ![Obraz przedstawiający parametr zakresu czasu, do którego odwołuje się wiązania](./media/workbooks-time/time-binding.png)
+    ![Obraz przedstawiający parametr zakresu czasu przywoływany przez powiązania](./media/workbooks-time/time-binding.png)
 
-### <a name="in-kql"></a>w KQL
-1. Dodaj formant kwerendy do skoroszytu i wybierz zasób usługi Application Insights.
-2. W KQL wprowadź filtr zakresu czasu przy użyciu parametru:`| where timestamp {TimeRange}`
-3. Spowoduje to rozszerzenie czasu `| where timestamp > ago(1d)`oceny kwerendy do , który jest wartością zakresu czasu parametru.
-4. Uruchom kwerendę, aby zobaczyć wyniki
+### <a name="in-kql"></a>W KQL
+1. Dodaj kontrolkę zapytania do skoroszytu i wybierz zasób Application Insights.
+2. W KQL Wprowadź filtr zakresu czasu przy użyciu parametru:`| where timestamp {TimeRange}`
+3. Spowoduje to rozwinięcie czasu oceny zapytania do `| where timestamp > ago(1d)`, który jest wartością zakresu czasu parametru.
+4. Uruchom zapytanie, aby zobaczyć wyniki
 
-    ![Obraz przedstawiający zakres czasu, do którego odwołuje się KQL](./media/workbooks-time/time-in-code.png)
+    ![Obraz przedstawiający zakres czasu przywoływany w KQL](./media/workbooks-time/time-in-code.png)
 
 ### <a name="in-text"></a>W tekście 
-1. Dodawanie formantu tekstowego do skoroszytu.
-2. W znacznikach wprowadź`The chosen time range is {TimeRange:label}`
-3. Wybierz _gotowe edytowanie_
-4. Formant tekstu wyświetli tekst: _Wybrany zakres czasu to Ostatnie 24 godziny_
+1. Dodaj kontrolkę tekstową do skoroszytu.
+2. W obszarze promocji wprowadź`The chosen time range is {TimeRange:label}`
+3. Wybierz _gotowe do edycji_
+4. Kontrolka Text wyświetli tekst: _wybrany zakres czasu to ostatnie 24 godziny_
 
 ## <a name="time-parameter-options"></a>Opcje parametrów czasu
 | Parametr | Wyjaśnienie | Przykład |
 | ------------- |:-------------|:-------------|
 | `{TimeRange}` | Etykieta zakresu czasu | Ostatnie 24 godziny |
 | `{TimeRange:label}` | Etykieta zakresu czasu | Ostatnie 24 godziny |
-| `{TimeRange:value}` | Wartość zakresu czasu | > temu(1d) |
-| `{TimeRange:query}` | Kwerenda zakresu czasu | > temu(1d) |
-| `{TimeRange:start}` | Czas rozpoczęcia zakresu czasu | 20.03.2019 16:18 |
-| `{TimeRange:end}` | Czas zakończenia zakresu czasu | 21.03.2019 16:18 |
-| `{TimeRange:grain}` | Zakres czasu ziarna | 30 m |
+| `{TimeRange:value}` | Wartość zakresu czasu | > temu (1D) |
+| `{TimeRange:query}` | Zapytanie dotyczące zakresu czasu | > temu (1D) |
+| `{TimeRange:start}` | Czas rozpoczęcia zakresu czasu | 3/20/2019 4:18 PM |
+| `{TimeRange:end}` | Czas zakończenia zakresu czasu | 3/21/2019 4:18 PM |
+| `{TimeRange:grain}` | Ziarno zakresu czasu | 30 m |
 
 
-### <a name="using-parameter-options-in-a-query"></a>Korzystanie z opcji parametrów w kwerendzie
+### <a name="using-parameter-options-in-a-query"></a>Używanie opcji parametrów w zapytaniu
 ```kusto
 requests
 | make-series Requests = count() default = 0 on timestamp from {TimeRange:start} to {TimeRange:end} step {TimeRange:grain}
@@ -80,5 +80,5 @@ requests
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Rozpocznij](workbooks-visualizations.md) naukę o skoroszytach wiele rozbudowanych opcji wizualizacji.
+* [Rozpocznij](workbooks-visualizations.md) naukę więcej o skoroszytach wiele opcji rozbudowanych wizualizacji.
 * [Kontroluj](workbooks-access-control.md) i udostępniaj dostęp do zasobów skoroszytu.

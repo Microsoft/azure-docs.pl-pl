@@ -1,6 +1,6 @@
 ---
-title: Reguły niestandardowe geomatchu zapory aplikacji sieci Web platformy Azure (WAF)
-description: Ten artykuł zawiera omówienie reguł niestandardowych geomatch zapory aplikacji sieci Web (WAF) w usłudze Azure Application Gateway.
+title: Reguły niestandardowe geodopasowania zapory aplikacji sieci Web platformy Azure (WAF)
+description: Ten artykuł zawiera omówienie niestandardowych reguł geodopasowania zapory aplikacji sieci Web (WAF) w usłudze Azure Application Gateway.
 services: web-application-firewall
 ms.topic: article
 author: vhorne
@@ -8,24 +8,24 @@ ms.service: web-application-firewall
 ms.date: 01/31/2020
 ms.author: victorh
 ms.openlocfilehash: 6725e1de21dbd103850071f7511e2800c6bd7b69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76961090"
 ---
-# <a name="geomatch-custom-rules-preview"></a>Reguły niestandardowe geomatchu (wersja zapoznawcza)
+# <a name="geomatch-custom-rules-preview"></a>Reguły niestandardowe geodopasowania (wersja zapoznawcza)
 
-Reguły niestandardowe umożliwiają tworzenie dostosowanych reguł do potrzeb aplikacji i zasad zabezpieczeń. Teraz możesz ograniczyć dostęp do aplikacji internetowych według kraju/regionu. Podobnie jak w przypadku wszystkich reguł niestandardowych, ta logika może być spotęgowana z innymi regułami, aby dostosować się do potrzeb aplikacji.
+Reguły niestandardowe umożliwiają tworzenie dostosowanych reguł spełniających dokładne potrzeby aplikacji i zasad zabezpieczeń. Teraz możesz ograniczyć dostęp do aplikacji sieci Web według kraju/regionu. Podobnie jak w przypadku wszystkich reguł niestandardowych, ta logika może zostać złożona z innymi regułami, aby odpowiadały potrzebom aplikacji.
 
-Aby utworzyć regułę niestandardową filtrowania geograficznego, po prostu wybierz *lokalizację geograficzną* jako typ dopasowania, a następnie wybierz kraj lub kraje, na które chcesz zezwolić/zablokować aplikację. Zobacz, [jak utworzyć reguły niestandardowe w programie Powershell](configure-waf-custom-rules.md) i więcej przykładów reguł niestandardowych (create-custom-waf-rules.md), aby uzyskać więcej informacji.
+Aby utworzyć regułę niestandardową filtrowania geograficznego, po prostu wybierz *lokalizację geograficzną* jako typ dopasowania, a następnie wybierz kraj lub kraje, które mają być dozwolone/blokowane w aplikacji. Aby uzyskać więcej informacji, zobacz [jak utworzyć niestandardowe reguły w programie PowerShell](configure-waf-custom-rules.md) i więcej przykładów reguł niestandardowych (Create-Custom-waf-rules.MD).
 
 > [!IMPORTANT]
 > Ten podgląd publiczny nie jest objęty umową dotyczącą poziomu usług i nie należy korzystać z niego w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą nie być obsługiwane, mogą mieć ograniczone możliwości lub mogą nie być dostępne we wszystkich lokalizacjach platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Dodatkowe warunki użytkowania wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="country-codes"></a>Kody krajów
 
-Jeśli używasz operatora Geomatch, selektory mogą być dowolnym z następujących dwucyfrowych kodów krajów. 
+Jeśli używasz operatora geodopasowania, selektory mogą być jednym z następujących kodów krajów dwucyfrowych. 
 
 |Kod kraju | Nazwa kraju |
 | ----- | ----- |
@@ -50,7 +50,7 @@ Jeśli używasz operatora Geomatch, selektory mogą być dowolnym z następując
 | BH | Bahrajn|
 | BI | Burundi|
 | BJ | Benin|
-| BL | Św Barthélemy|
+| BL | Saint Barthélemy|
 | BN | Brunei Darussalam|
 | BO | Boliwia|
 | BR | Brazylia|
@@ -209,4 +209,4 @@ Jeśli używasz operatora Geomatch, selektory mogą być dowolnym z następując
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po zapoznaniu się z regułami niestandardowymi [utwórz własne reguły niestandardowe](create-custom-waf-rules.md).
+Po poznaniu reguł niestandardowych [Utwórz własne reguły niestandardowe](create-custom-waf-rules.md).

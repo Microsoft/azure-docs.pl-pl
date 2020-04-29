@@ -1,6 +1,6 @@
 ---
-title: Zastąpienie podsieci usługi Azure Traffic Manager przy użyciu interfejsu wiersza polecenia platformy Azure | Dokumenty firmy Microsoft
-description: Ten artykuł pomoże Ci zrozumieć, jak zastąpienie podsieci usługi Traffic Manager może służyć do zastępowania metody routingu profilu usługi Traffic Manager, aby kierować ruch do punktu końcowego na podstawie adresu IP użytkownika końcowego za pośrednictwem wstępnie zdefiniowanego zakresu adresów IP do mapowań punktów końcowych.
+title: Przesłonięcie podsieci Traffic Manager platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure | Microsoft Docs
+description: Ten artykuł pomoże zrozumieć, w jaki sposób przesłonięcie podsieci Traffic Manager może służyć do przesłaniania metody routingu profilu Traffic Manager, aby skierować ruch do punktu końcowego na podstawie adresu IP użytkownika końcowego za pośrednictwem wstępnie zdefiniowanego zakresu adresów IP na potrzeby mapowania punktów końcowych.
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
@@ -10,30 +10,30 @@ ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: rohink
 ms.openlocfilehash: 818b692884bd9d31efd08663a582ebcfec2032e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76938469"
 ---
-# <a name="traffic-manager-subnet-override-using-azure-cli"></a>Zastępowanie podsieci usługi Traffic Manager przy użyciu interfejsu wiersza polecenia usługi Azure
+# <a name="traffic-manager-subnet-override-using-azure-cli"></a>Traffic Manager przesłonięcia podsieci przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Zastępowanie podsieci Usługi Traffic Manager umożliwia zmianę metody routingu profilu.  Dodanie zastąpienia spowoduje kierowanie ruchu na podstawie adresu IP użytkownika końcowego z wstępnie zdefiniowanym zakresem adresu IP do mapowania punktu końcowego. 
+Przesłonięcie podsieci Traffic Manager umożliwia zmianę metody routingu profilu.  Dodanie przesłonięcia spowoduje przekierowanie ruchu na podstawie adresu IP użytkownika końcowego ze wstępnie zdefiniowanym zakresem adresów IP do mapowania punktu końcowego. 
 
-## <a name="how-subnet-override-works"></a>Jak działa zastępowanie podsieci
+## <a name="how-subnet-override-works"></a>Jak działa przesłonięcie podsieci
 
-Gdy zastąpienia podsieci są dodawane do profilu menedżera ruchu, usługa Traffic Manager najpierw sprawdzi, czy adres IP użytkownika końcowego jest zastępowanie podsieci. Jeśli zostanie znaleziony, kwerenda DNS użytkownika zostanie przekierowana do odpowiedniego punktu końcowego.  Jeśli mapowanie nie zostanie znalezione, Usługa Traffic Manager powróci do oryginalnej metody routingu profilu. 
+Gdy przesłonięcia podsieci są dodawane do profilu usługi Traffic Manager, Traffic Manager najpierw sprawdza, czy istnieje przesłonięcie podsieci dla adresu IP użytkownika końcowego. Jeśli zostanie znaleziony, zapytanie DNS użytkownika zostanie skierowane do odpowiadającego mu punktu końcowego.  Jeśli mapowanie nie zostanie znalezione, Traffic Manager powróci do oryginalnej metody routingu profilu. 
 
-Zakresy adresów IP można określić jako zakresy CIDR (na przykład 1.2.3.0/24) lub jako zakresy adresów (na przykład 1.2.3.4-5.6.7.8). Zakresy adresów IP skojarzone z każdym punktem końcowym muszą być unikatowe dla tego punktu końcowego. Wszelkie nakładanie się zakresów adresów IP między różnymi punktami końcowymi spowoduje odrzucenie profilu przez menedżera ruchu.
+Zakresy adresów IP można określić jako zakresy CIDR (na przykład 1.2.3.0/24) lub jako zakresy adresów (na przykład 1.2.3.4-5.6.7.8). Zakresy adresów IP skojarzone z każdym punktem końcowym muszą być unikatowe dla tego punktu końcowego. Wszelkie nakładanie się zakresów adresów IP między różnymi punktami końcowymi spowoduje odrzucenie profilu przez Traffic Manager.
 
-Istnieją dwa typy profilów routingu, które obsługują zastąpienia podsieci:
+Istnieją dwa typy profilów routingu, które obsługują przesłonięcia podsieci:
 
-* **Geograficzne** — jeśli Usługa Traffic Manager znajdzie zastąpienie podsieci dla adresu IP kwerendy DNS, będzie kierować kwerendę do punktu końcowego, niezależnie od kondycji punktu końcowego.
-* **Wydajność** — jeśli Usługa Traffic Manager znajdzie zastąpienie podsieci dla adresu IP kwerendy DNS, będzie kierować ruch do punktu końcowego tylko wtedy, gdy jest w dobrej kondycji.  Usługa Traffic Manager powróci do heurystyki routingu wydajności, jeśli punkt końcowy zastąpienia podsieci nie jest w dobrej kondycji.
+* **Geograficzna** — Jeśli Traffic Manager odnajdzie przesłonięcie podsieci dla adresu IP zapytania DNS, zostanie on rozesłany do punktu końcowego, niezależnie od kondycji punktu końcowego.
+* **Wydajność** — Jeśli Traffic Manager odnajdzie przesłonięcie podsieci dla adresu IP zapytania DNS, tylko będzie kierować ruch do punktu końcowego, jeśli jest w dobrej kondycji.  Traffic Manager powróci do algorytmu heurystycznego routingu wydajności, jeśli punkt końcowy przesłonięcia podsieci nie jest w dobrej kondycji.
 
-## <a name="create-a-traffic-manager-subnet-override"></a>Tworzenie zastąpienia podsieci usługi Traffic Manager
+## <a name="create-a-traffic-manager-subnet-override"></a>Tworzenie przesłonięcia podsieci Traffic Manager
 
-Aby utworzyć zastąpienie podsieci usługi Traffic Manager, można użyć interfejsu wiersza polecenia platformy Azure, aby dodać podsieci do zastąpienia punktu końcowego usługi Traffic Manager.
+Aby utworzyć przesłonięcie podsieci Traffic Manager, możesz użyć interfejsu wiersza polecenia platformy Azure, aby dodać podsieci do przesłonięcia do Traffic Manager punktu końcowego.
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
@@ -41,8 +41,8 @@ Aby utworzyć zastąpienie podsieci usługi Traffic Manager, można użyć inter
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.28 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
-## <a name="update-the-traffic-manager-endpoint-with-subnet-override"></a>Zaktualizuj punkt końcowy usługi Traffic Manager za pomocą zastąpienia podsieci.
-Użyj interfejsu wiersza polecenia platformy Azure, aby zaktualizować punkt końcowy za pomocą [aktualizacji punktu końcowego menedżera ruchu sieciowego az](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update).
+## <a name="update-the-traffic-manager-endpoint-with-subnet-override"></a>Zaktualizuj punkt końcowy Traffic Manager przy użyciu przesłonięcia podsieci.
+Użyj interfejsu wiersza polecenia platformy Azure, aby zaktualizować punkt końcowy za pomocą poleceń [AZ Network Traffic-Manager Endpoint Update](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update).
 
 ```azurecli
 
@@ -64,7 +64,7 @@ az network traffic-manager endpoint update \
 
 ```
 
-Zakresy adresów IP można usunąć, uruchamiając [aktualizację punktu końcowego menedżera ruchu sieciowego az](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update) z opcją **--remove.**
+Zakresy adresów IP można usunąć, uruchamiając polecenie [AZ Network Traffic-Manager Endpoint Update](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update) with **--Remove** .
 
 ```azurecli
 
@@ -77,6 +77,6 @@ az network traffic-manager endpoint update \
 
 ```
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o [metodach routingu ruchu](traffic-manager-routing-methods.md)usługi Traffic Manager .
+Dowiedz się więcej o [metodach routingu ruchu](traffic-manager-routing-methods.md)Traffic Manager.
 
-Dowiedz się więcej o [metodzie routingu ruchu podsieci](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method)
+Informacje o [metodzie routingu ruchu podsieci](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method)

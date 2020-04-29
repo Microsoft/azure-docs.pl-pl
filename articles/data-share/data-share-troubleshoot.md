@@ -1,6 +1,6 @@
 ---
 title: Rozwiązywanie problemów z usługą Azure Data Share
-description: Dowiedz się, jak rozwiązywać problemy z zaproszeniami i błędami podczas tworzenia lub odbierania udziałów danych za pomocą usługi Azure Data Share.
+description: Dowiedz się, jak rozwiązywać problemy z zaproszeniami i błędami podczas tworzenia lub otrzymywania udziałów danych za pomocą udziału danych platformy Azure.
 services: data-share
 author: joannapea
 ms.author: joanpo
@@ -8,69 +8,69 @@ ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.openlocfilehash: 901f2b56bc045dc9a9837dd18b2e6ce7169aa3b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76964230"
 ---
-# <a name="troubleshoot-common-issues-in-azure-data-share"></a>Rozwiązywanie typowych problemów w udziale danych platformy Azure 
+# <a name="troubleshoot-common-issues-in-azure-data-share"></a>Rozwiązywanie typowych problemów z udziałem danych platformy Azure 
 
-W tym artykule pokazano, jak rozwiązać typowe problemy dotyczące udostępniania danych platformy Azure. 
+W tym artykule pokazano, jak rozwiązywać typowe problemy z udziałem danych platformy Azure. 
 
-## <a name="azure-data-share-invitations"></a>Zaproszenia do udostępniania danych platformy Azure 
+## <a name="azure-data-share-invitations"></a>Zaproszenia udziału danych platformy Azure 
 
-W niektórych przypadkach, gdy nowy użytkownik kliknie przycisk **Zaakceptuj zaproszenie** z wysłanego zaproszenia e-mail, może zostać wyświetlony z pustą listą zaproszeń. 
+W niektórych przypadkach, gdy nowy użytkownik kliknie opcję **Zaakceptuj zaproszenie** z zaproszenia e-mail, które zostało wysłane, może zostać wyświetlona pusta lista zaproszeń. 
 
 ![Brak zaproszeń](media/no-invites.png)
 
 Może to być spowodowane następującymi przyczynami:
 
-* **Usługa Azure Data Share nie jest zarejestrowana jako dostawca zasobów dowolnej subskrypcji platformy Azure w dzierżawie platformy Azure.** Ten problem wystąpi, jeśli w dzierżawie platformy Azure nie ma żadnych zasobów udziału danych. Podczas tworzenia zasobu usługi Azure Data Share automatycznie rejestruje dostawcę zasobów w subskrypcji platformy Azure. Można również ręcznie zarejestrować usługę udostępniania danych, wykonując następujące kroki. Aby wykonać te kroki, musisz mieć rolę współautora platformy Azure.
+* **Usługa udziału danych platformy Azure nie jest zarejestrowana jako dostawca zasobów żadnej subskrypcji platformy Azure w dzierżawie platformy Azure.** Ten problem wystąpi, jeśli w dzierżawie platformy Azure nie ma zasobu udostępniania danych. Podczas tworzenia zasobu udziału danych platformy Azure usługa automatycznie rejestruje dostawcę zasobów w ramach subskrypcji platformy Azure. Możesz również ręcznie zarejestrować usługę udostępniania danych, wykonując następujące kroki. Aby wykonać te czynności, musisz mieć rolę współautor platformy Azure.
 
-    1. W witrynie Azure portal przejdź do **subskrypcji**
-    1. Wybierz subskrypcję, której chcesz użyć do utworzenia zasobu usługi Azure Data Share
-    1. Kliknij dostawców **zasobów**
-    1. Wyszukaj **witrynę Microsoft.DataShare**
-    1. Kliknij **pozycję Zarejestruj się** 
+    1. W Azure Portal przejdź do **subskrypcji**
+    1. Wybierz subskrypcję, której chcesz użyć do utworzenia zasobu udziału danych platformy Azure
+    1. Kliknij pozycję **dostawcy zasobów**
+    1. Wyszukaj w usłudze **Microsoft. Datashare**
+    1. Kliknij pozycję **zarejestruj** . 
 
-    Aby wykonać te kroki, musisz mieć [rolę RBAC współautora platformy Azure.](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) 
+    Aby wykonać te kroki, musisz mieć [rolę RBAC współautor platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) . 
 
-* **Zaproszenie jest wysyłane do aliasu e-mail zamiast adresu e-mail logowania platformy Azure.** Jeśli użytkownik zarejestrował usługę Azure Data Share lub utworzył już zasób udostępniania danych w dzierżawie platformy Azure, ale nadal nie może wyświetlić zaproszenia, być może dlatego, że dostawca wprowadził alias e-mail jako adresata zamiast adresu e-mail logowania platformy Azure. Skontaktuj się z dostawcą danych i upewnij się, że wysłali zaproszenie na twój adres e-mail logowania platformy Azure, a nie alias e-mail.
+* **Zaproszenie jest wysyłane na alias e-mail, a nie na adres e-mail logowania do platformy Azure.** Jeśli zarejestrowano usługę udziału danych platformy Azure lub utworzono już zasób udział danych w dzierżawie platformy Azure, ale nadal nie można zobaczyć zaproszenia, może to być spowodowane tym, że dostawca wprowadził alias e-mail jako adresat zamiast adresu e-mail logowania do platformy Azure. Skontaktuj się z dostawcą danych i upewnij się, że wyśle zaproszenie na adres e-mail logowania do platformy Azure, a nie alias e-mail.
 
-* **Zaproszenie zostało już przyjęte.** Łącze w wiadomości e-mail prowadzi do strony Zaproszenie do udostępniania danych w witrynie Azure Portal, która zawiera tylko oczekujące zaproszenia. Jeśli zaproszenie zostało już zaakceptowane, nie będzie ono już wyświetlane na stronie Zaproszenie do udostępniania danych. Przejdź do zasobu udostępniania danych, który został użyty do zaakceptowania zaproszenia do wyświetlania odebranych udziałów i konfigurowania docelowego ustawienia klastra usługi Azure Data Explorer.
+* **Zaproszenie zostało już zaakceptowane.** Link w wiadomości e-mail prowadzi do strony zaproszenia udostępniania danych w Azure Portal, która zawiera tylko Oczekujące zaproszenia. Jeśli zaproszenie zostało już zaakceptowane, nie będzie już wyświetlane na stronie zaproszenia udostępniania danych. Przechodzenie do zasobu udostępniania danych, którego użyto do zaakceptowania zaproszenia do wyświetlania odebranych udziałów i skonfigurowania docelowego ustawienia klastra Eksplorator danych platformy Azure.
 
-## <a name="error-when-creating-or-receiving-a-new-share"></a>Błąd podczas tworzenia lub odbierania nowego udziału
+## <a name="error-when-creating-or-receiving-a-new-share"></a>Błąd podczas tworzenia lub otrzymywania nowego udziału
 
 "Nie można dodać zestawów danych"
 
-"Nie można mapować zestawów danych"
+"Nie można zmapować zestawów danych"
 
-"Nie można udzielić zasobu udostępniania danych x dostęp do y"
+"Nie można udzielić dostępu do zasobów udziału danych x do wartości y"
 
 "Nie masz odpowiednich uprawnień do x"
 
-"Nie można dodać uprawnień do zapisu dla konta usługi Azure Data Share do co najmniej jednego z wybranych zasobów"
+"Nie można dodać uprawnień do zapisu dla konta udziału danych platformy Azure do co najmniej jednego wybranego zasobu"
 
-Jeśli otrzymasz którykolwiek z powyższych błędów podczas tworzenia nowego udziału lub mapowania zestawów danych, może to być spowodowane niewystarczającymi uprawnieniami do magazynu danych platformy Azure. Zobacz [Role i wymagania](concepts-roles-permissions.md) dotyczące wymaganych uprawnień. 
+Jeśli podczas tworzenia nowego udziału lub mapowania zestawów danych pojawi się którykolwiek z powyższych błędów, może to wynikać z niewystarczających uprawnień do usługi Azure Data Store. Zobacz [role i wymagania](concepts-roles-permissions.md) dotyczące wymaganych uprawnień. 
 
-Musisz napisać uprawnienia do udostępniania lub odbierania danych z magazynu danych platformy Azure, który zazwyczaj istnieje w roli współautora. 
+Musisz mieć uprawnienia do zapisu, aby udostępniać lub odbierać dane z magazynu danych platformy Azure, który zwykle istnieje w roli współautor. 
 
-Jeśli jest to pierwszy raz, gdy udostępniasz lub odbierasz dane z magazynu danych platformy Azure, potrzebujesz również uprawnień *Microsoft.Authorization/role assignments/write,* które zazwyczaj istnieje w roli właściciela. Nawet jeśli utworzono zasób magazynu danych platformy Azure, nie automatycznie uczynić cię właścicielem zasobu. Dzięki odpowiednim uprawnieniom usługa Azure Data Share automatycznie udziela zasobu udziału danych dostępu do tożsamości zarządzanej do magazynu danych. Ten proces może potrwać kilka minut, aby wejść w życie. Jeśli wystąpi awaria z powodu tego opóźnienia, spróbuj ponownie w ciągu kilku minut.
+Jeśli tworzysz lub otrzymujesz dane z magazynu danych platformy Azure po raz pierwszy, musisz również mieć uprawnienie *Microsoft. Autoryzacja/przydziały ról/* uprawnienia do zapisu, które zwykle istnieje w roli właściciela. Nawet jeśli utworzono zasób magazynu danych platformy Azure, nie jest on automatycznie tworzony jako właściciel zasobu. Dzięki poprawnym uprawnieniu usługa Udostępnianie danych platformy Azure automatycznie udziela dostępu tożsamości zarządzanej przez zasób udział danych do magazynu danych. Wykonanie tego procesu może potrwać kilka minut. Jeśli wystąpi awaria z powodu tego opóźnienia, spróbuj ponownie za kilka minut.
 
-Udostępnianie oparte na języku SQL wymaga dodatkowych uprawnień. Aby uzyskać szczegółowe informacje, zobacz Rozwiązywanie problemów z udostępnianiem opartym na języku SQL.
+Udostępnianie oparte na języku SQL wymaga dodatkowych uprawnień. Szczegóły można znaleźć w temacie Rozwiązywanie problemów dotyczących udostępniania opartego na języku SQL.
 
 ## <a name="troubleshooting-sql-based-sharing"></a>Rozwiązywanie problemów z udostępnianiem opartym na języku SQL
 
 "Użytkownik x nie istnieje w bazie danych SQL"
 
-Jeśli ten błąd zostanie wyświetlony podczas dodawania zestawu danych ze źródła opartego na języku SQL, może to być spowodowane tym, że użytkownik nie został utworzony dla tożsamości zarządzanej usługi Azure Data Share na serwerze SQL Server.  Aby rozwiązać ten problem, uruchom następujący skrypt:
+Jeśli ten błąd wystąpi podczas dodawania zestawu danych z źródła opartego na języku SQL, może to być spowodowane faktem, że nie utworzono użytkownika dla tożsamości zarządzanej udziału danych platformy Azure na SQL Server.  Aby rozwiązać ten problem, uruchom następujący skrypt:
 
 ```sql
     create user "<share_acct_name>" from external provider; 
     exec sp_addrolemember db_datareader, "<share_acct_name>";
 ```      
-Jeśli ten błąd zostanie wyświetlony podczas mapowania zestawu danych do obiektu docelowego opartego na języku SQL, może to być spowodowane tym, że użytkownik nie został utworzony dla tożsamości zarządzanej usługi Azure Data Share na serwerze SQL Server.  Aby rozwiązać ten problem, uruchom następujący skrypt:
+Jeśli ten błąd wystąpi podczas mapowania zestawu danych na obiekt docelowy oparty na języku SQL, może to być spowodowane faktem, że nie utworzono użytkownika dla tożsamości zarządzanej udziału danych platformy Azure na SQL Server.  Aby rozwiązać ten problem, uruchom następujący skrypt:
 
 ```sql
     create user "<share_acc_name>" from external provider; 
@@ -78,18 +78,18 @@ Jeśli ten błąd zostanie wyświetlony podczas mapowania zestawu danych do obie
     exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
     exec sp_addrolemember db_ddladmin, "<share_acc_name>";
 ```
-Należy zauważyć, że *<share_acc_name>* jest nazwą zasobu udziału danych.      
+Należy pamiętać, że *<share_acc_name>* to nazwa zasobu udziału danych.      
 
-Upewnij się, że zostały zgodne ze wszystkimi wymaganiami wstępnymi wymienionymi w [udostępnianie danych](share-your-data.md) i [akceptować i odbierać dane](subscribe-to-data-share.md) samouczek.
+Upewnij się, że zostały spełnione wszystkie wymagania wstępne wymienione w temacie [udostępnianie danych](share-your-data.md) i [akceptowanie i odbieranie danych](subscribe-to-data-share.md) .
 
 ## <a name="snapshot-failed"></a>Migawka nie powiodła się
-Migawka może zakończyć się niepowodzeniem z różnych powodów. Szczegółowy komunikat o błędzie można znaleźć, klikając godzinę rozpoczęcia migawki, a następnie stan każdego zestawu danych. 
+Migawka może zakończyć się niepowodzeniem z różnych powodów. Szczegółowy komunikat o błędzie można znaleźć, klikając pozycję czas rozpoczęcia migawki, a następnie stan każdego zestawu danych. 
 
-Jeśli komunikat o błędzie jest związany z uprawnieniem, sprawdź, czy usługa Udostępniania danych ma wymagane uprawnienia. Zobacz [role i wymagania, aby](concepts-roles-permissions.md) uzyskać szczegółowe informacje. Jeśli jest to pierwszy raz, gdy robisz migawkę, może upłynąć kilka minut dla zasobów udziału danych, aby uzyskać dostęp do magazynu danych platformy Azure. Odczekaj kilka minut i spróbuj ponownie.
+Jeśli komunikat o błędzie jest związany z uprawnieniem, sprawdź, czy usługa udostępniania danych ma wymagane uprawnienie. Szczegóły można znaleźć w temacie [role i wymagania](concepts-roles-permissions.md) . Jeśli tworzysz migawkę po raz pierwszy, może upłynąć kilka minut, zanim zasób udostępniania danych uzyska dostęp do magazynu danych platformy Azure. Poczekaj kilka minut i spróbuj ponownie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się, jak rozpocząć udostępnianie danych, przejdź do [samouczka udostępniania danych.](share-your-data.md) 
+Aby dowiedzieć się, jak zacząć udostępniać dane, przejdź do samouczka [udostępnianie danych](share-your-data.md) . 
 
-Aby dowiedzieć się, jak odbierać dane, kontynuuj [akceptowanie i odbieranie danych](subscribe-to-data-share.md) samouczek.
+Aby dowiedzieć się, jak odbierać dane, przejdź do samouczka [akceptowanie i odbieranie danych](subscribe-to-data-share.md) .
 

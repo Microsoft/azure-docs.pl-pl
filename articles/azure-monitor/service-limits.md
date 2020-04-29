@@ -1,21 +1,21 @@
 ---
-title: Limity usług usługi Azure Monitor | Dokumenty firmy Microsoft
-description: Wyświetla listę limitów w różnych obszarach usługi Azure Monitor.
+title: Limity usługi Azure Monitor | Microsoft Docs
+description: Wyświetla listę limitów w różnych obszarach Azure Monitor.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/10/2019
 ms.openlocfilehash: d2a2230613f9e4be3e0c9359a082843a4701b6f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77657915"
 ---
-# <a name="azure-monitor-service-limits"></a>Limity usług usługi Azure Monitor
+# <a name="azure-monitor-service-limits"></a>Limity usługi Azure Monitor
 
-W tym artykule wymieniono limity w różnych obszarach usługi Azure Monitor.
+W tym artykule wymieniono limity w różnych obszarach Azure Monitor.
 
 ## <a name="alerts"></a>Alerty
 
@@ -25,7 +25,7 @@ W tym artykule wymieniono limity w różnych obszarach usługi Azure Monitor.
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-action-groups.md)]
 
-## <a name="log-queries-and-language"></a>Rejestrowanie zapytań i języka
+## <a name="log-queries-and-language"></a>Rejestruj zapytania i język
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-log-queries.md)]
 
@@ -39,6 +39,6 @@ W tym artykule wymieniono limity w różnych obszarach usługi Azure Monitor.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Cennik usługi Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/)
-- [Monitorowanie użycia i szacowanych kosztów w usłudze Azure Monitor](platform/usage-estimated-costs.md)
+- [Cennik Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/)
+- [Monitorowanie użycia i szacowane koszty w Azure Monitor](platform/usage-estimated-costs.md)
 - [Zarządzanie użyciem i kosztami usługi Application Insights](app/pricing.md)

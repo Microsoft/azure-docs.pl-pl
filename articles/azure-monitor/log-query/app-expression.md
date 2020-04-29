@@ -1,47 +1,47 @@
 ---
-title: wyrażenie app() w kwerendach dziennika usługi Azure Monitor | Dokumenty firmy Microsoft
-description: Wyrażenie aplikacji jest używane w kwerendzie dziennika usługi Azure Monitor do pobierania danych z określonej aplikacji usługi Application Insights w tej samej grupie zasobów, innej grupie zasobów lub innej subskrypcji.
+title: wyrażenie App () w kwerendach dziennika Azure Monitor | Microsoft Docs
+description: Wyrażenie aplikacji jest używane w zapytaniu dziennika Azure Monitor, aby pobrać dane z konkretnej aplikacji Application Insights w tej samej grupie zasobów, innej grupie zasobów lub innej subskrypcji.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/25/2019
 ms.openlocfilehash: 5502df1cd119c0f63c65945d73431a17282ebc0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670263"
 ---
-# <a name="app-expression-in-azure-monitor-query"></a>wyrażenie app() w kwerendzie usługi Azure Monitor
+# <a name="app-expression-in-azure-monitor-query"></a>wyrażenie App () w kwerendzie Azure Monitor
 
-Wyrażenie `app` jest używane w kwerendzie usługi Azure Monitor do pobierania danych z określonej aplikacji usługi Application Insights w tej samej grupie zasobów, innej grupie zasobów lub innej subskrypcji. Jest to przydatne do uwzględnienia danych aplikacji w kwerendzie dziennika usługi Azure Monitor i do zapytań danych w wielu aplikacjach w kwerendzie usługi Application Insights.
+`app` Wyrażenie jest używane w zapytaniu Azure monitor, aby pobrać dane z określonej Application Insights aplikacji w tej samej grupie zasobów, innej grupie zasobów lub innej subskrypcji. Jest to przydatne do dołączania danych aplikacji do zapytania dziennika Azure Monitor i do wykonywania zapytań dotyczących danych w wielu aplikacjach w kwerendzie Application Insightsowej.
 
 
 
 ## <a name="syntax"></a>Składnia
 
-`app(`*Identyfikator*`)`
+`app(`*Identyfikatora*`)`
 
 
 ## <a name="arguments"></a>Argumenty
 
-- *Identyfikator:* Identyfikuje aplikację przy użyciu jednego z formatów w poniższej tabeli.
+- *Identyfikator*: identyfikuje aplikację przy użyciu jednego z formatów w poniższej tabeli.
 
 | Identyfikator | Opis | Przykład
 |:---|:---|:---|
-| Nazwa zasobu | Czytelna dla człowieka nazwa aplikacji (AKA "nazwa komponentu") | aplikacja("fabrikamapp") |
-| Nazwa kwalifikowana | Pełna nazwa aplikacji w formularzu: "subscriptionName/resourceGroup/componentName" | ("AI-Prototype/Fabrikam/fabrikamapp") |
-| ID | Identyfikator GUID aplikacji | ("988ba129-363e-4415-8fe7-8cbab5447518") |
-| Identyfikator zasobu platformy Azure | Identyfikator zasobu platformy Azure |("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
+| Nazwa zasobu | Czytelna dla człowieka nazwa aplikacji ("Nazwa składnika") | Aplikacja ("fabrikamapp") |
+| Kwalifikowana nazwa | Pełna nazwa aplikacji w postaci: "subscriptionname/resourceName/ComponentName" | Aplikacja ("AI-Prototype/Fabrikam/fabrikamapp") |
+| ID | Identyfikator GUID aplikacji | Aplikacja ("988ba129-363e-4415-8fe7-8cbab5447518") |
+| Identyfikator zasobu platformy Azure | Identyfikator zasobu platformy Azure |Aplikacja ("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
 
 
 ## <a name="notes"></a>Uwagi
 
 * Musisz mieć dostęp do odczytu do aplikacji.
-* Identyfikowanie aplikacji według jej nazwy zakłada, że jest unikatowa we wszystkich dostępnych subskrypcji. Jeśli masz wiele aplikacji o określonej nazwie, kwerenda zakończy się niepowodzeniem z powodu niejednoznaczności. W takim przypadku należy użyć jednego z innych identyfikatorów.
-* Użyj obszaru [roboczego](workspace-expression.md) wyrażenia pokrewne do wykonywania zapytań w obszarach roboczych usługi Log Analytics.
-* Wyrażenie app() nie jest obecnie obsługiwane w kwerendzie wyszukiwania podczas korzystania z witryny Azure Portal do tworzenia [reguły alertu wyszukiwania dziennika niestandardowego](../platform/alerts-log.md), chyba że aplikacja usługi Application Insights jest używana jako zasób dla reguły alertu.
+* Określenie aplikacji według nazwy zakłada, że jest ona unikatowa dla wszystkich dostępnych subskrypcji. Jeśli masz wiele aplikacji o określonej nazwie, zapytanie nie powiedzie się z powodu niejednoznaczności. W takim przypadku należy użyć jednego z innych identyfikatorów.
+* Za pomocą pokrewnego [obszaru roboczego](workspace-expression.md) wyrażeń można wykonywać zapytania na log Analytics obszarach roboczych.
+* Wyrażenie App () nie jest obecnie obsługiwane w zapytaniach wyszukiwania, gdy przy użyciu Azure Portal można utworzyć [niestandardową regułę alertu wyszukiwania w dzienniku](../platform/alerts-log.md), chyba że aplikacja Application Insights jest używana jako zasób dla reguły alertu.
 
 ## <a name="examples"></a>Przykłady
 
@@ -71,6 +71,6 @@ union
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [wyrażenie obszaru roboczego,](workspace-expression.md) aby odwołać się do obszaru roboczego usługi Log Analytics.
-- Przeczytaj o tym, jak dane [usługi Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) są przechowywane.
-- Uzyskaj dostęp do pełnej dokumentacji [języka zapytań Kusto](/azure/kusto/query/).
+- Zobacz [wyrażenie obszaru roboczego](workspace-expression.md) , aby odwołać się do obszaru roboczego log Analytics.
+- Przeczytaj o sposobie przechowywania [danych Azure monitor](../../azure-monitor/log-query/log-query-overview.md) .
+- Uzyskaj dostęp do pełnej dokumentacji dotyczącej [języka zapytań Kusto](/azure/kusto/query/).

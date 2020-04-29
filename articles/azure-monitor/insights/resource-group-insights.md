@@ -1,6 +1,6 @@
 ---
-title: Usługa Azure Monitor Resource Group Insights | Dokumenty firmy Microsoft
-description: Opis kondycji i wydajności rozproszonych aplikacji i usług na poziomie grupy zasobów za pomocą usługi Azure Monitor
+title: Azure Monitor szczegółowych informacji o grupie zasobów | Microsoft Docs
+description: Zapoznaj się z kondycją i wydajnością rozproszonych aplikacji i usług na poziomie grupy zasobów przy użyciu Azure Monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: NumberByColors
@@ -8,115 +8,115 @@ ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 6d97e40bf2bf2298fb53609621db8ff2c6f1038f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77663542"
 ---
-# <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorowanie grup zasobów za pomocą usługi Azure Monitor (wersja zapoznawcza)
+# <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorowanie grup zasobów przy użyciu Azure Monitor (wersja zapoznawcza)
 
-Nowoczesne aplikacje są często złożone i wysoce rozproszone z wieloma oddzielnymi częściami współpracującymi ze sobą w celu świadczenia usługi. Uznając tę złożoność, usługa Azure Monitor udostępnia szczegółowe informacje dotyczące monitorowania grup zasobów. Ułatwia to klasyfikowanie i diagnozowanie wszelkich problemów napotykanych przez poszczególne zasoby, jednocześnie oferując kontekst kondycji i wydajności grupy&mdash;zasobów i aplikacji&mdash;jako całości.
+Nowoczesne aplikacje są często skomplikowane i wysoce dystrybuowane z wieloma dyskretnymi częściami, które współpracują ze sobą w celu świadczenia usługi. W celu rozpoznania tej złożoności Azure Monitor zapewnia monitorowanie szczegółowych informacji o grupach zasobów. Dzięki temu można łatwo Klasyfikacja i zdiagnozować problemy napotykane przez poszczególne zasoby, a także w kontekście kondycji i wydajności grupy&mdash;zasobów i aplikacji&mdash;jako całości.
 
-## <a name="access-insights-for-resource-groups"></a>Uzyskiwanie dostępu do szczegółowych informacji dla grup zasobów
+## <a name="access-insights-for-resource-groups"></a>Dostęp do szczegółowych informacji dla grup zasobów
 
-1. Wybierz **grupę zasobów** z lewego paska nawigacyjnego.
-2. Wybierz jedną z grup zasobów, które chcesz eksplorować. (Jeśli masz dużą liczbę grup zasobów filtrowania według subskrypcji może być czasami pomocne.)
-3. Aby uzyskać dostęp do szczegółowych informacji dla grupy zasobów, kliknij pozycję **Insights** w menu po lewej stronie dowolnej grupy zasobów.
+1. Wybierz pozycję **grupy zasobów** na pasku nawigacyjnym po lewej stronie.
+2. Wybierz jedną z grup zasobów, które chcesz zbadać. (Jeśli wiele grup zasobów jest filtrowanych przez subskrypcję, może być czasami przydatne).
+3. Aby uzyskać dostęp do usługi Insights dla grupy zasobów, kliknij pozycję **szczegółowe informacje** w menu po lewej stronie dowolnej grupy zasobów.
 
-![Zrzut ekranu przedstawiający stronę przeglądu statystyk grupy zasobów](./media/resource-group-insights/0001-overview.png)
+![Zrzut ekranu strony Przegląd szczegółowych informacji o grupach zasobów](./media/resource-group-insights/0001-overview.png)
 
-## <a name="resources-with-active-alerts-and-health-issues"></a>Zasoby z aktywnymi alertami i problemami zdrowotnymi
+## <a name="resources-with-active-alerts-and-health-issues"></a>Zasoby z aktywnymi alertami i problemami z kondycją
 
-Na stronie przeglądu pokazano, ile alertów zostało zwolnionych i nadal są aktywne, wraz z bieżącym kondycji zasobów platformy Azure każdego zasobu. Razem te informacje mogą pomóc szybko wykryć wszelkie zasoby, które występują problemy. Alerty ułatwią wykrywanie problemów w kodzie i sposobu skonfigurowania infrastruktury. Powierzchnie usługi Azure Resource Health problem z samej platformy Azure, które nie są specyficzne dla poszczególnych aplikacji.
+Na stronie Przegląd przedstawiono liczbę alertów, które zostały wyzwolone i są nadal aktywne, a także bieżące Azure Resource Health poszczególnych zasobów. Te informacje mogą pomóc w szybkim wykorzystaniu wszystkich zasobów, w których występują problemy. Alerty pomagają w wykrywaniu problemów w kodzie oraz sposobie konfigurowania infrastruktury. Azure Resource Health powierzchnie dotyczą platformy platformy Azure, które nie są specyficzne dla poszczególnych aplikacji.
 
-![Zrzut ekranu przedstawiający okienko Kondycja zasobów platformy Azure](./media/resource-group-insights/0002-overview.png)
+![Zrzut ekranu przedstawiający okienko Azure Resource Health](./media/resource-group-insights/0002-overview.png)
 
 ### <a name="azure-resource-health"></a>Azure Resource Health
 
-Aby wyświetlić kondycję zasobów platformy Azure, zaznacz pole **Pokaż kondycję zasobów platformy Azure** nad tabelą. Ta kolumna jest domyślnie ukryta, aby ułatwić szybkie załadowanie strony.
+Aby wyświetlić Azure Resource Health, zaznacz pole **pokaż Azure Resource Health** powyżej tabeli. Ta kolumna jest domyślnie ukryta, aby pomóc w szybkim załadowaniu strony.
 
-![Zrzut ekranu z dodanym wykresem kondycji zasobów](./media/resource-group-insights/0003-overview.png)
+![Zrzut ekranu przedstawiający wykres kondycji zasobów dodany](./media/resource-group-insights/0003-overview.png)
 
-Domyślnie zasoby są pogrupowane według warstwy aplikacji i typu zasobu. **Warstwa aplikacji** to prosta kategoryzacja typów zasobów, która istnieje tylko w kontekście strony przeglądu szczegółowych informacji o grupie zasobów. Istnieją typy zasobów związane z kodem aplikacji, infrastrukturą obliczeniową, siecią, magazynem + bazami danych. Narzędzia do zarządzania otrzymują własne warstwy aplikacji, a każdy inny zasób jest klasyfikowany jako należący do warstwy **Inne aplikacje.** To grupowanie może pomóc zobaczyć w skrócie, jakie podsystemy aplikacji są w dobrej kondycji i niezdrowe.
+Domyślnie zasoby są pogrupowane według warstwy aplikacji i typu zasobu. **Warstwa aplikacji** jest prostą kategoryzacją typów zasobów, która istnieje tylko w kontekście strony Przegląd szczegółowych informacji o grupach zasobów. Istnieją typy zasobów związane z kodem aplikacji, infrastrukturą obliczeniową, siecią, magazynem i bazami danych. Narzędzia do zarządzania umożliwiają uzyskanie własnych warstw aplikacji, a każdy inny zasób jest kategoryzowany jako należący do **innej** warstwy aplikacji. Takie grupowanie może pomóc w szybkim wykorzystaniu, jakie podsystemy aplikacji są w dobrej kondycji.
 
-## <a name="diagnose-issues-in-your-resource-group"></a>Diagnozowanie problemów w grupie zasobów
+## <a name="diagnose-issues-in-your-resource-group"></a>Diagnozuj problemy z grupą zasobów
 
-Strona szczegółowych informacji o grupie zasobów zawiera kilka innych narzędzi o zakresie ułatwiających diagnozowanie problemów
+Strona szczegółowe informacje o grupie zasobów zawiera kilka innych narzędzi objętych zakresem, które ułatwiają diagnozowanie problemów
 
    |         |          |
    | ---------------- |:-----|
-   | [**Alerty**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)      |  Wyświetlaj, twórz alerty i zarządzaj nimi. |
-   | [**Metryki**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) | Wizualizuj i eksploruj dane oparte na danych metryk.    |
-   | [**Dzienniki aktywności**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Zdarzenia na poziomie subskrypcji, które wystąpiły na platformie Azure.  |
-   | [**Mapa aplikacji**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) | Nawiguj po topologii aplikacji rozproszonej, aby zidentyfikować wąskie gardła wydajności lub punkty aktywne awarii. |
+   | [**Alerty**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)      |  Wyświetlaj i twórz Alerty oraz zarządzaj nimi. |
+   | [**Metryki**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) | Wizualizowanie i Eksplorowanie danych opartych na metrykach.    |
+   | [**Dzienniki aktywności**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Zdarzenia poziomu subskrypcji, które wystąpiły na platformie Azure.  |
+   | [**Mapa aplikacji**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) | Przejdź do topologii aplikacji rozproszonej, aby zidentyfikować wąskie gardła wydajności lub punkty awarii. |
 
 ## <a name="failures-and-performance"></a>Awarie i wydajność
 
-Co zrobić, jeśli zauważyłeś, że aplikacja działa wolno lub użytkownicy zgłaszali błędy? Wyszukiwanie wszystkich zasobów w celu wyizolowania problemów jest czasochłonne.
+Co w przypadku, gdy zauważysz, że aplikacja działa wolno, a użytkownicy zgłosili błędy? Jest to czasochłonne wyszukiwanie wszystkich zasobów w celu wyizolowania problemów.
 
-Karty **Wydajność** i **awarie** upraszczają ten proces, łącząc widoki diagnostyki wydajności i awarii dla wielu typowych typów zasobów.
+Karty **wydajność** i **Błędy** upraszczają ten proces przez połączenie diagnostyki wydajności i niepowodzeń dla wielu wspólnych typów zasobów.
 
-Większość typów zasobów otworzy galerię szablonów skoroszytu usługi Azure Monitor. Każdy utworzony skoroszyt można dostosować, zapisać, udostępnić zespołowi i ponownie w przyszłości zdiagnozować podobne problemy.
+Większość typów zasobów otworzy galerię Azure Monitor szablonów skoroszytów. Każdy utworzony skoroszyt może być dostosowany, zapisywany, współużytkowany z zespołem i ponownie używany w przyszłości do diagnozowania podobnych problemów.
 
-### <a name="investigate-failures"></a>Badanie błędów
+### <a name="investigate-failures"></a>Zbadaj błędy
 
-Aby przetestować kartę Błędy, **wybierz** błędy w obszarze **Zbadaj** w menu po lewej stronie.
+Aby przetestować kartę błędy, wybierz pozycję **Błędy** w obszarze **Zbadaj** w menu po lewej stronie.
 
-Pasek menu po lewej stronie zmienia się po dokonaniu wyboru, oferując nowe opcje.
+Po wprowadzeniu wybranej opcji pasek menu po lewej stronie zostanie zmieniony, oferując nowe opcje.
 
-![Zrzut ekranu przedstawiający okienko Przegląd awarii](./media/resource-group-insights/00004-failures.png)
+![Zrzut ekranu przedstawiający okienko przegląd niepowodzeń](./media/resource-group-insights/00004-failures.png)
 
-Po wybraniu usługi App Service zostanie wyświetlona galeria szablonów skoroszytu usługi Azure Monitor.
+Po wybraniu App Service zostanie wyświetlona Galeria Azure Monitor szablonów skoroszytów.
 
 ![Zrzut ekranu przedstawiający galerię skoroszytu aplikacji](./media/resource-group-insights/0005-failure-insights-workbook.png)
 
-Wybranie szablonu dla usługi Failure Insights spowoduje otwarcie skoroszytu.
+Wybranie szablonu do wglądu w szczegółowe dane spowoduje otwarcie skoroszytu.
 
 ![Zrzut ekranu przedstawiający raport o niepowodzeniu](./media/resource-group-insights/0006-failure-visual.png)
 
-Można wybrać dowolny z wierszy. Zaznaczenie jest następnie wyświetlane w graficznym widoku szczegółów.
+Możesz wybrać dowolny z wierszy. Wybór zostanie wyświetlony w graficznym widoku szczegółów.
 
-![Zrzut ekranu przedstawiający szczegóły awarii](./media/resource-group-insights/0007-failure-details.png)
+![Zrzut ekranu przedstawiający szczegóły błędu](./media/resource-group-insights/0007-failure-details.png)
 
-Skoroszyty odciął trudną pracę tworzenia niestandardowych raportów i wizualizacji w formacie łatwo zużywalnym. Podczas gdy niektórzy użytkownicy mogą chcieć tylko dostosować wstępnie utworzone parametry, skoroszyty można w pełni dostosować.
+Skoroszyty są od razu trudne w tworzeniu niestandardowych raportów i wizualizacji w łatwym do użycia formacie. Niektórzy użytkownicy mogą chcieć tylko dostosować wstępnie skompilowane parametry. skoroszyty są w pełni dostosowywane.
 
-Aby zorientować się, jak ten skoroszyt działa wewnętrznie, wybierz pozycję **Edytuj** na górnym pasku.
+Aby poznać sposób wewnętrznego działania tego skoroszytu, wybierz pozycję **Edytuj** na górnym pasku.
 
 ![Zrzut ekranu przedstawiający dodatkową opcję edycji](./media/resource-group-insights/0008-failure-edit.png)
 
-W pobliżu różnych elementów skoroszytu pojawi się wiele pól **Edycji.** Zaznacz pole **Edytuj** pod tabelą operacji.
+Kilka pól **edycji** pojawia się blisko różnych elementów skoroszytu. Zaznacz pole **edycji** poniżej tabeli operacji.
 
-![Zrzut ekranu przedstawiający pola edycji](./media/resource-group-insights/0009-failure-edit-graph.png)
+![Zrzut ekranu pól edycji](./media/resource-group-insights/0009-failure-edit-graph.png)
 
-Spowoduje to wyświetlenia podstawowej kwerendy dziennika, która napędza wizualizację tabeli.
+To pokazuje bazowe zapytanie dziennika, które prowadzi do wizualizacji tabeli.
 
- ![Zrzut ekranu przedstawiający okno kwerendy dziennika](./media/resource-group-insights/0010-failure-edit-query.png)
+ ![Zrzut ekranu przedstawiający okno zapytania dziennika](./media/resource-group-insights/0010-failure-edit-query.png)
 
-Kwerendę można zmodyfikować bezpośrednio. Możesz też użyć go jako odniesienia i pożyczyć od niego podczas projektowania własnego niestandardowego skoroszytu sparametryzowanego.
+Zapytanie można modyfikować bezpośrednio. Można też użyć go jako odwołania i pożyczek od niego podczas projektowania własnych niestandardowych skoroszytów.
 
 ### <a name="investigate-performance"></a>Badanie wydajności
 
-Performance oferuje własną galerię skoroszytów. W przypadku usługi App Service skoroszyt wydajności aplikacji jest przeznaczony dla wstępnie utworzonego:
+Wydajność oferuje własną galerię skoroszytów. W przypadku App Service prekompilowany skoroszyt wydajności aplikacji oferuje następujący widok:
 
  ![Zrzut ekranu przedstawiający widok wydajności](./media/resource-group-insights/0011-performance.png)
 
-W takim przypadku po wybraniu opcji edytuj zobaczysz, że ten zestaw wizualizacji jest obsługiwany przez metryki usługi Azure Monitor.
+W takim przypadku w przypadku wybrania opcji Edytuj zobaczysz, że ten zestaw wizualizacji jest obsługiwany przez Azure Monitor metryki.
 
- ![Zrzut ekranu przedstawiający widok wydajności za pomocą metryk platformy Azure](./media/resource-group-insights/0012-performance-metrics.png)
+ ![Zrzut ekranu przedstawiający widok wydajności z metrykami platformy Azure](./media/resource-group-insights/0012-performance-metrics.png)
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 ### <a name="enabling-access-to-alerts"></a>Włączanie dostępu do alertów
 
-Aby wyświetlić alerty w usłudze Azure Monitor dla grup zasobów, osoba z rolą właściciela lub współautora dla tej subskrypcji musi otworzyć usługę Azure Monitor dla grup zasobów dla dowolnej grupy zasobów w ramach subskrypcji. Umożliwi to każdemu, kto ma dostęp do odczytu, wyświetlanie alertów w usłudze Azure Monitor dla grup zasobów dla wszystkich grup zasobów w ramach subskrypcji. Jeśli masz rolę Właściciela lub Współautora, odśwież tę stronę w ciągu kilku minut.
+Aby wyświetlić alerty w Azure Monitor dla grup zasobów, ktoś z rolą właściciela lub współautora dla tej subskrypcji musi otworzyć Azure Monitor dla grup zasobów dla dowolnej grupy zasobów w subskrypcji. Umożliwi to osobom z dostępem do odczytu wyświetlanie alertów w Azure Monitor dla grup zasobów dla wszystkich grup zasobów w subskrypcji. Jeśli masz rolę właściciela lub współautora, Odśwież Tę stronę w ciągu kilku minut.
 
-Usługa Azure Monitor for Resource Groups polega na systemie zarządzania alertami usługi Azure Monitor w celu pobrania stanu alertów. Zarządzanie alertami nie jest domyślnie skonfigurowane dla każdej grupy zasobów i subskrypcji i może być włączone tylko przez osobę z rolą Właściciela lub Współautora. Można go włączyć przez:
-* Otwieranie usługi Azure Monitor dla grup zasobów dla dowolnej grupy zasobów w ramach subskrypcji.
-* Lub przechodząc do subskrypcji, klikając **dostawców zasobów,** a następnie klikając **pozycję Zarejestruj alerty.Zarządzanie**.
+Azure Monitor grupy zasobów bazują na systemie zarządzania alertami Azure Monitor w celu pobrania stanu alertu. Zarządzanie alertami nie jest skonfigurowane domyślnie dla każdej grupy zasobów i subskrypcji i może być włączone tylko przez kogoś z rolą właściciela lub współautora. Można ją włączyć przez:
+* Otwieranie Azure Monitor dla grup zasobów dla dowolnej grupy zasobów w subskrypcji.
+* Możesz też przejść do subskrypcji, kliknąć pozycję **dostawcy zasobów**, a następnie kliknąć pozycję **Zarejestruj dla alertów. Zarządzanie**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Skoroszyty monitora platformy Azure](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
+- [Azure Monitor skoroszyty](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
 - [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview)
-- [Alerty monitora platformy Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)
+- [Alerty Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)

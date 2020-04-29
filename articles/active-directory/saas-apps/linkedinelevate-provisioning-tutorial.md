@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Inicjowanie obsługi administracyjnej dla usługi LinkedIn Elevate — usługa Azure AD'
-description: Dowiedz się, jak skonfigurować usługę Azure Active Directory do automatycznego inicjowania obsługi administracyjnej i usuwania z obsługi administracyjnej kont użytkowników w usłudze LinkedIn Elevate.
+title: 'Samouczek: obsługa administracyjna użytkowników w przypadku podniesienia uprawnień do usługi Azure AD'
+description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników w celu podniesienia uprawnień do serwisu LinkedIn.
 services: active-directory
 documentationcenter: ''
 author: ArvindHarinder1
@@ -16,111 +16,111 @@ ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa0a26eaeac431ed2c78c5bd938bbbe7dff14e0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77057417"
 ---
-# <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi LinkedIn Elevate w celu automatycznego inicjowania obsługi administracyjnej przez użytkowników
+# <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie podniesienia uprawnień w serwisie LinkedIn na potrzeby automatycznego aprowizacji użytkowników
 
-Celem tego samouczka jest pokazanie kroki, które należy wykonać w linkedin elevate i usługi Azure AD, aby automatycznie aprowizować i de-provision kont użytkowników z usługi Azure AD do LinkedIn Elevate.
+Celem tego samouczka jest przedstawienie czynności, które należy wykonać w ramach podniesienia uprawnień i usługi Azure AD w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników z usługi Azure AD w celu podniesienia uprawnień do serwisu LinkedIn.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku zakłada, że masz już następujące elementy:
+Scenariusz opisany w tym samouczku założono, że masz już następujące elementy:
 
 * Dzierżawa usługi Azure Active Directory
-* Dzierżawa LinkedIn Elevate
-* Konto administratora w uniesieniu poziomu LinkedIn z dostępem do Centrum kont LinkedIn
+* Podniesienie poziomu dzierżawy w serwisie LinkedIn
+* Konto administratora w serwisie LinkedIn podnosi poziom dostępu do centrum konta LinkedIn
 
 > [!NOTE]
-> Usługa Azure Active Directory integruje się z usługą LinkedIn Elevate przy użyciu protokołu [SCIM.](http://www.simplecloud.info/)
+> Azure Active Directory integruje się z usługą LinkedIn przy użyciu protokołu [Standard scim](http://www.simplecloud.info/) .
 
-## <a name="assigning-users-to-linkedin-elevate"></a>Przypisywanie użytkowników do usługi LinkedIn Elevate
+## <a name="assigning-users-to-linkedin-elevate"></a>Przypisywanie użytkowników do podniesienia uprawnień do serwisu LinkedIn
 
-Usługa Azure Active Directory używa pojęcia o nazwie "przydziały", aby określić, którzy użytkownicy powinni otrzymać dostęp do wybranych aplikacji. W kontekście automatycznego inicjowania obsługi administracyjnej konta użytkownika tylko użytkownicy i grupy, które zostały "przypisane" do aplikacji w usłudze Azure AD zostaną zsynchronizowane.
+Azure Active Directory używa koncepcji o nazwie "przydziały", aby określić, którzy użytkownicy powinni otrzymywać dostęp do wybranych aplikacji. W kontekście automatycznego inicjowania obsługi konta użytkownika zostaną zsynchronizowane tylko użytkownicy i grupy, które zostały przypisane do aplikacji w usłudze Azure AD.
 
-Przed skonfigurowaniem i włączeniem usługi inicjowania obsługi administracyjnej należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD reprezentują użytkowników, którzy potrzebują dostępu do usługi LinkedIn Elevate. Po podjęciu decyzji, można przypisać tych użytkowników do LinkedIn Elevate, postępując zgodnie z instrukcjami tutaj:
+Przed skonfigurowaniem i włączeniem usługi aprowizacji należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD reprezentują użytkowników, którzy potrzebują dostępu do podniesienia uprawnień do serwisu LinkedIn. Po ustaleniu decyzji można przypisać tych użytkowników do podniesienia uprawnień do serwisu LinkedIn, postępując zgodnie z poniższymi instrukcjami:
 
-[Przypisywanie użytkownika lub grupy do aplikacji przedsiębiorstwa](../manage-apps/assign-user-or-group-access-portal.md)
+[Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-linkedin-elevate"></a>Ważne wskazówki dotyczące przypisywania użytkowników do LinkedIn Elevate
+### <a name="important-tips-for-assigning-users-to-linkedin-elevate"></a>Ważne porady dotyczące przypisywania użytkowników do podniesienia uprawnień do serwisu LinkedIn
 
-* Zaleca się, aby jeden użytkownik usługi Azure AD został przypisany do usługi LinkedIn Elevate w celu przetestowania konfiguracji inicjowania obsługi administracyjnej. Dodatkowi użytkownicy i/lub grupy mogą być przypisane później.
+* Zaleca się, aby jeden użytkownik usługi Azure AD mógł zostać przypisany do serwisu LinkedIn w celu przetestowania konfiguracji aprowizacji. Dodatkowych użytkowników i/lub grupy można przypisywać później.
 
-* Podczas przypisywania użytkownika do usługi LinkedIn Elevate należy wybrać rolę **użytkownika** w oknie dialogowym przypisania. Rola "Dostęp domyślny" nie działa w przypadku inicjowania obsługi administracyjnej.
+* Podczas przypisywania użytkownika do podniesienia uprawnień do serwisu LinkedIn należy wybrać rolę **użytkownika** w oknie dialogowym przypisania. Rola "dostęp domyślny" nie działa w przypadku aprowizacji.
 
-## <a name="configuring-user-provisioning-to-linkedin-elevate"></a>Konfigurowanie inicjowania obsługi administracyjnej użytkownika w uniesieniu poziomu linkedin
+## <a name="configuring-user-provisioning-to-linkedin-elevate"></a>Konfigurowanie aprowizacji użytkowników w celu podniesienia uprawnień do serwisu LinkedIn
 
-W tej sekcji przewodnik po połączeniu usługi Azure AD z interfejsem API obsługi administracyjnej konta scim firmy LinkedIn elevate i skonfigurowaniu usługi inicjowania obsługi administracyjnej w celu tworzenia, aktualizowania i wyłączania przypisanych kont użytkowników w usłudze LinkedIn Elevate na podstawie przypisania użytkownika i grupy w usłudze Azure AD.
+Ta sekcja przeprowadzi Cię przez proces nawiązywania połączenia z usługą Azure AD do serwisu LinkedIn podniesienia poziomu interfejsu użytkownika Standard scim użytkowników i konfigurowania usługi aprowizacji w celu tworzenia, aktualizowania i wyłączania przypisanych kont użytkowników w serwisie LinkedIn podniesienia uprawnień na podstawie przypisania użytkowników i grup w usłudze Azure AD.
 
-**Wskazówka:** Można również włączyć samooceny samol oparte na logowanie jednokrotne dla LinkedIn Elevate, postępując zgodnie z instrukcjami podanymi w [witrynie Azure portal](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej, chociaż te dwie funkcje wzajemnie się uzupełniają.
+**Porada:** Możesz również włączyć funkcję jednokrotnego logowania opartego na protokole SAML na potrzeby podniesienia uprawnień w serwisie LinkedIn, postępując zgodnie z instrukcjami podanymi w [Azure Portal](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji, chociaż te dwie funkcje uzupełniają się wzajemnie.
 
-### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-elevate-in-azure-ad"></a>Aby skonfigurować automatyczne udostępnianie obsługi administracyjnej konta użytkownika do usługi LinkedIn Elevate w usłudze Azure AD:
+### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-elevate-in-azure-ad"></a>Aby skonfigurować funkcję automatycznego inicjowania obsługi konta użytkownika w usłudze Azure AD:
 
-Pierwszym krokiem jest pobranie tokenu dostępu linkedin. Jeśli jesteś administratorem przedsiębiorstwa, możesz samodzielnie aprowizować token dostępu. W centrum kont przejdź do **ustawień globalnych ustawień &gt; ** i otwórz panel Ustawienia **SCIM.**
+Pierwszym krokiem jest pobranie tokenu dostępu do serwisu LinkedIn. Jeśli jesteś administratorem przedsiębiorstwa, możesz automatycznie zainicjować obsługę administracyjną tokenu dostępu. W centrum konta przejdź do pozycji **ustawienia &gt; ustawienia globalne** i Otwórz panel **ustawień Standard scim** .
 
 > [!NOTE]
-> Jeśli uzyskujesz dostęp do centrum kont bezpośrednio, a nie za pośrednictwem łącza, możesz do niego dotrzeć, wykonując następujące kroki.
+> Jeśli uzyskujesz dostęp do centrum kont bezpośrednio, a nie za pośrednictwem linku, możesz uzyskać do niego dostęp, wykonując poniższe kroki.
 
-1. Zaloguj się do Centrum kont.
+1. Zaloguj się do centrum konta.
 
-2. Wybierz ** &gt; pozycję Ustawienia administratora** .
+2. Wybierz **pozycję &gt; ustawienia administratora administratora** .
 
-3. Kliknij pozycję **Zaawansowane integracje** na lewym pasku bocznym. Jesteś kierowany do centrum kont.
+3. Kliknij przycisk **integracji zaawansowane** na lewym pasku bocznym. Nastąpi przekierowanie do centrum konta.
 
-4. Kliknij **+ Dodaj nową konfigurację SCIM** i postępuj zgodnie z procedurą, wypełniając każde pole.
-
-    > [!NOTE]
-    > Jeśli automatyczne przypisywanie licencji nie jest włączone, oznacza to, że synchronizowane są tylko dane użytkownika.
-
-    ![Inicjowanie obsługi administracyjnej usługi LinkedIn](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate1.PNG)
+4. Kliknij pozycję **+ Dodaj nową konfigurację Standard scim** i postępuj zgodnie z procedurą, wypełniając każde pole.
 
     > [!NOTE]
-    > Gdy przypisanie autolicencji jest włączone, należy zanotować wystąpienie aplikacji i typ licencji. Licencje są przypisywane na zasadzie "kto pierwszy, ten lepszy", dopóki nie zostaną podjęte wszystkie licencje.
+    > Gdy nie włączono licencji autoassign, oznacza to, że synchronizowane są tylko dane użytkownika.
 
-    ![Inicjowanie obsługi administracyjnej usługi LinkedIn](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate2.PNG)
+    ![Podnoszenie poziomu aprowizacji w serwisie LinkedIn](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate1.PNG)
 
-5. Kliknij **pozycję Generuj token**. Powinien zostać wyświetlony token dostępu wyświetlany w polu **token dostępu.**
+    > [!NOTE]
+    > Gdy jest włączone przypisanie autolicencji, należy zanotować wystąpienie aplikacji i typ licencji. Licencje są przypisywane w pierwszej kolejności, w pierwszej kolejności do momentu, aż zostaną wykonane wszystkie licencje.
 
-6. Zapisz token dostępu w schowku lub komputerze przed opuszczeniem strony.
+    ![Podnoszenie poziomu aprowizacji w serwisie LinkedIn](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate2.PNG)
 
-7. Następnie zaloguj się do [witryny Azure Portal](https://portal.azure.com)i przejdź do sekcji **Azure Active Directory > Enterprise Apps > wszystkie aplikacje.**
+5. Kliknij przycisk **Generuj token**. Token dostępu powinien zostać wyświetlony w polu **token dostępu** .
 
-8. Jeśli linkedin elevate został już skonfigurowany do logowania jednokrotnego, wyszukaj wystąpienie Usługi LinkedIn Elevate za pomocą pola wyszukiwania. W przeciwnym razie wybierz pozycję **Dodaj** i wyszukaj **pozycję Podnieś pozycję LinkedIn** w galerii aplikacji. Wybierz pozycję LinkedIn Elevate z wyników wyszukiwania i dodaj go do listy aplikacji.
+6. Zapisz token dostępu do Schowka lub komputera przed opuszczeniem strony.
 
-9. Wybierz wystąpienie LinkedIn Elevate, a następnie wybierz kartę **Inicjowanie obsługi administracyjnej.**
+7. Następnie zaloguj się do [Azure Portal](https://portal.azure.com)i przejdź do sekcji **Azure Active Directory > aplikacje dla przedsiębiorstw > wszystkie aplikacje** .
 
-10. Ustaw **tryb inicjowania obsługi administracyjnej** na **Automatyczny**.
+8. Jeśli już skonfigurowano podnoszenie uprawnień usługi LinkedIn do logowania jednokrotnego, Wyszukaj wystąpienie funkcji podniesienia uprawnień w serwisie LinkedIn przy użyciu pola wyszukiwania. W przeciwnym razie wybierz pozycję **Dodaj** i Wyszukaj wartość **Podnieś poziom** w galerii aplikacji. Wybierz pozycję LinkedIn Podnieś poziom wyników wyszukiwania i Dodaj ją do listy aplikacji.
 
-    ![Inicjowanie obsługi administracyjnej usługi LinkedIn](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate3.PNG)
+9. Wybierz wystąpienie podniesienia uprawnień do serwisu LinkedIn, a następnie wybierz kartę **Inicjowanie obsługi** .
 
-11. Wypełnij następujące pola w obszarze **Poświadczenia administratora:**
+10. Ustaw **tryb aprowizacji** na **automatyczny**.
 
-    * W polu Adres URL `https://api.linkedin.com` **dzierżawy** wprowadź .
+    ![Podnoszenie poziomu aprowizacji w serwisie LinkedIn](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate3.PNG)
 
-    * W polu **Tajny token** wprowadź token dostępu wygenerowany w kroku 1 i kliknij przycisk **Testuj połączenie** .
+11. Wypełnij następujące pola w obszarze **poświadczenia administratora** :
 
-    * Powiadomienie o sukcesie powinno być widoczne po prawej stronie portalu.
+    * W polu **adres URL dzierżawy** wprowadź `https://api.linkedin.com`wartość.
 
-12. Wprowadź adres e-mail osoby lub grupy, która powinna otrzymywać powiadomienia o błędach inicjowania obsługi administracyjnej w polu **Wiadomości e-mail z powiadomieniem,** i zaznacz pole wyboru poniżej.
+    * W polu **token Secret** wprowadź token dostępu wygenerowany w kroku 1, a następnie kliknij pozycję **Testuj połączenie** .
+
+    * Na stronie upperright portalu powinna zostać wyświetlona powiadomienie o powodzeniu.
+
+12. Wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji w polu **E-mail powiadomienia** , a następnie zaznacz pole wyboru poniżej.
 
 13. Kliknij przycisk **Zapisz**.
 
-14. W sekcji **Mapowania atrybutów** przejrzyj atrybuty użytkownika i grupy, które będą synchronizowane z usługi Azure AD do usługi LinkedIn Elevate. Należy zauważyć, że atrybuty wybrane jako **pasujące** właściwości będą używane do dopasowania kont użytkowników i grup w LinkedIn Elevate dla operacji aktualizacji. Wybierz przycisk Zapisz, aby zatwierdzić wszelkie zmiany.
+14. W sekcji **mapowania atrybutów** Przejrzyj atrybuty użytkowników i grup, które zostaną zsynchronizowane z usługi Azure AD w celu podniesienia uprawnień do serwisu LinkedIn. Należy zauważyć, że atrybuty wybrane jako **pasujące** właściwości będą używane w celu dopasowania do kont użytkowników i grup w serwisie LinkedIn podwyższanie poziomu dla operacji aktualizacji. Wybierz przycisk Zapisz, aby zatwierdzić zmiany.
 
-    ![Inicjowanie obsługi administracyjnej usługi LinkedIn](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate4.PNG)
+    ![Podnoszenie poziomu aprowizacji w serwisie LinkedIn](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate4.PNG)
 
-15. Aby włączyć usługę inicjowania obsługi administracyjnej usługi Azure AD dla usługi LinkedIn Elevate, zmień **stan inicjowania obsługi administracyjnej** **na Włączone** w sekcji **Ustawienia**
+15. Aby włączyć podwyższenie poziomu usługi Azure AD Provisioning w usłudze LinkedIn, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
 16. Kliknij przycisk **Zapisz**.
 
-Spowoduje to rozpoczęcie początkowej synchronizacji wszystkich użytkowników i/lub grup przypisanych do usługi LinkedIn Elevate w sekcji Użytkownicy i grupy. Należy zauważyć, że synchronizacja początkowa potrwa dłużej niż kolejne synchronizacje, które występują co około 40 minut, o ile usługa jest uruchomiona. Za pomocą sekcji **Szczegóły synchronizacji** można monitorować postęp i obserwować łącza do dzienników działań inicjowania obsługi administracyjnej, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej w aplikacji LinkedIn Elevate.
+Spowoduje to rozpoczęcie synchronizacji początkowej dla wszystkich użytkowników i/lub grup przypisanych do serwisu LinkedIn podniesienia uprawnień w sekcji Użytkownicy i grupy. Należy pamiętać, że synchronizacja początkowa zajmie więcej czasu niż kolejne synchronizacje, co będzie odbywać się około co 40 minut, o ile usługa jest uruchomiona. Za pomocą sekcji **szczegóły synchronizacji** można monitorować postęp i wykonywać linki do dzienników aktywności aprowizacji, które opisują wszystkie akcje wykonywane przez usługę aprowizacji w aplikacji podniesienia uprawnień w serwisie LinkedIn.
 
-Aby uzyskać więcej informacji na temat sposobu zapoznania się z dziennikami inicjowania obsługi administracyjnej usługi Azure AD, zobacz [Raportowanie automatycznego inicjowania obsługi administracyjnej konta użytkownika.](../app-provisioning/check-status-user-account-provisioning.md)
+Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Zarządzanie inicjowanie obsługi administracyjnej kont użytkowników dla aplikacji dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

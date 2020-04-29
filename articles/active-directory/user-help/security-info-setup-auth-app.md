@@ -1,6 +1,6 @@
 ---
 title: Konfigurowanie aplikacji Microsoft Authenticator jako metody weryfikacji — Azure AD
-description: Jak skonfigurować stronę informacje zabezpieczające (wersja zapoznawcza), aby zweryfikować tożsamość przy użyciu aplikacji Microsoft Authenticator jako metody weryfikacji.
+description: Jak skonfigurować stronę informacje zabezpieczające (wersja zapoznawcza) w celu zweryfikowania tożsamości przy użyciu aplikacji Microsoft Authenticator jako metody weryfikacji.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,28 +12,28 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: curtand
 ms.openlocfilehash: 16cb512d3f8f8afcc199cb52c13e09b12107576f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77062425"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Konfigurowanie aplikacji Microsoft Authenticator jako metody weryfikacji
 
-Wykonaj następujące kroki, aby dodać metody weryfikacji dwuskładnikowej i resetowania hasła. Po skonfigurowaniu tej opcji po raz pierwszy można powrócić do strony **Informacje o zabezpieczeniach,** aby dodać, zaktualizować lub usunąć informacje o zabezpieczeniach.
+Aby dodać weryfikację dwuskładnikową i metodę resetowania hasła, można wykonać następujące czynności. Po wybraniu tej opcji po raz pierwszy możesz wrócić do strony **informacje zabezpieczające** , aby dodać, zaktualizować lub usunąć informacje o zabezpieczeniach.
 
-Jeśli zostanie wyświetlony monit o skonfigurowanie tej funkcji natychmiast po zalogowaniu się na konto służbowe, zapoznaj się ze szczegółowymi czynnościami artykułu [Konfigurowanie informacji zabezpieczających na stronie logowania.](security-info-setup-signin.md)
+Jeśli zostanie wyświetlony monit o ustawienie tej opcji natychmiast po zalogowaniu się do konta służbowego, Zobacz szczegółowe kroki opisane w artykule [Konfigurowanie informacji zabezpieczających na stronie Logowanie](security-info-setup-signin.md) .
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
-> Jeśli nie widzisz opcji aplikacji uwierzytelniającego, możesz, że Twoja organizacja nie zezwala na używanie tej opcji do weryfikacji. W takim przypadku musisz wybrać inną metodę lub skontaktować się z działem pomocy technicznej organizacji, aby uzyskać więcej pomocy.
+> Jeśli nie widzisz opcji aplikacji Authenticator, istnieje możliwość, że Twoja organizacja nie zezwala na korzystanie z tej opcji w celu weryfikacji. W takim przypadku należy wybrać inną metodę lub skontaktować się z działem pomocy technicznej w organizacji, aby uzyskać pomoc.
 
-## <a name="security-vs-password-reset-verification"></a>Weryfikacja zabezpieczeń a resetowania hasła
+## <a name="security-vs-password-reset-verification"></a>Weryfikacja resetowania hasła do zabezpieczeń
 
-Metody informacji zabezpieczających są używane zarówno do weryfikacji zabezpieczeń dwuskładnikowych, jak i resetowania hasła. Jednak nie wszystkie metody mogą służyć do obu celów.
+Metody informacji zabezpieczających są używane do weryfikacji zabezpieczeń dwuskładnikowych i resetowania hasła. Jednak nie wszystkie metody mogą służyć do obu celów.
 
-| Metoda | Używana do |
+| Metoda | Sposób użycia |
 | ------ | -------- |
 | Aplikacja Authenticator | Weryfikacja dwuskładnikowa i uwierzytelnianie za pomocą resetowania hasła. |
 | Wiadomości SMS | Weryfikacja dwuskładnikowa i uwierzytelnianie za pomocą resetowania hasła. |
@@ -42,29 +42,29 @@ Metody informacji zabezpieczających są używane zarówno do weryfikacji zabezp
 | Konto e-mail | Tylko uwierzytelnianie za pomocą resetowania hasła. Należy wybrać inną metodę na potrzeby weryfikacji dwuskładnikowej. |
 | Pytania zabezpieczające | Tylko uwierzytelnianie za pomocą resetowania hasła. Należy wybrać inną metodę na potrzeby weryfikacji dwuskładnikowej. |
 
-## <a name="set-up-the-microsoft-authenticator-app-from-the-security-info-page"></a>Konfigurowanie aplikacji Microsoft Authenticator na stronie Informacje o zabezpieczeniach
+## <a name="set-up-the-microsoft-authenticator-app-from-the-security-info-page"></a>Konfigurowanie aplikacji Microsoft Authenticator na stronie z informacjami o zabezpieczeniach
 
-W zależności od ustawień organizacji można użyć aplikacji uwierzytelniania jako jednej z metod informacji zabezpieczających. Nie musisz korzystać z aplikacji Microsoft Authenticator i możesz wybrać inną aplikację podczas procesu konfiguracji. Jednak w tym artykule używa się aplikacji Microsoft Authenticator.
+W zależności od ustawień organizacji może być możliwe użycie aplikacji uwierzytelniania jako jednej z metod informacji zabezpieczających. Nie jest wymagane korzystanie z aplikacji Microsoft Authenticator i można wybrać inną aplikację podczas procesu konfiguracji. Jednak w tym artykule jest stosowana aplikacja Microsoft Authenticator.
 
 ### <a name="to-set-up-the-microsoft-authenticator-app"></a>Aby skonfigurować aplikację Microsoft Authenticator
 
-1. Zaloguj się na swoje konto służbowe, https://myprofile.microsoft.com/ a następnie przejdź do strony.
+1. Zaloguj się do swojego konta służbowego, a następnie przejdź do https://myprofile.microsoft.com/ strony.
 
-    ![Strona Mój profil z wyróżnionymi linkami informacji o zabezpieczeniach](media/security-info/securityinfo-myprofile-page.png)
+    ![Strona mój profil zawierająca wyróżnione linki do informacji zabezpieczających](media/security-info/securityinfo-myprofile-page.png)
 
-2. Wybierz **pozycję Informacje o zabezpieczeniach** z lewego okienka nawigacji lub z łącza w bloku Informacje o **zabezpieczeniach,** a następnie wybierz pozycję **Dodaj metodę** ze strony Informacje o **zabezpieczeniach.**
+2. W okienku nawigacji po lewej stronie wybierz pozycję **informacje zabezpieczające** lub link w bloku **informacje zabezpieczające** , a następnie wybierz pozycję **Dodaj metodę** ze strony **informacje zabezpieczające** .
 
-    ![Strona informacji o zabezpieczeniach z wyróżnioną opcją Dodaj metodę](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![Strona z informacjami o zabezpieczeniach z wyróżnioną opcją dodawania metody](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-3. Na stronie **Dodawanie metody** wybierz pozycję **Aplikacja Authenticator** z listy rozwijanej, a następnie wybierz pozycję **Dodaj**.
+3. Na stronie **Dodawanie metody** wybierz z listy rozwijanej pozycję **aplikacja uwierzytelniania** , a następnie wybierz pozycję **Dodaj**.
 
-    ![Pole Dodaj metodę z wybraną aplikacją Authenticator](media/security-info/securityinfo-myprofile-addauthapp.png)
+    ![Pole dodawania metody z wybraną aplikacją Authenticator](media/security-info/securityinfo-myprofile-addauthapp.png)
 
-4. Na stronie **Rozpocznij, pobierając aplikację,** wybierz pozycję **Pobierz teraz,** aby pobrać i zainstalować aplikację Microsoft Authenticator na urządzeniu przenośnym, a następnie wybierz pozycję **Dalej**.
+4. Na stronie **Rozpocznij od pobrania aplikacji** wybierz pozycję **Pobierz teraz** , aby pobrać i zainstalować aplikację Microsoft Authenticator na urządzeniu przenośnym, a następnie wybierz przycisk **dalej**.
 
     Aby uzyskać więcej informacji o pobieraniu i instalowaniu aplikacji, zobacz [Pobieranie i instalowanie aplikacji Microsoft Authenticator](user-help-auth-app-download-install.md).
 
-    ![Zacznij od wyświetlenie strony aplikacji](media/security-info/securityinfo-myprofile-getauthapp.png)
+    ![Zacznij od pobrania strony aplikacji](media/security-info/securityinfo-myprofile-getauthapp.png)
 
    > [!Note]
    > Jeśli chcesz użyć aplikacji uwierzytelniającej innej niż aplikacja Microsoft Authenticator, wybierz link **Chcę użyć innej aplikacji uwierzytelniania**.
@@ -73,12 +73,12 @@ W zależności od ustawień organizacji można użyć aplikacji uwierzytelniania
 
 5. Pozostań na stronie **Konfigurowanie konta** podczas konfigurowania aplikacji Microsoft Authenticator na urządzeniu mobilnym.
 
-    ![Konfigurowanie strony aplikacji uwierzytelniającego](media/security-info/securityinfo-myprofile-setupauthapp.png)
+    ![Konfigurowanie strony aplikacji uwierzytelniania](media/security-info/securityinfo-myprofile-setupauthapp.png)
 
 6. Otwórz aplikację Microsoft Authenticator, zezwól na powiadomienia (jeśli pojawi się monit), wybierz pozycję **Dodaj konto** z menu ikony **Dostosowywanie i kontrolowanie** w prawym górnym rogu, a następnie wybierz pozycję **Konto służbowe**.
 
     >[!Note]
-    >Jeśli po raz pierwszy konfigurujesz aplikację Microsoft Authenticator, może pojawić się monit z pytaniem, czy zezwolić aplikacji na dostęp do aparatu (iOS), czy zezwolić aplikacji na robienia zdjęć i nagrywania wideo (Android). Musisz wybrać **opcję Zezwalaj,** aby aplikacja uwierzytelniającego mogła uzyskać dostęp do aparatu, aby zrobić zdjęcie kodu QR w następnym kroku. Jeśli nie zezwolisz na aparat, nadal możesz skonfigurować aplikację uwierzytelniacza, ale musisz ręcznie dodać informacje o kodzie. Aby uzyskać informacje dotyczące ręcznego dodawania kodu, zobacz [Ręczne dodawanie konta do aplikacji](user-help-auth-app-add-account-manual.md).
+    >Jeśli konfigurujesz aplikację Microsoft Authenticator po raz pierwszy, może zostać wyświetlony monit z pytaniem, czy zezwolić aplikacji na dostęp do aparatu (iOS), czy zezwolić aplikacji na wykonywanie zdjęć i nagrywanie wideo (Android). Musisz wybrać opcję **Zezwól** , aby aplikacja Authenticator mogła uzyskać dostęp do Twojego aparatu, aby w następnym kroku uzyskać zdjęcie kodu QR. Jeśli nie zezwolisz na korzystanie z aparatu, nadal możesz skonfigurować aplikację uwierzytelniającej, ale musisz ręcznie dodać informacje o kodzie. Aby dowiedzieć się, jak ręcznie dodać kod, zobacz temat [Ręczne dodawanie konta do aplikacji](user-help-auth-app-add-account-manual.md).
 
 7. Wróć na stronę **Konfigurowanie konta** na komputerze, a następnie wybierz pozycję **Dalej**.
 
@@ -86,7 +86,7 @@ W zależności od ustawień organizacji można użyć aplikacji uwierzytelniania
 
     ![Skanowanie kodu QR przy użyciu aplikacji Authenticator](media/security-info/securityinfo-myprofile-qrcodeauthapp.png)
 
-8. Zeskanuj podany kod za pomocą czytnika kodów QR aplikacji Microsoft Authenticator, który pojawił się na urządzeniu przenośnym po utworzeniu konta służbowego w kroku 6.
+8. Zeskanuj udostępniony kod za pomocą czytnika kodu QR aplikacji Microsoft Authenticator, który pojawił się na urządzeniu przenośnym po utworzeniu konta służbowego w kroku 6.
 
     Aplikacja Authenticator powinna pomyślnie dodać konto służbowe bez konieczności podawania żadnych dodatkowych informacji przez użytkownika. Jednak jeśli czytnik kodów QR nie może odczytać kodu, możesz wybrać **link Nie mogę zeskanować kodu QR** oraz ręcznie podać kod i adres URL w aplikacji Microsoft Authenticator. Aby uzyskać więcej informacji na temat ręcznego dodawania kodu, zobacz [Ręcznie dodawanie konta do aplikacji](user-help-auth-app-add-account-manual.md).
 
@@ -102,63 +102,63 @@ W zależności od ustawień organizacji można użyć aplikacji uwierzytelniania
 
      Informacje zabezpieczające zostały zaktualizowane, tak aby aplikacja Microsoft Authenticator była domyślnie używana do weryfikowania tożsamości podczas korzystania z weryfikacji dwuetapowej lub resetowania hasła.
 
-## <a name="delete-your-authenticator-app-from-your-security-info-methods"></a>Usuwanie aplikacji uwierzytelniającego z metod informacji zabezpieczających
+## <a name="delete-your-authenticator-app-from-your-security-info-methods"></a>Usuwanie aplikacji uwierzytelniania z metod informacji zabezpieczających
 
-Jeśli nie chcesz już używać aplikacji uwierzytelniającego jako metody informacji zabezpieczających, możesz usunąć ją ze strony **Informacje o zabezpieczeniach.** Działa to we wszystkich aplikacjach uwierzytelniającego, a nie tylko w aplikacji Microsoft Authenticator. Po usunięciu aplikacji musisz przejść do aplikacji uwierzytelniającego na urządzeniu mobilnym i usunąć konto.
+Jeśli nie chcesz już używać aplikacji uwierzytelniania jako metody informacji zabezpieczających, możesz usunąć ją ze strony z **informacjami o zabezpieczeniach** . Działa to w przypadku wszystkich aplikacji uwierzytelniania, a nie tylko aplikacji Microsoft Authenticator. Po usunięciu aplikacji należy przejść do aplikacji uwierzytelniania na urządzeniu przenośnym i usunąć konto.
 
 >[!Important]
->Jeśli usuniesz aplikację uwierzytelniającą przez pomyłkę, nie ma możliwości jej cofnięcia. Musisz ponownie dodać aplikację uwierzytelniacza, wykonując czynności opisane w sekcji [Konfigurowanie aplikacji uwierzytelniacza](#set-up-the-microsoft-authenticator-app-from-the-security-info-page) w tym artykule.
+>Jeśli usuniesz aplikację Authenticator przez pomyłkę, nie ma możliwości jej cofnięcia. Musisz ponownie dodać aplikację uwierzytelniającej, wykonując czynności opisane w sekcji [Konfigurowanie aplikacji uwierzytelniania](#set-up-the-microsoft-authenticator-app-from-the-security-info-page) w tym artykule.
 
-### <a name="to-delete-the-authenticator-app"></a>Aby usunąć aplikację uwierzytelniającego
+### <a name="to-delete-the-authenticator-app"></a>Aby usunąć aplikację Authenticator
 
-1. Na stronie **Informacje o zabezpieczeniach** wybierz łącze **Usuń** obok aplikacji Authenticator.
+1. Na stronie **Informacje o zabezpieczeniach** wybierz łącze **Usuń** obok aplikacji wystawca.
 
-    ![Łącze, aby usunąć aplikację uwierzytelniającego z informacji zabezpieczających](media/security-info/securityinfo-myprofile-deleteauthapp.png)
+    ![Link umożliwiający usunięcie aplikacji Authenticator z informacji zabezpieczających](media/security-info/securityinfo-myprofile-deleteauthapp.png)
 
-2. Wybierz **tak** z pola potwierdzenia, aby usunąć aplikację uwierzytelniacza. Po usunięciu aplikacji uwierzytelniającego jest usuwana z informacji zabezpieczających i znika ze strony **Informacje o zabezpieczeniach.** Jeśli aplikacja wystawcy uwierzytelnienia jest metodą domyślną, domyślna zmieni się na inną dostępną metodę.
+2. Wybierz opcję **tak** w polu potwierdzenia, aby usunąć aplikację Authenticator. Po usunięciu aplikacji uwierzytelniającej jest ona usuwana z informacji zabezpieczających i znika ze strony z **informacjami o zabezpieczeniach** . Jeśli aplikacja Authenticator jest metodą domyślną, zmieni się na inną dostępną metodę.
 
-3. Otwórz aplikację uwierzytelniacza na urządzeniu przenośnym, wybierz **pozycję Edytuj konta**, a następnie usuń konto służbowe z aplikacji uwierzytelniacza.
+3. Otwórz aplikację Authenticator na swoim urządzeniu przenośnym, wybierz pozycję **Edytuj konta**, a następnie usuń konto służbowe z aplikacji Authenticator.
 
-    Twoje konto zostanie całkowicie usunięte z aplikacji uwierzytelniającego w celu weryfikacji dwuskładnikowej i żądania resetowania hasła.
+    Twoje konto zostało całkowicie usunięte z aplikacji Authenticator na potrzeby weryfikacji dwuskładnikowej i żądań resetowania haseł.
 
-## <a name="change-your-default-security-info-method"></a>Zmienianie domyślnej metody informacji zabezpieczających
+## <a name="change-your-default-security-info-method"></a>Zmień domyślną metodę informacji zabezpieczających
 
-Jeśli chcesz, aby aplikacja uwierzytelniacza była domyślną metodą używaną podczas logowania się do konta służbowego przy użyciu weryfikacji dwuskładnikowej lub żądań resetowania hasła, możesz ją ustawić na stronie **Informacje o zabezpieczeniach.**
+Jeśli chcesz, aby aplikacja Authenticator była metodą domyślną używaną podczas logowania do konta służbowego przy użyciu weryfikacji dwuskładnikowej lub żądania resetowania hasła, możesz ustawić ją na stronie **informacje** zabezpieczające.
 
 ### <a name="to-change-your-default-security-info-method"></a>Aby zmienić domyślną metodę informacji zabezpieczających
 
-1. Na stronie **Informacje o zabezpieczeniach** wybierz łącze **Zmień** obok domyślnych informacji o **metodzie logowania.**
+1. Na stronie **Informacje o zabezpieczeniach** wybierz łącze **Zmień** obok domyślnych informacji o **metodzie logowania** .
 
-    ![Łącze zmień domyślną metodę logowania](media/security-info/securityinfo-myprofile-changedefaultauthapp.png)
+    ![Zmień link dla domyślnej metody logowania](media/security-info/securityinfo-myprofile-changedefaultauthapp.png)
 
-2. Wybierz **pozycję Microsoft Authenticator — powiadomienie** z listy rozwijanej dostępnych metod. Jeśli nie używasz aplikacji Microsoft Authenticator, wybierz opcję **Aplikacji Uwierzytelniaj lub tokenu sprzętowego.**
+2. Wybierz pozycję **Microsoft Authenticator — powiadomienie** z listy rozwijanej dostępnych metod. Jeśli nie używasz aplikacji Microsoft Authenticator, wybierz opcję **aplikacja Authenticator lub token sprzętowy** .
 
-    ![Wybierz metodę domyślnego logowania](media/security-info/securityinfo-myprofile-defaultauthapp.png)
+    ![Wybierz metodę logowania domyślnego](media/security-info/securityinfo-myprofile-defaultauthapp.png)
 
-3. Wybierz **pozycję Potwierdź**.
+3. Wybierz pozycję **Potwierdź**.
 
-    Domyślna metoda używana do zmiany logowania w aplikacji Microsoft Authenticator.
+    Domyślna Metoda służąca do wprowadzania zmian w aplikacji Microsoft Authenticator.
 
-## <a name="additional-security-info-methods"></a>Dodatkowe metody informacji o zabezpieczeniach
+## <a name="additional-security-info-methods"></a>Dodatkowe metody informacji zabezpieczających
 
-Masz dodatkowe opcje, w jaki sposób twoja organizacja kontaktuje się z Tobą, aby zweryfikować swoją tożsamość, w zależności od tego, co próbujesz zrobić. Dostępne są następujące opcje:
+Dostępne są dodatkowe opcje dotyczące sposobu, w jaki Twoja organizacja kontaktuje się z Twoją tożsamością, w oparciu o to, co you're próbę wykonania. Dostępne są następujące opcje:
 
-- **Tekst urządzenia mobilnego.** Wpisz numer urządzenia mobilnego i otrzymasz sms-a z kodem, którego użyjesz do weryfikacji dwuetapowej lub resetowania hasła. Aby uzyskać instrukcje krok po kroku dotyczące weryfikacji tożsamości za pomocą wiadomości SMS, zobacz [Konfigurowanie informacji zabezpieczających do korzystania z wiadomości tekstowych (SMS).](security-info-setup-text-msg.md)
+- **Tekst urządzenia przenośnego.** Wprowadź numer urządzenia przenośnego i uzyskaj tekst kodu, który będzie używany do weryfikacji dwuetapowej lub resetowania hasła. Aby uzyskać instrukcje krok po kroku dotyczące weryfikowania tożsamości za pomocą wiadomości tekstowych (SMS), zobacz [Konfigurowanie informacji zabezpieczających do używania wiadomości](security-info-setup-text-msg.md)SMS.
 
-- **Połączenie telefoniczne z urządzeniem mobilnym lub służbowym.** Wprowadź numer urządzenia mobilnego i uzyskaj połączenie telefoniczne w celu weryfikacji dwuetapowej lub zresetowania hasła. Aby uzyskać instrukcje krok po kroku dotyczące weryfikacji tożsamości za pomocą numeru telefonu, zobacz [Konfigurowanie informacji zabezpieczających do korzystania z połączeń telefonicznych.](security-info-setup-phone-number.md)
+- **Urządzenie przenośne lub połączenie telefoniczne.** Wprowadź numer urządzenia przenośnego i otrzymaj połączenie telefoniczne w celu weryfikacji dwuetapowej lub resetowania hasła. Aby uzyskać instrukcje krok po kroku dotyczące weryfikowania tożsamości przy użyciu numeru telefonu, zobacz [Konfigurowanie informacji zabezpieczających do korzystania z połączeń telefonicznych](security-info-setup-phone-number.md).
 
-- **Klucz zabezpieczeń.** Zarejestruj klucz zabezpieczeń zgodny z firmą Microsoft i użyj go wraz z kodem PIN do weryfikacji dwuetapowej lub resetowania hasła. Aby uzyskać instrukcje krok po kroku dotyczące weryfikacji tożsamości za pomocą klucza zabezpieczeń, zobacz [Konfigurowanie informacji zabezpieczających w celu używania klucza zabezpieczeń](security-info-setup-security-key.md).
+- **Klucz zabezpieczeń.** Zarejestruj klucz zabezpieczeń zgodny z firmą Microsoft i użyj go wraz z numerem PIN w celu weryfikacji dwuetapowej lub resetowania hasła. Instrukcje krok po kroku dotyczące weryfikowania tożsamości przy użyciu klucza zabezpieczeń znajdują się w temacie [set up Security Info to use a Security Key](security-info-setup-security-key.md).
 
-- **Adres e-mail.** Wprowadź służbowy adres e-mail, aby otrzymać wiadomość e-mail z prośbą o zresetowanie hasła. Ta opcja nie jest dostępna w przypadku weryfikacji dwuetapowej. Aby uzyskać instrukcje krok po kroku dotyczące konfigurowania poczty e-mail, zobacz [Konfigurowanie informacji zabezpieczających do korzystania z poczty e-mail](security-info-setup-email.md).
+- **Adres e-mail.** Wprowadź służbowy adres e-mail, aby uzyskać wiadomość e-mail na potrzeby resetowania hasła. Ta opcja jest niedostępna w przypadku weryfikacji dwuetapowej. Aby uzyskać instrukcje krok po kroku dotyczące konfigurowania poczty e-mail, zobacz [Konfigurowanie informacji zabezpieczających do używania poczty e-mail](security-info-setup-email.md).
 
-- **Pytania zabezpieczające.** Odpowiedz na niektóre pytania zabezpieczające utworzone przez administratora w organizacji. Ta opcja jest dostępna tylko w przypadku resetowania hasła, a nie weryfikacji dwuetapowej. Aby uzyskać instrukcje krok po kroku dotyczące konfigurowania pytań zabezpieczających, zobacz artykuł [Konfigurowanie informacji zabezpieczających do używania pytań zabezpieczających.](security-info-setup-questions.md)
+- **Pytania zabezpieczające.** Odpowiedz na niektóre pytania zabezpieczające utworzone przez administratora w organizacji. Ta opcja jest dostępna tylko do resetowania haseł, a nie do weryfikacji dwuetapowej. Aby uzyskać instrukcje krok po kroku dotyczące konfigurowania pytań zabezpieczających, zobacz artykuł [Konfigurowanie informacji zabezpieczających do używania pytań zabezpieczających](security-info-setup-questions.md) .
 
     >[!Note]
-    >Jeśli brakuje niektórych z tych opcji, jest to najprawdopodobniej, ponieważ organizacja nie zezwala na te metody. W takim przypadku należy wybrać dostępną metodę lub skontaktować się z administratorem, aby uzyskać dodatkową pomoc.
+    >Jeśli brakuje niektórych z tych opcji, prawdopodobnie organizacja nie zezwala na te metody. W takim przypadku należy wybrać dostępną metodę lub skontaktować się z administratorem w celu uzyskania pomocy.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zaloguj się przy użyciu aplikacji Microsoft Authenticator, wykonując kroki opisane w artykule [Logowanie przy użyciu weryfikacji dwuetapowej lub informacji zabezpieczających.](security-info-setup-signin.md)
+- Zaloguj się przy użyciu aplikacji Microsoft Authenticator, wykonując czynności opisane w artykule [Logowanie przy użyciu weryfikacji dwuetapowej lub informacji o zabezpieczeniach](security-info-setup-signin.md) .
 
 - Zagubione lub zapomniane hasło możesz zresetować w [portalu resetowania hasła](https://passwordreset.microsoftonline.com/) lub wykonując kroki przedstawione w artykule [Resetowanie hasła służbowego](active-directory-passwords-update-your-own-password.md).
 

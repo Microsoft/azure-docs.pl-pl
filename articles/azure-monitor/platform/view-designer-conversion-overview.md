@@ -1,5 +1,5 @@
 ---
-title: Przewodnik po przejściu widoku usługi Azure Monitor do skoroszytów
+title: Przewodnik przejścia projektanta widoku Azure Monitor do skoroszytów
 description: ''
 author: austonli
 ms.author: aul
@@ -7,60 +7,60 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: 234da921b4f0d1243ca8cfdb12ba2d851db2b43f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77658697"
 ---
-# <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Przewodnik po przejściu widoku usługi Azure Monitor do skoroszytów
-[Projektant widoku](view-designer.md) jest funkcją usługi Azure Monitor, która umożliwia tworzenie widoków niestandardowych ułatwiające wizualizację danych w obszarze roboczym usługi Log Analytics za pomocą wykresów, list i osi czasu. Są one stopniowo wycofywane i zastępowane skoroszytami, które zapewniają dodatkowe funkcje. Ten artykuł zawiera omówienie procesu konwertowania istniejących widoków na skoroszyty.
+# <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Przewodnik przejścia projektanta widoku Azure Monitor do skoroszytów
+[Projektant widoków](view-designer.md) jest funkcją Azure monitor, która umożliwia tworzenie niestandardowych widoków, które ułatwiają wizualizację danych w obszarze roboczym log Analytics, z wykresami, listami i osiami czasu. Są one wycofywane i zastępowane skoroszytami, które zapewniają dodatkową funkcjonalność. Ten artykuł zawiera omówienie procesu konwertowania istniejących widoków do skoroszytów.
 
-## <a name="workbooks-overview"></a>Omówienie skoroszytów
-[Skoroszyty](../insights/vminsights-workbooks.md) łączą tekst, [zapytania dziennika,](../log-query/query-language.md)metryki i parametry w zaawansowane raporty interaktywne. Członkowie zespołu z tym samym dostępem do zasobów platformy Azure mogą również edytować skoroszyty.
+## <a name="workbooks-overview"></a>Przegląd skoroszytów
+[Skoroszyty](../insights/vminsights-workbooks.md) łączą tekst, [kwerendy dzienników](../log-query/query-language.md), metryki i parametry w rozbudowanych raportach interaktywnych. Członkowie zespołu mający ten sam dostęp do zasobów platformy Azure mogą również edytować skoroszyty.
 
-Skoroszyty są przydatne w scenariuszach, takich jak:
+Skoroszyty są przydatne w scenariuszach takich jak:
 
--   Eksplorowanie użycia maszyny wirtualnej, gdy nie znasz metryki zainteresowania z wyprzedzeniem: wykorzystanie procesora CPU, miejsce na dysku, pamięci, zależności sieciowe, itp. W przeciwieństwie do innych narzędzi do analizy użycia skoroszyty umożliwiają łączenie wielu rodzajów wizualizacji i analiz, dzięki czemu doskonale nadają się do tego rodzaju eksploracji swobodnej.
--   Wyjaśniając zespołowi, jak działa niedawno aprowizowana maszyna wirtualna, pokazując metryki dla liczników kluczy i innych zdarzeń dziennika.
--   Udostępnianie wyników eksperymentu zmiany rozmiaru maszyny wirtualnej innym członkom zespołu. Możesz wyjaśnić cele eksperymentu za pomocą tekstu, a następnie wyświetlić wszystkie metryki użycia i zapytania analityczne używane do oceny eksperymentu, a także wyraźne wywołania, czy każda metryka była powyżej lub poniżej celu.
--   Raportowanie wpływu awarii na użycie maszyny Wirtualnej, łączenie danych, wyjaśnienie tekstu i omówienie kolejnych kroków, aby zapobiec awariom w przyszłości.
+-   Zbadaj użycie maszyny wirtualnej, gdy nie wiesz, jakie są interesujące Cię metryki: użycie procesora CPU, miejsce na dysku, pamięć, zależności sieci itp. W przeciwieństwie do innych narzędzi analitycznych użycia, skoroszyty umożliwiają łączenie wielu rodzajów wizualizacji i analiz, dzięki czemu są wspaniałe dla tego rodzaju eksploracji o dowolnej postaci.
+-   Objaśnienie Twojego zespołu, jak ostatnio obsługiwana maszyna wirtualna jest wykonywana, pokazując metryki dla liczników kluczy i innych zdarzeń dzienników.
+-   Udostępnianie wyników eksperymentu zmiany rozmiarów maszyny wirtualnej z innymi członkami zespołu. Można wyjaśnić cele eksperymentu z tekstem, a następnie pokazać wszystkie metryki użycia i zapytania analityczne używane do szacowania eksperymentu, a także wyraźne wywołania, dla których każda Metryka przekracza lub poniżej wartości docelowej.
+-   Raportowanie wpływu awarii na korzystanie z maszyny wirtualnej, łączenie danych, wyjaśnienie tekstu i Omówienie następnych kroków, aby zapobiec awarii w przyszłości.
 
 
 ## <a name="why-convert-view-designer-dashboards-to-workbooks"></a>Dlaczego warto konwertować pulpity nawigacyjne projektanta widoków na skoroszyty?
 
-Projektant widoku oferuje możliwość generowania różnych widoków i wizualizacji opartych na zapytaniach. Wiele dostosowań najwyższego poziomu pozostaje jednak ograniczonych, na przykład formatowanie układów siatek i kafelków czy wybieranie alternatywnej grafiki mającej reprezentować dane. Projektant widoku jest ograniczony do łącznie dziewięciu różnych kafelków do reprezentowania danych.
+Projektant widoków oferuje możliwość generowania różnych widoków i wizualizacji opartych na zapytaniach. Wiele dostosowań najwyższego poziomu pozostaje jednak ograniczonych, na przykład formatowanie układów siatek i kafelków czy wybieranie alternatywnej grafiki mającej reprezentować dane. Projektant widoków jest ograniczony do dziewięciu unikatowych kafelków, które reprezentują dane.
 
-Skoroszyty to platforma, która uwalnia pełny potencjał danych. skoroszyty nie tylko zachowują wszystkie możliwości, ale także obsługują dodatkowe funkcje za pomocą tekstu, metryk, parametrów i wielu innych. Na przykład skoroszyty umożliwiają użytkownikom konsolidowanie gęstych siatek i dodawanie pasków wyszukiwania w celu łatwego filtrowania i analizowania danych. 
+Skoroszyty to platforma, która uwalnia pełny potencjał danych. skoroszyty nie tylko zachowują wszystkie możliwości, ale również obsługują dodatkowe funkcje za pomocą tekstu, metryk, parametrów i wiele innych. Na przykład skoroszyty umożliwiają użytkownikom konsolidowanie gęstych siatek i dodawanie pasków wyszukiwania w celu łatwego filtrowania i analizowania danych. 
 
-### <a name="advantages-of-using-workbooks-over-view-designer"></a>Zalety używania skoroszytów w projektancie widoku
+### <a name="advantages-of-using-workbooks-over-view-designer"></a>Zalety używania skoroszytów przez projektanta widoków
 
 * Obsługuje zarówno dzienniki, jak i metryki.
-* Umożliwia zarówno widoki osobiste dla widoków indywidualnej kontroli dostępu, jak i udostępnionych skoroszytów.
-* Niestandardowe opcje układu z zakładkami, rozmiarami i kontrolkami skalowania.
-* Obsługa wykonywania zapytań w wielu obszarach roboczych usługi Log Analytics, aplikacjach usługi Application Insights i subskrypcjach.
-* Włącza parametry niestandardowe, które dynamicznie aktualizują skojarzone wykresy i wizualizacje.
-* Obsługa galerii szablonów z publicznego programu GitHub.
+* Zezwala na widoki osobiste dla poszczególnych widoków kontroli dostępu i skoroszytów udostępnionych.
+* Niestandardowe opcje układu z kartami, rozmiarami i kontrolkami skalowania.
+* Obsługa zapytań w wielu obszarach roboczych Log Analytics, aplikacjach Application Insights i subskrypcjach.
+* Włącza parametry niestandardowe dynamicznie aktualizują skojarzone wykresy i wizualizacje.
+* Obsługa galerii szablonów z publicznej usługi GitHub.
 
-Ten przewodnik oferuje proste kroki bezpośredniego odtworzenia kilku najczęściej używanych widoków projektanta widoków, ale skoroszyty umożliwiają użytkownikom swobodę tworzenia i projektowania własnych wizualizacji i metryk niestandardowych. Poniższy zrzut ekranu pochodzi z [szablonu użycia obszaru roboczego](https://go.microsoft.com/fwlink/?linkid=874159&resourceId=Azure%20Monitor&featureName=Workbooks&itemId=community-Workbooks%2FAzure%20Monitor%20-%20Workspaces%2FWorkspace%20Usage&workbookTemplateName=Workspace%20Usage&func=NavigateToPortalFeature&type=workbook) i przedstawia przykład tego, jakie skoroszyty są w stanie utworzyć:
-
-
-![Przykład aplikacji skoroszytów](media/view-designer-conversion-overview/workbook-template-example.jpg)
+Chociaż ten przewodnik zawiera proste kroki umożliwiające bezpośrednie odtworzenie kilku często używanych widoków projektanta widoku, skoroszyty umożliwiają użytkownikom swobodne tworzenie i projektowanie własnych niestandardowych wizualizacji i metryk. Poniższy zrzut ekranu pochodzi z [szablonu użycie obszaru roboczego](https://go.microsoft.com/fwlink/?linkid=874159&resourceId=Azure%20Monitor&featureName=Workbooks&itemId=community-Workbooks%2FAzure%20Monitor%20-%20Workspaces%2FWorkspace%20Usage&workbookTemplateName=Workspace%20Usage&func=NavigateToPortalFeature&type=workbook) i pokazuje przykład, jakie skoroszyty mogą tworzyć:
 
 
-## <a name="how-to-start-using-workbooks"></a>Jak rozpocząć korzystanie ze skoroszytów
-Otwieranie skoroszytów ze skoroszytów jest włączone w obszarach roboczych usługi Log Analytics jako element na bocznym pasku nawigacyjnym, bezpośrednio pod lokalizacją projektanta widoku.
+![Przykład aplikacji ze skoroszytami](media/view-designer-conversion-overview/workbook-template-example.jpg)
 
-![Nawigacja do skoroszytów](media/view-designer-conversion-overview/workbooks-nav.png)
 
-Po wybraniu zostanie wyświetlona galeria zawierająca listę wszystkich zapisanych skoroszytów i szablonów dla obszaru roboczego.
+## <a name="how-to-start-using-workbooks"></a>Jak zacząć używać skoroszytów
+Otwarte skoroszyty ze skoroszytów są włączane w Log Analytics obszarach roboczych jako element na pasku nawigacyjnym po stronie bezpośrednio pod lokalizacją projektanta widoku.
+
+![Nawigacja po skoroszytach](media/view-designer-conversion-overview/workbooks-nav.png)
+
+Po wybraniu zostanie wyświetlona Galeria zawierająca listę wszystkich zapisanych skoroszytów i szablonów dla Twojego obszaru roboczego.
 
 ![Galeria skoroszytów](media/view-designer-conversion-overview/workbooks-gallery.png)
 
-Aby rozpocząć nowy skoroszyt, możesz wybrać **pusty** szablon w obszarze **Szybki start**lub ikonę **Nowy** na górnym pasku nawigacyjnym. Aby wyświetlić szablony lub powrócić do zapisanych skoroszytów, wybierz element z galerii lub wyszukaj nazwę na pasku wyszukiwania.
+Aby rozpocząć nowy skoroszyt, możesz wybrać **pusty** szablon w obszarze **Szybki Start**lub **nową** ikonę na górnym pasku nawigacyjnym. Aby wyświetlić szablony lub powrócić do zapisanych skoroszytów, wybierz element z galerii lub Wyszukaj nazwę na pasku wyszukiwania.
 
 Aby zapisać skoroszyt, należy zapisać raport z określonym tytułem, subskrypcją, grupą zasobów i lokalizacją.
-Skoroszyt automatycznie dopełni te same ustawienia co obszar roboczy LA, z tą samą subskrypcją, grupą zasobów, jednak użytkownicy mogą zmienić te ustawienia raportu. Skoroszyty są domyślnie zapisywane w *folderze Moje raporty,* dostępne tylko dla poszczególnych użytkowników. Można je również zapisać bezpośrednio w raportach udostępnionych lub udostępnić później.
+Skoroszyt spowoduje wypełnienie tych samych ustawień co obszar roboczy LA, z tą samą subskrypcją, grupą zasobów, ale użytkownicy mogą zmienić te ustawienia raportu. Skoroszyty są domyślnie zapisywane do *Moje raporty*, dostępne tylko dla poszczególnych użytkowników. Można je także zapisywać bezpośrednio w udostępnionych raportach lub udostępniać je później.
 
 ![Zapisywanie skoroszytów](media/view-designer-conversion-overview/workbooks-save.png)
 

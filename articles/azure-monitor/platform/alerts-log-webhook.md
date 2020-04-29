@@ -1,6 +1,6 @@
 ---
-title: Akcje elementu Webhook dla alertów dziennika w alertach platformy Azure
-description: W tym artykule opisano sposób tworzenia reguły alertów dziennika przy użyciu obszaru roboczego usługi Log Analytics lub usługi Application Insights, jak alert wypycha dane jako element webhook HTTP oraz szczegóły różnych dostosowań, które są możliwe.
+title: Akcje elementu webhook dla alertów dziennika w usłudze Azure Alerts
+description: W tym artykule opisano sposób tworzenia reguły alertu dziennika przy użyciu obszaru roboczego Log Analytics lub Application Insights, sposobu wypchnięcia danych jako elementu webhook protokołu HTTP i szczegółowych informacji o różnych możliwych dostosowaniach.
 author: yanivlavi
 ms.author: yalavi
 services: monitoring
@@ -8,57 +8,57 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.subservice: alerts
 ms.openlocfilehash: 7b1956ad2bf9bf38ba9edc4c7234078557564071
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77667707"
 ---
-# <a name="webhook-actions-for-log-alert-rules"></a>Akcje elementu Webhook dla reguł alertów dziennika
-Po [utworzeniu alertu dziennika](alerts-log.md)na platformie Azure można [go skonfigurować przy użyciu grup akcji](action-groups.md) w celu wykonania jednej lub kilku akcji. W tym artykule opisano różne akcje elementu webhook, które są dostępne i pokazano, jak skonfigurować niestandardowy element webhook oparty na JSON.
+# <a name="webhook-actions-for-log-alert-rules"></a>Akcje elementu webhook dla reguł alertów dziennika
+Po [utworzeniu alertu dziennika na platformie Azure](alerts-log.md)można [skonfigurować go za pomocą grup akcji](action-groups.md) , aby wykonać jedną lub więcej akcji. W tym artykule opisano różne akcje elementu webhook, które są dostępne i przedstawiono sposób konfigurowania niestandardowego elementu webhook opartego na notacji JSON.
 
 > [!NOTE]
-> Można również użyć [wspólnego schematu alertów](https://aka.ms/commonAlertSchemaDocs) dla integracji elementu webhook. Wspólny schemat alertów zapewnia tę zaletę, że ma jeden rozszerzalny i ujednolicony ładunek alertów we wszystkich usługach alertów w usłudze Azure Monitor.Należy pamiętać, że wspólny schemat alertów nie jest honorowany niestandardowej opcji JSON dla alertów dziennika. Jest on odracza do wspólnego ładunku schematu alertu, jeśli jest zaznaczona niezależnie od dostosowania, które mogły być wykonane na poziomie reguły alertu. [Dowiedz się więcej o definicji schematów alertów.](https://aka.ms/commonAlertSchemaDefinitions)
+> Można również użyć [wspólnego schematu alertów](https://aka.ms/commonAlertSchemaDocs) dla integracji elementów webhook. Typowy schemat alertów umożliwia korzystanie z jednego rozszerzalnego i ujednoliconego ładunku alertów dla wszystkich usług alertów w Azure Monitor. należy pamiętać, że wspólny schemat alertów nie ma opcji niestandardowy kod JSON dla alertów dziennika. Jest ona stosowana do typowego ładunku schematu alertu, jeśli jest zaznaczone niezależnie od dostosowania, które można wykonać na poziomie reguły alertu. [Dowiedz się więcej na temat typowych definicji schematu alertów.](https://aka.ms/commonAlertSchemaDefinitions)
 
 ## <a name="webhook-actions"></a>Akcje elementów webhook
 
-Za pomocą akcji webhook można wywołać proces zewnętrzny za pośrednictwem jednego żądania HTTP POST. Usługa, która jest wywoływana powinna obsługiwać webhooks i określić, jak korzystać z ładunku odbiera.
+Za pomocą akcji elementu webhook można wywołać proces zewnętrzny poprzez pojedyncze żądanie HTTP POST. Wywołana usługa powinna obsługiwać elementy webhook i określać, jak używać dowolnego otrzymanego ładunku.
 
 Akcje elementu webhook wymagają właściwości w poniższej tabeli.
 
 | Właściwość | Opis |
 |:--- |:--- |
-| **Webhook URL** |Adres URL elementu webhook. |
-| **Niestandardowy ładunek JSON** |Niestandardowy ładunek do wysłania za pomocą elementu webhook, gdy ta opcja jest wybrana podczas tworzenia alertu. Aby uzyskać więcej informacji, zobacz [Zarządzanie alertami dziennika](alerts-log.md).|
+| **Adres URL elementu webhook** |Adres URL elementu webhook. |
+| **Niestandardowy ładunek JSON** |Niestandardowy ładunek do wysłania wraz z elementem webhook w przypadku wybrania tej opcji podczas tworzenia alertu. Aby uzyskać więcej informacji, zobacz [Zarządzanie alertami dzienników](alerts-log.md).|
 
 > [!NOTE]
-> Przycisk **Wyświetl element webhook** obok opcji **Dołącz niestandardowy ładunek JSON dla elementu webhook** dla alertu dziennika wyświetla przykładowy ładunek elementu webhook dla dostosowywania, który został dostarczony. Nie zawiera rzeczywistych danych, ale jest reprezentatywna dla schematu JSON, który jest używany do alertów dziennika. 
+> Przycisk **Wyświetl element webhook** obok opcji **Uwzględnij niestandardowy ładunek JSON dla elementu webhook** dla alertu dziennika Wyświetla przykładowy ładunek elementu webhook dla podanego dostosowania. Nie zawiera ona rzeczywistych danych, ale jest reprezentatywna dla schematu JSON, który jest używany do obsługi alertów dzienników. 
 
-Elementy webhook zawierają adres URL i ładunek sformatowany w JSON, że dane wysyłane do usługi zewnętrznej. Domyślnie ładunek zawiera wartości w poniższej tabeli. Możesz zastąpić ten ładunek własnym ładunkiem. W takim przypadku należy użyć zmiennych w tabeli dla każdego z parametrów, aby uwzględnić ich wartości w ładunku niestandardowego.
+Elementy webhook zawierają adres URL i ładunek sformatowany w formacie JSON, który dane są wysyłane do usługi zewnętrznej. Domyślnie ładunek zawiera wartości z poniższej tabeli. Możesz zamienić ten ładunek na niestandardowy. W takim przypadku należy użyć zmiennych w tabeli dla każdego z parametrów, aby uwzględnić ich wartości w niestandardowym ładunku.
 
 
 | Parametr | Zmienna | Opis |
 |:--- |:--- |:--- |
-| *Nazwa alertu* |#alertrulename |Nazwa reguły alertu. |
-| *Ważność* |#severity |Ustawiono ważność dla alertu odpalony dziennik. |
-| *AlertThresholdOperator* |#thresholdoperator |Operator progu dla reguły alertu, która używa większa lub mniejsza niż. |
+| *AlertRuleName* |#alertrulename |Nazwa reguły alertu. |
+| *Ważność* |#severity |Ważność ustawiona dla alertu wygenerowanego dziennika. |
+| *AlertThresholdOperator* |#thresholdoperator |Operator progu dla reguły alertu, który używa wartości większej niż lub mniejszej niż. |
 | *AlertThresholdValue* |#thresholdvalue |Wartość progowa dla reguły alertu. |
-| *Wyniki LinkToSearch* |#linktosearchresults |Łącze do portalu Analytics, który zwraca rekordy z kwerendy, która utworzyła alert. |
-| *WynikCount* |#searchresultcount |Liczba rekordów w wynikach wyszukiwania. |
-| *Czas zakończenia interwału wyszukiwania* |#searchintervalendtimeutc |Czas zakończenia kwerendy w formacie UTC, z formatem mm/dd/yyyy HH:mm:ss AM/PM. |
-| *Interwał wyszukiwania* |#searchinterval |Przedział czasu dla reguły alertu z formatem HH:mm:ss. |
-| *Czas rozpoczęcia interwału wyszukiwania* |#searchintervalstarttimeutc |Godzina rozpoczęcia kwerendy w formacie UTC, w formacie mm/dd/yyyy HH:mm:ss AM/PM. 
-| *Kwerenda wyszukiwania* |#searchquery |Kwerenda wyszukiwania dziennika używana przez regułę alertu. |
-| *Wyniki wyszukiwania* |"IncludeSearchResults": prawda|Rekordy zwracane przez kwerendę jako tabela JSON, ograniczone do pierwszych 1000 rekordów, jeśli "IncludeSearchResults": true jest dodawany w niestandardowej definicji elementu webhook JSON jako właściwość najwyższego poziomu. |
-| *Typ alertu*| #alerttype | Typ reguły alertu dziennika skonfigurowany jako [pomiar metryki](alerts-unified-log.md#metric-measurement-alert-rules) lub [Liczba wyników](alerts-unified-log.md#number-of-results-alert-rules).|
-| *Obszar roboczyID* |#workspaceid |Identyfikator obszaru roboczego usługi Log Analytics. |
-| *Identyfikator aplikacji* |#applicationid |Identyfikator aplikacji usługi Application Insights. |
+| *LinkToSearchResults* |#linktosearchresults |Połącz się z portalem analizy, który zwraca rekordy z zapytania, które spowodowało utworzenie alertu. |
+| *Właściwości resultcount dla* |#searchresultcount |Liczba rekordów w wynikach wyszukiwania. |
+| *Czas zakończenia interwału wyszukiwania* |#searchintervalendtimeutc |Czas zakończenia zapytania w formacie UTC z formatem mm/dd/rrrr HH: mm: ss AM/PM. |
+| *Interwał wyszukiwania* |#searchinterval |Przedział czasu dla reguły alertu w formacie gg: mm: SS. |
+| *Interwał wyszukiwania czas rozpoczęcia* |#searchintervalstarttimeutc |Godzina rozpoczęcia zapytania w formacie UTC z formatem mm/dd/rrrr HH: mm: ss AM/PM. 
+| *SearchQuery* |#searchquery |Zapytanie wyszukiwania w dzienniku używane przez regułę alertu. |
+| *SearchResults* |"IncludeSearchResults": true|Rekordy zwracane przez zapytanie jako tabela JSON, które są ograniczone do pierwszych 1 000 rekordów, jeśli "IncludeSearchResults": true jest dodawana do niestandardowej definicji elementu webhook JSON jako Właściwość najwyższego poziomu. |
+| *Typ alertu*| #alerttype | Typ reguły alertu dziennika skonfigurowanej jako [pomiar metryki](alerts-unified-log.md#metric-measurement-alert-rules) lub [liczba wyników](alerts-unified-log.md#number-of-results-alert-rules).|
+| *Identyfikator obszaru roboczego* |#workspaceid |Identyfikator obszaru roboczego Log Analytics. |
+| *Identyfikator aplikacji* |#applicationid |Identyfikator aplikacji Application Insights. |
 | *Subscription ID (Identyfikator subskrypcji)* |#subscriptionid |Identyfikator używanej subskrypcji platformy Azure. 
 
 > [!NOTE]
-> *LinkToSearchResults* przekazuje parametry, takie jak *SearchQuery*, *Search Interval StartTime*i *Czas zakończenia interwału wyszukiwania* w adresie URL do witryny Azure portal do przeglądania w sekcji Analytics. Portal Azure ma limit rozmiaru identyfikatora URI wynoszący około 2000 znaków. Portal *nie* otworzy łączy podanych w alertach, jeśli wartości parametrów przekroczą limit. Możesz ręcznie wprowadzić szczegóły, aby wyświetlić wyniki w portalu Analytics. Można też użyć [interfejsu API REST usługi Application Analytics lub](https://dev.applicationinsights.io/documentation/Using-the-API) interfejsu API REST usługi analizy [dziennika,](/rest/api/loganalytics/) aby programowo pobierać wyniki. 
+> *LinkToSearchResults* przekazuje parametry, takie jak *SearchQuery*, *Interwał wyszukiwania StartTime*oraz *czas zakończenia interwału wyszukiwania* w adresie URL do Azure Portal do wyświetlania w sekcji Analiza. Azure Portal ma limit rozmiaru identyfikatora URI wynoszący około 2 000 znaków. W portalu *nie* będą otwierane linki podane w alertach, jeśli wartości parametrów przekraczają limit. Możesz ręcznie wprowadzić szczegóły, aby wyświetlić wyniki w portalu analizy. Można też użyć [interfejsu API REST usługi Application Insights Analytics](https://dev.applicationinsights.io/documentation/Using-the-API) lub [interfejsu API REST log Analytics](/rest/api/loganalytics/) , aby programowo pobrać wyniki. 
 
-Na przykład można określić następujący ładunek niestandardowy, który zawiera pojedynczy parametr o nazwie *tekst*. Usługa, która wywołuje ten element webhook oczekuje tego parametru.
+Na przykład można określić następujący ładunek niestandardowy, który zawiera pojedynczy parametr o nazwie *Text*. Usługa, którą wywołuje to wywołanie elementu webhook, oczekuje tego parametru.
 
 ```json
 
@@ -66,25 +66,25 @@ Na przykład można określić następujący ładunek niestandardowy, który zaw
         "text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue."
     }
 ```
-W tym przykładzie ładunek rozwiązuje się z czymś następującym, gdy jest wysyłany do elementu webhook:
+Ten przykładowy ładunek jest rozpoznawany jako podobny do poniższego, gdy jest wysyłany do elementu webhook:
 
 ```json
     {
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
-Ponieważ wszystkie zmienne w niestandardowym elementów webhook muszą być określone w obudowie JSON, takich jak "#searchinterval", wynikowy element webhook ma również zmienne dane wewnątrz obudów, takich jak "00:05:00."
+Ponieważ wszystkie zmienne w niestandardowym elemencie webhook muszą być określone w obrębie obudowy JSON, np. "#searchinterval, wynikowy element webhook również zawiera zmienne dane wewnątrz obudów, takie jak" 00:05:00 ".
 
-Aby uwzględnić wyniki wyszukiwania w ładunku niestandardowego, upewnij się, że **IncludeSearchResults** jest ustawiona jako właściwość najwyższego poziomu w ładunku JSON. 
+Aby uwzględnić wyniki wyszukiwania w niestandardowym ładunku, upewnij się, że **IncludeSearchResults** jest ustawiony jako Właściwość najwyższego poziomu w ładunku JSON. 
 
 ## <a name="sample-payloads"></a>Przykładowe ładunki
-W tej sekcji przedstawiono przykładowe ładunki dla zestawów webhook dla alertów dziennika. Przykładowe ładunki obejmują przykłady, gdy ładunek jest standardowy i gdy jest niestandardowy.
+W tej sekcji przedstawiono przykładowe ładunki dla elementów webhook dla alertów dziennika. Przykładowe ładunki zawierają przykłady, gdy ładunek jest standardowy i gdy jest niestandardowy.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Standardowy element webhook dla alertów dziennika 
-Oba te przykłady mają atrapę ładunku tylko dwie kolumny i dwa wiersze.
+Oba te przykłady mają fikcyjny ładunek z tylko dwiema kolumnami i dwoma wierszami.
 
-#### <a name="log-alert-for-log-analytics"></a>Alert dziennika dla usługi Log Analytics
-Następująca próbka ładunku jest dla standardowej akcji elementu webhook *bez niestandardowej opcji JSON,* która jest używana dla alertów opartych na usłudze Log Analytics:
+#### <a name="log-alert-for-log-analytics"></a>Alert dziennika dla Log Analytics
+Następujący przykładowy ładunek dotyczy akcji standardowego elementu webhook *bez niestandardowej opcji JSON* , która jest używana na potrzeby alertów na podstawie log Analytics:
 
 ```json
 {
@@ -123,11 +123,11 @@ Następująca próbka ładunku jest dla standardowej akcji elementu webhook *bez
  ```
 
 > [!NOTE]
-> Wartość pola "Ważność" może ulec zmianie, jeśli [zmienisz preferencję interfejsu API](alerts-log-api-switch.md) dla alertów dziennika w usłudze Log Analytics.
+> Wartość pola "ważność" może ulec zmianie, jeśli [preferencja interfejsu API](alerts-log-api-switch.md) dla alertów dziennika została przełączona na log Analytics.
 
 
-#### <a name="log-alert-for-application-insights"></a>Alert dziennika dla usługi Application Insights
-Następująca próbka ładunku jest dla standardowego elementu webhook *bez niestandardowej opcji JSON,* gdy jest on używany do alertów dziennika opartych na usłudze Application Insights:
+#### <a name="log-alert-for-application-insights"></a>Alert dziennika dla Application Insights
+Następujący przykładowy ładunek dotyczy standardowego elementu webhook *bez opcji NIESTANDARDOWEGO JSON,* gdy jest używany do rejestrowania alertów na podstawie Application Insights:
     
 ```json
 {
@@ -168,8 +168,8 @@ Następująca próbka ładunku jest dla standardowego elementu webhook *bez nies
 }
 ```
 
-#### <a name="log-alert-with-custom-json-payload"></a>Alert dziennika z niestandardowym ładunkiem JSON
-Na przykład, aby utworzyć ładunek niestandardowy, który zawiera tylko nazwę alertu i wyniki wyszukiwania, można użyć następujących czynności: 
+#### <a name="log-alert-with-custom-json-payload"></a>Zgłoś alert z niestandardowym ładunkiem JSON
+Na przykład, aby utworzyć niestandardowy ładunek, który zawiera tylko nazwę alertu i wyniki wyszukiwania, można użyć następujących czynności: 
 
 ```json
     {
@@ -178,7 +178,7 @@ Na przykład, aby utworzyć ładunek niestandardowy, który zawiera tylko nazwę
     }
 ```
 
-Następująca próbka ładunku jest dla niestandardowej akcji elementu webhook dla dowolnego alertu dziennika:
+Następujący przykładowy ładunek dotyczy akcji niestandardowej elementu webhook dla dowolnego alertu dziennika:
     
 ```json
     {
@@ -205,9 +205,9 @@ Następująca próbka ładunku jest dla niestandardowej akcji elementu webhook d
 
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej o [alertach dziennika w alertach platformy Azure](alerts-unified-log.md).
-- Dowiedz się, jak [zarządzać alertami dziennika na platformie Azure](alerts-log.md).
+- Dowiedz się więcej [na temat alertów dziennika w usłudze Azure Alerts](alerts-unified-log.md).
+- Zapoznaj się z tematem jak [zarządzać alertami dziennika na platformie Azure](alerts-log.md).
 - Tworzenie grup akcji i zarządzanie nimi [na platformie Azure](action-groups.md).
-- Dowiedz się więcej o [usłudze Application Insights](../../azure-monitor/app/analytics.md).
+- Dowiedz się więcej o [Application Insights](../../azure-monitor/app/analytics.md).
 - Dowiedz się więcej o [zapytaniach dziennika](../log-query/log-query-overview.md). 
 

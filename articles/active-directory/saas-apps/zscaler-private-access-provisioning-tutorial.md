@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Konfigurowanie programu Zscaler Private Access (ZPA) do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure Active Directory | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować usługę Azure Active Directory do automatycznego inicjowania obsługi administracyjnej i usuwania z obsługi administracyjnej kont użytkowników do programu Zscaler Private Access (ZPA).
+title: 'Samouczek: Konfigurowanie prywatnego dostępu rozwiązania Zscaler (ZPA) w celu automatycznego aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników w celu rozwiązania Zscaler prywatnego dostępu (ZPA).
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,181 +16,181 @@ ms.topic: article
 ms.date: 10/07/2019
 ms.author: Zhchia
 ms.openlocfilehash: 609d2726eaaaeb49210e19f000bcc2faef1de5d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77064159"
 ---
-# <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie programu Zscaler Private Access (ZPA) do automatycznego inicjowania obsługi administracyjnej przez użytkowników
+# <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie prywatnego dostępu rozwiązania Zscaler (ZPA) w celu automatycznego aprowizacji użytkowników
 
-Celem tego samouczka jest zademonstrowanie kroków, które należy wykonać w programie Zscaler Private Access (ZPA) i usłudze Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego inicjowania obsługi administracyjnej i deekwowania użytkowników i/lub grup dostępu prywatnego (ZPA).
+Celem tego samouczka jest przedstawienie czynności, które należy wykonać w programie rozwiązania Zscaler Private Access (ZPA) i Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizacji i cofania aprowizacji użytkowników i/lub grup w celu rozwiązania Zscaler dostępu prywatnego (ZPA).
 
 > [!NOTE]
-> W tym samouczku opisano łącznik utworzony na podstawie usługi inicjowania obsługi administracyjnej użytkowników usługi Azure AD. Aby uzyskać ważne informacje na temat działania tej usługi, działania i często zadawanych pytań, zobacz [Automatyzacja inicjowania obsługi administracyjnej i usuwania obsługi administracyjnej aplikacji SaaS za pomocą usługi Azure Active Directory](../app-provisioning/user-provisioning.md).
+> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania aplikacji SaaS przy użyciu programu Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Ten łącznik jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat ogólnych warunków korzystania z platformy Microsoft Azure dla funkcji w wersji Zapoznawczej, zobacz [Dodatkowe warunki użytkowania w wersji Zapoznawczej platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Ten łącznik jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat ogólnych Microsoft Azure warunki użytkowania funkcji w wersji zapoznawczej, zobacz [dodatkowe warunki użytkowania dla Microsoft Azure podglądów](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku zakłada, że masz już następujące wymagania wstępne:
+Scenariusz opisany w tym samouczku założono, że masz już następujące wymagania wstępne:
 
 * Dzierżawa usługi Azure AD
-* [Dzierżawa zscaler private access (ZPA)](https://www.zscaler.com/pricing-and-plans#contact-us)
-* Konto użytkownika w programie Zscaler Private Access (ZPA) z uprawnieniami administratora.
+* [Dzierżawa rozwiązania Zscaler Private Access (ZPA)](https://www.zscaler.com/pricing-and-plans#contact-us)
+* Konto użytkownika w usłudze rozwiązania Zscaler Private Access (ZPA) z uprawnieniami administratora.
 
-## <a name="assigning-users-to-zscaler-private-access-zpa"></a>Przypisywanie użytkowników do programu Zscaler Private Access (ZPA)
+## <a name="assigning-users-to-zscaler-private-access-zpa"></a>Przypisywanie użytkowników do prywatnego dostępu rozwiązania Zscaler (ZPA)
 
-Usługa Azure Active Directory używa koncepcji o nazwie *przydziały,* aby określić, którzy użytkownicy powinni otrzymać dostęp do wybranych aplikacji. W kontekście automatycznego inicjowania obsługi administracyjnej użytkowników tylko użytkownicy i/lub grupy, które zostały przypisane do aplikacji w usłudze Azure AD są synchronizowane.
+Azure Active Directory używa koncepcji zwanej *zadaniami* w celu określenia, którzy użytkownicy powinni otrzymywać dostęp do wybranych aplikacji. W kontekście automatycznej aprowizacji użytkowników są synchronizowane tylko użytkownicy i/lub grupy, które zostały przypisane do aplikacji w usłudze Azure AD.
 
-Przed skonfigurowaniem i włączeniem automatycznego inicjowania obsługi administracyjnej użytkowników należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD potrzebują dostępu do programu Zscaler Private Access (ZPA). Po podjęciu decyzji, można przypisać tych użytkowników i / lub grup do Zscaler Private Access (ZPA), postępując zgodnie z instrukcjami tutaj:
-* [Przypisywanie użytkownika lub grupy do aplikacji przedsiębiorstwa](../manage-apps/assign-user-or-group-access-portal.md)
+Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD potrzebują dostępu do prywatnego dostępu rozwiązania Zscaler (ZPA). Po ustaleniu tych użytkowników i/lub grup można przypisywać rozwiązania Zscaler do prywatnego dostępu (ZPA), postępując zgodnie z poniższymi instrukcjami:
+* [Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-zscaler-private-access-zpa"></a>Ważne wskazówki dotyczące przypisywania użytkowników do programu Zscaler Private Access (ZPA)
+## <a name="important-tips-for-assigning-users-to-zscaler-private-access-zpa"></a>Ważne porady dotyczące przypisywania użytkowników do prywatnego dostępu rozwiązania Zscaler (ZPA)
 
-* Zaleca się, aby jeden użytkownik usługi Azure AD został przypisany do programu Zscaler Private Access (ZPA) w celu przetestowania konfiguracji automatycznego inicjowania obsługi administracyjnej użytkownika. Dodatkowi użytkownicy i/lub grupy mogą być przypisane później.
+* Zaleca się, aby jeden użytkownik usługi Azure AD został przypisany do rozwiązania Zscaler Private Access (ZPA) w celu przetestowania automatycznej konfiguracji inicjowania obsługi użytkowników. Dodatkowych użytkowników i/lub grupy można przypisywać później.
 
-* Podczas przypisywania użytkownika do programu Zscaler Private Access (ZPA) należy wybrać dowolną prawidłową rolę specyficzną dla aplikacji (jeśli jest dostępna) w oknie dialogowym przypisania. Użytkownicy z rolą **dostępu domyślnego** są wykluczeni z inicjowania obsługi administracyjnej.
+* Podczas przypisywania użytkownika do rozwiązania Zscaler prywatnego dostępu (ZPA), należy wybrać dowolną prawidłową rolę specyficzną dla aplikacji (jeśli jest dostępna) w oknie dialogowym przypisania. Użytkownicy z **domyślną rolą dostępu** są wykluczeni z aprowizacji.
 
-## <a name="set-up-zscaler-private-access-zpa-for-provisioning"></a>Konfigurowanie programu Zscaler Private Access (ZPA) do inicjowania obsługi administracyjnej
+## <a name="set-up-zscaler-private-access-zpa-for-provisioning"></a>Konfigurowanie prywatnego dostępu rozwiązania Zscaler (ZPA) na potrzeby aprowizacji
 
-1. Zaloguj się do [konsoli administracyjnej Zscaler Private Access (ZPA).](https://admin.private.zscaler.com/) Przejdź do **konfiguracji > IdP administracji**.
+1. Zaloguj się do [konsoli administracyjnej rozwiązania Zscaler dostępu prywatnego (ZPA)](https://admin.private.zscaler.com/). Przejdź do **> Administracja Konfiguracja dostawcy tożsamości**.
 
-    ![Konsola administracyjna Zscaler Private Access (ZPA)](media/zscaler-private-access-provisioning-tutorial/idpconfig.png)
+    ![Konsola administracyjna rozwiązania Zscaler Private Access (ZPA)](media/zscaler-private-access-provisioning-tutorial/idpconfig.png)
 
-2.  Sprawdź, czy jest skonfigurowany idP dla **logowania jednokrotnego.** Jeśli nie jest skonfigurowany żaden IdP, dodaj go, klikając ikonę plus w prawym górnym rogu ekranu.
+2.  Upewnij się, że skonfigurowano dostawcy tożsamości dla **logowania jednokrotnego** . Jeśli dostawcy tożsamości nie jest skonfigurowany, Dodaj ją, klikając ikonę znaku plus w prawym górnym rogu ekranu.
 
-    ![Zscaler Dostęp prywatny (ZPA) Dodaj SCIM](media/zscaler-private-access-provisioning-tutorial/plusicon.png)
+    ![Rozwiązania Zscaler Private Access (ZPA) Dodaj Standard scim](media/zscaler-private-access-provisioning-tutorial/plusicon.png)
 
-3. Postępuj zgodnie z **Kreatorem dodawania konfiguracji idp,** aby dodać IdP. Pozostaw pole **logowania jednokrotnego** ustawione na **User**. Podaj **nazwę** i wybierz **domeny** z listy rozwijanej. Kliknij **przycisk Dalej,** aby przejść do następnego okna.
+3. Aby dodać dostawcy tożsamości, postępuj zgodnie z instrukcjami w kreatorze **dodawania konfiguracji dostawcy tożsamości** . Pozostaw pole **Logowanie** jednokrotne ustawione na **użytkownika**. Podaj **nazwę** i wybierz **domeny** z listy rozwijanej. Kliknij przycisk **dalej** , aby przejść do następnego okna.
 
-    ![Zscaler Dostęp prywatny (ZPA) Dodaj IdP](media/zscaler-private-access-provisioning-tutorial/addidp.png)
+    ![Rozwiązania Zscaler Private Access (ZPA) Dodaj dostawcy tożsamości](media/zscaler-private-access-provisioning-tutorial/addidp.png)
 
-4. Pobierz **certyfikat usługodawcy**. Kliknij **przycisk Dalej,** aby przejść do następnego okna.
+4. Pobierz **certyfikat dostawcy usług**. Kliknij przycisk **dalej** , aby przejść do następnego okna.
 
-    ![Certyfikat SP zscaler private access (ZPA)](media/zscaler-private-access-provisioning-tutorial/spcertificate.png)
+    ![Certyfikat SP rozwiązania Zscaler Private Access (ZPA)](media/zscaler-private-access-provisioning-tutorial/spcertificate.png)
 
-5. W następnym oknie przekaż **certyfikat usługodawcy** pobrany wcześniej.
+5. W następnym oknie Przekaż wcześniej pobrany **certyfikat dostawcy usług** .
 
-    ![Certyfikat przekazywania programu Zscaler Private Access (ZPA)](media/zscaler-private-access-provisioning-tutorial/uploadfile.png)
+    ![Certyfikat przekazywania prywatnego dostępu rozwiązania Zscaler (ZPA)](media/zscaler-private-access-provisioning-tutorial/uploadfile.png)
 
-6.  Przewiń w dół, aby podać **adres URL logowania jednokrotnego** i **identyfikator jednostki IdP**.
+6.  Przewiń w dół, aby podać **adres URL logowania** jednokrotnego i **Identyfikator jednostki dostawcy tożsamości**.
 
-    ![Identyfikator IDP Zscaler (ZPA)](media/zscaler-private-access-provisioning-tutorial/idpid.png)
+    ![Rozwiązania Zscaler Private Access (ZPA) — identyfikator dostawcy tożsamości](media/zscaler-private-access-provisioning-tutorial/idpid.png)
 
-7.  Przewiń w dół, aby **włączyć synchronizację SCIM**. Kliknij przycisk **Generuj nowy żeton.** Skopiuj **token na okaziciela**. Ta wartość zostanie wprowadzona w polu Token tajny na karcie Inicjowanie obsługi administracyjnej aplikacji Zscaler Private Access (ZPA) w witrynie Azure portal.
+7.  Przewiń w dół, aby **włączyć synchronizację Standard scim**. Kliknij przycisk **Generuj nowy token** . Skopiuj **token okaziciela**. Ta wartość zostanie wprowadzona w polu token tajny na karcie aprowizacji w aplikacji rozwiązania Zscaler Private Access (ZPA) w Azure Portal.
 
-    ![Token tworzenia prywatnego dostępu Zscaler (ZPA)](media/zscaler-private-access-provisioning-tutorial/token.png)
+    ![Token tworzenia prywatnego dostępu rozwiązania Zscaler (ZPA)](media/zscaler-private-access-provisioning-tutorial/token.png)
 
-8.  Aby zlokalizować **adres URL dzierżawy,** przejdź do **pozycji Konfiguracja > IdP .** Kliknij nazwę nowo dodanej konfiguracji IdP wymienioną na stronie.
+8.  Aby znaleźć **adres URL dzierżawy** , przejdź do strony **Administracja > Konfiguracja dostawcy tożsamości**. Kliknij nazwę nowo dodanej konfiguracji dostawcy tożsamości z listy na stronie.
 
-    ![Nazwa Idp dostępu prywatnego Zscaler (ZPA)](media/zscaler-private-access-provisioning-tutorial/idpname.png)
+    ![Rozwiązania Zscaler Private Access (ZPA) — nazwa dostawcy tożsamości](media/zscaler-private-access-provisioning-tutorial/idpname.png)
 
-9.  Przewiń w dół, aby wyświetlić **punkt końcowy dostawcy usług SCIM** na końcu strony. Skopiuj **punkt końcowy dostawcy usług SCIM**. Ta wartość zostanie wprowadzona w polu Adres URL dzierżawy na karcie Inicjowanie obsługi administracyjnej aplikacji Zscaler Private Access (ZPA) w witrynie Azure portal.
+9.  Przewiń w dół, aby wyświetlić **punkt końcowy dostawcy usług Standard scim** na końcu strony. Skopiuj **punkt końcowy dostawcy usług Standard scim**. Ta wartość zostanie wprowadzona w polu adres URL dzierżawy na karcie aprowizacji w aplikacji rozwiązania Zscaler Private Access (ZPA) w Azure Portal.
 
-    ![Adres URL scjowego dostępu prywatnego (ZPA) Zscaler](media/zscaler-private-access-provisioning-tutorial/tenanturl.png)
+    ![Rozwiązania Zscaler Private Access (ZPA) — adres URL Standard scim](media/zscaler-private-access-provisioning-tutorial/tenanturl.png)
 
 
-## <a name="add-zscaler-private-access-zpa-from-the-gallery"></a>Dodaj Zscaler Private Access (ZPA) z galerii
+## <a name="add-zscaler-private-access-zpa-from-the-gallery"></a>Dodawanie prywatnego dostępu rozwiązania Zscaler (ZPA) z galerii
 
-Przed skonfigurowaniem programu Zscaler Private Access (ZPA) do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure AD należy dodać program Zscaler Private Access (ZPA) z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji SaaS.
+Przed skonfigurowaniem prywatnego dostępu rozwiązania Zscaler (ZPA) w celu automatycznego aprowizacji użytkowników w usłudze Azure AD należy dodać rozwiązania Zscaler prywatnego dostępu (ZPA) z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać program Zscaler Private Access (ZPA) z galerii aplikacji usługi Azure AD, wykonaj następujące czynności:**
+**Aby dodać rozwiązania Zscaler prywatny dostęp (ZPA) z galerii aplikacji usługi Azure AD, wykonaj następujące czynności:**
 
-1. W **[witrynie Azure portal](https://portal.azure.com)** w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
+1. W **[Azure Portal](https://portal.azure.com)** w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do **aplikacji enterprise**, a następnie wybierz pozycję **Wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-3. Aby dodać nową aplikację, wybierz przycisk **Nowa aplikacja** u góry okienka.
+3. Aby dodać nową aplikację, wybierz przycisk **Nowa aplikacja** w górnej części okienka.
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź **zscaler private access (ZPA)**, wybierz **Zscaler Private Access (ZPA)** w panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wprowadź **rozwiązania Zscaler Private Access (ZPA)**, wybierz pozycję **rozwiązania Zscaler Private Access (ZPA)** w panelu wyniki, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
-    ![Zscaler Private Access (ZPA) na liście wyników](common/search-new-app.png)
+    ![Rozwiązania Zscaler Private Access (ZPA) na liście wyników](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-zscaler-private-access-zpa"></a>Konfigurowanie automatycznego inicjowania obsługi administracyjnej dla programu Zscaler Private Access (ZPA) 
+## <a name="configuring-automatic-user-provisioning-to-zscaler-private-access-zpa"></a>Konfigurowanie automatycznego aprowizacji użytkowników w usłudze rozwiązania Zscaler Private Access (ZPA) 
 
-W tej sekcji można przejść przez kroki konfigurowania usługi inicjowania obsługi administracyjnej usługi Azure AD do tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w programie Zscaler Private Access (ZPA) na podstawie przypisania użytkowników i/lub grup w usłudze Azure AD.
+Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w usłudze rozwiązania Zscaler Private Access (ZPA) na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
 
 > [!TIP]
-> Można również włączyć logowanie jednokrotne oparte na SAML dla Zscaler Private Access (ZPA), postępując zgodnie z instrukcjami podanymi w [samouczku logowania jednokrotnego Zscaler Private Access (ZPA).](https://docs.microsoft.com/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial) Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej użytkownika, chociaż te dwie funkcje wzajemnie się uzupełniają.
+> Możesz również włączyć funkcję logowania jednokrotnego opartego na protokole SAML na potrzeby rozwiązania Zscaler prywatnego dostępu (ZPA), postępując zgodnie z instrukcjami podanymi w [samouczku Logowanie jednokrotne (rozwiązania Zscaler Private Access) (ZPA)](https://docs.microsoft.com/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial). Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje uzupełniają się wzajemnie.
 
 > [!NOTE]
-> Aby dowiedzieć się więcej o punkcie końcowym SCIM programu Zscaler Private Access, zapoznaj się [z tą tą .](https://www.zscaler.com/partners/microsoft)
+> Aby dowiedzieć się więcej na temat Standard scim punktu końcowego dostępu prywatnego rozwiązania Zscaler, zapoznaj się z [tym](https://www.zscaler.com/partners/microsoft)tematem.
 
-### <a name="to-configure-automatic-user-provisioning-for-zscaler-private-access-zpa-in-azure-ad"></a>Aby skonfigurować automatyczne inicjowanie obsługi administracyjnej dla programu Zscaler Private Access (ZPA) w usłudze Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-zscaler-private-access-zpa-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi administracyjnej użytkowników w usłudze rozwiązania Zscaler Private Access (ZPA) w usłudze Azure AD:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). Wybierz pozycję **Aplikacje przedsiębiorstwa**, a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz pozycję **Zscaler Private Access (ZPA)**.
+2. Na liście Aplikacje wybierz pozycję **rozwiązania Zscaler Private Access (ZPA)**.
 
-    ![Łącze Zscaler Private Access (ZPA) na liście Aplikacje](common/all-applications.png)
+    ![Link rozwiązania Zscaler Private Access (ZPA) na liście aplikacji](common/all-applications.png)
 
-3. Wybierz kartę **Inicjowanie obsługi administracyjnej.**
+3. Wybierz kartę **aprowizacji** .
 
-    ![Karta Inicjowanie obsługi administracyjnej](common/provisioning.png)
+    ![Karta aprowizacji](common/provisioning.png)
 
-4. Ustaw **tryb inicjowania obsługi administracyjnej** na **Automatyczny**.
+4. Ustaw **tryb aprowizacji** na **automatyczny**.
 
-    ![Karta Inicjowanie obsługi administracyjnej](common/provisioning-automatic.png)
+    ![Karta aprowizacji](common/provisioning-automatic.png)
 
-5. W sekcji **Poświadczenia administratora** wprowadź wartość **punktu końcowego dostawcy usług SCIM** pobraną wcześniej w **adresie URL dzierżawy**. Wprowadź wartość **tokenu nośnika** pobraną wcześniej w **tokenie tajnym**. Kliknij **przycisk Testuj połączenie,** aby upewnić się, że usługa Azure AD może łączyć się z usługą Zscaler Private Access (ZPA). Jeśli połączenie nie powiedzie się, upewnij się, że twoje konto Zscaler Private Access (ZPA) ma uprawnienia administratora i spróbuj ponownie.
+5. W sekcji **poświadczenia administratora** wprowadź wartość **punktu końcowego dostawcy usług Standard scim** , która została pobrana wcześniej w **adresie URL dzierżawy**. Wprowadź wartość **tokenu okaziciela** pobranego wcześniej w **tokenie tajnym**. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z dostępem prywatnym rozwiązania ZSCALER (ZPA). Jeśli połączenie nie powiedzie się, upewnij się, że konto rozwiązania Zscaler Private Access (ZPA) ma uprawnienia administratora i spróbuj ponownie.
 
     ![Adres URL dzierżawy + token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. W polu **Wiadomość e-mail z powiadomieniem** wprowadź adres e-mail osoby lub grupy, która powinna otrzymywać powiadomienia o błędach inicjowania obsługi administracyjnej, i zaznacz pole wyboru - **Wyślij powiadomienie e-mail, gdy wystąpi błąd.**
+6. W polu **adres E-mail powiadomienia** wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji, i zaznacz pole wyboru — **Wyślij powiadomienie e-mail, gdy wystąpi awaria**.
 
-    ![Wiadomość e-mail z powiadomieniem](common/provisioning-notification-email.png)
+    ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
 7. Kliknij przycisk **Zapisz**.
 
-8. W sekcji **Mapowania** wybierz pozycję **Synchronizuj użytkowników usługi Azure Active Directory z dostępem prywatnym (ZPA) w skali.**
+8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkownicy, aby rozwiązania Zscaler dostęp prywatny (ZPA)**.
 
-    ![Mapowania użytkowników zscaler private access (ZPA)](media/zscaler-private-access-provisioning-tutorial/usermappings.png)
+    ![Mapowania użytkowników prywatnego dostępu rozwiązania Zscaler (ZPA)](media/zscaler-private-access-provisioning-tutorial/usermappings.png)
 
-9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do Zscaler Private Access (ZPA) w sekcji **Mapowanie atrybutów.** Atrybuty wybrane jako **właściwości dopasowania** są używane do dopasowania kont użytkowników w Zscaler Private Access (ZPA) dla operacji aktualizacji. Wybierz przycisk **Zapisz,** aby zatwierdzić wszelkie zmiany.
+9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do rozwiązania Zscaler Private Access (ZPA) w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie rozwiązania Zscaler Private Access (ZPA) dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    ![Atrybuty użytkownika programu Zscaler Private Access (ZPA)](media/zscaler-private-access-provisioning-tutorial/userattributes.png)
+    ![Atrybuty użytkownika prywatnego dostępu rozwiązania Zscaler (ZPA)](media/zscaler-private-access-provisioning-tutorial/userattributes.png)
 
-10. W sekcji **Mapowania** wybierz pozycję **Synchronizuj grupy usługi Azure Active Directory z dostępem prywatnym (ZPA) w skali.**
+10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory, aby rozwiązania Zscaler dostęp prywatny (ZPA)**.
 
-    ![Mapowania grupowe zscaler (ZPA)](media/zscaler-private-access-provisioning-tutorial/groupmappings.png)
+    ![Mapowania grup dostępu prywatnego (rozwiązania Zscaler) (ZPA)](media/zscaler-private-access-provisioning-tutorial/groupmappings.png)
 
-11. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD do Zscaler Private Access (ZPA) w sekcji **Mapowanie atrybutów.** Atrybuty wybrane jako **właściwości dopasowania** są używane do dopasowania grup w Zscaler Private Access (ZPA) dla operacji aktualizacji. Wybierz przycisk **Zapisz,** aby zatwierdzić wszelkie zmiany.
+11. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD do rozwiązania Zscaler Private Access (ZPA) w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania do grup w programie rozwiązania Zscaler Private Access (ZPA) dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    ![Atrybuty grupy dostępu prywatnego Zscaler (ZPA)](media/zscaler-private-access-provisioning-tutorial/groupattributes.png)
+    ![Atrybuty grupy rozwiązania Zscaler Private Access (ZPA)](media/zscaler-private-access-provisioning-tutorial/groupattributes.png)
 
-12. Aby skonfigurować filtry zakresu, zapoznaj się z poniższymi instrukcjami podanymi w [samouczku filtru zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Aby włączyć usługę inicjowania obsługi administracyjnej usługi Azure AD dla programu Zscaler Private Access (ZPA), zmień **stan inicjowania obsługi administracyjnej** **na Włączone** w sekcji **Ustawienia.**
+13. Aby włączyć usługę Azure AD Provisioning dla prywatnego dostępu rozwiązania Zscaler (ZPA), Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
-    ![Stan inicjowania obsługi administracyjnej włączony](common/provisioning-toggle-on.png)
+    ![Stan aprowizacji jest przełączany](common/provisioning-toggle-on.png)
 
-14. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić Zscaler Private Access (ZPA), wybierając żądane wartości w **zakresie** w sekcji **Ustawienia.**
+14. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić rozwiązania Zscaler prywatnego dostępu (ZPA), wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
 
-    ![Zakres inicjowania obsługi administracyjnej](common/provisioning-scope.png)
+    ![Zakres aprowizacji](common/provisioning-scope.png)
 
-15. Gdy będziesz gotowy do aprowienia, kliknij przycisk **Zapisz**.
+15. Gdy wszystko będzie gotowe do udostępnienia, kliknij przycisk **Zapisz**.
 
-    ![Zapisywanie konfiguracji inicjowania obsługi administracyjnej](common/provisioning-configuration-save.png)
+    ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
-Ta operacja rozpoczyna początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia.** Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które występują co około 40 minut, o ile jest uruchomiona usługa inicjowania obsługi administracyjnej usługi Azure AD. Za pomocą sekcji **Szczegóły synchronizacji** można monitorować postęp i śledzić łącza do raportu aktywności inicjowania obsługi administracyjnej, w którym opisano wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej usługi Azure AD w usłudze Zscaler Private Access (ZPA).
+Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia** . Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które wystąpiły co około 40 minut, o ile usługa Azure AD Provisioning jest uruchomiona. Możesz użyć sekcji **szczegóły synchronizacji** do monitorowania postępu i postępuj zgodnie z raportem aktywności aprowizacji, który opisuje wszystkie akcje wykonywane przez usługę Azure AD Provisioning na rozwiązania Zscaler prywatnego dostępu (ZPA).
 
-Aby uzyskać więcej informacji na temat sposobu zapoznania się z dziennikami inicjowania obsługi administracyjnej usługi Azure AD, zobacz [Raportowanie automatycznego inicjowania obsługi administracyjnej konta użytkownika.](../app-provisioning/check-status-user-account-provisioning.md)
+Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Zarządzanie inicjowanie obsługi administracyjnej kont użytkowników dla aplikacji dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i otrzymywać raporty dotyczące aktywności inicjowania obsługi administracyjnej](../app-provisioning/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
 

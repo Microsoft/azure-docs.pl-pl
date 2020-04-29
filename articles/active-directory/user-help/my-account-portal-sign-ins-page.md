@@ -1,6 +1,6 @@
 ---
-title: Wyświetlanie i wyszukiwanie ostatniej aktywności logowania na stronie Moje logowanie (wersja zapoznawcza) — Usługa Azure Active Directory | Dokumenty firmy Microsoft
-description: Szczegółowe informacje na temat wyświetlania i wyszukiwania ostatniej aktywności związanej z logowaniem można znaleźć na stronie Moje logowania w portalu Moje konto.
+title: Wyświetlanie i wyszukanie najnowszego działania związanego z logowaniem ze strony Moje logowanie (wersja zapoznawcza) — Azure Active Directory | Microsoft Docs
+description: Szczegółowe informacje na temat sposobu wyświetlania i wyszukiwania ostatnich działań związanych z logowaniem ze strony Moje logowania w portalu My account.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,64 +12,64 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
 ms.openlocfilehash: b68e7b517ddaa9b2aaef00cf87d5b6e63871654b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77064023"
 ---
-# <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Wyświetlanie i wyszukiwanie ostatniej aktywności logowania na stronie Moje logowania (podgląd)
+# <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Wyświetlanie i wyszukiwanie ostatnich działań związanych z logowaniem ze strony Moje logowania (wersja zapoznawcza)
 
-Wszystkie ostatnie działania w zakresie logowania do konta lub konta szkolnego można wyświetlić na stronie **Moje logowania w** portalu Moje **konto.** Przeglądanie historii logowania pomaga sprawdzić nietypową aktywność, pomagając ci zobaczyć:
+Możesz wyświetlić wszystkie ostatnie działania związane z logowaniem do konta służbowego, ze strony **Moje logowania** w portalu **My Account** . Przeglądanie historii logowania ułatwia sprawdzanie nietypowego działania, pomagając w Poznaniu się z:
 
-- Jeśli ktoś próbuje odgadnąć Twoje hasło.
+- Jeśli ktoś próbuje odgadnąć hasło.
 
-- Jeśli osoba atakująca pomyślnie zalogowała się na Twoje konto i z jakiej lokalizacji.
+- Jeśli osoba atakująca pomyślnie zalogował się na konto i z lokalizacji.
 
-- Do jakich aplikacji osoba atakująca próbowała uzyskać dostęp.
+- Jakie aplikacje próbowały uzyskać dostęp osoby atakującej.
 
 ## <a name="view-your-recent-sign-in-activity"></a>Wyświetlanie ostatniej aktywności logowania
 
-1. Zaloguj się na swoje konto służbowe, https://myprofile.microsoft.com/ a następnie przejdź do strony.
+1. Zaloguj się do swojego konta służbowego, a następnie przejdź do https://myprofile.microsoft.com/ strony.
 
-2. Z lewego okienka nawigacji wybierz **pozycję Moje logowania (podgląd)** lub wybierz łącze **Przejrzyj ostatnie działania** z bloku Moje logowania **(podgląd).**
+2. Wybierz pozycję **Moje logowania (wersja zapoznawcza)** w okienku nawigacji po lewej stronie lub wybierz link **Przejrzyj ostatnie działanie** z bloku **Moje logowania (wersja zapoznawcza)** .
 
-    ![Strona Moje konto z wyróżnionymi linkami Do ostatniej aktywności](media/my-account-portal/my-account-portal-sign-ins.png)
+    ![Strona Moje konto z wyróżnionymi ostatnimi linkami działania](media/my-account-portal/my-account-portal-sign-ins.png)
 
-3. Rozwiń i przejrzyj każdy z elementów logowania, upewniając się, że rozpoznajesz każdy z nich. Jeśli znajdziesz element logowania, który nie wygląda znajomo, zalecamy zmianę hasła, aby chronić swoje konto, jeśli zostało naruszone.
+3. Rozwiń i Przejrzyj każdy z elementów logowania, aby upewnić się, że rozpoznajesz każdą z nich. Jeśli znajdziesz element logowania, który nie jest znany, zdecydowanie zalecamy zmianę hasła, aby chronić Twoje konto, jeśli zostało naruszone.
 
-    ![Strona ostatniej aktywności z rozszerzonymi szczegółami logowania](media/my-account-portal/my-account-portal-sign-ins-page.png)
+    ![Ostatnia strona działania z rozwiniętymi szczegółami logowania](media/my-account-portal/my-account-portal-sign-ins-page.png)
 
-### <a name="if-you-see-a-successful-sign-in"></a>Jeśli widzisz udane logowanie
+### <a name="if-you-see-a-successful-sign-in"></a>Jeśli zobaczysz Pomyślne logowanie
 
-Powinieneś rozpoznać swoją własną aktywność jako normalną. Jeśli jednak zauważysz pomyślne zalogowanie się z dziwnej lokalizacji, przeglądarki lub systemu operacyjnego, może to oznaczać, że osoba atakująca uzyskała dostęp do Twojego konta. W tej sytuacji zalecamy natychmiastową zmianę hasła, a następnie przejście do strony [Informacje o zabezpieczeniach,](https://mysignins.microsoft.com/security-info) aby zaktualizować ustawienia zabezpieczeń.
+Należy rozpoznać własne działanie jako normalne. Jeśli jednak zauważysz pomyślne zalogowanie się z nietypowej lokalizacji, przeglądarki lub systemu operacyjnego, może to oznaczać, że osoba atakująca uzyska dostęp do Twojego konta. W tej sytuacji zalecamy natychmiastowe zmianę hasła, a następnie przejście do strony [informacje zabezpieczające](https://mysignins.microsoft.com/security-info) w celu zaktualizowania ustawień zabezpieczeń.
 
-Zanim stwierdzisz, że coś jest nieprawidłowe, upewnij się, że nie widzisz fałszywie dodatniego (gdzie element wygląda wątpliwie, ale jest w porządku). Na przykład określamy twoją przybliżoną lokalizację i mapę na podstawie Twojego adresu IP. Sieci komórkowe są szczególnie trudne do określenia, ponieważ czasami kierują ruch przez odległe miejsca. Jeśli więc zalogujesz się przy użyciu urządzenia mobilnego w stanie Waszyngton, lokalizacja może wyświetlać logowanie pochodzące z Kalifornii. Z tego powodu zdecydowanie zalecamy sprawdzenie więcej szczegółów, poza samą lokalizacją. Należy również upewnić się, że system operacyjny, przeglądarka i aplikacja mają również sens.
+Przed określeniem elementu jest niepoprawna, upewnij się, że nie widzisz fałszywych wartości dodatnich (gdzie element wygląda na wątpliwy). Na przykład określamy przybliżoną lokalizację i mapę na podstawie adresu IP. Sieci komórkowe są szczególnie trudne do lokalizowania, ponieważ czasami kierują ruch przez odległe lokalizacje. Dlatego jeśli zalogowano się przy użyciu urządzenia przenośnego w stanie Waszyngton, w lokalizacji może być widoczne logowanie pochodzące z Kalifornii. W związku z tym zdecydowanie sugerujemy sprawdzenie więcej szczegółów, poza lokalizacją. Należy również upewnić się, że system operacyjny, przeglądarka i cała aplikacja nie mają sensu.
 
-### <a name="if-you-see-an-unsuccessful-sign-in"></a>Jeśli widzisz nieudane logowanie
+### <a name="if-you-see-an-unsuccessful-sign-in"></a>Jeśli zobaczysz nieudane logowanie
 
-Nieudane logowanie bez aktywności w sesji oznacza, że podstawowa metoda weryfikacji (nazwa użytkownika/hasło) nie powiodła się. Może to oznaczać, że błędnie wpisałeś swoją nazwę użytkownika lub hasło, ale może to również oznaczać, że osoba atakująca próbowała odgadnąć Twoje hasło. Jeśli uważasz, że osoba atakująca próbowała bezskutecznie odgadnąć hasło, nie musisz zmieniać hasła, ale zdecydowanie zalecamy zarejestrowanie się w usłudze Azure Multi-Factor Authentication (MFA). Dzięki uwierzytelniania MFA, nawet jeśli haker w końcu odgadnie Twoje hasło, nie wystarczy, aby uzyskać dostęp do Twojego konta.
+Logowanie nie powiodło się, bez działania sesji, oznacza, że podstawowa metoda weryfikacji (nazwa użytkownika/hasło) nie powiodła się. Może to oznaczać, że nazwa użytkownika lub hasło nie zostały wpisane, ale może to oznaczać, że osoba atakująca próbuje odgadnąć hasło. Jeśli uważasz, że osoba atakująca próbuje zrezygnować z odgadnięcia hasła, nie musisz zmieniać hasła, ale zdecydowanie zalecamy zarejestrowanie się w usłudze Azure Multi-Factor Authentication (MFA). Za pomocą usługi MFA, nawet jeśli haker ostatecznie odgadnąć hasło, nie wystarcza do uzyskania dostępu do Twojego konta.
 
-Jeśli zostanie wyświetlony nieudane logowanie, z notatką w obszarze Działanie sesji, która mówi, **Dodatkowa weryfikacja nie powiodła się, nieprawidłowy kod**, oznacza to, że uwierzytelnianie podstawowe (nazwa użytkownika/hasło) powiodło się, ale uwierzytelnianie wieloskładnikowe nie powiodło się. Jeśli był to osoba atakująca, poprawnie odgadli hasło, ale nadal nie mogli przejść wyzwania usługi MFA. W takim przypadku zalecamy zmianę hasła, ponieważ osoba atakująca prawo tej części, a następnie przejdź do strony [Informacje o zabezpieczeniach,](https://mysignins.microsoft.com/security-info) aby zaktualizować ustawienia zabezpieczeń.
+Jeśli zalogowanie nie powiedzie się, oznacza to, że w obszarze działania sesji mówi, że **Dodatkowa weryfikacja zakończyła się niepowodzeniem, nieprawidłowy kod**lub że podstawowe uwierzytelnienie (nazwa użytkownika/hasło) zakończyło się niepowodzeniem, ale uwierzytelnianie MFA nie powiodło się. Jeśli była to osoba atakująca, prawidłowo odgadnięcia hasła, ale nadal nie można przekazać wyzwania usługi MFA. W takim przypadku zalecamy zmianę hasła, ponieważ osoba atakująca uzyskała tę część prawa, a następnie przejdź do strony [informacje zabezpieczające](https://mysignins.microsoft.com/security-info) , aby zaktualizować ustawienia zabezpieczeń.
 
-## <a name="search-for-specific-sign-in-activity"></a>Wyszukiwanie określonych działań logowania
+## <a name="search-for-specific-sign-in-activity"></a>Wyszukiwanie określonego działania związanego z logowaniem
 
-Możesz wyszukać swoją ostatnią aktywność logowania, korzystając z dowolnych dostępnych informacji. Możesz na przykład wyszukać ostatnią aktywność logowania według systemu operacyjnego, lokalizacji, aplikacji itd.
+Ostatnie działania związane z logowaniem można wyszukać, korzystając z dowolnych dostępnych informacji. Można na przykład wyszukać ostatnie działania związane z logowaniem według systemu operacyjnego, lokalizacji, aplikacji i tak dalej.
 
-1. Na stronie **Przeglądanie ostatniej aktywności** wpisz informacje, które chcesz wyszukać, na **pasku wyszukiwania.** Na przykład `My Account` wpisz, aby wyszukać wszystkie działania zebrane przez aplikację Moje konto.
+1. Na stronie **Przejrzyj ostatnią aktywność** wpisz informacje, które chcesz wyszukać na pasku **wyszukiwania** . Na przykład wpisz `My Account` , aby wyszukać całą aktywność zebraną przez aplikację My account.
 
-2. Wybierz przycisk **Wyszukaj,** aby rozpocząć wyszukiwanie.
+2. Wybierz przycisk **Wyszukaj** , aby rozpocząć wyszukiwanie.
 
-    ![Strona Ostatnia aktywność z wyróżnionym paskiem wyszukiwania, przyciskiem wyszukiwania i wynikami](media/my-account-portal/my-account-portal-sign-ins-page-search.png)
+    ![Strona Ostatnia aktywność, pokazująca wyróżniony pasek wyszukiwania, przycisk wyszukiwania i wyniki](media/my-account-portal/my-account-portal-sign-ins-page-search.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po wyświetlenie ostatniej aktywności logowania możesz:
+Po wyświetleniu najnowszego działania związanego z logowaniem można:
 
-- Wyświetlanie informacji [zabezpieczających](user-help-security-info-overview.md)lub zarządzanie nimi .
+- Wyświetl [informacje zabezpieczające](user-help-security-info-overview.md)lub zarządzaj nimi.
 
-- Wyświetlanie [podłączonych urządzeń](my-account-portal-devices-page.md)lub zarządzanie nimi .
+- Wyświetl podłączone [urządzenia](my-account-portal-devices-page.md)lub zarządzaj nimi.
 
-- Wyświetlanie [organizacji](my-account-portal-organizations-page.md)lub zarządzanie nimi .
+- Wyświetl swoje [organizacje](my-account-portal-organizations-page.md)lub zarządzaj nimi.
 
-- Zobacz, jak organizacja [wykorzystuje dane związane z prywatnością](my-account-portal-privacy-page.md).
+- Zobacz, w jaki sposób organizacja [używa danych związanych z prywatnością](my-account-portal-privacy-page.md).

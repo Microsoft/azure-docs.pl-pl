@@ -1,7 +1,7 @@
 ---
-title: Wzbogacenie przyrostowe (wersja zapoznawcza)
+title: Wzbogacanie przyrostowe (wersja zapoznawcza)
 titleSuffix: Azure Cognitive Search
-description: Buforuj zawartość pośrednią i przyrostowe zmiany z potoku wzbogacania sztucznej inteligencji w usłudze Azure Storage w celu zachowania inwestycji w istniejące przetworzone dokumenty. Ta funkcja jest obecnie w publicznej wersji zapoznawczej.
+description: Buforuj zawartość pośrednią oraz przyrostowe zmiany z potoku wzbogacania AI w usłudze Azure Storage, aby zachować inwestycje w istniejące przetworzone dokumenty. Ta funkcja jest obecnie w publicznej wersji zapoznawczej.
 manager: nitinme
 author: Vkurpad
 ms.author: vikurpad
@@ -9,28 +9,28 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: 09003c26ead9108d07ae339fcf64235c246474a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77024147"
 ---
-# <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Wprowadzenie do przyrostowego wzbogacania i buforowania w usłudze Azure Cognitive Search
+# <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Wprowadzenie do przyrostowego wzbogacania i buforowania na platformie Azure Wyszukiwanie poznawcze
 
 > [!IMPORTANT] 
-> Przyrostowe wzbogacenie jest obecnie w publicznej wersji zapoznawczej. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Ta funkcja zapewnia [interfejs API REST w wersji 2019-05-06-Preview.](search-api-preview.md) Obecnie nie ma obsługi portalu ani SDK .NET.
+> Wzbogacanie przyrostowe jest obecnie w publicznej wersji zapoznawczej. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Interfejs API REST w wersji 2019-05-06 — wersja zapoznawcza](search-api-preview.md) zawiera tę funkcję. W tej chwili nie ma obsługi portalu lub zestawu SDK platformy .NET.
 
-Przyrostowe wzbogacenie dodaje buforowania i statefulness do potoku wzbogacania, zachowując inwestycje w istniejącej produkcji, zmieniając tylko te dokumenty wpływ konkretnej modyfikacji. Nie tylko chroni to inwestycje pieniężne w przetwarzanie (w szczególności OCR i przetwarzanie obrazu), ale także zapewnia bardziej efektywny system. Gdy struktury i zawartość są buforowane, indeksator może określić, które umiejętności zostały zmienione i uruchomić tylko te, które zostały zmodyfikowane, a także wszelkie umiejętności zależne niższego rzędu. 
+Przyrostowe wzbogacanie dodaje buforowanie i stanowe do potoku wzbogacenia, zachowując inwestycje w istniejące dane wyjściowe, zmieniając jednocześnie tylko te dokumenty, na które wpływa dana zmiana. Nie tylko gwarantuje to, że inwestycje pieniężne są przetwarzane (w szczególności w przypadku przetwarzania OCR i obrazów), ale również w celu zapewnienia bardziej wydajnego systemu. Gdy struktury i zawartość są buforowane, indeksator może ustalić, które umiejętności uległy zmianie, i uruchamiać tylko te, które zostały zmodyfikowane, a także wszelkie podrzędne umiejętności zależne. 
 
 ## <a name="indexer-cache"></a>Pamięć podręczna indeksatora
 
-Przyrostowe wzbogacanie dodaje pamięć podręczną do potoku wzbogacania. Indeksator buforuje wyniki z pękanie dokumentu plus dane wyjściowe każdej umiejętności dla każdego dokumentu. Po zaktualizowaniu zestawu umiejętności tylko zmienione lub niższego rzędu umiejętności są ponownie przycinane. Zaktualizowane wyniki są zapisywane w pamięci podręcznej, a dokument jest aktualizowany w indeksie wyszukiwania lub w magazynie wiedzy.
+Wzbogacanie przyrostowe dodaje pamięć podręczną do potoku wzbogacania. Indeksator buforuje wyniki z krakingu dokumentu oraz dane wyjściowe każdej umiejętności dla każdego dokumentu. Gdy zestawu umiejętności zostanie zaktualizowana, nastąpi ponowne uruchomienie tylko zmienionych lub podrzędnych. Zaktualizowane wyniki są zapisywane w pamięci podręcznej, a dokument zostanie zaktualizowany w indeksie wyszukiwania lub w sklepie merytorycznym.
 
-Fizycznie pamięć podręczna jest przechowywana w kontenerze obiektów blob na koncie usługi Azure Storage. Pamięć podręczna używa również magazynu tabel dla wewnętrznego rekordu przetwarzania aktualizacji. Wszystkie indeksy w ramach usługi wyszukiwania mogą współużytkować to samo konto magazynu dla pamięci podręcznej indeksatora. Każdy indeksator jest przypisany unikatowy i niezmienny identyfikator pamięci podręcznej do kontenera, który jest używany.
+Fizycznie pamięć podręczna jest przechowywana w kontenerze obiektów BLOB na koncie usługi Azure Storage. Pamięć podręczna używa również magazynu tabel do wewnętrznego rekordu przetwarzania aktualizacji. Wszystkie indeksy w ramach usługi wyszukiwania mogą współużytkować to samo konto magazynu dla pamięci podręcznej indeksatora. Każdy indeksator ma przypisany unikatowy i niezmienny identyfikator pamięci podręcznej do kontenera, którego używa.
 
 ## <a name="cache-configuration"></a>Konfiguracja pamięci podręcznej
 
-Musisz ustawić `cache` właściwość w indeksatorze, aby rozpocząć korzystanie z przyrostowego wzbogacenia. Poniższy przykład ilustruje indeksator z włączoną buforowania. Określone części tej konfiguracji są opisane w poniższych sekcjach. Aby uzyskać więcej informacji, zobacz [Konfigurowanie wzbogacenia przyrostowego](search-howto-incremental-index.md).
+Musisz ustawić `cache` Właściwość indeksatora, aby rozpocząć korzystając z wzbogacania przyrostowego. Poniższy przykład ilustruje indeksator z włączonym buforowaniem. Określone części tej konfiguracji są opisane w poniższych sekcjach. Aby uzyskać więcej informacji, zobacz [Konfigurowanie stopniowego wzbogacania](search-howto-incremental-index.md).
 
 ```json
 {
@@ -48,67 +48,67 @@ Musisz ustawić `cache` właściwość w indeksatorze, aby rozpocząć korzystan
 }
 ```
 
-Ustawienie tej właściwości na istniejącym indeksatorze będzie wymagać zresetowania i ponownego uruchomienia indeksatora, co spowoduje ponowne przetworzenie wszystkich dokumentów w źródle danych. Ten krok jest konieczne, aby wyeliminować wszelkie dokumenty wzbogacone o poprzednie wersje skillset. 
+Ustawienie tej właściwości na istniejącym indeksatorze wymaga zresetowania i ponownego uruchomienia indeksatora, co spowoduje ponowne przetworzenie wszystkich dokumentów w źródle danych. Ten krok jest niezbędny do wyeliminowania dokumentów wzbogaconych przez poprzednie wersje zestawu umiejętności. 
 
 ## <a name="cache-management"></a>Zarządzanie pamięcią podręczną
 
-Cykl życia pamięci podręcznej jest zarządzany przez indeksatora. Jeśli `cache` właściwość w indeksatorze jest ustawiona na wartość null lub ciąg połączenia zostanie zmieniony, istniejąca pamięć podręczna zostanie usunięta przy następnym uruchomieniu indeksatora. Cykl życia pamięci podręcznej jest również powiązany z cyklem życia indeksatora. Jeśli indeksator zostanie usunięty, skojarzona pamięć podręczna jest również usuwana.
+Cykl życia pamięci podręcznej jest zarządzany przez indeksator. Jeśli `cache` właściwość w indeksatorze ma wartość null lub parametry połączenia są zmieniane, istniejąca pamięć podręczna zostanie usunięta z następnego uruchomienia indeksatora. Cykl życia pamięci podręcznej jest również powiązany z cyklem życia indeksatora. Jeśli indeksator zostanie usunięty, skojarzona pamięć podręczna również zostanie usunięta.
 
-Podczas gdy wzbogacenie przyrostowe jest przeznaczone do wykrywania i reagowania na zmiany bez interwencji z Twojej strony, istnieją parametry, których można użyć do zastąpienia domyślnych zachowań:
+Chociaż przyrostowe wzbogacanie jest przeznaczone do wykrywania i reagowania na zmiany bez interwencji w Twojej części, istnieją parametry, których można użyć do przesłonięcia zachowań domyślnych:
 
-+ Ustalanie priorytetów nowym dokumentom
-+ Pomijanie kontroli zestawów umiejętności
-+ Pomijanie kontroli źródeł danych
-+ Wymuszanie oceny umiejętności
++ Ustalanie priorytetów nowych dokumentów
++ Pomiń testy zestawu umiejętności
++ Pomiń sprawdzanie źródła danych
++ Wymuś Obliczanie zestawu umiejętności
 
-### <a name="prioritize-new-documents"></a>Ustalanie priorytetów nowym dokumentom
+### <a name="prioritize-new-documents"></a>Ustalanie priorytetów nowych dokumentów
 
-Ustaw `enableReprocessing` właściwość, aby kontrolować przetwarzanie nad przychodzącymi dokumentami już reprezentowane w pamięci podręcznej. Gdy `true` (domyślnie), dokumenty już w pamięci podręcznej są ponownie przetwarzane po ponownym uruchomieniu indeksatora, przy założeniu, że aktualizacja umiejętności wpływa na ten dokument. 
+Ustaw `enableReprocessing` właściwość w celu kontrolowania przetwarzania dokumentów przychodzących, które są już reprezentowane w pamięci podręcznej. Gdy `true` (domyślnie), dokumenty znajdujące się już w pamięci podręcznej są ponownie przetwarzane po ponownym uruchomieniu indeksatora, przy założeniu, że aktualizacja umiejętności ma wpływ na ten dokument. 
 
-Gdy `false`istniejące dokumenty nie są ponownie przetwarzane, skutecznie nadając priorytet nowej, przychodzącej zawartości istniejącej zawartości. Należy ustawić `enableReprocessing` tylko `false` tymczasowo. Aby zapewnić spójność w `enableReprocessing` całym `true` korpusie, powinno być przez większość czasu, zapewniając, że wszystkie dokumenty, zarówno nowe, jak i istniejące, są ważne zgodnie z aktualną definicją zestawu umiejętności.
+Gdy `false`istniejące dokumenty nie są ponownie przetwarzane, efektywne Ustawianie priorytetów nowej, przychodzącej zawartości do istniejącej zawartości. Należy ustawić `enableReprocessing` tylko `false` na chwilę. Aby zapewnić spójność w korpus, `enableReprocessing` należy w `true` większości przypadków zapewnić, że wszystkie dokumenty, zarówno nowe, jak i istniejące, są prawidłowe dla bieżącej definicji zestawu umiejętności.
 
-### <a name="bypass-skillset-evaluation"></a>Omiń ocenę skillset
+### <a name="bypass-skillset-evaluation"></a>Pomiń Obliczanie zestawu umiejętności
 
-Modyfikowanie zestawu umiejętności i ponowne przetwarzanie tego zestawu umiejętności zazwyczaj idą w parze. Jednak niektóre zmiany w zestaw umiejętności nie powinny powodować ponownego przetwarzania (na przykład wdrażania umiejętności niestandardowych do nowej lokalizacji lub z nowym kluczem dostępu). Najprawdopodobniej są to modyfikacje peryferyjne, które nie mają rzeczywistego wpływu na istotę samego zestawu umiejętności. 
+Modyfikowanie zestawu umiejętności i przetwarzanie tego zestawu umiejętności zwykle jest dostępne. Jednak niektóre zmiany w zestawu umiejętności nie powinny powodować ponownego przetwarzania (na przykład w celu wdrożenia niestandardowej umiejętności w nowej lokalizacji lub z nowym kluczem dostępu). Najprawdopodobniej są to modyfikacje peryferyjne, które nie mają oryginalnego wpływu na istotę zestawu umiejętności. 
 
-Jeśli wiesz, że zmiana zestawu umiejętności jest rzeczywiście powierzchowna, należy zastąpić `disableCacheReprocessingChangeDetection` ocenę `true`skillset, ustawiając parametr na:
+Jeśli wiesz, że zmiana zestawu umiejętności jest rzeczywiście równa, należy zastąpić ocenę zestawu umiejętności, ustawiając `disableCacheReprocessingChangeDetection` parametr na: `true`
 
-1. Wywołaj polecenie aktualizuj skillset i zmodyfikuj definicję zestawu umiejętności.
-1. Dołącz `disableCacheReprocessingChangeDetection=true` parametr na żądanie.
+1. Zadzwoń do zestawu umiejętności Update i zmodyfikuj definicję zestawu umiejętności.
+1. Dołącz `disableCacheReprocessingChangeDetection=true` parametr do żądania.
 1. Prześlij zmianę.
 
-Ustawienie tego parametru gwarantuje, że tylko aktualizacje definicji zestaw umiejętności są zatwierdzone i zmiana nie jest oceniana pod kątem wpływu na istniejący korpus.
+Ustawienie tego parametru gwarantuje, że tylko aktualizacje definicji zestawu umiejętności są zatwierdzane, a zmiana nie zostanie oceniona pod kątem efektów istniejących korpus.
 
-W poniższym przykładzie przedstawiono żądanie update skillset z parametrem:
+Poniższy przykład przedstawia żądanie aktualizacji zestawu umiejętności z parametrem:
 
 ```http
 PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?api-version=2019-05-06-Preview&disableCacheReprocessingChangeDetection=true
 ```
 
-### <a name="bypass-data-source-validation-checks"></a>Pomijanie sprawdzania poprawności źródła danych
+### <a name="bypass-data-source-validation-checks"></a>Pomiń sprawdzanie poprawności źródła danych
 
-Większość zmian w definicji źródła danych spowoduje unieważnienie pamięci podręcznej. Jednak w przypadku scenariuszy, w których wiadomo, że zmiana nie powinna unieważniać pamięci podręcznej — na`ignoreResetRequirement` przykład zmiana ciągu połączenia lub obracanie klucza na koncie magazynu — dołącz parametr w aktualizacji źródła danych. Ustawienie tego `true` parametru umożliwia commit przejść, bez wyzwalania warunek resetowania, które mogłyby spowodować wszystkie obiekty są przebudowywane i wypełniane od podstaw.
+Większość zmian w definicji źródła danych spowoduje unieważnienie pamięci podręcznej. Jednak w przypadku scenariuszy, w których wiadomo, że zmiana nie powinna unieważnić pamięci podręcznej, takich jak zmiana parametrów połączenia lub obracanie klucza na koncie magazynu, należy`ignoreResetRequirement` dołączyć parametr do aktualizacji źródła danych. Ustawienie tego parametru `true` pozwala na przechodzenie przez proces zatwierdzania, bez wyzwalania warunku resetowania, który spowodowałaby odbudowanie wszystkich obiektów i wypełnienie ich od podstaw.
 
 ```http
 PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-version=2019-05-06-Preview&ignoreResetRequirement=true
 ```
 
-### <a name="force-skillset-evaluation"></a>Wymuszanie oceny umiejętności
+### <a name="force-skillset-evaluation"></a>Wymuś Obliczanie zestawu umiejętności
 
-Celem pamięci podręcznej jest uniknięcie niepotrzebnego przetwarzania, ale załóżmy, że wprowadzasz zmiany do umiejętności, której indeksator nie wykrywa (na przykład zmiana czegoś w kodzie zewnętrznym, takiego jak niestandardowa umiejętność).
+Celem pamięci podręcznej jest uniknięcie niepotrzebnego przetwarzania, ale Załóżmy, że wprowadzasz zmiany w umiejętności, którą indeksator nie wykrywa (na przykład w przypadku zmiany elementu w kodzie zewnętrznym, np. z niestandardową umiejętnością).
 
-W takim przypadku można użyć [resetowania umiejętności,](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills) aby wymusić ponowne przetworzenie określonej umiejętności, w tym wszelkie umiejętności niższego rzędu, które są zależne od wyników tej umiejętności. Ten interfejs API akceptuje żądanie POST z listą umiejętności, które powinny zostać unieważnione i oznaczone do ponownego przetworzenia. Po zresetowaniu umiejętności uruchom indeksatora, aby wywołać potok.
+W takim przypadku można użyć możliwości [resetowania](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills) w celu wymuszenia przetworzenia konkretnej umiejętności, w tym wszelkich umiejętności podrzędnych, które są zależne od danych wyjściowych tej umiejętności. Ten interfejs API akceptuje żądanie POST z listą umiejętności, które powinny być unieważnione i oznaczone do ponownego przetworzenia. Po zresetowaniu umiejętności Uruchom indeksator w celu wywołania potoku.
 
 ## <a name="change-detection"></a>Wykrywanie zmian
 
-Po włączeniu pamięci podręcznej indeksator ocenia zmiany w składzie potoku, aby określić, która zawartość może być ponownie życiówka, a która wymaga ponownego przetworzenia. W tej sekcji wylicza się zmiany, które unieważniają pamięć podręczną wprost, a następnie zmiany, które wyzwalają przetwarzanie przyrostowe. 
+Po włączeniu pamięci podręcznej indeksator oblicza zmiany w kompozycji potoku, aby określić, która zawartość może zostać ponownie użyta i które wymaga ponownego przetworzenia. Ta sekcja wylicza zmiany, które unieważnią pamięć podręczną, a następnie zmiany wyzwalające przetwarzanie przyrostowe. 
 
-### <a name="changes-that-invalidate-the-cache"></a>Zmiany unieważniają pamięć podręczną
+### <a name="changes-that-invalidate-the-cache"></a>Zmiany, które unieważnią pamięć podręczną
 
-Zmiana unieważniająca to zmiana, w której cała pamięć podręczna nie jest już prawidłowa. Przykładem unieważnienia zmiany jest taki, w którym źródło danych jest aktualizowane. Oto pełna lista zmian, które unieważniłyby pamięć podręczną:
+Zmiana na unieważnienie jest taka, gdzie cała pamięć podręczna nie jest już prawidłowa. Przykładem zmiany unieważnienia jest to, gdzie źródło danych jest aktualizowane. Oto pełna lista zmian, które spowodują unieważnienie pamięci podręcznej:
 
-* Zmiana typu źródła danych
-* Zmiana w kontenerze źródła danych
+* Zmień typ źródła danych
+* Zmień na kontener źródła danych
 * Poświadczenia dostępu do źródła danych
 * Zasady wykrywania zmian źródła danych
 * Zasady wykrywania usuwania źródeł danych
@@ -116,47 +116,47 @@ Zmiana unieważniająca to zmiana, w której cała pamięć podręczna nie jest 
 * Parametry indeksatora
     * Tryb analizowania
     * Wykluczone rozszerzenia nazw plików
-    * Rozszerzenia nazw plików indeksowanych
-    * Metadane magazynu indeksu tylko dla dokumentów ponadgabarytowych
+    * Indeksowane rozszerzenia nazw plików
+    * Indeksuj metadane magazynu tylko dla powiększonych dokumentów
     * Rozdzielane nagłówki tekstu
-    * Ogranicznik tekstu rozdzielanych
+    * Rozdzielany ogranicznik tekstu
     * Katalog główny dokumentu
-    * Akcja obrazu (zmiany sposobu wyodrębniania obrazów)
+    * Akcja obrazu (zmiany w sposobie wyodrębniania obrazów)
 
 ### <a name="changes-that-trigger-incremental-processing"></a>Zmiany wyzwalające przetwarzanie przyrostowe
 
-Przetwarzanie przyrostowe ocenia definicję zestawu umiejętności i określa, które umiejętności należy ponownie uruchomić, selektywnie aktualizując dotknięte fragmenty drzewa dokumentów. Oto pełna lista zmian skutkujących stopniowym wzbogaceniem:
+Przetwarzanie przyrostowe szacuje definicję zestawu umiejętności i decyduje o tym, które umiejętności należy ponownie uruchomić, co umożliwi wybiórcze aktualizowanie odpowiednich części drzewa dokumentów. Oto kompletna lista zmian wynikających z wzbogacania przyrostowego:
 
-* Umiejętność w zestawie umiejętności ma inny typ. Typ umiejętności odata jest aktualizowany
-* Zaktualizowano parametry specyficzne dla umiejętności, na przykład adres URL, wartości domyślne lub inne parametry
-* Zmiany wyników umiejętności, umiejętności zwracają dodatkowe lub różne wyniki
-* Wynikające z tego aktualizacje umiejętności to różne pochodzenie, łańcuch umiejętności uległ zmianie tj. wkłady umiejętności
-* Wszelkie upstream unieważnienie umiejętności, jeśli umiejętność, która zapewnia wkład do tej umiejętności jest aktualizowana
-* Aktualizacje lokalizacji projekcji magazynu wiedzy, wyniki w ponownym projektowaniu dokumentów
-* Zmiany w projekcjach magazynu wiedzy, wyniki w ponownym projektowaniu dokumentów
-* Mapowania pól wyjściowych zmienione w indeksatorze skutkują ponownym projektowaniem dokumentów do indeksu
+* Umiejętność w zestawu umiejętności ma inny typ. Typ OData kwalifikacji został zaktualizowany
+* Zaktualizowane parametry dotyczące umiejętności, na przykład adres URL, wartości domyślne lub inne parametry
+* Zmiany w danych wyjściowych kwalifikacji, umiejętność zwraca dodatkowe lub różne dane wyjściowe
+* Aktualizacje umiejętności, które różnią się od pochodzenie, zostały zmienione w łańcuchu umiejętności, tj. dane wejściowe kwalifikacji
+* Wszelkie unieważnienia kwalifikacji dla wszystkich nadrzędnych, jeśli umiejętność dostarczająca dane wejściowe do tej umiejętności zostanie zaktualizowana
+* Aktualizacje lokalizacji projekcji magazynu wiedzy, wyniki w dokumencie
+* Zmiany w projekcjach w sklepie wiedzy, wyniki dotyczące przeprojektowania dokumentów
+* Mapowania pól wyjściowych zostały zmienione w indeksatorze w wyniku przeprojektowania dokumentów do indeksu
 
 ## <a name="api-reference"></a>Odwołanie API
 
-Wersja `2019-05-06-Preview` interfejsu API REST zapewnia przyrostowe wzbogacenie za pośrednictwem dodatkowych właściwości indeksatorów, skillsets i źródeł danych. Oprócz dokumentacji referencyjnej zobacz [Konfigurowanie buforowania dla przyrostowego wzbogacenia,](search-howto-incremental-index.md) aby uzyskać szczegółowe informacje na temat wywoływania interfejsów API.
+Wersja `2019-05-06-Preview` interfejsu API REST zapewnia przyrostowe wzbogacanie za poorednictwem dodatkowych właściwości indeksatorów, umiejętności i źródeł danych. Oprócz dokumentacji referencyjnej zapoznaj się z artykułem [Konfigurowanie buforowania dla wzbogacania przyrostowego](search-howto-incremental-index.md) , aby uzyskać szczegółowe informacje na temat wywoływania interfejsów API.
 
-+ [Utwórz indeksator (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer) 
++ [Tworzenie indeksatora (API-Version = 2019-05 -06 — wersja zapoznawcza)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer) 
 
-+ [Indeksator aktualizacji (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-indexer) 
++ [Update indeksator (API-Version = 2019-05 -06 — wersja zapoznawcza)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-indexer) 
 
-+ [Aktualizacja Skillset (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) (nowy parametr URI na żądanie)
++ [Update zestawu umiejętności (API-Version = 2019-05 -06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) (nowy parametr URI żądania)
 
 + [Resetowanie umiejętności (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills)
 
-+ Indeksatory bazy danych (Azure SQL, Cosmos DB). Niektóre indeksatory pobierają dane za pośrednictwem zapytań. W przypadku kwerend pobieranych [danych, Aktualizacja źródła danych](https://docs.microsoft.com/rest/api/searchservice/update-data-source) obsługuje nowy parametr na żądanie **ignoreResetRequirement**, który powinien być ustawiony na `true` kiedy akcja aktualizacji nie powinna unieważniać pamięci podręcznej. 
++ Indeksatory baz danych (Azure SQL, Cosmos DB). Niektóre indeksatory pobierają dane za poorednictwem zapytań. W przypadku zapytań, które pobierają dane, [Aktualizacja źródła danych](https://docs.microsoft.com/rest/api/searchservice/update-data-source) obsługuje nowy parametr na żądanie **ignoreResetRequirement**, które należy ustawić, `true` gdy akcja aktualizacji nie powinna unieważniać pamięci podręcznej. 
 
-  Użyj **ignoreResetRequirement** oszczędnie, ponieważ może to prowadzić do niezamierzonych niespójności w danych, które nie zostaną wykryte łatwo.
+  Używaj **ignoreResetRequirement** oszczędnie, ponieważ może to doprowadzić do niezamierzonej niespójności danych, które nie zostaną łatwo wykryte.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przyrostowe wzbogacenie to potężna funkcja, która rozszerza śledzenie zmian na zestawy umiejętności i wzbogacanie SI. AIncremental wzbogacenie umożliwia ponowne wykorzystanie istniejącej przetworzonej zawartości, jak iterować nad projektowania skillset.
+Przyrostowe wzbogacanie to zaawansowana funkcja, która rozszerza śledzenie zmian na umiejętności i wzbogacanie AI. Wzbogacanie AIncremental umożliwia ponowne użycie istniejącej przetworzonej zawartości podczas iteracji nad projektem zestawu umiejętności.
 
-W następnym kroku włącz buforowanie istniejącego indeksatora lub dodaj pamięć podręczną podczas definiowania nowego indeksatora.
+W następnym kroku należy włączyć buforowanie w istniejącym indeksatorze lub dodać pamięć podręczną podczas definiowania nowego indeksatora.
 
 > [!div class="nextstepaction"]
-> [Konfigurowanie buforowania dla wzbogacenia przyrostowego](search-howto-incremental-index.md)
+> [Skonfiguruj buforowanie na potrzeby wzbogacania przyrostowego](search-howto-incremental-index.md)

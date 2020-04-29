@@ -1,30 +1,30 @@
 ---
-title: Jak korzystać z mikromierza z zestawem Java SDK usługi Azure Application Insights
-description: Przewodnik krok po kroku dotyczący korzystania z mikrometru z wiosennym rozruchem aplikacji Insights i aplikacjami bez rozruchu sprężynowego.
+title: Jak używać Micrometer z usługą Azure Application Insights Java SDK
+description: Przewodnik krok po kroku dotyczący używania Micrometer Application Insights z rozruchem wiosny i niesprężynowymi aplikacjami rozruchowymi.
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 11/01/2018
 ms.openlocfilehash: dd04087db32f0bbfa75dafa7e12c355e5ab7b515
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670070"
 ---
-# <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Jak korzystać z mikromierza z zestawem Java SDK usługi Azure Application Insights
-Monitorowanie aplikacji micrometer mierzy metryki dla kodu aplikacji opartego na platformie JVM i umożliwia eksportowanie danych do ulubionych systemów monitorowania. W tym artykule nauczy cię, jak używać mikrometru z aplikacjami Application Insights zarówno dla aplikacji Spring Boot, jak i innych niż Wiosenne rozruchy.
+# <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Jak używać Micrometer z usługą Azure Application Insights Java SDK
+Micrometer do monitorowania aplikacji miaruje metryki dla kodu aplikacji opartego na JVM i umożliwia eksportowanie danych do ulubionych systemów monitorowania. W tym artykule opisano, jak używać Micrometer z Application Insights zarówno dla aplikacji rozruchowych z systemem sprężyny, jak i bez sprężyny.
 
-## <a name="using-spring-boot-15x"></a>Korzystanie z spring boot 1.5x
-Dodaj następujące zależności do pliku pom.xml lub build.gradle: 
-* [Aplikacja Insights spring-boot-starter](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter) 2.5.0 lub nowsza
-* Micrometer Azure Registry 1.1.0 lub wyższy
-* [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 lub powyżej (to backports kod autoconfig w ramach Wiosny).
+## <a name="using-spring-boot-15x"></a>Korzystanie z usługi sprężynowego rozruchu 1,5 x
+Dodaj następujące zależności do pliku pliku pom. XML lub Build. Gradle: 
+* [Application Insights sprężyny rozruchu — Starter](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter) 2.5.0 lub nowszego
+* Micrometer Azure Registry 1.1.0 lub nowszy
+* [Micrometer sprężyny ze starszą](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 lub wyższą (to spowoduje Przeportowanie kodu autokonfiguracji w strukturze sprężynowej).
 * [Zasób ApplicationInsights](../../azure-monitor/app/create-new-resource.md )
 
 Kroki
 
-1. Zaktualizuj plik pom.xml aplikacji Spring Boot i dodaj w niej następujące zależności:
+1. Zaktualizuj plik pliku pom. XML aplikacji rozruchowej wiosennej i Dodaj do niej następujące zależności:
 
     ```XML
     <dependency>
@@ -46,23 +46,23 @@ Kroki
     </dependency>
 
     ```
-2. Zaktualizuj plik application.properties lub yml za pomocą klucza Instrumentacja usługi Application Insights przy użyciu następującej właściwości:
+2. Zaktualizuj plik Application. Properties lub YML za pomocą klucza Instrumentacji Application Insights przy użyciu następującej właściwości:
 
      `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
-1. Tworzenie aplikacji i uruchamianie
-2. Powyższe powinny rozpocząć z wstępnie zagregowane metryki automatycznie zbierane do usługi Azure Monitor. Szczegółowe informacje na temat dostrajania sprzężenia aplikacji Insights Spring Boot starter można znaleźć [w pliku readme w serwisie GitHub](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md).
+1. Kompilowanie aplikacji i uruchamianie jej
+2. Powyższe funkcje powinny pomóc Ci w rozpoczęciu pracy z wstępnie zagregowanymi metrykami, które są zbierane do Azure Monitor. Szczegółowe informacje na temat dostosowywania Application Insights sprężynowego rozruchu Starter można znaleźć w [pliku Readme w witrynie GitHub](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md).
 
-## <a name="using-spring-2x"></a>Korzystanie z sprężyny 2.x
+## <a name="using-spring-2x"></a>Korzystanie z sprężyny 2. x
 
-Dodaj następujące zależności do pliku pom.xml lub build.gradle:
+Dodaj następujące zależności do pliku pliku pom. XML lub Build. Gradle:
 
-* Aplikacja Insights Spring-boot-starter 2.1.2 lub powyżej
-* Azure-spring-boot-metrics-starters 2.0.7 lub nowsze
-* [Zasób usługi Application Insights](../../azure-monitor/app/create-new-resource.md )
+* Application Insights sprężynowego rozruchu — Starter 2.1.2 lub nowszego
+* Azure-sprężynowe-Boot-Metrics-restarters 2.0.7 lub nowszy
+* [Zasób Application Insights](../../azure-monitor/app/create-new-resource.md )
 
 Kroki:
 
-1. Zaktualizuj plik pom.xml aplikacji Spring Boot i dodaj w niej następującą zależność:
+1. Zaktualizuj plik pliku pom. XML aplikacji rozruchowej wiosennej i Dodaj do niej następującą zależność:
 
     ```XML
     <dependency> 
@@ -71,57 +71,57 @@ Kroki:
           <version>2.0.7</version>
     </dependency>
     ```
-1. Zaktualizuj plik application.properties lub yml za pomocą klucza Instrumentacja usługi Application Insights przy użyciu następującej właściwości:
+1. Zaktualizuj plik Application. Properties lub YML za pomocą klucza Instrumentacji Application Insights przy użyciu następującej właściwości:
 
      `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
-3. Tworzenie aplikacji i uruchamianie
-4. Powyższe powinno cię uruchomić z wstępnie zagregowane metryki automatycznie zbierane do usługi Azure Monitor. Szczegółowe informacje na temat dostrajania sprzężenia aplikacji Insights Spring Boot starter można znaleźć [w pliku readme w serwisie GitHub](https://github.com/Microsoft/azure-spring-boot/releases/latest).
+3. Kompilowanie aplikacji i uruchamianie jej
+4. Powyższe funkcje powinny być wykonywane z użyciem wstępnie zagregowanych metryk, które są zbierane do Azure Monitor. Szczegółowe informacje na temat dostosowywania Application Insights sprężynowego rozruchu Starter można znaleźć w [pliku Readme w witrynie GitHub](https://github.com/Microsoft/azure-spring-boot/releases/latest).
 
-Domyślne metryki:
+Metryki domyślne:
 
-*    Automatycznie skonfigurowane metryki dla Tomcat, JVM, Logback Metrics, Log4J metryki, Metryki uptime, Metryki procesora, Metryki fileDescriptor.
-*    Na przykład, jeśli Netflix Hystrix jest obecny na ścieżce klasy, otrzymujemy również te dane. 
-*    Następujące metryki mogą być dostępne przez dodanie odpowiednich fasoli. 
+*    Automatycznie skonfigurowane metryki dla metryk Tomcat, JVM, Logback, metryk Log4J, metryk czasowych, metryk procesora, FileDescriptorMetrics.
+*    Na przykład jeśli Netflix Hystrix jest obecny w ścieżce klasy, będziemy również otrzymywać te metryki. 
+*    Następujące metryki mogą być dostępne poprzez dodanie odpowiednich ziaren. 
         - CacheMetrics (CaffeineCache, EhCache2, GuavaCache, HazelcastCache, JCache)     
-        - DataBaseTableMetrics (DanebaseTableMetrics) 
-        - HibernacjaMetria 
-        - Pomost Metryki 
-        - Ok MetrykiHttp3 
-        - Metryki platformy Kafka 
+        - DataBaseTableMetrics 
+        - HibernateMetrics 
+        - JettyMetrics 
+        - Metryki OkHttp3 
+        - Metryki Kafka 
 
  
 
-Jak wyłączyć automatyczną kolekcję danych: 
+Jak wyłączyć automatyczne zbieranie metryk: 
  
-- Wskaźniki JVM: 
-    - plik management.metrics.binders.jvm.enabled=false 
-- Logback Metryki: 
-    - management.metrics.binders.logback.enabled=false
-- Wskaźniki czasu pracy bez przestojów: 
-    - management.metrics.binders.uptime.enabled=false 
-- Dane procesora:
-    -  management.metrics.binders.processor.enabled=false 
-- Dane oscriptory plików:
-    - management.metrics.binders.files.enabled=false 
-- Hystrix Metryki jeśli biblioteka na classpath: 
-    - management.metrics.binders.hystrix.enabled=false 
-- AspectJ Metryki jeśli biblioteka na classpath: 
-    - spring.aop.enabled=false 
+- Metryki JVM: 
+    - Management. Metrics. Binders. JVM. Enabled = false 
+- Metryki Logback: 
+    - Management. Metrics. Binders. logback. Enabled = false
+- Metryki czasu przestoju: 
+    - Management. Metrics. Binders. czas działania. Enabled = false 
+- Metryki procesora:
+    -  Management. Metrics. Binders. Processor. Enabled = false 
+- FileDescriptorMetrics:
+    - Management. Metrics. Binders. Files. Enabled = false 
+- Hystrix metryki w przypadku biblioteki na ścieżce klasy: 
+    - Management. Metrics. Binders. Hystrix. Enabled = false 
+- AspectJ metryki w przypadku biblioteki na ścieżce klasy: 
+    - wiosenn. AOP. Enabled = false 
 
 > [!NOTE]
-> Określ powyższe właściwości w pliku application.properties lub application.yml aplikacji Spring Boot
+> Określ powyższe właściwości w pliku Application. Properties lub Application. yml aplikacji do rozruchowego sprężyny
 
-## <a name="use-micrometer-with-non-spring-boot-web-applications"></a>Korzystanie z mikromierza z aplikacjami internetowymi bez wiosennego rozruchu
+## <a name="use-micrometer-with-non-spring-boot-web-applications"></a>Korzystanie z Micrometer z niesprężynnymi aplikacjami sieci Web
 
-Dodaj następujące zależności do pliku pom.xml lub build.gradle:
+Dodaj następujące zależności do pliku pliku pom. XML lub Build. Gradle:
 
-* Aplikacja Aplikacji Insights Web Auto 2.5.0 lub nowsze
-* Micrometer Azure Registry 1.1.0 lub wyższy
-* [Zasób usługi Application Insights](../../azure-monitor/app/create-new-resource.md )
+* Application Insights Web 2.5.0 lub nowsza
+* Micrometer Azure Registry 1.1.0 lub nowszy
+* [Zasób Application Insights](../../azure-monitor/app/create-new-resource.md )
 
 Kroki:
 
-1. Dodaj następujące zależności w pliku pom.xml lub build.gradle:
+1. Dodaj następujące zależności w pliku pliku pom. XML lub Build. Gradle:
 
     ```XML
         <dependency>
@@ -137,7 +137,7 @@ Kroki:
         </dependency>
      ```
 
-2. Umieść `ApplicationInsights.xml` plik w folderze zasobów:
+2. Umieść `ApplicationInsights.xml` plik w folderze Resources:
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -166,7 +166,7 @@ Kroki:
     </ApplicationInsights>
     ```
 
-3. Przykładowa klasa Servlet (emituje metrykę czasomierza):
+3. Przykładowa Klasa serwletu (emituje metrykę czasomierza):
 
     ```Java
         @WebServlet("/hello")
@@ -205,7 +205,7 @@ Kroki:
     
     ```
 
-4. Przykładowa klasa konfiguracji:
+4. Przykładowa Klasa konfiguracji:
 
     ```Java
          @WebListener
@@ -244,15 +244,15 @@ Kroki:
          }
     ```
 
-Aby dowiedzieć się więcej o danych, zapoznaj się z [dokumentacją mikrometra](https://micrometer.io/docs/).
+Aby dowiedzieć się więcej o metrykach, zapoznaj się z [dokumentacją Micrometer](https://micrometer.io/docs/).
 
-Inny przykładowy kod dotyczący tworzenia różnych typów metryk można znaleźć w[oficjalnym repozytorium Micrometer GitHub](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
+Inny przykładowy kod dotyczący tworzenia różnych typów metryk można znaleźć w[oficjalnym repozytorium GitHub Micrometer](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
 
-## <a name="how-to-bind-additional-metrics-collection"></a>Jak powiązać kolekcję dodatkowych metryk
+## <a name="how-to-bind-additional-metrics-collection"></a>Jak powiązać dodatkową kolekcję metryk
 
-### <a name="springbootspring"></a>SpringBoot/Wiosna
+### <a name="springbootspring"></a>SpringBoot/Sprężyna
 
-Utwórz fasolę odpowiedniej kategorii metrycznej. Na przykład, powiedzmy, że potrzebujemy metryki pamięci podręcznej Guawy:
+Utwórz element ziarna odpowiedniej kategorii metryk. Załóżmy na przykład, że potrzebujemy metryk pamięci podręcznej Guava:
 
 ```Java
     @Bean
@@ -260,15 +260,15 @@ Utwórz fasolę odpowiedniej kategorii metrycznej. Na przykład, powiedzmy, że 
         Return new GuavaCacheMetrics();
     }
 ```
-Istnieje kilka metryk, które nie są domyślnie włączone, ale mogą być powiązane w powyższy sposób. Pełna lista znajduje się [w oficjalnym repozytorium Micrometer GitHub](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder ).
+Istnieje kilka metryk, które nie są domyślnie włączone, ale można je powiązać w powyższy sposób. Pełną listę można znaleźć w [oficjalnym repozytorium usługi GitHub Micrometer](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder ).
 
-### <a name="non-spring-apps"></a>Aplikacje inne niż wiosenne
-Dodaj następujący kod powiązania do pliku konfiguracyjnego:
+### <a name="non-spring-apps"></a>Aplikacje niesprężynowe
+Dodaj następujący kod powiązania do pliku konfiguracji:
 ```Java 
     New GuavaCacheMetrics().bind(registry);
 ```
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o Micrometer, zobacz oficjalną [dokumentację micrometer](https://micrometer.io/docs).
-* Aby dowiedzieć się więcej o źródle na platformie Azure, zobacz oficjalną [dokumentację wiosny na platformie Azure.](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable)
+* Aby dowiedzieć się więcej na temat Micrometer, zapoznaj się z oficjalną [dokumentacją Micrometer](https://micrometer.io/docs).
+* Aby uzyskać informacje na temat sprężyny na platformie Azure, zapoznaj się z oficjalną [wiosną w dokumentacji platformy Azure](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable).

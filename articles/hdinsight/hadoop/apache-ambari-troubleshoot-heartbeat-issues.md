@@ -1,6 +1,6 @@
 ---
 title: Problemy z pulsem usługi Apache Ambari w usłudze Azure HDInsight
-description: Przegląd różnych przyczyn problemów zbiciem serca Apache Ambari w usłudze Azure HDInsight
+description: Przegląd różnych powodów problemów pulsu Apache Ambari w usłudze Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,29 +8,29 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/06/2020
 ms.openlocfilehash: ab88f65d535be2aef5f0b26fa1171c03276466e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77057077"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Problemy z pulsem usługi Apache Ambari w usłudze Azure HDInsight
 
-W tym artykule opisano kroki rozwiązywania problemów i możliwe rozwiązania problemów podczas interakcji z klastrami usługi Azure HDInsight.
+W tym artykule opisano kroki rozwiązywania problemów oraz możliwe rozwiązania problemów występujących w przypadku współpracy z klastrami usługi Azure HDInsight.
 
-## <a name="scenario-high-cpu-utilization"></a>Scenariusz: Wysokie wykorzystanie procesora
+## <a name="scenario-high-cpu-utilization"></a>Scenariusz: wysokie wykorzystanie procesora CPU
 
 ### <a name="issue"></a>Problem
 
-Agent Ambari ma wysokie wykorzystanie procesora CPU, co powoduje alerty z interfejsu użytkownika Ambari, że dla niektórych węzłów pulsu agenta Ambari jest tracona. Bicie serca utracone alert jest zwykle przemijające.
+Agent Ambari ma duże użycie procesora CPU, które powoduje utratę alertów z interfejsu użytkownika Ambari, który dla niektórych węzłów zostaje utracony. Alert utracony pulsu jest zwykle przejściowy.
 
 ### <a name="cause"></a>Przyczyna
 
-Ze względu na różne błędy ambari-agent, w rzadkich przypadkach, twój ambari-agent może mieć wysokie (blisko 100) procent wykorzystania procesora.
+Ze względu na różne błędy agenta Ambari, w rzadkich przypadkach, Agent Ambari — może mieć wysokie wykorzystanie procesora CPU (w pobliżu 100).
 
 ### <a name="resolution"></a>Rozwiązanie
 
-1. Identyfikowanie identyfikatora procesu (pid) ambari-agenta:
+1. Określ identyfikator procesu (PID) Ambari-Agent:
 
     ```bash
     ps -ef | grep ambari_agent
@@ -42,13 +42,13 @@ Ze względu na różne błędy ambari-agent, w rzadkich przypadkach, twój ambar
     top -p <ambari-agent-pid>
     ```
 
-1. Uruchom ponownie ambari-agent, aby złagodzić problem:
+1. Uruchom ponownie Ambari agenta, aby rozwiązać problem:
 
     ```bash
     service ambari-agent restart
     ```
 
-1. Jeśli ponowne uruchomienie nie zadziała, zabić proces ambari-agent, a następnie uruchom go:
+1. Jeśli ponowne uruchomienie nie działa, należy skasować proces Ambari-Agent, a następnie uruchomić go:
 
     ```bash
     kill -9 <ambari-agent-pid>
@@ -57,55 +57,55 @@ Ze względu na różne błędy ambari-agent, w rzadkich przypadkach, twój ambar
 
 ---
 
-## <a name="scenario-ambari-agent-not-started"></a>Scenariusz: Agent Ambari nie został uruchomiony
+## <a name="scenario-ambari-agent-not-started"></a>Scenariusz: nie uruchomiono agenta Ambari
 
 ### <a name="issue"></a>Problem
 
-Agent Ambari nie rozpoczął, co powoduje alerty z interfejsu użytkownika Ambari, że dla niektórych węzłów pulsu agenta Ambari jest tracona.
+Agent Ambari nie został uruchomiony, co spowoduje utratę alertów z interfejsu użytkownika Ambari, który dla niektórych węzłów zostanie utracony pulsu agenta Ambari.
 
 ### <a name="cause"></a>Przyczyna
 
-Alerty są spowodowane przez agenta Ambari nie działa.
+Alerty są spowodowane przez agenta Ambari, który nie jest uruchomiony.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-1. Potwierdź status ambari-agenta:
+1. Potwierdzenie stanu Ambari-Agent:
 
     ```bash
     service ambari-agent status
     ```
 
-1. Sprawdź, czy usługi kontrolera trybu failover są uruchomione:
+1. Potwierdź, że usługi kontrolera trybu failover są uruchomione:
 
     ```bash
     ps -ef | grep failover
     ```
 
-    Jeśli usługi kontrolera trybu failover nie są uruchomione, prawdopodobnie z powodu problemu uniemożliwić hdinsight-agent z uruchamiania kontrolera trybu failover. Sprawdź dziennik hdinsight-agent z `/var/log/hdinsight-agent/hdinsight-agent.out` pliku.
+    Jeśli usługi kontrolera trybu failover nie są uruchomione, prawdopodobnie z powodu problemu uniemożliwienie uruchomienia kontrolera trybu failover przez agenta usługi HDInsight. Sprawdź dziennik HDInsight-Agent z `/var/log/hdinsight-agent/hdinsight-agent.out` pliku.
 
-## <a name="scenario-heartbeat-lost-for-ambari"></a>Scenariusz: Bicie serca utracone dla Ambari
+## <a name="scenario-heartbeat-lost-for-ambari"></a>Scenariusz: Utracono puls dla Ambari
 
 ### <a name="issue"></a>Problem
 
-Ambari bicie serca agent został utracony.
+Agent pulsu Ambari został utracony.
 
 ### <a name="cause"></a>Przyczyna
 
-Dzienniki oms powodują wysokie wykorzystanie procesora CPU.
+Dzienniki pakietu OMS powodują wysokie wykorzystanie procesora CPU.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-* Wyłącz rejestrowanie usługi Azure Monitor przy użyciu polecenia cmdlet programu PowerShell [disable-AzHDInsightMonitoring.](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightmonitoring)
-* Usuwanie `mdsd.warn` pliku dziennika
+* Wyłącz rejestrowanie Azure Monitor przy użyciu polecenia cmdlet [disable-AzHDInsightMonitoring](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightmonitoring) programu PowerShell.
+* Usuń plik `mdsd.warn` dziennika
 
 ---
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli nie widzisz problemu lub nie możesz rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy technicznej:
+Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy:
 
-* Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej platformy Azure Community.](https://azure.microsoft.com/support/community/)
+* Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-* Połącz [@AzureSupport](https://twitter.com/azuresupport) się z — oficjalnym kontem platformy Microsoft Azure w celu poprawy jakości obsługi klienta, łącząc społeczność platformy Azure z odpowiednimi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
+* Połącz się [@AzureSupport](https://twitter.com/azuresupport) za pomocą — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta, łącząc społeczność platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
 
-* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy z [witryny Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Wybierz **pozycję Obsługa z** paska menu lub otwórz centrum pomocy + pomocy **technicznej.** Aby uzyskać bardziej szczegółowe informacje, zapoznaj się z [instrukcjami tworzenia żądania pomocy technicznej platformy Azure.](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) Dostęp do obsługi zarządzania subskrypcjami i rozliczeń jest dołączony do subskrypcji platformy Microsoft Azure, a pomoc techniczna jest świadczona za pośrednictwem jednego z [planów pomocy technicznej platformy Azure.](https://azure.microsoft.com/support/plans/)
+* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zobacz [jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

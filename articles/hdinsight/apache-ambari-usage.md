@@ -1,6 +1,6 @@
 ---
-title: Użycie Apache Ambari w usłudze Azure HDInsight
-description: Omówienie sposobu stosowania apache Ambari w usłudze Azure HDInsight.
+title: Użycie oprogramowania Apache Ambari w usłudze Azure HDInsight
+description: Omówienie sposobu używania oprogramowania Apache Ambari w usłudze Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,25 +8,25 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.openlocfilehash: 466c170985715be52a90d579c19ca23aefefe2e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77067398"
 ---
-# <a name="apache-ambari-usage-in-azure-hdinsight"></a>Użycie Apache Ambari w usłudze Azure HDInsight
+# <a name="apache-ambari-usage-in-azure-hdinsight"></a>Użycie oprogramowania Apache Ambari w usłudze Azure HDInsight
 
-Usługa HDInsight używa apache Ambari do wdrażania klastra i zarządzania nimi. Agenci Ambari są uruchamiane na każdym węźle (węzła roboczego, zookeeper i edgenode, jeśli istnieje). Serwer Ambari działa tylko na headnode (hn0 lub hn1). Tylko jedno wystąpienie serwera Ambari jest uruchamiane w tym czasie. Jest to kontrolowane przez kontroler trybu failover HDInsight. Gdy jeden z headnodes jest w dół do ponownego uruchomienia lub konserwacji, drugi headnode stanie się aktywny i serwer Ambari na drugim headnode zostanie uruchomiony.
+Usługa HDInsight używa platformy Apache Ambari do wdrażania klastrów i zarządzania nimi. Agenci Ambari są uruchamiani w każdym węźle (węzła głównego, Node-Worker, dozorcy i edgenode, jeśli istnieje). Serwer Ambari działa tylko na węzła głównego (hn0 lub hn1). Tylko jedno wystąpienie serwera Ambari jest uruchamiane jednocześnie. Jest to kontrolowane przez kontroler trybu failover usługi HDInsight. Gdy jedna z węzłów głównych nie działa do ponownego uruchomienia lub konserwacji, drugi węzła głównego stanie się aktywny, a Ambari serwer na drugim węzła głównego zostanie uruchomiony.
 
-Cała konfiguracja klastra powinna być wykonywana za pośrednictwem [interfejsu użytkownika Ambari](./hdinsight-hadoop-manage-ambari.md), wszelkie zmiany lokalne zostaną zastąpione po ponownym uruchomieniu węzła.
+Wszystkie konfiguracje klastra należy wykonać za pomocą [interfejsu użytkownika Ambari](./hdinsight-hadoop-manage-ambari.md), a każda zmiana lokalna zostanie nadpisywana po ponownym uruchomieniu węzła.
 
 ## <a name="failover-controller-services"></a>Usługi kontrolera trybu failover
 
-Kontroler trybu failover hdinsight jest również odpowiedzialny za aktualizowanie adresu IP hosta headnode, który wskazuje bieżący aktywny węzeł główny. Wszystkie agentów Ambari są skonfigurowane do raportowania jego stanu i pulsu do headnode hosta. Kontroler trybu failover to zestaw usług uruchomionych w każdym węźle w klastrze, jeśli nie są uruchomione, funkcja awaryjna headnode może nie działać poprawnie i podczas próby uzyskania dostępu do serwera Ambari zostanie zainstalowany protokół HTTP 502.
+Kontroler trybu failover usługi HDInsight jest również odpowiedzialny za aktualizowanie adresu IP hosta węzła głównego, który wskazuje bieżący aktywny węzeł główny. Wszyscy agenci Ambari są skonfigurowani do zgłaszania stanu i pulsu do hosta węzła głównego. Kontroler trybu failover jest zestawem usług uruchomionych w każdym węźle w klastrze, jeśli nie są uruchomione, węzła głównego trybu failover może nie działać poprawnie i podczas próby dostępu do serwera Ambari zostanie wyświetlony protokół HTTP 502.
 
-Aby sprawdzić, który węzeł główny jest aktywny, jednym ze sposobów jest ssh `ping headnodehost` do jednego z węzłów w klastrze, a następnie uruchomić i porównać ADRES IP z dwoma headnodes.
+Aby sprawdzić, który węzła głównego jest aktywny, jeden z nich to SSH do jednego z węzłów w klastrze, a następnie uruchom `ping headnodehost` i porównaj adres IP z dwoma węzłów głównych.
 
-Jeśli usługi kontrolera trybu failover nie są uruchomione, headnode pracy awaryjnej może nie upaść poprawnie, co może skończyć się nie uruchomiony serwer Ambari. Aby sprawdzić, czy usługi kontrolera trybu failover są uruchomione, wykonaj:
+Jeśli usługi kontrolera trybu failover nie są uruchomione, węzła głównego trybu failover może nie nastąpić poprawnie, co może spowodować, że nie działa serwer Ambari. Aby sprawdzić, czy usługi kontrolera trybu failover są uruchomione, wykonaj następujące działania:
 
 ```bash
 ps -ef | grep failover
@@ -34,47 +34,47 @@ ps -ef | grep failover
 
 ## <a name="logs"></a>Dzienniki
 
-Na aktywnym headnode możesz sprawdzić logi serwera Ambari na stronie:
+Na stronie Active węzła głównego można sprawdzić dzienniki serwera Ambari w:
 
 ```
 /var/log/ambari-server/ambari-server.log
 /var/log/ambari-server/ambari-server-check-database.log
 ```
 
-W dowolnym węźle w klastrze można sprawdzić dzienniki agenta Ambari pod adresem:
+Na dowolnym węźle klastra można sprawdzić dzienniki agenta Ambari w:
 
 ```bash
 /var/log/ambari-agent/ambari-agent.log
 ```
 
-## <a name="service-start-sequences"></a>Sekwencje uruchamiania usługi
+## <a name="service-start-sequences"></a>Sekwencje uruchomienia usługi
 
-Jest to sekwencja uruchamiania usługi w czasie rozruchu:
+Jest to sekwencja uruchamiania usługi podczas rozruchu:
 
-1. Hdinsight-agent uruchamia usługi kontrolera trybu failover.
-1. Usługi kontrolera trybu failover uruchamiają agenta Ambari na każdym węźle i serwer Ambari na aktywnym headnode.
+1. HDInsight — Agent uruchamia usługi kontrolera trybu failover.
+1. Usługi kontrolera trybu failover uruchamiają agenta Ambari na każdym węźle i serwerze Ambari na aktywnym węzła głównego.
 
 ## <a name="ambari-database"></a>Baza danych Ambari
 
-USŁUGA HDInsight tworzy usługę SQL Azure Database pod maską, aby służyć jako baza danych dla serwera Ambari. Domyślną [warstwą usług jest S0](../sql-database/sql-database-elastic-pool-scale.md).
+Usługa HDInsight tworzy bazę danych usługi SQL Azure pod okapem, która będzie działać jako baza danych dla serwera Ambari. Domyślną [warstwą usług jest S0](../sql-database/sql-database-elastic-pool-scale.md).
 
-Dla każdego klastra z liczbą węzłów procesu roboczego większą niż 16 podczas tworzenia klastra, S2 jest warstwą usług bazy danych.
+W przypadku każdego klastra z liczbą węzłów procesu roboczego większą niż 16 podczas tworzenia klastra S2 jest warstwą usługi bazy danych.
 
-## <a name="takeaway-points"></a>Punkty na wynos
+## <a name="takeaway-points"></a>Punkty wnioskiem
 
-Nigdy nie uruchamiaj ręcznie/nie uruchamiaj usług ambari-server lub ambari-agent, chyba że próbujesz ponownie uruchomić usługę, aby obejść problem. Aby wymusić tryb failover, można ponownie uruchomić aktywny plik headnode.
+Nigdy nie uruchamiaj ręcznie/Zatrzymaj usługi Ambari-Server lub Ambari-Agent, chyba że próbujesz ponownie uruchomić usługę, aby obejść problem. Aby wymusić przejście w tryb failover, można ponownie uruchomić aktywny węzła głównego.
 
-Nigdy nie modyfikuj ręcznie żadnych plików konfiguracyjnych w dowolnym węźle klastra, pozwól interfejsowi użytkownika Ambari wykonać zadanie za Ciebie.
+Nigdy nie należy ręcznie modyfikować żadnych plików konfiguracji w żadnym węźle klastra, pozwól, aby interfejs użytkownika Ambari wykonał to zadanie.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Zarządzanie klastrami HDInsight przy użyciu internetowego interfejsu użytkownika systemu Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-* [Zarządzanie klastrami HDInsight przy użyciu interfejsu API Apache Ambari REST](hdinsight-hadoop-manage-ambari-rest-api.md)
+* [Zarządzanie klastrami usługi HDInsight przy użyciu interfejsu API REST usługi Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)
 
-Jeśli nie widzisz problemu lub nie możesz rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy technicznej:
+Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy:
 
-* Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej platformy Azure Community.](https://azure.microsoft.com/support/community/)
+* Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-* Połącz [@AzureSupport](https://twitter.com/azuresupport) się z — oficjalnym kontem platformy Microsoft Azure w celu poprawy jakości obsługi klienta. Łączenie społeczności platformy Azure z odpowiednimi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
+* Połącz się [@AzureSupport](https://twitter.com/azuresupport) z programem — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
-* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy z [witryny Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Wybierz **pozycję Obsługa z** paska menu lub otwórz centrum pomocy + pomocy **technicznej.** Aby uzyskać bardziej szczegółowe informacje, zapoznaj [się z instrukcjami tworzenia żądania pomocy technicznej platformy Azure.](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) Dostęp do obsługi zarządzania subskrypcjami i rozliczeń jest dołączony do subskrypcji platformy Microsoft Azure, a pomoc techniczna jest świadczona za pośrednictwem jednego z [planów pomocy technicznej platformy Azure.](https://azure.microsoft.com/support/plans/)
+* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

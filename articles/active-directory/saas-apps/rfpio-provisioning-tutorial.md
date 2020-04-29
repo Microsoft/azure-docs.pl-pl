@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Konfigurowanie funkcji RFPIO do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure Active Directory | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować usługę Azure Active Directory do automatycznego aprowizowania i usuwania z obsługi administracyjnej kont użytkowników na platformę RFPIO.
+title: 'Samouczek: Konfigurowanie RFPIO dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników w usłudze RFPIO.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,158 +16,158 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 6ae423305b39c1335b5db1cd893d5f817be1929b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77060868"
 ---
-# <a name="tutorial-configure-rfpio-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie funkcji RFPIO do automatycznego inicjowania obsługi administracyjnej przez użytkowników
+# <a name="tutorial-configure-rfpio-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie RFPIO na potrzeby automatycznego aprowizacji użytkowników
 
-Celem tego samouczka jest zademonstrowanie kroków, które należy wykonać w usłudze RFPIO i usłudze Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizowania i deekwowania użytkowników i/lub grup do programu RFPIO.
+Celem tego samouczka jest przedstawienie czynności, które należy wykonać w RFPIO i Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizacji i cofania aprowizacji użytkowników i/lub grup do RFPIO.
 
 > [!NOTE]
-> W tym samouczku opisano łącznik utworzony na podstawie usługi inicjowania obsługi administracyjnej użytkowników usługi Azure AD. Aby uzyskać ważne informacje na temat działania tej usługi, działania i często zadawanych pytań, zobacz [Automatyzacja inicjowania obsługi administracyjnej i usuwania obsługi administracyjnej aplikacji SaaS za pomocą usługi Azure Active Directory](../app-provisioning/user-provisioning.md).
+> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania aplikacji SaaS przy użyciu programu Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Ten łącznik jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat ogólnych warunków korzystania z platformy Microsoft Azure dla funkcji w wersji Zapoznawczej, zobacz [Dodatkowe warunki użytkowania w wersji Zapoznawczej platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Ten łącznik jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat ogólnych Microsoft Azure warunki użytkowania funkcji w wersji zapoznawczej, zobacz [dodatkowe warunki użytkowania dla Microsoft Azure podglądów](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku zakłada, że masz już następujące wymagania wstępne:
+Scenariusz opisany w tym samouczku założono, że masz już następujące wymagania wstępne:
 
 * Dzierżawa usługi Azure AD.
 * [Dzierżawa RFPIO](https://www.rfpio.com/product/).
 * Konto użytkownika w RFPIO z uprawnieniami administratora.
 
-## <a name="assigning-users-to-rfpio"></a>Przypisywanie użytkowników do rfpio
+## <a name="assigning-users-to-rfpio"></a>Przypisywanie użytkowników do RFPIO
 
-Usługa Azure Active Directory używa koncepcji o nazwie *przydziały,* aby określić, którzy użytkownicy powinni otrzymać dostęp do wybranych aplikacji. W kontekście automatycznego inicjowania obsługi administracyjnej użytkowników tylko użytkownicy i/lub grupy, które zostały przypisane do aplikacji w usłudze Azure AD są synchronizowane.
+Azure Active Directory używa koncepcji zwanej *zadaniami* w celu określenia, którzy użytkownicy powinni otrzymywać dostęp do wybranych aplikacji. W kontekście automatycznej aprowizacji użytkowników są synchronizowane tylko użytkownicy i/lub grupy, które zostały przypisane do aplikacji w usłudze Azure AD.
 
-Przed skonfigurowaniem i włączeniem automatycznego inicjowania obsługi administracyjnej użytkowników należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD potrzebują dostępu do programu RFPIO. Po podjęciu decyzji można przypisać tych użytkowników i/lub grupy do RFPIO, postępując zgodnie z instrukcjami tutaj:
-* [Przypisywanie użytkownika lub grupy do aplikacji przedsiębiorstwa](../manage-apps/assign-user-or-group-access-portal.md)
+Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD potrzebują dostępu do RFPIO. Po ustaleniu tych użytkowników i/lub grup można przypisywać do RFPIO, postępując zgodnie z poniższymi instrukcjami:
+* [Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-rfpio"></a>Ważne wskazówki dotyczące przypisywania użytkowników do rfpio
+## <a name="important-tips-for-assigning-users-to-rfpio"></a>Ważne wskazówki dotyczące przypisywania użytkowników do RFPIO
 
-* Zaleca się, że jeden użytkownik usługi Azure AD jest przypisany do rfpio do testowania konfiguracji automatycznego inicjowania obsługi administracyjnej użytkownika. Dodatkowi użytkownicy i/lub grupy mogą być przypisane później.
+* Zaleca się, aby jeden użytkownik usługi Azure AD został przypisany do RFPIO w celu przetestowania automatycznej konfiguracji inicjowania obsługi użytkowników. Dodatkowych użytkowników i/lub grupy można przypisywać później.
 
-* Podczas przypisywania użytkownika do rfpio należy wybrać dowolną prawidłową rolę specyficzną dla aplikacji (jeśli jest dostępna) w oknie dialogowym przypisania. Użytkownicy z rolą **dostępu domyślnego** są wykluczeni z inicjowania obsługi administracyjnej.
+* Podczas przypisywania użytkownika do RFPIO należy wybrać dowolną prawidłową rolę specyficzną dla aplikacji (jeśli jest dostępna) w oknie dialogowym przypisania. Użytkownicy z **domyślną rolą dostępu** są wykluczeni z aprowizacji.
 
-## <a name="setup-rfpio-for-provisioning"></a>Konfigurowanie rfpio do inicjowania obsługi administracyjnej
+## <a name="setup-rfpio-for-provisioning"></a>Konfiguracja RFPIO na potrzeby aprowizacji
 
-Przed skonfigurowaniem rfpio dla automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure AD, należy włączyć inicjowanie obsługi administracyjnej scim na rfpio.
+Przed skonfigurowaniem usługi RFPIO na potrzeby automatycznego inicjowania obsługi administracyjnej użytkowników w usłudze Azure AD należy włączyć obsługę administracyjną Standard scim na RFPIO.
 
-1.  Zaloguj się do konsoli administracyjnej RFPIO. W lewym dolnym rogu konsoli administracyjnej kliknij pozycję **Dzierżawa**.
+1.  Zaloguj się do konsoli administracyjnej RFPIO. W lewym dolnym rogu konsoli administracyjnej kliknij pozycję **dzierżawca**.
 
-    ![Konsola administracyjna programu RFPIO](media/rfpio-provisioning-tutorial/aadtest0.png)
+    ![Konsola administracyjna RFPIO](media/rfpio-provisioning-tutorial/aadtest0.png)
 
 2.  Kliknij pozycję **Ustawienia organizacji**.
     
     ![Administrator RFPIO](media/rfpio-provisioning-tutorial/aadtest.png)
 
-3.  Przejdź do funkcji > **SCIM****ZABEZPIECZEŃ ZARZĄDZANIA** **UŻYTKOWNIKAMI** > .
+3.  Przejdź do**Standard scim** > **zabezpieczeń** >  **zarządzania użytkownikami**.
 
-    ![RFPIO Dodaj scim](media/rfpio-provisioning-tutorial/scim.png)
+    ![RFPIO Dodaj Standard scim](media/rfpio-provisioning-tutorial/scim.png)
 
-4.  Upewnij się, że **automatyczne inicjowanie obsługi administracyjnej** jest włączone. Kliknij na **GENEROWANIE SCIM TOKEN INTERFEJSU API**.
+4.  Upewnij się, że **Funkcja autoaprowizacji użytkowników** jest włączona. Kliknij pozycję **Generuj token interfejsu API Standard scim**.
 
-    ![Token tworzenia programu RFPIO](media/rfpio-provisioning-tutorial/generate.png)
+    ![Utwórz token RFPIO](media/rfpio-provisioning-tutorial/generate.png)
 
-5.  Zapisz **token interfejsu API SCIM,** ponieważ ten token nie będzie wyświetlany ponownie ze względów bezpieczeństwa. Ta wartość zostanie wprowadzona w polu **Token tajny** na karcie Inicjowanie obsługi administracyjnej aplikacji RFPIO w witrynie Azure portal.
+5.  Zapisz **token interfejsu API Standard scim** , ponieważ ten token nie zostanie ponownie wyświetlony do celów zabezpieczeń. Ta wartość zostanie wprowadzona w polu **token tajny** na karcie APROWIZACJI aplikacji RFPIO w Azure Portal.
 
-    ![Token tworzenia programu RFPIO](media/rfpio-provisioning-tutorial/auth.png)
+    ![Utwórz token RFPIO](media/rfpio-provisioning-tutorial/auth.png)
 
-## <a name="add-rfpio-from-the-gallery"></a>Dodawanie rfpio z galerii
+## <a name="add-rfpio-from-the-gallery"></a>Dodaj RFPIO z galerii
 
-Aby skonfigurować program RFPIO do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure AD, należy dodać narzędzie RFPIO z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować RFPIO automatycznej aprowizacji użytkowników w usłudze Azure AD, musisz dodać RFPIO z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać rfpio z galerii aplikacji usługi Azure AD, wykonaj następujące kroki:**
+**Aby dodać RFPIO z galerii aplikacji usługi Azure AD, wykonaj następujące czynności:**
 
-1. W **[witrynie Azure portal](https://portal.azure.com)** w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
+1. W **[Azure Portal](https://portal.azure.com)** w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do **aplikacji enterprise**, a następnie wybierz pozycję **Wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-3. Aby dodać nową aplikację, wybierz przycisk **Nowa aplikacja** u góry okienka.
+3. Aby dodać nową aplikację, wybierz przycisk **Nowa aplikacja** w górnej części okienka.
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź **RFPIO**, wybierz **RFPIO** w panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wprowadź **RFPIO**, wybierz pozycję **RFPIO** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![RFPIO na liście wyników](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-rfpio"></a>Konfigurowanie automatycznego inicjowania obsługi administracyjnej dla programu RFPIO 
+## <a name="configuring-automatic-user-provisioning-to-rfpio"></a>Konfigurowanie automatycznej aprowizacji użytkowników do RFPIO 
 
-W tej sekcji można przejść przez kroki konfigurowania usługi inicjowania obsługi administracyjnej usługi Azure AD do tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w programie RFPIO na podstawie przypisania użytkowników i/lub grup w usłudze Azure AD.
+Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w programie RFPIO na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
 
 > [!TIP]
-> Można również włączyć logowanie jednokrotne oparte na SAML dla RFPIO, postępując zgodnie z instrukcjami podanymi w [samouczku logowania jednokrotnego RFPIO](rfpio-tutorial.md). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej użytkownika, chociaż te dwie funkcje wzajemnie się uzupełniają.
+> Możesz również włączyć logowanie jednokrotne oparte na protokole SAML dla RFPIO, postępując zgodnie z instrukcjami podanymi w [samouczku logowanie](rfpio-tutorial.md)jednokrotne w RFPIO. Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje napadają nawzajem.
 
-### <a name="to-configure-automatic-user-provisioning-for-rfpio-in-azure-ad"></a>Aby skonfigurować automatyczne inicjowanie obsługi administracyjnej dla programu RFPIO w usłudze Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-rfpio-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla RFPIO w usłudze Azure AD:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). Wybierz pozycję **Aplikacje przedsiębiorstwa**, a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz **RFPIO**.
+2. Na liście Aplikacje wybierz pozycję **RFPIO**.
 
-    ![Łącze RFPIO na liście Aplikacje](common/all-applications.png)
+    ![Link RFPIO na liście aplikacji](common/all-applications.png)
 
-3. Wybierz kartę **Inicjowanie obsługi administracyjnej.**
+3. Wybierz kartę **aprowizacji** .
 
-    ![Karta Inicjowanie obsługi administracyjnej](common/provisioning.png)
+    ![Karta aprowizacji](common/provisioning.png)
 
-4. Ustaw **tryb inicjowania obsługi administracyjnej** na **Automatyczny**.
+4. Ustaw **tryb aprowizacji** na **automatyczny**.
 
-    ![Karta Inicjowanie obsługi administracyjnej](common/provisioning-automatic.png)
+    ![Karta aprowizacji](common/provisioning-automatic.png)
 
-5. W sekcji **Poświadczenia administratora** wprowadź w `https://<RFPIO tenant instance>.rfpio.com/rfpserver/scim/v2 ` **adresie URL dzierżawy**. Przykładową wartością jest `https://Azure-test1.rfpio.com/rfpserver/scim/v2`. Wprowadź wartość **tokenu interfejsu API SCIM** pobraną wcześniej w **tokenie tajnym**. Kliknij **przycisk Testuj połączenie,** aby upewnić się, że usługa Azure AD może łączyć się z usługą RFPIO. Jeśli połączenie nie powiedzie się, upewnij się, że twoje konto RFPIO ma uprawnienia administratora i spróbuj ponownie.
+5. W sekcji **poświadczenia administratora** wprowadź `https://<RFPIO tenant instance>.rfpio.com/rfpserver/scim/v2 ` **adres URL dzierżawy**. Przykładowa wartość to `https://Azure-test1.rfpio.com/rfpserver/scim/v2`. Wprowadź wartość **tokenu interfejsu API Standard scim** pobraną wcześniej w **tokenie tajnym**. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą RFPIO. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi RFPIO ma uprawnienia administratora, a następnie spróbuj ponownie.
 
     ![Adres URL dzierżawy + token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. W polu **Wiadomość e-mail z powiadomieniem** wprowadź adres e-mail osoby lub grupy, która powinna otrzymywać powiadomienia o błędach inicjowania obsługi administracyjnej, i zaznacz pole wyboru - **Wyślij powiadomienie e-mail, gdy wystąpi błąd.**
+6. W polu **adres E-mail powiadomienia** wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji, i zaznacz pole wyboru — **Wyślij powiadomienie e-mail, gdy wystąpi awaria**.
 
-    ![Wiadomość e-mail z powiadomieniem](common/provisioning-notification-email.png)
+    ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
 7. Kliknij przycisk **Zapisz**.
 
-8. W sekcji **Mapowania** wybierz pozycję **Synchronizuj użytkowników usługi Azure Active Directory z usługą RFPIO**.
+8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do RFPIO**.
 
-    ![Mapowania użytkowników RFPIO](media/rfpio-provisioning-tutorial/usermapping.png)
+    ![RFPIO mapowania użytkowników](media/rfpio-provisioning-tutorial/usermapping.png)
 
-9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do RFPIO w sekcji **Mapowanie atrybutów.** Atrybuty wybrane jako **właściwości dopasowania** są używane do dopasowania kont użytkowników w programie RFPIO do operacji aktualizacji. Wybierz przycisk **Zapisz,** aby zatwierdzić wszelkie zmiany.
+9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, do RFPIO w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie RFPIO for Updates. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    ![Atrybuty użytkownika programu RFPIO](media/rfpio-provisioning-tutorial/userattributes.png)
+    ![RFPIO atrybuty użytkownika](media/rfpio-provisioning-tutorial/userattributes.png)
 
-10. Aby skonfigurować filtry zakresu, zapoznaj się z poniższymi instrukcjami podanymi w [samouczku filtru zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Aby włączyć usługę inicjowania obsługi administracyjnej usługi Azure AD dla programu RFPIO, zmień **stan inicjowania obsługi administracyjnej** **na Włączone** w sekcji **Ustawienia.**
+11. Aby włączyć usługę Azure AD Provisioning dla RFPIO, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
-    ![Stan inicjowania obsługi administracyjnej włączony](common/provisioning-toggle-on.png)
+    ![Stan aprowizacji jest przełączany](common/provisioning-toggle-on.png)
 
-12. Zdefiniuj użytkowników i/lub grupy, które mają zostać zainicjowane rfpio, wybierając żądane wartości w **zakresie** w sekcji **Ustawienia.**
+12. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić RFPIO, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
 
-    ![Zakres inicjowania obsługi administracyjnej](common/provisioning-scope.png)
+    ![Zakres aprowizacji](common/provisioning-scope.png)
 
-13. Gdy będziesz gotowy do aprowienia, kliknij przycisk **Zapisz**.
+13. Gdy wszystko będzie gotowe do udostępnienia, kliknij przycisk **Zapisz**.
 
-    ![Zapisywanie konfiguracji inicjowania obsługi administracyjnej](common/provisioning-configuration-save.png)
+    ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
-Ta operacja rozpoczyna początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia.** Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które występują co około 40 minut, o ile jest uruchomiona usługa inicjowania obsługi administracyjnej usługi Azure AD. Za pomocą sekcji **Szczegóły synchronizacji** można monitorować postęp i śledzić łącza do raportu aktywności inicjowania obsługi administracyjnej, w którym opisano wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej usługi Azure AD na platformie RFPIO.
+Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia** . Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które wystąpiły co około 40 minut, o ile usługa Azure AD Provisioning jest uruchomiona. Możesz użyć sekcji **szczegóły synchronizacji** do monitorowania postępu i postępuj zgodnie z raportem aktywności aprowizacji, który opisuje wszystkie akcje wykonywane przez usługę Azure AD Provisioning w witrynie RFPIO.
 
-Aby uzyskać więcej informacji na temat sposobu zapoznania się z dziennikami inicjowania obsługi administracyjnej usługi Azure AD, zobacz [Raportowanie automatycznego inicjowania obsługi administracyjnej konta użytkownika.](../app-provisioning/check-status-user-account-provisioning.md)
+Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="connector-limitations"></a>Ograniczenia złącza
+## <a name="connector-limitations"></a>Ograniczenia łącznika
 
-* RFPIO nie obsługuje grup inicjowania obsługi administracyjnej obecnie.
+* Usługa RFPIO nie obsługuje obecnie aprowizacji grup.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Zarządzanie inicjowanie obsługi administracyjnej kont użytkowników dla aplikacji dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i otrzymywać raporty dotyczące aktywności inicjowania obsługi administracyjnej](../app-provisioning/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)

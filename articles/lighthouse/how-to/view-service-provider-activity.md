@@ -1,49 +1,49 @@
 ---
 title: Wyświetlanie działań dostawcy usług
-description: Klienci mogą wyświetlać zarejestrowane działania, aby wyświetlić akcje wykonywane przez dostawców usług za pośrednictwem usługi Azure zarządzanie zasobami delegowanymi.
+description: Klienci mogą wyświetlać zarejestrowane działanie, aby zobaczyć akcje wykonywane przez dostawców usług za pomocą funkcji zarządzania zasobami delegowanymi przez platformę Azure.
 ms.date: 01/15/2020
 ms.topic: conceptual
 ms.openlocfilehash: a923a57ecc94ac15af207c2b8dc8998708b708d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77649640"
 ---
 # <a name="view-service-provider-activity"></a>Wyświetlanie działań dostawcy usług
 
-Klienci, którzy mają delegowane subskrypcje dla zarządzania zasobami delegowanymi platformy Azure można wyświetlić dane [dziennika aktywności platformy Azure,](../../azure-monitor/platform/platform-logs-overview.md) aby wyświetlić wszystkie akcje podjęte. Zapewnia to klientom pełny wgląd w operacje, które dostawcy usług wykonują za pośrednictwem usługi Azure zarządzanie zasobami delegowanymi, wraz z operacjami wykonywanymi przez użytkowników w ramach własnej dzierżawy usługi Azure Active Directory (Azure AD) klienta.
+Klienci, którzy mają delegowane subskrypcje do zarządzania zasobami delegowanymi przez platformę Azure, mogą [wyświetlać dane dziennika aktywności platformy Azure](../../azure-monitor/platform/platform-logs-overview.md) , aby zobaczyć wszystkie wykonane akcje. Zapewnia to klientom pełny wgląd w operacje wykonywane przez dostawców usług za pomocą delegowania zasobów platformy Azure, a także operacji wykonywanych przez użytkowników w ramach dzierżawy Azure Active Directory (Azure AD) klienta.
 
 > [!TIP]
-> Udostępniamy również wbudowaną definicję zasad usługi Azure Policy, aby inspekcji delegowania zakresów do dzierżawy zarządzającej. Aby uzyskać więcej informacji, zobacz [Inspekcja delegowania w twoim środowisku](view-manage-service-providers.md#audit-delegations-in-your-environment).
+> Firma Microsoft udostępnia również wbudowaną Azure Policy definicję zasad służącą do inspekcji delegowania zakresów do dzierżawy zarządzającej. Aby uzyskać więcej informacji, zobacz [Inspekcja delegowania w środowisku](view-manage-service-providers.md#audit-delegations-in-your-environment).
 
-## <a name="view-activity-log-data"></a>Wyświetlanie danych dziennika aktywności
+## <a name="view-activity-log-data"></a>Wyświetl dane dziennika aktywności
 
-Dziennik aktywności można [wyświetlić z](../../azure-monitor/platform/activity-log-view.md) menu **Monitor** w witrynie Azure portal. Aby ograniczyć wyniki do określonej subskrypcji, użyj filtrów, aby wybrać określoną subskrypcję. Można również [programowo wyświetlać i pobierać zdarzenia dziennika aktywności.](../../azure-monitor/platform/activity-log-view.md)
-
-> [!NOTE]
-> Użytkownicy w dzierżawie dostawcy usług mogą wyświetlać wyniki dziennika aktywności dla delegowanej subskrypcji w dzierżawie klienta, jeśli przyznano im rolę [czytnika](../../role-based-access-control/built-in-roles.md#reader) (lub inną wbudowaną rolę, która obejmuje dostęp do czytnika), gdy ta subskrypcja była dołączana do zarządzania zasobami delegowanymi platformy Azure.
-
-W dzienniku aktywności zobaczysz nazwę operacji i jej stan wraz z datą i godziną jej wykonania. **Zdarzenie zainicjowane przez** kolumnę pokazuje, który użytkownik wykonał operację, czy był to użytkownik w dzierżawie dostawcy usług działający za pośrednictwem usługi Azure zarządzanie zasobami delegowanymi, czy użytkownik we własnej dzierżawie klienta. Należy zauważyć, że nazwa użytkownika jest wyświetlana, a nie dzierżawy lub roli, która została przypisana do tej subskrypcji.
-
-Zarejestrowana aktywność jest dostępna w witrynie Azure portal w ciągu ostatnich 90 dni. Aby dowiedzieć się, jak przechowywać te dane przez okres dłuższy niż 90 dni, zobacz [Zbieranie i analizowanie dzienników aktywności platformy Azure w obszarze roboczym usługi Log Analytics](../../azure-monitor/platform/activity-log-collect.md).
+[Dziennik aktywności można wyświetlić](../../azure-monitor/platform/activity-log-view.md) z menu **Monitoruj** w Azure Portal. Aby ograniczyć wyniki do określonej subskrypcji, użyj filtrów, aby wybrać konkretną subskrypcję. Możesz również [wyświetlać i pobierać zdarzenia dziennika aktywności](../../azure-monitor/platform/activity-log-view.md) .
 
 > [!NOTE]
-> Użytkownicy z dostawcy usług są wyświetlane w dzienniku działań, ale tych użytkowników i ich przypisania ról nie są wyświetlane w **kontroli dostępu (IAM)** lub podczas pobierania informacji o przypisaniu roli za pośrednictwem interfejsów API.
+> Użytkownicy w dzierżawie dostawcy usług mogą wyświetlać wyniki dziennika aktywności dla delegowanej subskrypcji w dzierżawie klienta, jeśli otrzymali rolę [czytelnika](../../role-based-access-control/built-in-roles.md#reader) (lub inną wbudowaną rolę, która obejmuje dostęp do czytnika), gdy subskrypcja została dołączona do funkcji zarządzania zasobami delegowanymi przez platformę Azure.
+
+W dzienniku aktywności zobaczysz nazwę operacji i jej stan wraz z datą i godziną wykonania. **Zdarzenie zainicjowane przez** kolumnę pokazuje, który użytkownik wykonał operację, niezależnie od tego, czy był on użytkownikiem w dzierżawie dostawcy usług działającym przez delegowane zarządzanie zasobami platformy Azure, czy użytkownikiem w dzierżawie klienta. Należy zauważyć, że nazwa użytkownika jest wyświetlana zamiast dzierżawy lub roli, do której użytkownik został przypisany do tej subskrypcji.
+
+Zarejestrowane działanie jest dostępne w Azure Portal przez ostatnie 90 dni. Aby dowiedzieć się, jak przechowywać te dane przez dłużej niż 90 dni, zobacz [zbieranie i analizowanie dzienników aktywności platformy Azure w obszarze roboczym log Analytics](../../azure-monitor/platform/activity-log-collect.md).
+
+> [!NOTE]
+> Użytkownicy dostawcy usług są wyświetlani w dzienniku aktywności, ale nie są one wyświetlane w **Access Control (IAM)** ani podczas pobierania informacji o przypisywaniu ról za pośrednictwem interfejsów API.
 
 ## <a name="set-alerts-for-critical-operations"></a>Ustawianie alertów dla operacji krytycznych
 
-Aby być świadomym krytycznych operacji, które wykonują dostawcy usług (lub użytkownicy we własnej dzierżawie), zalecamy tworzenie [alertów dziennika aktywności.](../../azure-monitor/platform/activity-log-alerts.md) Na przykład można śledzić wszystkie akcje administracyjne dla subskrypcji lub otrzymywać powiadomienia o usunięciu dowolnej maszyny wirtualnej w określonej grupie zasobów. Podczas tworzenia alertów będą one obejmować akcje wykonywane przez użytkowników w dzierżawie klienta, a także w dzierżawie zarządzającej.
+Aby zachować świadomość krytycznych operacji wykonywanych przez dostawców usług (lub użytkowników w Twojej dzierżawie), zalecamy tworzenie [alertów dziennika aktywności](../../azure-monitor/platform/activity-log-alerts.md). Na przykład możesz chcieć śledzić wszystkie akcje administracyjne dla subskrypcji lub otrzymywać powiadomienia o usunięciu dowolnej maszyny wirtualnej w danej grupie zasobów. Podczas tworzenia alertów będą one obejmować akcje wykonywane przez użytkowników w dzierżawie klienta, a także w innych dzierżawach.
 
-Aby uzyskać więcej informacji, zobacz [Tworzenie alertów dziennika aktywności i zarządzanie nimi](../../azure-monitor/platform/alerts-activity-log.md).
+Aby uzyskać więcej informacji, zobacz [tworzenie alertów dziennika aktywności i zarządzanie nimi](../../azure-monitor/platform/alerts-activity-log.md).
 
 ## <a name="create-log-queries"></a>Tworzenie zapytań dziennika
 
-Można tworzyć zapytania do analizowania zarejestrowanej aktywności lub skupić się na określonych elementach. Na przykład być może inspekcja wymaga raportowania wszystkich działań na poziomie administracyjnym wykonywanych w ramach subskrypcji. Można utworzyć kwerendę, aby filtrować tylko te akcje i sortować wyniki według użytkownika, daty lub innej wartości.
+Możesz tworzyć zapytania, aby analizować zarejestrowane działanie lub skupić się na określonych elementach. Na przykład, być może Inspekcja wymaga, aby zgłosić wszystkie akcje na poziomie administracyjnym wykonywane w ramach subskrypcji. Można utworzyć zapytanie, aby odfiltrować tylko te akcje i sortować wyniki według użytkownika, daty lub innej wartości.
 
-Aby uzyskać więcej informacji, zobacz [Omówienie zapytań dziennika w usłudze Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+Aby uzyskać więcej informacji, zobacz [Omówienie zapytań dzienników w Azure monitor](../../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [usłudze Azure Monitor](../../azure-monitor/index.yml).
-- Dowiedz się, jak [wyświetlać oferty dostawców usług i zarządzać nimi](view-manage-service-providers.md) w witrynie Azure portal.
+- Dowiedz się więcej o [Azure monitor](../../azure-monitor/index.yml).
+- Dowiedz się, jak [wyświetlać oferty dostawców usług i zarządzać nimi](view-manage-service-providers.md) w Azure Portal.

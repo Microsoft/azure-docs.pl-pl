@@ -1,109 +1,109 @@
 ---
-title: Diagnozowanie za pomocą strumienia metryk na żywo — usługa Azure Application Insights
-description: Monitoruj aplikację sieci web w czasie rzeczywistym za pomocą niestandardowych metryk i diagnozuj problemy z transmisją na żywo błędów, śladów i zdarzeń.
+title: Diagnozowanie za pomocą Live Metrics Stream platformy Azure Application Insights
+description: Monitoruj swoją aplikację sieci Web w czasie rzeczywistym za pomocą metryk niestandardowych i Diagnozuj problemy z dynamicznym źródłem błędów, śladów i zdarzeń.
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.openlocfilehash: ea0d786d0b8b96941d791bcc8e92fad9a869c5f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670104"
 ---
-# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Strumień metryk na żywo: monitor & diagnozowanie z 1-sekundowym opóźnieniem
+# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorowanie & diagnozowanie przy użyciu 1-sekundowego opóźnienia
 
-Sonduj bijące serce twojej żywej, produkcyjnej aplikacji internetowej przy użyciu strumienia metryk na żywo z [usługi Application Insights.](../../azure-monitor/app/app-insights-overview.md) Wybieraj i filtruj dane i liczniki wydajności do oglądania w czasie rzeczywistym, bez żadnych zakłóceń w usłudze. Sprawdź ślady stosu z próbkowanych żądań i wyjątków. Wraz z [profilera](../../azure-monitor/app/profiler.md), [debuger migawki](../../azure-monitor/app/snapshot-debugger.md). Live Metrics Stream zapewnia zaawansowane i nieinwazyjne narzędzie diagnostyczne dla twojej witryny sieci Web na żywo.
+Przesondowanie pulsu aktywnej, działającej aplikacji sieci Web przy użyciu Live Metrics Stream z [Application Insights](../../azure-monitor/app/app-insights-overview.md). Wybieranie i filtrowanie metryk i liczników wydajności w czasie rzeczywistym, bez żadnych zakłóceń usługi. Sprawdzanie śladów stosu z przykładowych nieudanych żądań i wyjątków. Za pomocą narzędzia [Profiler](../../azure-monitor/app/profiler.md)i [debugera migawek](../../azure-monitor/app/snapshot-debugger.md). Live Metrics Stream zapewnia zaawansowane i nieinwazyjne narzędzie diagnostyczne dla aktywnej witryny sieci Web.
 
-Dzięki live metrics stream możesz:
+Za pomocą Live Metrics Stream można:
 
-* Sprawdź poprawność poprawki, gdy jest zwolniony, obserwując wydajność i liczbę błędów.
-* Obserwuj efekt obciążeń testowych i diagnozuj problemy na żywo.
-* Skoncentruj się na poszczególnych sesjach testowych lub odfiltruj znane problemy, wybierając i filtrując metryki, które chcesz oglądać.
-* Pobierz ślady wyjątków, jak się zdarzyć.
-* Eksperymentuj z filtrami, aby znaleźć najbardziej odpowiednie kluczowe wskaźniki wydajności.
+* Sprawdź poprawność poprawki, gdy zostanie ona wydana, obserwując liczniki wydajności i niepowodzeń.
+* Obserwuj efekt ładowania testów i Diagnozuj problemy na żywo.
+* Skup się na konkretnych sesjach testowych lub odfiltruj znane problemy, wybierając i filtrując metryki, które mają być obserwowane.
+* Pobierz ślady wyjątków w miarę ich występowania.
+* Eksperymentuj z filtrami, aby znaleźć najbardziej odpowiednie wskaźniki KPI.
 * Monitoruj dowolny licznik wydajności systemu Windows na żywo.
-* Łatwo zidentyfikować serwer, który ma problemy, i filtrować wszystkie KPI / live feed tylko do tego serwera.
+* Łatwo Zidentyfikuj serwer, który ma problemy, i przefiltruj wszystkie wskaźniki KPI/kanał Aktualności na tylko ten serwer.
 
-[![Transmisja wideo na żywo](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+[![Film wideo Live Metrics Stream](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
-Metryki na żywo są obecnie obsługiwane dla aplikacji ASP.NET, ASP.NET Core, Azure Functions, Java i Node.js.
+Metryki na żywo są obecnie obsługiwane w przypadku aplikacji ASP.NET, ASP.NET Core, Azure Functions, Java i Node. js.
 
 ## <a name="get-started"></a>Wprowadzenie
 
-1. Jeśli usługa Application Insights nie została jeszcze [zainstalowana](../../azure-monitor/azure-monitor-app-hub.yml) w aplikacji sieci Web, zrób to teraz.
-2. Oprócz standardowych pakietów usługi Application Insights [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) jest wymagany do włączenia strumienia metryk na żywo.
-3. **Zaktualizuj do najnowszej wersji** pakietu usługi Application Insights. W programie Visual Studio kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Zarządzaj pakietami Nuget**. Otwórz kartę **Aktualizacje** i wybierz wszystkie pakiety Microsoft.ApplicationInsights.*
+1. Jeśli jeszcze nie [zainstalowano Application Insights](../../azure-monitor/azure-monitor-app-hub.yml) w aplikacji sieci Web, zrób to teraz.
+2. Oprócz standardowych pakietów Application Insights [Microsoft. ApplicationInsights. PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) jest wymagany do włączenia strumienia metryk na żywo.
+3. **Zaktualizuj do najnowszej wersji** pakietu Application Insights. W programie Visual Studio kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Zarządzaj pakietami NuGet**. Otwórz kartę **aktualizacje** i wybierz wszystkie pakiety Microsoft. ApplicationInsights. *.
 
     Ponownie wdróż aplikację.
 
-3. W [witrynie Azure portal](https://portal.azure.com)otwórz zasób usługi Application Insights dla aplikacji, a następnie otwórz usługę Live Stream.
+3. W [Azure Portal](https://portal.azure.com)otwórz zasób Application Insights dla aplikacji, a następnie otwórz Live Stream.
 
-4. [Zabezpiecz kanał sterowania,](#secure-the-control-channel) jeśli możesz używać poufnych danych, takich jak nazwy klientów w filtrach.
+4. [Zabezpiecz kanał kontroli,](#secure-the-control-channel) Jeśli możesz użyć poufnych danych, takich jak nazwy klientów w filtrach.
 
-### <a name="no-data-check-your-server-firewall"></a>Brak danych? Sprawdzanie zapory serwera
+### <a name="no-data-check-your-server-firewall"></a>Brak danych? Sprawdź zaporę serwera
 
-Sprawdź, [czy porty wychodzące dla strumienia metryk na żywo](../../azure-monitor/app/ip-addresses.md#outgoing-ports) są otwarte w zaporze serwerów.
+Sprawdź, czy [porty wychodzące Live Metrics Stream](../../azure-monitor/app/ip-addresses.md#outgoing-ports) są otwarte w zaporze serwerów.
 
-## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>Czym różni się strumień metryk na żywo od Eksploratora metryk i Analytics?
+## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>Jak Live Metrics Stream różnić się od Eksplorator metryk i analiz?
 
 | |Transmisja strumieniowa na żywo | Eksplorator metryk i analiza |
 |---|---|---|
-|Opóźnienie|Dane wyświetlane w ciągu jednej sekundy|Zagregowane w ciągu minut|
-|Brak retencji|Dane pozostają na wykresie, a następnie są odrzucane|[Dane przechowywane przez 90 dni](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
+|Opóźnienie|Dane wyświetlane w jednej sekundzie|Zagregowane w ciągu minut|
+|Brak przechowywania|Dane są przechowywane na wykresie, a następnie są odrzucane|[Dane przechowywane przez 90 dni](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |Na żądanie|Dane są przesyłane strumieniowo podczas otwierania metryk na żywo|Dane są wysyłane za każdym razem, gdy zestaw SDK jest zainstalowany i włączony|
-|Bezpłatna|Nie ma żadnych opłat za transmisję danych na żywo|Z [zastrzeżeniem cen](../../azure-monitor/app/pricing.md)
-|Próbkowanie|Wszystkie wybrane dane i liczniki są przesyłane. Próbkowania błędów i śladów stosu. TelemetryProcessors nie są stosowane.|Zdarzenia mogą być [próbkowanie](../../azure-monitor/app/api-filtering-sampling.md)|
-|Kanał sterowania|Sygnały sterujące filtrem są wysyłane do SDK. Zalecamy zabezpieczenie tego kanału.|Komunikacja jest jednym ze sposobów, do portalu|
+|Bezpłatna|Za dane Live Stream nie są naliczane opłaty|Podlega [cennikowi](../../azure-monitor/app/pricing.md)
+|Próbkowanie|Wszystkie wybrane metryki i liczniki są przesyłane. Błędy i ślady stosu są próbkowane. TelemetryProcessors nie są stosowane.|Zdarzenia mogą być [próbkowane](../../azure-monitor/app/api-filtering-sampling.md)|
+|Kanał kontrolny|Sygnały kontroli filtru są wysyłane do zestawu SDK. Zalecamy zabezpieczenie tego kanału.|Komunikacja jest jednym ze sposobów, w portalu|
 
-## <a name="select-and-filter-your-metrics"></a>Wybieranie i filtrowanie danych
+## <a name="select-and-filter-your-metrics"></a>Wybieranie i filtrowanie metryk
 
-(Dostępne z ASP.NET, ASP.NET Core i Azure Functions (w wersji 2).)
+(Dostępne w ASP.NET, ASP.NET Core i Azure Functions (v2).)
 
-Niestandardowy wskaźnik KPI można monitorować na żywo, stosując dowolne filtry w dowolnej telemetrii usługi Application Insights z portalu. Kliknij kontrolkę filtru, która pokazuje, kiedy najedziesz kursorem myszy na którykolwiek z wykresów. Na poniższym wykresie jest kreślenie niestandardowego wskaźnika KPI liczby żądań z filtrami atrybutów URL i duration. Sprawdź poprawność filtrów za pomocą sekcji Podgląd strumienia, która pokazuje transmisję danych na żywo danych telemetrycznych, która spełnia kryteria określone w dowolnym momencie.
+Możesz monitorować niestandardowy kluczowy wskaźnik wydajności, stosując dowolne filtry dla dowolnej Application Insights telemetrii w portalu. Kliknij kontrolkę filtr, która jest wyświetlana po umieszczeniu wskaźnika myszy na dowolnym z wykresów. Poniższy wykres przedstawia niestandardowy wskaźnik KPI liczby żądań z filtrami dla atrybutów adresu URL i czasu trwania. Sprawdź poprawność filtrów za pomocą sekcji Podgląd strumienia, która zawiera dynamiczne źródło danych telemetrycznych spełniające kryteria określone w dowolnym momencie.
 
-![Niestandardowy wskaźnik KPI żądania](./media/live-stream/live-stream-filteredMetric.png)
+![Niestandardowy wskaźnik wydajności żądania](./media/live-stream/live-stream-filteredMetric.png)
 
-Można monitorować wartość inną niż Count. Opcje zależą od typu strumienia, który może być dowolną telemetrią usługi Application Insights: żądania, zależności, wyjątki, ślady, zdarzenia lub metryki. Może to być twój własny [pomiar niestandardowy:](../../azure-monitor/app/api-custom-events-metrics.md#properties)
+Można monitorować wartość różną od Count. Opcje są zależne od typu strumienia, który może być dowolną Application Insights telemetrii: żądania, zależności, wyjątki, ślady, zdarzenia lub metryki. Może to być własny [niestandardowy pomiar](../../azure-monitor/app/api-custom-events-metrics.md#properties):
 
 ![Opcje wartości](./media/live-stream/live-stream-valueoptions.png)
 
-Oprócz danych telemetrycznych usługi Application Insights można również monitorować dowolny licznik wydajności systemu Windows, wybierając go z opcji strumienia i podając nazwę licznika wydajności.
+Oprócz Application Insights telemetrii można także monitorować dowolny licznik wydajności systemu Windows, wybierając go z opcji strumienia i podając nazwę licznika wydajności.
 
-Metryki na żywo są agregowane w dwóch punktach: lokalnie na każdym serwerze, a następnie na wszystkich serwerach. Wartość domyślną można zmienić, wybierając inne opcje w odpowiednich elementach rozwijanych.
+Metryki na żywo są agregowane w dwóch punktach: lokalnie na każdym serwerze, a następnie na wszystkich serwerach. Wartość domyślną można zmienić, wybierając opcję inne opcje z odpowiednich list rozwijanych.
 
-## <a name="sample-telemetry-custom-live-diagnostic-events"></a>Przykładowa telemetria: niestandardowe zdarzenia diagnostyczne na żywo
-Domyślnie źródło na żywo zdarzeń pokazuje próbki nieudanych żądań i wywołań zależności, wyjątków, zdarzeń i śladów. Kliknij ikonę filtru, aby wyświetlić zastosowane kryteria w dowolnym momencie. 
+## <a name="sample-telemetry-custom-live-diagnostic-events"></a>Przykładowa Telemetria: niestandardowe zdarzenia diagnostyczne na żywo
+Domyślnie dynamiczne źródło zdarzeń zawiera przykłady żądań zakończonych niepowodzeniem oraz wywołania zależności, wyjątki, zdarzenia i ślady. Kliknij ikonę filtru, aby wyświetlić zastosowane kryteria w dowolnym momencie. 
 
-![Domyślny kanał na żywo](./media/live-stream/live-stream-eventsdefault.png)
+![Domyślne kanały informacyjne na żywo](./media/live-stream/live-stream-eventsdefault.png)
 
-Podobnie jak w przypadku metryk, można określić dowolne kryteria dowolnego typu danych telemetrycznych usługi Application Insights. W tym przykładzie wybieramy określone błędy żądania, ślady i zdarzenia. Wybieramy również wszystkie wyjątki i błędy zależności.
+Podobnie jak w przypadku metryk, można określić dowolne dowolne kryterium dla dowolnych typów Application Insights telemetrii. W tym przykładzie wybieramy konkretne błędy żądań, ślady i zdarzenia. Wybieramy również wszystkie wyjątki i awarie zależności.
 
-![Niestandardowy kanał na żywo](./media/live-stream/live-stream-events.png)
+![Niestandardowe kanały informacyjne na żywo](./media/live-stream/live-stream-events.png)
 
-Uwaga: Obecnie w przypadku kryteriów opartych na wiadomości exception należy użyć najbardziej zewnętrznego komunikatu wyjątku. W poprzednim przykładzie, aby odfiltrować łagodny wyjątek z wewnętrznym komunikatem wyjątku (następuje ogranicznik "< --") "Klient rozłączony". użyj komunikatu nie zawiera kryteriów "Zawartość żądania odczytu błędu".
+Uwaga: obecnie w przypadku kryteriów opartych na komunikatach o wyjątku należy użyć najbardziej zewnętrznego komunikatu o wyjątku. W poprzednim przykładzie, aby odfiltrować wyjątek niegroźny z wewnętrznym komunikatem wyjątku (następuje "<--" ogranicznik) "klient został odłączony". Użyj komunikatu niezawierającego kryterium "błąd podczas odczytu zawartości żądania".
 
-Kliknij go w szczegóły elementu w kanale na żywo. Możesz wstrzymać kanał informacyjny, klikając **przycisk Wstrzymaj,** po prostu przewijając w dół lub klikając element. Transmisja na żywo zostanie wznowiona po przewinięciu z powrotem na górę lub kliknięciu licznika elementów zebranych podczas jego wstrzymania.
+Zobacz szczegóły elementu w kanale dynamicznym, klikając go. Możesz wstrzymać kanał informacyjny przez kliknięcie przycisku **Wstrzymaj** lub po prostu przewinięcie lub kliknięcie elementu. Kanały informacyjne na żywo zostaną wznowione po przeprowadzeniu przewijania do góry lub przez kliknięcie licznika zebranych elementów podczas wstrzymania.
 
-![Próbkowanie błędów na żywo](./media/live-stream/live-metrics-eventdetail.png)
+![Próbkowane błędy na żywo](./media/live-stream/live-metrics-eventdetail.png)
 
-## <a name="filter-by-server-instance"></a>Filtrowanie według wystąpienia serwera
+## <a name="filter-by-server-instance"></a>Filtruj według wystąpienia serwera
 
-Jeśli chcesz monitorować wystąpienie roli określonego serwera, możesz filtrować według serwera.
+Jeśli chcesz monitorować konkretne wystąpienie roli serwera, możesz filtrować według serwera.
 
-![Próbkowanie błędów na żywo](./media/live-stream/live-stream-filter.png)
+![Próbkowane błędy na żywo](./media/live-stream/live-stream-filter.png)
 
-## <a name="secure-the-control-channel"></a>Zabezpiecz kanał sterowania
-Określone kryteria filtrów niestandardowych są wysyłane z powrotem do składnika Aktywne metryki w zestawie SDK usługi Application Insights. Filtry mogą potencjalnie zawierać poufne informacje, takie jak identyfikatory identyfikatorów customerI. Oprócz klucza instrumentacji można zabezpieczyć kanał za pomocą tajnego klucza interfejsu API.
+## <a name="secure-the-control-channel"></a>Zabezpieczanie kanału kontroli
+Określone kryteria filtrów niestandardowych są wysyłane z powrotem do składnika metryki na żywo w zestawie Application Insights SDK. Filtry mogą potencjalnie zawierać informacje poufne, takie jak customerID. Kanał można zabezpieczyć przy użyciu klucza tajnego interfejsu API oprócz klucza Instrumentacji.
 ### <a name="create-an-api-key"></a>Tworzenie klucza interfejsu API
 
 ![Utwórz klucz interfejsu API](./media/live-stream/live-metrics-apikeycreate.png)
 
-### <a name="add-api-key-to-configuration"></a>Dodawanie klucza interfejsu API do konfiguracji
+### <a name="add-api-key-to-configuration"></a>Dodaj klucz interfejsu API do konfiguracji
 
-### <a name="classic-aspnet"></a>klasyczna ASP.NET
+### <a name="classic-aspnet"></a>Klasyczny ASP.NET
 
-W pliku applicationinsights.config dodaj authenticationApiKey do quickpulsetelemetryModule:
+W pliku ApplicationInsights. config Dodaj AuthenticationApiKey do QuickPulseTelemetryModule:
 ``` XML
 
 <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
@@ -149,61 +149,61 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 ### <a name="azure-function-apps"></a>Aplikacje funkcji platformy Azure
 
-W przypadku aplikacji usługi Azure Function Apps (wersja 2) zabezpieczenie kanału za pomocą klucza interfejsu API można wykonać za pomocą zmiennej środowiskowej.
+W przypadku aplikacji funkcji platformy Azure (v2) Zabezpieczanie kanału za pomocą klucza interfejsu API można wykonać przy użyciu zmiennej środowiskowej.
 
-Utwórz klucz interfejsu API z poziomu zasobu usługi Application Insights i przejdź do **ustawień aplikacji** dla aplikacji funkcji. Wybierz **pozycję dodaj nowe** ustawienie `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` i wprowadź nazwę i wartość odpowiadającą kluczowi interfejsu API.
+Utwórz klucz interfejsu API z poziomu zasobu Application Insights i przejdź do pozycji **Ustawienia aplikacji** dla aplikacja funkcji. Wybierz pozycję **Dodaj nowe ustawienie** i wprowadź nazwę `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` i wartość odpowiadającą kluczowi interfejsu API.
 
-### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-or-greater"></a>ASP.NET Core (wymaga wglądu w aplikacje ASP.NET core SDK 2.3.0 lub nowszym)
+### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-or-greater"></a>ASP.NET Core (wymaga Application Insights ASP.NET Core SDK 2.3.0 lub nowszego)
 
 Zmodyfikuj plik startup.cs w następujący sposób:
 
-Pierwsze dodanie
+Najpierw Dodaj
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
 ```
 
-Następnie w ramach metody ConfigureServices dodaj:
+Następnie w ramach metody ConfigureServices Dodaj:
 
 ```csharp
 services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
 
-Jeśli jednak rozpoznajesz i ufasz wszystkim połączonym serwerom, możesz wypróbować filtry niestandardowe bez uwierzytelnionego kanału. Ta opcja jest dostępna przez sześć miesięcy. To zastąpienie jest wymagane raz na każdą nową sesję lub gdy nowy serwer jest w trybie online.
+Jeśli jednak rozpoznasz i ufasz wszystkim połączonym serwerom, możesz wypróbować filtry niestandardowe bez uwierzytelnionego kanału. Ta opcja jest dostępna przez sześć miesięcy. To przesłonięcie jest wymagane po każdej nowej sesji lub gdy nowy serwer przejdzie w tryb online.
 
-![Opcje Auth Metryki na żywo](./media/live-stream/live-stream-auth.png)
+![Opcje uwierzytelniania metryk na żywo](./media/live-stream/live-stream-auth.png)
 
 >[!NOTE]
->Zdecydowanie zaleca się skonfigurowanie uwierzytelnionego kanału przed wprowadzeniem potencjalnie poufnych informacji, takich jak CustomerID w kryteriach filtrowania.
+>Zdecydowanie zalecamy skonfigurowanie kanału uwierzytelnionego przed wprowadzeniem potencjalnie poufnych informacji, takich jak CustomerID w kryteriach filtrowania.
 >
 
 ## <a name="supported-features-table"></a>Tabela obsługiwanych funkcji
 
-| Język                         | Podstawowe metryki       | Metryki wydajności | Filtrowanie niestandardowe    | Przykładowa telemetria    | Podział procesora według procesu |
+| Język                         | Metryki podstawowe       | Metryki wydajności | Filtrowanie niestandardowe    | Przykładowa Telemetria    | Dzielenie procesora CPU przez proces |
 |----------------------------------|:--------------------|:--------------------|:--------------------|:--------------------|:---------------------|
-| .NET                             | Obsługiwane (V2.7.2+) | Obsługiwane (V2.7.2+) | Obsługiwane (V2.7.2+) | Obsługiwane (V2.7.2+) | Obsługiwane (V2.7.2+)  |
-| .NET Core (target=.NET Framework)| Obsługiwane (V2.4.1+) | Obsługiwane (V2.4.1+) | Obsługiwane (V2.4.1+) | Obsługiwane (V2.4.1+) | Obsługiwane (V2.4.1+)  |
-| .NET Core (target=.NET Core)     | Obsługiwane (V2.4.1+) | Obsługiwane*          | Obsługiwane (V2.4.1+) | Obsługiwane (V2.4.1+) | **Nie obsługiwane**    |
-| Usługi Azure w wersji 2               | Obsługiwane           | Obsługiwane           | Obsługiwane           | Obsługiwane           | **Nie obsługiwane**    |
-| Java                             | Obsługiwane (V2.0.0+) | Obsługiwane (V2.0.0+) | **Nie obsługiwane**   | **Nie obsługiwane**   | **Nie obsługiwane**    |
-| Node.js                          | Obsługiwane (V1.3.0+) | Obsługiwane (V1.3.0+) | **Nie obsługiwane**   | Obsługiwane (V1.3.0+) | **Nie obsługiwane**    |
+| .NET                             | Obsługiwane (V 2.7.2 +) | Obsługiwane (V 2.7.2 +) | Obsługiwane (V 2.7.2 +) | Obsługiwane (V 2.7.2 +) | Obsługiwane (V 2.7.2 +)  |
+| .NET Core (target =. NET Framework)| Obsługiwane (V 2.4.1 +) | Obsługiwane (V 2.4.1 +) | Obsługiwane (V 2.4.1 +) | Obsługiwane (V 2.4.1 +) | Obsługiwane (V 2.4.1 +)  |
+| .NET Core (target =. NET Core)     | Obsługiwane (V 2.4.1 +) | Obsługiwane*          | Obsługiwane (V 2.4.1 +) | Obsługiwane (V 2.4.1 +) | **Nieobsługiwane**    |
+| Azure Functions v2               | Obsługiwane           | Obsługiwane           | Obsługiwane           | Obsługiwane           | **Nieobsługiwane**    |
+| Java                             | Obsługiwane (V 2.0.0 +) | Obsługiwane (V 2.0.0 +) | **Nieobsługiwane**   | **Nieobsługiwane**   | **Nieobsługiwane**    |
+| Node.js                          | Obsługiwane (V 1.3.0 +) | Obsługiwane (V 1.3.0 +) | **Nieobsługiwane**   | Obsługiwane (V 1.3.0 +) | **Nieobsługiwane**    |
 
-Podstawowe metryki obejmują żądanie, zależność i częstotliwość wyjątków. Metryki wydajności (liczniki wydajności) obejmują pamięć i procesor. Przykładowa telemetria pokazuje strumień szczegółowych informacji o nieudanych żądaniach i zależnościach, wyjątkach, zdarzeniach i śladach.
+Podstawowe metryki obejmują żądanie, zależność i częstotliwość wyjątków. Metryki wydajności (liczniki wydajności) obejmują pamięć i procesor CPU. Przykładowa Telemetria przedstawia strumień szczegółowych informacji dotyczących żądań zakończonych niepowodzeniem i zależności, wyjątków, zdarzeń i śladów.
 
- \*Obsługa perfCounters różni się nieznacznie w różnych wersjach programu .NET Core, które nie są przeznaczone dla programu .NET Framework:
+ \*Obsługa PerfCounters różni się nieco między wersjami programu .NET Core, które nie są przeznaczone dla .NET Framework:
 
-- Metryki PerfCounters są obsługiwane podczas uruchamiania w usłudze Azure App Service dla systemu Windows. (AspNetCore SDK w wersji 2.4.1 lub nowszej)
-- PerfCounters są obsługiwane, gdy aplikacja jest uruchomiona w dowolnym komputerach z systemem Windows (VM lub Usługa w chmurze lub on-prem itp.) (AspNetCore SDK w wersji 2.7.1 lub nowszej), ale dla aplikacji przeznaczonych dla .NET Core 2.0 lub nowszego.
-- PerfCounters są obsługiwane, gdy aplikacja jest uruchomiona w dowolnym miejscu (Linux, Windows, usługa aplikacji dla Linuksa, kontenerów itp.) w najnowszej wersji beta (tj. AspNetCore SDK w wersji 2.8.0-beta1 lub nowszej), ale dla aplikacji przeznaczonych dla .NET Core 2.0 lub nowszego.
+- Metryki PerfCounters są obsługiwane w przypadku uruchamiania w Azure App Service dla systemu Windows. (AspNetCore SDK w wersji 2.4.1 lub nowszej)
+- PerfCounters są obsługiwane, gdy aplikacja jest uruchomiona na wszystkich maszynach z systemem Windows (maszynie wirtualnej lub w chmurze lub w Premium itp.). (AspNetCore SDK w wersji 2.7.1 lub nowszej), ale dla aplikacji przeznaczonych dla platformy .NET Core 2,0 lub nowszej.
+- PerfCounters są obsługiwane, gdy aplikacja działa w dowolnym miejscu (Linux, Windows, App Service for Linux, Containers itp.) w najnowszej wersji beta (tj. AspNetCore SDK w wersji 2.8.0-beta1 lub nowszej), ale dla aplikacji przeznaczonych dla platformy .NET Core 2,0 lub nowszej.
 
-Domyślnie Metryki na żywo jest wyłączona w node.js SDK. Aby włączyć metryki `setSendLiveMetrics(true)` na żywo, dodaj do [metod konfiguracji](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) podczas inicjowania sdk.
+Domyślnie metryki na żywo są wyłączone w zestawie SDK środowiska Node. js. Aby włączyć metryki na żywo `setSendLiveMetrics(true)` , Dodaj do [metod konfiguracji](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) w miarę inicjowania zestawu SDK.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Brak danych? Jeśli aplikacja znajduje się w sieci chronionej: Live Metrics Stream używa innych adresów IP niż inne dane telemetryczne usługi Application Insights. Upewnij się, że [te adresy IP](../../azure-monitor/app/ip-addresses.md) są otwarte w zaporze.
+Brak danych? Jeśli aplikacja znajduje się w sieci chronionej: Live Metrics Stream używa różnych adresów IP niż inne Application Insights telemetrii. Upewnij się, że [te adresy IP](../../azure-monitor/app/ip-addresses.md) są otwarte w zaporze.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Monitorowanie użycia za pomocą usługi Application Insights](../../azure-monitor/app/usage-overview.md)
+* [Monitorowanie użycia za pomocą Application Insights](../../azure-monitor/app/usage-overview.md)
 * [Korzystanie z wyszukiwania diagnostycznego](../../azure-monitor/app/diagnostic-search.md)
 * [Profiler](../../azure-monitor/app/profiler.md)
 * [Debuger migawek](../../azure-monitor/app/snapshot-debugger.md)

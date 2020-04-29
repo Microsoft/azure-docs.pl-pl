@@ -1,30 +1,30 @@
 ---
 title: Zarządzanie grupami inteligentnymi
-description: Zarządzanie grupami inteligentnymi utworzonymi za pomocą wystąpień alertów
+description: Zarządzanie grupami inteligentnymi utworzonymi w wystąpieniach alertów
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 09/24/2018
 ms.openlocfilehash: d7077e51282864f1208080838a1bb94ddd773b7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77667469"
 ---
 # <a name="manage-smart-groups"></a>Zarządzanie grupami inteligentnymi
 
-[Grupy inteligentne](https://aka.ms/smart-groups) używają algorytmów uczenia maszynowego do grupowanie alertów na podstawie współupadłości lub podobieństwa, dzięki czemu użytkownik może teraz zarządzać grupami inteligentnymi zamiast zarządzać każdym alertem indywidualnie. W tym artykule opisano sposób uzyskiwania dostępu do grup inteligentnych w usłudze Azure Monitor i korzystania z nich.
+[Grupy inteligentne](https://aka.ms/smart-groups) używają algorytmów uczenia maszynowego do grupowania alertów na podstawie współistnienia lub podobieństwa, dzięki czemu użytkownik może teraz zarządzać grupami inteligentnymi, a nie zarządzać indywidualnymi alertami. W tym artykule przedstawiono sposób uzyskiwania dostępu do inteligentnych grup i używania ich w programie Azure Monitor.
 
 1. Aby wyświetlić grupy inteligentne utworzone dla wystąpień alertów, możesz
 
-     1. Kliknij **grupy inteligentne** na stronie **Podsumowanie alertów**    
+     1. Kliknij pozycję **grupy inteligentne** na stronie **Podsumowanie alertów** .    
     ![Monitorowanie](./media/alerts-managing-smart-groups/sg-alerts-summary.jpg)
     
-     1. Kliknij alerty grup inteligentnych na stronie Wszystkie alerty   
+     1. Kliknij pozycję alerty według grup inteligentnych na stronie wszystkie alerty.   
      ![Monitorowanie](./media/alerts-managing-smart-groups/sg-all-alerts.jpg)
 
-2. Spowoduje to przejście do widoku listy dla wszystkich grup inteligentnych utworzonych za pomocą wystąpień alertów. Zamiast przesiewanie przez wiele alertów, można teraz radzić sobie z grup inteligentnych zamiast.   
+2. Spowoduje to przejście do widoku listy dla wszystkich grup inteligentnych utworzonych w wystąpieniach alertów. Zamiast przesiania przez wiele alertów, możesz teraz zaradzić sobie z tymi grupami inteligentnymi.   
 ![Monitorowanie](./media/alerts-managing-smart-groups/sg-list.jpg)
 
-3. Kliknięcie dowolnej grupy inteligentnej powoduje otwarcie strony szczegółów, na której można zobaczyć przyczynę grupowania wraz z alertami członków. Ta agregacja umożliwia radzenie sobie z pojedynczą grupą inteligentną, zamiast przesiewać wiele alertów.   
+3. Kliknięcie dowolnej grupy inteligentnej powoduje otwarcie strony szczegółów, w której można zobaczyć przyczynę grupowania wraz z alertami elementu członkowskiego. Ta agregacja pozwala na korzystanie z pojedynczej grupy inteligentnej zamiast przechodzenia przez wiele alertów.   
 ![Monitorowanie](./media/alerts-managing-smart-groups/sg-details.jpg)

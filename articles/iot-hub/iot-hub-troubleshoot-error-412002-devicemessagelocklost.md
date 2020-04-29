@@ -1,5 +1,5 @@
 ---
-title: Rozwiązywanie problemów z błędem usługi Azure IoT Hub 412002 DeviceMessageLockLost
+title: Rozwiązywanie problemów z usługą Azure IoT Hub błąd 412002 DeviceMessageLockLost
 description: Dowiedz się, jak naprawić błąd 412002 DeviceMessageLockLost
 author: jlian
 manager: briz
@@ -9,15 +9,15 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 66461b23432a3e8b7ae4ad1fdc078fba9ca05646
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76960765"
 ---
 # <a name="412002-devicemessagelocklost"></a>412002 DeviceMessageLockLost
 
-W tym artykule opisano przyczyny i rozwiązania dla **412002 DeviceMessageLockLost** błędów.
+W tym artykule opisano przyczyny i rozwiązania **412002 błędów DeviceMessageLockLost** .
 
 ## <a name="symptoms"></a>Objawy
 
@@ -25,8 +25,8 @@ Podczas próby wysłania komunikatu z chmury do urządzenia żądanie kończy si
 
 ## <a name="cause"></a>Przyczyna
 
-Gdy urządzenie odbiera komunikat chmury do urządzenia z kolejki (na przykład przy użyciu) [`ReceiveAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)wiadomość jest zablokowana przez Centrum IoT na czas trwania limitu czasu blokady jednej minuty. Jeśli urządzenie próbuje ukończyć komunikat po upływie limitu czasu blokady, Usługa IoT Hub zgłasza ten wyjątek.
+Gdy urządzenie odbiera komunikat z chmury do urządzenia z kolejki (na przykład za pomocą [`ReceiveAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)), komunikat jest zablokowany przez IoT Hub dla czasu trwania blokady o długości jednej minuty. Jeśli urządzenie próbuje zakończyć komunikat po upływie limitu czasu blokady, IoT Hub zgłasza ten wyjątek.
 
 ## <a name="solution"></a>Rozwiązanie
 
-Jeśli Usługa IoT Hub nie otrzyma powiadomienia w czasie trwania limitu czasu blokady jednej minuty, ustawia komunikat z powrotem do stanu *w kolejce.* Urządzenie może ponownie podjąć próbę odebrania wiadomości. Aby zapobiec wystąpieniu błędu w przyszłości, należy zaimplementować logikę po stronie urządzenia, aby zakończyć komunikat w ciągu jednej minuty od odebrania wiadomości. Nie można zmienić tego jednominutowego przesuwu.
+Jeśli IoT Hub nie otrzyma powiadomienia w czasie trwania limitu czasu blokady jednominutowej, ustawia komunikat z powrotem do stanu z *kolejki* . Urządzenie może spróbować ponownie otrzymać komunikat. Aby zapobiec wystąpieniu błędu w przyszłości, należy wdrożyć logikę po stronie urządzenia, aby zakończyć komunikat w ciągu minuty od odebrania komunikatu. Nie można zmienić tego czasu na minutę.

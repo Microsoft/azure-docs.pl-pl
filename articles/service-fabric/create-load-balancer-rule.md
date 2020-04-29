@@ -1,44 +1,44 @@
 ---
-title: Tworzenie reguły równoważenia obciążenia platformy Azure dla klastra
-description: Skonfiguruj moduł równoważenia obciążenia platformy Azure, aby otwierać porty dla klastra sieci szkieletowej usług Azure.
+title: Tworzenie reguły Azure Load Balancer dla klastra
+description: Skonfiguruj Azure Load Balancer, aby otworzyć porty dla klastra Service Fabric platformy Azure.
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: f4599b2e0174381ab7df04aeeb33db7e3ee60f26
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77025388"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Otwieranie portów dla klastra usługi Service Fabric
 
-Moduł równoważenia obciążenia wdrożony za pomocą klastra sieci szkieletowej usług Azure kieruje ruch do aplikacji uruchomionej w węźle. Jeśli zmienisz aplikację, aby użyć innego portu, należy udostępnić tego portu (lub trasy innego portu) w azure load balancer.
+Moduł równoważenia obciążenia wdrożony z klastrem Service Fabric platformy Azure kieruje ruch do aplikacji uruchomionej w węźle. Jeśli zmienisz aplikację w taki sposób, aby korzystała z innego portu, musisz uwidocznić ten port (lub skierować inny port) w Azure Load Balancer.
 
-Po wdrożeniu klastra sieci szkieletowej usług na platformie Azure moduł równoważenia obciążenia został automatycznie utworzony. Jeśli nie masz modułu równoważenia obciążenia, zobacz [Konfigurowanie modułu równoważenia obciążenia skierowanego do Internetu](../load-balancer/load-balancer-get-started-internet-portal.md).
+Po wdrożeniu klastra Service Fabric na platformie Azure moduł równoważenia obciążenia został automatycznie utworzony. Jeśli nie masz modułu równoważenia obciążenia, zobacz [Konfigurowanie modułu równoważenia obciążenia połączonego z Internetem](../load-balancer/load-balancer-get-started-internet-portal.md).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="configure-service-fabric"></a>Konfigurowanie sieci szkieletowej usług
+## <a name="configure-service-fabric"></a>Konfigurowanie usługi Service Fabric
 
-Aplikacja **servicemanifest.xml** aplikacji sieci szkieletowej definiuje punkty końcowe aplikacji oczekuje się używać. Po zaktualizowaniu pliku konfiguracji w celu zdefiniowania punktu końcowego moduł równoważenia obciążenia musi zostać zaktualizowany w celu udostępnienia tego (lub innego) portu. Aby uzyskać więcej informacji na temat tworzenia punktu końcowego sieci szkieletowej usług, zobacz [Konfigurowanie punktu końcowego](service-fabric-service-manifest-resources.md).
+Plik konfiguracji **servicemanifest. XML** aplikacji Service Fabric definiuje punkty końcowe używane przez aplikację. Po zaktualizowaniu pliku konfiguracji w celu zdefiniowania punktu końcowego należy zaktualizować moduł równoważenia obciążenia, aby udostępnić ten (lub inny) port. Aby uzyskać więcej informacji na temat tworzenia punktu końcowego usługi Service Fabric, zobacz [konfigurowanie punktu końcowego](service-fabric-service-manifest-resources.md).
 
 ## <a name="create-a-load-balancer-rule"></a>Tworzenie reguły modułu równoważenia obciążenia
 
-Reguła modułu równoważenia obciążenia otwiera port internetowy i przekazuje ruch do portu węzła wewnętrznego używanego przez aplikację. Jeśli nie masz modułu równoważenia obciążenia, zobacz [Konfigurowanie modułu równoważenia obciążenia skierowanego do Internetu](../load-balancer/load-balancer-get-started-internet-portal.md).
+Reguła Load Balancer otwiera port internetowy i przekazuje ruch do portu wewnętrznego węzła używanego przez aplikację. Jeśli nie masz modułu równoważenia obciążenia, zobacz [Konfigurowanie modułu równoważenia obciążenia połączonego z Internetem](../load-balancer/load-balancer-get-started-internet-portal.md).
 
-Aby utworzyć regułę równoważenia obciążenia, należy zebrać następujące informacje:
+Aby utworzyć regułę Load Balancer, należy zebrać następujące informacje:
 
-- Nazwa modułu równoważenia obciążenia.
-- Grupa zasobów modułu równoważenia obciążenia i klastra sieci szkieletowej usług.
+- Nazwa usługi równoważenia obciążenia.
+- Grupa zasobów modułu równoważenia obciążenia i klastra usługi Service Fabric.
 - Port zewnętrzny.
 - Port wewnętrzny.
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
-Wystarczy jedno polecenie, aby utworzyć regułę równoważenia obciążenia za pomocą **interfejsu wiersza polecenia platformy Azure.** Wystarczy znać zarówno nazwę modułu równoważenia obciążenia, jak i grupę zasobów, aby utworzyć nową regułę.
+Tylko jedno polecenie tworzy regułę modułu równoważenia obciążenia za pomocą **interfejsu wiersza polecenia platformy Azure**. Wystarczy znać zarówno nazwę usługi równoważenia obciążenia, jak i grupę zasobów, aby utworzyć nową regułę.
 
 >[!NOTE]
->Jeśli chcesz określić nazwę modułu równoważenia obciążenia, użyj tego polecenia, aby szybko uzyskać listę wszystkich modułów równoważenia obciążenia i skojarzonych grup zasobów.
+>Jeśli musisz określić nazwę modułu równoważenia obciążenia, użyj tego polecenia, aby szybko uzyskać listę wszystkich modułów równoważenia obciążenia i skojarzonych grup zasobów.
 >
 >`az network lb list --query "[].{ResourceGroup: resourceGroup, Name: name}"`
 >
@@ -48,31 +48,31 @@ Wystarczy jedno polecenie, aby utworzyć regułę równoważenia obciążenia za
 az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol Tcp --lb-name LB-svcfab3 -g svcfab_cli -n my-app-rule
 ```
 
-Polecenie interfejsu wiersza polecenia platformy Azure ma kilka parametrów, które są opisane w poniższej tabeli:
+Polecenie interfejsu wiersza polecenia platformy Azure zawiera kilka parametrów, które zostały opisane w poniższej tabeli:
 
 | Parametr | Opis |
 | --------- | ----------- |
-| `--backend-port`  | Port, który nasłuchuje aplikacja sieci szkieletowej usług. |
-| `--frontend-port` | Port, który moduł równoważenia obciążenia udostępnia dla połączeń zewnętrznych. |
-| `-lb-name` | Nazwa modułu równoważenia obciążenia do zmiany. |
-| `-g`       | Grupa zasobów, która ma zarówno moduł równoważenia obciążenia, jak i klaster sieci szkieletowej usług. |
-| `-n`       | Żądana nazwa reguły. |
+| `--backend-port`  | Port, na który nasłuchuje aplikacja Service Fabric. |
+| `--frontend-port` | Port, który jest udostępniany przez moduł równoważenia obciążenia dla połączeń zewnętrznych. |
+| `-lb-name` | Nazwa modułu równoważenia obciążenia, który ma zostać zmieniony. |
+| `-g`       | Grupa zasobów, która ma zarówno moduł równoważenia obciążenia, jak i klaster Service Fabric. |
+| `-n`       | Wymagana nazwa reguły. |
 
 
 >[!NOTE]
->Aby uzyskać więcej informacji na temat tworzenia modułu równoważenia obciążenia za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [Tworzenie modułu równoważenia obciążenia za pomocą interfejsu wiersza polecenia platformy Azure.](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+>Aby uzyskać więcej informacji na temat tworzenia modułu równoważenia obciążenia za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [Tworzenie modułu równoważenia obciążenia za pomocą interfejsu wiersza polecenia platformy Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md).
 
 ## <a name="powershell"></a>PowerShell
 
-Program PowerShell jest nieco bardziej skomplikowane niż interfejsu wiersza polecenia platformy Azure. Wykonaj następujące kroki koncepcyjne, aby utworzyć regułę:
+Program PowerShell jest nieco bardziej skomplikowany niż interfejs wiersza polecenia platformy Azure. Wykonaj następujące kroki koncepcyjne, aby utworzyć regułę:
 
 1. Pobierz moduł równoważenia obciążenia z platformy Azure.
 2. Utwórz regułę.
 3. Dodaj regułę do modułu równoważenia obciążenia.
-4. Zaktualizuj moduł równoważenia obciążenia.
+4. Aktualizowanie modułu równoważenia obciążenia.
 
 >[!NOTE]
->Jeśli chcesz określić nazwę modułu równoważenia obciążenia, użyj tego polecenia, aby szybko uzyskać listę wszystkich modułów równoważenia obciążenia i skojarzonych grup zasobów.
+>Jeśli musisz określić nazwę modułu równoważenia obciążenia, użyj tego polecenia, aby szybko uzyskać listę wszystkich modułów równoważenia obciążenia i skojarzonych grup zasobów.
 >
 >`Get-AzLoadBalancer | Select Name, ResourceGroupName`
 
@@ -93,11 +93,11 @@ $lb.LoadBalancingRules.Add($lbrule)
 $lb | Set-AzLoadBalancer
 ```
 
-W `New-AzLoadBalancerRuleConfig` odniesieniu do `-FrontendPort` polecenia reprezentuje port, który moduł równoważenia `-BackendPort` obciążenia udostępnia dla połączeń zewnętrznych, a reprezentuje port, który nasłuchuje aplikacja sieci szkieletowej usług.
+W przypadku `New-AzLoadBalancerRuleConfig` `-FrontendPort` polecenia reprezentuje port modułu równoważenia obciążenia, który jest udostępniany dla połączeń zewnętrznych, i `-BackendPort` reprezentuje port, do którego nasłuchuje aplikacja usługi Service Fabric.
 
 >[!NOTE]
 >Aby uzyskać więcej informacji na temat tworzenia modułu równoważenia obciążenia za pomocą programu PowerShell, zobacz [Tworzenie modułu równoważenia obciążenia za pomocą programu PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [sieci w sieci szkieletowej usług](service-fabric-patterns-networking.md).
+Dowiedz się więcej o [sieci w Service Fabric](service-fabric-patterns-networking.md).

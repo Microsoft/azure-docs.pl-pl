@@ -1,5 +1,5 @@
 ---
-title: Rozwiązywanie problemów z błędem usługi Azure IoT Hub 404001 DeviceNotFound
+title: Rozwiązywanie problemów z usługą Azure IoT Hub błąd 404001 DeviceNotFound
 description: Dowiedz się, jak naprawić błąd 404001 DeviceNotFound
 author: jlian
 manager: briz
@@ -9,24 +9,24 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 15aa21c2ec2c11bb251f7208fd22c92ceb859d6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76960830"
 ---
 # <a name="404001-devicenotfound"></a>404001 DeviceNotFound
 
-W tym artykule opisano przyczyny i rozwiązania dla **błędów DeviceNotFound 404001.**
+W tym artykule opisano przyczyny i rozwiązania **404001 błędów DeviceNotFound** .
 
 ## <a name="symptoms"></a>Objawy
 
-Podczas komunikacji z chmury do urządzenia (C2D), takiej jak komunikat C2D, podwójna aktualizacja lub metoda bezpośrednia, operacja kończy się niepowodzeniem z powodu błędu **404001 DeviceNotFound**.
+Podczas komunikacji między chmurą a urządzeniem (C2D), takim jak wiadomość C2D, Aktualizacja z przędzą lub metoda bezpośrednia, operacja kończy się niepowodzeniem z powodu błędu **404001 DeviceNotFound**.
 
 ## <a name="cause"></a>Przyczyna
 
-Operacja nie powiodła się, ponieważ nie można odnaleźć urządzenia przez centrum IoT Hub. Urządzenie nie jest zarejestrowane ani wyłączone.
+Operacja nie powiodła się, ponieważ nie można odnaleźć urządzenia przez IoT Hub. Urządzenie nie jest zarejestrowane lub wyłączone.
 
 ## <a name="solution"></a>Rozwiązanie
 
-Zarejestruj używany identyfikator urządzenia, a następnie spróbuj ponownie.
+Zarejestruj użyty identyfikator urządzenia, a następnie spróbuj ponownie.

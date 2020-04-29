@@ -1,31 +1,31 @@
 ---
-title: Rejestrowanie zapytań alertów w usłudze Azure Monitor | Dokumenty firmy Microsoft
-description: Zawiera zalecenia dotyczące pisania wydajnych zapytań o alerty dziennika w aktualizacjach usługi Azure Monitor i proces konwertowania istniejących zapytań.
+title: Rejestruj zapytania alertów w Azure Monitor | Microsoft Docs
+description: Zawiera zalecenia dotyczące tworzenia wydajnych zapytań dotyczących alertów dziennika w ramach aktualizacji Azure Monitor i procesu konwertowania istniejących zapytań.
 author: yossi-y
 ms.author: yossiy
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.subservice: alerts
 ms.openlocfilehash: fdf492b8f103e725046b9b1cbbd079c4d249664a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77667792"
 ---
-# <a name="log-alert-queries-in-azure-monitor"></a>Rejestrowanie zapytań alertów w usłudze Azure Monitor
-[Reguły alertów oparte na dziennikach usługi Azure Monitor](alerts-unified-log.md) są uruchamiane w regularnych odstępach czasu, dlatego należy upewnić się, że są one zapisywane w celu zminimalizowania narzutów i opóźnień. Ten artykuł zawiera zalecenia dotyczące pisania wydajnych zapytań dla alertów dziennika i procesu konwertowania istniejących zapytań. 
+# <a name="log-alert-queries-in-azure-monitor"></a>Rejestruj zapytania alertów w Azure Monitor
+[Reguły alertów na podstawie dzienników Azure monitor](alerts-unified-log.md) są uruchamiane w regularnych odstępach czasu, dlatego należy upewnić się, że są one zapisane w celu zminimalizowania obciążenia i opóźnienia. Ten artykuł zawiera zalecenia dotyczące tworzenia wydajnych zapytań dotyczących alertów dziennika oraz procesu konwertowania istniejących zapytań. 
 
 ## <a name="types-of-log-queries"></a>Typy zapytań dziennika
-[Zapytania dziennika w usłudze Azure Monitor](../log-query/log-query-overview.md) rozpoczynają się od tabeli lub [operatora wyszukiwania](/azure/kusto/query/searchoperator) lub [unii.](/azure/kusto/query/unionoperator)
+[Zapytania dzienników w Azure monitor](../log-query/log-query-overview.md) zaczynają się od tabeli lub operatora [wyszukiwania](/azure/kusto/query/searchoperator) lub [Union](/azure/kusto/query/unionoperator) .
 
-Na przykład następująca kwerenda jest objęta zakresem tabeli _SecurityEvent_ i wyszukuje określony identyfikator zdarzenia. Jest to jedyna tabela, którą musi przetworzyć kwerenda.
+Na przykład następujące zapytanie jest objęte zakresem tabeli _SecurityEvent_ i wyszukuje określony identyfikator zdarzenia. Jest to jedyna tabela, którą musi przetworzyć zapytanie.
 
 ``` Kusto
 SecurityEvent | where EventID == 4624 
 ```
 
-Kwerendy rozpoczynające `search` `union` się od wielu kolumn w tabeli lub nawet w wielu tabelach lub umożliwiają wyszukiwanie w wielu kolumnach. Poniższe przykłady przedstawiają wiele metod wyszukiwania terminu _Pamięć:_
+Zapytania, które zaczynają się od `search` lub `union` umożliwiają przeszukiwanie wielu kolumn w tabeli lub nawet wielu tabel. W poniższych przykładach przedstawiono wiele metod przeszukiwania okresu ważności _pamięci_:
 
 ```Kusto
 search "Memory"
@@ -35,12 +35,12 @@ search ObjectName == "Memory"
 union * | where ObjectName == "Memory"
 ```
 
-Chociaż `search` `union` i są przydatne podczas eksploracji danych, wyszukiwanie terminów w całym modelu danych, są one mniej wydajne niż przy użyciu tabeli, ponieważ muszą skanować w wielu tabelach. Ponieważ kwerendy w reguły alertów są uruchamiane w regularnych odstępach czasu, może to spowodować nadmierne obciążenie dodając opóźnienie do alertu. Z powodu tego obciążenia kwerendy dotyczące reguł alertów dziennika na platformie Azure należy zawsze rozpocząć od tabeli, aby zdefiniować jasny zakres, co poprawia wydajność kwerendy i trafność wyników.
+Chociaż `search` i `union` są przydatne podczas eksploracji danych, wyszukiwanie w całym modelu danych jest mniej wydajne niż użycie tabeli, ponieważ muszą one być skanowane w wielu tabelach. Ponieważ zapytania w regułach alertów są uruchamiane w regularnych odstępach czasu, może to spowodować nadmierne obciążenie Dodawanie opóźnień do alertu. Z powodu tego kosztu zapytania dotyczące reguł alertów dziennika na platformie Azure powinny zawsze rozpoczynać się od tabeli w celu zdefiniowania jasnego zakresu, co poprawia wydajność zapytań i istotność wyników.
 
-## <a name="unsupported-queries"></a>Nieobsługiwały kwerendy
-Od 11 stycznia 2019 r. tworzenie lub modyfikowanie reguł alertów dziennika, które używają `search`lub `union` operatorów, nie będą obsługiwane w witrynie Azure portal. Za pomocą tych operatorów w regule alertu zwróci komunikat o błędzie. Ta zmiana nie ma wpływu na istniejące reguły alertów i reguły alertów utworzone i edytowane za pomocą interfejsu API usługi Log Analytics. Należy jednak rozważyć zmianę wszystkich reguł alertów, które używają tych typów zapytań, aby zwiększyć ich wydajność.  
+## <a name="unsupported-queries"></a>Nieobsługiwane zapytania
+Od 11 stycznia 2019 roku Tworzenie lub modyfikowanie reguł alertów dziennika, które `search`używają lub `union` operatory nie będzie obsługiwane w Azure Portal. Użycie tych operatorów w regule alertu zwróci komunikat o błędzie. Ta zmiana nie wpłynie na istniejące reguły alertów i reguły alertów utworzone i edytowane za pomocą interfejsu API Log Analytics. Mimo to należy rozważyć zmianę wszelkich reguł alertów korzystających z tych typów zapytań, aby zwiększyć ich wydajność.  
 
-Ta zmiana nie ma wpływu na reguły alertów dziennika przy użyciu `union`kwerend między [zasobami,](../log-query/cross-workspace-query.md) ponieważ używane są kwerendy między zasobami , co ogranicza zakres kwerendy do określonych zasobów. Nie jest to `union *` równoważne, z których nie można użyć.  Poniższy przykład może być prawidłowy w regule alertu dziennika:
+Ta zmiana nie ma wpływ na reguły alertów dziennika używające [zapytań obejmujących wiele zasobów](../log-query/cross-workspace-query.md) `union`, które ograniczają zakres zapytania do określonych zasobów. Nie jest to odpowiednik `union *` , którego nie można użyć.  Poniższy przykład będzie prawidłowy w regule alertu dziennika:
 
 ```Kusto
 union 
@@ -50,13 +50,13 @@ workspace('Contoso-workspace1').Perf
 ```
 
 >[!NOTE]
->[Kwerenda między zasobami](../log-query/cross-workspace-query.md) w alertach dziennika jest obsługiwana w nowym [interfejsie API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Domyślnie usługa Azure Monitor używa [starszego interfejsu API alertów usługi Log Analytics](api-alerts.md) do tworzenia nowych reguł alertów dziennika z witryny Azure Portal, chyba że przełączysz się ze [starszego interfejsu API alertów dziennikowych.](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) Po przełączeniu nowy interfejs API staje się domyślny dla nowych reguł alertów w witrynie Azure Portal i umożliwia tworzenie reguł alertów dziennika zapytań między zasobami. Można utworzyć reguły alertów dziennika [zapytań między zasobami](../log-query/cross-workspace-query.md) bez wprowadzania przełącznika przy użyciu [szablonu ARM dla scheduledQueryRules API](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) — ale ta reguła alertu jest zarządzana, choć [scheduledQueryRules API,](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) a nie z witryny Azure portal.
+>[Zapytanie między zasobami](../log-query/cross-workspace-query.md) w ramach alertów dziennika jest obsługiwane w nowym [interfejsie API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Domyślnie Azure Monitor używa [starszego interfejsu API alertów log Analytics](api-alerts.md) na potrzeby tworzenia nowych reguł alertów dziennika z Azure Portal, chyba że zostanie przełączony w [STARSZEJ wersji interfejsu API alertów dziennika](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Po przełączeniu nowy interfejs API zostanie ustawiony jako domyślny dla nowych reguł alertów w Azure Portal i umożliwia tworzenie reguł alertów dziennika zapytań dla wielu zasobów. Można tworzyć reguły alertów dziennika [zapytań dla wielu zasobów](../log-query/cross-workspace-query.md) bez przełączenia przy użyciu [szablonu ARM dla interfejsu API scheduledQueryRules](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) , ale ta reguła alertu jest możliwa do zarządzania, chociaż [interfejs API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) , a nie z Azure Portal.
 
 ## <a name="examples"></a>Przykłady
-Poniższe przykłady obejmują kwerendy `search` `union` dziennika, które używają i zapewniają kroki, których można użyć do modyfikowania tych kwerend do użycia z regułami alertów.
+Poniższe przykłady obejmują zapytania dziennika, które używają `search` i `union` i udostępniają kroki, których można użyć do modyfikacji tych zapytań do użycia z regułami alertów.
 
 ### <a name="example-1"></a>Przykład 1
-Chcesz utworzyć regułę alertu dziennika przy użyciu następującej `search`kwerendy, która pobiera informacje o wydajności przy użyciu: 
+Chcesz utworzyć regułę alertu dziennika za pomocą następującego zapytania, które pobiera informacje o wydajności przy `search`użyciu: 
 
 ``` Kusto
 search * | where Type == 'Perf' and CounterName == '% Free Space' 
@@ -65,7 +65,7 @@ search * | where Type == 'Perf' and CounterName == '% Free Space'
 ```
   
 
-Aby zmodyfikować tę kwerendę, należy rozpocząć od użycia następującej kwerendy w celu zidentyfikowania tabeli, do której należą właściwości:
+Aby zmodyfikować to zapytanie, Zacznij od następującego zapytania, aby zidentyfikować tabelę, do której należą właściwości:
 
 ``` Kusto
 search * | where CounterName == '% Free Space'
@@ -73,9 +73,9 @@ search * | where CounterName == '% Free Space'
 ```
  
 
-Wynik tej kwerendy pokaże, że _Właściwość CounterName_ pochodzi z tabeli _Perf._ 
+Wynik tego zapytania pokazuje, że właściwość _CounterName_ pochodzi z tabeli _perf_ . 
 
-Ten wynik służy do tworzenia następującej kwerendy, która służy do reguły alertu:
+Ten wynik służy do tworzenia następującego zapytania, którego można użyć dla reguły alertu:
 
 ``` Kusto
 Perf 
@@ -86,7 +86,7 @@ Perf
 
 
 ### <a name="example-2"></a>Przykład 2
-Chcesz utworzyć regułę alertu dziennika przy użyciu następującej `search`kwerendy, która pobiera informacje o wydajności przy użyciu: 
+Chcesz utworzyć regułę alertu dziennika za pomocą następującego zapytania, które pobiera informacje o wydajności przy `search`użyciu: 
 
 ``` Kusto
 search ObjectName =="Memory" and CounterName=="% Committed Bytes In Use"  
@@ -96,7 +96,7 @@ search ObjectName =="Memory" and CounterName=="% Committed Bytes In Use"
 ```
   
 
-Aby zmodyfikować tę kwerendę, należy rozpocząć od użycia następującej kwerendy w celu zidentyfikowania tabeli, do której należą właściwości:
+Aby zmodyfikować to zapytanie, Zacznij od następującego zapytania, aby zidentyfikować tabelę, do której należą właściwości:
 
 ``` Kusto
 search ObjectName=="Memory" and CounterName=="% Committed Bytes In Use" 
@@ -104,9 +104,9 @@ search ObjectName=="Memory" and CounterName=="% Committed Bytes In Use"
 ```
  
 
-Wynik tej kwerendy pokaże, że _ObjectName_ i _CounterName_ właściwość pochodzi z _tabeli Perf._ 
+Wynik tego zapytania pokazuje, że właściwość _ObjectName_ i _CounterName_ pochodzi z tabeli _perf_ . 
 
-Ten wynik służy do tworzenia następującej kwerendy, która służy do reguły alertu:
+Ten wynik służy do tworzenia następującego zapytania, którego można użyć dla reguły alertu:
 
 ``` Kusto
 Perf 
@@ -119,7 +119,7 @@ Perf
 
 ### <a name="example-3"></a>Przykład 3
 
-Chcesz utworzyć regułę alertu dziennika przy użyciu `search` następującej kwerendy, która używa obu i `union` do pobierania informacji o wydajności: 
+Chcesz utworzyć regułę alertu dziennika przy użyciu następującego zapytania, które używa obu `search` i `union` do pobrania informacji o wydajności: 
 
 ``` Kusto
 search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceName == "_Total")  
@@ -128,16 +128,16 @@ search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceN
 ```
  
 
-Aby zmodyfikować tę kwerendę, należy rozpocząć od użycia następującej kwerendy w celu zidentyfikowania tabeli, do której należą właściwości w pierwszej części kwerendy: 
+Aby zmodyfikować to zapytanie, Zacznij od następującego zapytania, aby zidentyfikować tabelę, do której należą właściwości w pierwszej części zapytania: 
 
 ``` Kusto
 search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceName == "_Total")  
 | summarize by $table 
 ```
 
-Wynik tej kwerendy pokaże, że wszystkie te właściwości pochodzą z _tabeli Perf._ 
+Wynik tego zapytania pokazuje, że wszystkie te właściwości pochodzą z tabeli _wydajności_ . 
 
-Teraz `union` użyj `withsource` polecenia, aby zidentyfikować tabelę źródłą, która przyczyniła się do każdego wiersza.
+Teraz Użyj `union` polecenia `withsource` with, aby zidentyfikować tabelę źródłową, która ma udział w każdym wierszu.
 
 ``` Kusto
 union withsource=table * | where CounterName == "% Processor Utility" 
@@ -145,9 +145,9 @@ union withsource=table * | where CounterName == "% Processor Utility"
 ```
  
 
-Wynik tej kwerendy pokaże, że te właściwości również pochodzi z _tabeli Perf._ 
+Wynik tego zapytania pokazuje, że te właściwości również pochodzą z tabeli _wydajności_ . 
 
-Za pomocą tych wyników można utworzyć następującą kwerendę, która będzie używana dla reguły alertu: 
+Za pomocą tych wyników można utworzyć następujące zapytanie, którego można użyć dla reguły alertu: 
 
 ``` Kusto
 Perf 
@@ -161,7 +161,7 @@ Perf
 ``` 
 
 ### <a name="example-4"></a>Przykład 4
-Chcesz utworzyć regułę alertu dziennika przy użyciu następującej `search` kwerendy, która łączy wyniki dwóch kwerend:
+Chcesz utworzyć regułę alertu dziennika przy użyciu następującego zapytania, które łączy wyniki dwóch `search` zapytań:
 
 ```Kusto
 search Type == 'SecurityEvent' and EventID == '4625' 
@@ -176,7 +176,7 @@ on Hour
 ```
  
 
-Aby zmodyfikować kwerendę, należy rozpocząć od użycia następującej kwerendy w celu zidentyfikowania tabeli zawierającej właściwości po lewej stronie sprzężenia: 
+Aby zmodyfikować zapytanie, Zacznij od następującego zapytania, aby zidentyfikować tabelę zawierającą właściwości z lewej strony sprzężenia: 
 
 ``` Kusto
 search Type == 'SecurityEvent' and EventID == '4625' 
@@ -184,9 +184,9 @@ search Type == 'SecurityEvent' and EventID == '4625'
 ```
  
 
-Wynik wskazuje, że właściwości po lewej stronie sprzężenia należą do tabeli _SecurityEvent._ 
+Wynik wskazuje, że właściwości z lewej strony sprzężenia należą do tabeli _SecurityEvent_ . 
 
-Teraz użyj następującej kwerendy, aby zidentyfikować tabelę zawierającą właściwości po prawej stronie sprzężenia: 
+Teraz użyj następującego zapytania, aby zidentyfikować tabelę zawierającą właściwości znajdujące się po prawej stronie sprzężenia: 
 
  
 ``` Kusto
@@ -195,9 +195,9 @@ search in (Heartbeat) OSType == 'Windows'
 ```
 
  
-Wynik wskazuje, że właściwości po prawej stronie sprzężenia należą do tabeli Pulsu. 
+Wynik wskazuje, że właściwości po prawej stronie sprzężenia należą do tabeli pulsu. 
 
-Za pomocą tych wyników można utworzyć następującą kwerendę, która będzie używana dla reguły alertu: 
+Za pomocą tych wyników można utworzyć następujące zapytanie, którego można użyć dla reguły alertu: 
 
 
 ``` Kusto
@@ -215,6 +215,6 @@ on Hour
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej o [alertach dziennika](alerts-log.md) w usłudze Azure Monitor.
-- Dowiedz się więcej o [zapytaniach dziennika](../log-query/log-query-overview.md).
+- Informacje o [alertach dzienników](alerts-log.md) w Azure monitor.
+- Dowiedz się więcej na temat [zapytań dzienników](../log-query/log-query-overview.md).
 

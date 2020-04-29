@@ -1,6 +1,6 @@
 ---
-title: Rejestrowanie urządzeń osobistych w sieci organizacji — Usługa Azure AD
-description: Dowiedz się, jak zarejestrować urządzenie osobiste w sieci organizacji, aby uzyskać dostęp do chronionych zasobów organizacji.
+title: Rejestrowanie urządzeń osobistych w sieci organizacji — Azure AD
+description: Dowiedz się, jak zarejestrować swoje urządzenie osobiste w sieci organizacji, aby uzyskać dostęp do chronionych zasobów organizacji.
 services: active-directory
 author: curtand
 manager: daveba
@@ -14,62 +14,62 @@ ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: e2e6585bac100a09f3f98037e90b24738e22816f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77063870"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Rejestrowanie urządzenia osobistego w sieci organizacji
-Zarejestruj swoje urządzenie osobiste (zazwyczaj telefon lub tablet) w sieci organizacji. Po zarejestrowaniu urządzenia będzie ono mogło uzyskać dostęp do ograniczonych zasobów organizacji.
+Zarejestruj swoje urządzenie osobiste (zazwyczaj telefon lub tablet) w sieci organizacji. Po zarejestrowaniu urządzenia będzie możliwe uzyskanie dostępu do zasobów z ograniczeniami organizacji.
 
 >[!Note]
->W tym artykule użyto urządzenia z systemem Windows do celów demonstracyjnych, ale można również zarejestrować urządzenia z systemem iOS, Android lub macOS.
+>W tym artykule jest używane urządzenie z systemem Windows w celach demonstracyjnych, ale można również zarejestrować urządzenia z systemem iOS, Android lub macOS.
 
-## <a name="what-happens-when-you-register-your-device"></a>Co się stanie podczas rejestracji urządzenia
-Podczas rejestrowania urządzenia w sieci organizacji zostaną podjęte następujące czynności:
+## <a name="what-happens-when-you-register-your-device"></a>Co się stanie po zarejestrowaniu urządzenia
+Podczas rejestrowania urządzenia w sieci organizacji zostaną wykonane następujące akcje:
 
 - System Windows rejestruje urządzenie w sieci organizacji.
 
-- Opcjonalnie, w zależności od wyborów w organizacji, może zostać poproszony o skonfigurowanie weryfikacji dwuetapowej za pomocą [uwierzytelniania wieloskładnikowego](multi-factor-authentication-end-user-first-time.md) lub [informacji zabezpieczających.](user-help-security-info-overview.md)
+- Opcjonalnie w zależności od opcji dostępnych w organizacji może zostać wyświetlony monit o skonfigurowanie weryfikacji dwuetapowej za pośrednictwem [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) lub [informacji zabezpieczających](user-help-security-info-overview.md).
 
-- Opcjonalnie, na podstawie wyborów w organizacji, może być automatycznie zarejestrowany w zarządzaniu urządzeniami przenośnymi, takich jak Microsoft Intune. Aby uzyskać więcej informacji na temat rejestrowania się w usłudze Microsoft Intune, zobacz [Rejestrowanie urządzenia w usłudze Intune](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-all).
+- Opcjonalnie w zależności od opcji dostępnych w organizacji może być automatycznie rejestrowane w usłudze zarządzania urządzeniami przenośnymi, takie jak Microsoft Intune. Aby uzyskać więcej informacji na temat rejestrowania w Microsoft Intune, zobacz [Rejestrowanie urządzenia w usłudze Intune](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-all).
 
-- Przejdziesz przez proces logowania, używając nazwy użytkownika i hasła do konta służbowego.
+- Przejdziesz przez proces logowania przy użyciu nazwy użytkownika i hasła do konta służbowego.
 
 ## <a name="to-register-your-windows-device"></a>Aby zarejestrować urządzenie z systemem Windows
 
-Wykonaj następujące kroki, aby zarejestrować urządzenie osobiste w sieci.
+Wykonaj następujące kroki, aby zarejestrować swoje urządzenie osobiste w sieci.
 
-1. Otwórz **pozycję Ustawienia**, a następnie wybierz pozycję **Konta**.
-
-    ![Konta na ekranie Ustawienia](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
-
-2. Wybierz **pozycję Dostęp do pracy lub szkoły**, a następnie wybierz pozycję **Połącz** z ekranu **Programu Access (Praca lub szkoła** programu Access).
-
-    ![Dostęp do ekranu pracy lub szkoły z wyróżnioną opcją Połącz](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
-
-3. Na ekranie **Dodawanie konta służbowego** wpisz swój adres e-mail dla konta służbowego, a następnie wybierz pozycję **Dalej**. Na przykład alain@contoso.com.
-
-4. Zaloguj się na swoje konto służbowe, a następnie wybierz pozycję **Zaloguj**się.
-
-5. Ukończ pozostałą część procesu rejestracji, w tym zatwierdzenie żądania weryfikacji tożsamości (jeśli używasz weryfikacji dwuetapowej) i skonfigurowanie funkcji Windows Hello (jeśli to konieczne).
-
-## <a name="to-verify-that-youre-registered"></a>Aby sprawdzić, czy jesteś zarejestrowany
-Możesz się upewnić, że jesteś zarejestrowany, patrząc na ustawienia.
-
-1. Otwórz **pozycję Ustawienia**, a następnie wybierz pozycję **Konta**.
+1. Otwórz pozycję **Ustawienia**, a następnie wybierz pozycję **konta**.
 
     ![Konta na ekranie Ustawienia](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Wybierz **pozycję Dostęp do pracy lub szkoły**i upewnij się, że widzisz swoje konto służbowe.
+2. Wybierz pozycję **dostęp do**zasobów służbowych, a następnie wybierz pozycję **Połącz** z ekranu **dostęp do** zasobów służbowych.
 
-    ![Dostęp do ekranu pracy lub szkoły za pomocą połączonego konta contoso](./media/user-help-register-device-on-network/register-device-setup-verify.png)
+    ![Ekran pracy lub szkoły z wyróżnioną opcją Połącz](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
+
+3. Na ekranie **Dodawanie konta** służbowego wpisz adres e-mail swojego konta służbowego, a następnie wybierz przycisk **dalej**. Na przykład alain@contoso.com.
+
+4. Zaloguj się do konta służbowego, a następnie wybierz pozycję **Zaloguj się**.
+
+5. Ukończ pozostałą część procesu rejestracji, łącznie z zatwierdzaniem żądania weryfikacji tożsamości (w przypadku korzystania z weryfikacji dwuetapowej) i konfigurowaniu systemu Windows Hello (jeśli to konieczne).
+
+## <a name="to-verify-that-youre-registered"></a>Aby sprawdzić, czy zarejestrowano
+Możesz sprawdzić, czy Twoje ustawienia zostały zarejestrowane.
+
+1. Otwórz pozycję **Ustawienia**, a następnie wybierz pozycję **konta**.
+
+    ![Konta na ekranie Ustawienia](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
+
+2. Wybierz pozycję **dostęp do**zasobów służbowych i upewnij się, że widzisz konto służbowe.
+
+    ![Uzyskaj dostęp do ekranu służbowego z podłączonym kontem contoso](./media/user-help-register-device-on-network/register-device-setup-verify.png)
 
 ## <a name="next-steps"></a>Następne kroki
-Po zarejestrowaniu urządzenia osobistego w sieci organizacji powinieneś mieć dostęp do większości zasobów.
+Po zarejestrowaniu urządzenia osobistego w sieci organizacji powinno być możliwe uzyskanie dostępu do większości zasobów.
 
-- Jeśli twoja organizacja chce dołączyć do urządzenia służbowego, zobacz [Dołączanie urządzenia służbowego do sieci organizacji](user-help-join-device-on-network.md).
+- Jeśli Twoja organizacja chce dołączyć do urządzenia służbowego, zobacz sekcję [Przyłącz urządzenie służbowe do sieci organizacji](user-help-join-device-on-network.md).
 
 
 

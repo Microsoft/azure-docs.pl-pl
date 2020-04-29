@@ -1,34 +1,34 @@
 ---
-title: Zbieranie niestandardowych danych JSON w usłudze Azure Monitor | Dokumenty firmy Microsoft
-description: Niestandardowe źródła danych JSON mogą być zbierane w usłudze Azure Monitor przy użyciu agenta analizy dzienników dla systemu Linux.  Te niestandardowe źródła danych mogą być proste skrypty zwracając JSON, takie jak curl lub jeden z 300+ wtyczek FluentD.These custom data sources can be simple scripts returning JSON such as curl or one of FluentD's 300+ plugins. W tym artykule opisano konfigurację wymaganą dla tego zbierania danych.
+title: Zbieranie niestandardowych danych JSON w Azure Monitor | Microsoft Docs
+description: Niestandardowe źródła danych JSON można zbierać do Azure Monitor przy użyciu agenta Log Analytics dla systemu Linux.  Te niestandardowe źródła danych mogą być prostymi skryptami zwracającymi kod JSON, taki jak zwinięcie lub jeden z elementów, które zostały połamane 300 +. W tym artykule opisano konfigurację wymaganą dla tej kolekcji danych.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 49eb3fa22bc9afffb9e93f3152cdc00323b76d41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77662165"
 ---
-# <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Zbieranie niestandardowych źródeł danych JSON za pomocą agenta usługi Log Analytics dla systemu Linux w usłudze Azure Monitor
+# <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Zbieranie niestandardowych źródeł danych JSON przy użyciu agenta Log Analytics dla systemu Linux w systemie Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-Niestandardowe źródła danych JSON mogą być zbierane w [usłudze Azure Monitor](data-platform.md) przy użyciu agenta usługi Log Analytics dla systemu Linux.  Te niestandardowe źródła danych mogą być proste skrypty zwracając JSON, takie jak [curl](https://curl.haxx.se/) lub jeden z [300 + wtyczek FluentD's](https://www.fluentd.org/plugins/all). W tym artykule opisano konfigurację wymaganą dla tego zbierania danych.
+Niestandardowe źródła danych JSON można zbierać do [Azure monitor](data-platform.md) przy użyciu agenta log Analytics dla systemu Linux.  Te niestandardowe źródła danych mogą być prostymi skryptami zwracającymi kod JSON, taki jak [zwinięcie](https://curl.haxx.se/) lub jeden z elementów, które zostały [połamane 300 +](https://www.fluentd.org/plugins/all). W tym artykule opisano konfigurację wymaganą dla tej kolekcji danych.
 
 
 > [!NOTE]
-> Agent analizy dzienników dla systemu Linux w wersji 1.1.0-217+ jest wymagany dla niestandardowych danych JSON
+> Agent Log Analytics dla systemu Linux v 1.1.0-217 + jest wymagany w przypadku niestandardowych danych JSON
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 ### <a name="configure-input-plugin"></a>Konfigurowanie wtyczki wejściowej
 
-Aby zbierać dane JSON `oms.api.` w usłudze Azure Monitor, dodaj do początku tagu FluentD w wtyczce wejściowej.
+Aby zebrać dane JSON w Azure Monitor, należy `oms.api.` dodać do początku taga Fluent w wtyczki wejściowej.
 
-Na przykład poniżej znajduje `exec-json.conf` się `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`oddzielny plik konfiguracyjny w programie .  W ten sposób używa `exec` wtyczki FluentD do uruchamiania polecenia curl co 30 sekund.  Dane wyjściowe z tego polecenia są zbierane przez wtyczkę wyjściową JSON.
+Na przykład poniżej znajduje się oddzielny plik `exec-json.conf` konfiguracji `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`w programie.  Powoduje to użycie pozostałej `exec` wtyczki do uruchomienia polecenia zwinięcie co 30 sekund.  Dane wyjściowe tego polecenia są zbierane przez wtyczkę wyjściową JSON.
 
 ```
 <source>
@@ -52,12 +52,12 @@ Na przykład poniżej znajduje `exec-json.conf` się `/etc/opt/microsoft/omsagen
   retry_wait 30s
 </match>
 ```
-Plik konfiguracji dodany `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` w obszarze będzie wymagać, aby jego własność została zmieniona za pomocą następującego polecenia.
+Dodany `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` plik konfiguracji musi mieć zmienioną własność przy użyciu następującego polecenia.
 
 `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/exec-json.conf`
 
-### <a name="configure-output-plugin"></a>Konfigurowanie wtyczki wyjściowej 
-Dodaj następującą konfigurację wtyczki `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` wyjściowej do konfiguracji głównej w lub jako oddzielny plik konfiguracyjny umieszczony w`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`
+### <a name="configure-output-plugin"></a>Skonfiguruj wtyczkę wyjściową 
+Dodaj następującą konfigurację wtyczki wyjściowej do konfiguracji głównej w programie `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` lub jako oddzielny plik konfiguracji umieszczony w`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`
 
 ```
 <match oms.api.**>
@@ -74,19 +74,19 @@ Dodaj następującą konfigurację wtyczki `/etc/opt/microsoft/omsagent/<workspa
 </match>
 ```
 
-### <a name="restart-log-analytics-agent-for-linux"></a>Uruchom ponownie agenta usługi Log Analytics dla systemu Linux
-Uruchom ponownie agenta usługi Log Analytics dla systemu Linux za pomocą następującego polecenia.
+### <a name="restart-log-analytics-agent-for-linux"></a>Uruchom ponownie agenta Log Analytics dla systemu Linux
+Uruchom ponownie usługę Log Analytics Agent dla systemu Linux przy użyciu następującego polecenia.
 
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
 ## <a name="output"></a>Dane wyjściowe
-Dane będą zbierane w usłudze Azure `<FLUENTD_TAG>_CL`Monitor z typem rekordu .
+Dane będą zbierane w Azure Monitor z typem rekordu `<FLUENTD_TAG>_CL`.
 
-Na przykład tag `tag oms.api.tomcat` niestandardowy w usłudze `tomcat_CL`Azure Monitor z typem rekordu .  Można pobrać wszystkie rekordy tego typu z następującą kwerendą dziennika.
+Na przykład tag `tag oms.api.tomcat` niestandardowy w Azure monitor z typem rekordu `tomcat_CL`.  Można pobrać wszystkie rekordy tego typu z następującym zapytaniem dziennika.
 
     Type=tomcat_CL
 
-Zagnieżdżone źródła danych JSON są obsługiwane, ale są indeksowane na podstawie pola nadrzędnego. Na przykład następujące dane JSON są zwracane `tag_s : "[{ "a":"1", "b":"2" }]`z kwerendy dziennika jako .
+Zagnieżdżone źródła danych JSON są obsługiwane, ale są indeksowane na podstawie pola nadrzędnego. Na przykład następujące dane JSON są zwracane z zapytania dziennika jako `tag_s : "[{ "a":"1", "b":"2" }]`.
 
 ```
 {
@@ -99,4 +99,4 @@ Zagnieżdżone źródła danych JSON są obsługiwane, ale są indeksowane na po
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [zapytaniach dziennika](../log-query/log-query-overview.md) do analizowania danych zebranych ze źródeł danych i rozwiązań. 
+* Informacje na temat [zapytań dzienników](../log-query/log-query-overview.md) w celu analizowania danych zebranych ze źródeł danych i rozwiązań. 

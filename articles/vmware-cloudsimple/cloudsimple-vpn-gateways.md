@@ -1,6 +1,6 @@
 ---
-title: Rozwiązanie Azure VMware firmy CloudSimple — bramy sieci VPN
-description: Dowiedz się więcej o pojęciach sieci VPN między lokacjami i sieci VPN typu "punkt-lokacja"
+title: Rozwiązanie VMware firmy Azure według CloudSimple — bramy sieci VPN
+description: Dowiedz się więcej na temat CloudSimple sieci VPN typu lokacja-lokacja oraz koncepcji sieci VPN typu punkt-lokacja
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -9,68 +9,68 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 662fa342b3a18f726b418c496ff3fda937445301
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77024861"
 ---
-# <a name="vpn-gateways-overview"></a>Omówienie bram sieci VPN
+# <a name="vpn-gateways-overview"></a>Bramy sieci VPN — Omówienie
 
-Brama sieci VPN służy do wysyłania zaszyfrowanego ruchu między siecią regionu CloudSimple w lokalizacji lokalnej lub komputerem za pośrednictwem publicznego Internetu.  Każdy region może mieć jedną bramę sieci VPN, która może obsługiwać wiele połączeń. W przypadku utworzenia wielu połączeń do tej samej bramy sieci VPN wszystkie tunele VPN współdzielą dostępną przepustowość bramy.
+Brama sieci VPN jest używana do wysyłania zaszyfrowanego ruchu między siecią CloudSimple region w lokalizacji lokalnej lub na komputerze za pośrednictwem publicznej sieci Internet.  Każdy region może mieć jedną bramę sieci VPN, która może obsługiwać wiele połączeń. W przypadku utworzenia wielu połączeń do tej samej bramy sieci VPN wszystkie tunele VPN współdzielą dostępną przepustowość bramy.
 
-CloudSimple udostępnia dwa rodzaje bram sieci VPN:
+CloudSimple zapewnia dwa rodzaje bram sieci VPN:
 
-* Brama sieci VPN między lokacjami
+* Brama sieci VPN typu lokacja-lokacja
 * Brama sieci VPN typu punkt-lokacja
 
-## <a name="site-to-site-vpn-gateway"></a>Brama sieci VPN między lokacjami
+## <a name="site-to-site-vpn-gateway"></a>Brama sieci VPN typu lokacja-lokacja
 
-Brama sieci VPN między lokacjami jest używana do wysyłania zaszyfrowanego ruchu między siecią regionu CloudSimple a lokalnym centrum danych. To połączenie służy do definiowania zakresu podsieci/CIDR dla ruchu sieciowego między siecią lokalną a siecią regionu CloudSimple.
+Brama sieci VPN typu lokacja-lokacja jest używana do wysyłania zaszyfrowanego ruchu między siecią regionu CloudSimple i lokalnym centrum danych. To połączenie służy do definiowania podsieci/zakresu CIDR dla ruchu sieciowego między siecią lokalną a siecią CloudSimple region.
 
-Brama sieci VPN umożliwia korzystanie z usług lokalnych w chmurze prywatnej i usług w chmurze prywatnej z sieci lokalnej.  CloudSimple udostępnia oparty na zasadach serwer sieci VPN do ustanawiania połączenia z sieci lokalnej.
+Brama sieci VPN umożliwia korzystanie z usług lokalnych w chmurze prywatnej i usług w chmurze prywatnej w sieci lokalnej.  CloudSimple udostępnia serwer sieci VPN oparty na zasadach do nawiązywania połączenia z sieci lokalnej.
 
-Przypadki użycia sieci VPN typu lokacja lokacja:
+Przypadki użycia dla sieci VPN typu lokacja-lokacja:
 
-* Dostępność usługi Private Cloud vCenter z dowolnej stacji roboczej w sieci lokalnej.
-* Korzystanie z lokalnej usługi Active Directory jako źródła tożsamości vCenter.
-* Wygodne przesyłanie szablonów maszyn wirtualnych, iso i innych plików z zasobów lokalnych do usługi Private Cloud vCenter.
+* Dostępność w chmurze prywatnej vCenter z dowolnej stacji roboczej w sieci lokalnej.
+* Używanie Active Directory lokalnego jako źródła tożsamości programu vCenter.
+* Wygodny transfer szablonów maszyn wirtualnych, obrazów ISO i innych plików z zasobów lokalnych do programu vCenter w chmurze prywatnej.
 * Dostępność obciążeń działających w chmurze prywatnej z sieci lokalnej.
 
-![Topologia połączeń sieci VPN między lokacjami](media/cloudsimple-site-to-site-vpn-connection.png)
+![Topologia połączenia sieci VPN typu lokacja-lokacja](media/cloudsimple-site-to-site-vpn-connection.png)
 
 ### <a name="cryptographic-parameters"></a>Parametry kryptograficzne
 
-Połączenie sieci VPN między lokacjami używa następujących domyślnych parametrów kryptograficznych do ustanowienia bezpiecznego połączenia.  Podczas tworzenia połączenia z lokalnego urządzenia sieci VPN należy użyć dowolnego z następujących parametrów obsługiwanych przez lokalną bramę sieci VPN.
+Połączenie sieci VPN typu lokacja-lokacja używa następujących domyślnych parametrów kryptograficznych w celu nawiązania bezpiecznego połączenia.  Podczas tworzenia połączenia z lokalnego urządzenia sieci VPN należy użyć dowolnego z następujących parametrów, które są obsługiwane przez lokalną bramę sieci VPN.
 
-#### <a name="phase-1-proposals"></a>Wnioski fazy 1
+#### <a name="phase-1-proposals"></a>Propozycje fazy 1
 
-| Parametr | Wniosek 1 | Wniosek 2 | Wniosek 3 |
+| Parametr | Wniosek 1 | Propozycja 2 | Propozycja 3 |
 |-----------|------------|------------|------------|
 | Wersja IKE | IKEv1 | IKEv1 | IKEv1 |
 | Szyfrowanie | AES 128 | AES 256 | AES 256 |
-| Algorytm mieszania| Sha 256 | Sha 256 | Sha 1 (właso) |
-| Grupa Diffie Hellman (Grupa DH) | 2 | 2 | 2 |
+| Algorytm wyznaczania wartości skrótu| SHA 256 | SHA 256 | AGENT SHA 1 |
+| Grupa Diffie-Hellmana (Grupa DH) | 2 | 2 | 2 |
 | Czas życia | 28 800 sekund | 28 800 sekund | 28 800 sekund |
 | Rozmiar danych | 4 GB | 4 GB | 4 GB |
 
-#### <a name="phase-2-proposals"></a>Wnioski dotyczące fazy 2
+#### <a name="phase-2-proposals"></a>Propozycje fazy 2
 
-| Parametr | Wniosek 1 | Wniosek 2 | Wniosek 3 |
+| Parametr | Wniosek 1 | Propozycja 2 | Propozycja 3 |
 |-----------|------------|------------|------------|
 | Szyfrowanie | AES 128 | AES 256 | AES 256 |
-| Algorytm mieszania| Sha 256 | Sha 256 | Sha 1 (właso) |
-| Perfect Forward Secrecy Group (grupa PFS) | Brak | Brak | Brak |
-| Czas życia | 1800 sekund | 1800 sekund | 1800 sekund |
+| Algorytm wyznaczania wartości skrótu| SHA 256 | SHA 256 | AGENT SHA 1 |
+| Doskonałe utajnienie przekazywania dalej (Grupa PFS) | Brak | Brak | Brak |
+| Czas życia | 1 800 sekund | 1 800 sekund | 1 800 sekund |
 | Rozmiar danych | 4 GB | 4 GB | 4 GB |
 
 
 > [!IMPORTANT]
-> Ustaw TCP MSS Clamping na 1200 na urządzeniu VPN. Lub jeśli urządzenia sieci VPN nie obsługują zaciskania MSS, możesz alternatywnie ustawić jednostkę MTU w interfejsie tunelu na 1240 bajtów.
+> Na urządzeniu sieci VPN ustaw wartość opcji ograniczania TCP = 1200. Lub jeśli urządzenia sieci VPN nie obsługują funkcji ograniczania, można zamiast tego ustawić jednostkę MTU w interfejsie tunelu na 1240 bajtów.
 
 ## <a name="point-to-site-vpn-gateway"></a>Brama sieci VPN typu punkt-lokacja
 
-Sieć VPN typu punkt-lokacja służy do wysyłania zaszyfrowanego ruchu między siecią regionu CloudSimple a komputerem klienckim.  Sieć VPN typu punkt-lokacja to najprostszy sposób uzyskiwania dostępu do sieci prywatnej chmury, w tym do wirtualnych centrów wirtualnych private cloud i obciążeń.  Użyj łączności sieci VPN typu punkt-lokacja, jeśli łączysz się zdalnie z chmurą prywatną.
+Sieć VPN typu punkt-lokacja jest używana do wysyłania zaszyfrowanego ruchu między siecią regionu CloudSimple i komputerem klienckim.  Sieć VPN typu punkt-lokacja jest najprostszym sposobem uzyskiwania dostępu do sieci prywatnej chmury, w tym maszyn wirtualnych programu vCenter i obciążeń prywatnych chmury prywatnej.  Jeśli łączysz się z chmurą prywatną zdalnie, Użyj połączenia sieci VPN typu punkt-lokacja.
 
 ## <a name="next-steps"></a>Następne kroki
 

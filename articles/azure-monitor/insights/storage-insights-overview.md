@@ -1,323 +1,323 @@
 ---
-title: Monitoruj usługi Usługi Azure Storage za pomocą usługi Azure Monitor for Storage (wersja zapoznawcza)| Dokumenty firmy Microsoft
-description: W tym artykule opisano funkcję Usługi Azure Monitor dla Magazyn, która zapewnia administratorom magazynu szybkie zrozumienie problemów z wydajnością i wykorzystaniem ich kont usługi Azure Storage.
+title: Monitoruj usługi Azure Storage za pomocą Azure Monitor dla magazynu (wersja zapoznawcza) | Microsoft Docs
+description: W tym artykule opisano Azure Monitor funkcji Storage, która zapewnia administratorom magazynu szybkie zrozumienie problemów z wydajnością i wykorzystaniem ich kont usługi Azure Storage.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/15/2019
 ms.openlocfilehash: f23be7e764ad180a23c76abb7f9bb2218fd61e4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77662523"
 ---
-# <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Monitorowanie usługi magazynu za pomocą usługi Azure Monitor dla magazynu (wersja zapoznawcza)
+# <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Monitorowanie usługi magazynu za pomocą Azure Monitor dla magazynu (wersja zapoznawcza)
 
-Usługa Azure Monitor for Storage (wersja zapoznawcza) zapewnia kompleksowe monitorowanie kont usługi Azure Storage, zapewniając ujednolicony widok wydajności, pojemności i dostępności usług Azure Storage. Można obserwować pojemność magazynu i wydajność na dwa sposoby, widok bezpośrednio z konta magazynu lub widoku z usługi Azure Monitor, aby wyświetlić między grupami kont magazynu. 
+Usługa Azure Monitor for Storage (wersja zapoznawcza) umożliwia kompleksowe monitorowanie kont usługi Azure Storage, zapewniając ujednolicony wgląd w wydajność, wydajność i dostępność usług Azure Storage. Można obserwować pojemność magazynu i wydajność na dwa sposoby, przeglądać bezpośrednio z poziomu konta magazynu lub widoku Azure Monitor, aby zobaczyć w różnych grupach kont magazynu. 
 
-Ten artykuł pomoże Ci zrozumieć środowisko, w jakie usługa Azure Monitor for Storage (wersja zapoznawcza) zapewnia użyteczną wiedzę na temat kondycji i wydajności kont magazynu na dużą skalę, z możliwością skoncentrowania się na hotspotach i diagnozowania opóźnień, ograniczania przepustowości, i problemy z dostępnością.
+Ten artykuł ułatwi zapoznanie się z Azure Monitorami dotyczącymi usługi Storage (wersja zapoznawcza) w celu uzyskania informacji na temat kondycji i wydajności kont magazynu na dużą skalę, z możliwością skoncentrowania się na hotspotach i zdiagnozowaniu opóźnień, przepustowości i dostępności.
 
-## <a name="introduction-to-azure-monitor-for-storage-preview"></a>Wprowadzenie do usługi Azure Monitor dla magazynu (wersja zapoznawcza)
+## <a name="introduction-to-azure-monitor-for-storage-preview"></a>Wprowadzenie do Azure Monitor usługi Storage (wersja zapoznawcza)
 
-Przed zagłębieniem się w doświadczenie, należy zrozumieć, jak prezentuje i wizualizuje informacje. Niezależnie od tego, czy wybierzesz funkcję Magazyn bezpośrednio z konta magazynu, czy z usługi Azure Monitor, usługa Azure Monitor for Storage zapewnia spójne środowisko. 
+Przed wprowadzeniem do środowiska należy zrozumieć, jak prezentuje i wizualizuje informacje. Bez względu na to, czy funkcja magazynu jest wybierana bezpośrednio z konta magazynu, czy z Azure Monitor, Azure Monitor dla magazynu będzie mieć spójne środowisko pracy. 
 
-W połączeniu zapewnia:
+Połączona z nim oferuje:
 
-* **W perspektywie skali** pokazujący widok migawki ich dostępności na podstawie kondycji usługi magazynu lub operacji interfejsu API, wykorzystanie pokazujące całkowitą liczbę żądań, które otrzymuje usługa magazynu i opóźnienie pokazujące średni czas, przez jaki usługa magazynu lub typ operacji interfejsu API jest przyjmowany do przetwarzania żądań. Można również wyświetlić pojemność według obiektu blob, pliku, tabeli i kolejki.
+* **W perspektywie skalowania** przedstawia widok migawki ich dostępności na podstawie kondycji usługi magazynu lub operacji interfejsu API, wykorzystania pokazującego łączną liczbę żądań odbieranych przez usługę magazynu oraz opóźnienie pokazujące średni czas, w którym usługa magazynu lub typ operacji interfejsu API przetwarza żądania. Możesz również wyświetlić wydajność według obiektów blob, plików, tabel i kolejek.
 
-* **Szczegółowe omówienie** określonego konta magazynu w celu zdiagnozowania problemów lub przeprowadzenia szczegółowej analizy według kategorii — dostępności, wydajności, awarii i pojemności. Wybranie jednej z tych opcji zapewnia szczegółowy widok metryk.  
+* **Przechodzenie do szczegółów** konkretnego konta magazynu w celu ułatwienia zdiagnozowania problemów lub wykonywania szczegółowej analizy według kategorii dostępności, wydajności, błędów i pojemności. Wybranie jednej z tych opcji zapewnia szczegółowy wgląd w metryki.  
 
-* **Można dostosowywać,** gdzie można zmienić metryki, które chcesz zobaczyć, zmodyfikować lub ustawić progi, które są zgodne z limitami, i zapisać jako własny skoroszyt. Wykresy w skoroszycie można przypiąć do pulpitu nawigacyjnego platformy Azure.  
+* **Dostosowywalne** miejsce, w którym można zmienić metryki, które mają być wyświetlane, zmodyfikować lub ustawić progi, które są wyrównane wraz z limitami, i zapisać jako własny skoroszyt. Wykresy w skoroszycie można przypinać do pulpitu nawigacyjnego platformy Azure.  
 
-Ta funkcja nie wymaga włączania ani konfigurowania czegokolwiek, metryki magazynu z kont magazynu są zbierane domyślnie. Jeśli nie znasz metryk dostępnych w usłudze Azure Storage, wyświetl opis i definicję w metrykach usługi Azure Storage, przeglądając [metryki usługi Azure storage.](../../storage/common/storage-metrics-in-azure-monitor.md)
-
->[!NOTE]
->Dostęp do tej funkcji nie podlega żadnym opłatom, a opłaty będą naliczane tylko za podstawowe funkcje usługi Azure Monitor, które konfigurujesz lub włączasz, zgodnie z opisem na stronie [szczegółów cen usługi Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/)
+Ta funkcja nie wymaga włączenia ani skonfigurowania żadnych informacji. metryki magazynu z kont magazynu są domyślnie zbierane. Jeśli nie znasz metryk dostępnych w usłudze Azure Storage, zobacz opis i definicję w obszarze metryki usługi Azure Storage, przeglądając [metryki usługi Azure Storage](../../storage/common/storage-metrics-in-azure-monitor.md).
 
 >[!NOTE]
->Usługa Azure Monitor dla magazynów nie obsługuje [kont ogólnego przeznaczenia w wersji 1.](../../storage/common/storage-account-overview.md#general-purpose-v1-accounts)
+>Dostęp do tej funkcji nie jest naliczany, a opłaty są naliczane tylko za Azure Monitor podstawowe funkcje, które konfigurujesz lub włączasz, zgodnie z opisem na stronie [szczegóły cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) .
+
+>[!NOTE]
+>Azure Monitor dla magazynu nie obsługuje [kont ogólnego przeznaczenia w wersji 1](../../storage/common/storage-account-overview.md#general-purpose-v1-accounts).
 >
 
-## <a name="view-from-azure-monitor"></a>Widok z usługi Azure Monitor
+## <a name="view-from-azure-monitor"></a>Wyświetl od Azure Monitor
 
-W usłudze Azure Monitor można wyświetlać szczegóły transakcji, opóźnień i pojemności z wielu kont magazynu w ramach subskrypcji oraz identyfikować wydajność, problemy z pojemnością i awarie.
+Z poziomu Azure Monitor można wyświetlać szczegóły transakcji, opóźnień i pojemności z wielu kont magazynu w ramach subskrypcji oraz identyfikować wydajność, problemy z pojemnością i błędy.
 
-Aby wyświetlić wykorzystanie i dostępność kont magazynu we wszystkich subskrypcjach, wykonaj następujące kroki.
+Aby wyświetlić wykorzystanie i dostępność kont magazynu we wszystkich subskrypcjach, wykonaj następujące czynności.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Wybierz **pozycję Monitor** z lewego okienka w witrynie Azure portal i w sekcji **Insights** wybierz pozycję Konta **magazynu (wersja zapoznawcza).**
+2. Wybierz pozycję **monitor** w okienku po lewej stronie w Azure Portal i w sekcji **szczegółowe informacje** wybierz pozycję **konta magazynu (wersja zapoznawcza)**.
 
     ![Widok wielu kont magazynu](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
-### <a name="overview-workbook"></a>Skoroszyt przeglądowy
+### <a name="overview-workbook"></a>Skoroszyt omówienia
 
-W **skoroszycie Przegląd** dla wybranej subskrypcji tabela wyświetla interaktywne dane magazynu i stan dostępności usług dla maksymalnie 10 kont magazynu pogrupowanych w ramach subskrypcji. Wyniki można filtrować na podstawie opcji wybranych z następujących list rozwijanych:
+W skoroszycie **Przegląd** dla wybranej subskrypcji w tabeli są wyświetlane metryki magazynu interaktywnego i stan dostępności usługi dla maksymalnie 10 kont magazynu pogrupowanych w ramach subskrypcji. Wyniki można filtrować na podstawie opcji wybranych z następujących list rozwijanych:
 
-* **Subskrypcje** — wyświetlane są tylko subskrypcje, które mają konta magazynu.  
+* Są wyświetlane subskrypcje obsługujące tylko **subskrypcje** z kontami magazynu.  
 
-* **Konta magazynu** — domyślnie wstępnie wybrano 10 kont magazynu. Jeśli wybierzesz wszystkie lub wiele kont magazynu w selektorze zakresu, zostanie zwróconych maksymalnie 200 kont magazynu. Jeśli na przykład masz łącznie 573 konta magazynu w trzech wybranych subskrypcjach, zostanie wyświetlonych tylko 200 kont. 
+* **Konta magazynu** — domyślnie wybrane są 10 kont magazynu. W przypadku wybrania w selektorze zakresu wszystkich lub wielu kont magazynu zostaną zwrócone maksymalnie 200 kont magazynu. Jeśli na przykład masz łącznie 573 kont magazynu w ramach trzech wybranych subskrypcji, zostaną wyświetlone tylko konta 200. 
 
-* **Zakres czasu** — domyślnie wyświetlane są informacje z ostatnich 4 godzin na podstawie odpowiednich dokonanych wyborów.
+* **Zakres czasu** — domyślnie wyświetla ostatnie 4 godziny informacji na podstawie odpowiednich opcji.
 
-Kafelek licznika w obszarze listy rozwijanej zestawia całkowitą liczbę kont magazynu w subskrypcji i odzwierciedla liczbę wybranych sum. Istnieje warunkowe kodowanie kolorów lub mapy cieplne dla kolumn w skoroszycie, które zgłaszają metryki transakcji lub błędy. Najgłębszy kolor ma najwyższą wartość, a jaśniejszy kolor jest oparty na najniższych wartościach. W przypadku kolumn opartych na błędach wartość jest czerwona, a dla kolumn opartych na metrykach wartość jest niebieska.
+Kafelek licznika pod listą rozwijaną podsumowuje łączną liczbę kont magazynu w subskrypcji i odzwierciedla liczbę wybranych opcji. Istnieje warunkowe kodowanie kolorami lub map cieplnych dla kolumn w skoroszycie, które raportują metryki lub błędy transakcji. Optymalny kolor ma najwyższą wartość, a jaśniejszy kolor jest oparty na najniższych wartościach. W przypadku kolumn opartych na błędach wartość jest czerwona i dla kolumn opartych na metrykach wartość jest niebieska.
 
-Wybierz wartość w kolumnach **Dostępność**, **Opóźnienie E2E**, **Opóźnienie serwera**i typ **błędu transakcji/Błędy** kieruje użytkownika do raportu dostosowanego do określonego typu metryk magazynu, które pasują do kolumny wybranej dla tego konta magazynu. Aby uzyskać więcej informacji na temat skoroszytów dla każdej kategorii, zobacz sekcję [Szczegółowe skoroszyty magazynu](#detailed-storage-workbooks) poniżej. 
+Wybierz wartość w polu **dostępność**kolumn, **opóźnienie E2E**, **opóźnienie serwera**i **Typ błędu transakcji/błędy** kierujesz raport dostosowany do określonego typu metryk magazynu, które pasują do kolumny wybranej dla tego konta magazynu. Aby uzyskać więcej informacji na temat skoroszytów dla każdej kategorii, zobacz sekcję [szczegółowy skoroszyty magazynu](#detailed-storage-workbooks) poniżej. 
 
 >[!NOTE]
->Aby uzyskać szczegółowe informacje na temat błędów, które mogą być wyświetlane w raporcie, zobacz [Schemat typu odpowiedzi](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) i poszukaj typów odpowiedzi, takich jak **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. W zależności od wybranych kont magazynu, jeśli zgłaszanych jest więcej niż trzy typy błędów, wszystkie inne błędy są reprezentowane w kategorii **Inne**.
+>Aby uzyskać szczegółowe informacje o błędach, które mogą być wyświetlane w raporcie, zobacz [schemat typu odpowiedzi](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) i Wyszukaj typy odpowiedzi, takie jak **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. W zależności od wybranych kont magazynu, jeśli zgłoszono więcej niż trzy typy błędów, wszystkie inne błędy są reprezentowane w kategorii **innych**.
 
-Domyślny próg **dostępności** wynosi:
+Domyślny próg **dostępności** :
 
-* Ostrzeżenie - 99%
-* Krytyczne - 90%
+* Ostrzeżenie — 99%
+* Krytyczny — 90%
 
-Aby ustawić próg dostępności na podstawie wyników obserwacji lub wymagań, [przejrzyj zmodyfikuj próg dostępności](#modify-the-availability-threshold). 
+Aby ustawić próg dostępności na podstawie wyników obserwacji lub wymagań, przejrzyj temat [Modyfikowanie progu dostępności](#modify-the-availability-threshold). 
 
 ### <a name="capacity-workbook"></a>Skoroszyt pojemności
 
-Wybierz **pozycję Pojemność** u góry strony i zostanie otwarty skoroszyt **Pojemności.** Pokazuje ilość całkowitego miejsca do magazynowania używanego na koncie i pojemność używaną przez każdą usługę danych na koncie, aby pomóc w identyfikacji w obszarze wykorzystywanego magazynu.
+Wybierz pozycję **pojemność** w górnej części strony, a zostanie otwarty skoroszyt **pojemności** . Przedstawia ona łączną ilość miejsca do magazynowania używanego w ramach konta i pojemności używanej przez każdą usługę danych na koncie, aby ułatwić identyfikację i użycie magazynu.
 
-![Wiele kont magazynu Pojemność skoroszytu](./media/storage-insights-overview/storage-account-capacity-02.png) 
+![Skoroszyt pojemności wielu kont magazynu](./media/storage-insights-overview/storage-account-capacity-02.png) 
 
-Istnieje warunkowe kodowanie kolorów lub mapy cieplne dla kolumn w skoroszycie, które zgłaszają metryki pojemności o niebieskiej wartości. Najgłębszy kolor ma najwyższą wartość, a jaśniejszy kolor jest oparty na najniższych wartościach.
+Istnieje warunkowe kodowanie kolorami lub map cieplnych dla kolumn w skoroszycie, które raportują metryki wydajności z niebieską wartością. Optymalny kolor ma najwyższą wartość, a jaśniejszy kolor jest oparty na najniższych wartościach.
 
-Po wybraniu wartości w jednej z kolumn w skoroszycie można przejść do skoroszytu **Pojemność** dla konta magazynu. Dalsze szczegóły dotyczące raportu szczegółowego opisano w sekcji [Szczegółowe skoroszyty magazynu](#detailed-storage-workbooks) poniżej. 
+Po wybraniu wartości w jednej z kolumn w skoroszycie przejdź do arkusza **pojemności** dla konta magazynu. Więcej szczegółowych informacji o raporcie przechodzenia do szczegółów znajduje się w sekcji [szczegółowe skoroszyty magazynu](#detailed-storage-workbooks) poniżej. 
 
-## <a name="view-from-a-storage-account"></a>Widok z konta magazynu
+## <a name="view-from-a-storage-account"></a>Wyświetlanie z konta magazynu
 
-Aby uzyskać dostęp do usługi Azure Monitor dla maszyn wirtualnych bezpośrednio z konta magazynu:
+Aby uzyskać dostęp do Azure Monitor dla maszyn wirtualnych bezpośrednio z konta magazynu:
 
-1. W witrynie Azure portal wybierz pozycję Konta magazynu.
+1. W Azure Portal wybierz pozycję konta magazynu.
 
-2. Z listy wybierz konto magazynu. W sekcji Monitorowanie wybierz pozycję Insights (wersja zapoznawcza).
+2. Z listy wybierz konto magazynu. W sekcji monitorowanie wybierz pozycję szczegółowe dane (wersja zapoznawcza).
 
-    ![Strona Przegląd wybranego konta magazynu](./media/storage-insights-overview/storage-account-direct-overview-01.png)
+    ![Strona przeglądu wybranego konta magazynu](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
-W **skoroszycie Przegląd** dla konta magazynu przedstawiono kilka metryk wydajności magazynu, które pomagają szybko ocenić:
+W skoroszycie **Przegląd** dla konta magazynu przedstawiono kilka metryk wydajności magazynu, które pomagają szybko ocenić:
 
-* Kondycja usługi Magazyn, aby natychmiast sprawdzić, czy problem poza formantem ma wpływ na usługę magazynu w regionie, w którym jest wdrażana, która jest podana w kolumnie **Podsumowanie.**
+* Kondycja usługi magazynu do natychmiastowego sprawdzenia, czy problem poza formantem ma wpływ na usługę magazynu w regionie, w którym jest wdrożona, która jest określona w kolumnie **Podsumowanie** .
 
-* Interaktywne wykresy wydajności przedstawiające najważniejsze szczegóły dotyczące pojemności, dostępności, transakcji i opóźnień.  
+* Interaktywne wykresy wydajności pokazujące najważniejsze szczegóły związane z pojemnością, dostępnością, transakcjami i opóźnieniem magazynu.  
 
-* Kafelki metryki i stanu przedstawiające dostępność usługi, całkowitą liczbę transakcji do usługi magazynu, opóźnienie E2E i opóźnienie serwera.
+* Kafelki metryk i Stanów wyróżniają dostępność usługi, łączną liczbę transakcji do usługi Storage, opóźnienie E2E i opóźnienie serwera.
 
-Wybranie dowolnego z **przycisków dla błędów,** **wydajności,** **dostępności**i **pojemności** powoduje otwarcie odpowiedniego skoroszytu. 
+Wybranie jednego z przycisków dla **niepowodzeń**, **wydajności**, **dostępności**i **pojemności** spowoduje otwarcie odpowiedniego skoroszytu. 
 
-![Strona Przegląd wybranego konta magazynu](./media/storage-insights-overview/storage-account-capacity-01.png)
+![Strona przeglądu wybranego konta magazynu](./media/storage-insights-overview/storage-account-capacity-01.png)
 
 ## <a name="detailed-storage-workbooks"></a>Szczegółowe skoroszyty magazynu
 
-Niezależnie od tego, czy w kolumnach **wybrano**wartość w kolumnach Dostępność, **Opóźnienie E2E,** **Opóźnienie serwera**i typ błędu **transakcji/Błędy** ze skoroszytu **Przegląd konta** magazynu wielokrotnego, czy też jeden z przycisków dla **błędów,** **wydajności,** **dostępności**i **pojemności** z skoroszytu **Przegląd** z określonego konta magazynu, każdy dostarcza zestaw interaktywnych informacji związanych z magazynowaniem dostosowany do tej kategorii.  
+Niezależnie od tego, czy wybrano wartość w skoroszycie " **dostępność**kolumn, **opóźnienie E2E**, **opóźnienie serwera**i **Typ błędu transakcji/błędy** " z arkusza z **wieloma kontami** magazynu, lub wybierając jeden z przycisków dla **niepowodzeń**, **wydajności**, **dostępności**i **pojemności** ze skoroszytu **przeglądu** na określonym koncie magazynu, każdy dostarcza zestaw interaktywnych informacji związanych z magazynem, które są dostosowane do tej kategorii.  
 
-* **Dostępność** otwiera **skoroszyt Dostępności.** Pokazuje bieżący stan kondycji usługi Azure Storage, tabelę przedstawiającą dostępny stan kondycji każdego obiektu sklasyfikowanego według usługi danych zdefiniowanej na koncie magazynu z linią trendu reprezentującą wybrany zakres czasu oraz wykres trendu dostępności dla każdej usługi transmisji danych na koncie.  
+* **Dostępność** powoduje otwarcie skoroszytu **dostępności** . Przedstawia bieżący stan kondycji usługi Azure Storage, tabelę przedstawiającą dostępny stan kondycji każdego obiektu sklasyfikowanego według usługi danych zdefiniowanego w ramach konta magazynu z linią trendu reprezentującą wybrany zakres czasu oraz wykres trendu dostępności dla każdej usługi danych na koncie.  
 
     ![Przykład raportu dostępności](./media/storage-insights-overview/storage-account-availability-01.png)
 
-* **Opóźnienie E2E** i **opóźnienie serwera** otwiera skoroszyt **wydajności.** Zawiera kafelek stanu zestawienia przedstawiający opóźnienie E2E i opóźnienie serwera, wykres wydajności E2E w porównaniu z opóźnieniem serwera oraz tabelę podziału opóźnienia udanych wywołań według interfejsu API skategoryzowane według usługi danych zdefiniowanej na koncie magazynu.
+* **Opóźnienie E2E** i **opóźnienie serwera** otwierają skoroszyt **wydajności** . Zawiera kafelek stan zestawienia przedstawiający opóźnienie E2E i opóźnienie serwera, wykres wydajności E2E, a także opóźnienia serwera, a także zmniejszenie liczby pomyślnych wywołań przez interfejs API pogrupowane według usługi danych zdefiniowanej na koncie magazynu.
 
-    ![Przykład raportu o skuteczności](./media/storage-insights-overview/storage-account-performance-01.png)
+    ![Przykład raportu wydajności](./media/storage-insights-overview/storage-account-performance-01.png)
 
-* Wybranie dowolnej z kategorii błędów wymienionych w siatce powoduje otwarcie **skoroszytu Niepowodzenie.** Raport zawiera kafelki metryki wszystkich innych błędów po stronie klienta, z wyjątkiem opisanych i udanych żądań, błędów ograniczania przepustowości klienta, wykres wydajności dla metryki wymiaru **typu odpowiedzi** transakcji specyficzne dla atrybutu ClientOtherError oraz dwie tabele — Transakcje według nazwy **interfejsu API** i Transakcje według **typu odpowiedzi**.
+* Wybranie dowolnej kategorii błędów wymienionej w siatce Otwórz skoroszyt **niepowodzeń** . Raport przedstawia kafelki metryk wszystkich innych błędów po stronie klienta, z wyjątkiem opisanych i zakończonych powodzeniem żądań, błędów ograniczania liczby klientów, wykresu wydajności dla **typu odpowiedzi** transakcji dla metryki wymiaru dotyczącego atrybutu ClientOtherError oraz dwóch tabel — **transakcji według nazwy interfejsu API** i **transakcji według typu odpowiedzi**.
 
-   ![Przykład raportu o niepowodzeniu](./media/storage-insights-overview/storage-account-failures-01.png)
+   ![Przykładowy raport o błędach](./media/storage-insights-overview/storage-account-failures-01.png)
 
-* **Pojemność** otwiera skoroszyt **Pojemności.** Pokazuje całkowitą ilość miejsca do magazynowania używanego dla każdego obiektu danych magazynu na koncie na kafelkach i na wykresie oraz liczbę obiektów danych są przechowywane na koncie.  
+* **Pojemność** otwiera skoroszyt **pojemności** . Pokazuje łączną ilość miejsca do magazynowania używanego dla każdego obiektu danych magazynu na koncie na kafelkach i wykresie oraz liczbę obiektów danych przechowywanych na koncie.  
 
-    ![Strona Pojemność wybranego konta magazynu](./media/storage-insights-overview/storage-account-capacity-01.png) 
+    ![Wybrana strona pojemności konta magazynu](./media/storage-insights-overview/storage-account-capacity-01.png) 
 
-## <a name="pin-and-export"></a>Przypinanie i eksportowanie
+## <a name="pin-and-export"></a>Przypnij i Eksportuj
 
-Możesz przypiąć dowolną sekcję metryki do pulpitu nawigacyjnego platformy Azure, wybierając ikonę pinezki w prawym górnym rogu sekcji.
+Możesz przypiąć każdą z sekcji metryk do pulpitu nawigacyjnego platformy Azure, wybierając ikonę pinezki w prawym górnym rogu sekcji.
 
-![Przykład numeru pin sekcji metryki do pulpitu nawigacyjnego](./media/storage-insights-overview/workbook-pin-example.png)
+![Przykład numeru PIN sekcji Metryka na pulpit nawigacyjny](./media/storage-insights-overview/workbook-pin-example.png)
 
-Skoroszyty **omówienia** konta **Capacity** wieloaspołonowego i magazynu obsługują eksportowanie wyników w formacie programu Excel przez wybranie ikony strzałki w dół po prawej stronie ikony pinezycy.
+**Omówienie** konta wielosubskrypcji i magazynu oraz skoroszyty **pojemności** obsługują Eksportowanie wyników w formacie programu Excel, wybierając ikonę strzałki w dół z prawej strony ikony pinezki.
 
-![Przykład wyników siatki skoroszytu](./media/storage-insights-overview/workbook-export-example.png)
+![Przykład eksportu wyników siatki skoroszytu](./media/storage-insights-overview/workbook-export-example.png)
 
-## <a name="customize-azure-monitor-for-storage-preview"></a>Dostosowywanie usługi Azure Monitor dla magazynu (wersja zapoznawcza)
+## <a name="customize-azure-monitor-for-storage-preview"></a>Dostosowywanie Azure Monitor dla magazynu (wersja zapoznawcza)
 
 W tej sekcji przedstawiono typowe scenariusze edytowania skoroszytu w celu dostosowania ich do potrzeb związanych z analizą danych:
 
-* Zakres skoroszytu, aby zawsze wybierać określone konta subskrypcji lub magazynu
-* Zmienianie danych w siatce
-* Zmienianie progu dostępności
-* Zmienianie renderowania kolorów
+* Ustaw zakres skoroszytu w taki sposób, aby zawsze wybierał określoną subskrypcję lub konta magazynu
+* Zmień metryki w siatce
+* Zmiana progu dostępności
+* Zmiana renderowania koloru
 
-Dostosowania są zapisywane w niestandardowym skoroszycie, aby zapobiec zastąpieniu domyślnej konfiguracji w opublikowanym skoroszycie. Skoroszyty są zapisywane w grupie zasobów w sekcji **Moje raporty,** która jest prywatna dla Ciebie, lub w sekcji **Raporty udostępnione,** dostępnej dla wszystkich osób z dostępem do grupy zasobów. Po zapisaniu niestandardowego skoroszytu należy przejść do galerii skoroszytu, aby go uruchomić.
+Dostosowania są zapisywane w niestandardowym skoroszycie, aby zapobiec zastąpieniu konfiguracji domyślnej w naszym opublikowanym skoroszycie. Skoroszyty są zapisywane w obrębie grupy zasobów, w sekcji **Moje raporty** prywatnej dla użytkownika lub w sekcji **raporty udostępnione** dostępne dla wszystkich użytkowników mających dostęp do grupy zasobów. Po zapisaniu skoroszytu niestandardowego musisz przejść do galerii skoroszytów, aby go uruchomić.
 
-![Uruchamianie galerii skoroszytu na pasku poleceń](./media/storage-insights-overview/workbook-command-bar-gallery.png)
+![Uruchom galerię skoroszytów z poziomu paska poleceń](./media/storage-insights-overview/workbook-command-bar-gallery.png)
 
-### <a name="specifying-a-subscription-or-storage-account"></a>Określanie konta subskrypcji lub magazynu
+### <a name="specifying-a-subscription-or-storage-account"></a>Określanie subskrypcji lub konta magazynu
 
-Można skonfigurować wieloa subskrypcję i konta magazynu **Przegląd** lub **Pojemności** skoroszyty do zakresu do określonych subskrypcji lub kont magazynu w każdym uruchomieniu, wykonaj następujące kroki.
+Można skonfigurować wiele subskrypcji i **przeglądanie** konta magazynu oraz skoroszyty **pojemności** do określonych subskrypcji lub kont magazynu na każdym uruchomieniu, wykonując następujące kroki.
 
-1. Wybierz **pozycję Monitor** z portalu, a następnie wybierz pozycję Konta magazynu **(wersja zapoznawcza)** z lewego okienka.
+1. Wybierz pozycję **monitor** z portalu, a następnie wybierz pozycję **konta magazynu (wersja zapoznawcza)** w okienku po lewej stronie.
 
-2. W **skoroszycie Przegląd** na pasku poleceń wybierz pozycję **Edytuj**.
+2. W skoroszycie **Przegląd** , na pasku poleceń wybierz pozycję **Edytuj**.
 
-3. Wybierz z listy rozwijanej **Subskrypcje** co najmniej jedną subskrypcję, której domyślnie ma być domyślna. Pamiętaj, że skoroszyt obsługuje wybieranie w sumie 10 subskrypcji.  
+3. Z listy rozwijanej **subskrypcje** wybierz co najmniej jedną subskrypcję, do której ma zostać ona domyślnie wybrana. Pamiętaj, że skoroszyt obsługuje wybieranie maksymalnie 10 subskrypcji.  
 
-4. Wybierz z listy rozwijanej **Konta magazynu** jedno lub więcej kont, które mają być domyślne. Pamiętaj, że skoroszyt obsługuje wybieranie do 200 kont magazynu. 
+4. Wybierz z listy rozwijanej **konta magazynu** co najmniej jedno konto, na które ma być domyślnie. Pamiętaj, że skoroszyt obsługuje wybieranie maksymalnie 200 kont magazynu. 
 
-5. Wybierz **pozycję Zapisz na** pasku poleceń, aby zapisać kopię skoroszytu z dostosowaniami, a następnie kliknij pozycję Gotowe **edytowanie,** aby powrócić do trybu czytania.  
+5. Wybierz pozycję **Zapisz jako** na pasku poleceń, aby zapisać kopię skoroszytu z własnymi dostosowaniami, a następnie kliknij pozycję **Zakończono edycję** , aby powrócić do trybu odczytu.  
 
-### <a name="modify-metrics-and-colors-in-the-workbook"></a>Modyfikowanie danych i kolorów w skoroszycie
+### <a name="modify-metrics-and-colors-in-the-workbook"></a>Modyfikuj metryki i kolory w skoroszycie
 
-Wstępnie utworzone skoroszyty zawierają dane metryki i masz możliwość modyfikowania lub usuwania jednej z wizualizacji i dostosowywania do określonych potrzeb zespołu.
+Wstępnie skompilowane skoroszyty zawierają dane metryk i można modyfikować lub usuwać dowolne wizualizacje i dostosowywać je do konkretnych potrzeb zespołu.
 
-W naszym przykładzie pracujemy ze skoroszytem pojemności konta wieloaspo subskrypcji i magazynu, aby zademonstrować, jak:
+W naszym przykładzie pracujemy z skoroszytem pojemności dla wielosubskrypcji i konta magazynu, aby zademonstrować, jak:
 
-* Usuwanie metryki
-* Zmienianie renderowania kolorów
+* Usuń metrykę
+* Zmiana renderowania koloru
 
-Można wykonać te same zmiany w przypadku jednego ze **skoroszytów awarii,** **wydajności,** **dostępności**i **pojemności.**
+Te same zmiany można wykonać w odniesieniu do jednego ze wstępnie skompilowanych skoroszytów **błędów**, **wydajności**, **dostępności**i **pojemności** .
 
-1. Wybierz **pozycję Monitor** z portalu, a następnie wybierz pozycję Konta magazynu **(wersja zapoznawcza)** z lewego okienka.
+1. Wybierz pozycję **monitor** z portalu, a następnie wybierz pozycję **konta magazynu (wersja zapoznawcza)** w okienku po lewej stronie.
 
-2. Wybierz **pozycję Pojemność,** aby przełączyć się do skoroszytu pojemności i na pasku poleceń wybierz pozycję **Edytuj** z paska poleceń.
+2. Wybierz pozycję **pojemność** , aby przełączyć się na skoroszyt pojemności, a następnie na pasku poleceń wybierz pozycję **Edytuj** na pasku poleceń.
 
-    ![Wybieranie edytowania w celu zmodyfikowania skoroszytu](./media/storage-insights-overview/workbook-edit-workbook.png)
+    ![Wybierz pozycję Edytuj, aby zmodyfikować skoroszyt](./media/storage-insights-overview/workbook-edit-workbook.png)
 
 3. Obok sekcji metryki wybierz pozycję **Edytuj**.
 
-    ![Wybierz edytuj, aby zmodyfikować metryki skoroszytu pojemności](./media/storage-insights-overview/edit-metrics-capacity-workbook-01.png)
+    ![Wybierz pozycję Edytuj, aby zmodyfikować metryki skoroszytu dyspozycyjności](./media/storage-insights-overview/edit-metrics-capacity-workbook-01.png)
 
-4. Usuniemy kolumnę **Osi czasu używanego konta,** więc wybierz pozycję **Ustawienia kolumn** w siatce metryk.
+4. Będziemy usuwać kolumnę **oś czasu o używanej pojemności** , więc wybierz pozycję **Ustawienia kolumny** w siatce metryk.
 
     ![Edytowanie ustawień kolumny](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
 
-5. W okienku **Ustawienia kolumny Edytowanie** wybierz w sekcji **Kolumny** **microsoft.storage/storageaccounts-Capacity-UsedCapacity Timeline$| Konto używane pojemność Timeline$**, a w obszarze listy rozwijanej **Moduł renderowania kolumn** wybierz **opcję Ukryte**.
+5. W okienku **Edytowanie ustawień kolumny** wybierz pozycję w sekcji **kolumny** **Microsoft. Storage/Storageaccounts-pojemność-UsedCapacity oś czasu $ | Oś czasu o używanej pojemności $**, a w obszarze **renderowania kolumna** listy rozwijanej wybierz pozycję **ukryty**.
 
-6. Wybierz **pozycję Zapisz i zamknij,** aby zatwierdzić zmianę.
+6. Wybierz pozycję **Zapisz i Zamknij,** aby zatwierdzić zmianę.
 
-Teraz zmieńmy motyw kolorów dla metryk pojemności w raporcie, aby używać zielonego zamiast niebieskiego.
+Teraz Zmień motyw kolorów dla metryk pojemności w raporcie, tak aby używał zielonki zamiast niebieską.
 
-1. Wybierz **pozycję Ustawienia kolumn** w siatce metryk.
+1. Wybierz pozycję **Ustawienia kolumny** w siatce metryk.
 
-2. W okienku **Ustawienia kolumny Edytowanie** Wybierz w sekcji **Kolumny** **microsoft.storageaccounts-Capacity-UsedCapacity$|microsoft.storageaccounts/blobservices-Capacity-BlobCapacity$|microsoft.storage/storageaccounts/usługi plików-Pojemność-FileCapacity$|microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$|microsoft.storageaccounts/tableservices-Capacity-TableCapacity$**. W obszarze listy rozwijanej **Paleta kolorów**wybierz **zielony**.
+2. W okienku **Edytowanie ustawień kolumny** wybierz pozycję w sekcji **kolumny** **Microsoft. Storage/storageaccounts-pojemność-UsedCapacity $ | Microsoft. Storage/storageaccounts/blobservices-pojemność-BlobCapacity $ | Microsoft. Storage**/storageaccounts/FileServices-pojemność-FileCapacity $ | Microsoft. Storage/storageaccounts/queueservices-pojemność-QueueCapacity $ | Microsoft. Storage/Storageaccounts/tableservices-pojemność-TableCapacity $. Na **palecie kolorów**listy rozwijanej wybierz pozycję **zielony**.
 
-3. Wybierz **pozycję Zapisz i zamknij,** aby zatwierdzić zmianę.
+3. Wybierz pozycję **Zapisz i Zamknij,** aby zatwierdzić zmianę.
 
-4. Wybierz **pozycję Zapisz na** pasku poleceń, aby zapisać kopię skoroszytu z dostosowaniami, a następnie kliknij pozycję Gotowe **edytowanie,** aby powrócić do trybu czytania.  
+4. Wybierz pozycję **Zapisz jako** na pasku poleceń, aby zapisać kopię skoroszytu z własnymi dostosowaniami, a następnie kliknij pozycję **Zakończono edycję** , aby powrócić do trybu odczytu.  
 
 ### <a name="modify-the-availability-threshold"></a>Modyfikowanie progu dostępności
 
-W tym przykładzie pracujemy ze skoroszytem pojemności konta magazynu i pokazujemy, jak zmodyfikować próg dostępności. Domyślnie dostępność procentu raportowania kafelków i siatki jest skonfigurowana z minimalnym progiem 90 i maksymalnym progiem 99. Firma We zostanie zmieniona minimalna wartość progowa **% w** siatce Dostępność według nazwy **interfejsu API** na 85%, co oznacza, że stan kondycji zmieni się na krytyczny, jeśli próg jest mniejszy niż 85%. 
+W tym przykładzie pracujemy ze skoroszytem pojemności konta magazynu i ukazującym sposób modyfikacji progu dostępności. Domyślnie wartość procentowa dostępności raportu kafelków i siatki jest konfigurowana z minimalnym progiem 90 i maksymalnym progiem 99. Będziemy zmieniać minimalną wartość progową **dostępności%** w siatce **nazw interfejsów API** na 85%, co oznacza, że stan kondycji zmieni się na krytyczny, jeśli wartość progowa jest mniejsza niż 85 procent. 
 
-1. Wybierz **pozycję Konta magazynu** z portalu, a następnie wybierz konto magazynu z listy.
+1. Wybierz pozycję **konta magazynu** z portalu, a następnie wybierz konto magazynu z listy.
 
-2. Z lewego okienka wybierz **pozycję Insights (preview).**
+2. Wybierz pozycję **Insights (wersja zapoznawcza)** w okienku po lewej stronie.
 
-3. W skoroszycie wybierz pozycję **Dostępność,** aby przełączyć się do skoroszytu dostępności, a następnie wybierz pozycję **Edytuj** z paska poleceń. 
+3. W skoroszycie wybierz opcję **dostępność** , aby przełączyć się do skoroszytu dostępności, a następnie wybierz pozycję **Edytuj** na pasku poleceń. 
 
-4. Przewiń w dół do dołu strony i po lewej stronie obok siatki **Dostępność według interfejsu API** wybierz pozycję **Edytuj**.
+4. Przewiń w dół do dołu strony i po lewej stronie obok pozycji **dostępność według siatki interfejsu API** wybierz pozycję **Edytuj**.
 
-    ![Edytowanie ustawień siatki dostępności według nazwy interfejsu API](./media/storage-insights-overview/availability-workbook-avail-by-apiname.png)
+    ![Edytuj dostępność według ustawień siatki nazw interfejsów API](./media/storage-insights-overview/availability-workbook-avail-by-apiname.png)
 
-5. Wybierz pozycję **Ustawienia kolumny,** a następnie w okienku **Edytuj ustawienia kolumny** w sekcji **Kolumny** wybierz pozycję **Dostępność (%) (Progi + Sformatowany)**.
+5. Wybierz pozycję **Ustawienia kolumny** , a następnie w okienku **Edytowanie ustawień kolumny** w obszarze **kolumny** wybierz **dostępność (%) (Progi + sformatowane)**.
 
-6. Zmień wartość stanu **krytycznego** stanu kondycji z **90** na **85,** a następnie kliknij przycisk **Zapisz i zamknij**.
+6. Zmień wartość **krytycznego** stanu kondycji z **90** na **85** , a następnie kliknij przycisk **Zapisz i Zamknij**.
 
     ![Modyfikowanie wartości progowej dostępności dla stanu krytycznego](./media/storage-insights-overview/edit-column-settings-capacity-workbook-01.png)
 
-7. Wybierz **pozycję Zapisz na** pasku poleceń, aby zapisać kopię skoroszytu z dostosowaniami, a następnie kliknij pozycję Gotowe **edytowanie,** aby powrócić do trybu czytania.
+7. Wybierz pozycję **Zapisz jako** na pasku poleceń, aby zapisać kopię skoroszytu z własnymi dostosowaniami, a następnie kliknij pozycję **Zakończono edycję** , aby powrócić do trybu odczytu.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Ta sekcja pomoże Ci w diagnostyce i rozwiązywaniu niektórych typowych problemów, które mogą wystąpić podczas korzystania z usługi Azure Monitor dla magazynu (wersja zapoznawcza). Skorzystaj z poniższej listy, aby znaleźć informacje istotne dla danego problemu.
+Ta sekcja pomoże Ci w diagnozowaniu i rozwiązywaniu problemów z typowymi problemami, które mogą wystąpić podczas korzystania z usługi Azure Monitor for Storage (wersja zapoznawcza). Skorzystaj z poniższej listy, aby znaleźć informacje istotne dla danego problemu.
 
 ### <a name="resolving-performance-capacity-or-availability-issues"></a>Rozwiązywanie problemów z wydajnością, pojemnością lub dostępnością
 
-Aby pomóc w rozwiązywaniu problemów związanych z magazynem, które można zidentyfikować za pomocą usługi Azure Monitor dla magazynu (w wersji zapoznawczej), zobacz [wskazówki dotyczące rozwiązywania problemów](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)z usługą Azure Storage .  
+Aby ułatwić rozwiązywanie problemów związanych z magazynem, które są identyfikowane za pomocą Azure Monitor for Storage (wersja zapoznawcza), zobacz [wskazówki dotyczące rozwiązywania problemów](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)z usługą Azure Storage  
 
-### <a name="why-can-i-only-see-200-storage-accounts"></a>Dlaczego widzę tylko 200 kont magazynu?
+### <a name="why-can-i-only-see-200-storage-accounts"></a>Dlaczego można zobaczyć tylko konta magazynu 200?
 
 Liczba wybranych kont magazynu ma limit 200, niezależnie od liczby wybranych subskrypcji.
 
 ### <a name="what-happens-when-i-click-on-a-recently-pinned-tile-in-the-dashboard"></a>Co się stanie po kliknięciu ostatnio przypiętego kafelka na pulpicie nawigacyjnym?
 
-* Jeśli klikniesz dowolne miejsce na kafelku, przejdziesz do karty, z której kafelek został przypięty. Na przykład, jeśli przypniesz wykres na karcie "Przegląd konta magazynu", a następnie po kliknięciu tego kafelka na pulpicie nawigacyjnym otworzy się ten domyślny widok, jednak jeśli przypniesz wykres z własnej zapisanej kopii, otworzy widok zapisanej kopii.
+* Jeśli klikniesz w dowolnym miejscu kafelka, przejdziesz do karty, z której został przypięty kafelek. Na przykład w przypadku przypinania grafu na karcie "przegląd konta magazynu" po kliknięciu tego kafelka na pulpicie nawigacyjnym zostanie otwarty ten widok domyślny, jednak w przypadku przypinania grafu ze swojej zapisanej kopii zostanie otwarty widok zapisanej kopii.
 * Ikona filtru w lewym górnym rogu tytułu otwiera kartę "Konfigurowanie ustawień kafelków".
-* Ikona elipsy w prawym górnym rogu daje opcje "Dostosuj dane tytułu", "dostosuj", "odśwież" i "usuń z pulpitu nawigacyjnego".
+* Ikona wielokropka w prawym górnym rogu będzie zawierać opcje "Dostosowywanie danych tytułu", "Dostosowywanie", "Odśwież" i "Usuwanie z pulpitu nawigacyjnego".
 
-### <a name="what-happens-when-i-save-a-workbook"></a>Co się stanie po zapisaniu skoroszytu?
+### <a name="what-happens-when-i-save-a-workbook"></a>Co się stanie, gdy zapisuję skoroszyt?
 
-* Po zapisaniu skoroszytu można utworzyć nową kopię skoroszytu wraz z edycjami i zmienić jego tytuł. Zapisywanie nie zastępuje skoroszytu, bieżący skoroszyt będzie zawsze widokiem domyślnym.
-* **Niezapisany skoroszyt** jest tylko widokiem domyślnym.
+* Po zapisaniu skoroszytu można utworzyć nową kopię skoroszytu z wprowadzonymi zmianami i zmienić tytuł. Zapisywanie nie zastępuje skoroszytu, bieżący skoroszyt będzie zawsze widokiem domyślnym.
+* **Niezapisany** skoroszyt jest tylko widokiem domyślnym.
 
 
 ### <a name="why-dont-i-see-all-my-subscriptions-in-the-portal"></a>Dlaczego nie widzę wszystkich moich subskrypcji w portalu?
 
-Portal będzie wyświetlał dane tylko dla wybranych subskrypcji podczas uruchamiania portalu. Aby zmienić wybrane subskrypcje, przejdź do prawego górnego rogu i kliknij notes z ikoną filtru. Spowoduje to wyświetle kartę Katalog + subskrypcje.
+W portalu zostaną wyświetlone tylko dane dla wybranych subskrypcji podczas uruchamiania portalu. Aby zmienić wybrane subskrypcje, przejdź do prawego górnego rogu i kliknij Notes z ikoną filtru. Spowoduje to wyświetlenie karty katalog i subskrypcje.
 
 ![Katalog i subskrypcja](./media/storage-insights-overview/fqa3.png)
 
-### <a name="how-to-change-the-coloring-and-threshold-for-availability"></a>Jak zmienić kolorowanki i próg dostępności?
+### <a name="how-to-change-the-coloring-and-threshold-for-availability"></a>Jak zmienić kolorowanie i próg dostępności?
 
-Zapoznaj się [z sekcją Modyfikuj próg dostępności,](storage-insights-overview.md#modify-the-availability-threshold) aby uzyskać szczegółowe kroki dotyczące zmiany kolorowania i progów dostępności.
+Szczegółowe instrukcje dotyczące sposobu zmiany kolorowania i progów dostępności można znaleźć w sekcji [Modyfikowanie progu dostępności](storage-insights-overview.md#modify-the-availability-threshold) .
 
-### <a name="how-to-analyze-and-troubleshoot-the-data-shown-in-azure-monitor-for-storage"></a>Jak analizować i rozwiązywać problemy z danymi wyświetlanymi w usłudze Azure Monitor for Storage?
+### <a name="how-to-analyze-and-troubleshoot-the-data-shown-in-azure-monitor-for-storage"></a>Jak analizować i rozwiązywać problemy z danymi wyświetlanymi w Azure Monitor dla magazynu?
 
- Szczegółowe informacje na temat analizowania danych usługi Azure Storage wyświetlanych w usłudze Azure Monitor, diagnozowania i rozwiązywania problemów z usługą Microsoft Azure Storage można znaleźć w artykule [Monitor, diagnozowanie i rozwiązywanie problemów z usługą Microsoft Azure Storage.](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting)
+ Zapoznaj się z artykułem [monitorowanie, diagnozowanie i rozwiązywanie Microsoft Azure Storage problemów](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting) , aby uzyskać szczegółowe informacje na temat sposobu analizowania i rozwiązywania problemów z danymi usługi Azure Storage przedstawionymi w temacie Azure monitor for Storage.
 
 ### <a name="why-dont-i-see-all-the-types-of-errors-in-metrics"></a>Dlaczego nie widzę wszystkich typów błędów w metrykach?
 
-Obecnie wyświetlane są maksymalnie trzy różne typy błędów, a pozostałe błędy są zgrupowane w jednym zasobniku. Jest kontrolowany za pomocą splitByLimit i może być modyfikowany. Aby zmienić tę właściwość:
+Obecnie pokazywane są maksymalnie trzy różne typy błędów, a pozostałe błędy są pogrupowane w pojedynczym przedziale. Jest on kontrolowany przy użyciu splitByLimit i może być modyfikowany. Aby zmienić tę właściwość:
 
-1. Kliknij na edytuj skoroszyt.
-2. Przejdź do danych, kliknij edytuj, a następnie wybierz **pozycję Transakcje, Suma** lub cokolwiek metryki, które chcesz edytować.
+1. Kliknij pozycję Edytuj skoroszyt.
+2. Przejdź do pozycji metryki, kliknij pozycję Edytuj, a następnie wybierz pozycję **transakcje, suma** lub wszystkie metryki, które chcesz edytować.
 
-    ![Przejdź do danych i kliknij edytuj, a następnie na "Transakcje, sumy"](./media/storage-insights-overview/fqa7.png)
+    ![Przejdź do metryk i kliknij pozycję Edytuj w pozycji "transakcje, sumy"](./media/storage-insights-overview/fqa7.png)
 
 1. Następnie zmień liczbę podziałów.
 
-    ![Wybierz parametry metryczne"](./media/storage-insights-overview/fqa7-2.png)
+    ![Wybierz parametry metryki "](./media/storage-insights-overview/fqa7-2.png)
 
-Jeśli chcesz zobaczyć n różne typy błędów niż określić splitByLimit jako n + 1, 1 dodatkowe dla pozostałych błędów.
+Jeśli chcesz zobaczyć n różne typy błędów niż określa splitByLimit jako n + 1, 1 dodatkowe dla reszty błędów.
 
-###  <a name="i-saved-my-workbook-while-on-some-storage-account-why-cant-i-find-it-now"></a>Skoroszyt został zapisany na niektórych kontach magazynu. Dlaczego nie mogę go teraz znaleźć?
+###  <a name="i-saved-my-workbook-while-on-some-storage-account-why-cant-i-find-it-now"></a>Mój skoroszyt został zapisany na pewnym koncie magazynu. Dlaczego nie mogę znaleźć tego teraz?
 
-Każdy skoroszyt jest zapisywany na koncie magazynu, na które został zapisany. Spróbuj znaleźć określone konto magazynu, na którym użytkownik zapisał skoroszyt. W przeciwnym razie nie ma możliwości znalezienia określonego skoroszytu bez znajomości zasobu (konta magazynu).
+Każdy skoroszyt jest zapisywany na koncie magazynu, w którym został zapisany. Spróbuj znaleźć określone konto magazynu, w którym zapisano skoroszyt. W przeciwnym razie nie ma możliwości znalezienia określonego skoroszytu bez znajomości zasobu (konto magazynu).
 
 ### <a name="what-is-time-range"></a>Co to jest zakres czasu?
 
-Zakres czasu pokazuje dane z określonego przedziału czasowego. Na przykład jeśli zakres czasu wynosi 24 godziny, to wyświetla dane z ostatnich 24 godzin.
+Zakres czasu pokazuje dane z określonego przedziału czasu. Na przykład jeśli zakres czasu wynosi 24 godziny, to pokazuje dane z ostatnich 24 godzin.
 
-### <a name="what-is-time-granularity-time-grain"></a>Co to jest ziarnistość czasu (ziarno czasu)?
+### <a name="what-is-time-granularity-time-grain"></a>Co to jest stopień szczegółowości czasu (ziarno czasu)?
 
-Szczegółowość czasu jest różnicą czasu między dwoma punktami danych. Na przykład jeśli ziarno czasu jest ustawiona na 1 sekundę, co oznacza, że metryki są zbierane co sekundę.
+Stopień szczegółowości czasu to różnica czasu między dwoma punktami danych. Na przykład, jeśli ziarno czasu jest ustawione na 1 sekundę, oznacza to, że metryki są zbierane w każdej sekundzie.
 
-### <a name="what-is-the-time-granularity-once-we-pin-any-part-of-the-workbooks-to-a-dashboard"></a>Jaka jest szczegółowość czasu po przypięciu dowolnej części skoroszytów do pulpitu nawigacyjnego?
+### <a name="what-is-the-time-granularity-once-we-pin-any-part-of-the-workbooks-to-a-dashboard"></a>Jaki jest stopień szczegółowości czasu, gdy przypinam wszystkie części skoroszytów do pulpitu nawigacyjnego?
 
-Domyślna szczegółowość czasu jest ustawiona na automatyczną, obecnie nie można jej zmienić w tej chwili.
+Domyślny stopień szczegółowości czasu jest ustawiony na automatyczny, obecnie nie można go zmienić.
 
-### <a name="how-do-i-change-the-timespan-time-range-of-the-workbook-step-on-my-dashboard"></a>Jak zmienić przedział czasu/ zakres czasu kroku skoroszytu na pulpicie nawigacyjnym?
+### <a name="how-do-i-change-the-timespan-time-range-of-the-workbook-step-on-my-dashboard"></a>Jak mogę zmienić przedział czasu/godziny dla kroku skoroszytu na moim pulpicie nawigacyjnym?
 
-Domyślnie zakres przedziału czasu/czasu na kafelku pulpitu nawigacyjnego jest ustawiony na 24 godziny, aby zmienić to kliknięcie na elipsy w prawym górnym rogu, wybierz **pozycję Dostosuj dane kafelka,** zaznacz pole "zastąp ustawienia czasu pulpitu nawigacyjnego na poziomie tytułu", a następnie wybierz przedział czasu za pomocą menu rozwijanego.  
+Domyślnie zakres TimeSpan/czasu na kafelku pulpitu nawigacyjnego jest ustawiony na 24 godziny, aby zmienić Kliknięcie wielokropka w prawym górnym rogu, wybierz pozycję **Dostosuj dane kafelka**, zaznacz pole wyboru Zastąp ustawienia czasowe pulpitu nawigacyjnego na poziomie tytułu, a następnie wybierz przedział czasu przy użyciu menu rozwijanego.  
 
-![Wybierz elipsy w prawym rogu kafelka i wybierz pozycję Dostosuj te dane](./media/storage-insights-overview/fqa-data-settings.png)
+![Wybierz wielokropek w prawym górnym rogu kafelka i wybierz pozycję Dostosuj te dane](./media/storage-insights-overview/fqa-data-settings.png)
 
-![W obszarze Konfigurowanie ustawień kafelków wybierz pozycję rozwijanej przedział czasu, aby zmienić przedział czasu/przedział czasu](./media/storage-insights-overview/fqa-timespan.png)
+![Na stronie Konfiguruj ustawienia kafelków wybierz listę rozwijaną TimeSpan, aby zmienić zakres czasu/godziny](./media/storage-insights-overview/fqa-timespan.png)
 
-### <a name="how-do-i-change-the-title-of-the-workbook-or-a-workbook-step-i-pinned-to-a-dashboard"></a>Jak zmienić tytuł skoroszytu lub kroku skoroszytu przypiętego do pulpitu nawigacyjnego?
+### <a name="how-do-i-change-the-title-of-the-workbook-or-a-workbook-step-i-pinned-to-a-dashboard"></a>Jak mogę zmienić tytuł skoroszytu lub krok, który został przypięty do pulpitu nawigacyjnego?
 
-Tytuł kroku skoroszytu lub skoroszytu przypiętego do pulpitu nawigacyjnego zachowuje tę samą nazwę, jaką miał w skoroszycie. Aby zmienić tytuł, należy zapisać własną kopię skoroszytu. Następnie będzie można nazwać skoroszyt przed naciśnięciem zapisz.
+Tytuł lub krok skoroszytu, który jest przypięty do pulpitu nawigacyjnego, zachowuje tę samą nazwę w skoroszycie. Aby zmienić tytuł, musisz zapisać własną kopię skoroszytu. Następnie będzie można nazwać skoroszyt przed naciśnięciem przycisku Zapisz.
 
-![Wybierz pozycję Zapisz u góry, aby zapisać kopię skoroszytu i zmienić jego nazwę](./media/storage-insights-overview/fqa-change-workbook-name.png)
+![Wybierz pozycję Zapisz u góry, aby zapisać kopię skoroszytu i zmienić jej nazwę](./media/storage-insights-overview/fqa-change-workbook-name.png)
 
-Aby zmienić nazwę kroku w zapisanym skoroszycie, wybierz edytuj pod tym krokiem, a następnie wybierz bieg na samym dole ustawień.
+Aby zmienić nazwę kroku w zapisanym skoroszycie, wybierz opcję Edytuj w obszarze tego kroku, a następnie wybierz koła zębatego u dołu ustawień.
 
-![Wybierz edytuj u dołu kroku skoroszytu, aby otworzyć ustawienia](./media/storage-insights-overview/fqa-edit.png)
-![W ustawieniach wybierz bieg u dołu, aby móc zmienić nazwę kroku](./media/storage-insights-overview/fqa-change-name.png)
+![Wybierz pozycję Edytuj u dołu kroku skoroszytu, aby otworzyć ustawienia](./media/storage-insights-overview/fqa-edit.png)
+![w obszarze Ustawienia wybierz koła zębatego u dołu, aby zmienić nazwę kroku.](./media/storage-insights-overview/fqa-change-name.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Skonfiguruj [alerty metryk](../platform/alerts-metric.md) i [powiadomienia o kondycji usługi,](../../service-health/alerts-activity-log-service-notifications.md) aby skonfigurować automatyczne alerty ułatwiające wykrywanie problemów.
+* Konfigurowanie [alertów metryk](../platform/alerts-metric.md) i [powiadomień o kondycji usług](../../service-health/alerts-activity-log-service-notifications.md) w celu skonfigurowania zautomatyzowanego alertu w celu uzyskania pomocy w wykrywaniu problemów.
 
-* Dowiedz się, jakie scenariusze skoroszyty są przeznaczone do obsługi, tworzenia nowych i dostosowywania istniejących raportów oraz nie tylko, przeglądając [tworzenie interaktywnych raportów za pomocą skoroszytów usługi Azure Monitor](../app/usage-workbooks.md).
+* Dowiedz się, jakie scenariusze skoroszyty są przeznaczone do obsługi, jak tworzyć nowe i dostosowywać istniejące raporty, a inne dzięki przeglądowi [Tworzenie interaktywnych raportów przy użyciu skoroszytów Azure monitor](../app/usage-workbooks.md).
 
-* Aby uzyskać szczegółowy przewodnik dotyczący korzystania z analizy magazynu i innych narzędzi do identyfikowania, diagnozowania i rozwiązywania problemów związanych z usługą Azure Storage, zobacz [Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
+* Aby uzyskać szczegółowy przewodnik dotyczący używania analityka magazynu i innych narzędzi do identyfikowania, diagnozowania i rozwiązywania problemów związanych z usługą Azure Storage, zobacz [monitorowanie, diagnozowanie i rozwiązywanie problemów z Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).

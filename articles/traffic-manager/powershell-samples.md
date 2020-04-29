@@ -1,6 +1,6 @@
 ---
-title: Przykłady programu Azure PowerShell dla usługi Traffic Manager| Dokumenty firmy Microsoft
-description: W tym przykładzie użyj programu Azure PowerShell do wdrażania i konfigurowania usługi Azure Traffic Manager.
+title: Przykłady Azure PowerShell dla Traffic Manager | Microsoft Docs
+description: W tym przykładzie Użyj Azure PowerShell do wdrożenia i skonfigurowania usługi Azure Traffic Manager.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: rohinkoul
@@ -13,18 +13,18 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: rohink
 ms.openlocfilehash: 25864e3b419d86cbe1ec816bea4438958ca33124
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76934548"
 ---
-# <a name="azure-powershell-samples-for-traffic-manager"></a>Przykłady programu Azure PowerShell dla usługi Traffic Manager
+# <a name="azure-powershell-samples-for-traffic-manager"></a>Przykłady Azure PowerShell dla Traffic Manager
 
-Poniższa tabela zawiera łącza do skryptów usługi Traffic Manager utworzonych przy użyciu programu Azure PowerShell.
+Poniższa tabela zawiera linki do skryptów Traffic Manager utworzonych przy użyciu Azure PowerShell.
 
 |Tytuł  |Opis |
 |---------|---------|
-|[Bezpośredni ruch w wielu regionach w celu zapewnienia wysokiej dostępności aplikacji](./scripts/traffic-manager-powershell-websites-high-availability.md)   |    Tworzy dwa plany usługi aplikacji, dwie aplikacje sieci web, profil menedżera ruchu i dwa punkty końcowe menedżera ruchu.     |
+|[Bezpośredni ruch w wielu regionach w celu zapewnienia wysokiej dostępności aplikacji](./scripts/traffic-manager-powershell-websites-high-availability.md)   |    Tworzy dwa plany usługi App Service, dwie aplikacje sieci Web, profil programu Traffic Manager i dwa punkty końcowe w usłudze Traffic Manager.     |
 |    |         |
 

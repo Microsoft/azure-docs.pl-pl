@@ -5,39 +5,39 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 61358051a8ddc32bc01ec5e231f4c28ebfa18ee0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670036"
 ---
-# <a name="monitor-the-availability-of-any-website"></a>Monitorowanie dostępności dowolnej strony internetowej
+# <a name="monitor-the-availability-of-any-website"></a>Monitorowanie dostępności dowolnej witryny sieci Web
 
-Po wdrożeniu aplikacji internetowej/witryny sieci Web można skonfigurować testy cykliczne w celu monitorowania dostępności i czasu reakcji. Usługa [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) wysyła żądania sieci Web do aplikacji w regularnych odstępach czasu z punktów na całym świecie. Może ostrzegać, jeśli aplikacja nie odpowiada lub jeśli reaguje zbyt wolno.
+Po wdrożeniu aplikacji lub witryny sieci Web można skonfigurować testy cykliczne, aby monitorować dostępność i czas odpowiedzi. Usługa [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) wysyła żądania sieci Web do aplikacji w regularnych odstępach czasu z punktów na całym świecie. Może to być alert, jeśli aplikacja nie odpowiada, lub jeśli reaguje zbyt wolno.
 
-Testy dostępności możesz skonfigurować dla dowolnego punktu końcowego protokołów HTTP lub HTTPS, który jest dostępny za pośrednictwem publicznej sieci Internet. Nie musisz wprowadzać żadnych zmian w testującej witrynie. W rzeczywistości nie musi to być nawet strona, którą posiadasz. Można przetestować dostępność interfejsu API REST, od którego zależy usługa.
+Testy dostępności możesz skonfigurować dla dowolnego punktu końcowego protokołów HTTP lub HTTPS, który jest dostępny za pośrednictwem publicznej sieci Internet. Nie musisz wprowadzać żadnych zmian w testowanej witrynie sieci Web. W rzeczywistości nie musi to być jeszcze posiadana witryna. Możesz przetestować dostępność interfejsu API REST, od którego zależy usługa.
 
-### <a name="types-of-availability-tests"></a>Rodzaje testów dostępności:
+### <a name="types-of-availability-tests"></a>Typy testów dostępności:
 
 Istnieją trzy typy testów dostępności:
 
 * [Test ping adresu URL](#create-a-url-ping-test): prosty test, który można utworzyć w portalu Azure.
-* [Wieloetapowy test internetowy:](availability-multistep.md)nagrywanie sekwencji żądań sieci web, które można odtwarzać w celu przetestowania bardziej złożonych scenariuszy. Wieloetapowe testy sieci web są tworzone w programie Visual Studio Enterprise i przekazywane do portalu do wykonania.
-* [Testy dostępności ścieżki niestandardowej:](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet)Jeśli zdecydujesz się utworzyć niestandardową `TrackAvailability()` aplikację do uruchamiania testów dostępności, metoda może służyć do wysyłania wyników do usługi Application Insights.
+* [Wieloetapowy test sieci Web](availability-multistep.md): nagrywanie sekwencji żądań sieci Web, które mogą być odtwarzane w celu przetestowania bardziej złożonych scenariuszy. Wieloetapowe testy sieci Web są tworzone w Visual Studio Enterprise i przekazywane do portalu w celu wykonania.
+* [Testy dostępności niestandardowej ścieżki](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): Jeśli zdecydujesz się utworzyć niestandardową aplikację do uruchamiania testów dostępności, `TrackAvailability()` Metoda może zostać użyta do wysłania wyników do Application Insights.
 
-**Można utworzyć maksymalnie 100 testów dostępności dla zasobów usługi Application Insights.**
+**Można utworzyć maksymalnie 100 testów dostępności dla zasobu Application Insights.**
 
 ## <a name="create-an-application-insights-resource"></a>Tworzenie zasobu usługi Application Insights
 
-Aby utworzyć test dostępności, należy najpierw utworzyć zasób usługi Application Insights. Jeśli zasób został już utworzony, przejdź do następnej sekcji, aby [utworzyć test ping adresu URL](#create-a-url-ping-test).
+Aby można było utworzyć test dostępności, należy najpierw utworzyć zasób Application Insights. Jeśli zasób został już utworzony, przejdź do następnej sekcji, aby [utworzyć test ping adresu URL](#create-a-url-ping-test).
 
-W witrynie Azure Portal wybierz pozycję **Utwórz zasób—** > **usługa** > **Application Insights** i [utwórz zasób usługi Application Insights](create-new-resource.md).
+W Azure Portal wybierz pozycję **Utwórz zasób** > **Narzędzia deweloperskie** > **Application Insights** i [Utwórz zasób Application Insights](create-new-resource.md).
 
 ## <a name="create-a-url-ping-test"></a>Tworzenie testu ping adresu URL
 
-Nazwa "test ping adresu URL" jest trochę mylące. Aby było jasne, ten test nie korzysta z protokołu ICMP (Internet Control Message Protocol) w celu sprawdzenia dostępności witryny. Zamiast tego używa bardziej zaawansowanych funkcji żądania HTTP, aby sprawdzić, czy punkt końcowy odpowiada. Mierzy również wydajność skojarzoną z tą odpowiedzią i dodaje możliwość ustawiania niestandardowych kryteriów sukcesu w połączeniu z bardziej zaawansowanymi funkcjami, takimi jak analizowanie żądań zależnych i zezwalaniem na ponownych prób.
+Nazwa "test ping adresu URL" jest bitem elementu Misnomer. Aby można było wyczyścić Ten test, nie jest możliwe użycie protokołu ICMP (Internet Control Message Protocol) do sprawdzenia dostępności witryny. Zamiast tego używa bardziej zaawansowanych funkcji żądania HTTP, aby sprawdzić, czy punkt końcowy odpowiada. Mierzy również wydajność skojarzoną z tą odpowiedzią i dodaje możliwość ustawienia niestandardowych kryteriów sukcesu, które są połączone z bardziej zaawansowanymi funkcjami, takimi jak analizowanie żądań zależnych i Zezwalanie na ponowne próby.
 
-Aby utworzyć pierwsze żądanie dostępności, otwórz okienko Dostępność i wybierz pozycję **Utwórz test**.
+Aby utworzyć pierwsze żądanie dostępności, Otwórz okienko dostępność i wybierz pozycję **Utwórz test**.
 
 ![Podaj przynajmniej adres URL swojej witryny sieci Web](./media/monitor-web-app-availability/availability-create-test-001.png)
 
@@ -46,41 +46,41 @@ Aby utworzyć pierwsze żądanie dostępności, otwórz okienko Dostępność i 
 |Ustawienie| Wyjaśnienie
 |----|----|----|
 |**Adres URL** |  Adres URL może odnosić się do dowolnej strony sieci Web, którą chcesz przetestować, ale musi być widoczny w publicznym Internecie. Adres URL może zawierać ciąg zapytania. Możesz więc np. szybko sprawdzić działanie bazy danych. Jeśli adres URL jest rozpoznawany jako przekierowanie, zostanie prześledzonych maksymalnie 10 przekierowań.|
-|**Analizuj żądania zależne**| Test żąda obrazów, skryptów, plików stylów i innych plików, które są częścią testowej strony sieci Web. Rejestrowany czas odpowiedzi obejmuje czas poświęcony na pobieranie tych plików. Test zakończy się niepowodzeniem, jeśli którykolwiek z tych zasobów nie można pomyślnie pobrać w limit czasu dla całego testu. Jeśli pole opcji nie zostanie zaznaczone, test zażąda tylko pliku pod podanym adresem URL. Włączenie tej opcji powoduje bardziej rygorystyczne sprawdzanie. Test może zakończyć się niepowodzeniem w przypadkach, które mogą nie być zauważalne podczas ręcznego przeglądania witryny.
-|**Włączanie ponownych prób**|gdy test zakończy się niepowodzeniem, jest ponawiany po krótkim odstępie czasu. Błąd jest zgłaszany dopiero wtedy, gdy trzy kolejne próby się nie powiodą. Kolejne testy są następnie wykonywane ze zwykłą częstotliwością. Ponawianie prób jest tymczasowo wstrzymane do czasu następnego sukcesu. Ta reguła jest stosowana niezależnie w każdej lokalizacji testu. **Zalecamy tę opcję**. Średnio około 80% błędów znika po ponowieniu testu.|
-|**Częstotliwość badania**| Ustawia, jak często test jest uruchamiany z każdej lokalizacji testowej. Przy domyślnej częstotliwości równej 5 minut i 5 lokalizacjach testu witryna będzie testowana średnio co minutę.|
-|**Lokalizacje testowe**| Czy miejsca, z których nasze serwery wysyłają żądania internetowe do Twojego adresu URL. **Nasza minimalna liczba zalecanych lokalizacji testowych wynosi pięć,** aby zapewnić, że można odróżnić problemy w witrynie od problemów z siecią. Wybrać można maksymalnie 16 lokalizacji.
+|**Analizuj zależne żądania**| Testuje obrazy, skrypty, pliki stylów i inne pliki, które są częścią strony sieci Web w teście. Rejestrowany czas odpowiedzi obejmuje czas poświęcony na pobieranie tych plików. Test kończy się niepowodzeniem, jeśli nie można pomyślnie pobrać któregokolwiek z tych zasobów w ramach limitu czasu dla całego testu. Jeśli pole opcji nie zostanie zaznaczone, test zażąda tylko pliku pod podanym adresem URL. Włączenie tej opcji skutkuje dokładniejszym sprawdzeniem. Test może zakończyć się niepowodzeniem, co może nie być zauważalne podczas ręcznego przeglądania witryny.
+|**Włącz ponawianie prób**|gdy test zakończy się niepowodzeniem, zostanie ponowiony po krótkim czasie. Błąd jest zgłaszany dopiero wtedy, gdy trzy kolejne próby się nie powiodą. Kolejne testy są następnie wykonywane ze zwykłą częstotliwością. Ponawianie prób jest tymczasowo wstrzymane do czasu następnego sukcesu. Ta reguła jest stosowana niezależnie w każdej lokalizacji testu. **Zalecamy korzystanie z tej opcji**. Średnio około 80% błędów znika po ponowieniu testu.|
+|**Częstotliwość testów**| Ustawia częstotliwość uruchamiania testu z każdej lokalizacji testowej. Przy domyślnej częstotliwości równej 5 minut i 5 lokalizacjach testu witryna będzie testowana średnio co minutę.|
+|**Lokalizacje testów**| Są miejsca, w których serwery wysyłają żądania sieci Web do adresu URL. **Minimalna liczba zalecanych lokalizacji testowych to pięć** , aby upewnić się, że problemy w witrynie sieci Web można odróżnić od problemów z siecią. Wybrać można maksymalnie 16 lokalizacji.
 
-**Jeśli adres URL nie jest widoczny z publicznego Internetu, możesz wybrać selektywne otwarcie zapory, aby zezwolić tylko na transakcje testowe za pośrednictwem**programu . Aby dowiedzieć się więcej o wyjątkach zapory dla naszych agentów testowych dostępności, zapoznaj się z [przewodnikiem po adresach IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests).
+**Jeśli Twój adres URL nie jest widoczny w publicznej sieci Internet, możesz wybrać opcję selektywnego otwierania zapory, aby zezwalać tylko na transakcje testowe za pośrednictwem programu**. Aby dowiedzieć się więcej o wyjątkach zapory dla naszych agentów testów dostępności, zapoznaj się z [przewodnikiem po adresie IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests).
 
 > [!NOTE]
-> Zdecydowanie zalecamy testowanie z wielu lokalizacji z **co najmniej pięcioma lokalizacjami.** Ma to na celu zapobieganie fałszywym alarmom, które mogą wynikać z przejściowych problemów z określoną lokalizacją. Ponadto odkryliśmy, że optymalna konfiguracja ma mieć **liczbę lokalizacji testowych na równi z progiem lokalizacji alertu + 2**.
+> Zdecydowanie zalecamy testowanie z wielu lokalizacji z **co najmniej pięcioma lokalizacjami**. Ma to na celu uniknięcie fałszywych alarmów, które mogą powodować przejściowe problemy z określoną lokalizacją. Ponadto firma Microsoft ustaliła, że optymalna konfiguracja ma mieć **liczbę lokalizacji testowych równą progowi lokalizacji alertu + 2**.
 
 ### <a name="success-criteria"></a>Kryteria sukcesu
 
 |Ustawienie| Wyjaśnienie
 |----|----|----|
-| **Limit czasu testowania** |Zmniejsz tę wartość, aby otrzymywać alerty o powolnych odpowiedziach. Test jest uznawany za błąd, jeśli w tym okresie nie odebrano odpowiedzi z witryny. W przypadku wybrania opcji **Analizuj zależne żądania** wszystkie obrazy, pliki stylów, skrypty i inne zasoby zależne muszą zostać odebrane w tym okresie.|
-| **Odpowiedź HTTP** | Zwrócony kod stanu, który jest liczony jako sukces. Kod 200 oznacza, że została zwrócona normalna strona sieci Web.|
-| **Dopasowanie zawartości** | Ciąg, jak "Witamy!" Sprawdzamy, czy w każdej odpowiedzi występuje dokładna zgodność pod względem wielkości liter. Musi to być zwykły ciąg znaków bez symboli wieloznacznych. Pamiętaj, że w razie zmiany zawartości strony może być konieczne zaktualizowanie tego ciągu. **Tylko znaki angielskie są obsługiwane przez dopasowanie zawartości** |
+| **Limit czasu testu** |Zmniejsz tę wartość, aby otrzymywać alerty o powolnych odpowiedziach. Test jest uznawany za błąd, jeśli w tym okresie nie odebrano odpowiedzi z witryny. W przypadku wybrania opcji **Analizuj zależne żądania** wszystkie obrazy, pliki stylów, skrypty i inne zasoby zależne muszą zostać odebrane w tym okresie.|
+| **Odpowiedź HTTP** | Zwrócony kod stanu, który jest liczony jako powodzenie. Kod 200 oznacza, że została zwrócona normalna strona sieci Web.|
+| **Dopasowanie zawartości** | Ciąg, na przykład "Witaj!" Sprawdzamy, czy w każdej odpowiedzi występuje dokładna zgodność pod względem wielkości liter. Musi to być zwykły ciąg znaków bez symboli wieloznacznych. Pamiętaj, że w razie zmiany zawartości strony może być konieczne zaktualizowanie tego ciągu. **Zgodność zawartości obsługuje tylko znaki angielskie** |
 
 ### <a name="alerts"></a>Alerty
 
 |Ustawienie| Wyjaśnienie
 |----|----|----|
-|**W czasie zbliżonym do rzeczywistego (wersja zapoznawcza)** | Zalecamy korzystanie z alertów w czasie rzeczywistym. Konfigurowanie tego typu alertów odbywa się po utworzeniu testu dostępności.  |
-|**Wdrożenie klasyczne** | Nie zaleca się już używania klasycznych alertów dla nowych testów dostępności.|
-|**Próg lokalizacji alertu**|Zalecamy co najmniej 3/5 lokalizacji. Optymalna relacja między wartością progową lokalizacji alertu a liczbą lokalizacji testowych jest progowa liczba **lokalizacji** = **alertów lokalizacji testowych — 2, z co najmniej pięcioma lokalizacjami testowymi.**|
+|**Niemal w czasie rzeczywistym (wersja zapoznawcza)** | Zalecamy korzystanie z alertów niemal w czasie rzeczywistym. Konfigurowanie tego typu alertu odbywa się po utworzeniu testu dostępności.  |
+|**Wdrożenie klasyczne** | Nie zalecamy już używania klasycznych alertów dla nowych testów dostępności.|
+|**Próg lokalizacji alertu**|Zalecamy co najmniej 3/5 lokalizacji. Optymalna relacja między progiem lokalizacji alertu a liczbą lokalizacji testowych to liczba lokalizacji testu w =  **lokalizacji alertów****-2 z co najmniej pięcioma lokalizacjami testów.**|
 
 ## <a name="see-your-availability-test-results"></a>Wyświetlanie wyników testów dostępności
 
-Wyniki testów dostępności można wizualizować zarówno za pomocą widoków wykresu liniowego, jak i punktowego.
+Wyniki testu dostępności można wizualizować przy użyciu widoków liniowych i punktowych.
 
-Po kilku minutach kliknij przycisk **Odśwież,** aby wyświetlić wyniki testów.
+Po kilku minutach kliknij przycisk **Odśwież** , aby zobaczyć wyniki testu.
 
 ![Widok wiersza](./media/monitor-web-app-availability/availability-refresh-002.png)
 
-Widok scatterplot pokazuje próbki wyników badań, które mają szczegóły testu diagnostycznego w nich. Aparat testowy przechowuje szczegółowe informacje diagnostyczne dla testów z błędami. W przypadku udanych testów szczegółowe informacje diagnostyczne są przechowywane dla podzbioru wykonań. Umieść wskaźnik myszy na dowolnej zielonej/czerwonej kropki, aby zobaczyć test, nazwę testu i lokalizację.
+Widok scatterplot pokazuje próbki wyników testu, które mają w nich szczegółową czynność testu diagnostycznego. Aparat testowy przechowuje szczegółowe informacje diagnostyczne dla testów z błędami. W przypadku udanych testów szczegółowe informacje diagnostyczne są przechowywane dla podzbioru wykonań. Umieść kursor na dowolnym z zielonych i czerwonych kropek, aby zobaczyć test, nazwę testu i lokalizację.
 
 ![Widok wiersza](./media/monitor-web-app-availability/availability-scatter-plot-003.png)
 
@@ -88,9 +88,9 @@ Wybierz określony test, lokalizację lub skróć okres czasu, aby zobaczyć wi�
 
 ## <a name="inspect-and-edit-tests"></a> Sprawdzanie i edytowanie testów
 
-Aby edytować, tymczasowo wyłączyć lub usunąć test kliknij wielokropek obok nazwy testu. Propagowanie zmian konfiguracji do wszystkich agentów testowych po dokonaniu zmiany może potrwać do 20 minut.
+Aby edytować, tymczasowo wyłączyć lub usunąć test, kliknij wielokropek obok nazwy testu. Propagowanie zmian konfiguracji do wszystkich agentów testowych po wprowadzeniu zmiany może potrwać do 20 minut.
 
-![Wyświetl szczegóły testu. Edytowanie i wyłączanie testu sieci Web](./media/monitor-web-app-availability/edit.png)
+![Wyświetl szczegóły testu. Edytuj i Wyłącz test sieci Web](./media/monitor-web-app-availability/edit.png)
 
 Podczas przeprowadzania konserwacji swojej usługi możesz wyłączyć testy dostępności lub skojarzone z nimi reguły alertów.
 
@@ -100,20 +100,20 @@ Kliknij czerwoną kropkę.
 
 ![Kliknij czerwoną kropkę](./media/monitor-web-app-availability/open-instance-3.png)
 
-Z wyniku testu dostępności można wyświetlić szczegóły transakcji we wszystkich składnikach. Tutaj możesz:
+W wyniku testu dostępności można zobaczyć szczegóły transakcji dla wszystkich składników. W tym miejscu możesz:
 
 * Zbadać odpowiedź odebraną z serwera.
-* Diagnozowanie awarii za pomocą skorelowanych danych telemetrycznych po stronie serwera zebranych podczas przetwarzania testu dostępności nie powiodło się.
+* Diagnozowanie błędów ze skorelowanej telemetrii po stronie serwera podczas przetwarzania testu dostępności zakończonej niepowodzeniem.
 * Zarejestruj problem lub element roboczy w usłudze Git lub Azure Boards, aby śledzić problem. Błąd będzie zawierać link do tego zdarzenia.
 * Otworzyć wynik testu sieci Web w programie Visual Studio.
 
-Dowiedz się więcej o diagnostyce transakcji od końca do końca [tutaj](../../azure-monitor/app/transaction-diagnostics.md).
+Więcej informacji na temat kompleksowego środowiska diagnostyki transakcji można znaleźć [tutaj](../../azure-monitor/app/transaction-diagnostics.md).
 
-Kliknij wiersz wyjątku, aby wyświetlić szczegóły wyjątku po stronie serwera, który spowodował niepowodzenie testu dostępności syntetycznych. Można również uzyskać [migawkę debugowania](../../azure-monitor/app/snapshot-debugger.md) dla bogatszych diagnostyki na poziomie kodu.
+Kliknij wiersz wyjątku, aby wyświetlić szczegóły wyjątku po stronie serwera, który spowodował niepowodzenie testu dostępności syntetycznej. Możesz również uzyskać [migawkę debugowania](../../azure-monitor/app/snapshot-debugger.md) na potrzeby bardziej zaawansowanej diagnostyki poziomu kodu.
 
 ![Diagnostyka po stronie serwera](./media/monitor-web-app-availability/open-instance-4.png)
 
-Oprócz wyników pierwotnych można również wyświetlić dwa kluczowe dane dostępności w [Eksploratorze metryk:](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
+Oprócz nieprzetworzonych wyników można także wyświetlić dwie metryki dostępności klucza w [Eksplorator metryk](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started):
 
 1. Dostępność: procent testów, które zostały pomyślnie zakończone, dla wszystkich wykonań testów.
 2. Czas trwania testu: średni czas trwania testu dla wszystkich wykonań testów.
@@ -125,11 +125,11 @@ Oprócz wyników pierwotnych można również wyświetlić dwa kluczowe dane dos
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Dedykowany [artykuł dotyczący rozwiązywania problemów](troubleshoot-availability.md).
+Dedykowany artykuł dotyczący [rozwiązywania problemów](troubleshoot-availability.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Alerty o dostępności](availability-alerts.md)
+* [Alerty dostępności](availability-alerts.md)
 * [Wieloetapowe testy sieci Web](availability-multistep.md)
 
 

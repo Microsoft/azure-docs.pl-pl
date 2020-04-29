@@ -1,41 +1,41 @@
 ---
-title: Pakiet wykrywania zabezpieczeń w usłudze Azure Application Insights
-description: Monitoruj aplikację za pomocą usługi Azure Application Insights i inteligentnego wykrywania potencjalnych problemów z zabezpieczeniami.
+title: Pakiet wykrywania zabezpieczeń z usługą Azure Application Insights
+description: Monitoruj aplikacje za pomocą usługi Azure Application Insights i inteligentnego wykrywania pod kątem potencjalnych problemów z zabezpieczeniami.
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.openlocfilehash: b23ada6fe4596a2eee242cc9145789521caf697f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669730"
 ---
 # <a name="application-security-detection-pack-preview"></a>Pakiet wykrywania zabezpieczeń aplikacji (wersja zapoznawcza)
 
-Usługa Application Insights automatycznie analizuje dane telemetryczne generowane przez aplikację i wykrywa potencjalne problemy z zabezpieczeniami. Ta funkcja umożliwia identyfikowanie potencjalnych problemów z zabezpieczeniami i obsługę ich przez naprawienie aplikacji lub podjęcie niezbędnych środków bezpieczeństwa.
+Application Insights automatycznie analizuje dane telemetryczne wygenerowane przez aplikację i wykrywa potencjalne problemy z zabezpieczeniami. Ta funkcja umożliwia zidentyfikowanie potencjalnych problemów z zabezpieczeniami i ich obsługę poprzez rozwiązanie aplikacji lub podjęcie niezbędnych środków bezpieczeństwa.
 
-Ta funkcja nie wymaga specjalnej konfiguracji, poza [skonfigurowaniem aplikacji do wysyłania danych telemetrycznych](https://docs.microsoft.com/azure/application-insights/app-insights-usage-overview).
+Ta funkcja nie wymaga żadnych specjalnych ustawień, innych niż [Konfigurowanie aplikacji do wysyłania telemetrii](https://docs.microsoft.com/azure/application-insights/app-insights-usage-overview).
 
-## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Kiedy otrzymam tego typu powiadomienia o wykrywaniu z inteligentnego wykrywania?
-Istnieją trzy typy problemów z zabezpieczeniami, które są wykrywane:
-1. Niezabezpieczony dostęp do adresu URL: adres URL w aplikacji jest dostępny zarówno za pośrednictwem protokołu HTTP, jak i HTTPS. Zazwyczaj adres URL, który akceptuje żądania HTTPS, nie powinien akceptować żądań HTTP. Może to wskazywać na błąd lub problem z zabezpieczeniami w aplikacji.
-2. Formularz niezabezpieczony: formularz (lub inne żądanie "POST") w aplikacji używa protokołu HTTP zamiast protokołu HTTPS. Za pomocą protokołu HTTP może naruszyć dane użytkownika, który jest wysyłany przez formularz.
-3. Podejrzana aktywność użytkowników: aplikacja jest dostępna z wielu krajów/regionów przez tego samego użytkownika w przybliżeniu w tym samym czasie. Na przykład ten sam użytkownik uzyskał dostęp do aplikacji z Hiszpanii i Stanów Zjednoczonych w ciągu tej samej godziny. To wykrycie wskazuje potencjalnie złośliwą próbę dostępu do aplikacji.
+## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Kiedy mam ten typ powiadomienia inteligentnego wykrywania?
+Wykryto trzy typy problemów z zabezpieczeniami:
+1. Niezabezpieczony dostęp do adresu URL: adres URL w aplikacji jest uzyskiwany za pośrednictwem protokołów HTTP i HTTPS. Zazwyczaj adres URL, który akceptuje żądania HTTPS nie powinien akceptować żądań HTTP. Może to wskazywać na błąd lub problem z zabezpieczeniami w aplikacji.
+2. Niezabezpieczona forma: formularz (lub inne żądanie POST) w aplikacji używa protokołu HTTP zamiast HTTPS. Użycie protokołu HTTP może osłabić dane użytkownika, które są wysyłane przez formularz.
+3. Podejrzane działania użytkowników: aplikacja jest dostępna z wielu krajów/regionów przez tego samego użytkownika w tym samym czasie. Na przykład ten sam użytkownik uzyskał dostęp do aplikacji z Hiszpanii i Stany Zjednoczone w tej samej godzinie. To wykrywanie wskazuje potencjalnie złośliwy dostęp do aplikacji.
 
-## <a name="does-my-app-definitely-have-a-security-issue"></a>Czy moja aplikacja na pewno ma problem z zabezpieczeniami?
-Nie, powiadomienie nie oznacza, że aplikacja na pewno ma problem z zabezpieczeniami. Wykrycie dowolnego z powyższych scenariuszy może w wielu przypadkach wskazywać na problem z zabezpieczeniami. Jednak wykrywanie może mieć naturalne uzasadnienie biznesowe i może być ignorowane.
+## <a name="does-my-app-definitely-have-a-security-issue"></a>Czy moja aplikacja ma w nieskończony problem z zabezpieczeniami?
+Nie, powiadomienie nie oznacza, że aplikacja ma w nieskończoność problem z zabezpieczeniami. Wykrywanie dowolnego z powyższych scenariuszy może w wielu przypadkach wskazywać na problem z zabezpieczeniami. Jednak wykrywanie może mieć naturalne uzasadnienie biznesowe i można je zignorować.
 
-## <a name="how-do-i-fix-the-insecure-url-access-detection"></a>Jak naprawić wykrywanie "niezabezpieczony dostęp do adresów URL"?
-1. **Segregowanie.** Powiadomienie zawiera liczbę użytkowników, którzy uzyskują dostęp do niezabezpieczonych adresów URL, oraz adres URL, na który najbardziej miał wpływ niezabezpieczony dostęp. Może to pomóc w przypisaniu priorytetu problemu.
-2. **Zakres.** Jaki procent użytkowników uzyskał dostęp do niezabezpieczonych adresów URL? Ile adresów URL zostało dotkniętych? Informacje te można uzyskać z powiadomienia.
-3. **Zdiagnozować.** Wykrywanie zawiera listę niezabezpieczonych żądań oraz listy adresów URL i użytkowników, których dotyczy problem, aby pomóc w dalszym diagnozowaniu problemu.
+## <a name="how-do-i-fix-the-insecure-url-access-detection"></a>Jak mogę naprawić wykrywania "niezabezpieczonego dostępu do adresów URL"?
+1. **Klasyfikacja.** Powiadomienie zawiera liczbę użytkowników, którzy uzyskują dostęp do niezabezpieczonych adresów URL, a także adres URL, który był najbardziej narażony przez Niezabezpieczony dostęp. Może to pomóc w przypisaniu priorytetu do problemu.
+2. **Scope.** Jaki procent użytkowników uzyska dostęp do niezabezpieczonych adresów URL? Ile adresów URL miało wpływ? Te informacje można uzyskać na podstawie powiadomienia.
+3. **Sprawdź.** Wykrywanie zawiera listę niezabezpieczonych żądań oraz listę adresów URL i użytkowników, których dotyczy problem, aby pomóc w dalszej analizie problemu.
 
-## <a name="how-do-i-fix-the-insecure-form-detection"></a>Jak naprawić wykrywanie "niezabezpieczony formularz"?
-1. **Segregowanie.** Powiadomienie zawiera liczbę niezabezpieczonych formularzy i liczbę użytkowników, których dane zostały potencjalnie naruszone. Może to pomóc w przypisaniu priorytetu problemu.
-2. **Zakres.** Która forma była zaangażowana w największą liczbę niezabezpieczonych transmisji i jaka jest dystrybucja niezabezpieczonych transmisji w czasie? Informacje te można uzyskać z powiadomienia.
-3. **Zdiagnozować.** Wykrywanie zawiera listę niezabezpieczonych formularzy i podział liczby niezabezpieczonych transmisji dla każdego formularza, aby pomóc w dalszym diagnozowaniu problemu.
+## <a name="how-do-i-fix-the-insecure-form-detection"></a>Jak mogę naprawić wykrywania "niezabezpieczonego formularza"?
+1. **Klasyfikacja.** Powiadomienie zawiera liczbę niezabezpieczonych formularzy i liczby użytkowników, których dane zostały naruszone. Może to pomóc w przypisaniu priorytetu do problemu.
+2. **Scope.** Który formularz został uwzględniony w największej liczbie niezabezpieczonych elementów i jaki jest rozkład niezabezpieczonych operacji w czasie? Te informacje można uzyskać na podstawie powiadomienia.
+3. **Sprawdź.** Wykrywanie zawiera listę niezabezpieczonych formularzy i podział liczby niezabezpieczonych transformacje dla każdego formularza, co pomoże w dalszej analizie problemu.
 
-## <a name="how-do-i-fix-the-suspicious-user-activity-detection"></a>Jak naprawić wykrywanie "Podejrzana aktywność użytkownika"?
-1. **Segregowanie.** Powiadomienie zawiera liczbę różnych użytkowników, którzy wykazali podejrzane zachowanie. Może to pomóc w przypisaniu priorytetu problemu.
-2. **Zakres.** Z jakich krajów/regionów pochodzą podejrzane żądania? Który użytkownik był najbardziej podejrzany? Informacje te można uzyskać z powiadomienia.
-3. **Zdiagnozować.** Wykrywanie zawiera listę podejrzanych użytkowników i listę krajów/regionów dla każdego użytkownika, aby pomóc w dalszym diagnozowaniu problemu.
+## <a name="how-do-i-fix-the-suspicious-user-activity-detection"></a>Jak mogę naprawić wykrywanie podejrzanych działań użytkowników?
+1. **Klasyfikacja.** Powiadomienie zawiera liczbę różnych użytkowników, którzy wykorzystali podejrzane zachowanie. Może to pomóc w przypisaniu priorytetu do problemu.
+2. **Scope.** Z których krajów/regionów pochodzą podejrzane żądania? Który użytkownik był najbardziej podejrzany? Te informacje można uzyskać na podstawie powiadomienia.
+3. **Sprawdź.** Wykrywanie zawiera listę podejrzanych użytkowników i listę krajów/regionów dla każdego użytkownika, co pomoże w dalszej analizie problemu.

@@ -1,6 +1,6 @@
 ---
-title: Rozwiązanie Azure VMware firmy CloudSimple — tworzenie chmury prywatnej CloudProste
-description: W tym artykule opisano sposób tworzenia chmury CloudSimple Private Cloud w celu rozszerzenia obciążeń VMware na chmurę z elastycznością i ciągłością działania
+title: Rozwiązanie VMware firmy Azure według CloudSimple — tworzenie CloudSimple prywatnej chmury
+description: Opisuje, jak utworzyć chmurę prywatną CloudSimple do rozbudowania obciążeń programu VMware do chmury z elastycznością operacyjną i ciągłością
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/19/2019
@@ -9,70 +9,70 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4f700ac34b6c6e2a651366bee7dd1785c608064f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77024793"
 ---
-# <a name="create-a-cloudsimple-private-cloud"></a>Tworzenie chmury prywatnej CloudSimple
+# <a name="create-a-cloudsimple-private-cloud"></a>Utwórz chmurę prywatną CloudSimple
 
-Private Cloud to izolowany stos VMware, który obsługuje hosty ESXi, vCenter, vSAN i NSX. Chmury prywatne są zarządzane za pośrednictwem portalu CloudSimple. Mają własny serwer vCenter we własnej domenie zarządzania. Stos działa na dedykowanych węzłach i izolowanych węzłach sprzętowych z gołym metalem.
+Chmura prywatna to izolowany stos oprogramowania VMware obsługujący hosty ESXi, vCenter, sieci vSAN i NSX. Chmurami prywatnymi zarządza się za pomocą portalu CloudSimple. Mają własny serwer vCenter we własnej domenie zarządzania. Stos działa na dedykowanych węzłach i izolowanych węzłach sprzętowych bez systemu operacyjnego.
 
-Tworzenie chmury prywatnej pomaga zaspokoić różne typowe potrzeby infrastruktury sieciowej:
+Tworzenie chmury prywatnej pomaga sprostać różnym typowym potrzebom związanym z infrastrukturą sieci:
 
-* **Wzrost gospodarczy**. Jeśli osiągnięto punkt odświeżania sprzętu dla istniejącej infrastruktury, chmura prywatna umożliwia rozszerzenie bez konieczności inwestowania w nowy sprzęt.
+* **Wzrostu**. Jeśli do istniejącej infrastruktury został osiągnięty punkt odświeżenia sprzętowego, Chmura prywatna pozwala rozszerzyć system bez konieczności używania nowych inwestycji sprzętowych.
 
-* **Szybka ekspansja**. Jeśli pojawią się jakieś tymczasowe lub nieplanowane potrzeby w zakresie pojemności, chmura prywatna umożliwia utworzenie dodatkowej pojemności bez opóźnień.
+* **Szybkie rozszerzanie**. Jeśli wystąpią jakiekolwiek tymczasowe lub nieplanowane zapotrzebowanie na pojemność, Chmura prywatna pozwala na utworzenie dodatkowej pojemności bez opóźnień.
 
-* **Zwiększona ochrona**. Dzięki prywatnej chmurze z co najmniej trzema węzłami otrzymujesz automatyczną nadmiarowość i ochronę o wysokiej dostępności.
+* **Zwiększona ochrona**. W przypadku chmury prywatnej co najmniej trzech węzłów otrzymujesz automatyczną nadmiarowość i ochronę o wysokiej dostępności.
 
-* **Długoterminowe potrzeby infrastrukturalne**. Jeśli centra danych są w stanie pojemności lub chcesz zrestrukturyzować się w celu obniżenia kosztów, private cloud umożliwia wycofanie centrów danych i migrację do rozwiązania opartego na chmurze, pozostając jednocześnie zgodne z operacjami przedsiębiorstwa.
+* **Długoterminowe potrzeby dotyczące infrastruktury**. Jeśli centra danych mają pojemność lub chcesz zmienić strukturę w celu obniżenia kosztów, Chmura prywatna pozwala na wycofanie centrów danych i migrację do rozwiązania opartego na chmurze, a pozostałe zgodne z operacjami przedsiębiorstwa.
 
-Podczas tworzenia chmury prywatnej, otrzymasz jeden klaster vSphere i wszystkie maszyny wirtualne zarządzania, które są tworzone w tym klastrze.
+Podczas tworzenia chmury prywatnej otrzymujesz jeden klaster vSphere i wszystkie maszyny wirtualne zarządzania utworzone w tym klastrze.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Węzły muszą być aprowizowane przed utworzeniem chmury prywatnej. Aby uzyskać więcej informacji na temat inicjowania obsługi administracyjnej węzłów, zobacz [Inicjowanie obsługi administracyjnej węzłów rozwiązania Azure VMware przez CloudSimple](create-nodes.md).
+Aby można było utworzyć chmurę prywatną, węzły muszą być obsługiwane. Aby uzyskać więcej informacji o węzłach aprowizacji, zobacz temat [udostępnianie węzłów dla rozwiązań VMware platformy Azure przez CloudSimple](create-nodes.md).
 
-Przydziel zakres CIDR dla podsieci vSphere/vSAN dla chmury prywatnej. Private Cloud jest tworzony jako izolowane środowisko stosu VMware (z hostami ESXi, vCenter, vSAN i NSX) zarządzanym przez serwer vCenter. Składniki zarządzania są wdrażane w sieci wybranej dla podsieci CIDR vSphere/vSAN. Zakres CIDR sieci jest podzielony na różne podsieci podczas wdrażania. Przestrzeń adresowa podsieci vSphere/vSAN musi być unikatowa. Nie może pokrywać się z żadną siecią, która komunikuje się ze środowiskiem CloudSimple. Sieci, które komunikują się z CloudSimple obejmują sieci lokalne i sieci wirtualne platformy Azure. Aby uzyskać więcej informacji na temat podsieci vSphere/vSAN, zobacz omówienie sieci VPN i podsieci.
+Przydziel zakres CIDR dla podsieci vSphere/sieci vSAN dla chmury prywatnej. Chmura prywatna jest tworzona jako izolowane środowisko stosu VMware (z hostami ESXi, vCenter, sieci vSAN i NSX) zarządzanych przez serwer vCenter. Składniki zarządzania są wdrażane w sieci wybranej dla podsieci vSphere/sieci vSAN CIDR. Zakres CIDR sieci jest podzielony na różne podsieci podczas wdrażania. Przestrzeń adresów podsieci vSphere/sieci vSAN musi być unikatowa. Nie może pokrywać się z żadną siecią, która komunikuje się ze środowiskiem CloudSimple. Sieci, które komunikują się z usługą CloudSimple, obejmują sieci lokalne i sieci wirtualne platformy Azure. Aby uzyskać więcej informacji na temat podsieci vSphere/sieci vSAN, zobacz sieci VLAN i podsieci — Omówienie.
 
-* Minimalny prefiks zakresu podsieci vSphere/vSAN: /24
-* Maksymalny prefiks zakresu podsieci vSphere/vSAN: /21
+* Minimalna prefiks zakresu CIDR vSphere/sieci vSAN:/24
+* Maksymalna vSphere/sieci vSAN prefiks zakresu CIDR:/21
 
 
 ## <a name="access-the-cloudsimple-portal"></a>Uzyskiwanie dostępu do portalu CloudSimple
 
-Uzyskaj dostęp do [portalu CloudSimple](access-cloudsimple-portal.md).
+Dostęp do [portalu CloudSimple](access-cloudsimple-portal.md).
 
-## <a name="create-a-new-private-cloud"></a>Tworzenie nowej chmury prywatnej
+## <a name="create-a-new-private-cloud"></a>Utwórz nową chmurę prywatną
 
 1. Wybierz pozycję **Wszystkie usługi**.
-2. Wyszukaj **usługi CloudSimple**.
+2. Wyszukaj **usługi CloudSimple Services**.
 3. Wybierz usługę CloudSimple, w której chcesz utworzyć chmurę prywatną.
-4. Z **przeglądu**kliknij pozycję **Utwórz chmurę prywatną,** aby otworzyć nową kartę przeglądarki dla portalu CloudSimple. Jeśli zostanie wyświetlony monit, zaloguj się przy użyciu poświadczeń logowania platformy Azure.
+4. W obszarze **Przegląd**kliknij pozycję **Utwórz chmurę prywatną** , aby otworzyć nową kartę przeglądarki dla portalu CloudSimple. Jeśli zostanie wyświetlony monit, zaloguj się przy użyciu poświadczeń logowania na platformie Azure.
 
-    ![Tworzenie chmury prywatnej z platformy Azure](media/create-private-cloud-from-azure.png)
+    ![Utwórz chmurę prywatną na platformie Azure](media/create-private-cloud-from-azure.png)
 
-5. W portalu CloudSimple podaj nazwę chmury prywatnej.
-6. Wybierz **lokalizację** dla chmury prywatnej.
-7. Wybierz **typ węzła,** zgodne z tym, co aprowizowana na platformie Azure.
-8. Określ **liczbę węzłów**.  Do utworzenia chmury prywatnej wymagane są co najmniej trzy węzły.
+5. W portalu CloudSimple Podaj nazwę chmury prywatnej.
+6. Wybierz **lokalizację** chmury prywatnej.
+7. Wybierz **Typ węzła**, spójny z zainicjowaną obsługą na platformie Azure.
+8. Określ **liczbę węzłów**.  Aby można było utworzyć chmurę prywatną, wymagane są co najmniej trzy węzły.
 
-    ![Tworzenie chmury prywatnej — podstawowe informacje](media/create-private-cloud-basic-info.png)
+    ![Tworzenie chmury prywatnej — informacje podstawowe](media/create-private-cloud-basic-info.png)
 
-9. Kliknij **przycisk Dalej: Opcje zaawansowane**.
-10. Wprowadź zakres CIDR dla podsieci vSphere/vSAN. Upewnij się, że zakres CIDR nie pokrywa się z żadnym z lokalnych lub innych podsieci platformy Azure (sieci wirtualnych) lub z podsiecią bramy.
+9. Kliknij przycisk **Dalej: Opcje zaawansowane**.
+10. Wprowadź zakres CIDR dla podsieci vSphere/sieci vSAN. Upewnij się, że zakres CIDR nie nakłada się na żadną z lokalizacji lokalnych lub innych podsieci platformy Azure (sieci wirtualnych) lub z podsiecią bramy.
 
-    **Opcje zakresu CIDR:** /24, /23, /22 lub /21. Zakres /24 CIDR obsługuje do dziewięciu węzłów, /23 zakres CIDR obsługuje do 41 węzłów, a /22 i /21 zakres CIDR obsługuje do 64 węzłów (maksymalna liczba węzłów w chmurze prywatnej).
+    **Opcje zakresu CIDR:** /24,/23,/22 lub/21. Zakres CIDR/24 obsługuje maksymalnie dziewięć węzłów, a/23 zakres CIDR obsługuje do 41 węzłów, a zakres CIDR/22 i/21 obsługuje maksymalnie 64 węzłów (maksymalną liczbę węzłów w chmurze prywatnej).
 
     > [!IMPORTANT]
-    > Adresy IP w zakresie cidr vSphere/vSAN są zarezerwowane do użytku przez infrastrukturę private cloud.  Nie używaj adresu IP w tym zakresie na żadnej maszynie wirtualnej.
+    > Adresy IP w zakresie CIDR vSphere/sieci vSAN są zarezerwowane do użytku przez infrastrukturę chmury prywatnej.  Nie używaj adresu IP z tego zakresu na żadnej maszynie wirtualnej.
 
-11. Kliknij **przycisk Dalej: Przejrzyj i utwórz**plik .
-12. Przejrzyj ustawienia. Jeśli chcesz zmienić ustawienia, kliknij przycisk **Poprzedni**.
+11. Kliknij przycisk **Dalej: Przejrzyj i Utwórz**.
+12. Przejrzyj ustawienia. Jeśli musisz zmienić dowolne ustawienia, kliknij przycisk **Wstecz**.
 13. Kliknij przycisk **Utwórz**.
 
-Rozpoczyna się proces inicjowania obsługi administracyjnej usługi Private Cloud. Może upłynąć do dwóch godzin dla chmury prywatnej do obsługi administracyjnej.
+Rozpocznie się proces aprowizacji w chmurze prywatnej. Zainicjowanie obsługi chmury prywatnej może potrwać do dwóch godzin.
 
-Aby uzyskać instrukcje dotyczące rozwijania istniejącej chmury [prywatnej, zobacz Rozszerzanie chmury prywatnej](expand-private-cloud.md).
+Aby uzyskać instrukcje dotyczące rozwinięcia istniejącej chmury prywatnej, zobacz [Rozwiń chmurę prywatną](expand-private-cloud.md).

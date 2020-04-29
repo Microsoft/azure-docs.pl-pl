@@ -1,6 +1,6 @@
 ---
-title: Rozwiązanie Azure VMware by CloudSimple — łączenie chmury prywatnej z siecią Azure przy użyciu usługi ExpressRoute
-description: W tym artykule opisano sposób łączenia środowiska cloudsimple private cloud z siecią wirtualną platformy Azure przy użyciu usługi ExpressRoute
+title: Rozwiązanie VMware firmy Azure przez CloudSimple — łączenie chmury prywatnej z siecią platformy Azure przy użyciu usługi ExpressRoute
+description: Opis sposobu łączenia środowiska chmury prywatnej CloudSimple z siecią wirtualną platformy Azure przy użyciu usługi ExpressRoute
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/14/2019
@@ -9,50 +9,50 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 9bb68ec68f4de646239477ceeaac50a7a33989fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77015239"
 ---
-# <a name="connect-your-cloudsimple-private-cloud-environment-to-the-azure-virtual-network-using-expressroute"></a>Łączenie środowiska cloudsimple private cloud z siecią wirtualną platformy Azure przy użyciu usługi ExpressRoute
+# <a name="connect-your-cloudsimple-private-cloud-environment-to-the-azure-virtual-network-using-expressroute"></a>Łączenie środowiska chmury prywatnej CloudSimple z siecią wirtualną platformy Azure przy użyciu usługi ExpressRoute
 
-Chmura prywatna CloudSimple może być połączona z siecią wirtualną platformy Azure przy użyciu usługi Azure ExpressRoute.  To połączenie o wysokiej przepustowości i małych opóźnieniach umożliwia dostęp do usług uruchomionych w ramach subskrypcji platformy Azure ze środowiska private cloud.
+Chmurę prywatną CloudSimple można połączyć z siecią wirtualną platformy Azure za pomocą usługi Azure ExpressRoute.  Ta wysoka przepustowość, połączenie o małym opóźnieniu pozwala uzyskiwać dostęp do usług uruchomionych w ramach subskrypcji platformy Azure w środowisku chmury prywatnej.
 
-Połączenie z siecią wirtualną umożliwia:
+Połączenie sieci wirtualnej umożliwia:
 
-* Użyj platformy Azure jako docelowego tworzenia kopii zapasowych dla maszyn wirtualnych w chmurze prywatnej.
-* Wdrażaj serwery usługi zarządzania kluczami w ramach subskrypcji platformy Azure, aby zaszyfrować magazyn danych private cloud vSAN.
-* Użyj aplikacji hybrydowych, w których warstwa sieci web aplikacji jest uruchamiana w chmurze publicznej, podczas gdy warstwy aplikacji i bazy danych są uruchamiane w chmurze prywatnej.
+* Użyj platformy Azure jako miejsca docelowego kopii zapasowej dla maszyn wirtualnych w chmurze prywatnej.
+* Wdróż serwery usługi KMS w ramach subskrypcji platformy Azure, aby zaszyfrować magazyn danych sieci vSAN w chmurze prywatnej.
+* Używaj aplikacji hybrydowych, w których warstwa sieci Web aplikacji jest uruchamiana w chmurze publicznej, podczas gdy warstwy aplikacji i bazy danych działają w chmurze prywatnej.
 
 ![Połączenie usługi Azure ExpressRoute z siecią wirtualną](media/cloudsimple-azure-network-connection.png)
 
-## <a name="set-up-a-virtual-network-connection"></a>Konfigurowanie połączenia z siecią wirtualną
+## <a name="set-up-a-virtual-network-connection"></a>Konfigurowanie połączenia sieci wirtualnej
 
-Aby skonfigurować połączenie z siecią wirtualną z usługą Private Cloud, potrzebny jest klucz autoryzacji, identyfikator URI obwodu równorzędnego i dostęp do subskrypcji platformy Azure. Te informacje są dostępne na stronie Połączenie sieci wirtualnej w portalu CloudSimple. Aby uzyskać instrukcje, zobacz [Uzyskiwanie informacji dotyczących komunikacji równorzędnej dla sieci wirtualnej platformy Azure do połączenia CloudSimple](virtual-network-connection.md). Jeśli masz jakiekolwiek problemy z uzyskaniem informacji, prześlij <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">prośbę o pomoc techniczną</a>.
+Aby skonfigurować połączenie sieci wirtualnej z chmurą prywatną, potrzebujesz klucza autoryzacji, identyfikatora URI obwodu równorzędnego i dostępu do subskrypcji platformy Azure. Te informacje są dostępne na stronie połączenie Virtual Network w portalu CloudSimple. Aby uzyskać instrukcje, zobacz [Uzyskiwanie informacji o komunikacji równorzędnej dla usługi Azure Virtual Network do połączenia CloudSimple](virtual-network-connection.md). Jeśli masz problemy z uzyskaniem informacji, Prześlij <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">żądanie pomocy technicznej</a>.
 
 > [!TIP]
 > Jeśli masz już sieć wirtualną platformy Azure, podsieć bramy i bramę sieci wirtualnej, możesz przejść do kroku 4.
 
-1. Utwórz sieć wirtualną w ramach subskrypcji platformy Azure i sprawdź, czy wybrana przestrzeń adresowa różni się od przestrzeni adresowej chmury prywatnej.  Jeśli masz już sieć wirtualną platformy Azure, możesz użyć istniejącej.  Aby uzyskać szczegółowe informacje, zobacz [Tworzenie sieci wirtualnej przy użyciu portalu Azure](../virtual-network/quick-create-portal.md).
+1. Utwórz sieć wirtualną w ramach subskrypcji platformy Azure i sprawdź, czy wybrana przestrzeń adresowa różni się od przestrzeni adresowej chmury prywatnej.  Jeśli masz już sieć wirtualną platformy Azure, możesz użyć istniejącej.  Aby uzyskać szczegółowe informacje, zobacz [Tworzenie sieci wirtualnej przy użyciu Azure Portal](../virtual-network/quick-create-portal.md).
 2. Utwórz podsieć bramy w sieci wirtualnej platformy Azure.  Jeśli masz już podsieć bramy w sieci wirtualnej platformy Azure, możesz użyć istniejącej. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie podsieci bramy](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet).
 3. Utwórz bramę sieci wirtualnej w sieci wirtualnej.  Jeśli masz istniejącą bramę sieci wirtualnej, możesz użyć istniejącej. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie bramy sieci wirtualnej](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-virtual-network-gateway).
-4. Utwórz połączenie między siecią wirtualną a chmurą prywatną, realizując klucz autoryzacji zgodnie z opisem w [sekcji Połącz sieć wirtualną z obwodem — inną subskrypcją.](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription)
+4. Utwórz połączenie między siecią wirtualną i chmurą prywatną przez zrealizowanie klucza autoryzacji zgodnie z opisem w temacie [łączenie sieci wirtualnej z subskrypcją innego obwodu](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription).
 
 > [!WARNING]
-> Jeśli używasz istniejącej bramy sieci wirtualnej i ma połączenie usługi ExpressRoute z tą samą lokalizacją co obwód Usługi CloudSimple ExpressRoute, połączenie nie zostanie nawiązane.  Utwórz nową sieć wirtualną i wykonaj poprzednie kroki.
+> Jeśli używasz istniejącej bramy sieci wirtualnej i ma połączenie ExpressRoute z tą samą lokalizacją co obwód ExpressRoute CloudSimple, połączenie nie zostanie nawiązane.  Utwórz nową sieć wirtualną i wykonaj kroki opisane w poprzednich krokach.
 
-## <a name="test-the-virtual-network-connection"></a>Testowanie połączenia z siecią wirtualną
+## <a name="test-the-virtual-network-connection"></a>Testowanie połączenia sieci wirtualnej
 
-Po utworzeniu połączenia można sprawdzić stan połączenia, wybierając **pozycję Właściwości** w obszarze **Ustawienia**.  Stan i stan inicjowania obsługi administracyjnej powinny być wyświetlane **powodzenie**.
+Po utworzeniu połączenia można sprawdzić stan połączenia, wybierając pozycję **Właściwości** w obszarze **Ustawienia**.  Stan stanu aprowizacji powinien wskazywać na **powodzenie**.
 
 ![Stan połączenia](media/azure-expressroute-connection.png)
 
-Aby przetestować połączenie z siecią wirtualną:
+Aby przetestować połączenie sieci wirtualnej:
 
 1. Utwórz maszynę wirtualną w ramach subskrypcji platformy Azure.
-2. Znajdź adres IP swojego centrum vCenter private cloud (patrz powitalna wiadomość e-mail).
-3. Pinguj urządzenie vCenter w chmurze z maszyny wirtualnej utworzonej w sieci wirtualnej platformy Azure.
-4. Ping maszyny wirtualnej platformy Azure z maszyny wirtualnej uruchomionej w centrum wirtualnym private cloud.
+2. Znajdź adres IP programu vCenter w chmurze prywatnej (Zobacz Twój powitalny adres e-mail).
+3. Wyślij polecenie ping do usługi Cloud vCenter z maszyny wirtualnej utworzonej w sieci wirtualnej platformy Azure.
+4. Wyślij polecenie ping do maszyny wirtualnej platformy Azure z maszyny wirtualnej działającej w programie vCenter w chmurze prywatnej.
 
-Jeśli masz jakiekolwiek problemy z nawiązaniem połączenia, prześlij <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">żądanie pomocy technicznej</a>.
+Jeśli masz problemy z nawiązywaniem połączenia, Prześlij <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">żądanie pomocy technicznej</a>.

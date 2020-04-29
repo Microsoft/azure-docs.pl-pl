@@ -1,58 +1,58 @@
 ---
-title: Dowiedz się, jak działa proces automatycznej migracji alertów klasycznych usługi Azure Monitor
-description: Dowiedz się, jak działa proces automatycznej migracji.
+title: Informacje o tym, jak działa proces automatycznej migracji dla Azure Monitor klasycznych alertów
+description: Dowiedz się, jak działa proces automatycznego migrowania.
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.subservice: alerts
 ms.openlocfilehash: 8df83439d6754440648688ac1cc36ff66556a4e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77668251"
 ---
-# <a name="understand-the-automatic-migration-process-for-your-classic-alert-rules"></a>Opis procesu automatycznej migracji dla klasycznych reguł alertów
+# <a name="understand-the-automatic-migration-process-for-your-classic-alert-rules"></a>Omówienie procesu migracji automatycznej dla klasycznych reguł alertów
 
-Zgodnie [z wcześniejszymi zapowiedziami](monitoring-classic-retirement.md)klasyczne alerty w usłudze Azure Monitor są wycofywane we wrześniu 2019 r. (pierwotnie w lipcu 2019 r.). W ramach procesu wycofywania [narzędzie do migracji](alerts-using-migration-tool.md) jest dostępne w witrynie Azure portal dla klientów, aby samodzielnie wyzwolić migrację. Jeśli narzędzie do migracji nie jest używane do 31 sierpnia 2019 r., usługa Azure Monitor rozpocznie proces automatycznej migracji alertów klasycznych od 1 września 2019 r.
-W tym artykule oprowadza cię proces automatycznej migracji i pomaga rozwiązać wszelkie problemy, na które możesz napotkać.
+Zgodnie z [dotychczas ogłoszone](monitoring-classic-retirement.md), klasyczne alerty w Azure monitor są wycofywane we wrześniu 2019 (wersja była pierwotnie 2019 lipca). W ramach procesu wycofywania, [Narzędzie do migracji](alerts-using-migration-tool.md) jest dostępne w Azure Portal, aby klienci mogli wyzwolić migrację. Jeśli nie korzystasz z narzędzia migracji do 31 sierpnia 2019, Azure Monitor rozpocznie proces automatycznej migracji alertów klasycznych od 1 września 2019.
+Ten artykuł przeprowadzi Cię przez proces migracji automatycznej i pomaga w rozwiązywaniu wszelkich problemów, które mogą zostać uruchomione.
 
   > [!NOTE]
-  > Ten artykuł dotyczy tylko chmury publicznej platformy Azure. Proces wycofywania alertów klasycznych usługi Azure Monitor w chmurze azure dla instytucji rządowych i usłudze Azure China 21Vianet zostanie ogłoszony w przyszłości.
+  > Ten artykuł dotyczy tylko chmury publicznej platformy Azure. Proces wycofywania dla Azure Monitor klasycznych alertów w chmurze Azure Government i Azure Chiny 21Vianet będą ogłaszane w przyszłości.
 
-## <a name="what-will-happen-during-the-automatic-migration-process"></a>Co się stanie podczas automatycznego procesu migracji?
+## <a name="what-will-happen-during-the-automatic-migration-process"></a>Co się stanie w trakcie procesu migracji automatycznej?
 
-- Od **1 września 2019**r. klienci nie będą mogli tworzyć nowych klasycznych reguł alertów z wyjątkiem [niektórych wskaźników.](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated)
-  - W przypadku wyjątków klient może nadal tworzyć nowe klasyczne reguły alertów i używać klasycznych alertów do czerwca 2020 r.
-- Od **1 września 2019**r. migracja alertów klasycznych będzie wyzwalana w partiach dla wszystkich klientów, którzy mają klasyczne alerty.
-- Podobnie jak w przypadku narzędzia dobrowolnej migracji, niektóre klasyczne reguły alertów, które nie można migrować, pozostaną takie, jak są. Te klasyczne reguły alertów będą nadal obsługiwane do czerwca 2020 r. Jednak wszystkie nieprawidłowe klasyczne reguły alertów zostaną usunięte, ponieważ nie są funkcjonalne.
-Wszystkie klasyczne reguły alertów, które monitorują usunięte zasoby docelowe lub [metryki, które nie są już obsługiwane,](alerts-understand-migration.md#classic-alert-rules-on-deprecated-metrics) są uznawane za nieprawidłowe.
-- Po rozpoczęciu migracji dla subskrypcji, chyba że występują jakiekolwiek problemy, migracja powinna zostać zakończona w ciągu godziny. Klienci mogą monitorować stan migracji w [bloku migracji w usłudze Azure Monitor](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel).
+- Od **1 września 2019**klienci nie będą mogli tworzyć żadnych nowych klasycznych reguł alertów z wyjątkiem [określonych metryk](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated).
+  - W przypadku wyjątków klient może nadal tworzyć nowe reguły klasycznego alertu i korzystać z ich klasycznych alertów do 2020 czerwca.
+- Od **1 września 2019**migracja klasycznych alertów zostanie wyzwolona w partiach dla wszystkich klientów, którzy mają klasyczne alerty.
+- Podobnie jak w przypadku narzędzia do migracji dobrowolnej, niektóre reguły klasycznego alertu, które nie są migrowalna, zostaną pozostawione. Te klasyczne reguły alertów będą nadal obsługiwane do 2020 czerwca. Jednak wszystkie nieprawidłowe reguły klasycznego alertu zostaną usunięte, ponieważ są one niefunkcjonalne.
+Wszystkie klasyczne reguły alertów monitorujące usunięte zasoby docelowe lub [metryki, które nie są już obsługiwane,](alerts-understand-migration.md#classic-alert-rules-on-deprecated-metrics) są uznawane za nieprawidłowe.
+- Po rozpoczęciu migracji do subskrypcji, o ile nie występują żadne problemy, migracja powinna zostać zakończona w ciągu godziny. Klienci mogą monitorować stan migracji w [bloku migracja w Azure monitor](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel).
 - Właściciele subskrypcji otrzymają wiadomość e-mail po pomyślnym zakończeniu migracji.
-- Jeśli podczas migracji wystąpią jakiekolwiek problemy, właściciele subskrypcji otrzymają również wiadomość e-mail z informacją o tym samym. Klienci mogą użyć bloku migracji, aby wyświetlić pełne szczegóły problemu.
-- W przypadku, gdy potrzebna jest akcja od klienta, taka jak tymczasowe wyłączenie blokady zasobów lub zmiana przypisania zasad, klienci będą musieli rozwiązać wszelkie problemy do 31 października 2019 r. Jeśli problemy nie zostaną rozwiązane do tego czasu, pomyślna migracja klasycznych alertów nie może być zagwarantowana.
+- Jeśli podczas migracji wystąpią jakieś problemy, właściciele subskrypcji otrzymają także wiadomość e-mail z informacją o tym samym. Klienci mogą korzystać z bloku migracji, aby wyświetlić szczegółowe informacje o problemie.
+- W przypadku gdy klient jest niezbędny do tymczasowego wyłączenia blokady zasobu lub zmiany przypisania zasad, klienci będą musieli rozwiązać wszelkie problemy do 31 października 2019. Jeśli problemy nie są rozwiązywane przez program, nie można zagwarantować pomyślnej migracji alertów klasycznych.
 
     > [!NOTE]
-    > Jeśli nie chcesz czekać na uruchomienie procesu automatycznej migracji, nadal możesz wyzwolić migrację dobrowolnie za pomocą narzędzia migracji.
+    > Jeśli nie chcesz czekać na uruchomienie procesu migracji automatycznej, można nadal wyzwolić migrację dobrowolnie przy użyciu narzędzia migracji.
 
-## <a name="important-things-to-note"></a>Ważne rzeczy, na które należy zwrócić uwagę
+## <a name="important-things-to-note"></a>Ważne rzeczy do zanotowania
 
-Proces migracji konwertuje klasyczne reguły alertów na nowe, równoważne reguły alertów i tworzy grupy akcji. W przygotowaniu należy pamiętać o następujących punktach:
+Proces migracji umożliwia konwertowanie klasycznych reguł alertów na nowe, równoważne reguły alertów i tworzenie grup akcji. W przygotowaniu należy pamiętać o następujących kwestiach:
 
-- Formaty ładunku powiadomień dla nowych reguł alertów różnią się od tych z klasycznych reguł alertów, ponieważ obsługują one więcej funkcji. Jeśli masz aplikacje logiki, elementy runbook lub elementy webhook, które są wyzwalane przez klasyczną regułę alertu, mogą przestać działać zgodnie z oczekiwaniami po zakończeniu migracji z powodu różnic w ładunkach powiadomień. [Dowiedz się, jak przygotować się do migracji](alerts-prepare-migration.md).
+- Formaty ładunku powiadomień dla nowych reguł alertów różnią się od ustawień klasycznych reguł alertów, ponieważ obsługują one więcej funkcji. Jeśli masz aplikacje logiki, elementy Runbook lub webhook, które są wyzwalane przez klasyczną regułę alertów, mogą przestać działać zgodnie z oczekiwaniami, gdy migracja zostanie zakończona z powodu różnic w ładunku powiadomień. [Dowiedz się, jak przygotować się do migracji](alerts-prepare-migration.md).
 
-- Niektóre klasyczne reguły alertów nie mogą być migrowane za pomocą narzędzia. [Dowiedz się, których reguł nie można migrować i co z nimi zrobić.](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated)
+- Niektórych klasycznych reguł alertów nie można migrować za pomocą narzędzia. [Dowiedz się, których reguł nie można migrować i co należy zrobić z nimi](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated).
 
     > [!NOTE]
-    > Proces migracji nie wpłynie na ocenę klasycznych reguł alertów. Będą one nadal uruchamiać i wysyłać alerty, dopóki nie zostaną zmigrowane, a nowe reguły alertów zajmą się rzeczywistością.
+    > Proces migracji nie ma wpływu na ocenę klasycznych reguł alertów. Będą oni nadal uruchamiać i wysyłać alerty, dopóki nie zostaną zmigrowane i zaczną obowiązywać nowe reguły alertów.
 
 ## <a name="what-if-the-automatic-migration-fails"></a>Co zrobić, jeśli automatyczna migracja nie powiedzie się?
 
-Gdy proces automatycznej migracji zakończy się niepowodzeniem, właściciele subskrypcji otrzymają wiadomość e-mail z powiadomieniem o problemie. Bloku migracji można użyć w usłudze Azure Monitor, aby wyświetlić pełne szczegóły problemu.
+Gdy proces migracji automatycznej nie powiedzie się, właściciele subskrypcji otrzymają wiadomość e-mail z powiadomieniem o problemie. Możesz użyć bloku migracja w Azure Monitor, aby wyświetlić szczegółowe informacje o problemie.
 
-Aby uzyskać pomoc dotyczącą problemów, które mogą wystąpić podczas migracji, zapoznaj się z [przewodnikiem rozwiązywania](alerts-understand-migration.md#common-problems-and-remedies) problemów.
+Zobacz [Przewodnik rozwiązywania problemów](alerts-understand-migration.md#common-problems-and-remedies) , aby uzyskać pomoc dotyczącą problemów, które można napotkać podczas migracji.
 
   > [!NOTE]
-  > W przypadku, gdy potrzebna jest akcja od klienta, taka jak tymczasowe wyłączenie blokady zasobów lub zmiana przypisania zasad, klienci będą musieli rozwiązać wszelkie problemy do 31 października 2019 r. Jeśli problemy nie zostaną rozwiązane do tego czasu, pomyślna migracja klasycznych alertów nie może być zagwarantowana.
+  > W przypadku gdy klient jest niezbędny do tymczasowego wyłączenia blokady zasobu lub zmiany przypisania zasad, klienci będą musieli rozwiązać wszelkie problemy do 31 października 2019. Jeśli problemy nie są rozwiązywane przez program, nie można zagwarantować pomyślnej migracji alertów klasycznych.
 
 ## <a name="next-steps"></a>Następne kroki
 

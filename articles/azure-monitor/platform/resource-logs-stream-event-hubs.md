@@ -1,6 +1,6 @@
 ---
-title: Strumieniowanie dzienników platformy Azure do centrum zdarzeń
-description: Dowiedz się, jak przesyłać strumieniowo dzienniki zasobów platformy Azure do centrum zdarzeń, aby wysyłać dane do systemów zewnętrznych, takich jak siemie i inne rozwiązania do analizy dzienników.
+title: Przesyłanie strumieniowe dzienników platformy Azure do centrum zdarzeń
+description: Informacje na temat przesyłania strumieniowego dzienników zasobów platformy Azure do centrum zdarzeń w celu wysyłania danych do systemów zewnętrznych, takich jak rozwiązań Siem innych firm i inne rozwiązania do analizy dzienników.
 author: bwren
 services: azure-monitor
 ms.topic: conceptual
@@ -8,26 +8,26 @@ ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: 72341b6da0068ba4b7e3f53b08e6015cafb70f09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77658918"
 ---
-# <a name="stream-azure-platform-logs-to-azure-event-hubs"></a>Strumieniuj dzienniki platformy Azure do usługi Azure Event Hubs
-[Dzienniki platformy](platform-logs-overview.md) na platformie Azure, w tym dzienniki aktywności platformy Azure i dzienniki zasobów, zawierają szczegółowe informacje diagnostyczne i inspekcji dla zasobów platformy Azure i platformy Azure, na których zależą.  W tym artykule opisano dzienniki platformy przesyłania strumieniowego do centrów zdarzeń w celu wysyłania danych do systemów zewnętrznych, takich jak siemie i inne rozwiązania analizy dzienników.
+# <a name="stream-azure-platform-logs-to-azure-event-hubs"></a>Przesyłanie strumieniowe dzienników platformy Azure do usługi Azure Event Hubs
+[Dzienniki platformy](platform-logs-overview.md) na platformie Azure, w tym dziennik aktywności platformy Azure i dzienniki zasobów, zapewniają szczegółowe informacje diagnostyczne i inspekcji dla zasobów platformy Azure oraz platformy platformy Azure, od których zależą.  W tym artykule opisano przesyłanie strumieniowe dzienników platformy do centrów zdarzeń w celu wysyłania danych do systemów zewnętrznych, takich jak rozwiązań Siem innych firm i inne rozwiązania do analizy dzienników.
 
 
-## <a name="what-you-can-do-with-platform-logs-sent-to-an-event-hub"></a>Co można zrobić z dziennikami platformy wysyłanymi do centrum zdarzeń
-Dzienniki platformy strumienia na platformie Azure do centrów zdarzeń, aby zapewnić następujące funkcje:
+## <a name="what-you-can-do-with-platform-logs-sent-to-an-event-hub"></a>Co możesz zrobić z dziennikami platformy wysyłanymi do centrum zdarzeń
+Przesyłaj strumienie dzienników platformy Azure do centrów zdarzeń, aby zapewnić następujące funkcje:
 
-* **Dzienniki strumienia do systemów rejestrowania i telemetrii innych firm** — przesyłaj strumieniowo wszystkie dzienniki platformy do centrum zdarzeń, aby potokować dane dziennika do narzędzia SIEM lub analizy dzienników innej firmy.
+* **Przesyłaj strumieniowo dzienniki do systemów rejestrowania i telemetrii innej firmy** — przesyłanie strumieniowe wszystkich dzienników platformy do jednego centrum zdarzeń w celu przełączenia danych dziennika do narzędzia Siem lub log Analytics innej firmy.
   
-* **Tworzenie niestandardowej platformy telemetryczne i rejestrowania** — wysoce skalowalne publikowania i subskrybowania charakter centrów zdarzeń pozwala elastycznie pozyskiwania logów platformy do niestandardowej platformy teletry. Zobacz [projektowanie i tworzenie rozmiaru globalnej platformy telemetrii skali w usłudze Azure Event Hubs, aby](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) uzyskać szczegółowe informacje.
+* **Utwórz niestandardową platformę telemetrii i rejestrowania** — wysoce skalowalny charakter publikowania/subskrybowania centrów zdarzeń umożliwia elastyczne pozyskiwanie dzienników platformy na niestandardową platformę teletry. Aby uzyskać szczegółowe informacje [, zobacz Projektowanie i ustalanie rozmiaru globalnej platformy telemetrii w usłudze Azure Event Hubs](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) .
 
-* **Wyświetlanie kondycji usługi przez przesyłanie strumieniowe danych do usługi Power BI** — użyj centrów zdarzeń, usługi Stream Analytics i Usługi Power BI, aby przekształcić dane diagnostyczne w niemal w czasie rzeczywistym wgląd w usługi platformy Azure. Zobacz [Usługa Stream Analytics i Usługa Power BI: pulpit nawigacyjny analizy w czasie rzeczywistym, aby uzyskać](../../stream-analytics/stream-analytics-power-bi-dashboard.md) szczegółowe informacje na temat tego rozwiązania.
+* **Wyświetlanie informacji o kondycji usługi przez przesyłanie strumieniowe danych do Power BI** — używanie Event Hubs, Stream Analytics i Power BI do przekształcania danych diagnostycznych na szczegółowe informacje w czasie rzeczywistym w ramach usług platformy Azure. Zobacz [Stream Analytics i Power BI: pulpit nawigacyjny analizy w czasie rzeczywistym na potrzeby przesyłania strumieniowego danych](../../stream-analytics/stream-analytics-power-bi-dashboard.md) w celu uzyskania szczegółowych informacji dotyczących tego rozwiązania.
 
-    Poniższy kod SQL to przykładowa kwerenda usługi Stream Analytics, której można użyć do przeanalizowania wszystkich danych dziennika w tabeli usługi Power BI:
+    Poniższy kod SQL to przykładowe zapytanie Stream Analytics, za pomocą którego można analizować wszystkie dane dzienników w tabeli Power BI:
     
     ```sql
     SELECT
@@ -40,34 +40,34 @@ Dzienniki platformy strumienia na platformie Azure do centrów zdarzeń, aby zap
     ```
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Musisz [utworzyć centrum zdarzeń,](../../event-hubs/event-hubs-create.md) jeśli jeszcze go nie masz. Jeśli masz już ustawienie diagnostyczne przy użyciu tej przestrzeni nazw Centrum zdarzeń, centrum zdarzeń zostanie ponownie używane.
+Jeśli jeszcze tego nie zrobiono, należy [utworzyć centrum zdarzeń](../../event-hubs/event-hubs-create.md) . Jeśli masz już ustawienie diagnostyczne używające tej Event Hubs przestrzeni nazw, to centrum zdarzeń zostanie ponownie użyte.
 
-Zasady dostępu współdzielonego dla obszaru nazw definiuje uprawnienia, które ma mechanizm przesyłania strumieniowego. Przesyłanie strumieniowe do centrów zdarzeń wymaga uprawnień Zarządzanie, Wysyłanie i Nasłuchij. Zasady dostępu udostępnionego można tworzyć lub modyfikować w portalu Azure w obszarze Konfigurowanie obszaru nazw centrum zdarzeń.
+Zasady dostępu współdzielonego dla przestrzeni nazw określają uprawnienia, które ma mechanizm przesyłania strumieniowego. Przesyłanie strumieniowe do Event Hubs wymaga uprawnień do zarządzania, wysyłania i nasłuchiwania. Zasady dostępu współdzielonego można utworzyć lub zmodyfikować w Azure Portal na karcie Konfiguracja dla Event Hubs przestrzeni nazw.
 
-Aby zaktualizować ustawienie diagnostyczne w celu uwzględnienia przesyłania strumieniowego, musisz mieć uprawnienie ListKey dla tej reguły autoryzacji centrum zdarzeń. Obszar nazw centrum zdarzeń nie musi być w tej samej subskrypcji co subskrypcja emitująca dzienniki, o ile użytkownik, który konfiguruje to ustawienie, ma odpowiedni dostęp RBAC do obu subskrypcji i obie subskrypcje znajdują się w tej samej dzierżawie usługi AAD.
+Aby zaktualizować ustawienie diagnostyczne w celu uwzględnienia przesyłania strumieniowego, musisz mieć uprawnienie ListKey dla tej reguły autoryzacji Event Hubs. Przestrzeń nazw Event Hubs nie musi znajdować się w tej samej subskrypcji co subskrypcja, która emituje dzienniki, pod warunkiem, że użytkownik, który konfiguruje ustawienie, ma dostęp do obu subskrypcji i obie subskrypcje są w tej samej dzierżawie usługi AAD.
 
-## <a name="create-a-diagnostic-setting"></a>Tworzenie ustawienia diagnostycznego
-Wysyłaj dzienniki platformy do centrum zdarzeń i innych miejsc docelowych, tworząc ustawienie diagnostyczne dla zasobu platformy Azure. Zobacz [Tworzenie ustawień diagnostycznych do zbierania dzienników i metryk na platformie Azure,](diagnostic-settings.md) aby uzyskać szczegółowe informacje.
+## <a name="create-a-diagnostic-setting"></a>Utwórz ustawienie diagnostyczne
+Wyślij dzienniki platformy do centrum zdarzeń i innych miejsc docelowych, tworząc ustawienia diagnostyczne dla zasobu platformy Azure. Aby uzyskać szczegółowe informacje [, zobacz Tworzenie ustawień diagnostycznych w celu zbierania dzienników i metryk na platformie Azure](diagnostic-settings.md) .
 
 ## <a name="collect-data-from-compute-resources"></a>Zbieranie danych z zasobów obliczeniowych
-Ustawienia diagnostyczne będą zbierać dzienniki zasobów zasobów obliczeniowych platformy Azure, jak każdy inny zasób, ale nie ich system operacyjny gościa lub obciążeń. Aby zebrać te dane, zainstaluj [agenta usługi Log Analytics](log-analytics-agent.md). 
+Ustawienia diagnostyczne będą zbierać dzienniki zasobów dla zasobów obliczeniowych platformy Azure, takich jak każdy inny zasób, ale nie system operacyjny gościa ani ich obciążenia. Aby zebrać te dane, zainstaluj [agenta log Analytics](log-analytics-agent.md). 
 
 
-## <a name="consuming-log-data-from-event-hubs"></a>Korzystanie z danych dziennika z centrów zdarzeń
+## <a name="consuming-log-data-from-event-hubs"></a>Zużywanie danych dziennika z centrów zdarzeń
 Dzienniki platformy z centrów zdarzeń są używane w formacie JSON z elementami w poniższej tabeli.
 
 | Nazwa elementu | Opis |
 | --- | --- |
-| Rekordy |Tablica wszystkich zdarzeń dziennika w tym ładunku. |
-| time |Czas, w którym wystąpiło zdarzenie. |
+| ewidencj |Tablica wszystkich zdarzeń dziennika w tym ładunku. |
+| time |Godzina wystąpienia zdarzenia. |
 | category |Kategoria dziennika dla tego zdarzenia. |
-| resourceId |Identyfikator zasobu, który wygenerował to zdarzenie. |
+| resourceId |Identyfikator zasobu zasobu, który spowodowało wygenerowanie tego zdarzenia. |
 | operationName |Nazwa operacji. |
-| poziom |Element opcjonalny. Wskazuje poziom zdarzenia dziennika. |
-| properties |Właściwości zdarzenia. Będą one się różnić dla każdej [ ]()usługi platformy Azure, jak opisano w . |
+| poziom |Opcjonalny. Wskazuje poziom zdarzenia dziennika. |
+| properties |Właściwości zdarzenia. Są one różne dla każdej usługi platformy Azure, zgodnie [ ]()z opisem w temacie. |
 
 
-Poniżej przedstawiono przykładowe dane wyjściowe z Centrum zdarzeń dla dziennika zasobów:
+Poniżej przedstawiono przykładowe dane wyjściowe z Event Hubs dla dziennika zasobów:
 
 ```json
 {
@@ -134,8 +134,8 @@ Poniżej przedstawiono przykładowe dane wyjściowe z Centrum zdarzeń dla dzien
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się więcej o dziennikach zasobów](platform-logs-overview.md).
-* [Utwórz ustawienie diagnostyczne do zbierania dzienników i metryk na platformie Azure](diagnostic-settings.md).
-* [Przesyłaj strumieniowo dzienniki usługi Azure Active Directory za pomocą usługi Azure Monitor](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
-* [Wprowadzenie do centrów zdarzeń](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
+* [Przeczytaj więcej na temat dzienników zasobów](platform-logs-overview.md).
+* [Utwórz ustawienie diagnostyczne, aby zbierać dzienniki i metryki na platformie Azure](diagnostic-settings.md).
+* [Przesyłanie strumieniowe dzienników Azure Active Directory z Azure monitor](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
+* [Rozpocznij pracę z Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 

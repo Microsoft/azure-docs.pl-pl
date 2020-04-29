@@ -1,6 +1,6 @@
 ---
-title: Architektura magazynu SAP HANA na platformie Azure (duże wystąpienia) | Dokumenty firmy Microsoft
-description: Architektura magazynu, jak wdrożyć SAP HANA na platformie Azure (duże wystąpienia).
+title: Architektura magazynu SAP HANA na platformie Azure (duże wystąpienia) | Microsoft Docs
+description: Architektura magazynu wdrażania SAP HANA na platformie Azure (duże wystąpienia).
 services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
@@ -14,100 +14,100 @@ ms.date: 02/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a12c454906d6c6ff702b7f635a91361bbe3994c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77616891"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Architektura magazynu SAP HANA (duże wystąpienia)
 
-Układ magazynu dla sap HANA na platformie Azure (duże wystąpienia) jest skonfigurowany przez SAP HANA na klasyczny model wdrażania zgodnie z zalecanymi wytycznymi SAP. Wytyczne są udokumentowane w white paper [wymagania dotyczące pamięci masowej SAP HANA.](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)
+Układ magazynu dla SAP HANA na platformie Azure (duże wystąpienia) jest konfigurowany przez SAP HANA w klasycznym modelu wdrażania na podstawie zalecanych wytycznych SAP. Wytyczne zostały udokumentowane w dokumencie [SAP HANA wymagania dotyczące magazynu](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) .
 
-Hana duże wystąpienie typu I klasy pochodzi z czterokrotnie wolumin pamięci jako wolumin magazynu. Dla typu II klasy jednostek dużych wystąpień HANA magazynu nie jest cztery razy więcej. Jednostki są wyposażone w wolumin, który jest przeznaczony do przechowywania kopii zapasowych dziennika transakcji HANA. Aby uzyskać więcej informacji, zobacz [Instalowanie i konfigurowanie sap HANA (duże wystąpienia) na platformie Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Duże wystąpienie HANA klasy typu I zawiera cztery razy wolumin pamięci jako wolumin magazynu. W przypadku klasy typu II jednostek dużego wystąpienia HANA magazyn nie jest czterokrotnie większy. Jednostki są dostarczane z woluminem przeznaczonym do przechowywania kopii zapasowych dziennika transakcji platformy HANA. Aby uzyskać więcej informacji, zobacz [Instalowanie i konfigurowanie SAP HANA (duże wystąpienia) na platformie Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Zobacz poniższą tabelę pod względem alokacji magazynu. W tabeli wymieniono pojemność przybliżone dla różnych woluminów dostarczonych z różnymi jednostkami dużych wystąpień HANA.
+Zapoznaj się z poniższą tabelą dotyczącą alokacji magazynu. W tabeli wymieniono nieznacznie pojemności dla różnych woluminów z różnymi jednostkami dużych wystąpień usługi HANA.
 
-| HANA Duże wystąpienie SKU | hana/dane | hana/log | hana/shared | hana/logbackups |
+| Jednostka SKU dużego wystąpienia HANA | Hana/dane | Hana/log | Hana/udostępniony | Hana/logbackups |
 | --- | --- | --- | --- | --- |
-| S72 ( S72 ) | 1280 GB | 512 GB | 768 GB | 512 GB |
-| S72m ( S72m ) | 3 328 GB | 768 GB |1280 GB | 768 GB |
-| S96 | 1280 GB | 512 GB | 768 GB | 512 GB |
-| S192 | 4608 GB | 1024 GB | 1 536 GB | 1024 GB |
+| S72 | 1 280 GB | 512 GB | 768 GB | 512 GB |
+| S72m | 3 328 GB | 768 GB |1 280 GB | 768 GB |
+| S96 | 1 280 GB | 512 GB | 768 GB | 512 GB |
+| S192 | 4 608 GB | 1 024 GB | 1 536 GB | 1 024 GB |
 | S192m | 11 520 GB | 1 536 GB | 1 792 GB | 1 536 GB |
 | S192xm |  11 520 GB |  1 536 GB |  1 792 GB |  1 536 GB |
-| S224 |  4 224 GB |  512 GB |  1024 GB |  512 GB |
-| S224m |  8 448 GB |  512 GB |  1024 GB |  512 GB |
+| S224 |  4 224 GB |  512 GB |  1 024 GB |  512 GB |
+| S224m |  8 448 GB |  512 GB |  1 024 GB |  512 GB |
 | S384 | 11 520 GB | 1 536 GB | 1 792 GB | 1 536 GB |
-| S384m | 12 000 GB | 2050 GB | 2050 GB | 2040 GB |
-| S384xm | 16 000 GB | 2050 GB | 2050 GB | 2040 GB |
-| S384xxm |  20 000 GB | 3100 GB | 2050 GB | 3100 GB |
-| S576m | 20 000 GB | 3100 GB | 2050 GB | 3100 GB |
-| S576xm | 31 744 GB | 4 096 GB | 2048 GB | 4 096 GB |
-| S768m | 28 000 GB | 3100 GB | 2050 GB | 3100 GB |
+| S384m | 12 000 GB | 2 050 GB | 2 050 GB | 2 040 GB |
+| S384xm | 16 000 GB | 2 050 GB | 2 050 GB | 2 040 GB |
+| S384xxm |  20 000 GB | 3 100 GB | 2 050 GB | 3 100 GB |
+| S576m | 20 000 GB | 3 100 GB | 2 050 GB | 3 100 GB |
+| S576xm | 31 744 GB | 4 096 GB | 2 048 GB | 4 096 GB |
+| S768m | 28 000 GB | 3 100 GB | 2 050 GB | 3 100 GB |
 | S768xm | 40 960 GB | 6 144 GB | 4 096 GB | 6 144 GB |
-| S960m | 36 000 GB | 4100 GB | 2050 GB | 4100 GB |
+| S960m | 36 000 GB | 4 100 GB | 2 050 GB | 4 100 GB |
 
 
-Rzeczywiste wdrożone woluminy mogą się różnić w zależności od wdrożenia i narzędzia używanego do pokazywalności woluminów.
+Rzeczywiste wdrożone woluminy mogą się różnić w zależności od wdrożenia i narzędzia, które jest używane do wyświetlania rozmiarów woluminów.
 
-Jeśli podzielisz jednostkę SKU dużych wystąpień HANA, może wyglądać kilka przykładów możliwych elementów podziału:
+W przypadku podziału jednostki SKU dużego wystąpienia platformy HANA kilka przykładów możliwych do dzielenia może wyglądać następująco:
 
-| Partycja pamięci w GB | hana/dane | hana/log | hana/shared | hana/log/kopia zapasowa |
+| Partycja pamięci w GB | Hana/dane | Hana/log | Hana/udostępniony | Hana/log/kopia zapasowa |
 | --- | --- | --- | --- | --- |
 | 256 | 400 GB | 160 GB | 304 GB | 160 GB |
 | 512 | 768 GB | 384 GB | 512 GB | 384 GB |
-| 768 | 1280 GB | 512 GB | 768 GB | 512 GB |
-| 1,024 | 1 792 GB | 640 GB | 1024 GB | 640 GB |
-| 1536 | 3 328 GB | 768 GB | 1280 GB | 768 GB |
+| 768 | 1 280 GB | 512 GB | 768 GB | 512 GB |
+| 1 024 | 1 792 GB | 640 GB | 1 024 GB | 640 GB |
+| 1536 | 3 328 GB | 768 GB | 1 280 GB | 768 GB |
 
 
-Te rozmiary są przybliżone numery woluminów, które mogą się nieznacznie różnić w zależności od wdrożenia i narzędzi używanych do patrzenia na woluminy. Istnieją również inne rozmiary partycji, takie jak 2,5 TB. Te rozmiary magazynu są obliczane za pomocą formuły podobnej do tej używanej dla poprzednich partycji. Termin "partycje" nie oznacza, że system operacyjny, pamięć lub zasoby procesora SĄ w jakikolwiek sposób podzielone na partycje. Wskazuje partycje magazynu dla różnych wystąpień HANA, które można wdrożyć na jednej jednostce dużych wystąpień HANA. 
+Te rozmiary są ilością ilościową, która może się nieco różnić w zależności od wdrażania i narzędzi używanych do przeglądania woluminów. Istnieją również inne rozmiary partycji, na przykład 2,5 TB. Te rozmiary magazynu są obliczane przy użyciu formuły podobnej do użytej w poprzednich partycjach. Termin "partycje" nie oznacza, że system operacyjny, pamięć lub zasoby procesora są podzielone na partycje. Wskazuje partycje magazynu dla różnych wystąpień platformy HANA, które warto wdrożyć w jednej jednostce dużego wystąpienia usługi HANA. 
 
-Może być potrzebna większa ilość miejsca do magazynowania. Możesz dodać pamięć masową, kupując dodatkową pamięć masową w jednostkach o pojemności 1 TB. Ten dodatkowy magazyn można dodać jako dodatkowy wolumin. Może również służyć do rozszerzenia jednego lub więcej istniejących woluminów. Nie jest możliwe zmniejszenie rozmiarów woluminów, jak pierwotnie wdrożone i w większości udokumentowane przez poprzednie tabele. Nie można również zmienić nazw woluminów ani nazw instalacji. Woluminy magazynu opisane wcześniej są dołączone do jednostek dużych wystąpień HANA jako woluminy NFS4.
+Być może potrzebujesz więcej miejsca w magazynie. Magazyn można dodać, kupując dodatkowy magazyn w jednostkach 1 TB. Ten dodatkowy magazyn można dodać jako dodatkowy wolumin. Można go również użyć do rozszerania jednego lub kilku istniejących woluminów. Nie można zmniejszyć wielkości woluminów wdrożonych pierwotnie i w sposób opisany w poprzednich tabelach. Nie można również zmieniać nazw woluminów ani nazw instalacji. Opisane wcześniej woluminy magazynu są dołączane do jednostek dużego wystąpienia HANA jako woluminy NFS4.
 
-Migawek magazynu można używać do tworzenia kopii zapasowych i przywracania oraz odzyskiwania po awarii. Aby uzyskać więcej informacji, zobacz [WYSOKIEJ DOSTĘPNOŚCI I ODZYSKIWANIA PO AWARII SAP HANA (Duże wystąpienia) na platformie Azure.](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Możesz użyć migawek magazynu na potrzeby tworzenia kopii zapasowych i przywracania oraz odzyskiwania po awarii. Aby uzyskać więcej informacji, zobacz [SAP HANA (duże wystąpienia) wysoka dostępność i odzyskiwanie po awarii na platformie Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Zapoznaj się [z obsługiwanymi scenariuszami HLI,](hana-supported-scenario.md) aby uzyskać szczegółowe informacje o układzie magazynu dla twojego scenariusza.
+Zapoznaj się z artykułem [Supported obsługiwane scenariusze](hana-supported-scenario.md) dotyczące szczegółowych informacji o układzie magazynu dla Twojego scenariusza.
 
-## <a name="run-multiple-sap-hana-instances-on-one-hana-large-instance-unit"></a>Uruchamianie wielu wystąpień SAP HANA na jednej jednostce dużych wystąpień HANA
+## <a name="run-multiple-sap-hana-instances-on-one-hana-large-instance-unit"></a>Uruchamianie wielu wystąpień SAP HANA w jednej jednostce dużej instancji HANA
 
-Jest możliwe host więcej niż jedno aktywne wystąpienie SAP HANA na jednostek dużych wystąpień HANA. Aby zapewnić możliwości migawek magazynu i odzyskiwania po awarii, taka konfiguracja wymaga zestawu woluminów na wystąpienie. Obecnie jednostki dużych wystąpień HANA można podzielić w następujący sposób:
+Istnieje możliwość hostowania więcej niż jednego wystąpienia aktywnego SAP HANA w jednostkach dużych wystąpień usługi HANA. Aby zapewnić możliwości migawek magazynu i odzyskiwania po awarii, taka konfiguracja wymaga zestawu woluminów na wystąpienie. Obecnie jednostki dużego wystąpienia HANA mogą zostać podzielone w następujący sposób:
 
-- **S72, S72m, S96, S144, S192**: W przyrostach 256 GB, z 256 GB najmniejszą jednostką wyjściową. Różne przyrosty, takie jak 256 GB i 512 GB, można łączyć z maksymalną pamięcią urządzenia.
-- **S144m i S192m**: W przyrostach 256 GB, z 512 GB najmniejszą jednostką. Różne przyrosty, takie jak 512 GB i 768 GB, można łączyć z maksymalną pamięcią urządzenia.
-- **Typ II klasa:** W przyrostach 512 GB, z najmniejszą jednostką wyjściową 2 TB. Różne przyrosty, takie jak 512 GB, 1 TB i 1,5 TB, można łączyć z maksymalną pamięcią urządzenia.
+- **S72, S72m, s96, S144, S192**: w przyrostach 256 GB, z 256 GB najmniejszej jednostki początkowej. Różne przyrosty, takie jak 256 GB i 512 GB, można łączyć z maksymalną ilością pamięci w jednostce.
+- **S144m i S192m**: z przyrostem 256 GB, z 512 GB najmniejszą jednostką. Różne przyrosty, takie jak 512 GB i 768 GB, można łączyć z maksymalną ilością pamięci w jednostce.
+- **Typ II Klasa**: w przyrostach wynoszących 512 GB, z najmniejszą jednostką początkową wynoszącą 2 TB. Różne przyrosty, takie jak 512 GB, 1 TB i 1,5 TB, można łączyć z maksymalną ilością pamięci w jednostce.
 
 Kilka przykładów uruchamiania wielu wystąpień SAP HANA może wyglądać następująco.
 
 | SKU | Rozmiar pamięci | Rozmiar magazynu | Rozmiary z wieloma bazami danych |
 | --- | --- | --- | --- |
-| S72 ( S72 ) | 768 GB | 3 TB | Wystąpienie HANA 1x768 GB<br /> lub wystąpienie 1x512 GB + wystąpienie 1x256 GB<br /> lub wystąpienia 3x256 GB | 
-| S72m ( S72m ) | 1,5 TB | 6 TB | Wystąpienia HANA 3x512 GB<br />lub wystąpienie 1x512 GB + wystąpienie 1x1 TB<br />lub wystąpienia 6x256 GB<br />lub wystąpienie 1x1,5 TB | 
-| S192m | 4 TB | 16 TB | Wystąpienia 8x512 GB<br />lub wystąpienia 4x1 TB<br />lub wystąpienia 4x512 GB + wystąpienia 2x1 TB<br />lub wystąpienia 4x768 GB + wystąpienia 2x512 GB<br />lub wystąpienie 1x4 TB |
-| S384xm | 8 TB | 22 TB | Wystąpienia 4x2 TB<br />lub wystąpienia 2x4 TB<br />lub wystąpienia 2x3 TB + wystąpienia 1x2 TB<br />lub wystąpienia 2x2,5 TB + wystąpienia 1x3 TB<br />lub wystąpienie 1x8 TB |
+| S72 | 768 GB | 3 TB | wystąpienie 1x768-GB HANA<br /> lub wystąpienie 1x512-GB + 1x256-GB<br /> lub wystąpienia 3x256-GB | 
+| S72m | 1,5 TB | 6 TB | wystąpienia 3x512GB HANA<br />lub wystąpienie 1x512-GB + wystąpienie 1x1-TB<br />lub wystąpienia 6x256-GB<br />lub wystąpienie 1x 1,5 TB | 
+| S192m | 4 TB | 16 TB | wystąpienia 8x512 GB<br />lub wystąpienia 4x1-TB<br />lub wystąpienia 4x512-GB + wystąpienia 2x1-TB<br />lub wystąpienia 4x768-GB + 2x512-GB<br />lub wystąpienie 1x4-TB |
+| S384xm | 8 TB | 22 TB | wystąpienia 4x2 – TB<br />lub wystąpienia 2x4-TB<br />wystąpienia 2x3 + TB + 1X2-TB<br />lub 2 wystąpienia 2,5 TB + wystąpienia 1x3 TB<br />lub wystąpienie 1x8-TB |
 
 
-Istnieją również inne odmiany. 
+Istnieją również inne różnice. 
 
-## <a name="encryption-of-data-at-rest"></a>Szyfrowanie danych w stanie spoczynku
-Magazyn używany dla wystąpienia dużych HANA używa przezroczystego szyfrowania danych przechowywanych na dyskach od końca roku 2018. We wcześniejszych wdrożeniach można wybrać, aby uzyskać woluminy zaszyfrowane. Jeśli zdecydujesz się na tę opcję, możesz poprosić o zaszyfrowanie woluminów online. Przejście z woluminów niezaszyfrowanych do zaszyfrowanych jest przezroczyste i nie wymaga przestojów. 
+## <a name="encryption-of-data-at-rest"></a>Szyfrowanie danych magazynowanych
+Magazyn używany na potrzeby dużego wystąpienia HANA używa przezroczystego szyfrowania danych przechowywanych na dyskach od końca roku 2018. We wcześniejszych wdrożeniach można było pobrać zaszyfrowane woluminy. Jeśli postanowiono korzystać z tej opcji, możesz poprosić o zaszyfrowanie woluminów w trybie online. Przeniesienie z nieszyfrowanych na woluminy szyfrowane jest przezroczyste i nie wymaga przestojów. 
 
-W przypadku jednostek SKU klasy typu I wolumin, na który jest przechowywana jednostka LUN rozruchu, jest szyfrowany. W wersji 3 hana dużych wystąpień sygnatury, przy użyciu typu II klasy jednostek SKU HANA wystąpienie duże, należy zaszyfrować jednostki LUN rozruchu za pomocą metod systemu operacyjnego. W wersji 4 HANA duże wystąpienia sygnatury, przy użyciu jednostek typu II wolumin LUN rozruchu jest przechowywany i jest szyfrowany w spoczynku domyślnie, jak również. 
+W przypadku typu I klasy jednostek SKU wolumin, na którym jest przechowywana jednostka LUN, jest szyfrowany. W programie Revisions 3 HANA duże wystąpienia sygnatur przy użyciu klasy typu II jednostek SKU dużego wystąpienia HANA należy zaszyfrować rozruchową jednostkę LUN przy użyciu metod systemu operacyjnego. W obszarze wydanie poprawki 4 HANA duże wystąpienia, przy użyciu jednostek typu II, wolumin rozruchowy LUN jest przechowywany i domyślnie jest szyfrowany. 
 
-## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>Wymagane ustawienia dla większych wystąpień HANA w dużych wystąpieniach HANA
-Magazyn używany w dużych wystąpieniach HANA ma ograniczenie rozmiaru pliku. [Ograniczenie rozmiaru wynosi 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) na plik. W przeciwieństwie do ograniczeń rozmiaru pliku w systemach plików EXT3 HANA nie jest w sposób niejawny świadomy ograniczenia magazynu wymuszanego przez magazyn dużych wystąpień HANA. W rezultacie HANA nie utworzy automatycznie nowego pliku danych po osiągnięciu limitu rozmiaru pliku wynoszącego 16 TB. Jak HANA próbuje zwiększyć plik powyżej 16 TB, HANA będzie zgłaszać błędy i serwer indeksu upaść na końcu.
+## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>Ustawienia wymagane dla większych wystąpień platformy HANA w dużych wystąpieniach platformy HANA
+Magazyn używany w dużych wystąpieniach platformy HANA ma ograniczenie rozmiaru pliku. [Ograniczenie rozmiaru wynosi 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) na plik. W przeciwieństwie do ograniczeń rozmiaru plików w systemach plików EXT3, HANA nie jest nieświadomy niejawnie ograniczenia magazynu wymuszonego przez magazyn dużych wystąpień platformy HANA. W efekcie program HANA nie utworzy automatycznie nowego pliku danych, gdy zostanie osiągnięty limit rozmiaru pliku 16TB. W miarę jak HANA próbuje zwiększyć plik poza 16 TB, program HANA zgłosi błędy i na końcu zakończy się awaria serwera indeksów.
 
 > [!IMPORTANT]
-> Aby zapobiec próbie hana próbuje rozwijać pliki danych poza limit rozmiaru pliku 16 TB hana dużych wystąpień magazynu, należy ustawić następujące parametry w pliku konfiguracyjnym global.ini HANA
+> Aby zapobiec próbie zwiększenia rozmiaru plików danych poza 16 TB pamięci masowej magazynu platformy HANA, należy ustawić następujące parametry w pliku konfiguracyjnym Global. ini platformy HANA
 > 
-> - datavolume_striping=prawda
+> - datavolume_striping = true
 > - datavolume_striping_size_gb = 15000
-> - Zobacz też [#2400005](https://launchpad.support.sap.com/#/notes/2400005) notatki SAP
-> - Należy pamiętać o [#2631285](https://launchpad.support.sap.com/#/notes/2631285) notatki SAP
+> - Zobacz również artykuł SAP uwagi [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+> - Należy pamiętać, że [#2631285](https://launchpad.support.sap.com/#/notes/2631285) uwagi SAP
 
 
 
 
 **Następne kroki**
-- Odwoływanie się [do obsługiwanych scenariuszy dla dużych wystąpień HANA](hana-supported-scenario.md)
+- Zapoznaj się z [obsługiwanymi scenariuszami dla dużych wystąpień Hana](hana-supported-scenario.md)

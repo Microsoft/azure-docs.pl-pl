@@ -1,5 +1,5 @@
 ---
-title: Projektant widoku usługi Azure Monitor do podsumowania konwersji skoroszytów i dostępu
+title: Azure Monitor widoku projektanta na skoroszyty — podsumowanie konwersji i dostęp
 description: ''
 author: austonli
 ms.author: aul
@@ -7,41 +7,41 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: fb53a966b0dc4959253ac0786ef09ef3c497e809
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77658850"
 ---
-# <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>Wyświetlanie projektanta w podsumowaniu konwersji skoroszytów i dostępie
-[Projektant widoku](view-designer.md) jest funkcją usługi Azure Monitor, która umożliwia tworzenie widoków niestandardowych ułatwiające wizualizację danych w obszarze roboczym usługi Log Analytics za pomocą wykresów, list i osi czasu. Są one stopniowo wycofywane i zastępowane skoroszytami, które zapewniają dodatkowe funkcje. W tym artykule opisano, jak utworzyć podsumowanie przeglądu i uprawnienia wymagane do uzyskania dostępu do skoroszytów.
+# <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>Wyświetl podsumowanie konwersji i dostęp do programu Designer
+[Projektant widoków](view-designer.md) jest funkcją Azure monitor, która umożliwia tworzenie niestandardowych widoków, które ułatwiają wizualizację danych w obszarze roboczym log Analytics, z wykresami, listami i osiami czasu. Są one wycofywane i zastępowane skoroszytami, które zapewniają dodatkową funkcjonalność. W tym artykule szczegółowo opisano sposób tworzenia podsumowania przeglądu i uprawnień wymaganych do uzyskiwania dostępu do skoroszytów.
 
-## <a name="creating-your-workspace-summary-from-azure-dashboard"></a>Tworzenie podsumowania obszaru roboczego na podstawie pulpitu nawigacyjnego platformy Azure
-Użytkownicy widoku projektanta mogą być zaznajomieni z kafelkiem przeglądu reprezentującym zestaw widoków. Aby zachować przegląd wizualny, taki jak podsumowanie obszaru roboczego projektanta widoku, skoroszyty oferują przypięte kroki, które można przypiąć do [pulpitu nawigacyjnego portalu Azure.](../../azure-portal/azure-portal-dashboards.md) Podobnie jak kafelki przeglądu w podsumowaniu obszaru roboczego, przypięte elementy skoroszytu będą łączyć się bezpośrednio z widokiem skoroszytu.
+## <a name="creating-your-workspace-summary-from-azure-dashboard"></a>Tworzenie podsumowania obszaru roboczego z poziomu pulpitu nawigacyjnego platformy Azure
+Użytkownicy projektanta widoków mogą znać, że masz kafelek przegląd do reprezentowania zestawu widoków. Aby zachować przegląd wizualizacji, taki jak podsumowanie obszaru roboczego projektanta widoków, skoroszyty oferują przypięte kroki, które można przypinać do [pulpitu nawigacyjnego Azure Portal](../../azure-portal/azure-portal-dashboards.md). Podobnie jak w przypadku kafelków przegląd w obszarze roboczym, przypięte elementy skoroszytu zostaną połączone bezpośrednio z widokiem skoroszytu.
 
-Możesz korzystać z funkcji wysokiego poziomu dostosowywania dostarczanych z pulpitami nawigacyjnymi platformy Azure, co umożliwia automatyczne odświeżanie, przenoszenie, dobieranie rozmiaru i dodatkowe filtrowanie przypiętych elementów i wizualizacji. 
+Można korzystać z funkcji dostosowywania dostępnych w pulpitach nawigacyjnych platformy Azure, które umożliwiają automatyczne odświeżanie, przesuwanie, Określanie rozmiarów i dodatkowe filtrowanie dla przypiętych elementów i wizualizacji. 
 
 ![Pulpit nawigacyjny](media/view-designer-conversion-access/dashboard.png)
 
-Utwórz nowy pulpit nawigacyjny platformy Azure lub wybierz istniejący pulpit nawigacyjny, aby rozpocząć przypinanie elementów skoroszytów.
+Utwórz nowy pulpit nawigacyjny platformy Azure lub wybierz istniejący pulpit nawigacyjny, aby rozpocząć Przypinanie elementów z skoroszytów.
 
-Aby przypiąć pojedynczy element, musisz włączyć ikonę pinezki dla określonego kroku. Aby to zrobić, wybierz odpowiedni przycisk **Edytuj** dla swojego kroku, a następnie wybierz ikonę koła zębatego, aby otworzyć **ustawienia zaawansowane**. Zaznacz opcję **Zawsze pokazuj ikonę pinezki w tym kroku,** a w prawym górnym rogu kroku pojawi się ikona pinezki. Ten przypin umożliwia przypinanie określonych wizualizacji do pulpitu nawigacyjnego, takich jak kafelki przeglądowe.
+Aby przypiąć poszczególne elementy, musisz włączyć ikonę pinezki dla określonego kroku. Aby to zrobić, wybierz odpowiedni przycisk **edycji** dla danego kroku, a następnie wybierz ikonę koła zębatego, aby otworzyć okno **Ustawienia zaawansowane**. Zaznacz opcję **Zawsze wyświetlaj ikonę pinezki w tym kroku**, a ikona pinezki zostanie wyświetlona w prawym górnym rogu kroku. Ten kod PIN umożliwia Przypinanie określonych wizualizacji do pulpitu nawigacyjnego, takich jak kafelki z omówieniem.
 
-![Krok przypięcia](media/view-designer-conversion-access/pin-step.png)
-
-
-Możesz też przypiąć wiele wizualizacji ze skoroszytu lub całej zawartości skoroszytu do pulpitu nawigacyjnego. Aby przypiąć cały skoroszyt, wybierz pozycję **Edytuj** na górnym pasku narzędzi, aby przełączyć **tryb edycji**. Pojawi się ikona pinezki, która umożliwia przypięcie całego elementu skoroszytu lub wszystkich pojedynczych kroków i wizualizacji w skoroszycie.
-
-![Przypnij wszystkie](media/view-designer-conversion-access/pin-all.png)
+![Przypnij krok](media/view-designer-conversion-access/pin-step.png)
 
 
+Możesz też chcieć przypiąć wiele wizualizacji ze skoroszytu lub całej zawartości skoroszytu do pulpitu nawigacyjnego. Aby przypiąć cały skoroszyt, wybierz pozycję **Edytuj** na górnym pasku narzędzi, aby przełączyć **tryb edycji**. Zostanie wyświetlona ikona pinezki, która umożliwia Przypinanie całego elementu skoroszytu lub wszystkich poszczególnych kroków i wizualizacji w skoroszycie.
 
-## <a name="sharing-and-viewing-permissions"></a>Uprawnienia do udostępniania i wyświetlania 
-Skoroszyty mają zaletę, że są dokumentem prywatnym lub udostępnionym. Domyślnie zapisane skoroszyty zostaną zapisane w obszarze **Moje raporty,** co oznacza, że tylko twórca może wyświetlać ten skoroszyt.
+![Przypnij wszystko](media/view-designer-conversion-access/pin-all.png)
 
-Skoroszyty można udostępniać, wybierając ikonę **Udostępnij** na górnym pasku narzędzi w **trybie edycji**. Zostanie wyświetlony monit o przeniesienie skoroszytu do **raportów udostępnionych,** które wygenerują łącze zapewniające bezpośredni dostęp do skoroszytu.
 
-Aby użytkownik mógł wyświetlić skoroszyt udostępniony, musi mieć dostęp zarówno do subskrypcji, jak i do grupy zasobów, w których skoroszyt jest zapisywany.
+
+## <a name="sharing-and-viewing-permissions"></a>Udostępnianie i przeglądanie uprawnień 
+W przypadku skoroszytów dostępne są dokumenty prywatne lub udostępnione. Domyślnie zapisane skoroszyty zostaną zapisane w obszarze **Moje raporty**, co oznacza, że tylko twórca może wyświetlić ten skoroszyt.
+
+Możesz udostępnić skoroszyty, wybierając ikonę **udostępniania** na górnym pasku narzędzi w **trybie edycji**. Zostanie wyświetlony monit o przeniesienie skoroszytu do **raportów udostępnionych**, co spowoduje wygenerowanie linku zapewniającego bezpośredni dostęp do skoroszytu.
+
+Aby użytkownik mógł wyświetlić udostępniony skoroszyt, musi mieć dostęp do subskrypcji i grupy zasobów, w których zapisano skoroszyt.
 
 ![Dostęp oparty na subskrypcji](media/view-designer-conversion-access/subscription-access.png)
 

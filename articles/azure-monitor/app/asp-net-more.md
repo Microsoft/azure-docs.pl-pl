@@ -1,26 +1,26 @@
 ---
-title: Więcej informacji o usłudze Azure Application Insights | Dokumenty firmy Microsoft
-description: Po rozpoczęciu pracy z aplikacją Insights, oto podsumowanie funkcji, które można zbadać.
+title: Zapoznaj się z usługą Azure Application Insights | Microsoft Docs
+description: Po wprowadzeniem do Application Insights poniżej przedstawiono podsumowanie funkcji, które można eksplorować.
 ms.topic: conceptual
 ms.date: 02/03/2017
 ms.openlocfilehash: 3c4a9a736f34d4f7dbfeb004d0837f1f2efa55dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77666028"
 ---
-# <a name="more-telemetry-from-application-insights"></a>Więcej danych telemetrycznych z usługi Application Insights
-Po [dodaniu usługi Application Insights do kodu ASP.NET](../../azure-monitor/app/asp-net.md)istnieje kilka czynności, które można zrobić, aby uzyskać jeszcze więcej danych telemetrycznych. 
+# <a name="more-telemetry-from-application-insights"></a>Więcej danych telemetrycznych z Application Insights
+Po [dodaniu Application Insights do kodu ASP.NET](../../azure-monitor/app/asp-net.md)istnieje kilka rzeczy, które można zrobić, aby uzyskać jeszcze więcej danych telemetrycznych. 
 
-| Akcja | Efekty|
+| Akcja | Co otrzymujemy|
 |---|---|
-|(Serwery usług IIS) [Zainstaluj Monitor stanu](https://go.microsoft.com/fwlink/?LinkId=506648) na każdym komputerze serwera.<br/>(Aplikacje internetowe platformy Azure) W panelu sterowania platformy Azure dla aplikacji sieci web otwórz narzędzie Application Insights.| [**Liczniki wydajności**](../../azure-monitor/app/performance-counters.md)<br/>[**Wyjątki**](asp-net-exceptions.md) — szczegółowe ślady stosu<br/>[**Zależności**](../../azure-monitor/app/asp-net-dependencies.md)|
-|[Dodawanie fragmentu kodu JavaScript do stron internetowych](../../azure-monitor/app/javascript.md)|[Wydajność strony,](../../azure-monitor/app/usage-overview.md)wyjątki przeglądarki, wydajność AJAX. Niestandardowe dane telemetryczne po stronie klienta.|
-|[Tworzenie testów sieci Web dostępności](../../azure-monitor/app/monitor-web-app-availability.md)|Otrzymuj alerty, jeśli witryna stanie się niedostępna|
-|[Upewnij się, że buildinfo.config](https://msdn.microsoft.com/library/dn449058.aspx) jest generowany przez MSBuild|[Tworzenie adnotacji na wykresach metryk](https://docs.microsoft.com/azure/azure-monitor/app/annotations)
-|[Pisanie niestandardowych zdarzeń i metryk](../../azure-monitor/app/api-custom-events-metrics.md)|Zlicz zdarzenia biznesowe i dane, śledź szczegółowe użycie i nie tylko.|
-|[Profiluj swoją witrynę na żywo](https://aka.ms/AIProfilerPreview)|Szczegółowe chronometrażu funkcji z aplikacji sieci web na żywo|
+|(Serwery IIS) [Zainstaluj Monitor stanu](https://go.microsoft.com/fwlink/?LinkId=506648) na każdym komputerze serwera.<br/>(Aplikacje sieci Web platformy Azure) W panelu sterowania platformy Azure dla aplikacji sieci Web otwórz blok Application Insights.| [**Liczniki wydajności**](../../azure-monitor/app/performance-counters.md)<br/>[**Wyjątki**](asp-net-exceptions.md) — szczegółowe dane śledzenia stosu<br/>[**Zależności**](../../azure-monitor/app/asp-net-dependencies.md)|
+|[Dodaj fragment kodu JavaScript do stron sieci Web](../../azure-monitor/app/javascript.md)|[Wydajność strony](../../azure-monitor/app/usage-overview.md), wyjątki przeglądarki i wydajność AJAX. Niestandardowa Telemetria po stronie klienta.|
+|[Tworzenie testów dostępności sieci Web](../../azure-monitor/app/monitor-web-app-availability.md)|Otrzymywanie alertów, jeśli witryna jest niedostępna|
+|[Upewnij się, że plik BuildInfo. config](https://msdn.microsoft.com/library/dn449058.aspx) jest generowany przez program MSBuild|[Tworzenie adnotacji na wykresach metryk](https://docs.microsoft.com/azure/azure-monitor/app/annotations)
+|[Zapisz niestandardowe zdarzenia i metryki](../../azure-monitor/app/api-custom-events-metrics.md)|Zliczaj zdarzenia biznesowe i metryki, śledź szczegółowe użycie i nie tylko.|
+|[Profilowanie aktywnej witryny](https://aka.ms/AIProfilerPreview)|Szczegółowe terminy funkcji z działającej aplikacji sieci Web|
 
 
 

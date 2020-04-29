@@ -1,31 +1,31 @@
 ---
-title: Agregacje w kwerendach dziennika usługi Azure Monitor| Dokumenty firmy Microsoft
-description: W tym artykule opisano funkcje agregacji w kwerendach dziennika usługi Azure Monitor, które oferują przydatne sposoby analizowania danych.
+title: Agregacje w zapytaniach dziennika Azure Monitor | Microsoft Docs
+description: Opisuje funkcje agregacji w zapytaniach dziennika Azure Monitor, które oferują przydatne metody analizowania danych.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: d164c53e7e2be55f3cede389901a256ba388808d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670308"
 ---
-# <a name="aggregations-in-azure-monitor-log-queries"></a>Agregacje w kwerendach dziennika usługi Azure Monitor
+# <a name="aggregations-in-azure-monitor-log-queries"></a>Agregacje w zapytaniach dziennika Azure Monitor
 
 > [!NOTE]
-> Przed [ukończeniem](get-started-portal.md) tej lekcji należy wykonać wprowadzenie do portalu Analytics i [wprowadzenie do zapytań.](get-started-queries.md)
+> Przed ukończeniem tej lekcji należy ukończyć pracę [z portalem analizy](get-started-portal.md) i [zacząć korzystać z zapytań](get-started-queries.md) .
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-W tym artykule opisano funkcje agregacji w kwerendach dziennika usługi Azure Monitor, które oferują przydatne sposoby analizowania danych. Wszystkie te funkcje `summarize` działają z operatorem, który tworzy tabelę z zagregowanymi wynikami tabeli wejściowej.
+W tym artykule opisano funkcje agregacji w zapytaniach dziennika Azure Monitor, które oferują przydatne metody analizowania danych. Wszystkie te funkcje współpracują `summarize` z operatorem, który tworzy tabelę z zagregowanymi wynikami tabeli wejściowej.
 
-## <a name="counts"></a>Liczy
+## <a name="counts"></a>Liczby
 
 ### <a name="count"></a>count
-Policz liczbę wierszy w zestawie wyników po zastosowaniu filtrów. Poniższy przykład zwraca całkowitą liczbę wierszy w tabeli _Perf_ z ostatnich 30 minut. Wynik jest zwracany w kolumnie o nazwie *count_,* chyba że zostanie przypisana określona nazwa:
+Policz liczbę wierszy w zestawie wyników po zastosowaniu filtrów. Poniższy przykład zwraca łączną liczbę wierszy w tabeli _wydajności_ w ciągu ostatnich 30 minut. Wynik jest zwracany w kolumnie o nazwie *count_* , chyba że zostanie przypisana nazwa określona:
 
 
 ```Kusto
@@ -40,7 +40,7 @@ Perf
 | summarize num_of_records=count() 
 ```
 
-Wizualizacja schematu czasowego może być przydatna, aby zobaczyć trend w czasie:
+Wizualizacja timechart może być przydatna do wyświetlania trendu w czasie:
 
 ```Kusto
 Perf 
@@ -49,13 +49,13 @@ Perf
 | render timechart
 ```
 
-Dane wyjściowe z tego przykładu pokazuje linię trendu liczby rekordów perf w odstępach 5 minut:
+Dane wyjściowe z tego przykładu przedstawiają Trend liczby rekordów wydajności w odstępach 5 minut:
 
-![Trend liczenia](media/aggregations/count-trend.png)
+![Trend liczby](media/aggregations/count-trend.png)
 
 
-### <a name="dcount-dcountif"></a>dcount, dcountif
-Użyj `dcount` `dcountif` i zliczanie różnych wartości w określonej kolumnie. W poniższej kwerendzie ocenia się, ile różnych komputerów wysłało puls w ciągu ostatniej godziny:
+### <a name="dcount-dcountif"></a>DCount, dcountif
+Użyj `dcount` i `dcountif` , aby zliczyć różne wartości w określonej kolumnie. Następujące zapytanie szacuje, ile różnych komputerów wysłało pulsy w ciągu ostatniej godziny:
 
 ```Kusto
 Heartbeat 
@@ -63,7 +63,7 @@ Heartbeat
 | summarize dcount(Computer)
 ```
 
-Aby policzyć tylko komputery z systemem `dcountif`Linux, które wysłały bicie serca, użyj:
+Aby zliczać tylko komputery z systemem Linux, które wysłały `dcountif`pulsy, należy użyć:
 
 ```Kusto
 Heartbeat 
@@ -71,8 +71,8 @@ Heartbeat
 | summarize dcountif(Computer, OSType=="Linux")
 ```
 
-### <a name="evaluating-subgroups"></a>Ocena podgrup
-Aby wykonać liczbę lub inne agregacje w podgrupach w danych, użyj słowa kluczowego. `by` Na przykład, aby policzyć liczbę różnych komputerów z systemem Linux, które wysyłały pulsy w każdym kraju/regionie:
+### <a name="evaluating-subgroups"></a>Ocenianie podgrup
+Aby wykonać liczbę lub inne agregacje dla podgrup danych, użyj `by` słowa kluczowego. Na przykład, aby policzyć liczbę różnych komputerów z systemem Linux, które wysyłają pulsy w poszczególnych krajach/regionach:
 
 ```Kusto
 Heartbeat 
@@ -89,7 +89,7 @@ Heartbeat
 |Holandia      | 2                   |
 
 
-Aby przeanalizować jeszcze mniejsze podgrupy danych, dodaj `by` do sekcji dodatkowe nazwy kolumn. Na przykład można policzyć różne komputery z każdego kraju/regionu na OSType:
+Aby analizować jeszcze mniejsze podgrupy danych, Dodaj dodatkowe nazwy kolumn do `by` sekcji. Na przykład możesz chcieć obliczyć różne komputery z każdego kraju/regionu na OSType:
 
 ```Kusto
 Heartbeat 
@@ -97,11 +97,11 @@ Heartbeat
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry, OSType
 ```
 
-## <a name="percentiles-and-variance"></a>Percentyle i wariancja
-Przy ocenie wartości liczbowych powszechną praktyką `summarize avg(expression)`jest ich uśrednianie za pomocą . Średnie są dotknięte wartościami skrajnymi, które charakteryzują tylko kilka przypadków. Aby rozwiązać ten problem, można użyć `median` mniej `variance`poufnych funkcji, takich jak lub .
+## <a name="percentiles-and-variance"></a>Percentyle i Wariancja
+Podczas oceniania wartości liczbowych typowym celem jest uśrednianie ich przy `summarize avg(expression)`użyciu. Na średnie mają wpływ wartości skrajne, które opisują tylko kilka przypadków. Aby rozwiązać ten problem, można użyć mniej wrażliwych funkcji, takich `median` jak `variance`lub.
 
 ### <a name="percentile"></a>Percentyl
-Aby znaleźć wartość mediany, użyj `percentile` funkcji z wartością, aby określić percentyl:
+Aby znaleźć wartość mediana, użyj `percentile` funkcji z wartością, aby określić percentyl:
 
 ```Kusto
 Perf
@@ -110,7 +110,7 @@ Perf
 | summarize percentiles(CounterValue, 50) by Computer
 ```
 
-Można również określić różne percentyle, aby uzyskać zagregowany wynik dla każdego:
+Można również określić różne percentyle, aby uzyskać zagregowany wynik dla każdej z nich:
 
 ```Kusto
 Perf
@@ -119,10 +119,10 @@ Perf
 | summarize percentiles(CounterValue, 25, 50, 75, 90) by Computer
 ```
 
-Może to pokazać, że niektóre procesory komputerowe mają podobne wartości mediany, ale podczas gdy niektóre są stałe wokół mediany, inne komputery zgłosiły znacznie niższe i wyższe wartości procesora, co oznacza, że doświadczyły skoków.
+Może to wskazywać, że niektóre procesory CPU mają podobne wartości Mediane, ale podczas gdy niektóre z nich są stałe, inne komputery zgłosiły znacznie niższe i wyższe wartości procesora, co oznacza, że są one skokami.
 
 ### <a name="variance"></a>Wariancja
-Aby bezpośrednio ocenić wariancję wartości, należy użyć metod odchylenia standardowego i wariancji:
+Aby bezpośrednio oszacować wariancję wartości, należy użyć odchylenia standardowego i metod wariancji:
 
 ```Kusto
 Perf
@@ -131,7 +131,7 @@ Perf
 | summarize stdev(CounterValue), variance(CounterValue) by Computer
 ```
 
-Dobrym sposobem analizy stabilności użycia procesora jest połączenie stdev z medianą obliczeń:
+Dobrym sposobem na przeanalizowanie stabilności użycia procesora CPU jest połączenie STDEV z obliczaniem średnim:
 
 ```Kusto
 Perf
@@ -140,12 +140,12 @@ Perf
 | summarize stdev(CounterValue), percentiles(CounterValue, 50) by Computer
 ```
 
-Zobacz inne lekcje dotyczące korzystania z [języka zapytań Kusto](/azure/kusto/query/) z danymi dziennika usługi Azure Monitor:
+Zapoznaj się z innymi lekcjami dotyczącymi używania [języka zapytań Kusto](/azure/kusto/query/) z danymi dziennika Azure Monitor:
 
 - [Operacje dotyczące ciągów](string-operations.md)
 - [Operacje dotyczące daty i godziny](datetime-operations.md)
 - [Agregacje zaawansowane](advanced-aggregations.md)
 - [Notacja JSON i struktury danych](json-data-structures.md)
 - [Pisanie zapytań zaawansowanych](advanced-query-writing.md)
-- [Łączy](joins.md)
+- [Sprzężenia](joins.md)
 - [Wykresy](charts.md)

@@ -1,27 +1,27 @@
 ---
-title: Przenoszenie obszaru roboczego usługi Log Analytics w usłudze Azure Monitor | Dokumenty firmy Microsoft
-description: Dowiedz się, jak przenieść obszar roboczy usługi Log Analytics do innej subskrypcji lub grupy zasobów.
+title: Przenoszenie obszaru roboczego Log Analytics w Azure Monitor | Microsoft Docs
+description: Dowiedz się, jak przenieść obszar roboczy Log Analytics do innej subskrypcji lub grupy zasobów.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
 ms.openlocfilehash: 9213ddf034e725f6e31c9280d47bd13e4703b3f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77659496"
 ---
-# <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Przenoszenie obszaru roboczego usługi Log Analytics do innej subskrypcji lub grupy zasobów
+# <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Przenoszenie obszaru roboczego Log Analytics do innej subskrypcji lub grupy zasobów
 
-W tym artykule dowiesz się, jak przenieść obszar roboczy usługi Log Analytics do innej grupy zasobów lub subskrypcji w tym samym regionie. Możesz dowiedzieć się więcej o przenoszeniu zasobów platformy Azure za pośrednictwem witryny Azure portal, powershell, interfejsu wiersza polecenia platformy Azure lub interfejsu API REST. w [sekcji Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../../azure-resource-manager/management/move-resource-group-and-subscription.md). 
+W tym artykule omówiono procedurę przenoszenia obszaru roboczego Log Analytics do innej grupy zasobów lub subskrypcji w tym samym regionie. Aby dowiedzieć się więcej o przenoszeniu zasobów platformy Azure za pomocą Azure Portal, programu PowerShell, interfejsu wiersza polecenia platformy Azure lub interfejsu API REST. [przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../../azure-resource-manager/management/move-resource-group-and-subscription.md). 
 
 > [!IMPORTANT]
 > Nie można przenieść obszaru roboczego do innego regionu.
 
-## <a name="verify-active-directory-tenant"></a>Weryfikowanie dzierżawy usługi Active Directory
-Subskrypcje źródłowe i docelowe obszaru roboczego muszą istnieć w tej samej dzierżawie usługi Azure Active Directory. Użyj programu Azure PowerShell, aby sprawdzić, czy obie subskrypcje mają ten sam identyfikator dzierżawy.
+## <a name="verify-active-directory-tenant"></a>Weryfikowanie Active Directory dzierżawy
+W ramach tej samej dzierżawy Azure Active Directory musi istnieć źródłowa i docelowa subskrypcja obszaru roboczego. Użyj Azure PowerShell, aby sprawdzić, czy obie subskrypcje mają ten sam identyfikator dzierżawy.
 
 ``` PowerShell
 (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
@@ -29,9 +29,9 @@ Subskrypcje źródłowe i docelowe obszaru roboczego muszą istnieć w tej samej
 ```
 
 ## <a name="workspace-move-considerations"></a>Zagadnienia dotyczące przenoszenia obszaru roboczego
-Rozwiązania zarządzane, które są zainstalowane w obszarze roboczym zostaną przeniesione z operacji przenoszenia obszaru roboczego usługi Log Analytics. Połączeni agenci pozostaną połączeni i zachowają dane do obszaru roboczego po przeprowadzce. Ponieważ operacja przenoszenia wymaga, aby nie było łącza z obszaru roboczego do dowolnego konta automatyzacji, rozwiązania, które opierają się na tym łączu, muszą zostać usunięte.
+Rozwiązania zarządzane, które są zainstalowane w obszarze roboczym, zostaną przeniesione z Log Analytics operacji przenoszenia obszaru roboczego. Połączone agenci pozostaną połączone i będą wysyłać dane do obszaru roboczego po przeniesieniu. Ponieważ operacja przenoszenia wymaga, aby nie było żadnego linku z obszaru roboczego do żadnego konta usługi Automation, należy usunąć rozwiązania korzystające z tego linku.
 
-Rozwiązania, które należy usunąć, aby można było odłączyć konto automatyzacji:
+Rozwiązania, które należy usunąć, aby można było odłączyć konto usługi Automation:
 
 - Zarządzanie aktualizacjami
 - Śledzenie zmian
@@ -39,17 +39,17 @@ Rozwiązania, które należy usunąć, aby można było odłączyć konto automa
 
 
 ### <a name="delete-in-azure-portal"></a>Usuwanie w witrynie Azure Portal
-Poniższa procedura służy do usuwania rozwiązań przy użyciu witryny Azure portal:
+Aby usunąć rozwiązania przy użyciu Azure Portal, należy wykonać czynności opisane w poniższej procedurze:
 
-1. Otwórz menu dla grupy zasobów, w których są zainstalowane wszystkie rozwiązania.
+1. Otwórz menu dla grupy zasobów, w której zainstalowano wszystkie rozwiązania.
 2. Wybierz rozwiązania do usunięcia.
-3. Kliknij **pozycję Usuń zasoby,** a następnie potwierdź zasoby do usunięcia, klikając pozycję **Usuń**.
+3. Kliknij pozycję **Usuń zasoby** , a następnie potwierdź zasoby, które mają zostać usunięte, klikając przycisk **Usuń**.
 
 ![Usuwanie rozwiązań](media/move-workspace/delete-solutions.png)
 
 ### <a name="delete-using-powershell"></a>Usuwanie przy użyciu programu PowerShell
 
-Aby usunąć rozwiązania przy użyciu programu PowerShell, należy użyć polecenia cmdlet [Remove-AzResource,](/powershell/module/az.resources/remove-azresource?view=azps-2.8.0) jak pokazano w poniższym przykładzie:
+Aby usunąć rozwiązania przy użyciu programu PowerShell, użyj polecenia cmdlet [Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.8.0) , jak pokazano w następującym przykładzie:
 
 ``` PowerShell
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "ChangeTracking(<workspace-name>)" -ResourceGroupName <resource-group-name>
@@ -57,43 +57,43 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM(<workspace-name>)" -ResourceGroupName <resource-group-name>
 ```
 
-### <a name="remove-alert-rules"></a>Usuwanie reguł alertów
-Dla rozwiązania **Start/Stop maszyn wirtualnych,** należy również usunąć reguły alertów utworzone przez rozwiązanie. Aby usunąć te reguły, użyj poniższej procedury w witrynie Azure portal.
+### <a name="remove-alert-rules"></a>Usuń reguły alertów
+W przypadku rozwiązania do **uruchamiania/zatrzymywania maszyn wirtualnych** należy również usunąć reguły alertów utworzone przez rozwiązanie. Aby usunąć te reguły, należy wykonać poniższą procedurę w Azure Portal.
 
-1. Otwórz menu **Monitor,** a następnie wybierz pozycję **Alerty**.
-2. Kliknij **pozycję Zarządzaj regułami alertów**.
+1. Otwórz menu **monitor** , a następnie wybierz pozycję **alerty**.
+2. Kliknij pozycję **Zarządzaj regułami alertów**.
 3. Wybierz następujące trzy reguły alertów, a następnie kliknij przycisk **Usuń**.
 
    - AutoStop_VM_Child
    - ScheduledStartStop_Parent
    - SequencedStartStop_Parent
 
-    ![Usuń reguły](media/move-workspace/delete-rules.png)
+    ![Usuwanie reguł](media/move-workspace/delete-rules.png)
 
-## <a name="unlink-automation-account"></a>Odłącz konto automatyzacji
-Poniższa procedura służy do odłączenia konta automatyzacji od obszaru roboczego przy użyciu witryny Azure portal:
+## <a name="unlink-automation-account"></a>Odłącz konto usługi Automation
+Aby odłączyć konto usługi Automation od obszaru roboczego przy użyciu Azure Portal, wykonaj czynności opisane w poniższej procedurze:
 
-1. Otwórz menu **Konta automatyzacji,** a następnie wybierz konto do usunięcia.
-2. W sekcji **Zasoby pokrewne** w menu wybierz pozycję **Połączony obszar roboczy**. 
-3. Kliknij **pozycję Odłącz obszar roboczy,** aby odłączyć obszar roboczy od konta automatyzacji.
+1. Otwórz menu **konta usługi Automation** , a następnie wybierz konto, które chcesz usunąć.
+2. W sekcji **powiązane zasoby** w menu wybierz pozycję **połączony obszar roboczy**. 
+3. Kliknij przycisk **Odłącz obszar roboczy** , aby odłączyć obszar roboczy od konta usługi Automation.
 
     ![Unlink workspace (Odłączanie obszaru roboczego)](media/move-workspace/unlink-workspace.png)
 
 ## <a name="move-your-workspace"></a>Przenoszenie obszaru roboczego
 
-### <a name="azure-portal"></a>Portal Azure
-Aby przenieść obszar roboczy za pomocą witryny Azure Portal, użyj następującej procedury:
+### <a name="azure-portal"></a>Azure Portal
+Aby przenieść obszar roboczy przy użyciu Azure Portal, wykonaj czynności opisane w poniższej procedurze:
 
-1. Otwórz menu **Obszarów roboczych usługi Log Analytics,** a następnie wybierz obszar roboczy.
+1. Otwórz menu **log Analytics obszary robocze** , a następnie wybierz obszar roboczy.
 2. Na stronie **Przegląd** kliknij pozycję **Zmień** obok **grupy zasobów** lub **subskrypcji**.
-3. Zostanie otwarta nowa strona z listą zasobów związanych z obszarem roboczym. Wybierz zasoby, które mają być przeniesione do tej samej docelowej subskrypcji i grupy zasobów co obszar roboczy. 
-4. Wybierz docelową **grupę** **Subskrypcji** i Zasobów . Jeśli przenosisz obszar roboczy do innej grupy zasobów w tej samej subskrypcji, nie zobaczysz opcji **Subskrypcja.**
-5. Kliknij **przycisk OK,** aby przenieść obszar roboczy i wybrane zasoby.
+3. Zostanie otwarta nowa strona z listą zasobów związanych z obszarem roboczym. Wybierz zasoby, które mają zostać przeniesione do tej samej docelowej subskrypcji i grupy zasobów, co obszar roboczy. 
+4. Wybierz docelową **subskrypcję** i **grupę zasobów**. Jeśli przenosisz obszar roboczy do innej grupy zasobów w ramach tej samej subskrypcji, opcja **subskrypcji** nie zostanie wyświetlona.
+5. Kliknij przycisk **OK** , aby przenieść obszar roboczy i wybrane zasoby.
 
     ![Portal](media/move-workspace/portal.png)
 
 ### <a name="powershell"></a>PowerShell
-Aby przenieść obszar roboczy przy użyciu programu PowerShell, użyj [move-AzResource,](/powershell/module/AzureRM.Resources/Move-AzureRmResource) jak w poniższym przykładzie:
+Aby przenieść obszar roboczy przy użyciu programu PowerShell, użyj polecenia [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) jak w poniższym przykładzie:
 
 ``` PowerShell
 Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup01/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace" -DestinationSubscriptionId "00000000-0000-0000-0000-000000000000" -DestinationResourceGroupName "MyResourceGroup02"
@@ -102,8 +102,8 @@ Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000
 
 
 > [!IMPORTANT]
-> Po operacji przenoszenia usunięte rozwiązania i łącze konta automatyzacji powinny zostać ponownie skonfigurowane, aby przenieść obszar roboczy z powrotem do poprzedniego stanu.
+> Po zakończeniu operacji przenoszenia, usunięte rozwiązania i link do konta usługi Automation należy zmienić konfigurację, aby przywrócić obszar roboczy z powrotem do poprzedniego stanu.
 
 
 ## <a name="next-steps"></a>Następne kroki
-- Aby uzyskać listę zasobów, które obsługują przenoszenie zasobów, zobacz [Przenoszenie obsługi operacji dla zasobów](../../azure-resource-manager/management/move-support-resources.md).
+- Aby zapoznać się z listą obsługiwanych zasobów, zobacz [przenoszenie obsługi zasobów](../../azure-resource-manager/management/move-support-resources.md).

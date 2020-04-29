@@ -1,67 +1,67 @@
 ---
 title: Aktualizacje obrazu podstawowego — zadania
-description: Dowiedz się więcej o obrazach podstawowych obrazów kontenerów aplikacji i o tym, jak aktualizacja obrazu podstawowego może wyzwolić zadanie rejestru kontenerów platformy Azure.
+description: Informacje o obrazach podstawowych dla obrazów kontenerów aplikacji oraz o sposobie wyzwalania przez aktualizację obrazu podstawowego zadania Azure Container Registry.
 ms.topic: article
 ms.date: 01/22/2019
 ms.openlocfilehash: 017c8f8a3a15896bd6e14a54136ba713e9f9c499
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617933"
 ---
-# <a name="about-base-image-updates-for-acr-tasks"></a>Informacje o aktualizacjach obrazów podstawowych dla zadań usługi ACR
+# <a name="about-base-image-updates-for-acr-tasks"></a>Informacje o aktualizacjach obrazu podstawowego dla zadań ACR
 
-Ten artykuł zawiera podstawowe informacje na temat aktualizacji obrazu podstawowego aplikacji i jak te aktualizacje mogą wyzwalać zadanie rejestru kontenerów platformy Azure.
+Ten artykuł zawiera ogólne informacje dotyczące aktualizacji obrazu podstawowego aplikacji oraz sposobu, w jaki te aktualizacje mogą wyzwalać zadanie Azure Container Registry.
 
 ## <a name="what-are-base-images"></a>Co to są obrazy podstawowe?
 
-Pliki dockerfiles definiujące większość obrazów kontenerów określają obraz nadrzędny, z którego obraz jest oparty, często nazywany *obrazem bazowym.* Obrazy podstawowe przeważnie zawierają system operacyjny, na przykład [Alpine Linux][base-alpine] lub [Windows Nano Server][base-windows], w którym są stosowane pozostałe warstwy kontenera. Mogą również zawierać platformy aplikacji, takie jak [Node.js][base-node] lub [.NET Core][base-dotnet]. Te obrazy podstawowe są zazwyczaj oparte na publicznych obrazów nadrzędnych. Kilka obrazów aplikacji może współużytkować wspólny obraz podstawowy.
+Wieloetapowe dockerfile Definiowanie większości obrazów kontenerów określa obraz nadrzędny, na podstawie którego jest oparty obraz, często określany jako *obraz podstawowy*. Obrazy podstawowe przeważnie zawierają system operacyjny, na przykład [Alpine Linux][base-alpine] lub [Windows Nano Server][base-windows], w którym są stosowane pozostałe warstwy kontenera. Mogą również zawierać platformy aplikacji, takie jak [Node.js][base-node] lub [.NET Core][base-dotnet]. Te obrazy podstawowe są zwykle oparte na publicznych obrazach nadrzędnych. Kilka obrazów aplikacji może współużytkować wspólny obraz podstawowy.
 
-Obraz podstawowy jest często aktualizowany przez element utrzymujący obrazu w celu uwzględnienia nowych funkcji lub ulepszeń systemu operacyjnego lub platformy w obrazie. Poprawki zabezpieczeń są kolejną typową przyczyną aktualizacji obrazu podstawowego. Po tych aktualizacji nadrzędnych występują, należy również zaktualizować obrazy podstawowe, aby uwzględnić poprawkę krytyczną. Każdy obraz aplikacji musi następnie również zostać przebudowany, aby uwzględnić te poprawki nadrzędne, które są teraz zawarte w obrazie podstawowym.
+Obraz podstawowy jest często aktualizowany przez element utrzymujący obrazu w celu uwzględnienia nowych funkcji lub ulepszeń systemu operacyjnego lub platformy w obrazie. Poprawki zabezpieczeń są kolejną typową przyczyną aktualizacji obrazu podstawowego. Gdy te aktualizacje nadrzędne wystąpią, należy również zaktualizować obrazy podstawowe w celu uwzględnienia poprawki krytycznej. Każdy obraz aplikacji należy również ponownie skompilować, aby uwzględnić te prefiksy nadrzędne teraz zawarte w obrazie podstawowym.
 
-W niektórych przypadkach, takich jak zespół rozwoju prywatnego, obraz podstawowy może określić więcej niż system operacyjny lub struktury. Na przykład obraz podstawowy może być obrazem składnika usługi udostępnionej, który musi być śledzony. Członkowie zespołu może być konieczne śledzenie tego obrazu podstawowego do testowania lub trzeba regularnie aktualizować obraz podczas tworzenia obrazów aplikacji.
+W niektórych przypadkach, takich jak prywatny zespół programistyczny, podstawowy obraz może określać więcej niż system operacyjny lub platformę. Na przykład obraz podstawowy może być obrazem składnika usługi udostępnionej, który musi być śledzony. Członkowie zespołu mogą potrzebować śledzenia tego podstawowego obrazu do testowania lub konieczności regularnego aktualizowania obrazu podczas tworzenia obrazów aplikacji.
 
-## <a name="track-base-image-updates"></a>Śledzenie aktualizacji obrazów bazowych
+## <a name="track-base-image-updates"></a>Śledź aktualizacje obrazu podstawowego
 
 Usługa ACR Tasks oferuje możliwość automatycznego kompilowania obrazów podczas aktualizacji obrazu podstawowego kontenera.
 
-Zadania usługi ACR dynamicznie odnajduje zależności obrazu podstawowego podczas tworzenia obrazu kontenera. W rezultacie może wykryć, kiedy obraz podstawowy aplikacji jest aktualizowany. Za pomocą jednego wstępnie skonfigurowanego zadania kompilacji zadania usługi ACR mogą automatycznie odbudować każdy obraz aplikacji, który odwołuje się do obrazu podstawowego. Dzięki temu automatycznemu wykrywaniu i przebudowie funkcja ACR Tasks pozwala zaoszczędzić czas i wysiłek wymagany do ręcznego śledzenia i aktualizowania każdego obrazu aplikacji odwołującego się do zaktualizowanego obrazu podstawowego.
+Zadania ACR dynamicznie odnajdują zależności obrazu podstawowego podczas kompilacji obrazu kontenera. W związku z tym może wykryć, kiedy obraz podstawowy obrazu aplikacji zostanie zaktualizowany. Po jednym wstępnie skonfigurowanym zadaniu kompilacji zadania ACR mogą automatycznie odbudować każdy obraz aplikacji, który odwołuje się do obrazu podstawowego. Dzięki temu automatycznemu wykrywaniu i odbudowywaniu ACR zadania oszczędzają czas i nakłady pracy, które są zwykle wymagane do ręcznego śledzenia i aktualizowania każdego obrazu aplikacji, do którego odwołuje się zaktualizowany obraz podstawowy.
 
-## <a name="base-image-locations"></a>Lokalizacje obrazów bazowych
+## <a name="base-image-locations"></a>Podstawowe lokalizacje obrazu
 
-W przypadku kompilacji obrazów z pliku Dockerfile zadanie usługi ACR wykrywa zależności od obrazów podstawowych w następujących lokalizacjach:
+W przypadku kompilacji obrazu z pliku dockerfile, zadanie ACR wykrywa zależności od obrazów podstawowych w następujących lokalizacjach:
 
-* Ten sam rejestr kontenerów platformy Azure, w którym jest uruchamiane zadanie
+* Ten sam rejestr kontenerów platformy Azure, w którym uruchomiono zadanie
 * Inny prywatny rejestr kontenerów platformy Azure w tym samym lub innym regionie 
-* Publiczne repozytorium w centrum platformy Docker 
-* Publiczne repozytorium w rejestrze kontenerów firmy Microsoft
+* Repozytorium publiczne w usłudze Docker Hub 
+* Repozytorium publiczne w programie Microsoft Container Registry
 
-Jeśli obraz podstawowy określony `FROM` w instrukcji znajduje się w jednej z tych lokalizacji, zadanie ACR dodaje hak, aby upewnić się, że obraz jest przebudowywany w dowolnym momencie jego bazy jest aktualizowana.
+Jeśli obraz podstawowy określony w `FROM` instrukcji znajduje się w jednej z tych lokalizacji, zadanie ACR dodaje punkt zaczepienia, aby upewnić się, że obraz został odbudowany w dowolnym momencie, gdy jego baza jest aktualizowana.
 
 ## <a name="additional-considerations"></a>Dodatkowe zagadnienia
 
-* **Obrazy podstawowe dla obrazów aplikacji** — obecnie zadanie ACR śledzi tylko aktualizacje obrazu podstawowego dla obrazów aplikacji *(runtime).* Nie śledzi aktualizacji obrazów bazowych dla obrazów pośrednich *(buildtime)* używanych w wieloetapowych plikach dockerfiles.  
+* **Obrazy podstawowe dla obrazów aplikacji** — obecnie zadanie ACR śledzi jedynie podstawowe aktualizacje obrazu dla obrazów aplikacji (*środowiska uruchomieniowego*). Nie są śledzone aktualizacje obrazu podstawowego dla obrazów pośrednich (*buildtime*) używanych w wieloetapowym wieloetapowe dockerfile.  
 
-* **Domyślnie włączone** — podczas tworzenia zadania ACR za pomocą polecenia [az acr tworzenie zadania,][az-acr-task-create] domyślnie zadanie jest *włączone* dla wyzwalania przez aktualizację obrazu podstawowego. Oznacza to, `base-image-trigger-enabled` że właściwość jest ustawiona na True. Jeśli chcesz wyłączyć to zachowanie w zadaniu, zaktualizuj właściwość do False. Na przykład uruchom następujące polecenie [az acr:][az-acr-task-update]
+* **Domyślnie włączone** — podczas tworzenia zadania ACR za pomocą polecenia [AZ ACR Task Create][az-acr-task-create] Domyślnie zadanie jest *włączone* dla wyzwalacza przez podstawową aktualizację obrazu. Oznacza to, że `base-image-trigger-enabled` właściwość jest ustawiona na wartość true. Jeśli chcesz wyłączyć to zachowanie w zadaniu, zaktualizuj właściwość do wartości false. Na przykład uruchom następujące polecenie [AZ ACR Task Update][az-acr-task-update] :
 
   ```azurecli
   az acr task update --myregistry --name mytask --base-image-trigger-enabled False
   ```
 
-* **Wyzwalacz do śledzenia zależności** — Aby włączyć zadanie usługi ACR w celu określenia i śledzenia zależności obrazu kontenera — które zawierają jego obraz podstawowy — należy najpierw wyzwolić zadanie, aby utworzyć obraz **co najmniej raz.** Na przykład wyzwolić zadanie ręcznie za pomocą polecenia [az acr uruchom zadanie.][az-acr-task-run]
+* **Wyzwalacz do śledzenia zależności** — aby włączyć zadanie ACR w celu ustalenia i śledzenia zależności obrazu kontenera — w tym obrazu podstawowego — należy najpierw wyzwolić zadanie, aby utworzyć obraz **co najmniej raz**. Na przykład Wyzwól zadanie ręcznie przy użyciu polecenia [AZ ACR Task Run][az-acr-task-run] .
 
-* **Stabilny tag dla obrazu podstawowego** — aby wyzwolić zadanie podczas *stable* aktualizacji obrazu `node:9-alpine`podstawowego, obraz podstawowy musi mieć stabilny znacznik, taki jak . To tagowanie jest typowe dla obrazu podstawowego, który jest aktualizowany za pomocą systemu operacyjnego i poprawek ramowych do najnowszej stabilnej wersji. Jeśli obraz podstawowy zostanie zaktualizowany o nowy znacznik wersji, nie wyzwoli zadania. Aby uzyskać więcej informacji na temat tagowania obrazów, zobacz [wskazówki dotyczące najlepszych praktyk](container-registry-image-tag-version.md). 
+* **Stabilny tag obrazu podstawowego** — aby wyzwolić zadanie w ramach aktualizacji obrazu podstawowego, podstawowy obraz musi mieć *stabilny* tag, taki jak `node:9-alpine`. Ten znakowanie jest typowe w przypadku obrazu podstawowego, który jest aktualizowany przy użyciu poprawek systemu operacyjnego i wersji Framework do najnowszej stabilnego wydania. Jeśli obraz podstawowy został zaktualizowany przy użyciu nowego tagu wersji, zadanie nie zostanie wyzwolone. Aby uzyskać więcej informacji na temat znakowania obrazu, zobacz [wskazówki dotyczące najlepszych](container-registry-image-tag-version.md)rozwiązań. 
 
-* **Inne wyzwalacze zadań** — w zadaniu wyzwalanym przez aktualizacje obrazu podstawowego można również włączyć wyzwalacze oparte na [zatwierdzeniu kodu źródłowego](container-registry-tutorial-build-task.md) lub [harmonogramie](container-registry-tasks-scheduled.md). Podstawowa aktualizacja obrazu może również wyzwolić [zadanie wieloetapowe](container-registry-tasks-multi-step.md).
+* **Inne Wyzwalacze zadań** — w ramach zadania wyzwalanego przez aktualizacje obrazu podstawowego można także włączyć wyzwalacze na podstawie [zatwierdzenia kodu źródłowego](container-registry-tutorial-build-task.md) lub [harmonogramu](container-registry-tasks-scheduled.md). Aktualizacja obrazu podstawowego może również wyzwolić [zadanie wieloetapowe](container-registry-tasks-multi-step.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz następujące samouczki dotyczące scenariuszy automatyzujących kompilacje obrazów aplikacji po zaktualizowaniu obrazu podstawowego:
+Zapoznaj się z poniższymi samouczkami dotyczącymi scenariuszy automatyzowania kompilacji obrazów aplikacji po zaktualizowaniu obrazu podstawowego:
 
-* [Automatyzacja kompilacji obrazu kontenera, gdy obraz podstawowy jest aktualizowany w tym samym rejestrze](container-registry-tutorial-base-image-update.md)
+* [Automatyzuj kompilacje obrazu kontenera, gdy podstawowy obraz zostanie zaktualizowany w tym samym rejestrze](container-registry-tutorial-base-image-update.md)
 
-* [Automatyzacja kompilacji obrazu kontenera, gdy obraz podstawowy jest aktualizowany w innym rejestrze](container-registry-tutorial-base-image-update.md)
+* [Automatyzowanie tworzenia obrazu kontenera podczas aktualizowania obrazu podstawowego w innym rejestrze](container-registry-tutorial-base-image-update.md)
 
 
 <!-- LINKS - External -->

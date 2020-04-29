@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie kontem CloudSimple — Platforma Azure
+title: Zarządzanie kontami CloudSimple — Azure
 description: Dowiedz się więcej o zarządzaniu kontami CloudSimple
 author: sharaths-cs
 ms.author: dikamath
@@ -9,30 +9,30 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: a180e2ba6c1a610116271d5a9b6e3fdf562cecdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77025116"
 ---
 # <a name="account-management-overview"></a>Omówienie zarządzania kontami
 
-Podczas tworzenia usługi CloudSimple, tworzy konto w CloudSimple.  Konto jest skojarzone z subskrypcją platformy Azure, w której znajduje się usługa.  Wszyscy użytkownicy z rolami **właściciela** i **współautora** w subskrypcji mają dostęp do portalu CloudSimple.  Identyfikator subskrypcji platformy Azure i identyfikator dzierżawy skojarzony z usługą CloudSimple znajdują się na [stronie Konta](account.md).
+Utworzenie usługi CloudSimple powoduje utworzenie konta w witrynie CloudSimple.  Konto jest skojarzone z subskrypcją platformy Azure, w której znajduje się usługa.  Wszyscy użytkownicy z rolami **właściciela** i **współautora** w subskrypcji mają dostęp do portalu CloudSimple.  Identyfikator subskrypcji platformy Azure i identyfikator dzierżawy skojarzone z usługą CloudSimple można znaleźć na [stronie konta](account.md).
 
-## <a name="additional-alert-emails"></a>Dodatkowe wiadomości e-mail z alertami
+## <a name="additional-alert-emails"></a>Dodatkowe wiadomości e-mail dotyczące alertów
 
-Identyfikatory wiadomości e-mail w usłudze CloudSimple można skonfigurować w celu otrzymywania alertów:
+Identyfikatory poczty e-mail można skonfigurować w usłudze CloudSimple, aby otrzymywać alerty:
 
-* Związane z Twoją usługą
-* Do automatycznego przetwarzania
+* Powiązane z usługą
+* Na potrzeby automatycznego przetwarzania
 
 ## <a name="cloudsimple-operator-access"></a>Dostęp do operatora CloudSimple
 
-Można kontrolować dostęp do portalu CloudSimple dla personelu operacyjnego usługi.  Personel operacyjny usługi loguje się do portalu podczas przesyłania biletu pomocy technicznej.  Operacje serwisowe rozwiążą wszelkie zgłoszone problemy, a podjęte akcje są dostępne w dziennikach inspekcji.
+Dostęp do portalu CloudSimple można kontrolować w przypadku pracowników operacyjnych usługi.  Personel operacyjny usługi loguje się do portalu podczas przesyłania biletu pomocy technicznej.  Operacje usługi spowodują rozwiązanie wszelkich raportowanych problemów, a akcje wykonane są dostępne w dziennikach inspekcji.
 
 ## <a name="users"></a>Użytkownicy
 
-Wszyscy użytkownicy, którzy mają **rolę właściciela** i **współautora** w subskrypcji mają dostęp do portalu CloudSimple.  Po dodaniu dostępu do portalu użytkownik jest tworzony na koncie CloudSimple.  Dostęp do portalu CloudSimple można wyłączyć dla określonych użytkowników ze strony Konta.
+Wszyscy użytkownicy, którzy mają rolę **właściciela** i **współautora** w subskrypcji, mają dostęp do portalu CloudSimple.  Gdy uzyskujesz dostęp do portalu, użytkownik jest tworzony na koncie CloudSimple.  Dostęp do portalu CloudSimple można wyłączyć dla określonych użytkowników na stronie konta.
 
 ## <a name="next-steps"></a>Następne kroki
 
