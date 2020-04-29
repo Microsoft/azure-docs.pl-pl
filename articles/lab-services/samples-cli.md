@@ -14,10 +14,10 @@ ms.date: 01/24/2020
 ms.author: spelluru
 ms.custom: mvc
 ms.openlocfilehash: 075b5dc06c59682b33c20b182e0dc585b2727027
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82097850"
 ---
 # <a name="azure-cli-samples-for-azure-lab-services"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla Azure Lab Services
@@ -26,6 +26,6 @@ Poniższa tabela zawiera linki do skryptów bash utworzonych przy użyciu skrypt
 
 | | |
 |---|---|
-| [Tworzenie i Weryfikowanie dostępności maszyny wirtualnej](scripts/create-verify-virtual-machine-in-lab-cli.md) | Tworzy maszynę wirtualną z systemem Windows z minimalną konfiguracją. |
+| [Tworzenie i weryfikowanie dostępności maszyny wirtualnej](scripts/create-verify-virtual-machine-in-lab-cli.md) | Tworzy maszynę wirtualną z systemem Windows z minimalną konfiguracją. |
 | [Uruchamianie maszyny wirtualnej](scripts/start-connect-virtual-machine-in-lab-cli.md) | Uruchamia maszynę wirtualną. |
-| [Zatrzymaj i Usuń maszynę wirtualną](scripts/stop-delete-virtual-machine-in-lab-cli.md) | Kończy i usuwa maszynę wirtualną. |
+| [Zatrzymywanie i usuwanie maszyny wirtualnej](scripts/stop-delete-virtual-machine-in-lab-cli.md) | Kończy i usuwa maszynę wirtualną. |

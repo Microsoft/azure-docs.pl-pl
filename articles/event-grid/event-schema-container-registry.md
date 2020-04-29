@@ -1,6 +1,6 @@
 ---
-title: Usługa Azure Container Registry jako źródło siatki zdarzeń
-description: W tym artykule opisano właściwości, które są dostarczane dla zdarzeń rejestru kontenerów za pomocą usługi Azure Event Grid
+title: Azure Container Registry jako źródło Event Grid
+description: Opisuje właściwości, które są dostępne dla zdarzeń Container Registry z Azure Event Grid
 services: event-grid
 author: spelluru
 manager: timlt
@@ -9,32 +9,32 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: 7e33feb04edf42f1e2a32b9b8c8e2fd214692f31
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393358"
 ---
-# <a name="azure-container-registry-as-an-event-grid-source"></a>Usługa Azure Container Registry jako źródło siatki zdarzeń
+# <a name="azure-container-registry-as-an-event-grid-source"></a>Azure Container Registry jako źródło Event Grid
 
-Ten artykuł zawiera właściwości i schemat zdarzeń rejestru kontenerów.Aby zapoznać się ze schematem zdarzeń, zobacz [Schemat zdarzeń usługi Azure Event Grid](event-schema.md).
+Ten artykuł zawiera właściwości i schemat zdarzeń Container Registry.Aby zapoznać się z wprowadzeniem do schematów zdarzeń, zobacz [Azure Event Grid schemacie zdarzeń](event-schema.md).
 
-## <a name="event-grid-event-schema"></a>Schemat zdarzenia w siatce zdarzeń
+## <a name="event-grid-event-schema"></a>Schemat zdarzeń usługi Event Grid
 
 ### <a name="available-event-types"></a>Dostępne typy zdarzeń
 
-Usługa Azure Container Registry emituje następujące typy zdarzeń:
+Azure Container Registry emituje następujące typy zdarzeń:
 
 | Typ zdarzenia | Opis |
 | ---------- | ----------- |
-| Microsoft.ContainerRegistry.ImagePushed | Wywoływane po wypchnięciu obrazu. |
-| Plik Microsoft.ContainerRegistry.ImageDeleted | Wywoływane po usunięciu obrazu. |
-| Plik Microsoft.ContainerRegistry.ChartPushed | Wywoływane po naciśnięciu wykresu helm. |
-| Plik Microsoft.ContainerRegistry.ChartDeleted | Wywoływane po usunięciu wykresu Helm. |
+| Microsoft. ContainerRegistry. ImagePushed | Uruchamiany po wypchnięciu obrazu. |
+| Microsoft. ContainerRegistry. ImageDeleted | Uruchamiany po usunięciu obrazu. |
+| Microsoft. ContainerRegistry. ChartPushed | Uruchamiany po wypchnięciu wykresu Helm. |
+| Microsoft. ContainerRegistry. ChartDeleted | Uruchamiany po usunięciu wykresu Helm. |
 
 ### <a name="example-event"></a>Przykładowe zdarzenie
 
-W poniższym przykładzie przedstawiono schemat zdarzenia wypchniętego obrazu: 
+W poniższym przykładzie przedstawiono schemat wypychanego zdarzenia obrazu: 
 
 ```json
 [{
@@ -67,7 +67,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia wypchniętego obrazu:
 }]
 ```
 
-Schemat zdarzenia usuniętego obrazu jest podobny:
+Schemat dla usuniętego zdarzenia obrazu jest podobny:
 
 ```json
 [{
@@ -97,7 +97,7 @@ Schemat zdarzenia usuniętego obrazu jest podobny:
 }]
 ```
 
-Schemat zdarzenia wypychanego wykresu jest podobny do schematu dla sobrazowanego zdarzenia wypchniętego, ale nie zawiera obiektu żądania:
+Schemat wypychanego zdarzenia wykresu jest podobny do schematu dla zdarzenia wypychanego z obrazem, ale nie zawiera obiektu żądania:
 
 ```json
 [{
@@ -125,7 +125,7 @@ Schemat zdarzenia wypychanego wykresu jest podobny do schematu dla sobrazowanego
 }]
 ```
 
-Schemat zdarzenia usuniętego wykresu jest podobny do schematu dla zdarzenia usuniętego z obrazem, ale nie zawiera obiektu żądania:
+Schemat usuniętego wykresu jest podobny do schematu dla zdarzenia usuniętego z obrazu, ale nie zawiera obiektu żądania:
 
 ```json
 [{
@@ -159,12 +159,12 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| temat | ciąg | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie jest zapisywalne. Ta wartość jest podawana przez usługę Event Grid. |
+| temat | ciąg | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie umożliwia zapisu. Ta wartość jest podawana przez usługę Event Grid. |
 | Temat | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
-| Eventtype | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
-| eventTime | ciąg | Czas, w której zdarzenie jest generowane na podstawie czasu UTC dostawcy. |
+| Klasę | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
+| eventTime | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
 | id | ciąg | Unikatowy identyfikator zdarzenia. |
-| dane | obiekt | Dane zdarzenia magazynu obiektów blob. |
+| dane | obiekt | Dane zdarzenia magazynu obiektów BLOB. |
 | dataVersion | ciąg | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
 | metadataVersion | ciąg | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
 
@@ -173,41 +173,41 @@ Obiekt danych ma następujące właściwości:
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
 | id | ciąg | Identyfikator zdarzenia. |
-| sygnatura czasowa | ciąg | Czas, w którym wystąpiło zdarzenie. |
-| action | ciąg | Akcja, która obejmuje dostarczone zdarzenie. |
-| Docelowego | obiekt | Cel zdarzenia. |
-| Żądanie | obiekt | Żądanie, które wygenerowało zdarzenie. |
+| sygnatura czasowa | ciąg | Godzina wystąpienia zdarzenia. |
+| action | ciąg | Akcja obejmująca podane zdarzenie. |
+| obiektów | obiekt | Obiekt docelowy zdarzenia. |
+| żądając | obiekt | Żądanie, które spowodowało wygenerowanie zdarzenia. |
 
 Obiekt docelowy ma następujące właściwości:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| Mediatype | ciąg | Typ MIME obiektu, do którego istnieje odwołanie. |
-| size | liczba całkowita | Liczba bajtów zawartości. Tak samo jak pole Długość. |
-| digest | ciąg | Podsumowanie zawartości, zgodnie z definicją specyfikacji interfejsu API HTTP rejestru V2. |
-| length | liczba całkowita | Liczba bajtów zawartości. Tak samo jak pole Rozmiar. |
+| mediaType | ciąg | Typ MIME obiektu, do którego istnieje odwołanie. |
+| size | liczba całkowita | Liczba bajtów zawartości. Takie samo jak długość pola. |
+| digest | ciąg | Podsumowanie zawartości zgodnie ze specyfikacją interfejsu API protokołu HTTP w rejestrze w wersji 2. |
+| length | liczba całkowita | Liczba bajtów zawartości. Takie samo jak rozmiar pola. |
 | repozytorium | ciąg | Nazwa repozytorium. |
 | tag | ciąg | Nazwa tagu. |
 | name | ciąg | Nazwa wykresu. |
-| version | ciąg | Wersja wykresu. |
+| Wersja | ciąg | Wersja wykresu. |
 
 Obiekt żądania ma następujące właściwości:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| id | ciąg | Identyfikator żądania, które zainicjowało zdarzenie. |
-| Addr | ciąg | Adres IP lub nazwa hosta i ewentualnie port połączenia klienta, który zainicjował zdarzenie. Ta wartość jest RemoteAddr od standardowego żądania http. |
-| host | ciąg | Zewnętrznie dostępna nazwa hosta wystąpienia rejestru, określona przez nagłówek hosta http w żądaniach przychodzących. |
+| id | ciąg | Identyfikator żądania, który zainicjował zdarzenie. |
+| adresowe | ciąg | Adres IP lub nazwa hosta oraz prawdopodobnie port połączenia klienta, który zainicjował zdarzenie. Ta wartość jest RemoteAddr z standardowego żądania HTTP. |
+| host | ciąg | Dostępna zewnętrznie nazwa hosta wystąpienia rejestru określona przez nagłówek hosta HTTP w żądaniach przychodzących. |
 | method | ciąg | Metoda żądania, która wygenerowała zdarzenie. |
-| Useragent | ciąg | Nagłówek agenta użytkownika żądania. |
+| UserAgent | ciąg | Nagłówek agenta użytkownika żądania. |
 
 ## <a name="tutorials-and-how-tos"></a>Samouczki i poradniki
 |Tytuł |Opis  |
 |---------|---------|
-| [Szybki start: wysyłanie zdarzeń rejestru kontenerów](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Pokazuje, jak używać interfejsu wiersza polecenia platformy Azure do wysyłania zdarzeń rejestru kontenerów. |
+| [Szybki Start: wysyłanie zdarzeń rejestru kontenera](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Pokazuje, w jaki sposób używać interfejsu wiersza polecenia platformy Azure do wysyłania zdarzeń Container Registry. |
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać wprowadzenie do usługi Azure Event Grid, zobacz [Co to jest siatka zdarzeń?](overview.md)
-* Aby uzyskać więcej informacji na temat tworzenia subskrypcji usługi Azure Event Grid, zobacz [schemat subskrypcji usługi Event Grid](subscription-creation-schema.md).
+* Aby zapoznać się z wprowadzeniem do Azure Event Grid, zobacz [co to jest Event Grid?](overview.md)
+* Aby uzyskać więcej informacji na temat tworzenia subskrypcji Azure Event Grid, zobacz [Event Grid schematu subskrypcji](subscription-creation-schema.md).

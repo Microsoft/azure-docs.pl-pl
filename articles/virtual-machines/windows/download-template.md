@@ -1,6 +1,6 @@
 ---
-title: Pobierz szablon maszyny Wirtualnej platformy Azure
-description: Pobierz szablon maszyny Wirtualnej przy użyciu portalu lub programu PowerShell.
+title: Pobieranie szablonu dla maszyny wirtualnej platformy Azure
+description: Pobierz szablon dla maszyny wirtualnej przy użyciu portalu lub programu PowerShell.
 author: cynthn
 manager: gwallace
 ms.service: virtual-machines
@@ -9,35 +9,35 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
 ms.openlocfilehash: af6905f0ba62a9053e44134348721312ade6b9d7
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82085386"
 ---
 # <a name="download-the-template-for-a-vm"></a>Pobieranie szablonu dla maszyny wirtualnej
-Podczas tworzenia maszyny Wirtualnej na platformie Azure przy użyciu portalu lub programu PowerShell szablon Menedżera zasobów jest tworzony automatycznie dla Ciebie. Za pomocą tego szablonu można szybko powielić wdrożenie. Szablon zawiera informacje o wszystkich zasobach w grupie zasobów. Dla maszyny wirtualnej oznacza to, że szablon zawiera wszystko, co jest tworzone w celu obsługi maszyny Wirtualnej w tej grupie zasobów, w tym zasobów sieciowych.
+Podczas tworzenia maszyny wirtualnej na platformie Azure przy użyciu portalu lub programu PowerShell automatycznie tworzony jest szablon Menedżer zasobów. Możesz użyć tego szablonu, aby szybko zduplikować wdrożenie. Szablon zawiera informacje na temat wszystkich zasobów w grupie zasobów. W przypadku maszyny wirtualnej oznacza to, że szablon zawiera wszystkie elementy, które są tworzone w ramach obsługi maszyny wirtualnej w tej grupie zasobów, w tym zasoby sieciowe.
 
-## <a name="download-the-template-using-the-portal"></a>Pobierz szablon za pomocą portalu
+## <a name="download-the-template-using-the-portal"></a>Pobieranie szablonu przy użyciu portalu
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. Jedno z lewego menu wybierz opcję **Maszyny wirtualne**.
+2. Jedno z menu po lewej stronie, wybierz pozycję **Virtual Machines**.
 3. Wybierz maszynę wirtualną z listy.
-4. Wybierz **pozycję Eksportuj szablon**.
-5. Wybierz **polecenie Pobierz** z menu u góry i zapisz plik zip na komputerze lokalnym.
-6. Otwórz plik zip i wyodrębnij pliki do folderu. Plik .zip zawiera:
+4. Wybierz pozycję **Eksportuj szablon**.
+5. Wybierz pozycję **Pobierz** z menu u góry i Zapisz plik zip na komputerze lokalnym.
+6. Otwórz plik zip i Wyodrębnij pliki do folderu. Plik. zip zawiera:
    
-   * parameters.json
-   * plik template.json
+   * Parameters. JSON
+   * Template. JSON
 
-Plik template.json jest szablonem.
+Plik Template. JSON jest szablonem.
 
 ## <a name="download-the-template-using-powershell"></a>Pobieranie szablonu przy użyciu programu PowerShell
-Plik szablonu .json można również pobrać za pomocą polecenia cmdlet [Export-AzResourceGroup.](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup) Za pomocą `-path` tego parametru można podać nazwę pliku i ścieżkę dla pliku .json. W tym przykładzie pokazano, jak pobrać szablon grupy zasobów o nazwie **myResourceGroup** do folderu **C:\users\public\downloads** na komputerze lokalnym.
+Plik szablonu JSON można także pobrać przy użyciu polecenia cmdlet [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup) . Możesz użyć `-path` parametru, aby podać nazwę pliku i ścieżkę pliku. JSON. Ten przykład pokazuje, jak pobrać szablon dla grupy zasobów o nazwie Moja **zasobów** do folderu **C:\users\public\downloads** na komputerze lokalnym.
 
 ```powershell
     Export-AzResourceGroup -ResourceGroupName "myResourceGroup" -Path "C:\users\public\downloads"
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o wdrażaniu zasobów przy użyciu szablonów, zobacz Przewodnik [po szablonie Menedżera zasobów](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+Aby dowiedzieć się więcej o wdrażaniu zasobów przy użyciu szablonów, zobacz [Przewodnik po szablonach Menedżer zasobów](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 

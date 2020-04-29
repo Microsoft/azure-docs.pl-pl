@@ -1,6 +1,6 @@
 ---
-title: Integracja usługi Azure Stream Analytics z usługą Azure Machine Learning
-description: W tym artykule opisano sposób integrowania zadania usługi Azure Stream Analytics z modelami usługi Azure Machine Learning.
+title: Integracja Azure Stream Analytics z usługą Azure Machine Learning
+description: W tym artykule opisano sposób integrowania zadania Azure Stream Analytics z modelami Azure Machine Learning.
 author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
@@ -8,60 +8,60 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.openlocfilehash: 07fa72f086b676723279ee4b8efd927beb2692f0
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81481970"
 ---
-# <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integracja usługi Azure Stream Analytics z usługą Azure Machine Learning (wersja zapoznawcza)
+# <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integracja Azure Stream Analytics z Azure Machine Learning (wersja zapoznawcza)
 
-Można zaimplementować modele uczenia maszynowego jako funkcję zdefiniowaną przez użytkownika (UDF) w zadaniach usługi Azure Stream Analytics, aby wykonywać ocenianie w czasie rzeczywistym i przewidywanie danych wejściowych przesyłania strumieniowego. [Usługa Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) umożliwia używanie dowolnego popularnego narzędzia typu open source, takiego jak Tensorflow, scikit-learn lub PyTorch, do przygotowywania, uczenia i wdrażania modeli.
+Modele uczenia maszynowego można zaimplementować jako funkcję zdefiniowaną przez użytkownika (UDF) w zadaniach Azure Stream Analytics, aby wykonywać oceny w czasie rzeczywistym i przewidywania dotyczące danych wejściowych przesyłania strumieniowego. [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) umożliwia korzystanie z dowolnego popularnego narzędzia typu "open source", takiego jak Tensorflow, scikit-uczenie się lub PyTorch, do przygotowywania, uczenia i wdrażania modeli.
 
 > [!NOTE]
-> Ta funkcja jest w publicznej wersji zapoznawczej. Dostęp do tej funkcji można uzyskać w witrynie Azure portal tylko za pomocą [łącza w wersji zapoznawczej portalu usługi Stream Analytics](https://aka.ms/asaportalpreview). Ta funkcja jest również dostępna w najnowszej wersji [narzędzi usługi Stream Analytics dla programu Visual Studio.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install)
+> Ta funkcja jest w publicznej wersji zapoznawczej. Możesz uzyskać dostęp do tej funkcji na Azure Portal tylko przy użyciu [linku w wersji zapoznawczej portalu Stream Analytics](https://aka.ms/asaportalpreview). Ta funkcja jest również dostępna w najnowszej wersji [narzędzi Stream Analytics Tools for Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Wykonaj następujące kroki przed dodaniem modelu uczenia maszynowego jako funkcji do zadania usługi Stream Analytics:
+Przed dodaniem modelu uczenia maszynowego do zadania Stream Analytics należy wykonać następujące czynności:
 
-1. Użyj usługi Azure Machine Learning, aby [wdrożyć model jako usługę sieci web.](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)
+1. Użyj Azure Machine Learning [, aby wdrożyć model jako usługę sieci Web](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
 
-2. Skrypt oceniania powinien mieć [przykładowe dane wejściowe i wyjściowe,](../machine-learning/how-to-deploy-and-where.md#example-entry-script) które są używane przez usługę Azure Machine Learning do generowania specyfikacji schematu. Usługa Stream Analytics używa schematu do zrozumienia podpisu funkcji usługi sieci web.
+2. Skrypt oceniania powinien zawierać [przykładowe dane wejściowe i wyjściowe](../machine-learning/how-to-deploy-and-where.md#example-entry-script) , które są używane przez Azure Machine Learning do generowania specyfikacji schematu. Stream Analytics używa schematu, aby zrozumieć podpis funkcji usługi sieci Web.
 
-3. Upewnij się, że usługa sieci web akceptuje i zwraca dane seryjne JSON.
+3. Upewnij się, że usługa sieci Web akceptuje i zwraca dane serializowane JSON.
 
-4. Wdrażanie modelu w [usłudze Azure Kubernetes dla](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) wdrożeń produkcyjnych na dużą skalę. Jeśli usługa sieci web nie jest w stanie obsłużyć liczby żądań pochodzących z zadania, wydajność zadania usługi Stream Analytics zostanie obniżona, co ma wpływ na opóźnienie. Modele wdrożone w przypadku wystąpienia kontenerów platformy Azure nie są obsługiwane dzisiaj, ale staną się dostępne w nadchodzących miesiącach.
+4. Wdróż swój model w [usłudze Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) na potrzeby wdrożeń produkcyjnych o dużej skali. Jeśli usługa sieci Web nie może obsłużyć liczby żądań wysyłanych z zadania, wydajność zadania Stream Analytics zostanie obniżona, co wpływa na opóźnienia. Modele wdrożone na Azure Container Instances nie są obecnie obsługiwane, ale staną się dostępne w najbliższych miesiącach.
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>Dodawanie modelu uczenia maszynowego do zadania
 
-Funkcje usługi Azure Machine Learning można dodać do zadania usługi Stream Analytics bezpośrednio z witryny Azure portal.
+Do zadania Stream Analytics można dodawać funkcje Azure Machine Learning bezpośrednio z Azure Portal.
 
-1. Przejdź do zadania usługi Stream Analytics w witrynie Azure portal i wybierz pozycję **Funkcje** w obszarze **Topologia zadań**. Następnie wybierz **usługę Azure ML z** menu rozwijanego + **Dodaj.**
+1. Przejdź do zadania Stream Analytics w Azure Portal, a następnie wybierz pozycję **funkcje** w obszarze **topologia zadania**. Następnie wybierz pozycję **Azure ml Service** z menu rozwijanego **+ Dodaj** .
 
    ![Dodawanie usługi Azure ML UDF](./media/machine-learning-udf/add-azureml-udf.png)
 
-2. Wypełnij formularz **funkcji usługi Azure Machine Learning Service** następującymi wartościami właściwości:
+2. Wypełnij formularz **funkcji usługi Azure Machine Learning** przy użyciu następujących wartości właściwości:
 
    ![Konfigurowanie usługi Azure ML UDF](./media/machine-learning-udf/configure-azureml-udf.png)
 
-W poniższej tabeli opisano każdą właściwość funkcji usługi Azure ML w usłudze Stream Analytics.
+W poniższej tabeli opisano każdą właściwość funkcji usługi Azure ML w Stream Analytics.
 
 |Właściwość|Opis|
 |--------|-----------|
-|Alias funkcji|Wprowadź nazwę, aby wywołać funkcję w kwerendzie.|
-|Subskrypcja|Twoja subskrypcja platformy Azure..|
-|Obszar roboczy usługi Azure ML|Obszar roboczy usługi Azure Machine Learning używany do wdrażania modelu jako usługi sieci web.|
-|Wdrożenia|Usługa sieci web obsługujących model.|
-|Podpis funkcji|Podpis usługi sieci web wywnioskować ze specyfikacji schematu interfejsu API. Jeśli podpis nie powiedzie się załadować, sprawdź, czy podano przykładowe dane wejściowe i wyjściowe w skrypcie oceniania, aby automatycznie wygenerować schemat.|
-|Liczba równoległych żądań na partycję|Jest to zaawansowana konfiguracja w celu optymalizacji przepływności na dużą skalę. Ten numer reprezentuje równoczesnych żądań wysyłanych z każdej partycji zadania do usługi sieci web. Zadania z sześcioma jednostkami przesyłania strumieniowego (SU) i niższymi mają jedną partycję. Zadania z 12 SU mają dwie partycje, 18 SUs mają trzy partycje i tak dalej.<br><br> Na przykład jeśli zadanie ma dwie partycje i ustawisz ten parametr na cztery, będzie osiem równoczesnych żądań z zadania do usługi sieci web. W tej chwili publicznej wersji zapoznawczej tej wartości domyślnie 20 i nie można zaktualizować.|
-|Maksymalna liczba partii|Jest to zaawansowana konfiguracja do optymalizacji przepływności na dużą skalę. Ta liczba reprezentuje maksymalną liczbę zdarzeń, które mają być wsadowe razem w jednym żądaniu wysłanym do usługi sieci web.|
+|Alias funkcji|Wprowadź nazwę, aby wywołać funkcję w zapytaniu.|
+|Subskrypcja|Twoja subskrypcja platformy Azure.|
+|Obszar roboczy usługi Azure ML|Azure Machine Learning obszar roboczy, który został użyty do wdrożenia modelu jako usługi sieci Web.|
+|Wdrożenia|Usługa sieci Web obsługująca model.|
+|Sygnatura funkcji|Podpis usługi sieci Web wywnioskowanej ze specyfikacji schematu interfejsu API. Jeśli nie można załadować podpisu, sprawdź, czy podano przykładowe dane wejściowe i wyjściowe w skrypcie oceniania, aby automatycznie wygenerować schemat.|
+|Liczba żądań równoległych na partycję|Jest to zaawansowana konfiguracja umożliwiająca optymalizację przepływności o dużej skali. Ta liczba przedstawia współbieżne żądania wysyłane z każdej partycji zadania do usługi sieci Web. Zadania z sześcioma jednostkami przesyłania strumieniowego (SU) i niższą mają jedną partycję. Zadania z 12 usługami SUs mają dwie partycje, 18 usługi SUs mają trzy partycje i tak dalej.<br><br> Na przykład jeśli zadanie ma dwie partycje i ustawisz ten parametr na cztery, do usługi sieci Web będzie osiem współbieżnych żądań z zadania. W tej chwili w publicznej wersji zapoznawczej ta wartość jest domyślnie równa 20 i nie można jej zaktualizować.|
+|Maksymalna liczba partii|Jest to zaawansowana konfiguracja do optymalizowania przepływności o dużej skali. Ta liczba przedstawia maksymalną liczbę zdarzeń, które należy wykonać w ramach pojedynczego żądania wysyłanego do usługi sieci Web.|
 
 ## <a name="supported-input-parameters"></a>Obsługiwane parametry wejściowe
 
-Gdy zapytanie usługi Stream Analytics wywołuje udf usługi Azure Machine Learning, zadanie tworzy żądanie serializowane JSON do usługi sieci web. Żądanie jest oparte na schemacie specyficznym dla modelu. Aby [automatycznie wygenerować schemat,](../machine-learning/how-to-deploy-and-where.md)należy podać przykładowe dane wejściowe i wyjściowe w skrypcie oceniania. Schemat umożliwia usługi Stream Analytics do konstruowania żądań serializowanych JSON dla dowolnego z obsługiwanych typów danych, takich jak numpy, pandas i PySpark. Wiele zdarzeń wejściowych mogą być wsadowe razem w jednym żądaniu.
+Gdy zapytanie Stream Analytics wywoła Azure Machine Learning UDF, zadanie tworzy serializowane żądanie JSON do usługi sieci Web. Żądanie jest oparte na schemacie specyficznym dla modelu. Musisz podać przykładowe dane wejściowe i wyjściowe w skrypcie oceniania, aby [automatycznie wygenerować schemat](../machine-learning/how-to-deploy-and-where.md). Schemat umożliwia Stream Analytics konstruowania serializowanego żądania JSON dla dowolnego z obsługiwanych typów danych, takich jak numpy, Pandas i PySpark. Wiele zdarzeń wejściowych można wsadowo w pojedynczym żądaniu.
 
-Następujące zapytanie usługi Stream Analytics jest przykładem sposobu wywoływania udf usługi Azure Machine Learning:
+Poniższe Stream Analytics Query to przykład wywołania Azure Machine Learning UDF:
 
 ```SQL
 SELECT udf.score(<model-specific-data-structure>)
@@ -69,15 +69,15 @@ INTO output
 FROM input
 ```
 
-Usługa Stream Analytics obsługuje tylko jeden parametr dla funkcji usługi Azure Machine Learning. Może być konieczne przygotowanie danych przed przekazaniem ich jako danych wejściowych do udf uczenia maszynowego.
+Stream Analytics obsługuje tylko przekazywanie jednego parametru dla funkcji Azure Machine Learning. Może być konieczne przygotowanie danych przed przekazaniem ich jako danych wejściowych do formatu UDF w usłudze Machine Learning.
 
-## <a name="pass-multiple-input-parameters-to-the-udf"></a>Przekazywanie wielu parametrów wejściowych do UDF
+## <a name="pass-multiple-input-parameters-to-the-udf"></a>Przekazywanie wielu parametrów wejściowych do formatu UDF
 
-Najczęstsze przykłady danych wejściowych do modeli uczenia maszynowego są numpy tablice i DataFrames. Można utworzyć tablicę przy użyciu języka JavaScript UDF i utworzyć moduł `WITH` DataFrame z serialem JSON przy użyciu klauzuli.
+Najczęściej spotykane przykłady danych wejściowych modeli uczenia maszynowego to numpy tablice i dataframes. Można utworzyć tablicę przy użyciu formatu UDF języka JavaScript i utworzyć wieloserializowaną ramkę danych JSON przy `WITH` użyciu klauzuli.
 
-### <a name="create-an-input-array"></a>Tworzenie tablicy wejściowej
+### <a name="create-an-input-array"></a>Utwórz tablicę wejściową
 
-Można utworzyć UDF JavaScript, który akceptuje *N* liczba wejść i tworzy tablicę, która może służyć jako dane wejściowe do usługi Azure Machine Learning UDF.
+Można utworzyć kod UDF języka JavaScript, który akceptuje *N* liczba danych wejściowych i tworzy tablicę, która może być używana jako dane wejściowe dla Azure Machine Learning UDF.
 
 ```javascript
 function createArray(vendorid, weekday, pickuphour, passenger, distance) {
@@ -87,7 +87,7 @@ function createArray(vendorid, weekday, pickuphour, passenger, distance) {
 }
 ```
 
-Po dodaniu interfejsu UDF javascript do zadania można wywołać udf usługi Azure Machine Learning przy użyciu następującej kwerendy:
+Po dodaniu UDF języka JavaScript do zadania można wywołać Azure Machine Learning UDF przy użyciu następującego zapytania:
 
 ```SQL
 SELECT udf.score(
@@ -97,7 +97,7 @@ INTO output
 FROM input
 ```
 
-Następujące JSON jest przykładowe żądanie:
+Poniższy kod JSON jest przykładowym żądaniem:
 
 ```JSON
 {
@@ -108,11 +108,11 @@ Następujące JSON jest przykładowe żądanie:
 }
 ```
 
-### <a name="create-a-pandas-or-pyspark-dataframe"></a>Tworzenie pandas lub PySpark DataFrame
+### <a name="create-a-pandas-or-pyspark-dataframe"></a>Tworzenie ramki danych Pandas lub PySpark
 
-Można użyć `WITH` klauzuli do utworzenia JSON serializowane DataFrame, które mogą być przekazywane jako dane wejściowe do usługi Azure Machine Learning UDF, jak pokazano poniżej.
+Możesz użyć klauzuli, `WITH` aby utworzyć serializowaną ramkę JSON, która może być przekazana jako dane wejściowe do Azure Machine Learning UDF, jak pokazano poniżej.
 
-Następująca kwerenda tworzy DataFrame, wybierając niezbędne pola i używa DataFrame jako dane wejściowe do usługi Azure Machine Learning UDF.
+Następujące zapytanie tworzy ramkę danych, zaznaczając niezbędne pola i używa ramki Dataframe jako dane wejściowe do Azure Machine Learning UDF.
 
 ```SQL
 WITH 
@@ -126,7 +126,7 @@ INTO output
 FROM input
 ```
 
-Następujący JSON jest przykładowe żądanie z poprzedniej kwerendy:
+Poniższy kod JSON jest przykładowym żądaniem z poprzedniego zapytania:
 
 ```JSON
 {
@@ -147,27 +147,27 @@ Następujący JSON jest przykładowe żądanie z poprzedniej kwerendy:
 }
 ```
 
-## <a name="optimize-the-performance-for-azure-machine-learning-udfs"></a>Optymalizacja wydajności dla plików UEDF usługi Azure Machine Learning
+## <a name="optimize-the-performance-for-azure-machine-learning-udfs"></a>Optymalizacja wydajności Azure Machine Learning UDF
 
-Podczas wdrażania modelu w usłudze Azure Kubernetes można profilować model w [celu określenia wykorzystania zasobów.](../machine-learning/how-to-deploy-and-where.md#profilemodel) Można również [włączyć usługę App Insights dla wdrożeń,](../machine-learning/how-to-enable-app-insights.md) aby zrozumieć szybkość żądań, czas odpowiedzi i współczynniki niepowodzeń.
+Podczas wdrażania modelu w usłudze Azure Kubernetes Service można [profilować model, aby określić wykorzystanie zasobów](../machine-learning/how-to-deploy-and-where.md#profilemodel). Możesz również [włączyć usługi App Insights dla wdrożeń](../machine-learning/how-to-enable-app-insights.md) , aby zrozumieć stawki żądań, czasy odpowiedzi i wskaźniki niepowodzeń.
 
-Jeśli masz scenariusz o wysokiej przepływności zdarzeń, może być konieczna zmiana następujących parametrów w usłudze Stream Analytics, aby osiągnąć optymalną wydajność przy niskich opóźnieniach typu end-to-end:
+Jeśli masz scenariusz o dużej przepływności zdarzeń, może być konieczna zmiana następujących parametrów w Stream Analytics, aby osiągnąć optymalną wydajność z niską opóźnieniami:
 
 1. Maksymalna liczba partii.
 2. Liczba równoległych żądań na partycję.
 
 ### <a name="determine-the-right-batch-size"></a>Określanie odpowiedniego rozmiaru partii
 
-Po wdrożeniu usługi sieci web należy wysłać przykładowe żądanie o różnych rozmiarach partii, począwszy od 50 i zwiększając je w kolejności setek. Na przykład 200, 500, 1000, 2000 i tak dalej. Można zauważyć, że po pewnym rozmiarze partii zwiększa się opóźnienie odpowiedzi. Punkt, po którym opóźnienie zwiększa odpowiedź powinna być maksymalna liczba partii dla zadania.
+Po wdrożeniu usługi sieci Web wysyłaj przykładowe żądanie o różne rozmiary partii, rozpoczynając od 50 i zwiększając je w kolejności setek. Na przykład 200, 500, 1000, 2000 i tak dalej. Należy zauważyć, że po pewnym rozmiarze wsadu opóźnienie odpowiedzi wzrasta. Po upływie tego czasu opóźnienie odpowiedzi powinno być maksymalną liczbą partii dla danego zadania.
 
-### <a name="determine-the-number-of-parallel-requests-per-partition"></a>Określanie liczby równoległych żądań na partycję
+### <a name="determine-the-number-of-parallel-requests-per-partition"></a>Określ liczbę żądań równoległych na partycję
 
-Przy optymalnym skalowaniu zadanie usługi Stream Analytics powinno mieć możliwość wysyłania wielu równoległych żądań do usługi sieci web i uzyskania odpowiedzi w ciągu kilku milisekund. Opóźnienie odpowiedzi usługi sieci web może bezpośrednio wpłynąć na opóźnienie i wydajność zadania usługi Stream Analytics. Jeśli wywołanie z zadania do usługi sieci web zajmuje dużo czasu, prawdopodobnie zobaczysz wzrost opóźnienia znaku wodnego i może również zobaczyć wzrost liczby zaległych zdarzeń wejściowych.
+W optymalnym skalowaniu zadanie Stream Analytics powinno być w stanie wysyłać wiele żądań równoległych do usługi sieci Web i uzyskać odpowiedź w ciągu kilku milisekund. Opóźnienie odpowiedzi usługi sieci Web może bezpośrednio wpływać na opóźnienia i wydajność zadania Stream Analytics. Jeśli wywołanie z zadania do usługi sieci Web zajmuje dużo czasu, prawdopodobnie zobaczysz wzrost opóźnienia w znaku wodnym i zobaczysz wzrost liczby zaległych zdarzeń wejściowych.
 
-Aby zapobiec takim opóźnieniom, upewnij się, że klaster usługi Azure Kubernetes Service (AKS) został aprowizny z [odpowiednią liczbą węzłów i replik](../machine-learning/how-to-deploy-azure-kubernetes-service.md#using-the-cli). Bardzo ważne jest, aby usługa sieci web była wysoce dostępna i zwracała pomyślne odpowiedzi. Jeśli zadanie otrzyma odpowiedź niedostępną dla usługi (503) z usługi sieci web, będzie ona stale ponawiać próbę z wykładniczym wycofywaniem. Każda odpowiedź inna niż sukces (200) i usługa niedostępna (503) spowoduje, że zadanie przejdzie do stanu awarii.
+Aby zapobiec takim opóźnieniu, należy się upewnić, że Zainicjowano obsługę klastra usługi Azure Kubernetes Service (AKS) z odpowiednią [liczbą węzłów i replik](../machine-learning/how-to-deploy-azure-kubernetes-service.md#using-the-cli). Ważne jest, aby usługa sieci Web była wysoce dostępna i zwracała Pomyślne odpowiedzi. Jeśli zadanie odbierze niedostępną odpowiedź usługi (503) z usługi sieci Web, będzie stale ponawiać próbę z powrotem z użyciem wykładniczej. Każda odpowiedź inna niż powodzenie (200) i Usługa niedostępna (503) spowodują, że zadanie przejdzie do stanu niepowodzenia.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Samouczek: funkcje języka JavaScript zdefiniowane przez użytkownika w usłudze Azure Stream Analytics](stream-analytics-javascript-user-defined-functions.md)
-* [Skalowanie zadania usługi Stream Analytics za pomocą funkcji usługi Azure Machine Learning Studio (klasycznej)](stream-analytics-scale-with-machine-learning-functions.md)
+* [Skalowanie zadania Stream Analytics za pomocą funkcji Azure Machine Learning Studio (klasycznej)](stream-analytics-scale-with-machine-learning-functions.md)
 

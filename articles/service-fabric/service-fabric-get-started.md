@@ -1,15 +1,15 @@
 ---
-title: Konfigurowanie środowiska programistycznego systemu Windows
+title: Konfigurowanie środowiska projektowego systemu Windows
 description: Zainstaluj środowisko uruchomieniowe, zestaw SDK i narzędzia oraz utwórz lokalny klaster projektowy. Po ukończeniu tej konfiguracji wszystko będzie gotowe do kompilowania aplikacji w systemie Windows.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.custom: sfrev
 ms.openlocfilehash: 1b43c838537e46ffbaf6c4adcfb117f6718bd046
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81731753"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Przygotowywanie środowiska deweloperskiego w systemie Windows
@@ -37,19 +37,19 @@ Na potrzeby tworzenia aplikacji obsługiwane są następujące wersje systemu op
 
 > [!NOTE]
 > Obsługa systemu Windows 7:
-> - System Windows 7 domyślnie zawiera program Windows PowerShell wyłącznie w wersji 2.0. Polecenia cmdlet programu PowerShell usługi Service Fabric wymagają programu PowerShell w wersji 3.0 lub nowszej. Program [Windows PowerShell 5.1][powershell5-download] można pobrać z Centrum pobierania Microsoft.
+> - System Windows 7 domyślnie zawiera program Windows PowerShell wyłącznie w wersji 2.0. Polecenia cmdlet programu PowerShell usługi Service Fabric wymagają programu PowerShell w wersji 3.0 lub nowszej. [Środowisko Windows PowerShell 5,1 można pobrać][powershell5-download] z centrum pobierania Microsoft.
 > - Serwer proxy usługi Service Fabric nie jest dostępny w systemie Windows 7.
 
 ## <a name="install-the-sdk-and-tools"></a>Instalowanie zestawu SDK i narzędzi
 
-Instalator platformy sieci Web (WebPI) jest zalecanym sposobem zainstalowania zestawu SDK i narzędzi. Jeśli zostanie wyświetlonych błędów środowiska uruchomieniowego przy użyciu interfejsu WebPI, można również znaleźć bezpośrednie łącza do instalatorów w informacjach o wersji dla określonej wersji sieci szkieletowej usług. Informacje o wersji można znaleźć w różnych ogłoszeniach o wersjach na [blogu zespołu sieci szkieletowej usług](https://blogs.msdn.microsoft.com/azureservicefabric/).
+Instalator platformy sieci Web (Instalatora WebPI) jest zalecanym sposobem instalowania zestawu SDK i narzędzi. Jeśli wystąpią błędy środowiska uruchomieniowego za pomocą Instalatora WebPI, można także znaleźć bezpośrednie linki do instalatorów w informacjach o wersji dla określonej wersji Service Fabric. Informacje o wersji znajdują się w różnych anonsach wydań na [blogu zespołu Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/).
 
 > [!NOTE]
-> Uaktualnienia klastra deweloperów lokalnej sieci szkieletowej nie są obsługiwane.
+> Uaktualnienia lokalnego klastra projektowego Service Fabric nie są obsługiwane.
 
-### <a name="to-use-visual-studio-2017-or-2019"></a>Aby korzystać z programu Visual Studio 2017 lub 2019
+### <a name="to-use-visual-studio-2017-or-2019"></a>Aby użyć programu Visual Studio 2017 lub 2019
 
-Narzędzia sieci szkieletowej usług są częścią obciążenia programu Azure Development w programie Visual Studio 2017 i 2019. Włącz to obciążenie w ramach instalacji programu Visual Studio.
+Service Fabric Tools są częścią obciążeń programistycznych platformy Azure w programie Visual Studio 2017 i 2019. Włącz to obciążenie w ramach instalacji programu Visual Studio.
 Ponadto należy zainstalować zestaw SDK i środowisko uruchomieniowe usługi Microsoft Azure Service Fabric przy użyciu Instalatora platformy sieci Web.
 
 * [Instalowanie zestawu SDK usługi Microsoft Azure Service Fabric][core-sdk]
@@ -68,13 +68,13 @@ Jeśli potrzebujesz tylko zestawu SDK, możesz zainstalować ten pakiet:
 
 Bieżące wersje:
 
-* Zestaw SDK i narzędzia sieci szkieletowej usług 4.1.409
-* Środowisko uruchomieniowe sieci szkieletowej usług 7.1.409
+* Service Fabric zestawu SDK i narzędzi 4.1.409
+* 7.1.409 środowiska uruchomieniowego Service Fabric
 
-Aby uzyskać listę obsługiwanych wersji, zobacz [Wersje sieci szkieletowej usług](service-fabric-versions.md)
+Aby uzyskać listę obsługiwanych wersji, zobacz [Service Fabric wersje](service-fabric-versions.md)
 
 > [!NOTE]
-> Pojedyncze klastry maszyn (OneBox) nie są obsługiwane dla uaktualnień aplikacji lub klastra; usuń klaster OneBox i utwórz go ponownie, jeśli chcesz wykonać uaktualnienie klastra lub masz jakiekolwiek problemy z wykonywaniem uaktualnienia aplikacji. 
+> Klastry pojedynczej maszyny (jednopunktowy) nie są obsługiwane w przypadku uaktualnień aplikacji lub klastra. Usuń klaster jednopunktowy i utwórz go ponownie, jeśli konieczne jest przeprowadzenie uaktualnienia klastra lub problemy z uaktualnieniem aplikacji. 
 
 ## <a name="enable-powershell-script-execution"></a>Włączanie wykonywania skryptów programu PowerShell
 
@@ -84,15 +84,15 @@ Platforma Service Fabric korzysta ze skryptów programu Windows PowerShell do tw
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 
-## <a name="install-docker-optional"></a>Instalowanie platformy Docker (opcjonalnie)
+## <a name="install-docker-optional"></a>Zainstaluj platformę Docker (opcjonalnie)
 
-[Usługa Sieci szkieletowej jest koordynatorem kontenerów](service-fabric-containers-overview.md) do wdrażania mikrousług w klastrze komputerów. Aby uruchomić aplikacje kontenerów systemu Windows w lokalnym klastrze deweloperów, należy najpierw zainstalować platformę Docker dla systemu Windows. Pobierz [docker CE dla Windows (stabilny)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Po zainstalowaniu i uruchomieniu programu Docker kliknij prawym przyciskiem myszy jego ikonę na pasku zadań i wybierz pozycję **Switch to Windows containers** (Przełącz na kontenery systemu Windows). Ten krok jest wymagany do uruchomienia obrazów platformy Docker opartych na systemie Windows.
+[Service Fabric to koordynator kontenera](service-fabric-containers-overview.md) służący do wdrażania mikrousług w klastrze maszyn. Aby uruchamiać aplikacje kontenera systemu Windows w lokalnym klastrze programistycznym, należy najpierw zainstalować Docker for Windows. Pobierz [Docker CE for Windows (stabilny)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Po zainstalowaniu i uruchomieniu programu Docker kliknij prawym przyciskiem myszy jego ikonę na pasku zadań i wybierz pozycję **Switch to Windows containers** (Przełącz na kontenery systemu Windows). Ten krok jest wymagany do uruchomienia obrazów platformy Docker opartych na systemie Windows.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Po skonfigurowaniu środowiska projektowego możesz zacząć kompilować i uruchamiać aplikacje.
 
-* [Dowiedz się, jak tworzyć, wdrażać aplikacje i zarządzać nimi](service-fabric-tutorial-create-dotnet-app.md)
+* [Dowiedz się, jak tworzyć i wdrażać aplikacje oraz zarządzać nimi](service-fabric-tutorial-create-dotnet-app.md)
 * [Informacje o modelach programowania: Reliable Services i Reliable Actors](service-fabric-choose-framework.md)
 * [Przykłady kodu platformy Service Fabric w witrynie GitHub](https://aka.ms/servicefabricsamples)
 * [Wizualizowanie klastra przy użyciu usługi Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)

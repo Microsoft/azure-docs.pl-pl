@@ -1,6 +1,6 @@
 ---
 title: Ładowanie danych do usługi Azure SQL Data Warehouse
-description: Kopiowanie danych do magazynu SQL Azure data warehouse za pomocą usługi Azure Data Factory
+description: Używanie Azure Data Factory do kopiowania danych do Azure SQL Data Warehouse
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -12,53 +12,53 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/16/2020
 ms.openlocfilehash: 1a764f392402acf9aa405468470d0fb6f680d755
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461112"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Load data into Azure SQL Data Warehouse by using Azure Data Factory (Ładowanie danych do usługi Azure SQL Data Warehouse przy użyciu usługi Azure Data Factory)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-[Usługa Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) to oparta na chmurze, skalowawska baza danych, która może przetwarzać ogromne ilości danych, zarówno relacyjnych, jak i nierelacyjnych. Usługa SQL Data Warehouse jest oparta na architekturze przetwarzania równoległego (MPP), która jest zoptymalizowana pod kątem obciążeń magazynu danych przedsiębiorstwa. Oferuje elastyczność chmury z elastycznością skalowania pamięci masowej i obliczania niezależnie.
+[Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) to oparta na chmurze baza danych skalowalna w poziomie, która umożliwia przetwarzanie dużych ilości danych, zarówno relacyjnych, jak i nierelacyjnych. SQL Data Warehouse jest oparty na architekturze wysoce Parallel Processing (MPP) zoptymalizowanej pod kątem obciążeń magazynu danych w przedsiębiorstwie. Oferuje elastyczność chmury i umożliwia niezależne skalowanie magazynu i obliczanie.
 
-Wprowadzenie do usługi Azure SQL Data Warehouse jest teraz łatwiejsze niż kiedykolwiek podczas korzystania z usługi Azure Data Factory. Usługa Azure Data Factory to w pełni zarządzana usługa integracji danych oparta na chmurze. Za pomocą tej usługi można wypełnić magazyn danych SQL danymi z istniejącego systemu i zaoszczędzić czas podczas tworzenia rozwiązań analitycznych.
+Wprowadzenie do Azure SQL Data Warehouse jest teraz łatwiejsze niż kiedykolwiek wcześniej podczas korzystania z Azure Data Factory. Azure Data Factory to w pełni zarządzana usługa integracji danych oparta na chmurze. Za pomocą usługi można wypełnić SQL Data Warehouse danymi z istniejącego systemu i zaoszczędzić czas podczas kompilowania rozwiązań analitycznych.
 
-Usługa Azure Data Factory oferuje następujące korzyści związane z ładowaniem danych do usługi Azure SQL Data Warehouse:
+Azure Data Factory oferuje następujące korzyści związane z ładowaniem danych do Azure SQL Data Warehouse:
 
-* **Łatwy w konfiguracji:** intuicyjny 5-stopniowy kreator bez konieczności tworzenia skryptów.
-* **Obsługa magazynu danych:** wbudowana obsługa bogatego zestawu lokalnych i chmurowych magazynów danych. Aby uzyskać szczegółową listę, zobacz tabelę [obsługiwanych magazynów danych](copy-activity-overview.md#supported-data-stores-and-formats).
-* **Bezpieczne i zgodne**: Dane są przesyłane za pośrednictwem protokołu HTTPS lub usługi ExpressRoute. Globalna obecność usługi gwarantuje, że dane nigdy nie opuszczają granicy geograficznej.
-* **Niezrównana wydajność przy użyciu PolyBase:** Polybase jest najbardziej efektywnym sposobem przenoszenia danych do usługi Azure SQL Data Warehouse. Funkcja obiektu blob przemieszczania, aby osiągnąć wysokie prędkości ładowania ze wszystkich typów magazynów danych, w tym magazynu obiektów Blob platformy Azure i magazynu usługi Data Lake. (Polybase domyślnie obsługuje magazyn obiektów Blob platformy Azure i magazyn usługi Azure Data Lake Store). Aby uzyskać szczegółowe informacje, zobacz [Kopiowanie wydajności działania](copy-activity-performance.md).
+* **Łatwa konfiguracja**: Intuicyjny kreator 5-etapowy bez konieczności wykonywania skryptów.
+* **Obsługa rozbudowanych magazynów danych**: Wbudowana obsługa bogatego zestawu lokalnych i opartych na chmurze magazynów danych. Aby uzyskać szczegółową listę, zobacz tabelę [obsługiwanych magazynów danych](copy-activity-overview.md#supported-data-stores-and-formats).
+* **Bezpieczeństwo i zgodność**: dane są przesyłane za pośrednictwem protokołu HTTPS lub ExpressRoute. Globalna obecność usługi gwarantuje, że dane nigdy nie opuszczą granicy geograficznej.
+* **Niezrównana wydajność przy użyciu bazy danych bazowych**: baza jest najbardziej wydajnym sposobem, aby przenieść dane do Azure SQL Data Warehouse. Funkcja tymczasowych obiektów BLOB umożliwia uzyskanie dużej szybkości ładowania ze wszystkich typów magazynów danych, w tym usługi Azure Blob Storage i Data Lake Store. (Baza danych jest domyślnie obsługiwana w usłudze Azure Blob Storage i Azure Data Lake Store). Aby uzyskać szczegółowe informacje, zobacz [wydajność działania kopiowania](copy-activity-performance.md).
 
-W tym artykule pokazano, jak korzystać z narzędzia Data kopiowania danych z fabryki danych w celu _załadowania danych z bazy danych SQL Azure do usługi Azure SQL Data Warehouse._ Możesz wykonać podobne kroki, aby skopiować dane z innych typów magazynów danych.
+W tym artykule pokazano, jak za pomocą narzędzia Kopiowanie danych Data Factory _załadować dane z Azure SQL Database do Azure SQL Data Warehouse_. Możesz wykonać podobne kroki, aby skopiować dane z innych typów magazynów danych.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji, zobacz [Kopiowanie danych do lub z usługi Azure SQL Data Warehouse przy użyciu usługi Azure Data Factory](connector-azure-sql-data-warehouse.md).
+> Aby uzyskać więcej informacji, zobacz [Kopiowanie danych do lub z Azure SQL Data Warehouse przy użyciu Azure Data Factory](connector-azure-sql-data-warehouse.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure: jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
-* Usługa Azure SQL Data Warehouse: Magazyn danych przechowuje dane, które są kopiowane z bazy danych SQL. Jeśli nie masz usługi Azure SQL Data Warehouse, zobacz instrukcje w [tworzenie magazynu danych SQL](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
-* Usługa Azure SQL Database: Ten samouczek kopiuje dane z bazy danych SQL platformy Azure za pomocą przykładowych danych programu Adventure Works LT. Bazę danych SQL można utworzyć, postępując zgodnie z instrukcjami w [obszarze Tworzenie bazy danych SQL platformy Azure](../sql-database/sql-database-get-started-portal.md).
-* Konto usługi Azure storage: usługa Azure Storage jest używana jako obiekt blob _przemieszczania_ w operacji kopiowania zbiorczego. Jeśli nie masz konta usługi Azure Storage, zobacz instrukcje podane w temacie [Tworzenie konta magazynu](../storage/common/storage-account-create.md).
+* Subskrypcja platformy Azure: Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
+* Azure SQL Data Warehouse: Magazyn danych przechowuje dane skopiowane z bazy danych SQL. Jeśli nie masz Azure SQL Data Warehouse, zapoznaj się z instrukcjami w artykule [tworzenie SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
+* Azure SQL Database: w tym samouczku kopiuje dane z bazy danych Azure SQL Database za pomocą przykładowych danych firmy Adventure Works LT. Bazę danych SQL można utworzyć, postępując zgodnie z instrukcjami zawartymi w temacie [Tworzenie bazy danych Azure SQL Database](../sql-database/sql-database-get-started-portal.md).
+* Konto usługi Azure Storage: usługa Azure Storage jest używana jako _tymczasowy_ obiekt BLOB w operacji kopiowania zbiorczego. Jeśli nie masz konta usługi Azure Storage, zobacz instrukcje podane w temacie [Tworzenie konta magazynu](../storage/common/storage-account-create.md).
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
-1. W menu po lewej stronie wybierz pozycję **Utwórz źródło** > **Data + Analytics** > **Data Factory**:
+1. W menu po lewej stronie wybierz pozycję **Utwórz zasób** > **dane + analiza** > **Data Factory**:
 
 2. Na stronie **Nowa fabryka danych** podaj wartości następujących elementów:
 
-    * **Nazwa**: Wprowadź *LoadSQLDWDemo* dla nazwy. Nazwa fabryki danych musi być *globalnie unikatowa. Jeśli zostanie wyświetlony błąd "Nazwa fabryki danych 'LoadSQLDWDemo' nie jest dostępna, wprowadź inną nazwę dla fabryki danych. Na przykład można użyć nazwy _**yourname**_**ADFTutorialDataFactory**. Spróbuj ponownie utworzyć fabrykę danych. Artykuł [Data Factory naming rules (Zasady nazewnictwa fabryki danych)](naming-rules.md) zawiera zasady nazewnictwa artefaktów usługi Data Factory.
-    * **Subskrypcja**: Wybierz subskrypcję platformy Azure, w której chcesz utworzyć fabrykę danych. 
-    * **Grupa zasobów:** Wybierz istniejącą grupę zasobów z listy rozwijanej lub wybierz opcję **Utwórz nową** i wprowadź nazwę grupy zasobów. Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
-    * **Wersja**: Wybierz **V2**.
-    * **Lokalizacja**: Wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych, które są używane przez fabrykę danych może znajdować się w innych lokalizacjach i regionach. Te magazyny danych obejmują usługi Azure Data Lake Store, Usługa Azure Storage, usługa Azure SQL Database i tak dalej.
+    * **Nazwa**: wprowadź *LoadSQLDWDemo* dla nazwy. Nazwa fabryki danych musi być * globalnie unikatowa. Jeśli zostanie wyświetlony komunikat o błędzie "Nazwa fabryki danych" LoadSQLDWDemo "jest niedostępna, wprowadź inną nazwę fabryki danych. Można na przykład _**użyć nazwy namename**_**ADFTutorialDataFactory**. Spróbuj ponownie utworzyć fabrykę danych. Artykuł [Data Factory naming rules (Zasady nazewnictwa fabryki danych)](naming-rules.md) zawiera zasady nazewnictwa artefaktów usługi Data Factory.
+    * **Subskrypcja**: wybierz subskrypcję platformy Azure, w której chcesz utworzyć fabrykę danych. 
+    * **Grupa zasobów**: wybierz istniejącą grupę zasobów z listy rozwijanej lub wybierz opcję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów. Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
+    * **Wersja**: wybierz pozycję **v2**.
+    * **Lokalizacja**: Wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych używane przez fabrykę danych mogą znajdować się w innych lokalizacjach i regionach. Te magazyny danych obejmują Azure Data Lake Store, Azure Storage, Azure SQL Database i tak dalej.
 
-3. Wybierz pozycję **Utwórz**.
-4. Po zakończeniu tworzenia przejdź do fabryki danych. Zostanie wyświetlona strona główna **usługi Data Factory,** jak pokazano na poniższej ilustracji:
+3. Wybierz przycisk **Utwórz**.
+4. Po zakończeniu tworzenia przejdź do fabryki danych. Zostanie wyświetlona strona główna **Data Factory** , jak pokazano na poniższej ilustracji:
 
    ![Strona główna fabryki danych](./media/doc-common-process/data-factory-home-page.png)
 
@@ -68,91 +68,91 @@ W tym artykule pokazano, jak korzystać z narzędzia Data kopiowania danych z fa
 
 1. Na stronie **Wprowadzenie** wybierz kafelek **Kopiowanie danych**, aby uruchomić narzędzie do kopiowania danych.
 
-1. Na stronie **Właściwości** określ **polecenie CopyFromSQLToSQLDW** dla pola **Nazwa zadania** i wybierz pozycję **Dalej**.
+1. Na stronie **Właściwości** Określ **CopyFromSQLToSQLDW** dla pola **Nazwa zadania** , a następnie wybierz przycisk **dalej**.
 
     ![Strona właściwości](./media/load-azure-sql-data-warehouse/copy-data-tool-properties-page.png)
 
 1. Na stronie **Magazyn danych źródłowych** wykonaj następujące czynności:
     >[!TIP]
-    >W tym samouczku używasz *uwierzytelniania SQL* jako typu uwierzytelniania dla magazynu danych źródłowych, ale w razie potrzeby można wybrać inne obsługiwane metody uwierzytelniania:*podmiot pomocniczy usługi* i *tożsamość zarządzana.* Szczegółowe informacje można znaleźć w odpowiednich sekcjach w [tym artykule.](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#linked-service-properties)
-    >Aby bezpiecznie przechowywać wpisy tajne dla magazynów danych, zaleca się również korzystanie z usługi Azure Key Vault. Szczegółowe ilustracje można znaleźć w [tym artykule.](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
+    >W tym samouczku jako typ uwierzytelniania dla źródłowego magazynu danych używasz *uwierzytelniania SQL* , ale możesz wybrać inne obsługiwane metody uwierzytelniania:*nazwę główną usługi* i *tożsamość zarządzaną* w razie potrzeby. Aby uzyskać szczegółowe informacje, zapoznaj się z odpowiednimi sekcjami w [tym artykule](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#linked-service-properties) .
+    >Aby bezpiecznie przechowywać wpisy tajne dla magazynów danych, zaleca się również korzystanie z Azure Key Vault. Szczegółowe ilustracje znajdują się w [tym artykule](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) .
 
-    a. kliknij **+ Utwórz nowe połączenie**.
+    a. Kliknij pozycję **+ Utwórz nowe połączenie**.
 
-    b. Wybierz z galerii **pozycję Azure SQL Database** i wybierz pozycję **Kontynuuj**. Możesz wpisać "SQL" w polu wyszukiwania, aby filtrować łączniki.
+    b. Wybierz **Azure SQL Database** z galerii, a następnie wybierz pozycję **Kontynuuj**. Możesz wpisać ciąg "SQL" w polu wyszukiwania, aby filtrować łączniki.
 
     ![Wybieranie bazy danych Azure SQL](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
 
-    d. Na stronie **Nowa usługa połączona** wybierz nazwę serwera i nazwę bazy danych z listy rozwijanej i określ nazwę użytkownika i hasło. Kliknij **pozycję Testuj połączenie,** aby sprawdzić poprawność ustawień, a następnie wybierz pozycję **Utwórz**.
+    c. Na stronie **Nowa połączona usługa** wybierz nazwę serwera i nazwę bazy danych z listy rozwijanej, a następnie określ nazwę użytkownika i hasło. Kliknij przycisk **Test connection** , aby sprawdzić poprawność ustawień, a następnie wybierz pozycję **Utwórz**.
 
     ![Konfigurowanie bazy danych Azure SQL](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
     d. Wybierz nowo utworzoną połączoną usługę jako źródło, a następnie kliknij pozycję **Dalej**.
 
-1. W **tabelach Wybierz, z których mają być kopiowane dane lub używana strona kwerendy niestandardowej,** wprowadź **saleslt,** aby filtrować tabele. Wybierz pole **(Zaznacz wszystko),** aby użyć wszystkich tabel do kopii, a następnie wybierz pozycję **Dalej**.
+1. W **wybranych tabelach, z których mają zostać skopiowane dane lub Użyj niestandardowej strony zapytania** , wprowadź **tabeli SalesLT** , aby odfiltrować tabele. Wybierz pole **(Zaznacz wszystko)** , aby użyć wszystkich tabel do skopiowania, a następnie wybierz przycisk **dalej**.
 
     ![Wybieranie tabel źródłowych](./media/load-azure-sql-data-warehouse/select-source-tables.png)
 
-1. Na stronie **Zastosuj filtr** określ ustawienia lub wybierz pozycję **Dalej**.
+1. Na stronie **Zastosuj filtr** Określ ustawienia lub wybierz przycisk **dalej**.
 
-1. Na stronie **Magazyn danych miejsce docelowe** wykonaj następujące czynności:
+1. Na stronie **docelowy magazyn danych** wykonaj następujące czynności:
     >[!TIP]
-    >W tym samouczku używasz *uwierzytelniania SQL* jako typu uwierzytelniania dla docelowego magazynu danych, ale w razie potrzeby można wybrać inne obsługiwane metody uwierzytelniania:*podmiot pomocniczy usługi* i *tożsamość zarządzana.* Szczegółowe informacje można znaleźć w odpowiednich sekcjach w [tym artykule.](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#linked-service-properties)
-    >Aby bezpiecznie przechowywać wpisy tajne dla magazynów danych, zaleca się również korzystanie z usługi Azure Key Vault. Szczegółowe ilustracje można znaleźć w [tym artykule.](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
+    >W tym samouczku użyjesz *uwierzytelniania SQL* jako typu uwierzytelniania dla docelowego magazynu danych, ale możesz wybrać inne obsługiwane metody uwierzytelniania:*nazwę główną usługi* i *tożsamość zarządzaną* w razie potrzeby. Aby uzyskać szczegółowe informacje, zapoznaj się z odpowiednimi sekcjami w [tym artykule](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#linked-service-properties) .
+    >Aby bezpiecznie przechowywać wpisy tajne dla magazynów danych, zaleca się również korzystanie z Azure Key Vault. Szczegółowe ilustracje znajdują się w [tym artykule](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) .
 
     a. Kliknij pozycję **+Utwórz nowe połączenie**, aby dodać połączenie.
 
-    b. Wybierz **pozycję Azure Synapse Analytics (dawniej SQL DW)** z galerii i wybierz pozycję **Kontynuuj**. Możesz wpisać "SQL" w polu wyszukiwania, aby filtrować łączniki.
+    b. Wybierz pozycję **Azure Synapse Analytics (wcześniej SQL DW)** z galerii, a następnie wybierz pozycję **Kontynuuj**. Możesz wpisać ciąg "SQL" w polu wyszukiwania, aby filtrować łączniki.
 
-    ![Wybierz usługę Azure SQL DW](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
+    ![Wybieranie usługi Azure SQL DW](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
-    d. Na stronie **Nowa usługa połączona** wybierz nazwę serwera i nazwę bazy danych z listy rozwijanej i określ nazwę użytkownika i hasło. Kliknij **pozycję Testuj połączenie,** aby sprawdzić poprawność ustawień, a następnie wybierz pozycję **Utwórz**.
+    c. Na stronie **Nowa połączona usługa** wybierz nazwę serwera i nazwę bazy danych z listy rozwijanej, a następnie określ nazwę użytkownika i hasło. Kliknij przycisk **Test connection** , aby sprawdzić poprawność ustawień, a następnie wybierz pozycję **Utwórz**.
 
     ![Konfigurowanie usługi Azure SQL DW](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 
     d. Wybierz nowo utworzoną połączoną usługę jako ujście, a następnie kliknij pozycję **Dalej**.
 
-1. Na stronie **Mapowanie tabel** przejrzyj zawartość i wybierz pozycję **Dalej**. Wyświetla się inteligentne mapowanie tabeli. Tabele źródłowe są mapowane do tabel docelowych na podstawie nazw tabel. Jeśli tabela źródłowa nie istnieje w miejscu docelowym, usługa Azure Data Factory domyślnie tworzy tabelę docelową o tej samej nazwie. Można również mapować tabelę źródłową do istniejącej tabeli docelowej.
+1. Na stronie **Mapowanie tabeli** przejrzyj zawartość, a następnie wybierz przycisk **dalej**. Zostanie wyświetlone inteligentne Mapowanie tabeli. Tabele źródłowe są mapowane do tabel docelowych na podstawie nazw tabel. Jeśli tabela źródłowa nie istnieje w miejscu docelowym, Azure Data Factory domyślnie utworzy tabelę docelową o tej samej nazwie. Możesz również zmapować tabelę źródłową do istniejącej tabeli docelowej.
 
    > [!NOTE]
-   > Automatyczne tworzenie tabel dla ujścia magazynu danych SQL ma zastosowanie, gdy źródłem jest program SQL Server lub Azure SQL Database. Jeśli kopiujesz dane z innego magazynu danych źródłowych, musisz wstępnie utworzyć schemat w ujściu usługi Azure SQL Data Warehouse przed wykonaniem kopii danych.
+   > Automatyczne tworzenie tabeli dla ujścia SQL Data Warehouse ma zastosowanie, gdy SQL Server lub Azure SQL Database jest źródłem. W przypadku kopiowania danych z innego źródłowego magazynu danych przed wykonaniem kopii danych należy wstępnie utworzyć schemat w Azure SQL Data Warehouse ujścia.
 
    ![Strona Mapowanie tabeli](./media/load-azure-sql-data-warehouse/table-mapping.png)
 
-1. Na stronie **Mapowanie kolumn** przejrzyj zawartość i wybierz pozycję **Dalej**. Inteligentne mapowanie tabeli jest oparte na nazwie kolumny. Jeśli usługa Data Factory zostanie automatycznie utworzona, konwersja typu danych może wystąpić w przypadku niezgodności między magazynami źródłowymi i docelowymi. Jeśli między kolumną źródłową a docelową jest nieobsługicona konwersja typu danych, obok odpowiedniej tabeli zostanie wyświetlony komunikat o błędzie.
+1. Na stronie **Mapowanie kolumn** przejrzyj zawartość, a następnie wybierz przycisk **dalej**. Mapowanie inteligentnej tabeli opiera się na nazwie kolumny. Jeśli zezwolisz Data Factory na automatyczne tworzenie tabel, konwersja typu danych może wystąpić w przypadku braku zgodności między magazynem źródłowym a docelowym. Jeśli istnieje nieobsługiwana konwersja typu danych między kolumną źródłową i docelową, zobaczysz komunikat o błędzie obok odpowiedniej tabeli.
 
     ![Strona mapowania kolumn](./media/load-azure-sql-data-warehouse/schema-mapping.png)
 
 1. Na stronie **Ustawienia** wykonaj następujące czynności:
 
-    a. W sekcji **Ustawienia przemieszczania** kliknij przycisk **+ Nowy,** aby nowy magazyn przemieszczania. Magazyn jest używany do przemieszczania danych, zanim zostanie załadowany do magazynu danych SQL przy użyciu PolyBase. Po zakończeniu kopiowania tymczasowe dane w usłudze Azure Blob Storage są automatycznie czyszczone.
+    a. W sekcji **Ustawienia przemieszczania** kliknij pozycję **+ Nowy** , aby nowe miejsce w magazynie tymczasowym. Magazyn jest używany do przemieszczania danych przed załadowaniem ich do SQL Data Warehouse przy użyciu bazy. Po zakończeniu kopiowania zostaną automatycznie oczyszczone dane tymczasowe Blob Storage platformy Azure.
 
-    b. Na stronie **Nowa usługa połączona** wybierz konto magazynu i wybierz pozycję **Utwórz,** aby wdrożyć połączony serwis.
+    b. Na stronie **Nowa połączona usługa** wybierz konto magazynu, a następnie wybierz pozycję **Utwórz** , aby wdrożyć połączoną usługę.
 
-    d. W sekcji **Ustawienia zaawansowane** usuń zaznaczenie opcji **Użyj domyślnego typu,** a następnie wybierz pozycję **Dalej**.
+    c. W sekcji **Ustawienia zaawansowane** Usuń zaznaczenie opcji **Użyj domyślnego typu** , a następnie wybierz przycisk **dalej**.
 
-    ![Konfigurowanie bazy polybase](./media/load-azure-sql-data-warehouse/configure-polybase.png)
+    ![Skonfiguruj bazę](./media/load-azure-sql-data-warehouse/configure-polybase.png)
 
-1. Na stronie **Podsumowanie** przejrzyj ustawienia i wybierz pozycję **Dalej**.
+1. Na stronie **Podsumowanie** przejrzyj ustawienia, a następnie wybierz przycisk **dalej**.
 
     ![Strona podsumowania](./media/load-azure-sql-data-warehouse/summary-page.png)
-1. Na **stronie Wdrażanie**wybierz **pozycję Monitor,** aby monitorować potok (zadanie).
+1. Na **stronie wdrażanie**wybierz pozycję **Monitoruj** , aby monitorować potok (zadanie).
 
-1. Zwróć uwagę, że karta **Monitor** po lewej stronie jest automatycznie wybrana. Po pomyślnym uruchomieniu potoku wybierz łącze **CopyFromSQLToSQLDW** w kolumnie **NAZWA POTOKU,** aby wyświetlić szczegóły uruchomienia działania i ponownie uruchomić potok.
+1. Zwróć uwagę, że karta **Monitor** po lewej stronie jest automatycznie wybrana. Po pomyślnym zakończeniu przebiegu potoku wybierz łącze **CopyFromSQLToSQLDW** w kolumnie **Nazwa potoku** , aby wyświetlić szczegóły uruchomienia działania i ponownie uruchomić potok.
 
     [![Monitorowanie uruchomień potoku](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png#lightbox)
-1. Aby przełączyć się z powrotem do widoku przebiegów potoku, wybierz łącze **Wszystkie uruchomienia potoku** u góry. Wybierz pozycję **Odśwież**, aby odświeżyć listę.
+1. Aby przełączyć się z powrotem do widoku uruchomienia potoków, wybierz link **wszystkie uruchomienia potoku** u góry. Wybierz pozycję **Odśwież**, aby odświeżyć listę.
 
     ![Monitorowanie uruchomień działania](./media/load-azure-sql-data-warehouse/activity-monitoring.png)
 
-1. Aby monitorować szczegóły wykonania dla każdego działania kopiowania, wybierz **łącze Szczegóły** (ikona okularów) w obszarze **NAZWA DZIAŁANIA** w widoku przebiegu działania. Można monitorować szczegóły, takie jak ilość danych skopiowanych ze źródła do ujścia, przepływność danych, kroki wykonywania z odpowiednim czasem trwania i używane konfiguracje.
-    ![Monitorowanie szczegółów uruchomienia aktywności](./media/load-azure-sql-data-warehouse/monitor-activity-run-details-1.png)
+1. Aby monitorować szczegóły wykonania dla każdego działania kopiowania, wybierz link **szczegóły** (ikona okularów) w obszarze **Nazwa działania** w widoku uruchomienia działania. Możesz monitorować szczegóły, takie jak ilość danych skopiowanych ze źródła do ujścia, przepływność danych, etapy wykonywania z odpowiednim czasem trwania i używane konfiguracje.
+    ![Monitoruj szczegóły uruchomienia działania](./media/load-azure-sql-data-warehouse/monitor-activity-run-details-1.png)
 
-    ![Monitorowanie szczegółów uruchomienia aktywności](./media/load-azure-sql-data-warehouse/monitor-activity-run-details-2.png)
+    ![Monitoruj szczegóły uruchomienia działania](./media/load-azure-sql-data-warehouse/monitor-activity-run-details-2.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do następującego artykułu, aby dowiedzieć się więcej o pomocy technicznej usługi Azure SQL Data Warehouse:
+Przejdź do poniższego artykułu, aby dowiedzieć się więcej o pomocy technicznej Azure SQL Data Warehouse:
 
 > [!div class="nextstepaction"]
->[Łącznik usługi Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)
+>[Łącznik Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)

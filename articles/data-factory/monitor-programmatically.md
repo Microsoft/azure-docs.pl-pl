@@ -1,6 +1,6 @@
 ---
-title: Programowo monitoruj fabrykę danych platformy Azure
-description: Dowiedz się, jak monitorować potok w fabryce danych przy użyciu różnych zestawów programistów (SDK).
+title: Programowe monitorowanie fabryki danych Azure
+description: Dowiedz się, jak monitorować potok w fabryce danych przy użyciu różnych zestawów SDK (Software Development Kit).
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,30 +11,30 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: d416a4a2bace2aeced6961d4959b0478feb0e650
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81398839"
 ---
-# <a name="programmatically-monitor-an-azure-data-factory"></a>Programowo monitoruj fabrykę danych platformy Azure
+# <a name="programmatically-monitor-an-azure-data-factory"></a>Programowe monitorowanie fabryki danych Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-W tym artykule opisano sposób monitorowania potoku w fabryce danych przy użyciu różnych zestawów programistów (SDK). 
+W tym artykule opisano sposób monitorowania potoku w fabryce danych przy użyciu różnych zestawów SDK (Software Development Kit). 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="data-range"></a>Zakres danych
 
-Usługa Data Factory przechowuje tylko dane przebiegu potoku przez 45 dni. Podczas wykonywania zapytań programowo dotyczących danych dotyczących przebiegów potoku usługi `Get-AzDataFactoryV2PipelineRun` Data Factory — na `LastUpdatedAfter` przykład `LastUpdatedBefore` za pomocą polecenia programu PowerShell — nie ma maksymalnych dat dla parametrów opcjonalnych i parametrów. Ale jeśli kwerendy dla danych w ubiegłym roku, na przykład kwerenda nie zwraca błąd, ale zwraca tylko dane uruchomienia potoku z ostatnich 45 dni.
+Data Factory przechowuje tylko dane uruchomienia potoku przez 45 dni. Podczas wykonywania zapytania programistycznego w celu uzyskania danych o Data Factory uruchomieniach potoku — na przykład `Get-AzDataFactoryV2PipelineRun` przy użyciu polecenia programu PowerShell nie są dostępne żadne `LastUpdatedAfter` maksymalne `LastUpdatedBefore` daty dla parametrów opcjonalnych i. Ale jeśli kwerenda dotyczy danych przez ostatni rok, na przykład zapytanie nie zwraca błędu, ale zwraca dane przebiegu potoku z ostatnich 45 dni.
 
-Jeśli chcesz utrwalić dane uruchamiania potoku przez ponad 45 dni, skonfiguruj własne rejestrowanie diagnostyczne za pomocą [usługi Azure Monitor.](monitor-using-azure-monitor.md)
+Jeśli chcesz utrwalać dane przebiegu potoku przez ponad 45 dni, skonfiguruj własne rejestrowanie diagnostyczne przy użyciu [Azure monitor](monitor-using-azure-monitor.md).
 
 ## <a name="net"></a>.NET
-Aby uzyskać pełną instruktaż tworzenia i monitorowania potoku przy użyciu pliku .NET SDK, zobacz [Tworzenie fabryki danych i potoku przy użyciu platformy .NET](quickstart-create-data-factory-dot-net.md).
+Pełny Przewodnik tworzenia i monitorowania potoku przy użyciu zestawu .NET SDK można znaleźć w temacie [Tworzenie fabryki danych i potoku przy użyciu platformy .NET](quickstart-create-data-factory-dot-net.md).
 
-1. Dodaj następujący kod, aby stale sprawdzać stan przebiegu potoku, dopóki nie zakończy kopiowania danych.
+1. Dodaj następujący kod, aby stale sprawdzać stan uruchomienia potoku do momentu zakończenia kopiowania danych.
 
     ```csharp
     // Monitor the pipeline run
@@ -51,7 +51,7 @@ Aby uzyskać pełną instruktaż tworzenia i monitorowania potoku przy użyciu p
     }
     ```
 
-2. Dodaj następujący kod do tego pobiera szczegóły uruchamiania działania kopiowania, na przykład rozmiar danych odczytu/zapisu.
+2. Dodaj następujący kod do elementu, który pobiera szczegóły uruchomienia działania kopiowania, na przykład rozmiar danych odczytywanych/zapisywana.
 
     ```csharp
     // Check the copy activity run details
@@ -67,12 +67,12 @@ Aby uzyskać pełną instruktaż tworzenia i monitorowania potoku przy użyciu p
     Console.ReadKey();
     ```
 
-Aby uzyskać pełną dokumentację dotyczącą sdk .NET, zobacz [Data Factory .NET SDK reference](/dotnet/api/microsoft.azure.management.datafactory?view=azure-dotnet).
+Aby uzyskać pełną dokumentację dotyczącą zestawu SDK platformy .NET, zobacz temat [informacje dotyczące Data Factory .NET SDK](/dotnet/api/microsoft.azure.management.datafactory?view=azure-dotnet).
 
 ## <a name="python"></a>Python
-Aby uzyskać pełną instruktaż tworzenia i monitorowania potoku przy użyciu zestawu SDK języka Python, zobacz [Tworzenie fabryki danych i potoku przy użyciu języka Python](quickstart-create-data-factory-python.md).
+Pełny Przewodnik tworzenia i monitorowania potoku przy użyciu zestawu SDK języka Python można znaleźć w temacie [Tworzenie fabryki danych i potoku przy użyciu języka Python](quickstart-create-data-factory-python.md).
 
-Aby monitorować przebieg potoku, dodaj następujący kod:
+Aby monitorować uruchomienie potoku, Dodaj następujący kod:
 
 ```python
 # Monitor the pipeline run
@@ -85,10 +85,10 @@ activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(
 print_activity_run_details(activity_runs_paged[0])
 ```
 
-Aby uzyskać pełną dokumentację dotyczącą zestawu SDK języka Python, zobacz [odwołanie do SDK SDK usługi Data Factory Python](/python/api/overview/azure/datafactory?view=azure-python).
+Aby uzyskać pełną dokumentację dotyczącą zestawu SDK języka Python, zobacz [Data Factory Dokumentacja zestawu SDK języka Python](/python/api/overview/azure/datafactory?view=azure-python).
 
 ## <a name="rest-api"></a>Interfejs API REST
-Aby uzyskać pełną instruktaż tworzenia i monitorowania potoku przy użyciu interfejsu API REST, zobacz [Tworzenie fabryki danych i potoku przy użyciu interfejsu API REST](quickstart-create-data-factory-rest-api.md).
+Pełny Przewodnik tworzenia i monitorowania potoku przy użyciu interfejsu API REST można znaleźć w temacie [Tworzenie fabryki danych i potoku przy użyciu interfejsu API REST](quickstart-create-data-factory-rest-api.md).
  
 1. Uruchom następujący skrypt, aby stale sprawdzać stan uruchomienia potoku do momentu zakończenia kopiowania danych.
 
@@ -115,10 +115,10 @@ Aby uzyskać pełną instruktaż tworzenia i monitorowania potoku przy użyciu i
     $response | ConvertTo-Json
     ```
 
-Aby uzyskać pełną dokumentację dotyczącą interfejsu API REST, zobacz [odwołanie do interfejsu API REST fabryki danych](/rest/api/datafactory/).
+Aby uzyskać pełną dokumentację interfejsu API REST, zobacz [Data Factory Dokumentacja interfejsu API REST](/rest/api/datafactory/).
 
 ## <a name="powershell"></a>PowerShell
-Aby uzyskać pełną instruktaż tworzenia i monitorowania potoku za pomocą programu PowerShell, zobacz [Tworzenie fabryki danych i potoku przy użyciu programu PowerShell](quickstart-create-data-factory-powershell.md).
+Pełny Przewodnik tworzenia i monitorowania potoku przy użyciu programu PowerShell znajduje się w temacie [Tworzenie fabryki danych i potoku przy użyciu programu PowerShell](quickstart-create-data-factory-powershell.md).
 
 1. Uruchom następujący skrypt, aby stale sprawdzać stan uruchomienia potoku do momentu zakończenia kopiowania danych.
 
@@ -152,8 +152,8 @@ Aby uzyskać pełną instruktaż tworzenia i monitorowania potoku za pomocą pro
     $result.Error -join "`r`n"
     ```
 
-Aby uzyskać pełną dokumentację dotyczącą poleceń cmdlet programu PowerShell, zobacz [Odwołanie do polecenia cmdlet fabryki danych programu PowerShell](/powershell/module/az.datafactory).
+Aby uzyskać pełną dokumentację poleceń cmdlet programu PowerShell, zobacz [Data Factory dokumentacja poleceń cmdlet programu PowerShell](/powershell/module/az.datafactory).
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz [Monitorowanie potoków przy użyciu usługi Azure Monitor](monitor-using-azure-monitor.md) artykuł, aby dowiedzieć się więcej na temat korzystania z usługi Azure Monitor do monitorowania potoków fabryki danych. 
+Zobacz temat [monitorowanie potoków przy użyciu Azure monitor](monitor-using-azure-monitor.md) artykułu, aby dowiedzieć się więcej o używaniu Azure monitor do monitorowania potoków Data Factory. 
 

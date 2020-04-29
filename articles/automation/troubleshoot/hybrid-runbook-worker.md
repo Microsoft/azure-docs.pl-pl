@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z hybrydowymi procesami owymi robotników systemu Azure Automation
-description: Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z hybrydowymi procesami owymi workers w usłudze Azure Automation.
+title: Rozwiązywanie problemów Azure Automation hybrydowych procesów roboczych elementów Runbook
+description: Ten artykuł zawiera informacje dotyczące rozwiązywania problemów Azure Automation hybrydowych procesów roboczych elementów Runbook.
 services: automation
 ms.service: automation
 ms.subservice: ''
@@ -10,58 +10,58 @@ ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 2b3bf6706e977bdb6915335dee59da3c250e7895
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81679335"
 ---
-# <a name="troubleshoot-hybrid-runbook-workers"></a>Rozwiązywanie problemów z hybrydowymi pracownikami uruchomieniu
+# <a name="troubleshoot-hybrid-runbook-workers"></a>Rozwiązywanie problemów dotyczących hybrydowych procesów roboczych elementów Runbook
 
-Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z hybrydowymi pracownikami uruchomieniu. wiązaniem.
+Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z hybrydowymi procesami roboczymi elementów Runbook.
 
 >[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Aby uzyskać instrukcje instalacji modułu Az w hybrydowym usłudze Runbook Worker, zobacz [Instalowanie modułu programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Dla konta automatyzacji można zaktualizować moduły do najnowszej wersji przy użyciu [jak zaktualizować moduły programu Azure PowerShell w usłudze Azure Automation.](../automation-update-azure-modules.md)
+>Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](../automation-update-azure-modules.md).
 
 ## <a name="general"></a>Ogólne
 
-Hybrydowy proces roboczy uruchomieniu zależy od agenta do komunikowania się z kontem automatyzacji, aby zarejestrować pracownika, odbierać zadania uruchomieniu i stan raportu. W systemie Windows ten agent jest agentem usługi Log Analytics dla systemu Windows. W przypadku systemu Linux jest to agent analizy dzienników dla systemu Linux.
+Hybrydowy proces roboczy elementu Runbook zależy od agenta, który komunikuje się z kontem usługi Automation w celu zarejestrowania procesu roboczego, odbierania zadań elementu Runbook i stanu raportu. Dla systemu Windows ten Agent jest agentem Log Analytics dla systemu Windows. W przypadku systemu Linux jest to Agent Log Analytics dla systemu Linux.
 
-### <a name="scenario-runbook-execution-fails"></a><a name="runbook-execution-fails"></a>Scenariusz: Wykonanie uruchomieniu nie powiedzie się
+### <a name="scenario-runbook-execution-fails"></a><a name="runbook-execution-fails"></a>Scenariusz: wykonanie elementu Runbook nie powiodło się
 
 #### <a name="issue"></a>Problem
 
-Wykonanie elementów runbook kończy się niepowodzeniem i pojawia się następujący błąd.
+Wykonanie elementu Runbook nie powiodło się i zostanie wyświetlony następujący błąd.
 
 ```error
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
-Element runbook jest zawieszony wkrótce po próbie wykonania trzy razy. Istnieją warunki, które mogą przerwać ukończenie śunku. Powiązany komunikat o błędzie może nie zawierać żadnych dodatkowych informacji.
+Element Runbook zostanie zawieszony wkrótce po ponownym uruchomieniu. Istnieją warunki, które umożliwiają przerwanie wykonywania elementu Runbook. Komunikat o błędzie pokrewny może nie zawierać żadnych dodatkowych informacji.
 
 #### <a name="cause"></a>Przyczyna
 
-Oto możliwe przyczyny:
+Możliwe są następujące przyczyny:
 
-* Programy runbook nie można uwierzytelnić przy użyciu zasobów lokalnych.
-* Hybrydowy proces roboczy znajduje się za serwerem proxy lub zaporą.
-* Komputer skonfigurowany do uruchamiania hybrydowego procesu roboczego uruchomieniu nie spełnia minimalnych wymagań sprzętowych.
+* Elementy Runbook nie mogą uwierzytelniać się za pomocą zasobów lokalnych.
+* Hybrydowy proces roboczy jest za serwerem proxy lub zaporą.
+* Komputer skonfigurowany do uruchamiania hybrydowego procesu roboczego elementu Runbook nie spełnia minimalnych wymagań sprzętowych.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Sprawdź, czy komputer ma dostęp wychodzący do ***.azure-automation.net** na porcie 443.
+Sprawdź, czy komputer ma dostęp wychodzący do ***. Azure-Automation.NET** na porcie 443.
 
-Komputery z systemem Hybrydowy proces roboczy elementu runbook powinny spełniać minimalne wymagania sprzętowe, zanim proces roboczy zostanie skonfigurowany do obsługi tej funkcji. Runbooks i proces w tle, którego używają może spowodować system jest nadmiernie używane i spowodować opóźnienia zadania runbook lub limity czasu.
+Komputery z uruchomionym hybrydowym procesem roboczym elementu Runbook powinny spełniać minimalne wymagania sprzętowe, zanim proces roboczy zostanie skonfigurowany do obsługi tej funkcji. Elementy Runbook i proces działający w tle mogą spowodować nadmierne użycie systemu i spowodować opóźnienia zadań elementu Runbook lub przekroczenia limitu czasu.
 
-Upewnij się, że komputer do uruchomienia funkcji Hybrydowy proces roboczy elementu runbook spełnia minimalne wymagania sprzętowe. Jeśli tak, należy monitorować użycie procesora CPU i pamięci w celu określenia korelacji między wydajnością procesów hybrydowego procesu roboczego systemu Runbook i systemu Windows. Każda pamięć lub ciśnienie procesora CPU może wskazywać na potrzebę uaktualnienia zasobów. Można również wybrać inny zasób obliczeniowy, który obsługuje minimalne wymagania i skalować, gdy wymagania obciążenia wskazują, że konieczne jest zwiększenie.
+Upewnij się, że komputer, na którym jest uruchomiona funkcja hybrydowego procesu roboczego elementu Runbook, spełnia minimalne wymagania sprzętowe. W takim przypadku należy monitorować użycie procesora i pamięci, aby określić korelację między wydajnością hybrydowych procesów roboczych elementów Runbook i systemu Windows. Każda pamięć lub wykorzystanie procesora CPU może wskazywać potrzebę uaktualnienia zasobów. Możesz również wybrać inny zasób obliczeniowy, który spełnia minimalne wymagania i skalę, gdy wymagania dotyczące obciążenia wskazują, że zwiększenie jest niezbędne.
 
-Sprawdź dziennik zdarzeń **Microsoft-SMA** dla odpowiedniego `Win32 Process Exited with code [4294967295]`zdarzenia z opisem . Przyczyną tego błędu jest to, że uwierzytelnianie nie zostało skonfigurowane w ykonfetowanych lub określono poświadczenia Uruchom jako dla grupy Hybrydowy proces roboczy systemu runbook. Przejrzyj uprawnienia do uruchomieniu w [uruchomionych uruchomieniu w hybrydowym uzywolnieniu uruchomieniu,](../automation-hrw-run-runbooks.md) aby potwierdzić, że uwierzytelnianie zostało poprawnie skonfigurowane dla uruchomieniu. ścieliń.
+Sprawdź w dzienniku zdarzeń **Microsoft-SMA** odpowiednie zdarzenie z opisem `Win32 Process Exited with code [4294967295]`. Przyczyną tego błędu jest to, że nie skonfigurowano uwierzytelniania w elementach Runbook ani nie określono poświadczeń Uruchom jako dla grupy hybrydowych procesów roboczych elementu Runbook. Przejrzyj uprawnienia elementu Runbook w [uruchomionych elementach Runbook w hybrydowym procesie roboczym elementu Runbook](../automation-hrw-run-runbooks.md) , aby upewnić się, że masz prawidłowo skonfigurowane uwierzytelnianie dla elementów Runbook.
 
-### <a name="scenario-event-15011-in-hybrid-runbook-worker"></a><a name="cannot-connect-signalr"></a>Scenariusz: zdarzenie 15011 w hybrydowym ucho.
+### <a name="scenario-event-15011-in-hybrid-runbook-worker"></a><a name="cannot-connect-signalr"></a>Scenariusz: zdarzenie 15011 w hybrydowym procesie roboczym elementu Runbook
 
 #### <a name="issue"></a>Problem
 
-Hybrydowy proces roboczy uruchomieniu odbiera zdarzenie 15011, wskazując, że wynik kwerendy jest nieprawidłowy. Następujący błąd pojawia się, gdy pracownik próbuje otworzyć połączenie z [serwerem SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+Hybrydowy proces roboczy elementu Runbook odbiera zdarzenie 15011, co oznacza, że wynik zapytania jest nieprawidłowy. Następujący błąd pojawia się, gdy proces roboczy próbuje otworzyć połączenie z [serwerem sygnałów](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
 
 ```error
 [AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
@@ -73,35 +73,35 @@ Hybrydowy proces roboczy uruchomieniu odbiera zdarzenie 15011, wskazując, że w
 
 #### <a name="cause"></a>Przyczyna
 
-Hybrydowy proces roboczy uruchomieniu nie został poprawnie skonfigurowany dla rozwiązania do wdrażania automatycznego. To rozwiązanie zawiera część, która łączy maszynę wirtualną z obszarem roboczym usługi Log Analytics. Skrypt programu PowerShell wyszukuje obszar roboczy w ramach subskrypcji o podanej nazwie. W takim przypadku obszar roboczy usługi Log Analytics jest w innej subskrypcji. Skrypt nie może znaleźć obszaru roboczego i próbuje go utworzyć, ale nazwa jest już zajęta. W związku z tym wdrożenie kończy się niepowodzeniem.
+Hybrydowy proces roboczy elementu Runbook nie został poprawnie skonfigurowany dla rozwiązania automatycznego wdrażania. To rozwiązanie zawiera część, która łączy maszynę wirtualną z obszarem roboczym Log Analytics. Skrypt programu PowerShell szuka obszaru roboczego w subskrypcji o podanej nazwie. W takim przypadku obszar roboczy Log Analytics jest w innej subskrypcji. Skrypt nie może odnaleźć obszaru roboczego i próbuje go utworzyć, ale nazwa jest już zajęta. W rezultacie wdrożenie nie powiedzie się.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Istnieją dwie opcje rozwiązania tego problemu:
+Dostępne są dwie opcje rozwiązania tego problemu:
 
-* Zmodyfikuj skrypt programu PowerShell, aby wyszukać obszar roboczy usługi Log Analytics w innej subskrypcji. Jest to dobre rozwiązanie, jeśli planujesz wdrożyć wiele hybrydowych maszyn roboczych systemu runbook w przyszłości.
+* Zmodyfikuj skrypt programu PowerShell, aby wyszukać obszar roboczy Log Analytics w innej subskrypcji. Jest to dobre rozwiązanie, jeśli planujesz wdrożyć wiele hybrydowych maszyn roboczych elementów Runbook w przyszłości.
 
-* Ręcznie skonfiguruj komputer roboczy do pracy w piaskownicy programu Orchestrator. Następnie uruchom system runbook utworzony na koncie usługi Azure Automation w usłudze worker, aby przetestować funkcje.
+* Ręcznie skonfiguruj maszynę procesu roboczego do uruchamiania w piaskownicy programu Orchestrator. Następnie Uruchom element Runbook utworzony na koncie Azure Automation w procesie roboczym, aby przetestować jego funkcjonalność.
 
-### <a name="scenario-windows-azure-vms-automatically-dropped-from-hybrid-worker-group"></a><a name="vm-automatically-dropped"></a>Scenariusz: maszyny wirtualne systemu Windows Azure automatycznie porzucone z hybrydowej grupy roboczej
+### <a name="scenario-windows-azure-vms-automatically-dropped-from-hybrid-worker-group"></a><a name="vm-automatically-dropped"></a>Scenariusz: maszyny wirtualne z systemem Windows Azure są automatycznie usuwane z grupy hybrydowych procesów roboczych
 
 #### <a name="issue"></a>Problem
 
-Nie widać hybrydowego procesu roboczego lub maszyn wirtualnych, gdy komputer roboczy został wyłączony przez długi czas.
+Nie widzisz hybrydowego procesu roboczego elementu Runbook ani maszyn wirtualnych, gdy maszyna procesu roboczego została wyłączona przez długi czas.
 
 #### <a name="cause"></a>Przyczyna
 
-Hybrydowy komputer roboczy systemu żyjącego nie pingował usługi Azure Automation od ponad 30 dni. W rezultacie automatyzacja oczyściła grupę Hybrydowy proces roboczy lub grupę Proces roboczy systemu. 
+Maszyna hybrydowego procesu roboczego elementu Runbook nie ma polecenia ping Azure Automation przez ponad 30 dni. W związku z tym Automatyzacja przeczyścił grupę hybrydowych procesów roboczych elementu Runbook lub grupę procesów roboczych systemu. 
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Uruchom komputer roboczy, a następnie ponownie zarejestrować go za pomocą usługi Azure Automation. Zobacz instrukcje dotyczące instalowania środowiska zestawu runbook i łączenia się z usługą Azure Automation w [przypadku wdrażania procesu roboczego hybrydowego żyli systemu Windows](../automation-windows-hrw-install.md).
+Uruchom maszynę proces roboczy, a następnie rereregister ją przy użyciu Azure Automation. Zapoznaj się z instrukcjami dotyczącymi instalowania środowiska Runbook i łączenia się z Azure Automation w artykule [wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows](../automation-windows-hrw-install.md).
 
-### <a name="scenario-no-certificate-was-found-in-the-certificate-store-on-hybrid-runbook-worker"></a><a name="no-cert-found"></a>Scenariusz: w magazynie certyfikatów w hybrydowym uichu jako pracownika uruchomieniu nie znaleziono certyfikatu
+### <a name="scenario-no-certificate-was-found-in-the-certificate-store-on-hybrid-runbook-worker"></a><a name="no-cert-found"></a>Scenariusz: nie znaleziono certyfikatu w magazynie certyfikatów w hybrydowym procesie roboczym elementu Runbook
 
 #### <a name="issue"></a>Problem
 
-System runbook uruchomiony w hybrydowym ustępuje procesowi roboczemu systemu runbook z następującym komunikatem o błędzie.
+Element Runbook uruchomiony w hybrydowym procesie roboczym elementu Runbook kończy się niepowodzeniem z następującym komunikatem o błędzie.
 
 ```error
 Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
@@ -113,17 +113,17 @@ At line:3 char:1
 ```
 #### <a name="cause"></a>Przyczyna
 
-Ten błąd występuje podczas próby użycia [konta Uruchom jako](../manage-runas-account.md) w bieśpieci runbook, który działa w hybrydowym przebiegu roboczego życinicy, gdzie nie ma certyfikatu uruchom jako konto. Hybrydowe środowiska Runbook Workers domyślnie nie mają zasobu certyfikatu lokalnie. Konto Uruchom jako wymaga prawidłowego działania tego zasobu.
+Ten błąd występuje podczas próby użycia [konta Uruchom jako](../manage-runas-account.md) w elemencie Runbook, który jest uruchamiany w hybrydowym procesie roboczym elementu Runbook, gdzie nie istnieje certyfikat konta Uruchom jako. Hybrydowe procesy robocze elementów Runbook nie mają domyślnie zasobu lokalnego. Konto Uruchom jako wymaga poprawnego działania tego elementu zawartości.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Jeśli proces roboczy hybrydowego niu gozytu jest maszyną wirtualną platformy Azure, można użyć [tożsamości zarządzanych dla zasobów platformy Azure.](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) W tym scenariuszu upraszcza uwierzytelnianie, umożliwiając uwierzytelnianie zasobów platformy Azure przy użyciu tożsamości zarządzanej maszyny Wirtualnej platformy Azure zamiast konta Uruchom jako. Gdy hybrydowy proces roboczy niu gosna jest komputerem lokalnym, należy zainstalować certyfikat uruchom jako konto na komputerze. Aby dowiedzieć się, jak zainstalować certyfikat, zobacz kroki uruchamiania programu Runbook **Export-RunAsCertificateToHybridWorker** w [uruchomionych systemach runbook w hybrydowym uliczce uruchomieniu. .](../automation-hrw-run-runbooks.md)
+Jeśli hybrydowy proces roboczy elementu Runbook jest maszyną wirtualną platformy Azure, możesz zamiast tego użyć [zarządzanych tożsamości dla zasobów platformy Azure](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) . Ten scenariusz upraszcza uwierzytelnianie, umożliwiając uwierzytelnianie w zasobach platformy Azure przy użyciu tożsamości zarządzanej maszyny wirtualnej platformy Azure zamiast konta Uruchom jako. Gdy hybrydowy proces roboczy elementu Runbook jest maszyną lokalną, należy zainstalować na tym komputerze certyfikat konta Uruchom jako. Aby dowiedzieć się, jak zainstalować certyfikat, zobacz procedurę uruchamiania programu PowerShell Runbook **Export-RunAsCertificateToHybridWorker** w [uruchomionych elementach Runbook w hybrydowym procesie roboczym elementu Runbook](../automation-hrw-run-runbooks.md).
 
-### <a name="scenario-error-403-during-registration-of-hybrid-runbook-worker"></a><a name="error-403-on-registration"></a>Scenariusz: Błąd 403 podczas rejestracji hybrydowego pracownika uruchomieniu
+### <a name="scenario-error-403-during-registration-of-hybrid-runbook-worker"></a><a name="error-403-on-registration"></a>Scenariusz: Błąd 403 podczas rejestrowania hybrydowego procesu roboczego elementu Runbook
 
 #### <a name="issue"></a>Problem
 
-Początkowa faza rejestracji pracownika kończy się niepowodzeniem i pojawia się następujący błąd (403).
+Początkowa faza rejestracji procesu roboczego kończy się niepowodzeniem i pojawia się następujący błąd (403).
 
 ```error
 "Forbidden: You don't have permission to access / on this server."
@@ -131,40 +131,40 @@ Początkowa faza rejestracji pracownika kończy się niepowodzeniem i pojawia si
 
 #### <a name="cause"></a>Przyczyna
 
-Oto możliwe przyczyny:
+Możliwe są następujące przyczyny:
 
-* W ustawieniach agenta znajduje się błędnie wpisany identyfikator obszaru roboczego lub klucz obszaru roboczego (podstawowy). 
+* Istnieje nieprawidłowy typ identyfikatora obszaru roboczego lub klucza obszaru roboczego (podstawowego) w ustawieniach agenta. 
 
-* Hybrydowy pracownik ujeżdna nie może pobrać konfiguracji, powodując błąd łączenia konta. Gdy platforma Azure włącza rozwiązania, obsługuje tylko niektóre regiony do łączenia obszaru roboczego usługi Log Analytics i konta automatyzacji. Jest również możliwe, że na komputerze ustawiona jest nieprawidłowa data i/lub godzina. Jeśli czas wynosi +/-15 minut od bieżącego czasu, dołączanie kończy się niepowodzeniem.
+* Hybrydowy proces roboczy elementu Runbook nie może pobrać konfiguracji, powodując błąd łączenia konta. Gdy platforma Azure umożliwia korzystanie z rozwiązań, obsługuje tylko niektóre regiony do łączenia obszaru roboczego Log Analytics i konta usługi Automation. Istnieje również możliwość, że na komputerze jest ustawiona nieprawidłowa data i/lub godzina. Jeśli czas wynosi +/-15 minut od bieżącego czasu, dołączanie kończy się niepowodzeniem.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-##### <a name="mistyped-workspace-idkey"></a>Błędnie wpisany identyfikator/klucz obszaru roboczego
-Aby sprawdzić, czy identyfikator obszaru roboczego agenta lub klucz obszaru roboczego został błędnie wpisane, zobacz [Dodawanie lub usuwanie obszaru roboczego — agenta systemu Windows](../../azure-monitor/platform/agent-manage.md#windows-agent) lub Dodawanie lub usuwanie obszaru [roboczego — agenta Systemu Linux](../../azure-monitor/platform/agent-manage.md#linux-agent) dla agenta systemu Linux.  Upewnij się, aby wybrać pełny ciąg z witryny Azure portal i skopiować i wkleić go ostrożnie.
+##### <a name="mistyped-workspace-idkey"></a>Niewpisany identyfikator/klucz obszaru roboczego
+Aby sprawdzić, czy identyfikator obszaru roboczego agenta lub klucz obszaru roboczego został wpisany w sposób nieprawidłowy, zobacz [Dodawanie lub usuwanie obszaru roboczego — Agent systemu](../../azure-monitor/platform/agent-manage.md#windows-agent) Windows dla agenta systemu Windows lub [Dodawanie lub usuwanie agenta obszaru roboczego — Linux](../../azure-monitor/platform/agent-manage.md#linux-agent) dla agenta Linux.  Upewnij się, że wybrano pełny ciąg z Azure Portal i skopiuj go i wklej uważnie.
 
-##### <a name="configuration-not-downloaded"></a>Konfiguracja nie została pobrana
+##### <a name="configuration-not-downloaded"></a>Nie pobrano konfiguracji
 
-Obszar roboczy usługi Log Analytics i konto automatyzacji muszą znajdować się w regionie połączonym. Aby uzyskać listę obsługiwanych regionów, zobacz [Mapowania obszarów roboczych usługi Azure Automation i Log Analytics](../how-to/region-mappings.md).
+Obszar roboczy Log Analytics i konto usługi Automation muszą znajdować się w połączonym regionie. Listę obsługiwanych regionów można znaleźć w temacie [Azure Automation i log Analytics mapowania obszaru roboczego](../how-to/region-mappings.md).
 
-Może być również konieczne zaktualizowanie daty i/lub strefy czasowej komputera. Jeśli wybierzesz niestandardowy zakres czasu, upewnij się, że zakres jest w czasie UTC, który może się różnić od lokalnej strefy czasowej.
+Może być również konieczne zaktualizowanie daty i/lub strefy czasowej komputera. W przypadku wybrania niestandardowego zakresu czasu upewnij się, że zakres jest w formacie UTC, który może się różnić od lokalnej strefy czasowej.
 
 ## <a name="linux"></a>Linux
 
-Proces roboczy hybrydowego systemu Linux jest zależny od [agenta usługi Log Analytics dla systemu Linux](../../azure-monitor/platform/log-analytics-agent.md) do komunikowania się z kontem automatyzacji, aby zarejestrować pracownika, odbierać zadania uruchomieniu i stan raportu. Jeśli rejestracja pracownika nie powiedzie się, oto kilka możliwych przyczyn błędu:
+Hybrydowy proces roboczy elementu Runbook systemu Linux zależy od [agenta log Analytics dla systemu Linux](../../azure-monitor/platform/log-analytics-agent.md) do komunikowania się z kontem usługi Automation w celu zarejestrowania procesu roboczego, odebrania zadań elementu Runbook i stanu raportu. Jeśli rejestracja procesu roboczego nie powiedzie się, poniżej przedstawiono niektóre możliwe przyczyny błędu:
 
-### <a name="scenario-the-log-analytics-agent-for-linux-isnt-running"></a><a name="oms-agent-not-running"></a>Scenariusz: Agent analizy dzienników dla systemu Linux nie jest uruchomiony
+### <a name="scenario-the-log-analytics-agent-for-linux-isnt-running"></a><a name="oms-agent-not-running"></a>Scenariusz: Agent Log Analytics dla systemu Linux nie jest uruchomiony
 
 #### <a name="issue"></a>Problem
 
-Agent analizy dzienników dla systemu Linux nie działa
+Agent Log Analytics dla systemu Linux nie jest uruchomiony
 
 #### <a name="cause"></a>Przyczyna
 
-Jeśli agent nie jest uruchomiony, uniemożliwia procesowi roboczemu hybrydowego funkcjonowania systemu Linux komunikowanie się z usługą Azure Automation. Agent może nie być uruchomiony z różnych powodów.
+Jeśli Agent nie jest uruchomiony, uniemożliwia komunikację hybrydowej elementu Runbook systemu Linux z Azure Automation. Agent może nie działać z różnych powodów.
 
 #### <a name="resolution"></a>Rozwiązanie
 
- Sprawdź, czy agent jest uruchomiony, wprowadzając polecenie `ps -ef | grep python`. Powinny być widoczne dane wyjściowe podobne do następujących procesów Języka Python z kontem użytkownika **nxautomation.** Jeśli usługa Zarządzanie aktualizacjami lub rozwiązanie usługi Azure Automation nie jest włączone, żaden z następujących procesów nie jest uruchomiony.
+ Sprawdź, czy Agent jest uruchomiony, wprowadzając polecenie `ps -ef | grep python`. Powinny zostać wyświetlone dane wyjściowe podobne do następujących: procesy języka Python z kontem użytkownika **nxautomation** . Jeśli rozwiązanie Update Management lub Azure Automation nie jest włączone, żaden z następujących procesów nie jest uruchomiony.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -172,19 +172,19 @@ nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
 ```
 
-Na poniższej liście przedstawiono procesy, które są uruchamiane dla procesu roboczego hybrydowego systemu Linux. Wszystkie znajdują się w katalogu **/var/opt/microsoft/omsagent/state/automationworker/.**
+Poniższa lista zawiera procesy uruchomione dla hybrydowego procesu roboczego elementu Runbook systemu Linux. Są one dostępne w katalogu **/var/opt/Microsoft/omsagent/State/automationworker/** .
 
-* **oms.conf** — proces menedżera pracowników. To jest rozpoczęty bezpośrednio z DSC.
+* **OMS. conf** — proces Menedżera procesów roboczych. Jest on uruchamiany bezpośrednio z DSC.
 
-* **worker.conf** — proces automatycznego rejestrowania hybrydowego. Jest on akcesarz pracownika. Ten proces jest używany przez zarządzanie aktualizacjami i jest niewidoczny dla użytkownika. Ten proces nie jest obecny, jeśli rozwiązanie do zarządzania aktualizacjami nie jest włączone na komputerze.
+* **Worker. conf** — zarejestrowany na razie proces hybrydowego procesu roboczego. Jest on uruchamiany przez Menedżera procesów roboczych. Ten proces jest używany przez Update Management i jest niewidoczny dla użytkownika. Ten proces nie jest obecny, jeśli na komputerze nie jest włączone rozwiązanie Update Management.
 
-* **diy/worker.conf** - Proces hybrydowego pracownika DIY. Proces hybrydowego procesu roboczego diy jest używany do wykonywania śmięty użytkowników w hybrydowym procesie żyła pracy. Różni się tylko od procesu automatycznego rejestrowania hybrydowego procesu roboczego w szczegółach klucza, który używa innej konfiguracji. Ten proces nie jest obecny, jeśli rozwiązanie usługi Azure Automation jest wyłączone, a hybrydowy proces roboczy systemu Roboczy systemu Roboczego systemu Roboczego systemu Roboczego systemu Roboczego systemu Roboczego systemu Roboczego systemu Roboczego systemu Roboczego systemu Roboczego systemu Roboczego systemu Roboczego systemu Roboczego systemu Roboczego systemu Roboczego systemu Roboczego systemu Roboczego systemu Roboczego systemu Roboczego
+* **możesz/Worker. conf** — możesz hybrydowy proces roboczy. Proces hybrydowego procesu roboczego możesz służy do wykonywania elementów Runbook użytkownika w hybrydowym procesie roboczym elementu Runbook. Różni się on od automatycznej rejestracji hybrydowego procesu roboczego w kluczowym szczegółzie, który używa innej konfiguracji. Ten proces nie występuje, jeśli Azure Automation rozwiązanie jest wyłączone i nie zarejestrowano hybrydowego procesu roboczego możesz Linux.
 
-Jeśli agent nie jest uruchomiony, uruchom następujące polecenie, `sudo /opt/microsoft/omsagent/bin/service_control restart`aby uruchomić usługę: .
+Jeśli Agent nie jest uruchomiony, uruchom następujące polecenie, aby uruchomić usługę: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
-### <a name="scenario-the-specified-class-doesnt-exist"></a><a name="class-does-not-exist"></a>Scenariusz: Określona klasa nie istnieje
+### <a name="scenario-the-specified-class-doesnt-exist"></a><a name="class-does-not-exist"></a>Scenariusz: określona Klasa nie istnieje
 
-Jeśli widzisz błąd `The specified class does not exist..` w **/var/opt/microsoft/omsconfig/omsconfig.log,** agent usługi Log Analytics dla systemu Linux musi zostać zaktualizowany. Uruchom następujące polecenie, aby ponownie zainstalować agenta:
+Jeśli wystąpi błąd `The specified class does not exist..` w **/var/opt/Microsoft/omsconfig/omsconfig.log**, należy zaktualizować agenta log Analytics dla systemu Linux. Uruchom następujące polecenie, aby ponownie zainstalować agenta:
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -192,55 +192,55 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 ## <a name="windows"></a>Windows
 
-Hybrydowy proces roboczy systemu Windows do żyjącego uruchomieniu zależy [na agencie usługi Log Analytics dla systemu Windows](../../azure-monitor/platform/log-analytics-agent.md) do komunikowania się z kontem automatyzacji w celu zarejestrowania pracownika, odbierania zadań uruchomieniu i stanu raportu. Jeśli rejestracja pracownika nie powiedzie się, ta sekcja zawiera kilka możliwych przyczyn.
+Hybrydowy proces roboczy elementu Runbook systemu Windows zależy od [agenta log Analytics dla systemu Windows](../../azure-monitor/platform/log-analytics-agent.md) , który komunikuje się z kontem usługi Automation w celu zarejestrowania procesu roboczego, odbierania zadań elementu Runbook i stanu raportu. Jeśli rejestracja procesu roboczego nie powiedzie się, ta sekcja zawiera pewne możliwe przyczyny.
 
-### <a name="scenario-the-log-analytics-agent-for-windows-isnt-running"></a><a name="mma-not-running"></a>Scenariusz: Agent usługi Log Analytics dla systemu Windows nie jest uruchomiony
-
-#### <a name="issue"></a>Problem
-
-Nie `healthservice` działa na komputerze hybrydowego procesu roboczego egoistry.
-
-#### <a name="cause"></a>Przyczyna
-
-Jeśli usługa Log Analytics dla systemu Windows nie jest uruchomiona, hybrydowy proces roboczy niubratów nie może komunikować się z usługą Azure Automation.
-
-#### <a name="resolution"></a>Rozwiązanie
-
-Sprawdź, czy agent jest uruchomiony, wprowadzając następujące polecenie `Get-Service healthservice`w programie PowerShell: . Jeśli usługa zostanie zatrzymana, wprowadź następujące polecenie w programie `Start-Service healthservice`PowerShell, aby uruchomić usługę: .
-
-### <a name="scenario-event-4502-in-operations-manager-log"></a><a name="event-4502"></a>Scenariusz: zdarzenie 4502 w dzienniku programu Operations Manager
+### <a name="scenario-the-log-analytics-agent-for-windows-isnt-running"></a><a name="mma-not-running"></a>Scenariusz: Agent Log Analytics dla systemu Windows nie jest uruchomiony
 
 #### <a name="issue"></a>Problem
 
-W dzienniku zdarzeń **Application and Services Logs\Operations Manager** zostanie wyświetlone zdarzenie 4502 i EventMessage zawierające `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` następujący opis:<br>`The certificate presented by the service \<wsid\>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.`
+`healthservice` Nie działa na maszynie hybrydowej elementu Runbook Worker.
 
 #### <a name="cause"></a>Przyczyna
 
-Ten problem może być spowodowany przez serwer proxy lub zaporę sieciową blokującą komunikację z platformą Microsoft Azure. Sprawdź, czy komputer ma dostęp wychodzący do ***.azure-automation.net** na porcie 443. 
+Jeśli Log Analytics dla usługi systemu Windows nie jest uruchomiona, hybrydowy proces roboczy elementu Runbook nie może komunikować się z Azure Automation.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Dzienniki są przechowywane lokalnie na każdym hybrydowym uczynku roboczym w **witrynie C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes**. Można sprawdzić, czy w dziennikach zdarzeń aplikacji i usług występują zdarzenia ostrzegawcze lub zdarzenia **błędów\Microsoft-SMA\Operacje** i **dzienniki aplikacji i usług\Dzienniki operacji programu Operations Manager.** Te dzienniki wskazują łączność lub inny typ problemu, który wpływa na dołączanie roli do usługi Azure Automation lub problem napotkany w normalnych operacjach. Aby uzyskać dodatkową pomoc dotyczącą rozwiązywania problemów z agentem usługi Log Analytics, zobacz [Rozwiązywanie problemów z agentem systemu Windows usługi Log Analytics](../../azure-monitor/platform/agent-windows-troubleshoot.md).
+Sprawdź, czy Agent jest uruchomiony, wprowadzając następujące polecenie w programie PowerShell: `Get-Service healthservice`. Jeśli usługa jest zatrzymana, wprowadź następujące polecenie w programie PowerShell, aby uruchomić usługę: `Start-Service healthservice`.
 
-Hybrydowe procesy pracy procesowe wysyłają [dane wyjściowe i wiadomości](../automation-runbook-output-and-messages.md) w usłudze Azure Automation w taki sam sposób, w jaki zadania uruchomieniu uruchomione w chmurze wysyłają dane wyjściowe i wiadomości. Strumienie pełne i postępowe można włączyć tak samo, jak w przypadku śmigieł.
-
-### <a name="scenario-orchestratorsandboxexe-cant-connect-to-office-365-through-proxy"></a><a name="no-orchestrator-sandbox-connect-O365"></a>Scenariusz: Orchestrator.Sandbox.exe nie może połączyć się z usługą Office 365 za pośrednictwem serwera proxy
+### <a name="scenario-event-4502-in-operations-manager-log"></a><a name="event-4502"></a>Scenariusz: zdarzenie 4502 w dzienniku Operations Manager
 
 #### <a name="issue"></a>Problem
 
-Skrypt uruchomiony w hybrydowym urzędzie roboczym systemu Windows nie może połączyć się zgodnie z oczekiwaniami z pakietem Office 365 w piaskownicy programu Orchestrator. Skrypt używa [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) dla połączenia. 
-
-Jeśli dostosujesz **Orchestrator.Sandbox.exe.config,** aby ustawić serwer proxy i listę pomijania, piaskownica nadal nie łączy się poprawnie. Plik **Powershell_ise.exe.config** z tymi samymi ustawieniami listy proxy i bypass wydaje się działać zgodnie z oczekiwaniami. Dzienniki automatyzacji zarządzania usługami (SMA) i dzienniki programu PowerShell nie zawierają żadnych informacji dotyczących serwera proxy.
+W dzienniku zdarzeń programu **Application and Services Logs\Operations Manager** zobaczysz zdarzenie 4502 i EventMessage `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` zawierające następujący Opis:<br>`The certificate presented by the service \<wsid\>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.`
 
 #### <a name="cause"></a>Przyczyna
 
-Połączenie z usługami federacyjnymi Active Directory (ADFS) na serwerze nie może ominąć serwera proxy. Należy pamiętać, że piaskownica programu PowerShell działa jako zalogowany użytkownik. Jednak piaskownica programu Orchestrator jest mocno dostosowana i może ignorować ustawienia pliku **Orchestrator.Sandbox.exe.config.** Posiada specjalny kod do obsługi komputera lub ustawienia serwera proxy MMA, ale nie do obsługi innych niestandardowych ustawień serwera proxy. 
+Przyczyną tego problemu może być Microsoft Azure przez serwer proxy lub zaporę sieciową. Sprawdź, czy komputer ma dostęp wychodzący do ***. Azure-Automation.NET** na porcie 443. 
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Można rozwiązać ten problem dla piaskownicy programu Orchestrator, migrując skrypt, aby użyć modułów usługi Azure AD zamiast modułu MSOnline dla poleceń cmdlet programu PowerShell. Zobacz [Migrowanie z programu Orchestrator do usługi Azure Automation (Beta)](https://docs.microsoft.com/azure/automation/automation-orchestrator-migration).
+Dzienniki są przechowywane lokalnie na każdym hybrydowym procesie roboczym w **C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes**. Możesz sprawdzić, czy w dziennikach zdarzeń **aplikacji i usług Logs\Microsoft-SMA\Operations** oraz **aplikacji i usług Logs\Operations Manager** znajdują się jakieś zdarzenia ostrzegawcze lub błędy. Te dzienniki wskazują łączność lub inny typ problemu, który ma wpływ na dołączanie roli do Azure Automation lub wystąpił problem w ramach normalnych operacji. Aby uzyskać dodatkową pomoc w rozwiązywaniu problemów z agentem Log Analytics, zobacz [Rozwiązywanie problemów z log Analytics agentem systemu Windows](../../azure-monitor/platform/agent-windows-troubleshoot.md).
 
-Jeśli chcesz nadal korzystać z poleceń cmdlet modułu MSOnline, zmień skrypt, aby użyć [invoke-command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Określ wartości `ComputerName` `Credential` i parametry. 
+Hybrydowe procesy robocze wysyłają [dane wyjściowe i komunikaty elementu Runbook](../automation-runbook-output-and-messages.md) do Azure Automation w taki sam sposób, jak zadania elementu Runbook działające w chmurze wysyłają dane wyjściowe i komunikaty. Możesz włączyć strumienie pełnych i postępów tak samo jak w przypadku elementów Runbook.
+
+### <a name="scenario-orchestratorsandboxexe-cant-connect-to-office-365-through-proxy"></a><a name="no-orchestrator-sandbox-connect-O365"></a>Scenariusz: program Orchestrator. sandbox. exe nie może nawiązać połączenia z pakietem Office 365 za poorednictwem serwera proxy
+
+#### <a name="issue"></a>Problem
+
+Skrypt uruchomiony w hybrydowym procesie roboczym elementu Runbook systemu Windows nie może nawiązać połączenia zgodnie z oczekiwaniami z pakietem Office 365 w piaskownicy programu Orchestrator. Skrypt używa polecenia [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) w celu nawiązania połączenia. 
+
+W przypadku dostosowania programu **Orchestrator. sandbox. exe. config** w celu ustawienia serwera proxy i listy pomijania piaskownica nadal nie będzie się poprawnie łączyć. Plik **Powershell_ise. exe. config** z tymi samymi ustawieniami serwera proxy i listy obejścia wygląda tak, jak jest to oczekiwane. Dzienniki Service Management Automation (SMA) i dzienniki programu PowerShell nie zawierają żadnych informacji dotyczących serwera proxy.
+
+#### <a name="cause"></a>Przyczyna
+
+Połączenie z Active Directory Federation Services (ADFS) na serwerze nie może obejść serwera proxy. Pamiętaj, że piaskownica programu PowerShell jest uruchamiana jako zalogowany użytkownik. Jednak piaskownicy programu Orchestrator są znacznie dostosowane i mogą ignorować ustawienia pliku **Orchestrator. sandbox. exe. config** . Ma specjalny kod do obsługi ustawień serwera proxy komputera lub MMA, ale nie do obsługi innych niestandardowych ustawień serwera proxy. 
+
+#### <a name="resolution"></a>Rozwiązanie
+
+Problem związany z piaskownicą programu Orchestrator można rozwiązać przez przeprowadzenie migracji skryptu w celu użycia modułów usługi Azure AD zamiast modułu MSOnline dla poleceń cmdlet programu PowerShell. Zobacz [Migrowanie z programu Orchestrator do Azure Automation (beta)](https://docs.microsoft.com/azure/automation/automation-orchestrator-migration).
+
+Jeśli chcesz kontynuować korzystanie z poleceń cmdlet modułu MSOnline, Zmień skrypt, aby używał [polecenia Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Określ wartości parametrów `ComputerName` i `Credential` . 
 
 ```powershell
 $Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential
@@ -248,18 +248,18 @@ Invoke-Command -ComputerName $env:COMPUTERNAME -Credential $Credential
 { Connect-MsolService … }
 ```
 
-Ta zmiana kodu rozpoczyna całkowicie nową sesję programu PowerShell w kontekście określonych poświadczeń. Powinien włączyć ruch do przepływu przez serwer proxy, który uwierzytelnia aktywnego użytkownika.
+Ta zmiana kodu uruchamia zupełnie nową sesję programu PowerShell w kontekście określonych poświadczeń. Powinien on umożliwić przepływ ruchu przez serwer proxy, który uwierzytelnia aktywnego użytkownika.
 
 >[!NOTE]
->To rozwiązanie sprawia, że nie ma potrzeby manipulowania plikiem konfiguracji piaskownicy. Nawet jeśli uda ci się, aby plik konfiguracji działał ze skryptem, plik zostanie wymazany za każdym razem, gdy agent hybrydowego procesu roboczego uruchomieniu zostanie zaktualizowany.
+>To rozwiązanie nie pozwala na manipulowanie plikiem konfiguracji piaskownicy. Nawet w przypadku pomyślnego wykonania pliku konfiguracji w skrypcie plik zostanie wyczyszczony za każdym razem, gdy zostanie zaktualizowany Agent hybrydowego procesu roboczego elementu Runbook.
 
-### <a name="scenario-hybrid-runbook-worker-not-reporting"></a><a name="corrupt-cache"></a>Scenariusz: Hybrydowy pracownik ujeżdny nieraportujący
+### <a name="scenario-hybrid-runbook-worker-not-reporting"></a><a name="corrupt-cache"></a>Scenariusz: hybrydowy proces roboczy elementu Runbook nie jest zgłaszany
 
 #### <a name="issue"></a>Problem
 
-Komputer hybrydowy proces roboczy niustrego jest uruchomiony, ale nie są widoczne dane pulsu dla komputera w obszarze roboczym.
+Maszyna hybrydowego procesu roboczego elementu Runbook jest uruchomiona, ale nie widzisz danych pulsu dla maszyny w obszarze roboczym.
 
-Poniższa przykładowa kwerenda przedstawia maszyny w obszarze roboczym i ich ostatnie bicie serca:
+Poniższe przykładowe zapytanie pokazuje maszyny w obszarze roboczym i ich ostatni puls:
 
 ```loganalytics
 // Last heartbeat of each computer
@@ -269,11 +269,11 @@ Heartbeat
 
 #### <a name="cause"></a>Przyczyna
 
-Ten problem może być spowodowany przez uszkodzoną pamięć podręczną w hybrydowym ustępuje procesowi roboczemu podręcznika runbooka.
+Przyczyną tego problemu może być uszkodzona pamięć podręczna w hybrydowym procesie roboczym elementu Runbook.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Aby rozwiązać ten problem, zaloguj się do hybrydowego procesu roboczego elementów runbook i uruchom następujący skrypt. Ten skrypt zatrzymuje agenta usługi Log Analytics dla systemu Windows, usuwa jego pamięć podręczną i ponownie uruchamia usługę. Ta akcja wymusza hybrydowy proces roboczy niubratów do ponownego pobrania jego konfiguracji z usługi Azure Automation.
+Aby rozwiązać ten problem, zaloguj się do hybrydowego procesu roboczego elementu Runbook i uruchom poniższy skrypt. Ten skrypt powoduje zatrzymanie Log Analytics agenta dla systemu Windows, usunięcie jego pamięci podręcznej i ponowne uruchomienie usługi. Ta akcja Wymusza ponowne pobranie konfiguracji przez proces hybrydowego elementu Runbook programu z Azure Automation.
 
 ```powershell
 Stop-Service -Name HealthService
@@ -283,11 +283,11 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 Start-Service -Name HealthService
 ```
 
-### <a name="scenario-you-cant-add-a-hybrid-runbook-worker"></a><a name="already-registered"></a>Scenariusz: nie można dodać hybrydowego pracownika uruchomieniu
+### <a name="scenario-you-cant-add-a-hybrid-runbook-worker"></a><a name="already-registered"></a>Scenariusz: nie można dodać hybrydowego procesu roboczego elementu Runbook
 
 #### <a name="issue"></a>Problem
 
-Podczas próby dodania hybrydowego procesu roboczego systemu `Add-HybridRunbookWorker` runbook przy użyciu polecenia cmdlet zostanie wyświetlony następujący komunikat.
+Podczas próby dodania hybrydowego procesu roboczego elementu Runbook za pomocą `Add-HybridRunbookWorker` polecenia cmdlet zostanie wyświetlony następujący komunikat.
 
 ```error
 Machine is already registered
@@ -295,18 +295,18 @@ Machine is already registered
 
 #### <a name="cause"></a>Przyczyna
 
-Ten problem może być spowodowany, jeśli komputer jest już zarejestrowany przy innym koncie automatyzacji lub jeśli spróbujesz odczytać hybrydowy proces roboczy likemi po usunięciu go z komputera.
+Ten problem może być spowodowany tym, że maszyna jest już zarejestrowana przy użyciu innego konta usługi Automation lub gdy użytkownik próbuje odczytać hybrydowy proces roboczy elementu Runbook po usunięciu go z komputera.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Aby rozwiązać ten problem, usuń następujący `HealthService`klucz rejestru, `Add-HybridRunbookWorker` uruchom ponownie program i spróbuj ponownie wykonać polecenie cmdlet.
+Aby rozwiązać ten problem, usuń następujący klucz rejestru, uruchom ponownie `HealthService`i spróbuj ponownie wykonać `Add-HybridRunbookWorker` polecenie cmdlet.
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli nie widzisz powyższego problemu lub nie możesz rozwiązać problemu, wypróbuj jeden z następujących kanałów, aby uzyskać dodatkową pomoc techniczną:
+Jeśli nie widzisz Twojego problemu powyżej lub nie możesz rozwiązać problemu, wypróbuj jeden z następujących kanałów, aby uzyskać dodatkową pomoc techniczną:
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [forów platformy Azure](https://azure.microsoft.com/support/forums/).
-* Połącz [@AzureSupport](https://twitter.com/azuresupport)się z oficjalnym kontem platformy Microsoft Azure w celu poprawy jakości obsługi klienta, łącząc społeczność platformy Azure z odpowiednimi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
-* Złóż zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję Uzyskaj pomoc **techniczną**.
+* Nawiąż [@AzureSupport](https://twitter.com/azuresupport)połączenie z kontem oficjalnego Microsoft Azure, aby zwiększyć komfort obsługi klienta, łącząc społeczność platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
+* Zaplikowanie zdarzenia pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję **Uzyskaj pomoc techniczną**.

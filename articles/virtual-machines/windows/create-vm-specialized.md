@@ -1,6 +1,6 @@
 ---
-title: Tworzenie maszyny Wirtualnej systemu Windows na podstawie wyspecjalizowanej sieci VHD na platformie Azure
-description: Utwórz nową maszynę wirtualną systemu Windows, dołączając wyspecjalizowany dysk zarządzany jako dysk systemu operacyjnego przy użyciu modelu wdrażania Menedżera zasobów.
+title: Tworzenie maszyny wirtualnej z systemem Windows na podstawie wyspecjalizowanego wirtualnego dysku twardego na platformie Azure
+description: Utwórz nową maszynę wirtualną z systemem Windows przez dołączenie wyspecjalizowanego dysku zarządzanego jako dysku systemu operacyjnego przy użyciu modelu wdrażania Menedżer zasobów.
 author: cynthn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -8,32 +8,32 @@ ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
 ms.openlocfilehash: 2939726898abc2abc0e62d0e36feedbfe7ba3645
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82086406"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Tworzenie maszyny wirtualnej z systemem Windows na podstawie wyspecjalizowanego dysku za pomocą programu PowerShell
 
-Utwórz nową maszynę wirtualną, dołączając wyspecjalizowany dysk zarządzany jako dysk systemu operacyjnego. Dysk specjalistyczny jest kopią wirtualnego dysku twardego (VHD) z istniejącej maszyny Wirtualnej, która zawiera konta użytkowników, aplikacje i inne dane o stanie z oryginalnej maszyny Wirtualnej. 
+Utwórz nową maszynę wirtualną przez dołączenie wyspecjalizowanego dysku zarządzanego jako dysku systemu operacyjnego. Wyspecjalizowany dysk to kopia wirtualnego dysku twardego (VHD) z istniejącej maszyny wirtualnej, która zawiera konta użytkowników, aplikacje i inne dane stanu z oryginalnej maszyny wirtualnej. 
 
-Podczas tworzenia nowej maszyny Wirtualnej przy użyciu wyspecjalizowanego dysku twardego nowa maszyna wirtualna zachowuje nazwę komputera oryginalnej maszyny Wirtualnej. Przechowywane są również inne informacje specyficzne dla komputera, a w niektórych przypadkach te zduplikowane informacje mogą powodować problemy. Podczas kopiowania maszyny Wirtualnej należy pamiętać o typach informacji specyficznych dla komputera, na którym opierają się aplikacje.
+W przypadku tworzenia nowej maszyny wirtualnej przy użyciu wyspecjalizowanego wirtualnego dysku twardego Nowa maszyna wirtualna zachowuje nazwę komputera oryginalnej maszyny wirtualnej. Inne informacje specyficzne dla komputera również są przechowywane i w niektórych przypadkach te duplikaty mogą powodować problemy. Podczas kopiowania maszyny wirtualnej należy wiedzieć o typach informacji specyficznych dla komputera, na których zależą Twoje aplikacje.
 
 Istnieje kilka rozwiązań:
-* [Użyj istniejącego dysku zarządzanego](#option-1-use-an-existing-disk). Ta opcja jest przydatna, jeśli masz maszynę wirtualną, która nie działa poprawnie. Można usunąć maszynę wirtualną, a następnie ponownie użyć dysku zarządzanego, aby utworzyć nową maszynę wirtualną. 
+* [Użyj istniejącego dysku zarządzanego](#option-1-use-an-existing-disk). Ta opcja jest przydatna, jeśli masz maszynę wirtualną, która nie działa prawidłowo. Możesz usunąć maszynę wirtualną, a następnie ponownie użyć dysku zarządzanego, aby utworzyć nową maszynę wirtualną. 
 * [Przekazywanie wirtualnego dysku twardego](#option-2-upload-a-specialized-vhd) 
 * [Kopiowanie istniejącej maszyny wirtualnej platformy Azure przy użyciu migawek](#option-3-copy-an-existing-azure-vm)
 
-Za pomocą portalu Azure można również [utworzyć nową maszynę wirtualną ze specjalistycznego dysku VHD.](create-vm-specialized-portal.md)
+Możesz również użyć Azure Portal, aby [utworzyć nową maszynę wirtualną z wyspecjalizowanego wirtualnego dysku twardego](create-vm-specialized-portal.md).
 
-W tym artykule pokazano, jak używać dysków zarządzanych. Jeśli masz starsze wdrożenie, które wymaga użycia konta magazynu, zobacz [Tworzenie maszyny Wirtualnej ze specjalistycznej maszyny Wirtualnej na koncie magazynu](sa-create-vm-specialized.md).
+W tym artykule pokazano, jak używać dysków zarządzanych. Jeśli masz starsze wdrożenie wymagające użycia konta magazynu, zobacz [Tworzenie maszyny wirtualnej na podstawie wyspecjalizowanego wirtualnego dysku twardego na koncie magazynu](sa-create-vm-specialized.md).
 
-Zaleca się ograniczenie liczby równoczesnych wdrożeń do 20 maszyn wirtualnych z jednego dysku wirtualnego lub migawki. 
+Zalecamy ograniczenie liczby współbieżnych wdrożeń do 20 maszyn wirtualnych z jednego wirtualnego dysku twardego lub migawki. 
 
 ## <a name="option-1-use-an-existing-disk"></a>Opcja 1: Użyj istniejącego dysku
 
-Jeśli usunięto maszynę wirtualną i chcesz ponownie użyć dysku systemu operacyjnego do utworzenia nowej maszyny Wirtualnej, użyj programu [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk).
+Jeśli masz usuniętą maszynę wirtualną i chcesz ponownie użyć dysku systemu operacyjnego, aby utworzyć nową maszynę wirtualną, użyj polecenie [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk).
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'
@@ -42,33 +42,33 @@ $osDisk = Get-AzDisk `
 -ResourceGroupName $resourceGroupName `
 -DiskName $osDiskName
 ```
-Teraz można dołączyć ten dysk jako dysk systemu operacyjnego do [nowej maszyny Wirtualnej](#create-the-new-vm).
+Teraz możesz dołączyć ten dysk jako dysk systemu operacyjnego do [nowej maszyny wirtualnej](#create-the-new-vm).
 
-## <a name="option-2-upload-a-specialized-vhd"></a>Opcja 2: Prześlij wyspecjalizowany VHD
+## <a name="option-2-upload-a-specialized-vhd"></a>Opcja 2: przekazywanie wyspecjalizowanego wirtualnego dysku twardego
 
-Dysk VHD można przekazać ze specjalistycznej maszyny Wirtualnej utworzonej za pomocą lokalnego narzędzia do wirtualizacji, takiego jak funkcja Hyper-V, lub maszyny wirtualnej eksportowanej z innej chmury.
+Wirtualny dysk twardy można przekazać z wyspecjalizowanej maszyny wirtualnej utworzonej przy użyciu lokalnego narzędzia do wirtualizacji, takiego jak funkcja Hyper-V, lub maszyny wirtualnej wyeksportowanej z innej chmury.
 
 ### <a name="prepare-the-vm"></a>Przygotowywanie maszyny wirtualnej
-Użyj dysku VHD w stanie as-is, aby utworzyć nową maszynę wirtualną. 
+Aby utworzyć nową maszynę wirtualną, użyj wirtualnego dysku twardego. 
   
-  * [Przygotuj dysk VHD systemu Windows do przekazania na platformę Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Nie** uogólniaj maszyny Wirtualnej przy użyciu sysprep.
-  * Usuń wszystkie narzędzia wirtualizacji gości i agentów zainstalowanych na maszynie wirtualnej (takich jak narzędzia VMware).
-  * Upewnij się, że maszyna wirtualna jest skonfigurowana do uzyskania adresu IP i ustawień DNS z usługi DHCP. Gwarantuje to, że serwer uzyskuje adres IP w sieci wirtualnej podczas uruchamiania. 
+  * [Przygotuj wirtualny dysk twardy systemu Windows do przekazania na platformę Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Nie należy** UOGÓLNIAĆ maszyny wirtualnej przy użyciu programu Sysprep.
+  * Usuń wszystkie narzędzia i agenci wirtualizacji gościa, które są zainstalowane na maszynie wirtualnej (na przykład narzędzia VMware).
+  * Upewnij się, że maszyna wirtualna jest skonfigurowana do pobierania adresu IP i ustawień DNS z protokołu DHCP. Dzięki temu serwer uzyskuje adres IP w ramach sieci wirtualnej podczas uruchamiania. 
 
 
-### <a name="upload-the-vhd"></a>Prześlij dysk VHD
+### <a name="upload-the-vhd"></a>Przekazywanie wirtualnego dysku twardego
 
-Teraz możesz przesłać dysk VHD bezpośrednio na dysk zarządzany. Aby uzyskać instrukcje, zobacz [Przekazywanie dysku VHD na platformę Azure przy użyciu programu Azure PowerShell.](disks-upload-vhd-to-managed-disk-powershell.md)
+Możesz teraz przekazać dysk VHD bezpośrednio do dysku zarządzanego. Aby uzyskać instrukcje, zobacz [przekazywanie wirtualnego dysku twardego do platformy Azure przy użyciu Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
 
-## <a name="option-3-copy-an-existing-azure-vm"></a>Opcja 3: Kopiowanie istniejącej maszyny Wirtualnej platformy Azure
+## <a name="option-3-copy-an-existing-azure-vm"></a>Opcja 3: kopiowanie istniejącej maszyny wirtualnej platformy Azure
 
-Można utworzyć kopię maszyny Wirtualnej, która używa dysków zarządzanych, wykonując migawkę maszyny Wirtualnej, a następnie używając tej migawki do utworzenia nowego dysku zarządzanego i nowej maszyny Wirtualnej.
+Można utworzyć kopię maszyny wirtualnej korzystającej z dysków zarządzanych, pobierając migawkę maszyny wirtualnej, a następnie używając tej migawki do utworzenia nowego dysku zarządzanego i nowej maszyny wirtualnej.
 
-Jeśli chcesz skopiować istniejącą maszynę wirtualną do innego regionu, możesz użyć azcopy do [utworzenia kopii dysku w innym regionie](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
+Jeśli chcesz skopiować istniejącą maszynę wirtualną do innego regionu, możesz użyć AzCopy, aby [utworzyć kopię dysku w innym regionie](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
 
-### <a name="take-a-snapshot-of-the-os-disk"></a>Tworzenie migawki dysku systemu operacyjnego
+### <a name="take-a-snapshot-of-the-os-disk"></a>Utwórz migawkę dysku systemu operacyjnego
 
-Można zrobić migawkę całej maszyny Wirtualnej (w tym wszystkich dysków) lub tylko jednego dysku. Poniższe kroki pokazują, jak wykonać migawkę tylko dysku systemu operacyjnego maszyny Wirtualnej z polecenia cmdlet [New-AzSnapshot.](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) 
+Można wykonać migawkę całej maszyny wirtualnej (w tym wszystkich dysków) lub tylko jednego dysku. Poniższe kroki pokazują, jak wykonać migawkę tylko dysku systemu operacyjnego maszyny wirtualnej za pomocą polecenia cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) . 
 
 Najpierw ustaw niektóre parametry. 
 
@@ -79,7 +79,7 @@ $location = 'westus'
 $snapshotName = 'mySnapshot'  
 ```
 
-Pobierz obiekt maszyny Wirtualnej.
+Pobierz obiekt maszyny wirtualnej.
 
 ```powershell
 $vm = Get-AzVM -Name $vmName `
@@ -112,13 +112,13 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-Aby użyć tej migawki, aby utworzyć maszynę wirtualną, która musi być wydajna, dodaj parametr `-AccountType Premium_LRS` do polecenia New-AzSnapshotConfig. Ten parametr tworzy migawkę, dzięki czemu jest przechowywany jako dysk zarządzany w wersji Premium. Dyski zarządzane w wersji Premium są droższe niż standardowe, więc upewnij się, że będziesz potrzebować usługi Premium przed użyciem tego parametru.
+Aby użyć tej migawki do utworzenia maszyny wirtualnej wymagającej wysokiej wydajności, Dodaj parametr `-AccountType Premium_LRS` do polecenia New-AzSnapshotConfig. Ten parametr tworzy migawkę, tak aby była przechowywana jako dysk zarządzany w warstwie Premium. Managed Disks w warstwie Premium są droższe niż w warstwie Standardowa, dlatego przed użyciem tego parametru należy pamiętać o wersji Premium.
 
-### <a name="create-a-new-disk-from-the-snapshot"></a>Tworzenie nowego dysku z migawki
+### <a name="create-a-new-disk-from-the-snapshot"></a>Tworzenie nowego dysku na podstawie migawki
 
-Utwórz dysk zarządzany z migawki przy użyciu [programu New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk). W tym przykładzie użyto *programu myOSDisk* dla nazwy dysku.
+Utwórz dysk zarządzany na podstawie migawki przy użyciu polecenia [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk). W tym przykładzie w nazwie dysku są stosowane *myOSDisk* .
 
-Utwórz nową grupę zasobów dla nowej maszyny Wirtualnej.
+Utwórz nową grupę zasobów dla nowej maszyny wirtualnej.
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
@@ -142,15 +142,15 @@ $osDisk = New-AzDisk -DiskName $osDiskName -Disk `
 ```
 
 
-## <a name="create-the-new-vm"></a>Tworzenie nowej maszyny Wirtualnej 
+## <a name="create-the-new-vm"></a>Utwórz nową maszynę wirtualną 
 
 Tworzenie sieci i innych zasobów maszyn wirtualnych, które mają być używane przez nową maszynę wirtualną.
 
 ### <a name="create-the-subnet-and-virtual-network"></a>Tworzenie podsieci i sieci wirtualnej
 
-Utwórz [sieć wirtualną](../../virtual-network/virtual-networks-overview.md) i podsieć dla maszyny Wirtualnej.
+Utwórz [sieć wirtualną](../../virtual-network/virtual-networks-overview.md) i podsieć dla maszyny wirtualnej.
 
-1. Utwórz podsieć. W tym przykładzie utworzysz podsieć o nazwie *mySubNet*w grupie zasobów *myDestinationResourceGroup*i ustawia prefiks adresu podsieci na *10.0.0.0/24*.
+1. Utwórz podsieć. Ten przykład tworzy podsieć o nazwie Moja *podsieć*, w grupie zasobów *myDestinationResourceGroup*i ustawia prefiks adresu podsieci na *10.0.0.0/24*.
    
     ```powershell
     $subnetName = 'mySubNet'
@@ -159,7 +159,7 @@ Utwórz [sieć wirtualną](../../virtual-network/virtual-networks-overview.md) i
        -AddressPrefix 10.0.0.0/24
     ```
     
-2. Utwórz sieć wirtualną. W tym przykładzie ustawia nazwę sieci wirtualnej na *myVnetName*, lokalizację na *zachodnie stany USA,* a prefiks adresu sieci wirtualnej na *10.0.0.0/16*. 
+2. Utwórz sieć wirtualną. Ten przykład ustawia nazwę sieci wirtualnej na *myVnetName*, lokalizację na *zachodnie stany USA*oraz prefiks adresu sieci wirtualnej na *10.0.0.0/16*. 
    
     ```powershell
     $vnetName = "myVnetName"
@@ -172,9 +172,9 @@ Utwórz [sieć wirtualną](../../virtual-network/virtual-networks-overview.md) i
     
 
 ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>Tworzenie sieciowej grupy zabezpieczeń i reguły RDP
-Aby móc zalogować się do maszyny Wirtualnej za pomocą protokołu RDP (Remote desktop Protocol), musisz mieć regułę zabezpieczeń umożliwiającą dostęp do protokołu RDP na porcie 3389. W naszym przykładzie dysk wirtualny dla nowej maszyny Wirtualnej został utworzony na podstawie istniejącej wyspecjalizowanej maszyny Wirtualnej, dzięki czemu można użyć konta, które istniało na źródłowej maszynie wirtualnej dla protokołu RDP.
+Aby można było zalogować się do maszyny wirtualnej za pomocą protokołu RDP (Remote Desktop Protocol), musisz mieć regułę zabezpieczeń, która zezwala na dostęp RDP na porcie 3389. W naszym przykładzie wirtualny dysk twardy nowej maszyny wirtualnej został utworzony na podstawie istniejącej wyspecjalizowanej maszyny wirtualnej, dlatego można użyć konta, które istniało na źródłowej maszynie wirtualnej dla protokołu RDP.
 
-W tym przykładzie ustawia nazwę sieciowej grupy zabezpieczeń (NSG) na *myNsg,* a nazwę reguły RDP na *myRdpRule*.
+Ten przykład ustawia nazwę sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) na *myNsg* i nazwę reguły RDP na *myRdpRule*.
 
 ```powershell
 $nsgName = "myNsg"
@@ -190,10 +190,10 @@ $nsg = New-AzNetworkSecurityGroup `
     
 ```
 
-Aby uzyskać więcej informacji na temat punktów końcowych i reguł sieciowej sieciowej, zobacz [Otwieranie portów na maszynie wirtualnej na platformie Azure przy użyciu programu PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Aby uzyskać więcej informacji na temat punktów końcowych i reguł sieciowej grupy zabezpieczeń, zobacz [otwieranie portów do maszyny wirtualnej na platformie Azure przy użyciu programu PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="create-a-public-ip-address-and-nic"></a>Tworzenie publicznego adresu IP i karty sieciowej
-Aby włączyć komunikację z maszyną wirtualną w sieci wirtualnej, potrzebny jest [publiczny adres IP](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) i interfejs sieciowy.
+Aby umożliwić komunikację z maszyną wirtualną w sieci wirtualnej, potrzebny jest [publiczny adres IP](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) i interfejs sieciowy.
 
 1. Utwórz publiczny adres IP. W tym przykładzie nazwa publicznego adresu IP jest ustawiona na *myIP*.
    
@@ -218,16 +218,16 @@ Aby włączyć komunikację z maszyną wirtualną w sieci wirtualnej, potrzebny 
     
 
 
-### <a name="set-the-vm-name-and-size"></a>Ustawianie nazwy i rozmiaru maszyny Wirtualnej
+### <a name="set-the-vm-name-and-size"></a>Ustaw nazwę i rozmiar maszyny wirtualnej
 
-W tym przykładzie nazwa maszyny Wirtualnej jest ustawiana na *myVM,* a rozmiar maszyny Wirtualnej na *Standard_A2*.
+Ten przykład służy do ustawiania nazwy maszyny wirtualnej *myVM* i rozmiaru maszyny wirtualnej do *Standard_A2*.
 
 ```powershell
 $vmName = "myVM"
 $vmConfig = New-AzVMConfig -VMName $vmName -VMSize "Standard_A2"
 ```
 
-### <a name="add-the-nic"></a>Dodawanie karty sieciowej
+### <a name="add-the-nic"></a>Dodaj kartę sieciową
     
 ```powershell
 $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
@@ -236,7 +236,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
 ### <a name="add-the-os-disk"></a>Dodawanie dysku systemu operacyjnego 
 
-Dodaj dysk systemu operacyjnego do konfiguracji za pomocą [set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk). W tym przykładzie ustawia rozmiar dysku na *128 GB* i dołącza dysk zarządzany jako dysk systemu *operacyjnego Windows.*
+Dodaj dysk systemu operacyjnego do konfiguracji za pomocą polecenia [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk). Ten przykład ustawia rozmiar dysku na *128 GB* i dołącza dysk zarządzany jako dysk *systemu operacyjnego Windows* .
  
 ```powershell
 $vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
@@ -245,13 +245,13 @@ $vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Stand
 
 ### <a name="complete-the-vm"></a>Ukończ maszynę wirtualną 
 
-Utwórz maszynę wirtualną przy użyciu [new-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) z konfiguracjami, które właśnie utworzyliśmy.
+Utwórz maszynę wirtualną przy użyciu polecenia [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) z utworzonymi właśnie konfiguracjami.
 
 ```powershell
 New-AzVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
 ```
 
-Jeśli to polecenie zakończy się pomyślnie, zobaczysz dane wyjściowe w ten sposób:
+Jeśli to polecenie zakończy się pomyślnie, zobaczysz dane wyjściowe podobne do tego:
 
 ```powershell
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
@@ -261,7 +261,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Sprawdź, czy maszyna wirtualna została utworzona
-Nowo utworzona maszyna wirtualna powinna zostać wyświetlona w [portalu Azure](https://portal.azure.com) w obszarze Przeglądaj maszyny **wirtualne** > **Virtual machines**lub przy użyciu następujących poleceń programu PowerShell.
+Nowo utworzona maszyna wirtualna powinna zostać wyświetlona w [Azure Portal](https://portal.azure.com) w obszarze **przeglądanie** > **maszyn wirtualnych**lub przy użyciu następujących poleceń programu PowerShell.
 
 ```powershell
 $vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup
@@ -269,5 +269,5 @@ $vmList.Name
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Zaloguj się do nowej maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Jak połączyć się i zalogować się do maszyny wirtualnej platformy Azure z systemem Windows](connect-logon.md).
+Zaloguj się do nowej maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [jak nawiązać połączenie i zalogować się do maszyny wirtualnej platformy Azure z systemem Windows](connect-logon.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Konfiguracja lokalna agenta zabezpieczeń (C)
-description: Dowiedz się więcej o usłudze Azure Security Center dla konfiguracji lokalnych agentów dla języka C.
+description: Dowiedz się więcej na temat Azure Security Center dla konfiguracji lokalnych agenta dla języka C.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,42 +16,42 @@ ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
 ms.openlocfilehash: cd344b9bebb69af210c482f46af6b2dd7edf7816
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311706"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Omówienie pliku LocalConfiguration.json — agent oparty na języku C
 
-Agent zabezpieczeń Usługi Azure Security Center dla IoT używa konfiguracji z lokalnego pliku konfiguracji.
-Agent zabezpieczeń odczytuje konfigurację raz, przy uruchamianiu agenta.
-Konfiguracja znaleziona w lokalnym pliku konfiguracyjnym zawiera konfigurację uwierzytelniania i inne konfiguracje związane z agentem.
-Plik zawiera konfiguracje w parach "Wartość klucza" w notacji JSON, a konfiguracje są wypełniane po zainstalowaniu agenta.
+Azure Security Center usługi IoT Security Agent używa konfiguracji z lokalnego pliku konfiguracji.
+Agent zabezpieczeń odczytuje konfigurację raz, podczas uruchamiania agenta.
+Konfiguracja znaleziona w lokalnym pliku konfiguracji zawiera konfigurację uwierzytelniania i inne konfiguracje powiązane z agentem.
+Plik zawiera konfiguracje "pary klucz-wartość" w notacji JSON, a konfiguracje są wypełniane podczas instalowania agenta.
 
-Domyślnie plik znajduje się pod adresem: /var/ASCIoTAgent/LocalConfiguration.json
+Domyślnie plik znajduje się w lokalizacji:/var/ASCIoTAgent/LocalConfiguration.json
 
-Zmiany w pliku konfiguracyjnym mają miejsce po ponownym uruchomieniu agenta.
+Zmiany w pliku konfiguracji są wykonywane po ponownym uruchomieniu agenta.
 
-## <a name="security-agent-configurations-for-c"></a>Konfiguracje agentów zabezpieczeń dla języka C
+## <a name="security-agent-configurations-for-c"></a>Konfiguracje agenta zabezpieczeń dla języka C
 
 | Nazwa konfiguracji | Możliwe wartości | Szczegóły |
 |:-----------|:---------------|:--------|
-| AgentId | Identyfikator GUID | Unikatowy identyfikator agenta |
-| TriggerdEventsInterval | Ciąg ISO8601 | Interwał harmonogramu dla kolekcji zdarzeń wyzwalanych |
-| Connectiontimeout | Ciąg ISO8601 | Upływ czasu, zanim połączenie z IoThub zostanie przesunął limit czasu |
-| Authentication | JsonObject (łań.) | Konfiguracja uwierzytelniania. Ten obiekt zawiera wszystkie informacje potrzebne do uwierzytelniania w uliczce IoTHub |
-| Tożsamość | "DPS", "SecurityModule", "Device" | Tożsamość uwierzytelniania — DPS, jeśli uwierzytelnianie odbywa się za pośrednictwem dps, SecurityModule jeśli uwierzytelnianie odbywa się za pomocą poświadczeń modułu zabezpieczeń lub urządzenia, jeśli uwierzytelnianie odbywa się za pomocą poświadczeń urządzenia |
-| Authenticationmethod | "SasToken", "SelfSignedCertificate" | klucz tajny użytkownika do uwierzytelniania — wybierz SasToken, jeśli klucz tajny użycia jest kluczem symetrycznym, wybierz certyfikat z podpisem własnym, jeśli klucz tajny jest certyfikatem z podpisem własnym  |
-| Filepath | Ścieżka do pliku (ciąg) | Ścieżka do pliku zawierającego klucz tajny uwierzytelniania |
-| HostName | ciąg | Nazwa hosta usługi azure iot hub. zwykle <my-hub>.azure-devices.net |
-| DeviceId | ciąg | Identyfikator urządzenia (zarejestrowany w usłudze Azure IoT Hub) |
-| Dps | JsonObject (łań.) | Konfiguracje związane z DPS |
-| IDScope | ciąg | Zakres identyfikatora DPS |
+| Identyfikator agenta | Identyfikator GUID | Unikatowy identyfikator agenta |
+| TriggerdEventsInterval | Ciąg ISO8601 | Interwał harmonogramu dla zbierania zdarzeń wyzwalanych |
+| Parametru | Ciąg ISO8601 | Czas przed upłynięciem limitu czasu połączenia z usługą IoThub |
+| Uwierzytelnianie | JsonObject | Konfiguracja uwierzytelniania. Ten obiekt zawiera wszystkie informacje, które są związane z uwierzytelnianiem w odniesieniu do IoTHub |
+| Tożsamość | "DPS", "SecurityModule", "urządzenie" | Tożsamość uwierzytelniania — DPS jeśli następuje uwierzytelnianie za pośrednictwem platformy DPS, SecurityModule w przypadku uwierzytelniania za pomocą poświadczeń modułu zabezpieczeń lub urządzenia, jeśli uwierzytelnianie jest nawiązywane przy użyciu poświadczeń urządzenia |
+| AuthenticationMethod | "SasToken", "SelfSignedCertificate" | klucz tajny użytkownika do uwierzytelniania — wybierz opcję SasToken, jeśli klucz tajny jest kluczem symetrycznym, wybierz opcję certyfikat z podpisem własnym, jeśli klucz tajny jest certyfikatem z podpisem własnym  |
+| Parametr | Ścieżka do pliku (ciąg) | Ścieżka do pliku, który zawiera klucz tajny uwierzytelniania |
+| HostName | ciąg | Nazwa hosta usługi Azure IoT Hub. zwykle <my-Hub>. azure-devices.net |
+| DeviceId | ciąg | Identyfikator urządzenia (zgodnie z zarejestrowaniem w usłudze Azure IoT Hub) |
+| DOKUMENTY | JsonObject | Konfiguracje związane z usługą DPS |
+| IDScope | ciąg | Zakres identyfikatorów DPS |
 | Identyfikator rejestracji | ciąg  | Identyfikator rejestracji urządzenia DPS |
-| Rejestrowanie | JsonObject (łań.) | Konfiguracje związane z rejestratorem agenta |
-| SystemLoggerMinimumEverity | 0 <= liczba <= 4 | komunikaty dziennika równe i powyżej tej ważności będą rejestrowane w /var/log/syslog (0 jest najniższą ważnością) |
-| DiagnostykaEventMinimumEverity | 0 <= liczba <= 4 | komunikaty dziennika równe i powyżej tej ważności będą wysyłane jako zdarzenia diagnostyczne (0 jest najniższą ważnością) |
+| Rejestrowanie | JsonObject | Konfiguracje związane z rejestratorem agentów |
+| SystemLoggerMinimumSeverity | 0 <= liczba <= 4 | komunikaty dziennika równe i powyżej ważności będą rejestrowane w/var/log/syslog (0 to najniższa ważność) |
+| DiagnosticEventMinimumSeverity | 0 <= liczba <= 4 | komunikaty dziennika równe i powyżej ważności będą wysyłane jako zdarzenia diagnostyczne (0 to najniższa ważność) |
 
 ## <a name="security-agent-configurations-code-example"></a>Przykład kodu konfiguracji agenta zabezpieczeń
 
@@ -82,10 +82,10 @@ Zmiany w pliku konfiguracyjnym mają miejsce po ponownym uruchomieniu agenta.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przeczytaj [omówienie](overview.md) usługi Azure Security Center dla IoT
-- Dowiedz się więcej o usłudze Azure Security Center dla [architektury](architecture.md) IoT
-- Włączanie usługi Azure Security Center dla [usługi](quickstart-onboard-iot-hub.md) IoT
-- Przeczytaj często zadawane pytania dotyczące usługi Azure Security Center for [IoT](resources-frequently-asked-questions.md)
-- Dowiedz się, jak uzyskać dostęp do [nieprzetworzonych danych zabezpieczeń](how-to-security-data-access.md)
-- Zrozumienie [rekomendacji](concept-recommendations.md)
-- Opis [alertów](concept-security-alerts.md) zabezpieczeń
+- Przeczytaj Azure Security Center dla usługi IoT [— Omówienie](overview.md)
+- Dowiedz się więcej o [architekturze](architecture.md) Azure Security Center dla usługi IoT
+- Włączanie Azure Security Center dla [usługi](quickstart-onboard-iot-hub.md) IoT
+- Przeczytaj Azure Security Center dla usługi IoT [— często zadawane pytania](resources-frequently-asked-questions.md)
+- Dowiedz się, jak uzyskać dostęp do [danych pierwotnych zabezpieczeń](how-to-security-data-access.md)
+- Omówienie [zaleceń](concept-recommendations.md)
+- Informacje o [alertach](concept-security-alerts.md) zabezpieczeń

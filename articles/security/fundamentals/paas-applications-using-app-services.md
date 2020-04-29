@@ -1,7 +1,7 @@
 ---
-title: Zabezpieczanie aplikacji internetowych PaaS & mobilnych
+title: Zabezpieczanie aplikacji PaaS Web & Mobile
 titleSuffix: Azure App Service
-description: 'Dowiedz się więcej o najlepszych rozwiązaniach dotyczących zabezpieczeń usługi Azure App Service dotyczących zabezpieczania aplikacji sieci Web i aplikacji mobilnych PaaS. '
+description: 'Dowiedz się więcej o najlepszych rozwiązaniach dotyczących zabezpieczeń Azure App Service w zakresie zabezpieczania aplikacji internetowych i mobilnych PaaS. '
 services: security
 documentationcenter: na
 author: techlake
@@ -17,35 +17,35 @@ ms.workload: na
 ms.date: 07/18/2019
 ms.author: terrylan
 ms.openlocfilehash: 49b51a5f14f305afa915ec1d0fae42ca9ded6b1e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461671"
 ---
-# <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Najważniejsze wskazówki dotyczące zabezpieczania aplikacji sieci Web i aplikacji mobilnych PaaS przy użyciu usługi Azure App Service
+# <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Najlepsze rozwiązania dotyczące zabezpieczania aplikacji PaaS Web i Mobile przy użyciu Azure App Service
 
-W tym artykule omówimy kolekcję najlepszych rozwiązań dotyczących zabezpieczeń [usługi Azure App Service](/azure/app-service/overview) dotyczących zabezpieczania aplikacji sieci Web i aplikacji mobilnych PaaS. Te najlepsze rozwiązania pochodzą z naszego środowiska z platformą Azure i doświadczeń klientów takich jak Ty.
+W tym artykule omówiono zbieranie [Azure App Service](/azure/app-service/overview) najlepszych rozwiązań z zakresu bezpieczeństwa związanych z zabezpieczaniem aplikacji internetowych i mobilnych PaaS. Te najlepsze rozwiązania wynikają z naszych rozwiązań związanych z platformą Azure i klientami.
 
-Usługa Azure App Service to usługa platformy jako usługi (PaaS), która umożliwia tworzenie aplikacji sieci Web i aplikacji mobilnych dla dowolnej platformy lub urządzenia oraz łączenie się z danymi w dowolnym miejscu, w chmurze lub lokalnie. Usługa App Service zawiera funkcje sieci web i urządzeń przenośnych, które były wcześniej dostarczane oddzielnie jako witryny sieci Web platformy Azure i usługi azure mobile. Obejmuje ona także nowe funkcje automatyzacji procesów biznesowych i hostowania interfejsów API w chmurze. Jako pojedyncza zintegrowana usługa usługa App Service zapewnia bogaty zestaw funkcji do scenariuszy sieci Web, urządzeń mobilnych i integracji.
+Azure App Service to oferta typu "platforma jako usługa" (PaaS), która umożliwia tworzenie aplikacji sieci Web i mobilnych dla dowolnej platformy lub urządzenia oraz łączenie się z danymi gdziekolwiek w chmurze lub lokalnie. App Service obejmuje możliwości sieci Web i urządzeń przenośnych, które zostały wcześniej dostarczone osobno jako usługi Azure Websites i Azure Mobile Services. Obejmuje ona także nowe funkcje automatyzacji procesów biznesowych i hostowania interfejsów API w chmurze. Jako pojedyncza zintegrowana usługa App Service oferuje bogaty zestaw funkcji dla scenariuszy sieci Web, mobilnych i integracji.
 
-## <a name="authenticate-through-azure-active-directory-ad"></a>Uwierzytelnij się za pośrednictwem usługi Azure Active Directory (AD)
-Usługa app service zapewnia usługę OAuth 2.0 dla dostawcy tożsamości. OAuth 2.0 koncentruje się na prostocie dewelopera klienta, zapewniając jednocześnie określone przepływy autoryzacji dla aplikacji sieci web, aplikacji komputerowych i telefonów komórkowych. Usługa Azure AD używa usługi OAuth 2.0, aby umożliwić autoryzowanie dostępu do aplikacji mobilnych i sieci Web. Aby dowiedzieć się więcej, zobacz [Uwierzytelnianie i autoryzacja w usłudze Azure App Service](../../app-service/overview-authentication-authorization.md).
+## <a name="authenticate-through-azure-active-directory-ad"></a>Uwierzytelnianie za Azure Active Directory (AD)
+App Service udostępnia usługę OAuth 2,0 dla dostawcy tożsamości. Uwierzytelnianie OAuth 2,0 koncentruje się na prostotie deweloperów klienta, a jednocześnie udostępnia określone przepływy autoryzacji dla aplikacji sieci Web, aplikacji klasycznych i telefonów komórkowych. Usługa Azure AD korzysta z protokołu OAuth 2,0, aby umożliwić autoryzowanie dostępu do aplikacji mobilnych i sieci Web. Aby dowiedzieć się więcej, zobacz temat [uwierzytelnianie i autoryzacja w Azure App Service](../../app-service/overview-authentication-authorization.md).
 
 ## <a name="restrict-access-based-on-role"></a>Ograniczanie dostępu na podstawie roli
-Ograniczenie dostępu jest konieczne dla organizacji, które chcą wymusić zasady zabezpieczeń dostępu do danych. Za pomocą kontroli dostępu opartej na rolach (RBAC) można przypisać uprawnienia użytkownikom, grupom i aplikacjom w określonym zakresie, na przykład zasadami zabezpieczeń o konieczności poznania i najmniejszych uprawnień. Aby dowiedzieć się więcej o przyznawaniu użytkownikom dostępu do aplikacji, zobacz [Co to jest kontrola dostępu oparta na rolach](/azure/role-based-access-control/overview).
+Ograniczanie dostępu jest przeznaczone dla organizacji, które chcą wymusić zasady zabezpieczeń na potrzeby dostępu do danych. Kontroli dostępu opartej na rolach (RBAC) można używać do przypisywania uprawnień użytkownikom, grupom i aplikacjom w określonym zakresie, takich jak konieczność znajomości i najniższych zasad zabezpieczeń. Aby dowiedzieć się więcej o udzielaniu użytkownikom dostępu do aplikacji, zobacz [co to jest kontrola dostępu oparta na rolach](/azure/role-based-access-control/overview).
 
-## <a name="protect-your-keys"></a>Chroń swoje klucze
-Nie ma znaczenia, jak dobre jest twoje bezpieczeństwo, jeśli utracisz klucze subskrypcji. Usługa Azure Key Vault ułatwia ochronę kluczy kryptograficznych i kluczy tajnych używanych przez aplikacje i usługi w chmurze. Za pomocą usługi Key Vault można szyfrować klucze i wpisy tajne (takie jak klucze uwierzytelniania, klucze konta magazynu, klucze szyfrowania danych, . PFX i hasła) przy użyciu kluczy chronionych przez sprzętowe moduły zabezpieczeń (HSM). W celu zapewnienia dodatkowego bezpieczeństwa możesz zaimportować lub wygenerować klucze w modułach HSM. Za pomocą usługi Key Vault można również zarządzać certyfikatami TLS za pomocą automatycznego odnawiania. Zobacz [Co to jest usługa Azure Key Vault,](../../key-vault/general/overview.md) aby dowiedzieć się więcej.
+## <a name="protect-your-keys"></a>Ochrona kluczy
+Nie ma znaczenia, jak dobre zabezpieczenia to utrata kluczy subskrypcji. Usługa Azure Key Vault ułatwia ochronę kluczy kryptograficznych i kluczy tajnych używanych przez aplikacje i usługi w chmurze. Za pomocą Key Vault można szyfrować klucze i wpisy tajne (takie jak klucze uwierzytelniania, klucze konta magazynu, klucze szyfrowania danych). Pliki i hasła PFX) przy użyciu kluczy chronionych przez sprzętowe moduły zabezpieczeń (sprzętowych modułów zabezpieczeń). W celu zapewnienia dodatkowego bezpieczeństwa możesz zaimportować lub wygenerować klucze w modułach HSM. Za pomocą Key Vault można także zarządzać certyfikatami TLS przy użyciu autoodnawiania. Aby dowiedzieć się więcej, zobacz [co to jest Azure Key Vault](../../key-vault/general/overview.md) .
 
-## <a name="restrict-incoming-source-ip-addresses"></a>Ograniczanie przychodzących źródłowych adresów IP
-[Środowiska usługi app service](../../app-service/environment/intro.md) ma funkcję integracji sieci wirtualnej, która pomaga ograniczyć przychodzące źródłowe adresy IP za pośrednictwem sieciowych grup zabezpieczeń (NSG). Jeśli nie znasz sieci wirtualnych platformy Azure (VNETs), jest to funkcja, która umożliwia umieszczenie wielu zasobów platformy Azure w sieci niekonkingowej, routable, do której można kontrolować dostęp. Aby dowiedzieć się więcej, zobacz [Integrowanie aplikacji z siecią wirtualną platformy Azure](../../app-service/web-sites-integrate-with-vnet.md).
+## <a name="restrict-incoming-source-ip-addresses"></a>Ogranicz przychodzące źródłowe adresy IP
+[Środowiska App Service](../../app-service/environment/intro.md) zawierają funkcję integracji sieci wirtualnej, która pomaga ograniczyć przychodzące źródłowe adresy IP za pomocą sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń). Jeśli nie znasz usługi Azure Virtual Networks (sieci wirtualnych), jest to funkcja, która umożliwia umieszczanie wielu zasobów platformy Azure w nieinternetowej, rutowanej sieci, do której można kontrolować dostęp. Aby dowiedzieć się więcej, zobacz [Integrowanie aplikacji z usługą Azure Virtual Network](../../app-service/web-sites-integrate-with-vnet.md).
 
-W usłudze App Service w systemie Windows można również dynamicznie ograniczać adresy IP, konfigurując plik web.config. Aby uzyskać więcej informacji, zobacz [Dynamiczne zabezpieczenia IP](/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+Aby uzyskać App Service w systemie Windows, można również dynamicznie ograniczyć adresy IP, konfigurując plik Web. config. Aby uzyskać więcej informacji, zobacz [dynamiczne zabezpieczenia adresów IP](/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule przedstawiono kolekcję najlepszych rozwiązań dotyczących zabezpieczeń usługi App Service dotyczących zabezpieczania aplikacji sieci Web i aplikacji mobilnych PaaS. Aby dowiedzieć się więcej o zabezpieczaniu wdrożeń PaaS, zobacz:
+W tym artykule wprowadzono do App Service kolekcji najlepszych rozwiązań dotyczących zabezpieczeń w zakresie zabezpieczania aplikacji PaaS Web i Mobile. Aby dowiedzieć się więcej o zabezpieczaniu wdrożeń PaaS, zobacz:
 
 - [Zabezpieczanie wdrożeń typu PaaS](paas-deployments.md)
 - [Zabezpieczanie baz danych PaaS na platformie Azure](paas-applications-using-sql.md)

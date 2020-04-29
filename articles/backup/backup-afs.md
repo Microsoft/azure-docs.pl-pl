@@ -4,10 +4,10 @@ description: Dowiedz się, jak używać Azure Portal do tworzenia kopii zapasowy
 ms.topic: conceptual
 ms.date: 01/20/2020
 ms.openlocfilehash: da2c7fa4cc5c3b7b948604a6f6d3999671cb3697
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82101341"
 ---
 # <a name="back-up-azure-file-shares-in-a-recovery-services-vault"></a>Tworzenie kopii zapasowych udziałów plików platformy Azure w magazynie Recovery Services
@@ -62,7 +62,7 @@ Aby zmodyfikować typ replikacji magazynu:
 
     b.  W **czym chcesz utworzyć kopię zapasową?** wybierz pozycję **udział plików platformy Azure** z listy rozwijanej.
 
-    d.  Wybierz pozycję **kopia zapasowa** , aby zarejestrować rozszerzenie udziału plików platformy Azure w magazynie.
+    c.  Wybierz pozycję **kopia zapasowa** , aby zarejestrować rozszerzenie udziału plików platformy Azure w magazynie.
 
     ![Wybierz pozycję Kopia zapasowa, aby skojarzyć udział plików platformy Azure z magazynem](./media/backup-afs/register-extension.png)
 
@@ -72,7 +72,7 @@ Aby zmodyfikować typ replikacji magazynu:
 
     ![Odnajdywanie udziałów plików](./media/backup-afs/discovering-file-shares.png)
 
-1. Z listy **udziały plików** wybierz co najmniej jeden udział plików, dla którego chcesz utworzyć kopię zapasową. Kliknij przycisk **OK**.
+1. Z listy **udziały plików** wybierz co najmniej jeden udział plików, dla którego chcesz utworzyć kopię zapasową. Wybierz przycisk **OK**.
 
    ![Wybierz udziały plików](./media/backup-afs/select-file-shares.png)
 

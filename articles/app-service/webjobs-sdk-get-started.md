@@ -1,57 +1,57 @@
 ---
-title: Wprowadzenie do sdk WebJobs
-description: Wprowadzenie do sdk WebJobs dla przetwarzania w tle oparte na zdarzeniach. Dowiedz się, jak uzyskać dostęp do danych w usługach platformy Azure i usługach innych firm.
+title: Wprowadzenie do zestawu SDK zadań WebJob
+description: Wprowadzenie do zestawu SDK zadań WebJob na potrzeby przetwarzania w tle opartego na zdarzeniach. Dowiedz się, jak uzyskać dostęp do danych w usługach platformy Azure i usługach innych firm.
 author: ggailey777
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: 4ee724ec66d5fb474f8c8a9a967cc7235fef5e85
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81732628"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Get started with the Azure WebJobs SDK for event-driven background processing (Rozpoczynanie pracy z zestawem SDK usługi Azure WebJobs umożliwiającym oparte na zdarzeniach przetwarzanie w tle)
 
-W tym artykule pokazano, jak za pomocą programu Visual Studio 2019 utworzyć projekt SDK usługi Azure WebJobs, uruchomić go lokalnie, a następnie wdrożyć w [usłudze Azure App Service.](overview.md) Wersja 3.x zestawu WebJobs SDK obsługuje zarówno aplikacje konsoli .NET Core, jak i .NET Framework. Aby dowiedzieć się więcej na temat pracy z zestawem SDK webjobs, zobacz [Jak używać sdk azure WebJobs do przetwarzania w tle opartego na zdarzeniach.](webjobs-sdk-how-to.md)
+W tym artykule pokazano, jak za pomocą programu Visual Studio 2019 utworzyć projekt zestawu SDK Azure WebJobs, uruchomić go lokalnie, a następnie wdrożyć do [Azure App Service](overview.md). Wersja 3. x zestawu SDK usługi WebJobs obsługuje aplikacje konsolowe platformy .NET Core i .NET Framework. Aby dowiedzieć się więcej o pracy z zestawem SDK usługi WebJobs, zobacz [jak używać zestawu sdk Azure WebJobs na potrzeby przetwarzania w tle opartego na zdarzeniach](webjobs-sdk-how-to.md).
 
-W tym artykule pokazano, jak wdrożyć aplikacje WebJobs jako aplikację konsoli .NET Core. Aby wdrożyć webjobs jako aplikację konsoli .NET Framework, zobacz [WebJobs jako aplikacje konsoli .NET Framework](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps). Jeśli jesteś zainteresowany webjobs SDK w wersji 2.x, który obsługuje tylko .NET Framework, zobacz [Tworzenie i wdrażanie WebJobs przy użyciu programu Visual Studio — Azure App Service](webjobs-dotnet-deploy-vs.md).
+W tym artykule opisano sposób wdrażania zadań WebJob jako aplikacji konsolowej programu .NET Core. Aby wdrożyć Zadania WebJob jako aplikację konsolową .NET Framework, zobacz [Zadania WebJob jako .NET Framework aplikacje konsolowe](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps). Jeśli interesuje Cię zestaw SDK usługi WebJobs w wersji 2. x, który obsługuje tylko .NET Framework, zobacz [Tworzenie i wdrażanie zadań WebJob za pomocą programu Visual Studio — Azure App Service](webjobs-dotnet-deploy-vs.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Zainstaluj program Visual Studio 2019](/visualstudio/install/) z obciążeniem **dewelopera platformy Azure.** Jeśli masz już program Visual Studio, ale nie masz tego obciążenia, dodaj obciążenie, wybierając **pozycję Narzędzia > Pobierz narzędzia i funkcje**.
+* [Zainstaluj program Visual Studio 2019](/visualstudio/install/) przy użyciu obciążeń **programistycznych platformy Azure** . Jeśli masz już program Visual Studio, ale nie masz tego obciążenia, Dodaj obciążenie, wybierając pozycję **narzędzia > Pobierz narzędzia i funkcje**.
 
-* Musisz mieć [konto platformy Azure,](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aby opublikować projekt SDK WebJobs na platformie Azure.
+* Aby opublikować projekt zestawu SDK zadań WebJob na platformie Azure, musisz mieć [konto platformy Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) .
 
 ## <a name="create-a-project"></a>Tworzenie projektu
 
 1. W programie Visual Studio wybierz pozycję **Utwórz nowy projekt**.
 
-2. Wybierz **aplikację konsoli (.NET Core)**.
+2. Wybierz pozycję **aplikacja konsoli (.NET Core)**.
 
 3. Nazwij projekt *WebJobsSDKSample*, a następnie wybierz pozycję **Utwórz**.
 
    ![Okno dialogowe Nowy projekt](./media/webjobs-sdk-get-started/new-project.png)
 
-## <a name="webjobs-nuget-packages"></a>Pakiety WebJobs NuGet
+## <a name="webjobs-nuget-packages"></a>Pakiety NuGet zadań WebJob
 
-1. Zainstaluj najnowszą stabilną wersję [ `Microsoft.Azure.WebJobs.Extensions` pakietu NuGet](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions/)3.x, która zawiera `Microsoft.Azure.WebJobs`.
+1. Zainstaluj najnowszą wersję [ `Microsoft.Azure.WebJobs.Extensions` pakietu NuGet](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions/)o stabilnej wersji 3. x, która obejmuje `Microsoft.Azure.WebJobs`.
 
-     Oto polecenie **Konsola Menedżera pakietów:**
+     Oto polecenie **konsoli Menedżera pakietów** :
 
      ```powershell
      Install-Package Microsoft.Azure.WebJobs.Extensions -version <3_X_VERSION>
      ```
 
-    W tym poleceniu zastąp `<3_X_VERSION>` obsługiwaną wersją pakietu. 
+    W tym poleceniu Zastąp `<3_X_VERSION>` wartość obsługiwaną wersją pakietu. 
 
 ## <a name="create-the-host"></a>Tworzenie hosta
 
-Host jest kontenerem środowiska wykonawczego dla funkcji, które nasłuchuje wyzwalaczy i wywołuje funkcje. Poniższe kroki tworzą hosta, który implementuje [`IHost`](/dotnet/api/microsoft.extensions.hosting.ihost), który jest hostem rodzajowym w ASP.NET Core.
+Host jest kontenerem środowiska uruchomieniowego dla funkcji, które nasłuchują dla wyzwalaczy i wywołań funkcji. Poniższe kroki tworzą hosta, który implementuje [`IHost`](/dotnet/api/microsoft.extensions.hosting.ihost), który jest hostem ogólnym w ASP.NET Core.
 
-1. W *Program.cs*, dodaj `using` następujące instrukcje:
+1. W *program.cs*, Dodaj następujące `using` instrukcje:
 
     ```cs
     using System.Threading.Tasks;
@@ -76,29 +76,29 @@ Host jest kontenerem środowiska wykonawczego dla funkcji, które nasłuchuje wy
     }
     ```
 
-W ASP.NET Core konfiguracje hosta są ustawiane [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) przez metody wywoływania w wystąpieniu. Aby uzyskać więcej informacji, zobacz [Host ogólny platformy .NET](/aspnet/core/fundamentals/host/generic-host). Metoda `ConfigureWebJobs` rozszerzenia inicjuje hosta WebJobs. W `ConfigureWebJobs`, należy zainicjować określone rozszerzenia WebJobs i ustawić właściwości tych rozszerzeń.  
+W ASP.NET Core konfiguracje hosta są ustawiane przez wywołanie metod w [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) wystąpieniu. Aby uzyskać więcej informacji, zobacz [host ogólny programu .NET](/aspnet/core/fundamentals/host/generic-host). Metoda `ConfigureWebJobs` rozszerzająca Inicjuje hosta zadań WebJob. W `ConfigureWebJobs`programie inicjowane są określone rozszerzenia zadań WebJob i są ustawiane właściwości tych rozszerzeń.  
 
-## <a name="enable-console-logging"></a>Włączanie rejestrowania konsoli
+## <a name="enable-console-logging"></a>Włącz rejestrowanie konsoli
 
-W tej sekcji skonfigurowano rejestrowanie konsoli, która korzysta z [ASP.NET core rejestrowania struktury](/aspnet/core/fundamentals/logging).
+W tej sekcji skonfigurujesz Rejestrowanie konsoli, która używa [struktury rejestrowania ASP.NET Core](/aspnet/core/fundamentals/logging).
 
-1. Zainstaluj najnowszą `Microsoft.Extensions.Logging`stabilną [ `Microsoft.Extensions.Logging.Console` wersję pakietu NuGet,](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/)która zawiera .
+1. Zainstaluj najnowszą stabilną wersję [ `Microsoft.Extensions.Logging.Console` pakietu NuGet](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/), która obejmuje. `Microsoft.Extensions.Logging`
 
-   Oto polecenie **Konsola Menedżera pakietów:**
+   Oto polecenie **konsoli Menedżera pakietów** :
 
    ```powershell
    Install-Package Microsoft.Extensions.Logging.Console -version <3_X_VERSION>
    ```
 
-1. W *Program.cs*, dodaj `using` instrukcję:
+1. W *program.cs*Dodaj `using` instrukcję:
 
    ```cs
    using Microsoft.Extensions.Logging;
    ```
 
-    W tym poleceniu zastąp `<3_X_VERSION>` obsługiwaną wersją pakietu 3.x.
+    W tym poleceniu Zastąp `<3_X_VERSION>` wartość obsługiwaną wersją 3. x pakietu.
 
-1. Wywołanie [`ConfigureLogging`](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) metody [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder)na . Metoda [`AddConsole`](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) dodaje rejestrowanie konsoli do konfiguracji.
+1. Wywołaj [`ConfigureLogging`](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) metodę w [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder). [`AddConsole`](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) Metoda dodaje do konfiguracji Rejestrowanie konsoli.
 
     ```cs
     builder.ConfigureLogging((context, b) =>
@@ -107,7 +107,7 @@ W tej sekcji skonfigurowano rejestrowanie konsoli, która korzysta z [ASP.NET co
     });
     ```
 
-    Metoda `Main` wygląda teraz następująco:
+    Teraz `Main` Metoda wygląda następująco:
 
     ```cs
     static async Task Main()
@@ -131,26 +131,26 @@ W tej sekcji skonfigurowano rejestrowanie konsoli, która korzysta z [ASP.NET co
 
     Ta aktualizacja wykonuje następujące czynności:
 
-    * Wyłącza [rejestrowanie pulpitu nawigacyjnego](https://github.com/Azure/azure-webjobs-sdk/wiki/Queues#logs). Pulpit nawigacyjny jest starszym narzędziem monitorowania, a rejestrowanie pulpitu nawigacyjnego nie jest zalecane w scenariuszach produkcji o wysokiej przepływności.
-    * Dodaje dostawcę konsoli z [domyślnym filtrem](webjobs-sdk-how-to.md#log-filtering).
+    * Wyłącza [Rejestrowanie pulpitu nawigacyjnego](https://github.com/Azure/azure-webjobs-sdk/wiki/Queues#logs). Pulpit nawigacyjny jest starszym narzędziem do monitorowania, a rejestrowanie pulpitu nawigacyjnego nie jest zalecane w scenariuszach produkcyjnych o wysokiej przepływności.
+    * Dodaje dostawcę konsoli z domyślnym [filtrowaniem](webjobs-sdk-how-to.md#log-filtering).
 
-Teraz można dodać funkcję, która jest wyzwalana przez wiadomości przychodzące w kolejce usługi Azure Storage.
+Teraz można dodać funkcję, która jest wyzwalana przez komunikaty docierające do kolejki usługi Azure Storage.
 
 ## <a name="install-the-storage-binding-extension"></a>Instalowanie rozszerzenia powiązania usługi Storage
 
-Począwszy od wersji 3.x, należy jawnie zainstalować rozszerzenie powiązania magazynu wymagane przez webjobs SDK. W poprzednich wersjach powiązania magazynu zostały uwzględnione w zestawie SDK.
+Począwszy od wersji 3. x, należy jawnie zainstalować rozszerzenie powiązania magazynu wymagane przez zestaw SDK zadań WebJob. W poprzednich wersjach powiązania magazynu zostały uwzględnione w zestawie SDK.
 
-1. Zainstaluj najnowszą stabilną wersję pakietu [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet w wersji 3.x. 
+1. Zainstaluj najnowszą stabilną wersję pakietu NuGet [Microsoft. Azure. WebJobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) w wersji 3. x. 
 
-    Oto polecenie **Konsola Menedżera pakietów:**
+    Oto polecenie **konsoli Menedżera pakietów** :
 
     ```powershell
     Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version <3_X_VERSION>
     ```
     
-    W tym poleceniu zastąp `<3_X_VERSION>` obsługiwaną wersją pakietu. 
+    W tym poleceniu Zastąp `<3_X_VERSION>` wartość obsługiwaną wersją pakietu. 
 
-2. W `ConfigureWebJobs` metodzie rozszerzenia `AddAzureStorage` wywołaj [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) metodę w wystąpieniu, aby zainicjować rozszerzenie magazynu. W tym momencie `ConfigureWebJobs` metoda wygląda następująco:
+2. W metodzie `ConfigureWebJobs` rozszerzenia Wywołaj `AddAzureStorage` metodę w [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) wystąpieniu, aby zainicjować rozszerzenie magazynu. W tym momencie `ConfigureWebJobs` Metoda wygląda podobnie do poniższego przykładu:
 
     ```cs
     builder.ConfigureWebJobs(b =>
@@ -162,9 +162,9 @@ Począwszy od wersji 3.x, należy jawnie zainstalować rozszerzenie powiązania 
 
 ## <a name="create-a-function"></a>Tworzenie funkcji
 
-1. Kliknij prawym przyciskiem myszy projekt, wybierz polecenie **Dodaj** > **nowy element...**, wybierz polecenie **Klasa**, nazwij nowy plik klasy C# *Functions.cs*, a następnie wybierz pozycję **Dodaj**.
+1. Kliknij prawym przyciskiem myszy projekt, wybierz polecenie **Dodaj** > **nowy element...**, wybierz **klasę**, nazwij nowy plik klasy C# *Functions.cs*i wybierz pozycję **Dodaj**.
 
-1. W Functions.cs zastąp wygenerowany szablon następującym kodem:
+1. W Functions.cs Zastąp wygenerowany szablon następującym kodem:
     
     ```cs
     using Microsoft.Azure.WebJobs;
@@ -182,45 +182,45 @@ Począwszy od wersji 3.x, należy jawnie zainstalować rozszerzenie powiązania 
     }
     ```
 
-   Atrybut `QueueTrigger` informuje środowisko wykonawcze, aby wywołać tę funkcję, gdy nowa `queue`wiadomość jest napisana w kolejce usługi Azure Storage o nazwie . Zawartość komunikatu kolejki są dostarczane do kodu `message` metody w parametrze. Treść metody jest, gdzie można przetwarzać dane wyzwalacza. W tym przykładzie kod po prostu rejestruje komunikat.
+   Ten `QueueTrigger` atrybut informuje środowisko uruchomieniowe o wywołaniu tej funkcji, gdy zostanie zapisany nowy komunikat w kolejce usługi Azure Storage `queue`o nazwie. Zawartość komunikatu w kolejce jest dostarczana do kodu metody w `message` parametrze. Treść metody polega na przetwarzaniu danych wyzwalacza. W tym przykładzie kod właśnie rejestruje komunikat.
 
-   Parametr `message` nie musi być ciągiem. Można również powiązać z obiektem JSON, tablicą bajtową lub obiektem [CloudQueueMessage.](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) [Zobacz Użycie wyzwalacza kolejki](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#usage). Każdy typ powiązania (na przykład kolejki, obiekty BLOB lub tabele) ma inny zestaw typów parametrów, które można powiązać.
+   `message` Parametr nie musi być ciągiem. Można również powiązać z obiektem JSON, tablicą bajtową lub obiektem [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) . [Zobacz Użycie wyzwalacza kolejki](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#usage). Każdy typ powiązania (taki jak kolejki, obiekty blob lub tabele) ma inny zestaw typów parametrów, do których można utworzyć powiązanie.
 
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
-Emulator usługi Azure Storage, który działa lokalnie nie ma wszystkich funkcji, które wymaga zestaw SDK WebJobs. Dlatego w tej sekcji można utworzyć konto magazynu na platformie Azure i skonfigurować projekt, aby go używać. Jeśli masz już konto magazynu, przejdź w dół do kroku 6.
+Emulator usługi Azure Storage, który działa lokalnie, nie ma wszystkich funkcji potrzebnych przez zestaw SDK zadań WebJob. W tej sekcji utworzysz konto magazynu na platformie Azure i skonfigurujesz projekt do korzystania z niego. Jeśli masz już konto magazynu, przejdź do kroku 6.
 
-1. Otwórz **Eksploratora serwera** w programie Visual Studio i zaloguj się na platformie Azure. Kliknij prawym przyciskiem myszy węzeł **platformy Azure,** a następnie wybierz pozycję **Połącz z subskrypcją platformy Microsoft Azure**.
+1. Otwórz **Eksplorator serwera** w programie Visual Studio i zaloguj się do platformy Azure. Kliknij prawym przyciskiem myszy węzeł **platformy Azure** , a następnie wybierz pozycję **Połącz z subskrypcją Microsoft Azure**.
 
    ![Logowanie do platformy Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
-1. W obszarze węzła **Azure** w **Eksploratorze serwera**kliknij prawym przyciskiem myszy **pozycję Magazyn,** a następnie wybierz polecenie **Utwórz konto magazynu**.
+1. W węźle **platformy Azure** w **Eksplorator serwera**kliknij prawym przyciskiem myszy pozycję **Magazyn**, a następnie wybierz pozycję **Utwórz konto magazynu**.
 
-   ![Menu Utwórz konto magazynu](./media/webjobs-sdk-get-started/create-storage-account-menu.png)
+   ![Menu Tworzenie konta magazynu](./media/webjobs-sdk-get-started/create-storage-account-menu.png)
 
 1. W oknie dialogowym **Tworzenie konta magazynu** wprowadź unikatową nazwę konta magazynu.
 
-1. Wybierz ten sam **region,** w którego utworzono aplikację usługi App Service lub region blisko Ciebie.
+1. Wybierz ten sam **region** , w którym została utworzona aplikacja App Service, lub region blisko siebie.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
    ![Utwórz konto magazynu](./media/webjobs-sdk-get-started/create-storage-account.png)
 
-1. W węźle **Magazyn** w **Eksploratorze serwera**wybierz nowe konto Magazynu. W oknie **Właściwości** wybierz wielokropek (**...**) po prawej stronie pola Wartość **Parametry połączenia.**
+1. W węźle **Magazyn** w obszarze **Eksplorator serwera**wybierz nowe konto magazynu. W oknie **Właściwości** wybierz wielokropek (**...**) z prawej strony pola wartość **parametrów połączenia** .
 
-   ![Wielokropek ciągu połączenia](./media/webjobs-sdk-get-started/conn-string-ellipsis.png)
+   ![Wielokropek parametrów połączenia](./media/webjobs-sdk-get-started/conn-string-ellipsis.png)
 
-1. Skopiuj ciąg połączenia i zapisz tę wartość w miejscu, w których można go łatwo skopiować.
+1. Skopiuj parametry połączenia i Zapisz tę wartość w miejscu, w którym można łatwo skopiować ją.
 
-   ![Kopiowanie ciągu połączenia](./media/webjobs-sdk-get-started/copy-key.png)
+   ![Kopiuj parametry połączenia](./media/webjobs-sdk-get-started/copy-key.png)
 
 ## <a name="configure-storage-to-run-locally"></a>Konfigurowanie magazynu do lokalnego uruchamiania
 
-Zestaw WebJobs SDK wyszukuje parametry połączenia magazynu w ustawieniach aplikacji na platformie Azure. Po uruchomieniu lokalnie, szuka tej wartości w pliku konfiguracji lokalnej lub w zmiennych środowiskowych.
+Zestaw SDK zadań WebJob szuka parametrów połączenia magazynu w ustawieniach aplikacji na platformie Azure. W przypadku uruchamiania lokalnego program szuka tej wartości w lokalnym pliku konfiguracyjnym lub w zmiennych środowiskowych.
 
-1. Kliknij prawym przyciskiem myszy projekt, wybierz pozycję **Dodaj** > **nowy element...**, wybierz **polecenie Plik konfiguracyjny JavaScript JSON**, nazwij nowy plik *appsettings.json* i wybierz pozycję **Dodaj**. 
+1. Kliknij prawym przyciskiem myszy projekt, wybierz polecenie **Dodaj** > **nowy element...**, wybierz **plik konfiguracji JSON języka JavaScript**, nazwij nowy plik *appSettings. JSON* , a następnie wybierz pozycję **Dodaj**. 
 
-1. W nowym pliku dodaj `AzureWebJobsStorage` pole, jak w poniższym przykładzie:
+1. W nowym pliku Dodaj `AzureWebJobsStorage` pole, jak w poniższym przykładzie:
 
     ```json
     {
@@ -228,19 +228,19 @@ Zestaw WebJobs SDK wyszukuje parametry połączenia magazynu w ustawieniach apli
     }
     ```
 
-1. Zastąp *{ciąg połączenia magazynu}* na parametry połączenia skopiowane wcześniej.
+1. Zastąp *{Parametry połączenia magazynu}* parametrami połączenia, które zostały wcześniej skopiowane.
 
-1. Wybierz plik *appsettings.json* w Eksploratorze **rozwiązań** i w oknie Właściwości ustaw **polecenie Kopiuj do katalogu wyjściowego,** aby **skopiować, jeśli jest nowszy.**
+1. Wybierz plik *appSettings. JSON* w Eksplorator rozwiązań i w oknie **Właściwości** ustaw wartość **Kopiuj do katalogu wyjściowego** na Kopiuj, **jeśli nowszy**.
 
-Później dodasz to samo ustawienie aplikacji ciągu połączenia w aplikacji w usłudze Azure App Service.
+Później należy dodać to samo ustawienie aplikacji parametrów połączenia w aplikacji w Azure App Service.
 
-## <a name="test-locally"></a>Testowanie lokalnie
+## <a name="test-locally"></a>Testuj lokalnie
 
-W tej sekcji można skompilować i uruchomić projekt lokalnie i wyzwolić funkcję, tworząc komunikat kolejki.
+W tej sekcji utworzysz i uruchamiasz projekt lokalnie i Wyzwalasz funkcję, tworząc komunikat w kolejce.
 
-1. Naciśnij **klawisze Ctrl+F5,** aby uruchomić projekt.
+1. Naciśnij **klawisze CTRL + F5** , aby uruchomić projekt.
 
-   Konsola pokazuje, że środowisko wykonawcze odnalazł funkcję i oczekuje na komunikaty kolejki, aby ją wyzwolić. Następujący wynik jest generowany przez hosta v3.x:
+   Konsola programu pokazuje, że środowisko uruchomieniowe odnalazło funkcję i czeka na wywołanie komunikatów w kolejce. Następujące dane wyjściowe są generowane przez hosta v3. x:
 
    ```console
     info: Microsoft.Azure.WebJobs.Hosting.JobHostService[0]
@@ -258,31 +258,31 @@ W tej sekcji można skompilować i uruchomić projekt lokalnie i wyzwolić funkc
 
 1. Zamknij okno konsoli.
 
-1. W **Eksploratorze serwera** w programie Visual Studio rozwiń węzeł dla nowego konta magazynu, a następnie kliknij prawym przyciskiem myszy pozycję **Kolejki**.
+1. W **Eksplorator serwera** w programie Visual Studio rozwiń węzeł nowego konta magazynu, a następnie kliknij prawym przyciskiem myszy pozycję **kolejki**.
 
-1. Wybierz **pozycję Utwórz kolejkę**.
+1. Wybierz pozycję **Utwórz kolejkę**.
 
-1. Wprowadź *kolejkę* jako nazwę kolejki, a następnie wybierz **przycisk OK**.
+1. Wprowadź *kolejkę* jako nazwę kolejki, a następnie wybierz przycisk **OK**.
 
-   ![Tworzenie kolejki](./media/webjobs-sdk-get-started/create-queue.png)
+   ![Utwórz kolejkę](./media/webjobs-sdk-get-started/create-queue.png)
 
-1. Kliknij prawym przyciskiem myszy węzeł nowej kolejki, a następnie wybierz polecenie **Wyświetl kolejkę**.
+1. Kliknij prawym przyciskiem myszy węzeł nowej kolejki, a następnie wybierz pozycję **Wyświetl kolejkę**.
 
-1. Wybierz ikonę **Dodaj wiadomość.**
+1. Wybierz ikonę **Dodaj wiadomość** .
 
-   ![Tworzenie kolejki](./media/webjobs-sdk-get-started/create-queue-message.png)
+   ![Utwórz kolejkę](./media/webjobs-sdk-get-started/create-queue-message.png)
 
-1. W oknie dialogowym **Dodawanie wiadomości** wprowadź *Hello World!* jako **tekst wiadomości**, a następnie wybierz przycisk **OK**. W kolejce znajduje się teraz komunikat.
+1. W oknie dialogowym **Dodawanie wiadomości** wprowadź *Hello World!* jako **tekst komunikatu**, a następnie wybierz przycisk **OK**. W kolejce znajduje się teraz komunikat.
 
-   ![Tworzenie kolejki](./media/webjobs-sdk-get-started/hello-world-text.png)
+   ![Utwórz kolejkę](./media/webjobs-sdk-get-started/hello-world-text.png)
 
 1. Uruchom ponownie projekt.
 
-   Ponieważ użyto `QueueTrigger` atrybutu `ProcessQueueMessage` w funkcji, środowisko uruchomieniowe WeJobs SDK nasłuchuje komunikatów kolejki po uruchomieniu. Znajduje nową wiadomość kolejki w kolejce o nazwie *kolejki* i wywołuje funkcję.
+   Ponieważ w `ProcessQueueMessage` funkcji użyto `QueueTrigger` atrybutu, środowisko uruchomieniowe zestawu WeJobs SDK nasłuchuje komunikatów w kolejce podczas uruchamiania. Odnajdzie nowy komunikat kolejki w kolejce o nazwie *Queue* i wywołuje funkcję.
 
-   Ze względu na [kolejkowania sondowania wykładniczego wycofywania,](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm)może upłynąć tak długo, jak 2 minuty dla środowiska wykonawczego, aby znaleźć komunikat i wywołać funkcję. Ten czas oczekiwania można skrócić, uruchamiając w [trybie rozwoju](webjobs-sdk-how-to.md#host-development-settings).
+   Ze względu na to, że w [kolejce jest wycofywania wykładniczy](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm), wykonanie komunikatu przez środowisko uruchomieniowe może trwać tak długo, jak i wywoływać funkcję. Ten czas oczekiwania można skrócić, uruchamiając w [trybie tworzenia](webjobs-sdk-how-to.md#host-development-settings).
 
-   Wyjście konsoli wygląda następująco:
+   Dane wyjściowe konsoli wyglądają następująco:
 
    ```console
     info: Function.ProcessQueueMessage[0]
@@ -297,51 +297,51 @@ W tej sekcji można skompilować i uruchomić projekt lokalnie i wyzwolić funkc
 
 1. Zamknij okno konsoli. 
 
-1. Wróć do okna Kolejki i odśwież go. Komunikat zniknął, ponieważ został przetworzony przez funkcję działającą lokalnie. 
+1. Wróć do okna kolejki i Odśwież go. Komunikat został usunięty, ponieważ został przetworzony przez funkcję uruchomioną lokalnie. 
 
-## <a name="add-application-insights-logging"></a>Dodawanie rejestrowania usługi Application Insights
+## <a name="add-application-insights-logging"></a>Dodawanie rejestrowania Application Insights
 
-Gdy projekt jest uruchamiany na platformie Azure, nie można monitorować wykonywania funkcji przez wyświetlanie danych wyjściowych konsoli. Zaleca się, że rozwiązaniem do monitorowania jest [usługa Application Insights.](../azure-monitor/app/app-insights-overview.md) Aby uzyskać więcej informacji, zobacz [Monitorowanie funkcji platformy Azure](../azure-functions/functions-monitoring.md).
+Gdy projekt jest uruchamiany na platformie Azure, nie można monitorować wykonywania funkcji przez wyświetlenie danych wyjściowych konsoli. Zalecane rozwiązanie do monitorowania jest [Application Insights](../azure-monitor/app/app-insights-overview.md). Aby uzyskać więcej informacji, zobacz [Monitor Azure Functions](../azure-functions/functions-monitoring.md).
 
-W tej sekcji wykonaj następujące zadania, aby skonfigurować rejestrowanie usługi Application Insights przed wdrożeniem na platformie Azure:
+W tej sekcji wykonaj następujące zadania, aby skonfigurować rejestrowanie Application Insights przed wdrożeniem na platformie Azure:
 
-* Upewnij się, że masz aplikację usługi App Service i wystąpienie usługi Application Insights do pracy z.
-* Skonfiguruj aplikację usługi App Service, aby używała wystąpienia usługi Application Insights i konta magazynu utworzonego wcześniej.
-* Skonfiguruj projekt do rejestrowania w usłudze Application Insights.
+* Upewnij się, że masz aplikację App Service i wystąpienie Application Insights, z którym chcesz współpracować.
+* Skonfiguruj aplikację App Service tak, aby korzystała z wystąpienia Application Insights i utworzonego wcześniej konta magazynu.
+* Skonfiguruj projekt do rejestrowania w Application Insights.
 
-### <a name="create-app-service-app-and-application-insights-instance"></a>Tworzenie aplikacji usługi App Service i wystąpienia usługi Application Insights
+### <a name="create-app-service-app-and-application-insights-instance"></a>Tworzenie App Service aplikacji i wystąpienia Application Insights
 
-1. Jeśli nie masz jeszcze aplikacji usługi App Service, której możesz użyć, [utwórz ją](app-service-web-get-started-dotnet-framework.md). Podczas tworzenia aplikacji można również utworzyć połączony zasób usługi Application Insights. Po wykonaniu tej `APPINSIGHTS_INSTRUMENTATIONKEY` tej pracy jest ustawiona dla Ciebie w aplikacji.
+1. Jeśli nie masz jeszcze aplikacji App Service, której możesz użyć, [Utwórz ją](app-service-web-get-started-dotnet-framework.md). Podczas tworzenia aplikacji można również utworzyć połączony zasób Application Insights. Gdy to zrobisz, `APPINSIGHTS_INSTRUMENTATIONKEY` zostanie ustawione dla Ciebie w aplikacji.
 
-1. Jeśli nie masz jeszcze zasobu usługi Application Insights, którego można użyć, [utwórz jeden z nich](../azure-monitor/app/create-new-resource.md ). Ustaw **typ aplikacji** na **Ogólne**i pomiń sekcje, które następują **po kopiowaniu klawisza instrumentacji**.
+1. Jeśli nie masz jeszcze zasobu Application Insights, którego możesz użyć, [Utwórz go](../azure-monitor/app/create-new-resource.md ). W polu **Typ aplikacji** ustaw wartość **Ogólne**i Pomiń następujące sekcje, które obserwują **kopię klucza Instrumentacji**.
 
-1. Jeśli masz już zasób usługi Application Insights, którego chcesz użyć, [skopiuj klucz instrumentacji](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key).
+1. Jeśli masz już zasób Application Insights, którego chcesz użyć, [skopiuj klucz Instrumentacji](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key).
 
 ### <a name="configure-app-settings"></a>Konfigurowanie ustawień aplikacji 
 
-1. W **Eksploratorze serwera** w programie Visual Studio rozwiń węzeł **usługi app service** w obszarze **Azure**.
+1. W **Eksplorator serwera** w programie Visual Studio rozwiń węzeł **App Service** na **platformie Azure**.
 
-1. Rozwiń grupę zasobów, w których znajduje się aplikacja usługi App Service, a następnie kliknij prawym przyciskiem myszy aplikację usługi App Service.
+1. Rozwiń grupę zasobów, w której znajduje się aplikacja App Service, a następnie kliknij prawym przyciskiem myszy aplikację App Service.
 
-1. Wybierz **pozycję Ustawienia widoku**.
+1. Wybierz pozycję **Wyświetl ustawienia**.
 
-1. W polu **Parametry połączenia** dodaj następujący wpis.
+1. W polu **Parametry połączenia** Dodaj następujący wpis.
 
-   |Nazwa  |Ciąg połączenia  |Typ bazy danych|
+   |Nazwa  |Parametry połączenia  |Typ bazy danych|
    |---------|---------|------|
-   |AzureWebJobsStorage | {parametry połączenia Magazynu skopiowane wcześniej}|Niestandardowy|
+   |AzureWebJobsStorage | {wcześniej skopiowane parametry połączenia magazynu}|Niestandardowy|
 
-1. Jeśli pole **Ustawienia aplikacji** nie ma klucza instrumentacji usługi Application Insights, dodaj ten, który został skopiowany wcześniej. (Klucz instrumentacji może już tam być, w zależności od sposobu utworzenia aplikacji Usługi app service).
+1. Jeśli pole **Ustawienia aplikacji** nie ma klucza instrumentacji Application Insights, należy dodać skopiowane wcześniej. (W zależności od sposobu tworzenia aplikacji App Service może już istnieć klucz Instrumentacji).
 
    |Nazwa  |Wartość  |
    |---------|---------|
-   |APPINSIGHTS_INSTRUMENTATIONKEY | {klucz instrumentacji} |
+   |APPINSIGHTS_INSTRUMENTATIONKEY | {Instrumentation Key} |
 
-1. Zastąp *{klucz instrumentacji}* kluczem instrumentacji z używanego zasobu usługi Application Insights.
+1. Zastąp klucz " *{Instrumentation Key}* " kluczem Instrumentacji z zasobu Application Insights, którego używasz.
 
 1. Wybierz pozycję **Zapisz**.
 
-1. Dodaj połączenie usługi Application Insights do projektu, aby można było uruchomić je lokalnie. W pliku *appsettings.json* dodaj `APPINSIGHTS_INSTRUMENTATIONKEY` pole, jak w poniższym przykładzie:
+1. Dodaj Application Insights połączenie z projektem, aby można było uruchomić je lokalnie. W pliku *appSettings. JSON* Dodaj `APPINSIGHTS_INSTRUMENTATIONKEY` pole, jak w poniższym przykładzie:
 
     ```json
     {
@@ -350,27 +350,27 @@ W tej sekcji wykonaj następujące zadania, aby skonfigurować rejestrowanie us�
     }
     ```
 
-    Zastąp *{klucz instrumentacji}* kluczem instrumentacji z używanego zasobu usługi Application Insights.
+    Zastąp klucz " *{Instrumentation Key}* " kluczem Instrumentacji z zasobu Application Insights, którego używasz.
 
 1. Zapisz zmiany.
 
-### <a name="add-application-insights-logging-provider"></a>Dodawanie dostawcy rejestrowania usługi Application Insights
+### <a name="add-application-insights-logging-provider"></a>Dodaj dostawcę rejestrowania Application Insights
 
-Aby skorzystać z rejestrowania [usługi Application Insights,](../azure-monitor/app/app-insights-overview.md) zaktualizuj kod rejestrowania, aby wykonać następujące czynności:
+Aby skorzystać z funkcji rejestrowania [Application Insights](../azure-monitor/app/app-insights-overview.md) , Zaktualizuj swój kod rejestrowania, aby wykonać następujące czynności:
 
-* Dodaj dostawcę rejestrowania usługi Application Insights z [domyślnym filtrowaniem](webjobs-sdk-how-to.md#log-filtering). Podczas uruchamiania lokalnie wszystkie informacje i dzienniki wyższego poziomu są zapisywane w konsoli i usługi Application Insights.
-* Umieść [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) obiektu `using` w bloku, aby upewnić się, że dane wyjściowe dziennika jest opróżniany po zamknięciu hosta.
+* Dodaj dostawcę rejestrowania Application Insights przy użyciu domyślnego [filtrowania](webjobs-sdk-how-to.md#log-filtering). W przypadku uruchamiania lokalnego wszystkie informacje i dzienniki wyższego poziomu są zapisywane w konsoli programu i Application Insights.
+* Umieść obiekt [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) w `using` bloku, aby upewnić się, że dane wyjściowe dziennika są opróżniane po zakończeniu działania hosta.
 
-1. Zainstaluj najnowszą stabilną wersję [ `Microsoft.Azure.WebJobs.Logging.ApplicationInsights` pakietu NuGet](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/)3.x .
+1. Zainstaluj najnowszą wersję [ `Microsoft.Azure.WebJobs.Logging.ApplicationInsights` pakietu NuGet](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/)o stabilnej wersji 3. x.
 
-   Oto polecenie **Konsola Menedżera pakietów:**
+   Oto polecenie **konsoli Menedżera pakietów** :
 
    ```powershell
    Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version <3_X_VERSION>
    ```
-    W tym poleceniu zastąp `<3_X_VERSION>` obsługiwaną wersją pakietu.
+    W tym poleceniu Zastąp `<3_X_VERSION>` wartość obsługiwaną wersją pakietu.
 
-1. Otwórz *Program.cs* i zastąp `Main` kod w metodzie następującym kodem:
+1. Otwórz *program.cs* i Zastąp kod w `Main` metodzie następującym kodem:
 
     ```cs
     static async Task Main()
@@ -401,66 +401,66 @@ Aby skorzystać z rejestrowania [usługi Application Insights,](../azure-monitor
     }
     ```
 
-    Spowoduje to dodanie dostawcy usługi Application Insights do rejestrowania przy użyciu klucza dodanego wcześniej do ustawień aplikacji.
+    Spowoduje to dodanie do rejestrowania dostawcy Application Insights przy użyciu klucza, który został wcześniej dodany do ustawień aplikacji.
 
-## <a name="test-application-insights-logging"></a>Rejestrowanie usługi Test Application Insights
+## <a name="test-application-insights-logging"></a>Rejestrowanie Application Insights testowych
 
-W tej sekcji ponownie uruchom lokalnie, aby sprawdzić, czy dane rejestrowania są teraz przesyłane do usługi Application Insights, a także do konsoli.
+W tej sekcji należy ponownie uruchomić lokalnie, aby sprawdzić, czy dane rejestrowania są teraz Application Insights jak również w konsoli programu.
 
-1. Użyj **Eksploratora serwera** w programie Visual Studio, aby utworzyć komunikat kolejki, tak jak [wcześniej,](#test-locally)z wyjątkiem *wprowadzania hello app insights!* jako tekst wiadomości.
+1. Użyj **Eksplorator serwera** w programie Visual Studio, aby utworzyć wiadomość w kolejce tak jak [wcześniej](#test-locally), z wyjątkiem wprowadzania danych *Hello App Insights!* jako tekst komunikatu.
 
 1. Uruchom projekt.
 
-   WebJobs SDK przetwarza komunikat kolejki i zobaczysz dzienniki w oknie konsoli.
+   Zestaw SDK zadań WebJob przetwarza komunikat kolejki, a dzienniki są wyświetlane w oknie konsoli.
 
 1. Zamknij okno konsoli.
 
-1. Przejdź do [witryny Azure portal,](https://portal.azure.com/) aby wyświetlić zasób usługi Application Insights. Wyszukaj i wybierz **pozycję Application Insights**.
+1. Przejdź do [Azure Portal](https://portal.azure.com/) , aby wyświetlić zasób Application Insights. Wyszukaj i wybierz **Application Insights**.
 
-1. Wybierz wystąpienie usługi Application Insights.
+1. Wybierz wystąpienie Application Insights.
 
-1. Wybierz **pozycję Szukaj**.
+1. Wybierz pozycję **Wyszukaj**.
 
-   ![Wybierz pozycję Szukaj](./media/webjobs-sdk-get-started/select-search.png)
+   ![Wybierz pozycję Wyszukaj](./media/webjobs-sdk-get-started/select-search.png)
 
-1. Jeśli nie widzisz *Hello App Insights!* komunikat, wybierz **odświeżanie** okresowo przez kilka minut. (Dzienniki nie pojawiają się natychmiast, ponieważ zajmuje trochę czasu dla klienta usługi Application Insights opróżnić dzienniki, które przetwarza.)
+1. Jeśli nie widzisz usługi *Hello App Insights!* Kliknij pozycję **Odśwież** okresowo przez kilka minut. (Dzienniki nie pojawiają się natychmiast, ponieważ trwają przez klienta Application Insights opróżnianie dzienników przetwarzanych przez proces IT).
 
-   ![Dzienniki w usłudze Application Insights](./media/webjobs-sdk-get-started/logs-in-ai.png)
+   ![Dzienniki w Application Insights](./media/webjobs-sdk-get-started/logs-in-ai.png)
 
 1. Zamknij okno konsoli.
 
 ## <a name="deploy-to-azure"></a><a name="deploy-as-a-webjob"></a>Wdrażanie na platformie Azure
 
-Podczas wdrażania utworzysz wystąpienie usługi aplikacji, w którym mają być uruchamiane funkcje. Po opublikowaniu aplikacji konsoli .NET Core do usługi App Service na platformie Azure, automatycznie pobiera uruchamiane jako WebJob. Aby dowiedzieć się więcej na temat publikowania, zobacz [Tworzenie i wdrażanie aplikacji WebJobs przy użyciu programu Visual Studio](webjobs-dotnet-deploy-vs.md).
+Podczas wdrażania należy utworzyć wystąpienie usługi App Service, w której będą uruchamiane funkcje. Po opublikowaniu aplikacji konsolowej .NET Core w celu App Service na platformie Azure jest ona automatycznie uruchamiana jako zadanie WebJob. Aby dowiedzieć się więcej o publikowaniu, zobacz [Tworzenie i wdrażanie zadań WebJob za pomocą programu Visual Studio](webjobs-dotnet-deploy-vs.md).
 
 [!INCLUDE [webjobs-publish-net-core](../../includes/webjobs-publish-net-core.md)]
 
 ## <a name="trigger-the-function-in-azure"></a>Wyzwalanie funkcji na platformie Azure
 
-1. Upewnij się, że nie korzystasz lokalnie (zamknij okno konsoli, jeśli jest nadal otwarte). W przeciwnym razie wystąpienie lokalne może być pierwszym, który przetworzy wszystkie utworzone wiadomości kolejki.
+1. Upewnij się, że nie są uruchamiane lokalnie (Zamknij okno konsoli, jeśli jest nadal otwarte). W przeciwnym razie lokalne wystąpienie może być pierwszym procesem przetwarzania wszystkich tworzonych przez siebie komunikatów w kolejce.
 
-1. Na stronie **Kolejka** w programie Visual Studio dodaj wiadomość do kolejki, jak poprzednio.
+1. Na stronie **Kolejka** w programie Visual Studio Dodaj komunikat do kolejki tak jak wcześniej.
 
-1. Odśwież stronę **kolejki,** a nowa wiadomość zniknie, ponieważ została przetworzona przez funkcję uruchomioną na platformie Azure.
+1. Odśwież stronę **kolejki** , a nowa wiadomość znika, ponieważ została przetworzona przez funkcję uruchomioną na platformie Azure.
 
    > [!TIP]
-   > Podczas testowania na platformie Azure należy użyć [trybu rozwoju,](webjobs-sdk-how-to.md#host-development-settings) aby upewnić się, że funkcja wyzwalacza kolejki jest wywoływana od razu i uniknąć opóźnień spowodowanych [sondowaniem kolejki wykładniczego wycofywania.](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm)
+   > Podczas testowania na platformie Azure Użyj [trybu projektowania](webjobs-sdk-how-to.md#host-development-settings) , aby upewnić się, że funkcja wyzwalacza kolejki jest wywoływana od razu i unikaj opóźnień spowodowanych [sondowaniem w kolejce wykładniczej wycofywania](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm).
 
-### <a name="view-logs-in-application-insights"></a>Wyświetlanie dzienników w usłudze Application Insights
+### <a name="view-logs-in-application-insights"></a>Wyświetlanie dzienników w Application Insights
 
-1. Otwórz [witrynę Azure portal](https://portal.azure.com/)i przejdź do zasobu usługi Application Insights.
+1. Otwórz [Azure Portal](https://portal.azure.com/)i przejdź do zasobu Application Insights.
 
-1. Wybierz **pozycję Szukaj**.
+1. Wybierz pozycję **Wyszukaj**.
 
-1. Jeśli nie widzisz *Hello Azure!* komunikat, wybierz **odświeżanie** okresowo przez kilka minut.
+1. Jeśli nie widzisz *Witaj na platformie Azure!* Kliknij pozycję **Odśwież** okresowo przez kilka minut.
 
-   Zobaczysz dzienniki z funkcji uruchomionej w usłudze WebJob, w tym *Hello Azure!* w poprzednim punkcie.
+   Dzienniki są wyświetlane z funkcji uruchomionej w zadaniach WebJob, w tym *Witaj na platformie Azure!* tekst wprowadzony w poprzedniej sekcji.
 
-## <a name="add-an-input-binding"></a>Dodawanie powiązania wejściowego
+## <a name="add-an-input-binding"></a>Dodawanie powiązania danych wejściowych
 
-Powiązania wejściowe upraszczają kod, który odczytuje dane. W tym przykładzie komunikat kolejki będzie nazwą obiektu blob i użyjesz nazwy obiektu blob, aby znaleźć i odczytać obiekt blob w usłudze Azure Storage.
+Powiązania wejściowe upraszczają kod, który odczytuje dane. W tym przykładzie komunikat kolejki będzie nazwą obiektu BLOB i zostanie użyta nazwa obiektu BLOB do znajdowania i odczytywania obiektu BLOB w usłudze Azure Storage.
 
-1. W *Functions.cs*, zastąp `ProcessQueueMessage` metodę następującym kodem:
+1. W *Functions.cs*Zastąp `ProcessQueueMessage` metodę następującym kodem:
 
    ```cs
    public static void ProcessQueueMessage(
@@ -472,7 +472,7 @@ Powiązania wejściowe upraszczają kod, który odczytuje dane. W tym przykładz
    }
    ```
 
-   W tym `queueTrigger` kodzie jest [wyrażeniem wiązania](../azure-functions/functions-bindings-expressions-patterns.md), co oznacza, że jest rozpoznawany na inną wartość w czasie wykonywania.  W czasie wykonywania ma zawartość komunikatu kolejki.
+   W tym kodzie `queueTrigger` jest [wyrażeniem powiązania](../azure-functions/functions-bindings-expressions-patterns.md), co oznacza, że jest on rozpoznawany jako inna wartość w czasie wykonywania.  W czasie wykonywania ma zawartość komunikatu w kolejce.
 
 1. Dodaj `using`:
 
@@ -480,29 +480,29 @@ Powiązania wejściowe upraszczają kod, który odczytuje dane. W tym przykładz
    using System.IO;
    ```
 
-1. Utwórz kontener obiektów blob na koncie magazynu.
+1. Utwórz kontener obiektów BLOB na koncie magazynu.
 
-   a. W **Eksploratorze serwera** w programie Visual Studio rozwiń węzeł dla konta magazynu, kliknij prawym przyciskiem myszy pozycję **Obiekty Blobs**, a następnie wybierz polecenie **Utwórz kontener obiektów blob**.
+   a. W **Eksplorator serwera** w programie Visual Studio rozwiń węzeł konta magazynu, kliknij prawym przyciskiem myszy pozycję **obiekty blob**, a następnie wybierz pozycję **Utwórz kontener obiektów BLOB**.
 
-   b. W oknie dialogowym **Tworzenie kontenera obiektów blob** wprowadź jako nazwę *kontenera,* a następnie kliknij przycisk **OK**.
+   b. W oknie dialogowym **Tworzenie kontenera obiektów BLOB** wprowadź *kontener* jako nazwę kontenera, a następnie kliknij przycisk **OK**.
 
-1. Przekaż plik *Program.cs* do kontenera obiektów blob. (Ten plik jest używany tutaj jako przykład; można przekazać dowolny plik tekstowy i utworzyć wiadomość kolejki o nazwie pliku).
+1. Przekaż plik *program.cs* do kontenera obiektów BLOB. (Ten plik jest używany tutaj jako przykład; można przekazać dowolny plik tekstowy i utworzyć komunikat kolejki z nazwą pliku).
 
-   a. W **Eksploratorze serwera**kliknij dwukrotnie węzeł utworzonego kontenera.
+   a. W **Eksplorator serwera**kliknij dwukrotnie węzeł utworzonego kontenera.
 
-   b. W oknie **Kontener** wybierz przycisk **Przekaż.**
+   b. W oknie **kontenera** wybierz przycisk **Przekaż** .
 
-   ![Przycisk przekazywania obiektów blob](./media/webjobs-sdk-get-started/blob-upload-button.png)
+   ![Przycisk przekazywania obiektów BLOB](./media/webjobs-sdk-get-started/blob-upload-button.png)
 
-   d. Znajdź i wybierz *Program.cs*, a następnie wybierz **przycisk OK**.
+   c. Znajdź i wybierz pozycję *program.cs*, a następnie wybierz przycisk **OK**.
 
-1. Utwórz wiadomość kolejki w wcześniej utworzonej kolejce, z *Program.cs* jako tekst wiadomości.
+1. Utwórz wiadomość w kolejce w kolejce utworzonej wcześniej przy użyciu *program.cs* jako tekst komunikatu.
 
-   ![Program.cs komunikat kolejki](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
+   ![Program.cs komunikatu kolejki](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
 
 1. Uruchom projekt lokalnie.
 
-   Komunikat kolejki wyzwala funkcję, która następnie odczytuje obiekt blob i rejestruje jego długość. Wyjście konsoli wygląda następująco:
+   Komunikat kolejki wyzwala funkcję, która następnie odczytuje obiekt BLOB i rejestruje jego długość. Dane wyjściowe konsoli wyglądają następująco:
 
    ```console
    Found the following functions:
@@ -516,7 +516,7 @@ Powiązania wejściowe upraszczają kod, który odczytuje dane. W tym przykładz
 
 ## <a name="add-an-output-binding"></a>Dodawanie powiązania danych wyjściowych
 
-Powiązania wyjściowe upraszczają kod, który zapisuje dane. W tym przykładzie modyfikuje poprzedni, zapisując kopię obiektu blob zamiast rejestrowania jego rozmiar. Powiązania magazynu obiektów Blob są zawarte w pakiecie rozszerzenia usługi Azure Storage, który wcześniej instalowaliśmy.
+Powiązania wyjściowe upraszczają kod, który zapisuje dane. Ten przykład modyfikuje poprzednią przez zapisanie kopii obiektu BLOB zamiast rejestrowania jego rozmiaru. Powiązania magazynu obiektów BLOB są zawarte w pakiecie rozszerzenia usługi Azure Storage, który został zainstalowany wcześniej.
 
 1. Zastąp metodę `ProcessQueueMessage` poniższym kodem:
 
@@ -532,23 +532,23 @@ Powiązania wyjściowe upraszczają kod, który zapisuje dane. W tym przykładzi
    }
    ```
 
-1. Utwórz kolejną wiadomość kolejki z *Program.cs* jako tekst wiadomości.
+1. Utwórz kolejny komunikat kolejki z *program.cs* jako tekst komunikatu.
 
 1. Uruchom projekt lokalnie.
 
-   Komunikat kolejki wyzwala funkcję, która następnie odczytuje obiekt blob, rejestruje jego długość i tworzy nowy obiekt blob. Dane wyjściowe konsoli są takie same, ale po wybraniu okna kontenera obiektów blob i **wybraniu**opcji Odśwież zostanie wyświetlony nowy obiekt blob o nazwie *copy-Program.cs.*
+   Komunikat kolejki wyzwala funkcję, która następnie odczytuje obiekt BLOB, rejestruje jego długość i tworzy nowy obiekt BLOB. Dane wyjściowe konsoli są takie same, ale po przejściu do okna kontenera obiektów blob i wybraniu opcji **Odśwież**zobaczysz nowy obiekt BLOB o nazwie *copy-program.cs.*
 
-## <a name="republish-the-updates-to-azure"></a>Ponowne publikowanie aktualizacji na platformie Azure
+## <a name="republish-the-updates-to-azure"></a>Opublikuj ponownie aktualizacje na platformie Azure
 
 1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Opublikuj**.
 
-1. W oknie dialogowym **Publikowanie** upewnij się, że jest zaznaczony bieżący profil, a następnie wybierz pozycję **Publikuj**. Wyniki publikowania są wyszczególnione w oknie **Dane wyjściowe.**
+1. W oknie dialogowym **Publikowanie** upewnij się, że bieżący profil jest zaznaczony, a następnie wybierz pozycję **Publikuj**. Wyniki publikowania są szczegółowo opisane w oknie **danych wyjściowych** .
  
-1. Sprawdź funkcję na platformie Azure, ponownie przekazując plik do kontenera obiektów blob i dodając wiadomość do kolejki, która jest nazwą przekazanego pliku. Zostanie wyświetlony komunikat usunięty z kolejki i kopię pliku utworzonego w kontenerze obiektów blob. 
+1. Sprawdź funkcję na platformie Azure, przekazując plik do kontenera obiektów blob i dodając komunikat do kolejki, która jest nazwą przekazanego pliku. Zobaczysz, że komunikat został usunięty z kolejki i kopię pliku utworzonego w kontenerze obiektów BLOB. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule pokazano, jak utworzyć, uruchomić i wdrożyć projekt SDK 3.x WebJobs.
+W tym artykule pokazano, jak utworzyć, uruchomić i wdrożyć projekt WebJobs SDK 3. x.
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o sdku WebJobs](webjobs-sdk-how-to.md)
+> [Dowiedz się więcej o zestawie SDK zadań WebJob](webjobs-sdk-how-to.md)

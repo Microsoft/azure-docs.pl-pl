@@ -1,6 +1,6 @@
 ---
-title: Uwierzytelnianie tożsamości zarządzanej za pomocą usługi Azure Active Directory
-description: Ten artykuł zawiera informacje dotyczące uwierzytelniania tożsamości zarządzanej za pomocą usługi Azure Active Directory w celu uzyskania dostępu do zasobów usługi Azure Event Hubs
+title: Uwierzytelnianie tożsamości zarządzanej przy użyciu Azure Active Directory
+description: Ten artykuł zawiera informacje dotyczące uwierzytelniania tożsamości zarządzanej przy użyciu Azure Active Directory dostępu do zasobów Event Hubs platformy Azure
 services: event-hubs
 ms.service: event-hubs
 documentationcenter: ''
@@ -10,82 +10,82 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
 ms.openlocfilehash: dfc60fbc03021e72dccc0f60a7ac34d204ef6df9
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82025190"
 ---
-# <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Uwierzytelnij tożsamość zarządzaną za pomocą usługi Azure Active Directory w celu uzyskania dostępu do zasobów usługi Event Hubs
-Usługa Azure Event Hubs obsługuje uwierzytelnianie usługi Azure Active Directory (Azure AD) z [zarządzanymi tożsamościami zasobów platformy Azure.](../active-directory/managed-identities-azure-resources/overview.md) Tożsamości zarządzane dla zasobów platformy Azure mogą autoryzować dostęp do zasobów usługi Event Hubs przy użyciu poświadczeń usługi Azure AD z aplikacji uruchomionych w maszynach wirtualnych platformy Azure (maszyny wirtualne), aplikacje funkcji, zestawy skalowania maszyny wirtualnej i inne usługi. Korzystając z zarządzanych tożsamości dla zasobów platformy Azure wraz z uwierzytelnianiem usługi Azure AD, można uniknąć przechowywania poświadczeń w aplikacjach uruchamianych w chmurze.
+# <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Uwierzytelnianie zarządzanej tożsamości za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs
+Usługa Azure Event Hubs obsługuje uwierzytelnianie Azure Active Directory (Azure AD) z [tożsamościami zarządzanymi dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md). Zarządzane tożsamości dla zasobów platformy Azure mogą autoryzować dostęp do zasobów Event Hubs przy użyciu poświadczeń usługi Azure AD z aplikacji uruchomionych na platformie Azure Virtual Machines (maszyny wirtualne), aplikacji funkcji, Virtual Machine Scale Sets i innych usług. Korzystając z tożsamości zarządzanych dla zasobów platformy Azure wraz z uwierzytelnianiem w usłudze Azure AD, można uniknąć zapisywania poświadczeń z aplikacjami uruchomionymi w chmurze.
 
-W tym artykule pokazano, jak autoryzować dostęp do Centrum zdarzeń przy użyciu tożsamości zarządzanej z maszyny Wirtualnej platformy Azure.
+W tym artykule pokazano, jak autoryzować dostęp do centrum zdarzeń przy użyciu tożsamości zarządzanej z maszyny wirtualnej platformy Azure.
 
-## <a name="enable-managed-identities-on-a-vm"></a>Włączanie tożsamości zarządzanych na maszynie Wirtualnej
-Aby można było używać tożsamości zarządzanych dla zasobów platformy Azure do autoryzowania zasobów usługi Event Hubs z maszyny Wirtualnej, należy najpierw włączyć tożsamości zarządzane dla zasobów platformy Azure na maszynie Wirtualnej. Aby dowiedzieć się, jak włączyć tożsamości zarządzane dla zasobów platformy Azure, zobacz jeden z następujących artykułów:
+## <a name="enable-managed-identities-on-a-vm"></a>Włączanie tożsamości zarządzanych na maszynie wirtualnej
+Aby można było używać zarządzanych tożsamości dla zasobów platformy Azure w celu autoryzowania Event Hubs zasobów z maszyny wirtualnej, należy najpierw włączyć zarządzane tożsamości dla zasobów platformy Azure na maszynie wirtualnej. Aby dowiedzieć się, jak włączyć zarządzane tożsamości dla zasobów platformy Azure, zobacz jeden z następujących artykułów:
 
 - [Azure Portal](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Interfejs wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Szablon usługi Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
-- [Biblioteki klientów usługi Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
+- [Szablon Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Azure Resource Manager biblioteki klienckie](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
-## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Udziel uprawnień do tożsamości zarządzanej w usłudze Azure AD
-Aby autoryzować żądanie usługi Event Hubs z tożsamości zarządzanej w aplikacji, należy najpierw skonfigurować ustawienia kontroli dostępu opartej na rolach (RBAC) dla tej tożsamości zarządzanej. Usługa Azure Event Hubs definiuje role RBAC, które obejmują uprawnienia do wysyłania i odczytywania z centrów zdarzeń. Gdy rola RBAC jest przypisana do tożsamości zarządzanej, tożsamość zarządzana otrzymuje dostęp do danych Centrum zdarzeń w odpowiednim zakresie.
+## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Przyznawanie uprawnień do zarządzanej tożsamości w usłudze Azure AD
+Aby autoryzować żądanie do Event Hubs usługi z tożsamości zarządzanej w aplikacji, należy najpierw skonfigurować ustawienia kontroli dostępu opartej na rolach (RBAC) dla tej tożsamości zarządzanej. Usługa Azure Event Hubs definiuje role RBAC, które obejmują uprawnienia do wysyłania i odczytywania z Event Hubs. Gdy rola RBAC zostanie przypisana do zarządzanej tożsamości, zarządzana tożsamość otrzymuje dostęp do Event Hubs danych w odpowiednim zakresie.
 
-Aby uzyskać więcej informacji na temat przypisywania ról RBAC, zobacz [Uwierzytelnianie przy użyciu usługi Azure Active Directory w celu uzyskania dostępu do zasobów usługi Event Hubs](authorize-access-azure-active-directory.md).
+Aby uzyskać więcej informacji na temat przypisywania ról RBAC, zobacz [uwierzytelnianie za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs](authorize-access-azure-active-directory.md).
 
 ## <a name="use-event-hubs-with-managed-identities"></a>Korzystanie z usługi Event Hubs przy użyciu tożsamości zarządzanych
-Aby używać centrum zdarzeń z tożsamościami zarządzanymi, należy przypisać tożsamość roli i odpowiedniego zakresu. Procedura w tej sekcji używa prostej aplikacji, która działa w ramach tożsamości zarządzanej i uzyskuje dostęp do zasobów Usługi Event Hubs.
+Aby użyć Event Hubs z tożsamościami zarządzanymi, należy przypisać tożsamość roli i odpowiedniego zakresu. Procedura opisana w tej sekcji używa prostej aplikacji, która działa w ramach zarządzanej tożsamości i uzyskuje dostęp do zasobów Event Hubs.
 
-W tym miejscu używamy przykładowej aplikacji sieci web hostowanej w [usłudze Azure App Service.](https://azure.microsoft.com/services/app-service/) Aby uzyskać instrukcje krok po kroku dotyczące tworzenia aplikacji sieci web, zobacz [Tworzenie ASP.NET podstawowej aplikacji sieci Web](../app-service/app-service-web-get-started-dotnet.md) na platformie Azure
+Tutaj korzystamy z przykładowej aplikacji sieci Web hostowanej w [Azure App Service](https://azure.microsoft.com/services/app-service/). Aby uzyskać instrukcje krok po kroku dotyczące tworzenia aplikacji sieci Web, zobacz [Tworzenie aplikacji internetowej ASP.NET Core na platformie Azure](../app-service/app-service-web-get-started-dotnet.md)
 
 Po utworzeniu aplikacji wykonaj następujące kroki: 
 
-1. Przejdź do **ustawień** i wybierz **pozycję Tożsamość**. 
-1. Wybierz **stan,** który ma być **włączony**. 
+1. Przejdź do pozycji **Ustawienia** i wybierz pozycję **tożsamość**. 
+1. Wybierz **stan** , który ma być **włączony**. 
 1. Wybierz pozycję **Zapisz**, aby zapisać ustawienie. 
 
-    ![Tożsamość zarządzana dla aplikacji sieci web](./media/authenticate-managed-identity/identity-web-app.png)
+    ![Tożsamość zarządzana dla aplikacji sieci Web](./media/authenticate-managed-identity/identity-web-app.png)
 
-Po włączeniu tego ustawienia w usłudze Azure Active Directory (Azure AD) zostanie utworzona nowa tożsamość usługi i skonfigurowana do hosta usługi App Service.
+Po włączeniu tego ustawienia zostanie utworzona nowa tożsamość usługi w Azure Active Directory (Azure AD) i skonfigurowana na hoście App Service.
 
-Teraz przypisz tę tożsamość usługi do roli w wymaganym zakresie w zasobach usługi Event Hubs.
+Teraz Przypisz tę tożsamość usługi do roli w wymaganym zakresie w zasobach Event Hubs.
 
-### <a name="to-assign-rbac-roles-using-the-azure-portal"></a>Aby przypisać role RBAC za pomocą witryny Azure portal
-Aby przypisać rolę do zasobów usługi Event Hubs, przejdź do tego zasobu w witrynie Azure Portal. Wyświetl ustawienia kontroli dostępu (IAM) zasobu i postępuj zgodnie z poniższymi instrukcjami, aby zarządzać przypisaniami ról:
+### <a name="to-assign-rbac-roles-using-the-azure-portal"></a>Aby przypisać role RBAC przy użyciu Azure Portal
+Aby przypisać rolę do Event Hubs zasobów, przejdź do tego zasobu w Azure Portal. Wyświetl ustawienia Access Control (IAM) dla zasobu i postępuj zgodnie z tymi instrukcjami, aby zarządzać przypisaniami ról:
 
 > [!NOTE]
-> Poniższe kroki przypisuje rolę tożsamości usługi do obszarów nazw Centrum zdarzeń. Można wykonać te same kroki, aby przypisać rolę o zakresie do dowolnego zasobu Centrum zdarzeń. 
+> Poniższe kroki przypisują rolę tożsamości usługi do przestrzeni nazw Event Hubs. Możesz wykonać te same czynności, aby przypisać rolę zakresu do dowolnego Event Hubs zasobów. 
 
-1. W witrynie Azure portal przejdź do obszaru nazw centrum zdarzeń i wyświetl **omówienie** obszaru nazw. 
-1. Wybierz **pozycję Kontrola dostępu (IAM)** w lewym menu, aby wyświetlić ustawienia kontroli dostępu dla centrum zdarzeń.
-1.  Wybierz kartę **Przypisania ról,** aby wyświetlić listę przypisań ról.
-3.  Wybierz **pozycję Dodaj,** aby dodać nową rolę.
-4.  Na stronie **Dodawanie przypisania roli** wybierz role centrum zdarzeń, które chcesz przypisać. Następnie wyszukaj, aby zlokalizować zarejestrowaną tożsamość usługi, aby przypisać rolę.
+1. W Azure Portal przejdź do przestrzeni nazw Event Hubs i Wyświetl **Przegląd** dla przestrzeni nazw. 
+1. Wybierz pozycję **Access Control (IAM)** w menu po lewej stronie, aby wyświetlić ustawienia kontroli dostępu dla centrum zdarzeń.
+1.  Wybierz kartę **przypisania ról** , aby wyświetlić listę przypisań ról.
+3.  Wybierz pozycję **Dodaj** , aby dodać nową rolę.
+4.  Na stronie **Dodawanie przypisania roli** wybierz role Event Hubs, które chcesz przypisać. Następnie wyszukaj w celu zlokalizowania tożsamości usługi, która została zarejestrowana w celu przypisania roli.
     
     ![Dodawanie strony przypisania roli](./media/authenticate-managed-identity/add-role-assignment-page.png)
-5.  Wybierz pozycję **Zapisz**. Tożsamość, do której przypisano rolę, jest wyświetlana na liście w ramach tej roli. Na przykład na poniższej ilustracji pokazano, że tożsamość usługi ma właściciela danych usługi Event Hubs.
+5.  Wybierz pozycję **Zapisz**. Tożsamość, do której przypisano rolę, jest wyświetlana na liście w ramach tej roli. Na przykład na poniższej ilustracji przedstawiono tożsamość usługi ma Event Hubs właściciel danych.
     
     ![Tożsamość przypisana do roli](./media/authenticate-managed-identity/role-assigned.png)
 
-Po przypisaniu roli aplikacja sieci web będzie miała dostęp do zasobów centrum zdarzeń w zdefiniowanym zakresie. 
+Po przypisaniu roli aplikacja sieci Web będzie miała dostęp do Event Hubs zasobów w ramach zdefiniowanego zakresu. 
 
 ### <a name="test-the-web-application"></a>Testowanie aplikacji internetowej
-1. Utwórz obszar nazw centrów zdarzeń i centrum zdarzeń. 
-2. Wdrażanie aplikacji sieci web na platformie Azure. Zobacz poniższą sekcję z kartami, aby uzyskać łącza do aplikacji sieci web w usłudze GitHub. 
-3. Upewnij się, że SendReceive.aspx jest ustawiony jako domyślny dokument dla aplikacji sieci web. 
-3. Włącz **tożsamość** aplikacji sieci web. 
-4. Przypisz tę tożsamość do roli **Właściciel danych usługi Event Hubs** na poziomie obszaru nazw lub centrum zdarzeń. 
-5. Uruchom aplikację sieci Web, wprowadź nazwę obszaru nazw i nazwę centrum zdarzeń, komunikat i wybierz pozycję **Wyślij**. Aby odebrać zdarzenie, wybierz **opcję Odbierz**. 
+1. Utwórz przestrzeń nazw Event Hubs i centrum zdarzeń. 
+2. Wdróż aplikację sieci Web na platformie Azure. Zobacz następującą sekcję z kartami dotyczącą linków do aplikacji sieci Web w witrynie GitHub. 
+3. Upewnij się, że SendReceive. aspx jest ustawiony jako dokument domyślny dla aplikacji sieci Web. 
+3. Włącz **tożsamość** aplikacji sieci Web. 
+4. Przypisz tę tożsamość do roli **właściciel danych Event Hubs** na poziomie przestrzeni nazw lub na poziomie centrum zdarzeń. 
+5. Uruchom aplikację sieci Web, wprowadź nazwę przestrzeni nazw i nazwę centrum zdarzeń, komunikat, a następnie wybierz pozycję **Wyślij**. Aby odebrać zdarzenie, wybierz pozycję **Receive (odbieranie**). 
 
-#### <a name="azuremessagingeventhubs-latest"></a>[Usługa Azure.Messaging.EventHubs (najnowsza)](#tab/latest)
-Teraz możesz uruchomić aplikację internetową i skierować przeglądarkę na przykładową stronę aspx. Przykładową aplikację sieci web, która wysyła i odbiera dane z zasobów Usługi Event Hubs, można znaleźć w [repozytorium GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp).
+#### <a name="azuremessagingeventhubs-latest"></a>[Azure. Messaging. EventHubs (Najnowsza wersja)](#tab/latest)
+Teraz możesz uruchomić aplikację sieci Web i wskazać przeglądarkę na przykładową stronę aspx. Możesz znaleźć przykładową aplikację sieci Web, która wysyła i odbiera dane z Event Hubs zasobów w [repozytorium GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp).
 
-Zainstaluj najnowszy pakiet z [programu NuGet](https://www.nuget.org/packages/Azure.Messaging.EventHubs/)i rozpocznij wysyłanie zdarzeń do centrów zdarzeń przy użyciu **funkcji EventHubProducerClient** i odbieranie zdarzeń przy użyciu **aplikacji EventHubConsumerClient**. 
+Zainstaluj najnowszy pakiet z programu [NuGet](https://www.nuget.org/packages/Azure.Messaging.EventHubs/)i Rozpocznij wysyłanie zdarzeń do Event Hubs przy użyciu **EventHubProducerClient** i otrzymywanie zdarzeń przy użyciu **EventHubConsumerClient**. 
 
 > [!NOTE]
-> W przypadku przykładu Java, który używa tożsamości zarządzanej do publikowania zdarzeń w Centrum zdarzeń, zobacz [Publikowanie zdarzeń przy użyciu przykładu tożsamości platformy Azure w usłudze GitHub.](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
+> Aby zapoznać się z przykładem Java korzystającym z tożsamości zarządzanej do publikowania zdarzeń w centrum zdarzeń, zobacz [Publikowanie zdarzeń za pomocą usługi Azure Identity Sample w witrynie GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs).
 
 ```csharp
 protected async void btnSend_Click(object sender, EventArgs e)
@@ -131,9 +131,9 @@ protected async void btnReceive_Click(object sender, EventArgs e)
 ```
 
 #### <a name="microsoftazureeventhubs-legacy"></a>[Microsoft.Azure.EventHubs (starsza wersja)](#tab/old)
-Teraz możesz uruchomić aplikację internetową i skierować przeglądarkę na przykładową stronę aspx. Przykładową aplikację sieci web, która wysyła i odbiera dane z zasobów Usługi Event Hubs, można znaleźć w [repozytorium GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp).
+Teraz możesz uruchomić aplikację sieci Web i wskazać przeglądarkę na przykładową stronę aspx. Możesz znaleźć przykładową aplikację sieci Web, która wysyła i odbiera dane z Event Hubs zasobów w [repozytorium GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp).
 
-Zainstaluj najnowszy pakiet z [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/)i rozpocznij wysyłanie i odbieranie danych z centrum zdarzeń przy użyciu EventHubClient, jak pokazano w poniższym kodzie: 
+Zainstaluj najnowszy pakiet z programu [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/)i zacznij wysyłać do i odbierać dane z centrów zdarzeń przy użyciu EventHubClient, jak pokazano w poniższym kodzie: 
 
 ```csharp
 var ehClient = EventHubClient.CreateWithManagedIdentity(new Uri($"sb://{EventHubNamespace}/"), EventHubName);
@@ -141,23 +141,23 @@ var ehClient = EventHubClient.CreateWithManagedIdentity(new Uri($"sb://{EventHub
 ---
 
 ## <a name="event-hubs-for-kafka"></a>Event Hubs dla platformy Kafka
-Aplikacje Apache Kafka służy do wysyłania wiadomości i odbierania wiadomości z usługi Azure Event Hubs przy użyciu identyfikatora OAuth tożsamości zarządzanej. Zobacz poniższy przykład w usłudze GitHub: [Event Hubs for Kafka — wysyłanie i odbieranie wiadomości przy użyciu identyfikatora zarządzanego OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity).
+Za pomocą aplikacji Apache Kafka można wysyłać wiadomości i odbierać komunikaty z platformy Azure Event Hubs przy użyciu tożsamości zarządzanej OAuth. Zapoznaj się z poniższym przykładem w witrynie GitHub: [Event Hubs for Kafka — wysyłanie i odbieranie komunikatów przy użyciu tożsamości zarządzanej OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity).
 
 ## <a name="samples"></a>Samples
-- **Przykłady witryn Azure.Messaging.EventHubs**
+- Przykłady dla **platformy Azure. Messaging. EventHubs**
     - [.NET](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
     - [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
-- [Przykłady witryn Microsoft.Azure.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
+- [Przykłady Microsoft. Azure. EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
-    Te przykłady używają starej biblioteki **Microsoft.Azure.EventHubs,** ale można łatwo zaktualizować go do korzystania z najnowszej biblioteki **Azure.Messaging.EventHubs.** Aby przenieść przykład ze starej biblioteki do nowej, zobacz [Przewodnik do migracji z witryny Microsoft.Azure.EventHubs do usługi Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
-    Ten przykład został zaktualizowany, aby użyć najnowszej biblioteki **Azure.Messaging.EventHubs.**
-- [Centra zdarzeń dla platformy Kafka — wysyłanie i odbieranie wiadomości przy użyciu identyfikatora zarządzanego OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity)
+    Te przykłady używają starej biblioteki **Microsoft. Azure. EventHubs** , ale można ją łatwo zaktualizować do korzystania z najnowszej biblioteki **Azure. Messaging. EventHubs** . Aby przenieść przykład z używania starej biblioteki do nowej, zapoznaj się z [przewodnikiem migrowania z Microsoft. Azure. EventHubs do platformy Azure. Messaging. EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
+    Ten przykład został zaktualizowany, aby można było użyć najnowszej biblioteki **Azure. Messaging. EventHubs** .
+- [Event Hubs Kafka — wysyłanie i odbieranie komunikatów przy użyciu tożsamości zarządzanej OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity)
 
 
 ## <a name="next-steps"></a>Następne kroki
-- Zobacz następujący artykuł, aby dowiedzieć się więcej o tożsamościach zarządzanych dla zasobów platformy Azure: [Co to są tożsamości zarządzane dla zasobów platformy Azure?](../active-directory/managed-identities-azure-resources/overview.md)
-- Zobacz następujące artykuły pokrewne:
-    - [Uwierzytelnij żądania do usługi Azure Event Hubs z aplikacji przy użyciu usługi Azure Active Directory](authenticate-application.md)
-    - [Uwierzytelnij żądania w centrach zdarzeń platformy Azure przy użyciu podpisów dostępu współdzielonego](authenticate-shared-access-signature.md)
-    - [Autoryzowanie dostępu do zasobów usługi Event Hubs przy użyciu usługi Azure Active Directory](authorize-access-azure-active-directory.md)
-    - [Autoryzowanie dostępu do zasobów Centrum zdarzeń przy użyciu podpisów dostępu współdzielonego](authorize-access-shared-access-signature.md)
+- Zapoznaj się z następującym artykułem, aby dowiedzieć się więcej o zarządzanych tożsamościach dla zasobów platformy Azure: [jakie są zarządzane tożsamości dla zasobów platformy Azure?](../active-directory/managed-identities-azure-resources/overview.md)
+- Zapoznaj się z następującymi artykułami:
+    - [Uwierzytelniaj żądania do Event Hubs platformy Azure z aplikacji przy użyciu Azure Active Directory](authenticate-application.md)
+    - [Uwierzytelnianie żądań na platformie Azure Event Hubs przy użyciu sygnatur dostępu współdzielonego](authenticate-shared-access-signature.md)
+    - [Autoryzuj dostęp do zasobów Event Hubs przy użyciu Azure Active Directory](authorize-access-azure-active-directory.md)
+    - [Autoryzuj dostęp do zasobów Event Hubs przy użyciu sygnatur dostępu współdzielonego](authorize-access-shared-access-signature.md)

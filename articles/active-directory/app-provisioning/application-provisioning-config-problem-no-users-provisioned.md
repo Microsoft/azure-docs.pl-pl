@@ -1,6 +1,6 @@
 ---
-title: Użytkownicy nie są aprowizacji w mojej aplikacji
-description: Jak rozwiązywać typowe problemy napotykane, gdy nie widzisz użytkowników pojawiających się w aplikacji galerii usługi Azure AD skonfigurowanej do inicjowania obsługi administracyjnej przez użytkowników za pomocą usługi Azure AD
+title: Użytkownicy nie są obsługiwani w mojej aplikacji
+description: Jak rozwiązywać typowe problemy związane z niewidocznymi użytkownikami w aplikacji galerii usługi Azure AD skonfigurowanym do aprowizacji użytkowników w usłudze Azure AD
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,59 +17,59 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ac6d4f24d3b6c21828ccb11785005df736c6b070
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81680350"
 ---
 # <a name="no-users-are-being-provisioned"></a>Żadni użytkownicy nie są aprowizowani 
 >[!NOTE]
->Począwszy od 16.04.2020 zmieniliśmy zachowanie użytkowników przypisanych domyślnej roli dostępu. Szczegółowe informacje można znaleźć w poniższej sekcji. 
+>Rozpoczęcie 04/16/2020 zmieniono zachowanie dla użytkowników, którym przypisano domyślną rolę dostępu. Szczegóły można znaleźć w sekcji poniżej. 
 >
-Po skonfigurowaniu automatycznego inicjowania obsługi administracyjnej dla aplikacji (w tym sprawdzenia, czy poświadczenia aplikacji dostarczone do usługi Azure AD w celu nawiązania połączenia z aplikacją są prawidłowe), użytkownicy i/lub grupy są aprowizowani aplikacji. Inicjowanie obsługi administracyjnej zależy od następujących elementów:
+Po skonfigurowaniu automatycznej aprowizacji dla aplikacji (w tym sprawdzić, czy poświadczenia aplikacji podane w usłudze Azure AD w celu nawiązania połączenia z aplikacją są prawidłowe), użytkownicy i/lub grupy są udostępniane aplikacji. Obsługa administracyjna jest określana na podstawie następujących elementów:
 
--   Którzy użytkownicy i grupy zostały **przypisane** do aplikacji. Należy zauważyć, że inicjowanie obsługi administracyjnej grup zagnieżdżonych lub grup usługi Office 365 nie jest obsługiwane. Aby uzyskać więcej informacji na temat przypisywania, zobacz [Przypisywanie użytkownika lub grupy do aplikacji przedsiębiorstwa w usłudze Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md).
--   Określa, czy **mapowania atrybutów** są włączone i skonfigurowane do synchronizowania prawidłowych atrybutów z usługi Azure AD do aplikacji. Aby uzyskać więcej informacji na temat mapowania atrybutów, zobacz [Dostosowywanie mapowania atrybutów inicjowania obsługi administracyjnej użytkowników dla aplikacji SaaS w usłudze Azure Active Directory](customize-application-attributes.md).
--   Niezależnie od tego, czy istnieje **filtr zakresu,** który filtruje użytkowników na podstawie określonych wartości atrybutów. Aby uzyskać więcej informacji na temat filtrów zakresu, zobacz [Inicjowanie obsługi administracyjnej aplikacji oparte na atrybutach za pomocą filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+-   Użytkowników i grup **przypisanych** do aplikacji. Należy pamiętać, że grupy zagnieżdżone lub grupy pakietu Office 365 nie są obsługiwane. Aby uzyskać więcej informacji na temat przypisywania, zobacz [Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw w Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md).
+-   Określa, czy **mapowania atrybutów** są włączone i skonfigurowane do synchronizowania prawidłowych atrybutów z usługi Azure AD z aplikacją. Aby uzyskać więcej informacji na temat mapowań atrybutów, zobacz [Dostosowywanie mapowań atrybutów aprowizacji użytkowników dla aplikacji SaaS w Azure Active Directory](customize-application-attributes.md).
+-   Czy istnieje **Filtr zakresu** , który umożliwia filtrowanie użytkowników na podstawie określonych wartości atrybutów. Aby uzyskać więcej informacji na temat określania zakresu filtrów, zobacz Tworzenie [aplikacji opartych na atrybutach przy użyciu filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
   
   
-Jeśli zauważysz, że użytkownicy nie są aprowizacji, zapoznaj się z [dzienników inicjowania obsługi administracyjnej (w wersji zapoznawczej)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) w usłudze Azure AD. Wyszukaj wpisy dziennika dla określonego użytkownika.
+Jeśli zauważysz, że nie zainicjowano obsługi administracyjnej użytkowników, zapoznaj się z [dziennikami aprowizacji (wersja zapoznawcza)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) w usłudze Azure AD. Wyszukaj wpisy dziennika dla określonego użytkownika.
 
-Dzienniki inicjowania obsługi administracyjnej można uzyskać w witrynie Azure Portal, wybierając **dzienniki inicjowania obsługi administracyjnej** aplikacji **usługi Azure Active Directory** &gt; **Enterprise Apps** &gt; (wersja zapoznawcza) w sekcji **Działanie.** Można przeszukiwać dane inicjowania obsługi administracyjnej na podstawie nazwy użytkownika lub identyfikatora w systemie źródłowym lub systemie docelowym. Aby uzyskać szczegółowe informacje, zobacz [Inicjowanie obsługi administracyjnej dzienników (wersja zapoznawcza)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
+Możesz uzyskać dostęp do dzienników aprowizacji w Azure Portal, wybierając pozycję **Azure Active Directory** &gt; dzienniki aprowizacji **aplikacji** &gt; w przedsiębiorstwie **(wersja zapoznawcza)** w sekcji **działanie** . Możesz przeszukiwać dane aprowizacji na podstawie nazwy użytkownika lub identyfikatora w systemie źródłowym lub docelowym. Aby uzyskać szczegółowe informacje, zobacz [dzienniki aprowizacji (wersja zapoznawcza)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
 
-Dzienniki inicjowania obsługi administracyjnej rejestrują wszystkie operacje wykonywane przez usługę inicjowania obsługi administracyjnej, w tym wykonywanie zapytań usługi Azure AD dla przypisanych użytkowników, którzy są w zakresie inicjowania obsługi administracyjnej, wykonywanie zapytań do aplikacji docelowej pod kątem istnienia tych użytkowników, porównywanie obiektów użytkownika między systemem. Następnie dodaj, zaktualizuj lub wyłącz konto użytkownika w systemie docelowym na podstawie porównania.
+Dzienniki aprowizacji rejestrują wszystkie operacje wykonywane przez usługę aprowizacji, w tym Wysyłanie zapytań do usługi Azure AD dla przypisanych użytkowników, którzy znajdują się w zakresie aprowizacji, wykonywanie zapytań względem aplikacji docelowej pod kątem istnienia tych użytkowników, porównując obiekty użytkownika między systemem. Następnie Dodaj, zaktualizuj lub Wyłącz konto użytkownika w systemie docelowym na podstawie porównania.
 
-## <a name="general-problem-areas-with-provisioning-to-consider"></a>Ogólne obszary problemowe z inicjowania obsługi administracyjnej do rozważenia
-Poniżej znajduje się lista ogólnych obszarów problemowych, które można drążyć, jeśli masz pomysł, od czego zacząć.
+## <a name="general-problem-areas-with-provisioning-to-consider"></a>Ogólne obszary problemów z obsługą administracyjną, które należy wziąć pod uwagę
+Poniżej znajduje się lista ogólnych obszarów problemów, do których można przejść do szczegółów, jeśli masz pomysł, gdzie zacząć.
 
-- [Usługa inicjowania obsługi administracyjnej nie uruchamia się](#provisioning-service-does-not-appear-to-start)
-- [Dzienniki inicjowania obsługi administracyjnej mówią, że użytkownicy są pomijani i nie są aprowizacji, nawet jeśli są one przypisane](#provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
+- [Nie można uruchomić usługi aprowizacji](#provisioning-service-does-not-appear-to-start)
+- [Dzienniki aprowizacji mówią, że użytkownicy są pomijani i nie są administracyjni, nawet jeśli są przypisani](#provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
-## <a name="provisioning-service-does-not-appear-to-start"></a>Usługa inicjowania obsługi administracyjnej nie uruchamia się
-Jeśli ustawisz **stan inicjowania obsługi administracyjnej** **w** sekcji **\] &gt;Inicjowanie obsługi administracyjnej aplikacji aplikacji usługi Azure Active Directory &gt; Enterprise Apps &gt; \[** w portalu Azure. Jednak żadne inne szczegóły stanu są wyświetlane na tej stronie po kolejnych przeładowaniach, jest prawdopodobne, że usługa jest uruchomiona, ale nie ukończyła jeszcze początkowego cyklu. Sprawdź **dzienniki inicjowania obsługi administracyjnej (wersja zapoznawcza)** opisane powyżej, aby określić, jakie operacje wykonuje usługa i czy występują błędy.
+## <a name="provisioning-service-does-not-appear-to-start"></a>Nie można uruchomić usługi aprowizacji
+W przypadku ustawienia **stanu aprowizacji** na **włączony** w sekcji ** &gt; Azure Active Directory aplikacje &gt; \[\] &gt;dla przedsiębiorstw** w Azure Portal. Jednak na tej stronie nie są wyświetlane żadne inne szczegóły stanu po kolejnych ponownych ładowaniach, prawdopodobnie usługa jest uruchomiona, ale nie ukończyła jeszcze cyklu początkowego. Sprawdź **dzienniki aprowizacji (wersja zapoznawcza)** opisane powyżej, aby określić, jakie operacje usługa działa, i wystąpiły błędy.
 
 >[!NOTE]
->Początkowy cykl może trwać od 20 minut do kilku godzin, w zależności od rozmiaru katalogu usługi Azure AD i liczby użytkowników w zakresie inicjowania obsługi administracyjnej. Kolejne synchronizacje po początkowym cyklu są szybsze, ponieważ usługa inicjowania obsługi administracyjnej przechowuje znaki wodne reprezentujące stan obu systemów po cyklu początkowym. Początkowy cykl zwiększa wydajność kolejnych synchronizacji.
+>Cykl początkowy może zająć od 20 minut do kilku godzin, w zależności od rozmiaru katalogu usługi Azure AD i liczby użytkowników w zakresie aprowizacji. Kolejne synchronizacje po początkowym cyklu są szybsze, ponieważ usługa aprowizacji przechowuje znaki wodne, które reprezentują stan obu systemów po cyklu początkowym. Cykl początkowy pozwala zwiększyć wydajność kolejnych synchronizacji.
 >
 
 
-## <a name="provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Dzienniki inicjowania obsługi administracyjnej mówią, że użytkownicy są pomijani i nie są aprowiowane, nawet jeśli są przypisane
+## <a name="provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Dzienniki aprowizacji mówią, że użytkownicy są pomijani i nie są administracyjni, nawet jeśli są przypisani
 
-Gdy użytkownik pojawi się jako "pominięte" w dziennikach inicjowania obsługi administracyjnej, ważne jest, aby przejrzeć **kroki** kartę dziennika, aby ustalić przyczynę. Poniżej znajdują się typowe powody i rozwiązania:
+Jeśli użytkownik jest wyświetlany jako "pominięty" w dziennikach aprowizacji, ważne jest, aby sprawdzić, czy jest to karta **kroki** w dzienniku. Poniżej przedstawiono typowe przyczyny i rozwiązania:
 
-- **Skonfigurowano filtr zakresu,** **który filtruje użytkownika na podstawie wartości atrybutu**. Aby uzyskać więcej informacji na temat filtrów zakresu, zobacz [filtry zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-- **Użytkownik "nie jest skutecznie uprawniony".** Jeśli zostanie wyświetlony ten konkretny komunikat o błędzie, jest to spowodowane problemem z rekordem przypisania użytkownika przechowywanym w usłudze Azure AD. Aby rozwiązać ten problem, co likwiduje przypisanie użytkownika (lub grupy) z aplikacji i przypisz go ponownie. Aby uzyskać więcej informacji na temat przypisywania, zobacz [Przypisywanie dostępu użytkownika lub grupy](../manage-apps/assign-user-or-group-access-portal.md).
-- **Brak wymaganego atrybutu lub nie jest wypełniany dla użytkownika.** Ważną rzeczą, którą należy wziąć pod uwagę podczas konfigurowania inicjowania obsługi administracyjnej jest przeglądanie i konfigurowanie mapowań atrybutów i przepływów pracy, które definiują, które właściwości użytkownika (lub grupy) przepływają z usługi Azure AD do aplikacji. Ta konfiguracja obejmuje ustawienie "właściwości pasującej", która jest używana do jednoznacznej identyfikacji i dopasowania użytkowników/grup między dwoma systemami. Aby uzyskać więcej informacji na temat tego ważnego procesu, zobacz [Dostosowywanie mapowań atrybutów inicjowania obsługi administracyjnej dla aplikacji SaaS w usłudze Azure Active Directory](customize-application-attributes.md).
-- **Mapowania atrybutów dla grup:** Inicjowanie obsługi administracyjnej nazwy grupy i szczegółów grupy, oprócz członków, jeśli są obsługiwane dla niektórych aplikacji. Tę funkcję można włączyć lub wyłączyć, włączając lub wyłączając **mapowanie** obiektów grupy wyświetlanych na karcie **Inicjowanie obsługi administracyjnej.** Jeśli grupy inicjowania obsługi administracyjnej jest włączona, należy przejrzeć mapowania atrybutów, aby upewnić się, że odpowiednie pole jest używane dla "pasujące identyfikator". Pasującym identyfikatorem może być wyświetlana nazwa lub alias e-mail. Grupa i jej członkowie nie są aprowiowane, jeśli pasująca właściwość jest pusta lub nie wypełniona dla grupy w usłudze Azure AD.
+- **Skonfigurowano filtr określania zakresu** **, który umożliwia filtrowanie użytkownika na podstawie wartości atrybutu**. Aby uzyskać więcej informacji na temat określania zakresu filtrów, zobacz [Określanie zakresu filtrów](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+- **Użytkownik jest "nieefektywnie uprawniony".** Jeśli zobaczysz ten konkretny komunikat o błędzie, przyczyną jest problem z rekordem przypisania użytkownika przechowywanym w usłudze Azure AD. Aby rozwiązać ten problem, Cofnij przypisanie użytkownika (lub grupy) z aplikacji i ponownie przypisz go. Aby uzyskać więcej informacji na temat przypisywania, zobacz [przypisywanie użytkowników lub grup dostępu](../manage-apps/assign-user-or-group-access-portal.md).
+- **Brak wymaganego atrybutu lub nie został on wypełniony dla użytkownika.** Ważną kwestią do uwzględnienia podczas konfigurowania aprowizacji jest przejrzenie i skonfigurowanie mapowań atrybutów i przepływów pracy, które definiują, które właściwości użytkownika (lub grupy) będą przepływać z usługi Azure AD do aplikacji. Ta konfiguracja obejmuje ustawienie "dopasowania właściwości" służącego do unikatowego identyfikowania i dopasowywania użytkowników/grup między tymi dwoma systemami. Aby uzyskać więcej informacji na temat tego ważnego procesu, zobacz [Dostosowywanie mapowań atrybutów aprowizacji użytkowników dla aplikacji SaaS w Azure Active Directory](customize-application-attributes.md).
+- **Mapowania atrybutów dla grup:** Inicjowanie obsługi administracyjnej nazw grup i grup, oprócz członków, jeśli są obsługiwane w przypadku niektórych aplikacji. Tę funkcję można włączyć lub wyłączyć, włączając lub wyłączając **Mapowanie** dla obiektów grupy wyświetlanych na karcie **aprowizacji** . Jeśli włączono grupy aprowizacji, należy sprawdzić mapowania atrybutów, aby upewnić się, że odpowiednie pole jest używane dla "zgodnego identyfikatora". IDENTYFIKATORem zgodnym może być nazwa wyświetlana lub alias adresu e-mail. Grupa i jej elementy członkowskie nie są obsługiwane, jeśli właściwość pasująca jest pusta lub nie została wypełniona dla grupy w usłudze Azure AD.
 ## <a name="provisioning-users-assigned-to-the-default-access-role"></a>Inicjowanie obsługi administracyjnej użytkowników przypisanych do domyślnej roli dostępu
-Domyślna rola aplikacji z galerii jest nazywana rolą "dostępu domyślnego". Historycznie użytkownicy przypisani do tej roli nie są aprowizacji i są oznaczone jako pominięte w [dzienników inicjowania obsługi administracyjnej](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) ze względu na "nie skutecznie uprawniony." 
+Domyślna rola w aplikacji z galerii jest nazywana rolą "domyślny dostęp". W przeszłości Użytkownicy przypisani do tej roli nie są obsługiwani i są oznaczeni jako pominięci w [dziennikach aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , z powodu "nie jest to efektywnie uprawniony". 
 
-**Zachowanie dla inicjowania obsługi administracyjnej konfiguracji utworzonych po 16.04.2020:** Użytkownicy przypisani do domyślnej roli dostępu będą oceniani tak samo jak wszystkie inne role. Użytkownik, który ma przypisany dostęp domyślny, nie zostanie pominięty jako "nie skutecznie uprawniony". 
+**Zachowanie dla konfiguracji aprowizacji utworzonych po 04/16/2020:** Użytkownicy przypisani do domyślnej roli dostępu zostaną ocenione tak samo, jak wszystkie inne role. Użytkownik, któremu przypisano domyślny dostęp nie zostanie pominięty jako "nie jako skuteczny do upoważnienia". 
 
-**Zachowanie dla inicjowania obsługi administracyjnej konfiguracji utworzonych przed 16.04.2020:** Przez następne 3 miesiące zachowanie będzie kontynuowane tak, jak jest dzisiaj. Użytkownicy z domyślną rolą dostępu zostaną pominięci jako nieuwzwiązania. Po lipcu 2020 r. zachowanie będzie jednolite dla wszystkich wniosków. Nie pominiemy inicjowania obsługi administracyjnej użytkowników z domyślną rolą dostępu ze względu na to, że "nie jest skutecznie uprawniony". Ta zmiana zostanie wywłyszona przez firmę Microsoft, bez potrzeby działania klienta. Jeśli chcesz upewnić się, że ci użytkownicy nadal są pomijane, nawet po tej zmianie, należy zastosować odpowiednie filtry zakresu lub odsebić użytkownika z aplikacji, aby upewnić się, że są one poza zakresem.  
+**Zachowanie dla konfiguracji aprowizacji utworzonych przed 04/16/2020:** W ciągu następnych 3 miesięcy zachowanie będzie kontynuowane, tak jak dzisiaj. Użytkownicy z domyślną rolą dostępu zostaną pominięci jako nieskutecznie uprawniony. Po lipcu 2020 zachowanie będzie jednorodne dla wszystkich aplikacji. Nie będziemy pomijać użytkowników aprowizacji z domyślną rolą dostępu z powodu "nie jest to efektywnie uprawniony". Ta zmiana zostanie wprowadzona przez firmę Microsoft i nie jest wymagana żadna akcja dla klienta. Aby upewnić się, że Ci użytkownicy nadal są pomijani, nawet po tej zmianie, należy zastosować odpowiednie filtry określania zakresu lub cofnąć przypisanie użytkownika z aplikacji, aby upewnić się, że są poza zakresem.  
 
-W przypadku pytań dotyczących tych zmian prosimy o kontakt zprovisioningfeedback@microsoft.com
+Aby uzyskać odpowiedzi na pytania dotyczące tych zmian, skontaktuj się zprovisioningfeedback@microsoft.com
 ## <a name="next-steps"></a>Następne kroki
 
-[Synchronizacja usługi Azure AD Connect: opis aprowizacji deklaratywnej](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)
+[Azure AD Connect Sync: wyjaśnienie aprowizacji deklaracyjnej](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)

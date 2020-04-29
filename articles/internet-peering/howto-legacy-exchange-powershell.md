@@ -1,7 +1,7 @@
 ---
-title: Konwertowanie starszej komunikacji równorzędnej programu Exchange na zasób platformy Azure przy użyciu programu PowerShell
+title: Konwertowanie starszej komunikacji równorzędnej programu Exchange z zasobem platformy Azure przy użyciu programu PowerShell
 titleSuffix: Azure
-description: Konwertowanie starszej komunikacji równorzędnej programu Exchange na zasób platformy Azure przy użyciu programu PowerShell
+description: Konwertowanie starszej komunikacji równorzędnej programu Exchange z zasobem platformy Azure przy użyciu programu PowerShell
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,38 +9,38 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: eedf87548d62e05d4940911ed3dcd821077acb27
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686792"
 ---
-# <a name="convert-a-legacy-exchange-peering-to-an-azure-resource-by-using-powershell"></a>Konwertowanie starszej komunikacji równorzędnej programu Exchange na zasób platformy Azure przy użyciu programu PowerShell
+# <a name="convert-a-legacy-exchange-peering-to-an-azure-resource-by-using-powershell"></a>Konwertowanie starszej komunikacji równorzędnej programu Exchange z zasobem platformy Azure przy użyciu programu PowerShell
 
-W tym artykule opisano sposób konwertowania istniejącej starszej komunikacji równorzędnej programu Exchange na zasób platformy Azure przy użyciu poleceń cmdlet programu PowerShell.
+W tym artykule opisano sposób konwertowania istniejącej starszej komunikacji równorzędnej programu Exchange do zasobu platformy Azure przy użyciu poleceń cmdlet programu PowerShell.
 
-Jeśli wolisz, możesz ukończyć ten przewodnik przy użyciu [witryny](howto-legacy-exchange-portal.md)Azure portal .
+Jeśli wolisz, możesz ukończyć ten przewodnik przy użyciu witryny Azure [Portal](howto-legacy-exchange-portal.md).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
-* Przejrzyj [wymagania wstępne](prerequisites.md) i przewodnik [dla programu Exchange równorzędnej](walkthrough-exchange-all.md) przed rozpoczęciem konfiguracji.
+* Przed rozpoczęciem konfiguracji zapoznaj się z tematem [wymagania wstępne](prerequisites.md) i [Przewodnik po komunikacji równorzędnej programu Exchange](walkthrough-exchange-all.md) .
 
-### <a name="work-with-azure-powershell"></a>Praca z programem Azure PowerShell
+### <a name="work-with-azure-powershell"></a>Pracuj z Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
 ## <a name="convert-a-legacy-exchange-peering-to-an-azure-resource"></a>Konwertowanie starszej komunikacji równorzędnej programu Exchange na zasób platformy Azure
 
-### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Zaloguj się na swoje konto platformy Azure i wybierz subskrypcję
+### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Zaloguj się do konta platformy Azure i wybierz swoją subskrypcję
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name="get-legacy-exchange-peering-for-conversion"></a><a name= get></a>Uzyskaj starszą komunikację równorzędnych programu Exchange w celu konwersji
-W tym przykładzie pokazano, jak uzyskać starsze komunikacji równorzędnej programu Exchange w lokalizacji komunikacji równorzędnej w Seattle:
+### <a name="get-legacy-exchange-peering-for-conversion"></a><a name= get></a>Pobieranie starszej wersji komunikacji równorzędnej programu Exchange na potrzeby konwersji
+Ten przykład pokazuje, jak uzyskać starszą komunikację równorzędną programu Exchange w lokalizacji komunikacji równorzędnej w Seattle:
 
 ```powershell
 $legacyPeering = Get-AzLegacyPeering -Kind Exchange -PeeringLocation "Seattle"
 $legacyPeering
 ```
 
-Odpowiedź wygląda podobnie do następującego przykładu:
+Odpowiedź wygląda podobnie do poniższego przykładu:
 ```powershell
     Kind                     : Exchange
     PeeringLocation          : Seattle
@@ -57,8 +57,8 @@ Odpowiedź wygląda podobnie do następującego przykładu:
     ConnectionState          : Active
 ```
 
-### <a name="convert-legacy-peering"></a>Konwertowanie starszej komunikacji równorzędnej
-To polecenie może służyć do konwersji starszych komunikacji równorzędnej programu Exchange do zasobu platformy Azure:
+### <a name="convert-legacy-peering"></a>Konwertuj starszą komunikację równorzędną
+To polecenie służy do konwertowania starszej komunikacji równorzędnej programu Exchange do zasobu platformy Azure:
 
 ```powershell
 $legacyPeering[0] | New-AzPeering `
@@ -69,10 +69,10 @@ $legacyPeering[0] | New-AzPeering `
 
 &nbsp;
 > [!IMPORTANT] 
-> Podczas konwertowania starszych komunikacji równorzędnej do zasobu platformy Azure modyfikacje nie są obsługiwane.
+> W przypadku konwertowania starszej komunikacji równorzędnej na zasób platformy Azure modyfikacje nie są obsługiwane.
 &nbsp;
 
-W tym przykładzie odpowiedzi pokazano, kiedy end-to-end inicjowania obsługi administracyjnej została pomyślnie zakończona:
+Ta przykładowa odpowiedź pokazuje, kiedy kompleksowe Inicjowanie obsługi zostało pomyślnie zakończone:
 
 ```powershell
     Name                     : SeattleExchangePeering
@@ -92,12 +92,12 @@ W tym przykładzie odpowiedzi pokazano, kiedy end-to-end inicjowania obsługi ad
     ConnectionState          : Active
 ```
 ## <a name="additional-resources"></a>Dodatkowe zasoby
-Szczegółowe opisy wszystkich parametrów można uzyskać, uruchamiając następujące polecenie:
+Aby uzyskać szczegółowe opisy wszystkich parametrów, należy uruchomić następujące polecenie:
 
 ```powershell
 Get-Help Get-AzPeering -detailed
 ```
-Aby uzyskać więcej informacji, zobacz [Często zadawane pytania dotyczące komunikacji równorzędnej w Internecie](faqs.md).
+Aby uzyskać więcej informacji, zobacz temat [często zadawane pytania dotyczące internetowej komunikacji równorzędnej](faqs.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,7 +1,7 @@
 ---
-title: Planowanie potoków usługi Azure Machine Learning
+title: Planowanie potoków Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Zaplanuj potoki usługi Azure Machine Learning przy użyciu zestawu SDK usługi Azure Machine Learning dla języka Python. Zaplanowane potoki umożliwiają automatyzację rutynowych, czasochłonnych zadań, takich jak przetwarzanie danych, szkolenie i monitorowanie.
+description: Planowanie potoków Azure Machine Learning przy użyciu zestawu Azure Machine Learning SDK dla języka Python. Zaplanowane potoki umożliwiają automatyzowanie rutynowych, czasochłonnych zadań, takich jak przetwarzanie danych, szkolenia i monitorowanie.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,27 +10,27 @@ ms.author: laobri
 author: lobrien
 ms.date: 11/12/2019
 ms.openlocfilehash: 8e1e718fa4e6660d72203ac98bb6d427cdba2059
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82024561"
 ---
-# <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Planowanie potoków uczenia maszynowego za pomocą zestawu SDK usługi Azure Machine Learning dla języka Python
+# <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Planowanie potoków uczenia maszynowego za pomocą zestawu SDK Azure Machine Learning dla języka Python
 
-W tym artykule dowiesz się, jak programowo zaplanować potok do uruchomienia na platformie Azure. Można utworzyć harmonogram na podstawie czasu, który upłynął lub zmian w systemie plików. Harmonogramy oparte na czasie mogą służyć do dbania o rutynowych zadań, takich jak monitorowanie dryfu danych. Harmonogramy oparte na zmianach mogą służyć do reagowania na nieregularne lub nieprzewidywalne zmiany, takie jak przekazywanie nowych danych lub edytowanie starych danych. Po nauczeniu się tworzenia harmonogramów dowiesz się, jak je pobierać i dezaktywować.
+W tym artykule dowiesz się, jak programowo zaplanować uruchamianie potoku na platformie Azure. Można utworzyć harmonogram na podstawie czasu, który upłynął lub zmiany w systemie plików. Harmonogramy oparte na czasie mogą służyć do wykonywania codziennych zadań, takich jak monitorowanie dryfowania danych. Harmonogramy oparte na zmianach mogą służyć do reagowania na zmiany nieregularne lub nieprzewidywalne, takie jak nowe przekazane dane lub stare dane. Po zapoznaniu się ze sposobem tworzenia harmonogramów dowiesz się, jak je pobrać i dezaktywować.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://aka.ms/AMLFree).
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://aka.ms/AMLFree).
 
-* Środowisko języka Python, w którym jest instalowany zestaw SDK usługi Azure Machine Learning dla języka Python. Aby uzyskać więcej informacji, zobacz [Tworzenie środowisk wielokrotnego użytku i zarządzanie nimi do szkoleń i wdrażania za pomocą usługi Azure Machine Learning.](how-to-use-environments.md)
+* Środowisko języka Python, w którym jest zainstalowany zestaw SDK Azure Machine Learning dla języka Python. Aby uzyskać więcej informacji, zobacz [Tworzenie środowisk wielokrotnego użytku i zarządzanie nimi na potrzeby szkoleń i wdrażania przy użyciu Azure Machine Learning.](how-to-use-environments.md)
 
-* Obszar roboczy uczenia maszynowego z opublikowanym potokiem. Można użyć tego wbudowanego [tworzenie i uruchamianie potoków uczenia maszynowego za pomocą narzędzia Azure Machine Learning SDK.](how-to-create-your-first-pipeline.md)
+* Obszar roboczy Machine Learning z opublikowanym potokiem. Można użyć wbudowanego [tworzenia i uruchamiania potoków uczenia maszynowego z zestawem SDK Azure Machine Learning](how-to-create-your-first-pipeline.md).
 
-## <a name="initialize-the-workspace--get-data"></a>Inicjowanie obszaru roboczego & uzyskania danych
+## <a name="initialize-the-workspace--get-data"></a>Inicjowanie obszaru roboczego & pobieranie danych
 
-Aby zaplanować potok, musisz odwołać się do obszaru roboczego, identyfikator opublikowanego potoku i nazwę eksperymentu, w którym chcesz utworzyć harmonogram. Te wartości można uzyskać za pomocą następującego kodu:
+Do zaplanowania potoku konieczne będzie odwołanie do obszaru roboczego, identyfikator opublikowanego potoku oraz nazwę eksperymentu, w którym ma zostać utworzony harmonogram. Te wartości można uzyskać przy użyciu następującego kodu:
 
 ```Python
 import azureml.core
@@ -54,9 +54,9 @@ pipeline_id = "aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
 
 ## <a name="create-a-schedule"></a>Tworzenie harmonogramu
 
-Aby uruchomić potok cyklicznie, utworzysz harmonogram. A `Schedule` kojarzy potok, eksperyment i wyzwalacz. Wyzwalacz może być,`ScheduleRecurrence` który opisuje oczekiwania między uruchomieniami lub ścieżka magazynu danych, który określa katalog do obserwowania zmian. W obu przypadkach potrzebny jest identyfikator potoku i nazwa eksperymentu, w którym można utworzyć harmonogram.
+Aby uruchomić potok cyklicznie, należy utworzyć harmonogram. A `Schedule` powoduje skojarzenie potoku, eksperymentu i wyzwalacza. Wyzwalacz może być obiektem`ScheduleRecurrence` opisującym oczekiwania między uruchomieniami lub ścieżką magazynu danych, która określa katalog, w którym mają być monitorowane zmiany. W obu przypadkach potrzebny będzie identyfikator potoku i nazwa eksperymentu, w którym ma zostać utworzony harmonogram.
 
-W górnej części pliku python `Schedule` zaimportuj i `ScheduleRecurrence` klasy:
+W górnej części pliku języka Python zaimportuj klasy `Schedule` i `ScheduleRecurrence` :
 
 ```python
 
@@ -65,9 +65,9 @@ from azureml.pipeline.core.schedule import ScheduleRecurrence, Schedule
 
 ### <a name="create-a-time-based-schedule"></a>Tworzenie harmonogramu opartego na czasie
 
-Konstruktor `ScheduleRecurrence` ma wymagany `frequency` argument, który musi być jednym z następujących ciągów: "Minute", "Hour", "Day", "Week" lub "Month". Wymaga również argumentu `interval` liczby całkowitej określającego, ile jednostek powinno uginąć `frequency` między rozpoczęciem harmonogramu. Opcjonalne argumenty pozwalają być bardziej szczegółowe na temat czasów rozpoczęcia, jak wyszczególniono w [scheduleRecurrence SDK docs](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py).
+`ScheduleRecurrence` Konstruktor ma wymagany `frequency` argument, który musi być jednym z następujących ciągów: "minute", "Hour", "Day", "Week" lub "Month". Wymaga również argumentu Integer `interval` określającego, `frequency` ile jednostek powinna upłynąć między harmonogramem. Opcjonalne argumenty umożliwiają bardziej szczegółowe określenie czasu rozpoczęcia, zgodnie z opisem w dokumentacji [zestawu SDK ScheduleRecurrence](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py).
 
-Utwórz `Schedule` bieg, który rozpoczyna się co 15 minut:
+`Schedule` Utwórz uruchamianie co 15 minut:
 
 ```python
 recurrence = ScheduleRecurrence(frequency="Minute", interval=15)
@@ -80,13 +80,13 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 
 ### <a name="create-a-change-based-schedule"></a>Tworzenie harmonogramu opartego na zmianach
 
-Potoki, które są wyzwalane przez zmiany w pliku może być bardziej wydajne niż harmonogramy oparte na czasie. Na przykład można wykonać krok przetwarzania wstępnego po zmianie pliku lub gdy nowy plik zostanie dodany do katalogu danych. Można monitorować wszelkie zmiany w magazynie danych lub zmiany w określonym katalogu w magazynie danych. Jeśli monitorujesz określony katalog, zmiany w podkatalogach tego katalogu _nie_ wyzwolą uruchomienia.
+Potoki wyzwalane przez zmiany plików mogą być bardziej wydajne niż harmonogramy oparte na czasie. Na przykład możesz chcieć wykonać krok przetwarzania wstępnego, gdy plik zostanie zmieniony lub gdy nowy plik zostanie dodany do katalogu danych. Możesz monitorować wszelkie zmiany w magazynie danych lub zmiany w określonym katalogu w magazynie danych. W przypadku monitorowania określonego katalogu zmiany w podkatalogach tego katalogu _nie_ będą powodowały uruchomienia.
 
-Aby utworzyć plik reaktywny `Schedule`, `datastore` należy ustawić parametr w wywołaniu [Schedule.create](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Aby monitorować folder, `path_on_datastore` ustaw argument.
+Aby utworzyć plik — reaktywny `Schedule`, należy ustawić `datastore` parametr w wywołaniu metody [Schedule. Create](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Aby monitorować folder, należy ustawić `path_on_datastore` argument.
 
-Argument `polling_interval` umożliwia określenie w minutach częstotliwości, z jaką magazyn danych jest sprawdzany pod kątem zmian.
+`polling_interval` Argument pozwala określić, w minutach, częstotliwość sprawdzania zmian w magazynie danych.
 
-Jeśli potok został zbudowany za pomocąparametru [potoku](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py) `data_path_parameter_name` [DataPath,](https://docs.microsoft.com/python/api/azureml-core/azureml.data.datapath.datapath?view=azure-ml-py) można ustawić tę zmienną na nazwę zmienionego pliku, ustawiając argument.
+Jeśli potok został skonstruowany przy użyciu [ścieżki datapath](https://docs.microsoft.com/python/api/azureml-core/azureml.data.datapath.datapath?view=azure-ml-py) [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py), można ustawić tę zmienną na nazwę zmienionego pliku przez ustawienie `data_path_parameter_name` argumentu.
 
 ```python
 datastore = Datastore(workspace=ws, name="workspaceblobstore")
@@ -97,30 +97,30 @@ reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="
 
 ### <a name="optional-arguments-when-creating-a-schedule"></a>Opcjonalne argumenty podczas tworzenia harmonogramu
 
-Oprócz argumentów omówionych wcześniej można ustawić `status` argument, `"Disabled"` aby utworzyć nieaktywny harmonogram. Na koniec `continue_on_step_failure` umożliwia przekazanie wartości logicznej, która zastąpi domyślne zachowanie błędu potoku.
+Oprócz argumentów omówionych wcześniej, można ustawić `status` argument na `"Disabled"` , aby utworzyć nieaktywny harmonogram. Na `continue_on_step_failure` koniec umożliwia przekazanie wartości logicznej, która zastąpi domyślne zachowanie potoku.
 
-### <a name="use-azure-logic-apps-for-more-complex-workflows"></a>Korzystanie z usługi Azure Logic Apps w celu uzyskania bardziej złożonych przepływów pracy
+### <a name="use-azure-logic-apps-for-more-complex-workflows"></a>Użyj Azure Logic Apps, aby uzyskać bardziej złożone przepływy pracy
 
-Usługa Azure Logic Apps obsługuje bardziej złożone przepływy pracy i jest znacznie szerzej zintegrowana niż potoki usługi Azure Machine Learning. Zobacz [wyzwalanie uruchomienia potoku uczenia maszynowego z aplikacji logiki,](how-to-trigger-published-pipeline.md) aby uzyskać więcej informacji.
+Azure Logic Apps obsługuje bardziej złożone przepływy pracy i jest w szerszym stopniu zintegrowane od Azure Machine Learning potoków. Aby uzyskać więcej informacji [, zobacz Wyzwalanie przebiegu potoku Machine Learning z poziomu aplikacji logiki](how-to-trigger-published-pipeline.md) .
 
 ## <a name="view-your-scheduled-pipelines"></a>Wyświetlanie zaplanowanych potoków
 
-W przeglądarce sieci Web przejdź do usługi Azure Machine Learning. W sekcji **Punkty końcowe** panelu nawigacyjnego wybierz pozycję **Punkty końcowe potoku**. Spowoduje to przejście do listy potoków opublikowanych w obszarze roboczym.
+W przeglądarce sieci Web przejdź do Azure Machine Learning. W sekcji **punkty końcowe** panelu nawigacji wybierz pozycję **punkty końcowe potoku**. Spowoduje to przejście do listy potoków opublikowanych w obszarze roboczym.
 
-![Strona Potoki AML](./media/how-to-schedule-pipelines/scheduled-pipelines.png)
+![Strona potoki elementu AML](./media/how-to-schedule-pipelines/scheduled-pipelines.png)
 
-Na tej stronie można zobaczyć podsumowanie informacji o wszystkich potoków w obszarze roboczym: nazwy, opisy, stan i tak dalej. Drąż, klikając w potoku. Na wynikowej stronie znajduje się więcej szczegółów na temat potoku i można przejść do szczegółów w poszczególnych uruchomieniach.
+Na tej stronie można wyświetlić informacje podsumowujące dotyczące wszystkich potoków w obszarze roboczym: nazwy, opisy, Stany i tak dalej. Aby przejść do szczegółów, kliknij potok. Na otrzymanej stronie znajduje się więcej szczegółów na temat potoku i można przechodzić do poszczególnych uruchomień.
 
-## <a name="deactivate-the-pipeline"></a>Dezaktywacja potoku
+## <a name="deactivate-the-pipeline"></a>Dezaktywuj potok
 
-Jeśli `Pipeline` masz, który jest publikowany, ale nie jest zaplanowane, można go wyłączyć za pomocą:
+Jeśli masz `Pipeline` opublikowaną wersję, ale nie została ona zaplanowana, możesz ją wyłączyć przy użyciu:
 
 ```python
 pipeline = PublishedPipeline.get(ws, id=pipeline_id)
 pipeline.disable()
 ```
 
-Jeśli potok jest zaplanowany, należy najpierw anulować harmonogram. Pobierz identyfikator harmonogramu z portalu lub uruchamiając:
+W przypadku zaplanowania potoku należy najpierw anulować harmonogram. Pobierz identyfikator harmonogramu z portalu lub uruchamiając:
 
 ```python
 ss = Schedule.list(ws)
@@ -128,7 +128,7 @@ for s in ss:
     print(s)
 ```
 
-Gdy masz `schedule_id` chcesz wyłączyć, uruchom:
+`schedule_id` Gdy chcesz wyłączyć, uruchom polecenie:
 
 ```python
 def stop_by_schedule_id(ws, schedule_id):
@@ -139,17 +139,17 @@ def stop_by_schedule_id(ws, schedule_id):
 stop_by_schedule_id(ws, schedule_id)
 ```
 
-Jeśli następnie `Schedule.list(ws)` uruchomisz ponownie, powinieneś otrzymać pustą listę.
+Po ponownym uruchomieniu `Schedule.list(ws)` należy uzyskać pustą listę.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule użyto zestawu SDK usługi Azure Machine Learning dla języka Python, aby zaplanować potok na dwa różne sposoby. Jeden harmonogram powtarza się na podstawie czasu zegara, który upłynął. Inny harmonogram jest uruchamiany, jeśli plik `Datastore` jest modyfikowany w określonym lub w katalogu w tym magazynie. Widziałeś, jak używać portalu do badania potoku i poszczególnych przebiegów. Na koniec dowiedziałeś się, jak wyłączyć harmonogram, tak aby potok przestał działać.
+W tym artykule użyto zestawu SDK Azure Machine Learning dla języka Python w celu zaplanowania potoku na dwa różne sposoby. Jeden harmonogram powtarza się w oparciu o czas zegara, który upłynął. Drugi harmonogram jest uruchamiany, jeśli plik zostanie zmodyfikowany w określonym `Datastore` lub w katalogu w tym magazynie. Pokazano, jak używać portalu do badania potoku i poszczególnych uruchomień. Na koniec wiesz już, jak wyłączyć harmonogram, aby potok przestanie działać.
 
 Aby uzyskać więcej informacji, zobacz:
 
 > [!div class="nextstepaction"]
-> [Używanie potoków usługi Azure Machine Learning do oceniania wsadowego](tutorial-pipeline-batch-scoring-classification.md)
+> [Korzystanie z potoków Azure Machine Learning na potrzeby oceniania partii](tutorial-pipeline-batch-scoring-classification.md)
 
 * Dowiedz się więcej o [potokach](concept-ml-pipelines.md)
-* Dowiedz się więcej o [eksplorowaniu usługi Azure Machine Learning za pomocą usługi Jupyter](samples-notebooks.md)
+* Dowiedz się więcej o [eksplorowaniu Azure Machine Learning za pomocą Jupyter](samples-notebooks.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Przykład uczenia maszynowego z spark MLlib na hdinsight — Azure
-description: Dowiedz się, jak używać platformy Spark MLlib do tworzenia aplikacji uczenia maszynowego, która analizuje zestaw danych przy użyciu klasyfikacji za pomocą regresji logistycznej.
+title: Przykład uczenia maszynowego przy użyciu platformy Spark MLlib w usłudze HDInsight — Azure
+description: Dowiedz się, jak za pomocą usługi Spark MLlib utworzyć aplikację Machine Learning, która analizuje zestaw danych przy użyciu klasyfikacji w ramach regresji logistycznej.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,44 +9,44 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
 ms.openlocfilehash: 26695df299ba5d0f50c8f271b5da99284a8d6764
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81531137"
 ---
-# <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Tworzenie aplikacji uczenia maszynowego i analizowanie zestawu danych za pomocą aplikacji Apache Spark MLlib
+# <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Użyj Apache Spark MLlib, aby skompilować aplikację uczenia maszynowego i analizować zestaw danych
 
-Dowiedz się, jak utworzyć aplikację uczenia maszynowego za pomocą aplikacji Apache Spark [MLlib.](https://spark.apache.org/mllib/) Aplikacja wykona analizę predykcyjną na otwartym zestawie danych. Z wbudowanych bibliotek uczenia maszynowego platformy Spark w tym przykładzie użyto *klasyfikacji* za pomocą regresji logistycznej.
+Dowiedz się, jak za pomocą programu Apache Spark [MLlib](https://spark.apache.org/mllib/) utworzyć aplikację uczenia maszynowego. Aplikacja będzie przeprowadzać analizę predykcyjną w otwartym zestawie danych. W przypadku wbudowanych bibliotek uczenia maszynowego platformy Spark ten przykład używa *klasyfikacji* za pośrednictwem regresji logistycznej.
 
-MLlib to podstawowa biblioteka platformy Spark, która udostępnia wiele narzędzi przydatnych do zadań uczenia maszynowego, takich jak:
+MLlib to podstawowa Biblioteka platformy Spark, która udostępnia wiele narzędzi użytecznych w przypadku zadań uczenia maszynowego, takich jak:
 
 * Klasyfikacja
 * Regresja
 * Klastrowanie
 * Modelowanie
-* Rozkład wartości pojedynczej (SVD) i analiza głównego komponentu (PCA)
-* Badanie hipotez i obliczanie przykładowych statystyk
+* Wieloskładnikowa dekompozycja wartości (SVD) i podstawowa analiza składników (PPW)
+* Testowanie hipotez i Obliczanie statystyk przykładowych
 
 ## <a name="understand-classification-and-logistic-regression"></a>Zrozumienie klasyfikacji i regresji logistycznej
 
-*Klasyfikacja*, popularne zadanie uczenia maszynowego, to proces sortowania danych wejściowych na kategorie. Zadaniem algorytmu klasyfikacji jest ustalenie, jak przypisać "etykiety" do danych wejściowych, które podasz. Na przykład można pomyśleć o algorytmie uczenia maszynowego, który akceptuje informacje giełdowe jako dane wejściowe. Następnie dzieli akcje na dwie kategorie: akcje, które należy sprzedać i akcje, które należy zachować.
+*Klasyfikacja*, popularne zadanie uczenia maszynowego, to proces sortowania danych wejściowych do kategorii. Jest to zadanie algorytmu klasyfikacji, aby ustalić sposób przypisywania "etykiet" do danych wejściowych dostarczanych przez użytkownika. Można na przykład traktować algorytm uczenia maszynowego, który akceptuje informacje o zapasach jako dane wejściowe. Następnie dzieli zapas na dwie kategorie: zasoby, które należy sprzedać i zasoby, które powinny być przechowywane.
 
-Regresja logistyczna jest algorytmem używanym do klasyfikacji. Interfejs API regresji logistycznej platformy Spark jest przydatny w *klasyfikacji binarnej*lub klasyfikacji danych wejściowych do jednej z dwóch grup. Aby uzyskać więcej informacji na temat regresji logistycznych, zobacz [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
+Regresja logistyczna to algorytm używany do klasyfikacji. Interfejs API regresji logistycznej platformy Spark jest przydatny w przypadku *klasyfikacji binarnej*lub klasyfikowania danych wejściowych do jednej z dwóch grup. Aby uzyskać więcej informacji na temat regresji logistycznej, zobacz [witrynę Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
 
-Podsumowując, proces regresji logistycznej tworzy *funkcję logistyczną*. Funkcja służy do przewidywania prawdopodobieństwa, że wektor wejściowy należy do jednej lub drugiej grupy.  
+Podsumowując, proces regresji logistycznej produkuje *funkcję logistyczną*. Funkcja służy do przewidywania prawdopodobieństwa, że wektor wejściowy należy do jednej grupy lub drugiej.  
 
-## <a name="predictive-analysis-example-on-food-inspection-data"></a>Przykład analizy predykcyjnej na temat danych z inspekcji żywności
+## <a name="predictive-analysis-example-on-food-inspection-data"></a>Przykład analizy predykcyjnej na danych inspekcji żywności
 
-W tym przykładzie używasz spark do przeprowadzenia analizy predykcyjnej danych inspekcji żywności (**Food_Inspections1.csv**). Dane uzyskane za pośrednictwem [portalu danych City of Chicago](https://data.cityofchicago.org/). Ten zestaw danych zawiera informacje o inspekcjach zakładów spożywczych, które zostały przeprowadzone w Chicago. W tym informacje o każdym zakładzie, stwierdzeniu naruszeń (jeśli występują) i wynikach kontroli. Plik danych CSV jest już dostępny na koncie magazynu skojarzonym z klastrem pod adresem **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**.
+W tym przykładzie użyto platformy Spark do przeprowadzenia analizy predykcyjnej danych inspekcji żywności (**Food_Inspections1. csv**). Dane nabyte w [mieście portalu danych w Chicago](https://data.cityofchicago.org/). Ten zestaw danych zawiera informacje o inspekcjach związanych z działalnością żywnościową, które zostały przeprowadzone w Chicago. W tym informacje dotyczące każdego zakładu, wykryte naruszenia (jeśli istnieją) oraz wyniki inspekcji. Plik danych CSV jest już dostępny na koncie magazynu skojarzonym z klastrem w **/hdisamples/hdisamples/foodinspectiondata/Food_Inspections1. csv**.
 
-W poniższych krokach opracowywać model, aby zobaczyć, co trzeba, aby przejść lub nie inspekcji żywności.
+W poniższych krokach opracowujesz model, aby zobaczyć, co jest potrzebne do przekazania lub niepowodzenia inspekcji żywności.
 
-## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Tworzenie aplikacji do uczenia maszynowego Apache Spark MLlib
+## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Tworzenie aplikacji Apache Spark MLlib Machine Learning
 
 1. Utwórz notes Jupyter przy użyciu jądra PySpark. Aby uzyskać instrukcje, zobacz [Tworzenie notesu Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-2. Importuj typy wymagane dla tej aplikacji. Skopiuj i wklej następujący kod do pustej komórki, a następnie naciśnij **klawisze SHIFT + ENTER**.
+2. Zaimportuj typy wymagane dla tej aplikacji. Skopiuj i wklej następujący kod do pustej komórki, a następnie naciśnij klawisze **SHIFT + ENTER**.
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -57,13 +57,13 @@ W poniższych krokach opracowywać model, aby zobaczyć, co trzeba, aby przejś�
     from pyspark.sql.types import *
     ```
 
-    Ze względu na jądro PySpark nie trzeba tworzyć żadnych kontekstów jawnie. Konteksty Spark i Hive są tworzone automatycznie po uruchomieniu pierwszej komórki kodu.
+    Ze względu na jądro PySpark nie trzeba jawnie tworzyć kontekstów. Konteksty Spark i Hive są tworzone automatycznie po uruchomieniu pierwszej komórki kodu.
 
 ## <a name="construct-the-input-dataframe"></a>Konstruowanie wejściowej ramki danych
 
-Użyj kontekstu Iskra, aby wyciągnąć nieprzetworzone dane CSV do pamięci jako tekst nieustrukturyzowany. Następnie użyj biblioteki CSV języka Python, aby przeanalizować każdy wiersz danych.
+Użyj kontekstu Spark, aby ściągnąć nieprzetworzone dane CSV do pamięci jako tekst bez struktury. Następnie użyj biblioteki CSV języka Python, aby przeanalizować każdy wiersz danych.
 
-1. Uruchom następujące wiersze, aby utworzyć odporny rozproszony zestaw danych (RDD) przez importowanie i analizowanie danych wejściowych.
+1. Uruchom następujące wiersze, aby utworzyć rozproszony zestaw danych (RDD), importując i przeanalizować dane wejściowe.
 
     ```PySpark
     def csvParse(s):
@@ -78,7 +78,7 @@ Użyj kontekstu Iskra, aby wyciągnąć nieprzetworzone dane CSV do pamięci jak
                     .map(csvParse)
     ```
 
-2. Uruchom następujący kod, aby pobrać jeden wiersz z RDD, dzięki czemu można spojrzeć schematu danych:
+2. Uruchom Poniższy kod, aby pobrać jeden wiersz z RDD, więc możesz zajrzeć do schematu danych:
 
     ```PySpark
     inspections.take(1)
@@ -106,9 +106,9 @@ Użyj kontekstu Iskra, aby wyciągnąć nieprzetworzone dane CSV do pamięci jak
         '(41.97583445690982, -87.7107455232781)']]
     ```
 
-    Dane wyjściowe daje wyobrażenie o schemacie pliku wejściowego. Zawiera nazwę każdego zakładu i rodzaj zakładu. Również adres, dane z inspekcji i lokalizacja, między innymi.
+    Dane wyjściowe dają pomysł na Schemat pliku wejściowego. Zawiera nazwę każdego zakładu i typ zakładu. Również adres, dane inspekcji i lokalizacja, między innymi.
 
-3. Uruchom następujący kod, aby utworzyć ramkę danych *(df)* i tabelę tymczasową *(CountResults)* z kilkoma kolumnami, które są przydatne w analizie predykcyjnej. `sqlContext`służy do przekształcenia danych strukturalnych.
+3. Uruchom Poniższy kod, aby utworzyć element Dataframe (*DF*) i tabelę tymczasową (*CountResults*) z kilkoma kolumnami, które są przydatne do analizy predykcyjnej. `sqlContext`służy do przekształcania danych ze strukturą.
 
     ```PySpark
     schema = StructType([
@@ -121,9 +121,9 @@ Użyj kontekstu Iskra, aby wyciągnąć nieprzetworzone dane CSV do pamięci jak
     df.registerTempTable('CountResults')
     ```
 
-    Cztery kolumny zainteresowania w ramce danych to **identyfikator,** **nazwa,** **wyniki**i **naruszenia.**
+    Cztery kolumny zainteresowania w ramce Dataframe są **identyfikatorami**, **nazwami**, **wynikami**i **naruszeniami**.
 
-4. Uruchom następujący kod, aby uzyskać małą próbkę danych:
+4. Uruchom następujący kod, aby uzyskać mały przykład danych:
 
     ```PySpark
     df.show(5)
@@ -145,9 +145,9 @@ Użyj kontekstu Iskra, aby wyciągnąć nieprzetworzone dane CSV do pamięci jak
 
 ## <a name="understand-the-data"></a>Zrozumienie danych
 
-Zacznijmy, aby zorientować się, co zawiera zestaw danych. 
+Zacznijmy od tego, co zawiera zestaw danych. 
 
-1. Uruchom następujący kod, aby wyświetlić różne wartości w kolumnie **wyników:**
+1. Uruchom następujący kod, aby wyświetlić różne wartości w kolumnie **wyniki** :
 
     ```PySpark
     df.select('results').distinct().show()
@@ -167,20 +167,20 @@ Zacznijmy, aby zorientować się, co zawiera zestaw danych.
     +--------------------+
     ```
 
-2. Uruchom następujący kod, aby wizualizować rozkład tych wyników:
+2. Uruchom następujący kod, aby wizualizować dystrybucję następujących wyników:
 
     ```PySpark
     %%sql -o countResultsdf
     SELECT COUNT(results) AS cnt, results FROM CountResults GROUP BY results
     ```
 
-    Magia, `%%sql` `-o countResultsdf` po której następuje zapewnia, że dane wyjściowe kwerendy jest zachowywane lokalnie na serwerze Jupyter (zazwyczaj headnode klastra). Dane wyjściowe są zachowywane jako [pandas](https://pandas.pydata.org/) dataframe o określonej nazwie **countResultsdf**. Aby uzyskać więcej `%%sql` informacji na temat magii i innych magii dostępnych w jądrze PySpark, zobacz [Jądra dostępne w notebookach Jupyter z klastrami Apache Spark HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+    `%%sql` Magiczna `-o countResultsdf` Metoda polega na tym, że dane wyjściowe zapytania są utrwalane lokalnie na serwerze Jupyter (zazwyczaj węzła głównego klastra). Dane wyjściowe są utrwalane jako ramka [dataPandas](https://pandas.pydata.org/) o określonej nazwie **countResultsdf**. Aby uzyskać więcej informacji na `%%sql` temat Magic i innych magicznych PySpark jądra, zobacz [jądra dostępne w notesach Jupyter z klastrami usługi HDInsight Apache Spark](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
     Dane wyjściowe wyglądają następująco:
 
-    ![Dane wyjściowe kwerendy SQL](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "Dane wyjściowe kwerendy SQL")
+    ![Dane wyjściowe zapytania SQL](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "Dane wyjściowe zapytania SQL")
 
-3. Do utworzenia wykresu można również użyć [matplotlib](https://en.wikipedia.org/wiki/Matplotlib), biblioteki używanej do konstruowania wizualizacji danych. Ponieważ wykres musi być utworzony z lokalnie utrwalonej elementu dataframe **countResultsdf,** fragment kodu musi zaczynać się od `%%local` magii. Ta akcja gwarantuje, że kod jest uruchamiany lokalnie na serwerze Jupyter.
+3. Możesz również użyć [matplotlib](https://en.wikipedia.org/wiki/Matplotlib), biblioteki używanej do konstruowania wizualizacji danych, aby utworzyć wykres. Ponieważ wykres musi być tworzony na podstawie lokalnie utrwalonej ramki Dataframe **countResultsdf** , fragment kodu musi rozpoczynać się `%%local` od Magic. Ta akcja zapewnia, że kod jest uruchamiany lokalnie na serwerze Jupyter.
 
     ```PySpark
     %%local
@@ -194,20 +194,20 @@ Zacznijmy, aby zorientować się, co zawiera zestaw danych.
     plt.axis('equal')
     ```
 
-    Aby przewidzieć wynik inspekcji żywności, należy opracować model oparty na naruszeniach. Ponieważ regresja logistyczna jest metodą klasyfikacji binarnej, warto podzielić dane wynikowe na dwie kategorie: **Niepowodzenie** i **Przekaż:**
+    Aby przewidzieć wynik inspekcji żywności, należy opracować model na podstawie naruszeń. Ponieważ regresja logistyczna jest metodą klasyfikacji binarnej, warto grupować dane wynikowe w dwie kategorie: **Niepowodzenie** i **przekazywanie**:
 
-   - Przekazać
-       - Przekazać
-       - Pass w / warunki
+   - Chodzenia
+       - Chodzenia
+       - Przekazuj/warunki
    - Niepowodzenie
        - Niepowodzenie
    - Odrzuć
-       - Firma nie zlokalizowana
-       - Z działalności
+       - Nie znaleziono firmy
+       - Poza firmą
 
-     Dane z innymi wynikami ("Business Not Located" lub "Out of Business") nie są przydatne i mimo to stanowią niewielki procent wyników.
+     Dane z innymi wynikami ("firma nie znajduje się" lub "poza firmą") nie są przydatne i składają się na niewielką część wyników.
 
-4. Uruchom następujący kod, aby przekonwertować istniejącą ramkę danych(`df`) na nową ramkę danych, w której każda inspekcja jest reprezentowana jako para naruszeń etykiet. W takim przypadku etykieta `0.0` reprezentuje błąd, `1.0` etykieta reprezentuje sukces, `-1.0` a etykieta reprezentuje niektóre wyniki oprócz tych dwóch wyników.
+4. Uruchom Poniższy kod, aby przekonwertować istniejący element Dataframe (`df`) do nowej ramki danych, w której każda inspekcja jest reprezentowana jako para naruszenia etykiet. W tym przypadku etykieta `0.0` reprezentuje błąd, etykieta `1.0` reprezentuje sukces, a etykieta `-1.0` przedstawia niektóre wyniki oprócz tych dwóch wyników.
 
     ```PySpark
     def labelForResults(s):
@@ -221,7 +221,7 @@ Zacznijmy, aby zorientować się, co zawiera zestaw danych.
     labeledData = df.select(label(df.results).alias('label'), df.violations).where('label >= 0')
     ```
 
-5. Uruchom następujący kod, aby wyświetlić jeden wiersz danych oznaczonych etykietą:
+5. Uruchom następujący kod, aby wyświetlić jeden wiersz danych z etykietą:
 
     ```PySpark
     labeledData.take(1)
@@ -235,11 +235,11 @@ Zacznijmy, aby zorientować się, co zawiera zestaw danych.
 
 ## <a name="create-a-logistic-regression-model-from-the-input-dataframe"></a>Tworzenie modelu regresji logistycznej na podstawie wejściowej ramki danych
 
-Ostatnim zadaniem jest przekonwertowanie oznaczonych danych. Przekonwertować dane na format, który może być analizowany przez regresję logistyczną. Dane wejściowe do algorytmu regresji logistycznej wymagają zestawu *par wektorowych funkcji etykiet.* Gdzie "wektor funkcji" jest wektorem liczb, które reprezentują punkt wejściowy. Tak, trzeba przekonwertować "naruszenia" kolumny, która jest częściowo ustrukturyzowana i zawiera wiele komentarzy w wolnym tekście. Konwertuj kolumnę na tablicę liczb rzeczywistych, które maszyna może łatwo zrozumieć.
+Ostatnim zadaniem jest Konwertowanie danych z etykietami. Przekonwertuj dane do formatu, który może być analizowany przez regresję logistyczną. Wejście do algorytmu regresji logistycznej wymaga zestawu *par wektorów funkcji etykiet*. Gdzie "wektor funkcji" jest wektorem liczb reprezentujących punkt wejściowy. W związku z tym należy przekonwertować kolumnę "naruszenia", która jest częściową strukturą i zawiera wiele komentarzy w tekście swobodnym. Przekonwertuj kolumnę na tablicę liczb rzeczywistych, którą maszyna może łatwo zrozumieć.
 
-Jednym ze standardowych metod uczenia maszynowego do przetwarzania języka naturalnego jest przypisanie każdemu odrębnemu wyrazowi "indeksu". Następnie przekaż wektor do algorytmu uczenia maszynowego. W taki sposób, że wartość każdego indeksu zawiera względną częstotliwość tego wyrazu w ciągu tekstowym.
+Jedną z standardowych podejścia do uczenia maszynowego do przetwarzania języka naturalnego jest przypisanie każdego wyrazu DISTINCT "index". Następnie Przekaż wektor do algorytmu uczenia maszynowego. W taki sposób, że każdy indeks zawiera względną częstotliwość tego wyrazu w ciągu tekstowym.
 
-MLlib zapewnia łatwy sposób, aby wykonać tę operację. Najpierw "tokenize" każdy ciąg naruszeń, aby uzyskać poszczególne słowa w każdym ciągu. Następnie należy `HashingTF` użyć do konwersji każdego zestawu tokenów do wektora funkcji, które następnie mogą być przekazywane do algorytmu regresji logistycznej do konstruowania modelu. Wszystkie te kroki można wykonać w kolejności za pomocą "potoku".
+MLlib zapewnia łatwy sposób wykonania tej operacji. Najpierw "tokenize" każdy ciąg naruszeń, aby pobrać pojedyncze słowa w każdym ciągu. Następnie należy użyć funkcji `HashingTF` , aby skonwertować każdy zestaw tokenów do wektora funkcji, który można następnie przesłać do algorytmu regresji logistycznej w celu skonstruowania modelu. Wszystkie te kroki są wykonywane w sekwencji przy użyciu "potoku".
 
 ```PySpark
 tokenizer = Tokenizer(inputCol="violations", outputCol="words")
@@ -250,11 +250,11 @@ pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
 model = pipeline.fit(labeledData)
 ```
 
-## <a name="evaluate-the-model-using-another-dataset"></a>Ocenianie modelu przy użyciu innego zestawu danych
+## <a name="evaluate-the-model-using-another-dataset"></a>Oceń model przy użyciu innego zestawu danych
 
-Model został utworzony wcześniej, aby *przewidzieć,* jakie będą wyniki nowych inspekcji. Prognozy są oparte na naruszeniach, które zostały zaobserwowane. Przeszkoliłeś ten model w zestawie danych **Food_Inspections1.csv**. Do *oceny* siły tego modelu na nowych danych można użyć drugiego zestawu danych **Food_Inspections2.csv.** Ten drugi zestaw danych (**Food_Inspections2.csv**) znajduje się w domyślnym kontenerze magazynu skojarzonym z klastrem.
+Możesz użyć utworzonego wcześniej modelu, aby *przewidzieć* wyniki nowych inspekcji. Przewidywania opierają się na naruszeniach naruszeń. Ten model został przeszkolony w zestawie danych **Food_Inspections1. csv**. Możesz użyć drugiego zestawu danych, **Food_Inspections2. csv**, aby *oszacować* siłę tego modelu dla nowych danych. Ten drugi zestaw danych (**Food_Inspections2. csv**) znajduje się w domyślnym kontenerze magazynu skojarzonym z klastrem.
 
-1. Uruchom następujący kod, aby utworzyć nową ramkę danych, **predictionsDf,** która zawiera przewidywanie generowane przez model. Fragment kodu tworzy również tabelę tymczasową o nazwie **Prognozy** na podstawie dataframe.
+1. Uruchom następujący kod, aby utworzyć nową ramkę danych, **predictionsDf** , która zawiera prognozę wygenerowaną przez model. Fragment kodu tworzy również tabelę tymczasową o nazwie **przewidywania** na podstawie ramki Dataframe.
 
     ```PySpark
     testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
@@ -266,7 +266,7 @@ Model został utworzony wcześniej, aby *przewidzieć,* jakie będą wyniki nowy
     predictionsDf.columns
     ```
 
-    Powinien zostać wyświetlony wynik podobny do następującego tekstu:
+    Powinny pojawić się dane wyjściowe podobne do następującego tekstu:
 
     ```
     ['id',
@@ -280,15 +280,15 @@ Model został utworzony wcześniej, aby *przewidzieć,* jakie będą wyniki nowy
         'prediction']
     ```
 
-1. Spójrz na jedną z prognoz. Uruchom ten fragment kodu:
+1. Zapoznaj się z jednym z prognoz. Uruchom następujący fragment kodu:
 
     ```PySpark
     predictionsDf.take(1)
     ```
 
-   Istnieje przewidywanie dla pierwszego wpisu w zestawie danych testowych.
+   Istnieje Prognoza dotycząca pierwszego wpisu w zestawie danych testowych.
 
-1. Metoda `model.transform()` stosuje tę samą transformację do wszystkich nowych danych z tego samego schematu i dojść do przewidywania, jak klasyfikować dane. Możesz zrobić kilka statystyk, aby zorientować się, jak przewidywanie było:
+1. `model.transform()` Metoda stosuje te same przekształcenia do nowych danych z tym samym schematem i dociera do prognozowania sposobu klasyfikowania danych. Aby uzyskać informacje na temat tego, jak przewidywania były następujące:
 
     ```PySpark
     numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
@@ -307,13 +307,13 @@ Model został utworzony wcześniej, aby *przewidzieć,* jakie będą wyniki nowy
     This is a 86.8169618894% success rate
     ```
 
-    Za pomocą regresji logistycznej z Spark daje model relacji między opisami naruszeń w języku angielskim. I czy dany biznes przejdzie lub nie kontroli żywności.
+    Użycie regresji logistycznej z platformą Spark zapewnia model relacji między opisami naruszeń w języku angielskim. I czy dana działalność powinna zostać przekazana lub przeprowadzona niepowodzeniem w przypadku inspekcji żywności.
 
-## <a name="create-a-visual-representation-of-the-prediction"></a>Tworzenie wizualnej reprezentacji prognozowania
+## <a name="create-a-visual-representation-of-the-prediction"></a>Utwórz wizualną reprezentację przewidywania
 
-Teraz można skonstruować wizualizację końcową, aby pomóc w uzasadnieniu wyników tego testu.
+Teraz możesz skonstruować ostateczną wizualizację, aby pomóc Ci w podaniu wyników testu.
 
-1. Można rozpocząć od wyodrębnienia różnych prognoz i wyników z **przewidywanie** tabeli tymczasowej utworzone wcześniej. Poniższe kwerendy oddzielają dane wyjściowe jako *true_positive,* *false_positive,* *true_negative*i *false_negative*. W poniższych zapytaniach można wyłączyć wizualizację przy użyciu, `-q` a `-o`także zapisać dane wyjściowe (za `%%local` pomocą ) jako ramki danych, które mogą być następnie używane z magii.
+1. Zacznij od wyodrębnienia różnych prognoz i **wyników z tabeli tymczasowej** utworzone wcześniej. Poniższe zapytania oddzielają dane wyjściowe jako *true_positive*, *false_positive*, *true_negative*i *false_negative*. W poniższych zapytaniach można wyłączyć wizualizację za pomocą `-q` programu, a także zapisać dane wyjściowe ( `-o`przy użyciu) jako ramki danych, które mogą być następnie używane `%%local` z magiczną.
 
     ```PySpark
     %%sql -q -o true_positive
@@ -335,7 +335,7 @@ Teraz można skonstruować wizualizację końcową, aby pomóc w uzasadnieniu wy
     SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND (results = 'Pass' OR results = 'Pass w/ Conditions')
     ```
 
-1. Na koniec użyj następującego fragmentu kodu, aby wygenerować wykres za pomocą **matplotlib**.
+1. Na koniec użyj poniższego fragmentu kodu, aby wygenerować wykres przy użyciu **matplotlib**.
 
     ```PySpark
     %%local
@@ -351,13 +351,13 @@ Teraz można skonstruować wizualizację końcową, aby pomóc w uzasadnieniu wy
 
     Powinny zostać wyświetlone następujące dane wyjściowe:
 
-    ![Wyniki wyjściowe aplikacji uczenia maszynowego platformy Spark — wykres kołowy procentowy nieudanych inspekcji żywności.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Wyniki rezultatu uczenia maszynowego platformy Spark")
+    ![Wyjście aplikacji Spark Machine Learning — wartość procentowa dla wykresu kołowego niepowodzenia inspekcji żywności.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Dane wyjściowe wyniku uczenia maszynowego platformy Spark")
 
-    Na tym wykresie "pozytywny" wynik odnosi się do nieudanej kontroli żywności, podczas gdy wynik negatywny odnosi się do uchwalonej inspekcji.
+    Na tym wykresie wynik "pozytywny" odnosi się do nieudanej inspekcji żywności, natomiast wynik negatywny odnosi się do przeprowadzonej inspekcji.
 
-## <a name="shut-down-the-notebook"></a>Zamykanie notesu
+## <a name="shut-down-the-notebook"></a>Zamknij Notes
 
-Po zakończeniu uruchamiania aplikacji należy zamknąć notes, aby zwolnić zasoby. W tym celu w menu **File** (Plik) w notesie wybierz pozycję **Close and Halt** (Zamknij i zatrzymaj). Ta akcja powoduje zatrzymanie i zamknięcie notesu.
+Po zakończeniu działania aplikacji należy zamknąć Notes, aby zwolnić zasoby. W tym celu w menu **File** (Plik) w notesie wybierz pozycję **Close and Halt** (Zamknij i zatrzymaj). Ta akcja powoduje zatrzymanie i zamknięcie notesu.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -365,9 +365,9 @@ Po zakończeniu uruchamiania aplikacji należy zamknąć notes, aby zwolnić zas
 
 ### <a name="scenarios"></a>Scenariusze
 
-* [Apache Spark z analizą danych BI: Interaktywna analiza danych przy użyciu platformy Spark w funkcji HDInsight za pomocą narzędzi analizy biznesowej](apache-spark-use-bi-tools.md)
-* [Apache Spark z uczeniem maszynowym: użyj platformy Spark w hdinsight do analizowania temperatury budynku przy użyciu danych HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Analiza dziennika strony internetowej przy użyciu platformy Apache Spark w hdinsight](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark z usługą BI: interaktywna analiza danych przy użyciu platformy Spark w usłudze HDInsight z narzędziami analizy biznesowej](apache-spark-use-bi-tools.md)
+* [Apache Spark z Machine Learning: korzystanie z platformy Spark w usłudze HDInsight do analizowania temperatury kompilacji przy użyciu danych HVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Analiza dzienników witryny sieci Web przy użyciu Apache Spark w usłudze HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Tworzenie i uruchamianie aplikacji
 
@@ -377,9 +377,9 @@ Po zakończeniu uruchamiania aplikacji należy zamknąć notes, aby zwolnić zas
 ### <a name="tools-and-extensions"></a>Narzędzia i rozszerzenia
 
 * [Tworzenie i przesyłanie aplikacji Spark Scala przy użyciu dodatku HDInsight Tools Plugin for IntelliJ IDEA](apache-spark-intellij-tool-plugin.md)
-* [Użyj wtyczki HDInsight Tools dla IntelliJ IDEA do zdalnego debugowania aplikacji Apache Spark](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Używanie notebooków Apache Zeppelin z klastrem Apache Spark w programie HDInsight](apache-spark-zeppelin-notebook.md)
-* [Jądra dostępne dla notebooka Jupyter w klastrze Apache Spark dla usługi HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Użyj wtyczki narzędzi HDInsight do IntelliJ pomysł, aby debugować aplikacje Apache Spark zdalnie](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Korzystanie z notesów Apache Zeppelin z klastrem Apache Spark w usłudze HDInsight](apache-spark-zeppelin-notebook.md)
+* [Jądra dostępne dla notesu Jupyter w klastrze Apache Spark dla usługi HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Korzystanie z zewnętrznych pakietów z notesami Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalacja oprogramowania Jupyter na komputerze i nawiązywanie połączenia z klastrem Spark w usłudze HDInsight](apache-spark-jupyter-notebook-install-locally.md)
 
