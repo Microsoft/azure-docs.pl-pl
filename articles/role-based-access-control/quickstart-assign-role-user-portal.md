@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Udzielanie użytkownikom dostępu do zasobów platformy Azure za pomocą narzędzia RBAC i witryny Azure portal '
-description: W tym samouczku dowiesz się, jak udzielić użytkownikowi dostępu do zasobów platformy Azure przy użyciu kontroli dostępu opartej na rolach (RBAC) w witrynie Azure portal.
+title: 'Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure z użyciem RBAC i Azure Portal '
+description: W tym samouczku dowiesz się, jak przyznać użytkownikom dostęp do zasobów platformy Azure przy użyciu kontroli dostępu opartej na rolach (RBAC) w Azure Portal.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -14,23 +14,23 @@ ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
 ms.openlocfilehash: 6281c9a1818a3b46ac4f7a62f8ae76668db56887
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77138095"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Samouczek: Udzielanie użytkownikowi dostępu do zasobów platformy Azure przy użyciu funkcji RBAC i witryny Azure portal
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure przy użyciu RBAC i Azure Portal
 
 [Kontrola dostępu oparta na rolach (RBAC, Role Based Access Control)](overview.md) to sposób zarządzania dostępem do zasobów platformy Azure. W tym samouczku udzielisz użytkownikowi praw dostępu do tworzenia maszyn wirtualnych i zarządzania nimi w grupie zasobów.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Udzielanie dostępu użytkownikowi w zakresie grupy zasobów
 > * Usuwanie dostępu
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -68,7 +68,7 @@ Aby udzielić dostępu za pomocą kontroli dostępu opartej na rolach, tworzy si
 
    ![Blok Kontrola dostępu (IAM) dla grupy zasobów](./media/quickstart-assign-role-user-portal/access-control.png)
 
-1. Kliknij **pozycję Dodaj** > **przypisanie roli Dodaj,** aby otworzyć okienko Dodawanie przypisania roli.
+1. Kliknij przycisk **Dodaj** > **przypisanie roli** , aby otworzyć okienko Dodaj przypisanie roli.
 
    Jeśli nie masz uprawnień do przypisywania ról, opcja Dodaj przypisanie roli będzie wyłączona.
 
@@ -115,4 +115,4 @@ Aby usunąć dostęp za pomocą kontroli dostępu opartej na rolach, usuwa się 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Samouczek: Udzielanie użytkownikowi dostępu do zasobów platformy Azure przy użyciu funkcji RBAC i programu Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure przy użyciu RBAC i Azure PowerShell](tutorial-role-assignments-user-powershell.md)

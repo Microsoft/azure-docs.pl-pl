@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: fc5e8c7a7aa0d4693d96c3405ec0e180a6d13f8e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75768535"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>Debugowanie interfejsów API za pomocą funkcji śledzenia żądań
 
 W tym samouczku opisano, jak przeprowadzać inspekcję przetwarzania żądań w celu debugowania interfejsu API i rozwiązywania problemów z nim. 
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Śledzenie wywołania
@@ -34,7 +34,7 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 + Poznaj [terminologię dotyczącą usługi Azure API Management](api-management-terminology.md).
-+ Ukończ następujące przewodniki Szybki start: [Utwórz wystąpienie usługi Azure API Management](get-started-create-service-instance.md).
++ Wykonaj następujące kroki szybkiego startu: [Tworzenie wystąpienia usługi Azure API Management](get-started-create-service-instance.md).
 + Ponadto wykonaj zadania z następującego samouczka: [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md).
 
 ## <a name="trace-a-call"></a>Śledzenie wywołania
@@ -49,10 +49,10 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 
    > [!NOTE]
    > * Jeśli klucz subskrypcji Ocp-Apim-Subscription-Key nie zostanie wypełniony automatycznie, można go pobrać, przechodząc do portalu dla deweloperów i wyświetlając klucze na stronie profilu.
-   > * Aby uzyskać śledzenie, gdy używany jest nagłówek HTTP Ocp-Apim-Trace, musi być włączone ustawienie **Zezwalaj** na śledzenie klucza subskrypcji. Aby skonfigurować ustawienie **Zezwalaj na śledzenie,** w obszarze **Zarządzanie interfejsami API** w menu po lewej stronie wybierz pozycję **Subskrypcje**.
-   >   ![Zezwalaj na śledzenie w okienku Subskrypcje zarządzania interfejsami API](media/api-management-howto-api-inspector/allowtracing.png)
+   > * Aby uzyskać ślad przy użyciu nagłówka HTTP OCP-APIM-Trace, należy włączyć ustawienie **Zezwalaj na śledzenie** dla klucza subskrypcji. Aby skonfigurować ustawienie **Zezwalaj na śledzenie** , w obszarze **API Management** w menu po lewej stronie wybierz pozycję **subskrypcje**.
+   >   ![Zezwalaj na śledzenie w okienku subskrypcje API Management](media/api-management-howto-api-inspector/allowtracing.png)
 
-6. Kliknij **przycisk Wyślij,** aby nawiązać połączenie z interfejsem API. 
+6. Kliknij przycisk **Wyślij** , aby wykonać wywołanie interfejsu API. 
 7. Poczekaj na ukończenie wywołania. 
 8. Przejdź na kartę **Śledzenie** w **konsoli interfejsu API**. Możesz kliknąć dowolny z następujących linków, aby przejść bezpośrednio do szczegółowych informacji śledzenia: **dane przychodzące**, **zaplecze**, **dane wychodzące**.
 

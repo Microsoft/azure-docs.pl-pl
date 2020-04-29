@@ -1,6 +1,6 @@
 ---
-title: Usuwanie aplikacji z klastra w programie Powershell
-description: Przykład skryptu programu Azure PowerShell — usuwanie aplikacji z klastra sieci szkieletowej usług.
+title: Usuwanie aplikacji z klastra w programie PowerShell
+description: Przykładowy skrypt Azure PowerShell — usuwanie aplikacji z klastra Service Fabric.
 services: service-fabric
 documentationcenter: ''
 author: athinanthny
@@ -15,15 +15,15 @@ ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 9ac4c23468c74b5a2c6874de2cb6b8d0e6b9e7dd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75610288"
 ---
-# <a name="remove-an-application-from-a-service-fabric-cluster-using-powershell"></a>Usuwanie aplikacji z klastra sieci szkieletowej usług przy użyciu programu Powershell
+# <a name="remove-an-application-from-a-service-fabric-cluster-using-powershell"></a>Usuwanie aplikacji z klastra Service Fabric przy użyciu programu PowerShell
 
-Ten przykładowy skrypt usuwa uruchomione wystąpienie aplikacji sieci szkieletowej usług i wyrejestrowyje typ aplikacji i wersję z klastra.  Usuwanie wystąpienia aplikacji spowoduje usunięcie wszystkich uruchomionych wystąpień usługi skojarzonych z aplikacją. Dostosuj parametry zgodnie z potrzebami. 
+Ten przykładowy skrypt usuwa uruchomione wystąpienie aplikacji Service Fabric i wyrejestrowuje typ aplikacji i wersję z klastra.  Usuwanie wystąpienia aplikacji spowoduje usunięcie wszystkich uruchomionych wystąpień usługi skojarzonych z aplikacją. Dostosuj parametry zgodnie z potrzebami. 
 
 W razie potrzeby zainstaluj moduł Service Fabric programu PowerShell przy użyciu [Zestawu SDK usługi Service Fabric](../service-fabric-get-started.md). 
 
@@ -37,11 +37,11 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 | Polecenie | Uwagi |
 |---|---|
-| [Usuń-ServiceFabricAplikacja](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps) | Usuwa uruchomione wystąpienie aplikacji sieci szkieletowej usług z klastra.  |
-| [Wyrejestrowanie-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) | Wyrejestrowanie typu aplikacji sieci szkieletowej usług i wersji z klastra. |
+| [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps) | Usuwa uruchomione wystąpienie aplikacji Service Fabric z klastra.  |
+| [Unregister — ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) | Wyrejestrowuje typ i wersję aplikacji Service Fabric z klastra. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat modułu powershell sieci szkieletowej usług, zobacz [dokumentację programu Azure PowerShell](/powershell/azure/service-fabric/?view=azureservicefabricps).
+Aby uzyskać więcej informacji na temat Service Fabric module programu PowerShell, zobacz [dokumentację dotyczącą Azure PowerShell](/powershell/azure/service-fabric/?view=azureservicefabricps).
 
 Więcej przykładów dla programu PowerShell dla usługi Azure Service Fabric można znaleźć w [przykładach programu Azure PowerShell](../service-fabric-powershell-samples.md).

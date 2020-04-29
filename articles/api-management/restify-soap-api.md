@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: a2bec6401ae3ac53f46e92e9be38abf57a92163d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74108102"
 ---
 # <a name="import-a-soap-api-and-convert-to-rest"></a>Importowanie interfejsu API SOAP i konwertowanie go na interfejs API REST
@@ -58,10 +58,10 @@ Wykonaj procedury przedstawione w następującym przewodniku Szybki start: [Twor
     Domyślnie każde wystąpienie usługi API Management zawiera dwa produkty przykładowe:
 
     * **Starter (początkowy)**
-    * **Unlimited (nieograniczony)**   
-10. Wybierz **pozycję Utwórz**.
+    * **Nieograniczona liczba**   
+10. Wybierz przycisk **Utwórz**.
 
-## <a name="test-the-new-api-in-the-azure-portal"></a>Testowanie nowego interfejsu API w witrynie Azure portal
+## <a name="test-the-new-api-in-the-azure-portal"></a>Przetestuj nowy interfejs API w Azure Portal
 
 Operacje mogą być wywoływane bezpośrednio z witryny Azure Portal, która zapewnia wygodny sposób wyświetlania i testowania operacji interfejsu API.  
 

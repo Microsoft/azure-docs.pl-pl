@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (SSO) z programem Zscaler Three | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a usługą Zscaler Three.
+title: 'Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą rozwiązania Zscaler — trzy | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i rozwiązania Zscaler trzy.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,83 +17,83 @@ ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b23abcf9a39ce7f6d77bc40e7143505bc68e8b72
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72554992"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-three"></a>Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (SSO) z programem Zscaler Three
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-three"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z rozwiązania Zscaler trzy
 
-W tym samouczku dowiesz się, jak zintegrować Zscaler Three z usługą Azure Active Directory (Azure AD). Po zintegrowaniu Zscaler Three z usługą Azure AD można:
+W tym samouczku dowiesz się, jak zintegrować rozwiązania Zscaler trzy z Azure Active Directory (Azure AD). Gdy integrujesz rozwiązania Zscaler trzy z usługą Azure AD, możesz:
 
-* Kontrola w usłudze Azure AD, który ma dostęp do Zscaler Trzy.
-* Włącz użytkownikom automatyczne logowanie do Zscaler Three za pomocą ich kont usługi Azure AD.
-* Zarządzaj kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
+* Kontrolka w usłudze Azure AD, która ma dostęp do rozwiązania Zscaler trzech.
+* Zezwól użytkownikom na automatyczne logowanie się, aby rozwiązania Zscaler trzy z kontami usługi Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby rozpocząć, potrzebujesz następujących elementów:
+Aby rozpocząć, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto.](https://azure.microsoft.com/free/)
-* Subskrypcja zscaler trzy logowania jednokrotnego (SSO).
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
+* Rozwiązania Zscaler jedną subskrypcję z włączonym logowaniem jednokrotnym (SSO).
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-W tym samouczku można skonfigurować i przetestować samouszeńców usługi Azure AD w środowisku testowym.
+W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Zscaler Trzy obsługuje **SP** zainicjowane SSO
+* Rozwiązania Zscaler trzy obsługiwane przez usługę **SP** zainicjowano Logowanie jednokrotne
 
-* Zscaler Trzy obsługuje **just in time** użytkownika inicjowania obsługi administracyjnej
+* Rozwiązania Zscaler trzy obsługuje Inicjowanie obsługi użytkowników **just in Time**
 
 > [!NOTE]
-> Identyfikator tej aplikacji jest stałą wartością ciągu, więc tylko jedno wystąpienie można skonfigurować w jednej dzierżawie.
+> Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
 
-## <a name="adding-zscaler-three-from-the-gallery"></a>Dodawanie Zscaler Three z galerii
+## <a name="adding-zscaler-three-from-the-gallery"></a>Dodawanie rozwiązania Zscaler trzech z galerii
 
-Aby skonfigurować integrację programu Zscaler Three z usługą Azure AD, należy dodać zscaler trzy z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację programu rozwiązania Zscaler w usłudze Azure AD, należy dodać rozwiązania Zscaler trzy z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) przy użyciu konta służbowego lub konta firmy Microsoft.
-1. W lewym okienku nawigacji wybierz usługę **Azure Active Directory.**
-1. Przejdź do **aplikacji korporacyjnych,** a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
-1. W sekcji **Dodaj z galerii** wpisz **Zscaler Trzy** w polu wyszukiwania.
-1. Wybierz **Zscaler Trzy** z panelu wyników, a następnie dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. W sekcji **Dodaj z galerii** wpisz **rozwiązania Zscaler trzy** w polu wyszukiwania.
+1. Wybierz pozycję **rozwiązania Zscaler trzy** z panelu wyniki, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-zscaler-three"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD dla programu Zscaler Three
+## <a name="configure-and-test-azure-ad-single-sign-on-for-zscaler-three"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla rozwiązania Zscaler trzech
 
-Konfigurowanie i testowanie usługi Azure AD SSO za pomocą programu Zscaler Three przy użyciu użytkownika testowego o nazwie **B.Simon**. Aby użytkownik łączony sytuować działał, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w aplikacji Zscaler Three.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą rozwiązania Zscaler trzy przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w rozwiązania Zscaler trzy.
 
-Aby skonfigurować i przetestować usługę Azure AD SSO za pomocą programu Zscaler Three, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą rozwiązania Zscaler trzech, wykonaj następujące bloki konstrukcyjne:
 
-1. **[Skonfiguruj samouszeńcę usługi Azure AD](#configure-azure-ad-sso)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD za pomocą usługi B.Simon.
-    1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić B.Simon używać logowania jednokrotnego usługi Azure AD.
-1. **[Skonfiguruj Zscaler Trzy logowanie —](#configure-zscaler-three-sso)** aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
-    1. **[Utwórz Zscaler Trzy użytkownika testowego](#create-zscaler-three-test-user)** — mieć odpowiednik B.Simon w Zscaler Trzy, który jest połączony z reprezentacji usługi Azure AD użytkownika.
-1. **[Test SSO](#test-sso)** - aby sprawdzić, czy konfiguracja działa.
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+    1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
+1. **[Skonfiguruj rozwiązania Zscaler trzy Logowanie jednokrotne](#configure-zscaler-three-sso)** , aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+    1. **[Utwórz rozwiązania Zscaler trzech użytkowników testowych](#create-zscaler-three-test-user)** — Aby uzyskać odpowiedni odpowiednik B. Simon w rozwiązania Zscaler trzy, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azure portal.
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **Zscaler Three** znajdź sekcję **Zarządzaj** i wybierz **opcję logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie **rozwiązania zscalere** integrację aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** kliknij ikonę edycji/pióra dla **podstawowej konfiguracji SAML,** aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. W sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
+1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
-    W polu **tekstowym "Podpisywanie adresu URL"** wpisz adres URL:`https://login.zscalerthree.net/sfc_sso`
+    W polu tekstowym **adres URL logowania** wpisz adres URL:`https://login.zscalerthree.net/sfc_sso`
 
-1. Aplikacja Zscaler Three oczekuje potwierdzeń SAML w określonym formacie, który wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
+1. Rozwiązania Zscaler trzy aplikacje oczekuje potwierdzenia SAML w określonym formacie, co wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
     ![image](common/edit-attribute.png)
 
-6. Oprócz powyższej aplikacji Zscaler Three oczekuje, że kilka więcej atrybutów zostanie przekazanych z powrotem w odpowiedzi SAML, które są pokazane poniżej. Te atrybuty są również wstępnie wypełnione, ale można je przejrzeć zgodnie z wymaganiami.
+6. Oprócz powyższych, rozwiązania Zscaler trzy aplikacje oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je przejrzeć zgodnie z wymaganiami.
     
     | Nazwa | Atrybut źródłowy |
     | ---------| ------------ |
@@ -102,32 +102,32 @@ Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azu
     > [!NOTE]
     > Kliknij [tutaj](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management), aby dowiedzieć się, jak skonfigurować rolę w usłudze Azure AD
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** w sekcji **Saml Podpisywanie certyfikatów** znajdź **certyfikat (Base64)** i wybierz **pozycję Pobierz,** aby pobrać certyfikat i zapisać go na komputerze.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
-1. W sekcji **Konfigurowanie skalira trzy** skopiuj odpowiednie adresy URL na podstawie wymagań.
+1. W sekcji **Konfigurowanie rozwiązania Zscaler 3** skopiuj odpowiednie adresy URL na podstawie wymagań.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-W tej sekcji utworzysz użytkownika testowego w witrynie Azure portal o nazwie B.Simon.
+W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-1. Z lewego okienka w witrynie Azure portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
-1. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
-1. We właściwościach **Użytkownika** wykonaj następujące kroki:
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** username@companydomain.extensionwprowadź pole . Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji włączysz B.Simon do korzystania z logowania jednokrotnego platformy Azure, przyznając dostęp do Zscaler Trzy.
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do rozwiązania Zscaler trzech.
 
-1. W portalu Azure wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **Wszystkie aplikacje**.
-1. Na liście aplikacji wybierz pozycję **Zscaler Three**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Na liście Aplikacje wybierz pozycję **rozwiązania Zscaler trzy**.
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
     ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_users.png)
@@ -140,17 +140,17 @@ W tej sekcji włączysz B.Simon do korzystania z logowania jednokrotnego platfor
 
     ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_assign.png)
 
-## <a name="configure-zscaler-three-sso"></a>Konfigurowanie Zscaler Trzy SSO
+## <a name="configure-zscaler-three-sso"></a>Skonfiguruj rozwiązania Zscaler trzy Logowanie jednokrotne
 
-1. Aby zautomatyzować konfigurację w aplikacji Zscaler Three, należy zainstalować **rozszerzenie przeglądarki My Apps Secure Sign-in,** klikając przycisk Zainstaluj **rozszerzenie**.
+1. Aby zautomatyzować konfigurację w ramach rozwiązania Zscaler trzech, musisz zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
 
-    ![Rozszerzenie Moje aplikacje](common/install-myappssecure-extension.png)
+    ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
 
-2. Po dodaniu rozszerzenia do przeglądarki, kliknij **Instalator Zscaler Trzy** skieruje Cię do aplikacji Zscaler Three. Stamtąd podaj poświadczenia administratora, aby zalogować się do Zscaler Trzy. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację dla Ciebie i zautomatyzuje kroki 3-6.
+2. Po dodaniu rozszerzenia do przeglądarki kliknij pozycję **Setup rozwiązania Zscaler trzy** , aby skierować Cię do rozwiązania zscalerej aplikacji trzeciej. W tym miejscu podaj poświadczenia administratora, aby zalogować się do rozwiązania Zscaler trzech. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-6.
 
-    ![Konfiguracja](common/setup-sso.png)
+    ![Konfigurowanie](common/setup-sso.png)
 
-3. Jeśli chcesz ręcznie skonfigurować Zscaler Three, otwórz nowe okno przeglądarki internetowej i zaloguj się do witryny firmy Zscaler Three jako administrator i wykonaj następujące czynności:
+3. Jeśli chcesz skonfigurować rozwiązania Zscaler trzy ręcznie, Otwórz nowe okno przeglądarki sieci Web i zaloguj się do swojej witryny internetowej rozwiązania Zscaler jako administrator i wykonaj następujące czynności:
 
 4. Przejdź do obszaru **Administracja > Uwierzytelnianie > Ustawienia uwierzytelniania** i wykonaj następujące kroki:
    
@@ -162,13 +162,13 @@ W tej sekcji włączysz B.Simon do korzystania z logowania jednokrotnego platfor
 
 5. W oknie **Edytowanie języka SAML** wykonaj następujące kroki i kliknij pozycję Zapisz.  
             
-    ![Zarządzanie uwierzytelnianiem użytkowników &](./media/zscaler-three-tutorial/ic800208.png "Zarządzanie uwierzytelnianiem użytkowników &")
+    ![Zarządzanie użytkownikami & uwierzytelnianie](./media/zscaler-three-tutorial/ic800208.png "Zarządzanie użytkownikami & uwierzytelnianie")
     
     a. W polu tekstowym **Adres URL portalu języka SAML** wklej **adres URL logowania** skopiowany z witryny Azure Portal.
 
     b. W polu tekstowym **Atrybut nazwy logowania** wprowadź identyfikator **NameID**.
 
-    d. Kliknij pozycję **Przekaż**, aby przekazać certyfikat podpisywania języka SAML na platformie Azure, który został pobrany z witryny Azure Portal w obrębie **publicznego certyfikatu SSL**.
+    c. Kliknij pozycję **Przekaż**, aby przekazać certyfikat podpisywania języka SAML na platformie Azure, który został pobrany z witryny Azure Portal w obrębie **publicznego certyfikatu SSL**.
 
     d. Przełącz element **Włącz automatyczne aprowizowanie języka SAML**.
 
@@ -209,9 +209,9 @@ W tej sekcji włączysz B.Simon do korzystania z logowania jednokrotnego platfor
 
     a. Zaznacz pole wyboru **Użyj serwera proxy dla sieci LAN**.
 
-    b. W polach tekstowych Adres wpisz **bramę. Zscaler Three.net**.
+    b. W polu tekstowym Adres wpisz **Gateway. Rozwiązania Zscaler Three.net**.
 
-    d. W polu tekstowym Port wpisz **80**.
+    c. W polu tekstowym Port wpisz **80**.
 
     d. Zaznacz pole wyboru **Nie używaj serwera proxy dla adresów lokalnych**.
 
@@ -219,20 +219,20 @@ W tej sekcji włączysz B.Simon do korzystania z logowania jednokrotnego platfor
 
 6. Kliknij przycisk **OK**, aby zamknąć okno dialogowe **Opcje internetowe**.
 
-### <a name="create-zscaler-three-test-user"></a>Utwórz Zscaler Trzy użytkownika testowego
+### <a name="create-zscaler-three-test-user"></a>Utwórz rozwiązania Zscaler trzech użytkowników testowych
 
-W tej sekcji użytkownik o nazwie B.Simon jest tworzony w Zscaler Trzy. Zscaler Trzy obsługuje just-in-time inicjowania obsługi administracyjnej, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik jeszcze nie istnieje w Zscaler Trzy, nowy jest tworzony podczas próby uzyskania dostępu Zscaler Trzy.
+W tej sekcji użytkownik o nazwie B. Simon został utworzony w rozwiązania Zscaler trzy. Rozwiązania Zscaler trzy obsługuje aprowizacji just-in-Time, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik jeszcze nie istnieje w rozwiązania Zscaler trzech, zostanie utworzony nowy, gdy spróbujesz uzyskać dostęp do rozwiązania Zscaler trzy.
 
 >[!Note]
->Jeśli chcesz ręcznie utworzyć użytkownika, skontaktuj się z [zespołem pomocy technicznej Zscaler Three](https://www.zscaler.com/company/contact).
+>Jeśli musisz ręcznie utworzyć użytkownika, skontaktuj się z [trzema zespołem pomocy technicznej rozwiązania Zscaler](https://www.zscaler.com/company/contact).
 
-## <a name="test-sso"></a>Test SSO 
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Zscaler Three w Panelu dostępu należy automatycznie zalogować się do programu Zscaler Three, dla którego skonfigurowano logującą się jednokrotność. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu rozwiązania Zscaler trzech kafelków w panelu dostępu należy automatycznie zalogować się do rozwiązania Zscaler trzy, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
@@ -240,5 +240,5 @@ Po kliknięciu kafelka Zscaler Three w Panelu dostępu należy automatycznie zal
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Wypróbuj Zscaler Three z usługą Azure AD](https://aad.portal.azure.com/)
+- [Wypróbuj rozwiązania Zscaler trzy z usługą Azure AD](https://aad.portal.azure.com/)
 

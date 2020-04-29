@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (SSO) z technologią PurelyHR | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a usługą PurelyHR.
+title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą PurelyHR | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i PurelyHR.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,180 +17,180 @@ ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 56049e1b1253cd749a8e16061957c6b5b8786e3c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72594530"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purelyhr"></a>Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (SSO) z technologią PurelyHR
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purelyhr"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą PurelyHR
 
-W tym samouczku dowiesz się, jak zintegrować PurelyHR z usługą Azure Active Directory (Azure AD). Po zintegrowaniu PurelyHR z usługą Azure AD można:
+W tym samouczku dowiesz się, jak zintegrować usługę PurelyHR z usługą Azure Active Directory (Azure AD). Po zintegrowaniu usługi PurelyHR z usługą Azure AD można:
 
-* Kontrola w usłudze Azure AD, który ma dostęp do czystoHR.
-* Włącz użytkownikom automatyczne logowanie do usługi PurelyHR za pomocą ich kont usługi Azure AD.
-* Zarządzaj kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
+* Kontrolka w usłudze Azure AD, która ma dostęp do PurelyHR.
+* Zezwól użytkownikom na automatyczne logowanie się do usługi PurelyHR przy użyciu kont w usłudze Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby rozpocząć, potrzebujesz następujących elementów:
+Aby rozpocząć, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto.](https://azure.microsoft.com/free/)
-* Subskrypcja z włączoną funkcją rejestracji jednokrotnej (SSO) firmy PureLYHR.
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
+* Subskrypcja z włączonym logowaniem jednokrotnym (SSO) PurelyHR.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-W tym samouczku można skonfigurować i przetestować samouszeńców usługi Azure AD w środowisku testowym.
+W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* PurelyHR obsługuje **sp i IDP** zainicjowane SSO
-* Technologia PurelyHR obsługuje inicjowanie obsługi administracyjnej użytkowników **w czasie**
+* PurelyHR obsługuje usługę **SP i dostawcy tożsamości** zainicjowano Logowanie jednokrotne
+* PurelyHR obsługuje Inicjowanie obsługi użytkowników **just in Time**
 
-## <a name="adding-purelyhr-from-the-gallery"></a>Dodawanie purelyHR z galerii
+## <a name="adding-purelyhr-from-the-gallery"></a>Dodawanie PurelyHR z galerii
 
-Aby skonfigurować integrację purehr z usługą Azure AD, należy dodać PurelyHR z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację programu PurelyHR z usługą Azure AD, musisz dodać PurelyHR z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) przy użyciu konta służbowego lub konta firmy Microsoft.
-1. W lewym okienku nawigacji wybierz usługę **Azure Active Directory.**
-1. Przejdź do **aplikacji korporacyjnych,** a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
 1. W sekcji **Dodaj z galerii** wpisz **PurelyHR** w polu wyszukiwania.
-1. Wybierz **pozycję CzystoHR** z panelu wyników, a następnie dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. Wybierz pozycję **PurelyHR** from panel wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-purelyhr"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD dla usługi PurelyHR
+## <a name="configure-and-test-azure-ad-single-sign-on-for-purelyhr"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla PurelyHR
 
-Konfigurowanie i testowanie usługi Azure AD SSO przy użyciu funkcji CzystoHR przy użyciu użytkownika testowego o nazwie **B.Simon**. Aby użytkownik sytuować dla użytkownika sytuować działał, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w czystohr.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą PurelyHR przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w PurelyHR.
 
-Aby skonfigurować i przetestować usługę Azure AD SSO przy pomocą usługi PurelyHR, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą PurelyHR, wykonaj następujące bloki konstrukcyjne:
 
-1. **[Skonfiguruj samouszeńcę usługi Azure AD](#configure-azure-ad-sso)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-    * **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD za pomocą usługi B.Simon.
-    * **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić B.Simon używać logowania jednokrotnego usługi Azure AD.
-1. **[Skonfiguruj identyfikator sygingowy PurelyHR](#configure-purelyhr-sso)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
-    * **[Utwórz użytkownika testowego CzystoHR](#create-purelyhr-test-user)** — aby mieć odpowiednik B.Simon w czystoHR, który jest połączony z reprezentacją użytkownika usługi Azure AD.
-1. **[Test SSO](#test-sso)** - aby sprawdzić, czy konfiguracja działa.
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+    * **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+    * **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
+1. **[Skonfiguruj Logowanie jednokrotne](#configure-purelyhr-sso)** w usłudze PurelyHR, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+    * **[Utwórz użytkownika testowego PurelyHR](#create-purelyhr-test-user)** , aby dysponować odpowiednikiem B. Simon w PurelyHR, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azure portal.
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **CzystoHR** znajdź sekcję **Zarządzaj** i wybierz **opcję logowania jednokrotnego**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **PurelyHR** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** kliknij ikonę edycji/pióra dla **podstawowej konfiguracji SAML,** aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. W sekcji **Podstawowa konfiguracja SAML,** jeśli chcesz skonfigurować aplikację w trybie inicjowanym **przez IDP,** wprowadź wartości dla następujących pól:
+1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
 
-    W polu tekstowym **Odpowiedz na adres URL** wpisz adres URL, używając następującego wzorca:`https://<companyID>.purelyhr.com/sso-consume`
+    W polu tekstowym **adres URL odpowiedzi** wpisz adres URL, używając następującego wzorca:`https://<companyID>.purelyhr.com/sso-consume`
 
-1. Kliknij **pozycję Ustaw dodatkowe adresy URL** i wykonaj następujący krok, jeśli chcesz skonfigurować aplikację w trybie inicjowanym w sp: **SP**
+1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<companyID>.purelyhr.com/sso-initiate`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj je, używając faktycznego adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta PurelyHR,](https://support.purelyhr.com/) aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zaktualizuj je, używając faktycznego adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta PurelyHR](https://support.purelyhr.com/) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** w sekcji **Saml Podpisywanie certyfikatów** znajdź **certyfikat (Base64)** i wybierz **pozycję Pobierz,** aby pobrać certyfikat i zapisać go na komputerze.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
-1. W sekcji **Konfigurowanie czystoHR** skopiuj odpowiednie adresy URL na podstawie wymagań.
+1. W sekcji **Konfigurowanie PurelyHR** skopiuj odpowiednie adresy URL na podstawie wymagania.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-W tej sekcji utworzysz użytkownika testowego w witrynie Azure portal o nazwie B.Simon.
+W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-1. Z lewego okienka w witrynie Azure portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
-1. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
-1. We właściwościach **Użytkownika** wykonaj następujące kroki:
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** username@companydomain.extensionwprowadź pole . Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji włączysz B.Simon do korzystania z logowania jednokrotnego platformy Azure, przyznając dostęp do PurelyHR.
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi PurelyHR.
 
-1. W portalu Azure wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **Wszystkie aplikacje**.
-1. Na liście aplikacji wybierz pozycję **CzystoHR**.
-1. Na stronie przegląd aplikacji znajdź sekcję **Zarządzaj** i wybierz pozycję **Użytkownicy i grupy**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Na liście Aplikacje wybierz pozycję **PurelyHR**.
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 
    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
-1. Wybierz **pozycję Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym Dodawanie **przydziału.**
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 
-    ![Łącze Dodaj użytkownika](common/add-assign-user.png)
+    ![Link Dodaj użytkownika](common/add-assign-user.png)
 
-1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B.Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-1. W oknie dialogowym **Dodawanie przydziału** kliknij przycisk **Przypisz.**
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-## <a name="configure-purelyhr-sso"></a>Konfigurowanie sytcha w trybie czystohrów
+## <a name="configure-purelyhr-sso"></a>Konfigurowanie logowania jednokrotnego PurelyHR
 
-1. Aby zautomatyzować konfigurację w ramach programu PurelyHR, należy zainstalować **rozszerzenie przeglądarki My Apps Secure Sign-in,** klikając pozycję Zainstaluj **rozszerzenie**.
+1. Aby zautomatyzować konfigurację w programie PurelyHR, należy zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
 
-    ![Rozszerzenie Moje aplikacje](common/install-myappssecure-extension.png)
+    ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
 
-1. Po dodaniu rozszerzenia do przeglądarki, kliknij **Przycisk Ustaw CzystoHR** przekieruje Cię do aplikacji PurelyHR. Stamtąd podaj poświadczenia administratora, aby zalogować się do CzystoHR. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację dla Ciebie i zautomatyzuje kroki 3-5.
+1. Po dodaniu rozszerzenia do przeglądarki kliknij pozycję **Skonfiguruj** , aby przekierować użytkownika do aplikacji PurelyHR. Z tego miejsca podaj poświadczenia administratora, aby zalogować się do usługi PurelyHR. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-5.
 
-    ![Konfiguracja instalacji](common/setup-sso.png)
+    ![Konfiguracja konfiguracji](common/setup-sso.png)
 
-1. Jeśli chcesz ręcznie skonfigurować opcję CzystoHR, otwórz nowe okno przeglądarki internetowej i zaloguj się do witryny firmy PurelyHR jako administrator i wykonaj następujące czynności:
+1. Jeśli chcesz ręcznie skonfigurować PurelyHR, Otwórz nowe okno przeglądarki sieci Web i zaloguj się do witryny firmy PurelyHR jako administrator i wykonaj następujące czynności:
 
-1. Otwórz **pulpit** nawigacyjny z opcji na pasku narzędzi i kliknij pozycję Ustawienia logowania jedno **i przesuwu**.
+1. Otwórz **pulpit nawigacyjny** z opcji na pasku narzędzi, a następnie kliknij pozycję **Ustawienia rejestracji jednokrotnej**.
 
-1. Wklej wartości w polach opisanych poniżej-
+1. Wklej wartości w polach zgodnie z opisem poniżej.
 
     ![Konfigurowanie logowania jednokrotnego](./media/purelyhr-tutorial/purelyhr-dashboard-sso-settings.png)  
 
-    a. Otwórz **certyfikat(Bas64)** pobrany z witryny Azure portal w notatniku i skopiuj wartość certyfikatu. Wklej skopiowaną wartość do pola **Certyfikat X.509.**
+    a. Otwórz **certyfikat (Bas64)** pobrany z Azure Portal w programie Notepad i skopiuj wartość certyfikatu. Wklej skopiowaną wartość do pola **certyfikat X. 509** .
 
-    b. W polu **Adresu URL wystawcy Idp** wklej **identyfikator usługi Azure AD** skopiowany z witryny Azure portal.
+    b. W polu **adres URL wystawcy dostawcy tożsamości** wklej **Identyfikator usługi Azure AD** skopiowany z Azure Portal.
 
-    d. W polu **Adresu URL punktu końcowego usługi Idp** wklej **adres URL logowania** skopiowany z witryny Azure portal. 
+    c. W polu **adres URL punktu końcowego dostawcy tożsamości** wklej **adres URL logowania** skopiowany z Azure Portal. 
 
-    d. Zaznacz pole wyboru **Automatyczne tworzenie użytkowników,** aby włączyć automatyczne inicjowanie obsługi administracyjnej użytkowników w programie PurelyHR.
+    d. Zaznacz pole wyboru **Automatycznie twórz użytkowników** , aby włączyć automatyczne Inicjowanie obsługi administracyjnej użytkowników w programie PurelyHR.
 
-    e. Kliknij **pozycję Zapisz zmiany,** aby zapisać ustawienia.
+    e. Kliknij przycisk **Zapisz zmiany** , aby zapisać ustawienia.
 
-### <a name="create-purelyhr-test-user"></a>Tworzenie użytkownika testowego CzystoHR
+### <a name="create-purelyhr-test-user"></a>Utwórz użytkownika testowego PurelyHR
 
-Ten krok zwykle nie jest wymagane, ponieważ aplikacja obsługuje tylko w czasie inicjowania obsługi administracyjnej użytkownika. Jeśli automatyczne inicjowanie obsługi administracyjnej użytkownika nie jest włączone, można wykonać ręczne tworzenie przez użytkownika w sposób opisany poniżej.
+Ten krok zazwyczaj nie jest wymagany, ponieważ aplikacja obsługuje funkcję udostępniania just in Time użytkownika. Jeśli automatyczne Inicjowanie obsługi użytkowników nie jest włączone, ręczne tworzenie użytkowników można wykonać zgodnie z poniższym opisem.
 
-Zaloguj się do witryny firmy Velpic SAML jako administrator i wykonaj następujące czynności:
+Zaloguj się do witryny firmy SAML Velpic jako administrator i wykonaj następujące czynności:
 
-1. Kliknij kartę Zarządzaj i przejdź do sekcji Użytkownicy, a następnie kliknij przycisk Nowy, aby dodać użytkowników.
+1. Kliknij przycisk Zarządzaj kartami i przejdź do sekcji Użytkownicy, a następnie kliknij przycisk Nowy przycisk, aby dodać użytkowników.
 
-    ![dodawanie użytkownika](./media/velpicsaml-tutorial/velpic_7.png)
+    ![Dodaj użytkownika](./media/velpicsaml-tutorial/velpic_7.png)
 
-2. Na stronie okna dialogowego **"Utwórz nowego użytkownika"** wykonaj następujące czynności.
+2. Na stronie **"Tworzenie nowego użytkownika"** wykonaj następujące czynności.
 
     ![użytkownik](./media/velpicsaml-tutorial/velpic_8.png)
 
-    a. W polach tekstowych **Imię** wpisz imię B.
+    a. W polu tekstowym **imię i nazwisko** wpisz imię B.
 
-    b. W polach tekstowych **Nazwisko** wpisz nazwisko Szymona.
+    b. W polu **tekstowym nazwisko wpisz nazwisko Simon** .
 
-    d. W polach tekstowych **Nazwa użytkownika** wpisz nazwę użytkownika B.Simon.
+    c. W polu tekstowym **Nazwa użytkownika** wpisz nazwę użytkownika B. Simon.
 
-    d. W **polach tekstowych Poczta e-mail** wpisz adres e-mail B.Simon@contoso.com konta.
+    d. W polu tekstowym adres **e-mail** wpisz adres e-mail B.Simon@contoso.com konta.
 
-    e. Reszta informacji jest opcjonalna, w razie potrzeby można je wypełnić.
+    e. Pozostałe informacje są opcjonalne, ale w razie konieczności można je wypełnić.
 
-    f. Kliknij **przycisk ZAPISZ**.
+    f. Kliknij przycisk **Zapisz**.
 
-## <a name="test-sso"></a>Test SSO 
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka PurelyHR w Panelu dostępu należy automatycznie zalogować się do obiektu PurelyHR, dla którego skonfigurowano logującą się logującą logującą. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka PurelyHR w panelu dostępu należy automatycznie zalogować się do PurelyHR, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
@@ -198,4 +198,4 @@ Po kliknięciu kafelka PurelyHR w Panelu dostępu należy automatycznie zalogowa
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Wypróbuj purelyHR z usługą Azure AD](https://aad.portal.azure.com/)
+- [Wypróbuj PurelyHR z usługą Azure AD](https://aad.portal.azure.com/)

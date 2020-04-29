@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Konfigurowanie usługi Zscaler ZSCloud w celu automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure Active Directory | Dokumenty firmy Microsoft'
-description: W tym samouczku dowiesz się, jak skonfigurować usługę Azure Active Directory do automatycznego inicjowania obsługi administracyjnej i usuwania kont użytkowników usługi Zscaler ZSCloud.
+title: 'Samouczek: Konfigurowanie rozwiązania Zscaler ZSCloud dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
+description: W ramach tego samouczka dowiesz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i anulowania aprowizacji kont użytkowników w usłudze rozwiązania Zscaler ZSCloud.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,150 +16,150 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: af9d4aa15a4ff2784d2e1ca1334d9c24a8d12251
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77062680"
 ---
-# <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Zscaler ZSCloud do automatycznego inicjowania obsługi administracyjnej przez użytkowników
+# <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie rozwiązania Zscaler ZSCloud dla automatycznej aprowizacji użytkowników
 
-W tym samouczku dowiesz się, jak skonfigurować usługę Azure Active Directory (Azure AD) do automatycznego inicjowania obsługi administracyjnej i usuwania obsługi administracyjnej użytkowników i/lub grup do Zscaler ZSCloud.
+W tym samouczku dowiesz się, jak skonfigurować usługę Azure Active Directory (Azure AD) w celu automatycznego aprowizacji i anulowania aprowizacji użytkowników i/lub grup do rozwiązania Zscaler ZSCloud.
 
 > [!NOTE]
-> W tym samouczku opisano łącznik, który jest zbudowany na usłudze inicjowania obsługi administracyjnej użytkowników usługi Azure AD. Aby uzyskać ważne informacje na temat tego, co robi ta usługa i jak działa, oraz odpowiedzi na często zadawane pytania, zobacz [Automatyzacja inicjowania obsługi administracyjnej i usuwania obsługi administracyjnej aplikacji SaaS za pomocą usługi Azure Active Directory](../active-directory-saas-app-provisioning.md).
+> W tym samouczku opisano łącznik, który jest oparty na usłudze aprowizacji użytkowników usługi Azure AD. Aby uzyskać ważne informacje dotyczące działania tej usługi i sposobu jej działania oraz odpowiedzi na często zadawane pytania, zobacz [Automatyzowanie aprowizacji użytkowników i Cofanie udostępniania do aplikacji SaaS przy użyciu Azure Active Directory](../active-directory-saas-app-provisioning.md).
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać kroki opisane w tym samouczku, potrzebujesz następujących czynności:
+Aby wykonać kroki opisane w tym samouczku, potrzebne są następujące elementy:
 
 * Dzierżawa usługi Azure AD.
-* Najemca Zscaler ZSCloud.
-* Konto użytkownika w Zscaler ZSCloud z uprawnieniami administratora.
+* Dzierżawa rozwiązania Zscaler ZSCloud.
+* Konto użytkownika w programie rozwiązania Zscaler ZSCloud z uprawnieniami administratora.
 
 > [!NOTE]
-> Integracja inicjowania obsługi administracyjnej usługi Azure AD zależy od interfejsu API SCIM Zscaler Zscaler, który jest dostępny dla kont Enterprise.
+> Integracja z obsługą administracyjną usługi Azure AD opiera się na interfejsie API rozwiązania Zscaler ZSCloud Standard scim, który jest dostępny dla kont przedsiębiorstwa.
 
-## <a name="add-zscaler-zscloud-from-the-gallery"></a>Dodaj Zscaler ZSCloud z galerii
+## <a name="add-zscaler-zscloud-from-the-gallery"></a>Dodaj rozwiązania Zscaler ZSCloud z galerii
 
-Przed skonfigurowaniem Zscaler ZSCloud do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure AD należy dodać Zscaler ZSCloud z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji SaaS.
+Przed skonfigurowaniem usługi rozwiązania Zscaler ZSCloud w celu automatycznego aprowizacji użytkowników w usłudze Azure AD należy dodać rozwiązania Zscaler ZSCloud z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji SaaS.
 
-W [witrynie Azure portal](https://portal.azure.com)w lewym okienku wybierz pozycję **Azure Active Directory:**
+W [Azure Portal](https://portal.azure.com)w lewym okienku wybierz pozycję **Azure Active Directory**:
 
 ![Wybierz pozycję Azure Active Directory](common/select-azuread.png)
 
-Przejdź do **aplikacji enterprise,** a następnie wybierz **wszystkie aplikacje:**
+Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**:
 
 ![Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-Aby dodać aplikację, wybierz **pozycję Nowa aplikacja** w górnej części okna:
+Aby dodać aplikację, wybierz pozycję **Nowa aplikacja** w górnej części okna:
 
 ![Wybierz nową aplikację](common/add-new-app.png)
 
-W polu wyszukiwania wpisz **Zscaler ZSCloud**. W wynikach wybierz pozycję **Zscaler ZSCloud,** a następnie wybierz pozycję **Dodaj**.
+W polu wyszukiwania wprowadź **rozwiązania Zscaler ZSCloud**. W wynikach wybierz pozycję **rozwiązania Zscaler ZSCloud** , a następnie wybierz pozycję **Dodaj**.
 
 ![Lista wyników](common/search-new-app.png)
 
-## <a name="assign-users-to-zscaler-zscloud"></a>Przypisywanie użytkowników do Zscaler ZSCloud
+## <a name="assign-users-to-zscaler-zscloud"></a>Przypisywanie użytkowników do rozwiązania Zscaler ZSCloud
 
-Użytkownicy usługi Azure AD muszą mieć przypisany dostęp do wybranych aplikacji, zanim będą mogli z nich korzystać. W kontekście automatycznego inicjowania obsługi administracyjnej użytkowników tylko użytkownicy lub grupy, które są przypisane do aplikacji w usłudze Azure AD są synchronizowane.
+Użytkownicy usługi Azure AD muszą mieć przypisany dostęp do wybranych aplikacji, zanim będą mogli z nich korzystać. W kontekście automatycznej aprowizacji użytkowników są synchronizowane tylko użytkownicy lub grupy, które są przypisane do aplikacji w usłudze Azure AD.
 
-Przed skonfigurowaniem i włączeniem automatycznego inicjowania obsługi administracyjnej, należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD potrzebują dostępu do Zscaler ZSCloud. Po podjęciu decyzji, że można przypisać tych użytkowników i grupy do Zscaler ZSCloud, postępując zgodnie z instrukcjami w [Przypisz użytkownika lub grupę do aplikacji przedsiębiorstwa](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
+Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD potrzebują dostępu do rozwiązania Zscaler ZSCloud. Po podjęciu decyzji o tym można przypisać tych użytkowników i grupy do rozwiązania Zscaler ZSCloud, postępując zgodnie z instrukcjami w temacie [Przypisywanie użytkownika lub grupy do aplikacji przedsiębiorstwa](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 
-### <a name="important-tips-for-assigning-users-to-zscaler-zscloud"></a>Ważne wskazówki dotyczące przypisywania użytkowników do Zscaler ZSCloud
+### <a name="important-tips-for-assigning-users-to-zscaler-zscloud"></a>Ważne wskazówki dotyczące przypisywania użytkowników do rozwiązania Zscaler ZSCloud
 
-* Zaleca się, aby najpierw przypisać jednego użytkownika usługi Azure AD do Zscaler ZSCloud, aby przetestować konfigurację automatycznego inicjowania obsługi administracyjnej użytkownika. Później można przypisać więcej użytkowników i grup.
+* Zalecamy, aby najpierw przypisać pojedynczego użytkownika usługi Azure AD do rozwiązania Zscaler ZSCloud w celu przetestowania automatycznej konfiguracji inicjowania obsługi użytkowników. Możesz później przypisać więcej użytkowników i grup.
 
-* Po przypisaniu użytkownika do Zscaler ZSCloud należy wybrać dowolną prawidłową rolę specyficzną dla aplikacji (jeśli jest dostępna) w oknie dialogowym przypisywania. Użytkownicy z rolą **dostępu domyślnego** są wykluczeni z inicjowania obsługi administracyjnej.
+* Po przypisaniu użytkownika do rozwiązania Zscaler ZSCloud, należy wybrać dowolną prawidłową rolę specyficzną dla aplikacji (jeśli jest dostępna) w oknie dialogowym przypisania. Użytkownicy z **domyślną rolą dostępu** są wykluczeni z aprowizacji.
 
-## <a name="set-up-automatic-user-provisioning"></a>Konfigurowanie automatycznego inicjowania obsługi administracyjnej użytkowników
+## <a name="set-up-automatic-user-provisioning"></a>Konfigurowanie automatycznego aprowizacji użytkowników
 
-W tej sekcji znajdziesz przewodnik po krokach konfigurowania usługi inicjowania obsługi administracyjnej usługi Azure AD w celu tworzenia, aktualizowania i wyłączania użytkowników i grup w Zscaler ZSCloud na podstawie przypisań użytkowników i grup w usłudze Azure AD.
+Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i grup w usłudze rozwiązania Zscaler ZSCloud na podstawie przypisań użytkowników i grup w usłudze Azure AD.
 
 > [!TIP]
-> Możesz również włączyć logowanie jednokrotne oparte na SAML dla Zscaler ZSCloud. Jeśli to zrobisz, postępuj zgodnie z instrukcjami w [samouczku logowania jednokrotnego Zscaler ZSCloud](zscaler-zsCloud-tutorial.md). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej użytkownika, ale dwie funkcje wzajemnie się uzupełniają.
+> Możesz również włączyć rejestrację jednokrotną opartą na protokole SAML dla rozwiązania Zscaler ZSCloud. Jeśli to zrobisz, postępuj zgodnie z instrukcjami podanymi w [samouczku logowanie](zscaler-zsCloud-tutorial.md)jednokrotne w programie rozwiązania Zscaler ZSCloud. Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, ale te dwie funkcje uzupełniają się wzajemnie.
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com) i wybierz **aplikacje** > dla przedsiębiorstw**Wszystkie aplikacje** > **Zscaler ZSCloud:**
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje** > **rozwiązania Zscaler ZSCloud**:
 
     ![Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz **Zscaler ZSCloud**:
+2. Na liście Aplikacje wybierz pozycję **rozwiązania Zscaler ZSCloud**:
 
     ![Lista aplikacji](common/all-applications.png)
 
-3. Wybierz kartę **Inicjowanie obsługi administracyjnej:**
+3. Wybierz kartę **aprowizacji** :
 
-    ![Aprowizacji Zscaler ZSCloud](./media/zscaler-zscloud-provisioning-tutorial/provisioningtab.png)
+    ![Inicjowanie obsługi administracyjnej rozwiązania Zscaler ZSCloud](./media/zscaler-zscloud-provisioning-tutorial/provisioningtab.png)
 
-4. Ustaw **tryb inicjowania obsługi administracyjnej** na **automatyczny:**
+4. Ustaw **tryb aprowizacji** na **automatyczny**:
 
-    ![Ustawianie trybu inicjowania obsługi administracyjnej](./media/zscaler-zscloud-provisioning-tutorial/provisioningcredentials.png)
+    ![Ustaw tryb aprowizacji](./media/zscaler-zscloud-provisioning-tutorial/provisioningcredentials.png)
 
-5. W sekcji **Poświadczenia administratora** wprowadź **adres URL dzierżawy** i **tajny token** konta Zscaler ZSCloud, zgodnie z opisem w następnym kroku.
+5. W sekcji **poświadczenia administratora** wprowadź **adres URL dzierżawy** i **klucz tajny** konta rozwiązania Zscaler ZSCloud, zgodnie z opisem w następnym kroku.
 
-6. Aby uzyskać **adres URL dzierżawy** i **token tajny,** przejdź do**ustawień uwierzytelniania** **administracyjnego** > w portalu Zscaler ZSCloud i wybierz **SAML** w obszarze **Typ uwierzytelniania:**
+6. Aby uzyskać **adres URL dzierżawy** i **token tajny**, przejdź do pozycji **Administracja** > **Ustawienia uwierzytelniania** w portalu rozwiązania Zscaler ZSCloud i wybierz pozycję **SAML** w obszarze **Typ uwierzytelniania**:
 
-    ![Ustawienia uwierzytelniania Zscaler ZSCloud](./media/zscaler-zscloud-provisioning-tutorial/secrettoken1.png)
+    ![Rozwiązania Zscaler ZSCloud — ustawienia uwierzytelniania](./media/zscaler-zscloud-provisioning-tutorial/secrettoken1.png)
 
-    Wybierz **opcję Konfiguruj SAML,** aby otworzyć okno **Konfigurowanie SAML:**
+    Wybierz pozycję **Konfiguruj SAML** , aby otworzyć okno **Konfigurowanie protokołu SAML** :
 
     ![Konfigurowanie okna SAML](./media/zscaler-zscloud-provisioning-tutorial/secrettoken2.png)
 
-    Wybierz **pozycję Włącz inicjowanie obsługi administracyjnej oparte na uściśle i** skopiuj podstawowy adres **URL** i **token nośnika,** a następnie zapisz ustawienia. W witrynie Azure portal wklej **podstawowy adres URL** w polu Adres URL **dzierżawy** i **tokenu nośnika** w polu **Token tajny.**
+    Zaznacz opcję **Włącz Inicjowanie obsługi opartej na Standard scim** i skopiuj **podstawowy adres URL** oraz **token okaziciela**, a następnie Zapisz ustawienia. W Azure Portal wklej **podstawowy adres URL** w polu **adres URL dzierżawy** i **token okaziciela** do pola **token klucza tajnego** .
 
-7. Po wprowadzeniu wartości w polach **Adres URL dzierżawy** i **Tajny token** wybierz pozycję **Testuj połączenie,** aby upewnić się, że usługa Azure AD może łączyć się z usługą Zscaler ZSCloud. Jeśli połączenie nie powiedzie się, upewnij się, że twoje konto Zscaler ZSCloud ma uprawnienia administratora i spróbuj ponownie.
+7. Po wprowadzeniu wartości w polach **adres URL dzierżawy** i **token tajny** wybierz pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z usługą rozwiązania Zscaler ZSCloud. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi rozwiązania Zscaler ZSCloud ma uprawnienia administratora, a następnie spróbuj ponownie.
 
     ![Testowanie połączenia](./media/zscaler-zscloud-provisioning-tutorial/testconnection.png)
 
-8. W polu **Wiadomość e-mail z powiadomieniem** wprowadź adres e-mail osoby lub grupy, która powinna otrzymywać powiadomienia o błędach inicjowania obsługi administracyjnej. Wybierz **pozycję Wyślij powiadomienie e-mail, gdy wystąpi błąd:**
+8. W polu **E-mail powiadomienia** wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji. Wybierz opcję **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu**:
 
     ![Konfigurowanie wiadomości e-mail z powiadomieniem](./media/zscaler-zscloud-provisioning-tutorial/Notification.png)
 
-9. Wybierz **pozycję Zapisz**.
+9. Wybierz pozycję **Zapisz**.
 
-10. W sekcji **Mapowania** wybierz pozycję **Synchronizuj użytkowników usługi Azure Active Directory z usługą ZscalerZSCloud:**
+10. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do ZscalerZSCloud**:
 
-    ![Synchronizowanie użytkowników usługi Azure AD](./media/zscaler-zscloud-provisioning-tutorial/usermappings.png)
+    ![Synchronizuj użytkowników usługi Azure AD](./media/zscaler-zscloud-provisioning-tutorial/usermappings.png)
 
-11. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do Zscaler ZSCloud w sekcji **Mapowania atrybutów.** Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w Zscaler ZSCloud dla operacji aktualizacji. Wybierz **pozycję Zapisz,** aby zatwierdzić wszelkie zmiany.
+11. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, do rozwiązania Zscaler ZSCloud w sekcji **mapowania atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w rozwiązania Zscaler ZSCloud dla operacji aktualizacji. Wybierz pozycję **Zapisz** , aby zatwierdzić wszelkie zmiany.
 
     ![Mapowania atrybutów](./media/zscaler-zscloud-provisioning-tutorial/userattributemappings.png)
 
-12. W sekcji **Mapowania** wybierz pozycję **Synchronizuj grupy usługi Azure Active Directory z usługą ZscalerZSCloud:**
+12. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do ZscalerZSCloud**:
 
     ![Synchronizowanie grup usługi Azure AD](./media/zscaler-zscloud-provisioning-tutorial/groupmappings.png)
 
-13. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD do Zscaler ZSCloud w sekcji **Mapowania atrybutów.** Atrybuty wybrane jako **właściwości dopasowania** są używane do dopasowania grup w Zscaler ZSCloud dla operacji aktualizacji. Wybierz **pozycję Zapisz,** aby zatwierdzić wszelkie zmiany.
+13. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD, do rozwiązania Zscaler ZSCloud w sekcji **mapowania atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania do grup w rozwiązania Zscaler ZSCloud dla operacji aktualizacji. Wybierz pozycję **Zapisz** , aby zatwierdzić wszelkie zmiany.
 
     ![Mapowania atrybutów](./media/zscaler-zscloud-provisioning-tutorial/groupattributemappings.png)
 
-14. Aby skonfigurować filtry zakresu, zapoznaj się z instrukcjami zawartymi w [samouczku filtru zakresu](./../active-directory-saas-scoping-filters.md).
+14. Aby skonfigurować filtry zakresu, zapoznaj się z instrukcjami w [samouczku filtr zakresu](./../active-directory-saas-scoping-filters.md).
 
-15. Aby włączyć usługę inicjowania obsługi administracyjnej usługi Azure AD dla Zscaler ZSCloud, zmień **stan inicjowania obsługi administracyjnej** **na Włączone** w sekcji **Ustawienia:**
+15. Aby włączyć usługę Azure AD Provisioning dla rozwiązania Zscaler ZSCloud, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** :
 
-    ![Stan inicjowania obsługi administracyjnej](./media/zscaler-zscloud-provisioning-tutorial/provisioningstatus.png)
+    ![Stan aprowizacji](./media/zscaler-zscloud-provisioning-tutorial/provisioningstatus.png)
 
-16. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić Zscaler ZSCloud, wybierając wartości, które chcesz wybrać w obszarze **Zakres** w sekcji **Ustawienia:**
+16. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić rozwiązania Zscaler ZSCloud, wybierając odpowiednie wartości w obszarze **zakres** w sekcji **Ustawienia** :
 
     ![Wartości zakresu](./media/zscaler-zscloud-provisioning-tutorial/scoping.png)
 
-17. Gdy będziesz gotowy do aprowienia, wybierz pozycję **Zapisz:**
+17. Gdy wszystko będzie gotowe do udostępnienia, wybierz pozycję **Zapisz**:
 
     ![Wybieranie pozycji Zapisz](./media/zscaler-zscloud-provisioning-tutorial/saveprovisioning.png)
 
-Ta operacja rozpoczyna początkową synchronizację wszystkich użytkowników i grup zdefiniowanych w obszarze **Zakres** w sekcji **Ustawienia.** Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które występują co około 40 minut, tak długo, jak usługa inicjowania obsługi administracyjnej usługi Azure AD jest uruchomiona. Postęp można monitorować w sekcji **Szczegóły synchronizacji.** Można również wykonać łącza do raportu aktywności inicjowania obsługi administracyjnej, który opisuje wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej usługi Azure AD w Zscaler ZSCloud.
+Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i grup zdefiniowanych w obszarze **zakres** w sekcji **Ustawienia** . Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które wystąpiły co 40 minut, o ile usługa Azure AD Provisioning jest uruchomiona. Postęp można monitorować w sekcji **szczegóły synchronizacji** . Możesz również śledzić łącza do raportu działań aprowizacji, który opisuje wszystkie akcje wykonywane przez usługę Azure AD Provisioning w witrynie rozwiązania Zscaler ZSCloud.
 
-Aby uzyskać informacje na temat sposobu zapoznania się z dziennikami inicjowania obsługi administracyjnej usługi Azure AD, zobacz [Raportowanie automatycznego inicjowania obsługi administracyjnej konta użytkownika.](../active-directory-saas-provisioning-reporting.md)
+Aby uzyskać informacje na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../active-directory-saas-provisioning-reporting.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Zarządzanie inicjowanie obsługi administracyjnej kont użytkowników dla aplikacji przedsiębiorstwa](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i otrzymywać raporty dotyczące aktywności inicjowania obsługi administracyjnej](../active-directory-saas-provisioning-reporting.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../active-directory-saas-provisioning-reporting.md)
 
 <!--Image references-->
 [1]: ./media/zscaler-zscloud-provisioning-tutorial/tutorial-general-01.png

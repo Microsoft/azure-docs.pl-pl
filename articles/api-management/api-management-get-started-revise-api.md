@@ -1,5 +1,5 @@
 ---
-title: Bezpieczne wprowadzanie zmian w usłudze API Management za pomocą poprawek
+title: Użyj poprawek, aby bezpiecznie wprowadzać zmiany niepowodujące Nieprzerwania w API Management
 titleSuffix: Azure API Management
 description: Wykonaj kroki tego samouczka, aby dowiedzieć się, jak przy użyciu poprawek wprowadzać zmiany niepowodujące niezgodności w usłudze API Management.
 services: api-management
@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c91d42f3445bb2ffc02366e6cb9ae49ec2db1be4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75442745"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Bezpieczne wprowadzanie zmian niepowodujących niezgodności przy użyciu poprawek
 Gdy interfejs API jest gotowy i zaczyna być używany przez deweloperów, zazwyczaj musisz wprowadzać zmiany w tym interfejsie API i jednocześnie nie zakłócać pracy wywołującym interfejs API. Ponadto warto poinformować deweloperów o wprowadzanych zmianach. Możemy to zrobić w usłudze Azure API Management przy użyciu **poprawek**. Aby uzyskać więcej informacji, zobacz [Wersje i poprawki](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) oraz [Przechowywanie wersji interfejsu API w usłudze Azure API Management](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Dodawanie nowej poprawki
@@ -37,7 +37,7 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 + Poznaj [terminologię dotyczącą usługi Azure API Management](api-management-terminology.md).
-+ Ukończ następujące przewodniki Szybki start: [Utwórz wystąpienie usługi Azure API Management](get-started-create-service-instance.md).
++ Wykonaj następujące kroki szybkiego startu: [Tworzenie wystąpienia usługi Azure API Management](get-started-create-service-instance.md).
 + Ponadto wykonaj zadania z następującego samouczka: [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md).
 
 ## <a name="add-a-new-revision"></a>Dodawanie nowej poprawki
@@ -53,7 +53,7 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
     > Możesz też wybrać opcję **Dodaj poprawkę** w menu kontekstowym (**...**) interfejsu API.
 
 5. Podaj opis nowej poprawki, aby łatwiej zapamiętać, do czego służy.
-6. Wybierz **pozycję Utwórz**
+6. Wybierz pozycję **Utwórz**
 7. Nowa poprawka zostanie utworzona.
 
     > [!NOTE]
@@ -84,16 +84,16 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 
 2. Otwórz menu kontekstowe (**...**) dla poprawki **Poprawka 2**.
 3. Wybierz opcję **Ustaw jako bieżącą**.
-4. Zaznacz pole **Publikuj w publicznym dzienniku zmian tego interfejsu API**, jeśli chcesz publikować uwagi dotyczące tej zmiany. Podaj opis zmiany, który deweloperzy widzą, na przykład: **Testowanie poprawek. Dodano nową operację "test".**
+4. Zaznacz pole **Publikuj w publicznym dzienniku zmian tego interfejsu API**, jeśli chcesz publikować uwagi dotyczące tej zmiany. Podaj opis zmiany, którą widzą deweloperzy, na przykład: **testowanie poprawek. Dodano nową operację "test".**
 5. **Poprawka 2** jest teraz bieżącą poprawką.
 
 ## <a name="browse-the-developer-portal-to-see-changes-and-change-log"></a>Przeglądanie portalu dla deweloperów w celu wyświetlenia zmian i dziennika zmian
 
-1. W witrynie Azure portal wybierz pozycję **API**.
+1. W Azure Portal wybierz pozycję **interfejsy API**.
 2. Wybierz opcję **Portal dla deweloperów** z górnego menu.
 3. Wybierz pozycję **Interfejsy API**, a następnie wybierz pozycję **Wersja demonstracyjna interfejsu API Conference**.
 4. Zauważ, że nowa operacja **test** jest teraz dostępna.
-5. Kliknij **changelog** w pobliżu nazwy interfejsu API.
+5. Kliknij pozycję **Dziennik zmian** obok nazwy interfejsu API.
 6. Zauważ, że na liście pojawia się wpis dziennika zmian.
 
 ## <a name="next-steps"></a>Następne kroki

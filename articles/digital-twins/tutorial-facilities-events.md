@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Przechwytywanie zdarzeń urządzenia z przestrzeni IoT — azure digital twins| Dokumenty firmy Microsoft'
+title: 'Samouczek: Przechwytywanie zdarzeń urządzeń z przestrzeni IoT — usługa Azure Digital bliźniaczych reprezentacji | Microsoft Docs'
 description: Dowiedz się, w jaki sposób otrzymywać powiadomienia z przestrzeni po zintegrowaniu usługi Azure Digital Twins z usługą Logic Apps, korzystając z kroków opisanych w tym samouczku.
 services: digital-twins
 ms.author: alinast
@@ -10,10 +10,10 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 01/10/2020
 ms.openlocfilehash: 1cd617204bbc12a99b6ae9e3b55fbc59b0e0578a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75933689"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Samouczek: otrzymywanie powiadomień z przestrzeni usługi Azure Digital Twins przy użyciu usługi Logic Apps
@@ -24,7 +24,7 @@ W [pierwszym samouczku](tutorial-facilities-setup.md) skonfigurowano graf przest
 
 W tym samouczku pokazano, jako zintegrować te powiadomienia z usługą Azure Logic Apps, tak aby wysyłać wiadomości e-mail, gdy takie pomieszczenie jest dostępne. Administrator biura może na podstawie tych informacji pomóc pracownikom zarezerwować pomieszczenie sprzyjające najwyższej produktywności.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Integrowanie zdarzeń z usługą Azure Event Grid.
@@ -38,10 +38,10 @@ W tym samouczku przyjęto założenie, że [skonfigurowano](tutorial-facilities-
 - Uruchomione wystąpienie usługi Digital Twins.
 - Pobrane i wyodrębnione [przykłady usługi Digital Twins w języku C#](https://github.com/Azure-Samples/digital-twins-samples-csharp) na maszynie roboczej.
 - [Zestaw SDK .NET Core w wersji 2.1.403 lub nowszej](https://www.microsoft.com/net/download) na komputerze deweloperskim w celu uruchomienia przykładu. Uruchom polecenie `dotnet --version`, aby sprawdzić, czy zainstalowano prawidłową wersję.
-- Konto [usługi Office 365](https://products.office.com/home) do wysyłania wiadomości e-mail z powiadomieniami.
+- Konto [pakietu Office 365](https://products.office.com/home) do wysyłania wiadomości e-mail z powiadomieniami.
 
 > [!TIP]
-> Użyj unikatowej nazwy wystąpienia digital twins, jeśli inicjujesz inicjowanie obsługi administracyjnej nowego wystąpienia.
+> Jeśli zainicjowano nowe wystąpienie, użyj unikatowej nazwy wystąpienia bliźniaczych reprezentacji Digital.
 
 ## <a name="integrate-events-with-event-grid"></a>Integrowanie zdarzeń z usługą Event Grid
 
@@ -51,13 +51,13 @@ W tej sekcji skonfigurujesz usługę [Event Grid](../event-grid/overview.md), kt
 
 [Tematy usługi Event Grid](../event-grid/concepts.md#topics) udostępniają interfejs umożliwiający trasowanie zdarzeń wygenerowanych przez funkcję zdefiniowaną przez użytkownika. 
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. W okienku po lewej stronie wybierz pozycję **Utwórz zasób**. 
 
-1. Wyszukaj i wybierz pozycję **Temat usługi Event Grid**. Wybierz **pozycję Utwórz**.
+1. Wyszukaj i wybierz pozycję **Temat usługi Event Grid**. Wybierz przycisk **Utwórz**.
 
-1. Wprowadź **nazwę** tematu usługi Event Grid i wybierz **subskrypcję**. Wybierz **grupę zasobów** używaną lub utworzoną dla wystąpienia usługi Digital Twins i **lokalizację**. Wybierz **pozycję Utwórz**. 
+1. Wprowadź **nazwę** tematu usługi Event Grid i wybierz **subskrypcję**. Wybierz **grupę zasobów** używaną lub utworzoną dla wystąpienia usługi Digital Twins i **lokalizację**. Wybierz przycisk **Utwórz**. 
 
     [![Tworzenie tematu usługi Event Grid](./media/tutorial-facilities-events/create-event-grid-topic.png)](./media/tutorial-facilities-events/create-event-grid-topic.png#lightbox)
 
@@ -85,11 +85,11 @@ W tej sekcji skonfigurujesz usługę [Event Grid](../event-grid/overview.md), kt
       path: <Event Grid Topic Name without https:// and /api/events, e.g. eventgridname.region.eventgrid.azure.net>
     ```
 
-1. Zastąp `<Primary connection string for your Event Grid>` symbol zastępczy wartością **klawisza 1**.
+1. Zastąp symbol `<Primary connection string for your Event Grid>` zastępczy wartością **klucza 1**.
 
-1. Zastąp `<Secondary connection string for your Event Grid>` symbol zastępczy wartością **Klawisz 2**.
+1. Zastąp symbol `<Secondary connection string for your Event Grid>` zastępczy wartością **klucza 2**.
 
-1. Zastąp symbol **zastępczy ścieżki** ścieżką tematu siatki zdarzeń. Aby uzyskać tę ścieżkę, usuń ciąg **https://** i końcowe ścieżki zasobów z adresu URL **punktu końcowego tematu**. Powinna mieć ona mniej więcej taki format:*nazwa_usługi_Event_Grid.lokalizacja.eventgrid.azure.net*.
+1. Zastąp symbol zastępczy **ścieżki ścieżką** i ścieżką do tematu usługi Event Grid. Aby uzyskać tę ścieżkę, usuń ciąg **https://** i końcowe ścieżki zasobów z adresu URL **punktu końcowego tematu**. Powinna mieć ona mniej więcej taki format:*nazwa_usługi_Event_Grid.lokalizacja.eventgrid.azure.net*.
 
     > [!IMPORTANT]
     > Wprowadź wszystkie wartości bez żadnych cudzysłowów. Upewnij się, że po dwukropkach w pliku YAML znajduje się co najmniej jeden znak spacji. Możesz także sprawdzić poprawność zawartości pliku YAML online przy użyciu dowolnego modułu sprawdzania poprawności YAML, na przykład [tego narzędzia](https://onlineyamltools.com/validate-yaml).
@@ -110,23 +110,23 @@ Usługa [Azure Logic Apps](../logic-apps/logic-apps-overview.md) umożliwia twor
 
 1. W okienku po lewej stronie witryny [Azure Portal](https://portal.azure.com) wybierz pozycję **Utwórz zasób**.
 
-1. Wyszukaj i wybierz nowy zasób **aplikacji logiki**. Wybierz **pozycję Utwórz**.
+1. Wyszukaj i wybierz nowy zasób **aplikacji logiki**. Wybierz przycisk **Utwórz**.
 
-1. Wprowadź **nazwę** zasobu aplikacji logiki, a następnie wybierz **subskrypcję**, **grupę zasobów** oraz **lokalizację**. Wybierz **pozycję Utwórz**.
+1. Wprowadź **nazwę** zasobu aplikacji logiki, a następnie wybierz **subskrypcję**, **grupę zasobów** oraz **lokalizację**. Wybierz przycisk **Utwórz**.
 
     [![Tworzenie zasobu usługi Logic Apps](./media/tutorial-facilities-events/tutorial-create-logic-app.png)](./media/tutorial-facilities-events/tutorial-create-logic-app.png#lightbox)
 
-1. Otwórz zasób aplikacji logiki po jego wdrożeniu, a następnie otwórz okienko **projektanta aplikacji logiki.** 
+1. Otwórz zasób Logic Apps podczas jego wdrażania, a następnie otwórz okienko **Projektant aplikacji logiki** . 
 
-1. Wybierz wyzwalacz **zdarzenia zasobu siatki zdarzeń.** Rozwiń opcję **usługi Azure Event Grid** i zaloguj się do dzierżawy za pomocą konta platformy Azure po wyświetleniu monitu. Wybierz **pozycję Zezwalaj na dostęp** do zasobu siatki zdarzeń, jeśli zostanie wyświetlony monit. Wybierz przycisk **Kontynuuj**.
+1. Wybierz wyzwalacz **gdy wystąpi zdarzenie zasobów Event Grid** . Po wyświetleniu monitu rozwiń opcję **Azure Event Grid** i zaloguj się do dzierżawy przy użyciu konta platformy Azure. Jeśli zostanie wyświetlony monit, wybierz opcję **Zezwalaj na dostęp** do zasobu Event Grid. Wybierz przycisk **Kontynuuj**.
 
-1. W oknie **Kiedy występuje zdarzenie zasobu:** 
+1. W oknie **po wystąpieniu zdarzenia zasobu** : 
    
    a. Wybierz **subskrypcję** użytą wcześniej do utworzenia tematu usługi Event Grid.
 
    b. Wybierz **Typ zasobu****Microsoft.EventGrid.Topics**.
 
-   d. Wybierz zasób usługi Event Grid z listy rozwijanej w polu **Nazwa zasobu**.
+   c. Wybierz zasób usługi Event Grid z listy rozwijanej w polu **Nazwa zasobu**.
 
    [![Okienko projektanta aplikacji logiki](./media/tutorial-facilities-events/logic-app-resource-event.png)](./media/tutorial-facilities-events/logic-app-resource-event.png#lightbox)
 
@@ -138,7 +138,7 @@ Usługa [Azure Logic Apps](../logic-apps/logic-apps-overview.md) umożliwia twor
 
    b. W polu **Zawartość** wybierz pozycję **Treść** na liście **Zawartość dynamiczna**.
 
-   d. Wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**. Wklej następujący ładunek JSON, a następnie wybierz przycisk **Gotowe**.
+   c. Wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**. Wklej następujący ładunek JSON, a następnie wybierz przycisk **Gotowe**.
 
     ```JSON
     {
@@ -170,7 +170,7 @@ Usługa [Azure Logic Apps](../logic-apps/logic-apps-overview.md) umożliwia twor
 
    b. W pierwszym polu tekstowym **Wybierz wartość** wybierz pozycję **eventType** na liście **Zawartość dynamiczna** w oknie **Przeanalizuj dane JSON**.
 
-   d. W drugim polu tekstowym **Wybierz wartość** wprowadź ciąg `UdfCustom`.
+   c. W drugim polu tekstowym **Wybierz wartość** wprowadź ciąg `UdfCustom`.
 
    [![Wybrane warunki](./media/tutorial-facilities-events/tutorial-logic-app-condition.png)](./media/tutorial-facilities-events/tutorial-logic-app-condition.png#lightbox)
 
@@ -178,15 +178,15 @@ Usługa [Azure Logic Apps](../logic-apps/logic-apps-overview.md) umożliwia twor
 
    a. Wybierz kolejno pozycje **Dodaj akcję** i ** Office 365 Outlook**.
 
-   b. Z listy **Akcje** wybierz pozycję **Wyślij wiadomość e-mail (V2).** Wybierz pozycję **Zaloguj** i wprowadź poświadczenia konta e-mail. Wybierz **pozycję Zezwalaj na dostęp,** jeśli zostanie wyświetlony monit.
+   b. Z listy **Akcje** wybierz pozycję **Wyślij wiadomość E-mail (wersja 2)**. Wybierz pozycję **Zaloguj** i wprowadź poświadczenia konta e-mail. Jeśli zostanie wyświetlony monit, wybierz opcję **Zezwalaj na dostęp** .
 
-   d. W oknie **Do** wprowadź swój identyfikator poczty e-mail, aby otrzymywać powiadomienia. W polu **Temat** wprowadź tekst **Powiadomienie usługi Digital Twins dotyczące niskiej jakości powietrza**. Następnie wybierz pozycję **TopologyObjectId** na liście **Zawartość dynamiczna** pozycji **Przeanalizuj dane JSON**.
+   c. W oknie **Do** wprowadź swój identyfikator poczty e-mail, aby otrzymywać powiadomienia. W polu **Temat** wprowadź tekst **Powiadomienie usługi Digital Twins dotyczące niskiej jakości powietrza**. Następnie wybierz pozycję **TopologyObjectId** na liście **Zawartość dynamiczna** pozycji **Przeanalizuj dane JSON**.
 
-   d. W obszarze **Obiekt** w tym samym oknie wpisz tekst podobny do następującego: **Zła jakość powietrza wykryta w pomieszczeniu i temperatura musi być dostosowana**. Możesz samodzielnie opracowywać treść, korzystając z elementów na liście **Zawartość dynamiczna**.
+   d. W obszarze **treść** w tym samym oknie wprowadź tekst podobny do poniższego: **niska jakość powietrza wykryte w pokoju i należy dostosować temperaturę**. Możesz samodzielnie opracowywać treść, korzystając z elementów na liście **Zawartość dynamiczna**.
 
    [![Opcje „Wyślij wiadomość e-mail” usługi Logic Apps](./media/tutorial-facilities-events/tutorial-logic-app-send-email.png)](./media/tutorial-facilities-events/tutorial-logic-app-send-email.png#lightbox)
 
-1. Wybierz przycisk **Zapisz** u góry okienka **projektanta aplikacji logiki.**
+1. Wybierz przycisk **Zapisz** znajdujący się u góry okienka **projektanta aplikacji logiki** .
 
 1. Pamiętaj o symulowaniu danych z czujników — przejdź do folderu **device-connectivity** przykładu usługi Digital Twins w oknie polecenia i uruchom polecenie `dotnet run`.
 

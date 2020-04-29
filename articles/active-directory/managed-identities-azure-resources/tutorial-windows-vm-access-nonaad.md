@@ -1,5 +1,5 @@
 ---
-title: Samouczek Uzyskiwanie`:` dostępu do usługi Azure Key Vault — Windows — Azure AD Za pomocą tożsamości zarządzanej
+title: Samouczek`:` korzystanie z tożsamości zarządzanej w celu uzyskania dostępu do Azure Key Vault-Windows-Azure AD
 description: Samouczek przedstawiający proces użycia przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Windows do uzyskiwania dostępu do usługi Azure Key Vault.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd9f85e3bfd11ee655ce581c60a5b65e13f4497b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75971903"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Samouczek: używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej systemu Windows w celu uzyskania dostępu do usługi Azure Key Vault 
@@ -48,11 +48,11 @@ Omawiane kwestie:
 
 ## <a name="grant-access"></a>Udzielanie dostępu  
  
-W tej sekcji pokazano, jak udzielić dostępu maszyny Wirtualnej do klucza tajnego przechowywanego w magazynie kluczy. Używając tożsamości zarządzanych dla zasobów platformy Azure, kod może uzyskiwać tokeny dostępu, aby uwierzytelniać się w zasobach obsługujących uwierzytelnianie usługi Azure AD.Jednak nie wszystkie usługi platformy Azure obsługują uwierzytelnianie usługi Azure AD.Aby użyć tożsamości zarządzanych dla zasobów platformy Azure z tymi usługami, zapisz poświadczenia usługi w usłudze Azure Key Vault, a następnie użyj tożsamości zarządzanej maszyny wirtualnej, aby uzyskać dostęp do usługi Key Vault i pobrać te poświadczenia. 
+W tej sekcji pokazano, jak udzielić dostępu do maszyny wirtualnej do wpisu tajnego przechowywanego w Key Vault. Używając tożsamości zarządzanych dla zasobów platformy Azure, kod może uzyskiwać tokeny dostępu, aby uwierzytelniać się w zasobach obsługujących uwierzytelnianie usługi Azure AD.Jednak nie wszystkie usługi platformy Azure obsługują uwierzytelnianie usługi Azure AD.Aby użyć tożsamości zarządzanych dla zasobów platformy Azure z tymi usługami, zapisz poświadczenia usługi w usłudze Azure Key Vault, a następnie użyj tożsamości zarządzanej maszyny wirtualnej, aby uzyskać dostęp do usługi Key Vault i pobrać te poświadczenia. 
 
 Najpierw musimy utworzyć usługę Key Vault i udzielić przypisanej przez system tożsamości zarządzanej naszej maszyny wirtualnej dostępu do usługi Key Vault.   
 
-1. U góry lewego paska nawigacyjnego wybierz pozycję **Utwórz zasób** > **Security + Identity** > **Key Vault**.  
+1. W górnej części lewego paska nawigacyjnego wybierz pozycję **Utwórz zasób** > **zabezpieczenia + tożsamość** > **Key Vault**.  
 2. Podaj **Nazwę** dla nowej usługi Key Vault. 
 3. Znajdź usługę Key Vault w tej samej subskrypcji i grupie zasobów co wcześniej utworzona maszyna wirtualna. 
 4. Wybierz opcję **Zasady dostępu** i kliknij opcję **Dodaj nową**. 
@@ -75,13 +75,13 @@ Następnie dodaj wpis tajny do usługi Key Vault, aby umożliwić późniejsze p
  
 ## <a name="access-data"></a>Uzyskiwanie dostępu do danych  
 
-W tej sekcji pokazano, jak uzyskać token dostępu przy użyciu tożsamości maszyny Wirtualnej i używać go do pobierania klucza tajnego z magazynu kluczy. Jeśli nie masz zainstalowanego programu PowerShell 4.3.1 (lub nowszej wersji), musisz [pobrać i zainstalować najnowszą wersję](https://docs.microsoft.com/powershell/azure/overview).
+W tej sekcji pokazano, jak uzyskać token dostępu przy użyciu tożsamości maszyny wirtualnej i użyć go do pobrania klucza tajnego z Key Vault. Jeśli nie masz zainstalowanego programu PowerShell 4.3.1 (lub nowszej wersji), musisz [pobrać i zainstalować najnowszą wersję](https://docs.microsoft.com/powershell/azure/overview).
 
 Najpierw użyjemy przypisanej przez system tożsamości zarządzanej maszyny wirtualnej, aby uzyskać token dostępu i przeprowadzić uwierzytelnianie w usłudze Key Vault:
  
 1. W portalu przejdź do pozycji **Maszyny wirtualne**, a następnie przejdź do swojej maszyny wirtualnej z systemem Windows i w pozycji **Przegląd** kliknij przycisk **Połącz**.
-2. Wprowadź **nazwę użytkownika** i **hasło,** dla których została dodana podczas tworzenia **maszyny Wirtualnej systemu Windows**.  
-3. Teraz, po **utworzeniu połączenia pulpitu zdalnego** z maszyną wirtualną, otwórz program PowerShell w sesji zdalnej.  
+2. Wprowadź **nazwę użytkownika** i **hasło** , które zostały dodane podczas tworzenia **maszyny wirtualnej z systemem Windows**.  
+3. Teraz, po utworzeniu **Podłączanie pulpitu zdalnego** z maszyną wirtualną, Otwórz program PowerShell w sesji zdalnej.  
 4. W programie PowerShell wywołaj żądanie internetowe w dzierżawie, aby uzyskać token dla hosta lokalnego w konkretnym porcie dla maszyny wirtualnej.  
 
     Żądanie programu PowerShell:
@@ -128,4 +128,4 @@ Po pobraniu wpisu tajnego z usługi Key Vault możesz użyć go do uwierzytelnie
 W tym samouczku przedstawiono sposób używania przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Windows w celu uzyskania dostępu do usługi Azure Key Vault.  Dowiedz się więcej o usłudze Azure Key Vault:
 
 > [!div class="nextstepaction"]
->[Azure Key Vault](/azure/key-vault/key-vault-overview)
+>[W usłudze Azure Key Vault](/azure/key-vault/key-vault-overview)

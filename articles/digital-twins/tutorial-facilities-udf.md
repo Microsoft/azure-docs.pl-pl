@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Monitorowanie przestrzeni urządzenia IoT — usługi Azure Digital Twins| Dokumenty firmy Microsoft'
+title: 'Samouczek: monitorowanie przestrzeni urządzenia IoT — usługa Azure Digital bliźniaczych reprezentacji | Microsoft Docs'
 description: Dowiedz się, jak aprowizować zasoby przestrzenne i monitorować warunki pracy za pomocą usługi Azure Digital Twins, wykonując czynności opisane w tym samouczku.
 services: digital-twins
 ms.author: alinast
@@ -10,17 +10,17 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 01/10/2020
 ms.openlocfilehash: 6cf6a8f7de181a81d60028e33ba2631815c8ca04
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75895357"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Samouczek: Aprowizuj swój budynek i monitoruj warunki pracy za pomocą usługi Azure Digital Twins Preview
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Samouczek: udostępnianie warunków roboczych tworzenia i monitorowania za pomocą usługi Azure Digital bliźniaczych reprezentacji Preview
 
-W tym samouczku pokazano, jak używać usługi Azure Digital Twins Preview do monitorowania przestrzeni pod kątem żądanych warunków temperatury i poziomu komfortu. Po [skonfigurowaniu przykładowego budynku](tutorial-facilities-setup.md) możesz zaaprowizować swój budynek i uruchamiać funkcje niestandardowe na danych z czujników, wykonując czynności opisane w tym samouczki.
+W tym samouczku pokazano, jak używać usługi Azure Digital bliźniaczych reprezentacji Preview do monitorowania obszarów pod kątem wymagań dotyczących temperatury i poziomu komfortu. Po [skonfigurowaniu przykładowego budynku](tutorial-facilities-setup.md) możesz zaaprowizować swój budynek i uruchamiać funkcje niestandardowe na danych z czujników, wykonując czynności opisane w tym samouczki.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Definiowanie warunków, które mają być monitorowane.
@@ -39,7 +39,7 @@ W tym samouczku przyjęto założenie, że [ukończono konfigurację usługi Azu
 - Program [Visual Studio Code](https://code.visualstudio.com/) umożliwiający eksplorowanie przykładowego kodu. 
 
 >[!TIP]
-> Użyj unikatowej nazwy wystąpienia digital twins, jeśli inicjujesz inicjowanie obsługi administracyjnej nowego wystąpienia.
+> Jeśli zainicjowano nowe wystąpienie, użyj unikatowej nazwy wystąpienia bliźniaczych reprezentacji Digital.
 
 ## <a name="define-conditions-to-monitor"></a>Definiowanie warunków, które mają być monitorowane
 
@@ -54,23 +54,23 @@ Dodaj następujący element matcher poniżej istniejących elementów matcher. U
         dataTypeValue: Temperature
 ```
 
-Ten matcher będzie `SAMPLE_SENSOR_TEMPERATURE` śledzić czujnik, który został dodany w [pierwszym tutorialu](tutorial-facilities-setup.md). 
+Ten odpowiednik śledzi `SAMPLE_SENSOR_TEMPERATURE` czujnik dodany w [pierwszym samouczku](tutorial-facilities-setup.md). 
 
 ## <a name="create-a-user-defined-function"></a>Tworzenie funkcji zdefiniowanej przez użytkownika
 
 Funkcje zdefiniowane przez użytkownika umożliwiają dostosowanie sposobu przetwarzania danych z czujników. Są one niestandardowym kodem JavaScript, który można uruchamiać w ramach wystąpienia usługi Azure Digital Twins, gdy wystąpią warunki określone w elementach matcher. Możesz utworzyć elementy matcher i funkcje zdefiniowane przez użytkownika dla każdego czujnika, którego chcesz monitorować. Aby uzyskać więcej informacji, przeczytaj [Przetwarzanie danych i funkcje zdefiniowane przez użytkownika](concepts-user-defined-functions.md). 
 
-W przykładowym *pliku provisionSample.yaml* poszukaj sekcji, która zaczyna się od typu **userdefinedfunctions**. Ta sekcja służy do aprowizowania funkcji zdefiniowanej przez użytkownika o określonej wartości parametru **Name**. Funkcja ta działa na listę elementów matcher wymienionych w sekcji **matcherNames**. Zauważ, że możesz podać własny plik JavaScript dla funkcji UDF jako **skrypt**.
+W przykładowym pliku *provisionSample. YAML* odszukaj sekcję rozpoczynającą się od typu **UserDefinedFunctions**. Ta sekcja służy do aprowizowania funkcji zdefiniowanej przez użytkownika o określonej wartości parametru **Name**. Funkcja ta działa na listę elementów matcher wymienionych w sekcji **matcherNames**. Zauważ, że możesz podać własny plik JavaScript dla funkcji UDF jako **skrypt**.
 
 Zwróć również uwagę na sekcję o nazwie **roleassignments**. Służy ona do przypisania roli administratora przestrzeni do funkcji zdefiniowanej przez użytkownika. Ta rola umożliwia funkcji dostęp do zdarzeń przychodzących z dowolnej z aprowizowanych przestrzeni. 
 
-1. Skonfiguruj UDF tak, aby uwzględniał moduł dopasowywania `matcherNames` temperatury, dodając lub odkomentowywając następujący wiersz w węźle pliku *provisionSample.yaml:*
+1. Skonfiguruj funkcję UDF w taki sposób, aby obejmowała dopasowanie do temperatury poprzez dodanie lub usunięcie komentarza z `matcherNames` następującego wiersza w węźle pliku *provisionSample. YAML* :
 
     ```yaml
             - Matcher Temperature
     ```
 
-1. Otwórz plik **src\actions\userDefinedFunctions\availability.js** w edytorze. Jest to plik, do którego odwołuje się element **skryptu** *provisionSample.yaml*. Funkcja zdefiniowana przez użytkownika w tym pliku wyszukuje warunki, gdy w pomieszczeniu nie jest wykrywany ruch, a poziom dwutlenku węgla jest niższy niż 1,000 ppm. 
+1. Otwórz plik **src\actions\userDefinedFunctions\availability.js** w edytorze. Jest to plik, do którego odwołuje się element **skryptu** *provisionSample. YAML*. Funkcja zdefiniowana przez użytkownika w tym pliku wyszukuje warunki, gdy w pomieszczeniu nie jest wykrywany ruch, a poziom dwutlenku węgla jest niższy niż 1,000 ppm. 
 
    Zmodyfikuj plik JavaScript, aby monitorować temperaturę oraz inne warunki. Dodaj następujące wiersze kodu, aby wyszukiwać warunki, gdy w pomieszczeniu nie jest wykrywany ruch, poziom dwutlenku węgla jest niższy niż 1,000 ppm, a temperatura jest niższa niż 78 stopni Fehrenheita (25,5 stopnia Celsjusza).
 
@@ -92,7 +92,7 @@ Zwróć również uwagę na sekcję o nazwie **roleassignments**. Służy ona do
         });
     ```
 
-    d. Dodaj następujący wiersz po instrukcji definiującej zmienną `var carbonDioxideValue` pod komentarzem `// Add your sensor latest value here`:
+    c. Dodaj następujący wiersz po instrukcji definiującej zmienną `var carbonDioxideValue` pod komentarzem `// Add your sensor latest value here`:
 
     ```JavaScript
         var temperatureValue = getFloatValue(temperatureSensor.Value().Value);
@@ -181,11 +181,11 @@ Zwróć również uwagę na sekcję o nazwie **roleassignments**. Służy ona do
    >[!IMPORTANT]
    > Aby uniemożliwić nieautoryzowany dostęp do interfejsu API zarządzania usługą Digital Twins, aplikacja **occupancy-quickstart** wymaga zalogowania się przy użyciu poświadczeń konta platformy Azure. Zapisuje ona Twoje poświadczenia na pewien okres czasu, aby logowanie nie było konieczne przy każdym uruchomieniu. Przy pierwszym uruchomieniu tego programu, a także po wygaśnięciu zapisanych poświadczeń, aplikacja przekieruje Cię do strony logowania i poda kod specyficzny dla sesji, który należy wprowadzić na tej stronie. Postępuj zgodnie z monitami, aby zalogować się na koncie platformy Azure.
 
-1. Po uwierzytelnieniu konta aplikacja rozpoczyna tworzenie przykładowego wykresu przestrzennego skonfigurowanego w *provisionSample.yaml*. Poczekaj na ukończenie aprowizowania. Może to potrwać kilka minut. Następnie przyjrzyj się komunikatom w oknie polecenia i spójrz na utworzony wykres przestrzenny. Zauważ, że aplikacja tworzy centrum IoT w węźle głównym lub w lokalizacji `Venue`.
+1. Po uwierzytelnieniu konta aplikacja rozpocznie Tworzenie przykładowego wykresu przestrzennego zgodnie z konfiguracją w *provisionSample. YAML*. Poczekaj na ukończenie aprowizowania. Może to potrwać kilka minut. Następnie przyjrzyj się komunikatom w oknie polecenia i spójrz na utworzony wykres przestrzenny. Zauważ, że aplikacja tworzy centrum IoT w węźle głównym lub w lokalizacji `Venue`.
 
 1. Z danych wyjściowych w oknie polecenia skopiuj wartość elementu `ConnectionString` w sekcji `Devices` do schowka. Ta wartość będzie potrzebna do symulowania połączenia urządzenia w następnej sekcji.
 
-    [![Przykład obsługi administracyjnej](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
+    [![Przykład udostępniania](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
 
 >[!TIP]
 > Jeśli podczas aprowizowania zostanie wyświetlony komunikat podobny do następującego „Operacja We/Wy została przerwana z powodu zakończenia wątku lub żądania aplikacji”, spróbuj ponownie uruchomić polecenie. Może się to zdarzyć, jeśli klient HTTP przekroczy limit czasu ze względu na problem z siecią.
@@ -202,13 +202,13 @@ W tej sekcji będziesz korzystać z projektu o nazwie *device-connectivity* w ra
     dotnet restore
     ```
 
-1. Otwórz plik [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) w edytorze i edytuj następujące wartości:
+1. Otwórz plik [appSettings. JSON](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) w edytorze i przeprowadź edycję następujących wartości:
 
    a. **DeviceConnectionString**: przypisz wartość `ConnectionString` w oknie danych wyjściowych z poprzedniej sekcji. Skopiuj cały ciąg między cudzysłowami, aby symulator mógł poprawnie nawiązać połączenie z centrum IoT Hub.
 
-   b. **HardwareId** w macierzy **Sensors:** Ponieważ symulujesz zdarzenia z czujników aprowidywizacji do wystąpienia usługi Azure `sensors` Digital Twins, identyfikator sprzętu i nazwy czujników w tym pliku powinny być zgodne z węzłem pliku *provisionSample.yaml.*
+   b. **HardwareId** w tablicy **czujników** : ponieważ symulujesz zdarzenia z czujników, które są obsługiwane w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, identyfikator sprzętu i nazwy czujników w tym pliku powinny być zgodne z `sensors` węzłem pliku *provisionSample. YAML* .
 
-      Dodaj nowy wpis dla czujnika temperatury. Węzeł **Czujniki** w *pliku appsettings.json* powinien wyglądać następująco:
+      Dodaj nowy wpis dla czujnika temperatury. Węzeł **czujników** w pliku *appSettings. JSON* powinien wyglądać następująco:
 
       ```JSON
       "Sensors": [{
@@ -234,7 +234,7 @@ W tej sekcji będziesz korzystać z projektu o nazwie *device-connectivity* w ra
 
 ## <a name="get-results-of-the-user-defined-function"></a>Pobieranie wyników funkcji zdefiniowanej przez użytkownika
 
-Funkcja zdefiniowana przez użytkownika jest uruchamiana za każdym razem, gdy wystąpienie odbiera dane z urządzeń i czujników. W tej sekcji jest wykonywane zapytanie względem wystąpienia usługi Azure Digital Twins w celu uzyskania wyników funkcji zdefiniowanej przez użytkownika. Zostaniesz powiadomiony w czasie zbliżonym do rzeczywistego, gdy pokój jest dostępny, że powietrze jest świeże i temperatura jest odpowiednia. 
+Funkcja zdefiniowana przez użytkownika jest uruchamiana za każdym razem, gdy wystąpienie odbiera dane z urządzeń i czujników. W tej sekcji jest wykonywane zapytanie względem wystąpienia usługi Azure Digital Twins w celu uzyskania wyników funkcji zdefiniowanej przez użytkownika. Użytkownik zostanie powiadomiony o niemal czasie rzeczywistym, gdy będzie dostępny pokój, że powietrze jest świeże i temperatura jest odpowiednia. 
 
 1. Otwórz okno polecenia, którego użyto do aprowizacji przykładu, lub nowe okno polecenia i ponownie przejdź do folderu **occupancy-quickstart\src** w przykładzie.
 

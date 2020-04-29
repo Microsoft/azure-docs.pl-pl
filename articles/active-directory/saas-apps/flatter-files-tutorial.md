@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z bardziej płaskimi plikami | Dokumenty firmy Microsoft'
+title: 'Samouczek: integracja Azure Active Directory z plikami Flatter | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Flatter Files.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 13012474e34af80c84b034703a3b34f0208036bc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73156272"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Samouczek: Integracja usługi Azure Active Directory z bardziej płaskimi plikami
+# <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Samouczek: integracja Azure Active Directory z plikami Flatter
 
 Z tego samouczka dowiesz się, jak zintegrować aplikację Flatter Files z usługą Azure Active Directory (Azure AD).
 Integracja aplikacji Flatter Files z usługą Azure AD zapewnia następujące korzyści:
@@ -32,7 +32,7 @@ Integracja aplikacji Flatter Files z usługą Azure AD zapewnia następujące ko
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -117,7 +117,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Flatter Fi
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
 ### <a name="configure-flatter-files-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w aplikacji Flatter Files
 
@@ -142,11 +142,11 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Flatter Fi
     a. W polu tekstowym **Domain** (Domena) wpisz nazwę zarejestrowanej domeny.
    
    > [!NOTE]
-   > Jeśli nie masz jeszcze zarejestrowanej domeny, skontaktuj się z [support@flatterfiles.com](mailto:support@flatterfiles.com)zespołem pomocy technicznej Flatter Files za pośrednictwem programu . 
+   > Jeśli nie masz jeszcze zarejestrowanej domeny, skontaktuj się z pomocą techniczną, [support@flatterfiles.com](mailto:support@flatterfiles.com)Aby uzyskać pomoc dotyczącą Twoich plików Flatter. 
     
     b. W polu tekstowym **Identity Provider URL** (Adres URL dostawcy tożsamości) wklej wartość **adresu URL logowania** skopiowaną z witryny Azure Portal.
    
-    d.  Otwórz certyfikat zakodowany w bazie podstawowej-64 w notatniku, skopiuj jego zawartość do schowka, a następnie wklej go do pola tekstowego **Certyfikat dostawcy tożsamości.**
+    c.  Otwórz certyfikat zakodowany w formacie Base-64 w Notatniku, skopiuj zawartość tego pliku do schowka, a następnie wklej go do pola tekstowego **certyfikat dostawcy tożsamości** .
 
     d. Kliknij przycisk **Update** (Aktualizuj).
 
@@ -158,7 +158,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -168,10 +168,10 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **\@brittasimon yourcompanydomain.extension**  
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
     Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
@@ -197,7 +197,7 @@ W tej sekcji włączysz dla użytkownika Britta Simon możliwość korzystania z
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
@@ -213,32 +213,32 @@ W tej sekcji utworzysz użytkownika o nazwie Britta Simon w aplikacji Flatter Fi
    
     ![Tworzenie użytkownika aplikacji Flatter Files](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
 
-3. Kliknij **pozycję Dodaj użytkownika**. 
+3. Kliknij pozycję **Dodaj użytkownika**. 
 
 4. W oknie dialogowym **Add User** (Dodawanie użytkownika) wykonaj następujące kroki:
    
     ![Tworzenie użytkownika aplikacji Flatter Files](./media/flatter-files-tutorial/tutorial_flatter_files_10.png)
 
-    a. W polach tekstowych **Imię** wpisz **Britta**.
+    a. W polu tekstowym **imię i nazwisko** wpisz **Britta**.
    
-    b. W polach tekstowych **Nazwisko** wpisz **Simon**. 
+    b. W polu **tekstowym nazwisko** wpisz **Simon**. 
    
-    d. W polu tekstowym **Email Address** (Adres e-mail) wpisz adres e-mail użytkownika Britta w witrynie Azure Portal.
+    c. W polu tekstowym **Email Address** (Adres e-mail) wpisz adres e-mail użytkownika Britta w witrynie Azure Portal.
    
-    d. Kliknij **przycisk Prześlij**.   
+    d. Kliknij przycisk **Prześlij**.   
 
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Flatter Files w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Flatter Files, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Flatter Files w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Flatter Files, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

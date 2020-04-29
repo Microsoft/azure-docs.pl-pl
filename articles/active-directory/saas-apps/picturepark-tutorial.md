@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z picturepark | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a picturepark.
+title: 'Samouczek: integracja Azure Active Directory z usługą Picturepark | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Picturepark.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,40 +16,40 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 08c5bd8da0dda74156b2d44c8106ed345ef749dd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73177016"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Samouczek: Integracja usługi Azure Active Directory z picturepark
+# <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Samouczek: integracja Azure Active Directory z usługą Picturepark
 
-W tym samouczku dowiesz się, jak zintegrować picturepark z usługą Azure Active Directory (Azure AD).
-Integracja picturepark z usługą Azure AD zapewnia następujące korzyści:
+W tym samouczku dowiesz się, jak zintegrować usługę Picturepark z usługą Azure Active Directory (Azure AD).
+Integracja Picturepark z usługą Azure AD zapewnia następujące korzyści:
 
-* Można kontrolować w usłudze Azure AD, który ma dostęp do Picturepark.
-* Można włączyć użytkowników, aby automatycznie zalogować się do Picturepark (Logowanie jednokrotne) z ich kont usługi Azure AD.
+* Możesz kontrolować usługę Azure AD, która ma dostęp do usługi Picturepark.
+* Możesz pozwolić użytkownikom na automatyczne logowanie do Picturepark (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z pictureparkiem, potrzebne są następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z usługą Picturepark, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/)
-* Subskrypcja z obsługą logowania jednokrotnego Picturepark
+* Subskrypcja z włączonym logowaniem jednokrotnym w Picturepark
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Picturepark obsługuje zainicjowane przez **usługę SP** SSO
+* Picturepark obsługuje logowanie jednokrotne w usłudze **SP**
 
 ## <a name="adding-picturepark-from-the-gallery"></a>Dodawanie Picturepark z galerii
 
-Aby skonfigurować integrację Picturepark z usługą Azure AD, należy dodać Picturepark z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację programu Picturepark z usługą Azure AD, musisz dodać Picturepark z galerii do listy zarządzanych aplikacji SaaS.
 
 **Aby dodać Picturepark z galerii, wykonaj następujące czynności:**
 
@@ -65,31 +65,31 @@ Aby skonfigurować integrację Picturepark z usługą Azure AD, należy dodać P
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Picturepark**, wybierz **Picturepark** z panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wpisz **Picturepark**, wybierz pozycję **Picturepark** from panel wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
      ![Picturepark na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji można skonfigurować i przetestować azure ad logowania jednokrotnego z Picturepark na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w Picturepark.
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą Picturepark na podstawie użytkownika testowego o nazwie **Britta Simon**.
+Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Picturepark.
 
-Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD za pomocą Picturepark, należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Picturepark, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Konfigurowanie picturepark logowanie jednokrotne](#configure-picturepark-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+2. **[Skonfiguruj logowanie](#configure-picturepark-single-sign-on)** jednokrotne w usłudze Picturepark, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego Picturepark](#create-picturepark-test-user)** — aby mieć odpowiednik Britta Simon w Picturepark, który jest połączony z reprezentacją użytkownika usługi Azure AD.
+5. **[Utwórz użytkownika testowego Picturepark](#create-picturepark-test-user)** , aby uzyskać odpowiednik Britta Simon w Picturepark, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą picturepark, wykonaj następujące kroki:
+Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Picturepark, wykonaj następujące czynności:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **Picturepark** wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Picturepark** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -103,7 +103,7 @@ Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą picturepar
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
 
-    ![Informacje o domenie i adresach URL Picturepark](common/sp-identifier.png)
+    ![Picturepark domenę i adresy URL Logowanie jednokrotne](common/sp-identifier.png)
 
     a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<companyname>.picturepark.com`
 
@@ -117,20 +117,20 @@ Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą picturepar
     | |
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta Picturepark,](https://picturepark.com/company/picturepark-customer-support) aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta Picturepark](https://picturepark.com/company/picturepark-customer-support) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 5. W sekcji **Certyfikat podpisywania SAML** kliknij przycisk **Edytuj**, aby otworzyć okno dialogowe **Certyfikat podpisywania SAML**.
 
     ![Edytowanie certyfikatu podpisywania SAML](common/edit-certificate.png)
 
-6. W sekcji **Certyfikat podpisywania SAML** skopiuj **odcisk palca** i zapisz go na komputerze.
+6. W sekcji **certyfikat podpisywania SAML** Skopiuj **odcisk palca** i Zapisz go na komputerze.
 
     ![Kopiowanie wartości Odcisk palca](common/copy-thumbprint.png)
 
-7. W sekcji **Konfigurowanie pictureparku** skopiuj odpowiednie adresy URL zgodnie z wymaganiami. W przypadku **adresu URL logowania**użyj wartości z następującym wzorcem:`https://login.microsoftonline.com/_my_directory_id_/wsfed`
+7. W sekcji **Konfigurowanie Picturepark** skopiuj odpowiednie adresy URL zgodnie z wymaganiami. W polu **adres URL logowania**Użyj wartości z następującym wzorcem:`https://login.microsoftonline.com/_my_directory_id_/wsfed`
 
     > [!Note]
-    > _my_directory_id_ jest identyfikatorem dzierżawy subskrypcji usługi Azure AD.
+    > _my_directory_id_ to identyfikator dzierżawy subskrypcji usługi Azure AD.
 
     ![Kopiowanie adresów URL konfiguracji](./media/picturepark-tutorial/configurls.png)
 
@@ -140,35 +140,35 @@ Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą picturepar
 
 ### <a name="configure-picturepark-single-sign-on"></a>Konfigurowanie logowania jednokrotnego Picturepark
 
-1. W innym oknie przeglądarki internetowej zaloguj się do witryny firmy Picturepark jako administrator.
+1. W innym oknie przeglądarki sieci Web Zaloguj się do firmowej witryny Picturepark jako administrator.
 
 2. Na pasku narzędzi u góry kliknij pozycję **Narzędzia administracyjne**, a następnie kliknij pozycję **Konsola zarządzania**.
    
     ![Konsola zarządzania](./media/picturepark-tutorial/ic795062.png "Konsola zarządzania")
 
-3. Kliknij **pozycję Uwierzytelnianie**, a następnie kliknij pozycję **Dostawcy tożsamości**.
+3. Kliknij pozycję **uwierzytelnianie**, a następnie kliknij pozycję **dostawcy tożsamości**.
    
-    ![Uwierzytelnianie](./media/picturepark-tutorial/ic795063.png "Uwierzytelnianie")
+    ![Authentication](./media/picturepark-tutorial/ic795063.png "Authentication")
 
-4. W sekcji **Konfiguracja dostawcy tożsamości** wykonaj następujące kroki:
+4. W sekcji **Konfiguracja dostawcy tożsamości** wykonaj następujące czynności:
    
     ![Konfiguracja dostawcy tożsamości](./media/picturepark-tutorial/ic795064.png "Konfiguracja dostawcy tożsamości")
    
-    a. Kliknij przycisk **Dodaj**.
+    a. Kliknij pozycję **Dodaj**.
   
     b. Wpisz nazwę konfiguracji.
    
-    d. Wybierz **pozycję Ustaw jako domyślną**.
+    c. Wybierz pozycję **Ustaw jako domyślną**.
    
-    d. W polu tekstowym **identyfikatora URI wystawcy** wklej wartość **adresu URL logowania** skopiowanego z witryny Azure portal.
+    d. W polu tekstowym **Identyfikator URI wystawcy** wklej wartość **adresu URL logowania** , który został skopiowany z Azure Portal.
    
-    e. W polu **tekstowym Drukowanie kciuka zaufanego wystawcy** wklej wartość **odcisku palca** skopiowaną z sekcji **Certyfikat podpisywania SAML.** 
+    e. W polu tekstowym **nadruk wystawcy zaufanych wystawców** wklej wartość **odcisku palca** skopiowanego z sekcji **certyfikat podpisywania SAML** . 
 
 5. Kliknij pozycję **JoinDefaultUsersGroup**.
 
-6. Aby ustawić atrybut **Emailaddress** w pola tekstowym **Oświadczenie,** wpisz `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` i kliknij przycisk **Zapisz**.
+6. Aby ustawić atrybut **EmailAddress** w polu tekstowym **Claim** , wpisz `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` i kliknij przycisk **Zapisz**.
 
-      ![Konfiguracja](./media/picturepark-tutorial/ic795065.png "Konfigurowanie")
+      ![Konfiguracja](./media/picturepark-tutorial/ic795065.png "Konfiguracja")
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -178,7 +178,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -188,23 +188,23 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa** `brittasimon@yourcompanydomain.extension`użytkownika wpisz . Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`. Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jednokrotnego, przyznając dostęp do Picturepark.
+W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi Picturepark.
 
-1. W portalu Azure wybierz pozycję **Aplikacje przedsiębiorstwa**, wybierz **pozycję Wszystkie aplikacje,** a następnie wybierz **picturepark**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **Picturepark**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz **picturepark**.
+2. Na liście Aplikacje wybierz pozycję **Picturepark**.
 
-    ![Łącze Picturepark na liście Aplikacje](common/all-applications.png)
+    ![Link Picturepark na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -216,17 +216,17 @@ W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jed
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
 ### <a name="create-picturepark-test-user"></a>Utwórz użytkownika testowego Picturepark
 
-Aby umożliwić użytkownikom usługi Azure AD zalogować się do Picturepark, muszą być aprowied do Picturepark. W przypadku Picturepark inicjowania obsługi administracyjnej jest zadanie ręczne.
+Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Picturepark, muszą one być obsługiwane w Picturepark. W przypadku Picturepark, Inicjowanie obsługi administracyjnej jest zadaniem ręcznym.
 
 **Aby aprowizować konto użytkownika, wykonaj następujące czynności:**
 
-1. Zaloguj się do dzierżawy **Picturepark.**
+1. Zaloguj się do dzierżawy **Picturepark** .
 
 1. Na pasku narzędzi u góry kliknij pozycję **Narzędzia administracyjne**, a następnie kliknij pozycję **Użytkownicy**.
    
@@ -236,45 +236,45 @@ Aby umożliwić użytkownikom usługi Azure AD zalogować się do Picturepark, m
    
     ![Zarządzanie użytkownikami](./media/picturepark-tutorial/ic795068.png "Zarządzanie użytkownikami")
 
-1. W oknie dialogowym **Tworzenie użytkownika** wykonaj następujące kroki prawidłowego użytkownika usługi Azure Active Directory, który chcesz aprowizować:
+1. W oknie dialogowym **Tworzenie użytkownika** wykonaj następujące kroki prawidłowego użytkownika Azure Active Directory, który chcesz udostępnić:
    
-    ![Tworzenie użytkownika](./media/picturepark-tutorial/ic795069.png "Utwórz użytkownika")
+    ![Utwórz użytkownika](./media/picturepark-tutorial/ic795069.png "Utwórz użytkownika")
    
-    a. W polach **tekstowych Adres e-mail** `BrittaSimon@contoso.com`wpisz **adres e-mail** użytkownika .  
+    a. W polu tekstowym **adres e-mail** wpisz **adres e-mail** użytkownika `BrittaSimon@contoso.com`.  
    
-    b. W polach tekstowych **Hasło** i **Potwierdź hasło** wpisz **hasło** BrittaSimon. 
+    b. W polach tekstowych **hasło** i **Potwierdź hasło** wpisz **hasło** BrittaSimon. 
    
-    d. W polach tekstowych **Imię** wpisz **imię** użytkownika **Britta**. 
+    c. W polu tekstowym **imię i nazwisko** , wpisz **imię** **Britta**użytkownika. 
    
-    d. W polach tekstowych **Nazwisko** wpisz **nazwisko** użytkownika **Simon**.
+    d. W polu **tekstowym nazwisko** wpisz **nazwisko** użytkownika **Simon**.
    
-    e. W polach tekstowych **Firma** wpisz **nazwę firmy** użytkownika. 
+    e. W polu tekstowym **firma** wpisz **nazwę firmy** użytkownika. 
    
-    f. W **polach** tekstowych Kraj wybierz **kraj/region** użytkownika.
+    f. W polu tekstowym **Country (kraj** ) wybierz **kraj/region** użytkownika.
   
-    g. W skrzynce **tekstowej wpisz** **kod pocztowy** miasta.
+    g. W polu tekstowym **zip** wpisz **Kod pocztowy** miasta.
    
-    h. W polach tekstowych **Miasto** wpisz **nazwę miasta** użytkownika.
+    h. W polu tekstowym **miasto** wpisz **nazwę miasta** użytkownika.
 
-    i. Wybierz **język**.
+    i. Wybierz **Język**.
    
     j. Kliknij przycisk **Utwórz**.
 
 >[!NOTE]
->Do aprowizowania kont użytkowników usługi Azure AD można użyć dowolnych innych narzędzi do tworzenia kont użytkowników picturepark lub interfejsów API udostępnianych przez program Picturepark.
+>Do aprowizacji kont użytkowników usługi Azure AD można używać innych narzędzi do tworzenia kont użytkowników Picturepark i interfejsów API udostępnionych przez usługę Picturepark.
 >
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Picturepark w Panelu dostępu należy automatycznie zalogować się do pictureparku, dla którego skonfigurowano logującą się logującą logującą. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Picturepark w panelu dostępu należy automatycznie zalogować się do Picturepark, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

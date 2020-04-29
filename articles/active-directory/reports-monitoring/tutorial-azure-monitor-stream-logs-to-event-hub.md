@@ -1,6 +1,6 @@
 ---
-title: Samouczek — dzienniki strumienia do centrum zdarzeń platformy Azure | Dokumenty firmy Microsoft
-description: Dowiedz się, jak skonfigurować diagnostykę platformy Azure do wypychania dzienników usługi Azure Active Directory do centrum zdarzeń
+title: Samouczek — przesyłanie strumieniowe dzienników do centrum zdarzeń platformy Azure | Microsoft Docs
+description: Dowiedz się, jak skonfigurować Diagnostyka Azure do wypychania dzienników Azure Active Directory do centrum zdarzeń
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eba44252672248b983d7f6e0c843f638e5f73447
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74007651"
 ---
-# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Samouczek: przesyłanie strumieniowe dzienników usługi Azure Active Directory do centrum zdarzeń platformy Azure
+# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Samouczek: przesyłanie strumieniowe dzienników Azure Active Directory do centrum zdarzeń platformy Azure
 
 W tym samouczku przedstawiono informacje na temat sposobu konfigurowania ustawień diagnostycznych usługi Azure Monitor w celu strumieniowego przesyłania dzienników usługi Azure Active Directory (Azure AD) do centrum zdarzeń platformy Azure. Ten mechanizm służy do integrowania dzienników z narzędziami do zarządzania informacjami i zdarzeniami zabezpieczeń (SIEM) innych firm, takimi jak Splunk i QRadar.
 
@@ -39,9 +39,9 @@ Aby używać tej funkcji, potrzebujesz następujących elementów:
 
 ## <a name="stream-logs-to-an-event-hub"></a>Przesyłanie strumieniowe dzienników do centrum zdarzeń
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). 
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 
-2. Wybierz**dzienniki inspekcji****monitorowania usługi** >  **Azure Active Directory** > . 
+2. Wybierz kolejno pozycje **Azure Active Directory** > **monitorowanie** > **dzienników inspekcji**. 
 
 3. Wybierz pozycję **Eksportuj ustawienia**.  
     
@@ -77,7 +77,7 @@ Po wyświetleniu danych w centrum zdarzeń możesz uzyskać dostęp do danych i 
 
 * **Skonfiguruj obsługiwane narzędzie SIEM**. W celu odczytania danych z centrum zdarzeń większość narzędzi wymaga parametrów połączenia centrum zdarzeń i pewnych uprawnień do Twojej subskrypcji platformy Azure. Narzędzia innych firm oferujące integrację z usługą Azure Monitor to między innymi:
     
-    * **ArcSight**: Aby uzyskać więcej informacji na temat integrowania dzienników usługi Azure AD ze splunkiem, zobacz [Integrowanie dzienników usługi Azure Active Directory z usługą ArcSight przy użyciu usługi Azure Monitor](howto-integrate-activity-logs-with-arcsight.md).
+    * **ArcSight**: Aby uzyskać więcej informacji na temat integrowania dzienników usługi Azure AD z usługą Splunk, zobacz [integrowanie dzienników Azure Active Directory z ArcSight przy użyciu Azure monitor](howto-integrate-activity-logs-with-arcsight.md).
     
     * **Splunk**: aby uzyskać więcej informacji na temat sposobu integracji dzienników usługi Azure AD z narzędziem Splunk, zobacz [Integrate Azure AD logs with Splunk by using Azure Monitor (Integrowanie dzienników usługi Azure Active Directory z narzędziem Splunk za pomocą usługi Azure Monitor)](tutorial-integrate-activity-logs-with-splunk.md).
     
@@ -90,8 +90,8 @@ Po wyświetleniu danych w centrum zdarzeń możesz uzyskać dostęp do danych i 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Integrowanie dzienników usługi Azure Active Directory z usługą ArcSight przy użyciu usługi Azure Monitor](howto-integrate-activity-logs-with-arcsight.md)
+* [Integrowanie dzienników Azure Active Directory z usługą ArcSight przy użyciu Azure Monitor](howto-integrate-activity-logs-with-arcsight.md)
 * [Integrate Azure AD logs with Splunk by using Azure Monitor (Integrowanie dzienników usługi Azure AD z narzędziem Splunk przy użyciu usługi Azure Monitor)](tutorial-integrate-activity-logs-with-splunk.md)
 * [Integrate Azure AD logs with SumoLogic by using Azure Monitor (Integrowanie dzienników usługi Azure AD z narzędziem SumoLogic przy użyciu usługi Azure Monitor)](howto-integrate-activity-logs-with-sumologic.md)
-* [Interpretowanie schematu dzienników inspekcji w usłudze Azure Monitor](reference-azure-monitor-audit-log-schema.md)
+* [Interpretuj schemat dzienników inspekcji w Azure Monitor](reference-azure-monitor-audit-log-schema.md)
 * [Interpret sign-in logs schema in Azure Monitor (Interpretowanie schematu dzienników logowania w usłudze Azure Monitor)](reference-azure-monitor-sign-ins-log-schema.md)

@@ -1,5 +1,5 @@
 ---
-title: Samouczek Uzyskiwanie dostępu do usługi Azure Storage — Linux — Azure AD — korzystanie`:` z tożsamości zarządzanej za pomocą tożsamości zarządzanej
+title: Samouczek`:` używanie tożsamości zarządzanej do uzyskiwania dostępu do usługi Azure Storage — Linux — Azure AD
 description: Samouczek przedstawiający proces użycia przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Linux do uzyskiwania dostępu do usługi Azure Storage.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b11df2e1a6140d251801a3243f3eaa9458b77d29
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75971932"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Samouczek: używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Linux do uzyskiwania dostępu do usługi Azure Storage 
@@ -83,8 +83,8 @@ Tożsamość zarządzana maszyny wirtualnej służy do pobierania danych w obiek
 
 1. Przejdź z powrotem do nowo utworzonego konta magazynu.  
 2. Kliknij link **Kontrola dostępu (IAM)** w panelu po lewej stronie.  
-3. Kliknij **pozycję + Dodaj przypisanie roli** u góry strony, aby dodać nowe przypisanie roli dla maszyny Wirtualnej.
-4. W obszarze **Rola**z listy rozwijanej wybierz pozycję **Czytnik danych obiektów blob magazynu**. 
+3. Kliknij pozycję **+ Dodaj przypisanie roli** w górnej części strony, aby dodać nowe przypisanie roli dla maszyny wirtualnej.
+4. W obszarze **rola**, z listy rozwijanej wybierz pozycję **czytnik danych magazynu obiektów BLOB**. 
 5. Z następnej listy rozwijanej w obszarze **Przypisz dostęp do** wybierz pozycję **Maszyna wirtualna**.  
 6. Następnie upewnij się, że odpowiednia subskrypcja znajduje się na liście rozwijanej **Subskrypcja**, po czym ustaw opcję **Grupa zasobów** na wartość **Wszystkie grupy zasobów**.  
 7. W obszarze **Wybierz** wskaż maszynę wirtualną, a następnie kliknij pozycję **Zapisz**.
@@ -121,4 +121,4 @@ Aby wykonać poniższe kroki, musisz pracować na utworzonej wcześniej maszynie
 W tym samouczku przedstawiono sposób włączania przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Linux w celu uzyskania dostępu do usługi Azure Storage.  Aby dowiedzieć się więcej o usłudze Azure Storage, zobacz:
 
 > [!div class="nextstepaction"]
-> [Azure Storage](/azure/storage/common/storage-introduction)
+> [Usługa Azure Storage](/azure/storage/common/storage-introduction)

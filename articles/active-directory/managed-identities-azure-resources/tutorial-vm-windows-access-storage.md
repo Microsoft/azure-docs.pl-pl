@@ -1,5 +1,5 @@
 ---
-title: Uzyskiwanie dostępu do usługi Azure Storage przy użyciu tożsamości zarządzanej przypisanej przez system Windows VM | Dokumenty firmy Microsoft
+title: Dostęp do usługi Azure Storage przy użyciu tożsamości zarządzanej przypisanej przez system Windows VM | Microsoft Docs
 description: Samouczek przedstawiający proces użycia przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Windows do uzyskiwania dostępu do usługi Azure Storage.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 182bf02bfaad598a447304cc9f2ed42f6221176d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75971959"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Samouczek: używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej systemu Windows w celu uzyskania dostępu do usługi Azure Storage
@@ -82,12 +82,12 @@ Pliki wymagają magazynu obiektów blob, dlatego musimy utworzyć kontener obiek
 
 ### <a name="grant-access"></a>Udzielanie dostępu
 
-W tej sekcji pokazano, jak udzielić dostępu maszyny Wirtualnej do kontenera usługi Azure Storage. Przypisanej przez system tożsamości zarządzanej maszyny wirtualnej można użyć do pobierania danych w obiekcie blob usługi Azure Storage.
+W tej sekcji pokazano, jak udzielić dostępu do maszyny wirtualnej do kontenera usługi Azure Storage. Przypisanej przez system tożsamości zarządzanej maszyny wirtualnej można użyć do pobierania danych w obiekcie blob usługi Azure Storage.
 
 1. Przejdź z powrotem do nowo utworzonego konta magazynu.
 2. Kliknij link **Kontrola dostępu (IAM)** w panelu po lewej stronie.
-3. Kliknij **pozycję + Dodaj przypisanie roli** u góry strony, aby dodać nowe przypisanie roli dla maszyny Wirtualnej.
-4. W obszarze **Rola**z listy rozwijanej wybierz pozycję **Czytnik danych obiektów blob magazynu**.
+3. Kliknij pozycję **+ Dodaj przypisanie roli** w górnej części strony, aby dodać nowe przypisanie roli dla maszyny wirtualnej.
+4. W obszarze **rola**, z listy rozwijanej wybierz pozycję **czytnik danych magazynu obiektów BLOB**.
 5. Z następnej listy rozwijanej w obszarze **Przypisz dostęp do** wybierz pozycję **Maszyna wirtualna**.
 6. Następnie upewnij się, że odpowiednia subskrypcja znajduje się na liście rozwijanej **Subskrypcja**, po czym ustaw opcję **Grupa zasobów** na wartość **Wszystkie grupy zasobów**.
 7. W obszarze **Wybierz** wskaż maszynę wirtualną, a następnie kliknij pozycję **Zapisz**.
@@ -98,7 +98,7 @@ W tej sekcji pokazano, jak udzielić dostępu maszyny Wirtualnej do kontenera us
 
 Usługa Azure Storage natywnie obsługuje uwierzytelnianie usługi Azure AD, więc może bezpośrednio akceptować tokeny dostępu pozyskane przy użyciu tożsamości zarządzanej. Jest to część integracji usługi Azure Storage z usługą Azure AD. Takie rozwiązanie różni się od podawania poświadczeń w parametrach połączenia.
 
-Oto przykład kodu platformy .NET otwierając połączenie z usługą Azure Storage przy użyciu tokenu dostępu, a następnie odczytujący zawartość pliku utworzonego wcześniej. Ten kod należy uruchomić na maszynie wirtualnej, aby mógł uzyskać dostęp do punktu końcowego tożsamości zarządzanej maszyny wirtualnej. .NET Framework 4.6 lub nowsza jest wymagana do użycia metody tokenu dostępu. Zastąp odpowiednio wartość `<URI to blob file>`. Tę wartość można uzyskać poprzez przejście do utworzonego i przekazanego do magazynu obiektów blob pliku, a następnie skopiowanie **adresu URL** w sekcji **Właściwości** na stronie **Przegląd**.
+Oto przykład kodu platformy .NET służący do otwierania połączenia z usługą Azure Storage przy użyciu tokenu dostępu, a następnie odczytywania zawartości utworzonego wcześniej pliku. Ten kod należy uruchomić na maszynie wirtualnej, aby mógł uzyskać dostęp do punktu końcowego tożsamości zarządzanej maszyny wirtualnej. Do korzystania z metody tokenu dostępu jest wymagany .NET Framework 4,6 lub nowszy. Zastąp odpowiednio wartość `<URI to blob file>`. Tę wartość można uzyskać poprzez przejście do utworzonego i przekazanego do magazynu obiektów blob pliku, a następnie skopiowanie **adresu URL** w sekcji **Właściwości** na stronie **Przegląd**.
 
 ```csharp
 using System;
@@ -184,4 +184,4 @@ Odpowiedź zawiera zawartość pliku:
 W tym samouczku pokazano, jak umożliwić przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Windows uzyskiwanie dostępu do usługi Azure Storage.  Aby dowiedzieć się więcej o usłudze Azure Storage, zobacz:
 
 > [!div class="nextstepaction"]
-> [Azure Storage](/azure/storage/common/storage-introduction)
+> [Usługa Azure Storage](/azure/storage/common/storage-introduction)

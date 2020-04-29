@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z usługą Adobe Sign | Dokumenty firmy Microsoft'
+title: 'Samouczek: integracja Azure Active Directory ze znakiem Adobe | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i rozwiązaniem Adobe Sign.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 788c1292b844088f171479b40fc566ff5cfc8a57
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73154025"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Samouczek: Integracja usługi Azure Active Directory z usługą Adobe Sign
+# <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Samouczek: integracja Azure Active Directory ze znakiem Adobe
 
 Z tego samouczka dowiesz się, jak zintegrować rozwiązanie Adobe Sign z usługą Azure Active Directory (Azure AD).
 Zintegrowanie rozwiązania Adobe Sign z usługą Azure AD zapewnia następujące korzyści:
@@ -33,7 +33,7 @@ Zintegrowanie rozwiązania Adobe Sign z usługą Azure AD zapewnia następujące
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -125,11 +125,11 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w rozwiązaniu Adobe S
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
 ### <a name="configure-adobe-sign-single-sign-on"></a>Konfigurowanie logowania jednokrotnego rozwiązania Adobe Sign
 
-1. Przed konfiguracją skontaktuj się z [zespołem pomocy technicznej klienta Adobe Sign,](https://helpx.adobe.com/in/contact/support.html) aby dodać domenę na liście dozwolonych usługi Adobe Sign. Poniżej przedstawiono sposób dodawania domeny:
+1. Przed rozpoczęciem konfiguracji skontaktuj się z [zespołem pomocy technicznej programu Adobe Sign](https://helpx.adobe.com/in/contact/support.html) , aby dodać swoją domenę na liście dozwolonych podpisów Adobe. Poniżej przedstawiono sposób dodawania domeny:
 
     a. [Zespół pomocy technicznej klienta rozwiązania Adobe Sign](https://helpx.adobe.com/in/contact/support.html) wysyła do Ciebie losowo wygenerowany token. W przypadku Twojej domeny token będzie wyglądał podobnie do następującego: **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
 
@@ -138,7 +138,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w rozwiązaniu Adobe S
     > [!NOTE]
     > Może to potrwać co najmniej kilka dni. Pamiętaj, że opóźnienia propagacji systemu DNS oznaczają, że wartość opublikowana w systemie DNS może być niewidoczna przez godzinę lub dłużej. Administrator IT powinien mieć odpowiednią wiedzę na temat sposobu publikowania tego tokenu w rekordzie tekstu DNS.
     
-    d. Gdy powiadomisz [zespół pomocy technicznej klienta rozwiązania Adobe Sign](https://helpx.adobe.com/in/contact/support.html) za pośrednictwem biletu pomocy technicznej, po opublikowaniu tokenu członkowie tego zespołu zweryfikują domenę i dodadzą ją do konta.
+    c. Gdy powiadomisz [zespół pomocy technicznej klienta rozwiązania Adobe Sign](https://helpx.adobe.com/in/contact/support.html) za pośrednictwem biletu pomocy technicznej, po opublikowaniu tokenu członkowie tego zespołu zweryfikują domenę i dodadzą ją do konta.
     
     d. Mówiąc ogólnie, poniżej przedstawiono sposób publikowania tokenu rekordu DNS:
 
@@ -150,21 +150,21 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w rozwiązaniu Adobe S
 
 1. W innym oknie przeglądarki internetowej zaloguj się do firmowej witryny aplikacji Adobe Sign jako administrator.
 
-1. W menu SAML wybierz polecenie**Ustawienia SAML** **ustawień** > konta .
+1. W menu SAML wybierz pozycję **Ustawienia** > konta**Ustawienia SAML**.
    
-    ![Zrzut ekranu przedstawiający stronę Ustawienia saml usługi Adobe Sign](./media/adobe-echosign-tutorial/ic789520.png "Konto")
+    ![Zrzut ekranu strony ustawień SAML podpisywania programu Adobe](./media/adobe-echosign-tutorial/ic789520.png "Konto")
 
 1. W sekcji **Ustawienia języka SAML** wykonaj następujące czynności:
   
-   ![Zrzut ekranu przedstawiający ustawienia SAML](./media/adobe-echosign-tutorial/ic789521.png "Ustawienia SAML")
+   ![Zrzut ekranu ustawień protokołu SAML](./media/adobe-echosign-tutorial/ic789521.png "Ustawienia SAML")
    
-   ![Zrzut ekranu przedstawiający ustawienia SAML](./media/adobe-echosign-tutorial/ic789522.png "Ustawienia SAML")
+   ![Zrzut ekranu ustawień protokołu SAML](./media/adobe-echosign-tutorial/ic789522.png "Ustawienia SAML")
 
    a. W obszarze **Tryb SAML** wybierz pozycję **SAML — obowiązkowe**.
    
    b. Wybierz pozycję **Zezwalaj administratorom konta Echosign na logowanie się przy użyciu ich poświadczeń rozwiązania Echosign**.
    
-   d. W obszarze **Tworzenie użytkownika** wybierz pozycję **Automatycznie dodawaj użytkowników uwierzytelnionych przy użyciu języka SAML**.
+   c. W obszarze **Tworzenie użytkownika** wybierz pozycję **Automatycznie dodawaj użytkowników uwierzytelnionych przy użyciu języka SAML**.
 
    d. Wklej **identyfikator usługi Azure AD** skopiowany z witryny Azure Portal w polu tekstowym **Identyfikator jednostki dostawcy tożsamości**.
     
@@ -184,7 +184,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -194,10 +194,10 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **\@brittasimon yourcompanydomain.extension**  
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
     Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
@@ -223,7 +223,7 @@ W tej sekcji włączysz dla użytkownika Britta Simon możliwość korzystania z
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
@@ -236,13 +236,13 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w rozwiązaniu Ado
 
 1. Zaloguj się do firmowej witryny aplikacji**Adobe Sign** jako administrator.
 
-2. W menu w górnej części strony wybierz pozycję **Konto**. Następnie w lewym okienku wybierz pozycję **Użytkownicy & grupy** > **Utwórz nowego użytkownika**.
+2. W menu w górnej części strony wybierz pozycję **Konto**. Następnie w okienku po lewej stronie wybierz pozycję **Użytkownicy & grupy** > **Utwórz nowego użytkownika**.
    
-    ![Zrzut ekranu przedstawiający witrynę firmy Adobe Sign z wyróżnioną pozycją Konto, Użytkownicy &grupy i Utwórz nowego użytkownika](./media/adobe-echosign-tutorial/ic789524.png "Konto")
+    ![Zrzut ekranu przedstawiający witrynę firmy Adobe Podpisz, z kontami, użytkownikami &grupami i Utwórz nowy użytkownik wyróżniony](./media/adobe-echosign-tutorial/ic789524.png "Konto")
    
 3. W sekcji **Tworzenie nowego użytkownika** wykonaj następujące czynności:
    
-    ![Zrzut ekranu przedstawiający sekcję Utwórz nowego użytkownika](./media/adobe-echosign-tutorial/ic789525.png "Utwórz użytkownika")
+    ![Zrzut ekranu przedstawiający sekcję Tworzenie nowego użytkownika](./media/adobe-echosign-tutorial/ic789525.png "Utwórz użytkownika")
    
     a. Wpisz wartości pól **Adres e-mail**, **Imię** i **Nazwisko** prawidłowego konta usługi Azure AD, które chcesz aprowizować, w powiązanych polach tekstowych.
    
@@ -255,13 +255,13 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w rozwiązaniu Ado
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Adobe Sign w panelu dostępu powinno nastąpić automatyczne zalogowanie do rozwiązania Adobe Sign, dla którego skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Adobe Sign w panelu dostępu powinno nastąpić automatyczne zalogowanie do rozwiązania Adobe Sign, dla którego skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

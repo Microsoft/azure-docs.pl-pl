@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (SSO) z platformą patentową IamIP | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a platformą patentową IamIP.
+title: 'Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu platformy patentowej IamIP | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i IamIP na platformie patentowej.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,155 +16,155 @@ ms.date: 02/10/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7d487aaf7ba4aaf666962cf91ca86d46115055b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78190742"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iamip-patent-platform"></a>Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (SSO) z platformą patentową IamIP
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iamip-patent-platform"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu platformy patentowej IamIP
 
-W tym samouczku dowiesz się, jak zintegrować platformę patentową IamIP z usługą Azure Active Directory (Azure AD). Po zintegrowaniu platformy patentowej IamIP z usługą Azure AD można:
+W tym samouczku dowiesz się, jak zintegrować platformę patentową IamIP z usługą Azure Active Directory (Azure AD). Gdy integrujesz platformę patentową IamIP z usługą Azure AD, możesz:
 
 * Użyj usługi Azure AD, aby kontrolować, kto może uzyskać dostęp do platformy patentowej IamIP.
-* Włącz użytkownikom automatyczne logowanie do platformy patentowej IamIP za pomocą ich kont usługi Azure AD.
-* Zarządzaj kontami w jednej centralnej lokalizacji: w witrynie Azure Portal.
+* Zezwól użytkownikom na automatyczne logowanie do IamIP platformy patentowej przy użyciu kont usługi Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji: Azure Portal.
 
 Aby dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Single sign-on to applications in Azure Active Directory (Logowanie jednokrotne do aplikacji w usłudze Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby rozpocząć, potrzebujesz następujących elementów:
+Aby rozpocząć, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto.](https://azure.microsoft.com/free/)
-* Subskrypcja platformy patentowej IamIP z włączoną funkcją logowania jednokrotnego.An IamIP Patent Platform subscription with single sign-on (SSO) enabled.
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
+* IamIP subskrypcja platformy patentowej z włączonym logowaniem jednokrotnym (SSO).
 
 ## <a name="tutorial-description"></a>Opis samouczka
 
-W tym samouczku skonfigurujesz i przetestujesz samouszeńcę usługi Azure AD w środowisku testowym.
+W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-Platforma patentowa IamIP obsługuje jednostkę SSO inicjowaną przez SP i inicjowaną przez PROTOKÓŁ IDP.
+Platforma patentowa IamIP obsługuje logowanie jednokrotne zainicjowane przez usługę SP i dostawcy tożsamości.
 
-Po skonfigurowaniu platformy patentowej IamIP można wymusić kontrolę sesji, która chroni eksfiltrację i infiltrację poufnych danych organizacji w czasie rzeczywistym. Formanty sesji rozciągają się od dostępu warunkowego. [Dowiedz się, jak wymusić kontrolę nad sesją za pomocą programu Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Po skonfigurowaniu platformy patentowej IamIP można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolki sesji wykraczają poza dostęp warunkowy. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 
 ## <a name="add-iamip-patent-platform-from-the-gallery"></a>Dodaj platformę patentową IamIP z galerii
 
-Aby skonfigurować integrację platformy patentowej IamIP z usługą Azure AD, należy dodać platformę patentową IamIP z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację platformy patentowej IamIP z usługą Azure AD, należy dodać IamIP platformę patentową z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) za pomocą konta służbowego lub szkolnego lub osobistego konta Microsoft.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W lewym okienku wybierz pozycję **Azure Active Directory**.
-1. Przejdź do **aplikacji enterprise,** a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
-1. W sekcji **Dodaj z galerii** wpisz **IamIP Patent Platform** w polu wyszukiwania.
-1. Wybierz **platformę patentową IamIP** z panelu wyników, a następnie dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. W sekcji **Dodaj z galerii** wpisz **IamIP platformę patentową** w polu wyszukiwania.
+1. Wybierz pozycję **IamIP platformę patentową** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-sso-for-iamip-patent-platform"></a>Konfigurowanie i testowanie usługi Azure AD SSO dla platformy patentowej IamIP
+## <a name="configure-and-test-azure-ad-sso-for-iamip-patent-platform"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla IamIP na platformie patentowej
 
-Skonfigurujesz i przetestujesz usługę Azure AD SSO za pomocą platformy patentowej IamIP przy użyciu użytkownika testowego o nazwie B.Simon. Aby użytkownik łącza sytuować działał, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a odpowiednim użytkownikiem w platformie patentowej IamIP.
+Skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD za pomocą platformy patentowej IamIP przy użyciu użytkownika testowego o nazwie B. Simon. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i odpowiednim użytkownikiem na platformie patentowej IamIP.
 
-Aby skonfigurować i przetestować usługę Azure AD SSO za pomocą platformy patentowej IamIP, wykonaj następujące kroki wysokiego poziomu:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą platformy patentowej IamIP, należy wykonać następujące czynności:
 
-1. **[Skonfiguruj sytuasz usługi Azure AD,](#configure-azure-ad-sso)** aby umożliwić użytkownikom korzystanie z tej funkcji.
-    * **[Utwórz użytkownika testowego usługi Azure AD,](#create-an-azure-ad-test-user)** aby przetestować logowanie jednookrotne usługi Azure AD.
-    * **[Udziel dostępu do użytkownika testowego,](#grant-access-to-the-test-user)** aby umożliwić użytkownikowi korzystanie z logowania jednokrotnego usługi Azure AD.
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+    * **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** , aby przetestować Logowanie jednokrotne w usłudze Azure AD.
+    * **[Przyznaj użytkownikowi testowemu](#grant-access-to-the-test-user)** uprawnienia umożliwiające użytkownikowi korzystanie z logowania jednokrotnego w usłudze Azure AD.
 
-1. **[Skonfiguruj sygosny SSO platformy patentowej IamIP](#configure-iamip-patent-platform-sso)** po stronie aplikacji.
-    * **[Utwórz użytkownika testowego platformy patentowej IamIP](#create-iamip-patent-platform-test-user)** jako odpowiednik reprezentacji użytkownika usługi Azure AD.
+1. **[Skonfiguruj rejestrację jednokrotną IamIP platformy](#configure-iamip-patent-platform-sso)** na stronie aplikacji.
+    * **[Utwórz użytkownika testowego platformy patentowej IamIP](#create-iamip-patent-platform-test-user)** jako odpowiednik do reprezentacji usługi Azure AD użytkownika.
 
-1. **[Przetestuj sytą próbę sycącą,](#test-sso)** aby sprawdzić, czy konfiguracja działa.
+1. **[Przetestuj Logowanie jednokrotne](#test-sso)** , aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azure portal:
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne w usłudze Azure AD w Azure Portal:
 
-1. W [witrynie Azure portal](https://portal.azure.com/), na stronie integracji aplikacji **platformy patentowej IamIP** w sekcji **Zarządzanie** wybierz opcję **logowania jednokrotnego**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracji aplikacji **platformy patentowej IamIP** w sekcji **Zarządzanie** wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** wybierz przycisk ołówkiem dla **podstawowej konfiguracji SAML,** aby edytować ustawienia:
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz przycisk ołówek dla **podstawowej konfiguracji SAML** , aby edytować ustawienia:
 
-   ![Przycisk Ołówek do podstawowej konfiguracji SAML](common/edit-urls.png)
+   ![Przycisk ołówek dla podstawowej konfiguracji języka SAML](common/edit-urls.png)
 
-1. Jeśli **Basic SAML Configuration** masz plik metadanych dostawcy usług i chcesz skonfigurować jednostkę SSO w trybie inicjowanym przez IDP, wykonaj następujące czynności:
+1. Jeśli masz plik metadanych dostawcy usług i chcesz skonfigurować Logowanie jednokrotne w trybie zainicjowanym przy użyciu usługi dostawcy tożsamości, w sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
 
-    a. Wybierz **opcję Przekaż plik metadanych:**
+    a. Wybierz **plik metadanych przekazywania**:
 
     ![Przekazywanie pliku metadanych](common/upload-metadata.png)
 
-    b. Wybierz przycisk folderu, wybierz plik metadanych, a następnie wybierz pozycję **Przekaż:**
+    b. Wybierz przycisk folder, wybierz plik metadanych, a następnie wybierz pozycję **Przekaż**:
 
-    ![Przyciski folderu i przekazywania](common/browse-upload-metadata.png)
+    ![Przyciski folderów i przekazywania](common/browse-upload-metadata.png)
 
-    d. Po przekazaniu pliku metadanych wartości **identyfikatora** i **adresu URL odpowiedzi** są automatycznie wypełniane w sekcji **Podstawowa konfiguracja SAML:**
+    c. Po przeładowaniu pliku metadanych wartości **identyfikatorów** i **adresów URL odpowiedzi** są wypełniane automatycznie w sekcji **Podstawowa konfiguracja SAML** :
 
-    ![Wartości adresu URL identyfikatora i odpowiedzi](common/idp-intiated.png)
+    ![Identyfikator i wartości adresu URL odpowiedzi](common/idp-intiated.png)
 
     > [!Note]
-    > Jeśli wartości **adresu URL** **identyfikatora** i odpowiedzi nie są wypełniane automatycznie, podaj je ręcznie zgodnie z wymaganiami.
+    > Jeśli wartości **identyfikatorów** i **adresów URL odpowiedzi** nie zostaną wypełnione automatycznie, podaj wartości ręcznie zgodnie z wymaganiami.
 
-1. Wybierz **pozycję Ustaw dodatkowe adresy URL** i wykonaj następujący krok, jeśli chcesz skonfigurować aplikację w trybie inicjowanym przez dodatek SP:
+1. Wybierz opcję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie zainicjowanym przez program SP:
 
-    W polu Wpisz **https:\//patents.iamip.com/login-user**. **Sign-on URL**
+    W polu **adres URL logowania** wprowadź wartość **https\/:/Patents.iamip.com/login-User**.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** w sekcji **Saml Signing Certificate** **(łącze Pobieranie** **certyfikatu (raw),** aby pobrać certyfikat i zapisać go na komputerze:
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** wybierz link **pobierania** dla **certyfikatu (RAW)** , aby pobrać certyfikat i zapisać go na komputerze:
 
     ![Link do pobierania certyfikatu](common/certificateraw.png)
 
-1. W sekcji **Konfigurowanie platformy patentowej IamIP** skopiuj odpowiedni adres URL lub adresy URL na podstawie wymagań:
+1. W sekcji **Konfigurowanie platformy patentowej IamIP** należy skopiować odpowiedni adres URL lub adresy URL zgodnie z wymaganiami:
 
     ![Kopiowanie adresów URL konfiguracji](common/idp-intiated.png))
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-W tej sekcji utworzysz użytkownika testowego o nazwie B.Simon w witrynie Azure portal.
+W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
 
-1. W lewym okienku witryny Azure Portal wybierz pozycję **Azure Active Directory**. Wybierz **pozycję Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
-1. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
-1. We właściwościach **Użytkownika** wykonaj następujące kroki:
-   1. W polu **Nazwa** wprowadź **b.simon**.  
-   1. W polu **Nazwa** użytkownika \<wprowadź> nazwa\<użytkownika>@ companydomain. \<> rozszerzenia. Na przykład `B.Simon@contoso.com`.
-   1. Wybierz **pozycję Pokaż hasło**, a następnie zapisz wartość wyświetlaną w polu **Hasło.**
-   1. Wybierz **pozycję Utwórz**.
+1. W lewym okienku Azure Portal wybierz pozycję **Azure Active Directory**. Wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+1. We właściwościach **użytkownika** wykonaj następujące czynności:
+   1. W polu **Nazwa** wprowadź wartość **B. Simon**.  
+   1. W polu **Nazwa użytkownika** wprowadź \<nazwę użytkownika> @\<formacie>. \<> rozszerzenia. Na przykład `B.Simon@contoso.com`.
+   1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość wyświetlaną w polu **hasło** .
+   1. Wybierz przycisk **Utwórz**.
 
-### <a name="grant-access-to-the-test-user"></a>Udzielanie dostępu testemu użytkownikowi
+### <a name="grant-access-to-the-test-user"></a>Udzielanie dostępu użytkownikowi testowemu
 
-W tej sekcji włączysz B.Simon do korzystania z logowania jednokrotnego platformy Azure, przyznając temu użytkownikowi dostęp do platformy patentowej IamIP.
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie temu użytkownikowi dostępu do IamIPej platformy patentowej.
 
-1. W portalu Azure wybierz pozycję **Aplikacje przedsiębiorstwa**, a następnie wybierz pozycję **Wszystkie aplikacje**.
-1. Na liście aplikacji wybierz **platformę patentową IamIP**.
-1. Na stronie przegląd aplikacji w sekcji **Zarządzanie** wybierz pozycję **Użytkownicy i grupy:**
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Na liście Aplikacje wybierz pozycję **IamIP platform patentowej**.
+1. Na stronie Przegląd aplikacji w sekcji **Zarządzanie** wybierz pozycję **Użytkownicy i grupy**:
 
    ![Wybieranie pozycji Użytkownicy i grupy](common/users-groups-blade.png)
 
-1. Wybierz **pozycję Dodaj użytkownika,** a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym Dodawanie **przydziału:**
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** :
 
     ![Wybieranie pozycji Dodaj użytkownika](common/add-assign-user.png)
 
-1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B.Simon** na liście **Użytkownicy,** a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-1. W oknie dialogowym **Dodawanie przydziału** wybierz przycisk **Przypisz.**
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** na liście **Użytkownicy** , a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. W oknie dialogowym **Dodawanie przypisania** wybierz przycisk **Przypisz** .
 
-## <a name="configure-iamip-patent-platform-sso"></a>Konfigurowanie identyfikatora SSO platformy patentowej IamIP
+## <a name="configure-iamip-patent-platform-sso"></a>Konfigurowanie IamIP rejestracji jednokrotnej platformy patentowej
 
-Aby skonfigurować logowanie jednokrotne po stronie platformy patentowej IamIP, należy wysłać pobrany certyfikat nieprzetworzony i odpowiednie adresy URL skopiowane z witryny Azure portal do [zespołu pomocy technicznej platformy patentowej IamIP.](mailto:info@iamip.com) Konfigurują połączenie SSO SAML, aby było poprawne po obu stronach.
+Aby skonfigurować Logowanie jednokrotne na stronie platformy patentowej IamIP, należy wysłać pobrany certyfikat pierwotny oraz odpowiednie adresy URL skopiowane z Azure Portal do [zespołu ds. pomocy technicznej platformy IamIP](mailto:info@iamip.com). Konfigurują połączenie SSO protokołu SAML, aby były poprawne po obu stronach.
 
 ### <a name="create-iamip-patent-platform-test-user"></a>Utwórz użytkownika testowego platformy patentowej IamIP
 
-Współpracuj z [zespołem wsparcia platformy patentowej IamIP,](mailto:info@iamip.com) aby dodać użytkownika o nazwie B.Simon w platformie patentowej IamIP. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+Współpracuj z [zespołem pomocy technicznej platformy patentowej IamIP](mailto:info@iamip.com) , aby dodać użytkownika o nazwie B. Simon na platformie patentowej IamIP. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
-## <a name="test-sso"></a>Test SSO
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-W tej sekcji przetestujesz konfigurację usługi Azure AD SSO przy użyciu panelu dostępu.
+W tej sekcji przedstawiono Testowanie konfiguracji logowania jednokrotnego usługi Azure AD za pomocą panelu dostępu.
 
-Po wybraniu kafelka platformy patentowej IamIP w Panelu dostępu należy automatycznie zalogować się do instancji platformy patentowej IamIP, dla której skonfigurowano logującą się logującą log. Aby uzyskać więcej informacji o Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po wybraniu kafelka IamIP na platformie patentowej w panelu dostępu należy automatycznie zalogować się do wystąpienia usługi patentowej IamIP, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Samouczki dotyczące integracji aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Wypróbuj platformę patentową IamIP z usługą Azure AD](https://aad.portal.azure.com/)
+- [Wypróbuj platformę patentową IamIP za pomocą usługi Azure AD](https://aad.portal.azure.com/)
 
-- [Co to jest kontrola sesji w usłudze Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

@@ -1,5 +1,5 @@
 ---
-title: Dostosowywanie stylu strony w portalu dla starszych deweloperów usługi API Management
+title: Dostosuj styl strony w API Management starszym portalu dla deweloperów
 titleSuffix: Azure API Management
 description: Wykonaj kroki tego przewodnika Szybki start, aby dostosować styl elementów w portalu deweloperów usługi Azure API Management.
 services: api-management
@@ -15,21 +15,21 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 664686511df8f310295a9f6ed6bc689b3a999544
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75430733"
 ---
-# <a name="customize-the-style-of-the-developer-portal-pages"></a>Dostosowywanie stylu stron portalu dewelopera
+# <a name="customize-the-style-of-the-developer-portal-pages"></a>Dostosowywanie stylu stron portalu dla deweloperów
 
-Istnieją trzy najpopularniejsze sposoby dostosowywania portalu dla deweloperów w usłudze Azure API Management:
+Istnieją trzy najczęstsze sposoby dostosowywania portalu dla deweloperów w usłudze Azure API Management:
  
 * [Edycja zawartości stron statycznych i elementów układu strony](api-management-modify-content-layout.md)
 * Aktualizacja stylów używanych dla elementów strony w portalu deweloperów (opisana w tym przewodniku)
 * [Modyfikowanie szablonów używanych dla stron wygenerowanych przez portal](api-management-developer-portal-templates.md) (na przykład dokumentacji interfejsu API, produktów czy uwierzytelniania użytkowników)
 
-W tym artykule dowiesz się, jak dostosować styl elementów na stronach starszego portalu **dewelopera** i wyświetlić zmiany.
+W tym artykule dowiesz się, jak dostosować styl elementów na stronach starszego portalu dla **deweloperów** i wyświetlić zmiany.
 
 ![Dostosowywanie stylu](./media/modify-developer-portal-style/developer_portal.png)
 
@@ -40,13 +40,13 @@ W tym artykule dowiesz się, jak dostosować styl elementów na stronach starsze
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 + Poznaj [terminologię dotyczącą usługi Azure API Management](api-management-terminology.md).
-+ Ukończ następujące przewodniki Szybki start: [Utwórz wystąpienie usługi Azure API Management](get-started-create-service-instance.md).
++ Wykonaj następujące kroki szybkiego startu: [Tworzenie wystąpienia usługi Azure API Management](get-started-create-service-instance.md).
 + Ponadto wykonaj zadania z następującego samouczka: [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md).
 
 ## <a name="customize-the-developer-portal"></a>Dostosowywanie portalu dla deweloperów
 
 1. Wybierz pozycję **Przegląd**.
-2. Kliknij przycisk **Portal deweloperów (starsza)** w górnej części okna **Przegląd.**
+2. Kliknij przycisk **Portal dla deweloperów (starsza wersja)** w górnej części okna **Przegląd** .
 3. W lewej górnej części ekranu będzie widoczna ikona składająca się z dwóch pędzli. Zatrzymaj wskaźnik myszy nad tą ikoną, aby otworzyć menu dostosowywania portalu.
 
     ![Dostosowywanie stylu](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
@@ -55,11 +55,11 @@ W tym artykule dowiesz się, jak dostosować styl elementów na stronach starsze
     Na stronie zostaną wyświetlone wszystkie elementy, które można dostosować za pomocą **stylów**
 5. Wprowadź wartość „headings-color” w polu **Change variable values to customize developer portal appearance:** (Zmień wartości zmiennych w celu dostosowania wyglądu portalu dla deweloperów:).
 
-    Na stronie pojawi się element ** \@koloru nagłówków.** Ta zmienna steruje kolorem tekstu.
+    Na stronie pojawi się element ** \@nagłówki — kolor** . Ta zmienna steruje kolorem tekstu.
 
     ![Dostosowywanie stylu](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Kliknij pole zmiennej ** \@koloru nagłówków.** 
+6. Kliknij pole dla zmiennej ** \@nagłówki i kolor** . 
     
     Zostanie otwarta lista rozwijana selektora kolorów.
 7. Wybierz nowy kolor z listy rozwijanej selektora kolorów.

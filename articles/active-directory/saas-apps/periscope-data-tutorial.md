@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z danymi peryskopowymi | Dokumenty firmy Microsoft'
+title: 'Samouczek: integracja Azure Active Directory z danymi Periscope | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Periscope Data.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: ffa0176c4dde6334e70b9a56b066a677d1610b48
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73160192"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Samouczek: Integracja usługi Azure Active Directory z danymi peryskopowymi
+# <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Samouczek: integracja Azure Active Directory z danymi Periscope
 
 Z tego samouczka dowiesz się, jak zintegrować aplikację Periscope Data z usługą Azure Active Directory (Azure AD).
 Integracja aplikacji Periscope Data z usługą Azure AD zapewnia następujące korzyści:
@@ -32,7 +32,7 @@ Integracja aplikacji Periscope Data z usługą Azure AD zapewnia następujące k
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -125,7 +125,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Periscope
 
 1. W innym oknie przeglądarki internetowej zaloguj się do aplikacji Periscope Data jako administrator.
 
-2. Otwórz menu przekładni w lewym dolnym rogu i otwórz menu**Zabezpieczenia** **rozliczeniowe** > i wykonaj następujące czynności. Tylko administratorzy mają dostęp do tych ustawień.
+2. Otwórz menu koła zębatego w lewym dolnym rogu i otwórz menu**zabezpieczenia** **rozliczeń** > i wykonaj następujące czynności. Tylko administratorzy mają dostęp do tych ustawień.
 
     ![Informacje na temat konfigurowania aplikacji Periscope Data](./media/periscope-data-tutorial/configure01.png)
 
@@ -133,13 +133,13 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Periscope
 
     b. W polu tekstowym **Logowanie jednokrotne** wybierz pozycję **Azure Active Directory**.
 
-    d. Znajdź tag **SingleSignOnService** i wklej wartość pola**Location** (Lokalizacja) w polu tekstowym **SSO URL** (Adres URL logowania jednokrotnego).
+    c. Znajdź tag **SingleSignOnService** i wklej wartość pola**Location** (Lokalizacja) w polu tekstowym **SSO URL** (Adres URL logowania jednokrotnego).
 
     d. Znajdź tag **SingleLogoutService** i wklej wartość pola**Location** w polu tekstowym **SLO URL** (Adres URL wylogowania jednokrotnego).
 
-    e. Skopiuj wartość **identyfikatora** dla wystąpienia i wklej ją w polu tekstowym **Identyfikator (identyfikator jednostki)** w sekcji **Podstawowa konfiguracja SAML** w witrynie Azure portal.
+    e. Skopiuj wartość **identyfikatora** wystąpienia i wklej ją w polu **Identyfikator (identyfikator jednostki)** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
-    f. Znajdź pierwszy znacznik pliku XML, skopiuj wartość **identyfikatora entityID** i wklej go w polu tekstowym **wystawcy.**
+    f. Znajdź pierwszy tag pliku XML, skopiuj wartość **entityID** i wklej ją w polu tekstowym **wystawcy** .
 
     g. Znajdź tag **IDPSSODescriptor** przy użyciu protokołu SAML. W tej sekcji znajdź tag **KeyDescriptor** przy użyciu polecenia **use=signing**. skopiuj wartość **X509Certificate** i wklej ją w polu tekstowym **Certyfikat**.
 
@@ -157,7 +157,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -167,10 +167,10 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **\@brittasimon yourcompanydomain.extension**  
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
     Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
@@ -196,7 +196,7 @@ W tej sekcji włączysz dla użytkownika Britta Simon możliwość korzystania z
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
@@ -218,23 +218,23 @@ Użytkownicy usługi Azure AD mogą logować się w aplikacji Periscope Data po 
 
     a. W polu tekstowym **First Name** (Imię) wprowadź imię użytkownika, na przykład **Britta**.
 
-    b. W polu **tekstowym Nazwisko** wprowadź nazwisko użytkownika, takiego jak **Simon**.
+    b. W polu tekstowym **nazwisko** Wprowadź nazwisko użytkownika, np. **Simon**.
 
-    d. W polu tekstowym **e-mail** wpisz wiadomość e-mail użytkownika, taką jak **\@brittasimon contoso.com**.
+    c. W polu tekstowym **adres e-mail** wprowadź adres e-mail użytkownika, np **.\@brittasimon contoso.com**.
 
-    d. Kliknij **przycisk DODAJ**.
+    d. Kliknij przycisk **Dodaj**.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Periscope Data w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Periscope Data, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Periscope Data w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Periscope Data, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

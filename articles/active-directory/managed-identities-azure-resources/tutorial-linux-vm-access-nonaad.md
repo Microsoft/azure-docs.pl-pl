@@ -1,5 +1,5 @@
 ---
-title: Samouczek`:` Dostęp do usługi Azure Key Vault — Linux — Azure AD za pomocą tożsamości zarządzanej
+title: Samouczek`:` używanie tożsamości zarządzanej do uzyskiwania dostępu do Azure Key Vault-Linux — Azure AD
 description: Samouczek przedstawiający proces użycia przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Linux do uzyskiwania dostępu do usługi Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdccabf701d4603b8c78f7e23ec1890171603273
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74232185"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Samouczek: używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Linux do uzyskiwania dostępu do usługi Azure Key Vault 
@@ -44,7 +44,7 @@ Przy użyciu tożsamości usługi zarządzanej dla zasobów platformy Azure kod 
 
 Najpierw musimy utworzyć usługę Key Vault i udzielić przypisanej przez system tożsamości zarządzanej naszej maszyny wirtualnej dostępu do usługi Key Vault.   
 
-1. U góry lewego paska nawigacyjnego wybierz pozycję **Utwórz zasób** > **Security + Identity** > **Key Vault**.  
+1. W górnej części lewego paska nawigacyjnego wybierz pozycję **Utwórz zasób** > **zabezpieczenia + tożsamość** > **Key Vault**.  
 2. Podaj **Nazwę** dla nowej usługi Key Vault. 
 3. Znajdź usługę Key Vault w tej samej subskrypcji i grupie zasobów co wcześniej utworzona maszyna wirtualna. 
 4. Wybierz opcję **Zasady dostępu** i kliknij opcję **Dodaj nową**. 
@@ -110,7 +110,7 @@ Po pobraniu wpisu tajnego z usługi Key Vault możesz użyć go do uwierzytelnie
 W tym samouczku przedstawiono sposób używania przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Linux w celu uzyskania dostępu do usługi Azure Key Vault.  Dowiedz się więcej o usłudze Azure Key Vault:
 
 > [!div class="nextstepaction"]
->[Azure Key Vault](/azure/key-vault/key-vault-overview)
+>[W usłudze Azure Key Vault](/azure/key-vault/key-vault-overview)
 
 
 

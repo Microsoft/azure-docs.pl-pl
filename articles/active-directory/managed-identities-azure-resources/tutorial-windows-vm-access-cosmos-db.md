@@ -1,5 +1,5 @@
 ---
-title: Samouczek Uzyskiwanie dostępu do bazy danych Usługi Azure Cosmos — Windows — Azure AD — Korzystanie`:` z tożsamości zarządzanej za pomocą tożsamości zarządzanej
+title: Samouczek`:` korzystanie z tożsamości zarządzanej w celu uzyskania dostępu do Azure Cosmos DB-Windows-Azure AD
 description: Samouczek przedstawiający proces użycia przypisanej przez system tożsamości zarządzanej na maszynie wirtualnej z systemem Windows do uzyskiwania dostępu do usługi Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9648c714ddbac93bcc76d84e7f6d8f2fcfaed992
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78248237"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Samouczek: używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Windows do uzyskiwania dostępu do usługi Azure Cosmos DB
@@ -70,9 +70,9 @@ Następnie na koncie usługi Cosmos DB dodaj kolekcję danych, dla której może
 3. Nadaj kolekcji identyfikator bazy danych i identyfikator kolekcji, wybierz pojemność magazynu, wprowadź klucz partycji, wprowadź wartość przepływności, a następnie kliknij przycisk **OK**.  W tym samouczku wystarczy użyć identyfikatora bazy danych i identyfikatora kolekcji „Test”, a następnie wybrać stałą pojemność magazynu i najniższą przepływność (400 RU/s).  
 
 
-### <a name="grant-access-to-the-cosmos-db-account-access-keys"></a>Udzielanie dostępu do kluczy dostępu do konta usługi Cosmos DB
+### <a name="grant-access-to-the-cosmos-db-account-access-keys"></a>Udzielanie dostępu do kluczy dostępu do konta Cosmos DB
 
-W tej sekcji pokazano, jak przyznać systemowi Maszyn wirtualnych systemu przypisany dostęp do tożsamości zarządzanej kluczy dostępu do konta usługi Cosmos DB. Usługa Cosmos DB nie zapewnia natywnej obsługi uwierzytelniania usługi Azure AD. Możesz jednak użyć przypisanej przez system tożsamości zarządzanej, aby pobrać klucz dostępu do konta usługi Cosmos DB z usługi Resource Manager, a następnie użyć klucza do uzyskania dostępu do usługi Cosmos DB. W tym kroku udzielasz przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Windows dostępu do kluczy do konta usługi Cosmos DB.
+W tej sekcji przedstawiono sposób udzielania dostępu tożsamości zarządzanej przez system Windows VM do kluczy dostępu do konta Cosmos DB. Usługa Cosmos DB nie zapewnia natywnej obsługi uwierzytelniania usługi Azure AD. Możesz jednak użyć przypisanej przez system tożsamości zarządzanej, aby pobrać klucz dostępu do konta usługi Cosmos DB z usługi Resource Manager, a następnie użyć klucza do uzyskania dostępu do usługi Cosmos DB. W tym kroku udzielasz przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Windows dostępu do kluczy do konta usługi Cosmos DB.
 
 Aby udzielić przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Windows dostępu do konta usługi Cosmos DB w usłudze Azure Resource Manager przy użyciu programu PowerShell, zaktualizuj wartości `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` i `<COSMOS DB ACCOUNT NAME>` dla swojego środowiska. W przypadku korzystania z kluczy dostępu usługa Cosmos DB obsługuje dwa poziomy szczegółowości: dostęp do odczytu/zapisu na koncie i dostęp tylko do odczytu do konta.  Przypisz rolę `DocumentDB Account Contributor`, jeśli chcesz uzyskać klucze odczytu/zapisu dla konta, lub przypisz rolę `Cosmos DB Account Reader Role`, jeśli chcesz uzyskać klucze tylko do odczytu dla konta.  W tym samouczku przypisz rolę `Cosmos DB Account Reader Role`:
 
@@ -82,9 +82,9 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 ```
 ## <a name="access-data"></a>Uzyskiwanie dostępu do danych
 
-W tej sekcji pokazano, jak wywołać usługę Azure Resource Manager przy użyciu tokenu dostępu dla tożsamości zarządzanej przypisanej przez system Windows VM. W pozostałej części tego samouczka będziemy pracować z poziomu wcześniej utworzonej maszyny wirtualnej. 
+W tej sekcji przedstawiono sposób wywoływania Azure Resource Manager przy użyciu tokenu dostępu dla tożsamości zarządzanej przypisanej przez system Windows VM. W pozostałej części tego samouczka będziemy pracować z poziomu wcześniej utworzonej maszyny wirtualnej. 
 
-Musisz zainstalować najnowszą wersję interfejsu wiersza [polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) na maszynie Wirtualnej systemu Windows.
+Musisz zainstalować najnowszą wersję [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) na maszynie wirtualnej z systemem Windows.
 
 
 
@@ -92,7 +92,7 @@ Musisz zainstalować najnowszą wersję interfejsu wiersza [polecenia platformy 
 
 1. W witrynie Azure Portal przejdź do pozycji **Maszyny wirtualne**, przejdź do maszyny wirtualnej z systemem Windows, a następnie na stronie **Przegląd** kliknij opcję **Połącz** u góry. 
 2. Wprowadź **nazwę użytkownika** i **hasło** dodane podczas tworzenia maszyny wirtualnej z systemem Windows. 
-3. Teraz, po **utworzeniu połączenia pulpitu zdalnego** z maszyną wirtualną, otwórz program PowerShell w sesji zdalnej.
+3. Teraz, po utworzeniu **Podłączanie pulpitu zdalnego** z maszyną wirtualną, Otwórz program PowerShell w sesji zdalnej.
 4. Używając polecenia Invoke-WebRequest programu PowerShell, wyślij żądanie do lokalnego punktu końcowego tożsamości zarządzanych dla zasobów platformy Azure, aby uzyskać token dostępu na potrzeby usługi Azure Resource Manager.
 
    ```powershell
@@ -113,9 +113,9 @@ Musisz zainstalować najnowszą wersję interfejsu wiersza [polecenia platformy 
    $ArmToken = $content.access_token
    ```
 
-### <a name="get-access-keys"></a>Uzyskiwanie kluczy dostępu 
+### <a name="get-access-keys"></a>Pobierz klucze dostępu 
 
-W tej sekcji pokazano, jak uzyskać klucze dostępu z usługi Azure Resource Manager do wywołania usługi Cosmos DB. Teraz użyj programu PowerShell, aby wywołać usługę Resource Manager przy użyciu tokenu dostępu pozyskanego w poprzedniej sekcji, aby pobrać klucz dostępu do usługi Cosmos DB. Gdy będziemy już mieć klucz dostępu, będzie można wykonać zapytanie dotyczące usługi Cosmos DB. Pamiętaj, aby zastąpić parametry `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` i `<COSMOS DB ACCOUNT NAME>` własnymi wartościami. Zastąp wartość `<ACCESS TOKEN>` tokenem dostępu pobranym wcześniej.  Jeśli chcesz pobrać klucze odczytu/zapisu, użyj typu operacji klucza `listKeys`.  Jeśli chcesz pobrać klucze tylko do odczytu, użyj typu operacji klucza `readonlykeys`:
+W tej sekcji pokazano, jak uzyskać klucze dostępu z Azure Resource Manager, aby wykonać Cosmos DB wywołania. Teraz użyj programu PowerShell, aby wywołać usługę Resource Manager przy użyciu tokenu dostępu pozyskanego w poprzedniej sekcji, aby pobrać klucz dostępu do usługi Cosmos DB. Gdy będziemy już mieć klucz dostępu, będzie można wykonać zapytanie dotyczące usługi Cosmos DB. Pamiętaj, aby zastąpić parametry `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` i `<COSMOS DB ACCOUNT NAME>` własnymi wartościami. Zastąp wartość `<ACCESS TOKEN>` tokenem dostępu pobranym wcześniej.  Jeśli chcesz pobrać klucze odczytu/zapisu, użyj typu operacji klucza `listKeys`.  Jeśli chcesz pobrać klucze tylko do odczytu, użyj typu operacji klucza `readonlykeys`:
 
 ```powershell
 Invoke-WebRequest -Uri 'https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>/listKeys/?api-version=2016-03-31' -Method POST -Headers @{Authorization="Bearer $ARMToken"}

@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory z f5 | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a F5.
+title: 'Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu klawisza F5 | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i F5.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,151 +17,151 @@ ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a1f06b0b5aa59328d2fe39d501cfdf3ad7524427
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75431469"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (SSO) z F5
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu klawisza F5
 
-W tym samouczku dowiesz się, jak zintegrować F5 z usługą Azure Active Directory (Azure AD). Po zintegrowaniu F5 z usługą Azure AD można:
+W tym samouczku dowiesz się, jak zintegrować F5 z Azure Active Directory (Azure AD). Po zintegrowaniu z usługą Azure AD za pomocą klawisza F5 można:
 
-* Kontrola w usłudze Azure AD, który ma dostęp do F5.
-* Włącz użytkownikom automatyczne logowanie do F5 za pomocą ich kont usługi Azure AD.
-* Zarządzaj kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
+* Kontrolka w usłudze Azure AD, która ma dostęp do klawisza F5.
+* Zezwól użytkownikom na automatyczne logowanie do programu F5 przy użyciu kont usługi Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby rozpocząć, potrzebujesz następujących elementów:
+Aby rozpocząć, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto.](https://azure.microsoft.com/free/)
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
 
-* F5 rejestracji jednokrotnej (SSO) włączone subskrypcji.
+* Subskrypcja z włączonym logowaniem jednokrotnym (SSO).
 
 * Wdrożenie wspólnego rozwiązania wymaga następującej licencji:
-    * F5 BIG-IP® Najlepszy pakiet (lub)
+    * F5 BIG-IP® najlepszym pakietem (lub)
 
-    * Licencja autonomiczna F5 BIG-IP Access Policy Manager™ (APM)
+    * F5 BIG-IP — licencja autonomiczna Menedżera zasad (APM)™
 
-    * F5 BIG-IP Access Policy Manager™ (APM) licencja dodatkowa na istniejącym BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM).
+    * F5 BIG-IP Access Manager — licencja dodatku™ (APM) na istniejącym® lokalnym™ Traffic Managerm Big-IP F5 (LTM).
 
-    * Oprócz powyższej licencji, system F5 może być również licencjonowany z:
+    * Oprócz powyższej licencji system F5 może również mieć licencję na:
 
-        * Subskrypcja filtrowania adresów URL w celu użycia bazy danych kategorii adresu URL
+        * Subskrypcja filtrowania adresów URL do korzystania z bazy danych kategorii adresów URL
 
-        * Subskrypcja analizy IP F5 służąca do wykrywania i blokowania znanych napastników i złośliwego ruchu
+        * Subskrypcja analizy protokołu IP F5 na potrzeby wykrywania i blokowania znanych ataków i złośliwego ruchu
 
-        * Sieciowy sprzętowy moduł zabezpieczeń (HSM) do ochrony kluczy cyfrowych i zarządzania nimi w celu silnego uwierzytelniania
+        * Sprzętowy moduł zabezpieczeń (HSM) służący do zabezpieczania i zarządzania kluczami cyfrowymi w celu silnego uwierzytelniania
 
-* System F5 BIG-IP jest aprowiony modułami APM (LTM jest opcjonalny)
+* Obsługa systemu F5 BIG-IP w modułach APM (LTM jest opcjonalna)
 
-* Chociaż jest to opcjonalne, zdecydowanie zaleca się wdrażanie systemów F5 w [grupie urządzeń synchronizacji/pracy awaryjnej](https://techdocs.f5.com/content/techdocs/en-us/bigip-14-1-0/big-ip-device-service-clustering-administration-14-1-0.html) (S/F DG), która obejmuje aktywną parę wstrzymania z pływającym adresem IP dla wysokiej dostępności (HA). Dalszą nadmiarowość interfejsu można osiągnąć za pomocą protokołu LACP (Link Aggregation Control Protocol). Lacp zarządza połączonymi interfejsami fizycznymi jako pojedynczy interfejs wirtualny (grupa agregująca) i wykrywa wszelkie błędy interfejsu w grupie.
+* Chociaż jest to opcjonalne, zdecydowanie zaleca się wdrożenie systemów F5 w [grupie urządzeń synchronizacji/pracy w trybie failover](https://techdocs.f5.com/content/techdocs/en-us/bigip-14-1-0/big-ip-device-service-clustering-administration-14-1-0.html) (S/F DG), która obejmuje aktywną parę wstrzymania z ruchomym adresem IP w celu zapewnienia wysokiej dostępności. Więcej nadmiarowości interfejsu można uzyskać przy użyciu protokołu kontroli agregacji (LACP). LACP zarządza podłączonymi interfejsami fizycznymi jako pojedynczym interfejsem wirtualnym (Grupa agregowania) i wykrywa wszystkie błędy interfejsów w grupie.
 
-* W przypadku aplikacji Protokołu Kerberos lokalne konto usługi AD dla ograniczonego delegowania.  Aby utworzyć konto delegowania usługi AD, zapoznaj się z [dokumentacją F5.](https://support.f5.com/csp/article/K43063049)
+* W przypadku aplikacji Kerberos lokalne konto usługi AD na potrzeby delegowania ograniczonego.  Zapoznaj się z [dokumentacją F5](https://support.f5.com/csp/article/K43063049) , aby utworzyć konto delegowania usługi AD.
 
-## <a name="access-guided-configuration"></a>Konfiguracja z przewodnikiem dostępu
+## <a name="access-guided-configuration"></a>Dostęp do konfiguracji z przewodnikiem
 
-* Konfiguracja z przewodnikiem dostępu" jest obsługiwana w wersji 13.1.0.8 F5 TMOS lub wyższej. Jeśli w systemie BIG-IP jest uruchomiona wersja poniżej 13.1.0.8, zapoznaj się z sekcją **Konfiguracja zaawansowana.**
+* Dostęp do konfiguracji z przewodnikiem jest obsługiwany w F5 TMOS w wersji 13.1.0.8 i nowszych. Jeśli w systemie BIG-IP działa wersja poniżej 13.1.0.8, zapoznaj się z sekcją **Konfiguracja zaawansowana** .
 
-* Konfiguracja z przewodnikiem dostępu przedstawia zupełnie nowe i usprawnione środowisko użytkownika. Ta architektura oparta na przepływie pracy zapewnia intuicyjne, ponowne wykonanie kroków konfiguracji dostosowanych do wybranej topologii.
+* Dostęp do konfiguracji z przewodnikiem przedstawia zupełnie nowe i usprawnione środowisko użytkownika. Ta Architektura oparta na przepływie pracy zapewnia intuicyjne, ponowne czynności konfiguracyjne dostosowane do wybranej topologii.
 
-* Przed przejściem do konfiguracji uaktualnić konfigurację z przewodnikiem, pobierając najnowszy pakiet przypadków użycia z [downloads.f5.com](https://login.f5.com/resource/login.jsp?ctx=719748). Aby uaktualnić, wykonaj poniższą procedurę.
+* Przed przystąpieniem do konfiguracji należy uaktualnić konfigurację z przewodnikiem, pobierając najnowszy pakiet przypadków użycia z [downloads.F5.com](https://login.f5.com/resource/login.jsp?ctx=719748). W celu uaktualnienia postępuj zgodnie z poniższą procedurą.
 
     >[!NOTE]
-    >Poniższe zrzuty ekranu są dla najnowszej wersji wydanej (BIG-IP 15.0 z AGC w wersji 5.0). Poniższe kroki konfiguracji są prawidłowe dla tego przypadku użycia w poprzek od 13.1.0.8 do najnowszej wersji BIG-IP.
+    >Poniższe zrzuty ekranu dotyczą najnowszej wersji wydania (BIG-IP 15,0 z AGC wersja 5,0). Poniższe kroki konfiguracji są prawidłowe dla tego przypadku użycia w zakresie od 13.1.0.8 do najnowszej wersji BIG-IP.
 
-1. W interfejsie internetowym F5 BIG-IP kliknij przycisk **Konfiguracja przewodnika >> programu Access**.
+1. W interfejsie użytkownika sieci Web z F5 BIG-IP kliknij opcję **dostęp >> konfiguracja przewodnika**.
 
-2. Na stronie **Konfiguracja z asystą** kliknij pozycję **Uaktualnij konfigurację z asystą** w lewym górnym rogu.
+2. Na stronie **Konfiguracja z przewodnikiem** kliknij pozycję **Uaktualnij konfigurację z przewodnikiem** w lewym górnym rogu.
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure14.png) 
 
-3. Na ekranie pop Konfiguracji przewodnika po uaktualnieniu wybierz pozycję **Wybierz plik,** aby przekazać pobrany pakiet przypadków użycia, a następnie kliknij przycisk **Przekaż i zainstaluj.**
+3. Na ekranie Konfiguracja przewodnika uaktualniania wybierz pozycję **Wybierz plik** , aby przekazać pobrany pakiet przypadków użycia, a następnie kliknij przycisk **Przekaż i zainstaluj** .
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure15.png) 
 
-4. Po zakończeniu uaktualniania kliknij przycisk **Kontynuuj.**
+4. Po zakończeniu uaktualniania kliknij przycisk **Kontynuuj** .
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure16.png)
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-W tym samouczku można skonfigurować i przetestować samouszeńców usługi Azure AD w środowisku testowym.
+W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* F5 obsługuje **sp i idp** zainicjowane SSO
+* Klawisz F5 obsługuje funkcję SSO zainicjowaną przez usługę **SP i dostawcy tożsamości**
 * F5 SSO można skonfigurować na trzy różne sposoby.
 
-- [Konfigurowanie logowania jednokrotnego F5 dla aplikacji Kerberos](#configure-f5-single-sign-on-for-kerberos-application)
+- [Konfigurowanie logowania jednokrotnego dla aplikacji Kerberos](#configure-f5-single-sign-on-for-kerberos-application)
 
-- [Konfigurowanie logowania jednokrotnego F5 dla aplikacji opartej na nagłówku](headerf5-tutorial.md)
+- [Konfigurowanie logowania jednokrotnego dla aplikacji na podstawie nagłówka](headerf5-tutorial.md)
 
-- [Konfigurowanie logowania jednokrotnego F5 dla zaawansowanej aplikacji Protokołu Kerberos](advance-kerbf5-tutorial.md)
+- [Konfigurowanie logowania jednokrotnego w przypadku zaawansowanej aplikacji Kerberos](advance-kerbf5-tutorial.md)
 
 ### <a name="key-authentication-scenarios"></a>Scenariusze uwierzytelniania kluczy
 
-Oprócz obsługi integracji natywnej usługi Azure Active Directory dla nowoczesnych protokołów uwierzytelniania, takich jak Open ID Connect, SAML i WS-Fed, F5 rozszerza bezpieczny dostęp dla starszych aplikacji uwierzytelniania zarówno dla dostępu wewnętrznego, jak i zewnętrznego za pomocą usługi Azure AD, włączając nowoczesne scenariusze (np. dostęp bez hasła) do tych aplikacji. Należą do nich:
+Poza Azure Active Directory natywną integracją usług w przypadku nowoczesnych protokołów uwierzytelniania, takich jak Open ID Connect, SAML i WS-karmione, F5 rozszerza bezpieczny dostęp do aplikacji uwierzytelniania opartych na starszych wersjach dla dostępu wewnętrznego i zewnętrznego z usługą Azure AD, umożliwiając nowoczesne scenariusze (np. dostęp bez hasła) do tych aplikacji. Obejmuje to:
 
-* Aplikacje uwierzytelniania oparte na nagłówku
+* Aplikacje uwierzytelniania oparte na nagłówkach
 
 * Aplikacje uwierzytelniania Kerberos
 
-* Uwierzytelnianie anonimowe lub brak wbudowanych aplikacji uwierzytelniania
+* Uwierzytelnianie anonimowe lub brak nieskompilowanych aplikacji uwierzytelniania
 
-* Aplikacje uwierzytelniania NTLM (ochrona z dwoma monitami dla użytkownika)
+* Aplikacje uwierzytelniania NTLM (ochrona przy użyciu podwójnych wskazówek dla użytkownika)
 
-* Aplikacja oparta na formularzach (ochrona z dwoma monitami dla użytkownika)
+* Aplikacja oparta na formularzach (ochrona przy użyciu podwójnych wskazówek dla użytkownika)
 
 ## <a name="adding-f5-from-the-gallery"></a>Dodawanie F5 z galerii
 
-Aby skonfigurować integrację F5 z usługą Azure AD, należy dodać F5 z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację klawisza F5 z usługą Azure AD, musisz dodać F5 z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) przy użyciu konta służbowego lub konta firmy Microsoft.
-1. W lewym okienku nawigacji wybierz usługę **Azure Active Directory.**
-1. Przejdź do **aplikacji korporacyjnych,** a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
-1. W sekcji **Dodaj z galerii** wpisz **klawisz F5** w polu wyszukiwania.
-1. Wybierz **klawisz F5** z panelu wyników, a następnie dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. W sekcji **Dodaj z galerii** wpisz **F5** w polu wyszukiwania.
+1. Wybierz pozycję **F5** z panelu wyniki, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-f5"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD dla F5
+## <a name="configure-and-test-azure-ad-single-sign-on-for-f5"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla F5
 
-Konfigurowanie i testowanie usługi Azure AD SSO z F5 przy użyciu użytkownika testowego o nazwie **B.Simon**. Aby użytkownik łączony sytuować działał, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w F5.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą klawisza F5 przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w F5.
 
-Aby skonfigurować i przetestować syg jako jeden na wirtualną usługę Azure ad za pomocą f5, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą klawisza F5, wykonaj następujące bloki konstrukcyjne:
 
-1. **[Skonfiguruj samouszeńcę usługi Azure AD](#configure-azure-ad-sso)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD za pomocą usługi B.Simon.
-    1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić B.Simon używać logowania jednokrotnego usługi Azure AD.
-1. **[Skonfiguruj logowanie jednokrotne F5](#configure-f5-sso)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
-    1. **[Utwórz użytkownika testowego F5](#create-f5-test-user)** — aby mieć odpowiednik B.Simon w F5, który jest połączony z reprezentacją użytkownika usługi Azure AD.
-1. **[Test SSO](#test-sso)** - aby sprawdzić, czy konfiguracja działa.
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+    1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
+1. **[Skonfiguruj funkcję rejestracji jednokrotnej F5](#configure-f5-sso)** , aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+    1. **[Utwórz użytkownika testowego F5](#create-f5-test-user)** , aby dysponować odpowiednikiem B. Simon w F5, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azure portal.
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **F5** znajdź sekcję **Zarządzaj** i wybierz **opcję logowania jednokrotnego**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja z aplikacją **F5** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** kliknij ikonę edycji/pióra dla **podstawowej konfiguracji SAML,** aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. W sekcji **Podstawowa konfiguracja SAML,** jeśli chcesz skonfigurować aplikację w trybie inicjowanym **przez IDP,** wprowadź wartości dla następujących pól:
+1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL przy użyciu następującego wzorca:`https://<YourCustomFQDN>.f5.com/`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<YourCustomFQDN>.f5.com/`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<YourCustomFQDN>.f5.com/`
 
-1. Kliknij **pozycję Ustaw dodatkowe adresy URL** i wykonaj następujący krok, jeśli chcesz skonfigurować aplikację w trybie inicjowanym w sp: **SP**
+1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<YourCustomFQDN>.f5.com/`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta F5,](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** w sekcji **Saml Podpisywanie certyfikatów** znajdź adres XML i certyfikat **metadanych federacji** **(Base64),** a następnie wybierz pozycję **Pobierz,** aby pobrać certyfikat i zapisać go na komputerze.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** Znajdź pozycję **XML metadanych Federacji** i **certyfikat (base64)** , a następnie wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/metadataxml.png)
 
@@ -171,166 +171,166 @@ Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azu
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-W tej sekcji utworzysz użytkownika testowego w witrynie Azure portal o nazwie B.Simon.
+W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-1. Z lewego okienka w witrynie Azure portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
-1. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
-1. We właściwościach **Użytkownika** wykonaj następujące kroki:
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** username@companydomain.extensionwprowadź pole . Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji włączysz B.Simon do korzystania z logowania jednokrotnego platformy Azure, przyznając dostęp do F5.
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do klawisza F5.
 
-1. W portalu Azure wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **Wszystkie aplikacje**.
-1. Na liście aplikacji wybierz pozycję **F5**.
-1. Na stronie przegląd aplikacji znajdź sekcję **Zarządzaj** i wybierz pozycję **Użytkownicy i grupy**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Na liście Aplikacje wybierz pozycję **F5**.
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 
    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
-1. Wybierz **pozycję Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym Dodawanie **przydziału.**
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 
-    ![Łącze Dodaj użytkownika](common/add-assign-user.png)
+    ![Link Dodaj użytkownika](common/add-assign-user.png)
 
-1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B.Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-1. W oknie dialogowym **Dodawanie przydziału** kliknij przycisk **Przypisz.**
-1. Kliknij opcję **Dostęp warunkowy** .
-1. Kliknij **nowe zasady**.
-1. Teraz możesz zobaczyć aplikację F5 jako zasób dla zasad urzędu certyfikacji i zastosować dowolny dostęp warunkowy, w tym wielofactor Auth, Kontrola dostępu oparta na urządzeniach lub zasady ochrony tożsamości.
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
+1. Kliknij pozycję **dostęp warunkowy** .
+1. Kliknij pozycję **nowe zasady**.
+1. Teraz możesz zobaczyć aplikację F5 jako zasób dla zasad urzędu certyfikacji i zastosować dowolny dostęp warunkowy, w tym uwierzytelnianie wieloskładnikowe, kontrolę dostępu na podstawie urządzenia lub zasady ochrony tożsamości.
 
-## <a name="configure-f5-sso"></a>Konfigurowanie sytego syda dla F5
+## <a name="configure-f5-sso"></a>Konfigurowanie rejestracji jednokrotnej F5
 
-- [Konfigurowanie logowania jednokrotnego F5 dla aplikacji opartej na nagłówku](headerf5-tutorial.md)
+- [Konfigurowanie logowania jednokrotnego dla aplikacji na podstawie nagłówka](headerf5-tutorial.md)
 
-- [Konfigurowanie logowania jednokrotnego F5 dla zaawansowanej aplikacji Protokołu Kerberos](advance-kerbf5-tutorial.md)
+- [Konfigurowanie logowania jednokrotnego w przypadku zaawansowanej aplikacji Kerberos](advance-kerbf5-tutorial.md)
 
-### <a name="configure-f5-single-sign-on-for-kerberos-application"></a>Konfigurowanie logowania jednokrotnego F5 dla aplikacji Kerberos
+### <a name="configure-f5-single-sign-on-for-kerberos-application"></a>Konfigurowanie logowania jednokrotnego dla aplikacji Kerberos
 
 ### <a name="guided-configuration"></a>Konfiguracja z przewodnikiem
 
-1. Otwórz nowe okno przeglądarki internetowej i zaloguj się do witryny firmy F5 (Kerberos) jako administrator i wykonaj następujące czynności:
+1. Otwórz nowe okno przeglądarki sieci Web i zaloguj się w witrynie firmy F5 (Kerberos) jako administrator i wykonaj następujące czynności:
 
-1. Należy zaimportować certyfikat metadanych do F5, który będzie używany w dalszej części procesu instalacji.
+1. Konieczne będzie zaimportowanie certyfikatu metadanych do F5, który będzie używany później w procesie instalacji.
 
-1. Przejdź do **pozycji Zarządzanie certyfikatami > systemowymi > zarządzanie certyfikatami ruchu > listę certyfikatów SSL**. Wybierz **pozycję Importuj** z prawego rogu. Określ **nazwę certyfikatu** (będzie się odwoływać później w konfiguracji). W **źródle certyfikatu**wybierz pozycję Przekaż plik określ certyfikat pobrany z platformy Azure podczas konfigurowania logowania jednokrotnego SAML. Kliknij pozycję **Importuj**.
+1. Przejdź do **systemu > zarządzanie certyfikatami > zarządzania certyfikatami, > listy certyfikatów SSL**. Wybierz pozycję **Importuj** z prawej strony. Określ **nazwę certyfikatu** (zostanie przywoływana później w konfiguracji). W **źródle certyfikatu**wybierz pozycję Przekaż plik Określ certyfikat pobrany z platformy Azure podczas konfigurowania logowania jednokrotnego SAML. Kliknij pozycję **Importuj**.
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure01.png) 
 
-1. Ponadto będzie wymagany **certyfikat SSL dla nazwy hosta aplikacji. Przejdź do pozycji Zarządzanie certyfikatami > > > zarządzanie certyfikatami ruchu > listą certyfikatów SSL**. Wybierz **pozycję Importuj** z prawego rogu. **Typem importu** będzie **PKCS 12(IIS).** Określ **nazwę klucza** (będzie się odwoływać później w konfiguracji) i określ plik PFX. Określ **hasło** dla PFX. Kliknij pozycję **Importuj**.
+1. Ponadto wymagany jest **certyfikat SSL dla nazwy hosta aplikacji. Przejdź do systemu > zarządzanie certyfikatami > zarządzania certyfikatami, > listy certyfikatów SSL**. Wybierz pozycję **Importuj** z prawej strony. **Typ importu** to **PKCS 12 (IIS)**. Określ **nazwę klucza** (zostanie przywoływana później w konfiguracji) i określ plik PFX. Określ **hasło** dla pliku PFX. Kliknij pozycję **Importuj**.
 
     >[!NOTE]
-    >W przykładzie nasza `Kerbapp.superdemo.live`nazwa aplikacji jest , używamy certyfikatu dzikiej karty nasza nazwa`WildCard-SuperDemo.live`
+    >W przykładzie Nasza nazwa aplikacji jest `Kerbapp.superdemo.live`używana jako certyfikat wieloznaczny nasz KeyName to`WildCard-SuperDemo.live`
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure02.png) 
  
-1. Firma Microsoft użyje środowiska z przewodnikiem do skonfigurowania federacji usługi Azure AD i dostępu do aplikacji. Przejdź do — F5 BIG-IP **Main** i wybierz **opcję > Konfiguracja z przewodnikiem > Federation > SAML.** Kliknij **przycisk Dalej,** a następnie kliknij przycisk **Dalej,** aby rozpocząć konfigurację.
+1. Użyjemy środowiska z przewodnikiem, aby skonfigurować dostęp do Federacji i aplikacji usługi Azure AD. Przejdź do – F5 BIG-IP **Main** i wybierz pozycję **Access > konfiguracji z przewodnikiem > federacyjnej > dostawcy usług SAML**. Kliknij przycisk **dalej** , a następnie kliknij przycisk **dalej** , aby rozpocząć konfigurację.
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure03.png) 
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure04.png)
 
-1. Podaj **nazwę konfiguracji**. Określ **identyfikator jednostki** (taki sam, jak skonfigurowano w konfiguracji aplikacji usługi Azure AD). Określ **nazwę hosta**. Dodaj **opis** w celach informacyjnych. Zaakceptuj pozostałe wpisy domyślne i wybierz, a następnie kliknij przycisk **Zapisz & Dalej**.
+1. Podaj **nazwę konfiguracji**. Określ **Identyfikator jednostki** (taki sam jak skonfigurowany w konfiguracji aplikacji usługi Azure AD). Określ **nazwę hosta**. Dodaj **Opis** odwołania. Zaakceptuj pozostałe wpisy domyślne i wybierz, a następnie kliknij przycisk **zapisz & dalej**.
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure05.png) 
 
-1. W tym przykładzie tworzymy nowy serwer wirtualny jako 192.168.30.200 z portem 443. Określ adres IP serwera wirtualnego w **adresie docelowym**. Wybierz **profil SSL**klienta , wybierz pozycję Utwórz nowy. Określ wcześniej przekazany certyfikat aplikacji (certyfikat dzikiej karty w tym przykładzie) i skojarzony klucz, a następnie kliknij przycisk **Zapisz & Dalej**.
+1. W tym przykładzie tworzymy nowy serwer wirtualny jako 192.168.30.200 z portem 443. Określ adres IP serwera wirtualnego w **adresie docelowym**. Wybierz **profil SSL**klienta, a następnie wybierz pozycję Utwórz nowy. Określ wcześniej przekazany certyfikat aplikacji (certyfikat wieloznaczny w tym przykładzie) i skojarzony klucz, a następnie kliknij przycisk **zapisz & dalej**.
 
     >[!NOTE]
-    >w tym przykładzie nasz wewnętrzny serwer internetowy działa na porcie 80 i chcemy opublikować go z 443.
+    >w tym przykładzie nasz wewnętrzny serwer WebServer jest uruchomiony na porcie 80 i chcemy opublikować go z 443.
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure06.png)
 
-1. W obszarze **Wybierz metodę konfigurowania łącznika IdP**określ metadane, kliknij pozycję Wybierz plik i przekaż plik XML metadanych pobrany wcześniej z usługi Azure AD. Określ unikatową **nazwę** łącznika SAML IDP. Wybierz **certyfikat podpisywania metadanych,** który został przekazany wcześniej. Kliknij **przycisk Zapisz & Dalej**.
+1. W obszarze **Wybierz metodę, aby skonfigurować łącznik dostawcy tożsamości**, określ metadane, kliknij pozycję Wybierz plik i przekaż pobrany wcześniej plik XML metadanych z usługi Azure AD. Określ unikatową **nazwę** łącznika SAML dostawcy tożsamości. Wybierz **certyfikat podpisywania metadanych** , który został wcześniej przekazany. Kliknij przycisk **zapisz & dalej**.
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure07.png)  
 
-1. W obszarze **Wybierz pulę**określ **pozycję Utwórz nowy** (wybierz pulę, która już istnieje). Niech inna wartość będzie domyślna. W obszarze Serwery puli wpisz adres IP w obszarze **Adres IP/Nazwa węzła**. Określ **port**. Kliknij **przycisk Zapisz & Dalej**.
+1. W obszarze **wybierz pulę**określ pozycję **Utwórz nową** (Alternatywnie wybierz już istniejącą pulę). Zezwól na ustawienie wartości domyślnej. W obszarze serwery puli wpisz adres IP w obszarze **adres IP/nazwa węzła**. Określ **port**. Kliknij przycisk **zapisz & dalej**.
  
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure08.png)
 
-1. Na ekranie Ustawienia logowania jednokrotnego wybierz pozycję **Włącz logowanie jednokrotne**. W obszarze **Wybrany typ logowania jednokrotnego** wybierz pozycję **Kerberos**. Zastąp **session.saml.last.Identity** **z session.saml.last.attr.name.Identity** w obszarze **Źródło nazwy użytkownika** (ta zmienna ustawiona przy użyciu mapowania oświadczeń w usłudze Azure AD). Wybierz **pozycję Pokaż ustawienie zaawansowane**. W obszarze **Obszar Kerberos** wpisz nazwę domeny. W **obszarze Nazwa konta/ Hasło konta** określ konto delegowania APM i hasło. Określ adres IP kontrolera domeny w polu **KDC.** Kliknij **przycisk Zapisz & Dalej**.
+1. Na ekranie Ustawienia logowania jednokrotnego wybierz pozycję **Włącz logowanie jednokrotne**. W obszarze **wybrany typ logowania jednokrotnego** wybierz pozycję **Kerberos**. Zastąp element **Session. SAML. Last. Identity** identyfikatorem **Session. SAML. Last. ATTR. Name. Identity** w obszarze **Źródło nazwy użytkownika** (Ta zmienna jest ustawiana przy użyciu mapowania oświadczeń w usłudze Azure AD). Wybierz pozycję **Pokaż ustawienia zaawansowane**. W obszarze Typ **obszaru Kerberos** wpisz nazwę domeny. W obszarze **nazwa konta/hasło konta** Określ konto delegowania APM i hasło. Określ adres IP kontrolera domeny w polu **centrum dystrybucji kluczy** . Kliknij przycisk **zapisz & dalej**.
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure09.png)   
 
-1. Na potrzeby niniejszych wskazówek pominiemy kontrole punktów końcowych.  Szczegółowe informacje można znaleźć w dokumentacji F5.  Na ekranie wybierz pozycję **Zapisz & Dalej**.
+1. Na potrzeby tych wskazówek pominiemy testy punktów końcowych.  Zapoznaj się z dokumentacją F5, aby uzyskać szczegółowe informacje.  Na ekranie wybierz pozycję **zapisz & dalej**.
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure10.png) 
 
-1. Zaakceptuj wartości domyślne i kliknij przycisk **Zapisz & Dalej**. Szczegółowe informacje dotyczące ustawień zarządzania sesjami SAML można znaleźć w dokumentacji F5.
+1. Zaakceptuj wartości domyślne i kliknij przycisk **zapisz & dalej**. Szczegółowe informacje dotyczące ustawień zarządzania sesją SAML można znaleźć w dokumentacji dotyczącej języka F5.
 
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure11.png) 
  
-1. Przejrzyj ekran podsumowania i wybierz **pozycję Deploy,** aby skonfigurować BIG-IP.
+1. Przejrzyj ekran podsumowanie i wybierz pozycję **Wdróż** , aby skonfigurować Big-IP.
  
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure12.png)
 
-1. Po skonfigurowaniu aplikacji kliknij **przycisk Zakończ**.
+1. Po skonfigurowaniu aplikacji kliknij przycisk **Zakończ**.
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure13.png)
 
 ## <a name="advanced-configuration"></a>Konfiguracja zaawansowana
 
 >[!NOTE]
->Aby uzyskać informacje, kliknij [tutaj](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)
+>Aby uzyskać odwołanie, kliknij [tutaj](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)
 
-### <a name="configuring-an-active-directory-aaa-server"></a>Konfigurowanie serwera AAA usługi Active Directory
+### <a name="configuring-an-active-directory-aaa-server"></a>Konfigurowanie serwera Active Directory AAA
 
-Serwer AAA usługi Active Directory jest skonfigurowany w Menedżerze zasad dostępu (APM) w taki sposób, aby określał kontrolery domeny i poświadczenia dla usług APM używane do uwierzytelniania użytkowników.
+Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (APM), aby określić kontrolery domeny i poświadczenia dla usługi APM, które będą używane do uwierzytelniania użytkowników.
 
-1.  Na karcie Główny kliknij pozycję **Zasady dostępu > serwery AAA > usługi Active Directory**. Zostanie otwarty ekran listy Serwery usługi Active Directory.
+1.  Na karcie Główny kliknij pozycję **zasady dostępu > serwery AAA > Active Directory**. Zostanie otwarty ekran listy serwerów Active Directory.
 
-2.  Kliknij przycisk **Utwórz**. Zostanie otwarty ekran Właściwości nowego serwera.
+2.  Kliknij przycisk **Utwórz**. Zostanie otwarty ekran nowe właściwości serwera.
 
 3.  W polu **Nazwa** wpisz unikatową nazwę serwera uwierzytelniania.
 
-4.  W polu **Nazwa domeny** wpisz nazwę domeny systemu Windows.
+4.  W polu **nazwa domeny** wpisz nazwę domeny systemu Windows.
 
-5.  W przypadku ustawienia **Połączenie z serwerem** wybierz jedną z następujących opcji:
+5.  Dla ustawienia **połączenie z serwerem** wybierz jedną z następujących opcji:
 
-    * Wybierz **opcję Użyj puli,** aby skonfigurować wysoką dostępność dla serwera AAA.
+    * Wybierz pozycję **Użyj puli** , aby skonfigurować wysoką dostępność serwera AAA.
 
-    * Wybierz **opcję Bezpośredni,** aby skonfigurować serwer AAA dla funkcji autonomicznych.
+    * Wybierz pozycję **Direct** , aby skonfigurować serwer AAA dla funkcjonalności autonomicznej.
 
-6.  Jeśli wybrano opcję **Bezpośrednia,** wpisz nazwę w polu **Kontroler domeny.**
+6.  W przypadku wybrania **bezpośrednie**wpisz nazwę w polu **kontroler domeny** .
 
-7.  Jeśli wybrano opcję Użyj **puli,** skonfiguruj pulę:
+7.  Jeśli wybrano opcję Użyj **puli**, skonfiguruj pulę:
 
-    * Wpisz nazwę w polu **Nazwa puli kontrolera domeny.**
+    * Wpisz nazwę w polu **Nazwa puli kontrolera domeny** .
 
-    * Określ **kontrolery domeny** w puli, wpisując adres IP i nazwę hosta dla każdego z nich i klikając przycisk **Dodaj.**
+    * Określ **kontrolery domeny** w puli, wpisując adres IP i nazwę hosta dla każdego z nich, a następnie klikając przycisk **Dodaj** .
 
-    * Aby monitorować kondycję serwera AAA, masz możliwość wybrania monitora kondycji: w tym przypadku odpowiedni jest tylko monitor **gateway_icmp;** można go wybrać z listy **Monitor puli serwerów.**
+    * Aby monitorować kondycję serwera AAA, można wybrać monitor kondycji: w tym przypadku jest odpowiedni tylko monitor **gateway_icmp** . można wybrać ją z listy **Monitor puli serwerów** .
 
-8.  W polu **Nazwa administratora** wpisz nazwę z uwzględnieniem wielkości liter dla administratora, który ma uprawnienia administracyjne usługi Active Directory. Program APM używa informacji w polach **Nazwa administratora** i **Hasło administratora** dla kwerendy AD. Jeśli usługa Active Directory jest skonfigurowana dla kwerend anonimowych, nie trzeba podawać nazwy administratora. W przeciwnym razie usługa APM potrzebuje konta z wystarczającymi uprawnieniami do powiązania z serwerem usługi Active Directory, pobrania informacji o grupie użytkowników i pobrania zasad haseł usługi Active Directory w celu obsługi funkcji związanych z hasłem. (APM musi pobrać zasady haseł, na przykład, jeśli wybierzesz opcję Monituj użytkownika, aby zmienić hasło przed wygaśnięciem w akcji kwerendy usługi AD). Jeśli nie podasz informacji o koncie administratora w tej konfiguracji, APM używa konta użytkownika do pobierania informacji. Działa to, jeśli konto użytkownika ma wystarczające uprawnienia.
+8.  W polu **nazwa administratora** wpisz nazwę z uwzględnieniem wielkości liter dla administratora, który ma Active Directory uprawnienia administracyjne. System APM używa informacji w polach **nazwa administratora** i **hasło administratora** dla kwerendy AD. Jeśli Active Directory jest skonfigurowany dla zapytań anonimowych, nie trzeba podawać nazwy administratora. W przeciwnym razie system APM potrzebuje konta z wystarczającymi uprawnieniami do powiązania z serwerem Active Directory, pobierania informacji o grupie użytkowników i pobierania Active Directory zasad haseł w celu obsługi funkcji związanych z hasłami. (System APM musi pobrać zasady haseł, na przykład w przypadku wybrania opcji Monituj użytkownika o zmianę hasła przed wygaśnięciem w akcji kwerendy AD). Jeśli nie podasz informacji o koncie administratora w tej konfiguracji, system APM używa konta użytkownika do pobierania informacji. Ta wartość działa, jeśli konto użytkownika ma wystarczające uprawnienia.
 
-9.  W polu **Hasło administratora** wpisz hasło administratora skojarzone z nazwą domeny.
+9.  W polu **hasło administratora** wpisz hasło administratora skojarzone z nazwą domeny.
 
-10. W polu **Weryfikuj hasło administratora** wpisz ponownie hasło administratora skojarzone z ustawieniem **Nazwa domeny.**
+10. W polu **Weryfikuj hasło administratora** wpisz ponownie hasło administratora skojarzone z ustawieniem **nazwa domeny** .
 
-11. W polu **Okres istnienia pamięci podręcznej grupy** wpisz liczbę dni. Domyślny okres istnienia wynosi 30 dni.
+11. W polu **okres istnienia pamięci podręcznej grupy** wpisz liczbę dni. Domyślny okres istnienia to 30 dni.
 
-12. W polu **Okres istnienia pamięci podręcznej obiektów zabezpieczeń haseł** wpisz liczbę dni. Domyślny okres istnienia wynosi 30 dni.
+12. W polu **okres istnienia pamięci podręcznej obiektu zabezpieczeń hasła** wpisz liczbę dni. Domyślny okres istnienia to 30 dni.
 
-13. Z listy **Typ szyfrowania wstępnego protokołu Kerberos** wybierz typ szyfrowania. Wartość domyślna to **Brak**. Jeśli określisz typ szyfrowania, system BIG-IP zawiera dane preauthentication protokołu Kerberos w pakiecie pierwszego żądania usługi uwierzytelniania (AS-REQ).
+13. Z listy **typ szyfrowania wstępnego uwierzytelniania Kerberos** wybierz typ szyfrowania. Wartość domyślna to **none**. W przypadku określenia typu szyfrowania system BIG-IP zawiera dane wstępnego uwierzytelniania Kerberos w ramach pierwszego żądania usługi uwierzytelniania (zgodnie z żądaniem).
 
-14. W polu **Limit czasu** wpisz interwał limitu czasu (w sekundach) dla serwera AAA. (To ustawienie jest opcjonalne).
+14. W polu **limit czasu** wpisz przedział czasu (w sekundach) dla serwera AAA. (To ustawienie jest opcjonalne).
 
-15. Kliknij pozycję **Zakończone**. Nowy serwer jest wyświetlany na liście. Spowoduje to dodanie nowego serwera usługi Active Directory do listy Serwery usługi Active Directory.
+15. Kliknij przycisk **Zakończono**. Nowy serwer zostanie wyświetlony na liście. Spowoduje to dodanie nowego serwera Active Directory do listy serwerów Active Directory.
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure17.png)
 
 ### <a name="saml-configuration"></a>Konfiguracja SAML
 
-1. Należy zaimportować certyfikat metadanych do F5, który będzie używany w dalszej części procesu instalacji. Przejdź do **pozycji Zarządzanie certyfikatami > systemowymi > zarządzanie certyfikatami ruchu > listę certyfikatów SSL**. Wybierz **pozycję Importuj** z prawego rogu.
+1. Konieczne będzie zaimportowanie certyfikatu metadanych do F5, który będzie używany później w procesie instalacji. Przejdź do **systemu > zarządzanie certyfikatami > zarządzania certyfikatami, > listy certyfikatów SSL**. Wybierz pozycję **Importuj** z prawej strony.
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure18.png)
 
-2. Aby skonfigurować dostawcę tożsamości SAML, **przejdź do pozycji > > > > SAML: Usługodawca > zewnętrzne łączniki Idp**i kliknij przycisk **Utwórz > z metadanych**.
+2. Aby skonfigurować dostawcy tożsamości SAML, **Przejdź do opcji dostęp > federacyjnej > SAML: Service Provider > zewnętrznych łączników dostawcy tożsamości**, a następnie kliknij pozycję **Utwórz > z metadanych**.
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure19.png)
 
@@ -344,55 +344,55 @@ Serwer AAA usługi Active Directory jest skonfigurowany w Menedżerze zasad dost
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure24.png)
 
-1. Aby skonfigurować dodatek SAML SP, przejdź do **usługi Access > Federation > SAML Service Provider > Local SP Services** i kliknij przycisk **Utwórz**. Uzupełnij następujące informacje i kliknij przycisk **OK**.
+1. Aby skonfigurować protokół SAML SP, przejdź do opcji **dostęp > federacyjnego > dostawcy usługi SAML > lokalnych usług Sp** , a następnie kliknij przycisk **Utwórz**. Uzupełnij poniższe informacje i kliknij przycisk **OK**.
 
     * Nazwa typu: KerbApp200SAML
-    * Identyfikator jednostki*:https://kerbapp200.superdemo.live
-    * Ustawienia nazwy SP
+    * Identyfikator jednostki *:https://kerbapp200.superdemo.live
+    * Ustawienia nazw SP
     * Schemat: https
-    * Gospodarz: kerbapp200.superdemo.live
-    * Opis: kerbapp200.superdemo.live
+    * Host: kerbapp200. predemonstracyjny. Live
+    * Opis: kerbapp200. predemonstracyjny. Live
 
      ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure25.png)
 
-     b. Wybierz opcję Konfiguracja SP, KerbApp200SAML i kliknij pozycję **Bind/UnBind IdP Connectors**.
+     b. Wybierz pozycję Konfiguracja SP, KerbApp200SAML, a następnie kliknij pozycję **Powiązywanie/Usuwanie powiązania dostawcy tożsamości łączników**.
 
      ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure26.png)
 
      ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure27.png)
 
-     d. Kliknij pozycję **Dodaj nowy wiersz** i wybierz łącznik **Zewnętrzny IdP** utworzony w poprzednim kroku, kliknij pozycję **Aktualizuj**, a następnie kliknij przycisk **OK**.
+     c. Kliknij przycisk **Dodaj nowy wiersz** i wybierz **zewnętrzny łącznik dostawcy tożsamości** utworzony w poprzednim kroku, kliknij przycisk **Aktualizuj**, a następnie kliknij przycisk **OK**.
 
      ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure28.png)
 
-1. Aby skonfigurować protokół SSO protokołu Kerberos, przejdź do **pozycji Dostęp > logowania jednokrotnego > protokołu Kerberos**, pełne informacje i kliknij przycisk **Zakończone**.
+1. Aby skonfigurować Logowanie jednokrotne protokołu Kerberos, przejdź do **dostępu > logowanie**jednokrotne > Kerberos, pełne informacje i kliknij przycisk **Zakończono**.
 
     >[!Note]
-    > Konto delegowania Protokołu Kerberos będzie potrzebne do utworzenia i określenia. Zapoznaj się z sekcją KCD (zapoznaj się z dodatkiem do odniesień do zmiennych)
+    > Konieczne będzie utworzenie i określenie konta delegowania protokołu Kerberos. Odwołaj się do KCD sekcji (zobacz dodatek dla odwołań do zmiennych)
 
-    * **Źródło nazwy użytkownika:** session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
+    * **Źródło nazwy użytkownika**: Session. SAML. Last. ATTR. Name. http\/:/schemas.xmlsoap.org/ws/2005/05/identity/claims/givenName
 
-    * **Źródło obszaru użytkownika:** session.logn.last.domain
+    * **Źródło obszaru użytkownika**: Session. Logon. Last. domain
 
         ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure29.png)
 
-1. Aby skonfigurować profil programu Access, przejdź do **pozycji Profil/Zasady > programu Access > profil dostępu (na zasady sesji),** kliknij przycisk **Utwórz, uzupełnij**następujące informacje i kliknij przycisk **Zakończone**.
+1. W celu skonfigurowania profilu dostępu przejdź do **dostępu > profilu/zasad > profilu dostępu (dla zasad sesji)**, kliknij przycisk **Utwórz**, uzupełnij poniższe informacje i kliknij przycisk **Zakończono**.
 
     * Nazwa: KerbApp200
-    * Typ profilu: Wszystkie
-    * Zakres profilu: Profil
+    * Typ profilu: wszystkie
+    * Zakres profilu: profil
     * Języki: angielski
 
         ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure30.png)
 
-1. Kliknij nazwę KerbApp200, uzupełnij następujące informacje i kliknij **przycisk Aktualizuj**.
+1. Kliknij nazwę, KerbApp200, wykonaj poniższe informacje, a następnie kliknij przycisk **Aktualizuj**.
 
-    * Plik cookie domeny: superdemo.live
-    * Konfiguracja sytomów: KerAppSSO_sso
+    * Plik cookie domeny: niedemonstracja. Live
+    * Konfiguracja logowania jednokrotnego: KerAppSSO_sso
 
         ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure31.png)
 
-1. Kliknij **pozycję Zasady dostępu,** a następnie kliknij pozycję **Edytuj zasady dostępu** dla profilu "KerbApp200".
+1. Kliknij pozycję **zasady dostępu** , a następnie kliknij pozycję **Edytuj zasady dostępu** dla profilu "KerbApp200".
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure32.png)
 
@@ -400,26 +400,26 @@ Serwer AAA usługi Active Directory jest skonfigurowany w Menedżerze zasad dost
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure34.png)
 
-    * **session.logn.last.usernameUPN expr {[mcget {session.saml.last.identity}]}**
+    * **Session. Logon. Last. usernameUPN Expr {[mcget {Session. SAML. Last. Identity}]}**
 
-    * **session.ad.lastactualdomain TEKST superdemo.live**
+    * **preprezentacja tekstu Session. AD. lastactualdomain. Live**
 
         ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure35.png)
 
-    * **(userPrincipalName=%{session.logn.last.usernameUPN})**
+    * **(userPrincipalName =% {Session. Logon. Last. usernameUPN})**
 
         ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure36.png)
 
         ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure37.png)
 
-    * **session.logn.last.username expr { "[mcget {session.ad.last.attr.sAMAccountName}]" } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } } }**
+    * **Session. Logon. Last. username Expr {"[mcget {Session. AD. Last. ATTR. sAMAccountName}]"}**
 
         ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure38.png)
 
-    * **mcget {session.loginn.last.username}**
-    * **mcget {session.logn.last.password**
+    * **mcget {Session. Logon. Last. username}**
+    * **mcget {Session. Logon. Last. Password**
 
-1. Aby dodać nowy węzeł, przejdź do **pozycji Ruch lokalny > węzły > listę węzłów, kliknij przycisk Utwórz,** uzupełnij następujące informacje, a następnie kliknij przycisk **Zakończone**.
+1. Aby dodać nowy węzeł, przejdź do węzła **ruch lokalny > węzły > listy węzłów, kliknij przycisk Utwórz**, uzupełnij poniższe informacje, a następnie kliknij przycisk **Zakończono**.
 
     * Nazwa: KerbApp200
     * Opis: KerbApp200
@@ -427,23 +427,23 @@ Serwer AAA usługi Active Directory jest skonfigurowany w Menedżerze zasad dost
 
         ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure39.png)
 
-1. Aby utworzyć nową pulę, przejdź do pozycji **Ruch lokalny > Puly > lista puli, kliknij przycisk Utwórz,** uzupełnij następujące informacje i kliknij przycisk **Zakończone**.
+1. W celu utworzenia nowej puli przejdź do **Przystawka ruch lokalny > pule > puli, kliknij przycisk Utwórz**, uzupełnij poniższe informacje i kliknij przycisk **Zakończono**.
 
     * Nazwa: KerbApp200-Pool
     * Opis: KerbApp200-Pool
-    * Monitory zdrowia: http
+    * Monitory kondycji: http
     * Adres: 192.168.20.200
-    * Port serwisowy: 81
+    * Port usługi: 81
 
         ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure40.png)
 
-1. Aby utworzyć serwer wirtualny, przejdź do **pozycji Ruch lokalny > serwery wirtualne > lista serwerów wirtualnych > +**, uzupełnij następujące informacje i kliknij przycisk **Zakończone**.
+1. W celu utworzenia serwera wirtualnego przejdź do obszarze **ruch lokalny > serwery wirtualne > listy serwerów wirtualnych > +**, uzupełnij poniższe informacje i kliknij przycisk **Zakończ**.
 
     * Nazwa: KerbApp200
-    * Adres docelowy/maska: Host 192.168.30.200
-    * Port usługi: Port 443 HTTPS
+    * Adres docelowy/maska: 192.168.30.200 hosta
+    * Port usługi: port 443 HTTPS
     * Profil dostępu: KerbApp200
-    * Określanie profilu programu Access utworzonego w poprzednim kroku
+    * Określ Profil dostępu utworzony w poprzednim kroku
 
         ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure41.png)
 
@@ -452,40 +452,40 @@ Serwer AAA usługi Active Directory jest skonfigurowany w Menedżerze zasad dost
 ### <a name="setting-up-kerberos-delegation"></a>Konfigurowanie delegowania protokołu Kerberos 
 
 >[!NOTE]
->Aby uzyskać informacje, kliknij [tutaj](https://www.f5.com/pdf/deployment-guides/kerberos-constrained-delegation-dg.pdf)
+>Aby uzyskać odwołanie, kliknij [tutaj](https://www.f5.com/pdf/deployment-guides/kerberos-constrained-delegation-dg.pdf)
 
-*  **Krok 1:** Tworzenie konta delegowania
+*  **Krok 1:** Utwórz konto delegowania
 
     **Przykład:**
-    * Nazwa domeny: **superdemo.live**
+    * Nazwa domeny: **preprezentacja. Live**
 
-    * Sam Nazwa konta: **big-ipuser**
+    * Nazwa konta sam: **Big-ipuser**
 
-    * New-ADUser -Name "APM Delegation Account" -UserPrincipalName host/big-ipuser.superdemo.live@superdemo.live -SamAccountName "big-ipuser" -PasswordNeverExpires $true -Enabled $true -AccountPassword (Read-Host -AsSecureString "Password!1234")
+    * New-ADUser-Name "konto delegowania APM"- host/big-ipuser.superdemo.live@superdemo.live userPrincipalName-sAMAccountName "Big-ipuser"-PasswordNeverExpires $true-Enabled $true-AccountPassword (read-host-assecurestring "Password! 1234")
 
 * **Krok 2:** Ustawianie nazwy SPN (na koncie delegowania APM)
 
     **Przykład:**
-    * setspn **-Host/big-ipuser.superdemo.live** big-ipuser
+    * Setspn — **host/Big-ipuser. predemonstracyjny. Live** Big-ipuser
 
-* **Krok 3:** Delegowanie nazwy SPN (dla konta usługi app service) Skonfiguruj odpowiednie delegowanie dla konta delegowania F5.
-    W poniższym przykładzie konto delegowania APM jest konfigurowane dla KCD dla FRP-App1.superdemo. aplikacji na żywo.
+* **Krok 3.** Delegowanie nazwy SPN (dla konta App Service) skonfiguruj odpowiednie delegowanie dla konta delegowania F5.
+    W poniższym przykładzie konto delegowania APM jest konfigurowane do KCD for FRP-APP1. predemonstracyjne. Aplikacja na żywo.
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure43.png)
 
-* Podaj szczegóły wymienione w powyższym dokumencie referencyjnym w [niniejszym](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)dokumencie .
+* Podaj szczegóły, jak wspomniano w powyższym dokumencie [referencyjnym.](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)
 
-### <a name="create-f5-test-user"></a>Tworzenie użytkownika testowego F5
+### <a name="create-f5-test-user"></a>Utwórz użytkownika testowego F5
 
-W tej sekcji utworzysz użytkownika o nazwie B.Simon w F5. Współpracuj z [zespołem pomocy technicznej klienta F5,](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) aby dodać użytkowników na platformie F5. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego. 
+W tej sekcji utworzysz użytkownika o nazwie B. Simon w F5. Pracuj z [zespołem pomocy technicznej dla klientów F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) , aby dodać użytkowników na platformie F5. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego. 
 
-## <a name="test-sso"></a>Test SSO 
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka F5 w Panelu dostępu należy automatycznie zalogować się do F5, dla którego skonfigurowano logującą się logującą logującą. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka F5 w panelu dostępu należy automatycznie zalogować się do F5, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
@@ -493,9 +493,9 @@ Po kliknięciu kafelka F5 w Panelu dostępu należy automatycznie zalogować si�
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Wypróbuj F5 z usługą Azure AD](https://aad.portal.azure.com/)
+- [Wypróbuj usługę Azure AD](https://aad.portal.azure.com/)
 
-- [Konfigurowanie logowania jednokrotnego F5 dla aplikacji opartej na nagłówku](headerf5-tutorial.md)
+- [Konfigurowanie logowania jednokrotnego dla aplikacji na podstawie nagłówka](headerf5-tutorial.md)
 
-- [Konfigurowanie logowania jednokrotnego F5 dla zaawansowanej aplikacji Protokołu Kerberos](advance-kerbf5-tutorial.md)
+- [Konfigurowanie logowania jednokrotnego w przypadku zaawansowanej aplikacji Kerberos](advance-kerbf5-tutorial.md)
 
