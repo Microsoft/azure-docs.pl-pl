@@ -1,6 +1,6 @@
 ---
-title: Usługa Azure AD Connect inicjująca inicjowanie obsługi administracyjnej nowej konfiguracji agenta
-description: W tym artykule opisano sposób instalowania inicjowania obsługi administracyjnej w chmurze.
+title: Azure AD Connect nową konfigurację agenta aprowizacji w chmurze
+description: W tym artykule opisano sposób instalowania aprowizacji w chmurze.
 services: active-directory
 author: billmath
 manager: daveba
@@ -12,83 +12,83 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c086227d23901cb7904d8cc0a768e9f4b5ad43db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77620974"
 ---
-# <a name="create-a-new-configuration-for-azure-ad-connect-cloud-based-provisioning"></a>Tworzenie nowej konfiguracji dla obsługi administracyjnej opartej na chmurze usługi Azure AD Connect
+# <a name="create-a-new-configuration-for-azure-ad-connect-cloud-based-provisioning"></a>Utwórz nową konfigurację dla Azure AD Connect aprowizacji opartej na chmurze
 
-Po zainstalowaniu agenta należy zalogować się do witryny Azure portal i skonfigurować inicjowanie obsługi administracyjnej chmury usługi Azure Active Directory (Azure AD) Connect. Wykonaj następujące kroki, aby włączyć agenta.
+Po zainstalowaniu agenta należy zalogować się do Azure Portal i skonfigurować usługę Azure Active Directory (Azure AD) łączenie się z obsługą chmury. Wykonaj następujące kroki, aby włączyć agenta.
 
-## <a name="configure-provisioning"></a>Konfigurowanie inicjowania obsługi administracyjnej
-Aby skonfigurować inicjowanie obsługi administracyjnej, wykonaj następujące kroki.
-
-1.  W witrynie Azure Portal wybierz pozycję **Azure Active Directory**.
-1.  Wybierz **usługę Azure AD Connect**.
-1.  Wybierz **pozycję Zarządzaj inicjowania obsługi administracyjnej (Wersja zapoznawcza)**.
-
-    ![Zarządzanie inicjowania obsługi administracyjnej (wersja zapoznawcza)](media/how-to-configure/manage1.png)
-
-1.  Wybierz **pozycję Nowa konfiguracja**.
-1.  Na ekranie konfiguracji domena lokalna jest wstępnie wypełniona.
-1.  Wprowadź **wiadomość e-mail z powiadomieniem**. Ten e-mail zostanie powiadomiony, gdy inicjowanie obsługi administracyjnej nie jest w dobrej kondycji.
-1.  Przesuń selektor do **enable**i wybierz pozycję **Zapisz**.
-
-    ![Inicjowanie obsługi administracyjnej usługi Azure AD (wersja zapoznawcza)](media/tutorial-single-forest/configure2.png)
-
-## <a name="scope-provisioning-to-specific-users-and-groups"></a>Inicjowanie obsługi administracyjnej zakresu określonym użytkownikom i grupom
-Można wyzwać agenta, aby zsynchronizować określonych użytkowników i grupy przy użyciu lokalnych grup usługi Active Directory lub jednostek organizacyjnych. Nie można skonfigurować grup i jednostek organizacyjnych w ramach konfiguracji. 
+## <a name="configure-provisioning"></a>Konfigurowanie aprowizacji
+Aby skonfigurować Inicjowanie obsługi, wykonaj następujące kroki.
 
 1.  W witrynie Azure Portal wybierz pozycję **Azure Active Directory**.
-1.  Wybierz **usługę Azure AD Connect**.
-1.  Wybierz **pozycję Zarządzaj inicjowania obsługi administracyjnej (Wersja zapoznawcza)**.
+1.  Wybierz **Azure AD Connect**.
+1.  Wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
+
+    ![Zarządzanie obsługą administracyjną (wersja zapoznawcza)](media/how-to-configure/manage1.png)
+
+1.  Wybierz pozycję **Nowa konfiguracja**.
+1.  Na ekranie Konfiguracja jest wstępnie wypełniona domena lokalna.
+1.  Wprowadź **wiadomość e-mail z powiadomieniem**. Ta wiadomość e-mail zostanie powiadomiona, gdy obsługa administracyjna nie jest w dobrej kondycji.
+1.  Przenieś selektor, aby go **włączyć**, a następnie wybierz pozycję **Zapisz**.
+
+    ![Inicjowanie obsługi usługi Azure AD (wersja zapoznawcza)](media/tutorial-single-forest/configure2.png)
+
+## <a name="scope-provisioning-to-specific-users-and-groups"></a>Inicjowanie obsługi zakresu dla określonych użytkowników i grup
+Można ograniczyć agenta do synchronizowania określonych użytkowników i grup za pomocą lokalnych grup Active Directory lub jednostek organizacyjnych. W ramach konfiguracji nie można konfigurować grup i jednostek organizacyjnych. 
+
+1.  W witrynie Azure Portal wybierz pozycję **Azure Active Directory**.
+1.  Wybierz **Azure AD Connect**.
+1.  Wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
 1.  W obszarze **Konfiguracja**wybierz konfigurację.
 
-    ![Sekcja Konfiguracji](media/how-to-configure/scope1.png)
+    ![Sekcja konfiguracji](media/how-to-configure/scope1.png)
 
-1.  W obszarze **Konfiguruj**wybierz pozycję **Wszyscy użytkownicy,** aby zmienić zakres reguły konfiguracji.
+1.  W obszarze **Konfiguracja**wybierz pozycję **Wszyscy użytkownicy** , aby zmienić zakres reguły konfiguracji.
 
-    ![Opcja Wszyscy użytkownicy](media/how-to-configure/scope2.png)
+    ![Opcja wszyscy użytkownicy](media/how-to-configure/scope2.png)
 
-1. Po prawej stronie można zmienić zakres, aby uwzględnić tylko grupy zabezpieczeń. Wprowadź nazwę wyróżniającą grupy i wybierz pozycję **Dodaj**.
+1. Po prawej stronie można zmienić zakres, aby uwzględnić tylko grupy zabezpieczeń. Wprowadź nazwę wyróżniającą grupy, a następnie wybierz pozycję **Dodaj**.
 
-    ![Wybrana opcja grup zabezpieczeń](media/how-to-configure/scope3.png)
+    ![Wybrane opcje grup zabezpieczeń](media/how-to-configure/scope3.png)
 
-1.  Można też zmienić zakres, aby uwzględnić tylko określone jednostki organizacyjne. Wybierz **pozycję Gotowe** i **zapisz**.  
-2.  Po zmianie zakresu należy [ponownie uruchomić inicjowanie obsługi administracyjnej,](#restart-provisioning) aby zainicjować natychmiastową synchronizację zmian.
+1.  Lub można zmienić zakres, aby uwzględnić tylko określone jednostki organizacyjne. Wybierz pozycję **gotowe** i **Zapisz**.  
+2.  Po zmianie zakresu należy [ponownie uruchomić Inicjowanie obsługi](#restart-provisioning) , aby zainicjować natychmiastową synchronizację zmian.
 
-    ![Wybrana opcja jednostek organizacyjnych](media/how-to-configure/scope4.png)
+    ![Opcja wybranej jednostki organizacyjnej](media/how-to-configure/scope4.png)
 
 
-## <a name="restart-provisioning"></a>Ponowne uruchamianie obsługi administracyjnej 
-Jeśli nie chcesz czekać na następne zaplanowane uruchomienie, wyzwolić inicjowanie obsługi administracyjnej uruchomione przy użyciu przycisku **inicjowania obsługi administracyjnej ponownego uruchamiania.** 
+## <a name="restart-provisioning"></a>Ponowne uruchamianie aprowizacji 
+Jeśli nie chcesz czekać na następne zaplanowane uruchomienie, wyzwól uruchomienie aprowizacji za pomocą przycisku **ponowne Inicjowanie obsługi administracyjnej** . 
 1.  W witrynie Azure Portal wybierz pozycję **Azure Active Directory**.
-1.  Wybierz **usługę Azure AD Connect**.
-1.  Wybierz **pozycję Zarządzaj inicjowania obsługi administracyjnej (Wersja zapoznawcza)**.
+1.  Wybierz **Azure AD Connect**.
+1.  Wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
 1.  W obszarze **Konfiguracja**wybierz konfigurację.
 
-    ![Wybór konfiguracji w celu ponownego uruchomienia inicjowania obsługi administracyjnej](media/how-to-configure/scope1.png)
+    ![Wybór konfiguracji w celu ponownego uruchomienia aprowizacji](media/how-to-configure/scope1.png)
 
-1.  U góry wybierz pozycję **Uruchom ponownie inicjowanie obsługi administracyjnej**.
+1.  W górnej części wybierz pozycję **Uruchom ponownie Inicjowanie obsługi**.
 
-## <a name="remove-a-configuration"></a>Usuwanie konfiguracji
+## <a name="remove-a-configuration"></a>Usuń konfigurację
 Aby usunąć konfigurację, wykonaj następujące kroki.
 
 1.  W witrynie Azure Portal wybierz pozycję **Azure Active Directory**.
-1.  Wybierz **usługę Azure AD Connect**.
-1.  Wybierz **pozycję Zarządzaj inicjowania obsługi administracyjnej (Wersja zapoznawcza)**.
+1.  Wybierz **Azure AD Connect**.
+1.  Wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
 1.  W obszarze **Konfiguracja**wybierz konfigurację.
 
     ![Wybór konfiguracji w celu usunięcia konfiguracji](media/how-to-configure/scope1.png)
 
-1.  U góry ekranu konfiguracji wybierz pozycję **Usuń**.
+1.  W górnej części ekranu konfiguracja wybierz pozycję **Usuń**.
 
     ![Przycisk Usuń](media/how-to-configure/remove1.png)
 
 >[!IMPORTANT]
->Nie ma potwierdzenia przed usunięciem konfiguracji. Upewnij się, że jest to akcja, którą chcesz wykonać przed **wybraniem**opcji Usuń .
+>Nie ma potwierdzenia przed usunięciem konfiguracji. Upewnij się, że jest to akcja, którą chcesz wykonać przed wybraniem opcji **Usuń**.
 
 
 ## <a name="next-steps"></a>Następne kroki 

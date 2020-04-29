@@ -1,6 +1,6 @@
 ---
-title: Wdrażanie dodatku SAP IDES EHP7 z dodatku SP3 dla systemu SAP ERP 6.0 na platformie Azure | Dokumenty firmy Microsoft
-description: Wdrażanie dodatku SAP IDES EHP7 z dodatku SP3 dla systemu SAP ERP 6.0 na platformie Azure
+title: Wdrażanie oprogramowania SAP środowisk IDE EHP7 SP3 dla oprogramowania SAP ERP 6,0 na platformie Azure | Microsoft Docs
+description: Wdrażanie programu SAP środowisk IDE EHP7 SP3 dla oprogramowania SAP ERP 6,0 na platformie Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: hermanndms
@@ -16,112 +16,112 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
 ms.openlocfilehash: 3efd92226b7c69590f3960458ffec49b63b8364f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77616704"
 ---
-# <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Wdrażanie dodatku SAP IDES EHP7 z dodatku SP3 dla systemu SAP ERP 6.0 na platformie Azure
-W tym artykule opisano sposób wdrażania systemu SAP IDES działającego z programem SQL Server i systemu operacyjnego Windows na platformie Azure za pośrednictwem biblioteki SAP Cloud Appliance Library (SAP CAL) 3.0. Zrzuty ekranu pokazują proces krok po kroku. Aby wdrożyć inne rozwiązanie, wykonaj te same kroki.
+# <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Wdrażanie programu SAP środowisk IDE EHP7 SP3 dla oprogramowania SAP ERP 6,0 na platformie Azure
+W tym artykule opisano sposób wdrażania systemu SAP środowisk IDE z systemem SQL Server i systemem operacyjnym Windows na platformie Azure za pośrednictwem biblioteki urządzeń SAP w chmurze (SAP CAL) 3,0. Zrzuty ekranu przedstawiają proces krok po kroku. Aby wdrożyć inne rozwiązanie, wykonaj te same czynności.
 
-Aby rozpocząć od biblioteki CAL SAP, przejdź do [witryny SAP Cloud Appliance Library.](https://cal.sap.com/) SAP ma również bloga o nowej [bibliotece SAP Cloud Appliance Library 3.0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
+Aby rozpocząć od licencji SAP CAL, przejdź do witryny sieci Web z [biblioteką urządzeń SAP Cloud](https://cal.sap.com/) . W oprogramowaniu SAP znajduje się również Blog dotyczący nowej [biblioteki urządzeń w chmurze sap 3,0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
 > [!NOTE]
-> Od 29 maja 2017 r. można użyć modelu wdrażania usługi Azure Resource Manager oprócz mniej preferowanego modelu wdrażania klasycznego w celu wdrożenia narzędzia SAP CAL. Zaleca się użycie nowego modelu wdrażania Menedżera zasobów i pominięcie klasycznego modelu wdrażania.
+> Od 29 maja 2017, można użyć modelu wdrażania Azure Resource Manager oprócz niepreferowanego klasycznego modelu wdrażania do wdrożenia SAP CAL. Zalecamy używanie nowego modelu wdrażania Menedżer zasobów i pomijanie klasycznego modelu wdrażania.
 
-Jeśli utworzono już konto SAP CAL, które korzysta z modelu klasycznego, *należy utworzyć inne konto SAP CAL*. To konto musi być wdrażane wyłącznie na platformie Azure przy użyciu modelu Usługi Resource Manager.
+Jeśli utworzono już konto SAP CAL, które korzysta z modelu klasycznego, należy *utworzyć inne konto SAP cal*. To konto musi być wdrażane wyłącznie na platformie Azure przy użyciu modelu Menedżer zasobów.
 
-Po zalogowaniu się do środowiska SAP CAL pierwsza strona zwykle prowadzi do strony **Rozwiązania.** Rozwiązania oferowane w sap CAL stale rosną, więc może być konieczne przewinięcie sporo, aby znaleźć rozwiązanie, które chcesz. Wyróżnione rozwiązanie SAP IDES oparte na systemie Windows, które jest dostępne wyłącznie na platformie Azure, pokazuje proces wdrażania:
+Po zalogowaniu się do licencji SAP CAL pierwsza strona zwykle prowadzi do strony **rozwiązania** . Rozwiązania oferowane w oprogramowaniu SAP CAL są stale zwiększane, więc konieczne może być przewinięcie w jakiś sposób, aby znaleźć potrzebne rozwiązanie. Wyróżnione rozwiązanie SAP środowisk IDE oparte na systemie Windows, które jest dostępne wyłącznie na platformie Azure, demonstruje proces wdrażania:
 
 ![Rozwiązania SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic1.jpg)
 
-### <a name="create-an-account-in-the-sap-cal"></a>Tworzenie konta w liczeczce SAP
-1. Aby zalogować się do środowiska SAP CAL po raz pierwszy, użyj użytkownika SAP S lub innego użytkownika zarejestrowanego w sap. Następnie zdefiniuj konto SAP CAL, które jest używane przez środowisko SAP CAL do wdrażania urządzeń na platformie Azure. W definicji konta musisz:
+### <a name="create-an-account-in-the-sap-cal"></a>Utwórz konto w licencji SAP CAL
+1. Aby zalogować się do licencji SAP CAL po raz pierwszy, użyj użytkownika SAP S lub innego użytkownika zarejestrowanego w oprogramowaniu SAP. Następnie Zdefiniuj konto SAP CAL, które jest używane przez SAP CAL do wdrożenia urządzeń na platformie Azure. W definicji konta należy:
 
     a. Wybierz model wdrażania na platformie Azure (Menedżer zasobów lub klasyczny).
 
-    b. Wprowadź subskrypcję platformy Azure. Konto SAP CAL można przypisać tylko do jednej subskrypcji. Jeśli potrzebujesz więcej niż jednej subskrypcji, musisz utworzyć inne konto SAP CAL.
+    b. Wprowadź subskrypcję platformy Azure. Konto SAP CAL może być przypisane tylko do jednej subskrypcji. Jeśli potrzebujesz więcej niż jednej subskrypcji, musisz utworzyć inne konto SAP CAL.
     
-    d. Nadaj uprawnieniaemu sap CAL do wdrożenia w ramach subskrypcji platformy Azure.
+    c. Nadaj uprawnienia SAP CAL do wdrożenia w ramach subskrypcji platformy Azure.
 
    > [!NOTE]
-   >  W następnych krokach pokazano, jak utworzyć konto SAP CAL dla wdrożeń Menedżera zasobów. Jeśli masz już konto SAP CAL, które jest połączone z klasycznym modelem wdrażania, *musisz* wykonać następujące kroki, aby utworzyć nowe konto SAP CAL. Nowe konto SAP CAL musi być wdrożone w modelu Menedżera zasobów.
+   >  W następnych krokach pokazano, jak utworzyć konto SAP CAL dla wdrożeń Menedżer zasobów. Jeśli masz już konto SAP CAL, które jest połączone z klasycznym modelem wdrażania *, musisz wykonać* następujące kroki, aby utworzyć nowe konto SAP cal. Nowe konto SAP CAL musi zostać wdrożone w modelu Menedżer zasobów.
 
-1. Aby utworzyć nowe konto SAP CAL, na stronie **Konta** przedstawiono dwie opcje dla platformy Azure: 
+1. Aby utworzyć nowe konto SAP CAL, na stronie **konta** są wyświetlane dwie opcje platformy Azure: 
 
-    a. **Microsoft Azure (klasyczny)** jest klasycznym modelem wdrażania i nie jest już preferowany.
+    a. **Microsoft Azure (klasyczny)** to klasyczny model wdrażania i nie jest już preferowany.
 
-    b. **Microsoft Azure** to nowy model wdrażania usługi Resource Manager.
+    b. **Microsoft Azure** jest nowym Menedżer zasobów modelem wdrażania.
 
     ![Konta SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
 
-    Aby wdrożyć w modelu Menedżera zasobów, wybierz pozycję **Microsoft Azure**.
+    Aby wdrożyć w modelu Menedżer zasobów, wybierz pozycję **Microsoft Azure**.
 
     ![Konta SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
 
-1. Wprowadź **identyfikator subskrypcji** platformy Azure, który można znaleźć w witrynie Azure portal. 
+1. Wprowadź **Identyfikator subskrypcji** platformy Azure, który można znaleźć na Azure Portal. 
 
     ![Identyfikator subskrypcji SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
 
-1. Aby autoryzować zdefiniowaną subskrypcję SAP CAL w celu wdrożenia w zdefiniowanej subskrypcji platformy Azure, kliknij przycisk **Autoryzuj**. Na karcie przeglądarki pojawi się następująca strona:
+1. Aby autoryzować licencję SAP CAL do wdrożenia w zdefiniowanej subskrypcji platformy Azure, kliknij przycisk **Autoryzuj**. Na karcie Przeglądarka zostanie wyświetlona następująca strona:
 
-    ![Logowanie się do usług w chmurze programu Internet Explorer](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic4c.PNG)
+    ![Logowanie do usług w chmurze programu Internet Explorer](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic4c.PNG)
 
-1. Jeśli na liście znajduje się więcej niż jeden użytkownik, wybierz konto Microsoft, które jest połączone jako współadministrator wybranej subskrypcji platformy Azure. Na karcie przeglądarki pojawi się następująca strona:
+1. Jeśli na liście znajduje się więcej niż jeden użytkownik, wybierz konto Microsoft, który jest powiązany z tym współadministratorem wybranej subskrypcji platformy Azure. Na karcie Przeglądarka zostanie wyświetlona następująca strona:
 
     ![Potwierdzenie usług w chmurze programu Internet Explorer](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic5a.PNG)
 
-1. Kliknij przycisk **Zaakceptuj**. Jeśli autoryzacja zakończy się pomyślnie, definicja konta SAP CAL zostanie wyświetlona ponownie. Po krótkim czasie komunikat potwierdza, że proces autoryzacji zakończył się pomyślnie.
+1. Kliknij przycisk **Zaakceptuj**. Jeśli autoryzacja zakończyła się pomyślnie, definicja konta SAP CAL zostanie wyświetlona ponownie. Po krótkim czasie komunikat potwierdza, że proces autoryzacji zakończył się pomyślnie.
 
-1. Aby przypisać nowo utworzone konto SAP CAL do użytkownika, wprowadź jego **identyfikator użytkownika** w polu tekstowym po prawej stronie i kliknij przycisk **Dodaj**. 
+1. Aby przypisać nowo utworzone konto SAP CAL do użytkownika, wprowadź swój **Identyfikator użytkownika** w polu tekstowym po prawej stronie, a następnie kliknij przycisk **Dodaj**. 
 
-    ![Powiązanie konta z użytkownikiem](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic8a.PNG)
+    ![Skojarzenie konta z użytkownikiem](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic8a.PNG)
 
-1. Aby skojarzyć swoje konto z użytkownikiem używanym do logowania się do środowiska SAP CAL, kliknij przycisk **Przejrzyj**. 
+1. Aby skojarzyć konto z użytkownikiem, którego używasz do logowania się do platformy SAP CAL, kliknij przycisk **Przeglądaj**. 
 
-1. Aby utworzyć skojarzenie między użytkownikiem a nowo utworzonym kontem SAP CAL, kliknij przycisk **Utwórz**.
+1. Aby utworzyć skojarzenie między użytkownikiem i nowo utworzonym kontem SAP CAL, kliknij przycisk **Utwórz**.
 
-    ![Skojarzenie między użytkownikiem a kontem](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic9b.PNG)
+    ![Skojarzenie użytkownika z kontem](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic9b.PNG)
 
-Pomyślnie utworzono konto SAP CAL, które może:
+Pomyślnie utworzono konto SAP CAL, które jest w stanie:
 
 - Użyj modelu wdrażania usługi Resource Manager.
-- Wdrażanie systemów SAP w ramach subskrypcji platformy Azure.
+- Wdróż systemy SAP w ramach subskrypcji platformy Azure.
 
 > [!NOTE]
-> Przed wdrożeniem rozwiązania SAP IDES opartego na systemach Windows i SQL Server może być konieczne utworzenie subskrypcji licencji SAP CAL. W przeciwnym razie rozwiązanie może pojawić się jako **zablokowane** na stronie przeglądu.
+> Aby można było wdrożyć rozwiązanie SAP środowisk IDE w oparciu o system Windows i SQL Server, może być konieczne zarejestrowanie się w celu skorzystania z subskrypcji SAP CAL. W przeciwnym razie rozwiązanie może być widoczne jako **zablokowane** na stronie Przegląd.
 
-### <a name="deploy-a-solution"></a>Wdrażanie rozwiązania
-1. Po skonfigurowaniu konta LICENCJI SAP wybierz **rozwiązanie SAP IDES w systemie Windows i SQL Server.** Kliknij **pozycję Utwórz wystąpienie**i potwierdź warunki użytkowania i warunków. 
+### <a name="deploy-a-solution"></a>Wdróż rozwiązanie
+1. Po skonfigurowaniu konta SAP CAL wybierz **rozwiązanie SAP środowisk IDE w systemie Windows i SQL Server** rozwiązanie. Kliknij pozycję **Utwórz wystąpienie**i Potwierdź warunki użytkowania. 
 
-1. Na stronie **Tryb podstawowy: Tworzenie wystąpienia** należy:
+1. Na stronie **Tryb podstawowy: Tworzenie wystąpienia** należy wykonać następujące instrukcje:
 
-    a. Wprowadź **nazwę**wystąpienia .
+    a. Wprowadź **nazwę**wystąpienia.
 
-    b. Wybierz **region**platformy Azure . Może być potrzebna subskrypcja SAP CAL, aby uzyskać wiele regionów platformy Azure oferowanych.
+    b. Wybierz **region**platformy Azure. Aby uzyskać dostęp do wielu dostępnych regionów platformy Azure, może być potrzebna subskrypcja SAP CAL.
 
-    d.  Wprowadź **hasło** główne rozwiązania, jak pokazano na rysunku:
+    c.  Wprowadź **hasło** główne dla rozwiązania, jak pokazano poniżej:
 
-    ![Tryb podstawowy SAP CAL: Utwórz wystąpienie](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
+    ![System SAP CAL Basic: Create instance](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
-1. Kliknij przycisk **Utwórz**. Po pewnym czasie, w zależności od rozmiaru i złożoności rozwiązania (środowisko CAL SAP zapewnia oszacowanie), stan jest wyświetlany jako aktywny i gotowy do użycia: 
+1. Kliknij przycisk **Utwórz**. Po pewnym czasie, w zależności od rozmiaru i złożoności rozwiązania (system SAP CAL zawiera oszacowanie), stan jest pokazywany jako aktywny i gotowy do użycia: 
 
-    ![Wystąpienia środowiska SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic12a.png)
+    ![Wystąpienia SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic12a.png)
 
-1. Aby znaleźć grupę zasobów i wszystkie jej obiekty, które zostały utworzone przez narzędzie CAL SAP, przejdź do witryny Azure portal. Maszynę wirtualną można znaleźć, zaczynając od tej samej nazwy wystąpienia, która została podana w pamięci CAL SAP.
+1. Aby znaleźć grupę zasobów i wszystkie obiekty, które zostały utworzone przez SAP CAL, przejdź do Azure Portal. Maszynę wirtualną można znaleźć, rozpoczynając od tej samej nazwy wystąpienia, która została dostarczona w licencji SAP CAL.
 
     ![Obiekty grupy zasobów](./media/cal-ides-erp6-ehp7-sp3-sql/ides_resource_group.PNG)
 
-1. W portalu SAP CAL przejdź do wdrożonych wystąpień i kliknij przycisk **Połącz**. Zostanie wyświetlenie następującego okna podręcznego: 
+1. W portalu SAP CAL przejdź do wdrożonych wystąpień, a następnie kliknij przycisk **Połącz**. Zostanie wyświetlone następujące okno podręczne: 
 
-    ![Łączenie się z wystąpieniem](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic14a.PNG)
+    ![Połącz z wystąpieniem](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic14a.PNG)
 
-1. Aby można było użyć jednej z opcji do łączenia się z wdrożonymi systemami, kliknij przycisk **Wprowadzenie**. Dokumentacja nazywa użytkowników dla każdej z metod łączności. Hasła dla tych użytkowników są ustawione na hasło główne zdefiniowane na początku procesu wdrażania. W dokumentacji inni użytkownicy bardziej funkcjonalni są wymienieni z hasłami, których można użyć do zalogowania się do wdrożonego systemu.
+1. Aby można było użyć jednej z opcji nawiązywania połączenia ze wdrożonymi systemami, kliknij opcję **przewodnik wprowadzenie**. Dokumentacja nazywa użytkowników dla każdej z metod łączności. Hasła dla tych użytkowników są ustawiane na hasło główne zdefiniowane na początku procesu wdrażania. W dokumentacji znajdują się inni użytkownicy o większej funkcjonalności z hasłami, których można użyć do zalogowania się do wdrożonego systemu.
 
-    ![Dokumentacja powitalna SAP](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic15.jpg)
+    ![Dokumentacja powitalna oprogramowania SAP](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic15.jpg)
 
-W ciągu kilku godzin na platformie Azure zostanie wdrożony zdrowy system SAP IDES.
+W ciągu kilku godzin kondycja systemu SAP środowisk IDE jest wdrażana na platformie Azure.
 
-Jeśli zakupiono subskrypcję sap cal, SAP w pełni obsługuje wdrożenia za pośrednictwem narzędzia SAP CAL na platformie Azure. Kolejka pomocy technicznej to BC-VCM-CAL.
+W przypadku zakupu subskrypcji SAP CAL system SAP w pełni obsługuje wdrożenia za pomocą SAP CAL na platformie Azure. Kolejka pomocy technicznej to BC-VCM-CAL.
 

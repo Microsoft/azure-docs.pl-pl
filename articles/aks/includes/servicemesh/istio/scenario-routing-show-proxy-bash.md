@@ -4,17 +4,17 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 8872ebc45294487f1a22c3417b308fe6267df613
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77594163"
 ---
 ```bash
 kubectl describe pod -l "app=voting-analytics, version=1.0" -n voting | egrep "istio-proxy:|voting-analytics:" -A2
 ```
 
-`istio-proxy` Kontener został automatycznie wstrzyknięty przez Istio do zarządzania ruchem sieciowym do i z komponentów, jak pokazano w poniższym przykładzie danych wyjściowych:
+`istio-proxy` Kontener został automatycznie wprowadzony przez Istio do zarządzania ruchem sieciowym do i ze składników, jak pokazano w następujących przykładowych danych wyjściowych:
 
 ```console
   voting-analytics:

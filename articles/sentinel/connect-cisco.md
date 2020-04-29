@@ -1,6 +1,6 @@
 ---
-title: Łączenie danych Cisco z usługą Azure Sentinel| Dokumenty firmy Microsoft
-description: Dowiedz się, jak połączyć dane Cisco z usługą Azure Sentinel.
+title: Łączenie danych Cisco z platformą Azure Microsoft Docs
+description: Dowiedz się, jak połączyć dane Cisco z platformą Azure.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,39 +16,39 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 264dab4fabc890ffe03d911f8ee3c08ef51375d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77588403"
 ---
-# <a name="connect-cisco-asa-to-azure-sentinel"></a>Łączenie usługi Cisco ASA z usługą Azure Sentinel
+# <a name="connect-cisco-asa-to-azure-sentinel"></a>Łączenie programu Cisco ASA z platformą Azure — wskaźnikiem
 
 
 
-W tym artykule wyjaśniono, jak połączyć urządzenie Cisco ASA z usługą Azure Sentinel. Łącznik danych Cisco ASA umożliwia łatwe łączenie dzienników cisco ASA z usługą Azure Sentinel w celu wyświetlania pulpitów nawigacyjnych, tworzenia niestandardowych alertów i usprawniania badań. Korzystanie z usługi Cisco ASA na platformie Azure Sentinel zapewni Ci więcej informacji na temat korzystania z Internetu w organizacji i zwiększy jej możliwości obsługi zabezpieczeń. 
+W tym artykule wyjaśniono, jak połączyć urządzenie Cisco ASA z platformą Azure — wskaźnikiem. Łącznik danych Cisco ASA pozwala łatwo połączyć dzienniki programu Cisco ASA z platformą Azure, aby wyświetlić pulpity nawigacyjne, utworzyć niestandardowe alerty i poprawić badanie. Korzystanie z programu Cisco ASA na platformie Azure wskaźnikowej zapewnia więcej szczegółowych informacji dotyczących użycia Internetu w organizacji i poprawi możliwości operacji zabezpieczeń. 
 
 
 
-## <a name="forward-cisco-asa-logs-to-the-syslog-agent"></a>Przesyłanie dalej cisco ASA loguje się do agenta Syslog
+## <a name="forward-cisco-asa-logs-to-the-syslog-agent"></a>Przekazywanie dzienników Cisco ASA do agenta dziennika systemu
 
-Cisco ASA nie obsługuje CEF, więc dzienniki są wysyłane jako Syslog i agenta usługi Azure Sentinel wie, jak je przeanalizować tak, jakby były dzienniki CEF. Skonfiguruj usługę Cisco ASA do przekazywania wiadomości Syslog do obszaru roboczego platformy Azure za pośrednictwem agenta Syslog:
+Cisco ASA nie obsługuje CEF, więc dzienniki są wysyłane jako dziennik systemowy, a agent wskaźnikowego platformy Azure wie, jak przeanalizować je tak, jakby znajdowały się w dziennikach CEF. Skonfiguruj Cisco ASA do przesyłania dalej komunikatów dziennika systemowego do obszaru roboczego platformy Azure za pośrednictwem agenta dziennika systemu:
 
-1. Przejdź do [wysyłania wiadomości Syslog do zewnętrznego serwera Syslog](https://aka.ms/asi-syslog-cisco-forwarding)i postępuj zgodnie z instrukcjami, aby skonfigurować połączenie. Użyj tych parametrów po wyświetleniu monitu:
+1. Przejdź do obszaru [wysyłanie komunikatów dziennika systemowego do zewnętrznego serwera dziennika](https://aka.ms/asi-syslog-cisco-forwarding)systemu i postępuj zgodnie z instrukcjami, aby skonfigurować połączenie. Użyj tych parametrów po wyświetleniu monitu:
     - Ustaw **port** na 514 lub port ustawiony w agencie.
     - Ustaw **syslog_ip** na adres IP agenta.
 
-1. Aby użyć odpowiedniego schematu w usłudze Log Analytics `CommonSecurityLog`dla zdarzeń Cisco, wyszukaj .
+1. Aby użyć odpowiedniego schematu w Log Analytics dla zdarzeń Cisco, wyszukaj ciąg `CommonSecurityLog`.
 
-1. Przejdź do [kroku 3: Sprawdź poprawność łączności](connect-cef-verify.md).
+1. Przejdź do [kroku 3: weryfikowanie łączności](connect-cef-verify.md).
 
 
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym dokumencie dowiesz się, jak połączyć urządzenia Cisco ASA z usługą Azure Sentinel. Aby dowiedzieć się więcej o usłudze Azure Sentinel, zobacz następujące artykuły:
-- Dowiedz się, jak [uzyskać wgląd w dane i potencjalne zagrożenia.](quickstart-get-visibility.md)
-- Rozpocznij [wykrywanie zagrożeń za pomocą usługi Azure Sentinel](tutorial-detect-threats-built-in.md).
-- Monitorowanie danych [za pomocą skoroszytów.](tutorial-monitor-your-data.md)
+W tym dokumencie przedstawiono sposób łączenia urządzeń z programem Cisco ASA z platformą Azure — wskaźnikiem. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
+- Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
+- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats-built-in.md).
+- [Używaj skoroszytów](tutorial-monitor-your-data.md) do monitorowania danych.
 
 

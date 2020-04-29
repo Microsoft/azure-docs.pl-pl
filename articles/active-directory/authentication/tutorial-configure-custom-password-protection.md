@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie niestandardowych list ochrony hasłem usługi Azure Active Directory
-description: W tym samouczku dowiesz się, jak skonfigurować niestandardowe listy ochrony hasłem zakazane dla usługi Azure Active Directory, aby ograniczyć typowe słowa w twoim środowisku.
+title: Konfigurowanie niestandardowych list ochrony hasłem Azure Active Directory
+description: W ramach tego samouczka nauczysz się konfigurować niestandardowe listy zabronionych ochrony haseł dla Azure Active Directory, aby ograniczyć typowe słowa w środowisku.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,117 +11,117 @@ author: iainfoulds
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4abb15462689470c87e9cf5ba8d5be8af2e45bfd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78252845"
 ---
-# <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Samouczek: Konfigurowanie niestandardowych zakazanych haseł do ochrony hasłem usługi Azure Active Directory
+# <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Samouczek: Konfigurowanie niestandardowych zakazanych haseł Azure Active Directory ochrony hasłem
 
-Użytkownicy często tworzą hasła, które używają typowych lokalnych słów, takich jak szkoła, drużyna sportowa lub znana osoba. Te hasła są łatwe do odgadnięcia i słabe przed atakami opartymi na słowniku. Aby wymusić silne hasła w organizacji, niestandardowa lista haseł z blokadą usługi Azure Active Directory (Azure AD) umożliwia dodawanie określonych ciągów do oceny i blokowania. Żądanie zmiany hasła kończy się niepowodzeniem, jeśli na niestandardowej liście zablokowanych haseł znajduje się dopasowanie.
+Użytkownicy często tworzą hasła używające zwykłych słów lokalnych, takich jak szkoła, zespół sportowy lub osoba sławę. Hasła te są łatwe do odgadnięcia i są słabe przed atakami opartymi na słownikach. Aby wymusić silne hasła w organizacji, lista niestandardowych zakazanych haseł Azure Active Directory (Azure AD) umożliwia dodanie określonych ciągów do oszacowania i zablokowania. Żądanie zmiany hasła nie powiedzie się, jeśli na liście niestandardowych zakazanych haseł znajduje się dopasowanie.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Włączanie haseł zbanowanych niestandardowych
-> * Dodawanie wpisów do niestandardowej listy zakazanych haseł
-> * Testowanie zmian hasła przy za pomocą zablokowanego hasła
+> * Włącz niestandardowe zabronione hasła
+> * Dodawanie wpisów do listy niestandardowych zakazanych haseł
+> * Testuj zmiany hasła z zakazanym hasłem
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten samouczek, potrzebne są następujące zasoby i uprawnienia:
+Do ukończenia tego samouczka potrzebne są następujące zasoby i uprawnienia:
 
 * Działająca dzierżawa usługi Azure AD z włączoną co najmniej próbną wersją licencji.
-    * W razie potrzeby [utwórz go za darmo](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Konto z uprawnieniami *administratora globalnego.*
-* Użytkownik niebędący administratorem z hasłem, który znasz, na przykład *testuser*. Przetestować zdarzenie zmiany hasła przy użyciu tego konta w tym samouczku.
-    * Jeśli chcesz utworzyć użytkownika, zobacz [Szybki start: Dodawanie nowych użytkowników do usługi Azure Active Directory](../add-users-azure-active-directory.md).
-    * Aby przetestować operację zmiany hasła przy użyciu zablokowanego hasła, dzierżawa usługi Azure AD musi być [skonfigurowana do samoobsługowego resetowania hasła.](tutorial-enable-sspr.md)
+    * W razie potrzeby [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Konto z uprawnieniami *administratora globalnego* .
+* Użytkownik niebędący administratorem z hasłem znanym, takim jak *Użytkownik testowy*. W tym samouczku testujesz zdarzenie zmiany hasła przy użyciu tego konta.
+    * Jeśli musisz utworzyć użytkownika, zobacz [Szybki Start: Dodawanie nowych użytkowników do Azure Active Directory](../add-users-azure-active-directory.md).
+    * Aby przetestować operację zmiany hasła przy użyciu zabronionego hasła, dzierżawa usługi Azure AD musi być skonfigurowana do samoobsługowego [resetowania hasła](tutorial-enable-sspr.md).
 
-## <a name="what-are-banned-password-lists"></a>Co to są listy zablokowanych haseł?
+## <a name="what-are-banned-password-lists"></a>Co to są listy zabronionych haseł?
 
-Usługa Azure AD zawiera globalną listę zakazanych haseł. Zawartość globalnej listy zakazanych haseł nie jest oparta na żadnym zewnętrznym źródle danych. Zamiast tego globalna lista zakazanych haseł jest oparta na bieżących wynikach telemetrii i analizy zabezpieczeń usługi Azure AD. Gdy użytkownik lub administrator próbuje zmienić lub zresetować swoje poświadczenia, żądane hasło jest sprawdzane względem listy zablokowanych haseł. Żądanie zmiany hasła kończy się niepowodzeniem, jeśli na globalnej liście zablokowanych haseł znajduje się dopasowanie.
+Usługa Azure AD zawiera globalną listę wykluczonych haseł. Zawartość globalnej listy zakazanych haseł nie jest oparta na żadnym zewnętrznym źródle danych. Zamiast tego globalna lista wykluczonych haseł jest oparta na bieżących wynikach telemetrii i analizie zabezpieczeń usługi Azure AD. Gdy użytkownik lub administrator próbuje zmienić lub zresetować swoje poświadczenia, wymagane hasło jest sprawdzane na liście zakazanych haseł. Żądanie zmiany hasła nie powiedzie się, jeśli na liście globalnie zabronione hasła znajduje się dopasowanie.
 
-Aby zapewnić elastyczność w zakresie haseł, można również zdefiniować niestandardową listę zakazanych haseł. Niestandardowa lista zakazanych haseł działa wraz z globalną listą zakazanych haseł, aby wymusić silne hasła w organizacji. Terminy specyficzne dla organizacji można dodać do niestandardowej listy zakazanych haseł, takich jak następujące przykłady:
+Aby zapewnić elastyczność, w jaki sposób hasła są dozwolone, można również zdefiniować niestandardową listę wykluczonych haseł. Niestandardowa lista wykluczonych haseł działa obok globalnej listy wykluczonych haseł w celu wymuszenia silnych haseł w organizacji. Warunki specyficzne dla organizacji można dodać do listy niestandardowych zakazanych haseł, takich jak następujące przykłady:
 
-* Marki
+* Nazwy marki
 * Nazwy produktów
-* Lokalizacje, takie jak siedziba firmy
-* Warunki wewnętrzne specyficzne dla firmy
+* Lokalizacje, takie jak oddział firmy
+* Terminy wewnętrzne specyficzne dla firmy
 * Skróty, które mają określone znaczenie firmy
 
-Gdy użytkownik próbuje zresetować hasło do czegoś, co znajduje się na globalnej lub niestandardowej liście zablokowanych haseł, zobaczy jeden z następujących komunikatów o błędach:
+Gdy użytkownik spróbuje zresetować hasło do elementu znajdującego się na liście globalnych lub niestandardowych zakazanych haseł, zobaczy jeden z następujących komunikatów o błędzie:
 
-* *Niestety hasło zawiera słowo, frazę lub wzór, który ułatwia odgadnięcie hasła. Spróbuj ponownie przy innym haśle.*
-* *Niestety nie można użyć tego hasła, ponieważ zawiera ono słowa lub znaki, które zostały zablokowane przez administratora. Spróbuj ponownie przy innym haśle.*
+* *Niestety, hasło zawiera słowo, frazę lub wzorzec, które ułatwiają odgadnięcie hasła. Spróbuj ponownie, używając innego hasła.*
+* *Niestety, nie można użyć tego hasła, ponieważ zawiera słowa lub znaki, które zostały zablokowane przez administratora. Spróbuj ponownie, używając innego hasła.*
 
-Niestandardowa lista zakazanych haseł jest ograniczona do maksymalnie 1000 terminów. Nie jest przeznaczony do blokowania dużych list haseł. Aby zmaksymalizować korzyści płynące z niestandardowej listy zakazanych haseł, zapoznaj się z [niestandardowymi pojęciami o zakazanych hasłach](concept-password-ban-bad.md#custom-banned-password-list) i [omówieniem algorytmu oceny haseł.](concept-password-ban-bad.md#how-are-passwords-evaluated)
+Niestandardowa lista wykluczonych haseł jest ograniczona do maksymalnie 1000 warunków. Nie jest ona przeznaczona do blokowania dużych list haseł. Aby zmaksymalizować zalety listy nieużywanych zakazanych haseł, zapoznaj się z tematem Omówienie [niestandardowych zakazanych haseł](concept-password-ban-bad.md#custom-banned-password-list) i [algorytmów oceny haseł](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
 ## <a name="configure-custom-banned-passwords"></a>Konfigurowanie niestandardowych zakazanych haseł
 
-Włączmy niestandardową listę zakazanych haseł i dodajmy kilka wpisów. W każdej chwili możesz dodać dodatkowe wpisy do niestandardowej listy zakazanych haseł.
+Włączmy listę niestandardowych zakazanych haseł i dodamy kilka wpisów. W dowolnym momencie możesz dodać dodatkowe wpisy do listy zakazanych haseł.
 
-Aby włączyć niestandardową listę zakazanych haseł i dodać do niej wpisy, wykonaj następujące czynności:
+Aby włączyć listę niestandardowych zakazanych haseł i dodać do niej wpisy, wykonaj następujące czynności:
 
-1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com) przy użyciu konta z uprawnieniami *administratora globalnego.*
-1. Wyszukaj i wybierz **pozycję Azure Active Directory**, a następnie wybierz pozycję **Zabezpieczenia** z menu po lewej stronie.
-1. W nagłówku menu **Zarządzanie** wybierz pozycję **Metody uwierzytelniania**, a następnie **ochrona hasłem**.
-1. Ustaw opcję **Wymuszanie listy niestandardowej** na *Tak*.
-1. Dodaj ciągi do **listy Niestandardowe zbanowane hasło**, jeden ciąg na wiersz. Do niestandardowej listy haseł zbanowanych haseł obowiązują następujące zagadnienia i ograniczenia:
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta z uprawnieniami *administratora globalnego* .
+1. Wyszukaj i wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **zabezpieczenia** z menu po lewej stronie.
+1. W nagłówku menu **Zarządzaj** wybierz opcję **metody uwierzytelniania**, a następnie **Ochrona hasłem**.
+1. Dla opcji **Wymuszaj listę niestandardową** Ustaw *wartość tak*.
+1. Dodaj ciągi do **listy niestandardowych zakazanych haseł**, jednego ciągu na wiersz. Następujące zagadnienia i ograniczenia mają zastosowanie do listy niestandardowych haseł zabronionych:
 
-    * Niestandardowa lista zakazanych haseł może zawierać maksymalnie 1000 terminów.
-    * Niestandardowa lista zakazanych haseł jest niewrażliwa na argumenty.
-    * Niestandardowa lista zakazanych haseł uwzględnia substytucję wspólnych znaków, takich jak "o" i "0" lub "a" i "@".
-    * Minimalna długość ciągu to cztery znaki, a maksymalna 16 znaków.
+    * Niestandardowa lista wykluczonych haseł może zawierać do 1000 warunków.
+    * Niestandardowa lista wykluczonych haseł nie uwzględnia wielkości liter.
+    * Niestandardowa lista wykluczonych haseł uwzględnia wspólne podstawienie znaków, takie jak "o" i "0", lub "a" i "@".
+    * Minimalna długość ciągu to cztery znaki, a maksymalna to 16 znaków.
 
-    Określ własne hasła niestandardowe do zablokowania, jak pokazano w poniższym przykładzie
+    Określ własne niestandardowe hasła, aby zablokować, jak pokazano w poniższym przykładzie.
 
     [![](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png "Modify the custom banned password list under Authentication Methods in the Azure portal")](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
 
-1. Pozostaw opcję **Włącz ochronę hasłem w usłudze Active Directory systemu Windows Server** na *Nie*.
-1. Aby włączyć niestandardowe hasła zbanowane i wpisy, wybierz pozycję **Zapisz**.
+1. Pozostaw opcję **Włącz ochronę hasłem w systemie Windows Server Active Directory** wartość *nie*.
+1. Aby włączyć niestandardowe zabronione hasła i wpisy, wybierz pozycję **Zapisz**.
 
-Zastosowanie aktualizacji listy haseł zbanowanymi niestandardowymi hasłami może potrwać kilka godzin.
+Aktualizacja listy niestandardowo zakazanych haseł może potrwać kilka godzin.
 
-W środowisku hybrydowym można również [wdrożyć ochronę hasłem usługi Azure AD w środowisku lokalnym.](howto-password-ban-bad-on-premises-deploy.md) Te same globalne i niestandardowe listy zakazanych haseł są używane zarówno dla żądań zmiany hasła w chmurze, jak i na prem.
+W przypadku środowiska hybrydowego można także [wdrożyć ochronę hasłem usługi Azure AD w środowisku lokalnym](howto-password-ban-bad-on-premises-deploy.md). Te same globalne i niestandardowe listy haseł zabronione są używane zarówno w przypadku żądań zmiany w chmurze, jak i na Premium.
 
-## <a name="test-custom-banned-password-list"></a>Testowanie niestandardowej listy zakazanych haseł
+## <a name="test-custom-banned-password-list"></a>Niestandardowa lista wykluczonych haseł
 
-Aby wyświetlić niestandardową listę zablokowanych haseł w akcji, spróbuj zmienić hasło na odmianę dodaną w poprzedniej sekcji. Gdy usługa Azure AD próbuje przetworzyć zmianę hasła, hasło jest dopasowywać do wpisu na niestandardowej liście zakazanych haseł. Następnie użytkownik jest wyświetlany błąd.
+Aby wyświetlić listę niestandardowych zakazanych haseł w akcji, spróbuj zmienić hasło na odmianę dodaną w poprzedniej sekcji. Gdy usługa Azure AD próbuje przetworzyć zmianę hasła, hasło jest dopasowywane do wpisu na liście niestandardowych zakazanych haseł. Zostanie wyświetlony komunikat o błędzie.
 
 > [!NOTE]
-> Aby użytkownik mógł zresetować swoje hasło w portalu internetowym, dzierżawa usługi Azure AD musi być [skonfigurowana do samoobsługowego resetowania hasła.](tutorial-enable-sspr.md)
+> Aby użytkownik mógł zresetować swoje hasło w portalu internetowym, dzierżawa usługi Azure AD musi być skonfigurowana do samoobsługowego [resetowania hasła](tutorial-enable-sspr.md).
 
-1. Przejdź do strony Moje [https://myapps.microsoft.com](https://myapps.microsoft.com) **aplikacje** pod adresem .
-1. W prawym górnym rogu wybierz swoje imię i nazwisko, a następnie wybierz **pozycję Profil** z menu rozwijanego.
+1. Przejdź do strony **Moje aplikacje** pod adresem [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. W prawym górnym rogu wybierz swoją nazwę, a następnie wybierz pozycję **profil** z menu rozwijanego.
 
     ![Wybieranie profilu](media/tutorial-configure-custom-password-protection/myapps-profile.png)
 
-1. Na stronie **Profil** wybierz pozycję **Zmień hasło**.
-1. Na stronie **Zmienianie hasła** wprowadź istniejące (stare) hasło. Wprowadź i potwierdź nowe hasło, które znajduje się na niestandardowej liście zablokowanych haseł zdefiniowanych w poprzedniej sekcji, a następnie wybierz pozycję **Prześlij**.
-1. Zwracany jest komunikat o błędzie informujący, że hasło zostało zablokowane przez administratora, jak pokazano w poniższym przykładzie:
+1. Na stronie **profil** wybierz pozycję **Zmień hasło**.
+1. Na stronie **Zmienianie hasła** wprowadź istniejące hasło (stare). Wprowadź i Potwierdź nowe hasło, które znajduje się na liście niestandardowo zakazanych haseł zdefiniowanej w poprzedniej sekcji, a następnie wybierz pozycję **Prześlij**.
+1. Zostanie zwrócony komunikat o błędzie informujący o tym, że hasło zostało zablokowane przez administratora, jak pokazano w następującym przykładzie:
 
-    ![Komunikat o błędzie wyświetlany podczas próby użycia hasła należącego do niestandardowej listy zakazanych haseł](media/tutorial-configure-custom-password-protection/password-change-error.png)
+    ![Komunikat o błędzie wyświetlany podczas próby użycia hasła, które jest częścią listy niestandardowo zakazanych haseł](media/tutorial-configure-custom-password-protection/password-change-error.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli nie chcesz już używać niestandardowej listy zakazanych haseł skonfigurowanych w ramach tego samouczka, wykonaj następujące kroki:
+Jeśli nie chcesz już używać niestandardowej listy wykluczonych haseł skonfigurowanej w ramach tego samouczka, wykonaj następujące czynności:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
-1. Wyszukaj i wybierz **pozycję Azure Active Directory**, a następnie wybierz pozycję **Zabezpieczenia** z menu po lewej stronie.
-1. W nagłówku menu **Zarządzanie** wybierz pozycję **Metody uwierzytelniania**, a następnie **ochrona hasłem**.
-1. Ustaw opcję **Wymuszanie listy niestandardowej** na *Nie*.
-1. Aby zaktualizować niestandardową konfigurację hasła zbanowane, wybierz pozycję **Zapisz**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Wyszukaj i wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **zabezpieczenia** z menu po lewej stronie.
+1. W nagłówku menu **Zarządzaj** wybierz opcję **metody uwierzytelniania**, a następnie **Ochrona hasłem**.
+1. Dla opcji **Wymuszaj listę niestandardową** ustaw wartość *nie*.
+1. Aby zaktualizować niestandardową konfigurację zakazanych haseł, wybierz pozycję **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku włączono i skonfigurowano niestandardowe listy ochrony hasłem dla usługi Azure AD. W tym samouczku omówiono:
+W tym samouczku włączono i skonfigurowano niestandardowe listy ochrony haseł dla usługi Azure AD. W tym samouczku omówiono:
 
 > [!div class="checklist"]
-> * Włączanie haseł zbanowanych niestandardowych
-> * Dodawanie wpisów do niestandardowej listy zakazanych haseł
-> * Testowanie zmian hasła przy za pomocą zablokowanego hasła
+> * Włącz niestandardowe zabronione hasła
+> * Dodawanie wpisów do listy niestandardowych zakazanych haseł
+> * Testuj zmiany hasła z zakazanym hasłem
 
 > [!div class="nextstepaction"]
 > [Włączanie usługi Azure Multi-Factor Authentication bazującej na ryzyku](tutorial-mfa-applications.md)

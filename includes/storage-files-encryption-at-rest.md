@@ -9,14 +9,14 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: ed061234da27716bfcdaf1cc065568908108f90a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77597865"
 ---
-Wszystkie dane przechowywane w usłudze Azure Files są szyfrowane w spoczynku przy użyciu szyfrowania usługi magazynu platformy Azure (SSE). Szyfrowanie usługi magazynowania działa podobnie do funkcji BitLocker w systemie Windows: dane są szyfrowane poniżej poziomu systemu plików. Ponieważ dane są szyfrowane w systemie plików udziału plików platformy Azure, ponieważ jest zakodowany na dysku, nie trzeba mieć dostępu do klucza źródłowego na kliencie do odczytu lub zapisu do udziału plików platformy Azure.
+Wszystkie dane przechowywane w Azure Files są szyfrowane przy użyciu funkcji szyfrowania usługi Azure Storage (SSE). Szyfrowanie usługi Storage działa podobnie do funkcji BitLocker w systemie Windows: dane są szyfrowane poniżej poziomu systemu plików. Ponieważ dane są szyfrowane pod systemem plików udziału plików platformy Azure, ponieważ są one zakodowane na dysk, nie trzeba mieć dostępu do klucza bazowego na kliencie w celu odczytu lub zapisu w udziale plików platformy Azure.
 
-Domyślnie dane przechowywane w plikach Azure są szyfrowane za pomocą kluczy zarządzanych przez firmę Microsoft. Dzięki kluczom zarządzanym przez firmę Microsoft firma Microsoft przechowuje klucze do szyfrowania/odszyfrowywania danych i jest odpowiedzialna za ich regularne obracanie. Można również wybrać zarządzanie własnymi kluczami, co daje kontrolę nad procesem obracania. Jeśli zdecydujesz się zaszyfrować udziały plików za pomocą kluczy zarządzanych przez klienta, usługa Azure Files jest autoryzowana do uzyskiwania dostępu do kluczy w celu spełnienia żądań odczytu i zapisu od klientów. Za pomocą kluczy zarządzanych przez klienta można odwołać tę autoryzację w dowolnym momencie, ale oznacza to, że udział plików platformy Azure nie będzie już dostępny za pośrednictwem protokołu SMB lub interfejsu API FileREST.
+Domyślnie dane przechowywane w Azure Files są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. W przypadku kluczy zarządzanych przez firmę Microsoft Firma Microsoft przechowuje klucze służące do szyfrowania/odszyfrowywania danych i jest odpowiedzialna za ich regularne obracanie. Możesz również zarządzać własnymi kluczami, co zapewnia kontrolę nad procesem obrotu. Jeśli zdecydujesz się na zaszyfrowanie udziałów plików za pomocą kluczy zarządzanych przez klienta, Azure Files będzie autoryzowany do uzyskiwania dostępu do kluczy w celu spełnienia żądań odczytu i zapisu od klientów. W przypadku kluczy zarządzanych przez klienta można odwołać tę autoryzację w dowolnym momencie, ale oznacza to, że udział plików platformy Azure nie będzie już dostępny za pośrednictwem protokołu SMB lub interfejsu API FileREST.
 
-Usługa Azure Files używa tego samego schematu szyfrowania, co inne usługi magazynu platformy Azure, takie jak magazyn obiektów blob platformy Azure. Aby dowiedzieć się więcej o szyfrowaniu usługi azure storage (SSE), zobacz [Szyfrowanie magazynu platformy Azure w celu uzyskania danych w spoczynku.](../articles/storage/common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+Azure Files używa tego samego schematu szyfrowania co inne usługi Azure Storage, takie jak Azure Blob Storage. Aby dowiedzieć się więcej na temat szyfrowania usługi Azure Storage (SSE), zobacz Szyfrowanie w usłudze [Azure Storage dla danych przechowywanych w stanie spoczynku](../articles/storage/common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).

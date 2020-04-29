@@ -1,6 +1,6 @@
 ---
-title: Lista książek SRE | Dokumenty firmy Microsoft
-description: Zwiększ swoją wiedzę na temat inżynierii niezawodności witryny dzięki tym książkom
+title: Lista książek SRE | Microsoft Docs
+description: Zwiększ swoją wiedzę na temat inżynierów ds. niezawodności z tymi książkami
 author: dnblankedelman
 manager: efreeman
 ms.service: site-reliability-engineering
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: dnb
 ms.openlocfilehash: 4a350953a5755f24c938011ae4b98e1e35e094e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77599043"
 ---
-# <a name="books-about-site-reliability-engineering"></a>Książki o inżynierii niezawodności witryny
+# <a name="books-about-site-reliability-engineering"></a>Książki dotyczące niezawodnej inżynierii lokacji
 
-Aby uzyskać bardziej szczegółowe informacje na temat inżynierii niezawodności witryny (SRE), najlepszym źródłem jest trio książek, które zostały opublikowane na ten temat
+Aby uzyskać bardziej szczegółowe informacje na temat inżynierii lokacji (SRE), najlepszym źródłem jest trójka książek, które zostały opublikowane w ramach podmiotu.
 
 - [_Site Reliability Engineering: How Google Runs Production Systems_](https://shop.oreilly.com/product/0636920041528.do) („Site Reliability Engineering. Jak Google zarządza systemami produkcyjnymi”, znana jako „podręcznik SRE”)
 - [_The Site Reliability Workbook: Practical Ways to Implement SRE_](https://shop.oreilly.com/product/0636920132448.do) („Ćwiczenia z niezawodności lokacji: praktyczne sposoby wdrażania SRE”, znana jako „zeszyt ćwiczeń z SRE”)
@@ -30,4 +30,4 @@ Każda z tych książek zapewnia ważny zestaw informacji:
 
 - W poszukiwaniu SRE — zapewnia szerszy wgląd w świat inżynierii SRE, wykraczając poza jej pochodzenie. Zawiera informacje o tym, jak rozwiązanie było wdrażane w innych środowiskach.
 
-Ponieważ te książki opisują doświadczenie, środowisko i kulturę organizacji, które mogą lub nie mogą przypominać tego, w których się znajdujesz, ważne jest, aby czytać te książki krytycznym okiem. Podczas czytania spróbuj określić, które praktyki zakończyłyby się powodzeniem w organizacji lub nie. Poświęć trochę czasu, aby znaleźć informacje, które według Ciebie będą mogły przynieść wartość dodaną. Pomyśl o tym, które części kultury i wartości w organizacji mogą wspierać inżynierię SRE zgodnie z opisem, a które mogą stanowić większe wyzwanie. Staranne, iteracyjny obejmując SRE prawie zawsze przyniesie lepsze wyniki niż hurtowe powielanie czegoś, co czytasz w tych książkach.
+Ponieważ te książki opisują doświadczenie, środowiska i kulturę organizacji, które mogą lub nie są podobne do nich, ważne jest, aby zapoznać się z tymi książkami o krytycznym znaczeniu. Podczas odczytywania spróbuj określić, które praktyki byłyby w organizacji. Poświęć trochę czasu, aby znaleźć informacje, które według Ciebie będą mogły przynieść wartość dodaną. Pomyśl o tym, które części kultury i wartości w organizacji mogą wspierać inżynierię SRE zgodnie z opisem, a które mogą stanowić większe wyzwanie. Staranne iteracyjne wdrażanie SRE będzie niemal zawsze dawać lepsze wyniki niż w przypadku duplikacji hurtowej czegoś odczytanego w tych książkach.

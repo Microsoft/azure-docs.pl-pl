@@ -1,6 +1,6 @@
 ---
-title: Łączenie danych cef z usługą Azure Sentinel Preview| Dokumenty firmy Microsoft
-description: Dowiedz się, jak połączyć dane cef z usługą Azure Sentinel.
+title: Połącz dane CEF z podglądem platformy Azure — Wersja zapoznawcza | Microsoft Docs
+description: Dowiedz się, jak połączyć dane CEF z platformą Azure — wskaźnikiem.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,76 +15,76 @@ ms.workload: na
 ms.date: 11/26/2019
 ms.author: yelevin
 ms.openlocfilehash: 8314614616c6b8969832d52fc684d47ba1bf0fe3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77588352"
 ---
-# <a name="connect-your-external-solution-using-common-event-format"></a>Podłączanie rozwiązania zewnętrznego przy użyciu wspólnego formatu zdarzeń
+# <a name="connect-your-external-solution-using-common-event-format"></a>Łączenie rozwiązania zewnętrznego przy użyciu typowego formatu zdarzeń
 
 
-Po podłączeniu rozwiązania zewnętrznego, które wysyła komunikaty CEF, istnieją trzy kroki do nawiązania połączenia z usługą Azure Sentinel:
+Po podłączeniu rozwiązania zewnętrznego, które wysyła komunikaty CEF, istnieją trzy kroki, które należy wykonać, aby nawiązać połączenie z platformą Azure — wskaźnik:
 
-KROK 1: [Podłącz instrument CEF poprzez wdrożenie agenta](connect-cef-agent.md) KROK 2: [Wykonaj kroki specyficzne dla rozwiązania](connect-cef-solution-config.md) KROK 3: Sprawdź [łączność](connect-cef-verify.md)
+Krok 1. [łączenie CEF przez wdrożenie agenta](connect-cef-agent.md) krok 2: [wykonywanie kroków specyficznych dla rozwiązania](connect-cef-solution-config.md) krok 3: [Weryfikowanie łączności](connect-cef-verify.md)
 
-W tym artykule opisano, jak działa połączenie, zawiera wymagania wstępne i zawiera kroki wdrażania agenta w rozwiązaniach zabezpieczeń, które wysyłają komunikaty common event format (CEF) na górze Syslog. 
+W tym artykule opisano, jak działa połączenie, zawiera wymagania wstępne i przedstawiono kroki wdrażania agenta na rozwiązaniach zabezpieczeń, które wysyłają komunikaty w formacie Common Event format (CEF) na podstawie dziennika systemowego. 
 
 > [!NOTE] 
-> Dane są przechowywane w lokalizacji geograficznej obszaru roboczego, w którym jest uruchomiona usługa Azure Sentinel.
+> Dane są przechowywane w lokalizacji geograficznej obszaru roboczego, w którym jest uruchamiany wskaźnik platformy Azure.
 
-Aby nawiązać to połączenie, należy wdrożyć agenta na dedykowanym komputerze z systemem Linux (maszyna wirtualna lub lokalnie) do obsługi komunikacji między urządzeniem a usługą Azure Sentinel. Na poniższym diagramie opisano konfigurację w przypadku maszyny Wirtualnej systemu Linux na platformie Azure.
+Aby to połączenie było możliwe, należy wdrożyć agenta na dedykowanym komputerze z systemem Linux (maszynie wirtualnej lub lokalnie) do obsługi komunikacji między urządzeniem a platformą Azure. Na poniższym diagramie opisano konfigurację w przypadku maszyny wirtualnej z systemem Linux na platformie Azure.
 
  ![CEF na platformie Azure](./media/connect-cef/cef-syslog-azure.png)
 
-Alternatywnie ta konfiguracja będzie istnieć, jeśli używasz maszyny Wirtualnej w innej chmurze lub komputera lokalnego. 
+Ta konfiguracja będzie również dostępna w przypadku korzystania z maszyny wirtualnej w innej chmurze lub na maszynie lokalnej. 
 
- ![CEF w lokalu](./media/connect-cef/cef-syslog-onprem.png)
+ ![CEF lokalnie](./media/connect-cef/cef-syslog-onprem.png)
 
 
 ## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 
-Upewnij się, że zabezpieczenia komputera są skonfigurowane zgodnie z zasadami zabezpieczeń organizacji. Można na przykład skonfigurować sieć tak, aby była zgodna z zasadami zabezpieczeń sieci firmowej, i zmienić porty i protokoły w demonie, aby były zgodne z wymaganiami. Aby poprawić konfigurację zabezpieczeń komputera, można użyć następujących instrukcji: Bezpieczna maszyna wirtualna na  [platformie Azure](../virtual-machines/linux/security-policy.md), Najważniejsze [wskazówki dotyczące zabezpieczeń sieci.](../security/fundamentals/network-best-practices.md)
+Upewnij się, że skonfigurowano zabezpieczenia maszyny zgodnie z zasadami zabezpieczeń organizacji. Można na przykład skonfigurować sieć do dopasowania do zasad zabezpieczeń sieci firmowej i zmienić porty i protokoły w demoum, aby dostosować je do swoich wymagań. Aby ulepszyć konfigurację zabezpieczeń komputera, można użyć następujących instrukcji:  [bezpieczna maszyna wirtualna na platformie Azure](../virtual-machines/linux/security-policy.md), [najlepsze rozwiązania dotyczące zabezpieczeń sieci](../security/fundamentals/network-best-practices.md).
 
-Aby użyć komunikacji TLS między rozwiązaniem zabezpieczającym a komputerem Syslog, należy skonfigurować demon Syslog (rsyslog lub syslog-ng) do komunikowania się w TLS: [Szyfrowanie ruchu Syslog z TLS -rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [szyfrowanie komunikatów dziennika za pomocą TLS –syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
+Aby można było korzystać z komunikacji TLS między rozwiązaniem zabezpieczeń a maszyną dziennika systemowego, należy skonfigurować demona dziennika systemu (rsyslog lub dziennika systemowego) do komunikacji w protokole TLS: [szyfrowanie ruchu dziennika systemu przy użyciu protokołu TLS-rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [szyfrowanie komunikatów dzienników przy użyciu protokołu TLS — dziennik systemu](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
 
  
 ## <a name="prerequisites"></a>Wymagania wstępne
-Upewnij się, że na komputerze z systemem Linux używanym jako serwer proxy jest uruchomiony jeden z następujących systemów operacyjnych:
+Upewnij się, że maszyna z systemem Linux używaną jako serwer proxy ma jeden z następujących systemów operacyjnych:
 
 - 64-bitowy
   - CentOS 6 i 7
-  - Amazon Linux 2017.09
+  - Amazon Linux 2017,09
   - Oracle Linux 6 i 7
-  - Serwer Red Hat Enterprise Linux Server 6 i 7
+  - Red Hat Enterprise Linux Server 6 i 7
   - Debian GNU/Linux 8 i 9
-  - Ubuntu Linux 14.04 LTS, 16.04 LTS i 18.04 LTS
+  - Ubuntu Linux 14,04 LTS, 16,04 LTS i 18,04 LTS
   - SUSE Linux Enterprise Server 12
 - 32-bitowa
    - CentOS 6
    - Oracle Linux 6
    - Red Hat Enterprise Linux Server 6
    - Debian GNU/Linux 8 i 9
-   - Ubuntu Linux 14.04 LTS i 16.04 LTS
+   - Ubuntu Linux 14,04 LTS i 16,04 LTS
  
- - Wersje demonów
-   - Syslog-ng: 2,1 - 3,22,1
-   - Rsyslog: v8
+ - Wersje demona
+   - Dziennik systemu — NG: 2,1-3.22.1
+   - Rsyslog: V8
   
- - Obsługiwane kontrolery RFC syslogu
-   - Syslog RFC 3164
-   - Syslog RFC 5424
+ - Obsługiwane są specyfikacje RFC dziennika systemowego
+   - Dziennik systemowy RFC 3164
+   - Dziennik systemowy RFC 5424
  
-Upewnij się, że urządzenie spełnia również następujące wymagania: 
+Upewnij się, że komputer spełnia również następujące wymagania: 
 - Uprawnienia
-    - Musisz mieć podwyższone uprawnienia (sudo) na komputerze. 
+    - Musisz mieć podwyższony poziom uprawnień (sudo) na swojej maszynie. 
 - Wymagania dotyczące oprogramowania
-    - Upewnij się, że python działa na komputerze
+    - Upewnij się, że na maszynie jest uruchomiony Język Python
 
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym dokumencie dowiesz się, jak połączyć urządzenia CEF z usługą Azure Sentinel. Aby dowiedzieć się więcej o usłudze Azure Sentinel, zobacz następujące artykuły:
-- Dowiedz się, jak [uzyskać wgląd w dane i potencjalne zagrożenia.](quickstart-get-visibility.md)
-- Rozpocznij [wykrywanie zagrożeń za pomocą usługi Azure Sentinel](tutorial-detect-threats.md).
+W tym dokumencie przedstawiono sposób łączenia urządzeń CEF z platformą Azure — wskaźnikiem. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
+- Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
+- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats.md).
 

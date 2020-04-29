@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie galerii obrazów udostępnionych w laboratoriach devtest platformy Azure | Dokumenty firmy Microsoft
-description: Dowiedz się, jak skonfigurować galerię obrazów udostępnionych w laboratorium devtest azure
+title: Konfigurowanie galerii obrazów udostępnionych w Azure DevTest Labs | Microsoft Docs
+description: Dowiedz się, jak skonfigurować galerię obrazów udostępnionych w Azure DevTest Labs
 services: devtest-lab
 documentationcenter: na
 author: spelluru
@@ -15,58 +15,58 @@ ms.topic: article
 ms.date: 09/05/2019
 ms.author: spelluru
 ms.openlocfilehash: 9593d60f76802cd515ca85616bce028cf3aa0d49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77589321"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Konfigurowanie galerii obrazów udostępnionych w usłudze Azure DevTest Labs
-DevTest Labs obsługuje teraz funkcję [Shared Image Gallery.](../virtual-machines/windows/shared-image-galleries.md) Umożliwia użytkownikom laboratorium dostęp do obrazów z udostępnionej lokalizacji podczas tworzenia zasobów laboratoryjnych. Pomaga również tworzyć strukturę i organizację wokół obrazów maszyn wirtualnych zarządzanych przez niestandardowe. Funkcja Shared Image Gallery obsługuje:
+DevTest Labs obsługuje teraz funkcję [galerii obrazów udostępnionych](../virtual-machines/windows/shared-image-galleries.md) . Umożliwia użytkownikom laboratorium dostęp do obrazów z udostępnionej lokalizacji podczas tworzenia zasobów laboratoryjnych. Ułatwia ona również tworzenie struktury i organizacji na podstawie niestandardowych zarządzanych obrazów maszyn wirtualnych. Funkcja galerii obrazów udostępnionych obsługuje:
 
-- Zarządzana globalna replikacja obrazów
+- Zarządza replikacją globalną obrazów
 - Przechowywanie wersji i grupowanie obrazów w celu łatwiejszego zarządzania
-- Udostępnij obrazy na wysokim miejscu dzięki kontom Strefowego Nadmiarowego Magazynu (ZRS) w regionach obsługujących strefy dostępności. ZRS oferuje lepszą odporność na awarie strefowe.
-- Udostępnianie między subskrypcjami, a nawet między dzierżawami przy użyciu kontroli dostępu opartej na rolach (RBAC).
+- Zapewnianie wysokiej dostępności obrazów przy użyciu kont magazynu Strefowo nadmiarowego (ZRS) w regionach, które obsługują strefy dostępności. ZRS zapewnia lepszą odporność na awarie stref.
+- Udostępnianie między subskrypcjami, a nawet między dzierżawcami, przy użyciu kontroli dostępu opartej na rolach (RBAC).
 
 Aby uzyskać więcej informacji, zobacz [dokumentację udostępnionej galerii obrazów](../virtual-machines/windows/shared-image-galleries.md). 
  
-Jeśli masz dużą liczbę zarządzanych obrazów, które chcesz zachować i chcesz je udostępnić w całej firmie, możesz użyć udostępnionej galerii obrazów jako repozytorium, które ułatwia aktualizowanie i udostępnianie obrazów. Jako właściciel laboratorium możesz dołączyć istniejącą galerię obrazów udostępnionych do laboratorium. Po dołączeniu tej galerii użytkownicy laboratorium mogą tworzyć maszyny z tych najnowszych obrazów. Kluczową zaletą tej funkcji jest to, że DevTest Labs może teraz korzystać z udostępniania obrazów w laboratoriach, w ramach subskrypcji i w różnych regionach. 
+Jeśli masz dużą liczbę zarządzanych obrazów, które chcesz zachować i chcesz udostępnić je w całej firmie, możesz użyć udostępnionej galerii obrazów jako repozytorium, która ułatwia aktualizowanie i udostępnianie obrazów. Jako właściciel laboratorium możesz dołączyć istniejącą galerię obrazów udostępnionych do laboratorium. Po dołączeniu tej galerii użytkownicy laboratorium mogą tworzyć maszyny z tych najnowszych obrazów. Główną zaletą tej funkcji jest to, że DevTest Labs może teraz korzystać z zalet udostępniania obrazów w laboratoriach, w różnych subskrypcjach i w różnych regionach. 
 
 > [!NOTE]
-> Aby dowiedzieć się więcej o kosztach związanych z usługą Shared Image Gallery, zobacz [Galeria rozliczeń za udostępnione obrazy](../virtual-machines/windows/shared-image-galleries.md#billing).
+> Aby dowiedzieć się więcej o kosztach związanych z usługą galerii obrazów udostępnionych, zobacz [rozliczenia dla udostępnionej galerii obrazów](../virtual-machines/windows/shared-image-galleries.md#billing).
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
-- W ciągu jednego czasu można dołączyć tylko jedną galerię obrazów udostępnionych do laboratorium. Jeśli chcesz dołączyć inną galerię, musisz odłączyć istniejącą i dołączyć inną. 
-- DevTest Labs obsługuje obecnie udostępnione galerii obrazów uogólnionych obrazów tylko.
-- DevTest Labs obecnie nie obsługuje przekazywania obrazów do galerii za pośrednictwem laboratorium. 
-- Podczas tworzenia maszyny wirtualnej przy użyciu udostępnionego obrazu galerii obrazów DevTest Labs zawsze używa najnowszej opublikowanej wersji tego obrazu. Jeśli jednak obraz ma wiele wersji, użytkownik może wybrać utworzenie komputera z wcześniejszej wersji, przechodząc do karty Ustawienia zaawansowane podczas tworzenia maszyny wirtualnej.  
-- Mimo że DevTest Labs automatycznie podejmuje najlepszą próbę zapewnienia udostępnionej galerii obrazów replikuje obrazy do regionu, w którym istnieje laboratorium, nie zawsze jest to możliwe. Aby uniknąć problemów użytkowników z tworzeniem maszyn wirtualnych z tych obrazów, upewnij się, że obrazy są już replikowane do regionu laboratorium."
+- W danym momencie możesz dołączyć tylko jedną galerię udostępnionych obrazów do laboratorium. Jeśli chcesz dołączyć kolejną galerię, musisz odłączyć istniejącą i dołączyć inną. 
+- DevTest Labs obecnie obsługuje tylko obrazy uogólnione galerii obrazów udostępnionych.
+- DevTest Labs obecnie nie obsługuje przekazywania obrazów do galerii za pomocą laboratorium. 
+- Podczas tworzenia maszyny wirtualnej przy użyciu obrazu udostępnionej galerii obrazów DevTest Labs zawsze używa najnowszej opublikowanej wersji tego obrazu. Jeśli jednak obraz ma wiele wersji, użytkownik może wybrać opcję utworzenia maszyny ze starszej wersji, przechodząc do karty Ustawienia zaawansowane podczas tworzenia maszyny wirtualnej.  
+- Mimo że DevTest Labs automatycznie podejmuje najlepszą próbę zagwarantowania, że Galeria obrazów udostępnionych replikuje obrazy do regionu, w którym istnieje laboratorium, nie zawsze jest to możliwe. Aby uniknąć problemów z tworzeniem maszyn wirtualnych z tych obrazów przez użytkowników, upewnij się, że obrazy zostały już zreplikowane do regionu laboratorium ".
 
 ## <a name="use-azure-portal"></a>Korzystanie z witryny Azure Portal
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
-1. Wybierz **pozycję Wszystkie usługi** w lewym menu nawigacyjnym.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Wybierz pozycję **wszystkie usługi** w menu nawigacji po lewej stronie.
 1. Wybierz z listy pozycję **DevTest Labs**.
 1. Z listy laboratoriów wybierz **laboratorium**.
-1. Wybierz **pozycję Konfiguracja i zasady** w sekcji **Ustawienia** w menu po lewej stronie.
-1. Wybierz **pozycję Udostępnione galerie obrazów** w obszarze Bazy maszyn **wirtualnych** w menu po lewej stronie.
+1. Wybierz pozycję **Konfiguracja i zasady** w sekcji **Ustawienia** w menu po lewej stronie.
+1. W menu po lewej stronie wybierz opcję **udostępnione Galerie obrazów** w obszarze **bazy maszyn wirtualnych** .
 
-    ![Menu Udostępnione galerie obrazów](./media/configure-shared-image-gallery/shared-image-galleries-menu.png)
-1. Dołącz istniejącą galerię zdjęć udostępnionych do swojego laboratorium, klikając przycisk **Dołącz** i wybierając galerię na rozwijanej.
+    ![Menu udostępnione Galerie obrazów](./media/configure-shared-image-gallery/shared-image-galleries-menu.png)
+1. Dołączanie istniejącej galerii obrazów udostępnionych do laboratorium przez kliknięcie przycisku **Dołącz** i wybranie galerii z listy rozwijanej.
 
-    ![Attach](./media/configure-shared-image-gallery/attach-options.png)
-1. Przejdź do dołączonej galerii i skonfiguruj galerię, aby **włączyć lub wyłączyć** udostępnione obrazy do tworzenia maszyn wirtualnych. Wybierz galerię obrazów z listy, aby ją skonfigurować. 
+    ![Dołącz](./media/configure-shared-image-gallery/attach-options.png)
+1. Przejdź do dołączonej galerii i skonfiguruj galerię, aby **włączyć lub wyłączyć** obrazy udostępnione na potrzeby tworzenia maszyn wirtualnych. Wybierz z listy galerię obrazów, aby ją skonfigurować. 
 
-    Domyślnie **zezwalaj na użycie wszystkich obrazów jako baz maszyn wirtualnych** na **Tak**. Oznacza to, że wszystkie obrazy dostępne w dołączonej galerii obrazów udostępnionych będą dostępne dla użytkownika laboratorium podczas tworzenia nowej maszyny Wirtualnej laboratorium. Jeśli dostęp do niektórych obrazów musi być ograniczony, zmień **Zezwalaj na wszystkie obrazy, które mają być używane jako bazy maszyn wirtualnych** na **Nie,** i wybierz obrazy, które mają być używane podczas tworzenia maszyn wirtualnych, a następnie wybierz przycisk **Zapisz.**
+    Domyślnie ustawienie **Zezwalaj na używanie wszystkich obrazów jako baz maszyn wirtualnych** jest ustawione na **wartość tak**. Oznacza to, że wszystkie obrazy dostępne w dołączonej galerii obrazów udostępnionych będą dostępne dla użytkownika laboratorium podczas tworzenia nowej maszyny wirtualnej laboratorium. W przypadku konieczności ograniczenia dostępu do niektórych obrazów należy zmienić wartość **Zezwalaj na używanie wszystkich obrazów jako baz maszyn wirtualnych** **, a**następnie wybrać obrazy, które mają być dozwolone podczas tworzenia maszyn wirtualnych, a następnie wybrać przycisk **Zapisz** .
 
-    ![Włączanie lub wyłączanie](./media/configure-shared-image-gallery/enable-disable.png)
-1. Użytkownicy laboratorium mogą następnie utworzyć maszynę wirtualną przy użyciu włączonych obrazów, klikając **+Dodaj** i znajdując obraz na **stronie podstawowej.**
+    ![Włącz lub Wyłącz](./media/configure-shared-image-gallery/enable-disable.png)
+1. Użytkownicy laboratorium mogą następnie utworzyć maszynę wirtualną za pomocą włączonych obrazów, klikając pozycję **+ Dodaj** i wyszukasz obraz na stronie **Wybierz swoją bazę** .
 
     ![Użytkownicy laboratorium](./media/configure-shared-image-gallery/lab-users.png)
-## <a name="use-azure-resource-manager-template"></a>Korzystanie z szablonu usługi Azure Resource Manager
+## <a name="use-azure-resource-manager-template"></a>Użyj szablonu Azure Resource Manager
 
 ### <a name="attach-a-shared-image-gallery-to-your-lab"></a>Dołączanie udostępnionej galerii obrazów do laboratorium
-Jeśli używasz szablonu usługi Azure Resource Manager do dołączania udostępnionej galerii obrazów do laboratorium, musisz dodać go w sekcji zasobów szablonu Menedżera zasobów, jak pokazano w poniższym przykładzie:
+Jeśli używasz szablonu Azure Resource Manager do dołączania udostępnionej galerii obrazów do laboratorium, musisz dodać go w sekcji zasobów szablonu Menedżer zasobów, jak pokazano w następującym przykładzie:
 
 ```json
 "resources": [
@@ -89,11 +89,11 @@ Jeśli używasz szablonu usługi Azure Resource Manager do dołączania udostęp
 }
 ```
 
-W przykładzie pełnego szablonu Menedżera zasobów zobacz te przykłady szablonów Menedżera zasobów w naszym publicznym repozytorium Usługi GitHub: [Konfigurowanie udostępnionej galerii obrazów podczas tworzenia laboratorium](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-lab-shared-gallery-configured).
+Aby zapoznać się z kompletnym przykładem szablonu Menedżer zasobów, zobacz następujące przykłady szablonów Menedżer zasobów w naszym publicznym repozytorium GitHub: [Konfigurowanie galerii obrazów udostępnionych podczas tworzenia laboratorium](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-lab-shared-gallery-configured).
 
 ## <a name="use-api"></a>Korzystanie z interfejsu API
 
-### <a name="shared-image-galleries---create-or-update"></a>Udostępnione galerie obrazów — tworzenie lub aktualizowanie
+### <a name="shared-image-galleries---create-or-update"></a>Udostępnione Galerie obrazów — Tworzenie lub aktualizowanie
 
 ```rest
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}?api-version= 2018-10-15-preview
@@ -107,7 +107,7 @@ Body:
 
 ```
 
-### <a name="shared-image-galleries-images---list"></a>Udostępnione obrazy galerie zdjęć - Lista 
+### <a name="shared-image-galleries-images---list"></a>Obrazy udostępnionych galerii obrazów — lista 
 
 ```rest
 GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}/sharedimages?api-version= 2018-10-15-preview
@@ -117,4 +117,4 @@ GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz następujące artykuły dotyczące tworzenia maszyny wirtualnej przy użyciu obrazu z dołączonej galerii obrazów udostępnionych: [Tworzenie maszyny Wirtualnej przy użyciu udostępnionego obrazu z galerii](add-vm-use-shared-image.md)
+Zapoznaj się z następującymi artykułami dotyczącymi tworzenia maszyny wirtualnej przy użyciu obrazu z dołączonej galerii obrazów udostępnionych: [Tworzenie maszyny wirtualnej przy użyciu udostępnionego obrazu z galerii](add-vm-use-shared-image.md)

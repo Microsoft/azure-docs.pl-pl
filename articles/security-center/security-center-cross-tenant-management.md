@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie między dzierżawcami w usłudze Azure Security Center | Dokumenty firmy Microsoft
-description: Dowiedz się, jak skonfigurować zarządzanie między dzierżawcami w celu zarządzania postawą zabezpieczeń wielu dzierżaw w usłudze Security Center przy użyciu zarządzania zasobami delegowanymi platformy Azure.
+title: Zarządzanie między dzierżawcami w Azure Security Center | Microsoft Docs
+description: Dowiedz się, jak skonfigurować zarządzanie pośrednictwem wielu dzierżawców w celu zarządzania stanami w ramach usług w Security Center z użyciem delegowanego zarządzania zasobami platformy Azure.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,47 +14,47 @@ ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
 ms.openlocfilehash: 2aeb2ab4cfb4ed5e8652638aaced320cc7119d3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77919485"
 ---
-# <a name="cross-tenant-management-in-security-center"></a>Zarządzanie między dzierżawcami w centrum zabezpieczeń
+# <a name="cross-tenant-management-in-security-center"></a>Zarządzanie między dzierżawcami w Security Center
 
-Zarządzanie między dzierżawcami umożliwia wyświetlanie i zarządzanie postawą zabezpieczeń wielu dzierżaw w usłudze Security Center przy użyciu [usługi Azure zarządzania zasobami delegowanymi.](../lighthouse/concepts/azure-delegated-resource-management.md) Zarządzaj wieloma dzierżawami wydajnie, z jednego widoku, bez konieczności logowania się do katalogu każdej dzierżawy.
+Zarządzanie między dzierżawcami pozwala wyświetlać stan zabezpieczeń wielu dzierżawców w usłudze Security Center i zarządzać nimi przy użyciu [delegowanego zarządzania zasobami platformy Azure](../lighthouse/concepts/azure-delegated-resource-management.md) . Wydajnie Zarządzaj wieloma dzierżawcami, z poziomu jednego widoku, bez konieczności logowania się do katalogu każdej dzierżawy.
 
-- Dostawcy usług mogą zarządzać postawą zabezpieczeń zasobów dla wielu klientów, z poziomu ich własnej dzierżawy.
+- Dostawcy usług mogą zarządzać stanem zabezpieczeń zasobów dla wielu klientów w ramach własnej dzierżawy.
 
-- Zespoły zabezpieczeń organizacji z wieloma dzierżawcami mogą wyświetlać i zarządzać swoją postawą zabezpieczeń z jednej lokalizacji.
+- Zespoły ds. zabezpieczeń organizacji z wieloma dzierżawcami mogą wyświetlać stan zabezpieczeń i zarządzać nimi z jednej lokalizacji.
 
-## <a name="set-up-cross-tenant-management"></a>Konfigurowanie zarządzania między dzierżawami
+## <a name="set-up-cross-tenant-management"></a>Konfigurowanie zarządzania przez wiele dzierżawców
 
-Konfigurowanie zarządzania między dzierżawami przez delegowanie dostępu do zasobów zarządzanych dzierżawców do własnej dzierżawy przy użyciu [usługi Azure zarządzanie zasobami delegowanymi](../lighthouse/concepts/azure-delegated-resource-management.md).
+Skonfiguruj zarządzanie pośrednictwem wielu dzierżawców, delegując dostęp do zasobów zarządzanych dzierżawców do własnej dzierżawy przy użyciu funkcji [zarządzania zasobami delegowanych przez platformę Azure](../lighthouse/concepts/azure-delegated-resource-management.md).
 
 > [!NOTE]
-> Zarządzanie zasobami delegowanymi platformy Azure jest jednym z kluczowych składników latarni morskiej platformy Azure.
+> Zarządzanie zasobami delegowanymi przez platformę Azure to jeden z najważniejszych składników usługi Azure Lighthouse.
 
-## <a name="how-does-cross-tenant-management-work-in-security-center"></a>Jak działa zarządzanie między dzierżawcami w umykarze zabezpieczeń
+## <a name="how-does-cross-tenant-management-work-in-security-center"></a>Jak działa zarządzanie między dzierżawcami w Security Center
 
-Możesz przeglądać subskrypcje i zarządzać nimi w wielu dzierżawach w taki sam sposób, w jaki zarządzasz wieloma subskrypcjami w jednej dzierżawie.
+Możesz przeglądać subskrypcje wielu dzierżawców i zarządzać nimi w taki sam sposób, w jaki zarządzasz wieloma subskrypcjami w ramach jednej dzierżawy.
 
-Na górnym pasku menu kliknij ikonę filtru i wybierz subskrypcje z katalogu każdej dzierżawy, które chcesz wyświetlić.
+Na górnym pasku menu kliknij ikonę filtru, a następnie wybierz subskrypcje, z katalogu każdego dzierżawy, chcesz wyświetlić.
 
-  ![Filtruj dzierżawców](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
+  ![Filtrowanie dzierżawców](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
 
-Widoki i działania są w zasadzie takie same. Oto kilka przykładów:
+Widoki i akcje są zasadniczo takie same. Oto kilka przykładów:
 
-- **Zarządzanie zasadami zabezpieczeń:** z jednego widoku zarządzaj postawą zabezpieczeń wielu zasobów za pomocą [zasad,](tutorial-security-policy.md)podejmuj akcje z zaleceniami dotyczącymi zabezpieczeń oraz zbieraj i zarządzaj danymi związanymi z zabezpieczeniami.
-- **Popraw bezpieczny wynik i postawę zgodności:** widoczność między dzierżawcami umożliwia wyświetlanie ogólnej postawy zabezpieczeń wszystkich dzierżawców oraz miejsca i najlepszego ulepszenia [postawy bezpiecznego wyniku](security-center-secure-score.md) i [zgodności](security-center-compliance-dashboard.md) dla każdego z nich.
-- **Korygowanie zaleceń:** monitoruj i koryguj [zalecenie](security-center-recommendations.md) dotyczące wielu zasobów od różnych dzierżaw jednocześnie. Następnie można natychmiast rozwiązać luki, które stanowią największe ryzyko we wszystkich dzierżawców.
-- **Zarządzanie alertami:** [wykrywanie alertów](security-center-alerts-overview.md) w różnych dzierżawach. Podejmij działania w odniesieniu do zasobów, które nie są zgodne z [krokami zaradczymi.](security-center-managing-and-responding-alerts.md)
+- **Zarządzanie zasadami zabezpieczeń**: w jednym widoku Zarządzaj Stanami zabezpieczeń wielu zasobów przy użyciu [zasad](tutorial-security-policy.md), podejmuj działania z zaleceniami dotyczącymi zabezpieczeń, a następnie Zbieraj dane związane z zabezpieczeniami i zarządzaj nimi.
+- **Poprawa bezpiecznego oceny i zgodności stan**: widoczność między dzierżawcami umożliwia wyświetlenie ogólnych stan związanych z bezpieczeństwem wszystkich dzierżawców oraz, gdzie i jak najlepiej poprawić [bezpieczną ocenę](security-center-secure-score.md) i [zgodność stan](security-center-compliance-dashboard.md) dla każdego z nich.
+- **Skoryguj zalecenia**: Monitoruj i Koryguj [zalecenia](security-center-recommendations.md) dotyczące wielu zasobów z różnych dzierżawców jednocześnie. Następnie można natychmiast zaradzić sobie z lukami w zabezpieczeniach, które stwarzają największe ryzyko dla wszystkich dzierżawców.
+- **Zarządzanie alertami**: wykrywanie [alertów](security-center-alerts-overview.md) w różnych dzierżawach. Wykonaj działania dotyczące zasobów, które są niezgodne z [krokami korygowania](security-center-managing-and-responding-alerts.md)akcji.
 
-- **Zarządzanie zaawansowanymi funkcjami ochrony w chmurze i nie tylko:** Zarządzaj różnymi usługami ochrony przed zagrożeniami, takimi jak [dostęp do maszyn wirtualnych just-in-time (JIT),](security-center-just-in-time.md) [adaptacyjne hartowanie sieci,](security-center-adaptive-network-hardening.md) [adaptacyjne sterowanie aplikacjami](security-center-adaptive-application.md)i inne.
+- **Zarządzaj zaawansowanymi funkcjami obrony w chmurze i nie tylko**: Zarządzaj różnymi usługami ochrony przed zagrożeniami, takimi jak [dostęp do maszyn wirtualnych just-in-Time (JIT)](security-center-just-in-time.md), [adaptacyjne Zabezpieczanie sieci](security-center-adaptive-network-hardening.md), [adaptacyjne kontrolki aplikacji](security-center-adaptive-application.md)i nie tylko.
  
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule wyjaśniono, jak działa zarządzanie między dzierżawcami w umykarze zabezpieczeń. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń, zobacz następujące artykuły:
+W tym artykule wyjaśniono, jak zarządzanie przez wiele dzierżawców działa w Security Center. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń, zobacz następujące artykuły:
 
-* [Wzmocnij swoją postawę zabezpieczeń dzięki usłudze Azure Security Center](security-center-monitoring.md) — dowiedz się, jak monitorować kondycję zasobów platformy Azure.
-* [Często zadawane pytania dotyczące usługi Azure Security Center](faq-general.md) — znajdź często zadawane pytania dotyczące korzystania z usługi.
-* [Dowiedz się więcej o latarni morskiej platformy Azure w scenariuszach korporacyjnych](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise) — dowiedz się, jak latarnia morska platformy Azure może uprościć zarządzanie między dzierżawcami w przedsiębiorstwie, które korzysta z wielu dzierżaw usługi Azure AD.
+* [Wzmocnij stan zabezpieczeń dzięki Azure Security Center](security-center-monitoring.md) — Dowiedz się, jak monitorować kondycję zasobów platformy Azure.
+* [Azure Security Center często zadawane](faq-general.md) pytania — Znajdź często zadawane pytania dotyczące korzystania z usługi.
+* [Dowiedz się więcej o usłudze Azure Lighthouse w scenariuszach dla przedsiębiorstw](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise) — Odkryj, jak usługa Azure Lighthouse może uprościć zarządzanie różnymi dzierżawcami w przedsiębiorstwie, które korzystają z wielu dzierżawców usługi Azure AD.

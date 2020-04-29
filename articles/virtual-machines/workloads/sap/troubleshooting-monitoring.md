@@ -1,6 +1,6 @@
 ---
-title: Monitorowanie sap HANA na platformie Azure (duże wystąpienia) | Dokumenty firmy Microsoft
-description: Monitoruj sap HANA na platformie Azure (duże wystąpienia).
+title: Monitorowanie SAP HANA na platformie Azure (duże wystąpienia) | Microsoft Docs
+description: Monitoruj SAP HANA na platformie Azure (duże wystąpienia).
 services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
@@ -14,40 +14,40 @@ ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 50a6b4f15a7de02533e3bb51e5659f7b4c078b40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617291"
 ---
 # <a name="how-to-monitor-sap-hana-large-instances-on-azure"></a>Jak monitorować SAP HANA (duże wystąpienia) na platformie Azure
 
-SAP HANA na platformie Azure (duże wystąpienia) nie różni się od innych wdrożeń IaaS — należy monitorować, co system operacyjny i aplikacja robi i jak aplikacje zużywają następujące zasoby:
+SAP HANA na platformie Azure (duże wystąpienia) nie różnią się od innych wdrożeń IaaS — należy monitorować działanie systemu operacyjnego i aplikacji oraz sposób, w jaki aplikacje używają następujących zasobów:
 
 - Procesor CPU
 - Memory (Pamięć)
 - Przepustowość sieci
 - Miejsce na dysku
 
-Za pomocą platformy Azure Virtual Machines, należy dowiedzieć się, czy klasy zasobów o nazwie powyżej są wystarczające lub są one wyczerpane. Oto więcej szczegółów na temat każdej z różnych klas:
+Za pomocą usługi Azure Virtual Machines należy ustalić, czy klasy zasobów nazwane powyżej są wystarczające, czy są one zubożone. Poniżej przedstawiono bardziej szczegółowe informacje na temat każdej z różnych klas:
 
-**Zużycie zasobów procesora CPU:** Stosunek, który SAP zdefiniowane dla niektórych obciążeń względem HANA jest wymuszane, aby upewnić się, że powinno być wystarczająco dużo zasobów procesora CPU dostępne do pracy za pośrednictwem danych, które są przechowywane w pamięci. Niemniej jednak mogą wystąpić przypadki, w których HANA zużywa wiele procesorów wykonujących kwerendy z powodu brakujących indeksów lub podobnych problemów. Oznacza to, że należy monitorować zużycie zasobów procesora CPU jednostki wystąpienia dużych HANA, a także zasobów procesora CPU zużywanych przez określone usługi HANA.
+Użycie **zasobów procesora CPU:** Współczynnik, który został zdefiniowany dla niektórych obciążeń względem platformy HANA, jest wymuszany, aby upewnić się, że dostępne są wystarczające zasoby procesora CPU do pracy za pomocą danych przechowywanych w pamięci. Niemniej jednak mogą wystąpić sytuacje, w których HANA zużywa wiele procesorów wykonujących zapytania z powodu brakujących indeksów lub podobnych problemów. Oznacza to, że należy monitorować użycie zasobów procesora dla jednostki dużego wystąpienia HANA, a także zasoby procesora używane przez konkretne usługi platformy HANA.
 
-**Zużycie pamięci:** Ważne jest, aby monitorować z wewnątrz HANA, jak również poza HANA na urządzeniu. W ramach hana, monitorować, jak dane zużywają hana przydzielonej pamięci w celu pozostania w ramach wymaganych wytycznych dotyczących rozmiaru SAP. Należy również monitorować zużycie pamięci na poziomie wystąpienia dużych, aby upewnić się, że dodatkowe zainstalowane oprogramowanie nie-HANA nie zużywa zbyt dużo pamięci i dlatego konkurować z HANA dla pamięci.
+**Użycie pamięci:** Jest ważne, aby monitorować z poziomu platformy HANA, a także poza platformą HANA w jednostce. W ramach platformy HANA Monitoruj, jak dane zużywają pamięć przydzieloną platformy HANA, aby zachować w ramach wymaganych wytycznych dotyczących ustalania wielkości dla SAP. Warto również monitorować użycie pamięci na poziomie dużego wystąpienia, aby upewnić się, że dodatkowe zainstalowane oprogramowanie inne niż HANA nie zużywa zbyt dużej ilości pamięci i w związku z tym konkuruje z platformą HANA dla pamięci.
 
-**Przepustowość sieci:** Brama sieci wirtualnej platformy Azure jest ograniczona przepustowością danych przenoszących się do sieci wirtualnej platformy Azure, dlatego warto monitorować dane odebrane przez wszystkie maszyny wirtualne platformy Azure w sieci wirtualnej, aby dowiedzieć się, jak blisko jesteś do granic wybranej jednostki SKU bramy platformy Azure. W jednostce dużych wystąpień HANA ma sens monitorowanie przychodzącego i wychodzącego ruchu sieciowego oraz śledzenie woluminów, które są obsługiwane w czasie.
+**Przepustowość sieci:** Brama sieci wirtualnej platformy Azure ma ograniczoną przepustowość danych przenoszonych do sieci wirtualnej platformy Azure, dlatego warto monitorować dane odbierane przez wszystkie maszyny wirtualne platformy Azure w sieci wirtualnej, aby ustalić, jak zamykasz limity wybranej jednostki SKU bramy platformy Azure. W jednostce dużego wystąpienia programu HANA warto monitorować również ruch sieciowy przychodzący i wychodzący oraz śledzić woluminy, które są obsługiwane w czasie.
 
-**Miejsce na dysku:** Zużycie miejsca na dysku zwykle wzrasta wraz z czasem. Najczęstsze przyczyny to: zwiększenie ilości danych, wykonywanie kopii zapasowych dziennika transakcji, przechowywanie plików śledzenia i wykonywanie migawek magazynu. W związku z tym ważne jest, aby monitorować użycie miejsca na dysku i zarządzać miejscem na dysku skojarzonym z jednostką dużych wystąpień HANA.
+**Miejsce na dysku:** Użycie miejsca na dysku zwykle rośnie w miarę upływu czasu. Najczęstszymi przyczynami są: zwiększenie ilości danych, wykonanie kopii zapasowych dziennika transakcji, przechowywanie plików śledzenia i wykonywanie migawek magazynu. W związku z tym ważne jest, aby monitorować użycie miejsca na dysku i zarządzać przestrzenią dyskową skojarzoną z jednostką dużego wystąpienia HANA.
 
-Dla **jednostek SKU typu II** wystąpienia dużych hana serwer jest dostarczany z fabrycznie załadowanych narzędzi diagnostycznych systemu. Można wykorzystać te narzędzia diagnostyczne do przeprowadzenia kontroli kondycji systemu. Uruchom następujące polecenie, aby wygenerować plik dziennika sprawdzania kondycji w /var/log/health_check.
+Dla **jednostek SKU typu II** dużych wystąpień Hana serwer zawiera wstępnie załadowanych narzędzi diagnostycznych systemu. Możesz użyć tych narzędzi diagnostycznych, aby przeprowadzić kontrolę kondycji systemu. Uruchom następujące polecenie, aby wygenerować plik dziennika kontroli kondycji w/var/log/health_check.
 ```
 /opt/sgi/health_check/microsoft_tdi.sh
 ```
-Podczas pracy z zespołem pomocy technicznej firmy Microsoft w celu rozwiązania problemu może być również monit o podanie plików dziennika przy użyciu tych narzędzi diagnostycznych. Plik można skompresować za pomocą następującego polecenia.
+Podczas pracy z zespołem pomoc techniczna firmy Microsoft w celu rozwiązania problemu może być również poproszony o podanie plików dziennika za pomocą tych narzędzi diagnostycznych. Plik można zip przy użyciu poniższego polecenia.
 ```
 tar  -czvf health_check_logs.tar.gz /var/log/health_check
 ```
 
 **Następne kroki**
 
-- Zapoznaj się [z instrukcjami monitorowania sap HANA (dużych wystąpień) na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot).
+- Zobacz [, jak monitorować SAP HANA (duże wystąpienia) na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot).

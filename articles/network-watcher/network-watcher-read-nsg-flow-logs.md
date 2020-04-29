@@ -1,6 +1,6 @@
 ---
-title: Odczyt dzienników przepływu nsg | Dokumenty firmy Microsoft
-description: W tym artykule pokazano, jak przeanalizować dzienniki przepływu nsg
+title: Odczytywanie dzienników przepływu sieciowej grupy zabezpieczeń | Microsoft Docs
+description: W tym artykule przedstawiono sposób analizowania dzienników przepływu sieciowej grupy zabezpieczeń
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -12,32 +12,32 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: damendo
 ms.openlocfilehash: 47d927f9f17580767526ec6683e819256fc5e994
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77619918"
 ---
 # <a name="read-nsg-flow-logs"></a>Odczytywanie dzienników przepływu sieciowych grup zabezpieczeń
 
-Dowiedz się, jak odczytać wpisy dziennika przepływu sieciowych sieci płciowych za pomocą programu PowerShell.
+Informacje dotyczące odczytywania wpisów dzienników przepływu sieciowej grupy zabezpieczeń przy użyciu programu PowerShell.
 
-Dzienniki przepływu NSG są przechowywane na koncie magazynu w [blokowych obiektach blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Blokowe obiekty blob stanowią mniejsze bloki. Każdy dziennik jest oddzielny blok blob, który jest generowany co godzinę. Nowe dzienniki są generowane co godzinę, dzienniki są aktualizowane o nowe wpisy co kilka minut z najnowszymi danymi. W tym artykule dowiesz się, jak odczytać fragmenty dzienników przepływu.
+Dzienniki przepływu sieciowej grupy zabezpieczeń są przechowywane na koncie magazynu w [blokowych](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)obiektach Blob. Blokowe obiekty blob składają się z mniejszych bloków. Każdy dziennik jest osobnym blokowym obiektem BLOB, który jest generowany co godzinę. Nowe dzienniki są generowane co godzinę. dzienniki są aktualizowane co kilka minut przy użyciu najnowszych danych. W tym artykule dowiesz się, jak czytać fragmenty dzienników przepływów.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario"></a>Scenariusz
 
-W poniższym scenariuszu masz przykładowy dziennik przepływu, który jest przechowywany na koncie magazynu. Dowiesz się, jak selektywnie odczytywać najnowsze zdarzenia w dziennikach przepływu nsg. W tym artykule używasz programu PowerShell, jednak pojęcia omówione w artykule nie są ograniczone do języka programowania i mają zastosowanie do wszystkich języków obsługiwanych przez interfejsy API usługi Azure Storage.
+W poniższym scenariuszu przedstawiono przykładowy dziennik przepływu, który jest przechowywany na koncie magazynu. Dowiesz się, jak wybiórczo odczytywać najnowsze zdarzenia w dziennikach przepływu sieciowej grupy zabezpieczeń. W tym artykule użyto programu PowerShell, jednak koncepcje omówione w artykule nie są ograniczone do języka programowania i są stosowane do wszystkich języków obsługiwanych przez interfejsy API usługi Azure Storage.
 
-## <a name="setup"></a>Konfiguracja
+## <a name="setup"></a>Konfigurowanie
 
-Przed rozpoczęciem należy włączyć rejestrowanie przepływu sieciowej grupy zabezpieczeń na jednej lub wielu grupach zabezpieczeń sieciowych na koncie. Instrukcje dotyczące włączania dzienników przepływu zabezpieczeń sieciowych można znaleźć w następującym artykule: [Wprowadzenie do rejestrowania przepływu dla grup zabezpieczeń sieciowych](network-watcher-nsg-flow-logging-overview.md).
+Przed rozpoczęciem należy włączyć rejestrowanie przepływu sieciowych grup zabezpieczeń dla jednej lub wielu sieciowych grup zabezpieczeń na Twoim koncie. Instrukcje dotyczące włączania dzienników przepływu zabezpieczeń sieci można znaleźć w następującym artykule: [wprowadzenie do rejestrowania przepływu dla sieciowych grup zabezpieczeń](network-watcher-nsg-flow-logging-overview.md).
 
-## <a name="retrieve-the-block-list"></a>Pobieranie listy zablokowanych
+## <a name="retrieve-the-block-list"></a>Pobierz listę zablokowanych
 
-Następujące programu PowerShell konfiguruje zmienne potrzebne do kwerendy obiektu blob dziennika przepływu sieciowej sieciowej i listy bloków w [bloku CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) blob. Zaktualizuj skrypt, aby zawierał prawidłowe wartości dla środowiska.
+Poniższe środowisko programu PowerShell konfiguruje zmienne, które są konieczne do wykonywania zapytań dotyczących obiektu BLOB dziennika przepływu sieciowej grupy zabezpieczeń i wyświetlania bloków w blokowym obiekcie blob [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) . Zaktualizuj skrypt tak, aby zawierał prawidłowe wartości dla danego środowiska.
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {
@@ -96,7 +96,7 @@ $CloudBlockBlob = Get-NSGFlowLogCloudBlockBlob -subscriptionId "yourSubscription
 $blockList = Get-NSGFlowLogBlockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-Zmienna `$blockList` zwraca listę bloków w obiekcie blob. Każdy blok blob zawiera co najmniej dwa bloki.  Pierwszy blok ma długość `12` bajtów, ten blok zawiera nawiasy otwierające dziennika json. Drugi blok jest nawiasy zamykające i `2` ma długość bajtów.  Jak widać poniższy przykład dziennika ma siedem wpisów w nim, każdy jest pojedynczy wpis. Wszystkie nowe wpisy w dzienniku są dodawane na końcu tuż przed ostatnim blokiem.
+`$blockList` Zmienna zwraca listę bloków w obiekcie blob. Każdy blokowy obiekt BLOB zawiera co najmniej dwa bloki.  Pierwszy blok ma długość `12` bajtów, ten blok zawiera nawiasy otwierające dziennika JSON. Drugi blok jest nawiasem zamykającym i ma długość `2` bajtów.  Jak widać w poniższym przykładzie dziennik zawiera siedem wpisów, każdy z nich jest pojedynczym wpisem. Wszystkie nowe wpisy w dzienniku są dodawane do końca bezpośrednio przed końcowym blokiem.
 
 ```
 Name                                         Length Committed
@@ -112,9 +112,9 @@ Mzk1YzQwM2U0ZWY1ZDRhOWFlMTNhYjQ3OGVhYmUzNjk=   2675      True
 ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 ```
 
-## <a name="read-the-block-blob"></a>Odczytanie bloku blob
+## <a name="read-the-block-blob"></a>Odczytaj blokowy obiekt BLOB
 
-Następnie należy odczytać `$blocklist` zmienną, aby pobrać dane. W tym przykładzie możemy iterować za pośrednictwem listy zablokowanych, odczytać bajty z każdego bloku i wątku je w tablicy. Użyj [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray) metody, aby pobrać dane.
+Następnie musisz odczytać zmienną, `$blocklist` aby pobrać dane. W tym przykładzie wykonujemy iterację przez listy blokowania, odczytuje bajty z każdego bloku i umieszcza je w tablicy. Użyj metody [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray) , aby pobrać dane.
 
 ```powershell
 function Get-NSGFlowLogReadBlock  {
@@ -158,9 +158,9 @@ function Get-NSGFlowLogReadBlock  {
 $valuearray = Get-NSGFlowLogReadBlock -blockList $blockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-Teraz `$valuearray` tablica zawiera wartość ciągu każdego bloku. Aby zweryfikować wpis, pobierz drugą do ostatniej `$valuearray[$valuearray.Length-2]`wartości z tablicy, uruchamiając program . Nie chcesz ostatniej wartości, ponieważ jest to nawias zamykający.
+Teraz `$valuearray` tablica zawiera wartość ciągu dla każdego bloku. Aby sprawdzić wpis, Pobierz sekundę do ostatniej wartości z tablicy, uruchamiając `$valuearray[$valuearray.Length-2]`polecenie. Ostatnia wartość nie jest potrzebna, ponieważ jest to nawias zamykający.
 
-Wyniki tej wartości są pokazane w poniższym przykładzie:
+Wyniki tej wartości są pokazane w następującym przykładzie:
 
 ```json
         {
@@ -182,13 +182,13 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
         }
 ```
 
-W tym scenariuszu jest przykładem sposobu odczytywania wpisów w dziennikach przepływu nsg bez konieczności analizowania całego dziennika. Można odczytać nowe wpisy w dzienniku, ponieważ są one zapisywane przy użyciu identyfikatora bloku lub śledzenie długości bloków przechowywanych w bloku obiektu blob. Dzięki temu można odczytać tylko nowe wpisy.
+W tym scenariuszu przedstawiono przykład sposobu odczytywania wpisów w dziennikach przepływu sieciowej grupy zabezpieczeń bez konieczności analizowania całego dziennika. Można odczytywać nowe wpisy w dzienniku w miarę ich zapisywania przy użyciu identyfikatora bloku lub śledząc długość bloków przechowywanych w blokowym obiekcie blob. Dzięki temu można odczytać tylko nowe wpisy.
 
 ## <a name="next-steps"></a>Następne kroki
 
 
-Odwiedź [stronę Użyj elastycznego stosu](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Użyj grafany](network-watcher-nsg-grafana.md)i [Użyj Graylog,](network-watcher-analyze-nsg-flow-logs-graylog.md) aby dowiedzieć się więcej o sposobach wyświetlania dzienników przepływu nsg. Podejście funkcji platformy Azure open source do korzystania z obiektów blob bezpośrednio i emitowania do różnych konsumentów analizy dzienników można znaleźć tutaj: [Usługa Azure Network Watcher NSG Flow Logs Connector](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
+Odwiedź stronę [Korzystanie z elastycznego stosu](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Użyj Grafana](network-watcher-nsg-grafana.md)i [Skorzystaj z z narzędzia graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) , aby dowiedzieć się więcej na temat sposobów wyświetlania dzienników przepływu sieciowej grupy zabezpieczeń. Podejście funkcji platformy Azure typu open source do konsumowania obiektów BLOB bezpośrednio i emitowania do różnych odbiorców usługi log Analytics można znaleźć tutaj: [Łącznik usługi Azure Network Watcher sieciowej grupy zabezpieczeń Flow Logs](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
-Za pomocą [usługi Azure Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) można uzyskać szczegółowe informacje na temat przepływów ruchu. Usługa Traffic Analytics korzysta z [usługi Log Analytics,](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) aby można było wyszukiwać przepływ ruchu.
+Możesz użyć [usługi Azure Analiza ruchu](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) , aby uzyskać wgląd w przepływy ruchu. Analiza ruchu używa [log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) , aby przepływ ruchu queryable.
 
-Aby dowiedzieć się więcej o obiektach blob magazynu odwiedź: [Powiązania magazynu obiektów Blob usług Azure Functions](../azure-functions/functions-bindings-storage-blob.md)
+Aby dowiedzieć się więcej na temat obiektów blob magazynu, odwiedź: [Azure Functions powiązania magazynu obiektów BLOB](../azure-functions/functions-bindings-storage-blob.md)

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/24/2018
 ms.author: alkohli
 ms.openlocfilehash: ffabd917eff1c545bba734ab1621b947ee8d9ae9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77920641"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Opcje okablowania urządzenia Azure Data Box
@@ -74,7 +74,7 @@ Wykonaj poniższe kroki, aby okablować urządzenie.
 
 Wykonaj poniższe kroki, aby okablować urządzenie.
 
-1. Użyj kabla Ethernet RJ45 z oddzielnego komputera bezpośrednio do portu MGMT w celu konfiguracji.
+1. Aby skonfigurować konfigurację, użyj kabla Ethernet RJ45 z osobnego komputera bezpośrednio do portu zarządzania.
 2. Za pomocą kabla RJ-45 (w przypadku portu DATA 3) lub kabla SFP+ (w przypadku portu DATA 1 lub DATA 2) podłącz urządzenie do serwera. Zalecamy użycie portów 10 GbE DATA 1 lub DATA 2 w celu uzyskania dobrej wydajności. Porty danych są połączone z serwerem zawierającym dane za pośrednictwem przełącznika 10 GbE.
 3. Skonfiguruj kartę Ethernet na komputerze przenośnym używanym do nawiązywania połączenia z urządzeniem za pomocą następujących ustawień:
 

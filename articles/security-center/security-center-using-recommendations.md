@@ -1,6 +1,6 @@
 ---
-title: Korzystanie z zaleceń usługi Azure Security Center w celu zwiększenia bezpieczeństwa | Dokumenty firmy Microsoft
-description: " Dowiedz się, jak korzystać z zasad zabezpieczeń i zaleceń w usłudze Azure Security Center, aby ograniczyć atak zabezpieczeń. "
+title: Użyj zaleceń Azure Security Center, aby zwiększyć bezpieczeństwo | Microsoft Docs
+description: " Dowiedz się, jak korzystać z zasad zabezpieczeń i zaleceń w Azure Security Center, aby pomóc w ograniczeniu ataku zabezpieczeń. "
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,66 +14,66 @@ ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
 ms.openlocfilehash: a1034eb47010da2b0e795ee8c79646f06151cac1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77603282"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Używanie zaleceń usługi Azure Security Center w celu ulepszania zabezpieczeń
-Można zmniejszyć prawdopodobieństwo wystąpienia istotnego zdarzenia zabezpieczeń, konfigurując zasady zabezpieczeń, a następnie implementując zalecenia dostarczone przez usługę Azure Security Center. W tym artykule pokazano, jak używać zasad zabezpieczeń i zaleceń w Centrum zabezpieczeń, aby pomóc w ograniczeniu ataku zabezpieczeń. 
+Aby zmniejszyć prawdopodobieństwo wystąpienia poważnych zdarzeń zabezpieczeń, można skonfigurować zasady zabezpieczeń, a następnie zaimplementować zalecenia udostępniane przez Azure Security Center. W tym artykule pokazano, jak używać zasad zabezpieczeń i zaleceń w Security Center, aby pomóc w ograniczeniu ataku zabezpieczeń. 
 
-Usługa Security Center automatycznie uruchamia ciągłe skanowanie w celu przeanalizowania stanu zabezpieczeń zasobów platformy Azure. Gdy usługa Security Center identyfikuje potencjalne luki w zabezpieczeniach, tworzy zalecenia, które poprowadzą Użytkownika przez proces konfigurowania wymaganych zabezpieczeń zabezpieczeń. Usługa Security Center aktualizuje swoje zalecenia w ciągu 24 godzin, z następującymi wyjątkami:
+Security Center automatycznie uruchamia ciągłego skanowania w celu przeanalizowania stanu zabezpieczeń zasobów platformy Azure. Gdy Security Center identyfikuje potencjalne luki w zabezpieczeniach, tworzy zalecenia, które przeprowadzą Cię przez proces konfigurowania wymaganych kontroli zabezpieczeń. Security Center aktualizuje zalecenia w ciągu 24 godzin, z następującymi wyjątkami:
 
-- Zalecenia dotyczące konfiguracji zabezpieczeń systemu operacyjnego są aktualizowane w ciągu 48 godzin
-- Zalecenia dotyczące problemów związanych z ochroną punktu końcowego są aktualizowane w ciągu 8 godzin
+- Zalecenia dotyczące konfiguracji zabezpieczeń systemu operacyjnego zostały zaktualizowane w ciągu 48 godzin
+- Zalecenia dotyczące Endpoint Protection problemów są aktualizowane w ciągu 8 godzin
 
 ## <a name="scenario"></a>Scenariusz
-W tym scenariuszu pokazano, jak używać usługi Security Center, aby zmniejszyć ryzyko zdarzenia zabezpieczeń, monitorując zalecenia usługi Security Center i podejmując działania. W scenariuszu użyto fikcyjnej firmy Contoso i ról przedstawionych w [przewodniku planowania i operacji](security-center-planning-and-operations-guide.md#security-roles-and-access-controls)usługi Security Center . W tym scenariuszu koncentrujemy się na rolach następujących personas:
+W tym scenariuszu przedstawiono sposób użycia Security Center, aby zmniejszyć prawdopodobieństwo wystąpienia zdarzenia związanego z zabezpieczeniami przez monitorowanie Security Center zaleceń i podejmowanie działań. W scenariuszu jest stosowana fikcyjna firma, firma Contoso i role przedstawione w [przewodniku planowania i](security-center-planning-and-operations-guide.md#security-roles-and-access-controls)obsługi Security Center. W tym scenariuszu koncentrujemy się na rolach następujących osób:
 
-![Role scenariuszy](./media/security-center-using-recommendations/scenario-roles.png)
+![Role scenariusza](./media/security-center-using-recommendations/scenario-roles.png)
 
-Firma Contoso niedawno zmigrowała niektóre z ich zasobów lokalnych na platformę Azure. Contoso chce chronić swoje zasoby i zmniejszyć podatność ich zasobów w chmurze.
+Firma Contoso niedawno przeprowadzono migrację niektórych zasobów lokalnych na platformę Azure. Firma Contoso chce chronić swoje zasoby i ograniczyć liczbę luk w zabezpieczeniach w chmurze.
 
 ## <a name="use-azure-security-center"></a>Korzystanie z usługi Azure Security Center
-David, z zabezpieczeń IT firmy Contoso, wybrał już wbudowane centrum zabezpieczeń w ramach subskrypcji usługi Contoso w usłudze Azure Security Center, aby zapobiegać lukom w zabezpieczeniach i wykrywać ich. 
+David, od zabezpieczeń IT firmy Contoso, został już wybrany do dołączenia Security Center w subskrypcjach firmy Contoso w celu Azure Security Center zapobiegania i wykrywania luk w zabezpieczeniach. 
 
-Usługa Security Center automatycznie analizuje stan zabezpieczeń zasobów platformy Azure firmy Contoso i stosuje domyślne zasady zabezpieczeń. Gdy Usługa Security Center identyfikuje potencjalne luki w zabezpieczeniach, tworzy zalecenia na podstawie **formantów** określonych w zasadach zabezpieczeń. 
+Security Center automatycznie analizuje stan zabezpieczeń zasobów platformy Azure firmy Contoso i stosuje domyślne zasady zabezpieczeń. Gdy Security Center identyfikuje potencjalne luki w zabezpieczeniach, tworzy **zalecenia** na podstawie kontrolek ustawionych w zasadach zabezpieczeń. 
 
-Firma David uruchamia warstwę standardową usługi Azure Security we wszystkich subskrypcjach, aby uzyskać pełny zestaw dostępnych zaleceń i funkcji zabezpieczeń. Jeff dołącza również wszystkie istniejące serwery lokalne, które nie zostały jeszcze zmigrowane do chmury, aby mogły korzystać z obsługi hybrydowej usługi Security Center na serwerach [Windows](quick-onboard-windows-computer.md) i [Linux.](quick-onboard-linux-computer.md)
+David uruchamia usługę Azure Security Standard w ramach wszystkich subskrypcji w celu uzyskania pełnego zestawu zaleceń i funkcji zabezpieczeń. Jan również dołącza wszystkie istniejące serwery lokalne, które nie zostały jeszcze poddane migracji do chmury, dzięki czemu mogą korzystać z pomocy technicznej hybrydowej Security Center na serwerach z [systemami Windows](quick-onboard-windows-computer.md) i [Linux](quick-onboard-linux-computer.md) .
 
-Jeff jest właścicielem obciążenia w chmurze. Jeff jest odpowiedzialny za stosowanie kontroli zabezpieczeń zgodnie z zasadami zabezpieczeń firmy Contoso. 
+Jan jest właścicielem obciążenia w chmurze. Jan jest odpowiedzialny za stosowanie kontroli zabezpieczeń zgodnie z zasadami zabezpieczeń firmy Contoso. 
 
-Jeff wykonuje następujące zadania:
+Jan wykonuje następujące zadania:
 
-- Monitorowanie zaleceń dotyczących zabezpieczeń dostarczonych przez centrum zabezpieczeń
-- Oceń zalecenia dotyczące zabezpieczeń i zdecyduj, czy powinny one stosować lub odrzucać zalecenia.
-- Stosowanie zaleceń dotyczących zabezpieczeń
+- Monitoruj zalecenia dotyczące zabezpieczeń udostępniane przez Security Center
+- Oceń zalecenia dotyczące zabezpieczeń i zdecyduj, czy mają być stosowane lub odrzucane zalecenia.
+- Zastosuj zalecenia dotyczące zabezpieczeń
 
-### <a name="remediate-threats-using-recommendations"></a>Korygowanie zagrożeń za pomocą zaleceń
-W ramach codziennych działań związanych z monitorowaniem Jeff loguje się do platformy Azure i otwiera centrum zabezpieczeń. 
+### <a name="remediate-threats-using-recommendations"></a>Koryguj zagrożenia przy użyciu rekomendacji
+W ramach codziennych działań monitorowania Jan loguje się do platformy Azure i otwiera Security Center. 
 
-1. Jeff wybiera subskrypcje obciążenia.
+1. Jan wybiera subskrypcje obciążeń.
 
-2. Jeff sprawdza **Secure Score,** aby uzyskać ogólny obraz tego, jak bezpieczne są subskrypcje i widzi, że wynik wynosi 548.
+2. Jan sprawdza **bezpieczny wynik** , aby uzyskać ogólny obraz tego, jak zabezpieczy się subskrypcje i widzi, że wynik to 548.
 
-3. Jeff musi zdecydować, które zalecenia do obsługi w pierwszej kolejności. Więc Jeff kliknięć Secure Score i zaczyna obsługiwać zalecenia w oparciu o to, jak bardzo poprawia jego [wpływ Secure Score](security-center-secure-score.md).
+3. Jan musi zdecydować, które zalecenia należy obsłużyć w pierwszej kolejności. Dlatego Jan klika polecenie Secure Score i zaczyna obsługiwać zalecenia w zależności od tego, jak znacznie zwiększa on [bezpieczny wpływ na ocenę](security-center-secure-score.md).
 
-4. Ponieważ Jeff ma wiele podłączonych maszyn wirtualnych i serwerów, Jeff postanawia skupić się na **obliczeniach i aplikacjach.**
+4. Ze względu na to, że program Jan ma wiele połączonych maszyn wirtualnych i serwerów, Marcin decyduje się skoncentrować na **obliczeniach i aplikacjach**.
 
-5. Gdy Jeff kliknie **compute i aplikacje,** widzą listę zaleceń i obsługuje je zgodnie z secure score wpływ.
+5. Gdy Marcin kliknie pozycję **obliczeniową i aplikacje**, zobaczy listę zaleceń i obsłuży je zgodnie z bezpiecznym wpływem na ocenę.
 
-6. Jeff ma wiele maszyn wirtualnych z Internetem, a ponieważ ich porty są narażone, obawiają się, że osoba atakująca może przejąć kontrolę nad serwerami. Więc Jeff decyduje się na korzystanie [**z dostępu just-in-time VM**](security-center-just-in-time.md).
+6. Marcin ma wiele maszyn wirtualnych połączonych z Internetem, a ponieważ ich porty są ujawniane, są martwisz się, że osoba atakująca może przejąć kontrolę nad serwerami. Dlatego Jan wybiera, aby korzystać z [**dostępu just in Time do maszyny wirtualnej**](security-center-just-in-time.md).
 
-Jeff nadal przechodzi przez zalecenia o wysokim priorytecie i średnim priorytecie i podejmuje decyzje dotyczące wdrażania. Dla każdego zalecenia Jeff analizuje szczegółowe informacje dostarczone przez centrum zabezpieczeń, aby zrozumieć, które zasoby mają wpływ, jaki jest wpływ bezpiecznego wyniku, co oznacza każde zalecenie i kroki korygowania, aby zmniejszyć każdy problem.
+Marcin kontynuuje przechodzenie między zaleceniami o wysokim priorytecie i o średnim priorytecie i podejmuje decyzje dotyczące wdrożenia. W przypadku każdego zalecenia firma Jan przegląda szczegółowe informacje udostępniane przez Security Center, aby zrozumieć, jakie zasoby mają wpływ, jaki jest wpływ na to, jakie są te zalecenia, co oznacza, jakie są środki zaradcze w zakresie rozwiązywania problemów.
 
 ## <a name="conclusion"></a>Podsumowanie
-Zalecenia dotyczące monitorowania w u centrum zabezpieczeń pomagają wyeliminować luki w zabezpieczeniach przed atakiem. Po korygowanie zaleceń poprawia się wynik secure score i postawa zabezpieczeń obciążeń. Usługa Security Center automatycznie odnajduje nowe zasoby, które wdrażasz, ocenia je pod kątem zasad zabezpieczeń i udostępnia nowe zalecenia dotyczące ich zabezpieczania.
+Zalecenia dotyczące monitorowania w Security Center pomagają wyeliminować luki w zabezpieczeniach przed wystąpieniem ataku. W przypadku korygowania zaleceń Twój bezpieczny wynik i stan zabezpieczenia są ulepszane. Security Center automatycznie odnajduje nowe wdrożone zasoby, ocenia je przed zasadami zabezpieczeń i udostępnia nowe zalecenia dotyczące zabezpieczania tych zasobów.
 
 
 ## <a name="next-steps"></a>Następne kroki
-Upewnij się, że masz proces monitorowania w miejscu, w którym regularnie sprawdzać zalecenia w u centrum zabezpieczeń, dzięki czemu można upewnić się, aby zachować swoje zasoby bezpieczne w czasie.
+Upewnij się, że masz proces monitorowania, w którym regularnie sprawdzasz zalecenia w Security Center, aby upewnić się, że zasoby są bezpieczne z upływem czasu.
 
-W tym scenariuszu pokazano, jak używać zasad zabezpieczeń i zaleceń w u centrum zabezpieczeń, aby pomóc w łagodzeniu ataku zabezpieczeń.
+W tym scenariuszu pokazano, jak używać zasad zabezpieczeń i zaleceń w Security Center, aby pomóc w ograniczeniu ataku zabezpieczeń.
 
-Dowiedz się, jak reagować na zagrożenia, [chcę zarządzać alertami zabezpieczeń i odpowiadać na nie.](security-center-managing-and-responding-alerts.md)
+Dowiedz się, jak reagować na zagrożenia [, aby zarządzać alertami zabezpieczeń i odpowiadać na](security-center-managing-and-responding-alerts.md)nie.

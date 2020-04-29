@@ -1,6 +1,6 @@
 ---
-title: Jak zainstalować hana na SAP HANA na platformie Azure (duże wystąpienia) | Dokumenty firmy Microsoft
-description: Jak zainstalować hana na SAP HANA na platformie Azure (duże wystąpienia).
+title: Jak zainstalować platformę HANA na SAP HANA na platformie Azure (duże wystąpienia) | Microsoft Docs
+description: Jak zainstalować platformę HANA na SAP HANA na platformie Azure (duże wystąpienia).
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
@@ -14,123 +14,123 @@ ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 023f32fce01ffbd974b182fa89fd604e62332936
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617207"
 ---
-# <a name="install-hana-on-sap-hana-on-azure-large-instances"></a>Instalowanie hana na SAP HANA na platformie Azure (duże wystąpienia)
+# <a name="install-hana-on-sap-hana-on-azure-large-instances"></a>Instalowanie platformy HANA na SAP HANA na platformie Azure (duże wystąpienia)
 
-Aby zainstalować hana na SAP HANA na platformie Azure (duże wystąpienia), należy najpierw wykonać następujące czynności:
-- Należy podać firmie Microsoft wszystkie dane do wdrożenia dla Ciebie w sap HANA wystąpienie duże.
-- Otrzymujesz wystąpienie duże SAP HANA od firmy Microsoft.
-- Tworzenie sieci wirtualnej platformy Azure, która jest połączona z siecią lokalną.
-- Połączenie obwodu usługi ExpressRoute dla dużych wystąpień HANA do tej samej sieci wirtualnej platformy Azure.
-- Należy zainstalować maszynę wirtualną platformy Azure, która jest używana jako pole szybkiego dostępu dla dużych wystąpień HANA.
-- Upewnij się, że można połączyć się z pola przesuń do jednostki dużych wystąpień HANA i na odwrót.
-- Sprawdź, czy wszystkie niezbędne pakiety i poprawki są zainstalowane.
-- Przeczytaj uwagi SAP i dokumentację dotyczącą instalacji HANA w używanym systemie operacyjnym. Upewnij się, że wersja HANA wyboru jest obsługiwana w wersji systemu operacyjnego.
+Aby zainstalować program HANA na SAP HANA na platformie Azure (duże wystąpienia), należy najpierw wykonać następujące czynności:
+- Firma Microsoft udostępnia wszystkie dane do wdrożenia na SAP HANA dużym wystąpieniu.
+- Otrzymasz SAP HANA duże wystąpienie od firmy Microsoft.
+- Tworzysz sieć wirtualną platformy Azure, która jest połączona z siecią lokalną.
+- Obwód usługi ExpressRoute dla dużych wystąpień HANA należy podłączyć do tej samej sieci wirtualnej platformy Azure.
+- Zainstaluj maszynę wirtualną platformy Azure, której używasz jako pola skoku dla dużych wystąpień HANA.
+- Upewnij się, że możesz nawiązać połączenie z poziomu pola skoku z jednostką dużego wystąpienia platformy HANA i odwrotnie.
+- Sprawdź, czy są zainstalowane wszystkie wymagane pakiety i poprawki.
+- Zapoznaj się z informacjami na temat oprogramowania SAP i dokumentacją dotyczącą instalacji platformy HANA w używanym systemie operacyjnym. Upewnij się, że wybrana wersja platformy HANA jest obsługiwana w wersji systemu operacyjnego.
 
-W następnej sekcji przedstawiono przykład pobierania pakietów instalacyjnych HANA do maszyny wirtualnej pola przeskoku. W takim przypadku systemem operacyjnym jest system Windows.
+W następnej sekcji przedstawiono przykład pobierania pakietów instalacyjnych platformy HANA do maszyny wirtualnej z polem skoku. W takim przypadku system operacyjny to Windows.
 
-## <a name="download-the-sap-hana-installation-bits"></a>Pobierz bity instalacyjne SAP HANA
-Jednostki dużych wystąpień HANA nie są bezpośrednio połączone z Internetem. Nie można bezpośrednio pobrać pakietów instalacyjnych z SAP do maszyny wirtualnej dużych wystąpień HANA. Zamiast tego można pobrać pakiety do maszyny wirtualnej pole skoku.
+## <a name="download-the-sap-hana-installation-bits"></a>Pobierz bity instalacji SAP HANA
+Jednostki dużego wystąpienia HANA nie są bezpośrednio połączone z Internetem. Nie można bezpośrednio pobrać pakietów instalacyjnych z oprogramowania SAP na maszynę wirtualną usługi HANA o dużym wystąpieniu. Zamiast tego należy pobrać pakiety do maszyny wirtualnej z polem skoku.
 
-Potrzebujesz użytkownika SAP S lub innego użytkownika, który umożliwia dostęp do portalu SAP Marketplace.
+Potrzebujesz produktu SAP S-User lub innego użytkownika, który umożliwia dostęp do portalu SAP Marketplace.
 
-1. Zaloguj się i przejdź do [portalu SAP Service Marketplace](https://support.sap.com/en/index.html). Wybierz pobierz instalacje **oprogramowania** > **i uaktualnij** > **według indeksu alfabetycznego**. Następnie wybierz **opcję W obszarze H – SAP HANA Platform Edition** > **SAP HANA Platform Edition 2.0** > **Instalacja**. Pobierz pliki pokazane na poniższym zrzucie ekranu.
+1. Zaloguj się i przejdź do [witryny SAP Service Marketplace](https://support.sap.com/en/index.html). Wybierz **pozycję Pobierz instalacje oprogramowania** > **i Uaktualnij** > **według alfabetycznego indeksu**. Następnie wybierz pozycję **w obszarze H – SAP HANA platform Edition** > **SAP HANA instalacji wersji 2,0** > **Installation**platformy. Pobierz pliki pokazane na poniższym zrzucie ekranu.
 
    ![Zrzut ekranu przedstawiający pliki do pobrania](./media/hana-installation/image16_download_hana.PNG)
 
-2. W tym przykładzie pobraliśmy pakiety instalacyjne SAP HANA 2.0. Na maszynie wirtualnej skrzynki szybkiego dostępu platformy Azure rozwiń archiwa samorozdłużania do katalogu, jak pokazano poniżej.
+2. W tym przykładzie pobrano pakiety instalacyjne SAP HANA 2,0. Na maszynie wirtualnej Azure skoku Box rozwiń archiwa samodzielne do katalogu, jak pokazano poniżej.
 
-   ![Zrzut ekranu przedstawiający samorozdysmujące się archiwum](./media/hana-installation/image17_extract_hana.PNG)
+   ![Zrzut ekranu przedstawiający archiwum do samodzielnego wyodrębniania](./media/hana-installation/image17_extract_hana.PNG)
 
-3. Po wyodrębnianiu archiwów skopiuj katalog utworzony przez wyodrębnienie (w tym przypadku 51052030). Skopiuj katalog z jednostki dużych wystąpień HANA /hana/udostępniony wolumin do utworzonego katalogu.
+3. Ponieważ archiwa są wyodrębniane, Skopiuj katalog utworzony przez ekstrakcję (w tym przypadku 51052030). Skopiuj katalog z woluminu/Hana/Shared o dużej instancji HANA do utworzonego katalogu.
 
    > [!Important]
-   > Nie kopiuj pakietów instalacyjnych do głównej lub rozruchowej jednostki LUN, ponieważ ilość miejsca jest ograniczona i musi być używana również przez inne procesy.
+   > Nie należy kopiować pakietów instalacyjnych do głównej lub rozruchowej jednostki LUN, ponieważ spacja jest ograniczona i musi być również używana przez inne procesy.
 
 
-## <a name="install-sap-hana-on-the-hana-large-instance-unit"></a>Instalowanie sap hana na jednostce dużych wystąpień HANA
-Aby zainstalować SAP HANA, zaloguj się jako katalog główny użytkownika. Tylko katalog główny ma wystarczające uprawnienia do zainstalowania sap HANA. Ustaw uprawnienia do katalogu skopiowanego do /hana/shared.
+## <a name="install-sap-hana-on-the-hana-large-instance-unit"></a>Zainstaluj SAP HANA w jednostce dużego wystąpienia HANA
+Aby zainstalować SAP HANA, zaloguj się jako użytkownik root. Tylko element główny ma wystarczające uprawnienia do instalacji SAP HANA. Ustawianie uprawnień do katalogu skopiowanego do/Hana/Shared.
 
 ```
 chmod –R 744 <Installation bits folder>
 ```
 
-Jeśli chcesz zainstalować SAP HANA przy użyciu konfiguracji graficznego interfejsu użytkownika, pakiet gtk2 musi być zainstalowany na dużych wystąpieniach HANA. Aby sprawdzić, czy jest zainstalowany, uruchom następujące polecenie:
+Jeśli chcesz zainstalować SAP HANA przy użyciu graficznego interfejsu użytkownika, należy zainstalować pakiet GTK2 w dużych wystąpieniach platformy HANA. Aby sprawdzić, czy jest zainstalowana, uruchom następujące polecenie:
 
 ```
 rpm –qa | grep gtk2
 ```
 
-(W późniejszych krokach pokazujemy konfigurację SAP HANA z graficznym interfejsem użytkownika).
+(W kolejnych krokach zostanie pokazany Instalator SAP HANA z graficznym interfejsem użytkownika).
 
-Przejdź do katalogu instalacyjnego i przejdź do HDB_LCM_LINUX_X86_64 katalogu podrzędnego. 
+Przejdź do katalogu instalacyjnego i przejdź do katalogu podrzędnego HDB_LCM_LINUX_X86_64. 
 
-Z tego katalogu uruchom:
+Z tego katalogu, uruchom:
 
 ```
 ./hdblcmgui 
 ```
-W tym momencie można przejść przez sekwencję ekranów, w którym można podać dane do instalacji. W tym przykładzie instalujemy serwer bazy danych SAP HANA i składniki klienta SAP HANA. Dlatego nasz wybór to **SAP HANA Database**.
+W tym momencie przechodzisz przez sekwencję ekranów, w których podano dane instalacji. W tym przykładzie instalujemy serwer bazy danych SAP HANA i składniki klienta SAP HANA. W związku z tym wybór jest **SAP HANA bazy danych**.
 
-![Zrzut ekranu przedstawiający ekran Zarządzania cyklem życia SAP HANA z wybraną bazą danych SAP HANA](./media/hana-installation/image18_hana_selection.PNG)
+![Zrzut ekranu przedstawiający ekran zarządzania cyklem życia SAP HANA, z wybraną SAP HANA bazą danych](./media/hana-installation/image18_hana_selection.PNG)
 
 Na następnym ekranie wybierz pozycję **Zainstaluj nowy system**.
 
-![Zrzut ekranu przedstawiający ekran Zarządzania cyklem życia SAP HANA z wybraną wybraną wybraną wybraną instalacją nowego systemu](./media/hana-installation/image19_select_new.PNG)
+![Zrzut ekranu przedstawiający ekran zarządzania cyklem życia SAP HANA z zaznaczoną opcją Zainstaluj nowy system](./media/hana-installation/image19_select_new.PNG)
 
 Następnie wybierz spośród kilku dodatkowych składników, które można zainstalować.
 
 ![Zrzut ekranu przedstawiający ekran zarządzania cyklem życia SAP HANA z listą dodatkowych składników](./media/hana-installation/image20_select_components.PNG)
 
-Tutaj wybieramy klienta SAP HANA i SAP HANA Studio. Instalujemy również wystąpienie skalowania w górę. Następnie wybierz system **z jednym hostem**. 
+W tym miejscu wybieramy klienta SAP HANA i SAP HANA Studio. Instalujemy również wystąpienie skalowalne w górę. Następnie wybierz opcję **system z pojedynczym hostem**. 
 
-![Zrzut ekranu przedstawiający ekran zarządzania cyklem życia SAP HANA z wybranym systemem pojedynczego hosta](./media/hana-installation/image21_single_host.PNG)
+![Zrzut ekranu przedstawiający ekran zarządzania cyklem życia SAP HANA z wybranym systemem jednego hosta](./media/hana-installation/image21_single_host.PNG)
 
-Następnie podaj kilka danych.
+Następnie podaj dane.
 
-![Zrzut ekranu przedstawiający ekran Zarządzania cyklem życia SAP HANA z polami właściwości systemu do zdefiniowania](./media/hana-installation/image22_provide_sid.PNG)
+![Zrzut ekranu przedstawiający ekran zarządzania cyklem życia SAP HANA z polami właściwości systemu do zdefiniowania](./media/hana-installation/image22_provide_sid.PNG)
 
 > [!Important]
-> Jako identyfikator systemu HANA (SID) należy podać ten sam identyfikator SID, który został podany przez firmę Microsoft podczas zamawiania wdrożenia wystąpienia dużych hana. Wybranie innego identyfikatora SID powoduje niepowodzenie instalacji z powodu problemów z uprawnieniami dostępu do różnych woluminów.
+> Jako identyfikator systemu HANA (SID), musisz podać ten sam identyfikator SID, który został dostarczony przez firmę Microsoft w przypadku uporządkowania wdrożenia dużego wystąpienia platformy HANA. Wybranie innego identyfikatora SID powoduje, że instalacja nie powiedzie się z powodu problemów z uprawnieniami dostępu na różnych woluminach.
 
-W przypadku ścieżki instalacji należy użyć katalogu /hana/shared. W następnym kroku należy podać lokalizacje dla plików danych HANA i plików dziennika HANA.
+Dla ścieżki instalacji użyj katalogu/Hana/Shared. W następnym kroku podajesz lokalizacje plików danych HANA i plików dziennika HANA.
 
 
-![Zrzut ekranu przedstawiający ekran Zarządzania cyklem życia SAP HANA z polami obszaru danych i dziennika](./media/hana-installation/image23_provide_log.PNG)
+![Zrzut ekranu przedstawiający ekran zarządzania cyklem życia SAP HANA z polami danych i obszaru dziennika](./media/hana-installation/image23_provide_log.PNG)
 
 > [!Note]
-> Identyfikator SID określony podczas definiowania właściwości systemu (dwa ekrany temu) powinien być zgodny z identyfikatorem SID punktów instalacji. Jeśli występuje niezgodność, wróć i dostosuj identyfikator SID do wartości, którą masz w punktach instalacji.
+> Identyfikator SID określony podczas definiowania właściwości systemu (dwa ekrany temu) powinien być zgodny z identyfikatorem SID punktów instalacji. Jeśli występuje niezgodność, wróć i Dostosuj identyfikator SID do wartości znajdującej się w punktach instalacji.
 
-W następnym kroku przejrzyj nazwę hosta i ostatecznie ją popraw. 
+W następnym kroku zapoznaj się z nazwą hosta i ostatecznie Popraw ją. 
 
 ![Zrzut ekranu przedstawiający ekran zarządzania cyklem życia SAP HANA z nazwą hosta](./media/hana-installation/image24_review_host_name.PNG)
 
-W następnym kroku należy również pobrać dane, które zostały nadane do firmy Microsoft podczas zamawiania wdrożenia wystąpienia dużych HANA. 
+W następnym kroku należy również pobrać dane wprowadzone do firmy Microsoft podczas uporządkowania wdrożenia dużego wystąpienia platformy HANA. 
 
-![Zrzut ekranu przedstawiający zarządzanie cyklem życia SAP HANA z polami administratora systemu do zdefiniowania](./media/hana-installation/image25_provide_guid.PNG)
+![Zrzut ekranu przedstawiający Zarządzanie cyklem życia SAP HANA przy użyciu pól administratora systemu do definiowania](./media/hana-installation/image25_provide_guid.PNG)
 
 > [!Important]
-> Podaj ten sam **identyfikator użytkownika administratora systemu** i identyfikator grupy **użytkowników,** co podane firmie Microsoft, podczas zamawiania wdrożenia jednostki. W przeciwnym razie instalacja sap HANA na jednostce dużych wystąpień HANA kończy się niepowodzeniem.
+> Podaj **Identyfikator użytkownika administratora systemu** i **Identyfikator grupy użytkowników** zgodnie z podaną firmą Microsoft, gdy planujesz wdrożenie jednostki. W przeciwnym razie instalacja SAP HANA w jednostce dużego wystąpienia HANA nie powiedzie się.
 
-Następne dwa ekrany nie są wyświetlane tutaj. Umożliwiają one podanie hasła dla użytkownika systemu bazy danych SAP HANA oraz hasła użytkownika sapadm. Ten ostatni jest używany dla agenta hosta SAP, który zostanie zainstalowany jako część wystąpienia bazy danych SAP HANA.
+Dwa następne ekrany nie są wyświetlane w tym miejscu. Umożliwiają one podanie hasła dla użytkownika systemu bazy danych SAP HANA i hasła użytkownika sapadm. Ten drugi jest używany przez agenta hosta SAP, który jest instalowany jako część wystąpienia bazy danych SAP HANA.
 
-Po zdefiniowaniu hasła zostanie wyświetlony ekran potwierdzenia. sprawdź wszystkie wymienione dane i kontynuuj instalację. Docierasz do ekranu postępu, który dokumentuje postęp instalacji, taki jak ten:
+Po zdefiniowaniu hasła zostanie wyświetlony ekran potwierdzenia. Sprawdź wszystkie wymienione dane i Kontynuuj instalację. Zobaczysz ekran postępu, który dokumentuje postęp instalacji, np.:
 
-![Zrzut ekranu przedstawiający ekran zarządzania cyklem życia SAP HANA ze wskaźnikami postępu instalacji](./media/hana-installation/image27_show_progress.PNG)
+![Zrzut ekranu przedstawiający ekran zarządzania cyklem życia SAP HANA z wskaźnikami postępu instalacji](./media/hana-installation/image27_show_progress.PNG)
 
-Po zakończeniu instalacji powinien zostać wyświetlony ekran taki jak ten:
+Po zakończeniu instalacji powinien zostać wyświetlony ekran podobny do tego:
 
 ![Zrzut ekranu przedstawiający ekran zarządzania cyklem życia SAP HANA, wskazujący, że instalacja została zakończona](./media/hana-installation/image28_install_finished.PNG)
 
-Wystąpienie SAP HANA powinno być teraz uruchomione i gotowe do użycia. Powinno być możliwe połączenie z nim z SAP HANA Studio. Upewnij się również, że sprawdzasz i stosujesz najnowsze aktualizacje.
+Wystąpienie SAP HANA powinno być teraz uruchomione i gotowe do użycia. Powinno być możliwe nawiązanie połączenia z usługą SAP HANA Studio. Upewnij się również, że sprawdzane są i stosowane są najnowsze aktualizacje.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Sap HANA Duże wystąpienia wysoka dostępność i odzyskiwanie po awarii na platformie Azure](hana-overview-high-availability-disaster-recovery.md)
+- [SAP HANA — duże wystąpienia wysokiej dostępności i odzyskiwania po awarii na platformie Azure](hana-overview-high-availability-disaster-recovery.md)
 

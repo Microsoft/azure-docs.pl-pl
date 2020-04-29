@@ -5,63 +5,63 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
 ms.openlocfilehash: 41f2d4540f665137d34d262546cdc1a2edfbae3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77608753"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
-Przed napisaniem kodu zarządzania siecią CDN należy wykonać pewne przygotowanie, aby włączyć kod do interakcji z usługą Azure Resource Manager. Aby wykonać ten preparat, musisz:
+Przed zapisaniem kodu zarządzania CDN należy wykonać pewne przygotowania, aby umożliwić współpracującie kodu z Azure Resource Manager. Aby to zrobić, należy wykonać następujące czynności:
 
-* Tworzenie grupy zasobów zawierającej profil sieci CDN utworzonej w tym samouczku
-* Konfigurowanie usługi Azure Active Directory w celu zapewnienia uwierzytelniania aplikacji
-* Stosowanie uprawnień do grupy zasobów, tak aby tylko autoryzowani użytkownicy z dzierżawy usługi Azure AD mogli wchodzić w interakcje z profilem usługi CDN
+* Utwórz grupę zasobów zawierającą profil usługi CDN utworzony w tym samouczku
+* Konfigurowanie Azure Active Directory w celu zapewnienia uwierzytelniania aplikacji
+* Zastosuj uprawnienia do grupy zasobów, aby tylko autoryzowani użytkownicy z dzierżawy usługi Azure AD mogli korzystać z profilu CDN
 
 ### <a name="creating-the-resource-group"></a>Tworzenie grupy zasobów
-1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com).
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 2. Kliknij pozycję **Utwórz zasób**.
-3. Wyszukaj **grupę Zasobów** i w okienku Grupa zasobów kliknij pozycję **Utwórz**.
+3. Wyszukaj **grupę zasobów** i w okienku Grupa zasobów kliknij pozycję **Utwórz**.
 
     ![Tworzenie nowej grupy zasobów](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
-3. Nazwij grupę zasobów *CdnConsoleTutorial*.  Wybierz subskrypcję i wybierz lokalizację w pobliżu.  Jeśli chcesz, możesz kliknąć pole wyboru **Przypnij do pulpitu nawigacyjnego,** aby przypiąć grupę zasobów do pulpitu nawigacyjnego w portalu.  Przypinanie ułatwia późniejsze znalezienie.  Po dokonaniu wyboru kliknij przycisk **Utwórz**.
+3. Nazwij grupę zasobów *CdnConsoleTutorial*.  Wybierz swoją subskrypcję i wybierz najbliższą lokalizację.  Jeśli chcesz, możesz kliknąć pole wyboru **Przypnij do pulpitu nawigacyjnego** , aby przypiąć grupę zasobów do pulpitu nawigacyjnego w portalu.  Przypinanie ułatwia znalezienie go w przyszłości.  Po dokonaniu wyboru kliknij przycisk **Utwórz**.
 
     ![Nazywanie grupy zasobów](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
-4. Po utworzeniu grupy zasobów, jeśli nie przypięła jej do pulpitu nawigacyjnego, można ją znaleźć, klikając pozycję **Przeglądaj,** a następnie **grupy zasobów**.  Aby ją otworzyć, kliknij grupę zasobów.  Zanotuj swój **identyfikator subskrypcji**. Potrzebujemy go później.
+4. Po utworzeniu grupy zasobów, jeśli nie została ona przypięta do pulpitu nawigacyjnego, możesz ją znaleźć, klikając przycisk **Przeglądaj**, a następnie **grupy zasobów**.  Aby go otworzyć, kliknij grupę zasobów.  Zanotuj swój **Identyfikator subskrypcji**. Potrzebujemy go później.
 
     ![Nazywanie grupy zasobów](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
 ### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Tworzenie aplikacji usługi Azure AD i stosowanie uprawnień
-Istnieją dwa podejścia do uwierzytelniania aplikacji za pomocą usługi Azure Active Directory: użytkownicy indywidualni lub podmiot usługi. Podmiot usługi jest podobny do konta usługi w systemie Windows.  Zamiast udzielania określonym użytkownikom uprawnień do interakcji z profilami usługi CDN, uprawnienia są przyznawane podmiotowi usługi.  Jednostki usługi są zwykle używane do zautomatyzowanych, nieinterakcyjnych procesów.  Mimo że ten samouczek jest pisanie interaktywnej aplikacji konsoli, skupimy się na podejście jednostki usługi.
+Istnieją dwa podejścia do uwierzytelniania aplikacji przy użyciu Azure Active Directory: poszczególnych użytkowników lub nazwy głównej usługi. Nazwa główna usługi jest podobna do konta usługi w systemie Windows.  Zamiast udzielania określonych uprawnień użytkownika do współużytkowania z profilami CDN, uprawnienia są przydzielane do jednostki usługi.  Nazwy główne usług są zwykle używane dla zautomatyzowanych, nieinteraktywnych procesów.  Mimo że ten samouczek polega na napisaniu interaktywnej aplikacji konsolowej, należy skoncentrować się na podejściu głównej usługi.
 
-Tworzenie jednostki usługi składa się z kilku kroków, w tym tworzenia aplikacji usługi Azure Active Directory.  Aby go utworzyć, będziemy [postępować zgodnie z tym samouczku](../articles/active-directory/develop/howto-create-service-principal-portal.md).
-
-> [!IMPORTANT]
-> Pamiętaj, aby wykonać wszystkie kroki opisane w [połączonym samouczku](../articles/active-directory/develop/howto-create-service-principal-portal.md).  *Ważne* jest, aby ukończyć go dokładnie tak, jak opisano.  Pamiętaj, aby zanotować **identyfikator dzierżawy,** **nazwę domeny dzierżawy** (zwykle domenę *onmicrosoft.com,* chyba że określono domenę niestandardową), **identyfikator klienta**i **klucz uwierzytelniania klienta,** ponieważ potrzebujemy tych informacji później.  Należy zachować ostrożność, aby chronić **identyfikator klienta** i **klucz uwierzytelniania klienta,** ponieważ te poświadczenia mogą być używane przez każdego do wykonywania operacji jako jednostki usługi.
->
-> Po dojście do kroku o nazwie Konfigurowanie aplikacji wielodostępowej wybierz pozycję **Nie**.
->
-> Po dojście do kroku [Przypisz aplikację do roli](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), użyj grupy zasobów utworzonej wcześniej, *CdnConsoleTutorial*, ale zamiast roli **Czytelnika,** przypisz rolę **współautora profilu sieci CDN.**  Po przypisaniu aplikacji roli **współautora profilu usługi CDN** w grupie zasobów wróć do tego samouczka. 
->
->
-
-Po utworzeniu jednostki usługi i przypisaniu roli **współautora profilu usługi CDN** bloku **Użytkownicy** dla grupy zasobów powinien wyglądać podobnie do poniższej ilustracji.
-
-![Ostrze użytkowników](./media/cdn-app-dev-prep/cdn-service-principal-include.png)
-
-### <a name="interactive-user-authentication"></a>Interaktywne uwierzytelnianie użytkowników
-Jeśli zamiast jednostki usługi, wolisz mieć interaktywne uwierzytelnianie poszczególnych użytkowników, proces jest podobny do tego dla jednostki usługi.  W rzeczywistości musisz postępować zgodnie z tą samą procedurą, ale wprowadzić kilka drobnych zmian.
+Tworzenie jednostki usługi składa się z kilku kroków, w tym do tworzenia aplikacji Azure Active Directory.  Aby go utworzyć, [postępuj zgodnie z tym samouczkiem](../articles/active-directory/develop/howto-create-service-principal-portal.md).
 
 > [!IMPORTANT]
-> Wykonaj następujące kroki tylko wtedy, gdy zdecydujesz się użyć uwierzytelniania poszczególnych użytkowników zamiast jednostki usługi.
+> Pamiętaj, aby wykonać wszystkie kroki w [połączonym samouczku](../articles/active-directory/develop/howto-create-service-principal-portal.md).  *Ważne* jest, aby wypełnić je dokładnie zgodnie z opisem.  Pamiętaj, aby zanotować swój **Identyfikator dzierżawy**, **nazwę domeny dzierżawy** (zwykle domenę *. onmicrosoft.com* , chyba że określono domenę niestandardową), **Identyfikator klienta**i **klucz uwierzytelniania klienta**, ponieważ te informacje będą potrzebne później.  Należy zachować ostrożność w celu ochrony **identyfikatora klienta** i **klucza uwierzytelniania klienta**, ponieważ mogą one być używane przez każdego użytkownika do wykonywania operacji jako nazwy głównej usługi.
+>
+> Po wyświetleniu kroku o nazwie Konfiguruj wielodostępną aplikację wybierz pozycję **nie**.
+>
+> Po [przypisaniu aplikacji do roli](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application)Użyj utworzonej wcześniej grupy zasobów, *CdnConsoleTutorial*, ale zamiast roli **czytelnik** , przypisz rolę **współautor profilu usługi CDN** .  Po przypisaniu aplikacji rola **współautor profilu usługi CDN** w grupie zasobów Wróć do tego samouczka. 
 >
 >
 
-1. Podczas tworzenia aplikacji zamiast **aplikacji sieci Web**wybierz opcję Aplikacja **natywna**.
+Po utworzeniu nazwy głównej usługi i przypisaniu roli **współautor profilu sieci CDN** blok **Użytkownicy** dla grupy zasobów powinien wyglądać podobnie do poniższej ilustracji.
+
+![Blok użytkownicy](./media/cdn-app-dev-prep/cdn-service-principal-include.png)
+
+### <a name="interactive-user-authentication"></a>Uwierzytelnianie użytkowników interakcyjnych
+Jeśli zamiast nazwy głównej usługi nie masz interaktywnego uwierzytelniania poszczególnych użytkowników, proces jest podobny do tego dla jednostki usługi.  W rzeczywistości należy postępować zgodnie z tą samą procedurą, ale wprowadzić kilka drobnych zmian.
+
+> [!IMPORTANT]
+> Poniższe kroki należy wykonać tylko w przypadku wybrania opcji uwierzytelniania poszczególnych użytkowników zamiast nazwy głównej usługi.
+>
+>
+
+1. Podczas tworzenia aplikacji, a nie **aplikacji sieci Web**, wybierz **aplikację natywną**.
 
     ![Aplikacja natywna](./media/cdn-app-dev-prep/cdn-native-application-include.png)
-2. Na następnej stronie zostanie wyświetlony monit o **podanie identyfikatora URI przekierowania**.  Identyfikator URI nie zostanie zweryfikowany, ale pamiętaj, co zostało wprowadzone. Potrzebujesz go później.
+2. Na następnej stronie zostanie wyświetlony monit o podanie **identyfikatora URI przekierowania**.  Identyfikator URI nie zostanie zweryfikowany, ale Zapamiętaj, co wprowadzono. Będzie potrzebna później.
 3. Nie ma potrzeby tworzenia **klucza uwierzytelniania klienta**.
-4. Zamiast przypisywać jednostkę usługi do roli **współautora profilu usługi CDN,** zamierzamy przypisać poszczególnych użytkowników lub grupy.  W tym przykładzie widać, że przypisano *użytkownika demo sieci CDN* do roli **współautora profilu sieci CDN.**  
+4. Zamiast przypisywać jednostkę usługi do roli **współautor profilu CDN** , przypiszemy poszczególnych użytkowników lub grupy.  W tym przykładzie można zobaczyć, że przypisano *użytkownika demonstracyjnego usługi CDN* do roli **współautor profilu CDN** .  
 
-    ![Indywidualny dostęp do użytkownika](./media/cdn-app-dev-prep/cdn-aad-user-include.png)
+    ![Dostęp do poszczególnych użytkowników](./media/cdn-app-dev-prep/cdn-aad-user-include.png)

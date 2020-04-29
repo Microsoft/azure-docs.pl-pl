@@ -1,7 +1,7 @@
 ---
-title: 'Role niestandardowe: migracje wystąpienia zarządzanych przez program SQL server online do sql'
+title: 'Role niestandardowe: SQL Server online do migracji wystąpienia zarządzanego SQL'
 titleSuffix: Azure Database Migration Service
-description: Dowiedz się, jak używać ról niestandardowych dla sql server do migracji online wystąpienia zarządzanego usługi Azure SQL Database.
+description: Dowiedz się, jak używać ról niestandardowych SQL Server do Azure SQL Database migracji w trybie online wystąpienia zarządzanego.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -13,26 +13,26 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/25/2019
 ms.openlocfilehash: e9a1024ca3ab68841474ab051c029042df4915b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78254940"
 ---
-# <a name="custom-roles-for-sql-server-to-sql-database-managed-instance-online-migrations"></a>Role niestandardowe dla migracji online wystąpienia zarządzanego programu SQL Server do bazy danych SQL
+# <a name="custom-roles-for-sql-server-to-sql-database-managed-instance-online-migrations"></a>Role niestandardowe na potrzeby SQL Server SQL Database migracji w trybie online wystąpienia zarządzanego
 
-Usługa migracji bazy danych platformy Azure używa identyfikatora aplikacji do interakcji z usługami platformy Azure. Identyfikator aplikacji wymaga roli współautora na poziomie subskrypcji (na co wiele działów zabezpieczeń firmy nie zezwala) lub utworzenia ról niestandardowych, które przyznają określone uprawnienia, których wymaga usługa migracji bazy danych platformy Azure. Ponieważ w usłudze Azure Active Directory istnieje limit 2000 ról niestandardowych, można połączyć wszystkie uprawnienia wymagane specjalnie przez identyfikator APLIKACJI w jedną lub dwie role niestandardowe, a następnie przyznać identyfikatorowi APLIKACJI rolę niestandardową dla określonych obiektów lub grup zasobów (w porównaniu z w przypadku określonych obiektów lub grup zasobów). poziom subskrypcji). Jeśli liczba ról niestandardowych nie jest problemem, można podzielić role niestandardowe według typu zasobu, aby utworzyć trzy role niestandardowe w sumie, jak opisano poniżej.
+Azure Database Migration Service używa identyfikatora aplikacji do korzystania z usług platformy Azure. Identyfikator aplikacji wymaga roli współautor na poziomie subskrypcji (której wiele działów zabezpieczeń firmy nie zezwoli) lub tworzenia ról niestandardowych przyznających określone uprawnienia wymagane przez usługę Azure Database Migration Service. Ponieważ w Azure Active Directory istnieje limit 2 000 ról niestandardowych, można połączyć wszystkie uprawnienia wymagane przez identyfikator aplikacji w jedną lub dwie role niestandardowe, a następnie przyznać identyfikator aplikacji rolę niestandardową dla określonych obiektów lub grup zasobów (a na poziomie subskrypcji). Jeśli liczba ról niestandardowych nie jest istotna, można podzielić role niestandardowe według typu zasobu, aby utworzyć trzy role niestandardowe w sumie, zgodnie z poniższym opisem.
 
-Sekcja AssignableScopes ciągu json definicji roli umożliwia kontrolowanie, gdzie uprawnienia są wyświetlane w interfejsie użytkownika **dodaj przypisanie roli** w portalu. Prawdopodobnie należy zdefiniować rolę w grupie zasobów lub nawet na poziomie zasobów, aby uniknąć zaśmiecania interfejsu użytkownika dodatkowymi rolami. Należy zauważyć, że nie wykonuje to rzeczywistego przypisania roli.
+Sekcja AssignableScopes ciągu JSON definicji roli umożliwia kontrolowanie, gdzie uprawnienia są wyświetlane w interfejsie użytkownika **Dodaj przypisanie roli** w portalu. Prawdopodobnie chcesz zdefiniować rolę w grupie zasobów, a nawet poziomie zasobów, aby uniknąć bałaganu interfejsu użytkownika z dodatkowymi rolami. Należy zauważyć, że nie jest to zgodne z rzeczywistym przypisaniem roli.
 
 ## <a name="minimum-number-of-roles"></a>Minimalna liczba ról
 
-Obecnie zaleca się utworzenie co najmniej dwóch ról niestandardowych dla identyfikatora aplikacji, jednej na poziomie zasobu, a drugiej na poziomie subskrypcji.
+Obecnie zalecamy utworzenie co najmniej dwóch ról niestandardowych dla identyfikatora aplikacji, jeden na poziomie zasobu, a drugi na poziomie subskrypcji.
 
 > [!NOTE]
-> Ostatnie wymaganie roli niestandardowej może ostatecznie zostać usunięte, ponieważ nowy kod wystąpienia zarządzanego bazy danych SQL jest wdrażany na platformie Azure.
+> Ostatnią wymaganą rolę niestandardową można ostatecznie usunąć, ponieważ na platformie Azure wdrożono nowy kod wystąpienia zarządzanego SQL Database.
 
-**Rola niestandardowa dla identyfikatora aplikacji**. Ta rola jest wymagana dla migracji usługi migracji usługi Azure Database na poziomie *zasobu* lub *grupy zasobów* (aby uzyskać więcej informacji na temat identyfikatora aplikacji, zobacz artykuł [Użyj portalu, aby utworzyć aplikację i jednostkę usługi Azure AD, która może uzyskiwać dostęp do zasobów).](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
+**Rola niestandardowa dla identyfikatora aplikacji**. Ta rola jest wymagana do Azure Database Migration Service migracji na poziomie *zasobu* lub *grupy zasobów* (Aby uzyskać więcej informacji na temat identyfikatora aplikacji, zobacz artykuł [Używanie portalu do tworzenia aplikacji usługi Azure AD i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)).
 
 ```json
 {
@@ -63,7 +63,7 @@ Obecnie zaleca się utworzenie co najmniej dwóch ról niestandardowych dla iden
 }
 ```
 
-**Rola niestandardowa dla identyfikatora APLIKACJI — subskrypcja**. Ta rola jest wymagana dla migracji usługi migracji usługi Azure Database na poziomie *subskrypcji.*
+**Rola niestandardowa identyfikatora aplikacji — subskrypcja**. Ta rola jest wymagana do migracji Azure Database Migration Service na poziomie *subskrypcji* .
 
 ```json
 {
@@ -81,20 +81,20 @@ Obecnie zaleca się utworzenie co najmniej dwóch ról niestandardowych dla iden
 }
 ```
 
-Powyższy json musi być przechowywany w trzech plikach tekstowych i można użyć polecenia cmdlet AzureRM, AZ PowerShell lub interfejsu wiersza polecenia platformy Azure do tworzenia ról przy użyciu **funkcji New-AzureRmRoleDefinition (AzureRM)** lub **New-AzRoleDefinition (AZ)**.
+Plik JSON powyżej musi być przechowywany w trzech plikach tekstowych i można użyć polecenia cmdlet AzureRM, AZ PowerShell lub interfejsu wiersza polecenia platformy Azure, aby utworzyć role przy użyciu polecenia **New-AzureRmRoleDefinition (AzureRM)** lub **New-AzRoleDefinition (az)**.
 
-Aby uzyskać więcej informacji, zobacz artykuł [Niestandardowe role zasobów platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+Aby uzyskać więcej informacji, zobacz temat [Niestandardowe role dla zasobów platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
-Po utworzeniu tych ról niestandardowych należy dodać przypisania ról do użytkowników i identyfikatory aplikacji do odpowiednich zasobów lub grup zasobów:
+Po utworzeniu ról niestandardowych należy dodać przypisania ról do użytkowników i identyfikatorów aplikacji do odpowiednich zasobów lub grup zasobów:
 
-* Rola "Rola DMS — identyfikator aplikacji" musi być przyznana identyfikatorowi APLIKACJI, który będzie używany do migracji, a także na poziomie zasobów konta magazynu, usługi migracji bazy danych Azure i poziomów zasobów zarządzanych wystąpień bazy danych SQL.
-* Rola "Rola DMS — identyfikator aplikacji — sub" musi być przyznana identyfikatorowi APLIKACJI na poziomie subskrypcji (udzielanie w grupie zasobów lub zasobów zakończy się niepowodzeniem). To wymaganie jest tymczasowe, dopóki nie zostanie wdrożona aktualizacja kodu.
+* Rola "DMS rola-aplikacja identyfikator" musi być przyznana IDENTYFIKATORowi aplikacji, który będzie używany na potrzeby migracji, a także na koncie magazynu, wystąpieniu Azure Database Migration Service i SQL Database poziomów zasobów wystąpienia zarządzanego.
+* Rola "DMS rola-identyfikator aplikacji — Sub" musi być przyznana IDENTYFIKATORowi aplikacji na poziomie subskrypcji (nadanie nie powiedzie się dla zasobu lub grupy zasobów). Ten wymóg jest tymczasowy do momentu wdrożenia aktualizacji kodu.
 
-## <a name="expanded-number-of-roles"></a>Rozszerzona liczba ról
+## <a name="expanded-number-of-roles"></a>Rozszerzona Liczba ról
 
-Jeśli liczba ról niestandardowych w usłudze Azure Active Directory nie jest problemem, zaleca się utworzenie łącznie trzech ról. Nadal będziesz potrzebować roli "Rola DMS — identyfikator aplikacji — sub", ale powyższa rola "Rola DMS — identyfikator aplikacji" jest podzielona według typu zasobu na dwie różne role.
+Jeśli liczba ról niestandardowych w Azure Active Directory nie jest istotna, zalecamy utworzenie łącznej liczby trzech ról. Nadal będzie potrzebna rola "DMS rola-identyfikator aplikacji — Sub", ale powyższa rola "DMS rola-aplikacja" jest dzielona według typu zasobu na dwie różne role.
 
-**Rola niestandardowa wystąpienia zarządzanego identyfikatora aplikacji dla bazy danych SQL**
+**Rola niestandardowa dla identyfikatora aplikacji dla SQL Database wystąpienia zarządzanego**
 
 ```json
 {
@@ -117,7 +117,7 @@ Jeśli liczba ról niestandardowych w usłudze Azure Active Directory nie jest p
 }
 ```
 
-**Rola niestandardowa identyfikatora aplikacji dla magazynu**
+**Rola niestandardowa dla identyfikatora aplikacji dla magazynu**
 
 ```json
 {
@@ -140,14 +140,14 @@ Jeśli liczba ról niestandardowych w usłudze Azure Active Directory nie jest p
 
 ## <a name="role-assignment"></a>Przypisanie roli
 
-Aby przypisać rolę do identyfikatora użytkowników/aplikacji, otwórz witrynę Azure Portal, wykonaj następujące czynności:
+Aby przypisać rolę do użytkowników/identyfikatora aplikacji, Otwórz Azure Portal, wykonaj następujące czynności:
 
-1. Przejdź do grupy zasobów lub zasobu (z wyjątkiem roli, która musi zostać przyznana w ramach subskrypcji), przejdź do **sekcji Kontrola dostępu,** a następnie przewiń, aby znaleźć utworzone właśnie niestandardowe role.
+1. Przejdź do grupy zasobów lub zasobu (z wyjątkiem roli, która musi zostać przyznana w ramach subskrypcji), przejdź do **Access Control**, a następnie przewiń, aby znaleźć utworzone role niestandardowe.
 
-2. Wybierz odpowiednią rolę, wybierz identyfikator aplikacji, a następnie zapisz zmiany.
+2. Wybierz odpowiednią rolę, wybierz identyfikator aplikacji, a następnie Zapisz zmiany.
 
-  Identyfikatory aplikacji są teraz wyświetlane na karcie **Przypisania ról.**
+  IDENTYFIKATORY aplikacji zostaną wyświetlone na liście na karcie **przypisania ról** .
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zapoznaj się ze wskazówkami dotyczącymi migracji dla swojego scenariusza w [Przewodniku migracji bazy danych firmy](https://datamigration.microsoft.com/)Microsoft .
+* Zapoznaj się ze wskazówkami dotyczącymi migracji w tym scenariuszu w [przewodniku migracji bazy danych](https://datamigration.microsoft.com/)firmy Microsoft.

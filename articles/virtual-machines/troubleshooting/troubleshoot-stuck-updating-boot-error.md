@@ -1,6 +1,6 @@
 ---
-title: Uruchamianie maszyny Wirtualnej platformy Azure utknęło w usłudze Windows Update| Dokumenty firmy Microsoft
-description: Dowiedz się, jak rozwiązać ten problem, gdy uruchomienie maszyny Wirtualnej platformy Azure utknęło w witrynie Windows Update.
+title: Uruchamianie maszyny wirtualnej platformy Azure jest zablokowane w Windows Update | Microsoft Docs
+description: Dowiedz się, jak rozwiązać problem występujący w przypadku zablokowania uruchomienia maszyny wirtualnej platformy Azure w usłudze Windows Update.
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -13,47 +13,47 @@ ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
 ms.openlocfilehash: 8a47131cb4f19cce1664eafa50c67ab1a1171e67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77919434"
 ---
-# <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Uruchamianie maszyny Wirtualnej platformy Azure utknęło w usłudze Windows Update
+# <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Uruchamianie maszyny wirtualnej platformy Azure jest zablokowane w usłudze Windows Update
 
-Ten artykuł pomaga rozwiązać problem, gdy maszyna wirtualna (VM) utknęła na etapie usługi Windows Update podczas uruchamiania. 
+Ten artykuł pomaga w rozwiązaniu problemu, gdy maszyna wirtualna (VM) jest zablokowana na Windows Update etapie podczas uruchamiania. 
 
 
 ## <a name="symptom"></a>Objaw
 
- Maszyna wirtualna systemu Windows nie uruchamia się. Po sprawdzeniu zrzutów ekranu w oknie [diagnostyki rozruchu](../troubleshooting/boot-diagnostics.md) widać, że uruchamianie utknęło w procesie aktualizacji. Poniżej przedstawiono przykłady wiadomości, które mogą być odbierane:
+ Nie uruchomiono maszyny wirtualnej z systemem Windows. Po sprawdzeniu zrzutów ekranu w oknie [Diagnostyka rozruchu](../troubleshooting/boot-diagnostics.md) zobaczysz, że uruchamianie jest zablokowane w procesie aktualizacji. Poniżej przedstawiono przykłady komunikatów, które mogą zostać wyświetlone:
 
-- Instalowanie systemu Windows ##% Nie wyłączaj komputera. Zajmie to trochę czasu Komputer zostanie uruchomiony ponownie kilka razy
-- Trzymaj komputer włączony, dopóki nie zostanie to zrobione. Instalowanie aktualizacji # #... 
-- Nie można ukończyć aktualizacji Cofanie zmian Nie wyłączaj komputera
-- Niepowodzenie konfigurowania aktualizacji systemu Windows Przywracanie zmian Nie wyłącza komputera
-- Błąd < kod błędu > zastosowaniu operacji aktualizacji ##### z ##### (\Regist...)
-- Błąd krytyczny < kod błędu > zastosowaniu operacji aktualizacji ##### z ##### ($$...)
+- Instalacja systemu Windows # #% nie wyłącza komputera. Zajmie to trochę czasu, gdy komputer zostanie uruchomiony ponownie kilka razy
+- Zachowaj swój komputer, dopóki nie zostanie to zrobione. Trwa Instalowanie aktualizacji Update #... 
+- Nie można ukończyć aktualizacji — cofanie zmian nie powoduje wyłączenia komputera
+- Niepowodzenie podczas konfigurowania aktualizacji systemu Windows wycofywanie zmian nie powoduje wyłączenia komputera
+- Błąd < kod błędu > stosowania operacji aktualizacji # # # # # z # # # # # (\Regist...)
+- Błąd krytyczny < kod błędu > stosowania operacji aktualizacji # # # # # z # # # # # ($ $...)
 
 
 ## <a name="solution"></a>Rozwiązanie
 
-W zależności od liczby aktualizacji, które są coraz instalowane lub walcowane kopii zapasowej, proces aktualizacji może zająć trochę czasu. Pozostaw maszynę wirtualną w tym stanie na 8 godzin. Jeśli maszyna wirtualna jest nadal w tym stanie po tym okresie, uruchom ponownie maszynę wirtualną z witryny Azure portal i zobacz, czy można uruchomić normalnie. Jeśli ten krok nie zadziała, wypróbuj następujące rozwiązanie.
+W zależności od liczby aktualizacji, które są instalowane lub wycofywane, proces aktualizacji może chwilę potrwać. Pozostaw maszynę wirtualną w tym stanie przez 8 godzin. Jeśli maszyna wirtualna nadal znajduje się w tym stanie po tym okresie, uruchom ponownie maszynę wirtualną z Azure Portal i sprawdź, czy może ona zostać uruchomiona normalnie. Jeśli ten krok nie działa, wypróbuj poniższe rozwiązanie.
 
-### <a name="remove-the-update-that-causes-the-problem"></a>Usuń aktualizację powodującą problem
+### <a name="remove-the-update-that-causes-the-problem"></a>Usuń aktualizację, która powoduje problem
 
-1. Wykonaj migawkę dysku systemu operacyjnego maszyny wirtualnej, którego dotyczy problem, jako kopię zapasową. Aby uzyskać więcej informacji, zobacz [Migawka dysku](../windows/snapshot-copy-managed-disk.md). 
-2. [Podłącz dysk systemu operacyjnego do odzyskiwania maszyny Wirtualnej](troubleshoot-recovery-disks-portal-windows.md).
-3. Po podłączeniu dysku systemu operacyjnego na maszynie wirtualnej odzyskiwania uruchom **plik diskmgmt.msc,** aby otworzyć zarządzanie dyskami, i upewnij się, że podłączony dysk jest **online**. Zanotuj literę dysku przypisaną do dołączonego dysku systemu operacyjnego, na którym znajduje się folder \windows. Jeśli dysk jest zaszyfrowany, odszyfruj dysk przed przystąpieniem do kolejnych kroków w tym dokumencie.
+1. Utwórz migawkę dysku systemu operacyjnego z zaatakowaną maszyną wirtualną jako kopię zapasową. Aby uzyskać więcej informacji, zobacz [migawka dysku](../windows/snapshot-copy-managed-disk.md). 
+2. [Dołącz dysk systemu operacyjnego do maszyny wirtualnej odzyskiwania](troubleshoot-recovery-disks-portal-windows.md).
+3. Po dołączeniu dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania Uruchom polecenie **diskmgmt. msc** , aby otworzyć przystawkę Zarządzanie dyskami, a następnie upewnij się, że dołączony dysk jest w **trybie online**. Zanotuj literę dysku przypisaną do dołączonego dysku systemu operacyjnego, znajdującego się w folderze \Windows. Jeśli dysk jest zaszyfrowany, przed przejściem do następnego kroku w tym dokumencie należy go odszyfrować.
 
-4. Otwórz wystąpienie wiersza polecenia z podwyższonym poziomem uprawnień (Uruchom jako administrator). Uruchom następujące polecenie, aby uzyskać listę pakietów aktualizacji, które znajdują się na podłączonym dysku systemu operacyjnego:
+4. Otwórz wystąpienie wiersza polecenia z podwyższonym poziomem uprawnień (Uruchom jako administrator). Uruchom następujące polecenie, aby uzyskać listę pakietów aktualizacji znajdujących się na dołączonym dysku systemu operacyjnego:
 
         dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
 
-    Jeśli na przykład dołączonym dyskiem systemu operacyjnego jest dysk F, uruchom następujące polecenie:
+    Na przykład jeśli dołączony dysk systemu operacyjnego to dysk F, uruchom następujące polecenie:
 
         dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
-5. Otwórz plik C:\temp\Patch_level.txt, a następnie odczytaj go od dołu do góry. Znajdź aktualizację, która jest w stanie **Oczekiwania na instalację** lub **Odinstaluj.**  Poniżej przedstawiono przykład stanu aktualizacji:
+5. Otwórz plik lokalizacji c:\Temp\ Patch_level. txt, a następnie przeczytaj go od dołu. Znajdź aktualizację, która jest w stanie oczekiwania na **instalację** lub **odinstalowanie** .  Poniżej znajduje się przykład stanu aktualizacji:
 
      ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
@@ -73,6 +73,6 @@ W zależności od liczby aktualizacji, które są coraz instalowane lub walcowan
     ```
 
     > [!NOTE] 
-    > W zależności od rozmiaru pakietu narzędzie DISM zajmie trochę czasu, aby przetworzyć un-instalacji. Zwykle proces zostanie zakończony w ciągu 16 minut.
+    > W zależności od rozmiaru pakietu narzędzie DISM zajmie trochę czasu, aby przetworzyć dezinstalację. Zwykle proces zostanie zakończony w ciągu 16 minut.
 
-7. [Odłącz dysk systemu operacyjnego i ponownie stwórz maszynę wirtualną](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk). Następnie sprawdź, czy problem został rozwiązany.
+7. [Odłącz dysk systemu operacyjnego i Utwórz ponownie maszynę wirtualną](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk). Następnie sprawdź, czy problem został rozwiązany.

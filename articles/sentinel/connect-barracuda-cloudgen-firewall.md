@@ -1,6 +1,6 @@
 ---
-title: Połącz zaporę Barracuda CloudGen z usługą Azure Sentinel| Dokumenty firmy Microsoft
-description: Dowiedz się, jak połączyć zaporę Barracuda CloudGen z usługą Azure Sentinel.
+title: Podłączanie zapory Barracuda CloudGen do usługi Azure wskaźnikowej | Microsoft Docs
+description: Dowiedz się, jak połączyć zaporę Barracuda CloudGen z platformą Azure.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,38 +15,38 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: aaedbfdd3b1bbbc653756d74ee86fc277b21caec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77588505"
 ---
 # <a name="connect-barracuda-cloudgen-firewall"></a>Łączenie z rozwiązaniem Barracuda CloudGen Firewall
 
-Łącznik Barracuda CloudGen Firewall (CGFW) umożliwia łatwe łączenie dzienników CGFW Barracuda z usługą Azure Sentinel, wyświetlanie pulpitów nawigacyjnych, tworzenie niestandardowych alertów i usprawnianie badań. Zapewnia to lepszy wgląd w sieć organizacji i zwiększa możliwości operacji zabezpieczeń.
+Łącznik Barracuda CloudGen Firewall (CGFW) umożliwia łatwe łączenie dzienników Barracuda CGFW z platformą Azure, aby wyświetlać pulpity nawigacyjne, tworzyć niestandardowe alerty i usprawnić badanie. Zapewnia to dokładniejszy wgląd w sieć organizacji i zwiększa możliwości operacji zabezpieczeń.
 
 
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Uprawnienia do odczytu i zapisu w obszarze roboczym usługi Azure Sentinel.
+- Uprawnienia do odczytu i zapisu do obszaru roboczego wskaźnikowego platformy Azure.
 
-- Barracuda CloudGen Firewall musi być skonfigurowany do eksportowania dzienników za pośrednictwem Syslog.
+- Zapora CloudGen Barracuda musi być skonfigurowana do eksportowania dzienników za pośrednictwem dziennika systemowego.
 
-## <a name="connect-azure-sentinel-to-barracuda-cloudgen-firewall"></a>Połącz usługę Azure Sentinel z zaporą Obsłudze Barracuda CloudGen
+## <a name="connect-azure-sentinel-to-barracuda-cloudgen-firewall"></a>Łączenie z platformą Azure do Barracuda CloudGen firewall
 
-1. W witrynie Azure portal przejdź do łączników **usługi Azure Sentinel** > **Data,** a następnie wybierz łącznik **zapory Objaśnienia Chmura Barracuda.**
+1. W Azure Portal przejdź do > **łączników danych** **wskaźnikowych platformy Azure**, a następnie wybierz łącznik **zapory Barracuda CloudGen** .
 
-2. Wybierz **pozycję Otwórz stronę łącznika**.
+2. Wybierz pozycję **Otwórz stronę łącznika**.
 
-3. Postępuj zgodnie z instrukcjami na stronie **Zapora Barracuda CloudGen.**
+3. Postępuj zgodnie z instrukcjami na stronie **zapory Barracuda CloudGen** .
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym dokumencie dowiesz się, jak połączyć Zaporę Objaśnienia Chmur Barracuda z usługą Azure Sentinel. Aby dowiedzieć się więcej o usłudze Azure Sentinel, zobacz następujące artykuły:
-- Dowiedz się, jak [uzyskać wgląd w dane i potencjalne zagrożenia.](quickstart-get-visibility.md)
-- Rozpocznij [wykrywanie zagrożeń za pomocą usługi Azure Sentinel](tutorial-detect-threats-built-in.md).
-- Monitorowanie danych [za pomocą skoroszytów.](tutorial-monitor-your-data.md)
+W tym dokumencie przedstawiono sposób łączenia zapory Barracuda CloudGen z usługą Azure wskaźnikiem. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
+- Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
+- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats-built-in.md).
+- [Używaj skoroszytów](tutorial-monitor-your-data.md) do monitorowania danych.
 
 

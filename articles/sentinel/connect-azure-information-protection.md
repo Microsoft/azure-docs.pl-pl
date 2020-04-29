@@ -1,6 +1,6 @@
 ---
-title: Łączenie usługi Azure Information Protection z usługą Azure Sentinel
-description: Dowiedz się, jak połączyć dane usługi Azure Information Protection w usłudze Azure Sentinel.
+title: Łączenie Azure Information Protection z platformą Azure — wskaźnikiem
+description: Dowiedz się, jak połączyć Azure Information Protection dane na platformie Azure — wskaźnik.
 services: sentinel
 author: yelevin
 manager: rkarlin
@@ -11,66 +11,66 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: yelevin
 ms.openlocfilehash: 396fd7c4289c9d02d451b26f5fb6299acd31e2a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77588556"
 ---
-# <a name="connect-data-from-azure-information-protection"></a>Łączenie danych z usługi Azure Information Protection
+# <a name="connect-data-from-azure-information-protection"></a>Łączenie danych z Azure Information Protection
 
 > [!IMPORTANT]
-> Łącznik danych usługi Azure Information Protection w usłudze Azure Sentinel jest obecnie w publicznej wersji zapoznawczej.
-> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana dla obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Łącznik danych Azure Information Protection na platformie Azure jest obecnie w publicznej wersji zapoznawczej.
+> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Można przesyłać strumieniowo informacje rejestrowania z [usługi Azure Information Protection](https://azure.microsoft.com/services/information-protection/) do usługi Azure Sentinel, konfigurując łącznik danych usługi Azure Information Protection. Usługa Azure Information Protection ułatwia kontrolowanie i zabezpieczanie poufnych danych, niezależnie od tego, czy są przechowywane w chmurze, czy lokalnie.
+Informacje o rejestrowaniu można przesyłać z [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) do kontrolki Azure wskaźnikowej przez skonfigurowanie łącznika danych Azure Information Protection. Azure Information Protection pomaga kontrolować i zabezpieczać poufne dane, niezależnie od tego, czy są przechowywane w chmurze, czy lokalnie.
 
-Jeśli [raportowanie centralne dla usługi Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) jest już skonfigurowane tak, aby informacje rejestrowania z tej usługi były przechowywane w tym samym obszarze roboczym usługi Log Analytics, który został wybrany obecnie dla usługi Azure Sentinel, można pominąć konfigurację tego łącznika danych. Informacje o rejestrowaniu z usługi Azure Information Protection są już dostępne dla usługi Azure Sentinel.
+Jeśli [centralne raportowanie dla Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) jest już skonfigurowane, tak aby informacje o rejestrowaniu z tej usługi były przechowywane w tym samym log Analytics obszarze roboczym, co obecnie wybrane dla platformy Azure, możesz pominąć konfigurację tego łącznika danych. Informacje o rejestrowaniu z Azure Information Protection są już dostępne dla usługi Azure wskaźnikowej.
 
-Jeśli jednak rejestrowanie informacji z usługi Azure Information Protection przechodzi do innego obszaru roboczego usługi Log Analytics niż ten, który został wybrany obecnie dla usługi Azure Sentinel, wykonaj jedną z następujących czynności:
+Jeśli jednak rejestrowanie informacji z Azure Information Protection przechodzi do innego obszaru roboczego Log Analytics niż ten, który jest aktualnie wybrany dla platformy Azure, wykonaj jedną z następujących czynności:
 
-- Zmień obszar roboczy wybrany w usłudze Azure Sentinel.
+- Zmień obszar roboczy wybrany na platformie Azure — wskaźnik.
 
-- Zmień obszar roboczy usługi Azure Information Protection, co można zrobić, konfigurując ten łącznik danych.
+- Zmień obszar roboczy dla Azure Information Protection, co możesz zrobić przez skonfigurowanie tego łącznika danych.
     
-    Jeśli zmienisz obszar roboczy, nowe dane raportowania dla usługi Azure Information Protection będą teraz przechowywane w obszarze roboczym używanym dla usługi Azure Sentinel, a dane historyczne nie będą dostępne dla usługi Azure Sentinel. Ponadto jeśli poprzedni obszar roboczy jest skonfigurowany dla kwerend niestandardowych, alertów lub interfejsów API REST, muszą one zostać ponownie skonfigurowane dla obszaru roboczego usługi Azure Sentinel, jeśli chcesz kontynuować korzystanie z nich dla usługi Azure Information Protection. Nie jest wymagana ponowna konfiguracja dla klientów i usług korzystających z usługi Azure Information Protection.
+    Jeśli zmienisz obszar roboczy, nowe dane raportowania dla Azure Information Protection będą teraz przechowywane w obszarze roboczym, który jest używany przez wskaźnik kontroli platformy Azure, a dane historyczne nie są dostępne dla platformy Azure. Ponadto, jeśli poprzedni obszar roboczy jest skonfigurowany dla zapytań niestandardowych, alertów lub interfejsów API REST, należy je ponownie skonfigurować dla obszaru roboczego wskaźnikowego platformy Azure, jeśli chcesz korzystać z nich na potrzeby Azure Information Protection. Dla klientów i usług używających Azure Information Protection nie jest wymagana żadna ponowna konfiguracja.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Jedna z następujących ról administratora usługi Azure AD dla dzierżawy: 
-    - Administrator usługi Azure Information Protection
+    - Azure Information Protection administrator
     - Administrator zabezpieczeń
     - Administrator zgodności
     - Administrator danych zgodności
     - Administrator globalny
     
     > [!NOTE]
-    > Nie można użyć roli administratora usługi Azure Information Protection, jeśli dzierżawa znajduje się na [ujednoliconej platformie etykietowania.](/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform)
+    > Nie można użyć roli administratora Azure Information Protection, jeśli dzierżawa znajduje się na [ujednoliconej platformie etykietowania](/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
     
-    Te role administratora są wymagane tylko do konfigurowania łącznika usługi Azure Information Protection i nie są wymagane, gdy usługa Azure Sentinel jest połączona z usługą Azure Information Protection.
+    Te role administratorów są wymagane tylko do konfigurowania łącznika Azure Information Protection i nie są wymagane, gdy wskaźnik "Azure" jest połączony z Azure Information Protection.
 
-- Uprawnienia do odczytu i zapisu w obszarze roboczym usługi Log Analytics, którego używasz dla usługi Azure Sentinel i usługi Azure Information Protection.
+- Uprawnienia do odczytu i zapisu w obszarze roboczym Log Analytics używanym do celów platformy Azure i Azure Information Protection.
 
-- Usługa Azure Information Protection została dodana do witryny Azure portal. Jeśli potrzebujesz pomocy w tym kroku, zobacz [Dodawanie usługi Azure Information Protection do witryny Azure portal.](https://docs.microsoft.com/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal)
+- Do Azure Portal dodano Azure Information Protection. Jeśli potrzebujesz pomocy dotyczącej tego kroku, zobacz [dodawanie Azure Information Protection do Azure Portal](https://docs.microsoft.com/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal).
 
-## <a name="connect-to-azure-information-protection"></a>Łączenie się z usługą Azure Information Protection
+## <a name="connect-to-azure-information-protection"></a>Połącz z Azure Information Protection
 
-Skorzystaj z poniższych instrukcji, jeśli nie skonfigurowano obszaru roboczego usługi Log Analytics dla usługi Azure Information Protection lub musisz zmienić obszar roboczy, w który przechowuje informacje rejestrowania usługi Azure Information Protection.
+Jeśli nie skonfigurowano obszaru roboczego Log Analytics dla Azure Information Protection, należy skorzystać z poniższych instrukcji lub zmienić obszar roboczy, w którym są przechowywane Azure Information Protection informacje o rejestrowaniu.
 
-1. W usłudze Azure Sentinel wybierz pozycję **Łączniki danych**, a następnie **usługę Azure Information Protection (Wersja zapoznawcza)**.
+1. W obszarze wskaźnik platformy Azure wybierz pozycję **Łączniki danych**, a następnie **Azure Information Protection (wersja zapoznawcza)**.
 
-2. Wybierz **pozycję Otwórz stronę łącznika**.
+2. Wybierz pozycję **Otwórz stronę łącznika**.
 
-3. W bloku **Konfiguruj analizy (wersja zapoznawcza)** wybierz obszar roboczy, którego aktualnie używasz dla usługi Azure Sentinel. Jeśli wybierzesz inny obszar roboczy, dane raportowania z usługi Azure Information Protection nie będą dostępne dla usługi Azure Sentinel.
+3. W bloku **Konfiguruj analizę (wersja zapoznawcza)** wybierz obszar roboczy, który jest obecnie używany do oceniania platformy Azure. W przypadku wybrania innego obszaru roboczego dane raportowania z Azure Information Protection nie będą dostępne dla platformy Azure.
 
-4. Po wybraniu obszaru roboczego wybierz przycisk **OK,** a **stan** łącznika powinien teraz zmienić się na **Połączony**.
+4. Po wybraniu obszaru roboczego wybierz pozycję **OK** , a **stan** łącznika powinien teraz zostać zmieniony na **połączono**.
 
-5. Dane raportowania z usługi Azure Information Protection są przechowywane w tabeli **InformationProtectionLogs_CL** w wybranym obszarze roboczym. 
+5. Dane raportowania z Azure Information Protection są przechowywane w tabeli **InformationProtectionLogs_CL** w wybranym obszarze roboczym. 
     
-    Aby użyć odpowiedniego schematu w usłudze Azure Monitor dla tych danych raportowania, wyszukaj **informacjeProtectionEvents**. Aby uzyskać informacje na temat tych funkcji zdarzeń, zobacz [Przyjazne odwołanie do schematu dla funkcji zdarzeń](https://docs.microsoft.com/azure/information-protection/reports-aip#friendly-schema-reference-for-event-functions) sekcji z dokumentacji usługi Azure Information Protection.
+    Aby użyć odpowiedniego schematu w Azure Monitor dla tych danych raportowania, wyszukaj ciąg **InformationProtectionEvents**. Informacje o tych funkcjach zdarzeń znajdują się w sekcji [przyjazne informacje o schemacie dla funkcji zdarzeń](https://docs.microsoft.com/azure/information-protection/reports-aip#friendly-schema-reference-for-event-functions) z dokumentacji Azure Information Protection.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym dokumencie dowiesz się, jak połączyć usługę Azure Information Protection z usługą Azure Sentinel. Aby dowiedzieć się więcej o usłudze Azure Sentinel, zobacz następujące artykuły:
-- Dowiedz się, jak [uzyskać wgląd w dane i potencjalne zagrożenia.](quickstart-get-visibility.md)
-- Rozpocznij [wykrywanie zagrożeń za pomocą usługi Azure Sentinel](tutorial-detect-threats-built-in.md).
+W tym dokumencie przedstawiono sposób nawiązywania połączenia Azure Information Protection z platformą Azure — wskaźnikiem. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
+- Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
+- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats-built-in.md).

@@ -5,20 +5,20 @@ ms.topic: tutorial
 ms.date: 12/18/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 1a5b9555572264b6a00b4ce73eaa0719d94fd99b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78252154"
 ---
-# <a name="tutorial-create-an-azure-container-registry-and-push-a-container-image"></a>Samouczek: Tworzenie rejestru kontenerów platformy Azure i wypychanie obrazu kontenera
+# <a name="tutorial-create-an-azure-container-registry-and-push-a-container-image"></a>Samouczek: Tworzenie usługi Azure Container Registry i wypychanie obrazu kontenera
 
 Niniejszy samouczek jest drugą częścią trzyczęściowej serii. [W części pierwszej](container-instances-tutorial-prepare-app.md) samouczka utworzono obraz kontenera Docker dla aplikacji internetowej środowiska Node.js. W tym samouczku obraz zostanie wypchnięty do usługi Azure Container Registry. Jeśli obraz kontenera nie został jeszcze utworzony, wróć do artykułu [Samouczek 1 — Tworzenie obrazu kontenera](container-instances-tutorial-prepare-app.md).
 
-Usługa Azure Container Registry jest prywatnym rejestrem platformy Docker na platformie Azure. W tym samouczku, część druga serii, ty:
+Usługa Azure Container Registry jest prywatnym rejestrem platformy Docker na platformie Azure. W tym samouczku druga część serii obejmuje:
 
 > [!div class="checklist"]
-> * Tworzenie wystąpienia rejestru kontenerów platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure
+> * Tworzenie wystąpienia Azure Container Registry przy użyciu interfejsu wiersza polecenia platformy Azure
 > * Otagowanie obrazu kontenera na potrzeby usługi Azure Container Registry
 > * Przekazanie obrazu do rejestru
 
@@ -125,7 +125,7 @@ REPOSITORY          TAG       IMAGE ID        CREATED           SIZE
 aci-tutorial-app    latest    5c745774dfa9    39 minutes ago    68.1 MB
 ```
 
-Otaguj obraz *aplikacji aci-tutorial* za pomocą serwera logowania rejestru kontenerów. Ponadto dodaj tag `:v1` na końcu nazwy obrazu, aby wskazać numer wersji obrazu. Zastąp wartość `<acrLoginServer>` wynikiem polecenia [az acr show][az-acr-show], które zostało wykonane wcześniej.
+Oznacz obraz *ACI-samouczek-App* z serwerem logowania rejestru kontenerów. Ponadto dodaj tag `:v1` na końcu nazwy obrazu, aby wskazać numer wersji obrazu. Zastąp wartość `<acrLoginServer>` wynikiem polecenia [az acr show][az-acr-show], które zostało wykonane wcześniej.
 
 ```bash
 docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
@@ -142,7 +142,7 @@ mycontainerregistry082.azurecr.io/aci-tutorial-app    v1        5c745774dfa9    
 
 ## <a name="push-image-to-azure-container-registry"></a>Wypychanie obrazu do usługi Azure Container Registry
 
-Teraz, gdy już oznaczone *aci-tutorial-app* obraz z pełną nazwą serwera logowania prywatnego rejestru, można wypchnąć obraz do rejestru za pomocą polecenia [push docker.][docker-push] Zastąp wartość `<acrLoginServer>` pełną nazwa serwera logowania uzyskaną we wcześniejszym kroku.
+Teraz, gdy Otagowano obraz *ACI-samouczek-App* z pełną nazwą serwera logowania w rejestrze prywatnym, można wypchnąć obraz do rejestru za pomocą polecenia [Docker push][docker-push] . Zastąp wartość `<acrLoginServer>` pełną nazwa serwera logowania uzyskaną we wcześniejszym kroku.
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
@@ -202,7 +202,7 @@ v1
 W tym samouczku przygotowano rejestr kontenerów platformy Azure do używania z usługą Azure Container Instances oraz wypchnięto obraz kontenera do rejestru. Wykonano następujące czynności:
 
 > [!div class="checklist"]
-> * Utworzono wystąpienie rejestru kontenerów platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure
+> * Utworzono wystąpienie Azure Container Registry za pomocą interfejsu wiersza polecenia platformy Azure
 > * Tagowanie obrazu kontenera na potrzeby usługi Azure Container Registry
 > * Przekazywanie obrazu do usługi Azure Container Registry
 

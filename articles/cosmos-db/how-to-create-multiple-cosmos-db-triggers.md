@@ -1,50 +1,50 @@
 ---
-title: Tworzenie wielu niezależnych wyzwalaczy usług Azure Functions dla usługi Cosmos DB
-description: Dowiedz się, jak skonfigurować wiele niezależnych wyzwalaczy usługi Azure Functions dla usługi Cosmos DB w celu tworzenia architektur opartych na zdarzeniach.
+title: Utwórz wiele niezależnych wyzwalaczy Azure Functions dla Cosmos DB
+description: Dowiedz się, jak skonfigurować wiele niezależnych wyzwalaczy Azure Functions dla Cosmos DB do tworzenia architektur opartych na zdarzeniach.
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.openlocfilehash: 32b680acdee29bf97a0e132fee93d5fee3377245
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77604942"
 ---
-# <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Tworzenie wielu wyzwalaczy funkcji platformy Azure dla usługi Cosmos DB
+# <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Utwórz wiele wyzwalaczy Azure Functions dla Cosmos DB
 
 W tym artykule opisano sposób konfigurowania wielu wyzwalaczy usługi Azure Functions dla usługi Cosmos DB tak, aby działały równolegle i niezależnie reagowały na zmiany.
 
-![Funkcje oparte na zdarzeniach bezserwerowe współpracujące z wyzwalaczem usług Azure Functions dla usługi Cosmos DB i współużytkowane kontenerem dzierżaw](./media/change-feed-functions/multi-trigger.png)
+![Funkcje oparte na zdarzeniach bezserwerowych działające z wyzwalaczem Azure Functions na potrzeby Cosmos DB i udostępniania kontenera dzierżawy](./media/change-feed-functions/multi-trigger.png)
 
 ## <a name="event-based-architecture-requirements"></a>Wymagania dotyczące architektury opartej na zdarzeniach
 
-Podczas tworzenia architektury bezserwerowej za pomocą [usługi Azure Functions](../azure-functions/functions-overview.md)zaleca [się](../azure-functions/functions-best-practices.md#avoid-long-running-functions) tworzenie małych zestawów funkcji, które współpracują ze sobą zamiast dużych funkcji długotrwałych.
+Podczas kompilowania architektur bezserwerowych za pomocą [Azure Functions](../azure-functions/functions-overview.md) [zaleca](../azure-functions/functions-best-practices.md#avoid-long-running-functions) się utworzenie małych zestawów funkcji, które współpracują ze sobą, zamiast dużych długotrwałych funkcji.
 
-Podczas tworzenia przepływów opartych na zdarzeniach bezserwerowych przy użyciu [wyzwalacza usługi Azure Functions dla usługi Cosmos DB,](./change-feed-functions.md)zostanie uruchomiony scenariusz, w którym chcesz wykonać wiele czynności, gdy pojawi się nowe zdarzenie w określonym [kontenerze usługi Azure Cosmos.](./databases-containers-items.md#azure-cosmos-containers) Jeśli akcje, które chcesz wyzwolić, są niezależne od siebie, idealnym rozwiązaniem byłoby **utworzenie jednego wyzwalaczy usługi Azure Functions dla usługi Cosmos DB na akcję,** którą chcesz wykonać, wszystkie nasłuchiwanie zmian w tym samym kontenerze usługi Azure Cosmos.
+Podczas tworzenia przepływów bezserwerowych opartych na zdarzeniach przy użyciu [wyzwalacza Azure Functions dla Cosmos DB](./change-feed-functions.md), należy uruchomić w scenariuszu, w którym chcesz wykonać wiele czynności, gdy istnieje nowe zdarzenie w konkretnym [kontenerze usługi Azure Cosmos](./databases-containers-items.md#azure-cosmos-containers). Jeśli akcje, które mają być wyzwalane, są niezależne od siebie, idealnym rozwiązaniem jest **utworzenie jednego Azure Functions wyzwalaczy dla Cosmos DB na akcję** , którą chcesz wykonać, i wszystkie nasłuchiwanie zmian w tym samym kontenerze usługi Azure Cosmos.
 
-## <a name="optimizing-containers-for-multiple-triggers"></a>Optymalizacja kontenerów pod kątem wielu wyzwalaczy
+## <a name="optimizing-containers-for-multiple-triggers"></a>Optymalizowanie kontenerów dla wielu wyzwalaczy
 
-Biorąc pod uwagę *wymagania* wyzwalacza usługi Azure Functions dla usługi Cosmos DB, potrzebujemy drugiego kontenera do przechowywania stanu, nazywanego również *kontenerem dzierżaw.* Czy to oznacza, że potrzebujesz oddzielnego kontenera dzierżawy dla każdej funkcji platformy Azure?
+Uwzględniając *wymagania* wyzwalacza Azure Functions dla Cosmos DB, potrzebujemy drugiego kontenera do przechowywania stanu, nazywanego również *kontenerem dzierżawy*. Czy oznacza to, że potrzebujesz oddzielnego kontenera dzierżaw dla każdej funkcji platformy Azure?
 
-Tutaj masz dwie opcje:
+Dostępne są dwie opcje:
 
-* Utwórz **jeden kontener dzierżawy na funkcję:** Takie podejście może przełożyć się na dodatkowe koszty, chyba że używasz [udostępnionej bazy danych przepływności.](./set-throughput.md#set-throughput-on-a-database) Należy pamiętać, że minimalna przepływność na poziomie kontenera jest 400 [jednostek żądań](./request-units.md), a w przypadku kontenera dzierżawy jest używany tylko do punktu kontrolnego postępu i stanu utrzymania.
-* Mieć **jeden kontener dzierżawy i udostępnić go** dla wszystkich funkcji: Ta druga opcja lepiej korzysta z aprowizowanych jednostek żądań w kontenerze, ponieważ umożliwia wiele funkcji platformy Azure do udostępniania i używania tej samej aprowizowanej przepływności.
+* Utwórz **jeden kontener dzierżawy na funkcję**: takie podejście może przełożyć na dodatkowe koszty, chyba że jest używana [udostępniona baza danych przepływności](./set-throughput.md#set-throughput-on-a-database). Należy pamiętać, że minimalna przepływność na poziomie kontenera to 400 [jednostek żądań](./request-units.md), a w przypadku kontenera dzierżawy jest on używany tylko do tworzenia punktów kontrolnych postępu i utrzymania stanu.
+* Należy mieć **jeden kontener dzierżawy i udostępnić go** wszystkim funkcjom: druga opcja zapewnia lepsze wykorzystanie jednostek żądań inicjowanych w kontenerze, ponieważ umożliwia ona wielu Azure Functions udostępnianie i używanie tej samej zainicjowanej przepływności.
 
-Celem tego artykułu jest poprowadzenie cię do osiągnięcia drugiej opcji.
+Celem tego artykułu jest przeprowadzenie drugiej opcji.
 
-## <a name="configuring-a-shared-leases-container"></a>Konfigurowanie kontenera dzierżawy udostępnionej
+## <a name="configuring-a-shared-leases-container"></a>Konfigurowanie kontenera udostępnione dzierżawy
 
-Aby skonfigurować kontener dzierżawy udostępnionej, jedyną dodatkową konfiguracją, którą `LeaseCollectionPrefix` należy wprowadzić w wyzwalaczach, jest dodanie [atrybutu,](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#attributes-and-annotations) jeśli używasz języka C# lub `leaseCollectionPrefix` [atrybutu,](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) jeśli używasz języka JavaScript. Wartość atrybutu powinna być logicznym deskryptorem tego określonego wyzwalacza.
+Aby można było skonfigurować kontener udostępnione dzierżawy, jedyną dodatkową konfiguracją, którą należy wykonać w wyzwalaczach, jest dodanie `LeaseCollectionPrefix` [atrybutu](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#attributes-and-annotations) , jeśli używasz języka JavaScript lub `leaseCollectionPrefix` [atrybutu](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) , jeśli korzystasz z języka Java. Wartość atrybutu powinna być logicznym deskryptorem tego konkretnego wyzwalacza.
 
-Na przykład jeśli masz trzy wyzwalacze: jeden, który wysyła wiadomości e-mail, jeden, który wykonuje agregację w celu utworzenia zmaterializowanego widoku, i taki, który wysyła zmiany do innego magazynu, do `LeaseCollectionPrefix` późniejszej analizy, można przypisać "wiadomości e-mail" do pierwszego, "zmaterializowane" do drugiego i "analizy" do trzeciego.
+Na przykład jeśli masz trzy wyzwalacze: jeden, który wysyła wiadomości e-mail, taki, który wykonuje agregację, aby utworzyć widok z materiałami i taki, który wysyła zmiany do innego magazynu, na potrzeby późniejszej analizy można `LeaseCollectionPrefix` przypisać "wiadomości e-mail" do pierwszej, "z materiałem" do drugiego, a "Analytics" na trzecią.
 
-Ważną częścią jest to, że wszystkie trzy wyzwalacze **mogą używać tej samej konfiguracji kontenera dzierżawy** (konto, baza danych i nazwa kontenera).
+Ważna część polega na tym, że wszystkie trzy wyzwalacze **mogą korzystać z tej samej konfiguracji kontenera dzierżaw** (konta, bazy danych i nazwy kontenera).
 
-Bardzo proste przykłady kodu `LeaseCollectionPrefix` przy użyciu atrybutu w języku C#, będzie wyglądać następująco:
+Bardzo proste przykłady kodu używające `LeaseCollectionPrefix` atrybutu w języku C# będą wyglądać następująco:
 
 ```cs
 using Microsoft.Azure.Documents;
@@ -78,7 +78,7 @@ public static void MaterializedViews([CosmosDBTrigger(
 }
 ```
 
-W przypadku języka JavaScript można zastosować `function.json` konfigurację `leaseCollectionPrefix` pliku z atrybutem:
+W przypadku języka JavaScript można zastosować konfigurację do `function.json` pliku z `leaseCollectionPrefix` atrybutem:
 
 ```json
 {
@@ -104,10 +104,10 @@ W przypadku języka JavaScript można zastosować `function.json` konfigurację 
 ```
 
 > [!NOTE]
-> Zawsze monitoruj w jednostkach żądań aprowidywizacji w kontenerze dzierżawy udostępnionej. Każdy wyzwalacz, który go współużytkuje, zwiększy przepływność średnie zużycie, więc może być konieczne zwiększenie aprowizowanej przepływności w miarę zwiększania liczby usług Azure Functions, które go używają.
+> Zawsze Monitoruj jednostki żądania udostępniane w kontenerze dzierżawy udostępnione. Każdy wyzwalacz, który go udostępnia, zwiększy zużycie na średnią przepływność, więc może być konieczne zwiększenie przepływności w miarę zwiększania liczby używanych Azure Functions.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zobacz pełną konfigurację [wyzwalacza usługi Azure Functions dla usługi Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration)
-* Sprawdź rozszerzoną [listę przykładów](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) dla wszystkich języków.
-* Odwiedź receptury bezserwerowe z [repozytorium Usługi Azure](https://github.com/ealsur/serverless-recipes/tree/master/cosmosdbtriggerscenarios) Cosmos DB i Usługi Azure Functions GitHub, aby uzyskać więcej przykładów.
+* Zapoznaj się z pełną konfiguracją [wyzwalacza Azure Functions dla Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration)
+* Zapoznaj się z rozszerzoną [listą próbek](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) dla wszystkich języków.
+* Aby uzyskać więcej przykładów, odwiedź te przepisy bezserwerowe, korzystając z Azure Cosmos DB i Azure Functions [repozytorium GitHub](https://github.com/ealsur/serverless-recipes/tree/master/cosmosdbtriggerscenarios) .

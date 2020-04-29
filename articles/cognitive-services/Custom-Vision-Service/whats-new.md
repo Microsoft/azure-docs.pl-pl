@@ -1,7 +1,7 @@
 ---
-title: Co nowego w ujmijce niestandardowej?
+title: Co nowego w Custom Vision?
 titleSuffix: Azure Cognitive Services
-description: Ten artykuł zawiera wiadomości dotyczące wizji niestandardowej.
+description: Ten artykuł zawiera informacje o Custom Vision.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,22 +11,22 @@ ms.topic: overview
 ms.date: 02/28/2020
 ms.author: pafarley
 ms.openlocfilehash: 82318df08ffc9ec47b1ed40171f79163bbdd600f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78207638"
 ---
-# <a name="whats-new-in-custom-vision"></a>Co nowego w wizji niestandardowej
+# <a name="whats-new-in-custom-vision"></a>Co nowego w Custom Vision
 
-Dowiedz się, co nowego w usłudze. Te elementy mogą publikować notatki, filmy, wpisy w blogu i inne rodzaje informacji. Zaznacz tę stronę w zakładce, aby być na bieżąco z usługą.
+Dowiedz się, co nowego w usłudze. Te elementy mogą wydawania informacji, wideo, wpisów w blogu i innych typów. Oznacz Tę stronę zakładką, aby zapewnić aktualność usługi.
 
 ## <a name="september-2019"></a>Wrzesień 2019 r.
 
-### <a name="suggested-tags"></a>Sugerowane tagi
+### <a name="suggested-tags"></a>Sugerowane Tagi
 
-* Narzędzie Inteligentne etykiety w [witrynie internetowej Custom Vision](https://www.customvision.ai/) generuje sugerowane tagi dla obrazów treningowych. Dzięki temu można oznaczyć dużą liczbę obrazów szybciej podczas szkolenia modelu niestandardowej wizji. Aby uzyskać instrukcje dotyczące korzystania z tej funkcji, zobacz [Sugerowane tagi](./suggested-tags.md).
+* Inteligentne narzędzie Labeler w [witrynie sieci web Custom Vision](https://www.customvision.ai/) generuje sugerowane znaczniki dla obrazów szkoleniowych. Dzięki temu można szybciej oznaczyć dużą liczbę obrazów podczas uczenia modelu Custom Vision. Aby uzyskać instrukcje dotyczące korzystania z tej funkcji, zobacz [sugerowane Tagi](./suggested-tags.md).
 
-## <a name="cognitive-service-updates"></a>Aktualizacje usługi Cognitive Service
+## <a name="cognitive-service-updates"></a>Aktualizacje usługi poznawczej
 
-[Anonse aktualizacji platformy Azure dla usług Cognitive Services](https://azure.microsoft.com/updates/?product=cognitive-services)
+[Anonse aktualizacji platformy Azure dla Cognitive Services](https://azure.microsoft.com/updates/?product=cognitive-services)

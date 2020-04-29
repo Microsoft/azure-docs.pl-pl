@@ -4,13 +4,13 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: ee8beaf3368f0efc05f1a1d679398a733002bf17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77594045"
 ---
-### <a name="add-grafana-secret"></a>Dodaj grafana secret
+### <a name="add-grafana-secret"></a>Dodaj wpis tajny Grafana
 
 Zastąp `REPLACE_WITH_YOUR_SECURE_PASSWORD` token hasłem i uruchom następujące polecenia:
 
@@ -31,7 +31,7 @@ data:
   passphrase: $GRAFANA_PASSPHRASE" | kubectl apply -f -
 ```
 
-### <a name="add-kiali-secret"></a>Dodaj klucz tajny Kiali
+### <a name="add-kiali-secret"></a>Dodaj wpis tajny Kiali
 
 Zastąp `REPLACE_WITH_YOUR_SECURE_PASSWORD` token hasłem i uruchom następujące polecenia:
 

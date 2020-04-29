@@ -1,6 +1,6 @@
 ---
-title: Procedura pracy awaryjnej hana do lokacji awarii dla sap HANA na platformie Azure (duże wystąpienia) | Dokumenty firmy Microsoft
-description: Jak wykonać tryb failover do lokacji odzyskiwania po awarii dla SAP HANA na platformie Azure (duże wystąpienia)
+title: Procedura trybu failover platformy HANA w witrynie odzyskiwania po awarii dla SAP HANA na platformie Azure (duże wystąpienia) | Microsoft Docs
+description: Jak przeprowadzić pracę w trybie failover w lokacji odzyskiwania po awarii dla SAP HANA na platformie Azure (duże wystąpienia)
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
@@ -14,111 +14,111 @@ ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3fe3ee79318ab9fdc9f2c0e9585051439b76b5cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617135"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Procedura przechodzenia w tryb failover odzyskiwania po awarii
 
 
 >[!IMPORTANT]
->Ten artykuł nie zastępuje dokumentacji administracyjnej SAP HANA ani notatek SAP. Oczekujemy, że masz solidne zrozumienie i wiedzę w zakresie administracji i operacji SAP HANA, szczególnie w zakresie tworzenia kopii zapasowych, przywracania, wysokiej dostępności i odzyskiwania po awarii (DR). W tym artykule wyświetlane są zrzuty ekranu z SAP HANA Studio. Zawartość, struktura i charakter ekranów narzędzi administracyjnych SAP i samych narzędzi może ulec zmianie z wersji SAP HANA do wydania.
+>Ten artykuł nie zastępuje dokumentacji dotyczącej administracji SAP HANA ani informacji o oprogramowaniu SAP. Oczekujemy, że masz pełne zrozumienie i doświadczenie w SAP HANA administrowania i działania, szczególnie w przypadku kopii zapasowych, przywracania, wysokiej dostępności i odzyskiwania po awarii. W tym artykule przedstawiono zrzuty ekranu z programu SAP HANA Studio. Zawartość, struktura i charakter ekranów narzędzi administracyjnych SAP i samych narzędzi mogą ulec zmianie z wersji SAP HANA na Release.
 
-Istnieją dwa przypadki, które należy wziąć pod uwagę podczas pracy awaryjnej w witrynie odzyskiwania po awarii:
+Istnieją dwa przypadki, które należy wziąć pod uwagę w przypadku przełączenia w tryb failover do lokacji DR:
 
-- Potrzebujesz bazy danych SAP HANA, aby wrócić do najnowszego stanu danych. W takim przypadku istnieje samoobsługowy skrypt, za pomocą którego można wykonać funkcję failover bez konieczności kontaktowania się z firmą Microsoft. W przypadku powrotu po awarii należy współpracować z firmą Microsoft.
+- Do uzyskania najnowszego stanu danych potrzebna jest baza danych SAP HANA. W takim przypadku istnieje skrypt samoobsługowy, w którym można przeprowadzić pracę w trybie failover bez konieczności kontaktowania się z firmą Microsoft. W przypadku powrotu po awarii należy współpracować z firmą Microsoft.
 - Chcesz przywrócić migawkę magazynu, która nie jest najnowszą replikowaną migawką. W takim przypadku należy współpracować z firmą Microsoft. 
 
 >[!NOTE]
->Następujące kroki należy wykonać na jednostce dużych wystąpień HANA, która reprezentuje jednostkę odzyskiwania po awarii. 
+>Poniższe kroki należy wykonać w jednostce dużego wystąpienia HANA, która reprezentuje jednostkę odzyskiwania po awarii. 
  
-Aby przywrócić najnowsze migawki z replikowanego magazynu, wykonaj kroki opisane w "Wykonaj pełną funkcję failover — azure_hana_dr_failover odzyskiwania po awarii" w [narzędziach migawek firmy Microsoft dla systemu SAP HANA na platformie Azure.](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf) 
+Aby przywrócić najnowsze zreplikowane migawki magazynu, wykonaj kroki opisane w sekcji "wykonywanie pełnego trybu failover odzyskiwania po awarii — azure_hana_dr_failover" w [narzędziu Microsoft Snapshot Tools dla SAP HANA na platformie Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf). 
 
-Jeśli chcesz mieć wiele wystąpień SAP HANA w razie awarii, uruchom polecenie azure_hana_dr_failover kilka razy. Gdy zażądasz, wprowadź identyfikator SID SAP HANA, który chcesz zakończyć w pracy awaryjnej i przywrócić. 
+Jeśli chcesz, aby wiele wystąpień SAP HANA przekroczyć do trybu failover, uruchom polecenie azure_hana_dr_failover kilka razy. Gdy jest to wymagane, wprowadź SAP HANA identyfikator SID, który chcesz przełączyć i przywrócić. 
 
 
-Można przetestować pracy awaryjnej odzyskiwania po awarii również bez wpływu na relację replikacji rzeczywistej. Aby wykonać test pracy awaryjnej, wykonaj kroki opisane w "Wykonywanie testowego odzyskiwania po awarii — azure_hana_test_dr_failover" w [narzędziach migawek firmy Microsoft dla systemu SAP HANA na platformie Azure.](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf) 
+Można testować tryb failover odzyskiwania po awarii bez wywierania wpływu na rzeczywistą relację replikacji. Aby przeprowadzić test pracy w trybie failover, wykonaj kroki opisane w sekcji "Przeprowadź test pracy w trybie failover DR azure_hana_test_dr_failover" w [narzędziu Microsoft Snapshot Tools dla SAP HANA na platformie Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf). 
 
 >[!IMPORTANT]
->*Nie* należy uruchamiać żadnych transakcji produkcyjnych w wystąpieniu utworzonym w lokacji odzyskiwania po awarii w procesie **testowania pracy awaryjnej.** Polecenie azure_hana_test_dr_failover tworzy zestaw woluminów, które nie mają związku z lokacją główną. W rezultacie synchronizacja z powrotem do lokacji głównej *nie* jest możliwa. 
+>*Nie* należy uruchamiać żadnych transakcji produkcyjnych w wystąpieniu, które zostało utworzone w witrynie odzyskiwania po awarii, za pomocą procesu **testowania trybu failover**. Polecenie azure_hana_test_dr_failover tworzy zestaw woluminów, które nie mają relacji z lokacją główną. W związku z tym synchronizacja z powrotem do lokacji głównej *nie* jest możliwa. 
 
-Jeśli chcesz mieć wiele wystąpień SAP HANA do testowania, uruchom skrypt kilka razy. Gdy zażądano, wprowadź identyfikator SID SAP HANA wystąpienia, które chcesz przetestować pod kątem pracy awaryjnej. 
+Jeśli chcesz mieć wiele wystąpień SAP HANA do przetestowania, uruchom skrypt kilka razy. Gdy jest to wymagane, wprowadź SAP HANA identyfikator SID wystąpienia, które ma zostać przetestowane w celu przełączenia w tryb failover. 
 
 >[!NOTE]
->Jeśli musisz wykonać awaryjną do lokacji odzyskiwania po awarii, aby uratować niektóre dane, które zostały usunięte kilka godzin temu i trzeba woluminów odzyskiwania po awarii, które mają być ustawione na wcześniejszą migawkę, ta procedura ma zastosowanie. 
+>Jeśli konieczne jest przełączenie w tryb failover do lokacji odzyskiwania po awarii w celu zajęcia pewnych danych, które zostały usunięte godz. 
 
-1. Zamknij nieprodukcyjne wystąpienie HANA w jednostce odzyskiwania po awarii dużych wystąpień HANA, które są uruchomione. Uśpione wystąpienie produkcyjne HANA jest preinstalowane.
-1. Upewnij się, że nie są uruchomione żadne procesy SAP HANA. Użyj następującego polecenia dla tego sprawdzenia:
+1. Zamknij wystąpienie nieprodukcyjne platformy HANA w jednostce odzyskiwania po awarii w dużych wystąpieniach platformy HANA, które są uruchomione. Jest preinstalowane wystąpienie produkcyjne uśpione HANA.
+1. Upewnij się, że żadne procesy SAP HANA nie są uruchomione. Dla tej kontroli użyj następującego polecenia:
 
       `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`.
 
-      Dane wyjściowe powinny wyświetlać proces **hdbdaemon** w stanie zatrzymania i żadnych innych procesów HANA w stanie uruchomionym lub uruchomionym.
-1. Określ, do której nazwy migawki lub identyfikator kopii zapasowej SAP HANA chcesz przywrócić lokację odzyskiwania po awarii. W przypadkach odzyskiwania po awarii ta migawka jest zwykle najnowszą migawką. Jeśli chcesz odzyskać utracone dane, wybierz wcześniejszą migawkę.
-1. Skontaktuj się z pomocą techniczną platformy Azure za pośrednictwem żądania pomocy technicznej o wysokim priorytecie. Poproś o przywrócenie tej migawki z nazwą i datą migawki lub identyfikatorem kopii zapasowej HANA w witrynie odzyskiwania po awarii. Domyślnie po stronie operacji przywraca tylko wolumin /hana/data. Jeśli chcesz mieć /hana/logbackups woluminów zbyt, należy w szczególności stwierdzić, że. *Nie należy przywracać woluminu /hana/shared.* Zamiast tego po ponownym zamontowaniu woluminu /hana/shared dla PRD wybierz określone pliki, takie jak global.ini z katalogu **.snapshot** i jego podkatalogów. 
+      W danych wyjściowych powinien być widoczny proces **hdbdaemon** w stanie zatrzymania i nie ma żadnych innych procesów Hana w stanie uruchomionym lub uruchomionym.
+1. Określ nazwę migawki lub SAP HANA identyfikator kopii zapasowej, do której ma zostać przywrócona lokacja odzyskiwania po awarii. W przypadku rzeczywistych przypadków odzyskiwania po awarii ta migawka jest zwykle najnowszą migawką. Jeśli musisz odzyskać utracone dane, wybierz wcześniejszą migawkę.
+1. Skontaktuj się z pomocą techniczną platformy Azure w ramach żądania wsparcia o wysokim priorytecie. Zażądaj przywrócenia tej migawki przy użyciu nazwy i daty migawki lub identyfikatora kopii zapasowej HANA w witrynie odzyskiwania po awarii. Domyślnie strona operacje przywraca tylko wolumin/Hana/Data. Jeśli chcesz, aby/Hana/logbackups woluminy, należy zastanowić się, że. *Nie przywracaj woluminu/Hana/Shared.* Zamiast tego należy wybrać określone pliki, takie jak Global. ini z katalogu **. snapshot** i jego podkatalogach, po ponownym zainstalowaniu woluminu/Hana/Shared dla PRD. 
 
-   Po stronie operacji występują następujące kroki:
+   Na stronie operacje wykonywane są następujące czynności:
 
-   a. Replikacja migawek z woluminu produkcyjnego do woluminów odzyskiwania po awarii jest zatrzymana. To zakłócenie mogło już mieć miejsce, jeśli awaria w lokacji produkcyjnej jest powodem konieczności wykonania procedury odzyskiwania po awarii.
+   a. Replikacja migawek z woluminu produkcyjnego do woluminów odzyskiwania po awarii jest zatrzymana. Takie zakłócenia mogły już wystąpić, jeśli awaria w lokacji produkcyjnej to powód, dla którego należy wykonać procedurę odzyskiwania po awarii.
    
-   b. Nazwa migawki magazynu lub migawka z wybranym identyfikatorem kopii zapasowej jest przywracana na woluminach odzyskiwania po awarii.
+   b. Nazwa migawki magazynu lub migawka z wybranym IDENTYFIKATORem kopii zapasowej zostanie przywrócona na woluminach odzyskiwania po awarii.
    
-   d. Po przywróceniu woluminy odzyskiwania po awarii są dostępne do zamontowania do jednostek dużych wystąpień HANA w regionie odzyskiwania po awarii.
+   c. Po przywróceniu woluminy odzyskiwania po awarii są dostępne do zamontowania w jednostkach dużego wystąpienia HANA w regionie odzyskiwania po awarii.
       
-1. Zainstaluj woluminy odzyskiwania po awarii do jednostki dużych wystąpień HANA w lokacji odzyskiwania po awarii. 
-1. Uruchom uśpione wystąpienie produkcyjne SAP HANA.
-1. Jeśli wybrano kopiowanie dzienników kopii zapasowych dziennika transakcji w celu skrócenia czasu operacji RPO, należy scalić kopie zapasowe dziennika transakcji w nowo zainstalowanym katalogu DR /hana/logbackups. Nie zastępuj istniejących kopii zapasowych. Kopiowanie nowszych kopii zapasowych, które nie zostały zreplikowane przy obliczu najnowszej replikacji migawki magazynu.
-1. Można również przywrócić pojedyncze pliki z migawek, które nie zostały zreplikowane do woluminu /hana/shared/PRD w regionie platformy DR Azure.
+1. Zainstaluj woluminy odzyskiwania po awarii w jednostce dużego wystąpienia HANA w lokacji odzyskiwania po awarii. 
+1. Uruchom wystąpienie produkcyjne SAP HANA uśpione.
+1. W przypadku wybrania opcji kopiowania dzienników kopii zapasowych dziennika transakcji w celu skrócenia czasu RPO należy scalić kopie zapasowe dziennika transakcji z nowo zainstalowanym katalogiem DR/Hana/logbackups. Nie zastępuj istniejących kopii zapasowych. Skopiuj nowsze kopie zapasowe, które nie zostały zreplikowane z najnowszą replikacją migawki magazynu.
+1. Można również przywrócić pojedyncze pliki z migawek, które nie zostały zreplikowane do woluminu/hana/shared/PRD w regionie odzyskiwania po awarii.
 
 Poniższe kroki pokazują, jak odzyskać wystąpienie produkcyjne SAP HANA na podstawie przywróconej migawki magazynu i kopii zapasowych dziennika transakcji, które są dostępne.
 
-1. Zmień lokalizację kopii zapasowej na **/hana/logbackups** przy użyciu sap HANA Studio.
+1. Zmień lokalizację kopii zapasowej na **/Hana/logbackups** za pomocą programu SAP HANA Studio.
 
-   ![Zmienianie lokalizacji kopii zapasowej w celu odzyskiwania odzyskiwania po awarii](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
+   ![Zmień lokalizację kopii zapasowej odzyskiwania po awarii](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
 
-1. SAP HANA skanuje lokalizacje plików kopii zapasowych i sugeruje najnowszą kopię zapasową dziennika transakcji, aby przywrócić. Skanowanie może potrwać kilka minut, aż pojawi się ekran podobny do następującego:
+1. SAP HANA skanów przez lokalizacje plików kopii zapasowej i sugeruje ostatnią kopię zapasową dziennika transakcji do przywrócenia. Skanowanie może potrwać kilka minut, aż zostanie wyświetlony ekran podobny do następującego:
 
-   ![Lista kopii zapasowych dziennika transakcji do odzyskiwania odzyskiwania po awarii](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
+   ![Lista kopii zapasowych dziennika transakcji na potrzeby odzyskiwania po awarii](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
 
 1. Dostosuj niektóre ustawienia domyślne:
 
-      - Wyczyść **użyj kopii zapasowych delta**.
-      - Wybierz **opcję Inicjuj obszar dziennika**.
+      - Wyczyść pole wyboru **Użyj różnicowych kopii zapasowych**.
+      - Wybierz pozycję **Inicjuj obszar dziennika**.
 
-   ![Ustawianie obszaru dziennika inicjowania](./media/hana-overview-high-availability-disaster-recovery/initialize_log_dr3.PNG)
+   ![Ustaw obszar dziennika inicjowania](./media/hana-overview-high-availability-disaster-recovery/initialize_log_dr3.PNG)
 
-1. Wybierz **pozycję Zakończ**.
+1. Wybierz pozycję **Zakończ**.
 
-   ![Zakończenie przywracania odzyskiwania po awarii](./media/hana-overview-high-availability-disaster-recovery/finish_dr4.PNG)
+   ![Kończenie przywracania odzyskiwania po awarii](./media/hana-overview-high-availability-disaster-recovery/finish_dr4.PNG)
 
-Powinno pojawić się okno postępu, takie jak pokazane tutaj. Należy pamiętać, że w przykładzie jest przywracanie odzyskiwania po awarii konfiguracji SAP HANA skalowania trzech węzłów w poziomie.
+Powinien pojawić się okno postępu, jak pokazano tutaj. Należy pamiętać, że przykładem jest przywracanie odzyskiwania po awarii w konfiguracji SAP HANA skalowalnego w poziomie z trzech węzłów.
 
-![Przywracanie postępu](./media/hana-overview-high-availability-disaster-recovery/restore_progress_dr5.PNG)
+![Postęp przywracania](./media/hana-overview-high-availability-disaster-recovery/restore_progress_dr5.PNG)
 
-Jeśli przywracanie przestaje **odpowiadać** na ekranie Zakończ i nie wyświetla ekranu postępu, upewnij się, że wszystkie wystąpienia SAP HANA w węzłach procesu roboczego są uruchomione. W razie potrzeby uruchom wystąpienia SAP HANA ręcznie.
+Jeśli przywracanie przestanie odpowiadać na ekranie **zakończenia** i nie pokazuje ekranu postępu, upewnij się, że wszystkie wystąpienia SAP HANA w węzłach procesu roboczego są uruchomione. W razie potrzeby Uruchom wystąpienia SAP HANA ręcznie.
 
 
-## <a name="failback-from-a-dr-to-a-production-site"></a>Powrót po awarii z odzyskiwania po awarii do zakładu produkcyjnego
-Można przywrócić po awarii z odzyskiwania po awarii do zakładu produkcyjnego. Przyjrzyjmy się scenariuszowi, w którym praca awaryjna w lokacji odzyskiwania po awarii została spowodowana przez problemy w regionie platformy Azure produkcyjnej, a nie przez potrzebę odzyskania utraconych danych. 
+## <a name="failback-from-a-dr-to-a-production-site"></a>Powrót po awarii z programu DR do lokacji produkcyjnej
+Powrót po awarii z programu DR do lokacji produkcyjnej. Przyjrzyjmy się scenariuszowi, w którym praca w trybie failover w lokacji odzyskiwania po awarii została spowodowana przez problemy w regionie produkcyjnej platformy Azure, a nie przez potrzeby odzyskiwania utraconych danych. 
 
-Od jakiegoś czasu uruchamiasz obciążenie produkcyjne sap w lokacji odzyskiwania po awarii. Ponieważ problemy w lokacji produkcyjnej są rozwiązywane, chcesz wrócić po awarii do lokacji produkcyjnej. Ponieważ nie można utracić danych, krok z powrotem do lokacji produkcyjnej obejmuje kilka kroków i ścisłej współpracy z SAP HANA na zespół operacyjny platformy Azure. To do Ciebie, aby wyzwolić zespół operacyjny, aby rozpocząć synchronizację z powrotem do lokacji produkcyjnej po rozwiązaniu problemów.
+Używasz obciążenia produkcyjnego SAP przez pewien czas w lokacji odzyskiwania po awarii. W miarę rozwiązywania problemów z witryną produkcyjną należy powrócić po awarii do lokacji produkcyjnej. Ze względu na to, że nie można utracić danych, krok z powrotem do lokacji produkcyjnej obejmuje kilka kroków i blisko współpracy z SAP HANA w zespole operacji platformy Azure. Istnieje możliwość wyzwolenia zespołu operacji w celu rozpoczęcia synchronizacji z powrotem do lokacji produkcyjnej po rozwiązaniu problemów.
 
 Wykonaj następujące kroki:
 
-1. Sap HANA na platformie Azure operations team pobiera wyzwalacz do synchronizowania woluminów magazynu produkcyjnego z woluminów magazynu odzyskiwania po awarii, które obecnie reprezentują stan produkcji. W tym stanie jednostka dużych wystąpień HANA w lokacji produkcyjnej jest zamykana.
-1. Zespół operacyjny SAP HANA on Azure monitoruje replikację i upewnia się, że zostanie przechwycona, zanim cię poinformuje.
-1. Zamknij aplikacje, które używają produkcyjnego wystąpienia HANA w lokacji odzyskiwania po awarii. Następnie należy wykonać kopię zapasową dziennika transakcji HANA. Następnie należy zatrzymać wystąpienie HANA, który jest uruchomiony na jednostek dużych wystąpień HANA w lokacji odzyskiwania po awarii.
-1. Po wystąpieniu HANA, który jest uruchomiony w jednostce dużych wystąpień HANA w lokacji odzyskiwania po awarii jest zamknięty, zespół operacyjny ręcznie synchronizuje woluminy dysku ponownie.
-1. Zespół operacyjny SAP HANA on Azure ponownie uruchamia jednostkę dużych wystąpień HANA w lokacji produkcyjnej. Przekazują ci go. Upewnij się, że wystąpienie SAP HANA jest w stanie zamknięcia w czasie uruchamiania jednostki dużych wystąpień HANA.
-1. Kroki przywracania bazy danych są wykonywane podczas wykonywania po awarii lokacji odzyskiwania po awarii.
+1. SAP HANA w zespole operacji platformy Azure pobiera wyzwalacz, aby synchronizować woluminy magazynów produkcyjnych z woluminów magazynu odzyskiwania po awarii, co teraz reprezentuje stan produkcji. W tym stanie jednostka dużej instancji HANA w lokacji produkcyjnej jest wyłączona.
+1. SAP HANA w usłudze Azure Operations Manager monitoruje replikację i upewni się, że jest ona przechwycona przed zainformowaniem użytkownika.
+1. Należy zamknąć aplikacje, które korzystają z wystąpienia produkcyjnego HANA w lokacji odzyskiwania po awarii. Następnie należy wykonać kopię zapasową dziennika transakcji platformy HANA. Następnie Zatrzymaj wystąpienie HANA uruchomione w jednostkach dużych wystąpień platformy HANA w lokacji odzyskiwania po awarii.
+1. Po wyłączeniu wystąpienia programu HANA działającego w jednostce dużego wystąpienia HANA w lokacji odzyskiwania po awarii zespół operacyjny ręcznie zsynchronizuje woluminy dysków ponownie.
+1. SAP HANA w zespole operacji platformy Azure ponownie uruchamia jednostkę dużego wystąpienia HANA w lokacji produkcyjnej. Odstają się one do Ciebie. Upewnij się, że wystąpienie SAP HANA jest w stanie zamknięcia w czasie uruchamiania jednostki dużego wystąpienia platformy HANA.
+1. Wykonujesz te same kroki przywracania bazy danych, które zakończyły się wcześniej w trybie failover w lokacji odzyskiwania po awarii.
 
 ## <a name="monitor-disaster-recovery-replication"></a>Monitorowanie replikacji odzyskiwania po awarii
 
-Aby monitorować stan postępu replikacji magazynu, `azure_hana_replication_status`uruchom skrypt . To polecenie musi być uruchamiane z jednostki, która działa w lokalizacji odzyskiwania po awarii, aby działał zgodnie z oczekiwaniami. Polecenie działa niezależnie od tego, czy replikacja jest aktywna. Polecenie można uruchomić dla każdej jednostki hana duże wystąpienie dzierżawy w lokalizacji odzyskiwania po awarii. Nie można użyć do uzyskania szczegółowych informacji na temat woluminu rozruchowego. 
+Aby monitorować stan postępu replikacji magazynu, uruchom skrypt `azure_hana_replication_status`. To polecenie musi zostać uruchomione z jednostki, która działa w lokalizacji odzyskiwania po awarii, aby działać zgodnie z oczekiwaniami. Polecenie działa niezależnie od tego, czy replikacja jest aktywna. Polecenie można uruchomić dla każdej jednostki usługi HANA o dużej instancji w ramach dzierżawy w lokalizacji odzyskiwania po awarii. Nie można jej użyć do uzyskania szczegółowych informacji o woluminie rozruchowym. 
 
-Aby uzyskać więcej informacji na temat polecenia i jego danych wyjściowych, zobacz "Pobierz stan replikacji odzyskiwania po awarii — azure_hana_replication_status" w [narzędziach migawek firmy Microsoft dla systemu SAP HANA na platformie Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf).
+Aby uzyskać więcej informacji na temat polecenia i jego danych wyjściowych, zobacz "Pobierz stan replikacji DR-azure_hana_replication_status" w [narzędziu Microsoft Snapshot Tools for SAP HANA na platformie Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf).
 
 
 ## <a name="next-steps"></a>Następne kroki
-- Zobacz [Monitorowanie i rozwiązywanie problemów po stronie HANA](hana-monitor-troubleshoot.md).
+- Zobacz [monitorowanie i rozwiązywanie problemów po stronie platformy Hana](hana-monitor-troubleshoot.md).

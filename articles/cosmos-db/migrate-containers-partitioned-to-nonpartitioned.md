@@ -1,30 +1,30 @@
 ---
-title: Migrowanie kontenerów usługi Azure Cosmos nieobjętych partycjonowanymi do kontenerów podzielonych na partycje
-description: Dowiedz się, jak przeprowadzić migrację wszystkich istniejących kontenerów nie podzielonych na partycje do kontenerów podzielonych na partycje.
+title: Migrowanie kontenerów usługi Azure Cosmos bez partycjonowania do kontenerów partycjonowanych
+description: Dowiedz się, jak migrować wszystkie istniejące kontenery niepartycjonowane do kontenerów partycjonowanych.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
 ms.openlocfilehash: 742ef62895f3ef64e8fa22ab21d2947bee57776b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77623352"
 ---
-# <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrowanie kontenerów nieobjętych partycjami do kontenerów podzielonych na partycje
+# <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrowanie kontenerów bez partycjonowania do kontenerów partycjonowanych
 
-Usługa Azure Cosmos DB obsługuje tworzenie kontenerów bez klucza partycji. Obecnie można tworzyć kontenery nieobjęte partycjami przy użyciu interfejsu wiersza polecenia platformy Azure i platformy Azure Cosmos DB SDK (.Net, Java, NodeJs), które mają wersję mniejszą lub równą 2.x. Nie można utworzyć kontenerów nieobeskrybowanych przy użyciu witryny Azure Portal. Jednak takie kontenery nie podzielonych na partycje nie są elastyczne i mają stałą pojemność magazynu 20 GB i limit przepływności 10K RU/s.
+Azure Cosmos DB obsługuje tworzenie kontenerów bez klucza partycji. Obecnie można tworzyć kontenery bez partycjonowania przy użyciu interfejsu wiersza polecenia platformy Azure i zestawów SDK Azure Cosmos DB (.NET, Java, NodeJs), które mają wersję mniejszą lub równą 2. x. Nie można utworzyć kontenerów bez partycjonowania przy użyciu Azure Portal. Jednak takie kontenery niepartycjonowane nie są elastyczne i mają stałą pojemność magazynu wynoszącą 20 GB i limit przepływności 10 000 jednostek RU/s.
 
-Kontenery nieobjęte partycjami są starsze i należy przeprowadzić migrację istniejących kontenerów nie podzielonych na partycje do kontenerów podzielonych na partycje, aby skalować magazyn i przepływność. Usługa Azure Cosmos DB udostępnia mechanizm zdefiniowany przez system do migracji kontenerów nie podzielonych na partycje do kontenerów podzielonych na partycje. W tym dokumencie wyjaśniono, jak wszystkie istniejące kontenery nieobeszczone na partycje są automatycznie migrowane do kontenerów podzielonych na partycje. Funkcja automatycznej migracji można korzystać tylko wtedy, gdy używasz wersji SDK w wersji V3 we wszystkich językach.
+Kontenery bez partycjonowania są starsze i należy migrować istniejące kontenery niepodzielone na partycje w celu skalowania magazynu i przepływności. Azure Cosmos DB zapewnia mechanizm zdefiniowany przez system w celu migrowania kontenerów niepodzielonych na partycje do kontenerów podzielonych na partycje. W tym dokumencie wyjaśniono, w jaki sposób wszystkie istniejące kontenery niepodzielone na partycje są migrowane do kontenerów z podziałem na partycje. Możesz skorzystać z funkcji automigracji tylko wtedy, gdy używasz wersji v3 zestawów SDK we wszystkich językach.
 
 > [!NOTE]
-> Obecnie nie można migrować kont interfejsu API usługi Azure Cosmos DB i Gremlin przy użyciu kroków opisanych w tym dokumencie.
+> Obecnie nie można migrować kont interfejsu API Azure Cosmos DB MongoDB i Gremlin za pomocą kroków opisanych w tym dokumencie.
 
-## <a name="migrate-container-using-the-system-defined-partition-key"></a>Migrowanie kontenera przy użyciu klucza partycji zdefiniowanego przez system
+## <a name="migrate-container-using-the-system-defined-partition-key"></a>Migrowanie kontenera przy użyciu klucza partycji zdefiniowanej przez system
 
-Aby obsługiwać migrację, usługa Azure Cosmos DB udostępnia klucz partycji zdefiniowany przez system o nazwie `/_partitionkey` we wszystkich kontenerach, które nie mają klucza partycji. Nie można zmienić definicji klucza partycji po migracji kontenerów. Na przykład definicja kontenera, który jest migrowany do kontenera podzielonego na partycje będzie w następujący sposób:
+W celu obsługi migracji Azure Cosmos DB udostępnia klucz partycji zdefiniowany przez system `/_partitionkey` na wszystkich kontenerach, które nie mają klucza partycji. Nie można zmienić definicji klucza partycji po migracji kontenerów. Na przykład definicja kontenera migrowanego do kontenera partycjonowanego będzie następująca:
 
 ```json
 {
@@ -38,16 +38,16 @@ Aby obsługiwać migrację, usługa Azure Cosmos DB udostępnia klucz partycji z
 }
 ```
 
-Po migracji kontenera można utworzyć dokumenty, wypełniając `_partitionKey` właściwość wraz z innymi właściwościami dokumentu. Właściwość `_partitionKey` reprezentuje klucz partycji dokumentów.
+Po migracji kontenera można utworzyć dokumenty, wypełniając `_partitionKey` Właściwość wraz z innymi właściwościami dokumentu. `_partitionKey` Właściwość reprezentuje klucz partycji dokumentów.
 
-Wybór odpowiedniego klucza partycji jest ważne, aby optymalnie wykorzystać aprowizowaną przepływność. Aby uzyskać więcej informacji, zobacz jak wybrać artykuł [klucz partycji.](partitioning-overview.md)
+Wybór odpowiedniego klucza partycji jest ważny w celu optymalnego wykorzystania alokowanej przepływności. Aby uzyskać więcej informacji, zobacz artykuł [jak wybrać klucz partycji](partitioning-overview.md) .
 
 > [!NOTE]
-> Klucz partycji zdefiniowany przez system można korzystać tylko wtedy, gdy używasz najnowszej/V3 wersji SDK we wszystkich językach.
+> Można korzystać z klucza partycji zdefiniowanego przez system tylko wtedy, gdy jest używana najnowsza wersja programu/v3 zestawów SDK we wszystkich językach.
 
-Poniższy przykład przedstawia przykładowy kod do utworzenia dokumentu z kluczem partycji zdefiniowanym przez system i odczytu tego dokumentu:
+Poniższy przykład przedstawia przykładowy kod służący do tworzenia dokumentu z kluczem partycji zdefiniowanym przez system i odczytywania tego dokumentu:
 
-**Reprezentacja JSON dokumentu**
+**Reprezentacja dokumentu JSON**
 
 ```csharp
 DeviceInformationItem = new DeviceInformationItem
@@ -91,15 +91,15 @@ ItemResponse<DeviceInformationItem> readResponse =
 
 ```
 
-Aby uzyskać pełny przykład, zobacz [.Net przykłady][1] GitHub repozytorium.
+Aby zapoznać się z kompletnym przykładem, zobacz repozytorium [.NET Samples][1] w witrynie GitHub.
                       
 ## <a name="migrate-the-documents"></a>Migrowanie dokumentów
 
-Podczas gdy definicja kontenera jest wzbogacona o właściwość klucza partycji, dokumenty w kontenerze nie są automatycznie migrowane. Oznacza to, że `/_partitionKey` ścieżka właściwości klucza partycji systemowej nie jest automatycznie dodawana do istniejących dokumentów. Należy ponownie podzielić istniejące dokumenty, czytając dokumenty, które zostały utworzone bez klucza partycji i przepisać je z powrotem z `_partitionKey` właściwością w dokumentach.
+Mimo że definicja kontenera jest rozszerzona za pomocą właściwości klucza partycji, dokumenty w kontenerze nie są migrowane. Oznacza to, że ścieżka właściwości `/_partitionKey` klucza partycji systemowej nie jest automatycznie dodawana do istniejących dokumentów. Należy ponownie podzielić na partycje istniejące dokumenty, odczytując dokumenty, które zostały utworzone bez klucza partycji i ponownie zapisując je z `_partitionKey` właściwością w dokumentach.
 
-## <a name="access-documents-that-dont-have-a-partition-key"></a>Uzyskiwanie dostępu do dokumentów, które nie mają klucza partycji
+## <a name="access-documents-that-dont-have-a-partition-key"></a>Dostęp do dokumentów, które nie mają klucza partycji
 
-Aplikacje mogą uzyskać dostęp do istniejących dokumentów, które nie mają klucza partycji przy użyciu specjalnej właściwości systemu o nazwie "PartitionKey.None", jest to wartość niezmigrowanych dokumentów. Tej właściwości można użyć we wszystkich operacjach CRUD i kwerendy. W poniższym przykładzie pokazano przykład do odczytu pojedynczego dokumentu z NonePartitionKey. 
+Aplikacje mogą uzyskiwać dostęp do istniejących dokumentów, które nie mają klucza partycji przy użyciu specjalnej właściwości systemowej o nazwie "PartitionKey. None", która jest wartością niezmigrowanych dokumentów. Tej właściwości można używać we wszystkich operacjach CRUD i zapytania. Poniższy przykład przedstawia przykład odczytu pojedynczego dokumentu z NonePartitionKey. 
 
 ```csharp
 CosmosItemResponse<DeviceInformationItem> readResponse = 
@@ -110,21 +110,21 @@ await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>(
 
 ```
 
-Aby uzyskać pełny przykład sposobu ponownego partycjonowania dokumentów, zobacz [.Net przykłady][1] repozytorium GitHub. 
+Aby zapoznać się z kompletnym przykładem na temat ponownego partycjonowania dokumentów, zobacz repozytorium [.NET Samples][1] w witrynie GitHub. 
 
-## <a name="compatibility-with-sdks"></a>Kompatybilność z SDK
+## <a name="compatibility-with-sdks"></a>Zgodność z zestawami SDK
 
-Starsza wersja zestawów SDK usługi Azure Cosmos DB, takich jak V2.x.x i V1.x.x, nie obsługuje właściwości klucza partycji zdefiniowanej przez system. Tak po przeczytaniu definicji kontenera ze starszego SDK, nie zawiera żadnych definicji klucza partycji i te kontenery będą zachowywać się dokładnie tak jak poprzednio. Aplikacje, które są zbudowane ze starszą wersją zestawy SDK nadal pracować z nie podzielonych na partycje, jak jest bez żadnych zmian. 
+Starsza wersja zestawów SDK Azure Cosmos DB, takich jak v2. x. x i v1. x. x, nie obsługuje właściwości klucza partycji zdefiniowanej przez system. Dlatego w przypadku odczytywania definicji kontenera ze starszego zestawu SDK nie zawiera ona żadnej definicji klucza partycji i te kontenery będą działać dokładnie tak jak wcześniej. Aplikacje skompilowane przy użyciu starszej wersji zestawów SDK nadal pracują z niepodzielonym na partycje bez żadnych zmian. 
 
-Jeśli zmigrowany kontener jest zużywany przez najnowszą/V3 wersję SDK i rozpocznie się wypełnianie klucza partycji zdefiniowanego przez system w nowych dokumentach, nie można już uzyskać dostępu (odczytu, aktualizacji, usunięcia, kwerendy) takich dokumentów ze starszych zestawów SDK.
+Jeśli migrowany kontener jest używany przez najnowszą wersję zestawu SDK/v3 i rozpoczęto zapełnianie zdefiniowanego przez system klucza partycji w ramach nowych dokumentów, nie można już uzyskać dostępu do tych dokumentów ze starszych zestawów SDK.
 
 ## <a name="known-issues"></a>Znane problemy
 
-**Wykonywanie zapytań o liczbę elementów, które zostały wstawione bez klucza partycji przy użyciu V3 SDK może wiązać się z wyższym zużyciem przepływności**
+**Wykonywanie zapytania dotyczącego liczby elementów, które zostały wstawione bez klucza partycji przy użyciu zestawu SDK v3, może wymagać wyższego zużycia przepływności**
 
-W przypadku kwerendy z zestawu SDK v3 dla elementów, które są wstawiane przy użyciu zestawu `PartitionKey.None` V2 SDK lub elementów wstawionych przy użyciu zestawu SDK V3 z parametrem, kwerenda count może zużywać więcej RU/s, jeśli `PartitionKey.None` parametr jest dostarczany w Plikach danych. Zaleca się, aby nie `PartitionKey.None` podawać parametru, jeśli żadne inne elementy nie są wstawiane z kluczem partycji.
+W przypadku wykonywania zapytań z zestawu v3 SDK dla elementów, które są wstawiane przy użyciu zestawu SDK V2 lub elementów wstawionych przy użyciu zestawu v3 `PartitionKey.None` SDK z parametrem, zapytanie Count może zużywać więcej ru/ `PartitionKey.None` s, jeśli parametr jest podany w FeedOptions. Zaleca się, aby nie podawać `PartitionKey.None` parametru, jeśli żadne inne elementy nie są wstawiane z kluczem partycji.
 
-Jeśli nowe elementy są wstawiane z różnymi wartościami dla klucza partycji, wykonywanie zapytań o takie liczby elementów przez przekazanie odpowiedniego klucza w `FeedOptions` nie będzie miało żadnych problemów. Po wstawieniu nowych dokumentów z kluczem partycji, jeśli trzeba zbadać tylko liczbę dokumentów bez wartości klucza partycji, kwerenda ta może ponownie ponieść wyższe RU/s podobne do zwykłych kolekcji podzielonych na partycje.
+Jeśli nowe elementy są wstawiane z różnymi wartościami klucza partycji, wykonywanie zapytania o takie liczby elementów przez przekazanie odpowiedniego klucza w `FeedOptions` nie spowoduje problemów. Po wstawieniu nowych dokumentów z kluczem partycji, jeśli trzeba wykonać zapytanie tylko o liczbę dokumentów bez wartości klucza partycji, zapytanie może ponownie ponieść wyższy poziom RU/s podobne do regularnych kolekcji partycjonowanych.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,82 +7,82 @@ ms.topic: overview
 ms.date: 01/16/2020
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: f0948cb58ba9403a34fbfd61ec43c29bed3440bc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77621002"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Wprowadzenie do usługi Azure Functions
 
-Usługa Azure Functions umożliwia uruchamianie małych fragmentów kodu (nazywanych "funkcjami") bez martwienia się o infrastrukturę aplikacji. Dzięki usłudze Azure Functions infrastruktura chmury zapewnia wszystkie aktualne serwery potrzebne do utrzymania aplikacji na dużą skalę.
+Azure Functions umożliwia uruchamianie małych fragmentów kodu (nazywanych "funkcjami") bez obaw o infrastrukturę aplikacji. W przypadku Azure Functions infrastruktura chmurowa zapewnia wszystkie aktualne serwery, które są potrzebne, aby aplikacja była uruchamiana na dużą skalę.
 
-Funkcja jest "wyzwalana" przez określony typ zdarzenia. [Obsługiwane wyzwalacze](./functions-triggers-bindings.md) obejmują odpowiadanie na zmiany w danych, odpowiadanie na wiadomości, uruchamianie zgodnie z harmonogramem lub w wyniku żądania HTTP.
+Funkcja jest wyzwalana przez określony typ zdarzenia. [Obsługiwane wyzwalacze](./functions-triggers-bindings.md) obejmują reagowanie na zmiany danych, reagowanie na komunikaty, uruchamianie zgodnie z harmonogramem lub w wyniku żądania HTTP.
 
-Chociaż zawsze można kod bezpośrednio względem mnóstwo usług, integracji z innymi usługami jest usprawniony przy użyciu powiązań. Powiązania zapewniają [deklaratywny dostęp do szerokiej gamy usług platformy Azure i innych firm.](./functions-triggers-bindings.md)
+Mimo że zawsze możesz bezpośrednio korzystać z wyposażono usług, integracja z innymi usługami odbywa się przy użyciu powiązań. Powiązania zapewniają [deklaratywny dostęp do różnorodnych usług platformy Azure i innych](./functions-triggers-bindings.md)firm.
 
 ## <a name="features"></a>Funkcje
 
-Niektóre kluczowe funkcje usługi Azure Functions obejmują:
+Niektóre kluczowe funkcje Azure Functions obejmują:
 
-- **Aplikacje bezserwerowe:** Funkcje umożliwiają tworzenie aplikacji [bezserwerowych](https://azure.microsoft.com/solutions/serverless/) na platformie Microsoft Azure.
+- **Aplikacje bezserwerowe**: funkcje umożliwiają Programowanie aplikacji [bezserwerowych](https://azure.microsoft.com/solutions/serverless/) na Microsoft Azure.
 
-- **Wybór języka:** Pisanie funkcji przy użyciu wyboru [C#, Java, JavaScript, Python i PowerShell](supported-languages.md).
+- **Wybór języka**: funkcje zapisu przy użyciu wybranych języków [C#, Java, JavaScript, Python i PowerShell](supported-languages.md).
 
-- **Model cenowy płatności za użycie:** płać tylko za czas spędzony na uruchomieniu kodu. Zapoznaj się z opcjami planu hostingowego zużycia w [sekcji cennika](#pricing).  
+- **Model cen z opcją płatność za użycie**: płacisz tylko za czas działania kodu. Zapoznaj się z opcjami planu hostingowego zużycia w [sekcji cennika](#pricing).  
 
-- **Przynieś własne zależności:** Funkcje obsługuje NuGet i NPM, dając dostęp do ulubionych bibliotek.
+- Wprowadzanie **własnych zależności**: funkcja obsługuje narzędzia NuGet i npm, zapewniając dostęp do ulubionych bibliotek.
 
-- **Zintegrowane zabezpieczenia:** Chroń funkcje wyzwalane przez protokół HTTP za pomocą dostawców OAuth, takich jak Azure Active Directory, Facebook, Google, Twitter i Microsoft Account.
+- **Zabezpieczenia zintegrowane**: Ochrona funkcji wyzwalanych przez protokół HTTP z dostawcami OAuth, takimi jak Azure Active Directory, Facebook, Google, Twitter i konto Microsoft.
 
-- **Uproszczona integracja:** Łatwo integruj się z usługami platformy Azure i ofertami oprogramowania jako usługi (SaaS).
+- **Uproszczona integracja**: łatwo Integruj się z usługami platformy Azure i ofertami oprogramowanie jako usługa (SaaS).
 
-- **Elastyczne opracowywanie:** Skonfiguruj ciągłą integrację i wdrażaj kod za pośrednictwem [usługi GitHub,](../app-service/scripts/cli-continuous-deployment-github.md) [usługi Azure DevOps](../app-service/scripts/cli-continuous-deployment-vsts.md)i innych [obsługiwanych narzędzi programistycznych.](../app-service/deploy-local-git.md)
+- **Elastyczne programowanie**: Skonfiguruj ciągłą integrację i Wdróż swój kod za poorednictwem usługi [GitHub](../app-service/scripts/cli-continuous-deployment-github.md), [Azure DevOps Services](../app-service/scripts/cli-continuous-deployment-vsts.md)i innych [obsługiwanych narzędzi programistycznych](../app-service/deploy-local-git.md).
 
-- **Stateful serverless architecture**: Aranżuj aplikacje bezserwerowe z [funkcjami trwałymi](durable/durable-functions-overview.md).
+- **Bezstanowa architektura bezserwerowa**: organizowanie aplikacji bezserwerowych za pomocą [Durable Functions](durable/durable-functions-overview.md).
 
-- **Open-source**: Środowisko uruchomieniowe Funkcji jest open-source i [dostępne w usłudze GitHub](https://github.com/azure/azure-webjobs-sdk-script).
+- **Open Source**: środowisko uruchomieniowe funkcji to open-source i [dostępne w serwisie GitHub](https://github.com/azure/azure-webjobs-sdk-script).
 
 ## <a name="what-can-i-do-with-functions"></a>Co można zrobić w środowisku Functions?
 
-Funkcje to doskonałe rozwiązanie do przetwarzania danych zbiorczych, integrowania systemów, pracy z internetem rzeczy (IoT) oraz tworzenia prostych interfejsów API i mikro usług.
+Funkcje to doskonałe rozwiązanie do przetwarzania danych zbiorczych, integrowania systemów, pracy z Internetem rzeczy oraz tworzenia prostych interfejsów API i mikrousług.
 
-Seria szablonów jest dostępna na początek z kluczowymi scenariuszami, w tym:
+Dostępna jest seria szablonów umożliwiająca rozpoczęcie pracy z kluczowymi scenariuszami, w tym:
 
-- **HTTP**: Uruchom kod na podstawie [żądań HTTP](functions-create-first-azure-function.md)
+- **Http**: uruchamianie kodu opartego na [żądaniach HTTP](functions-create-first-azure-function.md)
 
-- **Timer**: Planowanie [uruchamiania](./functions-create-scheduled-function.md) kodu w określonych godzinach
+- **Czasomierz**: Zaplanuj [Uruchamianie kodu w wstępnie zdefiniowanym czasie](./functions-create-scheduled-function.md)
 
-- **Usługa Azure Cosmos DB**: przetwarzanie [nowych i zmodyfikowanych dokumentów usługi Azure Cosmos DB](./functions-create-cosmos-db-triggered-function.md)
+- **Azure Cosmos DB**: Przetwarzaj [nowe i zmodyfikowane dokumenty Azure Cosmos DB](./functions-create-cosmos-db-triggered-function.md)
 
-- **Magazyn obiektów Blob:** przetwarzanie [nowych i zmodyfikowanych obiektów blob usługi Azure Storage](./functions-create-storage-blob-triggered-function.md)
+- **BLOB Storage**: przetwarzanie [nowych i zmodyfikowanych obiektów BLOB usługi Azure Storage](./functions-create-storage-blob-triggered-function.md)
 
-- **Magazyn kolejek:** odpowiadanie na [komunikaty kolejki usługi Azure Storage](./functions-create-storage-queue-triggered-function.md)
+- **Queue storage**: Odpowiedz na [komunikaty kolejki usługi Azure Storage](./functions-create-storage-queue-triggered-function.md)
 
-- **Siatka zdarzeń:** odpowiadaj na [zdarzenia usługi Azure Event Grid za pośrednictwem subskrypcji i filtrów](../event-grid/resize-images-on-storage-blob-upload-event.md)
+- **Event Grid**: reagowanie na [zdarzenia Azure Event Grid za pośrednictwem subskrypcji i filtrów](../event-grid/resize-images-on-storage-blob-upload-event.md)
 
-- **Centrum zdarzeń:** odpowiadanie na [duże ilości zdarzeń usługi Azure Event Hub](./functions-bindings-event-hubs.md)
+- **Centrum zdarzeń**: reagowanie na [duże ilości zdarzeń usługi Azure Event Hub](./functions-bindings-event-hubs.md)
 
-- **Kolejka usługi Service Bus:** łączenie się z innymi usługami platformy Azure lub usług lokalnych przez [odpowiadanie na komunikaty kolejki usługi Service Bus](./functions-bindings-service-bus.md)
+- **Kolejka Service Bus**: łączenie się z innymi usługami Azure lub lokalnymi przez [Odpowiadanie na komunikaty w kolejce Service Bus](./functions-bindings-service-bus.md)
 
-- **Temat usługi Service Bus:** Łączenie innych usług platformy Azure lub usług lokalnych przez [odpowiadanie na komunikaty tematu usługi Service Bus](./functions-bindings-service-bus.md)
+- **Service Bus tematu**: łączenie innych usług platformy Azure lub usług lokalnych przez [Odpowiadanie na komunikaty tematu Service Bus](./functions-bindings-service-bus.md)
 
 ## <a name="how-much-does-functions-cost"></a><a name="pricing"></a>Ile kosztuje usługa Azure Functions?
 
-Usługa Azure Functions ma trzy rodzaje planów cenowych. Wybierz ten, który najlepiej odpowiada Twoim potrzebom:
+Azure Functions ma trzy rodzaje planów cenowych. Wybierz ten, który najlepiej odpowiada Twoim potrzebom:
 
-- **Plan zużycia:** Platforma Azure zapewnia wszystkie niezbędne zasoby obliczeniowe. Nie musisz się martwić o zarządzanie zasobami i płacić tylko za czas, przez który działa kod.
+- **Plan użycia**: platforma Azure udostępnia wszystkie niezbędne zasoby obliczeniowe. Nie musisz martwić się o zarządzanie zasobami i płacisz tylko za czas działania kodu.
 
-- **Plan premium:** Określ liczbę wstępnie rozgrzanych wystąpień, które są zawsze w trybie online i są gotowe do natychmiastowej odpowiedzi. Po uruchomieniu funkcji platforma Azure udostępnia dodatkowe zasoby obliczeniowe, które są potrzebne. Płacisz za wstępnie rozgrzane wystąpienia uruchomione w sposób ciągły i wszelkie dodatkowe wystąpienia używane jako platforma Azure skaluje aplikację i wyjmuje.
+- **Plan Premium**: należy określić liczbę wstępnie rozgrzanych wystąpień, które są zawsze w trybie online i są gotowe do natychmiastowego reagowania. Po uruchomieniu funkcji platforma Azure udostępnia wszelkie dodatkowe potrzebne zasoby obliczeniowe. Płacisz za uruchomione przed chwilą wystąpienia ciągłe i wszelkie dodatkowe wystąpienia, które są używane w miarę skalowania aplikacji w systemie Azure.
 
-- **Plan usługi aplikacji:** uruchamiaj swoje funkcje, tak jak aplikacje internetowe. Jeśli używasz usługi App Service dla innych aplikacji, funkcje można uruchomić na tym samym planie bez dodatkowych kosztów.
+- **App Service plan**: Uruchom swoje funkcje, podobnie jak aplikacje sieci Web. Jeśli używasz App Service dla innych aplikacji, funkcje mogą być uruchamiane w ramach tego samego planu bez dodatkowych kosztów.
 
 Aby uzyskać więcej informacji o planach hostingu, zobacz [Porównanie planów hostingu usługi Azure Functions](functions-scale.md). Szczegółowe informacje są dostępne na [stronie cennika usługi Functions](https://azure.microsoft.com/pricing/details/functions/).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Utwórz swoją pierwszą funkcję platformy Azure](functions-create-first-function-vs-code.md)  
-  Wprowadzenie do [programu Visual Studio Code](functions-create-first-function-vs-code.md), [wiersza polecenia](functions-create-first-azure-function-azure-cli.md)lub użyj [witryny Azure portal](functions-create-first-azure-function.md).
+- [Tworzenie pierwszej funkcji platformy Azure](functions-create-first-function-vs-code.md)  
+  Rozpocznij pracę z [Visual Studio Code](functions-create-first-function-vs-code.md), [wierszem polecenia](functions-create-first-azure-function-azure-cli.md)lub Użyj [Azure Portal](functions-create-first-azure-function.md).
 
 - [Dokumentacja usługi Azure Functions dla deweloperów](functions-reference.md)  
   Dalsze informacje techniczne na temat środowiska uruchomieniowego usługi Azure Functions, a także dokumentacja dotycząca kodowania funkcji oraz definiowania wyzwalaczy i powiązań.

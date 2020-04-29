@@ -1,6 +1,6 @@
 ---
-title: Infrastruktura i łączność z SAP HANA na platformie Azure (duże wystąpienia) | Dokumenty firmy Microsoft
-description: Skonfiguruj wymaganą infrastrukturę łączności do korzystania z sap HANA na platformie Azure (duże wystąpienia).
+title: Infrastruktura i łączność do SAP HANA na platformie Azure (duże wystąpienia) | Microsoft Docs
+description: Skonfiguruj wymaganą infrastrukturę łączności, aby używać SAP HANA na platformie Azure (duże wystąpienia).
 services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
@@ -14,43 +14,43 @@ ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cea89087742f1987f693b8bfb627bd71038a0c14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77616923"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>Wdrożenie SAP HANA (duże wystąpienia) 
 
-W tym artykule przyjęto założenie, że zakup usługi SAP HANA na platformie Azure (duże wystąpienia) od firmy Microsoft został ukończony. Przed przeczytaniem tego artykułu, aby uzyskać ogólne tło, zobacz [HANA dużych wystąpień wspólnych terminów](hana-know-terms.md) i [HANA dużych wystąpień jednostek SKU](hana-available-skus.md).
+W tym artykule przyjęto założenie, że zakończono kupowanie SAP HANA na platformie Azure (duże wystąpienia) od firmy Microsoft. Aby zapoznać się z tym artykułem, zobacz sekcję " [duże wystąpienia usługi Hana — typowe terminy](hana-know-terms.md) i [jednostki SKU dużych wystąpień usługi Hana](hana-available-skus.md)".
 
 
-Firma Microsoft wymaga następujących informacji do wdrożenia jednostek dużych wystąpień HANA:
+Firma Microsoft wymaga następujących informacji w celu wdrożenia jednostek dużego wystąpienia HANA:
 
 - Nazwa klienta.
-- Biznesowe informacje kontaktowe (w tym adres e-mail i numer telefonu).
-- Techniczne dane kontaktowe (w tym adres e-mail i numer telefonu).
-- Techniczne informacje kontaktowe sieci (w tym adres e-mail i numer telefonu).
-- Region wdrażania platformy Azure (na przykład zachodnie stany USA, Australia Wschodnia lub Europa Północna).
-- SAP HANA na platformie Azure (duże wystąpienia) SKU (konfiguracja).
-- Dla każdego regionu wdrażania platformy Azure:
-    - Zakres adresów IP /29 dla połączeń ER-P2P łączących sieci wirtualne platformy Azure z dużymi wystąpieniami HANA.
-    - Blok /24 CIDR używany dla puli adresów IP serwera dużych wystąpień HANA.
-    - Opcjonalnie w przypadku korzystania z [usługi ExpressRoute Global Reach,](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) aby włączyć routing bezpośredni z lokalnych do jednostek dużych wystąpień HANA lub routingu między jednostkami dużych wystąpień HANA w różnych regionach platformy Azure, należy zarezerwować inny /29 zakres adresów IP. Ten konkretny zakres nie może pokrywać się z żadnym z innych zakresów adresów IP zdefiniowanych wcześniej.
-- Wartości zakresu adresów IP używane w atrybucie przestrzeni adresowej sieci wirtualnej każdej sieci wirtualnej platformy Azure, która łączy się z wystąpieniami dużymi hana.
-- Dane dla każdego systemu dużych wystąpień HANA:
-  - Żądana nazwa hosta, najlepiej z w pełni kwalifikowaną nazwą domeny.
-  - Żądany adres IP dla jednostki wystąpienia dużego HANA poza zakresem adresów puli adresów IP serwera. (Pierwsze 30 adresów IP w zakresie adresów puli adresów IP serwera są zarezerwowane do użytku wewnętrznego w dużych wystąpieniach HANA).
-  - Nazwa identyfikatora SID SAP HANA dla wystąpienia SAP HANA (wymagana do utworzenia niezbędnych woluminów dyskowych związanych z SAP HANA). Firma Microsoft potrzebuje identyfikatora SID HANA do tworzenia uprawnień do sidadm na woluminach NFS. Woluminy te dołączyć do jednostki wystąpienia dużych HANA. Identyfikator SID HANA jest również używany jako jeden ze składników nazw woluminów dyskowych, które są montowane. Jeśli chcesz uruchomić więcej niż jedno wystąpienie HANA na urządzeniu, należy wyświetlić listę wielu identyfikatorów HANA. Każdy z nich otrzymuje oddzielny zestaw przypisanych woluminów.
-  - W systemie operacyjnym Linux użytkownik sidadm ma identyfikator grupy. Ten identyfikator jest wymagany do utworzenia niezbędnych woluminów dyskowych związanych z SAP HANA. Instalacja SAP HANA zwykle tworzy grupę sapsys o identyfikatorze grupy 1001. Użytkownik sidadm jest częścią tej grupy.
-  - W systemie operacyjnym Linux użytkownik sidadm ma identyfikator użytkownika. Ten identyfikator jest wymagany do utworzenia niezbędnych woluminów dyskowych związanych z SAP HANA. Jeśli używasz kilku wystąpień HANA na urządzeniu, wyświetl listę wszystkich użytkowników sidadm. 
-- Identyfikator subskrypcji platformy Azure dla subskrypcji platformy Azure, z którym sap HANA na platformie Azure HANA dużych wystąpień będą bezpośrednio połączone. Ten identyfikator subskrypcji odwołuje się do subskrypcji platformy Azure, która będzie obciążana jednostką lub jednostkami wystąpienia dużego hana.
+- Informacje kontaktowe firmy (w tym adres e-mail i numer telefonu).
+- Informacje o kontakcie technicznym (w tym adres e-mail i numer telefonu).
+- Informacje kontaktowe sieci technicznej (w tym adres e-mail i numer telefonu).
+- Region wdrożenia platformy Azure (na przykład zachodnie stany USA, Australia Wschodnia i Europa Północna).
+- SAP HANA na platformie Azure (duże wystąpienia) jednostka SKU (Konfiguracja).
+- Dla każdego regionu wdrożenia platformy Azure:
+    - Zakres adresów IP/29 dla połączeń ER-P2P łączących sieci wirtualne platformy Azure z wystąpieniami programu HANA.
+    - Blok CIDR/24, używany dla puli adresów IP serwera duże wystąpienia HANA.
+    - Opcjonalny w przypadku używania [ExpressRoute Global REACH](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) do włączenia bezpośredniego routingu ze środowisk lokalnych do Hana jednostek wystąpienia dużych wystąpień lub routingu między jednostkami dużej instancji Hana w różnych regionach świadczenia usługi Azure należy zarezerwować inny zakres adresów IP/29. Ten konkretny zakres nie może nakładać się na żadne inne zdefiniowane wcześniej zakresy adresów IP.
+- Wartości zakresu adresów IP używane w atrybucie przestrzeń adresów sieci wirtualnej dla każdej sieci wirtualnej platformy Azure, która łączy się z dużymi wystąpieniami HANA.
+- Dane dla każdego systemu dużego wystąpienia HANA:
+  - Wymagana nazwa hosta, najlepiej z w pełni kwalifikowaną nazwą domeny.
+  - Żądany adres IP dla jednostki dużego wystąpienia HANA poza zakresem adresów puli adresów IP serwera. (Pierwsze 30 adresów IP z zakresu adresów puli adresów IP serwera są zarezerwowane do użytku wewnętrznego w dużych wystąpieniach HANA).
+  - SAP HANA nazwę SID dla wystąpienia SAP HANA (wymagane do utworzenia niezbędnych SAP HANA woluminów dysków). Firma Microsoft potrzebuje identyfikatora SID platformy HANA do tworzenia uprawnień dla sidadm na woluminach systemu plików NFS. Te woluminy dołączają do jednostki dużego wystąpienia HANA. Identyfikator SID HANA jest również używany jako jeden ze składników nazw woluminów dysku, które mają zostać zainstalowane. Jeśli chcesz uruchomić więcej niż jedno wystąpienie HANA w jednostce, należy wyświetlić listę wielu identyfikatorów SID HANA. Każdy z nich otrzymuje oddzielny zestaw woluminów.
+  - W systemie operacyjnym Linux użytkownik sidadm ma identyfikator grupy. Ten identyfikator jest wymagany do utworzenia niezbędnych woluminów dyskowych powiązanych SAP HANA. Instalacja SAP HANA zwykle tworzy grupę sapsys z IDENTYFIKATORem grupy 1001. Użytkownik sidadm jest częścią tej grupy.
+  - W systemie operacyjnym Linux użytkownik sidadm ma identyfikator użytkownika. Ten identyfikator jest wymagany do utworzenia niezbędnych woluminów dyskowych powiązanych SAP HANA. Jeśli używasz kilku wystąpień HANA w jednostce, Wyświetl wszystkich użytkowników sidadm. 
+- Identyfikator subskrypcji platformy Azure dla subskrypcji platformy Azure, która SAP HANA w dużych wystąpieniach usługi Azure HANA, zostanie połączony bezpośrednio. Ten identyfikator subskrypcji odwołuje się do subskrypcji platformy Azure, która będzie obciążana jednostką lub jednostkami dużej instancji HANA.
 
-Po podasz powyższe informacje, microsoft przepisów SAP HANA na platformie Azure (duże wystąpienia). Firma Microsoft wysyła informacje w celu połączenia sieci wirtualnych platformy Azure z dużymi wystąpieniami HANA. Można również uzyskać dostęp do jednostek dużych wystąpień HANA.
+Po podaniu powyższych informacji firma Microsoft zainicjuje SAP HANA na platformie Azure (duże wystąpienia). Firma Microsoft wysyła informacje, aby połączyć sieci wirtualne platformy Azure z dużymi wystąpieniami HANA. Możesz również uzyskać dostęp do jednostek dużych wystąpień platformy HANA.
 
-Użyj następującej sekwencji, aby połączyć się z dużymi wystąpieniami HANA po wdrożeniu go przez firmę Microsoft:
+Użyj następującej sekwencji, aby nawiązać połączenie z dużymi wystąpieniami HANA po wdrożeniu go przez firmę Microsoft:
 
-1. [Łączenie maszyn wirtualnych platformy Azure z dużymi wystąpieniami hana](hana-connect-azure-vm-large-instances.md)
-2. [Podłączanie sieci wirtualnej do dużych wystąpień hana usługi ExpressRoute](hana-connect-vnet-express-route.md)
-3. [Dodatkowe wymagania sieciowe (opcjonalnie)](hana-additional-network-requirements.md)
+1. [Łączenie maszyn wirtualnych platformy Azure z dużymi wystąpieniami HANA](hana-connect-azure-vm-large-instances.md)
+2. [Łączenie sieci wirtualnej z dużymi wystąpieniami platformy HANA ExpressRoute](hana-connect-vnet-express-route.md)
+3. [Dodatkowe wymagania dotyczące sieci (opcjonalnie)](hana-additional-network-requirements.md)
 

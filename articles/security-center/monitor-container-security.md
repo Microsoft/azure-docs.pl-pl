@@ -1,6 +1,6 @@
 ---
-title: Monitorowanie zabezpieczeń kontenerów w usłudze Azure Security Center
-description: Dowiedz się, jak sprawdzić poziom zabezpieczeń kontenerów w usłudze Azure Security Center
+title: Monitorowanie zabezpieczeń kontenerów w Azure Security Center
+description: Dowiedz się, jak sprawdzić stan zabezpieczeń kontenerów z Azure Security Center
 services: security-center
 author: memildin
 manager: rkarlin
@@ -9,37 +9,37 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: memildin
 ms.openlocfilehash: 330cbc3f28f5e549d5a21417c3d7ccc1e5444769
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77919536"
 ---
-# <a name="monitoring-the-security-of-your-containers"></a>Monitorowanie bezpieczeństwa kontenerów
+# <a name="monitoring-the-security-of-your-containers"></a>Monitorowanie zabezpieczeń kontenerów
 
-Na tej stronie wyjaśniono, jak używać funkcji zabezpieczeń kontenera opisanych w [artykule Zabezpieczenia kontenera](container-security.md) w naszej sekcji pojęć.
+Na tej stronie wyjaśniono, jak korzystać z funkcji zabezpieczeń kontenerów opisanych w artykule dotyczącym [zabezpieczeń kontenera](container-security.md) w naszej sekcji pojęcia.
 
-Usługa Azure Security Center obejmuje następujące trzy aspekty zabezpieczeń kontenera:
+Azure Security Center obejmuje następujące trzy aspekty zabezpieczeń kontenera:
 
-- **Zarządzanie lukami** w zabezpieczeniach — jeśli korzystasz ze standardowej warstwy cenowej usługi Security Center (zobacz [ceny),](/azure/security-center/security-center-pricing)możesz skanować rejestr kontenerów platformy Azure oparty na systemie ARM za każdym razem, gdy zostanie wypchnięty nowy obraz. Skaner (zasilany przez Qualys) przedstawia ustalenia jako zalecenia Centrum zabezpieczeń.
-    Aby uzyskać szczegółowe instrukcje, zobacz [Skanowanie rejestrów kontenerów w poszukiwaniu luk](#scanning-your-arm-based-container-registries-for-vulnerabilities) w zabezpieczeniach poniżej.
+- **Zarządzanie lukami w zabezpieczeniach** — Jeśli korzystasz ze standardowej warstwy cenowej Security Center (zobacz [Cennik](/azure/security-center/security-center-pricing)), możesz skanować Azure Container Registry oparte na architekturze ARM przy każdym wypchnięciu nowego obrazu. Skaner (obsługiwany przez Qualys) przedstawia wyniki jako zalecenia dotyczące Security Center.
+    Aby uzyskać szczegółowe instrukcje, zobacz [skanowanie rejestrów kontenerów pod kątem luk w zabezpieczeniach](#scanning-your-arm-based-container-registries-for-vulnerabilities) poniżej.
 
-- **Wzmacnianie hostów platformy Docker kontenerów** — usługa Security Center wyszukuje niezarządzane kontenery hostowane na maszynach wirtualnych IaaS Linux lub innych maszynach z systemem Linux z systemem Docker i stale porównuje konfiguracje kontenerów z punktem odniesienia platformy Docker Center for Internet Security (CIS). Usługa Security Center ostrzega, jeśli kontenery nie spełniają żadnych formantów. Ciągłe monitorowanie zagrożeń bezpieczeństwa spowodowanych błędnymi konfiguracjami jest kluczowym elementem każdego programu zabezpieczeń. 
-    Szczegółowe instrukcje można znaleźć w witrynie [Platformy Docker dla kontenerów](#hardening-your-containers-docker-hosts) poniżej.
+- **Ograniczanie funkcjonalności hostów platformy Docker kontenerów** — Security Center umożliwia znalezienie niezarządzanych kontenerów hostowanych na maszynach wirtualnych z systemem Linux lub na innych maszynach systemu Linux, na których działa system Docker, i ciągle porównuje konfiguracje kontenerów z testem porównawczym platformy Docker dla zabezpieczeń Internetu (CIS). Security Center alertów, jeśli kontenery nie spełniają żadnej z formantów. Ciągłe monitorowanie zagrożeń bezpieczeństwa spowodowanych nieprawidłowymi konfiguracjami jest kluczowym składnikiem dowolnego programu zabezpieczającego. 
+    Aby uzyskać szczegółowe instrukcje, zobacz artykuł dotyczący [zabezpieczania kontenerów platformy Docker](#hardening-your-containers-docker-hosts) poniżej.
 
-- **Wzmocnienie klastrów usługi Azure Kubernetes** — usługa Security Center zawiera zalecenia dotyczące znalezienia luk w zabezpieczeniach w konfiguracji klastrów usługi Azure Kubernetes. Aby uzyskać szczegółowe informacje na temat konkretnych zaleceń, które mogą się pojawić, zobacz [zalecenia usługi Kubernetes](recommendations-reference.md#recs-containers).
+- **Zabezpieczanie klastrów usługi Azure Kubernetes Service** — Security Center zawiera zalecenia dotyczące znajdowania luk w zabezpieczeniach konfiguracji klastrów usługi Azure Kubernetes. Aby uzyskać szczegółowe informacje na temat konkretnych zaleceń, które mogą pojawić się, zobacz [zalecenia dotyczące usługi Kubernetes](recommendations-reference.md#recs-containers).
 
-- **Ochrona środowiska uruchomieniowego** — jeśli korzystasz ze standardowej warstwy cenowej usługi Security Center, otrzymasz ochronę przed zagrożeniami w czasie rzeczywistym dla środowisk konteneryzowanych. Usługa Security Center generuje alerty o podejrzanych działaniach na poziomie hosta i klastra AKS. Aby uzyskać szczegółowe informacje na temat odpowiednich alertów zabezpieczeń, które mogą się pojawić, zobacz [alerty dla klastrów usługi Azure Kubernetes](alerts-reference.md#alerts-akscluster) i [alerty dla kontenerów —](alerts-reference.md#alerts-containerhost) sekcje poziomu hosta tabeli odwołania alertów.
+- **Ochrona środowiska uruchomieniowego** — Jeśli korzystasz ze standardowej warstwy cenowej Security Center, uzyskasz ochronę przed zagrożeniami w czasie rzeczywistym w środowiskach kontenerów. Security Center generuje alerty o podejrzanych działaniach na poziomie klastra hosta i AKS. Aby uzyskać szczegółowe informacje na temat odpowiednich alertów zabezpieczeń, które mogą się pojawić, zobacz sekcję alerty dotyczące klastrów i [alertów dotyczących poziomu](alerts-reference.md#alerts-containerhost) [usług Azure Kubernetes](alerts-reference.md#alerts-akscluster) w tabeli referencyjnej alertów.
 
-## <a name="scanning-your-arm-based-container-registries-for-vulnerabilities"></a>Skanowanie rejestrów kontenerów opartych na arm w poszukiwaniu luk w zabezpieczeniach 
+## <a name="scanning-your-arm-based-container-registries-for-vulnerabilities"></a>Skanowanie rejestrów kontenerów opartych na usłudze ARM pod kątem luk w zabezpieczeniach 
 
-1. Aby włączyć skanowanie luk w zabezpieczeniach obrazów rejestru kontenerów platformy Azure:
+1. Aby włączyć skanowanie Azure Container Registry obrazów:
 
-    1. Upewnij się, że korzystasz ze standardowej warstwy cenowej usługi Azure Security Center.
+    1. Upewnij się, że korzystasz z warstwy cenowej standardowa Azure Security Center.
 
-    1. Na stronie **Ustawienia & cen włącz** opcjonalny pakiet rejestrów kontenerów ![dla subskrypcji: Włączanie pakietu Rejestry kontenerów](media/monitor-container-security/enabling-container-registries-bundle.png)
+    1. Na stronie **ustawienia & cen** Włącz opcjonalny pakiet rejestrów kontenerów dla subskrypcji: ![Włączanie pakietu rejestrów kontenerów](media/monitor-container-security/enabling-container-registries-bundle.png)
 
-        Usługa Security Center jest teraz gotowa do skanowania obrazów, które są wypychane do rejestru. 
+        Security Center jest teraz gotowa do skanowania obrazów, które są przekazywane do rejestru. 
 
         >[!NOTE]
         >Ta funkcja jest naliczana za obraz.
@@ -47,100 +47,100 @@ Usługa Azure Security Center obejmuje następujące trzy aspekty zabezpieczeń 
 
 1. Aby wyzwolić skanowanie obrazu, wypchnij go do rejestru. 
 
-    Po zakończeniu skanowania (zazwyczaj po około 10 minutach) wyniki są dostępne w zaleceniach centrum zabezpieczeń.
+    Po zakończeniu skanowania (zwykle po około 10 minutach) ustalenia są dostępne w Security Center zaleceniach.
     
 
-1. Aby wyświetlić wyniki, przejdź do strony **Zalecenia.** Jeśli problemy zostały znalezione, zobaczysz następujące zalecenia:
+1. Aby wyświetlić wyniki, przejdź do strony **zalecenia** . W przypadku znalezienia problemów zobaczysz następujące zalecenie:
 
-    ![Zalecenie dotyczące rozwiązywania problemów ](media/monitor-container-security/acr-finding.png)
+    ![Zalecenie dotyczące korygowania problemów ](media/monitor-container-security/acr-finding.png)
 
 
 1. Wybierz zalecenie. 
-    Strona szczegółów rekomendacji zostanie otwarta z dodatkowymi informacjami. Informacje te obejmują listę rejestrów z obrazami zagrożonymi ("zasoby podlegające usterce") oraz kroki korygowania. 
+    Zostanie otwarta strona szczegóły rekomendacji z dodatkowymi informacjami. Te informacje obejmują listę rejestrów z zagrożonymi obrazami ("zasoby objęte problemem") oraz czynności zaradcze. 
 
-1. Wybierz określony rejestr, aby wyświetlić repozytoria w nim, które mają repozytoria zagrożone.
+1. Wybierz konkretny rejestr, aby zobaczyć repozytoria, które mają zagrożone repozytoria.
 
-    ![Wybieranie rejestru](media/monitor-container-security/acr-finding-select-registry.png)
+    ![Wybierz rejestr](media/monitor-container-security/acr-finding-select-registry.png)
 
-    Zostanie otwarta strona szczegółów rejestru z listą repozytoriów, których dotyczy problem.
+    Zostanie otwarta strona szczegóły rejestru z listą odpowiednich repozytoriów.
 
-1. Wybierz określone repozytorium, aby wyświetlić znajdujące się w nim repozytoria, które mają obrazy zagrożone.
+1. Wybierz konkretne repozytorium, aby zobaczyć w nim repozytoria, które mają podatne na ataki.
 
     ![Wybieranie repozytorium](media/monitor-container-security/acr-finding-select-repository.png)
 
-    Zostanie otwarta strona szczegółów repozytorium. Wymienia obrazy wrażliwe wraz z oceną powagi ustaleń.
+    Zostanie otwarta strona szczegóły repozytorium. Wyświetla listę narażonych obrazów wraz z oceną ważności wyników.
 
-1. Wybierz określony obraz, aby zobaczyć luki w zabezpieczeniach.
+1. Wybierz konkretny obraz, aby wyświetlić luki w zabezpieczeniach.
 
-    ![Zaznaczanie obrazów](media/monitor-container-security/acr-finding-select-image.png)
+    ![Wybierz obrazy](media/monitor-container-security/acr-finding-select-image.png)
 
     Zostanie otwarta lista wyników dla wybranego obrazu.
 
-    ![Lista ustaleń](media/monitor-container-security/acr-findings.png)
+    ![Lista wyników](media/monitor-container-security/acr-findings.png)
 
-1. Aby dowiedzieć się więcej o znalezieniu, wybierz wyszukiwanie. 
+1. Aby dowiedzieć się więcej na temat wyszukiwania, wybierz pozycję Znajdowanie. 
 
-    Zostanie otwarte okienko szczegółów wyników.
+    Zostanie otwarte okienko Szczegóły wyników.
 
     [![Okienko szczegółów wyników](media/monitor-container-security/acr-finding-details-pane.png)](media/monitor-container-security/acr-finding-details-pane.png#lightbox)
 
-    To okienko zawiera szczegółowy opis problemu i łącza do zasobów zewnętrznych, aby pomóc w ograniczeniu zagrożeń.
+    To okienko zawiera szczegółowy opis problemu i linki do zasobów zewnętrznych, aby pomóc w ograniczeniu zagrożeń.
 
-1. Wykonaj kroki opisane w sekcji korygowania tego okienka.
+1. Wykonaj kroki opisane w sekcji korygowanie tego okienka.
 
-1. Po wykonaniu czynności wymaganych do rozwiązania problemu z zabezpieczeniami zastąp obraz w rejestrze:
+1. Po wykonaniu czynności wymaganych do skorygowania problemu zabezpieczeń Zastąp obraz w rejestrze:
 
-    1. Wypchnij zaktualizowany obraz. Spowoduje to uruchomienie skanowania. 
+    1. Wypchnij zaktualizowany obraz. Spowoduje to wyzwolenie skanowania. 
     
-    1. Sprawdź na stronie zalecenia zalecenie "Luki w obrazach rejestru kontenerów platformy Azure powinny zostać naprawione". 
+    1. Zapoznaj się ze stroną zalecenia dotyczącej "luk w zabezpieczeniach Azure Container Registry obrazów należy skorygować". 
     
-        Jeśli zalecenie nadal jest wyświetlane, a obsługiwany obraz nadal pojawia się na liście obrazów zagrożonych, sprawdź ponownie kroki korygowania.
+        Jeśli zalecenie nadal pojawia się, a obraz, który został obsłużony, nadal pojawia się na liście zagrożonych obrazów, należy ponownie sprawdzić kroki zaradcze.
 
-    1. Jeśli masz pewność, że zaktualizowany obraz został wypchnięty, zeskanowany i nie pojawia się już w zaleceniu, usuń "stary" obraz zagrożony z rejestru.
+    1. Jeśli masz pewność, że zaktualizowany obraz został wypchnięci, przeskanowany i nie jest już wyświetlany w zaleceniu, Usuń z rejestru "stary" obraz z zagrożeniem.
 
 
-## <a name="hardening-your-containers-docker-hosts"></a>Wzmacnianie hostów platformy Docker kontenerów
+## <a name="hardening-your-containers-docker-hosts"></a>Ograniczanie funkcjonalności hostów platformy Docker kontenerów
 
-Usługa Security Center stale monitoruje konfigurację hostów platformy Docker i generuje zalecenia dotyczące zabezpieczeń, które odzwierciedlają standardy branżowe.
+Security Center stale monitoruje konfigurację hostów platformy Docker i generuje zalecenia dotyczące zabezpieczeń, które odzwierciedlają standardy branżowe.
 
-Aby wyświetlić zalecenia dotyczące zabezpieczeń usługi Azure Security Center dla hostów platformy Docker kontenerów:
+Aby wyświetlić zalecenia dotyczące zabezpieczeń Azure Security Center dla hostów platformy Docker kontenerów:
 
-1. Na pasku nawigacyjnym Centrum zabezpieczeń otwórz pozycję **Oblicz & aplikacje** i wybierz kartę **Kontenery.**
+1. Na pasku nawigacyjnym Security Center Otwórz **& aplikacje obliczeniowe** i wybierz kartę **kontenery** .
 
-1. Opcjonalnie należy filtrować listę zasobów kontenera do hostów kontenerów.
+1. Opcjonalnie można filtrować listę zasobów kontenera na hostach hostów kontenerów.
 
     ![Filtr zasobów kontenera](media/monitor-container-security/container-resources-filter.png)
 
-1. Z listy komputerów hosta kontenerów wybierz jeden, aby zbadać dalej.
+1. Z listy maszyn hosta kontenerów wybierz jeden z nich, aby dokładniej zbadać.
 
-    ![Zalecenia dotyczące hosta kontenerów](media/monitor-container-security/container-resources-filtered-to-hosts.png)
+    ![Zalecenia dotyczące hosta kontenera](media/monitor-container-security/container-resources-filtered-to-hosts.png)
 
-    Zostanie **otwarta strona z informacjami o hoście kontenera** ze szczegółami hosta i listą zaleceń.
+    Zostanie otwarta **Strona informacji o hoście kontenera** zawierająca szczegóły dotyczące hosta i listę zaleceń.
 
-1. Z listy zaleceń wybierz zalecenie, aby zbadać dalej.
+1. Z listy rekomendacje wybierz zalecenie, aby dokładniej zbadać.
 
-    ![Lista rekomendacji hosta kontenerów](media/monitor-container-security/container-host-rec.png)
+    ![Lista rekomendacji hosta kontenera](media/monitor-container-security/container-host-rec.png)
 
-1. Opcjonalnie przeczytaj opis, informacje, zagrożenia i kroki korygowania. 
+1. Opcjonalnie Przeczytaj opis, informacje, zagrożenia i kroki zaradcze. 
 
-1. Wybierz **pozycję Podejmij działanie** u dołu strony.
+1. Wybierz **akcję Wypełnij** w dolnej części strony.
 
-    [![Przycisk Działań](media/monitor-container-security/host-security-take-action-button.png)](media/monitor-container-security/host-security-take-action.png#lightbox)
+    [![Przycisk podejmowania akcji](media/monitor-container-security/host-security-take-action-button.png)](media/monitor-container-security/host-security-take-action.png#lightbox)
 
-    Usługa Log Analytics zostanie otwarta z operacją niestandardową gotową do uruchomienia. Domyślna kwerenda niestandardowa zawiera listę wszystkich reguł, które zostały ocenione, a także wskazówki ułatwiające rozwiązanie problemów.
+    Log Analytics otwarty z niestandardową operacją gotową do uruchomienia. Domyślne zapytanie niestandardowe zawiera listę wszystkich ocenionych reguł zakończonych niepowodzeniem, a także wskazówki ułatwiające rozwiązanie problemów.
 
-    [![Akcja analizy dzienników](media/monitor-container-security/log-analytics-for-action-small.png)](media/monitor-container-security/log-analytics-for-action.png#lightbox)
+    [![Akcja Log Analytics](media/monitor-container-security/log-analytics-for-action-small.png)](media/monitor-container-security/log-analytics-for-action.png#lightbox)
 
-1. Dostosuj parametry zapytania i wybierz pozycję **Uruchom,** gdy masz pewność, że jest gotowy na hosta. 
+1. Dostosuj parametry zapytania i wybierz pozycję **Uruchom** , gdy wszystko jest gotowe do Twojego hosta. 
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule dowiesz się, jak korzystać z funkcji zabezpieczeń kontenera usługi Security Center. 
+W tym artykule przedstawiono sposób korzystania z funkcji zabezpieczeń kontenerów Security Center. 
 
 Inne powiązane materiały można znaleźć na następujących stronach: 
 
-- [Zalecenia centrum zabezpieczeń dla kontenerów](recommendations-reference.md#recs-containers)
-- [Alerty dotyczące poziomu klastra AKS](alerts-reference.md#alerts-akscluster)
-- [Alerty dotyczące poziomu hosta kontenera](alerts-reference.md#alerts-containerhost)
+- [Security Center zalecenia dotyczące kontenerów](recommendations-reference.md#recs-containers)
+- [Alerty dla poziomu klastra AKS](alerts-reference.md#alerts-akscluster)
+- [Alerty na poziomie hosta kontenera](alerts-reference.md#alerts-containerhost)

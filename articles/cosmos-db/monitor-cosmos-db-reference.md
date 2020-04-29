@@ -1,6 +1,6 @@
 ---
-title: Odwołanie do danych monitorowania usługi Azure Cosmos DB | Dokumenty firmy Microsoft
-description: Rejestrowanie i metryki odwołania do monitorowania danych z usługi Azure Cosmos DB.
+title: Informacje o danych monitorowania Azure Cosmos DB | Microsoft Docs
+description: Informacje o dziennikach i metrykach dotyczące monitorowania danych z Azure Cosmos DB.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
@@ -10,97 +10,97 @@ ms.author: bwren
 ms.custom: subject-monitoring
 ms.subservice: logs
 ms.openlocfilehash: d243224192b5761af45d387690f5fb41b84481e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77588726"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Dokumentacja dotycząca danych monitorowania usługi Azure Cosmos DB
-W tym artykule zawarto dokumentację dotyczącą danych dziennika i metryk zebranych w celu analizy wydajności i dostępności usługi Azure Cosmos DB. Zobacz [Monitorowanie usługi Cosmos DB, aby](monitor-cosmos-db.md) uzyskać szczegółowe informacje na temat zbierania i analizowania danych monitorowania dla usługi Azure Cosmos DB.
+W tym artykule zawarto dokumentację dotyczącą danych dziennika i metryk zebranych w celu analizy wydajności i dostępności usługi Azure Cosmos DB. Aby uzyskać szczegółowe informacje na temat zbierania i analizowania danych monitorowania dla Azure Cosmos DB, zobacz [Cosmos DB monitorowania](monitor-cosmos-db.md) .
 
 
 ## <a name="resource-logs"></a>Dzienniki zasobów
-W poniższej tabeli wymieniono właściwości dzienników zasobów usługi Azure Cosmos DB, gdy są zbierane w dziennikach usługi Azure Monitor lub usłudze Azure Storage. W dziennikach usługi Azure Monitor są one zbierane w tabeli **AzureDiagnostics** z wartością **ResourceProvider** *firmy MICROSOFT. DOCUMENTDB*. 
+W poniższej tabeli wymieniono właściwości dzienników zasobów Azure Cosmos DB, które są zbierane w Azure Monitor dziennikach lub usłudze Azure Storage. W dziennikach Azure Monitor są one zbierane w tabeli **AzureDiagnostics** z wartością **ResourceProvider** *firmy Microsoft. DOCUMENTDB*. 
 
-| Pole lub właściwość usługi Azure Storage | Właściwość Dzienniki usługi Azure Monitor | Opis |
+| Pole lub właściwość usługi Azure Storage | Właściwość dzienników Azure Monitor | Opis |
 | --- | --- | --- |
-| **Czas** | **TimeGenerated** | Data i godzina (UTC) po wykonaniu operacji. |
-| **Resourceid** | **Zasobów** | Konto usługi Azure Cosmos DB, dla którego są włączone dzienniki.|
-| **Kategorii** | **Kategoria** | Dla dzienników usługi Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** są dostępne typy dzienników. |
-| **Operationname** | **Operationname** | Nazwa operacji. Ta wartość może być dowolną z następujących operacji: Tworzenie, Aktualizacja, Odczyt, Odczyt, Odczyt, Usuń, Zamień, Wykonaj, SqlQuery, Kwerenda, JSQuery, Head, HeadFeed lub Upsert.   |
-| **Właściwości** | Nie dotyczy | Zawartość tego pola jest opisana w kolejnych wierszach. |
-| **Activityid** | **activityId_g** | Unikatowy identyfikator GUID dla zarejestrowanej operacji. |
-| **Useragent** | **userAgent_s** | Ciąg, który określa agenta użytkownika klienta, który wykonuje żądanie. Format to {user agent name}/{version}.|
-| **typ źródła żądania** | **requestResourceType_s** | Typ zasobu, do który uzyskuje się dostęp. Ta wartość może być dowolną z następujących typów zasobów: Baza danych, Kontener, Dokument, Załącznik, Użytkownik, Uprawnienie, StoredProcedure, Trigger, UserDefinedFunction lub Oferta. |
-| **Statuscode** | **statusCode_s** | Stan odpowiedzi operacji. |
-| **requestResourceId** | **ResourceId** | Identyfikator zasobu, który odnosi się do żądania. Wartość może wskazywać databaseRid, collectionRid lub documentRid w zależności od wykonanej operacji.|
-| **klientIpAddress** | **clientIpAddress_s** | Adres IP klienta. |
-| **requestCharge (Obciążenie żądaniem)** | **requestCharge_s** | Liczba procesorów operacyjnych, które są używane przez operację |
-| **kolekcjaRid** | **collectionId_s** | Unikatowy identyfikator kolekcji.|
-| **Długość** | **duration_s** | Czas trwania operacji w milisekundach. |
-| **wniosekLeni** | **requestLength_s** | Długość żądania w bajtach. |
-| **odpowiedźLeni** | **responseLength_s** | Długość odpowiedzi w bajtach.|
+| **pierwszym** | **TimeGenerated** | Data i godzina (UTC), gdy wystąpiła operacja. |
+| **Identyfikator** | **Zasób** | Konto Azure Cosmos DB, dla którego są włączone dzienniki.|
+| **kategorii** | **Kategoria** | W przypadku dzienników Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** są dostępne typy dzienników. |
+| **operationName** | **OperationName** | Nazwa operacji. Ta wartość może być dowolną z następujących operacji: Tworzenie, aktualizowanie, Odczyt, ReadFeed, usuwanie, zastępowanie, wykonywanie, SQLQuery, Query, JSQuery, kierownik, HeadFeed lub upsert.   |
+| **aœciwoœci** | n/d | Zawartość tego pola jest opisana w następujących wierszach. |
+| **activityId** | **activityId_g** | Unikatowy identyfikator GUID dla zarejestrowanej operacji. |
+| **userAgent** | **userAgent_s** | Ciąg określający agenta użytkownika klienta wykonującego żądanie. Format to {User Agent Name}/{Version}.|
+| **requestResourceType** | **requestResourceType_s** | Typ zasobu, do którego uzyskuje się dostęp. Może to być dowolny z następujących typów zasobów: baza danych, kontener, dokument, załącznik, użytkownik, uprawnienie, StoredProcedure, wyzwalacz, UserDefinedFunction lub oferta. |
+| **Stanu** | **statusCode_s** | Stan odpowiedzi operacji. |
+| **requestResourceId** | **ResourceId** | Identyfikator zasobu, który odnosi się do żądania. Wartość może wskazywać na databaseRid, collectionRid lub documentRid w zależności od wykonanej operacji.|
+| **clientIpAddress** | **clientIpAddress_s** | Adres IP klienta. |
+| **requestCharge** | **requestCharge_s** | Liczba jednostek ru, które są używane przez operację |
+| **collectionRid** | **collectionId_s** | Unikatowy identyfikator kolekcji.|
+| **trwania** | **duration_s** | Czas trwania operacji (w milisekundach). |
+| **requestLength** | **requestLength_s** | Długość żądania w bajtach. |
+| **responseLength** | **responseLength_s** | Długość odpowiedzi (w bajtach).|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Ta wartość nie jest pusta, gdy [tokeny zasobów](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) są używane do uwierzytelniania. Wartość wskazuje identyfikator zasobu użytkownika. |
 
-Aby uzyskać listę wszystkich kategorii dzienników usługi Azure Monitor i łączy do skojarzonych [schematów, zobacz Kategorie i schematy dzienników monitora platformy Azure](../azure-monitor/platform/diagnostic-logs-schema.md). 
+Aby zapoznać się z listą wszystkich kategorii dzienników Azure Monitor i linków do skojarzonych schematów, zobacz [Azure monitor dzienniki kategorii i schematów](../azure-monitor/platform/diagnostic-logs-schema.md). 
 
 ## <a name="metrics"></a>Metryki
-W poniższych tabelach przedstawiono metryki platformy zebrane dla usługi Azure CosmOS DB. Wszystkie metryki są przechowywane w **metrykach standardowych usługi Cosmos DB**obszaru nazw .
+W poniższych tabelach przedstawiono metryki platformy zebrane dla usługi Azure CosmOS DB. Wszystkie metryki są przechowywane w przestrzeni nazw **Cosmos DB metrykach standardowych**.
 
-Aby uzyskać listę wszystkich metryk pomocy technicznej usługi Azure Monitor (w tym usługi CosmosDB), zobacz [metryki obsługiwane przez usługę Azure Monitor.](../azure-monitor/platform/metrics-supported.md) 
+Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej (w tym CosmosDB), zobacz [Azure monitor obsługiwane metryki](../azure-monitor/platform/metrics-supported.md). 
 
-#### <a name="request-metrics"></a>Żądania metryki
+#### <a name="request-metrics"></a>Metryki żądań
             
-|Metryka (metryka wyświetlana)|Jednostka (typ agregacji) |Opis|Wymiary| Ziarnistość czasu| Mapowanie metryk starszych | Sposób użycia |
+|Metryka (nazwa wyświetlana metryki)|Jednostka (typ agregacji) |Opis|Wymiary| Stopień szczegółowości czasu| Mapowanie starszej metryki | Sposób użycia |
 |---|---|---|---| ---| ---| ---|
-| TotalRequests (łączna liczba żądań) | Liczba (liczba) | Liczba złożonych wniosków| Nazwa bazy danych, nazwa kolekcji, region, kod stanu| Wszystkie | TotalRequests, http 2xx, http 3xx, http 400, http 401, wewnętrzny błąd serwera, usługa niedostępna, ograniczone żądania, średnia liczba żądań na sekundę | Służy do monitorowania żądań na kod stanu, kontener w minutę ziarnistość. Aby uzyskać średnią liczbę żądań na sekundę, użyj agregacji count w minutach i podziel przez 60. |
-| Zapytania o metadane (żądania metadanych) |Liczba (liczba) | Liczba żądań metadanych. Usługa Azure Cosmos DB przechowuje kontener metadanych systemu dla każdego konta, który umożliwia bezpłatne wyliczanie kolekcji, baz danych itp. | Nazwa bazy danych, nazwa kolekcji, region, kod stanu| Wszystkie| |Służy do monitorowania ograniczania przepustowości z powodu żądań metadanych.|
-| MongoRequests (Prośby Mongo) | Liczba (liczba) | Liczba złożonych wniosków mongo | Nazwa bazy danych, nazwa kolekcji, region, nazwa polecenia, kod błędu| Wszystkie |Mongo Query Request Rate, Mongo Update Request Rate, Mongo Delete Request Rate, Mongo Insert Request Rate, Mongo Count Request Rate| Służy do monitorowania błędów żądań Mongo, użycia na typ polecenia. |
+| TotalRequests (całkowita liczba żądań) | Liczba (liczba) | Liczba wykonanych żądań| DatabaseName, CollectionName, region, StatusCode| Wszystkie | TotalRequests, http 2xx, http 3xx, http 400, HTTP 401, wewnętrzny błąd serwera, Usługa niedostępna, żądania ograniczone, średnia liczba żądań na sekundę | Służy do monitorowania żądań według kodu stanu, kontenera z dokładnością do minuty. Aby uzyskać średnią liczbę żądań na sekundę, użyj agregacji Count na minutę i Podziel ją na 60. |
+| MetadataRequests (żądania metadanych) |Liczba (liczba) | Liczba żądań metadanych. Azure Cosmos DB utrzymuje kontener metadanych systemu dla każdego konta, który umożliwia Wyliczenie kolekcji, baz danych itp., a ich konfiguracje, bez opłat. | DatabaseName, CollectionName, region, StatusCode| Wszystkie| |Służy do monitorowania ograniczania przepustowości ze względu na żądania metadanych.|
+| MongoRequests (żądania Mongo) | Liczba (liczba) | Liczba wykonanych żądań Mongo | DatabaseName, CollectionName, region, CommandName, ErrorCode| Wszystkie |Częstotliwość żądań zapytań Mongo, szybkość żądania aktualizacji Mongo, częstotliwość żądań usunięcia Mongo, Mongo wstawiania liczby żądań, Mongo| Służy do monitorowania błędów żądania Mongo, użycia na typ polecenia. |
 
-#### <a name="request-unit-metrics"></a>Dane jednostki żądania
+#### <a name="request-unit-metrics"></a>Metryki jednostki żądania
 
-|Metryka (metryka wyświetlana)|Jednostka (typ agregacji)|Opis|Wymiary| Ziarnistość czasu| Mapowanie metryk starszych | Sposób użycia |
+|Metryka (nazwa wyświetlana metryki)|Jednostka (typ agregacji)|Opis|Wymiary| Stopień szczegółowości czasu| Mapowanie starszej metryki | Sposób użycia |
 |---|---|---|---| ---| ---| ---|
-| MongoRequestCharge (opłata za żądanie Mongo) | Liczba (suma) |Jednostki żądające Mongo zużyte| Nazwa bazy danych, nazwa kolekcji, region, nazwa polecenia, kod błędu| Wszystkie |Mongo Zapytanie żądanie opłaty, Mongo Update Request Charge, Mongo Delete Request Charge, Mongo Insert Request Charge, Mongo Count Request Charge| Służy do monitorowania zasobów Mongo RUs w minutę.|
-| TotalRequestUnits (łączna liczba jednostek żądań)| Liczba (suma) | Zużyte jednostki żądań| Nazwa bazy danych, nazwa kolekcji, region, kod stanu |Wszystkie| Jednostki TotalRequestUnits| Służy do monitorowania całkowitego użycia RU w ciągu minuty ziarnistości. Aby uzyskać średnią zużycie RU na sekundę, użyj całkowitej agregacji w minutę i podziel przez 60.|
-| AprowizowanaWystarczajność (aprowizowana przepływność)| Liczba (maksymalnie) |Aprowizowana przepływność przy szczegółowości kontenera| Nazwa bazy danych, Nazwa kontenera| 5 mln| | Służy do monitorowania aprowizowanej przepływności na kontener.|
+| MongoRequestCharge (Mongo żądania) | Liczba (łącznie) |Wykorzystane jednostki żądania Mongo| DatabaseName, CollectionName, region, CommandName, ErrorCode| Wszystkie |Mongo naliczanie żądań zapytań, opłata za żądanie aktualizacji Mongo, opłata za żądanie usunięcia żądania, Mongo, opłata za żądanie| Służy do monitorowania Mongo zasobów jednostek RU w ciągu minuty.|
+| TotalRequestUnits (łączna liczba jednostek żądań)| Liczba (łącznie) | Wykorzystane jednostki żądania| DatabaseName, CollectionName, region, StatusCode |Wszystkie| TotalRequestUnits| Służy do monitorowania całkowitego użycia RU z dokładnością do minuty. Aby obliczyć średnią liczbę zużytych jednostek RU na sekundę, użyj łącznej agregacji na minutę i Podziel ją na 60.|
+| ProvisionedThroughput (zainicjowana przepływność)| Liczba (maksimum) |Elastyczna przepływność na poziomie szczegółowości kontenera| DatabaseName, ContainerName| 5 mln| | Służy do monitorowania zainicjowanej przepływności na kontener.|
 
-#### <a name="storage-metrics"></a>Dane magazynu
+#### <a name="storage-metrics"></a>Metryki magazynu
 
-|Metryka (metryka wyświetlana)|Jednostka (typ agregacji)|Opis|Wymiary| Ziarnistość czasu| Mapowanie metryk starszych | Sposób użycia |
+|Metryka (nazwa wyświetlana metryki)|Jednostka (typ agregacji)|Opis|Wymiary| Stopień szczegółowości czasu| Mapowanie starszej metryki | Sposób użycia |
 |---|---|---|---| ---| ---| ---|
-| AvailableStorage (dostępna pamięć masowa) |Bajty (suma) | Całkowita dostępna pamięć masowa zgłoszona przy 5-minutowej szczegółowości na region| Nazwa bazy danych, Nazwa kolekcji, Region| 5 mln| Dostępna pamięć| Służy do monitorowania dostępnej pojemności magazynu (dotyczy tylko stałych kolekcji magazynu) Minimalna szczegółowość powinna wynosić 5 minut.| 
-| DataUsage (użycie danych) |Bajty (suma) |Całkowite wykorzystanie danych zgłoszone przy 5-minutowej szczegółowości na region| Nazwa bazy danych, Nazwa kolekcji, Region| 5 mln |Rozmiar danych | Służy do monitorowania całkowitego użycia danych w kontenerze i regionie, minimalna szczegółowość powinna wynosić 5 minut.|
-| IndexUsage (użycie indeksu) | Bajty (suma) |Całkowite użycie indeksu zgłoszone przy 5-minutowej szczegółowości na region| Nazwa bazy danych, Nazwa kolekcji, Region| 5 mln| Rozmiar indeksu| Służy do monitorowania całkowitego użycia danych w kontenerze i regionie, minimalna szczegółowość powinna wynosić 5 minut. |
-| DocumentQuota (przydział dokumentu) | Bajty (suma) | Całkowity przydział magazynowania zgłoszony przy 5-minutowej szczegółowości na region.| Nazwa bazy danych, Nazwa kolekcji, Region| 5 mln |Pojemność magazynu| Służy do monitorowania całkowitego przydziału w kontenerze i regionie, minimalna szczegółowość powinna wynosić 5 minut.|
-| Liczba dokumentów (liczba dokumentów) | Liczba (suma) |Całkowita liczba dokumentów zgłoszonych przy 5-minutowej szczegółowości na region| Nazwa bazy danych, Nazwa kolekcji, Region| 5 mln |Liczba dokumentów|Służy do monitorowania liczby dokumentów w kontenerze i regionie, minimalna szczegółowość powinna wynosić 5 minut.|
+| AvailableStorage (dostępny magazyn) |Bajty (łącznie) | Łączna ilość dostępnego magazynu zgłoszona z dokładnością do 5 minut na region| DatabaseName, CollectionName, region| 5 mln| Dostępna pamięć| Służy do monitorowania dostępnej pojemności magazynu (dotyczy tylko stałych kolekcji magazynów) minimalny stopień szczegółowości powinien wynosić 5 minut.| 
+| Datausage (użycie danych) |Bajty (łącznie) |Całkowite użycie danych zgłoszone z dokładnością do 5 minut na region| DatabaseName, CollectionName, region| 5 mln |Rozmiar danych | Służy do monitorowania łącznego użycia danych w kontenerze i regionie, minimalny stopień szczegółowości powinien wynosić 5 minut.|
+| IndexUsage (użycie indeksu) | Bajty (łącznie) |Całkowite użycie indeksów zgłoszone w 5-minutowych stopnia szczegółowości na region| DatabaseName, CollectionName, region| 5 mln| Rozmiar indeksu| Służy do monitorowania łącznego użycia danych w kontenerze i regionie, minimalny stopień szczegółowości powinien wynosić 5 minut. |
+| DocumentQuota (przydział dokumentu) | Bajty (łącznie) | Łączny przydział magazynu zgłoszony z dokładnością do 5 minut na region.| DatabaseName, CollectionName, region| 5 mln |Pojemność magazynu| Służy do monitorowania łącznego limitu przydziału w kontenerze i regionie. minimalny stopień szczegółowości powinien wynosić 5 minut.|
+| DocumentCount (liczba dokumentów) | Liczba (łącznie) |Łączna liczba dokumentów zgłoszona z dokładnością do 5 minut na region| DatabaseName, CollectionName, region| 5 mln |Liczba dokumentów|Używane do monitorowania liczby dokumentów w kontenerze i regionie, minimalny stopień szczegółowości powinien wynosić 5 minut.|
 
 #### <a name="latency-metrics"></a>Metryki opóźnienia
 
-|Metryka (metryka wyświetlana)|Jednostka (typ agregacji)|Opis|Wymiary| Ziarnistość czasu| Sposób użycia |
+|Metryka (nazwa wyświetlana metryki)|Jednostka (typ agregacji)|Opis|Wymiary| Stopień szczegółowości czasu| Sposób użycia |
 |---|---|---|---| ---| ---|
-| Opóźnienie replikacji (opóźnienie replikacji)| Milisekundy (minimum, maksimum, średnia) | P99 Opóźnienie replikacji w regionach źródłowych i docelowych dla konta z obsługą geograficzną| Region źródłowy, region docelowy| Wszystkie | Służy do monitorowania opóźnienia replikacji P99 między dowolnymi dwoma regionami dla konta replikowanego geograficznie. |
-| Opóźnienie po stronie serwera| Milisekundy (średnia) | Czas przetwarzania żądania przez serwer. | Nazwa kolekcji, ConnectionMode, DatabaseName, OperationType, PublicAPIType, Region | Wszystkie | Służy do monitorowania opóźnienia żądania na serwerze usługi Azure Cosmos DB. |
+| ReplicationLatency (opóźnienie replikacji)| Milisekundy (minimum, maksimum, średnia) | Opóźnienie replikacji poziomie P99 w regionach źródłowym i docelowym dla konta z obsługą geograficzną| SourceRegion, TargetRegion| Wszystkie | Służy do monitorowania opóźnienia replikacji poziomie P99 między dowolnymi dwoma regionami dla konta z replikacją geograficzną. |
+| Opóźnienie po stronie serwera| Milisekundy (średnia) | Czas przetwarzania żądania przez serwer. | CollectionName, Connectionmode, DatabaseName, OperationType, PublicAPIType, region | Wszystkie | Służy do monitorowania opóźnienia żądania na serwerze Azure Cosmos DB. |
 
 
 
 #### <a name="availability-metrics"></a>Metryki dostępności
 
-|Metryka (metryka wyświetlana) |Jednostka (typ agregacji)|Opis| Ziarnistość czasu| Mapowanie metryk starszych | Sposób użycia |
+|Metryka (nazwa wyświetlana metryki) |Jednostka (typ agregacji)|Opis| Stopień szczegółowości czasu| Mapowanie starszej metryki | Sposób użycia |
 |---|---|---|---| ---| ---|
-| Dostępność usługi (dostępność usługi)| Procent (minimum, maksimum) | Dostępność żądań konta przy jednej godzinie szczegółowości| 1H | Dostępność usług | Reprezentuje procent całkowitej przekazanych żądań. Żądanie jest uważane za nie powiodło się z powodu błędu systemu, jeśli kod stanu jest 410, 500 lub 503 Służy do monitorowania dostępności konta w godzinach szczegółowości. |
+| Serviceavailability (dostępność usługi)| Procent (minimum, maksimum) | Dostępność żądań konta z dokładnością do 1 godziny| 1 godz | Dostępność usługi | Reprezentuje procent całkowitej liczby żądań zakończonych niepowodzenie. Żądanie jest uznawane za niepowodzenie z powodu błędu systemu, jeśli kod stanu to 410, 500 lub 503 używany do monitorowania dostępności konta na poziomie szczegółowości godzin. |
 
 
-#### <a name="cassandra-api-metrics"></a>Metryki interfejsu API Cassandra
+#### <a name="cassandra-api-metrics"></a>Metryki interfejs API Cassandra
 
-|Metryka (metryka wyświetlana)|Jednostka (typ agregacji)|Opis|Wymiary| Ziarnistość czasu| Sposób użycia |
+|Metryka (nazwa wyświetlana metryki)|Jednostka (typ agregacji)|Opis|Wymiary| Stopień szczegółowości czasu| Sposób użycia |
 |---|---|---|---| ---| ---|
-| CassandraRequests (Prośby Kasandry) | Liczba (liczba) | Liczba złożonych żądań api Cassandra| Nazwa bazy danych, nazwa kolekcji, kod błędu, region, typ operacji, typ zasobu| Wszystkie| Służy do monitorowania żądań Cassandra w minutę ziarnistość. Aby uzyskać średnią liczbę żądań na sekundę, użyj agregacji count w minutach i podziel przez 60.|
-| CassandraRequestCharges (opłaty za żądanie Cassandra) | Liczba (Suma, Min, Max, Średnia) | Jednostki żądań używane przez żądania interfejsu API Cassandra| Nazwa bazy danych, nazwa kolekcji, region, typ operacji, typ zasobu| Wszystkie| Służy do monitorowania procesorów innych niż minutę przez konto interfejsu API Cassandra.|
-| CassandraConnectionClosures (Zamknięcia połączeń Cassandra) |Liczba (liczba) |Liczba zamkniętych połączeń Cassandra| ClosureReason, Region| Wszystkie | Służy do monitorowania łączności między klientami i interfejsu API Cassandra usługi Azure Cosmos DB.|
+| CassandraRequests (żądania Cassandra) | Liczba (liczba) | Liczba wykonanych żądań interfejs API Cassandra| DatabaseName, CollectionName, ErrorCode, region, OperationType, ResourceType| Wszystkie| Służy do monitorowania żądań Cassandra z dokładnością do minuty. Aby uzyskać średnią liczbę żądań na sekundę, użyj agregacji Count na minutę i Podziel ją na 60.|
+| CassandraRequestCharges (Cassandra żądania) | Count (sum, min, Max, AVG) | Jednostki żądań używane przez żądania interfejs API Cassandra| DatabaseName, CollectionName, region, OperationType, ResourceType| Wszystkie| Służy do monitorowania jednostek ru używanych na minutę przez konto interfejs API Cassandra.|
+| CassandraConnectionClosures (zamknięcia połączeń Cassandra) |Liczba (liczba) |Liczba zamkniętych połączeń Cassandra| ClosureReason, region| Wszystkie | Służy do monitorowania łączności między klientami i interfejs API Cassandra Azure Cosmos DB.|
 
 ## <a name="see-also"></a>Zobacz też
 
-- Zobacz [monitorowanie usługi Azure Cosmos DB](monitor-cosmos-db.md) opis monitorowania usługi Azure Cosmos DB.
-- Zobacz [monitorowanie zasobów platformy Azure za pomocą usługi Azure Monitor, aby](../azure-monitor/insights/monitor-azure-resource.md) uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure.
+- Aby uzyskać opis Azure Cosmos DB monitorowania, zobacz [Azure Cosmos DB monitorowania](monitor-cosmos-db.md) .
+- Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../azure-monitor/insights/monitor-azure-resource.md) .

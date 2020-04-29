@@ -1,6 +1,6 @@
 ---
-title: Rozmiary sap HANA na platformie Azure (duże wystąpienia) | Dokumenty firmy Microsoft
-description: Rozmiary sap HANA na platformie Azure (duże wystąpienia).
+title: Ustalanie wielkości SAP HANA na platformie Azure (duże wystąpienia) | Microsoft Docs
+description: Ustalanie wielkości SAP HANA na platformie Azure (duże wystąpienia).
 services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
@@ -14,25 +14,25 @@ ms.date: 09/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 404f8318816edcc2cfd1c50ca42304ff6ec93039
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77616911"
 ---
 # <a name="sizing"></a>Ustalanie rozmiaru
 
-Rozmiar dla hana duże wystąpienie nie różni się od rozmiaru dla HANA w ogóle. W przypadku istniejących i wdrożonych systemów, które chcesz przenieść z innych systemów RDBMS do HANA, sap udostępnia szereg raportów, które są uruchamiane w istniejących systemach SAP. Jeśli baza danych zostanie przeniesiona do hana, raporty te sprawdzić dane i obliczyć wymagania dotyczące pamięci dla wystąpienia HANA. Aby uzyskać więcej informacji na temat uruchamiania tych raportów i uzyskiwania ich najnowszych poprawek lub wersji, przeczytaj następujące uwagi SAP:
+Ustalanie wielkości dla dużych wystąpień platformy HANA nie jest inne niż w ogólnym rozmiarze dla platformy HANA. W przypadku istniejących i wdrożonych systemów, które chcesz przenieść z innych RDBMS do platformy HANA, oprogramowanie SAP udostępnia wiele raportów, które są uruchamiane w istniejących systemach SAP. Jeśli baza danych jest przenoszona do platformy HANA, te raporty sprawdzają dane i obliczają wymagania dotyczące pamięci dla wystąpienia platformy HANA. Aby uzyskać więcej informacji na temat sposobu uruchamiania tych raportów i uzyskiwania najnowszych poprawek lub wersji, przeczytaj następujące informacje dotyczące oprogramowania SAP:
 
-- [SAP Note #1793345 - Rozmiar dla pakietu SAP Suite w HANA](https://launchpad.support.sap.com/#/notes/1793345)
-- [SAP Note #1872170 - Suite on HANA i S/4 HANA raport wielkości](https://launchpad.support.sap.com/#/notes/1872170)
-- [SAP Note #2121330 - CZĘSTO ZADAWANE PYTANIA: SAP BW w raporcie o wielkości HANA](https://launchpad.support.sap.com/#/notes/2121330)
-- [SAP Note #1736976 - Raport rozmiaru dla BW na HANA](https://launchpad.support.sap.com/#/notes/1736976)
-- [SAP Note #2296290 - Nowy raport rozmiaru dla BW na HANA](https://launchpad.support.sap.com/#/notes/2296290)
+- [Uwagi dotyczące oprogramowania SAP #1793345 — ustalanie wielkości dla pakietu SAP Suite na platformie HANA](https://launchpad.support.sap.com/#/notes/1793345)
+- [Test SAP #1872170 — pakiet w witrynie HANA i S/4 — raport o wymiarach](https://launchpad.support.sap.com/#/notes/1872170)
+- [Uwaga dotycząca oprogramowania SAP #2121330 — często zadawane pytania: SAP BW w raporcie dotyczącym określania wielkości platformy HANA](https://launchpad.support.sap.com/#/notes/2121330)
+- [Uwaga dotycząca oprogramowania SAP #1736976 — raport o ustalaniu wielkości dla wagi na platformie HANA](https://launchpad.support.sap.com/#/notes/1736976)
+- [Uwagi dotyczące oprogramowania SAP #2296290 — nowy raport o ustalaniu wielkości dla wagi na platformie HANA](https://launchpad.support.sap.com/#/notes/2296290)
 
-W przypadku implementacji zielonego pola sap Quick Sizer jest dostępny do obliczania wymagań dotyczących pamięci implementacji oprogramowania SAP na stronie HANA.
+W przypadku implementacji zielonych pól dostęp do usługi SAP Quick size jest dostępny w celu obliczenia wymagań dotyczących pamięci implementacji oprogramowania SAP na platformie HANA.
 
-Wymagania dotyczące pamięci dla hana zwiększyć wraz ze wzrostem ilości danych. Należy pamiętać o bieżącym zużyciu pamięci, aby pomóc przewidzieć, co to będzie w przyszłości. Na podstawie wymagań dotyczących pamięci można następnie mapować zapotrzebowanie na jeden z jednostek SKU dużych wystąpień HANA.
+Wymagania dotyczące pamięci dla programu HANA zwiększają się wraz ze wzrostem ilości danych. Zapoznaj się z bieżącym użyciem pamięci, aby pomóc w przewidywaniu, co będzie w przyszłości. W oparciu o wymagania dotyczące pamięci można następnie zmapować zapotrzebowanie na jedną z jednostek SKU dużego wystąpienia platformy HANA.
 
 **Następne kroki**
-- Zapoznaj się [z wymaganiami dotyczącymi dołączania](hana-onboarding-requirements.md)
+- Zapoznaj się z [wymaganiami dotyczącymi](hana-onboarding-requirements.md) dołączania

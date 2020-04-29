@@ -1,6 +1,6 @@
 ---
 title: Samouczek — Apache Kafka & Enterprise Security — Azure HDInsight
-description: Samouczek — dowiedz się, jak skonfigurować zasady Apache Ranger dla platformy Kafka w usłudze Azure HDInsight z pakietem zabezpieczeń dla przedsiębiorstwa.
+description: Samouczek — informacje na temat konfigurowania zasad Apache Ranger dla Kafka w usłudze Azure HDInsight przy użyciu pakiet Enterprise Security.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.openlocfilehash: 58c5b3bdd6d50f2e512cccffe78bd4e70805d729
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78204739"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Samouczek: konfigurowanie zasad platformy Apache Kafka w usłudze HDInsight przy użyciu pakietu Enterprise Security (wersja zapoznawcza)
 
 Dowiedz się, jak skonfigurować zasady platformy Apache Ranger na potrzeby klastrów Apache Kafka pakietów Enterprise Security Package (ESP). Klastry ESP są łączone z domeną, co pozwala użytkownikom na uwierzytelnianie przy użyciu poświadczeń domeny. Korzystając z tego artykułu, utworzysz dwie zasady platformy Ranger, aby ograniczyć dostęp do tematów `sales` i `marketingspend`.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie użytkowników domeny
@@ -28,7 +28,7 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 
 ## <a name="prerequisite"></a>Wymagania wstępne
 
-[Klaster platformy Kafka hdinsight z pakietem zabezpieczeń przedsiębiorstwa](./apache-domain-joined-configure-using-azure-adds.md).
+[Klaster Kafka usługi HDInsight z pakiet Enterprise Security](./apache-domain-joined-configure-using-azure-adds.md).
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Łączenie z interfejsem użytkownika administratora platformy Apache Ranger
 
@@ -36,7 +36,7 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 
 2. Zaloguj się przy użyciu poświadczeń administratora usługi Azure Active Directory (AD). Poświadczenia administratora usługi Azure AD są inne niż poświadczenia klastra HDInsight i poświadczenia protokołu SSH węzła usługi HDInsight w systemie Linux.
 
-   ![Interfejs administratora interfejsu HDInsight Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
+   ![Interfejs użytkownika administratora usługi HDInsight Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
 
 ## <a name="create-domain-users"></a>Tworzenie użytkowników domeny
 
@@ -48,9 +48,9 @@ Utwórz zasady platformy Ranger dla użytkowników **sales_user** i **marketing_
 
 1. Otwórz **interfejs użytkownika administratora platformy Ranger**.
 
-2. Wybierz ** \<>_kafka ClusterName** w obszarze **Kafka**. Lista może zawierać tylko jedne wstępnie skonfigurowane zasady.
+2. Wybierz pozycję ** \<ClusterName>_kafka** w obszarze **Kafka**. Lista może zawierać tylko jedne wstępnie skonfigurowane zasady.
 
-3. Wybierz **pozycję Dodaj nowe zasady** i wprowadź następujące wartości:
+3. Wybierz pozycję **Dodaj nowe zasady** i wprowadź następujące wartości:
 
    |Ustawienie  |Sugerowana wartość  |
    |---------|---------|
@@ -64,13 +64,13 @@ Utwórz zasady platformy Ranger dla użytkowników **sales_user** i **marketing_
    * „*” oznacza zero lub więcej wystąpień znaków.
    * „?” oznacza pojedynczy znak.
 
-   ![Apache Ranger Administrator Interfejsu użytkownika Tworzenie zasad1](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
+   ![Interfejs użytkownika administratora Apache Ranger — tworzenie Policy1](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
 
    Zaczekaj kilka minut na zsynchronizowanie platformy Ranger z usługą Azure AD, jeśli użytkownik domeny nie zostanie automatycznie wypełniony dla ustawienia **Select User** (Wybierz użytkownika).
 
-4. Wybierz **pozycję Dodaj,** aby zapisać zasady.
+4. Wybierz pozycję **Dodaj** , aby zapisać zasady.
 
-5. Wybierz **pozycję Dodaj nowe zasady,** a następnie wprowadź następujące wartości:
+5. Wybierz pozycję **Dodaj nowe zasady** , a następnie wprowadź następujące wartości:
 
    |Ustawienie  |Sugerowana wartość  |
    |---------|---------|
@@ -79,9 +79,9 @@ Utwórz zasady platformy Ranger dla użytkowników **sales_user** i **marketing_
    |Select User (Wybierz użytkownika)  |  marketing_user1 |
    |Uprawnienia  | publish, consume, create |
 
-   ![Apache Ranger Administrator Interfejsu użytkownika Tworzenie zasad2](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
+   ![Interfejs użytkownika administratora Apache Ranger — tworzenie Policy2](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
 
-6. Wybierz **pozycję Dodaj,** aby zapisać zasady.
+6. Wybierz pozycję **Dodaj** , aby zapisać zasady.
 
 ## <a name="create-topics-in-a-kafka-cluster-with-esp"></a>Tworzenie tematów w klastrze platformy Kafka przy użyciu pakietu ESP
 
@@ -108,7 +108,7 @@ Aby utworzyć dwa tematy — `salesevents` i `marketingspend`:
    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
    ```
 
-   Przed kontynuowaniem może być konieczne skonfigurowanie środowiska programistycznego, jeśli jeszcze tego nie zrobiono. Potrzebne będą składniki, takie jak Java JDK, Apache Maven i klient SSH z scp. Aby uzyskać więcej informacji, zobacz [instrukcje konfiguracji](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
+   Przed kontynuowaniem może być konieczne skonfigurowanie środowiska programistycznego, jeśli jeszcze tego nie zrobiono. Potrzebne będą takie składniki jak Java JDK, Apache Maven i klient SSH przy użyciu punktu połączenia usługi. Aby uzyskać więcej informacji, zobacz [instrukcje dotyczące instalacji](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 
 1. Pobierz [przykłady odbiorców i producentów przyłączonych do domeny na platformie Apache Kafka](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 
@@ -145,9 +145,9 @@ W oparciu o skonfigurowane zasady platformy Ranger użytkownik **sales_user** mo
 
    Przykład: `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
 
-4. Wykonaj krok 3 w obszarze **Kompilacja i wdrożyć przykład** w [samouczku: Użyj Apache Kafka producent i interfejsów API konsumentów,](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) aby upewnić się, że `kafka-producer-consumer.jar` jest również dostępna do **sales_user**.
+4. Wykonaj krok 3 w sekcji **Tworzenie i wdrażanie przykładu** w [samouczku: użyj interfejsów API Apache Kafka producenta i klienta](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) , aby `kafka-producer-consumer.jar` upewnić się, że jest również dostępna do **sales_user**.
 
-**Uwaga: W tym samouczku należy użyć kafka-producer-consumer.jar w ramach projektu "DomainJoined-Producer-Consumer" (a nie w ramach projektu Producent-Konsument, który jest przeznaczony dla scenariuszy nieprzyłączonych do domeny).**
+**Uwaga: w tym samouczku Użyj Kafka-Producer-Consumer. jar w projekcie "DomainJoined-Produc-Consumer" (a nie w ramach projektu producent-odbiorca, który jest przeznaczony dla scenariuszy przyłączonych do domeny).**
 
 5. Upewnij się, że użytkownik **sales_user1** może tworzyć do tematu `salesevents`, wykonując następujące polecenie:
 
@@ -185,20 +185,20 @@ W oparciu o skonfigurowane zasady platformy Ranger użytkownik **sales_user** mo
 
 9. Wyświetl zdarzenia dostępu inspekcji z poziomu interfejsu użytkownika platformy Ranger.
 
-   ![Zdarzenia dostępu do inspekcji zasad interfejsu użytkownika ranger ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
+   ![Zdarzenia dostępu inspekcji zasad interfejsu użytkownika Ranger ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli nie zamierzasz nadal korzystać z tej aplikacji, usuń utworzony klaster platformy Kafka, wykonując następujące kroki:
+Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń klaster Kafka, który został utworzony w następujących krokach:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 1. W polu **Wyszukaj** w górnej części wpisz **HDInsight**.
 1. Wybierz pozycję **Klastry usługi HDInsight** w obszarze **Usługi**.
 1. Na wyświetlonej liście klastrów usługi HDInsight kliknij symbol **...** obok klastra utworzonego na potrzeby tego samouczka. 
-1. Kliknij **pozycję Usuń**. Kliknij **przycisk Tak**.
+1. Kliknij przycisk **Usuń**. Kliknij przycisk **tak**.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
-Jeśli kafka-producer-consumer.jar nie działa w domenie dołączył klastra, upewnij się, że używasz kafka-producer-consumer.jar w ramach "DomainJoined-Producer-Consumer" projektu (nie jeden w ramach projektu Producent-Konsument, który jest dla nie domeny scenariuszy).
+Jeśli plik Kafka-Producer-Consumer. jar nie działa w klastrze przyłączonym do domeny, upewnij się, że używasz Kafka-Producer-Consumer. jar w projekcie "DomainJoined-Produc-Consumer" (a nie w ramach projektu producent-klient, który jest przeznaczony dla scenariuszy przyłączonych do domeny).
 
 ## <a name="next-steps"></a>Następne kroki
 

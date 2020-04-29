@@ -15,10 +15,10 @@ ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
 ms.openlocfilehash: a1a3e62646fedd468a02eac7b1a48d0b2d00fd74
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77591986"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Samouczek: śledzenie użycia laboratorium w usłudze Azure Lab Service
@@ -32,7 +32,7 @@ W tym samouczku wykonasz następujące czynności:
 > * Zarządzanie maszynami wirtualnymi uczniów 
 
 
-## <a name="view-registered-users"></a>Wyświetlanie zarejestrowanych użytkowników
+## <a name="view-registered-users"></a>Wyświetl zarejestrowanych użytkowników
 
 1. Przejdź do [witryny internetowej usługi Azure Lab Services](https://labs.azure.com). 
 2. Wybierz pozycję **Zaloguj się** i wprowadź swoje poświadczenia. Usługa Azure Lab Services obsługuje konta organizacji i konta Microsoft.
@@ -41,7 +41,7 @@ W tym samouczku wykonasz następujące czynności:
 
     ![Zarejestrowani użytkownicy](../media/tutorial-track-usage/registered-users.png)
 
-    Aby uzyskać więcej informacji na temat dodawania użytkowników w laboratorium i zarządzania [nimi,](how-to-configure-student-usage.md)zobacz Dodawanie użytkowników laboratorium i zarządzanie nimi .
+    Aby uzyskać więcej informacji na temat dodawania użytkowników do laboratorium i zarządzania nimi, zobacz [Dodawanie użytkowników laboratorium i zarządzanie nimi](how-to-configure-student-usage.md).
 
 ## <a name="view-the-usage-of-vms"></a>Wyświetlanie użycia maszyn wirtualnych
 
@@ -51,14 +51,14 @@ W tym samouczku wykonasz następujące czynności:
     ![Użycie maszyny wirtualnej](../media/tutorial-track-usage/vm-usage.png)
 
 ## <a name="manage-student-vms"></a>Zarządzanie maszynami wirtualnymi uczniów 
-Na tej stronie można uruchamiać, zatrzymywać lub resetować maszyny wirtualne uczniów przy użyciu formantów w kolumnie **Stan** lub na pasku narzędzi.
+Na tej stronie można uruchamiać, zatrzymywać lub resetować maszyny wirtualne uczniów przy użyciu kontrolek w kolumnie **stan** lub na pasku narzędzi.
 
-![Akcje maszyny Wirtualnej](../media/tutorial-track-usage/vm-controls.png)
+![Akcje maszyny wirtualnej](../media/tutorial-track-usage/vm-controls.png)
 
-Aby uzyskać więcej informacji na temat zarządzania pulą maszyn wirtualnych w laboratorium, zobacz [Konfigurowanie puli maszyn wirtualnych i zarządzanie nią.](how-to-set-virtual-machine-passwords.md)
+Aby uzyskać więcej informacji o zarządzaniu pulą maszyn wirtualnych dla laboratorium, zobacz [Konfigurowanie puli maszyn wirtualnych i zarządzanie nią](how-to-set-virtual-machine-passwords.md).
 
 > [!NOTE]
-> Gdy nauczyciel włącza maszynę wirtualną dla uczniów, nie ma to wpływu na przydział dla ucznia. Przydział dla użytkownika określa liczbę godzin pracy dostępnych dla użytkownika poza zaplanowanym czasem zajęć. Aby uzyskać więcej informacji na temat przydziałów, zobacz [Ustawianie przydziałów dla użytkowników](how-to-configure-student-usage.md?#set-quotas-for-users).
+> Gdy nauczycieli włącza maszynę wirtualną ucznia, nie ma to żadnego limitu przydziału dla ucznia. Przydział dla użytkownika określa liczbę godzin laboratorium dostępnych dla użytkownika poza zaplanowanym czasem klasy. Aby uzyskać więcej informacji na temat przydziałów, zobacz [Ustawianie przydziałów dla użytkowników](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej na temat laboratoriów na potrzeby zajęć, zobacz artykuły w sekcji [Przewodniki z instrukcjami](how-to-manage-lab-accounts.md).

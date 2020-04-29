@@ -1,54 +1,54 @@
 ---
 title: Przywracanie aplikacji z migawki
-description: Dowiedz się, jak przywrócić aplikację z migawki. Odzyskiwanie po nieoczekiwanej utracie danych w warstwie Premium dzięki automatycznym kopiowaniom w tle.
+description: Dowiedz się, jak przywrócić aplikację z migawki. Odzyskaj nieoczekiwaną utratę danych w warstwie Premium przy użyciu automatycznych kopii w tle.
 ms.assetid: 4164f9b5-f735-41c6-a2bb-71f15cdda417
 ms.topic: article
 ms.date: 04/04/2018
 ms.reviewer: nicking
 ms.custom: seodec18
 ms.openlocfilehash: b17a49535541c8f75f65cdbe9986a895427f3877
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78255152"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Przywracanie aplikacji na platformie Azure z migawki
-W tym artykule pokazano, jak przywrócić aplikację w [usłudze Azure App Service](../app-service/overview.md) z migawki. Możesz przywrócić aplikację do poprzedniego stanu na podstawie jednej z migawek aplikacji. Nie trzeba włączać kopii zapasowej migawek, platforma automatycznie zapisuje migawkę wszystkich aplikacji do celów odzyskiwania danych.
+W tym artykule pokazano, jak przywrócić aplikację w [Azure App Service](../app-service/overview.md) z migawki. Możesz przywrócić poprzedni stan aplikacji, bazując na jednej z migawek aplikacji. Nie trzeba włączać kopii zapasowych migawek, platforma automatycznie zapisuje migawkę wszystkich aplikacji na potrzeby odzyskiwania danych.
 
-Migawki są przyrostowymi kopiami w tle i oferują kilka zalet w stosunku do [zwykłych kopii zapasowych:](manage-backup.md)
-- Brak błędów kopiowania plików z powodu blokad plików.
-- Brak ograniczeń rozmiaru magazynu.
-- Nie jest wymagana konfiguracja.
+Migawki to przyrostowe kopie w tle i oferują kilka korzyści w stosunku do zwykłych [kopii zapasowych](manage-backup.md):
+- Brak błędów kopiowania pliku spowodowanych blokadami plików.
+- Brak ograniczenia rozmiaru magazynu.
+- Nie jest wymagana żadna konfiguracja.
 
-Przywracanie z migawek jest dostępne dla aplikacji działających w warstwie **Premium** lub wyższej. Aby uzyskać informacje dotyczące skalowania aplikacji, zobacz [Skalowanie w górę aplikacji na platformie Azure](manage-scale-up.md).
+Przywracanie z migawek jest dostępne dla aplikacji działających w warstwie **Premium** lub wyższych. Aby uzyskać informacje na temat skalowania aplikacji w górę, zobacz [skalowanie w górę aplikacji na platformie Azure](manage-scale-up.md).
 
 ## <a name="limitations"></a>Ograniczenia
 
-- Funkcja jest obecnie w wersji zapoznawczej.
-- Możesz przywrócić tylko tę samą aplikację lub gniazdo należące do tej aplikacji.
-- Usługa App Service zatrzymuje docelową aplikację lub gniazdo docelowe podczas przywracania.
-- Usługa App Service przechowuje migawki na trzy miesiące do celów odzyskiwania danych platformy.
-- Migawki można przywrócić tylko dla ostatnich 30 dni.
-- Usługi app services uruchomione w środowisku usługi app service nie obsługują migawek.
+- Ta funkcja jest obecnie dostępna w wersji zapoznawczej.
+- Można przywrócić tylko do tej samej aplikacji lub do gniazda należącego do tej aplikacji.
+- App Service powoduje zatrzymanie docelowej aplikacji lub docelowego miejsca podczas przywracania.
+- App Service utrzymuje w ciągu trzech miesięcy migawki na potrzeby odzyskiwania danych platformy.
+- Migawki można przywracać tylko w ciągu ostatnich 30 dni.
+- App Services uruchomione na App Service Environment nie obsługują migawek.
  
 
 ## <a name="restore-an-app-from-a-snapshot"></a>Przywracanie aplikacji z migawki
 
-1. Na stronie **Ustawienia** aplikacji w [witrynie Azure portal](https://portal.azure.com)kliknij pozycję Kopie **zapasowe,** aby wyświetlić stronę **Kopie zapasowe.** Następnie kliknij pozycję **Przywróć** w sekcji **Migawka (Podgląd).**
+1. Na stronie **Ustawienia** aplikacji w [Azure Portal](https://portal.azure.com)kliknij pozycję **kopie zapasowe** , aby wyświetlić stronę **kopie zapasowe** . Następnie kliknij przycisk **Przywróć** w sekcji **migawka (wersja zapoznawcza)** .
    
     ![](./media/app-service-web-restore-snapshots/1.png)
 
-2. Na stronie **Przywracanie** wybierz migawkę do przywrócenia.
+2. Na stronie **przywracanie** wybierz migawkę do przywrócenia.
    
     ![](./media/app-service-web-restore-snapshots/2.png)
    
-3. Określ miejsce docelowe przywracania aplikacji w **obszarze Przywróć miejsce docelowe**.
+3. Określ lokalizację docelową przywracania aplikacji w **miejscu docelowym przywracania**.
    
     ![](./media/app-service-web-restore-snapshots/3.png)
    
    > [!WARNING]
-   > Jeśli wybierzesz **opcję Zastąp,** wszystkie istniejące dane w bieżącym systemie plików aplikacji zostaną wymazane i zastąpione. Przed kliknięciem **przycisku OK**upewnij się, że jest to, co chcesz zrobić.
+   > W przypadku wybrania opcji **Zastąp**wszystkie istniejące dane w bieżącym systemie plików aplikacji zostaną wymazane i zastąpione. Przed kliknięciem przycisku **OK**upewnij się, że jest to co chcesz zrobić.
    > 
    > 
       
@@ -57,9 +57,9 @@ Przywracanie z migawek jest dostępne dla aplikacji działających w warstwie **
    > 
    > 
    
-    Można wybrać **istniejącą aplikację,** aby przywrócić do gniazda. Przed użyciem tej opcji należy już utworzyć gniazdo w aplikacji.
+    Możesz wybrać **istniejącą aplikację** do przywrócenia w gnieździe. Przed użyciem tej opcji należy wcześniej utworzyć miejsce w aplikacji.
 
-4. Można przywrócić konfigurację witryny.
+4. Można przywrócić konfigurację lokacji.
    
     ![](./media/app-service-web-restore-snapshots/4.png)
 

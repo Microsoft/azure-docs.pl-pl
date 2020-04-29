@@ -1,51 +1,51 @@
 ---
-title: Tworzenie i uruchamianie testów dostępności niestandardowej przy użyciu usługi Azure Functions
-description: Ten doc obejmie jak utworzyć funkcję platformy Azure z TrackAvailability(), który będzie uruchamiany okresowo zgodnie z konfiguracją podana w TimerTrigger funkcji. Wyniki tego testu zostaną wysłane do zasobu usługi Application Insights, gdzie będzie można wyszukiwać i ostrzegać o danych wyników dostępności. Dostosowane testy umożliwiają pisanie bardziej złożonych testów dostępności niż jest to możliwe przy użyciu interfejsu użytkownika portalu, monitorowanie aplikacji wewnątrz sieci wirtualnej platformy Azure, zmienianie adresu punktu końcowego lub tworzenie testu dostępności, jeśli nie jest on dostępny w Twoim regionie.
+title: Tworzenie i uruchamianie niestandardowych testów dostępności przy użyciu Azure Functions
+description: Ten dokument zawiera informacje dotyczące sposobu tworzenia funkcji platformy Azure z TrackAvailability (), która będzie uruchamiana okresowo zgodnie z konfiguracją podaną w funkcji TimerTrigger. Wyniki tego testu zostaną wysłane do zasobu Application Insights, w którym będzie można wykonywać zapytania o dane dotyczące wyników dostępności i je otrzymywać. Dostosowane testy umożliwiają pisanie bardziej złożonych testów dostępności niż jest to możliwe za pomocą interfejsu użytkownika portalu, monitorowania aplikacji wewnątrz sieci wirtualnej platformy Azure, zmiany adresu punktu końcowego lub tworzenia testu dostępności, jeśli nie jest on dostępny w Twoim regionie.
 ms.topic: conceptual
 author: morgangrobin
 ms.author: mogrobin
 ms.date: 11/22/2019
 ms.openlocfilehash: 476d66c51c10a5fcfb3cb0319c47b3338d28812c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77665803"
 ---
-# <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Tworzenie i uruchamianie testów dostępności niestandardowej przy użyciu usługi Azure Functions
+# <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Tworzenie i uruchamianie niestandardowych testów dostępności przy użyciu Azure Functions
 
-W tym artykule opisano, jak utworzyć funkcję platformy Azure z TrackAvailability(), która będzie działać okresowo zgodnie z konfiguracją podana w funkcji TimerTrigger z własną logiką biznesową. Wyniki tego testu zostaną wysłane do zasobu usługi Application Insights, gdzie będzie można wyszukiwać i ostrzegać o danych wyników dostępności. Dzięki temu można utworzyć dostosowane testy podobne do tego, co można zrobić za pomocą [monitorowania dostępności](../../azure-monitor/app/monitor-web-app-availability.md) w portalu. Dostosowane testy pozwolą ci napisać bardziej złożone testy dostępności, niż jest to możliwe przy użyciu interfejsu użytkownika portalu, monitorować aplikację wewnątrz sieci wirtualnej platformy Azure, zmieniać adres punktu końcowego lub utworzyć test dostępności, nawet jeśli ta funkcja nie jest dostępna w Twoim regionie.
+W tym artykule opisano sposób tworzenia funkcji platformy Azure z TrackAvailability (), która będzie uruchamiana okresowo zgodnie z konfiguracją podaną w funkcji TimerTrigger z własną logiką biznesową. Wyniki tego testu zostaną wysłane do zasobu Application Insights, w którym będzie można wykonywać zapytania o dane dotyczące wyników dostępności i je otrzymywać. Dzięki temu można tworzyć niestandardowe testy podobne do tego, co można zrobić za pośrednictwem [monitorowania dostępności](../../azure-monitor/app/monitor-web-app-availability.md) w portalu. Dostosowane testy umożliwiają pisanie bardziej złożonych testów dostępności niż jest to możliwe za pomocą interfejsu użytkownika portalu, monitorowania aplikacji wewnątrz sieci wirtualnej platformy Azure, zmiany adresu punktu końcowego lub tworzenia testu dostępności, nawet jeśli ta funkcja nie jest dostępna w Twoim regionie.
 
 > [!NOTE]
-> W tym przykładzie jest przeznaczony wyłącznie do pokazania mechaniki, jak TrackAvailability() wywołanie interfejsu API działa w ramach funkcji platformy Azure. Nie jak napisać podstawowy kod testu HTTP/logiki biznesowej, które byłyby wymagane, aby przekształcić to w pełni funkcjonalny test dostępności. Domyślnie, jeśli przejdziesz przez ten przykład, zostaniesz wygenerowany test dostępności, który zawsze wygeneruje błąd.
+> Ten przykład został zaprojektowany wyłącznie w celu pokazywania Mechanics sposobu, w jaki wywołanie interfejsu API TrackAvailability () działa w ramach funkcji platformy Azure. Nie sposób pisania bazowego kodu testu HTTP/logiki biznesowej, które byłyby wymagane do przeprowadzenia tego w pełni funkcjonalnego testu dostępności. Domyślnie jeśli przejdziesz przez ten przykład, utworzysz Test dostępności, który będzie zawsze generował błąd.
 
-## <a name="create-timer-triggered-function"></a>Tworzenie funkcji wyzwalania czasomierza
+## <a name="create-timer-triggered-function"></a>Utwórz funkcję wyzwalaną przez czasomierz
 
-- Jeśli masz zasób usługi Application Insights:
-    - Domyślnie usługa Azure Functions tworzy zasób usługi Application Insights, ale jeśli chcesz użyć jednego z już utworzonych zasobów, musisz określić to podczas tworzenia.
-    - Postępuj zgodnie z instrukcjami dotyczącymi [tworzenia zasobów usługi Azure Functions i funkcji wyzwalanej czasomierzem](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (zatrzymaj przed oczyszczeniem) z następującymi wyborami.
-        -  Wybierz kartę **Monitorowanie** u góry.
+- Jeśli masz zasób Application Insights:
+    - Domyślnie Azure Functions tworzy zasób Application Insights, ale jeśli chcesz użyć jednego z już utworzonych zasobów, musisz określić, że podczas tworzenia.
+    - Postępuj zgodnie z instrukcjami dotyczącymi sposobu [tworzenia zainicjowanych zasobów Azure Functions i czasomierza](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (Zatrzymaj przed oczyszczeniem) przy użyciu następujących opcji.
+        -  Wybierz kartę **monitorowanie** w górnej części strony.
 
-            ![ Tworzenie aplikacji usługi Azure Functions przy za pomocą własnego zasobu usługi App Insights](media/availability-azure-functions/create-function-app.png)
+            ![ Tworzenie aplikacji Azure Functions przy użyciu własnego zasobu usługi App Insights](media/availability-azure-functions/create-function-app.png)
 
-        - Zaznacz pole listy rozwijanej Usługi Application Insights i wpisz lub wybierz nazwę zasobu.
+        - Zaznacz pole listy rozwijanej Application Insights i wpisz lub wybierz nazwę zasobu.
 
-            ![Wybieranie istniejącego zasobu usługi Application Insights](media/availability-azure-functions/app-insights-resource.png)
+            ![Wybieranie istniejącego zasobu Application Insights](media/availability-azure-functions/app-insights-resource.png)
 
-        - Wybierz **pozycję Recenzja + utwórz**
-- Jeśli nie masz jeszcze utworzonego zasobu usługi Application Insights dla funkcji wyzwalanej czasomierzem:
-    - Domyślnie podczas tworzenia aplikacji usługi Azure Functions utworzy zasób usługi Application Insights dla Ciebie.
-    - Postępuj zgodnie z instrukcjami dotyczącymi [tworzenia zasobów usługi Azure Functions i funkcji wyzwalanej timera](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (zatrzymaj przed czyszczeniem).
+        - Wybieranie opcji **Recenzja + tworzenie**
+- Jeśli nie masz jeszcze utworzonego zasobu Application Insights dla funkcji wyzwalanej przez czasomierz:
+    - Domyślnie podczas tworzenia aplikacji Azure Functions zostanie utworzony zasób Application Insights.
+    - Postępuj zgodnie z instrukcjami dotyczącymi sposobu [tworzenia zasobu Azure Functions i wyzwalanej funkcji timer](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (Zatrzymaj przed oczyszczeniem).
 
 ## <a name="sample-code"></a>Przykładowy kod
 
-Skopiuj poniższy kod do pliku run.csx (zastąpi to istniejący kod). Aby to zrobić, przejdź do aplikacji usługi Azure Functions i wybierz funkcję wyzwalacza czasomierza po lewej stronie.
+Skopiuj poniższy kod do pliku Run. CSX (spowoduje to zastąpienie istniejącego kodu). W tym celu przejdź do aplikacji Azure Functions i wybierz funkcję wyzwalacza czasomierz po lewej stronie.
 
 >[!div class="mx-imgBorder"]
->![Działanie.csx funkcji platformy Azure w witrynie Azure portal](media/availability-azure-functions/runcsx.png)
+>![Funkcja Run. CSX w Azure Portal](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
-> W przypadku adresu punktu końcowego, którego używasz: `EndpointAddress= https://dc.services.visualstudio.com/v2/track`. Chyba że zasób znajduje się w regionie, takim jak Azure Government lub Azure China, w którym to przypadku zapoznaj się z tym artykułem na [temat zastępowania domyślnych punktów końcowych](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) i wybierz odpowiedni punkt końcowy kanału telemetrii dla danego regionu.
+> Adres punktu końcowego, który ma być używany `EndpointAddress= https://dc.services.visualstudio.com/v2/track`:. Jeśli zasób nie znajduje się w regionie, takim jak Azure Government lub Chiny platformy Azure, w tym przypadku zapoznaj się z tym artykułem, aby zastąpić [domyślne punkty końcowe](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) i wybrać odpowiedni punkt końcowy kanału telemetrii dla danego regionu.
 
 ```C#
 #load "runAvailabilityTest.csx"
@@ -127,7 +127,7 @@ public async static Task Run(TimerInfo myTimer, ILogger log)
 
 ```
 
-Po prawej stronie w obszarze pliki widoku wybierz pozycję **Dodaj**. Wywołanie nowego pliku **function.proj** z następującą konfiguracją.
+Po prawej stronie w obszarze Wyświetl pliki wybierz pozycję **Dodaj**. Wywołaj nowy plik **Funkcja. proj** z następującą konfiguracją.
 
 ```C#
 <Project Sdk="Microsoft.NET.Sdk">
@@ -142,9 +142,9 @@ Po prawej stronie w obszarze pliki widoku wybierz pozycję **Dodaj**. Wywołanie
 ```
 
 >[!div class="mx-imgBorder"]
->![Po prawej stronie wybierz dodaj. Nazwij plik function.proj](media/availability-azure-functions/addfile.png)
+>![Po prawej stronie wybierz pozycję Dodaj. Nazwij plik Function. proj](media/availability-azure-functions/addfile.png)
 
-Po prawej stronie w obszarze pliki widoku wybierz pozycję **Dodaj**. Wywołanie nowego **pliku runAvailabilityTest.csx** z następującą konfiguracją.
+Po prawej stronie w obszarze Wyświetl pliki wybierz pozycję **Dodaj**. Wywołaj nowy plik **runAvailabilityTest. CSX** z następującą konfiguracją.
 
 ```C#
 public async static Task RunAvailbiltyTestAsync(ILogger log)
@@ -157,29 +157,29 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 
 ## <a name="check-availability"></a>Sprawdź dostępność
 
-Aby upewnić się, że wszystko działa, można spojrzeć na wykres na karcie Dostępność zasobu usługi Application Insights.
+Aby upewnić się, że wszystko działa, możesz przyjrzeć się grafowi na karcie dostępność zasobu Application Insights.
 
 > [!NOTE]
-> Jeśli zaimplementowałeś własną logikę biznesową w runAvailabilityTest.csx, zobaczysz pomyślne wyniki, takie jak na poniższych zrzutach ekranu, jeśli nie, zobaczysz nieudane wyniki.
+> Jeśli zaimplementowano własną logikę biznesową w programie runAvailabilityTest. CSX, zobaczysz pomyślne wyniki podobne do poniższych zrzutów ekranu, jeśli nie zobaczysz, że wyniki nie zostaną wyświetlone.
 
 >[!div class="mx-imgBorder"]
->![Karta Dostępność z wynikami pomyślnymi](media/availability-azure-functions/availtab.png)
+>![Karta dostępność z pomyślnymi wynikami](media/availability-azure-functions/availtab.png)
 
-Po skonfigurowaniu testu przy użyciu usługi Azure Functions można zauważyć, że w przeciwieństwie do korzystania **z testu Dodaj** na karcie Dostępność, nazwa testu nie pojawi się i nie będzie można z nim współpracować. Wyniki są wizualizowane, ale otrzymasz widok podsumowania zamiast tego samego szczegółowego widoku, który można uzyskać podczas tworzenia testu dostępności za pośrednictwem portalu.
+Po skonfigurowaniu testu przy użyciu Azure Functions można zauważyć, że w przeciwieństwie do użycia **Dodaj test** na karcie dostępność nazwa testu nie zostanie wyświetlona i nie będzie można z nim korzystać. Wyniki są wizualizowane, ale można uzyskać widok podsumowania, a nie ten sam widok szczegółowy, który uzyskuje się podczas tworzenia testu dostępności za pośrednictwem portalu.
 
-Aby wyświetlić szczegóły transakcji end-to-end, wybierz **opcję Udane** lub **Nie powiodło się** w obszarze przechodzenia do szczegółów, a następnie wybierz przykład. Można również uzyskać informacje o transakcji end-to-end, wybierając punkt danych na wykresie.
-
->[!div class="mx-imgBorder"]
->![Wybierz przykładowy test dostępności](media/availability-azure-functions/sample.png)
+Aby wyświetlić szczegółowe informacje o transakcjach, wybierz pozycję **powodzenie** lub **Niepowodzenie** w obszarze drążenie do, a następnie wybierz przykład. Możesz również uzyskać szczegółowe informacje o transakcjach, wybierając punkt danych na wykresie.
 
 >[!div class="mx-imgBorder"]
->![Szczegółowe informacje o transakcji typu end-to-end](media/availability-azure-functions/end-to-end.png)
+>![Wybierz przykładowy Test dostępności](media/availability-azure-functions/sample.png)
 
-Jeśli uruchomiono wszystko tak, jak jest (bez dodawania logiki biznesowej), zobaczysz, że test nie powiódł się.
+>[!div class="mx-imgBorder"]
+>![Szczegóły końca transakcji](media/availability-azure-functions/end-to-end.png)
 
-## <a name="query-in-logs-analytics"></a>Kwerenda w dziennikach (Analytics)
+Jeśli uruchomiono wszystko (bez dodawania logiki biznesowej), zobaczysz, że test zakończył się niepowodzeniem.
 
-Za pomocą logów(analizy) można wyświetlić wyniki dostępności, zależności i inne. Aby dowiedzieć się więcej o dziennikach, odwiedź stronę [Omówienie kwerendy dziennika](../../azure-monitor/log-query/log-query-overview.md).
+## <a name="query-in-logs-analytics"></a>Zapytanie w dziennikach (analiza)
+
+Dzienników (analiz) można używać do wyświetlania wyników dostępności, zależności i innych. Aby dowiedzieć się więcej o dziennikach, odwiedź stronę [Omówienie zapytania dziennika](../../azure-monitor/log-query/log-query-overview.md).
 
 >[!div class="mx-imgBorder"]
 >![Wyniki dostępności](media/availability-azure-functions/availabilityresults.png)

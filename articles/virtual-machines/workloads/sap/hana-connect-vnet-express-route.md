@@ -1,6 +1,6 @@
 ---
-title: Konfiguracja łączności z sieci wirtualnej do SAP HANA na platformie Azure (duże wystąpienia) | Dokumenty firmy Microsoft
-description: Łączność skonfigurowana z sieci wirtualnej do korzystania z sap HANA na platformie Azure (duże wystąpienia).
+title: Połączenie skonfigurowane z sieci wirtualnej do SAP HANA na platformie Azure (duże wystąpienia) | Microsoft Docs
+description: Połączenie skonfigurowane z sieci wirtualnej do używania SAP HANA na platformie Azure (duże wystąpienia).
 services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
@@ -14,28 +14,28 @@ ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f7ac8e69c4e149fdd0f365e19f7a0282a547af43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617201"
 ---
-# <a name="connect-a-virtual-network-to-hana-large-instances"></a>Łączenie sieci wirtualnej z dużymi wystąpieniami HANA
+# <a name="connect-a-virtual-network-to-hana-large-instances"></a>Łączenie sieci wirtualnej z dużymi wystąpieniami platformy HANA
 
-Po utworzeniu sieci wirtualnej platformy Azure można połączyć tę sieć z sap HANA na platformie Azure dużych wystąpień. Utwórz bramę usługi Azure ExpressRoute w sieci wirtualnej. Ta brama umożliwia łączenie sieci wirtualnej z obwodem usługi ExpressRoute, który łączy się z dzierżawą klienta na znaczeku dużego wystąpienia HANA.
+Po utworzeniu sieci wirtualnej platformy Azure możesz połączyć tę sieć, aby SAP HANA w dużych wystąpieniach platformy Azure. Utwórz bramę usługi Azure ExpressRoute w sieci wirtualnej. Ta brama umożliwia połączenie sieci wirtualnej z obwodem ExpressRoute, który łączy się z dzierżawcą klienta w sygnaturze dużej instancji HANA.
 
 > [!NOTE] 
-> Ten krok może potrwać do 30 minut. Nowa brama jest tworzona w wyznaczonej subskrypcji platformy Azure, a następnie połączona z określoną siecią wirtualną platformy Azure.
+> Wykonanie tego kroku może potrwać do 30 minut. Nowa brama zostanie utworzona w wyznaczonym subskrypcji platformy Azure, a następnie podłączona do określonej sieci wirtualnej platformy Azure.
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-Jeśli brama już istnieje, sprawdź, czy jest bramą usługi ExpressRoute, czy nie. Jeśli nie jest bramą usługi ExpressRoute, usuń bramę i ponownie utwórz ją jako bramę usługi ExpressRoute. Jeśli brama usługi ExpressRoute została już ustanowiona, zobacz następującą sekcję tego artykułu "Połącz sieci wirtualne". 
+Jeśli Brama już istnieje, sprawdź, czy jest to brama ExpressRoute. Jeśli nie jest to brama ExpressRoute, Usuń bramę i utwórz ją ponownie jako bramę ExpressRoute. Jeśli Brama ExpressRoute jest już ustanowiona, zapoznaj się z sekcją w tym artykule "łączenie sieci wirtualnych". 
 
-- Użyj [witryny Azure portal](https://portal.azure.com/) lub programu PowerShell, aby utworzyć bramę sieci VPN usługi ExpressRoute połączoną z siecią wirtualną.
-  - Jeśli używasz portalu Azure, dodaj nową **bramę sieci wirtualnej**, a następnie wybierz **expressroute** jako typ bramy.
-  - Jeśli używasz programu PowerShell, najpierw pobierz i użyj najnowszego [sdk programu Azure PowerShell.](https://azure.microsoft.com/downloads/) 
+- Użyj [Azure Portal](https://portal.azure.com/) lub programu PowerShell, aby utworzyć bramę sieci VPN ExpressRoute połączonej z siecią wirtualną.
+  - Jeśli używasz Azure Portal, Dodaj nową **bramę Virtual Network**, a następnie wybierz pozycję **ExpressRoute** jako typ bramy.
+  - Jeśli używasz programu PowerShell, najpierw Pobierz najnowszy [zestaw SDK Azure PowerShell](https://azure.microsoft.com/downloads/)i użyj go. 
  
-Poniższe polecenia tworzą bramę usługi ExpressRoute. Teksty poprzedzone _$_ są zmiennymi zdefiniowanymi przez użytkownika, które powinny być aktualizowane o konkretne informacje.
+Następujące polecenia tworzą bramę ExpressRoute. Teksty poprzedzone przez zdefiniowane przez _$_ użytkownika zmienne, które powinny zostać zaktualizowane przy użyciu określonych informacji.
 
 ```powershell
 # These Values should already exist, update to match your environment
@@ -63,16 +63,16 @@ New-AzVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName -Loc
 -GatewaySku $myGWSku -VpnType PolicyBased -EnableBgp $true
 ```
 
-W tym przykładzie użyto jednostki SKU bramy Wysokiej Wydajności. Opcje są HighPerformance lub UltraPerformance jako tylko jednostek SKU bramy, które są obsługiwane dla SAP HANA na platformie Azure (duże wystąpienia).
+W tym przykładzie użyto jednostki SKU bramy HighPerformance. Dostępne opcje to HighPerformance lub UltraPerformance jako jedyne jednostki SKU bramy, które są obsługiwane dla SAP HANA na platformie Azure (duże wystąpienia).
 
 > [!IMPORTANT]
-> W przypadku dużych wystąpień jednostki SKU klasy typu II należy użyć jednostki SKU bramy UltraPerformance.
+> W przypadku dużych wystąpień jednostek SKU klasy typu II należy użyć jednostki SKU bramy UltraPerformance.
 
 ## <a name="link-virtual-networks"></a>Łączenie sieci wirtualnych
 
-Sieć wirtualna platformy Azure ma teraz bramę usługi ExpressRoute. Użyj informacji o autoryzacji dostarczonych przez firmę Microsoft, aby połączyć bramę usługi ExpressRoute z obwódem usługi Sap HANA Large Instances ExpressRoute. Można połączyć za pomocą witryny Azure portal lub programu PowerShell. Instrukcje programu PowerShell są następujące. 
+Usługa Azure Virtual Network ma teraz bramę ExpressRoute. Użyj informacji o autoryzacji dostarczonych przez firmę Microsoft w celu połączenia bramy ExpressRoute z obwodem ExpressRoute SAP HANA — duże wystąpienia. Można nawiązać połączenie za pomocą Azure Portal lub programu PowerShell. Instrukcje programu PowerShell są następujące. 
 
-Uruchom następujące polecenia dla każdej bramy usługi ExpressRoute przy użyciu innego AuthGUID dla każdego połączenia. Pierwsze dwa wpisy pokazane w poniższym skrypcie pochodzą z informacji dostarczonych przez firmę Microsoft. Ponadto AuthGUID jest specyficzne dla każdej sieci wirtualnej i jej bramy. Jeśli chcesz dodać inną sieć wirtualną platformy Azure, musisz uzyskać inny AuthID dla obwodu usługi ExpressRoute, który łączy duże wystąpienia HANA z platformą Azure od firmy Microsoft. 
+Uruchom następujące polecenia dla każdej bramy ExpressRoute, używając innego AuthGUID dla każdego połączenia. Pierwsze dwa wpisy, które przedstawiono w poniższym skrypcie pochodzą z informacji dostarczonych przez firmę Microsoft. Ponadto AuthGUID jest specyficzny dla każdej sieci wirtualnej i jej bramy. Jeśli chcesz dodać kolejną sieć wirtualną platformy Azure, musisz uzyskać kolejną AuthID dla obwodu usługi ExpressRoute, który łączy duże wystąpienia platformy HANA z platformą Azure od firmy Microsoft. 
 
 ```powershell
 # Populate with information provided by Microsoft Onboarding team
@@ -96,12 +96,12 @@ New-AzVirtualNetworkGatewayConnection -Name $myConnectionName `
 ```
 
 > [!NOTE]
-> Ostatni parametr w poleceniu New-AzVirtualNetworkGatewayConnection, **ExpressRouteGatewayBypass** jest nowym parametrem, który umożliwia szybką ścieżkę usługi ExpressRoute. Funkcja zmniejszająca opóźnienia sieci między jednostkami dużych wystąpień HANA a maszynami wirtualnymi platformy Azure. Funkcjonalność została dodana w maju 2019. Aby uzyskać więcej informacji, zapoznaj się z artykułem [SAP HANA (Duże wystąpienia) architektura sieci](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture). Przed uruchomieniem poleceń upewnij się, że używasz najnowszej wersji poleceń cmdlet programu PowerShell.
+> Ostatnim parametrem w poleceniu New-AzVirtualNetworkGatewayConnection, **ExpressRouteGatewayBypass** jest nowy parametr, który włącza funkcję ExpressRoute Fast Path. Funkcja, która zmniejsza opóźnienie sieci między jednostkami dużych wystąpień usługi HANA i maszynami wirtualnymi platformy Azure. Funkcjonalność została dodana w maju 2019. Aby uzyskać więcej informacji, zobacz artykuł [SAP HANA (duże wystąpienia) Architektura sieci](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture). Przed uruchomieniem poleceń upewnij się, że korzystasz z najnowszej wersji poleceń cmdlet programu PowerShell.
 
-Aby połączyć bramę z więcej niż jednym obwodem usługi ExpressRoute skojarzonym z subskrypcją, może być konieczne uruchomienie tego kroku więcej niż jeden raz. Na przykład prawdopodobnie połączysz tę samą bramę sieci wirtualnej z obwodem usługi ExpressRoute, który łączy sieć wirtualną z siecią lokalną.
+Aby połączyć bramę z więcej niż jednym obwodem usługi ExpressRoute skojarzonym z subskrypcją, może być konieczne wykonanie tego kroku więcej niż raz. Można na przykład połączyć tę samą bramę sieci wirtualnej z obwodem usługi ExpressRoute, który łączy sieć wirtualną z siecią lokalną.
 
-## <a name="applying-expressroute-fast-path-to-existing-hana-large-instance-expressroute-circuits"></a>Stosowanie szybkiej ścieżki usługi ExpressRoute do istniejących obwodów usługi ExpressRoute dużych wystąpień HANA
-W dokumentacji do tej pory wyjaśniono, jak połączyć nowy obwód usługi ExpressRoute, który został utworzony przy wdrażaniu dużego wystąpienia HANA do bramy usługi Azure ExpressRoute jednej z sieci wirtualnych platformy Azure. Ale wielu klientów ma już konfigurację obwodów usługi ExpressRoute i ich sieci wirtualne są już podłączone do dużych wystąpień HANA. Ponieważ nowa szybka ścieżka usługi ExpressRoute zmniejsza opóźnienia w sieci, zaleca się zastosowanie zmiany w celu korzystania z tej funkcji. Polecenia, aby podłączyć nowy obwód ExpreesRoute i zmienić istniejący obwód usługi ExpressRoute są takie same. W związku z tym należy uruchomić tę sekwencję poleceń programu PowerShell, aby zmienić istniejący obwód do użycia 
+## <a name="applying-expressroute-fast-path-to-existing-hana-large-instance-expressroute-circuits"></a>Stosowanie szybkiej ścieżki ExpressRoute do istniejących obwodów usługi ExpressRoute duże wystąpienie platformy HANA
+W tej części dokumentacji wyjaśniono, jak połączyć nowy obwód usługi ExpressRoute, który został utworzony przy użyciu wdrożenia dużego wystąpienia HANA w usłudze Azure ExpressRoute Gateway jednej z sieci wirtualnych platformy Azure. Wielu klientów ma już konfigurację obwodów usługi ExpressRoute, a ich sieci wirtualne są już połączone z dużymi wystąpieniami platformy HANA. Ponieważ nowa szybka ścieżka ExpressRoute zmniejsza opóźnienie sieci, zaleca się zastosowanie zmiany w celu korzystania z tej funkcji. Polecenia służące do łączenia nowego obwodu ExpreesRoute i zmiany istniejącego obwodu ExpressRoute są takie same. W związku z tym należy uruchomić tę sekwencję poleceń programu PowerShell, aby zmienić istniejący obwód do użycia 
 
 ```powershell
 # Populate with information provided by Microsoft Onboarding team
@@ -124,39 +124,39 @@ New-AzVirtualNetworkGatewayConnection -Name $myConnectionName `
 -PeerId $PeerID -ConnectionType ExpressRoute -AuthorizationKey $AuthGUID -ExpressRouteGatewayBypass
 ```
 
-Ważne jest, aby dodać ostatni parametr wyświetlany powyżej, aby włączyć funkcję Szybkiej ścieżki usługi ExpressRoute
+Ważne jest, aby dodać ostatni parametr, jak Wyświetlono powyżej, aby włączyć funkcję ExpressRoute Fast Path
 
 
 ## <a name="expressroute-global-reach"></a>ExpressRoute Global Reach
-Jak chcesz włączyć globalny zasięg dla jednego lub obu scenariuszy:
+Aby włączyć Global Reach dla jednego lub obu dwóch scenariuszy:
 
- - Replikacja systemu HANA bez żadnych dodatkowych serwerów proxy lub zapór
- - Kopiowanie kopii zapasowych między jednostkami dużych wystąpień HANA w dwóch różnych regionach w celu wykonywania kopii systemowych lub odświeżania systemu
+ - Replikacja systemu HANA bez dodatkowych serwerów proxy lub zapór
+ - Kopiowanie kopii zapasowych między jednostkami dużych wystąpień programu HANA w dwóch różnych regionach w celu wykonywania kopii systemu lub odświeżeń systemu
 
 należy wziąć pod uwagę, że:
 
-- Należy podać zakres przestrzeni adresowej /29 przestrzeni adresowej. Ten zakres adresów nie może pokrywać się z żadnym z innych zakresów przestrzeni adresowej, które były używane do tej pory podczas łączenia dużych wystąpień HANA na platformie Azure i nie mogą pokrywać się z żadnymi zakresami adresów IP używanymi w innym miejscu na platformie Azure lub lokalnie.
-- Istnieje ograniczenie dotyczące sieci ASN (numer systemu autonomicznego), które mogą służyć do reklamowania lokalnych tras do dużych wystąpień HANA. Lokalnie nie wolno reklamować żadnych tras z prywatnymi sieciami ASN w zakresie 65000 – 65020 lub 65515. 
-- W scenariuszu łączenia lokalnego bezpośredniego dostępu do wystąpień HANA Large należy obliczyć opłatę za obwód, który łączy cię z platformą Azure. W przypadku cen sprawdź ceny dodatku [Global Reach](https://azure.microsoft.com/pricing/details/expressroute/).
+- Należy podać zakres przestrzeni adresowej z/29 przestrzeni adresowej. Zakres adresów nie może nakładać się na wszystkie inne zakresy przestrzeni adresowej używane do łączenia z platformą HANA duże wystąpienia w systemie Azure i mogą nie nakładać się na żadne z zakresów adresów IP używanych w innym miejscu na platformie Azure lub lokalnie.
+- Istnieje ograniczenie ASN (numer systemu autonomicznego), którego można użyć do anonsowania tras lokalnych w dużych wystąpieniach platformy HANA. Lokalne nie mogą anonsować żadnych tras z prywatnym WPW w zakresie 65000 – 65020 lub 65515. 
+- Aby zapoznać się z scenariuszem łączenia lokalnego dostępu do dużych wystąpień platformy HANA, należy obliczyć opłatę za obwód, który łączy się z platformą Azure. W przypadku cen Sprawdź ceny [dodatku Global REACH](https://azure.microsoft.com/pricing/details/expressroute/).
 
-Aby uzyskać jeden lub oba scenariusze zastosowane do wdrożenia, otwórz komunikat pomocy technicznej z platformą Azure zgodnie z opisem w [otwórz żądanie pomocy technicznej dla dużych wystąpień HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#open-a-support-request-for-hana-large-instances)
+Aby uzyskać jedno lub oba scenariusze zastosowane do wdrożenia, Otwórz komunikat pomocy technicznej na platformie Azure zgodnie z opisem w artykule [otwieranie żądania obsługi dla dużych wystąpień usługi Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#open-a-support-request-for-hana-large-instances)
 
-Dane, które są potrzebne i słowa kluczowe, których należy użyć, aby firma Microsoft mogła kierować i wykonywać na żądanie, wygląda następująco:
+Wymagane dane i słowa kluczowe, które są potrzebne do użycia przez firmę Microsoft, aby można było kierować i wykonywać żądanie, wygląda następująco:
 
-- Usługa: SAP HANA Duże wystąpienie
+- Usługa: SAP HANA duże wystąpienie
 - Typ problemu: Konfiguracja i konfiguracja
-- Podtyp problemu: Mój problem nie jest wymieniony powyżej
-- Temat "Zmodyfikuj moją sieć - dodaj globalny zasięg"
-- Szczegóły: "Dodaj globalny zasięg do wystąpienia dużego HANA do dzierżawy dużych wystąpień HANA lub "Dodaj globalny zasięg do lokalnego do dzierżawy dużych wystąpień HANA.
-- Dodatkowe szczegóły dotyczące przypadku dzierżawy dużych wystąpień HANA do lokalizacji dużych wystąpień HANA: należy zdefiniować **dwa regiony platformy Azure,** w których znajdują się dwie dzierżawy do nawiązania połączenia **i** musisz przesłać **zakres adresów IP /29**
-- Dodatkowe szczegóły dotyczące lokalnego przypadku dzierżawy wystąpienia dużych hana: należy zdefiniować **region platformy Azure,** w którym dzierżawa dużych wystąpień HANA jest wdrażana bezpośrednio. Ponadto należy podać **identyfikator guid auth** i **identyfikator równorzędny obwodu,** który został odebrany podczas ustanawiania obwodu usługi ExpressRoute między środowiskiem lokalnym a platformą Azure. Ponadto należy nazwać nazwę **ASN**. Ostatnim rezultatem jest **zakres adresów IP /29** dla globalnego zasięgu usługi ExpressRoute.
+- Podtyp problemu: mój problem nie jest wymieniony powyżej
+- Podmiot "Modyfikuj moją sieć — Dodaj Global Reach"
+- Szczegóły: "Dodaj Global Reach do wystąpienia HANA duże wystąpienie do dzierżawy dużej instancji HANA lub" Dodaj Global Reach do lokalnego dzierżawy dużych wystąpień w usłudze Hana.
+- Dodatkowe szczegóły dotyczące wystąpienia usługi HANA duże wystąpienie dzierżawy dużego wystąpienia: należy zdefiniować **dwa regiony platformy Azure** , w których znajdują się dwie dzierżawcy do połączenia **, i** należy przesłać **zakres adresów IP/29**
+- Dodatkowe szczegóły dotyczące przypadku dzierżawy z dużym wystąpieniem w środowisku lokalnym i HANA: należy zdefiniować **region platformy Azure** , w którym wdrożono dzierżawcę dużej instancji Hana, z którym chcesz nawiązać bezpośrednie połączenie. Ponadto należy podać identyfikator **GUID uwierzytelniania** i **element równorzędny obwodu** , który został odebrany podczas ustanawiania obwodu usługi ExpressRoute między środowiskiem lokalnym i platformą Azure. Ponadto należy nazwać numer **ASN**. Ostatni element dostarczany jest **zakresem adresów IP/29** dla ExpressRoute Global REACH.
 
 > [!NOTE]
-> Jeśli chcesz mieć obie sprawy obsługiwane, należy podać dwa różne /29 zakresy adresów IP, które nie pokrywają się z innych zakres adresów IP używane do tej pory. 
+> Jeśli chcesz, aby oba przypadki były obsługiwane, należy podać dwa różne/29 zakresów adresów IP, które nie nakładają się na żadne inne adresy IP używane do tej pory. 
 
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dodatkowe wymagania sieciowe dla HLI](hana-additional-network-requirements.md)
+- [Dodatkowe wymagania dotyczące sieci dla elementu HLI](hana-additional-network-requirements.md)

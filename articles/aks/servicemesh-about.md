@@ -1,113 +1,113 @@
 ---
-title: Siatki usług – informacje
-description: Uzyskaj przegląd siatek usług, ich architektury i możliwości oraz kryteria, które należy wziąć pod uwagę przy wyborze jednego do wdrożenia.
+title: Informacje o siatkach usług
+description: Uzyskaj przegląd siatek usług, ich architektury i możliwości oraz kryteriów, które należy wziąć pod uwagę podczas wybierania jednego do wdrożenia.
 author: paulbouwer
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: eca49a3fac1ea0398ebe1d05bde20fbca3c81232
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77594315"
 ---
-# <a name="about-service-meshes"></a>Siatki usług – informacje
+# <a name="about-service-meshes"></a>Informacje o siatkach usług
 
-Siatka usług zapewnia funkcje, takie jak zarządzanie ruchem, odporność, zasady, zabezpieczenia, silna tożsamość i możliwość obserwoniania obciążeń. Aplikacja jest oddzielona od tych możliwości operacyjnych i siatki usług przenosi je z warstwy aplikacji i w dół do warstwy infrastruktury.
+Siatka usług zapewnia takie możliwości jak zarządzanie ruchem, odporność, zasady, zabezpieczenia, silna tożsamość i przestrzeganie obciążeń. Aplikacja jest oddzielona od tych możliwości operacyjnych, a siatka usług przenosi je z warstwy aplikacji, a w dół do warstwy infrastruktury.
 
 ## <a name="scenarios"></a>Scenariusze
 
-Oto niektóre ze scenariuszy, które można włączyć dla obciążeń podczas korzystania z siatki usługi:
+Poniżej przedstawiono niektóre scenariusze, które mogą być włączone dla obciążeń podczas korzystania z sieci usługi:
 
-- **Szyfruj cały ruch w klastrze** — włącz wzajemne TLS między określonymi usługami w klastrze. Można to rozszerzyć na ruch przychodzący i wychodzący na obwodzie sieci. Zapewnia bezpieczną opcję domyślną bez zmian wymaganych dla kodu aplikacji i infrastruktury.
+- **Szyfruj cały ruch w klastrze** — Włącz wzajemną TLS między określonymi usługami w klastrze. Można to rozszerzyć na ruch przychodzący i wychodzący w sieci obwodowej. Zapewnia bezpieczną opcję zabezpieczeń, bez konieczności wprowadzania zmian w kodzie i infrastrukturze aplikacji.
 
-- **Canary i stopniowe wdrażanie** — określ warunki podzbioru ruchu, który ma być kierowany do zestawu nowych usług w klastrze. Po pomyślnym przetestowaniu uwolnienia kanarek usuń routing warunkowy i fazę stopniowo zwiększając % całego ruchu do nowej usługi. Ostatecznie cały ruch zostanie przekierowany do nowej usługi.
+- **Fazy Kanaryjskie i etapy etapowe** — Określ warunki dla podzestawu ruchu, który ma być kierowany do zestawu nowych usług w klastrze. Po pomyślnym przeprowadzeniu testu w wersji Kanaryjskich należy usunąć pozycję kierowanie i stopniowe zwiększanie% całego ruchu do nowej usługi. Ostatecznie cały ruch będzie kierowany do nowej usługi.
 
-- **Zarządzanie ruchem i manipulowanie** - Tworzenie zasad w usłudze, która ograniczy cały ruch do wersji usługi z określonego źródła. Lub zasady, która stosuje strategię ponawiania do klas błędów między określonymi usługami. Dublowanie ruchu na żywo do nowych wersji usług podczas migracji lub do debugowania problemów. Wstrzyknąć błędy między usługami w środowisku testowym, aby przetestować odporność.
+- **Zarządzanie ruchem i manipulowanie** — Tworzenie zasad w usłudze, które będą ograniczać ruch do wersji usługi z określonego źródła. Lub zasad, które stosują strategię ponawiania, do klas błędów między określonymi usługami. Duplikowanie ruchu na żywo do nowych wersji usług podczas migracji lub debugowania problemów. Wsuń błędy między usługami w środowisku testowym w celu przetestowania odporności.
 
-- **Observability** — uzyskaj wgląd w sposób, w jaki usługi są połączone ruchu, który przepływa między nimi. Uzyskaj metryki, dzienniki i ślady dla całego ruchu w klastrze i transferu danych przychodzących/wychodzących. Dodaj rozproszone możliwości śledzenia do aplikacji.
+- **Observability** Wgląd w szczegółowe informacje na temat sposobu połączenia usług z ruchem między nimi. Uzyskiwanie metryk, dzienników i śladów dla całego ruchu w klastrze oraz danych przychodzących/wychodzących. Dodawanie rozproszonych możliwości śledzenia do aplikacji.
 
 ## <a name="architecture"></a>Architektura
 
-Siatka usługi składa się zazwyczaj z płaszczyzny kontrolnej i płaszczyzny danych.
+Siatka usług zwykle składa się z płaszczyzny kontroli i płaszczyzny danych.
 
-Płaszczyzna **sterowania** ma wiele komponentów, które obsługują zarządzanie siatką usług. Zazwyczaj obejmuje to interfejs zarządzania, który może być interfejsem użytkownika lub interfejsem API. Zazwyczaj będą również zazwyczaj składniki, które zarządzają definicjami reguł i zasad, które definiują sposób, w jaki siatka usług powinna implementować określone możliwości. Istnieją również składniki, które zarządzają aspektami zabezpieczeń, takimi jak silna tożsamość i certyfikaty dla usługi mTLS. Siatki usług będą również zazwyczaj mają metryki lub składnik obserwowalności, który zbiera i agreguje metryki i dane telemetryczne z obciążeń.
+**Płaszczyzna kontroli** zawiera wiele składników, które obsługują zarządzanie siatką usług. Zwykle obejmuje to interfejs zarządzania, który może być interfejsem użytkownika lub interfejsem API. Zwykle są również składniki zarządzające regułami i definicjami zasad, które definiują sposób implementacji przez siatkę usług określonych funkcji. Istnieją także składniki zarządzające aspektami zabezpieczeń, takimi jak mocna tożsamość i certyfikaty dla mTLS. Siatki usług również zwykle mają metryki lub składniki do zaobserwowania, które zbierają i agregują metryki i dane telemetryczne z obciążeń.
 
-Płaszczyzna **danych** zazwyczaj składa się z serwera proxy, który jest wtryskiwiony jako boczny do obciążeń. Ten serwer proxy jest skonfigurowany do kontrolowania całego ruchu sieciowego do i z zasobnika zawierającego obciążenie. Dzięki temu serwer proxy można skonfigurować do zabezpieczania ruchu za pośrednictwem usługi mTLS, dynamicznie trasy ruchu, stosowania zasad ruchu i zbierać metryki i informacje o śledzeniu. 
+**Płaszczyzna danych** zwykle składa się z serwera proxy, który jest w sposób niewidoczny w sposób przezroczysty jako Przyczepka do obciążeń. Ten serwer proxy jest skonfigurowany tak, aby kontrolować cały ruch sieciowy do i z obszaru, w którym znajdują się obciążenia. Dzięki temu serwer proxy ma być skonfigurowany do zabezpieczenia ruchu przez mTLS, dynamicznego kierowania ruchu, stosowania zasad do ruchu sieciowego oraz zbierania metryk i informacji śledzenia. 
 
-![Typowa architektura siatki usług](media/servicemesh/typical-architecture.png)
+![Typowa architektura sieci usługi](media/servicemesh/typical-architecture.png)
 
 ## <a name="capabilities"></a>Możliwości
 
-Każda z siateczek usługi mają naturalne dopasowanie i skupić się na obsłudze określonych scenariuszy, ale zazwyczaj okaże się, że większość z nich zaimplementuje szereg, jeśli nie wszystkie z następujących możliwości.
+Każda z siatek usług ma naturalną dopasowanie i koncentruje się na obsłudze określonych scenariuszy, ale zazwyczaj okaże się, że większość będzie implementować kilka, jeśli nie wszystkie, z następujących możliwości.
 
 ### <a name="traffic-management"></a>Zarządzanie ruchem 
 
-- **Protokół** – warstwa 7 (http, grpc)
-- **Routing dynamiczny** — warunkowe, ważące, dublowanie
-- Odporność — **limity** czasu, ponownych prób, wyłączniki
-- **Polityka** – kontrola dostępu, limity stawek, przydziały
-- **Testowanie** - wtrysk usterek
+- **Protokół** — warstwa 7 (http, GRPC)
+- **Routing dynamiczny** — warunkowe, ważenie, dublowanie
+- **Odporność** — przekroczenia limitu czasu, ponawianie prób, wyłączniki
+- **Zasady** — kontrola dostępu, limity szybkości, przydziały
+- **Testowanie** — iniekcja błędów
 
 ### <a name="security"></a>Zabezpieczenia
 
-- **Szyfrowanie** – mTLS, zarządzanie certyfikatami, zewnętrzny urząd certyfikacji
-- **Silna tożsamość** – SPIFFE lub podobne
-- **Auth** – uwierzytelnianie, autoryzacja
+- **Szyfrowanie** — mTLS, zarządzanie certyfikatami, zewnętrzny urząd certyfikacji
+- **Silna tożsamość** — SPIFFE lub podobne
+- **AUTH** — uwierzytelnianie, autoryzacja
 
-### <a name="observability"></a>Obserwowalność
+### <a name="observability"></a>Przestrzeganie
 
-- **Metryki** – złote metryki, prometeusz, grafana
-- **Śledzenie** — ślady między obciążeniami
-- **Ruch** — klaster, ruch przychodzący/wychodzący
+- **Metryki** — metryki złota, Prometheus, grafana
+- **Śledzenie** — ślady w ramach obciążeń
+- Ruch — klaster, transfery przychodzące/ **wychodzące**
 
 ### <a name="mesh"></a>Siatka
 
-- **Obsługiwane obliczenia** — kubernetes, maszyny wirtualne
-- **Multi-cluster** - bramy, federacja
+- **Obsługiwane obliczenia** — Kubernetes, maszyny wirtualne
+- Bramy **wieloklastrowe** , Federacja federacyjna
 
 ## <a name="selection-criteria"></a>Kryteria wyboru
 
-Przed wybraniem siatki usług upewnij się, że rozumiesz wymagania i powody instalowania siatki usług. Spróbuj zadać następujące pytania.
+Przed wybraniem siatki usługi upewnij się, że rozumiesz wymagania i przyczynę instalacji siatki usług. Spróbuj zadać następujące pytania.
 
-- **Czy kontroler ingress jest wystarczający dla moich potrzeb?** - Czasami o możliwości, takich jak a / b testowania lub podziału ruchu przy przystawku jest wystarczająca do obsługi wymaganego scenariusza. Nie dodawaj złożoności do środowiska bez żadnych plusów.
+- **Czy kontroler transferu danych przychodzących jest wystarczający dla moich potrzeb?** — Czasami posiadanie możliwości, takich jak/b testowanie lub podział ruchu na ruch przychodzący, jest wystarczające do obsługi wymaganego scenariusza. Nie dodawaj złożoności do środowiska bez żadnych samych siebie.
 
-- **Czy moje obciążenia i środowisko tolerują dodatkowe koszty ogólne?** - Wszystkie dodatkowe składniki wymagane do obsługi siatki usługi wymagają dodatkowych zasobów, takich jak procesor i pamięć. Ponadto wszystkie serwery proxy i ich skojarzone testy zasad zwiększają opóźnienie ruchu. Jeśli masz obciążeń, które są bardzo wrażliwe na opóźnienie lub nie można zapewnić dodatkowe zasoby na pokrycie składników siatki usługi, a następnie ponownie rozważyć.
+- **Czy moje obciążenia i środowisko mogą tolerować dodatkowe nadrzuty?** — Wszystkie dodatkowe składniki wymagane do obsługi siatki usług wymagają dodatkowych zasobów, takich jak procesor CPU i pamięć. Ponadto wszystkie serwery proxy i powiązane z nimi zasady sprawdzają opóźnienie dla ruchu. W przypadku obciążeń, które są bardzo ważne dla opóźnień lub nie można udostępnić dodatkowych zasobów, aby pokryć składniki sieci usługi, a następnie ponownie rozważyć.
 
-- **Czy to niepotrzebnie zwiększa złożoność?** - Jeśli powodem instalacji siatki serwisowej jest uzyskanie możliwości, która niekoniecznie jest krytyczna dla zespołów biznesowych lub operacyjnych, zastanów się, czy dodatkowa złożoność instalacji, konserwacji i konfiguracji jest tego warta.
+- **Czy to zwiększa niepotrzebną złożoność?** — Jeśli powodem instalacji siatki usługi jest uzyskanie możliwości, która nie musi być istotna dla zespołów firmy lub operacyjnych, należy rozważyć, czy dodatkowa złożoność instalacji, konserwacji i konfiguracji jest taka sama.
 
-- **Czy można to przyjąć w sposób stopniowy?** - Niektóre z oczek serwisowych, które zapewniają wiele możliwości, można przyjąć w bardziej stopniowym podejściu. Zainstaluj tylko składniki, których potrzebujesz, aby zapewnić sukces. Gdy jesteś bardziej pewny siebie i wymagane są dodatkowe możliwości, a następnie eksploruj je. Oprzeć się pokusie, aby zainstalować *wszystko* od początku.
+- **Czy można to przyjąć przy użyciu podejścia przyrostowego?** — Niektóre sieci dotyczące usługi, które zapewniają wiele możliwości, można przyjąć bardziej przyrostowe podejście. Zainstaluj tylko składniki potrzebne do zapewnienia sukcesu. Gdy jesteś bardziej pewny i potrzebujesz dodatkowych możliwości, zapoznaj się z nimi. Odporne na zainstalowanie *wszystkiego* od samego początku.
 
-Jeśli po dokładnym rozważeniu zdecydujesz, że potrzebujesz siatki usług, aby zapewnić wymagane możliwości, następną decyzją jest *siatka serwisowa?*
+Jeśli po starannym uwzględnieniu należy wybrać siatkę usługi, aby zapewnić wymagane możliwości, a następnie następną decyzję o *sieci usług?*
 
-Należy wziąć pod uwagę następujące obszary i które z nich są najbardziej zgodne z twoimi wymaganiami. Spowoduje to, że będziesz zmierzać w kierunku najlepszego dopasowania do środowiska i obciążeń. Sekcja [Następne kroki](#next-steps) pozwoli Ci uzyskać szczegółowe informacje na temat określonych siatek usług i sposobu mapowania tych obszarów.
+Należy wziąć pod uwagę następujące obszary i, które z nich są najbardziej dostosowane do Twoich wymagań. Przeprowadzisz Cię do najlepszego dopasowania do środowiska i obciążeń. Sekcja [następne kroki](#next-steps) przeprowadzi Cię do dalszych szczegółowych informacji o określonych oczkach usługi i sposobach ich mapowania do tych obszarów.
 
-- **Techniczne** - zarządzanie ruchem, polityka, bezpieczeństwo, możliwość obserwacji
+- Zarządzanie ruchem **technicznym** , zasady, zabezpieczenia, przestrzeganie
 
-- **Biznes** - wsparcie komercyjne, fundacja (CNCF), licencja OSS, zarządzanie
+- **Business** — komercyjne wsparcie, fundament (CNCF), licencja OSS, zarządzanie
 
-- **Operacyjne** — instalacja/uaktualnienia, wymagania dotyczące zasobów, wymagania dotyczące wydajności, integracje (metryki, telemetria, pulpity nawigacyjne, narzędzia, SMI), obciążenia mieszane (pule węzłów Linux i Windows), obliczenia (Kubernetes, maszyny wirtualne), wieloterwersywersy
+- **Operacyjna** — instalacja/uaktualnienia, wymagania dotyczące zasobów, wymagania dotyczące wydajności, integracje (metryki, dane telemetryczne, pulpity nawigacyjne, narzędzia, SMI), obciążenia mieszane (pule węzłów systemu Linux i Windows), obliczeniowe (Kubernetes, maszyny wirtualne), wiele klastrów
 
-- **Bezpieczeństwo** — eru, tożsamość, zarządzanie certyfikatami i rotacja, podłączane zewnętrzne urzędy certyfikacji
+- **Zabezpieczenia** — uwierzytelnianie, tożsamość, zarządzanie certyfikatami i rotacja, podłączany zewnętrzny urząd certyfikacji
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Poniższa dokumentacja zawiera więcej informacji na temat siateczek usług, które można wypróbować w usłudze Azure Kubernetes Service (AKS):
+Poniższa dokumentacja zawiera więcej informacji o siatkach usług, które można wypróbować w usłudze Azure Kubernetes Service (AKS):
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o Istio ...][istio-about]
+> [Dowiedz się więcej o Istio...][istio-about]
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o Linkerd ...][linkerd-about]
+> [Dowiedz się więcej na temat konsolidatora...][linkerd-about]
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o konsulu ...][consul-about]
+> [Dowiedz się więcej o Consul...][consul-about]
 
-Można również zapoznać się z interfejsem SMI (Service Mesh Interface), standardowym interfejsem dla siatki usług w usłudze Kubernetes:
+Warto również zapoznać się z interfejsem usługi Service siatk (SMI), standardowym interfejsem dla siatek usług w Kubernetes:
 
-- [Interfejs siatki usługi (SMI)][smi]
+- [Interfejs sieci usługi (SMI)][smi]
 
 
 <!-- LINKS - external -->

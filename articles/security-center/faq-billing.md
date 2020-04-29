@@ -1,6 +1,6 @@
 ---
-title: Usługa Azure Security Center — pytania dotyczące rozliczeń
-description: To często zadawane pytania dotyczy pytań dotyczących rozliczeń dotyczących usługi Azure Security Center, produktu, który pomaga zapobiegać zagrożeniom, wykrywać ich i reagować na nie.
+title: Azure Security Center często zadawane pytania — pytania dotyczące rozliczeń
+description: Ten często zadawane pytania odpowiadają na pytania dotyczące Azure Security Center, produktu, który pomaga zapobiegać zagrożeniom, wykrywać je i reagować na nie.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,20 +14,20 @@ ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
 ms.openlocfilehash: 214b5eea6f8de2d59869f7279aa17bcd786d8742
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77913841"
 ---
 # <a name="billing-questions"></a>Pytania dotyczące rozliczeń
 
-## <a name="how-does-billing-work-for-azure-security-center"></a>Jak działa rozliczenia w usłudze Azure Security Center?
+## <a name="how-does-billing-work-for-azure-security-center"></a>Jak działa rozliczenia dla Azure Security Center?
 Usługa Security Center jest oferowana w dwóch warstwach:
 
-- Warstwa **bezpłatna** zapewnia wgląd w stan zabezpieczeń zasobów platformy Azure, podstawowe zasady zabezpieczeń, zalecenia dotyczące zabezpieczeń i integrację z produktami zabezpieczeń i usługami od partnerów.
+- **Warstwa Bezpłatna** zapewnia wgląd w stan zabezpieczeń zasobów platformy Azure, podstawowe zasady zabezpieczeń, zalecenia dotyczące zabezpieczeń i integrację z produktami i usługami zabezpieczeń z partnerów.
 
-- **Warstwa standardowa** dodaje funkcje ochrony przed zagrożeniami, które obejmują alerty zabezpieczeń, analizę zagrożeń, analizę behawioralną, wykrywanie anomalii i raporty atrybucji zagrożeń. Możesz rozpocząć standardową bezpłatną wersję próbną warstwy. Aby uaktualnić, wybierz [warstwę cenową](https://docs.microsoft.com/azure/security-center/security-center-pricing) w zasadach zabezpieczeń. Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/security-center/).
+- **Warstwa standardowa** obejmuje funkcje ochrony przed zagrożeniami, w tym alerty zabezpieczeń, analizy zagrożeń, analizy zachowań, wykrywanie anomalii i raporty dotyczące autorstwa zagrożeń. Możesz rozpocząć korzystanie z bezpłatnej wersji próbnej warstwy Standardowa. W celu uaktualnienia wybierz pozycję [warstwa cenowa](https://docs.microsoft.com/azure/security-center/security-center-pricing) w obszarze Zasady zabezpieczeń. Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>Jak mogę śledzić, kto w mojej organizacji dokonał zmian warstwy cenowej w usłudze Azure Security Center
-Subskrypcje platformy Azure może mieć wielu administratorów z uprawnieniami do zmiany warstwy cenowej. Aby dowiedzieć się, który użytkownik wykonał zmianę warstwy cenowej, użyj dziennika aktywności platformy Azure. Aby uzyskać więcej informacji, zobacz [tutaj](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832).
+## <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>Jak mogę śledzić, kto w organizacji wykonał zmiany warstwy cenowej w Azure Security Center
+Subskrypcje platformy Azure mogą mieć wielu administratorów z uprawnieniami do zmiany warstwy cenowej. Aby dowiedzieć się, który użytkownik wykonał zmianę warstwy cenowej, użyj dziennika aktywności platformy Azure. Aby uzyskać więcej informacji, zobacz [tutaj](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832).

@@ -1,6 +1,6 @@
 ---
-title: Dodatkowe wymagania sieciowe dla systemu SAP HANA na platformie Azure (duże wystąpienia) | Dokumenty firmy Microsoft
-description: Dodatkowe wymagania sieciowe dla usługi SAP HANA na platformie Azure (duże wystąpienia).
+title: Dodatkowe wymagania dotyczące sieci dla SAP HANA na platformie Azure (duże wystąpienia) | Microsoft Docs
+description: Dodatkowe wymagania dotyczące sieci dla SAP HANA na platformie Azure (duże wystąpienia).
 services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
@@ -14,57 +14,57 @@ ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 66bbd8b462ac35756be0fae6eba940ba0aba6c4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77614582"
 ---
-# <a name="additional-network-requirements-for-large-instances"></a>Dodatkowe wymagania sieciowe dla dużych wystąpień
+# <a name="additional-network-requirements-for-large-instances"></a>Dodatkowe wymagania dotyczące sieci dla dużych wystąpień
 
-Może być dodatkowe wymagania sieciowe w ramach wdrażania dużych wystąpień SAP HANA na platformie Azure.
+Dodatkowe wymagania dotyczące sieci mogą być dostępne w ramach wdrożenia dużych wystąpień SAP HANA na platformie Azure.
 
 ## <a name="add-more-ip-addresses-or-subnets"></a>Dodawanie większej liczby adresów IP lub podsieci
 
-Podczas dodawania większej liczby adresów IP lub podsieci należy używać witryny Azure portal, PowerShell lub interfejsu wiersza polecenia platformy Azure.
+Użyj Azure Portal, PowerShell lub interfejsu wiersza polecenia platformy Azure w przypadku dodawania większej liczby adresów IP lub podsieci.
 
-Dodaj nowy zakres adresów IP jako nowy zakres do przestrzeni adresów sieci wirtualnej, zamiast generować nowy zagregowany zakres. Prześlij tę zmianę do firmy Microsoft. Dzięki temu można połączyć się z tego nowego zakresu adresów IP do jednostek dużych wystąpień HANA w kliencie. Możesz otworzyć żądanie pomocy technicznej platformy Azure, aby uzyskać nową przestrzeń adresową sieci wirtualnej. Po otrzymaniu potwierdzenia wykonaj kolejne kroki.
+Dodaj nowy zakres adresów IP jako nowy zakres do przestrzeni adresowej sieci wirtualnej, zamiast generować nowy zagregowany zakres. Prześlij tę zmianę do firmy Microsoft. Umożliwia to nawiązanie połączenia z tym nowym zakresem adresów IP z jednostkami dużej instancji HANA w kliencie. Możesz otworzyć żądanie pomocy technicznej platformy Azure, aby pobrać nową przestrzeń adresową sieci wirtualnej. Po otrzymaniu potwierdzenia wykonaj następne kroki.
 
-Aby utworzyć dodatkową podsieć z witryny Azure portal, zobacz [Tworzenie sieci wirtualnej przy użyciu portalu Azure](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). Aby utworzyć go z programu PowerShell, zobacz [Tworzenie sieci wirtualnej przy użyciu programu PowerShell](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network).
+Aby utworzyć dodatkową podsieć z Azure Portal, zobacz [Tworzenie sieci wirtualnej przy użyciu Azure Portal](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). Aby utworzyć jedną z poziomu programu PowerShell, zobacz [Tworzenie sieci wirtualnej przy użyciu programu PowerShell](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network).
 
-## <a name="add-virtual-networks"></a>Dodawanie sieci wirtualnych
+## <a name="add-virtual-networks"></a>Dodaj sieci wirtualne
 
-Po początkowym połączeniu jednej lub więcej sieci wirtualnych platformy Azure można połączyć dodatkowe sieci, które uzyskują dostęp do usługi SAP HANA na platformie Azure (duże wystąpienia). Najpierw prześlij żądanie pomocy technicznej platformy Azure. W tym żądaniu dołącz szczegółowe informacje identyfikujące określone wdrożenie platformy Azure. Obejmują również zakres przestrzeni adresowej IP lub zakresy przestrzeni adresowej sieci wirtualnej platformy Azure. Sap HANA w zarządzania usługami firmy Microsoft udostępnia następnie niezbędne informacje potrzebne do połączenia dodatkowych sieci wirtualnych i usługi Azure ExpressRoute. Dla każdej sieci wirtualnej potrzebny jest unikatowy klucz autoryzacji do łączenia się z obwodem usługi ExpressRoute z dużymi wystąpieniami HANA.
+Po nawiązaniu połączenia z jedną lub wieloma sieciami wirtualnymi platformy Azure możesz połączyć dodatkowe SAP HANA na platformie Azure (duże wystąpienia). Najpierw Prześlij żądanie pomocy technicznej platformy Azure. W tym żądaniu należy uwzględnić konkretne informacje identyfikujące konkretne wdrożenie platformy Azure. Uwzględnij również zakres przestrzeni adresów IP lub zakresy przestrzeni adresów sieci wirtualnej platformy Azure. SAP HANA w usłudze Microsoft Service Management udostępnia informacje niezbędne do połączenia dodatkowych sieci wirtualnych i usługi Azure ExpressRoute. Dla każdej sieci wirtualnej potrzebny jest unikatowy klucz autoryzacji do łączenia się z obwodem usługi ExpressRoute z dużymi wystąpieniami platformy HANA.
 
-## <a name="increase-expressroute-circuit-bandwidth"></a>Zwiększenie przepustowości obwodu usługi ExpressRoute
+## <a name="increase-expressroute-circuit-bandwidth"></a>Zwiększ przepustowość obwodu ExpressRoute
 
-Skonsultuj się z SAP HANA w zakresie zarządzania usługami firmy Microsoft. Jeśli zalecają zwiększenie przepustowości usługi SAP HANA na platformie Azure (duże wystąpienia) obwód usługi ExpressRoute, utwórz żądanie pomocy technicznej platformy Azure. (Można zażądać zwiększenia przepustowości pojedynczego obwodu do maksymalnie 10 Gb/s). Następnie otrzymasz powiadomienie po zakończeniu operacji; nie musisz nic robić, aby włączyć tę wyższą szybkość na platformie Azure.
+Zapoznaj się z SAP HANA w usłudze Microsoft Service Management. Jeśli poradzisz zwiększyć przepustowość SAP HANA na platformie Azure (duże wystąpienia), Utwórz żądanie pomocy technicznej platformy Azure. (Możesz poprosić o zwiększenie przepustowości pojedynczego obwodu do maksymalnie 10 GB/s). Po zakończeniu operacji otrzymasz powiadomienie. nie musisz wykonywać żadnych innych czynności, aby umożliwić wyższą szybkość działania na platformie Azure.
 
-## <a name="add-an-additional-expressroute-circuit"></a>Dodawanie dodatkowego obwodu usługi ExpressRoute
+## <a name="add-an-additional-expressroute-circuit"></a>Dodaj dodatkowy obwód ExpressRoute
 
-Skonsultuj się z SAP HANA w zakresie zarządzania usługami firmy Microsoft. Jeśli zaleci dodanie dodatkowego obwodu usługi ExpressRoute, utwórz żądanie pomocy technicznej platformy Azure (w tym żądanie uzyskania informacji o autoryzacji w celu połączenia się z nowym obwodem). Przed złożeniem żądania należy zdefiniować przestrzeń adresową używaną w sieciach wirtualnych. SAP HANA w zarządzania usługami firmy Microsoft może następnie zapewnić autoryzację.
+Zapoznaj się z SAP HANA w usłudze Microsoft Service Management. Jeśli zalecisz dodanie dodatkowego obwodu usługi ExpressRoute, Utwórz żądanie pomocy technicznej platformy Azure (w tym żądanie pobrania informacji o autoryzacji w celu nawiązania połączenia z nowym obwodem). Przed wykonaniem żądania należy zdefiniować przestrzeń adresową używaną w sieciach wirtualnych. SAP HANA w usłudze Microsoft Service Management może zapewnić autoryzację.
 
-Po utworzeniu nowego obwodu i zakończeniu konfiguracji SAP HANA w usłudze Microsoft Service Management zostanie wyświetlone powiadomienie z informacjami, które należy wykonać. Nie można połączyć sieci wirtualnych platformy Azure z tym dodatkowym obwodem, jeśli są one już połączone z innym obwodem sap HANA na platformie Azure (duże wystąpienie) obwód usługi ExpressRoute w tym samym regionie platformy Azure.
+Po utworzeniu nowego obwodu i zakończeniu SAP HANA w konfiguracji zarządzania usługami firmy Microsoft zostanie wyświetlone powiadomienie z informacjami, które należy wykonać. Nie można połączyć sieci wirtualnych platformy Azure z tym dodatkowym obwodem, jeśli są już połączone z innym SAP HANA na platformie Azure (duże wystąpienie) obwód ExpressRoute w tym samym regionie świadczenia usługi Azure.
 
 ## <a name="delete-a-subnet"></a>Usuwanie podsieci
 
-Aby usunąć podsieć sieci wirtualnej, można użyć witryny Azure portal, PowerShell lub interfejsu wiersza polecenia platformy Azure. Jeśli zakres adresów IP sieci wirtualnej platformy Azure lub przestrzeni adresowej był zakresem zagregowanym, nie ma żadnych działań następczych w firmie Microsoft. (Należy jednak zauważyć, że sieć wirtualna nadal propaguje przestrzeń adresową trasy BGP, która zawiera usuniętą podsieć). Być może zdefiniowano zakres adresów sieci wirtualnej platformy Azure lub przestrzeń adresową jako wiele zakresów adresów IP, z których jeden został przypisany do usuniętej podsieci. Pamiętaj, aby usunąć to z przestrzeni adresowej sieci wirtualnej. Następnie poinformuj SAP HANA w usłudze Microsoft Service Management, aby usunąć go z zakresów, z którymi sap HANA na platformie Azure (duże wystąpienia) mogą się komunikować.
+Aby usunąć podsieć sieci wirtualnej, można użyć Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Jeśli zakres adresów IP sieci wirtualnej platformy Azure lub przestrzeń adresowa była zagregowanym zakresem, nie ma żadnych monitów dla Ciebie z firmą Microsoft. (Pamiętaj jednak, że sieć wirtualna nadal propaguje przestrzeń adresową trasy BGP obejmującą usuniętą podsieć). Można zdefiniować zakres adresów sieci wirtualnej platformy Azure lub przestrzeń adresową jako wiele zakresów adresów IP, z których jedna została przypisana do usuniętej podsieci. Pamiętaj, aby usunąć ten obszar z przestrzeni adresowej sieci wirtualnej. Następnie poinformuj SAP HANA w usłudze Microsoft Service Management, aby usunąć ją z zakresów, które SAP HANA na platformie Azure (duże wystąpienia) mogą komunikować się z usługą.
 
-Aby uzyskać więcej informacji, zobacz [Usuwanie podsieci](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet).
+Aby uzyskać więcej informacji, zobacz [usuwanie podsieci](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet).
 
 ## <a name="delete-a-virtual-network"></a>Usuwanie sieci wirtualnej
 
-Aby uzyskać więcej informacji, zobacz [Usuwanie sieci wirtualnej](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-virtual-network).
+Aby uzyskać więcej informacji, zobacz [usuwanie sieci wirtualnej](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-virtual-network).
 
-Sap HANA w zarządzania usługami firmy Microsoft usuwa istniejące autoryzacje w usłudze SAP HANA na platformie Azure (duże wystąpienia) obwód usługi ExpressRoute. Usuwa również zakres adresów IP sieci wirtualnej platformy Azure lub przestrzeń adresową dla komunikacji z dużymi wystąpieniami HANA.
+SAP HANA w usłudze Microsoft Service Management usuwa istniejące autoryzacje na SAP HANA na platformie Azure (duże wystąpienia) obwodu ExpressRoute. Usuwa również zakres adresów IP sieci wirtualnej platformy Azure lub przestrzeń adresową na potrzeby komunikacji z dużymi wystąpieniami HANA.
 
-Po usunięciu sieci wirtualnej otwórz żądanie pomocy technicznej platformy Azure, aby zapewnić zakres przestrzeni adresowej IP lub zakresy do usunięcia.
+Po usunięciu sieci wirtualnej Otwórz żądanie pomocy technicznej platformy Azure, aby podać zakres przestrzeni adresów IP lub zakresy do usunięcia.
 
-Aby upewnić się, że usuniesz wszystko, usuń połączenie Usługi ExpressRoute, bramę sieci wirtualnej, publiczny adres IP bramy sieci wirtualnej i sieć wirtualną.
+Aby upewnić się, że usuniesz wszystko, Usuń połączenie ExpressRoute, bramę sieci wirtualnej, publiczny adres IP bramy sieci wirtualnej i sieć wirtualną.
 
-## <a name="delete-an-expressroute-circuit"></a>Usuwanie obwodu usługi ExpressRoute
+## <a name="delete-an-expressroute-circuit"></a>Usuwanie obwodu ExpressRoute
 
-Aby usunąć dodatkowe SAP HANA na platformie Azure (duże wystąpienia) obwód usługi ExpressRoute, otwórz żądanie pomocy technicznej platformy Azure z SAP HANA w zarządzania usługami firmy Microsoft. Zażądaj usunięcia obwodu. W ramach subskrypcji platformy Azure można usunąć lub zachować sieć wirtualną, w razie potrzeby. Należy jednak usunąć połączenie między obwodem usługi ExpressRoute dużych wystąpień HANA a stacją połączonej sieci wirtualnej.
+Aby usunąć dodatkowe SAP HANA na platformie Azure (duże wystąpienia) obwodu usługi ExpressRoute, Otwórz żądanie pomocy technicznej platformy Azure z SAP HANA w usłudze Microsoft Service Management. Żądaj, aby obwód został usunięty. W ramach subskrypcji platformy Azure możesz w razie potrzeby usunąć lub utrzymywać sieć wirtualną. Należy jednak usunąć połączenie między obwodem usługi ExpressRoute duże wystąpienia HANA i połączoną bramą sieci wirtualnej.
 
 ## <a name="next-steps"></a>Następne kroki
 

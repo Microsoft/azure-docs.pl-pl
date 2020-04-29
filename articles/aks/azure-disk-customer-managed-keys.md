@@ -1,40 +1,40 @@
 ---
-title: Szyfrowanie dysków platformy Azure w usłudze Azure Kubernetes (Azure Kubernetes Service) (AKS) za pomocą klucza zarządzanego przez klienta
-description: Przynieś własne klucze (BYOK), aby zaszyfrować dyski systemu operacyjnego AKS i data.
+title: Szyfrowanie dysków platformy Azure w usłudze Azure Kubernetes Service (AKS) przy użyciu klucza zarządzanego przez klienta
+description: Korzystaj z własnych kluczy (BYOK), aby szyfrować system operacyjny AKS i dyski z danymi.
 services: container-service
 ms.topic: article
 ms.date: 01/12/2020
 ms.openlocfilehash: bb6ba5e6dd4ace9e33043079c0f435c10baf5cb2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77596508"
 ---
-# <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Przynieś własne klucze (BYOK) z dyskami platformy Azure w usłudze Azure Kubernetes Service (AKS)
+# <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Przenoszenie własnych kluczy (BYOK) z dyskami platformy Azure w usłudze Azure Kubernetes Service (AKS)
 
-Usługa Azure Storage szyfruje wszystkie dane na koncie magazynu w stanie spoczynku. Domyślnie dane są szyfrowane za pomocą kluczy zarządzanych przez firmę Microsoft. Aby uzyskać dodatkową kontrolę nad kluczami szyfrowania, można podać [klucze zarządzane][customer-managed-keys] przez klienta do szyfrowania w spoczynku zarówno dla systemu operacyjnego, jak i dysków danych dla klastrów AKS.
+Usługa Azure Storage szyfruje wszystkie dane na koncie magazynu w stanie spoczynku. Domyślnie dane są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Aby uzyskać dodatkową kontrolę nad kluczami szyfrowania, można podać [klucze zarządzane przez klienta][customer-managed-keys] , które będą używane do szyfrowania dla dysków systemu operacyjnego i danych dla klastrów AKS.
 
 > [!NOTE]
-> Klastry AKS oparte na systemach BYOK i Windows są dostępne w [regionach platformy Azure,][supported-regions] które obsługują szyfrowanie po stronie serwera dysków zarządzanych platformy Azure.
+> BYOK Linux i oparty na systemie Windows klastry AKS są dostępne w [regionach platformy Azure][supported-regions] , które obsługują szyfrowanie po stronie serwera dla usługi Azure Managed Disks.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-* W tym artykule założono, że tworzysz *nowy klaster AKS*.
+* W tym artykule przyjęto założenie, że tworzysz *nowy klaster AKS*.
 
-* Należy włączyć ochronę usuwania nietrwałego i przeczyszczać dla *usługi Azure Key Vault* podczas szyfrowania dysków zarządzanych za pomocą usługi Key Vault.
+* Należy włączyć nietrwałe usuwanie i przeczyszczanie ochrony dla *Azure Key Vault* podczas korzystania z Key Vault do szyfrowania dysków zarządzanych.
 
-* Potrzebujesz interfejsu wiersza polecenia platformy Azure w wersji 2.0.79 lub nowszej oraz rozszerzenia aks-preview 0.4.26
+* Potrzebujesz interfejsu wiersza polecenia platformy Azure w wersji 2.0.79 lub nowszej oraz rozszerzenia AKS-Preview 0.4.26
 
 > [!IMPORTANT]
-> Funkcje podglądu usługi AKS są samoobsługowe. Wersje zapoznawcza są dostarczane w stanie "tak jak jest" i "w miarę dostępności" i są wyłączone z umów o gwarantowanym poziomie usług i ograniczonej gwarancji. Podglądy AKS są częściowo objęte obsługą klienta na podstawie najlepszych starań. W związku z tym te funkcje nie są przeznaczone do użytku produkcyjnego. Aby uzyskać dodatkowe infromation, zobacz następujące artykuły pomocy technicznej:
+> Funkcja AKS w wersji zapoznawczej to samoobsługowe uczestnictwo. Wersje zapoznawcze są udostępniane w postaci "AS-IS" i "jako dostępne" i są wyłączone z umów dotyczących poziomu usług i ograniczonej rękojmi. Wersje zapoznawcze AKS są częściowo objęte obsługą klienta w oparciu o najlepszy nakład pracy. W związku z tym te funkcje nie są przeznaczone do użytku produkcyjnego. Aby dowiedzieć się więcej, zobacz następujące artykuły pomocy technicznej:
 >
-> * [Zasady wsparcia AKS](support-policies.md)
-> * [Często zadawane pytania dotyczące pomocy technicznej platformy Azure](faq.md)
+> * [Zasady pomocy technicznej AKS](support-policies.md)
+> * [Pomoc techniczna platformy Azure — często zadawane pytania](faq.md)
 
-## <a name="install-latest-aks-cli-preview-extension"></a>Instalowanie najnowszego rozszerzenia podglądu interfejsu wiersza polecenia AKS
+## <a name="install-latest-aks-cli-preview-extension"></a>Zainstaluj rozszerzenie najnowszej wersji zapoznawczej interfejsu wiersza polecenia AKS
 
-Aby korzystać z kluczy zarządzanych przez klienta, potrzebujesz rozszerzenia interfejsu wiersza polecenia *aks-preview* w wersji 0.4.26 lub nowszej. Zainstaluj rozszerzenie interfejsu wiersza polecenia interfejsu wiersza polecenia platformy Azure *aks-preview* przy użyciu polecenia [dodawania rozszerzenia az,][az-extension-add] a następnie sprawdź dostępność dostępnych aktualizacji za pomocą polecenia [aktualizacji rozszerzenia az:][az-extension-update]
+Aby można było używać kluczy zarządzanych przez klienta, wymagany jest interfejs wiersza polecenia *AKS-Preview* w wersji 0.4.26 lub nowszej. Zainstaluj rozszerzenie interfejsu wiersza polecenia platformy Azure w *wersji zapoznawczej* przy użyciu poleceń [AZ Extension Add][az-extension-add] , a następnie wyszukaj wszystkie dostępne aktualizacje za pomocą polecenia [AZ Extension Update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -44,11 +44,11 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-## <a name="create-an-azure-key-vault-instance"></a>Tworzenie wystąpienia usługi Azure Key Vault
+## <a name="create-an-azure-key-vault-instance"></a>Tworzenie wystąpienia Azure Key Vault
 
-Użyj wystąpienia usługi Azure Key Vault do przechowywania kluczy.  Opcjonalnie można użyć portalu Azure do [konfigurowania kluczy zarządzanych przez klienta za pomocą usługi Azure Key Vault][byok-azure-portal]
+Użyj wystąpienia Azure Key Vault, aby przechowywać klucze.  Opcjonalnie możesz użyć Azure Portal, aby [skonfigurować klucze zarządzane przez klienta za pomocą Azure Key Vault][byok-azure-portal]
 
-Utwórz nową *grupę zasobów*, a następnie utwórz nowe *wystąpienie usługi Key Vault* i włącz ochronę przed usuwaniem i usuwaniem nietrwałym.  Upewnij się, że używasz tych samych nazw regionów i grup zasobów dla każdego polecenia.
+Utwórz nową *grupę zasobów*, a następnie utwórz nowe wystąpienie *Key Vault* i Włącz trwałe usuwanie i przeczyszczanie.  Upewnij się, że dla każdego polecenia używasz tego samego regionu i nazwy grupy zasobów.
 
 ```azurecli-interactive
 # Optionally retrieve Azure region short names for use on upcoming commands
@@ -63,9 +63,9 @@ az group create -l myAzureRegionName -n myResourceGroup
 az keyvault create -n myKeyVaultName -g myResourceGroup -l myAzureRegionName  --enable-purge-protection true --enable-soft-delete true
 ```
 
-## <a name="create-an-instance-of-a-diskencryptionset"></a>Tworzenie wystąpienia zestawu DiskEncryptionSet
+## <a name="create-an-instance-of-a-diskencryptionset"></a>Tworzenie wystąpienia elementu DiskEncryptionSet
 
-Zastąp *myKeyVaultName* nazwą magazynu kluczy.  Aby wykonać następujące kroki, potrzebny jest również *klucz* przechowywany w usłudze Azure Key Vault.  Przechowuj istniejący klucz w przechowalni kluczy utworzonej w poprzednich krokach lub [wygeneruj nowy klucz][key-vault-generate] i zastąp *myKeyName* poniżej nazwą klucza.
+Zastąp *myKeyVaultName* nazwą magazynu kluczy.  Konieczne będzie również posiadanie *klucza* przechowywanego w Azure Key Vault, aby wykonać następujące czynności.  Zapisz istniejący klucz w Key Vault utworzonym w poprzednich krokach lub [Wygeneruj nowy klucz][key-vault-generate] i Zastąp element *NazwaKlucza* poniżej nazwą klucza.
     
 ```azurecli-interactive
 # Retrieve the Key Vault Id and store it in a variable
@@ -78,9 +78,9 @@ keyVaultKeyUrl=$(az keyvault key show --vault-name myKeyVaultName  --name myKeyN
 az disk-encryption-set create -n myDiskEncryptionSetName  -l myAzureRegionName  -g myResourceGroup --source-vault $keyVaultId --key-url $keyVaultKeyUrl 
 ```
 
-## <a name="grant-the-diskencryptionset-access-to-key-vault"></a>Udzielanie dostępu DiskEncryptionSet do magazynu kluczy
+## <a name="grant-the-diskencryptionset-access-to-key-vault"></a>Przyznaj DiskEncryptionSet dostęp do magazynu kluczy
 
-Użyj zestawu DiskEncryptionSet i grup zasobów utworzonych w poprzednich krokach i udziel dostępu do zasobów DiskEncryptionSet do usługi Azure Key Vault.
+Użyj DiskEncryptionSet i grup zasobów utworzonych w poprzednich krokach i Udziel dostępowi DiskEncryptionSet do Azure Key Vault.
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
@@ -95,10 +95,10 @@ az role assignment create --assignee $desIdentity --role Reader --scope $keyVaul
 
 ## <a name="create-a-new-aks-cluster-and-encrypt-the-os-disk"></a>Tworzenie nowego klastra AKS i szyfrowanie dysku systemu operacyjnego
 
-Utwórz **nową grupę zasobów** i klaster AKS, a następnie użyj klucza do zaszyfrowania dysku systemu operacyjnego. Klucze zarządzane przez klienta są obsługiwane tylko w wersjach kubernetes większych niż 1.17. 
+Utwórz **nową grupę zasobów** i klaster AKS, a następnie użyj klucza do szyfrowania dysku systemu operacyjnego. Klucze zarządzane przez klienta są obsługiwane tylko w wersjach Kubernetes większych niż 1,17. 
 
 > [!IMPORTANT]
-> Upewnij się, że tworzysz nową grupę resoruce dla klastra AKS
+> Upewnij się, że tworzysz nową grupę zasobów dla klastra AKS
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
@@ -113,12 +113,12 @@ az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset
 
 Po dodaniu nowych pul węzłów do klastra utworzonego powyżej klucz zarządzany przez klienta podany podczas tworzenia jest używany do szyfrowania dysku systemu operacyjnego.
 
-## <a name="encrypt-your-aks-cluster-data-disk"></a>Szyfrowanie dysku danych klastra AKS
+## <a name="encrypt-your-aks-cluster-data-disk"></a>Szyfrowanie dysku z danymi klastra AKS
 
-Można również zaszyfrować dyski danych AKS za pomocą własnych kluczy.
+Dyski danych AKS można także zaszyfrować własnymi kluczami.
 
 > [!IMPORTANT]
-> Upewnij się, że masz odpowiednie poświadczenia AKS. Podmiot zabezpieczeń usługi musi mieć dostęp współautora do grupy zasobów, w której jest wdrażany zestaw dysków. W przeciwnym razie pojawi się błąd sugerujący, że podmiot zabezpieczeń usługi nie ma uprawnień.
+> Upewnij się, że masz odpowiednie poświadczenia AKS. Jednostka usługi musi mieć dostęp współautora do grupy zasobów, w której wdrożono diskencryptionset. W przeciwnym razie zostanie wyświetlony komunikat o błędzie z sugestią, że jednostka usługi nie ma uprawnień.
 
 ```azurecli-interactive
 # Retrieve your Azure Subscription Id from id property as shown below
@@ -144,7 +144,7 @@ someuser@Azure:~$ az account list
 ]
 ```
 
-Utwórz plik o nazwie **byok-azure-disk.yaml,** który zawiera następujące informacje.  Zastąp myAzureSubscriptionId, myResourceGroup i myDiskEncrptionSetName wartościami i zastosuj yaml.  Upewnij się, że używasz grupy zasobów, w której jest wdrożony zestaw DiskEncryptionSet.  Jeśli używasz usługi Azure Cloud Shell, ten plik można utworzyć przy użyciu vi lub nano, tak jakby działał na systemie wirtualnym lub fizycznym:
+Utwórz plik o nazwie **BYOK-Azure-Disk. YAML** zawierający poniższe informacje.  Zastąp wartości myAzureSubscriptionId, XmlResources i myDiskEncrptionSetName wartościami i Zastosuj YAML.  Upewnij się, że korzystasz z grupy zasobów, w której wdrożono DiskEncryptionSet.  Jeśli używasz Azure Cloud Shell, ten plik można utworzyć przy użyciu VI lub nano jako w przypadku pracy w systemie wirtualnym lub fizycznym:
 
 ```
 kind: StorageClass
@@ -157,7 +157,7 @@ parameters:
   kind: managed
   diskEncryptionSetID: "/subscriptions/{myAzureSubscriptionId}/resourceGroups/{myResourceGroup}/providers/Microsoft.Compute/diskEncryptionSets/{myDiskEncryptionSetName}"
 ```
-Następnie uruchom to wdrożenie w klastrze AKS:
+Następnie Uruchom to wdrożenie w klastrze AKS:
 ```azurecli-interactive
 # Get credentials
 az aks get-credentials --name myAksCluster --resource-group myResourceGroup --output table
@@ -168,16 +168,16 @@ kubectl apply -f byok-azure-disk.yaml
 
 ## <a name="limitations"></a>Ograniczenia
 
-* Byok jest obecnie dostępny tylko w ga i wersji zapoznawczej w niektórych [regionach platformy Azure][supported-regions]
-* Szyfrowanie dysku systemu operacyjnego obsługiwane przez kubernetes w wersji 1.17 lub nowszej   
-* Dostępne tylko w regionach, w których obsługiwany jest byok
-* Szyfrowanie za pomocą kluczy zarządzanych przez klienta jest obecnie przeznaczone tylko dla nowych klastrów AKS, nie można uaktualnić istniejących klastrów
-* Klaster AKS przy użyciu zestawów skalowania maszyny wirtualnej są wymagane, nie jest obsługiwana dla zestawów dostępności maszyny wirtualnej
+* Usługa BYOK jest obecnie dostępna tylko w wersji zapoznawczej i w niektórych [regionach świadczenia usługi Azure][supported-regions]
+* Szyfrowanie dysków systemu operacyjnego obsługiwane przez program Kubernetes w wersji 1,17 lub nowszej   
+* Dostępne tylko w regionach, w których jest obsługiwany BYOK
+* Szyfrowanie z kluczami zarządzanymi przez klienta jest obecnie przeznaczone tylko dla nowych klastrów AKS, nie można uaktualnić istniejących klastrów
+* AKS klastra z użyciem Virtual Machine Scale Sets są wymagane, brak obsługi zestawów dostępności maszyn wirtualnych
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z [najlepszymi rozwiązaniami w zakresie zabezpieczeń klastra AKS][best-practices-security]
+Zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi zabezpieczeń klastra AKS][best-practices-security]
 
 <!-- LINKS - external -->
 

@@ -1,6 +1,6 @@
 ---
-title: Przewodnik po rozwiązywaniu problemów z wydajnością usługi Azure Files
-description: Znane problemy z wydajnością z udziałami plików platformy Azure i skojarzonymi z nimi obejściemi.
+title: Przewodnik rozwiązywania problemów dotyczących wydajności Azure Files
+description: Znane problemy z wydajnością związane z udziałami plików platformy Azure i związanymi z nimi obejściami.
 author: gunjanj
 ms.service: storage
 ms.topic: conceptual
@@ -8,68 +8,68 @@ ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
 ms.openlocfilehash: 09e55abcd97317b87f8a272afa51c6b4ace572e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77598089"
 ---
-# <a name="troubleshoot-azure-files-performance-issues"></a>Rozwiązywanie problemów z wydajnością usługi Azure Files
+# <a name="troubleshoot-azure-files-performance-issues"></a>Rozwiązywanie problemów z wydajnością Azure Files
 
-W tym artykule wymieniono niektóre typowe problemy związane z udziałami plików platformy Azure. Zapewnia potencjalne przyczyny i obejścia, gdy te problemy występują.
+W tym artykule wymieniono niektóre typowe problemy związane z udziałami plików platformy Azure. Zapewnia potencjalne przyczyny i obejścia w przypadku napotkania tych problemów.
 
-## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Duże opóźnienia, niska przepustowość i ogólne problemy z wydajnością
+## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Duże opóźnienia, niska przepływność i ogólne problemy z wydajnością
 
-### <a name="cause-1-share-experiencing-throttling"></a>Przyczyna 1: Udostępnianie występuje dławienie
+### <a name="cause-1-share-experiencing-throttling"></a>Przyczyna 1: udostępnianie z ograniczeniami
 
-Domyślny przydział na udział premium wynosi 100 GiB, który zapewnia 100 bazowych we/wy (z możliwością rozerwania do 300 na godzinę). Aby uzyskać więcej informacji na temat inicjowania obsługi administracyjnej i jego relacji z usługami We/Wy, zobacz sekcję [Aprowizowana akcja](storage-files-planning.md#understanding-provisioning-for-premium-file-shares) przewodnika planowania.
+Domyślny limit przydziału dla udziału w warstwie Premium to 100 GiB, który 100 zapewnia liczbę operacji wejścia/wyjścia na sekundę (z możliwością przekroczenia do 300 przez godzinę). Aby uzyskać więcej informacji o aprowizacji i jej relacji z wieloma operacjami we/wy, zobacz sekcję udostępniane [udziały](storage-files-planning.md#understanding-provisioning-for-premium-file-shares) w przewodniku planowania.
 
-Aby potwierdzić, czy twój udział jest ograniczany, możesz korzystać z metryk platformy Azure w portalu.
+Aby potwierdzić, że Twój udział jest ograniczany, możesz skorzystać z metryk platformy Azure w portalu.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. Wybierz **pozycję Wszystkie usługi,** a następnie wyszukaj **dane**.
+1. Wybierz pozycję **wszystkie usługi** , a następnie wyszukaj **metryki**.
 
 1. Wybierz pozycję **Metryki**.
 
-1. Wybierz konto magazynu jako zasób.
+1. Wybierz swoje konto magazynu jako zasób.
 
-1. Wybierz **pozycję Plik** jako obszar nazw metryki.
+1. Wybierz pozycję **plik** jako przestrzeń nazw metryki.
 
 1. Wybierz **transakcje** jako metrykę.
 
-1. Dodaj filtr **dla ResponseType** i sprawdź, czy wszystkie żądania mają kod odpowiedzi **SuccessWithThrottling** (dla SMB) lub **ClientThrottlingError** (dla REST).
+1. Dodaj filtr dla elementu **responsetype** i sprawdź, czy jakieś żądania mają kod odpowiedzi **SuccessWithThrottling** (dla protokołu SMB) lub **ClientThrottlingError** (dla REST).
 
-![Opcje metryki dla udziałów plików premium](media/storage-troubleshooting-premium-fileshares/metrics.png)
+![Opcje metryk dla udziałów plików Premium](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
 > [!NOTE]
-> Aby otrzymać alert, jeśli udział plików jest ograniczony, zobacz [Jak utworzyć alert, jeśli udział plików jest ograniczony](#how-to-create-an-alert-if-a-file-share-is-throttled).
+> Aby otrzymać Alert, jeśli udział plików jest ograniczany, zobacz [jak utworzyć alert, jeśli udział plików jest ograniczany](#how-to-create-an-alert-if-a-file-share-is-throttled).
 
 ### <a name="solution"></a>Rozwiązanie
 
-- Zwiększ pojemność aprowizowana udziału, określając wyższy przydział na udział.
+- Zwiększ pojemność udostępniania udziałów, określając wyższy limit przydziału w udziale.
 
-### <a name="cause-2-metadatanamespace-heavy-workload"></a>Przyczyna 2: Duże obciążenie metadanych/przestrzeni nazw
+### <a name="cause-2-metadatanamespace-heavy-workload"></a>Przyczyna 2: duże obciążenie metadanych/przestrzeni nazw
 
-Jeśli większość żądań są zorientowane na metadane (takie jak createfile/openfile/closefile/queryinfo/querydirectory), opóźnienie będzie gorsze w porównaniu do operacji odczytu/zapisu.
+Jeśli większość żądań jest skoncentrowana na metadanych, (na przykład onfile/OpenFile/CloseFile/QueryInfo/querydirectory), opóźnienie będzie gorszyć w porównaniu do operacji odczytu i zapisu.
 
-Aby potwierdzić, czy większość żądań jest zorientowana na metadane, możesz wykonać te same kroki, co powyżej. Z wyjątkiem zamiast dodawania filtru **dla ResponseType**, dodaj filtr **dla nazwy interfejsu API**.
+Aby sprawdzić, czy większość żądań jest skoncentrowana na metadanych, można użyć tych samych kroków jak powyżej. Oprócz dodawania filtru dla elementu **responsetype**Dodaj filtr dla **nazwy interfejsu API**.
 
-![Filtrowanie nazwy interfejsu API w metrykach](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
+![Filtrowanie nazw interfejsów API w metrykach](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
 
 ### <a name="workaround"></a>Obejście
 
-- Sprawdź, czy aplikacja może zostać zmodyfikowana, aby zmniejszyć liczbę operacji metadanych.
-- Dodaj dysk VHD w udziale plików i zainstaluj VHD przez SMB z klienta, aby wykonać operacje plików względem danych. Takie podejście działa dla pojedynczego modułu zapisującego i wielu scenariuszy czytników i umożliwia operacje metadanych, aby być lokalne, oferując wydajność podobną do lokalnego magazynu podłączonego bezpośrednio.
+- Sprawdź, czy aplikacja może zostać zmodyfikowana, aby zmniejszyć liczbę operacji na metadanych.
+- Dodaj wirtualny dysk twardy w udziale plików i zainstaluj dysk VHD za pośrednictwem protokołu SMB z poziomu klienta, aby wykonywać operacje na plikach na danych. Ta metoda działa w przypadku jednego składnika zapisywania i wielu scenariuszy czytelników oraz umożliwia lokalne wykonywanie operacji na metadanych, oferując wydajność podobną do magazynu lokalnego dołączonego bezpośrednio.
 
-### <a name="cause-3-single-threaded-application"></a>Przyczyna 3: Aplikacja jednowątkowa
+### <a name="cause-3-single-threaded-application"></a>Przyczyna 3: aplikacja jednowątkowa
 
-Jeśli aplikacja używana przez klienta jest jednowątkowy, może to spowodować znacznie niższe IOPS/przepływność niż maksymalna możliwa na podstawie aprowizowanego rozmiaru udziału.
+Jeśli aplikacja używana przez klienta jest jednowątkowa, może to znacząco obniżyć liczbę operacji we/wy na sekundę na podstawie rozmiaru udostępnionego udziału.
 
 ### <a name="solution"></a>Rozwiązanie
 
-- Zwiększ równoległość aplikacji, zwiększając liczbę wątków.
-- Przełącz się do aplikacji, w których równoległość jest możliwa. Na przykład w przypadku operacji kopiowania klienci mogą używać AzCopy lub RoboCopy z klientów systemu Windows lub polecenia **równoległego** na klientach systemu Linux.
+- Zwiększenie równoległości aplikacji przez zwiększenie liczby wątków.
+- Przejdź do aplikacji, w których możliwa jest równoległość. Na przykład w przypadku operacji kopiowania klienci mogą korzystać z AzCopy lub RoboCopy z klientów systemu Windows lub z polecenia **Parallel** na klientach z systemem Linux.
 
 ## <a name="very-high-latency-for-requests"></a>Bardzo duże opóźnienie dla żądań
 
@@ -79,20 +79,20 @@ Maszyna wirtualna klienta może znajdować się w innym regionie niż udział pl
 
 ### <a name="solution"></a>Rozwiązanie
 
-- Uruchom aplikację z maszyny Wirtualnej, która znajduje się w tym samym regionie co udział plików.
+- Uruchom aplikację z maszyny wirtualnej znajdującej się w tym samym regionie co udział plików.
 
-## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Klient nie może osiągnąć maksymalnej przepustowości obsługiwanej przez sieć
+## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Klient nie może osiągnąć maksymalnej przepływności obsługiwanej przez sieć
 
-Jedną z potencjalnych przyczyn tego jest brak fo SMB wielokanałowej obsługi. Obecnie udziały plików platformy Azure obsługują tylko jeden kanał, więc istnieje tylko jedno połączenie z maszyny Wirtualnej klienta do serwera. To pojedyncze połączenie jest powiązane z jednym rdzeniem na maszynie Wirtualnej klienta, więc maksymalna przepływność osiągalna z maszyny Wirtualnej jest powiązana z jednym rdzeniem.
+Jedną z potencjalnych przyczyn tego problemu jest brak obsługi wielu kanałów SMB. Obecnie udziały plików platformy Azure obsługują tylko jeden kanał, więc istnieje tylko jedno połączenie z maszyny wirtualnej klienta do serwera. To pojedyncze połączenie jest oznaczane pojedynczym rdzeniem na maszynie wirtualnej klienta, dzięki czemu maksymalna przepływność osiągalna z maszyny wirtualnej jest powiązana z jednym rdzeniem.
 
 ### <a name="workaround"></a>Obejście
 
-- Uzyskanie maszyny Wirtualnej z większym rdzeniem może pomóc zwiększyć przepływność.
-- Uruchamianie aplikacji klienckiej z wielu maszyn wirtualnych zwiększy przepływność.
+- Uzyskanie maszyny wirtualnej z większym rdzeniem może pomóc w zwiększeniu przepływności.
+- Uruchomienie aplikacji klienckiej z wielu maszyn wirtualnych spowoduje zwiększenie przepływności.
 
-- W miarę możliwości należy używać interfejsów API REST.
+- Jeśli to możliwe, Użyj interfejsów API REST.
 
-## <a name="throughput-on-linux-clients-is-significantly-lower-when-compared-to-windows-clients"></a>Przepływność na klientach systemu Linux jest znacznie niższa w porównaniu do klientów systemu Windows.
+## <a name="throughput-on-linux-clients-is-significantly-lower-when-compared-to-windows-clients"></a>Przepływność na klientach z systemem Linux jest znacznie mniejsza w porównaniu z klientami systemu Windows.
 
 ### <a name="cause"></a>Przyczyna
 
@@ -100,109 +100,109 @@ Jest to znany problem z implementacją klienta SMB w systemie Linux.
 
 ### <a name="workaround"></a>Obejście
 
-- Rozłóż obciążenie na wielu maszynach wirtualnych.
-- Na tej samej maszynie wirtualnej użyj wielu punktów instalacji z opcją **nosharesock** i rozłóż obciążenie na tych punktach instalacji.
-- W systemie Linux spróbuj zdedużyć opcję **nostrictsync,** aby uniknąć wymuszania opróżniania SMB przy każdym wywołaniu **fsync.** W przypadku usług Azure Files ta opcja nie koliduje z spójnością danych, ale może spowodować przestarzałe metadane pliku na liście katalogów ( polecenie**ls -l).** Bezpośrednie zapytanie metadanych pliku (polecenie**stat)** zwróci najbardziej aktualne metadane pliku.
+- Rozłożenie obciążenia na wiele maszyn wirtualnych.
+- Na tej samej maszynie wirtualnej Użyj wielu punktów instalacji z opcją **nosharesock** i rozłożyć obciążenie na te punkty instalacji.
+- W systemie Linux spróbuj zainstalować przy użyciu opcji **nostrictsync** , aby uniknąć wymuszania opróżniania SMB dla każdego wywołania **fsync** . W przypadku Azure Files ta opcja nie zakłóca spójności danych, ale może spowodować powstanie starych metadanych plików na liście katalogów (polecenie**ls-l** ). Bezpośrednie zapytanie o metadane pliku (**stat** polecenie) zwróci najbardziej aktualne metadane pliku.
 
-## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Duże opóźnienia dla dużych obciążeń metadanych obejmujących rozległe operacje otwierania/zamykania.
-
-### <a name="cause"></a>Przyczyna
-
-Brak obsługi dzierżaw katalogowych.
-
-### <a name="workaround"></a>Obejście
-
-- Jeśli to możliwe, należy unikać nadmiernego otwierania/zamykania uchwytu w tym samym katalogu w krótkim czasie.
-- W przypadku maszyn wirtualnych z systemem Linux należy zwiększyć limit czasu pamięci podręcznej wpisu katalogu, określając **actimeo=\<sec>** jako opcję instalacji. Domyślnie jest to jedna sekunda, więc większa wartość, taka jak trzy lub pięć, może pomóc.
-- W przypadku maszyn wirtualnych z systemem Linux uaktualnij jądro do wersji 4.20 lub nowszej.
-
-## <a name="low-iops-on-centosrhel"></a>Niskie IOPS na CentOS/ RHEL
+## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Duże opóźnienia w przypadku dużych obciążeń metadanych obejmujących liczne operacje otwierania/zamykania.
 
 ### <a name="cause"></a>Przyczyna
 
-Głębokość we/wy większa niż jedna nie jest obsługiwana w centos/rhel.
+Brak obsługi dzierżaw katalogów.
 
 ### <a name="workaround"></a>Obejście
 
-- Uaktualnienie do CentOS 8 / RHEL 8.
+- Jeśli to możliwe, unikaj nadmiernego dojścia otwierającego/zamykającego w tym samym katalogu w krótkim czasie.
+- W przypadku maszyn wirtualnych z systemem Linux Zwiększ limit czasu pamięci podręcznej wpisów w katalogu, określając **actimeo =\<sek>** jako opcję instalacji. Domyślnie jest to jedna sekunda, więc większa wartość, taka jak trzy lub pięć, może pomóc.
+- W przypadku maszyn wirtualnych z systemem Linux Uaktualnij jądro do wersji 4,20 lub nowszej.
+
+## <a name="low-iops-on-centosrhel"></a>Niska liczba operacji we/wy na sekundę w CentOS/RHEL
+
+### <a name="cause"></a>Przyczyna
+
+Głębokość we/wy większa niż 1 nie jest obsługiwana w przypadku CentOS/RHEL.
+
+### <a name="workaround"></a>Obejście
+
+- Uaktualnij do wersji CentOS 8/RHEL 8.
 - Zmień na Ubuntu.
 
-## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Powolne kopiowanie plików do i z usługi Azure Files w systemie Linux
+## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Kopiowanie plików do i z Azure Files w systemie Linux
 
-Jeśli występują powolne kopiowanie plików do i z usługi Azure Files, zapoznaj się [z powolne kopiowanie plików do i z usługi Azure Files w systemie Linux](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) sekcji w przewodniku rozwiązywania problemów z systemem Linux.
+Jeśli występują wolne kopiowanie plików do i z Azure Files, zapoznaj się z sekcją " [wolne kopiowanie plików do i z Azure Files w systemie Linux](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) " w przewodniku rozwiązywania problemów z systemem Linux.
 
-## <a name="jitterysaw-tooth-pattern-for-iops"></a>Jittery/saw-tooth wzór dla IOPS
-
-### <a name="cause"></a>Przyczyna
-
-Aplikacja kliencka konsekwentnie przekracza bazowe usługi We/Wy. Obecnie nie ma żadnych po stronie usługi wygładzanie obciążenia żądania, więc jeśli klient przekracza bazowych we/wy, zostanie on ograniczony przez usługę. To ograniczanie może spowodować, że klient doświadcza jittery/saw-tooth we/wy wzorzec we/wy. W takim przypadku średnia liczba we/wy osiągnięta przez klienta może być niższa niż bazowy we/wy.
-
-### <a name="workaround"></a>Obejście
-
-- Zmniejsz obciążenie żądania z aplikacji klienckiej, tak aby udział nie został ograniczony.
-- Zwiększ przydział udziału, aby udział nie został ograniczony.
-
-## <a name="excessive-directoryopendirectoryclose-calls"></a>Nadmierne directoryOpen/DirectoryZmieńnikuj
+## <a name="jitterysaw-tooth-pattern-for-iops"></a>Wzorzec "wahania/Piła-Tooth" dla operacji we/wy na sekundę
 
 ### <a name="cause"></a>Przyczyna
 
-Jeśli liczba wywołań DirectoryOpen/DirectoryClose jest jednym z głównych wywołań interfejsu API i nie oczekujesz, że klient będzie wykonywać wiele wywołań, może to być problem z programem antywirusowym zainstalowanym na maszynie wirtualnej klienta platformy Azure.
+Aplikacja kliencka stale przekracza liczbę operacji wejścia/wyjścia na sekundę. Obecnie nie ma możliwości obciążania żądania po stronie usługi, więc jeśli klient przekroczy liczbę operacji wejścia/wyjścia na sekundę, zostanie on ograniczony przez usługę. Ograniczanie wydajności może spowodować, że klient napotyka wzorzec IOPS "wahania/Piła-Tooth". W takim przypadku średnia liczba operacji we/wy osiągniętych przez klienta może być mniejsza niż liczba operacji we/wy na sekundę.
 
 ### <a name="workaround"></a>Obejście
 
-- Poprawka dotycząca tego problemu jest dostępna w [kwietniowej aktualizacji platformy dla systemu Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
+- Zmniejsz obciążenie żądaniami z aplikacji klienckiej, aby udział nie został ograniczony.
+- Zwiększ limit przydziału udziału, aby udział nie został ograniczony.
+
+## <a name="excessive-directoryopendirectoryclose-calls"></a>Nadmierne wywołania DirectoryOpen/DirectoryClose
+
+### <a name="cause"></a>Przyczyna
+
+Jeśli liczba wywołań DirectoryOpen/DirectoryClose jest między najpopularniejszymi wywołaniami interfejsu API i nie oczekuje się, że klient nie będzie mógł nawiązywać wielu wywołań, może to być problem z oprogramowaniem antywirusowym zainstalowanym na maszynie wirtualnej klienta platformy Azure.
+
+### <a name="workaround"></a>Obejście
+
+- Rozwiązanie tego problemu jest dostępne w [aktualizacji platformy w kwietniu dla systemu Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
 
 ## <a name="file-creation-is-slower-than-expected"></a>Tworzenie pliku jest wolniejsze niż oczekiwano
 
 ### <a name="cause"></a>Przyczyna
 
-Obciążenia, które opierają się na tworzeniu dużej liczby plików nie zobaczą istotnej różnicy między wydajnością udziałów plików w wersji premium a udziałami plików standardowych.
+Obciążenia, które opierają się na tworzeniu dużej liczby plików, nie będą widzieć znaczącej różnicy między wydajnością udziałów plików w warstwie Premium a standardowymi udziałami plików.
 
 ### <a name="workaround"></a>Obejście
 
 - Brak.
 
-## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Niska wydajność systemu Windows 8.1 lub Server 2012 R2
+## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Niska wydajność z Windows 8.1 lub serwera 2012 R2
 
 ### <a name="cause"></a>Przyczyna
 
-Wyższe niż oczekiwano opóźnienia dostępu do plików platformy Azure dla obciążeń intensywnie korzystających z we/wy.
+Większe niż oczekiwane opóźnienie dostępu Azure Files do obciążeń intensywnie korzystających z operacji we/wy.
 
 ### <a name="workaround"></a>Obejście
 
 - Zainstaluj dostępną [poprawkę](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1).
 
-## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Jak utworzyć alert, jeśli udział plików jest ograniczony
+## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Jak utworzyć alert, jeśli udział plików jest ograniczany
 
-1. W [portalu Azure](https://portal.azure.com)kliknij **monitor**. 
+1. W [Azure Portal](https://portal.azure.com)kliknij pozycję **Monitoruj**. 
 
-2. Kliknij **pozycję Alerty,** a następnie kliknij pozycję **+ Nowa reguła alertu**.
+2. Kliknij pozycję **alerty** , a następnie kliknij pozycję **+ Nowa reguła alertów**.
 
-3. Kliknij **przycisk Wybierz,** aby wybrać **zasób konta/pliku magazynu** zawierający udział plików, na którym chcesz ostrzegać, a następnie kliknij przycisk **Gotowe**. Jeśli na przykład nazwa konta magazynu to contoso, wybierz zasób contoso/plik.
+3. Kliknij pozycję **Wybierz** , aby wybrać **konto magazynu/zasób pliku** zawierający udział plików, na którym chcesz utworzyć alert, a następnie kliknij pozycję **gotowe**. Jeśli na przykład nazwa konta magazynu to contoso, wybierz zasób contoso/File.
 
-4. Kliknij **przycisk Dodaj,** aby dodać warunek.
+4. Kliknij przycisk **Dodaj** , aby dodać warunek.
 
-5. Zostanie wyświetlona lista sygnałów obsługiwanych dla konta magazynu, wybierz metrykę **Transakcje.**
+5. Zostanie wyświetlona lista sygnałów obsługiwanych przez konto magazynu, wybierz metrykę **transakcji** .
 
-6. W bloku **Konfiguruj logikę sygnału** przejdź do wymiaru **typu Odpowiedź,** kliknij listę rozwijaną **Wartości wymiaru** i wybierz pozycję **SuccessWithThrottling** (dla SMB) lub **ClientThrottlingError** (dla REST). 
-
-  > [!NOTE]
-  > Jeśli SuccessWithThrottling lub ClientThrottlingError wartość wymiaru nie jest wymieniony, oznacza to, że zasób nie został ograniczony.  Aby dodać wartość wymiaru, **+** kliknij obok listy rozwijanej **Wartości wymiaru,** wpisz **SuccessWithThrottling** lub **ClientThrottlingError**, kliknij przycisk **OK,** a następnie powtórz krok #6.
-
-7. Przejdź do wymiaru **Udział plików,** kliknij pozycję rozwijaną **Wartości wymiaru** i wybierz udziały plików, na których chcesz otrzymywać alerty. 
+6. W bloku **Konfigurowanie logiki sygnału** przejdź do wymiaru **Typ odpowiedzi** , kliknij listę rozwijaną **wartości wymiaru** i wybierz pozycję **SuccessWithThrottling** (dla protokołu SMB) lub **ClientThrottlingError** (dla opcji REST). 
 
   > [!NOTE]
-  > Jeśli udział plików jest standardowym udziałem plików, lista rozwijana wartości wymiarów będzie pusta, ponieważ metryki na jedną akcję nie są dostępne dla standardowych udziałów plików. Alerty ograniczania standardowych udziałów plików zostaną wyzwolone, jeśli dowolny udział plików na koncie magazynu zostanie ograniczony, a alert nie określi, który udział plików został ograniczony. Ponieważ metryki na jedną akcję nie są dostępne dla standardowych udziałów plików, zaleca się, aby mieć jeden udział plików na konto magazynu. 
+  > Jeśli wartość wymiaru SuccessWithThrottling lub ClientThrottlingError nie znajduje się na liście, oznacza to, że zasób nie został ograniczony.  Aby dodać wartość wymiaru **+** , kliknij obok listy rozwijanej **wartości wymiaru** , wpisz **SuccessWithThrottling** lub **ClientThrottlingError**, kliknij przycisk **OK** , a następnie powtórz krok #6.
 
-8. Zdefiniuj **parametry alertu** (próg, operator, szczegółowość agregacji i częstotliwość), które są używane do oceny reguły alertu metryki, a następnie kliknij przycisk **Gotowe**.
+7. Przejdź do wymiaru **udział plików** , kliknij listę rozwijaną **wartości wymiaru** i wybierz udziały plików, dla których chcesz utworzyć alert. 
+
+  > [!NOTE]
+  > Jeśli udział plików jest standardowym udziałem plików, listy rozwijane wartości wymiarów będą puste, ponieważ metryki dla udziałów nie są dostępne w przypadku plików w warstwie Standardowa. Alerty dotyczące ograniczania przepustowości dla standardowych udziałów plików będą wyzwalane, jeśli jakikolwiek udział plików w ramach konta magazynu zostanie ograniczony, a alert nie określi, który udział plików został ograniczony. Ponieważ metryki dla poszczególnych udziałów nie są dostępne dla standardowych udziałów plików, zalecenie ma mieć jeden udział plików na konto magazynu. 
+
+8. Zdefiniuj **Parametry alertu** (próg, operator, stopień szczegółowości i częstotliwość agregacji), które są używane do obliczania reguły alertu metryki, a następnie kliknij przycisk **gotowe**.
 
   > [!TIP]
-  > Jeśli używasz progu statycznego, wykres metryki może pomóc określić rozsądny próg, jeśli udział plików jest obecnie ograniczany. Jeśli używasz progu dynamicznego, wykres metryczny wyświetli obliczone progi na podstawie ostatnich danych.
+  > Jeśli jest używany próg statyczny, wykres metryk może pomóc w ustaleniu rozsądnego progu, jeśli udział plików jest obecnie ograniczany. Jeśli używasz progu dynamicznego, wykres metryki wyświetli obliczone progi na podstawie ostatnich danych.
 
-9. Dodaj **grupę akcji** (e-mail, SMS itp.) do alertu, wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
+9. Dodaj **grupę akcji** (wiadomości e-mail, wiadomości SMS itp.) do alertu, wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
 
-10. Wypełnij **szczegóły alertu,** takie jak **nazwa reguły alertu,** **Opis** i **ważność**.
+10. Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
 
-11. Kliknij **pozycję Utwórz regułę alertu,** aby utworzyć alert.
+11. Kliknij przycisk **Utwórz regułę alertu** , aby utworzyć alert.
 
-Aby dowiedzieć się więcej o konfigurowaniu alertów w usłudze Azure Monitor, zobacz [Omówienie alertów na platformie Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+Aby dowiedzieć się więcej o konfigurowaniu alertów w Azure Monitor, zobacz [Omówienie alertów w Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).

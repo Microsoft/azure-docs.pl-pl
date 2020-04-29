@@ -1,140 +1,140 @@
 ---
-title: 'Samouczek: Testowanie wsadowe w celu znalezienia problemów - USŁUGA LUIS'
-description: W tym samouczku pokazano, jak używać testowania wsadowego do sprawdzania poprawności jakości aplikacji do rozumienia języka (LUIS).
+title: 'Samouczek: testowanie wsadowe w celu znalezienia problemów — LUIS'
+description: W tym samouczku pokazano, jak za pomocą testów wsadowych sprawdzić poprawność jakości aplikacji Language Understanding (LUIS).
 ms.topic: tutorial
 ms.date: 03/02/2020
 ms.openlocfilehash: c276f0b52f83937fbe3b6fd9e0b7c1a66f665095
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78250570"
 ---
-# <a name="tutorial-batch-test-data-sets"></a>Samouczek: Zestawy danych testu wsadowego
+# <a name="tutorial-batch-test-data-sets"></a>Samouczek: zestawy danych testów wsadowych
 
-W tym samouczku pokazano, jak używać testowania wsadowego do sprawdzania poprawności jakości aplikacji do rozumienia języka (LUIS).
+W tym samouczku pokazano, jak za pomocą testów wsadowych sprawdzić poprawność jakości aplikacji Language Understanding (LUIS).
 
-Testowanie wsadowe umożliwia sprawdzenie poprawności stanu aktywnego, uczonego modelu za pomocą znanego zestawu wypowiedzi i jednostek oznaczonych etykietą. W pliku wsadowym w formacie JSON dodaj wypowiedzi i ustaw etykiety jednostek, których potrzebujesz, przewidywane wewnątrz wypowiedź.
+Testowanie wsadowe umożliwia zweryfikowanie aktywnego, przeszkolonego stanu modelu z znanym zestawem oznaczonym przez wyrażenia długości i jednostek. W pliku wsadowym w formacie JSON Dodaj wyrażenia długości i ustaw etykiety jednostek, które są wymagane w ramach wypowiedź.
 
-Wymagania dotyczące badania partii:
+Wymagania dotyczące testowania wsadowego:
 
-* Maksymalnie 1000 wypowiedzi na test.
+* Maksymalnie 1000 wyrażenia długości na test.
 * Brak duplikatów.
-* Dozwolone typy jednostek: tylko jednostki o obrobione.
+* Dozwolone typy jednostek: tylko jednostki rozpoznajce maszynowo.
 
-Podczas korzystania z aplikacji innej niż ten samouczek, *nie* należy używać wypowiedzi przykład już dodane do aplikacji.
+W przypadku korzystania z aplikacji innej niż w tym samouczku *nie należy używać* przykładowej wyrażenia długości już dodanej do aplikacji.
 
 **Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Importowanie aplikacji przykładowej
-> * Tworzenie pliku testu wsadowego
-> * Uruchamianie testu wsadowego
-> * Przeglądanie wyników testów
+> * Utwórz plik testu wsadowego
+> * Uruchom test wsadowy
+> * Przejrzyj wyniki testu
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="import-example-app"></a>Importowanie aplikacji przykładowej
 
-Zaimportuj aplikację, która `1 pepperoni pizza on thin crust`przyjmuje zamówienie pizzy, takie jak .
+Zaimportuj aplikację, która przyjmuje zamówienie Pizza na `1 pepperoni pizza on thin crust`przykład.
 
 1.  Pobierz i zapisz [plik JSON aplikacji](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-with-machine-learned-entity.json?raw=true).
 
-1. Użyj [portalu usługi LUIS w wersji zapoznawczej](https://preview.luis.ai/), `Pizza app`zaimportuj JSON do nowej aplikacji, nazwij aplikację .
+1. Użyj [portalu Luis w wersji zapoznawczej](https://preview.luis.ai/), zaimportuj kod JSON do nowej aplikacji `Pizza app`, nazwij aplikację.
 
-1. Wybierz **pociąg** w prawym górnym rogu nawigacji, aby trenować aplikację.
+1. Wybierz pozycję **szkolenie** w prawym górnym rogu nawigacji, aby szkolić aplikację.
 
-## <a name="what-should-the-batch-file-utterances-include"></a>Co powinny zawierać wypowiedzi plików wsadowych
+## <a name="what-should-the-batch-file-utterances-include"></a>Co powinien zawierać plik wsadowy wyrażenia długości
 
-Plik wsadowy powinien zawierać wypowiedzi z jednostek najwyższego poziomu maszyny dowiedział się oznaczone, w tym pozycji początkowej i końcowej. Wypowiedzi nie powinny być częścią przykładów już w aplikacji. Powinny one być wypowiedzi, które chcesz pozytywnie przewidzieć dla intencji i jednostek.
+Plik wsadowy powinien zawierać wyrażenia długości z przydziałem maszyn najwyższego poziomu z etykietą z uwzględnieniem pozycji początkowych i końcowych. Wyrażenia długości nie powinna być częścią przykładów już w aplikacji. Powinny one być wyrażenia długości, aby uzyskać pozytywne przewidywania dotyczące zamiar i jednostek.
 
-Można oddzielić testy przez intencji i/lub jednostki lub wszystkie testy (do 1000 wypowiedzi) w tym samym pliku.
+Możesz oddzielić testy na podstawie zamiaru i/lub jednostki lub uzyskać wszystkie testy (do 1000 wyrażenia długości) w tym samym pliku.
 
 ## <a name="batch-file"></a>Plik wsadowy
 
-Przykład JSON zawiera jeden wypowiedź z jednostki etykietą, aby zilustrować, jak wygląda plik testowy. W własnych testach powinien mieć wiele wypowiedzi z poprawnym intencji i jednostki uczenia maszynowego oznaczone.
+Przykładowy kod JSON zawiera jeden wypowiedź z etykietą Entity, aby zilustrować, jak wygląda plik testowy. We własnych testach powinna istnieć wiele wyrażenia długości z poprawnym zamiarem i podaną przez maszyną jednostką.
 
-1. Utwórz `pizza-with-machine-learned-entity-test.json` go w edytorze tekstu lub [pobierz.](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/batch-tests/pizza-with-machine-learned-entity-test.json?raw=true)
+1. Utwórz `pizza-with-machine-learned-entity-test.json` w edytorze tekstu lub [Pobierz](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/batch-tests/pizza-with-machine-learned-entity-test.json?raw=true) .
 
-2. W pliku wsadowym w formacie JSON dodaj wypowiedź z **intencją,** którą chcesz przewidzieć w teście.
+2. W pliku wsadowym w formacie JSON Dodaj wypowiedź z **zamiarem** , który ma być przewidywany w teście.
 
    [!code-json[Add the intents to the batch test file](~/samples-cognitive-services-data-files/luis/batch-tests/pizza-with-machine-learned-entity-test.json "Add the intent to the batch test file")]
 
-## <a name="run-the-batch"></a>Uruchamianie partii
+## <a name="run-the-batch"></a>Uruchom zadanie wsadowe
 
-1. Wybierz **pozycję Testuj** na górnym pasku nawigacyjnym.
+1. Na górnym pasku nawigacyjnym wybierz pozycję **test** .
 
-2. Wybierz **panel testowania wsadowego** w panelu po prawej stronie.
+2. Wybierz pozycję **panel testowania partii** w panelu po prawej stronie.
 
-3. Wybierz **pozycję Importuj zestaw danych**.
+3. Wybierz pozycję **Importuj zestaw danych**.
 
     > [!div class="mx-imgBorder"]
-    > ![Zrzut ekranu przedstawiający aplikację usługi LUIS z wyróżnionym zestawem danych Importuj](./media/luis-tutorial-batch-testing/import-dataset-button.png)
+    > ![Zrzut ekranu aplikacji LUIS z wyróżnioną pozycją Importuj zestaw danych](./media/luis-tutorial-batch-testing/import-dataset-button.png)
 
 4. Wybierz lokalizację `pizza-with-machine-learned-entity-test.json` pliku.
 
-5. Nazwij `pizza test` zestaw danych i wybierz pozycję **Gotowe**.
+5. Nazwij zestaw danych `pizza test` i wybierz pozycję **gotowe**.
 
     > [!div class="mx-imgBorder"]
     > ![Wybierz plik](./media/luis-tutorial-batch-testing/import-dataset-modal.png)
 
 6. Wybierz przycisk **Uruchom**.
 
-7. Wybierz **pozycję Zobacz wyniki**.
+7. Wybierz pozycję **Zobacz wyniki**.
 
-8. Przejrzyj wyniki na wykresie i legendzie.
+8. Przejrzyj wyniki w grafie i legendzie.
 
-## <a name="review-batch-results-for-intents"></a>Przeglądanie wyników partii dla intencji
+## <a name="review-batch-results-for-intents"></a>Przejrzyj wyniki partii dla intencji
 
-Wyniki testu pokazują graficznie, jak wypowiedzi testu były przewidywane względem aktywnej wersji.
+Wyniki testu pokazują graficznie, w jaki sposób przewidywalno wyrażenia długości testów względem aktywnej wersji.
 
-Na wykresie wsadowym są wyświetlane cztery kwadranty wyników. Po prawej stronie wykresu znajduje się filtr. Filtr zawiera intencje i encje. Po [wybraniu sekcji wykresu](luis-concept-batch-test.md#batch-test-results) lub punktu w obrębie wykresu poniżej wykresu zostanie wyświetlona skojarzona wypowiedź.
+Na wykresie wsadowym są wyświetlane cztery ćwiartki wyników. Na prawo od wykresu jest filtrem. Filtr zawiera intencje i jednostki. Po wybraniu [sekcji wykresu](luis-concept-batch-test.md#batch-test-results) lub punktu na wykresie, skojarzone wypowiedź są wyświetlane poniżej wykresu.
 
-Podczas najeżdżania kursorem na wykres kółko myszy może powiększyć lub zmniejszyć wyświetlanie na wykresie. Jest to przydatne, gdy istnieje wiele punktów na wykresie ściśle ze sobą połączone.
+Po umieszczeniu wskaźnika na wykresie kółkiem myszy może powiększyć lub zmniejszyć poziom wyświetlania na wykresie. Jest to przydatne w przypadku, gdy wiele punktów na wykresie jest ściśle klastrowane.
 
-Wykres jest w czterech kwadrantach, z dwiema sekcjami wyświetlanymi na czerwono.
+Wykres znajduje się w czterech ćwiartkach z dwiema sekcjami wyświetlanymi w kolorze czerwonym.
 
-1. Wybierz opcję **ModifyOrder** na liście filtrów.
-
-    > [!div class="mx-imgBorder"]
-    > ![Wybierz opcję ModifyOrder intent z listy filtrów](./media/luis-tutorial-batch-testing/select-intent-from-filter-list.png)
-
-    Wypowiedź jest przewidywana jako **True Positive** co oznacza, że wypowiedź pomyślnie dopasowane jego przewidywania dodatnie wymienione w pliku wsadowym.
+1. Wybierz zamiar **ModifyOrder** na liście filtrów.
 
     > [!div class="mx-imgBorder"]
-    > ![Wypowiedź pomyślnie dopasowała jego pozytywną prognozę](./media/luis-tutorial-batch-testing/intent-predicted-true-positive.png)
+    > ![Wybierz ModifyOrder intencję z listy filtrów](./media/luis-tutorial-batch-testing/select-intent-from-filter-list.png)
 
-    Zielone znaczniki wyboru na liście filtrów wskazują również powodzenie testu dla każdego zamiaru. Wszystkie inne intencje są wymienione z wynikiem dodatnim 1/1, ponieważ wypowiedź została przetestowana dla każdego zamiaru, jako negatywny test dla wszelkich intencji niewymienionych w teście wsadowym.
-
-1. Wybierz intencję **potwierdzenia.** Ta intencja nie jest wymieniona w teście wsadowym, więc jest to negatywny test wypowiedź, który jest wymieniony w teście wsadowym.
+    Wypowiedź jest przewidywane jako **prawdziwe pozytywne** znaczenie, że wypowiedź pomyślnie pasowała do swojej pozytywnej przewidywania wymienionej w pliku wsadowym.
 
     > [!div class="mx-imgBorder"]
-    > ![Wypowiedź pomyślnie przewidziała wartość ujemną dla nienotowanego zamiaru w pliku wsadowym](./media/luis-tutorial-batch-testing/true-negative-intent.png)
+    > ![Wypowiedź pomyślnie pasowały do swojej pozytywnej prognozowania](./media/luis-tutorial-batch-testing/intent-predicted-true-positive.png)
 
-    Negatywny test zakończył się pomyślnie, jak wspomniano w przypadku zielonego tekstu w filtrze i siatki.
+    Zielony znacznik wyboru na liście filtry wskazuje również sukces testu dla każdego zamiaru. Wszystkie inne intencje są wymienione z 1/1 pozytywnego wyniku, ponieważ wypowiedź został przetestowany z każdym zamiarem, jako negatywny test dla wszelkich intencji niewymienionych w teście wsadowym.
 
-## <a name="review-batch-test-results-for-entities"></a>Przeglądanie wyników testów wsadowych dla jednostek
-
-ModifyOrder jednostki, jako element maszyny z podentami, wyświetla, jeśli jednostki najwyższego poziomu dopasowane i wyświetlić, jak subentities są przewidywane.
-
-1. Wybierz element **ModifyOrder** na liście filtrów, a następnie wybierz okrąg w siatce.
-
-1. Przewidywanie jednostki jest wyświetlane poniżej wykresu. Wyświetlanie zawiera linie stałe dla prognoz, które odpowiadają oczekiwaniom i kropkowane linie dla prognoz, które nie pasują do oczekiwań.
+1. Wybierz zamiar **potwierdzenia** . Ten cel nie jest wymieniony w teście wsadowym, więc jest to negatywny test wypowiedź, który jest wymieniony w teście wsadowym.
 
     > [!div class="mx-imgBorder"]
-    > ![Jednostka nadrzędna jednostki pomyślnie przewidywana w pliku wsadowym](./media/luis-tutorial-batch-testing/labeled-entity-prediction.png)
+    > ![Wypowiedź pomyślnie przewidywalna wartość ujemna dla zamiaru nieznajdującego się na liście w pliku wsadowym](./media/luis-tutorial-batch-testing/true-negative-intent.png)
 
-## <a name="finding-errors-with-a-batch-test"></a>Znajdowanie błędów w teście wsadowym
+    Test negatywny zakończył się pomyślnie, jak zanotowano zielony tekst w filtrze i siatka.
 
-W tym samouczku pokazano, jak uruchomić test i zinterpretować wyniki. Nie obejmowała filozofii testów ani sposobu reagowania na nieudane testy.
+## <a name="review-batch-test-results-for-entities"></a>Przegląd wyników testów partii dla jednostek
 
-* Upewnij się, że obejmuje zarówno wypowiedzi pozytywne, jak i negatywne w teście, w tym wypowiedzi, które mogą być przewidywane dla innego, ale powiązanych intencji.
-* W przypadku nie po awarii wypowiedzi, wykonaj następujące zadania, a następnie uruchom testy ponownie:
-    * Przejrzyj bieżące przykłady intencji i jednostek, sprawdź poprawność wypowiedzi przykład aktywnej wersji są poprawne zarówno dla intencji i etykietowania jednostek.
-    * Dodawanie funkcji ułatwiające aplikacji przewidywanie intencji i encji
-    * Dodawanie bardziej pozytywnych wypowiedzi przykładowych
-    * Przejrzyj równowagę wypowiedzi przykładowych w intencjach
+Jednostka ModifyOrder jako jednostka maszyny z podjednostkami wyświetla, czy jednostka najwyższego poziomu jest dopasowana i wyświetla sposób przewidywania podjednostek.
+
+1. Wybierz jednostkę **ModifyOrder** na liście filtrów, a następnie wybierz okrąg w siatce.
+
+1. Prognoza jednostki jest wyświetlana poniżej wykresu. Wyświetlacz zawiera pełne linie dla prognoz, które pasują do oczekiwanych i kropkowanych wierszy w przypadku prognoz, które nie pasują do oczekiwanej wartości.
+
+    > [!div class="mx-imgBorder"]
+    > ![Element nadrzędny jednostki został pomyślnie przewidywalny w pliku wsadowym](./media/luis-tutorial-batch-testing/labeled-entity-prediction.png)
+
+## <a name="finding-errors-with-a-batch-test"></a>Znajdowanie błędów z testem wsadowym
+
+W tym samouczku pokazano, jak uruchomić test i interpretować wyniki. Nie obejmuje to zasady testowania ani reagowania na testy zakończone niepowodzeniem.
+
+* Upewnij się, że w teście są pokryte pozytywne i ujemne wyrażenia długości, w tym wyrażenia długości, które mogą być przewidywane dla różnych, ale powiązanych zamierzeń.
+* W przypadku niepowodzenia wyrażenia długości wykonaj następujące zadania, a następnie ponownie uruchom testy:
+    * Zapoznaj się z bieżącymi przykładami założeń i jednostek, sprawdzając, czy przykład wyrażenia długości aktywnej wersji jest poprawny zarówno w przypadku zamiaru, jak i etykiety jednostek.
+    * Dodawanie funkcji, które ułatwiają prognozowanie intencji i jednostek
+    * Dodaj bardziej pozytywne przykładowe wyrażenia długości
+    * Przeglądanie bilansu przykładowej wyrażenia długości w ramach intencji
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -142,8 +142,8 @@ W tym samouczku pokazano, jak uruchomić test i zinterpretować wyniki. Nie obej
 
 ## <a name="next-step"></a>Następny krok
 
-Samouczek używany test wsadowy, aby sprawdzić poprawność bieżącego modelu.
+Samouczek użył testu wsadowego do walidacji bieżącego modelu.
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o wzorcach](luis-tutorial-pattern.md)
+> [Informacje o wzorcach](luis-tutorial-pattern.md)
 

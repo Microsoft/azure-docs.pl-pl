@@ -1,6 +1,6 @@
 ---
-title: Globalnie rozproszone magazyny transakcyjne i analityczne (w prywatnej wersji zapoznawczej) dla kontenerów usługi Azure Cosmos
-description: Dowiedz się więcej o magazynie transakcyjnym i analitycznym oraz ich opcjach konfiguracji kontenerów usługi Azure Cosmos.
+title: Globalnie dystrybuowane transakcyjne i analityczne (w prywatnej wersji zapoznawczej) magazyn dla kontenerów usługi Azure Cosmos
+description: Dowiedz się więcej o magazynie transakcyjnym i analitycznym oraz ich opcjach konfiguracji dla kontenerów usługi Azure Cosmos.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,65 +8,65 @@ ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 1c2b79f8d0641b1a1386329a2add14ded766bf5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77623393"
 ---
-# <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Globalnie rozproszony magazyn transakcyjny i analityczny dla kontenerów usługi Azure Cosmos
+# <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Globalnie dystrybuowany magazyn transakcyjny i analityczny dla kontenerów usługi Azure Cosmos
 
-Kontener usługi Azure Cosmos jest wewnętrznie wspierany przez dwa aparaty magazynu — aparat magazynu transakcyjnego i aktualizowany aparat magazynu analitycznego (w prywatnej wersji zapoznawczej). Oba aparaty magazynu są ustrukturyzowane i zoptymalizowane pod kątem zapisu, aby uzyskać szybsze aktualizacje. Jednak każdy z nich jest zakodowany inaczej:
+Kontener usługi Azure Cosmos jest wewnętrznie obsługiwany przez dwa aparaty magazynu — transakcyjny aparat magazynu i aktualizowalny aparat magazynu analitycznego (w ramach prywatnej wersji zapoznawczej). Zarówno aparaty magazynu mają strukturę dzienników, jak i są zoptymalizowane pod kątem zapisu w celu przyspieszenia aktualizacji. Jednak każdy z nich jest zakodowany inaczej:
 
-* **Aparat magazynu transakcyjnego** — jest zakodowany w formacie zorientowanym na wiersze dla szybkich odczytów transakcyjnych i zapytań.
+* **Transakcyjny aparat magazynu** — jest zakodowany w formacie zorientowanym na wiersze dla szybkich operacji odczytu i zapytań transakcyjnych.
 
-* **Analityczny aparat pamięci masowej** — jest zakodowany w formacie kolumnowym dla szybkich zapytań analitycznych i skanowania.
+* **Aparat magazynu analitycznego** — jest on zakodowany w formacie kolumnowym w celu uzyskania szybkich zapytań analitycznych i skanowania.
 
-![Aparaty pamięci masowej i mapowanie interfejsu API usługi Azure Cosmos DB](./media/globally-distributed-transactional-analytical-storage/storage-engines-api-mapping.png)
+![Aparaty magazynu i mapowanie interfejsów API Azure Cosmos DB](./media/globally-distributed-transactional-analytical-storage/storage-engines-api-mapping.png)
 
-Transakcyjny aparat magazynowania jest wspierany przez lokalne dyski SSD, podczas gdy magazyn analityczny jest przechowywany w niedrogim magazynie SSD poza klastrem. W poniższej tabeli przedstawiono istotne różnice między magazynem transakcyjnym a analitycznym.
+Transakcyjny aparat magazynu jest obsługiwany przez lokalną dysków SSD, podczas gdy magazyn analityczny jest przechowywany w niedrogim magazynie SSD w klastrze. W poniższej tabeli przedstawiono istotne różnice między transakcyjną i analityczną magazynem.
 
 
 |Funkcja  |Magazyn transakcyjny  |Magazyn analityczny |
 |---------|---------|---------|
-|Maksymalna ilość miejsca do magazynowania w kontenerze usługi Azure Cosmos |   Unlimited (nieograniczony)      |    Unlimited (nieograniczony)     |
-|Maksymalna ilość miejsca do magazynowania na klucz partycji logicznej   |   20 GB      |   Unlimited (nieograniczony)      |
-|Kodowanie magazynu  |   Zorientowane na wiersze, przy użyciu formatu wewnętrznego.   |   Zorientowane na kolumny, przy użyciu formatu Apache Parquet. |
-|Lokalizacja magazynu |   Replikowana pamięć masowa wspierana przez dyski SSD lokalne/wewnątrz klastra. |  Replikowana pamięć masowa poparta niedrogimi dyskami SSD zdalnie/poza klastrem.       |
-|Trwałość  |    99.99999 (7-9 s)     |  99.99999 (7-9 s)       |
-|Interfejsy API uzyskujące dostęp do danych  |   SQL, MongoDB, Cassandra, Gremlin, Tabele i etcd.       | Apache Spark         |
-|Retencja (czas wygaśnięcia lub czas wygaśnięcia)   |  Oparte na zasadach, skonfigurowane w kontenerze usługi Azure Cosmos przy użyciu `DefaultTimeToLive` właściwości.       |   Oparte na zasadach, skonfigurowane w kontenerze usługi Azure Cosmos przy użyciu `ColumnStoreTimeToLive` właściwości.      |
+|Maksymalny rozmiar magazynu na kontener usługi Azure Cosmos |   Nieograniczona liczba      |    Nieograniczona liczba     |
+|Maksymalny rozmiar magazynu na klucz partycji logicznej   |   20 GB      |   Nieograniczona liczba      |
+|Kodowanie magazynu  |   Zorientowane na wiersze przy użyciu formatu wewnętrznego.   |   Zorientowane na kolumny przy użyciu formatu Apache Parquet. |
+|Miejscowość magazynu |   Zreplikowane magazyny obsługiwane przez lokalne/wewnętrzne dysków SSD klastra. |  Replikowany magazyn został poddany niedrogim dysków SSD zdalnego/wyłączenia klastra.       |
+|Trwałość  |    99,99999 (7-9 s)     |  99,99999 (7-9 s)       |
+|Interfejsy API, które uzyskują dostęp do danych  |   SQL, MongoDB, Cassandra, Gremlin, tabele i etcd.       | Apache Spark         |
+|Przechowywanie (czas wygaśnięcia lub TTL)   |  Oparte na zasadach, skonfigurowane w kontenerze usługi Azure Cosmos przy `DefaultTimeToLive` użyciu właściwości.       |   Oparte na zasadach, skonfigurowane w kontenerze usługi Azure Cosmos przy `ColumnStoreTimeToLive` użyciu właściwości.      |
 |Cena za GB    |   Zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/)     |   Zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/)        |
-|Cena za transakcje magazynu    |  Zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/)         |   Zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/)        |
+|Cena dla transakcji magazynu    |  Zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/)         |   Zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/)        |
 
-## <a name="benefits-of-transactional-and-analytical-storage"></a>Korzyści z przechowywania transakcyjnego i analitycznego
+## <a name="benefits-of-transactional-and-analytical-storage"></a>Zalety magazynu transakcyjnego i analitycznego
 
 ### <a name="no-etl-operations"></a>Brak operacji ETL
 
-Tradycyjne potoki analityczne są złożone z wieloma etapami, z których każdy wymaga operacji wyodrębniania i przekształcania (ETL) do i z warstw obliczeniowych i pamięci masowej. Skutkuje to złożonymi architekturami przetwarzania danych. Oznacza to wysokie koszty wielu etapów przechowywania i obliczeń oraz duże opóźnienia spowodowane ogromnymi ilościami danych przesyłanych między różnymi etapami przechowywania i obliczeń.  
+Tradycyjne potoki analityczne są złożone z wieloma etapami, które wymagają operacji extract-transform-load (ETL) do i z warstw obliczeniowych i magazynu. Powoduje to złożone architektury przetwarzania danych. Oznacza to wysokie koszty dotyczące wielu etapów magazynowania i obliczeń oraz duże opóźnienia wynikające z dużych ilości danych przesyłanych między różnymi etapami magazynu i obliczeń.  
 
-Nie ma żadnych narzutów na wykonywanie operacji ETL z usługi Azure Cosmos DB. Każdy kontener usługi Azure Cosmos jest wspierany przez aparaty magazynu transakcyjnego i analitycznego, a transfer danych między aparatem magazynu transakcyjnego i analitycznego odbywa się w ramach aparatu bazy danych i bez przeskoków sieciowych. Wynikające z tego opóźnienia i koszty są znacznie niższe w porównaniu z tradycyjnymi rozwiązaniami analitycznymi. Otrzymujesz jeden globalnie rozproszony system pamięci masowej zarówno dla obciążeń transakcyjnych, jak i analitycznych.  
+Nie ma żadnych nakładów na wykonywanie operacji ETL przy użyciu Azure Cosmos DB. Każdy kontener usługi Azure Cosmos jest obsługiwany przez zarówno sieciowe, jak i analityczne aparaty magazynowe, a transfer danych między sieciowym i analitycznym aparatem magazynu odbywa się w aparacie bazy danych i bez żadnych przeskoków sieci. Wynikowe opóźnienie i koszt są znacznie niższe w porównaniu z tradycyjnymi rozwiązaniami analitycznymi. W przypadku obciążeń transakcyjnych i analitycznych uzyskuje się pojedynczy globalnie rozproszony system przechowywania.  
 
-### <a name="store-multiple-versions-update-and-query-the-analytical-storage"></a>Przechowywanie wielu wersji, aktualizowanie i wykonywanie zapytań o magazyn analityczny
+### <a name="store-multiple-versions-update-and-query-the-analytical-storage"></a>Przechowywanie wielu wersji, aktualizowanie i wykonywanie zapytań do magazynu analitycznego
 
-Magazyn analityczny jest w pełni aktualizowane i zawiera pełną historię wersji wszystkich aktualizacji transakcyjnych, które wystąpiły w kontenerze usługi Azure Cosmos.
+Magazyn analityczny jest w pełni aktualizowalny i zawiera pełną historię wersji wszystkich aktualizacji transakcyjnych, które wystąpiły w kontenerze usługi Azure Cosmos.
 
-Każda aktualizacja dokonana w magazynie transakcyjnym jest gwarantowana, aby była widoczna dla magazynu analitycznego w ciągu 30 sekund. 
+Wszystkie aktualizacje w magazynie transakcyjnym są gwarantowane, aby były widoczne dla magazynu analitycznego w ciągu 30 sekund. 
 
-### <a name="globally-distributed-multi-master-analytical-storage"></a>Globalnie rozproszona, wielowymierna pamięć analityczna
+### <a name="globally-distributed-multi-master-analytical-storage"></a>Globalnie dystrybuowany magazyn analityczny z wieloma wzorcami
 
-Jeśli twoje konto usługi Azure Cosmos jest ograniczone do jednego regionu, dane przechowywane (w magazynie transakcyjnym i analitycznym) w kontenerach jest również ograniczony do jednego regionu. Z drugiej strony, jeśli konto usługi Azure Cosmos jest dystrybuowane globalnie, dane przechowywane w kontenerach są również dystrybuowane globalnie.
+Jeśli Twoje konto usługi Azure Cosmos ma zakres do jednego regionu, dane przechowywane (w magazynie transakcyjnym i analitycznym) w kontenerach są również objęte zakresem jednego regionu. Z drugiej strony, jeśli konto usługi Azure Cosmos jest dystrybuowane globalnie, dane przechowywane w kontenerach również są dystrybuowane globalnie.
 
-W przypadku kont usługi Azure Cosmos skonfigurowanych z wieloma regionami zapisu zapisy w kontenerze (zarówno do magazynu transakcyjnego, jak i analitycznego) są zawsze wykonywane w regionie lokalnym i dlatego są szybkie.
+W przypadku kont usługi Azure Cosmos skonfigurowanych z wieloma regionami zapisu operacje zapisu w kontenerze (zarówno w przypadku magazynu transakcyjnego, jak i w magazynie analitycznym) są zawsze wykonywane w regionie lokalnym, a tym samym szybko.
 
-Dla jedno- lub wieloregionalnych kont usługi Azure Cosmos, niezależnie od tego, czy pojedynczy region zapisu (pojedynczy wzorzec) lub wiele regionów zapisu (znany również jako multi-master), zarówno transakcyjnych i analitycznych odczytów/kwerend są wykonywane lokalnie w danym regionie.
+W przypadku kont usługi Azure Cosmos w jednym lub wielu regionach, niezależnie od tego, czy pojedynczy region zapisu (pojedynczy wzorzec) lub wiele regionów zapisu (znany również jako wiele wzorców), operacje transakcyjne i analityczne są wykonywane lokalnie w danym regionie.
 
 ### <a name="performance-isolation-between-transactional-and-analytical-workloads"></a>Izolacja wydajności między obciążeniami transakcyjnymi i analitycznymi
 
-W danym regionie obciążeń transakcyjnych działają na kontenerze magazynu transakcyjnego/wiersza. Z drugiej strony obciążeń analitycznych działają na dysku magazynu analitycznego/kolumnowego kontenera. Dwa aparaty magazynowania działają niezależnie i zapewniają ścisłą izolację wydajności między obciążeniami.
+W danym regionie obciążenia transakcyjne działają względem magazynu transakcyjnych/wierszy kontenera. Z drugiej strony obciążenia analityczne działają na magazyn analityczny/kolumnowy kontenera. Dwa silniki magazynu działają niezależnie i zapewniają ścisłą izolację wydajności między obciążeniami.
 
-Obciążenia transakcyjne zużywają aprowizowaną przepływność (RU). W przeciwieństwie do obciążeń transakcyjnych przepływność obciążeń analitycznych opiera się na rzeczywistym zużyciu. Obciążenia analityczne zużywają zasoby na żądanie.
+Obciążenia transakcyjne zużywają zainicjowaną przepływność (jednostek ru). W przeciwieństwie do obciążeń transakcyjnych przepływność obciążeń analitycznych opiera się na rzeczywistym zużyciu. Obciążenia analityczne zużywają zasoby na żądanie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Czas życia w usłudze Azure Cosmos DB](time-to-live.md)
+* [Czas wygaśnięcia w Azure Cosmos DB](time-to-live.md)

@@ -1,6 +1,6 @@
 ---
-title: Sprawdzanie systemu plików podczas uruchamiania maszyny Wirtualnej platformy Azure| Dokumenty firmy Microsoft
-description: Dowiedz się, jak rozwiązać problem, który podczas uruchamiania pokazuje system sprawdzania systemu plików Checking? Dokumenty firmy Microsoft
+title: Sprawdzanie systemu plików podczas uruchamiania maszyny wirtualnej platformy Azure | Microsoft Docs
+description: Dowiedz się, jak rozwiązać problem polegający na tym, że maszyna wirtualna pokazuje sprawdzanie systemu plików podczas rozruchu | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -13,34 +13,34 @@ ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
 ms.openlocfilehash: 86938c582745cb0759eda9cd0693f407471a0529
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77921491"
 ---
-# <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>System Windows pokazuje "sprawdzanie systemu plików" podczas uruchamiania maszyny Wirtualnej platformy Azure
+# <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>W systemie Windows jest wyświetlany komunikat "sprawdzanie systemu plików" podczas uruchamiania maszyny wirtualnej platformy Azure
 
-W tym artykule opisano błąd "Sprawdzanie systemu plików", który może wystąpić podczas uruchamiania maszyny wirtualnej systemu Windows (VM) na platformie Microsoft Azure.
+W tym artykule opisano błąd "sprawdzanie systemu plików", który może wystąpić podczas uruchamiania maszyny wirtualnej z systemem Windows w Microsoft Azure.
 
 
 ## <a name="symptom"></a>Objaw 
 
-Maszyna wirtualna systemu Windows nie uruchamia się. Po sprawdzeniu zrzutów ekranu rozruchu w [diagnostyce rozruchu](boot-diagnostics.md)widać, że proces sprawdź dysk (chkdsk.exe) jest uruchomiony z jednym z następujących komunikatów:
+Nie uruchomiono maszyny wirtualnej z systemem Windows. Po sprawdzeniu zrzutów ekranu rozruchowego w ramach [diagnostyki rozruchu](boot-diagnostics.md)zobaczysz, że proces sprawdzania dysku (chkdsk. exe) jest uruchomiony przy użyciu jednego z następujących komunikatów:
 
-- Napęd skanujący i naprawczy (C:)
-- Sprawdzanie systemu plików w języku C:
+- Skanowanie i naprawa dysku (C:)
+- Sprawdzanie systemu plików na dysku C:
 
 ## <a name="cause"></a>Przyczyna
 
-Jeśli w systemie plików zostanie znaleziony błąd NTFS, system Windows sprawdzi i naprawi spójność dysku przy następnym ponownym uruchomieniu. Zwykle dzieje się tak, jeśli maszyna wirtualna miała nieoczekiwane ponowne uruchomienie lub jeśli proces zamykania maszyny Wirtualnej został nagle przerwany.
+Jeśli w systemie plików zostanie znaleziony błąd systemu plików NTFS, system Windows sprawdzi i naprawi spójność dysku przy następnym ponownym uruchomieniu. Zwykle zdarza się to, gdy maszyna wirtualna miała jakiekolwiek nieoczekiwane ponowne uruchomienie lub jeśli proces zamykania maszyny wirtualnej został nagle przerwany.
 
 ## <a name="solution"></a>Rozwiązanie 
 
-System Windows uruchomi się normalnie po zakończeniu procesu Sprawdź dysk. Jeśli maszyna wirtualna utknęła w procesie Sprawdź dysk, spróbuj uruchomić check disk na maszynie Wirtualnej w trybie offline:
-1.  Wykonaj migawkę dysku systemu operacyjnego maszyny wirtualnej, którego dotyczy problem, jako kopię zapasową. Aby uzyskać więcej informacji, zobacz [Migawka dysku](../windows/snapshot-copy-managed-disk.md).
-2.  [Podłącz dysk systemu operacyjnego do odzyskiwania maszyny Wirtualnej](troubleshoot-recovery-disks-portal-windows.md).  
-3.  Na maszynie wirtualnej odzyskiwania uruchom program Check Disk na podłączonym dysku systemu operacyjnego. W poniższym przykładzie literą sterownika dołączonego dysku systemu operacyjnego jest E: 
+System Windows będzie uruchamiany normalnie po zakończeniu procesu sprawdzania dysku. Jeśli maszyna wirtualna jest zablokowana w procesie sprawdzania dysku, spróbuj uruchomić polecenie Sprawdź dysk w maszynie wirtualnej w trybie offline:
+1.  Utwórz migawkę dysku systemu operacyjnego z zaatakowaną maszyną wirtualną jako kopię zapasową. Aby uzyskać więcej informacji, zobacz [migawka dysku](../windows/snapshot-copy-managed-disk.md).
+2.  [Dołącz dysk systemu operacyjnego do maszyny wirtualnej odzyskiwania](troubleshoot-recovery-disks-portal-windows.md).  
+3.  Na maszynie wirtualnej odzyskiwania Uruchom polecenie Sprawdź dysk na dołączonym dysku systemu operacyjnego. W poniższym przykładzie litera sterownika dołączonego dysku systemu operacyjnego jest w wersji E: 
         
         chkdsk E: /f
-4.  Po zakończeniu funkcji Sprawdź dysk odłącz dysk od maszyny wirtualnej odzyskiwania, a następnie ponownie dołącz dysk do maszyny Wirtualnej, którego dotyczy problem, jako dysk systemu operacyjnego. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z maszyną wirtualną systemu Windows, dołączając dysk systemu operacyjnego do odzyskiwania maszyny Wirtualnej](troubleshoot-recovery-disks-portal-windows.md).
+4.  Po zakończeniu sprawdzania dysku Odłącz dysk od maszyny wirtualnej odzyskiwania, a następnie ponownie podłącz dysk do maszyny wirtualnej, której to dotyczy, jako dysku systemu operacyjnego. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z maszyną wirtualną z systemem Windows przez dołączenie dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania](troubleshoot-recovery-disks-portal-windows.md).

@@ -1,6 +1,6 @@
 ---
-title: Obsługiwane scenariusze dla sap HANA na platformie Azure (duże wystąpienia)| Dokumenty firmy Microsoft
-description: Obsługiwane scenariusze i szczegóły ich architektury dla sap HANA na platformie Azure (duże wystąpienia)
+title: Obsługiwane scenariusze dla SAP HANA na platformie Azure (duże wystąpienia) | Microsoft Docs
+description: Obsługiwane scenariusze i szczegółowe informacje o architekturze dla SAP HANA na platformie Azure (duże wystąpienia)
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
@@ -14,93 +14,93 @@ ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 019f462d4264d19bcc4806d91223029a95f9d819
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617179"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Obsługiwane scenariusze dla dużych wystąpień HANA
-W tym artykule opisano obsługiwane scenariusze i szczegóły architektury dla dużych wystąpień HANA (HLI).
+W tym artykule opisano obsługiwane scenariusze i szczegóły architektury dla dużych wystąpień platformy HANA (HLI).
 
 >[!NOTE]
->Jeśli wymagany scenariusz nie jest wymieniony w tym artykule, skontaktuj się z zespołem zarządzania usługami firmy Microsoft, aby ocenić wymagania.
-Przed skonfigurowaniem jednostki HLI należy sprawdzić poprawność projektu za pomocą sap lub partnera implementacji usługi.
+>Jeśli w tym artykule nie określono wymaganego scenariusza, skontaktuj się z zespołem zarządzania usługami firmy Microsoft, aby ocenić wymagania.
+Przed skonfigurowaniem jednostki protokołu HLI Sprawdź, czy projekt jest używany przez oprogramowanie SAP lub partnera implementacji usługi.
 
 ## <a name="terms-and-definitions"></a>Warunki i definicje
-Przyjmijmy terminy i definicje, które są używane w tym artykule:
+Zapoznaj się z postanowieniami i definicjami, które są używane w tym artykule:
 
-- **SID**: Identyfikator systemu dla systemu HANA
-- **HLI**: Hana Duże instancje
-- **DR**: Odzyskiwanie po awarii
-- **Normalna dr:** Konfiguracja systemu z dedykowanym zasobem tylko do celów odzyskiwania po awarii
-- **Wielofunkcyjna awaria odzyskiwania po**awarii: system lokacji odzyskiwania po awarii skonfigurowany do używania środowiska nieprodukcyjnego obok wystąpienia produkcyjnego skonfigurowanego dla zdarzenia odzyskiwania po awarii 
-- **Pojedynczy identyfikator SID**: System z zainstalowanym jednym wystąpieniem
-- **Multi-SID:** System z wieloma skonfigurowanymi wystąpieniami; zwane również środowiskiem MCOS
-- **HSR**: Replikacja systemu SAP HANA
+- **SID**: identyfikator systemu dla systemu Hana
+- **HLI**: Duże wystąpienia Hana
+- **DR**Odzyskiwanie po awarii
+- **Normalny program Dr**: Konfiguracja systemu z dedykowanym zasobem tylko do celów odzyskiwania po awarii
+- **MULTIPURPOSE Dr**: system lokacji Dr, który jest skonfigurowany do korzystania ze środowiska nieprodukcyjnego obok wystąpienia produkcyjnego skonfigurowanego dla zdarzenia odzyskiwania po awarii 
+- **Single-SID**: system z zainstalowanym jednym wystąpieniem
+- **Wiele identyfikatorów SID**: system z wieloma skonfigurowanymi wystąpieniami; nazywana również środowiskiem MCOS
+- **HSR**: replikacja systemu SAP HANA
 
 ## <a name="overview"></a>Omówienie
-Hana dużych wystąpień obsługuje różne architektury, aby pomóc w osiągnięciu wymagań biznesowych. Poniższe sekcje obejmują scenariusze architektury i ich szczegóły konfiguracji. 
+Duże wystąpienia HANA obsługują różne architektury, które ułatwiają spełnienie wymagań firmy. W poniższych sekcjach omówiono scenariusze architektury i ich szczegóły konfiguracji. 
 
-Projekt architektury pochodnej jest wyłącznie z punktu widzenia infrastruktury i należy skonsultować się z SAP lub partnerów implementacji dla wdrożenia HANA. Jeśli scenariusze nie są wymienione w tym artykule, skontaktuj się z zespołem konta Microsoft, aby przejrzeć architekturę i uzyskać rozwiązanie dla Ciebie.
+Projekt architektury pochodnej jest całkowicie z perspektywy infrastruktury i należy skontaktować się z producentem SAP lub partnerami implementacji w celu wdrożenia platformy HANA. Jeśli Twoje scenariusze nie są wymienione w tym artykule, skontaktuj się z zespołem konto Microsoft, aby zapoznać się z architekturą i utworzyć rozwiązanie.
 
 > [!NOTE]
-> Architektury te są w pełni zgodne z projektem Tailored Data Integration (TDI) i obsługiwane przez sap.
+> Te architektury są w pełni zgodne z projektem integracji danych (TDI) i obsługiwanym przez system SAP.
 
-W tym artykule opisano szczegóły dwóch składników w każdej obsługiwanej architekturze:
+W tym artykule opisano szczegółowe informacje o dwóch składnikach w poszczególnych obsługiwanych architekturach:
 
 - Ethernet
 - Magazyn
 
 ### <a name="ethernet"></a>Ethernet
 
-Każdy aprowizowany serwer jest wstępnie skonfigurowany z zestawami interfejsów Ethernet. Interfejsy Ethernet skonfigurowane na każdej jednostce HLI są podzielone na cztery typy:
+Każdy serwer aprowizacji jest wstępnie skonfigurowany z zestawami interfejsów sieci Ethernet. Interfejsy Ethernet skonfigurowane w poszczególnych jednostkach programu HLI są podzielone na cztery typy:
 
-- **A:** Używany dla lub przez dostęp klienta.
-- **B:** Służy do komunikacji między węzłami. Ten interfejs jest skonfigurowany na wszystkich serwerach (niezależnie od żądanej topologii), ale używany tylko w scenariuszach skalowania w poziomie.
-- **C:** Używany do łączności między węzłami a magazynem.
-- **D**: Służy do połączenia urządzenia między węzłami a iSCSI dla konfiguracji STONITH. Ten interfejs jest konfigurowany tylko wtedy, gdy żądana jest konfiguracja HSR.  
+- Odp **.: używany przez lub**przez dostęp klienta.
+- **B**: służy do komunikacji między węzłami. Ten interfejs jest skonfigurowany na wszystkich serwerach (niezależnie od żądanej topologii), ale używany tylko w scenariuszach skalowania w poziomie.
+- **C**: służy do łączności między węzłami.
+- **D**: służy do nawiązywania połączenia z urządzeniem między węzłami i iSCSI dla Instalatora STONITH. Ten interfejs jest konfigurowany tylko wtedy, gdy zażądano Instalatora HSR.  
 
-| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa z SUSE OS | Nazwa z RHEL OS | Przypadek użycia|
+| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
 | --- | --- | --- | --- | --- |
-| A | TYP I | eth0.tenant | eno1.najemca | Klient-HLI |
-| B | TYP I | eth2.tenant | eno3.najemca | Węzeł-węzeł|
-| C | TYP I | eth1.tenant | eno2.tenant | Węzeł do magazynu |
-| D | TYP I | eth4.tenant | eno4.najemca | OKRĘG WYBORCZY STONITH |
-| A | TYP II | vlan\<najemcaNie> | team0.tenant | Klient-HLI |
-| B | TYP II | vlan\<tenantNo+2> | team0.tenant+2 | Węzeł-węzeł|
-| C | TYP II | vlan\<tenantNo+1> | team0.tenant+1 | Węzeł do magazynu |
-| D | TYP II | vlan\<tenantNo+3> | team0.tenant+3 | OKRĘG WYBORCZY STONITH |
+| A | TYP I | eth0. Dzierżawca | eno1. Dzierżawca | Klient--HLI |
+| B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Węzeł-węzeł|
+| C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
+| D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | STONITH |
+| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient--HLI |
+| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Węzeł-węzeł|
+| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | STONITH |
 
-Wybierz interfejs oparty na topologii skonfigurowany na jednostce HLI. Na przykład interfejs "B" jest skonfigurowany do komunikacji węzeł-węzeł, co jest przydatne, gdy masz skalowano w poziomie topologii skonfigurowane. Ten interfejs nie jest używany dla pojedynczego węzła, skalowania w górę konfiguracji. Aby uzyskać więcej informacji na temat użycia interfejsu, przejrzyj wymagane scenariusze (w dalszej części tego artykułu). 
+Interfejs jest wybierany na podstawie topologii skonfigurowanej w jednostce. Na przykład interfejs "B" jest skonfigurowany do komunikacji między węzłami, co jest przydatne w przypadku skonfigurowania topologii skalowalnej w poziomie. Ten interfejs nie jest używany w przypadku pojedynczych węzłów i skalowalnych konfiguracji. Aby uzyskać więcej informacji na temat użycia interfejsu, przejrzyj wymagane scenariusze (w dalszej części tego artykułu). 
 
-W razie potrzeby można samodzielnie zdefiniować dodatkowe karty sieciowe. *Nie można* jednak zmienić konfiguracji istniejących kart sieciowych.
+W razie potrzeby możesz samodzielnie zdefiniować dodatkowe karty sieciowe. *Nie* można jednak zmienić konfiguracji istniejących kart interfejsu sieciowego.
 
 >[!NOTE]
->Można znaleźć dodatkowe interfejsy, które są interfejsami fizycznymi lub wiązania. Należy wziąć pod uwagę tylko wcześniej wymienione interfejsy dla przypadku użycia. Wszystkie inne mogą być ignorowane.
+>Mogą znajdować się dodatkowe interfejsy, które są interfejsami fizycznymi lub wiązania. Należy wziąć pod uwagę tylko wyżej wymienione interfejsy dla przypadku użycia. Wszystkie inne mogą być ignorowane.
 
-Dystrybucja dla jednostek z dwoma przypisanymi adresami IP powinna wyglądać następująco:
+Dystrybucja jednostek z dwoma przypisanymi adresami IP powinna wyglądać następująco:
 
-- Ethernet "A" powinien mieć przypisany adres IP, który znajduje się w zakresie adresów puli adresów IP serwera, który został przesłany do firmy Microsoft. Ten adres IP powinien być utrzymywany w katalogu */etc/hosts* systemu operacyjnego.
+- Sieć Ethernet "A" powinna mieć przypisany adres IP należący do zakresu adresów puli IP serwera, który został przesłany do firmy Microsoft. Ten adres IP powinien być przechowywany w katalogu */etc/hosts* systemu operacyjnego.
 
-- Ethernet "C" powinien mieć przypisany adres IP, który jest używany do komunikacji z nfs. Ten adres *nie* musi być utrzymywany w katalogu *etc/hosts,* aby umożliwić ruch wystąpienia do wystąpienia w dzierżawie.
+- Sieć Ethernet "C" powinna mieć przypisany adres IP używany do komunikacji z systemem plików NFS. Ten adres nie *musi być obsługiwany w* katalogu *etc/hosts* , aby umożliwić ruch między wystąpieniami w ramach dzierżawy.
 
-W przypadku wdrożenia hana system replikacji lub skalowania w poziomie HANA konfiguracja bloku z dwoma przypisanymi adresami IP nie jest odpowiednia. Jeśli masz tylko dwa przypisane adresy IP i chcesz wdrożyć taką konfigurację, skontaktuj się z SAP HANA w usłudze Azure Service Management. Mogą przypisać ci trzeci adres IP w trzeciej sieci VLAN. W przypadku jednostek dużych wystąpień HANA z trzema przypisanymi adresami IP na trzech portach kart sieciowych obowiązują następujące reguły użycia:
+W przypadku replikacji systemu HANA lub wdrożenia w poziomie platformy Hana konfiguracja bloku z dwoma przypisanymi adresami IP nie jest odpowiednia. Jeśli masz tylko dwa przypisane adresy IP i chcesz wdrożyć taką konfigurację, skontaktuj się z SAP HANA w usłudze Azure Service Management. Mogą oni przypisywać trzeci adres IP w trzeciej sieci VLAN. W przypadku dużych wystąpień usługi HANA jednostki z trzema przypisanymi adresami IP na trzech portach kart sieciowych mają zastosowanie następujące reguły użycia:
 
-- Ethernet "A" powinien mieć przypisany adres IP, który znajduje się poza zakresem adresów puli adresów IP serwera przesłanym do firmy Microsoft. Ten adres IP nie powinien być utrzymywany w katalogu *etc/hosts* systemu operacyjnego.
+- Sieć Ethernet "A" powinna mieć przypisany adres IP, który znajduje się poza zakresem adresów puli adresów IP przesłanym do firmy Microsoft. Ten adres IP nie powinien być utrzymywany w katalogu " *etc/hosts* " systemu operacyjnego.
 
-- Ethernet "B" powinien być utrzymywany wyłącznie w katalogu *etc/hosts* do komunikacji między różnymi wystąpieniami. Są to adresy IP, które mają być utrzymywane w konfiguracji HANA skalowane w poziomie jako adresy IP używane przez hana do konfiguracji między węzłami.
+- Sieć Ethernet "B" powinna być obsługiwana wyłącznie w katalogu " *etc/hosts* " na potrzeby komunikacji między różnymi wystąpieniami. Adresy IP, które mają być utrzymywane w konfiguracjach platformy HANA w poziomie, jako adresy IP używane przez platformę w konfiguracji między węzłami.
 
-- Ethernet "C" powinien mieć przypisany adres IP, który jest używany do komunikacji z pamięcią NFS. Ten typ adresu nie powinien być utrzymywany w katalogu *etc/hosts.*
+- Sieć Ethernet "C" powinna mieć przypisany adres IP używany do komunikacji z magazynem systemu plików NFS. Tego typu adresu nie należy utrzymywać w katalogu *etc/hosts* .
 
-- Ethernet "D" powinien być używany wyłącznie do dostępu do urządzeń STONITH dla rozrusznika serca. Ten interfejs jest wymagany podczas konfigurowania replikacji systemu HANA i chcesz automatycznie przechodzić w tryb failover systemu operacyjnego przy użyciu urządzenia opartego na SBD.
+- Sieć Ethernet "D" powinna być używana wyłącznie na potrzeby dostępu do urządzeń STONITH w Pacemaker. Ten interfejs jest wymagany w przypadku skonfigurowania replikacji systemu HANA i zapewnienia automatycznie przełączenia w tryb failover systemu operacyjnego przy użyciu urządzenia z systemem SBD.
 
 
 ### <a name="storage"></a>Magazyn
-Magazyn jest wstępnie skonfigurowany na podstawie żądanej topologii. Rozmiary woluminów i punktów instalacji różnią się w zależności od liczby serwerów, liczby jednostek SKU i skonfigurowanej topologii. Aby uzyskać więcej informacji, zapoznaj się z wymaganymi scenariuszami (w dalszej części tego artykułu). Jeśli potrzebujesz więcej miejsca, możesz go kupić w odstępach co 1 TB.
+Magazyn jest wstępnie skonfigurowany na podstawie wybranej topologii. Rozmiary woluminów i punkty instalacji różnią się w zależności od liczby serwerów, liczby jednostek SKU i skonfigurowanej topologii. Aby uzyskać więcej informacji, przejrzyj wymagane scenariusze (w dalszej części tego artykułu). Jeśli potrzebujesz więcej miejsca w magazynie, możesz kupić je w przyrostach o pojemności 1 TB.
 
 >[!NOTE]
->Punkt instalacji /usr/sap/\<SID> jest dowiązaniem symbolicznym do punktu instalacji /hana/shared.
+>Identyfikator SID/usr/SAP/\<punktu instalacji> jest symbolicznym łączem do punktu instalacji/Hana/Shared.
 
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
@@ -112,686 +112,686 @@ Diagramy architektury w następnych sekcjach używają następujących notacji:
 Oto obsługiwane scenariusze:
 
 * Pojedynczy węzeł z jednym identyfikatorem SID
-* Pojedynczy węzeł MCOS
-* Pojedynczy węzeł z dr (normalny)
-* Pojedynczy węzeł z dr (uniwersalny)
+* MCOS jednego węzła
+* Pojedynczy węzeł z odzyskiwaniem po awarii (normalne)
+* Pojedynczy węzeł z odzyskiwaniem po awarii (Multipurpose)
 * HSR z STONITH
-* HSR z DR (normalny/wielofunkcyjny) 
-* Automatyczne tryb failover hosta (1+1) 
-* Skalowanie w poziomie ze stanem wstrzymania
-* Skalowanie w poziomie bez gotowości
-* Skalowanie w poziomie z odzyskiwania po awarii
+* HSR z DR (Normal/Multipurpose) 
+* Przełączenie w tryb failover hosta (1 + 1) 
+* Skalowanie w poziomie przy użyciu rezerwy
+* Skalowanie w poziomie bez rezerwy
+* Skalowanie w poziomie za pomocą programu DR
 
 ## <a name="single-node-with-one-sid"></a>Pojedynczy węzeł z jednym identyfikatorem SID
 
-Ta topologia obsługuje jeden węzeł w konfiguracji skalowania w górę z jednym identyfikatorem SID.
+Ta topologia obsługuje jeden węzeł w konfiguracji skalowania z jednym identyfikatorem SID.
 
 ### <a name="architecture-diagram"></a>Diagram architektury  
 
 ![Pojedynczy węzeł z jednym identyfikatorem SID](media/hana-supported-scenario/Single-node-with-one-SID.png)
 
 ### <a name="ethernet"></a>Ethernet
-Wstępnie skonfigurowane są następujące interfejsy sieciowe:
+Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
-| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa z SUSE OS | Nazwa z RHEL OS | Przypadek użycia|
+| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
 | --- | --- | --- | --- | --- |
-| A | TYP I | eth0.tenant | eno1.najemca | Klient-HLI |
-| B | TYP I | eth2.tenant | eno3.najemca | Skonfigurowane, ale nie używane |
-| C | TYP I | eth1.tenant | eno2.tenant | Węzeł do magazynu |
-| D | TYP I | eth4.tenant | eno4.najemca | Skonfigurowane, ale nie używane |
-| A | TYP II | vlan\<najemcaNie> | team0.tenant | Klient-HLI |
-| B | TYP II | vlan\<tenantNo+2> | team0.tenant+2 | Skonfigurowane, ale nie używane |
-| C | TYP II | vlan\<tenantNo+1> | team0.tenant+1 | Węzeł do magazynu |
-| D | TYP II | vlan\<tenantNo+3> | team0.tenant+3 | Skonfigurowane, ale nie używane |
+| A | TYP I | eth0. Dzierżawca | eno1. Dzierżawca | Klient--HLI |
+| B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
+| D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient--HLI |
+| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
+| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
-Wstępnie skonfigurowane są następujące punkty instalacji:
+Następujące punkty instalacji są wstępnie skonfigurowane:
 
-| Punkt montażu | Przypadek użycia | 
+| Punkt instalacji | Przypadek użycia | 
 | --- | --- |
-|/hana/udostępniony/SID | Instalacja HANA | 
+|/hana/shared/SID | Instalacja platformy HANA | 
 |/hana/data/SID/mnt00001 | Instalacja plików danych | 
 |/hana/log/SID/mnt00001 | Instalacja plików dziennika | 
-|/hana/logbackups/SID | Ponawianie dzienników |
+|/hana/logbackups/SID | Wykonaj ponownie dzienniki |
 
 ### <a name="key-considerations"></a>Najważniejsze zagadnienia
-- /usr/sap/SID jest dowiązaniem symbolicznym do /hana/shared/SID.
+- /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
 
-## <a name="single-node-mcos"></a>Pojedynczy węzeł MCOS
+## <a name="single-node-mcos"></a>MCOS jednego węzła
 
-Ta topologia obsługuje jeden węzeł w konfiguracji skalowania w górę z wieloma identyfikatorami SID.
+Ta topologia obsługuje jeden węzeł w konfiguracji skalowania z wieloma identyfikatorami SID.
 
 ### <a name="architecture-diagram"></a>Diagram architektury  
 
-![Pojedynczy węzeł MCOS](media/hana-supported-scenario/single-node-mcos.png)
+![MCOS jednego węzła](media/hana-supported-scenario/single-node-mcos.png)
 
 ### <a name="ethernet"></a>Ethernet
-Wstępnie skonfigurowane są następujące interfejsy sieciowe:
+Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
-| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa z SUSE OS | Nazwa z RHEL OS | Przypadek użycia|
+| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
 | --- | --- | --- | --- | --- |
-| A | TYP I | eth0.tenant | eno1.najemca | Klient-HLI |
-| B | TYP I | eth2.tenant | eno3.najemca | Skonfigurowane, ale nie używane |
-| C | TYP I | eth1.tenant | eno2.tenant | Węzeł do magazynu |
-| D | TYP I | eth4.tenant | eno4.najemca | Skonfigurowane, ale nie używane |
-| A | TYP II | vlan\<najemcaNie> | team0.tenant | Klient-HLI |
-| B | TYP II | vlan\<tenantNo+2> | team0.tenant+2 | Skonfigurowane, ale nie używane |
-| C | TYP II | vlan\<tenantNo+1> | team0.tenant+1 | Węzeł do magazynu |
-| D | TYP II | vlan\<tenantNo+3> | team0.tenant+3 | Skonfigurowane, ale nie używane |
+| A | TYP I | eth0. Dzierżawca | eno1. Dzierżawca | Klient--HLI |
+| B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
+| D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient--HLI |
+| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
+| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
-Wstępnie skonfigurowane są następujące punkty instalacji:
+Następujące punkty instalacji są wstępnie skonfigurowane:
 
-| Punkt montażu | Przypadek użycia | 
+| Punkt instalacji | Przypadek użycia | 
 | --- | --- |
-|/hana/shared/SID1 | Instalacja HANA dla SID1 | 
-|/hana/data/SID1/mnt00001 | Instalacja plików danych dla identyfikatora SID1 | 
-|/hana/log/SID1/mnt00001 | Instalacja plików dziennika dla identyfikatora SID1 | 
-|/hana/logbackups/SID1 | Ponawianie dzienników dla identyfikatora SID1 |
-|/hana/shared/SID2 | Instalacja HANA dla SID2 | 
-|/hana/data/SID2/mnt00001 | Instalacja plików danych dla sid2 | 
-|/hana/log/SID2/mnt00001 | Instalacja plików dziennika dla sid2 | 
-|/hana/logbackups/SID2 | Ponawianie dzienników dla sid2 |
+|/hana/shared/SID1 | Instalacja platformy HANA dla SID1 | 
+|/hana/data/SID1/mnt00001 | Instalacja plików danych dla SID1 | 
+|/hana/log/SID1/mnt00001 | Instalacja plików dziennika dla SID1 | 
+|/hana/logbackups/SID1 | Wykonaj ponownie dzienniki dla SID1 |
+|/hana/shared/SID2 | Instalacja platformy HANA dla SID2 | 
+|/hana/data/SID2/mnt00001 | Instalacja plików danych dla SID2 | 
+|/hana/log/SID2/mnt00001 | Instalacja plików dziennika dla SID2 | 
+|/hana/logbackups/SID2 | Wykonaj ponownie dzienniki dla SID2 |
 
 ### <a name="key-considerations"></a>Najważniejsze zagadnienia
-- /usr/sap/SID jest dowiązaniem symbolicznym do /hana/shared/SID.
-- Rozkład rozmiaru woluminu jest oparty na rozmiarze bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary baz danych w pamięci są obsługiwane w środowisku wielosydyskowym, zobacz [Omówienie i architektura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
+- Rozkład rozmiaru woluminu zależy od rozmiaru bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary bazy danych w pamięci są obsługiwane w środowisku z obsługą wiele identyfikatorów SID, zobacz [Omówienie i architektura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 
-## <a name="single-node-with-dr-using-storage-replication"></a>Pojedynczy węzeł z odzyskiwania po awarii przy użyciu replikacji magazynu
+## <a name="single-node-with-dr-using-storage-replication"></a>Pojedynczy węzeł z odzyskiwaniem po awarii przy użyciu replikacji magazynu
  
-Ta topologia obsługuje jeden węzeł w konfiguracji skalowania w górę z jednym lub wieloma identyfikatorami SID, z replikacją opartą na magazynie do lokacji odzyskiwania po awarii dla podstawowego identyfikatora SID. Na diagramie tylko system z pojedynczym identyfikatorem SID jest przedstawiony w lokacji głównej, ale obsługiwane są również systemy MCOS.
+Ta topologia obsługuje jeden węzeł w konfiguracji skalowania z co najmniej jednym identyfikatorem SID z replikacją opartą na magazynie do lokacji DR dla podstawowego identyfikatora SID. Na diagramie w lokacji głównej jest przedstawiony tylko system o pojedynczym identyfikatorze SID, ale systemy MCOS również są obsługiwane.
 
 ### <a name="architecture-diagram"></a>Diagram architektury  
 
-![Pojedynczy węzeł z odzyskiwania po awarii przy użyciu replikacji magazynu](media/hana-supported-scenario/Single-node-with-dr.png)
+![Pojedynczy węzeł z odzyskiwaniem po awarii przy użyciu replikacji magazynu](media/hana-supported-scenario/Single-node-with-dr.png)
 
 ### <a name="ethernet"></a>Ethernet
-Wstępnie skonfigurowane są następujące interfejsy sieciowe:
+Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
-| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa z SUSE OS | Nazwa z RHEL OS | Przypadek użycia|
+| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
 | --- | --- | --- | --- | --- |
-| A | TYP I | eth0.tenant | eno1.najemca | Klient-HLI |
-| B | TYP I | eth2.tenant | eno3.najemca | Skonfigurowane, ale nie używane |
-| C | TYP I | eth1.tenant | eno2.tenant | Węzeł do magazynu |
-| D | TYP I | eth4.tenant | eno4.najemca | Skonfigurowane, ale nie używane |
-| A | TYP II | vlan\<najemcaNie> | team0.tenant | Klient-HLI |
-| B | TYP II | vlan\<tenantNo+2> | team0.tenant+2 | Skonfigurowane, ale nie używane |
-| C | TYP II | vlan\<tenantNo+1> | team0.tenant+1 | Węzeł do magazynu |
-| D | TYP II | vlan\<tenantNo+3> | team0.tenant+3 | Skonfigurowane, ale nie używane |
+| A | TYP I | eth0. Dzierżawca | eno1. Dzierżawca | Klient--HLI |
+| B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
+| D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient--HLI |
+| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
+| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
-Wstępnie skonfigurowane są następujące punkty instalacji:
+Następujące punkty instalacji są wstępnie skonfigurowane:
 
-| Punkt montażu | Przypadek użycia | 
+| Punkt instalacji | Przypadek użycia | 
 | --- | --- |
-|/hana/udostępniony/SID | Instalacja HANA dla identyfikatora SID | 
+|/hana/shared/SID | Instalacja platformy HANA dla identyfikatora SID | 
 |/hana/data/SID/mnt00001 | Instalacja plików danych dla identyfikatora SID | 
 |/hana/log/SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID | 
-|/hana/logbackups/SID | Ponawianie dzienników dla identyfikatora SID |
+|/hana/logbackups/SID | Wykonaj ponownie dzienniki dla identyfikatora SID |
 
 
 ### <a name="key-considerations"></a>Najważniejsze zagadnienia
-- /usr/sap/SID jest dowiązaniem symbolicznym do /hana/shared/SID.
-- W przypadku mcos: rozkład rozmiaru woluminu jest oparty na rozmiarze bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary baz danych w pamięci są obsługiwane w środowisku wielosydyskowym, zobacz [Omówienie i architektura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
-- W lokacji odzyskiwania po awarii: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "Wymagane do instalacji HANA") dla produkcyjnej instalacji wystąpienia HANA w jednostce DR HLI. 
-- W lokacji odzyskiwania po awarii: dane, kopie zapasowe dziennika i udostępnione woluminy (oznaczone jako "Replikacja magazynu") są replikowane za pomocą migawki z lokacji produkcyjnej. Woluminy te są montowane tylko podczas pracy awaryjnej. Aby uzyskać więcej informacji, zobacz [Procedura odzyskiwania po awarii w pracy awaryjnej](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery).
-- Wolumin rozruchowy dla *klasy SKU typu I* jest replikowany do węzła odzyskiwania po awarii.
+- /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
+- W przypadku MCOS: rozkład rozmiaru woluminu zależy od rozmiaru bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary bazy danych w pamięci są obsługiwane w środowisku z obsługą wiele identyfikatorów SID, zobacz [Omówienie i architektura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- W lokacji odzyskiwania po awarii: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "wymagane do instalacji platformy HANA") dla instalacji wystąpienia platformy HANA w jednostce. 
+- W witrynie DR: dane, kopie zapasowe dzienników i udostępnione woluminy (oznaczone jako "replikacja magazynu") są replikowane za pośrednictwem migawki z lokacji produkcyjnej. Te woluminy są instalowane tylko podczas pracy w trybie failover. Aby uzyskać więcej informacji, zobacz [procedura trybu failover odzyskiwania po awarii](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery).
+- Wolumin rozruchowy dla *klasy typu SKU I* jest replikowany do węzła Dr.
 
 
-## <a name="single-node-with-dr-multipurpose-using-storage-replication"></a>Pojedynczy węzeł z modułem ODZYSKIWANIA PO (wielofunkcyjnym) przy użyciu replikacji magazynu
+## <a name="single-node-with-dr-multipurpose-using-storage-replication"></a>Pojedynczy węzeł z DR (Multipurpose) przy użyciu replikacji magazynu
  
-Ta topologia obsługuje jeden węzeł w konfiguracji skalowania w górę z jednym lub wieloma identyfikatorami SID, z replikacją opartą na magazynie do lokacji odzyskiwania po awarii dla podstawowego identyfikatora SID. Na diagramie tylko system z pojedynczym identyfikatorem SID jest przedstawiony w lokacji głównej, ale obsługiwane są również systemy wielosydyskowe (MCOS). W lokacji odzyskiwania po awarii jednostka HLI jest używana dla wystąpienia kontroli jakości, podczas gdy operacje produkcyjne są uruchomione z lokacji głównej. Podczas pracy awaryjnej odzyskiwania po awarii (lub testu trybu failover) wystąpienie kontroli jakości w lokacji odzyskiwania po awarii jest ścią głą amortyzowanie.
+Ta topologia obsługuje jeden węzeł w konfiguracji skalowania z co najmniej jednym identyfikatorem SID z replikacją opartą na magazynie do lokacji DR dla podstawowego identyfikatora SID. Na diagramie w lokacji głównej jest przedstawiony tylko system o pojedynczym identyfikatorze SID, ale obsługiwane są również systemy wieloidentyfikatorowe (MCOS). W lokacji odzyskiwania po awarii jednostka HLI jest używana na potrzeby wystąpienia usługi pytań i odpowiedzi podczas wykonywania operacji produkcyjnych z lokacji głównej. Podczas pracy w trybie failover odzyskiwania po awarii (test pracy w trybie failover) wystąpienie funkcji pytań i odpowiedzi w witrynie DR zostanie wyłączone.
 
 ### <a name="architecture-diagram"></a>Diagram architektury  
 
-![Pojedynczy węzeł z modułem ODZYSKIWANIA PO (wielofunkcyjnym) przy użyciu replikacji magazynu](media/hana-supported-scenario/single-node-with-dr-multipurpose.png)
+![Pojedynczy węzeł z DR (Multipurpose) przy użyciu replikacji magazynu](media/hana-supported-scenario/single-node-with-dr-multipurpose.png)
 
 ### <a name="ethernet"></a>Ethernet
-Wstępnie skonfigurowane są następujące interfejsy sieciowe:
+Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
-| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa z SUSE OS | Nazwa z RHEL OS | Przypadek użycia|
+| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
 | --- | --- | --- | --- | --- |
-| A | TYP I | eth0.tenant | eno1.najemca | Klient-HLI |
-| B | TYP I | eth2.tenant | eno3.najemca | Skonfigurowane, ale nie używane |
-| C | TYP I | eth1.tenant | eno2.tenant | Węzeł do magazynu |
-| D | TYP I | eth4.tenant | eno4.najemca | Skonfigurowane, ale nie używane |
-| A | TYP II | vlan\<najemcaNie> | team0.tenant | Klient-HLI |
-| B | TYP II | vlan\<tenantNo+2> | team0.tenant+2 | Skonfigurowane, ale nie używane |
-| C | TYP II | vlan\<tenantNo+1> | team0.tenant+1 | Węzeł do magazynu |
-| D | TYP II | vlan\<tenantNo+3> | team0.tenant+3 | Skonfigurowane, ale nie używane |
+| A | TYP I | eth0. Dzierżawca | eno1. Dzierżawca | Klient--HLI |
+| B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
+| D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient--HLI |
+| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
+| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
-Wstępnie skonfigurowane są następujące punkty instalacji:
+Następujące punkty instalacji są wstępnie skonfigurowane:
 
-| Punkt montażu | Przypadek użycia | 
+| Punkt instalacji | Przypadek użycia | 
 | --- | --- |
 |**W lokacji głównej**|
-|/hana/udostępniony/SID | Instalacja HANA do produkcji SID | 
-|/hana/data/SID/mnt00001 | Instalacja plików danych dla produkcyjnego identyfikatora SID | 
-|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla produkcyjnego identyfikatora SID | 
-|/hana/logbackups/SID | Ponowne rejestrowanie identyfikatora SID produkcji |
-|**W miejscu dr**|
-|/hana/udostępniony/SID | Instalacja HANA do produkcji SID | 
-|/hana/data/SID/mnt00001 | Instalacja plików danych dla produkcyjnego identyfikatora SID | 
-|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla produkcyjnego identyfikatora SID | 
-|/hana/shared/QA-SID | Instalacja HANA dla QA SID | 
-|/hana/data/QA-SID/mnt00001 | Instalacja plików danych dla identyfikatora QA SID | 
-|/hana/log/QA-SID/mnt00001 | Instalacja plików dziennika dla identyfikatora QA SID |
-|/hana/logbackups/QA-SID | Ponownie dzienniki dla identyfikatora QA SID |
+|/hana/shared/SID | Instalacja platformy HANA dla produkcyjnego identyfikatora SID | 
+|/hana/data/SID/mnt00001 | Instalacja plików danych dla identyfikatora SID produkcji | 
+|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID produkcji | 
+|/hana/logbackups/SID | Wykonaj ponownie dzienniki dla produkcyjnego identyfikatora SID |
+|**W witrynie DR**|
+|/hana/shared/SID | Instalacja platformy HANA dla produkcyjnego identyfikatora SID | 
+|/hana/data/SID/mnt00001 | Instalacja plików danych dla identyfikatora SID produkcji | 
+|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID produkcji | 
+|/hana/shared/QA-SID | Instalacja platformy HANA dla identyfikatora SID usługi pytania i odpowiedzi | 
+|/hana/data/QA-SID/mnt00001 | Instalacja plików danych dla identyfikatora SID usługi pytania i odpowiedzi | 
+|/hana/log/QA-SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID usługi pytania i odpowiedzi |
+|/hana/logbackups/QA-SID | Dzienniki ponownego wykonywania dla identyfikatora SID usługi pytania i odpowiedzi |
 
 ### <a name="key-considerations"></a>Najważniejsze zagadnienia
-- /usr/sap/SID jest dowiązaniem symbolicznym do /hana/shared/SID.
-- W przypadku mcos: rozkład rozmiaru woluminu jest oparty na rozmiarze bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary baz danych w pamięci są obsługiwane w środowisku wielosydyskowym, zobacz [Omówienie i architektura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
-- W lokacji odzyskiwania po awarii: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "Wymagane do instalacji HANA") dla produkcyjnej instalacji wystąpienia HANA w jednostce DR HLI. 
-- W lokacji odzyskiwania po awarii: dane, kopie zapasowe dziennika i udostępnione woluminy (oznaczone jako "Replikacja magazynu") są replikowane za pomocą migawki z lokacji produkcyjnej. Woluminy te są montowane tylko podczas pracy awaryjnej. Aby uzyskać więcej informacji, zobacz [Procedura odzyskiwania po awarii w pracy awaryjnej](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
-- W lokacji odzyskiwania po awarii: dane, kopie zapasowe dziennika, dziennik i udostępnione woluminy dla kontroli jakości (oznaczone jako "instalacja wystąpienia kontroli jakości") są skonfigurowane dla instalacji wystąpienia kontroli jakości.
-- Wolumin rozruchowy dla *klasy SKU typu I* jest replikowany do węzła odzyskiwania po awarii.
+- /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
+- W przypadku MCOS: rozkład rozmiaru woluminu zależy od rozmiaru bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary bazy danych w pamięci są obsługiwane w środowisku z obsługą wiele identyfikatorów SID, zobacz [Omówienie i architektura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- W lokacji odzyskiwania po awarii: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "wymagane do instalacji platformy HANA") dla instalacji wystąpienia platformy HANA w jednostce. 
+- W witrynie DR: dane, kopie zapasowe dzienników i udostępnione woluminy (oznaczone jako "replikacja magazynu") są replikowane za pośrednictwem migawki z lokacji produkcyjnej. Te woluminy są instalowane tylko podczas pracy w trybie failover. Aby uzyskać więcej informacji, zobacz [procedura trybu failover odzyskiwania po awarii](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
+- W witrynie DR: dane, kopie zapasowe dzienników, dzienniki i udostępnione woluminy dla pytań i odpowiedzi (oznaczone jako "Instalacja wystąpienia usługi pytania") są konfigurowane na potrzeby instalacji wystąpienia usługi pytania i odpowiedzi.
+- Wolumin rozruchowy dla *klasy typu SKU I* jest replikowany do węzła Dr.
 
-## <a name="hsr-with-stonith-for-high-availability"></a>HSR z STONITH dla wysokiej dostępności
+## <a name="hsr-with-stonith-for-high-availability"></a>HSR z STONITHem w celu zapewnienia wysokiej dostępności
  
-Ta topologia obsługuje dwa węzły konfiguracji replikacji systemu HANA. Ta konfiguracja jest obsługiwana tylko dla pojedynczych wystąpień HANA w węźle. Oznacza to, że scenariusze MCOS *nie* są obsługiwane.
+Ta topologia obsługuje dwa węzły w konfiguracji replikacji systemu HANA. Ta konfiguracja jest obsługiwana tylko dla pojedynczych wystąpień platformy HANA w węźle. Oznacza to, że scenariusze MCOS *nie* są obsługiwane.
 
 > [!NOTE]
-> Od grudnia 2019 r. ta architektura jest obsługiwana tylko dla systemu operacyjnego SUSE.
+> Od grudnia 2019 ta architektura jest obsługiwana tylko dla systemu operacyjnego SUSE.
 
 
 ### <a name="architecture-diagram"></a>Diagram architektury  
 
-![HSR z STONITH dla wysokiej dostępności](media/hana-supported-scenario/HSR-with-STONITH.png)
+![HSR z STONITHem w celu zapewnienia wysokiej dostępności](media/hana-supported-scenario/HSR-with-STONITH.png)
 
 
 
 ### <a name="ethernet"></a>Ethernet
-Wstępnie skonfigurowane są następujące interfejsy sieciowe:
+Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
-| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa z SUSE OS | Nazwa z RHEL OS | Przypadek użycia|
+| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
 | --- | --- | --- | --- | --- |
-| A | TYP I | eth0.tenant | eno1.najemca | Klient-HLI |
-| B | TYP I | eth2.tenant | eno3.najemca | Skonfigurowane, ale nie używane |
-| C | TYP I | eth1.tenant | eno2.tenant | Węzeł do magazynu |
-| D | TYP I | eth4.tenant | eno4.najemca | Używany do STONITH |
-| A | TYP II | vlan\<najemcaNie> | team0.tenant | Klient-HLI |
-| B | TYP II | vlan\<tenantNo+2> | team0.tenant+2 | Skonfigurowane, ale nie używane |
-| C | TYP II | vlan\<tenantNo+1> | team0.tenant+1 | Węzeł do magazynu |
-| D | TYP II | vlan\<tenantNo+3> | team0.tenant+3 | Używany do STONITH |
+| A | TYP I | eth0. Dzierżawca | eno1. Dzierżawca | Klient--HLI |
+| B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
+| D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Używane na potrzeby STONITH |
+| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient--HLI |
+| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
+| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Używane na potrzeby STONITH |
 
 ### <a name="storage"></a>Magazyn
-Wstępnie skonfigurowane są następujące punkty instalacji:
+Następujące punkty instalacji są wstępnie skonfigurowane:
 
-| Punkt montażu | Przypadek użycia | 
+| Punkt instalacji | Przypadek użycia | 
 | --- | --- |
 |**W węźle podstawowym**|
-|/hana/udostępniony/SID | Instalacja HANA do produkcji SID | 
-|/hana/data/SID/mnt00001 | Instalacja plików danych dla produkcyjnego identyfikatora SID | 
-|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla produkcyjnego identyfikatora SID | 
-|/hana/logbackups/SID | Ponowne rejestrowanie identyfikatora SID produkcji |
+|/hana/shared/SID | Instalacja platformy HANA dla produkcyjnego identyfikatora SID | 
+|/hana/data/SID/mnt00001 | Instalacja plików danych dla identyfikatora SID produkcji | 
+|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID produkcji | 
+|/hana/logbackups/SID | Wykonaj ponownie dzienniki dla produkcyjnego identyfikatora SID |
 |**W węźle pomocniczym**|
-|/hana/udostępniony/SID | Instalacja HANA dla wtórnego identyfikatora SID | 
-|/hana/data/SID/mnt00001 | Instalacja plików danych dla dodatkowego identyfikatora SID | 
-|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla dodatkowego identyfikatora SID | 
-|/hana/logbackups/SID | Ponawianie dzienników dla dodatkowego identyfikatora SID |
+|/hana/shared/SID | Instalacja platformy HANA dla pomocniczego identyfikatora SID | 
+|/hana/data/SID/mnt00001 | Instalacja plików danych dla pomocniczego identyfikatora SID | 
+|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla pomocniczego identyfikatora SID | 
+|/hana/logbackups/SID | Wykonaj ponownie dzienniki dla pomocniczego identyfikatora SID |
 
 ### <a name="key-considerations"></a>Najważniejsze zagadnienia
-- /usr/sap/SID jest dowiązaniem symbolicznym do /hana/shared/SID.
-- W przypadku mcos: rozkład rozmiaru woluminu jest oparty na rozmiarze bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary baz danych w pamięci są obsługiwane w środowisku wielosydyskowym, zobacz [Omówienie i architektura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
-- STONITH: Dla konfiguracji STONITH skonfigurowano dysk SBD. Jednak użycie STONITH jest opcjonalne.
+- /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
+- W przypadku MCOS: rozkład rozmiaru woluminu zależy od rozmiaru bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary bazy danych w pamięci są obsługiwane w środowisku z obsługą wiele identyfikatorów SID, zobacz [Omówienie i architektura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- STONITH: SBD jest skonfigurowana dla Instalatora STONITH. Jednak użycie STONITH jest opcjonalne.
 
 
-## <a name="high-availability-with-hsr-and-dr-with-storage-replication"></a>Wysoka dostępność dzięki hsr i odzyskiwania po awarii z replikacją pamięci masowej
+## <a name="high-availability-with-hsr-and-dr-with-storage-replication"></a>Wysoka dostępność dzięki replikacji HSR i DR z replikacją magazynu
  
-Ta topologia obsługuje dwa węzły dla konfiguracji replikacji systemu HANA. Obsługiwane są zarówno normalne, jak i wielozadaniowe rejestratory. Te konfiguracje są obsługiwane tylko dla pojedynczych wystąpień HANA w węźle. Oznacza to, że scenariusze MCOS *nie* są obsługiwane w tych konfiguracjach.
+Ta topologia obsługuje dwa węzły w konfiguracji replikacji systemu HANA. Obsługiwane są zarówno normalne, jak i uniwersalne DRs. Te konfiguracje są obsługiwane tylko dla pojedynczych wystąpień platformy HANA w węźle. Oznacza to, że scenariusze MCOS *nie* są obsługiwane w przypadku tych konfiguracji.
 
-Na diagramie scenariusz wielofunkcyjny jest przedstawiony w lokacji odzyskiwania po awarii, gdzie jednostka HLI jest używana dla wystąpienia kontroli jakości, podczas gdy operacje produkcyjne są uruchomione z lokacji głównej. Podczas pracy awaryjnej odzyskiwania po awarii (lub testu trybu failover) wystąpienie kontroli jakości w lokacji odzyskiwania po awarii jest ścią głą amortyzowanie. 
+W diagramie wielomiarowy scenariusz jest przedstawiany w witrynie odzyskiwania po awarii, gdzie jednostka HLI jest używana w przypadku wystąpienia usługi pytań i odpowiedzi podczas wykonywania operacji produkcyjnych z lokacji głównej. Podczas pracy w trybie failover odzyskiwania po awarii (test pracy w trybie failover) wystąpienie funkcji pytań i odpowiedzi w witrynie DR zostanie wyłączone. 
 
 ### <a name="architecture-diagram"></a>Diagram architektury  
 
-![Wysoka dostępność dzięki hsr i odzyskiwania po awarii z replikacją pamięci masowej](media/hana-supported-scenario/HSR-with-DR.png)
+![Wysoka dostępność dzięki replikacji HSR i DR z replikacją magazynu](media/hana-supported-scenario/HSR-with-DR.png)
 
 ### <a name="ethernet"></a>Ethernet
-Wstępnie skonfigurowane są następujące interfejsy sieciowe:
+Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
-| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa z SUSE OS | Nazwa z RHEL OS | Przypadek użycia|
+| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
 | --- | --- | --- | --- | --- |
-| A | TYP I | eth0.tenant | eno1.najemca | Klient-HLI |
-| B | TYP I | eth2.tenant | eno3.najemca | Skonfigurowane, ale nie używane |
-| C | TYP I | eth1.tenant | eno2.tenant | Węzeł do magazynu |
-| D | TYP I | eth4.tenant | eno4.najemca | Używany do STONITH |
-| A | TYP II | vlan\<najemcaNie> | team0.tenant | Klient-HLI |
-| B | TYP II | vlan\<tenantNo+2> | team0.tenant+2 | Skonfigurowane, ale nie używane |
-| C | TYP II | vlan\<tenantNo+1> | team0.tenant+1 | Węzeł do magazynu |
-| D | TYP II | vlan\<tenantNo+3> | team0.tenant+3 | Używany do STONITH |
+| A | TYP I | eth0. Dzierżawca | eno1. Dzierżawca | Klient--HLI |
+| B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
+| D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Używane na potrzeby STONITH |
+| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient--HLI |
+| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
+| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Używane na potrzeby STONITH |
 
 ### <a name="storage"></a>Magazyn
-Wstępnie skonfigurowane są następujące punkty instalacji:
+Następujące punkty instalacji są wstępnie skonfigurowane:
 
-| Punkt montażu | Przypadek użycia | 
+| Punkt instalacji | Przypadek użycia | 
 | --- | --- |
-|**W węźle głównym w lokacji głównej**|
-|/hana/udostępniony/SID | Instalacja HANA do produkcji SID | 
-|/hana/data/SID/mnt00001 | Instalacja plików danych dla produkcyjnego identyfikatora SID | 
-|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla produkcyjnego identyfikatora SID | 
-|/hana/logbackups/SID | Ponowne rejestrowanie identyfikatora SID produkcji |
+|**W węźle podstawowym w lokacji głównej**|
+|/hana/shared/SID | Instalacja platformy HANA dla produkcyjnego identyfikatora SID | 
+|/hana/data/SID/mnt00001 | Instalacja plików danych dla identyfikatora SID produkcji | 
+|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID produkcji | 
+|/hana/logbackups/SID | Wykonaj ponownie dzienniki dla produkcyjnego identyfikatora SID |
 |**W węźle pomocniczym w lokacji głównej**|
-|/hana/udostępniony/SID | Instalacja HANA dla wtórnego identyfikatora SID | 
-|/hana/data/SID/mnt00001 | Instalacja plików danych dla dodatkowego identyfikatora SID | 
-|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla dodatkowego identyfikatora SID | 
-|/hana/logbackups/SID | Ponawianie dzienników dla dodatkowego identyfikatora SID |
-|**W miejscu dr**|
-|/hana/udostępniony/SID | Instalacja HANA do produkcji SID | 
-|/hana/data/SID/mnt00001 | Instalacja plików danych dla produkcyjnego identyfikatora SID | 
-|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla produkcyjnego identyfikatora SID | 
-|/hana/shared/QA-SID | Instalacja HANA dla QA SID | 
-|/hana/data/QA-SID/mnt00001 | Instalacja plików danych dla identyfikatora QA SID | 
-|/hana/log/QA-SID/mnt00001 | Instalacja plików dziennika dla identyfikatora QA SID |
-|/hana/logbackups/QA-SID | Ponownie dzienniki dla identyfikatora QA SID |
+|/hana/shared/SID | Instalacja platformy HANA dla pomocniczego identyfikatora SID | 
+|/hana/data/SID/mnt00001 | Instalacja plików danych dla pomocniczego identyfikatora SID | 
+|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla pomocniczego identyfikatora SID | 
+|/hana/logbackups/SID | Wykonaj ponownie dzienniki dla pomocniczego identyfikatora SID |
+|**W witrynie DR**|
+|/hana/shared/SID | Instalacja platformy HANA dla produkcyjnego identyfikatora SID | 
+|/hana/data/SID/mnt00001 | Instalacja plików danych dla identyfikatora SID produkcji | 
+|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID produkcji | 
+|/hana/shared/QA-SID | Instalacja platformy HANA dla identyfikatora SID usługi pytania i odpowiedzi | 
+|/hana/data/QA-SID/mnt00001 | Instalacja plików danych dla identyfikatora SID usługi pytania i odpowiedzi | 
+|/hana/log/QA-SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID usługi pytania i odpowiedzi |
+|/hana/logbackups/QA-SID | Dzienniki ponownego wykonywania dla identyfikatora SID usługi pytania i odpowiedzi |
 
 ### <a name="key-considerations"></a>Najważniejsze zagadnienia
-- /usr/sap/SID jest dowiązaniem symbolicznym do /hana/shared/SID.
-- W przypadku mcos: rozkład rozmiaru woluminu jest oparty na rozmiarze bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary baz danych w pamięci są obsługiwane w środowisku wielosydyskowym, zobacz [Omówienie i architektura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
-- STONITH: Dla konfiguracji STONITH skonfigurowano dysk SBD. Jednak użycie STONITH jest opcjonalne.
-- W lokacji odzyskiwania po awarii: Dwa zestawy woluminów magazynu są wymagane dla replikacji *węzła podstawowego* i pomocniczego.
-- W lokacji odzyskiwania po awarii: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "Wymagane do instalacji HANA") dla produkcyjnej instalacji wystąpienia HANA w jednostce DR HLI. 
-- W lokacji odzyskiwania po awarii: dane, kopie zapasowe dziennika i udostępnione woluminy (oznaczone jako "Replikacja magazynu") są replikowane za pomocą migawki z lokacji produkcyjnej. Woluminy te są montowane tylko podczas pracy awaryjnej. Aby uzyskać więcej informacji, zobacz [Procedura odzyskiwania po awarii w pracy awaryjnej](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
-- W lokacji odzyskiwania po awarii: dane, kopie zapasowe dziennika, dziennik i udostępnione woluminy dla kontroli jakości (oznaczone jako "instalacja wystąpienia kontroli jakości") są skonfigurowane dla instalacji wystąpienia kontroli jakości.
-- Wolumin rozruchowy dla *klasy SKU typu I* jest replikowany do węzła odzyskiwania po awarii.
+- /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
+- W przypadku MCOS: rozkład rozmiaru woluminu zależy od rozmiaru bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary bazy danych w pamięci są obsługiwane w środowisku z obsługą wiele identyfikatorów SID, zobacz [Omówienie i architektura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- STONITH: SBD jest skonfigurowana dla Instalatora STONITH. Jednak użycie STONITH jest opcjonalne.
+- W witrynie DR: *wymagane są dwa zestawy woluminów magazynu* dla replikacji węzłów podstawowych i pomocniczych.
+- W lokacji odzyskiwania po awarii: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "wymagane do instalacji platformy HANA") dla instalacji wystąpienia platformy HANA w jednostce. 
+- W witrynie DR: dane, kopie zapasowe dzienników i udostępnione woluminy (oznaczone jako "replikacja magazynu") są replikowane za pośrednictwem migawki z lokacji produkcyjnej. Te woluminy są instalowane tylko podczas pracy w trybie failover. Aby uzyskać więcej informacji, zobacz [procedura trybu failover odzyskiwania po awarii](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
+- W witrynie DR: dane, kopie zapasowe dzienników, dzienniki i udostępnione woluminy dla pytań i odpowiedzi (oznaczone jako "Instalacja wystąpienia usługi pytania") są konfigurowane na potrzeby instalacji wystąpienia usługi pytania i odpowiedzi.
+- Wolumin rozruchowy dla *klasy typu SKU I* jest replikowany do węzła Dr.
 
 
-## <a name="host-auto-failover-11"></a>Automatyczne tryb failover hosta (1+1)
+## <a name="host-auto-failover-11"></a>Przełączenie w tryb failover hosta (1 + 1)
  
-Ta topologia obsługuje dwa węzły w konfiguracji automatycznego trybu failover hosta. Istnieje jeden węzeł z rolą głównego/roboczego, a drugi jako stan gotowości. *SAP obsługuje ten scenariusz tylko dla S/4 HANA.* Aby uzyskać więcej informacji, zobacz [uwaga systemu operacyjnego 2408419 - SAP S/4HANA - Obsługa wielu węzłów](https://launchpad.support.sap.com/#/notes/2408419).
+Ta topologia obsługuje dwa węzły w konfiguracji automatycznej pracy awaryjnej hosta. Istnieje jeden węzeł z rolą Master/Worker i inną jako stan gotowości. *System SAP obsługuje ten scenariusz tylko dla S/4 HANA.* Aby uzyskać więcej informacji, zobacz temat [OSS uwaga 2408419 — SAP S/4HANA — obsługa wielu węzłów](https://launchpad.support.sap.com/#/notes/2408419).
 
 
 
 ### <a name="architecture-diagram"></a>Diagram architektury  
 
-![Automatyczne tryb failover hosta (1+1)](media/hana-supported-scenario/scaleup-with-standby.png)
+![Przełączenie w tryb failover hosta (1 + 1)](media/hana-supported-scenario/scaleup-with-standby.png)
 
 ### <a name="ethernet"></a>Ethernet
-Wstępnie skonfigurowane są następujące interfejsy sieciowe:
+Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
-| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa z SUSE OS | Nazwa z RHEL OS | Przypadek użycia|
+| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
 | --- | --- | --- | --- | --- |
-| A | TYP I | eth0.tenant | eno1.najemca | Klient-HLI |
-| B | TYP I | eth2.tenant | eno3.najemca | Komunikacja między węzłami |
-| C | TYP I | eth1.tenant | eno2.tenant | Węzeł do magazynu |
-| D | TYP I | eth4.tenant | eno4.najemca | Skonfigurowane, ale nie używane |
-| A | TYP II | vlan\<najemcaNie> | team0.tenant | Klient-HLI |
-| B | TYP II | vlan\<tenantNo+2> | team0.tenant+2 | Komunikacja między węzłami |
-| C | TYP II | vlan\<tenantNo+1> | team0.tenant+1 | Węzeł do magazynu |
-| D | TYP II | vlan\<tenantNo+3> | team0.tenant+3 | Skonfigurowane, ale nie używane |
+| A | TYP I | eth0. Dzierżawca | eno1. Dzierżawca | Klient--HLI |
+| B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Komunikacja między węzłami |
+| C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
+| D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient--HLI |
+| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Komunikacja między węzłami |
+| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
-Wstępnie skonfigurowane są następujące punkty instalacji:
+Następujące punkty instalacji są wstępnie skonfigurowane:
 
-| Punkt montażu | Przypadek użycia | 
+| Punkt instalacji | Przypadek użycia | 
 | --- | --- |
-|**W węzłach głównych i rezerwowych**|
-|/hana/udostępniony | Instalacja HANA do produkcji SID | 
-|/hana/data/SID/mnt00001 | Instalacja plików danych dla produkcyjnego identyfikatora SID | 
-|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla produkcyjnego identyfikatora SID | 
-|/hana/logbackups/SID | Ponowne rejestrowanie identyfikatora SID produkcji |
+|**Na węzłach głównych i rezerwowych**|
+|/hana/shared | Instalacja platformy HANA dla produkcyjnego identyfikatora SID | 
+|/hana/data/SID/mnt00001 | Instalacja plików danych dla identyfikatora SID produkcji | 
+|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID produkcji | 
+|/hana/logbackups/SID | Wykonaj ponownie dzienniki dla produkcyjnego identyfikatora SID |
 
-
-
-### <a name="key-considerations"></a>Najważniejsze zagadnienia
-- /usr/sap/SID jest dowiązaniem symbolicznym do /hana/shared/SID.
-- W trybie gotowości: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "Wymagane do instalacji HANA") dla instalacji wystąpienia HANA w jednostce rezerwowej.
- 
-
-## <a name="scale-out-with-standby"></a>Skalowanie w poziomie ze stanem wstrzymania
- 
-Ta topologia obsługuje wiele węzłów w konfiguracji skalowawki w poziomie. Istnieje jeden węzeł z rolą wzorcową, jeden lub więcej węzłów z rolą procesu roboczego i jeden lub więcej węzłów jako rezerwy. Jednak może istnieć tylko jeden węzeł główny w dowolnym punkcie w czasie.
-
-
-### <a name="architecture-diagram"></a>Diagram architektury  
-
-![Skalowanie w poziomie ze stanem wstrzymania](media/hana-supported-scenario/scaleout-nm-standby.png)
-
-### <a name="ethernet"></a>Ethernet
-Wstępnie skonfigurowane są następujące interfejsy sieciowe:
-
-| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa z SUSE OS | Nazwa z RHEL OS | Przypadek użycia|
-| --- | --- | --- | --- | --- |
-| A | TYP I | eth0.tenant | eno1.najemca | Klient-HLI |
-| B | TYP I | eth2.tenant | eno3.najemca | Komunikacja między węzłami |
-| C | TYP I | eth1.tenant | eno2.tenant | Węzeł do magazynu |
-| D | TYP I | eth4.tenant | eno4.najemca | Skonfigurowane, ale nie używane |
-| A | TYP II | vlan\<najemcaNie> | team0.tenant | Klient-HLI |
-| B | TYP II | vlan\<tenantNo+2> | team0.tenant+2 | Komunikacja między węzłami |
-| C | TYP II | vlan\<tenantNo+1> | team0.tenant+1 | Węzeł do magazynu |
-| D | TYP II | vlan\<tenantNo+3> | team0.tenant+3 | Skonfigurowane, ale nie używane |
-
-### <a name="storage"></a>Magazyn
-Wstępnie skonfigurowane są następujące punkty instalacji:
-
-| Punkt montażu | Przypadek użycia | 
-| --- | --- |
-|**W węzłach wzorca, pracownika i gotowości**|
-|/hana/udostępniony | Instalacja HANA do produkcji SID | 
-|/hana/data/SID/mnt00001 | Instalacja plików danych dla produkcyjnego identyfikatora SID | 
-|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla produkcyjnego identyfikatora SID | 
-|/hana/logbackups/SID | Ponowne rejestrowanie identyfikatora SID produkcji |
-
-
-## <a name="scale-out-without-standby"></a>Skalowanie w poziomie bez gotowości
- 
-Ta topologia obsługuje wiele węzłów w konfiguracji skalowawki w poziomie. Istnieje jeden węzeł z rolą wzorcową i jeden lub więcej węzłów z rolą procesu roboczego. Jednak może istnieć tylko jeden węzeł główny w dowolnym punkcie w czasie.
-
-
-### <a name="architecture-diagram"></a>Diagram architektury  
-
-![Skalowanie w poziomie bez gotowości](media/hana-supported-scenario/scaleout-nm.png)
-
-
-### <a name="ethernet"></a>Ethernet
-Wstępnie skonfigurowane są następujące interfejsy sieciowe:
-
-| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa z SUSE OS | Nazwa z RHEL OS | Przypadek użycia|
-| --- | --- | --- | --- | --- |
-| A | TYP I | eth0.tenant | eno1.najemca | Klient-HLI |
-| B | TYP I | eth2.tenant | eno3.najemca | Komunikacja między węzłami |
-| C | TYP I | eth1.tenant | eno2.tenant | Węzeł do magazynu |
-| D | TYP I | eth4.tenant | eno4.najemca | Skonfigurowane, ale nie używane |
-| A | TYP II | vlan\<najemcaNie> | team0.tenant | Klient-HLI |
-| B | TYP II | vlan\<tenantNo+2> | team0.tenant+2 | Komunikacja między węzłami |
-| C | TYP II | vlan\<tenantNo+1> | team0.tenant+1 | Węzeł do magazynu |
-| D | TYP II | vlan\<tenantNo+3> | team0.tenant+3 | Skonfigurowane, ale nie używane |
-
-### <a name="storage"></a>Magazyn
-Wstępnie skonfigurowane są następujące punkty instalacji:
-
-| Punkt montażu | Przypadek użycia | 
-| --- | --- |
-|**W węzłach główny i roboczy**|
-|/hana/udostępniony | Instalacja HANA do produkcji SID | 
-|/hana/data/SID/mnt00001 | Instalacja plików danych dla produkcyjnego identyfikatora SID | 
-|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla produkcyjnego identyfikatora SID | 
-|/hana/logbackups/SID | Ponowne rejestrowanie identyfikatora SID produkcji |
 
 
 ### <a name="key-considerations"></a>Najważniejsze zagadnienia
-- /usr/sap/SID jest dowiązaniem symbolicznym do /hana/shared/SID.
-
-## <a name="scale-out-with-dr-using-storage-replication"></a>Skalowanie w poziomie przy użyciu odzyskiwania po awarii przy użyciu replikacji magazynu
+- /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
+- W stanie wstrzymania: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "wymagane na potrzeby instalacji platformy HANA") dla instalacji wystąpienia HANA w jednostce rezerwy.
  
-Ta topologia obsługuje wiele węzłów w skalowawce w poziomie z po awarii. Obsługiwane są zarówno normalne, jak i wielozadaniowe rejestratory. Na diagramie przedstawiono tylko pojedynczy cel ODZYSKIWANIA PO. Można zażądać tej topologii z lub bez węzła wstrzymania.
+
+## <a name="scale-out-with-standby"></a>Skalowanie w poziomie przy użyciu rezerwy
+ 
+Ta topologia obsługuje wiele węzłów w konfiguracji skalowania w poziomie. Istnieje jeden węzeł z rolą nadrzędną, co najmniej jednym węzłem z rolą proces roboczy oraz co najmniej jeden węzeł jako stan gotowości. Jednak w danym momencie może istnieć tylko jeden węzeł główny.
 
 
 ### <a name="architecture-diagram"></a>Diagram architektury  
 
-![Skalowanie w poziomie przy użyciu odzyskiwania po awarii przy użyciu replikacji magazynu](media/hana-supported-scenario/scaleout-with-dr.png)
+![Skalowanie w poziomie przy użyciu rezerwy](media/hana-supported-scenario/scaleout-nm-standby.png)
+
+### <a name="ethernet"></a>Ethernet
+Następujące interfejsy sieciowe są wstępnie skonfigurowane:
+
+| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
+| --- | --- | --- | --- | --- |
+| A | TYP I | eth0. Dzierżawca | eno1. Dzierżawca | Klient--HLI |
+| B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Komunikacja między węzłami |
+| C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
+| D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient--HLI |
+| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Komunikacja między węzłami |
+| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
+
+### <a name="storage"></a>Magazyn
+Następujące punkty instalacji są wstępnie skonfigurowane:
+
+| Punkt instalacji | Przypadek użycia | 
+| --- | --- |
+|**W węzłach Master, Worker i Standby**|
+|/hana/shared | Instalacja platformy HANA dla produkcyjnego identyfikatora SID | 
+|/hana/data/SID/mnt00001 | Instalacja plików danych dla identyfikatora SID produkcji | 
+|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID produkcji | 
+|/hana/logbackups/SID | Wykonaj ponownie dzienniki dla produkcyjnego identyfikatora SID |
+
+
+## <a name="scale-out-without-standby"></a>Skalowanie w poziomie bez rezerwy
+ 
+Ta topologia obsługuje wiele węzłów w konfiguracji skalowania w poziomie. Istnieje jeden węzeł z rolą główną i co najmniej jednym węzłem z rolą proces roboczy. Jednak w danym momencie może istnieć tylko jeden węzeł główny.
+
+
+### <a name="architecture-diagram"></a>Diagram architektury  
+
+![Skalowanie w poziomie bez rezerwy](media/hana-supported-scenario/scaleout-nm.png)
 
 
 ### <a name="ethernet"></a>Ethernet
-Wstępnie skonfigurowane są następujące interfejsy sieciowe:
+Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
-| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa z SUSE OS | Nazwa z RHEL OS | Przypadek użycia|
+| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
 | --- | --- | --- | --- | --- |
-| A | TYP I | eth0.tenant | eno1.najemca | Klient-HLI |
-| B | TYP I | eth2.tenant | eno3.najemca | Komunikacja między węzłami |
-| C | TYP I | eth1.tenant | eno2.tenant | Węzeł do magazynu |
-| D | TYP I | eth4.tenant | eno4.najemca | Skonfigurowane, ale nie używane |
-| A | TYP II | vlan\<najemcaNie> | team0.tenant | Klient-HLI |
-| B | TYP II | vlan\<tenantNo+2> | team0.tenant+2 | Komunikacja między węzłami |
-| C | TYP II | vlan\<tenantNo+1> | team0.tenant+1 | Węzeł do magazynu |
-| D | TYP II | vlan\<tenantNo+3> | team0.tenant+3 | Skonfigurowane, ale nie używane |
+| A | TYP I | eth0. Dzierżawca | eno1. Dzierżawca | Klient--HLI |
+| B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Komunikacja między węzłami |
+| C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
+| D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient--HLI |
+| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Komunikacja między węzłami |
+| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
-Wstępnie skonfigurowane są następujące punkty instalacji:
+Następujące punkty instalacji są wstępnie skonfigurowane:
 
-| Punkt montażu | Przypadek użycia | 
+| Punkt instalacji | Przypadek użycia | 
+| --- | --- |
+|**Na węzłach głównych i procesów roboczych**|
+|/hana/shared | Instalacja platformy HANA dla produkcyjnego identyfikatora SID | 
+|/hana/data/SID/mnt00001 | Instalacja plików danych dla identyfikatora SID produkcji | 
+|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID produkcji | 
+|/hana/logbackups/SID | Wykonaj ponownie dzienniki dla produkcyjnego identyfikatora SID |
+
+
+### <a name="key-considerations"></a>Najważniejsze zagadnienia
+- /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
+
+## <a name="scale-out-with-dr-using-storage-replication"></a>Skalowanie za pomocą odzyskiwania po awarii przy użyciu replikacji magazynu
+ 
+Ta topologia obsługuje wiele węzłów w skalowaniu w poziomie przy użyciu funkcji odzyskiwania po awarii. Obsługiwane są zarówno normalne, jak i uniwersalne DRs. Na diagramie przedstawiony jest tylko pojedynczy cel DR. Możesz zażądać tej topologii z węzłem w stanie wstrzymania lub bez niego.
+
+
+### <a name="architecture-diagram"></a>Diagram architektury  
+
+![Skalowanie za pomocą odzyskiwania po awarii przy użyciu replikacji magazynu](media/hana-supported-scenario/scaleout-with-dr.png)
+
+
+### <a name="ethernet"></a>Ethernet
+Następujące interfejsy sieciowe są wstępnie skonfigurowane:
+
+| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
+| --- | --- | --- | --- | --- |
+| A | TYP I | eth0. Dzierżawca | eno1. Dzierżawca | Klient--HLI |
+| B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Komunikacja między węzłami |
+| C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
+| D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient--HLI |
+| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Komunikacja między węzłami |
+| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
+
+### <a name="storage"></a>Magazyn
+Następujące punkty instalacji są wstępnie skonfigurowane:
+
+| Punkt instalacji | Przypadek użycia | 
 | --- | --- |
 |**W węźle podstawowym**|
-|/hana/udostępniony | Instalacja HANA do produkcji SID | 
-|/hana/data/SID/mnt00001 | Instalacja plików danych dla produkcyjnego identyfikatora SID | 
-|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla produkcyjnego identyfikatora SID | 
-|/hana/logbackups/SID | Ponowne rejestrowanie identyfikatora SID produkcji |
-|**W węźle odzyskiwania po awarii**|
-|/hana/udostępniony | Instalacja HANA do produkcji SID | 
-|/hana/data/SID/mnt00001 | Instalacja plików danych dla produkcyjnego identyfikatora SID | 
-|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla produkcyjnego identyfikatora SID | 
+|/hana/shared | Instalacja platformy HANA dla produkcyjnego identyfikatora SID | 
+|/hana/data/SID/mnt00001 | Instalacja plików danych dla identyfikatora SID produkcji | 
+|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID produkcji | 
+|/hana/logbackups/SID | Wykonaj ponownie dzienniki dla produkcyjnego identyfikatora SID |
+|**W węźle DR**|
+|/hana/shared | Instalacja platformy HANA dla produkcyjnego identyfikatora SID | 
+|/hana/data/SID/mnt00001 | Instalacja plików danych dla identyfikatora SID produkcji | 
+|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID produkcji | 
 
 
 ### <a name="key-considerations"></a>Najważniejsze zagadnienia
-- /usr/sap/SID jest dowiązaniem symbolicznym do /hana/shared/SID.
--  W lokacji odzyskiwania po awarii: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "Wymagane do instalacji HANA") dla produkcyjnej instalacji wystąpienia HANA w jednostce DR HLI. 
-- W lokacji odzyskiwania po awarii: dane, kopie zapasowe dziennika i udostępnione woluminy (oznaczone jako "Replikacja magazynu") są replikowane za pomocą migawki z lokacji produkcyjnej. Woluminy te są montowane tylko podczas pracy awaryjnej. Aby uzyskać więcej informacji, zobacz [Procedura odzyskiwania po awarii w pracy awaryjnej](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
-- Wolumin rozruchowy dla *klasy SKU typu I* jest replikowany do węzła odzyskiwania po awarii.
+- /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
+-  W lokacji odzyskiwania po awarii: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "wymagane do instalacji platformy HANA") dla instalacji wystąpienia platformy HANA w jednostce. 
+- W witrynie DR: dane, kopie zapasowe dzienników i udostępnione woluminy (oznaczone jako "replikacja magazynu") są replikowane za pośrednictwem migawki z lokacji produkcyjnej. Te woluminy są instalowane tylko podczas pracy w trybie failover. Aby uzyskać więcej informacji, zobacz [procedura trybu failover odzyskiwania po awarii](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
+- Wolumin rozruchowy dla *klasy typu SKU I* jest replikowany do węzła Dr.
 
 
-## <a name="single-node-with-dr-using-hsr"></a>Pojedynczy węzeł z dr przy użyciu HSR
+## <a name="single-node-with-dr-using-hsr"></a>Pojedynczy węzeł z odzyskiwaniem po awarii przy użyciu HSR
  
-Ta topologia obsługuje jeden węzeł w konfiguracji skalowania w górę z jednym identyfikatorem SID, z replikacją systemu HANA do lokacji odzyskiwania po awarii dla podstawowego identyfikatora SID. Na diagramie tylko system z pojedynczym identyfikatorem SID jest przedstawiony w lokacji głównej, ale obsługiwane są również systemy wielosydyskowe (MCOS).
+Ta topologia obsługuje jeden węzeł w konfiguracji skalowania z jednym identyfikatorem SID z replikacją systemu HANA do lokacji DR dla podstawowego identyfikatora SID. Na diagramie w lokacji głównej jest przedstawiony tylko system o pojedynczym identyfikatorze SID, ale obsługiwane są również systemy wieloidentyfikatorowe (MCOS).
 
 ### <a name="architecture-diagram"></a>Diagram architektury  
 
-![Pojedynczy węzeł z dr przy użyciu HSR](media/hana-supported-scenario/single-node-hsr-dr-111.png)
+![Pojedynczy węzeł z odzyskiwaniem po awarii przy użyciu HSR](media/hana-supported-scenario/single-node-hsr-dr-111.png)
 
 ### <a name="ethernet"></a>Ethernet
-Wstępnie skonfigurowane są następujące interfejsy sieciowe:
+Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
-| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa z SUSE OS | Nazwa z RHEL OS | Przypadek użycia|
+| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
 | --- | --- | --- | --- | --- |
-| A | TYP I | eth0.tenant | eno1.najemca | Klient-do-HLI/HSR |
-| B | TYP I | eth2.tenant | eno3.najemca | Skonfigurowane, ale nie używane |
-| C | TYP I | eth1.tenant | eno2.tenant | Węzeł do magazynu |
-| D | TYP I | eth4.tenant | eno4.najemca | Skonfigurowane, ale nie używane |
-| A | TYP II | vlan\<najemcaNie> | team0.tenant | Klient-do-HLI/HSR |
-| B | TYP II | vlan\<tenantNo+2> | team0.tenant+2 | Skonfigurowane, ale nie używane |
-| C | TYP II | vlan\<tenantNo+1> | team0.tenant+1 | Węzeł do magazynu |
-| D | TYP II | vlan\<tenantNo+3> | team0.tenant+3 | Skonfigurowane, ale nie używane |
+| A | TYP I | eth0. Dzierżawca | eno1. Dzierżawca | Klient-do-HLI/HSR |
+| B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
+| D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient-do-HLI/HSR |
+| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
+| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
-Następujące punkty instalacji są wstępnie skonfigurowane na obu jednostkach HLI (podstawowy i dr):
+Następujące punkty instalacji są wstępnie skonfigurowane na jednostkach HLI (podstawowa i DR):
 
-| Punkt montażu | Przypadek użycia | 
+| Punkt instalacji | Przypadek użycia | 
 | --- | --- |
-|/hana/udostępniony/SID | Instalacja HANA dla identyfikatora SID | 
+|/hana/shared/SID | Instalacja platformy HANA dla identyfikatora SID | 
 |/hana/data/SID/mnt00001 | Instalacja plików danych dla identyfikatora SID | 
 |/hana/log/SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID | 
-|/hana/logbackups/SID | Ponawianie dzienników dla identyfikatora SID |
+|/hana/logbackups/SID | Wykonaj ponownie dzienniki dla identyfikatora SID |
 
 
 ### <a name="key-considerations"></a>Najważniejsze zagadnienia
-- /usr/sap/SID jest dowiązaniem symbolicznym do /hana/shared/SID.
-- W przypadku mcos: rozkład rozmiaru woluminu jest oparty na rozmiarze bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary baz danych w pamięci są obsługiwane w środowisku wielosydyskowym, zobacz [Omówienie i architektura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
-- Węzeł podstawowy synchronizuje się z węzłem odzyskiwania po awarii przy użyciu replikacji systemu HANA. 
-- [Globalny zasięg](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) służy do łączenia obwodów usługi ExpressRoute w celu tworzenia sieci prywatnej między sieciami regionalnymi.
+- /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
+- W przypadku MCOS: rozkład rozmiaru woluminu zależy od rozmiaru bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary bazy danych w pamięci są obsługiwane w środowisku z obsługą wiele identyfikatorów SID, zobacz [Omówienie i architektura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- Węzeł podstawowy jest synchronizowany z węzłem DR przy użyciu replikacji systemu HANA. 
+- [Global REACH](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) służy do łączenia obwodów usługi ExpressRoute w celu nałożenia sieci prywatnej między sieciami regionalnymi.
 
 
 
-## <a name="single-node-hsr-to-dr-cost-optimized"></a>Pojedynczy węzeł HSR do odzyskiwania po awarii (zoptymalizowany pod kątem kosztów) 
+## <a name="single-node-hsr-to-dr-cost-optimized"></a>HSR z jednym węzłem do odzyskiwania po awarii (koszt zoptymalizowany) 
  
- Ta topologia obsługuje jeden węzeł w konfiguracji skalowania w górę z jednym identyfikatorem SID, z replikacją systemu HANA do lokacji odzyskiwania po awarii dla podstawowego identyfikatora SID. Na diagramie tylko system z pojedynczym identyfikatorem SID jest przedstawiony w lokacji głównej, ale obsługiwane są również systemy wielosydyskowe (MCOS). W lokacji odzyskiwania po awarii jednostka HLI jest używana dla wystąpienia kontroli jakości, podczas gdy operacje produkcyjne są uruchomione z lokacji głównej. Podczas pracy awaryjnej odzyskiwania po awarii (lub testu trybu failover) wystąpienie kontroli jakości w lokacji odzyskiwania po awarii jest ścią głą amortyzowanie.
+ Ta topologia obsługuje jeden węzeł w konfiguracji skalowania z jednym identyfikatorem SID z replikacją systemu HANA do lokacji DR dla podstawowego identyfikatora SID. Na diagramie w lokacji głównej jest przedstawiony tylko system o pojedynczym identyfikatorze SID, ale obsługiwane są również systemy wieloidentyfikatorowe (MCOS). W odniesieniu do wystąpienia usługi pytania i odpowiedzi podczas wykonywania operacji produkcyjnych z lokacji głównej jest używana jednostka HLI. Podczas pracy w trybie failover odzyskiwania po awarii (test pracy w trybie failover) wystąpienie funkcji pytań i odpowiedzi w witrynie DR zostanie wyłączone.
 
 ### <a name="architecture-diagram"></a>Diagram architektury  
 
-![Pojedynczy węzeł HSR do odzyskiwania po awarii (zoptymalizowany pod kątem kosztów)](media/hana-supported-scenario/single-node-hsr-dr-cost-optimized-121.png)
+![HSR z jednym węzłem do odzyskiwania po awarii (koszt zoptymalizowany)](media/hana-supported-scenario/single-node-hsr-dr-cost-optimized-121.png)
 
 ### <a name="ethernet"></a>Ethernet
-Wstępnie skonfigurowane są następujące interfejsy sieciowe:
+Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
-| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa z SUSE OS | Nazwa z RHEL OS | Przypadek użycia|
+| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
 | --- | --- | --- | --- | --- |
-| A | TYP I | eth0.tenant | eno1.najemca | Klient-do-HLI/HSR |
-| B | TYP I | eth2.tenant | eno3.najemca | Skonfigurowane, ale nie używane |
-| C | TYP I | eth1.tenant | eno2.tenant | Węzeł do magazynu |
-| D | TYP I | eth4.tenant | eno4.najemca | Skonfigurowane, ale nie używane |
-| A | TYP II | vlan\<najemcaNie> | team0.tenant | Klient-do-HLI/HSR |
-| B | TYP II | vlan\<tenantNo+2> | team0.tenant+2 | Skonfigurowane, ale nie używane |
-| C | TYP II | vlan\<tenantNo+1> | team0.tenant+1 | Węzeł do magazynu |
-| D | TYP II | vlan\<tenantNo+3> | team0.tenant+3 | Skonfigurowane, ale nie używane |
+| A | TYP I | eth0. Dzierżawca | eno1. Dzierżawca | Klient-do-HLI/HSR |
+| B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
+| D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient-do-HLI/HSR |
+| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
+| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
-Wstępnie skonfigurowane są następujące punkty instalacji:
+Następujące punkty instalacji są wstępnie skonfigurowane:
 
-| Punkt montażu | Przypadek użycia | 
+| Punkt instalacji | Przypadek użycia | 
 | --- | --- |
 |**W lokacji głównej**|
-|/hana/udostępniony/SID | Instalacja HANA do produkcji SID | 
-|/hana/data/SID/mnt00001 | Instalacja plików danych dla produkcyjnego identyfikatora SID | 
-|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla produkcyjnego identyfikatora SID | 
-|/hana/logbackups/SID | Ponowne rejestrowanie identyfikatora SID produkcji |
-|**W miejscu dr**|
-|/hana/udostępniony/SID | Instalacja HANA do produkcji SID | 
-|/hana/data/SID/mnt00001 | Instalacja plików danych dla produkcyjnego identyfikatora SID | 
-|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla produkcyjnego identyfikatora SID | 
-|/hana/logbackups/SID | Ponowne rejestrowanie identyfikatora SID produkcji |
-|/hana/shared/QA-SID | Instalacja HANA dla QA SID | 
-|/hana/data/QA-SID/mnt00001 | Instalacja plików danych dla identyfikatora QA SID | 
-|/hana/log/QA-SID/mnt00001 | Instalacja plików dziennika dla identyfikatora QA SID |
-|/hana/logbackups/QA-SID | Ponownie dzienniki dla identyfikatora QA SID |
+|/hana/shared/SID | Instalacja platformy HANA dla produkcyjnego identyfikatora SID | 
+|/hana/data/SID/mnt00001 | Instalacja plików danych dla identyfikatora SID produkcji | 
+|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID produkcji | 
+|/hana/logbackups/SID | Wykonaj ponownie dzienniki dla produkcyjnego identyfikatora SID |
+|**W witrynie DR**|
+|/hana/shared/SID | Instalacja platformy HANA dla produkcyjnego identyfikatora SID | 
+|/hana/data/SID/mnt00001 | Instalacja plików danych dla identyfikatora SID produkcji | 
+|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID produkcji | 
+|/hana/logbackups/SID | Wykonaj ponownie dzienniki dla produkcyjnego identyfikatora SID |
+|/hana/shared/QA-SID | Instalacja platformy HANA dla identyfikatora SID usługi pytania i odpowiedzi | 
+|/hana/data/QA-SID/mnt00001 | Instalacja plików danych dla identyfikatora SID usługi pytania i odpowiedzi | 
+|/hana/log/QA-SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID usługi pytania i odpowiedzi |
+|/hana/logbackups/QA-SID | Dzienniki ponownego wykonywania dla identyfikatora SID usługi pytania i odpowiedzi |
 
 ### <a name="key-considerations"></a>Najważniejsze zagadnienia
-- /usr/sap/SID jest dowiązaniem symbolicznym do /hana/shared/SID.
-- W przypadku mcos: rozkład rozmiaru woluminu jest oparty na rozmiarze bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary baz danych w pamięci są obsługiwane w środowisku wielosydyskowym, zobacz [Omówienie i architektura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
-- W lokacji odzyskiwania po awarii: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "wystąpienie PROD w lokacji odzyskiwania po awarii") dla produkcyjnej instalacji wystąpienia HANA w jednostce DR HLI. 
-- W lokacji odzyskiwania po awarii: dane, kopie zapasowe dziennika, dziennik i udostępnione woluminy dla kontroli jakości (oznaczone jako "instalacja wystąpienia kontroli jakości") są skonfigurowane dla instalacji wystąpienia kontroli jakości.
-- Węzeł podstawowy synchronizuje się z węzłem odzyskiwania po awarii przy użyciu replikacji systemu HANA. 
-- [Globalny zasięg](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) służy do łączenia obwodów usługi ExpressRoute w celu tworzenia sieci prywatnej między sieciami regionalnymi.
+- /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
+- W przypadku MCOS: rozkład rozmiaru woluminu zależy od rozmiaru bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary bazy danych w pamięci są obsługiwane w środowisku z obsługą wiele identyfikatorów SID, zobacz [Omówienie i architektura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- W lokacji odzyskiwania po awarii: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "wystąpienie produkcyjne w lokacji DR") dla instalacji wystąpienia platformy HANA w jednostce. 
+- W witrynie DR: dane, kopie zapasowe dzienników, dzienniki i udostępnione woluminy dla pytań i odpowiedzi (oznaczone jako "Instalacja wystąpienia usługi pytania") są konfigurowane na potrzeby instalacji wystąpienia usługi pytania i odpowiedzi.
+- Węzeł podstawowy jest synchronizowany z węzłem DR przy użyciu replikacji systemu HANA. 
+- [Global REACH](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) służy do łączenia obwodów usługi ExpressRoute w celu nałożenia sieci prywatnej między sieciami regionalnymi.
 
-## <a name="high-availability-and-disaster-recovery-with-hsr"></a>Wysoka dostępność i odzyskiwanie po awarii dzięki HSR 
+## <a name="high-availability-and-disaster-recovery-with-hsr"></a>Wysoka dostępność i odzyskiwanie po awarii za pomocą HSR 
  
- Ta topologia obsługuje dwa węzły dla konfiguracji replikacji systemu HANA dla wysokiej dostępności regionów lokalnych. W przypadku odzyskiwania po awarii trzeci węzeł w regionie odzyskiwania po awarii synchronizuje się z lokacją główną przy użyciu trybu HSR (trybu asynchronicznego). 
+ Ta topologia obsługuje dwa węzły dla konfiguracji replikacji systemu HANA na potrzeby wysokiej dostępności regionów lokalnych. W przypadku odzyskiwania po awarii trzeci węzeł w regionie DR synchronizuje się z lokacją główną przy użyciu HSR (tryb asynchroniczny). 
 
 ### <a name="architecture-diagram"></a>Diagram architektury  
 
-![Wysoka dostępność i odzyskiwanie po awarii dzięki HSR](media/hana-supported-scenario/hana-system-replication-dr-131.png)
+![Wysoka dostępność i odzyskiwanie po awarii za pomocą HSR](media/hana-supported-scenario/hana-system-replication-dr-131.png)
 
 ### <a name="ethernet"></a>Ethernet
-Wstępnie skonfigurowane są następujące interfejsy sieciowe:
+Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
-| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa z SUSE OS | Nazwa z RHEL OS | Przypadek użycia|
+| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
 | --- | --- | --- | --- | --- |
-| A | TYP I | eth0.tenant | eno1.najemca | Klient-do-HLI/HSR |
-| B | TYP I | eth2.tenant | eno3.najemca | Skonfigurowane, ale nie używane |
-| C | TYP I | eth1.tenant | eno2.tenant | Węzeł do magazynu |
-| D | TYP I | eth4.tenant | eno4.najemca | Skonfigurowane, ale nie używane |
-| A | TYP II | vlan\<najemcaNie> | team0.tenant | Klient-do-HLI/HSR |
-| B | TYP II | vlan\<tenantNo+2> | team0.tenant+2 | Skonfigurowane, ale nie używane |
-| C | TYP II | vlan\<tenantNo+1> | team0.tenant+1 | Węzeł do magazynu |
-| D | TYP II | vlan\<tenantNo+3> | team0.tenant+3 | Skonfigurowane, ale nie używane |
+| A | TYP I | eth0. Dzierżawca | eno1. Dzierżawca | Klient-do-HLI/HSR |
+| B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
+| D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient-do-HLI/HSR |
+| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
+| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
-Wstępnie skonfigurowane są następujące punkty instalacji:
+Następujące punkty instalacji są wstępnie skonfigurowane:
 
-| Punkt montażu | Przypadek użycia | 
+| Punkt instalacji | Przypadek użycia | 
 | --- | --- |
 |**W lokacji głównej**|
-|/hana/udostępniony/SID | Instalacja HANA do produkcji SID | 
-|/hana/data/SID/mnt00001 | Instalacja plików danych dla produkcyjnego identyfikatora SID | 
-|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla produkcyjnego identyfikatora SID | 
-|/hana/logbackups/SID | Ponowne rejestrowanie identyfikatora SID produkcji |
-|**W miejscu dr**|
-|/hana/udostępniony/SID | Instalacja HANA do produkcji SID | 
-|/hana/data/SID/mnt00001 | Instalacja plików danych dla produkcyjnego identyfikatora SID | 
-|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla produkcyjnego identyfikatora SID | 
-|/hana/logbackups/SID | Ponowne rejestrowanie identyfikatora SID produkcji |
+|/hana/shared/SID | Instalacja platformy HANA dla produkcyjnego identyfikatora SID | 
+|/hana/data/SID/mnt00001 | Instalacja plików danych dla identyfikatora SID produkcji | 
+|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID produkcji | 
+|/hana/logbackups/SID | Wykonaj ponownie dzienniki dla produkcyjnego identyfikatora SID |
+|**W witrynie DR**|
+|/hana/shared/SID | Instalacja platformy HANA dla produkcyjnego identyfikatora SID | 
+|/hana/data/SID/mnt00001 | Instalacja plików danych dla identyfikatora SID produkcji | 
+|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID produkcji | 
+|/hana/logbackups/SID | Wykonaj ponownie dzienniki dla produkcyjnego identyfikatora SID |
 
 
 ### <a name="key-considerations"></a>Najważniejsze zagadnienia
-- /usr/sap/SID jest dowiązaniem symbolicznym do /hana/shared/SID.
-- W lokacji odzyskiwania po awarii: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "wystąpienie PROD DR") dla produkcyjnej instalacji wystąpienia HANA w jednostce DR HLI. 
-- Węzeł lokacji głównej synchronizuje się z węzłem odzyskiwania po awarii przy użyciu replikacji systemu HANA. 
-- [Globalny zasięg](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) służy do łączenia obwodów usługi ExpressRoute w celu tworzenia sieci prywatnej między sieciami regionalnymi.
+- /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
+- W witrynie DR: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "produkcyjne DR instance") dla instalacji wystąpienia platformy HANA w jednostce. 
+- Węzeł lokacji głównej synchronizuje się z węzłem DR przy użyciu replikacji systemu HANA. 
+- [Global REACH](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) służy do łączenia obwodów usługi ExpressRoute w celu nałożenia sieci prywatnej między sieciami regionalnymi.
 
-## <a name="high-availability-and-disaster-recovery-with-hsr-cost-optimized"></a>Wysoka dostępność i odzyskiwanie po awarii dzięki HSR (zoptymalizowane pod względem kosztów)
+## <a name="high-availability-and-disaster-recovery-with-hsr-cost-optimized"></a>Wysoka dostępność i odzyskiwanie po awarii za pomocą HSR (zoptymalizowane pod kątem kosztów)
  
- Ta topologia obsługuje dwa węzły dla konfiguracji replikacji systemu HANA dla wysokiej dostępności regionów lokalnych. W przypadku odzyskiwania po awarii trzeci węzeł w regionie odzyskiwania po awarii synchronizuje się z lokacją główną przy użyciu hsr (tryb asynchroniowy), podczas gdy inne wystąpienie (na przykład QA) jest już uruchomiony z węzła odzyskiwania po awarii. 
+ Ta topologia obsługuje dwa węzły dla konfiguracji replikacji systemu HANA na potrzeby wysokiej dostępności regionów lokalnych. W przypadku odzyskiwania po awarii trzeci węzeł w regionie DR synchronizuje się z lokacją główną przy użyciu HSR (tryb Async), podczas gdy inne wystąpienie (na przykład funkcja pytań i odpowiedzi) jest już uruchomione z węzła DR. 
 
 ### <a name="architecture-diagram"></a>Diagram architektury  
 
-![Wysoka dostępność i odzyskiwanie po awarii dzięki HSR (zoptymalizowane pod względem kosztów)](media/hana-supported-scenario/hana-system-replication-dr-cost-optimized-141.png)
+![Wysoka dostępność i odzyskiwanie po awarii za pomocą HSR (zoptymalizowane pod kątem kosztów)](media/hana-supported-scenario/hana-system-replication-dr-cost-optimized-141.png)
 
 ### <a name="ethernet"></a>Ethernet
-Wstępnie skonfigurowane są następujące interfejsy sieciowe:
+Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
-| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa z SUSE OS | Nazwa z RHEL OS | Przypadek użycia|
+| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
 | --- | --- | --- | --- | --- |
-| A | TYP I | eth0.tenant | eno1.najemca | Klient-do-HLI/HSR |
-| B | TYP I | eth2.tenant | eno3.najemca | Skonfigurowane, ale nie używane |
-| C | TYP I | eth1.tenant | eno2.tenant | Węzeł do magazynu |
-| D | TYP I | eth4.tenant | eno4.najemca | Skonfigurowane, ale nie używane |
-| A | TYP II | vlan\<najemcaNie> | team0.tenant | Klient-do-HLI/HSR |
-| B | TYP II | vlan\<tenantNo+2> | team0.tenant+2 | Skonfigurowane, ale nie używane |
-| C | TYP II | vlan\<tenantNo+1> | team0.tenant+1 | Węzeł do magazynu |
-| D | TYP II | vlan\<tenantNo+3> | team0.tenant+3 | Skonfigurowane, ale nie używane |
+| A | TYP I | eth0. Dzierżawca | eno1. Dzierżawca | Klient-do-HLI/HSR |
+| B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
+| D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient-do-HLI/HSR |
+| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
+| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
-Wstępnie skonfigurowane są następujące punkty instalacji:
+Następujące punkty instalacji są wstępnie skonfigurowane:
 
-| Punkt montażu | Przypadek użycia | 
+| Punkt instalacji | Przypadek użycia | 
 | --- | --- |
 |**W lokacji głównej**|
-|/hana/udostępniony/SID | Instalacja HANA do produkcji SID | 
-|/hana/data/SID/mnt00001 | Instalacja plików danych dla produkcyjnego identyfikatora SID | 
-|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla produkcyjnego identyfikatora SID | 
-|/hana/logbackups/SID | Ponowne rejestrowanie identyfikatora SID produkcji |
-|**W miejscu dr**|
-|/hana/udostępniony/SID | Instalacja HANA do produkcji SID | 
-|/hana/data/SID/mnt00001 | Instalacja plików danych dla produkcyjnego identyfikatora SID | 
-|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla produkcyjnego identyfikatora SID | 
-|/hana/logbackups/SID | Ponowne rejestrowanie identyfikatora SID produkcji |
-|/hana/shared/QA-SID | Instalacja HANA dla QA SID | 
-|/hana/data/QA-SID/mnt00001 | Instalacja plików danych dla identyfikatora QA SID | 
-|/hana/log/QA-SID/mnt00001 | Instalacja plików dziennika dla identyfikatora QA SID |
-|/hana/logbackups/QA-SID | Ponownie dzienniki dla identyfikatora QA SID |
+|/hana/shared/SID | Instalacja platformy HANA dla produkcyjnego identyfikatora SID | 
+|/hana/data/SID/mnt00001 | Instalacja plików danych dla identyfikatora SID produkcji | 
+|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID produkcji | 
+|/hana/logbackups/SID | Wykonaj ponownie dzienniki dla produkcyjnego identyfikatora SID |
+|**W witrynie DR**|
+|/hana/shared/SID | Instalacja platformy HANA dla produkcyjnego identyfikatora SID | 
+|/hana/data/SID/mnt00001 | Instalacja plików danych dla identyfikatora SID produkcji | 
+|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID produkcji | 
+|/hana/logbackups/SID | Wykonaj ponownie dzienniki dla produkcyjnego identyfikatora SID |
+|/hana/shared/QA-SID | Instalacja platformy HANA dla identyfikatora SID usługi pytania i odpowiedzi | 
+|/hana/data/QA-SID/mnt00001 | Instalacja plików danych dla identyfikatora SID usługi pytania i odpowiedzi | 
+|/hana/log/QA-SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID usługi pytania i odpowiedzi |
+|/hana/logbackups/QA-SID | Dzienniki ponownego wykonywania dla identyfikatora SID usługi pytania i odpowiedzi |
 
 ### <a name="key-considerations"></a>Najważniejsze zagadnienia
-- /usr/sap/SID jest dowiązaniem symbolicznym do /hana/shared/SID.
-- W lokacji odzyskiwania po awarii: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "wystąpienie PROD DR") dla produkcyjnej instalacji wystąpienia HANA w jednostce DR HLI. 
-- W lokacji odzyskiwania po awarii: dane, kopie zapasowe dziennika, dziennik i udostępnione woluminy dla kontroli jakości (oznaczone jako "instalacja wystąpienia kontroli jakości") są skonfigurowane dla instalacji wystąpienia kontroli jakości.
-- Węzeł lokacji głównej synchronizuje się z węzłem odzyskiwania po awarii przy użyciu replikacji systemu HANA. 
-- [Globalny zasięg](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) służy do łączenia obwodów usługi ExpressRoute w celu tworzenia sieci prywatnej między sieciami regionalnymi.
+- /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
+- W witrynie DR: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "produkcyjne DR instance") dla instalacji wystąpienia platformy HANA w jednostce. 
+- W witrynie DR: dane, kopie zapasowe dzienników, dzienniki i udostępnione woluminy dla pytań i odpowiedzi (oznaczone jako "Instalacja wystąpienia usługi pytania") są konfigurowane na potrzeby instalacji wystąpienia usługi pytania i odpowiedzi.
+- Węzeł lokacji głównej synchronizuje się z węzłem DR przy użyciu replikacji systemu HANA. 
+- [Global REACH](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) służy do łączenia obwodów usługi ExpressRoute w celu nałożenia sieci prywatnej między sieciami regionalnymi.
 
-## <a name="scale-out-with-dr-using-hsr"></a>Skalowanie w poziomie z dr przy użyciu HSR
+## <a name="scale-out-with-dr-using-hsr"></a>Skalowanie w poziomie za pomocą narzędzia DR using HSR
  
-Ta topologia obsługuje wiele węzłów w skalowawce w poziomie z po awarii. Można zażądać tej topologii z lub bez węzła wstrzymania. Węzeł lokacji głównej synchronizuje się z węzłem lokacji odzyskiwania po awarii przy użyciu usługi Replikacja systemu HANA (tryb asynchronowy).
+Ta topologia obsługuje wiele węzłów w skalowaniu w poziomie przy użyciu funkcji odzyskiwania po awarii. Możesz zażądać tej topologii z węzłem w stanie wstrzymania lub bez niego. Węzeł lokacji głównej jest synchronizowany z węzłem lokacji DR przy użyciu replikacji systemu HANA (tryb Async).
 
 
 ### <a name="architecture-diagram"></a>Diagram architektury  
 
-[![Skalowanie w poziomie z dr przy użyciu HSR](media/hana-supported-scenario/scale-out-dr-hsr-151.png)](media/hana-supported-scenario/scale-out-dr-hsr-151.png#lightbox)
+[![Skalowanie w poziomie za pomocą narzędzia Dr using HSR](media/hana-supported-scenario/scale-out-dr-hsr-151.png)](media/hana-supported-scenario/scale-out-dr-hsr-151.png#lightbox)
 
 
 ### <a name="ethernet"></a>Ethernet
-Wstępnie skonfigurowane są następujące interfejsy sieciowe:
+Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
-| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa z SUSE OS | Nazwa z RHEL OS | Przypadek użycia|
+| Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
 | --- | --- | --- | --- | --- |
-| A | TYP I | eth0.tenant | eno1.najemca | Klient-do-HLI/HSR |
-| B | TYP I | eth2.tenant | eno3.najemca | Komunikacja między węzłami |
-| C | TYP I | eth1.tenant | eno2.tenant | Węzeł do magazynu |
-| D | TYP I | eth4.tenant | eno4.najemca | Skonfigurowane, ale nie używane |
-| A | TYP II | vlan\<najemcaNie> | team0.tenant | Klient-do-HLI/HSR |
-| B | TYP II | vlan\<tenantNo+2> | team0.tenant+2 | Komunikacja między węzłami |
-| C | TYP II | vlan\<tenantNo+1> | team0.tenant+1 | Węzeł do magazynu |
-| D | TYP II | vlan\<tenantNo+3> | team0.tenant+3 | Skonfigurowane, ale nie używane |
+| A | TYP I | eth0. Dzierżawca | eno1. Dzierżawca | Klient-do-HLI/HSR |
+| B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Komunikacja między węzłami |
+| C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
+| D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient-do-HLI/HSR |
+| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Komunikacja między węzłami |
+| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
-Wstępnie skonfigurowane są następujące punkty instalacji:
+Następujące punkty instalacji są wstępnie skonfigurowane:
 
-| Punkt montażu | Przypadek użycia | 
+| Punkt instalacji | Przypadek użycia | 
 | --- | --- |
 |**W węźle podstawowym**|
-|/hana/udostępniony | Instalacja HANA do produkcji SID | 
-|/hana/data/SID/mnt00001 | Instalacja plików danych dla produkcyjnego identyfikatora SID | 
-|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla produkcyjnego identyfikatora SID | 
-|/hana/logbackups/SID | Ponowne rejestrowanie identyfikatora SID produkcji |
-|**W węźle odzyskiwania po awarii**|
-|/hana/udostępniony | Instalacja HANA do produkcji SID | 
-|/hana/data/SID/mnt00001 | Instalacja plików danych dla produkcyjnego identyfikatora SID | 
-|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla produkcyjnego identyfikatora SID | 
-|/hana/logbackups/SID | Ponowne rejestrowanie identyfikatora SID produkcji |
+|/hana/shared | Instalacja platformy HANA dla produkcyjnego identyfikatora SID | 
+|/hana/data/SID/mnt00001 | Instalacja plików danych dla identyfikatora SID produkcji | 
+|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID produkcji | 
+|/hana/logbackups/SID | Wykonaj ponownie dzienniki dla produkcyjnego identyfikatora SID |
+|**W węźle DR**|
+|/hana/shared | Instalacja platformy HANA dla produkcyjnego identyfikatora SID | 
+|/hana/data/SID/mnt00001 | Instalacja plików danych dla identyfikatora SID produkcji | 
+|/hana/log/SID/mnt00001 | Instalacja plików dziennika dla identyfikatora SID produkcji | 
+|/hana/logbackups/SID | Wykonaj ponownie dzienniki dla produkcyjnego identyfikatora SID |
 
 
 ### <a name="key-considerations"></a>Najważniejsze zagadnienia
-- /usr/sap/SID jest dowiązaniem symbolicznym do /hana/shared/SID.
-- W lokacji odzyskiwania po awarii: woluminy i punkty instalacji są skonfigurowane dla produkcyjnej instalacji wystąpienia HANA w jednostce DR HLI. 
-- Węzeł lokacji głównej synchronizuje się z węzłem odzyskiwania po awarii przy użyciu replikacji systemu HANA. 
-- [Globalny zasięg](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) służy do łączenia obwodów usługi ExpressRoute w celu tworzenia sieci prywatnej między sieciami regionalnymi.
+- /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
+- W witrynie DR: woluminy i punkty instalacji są skonfigurowane na potrzeby instalacji wystąpienia platformy HANA w jednostce. 
+- Węzeł lokacji głównej synchronizuje się z węzłem DR przy użyciu replikacji systemu HANA. 
+- [Global REACH](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) służy do łączenia obwodów usługi ExpressRoute w celu nałożenia sieci prywatnej między sieciami regionalnymi.
 
 
 ## <a name="next-steps"></a>Następne kroki
-- [Infrastruktura i łączność](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity) dla dużych wystąpień HANA
-- [Wysoka dostępność i odzyskiwanie po awarii](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) dla dużych wystąpień HANA
+- [Infrastruktura i łączność z](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity) dużymi WYSTĄPIENIAmi Hana
+- [Wysoka dostępność i odzyskiwanie po awarii](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) dla dużych wystąpień platformy Hana

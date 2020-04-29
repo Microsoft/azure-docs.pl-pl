@@ -9,13 +9,13 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: f4e5c59a5ce7c0d743a574309bb1b9276ce80bea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77597864"
 ---
-Usługa Azure Files oferuje dwie różne warstwy pamięci masowej, premium i standard, aby umożliwić dostosowanie udziałów do wymagań dotyczących wydajności i ceny w scenariuszu:
+Azure Files oferuje dwie różne warstwy magazynu, Premium i Standard, aby umożliwić dostosowanie udziałów do wymagań dotyczących wydajności i cen w Twoim scenariuszu:
 
-- **Udziały plików premium:** Udziały plików premium są wspierane przez dyski PÓŁPRZEWODNIKOWE (SSD) i są wdrażane w typie **konta magazynu FileStorage.** Udziały plików w udziale w udziale w udziale w wersji premium zapewniają stałą wysoką wydajność i małe opóźnienia w ciągu jednocyfrowych milisekund dla większości operacji we/wy dla obciążeń intensywnie korzystających z operacji we/wy. Dzięki temu nadają się do różnych obciążeń, takich jak bazy danych, hosting witryn sieci web i środowiska programistyczne. Udziały plików premium są dostępne tylko w modelu rozliczeń aprowizacji. Aby uzyskać więcej informacji na temat aprowizacji modelu rozliczeń dla udziałów plików premium, zobacz [Opis inicjowania obsługi administracyjnej udziałów plików premium](../articles/storage/files/storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
-- **Standardowe udziały plików:** Standardowe udziały plików są wspierane przez dyski twarde (HDD) i są wdrażane w **typie konta magazynu ogólnego przeznaczenia w wersji 2 (GPv2).** Standardowe udziały plików zapewniają niezawodną wydajność dla obciążeń we/wy, które są mniej wrażliwe na zmienność wydajności, takie jak udziały plików ogólnego przeznaczenia i środowiska deweloperów/testów. Standardowe udziały plików są dostępne tylko w modelu rozliczeń płatności zgodnie z rzeczywistymu po podróży.
+- **Udziały plików w warstwie Premium**: udziały plików w warstwie Premium są obsługiwane przez dyski półprzewodnikowe (dysków SSD) i są wdrażane w typie **konta magazynu FileStorage** . Udziały plików w warstwie Premium zapewniają spójną wysoką wydajność i małe opóźnienia w obrębie jednocyfrowych milisekund dla większości operacji we/wy dla obciążeń intensywnie korzystających z operacji we/wy. Dzięki temu są one odpowiednie dla różnorodnych obciążeń, takich jak bazy danych, hosting witryn sieci Web i środowiska deweloperskie. Udziały plików w warstwie Premium są dostępne tylko w modelu rozliczania z obsługą administracyjną. Aby uzyskać więcej informacji na temat obsługiwanego modelu rozliczania dla udziałów plików w warstwie Premium, zobacz [Omówienie udostępniania udziałów plików w warstwie Premium](../articles/storage/files/storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
+- **Standardowe udziały plików**: standardowe udziały plików są obsługiwane przez dyski twarde (HDD) i są wdrażane w typie **konta magazynu ogólnego przeznaczenia w wersji 2 (GPv2)** . Standardowe udziały plików zapewniają niezawodną wydajność dla obciążeń we/wy, które są mniej wrażliwe na zmienności wydajności, takie jak udziały plików ogólnego przeznaczenia i środowiska deweloperskie/testowe. Standardowe udziały plików są dostępne tylko w modelu rozliczania z płatnością zgodnie z rzeczywistym użyciem.

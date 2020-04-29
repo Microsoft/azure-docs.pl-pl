@@ -1,6 +1,6 @@
 ---
-title: Resetowanie lokalnego hasła systemu Windows bez agenta platformy Azure | Dokumenty firmy Microsoft
-description: Jak zresetować hasło lokalnego konta użytkownika systemu Windows, gdy agent gościa platformy Azure nie jest zainstalowany lub działa na maszynie Wirtualnej
+title: Resetowanie lokalnego hasła systemu Windows bez agenta platformy Azure | Microsoft Docs
+description: Jak zresetować hasło lokalnego konta użytkownika systemu Windows, gdy Agent gościa platformy Azure nie jest zainstalowany lub działa na maszynie wirtualnej
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -14,43 +14,43 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
 ms.openlocfilehash: becbf88aeda164f7d916cbc1f1ace89262cc1a3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77921627"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Resetowanie lokalnego hasła systemu Windows dla maszyny wirtualnej platformy Azure w trybie offline
-Można zresetować lokalne hasło systemu Windows maszyny Wirtualnej na platformie Azure przy użyciu [witryny Azure portal lub programu Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pod warunkiem zainstalowania agenta gościa platformy Azure. Ta metoda jest podstawowym sposobem resetowania hasła dla maszyny Wirtualnej platformy Azure. Jeśli wystąpią problemy z agentem gościa platformy Azure nie odpowiada lub nie można zainstalować po przekazaniu obrazu niestandardowego, można ręcznie zresetować hasło systemu Windows. W tym artykule opisano sposób resetowania hasła konta lokalnego przez dołączenie źródłowego dysku wirtualnego systemu operacyjnego do innej maszyny Wirtualnej. Kroki opisane w tym artykule nie dotyczą kontrolerów domeny systemu Windows. 
+Możesz zresetować lokalne hasło systemu Windows maszyny wirtualnej na platformie Azure przy użyciu [Azure Portal lub Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pod warunkiem, że zainstalowano agenta gościa platformy Azure. Ta metoda jest podstawowym sposobem resetowania hasła dla maszyny wirtualnej platformy Azure. Jeśli wystąpią problemy z agentem gościa platformy Azure, który nie odpowiada, lub instalacja nie powiedzie się po przesłaniu obrazu niestandardowego, można ręcznie zresetować hasło systemu Windows. W tym artykule szczegółowo opisano sposób resetowania hasła do konta lokalnego przez dołączenie źródłowego dysku wirtualnego systemu operacyjnego do innej maszyny wirtualnej. Kroki opisane w tym artykule nie dotyczą kontrolerów domeny systemu Windows. 
 
 > [!WARNING]
-> Ta metoda powinna być używana w ostateczności. Zawsze najpierw próbuj zresetować hasło przy użyciu [witryny Azure portal lub programu Azure PowerShell.](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> Ta metoda powinna być używana w ostateczności. Zawsze należy próbować zresetować hasło przy użyciu [Azure Portal lub Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) .
 
 ## <a name="overview-of-the-process"></a>Przegląd procesu
-Podstawowe kroki wykonywania lokalnego resetowania hasła dla maszyny Wirtualnej systemu Windows na platformie Azure, gdy nie ma dostępu do agenta gościa platformy Azure jest następujący:
+Podstawowe kroki służące do przeprowadzania lokalnego resetowania hasła dla maszyny wirtualnej z systemem Windows na platformie Azure, gdy nie ma dostępu do agenta gościa platformy Azure:
 
-1. Zatrzymaj maszynę wirtualną, na które dotyczy problem.
-1. Utwórz migawkę dysku systemu operacyjnego maszyny Wirtualnej.
-1. Utwórz kopię dysku systemu operacyjnego z migawki.
-1. Dołącz i zamontuj skopiowany dysk systemu operacyjnego na innej maszynie wirtualnej systemu Windows, a następnie utwórz kilka plików konfiguracyjnych na dysku. Pliki pomogą Ci zresetować hasło.
-1. Odmontuj i odłącz skopiowany dysk systemu operacyjnego z maszyny wirtualnej do rozwiązywania problemów.
-1. Zamień dysk systemu operacyjnego na maszynę wirtualną, którego dotyczy problem.
+1. Zatrzymaj zaatakowaną maszynę wirtualną.
+1. Utwórz migawkę dysku systemu operacyjnego dla maszyny wirtualnej.
+1. Utwórz kopię dysku systemu operacyjnego na podstawie migawki.
+1. Dołącz i zainstaluj skopiowany dysk systemu operacyjnego na innej maszynie wirtualnej z systemem Windows, a następnie utwórz pliki konfiguracji na dysku. Pliki będą pomocne w zresetowaniu hasła.
+1. Odinstalowanie i odłączenie skopiowanego dysku systemu operacyjnego z maszyny wirtualnej Rozwiązywanie problemów.
+1. Zamień dysk systemu operacyjnego na zaatakowaną maszynę wirtualną.
 
-## <a name="detailed-steps-for-the-vm-with-resource-manager-deployment"></a>Szczegółowe kroki wdrażania maszyny Wirtualnej z Menedżerem zasobów
+## <a name="detailed-steps-for-the-vm-with-resource-manager-deployment"></a>Szczegółowe kroki dla maszyny wirtualnej z wdrożeniem Menedżer zasobów
 
 > [!NOTE]
 > Kroki nie dotyczą kontrolerów domeny systemu Windows. Działa tylko na serwerze autonomicznym lub serwerze, który jest członkiem domeny.
 
-Zawsze spróbuj zresetować hasło przy użyciu [witryny Azure portal lub programu Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) przed wypróbowaniem następujących kroków. Przed rozpoczęciem upewnij się, że masz kopię zapasową maszyny Wirtualnej.
+Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować zresetować hasło przy użyciu [Azure Portal lub Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . Przed rozpoczęciem upewnij się, że masz kopię zapasową maszyny wirtualnej.
 
-1. Zrób migawkę dysku systemu operacyjnego maszyny wirtualnej, którego dotyczy problem, utwórz dysk z migawki, a następnie dołącz dysk do maszyny wirtualnej w celu rozwiązania problemu. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z maszyną wirtualną systemu Windows, dołączając dysk systemu operacyjnego do maszyny wirtualnej odzyskiwania przy użyciu portalu Azure](troubleshoot-recovery-disks-portal-windows.md).
-2. Połącz się z maszyną wirtualną do rozwiązywania problemów za pomocą pulpitu zdalnego.
-3. `gpt.ini` Utwórz `\Windows\System32\GroupPolicy` na dysku źródłowej maszyny Wirtualnej (jeśli gpt.ini istnieje, zmień nazwę na gpt.ini.bak):
+1. Utwórz migawkę dysku systemu operacyjnego z zaatakowaną maszyną wirtualną, Stwórz dysk na podstawie migawki, a następnie Dołącz dysk do maszyny wirtualnej rozwiązywania problemów. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z maszyną wirtualną z systemem Windows przez dołączenie dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania przy użyciu Azure Portal](troubleshoot-recovery-disks-portal-windows.md).
+2. Nawiąż połączenie z maszyną wirtualną rozwiązywania problemów przy użyciu Pulpit zdalny.
+3. `\Windows\System32\GroupPolicy` Utwórz `gpt.ini` na dysku źródłowej maszyny wirtualnej (jeśli istnieje tabela GPT. ini, Zmień nazwę na GPT. ini. bak):
    
    > [!WARNING]
-   > Upewnij się, że nie przypadkowo utworzyć następujące pliki w C:\Windows, dysku systemu operacyjnego dla rozwiązywania problemów z maszyną wirtualną. Utwórz następujące pliki na dysku systemu operacyjnego dla źródłowej maszyny Wirtualnej, która jest dołączona jako dysk danych.
+   > Upewnij się, że nie utworzysz przypadkowo następujących plików w folderze C:\Windows, dysk systemu operacyjnego do rozwiązywania problemów z maszyną wirtualną. Utwórz następujące pliki na dysku systemu operacyjnego dla źródłowej maszyny wirtualnej, która jest dołączana jako dysk danych.
    
-   * Dodaj następujące wiersze `gpt.ini` do utworzonego pliku:
+   * Dodaj następujące wiersze do utworzonego `gpt.ini` pliku:
      
      ```
      [General]
@@ -59,11 +59,11 @@ Zawsze spróbuj zresetować hasło przy użyciu [witryny Azure portal lub progra
      Version=1
      ```
      
-     ![Tworzenie pliku gpt.ini](./media/reset-local-password-without-agent/create-gpt-ini.png)
+     ![Utwórz plik GPT. ini](./media/reset-local-password-without-agent/create-gpt-ini.png)
 
-4. `scripts.ini` Utwórz `\Windows\System32\GroupPolicy\Machines\Scripts\`w pliku . Upewnij się, że są wyświetlane ukryte foldery. W razie potrzeby `Machine` `Scripts` utwórz foldery lub foldery.
+4. Utwórz `scripts.ini` w `\Windows\System32\GroupPolicy\Machines\Scripts\`. Upewnij się, że ukryte foldery są wyświetlane. W `Machine` razie konieczności Utwórz foldery lub `Scripts` .
    
-   * Dodaj następujące wiersze utworzonego `scripts.ini` pliku:
+   * Dodaj następujący wiersz utworzonego `scripts.ini` pliku:
      
      ```
      [Startup]
@@ -71,9 +71,9 @@ Zawsze spróbuj zresetować hasło przy użyciu [witryny Azure portal lub progra
      0Parameters=
      ```
      
-     ![Tworzenie pliku scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini.png)
+     ![Utwórz skrypt. ini](./media/reset-local-password-without-agent/create-scripts-ini.png)
 
-5. `FixAzureVM.cmd` Utwórz `\Windows\System32` z następującą `<username>` zawartością, zastępując i `<newpassword>` z własnymi wartościami:
+5. Utwórz `FixAzureVM.cmd` w `\Windows\System32` programie, używając następującej zawartości, `<username>` zastępując `<newpassword>` i korzystając z własnych wartości:
    
     ```
     net user <username> <newpassword> /add
@@ -81,80 +81,80 @@ Zawsze spróbuj zresetować hasło przy użyciu [witryny Azure portal lub progra
     net localgroup "remote desktop users" <username> /add
     ```
 
-    ![Tworzenie pliku FixAzureVM.cmd](./media/reset-local-password-without-agent/create-fixazure-cmd.png)
+    ![Utwórz FixAzureVM. cmd](./media/reset-local-password-without-agent/create-fixazure-cmd.png)
    
-    Podczas definiowania nowego hasła należy spełnić wymagania dotyczące złożoności skonfigurowanych haseł dla maszyny Wirtualnej.
+    Podczas definiowania nowego hasła należy spełnić skonfigurowane wymagania dotyczące złożoności hasła dla maszyny wirtualnej.
 
-6. W witrynie Azure portal odłączyć dysk od rozwiązywania problemów z maszyną wirtualną.
+6. W Azure Portal Odłącz dysk od maszyny wirtualnej rozwiązywania problemów.
 
-7. [Zmień dysk systemu operacyjnego dla maszyny wirtualnej, którego dotyczy problem](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm).
+7. [Zmień dysk systemu operacyjnego dla maszyny wirtualnej, której to dotyczy](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm).
 
-8. Po uruchomieniu nowej maszyny Wirtualnej połącz się z maszyną wirtualną `FixAzureVM.cmd` przy użyciu pulpitu zdalnego przy użyciu nowego hasła określonego w skrypcie.
+8. Po uruchomieniu nowej maszyny wirtualnej Nawiąż połączenie z maszyną wirtualną przy użyciu Pulpit zdalny z nowym hasłem określonym w `FixAzureVM.cmd` skrypcie.
 
-9. Z sesji zdalnej do nowej maszyny Wirtualnej usuń następujące pliki, aby oczyścić środowisko:
+9. Z sesji zdalnej na nową maszynę wirtualną Usuń następujące pliki, aby wyczyścić środowisko:
     
-    * Od %windir%\System32
-      * usuń FixAzureVM.cmd
-    * Z %windir%\System32\GroupPolicy\Machine\Skrypty
-      * usuwanie pliku scripts.ini
-    * Od %windir%\System32\GroupPolicy
-      * usuń gpt.ini (jeśli gpt.ini istniało wcześniej, a zmieniłeś nazwę na gpt.ini.bak, zmień nazwę pliku .bak z powrotem na gpt.ini)
+    * Z%windir%\System32
+      * Usuń FixAzureVM. cmd
+    * Z%windir%\System32\GroupPolicy\Machine\Scripts
+      * Usuń skrypty. ini
+    * Z%windir%\System32\GroupPolicy
+      * Usuń plik GPT. ini (Jeśli plik GPT. ini istniał wcześniej i zmieniono jego nazwę na GPT. ini. bak, Zmień nazwę pliku. bak z powrotem na GPT. ini)
 
-## <a name="detailed-steps-for-classic-vm"></a>Szczegółowe kroki dla klasycznej maszyny Wirtualnej
+## <a name="detailed-steps-for-classic-vm"></a>Szczegółowe kroki dla klasycznej maszyny wirtualnej
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 > [!NOTE]
 > Kroki nie dotyczą kontrolerów domeny systemu Windows. Działa tylko na serwerze autonomicznym lub serwerze, który jest członkiem domeny.
 
-Zawsze spróbuj zresetować hasło przy użyciu [witryny Azure portal lub programu Azure PowerShell](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/reset-rdp) przed wypróbowaniem następujących kroków. Przed rozpoczęciem upewnij się, że masz kopię zapasową maszyny Wirtualnej. 
+Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować zresetować hasło przy użyciu [Azure Portal lub Azure PowerShell](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/reset-rdp) . Przed rozpoczęciem upewnij się, że masz kopię zapasową maszyny wirtualnej. 
 
-1. Usuń maszynę wirtualną, którego dotyczy problem, w witrynie Azure portal. Usunięcie maszyny Wirtualnej usuwa tylko metadane, odwołanie do maszyny Wirtualnej na platformie Azure. Dyski wirtualne są zachowywane po usunięciu maszyny Wirtualnej:
+1. Usuń zaatakowaną maszynę wirtualną w Azure Portal. Usunięcie maszyny wirtualnej powoduje usunięcie tylko metadanych, odwołania do maszyny wirtualnej na platformie Azure. Dyski wirtualne są zachowywane po usunięciu maszyny wirtualnej:
    
-   * Wybierz maszynę wirtualną w witrynie Azure portal, a następnie kliknij przycisk *Usuń:*
+   * Wybierz maszynę wirtualną w Azure Portal, a następnie kliknij pozycję *Usuń*:
      
-     ![Usuwanie istniejącej maszyny wirtualnej](./media/reset-local-password-without-agent/delete-vm-classic.png)
+     ![Usuń istniejącą maszynę wirtualną](./media/reset-local-password-without-agent/delete-vm-classic.png)
 
-2. Podłącz dysk systemu operacyjnego źródłowej maszyny Wirtualnej do maszyny wirtualnej do rozwiązywania problemów z maszyną wirtualną. Maszyna wirtualna do rozwiązywania problemów musi znajdować się w tym samym `West US`regionie co dysk systemu operacyjnego źródłowej maszyny Wirtualnej (np.
+2. Dołącz dysk systemu operacyjnego źródłowej maszyny wirtualnej do rozwiązywania problemów z maszyną wirtualną. Maszyna wirtualna rozwiązywania problemów musi znajdować się w tym samym regionie co dysk systemu operacyjnego źródłowej `West US`maszyny wirtualnej (np.):
    
-   1. Wybierz maszynę wirtualną rozwiązywania problemów w witrynie Azure portal. Kliknij *pozycję Dyski* | *Dołącz istniejące:*
+   1. Wybierz maszynę wirtualną Rozwiązywanie problemów w Azure Portal. Kliknij pozycję *dyski* | *Dołącz istniejące*:
      
-      ![Dołączanie istniejącego dysku](./media/reset-local-password-without-agent/disks-attach-existing-classic.png)
+      ![Dołącz istniejący dysk](./media/reset-local-password-without-agent/disks-attach-existing-classic.png)
      
-   2. Wybierz *plik VHD,* a następnie wybierz konto magazynu, które zawiera źródło maszyny Wirtualnej:
+   2. Wybierz pozycję *plik VHD* , a następnie wybierz konto magazynu, które zawiera ŹRÓDŁową maszynę wirtualną:
      
       ![Wybieranie konta magazynu](./media/reset-local-password-without-agent/disks-select-storage-account-classic.png)
      
-   3. Zaznacz pole wyboru *Pokaż klasyczne konta magazynu,* a następnie wybierz kontener źródłowy. Kontener źródłowy jest zazwyczaj *vhds:*
+   3. Zaznacz pole wyboru *Pokaż klasyczne konta magazynu*, a następnie wybierz kontener źródłowy. Kontener źródłowy jest zazwyczaj *dyskami VHD*:
      
-      ![Wybierz kontener magazynowy](./media/reset-local-password-without-agent/disks-select-container-classic.png)
+      ![Wybieranie kontenera magazynu](./media/reset-local-password-without-agent/disks-select-container-classic.png)
 
-      ![Wybierz kontener magazynowy](./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png)
+      ![Wybieranie kontenera magazynu](./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png)
      
-   4. Wybierz system operacyjny vhd do dołączenia. Kliknij *przycisk Wybierz,* aby zakończyć proces:
+   4. Wybierz wirtualny dysk twardy systemu operacyjnego do dołączenia. Kliknij przycisk *Wybierz* , aby zakończyć proces:
      
       ![Wybierz źródłowy dysk wirtualny](./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png)
 
-   5. Kliknij przycisk Ok, aby dołączyć dysk
+   5. Kliknij przycisk OK, aby dołączyć dysk
 
-      ![Dołączanie istniejącego dysku](./media/reset-local-password-without-agent/disks-attach-okay-classic.png)
+      ![Dołącz istniejący dysk](./media/reset-local-password-without-agent/disks-attach-okay-classic.png)
 
-3. Połącz się z maszyną wirtualną, która rozwiązujesz problemy za pomocą pulpitu zdalnego i upewnij się, że dysk systemu operacyjnego źródłowej maszyny Wirtualnej jest widoczny:
+3. Połącz się z maszyną wirtualną rozwiązywania problemów przy użyciu Pulpit zdalny i upewnij się, że dysk systemu operacyjnego źródłowej maszyny wirtualnej jest widoczny:
 
-   1. Wybierz maszynę wirtualną w witrynie Azure portal i kliknij przycisk *Połącz*.
+   1. Wybierz maszynę wirtualną Rozwiązywanie problemów w Azure Portal i kliknij przycisk *Połącz*.
 
-   2. Otwórz pobierany plik RDP. Wprowadź nazwę użytkownika i hasło maszyny wirtualnej do rozwiązywania problemów.
+   2. Otwórz pobrany plik RDP. Wprowadź nazwę użytkownika i hasło do rozwiązywania problemów z maszyną wirtualną.
 
-   3. W Eksploratorze plików poszukaj dołączonego dysku danych. Jeśli dysk VHD źródłowej maszyny Wirtualnej jest jedynym dyskiem danych dołączonym do maszyny wirtualnej do rozwiązywania problemów, powinien to być dysk F::
+   3. W Eksploratorze plików Wyszukaj dołączony dysk danych. Jeśli wirtualny dysk twardy maszyny wirtualnej jest jedynym dyskiem danych dołączonym do maszyny wirtualnej rozwiązywania problemów, powinien to być dysk F:
      
-      ![Wyświetlanie dołączonego dysku danych](./media/reset-local-password-without-agent/troubleshooting-vm-file-explorer-classic.png)
+      ![Wyświetl dołączony dysk danych](./media/reset-local-password-without-agent/troubleshooting-vm-file-explorer-classic.png)
 
-4. `gpt.ini` Utwórz `\Windows\System32\GroupPolicy` na dysku źródłowej maszyny `gpt.ini` Wirtualnej (jeśli `gpt.ini.bak`istnieje, zmień nazwę na):
+4. `\Windows\System32\GroupPolicy` Utwórz `gpt.ini` na dysku źródłowej maszyny wirtualnej (Jeśli `gpt.ini` istnieje, Zmień nazwę na `gpt.ini.bak`):
    
    > [!WARNING]
-   > Upewnij się, że nie przypadkowo utworzysz następujące pliki w `C:\Windows`, dysku systemu operacyjnego dla rozwiązywania problemów z maszyną wirtualną. Utwórz następujące pliki na dysku systemu operacyjnego dla źródłowej maszyny Wirtualnej, która jest dołączona jako dysk danych.
+   > Upewnij się, że nie utworzysz przypadkowo następujących plików w programie `C:\Windows`, dysk systemu operacyjnego do rozwiązywania problemów z maszyną wirtualną. Utwórz następujące pliki na dysku systemu operacyjnego dla źródłowej maszyny wirtualnej, która jest dołączana jako dysk danych.
    
-   * Dodaj następujące wiersze `gpt.ini` do utworzonego pliku:
+   * Dodaj następujące wiersze do utworzonego `gpt.ini` pliku:
      
      ```
      [General]
@@ -163,11 +163,11 @@ Zawsze spróbuj zresetować hasło przy użyciu [witryny Azure portal lub progra
      Version=1
      ```
      
-     ![Tworzenie pliku gpt.ini](./media/reset-local-password-without-agent/create-gpt-ini-classic.png)
+     ![Utwórz plik GPT. ini](./media/reset-local-password-without-agent/create-gpt-ini-classic.png)
 
-5. `scripts.ini` Utwórz `\Windows\System32\GroupPolicy\Machines\Scripts\`w pliku . Upewnij się, że są wyświetlane ukryte foldery. W razie potrzeby `Machine` `Scripts` utwórz foldery lub foldery.
+5. Utwórz `scripts.ini` w `\Windows\System32\GroupPolicy\Machines\Scripts\`. Upewnij się, że ukryte foldery są wyświetlane. W `Machine` razie konieczności Utwórz foldery lub `Scripts` .
    
-   * Dodaj następujące wiersze utworzonego `scripts.ini` pliku:
+   * Dodaj następujący wiersz utworzonego `scripts.ini` pliku:
 
      ```
      [Startup]
@@ -175,9 +175,9 @@ Zawsze spróbuj zresetować hasło przy użyciu [witryny Azure portal lub progra
      0Parameters=
      ```
      
-     ![Tworzenie pliku scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini-classic.png)
+     ![Utwórz skrypt. ini](./media/reset-local-password-without-agent/create-scripts-ini-classic.png)
 
-6. `FixAzureVM.cmd` Utwórz `\Windows\System32` z następującą `<username>` zawartością, zastępując i `<newpassword>` z własnymi wartościami:
+6. Utwórz `FixAzureVM.cmd` w `\Windows\System32` programie, używając następującej zawartości, `<username>` zastępując `<newpassword>` i korzystając z własnych wartości:
    
     ```
     net user <username> <newpassword> /add
@@ -185,21 +185,21 @@ Zawsze spróbuj zresetować hasło przy użyciu [witryny Azure portal lub progra
     net localgroup "remote desktop users" <username> /add
     ```
 
-    ![Tworzenie pliku FixAzureVM.cmd](./media/reset-local-password-without-agent/create-fixazure-cmd-classic.png)
+    ![Utwórz FixAzureVM. cmd](./media/reset-local-password-without-agent/create-fixazure-cmd-classic.png)
    
-    Podczas definiowania nowego hasła należy spełnić wymagania dotyczące złożoności skonfigurowanych haseł dla maszyny Wirtualnej.
+    Podczas definiowania nowego hasła należy spełnić skonfigurowane wymagania dotyczące złożoności hasła dla maszyny wirtualnej.
 
-7. W witrynie Azure portal odłączyć dysk od rozwiązywania problemów z maszyną wirtualną:
+7. W Azure Portal Odłącz dysk od maszyny wirtualnej rozwiązywania problemów:
    
-   1. Wybierz maszynę wirtualną w witrynie Azure portal, kliknij pozycję *Dyski*.
+   1. Wybierz maszynę wirtualną Rozwiązywanie problemów w Azure Portal, kliknij pozycję *dyski*.
    
    2. Wybierz dysk danych dołączony w kroku 2, kliknij przycisk **Odłącz**, a następnie kliknij przycisk **OK**.
 
-     ![Odłączyć dysk](./media/reset-local-password-without-agent/data-disks-classic.png)
+     ![Odłączanie dysku](./media/reset-local-password-without-agent/data-disks-classic.png)
      
-     ![Odłączyć dysk](./media/reset-local-password-without-agent/detach-disk-classic.png)
+     ![Odłączanie dysku](./media/reset-local-password-without-agent/detach-disk-classic.png)
 
-8. Utwórz maszynę wirtualną na dysku źródłowego systemu operacyjnego maszyny Wirtualnej:
+8. Utwórz maszynę wirtualną na podstawie dysku systemu operacyjnego źródłowej maszyny wirtualnej:
    
      ![Tworzenie maszyny wirtualnej na podstawie szablonu](./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png)
 
@@ -207,18 +207,18 @@ Zawsze spróbuj zresetować hasło przy użyciu [witryny Azure portal lub progra
 
      ![Tworzenie maszyny wirtualnej na podstawie szablonu](./media/reset-local-password-without-agent/create-vm-classic.png)
 
-## <a name="complete-the-create-virtual-machine-experience"></a>Ukończ środowisko Tworzenie maszyny wirtualnej
+## <a name="complete-the-create-virtual-machine-experience"></a>Ukończ środowisko tworzenia maszyny wirtualnej
 
-1. Po uruchomieniu nowej maszyny Wirtualnej połącz się z maszyną wirtualną `FixAzureVM.cmd` przy użyciu pulpitu zdalnego przy użyciu nowego hasła określonego w skrypcie.
+1. Po uruchomieniu nowej maszyny wirtualnej Nawiąż połączenie z maszyną wirtualną przy użyciu Pulpit zdalny z nowym hasłem określonym w `FixAzureVM.cmd` skrypcie.
 
-2. Z sesji zdalnej do nowej maszyny Wirtualnej usuń następujące pliki, aby oczyścić środowisko:
+2. Z sesji zdalnej na nową maszynę wirtualną Usuń następujące pliki, aby wyczyścić środowisko:
     
-    * Z`%windir%\System32`
-      * Usunąć`FixAzureVM.cmd`
-    * Z`%windir%\System32\GroupPolicy\Machine\Scripts`
-      * Usunąć`scripts.ini`
-    * Z`%windir%\System32\GroupPolicy`
-      * remove `gpt.ini` `gpt.ini` (jeśli istniał wcześniej, i zmieniono jego `.bak` nazwę na `gpt.ini` `gpt.ini.bak`, zmień nazwę pliku z powrotem na )
+    * Wniosek`%windir%\System32`
+      * usuwa`FixAzureVM.cmd`
+    * Wniosek`%windir%\System32\GroupPolicy\Machine\Scripts`
+      * usuwa`scripts.ini`
+    * Wniosek`%windir%\System32\GroupPolicy`
+      * Usuń `gpt.ini` (Jeśli `gpt.ini` istniały wcześniej i zmieniono jego nazwę na `gpt.ini.bak`, Zmień nazwę `.bak` pliku z powrotem na `gpt.ini`)
 
 ## <a name="next-steps"></a>Następne kroki
-Jeśli nadal nie można połączyć się za pomocą pulpitu zdalnego, zobacz [przewodnik rozwiązywania problemów z prok.](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) Szczegółowy [przewodnik rozwiązywania problemów z prow.](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) Można również [otworzyć żądanie pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/) dla praktycznej pomocy.
+Jeśli nadal nie można nawiązać połączenia przy użyciu Pulpit zdalny, zobacz [Przewodnik rozwiązywania problemów](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)z protokołem RDP. [Szczegółowy przewodnik rozwiązywania problemów](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) z PROTOKOŁem RDP dotyczy metod rozwiązywania problemów, a nie konkretnych kroków. Możesz również [otworzyć żądanie pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/) , aby uzyskać pomoc techniczną.

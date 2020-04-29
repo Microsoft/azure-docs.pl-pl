@@ -1,6 +1,6 @@
 ---
-title: Przewodnik dla deweloperów - IoT Plug and Play Preview | Dokumenty firmy Microsoft
-description: Opis modelowania urządzeń dla deweloperów IoT Plug and Play
+title: Przewodnik dla deweloperów — IoT Plug and Play Preview | Microsoft Docs
+description: Opis modelowania urządzeń dla deweloperów Plug and Play IoT
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/26/2019
@@ -8,28 +8,28 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 5fda51e6d2f62b9cbef0fcac22d5bb2ea0df905b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77605223"
 ---
-# <a name="iot-plug-and-play-preview-modeling-developer-guide"></a>Przewodnik dla deweloperów programów IoT Plug and Play Preview
+# <a name="iot-plug-and-play-preview-modeling-developer-guide"></a>Przewodnik dla deweloperów modelu IoT Plug and Play w wersji zapoznawczej
 
-Usługa IoT Plug and Play Preview umożliwia tworzenie urządzeń, które anonsują swoje możliwości do aplikacji Azure IoT. Urządzenia IoT Plug and Play nie wymagają ręcznej konfiguracji, gdy klient łączy je z aplikacjami obsługującymi technologię IoT Plug and Play. Usługa IoT Central jest przykładem aplikacji obsługującej funkcję IoT Plug and Play.
+Usługa IoT Plug and Play w wersji zapoznawczej umożliwia tworzenie urządzeń, które anonsują swoje możliwości w aplikacjach Azure IoT. Urządzenia IoT Plug and Play nie wymagają ręcznej konfiguracji, gdy klient łączy je z aplikacjami obsługującymi Plug and Play IoT. IoT Central to przykład aplikacji z obsługą Plug and Play IoT.
 
-Aby utworzyć urządzenie Typu Plug and Play IoT, należy utworzyć opis urządzenia. Opis odbywa się za pomocą prostego języka definicji o nazwie Digital Twins Definition Language (DTDL).
+Aby skompilować urządzenie IoT Plug and Play, należy utworzyć opis urządzenia. Opis jest wykonywany przy użyciu prostego języka definicji o nazwie Digital bliźniaczych reprezentacji Definition Language (DTDL).
 
 ## <a name="device-capability-model"></a>Model możliwości urządzenia
 
-Za pomocą DTDL tworzysz _model możliwości urządzenia_ do opisywania części urządzenia. Typowe urządzenie IoT składa się z:
+Za pomocą DTDL można utworzyć _model możliwości urządzenia_ do opisywania części urządzenia. Typowe urządzenie IoT składa się z:
 
-- Części niestandardowe, które sprawiają, że urządzenie jest wyjątkowe.
-- Części standardowe, które są rzeczy, które są wspólne dla wszystkich urządzeń.
+- Części niestandardowe, które są elementami, które sprawiają, że urządzenie jest unikatowe.
+- Standardowe części, które są wspólne dla wszystkich urządzeń.
 
-Te części są nazywane _interfejsami_ w modelu możliwości urządzenia. Interfejsy definiują szczegóły każdej części, które implementuje urządzenie.
+Te części nazywają się _interfejsami_ w modelu możliwości urządzeń. Interfejsy definiują szczegóły każdej części implementującej Twoje urządzenie.
 
-W poniższym przykładzie przedstawiono model możliwości urządzenia dla urządzenia termostatu:
+Poniższy przykład przedstawia model możliwości urządzenia dla termostatu:
 
 ```json
 {
@@ -49,29 +49,29 @@ W poniższym przykładzie przedstawiono model możliwości urządzenia dla urzą
 }
 ```
 
-Model możliwości ma kilka wymaganych pól:
+Model możliwości ma niektóre wymagane pola:
 
 - `@id`: unikatowy identyfikator w postaci prostej jednolitej nazwy zasobu.
 - `@type`: deklaruje, że ten obiekt jest modelem możliwości.
 - `@context`: określa wersję DTDL używaną dla modelu możliwości.
-- `implements`: wyświetla listę interfejsów implementuujnych przez urządzenie.
+- `implements`: Wyświetla listę interfejsów, które implementuje urządzenie.
 
-Każdy wpis na liście interfejsów w sekcji implementuje ma:
+Każdy wpis na liście interfejsów w sekcji Implements ma:
 
-- `name`: nazwa programowania interfejsu.
-- `schema`: interfejs, który implementuje model możliwości.
+- `name`: Nazwa programowania interfejsu.
+- `schema`: interfejs implementujący model możliwości.
 
-Istnieją dodatkowe pola opcjonalne, których można użyć, aby dodać więcej szczegółów do modelu możliwości, takie jak wyświetlana nazwa i opis. Interfejsy, które są zadeklarowane w ramach modelu możliwości można traktować jako składniki urządzenia. W przypadku publicznej wersji zapoznawczej lista interfejsu może mieć tylko jeden wpis na schemat.
+Istnieją dodatkowe pola opcjonalne, za pomocą których można dodać więcej szczegółów do modelu możliwości, takich jak wyświetlana nazwa i opis. Interfejsy, które są zadeklarowane w ramach modelu możliwości, można traktować jako składniki urządzenia. W publicznej wersji zapoznawczej lista interfejsów może zawierać tylko jeden wpis na schemat.
 
 ## <a name="interface"></a>Interface
 
-Za pomocą DTDL opisano możliwości urządzenia za pomocą interfejsów. Interfejsy opisują _właściwości,_ _dane telemetryczne_i _polecenia,_ które implementuje część urządzenia:
+Dzięki DTDL można opisać możliwości urządzenia przy użyciu interfejsów. Interfejsy opisują _Właściwości_, dane _telemetryczne_i _polecenia_ , które są implementowane przez część urządzenia:
 
-- `Properties`. Właściwości są polami danych, które reprezentują stan urządzenia. Właściwości należy używać do reprezentowania trwałego stanu urządzenia, takich jak stan włączania i wyłączania pompy chłodziwa. Właściwości mogą również reprezentować podstawowe właściwości urządzenia, takie jak wersja oprogramowania układowego urządzenia. Można zadeklarować właściwości jako tylko do odczytu lub zapisywalne.
-- `Telemetry`. Pola telemetryczne reprezentują pomiary z czujników. Za każdym razem, gdy urządzenie wykonuje pomiar czujnika, powinno wysłać zdarzenie telemetryczne zawierające dane z czujnika.
-- `Commands`. Polecenia reprezentują metody, które użytkownicy urządzenia mogą wykonywać na urządzeniu. Na przykład polecenie resetowania lub polecenie włączania lub wyłączania wentylatora.
+- `Properties`. Właściwości to pola danych, które reprezentują stan urządzenia. Użyj właściwości, aby reprezentować stan trwały urządzenia, taki jak stan włączony pompy chłodzącej. Właściwości mogą również reprezentować podstawowe właściwości urządzenia, takie jak wersja oprogramowania układowego urządzenia. Można zadeklarować właściwości jako tylko do odczytu lub do zapisu.
+- `Telemetry`. Pola telemetrii przedstawiają pomiary z czujników. Za każdym razem, gdy urządzenie przyjmuje pomiar czujnika, należy wysłać zdarzenie telemetrii zawierające dane czujnika.
+- `Commands`. Polecenia reprezentują metody, które użytkownicy urządzenia mogą wykonywać na urządzeniu. Na przykład polecenie Reset lub polecenie umożliwiające włączenie lub wyłączenie wentylatora.
 
-W poniższym przykładzie pokazano interfejs urządzenia termostatu:
+Poniższy przykład pokazuje interfejs dla urządzenia z termostatem:
 
 ```json
 {
@@ -88,60 +88,60 @@ W poniższym przykładzie pokazano interfejs urządzenia termostatu:
 }
 ```
 
-Interfejs ma kilka wymaganych pól:
+Interfejs ma niektóre wymagane pola:
 
 - `@id`: unikatowy identyfikator w postaci prostej jednolitej nazwy zasobu.
 - `@type`: deklaruje, że ten obiekt jest interfejsem.
-- `@context`: określa wersję DTDL używaną dla interfejsu.
-- `contents`: wyświetla listę właściwości, danych telemetrycznych i poleceń, które składają się na urządzenie.
+- `@context`: określa wersję DTDL użytą dla interfejsu.
+- `contents`: Wyświetla właściwości, dane telemetryczne i polecenia wchodzące w skład Twojego urządzenia.
 
 W tym prostym przykładzie istnieje tylko jedno pole telemetrii. Minimalny opis pola ma:
 
-- `@type`: określa typ możliwości: `Telemetry`, `Property`, `Command`lub .
-- `name`: podaje nazwę wartości telemetrii.
-- `schema`: określa typ danych dla telemetrii. Ta wartość może być typem pierwotnym, takim jak double, integer, boolean lub string. Obsługiwane są również złożone typy obiektów, tablice i mapy.
+- `@type`: określa typ możliwości: `Telemetry`, `Property`, lub. `Command`
+- `name`: zawiera nazwę wartości telemetrii.
+- `schema`: określa typ danych telemetrii. Ta wartość może być typem pierwotnym, takim jak Double, Integer, Boolean lub String. Obsługiwane są również złożone typy obiektów, tablice i mapy.
 
-Inne pola opcjonalne, takie jak wyświetlana nazwa i opis, umożliwiają dodanie dodatkowych szczegółów do interfejsu i możliwości.
+Inne opcjonalne pola, takie jak nazwa wyświetlana i opis, umożliwiają dodanie więcej szczegółów do interfejsu i możliwości.
 
 ### <a name="properties"></a>Właściwości
 
-Domyślnie właściwości są tylko do odczytu. Właściwości tylko do odczytu oznaczają, że urządzenie zgłasza aktualizacje wartości właściwości do centrum IoT Hub. Centrum IoT nie można ustawić wartości właściwości tylko do odczytu.
+Domyślnie właściwości są tylko do odczytu. Właściwości tylko do odczytu oznaczają, że urządzenie zgłasza aktualizacje wartości właściwości do centrum IoT Hub. Centrum IoT Hub nie może ustawić wartości właściwości tylko do odczytu.
 
-Można również oznaczyć właściwość jako zapisywalną w interfejsie. Urządzenie może odbierać aktualizację do właściwości zapisywalne z usługi IoT Hub, a także raportowanie aktualizacji wartości właściwości do centrum.
+Można także oznaczyć właściwość jako zapisywalną w interfejsie. Urządzenie może odebrać aktualizację właściwości z możliwością zapisu z Centrum IoT, a także aktualizować aktualizacje wartości właściwości do centrum.
 
-Urządzenia nie muszą być podłączone do ustawiania wartości właściwości. Zaktualizowane wartości są przesyłane, gdy urządzenie następnie łączy się z koncentratorem. To zachowanie dotyczy właściwości tylko do odczytu i zapisywalne.
+Urządzenia nie muszą być połączone, aby ustawić wartości właściwości. Zaktualizowane wartości są transferowane, gdy urządzenie następnym nawiąże połączenie z centrum. To zachowanie dotyczy zarówno właściwości tylko do odczytu, jak i do zapisu.
 
-Nie używaj właściwości do wysyłania danych telemetrycznych z urządzenia. Na przykład readonly właściwość, takie jak `temperatureSetting=80` powinna oznaczać, że temperatura urządzenia została ustawiona na 80, a urządzenie próbuje dostać się do lub pozostać w tej temperaturze.
+Nie używaj właściwości, aby wysyłać dane telemetryczne z urządzenia. Na przykład właściwość ReadOnly, taka jak `temperatureSetting=80` powinna oznaczać, że temperatura urządzenia została ustawiona na 80, a urządzenie próbuje uzyskać dostęp do tej temperatury lub pozostać w tej temperaturze.
 
-W przypadku właściwości zapisywalnych aplikacja urządzenia zwraca żądany kod stanu, wersję i opis, aby wskazać, czy odebrano i zastosowało wartość właściwości.
+W przypadku właściwości zapisywalnych aplikacja urządzenia zwraca kod stanu żądanego stanu, wersję i opis, aby wskazać, czy został on odebrany i zastosował wartość właściwości.
 
 ### <a name="telemetry"></a>Telemetria
 
-Domyślnie usługa IoT Hub kieruje wszystkie komunikaty telemetryczne z urządzeń do [wbudowanego punktu końcowego skierowanego do usługi **(wiadomości/zdarzeń),**](../iot-hub/iot-hub-devguide-messages-read-builtin.md) który jest zgodny z [centrum zdarzeń.](https://azure.microsoft.com/documentation/services/event-hubs/)
+Domyślnie usługa IoT Hub kieruje wszystkie komunikaty telemetryczne z urządzeń do [wbudowanego punktu końcowego (**komunikaty/zdarzenia**)](../iot-hub/iot-hub-devguide-messages-read-builtin.md) zgodnego z [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/).
 
-Można użyć [niestandardowych punktów końcowych usługi IoT Hub i reguł routingu](../iot-hub/iot-hub-devguide-messages-d2c.md) do wysyłania danych telemetrycznych do innych miejsc docelowych, takich jak magazyn obiektów blob lub inne centra zdarzeń. Reguły routingu używają właściwości wiadomości do wybierania wiadomości.
+Możesz użyć [niestandardowych punktów końcowych IoT Hub i reguł routingu](../iot-hub/iot-hub-devguide-messages-d2c.md) , aby wysyłać dane telemetryczne do innych miejsc docelowych, takich jak BLOB Storage czy innych centrów zdarzeń. Reguły routingu używają właściwości komunikatów do wybierania komunikatów.
 
 ### <a name="commands"></a>Polecenia
 
-Polecenia są synchroniczne lub asynchroniczne. Polecenie synchroniczne musi zostać wykonane domyślnie w ciągu 30 sekund, a urządzenie musi być połączone po odebraniu polecenia. Jeśli urządzenie reaguje w czasie lub urządzenie nie jest podłączone, polecenie nie powiedzie się.
+Polecenia są synchroniczne lub asynchroniczne. Polecenie synchroniczne musi być wykonywane w ciągu 30 sekund domyślnie, a urządzenie musi być połączone po nadejściu polecenia. Jeśli urządzenie jest w czasie odpowiedzi lub urządzenie nie jest połączone, polecenie kończy się niepowodzeniem.
 
-Użyj poleceń asynchronicznych dla długotrwałych operacji. Urządzenie wysyła informacje o postępie przy użyciu komunikatów telemetrycznych. Te komunikaty postępu mają następujące właściwości nagłówka:
+Korzystaj z poleceń asynchronicznych dla długotrwałych operacji. Urządzenie wysyła informacje o postępie przy użyciu komunikatów telemetrycznych. Te komunikaty postępu mają następujące właściwości nagłówka:
 
-- `iothub-command-name`: na przykład `UpdateFirmware`nazwa polecenia .
-- `iothub-command-request-id`: identyfikator żądania wygenerowany po stronie serwera i wysłany do urządzenia w wywołaniu początkowym.
-- `iothub-interface-id`: Identyfikator interfejsu, na który zdefiniowano to `urn:example:AssetTracker:1`polecenie, na przykład .
- `iothub-interface-name`: nazwa wystąpienia tego interfejsu, `myAssetTracker`na przykład .
-- `iothub-command-statuscode`: kod stanu zwrócony z `202`urządzenia, na przykład .
+- `iothub-command-name`: nazwa polecenia, na przykład `UpdateFirmware`.
+- `iothub-command-request-id`: Identyfikator żądania wygenerowany po stronie serwera i wysyłany do urządzenia w wywołaniu początkowym.
+- `iothub-interface-id`: Identyfikator interfejsu, na którym jest zdefiniowane to polecenie, na przykład `urn:example:AssetTracker:1`.
+ `iothub-interface-name`: nazwa wystąpienia tego interfejsu, na przykład `myAssetTracker`.
+- `iothub-command-statuscode`: kod stanu zwrócony z urządzenia, na przykład `202`.
 
 ## <a name="register-a-device"></a>Rejestrowanie urządzenia
 
-IoT Plug and Play ułatwia reklamowanie możliwości urządzenia. Dzięki uszczypnieniu IoT po podłączeniu urządzenia do usługi IoT Hub należy zarejestrować model możliwości urządzenia. Rejestracja umożliwia klientom korzystanie z funkcji IoT Plug and Play urządzenia.
+Plug and Play IoT ułatwia anonsowanie możliwości urządzenia. Gdy urządzenie Plug and Play IoT zostanie połączone z IoT Hub, należy zarejestrować model możliwości urządzenia. Rejestracja umożliwia klientom korzystanie z możliwości Plug and Play IoT na urządzeniu.
 
-W tym przewodniku pokazano, jak zarejestrować urządzenie przy użyciu zestawu SDK urządzenia usługi Azure IoT dla języka C.
+W tym przewodniku pokazano, jak zarejestrować urządzenie przy użyciu zestawu SDK urządzeń Azure IoT dla języka C.
 
-Dla każdego interfejsu urządzenia implementuje, należy utworzyć interfejs i połączyć go z jego implementacji.
+Dla każdego interfejsu, który implementuje urządzenie, należy utworzyć interfejs i połączyć go z jego implementacją.
 
-Dla interfejsu termostatu pokazanego wcześniej, za pomocą C SDK, należy utworzyć i podłączyć interfejs termostatu do jego implementacji:
+W przypadku interfejsu termostatu pokazanego wcześniej przy użyciu zestawu C SDK utworzysz interfejs termostatu i podłącz go do jego implementacji:
 
 ```c
 DIGITALTWIN_INTERFACE_HANDLE thermostatInterfaceHandle;
@@ -164,7 +164,7 @@ result = DigitalTwin_Interface_SetPropertiesUpdatedCallbacks(
 
 Powtórz ten kod dla każdego interfejsu, który implementuje urządzenie.
 
-Po utworzeniu interfejsu zarejestruj model możliwości urządzenia i interfejsy za pomocą centrum IoT Hub:
+Po utworzeniu interfejsu Zarejestruj model możliwości urządzenia i interfejsy w centrum IoT:
 
 ```c
 DIGITALTWIN_INTERFACE_CLIENT_HANDLE interfaces[2];
@@ -180,46 +180,46 @@ result = DigitalTwin_DeviceClient_RegisterInterfacesAsync(
 
 ## <a name="use-a-device"></a>Korzystanie z urządzenia
 
-IoT Plug and Play umożliwia korzystanie z urządzeń, które zarejestrowały swoje możliwości w centrum IoT Hub. Na przykład można uzyskać dostęp do właściwości i poleceń urządzenia bezpośrednio.
+Plug and Play IoT umożliwia korzystanie z urządzeń zarejestrowanych w usłudze IoT Hub. Można na przykład uzyskać dostęp do właściwości i poleceń urządzenia bezpośrednio.
 
-Aby użyć urządzenia Typu Plug and Play IoT podłączonego do centrum IoT hub, użyj interfejsu API REST usługi IoT Hub lub jednego z pakietów SDK języka IoT. W poniższych przykładach użyj interfejsu API REST usługi IoT Hub. Bieżąca wersja interfejsu `2019-07-01-preview`API to . Dołącz `?api-version=2019-07-01-preview` do wywołań REST PI.
+Aby użyć urządzenia Plug and Play IoT, które jest połączone z Centrum IoT, użyj interfejsu API REST IoT Hub lub jednego z zestawów SDK języka IoT. W poniższych przykładach użyto interfejsu API REST IoT Hub. Bieżąca wersja interfejsu API to `2019-07-01-preview`. Dołącz `?api-version=2019-07-01-preview` do wywołań pi Rest.
 
-Aby uzyskać wartość właściwości urządzenia, takiej jak wersja`fwVersion`oprogramowania `DeviceInformation` układowego ( ) w interfejsie w termostatze, należy użyć interfejsu API REST cyfrowych bliźniąt.
+Aby uzyskać wartość właściwości urządzenia, taką jak wersja oprogramowania układowego (`fwVersion`) w `DeviceInformation` interfejsie termostatu, należy użyć interfejsu API REST Digital bliźniaczych reprezentacji.
 
-Jeśli urządzenie termostatu `t-123`jest wywoływane, otrzymasz wszystkie właściwości na wszystkich interfejsach zaimplementowanych przez urządzenie z wywołania REST API GET:
+Jeśli urządzenie z termostatem zostanie `t-123`wywołane, uzyskasz wszystkie właściwości wszystkich interfejsów zaimplementowanych przez urządzenie przy użyciu interfejsu API REST Get:
 
 ```REST
 GET /digitalTwins/t-123/interfaces
 ```
 
-Ogólnie rzecz biorąc, wszystkie właściwości we wszystkich interfejsach są `{device-id}` dostępne za pomocą tego szablonu interfejsu API REST, gdzie jest identyfikator urządzenia:
+Ogólnie rzecz biorąc, wszystkie właściwości wszystkich interfejsów są dostępne przy użyciu tego szablonu interfejsu API `{device-id}` REST, gdzie jest identyfikatorem urządzenia:
 
 ```REST
 GET /digitalTwins/{device-id}/interfaces
 ```
 
-Jeśli znasz nazwę interfejsu, takich `deviceInformation`jak , i chcesz uzyskać właściwości dla tego określonego interfejsu, zakres żądania do określonego interfejsu według nazwy:
+Jeśli znasz nazwę interfejsu, na przykład `deviceInformation`, i chcesz uzyskać właściwości dla tego konkretnego interfejsu, przenosząc żądanie do określonego interfejsu według nazwy:
 
 ```REST
 GET /digitalTwins/t-123/interfaces/deviceInformation
 ```
 
-Bardziej ogólnie rzecz biorąc, właściwości określonego interfejsu są dostępne za `device-id` pośrednictwem tego szablonu `{interface-name}` interfejsu API REST, gdzie jest identyfikatorem urządzenia i jest nazwą interfejsu:
+Bardziej ogólnie rzecz biorąc, można uzyskać dostęp do właściwości dla określonego interfejsu za pomocą tego szablonu `device-id` interfejsu API REST, gdzie jest identyfikatorem urządzenia i `{interface-name}` jest nazwą interfejsu:
 
 ```REST
 GET /digitalTwins/{device-id}/interfaces/{interface-name}
 ```
 
-Polecenia urządzenia IoT Plug and Play można wywołać bezpośrednio. Jeśli `Thermostat` interfejs w `t-123` urządzeniu `restart` ma polecenie, można wywołać go za pomocą wywołania REST API POST:
+Polecenia IoT Plug and Play Device można wywołać bezpośrednio. Jeśli `Thermostat` interfejs w `t-123` urządzeniu ma `restart` polecenie, możesz wywołać go przy użyciu wywołania interfejsu API REST:
 
 ```REST
 POST /digitalTwins/t-123/interfaces/thermostat/commands/restart
 ```
 
-Bardziej ogólnie, polecenia mogą być wywoływane za pośrednictwem tego szablonu interfejsu API REST:
+Bardziej ogólnie rzecz biorąc, polecenia można wywołać za poorednictwem szablonu interfejsu API REST:
 
-- `device-id`: identyfikator urządzenia.
-- `interface-name`: nazwa interfejsu z sekcji implements w modelu możliwości urządzenia.
+- `device-id`: Identyfikator urządzenia.
+- `interface-name`: nazwa interfejsu z sekcji Implements w modelu możliwości urządzenia.
 - `command-name`: nazwa polecenia.
 
 ```REST
@@ -228,8 +228,8 @@ Bardziej ogólnie, polecenia mogą być wywoływane za pośrednictwem tego szabl
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy dowiedziałeś się o modelowaniu urządzeń, oto kilka dodatkowych zasobów:
+Teraz, gdy wiesz już, jak modelowanie urządzeń, Oto kilka dodatkowych zasobów:
 
-- [Cyfrowy język podwójnej definicji (DTDL)](https://aka.ms/DTDL)
-- [Zestaw SDK urządzenia dla języka C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
-- [IoT REST API](https://docs.microsoft.com/rest/api/iothub/device)
+- [Język definicji Digital bliźniaczy (DTDL)](https://aka.ms/DTDL)
+- [C (zestaw SDK urządzenia)](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
+- [Interfejs API REST usługi IoT](https://docs.microsoft.com/rest/api/iothub/device)
