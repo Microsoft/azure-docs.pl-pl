@@ -1,6 +1,6 @@
 ---
-title: Automatyczne skalowanie zasobników usługi AKS z metrykami bramy aplikacji platformy Azure
-description: Ten artykuł zawiera instrukcje dotyczące skalowania zasobników wewnętrznej bazy danych usługi AKS przy użyciu metryk bramy aplikacji i karty metryk azure kubernetes
+title: Skalowanie automatyczne AKS z użyciem metryk usługi Azure Application Gateway
+description: Ten artykuł zawiera instrukcje dotyczące skalowania jednostek AKS zaplecza przy użyciu metryk Application Gateway i karty metryki usługi Azure Kubernetes
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -8,26 +8,26 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 1169ed0e9a2b970ee0e30d73ea20c87001b62786
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80239449"
 ---
-# <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Automatyczne skalowanie zasobników AKS przy użyciu metryk bramy aplikacji (beta)
+# <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Automatyczne skalowanie AKSów przy użyciu metryk Application Gateway (beta)
 
-Wraz ze wzrostem ruchu przychodzącego kluczowe znaczenie ma skalowanie aplikacji w zależności od zapotrzebowania.
+W miarę zwiększania się ruchu przychodzącego jest on decydujący o skalowaniu aplikacji na żądanie.
 
-W poniższym samouczku wyjaśniamy, jak można `AvgRequestCountPerHealthyHost` użyć metryki bramy aplikacji do skalowania aplikacji. `AvgRequestCountPerHealthyHost`mierzy średnie żądania wysyłane do określonej puli wewnętrznej bazy danych i wewnętrznej bazy danych HTTP kombinacji ustawień.
+W poniższym samouczku wyjaśniono, jak można użyć `AvgRequestCountPerHealthyHost` metryki Application Gateway do skalowania aplikacji w górę. `AvgRequestCountPerHealthyHost`Mierzy średnie żądania wysyłane do określonej puli zaplecza i kombinacji ustawień protokołu HTTP zaplecza.
 
-Będziemy używać następujących dwóch elementów:
+Będziemy używać następujących dwóch składników:
 
-* [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter)- Użyjemy karty metryki do udostępnienia metryk bramy aplikacji za pośrednictwem serwera metryk. Karta metryka usługi Azure Kubernetes jest projektem open source na platformie Azure, podobnie jak kontroler transferu danych przychodzących bramy aplikacji. 
-* [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler)- Użyjemy HPA do korzystania z metryk bramy aplikacji i kierowania wdrożenia do skalowania.
+* [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter)— Użyjemy karty metryki, aby udostępnić metryki Application Gateway za pomocą serwera metryk. Karta metryki usługi Azure Kubernetes to projekt Open Source na platformie Azure podobny do kontrolera Application Gateway transferu danych przychodzących. 
+* [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler)-Będziemy używać usługi HPA do używania metryk Application Gateway i określania celu skalowania.
 
-## <a name="setting-up-azure-kubernetes-metric-adapter"></a>Konfigurowanie karty metrycznej usługi Azure Kubernetes
+## <a name="setting-up-azure-kubernetes-metric-adapter"></a>Konfigurowanie karty metryki usługi Azure Kubernetes
 
-1. Najpierw utworzymy jednostkę usługi Azure AAD i przypiszemy jej `Monitoring Reader` dostęp za pomocą grupy zasobów bramy aplikacji. 
+1. Najpierw utworzymy nazwę główną usługi Azure AAD i przypiszesz `Monitoring Reader` im dostęp do grupy zasobów Application Gateway. 
 
     ```azurecli
         applicationGatewayGroupName="<application-gateway-group-id>"
@@ -35,7 +35,7 @@ Będziemy używać następujących dwóch elementów:
         az ad sp create-for-rbac -n "azure-k8s-metric-adapter-sp" --role "Monitoring Reader" --scopes applicationGatewayGroupId
     ```
 
-1. Teraz firma We [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) wdroży jednostkę usługi AAD utworzoną powyżej.
+1. Teraz zostanie wdrożony program [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) przy użyciu nazwy głównej usługi AAD utworzonej powyżej.
 
     ```bash
     kubectl create namespace custom-metrics
@@ -47,7 +47,7 @@ Będziemy używać następujących dwóch elementów:
     kubectl apply -f kubectl apply -f https://raw.githubusercontent.com/Azure/azure-k8s-metrics-adapter/master/deploy/adapter.yaml -n custom-metrics
     ```
 
-1. Utworzymy `ExternalMetric` zasób `appgw-request-count-metric`o nazwie . Ten zasób poinstruuje `AvgRequestCountPerHealthyHost` kartę `myApplicationGateway` metryki, aby udostępnić metrykę zasobu w `myResourceGroup` grupie zasobów. Za pomocą `filter` tego pola można kierować określone ustawienia HTTP puli wewnętrznej bazy danych i wewnętrznej bazy danych w bramie aplikacji.
+1. Utworzymy `ExternalMetric` zasób o nazwie `appgw-request-count-metric`. Ten zasób nakazuje karcie metryki udostępnienie `AvgRequestCountPerHealthyHost` metryki `myApplicationGateway` dla zasobu `myResourceGroup` w grupie zasobów. Możesz użyć pola, `filter` aby wskazać określoną pulę zaplecza i ustawienie protokołu HTTP zaplecza w Application Gateway.
 
     ```yaml
     apiVersion: azure.com/v1alpha2
@@ -67,7 +67,7 @@ Będziemy używać następujących dwóch elementów:
             filter: BackendSettingsPool eq '<backend-pool-name>~<backend-http-setting-name>' # optional
     ```
 
-Teraz możesz złożyć zapytanie do serwera metryk, aby sprawdzić, czy nasza nowa metryka jest coraz widoczna:
+Teraz można wysłać żądanie do serwera metryk, aby sprawdzić, czy nasza nowa Metryka jest widoczna:
 ```bash
 kubectl get --raw "/apis/external.metrics.k8s.io/v1beta1/namespaces/default/appgw-request-count-metric"
 # Sample Output
@@ -90,13 +90,13 @@ kubectl get --raw "/apis/external.metrics.k8s.io/v1beta1/namespaces/default/appg
 # }
 ```
 
-## <a name="using-the-new-metric-to-scale-up-the-deployment"></a>Używanie nowej metryki do skalowania wdrożenia
+## <a name="using-the-new-metric-to-scale-up-the-deployment"></a>Używanie nowej metryki do skalowania w górę wdrożenia
 
-Gdy jesteśmy w `appgw-request-count-metric` stanie udostępnić za pośrednictwem serwera [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) metryki, jesteśmy gotowi do użycia do skalowania w górę naszego wdrożenia docelowego.
+Gdy będziemy mogli uwidocznić `appgw-request-count-metric` serwer metryk, jesteśmy gotowi [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) do skalowania wdrożenia docelowego.
 
-W poniższym przykładzie będziemy `aspnet`kierować przykładowe wdrożenie . Będziemy skalować strąki, gdy `appgw-request-count-metric` > 200 na pod `10` do max strąków.
+W poniższym przykładzie zostanie wykorzystamy przykładowe wdrożenie `aspnet`. Skalowanie w górę skaluje `appgw-request-count-metric` się w górę, gdy > 200 w wysokości `10` do maksymalnej liczby zasobników.
 
-Zastąp nazwę wdrożenia docelowego i zastosuj następującą konfigurację skalowania automatycznego:
+Zastąp docelową nazwę wdrożenia i zastosuj następującą konfigurację automatycznego skalowania:
 ```yaml
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
@@ -116,10 +116,10 @@ spec:
       targetAverageValue: 200
 ```
 
-Przetestuj konfigurację za pomocą narzędzia do testowania obciążenia, takiego jak apache bench:
+Przetestuj konfigurację przy użyciu narzędzia testowego obciążenia, takiego jak Apache kanap:
 ```bash
 ab -n10000 http://<applicaiton-gateway-ip-address>/
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-- [**Rozwiązywanie problemów z kontrolerem transferu danych przychodzących:**](ingress-controller-troubleshoot.md)Rozwiązywanie problemów z kontrolerem transferu danych przychodzących.
+- [**Rozwiązywanie problemów z kontrolerem**](ingress-controller-troubleshoot.md)danych przychodzących: Rozwiązywanie problemów z kontrolerem transferu danych przychodzących.
