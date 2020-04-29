@@ -1,6 +1,6 @@
 ---
 title: Konfigurowanie ustawień niestandardowych
-description: Skonfiguruj ustawienia, które mają zastosowanie do całego środowiska usługi Azure App Service. Dowiedz się, jak to zrobić za pomocą szablonów usługi Azure Resource Manager.
+description: Skonfiguruj ustawienia, które mają zastosowanie do całego środowiska Azure App Service. Dowiedz się, jak to zrobić za pomocą szablonów Azure Resource Manager.
 author: stefsch
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
@@ -8,10 +8,10 @@ ms.date: 12/19/2019
 ms.author: stefsch
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 25393007a3cc878737ea5927cb65bcf7ef945313
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80057564"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Niestandardowe ustawienia konfiguracji dla środowisk App Service Environment
@@ -47,7 +47,7 @@ Atrybut **clusterSettings** można uwzględnić w szablonie usługi Resource Man
 ## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>Aktualizowanie usługi App Service Environment za pomocą witryny Azure Resource Explorer
 Usługę App Service Environment można również aktualizować przy użyciu witryny [Azure Resource Explorer](https://resources.azure.com).  
 
-1. W Eksploratorze zasobów przejdź do węzła środowiska usługi app service **(subskrypcje** > **resourceGroups** > **providers** > **Microsoft.Web** > **hostingEnvironments**). Następnie kliknij wybrane środowisko App Service Environment, które chcesz zaktualizować.
+1. W Eksplorator zasobów przejdź do węzła App Service Environment (**subskrypcje** > **resourceGroups** > **dostawcy** > **Microsoft. Web** > **hostingEnvironments**). Następnie kliknij wybrane środowisko App Service Environment, które chcesz zaktualizować.
 2. W okienku po prawej stronie kliknij pozycję **Do odczytu/zapisu** na górnym pasku narzędzi, aby zezwolić na interakcyjne edytowanie w usłudze Resource Explorer.  
 3. Kliknij niebieski przycisk **Edytuj**, aby umożliwić edytowanie szablonu usługi Resource Manager.
 4. Przewiń okienko po prawej stronie w dół. Atrybut **clusterSettings** znajduje się na samym dole strony, gdzie można wprowadzić lub zaktualizować jego wartość.
@@ -59,7 +59,7 @@ Jeśli na przykład środowisko App Service Environment ma cztery frontony, koń
 
 ## <a name="enable-internal-encryption"></a>Włącz szyfrowanie wewnętrzne
 
-Środowisko usługi aplikacji działa jako system czarnej skrzynki, w którym nie widać wewnętrznych składników lub komunikacji w systemie. Aby włączyć wyższą przepływność, szyfrowanie nie jest domyślnie włączone między składnikami wewnętrznymi. System jest bezpieczny, ponieważ ruch jest całkowicie niedostępny do monitorowania lub dostępu. Jeśli masz wymagane zgodności, mimo że wymaga pełnego szyfrowania ścieżki danych od końca do końca, istnieje sposób, aby włączyć to z clusterSetting.  
+App Service Environment działa jako system czarnego pudełka, w którym nie są widoczne wewnętrzne składniki lub komunikacja w systemie. Aby zapewnić większą przepływność, szyfrowanie nie jest domyślnie włączone między składnikami wewnętrznymi. System jest zabezpieczony, ponieważ ruch jest całkowicie niedostępny do monitorowania lub dostępu. Jeśli istnieje wymóg zgodności, który wymaga pełnego szyfrowania ścieżki danych od końca do końca, istnieje możliwość włączenia tego elementu przy użyciu clusterSetting.  
 
         "clusterSettings": [
             {
@@ -68,7 +68,7 @@ Jeśli na przykład środowisko App Service Environment ma cztery frontony, koń
             }
         ],
  
-Po internalencryption clusterSetting jest włączona, może mieć wpływ na wydajność systemu. Po wprowadzeniu zmiany, aby włączyć InternalEncryption, ase będzie w stanie niestabilnym, dopóki zmiana jest w pełni propagowane. Pełne propagowanie zmiany może potrwać kilka godzin, w zależności od liczby wystąpień w programie ASE. Zdecydowanie zaleca się, aby nie włączać tego na ASE, gdy jest w użyciu. Jeśli musisz włączyć to na aktywnie używanym środowisku ASE, zdecydowanie zaleca się przekierowanie ruchu do środowiska kopii zapasowej do czasu zakończenia operacji. 
+Po włączeniu InternalEncryption clusterSetting może mieć wpływ na wydajność systemu. Po wprowadzeniu zmiany w celu włączenia InternalEncryption środowisko ASE będzie w stanie niestabilnym, dopóki zmiana nie zostanie w pełni rozpropagowana. Zakończenie propagacji zmiany może potrwać kilka godzin, w zależności od liczby wystąpień w środowisku ASE. Zdecydowanie zalecamy, aby nie włączać tego na platformie ASE, gdy jest ona używana. Jeśli musisz włączyć tę funkcję w aktywnie używanym środowisku ASE, zdecydowanie zalecamy przekierowanie ruchu do środowiska kopii zapasowej do momentu zakończenia operacji. 
 
 ## <a name="disable-tls-10-and-tls-11"></a>Wyłączanie protokołów TLS 1.0 i TLS 1.1
 

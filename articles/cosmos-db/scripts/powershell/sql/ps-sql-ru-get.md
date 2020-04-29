@@ -1,6 +1,6 @@
 ---
-title: Skrypt programu PowerShell, aby uzyskać przepływność (RU/s) dla bazy danych lub kontenera interfejsu SQL usługi Azure Cosmos DB 1
-description: Skrypt programu Azure PowerShell, aby uzyskać przepływność (RU/s) dla bazy danych lub kontenera interfejsu SQL usługi Azure Cosmos DB 1
+title: Skrypt programu PowerShell umożliwiający uzyskanie przepływności (RU/s) dla bazy danych lub kontenera Azure Cosmos DB SQL API
+description: Azure PowerShell skryptu do uzyskania przepływności (RU/s) dla Azure Cosmos DB bazy danych lub kontenera usługi SQL API
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 03/17/2020
 ms.author: mjbrown
 ms.openlocfilehash: f471b1d41314728a6c6f0c5d2ab981891e2caa87
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80365600"
 ---
-# <a name="get-throughput-rus-for-azure-cosmos-db-sql-api-database-or-container"></a>Uzyskaj przepływność (RU/s) dla bazy danych lub kontenera interfejsu API usługi Azure Cosmos DB SQL
+# <a name="get-throughput-rus-for-azure-cosmos-db-sql-api-database-or-container"></a>Uzyskaj przepływność (RU/s) dla Azure Cosmos DB bazy danych lub kontenera interfejsu API SQL
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -39,8 +39,8 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | Polecenie | Uwagi |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Get-AzCosmosDBSqlDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabasethroughput) | Pobierz aprowizowaną przepływność w bazie danych interfejsu API SQL usługi Azure Cosmos DB. |
-| [Get-AzCosmosDBSqlContainerThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainerthroughput) | Pobierz aprowizowaną przepływność w kontenerze interfejsu API SQL usługi Azure Cosmos DB. |
+| [Get-AzCosmosDBSqlDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabasethroughput) | Zapoznaj się z przepływem pracy na Azure Cosmos DB bazie danych interfejsu API SQL. |
+| [Get-AzCosmosDBSqlContainerThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainerthroughput) | Zapoznaj się z przepływem pracy na Azure Cosmos DB kontenera interfejsu API SQL. |
 |**Grupy zasobów platformy Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 |||

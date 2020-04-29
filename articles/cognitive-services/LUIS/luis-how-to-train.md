@@ -1,7 +1,7 @@
 ---
-title: Aplikacja Pociąg — USŁUGA LUIS
+title: Uczenie aplikacji — LUIS
 titleSuffix: Azure Cognitive Services
-description: Szkolenie to proces nauczania wersji aplikacji language understanding (LUIS), aby poprawić jego zrozumienie języka naturalnego. Trenuj aplikację usługi LUIS po aktualizacji modelu, takich jak dodawanie, edytowanie, etykietowanie lub usuwanie jednostek, intencji lub wypowiedzi.
+description: Szkolenie to proces uczenia wersji aplikacji Language Understanding (LUIS) w celu usprawnienia jej interpretacji języka naturalnego. Uczenie aplikacji LUIS po aktualizacji modelu, takich jak dodawanie, edytowanie, etykietowanie lub usuwanie jednostek, intencje lub wyrażenia długości.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,51 +12,51 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: diberry
 ms.openlocfilehash: 1da8ab3015730c6b3e1962301a34b1ad43b1aad6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219864"
 ---
-# <a name="train-your-active-version-of-the-luis-app"></a>Trenuj aktywną wersję aplikacji usługi LUIS 
+# <a name="train-your-active-version-of-the-luis-app"></a>Uczenie aktywnej wersji aplikacji LUIS 
 
-Szkolenie to proces nauczania aplikacji language understanding (LUIS), aby poprawić jej zrozumienie języka naturalnego. Trenuj aplikację usługi LUIS po aktualizacji modelu, takich jak dodawanie, edytowanie, etykietowanie lub usuwanie jednostek, intencji lub wypowiedzi. 
+Szkolenie to proces uczenia aplikacji Language Understanding (LUIS) w celu usprawnienia jej interpretacji języka naturalnego. Uczenie aplikacji LUIS po aktualizacji modelu, takich jak dodawanie, edytowanie, etykietowanie lub usuwanie jednostek, intencje lub wyrażenia długości. 
 
-Szkolenie i [testowanie](luis-concept-test.md) aplikacji jest procesem iteracyjnym. Po przeszkoleniu aplikacji usługi LUIS, należy przetestować go z wypowiedzi próbki, aby sprawdzić, czy intencje i jednostki są rozpoznawane poprawnie. Jeśli tak nie jest, należy ponownie wprowadzać aktualizacje aplikacji usługi LUIS, szkolić i testować. 
+Szkolenie i [testowanie](luis-concept-test.md) aplikacji jest procesem iteracyjnym. Po przejściu do aplikacji LUIS przetestuj ją za pomocą przykładowej wyrażenia długości, aby sprawdzić, czy intencje i jednostki są rozpoznawane poprawnie. Jeśli tak nie jest, wprowadź ponownie aktualizacje aplikacji LUIS, uczenia i testowania. 
 
-Szkolenie jest stosowane do aktywnej wersji w portalu usługi LUIS. 
+Szkolenia są stosowane do aktywnej wersji portalu LUIS. 
 
-## <a name="how-to-train-interactively"></a>Jak trenować interaktywnie
+## <a name="how-to-train-interactively"></a>Jak szkolić interaktywnie
 
-Aby rozpocząć proces iteracyjne w [portalu usługi LUIS,](https://www.luis.ai)należy najpierw trenować aplikację usługi LUIS co najmniej raz. Upewnij się, że każdy zamiar ma co najmniej jedną wypowiedź przed szkoleniem.
+Aby rozpocząć proces iteracyjny w [portalu Luis](https://www.luis.ai), najpierw musisz przeprowadzić uczenie aplikacji Luis co najmniej raz. Przed szkoleniem upewnij się, że każdy z zamiarów ma co najmniej jeden wypowiedź.
 
-1. Uzyskaj dostęp do aplikacji, wybierając jej nazwę na stronie **Moje aplikacje.** 
+1. Uzyskaj dostęp do aplikacji, wybierając jej nazwę na stronie **Moje aplikacje** . 
 
-1. W aplikacji wybierz pozycję **Trenuj** w górnym panelu. 
+1. W aplikacji wybierz pozycję **szkolenie** w górnym panelu. 
 
-1. Po zakończeniu szkolenia w górnej części przeglądarki pojawi się powiadomienie.
+1. Po zakończeniu szkolenia w górnej części przeglądarki pojawia się powiadomienie.
 
 ## <a name="training-date-and-time"></a>Data i godzina szkolenia
 
-Data i godzina treningu to GMT + 2. 
+Data i godzina szkolenia to GMT + 2. 
 
-## <a name="train-with-all-data"></a>Trenuj ze wszystkimi danymi
+## <a name="train-with-all-data"></a>Uczenie ze wszystkimi danymi
 
-Szkolenie wykorzystuje niewielki procent negatywnego pobierania próbek. Jeśli chcesz użyć wszystkich danych zamiast małego negatywnego próbkowania, użyj [interfejsu API](#version-settings-api-use-of-usealltrainingdata).
+Szkolenie zużywa niewielką część próbkowania negatywnego. Jeśli chcesz używać wszystkich danych zamiast małego próbkowania negatywnego, użyj [interfejsu API](#version-settings-api-use-of-usealltrainingdata).
 
-### <a name="version-settings-api-use-of-usealltrainingdata"></a>Ustawienia wersji Użycie interfejsu API UseAllTrainingData
+### <a name="version-settings-api-use-of-usealltrainingdata"></a>Ustawienia wersji użycie interfejsu API UseAllTrainingData
 
-Użyj [interfejsu API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) ustawień `UseAllTrainingData` wersji z ustawionym na true, aby wyłączyć tę funkcję. 
+Aby wyłączyć tę funkcję, użyj [interfejsu API ustawień wersji](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) z `UseAllTrainingData` ustawioną wartością true. 
 
 ## <a name="unnecessary-training"></a>Niepotrzebne szkolenie
 
-Nie musisz trenować po każdej zmianie. Szkolenie należy wykonać po zastosowaniu grupy zmian do modelu, a następnym krokiem, który chcesz wykonać, jest przetestowanie lub opublikowanie. Jeśli nie musisz testować ani publikować, szkolenie nie jest konieczne. 
+Nie ma potrzeby uczenia się po każdej pojedynczej zmianie. Szkolenie należy wykonać po zastosowaniu grupy zmian do modelu i następnym kroku, który ma zostać przetestowany lub opublikowany. Jeśli nie ma potrzeby testowania ani publikowania, szkolenie nie jest konieczne. 
 
-## <a name="training-with-the-rest-apis"></a>Szkolenie z interfejsami API REST
+## <a name="training-with-the-rest-apis"></a>Szkolenie przy użyciu interfejsów API REST
 
-Szkolenie w portalu usługi LUIS jest pojedynczym krokiem naciśnięcia **train** przycisku. Szkolenie z interfejsami API REST jest procesem dwuetapowym. Pierwszym z nich jest [żądanie szkolenia](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) z HTTP POST. Następnie zażądaj [stanu szkolenia](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) za pomocą protokołu HTTP Get. 
+Szkolenie w portalu LUIS to pojedynczy krok po naciśnięciu przycisku **uczenie** . Szkolenie z użyciem interfejsów API REST jest procesem dwuetapowym. Pierwszy polega na [zażądaniu szkolenia](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) przy użyciu protokołu HTTP POST. Następnie Zażądaj [stanu szkolenia](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) przy użyciu protokołu HTTP GET. 
 
-Aby wiedzieć, kiedy szkolenie jest zakończone, musisz sondować stan, dopóki wszystkie modele nie zostaną pomyślnie przeszkolone. 
+Aby dowiedzieć się, kiedy szkolenie zostało zakończone, musisz sondować stan do momentu, w którym wszystkie modele zostały pomyślnie przeszkolone. 
 
 ## <a name="next-steps"></a>Następne kroki
 

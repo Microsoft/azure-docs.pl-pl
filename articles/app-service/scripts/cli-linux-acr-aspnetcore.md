@@ -1,6 +1,6 @@
 ---
-title: 'CLI: Tworzenie aplikacji ASP.NET Core z ACR'
-description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure zautomatyzować wdrażanie aplikacji usługi App Service i zarządzanie nimi. W tym przykładzie pokazano, jak utworzyć aplikację Linux ASP.NET Core z usługi ACR.
+title: 'Interfejs wiersza polecenia: Tworzenie aplikacji ASP.NET Core z ACR'
+description: Dowiedz się, jak zautomatyzować wdrażanie aplikacji App Service i zarządzanie nią za pomocą interfejsu wiersza polecenia platformy Azure. Ten przykład pokazuje, jak utworzyć aplikację ASP.NET Core systemu Linux z ACR.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 3a2d1983-ff7b-476a-ac44-49ec2aabb31a
@@ -10,10 +10,10 @@ ms.date: 12/13/2018
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 64177d00b302f9df8a0b28067031bd7cc1b3a156
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80057768"
 ---
 # <a name="create-an-aspnet-core-app-in-a-docker-container-in-app-service-from-azure-container-registry"></a>Tworzenie aplikacji ASP.NET Core w kontenerze platformy Docker w usłudze App Service z usługi Azure Container Registry

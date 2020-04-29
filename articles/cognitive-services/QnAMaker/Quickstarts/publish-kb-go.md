@@ -1,20 +1,20 @@
 ---
-title: 'Szybki start: Publikowanie bazy wiedzy, REST, Go - QnA Maker'
-description: Ten szybki start oparty na restie o restie publikuje bazę wiedzy i tworzy punkt końcowy, który można wywołać w aplikacji lub bota czatu.
+title: 'Szybki Start: Publikowanie bazy wiedzy, REST i QnA Maker'
+description: Ten przewodnik Szybki Start oparty na interfejsie REST umożliwia opublikowanie bazy wiedzy i utworzenie punktu końcowego, który można wywołać w aplikacji lub rozmowie bot.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: 4ce655bdc7a913ecb281ce8a75e7ec4f2009a2ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78851697"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-go"></a>Szybki start: publikowanie bazy wiedzy w usłudze QnA Maker przy użyciu języka Go
 
-Ten przewodnik Szybki start oparty na protokole REST przeprowadzi Cię przez programowe publikowanie bazy wiedzy. Publikowanie wypycha najnowszą wersję bazy wiedzy do dedykowanego indeksu usługi Azure Cognitive Search i tworzy punkt końcowy, który można wywołać w aplikacji lub bota czatu.
+Ten przewodnik Szybki start oparty na protokole REST przeprowadzi Cię przez programowe publikowanie bazy wiedzy. Publikowanie powoduje wypchnięcie najnowszej wersji bazy wiedzy do dedykowanego indeksu Wyszukiwanie poznawcze platformy Azure i utworzenie punktu końcowego, który można wywołać w aplikacji lub rozmowie bot.
 
 Ten przewodnik Szybki start wywołuje interfejsy API usługi QnA Maker:
 * [Publikowanie](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) — ten interfejs API nie wymaga żadnych informacji zawartych w treści żądania.
@@ -22,9 +22,9 @@ Ten przewodnik Szybki start wywołuje interfejsy API usługi QnA Maker:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Środowisko Go w wersji 1.10.1](https://golang.org/dl/)
-* Musisz mieć [usługę QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Aby pobrać klucz i punkt końcowy (który zawiera nazwę zasobu), wybierz **szybki start** dla zasobu w witrynie Azure portal.
+* Musisz mieć [usługę QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Aby pobrać klucz i punkt końcowy (w tym nazwę zasobu), wybierz pozycję **Szybki Start** dla zasobu w Azure Portal.
 
-* Identyfikator bazy wiedzy QnA Maker (KB) znajdujący się w adresie URL w parametrze `kbid` ciągu zapytania, jak pokazano poniżej.
+* Identyfikator bazy wiedzy QnA Maker (KB) znaleziony w adresie URL w `kbid` parametrze ciągu zapytania, jak pokazano poniżej.
 
     ![Identyfikator bazy wiedzy usługi QnA Maker](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 

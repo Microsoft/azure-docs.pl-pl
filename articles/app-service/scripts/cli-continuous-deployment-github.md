@@ -1,6 +1,6 @@
 ---
-title: 'CLI: Ciągłe wdrażanie z usługi GitHub'
-description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure zautomatyzować wdrażanie aplikacji usługi App Service i zarządzanie nimi. W tym przykładzie pokazano, jak utworzyć aplikację z ciągłą integracją/dyskiem CD z usługi GitHub.
+title: 'Interfejs wiersza polecenia: ciągłe wdrażanie z usługi GitHub'
+description: Dowiedz się, jak zautomatyzować wdrażanie aplikacji App Service i zarządzanie nią za pomocą interfejsu wiersza polecenia platformy Azure. Ten przykład pokazuje, jak utworzyć aplikację przy użyciu ciągłej integracji/ciągłego wdrażania w witrynie GitHub.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 0205c991-0989-4ca3-bb41-237dcc964460
@@ -10,17 +10,17 @@ ms.date: 09/02/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 0578ea7f677e1abaa5687295fc7bc871e6db2d3f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80044780"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-from-github-using-cli"></a>Tworzenie aplikacji usługi App Service z ciągłym wdrażaniem z repozytorium GitHub za pomocą interfejsu wiersza polecenia
 
 Ten przykładowy skrypt tworzy aplikację w usłudze App Service z powiązanymi zasobami, a następnie konfiguruje ciągłe wdrażanie z repozytorium GitHub. Aby uzyskać więcej informacji na temat wdrożenia z repozytorium GitHub bez ciągłego wdrażania, zobacz [Create an app and deploy code from GitHub](cli-deploy-github.md) (Tworzenie aplikacji i wdrażanie kodu z repozytorium GitHub). Do pracy z tym przykładem potrzebne są:
 
-* Repozytorium GitHub zawierające kod aplikacji, w którym masz uprawnienia administracyjne. Aby uzyskać automatyczne kompilacje, ustrukturyzuj repozytorium zgodnie z tabelą [Przygotuj repozytorium.](../deploy-continuous-deployment.md#prepare-your-repository)
+* Repozytorium GitHub zawierające kod aplikacji, w którym masz uprawnienia administracyjne. Aby uzyskać kompilacje automatyczne, należy przeprowadzić strukturę repozytorium zgodnie z tabelą [Przygotowanie repozytorium](../deploy-continuous-deployment.md#prepare-your-repository) .
 * [Osobisty token dostępu](https://help.github.com/articles/creating-an-access-token-for-command-line-use) do konta w witrynie GitHub.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

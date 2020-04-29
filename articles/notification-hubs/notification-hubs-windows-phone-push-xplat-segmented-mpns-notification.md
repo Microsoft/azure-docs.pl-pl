@@ -1,5 +1,5 @@
 ---
-title: Wysyłanie powiadomień wypychanych do określonych telefonów z systemem Windows przy użyciu usługi Azure Notification Hubs | Dokumenty firmy Microsoft
+title: Wysyłanie powiadomień wypychanych do konkretnych telefonów z systemem Windows przy użyciu usługi Azure Notification Hubs | Microsoft Docs
 description: Korzystając z tego samouczka, dowiesz się, jak wysyłać powiadomienia push do konkretnych (nie wszystkich) urządzeń z systemem Windows Phone 8 lub Windows Phone 8.1 zarejestrowanych w zapleczu aplikacji.
 services: notification-hubs
 documentationcenter: windows
@@ -18,24 +18,24 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 72ecb5bdb6bb024c5e4422548dd11888c03e4799
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80126942"
 ---
-# <a name="tutorial-send-push-notifications-to-specific-windows-phones-using-azure-notification-hubs"></a>Samouczek: Wysyłanie powiadomień wypychanych do określonych telefonów z systemem Windows za pomocą usługi Azure Notification Hubs
+# <a name="tutorial-send-push-notifications-to-specific-windows-phones-using-azure-notification-hubs"></a>Samouczek: wysyłanie powiadomień wypychanych do konkretnych telefonów z systemem Windows przy użyciu usługi Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 Korzystając z tego samouczka, dowiesz się, jak wysyłać powiadomienia push do konkretnych urządzeń z systemem Windows Phone 8 lub Windows Phone 8.1. Jeśli aplikacja ma być przeznaczona dla systemu Windows Phone 8.1 (bez platformy Silverlight), dodatkowe informacje zawiera wersja dotycząca [aplikacji uniwersalnych systemu Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) tego samouczka.
 
-Ten scenariusz możesz włączyć, uwzględniając co najmniej jeden *tag* podczas tworzenia rejestracji w centrum powiadomień. W przypadku wysłania powiadomień do tagu wszystkie urządzenia zarejestrowane dla tego tagu otrzymają powiadomienie. Aby uzyskać więcej informacji o tagach, zobacz [Tagi w rejestracjach](notification-hubs-tags-segment-push-message.md).
+Ten scenariusz możesz włączyć, uwzględniając co najmniej jeden *tag* podczas tworzenia rejestracji w centrum powiadomień. W przypadku wysłania powiadomień do tagu wszystkie urządzenia zarejestrowane dla tego tagu otrzymają powiadomienie. Aby uzyskać więcej informacji na temat tagów, zobacz [Tagi w rejestracjach](notification-hubs-tags-segment-push-message.md).
 
 > [!NOTE]
 > Zestaw SDK usługi Notification Hubs dla systemu Windows Phone nie obsługuje używania usługi WNS (Windows Push Notification Service) z aplikacjami platformy Silverlight dla systemu Windows Phone 8.1. Aby używać usługi WNS (zamiast usługi MPNS) z aplikacjami platformy Silverlight dla systemu Windows Phone 8.1, postępuj zgodnie z instrukcjami w [samouczku dotyczącym usługi Notification Hubs dla aplikacji platformy Silverlight dla systemu Windows Phone], w którym zastosowano interfejsy API REST.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Dodawanie wyboru kategorii do aplikacji mobilnej

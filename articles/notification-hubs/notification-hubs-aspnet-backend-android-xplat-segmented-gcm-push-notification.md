@@ -1,5 +1,5 @@
 ---
-title: Wysyłanie powiadomień do określonych urządzeń z systemem Android przy użyciu centrów powiadomień platformy Azure i usług Google Cloud Messaging | Dokumenty firmy Microsoft
+title: Wysyłaj powiadomienia do konkretnych urządzeń z systemem Android przy użyciu usługi Azure Notification Hubs i Google Cloud Messaging | Microsoft Docs
 description: Dowiedz się, jak wysyłać powiadomienia push do określonych urządzeń z systemem Android przy użyciu usług Azure Notification Hubs i Google Cloud Messaging.
 services: notification-hubs
 documentationcenter: android
@@ -18,16 +18,16 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 57a11eac47baace0ad9fa7dcae82dca6eeee0988
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80127304"
 ---
-# <a name="tutorial-send-push-notifications-to-specific-android-devices-using-google-cloud-messaging-deprecated"></a>Samouczek: Wysyłanie powiadomień wypychanych do określonych urządzeń z Androidem za pomocą Google Cloud Messaging (przestarzałe)
+# <a name="tutorial-send-push-notifications-to-specific-android-devices-using-google-cloud-messaging-deprecated"></a>Samouczek: wysyłanie powiadomień wypychanych do określonych urządzeń z systemem Android przy użyciu Google Cloud Messaging (przestarzałe)
 
 > [!WARNING]
-> Od 10 kwietnia 2018 r. Google przestarzałe usługi Google Cloud Messaging (GCM). Interfejsy API serwera i klienta usługi GCM są przestarzałe i zostaną usunięte natychmiast 29 maja 2019 r. Aby uzyskać więcej informacji, zobacz [GCM i FCM Często zadawane pytania](https://developers.google.com/cloud-messaging/faq).
+> Od 10 kwietnia 2018 firma Google ma przestarzałe Google Cloud Messaging (GCM). Serwer GCM i interfejsy API klienta są przestarzałe i zostaną usunięte od razu do 29 maja 2019. Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące GCM i FCM](https://developers.google.com/cloud-messaging/faq).
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 

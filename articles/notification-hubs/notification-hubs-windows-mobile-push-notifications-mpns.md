@@ -1,5 +1,5 @@
 ---
-title: Wysyłanie powiadomień wypychanych do aplikacji systemu Windows Phone przy użyciu usługi Azure Notification Hubs| Dokumenty firmy Microsoft
+title: Wysyłanie powiadomień wypychanych do aplikacji Windows Phone przy użyciu usługi Azure Notification Hubs | Microsoft Docs
 description: Korzystając z tego samouczka, dowiesz się, jak wysyłać powiadomienia wypychane do aplikacji platformy Silverlight dla systemu Windows Phone 8 lub Windows Phone 8.1 przy użyciu usługi Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: windows
@@ -19,13 +19,13 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 9cad4bfc474ef23492858ed3b0a6447932b589b4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80127085"
 ---
-# <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>Samouczek: Wysyłanie powiadomień wypychanych do aplikacji systemu Windows Phone przy użyciu Centrów powiadomień
+# <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>Samouczek: wysyłanie powiadomień wypychanych do aplikacji Windows Phone przy użyciu Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -36,7 +36,7 @@ Korzystając z tego samouczka, utworzysz pustą aplikację dla systemu Windows P
 > [!NOTE]
 > Zestaw SDK usługi Notification Hubs dla systemu Windows Phone nie obsługuje używania usługi WNS (Windows Push Notification Service) z aplikacjami platformy Silverlight dla systemu Windows Phone 8.1. Aby używać usługi WNS (zamiast usługi MPNS) z aplikacjami platformy Silverlight dla systemu Windows Phone 8.1, postępuj zgodnie z instrukcjami w [samouczku dotyczącym usługi Notification Hubs dla aplikacji platformy Silverlight dla systemu Windows Phone], w którym zastosowano interfejsy API REST.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie centrum powiadomień
@@ -141,7 +141,7 @@ W tej sekcji utworzysz aplikację systemu Windows Phone, która będzie rejestro
 
     1. W obszarze **Platformy** wybierz pozycję **Windows Phone**.
     2. W obszarze **Typ powiadomienia** wybierz pozycję **Wyskakujące**.
-    3. Wybierz **pozycję Wyślij**
+    3. Wybierz pozycję **Wyślij**
     4. Zobacz **wynik** na liście w dolnej części okna.
 
         ![Okno wysyłania testowego](./media/notification-hubs-windows-phone-get-started/test-send-window.png)

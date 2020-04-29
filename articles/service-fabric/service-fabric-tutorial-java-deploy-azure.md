@@ -1,5 +1,5 @@
 ---
-title: Wdrażanie aplikacji Java w klastrze sieci szkieletowej usług na platformie Azure
+title: Wdrażanie aplikacji Java w klastrze Service Fabric na platformie Azure
 description: W tym samouczku przedstawiono sposób wdrażania aplikacji Java usługi Service Fabric w klastrze usługi Azure Service Fabric.
 author: suhuruli
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: df6719cad79bdb063c2d4d74892206b6e5bbd414
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80292037"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Samouczek: wdrażanie aplikacji Java w klastrze usługi Service Fabric na platformie Azure
@@ -36,7 +36,7 @@ Ta seria samouczków zawiera informacje na temat wykonywania następujących czy
 
 Przed rozpoczęciem tego samouczka:
 
-* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Zainstaluj zestaw SDK usługi Service Fabric dla komputera [Mac](service-fabric-get-started-mac.md) lub [systemu Linux](service-fabric-get-started-linux.md)
 * [Zainstaluj język Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
@@ -162,7 +162,7 @@ Poniższe kroki powodują utworzenie niezbędnych zasobów wymaganych do wdroże
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
-    Adres URL sygnatury dostępu `https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>`Współdzielonego dla Witryn EventHubs jest zgodny ze strukturą: . Na przykład: `https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender`
+    Adres URL sygnatury dostępu współdzielonego dla EventHubs `https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>`jest zgodny ze strukturą:. Na przykład: `https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender`
 
 12. Otwórz plik *sfdeploy.parameters.json* i zastąp następującą zawartość w oparciu o poprzednie kroki. Wartość [SAS-URL-STORAGE-ACCOUNT] oznaczono w kroku 8. Wartość [SAS-URL-EVENT-HUBS] oznaczono w kroku 11.
 

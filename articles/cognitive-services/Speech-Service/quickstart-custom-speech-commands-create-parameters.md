@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: tworzenie niestandardowego polecenia z parametrami (wersja zapoznawcza) — usługa mowy'
+title: 'Szybki Start: Tworzenie polecenia niestandardowego z parametrami (wersja zapoznawcza) — usługa mowy'
 titleSuffix: Azure Cognitive Services
-description: W tym artykule dodasz parametry do aplikacji Polecenia niestandardowe.
+description: W tym artykule opisano Dodawanie parametrów do aplikacji poleceń niestandardowych.
 services: cognitive-services
 author: don-d-kim
 manager: yetian
@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
 ms.openlocfilehash: 96312bac369cfa5fe3cb8a00fd63ecfbec624918
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80348526"
 ---
-# <a name="quickstart-create-a-custom-command-with-parameters-preview"></a>Szybki start: tworzenie polecenia niestandardowego z parametrami (wersja zapoznawcza)
+# <a name="quickstart-create-a-custom-command-with-parameters-preview"></a>Szybki Start: Tworzenie polecenia niestandardowego z parametrami (wersja zapoznawcza)
 
-W [poprzednim artykule](./quickstart-custom-speech-commands-create-new.md)utworzyliśmy nowy projekt poleceń niestandardowych, aby reagować na polecenia bez parametrów.
+W [poprzednim artykule](./quickstart-custom-speech-commands-create-new.md)został utworzony nowy projekt poleceń niestandardowych w celu reagowania na polecenia bez parametrów.
 
-W tym artykule rozszerzymy tę aplikację o parametry, dzięki czemu może obsługiwać włączanie i wyłączanie wielu urządzeń.
+W tym artykule zostanie rozbudowana ta aplikacja z parametrami, aby umożliwić obsługę włączania i wyłączania wielu urządzeń.
 
-## <a name="create-parameters"></a>Tworzenie parametrów
+## <a name="create-parameters"></a>Utwórz parametry
 
-1. Otwórz projekt, [który utworzyliśmy wcześniej](./quickstart-custom-speech-commands-create-new.md)
-1. Ponieważ polecenie będzie teraz obsługiwać i wyłączać, zmień nazwę polecenia na "TurnOnOff"
-   - Umieść wskaźnik myszy na nazwie polecenia i wybierz ikonę edycji, aby zmienić nazwę
-1. Tworzenie nowego parametru reprezentującego, czy użytkownik chce włączyć lub wyłączyć urządzenie
+1. Otwórz projekt, który został [wcześniej utworzony](./quickstart-custom-speech-commands-create-new.md)
+1. Ponieważ polecenie zostanie teraz obsłużone i wyłączone, Zmień nazwę polecenia na "TurnOnOff"
+   - Umieść kursor nad nazwą polecenia i wybierz ikonę Edytuj, aby zmienić nazwę
+1. Utwórz nowy parametr, aby określić, czy użytkownik chce włączyć lub wyłączyć urządzenie
    - Wybierz `+` ikonę obok sekcji Parametry
 
    > [!div class="mx-imgBorder"]
@@ -36,41 +36,41 @@ W tym artykule rozszerzymy tę aplikację o parametry, dzięki czemu może obsł
 
    | Ustawienie            | Sugerowana wartość     | Opis                                                                                               |
    | ------------------ | ------------------- | --------------------------------------------------------------------------------------------------------- |
-   | Nazwa               | Onoff               | Opisowa nazwa parametru                                                                     |
-   | Ma charakter globalny          | unchecked           | Pole wyboru wskazujące, czy wartość tego parametru jest globalnie stosowana do wszystkich poleceń w projekcie |
-   | Wymagany           | checked             | Pole wyboru wskazujące, czy wartość tego parametru jest wymagana przed ukończeniem polecenia          |
-   | Szablon odpowiedzi  | "- Włączanie czy wyłączanie?"      | Monit z prośbą o podanie wartości tego parametru, gdy nie jest znany                                       |
-   | Typ               | Ciąg              | Typ parametru, taki jak Liczba, Ciąg lub Data Ii                                               |
-   | Konfigurowanie      | Lista ciągów         | W przypadku ciągów lista ciągów ogranicza dane wejściowe do zestawu możliwych wartości                                      |
-   | Wartości listy ciągów | wł., wył.             | W przypadku parametru Lista ciągów zestaw możliwych wartości i ich synonimy                                |
+   | Nazwa               | OnOff               | Opisowa nazwa parametru                                                                     |
+   | Jest globalny          | unchecked           | Pole wyboru wskazujące, czy wartość tego parametru jest stosowana globalnie do wszystkich poleceń w projekcie |
+   | Wymagany           | checked             | Pole wyboru wskazujące, czy przed ukończeniem polecenia jest wymagana wartość tego parametru          |
+   | Szablon odpowiedzi  | "— Włączone lub wyłączone?"      | Monit o podanie wartości tego parametru, gdy nie jest on znany                                       |
+   | Typ               | String              | Typ parametru, taki jak Number, String lub Data Time                                               |
+   | Konfiguracja      | Lista ciągów         | W przypadku ciągów lista ciągów ogranicza dane wejściowe do zestawu możliwych wartości                                      |
+   | Wartości listy ciągów | włączone, wyłączone             | Dla parametru lista ciągów, zestaw możliwych wartości i ich synonimów                                |
 
-   - Następnie ponownie `+` wybierz ikonę, aby dodać drugi parametr reprezentujący nazwę urządzeń. W tym przykładzie telewizor i wentylator
+   - Następnie ponownie wybierz `+` ikonę, aby dodać drugi parametr reprezentujący nazwę urządzeń. Na potrzeby tego przykładu telewizora i wentylatoru
 
    | Ustawienie            | Sugerowana wartość       | Opis                                                                                               |
    | ------------------ | --------------------- | --------------------------------------------------------------------------------------------------------- |
-   | Nazwa               | PodmiotUrządzenia         | Opisowa nazwa parametru                                                                     |
-   | Ma charakter globalny          | unchecked             | Pole wyboru wskazujące, czy wartość tego parametru jest globalnie stosowana do wszystkich poleceń w projekcie |
-   | Wymagany           | checked               | Pole wyboru wskazujące, czy wartość tego parametru jest wymagana przed ukończeniem polecenia          |
-   | Szablon odpowiedzi  | "- Które urządzenie?"     | Monit z prośbą o podanie wartości tego parametru, gdy nie jest znany                                       |
-   | Typ               | Ciąg                | Typ parametru, taki jak Liczba, Ciąg lub Data Ii                                               |
-   | Konfigurowanie      | Lista ciągów           | W przypadku ciągów lista ciągów ogranicza dane wejściowe do zestawu możliwych wartości                                      |
-   | Wartości listy ciągów | tv, wentylator               | W przypadku parametru Lista ciągów zestaw możliwych wartości i ich synonimy                                |
-   | Synonimy (tv)      | telewizja, telly     | Opcjonalne synonimy dla każdej możliwej wartości parametru listy ciągów                                      |
+   | Nazwa               | SubjectDevice         | Opisowa nazwa parametru                                                                     |
+   | Jest globalny          | unchecked             | Pole wyboru wskazujące, czy wartość tego parametru jest stosowana globalnie do wszystkich poleceń w projekcie |
+   | Wymagany           | checked               | Pole wyboru wskazujące, czy przed ukończeniem polecenia jest wymagana wartość tego parametru          |
+   | Szablon odpowiedzi  | "-Które urządzenie?"     | Monit o podanie wartości tego parametru, gdy nie jest on znany                                       |
+   | Typ               | String                | Typ parametru, taki jak Number, String lub Data Time                                               |
+   | Konfiguracja      | Lista ciągów           | W przypadku ciągów lista ciągów ogranicza dane wejściowe do zestawu możliwych wartości                                      |
+   | Wartości listy ciągów | Telewizja, wentylator               | Dla parametru lista ciągów, zestaw możliwych wartości i ich synonimów                                |
+   | Synonimy (telewizja)      | Telewizja, informowanie     | Opcjonalne synonimy dla każdej możliwej wartości parametru listy ciągów                                      |
 
-## <a name="add-sample-sentences"></a>Dodawanie przykładowych zdań
+## <a name="add-sample-sentences"></a>Dodaj przykładowe zdania
 
-W parametrach warto dodać przykładowe zdania, które obejmują wszystkie możliwe kombinacje. Przykład:
+Za pomocą parametrów warto dodać przykładowe zdania, które obejmują wszystkie możliwe kombinacje. Przykład:
 
-1. Pełna informacja o parametrach -`"turn {OnOff} the {SubjectDevice}"`
-1. Informacje o parametrach częściowych -`"turn it {OnOff}"`
-1. Brak informacji o parametrach -`"turn something"`
+1. Pełne informacje o parametrach —`"turn {OnOff} the {SubjectDevice}"`
+1. Informacje o części parametru-`"turn it {OnOff}"`
+1. Brak informacji o parametrach-`"turn something"`
 
-Przykładowe zdania z różnymi ilościami informacji umożliwiają aplikacji Polecenia niestandardowe rozpoznawanie zarówno rozdzielczości jednego strzału, jak i rozdzielczości wielu zawracania z informacjami częściowymi.
+Przykładowe zdania z różnymi ilościami informacji umożliwiają aplikacji poleceń niestandardowych rozpoznawanie zarówno rozdzielczości jednego zrzutu, jak i rozwiązywanie wielu przełączania przy użyciu częściowych informacji.
 
-Mając to na uwadze, edytuj przykładowe zdania, aby użyć parametrów zgodnie z poniższymi informacjami.
+Z tego względu należy edytować przykładowe zdania, aby użyć parametrów zgodnie z sugerowaną poniżej.
 
 > [!TIP]
-> W edytorze przykład zdań użyj nawiasów klamrowych, aby odwołać się do parametrów. - `turn {OnOff} the {SubjectDevice}`Użyj uzupełnienia karty, aby odwołać się do wcześniej utworzonych parametrów.
+> W edytorze przykładowe zdania Użyj nawiasów klamrowych, aby odwołać się do parametrów. - `turn {OnOff} the {SubjectDevice}`Użyj uzupełniania karty, aby odwołać się do poprzednio utworzonych parametrów.
 
 > [!div class="mx-imgBorder"]
 > ![Przykładowe zdania z parametrami](media/custom-speech-commands/create-parameter-sentences.png)
@@ -83,32 +83,32 @@ turn something {OnOff}
 turn something
 ```
 
-## <a name="add-parameters-to-completion-rule"></a>Dodawanie parametrów do reguły ukończenia
+## <a name="add-parameters-to-completion-rule"></a>Dodaj parametry do reguły ukończenia
 
-Zmodyfikuj regułę ukończenia utworzoną w [poprzednim przewodniku Szybki start:](./quickstart-custom-speech-commands-create-new.md)
+Zmodyfikuj regułę ukończenia utworzoną w [poprzednim przewodniku szybki start](./quickstart-custom-speech-commands-create-new.md):
 
-1. Dodaj nowy Warunek i wybierz wymagany parametr. Wybierz `OnOff` zarówno i`SubjectDevice`
-1. Edytuj akcję Odpowiedź mowy `OnOff` `SubjectDevice`do użycia i:
+1. Dodaj nowy warunek i wybierz wymagany parametr. Wybierz obie `OnOff` i`SubjectDevice`
+1. Edytuj akcję odpowiedzi mowy do użycia `OnOff` i: `SubjectDevice`
 
    ```
    - Ok, turning {OnOff} the {SubjectDevice}
    ```
 
-## <a name="try-it-out"></a>Testowanie
+## <a name="try-it-out"></a>Wypróbowywanie działania
 
-Otwórz panel Czat testowy i wypróbuj kilka interakcji.
+Otwórz panel rozmowy testowej i spróbuj wykonać kilka interakcji.
 
-- Wejście: wyłącz telewizor
-- Wyjście: Ok, wyłączenie telewizora
+- Dane wejściowe: wyłączanie telewizora
+- Wynik: OK, wyłączanie telewizora
 
-- Wejście: wyłącz telewizor
-- Wyjście: Ok, wyłączenie telewizora
+- Wejście: wyłączanie telewizji
+- Wynik: OK, wyłączanie telewizora
 
-- Wejście: wyłącz go
-- Wyjście: Które urządzenie?
-- Wejście: telewizor
-- Wyjście: Ok, wyłączenie telewizora
+- Wejście: wyłączanie
+- Dane wyjściowe: które urządzenie?
+- Dane wejściowe: telewizja
+- Wynik: OK, wyłączanie telewizora
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
-> [Szybki start: używanie niestandardowych poleceń z niestandardowym głosem (wersja zapoznawcza)](./quickstart-custom-speech-commands-select-custom-voice.md)
+> [Szybki Start: używanie poleceń niestandardowych z niestandardowym głosem (wersja zapoznawcza)](./quickstart-custom-speech-commands-select-custom-voice.md)

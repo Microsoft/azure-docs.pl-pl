@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: korzystanie z interfejsu API strumieni platformy Apache Kafka — Azure HDInsight '
-description: Samouczek — dowiedz się, jak korzystać z interfejsu API Apache Kafka Streams z platformą Kafka w programie HDInsight. Ten interfejs API umożliwia przetwarzanie strumieni między tematami na platformie Kafka.
+description: Samouczek — informacje dotyczące korzystania z interfejsu API strumieni Apache Kafka z usługą Kafka w usłudze HDInsight. Ten interfejs API umożliwia przetwarzanie strumieni między tematami na platformie Kafka.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,23 +9,23 @@ ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 03/20/2020
 ms.openlocfilehash: 2885fccd95d09149ae496b80a658f34e5b697d0b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80064492"
 ---
-# <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Samouczek: Używanie interfejsu API strumieni apache platformy Kafka w usłudze Azure HDInsight
+# <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Samouczek: korzystanie z interfejsu API strumieni Apache Kafka w usłudze Azure HDInsight
 
 Dowiedz się, jak utworzyć aplikację, która używa interfejsu API strumieni platformy Apache Kafka, i uruchomić ją na platformie Kafka w usłudze HDInsight.
 
 Aplikacja przedstawiona w tym samouczku zlicza przesyłane strumieniowo wyrazy. Odczytuje ona dane tekstowe z tematu platformy Kafka, wyodrębnia poszczególne wyrazy, a następnie zapisuje liczbę wyrazów w innym temacie platformy Kafka.
 
-Przetwarzanie strumienia platformy Kafka jest często wykonywane przy użyciu platformy Apache Spark lub systemu Apache Storm. W wersji kafka 1.1.0 (w hdinsight 3.5 i 3.6) wprowadzono interfejs API strumieni platformy Kafka. Ten interfejs API umożliwia przekształcanie strumieni danych między tematami wejściowymi i wyjściowymi. W niektórych przypadkach może to być alternatywą dla tworzenia rozwiązań przesyłania strumieniowego platformy Spark lub systemu Storm.
+Przetwarzanie strumienia platformy Kafka jest często wykonywane przy użyciu platformy Apache Spark lub systemu Apache Storm. Kafka w wersji 1.1.0 (w usłudze HDInsight 3,5 i 3,6) wprowadzono interfejs API strumieni Kafka. Ten interfejs API umożliwia przekształcanie strumieni danych między tematami wejściowymi i wyjściowymi. W niektórych przypadkach może to być alternatywą dla tworzenia rozwiązań przesyłania strumieniowego platformy Spark lub systemu Storm.
 
 Aby uzyskać więcej informacji o strumieniach platformy Kafka, zobacz dokumentację [Intro to Streams](https://kafka.apache.org/10/documentation/streams/) (Wprowadzenie do strumieni) w serwisie Apache.org.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Zrozumienie kodu
@@ -39,15 +39,15 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 
 * Wykonaj kroki opisane w dokumencie [Apache Kafka Consumer and Producer API](apache-kafka-producer-consumer-api.md) (Interfejs API odbiorcy i producenta na platformie Apache Kafka). Czynności opisane w tym dokumencie bazują na przykładowej aplikacji i tematach utworzonych w tym samouczku.
 
-* [Zestaw Java Developer Kit (JDK) w wersji 8](https://aka.ms/azure-jdks) lub równoważnej, takiej jak OpenJDK.
+* [Zestaw Java developer Kit (JDK) w wersji 8](https://aka.ms/azure-jdks) lub równoważnej, taki jak OpenJDK.
 
-* [Apache Maven](https://maven.apache.org/download.cgi) prawidłowo [zainstalowany](https://maven.apache.org/install.html) zgodnie z Apache.  Maven to system budowania projektów java.
+* Pakiet [Apache Maven](https://maven.apache.org/download.cgi) został prawidłowo [zainstalowany](https://maven.apache.org/install.html) zgodnie z usługą Apache.  Maven to system kompilacji projektu dla projektów języka Java.
 
 * Klient SSH. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="understand-the-code"></a>Zrozumienie kodu
 
-Przykładowa aplikacja znajduje [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)się `Streaming` w , w podkatalogu. Aplikacja składa się z dwóch plików:
+Przykładowa aplikacja znajduje się w [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)lokalizacji w `Streaming` podkatalogu. Aplikacja składa się z dwóch plików:
 
 * `pom.xml`: w tym pliku są definiowane zależności projektu, wersja języka Java i metody pakowania.
 * `Stream.java`: ten plik implementuje logikę przesyłania strumieniowego.
@@ -72,7 +72,7 @@ Należy zrozumieć następujące ważne kwestie dotyczące pliku `pom.xml`:
 * Wtyczki: wtyczki Maven zapewniają różne możliwości. W tym projekcie są używane następujące wtyczki:
 
     * `maven-compiler-plugin`: służy do ustawiania wersji 8 języka Java używanej przez projekt. Język Java 8 jest wymagany przez usługę HDInsight 3.6.
-    * `maven-shade-plugin`: Służy do generowania uber jar, który zawiera tę aplikację i wszelkie zależności. Jest również używany do ustawiania punktu wejścia aplikacji, dzięki czemu można bezpośrednio uruchomić plik Jar bez konieczności określania klasy głównej.
+    * `maven-shade-plugin`: Służy do generowania Uber jar, który zawiera tę aplikację, oraz wszystkich zależności. Służy również do ustawiania punktu wejścia aplikacji, dzięki czemu można bezpośrednio uruchomić plik JAR bez konieczności określania klasy głównej.
 
 ### <a name="streamjava"></a>Stream.java
 
@@ -139,7 +139,7 @@ Aby skompilować i wdrożyć projekt na platformie Kafka w klastrze usługi HDIn
 
     To polecenie tworzy pakiet w lokalizacji `target/kafka-streaming-1.0-SNAPSHOT.jar`.
 
-2. Zamień ciąg `sshuser` na nazwę użytkownika SSH klastra i zamień ciąg `clustername` na nazwę klastra. Użyj następującego polecenia, `kafka-streaming-1.0-SNAPSHOT.jar` aby skopiować plik do klastra HDInsight. Jeśli zostanie wyświetlony monit, wprowadź hasło konta użytkownika SSH.
+2. Zamień ciąg `sshuser` na nazwę użytkownika SSH klastra i zamień ciąg `clustername` na nazwę klastra. Użyj poniższego polecenia, aby skopiować `kafka-streaming-1.0-SNAPSHOT.jar` plik do klastra usługi HDInsight. Jeśli zostanie wyświetlony monit, wprowadź hasło konta użytkownika SSH.
 
     ```cmd
     scp ./target/kafka-streaming-1.0-SNAPSHOT.jar sshuser@clustername-ssh.azurehdinsight.net:kafka-streaming.jar
@@ -153,26 +153,26 @@ Aby skompilować i wdrożyć projekt na platformie Kafka w klastrze usługi HDIn
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Zainstaluj [jq](https://stedolan.github.io/jq/), procesor JSON wiersza polecenia. Z otwartego połączenia SSH wprowadź `jq`następujące polecenie, aby zainstalować:
+2. Zainstaluj [JQ](https://stedolan.github.io/jq/), procesor JSON w wierszu polecenia. Z otwartego połączenia SSH wprowadź następujące polecenie, aby zainstalować `jq`:
 
     ```bash
     sudo apt -y install jq
     ```
 
-3. Skonfiguruj zmienną hasła. Zamień `PASSWORD` hasło logowania klastra, a następnie wprowadź polecenie:
+3. Skonfiguruj zmienną hasła. Zamień `PASSWORD` na hasło logowania klastra, a następnie wprowadź polecenie:
 
     ```bash
     export password='PASSWORD'
     ```
 
-4. Wyodrębnij poprawnie obudowie nazwę klastra. Rzeczywista wielkość liter nazwy klastra może być inna niż oczekiwano, w zależności od sposobu utworzenia klastra. To polecenie uzyska rzeczywistą wielkość liter, a następnie zapisze ją w zmiennej. Wprowadź następujące polecenie:
+4. Wyodrębnij poprawnie wielkość liter w nazwach klastra. Rzeczywista wielkość liter nazwy klastra może być inna niż oczekiwano, w zależności od sposobu utworzenia klastra. To polecenie spowoduje pobranie rzeczywistej wielkości liter, a następnie zapisanie jej w zmiennej. Wprowadź następujące polecenie:
 
     ```bash
     export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
 
     > [!Note]  
-    > Jeśli wykonujesz ten proces spoza klastra, istnieje inna procedura przechowywania nazwy klastra. Pobierz nazwę klastra w małe litery z witryny Azure portal. Następnie zastąp `<clustername>` nazwę klastra w następującym poleceniu i wykonaj ją: `export clusterName='<clustername>'`.  
+    > Jeśli ten proces jest wykonywany spoza klastra, istnieje inna procedura przechowywania nazwy klastra. W mniejszej sytuacji należy uzyskać nazwę klastra z Azure Portal. Następnie zastąp nazwę klastra `<clustername>` w następującym poleceniu i wykonaj go:. `export clusterName='<clustername>'`  
 
 5. Aby uzyskać hosty brokera platformy Kafka i hosty usługi Apache Zookeeper, użyj poniższych poleceń. Po wyświetleniu monitu wprowadź hasło dla konta logowania klastra (administratora).
 
@@ -183,7 +183,7 @@ Aby skompilować i wdrożyć projekt na platformie Kafka w klastrze usługi HDIn
     ```
 
     > [!Note]  
-    > Te polecenia wymagają dostępu Ambari. Jeśli klaster znajduje się za sieciowej grupy sieciowej, uruchom te polecenia z komputera, który może uzyskać dostęp do ambari.
+    > Te polecenia wymagają dostępu Ambari. Jeśli klaster znajduje się za sieciowej grupy zabezpieczeń, Uruchom te polecenia z komputera, który może uzyskać dostęp do Ambari.
 
 6. Aby utworzyć tematy używane przez operację przesyłania strumieniowego, użyj następujących poleceń:
 
@@ -270,7 +270,7 @@ Aby usunąć grupę zasobów za pomocą witryny Azure Portal:
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym dokumencie zawarto informacje o sposobie korzystania z interfejsu API strumieni platformy Apache Kafka w usłudze HDInsight. Skorzystaj z poniższych informacji, aby dowiedzieć się więcej o pracy z platformą Kafka.
+W tym dokumencie zawarto informacje o sposobie korzystania z interfejsu API strumieni platformy Apache Kafka w usłudze HDInsight. Aby dowiedzieć się więcej na temat pracy z usługą Kafka, Skorzystaj z następujących informacji.
 
 > [!div class="nextstepaction"]
-> [Analyze Apache Kafka logs](apache-kafka-log-analytics-operations-management.md) (Analizowanie dzienników platformy Apache Kafka)
+> [Analizowanie dzienników platformy Apache Kafka](apache-kafka-log-analytics-operations-management.md)

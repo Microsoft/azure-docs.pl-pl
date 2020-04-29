@@ -1,7 +1,7 @@
 ---
-title: Opisy obrazów - Wizja komputerowa
+title: Opisy obrazów — przetwarzanie obrazów
 titleSuffix: Azure Cognitive Services
-description: Pojęcia związane z funkcją opisu obrazu interfejsu API przetwarzania obrazu.
+description: Pojęcia związane z funkcją opisu obrazu interfejs API przetwarzania obrazów.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,21 +12,21 @@ ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 7bf95a2b49608ef1f031a3b443db92b42cdae624
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80244719"
 ---
-# <a name="describe-images-with-human-readable-language"></a>Opis obrazów w języku czytelnym dla człowieka
+# <a name="describe-images-with-human-readable-language"></a>Opisywanie obrazów w języku czytelnym dla ludzi
 
-Wizja komputerowa może analizować obraz i generować czytelne dla człowieka zdanie opisujące jego zawartość. Algorytm faktycznie zwraca kilka opisów na podstawie różnych funkcji wizualnych, a każdy opis otrzymuje wynik zaufania. Ostateczne dane wyjściowe to lista opisów uporządkowanych od najwyższego do najniższego zaufania.
+Przetwarzanie obrazów może analizować obraz i generować zdanie odczytane przez człowieka, które opisuje jego zawartość. Algorytm faktycznie zwraca kilka opisów opartych na różnych funkcjach wizualnych, a każdy opis otrzymuje wynik zaufania. Ostateczne dane wyjściowe to lista opisów uporządkowanych od najwyższego do najniższego zaufania.
 
 ## <a name="image-description-example"></a>Przykład opisu obrazu
 
-Poniższa odpowiedź JSON ilustruje, co funkcja Przetwarzania Obrazów zwraca podczas opisywania przykładowego obrazu na podstawie jego funkcji wizualnych.
+Poniższa odpowiedź JSON ilustruje, co przetwarzanie obrazów zwraca podczas opisywania przykładowego obrazu na podstawie jego funkcji wizualizacji.
 
-![Czarno-biały obraz budynków na Manhattanie](./Images/bw_buildings.png)
+![Czarno-białe zdjęcie budynków w Manhattan](./Images/bw_buildings.png)
 
 ```json
 {
@@ -58,11 +58,11 @@ Poniższa odpowiedź JSON ilustruje, co funkcja Przetwarzania Obrazów zwraca po
 
 ## <a name="use-the-api"></a>Używanie interfejsu API
 
-Funkcja opisu obrazu jest częścią interfejsu API [analizy obrazu.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) Ten interfejs API można wywołać za pośrednictwem natywnego sdk lub za pośrednictwem wywołań REST. Uwzględnij `Description` w **parametrze kwerendy visualFeatures.** Następnie po otrzymaniu pełnej odpowiedzi JSON, po prostu przeanalizować `"description"` ciąg zawartości sekcji.
+Funkcja opisu obrazu jest częścią usługi [Analizowanie obrazu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) interfejsu API. Ten interfejs API można wywołać za pomocą natywnego zestawu SDK lub wywołań REST. Uwzględnij `Description` w parametrze zapytania **visualFeatures** . Po otrzymaniu pełnej odpowiedzi JSON należy po prostu przeanalizować ciąg dla zawartości `"description"` sekcji.
 
-* [Szybki start: obraz komputera .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [Szybki start: analizowanie obrazu (INTERFEJS API REST)](./quickstarts/csharp-analyze.md)
+* [Szybki Start: przetwarzanie obrazów zestawu .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Szybki Start: analizowanie obrazu (interfejs API REST)](./quickstarts/csharp-analyze.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Poznaj powiązane pojęcia [dotyczące oznaczania obrazów](concept-tagging-images.md) i [kategoryzowania obrazów.](concept-categorizing-images.md)
+Poznaj powiązane koncepcje [tagowania obrazów](concept-tagging-images.md) i [kategoryzacji obrazów](concept-categorizing-images.md).

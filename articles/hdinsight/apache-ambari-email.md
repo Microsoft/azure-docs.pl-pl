@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Konfigurowanie powiadomień e-mail Apache Ambari w usłudze Azure HDInsight'
-description: W tym artykule opisano, jak używać SendGrid z Apache Ambari do powiadomień e-mail.
+description: W tym artykule opisano sposób korzystania z usługi SendGrid z usługą Apache Ambari na potrzeby powiadomień e-mail.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
@@ -8,83 +8,83 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
 ms.openlocfilehash: 21376eb40fb40abe67f7e03d15aabd7d89ea62f8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80082314"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Samouczek: Konfigurowanie powiadomień e-mail Apache Ambari w usłudze Azure HDInsight
 
-W tym samouczku skonfigurujesz powiadomienia e-mail Apache Ambari za pomocą SendGrid. [Apache Ambari](./hdinsight-hadoop-manage-ambari.md) upraszcza zarządzanie i monitorowanie klastra HDInsight, zapewniając łatwy w użyciu interfejs użytkownika sieci web i interfejs API REST. Ambari jest dołączony do klastrów HDInsight i służy do monitorowania klastra i wprowadzania zmian konfiguracji. [SendGrid](https://sendgrid.com/solutions/) to bezpłatna chmurowa usługa poczty e-mail, która zapewnia niezawodne transakcyjne dostarczanie wiadomości e-mail, skalowalność i analizę w czasie rzeczywistym wraz z elastycznymi interfejsami API, które ułatwiają niestandardową integrację. W każdym miesiącu klienci platformy Azure mogą odblokować 25 000 bezpłatnych wiadomości e-mail.
+W tym samouczku skonfigurujesz powiadomienia e-mail Apache Ambari za pomocą usługi SendGrid. Usługa [Apache Ambari](./hdinsight-hadoop-manage-ambari.md) upraszcza zarządzanie klastrem usługi HDInsight i ich monitorowanie, zapewniając łatwy w użyciu interfejs użytkownika sieci Web i interfejs API REST. Usługa Ambari jest dołączana do klastrów usługi HDInsight i służy do monitorowania klastra i wprowadzania zmian w konfiguracji. [SendGrid](https://sendgrid.com/solutions/) to bezpłatna usługa poczty e-mail oparta na chmurze, która zapewnia niezawodne dostarczanie transakcyjnych wiadomości e-mail, skalowalność i analizę w czasie rzeczywistym oraz elastyczne interfejsy API, które ułatwiają integrację niestandardową. W każdym miesiącu klienci platformy Azure mogą odblokować 25 000 bezpłatnych wiadomości e-mail.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Uzyskaj nazwę użytkownika Sendgrid
+> * Uzyskaj nazwę użytkownika SendGrid
 > * Konfigurowanie powiadomień e-mail Apache Ambari
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Konto e-mail SendGrid. Zobacz [Jak wysłać wiadomość e-mail przy użyciu sendgrid z platformy Azure,](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email) aby uzyskać instrukcje.
+* Konto e-mail SendGrid. Instrukcje można znaleźć w temacie [jak wysyłać pocztą E-mail przy użyciu SendGrid z platformą Azure](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email) .
 
-* Klaster HDInsight. Zobacz [Tworzenie klastrów Apache Hadoop przy użyciu portalu Azure](./hdinsight-hadoop-create-linux-clusters-portal.md).
+* HDInsight An klaster. Zobacz [Tworzenie klastrów Apache Hadoop przy użyciu Azure Portal](./hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="obtain-sendgrid-username"></a>Uzyskaj nazwę użytkownika SendGrid
 
-1. Z [witryny Azure portal](https://portal.azure.com)przejdź do zasobu SendGrid.
+1. W [Azure Portal](https://portal.azure.com)przejdź do zasobu SendGrid.
 
-1. Na stronie Przegląd wybierz pozycję **Zarządzaj**, aby przejść do strony sendgrid dla swojego konta.
+1. Na stronie Przegląd wybierz pozycję **Zarządzaj**, aby przejść do strony sieci Web SendGrid dla Twojego konta.
 
-    ![Omówienie sendgrid w witrynie Azure Portal](./media/apache-ambari-email/azure-portal-sendgrid-manage.png)
+    ![Omówienie SendGrid w witrynie Azure Portal](./media/apache-ambari-email/azure-portal-sendgrid-manage.png)
 
-1. W menu po lewej stronie przejdź do nazwy konta, a następnie **do szczegółów konta**.
+1. W menu po lewej stronie przejdź do swojej nazwy konta, a następnie **szczegóły konta**.
 
-    ![Nawigacja na pulpicie nawigacyjnym SendGrid](./media/apache-ambari-email/sendgrid-dashboard-navigation.png)
+    ![Nawigacja pulpitu nawigacyjnego SendGrid](./media/apache-ambari-email/sendgrid-dashboard-navigation.png)
 
-1. Na stronie **Szczegóły konta** zapisz **nazwę użytkownika**.
+1. Na stronie **szczegóły konta** Zapisz **nazwę użytkownika**.
 
     ![Szczegóły konta SendGrid](./media/apache-ambari-email/sendgrid-account-details.png)
 
-## <a name="configure-ambari-e-mail-notification"></a>Konfigurowanie powiadomienia e-mail ambari
+## <a name="configure-ambari-e-mail-notification"></a>Konfigurowanie powiadomienia e-mail Ambari
 
-1. W przeglądarce internetowej `https://CLUSTERNAME.azurehdinsight.net/#/main/alerts`przejdź `CLUSTERNAME` do miejsca , gdzie jest nazwa klastra.
+1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net/#/main/alerts`lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
 
 1. Z listy rozwijanej **Akcje** wybierz pozycję **Zarządzaj powiadomieniami**.
 
-1. W oknie **Zarządzanie powiadomieniami o alertach** wybierz ikonę. **+**
+1. W oknie **Zarządzanie powiadomieniami o alertach** wybierz **+** ikonę.
 
-    ![Ambari utworzyć powiadomienie o alertach](./media/apache-ambari-email/azure-portal-create-notification.png)
+    ![Ambari — powiadomienie o utworzeniu alertu](./media/apache-ambari-email/azure-portal-create-notification.png)
 
-1. W oknie dialogowym **Tworzenie powiadomień o alertach** podaj następujące informacje:
+1. W oknie dialogowym **Tworzenie powiadomienia o alercie** podaj następujące informacje:
 
     |Właściwość |Opis |
     |---|---|
     |Nazwa|Podaj nazwę powiadomienia.|
-    |Grupy|Skonfiguruj zgodnie z potrzebami.|
-    |Ważność|Skonfiguruj zgodnie z potrzebami.|
-    |Opis|Element opcjonalny.|
-    |Metoda|Wyjdź na **e-mail**.|
-    |Wyślij wiadomość e-mail do|Udostępniaj wiadomości e-mail w celu otrzymywania powiadomień oddzielonych przecinkiem.|
+    |Grupy|Skonfiguruj je zgodnie z potrzebami.|
+    |Ważność|Skonfiguruj je zgodnie z potrzebami.|
+    |Opis|Opcjonalny.|
+    |Metoda|Pozostaw **wiadomość e-mail**.|
+    |Wyślij wiadomość e-mail do|Podaj wiadomości e-mail na potrzeby otrzymywania powiadomień, rozdzielając je przecinkami.|
     |Serwer SMTP|`smtp.sendgrid.net`|
-    |SMTP Port|25 lub 587 (dla połączeń niezaszyfrowanych/TLS).|
+    |Port SMTP|25 lub 587 (dla nieszyfrowanych/TLS połączeń).|
     |Wyślij wiadomość e-mail z|Podaj adres e-mail. Adres nie musi być autentyczny.|
-    |Korzystanie z uwierzytelniania|Zaznacz to pole wyboru.|
+    |Użyj uwierzytelniania|Zaznacz to pole wyboru.|
     |Nazwa użytkownika|Podaj nazwę użytkownika SendGrid.|
-    |Hasło|Podaj hasło użyte podczas tworzenia zasobu SendGrid na platformie Azure.|
+    |Hasło|Podaj hasło, które zostało użyte podczas tworzenia zasobu SendGrid na platformie Azure.|
     |Potwierdzenie hasła|Ponownie wprowadź hasło.|
-    |Uruchamianie protokołu TLS|Zaznacz to pole wyboru|
+    |Uruchom protokół TLS|Zaznacz to pole wyboru|
 
-    ![Ambari utworzyć powiadomienie o alertach](./media/apache-ambari-email/ambari-create-alert-notification.png)
+    ![Ambari — powiadomienie o utworzeniu alertu](./media/apache-ambari-email/ambari-create-alert-notification.png)
 
-    Wybierz **pozycję Zapisz**. Powrócisz do okna **Zarządzanie powiadomieniami o alertach.**
+    Wybierz pozycję **Zapisz**. Powrócisz do okna **Zarządzanie powiadomieniami o alertach** .
 
 1. W oknie **Zarządzanie powiadomieniami o alertach** wybierz pozycję **Zamknij**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku, dowiedziałeś się, jak skonfigurować Apache Ambari powiadomień e-mail za pomocą SendGrid. Aby dowiedzieć się więcej o Apache Ambari, dowiedz się więcej o Apache Ambari:
+W tym samouczku przedstawiono sposób konfigurowania powiadomień e-mail Apache Ambari za pomocą usługi SendGrid. Aby dowiedzieć się więcej o platformie Apache Ambari, Skorzystaj z następujących informacji:
 
 * [Zarządzanie klastrami HDInsight przy użyciu internetowego interfejsu użytkownika systemu Apache Ambari](./hdinsight-hadoop-manage-ambari.md)
 
-* [Tworzenie powiadomienia o alertach](https://docs.cloudera.com/HDPDocuments/Ambari-latest/managing-and-monitoring-ambari/content/amb_create_an_alert_notification.html)
+* [Tworzenie powiadomienia o alercie](https://docs.cloudera.com/HDPDocuments/Ambari-latest/managing-and-monitoring-ambari/content/amb_create_an_alert_notification.html)

@@ -1,28 +1,28 @@
 ---
-title: Implementowanie funkcji w podmiotach sieci szkieletowej usług Azure
-description: W tym artykule opisano sposób pisania własnej usługi aktora, który implementuje funkcje na poziomie usługi w taki sam sposób, jak po dziedziczeniu StatefulService.
+title: Implementowanie funkcji w usłudze Azure Service Fabric aktorzy
+description: Opisuje sposób pisania własnej usługi aktora, która implementuje funkcje na poziomie usług w taki sam sposób, jak w przypadku dziedziczenia klasy statefulservice.
 author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 55ee4c7498dcda3060d4e4221711793b80132bdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f5f9e00c374b16026f22d4efdee51ec94d2902a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79502288"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>Implementowanie funkcji na poziomie usług w usłudze aktora
 
-Jak opisano w [warstwach usługi,](service-fabric-reliable-actors-platform.md#service-layering)sama usługa aktora jest niezawodną usługą. Możesz napisać własną usługę, która `ActorService`wywodzi się z . Można również zaimplementować funkcje na poziomie usługi w taki sam sposób, jak po dziedziczeniu usługi stanowej, takich jak:
+Jak opisano w [warstwach usług](service-fabric-reliable-actors-platform.md#service-layering), sama usługa aktora jest niezawodna. Można napisać własną usługę, która pochodzi od `ActorService`. Funkcje poziomu usługi można również zaimplementować w taki sam sposób, jak w przypadku dziedziczenia usługi stanowej, na przykład:
 
 - Kopia zapasowa i przywracanie usługi.
-- Udostępnione funkcje dla wszystkich podmiotów, na przykład wyłącznik.
-- Procedura zdalna wywołuje samą usługę aktora i każdego aktora.
+- Funkcje udostępnione dla wszystkich aktorów, na przykład wyłącznika.
+- Zdalne wywołania procedury dla samej usługi aktora i poszczególnych aktorów.
 
 ## <a name="use-the-actor-service"></a>Korzystanie z usługi aktora
 
-Wystąpienia aktora mają dostęp do usługi aktora, w której są uruchomione. Za pośrednictwem usługi aktora wystąpienia aktora można programowo uzyskać kontekst usługi. Kontekst usługi ma identyfikator partycji, nazwę usługi, nazwę aplikacji i inne informacje specyficzne dla platformy sieci szkieletowej usługi Azure.
+Wystąpienia aktora mają dostęp do usługi aktora, w której są uruchomione. Za pomocą usługi aktora wystąpienia aktora mogą programowo uzyskać kontekst usługi. Kontekst usługi zawiera identyfikator partycji, nazwę usługi, nazwę aplikacji oraz inne informacje dotyczące platformy Service Fabric platformy Azure.
 
 ```csharp
 Task MyActorMethod()
@@ -43,7 +43,7 @@ CompletableFuture<?> MyActorMethod()
 }
 ```
 
-Podobnie jak wszystkie usługi niezawodne, usługa aktora musi być zarejestrowana przy typie usługi w czasie wykonywania sieci szkieletowej usług. Aby usługa aktora uruchamiała wystąpienia aktora, typ aktora również musi być zarejestrowany w usłudze aktora. Metoda rejestracji `ActorRuntime` wykonuje tę pracę dla aktorów. W najprostszym przypadku można zarejestrować typ aktora, a usługa aktora następnie używa ustawień domyślnych.
+Podobnie jak w przypadku wszystkich Reliable Services usługa aktora musi być zarejestrowana w ramach typu usługi w środowisku uruchomieniowym Service Fabric. Aby usługa aktora mogła uruchamiać wystąpienia aktora, typ aktora musi być zarejestrowany w usłudze aktora. Metoda rejestracji `ActorRuntime` wykonuje tę pracę dla aktorów. W najprostszym przypadku można zarejestrować typ aktora, a usługa aktora korzysta z domyślnych ustawień.
 
 ```csharp
 static class Program
@@ -57,7 +57,7 @@ static class Program
 }
 ```
 
-Alternatywnie można użyć lambda dostarczone przez metodę rejestracji do samodzielnego konstruowania usługi aktora. Następnie można skonfigurować usługę aktora i jawnie konstruować wystąpienia aktora. Można wstrzyknąć zależności do aktora za pośrednictwem jego konstruktora.
+Alternatywnie można użyć wyrażenia lambda dostarczonego przez metodę rejestracji do samodzielnego skonstruowania usługi aktora. Następnie można skonfigurować usługę aktora i jawnie skonstruować wystąpienia aktora. Można wstrzyknąć zależności do aktora za jego konstruktorem.
 
 ```csharp
 static class Program
@@ -87,14 +87,14 @@ static class Program
 }
 ```
 
-## <a name="actor-service-methods"></a>Metody obsługi aktora
+## <a name="actor-service-methods"></a>Metody usługi aktora
 
-Usługa aktora `IActorService` implementuje (C#) lub `ActorService` (Java), `IService` który z kolei `Service` implementuje (C#) lub (Java). Ten interfejs jest używany przez program komunikacji zdalnej reliable services, który umożliwia zdalne wywołanie procedury na metody usługi. Zawiera metody na poziomie usług, które można wywołać zdalnie za pośrednictwem komunikacji zdalnej usługi. Można go używać do [wyliczanie](service-fabric-reliable-actors-enumerate.md) i [usuwanie](service-fabric-reliable-actors-delete-actors.md) aktorów.
+Usługa aktora implementuje `IActorService` (c#) lub `ActorService` (Java), które z kolei implementują `IService` (c#) `Service` lub (Java). Ten interfejs jest używany przez Reliable Services komunikacji zdalnej, co umożliwia zdalne wywoływanie procedur w metodach usługi. Zawiera metody poziomu usług, które można wywołać zdalnie za pośrednictwem komunikacji zdalnej usługi. Można jej użyć do [wyliczania](service-fabric-reliable-actors-enumerate.md) i [usuwania](service-fabric-reliable-actors-delete-actors.md) aktorów.
 
 
 ## <a name="custom-actor-service"></a>Niestandardowa usługa aktora
 
-Za pomocą lambda rejestracji aktora, można zarejestrować własną usługę `ActorService` aktora niestandardowego, który pochodzi z (C#) i `FabricActorService` (Java). Następnie można zaimplementować własne funkcje na poziomie `ActorService` usługi, pisząc `FabricActorService` klasę usługi, która dziedziczy (C#) lub (Java). Niestandardowa usługa aktora dziedziczy wszystkie funkcje `ActorService` środowiska wykonawczego `FabricActorService` aktora z (C#) lub (Java). Może służyć do implementowania własnych metod usługi.
+Za pomocą wyrażenia lambda rejestracji aktora można zarejestrować własną niestandardową usługę aktora, która `ActorService` pochodzi z (C# `FabricActorService` ) i (Java). Następnie można zaimplementować własne funkcje poziomu usług, pisząc klasę usługi, która dziedziczy `ActorService` (C#) lub `FabricActorService` (Java). Niestandardowa usługa aktora dziedziczy wszystkie funkcje środowiska uruchomieniowego aktora `ActorService` z `FabricActorService` (C#) lub (Java). Może służyć do implementowania własnych metod usług.
 
 ```csharp
 class MyActorService : ActorService
@@ -141,71 +141,71 @@ public class Program
 }
 ```
 
-## <a name="implement-actor-backup-and-restore"></a>Wdrażanie kopii zapasowej i przywracania aktora
+## <a name="implement-actor-backup-and-restore"></a>Implementowanie tworzenia i przywracania kopii zapasowych aktora
 
-Niestandardowa usługa aktora może udostępnić metodę do utworzenia kopii zapasowej danych aktora, korzystając z odbiornika komunikacji zdalnej już obecnego w pliku `ActorService`. Na przykład zobacz [Tworzenie kopii zapasowych i przywracanie aktorów](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
+Niestandardowa usługa aktora może uwidaczniać metodę tworzenia kopii zapasowych danych aktora, wykorzystując odbiornik komunikacji zdalnej już obecny `ActorService`w. Aby zapoznać się z przykładem, zobacz [Tworzenie kopii zapasowych i przywracanie aktorów](service-fabric-reliable-actors-backup-and-restore.md).
 
-## <a name="actor-that-uses-a-remoting-v2-interface-compatible-stack"></a>Aktor korzystający ze stosu komunikacji zdalnej V2 (zgodnej z interfejsem)
+## <a name="actor-that-uses-a-remoting-v2-interface-compatible-stack"></a>Aktor używający stosu z obsługą zdalną v2 (zgodnego z interfejsem)
 
-Stos komunikacji zdalnej V2 (kompatybilny z interfejsem, znany jako V2_1) ma wszystkie funkcje stosu komunikacji zdalnej V2. Jego interfejs jest kompatybilny ze stosem zdalnym V1, ale nie jest wstecznie kompatybilny z V2 i V1. Aby uaktualnić z wersji 1 do V2_1 bez wpływu na dostępność usługi, wykonaj kroki opisane w następnej sekcji.
+Stos usług zdalnych w wersji 2 (zgodny z interfejsem, znany jako V2_1) ma wszystkie funkcje stosu komunikacji zdalnej w wersji 2. Jego interfejs jest zgodny ze stosem usług zdalnych w wersji 1, ale nie jest zgodny z wersjami 2 i v1. Aby uaktualnić program z wersji 1 do V2_1 bez wpływu na dostępność usługi, wykonaj kroki opisane w następnej sekcji.
 
-Następujące zmiany są wymagane do korzystania z V2_1 stosu komunikacji zdalnej:
+Następujące zmiany są wymagane do używania stosu V2_1 zdalnych:
 
-1. Dodaj następujący atrybut zestawu w interfejsach aktora.
+1. Dodaj następujący atrybut zestawu do interfejsów aktora.
   
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
    ```
 
-2. Tworzenie i uaktualnianie usługi aktora i projektów klienta aktora, aby rozpocząć korzystanie ze stosu V2.
+2. Kompiluj i uaktualniaj usługę aktora i projekty klientów aktorów, aby rozpocząć korzystanie ze stosu v2.
 
-### <a name="actor-service-upgrade-to-remoting-v2-interface-compatible-stack-without-affecting-service-availability"></a>Uaktualnienie usługi aktora do stosu zdalnego formatu V2 (zgodnego z interfejsem) bez wpływu na dostępność usługi
+### <a name="actor-service-upgrade-to-remoting-v2-interface-compatible-stack-without-affecting-service-availability"></a>Uaktualnianie usługi aktora do funkcji komunikacji zdalnej v2 (zgodnej z interfejsem) bez wpływu na dostępność usługi
 
-Ta zmiana jest dwuetapowym uaktualnieniem. Wykonaj kroki opisane w tej kolejności.
+Ta zmiana jest uaktualnieniem dwuetapowym. Wykonaj kroki opisane w tej sekwencji.
 
-1. Dodaj następujący atrybut zestawu w interfejsach aktora. Ten atrybut uruchamia dwa odbiorniki dla usługi aktora, V1 (istniejące) i V2_1 odbiornika. Uaktualnienie usługi aktora za pomocą tej zmiany.
+1. Dodaj następujący atrybut zestawu do interfejsów aktora. Ten atrybut uruchamia dwa odbiorniki dla usługi aktora, v1 (istniejący) i odbiornik V2_1. Uaktualnij usługę aktora przy użyciu tej zmiany.
 
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
    ```
 
-2. Uaktualnij klientów aktora po zakończeniu poprzedniego uaktualnienia.
-   Ten krok zapewnia, że serwer proxy aktora używa stosu V2_1 komunikacji zdalnej.
+2. Uaktualnij klientów aktorów po zakończeniu poprzedniego uaktualnienia.
+   Ten krok zapewnia, że serwer proxy aktora korzysta ze stosu V2_1 zdalnych.
 
-3. Ten krok jest opcjonalny. Zmień poprzedni atrybut, aby usunąć odbiornik V1.
+3. Ten krok jest opcjonalny. Zmień poprzedni atrybut, aby usunąć odbiornik v1.
 
     ```csharp
     [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
     ```
 
-## <a name="actor-that-uses-the-remoting-v2-stack"></a>Aktor korzystający ze stosu komunikacji zdalnej V2
+## <a name="actor-that-uses-the-remoting-v2-stack"></a>Aktor korzystający ze stosu zdalnego v2
 
-Z pakietem NuGet w wersji 2.8 użytkownicy mogą teraz używać stosu zdalnego systemu V2, który działa lepiej i zapewnia funkcje, takie jak serializacja niestandardowa. Komunikacji zdalnej V2 nie jest wstecznie kompatybilny z istniejącym stosem komunikacji zdalnej (obecnie nazywanym stosem komunikacji zdalnej V1).
+Korzystając z pakietu NuGet w wersji 2,8, użytkownicy mogą teraz używać stosu zdalnego v2, który wykonuje lepsze i udostępnia funkcje takie jak Serializacja niestandardowa. Komunikacja zdalna v2 nie jest zgodna z poprzednimi wersjami z istniejącym stosem usług zdalnych (nazywanym teraz stosem komunikacji zdalnej w wersji 1).
 
-Następujące zmiany są wymagane do korzystania z remoting V2 stosu.
+Poniższe zmiany są wymagane do korzystania ze stosu usług zdalnych w wersji 2.
 
-1. Dodaj następujący atrybut zestawu w interfejsach aktora.
+1. Dodaj następujący atrybut zestawu do interfejsów aktora.
 
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
    ```
 
-2. Tworzenie i uaktualnianie projektów klienta usługi aktora i aktora, aby rozpocząć korzystanie ze stosu V2.
+2. Kompiluj i uaktualniaj usługę aktora i projekty klientów aktorów, aby rozpocząć korzystanie ze stosu v2.
 
-### <a name="upgrade-the-actor-service-to-the-remoting-v2-stack-without-affecting-service-availability"></a>Uaktualnienie usługi aktora do stosu komunikacji zdalnej V2 bez wpływu na dostępność usługi
+### <a name="upgrade-the-actor-service-to-the-remoting-v2-stack-without-affecting-service-availability"></a>Uaktualnij usługę aktora do stosu zdalnego systemu v2 bez wpływu na dostępność usługi
 
-Ta zmiana jest dwuetapowym uaktualnieniem. Wykonaj kroki opisane w tej kolejności.
+Ta zmiana jest uaktualnieniem dwuetapowym. Wykonaj kroki opisane w tej sekwencji.
 
-1. Dodaj następujący atrybut zestawu w interfejsach aktora. Ten atrybut uruchamia dwa odbiorniki dla usługi aktora, V1 (istniejące) i odbiornika V2. Uaktualnienie usługi aktora za pomocą tej zmiany.
+1. Dodaj następujący atrybut zestawu do interfejsów aktora. Ten atrybut uruchamia dwa odbiorniki dla usługi aktora, v1 (istniejący) i odbiornik v2. Uaktualnij usługę aktora przy użyciu tej zmiany.
 
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
    ```
 
-2. Uaktualnij klientów aktora po zakończeniu poprzedniego uaktualnienia.
-   Ten krok zapewnia, że serwer proxy aktora używa stosu komunikacji zdalnej V2.
+2. Uaktualnij klientów aktorów po zakończeniu poprzedniego uaktualnienia.
+   Ten krok zapewnia, że serwer proxy aktora korzysta ze stosu usług zdalnych w wersji 2.
 
-3. Ten krok jest opcjonalny. Zmień poprzedni atrybut, aby usunąć odbiornik V1.
+3. Ten krok jest opcjonalny. Zmień poprzedni atrybut, aby usunąć odbiornik v1.
 
     ```csharp
     [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
@@ -214,10 +214,10 @@ Ta zmiana jest dwuetapowym uaktualnieniem. Wykonaj kroki opisane w tej kolejnoś
 ## <a name="next-steps"></a>Następne kroki
 
 * [Zarządzanie stanem aktora](service-fabric-reliable-actors-state-management.md)
-* [Cykl życia aktora i wyrzucanie elementów bezużytecznych](service-fabric-reliable-actors-lifecycle.md)
-* [Dokumentacja referencyjna interfejsu API podmiotów](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Cykl życia aktora i odzyskiwanie pamięci](service-fabric-reliable-actors-lifecycle.md)
+* [Dokumentacja referencyjna interfejsu API aktorów](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Przykładowy kod platformy .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Przykładowy kod java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Przykładowy kod w języku Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

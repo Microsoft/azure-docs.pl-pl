@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Samouczek globalnej dystrybucji usługi Azure Cosmos DB dla interfejsu API SQL'
-description: 'Samouczek: Dowiedz się, jak skonfigurować globalną dystrybucję usługi Azure Cosmos DB przy użyciu interfejsu API SQL za pomocą platformy .Net, Java, Python i różnych innych zestawów SDK'
+title: 'Samouczek Azure Cosmos DB: samouczek dotyczący dystrybucji globalnej dla interfejsu API SQL'
+description: 'Samouczek: informacje o konfigurowaniu Azure Cosmos DB globalnej dystrybucji przy użyciu interfejsu API SQL z platformą .NET, Java i Python oraz różnymi innymi zestawami SDK'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 177973cf766a6215453f3062c0fb206961649272
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80295522"
 ---
-# <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Samouczek: Konfigurowanie globalnej dystrybucji usługi Azure Cosmos DB przy użyciu interfejsu API SQL
+# <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Samouczek: Konfigurowanie globalnej dystrybucji Azure Cosmos DB przy użyciu interfejsu API SQL
 
 W tym artykule pokazujemy, jak za pomocą witryny Azure Portal skonfigurować dystrybucję globalną usługi Azure Cosmos DB, a następnie nawiązać połączenie przy użyciu interfejsu API SQL.
 
@@ -78,14 +78,14 @@ DocumentClient docClient = new DocumentClient(
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
-## <a name="nodejsjavascript"></a>Node.js/JavaScript
+## <a name="nodejsjavascript"></a>Node. js/JavaScript
 
 > [!NOTE]
 > Adresów URL punktów końcowych nie należy traktować jako długotrwałych stałych. Usługa może zaktualizować je w dowolnym momencie. Zestaw SDK obsługuje tę zmianę automatycznie.
 >
 >
 
-Poniżej znajduje się przykład kodu node.js/Javascript.
+Poniżej znajduje się przykładowy kod dla środowiska Node. js/JavaScript.
 
 ```JavaScript
 // Setting read region selection preference, in the following order -
@@ -100,7 +100,7 @@ const client = new CosmosClient{ endpoint, key, connectionPolicy: { preferredLoc
 
 ## <a name="python-sdk"></a>Zestaw SDK dla języka Python
 
-Poniższy kod pokazuje, jak ustawić preferowane lokalizacje przy użyciu zestawu SDK języka Python:
+Poniższy kod przedstawia sposób ustawiania preferowanych lokalizacji za pomocą zestawu SDK języka Python:
 
 ```python
 
@@ -110,9 +110,9 @@ client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connect
 
 ```
 
-## <a name="java-v2-sdk"></a>Java V2 SDK
+## <a name="java-v2-sdk"></a>Zestaw Java v2 SDK
 
-Poniższy kod pokazuje, jak ustawić preferowane lokalizacje przy użyciu zestawu Java SDK:
+Poniższy kod przedstawia sposób ustawiania preferowanych lokalizacji za pomocą zestawu SDK języka Java:
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -167,11 +167,11 @@ Przykładowa odpowiedź
 
 
 * Wszystkie żądania PUT, POST i DELETE muszą być przekazywane do wskazanego identyfikatora URI zapisu
-* Wszystkie gety i inne żądania tylko do odczytu (na przykład zapytania) mogą przejść do dowolnego punktu końcowego wyboru klienta
+* Wszystkie odbierane i inne żądania tylko do odczytu (na przykład zapytania) mogą przejść do dowolnego punktu końcowego wyboru klienta
 
 Żądania zapisu w regionach tylko do odczytu kończą się niepowodzeniem i wyświetlany jest kod błędu HTTP 403 („Dostęp zabroniony”).
 
-Jeśli region zapisu zmieni się po początkowej fazie odnajdywania klienta, kolejne zapisy do poprzedniego regionu zapisu nie powiedzie się przy użyciu kodu błędu HTTP 403 ("Zabronione"). Klient powinien wówczas ponownie uzyskać (żądanie GET) listę regionów, aby zaktualizować region zapisu.
+Jeśli region zapisu zmieni się po początkowej fazie odnajdywania klienta, kolejne zapisy w poprzednim regionie zapisu będą kończyć się niepowodzeniem z kodem błędu HTTP 403 ("zabronione"). Klient powinien wówczas ponownie uzyskać (żądanie GET) listę regionów, aby zaktualizować region zapisu.
 
 To wszystko — na tym kończy się ten samouczek. Aby dowiedzieć się, jak zarządzać spójnością globalnie replikowanego konta, przeczytaj [Poziomy spójności w usłudze Azure Cosmos DB](consistency-levels.md). Natomiast aby uzyskać więcej informacji na temat sposobu działania globalnej replikacji w usłudze Azure Cosmos DB, zobacz [Dystrybuowanie danych globalnie za pomocą usługi Azure Cosmos DB](distribute-data-globally.md).
 

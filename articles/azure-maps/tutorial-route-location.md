@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Znajdź trasę do lokalizacji | Mapy platformy Microsoft Azure'
-description: W tym samouczku pokazano, jak renderować trasę do lokalizacji (punktu zainteresowania) na mapie przy użyciu usługi routingu map microsoft azure.
+title: 'Samouczek: Znajdowanie trasy do lokalizacji | Mapy Microsoft Azure'
+description: W tym samouczku przedstawiono sposób renderowania trasy do lokalizacji (punktu orientacyjnego) na mapie za pomocą usługi Routing Maps Microsoft Azure.
 author: philmea
 ms.author: philmea
 ms.date: 01/14/2020
@@ -10,15 +10,15 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 98c36176ecd2996e5f735c52017162a076ef4bde
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80333758"
 ---
-# <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Samouczek: Kierowanie do punktu zainteresowania za pomocą usługi Azure Maps
+# <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Samouczek: kierowanie do punktu orientacyjnego za pomocą Azure Maps
 
-W tym samouczku pokazano, jak używać konta usługi Azure Maps i zestawu Route Service SDK w celu znalezienia trasy do punktu orientacyjnego. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+W tym samouczku pokazano, jak używać konta usługi Azure Maps i zestawu Route Service SDK w celu znalezienia trasy do punktu orientacyjnego. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie nowej strony internetowej przy użyciu interfejsu API kontrolki mapy
@@ -27,7 +27,7 @@ W tym samouczku pokazano, jak używać konta usługi Azure Maps i zestawu Route 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zanim zaczniesz kontynuować, [postępuj](quick-demo-map-app.md#create-an-account-with-azure-maps)zgodnie z instrukcjami w sekcji Tworzenie konta , potrzebujesz subskrypcji z warstwą cenową S1. Wykonaj kroki opisane w [celu uzyskania klucza podstawowego,](quick-demo-map-app.md#get-the-primary-key-for-your-account) aby uzyskać klucz podstawowy dla swojego konta. Aby uzyskać więcej informacji na temat uwierzytelniania w usłudze Azure Maps, zobacz [zarządzanie uwierzytelnianiem w usłudze Azure Maps](how-to-manage-authentication.md).
+Przed kontynuowaniem postępuj zgodnie z instrukcjami podanymi w temacie [Tworzenie konta](quick-demo-map-app.md#create-an-account-with-azure-maps), potrzebujesz subskrypcji z warstwą cenową S1. Postępuj zgodnie z instrukcjami w temacie [Pobieranie klucza podstawowego](quick-demo-map-app.md#get-the-primary-key-for-your-account) , aby uzyskać klucz podstawowy dla konta. Aby uzyskać więcej informacji na temat uwierzytelniania w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](how-to-manage-authentication.md).
 
 <a id="getcoordinates"></a>
 
@@ -83,7 +83,7 @@ Poniższe kroki pokazują, jak utworzyć statyczną stronę HTML osadzoną przy 
 
     Zwróć uwagę, że nagłówek HTML zawiera pliki zasobów CSS i JavaScript obsługiwane przez bibliotekę kontrolek mapy platformy Azure. Zwróć uwagę na zdarzenie `onload` w treści strony, które spowoduje wywołanie funkcji `GetMap` po załadowaniu treści strony. Ta funkcja będzie zawierać śródwierszowy kod JavaScript umożliwiający dostęp do interfejsów API usługi Azure Maps. 
 
-3. Dodaj następujący kod JavaScript do funkcji `GetMap`. Zastąp ciąg `<Your Azure Maps Key>` kluczem podstawowym skopiowanym z konta Mapy.
+3. Dodaj następujący kod JavaScript do funkcji `GetMap`. Zastąp ciąg `<Your Azure Maps Key>` kluczem podstawowym, który został skopiowany z konta Maps.
 
     ```JavaScript
    //Instantiate a map object
@@ -106,7 +106,7 @@ Poniższe kroki pokazują, jak utworzyć statyczną stronę HTML osadzoną przy 
 
 W tym samouczku zostanie wyrenderowana prosta trasa przy użyciu ikon symboli przedstawiających początek i koniec trasy oraz linii przedstawiającej przebieg trasy.
 
-1. Po zainicjowaniu mapy dodaj następujący kod JavaScript.
+1. Po zainicjowaniu mapy Dodaj następujący kod JavaScript.
 
     ```JavaScript
     //Wait until the map resources are ready.
@@ -139,9 +139,9 @@ W tym samouczku zostanie wyrenderowana prosta trasa przy użyciu ikon symboli pr
     });
     ```
     
-    W programie `ready` obsługi zdarzeń map tworzone jest źródło danych do przechowywania linii trasy oraz punktów początkowych i końcowych. Tworzona jest warstwa linii, która jest następnie dołączana do źródła danych w celu zdefiniowania sposobu renderowana linii trasy. Linia trasy będzie renderowana jako ładny odcień niebieskiego. Będzie miał szerokość pięciu pikseli, zaokrąglone sprzężenia linii i wersaliki. Podczas dodawania warstwy do mapy przekazywany jest drugi parametr o wartości `'labels'`. Określa on, że ta warstwa ma być renderowana poniżej etykiet mapy. Dzięki temu linia trasy nie zakryje etykiet dróg. Tworzona jest warstwa symboli, która jest następnie dołączana do źródła danych. Ta warstwa określa sposób renderowania punktów początkowych i końcowych. W takim przypadku dodano wyrażenia w celu pobrania informacji o obrazie ikony i etykiecie tekstowej z właściwości każdego obiektu punktu. 
+    W programie obsługi `ready` zdarzeń mapy jest tworzone źródło danych do przechowywania linii trasy oraz punktów początkowych i końcowych. Tworzona jest warstwa linii, która jest następnie dołączana do źródła danych w celu zdefiniowania sposobu renderowana linii trasy. Linia trasy będzie renderowana jako całkiem odcień niebieski. Będzie ona mieć szerokość 5 pikseli, liczbę wierszy zaokrąglonych i zaokrąglenia. Podczas dodawania warstwy do mapy przekazywany jest drugi parametr o wartości `'labels'`. Określa on, że ta warstwa ma być renderowana poniżej etykiet mapy. Dzięki temu linia trasy nie zakryje etykiet dróg. Tworzona jest warstwa symboli, która jest następnie dołączana do źródła danych. Ta warstwa określa sposób renderowania punktów początkowych i końcowych. W takim przypadku dodano wyrażenia, aby pobrać obraz ikony i informacje o etykiecie tekstowej z właściwości dla każdego obiektu punktu. 
     
-2. W tym samouczku ustawimy punkt początkowy w siedzibie firmy Microsoft, a punkt końcowy na stacji paliw w Seattle. W programie `ready` obsługi zdarzeń map dodaj następujący kod.
+2. W tym samouczku ustawimy punkt początkowy w siedzibie firmy Microsoft, a punkt końcowy na stacji paliw w Seattle. W programie obsługi `ready` zdarzeń programu Maps Dodaj następujący kod.
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end points of the route.
@@ -164,19 +164,19 @@ W tym samouczku zostanie wyrenderowana prosta trasa przy użyciu ikon symboli pr
     });
     ```
 
-    Ten kod tworzy dwa [GeoJSON Point obiektów](https://en.wikipedia.org/wiki/GeoJSON) do reprezentowania punktów początkowych i końcowych trasy i dodaje punkty do źródła danych. Do każdego punktu są dodawane właściwości `title` i `icon`. Ostatni blok ustawia widok kamery przy użyciu szerokości i długości geograficznej punktów początkowych i końcowych, przy użyciu właściwości [Map setCamera.](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-)
+    Ten kod tworzy dwa [obiekty punktu GEOJSON](https://en.wikipedia.org/wiki/GeoJSON) do reprezentowania punktów początkowych i końcowych trasy i dodaje punkty do źródła danych. Do każdego punktu są dodawane właściwości `title` i `icon`. Ostatni blok ustawia widok aparatu przy użyciu szerokości geograficznej i długości geograficznej punktu początkowego i końcowego, używając właściwości [Setcamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) mapy.
 
-3. Zapisz plik **MapRoute.html** i odśwież przeglądarkę. Teraz mapa jest wyśrodkowany nad Seattle, i można zobaczyć niebieski pin oznaczający punkt początkowy i okrągły niebieski pin oznaczający punkt mety.
+3. Zapisz plik **MapRoute.html** i odśwież przeglądarkę. Teraz mapa jest wyśrodkowana w Seattle i widzisz niebieski numer PIN oznaczający punkt początkowy oraz okrągły niebieski numer PIN oznaczający punkt końcowy.
 
-   ![Wyświetlanie tras punkt początkowy i końcowy na mapie](media/tutorial-route-location/map-pins.png)
+   ![Wyświetlanie punktów początkowych i końcowych tras na mapie](media/tutorial-route-location/map-pins.png)
 
 <a id="getroute"></a>
 
 ## <a name="get-directions"></a>Uzyskiwanie wskazówek dojazdu
 
-W tej sekcji pokazano, jak korzystać z interfejsu API usługi marszruty usługi Azure Maps. Interfejs API usługi marszruty znajduje trasę od danego punktu początkowego do punktu końcowego. W ramach tej usługi dostępne są interfejsy API do planowania *najszybszych,* *najkrótszych,* *ekologicznych*lub *ekscytujących* tras między dwoma lokalizacjami. Ta usługa umożliwia również użytkownikom planowanie tras w przyszłości przy użyciu rozległej historycznej bazy danych ruchu platformy Azure. Użytkownicy mogą zobaczyć przewidywanie czasów trwania trasy w dowolnym wybranym dniu i godzinie. Aby uzyskać więcej informacji, zobacz [Get route directions (Uzyskiwanie wskazówek dojazdu)](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Wszystkie następujące funkcje powinny zostać dodane **w ramach listy zdarzeń gotowych** do mapy, aby upewnić się, że ładują się po gotowym dostępie do zasobów mapy.
+W tej sekcji pokazano, jak używać interfejsu API usługi Route Azure Maps. Interfejs API usługi Route Service znajduje trasę z danego punktu początkowego do punktu końcowego. W ramach tej usługi istnieją interfejsy API, które umożliwiają planowanie *najszybszych* *,* *najkrótszych*lub *thrillingych* tras między dwiema lokalizacjami. Ta usługa umożliwia również użytkownikom planowanie tras w przyszłości przy użyciu bogatej bazy danych o ruchu historycznym platformy Azure. Użytkownicy mogą zobaczyć prognozowanie czasów trwania tras w wybranym dniu i czasie. Aby uzyskać więcej informacji, zobacz [Get route directions (Uzyskiwanie wskazówek dojazdu)](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Wszystkie poniższe funkcje należy dodać **w ramach mapy odbiornika gotowe** , aby upewnić się, że są one ładowane po przygotowaniu zasobów mapy do uzyskania dostępu.
 
-1. W funkcji GetMap dodaj następujące elementy do kodu JavaScript.
+1. W funkcji GetMap Dodaj następujący kod do kodu JavaScript.
 
     ```JavaScript
     // Use SubscriptionKeyCredential with a subscription key
@@ -189,9 +189,9 @@ W tej sekcji pokazano, jak korzystać z interfejsu API usługi marszruty usługi
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   Tworzy `SubscriptionKeyCredential` do `SubscriptionKeyCredentialPolicy` uwierzytelniania żądań HTTP do usługi Azure Maps z kluczem subskrypcji. Przyjmuje `atlas.service.MapsURL.newPipeline()` w `SubscriptionKeyCredential` zasadach i tworzy [Pipeline wystąpienie.](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) Reprezentuje `routeURL` adres URL do operacji [marszruty](https://docs.microsoft.com/rest/api/maps/route) usługi Azure Maps.
+   `SubscriptionKeyCredential` Tworzy `SubscriptionKeyCredentialPolicy` do uwierzytelniania żądania HTTP do Azure Maps przy użyciu klucza subskrypcji. `atlas.service.MapsURL.newPipeline()` Przyjmuje `SubscriptionKeyCredential` zasady i tworzy wystąpienie [potoku](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) . `routeURL` Reprezentuje adres URL służący do Azure Maps operacji [routingu](https://docs.microsoft.com/rest/api/maps/route) .
 
-2. Po skonfigurowaniu poświadczeń i adresu URL dodaj następujący kod JavaScript, aby utworzyć trasę od punktu początkowego do końcowego. Usługa `routeURL` routingu usługi Azure Maps żąda obliczania kierunków trasy. Kolekcja funkcji GeoJSON z odpowiedzi jest następnie `geojson.getFeatures()` wyodrębniana przy użyciu metody i dodawana do źródła danych.
+2. Po skonfigurowaniu poświadczeń i adresu URL Dodaj następujący kod JavaScript, aby utworzyć trasę od początku do punktu końcowego. `routeURL` Żąda usługi trasy Azure Maps, aby obliczyć kierunki tras. Zbieranie funkcji GEOJSON z odpowiedzi jest następnie wyodrębniane przy użyciu `geojson.getFeatures()` metody i dodawane do źródła danych.
 
     ```JavaScript
     //Start and end point input to the routeURL
@@ -222,7 +222,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > [Wyświetl pełny kod źródłowy](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
 
 > [!div class="nextstepaction"]
-> [Zobacz próbkę na żywo](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
+> [Wyświetl przykład na żywo](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
 
 Następny samouczek przedstawia tworzenie zapytania o trasę z ograniczeniami dotyczącymi np. sposobu podróży lub rodzaju ładunku, a następnie wyświetlanie wielu tras na tej samej mapie.
 

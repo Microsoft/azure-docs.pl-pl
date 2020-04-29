@@ -6,10 +6,10 @@ ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: 90ab36389ceac2e8aad12332db433732525c62f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78851829"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Szybki start: tworzenie bazy wiedzy w usłudze QnA Maker przy użyciu języka Java
@@ -20,16 +20,16 @@ Ten przewodnik Szybki start wywołuje interfejsy API usługi QnA Maker:
 * [Tworzenie bazy wiedzy](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
 * [Pobieranie szczegółów operacji](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
 
-[Dokumentacja referencyjna](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Java Sample](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java)
+[Dokumentacja referencyjna](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [środowiska Java](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Środowisko Go w wersji 1.10.1](https://golang.org/dl/)
-* Musisz mieć [usługę QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Aby pobrać klucz i punkt końcowy (który zawiera nazwę zasobu), wybierz **szybki start** dla zasobu w witrynie Azure portal.
+* Musisz mieć [usługę QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Aby pobrać klucz i punkt końcowy (w tym nazwę zasobu), wybierz pozycję **Szybki Start** dla zasobu w Azure Portal.
 
-[Przykładowy kod](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java) jest dostępny w repozytorium GitHub dla programu QnA Maker z oprogramowaniem Java.
+[Przykładowy kod](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java) jest dostępny w repozytorium GitHub dla QNA Maker przy użyciu języka Java.
 
 ## <a name="create-a-knowledge-base-file"></a>Tworzenie pliku bazy wiedzy
 
@@ -44,12 +44,12 @@ Na początku pliku `CreateKB.java` dodaj następujące wiersze, aby dodać niezb
 ## <a name="add-the-required-constants"></a>Dodawanie wymaganych stałych
 Po poprzednich wymaganych zależnościach dodaj wymagane stałe do klasy `CreateKB` umożliwiające dostęp do usługi QnA Maker.
 
-Musisz mieć [usługę QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Aby pobrać nazwę klucza i zasobu, wybierz **szybki start** w witrynie Azure portal dla zasobu programu QnA Maker.
+Musisz mieć [usługę QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Aby pobrać nazwę klucza i zasobu, wybierz pozycję **Szybki Start** w Azure Portal dla zasobu QNA Maker.
 
 Ustaw następujące wartości:
 
-* `<your-qna-maker-subscription-key>`- **Klucz** jest ciągiem znaków 32 i jest dostępny w witrynie Azure portal, na zasobie QnA Maker, na stronie Szybki start. To nie jest taka sama jak klucz punktu końcowego przewidywania.
-* `<your-resource-name>`- **Nazwa zasobu** jest używana do konstruowania tworzenia adresu URL `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`punktu końcowego do tworzenia, w formacie . Nie jest to ten sam adres URL, który jest używany do wykonywania zapytań o punkt końcowy przewidywania.
+* `<your-qna-maker-subscription-key>`- **Klucz** jest ciągiem znaków 32 i jest dostępny w Azure Portal na QNA Maker zasobu na stronie szybkiego startu. Ta wartość nie jest taka sama jak klucz punktu końcowego przewidywania.
+* `<your-resource-name>`- **Nazwa zasobu** służy do KONSTRUOWANIA adresu URL tworzenia punktu końcowego dla tworzenia w formacie `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Nie jest to ten sam adres URL służący do wykonywania zapytań dotyczących punktu końcowego przewidywania.
 
 Nie jest konieczne dodawanie końcowego nawiasu klamrowego, aby zakończyć klasę — znajduje się on w ostatnim fragmencie kodu na końcu tego przewodnika Szybki Start.
 
@@ -117,7 +117,7 @@ Powtarzaj wywołanie do momentu uzyskania stanu powodzenia lub niepowodzenia:
 ```
 
 ## <a name="add-a-main-method"></a>Dodawanie metody głównej
-Metoda główna tworzy bazę wiedzy, a następnie wykonuje sondowanie pod kątem stanu. Identyfikator operacji jest zwracany w polu nagłówek odpowiedzi POST **Lokalizacja**, a następnie używany jako część trasy w żądaniu GET. Pętla `while` ponawia ponawia stan, jeśli nie została ukończona.
+Metoda główna tworzy bazę wiedzy, a następnie wykonuje sondowanie pod kątem stanu. Identyfikator operacji jest zwracany w **lokalizacji**pola nagłówka odpowiedzi post, a następnie używany jako część trasy w żądaniu get. `while` Pętla ponawia próbę stanu, jeśli nie została ukończona.
 
 [!code-java[Add main method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=152-191 "Add main method")]
 

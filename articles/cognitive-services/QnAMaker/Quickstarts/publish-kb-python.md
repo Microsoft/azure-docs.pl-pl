@@ -1,36 +1,36 @@
 ---
-title: 'Szybki start: Publikowanie bazy wiedzy, REST, Python - QnA Maker'
-description: Ten szybki start oparty na upoczęć języka Python publikuje bazę wiedzy i tworzy punkt końcowy, który można wywołać w aplikacji lub bota czatu.
+title: 'Szybki Start: Publikowanie bazy wiedzy, REST i Python — QnA Maker'
+description: Ten przewodnik Szybki Start oparty na interfejsie Python umożliwia opublikowanie bazy wiedzy i utworzenie punktu końcowego, który można wywołać w aplikacji lub rozmowie bot.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: 6f053ecbd58d3c2527c1b904437dcc4715c76af1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78851653"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>Szybki start: publikowanie bazy wiedzy w usłudze QnA Maker przy użyciu języka Python
 
-Ten przewodnik Szybki start oparty na protokole REST przeprowadzi Cię przez programowe publikowanie bazy wiedzy. Publikowanie wypycha najnowszą wersję bazy wiedzy do dedykowanego indeksu usługi Azure Cognitive Search i tworzy punkt końcowy, który można wywołać w aplikacji lub bota czatu.
+Ten przewodnik Szybki start oparty na protokole REST przeprowadzi Cię przez programowe publikowanie bazy wiedzy. Publikowanie powoduje wypchnięcie najnowszej wersji bazy wiedzy do dedykowanego indeksu Wyszukiwanie poznawcze platformy Azure i utworzenie punktu końcowego, który można wywołać w aplikacji lub rozmowie bot.
 
-Ten przewodnik Szybki start wywołuje interfejsy API REST programu QnA Maker:
+To wywołanie narzędzia do szybkiego startu QnA Maker interfejsy API REST:
 * [Publikowanie](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) — ten interfejs API nie wymaga żadnych informacji zawartych w treści żądania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Środowisko Python w wersji 3.7](https://www.python.org/downloads/)
-* Musisz mieć [usługę QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Aby pobrać klucz i punkt końcowy (który zawiera nazwę zasobu), wybierz **szybki start** dla zasobu w witrynie Azure portal.
-* Identyfikator bazy wiedzy QnA Maker (KB) znajdujący się w adresie URL w parametrze `kbid` ciągu zapytania, jak pokazano poniżej.
+* Musisz mieć [usługę QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Aby pobrać klucz i punkt końcowy (w tym nazwę zasobu), wybierz pozycję **Szybki Start** dla zasobu w Azure Portal.
+* Identyfikator bazy wiedzy QnA Maker (KB) znaleziony w adresie URL w `kbid` parametrze ciągu zapytania, jak pokazano poniżej.
 
     ![Identyfikator bazy wiedzy usługi QnA Maker](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
     Jeśli nie masz jeszcze bazy wiedzy, możesz utworzyć przykładową bazę na potrzeby tego podręcznika Szybki start: [Tworzenie nowej bazy wiedzy](../how-to/create-knowledge-base.md).
 
 > [!NOTE]
-> Kompletne pliki rozwiązań są dostępne w [repozytorium **GitHub Azure-Samples/cognitive-services-qnamaker-python.** ](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/tree/master/documentation-samples/quickstarts/publish-knowledge-base)
+> Kompletne pliki rozwiązania są dostępne w [repozytorium GitHub **Azure-Samples/poznawcze-Services-qnamaker-Python** ](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## <a name="create-a-knowledge-base-python-file"></a>Tworzenie pliku Python bazy wiedzy
 

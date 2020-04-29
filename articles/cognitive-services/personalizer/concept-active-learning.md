@@ -1,34 +1,34 @@
 ---
-title: Polityka edukacyjna - Personalizer
-description: Ustawienia uczenia się określają *hiperparametry* szkolenia modelu. Dwa modele tych samych danych, które są przeszkolone w różnych ustawieniach uczenia się skończy się inaczej.
+title: Zasady uczenia — Personalizacja
+description: Ustawienia uczenia określają *Parametry* szkolenia modelu. Dwa modele tych samych danych, które są przeszkolone przy użyciu różnych ustawień uczenia, będą kończyć się różnymi.
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: abe6a2a2ec9b9978230d894c69193469f6e932e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219347"
 ---
-# <a name="learning-policy-and-settings"></a>Zasady i ustawienia uczenia się
+# <a name="learning-policy-and-settings"></a>Zasady i ustawienia uczenia
 
-Ustawienia uczenia się określają *hiperparametry* szkolenia modelu. Dwa modele tych samych danych, które są przeszkolone w różnych ustawieniach uczenia się skończy się inaczej.
+Ustawienia uczenia określają *Parametry* szkolenia modelu. Dwa modele tych samych danych, które są przeszkolone przy użyciu różnych ustawień uczenia, będą kończyć się różnymi.
 
-[Zasady i ustawienia uczenia się](how-to-settings.md#configure-rewards-for-the-feedback-loop) są ustawiane w zasobie Personalizer w witrynie Azure portal.
+[Zasady i ustawienia nauki](how-to-settings.md#configure-rewards-for-the-feedback-loop) są ustawiane w Twoim zasobie personalizacji w Azure Portal.
 
-## <a name="import-and-export-learning-policies"></a>Zasady nauki importu i eksportu
+## <a name="import-and-export-learning-policies"></a>Importowanie i eksportowanie zasad uczenia
 
-Można importować i eksportować pliki zasad uczenia się z witryny Azure portal. Ta metoda służy do zapisywania istniejących zasad, testowania ich, zastępowania i archiwizowania ich w formancie kodu źródłowego jako artefaktów do przyszłych odwołań i inspekcji.
+Można importować i eksportować pliki zasad uczenia z Azure Portal. Ta metoda służy do zapisywania istniejących zasad, testowania ich, zastępowania i archiwizowania ich w kontroli kodu źródłowego jako artefaktów do przyszłego odwołania i inspekcji.
 
-Dowiedz [się, jak importować](how-to-manage-model.md#import-a-new-learning-policy) i eksportować zasady uczenia się w witrynie Azure portal dla zasobu Personalizer.
+Dowiedz się, [jak](how-to-manage-model.md#import-a-new-learning-policy) importować i eksportować zasady uczenia w Azure Portal dla zasobu personalizowania.
 
-## <a name="understand-learning-policy-settings"></a>Opis ustawień zasad uczenia się
+## <a name="understand-learning-policy-settings"></a>Informacje o ustawieniach zasad nauki
 
-Ustawienia w zasadach uczenia się nie są przeznaczone do zmiany. Zmień ustawienia tylko wtedy, gdy rozumiesz, jak wpływają one na Personalizer. Bez tej wiedzy można spowodować problemy, w tym unieważnienie modeli Personalizer.
+Ustawienia zasad nauki nie są przeznaczone do zmiany. Zmień ustawienia tylko wtedy, gdy zrozumiesz, jak mają wpływ na personalizowanie. Bez tej wiedzy mogą wystąpić problemy, w tym unieważnienie modeli personalizacji.
 
-Personalizer używa [vowpalwabbit](https://github.com/VowpalWabbit) do szkolenia i ocena wydarzeń. Zapoznaj się z [dokumentacją vowpalwabbit,](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Command-line-arguments) jak edytować ustawienia uczenia się za pomocą vowpalwabbit. Po uzyskaniu poprawnych argumentów wiersza polecenia zapisz polecenie w pliku o następującym formacie (zastąp wartość właściwości arguments żądanym poleceniem) i przekaż plik do importu ustawień uczenia się w okienku **Ustawienia modelu i uczenia się** w witrynie Azure portal dla zasobu Personalizer.
+Personalizacja używa [vowpalwabbit](https://github.com/VowpalWabbit) do uczenia i oceny zdarzeń. Zapoznaj się z [dokumentacją vowpalwabbit](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Command-line-arguments) na temat edytowania ustawień uczenia przy użyciu vowpalwabbit. Po otrzymaniu prawidłowych argumentów wiersza polecenia Zapisz polecenie do pliku o następującym formacie (Zastąp wartość właściwości argumenty pożądanym poleceniem) i Przekaż plik, aby zaimportować ustawienia uczenia w okienku **Ustawienia modelu i uczenia** w Azure Portal dla zasobu personalizowania.
 
-Poniżej `.json` przedstawiono przykład zasad uczenia się.
+Poniżej `.json` przedstawiono przykładowe zasady uczenia się.
 
 ```json
 {
@@ -37,18 +37,18 @@ Poniżej `.json` przedstawiono przykład zasad uczenia się.
 }
 ```
 
-## <a name="compare-learning-policies"></a>Porównaj zasady uczenia się
+## <a name="compare-learning-policies"></a>Porównanie zasad uczenia
 
-Można porównać, jak różne zasady uczenia się działają w stosunku do przeszłych danych w dziennikach Personalizer, wykonując [oceny offline.](concepts-offline-evaluation.md)
+Można porównać, w jaki sposób różne zasady uczenia są wykonywane względem wcześniejszych danych w dziennikach personalizacji przez wykonywanie [ocen w trybie offline](concepts-offline-evaluation.md).
 
-[Prześlij własne zasady uczenia się,](how-to-manage-model.md) aby porównać je z bieżącymi zasadami uczenia się.
+[Przekaż własne zasady uczenia](how-to-manage-model.md) , aby porównać je z bieżącymi zasadami nauki.
 
-## <a name="optimize-learning-policies"></a>Optymalizacja zasad uczenia się
+## <a name="optimize-learning-policies"></a>Optymalizowanie zasad uczenia
 
-Personalizator może utworzyć zoptymalizowaną politykę uczenia się w [ocenie offline.](how-to-offline-evaluation.md) Zoptymalizowana polityka uczenia się, która ma lepsze nagrody w ocenie offline przyniesie lepsze wyniki, gdy jest używana online w Personalizer.
+Personalizowanie może utworzyć zoptymalizowane zasady uczenia w [ocenie w trybie offline](how-to-offline-evaluation.md). Zoptymalizowane zasady uczenia, które mają lepsze korzyści wynikające z oceny w trybie offline, będą zwracać lepsze wyniki, gdy są używane w trybie online w programie personalizacji.
 
-Po zoptymalizowaniu zasad uczenia się, można zastosować go bezpośrednio do Personalizer, więc natychmiast zastępuje bieżące zasady. Możesz też zapisać zoptymalizowane zasady do dalszej oceny, a później zdecydować, czy ją odrzucić, zapisać lub zastosować.
+Po zoptymalizowaniu zasad uczenia można zastosować je bezpośrednio do personalizacji, aby natychmiast zastąpić bieżące zasady. Można też zapisać zoptymalizowane zasady do dalszej oceny, a następnie zdecydować, czy należy je odrzucić, zapisać lub zastosować.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Naucz się [aktywnych i nieaktywnych zdarzeń](concept-active-inactive-events.md).
+* Informacje o [zdarzeniach aktywnych i nieaktywnych](concept-active-inactive-events.md).

@@ -1,5 +1,5 @@
 ---
-title: Samouczek kopiowania danych do usługi Azure Data Box za pośrednictwem systemu plików NFS| Dokumenty firmy Microsoft
+title: Samouczek do kopiowania danych do Azure Data Box za pomocą systemu plików NFS | Microsoft Docs
 description: Dowiedz się, jak skopiować dane na urządzenie Azure Data Box za pośrednictwem systemu plików NFS
 services: databox
 author: alkohli
@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: alkohli
 ms.openlocfilehash: f0a4bb23d8a868e7c11153748259eba23a0cca38
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79501821"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Samouczek: kopiowanie danych do usługi Azure Data Box za pośrednictwem systemu plików NFS
+# <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Samouczek: kopiowanie danych do Azure Data Box za pośrednictwem systemu plików NFS
 
 W tym samouczku opisano sposób nawiązywania połączenia i kopiowania danych z komputera-hosta za pomocą lokalnego internetowego interfejsu użytkownika.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -89,12 +89,12 @@ Po nawiązaniu połączenia z udziałami urządzenia Data Box następnym krokiem
 * Jeśli dane przekazywane przy użyciu urządzenia Data Box będą jednocześnie przekazywane przez inne aplikacje, poza urządzeniem Data Box, skutkiem może być niepowodzenie zadania przekazywania oraz uszkodzenie danych.
 * Nie zaleca się jednoczesnego używania protokołu SMB i sieciowego systemu plików ani kopiowania tych samych danych do tego samego końcowego miejsca docelowego na platformie Azure. W takich przypadkach nie można określić ostatecznego wyniku.
 * **Zawsze należy utworzyć w udziale folder na pliki, które chcesz skopiować, a następnie skopiować pliki do tego folderu**. Folder utworzony w ramach udziałów blokowych obiektów blob i stronicowych obiektów blob reprezentuje kontener, do którego dane są przekazywane w postaci obiektów blob. Plików nie można kopiować bezpośrednio do folderu *głównego* na koncie magazynu.
-* W przypadku pozyskiwania nazw katalogów i plików z udziału systemu plików NFS do systemu plików NFS w polu data:
-  * Sprawa jest zachowywana w nazwie.
-  * Pliki są niewrażliwe na argumenty.
+* W przypadku pozyskania nazw plików z uwzględnieniem wielkości liter i katalogów z udziału NFS do systemu plików NFS na urządzenie Data Box:
+  * Wielkość liter jest zachowywana w nazwie.
+  * W plikach nie jest rozróżniana wielkość liter.
 
-    Na przykład, jeśli `SampleFile.txt` `Samplefile.Txt`kopiowanie i , sprawa zostanie zachowana w nazwie po skopiowaniu do pola danych, ale drugi plik zastąpi pierwszy, ponieważ są one uważane za ten sam plik.
-* Upewnij się, że przechowujesz kopię danych źródłowych, dopóki nie możesz potwierdzić, że pole danych zostało przeniesione dane do usługi Azure Storage.
+    Na przykład, jeśli kopiowanie `SampleFile.txt` i `Samplefile.Txt`, wielkość liter zostanie zachowana w nazwie podczas kopiowania do urządzenie Data Box ale drugi plik zastąpi pierwsze, ponieważ są one uznawane za ten sam plik.
+* Upewnij się, że przechowujesz kopię danych źródłowych do momentu potwierdzenia, że urządzenie Data Box przeniósł dane do usługi Azure Storage.
 
 Jeśli korzystasz z komputera-hosta z systemem Linux, użyj narzędzia do kopiowania podobnego do narzędzia Robocopy. W systemie Linux są dostępne na przykład narzędzia [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) lub [Ultracopier](https://ultracopier.first-world.info/).  
 
@@ -135,7 +135,7 @@ W przypadku korzystania z opcji rsync na potrzeby kopiowania wielowątkowego nal
      Na początku zaleca się użycie 16 równoległych kopii i zwiększanie liczby wątków w zależności od dostępności zasobów.
 
 > [!IMPORTANT]
-> Następujące typy plików systemu Linux nie są obsługiwane: łącza symboliczne, pliki znaków, pliki blokowe, gniazda i potoki. Te typy plików spowoduje błędy podczas **kroku Przygotowanie do wysyłki.**
+> Następujące typy plików systemu Linux nie są obsługiwane: linki symboliczne, pliki znaków, pliki blokowe, gniazda i potoki. Te typy plików spowodują błędy podczas kroku **przygotowanie do wysłania** .
 
 Otwórz folder docelowy, aby wyświetlić i zweryfikować skopiowane pliki. Jeśli podczas procesu kopiowania wystąpiły jakiekolwiek błędy, pobierz pliki z błędami, które pomogą w rozwiązywaniu problemów. Aby uzyskać więcej informacji, zobacz [Wyświetlanie dzienników błędów podczas kopiowania danych na urządzenie Data Box](data-box-logs.md#view-error-log-during-data-copy). Aby uzyskać szczegółową listę błędów występujących podczas kopiowania danych, zobacz [Rozwiązywanie problemów z urządzeniem Data Box](data-box-troubleshoot.md).
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 046a4bc9abb936ca6f9fcecd0f660a723edb092b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80116900"
 ---
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
@@ -55,7 +55,7 @@ Po utworzeniu maszyny wirtualnej w interfejsie wiersza polecenia platformy Azure
 
 ## <a name="open-port-80-for-web-traffic"></a>Otwieranie portu 80 na potrzeby ruchu w sieci Web 
 
-Domyślnie dozwolone są tylko połączenia SSH z maszynami wirtualnymi z systemem Linux wdrożonymi na platformie Azure. Ponieważ ta maszyna wirtualna ma być serwerem sieci Web, port 80 należy otworzyć z Internetu. Użyj polecenia [az vm open-port,](/cli/azure/vm) aby otworzyć żądany port.  
+Domyślnie dozwolone są tylko połączenia SSH z maszynami wirtualnymi z systemem Linux wdrożonymi na platformie Azure. Ponieważ ta maszyna wirtualna ma być serwerem sieci Web, port 80 należy otworzyć z Internetu. Za pomocą polecenia [AZ VM Open-Port](/cli/azure/vm) otwórz żądany port.  
  
 ```azurecli-interactive
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM

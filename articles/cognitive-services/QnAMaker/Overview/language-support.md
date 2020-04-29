@@ -1,7 +1,7 @@
 ---
-title: Obsługa języków - QnA Maker
+title: Obsługa języka — QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Lista kultur, języków naturalnych obsługiwanych przez QnA Maker dla twojej bazy wiedzy. Nie mieszaj języków w tej samej bazie wiedzy.
+description: Lista kultur, Języki naturalne obsługiwane przez QnA Maker w bazie wiedzy. Nie mieszaj języków w tej samej bazie wiedzy.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,17 +11,17 @@ ms.topic: reference
 ms.date: 09/24/2019
 ms.author: diberry
 ms.openlocfilehash: 96440bf0e9c26e6f222f3bc94c8fabb0bc8f488d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79220557"
 ---
-# <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Obsługa języków dla zasobów i baz wiedzy programu QnA Maker
+# <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Obsługa języka dla zasobów QnA Maker i baz wiedzy
 
-Język usługi jest wybierany podczas tworzenia pierwszej bazy wiedzy w zasobie. Wszystkie dodatkowe bazy wiedzy w zasobie muszą być w tym samym języku. 
+Język dla usługi jest wybierany podczas tworzenia pierwszej bazy wiedzy w zasobie. Wszystkie dodatkowe bazy wiedzy w zasobie muszą znajdować się w tym samym języku. 
 
-Język określa trafność wyników, które program QnA Maker zapewnia w odpowiedzi na zapytania użytkowników.
+Język określa przydatność wyników QnA Maker zapewnia odpowiedzi na zapytania użytkownika.
 
 Dowiedz się więcej o [wpływie wyboru języka](../how-to/language-knowledge-base.md).
 
@@ -43,12 +43,12 @@ Poniższa lista zawiera języki obsługiwane dla zasobu QnA Maker.
 |Czeski|
 |duński|
 |Niderlandzki|
-|Polski|
+|Angielski|
 |Estoński|
 |fiński|
 |Francuski|
 |Galicyjski|
-|Niemiecki|
+|niemiecki|
 |grecki|
 |Gudżarati|
 |Hebrajski|
@@ -58,9 +58,9 @@ Poniższa lista zawiera języki obsługiwane dla zasobu QnA Maker.
 |Indonezyjski|
 |Irlandzki|
 |Włoski|
-|Japoński|
+|japoński|
 |Kannada|
-|Koreański|
+|koreański|
 |Łotewski|
 |Litewski|
 |Malayalam|

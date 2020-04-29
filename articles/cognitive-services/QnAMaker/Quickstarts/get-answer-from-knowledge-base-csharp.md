@@ -6,17 +6,17 @@ ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: 16093ec5e837b098da3c9b038fe2a57cd76c7151
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78851807"
 ---
-# <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Szybki start: uzyskaj odpowiedzi na pytanie z bazy wiedzy w języku C #
+# <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Szybki Start: uzyskiwanie odpowiedzi na pytanie z bazy wiedzy przy użyciu języka C #
 
-Ten przewodnik Szybki start przeprowadzi Cię przez programowe uzyskiwanie odpowiedzi z opublikowanej bazy wiedzy usługi QnA Maker. Baza wiedzy zawiera pytania i odpowiedzi ze [źródeł danych,](../Concepts/knowledge-base.md) takich jak często zadawane pytania. [Pytanie](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) jest wysyłane do usługi QnA Maker. [Odpowiedź](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) zawiera najlepiej przewidywaną odpowiedź.
+Ten przewodnik Szybki start przeprowadzi Cię przez programowe uzyskiwanie odpowiedzi z opublikowanej bazy wiedzy usługi QnA Maker. Baza wiedzy zawiera pytania i odpowiedzi ze [źródeł danych](../Concepts/knowledge-base.md) , takich jak często zadawane pytania. [Pytanie](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) jest wysyłane do usługi QNA Maker. [Odpowiedź](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) obejmuje odpowiedzi przewidziane w górnej części.
 
-[Przykład dokumentacji](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime) | [referencyjnej](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/blob/master/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs)
+[Reference documentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime) | [Przykład](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/blob/master/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs) dokumentacji referencyjnej
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -30,8 +30,8 @@ Ten przewodnik Szybki start przeprowadzi Cię przez programowe uzyskiwanie odpow
 
 ## <a name="create-a-knowledge-base-project"></a>Tworzenie projektu bazy wiedzy
 
-1. Otwórz wersję społecznościową programu Visual Studio 2019.
-1. Utwórz nowy projekt aplikacji konsoli (.NET Core) i nazwij projekt QnaMakerQuickstart. Zaakceptuj wartości domyślne pozostałych ustawień.
+1. Otwórz program Visual Studio 2019 Community Edition.
+1. Utwórz nowy projekt aplikacja konsoli (.NET Core) i Nadaj projektowi nazwę QnaMakerQuickstart. Zaakceptuj wartości domyślne pozostałych ustawień.
 
 ## <a name="add-the-required-dependencies"></a>Dodawanie wymaganych zależności
 
@@ -53,7 +53,7 @@ Poniższy kod umożliwia wysłanie żądania HTTPS do interfejsu API usługi QnA
 
 Wartość nagłówka `Authorization` zawiera ciąg `EndpointKey`.
 
-Dowiedz się więcej o [żądaniu](../how-to/metadata-generateanswer-usage.md#generateanswer-request) i [odpowiedzi](../how-to/metadata-generateanswer-usage.md#generateanswer-response).
+Dowiedz się więcej na temat [żądania](../how-to/metadata-generateanswer-usage.md#generateanswer-request) i [odpowiedzi](../how-to/metadata-generateanswer-usage.md#generateanswer-response).
 
 ## <a name="build-and-run-the-program"></a>Kompilowanie i uruchamianie programu
 

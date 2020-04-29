@@ -1,7 +1,7 @@
 ---
-title: Przechowywanie danych — usługa LUIS
+title: Magazyn danych — LUIS
 titleSuffix: Azure Cognitive Services
-description: Usługa LUIS przechowuje dane zaszyfrowane w magazynie danych platformy Azure odpowiadające regionowi określonemu przez klucz.
+description: LUIS przechowuje dane zaszyfrowane w magazynie danych platformy Azure odpowiadające regionowi określonemu przez klucz.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,59 +12,59 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
 ms.openlocfilehash: e3028a9f046edb4013d8a2d6ec88d8c3cb2ca489
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79220018"
 ---
-# <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Przechowywanie i usuwanie danych w usługach cognitive (Language Understanding) (LUIS)
-Usługa LUIS przechowuje dane zaszyfrowane w magazynie danych platformy Azure odpowiadające regionowi określonemu przez klucz. Dane te są przechowywane przez 30 dni. 
+# <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Magazynowanie i usuwanie danych w Language Understanding (LUIS) Cognitive Services
+LUIS przechowuje dane zaszyfrowane w magazynie danych platformy Azure odpowiadające regionowi określonemu przez klucz. Te dane są przechowywane przez 30 dni. 
 
-## <a name="export-and-delete-app"></a>Eksportowanie i usuwanie aplikacji
-Użytkownicy mają pełną kontrolę nad [eksportem](luis-how-to-start-new-app.md#export-app) i [usuwaniem](luis-how-to-start-new-app.md#delete-app) aplikacji. 
+## <a name="export-and-delete-app"></a>Eksportuj i usuwaj aplikację
+Użytkownicy mają pełną kontrolę nad [eksportowaniem](luis-how-to-start-new-app.md#export-app) i [usuwaniem](luis-how-to-start-new-app.md#delete-app) aplikacji. 
 
 ## <a name="utterances"></a>Wypowiedzi
 
-Wypowiedzi mogą być przechowywane w dwóch różnych miejscach. 
+Wyrażenia długości mogą być przechowywane w dwóch różnych miejscach. 
 
-* Podczas **procesu tworzenia**wypowiedzi są tworzone i przechowywane w intencji. Wypowiedzi w intencji są wymagane dla pomyślnej aplikacji usługi LUIS. Po opublikowaniu aplikacji i odbieraniu zapytań w punkcie końcowym, querystring `log=false`żądania punktu końcowego, określa, czy wypowiedź punktu końcowego jest przechowywana. Jeśli punkt końcowy jest przechowywany, staje się częścią aktywnych wypowiedzi uczenia znaleźć w **sekcji Kompilacja** portalu, w **sekcji Przejrzyj wypowiedzi punktu końcowego przeglądu.** 
-* Podczas **przeglądania wypowiedzi punktu końcowego**i dodać wypowiedź do intencji, wypowiedź nie jest już przechowywana jako część wypowiedzi punktu końcowego do przeglądu. Jest on dodawany do intencji aplikacji. 
+* Podczas **procesu tworzenia**wyrażenia długości są tworzone i przechowywane w zamierzeniu. Wyrażenia długości w intencjach są wymagane do pomyślnej aplikacji LUIS. Gdy aplikacja zostanie opublikowana i otrzyma zapytania w punkcie końcowym, ciąg QueryString `log=false`żądania punktu końcowego określa, czy punkt końcowy wypowiedź jest przechowywany. Jeśli punkt końcowy jest przechowywany, stał się częścią aktywnego uczenia wyrażenia długości, którą można znaleźć w sekcji **kompilacja** portalu, w sekcji **Przegląd wyrażenia długości punktu końcowego** . 
+* Gdy **przeglądasz punkt końcowy wyrażenia długości**i dodasz wypowiedź do celu, wypowiedź nie jest już przechowywana jako część punktu końcowego wyrażenia długości do zweryfikowania. Jest on dodawany do intencji aplikacji. 
 
 <a name="utterances-in-an-intent"></a>
 
-### <a name="delete-example-utterances-from-an-intent"></a>Usuwanie przykładowych wypowiedzi z intencji
+### <a name="delete-example-utterances-from-an-intent"></a>Usuń przykład wyrażenia długości z zamiaru
 
-Usuń przykładowe wypowiedzi używane do szkolenia [usługi LUIS](luis-reference-regions.md). Jeśli usuniesz wypowiedź przykład z aplikacji usługi LUIS, zostanie on usunięty z usługi sieci web usługi LUIS i jest niedostępny do eksportu.
+Usuń przykład wyrażenia długości używany do uczenia [Luis](luis-reference-regions.md). Jeśli usuniesz przykład wypowiedź z aplikacji LUIS, zostanie on usunięty z usługi sieci Web LUIS i jest niedostępny do eksportowania.
 
 <a name="utterances-in-review"></a>
 
-### <a name="delete-utterances-in-review-from-active-learning"></a>Usuwanie wypowiedzi w recenzji z aktywnego uczenia się
+### <a name="delete-utterances-in-review-from-active-learning"></a>Usuń wyrażenia długości z aktywnego uczenia
 
-Wypowiedzi można usuwać z listy wypowiedzi użytkowników, które usługa LUIS sugeruje na **[stronie Przejrzyj wypowiedzi punktów końcowych.](luis-how-to-review-endpoint-utterances.md)** Usuwanie wypowiedzi z tej listy uniemożliwia im sugerowanie, ale nie usuwa ich z dzienników.
+Wyrażenia długości można usunąć z listy wyrażenia długości użytkownika, którą LUIS sugeruje na **[stronie Recenzja punktu końcowego wyrażenia długości](luis-how-to-review-endpoint-utterances.md)**. Usunięcie wyrażenia długości z tej listy uniemożliwi ich sugerowanie, ale nie usunie ich z dzienników.
 
-Jeśli nie chcesz, aby aktywne wypowiedzi edukacyjne, można [wyłączyć aktywne uczenie](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Wyłączenie aktywnego uczenia się wyłącza również rejestrowanie.
+Jeśli nie chcesz, aby usługa Active Learning wyrażenia długości, możesz [wyłączyć aktywną naukę](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Wyłączenie usługi Active Learning powoduje także wyłączenie rejestrowania.
 
-### <a name="disable-logging-utterances"></a>Wyłączanie wypowiedzi rejestrowania
-[Wyłączenie aktywnego uczenia się](luis-how-to-review-endpoint-utterances.md#disable-active-learning) powoduje wyłączenie rejestrowania.
+### <a name="disable-logging-utterances"></a>Wyłącz rejestrowanie wyrażenia długości
+[Wyłączenie aktywnego uczenia](luis-how-to-review-endpoint-utterances.md#disable-active-learning) powoduje wyłączenie rejestrowania.
 
 
 <a name="accounts"></a>
 
 ## <a name="delete-an-account"></a>Usuwanie konta
-Jeśli usuniesz konto, wszystkie aplikacje zostaną usunięte wraz z ich wypowiedzi przykład i dzienniki. Dane są przechowywane przez 60 dni, zanim konto i dane zostaną trwale usunięte.
+Po usunięciu konta zostaną usunięte wszystkie aplikacje wraz z przykładami wyrażenia długości i dzienników. Dane są przechowywane przez 60 dni, zanim konto i dane zostaną trwale usunięte.
 
-Usunięcie konta jest dostępne na stronie **Ustawienia.** Wybierz nazwę konta na prawym górnym pasku nawigacyjnym, aby przejść do strony **Ustawienia.**
+Usuwanie konta jest dostępne na stronie **Ustawienia** . Wybierz nazwę swojego konta w prawym górnym pasku nawigacyjnym, aby przejść do strony **ustawień** .
 
-## <a name="data-inactivity-as-an-expired-subscription"></a>Brak aktywności danych jako wygasła subskrypcja
-Do celów przechowywania i usuwania danych nieaktywna aplikacja usługi LUIS może według uznania firmy Microsoft być _traktowana_ jako wygasła subskrypcja. Aplikacja jest uważana za nieaktywną, jeśli spełnia następujące kryteria w ciągu ostatnich 90 dni: 
+## <a name="data-inactivity-as-an-expired-subscription"></a>Nieaktywność danych jako wygasła subskrypcja
+Na potrzeby przechowywania i usuwania danych nieaktywna aplikacja LUIS może być traktowana jako niezależna od _firmy Microsoft_ jako wygasła subskrypcja. Aplikacja jest traktowana jako nieaktywna, jeśli spełnia następujące kryteria dla ostatnich 90 dni: 
 
-* Nie miał **żadnych** połączeń do niego.
+* Nie ma **żadnych** wywołań.
 * Nie został zmodyfikowany.
 * Nie ma przypisanego bieżącego klucza.
-* Nie miał zalogować się do niego przez użytkownika.
+* Użytkownik nie ma do niego logowania.
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o eksportowaniu i usuwaniu aplikacji](luis-how-to-start-new-app.md)
+> [Dowiedz się więcej na temat eksportowania i usuwania aplikacji](luis-how-to-start-new-app.md)

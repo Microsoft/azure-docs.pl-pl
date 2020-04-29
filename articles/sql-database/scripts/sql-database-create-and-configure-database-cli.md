@@ -1,5 +1,5 @@
 ---
-title: Przykładowy wiersz polecenia — tworzenie bazy danych SQL platformy Azure
+title: Przykład interfejsu wiersza polecenia — Tworzenie bazy danych Azure SQL Database
 description: Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure umożliwia utworzenie bazy danych SQL.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
 ms.openlocfilehash: ecfa61f0680e20dd37a1fedc988664afa6e2a83b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80067457"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Tworzenie jednej bazy danych Azure SQL Database i konfigurowanie reguły zapory przy użyciu interfejsu wiersza polecenia
@@ -36,21 +36,21 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 ### <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 
-Użyj następującego polecenia, aby usunąć grupę zasobów i wszystkie skojarzone z nią zasoby.
+Użyj poniższego polecenia, aby usunąć grupę zasobów i wszystkie skojarzone z nią zasoby.
 
 ```azurecli-interactive
 az group delete --name $resource
 ```
 
-## <a name="sample-reference"></a>Przykładowy numer referencyjny
+## <a name="sample-reference"></a>Przykładowe odwołanie
 
 W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 | | |
 |---|---|
 | [az sql server](/cli/azure/sql/server#az-sql-server-create) | Polecenia serwera |
-| [az zapora serwera sql](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Polecenia zapory serwera. |
-| [az sql db](/cli/azure/sql/db#az-sql-db-create) | Polecenia bazy danych. |
+| [AZ SQL Server firewall](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Polecenia zapory serwera. |
+| [AZ SQL DB](/cli/azure/sql/db#az-sql-db-create) | Polecenia bazy danych. |
 
 ## <a name="next-steps"></a>Następne kroki
 

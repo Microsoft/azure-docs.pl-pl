@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
 ms.openlocfilehash: a1de313245e826511a7e9c864165ac44bcb48530
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80234187"
 ---
-### <a name="standard-and-neural-voices"></a>Głosy standardowe i nerwowe
+### <a name="standard-and-neural-voices"></a>Głosy standardowe i neuronowych
 
-Ta tabela służy do określania dostępności głosów standardowych i neuronowych według regionu/punktu końcowego:
+Użyj tej tabeli, aby określić dostępność standardowych i neuronowych głosów według regionu/punktu końcowego:
 
-| Region | Endpoint | Standardowe głosy | Głosy neuronowe |
+| Region | Endpoint | Głosy standardowe | Głosy neuronowych |
 |--------|----------|-----------------|---------------|
 | Australia Wschodnia | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Tak |
 | Brazylia Południowa | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Nie |
@@ -38,9 +38,9 @@ Ta tabela służy do określania dostępności głosów standardowych i neuronow
 | Zachodnie stany USA | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Nie |
 | Zachodnie stany USA 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Tak |
 
-### <a name="custom-voices"></a>Niestandardowe głosy
+### <a name="custom-voices"></a>Głosy niestandardowe
 
-Jeśli utworzono niestandardową czcionkę głosową, użyj utworzonego punktu końcowego. Można również użyć punktów końcowych wymienionych poniżej, zastępując `{deploymentId}` identyfikator wdrożenia dla modelu głosowego.
+Jeśli utworzono niestandardową czcionkę głosową, użyj utworzonego przez siebie punktu końcowego. Możesz również użyć punktów końcowych wymienionych poniżej, zastępując `{deploymentId}` identyfikator wdrożenia dla modelu głosu.
 
 | Region | Endpoint |
 |--------|----------|

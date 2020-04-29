@@ -1,6 +1,6 @@
 ---
 title: Funkcje języka JavaScript zdefiniowane przez użytkownika w usłudze Azure Stream Analytics
-description: Ten artykuł jest wprowadzeniem do funkcji zdefiniowanych przez użytkownika JavaScript w usłudze Stream Analytics.
+description: Ten artykuł zawiera wprowadzenie do funkcji języka JavaScript zdefiniowanych przez użytkownika w Stream Analytics.
 author: rodrigoaatmicrosoft
 ms.author: rodrigoa
 ms.service: stream-analytics
@@ -9,59 +9,59 @@ ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 03/23/2020
 ms.openlocfilehash: 58d750b47f3f6a2bcfbf23399ca249131e7876ae
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80235389"
 ---
-# <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funkcje zdefiniowane przez użytkownika JavaScript w usłudze Azure Stream Analytics
+# <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funkcje języka JavaScript zdefiniowane przez użytkownika w Azure Stream Analytics
  
-Usługa Azure Stream Analytics obsługuje funkcje zdefiniowane przez użytkownika, które napisano w języku JavaScript. Dzięki bogatemu zestawowi metod **String**, **RegExp**, **Math**, **Array**i **Date,** które zapewnia JavaScript, tworzenie złożonych przekształceń danych za pomocą zadań usługi Stream Analytics staje się łatwiejsze do utworzenia.
+Usługa Azure Stream Analytics obsługuje funkcje zdefiniowane przez użytkownika, które napisano w języku JavaScript. Dzięki bogatemu zestawowi metod **String**, **RegExp**, **Math**, **Array**i **Date** , które udostępnia kod JavaScript, złożone przekształcenia danych Stream Analytics zadania stają się łatwiejsze do utworzenia.
 
 ## <a name="overview"></a>Omówienie
 
-Funkcje zdefiniowane przez użytkownika JavaScript obsługują funkcje skalarne tylko dla jednostek obliczeniowych, które nie wymagają łączności zewnętrznej. Wartość zwracana przez funkcję może być tylko wartością skalarną (pojedynczą). Po dodaniu funkcji języka JavaScript zdefiniowanej przez użytkownika do zadania możesz jej używać we wszystkich miejscach zapytania — tak jak wbudowanej funkcji skalarnej.
+Funkcje języka JavaScript zdefiniowane przez użytkownika obsługują bezstanowe, tylko obliczeniowe funkcje skalarne, które nie wymagają łączności zewnętrznej. Wartość zwracana przez funkcję może być tylko wartością skalarną (pojedynczą). Po dodaniu funkcji języka JavaScript zdefiniowanej przez użytkownika do zadania możesz jej używać we wszystkich miejscach zapytania — tak jak wbudowanej funkcji skalarnej.
 
 Poniżej przedstawiono kilka scenariuszy, w których funkcje języka JavaScript zdefiniowane przez użytkownika mogą być przydatne:
 * Analizowanie ciągów zawierających funkcje do obsługi wyrażeń regularnych, na przykład **Regexp_Replace()** i **Regexp_Extract()**, oraz wykonywanie operacji na takich ciągach
 * Dekodowanie i kodowanie danych, na przykład konwersja danych binarnych na szesnastkowe
-* Wykonywanie obliczeń matematycznych za pomocą funkcji **javascript matematyki**
-* Wykonywanie operacji tablicowych, takich jak sortowanie, dołączanie, znajdowanie i wypełnianie
+* Prowadzenie obliczeń matematycznych za pomocą funkcji **matematycznych** języka JavaScript
+* Wykonywanie operacji tablicowych, takich jak Sort, join, Find i Fill
 
-Oto kilka czynności, których nie można wykonać za pomocą funkcji zdefiniowanej przez użytkownika JavaScript w usłudze Stream Analytics:
-* Wywoływanie zewnętrznych punktów końcowych REST, na przykład wykonywanie wyszukiwania odwrotnego adresu IP lub ściąganie danych referencyjnych ze źródła zewnętrznego
+Oto kilka rzeczy, których nie można wykonać za pomocą funkcji języka JavaScript zdefiniowanej przez użytkownika w Stream Analytics:
+* Wywołaj zewnętrzne punkty końcowe REST, na przykład przeszukiwanie odwrotnego adresu IP lub ściąganie danych referencyjnych ze źródła zewnętrznego
 * Wykonywanie niestandardowej serializacji lub deserializacji formatu zdarzeń dla danych wejściowych lub wyjściowych
 * Tworzenie niestandardowych wartości zagregowanych
 
-Chociaż funkcje takie jak **Date.GetDate()** lub **Math.random()** nie są blokowane w definicji funkcji, należy unikać ich używania. Te funkcje **nie** zwracają ten sam wynik za każdym razem, gdy do nich dzwonisz, a usługa Azure Stream Analytics nie przechowuje dziennika wywołań funkcji i zwracanych wyników. Jeśli funkcja zwraca inny wynik w tych samych zdarzeniach, powtarzalność nie jest gwarantowana po ponownym uruchomieniu zadania przez Ciebie lub przez usługę Usługi Stream Analytics.
+Chociaż funkcje takie jak **Date. GETDATE ()** lub **Math. Random ()** nie są blokowane w definicji funkcji, należy unikać używania ich. Te funkcje **nie** zwracają tego samego wyniku przy każdym wywołaniu ich, a usługa Azure Stream Analytics nie zachowuje dziennika wywołań funkcji i zwracanych wyników. Jeśli funkcja zwraca różne wyniki dla tych samych zdarzeń, powtarzalność nie jest gwarantowana, gdy zadanie zostanie ponownie uruchomione przez użytkownika lub przez usługę Stream Analytics.
 
-## <a name="add-a-javascript-user-defined-function-to-your-job"></a>Dodawanie funkcji zdefiniowanej przez użytkownika w języku JavaScript do zadania
+## <a name="add-a-javascript-user-defined-function-to-your-job"></a>Dodawanie funkcji języka JavaScript zdefiniowanej przez użytkownika do zadania
 
 > [!NOTE]
-> Te kroki działają na zadaniach usługi Stream Analytics skonfigurowanych do uruchamiania w chmurze. Jeśli zadanie usługi Stream Analytics jest skonfigurowane do uruchamiania w usłudze Azure IoT Edge, zamiast tego użyj programu Visual Studio i [napisz funkcję zdefiniowaną przez użytkownika przy użyciu języka C#](stream-analytics-edge-csharp-udf.md).
+> Te kroki działają na Stream Analytics zadaniach skonfigurowanych do uruchamiania w chmurze. Jeśli zadanie Stream Analytics jest skonfigurowane do uruchamiania na Azure IoT Edge, zamiast tego użyj programu Visual Studio i [Napisz funkcję zdefiniowaną przez użytkownika za pomocą języka C#](stream-analytics-edge-csharp-udf.md).
 
-Aby utworzyć funkcję zdefiniowaną przez użytkownika w języku JavaScript w zadaniu usługi Stream Analytics, wybierz pozycję **Funkcje** w obszarze **Topologia zadań**. Następnie wybierz **javascript UDF** z menu rozwijanego **+Dodaj.** 
+Aby utworzyć funkcję języka JavaScript zdefiniowaną przez użytkownika w zadaniu Stream Analytics, wybierz pozycję **funkcje** w obszarze **topologia zadania**. Następnie wybierz pozycję **Java UDF** z menu rozwijanego **+ Dodaj** . 
 
-![Dodawanie udf języka JavaScript](./media/javascript/stream-analytics-jsudf-add.png)
+![Dodaj JavaScript UDF](./media/javascript/stream-analytics-jsudf-add.png)
 
-Następnie należy podać następujące właściwości i wybrać **zapisz**.
+Następnie należy podać następujące właściwości i wybrać pozycję **Zapisz**.
 
 |Właściwość|Opis|
 |--------|-----------|
-|Alias funkcji|Wprowadź nazwę, aby wywołać funkcję w kwerendzie.|
-|Typ wyjścia|Wpisz, które zostaną zwrócone przez funkcję zdefiniowaną przez użytkownika JavaScript do zapytania usługi Stream Analytics.|
-|Definicja funkcji|Implementacja funkcji JavaScript, która będzie wykonywana za każdym razem, gdy UDF zostanie wywołana z zapytania.|
+|Alias funkcji|Wprowadź nazwę, aby wywołać funkcję w zapytaniu.|
+|Typ danych wyjściowych|Typ, który będzie zwracany przez funkcję języka JavaScript zdefiniowaną przez użytkownika do zapytania Stream Analytics.|
+|Definicja funkcji|Implementacja funkcji języka JavaScript, która zostanie wykonana przy każdym wywołaniu elementu UDF z zapytania.|
 
-## <a name="test-and-troubleshoot-javascript-udfs"></a>Testowanie i rozwiązywanie problemów z plikówami JAVAScript 
+## <a name="test-and-troubleshoot-javascript-udfs"></a>Testowanie i rozwiązywanie problemów z UDF JavaScript 
 
-Logikę interfejsu UDF języka JavaScript można przetestować i debugować w dowolnej przeglądarce. Debugowanie i testowanie logiki tych funkcji zdefiniowanych przez użytkownika nie jest obecnie obsługiwane w portalu usługi Stream Analytics. Gdy funkcja działa zgodnie z oczekiwaniami, można dodać go do zadania usługi Stream Analytics, jak wspomniano powyżej, a następnie wywołać go bezpośrednio z zapytania. Logikę kwerend można przetestować za pomocą języka JavaScript UDF przy użyciu [narzędzi usługi Stream Analytics dla programu Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install).
+Możesz testować i debugować logikę UDF języka JavaScript w dowolnej przeglądarce. Debugowanie i testowanie logiki tych funkcji zdefiniowanych przez użytkownika nie jest obecnie obsługiwane w portalu Stream Analytics. Gdy funkcja działa zgodnie z oczekiwaniami, można ją dodać do zadania Stream Analytics, jak wspomniano powyżej, a następnie wywołać ją bezpośrednio z zapytania. Logikę zapytań można testować za pomocą formatu UDF języka JavaScript przy użyciu [narzędzi Stream Analytics Tools for Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install).
 
 Błędy w czasie wykonywania kodu JavaScript są traktowane jako błędy krytyczne i uwidaczniane w dzienniku aktywności. Aby pobrać dziennik, w witrynie Azure Portal przejdź do zadania i wybierz pozycję **Dziennik aktywności**.
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Wywoływanie funkcji w języku JavaScript zdefiniowanej przez użytkownika w zapytaniu
 
-Funkcję JavaScript można łatwo wywołać w zapytaniu przy użyciu aliasu funkcji poprzedzonym **udf**. Oto przykład UDF JavaScript, który konwertuje wartości szesnastkowe na liczbę całkowitą wywoływaną w kwerendzie usługi Stream Analytics.
+Możesz łatwo wywołać funkcję JavaScript w zapytaniu przy użyciu aliasu funkcji poprzedzonej prefiksem **UDF**. Oto przykład formatu UDF języka JavaScript, który konwertuje wartości szesnastkowe na liczbę całkowitą wywoływaną w zapytaniu Stream Analytics.
 
 ```SQL
     SELECT
@@ -86,24 +86,24 @@ Stream Analytics | JavaScript
 bigint | Number (maksymalna liczba całkowita, która może być reprezentowana przez język JavaScript, to 2^53)
 DateTime | Date (język JavaScript obsługuje tylko milisekundy)
 double | Liczba
-nvarchar(MAX) | Ciąg
+nvarchar(MAX) | String
 Rekord | Obiekt
 Tablica | Tablica
-NULL | Null
+NULL | Zero
 
 W tym miejscu przedstawiono konwersje typów języka JavaScript na typy usługi Stream Analytics:
 
 JavaScript | Stream Analytics
 --- | ---
 Liczba | Bigint (jeśli liczba jest zaokrąglona i należy do zakresu long.MinValue-long.MaxValue; w przeciwnym razie to double)
-Data | DateTime
-Ciąg | nvarchar(MAX)
+Date | DateTime
+String | nvarchar(MAX)
 Obiekt | Rekord
 Tablica | Tablica
 Null, Undefined | NULL
 Każdy inny typ (na przykład function lub error) | Nieobsługiwane (powoduje wystąpienie błędu w czasie wykonywania)
 
-W języku JavaScript rozróżniana jest wielkość liter, a wielkość liter w polach obiektów w kodzie JavaScript musi być zgodna z wielkością liter pól w danych przychodzących. Zadania z poziomem zgodności 1.0 konwertują pola z instrukcji SQL SELECT jako małe litery. W obszarze poziomu zgodności 1.1 lub nowszego pola z instrukcji SELECT będą miały taką samą wielkość liter, jak określono w kwerendzie SQL.
+W języku JavaScript rozróżniana jest wielkość liter i wielkość liter w polach obiektów w kodzie JavaScript musi być zgodna z wielkością liter pól w danych przychodzących. Zadania o poziomie zgodności 1,0 spowodują przekonwertowanie pól z instrukcji SELECT języka SQL na małe litery. W obszarze poziom zgodności 1,1 i wyższych pola z instrukcji SELECT będą mieć taką samą wielkość liter jak określona w zapytaniu SQL.
 
 ## <a name="other-javascript-user-defined-function-patterns"></a>Inne wzorce funkcji języka JavaScript zdefiniowanej przez użytkownika
 
@@ -119,7 +119,7 @@ return JSON.stringify(x);
 }
 ```
 
-**Przykładowa kwerenda:**
+**Przykładowe zapytanie:**
 ```SQL
 SELECT
     DataString,
@@ -134,5 +134,5 @@ FROM
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Uczenie maszynowe UDF](https://docs.microsoft.com/azure/stream-analytics/machine-learning-udf)
-* [C# UDF](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf-methods)
+* [Machine Learning UDF](https://docs.microsoft.com/azure/stream-analytics/machine-learning-udf)
+* [Funkcja zdefiniowana przez użytkownika w języku C#](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf-methods)

@@ -1,7 +1,7 @@
 ---
-title: Jak filtrować wyniki wyszukiwania - Interfejs API wyszukiwania w sieci Bing
+title: Jak filtrować wyniki wyszukiwania — interfejs API wyszukiwania w sieci Web Bing
 titleSuffix: Azure Cognitive Services
-description: Typy odpowiedzi, które bing zawiera w odpowiedzi (na przykład obrazy, filmy i wiadomości) przy użyciu parametru zapytania "responseFilter".
+description: Można filtrować typy odpowiedzi, które obejmują usługi Bing w odpowiedzi (na przykład obrazy, filmy wideo i wiadomości) przy użyciu parametru zapytania "responseFilter".
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fa022f181e2061c6a7f3e08d1f2f501ddd9cac3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79220271"
 ---
-# <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrowanie odpowiedzi, które zawiera odpowiedź wyszukiwania  
+# <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrowanie odpowiedzi uwzględnionych w odpowiedzi wyszukiwania  
 
-Podczas kwerendy sieci Web Bing zwraca wszystkie istotne treści, które znajdzie dla wyszukiwania. Na przykład, jeśli zapytanie wyszukiwania jest "żeglarstwo + pontony", odpowiedź może zawierać następujące odpowiedzi:
+Podczas wykonywania zapytania w sieci Web, Bing zwraca całą zawartość znalezioną dla wyszukiwania. Na przykład, jeśli zapytanie wyszukiwania ma wartość "dinghies +", odpowiedź może zawierać następujące odpowiedzi:
 
 ```json
 {
@@ -47,19 +47,19 @@ Podczas kwerendy sieci Web Bing zwraca wszystkie istotne treści, które znajdzi
 
 ## <a name="query-parameters"></a>Parametry zapytania
 
-Aby filtrować odpowiedzi zwracane przez bing, należy użyć poniższych parametrów zapytania podczas wywoływania interfejsu API.  
+Aby odfiltrować odpowiedzi zwrócone przez usługę Bing, Użyj poniższych parametrów zapytania podczas wywoływania interfejsu API.  
 
-### <a name="responsefilter"></a>Filtr odpowiedzi
+### <a name="responsefilter"></a>ResponseFilter
 
-Można filtrować typy odpowiedzi, które Bing zawiera w odpowiedzi (na przykład obrazy, filmy i wiadomości) przy użyciu [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) query parametr, który jest rozdzielane przecinkami listy odpowiedzi. Odpowiedź zostanie uwzględniona w odpowiedzi, jeśli usługa Bing znajdzie dla niej odpowiednią zawartość. 
+Można filtrować typy odpowiedzi, które obejmują usługi Bing w odpowiedzi (na przykład obrazy, filmy wideo i wiadomości) przy użyciu parametru zapytania [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) , który jest rozdzielaną przecinkami listą odpowiedzi. Odpowiedź zostanie uwzględniona w odpowiedzi, jeśli Bing znajdzie odpowiednią zawartość. 
 
-Aby wykluczyć określone odpowiedzi z odpowiedzi, takie `-` jak obrazy, należy dołączyć znak do typu odpowiedzi. Przykład:
+Aby wykluczyć określone odpowiedzi z odpowiedzi, takie jak obrazy, poprzedź `-` znak do typu odpowiedzi. Przykład:
 
 ```
 &responseFilter=-images,-videos
 ```
 
-Poniżej przedstawiono, `responseFilter` jak używać do żądania obrazów, filmów i wiadomości o pontonach żeglarskich. Podczas kodowania ciągu zapytania przecinki zmieniają się na %2C.  
+Poniżej pokazano, jak używać `responseFilter` programu do żądania obrazów, filmów wideo i wiadomości na temat żeglugi dinghies. Podczas kodowania ciągu zapytania przecinki zmieniają się na% 2C.  
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&responseFilter=images%2Cvideos%2Cnews&mkt=en-us HTTP/1.1  
@@ -71,7 +71,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Poniżej przedstawiono odpowiedź na poprzednie zapytanie. Ponieważ usługa Bing nie znalazła odpowiednich wyników wideo i wiadomości, odpowiedź nie zawiera ich.
+Poniżej przedstawiono odpowiedź na poprzednie zapytanie. Ponieważ usługa Bing nie znalazła odpowiednich wyników wideo i wiadomości, odpowiedź nie jest uwzględniana.
 
 ```json
 {
@@ -96,42 +96,42 @@ Poniżej przedstawiono odpowiedź na poprzednie zapytanie. Ponieważ usługa Bin
 }
 ```
 
-Chociaż usługa Bing nie zwróciła wyników wideo i wiadomości w poprzedniej odpowiedzi, nie oznacza to, że treści wideo i wiadomości nie istnieją. Oznacza to po prostu, że strona ich nie zawierała. Jeśli jednak [przeglądasz](./paging-webpages.md) więcej wyników, kolejne strony prawdopodobnie je uwzględnią. Ponadto jeśli wywołasz bezpośrednio punkty końcowe [interfejsu API wyszukiwania wideo](../bing-video-search/search-the-web.md) i interfejsu API wyszukiwania [wiadomości,](../bing-news-search/search-the-web.md) odpowiedź prawdopodobnie będzie zawierać wyniki.
+Mimo że usługa Bing nie zwraca wideo i wiadomości w poprzedniej odpowiedzi, nie oznacza to, że zawartość wideo i wiadomości nie istnieje. Oznacza to po prostu, że strona nie została uwzględniona. Jeśli jednak [Strona](./paging-webpages.md) zawiera więcej wyników, na kolejnych stronach prawdopodobnie zostaną uwzględnione. Ponadto, jeśli wywołasz [interfejs api wyszukiwanie wideo](../bing-video-search/search-the-web.md) i punkty końcowe [interfejsu API wyszukiwanie wiadomości](../bing-news-search/search-the-web.md) bezpośrednio, odpowiedź prawdopodobnie będzie zawierać wyniki.
 
-Nie można użyć `responseFilter` do uzyskania wyników z jednego interfejsu API. Jeśli chcesz zawartość z jednego interfejsu API Bing, wywołać ten interfejs API bezpośrednio. Na przykład, aby odbierać tylko obrazy, wyślij żądanie `https://api.cognitive.microsoft.com/bing/v7.0/images/search` do punktu końcowego interfejsu API wyszukiwania obrazów lub jednego z innych punktów końcowych [obrazy.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#endpoints) Wywoływanie pojedynczego interfejsu API jest ważne nie tylko ze względu na wydajność, ale dlatego, że interfejsy API specyficzne dla zawartości oferują bogatsze wyniki. Na przykład można użyć filtrów, które nie są dostępne dla interfejsu API wyszukiwania w sieci Web, aby filtrować wyniki.  
+Nie zaleca się używania `responseFilter` programu w celu uzyskania wyników z jednego interfejsu API. Jeśli chcesz uzyskać zawartość z pojedynczego interfejsu API Bing, wywołaj ten interfejs API bezpośrednio. Na przykład, aby odbierać tylko obrazy, Wyślij żądanie do punktu końcowego interfejsu API wyszukiwanie obrazów `https://api.cognitive.microsoft.com/bing/v7.0/images/search` lub jednego z punktów końcowych innych [obrazów](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#endpoints) . Wywołanie pojedynczego interfejsu API jest ważne nie tylko ze względu na wydajność, ale ponieważ interfejsy API specyficzne dla zawartości zapewniają bogatsze wyniki. Można na przykład użyć filtrów, które nie są dostępne dla interfejsu API wyszukiwanie w sieci Web, aby przefiltrować wyniki.  
 
 ### <a name="site"></a>Lokacja
 
-Aby uzyskać wyniki wyszukiwania z określonej domeny, należy uwzględnić `site:` parametr zapytania w ciągu zapytania.  
+Aby uzyskać wyniki wyszukiwania z określonej domeny, należy uwzględnić parametr `site:` zapytania w ciągu zapytania.  
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us
 ```
 
 > [!NOTE]
-> W zależności od kwerendy, `site:` jeśli używasz operatora kwerendy, istnieje prawdopodobieństwo, że odpowiedź może zawierać zawartość dla dorosłych, niezależnie od [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch) ustawienie. Operatora `site:` używaj tylko wtedy, gdy znasz zawartość witryny i w swoim scenariuszu uwzględniasz możliwość pojawienia się zawartości dla dorosłych.
+> W zależności od zapytania, jeśli używasz operatora `site:` zapytania, istnieje możliwość, że odpowiedź może zawierać zawartość dla dorosłych niezależnie od ustawienia [bezpieczne wyszukiwanie](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch) . Operatora `site:` używaj tylko wtedy, gdy znasz zawartość witryny i w swoim scenariuszu uwzględniasz możliwość pojawienia się zawartości dla dorosłych.
 
 ### <a name="freshness"></a>Świeżość
 
-Aby ograniczyć wyniki odpowiedzi sieci Web do stron sieci Web wykrytych przez bing w określonym okresie, należy ustawić parametr zapytania [świeżości](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) na jedną z następujących wartości bez uwzględniania wielkości liter:
+Aby ograniczyć wyniki odpowiedzi sieci Web do stron internetowych, które zostały odnalezione przez usługę Bing w określonym przedziale czasu, ustaw parametr zapytania [Aktualności](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) na jedną z następujących wartości bez uwzględniania wielkości liter:
 
-* `Day`— Zwracanie stron internetowych odkrytych przez Bing w ciągu ostatnich 24 godzin
-* `Week`— Zwracanie stron internetowych odkrytych przez Bing w ciągu ostatnich 7 dni
-* `Month`— Zwracanie stron internetowych odkrytych w ciągu ostatnich 30 dni
+* `Day`— Zwraca strony sieci Web odnalezione przez usługę Bing w ciągu ostatnich 24 godzin
+* `Week`— Zwraca strony sieci Web odnalezione przez usługę Bing w ciągu ostatnich 7 dni
+* `Month`— Zwraca strony sieci Web, które zostały odnalezione w ciągu ostatnich 30 dni
 
-Można również ustawić ten parametr na niestandardowy `YYYY-MM-DD..YYYY-MM-DD`zakres dat w formularzu, . 
+Możesz również ustawić ten parametr na niestandardowy zakres dat w formularzu `YYYY-MM-DD..YYYY-MM-DD`. 
 
 `https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-01..2019-05-30`
 
-Aby ograniczyć wyniki do jednej daty, ustaw parametr świeżości na określoną datę:
+Aby ograniczyć wyniki do pojedynczej daty, ustaw parametr Aktualności na określoną datę:
 
 `https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-04`
 
-Wyniki mogą obejmować strony sieci Web, które nie są w określonym okresie, jeśli liczba stron sieci Web zgodnych z kryteriami filtrowania jest mniejsza niż liczba żądanych stron sieci Web (lub domyślny numer zwracany przez bing).
+Wyniki mogą obejmować strony sieci Web, które wykraczają poza określony czas, jeśli liczba stron sieci Web, które pasują do kryteriów filtrowania, jest mniejsza niż liczba żądanych stron internetowych (lub domyślna liczba zwracanych przez usługę Bing).
 
-## <a name="limiting-the-number-of-answers-in-the-response"></a>Ograniczenie liczby odpowiedzi w odpowiedzi
+## <a name="limiting-the-number-of-answers-in-the-response"></a>Ograniczanie liczby odpowiedzi w odpowiedzi
 
-Bing może zwracać wiele typów odpowiedzi w odpowiedzi JSON. Na przykład, jeśli zapytanie *sailing + pontony*, Bing może zwrócić `webpages`, `images`, `videos`i `relatedSearches`.
+Bing może zwracać wiele typów odpowiedzi w odpowiedzi JSON. Na przykład w przypadku wysyłania zapytań do usługi *dinghies*, Bing może zwrócić `webpages`, `images`, `videos`, i `relatedSearches`.
 
 ```json
 {
@@ -147,7 +147,7 @@ Bing może zwracać wiele typów odpowiedzi w odpowiedzi JSON. Na przykład, je�
 }
 ```
 
-Aby ograniczyć liczbę odpowiedzi zwracanych przez bing do dwóch pierwszych odpowiedzi (stron sieci Web i obrazów), należy ustawić parametr zapytania [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) na 2.
+Aby ograniczyć liczbę odpowiedzi zwracanych przez usługę Bing do dwóch pierwszych odpowiedzi (stron sieci Web i obrazów), ustaw parametr zapytania [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) na 2.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&mkt=en-us HTTP/1.1  
@@ -159,7 +159,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Odpowiedź zawiera `webPages` tylko `images`i .
+Odpowiedź obejmuje tylko `webPages` i `images`.
 
 ```json
 {
@@ -173,7 +173,7 @@ Odpowiedź zawiera `webPages` tylko `images`i .
 }
 ```
 
-Jeśli dodasz `responseFilter` parametr kwerendy do poprzedniej kwerendy i ustawisz go na stronach sieci Web i wiadomości, odpowiedź zawiera tylko strony sieci Web, ponieważ wiadomości nie są klasyfikowane.
+Jeśli dodasz parametr `responseFilter` zapytania do poprzedniego zapytania i ustawisz go na Webpages i News, odpowiedź będzie zawierać tylko strony sieci Web, ponieważ wiadomości nie są klasyfikowane.
 
 ```json
 {
@@ -188,7 +188,7 @@ Jeśli dodasz `responseFilter` parametr kwerendy do poprzedniej kwerendy i ustaw
 
 ## <a name="promoting-answers-that-are-not-ranked"></a>Promowanie odpowiedzi, które nie są klasyfikowane
 
-Jeśli najwyżej sklasyfikowane odpowiedzi zwracane przez bing dla zapytania są strony sieci Web, obrazy, filmy i relatedSearches, odpowiedź będzie zawierać te odpowiedzi. Jeśli ustawisz [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) do dwóch (2), Bing zwraca dwie najlepsze odpowiedzi rankingowe: strony sieci Web i obrazy. Jeśli chcesz, aby usługa Bing uwzględniała obrazy i klipy wideo w odpowiedzi, określ parametr [podwyższania poziomu](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) zapytania i ustaw go na obrazy i filmy.
+Jeśli najwyższej rangi odpowiedzi dla zapytania są zwracane przez usługę Bing, są to strony sieci Web, obrazy, wideo i relatedSearches, odpowiedzi będą zawierać takie odpowiedzi. Jeśli ustawisz [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) na dwa (2), Bing zwróci dwie pierwsze odpowiedzi w rankingu: strony sieci Web i obrazy. Jeśli chcesz, aby w usłudze Bing umieścić obrazy i filmy wideo w odpowiedzi, określ parametr [podwyższanie poziomu](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) zapytania i ustaw go na obrazy i wideo.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&promote=images%2Cvideos&mkt=en-us HTTP/1.1  
@@ -200,7 +200,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Poniżej znajduje się odpowiedź na powyższe żądanie. Bing zwraca dwie najlepsze odpowiedzi, strony internetowe i obrazy oraz promuje filmy do odpowiedzi.
+Poniżej znajduje się odpowiedź na powyższe żądanie. Bing zwraca dwie pierwsze odpowiedzi, strony sieci Web i obrazy oraz promuje wideo do odpowiedzi.
 
 ```json
 {
@@ -215,8 +215,8 @@ Poniżej znajduje się odpowiedź na powyższe żądanie. Bing zwraca dwie najle
 }
 ```
 
-Jeśli ustawisz `promote` się na wiadomości, odpowiedź nie zawiera odpowiedzi na&mdash;wiadomości, ponieważ nie jest to odpowiedź rankingowa, którą możesz promować tylko odpowiedzi rankingowe.
+`promote` W przypadku wybrania opcji wiadomości odpowiedź nie obejmuje odpowiedzi na wiadomość, ponieważ nie jest to określona w rankingu odpowiedzi&mdash;, która umożliwia podwyższenie poziomu odpowiedzi.
 
-Odpowiedzi, które chcesz promować, nie są `answerCount` wliczane do limitu. Jeśli na przykład odpowiedziami rankingowymi są wiadomości, obrazy i `answerCount` filmy, `promote` a w odpowiedzi są ustawione na 1 i do wiadomości, odpowiedź zawiera wiadomości i obrazy. Lub, jeśli odpowiedzi rankingowe są filmy, obrazy i wiadomości, odpowiedź zawiera filmy i wiadomości.
+Odpowiedzi, które chcesz podwyższyć, nie są wliczane do `answerCount` limitu. Jeśli na przykład w rankingu odpowiedzi są wiadomości, obrazy i wideo, a Użytkownik ustawił wartość `answerCount` 1 i `promote` na wiadomość, odpowiedź zawiera wiadomości i obrazy. Jeśli jednak rankingowe odpowiedzi to wideo, obrazy i wiadomości, odpowiedź zawiera wideo i wiadomości.
 
-Można użyć `promote` tylko wtedy, `answerCount` gdy określisz parametr kwerendy.
+Można używać `promote` tylko wtedy, gdy określisz `answerCount` parametr zapytania.

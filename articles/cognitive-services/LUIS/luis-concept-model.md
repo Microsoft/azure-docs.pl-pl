@@ -1,7 +1,7 @@
 ---
-title: Projektowanie z modelami - LUIS
+title: Projektowanie przy użyciu modeli — LUIS
 titleSuffix: Azure Cognitive Services
-description: Zrozumienie języka zapewnia kilka typów modeli. Niektóre modele mogą być używane w więcej niż jeden sposób.
+description: Informacje o języku zawierają kilka typów modeli. Niektóre modele mogą być używane w więcej niż jeden sposób.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,149 +12,149 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: d721ceb25b3ce2408563a0bed16457d05affe7b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219996"
 ---
-# <a name="design-with-intent-and-entity-models"></a>Projektowanie z modelami intencji i encji 
+# <a name="design-with-intent-and-entity-models"></a>Projektowanie przy użyciu modeli zamierzeń i jednostek 
 
-Zrozumienie języka zapewnia kilka typów modeli. Niektóre modele mogą być używane w więcej niż jeden sposób. 
+Informacje o języku zawierają kilka typów modeli. Niektóre modele mogą być używane w więcej niż jeden sposób. 
 
-## <a name="v3-authoring-uses-machine-teaching"></a>V3 Authoring wykorzystuje nauczanie maszynowe
+## <a name="v3-authoring-uses-machine-teaching"></a>Tworzenie wersji v3 przy użyciu nauczania maszynowego
 
-Usługa LUIS umożliwia użytkownikom łatwe nauczanie pojęć na komputerze. Maszyna może następnie tworzyć modele (przybliżenia funkcjonalne pojęć, takich jak klasyfikatory i ekstraktory), które mogą być używane do zasilania inteligentnych aplikacji. Podczas gdy usługa LUIS jest obsługiwana przez uczenie maszynowe, zrozumienie uczenia maszynowego nie jest konieczne do korzystania z niego. Zamiast tego nauczyciele maszyn komunikują pojęcia usługi LUIS, pokazując pozytywne i negatywne przykłady koncepcji i wyjaśniając, jak koncepcja powinna być modelowana przy użyciu innych powiązanych pojęć. Nauczyciele mogą również interaktywnie ulepszać model usługi LUIS, identyfikując i naprawiając błędy przewidywania. 
+LUIS umożliwia użytkownikom łatwą naukę koncepcji na komputerze. Komputer może następnie tworzyć modele (zbliżające się koncepcje, takie jak klasyfikatory i wyodrębniania), które mogą być używane do zarządzania inteligentnymi aplikacjami. Mimo że usługa LUIS jest obsługiwana przez uczenie maszynowe, zrozumienie uczenia maszynowego nie jest konieczne do korzystania z niego. Zamiast tego nauczyciele maszyn komunikują się z pojęciami do LUIS, pokazując pozytywne i negatywne przykłady koncepcji i wyjaśniając, w jaki sposób koncepcji należy modelować przy użyciu innych powiązanych koncepcji. Nauczyciele mogą także interaktywnie ulepszyć model LUIS, identyfikując i ustalając błędy przewidywania. 
 
-## <a name="v3-authoring-model-decomposition"></a>V3 Tworzenie rozkładu modelu
+## <a name="v3-authoring-model-decomposition"></a>Dekompozycja modelu tworzenia w wersji 3
 
-Usługa LUIS obsługuje _rozkład modelu_ za pomocą interfejsów API tworzących w wersji 3, rozbijając model na mniejsze części. Dzięki temu można tworzyć modele z ufnością w sposób różnych części są konstruowane i przewidywane.
+LUIS obsługuje _dekompozycję modelu_ przy użyciu interfejsów API tworzenia v3, dzieląc model na mniejsze części. Pozwala to na kompilowanie modeli bez obaw w sposobie konstruowania i przewidywania różnych części.
 
-Rozkład modelu ma następujące części:
+Dekompozycja modelu ma następujące części:
 
-* [Zamiarów](#intents-classify-utterances)
-    * [deskryptory](#descriptors-are-features) dostarczane przez funkcje
-* [jednostki nauczane maszynowo](#machine-learned-entities)
-    * [podskładentów](#entity-subcomponents-help-extract-data) (również jednostek nauczanych maszynowo)
-        * [deskryptory](#descriptors-are-features) dostarczane przez funkcje 
-        * ograniczenia zapewniane przez [jednostki](#constraints-are-text-rules) nieuczone maszynowo, takie jak wyrażenia regularne i listy
+* [intencji](#intents-classify-utterances)
+    * [deskryptory](#descriptors-are-features) udostępniane przez funkcje
+* [jednostki poznanie maszyn](#machine-learned-entities)
+    * [podskładniki](#entity-subcomponents-help-extract-data) (również jednostki, które są wyuczyne maszynowo)
+        * [deskryptory](#descriptors-are-features) udostępniane przez funkcje 
+        * [ograniczenia](#constraints-are-text-rules) zapewniane przez jednostki, które nie są obsługiwane przez maszynę, takie jak wyrażenia regularne i listy
 
-## <a name="v2-authoring-models"></a>Modele tworzenia v2
+## <a name="v2-authoring-models"></a>Modele tworzenia w wersji 2
 
-Usługa LUIS obsługuje jednostki złożone za pomocą interfejsów API tworzenia w wersji 2. Zapewnia to podobny rozkład modelu, ale nie jest taki sam jak rozkład modelu V3. Zalecana architektura modelu jest przejście do rozkładu modelu w interfejsach API tworzenia V3. 
+LUIS obsługuje jednostki złożone z interfejsami API tworzenia w wersji 2. Zapewnia to podobną dekompozycję modelu, ale nie jest taka sama jak dekompozycja modelu v3. Zalecaną architekturą modelu jest przejście do dekompozycji modelu w interfejsach API tworzenia v3. 
 
-## <a name="intents-classify-utterances"></a>Intencje klasyfikują wypowiedzi
+## <a name="intents-classify-utterances"></a>Klasyfikacja wyrażenia długości
 
-Intencji klasyfikuje wypowiedzi przykład uczyć usługi LUIS o intencji. Przykładowe wypowiedzi w ramach intencji są używane jako pozytywne przykłady wypowiedź. Te same wypowiedzi są używane jako negatywne przykłady we wszystkich innych intencji.
+Celem jest klasyfikowanie przykładu wyrażenia długości w celu uczenia LUIS na temat zamiaru. Przykład wyrażenia długości w ramach intencji jest używany jako pozytywne przykłady wypowiedź. Te same wyrażenia długości są używane jako przykłady negatywne we wszystkich innych intencjach.
 
-Należy wziąć pod uwagę aplikację, która musi określić zamiar użytkownika, aby zamówić książkę i aplikację, która potrzebuje adresu wysyłki dla klienta. Ta aplikacja ma dwa `OrderBook` `ShippingLocation`zamiary: i .
+Weź pod uwagę aplikację, która wymaga określenia zamiaru użytkownika, aby zamówić książkę i aplikację, która wymaga adresu wysyłkowego dla klienta. Ta aplikacja ma dwa intencje: `OrderBook` i. `ShippingLocation`
 
-Następujący wypowiedź jest **pozytywnym przykładem** `OrderBook` intencji `ShippingLocation` i `None` **negatywnym przykładem** dla i intencji: 
+Następujący wypowiedź to **pozytywny przykład** dla `OrderBook` zamiaru i **negatywny przykład** dla `ShippingLocation` i `None` intencji: 
 
 `Buy the top-rated book on bot architecture.`
 
-Wynik dobrze zaprojektowane intencje, z ich wypowiedzi przykład, jest przewidywanie wysokiej intencji. 
+Wyniki zaprojektowanych założeń, z których przykładem jest wyrażenia długości, jest przewidywanie wysokiej klasy. 
 
-## <a name="entities-extract-data"></a>Jednostki wyodrębnić dane
+## <a name="entities-extract-data"></a>Jednostki wyodrębniające dane
 
-Jednostka reprezentuje jednostkę danych, które mają wyodrębnione z wypowiedź. 
+Jednostka reprezentuje jednostkę danych, które mają zostać wyodrębnione z wypowiedź. 
 
-### <a name="machine-learned-entities"></a>Jednostki nauczane maszynowo
+### <a name="machine-learned-entities"></a>Jednostki poznanie maszyn
 
-Jednostka nauczona maszynowo jest jednostką najwyższego poziomu zawierającą podskładne, które są również jednostkami nauczającymi się maszyn. 
+Jednostka uczenia maszynowego jest jednostką najwyższego poziomu zawierającą podskładniki, które są również obiektami maszynowymi. 
 
-**Użyj jednostki nauczającej maszynowo:**
+**Użyj jednostki o Poznaniu maszynowego**:
 
-* gdy podskładne są potrzebne przez aplikację kliencką
-* aby pomóc algorytmowi uczenia maszynowego w rozesłania jednostek
+* gdy podskładniki są wymagane przez aplikację kliencką
+* Aby ułatwić rozdzielanie jednostek przez algorytm uczenia maszynowego
 
 Każdy podskładnik może mieć:
 
-* Podskładniki
-* ograniczenia (jednostka wyrażenia regularnego lub encja listy)
+* podskładniki zwalniają
+* ograniczenia (jednostka wyrażenia regularnego lub jednostka listy)
 * deskryptory (funkcje, takie jak lista fraz) 
 
-Przykładem jednostki nauczanych maszyn jest zamówienie biletu lotniczego. Koncepcyjnie jest to pojedyncza transakcja z wieloma mniejszymi jednostkami danych, takimi jak data, godzina, ilość miejsc, typ miejsca, taki jak pierwsza klasa lub autokar, lokalizacja pochodzenia, lokalizacja docelowa i wybór posiłku.
+Przykładem jednostki uczenia maszynowego jest zamówienie dla biletu płaszczyzny. Koncepcyjnie jest to pojedyncza transakcja z wieloma mniejszymi jednostkami danych, takimi jak data, godzina, liczba siedzeń, typ stanowiska, taki jak pierwsza klasa lub autokar, lokalizacja pochodzenia, lokalizacja docelowa i wybór posiłku.
 
 
-### <a name="entity-subcomponents-help-extract-data"></a>Podskładne jednostek pomagają wyodrębnić dane
+### <a name="entity-subcomponents-help-extract-data"></a>Podskładniki jednostki pomagają wyodrębnić dane
 
-Podskład nieskładka jest jednostką podrzędną nauczoną maszyną w jednostce nadrzędnej, której się uczy. 
+Składnik podrzędny jest jednostką podrzędną dodaną przez maszynę w ramach jednostki nadrzędnej, która jest poznania maszyny. 
 
-**Użyj podskładniku do:**
+**Użyj podskładniku, aby**:
 
-* rozkładu części jednostki nauczanej maszynowo (jednostki nadrzędnej).
+* Rozłóż części jednostki, która jest poznania maszynowego (Jednostka nadrzędna).
 
-Następujące elementy reprezentują jednostkę nauczone maszynowo z tymi wszystkimi oddzielnymi fragmentami danych:
+Poniżej przedstawiono jednostkę uczenia maszynowego, która obejmuje wszystkie te oddzielne fragmenty danych:
 
-* TravelOrder (jednostka nauczona maszynowo)
-    * DateTime (wstępnie utworzony datetimeV2)
-    * Lokalizacja (jednostka nauczona maszynowo)
-        * Origin (rola znaleziona `from`w kontekście, takich jak )
-        * Miejsce docelowe (rola `to`znaleziona w kontekście, takich jak )
-    * Siedzenia (jednostka wyuczone maszynowo)
-        * Ilość (wstępnie utworzony numer)
-        * Jakość (jednostka nauczona maszynowo z deskryptorem listy fraz)
-    * Posiłki (jednostka nauczona maszynowo z ograniczeniem podmiotu listy jako wyborów żywieniowych)
+* TravelOrder (jednostka zadana maszynowo)
+    * DateTime (prebudowany datetimeV2)
+    * Lokalizacja (jednostka pouczenia maszynowego)
+        * Źródło (rola znaleziona w kontekście `from`)
+        * Miejsce docelowe (rola znaleziona w kontekście `to`)
+    * Siedzisko (jednostka pouczenia maszynowego)
+        * Ilość (prebudowany numer)
+        * Jakość (jednostka poznania maszyn z deskryptorem listy fraz)
+    * Posiłki (jednostka poznania maszynowego z ograniczeniami jednostki listy jako opcje żywności)
 
-Niektóre z tych danych, takich jak lokalizacja pochodzenia i lokalizacja docelowa, powinny być nauczane `from` `to`z kontekstu wypowiedź, być może z takim sformułowaniem jak i . Inne części danych mogą być wyodrębniane`Vegan`z dokładnymi dopasowaniami ciągów ( `Seattle` `Cairo`) lub wstępnie utworzonymi jednostkami (geographyV2 i ). 
+Niektóre z tych danych, takie jak lokalizacja pochodzenia i lokalizacja docelowa, należy poznać z kontekstu wypowiedź, na przykład takie sformułowanie jak `from` i. `to` Inne części danych można wyodrębnić z dokładnymi dopasowaniami ciągu (`Vegan`) lub wstępnie skompilowanymi jednostkami ( `Seattle` geographyV2 `Cairo`z i). 
 
-Projektujesz sposób dopasowywały i wyodrębniane dane według wybranego modelu i sposobu ich konfigurowania.
+Projektujesz, w jaki sposób dane są dopasowywane i wyodrębniane przez wybrane modele oraz sposób ich konfigurowania.
 
-### <a name="constraints-are-text-rules"></a>Ograniczenia to reguły tekstowe
+### <a name="constraints-are-text-rules"></a>Ograniczenia są regułami dotyczącymi tekstu
 
-Ograniczenie to reguła dopasowywania tekstu, dostarczana przez jednostkę nieuczonej maszynowo, takiej jak encja wyrażenia regularnego lub encja listy. Ograniczenie jest stosowane w czasie przewidywania, aby ograniczyć przewidywanie i zapewnić rozdzielczość jednostki wymagane przez aplikację kliencką. Reguły te można zdefiniować podczas tworzenia podskładła. 
+Ograniczenie jest regułą dopasowania tekstu udostępnianą przez jednostkę niezgodną z maszyną, taką jak jednostka wyrażenia regularnego lub jednostki listy. Ograniczenie jest stosowane w czasie przewidywania, aby ograniczyć prognozowanie i zapewnić rozpoznawanie jednostek wymagane przez aplikację kliencką. Te reguły definiuje się podczas tworzenia podskładnika. 
 
-**Użyj ograniczenia:**
-* gdy znasz dokładny tekst do wyodrębnienia.
+**Użyj ograniczenia**:
+* poznanie dokładnego tekstu do wyodrębnienia.
 
 Ograniczenia obejmują:
 
-* [jednostki wyrażeń regularnych](reference-entity-regular-expression.md)
-* [lista](reference-entity-list.md) jednostek 
+* jednostki [wyrażenia regularnego](reference-entity-regular-expression.md)
+* [Lista](reference-entity-list.md) jednostek 
 * [wstępnie utworzone](luis-reference-prebuilt-entities.md) jednostki
 
-Kontynuując przykład biletu lotniczego, kody lotnisk mogą znajdować się w jednostce Lista dla dokładnych dopasowań tekstu. 
+Kontynuując przykład biletu płaszczyzny, kody portów lotniczych mogą znajdować się w jednostce listy w celu dokładnego dopasowania tekstu. 
 
-W przypadku listy lotniskowej wpis listy Seattle `Seattle` jest nazwą miasta, a synonimy Seattle zawierają kod lotniska dla Seattle wraz z pobliskimi miastami:
+W przypadku listy portów lotniczych wpis listy dla Seattle jest nazwą miasta, `Seattle` a synonimy dla Seattle obejmują kod lotniska dla Seattle oraz otaczające miasta i miejscowości:
 
-|`Seattle`Lista synonimów encji|
+|`Seattle`Wyświetl synonimy jednostek|
 |--|
 |`Sea`|
 |`seatac`|
 |`Bellevue`|
 
-Jeśli chcesz rozpoznać tylko 3-literowe kody kodów lotnisk, użyj wyrażenia regularnego jako ograniczenia. 
+Jeśli chcesz rozpoznawać tylko kody 3 liter dla kodów portów lotniczych, użyj wyrażenia regularnego jako ograniczenia. 
 
 `/^[A-Z]{3}$/`
 
-## <a name="intents-versus-entities"></a>Intencje a jednostki
+## <a name="intents-versus-entities"></a>Intencje i jednostki
 
-Intencja jest pożądanym wynikiem _całej_ wypowiedź, podczas gdy jednostki są fragmenty danych wyodrębnionych z wypowiedź. Zazwyczaj intencje są powiązane z akcjami, które aplikacja kliencka powinna podjąć, a jednostki są informacjami potrzebnymi do wykonania tej akcji. Z punktu widzenia programowania intencji wyzwoli wywołanie metody i jednostek będzie używany jako parametry do tego wywołania metody.
+Celem jest pożądany wynik _całości_ wypowiedź, podczas gdy jednostki są częścią danych wyodrębnionych z wypowiedź. Zazwyczaj intencje są powiązane z akcjami, które aplikacja kliencka powinna wykonać, a jednostki są informacjami wymaganymi do wykonania tej akcji. Z perspektywy programowania zamiar wywoła wywołanie metody, a jednostki byłyby używane jako parametry dla tego wywołania metody.
 
-Ten wypowiedź _musi_ mieć intencji i _może_ mieć jednostki:
+Ta wypowiedź _musi_ mieć cel i _może_ mieć jednostki:
 
 `Buy an airline ticket from Seattle to Cairo`
 
-Ta wypowiedź ma jeden zamiar:
+Ten wypowiedź ma jeden zamiar:
 
-* Zakup biletu lotniczego
+* Kupowanie biletu płaszczyzny
 
 Ten wypowiedź _może_ mieć kilka jednostek:
 
-* Lokalizacje Seattle (pochodzenie) i Kairu (miejsce docelowe)
+* Lokalizacje Seattle (Origin) i Kair (miejsce docelowe)
 * Ilość pojedynczego biletu
 
 ## <a name="descriptors-are-features"></a>Deskryptory są funkcjami
 
-Deskryptor jest funkcją zastosowaną do modelu w czasie szkolenia, w tym listy fraz i encji. 
+Deskryptor jest funkcją zastosowana do modelu w czasie uczenia, w tym listy zwrotów i jednostek. 
 
-**Użyj deskryptora, aby**:
+**Użyj deskryptora, gdy chcesz**:
 
-* znaczenie słów i zwrotów wskazanych przez deskryptor
-* czy usługa LUIS zaleca nowy tekst lub wyrażenia do polecenia deskryptora
-* naprawianie błędu w danych treningu
+* Zwiększ znaczenie słów i fraz identyfikowanych przez deskryptor
+* LUIS zaleca nowym tekstom lub frazom zalecanym dla deskryptora
+* Naprawianie błędu dotyczącego danych szkoleniowych
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zrozumienie [intencji](luis-concept-intent.md) i [encji](luis-concept-entity-types.md). 
+* Zrozumienie [intencji](luis-concept-intent.md) i [jednostek](luis-concept-entity-types.md). 

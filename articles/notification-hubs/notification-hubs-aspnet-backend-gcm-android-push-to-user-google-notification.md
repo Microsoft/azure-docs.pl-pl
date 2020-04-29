@@ -18,16 +18,16 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 709926671e1ad4d8beefaf0f1cff4c56b1948ca3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80127364"
 ---
-# <a name="tutorial-send-push-notification-to-specific-android-users-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Samouczek: Wysyłanie powiadomień wypychanych do określonych użytkowników systemu Android przy użyciu usługi Azure Notification Hubs i Google Cloud Messaging (przestarzałe)
+# <a name="tutorial-send-push-notification-to-specific-android-users-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Samouczek: wysyłanie powiadomień wypychanych do określonych użytkowników systemu Android przy użyciu usługi Azure Notification Hubs i Google Cloud Messaging (przestarzałe)
 
 > [!WARNING]
-> Od 10 kwietnia 2018 r. Google przestarzałe usługi Google Cloud Messaging (GCM). Interfejsy API serwera i klienta usługi GCM są przestarzałe i zostaną usunięte natychmiast 29 maja 2019 r. Aby uzyskać więcej informacji, zobacz [GCM i FCM Często zadawane pytania](https://developers.google.com/cloud-messaging/faq).
+> Od 10 kwietnia 2018 firma Google ma przestarzałe Google Cloud Messaging (GCM). Serwer GCM i interfejsy API klienta są przestarzałe i zostaną usunięte od razu do 29 maja 2019. Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące GCM i FCM](https://developers.google.com/cloud-messaging/faq).
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -262,7 +262,7 @@ Kolejnym krokiem jest zaktualizowanie aplikacji systemu Android utworzonej w ram
     }
     ```
 
-    Ten składnik implementuje wywołania REST wymagane do kontaktowania się z zapleczem aplikacji, aby przeprowadzać rejestrację na potrzeby powiadomień push. Ponadto zapisuje lokalnie identyfikatory *registrationId* utworzone przez centrum powiadomień zgodnie z opisem w sekcji [Rejestrowanie z poziomu zaplecza aplikacji](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Używa tokenu autoryzacji przechowywanego w magazynie lokalnym po kliknięciu przycisku **Zaloguj.**
+    Ten składnik implementuje wywołania REST wymagane do kontaktowania się z zapleczem aplikacji, aby przeprowadzać rejestrację na potrzeby powiadomień push. Ponadto zapisuje lokalnie identyfikatory *registrationId* utworzone przez centrum powiadomień zgodnie z opisem w sekcji [Rejestrowanie z poziomu zaplecza aplikacji](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Używa tokenu autoryzacji przechowywanego w magazynie lokalnym po kliknięciu przycisku **Zaloguj** .
 4. W klasie usuń lub oznacz jako komentarz pole prywatne dla elementu `NotificationHub`, a także dodaj pole dla klasy `RegisterClient` i ciąg dla punktu końcowego zaplecza ASP.NET. Pamiętaj, aby zastąpić ciąg `<Enter Your Backend Endpoint>` wcześniej pozyskanym, faktycznym punktem końcowym zaplecza. Na przykład `http://mybackend.azurewebsites.net`.
 
     ```java
@@ -324,7 +324,7 @@ Kolejnym krokiem jest zaktualizowanie aplikacji systemu Android utworzonej w ram
     Button sendPush = (Button) findViewById(R.id.sendbutton);
     sendPush.setEnabled(false);
     ```
-9. Następnie dodaj następujące metody obsługi zdarzenia kliknięcia przycisku **Zaloguj** i wysyłania powiadomień wypychanych.
+9. Następnie Dodaj następujące metody, aby obsłużyć przycisk **Zaloguj się** i wysyłać powiadomienia wypychane.
 
     ```java
     public void login(View view) throws UnsupportedEncodingException {
@@ -406,7 +406,7 @@ Kolejnym krokiem jest zaktualizowanie aplikacji systemu Android utworzonej w ram
     }
     ```
 
-    Program `login` obsługi dla przycisku **Zaloguj** generuje token uwierzytelniania podstawowego przy użyciu na wejściowej nazwy użytkownika i `RegisterClient` hasła (reprezentuje dowolny token używany przez schemat uwierzytelniania), a następnie używa do wywołania wewnętrznej bazy danych do rejestracji.
+    Program obsługi przycisku **logowania** generuje podstawowy token uwierzytelniania przy użyciu nazwy użytkownika i hasła wejściowego (reprezentuje dowolny token używany przez schemat uwierzytelniania), a następnie używa `RegisterClient` do wywoływania zaplecza do rejestracji. `login`
 
     Metoda `sendPush` wywołuje zaplecze, aby wyzwolić bezpieczne powiadomienie do użytkownika w oparciu o tag użytkownika. Docelowa usługa powiadomień platformy dla metody `sendPush` zależy od przekazanego ciągu `pns`.
 
@@ -472,7 +472,7 @@ Kolejnym krokiem jest zaktualizowanie aplikacji systemu Android utworzonej w ram
 
 1. Uruchom aplikację na urządzeniu lub emulatorze przy użyciu programu Android Studio.
 2. W aplikacji systemu Android wprowadź nazwę użytkownika i hasło. Oba muszą być taką samą wartością ciągu i nie mogą zawierać spacji ani znaków specjalnych.
-3. W aplikacji na Androida kliknij pozycję **Zaloguj**się . Poczekaj na komunikat wyskakujący z informacją **Logged in and registered** (Zalogowano i zarejestrowano). Spowoduje to włączenie przycisku **Send Notification** (Wyślij powiadomienie).
+3. W aplikacji systemu Android kliknij przycisk **Zaloguj**. Poczekaj na komunikat wyskakujący z informacją **Logged in and registered** (Zalogowano i zarejestrowano). Spowoduje to włączenie przycisku **Send Notification** (Wyślij powiadomienie).
 
     ![][A2]
 4. Kliknij przyciski przełączania, aby włączyć wszystkie platformy, na których uruchomiono aplikację i zarejestrowano użytkownika.

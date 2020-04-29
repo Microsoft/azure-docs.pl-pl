@@ -1,7 +1,7 @@
 ---
-title: Szyfrowanie danych w stanie spoczynku
+title: Szyfrowanie danych w usłudze translator
 titleSuffix: Azure Cognitive Services
-description: Szyfrowanie danych w stanie spoczynku.
+description: Szyfrowanie w usłudze translator danych magazynowanych.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
@@ -10,75 +10,75 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
 ms.openlocfilehash: 44bb223dbc944be1b8769aa2572f1b88b916528b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79372239"
 ---
-# <a name="translator-encryption-of-data-at-rest"></a>Szyfrowanie danych w stanie spoczynku
+# <a name="translator-encryption-of-data-at-rest"></a>Szyfrowanie danych w usłudze translator
 
-Translator automatycznie szyfruje dane, które są przekazywane do tworzenia niestandardowych modeli tłumaczenia, gdy są zachowywane w chmurze, pomagając spełnić cele zabezpieczeń i zgodności organizacji.
+Usługa translator automatycznie szyfruje dane, które są przekazywane do tworzenia niestandardowych modeli tłumaczenia, gdy są utrwalane w chmurze, pomagając w spełnieniu celów związanych z bezpieczeństwem i zgodnością organizacji.
 
-## <a name="about-cognitive-services-encryption"></a>Szyfrowanie usług Cognitive Services — informacje
+## <a name="about-cognitive-services-encryption"></a>Informacje o szyfrowaniu Cognitive Services
 
-Dane są szyfrowane i odszyfrowywane przy użyciu [256-bitowego](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) szyfrowania AES zgodnego ze standardem [FIPS 140-2.](https://en.wikipedia.org/wiki/FIPS_140-2) Szyfrowanie i odszyfrowywanie są przezroczyste, co oznacza, że szyfrowanie i dostęp są zarządzane dla Ciebie. Dane są domyślnie bezpieczne i nie trzeba modyfikować kodu lub aplikacji, aby skorzystać z szyfrowania.
+Dane są szyfrowane i odszyfrowywane przy użyciu zgodności ze standardem [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) [256-bitowego szyfrowania AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) . Szyfrowanie i odszyfrowywanie są przezroczyste, co oznacza, że szyfrowanie i dostęp są zarządzane przez Ciebie. Dane są domyślnie bezpieczne i nie trzeba modyfikować kodu ani aplikacji, aby korzystać z szyfrowania.
 
-## <a name="about-encryption-key-management"></a>Zarządzanie kluczami szyfrowania — informacje
+## <a name="about-encryption-key-management"></a>Informacje o zarządzaniu kluczami szyfrowania
 
-Domyślnie subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. Jeśli używasz warstwy cenowej, która obsługuje klucze zarządzane przez klienta, można zobaczyć ustawienia szyfrowania **zasobu** w sekcji Szyfrowanie [w witrynie Azure portal](https://portal.azure.com), jak pokazano na poniższej ilustracji.
+Domyślnie Twoja subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. W przypadku korzystania z warstwy cenowej obsługującej klucze zarządzane przez klienta można wyświetlić ustawienia szyfrowania dla zasobu w sekcji **szyfrowanie** [Azure Portal](https://portal.azure.com), jak pokazano na poniższej ilustracji.
 
-![Wyświetlanie ustawień szyfrowania](../media/cognitive-services-encryption/encryptionblade.png)
+![Wyświetl ustawienia szyfrowania](../media/cognitive-services-encryption/encryptionblade.png)
 
-W przypadku subskrypcji, które obsługują tylko klucze szyfrowania zarządzane przez firmę Microsoft, nie będzie mieć sekcji **szyfrowanie.**
+W przypadku subskrypcji, które obsługują tylko zarządzane przez firmę Microsoft klucze szyfrowania, nie będziesz mieć sekcji **szyfrowanie** .
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Klucze zarządzane przez klienta za pomocą usługi Azure Key Vault
 
-Istnieje również opcja zarządzania subskrypcją za pomocą własnych kluczy. Klucze zarządzane przez klienta (CMK), znane również jako Bring your own key (BYOK), oferują większą elastyczność w tworzeniu, obracaniu, wyłączania i odwoływaniu kontroli dostępu. Można również przeprowadzić inspekcję kluczy szyfrowania używanych do ochrony danych.
+Istnieje również możliwość zarządzania subskrypcją przy użyciu własnych kluczy. Klucze zarządzane przez klienta (CMK), znane także jako dające własny klucz (BYOK), zapewniają większą elastyczność tworzenia, obracania, wyłączania i odwoływania kontroli dostępu. Możesz również przeprowadzać inspekcję kluczy szyfrowania używanych do ochrony danych.
 
 > [!IMPORTANT]
-> Klucze zarządzane przez klienta są dostępne dla wszystkich warstw cenowych dla usługi Translator. Aby poprosić o możliwość korzystania z kluczy zarządzanych przez klienta, wypełnij i prześlij [formularz żądania klucza zarządzanego przez klienta tłumacza,](https://aka.ms/cogsvc-cmk) wysłuchanie statusu żądania zajmie około 3-5 dni roboczych. W zależności od zapotrzebowania, może być umieszczony w kolejce i zatwierdzone jako miejsce staje się dostępne. Po zatwierdzeniu do korzystania z cmk z usługą Translator, należy utworzyć nowy zasób translatora. Po utworzeniu zasobu translatora można użyć usługi Azure Key Vault do skonfigurowania tożsamości zarządzanej.
+> Klucze zarządzane przez klienta są dostępne dla wszystkich warstw cenowych usługi Translator. Aby zażądać możliwości korzystania z kluczy zarządzanych przez klienta, Wypełnij i prześlij [formularz żądania klucza zarządzanego przez klienta](https://aka.ms/cogsvc-cmk) w ciągu około 3-5 dni roboczych, aby wypróbować stan Twojego żądania. W zależności od popytu można umieścić w kolejce i zatwierdzić, że jest ona dostępna. Po zatwierdzeniu do korzystania z CMK z usługą translator należy utworzyć nowy zasób usługi Translator. Po utworzeniu zasobu usługi Translator możesz użyć Azure Key Vault, aby skonfigurować swoją tożsamość zarządzaną.
 
-Wykonaj następujące kroki, aby włączyć klucze zarządzane przez klienta dla translatora:
+Wykonaj następujące kroki, aby włączyć obsługę kluczy zarządzanych przez klienta w usłudze Translator:
 
-1. Utwórz nowy regionalny zasób Translator Text lub regionalnych usług Cognitive Services. To nie będzie działać z zasobem globalnym.
-2. Włączono tożsamość zarządzaną w witrynie Azure portal i dodaj informacje o kluczu zarządzanym przez klienta.
-3. Utwórz nowy obszar roboczy w uzywniu usługi Custom Translator i skojarz te informacje o subskrypcji.
+1. Utwórz nowy tłumaczenie tekstu w usłudze Translator regionalny lub regionalny Cognitive Services zasobów. Nie będzie on działał z zasobem globalnym.
+2. Włączono tożsamość zarządzaną w Azure Portal i Dodaj informacje o kluczu zarządzanym przez klienta.
+3. Utwórz nowy obszar roboczy w usłudze tłumaczenia niestandardowego i skojarz te informacje z subskrypcją.
 
 [!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk-regions.md)]
 
-### <a name="enable-customer-managed-keys"></a>Włączanie kluczy zarządzanych przez klienta
+### <a name="enable-customer-managed-keys"></a>Włącz klucze zarządzane przez klienta
 
-Do przechowywania kluczy zarządzanych przez klienta należy używać usługi Azure Key Vault. Można utworzyć własne klucze i przechowywać je w magazynie kluczy lub można użyć interfejsów API usługi Azure Key Vault do generowania kluczy. Zasób usług Cognitive Services i magazyn kluczy muszą znajdować się w tym samym regionie i w tej samej dzierżawie usługi Azure Active Directory (Azure AD), ale mogą znajdować się w różnych subskrypcjach. Aby uzyskać więcej informacji na temat usługi Azure Key Vault, zobacz [Co to jest usługa Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+Aby przechowywać klucze zarządzane przez klienta, należy użyć Azure Key Vault. Możesz utworzyć własne klucze i zapisać je w magazynie kluczy lub użyć Azure Key Vault interfejsów API do wygenerowania kluczy. Zasób Cognitive Services i Magazyn kluczy muszą znajdować się w tym samym regionie i w tej samej dzierżawie Azure Active Directory (Azure AD), ale mogą znajdować się w różnych subskrypcjach. Aby uzyskać więcej informacji na temat Azure Key Vault, zobacz [co to jest Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
-Nowy zasób usług Cognitive Services jest zawsze szyfrowany przy użyciu kluczy zarządzanych przez firmę Microsoft. Nie jest możliwe włączenie kluczy zarządzanych przez klienta w czasie tworzenia zasobu. Klucze zarządzane przez klienta są przechowywane w usłudze Azure Key Vault, a magazyn kluczy musi być aprowizowany za pomocą zasad dostępu, które przyznają uprawnienia klucza do tożsamości zarządzanej skojarzonej z zasobem usług Cognitive Services. Tożsamość zarządzana jest dostępna natychmiast po utworzeniu zasobu.
+Nowy zasób Cognitive Services jest zawsze szyfrowany przy użyciu kluczy zarządzanych przez firmę Microsoft. W momencie utworzenia zasobu nie można włączyć kluczy zarządzanych przez klienta. Klucze zarządzane przez klienta są przechowywane w Azure Key Vault, a Magazyn kluczy musi być zainicjowany przy użyciu zasad dostępu, które przyznają kluczowe uprawnienia do zarządzanej tożsamości skojarzonej z zasobem Cognitive Services. Tożsamość zarządzana jest dostępna zaraz po utworzeniu zasobu.
 
-Aby dowiedzieć się, jak używać kluczy zarządzanych przez klienta za pomocą szyfrowania usługi Azure Key Vault for Cognitive Services, zobacz:
+Aby dowiedzieć się, jak używać kluczy zarządzanych przez klienta do Azure Key Vault szyfrowania Cognitive Services, zobacz:
 
-- [Konfigurowanie kluczy zarządzanych przez klienta za pomocą szyfrowania usługi Key Vault dla usług Cognitive Services z witryny Azure portal](../Encryption/cognitive-services-encryption-keys-portal.md)
+- [Skonfiguruj klucze zarządzane przez klienta przy użyciu Key Vault na potrzeby szyfrowania Cognitive Services z Azure Portal](../Encryption/cognitive-services-encryption-keys-portal.md)
 
-Włączenie kluczy zarządzanych przez klienta umożliwi również systemowi przypisaną tożsamość zarządzaną, funkcję usługi Azure AD. Po włączeniu tożsamości zarządzanej przypisanej przez system ten zasób zostanie zarejestrowany w usłudze Azure Active Directory. Po zarejestrowaniu, tożsamość zarządzana otrzyma dostęp do usługi Key Vault wybranej podczas konfiguracji klucza zarządzanego przez klienta. Więcej informacji na temat [tożsamości zarządzanych](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)można dowiedzieć się więcej.
-
-> [!IMPORTANT]
-> Jeśli wyłączysz tożsamości zarządzane przypisane przez system, dostęp do magazynu kluczy zostanie usunięty, a wszelkie dane zaszyfrowane za pomocą kluczy klienta nie będą już dostępne. Wszystkie funkcje zależne od tych danych przestaną działać. Wszystkie wdrożone modele również zostaną cofnięte. Wszystkie przesłane dane zostaną usunięte z usługi Custom Translator. Jeśli zarządzane tożsamości są ponownie włączone, nie zostanie automatycznie ponownie wdrożyć model dla Ciebie.
+Włączenie kluczy zarządzanych przez klienta spowoduje również włączenie tożsamości zarządzanej przypisanej do systemu, funkcji usługi Azure AD. Gdy jest włączona tożsamość zarządzana przypisana przez system, ten zasób zostanie zarejestrowany w Azure Active Directory. Po zarejestrowaniu tożsamość zarządzana będzie mieć dostęp do Key Vault wybranej podczas instalacji klucza zarządzanego przez klienta. Możesz dowiedzieć się więcej o [tożsamościach zarządzanych](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
 > [!IMPORTANT]
-> Tożsamości zarządzane nie obsługują obecnie scenariuszy między katalogami. Podczas konfigurowania kluczy zarządzanych przez klienta w witrynie Azure portal, tożsamość zarządzana jest automatycznie przypisywana w ramach okładek. Jeśli następnie przenieść subskrypcję, grupę zasobów lub zasób z jednego katalogu usługi Azure AD do innego, tożsamość zarządzana skojarzona z zasobem nie zostanie przeniesiona do nowej dzierżawy, więc klucze zarządzane przez klienta mogą już nie działać. Aby uzyskać więcej informacji, zobacz **Przenoszenie subskrypcji między katalogami usługi Azure AD** w [często zadawanych pytaniach i znanych problemach z tożsamościami zarządzanymi dla zasobów platformy Azure.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories)  
+> Jeśli wyłączysz tożsamości zarządzane przypisane przez system, dostęp do magazynu kluczy zostanie usunięty, a wszystkie dane zaszyfrowane za pomocą kluczy klienta nie będą już dostępne. Wszystkie funkcje zależne od tych danych przestaną działać. Wszystkie wdrożone modele również zostaną cofnięte. Wszystkie przekazane dane zostaną usunięte z translatora niestandardowego. Jeśli zarządzane tożsamości są ponownie włączane, nie będzie automatycznie wdrażać modelu.
 
-### <a name="store-customer-managed-keys-in-azure-key-vault"></a>Przechowywanie kluczy zarządzanych przez klienta w usłudze Azure Key Vault
+> [!IMPORTANT]
+> Tożsamości zarządzane nie obsługują obecnie scenariuszy między katalogami. W przypadku konfigurowania kluczy zarządzanych przez klienta w Azure Portal, zarządzana tożsamość zostanie automatycznie przypisana w obszarze okładek. Jeśli później przeniesiesz subskrypcję, grupę zasobów lub zasób z jednego katalogu usługi Azure AD do innego, zarządzana tożsamość skojarzona z zasobem nie zostanie przetransferowana do nowej dzierżawy, więc klucze zarządzane przez klienta mogą przestać działać. Aby uzyskać więcej informacji, zobacz **transfer subskrypcji między katalogami usługi Azure AD** w [często zadawanych pytaniach i znanych problemach z tożsamościami zarządzanymi dla zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories).  
 
-Aby włączyć klucze zarządzane przez klienta, należy użyć usługi Azure Key Vault do przechowywania kluczy. Należy włączyć właściwości **Usuwanie nietrwałe** i **Nie przeczyszczaj** w magazynie kluczy.
+### <a name="store-customer-managed-keys-in-azure-key-vault"></a>Przechowuj klucze zarządzane przez klienta w Azure Key Vault
 
-Tylko klucze RSA o rozmiarze 2048 są obsługiwane za pomocą szyfrowania usług Cognitive Services. Aby uzyskać więcej informacji o kluczach, zobacz **Klucze magazynu kluczy,** wpisy tajne i certyfikaty usługi Azure Key Vault — informacje o [kluczach, wpisach tajnych i certyfikatach](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys)usługi Azure Key Vault .
+Aby włączyć klucze zarządzane przez klienta, należy użyć Azure Key Vault do przechowywania kluczy. Należy włączyć zarówno właściwości **nietrwałego usuwania** , jak i **nie przeczyszczania** w magazynie kluczy.
+
+Szyfrowanie Cognitive Services obsługuje tylko klucze RSA o rozmiarze 2048. Aby uzyskać więcej informacji na temat kluczy, zobacz **Key Vault klucze** w temacie [informacje Azure Key Vault klucze, wpisy tajne i certyfikaty](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys).
 
 > [!NOTE]
-> Jeśli cały magazyn kluczy zostanie usunięty, dane nie będą już wyświetlane, a wszystkie modele zostaną cofnięte. Wszystkie przesłane dane zostaną usunięte z usługi Custom Translator. 
+> Jeśli cały magazyn kluczy zostanie usunięty, dane nie będą już wyświetlane i wszystkie Twoje modele zostaną cofnięte. Wszystkie przekazane dane zostaną usunięte z translatora niestandardowego. 
 
-### <a name="revoke-access-to-customer-managed-keys"></a>Cofanie dostępu do kluczy zarządzanych przez klienta
+### <a name="revoke-access-to-customer-managed-keys"></a>Odwołaj dostęp do kluczy zarządzanych przez klienta
 
-Aby odwołać dostęp do kluczy zarządzanych przez klienta, należy użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) lub [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Cofnięcie dostępu skutecznie blokuje dostęp do wszystkich danych w zasobie usług Cognitive Services, a modele zostaną cofnięte, ponieważ klucz szyfrowania jest niedostępny przez usługi Cognitive Services. Wszystkie przesłane dane zostaną również usunięte z usługi Custom Translator.
+Aby odwołać dostęp do kluczy zarządzanych przez klienta, należy użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) lub [interfejs wiersza polecenia Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). Odwoływanie dostępu skutecznie blokuje dostęp do wszystkich danych w zasobie Cognitive Services i Twoje modele zostaną cofnięte, ponieważ klucz szyfrowania jest niedostępny przez Cognitive Services. Wszystkie przekazane dane zostaną również usunięte z translatora niestandardowego.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się więcej o usłudze Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Dowiedz się więcej o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

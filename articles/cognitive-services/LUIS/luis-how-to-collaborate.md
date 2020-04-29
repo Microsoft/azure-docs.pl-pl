@@ -1,7 +1,7 @@
 ---
-title: Współpraca z innymi osobami — USŁUGA LUIS
+title: Współpracuj z innymi — LUIS
 titleSuffix: Azure Cognitive Services
-description: Właściciel aplikacji może dodawać współautorów do zasobu autora. Współautorzy mogą modyfikować model, trenować i publikować aplikację.
+description: Właściciel aplikacji może dodawać współautorów do zasobu tworzenia. Współautorzy mogą modyfikować model, uczenie i publikować aplikację.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,91 +12,91 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
 ms.openlocfilehash: 913a2b26f67773d9fafbc0a8430d121fbabb97cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80053454"
 ---
 # <a name="add-contributors-to-your-app"></a>Dodawanie współautorów do aplikacji
 
-Właściciel aplikacji może dodawać współautorów do aplikacji. Ci współpracownicy mogą modyfikować model, trenować i publikować aplikację. 
+Właściciel aplikacji może dodawać współautorów do aplikacji. Ci współpracownicy mogą modyfikować model, uczenie i publikowanie aplikacji. 
 
 [!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
 
-## <a name="add-contributor-to-azure-authoring-resource"></a>Dodawanie współautora do zasobu tworzenia platformy Azure
+## <a name="add-contributor-to-azure-authoring-resource"></a>Dodaj współautor do zasobu tworzenia platformy Azure
 
-Poniższa procedura jest dla wszystkich użytkowników, którzy **zmigrowali** do korzystania z zasobu tworzenia platformy Azure.
+Poniższa procedura dotyczy wszystkich użytkowników, którzy zostali **zmigrowani** do korzystania z zasobu tworzenia platformy Azure.
 
-Migracja została zmigrowana, jeśli środowisko tworzenia usługi LUIS jest powiązane z zasobem tworzenia na stronie **Zarządzanie zasobami platformy Azure >** w portalu usługi LUIS.
+Przeprowadzono migrację, jeśli środowisko tworzenia LUIS jest powiązane z zasobem tworzenia na stronie **Zarządzanie zasobami usługi Azure >** w portalu Luis.
 
-1. W witrynie Azure portal znajdź zasób tworzenia języka (LUIS). Ma typ `LUIS.Authoring`.
-1. Na stronie **Kontrola dostępu (IAM)** tego zasobu wybierz pozycję **+Dodaj,** a następnie wybierz pozycję **Dodaj przypisanie roli**.
+1. W Azure Portal Znajdź zasób tworzenia Language Understanding (LUIS). Ma typ `LUIS.Authoring`.
+1. Na stronie Access Control tego zasobu **(IAM)** wybierz pozycję **+ Dodaj** , a następnie wybierz pozycję **Dodaj przypisanie roli**.
 
-    ![W witrynie Azure portal dodaj przypisanie roli do zasobu tworzenia.](./media/luis-how-to-collaborate/authoring-resource-access-control-add-role.png)
+    ![W Azure Portal Dodaj przypisanie roli do zasobu tworzenia.](./media/luis-how-to-collaborate/authoring-resource-access-control-add-role.png)
 
-1. W oknie **Dodawanie przypisania roli** wybierz **rolę** współautora. W opcji **Przypisz dostęp do** wybierz **pozycję Użytkownik, grupa lub podmiot usługi Azure AD**. W opcji **Wybierz** wprowadź adres e-mail użytkownika. Jeśli użytkownik jest znany z więcej niż 1 adresu e-mail dla tej samej domeny, upewnij się, że wprowadź _podstawowe_ konto e-mail.
+1. W oknie **Dodawanie przypisania roli** wybierz **rolę** współautor. W opcji **Przypisz dostęp do** wybierz pozycję **użytkownik, Grupa lub nazwa główna usługi Azure AD**. W opcji **Wybierz** wprowadź adres e-mail użytkownika. Jeśli użytkownik jest znany przez więcej niż 1 adres e-mail dla tej samej domeny, upewnij się, że wprowadzono _podstawowe_ konto e-mail.
 
-    ![Dodawanie wiadomości e-mail użytkownika do roli współautora usługi Azure AD](./media/luis-how-to-collaborate/add-role-assignment-for-contributor.png)
+    ![Dodawanie wiadomości e-mail użytkownika do roli współautor dla usługi Azure AD](./media/luis-how-to-collaborate/add-role-assignment-for-contributor.png)
 
-    Po znalezieniu wiadomości e-mail użytkownika wybierz konto i wybierz pozycję **Zapisz**. 
+    Po znalezieniu adresu e-mail użytkownika wybierz konto i wybierz pozycję **Zapisz**. 
 
-    Jeśli masz problemy z tym przypisaniem roli, przejrzyj [przypisania ról platformy Azure](../../role-based-access-control/role-assignments-portal.md) i [rozwiązywanie problemów z kontrolą dostępu platformy Azure.](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments)
+    Jeśli masz problemy z tym przypisaniem roli, przejrzyj [przydziały ról platformy Azure](../../role-based-access-control/role-assignments-portal.md) i [Rozwiązywanie problemów z kontrolą dostępu do platformy Azure](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments).
 
-## <a name="add-collaborator-to-luis-app"></a>Dodawanie współpracownika do aplikacji usługi LUIS
+## <a name="add-collaborator-to-luis-app"></a>Dodaj współpracownika do aplikacji LUIS
 
-Poniższa procedura jest dla wszystkich użytkowników, którzy **nie zostały zmigrowane** do korzystania z zasobu tworzenia platformy Azure.
+Poniższa procedura dotyczy wszystkich użytkowników, którzy **nie zostali zmigrowani** do korzystania z zasobu tworzenia platformy Azure.
 
-Nie zostały zmigrowane, jeśli środowisko tworzenia usługi LUIS nie jest powiązane z zasobem tworzenia na stronie **Zarządzanie zasobami platformy Azure >** w portalu usługi LUIS.
+Nie przeprowadzono migracji, jeśli środowisko tworzenia LUIS nie jest powiązane z zasobem tworzenia na stronie **Zarządzanie zasobami usługi Azure >** w portalu Luis.
 
-Aplikacja ma jednego autora, właściciela, ale może mieć wielu współpracowników. Aby umożliwić współpracownikom edytowanie aplikacji usługi LUIS, należy dodać wiadomości e-mail, których używają do uzyskiwania dostępu do portalu usługi LUIS do listy współpracowników. Po dodaniu aplikacja jest wyświetlana w portalu usługi LUIS.
+Aplikacja ma jednego autora, właściciela, ale może mieć wielu współpracowników. Aby umożliwić współpracownikom edytowanie aplikacji LUIS, należy dodać do niej wiadomość e-mail, z której korzystają użytkownicy, aby uzyskać dostęp do portalu LUIS na liście współpracowników. Po ich dodaniu aplikacja zostanie wyświetlona w portalu LUIS.
 
-1. Wybierz **pozycję Zarządzaj** z prawego górnego menu, a następnie wybierz polecenie **Współpracownicy** w menu po lewej stronie.
+1. Wybierz pozycję **Zarządzaj** w prawym górnym menu, a następnie wybierz pozycję **współpracownicy** w menu po lewej stronie.
 
-1. Wybierz **pozycję Dodaj współpracownika** na pasku narzędzi.
+1. Wybierz pozycję **Dodaj współpracownika** z paska narzędzi.
 
-1. Wprowadź adres e-mail używany przez współpracownika do logowania się do portalu usługi LUIS.
+1. Wprowadź adres e-mail, który jest wykorzystywany przez współpracownika do logowania się do portalu LUIS.
 
-    ![Dodawanie adresu e-mail współpracownika](./media/luis-how-to-collaborate/add-collaborator-pop-up.png)
+    ![Dodaj adres e-mail współpracownika](./media/luis-how-to-collaborate/add-collaborator-pop-up.png)
 
 
 ### <a name="users-with-multiple-emails"></a>Użytkownicy z wieloma wiadomościami e-mail 
 
-Jeśli dodasz współautorów/współpracowników do aplikacji usługi LUIS, określasz dokładny adres e-mail. Usługa Azure Active Directory (Azure AD) umożliwia jednemu użytkownikowi zamiennie używane więcej niż jedno konto e-mail, usługa LUIS wymaga od użytkownika zalogowania się przy użyciu adresu e-mail określonego podczas dodawania współautora/współpracownika.
+Jeśli dodasz współautorów/współpracowników do aplikacji LUIS, określisz dokładny adres e-mail. Gdy usługa Azure Active Directory (Azure AD) umożliwia jednemu użytkownikowi używanie więcej niż jednego konta e-mail, LUIS wymaga, aby użytkownik mógł zalogować się przy użyciu adresu e-mail określonego podczas dodawania współautora/współpracownika.
 
 <a name="owner-and-collaborators"></a>
 
-### <a name="azure-active-directory-resources"></a>Zasoby usługi Azure Active Directory
+### <a name="azure-active-directory-resources"></a>Zasoby Azure Active Directory
 
-Jeśli używasz [usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) w organizacji, zrozumienie języka (LUIS) wymaga uprawnień do informacji o dostępie użytkowników, gdy chcą korzystać z usługi LUIS. Zasoby, które wymaga usługi LUIS są minimalne. 
+Jeśli używasz usługi [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) w organizacji, language UNDERSTANDING (Luis) potrzebuje uprawnień do informacji o dostępie użytkowników, gdy chcą korzystać z Luis. Zasoby, które LUIS wymagają, są minimalne. 
 
-Szczegółowy opis jest widoczny podczas próby zarejestrowania się przy zaliczeniu konta, które ma zgodę administratora lub nie wymaga zgody administratora, na przykład zgody administratora:
+Szczegółowy opis jest wyświetlany podczas próby zarejestrowania się przy użyciu konta, które ma zgodę administratora lub nie wymaga zgody administratora, na przykład zgody administratora:
 
-* Umożliwia zalogowanie się do aplikacji za pomocą konta organizacji i umożliwienie aplikacji odczytu profilu. Pozwala również aplikacji na odczytanie podstawowych informacji o firmie. Daje to uprawnienie usługi LUIS do odczytu podstawowych danych profilu, takich jak identyfikator użytkownika, adres e-mail, nazwa
-* Umożliwia aplikacji wyświetlanie i aktualizowanie danych, nawet jeśli nie korzystasz z aplikacji. Uprawnienie jest wymagane do odświeżenia tokenu dostępu użytkownika.
+* Umożliwia zalogowanie się do aplikacji przy użyciu konta organizacji i umożliwienie aplikacji odczytania Twojego profilu. Umożliwia również aplikacji odczytywanie podstawowych informacji o firmie. Daje to LUIS uprawnienia do odczytu podstawowych danych profilowych, takich jak identyfikator użytkownika, adres e-mail, nazwa
+* Zezwala aplikacji na wyświetlanie i aktualizowanie danych, nawet jeśli nie są aktualnie używane. Uprawnienie jest wymagane do odświeżenia tokenu dostępu użytkownika.
 
 
-### <a name="azure-active-directory-tenant-user"></a>Użytkownik dzierżawy usługi Azure Active Directory
+### <a name="azure-active-directory-tenant-user"></a>Azure Active Directory użytkownika dzierżawy
 
-Usługa LUIS korzysta ze standardowego przepływu zgody usługi Azure Active Directory (Azure AD). 
+LUIS używa przepływu zgody standardowego Azure Active Directory (Azure AD). 
 
-Administrator dzierżawy powinien współpracować bezpośrednio z użytkownikiem, który potrzebuje dostępu przyznanego do korzystania z usługi LUIS w usłudze Azure AD. 
+Administrator dzierżawy powinien współpracować bezpośrednio z użytkownikiem, który wymaga dostępu do LUIS w usłudze Azure AD. 
 
-* Najpierw użytkownik loguje się do usługi LUIS i widzi wyskakujące okno dialogowe wymagające zatwierdzenia przez administratora. Użytkownik kontaktuje się z administratorem dzierżawy przed kontynuowaniem. 
-* Po drugie administrator dzierżawy loguje się do usługi LUIS i widzi wyskakujące okno dialogowe przepływu zgody. Jest to okno dialogowe, które administrator musi udzielić użytkownikowi uprawnień. Gdy administrator zaakceptuje uprawnienie, użytkownik może kontynuować korzystanie z usługi LUIS. Jeśli administrator dzierżawy nie zaloguje się do usługi LUIS, administrator może uzyskać dostęp do [zgody](https://account.activedirectory.windowsazure.com/r#/applications) na usługę LUIS, pokazano na poniższym zrzucie ekranu. Zwróć uwagę, że lista jest filtrowana do elementów, które zawierają nazwę `LUIS`.
+* Najpierw użytkownik loguje się do LUIS i widzi okno podręczne, które wymaga zatwierdzenia przez administratora. Użytkownik kontaktuje się z administratorem dzierżawy przed kontynuowaniem. 
+* Następnie Administrator dzierżawy loguje się do LUIS i widzi wyskakujące okno dialogowe przepływu zgody. To okno dialogowe, w którym administrator musi udzielić uprawnienia użytkownikowi. Po zaakceptowaniu przez administratora uprawnienia użytkownik może kontynuować LUIS. Jeśli administrator dzierżawy nie zaloguje się do usługi LUIS, administrator będzie mógł uzyskać [zgodę](https://account.activedirectory.windowsazure.com/r#/applications) na Luis, jak pokazano na poniższym zrzucie ekranu. Zwróć uwagę na to, że lista jest filtrowana do elementów `LUIS`, które zawierają nazwę.
 
-![Uprawnienie usługi Azure active directory przez witrynę sieci Web aplikacji](./media/luis-how-to-collaborate/tenant-permissions.png)
+![Uprawnienia usługi Azure Active Directory według witryny sieci Web aplikacji](./media/luis-how-to-collaborate/tenant-permissions.png)
 
-Jeśli administrator dzierżawy chce tylko niektórych użytkowników do korzystania z usługi LUIS, istnieje kilka możliwych rozwiązań:
-* Udzielanie "zgody administratora" (zgoda dla wszystkich użytkowników usługi Azure AD), ale następnie ustawić na "Tak" "Wymagane przypisanie użytkownika" w obszarze Właściwości aplikacji przedsiębiorstwa, a na koniec przypisać/dodać tylko pożądanych użytkowników do aplikacji. Dzięki tej metodzie administrator nadal udziela aplikacji "zgody administratora", jednak można kontrolować użytkowników, którzy mają do niej dostęp.
-* Drugim rozwiązaniem jest użycie [interfejsu API zarządzania tożsamościami i dostępem usługi Azure AD w programie Microsoft Graph w](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) celu udzielenia zgody każdemu określonej użytkownikowi. 
+Jeśli administrator dzierżawy chce, aby niektórzy użytkownicy korzystali z LUIS, istnieje kilka możliwych rozwiązań:
+* Podawanie "zgody administratora" (wyrażanie zgody wszystkim użytkownikom usługi Azure AD), a następnie ustawienie opcji "tak" jako "wymagane przypisanie użytkownika" we właściwościach aplikacji dla przedsiębiorstw i przypisanie/dodanie tylko odpowiednich użytkowników do aplikacji. W przypadku tej metody administrator nadal zapewnia dostęp do aplikacji "Zgoda na administrowanie", jednak można kontrolować użytkowników, którzy mają do nich dostępu.
+* Drugim rozwiązaniem jest użycie [interfejsu API zarządzania tożsamościami i dostępem usługi Azure AD w Microsoft Graph](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) , aby zapewnić zgodę na poszczególnych użytkowników. 
 
-Dowiedz się więcej o użytkownikach usługi Azure active directory i zgodę: 
+Dowiedz się więcej na temat użytkowników i zgody usługi Azure Active Directory: 
 * [Ograniczanie aplikacji](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) do zestawu użytkowników
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz [się, jak używać wersji](luis-how-to-manage-versions.md) do kontrolowania cyklu życia aplikacji.
-* Poznaj pojęcia, w tym [zasobów autora](luis-concept-keys.md#authoring-key) i [współautorów](luis-concept-keys.md#contributions-from-other-authors) tego zasobu.
-* Dowiedz [się, jak tworzyć](luis-how-to-azure-subscription.md) zasoby tworzenia i środowiska wykonawczego
-* Migrowanie do nowego [zasobu autora](luis-migration-authoring.md) 
+* Dowiedz się, [jak za pomocą wersji](luis-how-to-manage-versions.md) sterować cyklem życia aplikacji.
+* Zapoznaj się z pojęciami dotyczącymi [zasobów tworzenia](luis-concept-keys.md#authoring-key) i [współautorów](luis-concept-keys.md#contributions-from-other-authors) tego zasobu.
+* Dowiedz się [, jak tworzyć zasoby dotyczące](luis-how-to-azure-subscription.md) tworzenia i wykonywania
+* Migrowanie do nowego [zasobu tworzenia](luis-migration-authoring.md) 

@@ -1,5 +1,5 @@
 ---
-title: Samouczek — używanie niestandardowego obrazu maszyny Wirtualnej w zestawie skalowania z platformą Azure CLI
+title: Samouczek — używanie niestandardowego obrazu maszyny wirtualnej w zestawie skalowania przy użyciu interfejsu wiersza polecenia platformy Azure
 description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure utworzyć niestandardowy obraz maszyny wirtualnej, którego można użyć do wdrożenia zestawu skalowania maszyny wirtualnej
 author: cynthn
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 6d9f625bf425a33b690fd303a4f13d032bd59fa0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80062713"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Samouczek: tworzenie niestandardowego obrazu i używanie go dla zestawów skalowania maszyn wirtualnych za pośrednictwem interfejsu wiersza polecenia platformy Azure
@@ -24,7 +24,7 @@ Podczas tworzenia zestawu skalowania należy wskazać obraz używany do wdrożen
 > * Tworzenie niestandardowego obrazu maszyny wirtualnej
 > * Wdrażanie zestawu skalowania, który używa niestandardowego obrazu maszyny wirtualnej
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -91,7 +91,7 @@ Cofanie przydziału i uogólnianie maszyny wirtualnej może potrwać kilka minut
 
 Teraz utwórz obraz maszyny wirtualnej za pomocą polecenia [az image create](/cli//azure/image). W poniższym przykładzie utworzono obraz o nazwie *myImage* za pomocą maszyny wirtualnej:
 
-> [UWAGA] Jeśli lokalizacja grupy zasobów i maszyny wirtualnej `--location` są różne, można dodać parametr do poniższych poleceń, aby specyfika lokalizacji źródłowej maszyny wirtualnej używanej do tworzenia obrazu. 
+> KORYGUJĄC Jeśli grupa zasobów i lokalizacja maszyny wirtualnej są różne, można dodać `--location` parametr do poniższych poleceń w celu wybrania lokalizacji ŹRÓDŁOWEJ maszyny wirtualnej użytej do utworzenia obrazu. 
 
 ```azurecli-interactive
 az image create \
@@ -147,7 +147,7 @@ Wprowadź publiczny adres IP w przeglądarce internetowej. Zostanie wyświetlona
 
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
-Aby usunąć zestaw skalowania i dodatkowe zasoby, usuń grupę zasobów i wszystkie jej zasoby za pomocą [az group delete](/cli/azure/group). Parametr `--no-wait` zwraca kontrolę do wiersza polecenia bez oczekiwania na zakończenie operacji. Parametr `--yes` potwierdza, że chcesz usunąć zasoby bez wyświetlania dodatkowego monitu.
+Aby usunąć zestaw skalowania i dodatkowe zasoby, Usuń grupę zasobów i wszystkie jej zasoby za pomocą polecenie [AZ Group Delete](/cli/azure/group). Parametr `--no-wait` zwraca kontrolę do wiersza polecenia bez oczekiwania na zakończenie operacji. Parametr `--yes` potwierdza, że chcesz usunąć zasoby bez wyświetlania dodatkowego monitu.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

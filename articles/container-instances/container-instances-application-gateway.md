@@ -1,41 +1,41 @@
 ---
 title: Statyczny adres IP dla grupy kontenerów
-description: Tworzenie grupy kontenerów w sieci wirtualnej i używanie bramy aplikacji platformy Azure do udostępnienia statycznego adresu IP frontonu na konteneryzowaną aplikację sieci web
+description: Utwórz grupę kontenerów w sieci wirtualnej i Użyj usługi Azure Application Gateway, aby udostępnić statyczny adres IP frontonu dla zwirtualizowanej aplikacji sieci Web.
 ms.topic: article
 ms.date: 03/16/2020
 ms.openlocfilehash: 5c3a14f93af3ecc614dc296f0a4d2815d7a64a66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79481793"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Uwidacznianie statycznego adresu IP dla grupy kontenerów
 
-W tym artykule przedstawiono jeden ze sposobów udostępnienia statycznego, publicznego adresu IP dla [grupy kontenerów](container-instances-container-groups.md) przy użyciu [bramy aplikacji](../application-gateway/overview.md)platformy Azure . Wykonaj następujące kroki, gdy potrzebujesz statycznego punktu wejścia dla konteneryzowanej aplikacji skierowanej do zewnątrz, która jest uruchamiana w wystąpieniach kontenera platformy Azure. 
+W tym artykule pokazano, jak udostępnić statyczny publiczny adres IP dla [grupy kontenerów](container-instances-container-groups.md) za pomocą usługi Azure [Application Gateway](../application-gateway/overview.md). Wykonaj następujące kroki, jeśli potrzebujesz statycznego punktu wejścia dla aplikacji kontenera połączonej z zewnątrz, która działa w Azure Container Instances. 
 
-W tym artykule używasz interfejsu wiersza polecenia platformy Azure do utworzenia zasobów dla tego scenariusza:
+W tym artykule opisano tworzenie zasobów dla tego scenariusza przy użyciu interfejsu wiersza polecenia platformy Azure:
 
 * Sieć wirtualna platformy Azure
-* Grupa kontenerów wdrożona [w sieci wirtualnej (wersja zapoznawcza)](container-instances-vnet.md) zawierająca małą aplikację sieci web
-* Brama aplikacji z publicznym adresem IP wewnętrznej bazy danych, odbiornik do hosta witryny sieci Web w bramie i trasa do grupy kontenerów wewnętrznej bazy danych
+* Grupa kontenerów wdrożona [w sieci wirtualnej (wersja zapoznawcza)](container-instances-vnet.md) , która obsługuje małą aplikację sieci Web
+* Brama aplikacji z publicznym adresem IP frontonu, odbiornikiem do hostowania witryny sieci Web w bramie i trasą do grupy kontenerów zaplecza
 
-Tak długo, jak brama aplikacji działa, a grupa kontenerów udostępnia stabilny prywatny adres IP w sieci delegowanej podsieci, grupa kontenerów jest dostępna pod tym publicznym adresem IP.
+Tak długo, jak działa Brama aplikacji, a grupa kontenerów uwidacznia stabilny prywatny adres IP w podsieci delegowanej sieci, Grupa kontenerów jest dostępna na tym publicznym adresie IP.
 
 > [!NOTE]
-> Opłaty platformy Azure za bramę aplikacji na podstawie czasu, przez jaki brama jest aprowizowana i dostępna, a także ilości danych, które przetwarza. Zobacz [cennik](https://azure.microsoft.com/pricing/details/application-gateway/).
+> Usługa Azure obciąża bramę aplikacji na podstawie czasu, przez jaki brama jest obsługiwana i dostępna, oraz ilości danych, które przetwarza. Zobacz [Cennik](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 ## <a name="create-virtual-network"></a>Tworzenie sieci wirtualnej
 
-W typowym przypadku może już mieć sieci wirtualnej platformy Azure. Jeśli go nie masz, utwórz go w sposób pokazany za pomocą poniższych przykładowych poleceń. Sieć wirtualna potrzebuje oddzielnych podsieci dla bramy aplikacji i grupy kontenerów.
+W typowym przypadku może już istnieć Sieć wirtualna platformy Azure. Jeśli go nie masz, utwórz taki, jak pokazano w następujących przykładowych poleceniach. Sieć wirtualna wymaga oddzielnych podsieci dla bramy aplikacji i grupy kontenerów.
 
-Jeśli tego potrzebujesz, utwórz grupę zasobów platformy Azure. Przykład:
+Jeśli potrzebujesz, Utwórz grupę zasobów platformy Azure. Przykład:
 
 ```azureci
 az group create --name myResourceGroup --location eastus
 ```
 
-Utwórz sieć wirtualną za pomocą polecenia [tworzenie sieci wirtualnej az.][az-network-vnet-create] To polecenie tworzy podsieć *myAGSubnet* w sieci.
+Utwórz sieć wirtualną za pomocą polecenia [AZ Network VNET Create][az-network-vnet-create] . To polecenie tworzy podsieć *myAGSubnet* w sieci.
 
 ```azurecli
 az network vnet create \
@@ -47,7 +47,7 @@ az network vnet create \
   --subnet-prefix 10.0.1.0/24
 ```
 
-Użyj polecenia [tworzenia podsieci sieci AZ,][az-network-vnet-subnet-create] aby utworzyć podsieć dla grupy kontenerów wewnętrznej bazy danych. Tutaj nazywa się *myACISubnet*.
+Użyj polecenia [AZ Network VNET Subnet Create][az-network-vnet-subnet-create] , aby utworzyć podsieć dla grupy kontenerów zaplecza. W tym miejscu nazywa się *myACISubnet*.
 
 ```azurecli
 az network vnet subnet create \
@@ -57,7 +57,7 @@ az network vnet subnet create \
   --address-prefix 10.0.2.0/24
 ```
 
-Użyj polecenia [tworzenia sieci az public-ip,][az-network-public-ip-create] aby utworzyć statyczny publiczny zasób IP. W późniejszym kroku ten adres jest skonfigurowany jako front-end bramy aplikacji.
+Użyj polecenia [AZ Network Public-IP Create][az-network-public-ip-create] , aby utworzyć statyczny publiczny adres IP. W późniejszym kroku ten adres jest konfigurowany jako fronton bramy aplikacji.
 
 ```azurecli
 az network public-ip create \
@@ -69,9 +69,9 @@ az network public-ip create \
 
 ## <a name="create-container-group"></a>Tworzenie grupy kontenerów
 
-Uruchom następujące [tworzenie kontenera az,][az-container-create] aby utworzyć grupę kontenerów w sieci wirtualnej skonfigurowaną w poprzednim kroku. 
+Uruchom następujące [AZ Container Create][az-container-create] , aby utworzyć grupę kontenerów w sieci wirtualnej skonfigurowanej w poprzednim kroku. 
 
-Grupa jest wdrażana w podsieci *myACISubnet* i zawiera jedno wystąpienie `aci-helloworld` o nazwie *appcontainer,* który pobiera obraz. Jak pokazano w innych artykułach w dokumentacji, ten obraz pakiety małej aplikacji sieci web napisanej w Node.js, który służy statycznej strony HTML. 
+Grupa jest wdrażana w podsieci *myACISubnet* i zawiera jedno wystąpienie o nazwie *APPCONTAINER* , które pobiera `aci-helloworld` obraz. Jak pokazano w innych artykułach w dokumentacji, ten obraz zawiera niewielką aplikację sieci Web w języku Node. js, która obsługuje statyczną stronę HTML. 
 
 ```azurecli
 az container create \
@@ -82,7 +82,7 @@ az container create \
   --subnet myACISubnet
 ```
 
-Po pomyślnym wdrożeniu grupie kontenerów jest przypisywany prywatny adres IP w sieci wirtualnej. Na przykład uruchom następujące polecenie [az container show,][az-container-show] aby pobrać adres IP grupy:
+Po pomyślnym wdrożeniu Grupa kontenerów ma przypisany prywatny adres IP w sieci wirtualnej. Na przykład uruchom następujące polecenie [AZ Container show][az-container-show] , aby pobrać adres IP grupy:
 
 ```azurecli
 az container show \
@@ -92,7 +92,7 @@ az container show \
 
 Dane wyjściowe są podobne do następujących: `10.0.2.4`.
 
-Aby użyć w późniejszym kroku, zapisz adres IP w zmiennej środowiskowej:
+Aby użyć w późniejszym kroku, Zapisz adres IP w zmiennej środowiskowej:
 
 ```azurecli
 ACI_IP=$(az container show \
@@ -103,7 +103,7 @@ ACI_IP=$(az container show \
 
 ## <a name="create-application-gateway"></a>Tworzenie bramy aplikacji
 
-Utwórz bramę aplikacji w sieci wirtualnej, wykonując kroki w [przewodniku Szybki start bramy aplikacji](../application-gateway/quick-create-cli.md). Następujące polecenie [tworzenia bramy aplikacji sieciowej az][az-network-application-gateway-create] tworzy bramę z publicznym adresem IP frontendu i marszrutą do grupy kontenerów wewnętrznej bazy danych. Szczegółowe informacje na temat ustawień bramy można znaleźć w [dokumentacji bramy aplikacji.](/azure/application-gateway/)
+Utwórz bramę aplikacji w sieci wirtualnej, wykonując czynności opisane w [przewodniku szybki start dotyczącym bramy aplikacji](../application-gateway/quick-create-cli.md). Poniższe polecenie [AZ Network Application-Gateway Create][az-network-application-gateway-create] tworzy bramę z publicznym adresem IP frontonu i trasą do grupy kontenerów zaplecza. Szczegółowe informacje na temat ustawień bramy znajdują się w [dokumentacji Application Gateway](/azure/application-gateway/) .
 
 ```azurecli
 az network application-gateway create \
@@ -120,13 +120,13 @@ az network application-gateway create \
 ```
 
 
-Utworzenie bramy aplikacji na platformie Azure może potrwać do 15 minut. 
+Utworzenie bramy aplikacji przez platformę Azure może potrwać do 15 minut. 
 
-## <a name="test-public-ip-address"></a>Testowanie publicznego adresu IP
+## <a name="test-public-ip-address"></a>Testuj publiczny adres IP
   
-Teraz możesz przetestować dostęp do aplikacji sieci web uruchomionej w grupie kontenerów za bramą aplikacji.
+Teraz można testować dostęp do aplikacji sieci Web uruchomionej w grupie kontenerów za bramą aplikacji.
 
-Uruchom polecenie [az network public-ip show,][az-network-public-ip-show] aby pobrać publiczny adres IP portalu frontonijowego:
+Uruchom polecenie [AZ Network Public-IP show][az-network-public-ip-show] , aby pobrać publiczny adres IP frontonu bramy:
 
 ```azurecli
 az network public-ip show \
@@ -136,17 +136,17 @@ az network public-ip show \
 --output tsv
 ```
 
-Dane wyjściowe to publiczny adres `52.142.18.133`IP, podobny do: .
+Wyjście jest publicznym adresem IP, podobnym do: `52.142.18.133`.
 
-Aby wyświetlić uruchomiającą aplikację sieci web po pomyślnym skonfigurowaniu, przejdź do publicznego adresu IP bramy w przeglądarce. Pomyślny dostęp jest podobny do:
+Aby wyświetlić uruchomioną aplikację sieci Web po pomyślnym skonfigurowaniu, przejdź do publicznego adresu IP bramy w przeglądarce. Udany dostęp jest podobny do:
 
 ![Zrzut ekranu przedstawiający aplikację uruchomioną w wystąpieniu kontenera platformy Azure](./media/container-instances-application-gateway/aci-app-app-gateway.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zobacz [szablon szybkiego startu,](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet) aby utworzyć grupę kontenerów z wystąpieniem kontenera WordPress jako serwer zaplecza za bramą aplikacji.
-* Można również skonfigurować bramę aplikacji z certyfikatem zakończenia SSL. Zobacz [przegląd](../application-gateway/ssl-overview.md) i [samouczek](../application-gateway/create-ssl-portal.md).
-* W zależności od scenariusza należy rozważyć użycie innych rozwiązań równoważenia obciążenia platformy Azure z wystąpieniami kontenera platformy Azure. Na przykład użyj [usługi Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) do dystrybucji ruchu w wielu wystąpieniach kontenera i w wielu regionach. Zobacz ten [wpis w blogu](https://aaronmsft.com/posts/azure-container-instances/).
+* Zobacz [szablon szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet) , aby utworzyć grupę kontenerów z wystąpieniem kontenera WordPress jako serwer zaplecza za bramą aplikacji.
+* Możesz również skonfigurować bramę aplikacji z certyfikatem do zakończenia protokołu SSL. Zobacz [Omówienie](../application-gateway/ssl-overview.md) i [samouczek](../application-gateway/create-ssl-portal.md).
+* W zależności od scenariusza Rozważ użycie innych rozwiązań równoważenia obciążenia platformy Azure z Azure Container Instances. Na przykład użyj [usługi Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) do dystrybucji ruchu między wieloma wystąpieniami kontenerów i w wielu regionach. Zapoznaj się z tym [wpisem w blogu](https://aaronmsft.com/posts/azure-container-instances/).
 
 [az-network-vnet-create]:  /cli/azure/network/vnet#az-network-vnet-create
 [az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-create

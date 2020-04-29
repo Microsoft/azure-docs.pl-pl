@@ -1,7 +1,7 @@
 ---
-title: Zestawy fonetyczne mowy - usługa mowy
+title: Zestawy fonetyczne mowy — usługa mowy
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak za pomocą usługi mowy alfabetu fonetycznego mapuje się na międzynarodowy alfabet fonetyczny (IPA) i kiedy używać tego zestawu.
+description: Dowiedz się, w jaki sposób alfabetyczne alfabety fonetyczne są mapowane na Międzynarodowy alfabet fonetyczny (IPA) i kiedy należy używać tego zestawu.
 services: cognitive-services
 author: zhaoyunED
 manager: junwg
@@ -11,394 +11,394 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: jiajzhan
 ms.openlocfilehash: 770e97ad126f66efb43bf8cf7eb12f7510858192
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78675341"
 ---
 # <a name="speech-service-phonetic-sets"></a>Zestawy fonetyczne usługi mowy
 
-Usługa Mowy definiuje alfabety fonetyczne (w skrócie"zestawy telefonów"), składające się z siedmiu języków; `en-US`, `fr-FR` `de-DE`, `es-ES` `ja-JP`, `zh-CN`, `zh-TW`, i . Zestawy telefonów usługi mowy są zazwyczaj mapowane na <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Międzynarodowy Alfabet <span class="docon docon-navigate-external x-hidden-focus"> </span>Fonetyczny (IPA). </a> Zestawy telefonów usługi mowy są używane w połączeniu z [językiem znaczników syntezy mowy (SSML)](speech-synthesis-markup.md)jako część oferty usługi zamiany tekstu na mowę. W tym artykule dowiesz się, jak te zestawy telefonów są mapowane i kiedy używać zestawu telefonów.
+Usługa mowy definiuje alfabety fonetyczne ("zestawy telefonów" jako krótkie), składające się z siedmiu języków: `en-US`, `fr-FR` `es-ES`, `de-DE` `zh-CN`,,, i `zh-TW`. `ja-JP` Zestawy telefonów usługi Speech Service są zwykle mapowane na <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Międzynarodowy alfabet fonetyczny (IPA <span class="docon docon-navigate-external x-hidden-focus"> </span>) </a>. Zestawy telefonów usługi Speech Service są używane w połączeniu z [językiem SSML (Speech syntezing Language)](speech-synthesis-markup.md)w ramach oferty usługi zamiany tekstu na mowę. W tym artykule dowiesz się, jak te zestawy telefonów są mapowane i kiedy używać zestawu telefonów.
 
-# <a name="en-us"></a>[pl-Usa](#tab/en-US)
+# <a name="en-us"></a>[pl-US](#tab/en-US)
 
-### <a name="english-suprasegmentals"></a>angielski suprasegmentals
+### <a name="english-suprasegmentals"></a>Suprasegmentals angielski
 
-| Przykład 1 (Początek spółgłoski, początkowe słowo dla samogłoski) | Przykład 2 (Intervocalic dla spółgłoski, słowo jądro przyśrodkowe dla samogłoski) | Przykład 3 (Coda dla spółgłoski, słowo końcowe dla samogłoski) | Komentarze |
+| Przykład 1 (wystąpienie początku dla z spółgłoską, Inicjał słowa dla samogłosek) | Przykład 2 (intervocalic dla zgodne, jądro programu Word Medial dla samogłosek) | Przykład 3 (Coda dla spółgłoski, wyraz końcowy dla samogłosek) | Komentarze |
 |--|--|--|--|
-| burger /b er **1** r - g ax r/ | falafel /f ax - l aa **1** - f ax l/ | gitara /g ih - t aa **1** r/ | Zestaw telefonów do obsługi mowy położył nacisk po samogłosce zestresowanej sylaby |
-| inopportune /ih **2** - n aa - p ax r - t uw 1 n/ | niepodobne /d ih - s ih **2**- m ax - l eh 1 - r ax - t iy/ | pracownicy /w er 1 r k - f ao **2** r s/ | Zestaw telefonów do obsługi mowy położył nacisk po samogłosce sylaby podstresowej |
+| Burger/b er **1** r-g AX r/ | Falafel/f AX-l AA **1** -f AX l/ | gitarze/g IH-t AA **1** r/ | Zestaw telefonów usługi Speech Service jest obciążeniowy po wygłosach nałożonej sylaby |
+| inopportune/IH **2** -n AA-p AX r-t UW 1 n/ | niepodobieństwo/d IH-s IH **2**-m AX-l EH 1-r AX-t m/ | pracownicy/w er 1 r k-f Ao **2** r s/ | Zestaw telefonów usługi Speech Service nałożył nacisk po samogłosowym sylabie. |
 
-### <a name="english-vowels"></a>Samogłoski w języku angielskim
+### <a name="english-vowels"></a>Angielskie głoski
 
 | `sapi` | `ipa` | Przykład 1     | Przykład 2 | Przykład 3                   |
 |--------|-------|---------------|-----------|-----------------------------|
-| Iy     | `i`   | **ea**t       | f**ee**l  | vall**ey**                  |
-| Ih     | `ɪ`   | **i**f        | f**i**ll  |                             |
-| Ey     | `eɪ`  | **a**te       | g**a**te  | d**ay**                     |
-| Eh     | `ɛ`   | **e**bardzo     | p**e**t   | m**eh** (rzadkie słowo w końcu) |
-| Ae     | `æ`   | **a**ctive    | c**a**t   | n**ah** (rzadkie słowo w końcu) |
-| aa     | `ɑ`   | **o**bstinate | p**o**ppy | r**ah** (rzadkie słowo wreszcie) |
-| ao     | `ɔ`   | **o**zasięg    | c**au**se | Ut**ah**                    |
-| Uh     | `ʊ`   | b**oo**k      |           |                             |
-| Ow     | `oʊ`  | **o**ld       | cl**o ne** | g**o**                      |
-| Uw     | `u`   | U ber **(u**ber)      | b**oo**st | t**oo**                     |
-| Ah     | `ʌ`   | **u**ncle     | c**u**t   |                             |
-| Ay     | `aɪ`  | **i**ce       | b**i**te  | fl**y**                     |
-| Awh     | `aʊ`  | **ou**t       | s**ou**th | c**ow**                     |
-| Oy     | `ɔɪ`  | **oi**l       | j**oi**n  | t**oy**                     |
-| y uw   | `ju`  | Yu ma **(yu)**      | h**u**człowiek | f**ew**                     |
-| Ax     | `ə`   | **a**go       | wom**a**n | są**a**                    |
+| m     | `i`   | **EA**t       | f**EE**l  | Vall**EY**                  |
+| ih     | `ɪ`   | **i**f        | wszystkie**i**  |                             |
+| ey     | `eɪ`  | **te**       | g**a**  | d**AY**                     |
+| EH     | `ɛ`   | **e**bardzo     | p**e**   | m**EH** (rzadki wyraz na końcu) |
+| AE     | `æ`   | **ktywny**    | c**a**t   | n**Ah** (rzadki wyraz na końcu) |
+| aa     | `ɑ`   | **o**bstinate | p**o**ppy | r**Ah** (rzadki wyraz na końcu) |
+| ao     | `ɔ`   | **o**zakres    | c —**au**SE | UT —**Ah**                    |
+| zapomniano     | `ʊ`   | b**oo**k      |           |                             |
+| Okaż     | `oʊ`  | **o**LD       | CL**o**ne | g**o**                      |
+| UW     | `u`   | **U**      | b**oo**St | **oo** t                     |
+| Protokół     | `ʌ`   | **u**ncle     | c**u**t   |                             |
+| ay     | `aɪ`  | **i**CE       | b**i**  | FL**y**                     |
+| AW     | `aʊ`  | **jednostka organizacyjna**t       | s**OU**th | c**ow**                     |
+| Oy-     | `ɔɪ`  | **Oi**l       | j**Oi**n  | **Oy-** t                     |
+| UW y   | `ju`  | **Yu**ma      | p**u**Man | f**Wa**                     |
+| oś     | `ə`   | **a**go       | WOM**n** | to**a**                    |
 
-### <a name="english-r-colored-vowels"></a>Samogłoski w kolorze R w języku angielskim
+### <a name="english-r-colored-vowels"></a>Angielskie i kolorowe odgłoski języka R
 
 | `sapi` | `ipa` | Przykład 1    | Przykład 2      | Przykład 3  |
 |--------|-------|--------------|----------------|------------|
-| ih r   | `ɪɹ`  | **ucho**s     | t**ir**amisu   | n**ucho**   |
-| eh r   | `ɛɹ`  | samolot **powietrzny** | aplikacja**ar**ently | sc**ar**e  |
-| uh r   | `ʊɹ`  |              |                | c**twój**e   |
-| ay r   | `aɪɹ` | **Ire**ziemia  | f**ir**eplace  | ch**oir**  |
-| aw r   | `aʊɹ` | **godz.**    | p**ower**ful   | s**nasze**   |
-| ao r   | `ɔɹ`  | **lub**ange   | m**lub**al.      | s**wiosła**   |
-| aa r   | `ɑɹ`  | **ar**tist   | st**ar**t      | c**ar**    |
-| er r   | `ɝ`   | **ucho**th    | b**ir**d       | f**twój**    |
-| ax r   | `ɚ`   |              | wszystko**er**gy    | **kolacja** |
+| IH r   | `ɪɹ`  | **Przeczyść**s     | t amisu**IR**   | n-**kolczyk**   |
+| EH r   | `ɛɹ`  | Płaszczyzna **powietrzna** | ently**aplikacji** | SC**AR**e  |
+| zapomniano r   | `ʊɹ`  |              |                | c**ur**   |
+| ay r   | `aɪɹ` | **Wygasnąć**ziemi  | stąp f**IR**  | ch**OIR**  |
+| AW r   | `aʊɹ` | **godz**. s    | p**ższa**pełna   | s**nasze**   |
+| Ao r   | `ɔɹ`  | **lub**akresu   | m**lub**Al      | **OAR** s   |
+| AA r   | `ɑɹ`  | **AR**TIST   | St**AR**t      | c**AR**    |
+| er r   | `ɝ`   | **odgięty**    | b**IR**d       | f**ur**    |
+| AX r   | `ɚ`   |              | wszystkie Gy**er**    | SUPP**er** |
 
-### <a name="english-semivowels"></a>angielski Semivowels
+### <a name="english-semivowels"></a>Semivowels angielski
 
 | `sapi` | `ipa` | Przykład 1           | Przykład 2  | Przykład 3 |
 |--------|-------|---------------------|------------|-----------|
-| w      | `w`   | **w**ith, s**ue**de | al**w**ays |           |
-| t      | `j`   | **y**ard, f**e**w   | na**i**na  |           |
+| w      | `w`   | **w**itd **. de** | Al**w**AYS |           |
+| t      | `j`   | **t**ARD, f**e**w   | włączone**i**  |           |
 
-### <a name="english-aspirated-oral-stops"></a>Angielski wolnossący ustny zatrzymuje
+### <a name="english-aspirated-oral-stops"></a>Przejścia w Stanach doustnych w języku angielskim
 
 | `sapi` | `ipa` | Przykład 1 | Przykład 2   | Przykład 3  |
 |--------|-------|-----------|-------------|------------|
-| p      | `p`   | **p**ut   | ha**pp**en  | fla**p**   |
-| b      | `b`   | **b**ig   | num**b**er  | cra**b**   |
-| t      | `t`   | **t**alk  | capi**t**al | sough**t** |
-| d      | `d`   | **d**ig   | prowadził**d**om  | ro**d**    |
-| k      | `k`   | **c**ut   | sla**ck**er | Ira**q**   |
-| g      | `g`   | **g**o    | a**g**o     | dra**g**   |
+| p      | `p`   | **p**UT   | ha**PP**pl  | FLA**p**   |
+| b      | `b`   | **b**IG   | NUM**b**er  | CRA**b**   |
+| t      | `t`   | ALK **t**  | Interfejs CAPI**t**Al | sough**t** |
+| d      | `d`   | **d**IG   | uruchomiono obiekt OM**d**  | ro**d**    |
+| k      | `k`   | **c**UT   | **soczewka**z umowy SLA | IRA**q**   |
+| g      | `g`   | **g**o    | **g**o     | Agent dra**g**   |
 
-### <a name="english-nasal-stops"></a>Angielski Nosowe przystanki
+### <a name="english-nasal-stops"></a>Nasal w języku angielskim
 
 | `sapi` | `ipa` | Przykład 1        | Przykład 2  | Przykład 3   |
 |--------|-------|------------------|------------|-------------|
-| m      | `m`   | **m**w, rozbić   | ca**m**era | roo**m**    |
-| n      | `n`   | **n**o, s**n**ow | te**n**t   | chicke**n** |
-| Ng     | `ŋ`   |                  | li**n**k   | **s ing**    |
+| m      | `m`   | **m**o, Smash   | Urząd**certyfikacji**— era | Roo**m**    |
+| n      | `n`   | **n**o, s**n** | te**n**t   | pisklęta**n** |
+| gazu     | `ŋ`   |                  | li**n**k   | s**ing**    |
 
-### <a name="english-fricatives"></a>Angielski fricatives
+### <a name="english-fricatives"></a>Fricatives angielski
 
 | `sapi` | `ipa` | Przykład 1   | Przykład 2        | Przykład 3  |
 |--------|-------|-------------|------------------|------------|
-| k      | `f`   | **f**ork    | le**f**t         | hal**f**   |
-| v      | `v`   | **v**alue   | e**v**ent        | lo**v**e   |
-| Th     | `θ`   | **w 2015 roku**    | empa**th**y      | mon**th**  |
-| Dh     | `ð`   | **th**pl    | mo**th**er       | smoo**th** |
-| s      | `s`   | **s**to     | ri**s**k         | fakt**s**  |
-| z      | `z`   | **z**ap     | bu**s**y         | dziecko**s**   |
-| Sh     | `ʃ`   | **sh** e    | abbrevia**ti**na | ru**sh**   |
-| Zh     | `ʒ`   | **J**acques (właśc. | zarzut**s**ure     | gara**g**e |
-| h      | `h`   | **h**elp    | pl**ance**      | a-**h**a!  |
+| k      | `f`   | eć **f**    | Le**f**t         | HAL**f**   |
+| v      | `v`   | **v**RG   | e **.**        | Lo ***** e   |
+| th     | `θ`   | **th**w    | EMPA**th**y      | Mon**th**  |
+| DH     | `ð`   | **th**    | mo**th**       | smoo**th** |
+| s      | `s`   | **s**     | RI**s**         | fakt**s**  |
+| z      | `z`   | **z**AP     | komp**s**y         | dziecko**s**   |
+| pok     | `ʃ`   | **SH** e    | abbrevia**TI** | ru**SH**   |
+| zh     | `ʒ`   | Acques **J** | & Poświęć chwilę**s**uruj     | Gara**g**e |
+| h      | `h`   | ELP **h**    | pl**h**ANCE      | a –**h**a!  |
 
-### <a name="english-affricates"></a>Angielskie affricates
+### <a name="english-affricates"></a>Affricates angielski
 
 | `sapi` | `ipa` | Przykład 1 | Przykład 2    | Przykład 3  |
 |--------|-------|-----------|--------------|------------|
-| ch     | `tʃ`  | **w ch**  | fu**t**ure   | atta**ch** |
-| Jh     | `dʒ`  | **j**oy   | ori**g**inal | oran**g**e |
+| ch     | `tʃ`  | **ch**w  | Fu**t**uruj   | Atta**ch** |
+| jh     | `dʒ`  | Oy- **j**   | ORI**g**Inal | Oran**g**e |
 
-### <a name="english-approximants"></a>Angielskie przybliżenia
+### <a name="english-approximants"></a>Approximants angielski
 
 | `sapi` | `ipa` | Przykład 1          | Przykład 2  | Przykład 3 |
 |--------|-------|--------------------|------------|-----------|
-| l      | `l`   | **l**id, g**l**ad  | pa**l**ace | chi**ll** |
-| r      | `ɹ`   | **r**ed, b**r**ing | bo**rr**ow | ta**r**   |
+| l      | `l`   | Identyfikator **l****, g g AD**  | wpis PA**l** | Chi**ll** |
+| r      | `ɹ`   | **r**Ed, b**r**owanie | w najdalszej postaci**rekordu zasobu** | Ta**r**   |
 
-# <a name="fr-fr"></a>[fr-FR](#tab/fr-FR)
+# <a name="fr-fr"></a>[fr — FR](#tab/fr-FR)
 
-### <a name="french-suprasegmentals"></a>Francuskie suprasegmentals
+### <a name="french-suprasegmentals"></a>Suprasegmentals francuski
 
-Zestaw telefonów usługi mowy kładzie jednak nacisk na samogłoskę zestresowanej sylaby; Zestaw `fr-FR` telefonów usługi mowy nie obsługuje podszepu IPA "". Jeśli podtwartę IPA jest potrzebna, należy użyć IPA bezpośrednio.
+Zestaw telefonu usługi mowy umożliwia nanaciskanie po samogłosach z naciskiem na sylabę; zestaw `fr-FR` telefonów usługi Speech Service nie obsługuje IPA "ˌ". Jeśli konieczne jest podIPAa, należy użyć IPA bezpośrednio.
 
-### <a name="french-vowels"></a>Samogłoski francuskie
+### <a name="french-vowels"></a>Głoski francuskie
 
 | `sapi` | `ipa` | Przykład 1     | Przykład 2       | Przykład 3 |
 |--------|-------|---------------|-----------------|-----------|
-| a      | `a`   | **rbre**     | p**a**tte       | ir**a**   |
+| a      | `a`   | **rbre**     | p**a**TTE       | IR**a**   |
 | aa     | `ɑ`   |               | p**â**te        | p**a**s   |
-| aa ~   | `ɑ̃`  | **pl**kłyk    | enf**en**t      | t**em**ps |
-| Ax     | `ə`   |               | p**e**tite      | l**e**    |
-| Eh     | `ɛ`   | **e**lle      | p**e**rdu       | ét**ai**t |
-| Ue     | `ø`   | **œu**fs      | cr**eu**ser     | qu**eu**  |
-| Ey     | `e`   | ému ( ému )           | crétin ( crétin )          | ôté (własówce)       |
-| eh ~   | `ɛ̃`  | **im**portant | p**ein**ture    | mata**w** |
-| Iy     | `i`   | **dée**      | zwierzę**i**te      | jestem**i**   |
-| Oe     | `œ`   | **œu**f       | p**eu**r        |           |
-| Oh     | `ɔ`   | **o**bstacle  | c**o**rps       |           |
-| oh ~   | `ɔ̃`  | **na**ze      | r**na**deur     | b**na**   |
-| Ow     | `o`   | **au**diteur  | b**eau**zamach stanu    | p**ô**    |
-| oe ~   | `œ̃ ` | **Onz**        | l**un**di       | br**un**  |
-| Uw     | `u`   | **ou**trage   | intr**ou**vable | **Ou**    |
-| Uy     | `y`   | **u**ne       | p**u**nir       | él**u**   |
+| AA ~   | `ɑ̃`  | **pl**fant    | ENF**EN**t      | t**em**PS |
+| oś     | `ə`   |               | p**e**Tite      | l**e**    |
+| EH     | `ɛ`   | lle **e**      | p**e**RDU       | ét**AI**t |
+| Europejska     | `ø`   | **œu**FS      | CR — ser**UE**     | Qu**UE**  |
+| ey     | `e`   | ému           | crétin          | ôté       |
+| EH ~   | `ɛ̃`  | Port **wiadomości błyskawicznych** | p**Ein**hwyć    | mat**in** |
+| m     | `i`   | **Dée**      | PET**i**      | am**i**   |
+| Outlook     | `œ`   | **œu**f       | p**UE**r        |           |
+| Niestety     | `ɔ`   | **o**bstacle  | c**o**RPS pliku       |           |
+| Niestety   | `ɔ̃`  | **na**rozmiar      | r**na**deur     | b**na**   |
+| Okaż     | `o`   | diteur **au**  | b**Eau**    | p**ô**    |
+| OE ~   | `œ̃ ` | **odinstalować**        | l**un**di       | **Wyrejestrowanie** br  |
+| UW     | `u`   | **jednostka organizacyjna**trage   | Intr**OU**Vable | **jednostki organizacyjnej**    |
+| uy     | `y`   | **u**ne       | p**u**imię Nir       | él**u**   |
 
-### <a name="french-consonants"></a>Spółgłoski francuskie
+### <a name="french-consonants"></a>Zgodne z francuskimi
 
 | `sapi` | `ipa` | Przykład 1   | Przykład 2     | Przykład 3                        |
 |--------|-------|-------------|---------------|----------------------------------|
-| b      | `b`   | **b**ête    | ha**b**ille   | ro**b**e                         |
-| d      | `d`   | **d**ire    | ron**d**eur   | chau**d**e                       |
-| k      | `f`   | **f**emme   | su**ff**ixe   | bo**f**                          |
-| g      | `g`   | **g**auche  | é**g**ale     | ba**gu**e                        |
-| Ng     | `ŋ`   |             |               | [<sup>1</sup>](#fr-1)**parkowanie** |
-| Hy     | `ɥ`   | h**u**ile   | n**u**ire     |                                  |
-| k      | `k`   | **c**arte   | é**c**aille   | być**c**                          |
-| l      | `l`   | **l**ong    | é**l**ire     | ba**l**                          |
-| m      | `m`   | **m**adame  | ai**m**er     | po**mm**e                        |
-| n      | `n`   | **n**ous    | te**n**ir     | bo**nn**e                        |
-| Nj     | `ɲ`   |             |               | pei**gn**e                       |
-| p      | `p`   | **p**atte   | re**p**as     | ca**p**                          |
-| r      | `ʁ`   | **r**w     | cha**r**iot   | senti**r**                       |
-| s      | `s`   | **s**ourir  | **a ss**ez     | pa**ss**e                        |
-| Sh     | `ʃ`   | **ch**anter | ma**ch**ine   | po**ch**e                        |
-| t      | `t`   | **t**ête    | ô**t**er      | ne**t**                          |
-| v      | `v`   | **v**ent    | w**v**enter  | rê**przeciwko**e                         |
-| w      | `w`   | **ou**i     | f**ou**ine    |                                  |
-| t      | `j`   | **y**od     | p**i**étiner  | Marsylia**ille**                    |
-| z      | `z`   | **z **éro   | rai**s**onner | ro**s**e                         |
-| Zh     | `ʒ`   | **j**ardin  | człowiek**g**er    | piè**g**e                        |
-|        | `n‿`  |             |               | u**n** arbre                     |
-|        | `t‿`  |             |               | kwas**d**                        |
+| b      | `b`   | **b**ête    | ha**b**Ille   | ro**b**e                         |
+| d      | `d`   | **d**wygasnąć    | Piotr**d**EUR   | Chau**d**e                       |
+| k      | `f`   | Emme **f**   | Su**FF**IXE   | bo**f**                          |
+| g      | `g`   | **g**auche  | é**g**ale     | BA**gu**e                        |
+| gazu     | `ŋ`   |             |               | [<sup>1</sup>](#fr-1)**parkowanie** |
+| hy     | `ɥ`   | h**u**Iku   | n**u**wygasnąć     |                                  |
+| k      | `k`   | Arte języka **c**   | é**c**Aille   | być**c**                          |
+| l      | `l`   | Ong **l**    | é**l**wygasnąć     | BA**l**                          |
+| m      | `m`   | **m**Adam  | AI**m**er     | ZZ**mm**e                        |
+| n      | `n`   | **n**jednostek organizacyjnych    | te**n**IR     | Niemniej**NN**e                        |
+| nj     | `ɲ`   |             |               | Pei**GN**e                       |
+| p      | `p`   | **p**Atte   | Odtwórz**jako**     | Urząd certyfikacji**p**                          |
+| r      | `ʁ`   | **r**na     | Zmień**r**IoT   | Senti**r**                       |
+| s      | `s`   | Ourir **s**  | z**SS**EZ     | PA**SS**e                        |
+| pok     | `ʃ`   | **ch**ante | ma**iersz**   | ZZ**ch**e                        |
+| t      | `t`   | ête **t**    | ô**t**      | ne**t**                          |
+| v      | `v`   | **wersja**    | w programie**v**ENTER  | rê**v**e                         |
+| w      | `w`   | **jednostka organizacyjna**i     | iersz k**OU**    |                                  |
+| t      | `j`   | **y**od     | p**i**étiner  | Mars**Ille**                    |
+| z      | `z`   | * * z * * éro   | Rai**s**onner | ro**s**e                         |
+| zh     | `ʒ`   | Ardin **j**  | Man**g**er    | piè**g**e                        |
+|        | `n‿`  |             |               | u**n** Arbre                     |
+|        | `t‿`  |             |               | Quan**d**                        |
 |        | `z‿`  |             |               | di**x**                          |
 
 <a id="fr-1"></a>
-**1** *Tylko dla niektórych obcych słów.*
+**1** *tylko dla niektórych wyrazów obcych.*
 
 > [!TIP]
-> Zestaw `fr-FR` telefonów usługi mowy nie obsługuje następujących francuskich `n‿` `t‿`liasions, , i `z‿`. Jeśli są one potrzebne, należy rozważyć użycie IPA bezpośrednio.
+> Zestaw `fr-FR` telefonów usługi Speech Service nie obsługuje następujących francuskich liasions, `n‿`, `t‿`i `z‿`. Jeśli są potrzebne, należy rozważyć użycie IPA bezpośrednio.
 
 # <a name="de-de"></a>[de-DE](#tab/de-DE)
 
-### <a name="german-suprasegmentals"></a>Niemieckie suprasegmentals
+### <a name="german-suprasegmentals"></a>Suprasegmentals niemiecki
 
-| Przykład 1 (Początek spółgłoski, początkowe słowo dla samogłoski) | Przykład 2 (Intervocalic dla spółgłoski, słowo jądro przyśrodkowe dla samogłoski) | Przykład 3 (Coda dla spółgłoski, słowo końcowe dla samogłoski) | Komentarze |
+| Przykład 1 (wystąpienie początku dla z spółgłoską, Inicjał słowa dla samogłosek) | Przykład 2 (intervocalic dla zgodne, jądro programu Word Medial dla samogłosek) | Przykład 3 (Coda dla spółgłoski, wyraz końcowy dla samogłosek) | Komentarze |
 |--|--|--|--|
-| anders /a **1** n - d ax r s/ | Multiplikationszeichen /m uh l - t iy - p l iy - k a - ts y ow **1** n s - ts ay - c n/ | Biologie /b iy - ow - l ow - g iy **1**/ | Zestaw telefonów do obsługi mowy położył nacisk po samogłosce zestresowanej sylaby |
-| Allgemeinwissen /a **2** l - g ax - m ay 1 n - v ih - s n/ | Abfallentsorgungsfirma /a 1 p - f a l - ^ eh n t - z oh **2** ax r - g uh ng s - f ih ax r - m a/ | Computertomographie /k oh m - p y uw 1 - t ax r - t ow - m ow - g r a - f iy **2**/ | Zestaw telefonów do obsługi mowy położył nacisk po samogłosce sylaby podstresowej |
+| Anders/a **1** n-d AX r s/ | Multiplikationszeichen/m zapomniano l-t m-p l m-k a-TS y co **1** n s-TS AY-c n/ | Biologiej/b m-do-l m **1**/ | Zestaw telefonów usługi Speech Service jest obciążeniowy po wygłosach nałożonej sylaby |
+| Allgemeinwissen/a **2** l-g AX-m AY 1 n-v IH-s n/ | Abfallentsorgungsfirma/a 1 p-f a l-^ EH n t-z. **2** AX r-g zapomniano ng s-f IH AX r-m a/ | Computertomographie/kLy m-p y UW 1-t AX r-t min-m-g r a-f m **2**/ | Zestaw telefonów usługi Speech Service nałożył nacisk po samogłosowym sylabie. |
 
-### <a name="german-vowels"></a>Samogłoski niemieckie
+### <a name="german-vowels"></a>Niemieckie samogłoski
 
 | `sapi` | `ipa`     | Przykład 1                             | Przykład 2     | Przykład 3                          |
 |--------|-----------|---------------------------------------|---------------|------------------------------------|
-| A:     | `aː`      | A ber **(ber)**                              | Maßst**a**b   | Schem**a**                         |
-| a      | `a`       | A bfall **(A**bfall)                            | B**a**ch      | Agath**a**                         |
-| Oh     | `ɔ`       | **O**sten                             | Pf**o**sten   |                                    |
-| Eh:    | `ɛː`      | **Ä**hnlichkeit                       | B**ä**r       | [<sup>1.</sup>](#de-v-1) Fasci**ae** |
-| Eh     | `ɛ`       | **ä**ndern                            | Proz**e**nt   | Ciało**migdałowate ae**                      |
-| Ax     | `ə`       | [<sup>2</sup>](#de-v-2)'v**e**rstauen | Aach**e**n    | Frag**e (frag e)**                          |
-| Iy     | `iː`      | **Pobiegłem**                              | abb**ie**gt   | Relativitätstheor**czyli**            |
-| Ih     | `ɪ`       | **I**nnung                            | s**i**ngen    | Drewno**y**                          |
-| Ue     | `øː`      | **Ö sen (ö**sen)                              | abl**ö**sten  | Malm**ö (Malm)**                          |
-| Ow     | `o`, `oː` | **o**hne                              | Balk**o**n    | Trept**ow (trept ow)**                        |
-| Oe     | `œ`       | **Ö**Ffnung ( ffnung )                           | bef**ö**rdern |                                    |
-| Ey     | `e`, `eː` | E berhard **(E**berhard)                          | abf**e**gt    | b                                  |
-| Uw     | `uː`      | **U**nie                               | H**u**t       | Akk**u**                           |
-| Uh     | `ʊ`       | **U**nterschiedes                     | b**u**nt      |                                    |
-| ue (ue)     | `yː`      | **Ü**bermut                           | pfl**ü**gt    | Mężczyźni**ü**                           |
-| Uy     | `ʏ`       | **ü**ppig                             | S**y**łodyga    |                                    |
+| z     | `aː`      | **A**                              | Maßst**a**b   | Schem**a**                         |
+| a      | `a`       | **Bfall**                            | B**a**ch      | Agath**a**                         |
+| Niestety     | `ɔ`       | **O**Sten                             | PF**o**Sten   |                                    |
+| EH    | `ɛː`      | **Ä**hnlichkeit                       | B**ä**r       | [<sup>1</sup>](#de-v-1) FASCI**AE** |
+| EH     | `ɛ`       | **ä**ndern                            | ProZ**e**NT   | Amygdal**AE**                      |
+| oś     | `ə`       | [<sup>2</sup>](#de-v-2)"v**e**rstauen | Aach**e**n    | Frag**e**                          |
+| m     | `iː`      | **Uruchomiono**                              | ABB**IE**gt   | Relativitätstheor**IE**            |
+| ih     | `ɪ`       | **Nnung**                            | s**i**Ngen    | Drewno**y**                          |
+| Europejska     | `øː`      | **Ö**dawcy                              | ABL**ö**Sten  | MALM**ö**                          |
+| Okaż     | `o`, `oː` | **o**HNE                              | Balk**o**n    | Trept**ow**                        |
+| Outlook     | `œ`       | **Ö**ffnung                           | BEF**ö**rdern |                                    |
+| ey     | `e`, `eː` | Berhard **E**                          | ABF**e**gt    | b                                  |
+| UW     | `uː`      | **U**Zrób                               | H**u**t       | AKK**u**                           |
+| zapomniano     | `ʊ`       | **U**nterschiedes                     | b**u**NT      |                                    |
+| oznaczony     | `yː`      | **Ü**bermut                           | PFL**ü**gt    | **Ü** mężczyzn                           |
+| uy     | `ʏ`       | **ü**ppig                             | S**y**trzon    |                                    |
 
 <a id="de-v-1"></a>
-**1** *Tylko w słowach obcego pochodzenia, takich jak: Fasci**ae**.*<br>
+**1** *tylko w przypadku wyrazów obcych pochodzenia, takich jak: FASCI**AE**.*<br>
 <a id="de-v-2"></a>
-**2** *Słowo intially tylko w słowach obcego pochodzenia, takich jak **ppointment.** Sylaba-początkowo w: 'v**e**rstauen.*
+**2** *Word-intially tylko w **przypadku**wyrazów obcych pochodzenia, takich jak ppointment. Sylaba — początkowo w: "v**e**rstauen.*
 
-### <a name="german-diphthong"></a>Niemiecki diphthong
+### <a name="german-diphthong"></a>Diphthong niemiecki
 
 | `sapi` | `ipa`       | Przykład 1    | Przykład 2          | Przykład 3 |
 |--------|-------------|--------------|--------------------|-----------|
-| Ay     | `ai`        | **ei**nsam   | Unabhängigk**ei**t | Abt**ei (abt ei)** |
-| Awh     | `au`        | **au**ßen    | abb**au**st        | Św**au**  |
-| Oy     | `ɔy`, `ɔʏ̯` | **Eu**phorie | tr**äu**mt         | sch**eu** |
+| ay     | `ai`        | **EI**nsam   | Unabhängigk**EI**t | ABT**EI** |
+| AW     | `au`        | ßen **au**    | ABB**au**St        | Krótkoterminowe**aktualizacje**  |
+| Oy-     | `ɔy`, `ɔʏ̯` | Phorie **UE** | TR**äu**Mt         | SCH**UE** |
 
-### <a name="german-semivowels"></a>Niemieckie semivowels
+### <a name="german-semivowels"></a>Semivowels niemiecki
 
 | `sapi` | `ipa` | Przykład 1 | Przykład 2    | Przykład 3  |
 |--------|-------|-----------|--------------|------------|
-| ax r   | `ɐ`   |           | abänd**er**n | **blokada** |
+| AX r   | `ɐ`   |           | abänd**er**n | Zablokuj**er** |
 
-### <a name="german-consonants"></a>Spółgłoski niemieckie
+### <a name="german-consonants"></a>Zgodne z niemieckimi
 
 | `sapi` | `ipa` | Przykład 1 | Przykład 2 | Przykład 3 |
 |--|--|--|--|--|
-| b | `b` | **B**ank |  | [<sup>1.</sup>](#de-c-1) Pu**b** |  |
-| c | `ç` | Ch emie **(ch**emie) | mögli**ch**st | [<sup>2</sup>](#de-c-2)i**ch** |
+| b | `b` | **B**Ank |  | [<sup>1</sup>](#de-c-1) PU**b** |  |
+| c | `ç` | **Ch**emie | mögli**ch**St | [<sup>2</sup>](#de-c-2)i**ch** |
 | d | `d` | **d**anken | [<sup>3</sup>](#de-c-3) Len**d**l | [<sup>4</sup>](#de-c-4) Clau**d**e |  |
-| Jh | `ʤ` | **J**eff | gemana**g**t | [<sup>5</sup>](#de-c-5) Chan**g**e |
-| k | `f` | **F**ahrtdauer | angri**ff**slustig | abbruchrei**f** |  |
-| g | `g` | **g**ut |  | [<sup>6</sup>](#de-c-6) Gre**g** |  |
-| h | `h` | **H**ausanbau |  |  |  |
-| t | `j` | **J**od | Reakt**i**na | hu**i** |  |
-| k | `k` | **K**oma | Aspe**k**t | Flec**k** |  |
-| l | `l` | **l**au | ähne**l**n | zuvie**l** |  |
-| m | `m` | **M**ut | A**m**t | Leh**m** |  |
-| n | `n` | **n**un | u**n**d | Huh**n** |  |
-| Ng | `ŋ` | [<sup>7</sup>](#de-c-7)**Ng**uyen | Schwa**nk (Schwa nk)** | R**ing (właso)** |  |
-| p | `p` | **P**artner | abru**p**t | Ti**p** |  |
-| Pf | `pf` | **z**o.o. | tama**pf**t | Do**pf** |  |
-| r | `ʀ`, `r`, `ʁ` | R eise **(r**eise) | knu**rr**t | Haa r ( Haa**r )** |  |
-| s | `s` | [<sup>8</sup>](#de-c-8)**S**taccato | bi**s**t | mie**s** |  |
-| Sh | `ʃ` | Sch ule **(Sch**ule) | mi**sch**t | lappi**sch** |  |
-| t | `t` | T raum **(t**raum) | S**t**raße | Mu**t** |  |
-| Ts | `ts` | **Z**ug | Ar**z**t | Dowcip**z** |  |
-| ch | `tʃ` | Tsch echien **(Tsch**echien) | aufgepu**tsch**t | bundesdeu**tsch** |  |
-| v | `v` | **w**inken | Q**u**alle | [<sup>9</sup>](#de-c-9) Gr**oo**ve |  |
-| x | [<sup>10</sup>](#de-c-10)`x`,[<sup>11</sup>](#de-c-11)`ç` | [<sup>12</sup>](#de-c-12) Ba ch erach **(ba ch**erach) | Ma**ch**t mögli**ch**st | Schma**ch** 'i**ch** |
-| z | `z` | **s**uper |  |  |  |
-| Zh | `ʒ` | **G**enre | B**re**ezinski | Edvi**g**e |
+| jh | `ʤ` | EFF **J** | gemana**g**t | [<sup>5</sup>](#de-c-5) Kanał**g**e |
+| k | `f` | Ahrtdauer **F** | Angri**FF**slustig | abbruchrei**f** |  |
+| g | `g` | **g**UT |  | [<sup>6</sup>](#de-c-6) Protokół gre**g** |  |
+| h | `h` | Ausanbau **H** |  |  |  |
+| t | `j` | **J**od | Reakt**i**na | HU**i** |  |
+| k | `k` | **K**OMA | Aspe**k**t | Flec**k** |  |
+| l | `l` | **l**. | ähne**l**n | zuvie**l** |  |
+| m | `m` | **M**UT | **M**t | Leh**m** |  |
+| n | `n` | **n**Wycofaj | u**n**d | Tak**n** |  |
+| gazu | `ŋ` | [<sup>7</sup>](#de-c-7)**ng**Uyen | Schwa**te** | R **.** |  |
+| p | `p` | **P**Artner | abru**p**t | TI**p** |  |
+| PF | `pf` | Dysk ERD **PF** | Nr**PF**t | Do**PF** |  |
+| r | `ʀ`, `r`, `ʁ` | Eise **R** | KNU**RR**t | Haa**r** |  |
+| s | `s` | taccato [<sup>8</sup>](#de-c-8)**S** | Analiza**biznesowej**t | mie**s** |  |
+| pok | `ʃ` | **SCH**ułę | mi**SCH**t | Lappi**SCH** |  |
+| t | `t` | Raum **T** | S**t**raße | Mu za**t** |  |
+| TS | `ts` | **Z**g | AR**z**t | WIT**z** |  |
+| ch | `tʃ` | **Tsch**echien | aufgepu**Tsch**t | bundesdeu**Tsch** |  |
+| v | `v` | **w**inken | P**u**Alle | [<sup>9</sup>](#de-c-9) Gr**oo**ve |  |
+| x | [<sup>10</sup>](#de-c-10)`x`,[<sup>11</sup>](#de-c-11)`ç` | [<sup>12</sup>](#de-c-12) BA**ch**erach | Dr**ch**t mögli**ch**St | Schma**ch** "i**ch** |
+| z | `z` | uper **s** |  |  |  |
+| zh | `ʒ` | **G**enre | B**ezinski** | EDVI**g**e |
 
 <a id="de-c-1"></a>
-**1** *Tylko w słowach obcego pochodzenia, takich jak: Pu**b**.*<br>
+**1** *tylko w przypadku wyrazów obcych pochodzenia, takich jak: PU**b**.*<br>
 <a id="de-c-2"></a>
-**2** *Miękkie "ch" po "e" i "i"*<br>
+**2** *miękkie "ch" po "e" i "i"*<br>
 <a id="de-c-3"></a>
-**3** *Tylko w słowach obcego pochodzenia, takich jak: Len**d**l.*<br>
+**3** *tylko słowa pochodzenie obce, takie jak: Len**d**l.*<br>
 <a id="de-c-4"></a>
-**4** *Tylko w słowach obcego pochodzenia, takich jak: Clau**d**e.*<br>
+**4** *tylko w przypadku wyrazów obcych pochodzenia, takich jak: Clau**d**e.*<br>
 <a id="de-c-5"></a>
-**5** *Tylko w słowach obcego pochodzenia, takich jak: Chan**g**e.*<br>
+**5** *tylko w przypadku wyrazów obcych pochodzenia, takich jak: kanał**g**e.*<br>
 <a id="de-c-6"></a>
-**6** *Word-terminally tylko w słowach obcego pochodzenia, takich jak Gre**g**.*<br>
+**6** *wyraz — Terminal, tylko w przypadku wyrazów obcych pochodzenia, takich jak gre**g**.*<br>
 <a id="de-c-7"></a>
-**7** *Tylko w słowach obcego pochodzenia, takich jak: **Ng**uyen.*<br>
+**7** *tylko w przypadku wyrazów obcych pochodzenia, takich jak: **ng**Uyen.*<br>
 <a id="de-c-8"></a>
-**8** *Tylko w słowach obcego pochodzenia, takich jak: **S**taccato.*<br>
+**8** *tylko w przypadku wyrazów obcych pochodzenia, takich jak: **S**taccato.*<br>
 <a id="de-c-9"></a>
-**9** *Tylko w słowach obcego pochodzenia, takich jak: Gr**oo**ve.*<br>
+**9** *tylko w przypadku wyrazów obcych pochodzenia, takich jak: GR**oo**ve.*<br>
 <a id="de-c-10"></a>
-**10** *IPA `x` jest twardy "ch" po wszystkich samogłosek nie-front (a, aa, oh, ow, uh, uw i diphthong aw).*<br>
+**10** *IPA `x` to twarda "ch" po wszystkich samodzielnym wygłosom (a, AA, "zapomniano, UW i diphthong aw").*<br>
 <a id="de-c-11"></a>
-**11** *IPA `ç` jest miękkim "ch" po samogłosek przednich (ih, iy, eh, ae, uy, ue, oe, eu również w diphthongs ay, oy) i spółgłosek*<br>
+**11** *IPA `ç` to miękkie "ch" po samodzielnym użyciu (IH, m, eh, AE, uy, UE, OE, UE również w diphthongs AY, Oy-) i spółgłoskach*<br>
 <a id="de-c-12"></a>
-**12** *Word-początkowo tylko w słowach obcego pochodzenia, takich jak: **J**uan. Sylaba-początkowo również w**słowach**takich jak: Ba ch erach.*<br>
+**12** *wyraz — początkowo tylko w słowach pochodzenie obce, na przykład: " **J**UAN". Sylaba — początkowo również w wyrazach, takich jak: BA**ch**erach.*<br>
 
-### <a name="german-oral-consonants"></a>Niemieckie spółgłoski doustne
+### <a name="german-oral-consonants"></a>Niemieckie spółgłoski ustne
 
 | `sapi` | `ipa` | Przykład 1                                  |
 |--------|-------|--------------------------------------------|
-| ^      | `ʔ`   | beachtlich /b ax - ^ a 1 x t - l ih c/ |
+| ^      | `ʔ`   | beachtlich/b AX — ^ a 1 x t-l IH c/ |
 
 > [!NOTE]
-> Musimy dodać [gs\] telefon między dwoma odrębnymi samogłoskami, z wyjątkiem dwóch samogłosek są prawdziwe diphthong. Ta spółgłoska doustna jest przystankiem glottal, aby uzyskać więcej informacji, patrz <a href="http://en.wikipedia.org/wiki/Glottal_stop" target="_blank">glottal stop <span class="docon docon-navigate-external x-hidden-focus"> </a> </a>.
+> Musimy dodać [numer telefonu GS\] między dwoma odrębnymi odgłosami, z wyjątkiem dwóch samogłosek jest to oryginalny diphthong. Ta doustna Spółgłoska to glottal, aby uzyskać więcej informacji, <a href="http://en.wikipedia.org/wiki/Glottal_stop" target="_blank">Zobacz glottal <span class="docon docon-navigate-external x-hidden-focus"> </a> </a>Stop.
 
 # <a name="es-es"></a>[es-ES](#tab/es-ES)
 
-### <a name="spanish-vowels"></a>Samogłoski hiszpańskie
+### <a name="spanish-vowels"></a>Hiszpańskie samogłosek
 
 | `sapi` | `ipa` | Przykład 1    | Przykład 2     | Przykład 3    |
 |--------|-------|--------------|---------------|--------------|
-| a      | `a`   | **a**lto     | c**a**ntar    | cas**a**     |
-| mogę      | `i`   | **i**bérica  | av**i**spa    | podatek**i**     |
-| e      | `e`   | **e**lefante | w:**e**nto    | elefant**e** |
-| o      | `o`   | **o**caso    | enc**o**ntrar | ocasenc**o** |
-| u      | `u`   | **u**sted    | p**u**nta     | Juanl**u**   |
+| a      | `a`   | **LTO**     | ntar**a**    | urzędy certyfikacji**a**     |
+| mogę      | `i`   | **bérica**  | AV**i**Spa    | podatek**i**     |
+| e      | `e`   | LeFante **e** | na**e**nAby    | Elefant**e** |
+| o      | `o`   | **o**caso    | ENC**o**ntrar | ocasenc**o** |
+| u      | `u`   | **u**sted    | p**u**NTA     | Juanl**u**   |
 
-### <a name="spanish-consonants"></a>Spółgłoski hiszpańskie
+### <a name="spanish-consonants"></a>Zgodne z hiszpańskimi
 
 | `sapi` | `ipa`      | Przykład 1  | Przykład 2      | Przykład 3      |
 |--------|------------|------------|----------------|----------------|
-| b      | `b`        | **b**aobab |                | jestem**b**        |
-|        | `β`        |            | bao**b**ab     | baoba**b**     |
-| ch     | `tʃ`       | **ch**eque | co**ch**e      | Marraque**ch (marraque ch)** |
-| d      | `d`        | **d**edo   |                | portlan**d**   |
-|        | `ð`        |            | de**d**o       | verda**d**     |
-| k      | `f`        | **f**ácil  | ele**f**ante   | pu**f**        |
-| g      | `g`        | **g**anga  |                | dópin**g**     |
-|        | `ɣ`        |            | a**g**ua       | tuare**g**     |
-| J      | `j`        | **i**odo   | cal**i**ente   | re**y**        |
-| Jj     | `j.j` `jj` |            | vi**ll**a      |                |
-| k      | `k`        | **c**oche  | bo**c**a       | titáni**c**    |
-| l      | `l`        | **l**ápiz  | a**l**a        | corde**l**     |
-| Ll     | `ʎ`        | **ll**ave  | desarro**ll**o |                |
-| m      | `m`        | **m**zamówienie | a**m**ar       | álbu**m**      |
-| n      | `n`        | **n**ada   | ce**n**a       | rató**n**      |
-| Nj     | `ɲ`        | **ñ**aña   | ara**ñ**azo    |                |
-| p      | `p`        | **p**oca   | do**p**o       | sto**p**       |
-| r      | `ɾ`        |            | ca**r**a       | abri**r**      |
-| Rr     | `r`        | **r**adio  | co**rr**e      | pu**rr**       |
-| s      | `s`        | **s**aco   | va**s**o       | pelo**s**      |
-| t      | `t`        | **t**oldo  | a**t**ar       | disque**t**    |
-| Th     | `θ`        | **z**ebra  | a**z**ul.       | lápi**z**      |
-| w      | `w`        | h**u**eso  | ag**u**a       | gua**u**       |
-| x      | `x`        | **j**ota   | a**j**o        | relo**j**      |
+| b      | `b`        | **b**aobab |                | am**b**        |
+|        | `β`        |            | Bao**b**AB     | Baoba**b**     |
+| ch     | `tʃ`       | **ch**eque | co**ch**e      | Marraque**ch** |
+| d      | `d`        | **d**Edo   |                | portlan**d**   |
+|        | `ð`        |            | **d**o       | Verda**d**     |
+| k      | `f`        | ácil **f**  | ele**f**ante   | PU**f**        |
+| g      | `g`        | **g**tongijska  |                | dópin**g**     |
+|        | `ɣ`        |            | a**g**UA       | tuare**g**     |
+| j      | `j`        | **ODO**   | cal**i**przedsiębio   | **odosij y**        |
+| JJ     | `j.j` `jj` |            | VI**wszystko**      |                |
+| k      | `k`        | Oche języka **c**  | bo**c**a       | titáni**c**    |
+| l      | `l`        | ápiz **l**  | a**l**a        | przewód**1**     |
+| wszystki     | `ʎ`        | **wszystkie**Ave  | desarro**wszystko**o |                |
+| m      | `m`        | porządek **m** | **m**AR       | álbu**m**      |
+| n      | `n`        | **n**Ada   | ce**n**a       | rató**n**      |
+| nj     | `ɲ`        | **aña**   | Ara-**ń**    |                |
+| p      | `p`        | **p**Oca   | do**p**o       | konie**p**       |
+| r      | `ɾ`        |            | Urząd certyfikacji**r**a       | Abri**r**      |
+| zasobu     | `r`        | Adio **r**  | co**RR**e      | PU**RR**       |
+| s      | `s`        | Accountable Care Organization **s**   | VA**s**o       | pelo**s**      |
+| t      | `t`        | Oldo **t**  | **t**AR       | Disque**t**    |
+| th     | `θ`        | **z**ebra  | a**z**ul       | lápi**z**      |
+| w      | `w`        | h**u**ESO  | AG**u**a       | Gua**u**       |
+| x      | `x`        | OTA **j**   | **j**o        | relokacji**j**      |
 
 > [!TIP]
-> Zestaw `es-ES` telefonów usługi mowy nie obsługuje następujących `β`hiszpańskich IPA, i `ð` `ɣ`. Jeśli są one potrzebne, należy rozważyć użycie IPA bezpośrednio.
+> Zestaw `es-ES` telefonów usługi Speech Service nie obsługuje następujących IPA w języku `β`hiszpańskim `ð`,, `ɣ`i. Jeśli są potrzebne, należy rozważyć użycie IPA bezpośrednio.
 
 # <a name="zh-cn"></a>[zh-CN](#tab/zh-CN)
 
-Zestaw telefonów usługi `zh-CN` mowy jest oparty na natywnym zestawie <a href="https://en.wikipedia.org/wiki/Pinyin" target="_blank">pinyin <span class="docon docon-navigate-external x-hidden-focus"></span> </a> telefonu.
+Zestaw telefonów usługi Speech Service `zh-CN` jest oparty na natywnym zestawie <a href="https://en.wikipedia.org/wiki/Pinyin" target="_blank">pinyin <span class="docon docon-navigate-external x-hidden-focus"></span> </a> telefonu.
 
 ### <a name="tone"></a>Ton komunikatu
 
-| Ton Pinyin | `sapi` | Przykład postaci |
+| Sygnał pinyin | `sapi` | Przykład znaku |
 |-------------|--------|-------------------|
-| mā (mā)          | ma 1  | z o.o.                 |
-| má (má)          | ma 2  | z o.o.                 |
-| m          | ma 3  | z o.o.                 |
-| mà (mà)          | ma 4  | z o.o.                 |
-| ma          | ma 5  | z o.o.                 |
+| mā          | ma 1  | 妈                 |
+| má          | ma 2  | 麻                 |
+| mǎ          | ma 3  | 马                 |
+| mà          | ma 4  | 骂                 |
+| ruchom          | ma 5  | 嘛                 |
 
 #### <a name="example"></a>Przykład
 
 | Znak | Usługa rozpoznawania mowy                |
 |-----------|-------------------------------|
-| 中田田田      | zu 3 - zhi 1 - guan 1 - xi 5 |
-| 中田田        | lei 3 -jin 4                 |
-| 中田田田       | xi 1 - zhai 2 - xiang 4      |
+| 组织关系      | zu 3-Zhi 1-Guan 1-XI 5 |
+| 累进        | Lei 3 — Jin 4                 |
+| 西宅巷       | XI 1 — Zhai 2 — Xiang 4      |
 
 # <a name="zh-tw"></a>[zh-TW](#tab/zh-TW)
 
-Zestaw telefonów usługi `zh-TW` mowy jest oparty na natywnym zestawie <a href="https://en.wikipedia.org/wiki/Bopomofo" target="_blank">bopomofo <span class="docon docon-navigate-external x-hidden-focus"></span> </a> telefonu.
+Zestaw telefonów usługi mowy dla `zh-TW` systemu jest oparty na zestawie natywnego telefonu <a href="https://en.wikipedia.org/wiki/Bopomofo" target="_blank">Bopomofo <span class="docon docon-navigate-external x-hidden-focus"></span> </a> .
 
 ### <a name="tone"></a>Ton komunikatu
 
-| Ton usługi mowy | Ton Bopomofo | Przykład (słowo) | Telefony z usługami mowy | Bopomofo | Pinyin (jap.) |
+| Ton usługi mowy | Ton Bopomofo | Przykład (słowo) | Telefony usługi mowy | Mowy | Pinyin (拼音) |
 |---------------------|---------------|----------------|-----------------------|----------|-------------|
-| z o.o.                   | empty         | z o.o.              | z o.o.                   | z o.o.       | zhēn ( zhēn )        |
-| z o.o.                   | z o.o.             | z o.o.              | z o.o.                   | z o.o.      | chá (chá)         |
-| z o.o.                   | z o.o.             | z o.o.              | z o.o.                   | z o.o.      | d          |
-| z o.o.                   | z o.o.             | z o.o.              | z o.o.                   | z o.o.      | wàng        |
-| ˙                   | ˙             | 19.00.             | z o.o.               | z o.o.  | yng zi    |
+| ˉ                   | puste         | 偵              | ㄓㄣˉ                   | ㄓㄣ       | zhēn        |
+| ˊ                   | ˊ             | 察              | ㄔㄚˊ                   | ㄔㄚˊ      | chá         |
+| ˇ                   | ˇ             | 打              | ㄉㄚ ˇ                   | ㄉㄚ ˇ      | dǎ          |
+| ˋ                   | ˋ             | 望              | ㄨㄤˋ                   | ㄨㄤˋ      | wàng        |
+| ˙                   | ˙             | 影子             | 一ㄥ ˇ ㄗ ̇               | 一ㄥ ˇ ㄗ ̇  | yǐng Zi    |
 
 #### <a name="example"></a>Przykład
 
 | Znak | `sapi`   |
 |-----------|----------|
-| z o.o.         | z o.o.      |
-| z o.o.        | z o.o.   |
-| 中田田        | z o.o. |
+| 狗         | ㄍㄡ ˇ      |
+| 然后        | ㄖㄢˊㄏㄡˋ   |
+| 剪掉        | ㄐㄧㄢ ˇ ㄉㄧㄠ ˋ |
 
 # <a name="ja-jp"></a>[ja-JP](#tab/ja-JP)
 
-Zestaw telefonów usługi `ja-JP` mowy jest oparty na natywnym zestawie <a href="https://en.wikipedia.org/wiki/Kana" target="_blank">telefonu Kana. <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
+Zestaw telefonów usługi mowy dla `ja-JP` systemu jest oparty na natywnym zestawie <a href="https://en.wikipedia.org/wiki/Kana" target="_blank">znaków <span class="docon docon-navigate-external x-hidden-focus"></span> kana</a> telefonu.
 
-### <a name="stress"></a>Stres
+### <a name="stress"></a>Plastyczności
 
 | `sapi` | `ipa`          |
 |--------|----------------|
-| `ˈ`    | `ˈ`podporowa |
-| `+`    | `ˌ`podksyt  |
+| `ˈ`    | `ˈ`mainstress |
+| `+`    | `ˌ`podobciążenie  |
 
 #### <a name="example"></a>Przykład
 
 | Znak | `sapi`  | `ipa`       |
 |-----------|---------|-------------|
-| 19.00.        | 中田田田    | go(-ychi)   |
-| 中田田田       | 中田田??? | w 1998 roku, w 1999 roku, w 1999 roku, w 199 |
-| 中田田       | 中田田田田+  | sajitecika |
+| 合成        | ゴ'ウセ    | Przejdź do ˈ wɯseji   |
+| 所有者       | ショュ'ウ?ャ | ɕjojɯˈwɯɕja |
+| 最適化       | サィテキカ +  | sajitecikaˌ |
 
 ***

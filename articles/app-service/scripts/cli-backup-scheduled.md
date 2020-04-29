@@ -1,6 +1,6 @@
 ---
-title: 'WIERSZ WIERSZA POLECENIA: Tworzenie zaplanowanej kopii zapasowej'
-description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure zautomatyzować wdrażanie aplikacji usługi App Service i zarządzanie nimi. W tym przykładzie pokazano, jak utworzyć zaplanowaną kopię zapasową dla aplikacji.
+title: 'Interfejs wiersza polecenia: Tworzenie zaplanowanej kopii zapasowej'
+description: Dowiedz się, jak zautomatyzować wdrażanie aplikacji App Service i zarządzanie nią za pomocą interfejsu wiersza polecenia platformy Azure. Ten przykład pokazuje, jak utworzyć zaplanowaną kopię zapasową dla aplikacji.
 author: msangapu-msft
 tags: azure-service-management
 ms.devlang: azurecli
@@ -10,10 +10,10 @@ ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 327b48052e0134ae97f0a97f0a43f36e75f2e003
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80058775"
 ---
 # <a name="create-a-scheduled-backup-for-an-app-service-app-using-cli"></a>Tworzenie zaplanowanej kopii zapasowej aplikacji usługi App Service przy użyciu interfejsu wiersza polecenia

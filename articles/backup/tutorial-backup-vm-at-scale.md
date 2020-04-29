@@ -1,19 +1,19 @@
 ---
-title: Samouczek — utworzenie kopii zapasowej wielu maszyn wirtualnych platformy Azure
-description: W tym samouczku dowiesz się, jak utworzyć magazyn usług odzyskiwania, zdefiniować zasady tworzenia kopii zapasowych i jednocześnie wykonać kopię zapasową wielu maszyn wirtualnych.
+title: Samouczek — Tworzenie kopii zapasowych wielu maszyn wirtualnych platformy Azure
+description: W tym samouczku dowiesz się, jak utworzyć magazyn Recovery Services, zdefiniować zasady tworzenia kopii zapasowych i jednocześnie utworzyć kopię zapasową wielu maszyn wirtualnych.
 ms.date: 01/31/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: f9306f2ef5c4b2a53dcba17cafca9ea13b8dab43
-ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80245246"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Tworzenie kopii zapasowych wielu maszyn wirtualnych za pomocą witryny Azure Portal
 
-Kopie zapasowe danych na platformie Azure są przechowywane w zasobie platformy Azure nazywanym magazynem usługi Recovery Services. Zasób magazynu usługi Recovery Services jest dostępny w menu Ustawienia większości usług platformy Azure. Zaletą integracji magazynu usług odzyskiwania z menu Ustawienia większości usług platformy Azure jest łatwe do utworzenia kopii zapasowej danych. Jednak praca z poszczególnymi bazami danych lub maszynami wirtualnymi w firmie jest niewygodna. Co zrobić, jeśli trzeba utworzyć kopię zapasową danych wszystkich maszyn wirtualnych w dziale lub w lokalizacji? Można łatwo utworzyć kopię zapasową wielu maszyn wirtualnych, tworząc zasady tworzenia kopii zapasowych i stosując je do odpowiednich maszyn wirtualnych. W tym samouczku wyjaśniono:
+Kopie zapasowe danych na platformie Azure są przechowywane w zasobie platformy Azure nazywanym magazynem usługi Recovery Services. Zasób magazynu usługi Recovery Services jest dostępny w menu Ustawienia większości usług platformy Azure. Korzyści wynikające z używania magazynu Recovery Services w menu Ustawienia większości usług platformy Azure ułatwiają tworzenie kopii zapasowych danych. Jednak praca z poszczególnymi bazami danych lub maszynami wirtualnymi w firmie jest niewygodna. Co zrobić, jeśli trzeba utworzyć kopię zapasową danych wszystkich maszyn wirtualnych w dziale lub w lokalizacji? Można łatwo utworzyć kopię zapasową wielu maszyn wirtualnych, tworząc zasady tworzenia kopii zapasowych i stosując je do odpowiednich maszyn wirtualnych. W tym samouczku wyjaśniono:
 
 > [!div class="checklist"]
 >
@@ -24,7 +24,7 @@ Kopie zapasowe danych na platformie Azure są przechowywane w zasobie platformy 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
 
@@ -42,7 +42,7 @@ Magazyn usługi Recovery Services zawiera dane kopii zapasowych i zasady tworzen
 
     * Wpisz *myRecoveryServicesVault* w polu **Nazwa**.
     * Identyfikator bieżącej subskrypcji znajduje się w polu **Subskrypcja**. Jeśli masz dodatkowe subskrypcje, możesz wybrać inną subskrypcję dla nowego magazynu.
-    * W sekcji **Grupa zasobów** wybierz pozycję **Użyj istniejącej**, a następnie pozycję *myResourceGroup*. Jeśli *myResourceGroup* nie istnieje, wybierz pozycję **Utwórz nowy** i wpisz *myResourceGroup*.
+    * W sekcji **Grupa zasobów** wybierz pozycję **Użyj istniejącej**, a następnie pozycję *myResourceGroup*. Jeśli grupa *zasobów* nie istnieje, wybierz pozycję **Utwórz nowy** i wpisz Grupa *zasobów*.
     * W menu rozwijanym **Lokalizacja** wybierz pozycję *Europa Zachodnia*.
     * Kliknij przycisk **Utwórz**, aby utworzyć magazyn usługi Recovery Services.
 
@@ -54,7 +54,7 @@ W przypadku tworzenia magazynu usługi Recovery Services ma on domyślnie magazy
 
 ## <a name="set-backup-policy-to-protect-vms"></a>Konfigurowanie zasad tworzenia kopii zapasowych, aby chronić maszyny wirtualne
 
-Po utworzeniu magazynu usługi Recovery Services następnym krokiem jest skonfigurowanie magazynu pod kątem typu danych i ustawienie zasad tworzenia kopii zapasowych. Zasady tworzenia kopii zapasowych są harmonogramem określającym częstotliwość i czas tworzenia punktów odzyskiwania. Zasady zawierają także zakres przechowywania dla punktów odzyskiwania. W tym samouczku załóżmy, że Twoja firma jest kompleksem sportowym z hotelem, stadionem i restauracjami oraz koncesjami i chronisz dane na maszynach wirtualnych. Poniższe kroki pozwalają utworzyć zasady tworzenia kopii zapasowych danych finansowych.
+Po utworzeniu magazynu usługi Recovery Services następnym krokiem jest skonfigurowanie magazynu pod kątem typu danych i ustawienie zasad tworzenia kopii zapasowych. Zasady tworzenia kopii zapasowych są harmonogramem określającym częstotliwość i czas tworzenia punktów odzyskiwania. Zasady zawierają także zakres przechowywania dla punktów odzyskiwania. Na potrzeby tego samouczka przyjmujemy, że Twoja firma to sportowa złożona z hotelu, Stadium, restauracje i koncesje oraz że chronisz dane na maszynach wirtualnych. Poniższe kroki pozwalają utworzyć zasady tworzenia kopii zapasowych danych finansowych.
 
 1. Wybierz magazyn **myRecoveryServicesVault** z listy magazynów usługi Recovery Services, aby otworzyć jego pulpit nawigacyjny.
 
@@ -84,7 +84,7 @@ Po utworzeniu magazynu usługi Recovery Services następnym krokiem jest skonfig
 
      Po utworzeniu zasad tworzenia kopii zapasowych należy skojarzyć je z maszynami wirtualnymi.
 
-6. W oknie dialogowym **Wybieranie maszyn wirtualnych** wybierz *myVM* i kliknij przycisk **OK,** aby wdrożyć zasady tworzenia kopii zapasowych na maszynach wirtualnych.
+6. W oknie dialogowym **Wybieranie maszyn wirtualnych** wybierz pozycję *myVM* , a następnie kliknij przycisk **OK** , aby wdrożyć zasady tworzenia kopii zapasowych na maszynach wirtualnych.
 
     Zostaną wyświetlone wszystkie maszyny wirtualne, które znajdują się w tej samej lokalizacji i nie są jeszcze skojarzone z żadnymi zasadami tworzenia kopii zapasowych. Maszyny *myVMH1* i *myVMR1* są wybrane do skojarzenia z zasadami *Finance* (Finansowe).
 
@@ -148,7 +148,7 @@ Jeśli planujesz kontynuowanie pracy z kolejnymi samouczkami, nie usuwaj zasobó
 
     ![Ikona Ustawienia](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
 
-4. W menu kontekstowym wybierz polecenie **Zatrzymaj tworzenie kopii zapasowej,** aby otworzyć menu Zatrzymaj kopię zapasową.
+4. W menu kontekstowym wybierz polecenie **Zatrzymaj tworzenie kopii zapasowej** , aby otworzyć menu Zatrzymaj kopię zapasową.
 
     ![Ikona Ustawienia](./media/tutorial-backup-vm-at-scale/context-menu-for-delete.png)
 
@@ -156,7 +156,7 @@ Jeśli planujesz kontynuowanie pracy z kolejnymi samouczkami, nie usuwaj zasobó
 
 6. W oknie dialogowym **Wpisywanie nazwy elementu kopii zapasowej** wpisz *myVM*.
 
-7. Po zweryfikowaniu elementu kopii zapasowej (pojawi się znacznik wyboru), przycisk **Zatrzymaj kopię zapasową** jest włączony. Kliknij przycisk **Zatrzymaj kopię zapasową**, aby zatrzymać zasady i usunąć punkty przywracania.
+7. Po zweryfikowaniu elementu kopii zapasowej (zostanie wyświetlony znacznik wyboru) przycisk **Zatrzymaj tworzenie kopii zapasowej** jest włączony. Kliknij przycisk **Zatrzymaj kopię zapasową**, aby zatrzymać zasady i usunąć punkty przywracania.
 
     ![kliknij przycisk Zatrzymaj kopię zapasową, aby usunąć magazyn](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png)
 

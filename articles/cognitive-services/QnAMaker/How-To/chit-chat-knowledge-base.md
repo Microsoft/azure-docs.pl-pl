@@ -1,7 +1,7 @@
 ---
-title: Dodawanie chit-chat do bazy wiedzy QnA Maker
+title: Dodawanie Chit-Chat do bazy wiedzy QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Dodanie osobistego chit-chat do bota sprawia, że bardziej konwersacyjne i wciągające podczas tworzenia KB. QnA Maker pozwala łatwo dodać wstępnie wypełniony zestaw najlepszych chit-chat, do bazy wiedzy.
+description: Dodanie osobistego Chit-Chat do bot sprawia, że jest to bardziej atrakcyjny i interesujący podczas tworzenia bazy wiedzy. QnA Maker pozwala łatwo dodać wstępnie wypełniony zestaw pierwszych Chit-Chat do bazy wiedzy.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,80 +12,80 @@ ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: a9a14056e6be62fc1c1b5e542c1a3acceb738eac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79220711"
 ---
-# <a name="add-chit-chat-to-a-knowledge-base"></a>Dodawanie Chit-chat do bazy wiedzy
+# <a name="add-chit-chat-to-a-knowledge-base"></a>Dodawanie Chit-Chat do bazy wiedzy
 
-Dodawanie chit-chat do bota sprawia, że bardziej konwersacyjne i wciągające. Funkcja chit-chat w kreatorze QnA pozwala łatwo dodać wstępnie wypełniony zestaw najlepszych chit-chat, do bazy wiedzy (KB). Może to być punkt wyjścia dla osobowości twojego bota, a to pozwoli Ci zaoszczędzić czas i koszty pisania ich od podstaw.  
+Dodanie Chit-Chat do bot sprawia, że jest to bardziej atrakcyjny i interesujący. Funkcja Chit-Chat w programie QnA Maker pozwala łatwo dodać wstępnie wypełniony zestaw najważniejszych Chit-Chat do bazy wiedzy (KB). Może to być punkt początkowy dla osobowości Botu. pozwoli to zaoszczędzić czas i koszt ich zapisania od zera.  
 
-Ten zestaw danych ma około 100 scenariuszy chit-chat w głosie wielu personas, takich jak Professional, Friendly i Witty. Wybierz persona, która najbardziej przypomina głos twojego bota. Biorąc pod uwagę zapytanie użytkownika, QnA Maker próbuje dopasować go do najbliższego znanego chit-chat QnA.  
+Ten zestaw danych zawiera około 100 scenariuszy Chit-Chat w głosowaniu wielu osób, takich jak Professional, friendly i Witty. Wybierz osobę, która najlepiej przypomina głos Twojego Botu. Po otrzymaniu zapytania użytkownika QnA Maker próbuje dopasować go do najbliższej znanej Chit-Chat QnA.  
 
-Poniżej znajdują się przykłady różnych osobowości. Możesz zobaczyć wszystkie [zbiory danych](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) osobowości wraz ze szczegółami osobowości.
+Poniżej przedstawiono przykłady różnych elementów osobistych. Możesz zobaczyć wszystkie osobowe [zestawy danych](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) wraz ze szczegółami osobistymi.
 
-Dla zapytania użytkownika `When is your birthday?`, każda osobowość ma stylową odpowiedź:
+Dla kwerendy użytkownika `When is your birthday?`, każda osobowość ma przydzielną odpowiedź:
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
 |Osobowości|Przykład|
 |--|--|
-|Professional Edition|Wiek tak naprawdę nie odnosi się do mnie.|
-|Przyjazny|Naprawdę nie mam wieku.|
-|Dowcipny|Jestem wolny od wieku.|
-|Opiekuńczy|Nie mam wieku.|
-|Entuzjastycznie|Jestem botem, więc nie mam wieku.|
+|Professional Edition|Wiek nie dotyczy mnie.|
+|Wyświetlana|Nie mam już wieku.|
+|Witty|Jest bezpłatny okres ważności.|
+|Caring|Nie mam wieku.|
+|R|Jestem bot, więc nie mam wieku.|
 ||
 
 
 ## <a name="language-support"></a>Obsługa języków
 
-Zestawy danych chit-chat są obsługiwane w następujących językach:
+Chit — zestawy danych czatu są obsługiwane w następujących językach:
 
 |Język|
 |--|
 |Chiński|
-|Polski|
+|Angielski|
 |Francuski|
 |Niemcy|
 |Włoski|
-|Japoński|
-|Koreański|
+|japoński|
+|koreański|
 |Portugalski|
 |Hiszpański|
 
 
-## <a name="add-chit-chat-during-kb-creation"></a>Dodawanie chit-chat podczas tworzenia bazy wiedzy
-Podczas tworzenia bazy wiedzy, po dodaniu źródłowych adresów URL i plików, istnieje możliwość dodania chit-chat. Wybierz osobowość, którą chcesz jako bazę chit-chat. Jeśli nie chcesz dodawać chit-chat, lub jeśli masz już wsparcie chit-chat w źródłach danych, wybierz **brak**. 
+## <a name="add-chit-chat-during-kb-creation"></a>Dodaj Chit-Chat podczas tworzenia bazy wiedzy
+Podczas tworzenia bazy wiedzy po dodaniu źródłowych adresów URL i plików dostępna jest opcja dodawania Chit-Chat. Wybierz osobowość, która ma być podstawą Chit — rozmowy. Jeśli nie chcesz dodawać Chit-Chat lub jeśli masz już obsługę rozmowy przez Chit w źródłach danych, wybierz opcję **Brak**. 
 
-## <a name="add-chit-chat-to-an-existing-kb"></a>Dodawanie chit-chat do istniejącej bazy wiedzy
-Wybierz swoją bazę wiedzy i przejdź do strony **Ustawienia.** Istnieje link do wszystkich zestawów danych chit-chat w odpowiednim formacie **.tsv.** Pobierz odpowiednią osobowość, a następnie prześlij ją jako źródło pliku. Upewnij się, że nie edytujesz formatu ani metadanych podczas pobierania i przekazywania pliku. 
+## <a name="add-chit-chat-to-an-existing-kb"></a>Dodawanie Chit-Chat do istniejącej bazy wiedzy
+Wybierz swoją KB i przejdź do strony **ustawień** . Istnieje link do wszystkich zestawów danych Chit-Chat w odpowiednim formacie **TSV** . Pobierz żądaną osobowość, a następnie przekaż ją jako źródło pliku. Nie należy edytować formatu ani metadanych podczas pobierania i przekazywania pliku. 
   
-![Dodawanie chit-chat do istniejącej bazy wiedzy](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset.png)
+![Dodaj Chit-Chat do istniejącej bazy wiedzy](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset.png)
 
-## <a name="edit-your-chit-chat-questions-and-answers"></a>Edytuj swoje pytania i odpowiedzi na chit-chat
-Podczas edytowania bazy wiedzy zostanie wyświetlene nowe źródło czatu chit-chat, w zależności od wybranej osobowości. Teraz możesz dodawać zmienione pytania lub edytować odpowiedzi, tak jak w przypadku każdego innego źródła. 
+## <a name="edit-your-chit-chat-questions-and-answers"></a>Edytuj swoje pytania i odpowiedzi dotyczące rozmowy Chit
+Gdy edytujesz swoją KB, zobaczysz nowe źródło dla Chit-Chat w oparciu o wybraną osobowość. Możesz teraz dodawać zmienione pytania lub edytować odpowiedzi, podobnie jak w przypadku innych źródeł. 
 
-![Edycja chit-chat QnAs](../media/qnamaker-how-to-chit-chat/edit-chit-chat.png)
+![Edytuj Chit — czat bazami](../media/qnamaker-how-to-chit-chat/edit-chit-chat.png)
 
-Aby wyświetlić metadane, wybierz pozycję **Opcje widoku** na pasku narzędzi, a następnie wybierz pozycję **Pokaż metadane**.
+Aby wyświetlić metadane, wybierz pozycję **Wyświetl opcje** na pasku narzędzi, a następnie wybierz pozycję **Pokaż metadane**.
 
-## <a name="add-additional-chit-chat-questions-and-answers"></a>Dodawanie dodatkowych pytań i odpowiedzi na chit-chat
-Możesz dodać nowy chit-chat QnA, który nie znajduje się w wstępnie zdefiniowanym zestawie. Upewnij się, że nie duplikujesz pary QnA, która jest już ujęta w zestawie chit-chat. Po dodaniu nowego chit-chat QnA, zostanie on dodany do źródła **redakcyjnego.** Aby upewnić się, że ranker rozumie, że jest to chit-chat, dodaj parę klucz/wartość metadanych "Editorial: chitchat", jak widać na poniższej ilustracji:
+## <a name="add-additional-chit-chat-questions-and-answers"></a>Dodawanie dodatkowych pytań i odpowiedzi Chit — rozmowy
+Można dodać nowy Chit-Chat QnA, który nie znajduje się we wstępnie zdefiniowanym zestawie. Upewnij się, że nie duplikujesz pary QnA, która jest już pokryte w zestawie Chit-Chat. Po dodaniu nowego Chit-Chat QnA jest on dodawany do źródła **redakcyjnego** . Aby upewnić się, że program rangi rozumie, że jest to chit-chat, Dodaj parę klucz/wartość metadanych "Redakcja: chitchat", jak pokazano na poniższej ilustracji:
    
-![! [Dodaj chit-chat QnAs] (.. /media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
+![! [Dodaj Chit-Chat bazami] (.. /media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
 
-## <a name="delete-chit-chat-from-an-existing-kb"></a>Usuwanie chit-chat z istniejącej bazy wiedzy
-Wybierz swoją bazę wiedzy i przejdź do strony **Ustawienia.** Twoje konkretne źródło chit-chat jest wyświetlane jako plik z wybraną nazwą osobowości. Można go usunąć jako plik źródłowy.
+## <a name="delete-chit-chat-from-an-existing-kb"></a>Usuń Chit — Czat z istniejącej bazy wiedzy
+Wybierz swoją KB i przejdź do strony **ustawień** . Określone źródło rozmowy Chit jest wyświetlane jako plik z wybraną nazwą osobowości. Można go usunąć jako plik źródłowy.
 
-![Usuń chit-chat z KB](../media/qnamaker-how-to-chit-chat/delete-chit-chat.png)
+![Usuń Chit — Czat z bazy wiedzy](../media/qnamaker-how-to-chit-chat/delete-chit-chat.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Importowanie bazy wiedzy](../Tutorials/migrate-knowledge-base.md)
 
-## <a name="see-also"></a>Zobacz też 
+## <a name="see-also"></a>Zobacz także 
 
 [Omówienie usługi QnA Maker](../Overview/overview.md)

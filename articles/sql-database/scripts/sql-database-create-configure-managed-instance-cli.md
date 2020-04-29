@@ -1,6 +1,6 @@
 ---
-title: Przykład interfejsu wiersza polecenia — tworzenie wystąpienia zarządzanego w bazie danych SQL usługi Azure
-description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure w celu utworzenia wystąpienia zarządzanego w bazie danych SQL usługi Azure
+title: Przykład interfejsu wiersza polecenia — Tworzenie wystąpienia zarządzanego w Azure SQL Database
+description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure do utworzenia wystąpienia zarządzanego w Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/25/2019
 ms.openlocfilehash: 998bd8e39863dd9520d1a05e7fff52095c3be6c1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80067442"
 ---
-# <a name="use-cli-to-create-an-azure-sql-database-managed-instance"></a>Tworzenie wystąpienia zarządzanego usługi Azure SQL Database za pomocą interfejsu wiersza
+# <a name="use-cli-to-create-an-azure-sql-database-managed-instance"></a>Tworzenie Azure SQL Database wystąpienia zarządzanego przy użyciu interfejsu wiersza polecenia
 
-Ten przykład skryptu interfejsu wiersza polecenia platformy Azure tworzy wystąpienie zarządzanej usługi Azure SQL Database w dedykowanej podsieci w nowej sieci wirtualnej. Konfiguruje również tabelę tras i grupę zabezpieczeń sieci dla sieci wirtualnej. Po pomyślnym uruchomieniu skryptu można uzyskać dostęp do wystąpienia zarządzanego z sieci wirtualnej lub ze środowiska lokalnego. Zobacz [Konfigurowanie maszyny Wirtualnej platformy Azure w celu łączenia się z wystąpieniem zarządzanym bazy danych SQL platformy Azure](../sql-database-managed-instance-configure-vm.md) i [konfigurowanie połączenia typu "punkt-lokacja" z wystąpieniem zarządzanym bazy danych SQL platformy Azure z lokalnego](../sql-database-managed-instance-configure-p2s.md)wystąpienia.
+Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure tworzy Azure SQL Database wystąpienie zarządzane w dedykowanej podsieci w ramach nowej sieci wirtualnej. Konfiguruje również tabelę tras i grupę zabezpieczeń sieci dla sieci wirtualnej. Po pomyślnym uruchomieniu skryptu można uzyskać dostęp do wystąpienia zarządzanego z poziomu sieci wirtualnej lub ze środowiska lokalnego. Zobacz [Konfigurowanie maszyny wirtualnej platformy Azure, aby nawiązać połączenie z wystąpieniem zarządzanym Azure SQL Database](../sql-database-managed-instance-configure-vm.md) i [skonfigurować połączenie punkt-lokacja z wystąpieniem Azure SQL Database zarządzanym w środowisku lokalnym](../sql-database-managed-instance-configure-p2s.md).
 
 > [!IMPORTANT]
-> Aby uzyskać ograniczenia, zobacz [obsługiwane regiony](../sql-database-managed-instance-resource-limits.md#supported-regions) i [obsługiwane typy subskrypcji](../sql-database-managed-instance-resource-limits.md#supported-subscription-types).
+> Aby uzyskać ograniczenia, zobacz [Obsługiwane regiony](../sql-database-managed-instance-resource-limits.md#supported-regions) i [obsługiwane typy subskrypcji](../sql-database-managed-instance-resource-limits.md#supported-subscription-types).
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
@@ -39,22 +39,22 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 ### <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 
-Użyj następującego polecenia, aby usunąć grupę zasobów i wszystkie skojarzone z nią zasoby.
+Użyj poniższego polecenia, aby usunąć grupę zasobów i wszystkie skojarzone z nią zasoby.
 
 ```azurecli-interactive
 az group delete --name $resource
 ```
 
-## <a name="sample-reference"></a>Przykładowy numer referencyjny
+## <a name="sample-reference"></a>Przykładowe odwołanie
 
 W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 | | |
 |---|---|
-| [sieć az vnet](/cli/azure/network/vnet) | Polecenia sieci wirtualnej. |
-| [podsieci sieci az sieci wirtualnej](/cli/azure/network/vnet/subnet) | Polecenia podsieci sieci wirtualnej. |
-| [tabela tras sieciowych az](/cli/azure/network/route-table) | Polecenia tabeli tras sieciowych. |
-| [az sql mi](/cli/azure/sql/mi) | Polecenia wystąpienia zarządzanego. |
+| [AZ Network VNET](/cli/azure/network/vnet) | Polecenia sieci wirtualnej. |
+| [AZ Network VNET Subnet](/cli/azure/network/vnet/subnet) | Polecenia podsieci sieci wirtualnej. |
+| [AZ Network Route-Table](/cli/azure/network/route-table) | Polecenia tabeli tras sieciowych. |
+| [AZ SQL mi](/cli/azure/sql/mi) | Polecenia wystąpienia zarządzanego. |
 
 ## <a name="next-steps"></a>Następne kroki
 

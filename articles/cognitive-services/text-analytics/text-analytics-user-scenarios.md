@@ -1,7 +1,7 @@
 ---
-title: Przykładowe scenariusze użytkowników interfejsu API analizy tekstu
+title: Przykładowe scenariusze użytkowników dla interfejs API analizy tekstu
 titleSuffix: Azure Cognitive Services
-description: Ten artykuł umożliwia wyświetlenie typowych scenariuszy integracji interfejsu API analizy tekstu z usługami i procesami.
+description: W tym artykule przedstawiono typowe scenariusze integracji interfejs API analizy tekstu z usługami i procesami.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,47 +11,47 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: aahi
 ms.openlocfilehash: 6847059de2a8685a56719f07a041a40456f2aa06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219248"
 ---
-# <a name="example-user-scenarios-for-the-text-analytics-api"></a>Przykładowe scenariusze użytkowników interfejsu API analizy tekstu
+# <a name="example-user-scenarios-for-the-text-analytics-api"></a>Przykładowe scenariusze użytkowników dla interfejs API analizy tekstu
 
-Interfejs API analizy tekstu to usługa oparta na chmurze, która zapewnia zaawansowane przetwarzanie języka naturalnego za pomocą tekstu. W tym artykule opisano kilka przykładowych przypadków użycia do integracji interfejsu API z rozwiązaniami i procesami biznesowymi. 
+Interfejs API analizy tekstu jest usługą opartą na chmurze, która zapewnia zaawansowane przetwarzanie języka naturalnego dla tekstu. W tym artykule opisano przykładowe przypadki użycia związane z integracją interfejsu API z rozwiązaniami i procesami biznesowymi. 
 
 ## <a name="analyze-survey-results"></a>Analizowanie wyników ankiety
 
-Rysuj wnioski z wyników ankiety klientów i pracowników, przetwarzając nieprzetworzone odpowiedzi tekstowe przy użyciu analizy tonacji. Agreguj wyniki do analizy, działań następczych i prowadzenia działań.
+Uzyskiwanie szczegółowych informacji z wyników ankiety klienta i pracownika przez przetwarzanie nieprzetworzonych odpowiedzi tekstowych przy użyciu analiza tonacji. Agreguj wyniki analizy, zaobserwuj się i Zwiększaj zaangażowanie.
 
-![Obraz opisujący sposób przeprowadzania analizy tonacji w ankietach klientów i pracowników.](media/use-cases/survey-results.svg)
+![Obraz opisujący sposób wykonywania analizy tonacji na potrzeby badań klientów i pracowników.](media/use-cases/survey-results.svg)
 
-## <a name="analyze-recorded-inbound-customer-calls"></a>Analizowanie zarejestrowanych połączeń klientów przychodzących
+## <a name="analyze-recorded-inbound-customer-calls"></a>Analizowanie zarejestrowanych przychodzących wywołań klienta
 
-Wyodrębnij szczegółowe informacje z wywołań obsługi klienta przy użyciu tekstu do mowy, analizy tonacji i wyodrębniania fraz kluczowych. Wyświetlaj wyniki na pulpicie nawigacyjnym usługi Power BI lub w portalu, aby lepiej zrozumieć klientów, wyróżnić trendy w obsłudze klienta i zwiększyć zaangażowanie klientów. Wysyłaj żądania interfejsu API jako partia do raportowania lub w czasie rzeczywistym do interwencji. Zobacz przykładowy kod [w usłudze GitHub](https://github.com/rlagh2/callcenteranalytics).
+Wyodrębnij szczegółowe informacje z wywołań usług Customer Services przy użyciu zamiana tekstu na mowę, analiza tonacji i wyodrębnianie kluczowych fraz. Wyświetl wyniki w Power BI pulpicie nawigacyjnym lub w portalu, aby lepiej zrozumieć klientów, wyróżnić trendy usług klienta i zwiększyć zaangażowanie klientów. Wysyłaj żądania interfejsu API jako partię do raportowania lub w czasie rzeczywistym na potrzeby interwencji. Zapoznaj się z przykładowym kodem [w serwisie GitHub](https://github.com/rlagh2/callcenteranalytics).
 
-![Obraz opisujący sposób automatyzacji uzyskiwania informacji z połączeń obsługi klienta przy użyciu analizy tonacji](media/use-cases/azure-inbound.svg)
+![Obraz przedstawiający sposób automatyzowania uzyskiwania szczegółowych informacji z wywołań obsługi klienta przy użyciu analizy tonacji](media/use-cases/azure-inbound.svg)
 
-## <a name="process-and-categorize-support-incidents"></a>Przetwarzanie i kategoryzowanie zdarzeń pomocy technicznej
+## <a name="process-and-categorize-support-incidents"></a>Przetwarzaj i Klasyfikuj zdarzenia pomocy technicznej
 
-Wyodrębnianie fraz kluczowych i rozpoznawanie encji umożliwia przetwarzanie żądań obsługi przesłanych w formacie tekstowym bez struktury. Wyodrębnione frazy i jednostki służy do kategoryzowanie żądań planowania zasobów i analizy trendów.
+Użyj wyodrębnianie kluczowych fraz i rozpoznawania jednostek, aby przetwarzać żądania obsługi przesłane w formacie tekstowym bez struktury. Użyj wyodrębnionych fraz i jednostek do kategoryzacji żądań dotyczących planowania zasobów i analizy trendów.
 
-![Obraz opisujący sposób używania wyodrębniania fraz kluczowych i rozpoznawania encji do kategoryzowania raportów i trendów zdarzeń](media/use-cases/support-incidents.svg)
+![Obraz opisujący sposób użycia wyodrębniania kluczowych fraz i rozpoznawania jednostek do kategoryzowania raportów i trendów zdarzeń](media/use-cases/support-incidents.svg)
 
-## <a name="monitor-your-products-social-media-feeds"></a>Monitorowanie kanałów mediów społecznościowych produktu
+## <a name="monitor-your-products-social-media-feeds"></a>Monitoruj źródła danych mediów społecznościowych produktu
 
-Monitoruj opinie użytkowników na stronie twitter lub Facebook produktu. Dane te wykorzystują do analizowania nastrojów klientów w kierunku wprowadzania nowych produktów, wyodrębniania kluczowych fraz dotyczących funkcji i żądań funkcji lub rozwiązywania skarg klientów w miarę ich pojawiania się. Zobacz przykładowy [szablon usługi Microsoft Flow](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/).
+Monitoruj Opinie użytkowników o produkcie na stronie serwisu Twitter lub w serwisie Facebook. Za pomocą danych można analizować tonacji klientów w kierunku nowych produktów, wyodrębniać kluczowe frazy dotyczące funkcji i żądań funkcji lub rozwiązywać reklamacje klientów w miarę ich występowania. Zapoznaj się z przykładowym [szablonem Microsoft Flow](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/).
 
-![Obraz opisujący sposób monitorowania opinii produktów i firm w mediach społecznościowych przy użyciu ekstrakcji kluczowych fraz](media/use-cases/social-feed.svg)
+![Obraz opisujący sposób monitorowania produktu i opinii firmy na nośnikach społecznościowych przy użyciu wyodrębniania kluczowych fraz](media/use-cases/social-feed.svg)
 
-## <a name="classify-and-redact-documents-that-have-sensitive-information"></a>Klasyfikowanie i redagowanie dokumentów, które mają poufne informacje
+## <a name="classify-and-redact-documents-that-have-sensitive-information"></a>Klasyfikowanie i redagowanie dokumentów, które mają informacje poufne
 
-Rozpoznawanie nazwanych jednostek służy do identyfikowania informacji osobistych i poufnych w dokumentach. Użyj danych, aby sklasyfikować dokumenty lub zredagować je, aby mogły być udostępniane bezpiecznie.
+Użyj nazwanego rozpoznawania jednostek do identyfikowania osobistych i poufnych informacji w dokumentach. Dane służą do klasyfikowania dokumentów lub redagowania ich, aby mogły być bezpiecznie udostępniane.
 
-![Obraz opisujący sposób używania NER do wykrywania informacji osobistych oraz klasyfikowania i redagowania dokumentów](media/use-cases/sensitive-docs.jpg)
+![Obraz opisujący sposób użycia NER do wykrywania informacji osobistych oraz klasyfikowania i redagowania dokumentów](media/use-cases/sensitive-docs.jpg)
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Czym jest interfejs API analizy tekstu?](overview.md)
-* [Wysyłanie żądania do interfejsu API analizy tekstu przy użyciu biblioteki klienta](quickstarts/text-analytics-sdk.md)
+* [Wyślij żądanie do interfejs API analizy tekstu przy użyciu biblioteki klienckiej](quickstarts/text-analytics-sdk.md)

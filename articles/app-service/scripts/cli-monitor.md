@@ -1,6 +1,6 @@
 ---
-title: 'INTERFEJS WIERSZA POLECENIA: Monitorowanie aplikacji z dziennikami serwera www'
-description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure zautomatyzować wdrażanie aplikacji usługi App Service i zarządzanie nimi. W tym przykładzie pokazano, jak monitorować aplikację za pomocą dzienników serwera sieci web.
+title: 'Interfejs wiersza polecenia: monitorowanie aplikacji przy użyciu dzienników serwera sieci Web'
+description: Dowiedz się, jak zautomatyzować wdrażanie aplikacji App Service i zarządzanie nią za pomocą interfejsu wiersza polecenia platformy Azure. Ten przykład pokazuje, jak monitorować aplikację za pomocą dzienników serwera sieci Web.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 0887656f-611c-4627-8247-b5cded7cef60
@@ -10,10 +10,10 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 60abd47eaf176b6c802ebb8a20f74b5c1eb68f0a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80057783"
 ---
 # <a name="monitor-an-app-service-appwith-web-server-logs-using-azure-cli"></a>Monitorowanie aplikacji usługi App Service za pomocą dzienników serwera internetowego przy użyciu interfejsu wiersza polecenia platformy Azure

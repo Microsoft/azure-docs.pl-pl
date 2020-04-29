@@ -1,7 +1,7 @@
 ---
-title: Przeglądanie wypowiedzi użytkowników — usługa LUIS
+title: Przeglądanie użytkownika wyrażenia długości — LUIS
 titleSuffix: Azure Cognitive Services
-description: Przejrzyj wypowiedzi przechwycone przez aktywne uczenie się, aby wybrać intencje i oznaczyć jednostki dla wypowiedzi świata odczytu; akceptować zmiany, szkolić i publikować.
+description: Przejrzyj wyrażenia długości przechwycone przez aktywną naukę, aby wybrać pozycję zamierzenia i oznaczyć jednostki do odczytu-World wyrażenia długości; Akceptowanie zmian, uczenie i publikowanie.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,60 +12,60 @@ ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: diberry
 ms.openlocfilehash: 95b7c7446a47fafd26d00b0da4d880786340fcd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219853"
 ---
-# <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Jak ulepszyć aplikację usługi LUIS, przeglądając wypowiedzi punktów końcowych
+# <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Jak ulepszyć aplikację LUIS, przeglądając punkt końcowy wyrażenia długości
 
-Proces przeglądania wypowiedzi punktu końcowego dla poprawnych prognoz jest nazywany [aktywne uczenie](luis-concept-review-endpoint-utterances.md)się. Aktywne uczenie przechwytuje kwerendy punktu końcowego i wybiera wypowiedzi punktu końcowego użytkownika, których nie ma pewności. Przeglądać te wypowiedzi, aby wybrać intencji i oznaczyć jednostki dla tych wypowiedzi świata odczytu. Zaakceptuj te zmiany w wypowiedzi przykład, a następnie trenować i publikować. Usługa LUIS następnie identyfikuje wypowiedzi dokładniej.
+Proces recenzowania punktów końcowych wyrażenia długości pod kątem prawidłowych prognoz jest nazywany [aktywną nauką](luis-concept-review-endpoint-utterances.md). Usługa Active Learning przechwytuje zapytania punktów końcowych i wybiera punkt końcowy użytkownika wyrażenia długości, że nie ma pewności. Te wyrażenia długości są przeglądane w celu wybrania zamiar i oznaczenie jednostek dla tych wyrażenia długości do odczytu. Zaakceptuj te zmiany w przykładzie wyrażenia długości, a następnie Wyszkol i Opublikuj. LUIS następnie identyfikuje wyrażenia długości dokładniej.
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
-## <a name="enable-active-learning"></a>Włącz aktywne uczenie się
+## <a name="enable-active-learning"></a>Włącz aktywną naukę
 
-Aby włączyć aktywne uczenie, należy rejestrować zapytania użytkowników. Jest to realizowane przez wywołanie [kwerendy punktu końcowego](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) `log=true` z querystring parametru i wartości.
+Aby włączyć aktywną naukę, należy zarejestrować zapytania użytkownika. Jest to realizowane przez wywołanie [zapytania punktu końcowego](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) z parametrem `log=true` QueryString i wartością.
 
-Użyj portalu usługi LUIS do skonstruowania poprawnej kwerendy punktu końcowego.
+Użyj portalu LUIS, aby utworzyć poprawną kwerendę punktu końcowego.
 
-1. W portalu usługi LUIS w [wersji zapoznawczej](https://preview.luis.ai/)wybierz aplikację z listy aplikacji.
-1. Przejdź do sekcji **Zarządzanie,** a następnie wybierz pozycję **Zasoby platformy Azure**.
-1. W przypadku przypisanego zasobu prognozowania wybierz pozycję **Zmień parametry kwerendy**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Użyj portalu usługi LUIS, aby zapisać dzienniki, co jest wymagane do aktywnego uczenia się.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
-
-1. Przełącz **zapisz dzienniki,** a następnie zapisz, wybierając pozycję **Gotowe**.
+1. W [portalu Luis w wersji zapoznawczej](https://preview.luis.ai/)wybierz aplikację z listy aplikacji.
+1. Przejdź do sekcji **Zarządzanie** , a następnie wybierz pozycję **zasoby platformy Azure**.
+1. Dla przypisanego zasobu przewidywania wybierz pozycję **Zmień parametry zapytania**.
 
     > [!div class="mx-imgBorder"]
-    > ![Użyj portalu usługi LUIS, aby zapisać dzienniki, co jest wymagane do aktywnego uczenia się.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
+    > ![Użyj portalu LUIS do zapisania dzienników, które są wymagane do aktywnego uczenia.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
 
-     Ta akcja zmienia przykładowy `log=true` adres URL, dodając parametr querystring. Kopiowanie i używanie zmienionego przykładowego adresu URL kwerendy podczas wykonywania kwerend prognozowania do punktu końcowego środowiska wykonawczego.
+1. Przełącz pozycję **Zapisz dzienniki** i Zapisz, wybierając pozycję **gotowe**.
 
-## <a name="correct-intent-predictions-to-align-utterances"></a>Korygowanie prognoz intencji w celu wyrównania wypowiedzi
+    > [!div class="mx-imgBorder"]
+    > ![Użyj portalu LUIS do zapisania dzienników, które są wymagane do aktywnego uczenia.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
 
-Każda wypowiedź ma sugerowane intencji wyświetlane w **aligned intencji** kolumny.
+     Ta akcja powoduje zmianę przykładowego adresu URL przez `log=true` dodanie parametru QueryString. Skopiuj i użyj zmienionego przykładowego adresu URL zapytania podczas tworzenia zapytań prognozowania do punktu końcowego środowiska uruchomieniowego.
+
+## <a name="correct-intent-predictions-to-align-utterances"></a>Popraw przewidywania zamierzeń, aby wyrównać wyrażenia długości
+
+Każdy wypowiedź ma sugerowane zamierzone w kolumnie **cel** .
 
 > [!div class="mx-imgBorder"]
-> [![Przejrzyj wypowiedzi punktów końcowych, których usługa LUIS nie ma](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
+> [![Zapoznaj się z punktem końcowym wyrażenia długości, że LUIS nie ma pewności](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
 
-Jeśli zgadzasz się z tym zamiarem, zaznacz znacznik wyboru. Jeśli nie zgadzasz się z sugestią, wybierz poprawną intencję z listy rozwijanej wyrównany zamiar, a następnie wybierz znacznik wyboru po prawej stronie wyrównanej intencji. Po wybraniu w znaczniku wyboru wypowiedź jest przenoszona do intencji i usuwana z listy **Przejrzyj wypowiedzi punktu końcowego.**
+Jeśli zgadzasz się z tym zamiarem, zaznacz znacznik wyboru. Jeśli nie zgadzasz się z sugestią, wybierz odpowiednią opcję z listy rozwijanej założeń, a następnie zaznacz pole wyboru na prawo od dopasowanego zamiaru. Po zaznaczeniu znacznika wyboru wypowiedź jest przenoszony do zamiaru i usunięty z listy **wyrażenia długości punktu końcowego** .
 
 > [!TIP]
-> Ważne jest, aby przejść do strony szczegóły intencji, aby przejrzeć i poprawić prognoz jednostki ze wszystkich wypowiedzi przykład z **listy Przejrzyj wypowiedzi punktu końcowego.**
+> Ważne jest, aby przejść do strony Szczegóły intencji, aby przejrzeć i skorygować przewidywania jednostek ze wszystkich przykładów wyrażenia długości z listy **wyrażenia długości punktu końcowego przeglądu** .
 
-## <a name="delete-utterance"></a>Usuwanie wypowiedź
+## <a name="delete-utterance"></a>Usuń wypowiedź
 
-Każdy wypowiedź można usunąć z listy recenzji. Po usunięciu nie pojawi się ponownie na liście. Jest to prawdą, nawet jeśli użytkownik wprowadzi ten sam wypowiedź z punktu końcowego.
+Każdy wypowiedź można usunąć z listy przegląd. Po usunięciu nie zostanie on wyświetlony na liście ponownie. Jest to prawdziwe, nawet jeśli użytkownik wprowadzi ten sam wypowiedź z punktu końcowego.
 
-Jeśli nie masz pewności, czy należy usunąć wypowiedź, przenieść go do None `miscellaneous` intencji lub utworzyć nowy zamiar, takich jak i przenieść wypowiedź do tego zamiaru.
+Jeśli nie masz pewności, czy należy usunąć wypowiedź, przenieś je do zamiaru brak lub Utwórz nowe przeznaczenie, takie jak `miscellaneous` i Przenieś wypowiedź do tego celu.
 
-## <a name="disable-active-learning"></a>Wyłączanie aktywnego uczenia się
+## <a name="disable-active-learning"></a>Wyłącz aktywną naukę
 
-Aby wyłączyć aktywne uczenie, nie rejestruj zapytań użytkowników. Jest to realizowane przez ustawienie [kwerendy punktu końcowego](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) z `log=false` querystring parametr i wartość lub nie przy użyciu querystring wartość, ponieważ wartość domyślna jest false.
+Aby wyłączyć aktywną naukę, nie Rejestruj zapytań użytkownika. Jest to realizowane przez ustawienie [zapytania punktu końcowego](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) z parametrem `log=false` QueryString i wartością lub nieużywaniem wartości QueryString, ponieważ wartością domyślną jest false.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby przetestować, jak zwiększa wydajność po oznaczeniu sugerowane wypowiedzi, można uzyskać dostęp do konsoli testowej, wybierając **test** w górnym panelu. Aby uzyskać instrukcje dotyczące testowania aplikacji przy użyciu konsoli testowej, zobacz [Szkolenie i testowanie aplikacji](luis-interactive-test.md).
+Aby sprawdzić, jak wydajność zwiększa się po oznaczeniu sugerowanych wyrażenia długości, możesz uzyskać dostęp do konsoli testowej, wybierając **test** w górnym panelu. Aby uzyskać instrukcje dotyczące testowania aplikacji za pomocą konsoli testowej, zobacz [uczenie i testowanie aplikacji](luis-interactive-test.md).

@@ -1,7 +1,7 @@
 ---
-title: Tworzenie nowej aplikacji — USŁUGA LUIS
+title: Utwórz nową aplikację — LUIS
 titleSuffix: Azure Cognitive Services
-description: Tworzenie aplikacji i zarządzanie nimi na stronie internetowej language understanding (LUIS).
+description: Twórz aplikacje i zarządzaj nimi na stronie Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,30 +12,30 @@ ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: diberry
 ms.openlocfilehash: d3f8696388a33a8ea112aae438c6bbe9af520c61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79220832"
 ---
-# <a name="create-a-new-luis-app-in-the-luis-portal"></a>Tworzenie nowej aplikacji usługi LUIS w portalu usługi LUIS
-Istnieje kilka sposobów tworzenia aplikacji usługi LUIS. Aplikację usługi LUIS można utworzyć w portalu usługi LUIS lub za pośrednictwem [interfejsów API](developer-reference-resource.md)tworzenia usługi LUIS .
+# <a name="create-a-new-luis-app-in-the-luis-portal"></a>Tworzenie nowej aplikacji LUIS w portalu LUIS
+Istnieje kilka sposobów tworzenia aplikacji LUIS. Aplikację LUIS można utworzyć w portalu LUIS lub za pomocą [interfejsów API](developer-reference-resource.md)tworzenia Luis.
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
-## <a name="using-the-luis-portal"></a>Korzystanie z portalu usługi LUIS
+## <a name="using-the-luis-portal"></a>Korzystanie z portalu LUIS
 
 Nową aplikację można utworzyć w portalu w wersji zapoznawczej na kilka sposobów:
 
-* Zacznij od pustej aplikacji i utwórz intencje, wypowiedzi i jednostki.
-* Zacznij od pustej aplikacji i dodaj [wstępnie skompilowany plik .](luis-how-to-use-prebuilt-domains.md)
-* Importowanie aplikacji usługi `.lu` `.json` LUIS z pliku lub pliku, który zawiera już intencje, wypowiedzi i encje.
+* Zacznij od pustej aplikacji i Utwórz intencje, wyrażenia długości i jednostki.
+* Zacznij od pustej aplikacji i Dodaj [prezbudowaną domenę](luis-how-to-use-prebuilt-domains.md).
+* Zaimportuj aplikację LUIS z `.lu` pliku `.json` lub, który zawiera już intencje, wyrażenia długości i jednostki.
 
 ## <a name="using-the-authoring-apis"></a>Korzystanie z interfejsów API tworzenia
-Możesz utworzyć nową aplikację za pomocą interfejsów API tworzenia na kilka sposobów:
+Nową aplikację można utworzyć za pomocą interfejsów API tworzenia na kilka sposobów:
 
-* [Dodaj aplikację](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f) — zacznij od pustej aplikacji i utwórz intencje, wypowiedzi i jednostki.
-* [Dodaj wstępnie skompilowana aplikacja](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/59104e515aca2f0b48c76be5) — rozpocznij od wstępnie utworzonej domeny, w tym intencji, wypowiedzi i jednostek.  
+* [Dodaj aplikację](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f) — Zacznij od pustej aplikacji i Utwórz intencje, wyrażenia długości i jednostki.
+* [Dodaj prekompilowaną aplikację](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/59104e515aca2f0b48c76be5) — Zacznij od wstępnie skompilowanej domeny, w tym intencji, wyrażenia długości i jednostek.  
 
 
 <a name="export-app"></a>
@@ -45,38 +45,38 @@ Możesz utworzyć nową aplikację za pomocą interfejsów API tworzenia na kilk
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
-## <a name="create-new-app-in-luis"></a>Tworzenie nowej aplikacji w usłudze LUIS
+## <a name="create-new-app-in-luis"></a>Utwórz nową aplikację w LUIS
 
-1. Na stronie **Moje aplikacje** wybierz subskrypcję i zasób tworzenia, a następnie **+ Utwórz**. Jeśli używasz bezpłatnego klucza próbnego, dowiedz się, jak [utworzyć zasób autora](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal).
+1. Na stronie **Moje aplikacje** wybierz swoją subskrypcję, a następnie **Utwórz**zasób, a następnie kliknij pozycję Włącz. Jeśli używasz bezpłatnego klucza wersji próbnej, Dowiedz się, jak [utworzyć zasób tworzenia](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal).
 
     ![Lista aplikacji LUIS](./media/create-app-in-portal.png)
 
 
-1. W oknie dialogowym wprowadź nazwę aplikacji, `Pizza Tutorial`na przykład .
+1. W oknie dialogowym wprowadź nazwę aplikacji, na przykład `Pizza Tutorial`.
 
-    ![Tworzenie nowego okna dialogowego aplikacji](./media/create-pizza-tutorial-app-in-portal.png)
+    ![Okno dialogowe Tworzenie nowej aplikacji](./media/create-pizza-tutorial-app-in-portal.png)
 
-1. Wybierz kulturę aplikacji, a następnie wybierz pozycję **Gotowe**. Opis i zasób przewidywania są opcjonalne w tym momencie. Następnie można ustawić w dowolnym momencie w sekcji **Zarządzaj** portalu.
+1. Wybierz kulturę aplikacji, a następnie wybierz pozycję **gotowe**. Opis i zasób przewidywania są opcjonalne w tym momencie. W każdej chwili możesz ją ustawić w sekcji **Zarządzanie** w portalu.
 
     > [!NOTE]
     > Kultury nie można zmienić po utworzeniu aplikacji. 
 
-    Po utworzeniu aplikacji portal usługi LUIS pokazuje listę `None` **intencji** z zamiarem już utworzonym dla Ciebie. Masz teraz pustą aplikację. 
+    Po utworzeniu aplikacji Portal LUIS pokazuje listę **intencji** z zamiarem, `None` który został już utworzony. Masz teraz pustą aplikację. 
     
     > [!div class="mx-imgBorder"]
-    > ![Lista intencji z brak intencji utworzony bez wypowiedzi przykład.](media/pizza-tutorial-new-app-empty-intent-list.png)
+    > ![Lista założeń z zamiarem nie została utworzona bez przykładu wyrażenia długości.](media/pizza-tutorial-new-app-empty-intent-list.png)
 
-## <a name="other-actions-available"></a>Inne dostępne działania
+## <a name="other-actions-available"></a>Inne dostępne akcje
 
-Pasek narzędzi kontekstu zawiera inne akcje:
+Pasek narzędzi kontekstowych zawiera inne akcje:
 
-* Zmienianie nazwy aplikacji
-* Importowanie z `.lu` pliku przy użyciu lub`.json`
-* Eksportowanie `.lu` aplikacji jako (dla `.zip` [LUDown)](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown) `.json`lub (dla [kontenera usługi LUIS)](luis-container-howto.md)
-* Importowanie dzienników punktu końcowego kontenera, aby przejrzeć wypowiedzi punktów końcowych
-* Eksportowanie dzienników punktów `.csv`końcowych jako analizy w trybie offline
+* Zmień nazwę aplikacji
+* Importuj z pliku przy `.lu` użyciu lub`.json`
+* Eksportuj aplikację jako `.lu` (dla [LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)), `.json`lub `.zip` (dla [kontenera Luis](luis-container-howto.md))
+* Importuj dzienniki punktów końcowych kontenera, aby przejrzeć wyrażenia długości punktu końcowego
+* Eksportowanie dzienników `.csv`punktów końcowych w programie do analizy w trybie offline
 * Usuń aplikację
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli projekt aplikacji zawiera wykrywanie intencji, [utwórz nowe intencje](luis-how-to-add-intents.md)i dodaj przykładowe wypowiedzi. Jeśli projekt aplikacji jest tylko wyodrębnianie danych, dodać wypowiedzi przykład do None intencji, a następnie [utworzyć jednostki](luis-how-to-add-example-utterances.md)i etykiety wypowiedzi przykład z tych jednostek. 
+Jeśli projekt aplikacji obejmuje wykrywanie intencji, [Utwórz nowe intencje](luis-how-to-add-intents.md)i Dodaj przykład wyrażenia długości. Jeśli projekt aplikacji jest tylko do wyodrębnienia danych, Dodaj przykład wyrażenia długości do zamiaru brak, a następnie [Utwórz jednostki](luis-how-to-add-example-utterances.md)i Oznacz przykład wyrażenia długości z tymi jednostkami. 

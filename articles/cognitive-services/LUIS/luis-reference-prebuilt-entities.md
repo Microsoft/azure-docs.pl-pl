@@ -1,7 +1,7 @@
 ---
-title: Wszystkie wstępnie utworzone jednostki — USŁUGA LUIS
+title: Wszystkie wstępnie skompilowane jednostki — LUIS
 titleSuffix: Azure Cognitive Services
-description: Ten artykuł zawiera listy wstępnie utworzonych jednostek, które są zawarte w opisie języka (LUIS).
+description: Ten artykuł zawiera listy wstępnie utworzonych jednostek, które znajdują się w Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,307 +12,307 @@ ms.topic: reference
 ms.date: 10/03/2019
 ms.author: diberry
 ms.openlocfilehash: a49452653f8ac4bcc62758d801a235be0929d314
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219721"
 ---
-# <a name="entities-per-culture-in-your-luis-model"></a>Jednostki na kulturę w modelu usługi LUIS
+# <a name="entities-per-culture-in-your-luis-model"></a>Jednostki na kulturę w modelu LUIS
 
-Zrozumienie języka (LUIS) udostępnia wstępnie utworzone jednostki. Gdy wstępnie utworzone jednostki jest uwzględniony w aplikacji, usługa LUIS zawiera odpowiednie przewidywania jednostki w odpowiedzi punktu końcowego. Wszystkie wypowiedzi przykład są również oznaczone z jednostki. **Nie można** zmodyfikować zachowania wstępnie utworzonych jednostek. O ile nie zaznaczono inaczej, wstępnie utworzone jednostki są dostępne we wszystkich ustawieniach regionalnych aplikacji usługi LUIS (kultury). W poniższej tabeli przedstawiono wstępnie utworzone jednostki, które są obsługiwane dla każdej kultury.
+Language Understanding (LUIS) udostępnia wstępnie utworzone jednostki. Gdy wbudowana jednostka jest dołączona do aplikacji, LUIS obejmuje odpowiednie przewidywanie jednostek w odpowiedzi punktu końcowego. Wszystkie przykładowe wyrażenia długości są również oznaczone jednostką. **Nie** można zmodyfikować zachowania wstępnie skompilowanych jednostek. O ile nie wskazano inaczej, wstępnie skompilowane jednostki są dostępne we wszystkich ustawieniach regionalnych aplikacji LUIS (kultury). W poniższej tabeli przedstawiono wstępnie skompilowane jednostki, które są obsługiwane przez każdą kulturę.
 
-|Culture|Subkultur|Uwagi|
+|Kultura|Podkultury|Uwagi|
 |--|--|--|
 |Chiński|[zh-CN](#chinese-entity-support)||
 |Niderlandzki|[nl-NL](#dutch-entity-support)||
-|Polski|[pl-USA (amerykański)](#english-american-entity-support)||
-|Francuski|[fr-CA (Kanada),](#french-canadian-entity-support) [fr-FR (Francja),](#french-france-entity-support) ||
-|Niemiecki|[de-DE](#german-entity-support)||
-|Włoski|[it-IT](#italian-entity-support)||
-|Japoński|[ja-JP](#japanese-entity-support)||
-|Koreański|[ko-KR](#korean-entity-support)||
+|Angielski|[EN-US (American)](#english-american-entity-support)||
+|Francuski|[fr — CA (Kanada)](#french-canadian-entity-support), [fr-fr (Francja)](#french-france-entity-support), ||
+|niemiecki|[de-DE](#german-entity-support)||
+|Włoski|[IT](#italian-entity-support)||
+|japoński|[ja-JP](#japanese-entity-support)||
+|koreański|[ko-KR](#korean-entity-support)||
 |Portugalski|[pt-BR (Brazylia)](#portuguese-brazil-entity-support)||
-|Hiszpański|[es-ES (Hiszpania)](#spanish-spain-entity-support), [es-MX (Meksyk)](#spanish-mexico-entity-support)||
-|Turecki|[Turecki](#turkish-entity-support)|Brak wstępnie utworzonych jednostek obsługiwanych w języku tureckim|
+|Hiszpański|[ES-es (Hiszpania)](#spanish-spain-entity-support), [es-MX (Meksyk)](#spanish-mexico-entity-support)||
+|Turecki|[Turecki](#turkish-entity-support)|Brak wstępnie skompilowanych jednostek obsługiwanych w języku tureckim|
 
-## <a name="prediction-endpoint-runtime"></a>Przewidywanie środowiska wykonawczego punktu końcowego
+## <a name="prediction-endpoint-runtime"></a>Przewidywanie środowiska uruchomieniowego punktu końcowego
 
-Dostępność wstępnie utworzonej jednostki w określonym języku jest określana przez wersję środowiska wykonawczego punktu końcowego przewidywania.
+Dostępność wstępnie skompilowanej jednostki w określonym języku jest określana na podstawie wersji środowiska uruchomieniowego punktu końcowego przewidywania.
 
-## <a name="chinese-entity-support"></a>Wsparcie chińskich podmiotów
+## <a name="chinese-entity-support"></a>Obsługa chińskich jednostek
 
 Obsługiwane są następujące jednostki:
 
-|Wstępnie skompilowana jednostka|```zh-CN``` |
+|Wstępnie utworzona jednostka|```zh-CN``` |
 ------|:------:|
-[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>Tygodniu<br>dzień   |    V2, V3   |
-[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>Dolar<br>jednostka ułamkowa (np.: grosz)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>rozmieszczenie dat<br>time<br>rozsyłanie czasu   |    V2, V3   |
-[Wymiar :](luis-reference-prebuilt-dimension.md)<br>wolumin<br>obszar<br>Waga<br>informacje (np.: bit/bajt)<br>długość (np. metr)<br>prędkość (np.: mila na godzinę)  |    V2, V3   |
-[Adres e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
+[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
+[Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>Waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
+[Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
-[Keyphrase](luis-reference-prebuilt-keyphrase.md)   |    -   |
-[Numer](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Porządkowych](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
-[Okręg wyborczy OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   |
+[Liczba](luis-reference-prebuilt-number.md)   |    V2, V3   |
+[Liczbą](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procentowe](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
-[Nazwa osoby](luis-reference-prebuilt-person.md)   |    V2, V3   |
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperatura](luis-reference-prebuilt-temperature.md):<br>Fahrenheita<br>Kelvin<br>rankine (rankine)<br>Delisle<br>Celsjusza   |    V2, V3   |
+[Nazwisko osoby](luis-reference-prebuilt-person.md)   |    V2, V3   |
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Temperatura](luis-reference-prebuilt-temperature.md):<br>Stop<br>Kelvin<br>rankine<br>delisle<br>Celsjusza   |    V2, V3   |
 [Adres URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-## <a name="dutch-entity-support"></a>Wsparcie holenderskich podmiotów
+## <a name="dutch-entity-support"></a>Obsługa jednostek Holenderskich
 
 Obsługiwane są następujące jednostki:
 
-|Wstępnie skompilowana jednostka|```nl-NL``` |
+|Wstępnie utworzona jednostka|```nl-NL``` |
 ------|:------:|
-[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>Tygodniu<br>dzień   |    V2, V3   |
-[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>Dolar<br>jednostka ułamkowa (np.: grosz)  |    V2, V3   |
-[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   |
-[Wymiar :](luis-reference-prebuilt-dimension.md)<br>wolumin<br>obszar<br>Waga<br>informacje (np.: bit/bajt)<br>długość (np. metr)<br>prędkość (np.: mila na godzinę)  |    V2, V3   |
-[Adres e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
+[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
+[Datę](luis-reference-prebuilt-deprecated.md)   |    -   |
+[Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>Waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
+[Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
-[Keyphrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Numer](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Porządkowych](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
-[Okręg wyborczy OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[Liczba](luis-reference-prebuilt-number.md)   |    V2, V3   |
+[Liczbą](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procentowe](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
-[Nazwa osoby](luis-reference-prebuilt-person.md)   |    -   |
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperatura](luis-reference-prebuilt-temperature.md):<br>Fahrenheita<br>Kelvin<br>rankine (rankine)<br>Delisle<br>Celsjusza   |    V2, V3   |
+[Nazwisko osoby](luis-reference-prebuilt-person.md)   |    -   |
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Temperatura](luis-reference-prebuilt-temperature.md):<br>Stop<br>Kelvin<br>rankine<br>delisle<br>Celsjusza   |    V2, V3   |
 [Adres URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-## <a name="english-american-entity-support"></a>Wsparcie jednostki angielskiej (amerykańskiej)
+## <a name="english-american-entity-support"></a>Obsługa jednostek w języku angielskim (American)
 
 Obsługiwane są następujące jednostki:
 
-|Wstępnie skompilowana jednostka|```en-US``` |
+|Wstępnie utworzona jednostka|```en-US``` |
 ------|:------:|
-[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>Tygodniu<br>dzień   |    V2, V3   |
-[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>Dolar<br>jednostka ułamkowa (np.: grosz)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>rozmieszczenie dat<br>time<br>rozsyłanie czasu   |    V2, V3   |
-[Wymiar :](luis-reference-prebuilt-dimension.md)<br>wolumin<br>obszar<br>Waga<br>informacje (np.: bit/bajt)<br>długość (np. metr)<br>prędkość (np.: mila na godzinę)  |    V2, V3   |
-[Adres e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
+[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
+[Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>Waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
+[Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    V2, V3   |
-[Keyphrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Numer](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Porządkowych](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
-[Okręg wyborczy OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    V2, V3   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[Liczba](luis-reference-prebuilt-number.md)   |    V2, V3   |
+[Liczbą](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    V2, V3   |
 [Procentowe](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
-[Nazwa osoby](luis-reference-prebuilt-person.md)   |    V2, V3   |
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperatura](luis-reference-prebuilt-temperature.md):<br>Fahrenheita<br>Kelvin<br>rankine (rankine)<br>Delisle<br>Celsjusza   |    V2, V3   |
+[Nazwisko osoby](luis-reference-prebuilt-person.md)   |    V2, V3   |
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Temperatura](luis-reference-prebuilt-temperature.md):<br>Stop<br>Kelvin<br>rankine<br>delisle<br>Celsjusza   |    V2, V3   |
 [Adres URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-## <a name="french-france-entity-support"></a>Wsparcie podmiotów francuskich (Francja)
+## <a name="french-france-entity-support"></a>Obsługa jednostek francuskich (Francja)
 
 Obsługiwane są następujące jednostki:
 
-|Wstępnie skompilowana jednostka|```fr-FR``` |
+|Wstępnie utworzona jednostka|```fr-FR``` |
 ------|:------:|
-[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>Tygodniu<br>dzień   |    V2, V3   |
-[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>Dolar<br>jednostka ułamkowa (np.: grosz)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>rozmieszczenie dat<br>time<br>rozsyłanie czasu   |    V2, V3   |
-[Wymiar :](luis-reference-prebuilt-dimension.md)<br>wolumin<br>obszar<br>Waga<br>informacje (np.: bit/bajt)<br>długość (np. metr)<br>prędkość (np.: mila na godzinę)  |    V2, V3   |
-[Adres e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
+[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
+[Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>Waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
+[Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
-[Keyphrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Numer](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Porządkowych](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
-[Okręg wyborczy OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[Liczba](luis-reference-prebuilt-number.md)   |    V2, V3   |
+[Liczbą](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procentowe](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
-[Nazwa osoby](luis-reference-prebuilt-person.md)   |   -   |
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperatura](luis-reference-prebuilt-temperature.md):<br>Fahrenheita<br>Kelvin<br>rankine (rankine)<br>Delisle<br>Celsjusza   |    V2, V3   |
+[Nazwisko osoby](luis-reference-prebuilt-person.md)   |   -   |
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Temperatura](luis-reference-prebuilt-temperature.md):<br>Stop<br>Kelvin<br>rankine<br>delisle<br>Celsjusza   |    V2, V3   |
 [Adres URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-## <a name="french-canadian-entity-support"></a>Wsparcie dla podmiotów francuskich (kanadyjskich)
+## <a name="french-canadian-entity-support"></a>Obsługa jednostek francuskich (kanadyjskich)
 
 Obsługiwane są następujące jednostki:
 
-|Wstępnie skompilowana jednostka|```fr-CA``` |
+|Wstępnie utworzona jednostka|```fr-CA``` |
 ------|:------:|
-[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>Tygodniu<br>dzień   |    V2, V3   |
-[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>Dolar<br>jednostka ułamkowa (np.: grosz)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>rozmieszczenie dat<br>time<br>rozsyłanie czasu   |    V2, V3   |
-[Wymiar :](luis-reference-prebuilt-dimension.md)<br>wolumin<br>obszar<br>Waga<br>informacje (np.: bit/bajt)<br>długość (np. metr)<br>prędkość (np.: mila na godzinę)  |    V2, V3   |
-[Adres e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
+[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
+[Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>Waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
+[Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
-[Keyphrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Numer](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Porządkowych](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
-[Okręg wyborczy OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[Liczba](luis-reference-prebuilt-number.md)   |    V2, V3   |
+[Liczbą](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procentowe](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
-[Nazwa osoby](luis-reference-prebuilt-person.md)   |    -   |
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperatura](luis-reference-prebuilt-temperature.md):<br>Fahrenheita<br>Kelvin<br>rankine (rankine)<br>Delisle<br>Celsjusza   |    V2, V3   |
+[Nazwisko osoby](luis-reference-prebuilt-person.md)   |    -   |
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Temperatura](luis-reference-prebuilt-temperature.md):<br>Stop<br>Kelvin<br>rankine<br>delisle<br>Celsjusza   |    V2, V3   |
 [Adres URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-## <a name="german-entity-support"></a>Wsparcie dla podmiotów niemieckich
+## <a name="german-entity-support"></a>Obsługa jednostek niemieckich
 
 Obsługiwane są następujące jednostki:
 
-|Wstępnie skompilowana jednostka|```de-DE``` |
+|Wstępnie utworzona jednostka|```de-DE``` |
 ------|:------:|
-[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>Tygodniu<br>dzień   |    V2, V3   |
-[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>Dolar<br>jednostka ułamkowa (np.: grosz)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>rozmieszczenie dat<br>time<br>rozsyłanie czasu   |    V2, V3   |
-[Wymiar :](luis-reference-prebuilt-dimension.md)<br>wolumin<br>obszar<br>Waga<br>informacje (np.: bit/bajt)<br>długość (np. metr)<br>prędkość (np.: mila na godzinę)  |    V2, V3   |
-[Adres e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
+[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
+[Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>Waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
+[Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
-[Keyphrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Numer](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Porządkowych](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
-[Okręg wyborczy OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[Liczba](luis-reference-prebuilt-number.md)   |    V2, V3   |
+[Liczbą](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procentowe](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
-[Nazwa osoby](luis-reference-prebuilt-person.md)   |    -   |
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperatura](luis-reference-prebuilt-temperature.md):<br>Fahrenheita<br>Kelvin<br>rankine (rankine)<br>Delisle<br>Celsjusza   |    V2, V3   |
+[Nazwisko osoby](luis-reference-prebuilt-person.md)   |    -   |
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Temperatura](luis-reference-prebuilt-temperature.md):<br>Stop<br>Kelvin<br>rankine<br>delisle<br>Celsjusza   |    V2, V3   |
 [Adres URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-## <a name="italian-entity-support"></a>Wsparcie dla podmiotów włoskich
+## <a name="italian-entity-support"></a>Obsługa jednostek włoskich
 
-Włoski prebuilt wiek, waluta, wymiar, liczba, _rozdzielczość procentowa_ zmieniona z V2 i V3 podglądu.
+Włoski prekompilowany wiek, walut, wymiar, numer, _rozdzielczość_ procentową zmieniono z wersji 2 i V3 Preview.
 
 Obsługiwane są następujące jednostki:
 
-|Wstępnie skompilowana jednostka|```it-IT``` |
+|Wstępnie utworzona jednostka|```it-IT``` |
 ------|:------:|
-[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>Tygodniu<br>dzień   |    V2, V3   |
-[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>Dolar<br>jednostka ułamkowa (np.: grosz)  |    V2, V3   |
-[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   |
-[Wymiar :](luis-reference-prebuilt-dimension.md)<br>wolumin<br>obszar<br>Waga<br>informacje (np.: bit/bajt)<br>długość (np. metr)<br>prędkość (np.: mila na godzinę)  |    V2, V3   |
-[Adres e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
+[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
+[Datę](luis-reference-prebuilt-deprecated.md)   |    -   |
+[Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>Waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
+[Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
-[Keyphrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Numer](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Porządkowych](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
-[Okręg wyborczy OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[Liczba](luis-reference-prebuilt-number.md)   |    V2, V3   |
+[Liczbą](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procentowe](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
-[Nazwa osoby](luis-reference-prebuilt-person.md)   |    -   |
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperatura](luis-reference-prebuilt-temperature.md):<br>Fahrenheita<br>Kelvin<br>rankine (rankine)<br>Delisle<br>Celsjusza   |    V2, V3   |
+[Nazwisko osoby](luis-reference-prebuilt-person.md)   |    -   |
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Temperatura](luis-reference-prebuilt-temperature.md):<br>Stop<br>Kelvin<br>rankine<br>delisle<br>Celsjusza   |    V2, V3   |
 [Adres URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-## <a name="japanese-entity-support"></a>Obsługa japońskich podmiotów
+## <a name="japanese-entity-support"></a>Obsługa jednostek japońskich
 
 Obsługiwane są następujące jednostki:
 
-|Wstępnie skompilowana jednostka|```ja-JP``` |
+|Wstępnie utworzona jednostka|```ja-JP``` |
 ------|:------:|
-[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>Tygodniu<br>dzień   |    V2, -   |
-[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>Dolar<br>jednostka ułamkowa (np.: grosz)  |    V2, -   |
-[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   |
-[Wymiar :](luis-reference-prebuilt-dimension.md)<br>wolumin<br>obszar<br>Waga<br>informacje (np.: bit/bajt)<br>długość (np. metr)<br>prędkość (np.: mila na godzinę)  |    V2, -   |
-[Adres e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2,-   |
+[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2,-   |
+[Datę](luis-reference-prebuilt-deprecated.md)   |    -   |
+[Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>Waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2,-   |
+[Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
-[Keyphrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Numer](luis-reference-prebuilt-number.md)   |    V2, -   |
-[Porządkowych](luis-reference-prebuilt-ordinal.md)   |    V2, -   |
-[Okręg wyborczy OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
-[Procentowe](luis-reference-prebuilt-percentage.md)   |    V2, -   |
-[Nazwa osoby](luis-reference-prebuilt-person.md)   |    -   |
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperatura](luis-reference-prebuilt-temperature.md):<br>Fahrenheita<br>Kelvin<br>rankine (rankine)<br>Delisle<br>Celsjusza   |    V2, -   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[Liczba](luis-reference-prebuilt-number.md)   |    V2,-   |
+[Liczbą](luis-reference-prebuilt-ordinal.md)   |    V2,-   |
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
+[Procentowe](luis-reference-prebuilt-percentage.md)   |    V2,-   |
+[Nazwisko osoby](luis-reference-prebuilt-person.md)   |    -   |
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Temperatura](luis-reference-prebuilt-temperature.md):<br>Stop<br>Kelvin<br>rankine<br>delisle<br>Celsjusza   |    V2,-   |
 [Adres URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-## <a name="korean-entity-support"></a>Wsparcie koreańskiego podmiotu
+## <a name="korean-entity-support"></a>Obsługa jednostek w języku koreańskim
 
 Obsługiwane są następujące jednostki:
 
-|Wstępnie skompilowana jednostka|```ko-KR``` |
+|Wstępnie utworzona jednostka|```ko-KR``` |
 ------|:------:|
-[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>Tygodniu<br>dzień   |    -   |
-[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>Dolar<br>jednostka ułamkowa (np.: grosz)  |    -   |
-[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   |
-[Wymiar :](luis-reference-prebuilt-dimension.md)<br>wolumin<br>obszar<br>Waga<br>informacje (np.: bit/bajt)<br>długość (np. metr)<br>prędkość (np.: mila na godzinę)  |    -   |
-[Adres e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    -   |
+[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    -   |
+[Datę](luis-reference-prebuilt-deprecated.md)   |    -   |
+[Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>Waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    -   |
+[Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
-[Keyphrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Numer](luis-reference-prebuilt-number.md)   |    -   |
-[Porządkowych](luis-reference-prebuilt-ordinal.md)   |    -   |
-[Okręg wyborczy OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[Liczba](luis-reference-prebuilt-number.md)   |    -   |
+[Liczbą](luis-reference-prebuilt-ordinal.md)   |    -   |
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procentowe](luis-reference-prebuilt-percentage.md)   |    -   |
-[Nazwa osoby](luis-reference-prebuilt-person.md)   |    -   |
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperatura](luis-reference-prebuilt-temperature.md):<br>Fahrenheita<br>Kelvin<br>rankine (rankine)<br>Delisle<br>Celsjusza   |    -   |
+[Nazwisko osoby](luis-reference-prebuilt-person.md)   |    -   |
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Temperatura](luis-reference-prebuilt-temperature.md):<br>Stop<br>Kelvin<br>rankine<br>delisle<br>Celsjusza   |    -   |
 [Adres URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-## <a name="portuguese-brazil-entity-support"></a>Wsparcie dla podmiotów portugalskich (Brazylia)
+## <a name="portuguese-brazil-entity-support"></a>Obsługa jednostek w języku portugalskim (Brazylia)
 
 Obsługiwane są następujące jednostki:
 
-|Wstępnie skompilowana jednostka|```pt-BR``` |
+|Wstępnie utworzona jednostka|```pt-BR``` |
 ------|:------:|
-[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>Tygodniu<br>dzień   |    V2, V3   |
-[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>Dolar<br>jednostka ułamkowa (np.: grosz)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>rozmieszczenie dat<br>time<br>rozsyłanie czasu   |    V2, V3   |
-[Wymiar :](luis-reference-prebuilt-dimension.md)<br>wolumin<br>obszar<br>Waga<br>informacje (np.: bit/bajt)<br>długość (np. metr)<br>prędkość (np.: mila na godzinę)  |    V2, V3   |
-[Adres e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
+[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
+[Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>Waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
+[Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
-[Keyphrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Numer](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Porządkowych](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
-[Okręg wyborczy OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[Liczba](luis-reference-prebuilt-number.md)   |    V2, V3   |
+[Liczbą](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procentowe](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
-[Nazwa osoby](luis-reference-prebuilt-person.md)   |    -   |
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperatura](luis-reference-prebuilt-temperature.md):<br>Fahrenheita<br>Kelvin<br>rankine (rankine)<br>Delisle<br>Celsjusza   |    V2, V3   |
+[Nazwisko osoby](luis-reference-prebuilt-person.md)   |    -   |
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Temperatura](luis-reference-prebuilt-temperature.md):<br>Stop<br>Kelvin<br>rankine<br>delisle<br>Celsjusza   |    V2, V3   |
 [Adres URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-## <a name="spanish-spain-entity-support"></a>Wsparcie podmiotów hiszpańskich (Hiszpania)
+## <a name="spanish-spain-entity-support"></a>Obsługa jednostki hiszpańskiej (Hiszpania)
 
 Obsługiwane są następujące jednostki:
 
-|Wstępnie skompilowana jednostka|```es-ES``` |
+|Wstępnie utworzona jednostka|```es-ES``` |
 ------|:------:|
-[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>Tygodniu<br>dzień   |    V2, V3   |
-[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>Dolar<br>jednostka ułamkowa (np.: grosz)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>rozmieszczenie dat<br>time<br>rozsyłanie czasu   |    V2, V3   |
-[Wymiar :](luis-reference-prebuilt-dimension.md)<br>wolumin<br>obszar<br>Waga<br>informacje (np.: bit/bajt)<br>długość (np. metr)<br>prędkość (np.: mila na godzinę)  |    V2, V3   |
-[Adres e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
+[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
+[Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>Waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
+[Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
-[Keyphrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Numer](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Porządkowych](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
-[Okręg wyborczy OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[Liczba](luis-reference-prebuilt-number.md)   |    V2, V3   |
+[Liczbą](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procentowe](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
-[Nazwa osoby](luis-reference-prebuilt-person.md)   |    -   |
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperatura](luis-reference-prebuilt-temperature.md):<br>Fahrenheita<br>Kelvin<br>rankine (rankine)<br>Delisle<br>Celsjusza   |    V2, V3   |
+[Nazwisko osoby](luis-reference-prebuilt-person.md)   |    -   |
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Temperatura](luis-reference-prebuilt-temperature.md):<br>Stop<br>Kelvin<br>rankine<br>delisle<br>Celsjusza   |    V2, V3   |
 [Adres URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-## <a name="spanish-mexico-entity-support"></a>Wsparcie podmiotów hiszpańskich (Meksyk)
+## <a name="spanish-mexico-entity-support"></a>Obsługa jednostki hiszpańskiej (Meksyk)
 
 Obsługiwane są następujące jednostki:
 
-|Wstępnie skompilowana jednostka|```es-MX``` |
+|Wstępnie utworzona jednostka|```es-MX``` |
 ------|:------:|
-[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>Tygodniu<br>dzień   |    -   |
-[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>Dolar<br>jednostka ułamkowa (np.: grosz)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>rozmieszczenie dat<br>time<br>rozsyłanie czasu   |    -   |
-[Wymiar :](luis-reference-prebuilt-dimension.md)<br>wolumin<br>obszar<br>Waga<br>informacje (np.: bit/bajt)<br>długość (np. metr)<br>prędkość (np.: mila na godzinę)  |    -   |
-[Adres e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    -   |
+[Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    -   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   |
+[Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>Waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    -   |
+[Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
-[Keyphrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Numer](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Porządkowych](luis-reference-prebuilt-ordinal.md)   |    -   |
-[Okręg wyborczy OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[Liczba](luis-reference-prebuilt-number.md)   |    V2, V3   |
+[Liczbą](luis-reference-prebuilt-ordinal.md)   |    -   |
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procentowe](luis-reference-prebuilt-percentage.md)   |    -   |
-[Nazwa osoby](luis-reference-prebuilt-person.md)   |    -   |
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperatura](luis-reference-prebuilt-temperature.md):<br>Fahrenheita<br>Kelvin<br>rankine (rankine)<br>Delisle<br>Celsjusza   |    -   |
+[Nazwisko osoby](luis-reference-prebuilt-person.md)   |    -   |
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Temperatura](luis-reference-prebuilt-temperature.md):<br>Stop<br>Kelvin<br>rankine<br>delisle<br>Celsjusza   |    -   |
 [Adres URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
-Wyświetlanie notatek dotyczących [przestarzałych wstępnie utworzonych encji](luis-reference-prebuilt-deprecated.md)
+Zobacz uwagi dotyczące [przestarzałych wstępnie skompilowanych jednostek](luis-reference-prebuilt-deprecated.md)
 
-KeyPhrase nie jest dostępny we wszystkich subkulturach portugalskiego (Brazylia) - ```pt-BR```.
+KeyPhrase nie jest dostępna we wszystkich podkulturach języka portugalskiego (Brazylia) — ```pt-BR```.
 
-## <a name="turkish-entity-support"></a>Wsparcie tureckich podmiotów
+## <a name="turkish-entity-support"></a>Wsparcie tureckiej jednostki
 
-**Nie ma wstępnie utworzonych jednostek obsługiwanych w języku tureckim.**
+**Brak wstępnie skompilowanych jednostek obsługiwanych w języku tureckim.**
 
 <!--
 
@@ -339,11 +339,11 @@ See notes on [Deprecated prebuilt entities](luis-reference-prebuilt-deprecated.m
 KeyPhrase is not available.
 -->
 
-## <a name="contribute-to-prebuilt-entity-cultures"></a>Współtworzenie wstępnie utworzonych kultur encji
-Wstępnie utworzone jednostki są opracowywane w projekcie open source aparaty rozpoznawania tekstu. [Współtworzenie](https://github.com/Microsoft/Recognizers-Text) projektu. Ten projekt zawiera przykłady waluty na kulturę.
+## <a name="contribute-to-prebuilt-entity-cultures"></a>Współtworzenie do prekompilowanych kultur jednostek
+Wstępnie skompilowane jednostki są opracowywane w projekcie rozpoznawania tekstu Open-Source. [Współtworzenie](https://github.com/Microsoft/Recognizers-Text) projektu. Ten projekt zawiera przykłady walut na kulturę.
 
-GeographyV2 i PersonName nie są uwzględnione w projekcie Aparaty rozpoznawania tekstu. W przypadku problemów z tymi wstępnie utworzonymi jednostkami otwórz [żądanie pomocy technicznej](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+GeographyV2 i PersonName nie są uwzględnione w projekcie rozpoznawania tekstu. W przypadku problemów z tymi wstępnie skompilowanymi jednostkami Otwórz [żądanie pomocy technicznej](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [liczbie](luis-reference-prebuilt-number.md), [datetimeV2](luis-reference-prebuilt-datetimev2.md)i encjach [walutowych.](luis-reference-prebuilt-currency.md)
+Dowiedz się więcej na temat [liczby](luis-reference-prebuilt-number.md), [datetimeV2](luis-reference-prebuilt-datetimev2.md)i jednostek [walutowych](luis-reference-prebuilt-currency.md) .

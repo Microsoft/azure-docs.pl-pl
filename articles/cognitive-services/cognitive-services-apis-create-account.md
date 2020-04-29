@@ -1,7 +1,7 @@
 ---
-title: Tworzenie zasobu usług Cognitive Services w witrynie Azure portal
+title: Utwórz zasób Cognitive Services w Azure Portal
 titleSuffix: Azure Cognitive Services
-description: Wprowadzenie do usługi Azure Cognitive Services przez tworzenie i subskrybowanie zasobu w witrynie Azure portal.
+description: Rozpocznij pracę z usługą Azure Cognitive Services, tworząc i subskrybując zasób w Azure Portal.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,77 +10,77 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: aahi
 ms.openlocfilehash: dd4444bf42bcc8dda95f8fa37b42a365538efa85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219479"
 ---
-# <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Tworzenie zasobu usług Cognitive Services przy użyciu portalu Azure
+# <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Tworzenie zasobu Cognitive Services przy użyciu Azure Portal
 
-Ten przewodnik Szybki start umożliwia rozpoczęcie korzystania z usług Azure Cognitive Services. Po utworzeniu zasobu usługi Cognitive Service w witrynie Azure portal otrzymasz punkt końcowy i klucz do uwierzytelniania aplikacji.
+Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć korzystanie z usługi Azure Cognitive Services. Po utworzeniu zasobu usługi poznawczej w Azure Portal uzyskasz punkt końcowy i klucz do uwierzytelniania aplikacji.
 
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Prawidłowa subskrypcja platformy Azure — [utwórz bezpłatną subskrypcję](https://azure.microsoft.com/free/)platformy Azure.
+* Prawidłowa subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/).
 
-## <a name="create-a-new-azure-cognitive-services-resource"></a>Tworzenie nowego zasobu usług Azure Cognitive Services
+## <a name="create-a-new-azure-cognitive-services-resource"></a>Tworzenie nowego zasobu usługi Azure Cognitive Services
 
 1. Utworzyć zasób
 
-    #### <a name="multi-service-resource"></a>[Zasób wielodochowy](#tab/multiservice)
+    #### <a name="multi-service-resource"></a>[Zasób obejmujący wiele usług](#tab/multiservice)
     
-    Zasób wielu usług nosi nazwę **Cognitive Services** w portalu. [Tworzenie zasobu usług Cognitive Services](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
+    Zasób Wielousługowy ma nazwę **Cognitive Services** w portalu. [Utwórz zasób Cognitive Services](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
     
-    W tej chwili zasób wielousługowy umożliwia dostęp do następujących usług Cognitive Services:
+    W tej chwili zasób Wielousługowy umożliwia dostęp do następujących Cognitive Services:
     
     |                  |                                                      |                    |                               |                  |
     |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
     | Przetwarzanie obrazów  | Content Moderator                                    | Rozpoznawanie twarzy               | Language Understanding (LUIS) | Analiza tekstu   |
-    | Tekst usługi Translator  | Wyszukiwanie Bing w wersji 7 <br>(Web, Obraz, Aktualności, Wideo, Wizualne) | Wyszukiwanie niestandardowe Bing | Wyszukiwanie jednostek Bing            | Automatyczne sugerowanie Bing |
+    | Tekst usługi Translator  | Wyszukiwanie Bing wersji 7 <br>(Sieć Web, obrazy, wiadomości, wideo, wizualizacje) | Wyszukiwanie niestandardowe Bing | Wyszukiwanie jednostek Bing            | Automatyczne sugerowanie Bing |
     | Sprawdzanie pisowni Bing |                                                      |                    |                               |                  |
     
-    #### <a name="single-service-resource"></a>[Zasób z jedną usługą](#tab/singleservice)
+    #### <a name="single-service-resource"></a>[Zasób pojedynczego usługi](#tab/singleservice)
 
-    Poniższe łącza za pomocą poniższych łączy można utworzyć zasób dla dostępnych usług Cognitive Services:
+    Użyj poniższych linków, aby utworzyć zasób dla dostępnych Cognitive Services:
 
     | Obraz                      | Mowa                  | Język                          | Decyzja             | Wyszukiwanie                 |
     |-----------------------------|-------------------------|-----------------------------------|----------------------|------------------------|
-    | [Wizja komputerowa](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [Usługi mowy](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [Wciągający czytnik](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Narzędzie do wykrywania anomalii](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | [Interfejs API wyszukiwania Bing w wersji 7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) |
-    | [Usługa niestandardowej wizji](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [Rozpoznawanie osoby mówiącej](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [Rozumienie języka (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Moderator zawartości](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | [Wyszukiwanie niestandardowe Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) |
+    | [Przetwarzanie obrazów](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [Usługi mowy](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [Czytnik immersyjny](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Narzędzie do wykrywania anomalii](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | [Wyszukiwanie Bing API wersji 7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) |
+    | [Usługa Custom Vision Service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [Rozpoznawanie osoby mówiącej](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [Language Understanding (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | [Wyszukiwanie niestandardowe Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) |
     | [Rozpoznawanie twarzy](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personalizacja](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     | [Wyszukiwanie jednostek Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingEntitySearch) |
-    | [Rozpoznawanie pisma odręcznego](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Analiza tekstu](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |                      | [Sprawdzanie pisowni bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
-    |           |                         | [Tekst tłumacza](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Automatyczne sugerowanie Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
+    | [Rozpoznawanie pisma odręcznego](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Analiza tekstu](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |                      | [Sprawdzanie pisowni Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
+    |           |                         | [Tekst usługi Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Automatyczne sugerowanie Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
     ***
 
 3. Na stronie **Tworzenie** podaj następujące informacje:
 
-    #### <a name="multi-service-resource"></a>[Zasób wielodochowy](#tab/multiservice)
+    #### <a name="multi-service-resource"></a>[Zasób obejmujący wiele usług](#tab/multiservice)
 
     |    |    |
     |--|--|
-    | **Nazwa** | Opisowa nazwa zasobu usług kognitywnych. Na przykład *MyCognitiveServicesResource*. |
+    | **Nazwa** | Opisowa nazwa zasobu usług poznawczej. Na przykład *MyCognitiveServicesResource*. |
     | **Subskrypcja** | Wybierz jedną z dostępnych subskrypcji platformy Azure. |
-    | **Lokalizacja** | Lokalizacja wystąpienia usługi poznawczej. Różne lokalizacje mogą wprowadzać opóźnienia, ale nie mają wpływu na dostępność środowiska wykonawczego zasobu. |
-    | **Warstwa cenowa** | Koszt konta usług Cognitive Services zależy od dostępnych opcji i użycia. Aby uzyskać więcej informacji, zobacz [szczegóły cennika](https://azure.microsoft.com/pricing/details/cognitive-services/)interfejsu API .
-    | **Grupa zasobów** | Grupa zasobów platformy Azure, która będzie zawierać zasób usług Cognitive Services. Można utworzyć nową grupę lub dodać ją do istniejącej grupy. |
+    | **Lokalizacja** | Lokalizacja wystąpienia usługi poznawczej. Różne lokalizacje mogą wprowadzać opóźnienia, ale nie mają wpływu na dostępność zasobu przez środowisko uruchomieniowe. |
+    | **Warstwa cenowa** | Koszt konta Cognitive Services zależy od wybranych opcji i użycia. Aby uzyskać więcej informacji, zobacz [szczegóły cennika](https://azure.microsoft.com/pricing/details/cognitive-services/)interfejsu API.
+    | **Grupa zasobów** | Grupa zasobów platformy Azure, która będzie zawierać zasób Cognitive Services. Można utworzyć nową grupę lub dodać ją do istniejącej grupy. |
 
     ![Ekran tworzenia zasobów](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)
 
     Kliknij przycisk **Utwórz**.
 
-    #### <a name="single-service-resource"></a>[Zasób z jedną usługą](#tab/singleservice)
+    #### <a name="single-service-resource"></a>[Zasób pojedynczego usługi](#tab/singleservice)
 
     |    |    |
     |--|--|
-    | **Nazwa** | Opisowa nazwa zasobu usług kognitywnych. Na przykład *TextAnalyticsResource*. |
+    | **Nazwa** | Opisowa nazwa zasobu usług poznawczej. Na przykład *TextAnalyticsResource*. |
     | **Subskrypcja** | Wybierz jedną z dostępnych subskrypcji platformy Azure. |
-    | **Lokalizacja** | Lokalizacja wystąpienia usługi poznawczej. Różne lokalizacje mogą wprowadzać opóźnienia, ale nie mają wpływu na dostępność środowiska wykonawczego zasobu. |
-    | **Warstwa cenowa** | Koszt konta usług Cognitive Services zależy od dostępnych opcji i użycia. Aby uzyskać więcej informacji, zobacz [szczegóły cennika](https://azure.microsoft.com/pricing/details/cognitive-services/)interfejsu API .
-    | **Grupa zasobów** | Grupa zasobów platformy Azure, która będzie zawierać zasób usług Cognitive Services. Można utworzyć nową grupę lub dodać ją do istniejącej grupy. |
+    | **Lokalizacja** | Lokalizacja wystąpienia usługi poznawczej. Różne lokalizacje mogą wprowadzać opóźnienia, ale nie mają wpływu na dostępność zasobu przez środowisko uruchomieniowe. |
+    | **Warstwa cenowa** | Koszt konta Cognitive Services zależy od wybranych opcji i użycia. Aby uzyskać więcej informacji, zobacz [szczegóły cennika](https://azure.microsoft.com/pricing/details/cognitive-services/)interfejsu API.
+    | **Grupa zasobów** | Grupa zasobów platformy Azure, która będzie zawierać zasób Cognitive Services. Można utworzyć nową grupę lub dodać ją do istniejącej grupy. |
 
     ![Ekran tworzenia zasobów](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
@@ -89,13 +89,13 @@ Ten przewodnik Szybki start umożliwia rozpoczęcie korzystania z usług Azure C
     ***
 
 
-## <a name="get-the-keys-for-your-resource"></a>Pobierz klucze do zasobu
+## <a name="get-the-keys-for-your-resource"></a>Pobierz klucze dla zasobu
 
-1. Po pomyślnym wdrożeniu zasobu kliknij **pozycję Przejdź do zasobu** w obszarze **Następne kroki**.
+1. Po pomyślnym wdrożeniu zasobu kliknij pozycję **Przejdź do zasobu** w obszarze **następne kroki**.
 
-    ![Wyszukiwanie usług Cognitive Services](media/cognitive-services-apis-create-account/resource-next-steps.png)
+    ![Wyszukaj Cognitive Services](media/cognitive-services-apis-create-account/resource-next-steps.png)
 
-2. W okienku szybkiego startu, które zostanie otwarte, można uzyskać dostęp do klucza i punktu końcowego.
+2. W otwartym okienku szybkiego startu możesz uzyskać dostęp do klucza i punktu końcowego.
 
     ![Pobierz klucz i punkt końcowy](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
 
@@ -103,15 +103,15 @@ Ten przewodnik Szybki start umożliwia rozpoczęcie korzystania z usług Azure C
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli chcesz wyczyścić i usunąć subskrypcję usług Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów powoduje również usunięcie innych zasobów zawartych w grupie.
+Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich innych zasobów znajdujących się w grupie.
 
 1. W witrynie Azure Portal rozwiń menu po lewej stronie, aby otworzyć menu usług, a następnie wybierz pozycję **Grupy zasobów**, aby wyświetlić listę grup zasobów.
-2. Lokalizowanie grupy zasobów zawierającej zasób, który ma zostać usunięty
-3. Kliknij prawym przyciskiem myszy listę grupy zasobów. Wybierz pozycję **Usuń grupę zasobów** i potwierdź.
+2. Znajdź grupę zasobów zawierającą zasób do usunięcia
+3. Kliknij prawym przyciskiem myszy na liście grup zasobów. Wybierz pozycję **Usuń grupę zasobów** i potwierdź.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-* [Uwierzytelnij żądania w usługach Azure Cognitive Services](authentication.md)
-* [Co to są usługi Azure Cognitive Services?](Welcome.md)
+* [Uwierzytelnianie żądań w usłudze Azure Cognitive Services](authentication.md)
+* [Co to jest platforma Azure Cognitive Services?](Welcome.md)
 * [Obsługa języka naturalnego](language-support.md)
 * [Obsługa kontenerów platformy Docker](cognitive-services-container-support.md)
