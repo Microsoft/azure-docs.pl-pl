@@ -1,5 +1,5 @@
 ---
-title: Wykonywanie przesyłania strumieniowego na żywo za pomocą usługi Azure Media Services w celu tworzenia strumieni o wielu szybkościach transmisji bitów za pomocą witryny Azure Portal | Dokumenty firmy Microsoft
+title: Wykonaj transmisję strumieniową na żywo za pomocą Azure Media Services, aby utworzyć strumienie o szybkości transmisji bitów z Azure Portal | Microsoft Docs
 description: Ten samouczek przedstawia tworzenie kanału, który odbiera strumień na żywo o jednej szybkości transmisji bitów i koduje go jako strumień o różnych szybkościach transmisji bitów przy użyciu witryny Azure Portal.
 services: media-services
 documentationcenter: ''
@@ -15,21 +15,21 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 7d2e4274e6feaebac6536eed2f8a99d251cd5ceb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77162569"
 ---
-# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Wykonywanie przesyłania strumieniowego na żywo za pomocą usługi Media Services w celu tworzenia strumieni o wielu szybkościach transmisji bitów za pomocą witryny Azure portal  
+# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Wykonaj transmisję strumieniową na żywo za pomocą Media Services, aby utworzyć strumienie o szybkości transmisji bitów z Azure Portal  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [INTERFEJS API ODPOCZYNKU](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [INTERFEJS API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Sprawdź najnowszą wersję usługi [Media Services w wersji 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji z wersji 2 do v3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
 Ten samouczek przedstawia tworzenie **kanału**, który odbiera strumień na żywo o pojedynczej szybkości transmisji bitów i koduje go jako strumień o wielokrotnej szybkości transmisji bitów.
 
@@ -41,10 +41,10 @@ Poniżej przedstawiono ogólne etapy tworzenia typowych aplikacji transmisji str
 > [!NOTE]
 > Obecnie maksymalny zalecany czas trwania wydarzenia na żywo wynosi 8 godzin. Napisz na adres amshelp@microsoft.com, jeśli potrzebujesz uruchomić kanał na dłuższy czas.
 
-1. Podłącz kamerę wideo do komputera. <br/>Aby uzyskać pomysły na konfigurację, zapoznaj się [z prostą i przenośną konfiguracją sprzętu wideo.]( https://link.medium.com/KNTtiN6IeT)
+1. Podłącz kamerę wideo do komputera. <br/>Aby zapoznać się z pomysłami dotyczącymi konfiguracji, zapoznaj się z [konfiguracją prostego i przenośnego sprzętu wideo]( https://link.medium.com/KNTtiN6IeT).
 
-    Jeśli nie masz dostępu do kamery, narzędzia takie jak [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md) mogą być używane do generowania transmisji na żywo z pliku wideo.
-1. Uruchom i skonfiguruj lokalny koder na żywo, który wysyła strumień o pojedynczej szybkości transmisji bitów przy użyciu jednego z następujących protokołów: RTMP lub Smooth Streaming. Aby uzyskać więcej informacji, zobacz temat [Obsługa protokołu RTMP i kodery na żywo w usłudze Azure Media Services](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Ponadto, sprawdź ten blog: [Produkcja strumieniowa na żywo z OBS](https://link.medium.com/ttuwHpaJeT).
+    Jeśli nie masz dostępu do aparatu, można użyć narzędzi, takich jak [Wirecast usługi NetStream](media-services-configure-wirecast-live-encoder.md) , wygenerowania na żywo kanału informacyjnego z pliku wideo.
+1. Uruchom i skonfiguruj lokalny koder na żywo, który wysyła strumień o pojedynczej szybkości transmisji bitów przy użyciu jednego z następujących protokołów: RTMP lub Smooth Streaming. Aby uzyskać więcej informacji, zobacz temat [Obsługa protokołu RTMP i kodery na żywo w usłudze Azure Media Services](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Zapoznaj się również z tym blogiem: [produkcja przesyłania strumieniowego na żywo z obs](https://link.medium.com/ttuwHpaJeT).
 
     Ten krok można również wykonać po utworzeniu kanału.
 1. Utwórz i uruchom kanał. 
@@ -94,7 +94,7 @@ Następujące elementy są wymagane do wykonania czynności przedstawionych w sa
         Nie można zmienić opcji protokołu, gdy kanał lub skojarzone z nim wydarzenia/programy są uruchomione. Jeśli potrzebujesz różnych protokołów, utwórz osobny kanał dla każdego protokołu przesyłania strumieniowego.  
    2. Można zastosować ograniczenie adresów IP dotyczące pozyskiwania. 
 
-       Można zdefiniować adresy IP, które mogą pozyskiwać pliki wideo w tym kanale. Dozwolone adresy IP można określić jako pojedynczy adres IP (np. "10.0.0.1/22") lub zakres IP przy użyciu adresu IP i kropkowanego podsieci dziesiętnej (np.
+       Można zdefiniować adresy IP, które mogą pozyskiwać pliki wideo w tym kanale. Dozwolone adresy IP można określić jako pojedynczy adres IP (np. "10.0.0.1"), zakres adresów IP przy użyciu adresu IP i maski podsieci CIDR (np. "10.0.0.1/22") lub zakres adresów IP przy użyciu adresu IP i maski podsieci z kropką dziesiętną (np. "10.0.0.1 (255.255.252.0)").
 
        Jeśli adresy IP nie zostaną określone i brakuje definicji reguły, to żaden adres IP nie będzie dozwolony. Aby zezwolić na jakikolwiek adres IP, utwórz regułę i ustaw wartość 0.0.0.0/0.
 6. Na karcie **Podgląd** zastosuj ograniczenie adresów IP do podglądu.
@@ -114,7 +114,7 @@ Aby uzyskać więcej informacji na ten temat, zobacz artykuł [Korzystanie z us�
 ## <a name="get-ingest-urls"></a>Pobieranie adresów URL pozyskiwania
 Po utworzeniu kanału można pobrać adresy URL pozyskiwania, które należy udostępnić koderowi na żywo. Koder używa tych adresów URL do wprowadzenia strumienia na żywo.
 
-![przyładkają adresy URL](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
+![adresy URL pozyskiwania](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## <a name="create-and-manage-events"></a>Tworzenie wydarzeń i zarządzanie nimi
 
@@ -149,7 +149,7 @@ Istnieją dwa sposoby rozpoczęcia zdarzenia:
 
     Określ nazwę wydarzenia, nazwę elementu zawartości, okno archiwum i opcję szyfrowania.
 
-    ![tworzenie programu](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
+    ![Utwórz program](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
 
     Jeśli zaznaczono opcję **Opublikuj to wydarzenie na żywo teraz**, zostaną utworzone ADRESY URL PUBLIKOWANIA.
 
@@ -181,7 +181,7 @@ Aby po zakończeniu strumieniowego przesyłania zdarzeń, wyczyścić udostępni
 ## <a name="view-archived-content"></a>Wyświetlanie zarchiwizowanej zawartości
 Nawet po zatrzymaniu i usunięciu wydarzenia użytkownicy będą mogli przesyłać strumieniowo zarchiwizowaną zawartość wideo na żądanie tak długo, jak zasoby nie zostaną usunięte. Nie można usunąć elementu zawartości, jeśli jest on używany przez wydarzenie. Najpierw należy usunąć wydarzenie. 
 
-Aby zarządzać zasobami, wybierz **pozycję Ustawienie** i kliknij pozycję **Zasoby**.
+Aby zarządzać elementami zawartości, wybierz **ustawienie** i kliknij przycisk **elementy zawartości**.
 
 ![Elementy zawartości](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 

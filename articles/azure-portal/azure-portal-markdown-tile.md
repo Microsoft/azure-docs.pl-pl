@@ -1,6 +1,6 @@
 ---
-title: Używanie niestandardowego kafelka znaczników na pulpitach nawigacyjnych platformy Azure
-description: Dowiedz się, jak dodać kafelek znaczników do pulpitu nawigacyjnego platformy Azure w celu wyświetlania zawartości statycznej
+title: Korzystanie z niestandardowego kafelka promocji na pulpitach nawigacyjnych platformy Azure
+description: Dowiedz się, jak dodać kafelek z promocji do pulpitu nawigacyjnego platformy Azure w celu wyświetlenia zawartości statycznej
 services: azure-portal
 keywords: ''
 author: mgblythe
@@ -10,57 +10,57 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 74102423461a56bb6fc19c2eb9874f96a76e34e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76310717"
 ---
-# <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Wyświetlanie zawartości niestandardowej za pomocą kafelka znaczników na pulpitach nawigacyjnych platformy Azure
+# <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Użyj kafelka promocji na pulpitach nawigacyjnych platformy Azure, aby pokazać zawartość niestandardową
 
-Możesz dodać kafelek znaczników do pulpitów nawigacyjnych platformy Azure, aby wyświetlić niestandardową, statyczną zawartość. Na przykład można wyświetlić podstawowe instrukcje, obraz lub zestaw hiperłączy na kafelku znaczników.
+Możesz dodać kafelek promocji do pulpitów nawigacyjnych platformy Azure, aby wyświetlić niestandardową zawartość statyczną. Na przykład możesz wyświetlić podstawowe instrukcje, obraz lub zestaw hiperlinków na kafelku promocji.
 
-## <a name="add-a-markdown-tile-to-your-dashboard"></a>Dodawanie kafelka znaczników do pulpitu nawigacyjnego
+## <a name="add-a-markdown-tile-to-your-dashboard"></a>Dodawanie kafelka promocji do pulpitu nawigacyjnego
 
-1. Wybierz **pulpit nawigacyjny** z paska bocznego portalu Azure.
+1. Wybierz pozycję **pulpit nawigacyjny** na pasku bocznym Azure Portal.
 
    ![Zrzut ekranu przedstawiający pasek boczny portalu](./media/azure-portal-markdown-tile/azure-portal-nav.png)
 
-1. Jeśli utworzono niestandardowe pulpity nawigacyjne, w widoku pulpitu nawigacyjnego użyj listy rozwijanej, aby wybrać pulpit nawigacyjny, na którym ma być wyświetlany niestandardowy kafelek znaczników. Wybierz ikonę edycji, aby otworzyć **Galerię kafelków**.
+1. Jeśli utworzono niestandardowe pulpity nawigacyjne, w widoku pulpitu nawigacyjnego, Użyj listy rozwijanej, aby wybrać pulpit nawigacyjny, w którym ma zostać wyświetlona niestandardowa Tabliczka promocji. Wybierz ikonę Edytuj, aby otworzyć **galerię kafelków**.
 
    ![Zrzut ekranu przedstawiający widok edycji pulpitu nawigacyjnego](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
-1. W **Galerii kafelków**znajdź kafelek o nazwie **Markdown** i wybierz pozycję **Dodaj**. Kafelek zostanie dodany do pulpitu nawigacyjnego i zostanie otwarte okienko **Edytuj znaczniki.**
+1. W **galerii kafelków**Znajdź kafelek o nazwie **promocji** i wybierz pozycję **Dodaj**. Kafelek zostanie dodany do pulpitu nawigacyjnego i zostanie otwarte okienko **Edycja promocji** .
 
-1. Wprowadź wartości **tytułów** i **napisów,** które są wyświetlane na kafelku po przejściu do innego pola.
+1. Wprowadź wartości dla **tytułu** i **podtytuł**, które są wyświetlane na kafelku po przejściu do innego pola.
 
-   ![Zrzut ekranu przedstawiający wyniki wprowadzania tytułu i napisów](./media/azure-portal-markdown-tile/azure-portal-dashboard-enter-title.png)
+   ![Zrzut ekranu przedstawiający wyniki wprowadzania tytułu i podtytuł](./media/azure-portal-markdown-tile/azure-portal-dashboard-enter-title.png)
 
-1. Wybierz jedną z opcji dołączania zawartości znaczników: **Edycja w linii** lub **Wstaw zawartość przy użyciu adresu URL**.
+1. Wybierz jedną z opcji, aby dołączać zawartość promocji: **Edytowanie w tekście** lub **Wstawianie zawartości przy użyciu adresu URL**.
 
-   - Wybierz **edycję w linii,** jeśli chcesz wprowadzić markdown bezpośrednio.
+   - Wybierz opcję **Edytowanie w tekście** , jeśli chcesz bezpośrednio wprowadzić pozostałą.
 
       ![Zrzut ekranu przedstawiający wprowadzanie zawartości wbudowanej](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-inline-content.png)
 
-   - Wybierz **pozycję Wstaw zawartość przy użyciu adresu URL,** jeśli chcesz użyć istniejącej zawartości znaczników, która jest hostowana w trybie online.
+   - Wybierz pozycję **Wstaw zawartość przy użyciu adresu URL** , jeśli chcesz używać istniejącej zawartości promocji, która jest hostowana w trybie online.
 
       ![Zrzut ekranu przedstawiający wprowadzanie adresu URL](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
 
       > [!NOTE]
-      > Aby zwiększyć bezpieczeństwo, można utworzyć plik znaczników i przechowywać go w [obiekcie blob konta magazynu platformy Azure, gdzie szyfrowanie jest włączone,](../storage/common/storage-service-encryption.md)a następnie wskazać plik przy użyciu opcji adresu URL. Zawartość znaczników jest szyfrowana za pomocą opcji szyfrowania konta magazynu. Tylko użytkownicy z uprawnieniami do pliku mogą zobaczyć zawartość znaczników na pulpicie nawigacyjnym.
+      > Aby zwiększyć bezpieczeństwo, można utworzyć plik o promocji i zapisać go w [obiekcie blob konta usługi Azure Storage, na którym włączono szyfrowanie](../storage/common/storage-service-encryption.md), a następnie wskazać plik przy użyciu opcji adresu URL. Zawartość promocji jest zaszyfrowana przy użyciu opcji szyfrowania konta magazynu. Tylko użytkownicy z uprawnieniami do pliku mogą zobaczyć zawartość z promocji na pulpicie nawigacyjnym.
 
-1. Wybierz **pozycję Gotowe,** aby odrzucić okienko **Edytuj markdown.** Zawartość pojawi się na kafelku Markdown, którego rozmiar można zmienić, przeciągając uchwyt w prawym dolnym rogu.
+1. Wybierz pozycję **gotowe** , aby zamknąć okienko **Edycja promocji** . Zawartość jest wyświetlana na kafelku promocji, którego rozmiar można zmienić, przeciągając uchwyt w prawym dolnym rogu.
 
-   ![Zrzut ekranu przedstawiający kafelek niestandardowego oznaczania w dół](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
+   ![Zrzut ekranu przedstawiający niestandardowy kafelek promocji](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
 
-## <a name="markdown-content-capabilities-and-limitations"></a>Możliwości i ograniczenia zawartości znaczników
+## <a name="markdown-content-capabilities-and-limitations"></a>Możliwości i ograniczenia dotyczące promocji
 
-Na kafelku znaczników można użyć dowolnej kombinacji zwykłego tekstu, składni Znaczników i zawartości HTML. Portal Azure używa biblioteki typu open source o nazwie _oznaczone_ do przekształcenia zawartości w kod HTML, który jest wyświetlany na kafelku. Kod HTML produkowany przez _oznaczone_ jest wstępnie przetwarzane przez portal przed jego renderowania. Ten krok pomaga upewnić się, że dostosowanie nie wpłynie na bezpieczeństwo lub układ portalu. Podczas tego przetwarzania wstępnego usuwana jest dowolna część kodu HTML, która stanowi potencjalne zagrożenie. Portal nie zezwala na następujące typy zawartości:
+Możesz użyć dowolnej kombinacji zwykłego tekstu, składni promocji i zawartości HTML na kafelku promocji. Azure Portal używa biblioteki Open Source o nazwie _oznaczonej_ do przekształcenia zawartości na HTML, która jest wyświetlana na kafelku. KOD HTML utworzony przez _program jest wstępnie przetworzony przez portal_ przed jego renderowaniem. Ten krok pomaga upewnić się, że dostosowanie nie będzie miało wpływu na zabezpieczenia ani układ portalu. Podczas tego wstępnego przetwarzania jakakolwiek część kodu HTML, która stanowi potencjalne zagrożenie, jest usuwana. Portal nie zezwala na następujące typy zawartości:
 
-* JavaScript `<script>` – tagi i wbudowane oceny JavaScript zostaną usunięte.
-* iframe - `<iframe>` tagi zostaną usunięte.
-* Styl `<style>` - tagi zostaną usunięte. Atrybuty stylu wbudowanego w elementach HTML nie są oficjalnie obsługiwane. Może się okazać, że niektóre elementy stylu wbudowanego działają dla Ciebie, ale jeśli kolidują z układem portalu, mogą przestać działać w dowolnym momencie. Kafelek Markdown jest przeznaczony dla podstawowej, statycznej zawartości, która używa domyślnych stylów portalu.
+* Język JavaScript `<script>` — obliczenia tagów i wbudowanych skryptów języka JavaScript zostaną usunięte.
+* iframes — `<iframe>` Tagi zostaną usunięte.
+* `<style>` Tagi stylów zostaną usunięte. Atrybuty stylu wbudowanego dla elementów HTML nie są oficjalnie obsługiwane. Może się okazać, że niektóre elementy stylu wbudowanego działają dla Ciebie, ale jeśli zakłócają układ portalu, mogą przestać działać w dowolnym momencie. Kafelek promocji jest przeznaczony dla podstawowej, statycznej zawartości, która używa domyślnych stylów portalu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby utworzyć niestandardowy pulpit nawigacyjny, zobacz [Tworzenie i udostępnianie pulpitów nawigacyjnych w witrynie Azure Portal](../azure-portal/azure-portal-dashboards.md)
+* Aby utworzyć niestandardowy pulpit nawigacyjny, zobacz [Tworzenie i udostępnianie pulpitów nawigacyjnych w Azure Portal](../azure-portal/azure-portal-dashboards.md)

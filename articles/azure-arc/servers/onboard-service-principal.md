@@ -1,6 +1,6 @@
 ---
 title: Łączenie maszyn hybrydowych z platformą Azure na dużą skalę
-description: W tym artykule dowiesz się, jak połączyć maszyny z platformą Azure przy użyciu usługi Azure Arc dla serwerów (w wersji zapoznawczej) przy użyciu jednostki usługi.
+description: W tym artykule dowiesz się, jak połączyć maszyny z platformą Azure przy użyciu usługi Azure ARC dla serwerów (wersja zapoznawcza) przy użyciu nazwy głównej usługi.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
@@ -9,35 +9,35 @@ ms.author: magoedte
 ms.date: 02/04/2020
 ms.topic: conceptual
 ms.openlocfilehash: 3a19dc019d2566ddddb2c0ba7988b342d30a45d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77192274"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Łączenie maszyn hybrydowych z platformą Azure na dużą skalę
 
-Można włączyć usługę Azure Arc dla serwerów (wersja zapoznawcza) dla wielu komputerów z systemem Windows lub Linux w twoim środowisku, z kilkoma elastycznymi opcjami w zależności od wymagań. Za pomocą skryptu szablonu, który udostępniamy, można zautomatyzować każdy krok instalacji, w tym ustanawianie połączenia z programem Azure Arc. Jednak są wymagane do interaktywnego wykonania tego skryptu z konta, które ma podwyższone uprawnienia na komputerze docelowym i na platformie Azure. Aby połączyć maszyny z usługą Azure Arc dla serwerów, można użyć [jednostki usługi](../../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory zamiast używać uprzywilejowanej tożsamości do [interaktywnego łączenia komputera.](onboard-portal.md) Podmiot usługi jest specjalną ograniczoną tożsamością zarządzania, która jest przyznawana tylko `azcmagent` minimalne uprawnienia niezbędne do łączenia maszyn do platformy Azure za pomocą polecenia. Jest to bezpieczniejsze niż przy użyciu konta o wyższych uprawnieniach, takich jak administrator dzierżawy, i jest zgodne z naszymi najlepszymi rozwiązaniami w zakresie zabezpieczeń kontroli dostępu. Podmiot usługi jest używany tylko podczas dołączania, nie jest używany do żadnych innych celów.  
+Usługę Azure Arc można włączyć dla serwerów (wersja zapoznawcza) dla wielu maszyn z systemem Windows lub Linux w środowisku z kilkoma elastycznymi opcjami, w zależności od wymagań. Za pomocą szablonu skryptu udostępniamy, można zautomatyzować każdy krok instalacji, w tym ustanowienie połączenia z usługą Azure Arc. Jednak użytkownik musi interaktywnie wykonać ten skrypt przy użyciu konta, które ma podwyższone uprawnienia na maszynie docelowej i na platformie Azure. Aby połączyć komputery z usługą Azure ARC dla serwerów, można użyć jednostki [usługi](../../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory, zamiast korzystać z tożsamości uprzywilejowanej, aby [interaktywnie połączyć maszynę](onboard-portal.md). Nazwa główna usługi jest specjalną ograniczoną tożsamością zarządzania, która ma przyznane tylko minimalne uprawnienia wymagane do łączenia maszyn z platformą `azcmagent` Azure przy użyciu polecenia. Jest to bezpieczniejsze niż użycie wyższego konta uprzywilejowanego, takiego jak Administrator dzierżawy, i postępuj zgodnie z najlepszymi rozwiązaniami w zakresie zabezpieczeń kontroli dostępu. Nazwa główna usługi jest używana tylko podczas dołączania, nie jest używana do żadnego innego celu.  
 
-Metody instalacji do zainstalowania i skonfigurowania agenta Połączonego komputera wymaga, aby używana metoda automatyczna ma uprawnienia administratora na komputerach. W systemie Linux, przy użyciu konta głównego i w systemie Windows, jako członek grupy Administratorzy lokalni.
+Metody instalacji i konfigurowania agenta połączonego maszyny wymagają, aby stosowana Metoda zautomatyzowana miała uprawnienia administratora na maszynach. W systemie Linux przy użyciu konta głównego i w systemie Windows jako członek lokalnej grupy administratorów.
 
-Przed rozpoczęciem należy zapoznać się z [wymaganiami wstępnymi](overview.md#prerequisites) i sprawdzić, czy subskrypcja i zasoby spełniają wymagania.
+Przed rozpoczęciem należy zapoznać się z wymaganiami [wstępnymi](overview.md#prerequisites) i upewnić się, że Twoja subskrypcja i zasoby spełniają wymagania.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
-Po zakończeniu tego procesu pomyślnie połączono maszyny hybrydowe z usługą Azure Arc dla serwerów.
+Po zakończeniu tego procesu nastąpi pomyślne Podłączenie maszyn hybrydowych do usługi Azure ARC dla serwerów.
 
-## <a name="create-a-service-principal-for-onboarding-at-scale"></a>Tworzenie jednostki usługi dla dołączania na dużą skalę
+## <a name="create-a-service-principal-for-onboarding-at-scale"></a>Tworzenie jednostki usługi na potrzeby dołączania na dużą skalę
 
-Za pomocą [programu Azure PowerShell](/powershell/azure/install-az-ps) można utworzyć jednostkę usługi za pomocą polecenia cmdlet [New-AzADServicePrincipal.](/powershell/module/Az.Resources/New-AzADServicePrincipal) Możesz też wykonać kroki wymienione w obszarze [Tworzenie jednostki usługi przy użyciu witryny Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) w celu wykonania tego zadania.
+Za pomocą [Azure PowerShell](/powershell/azure/install-az-ps) można utworzyć jednostkę usługi za pomocą polecenia cmdlet [New-AzADServicePrincipal](/powershell/module/Az.Resources/New-AzADServicePrincipal) . Możesz też wykonać kroki opisane w sekcji [Tworzenie nazwy głównej usługi przy użyciu Azure Portal,](../../active-directory/develop/howto-create-service-principal-portal.md) aby wykonać to zadanie.
 
 > [!NOTE]
-> Podczas tworzenia jednostki usługi, konto musi być administratorem dostępu właściciela lub użytkownika w subskrypcji, która ma być używana do dołączania. Jeśli nie masz wystarczających uprawnień do tworzenia przypisań ról, może zostać utworzony podmiot usługi, ale nie będzie można na komputerach wbudowanych.
+> Podczas tworzenia nazwy głównej usługi konto musi być właścicielem lub administratorem dostępu użytkownika w subskrypcji, która ma być używana do dołączania. Jeśli nie masz wystarczających uprawnień do tworzenia przypisań ról, można utworzyć nazwę główną usługi, ale nie będzie ona mogła dołączyć maszyn.
 >
 
-Aby utworzyć jednostkę usługi przy użyciu programu PowerShell, wykonaj następujące czynności.
+Aby utworzyć nazwę główną usługi przy użyciu programu PowerShell, wykonaj następujące czynności.
 
-1. Uruchom następujące polecenie. Dane wyjściowe [`New-AzADServicePrincipal`](/powershell/module/az.resources/new-azadserviceprincipal) polecenia cmdlet należy przechowywać w zmiennej lub nie będzie można pobrać hasła wymaganego w późniejszym kroku.
+1. Uruchom następujące polecenie. Dane wyjściowe [`New-AzADServicePrincipal`](/powershell/module/az.resources/new-azadserviceprincipal) polecenia cmdlet muszą być przechowywane w zmiennej lub nie będzie można pobrać hasła wymaganego w późniejszym kroku.
 
     ```azurepowershell-interactive
     $sp = New-AzADServicePrincipal -DisplayName "Arc-for-servers" -Role "Azure Connected Machine Onboarding"
@@ -54,43 +54,43 @@ Aby utworzyć jednostkę usługi przy użyciu programu PowerShell, wykonaj nast�
     Type                  :
     ```
 
-2. Aby pobrać hasło przechowywane `$sp` w zmiennej, uruchom następujące polecenie:
+2. Aby pobrać hasło przechowywane w `$sp` zmiennej, uruchom następujące polecenie:
 
     ```azurepowershell-interactive
     $credential = New-Object pscredential -ArgumentList "temp", $sp.Secret
     $credential.GetNetworkCredential().password
     ```
 
-3. W danych wyjściowych znajdź wartość hasła pod **hasłem** pola i skopiuj je. Również znaleźć wartość w polu **ApplicationId** i skopiować go również. Zapisz je na później w bezpiecznym miejscu. Jeśli zapomnisz lub utracisz hasło głównej usługi, możesz je zresetować za pomocą polecenia [`New-AzADSpCredential`](/powershell/module/azurerm.resources/new-azurermadspcredential) cmdlet.
+3. W danych wyjściowych Znajdź wartość hasła w polu **hasło** pola i skopiuj ją. Znajdź również wartość w polu Identyfikator **aplikacji** i skopiuj ją. Zapisz je później w bezpiecznym miejscu. Jeśli zapomnisz lub utracisz hasło nazwy głównej usługi, możesz zresetować ją przy użyciu [`New-AzADSpCredential`](/powershell/module/azurerm.resources/new-azurermadspcredential) polecenia cmdlet.
 
-Wartości z następujących właściwości są używane z `azcmagent`parametrami przekazanymi do :
+Wartości z następujących właściwości są używane z parametrami przekazaną do `azcmagent`:
 
-* Wartość z **ApplicationId** właściwość jest `--service-principal-id` używana dla wartości parametru
-* Wartość z właściwości **password** jest `--service-principal-secret` używana dla parametru używanego do łączenia agenta.
+* Wartość właściwości identyfikator **aplikacji** jest używana dla wartości `--service-principal-id` parametru
+* Wartość właściwości `--service-principal-secret` **Password** służy do łączenia się z agentem.
 
 > [!NOTE]
-> Upewnij się, że należy użyć właściwości **applicationid** jednostki usługi, a nie **Id** właściwości.
+> Upewnij się, że używasz **Właściwości głównej nazwy** usługi, a nie właściwości **ID** .
 >
 
-Rola **dołączania połączonego komputera platformy Azure** zawiera tylko uprawnienia wymagane do połączonego komputera. Można przypisać uprawnienie jednostki usługi, aby zezwolić na jej zakres do grupy zasobów lub subskrypcji. Aby dodać przypisanie roli, zobacz [Dodawanie lub usuwanie przypisań ról przy użyciu usługi Azure RBAC i witryny Azure portal](../../role-based-access-control/role-assignments-portal.md) lub dodawanie lub usuwanie [przydziałów ról przy użyciu usługi Azure RBAC i interfejsu wiersza polecenia platformy Azure.](../../role-based-access-control/role-assignments-cli.md)
+Rola **dołączania maszyny połączonej z platformą Azure** zawiera tylko uprawnienia wymagane do dołączenia maszyny. Można przypisać uprawnienia nazwy głównej usługi, aby umożliwić jej zakresowi uwzględnienie grupy zasobów lub subskrypcji. Aby dodać przypisanie roli, zobacz [Dodawanie lub usuwanie przypisań ról przy użyciu funkcji RBAC platformy Azure i Azure Portal](../../role-based-access-control/role-assignments-portal.md) lub [Dodawanie lub usuwanie przypisań ról przy użyciu usług Azure RBAC i interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md).
 
-## <a name="install-the-agent-and-connect-to-azure"></a>Instalowanie agenta i łączenie się z platformą Azure
+## <a name="install-the-agent-and-connect-to-azure"></a>Instalowanie agenta i nawiązywanie połączenia z platformą Azure
 
-Poniższe kroki zainstalować i skonfigurować agenta connected machine na komputerach hybrydowych przy użyciu szablonu skryptu, który wykonuje podobne kroki opisane w [Connect maszyn hybrydowych do platformy Azure z](onboard-portal.md) artykułu portalu Azure. Różnica jest w ostatnim kroku, w którym można `azcmagent` ustanowić połączenie z usługą Azure Arc przy użyciu polecenia przy użyciu jednostki usługi. 
+Poniższe kroki instalują i konfigurują agenta podłączonego maszyny na maszynach hybrydowych przy użyciu szablonu skryptu, który wykonuje podobne kroki opisane w artykule [łączenie maszyn hybrydowych z platformą Azure z artykułu Azure Portal](onboard-portal.md) . Różnica znajduje się w ostatnim kroku, w którym można nawiązać połączenie z usługą Azure Arc `azcmagent` przy użyciu polecenia przy użyciu nazwy głównej usługi. 
 
-Poniżej przedstawiono ustawienia, które `azcmagent` można skonfigurować polecenie do użycia dla jednostki usługi.
+Poniżej przedstawiono ustawienia, które należy skonfigurować `azcmagent` dla jednostki usługi.
 
-* `tenant-id`: Unikatowy identyfikator (GUID), który reprezentuje dedykowane wystąpienie usługi Azure AD.
-* `subscription-id`: Identyfikator subskrypcji (GUID) subskrypcji platformy Azure, w której mają być na komputerze.
-* `resource-group`: Nazwa grupy zasobów, do której mają należeć podłączone komputery.
-* `location`: Zobacz [obsługiwane regiony platformy Azure](overview.md#supported-regions). Ta lokalizacja może być taka sama lub inna, jak lokalizacja grupy zasobów.
-* `resource-name`: (*Opcjonalnie)* Używane do reprezentacji zasobów platformy Azure komputera lokalnego. Jeśli ta wartość nie zostanie określona, używana jest nazwa hosta komputera.
+* `tenant-id`: Unikatowy identyfikator (GUID) reprezentujący dedykowane wystąpienie usługi Azure AD.
+* `subscription-id`: Identyfikator subskrypcji (GUID) subskrypcji platformy Azure, w której mają być używane maszyny.
+* `resource-group`: Nazwa grupy zasobów, do której mają należeć połączone maszyny.
+* `location`: Zobacz [Obsługiwane regiony platformy Azure](overview.md#supported-regions). Ta lokalizacja może być taka sama lub inna, jak lokalizacja grupy zasobów.
+* `resource-name`: (*Opcjonalnie*) używany do reprezentacji zasobów platformy Azure na komputerze lokalnym. Jeśli ta wartość nie zostanie określona, zostanie użyta nazwa hosta maszyny.
 
-Więcej informacji na `azcmagent` temat narzędzia wiersza polecenia można dowiedzieć się, przeglądając program [Azcmagent Reference](azcmagent-reference.md).
+Więcej informacji na `azcmagent` temat narzędzia wiersza polecenia można uzyskać, przeglądając [odwołanie Azcmagent](azcmagent-reference.md).
 
-### <a name="windows-installation-script"></a>Skrypt instalacyjny systemu Windows
+### <a name="windows-installation-script"></a>Skrypt instalacji systemu Windows
 
-Poniżej przedstawiono przykład połączonego agenta komputera dla skryptu instalacyjnego systemu Windows, który został zmodyfikowany w celu użycia jednostki usługi do obsługi w pełni zautomatyzowanej, nieinterakcyjnej instalacji agenta.
+Poniżej znajduje się przykładowy skrypt instalacji agenta połączonej maszyny dla systemu Windows, który został zmodyfikowany w celu użycia jednostki usługi do obsługi w pełni zautomatyzowanej, nieinteraktywnej instalacji agenta.
 
 ```
  # Download the package
@@ -110,9 +110,9 @@ msiexec /i AzureConnectedMachineAgent.msi /l*v installationlog.txt /qn | Out-Str
   --subscription-id "{subscriptionID}"
 ```
 
-### <a name="linux-installation-script"></a>Skrypt instalacyjny systemu Linux
+### <a name="linux-installation-script"></a>Skrypt instalacji systemu Linux
 
-Poniżej przedstawiono przykład połączonego agenta komputera dla skryptu instalacyjnego systemu Linux, który został zmodyfikowany w celu użycia jednostki usługi do obsługi w pełni zautomatyzowanej, nieinterakcyjnej instalacji agenta.
+Poniżej znajduje się przykładowy skrypt instalacji programu Connected Machine Agent dla systemu Linux, który został zmodyfikowany w celu korzystania z jednostki usługi w celu obsługi w pełni zautomatyzowanej, nieinteraktywnej instalacji agenta.
 
 ```
 # Download the installation package
@@ -131,12 +131,12 @@ azcmagent connect \
   --subscription-id "{subscriptionID}"
 ```
 
-Po zainstalowaniu agenta i skonfigurowaniu go do łączenia się z programem Azure Arc dla serwerów (wersja zapoznawcza) przejdź do witryny Azure Portal, aby sprawdzić, czy serwer został pomyślnie połączony. Wyświetlanie maszyn w [witrynie Azure portal](https://aka.ms/hybridmachineportal).
+Po zainstalowaniu agenta programu i skonfigurowaniu go w celu nawiązania połączenia z usługą Azure ARC dla serwerów (wersja zapoznawcza) przejdź do Azure Portal, aby sprawdzić, czy serwer został pomyślnie połączony. Wyświetlanie maszyn w [Azure Portal](https://aka.ms/hybridmachineportal).
 
 ![Pomyślne połączenie z serwerem](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak zarządzać komputerem przy użyciu [usługi Azure Policy](../../governance/policy/overview.md), dla takich rzeczy, jak [konfiguracja gościa](../../governance/policy/concepts/guest-configuration.md)maszyny wirtualnej, sprawdzanie, że maszyna zgłasza się do oczekiwanego obszaru roboczego usługi Log Analytics, włącz monitorowanie za pomocą [usługi Azure Monitor za pomocą maszyn wirtualnych](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md)i wiele więcej.
+- Dowiedz się, jak zarządzać maszyną za pomocą [Azure Policy](../../governance/policy/overview.md), na przykład w [konfiguracji gościa](../../governance/policy/concepts/guest-configuration.md)maszyny wirtualnej, sprawdzając, czy komputer jest raportowany do oczekiwanego log Analytics obszaru roboczego, włącz monitorowanie za pomocą [Azure monitor z maszynami wirtualnymi](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md)i wiele więcej.
 
-- Dowiedz się więcej o [agencie usługi Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). Agent analizy dzienników dla systemów Windows i Linux jest wymagany, gdy chcesz aktywnie monitorować system operacyjny i obciążenia uruchomione na komputerze, zarządzać nim przy użyciu umnień umowniczych automatyzacji lub rozwiązań, takich jak zarządzanie aktualizacjami, lub korzystać z innych usług platformy Azure Security [Center.](../../security-center/security-center-intro.md)
+- Dowiedz się więcej o [agencie log Analytics](../../azure-monitor/platform/log-analytics-agent.md). Agent Log Analytics dla systemów Windows i Linux jest wymagany, gdy użytkownik chce aktywnie monitorować system operacyjny i obciążenia uruchomione na komputerze, zarządzać nim za pomocą elementów Runbook usługi Automation lub rozwiązań, takich jak Update Management, lub używać innych usług platformy Azure, takich jak [Azure Security Center](../../security-center/security-center-intro.md).
