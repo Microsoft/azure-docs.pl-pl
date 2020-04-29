@@ -1,5 +1,5 @@
 ---
-title: Szybki start biblioteki klienta Java wyszukiwania wizualnego Bing
+title: wyszukiwanie wizualne Bing Java Client Library — Szybki Start
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,40 +9,40 @@ ms.topic: include
 ms.date: 03/26/2020
 ms.author: aahi
 ms.openlocfilehash: 40432d4bad0070f9de21ec61020d976f0014e00c
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80550016"
 ---
-Użyj tego przewodnika Szybki start, aby rozpocząć uzyskiwanie szczegółowych informacji o obrazie z usługi wyszukiwania wizualnego Bing przy użyciu biblioteki klienta Java. Usługa Bing Visual Search ma interfejs API REST zgodny z większością języków programowania, ale biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy tego przewodnika Szybki start można znaleźć na [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVisualSearch).
+Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć pobieranie szczegółowych informacji o obrazach z usługi wyszukiwanie wizualne Bing przy użyciu biblioteki klienckiej języka Java. Chociaż wyszukiwanie wizualne Bing ma interfejs API REST zgodny z większością języków programowania, Biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy dla tego przewodnika Szybki Start można znaleźć w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVisualSearch).
 
-Użyj biblioteki klienta wyszukiwania wizualnego Bing dla oprogramowania Java, aby:
+Użyj biblioteki klienta wyszukiwanie wizualne Bing dla języka Java, aby:
 
 * Przekaż obraz, aby wysłać żądanie wyszukiwania wizualnego.
-* Pobierz token wglądu w obraz i wizualne tagi wyszukiwania.
+* Pobierz token Insights i Tagi wyszukiwania wizualnego.
 
-[Przykłady](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable) | [kodu źródłowego biblioteki](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch) | referencyjnej Artifact[(Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/) | [Samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Reference documentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable) |  | [Przykłady](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) [kodu źródłowego](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch)[(Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/) | biblioteki dokumentacji referencyjnej
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [utwórz bezpłatną subskrypcję platformy Azure](https://azure.microsoft.com/free/)
-* Aktualna wersja [zestawu Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [Narzędzie do budowania Gradle](https://gradle.org/install/)lub inny menedżer zależności
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+* Bieżąca wersja [zestawu Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Narzędzie kompilacji Gradle](https://gradle.org/install/)lub inny Menedżer zależności
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](~/includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-Po dostaniu klucza z subskrypcji próbnej lub zasobu `BING_SEARCH_V7_SUBSCRIPTION_KEY` [utwórz zmienną środowiskową](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla klucza o nazwie .
+Po otrzymaniu klucza z subskrypcji próbnej lub zasobu [Utwórz zmienną środowiskową](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla klucza o nazwie `BING_SEARCH_V7_SUBSCRIPTION_KEY`.
 
-### <a name="create-a-new-gradle-project"></a>Tworzenie nowego projektu Gradle
+### <a name="create-a-new-gradle-project"></a>Utwórz nowy projekt Gradle
 
-W oknie konsoli (takim jak cmd, PowerShell lub Bash) utwórz nowy katalog aplikacji i przejdź do niego. 
+W oknie konsoli (na przykład cmd, PowerShell lub bash) Utwórz nowy katalog dla aplikacji i przejdź do niego. 
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Uruchom `gradle init` polecenie z katalogu roboczego. To polecenie spowoduje utworzenie podstawowych plików kompilacji dla gradle, w tym *build.gradle.kts,* który jest używany w czasie wykonywania do tworzenia i konfigurowania aplikacji.
+Uruchom `gradle init` polecenie z katalogu roboczego. To polecenie spowoduje utworzenie podstawowych plików kompilacji dla Gradle, w tym *Build. Gradle. KTS* , który jest używany w środowisku uruchomieniowym do tworzenia i konfigurowania aplikacji.
 
 ```console
 gradle init --type basic
@@ -50,7 +50,7 @@ gradle init --type basic
 
 Po wyświetleniu monitu wybierz pozycję **Język DSL**, a następnie **Kotlin**.
 
-Znajdź *build.gradle.kts* i otwórz go za pomocą preferowanego edytora IDE lub tekstu. Następnie skopiuj go do tej konfiguracji kompilacji:
+Znajdź element *Build. Gradle. KTS* i otwórz go za pomocą PREFEROWANEGO środowiska IDE lub edytora tekstu. Następnie skopiuj go do tej konfiguracji kompilacji:
 
 ```kotlin
 plugins {
@@ -70,19 +70,19 @@ dependencies {
 }
 ```
 
-Utwórz folder dla przykładowej aplikacji. W katalogu roboczym uruchom następujące polecenie:
+Utwórz folder dla przykładowej aplikacji. W katalogu roboczym Uruchom następujące polecenie:
 
 ```console
 mkdir -p src/main/java
 ```
 
-Utwórz folder dla obrazu, który chcesz przekazać do interfejsu API. Umieść obraz w folderze **zasobów.**
+Utwórz folder dla obrazu, który ma zostać przekazany do interfejsu API. Umieść obraz wewnątrz folderu **resources** .
 
 ```console
 mkdir -p src/main/resources
 ``` 
 
-Przejdź do nowego folderu i utwórz plik o nazwie *BingVisualSearchSample.java*. Otwórz go w preferowanym edytorze `import` lub IDE i dodaj następujące instrukcje:
+Przejdź do nowego folderu i Utwórz plik o nazwie *BingVisualSearchSample. Java*. Otwórz go w preferowanym edytorze lub środowisku IDE i Dodaj następujące `import` instrukcje:
 
 [!code-java[Import statements](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=imports)]
 
@@ -93,16 +93,16 @@ public class BingVisualSearchSample {
 }
 ```
 
-W `main` metodzie aplikacji utwórz zmienne dla punktu końcowego i klucza platformy Azure zasobu. Jeśli po uruchomieniu aplikacji utworzono zmienną środowiskową, należy zamknąć i ponownie otworzyć edytor, IDE lub powłokę uruchamianą ją, aby uzyskać dostęp do zmiennej. Następnie utwórz `byte[]` dla obrazu, który będziesz przesyłać. Utwórz `try` blok dla metod, które zdefiniujesz później, a następnie `toByteArray()`załaduj obraz i przekonwertuj go na bajty za pomocą programu .
+W `main` metodzie aplikacji Utwórz zmienne dla punktu końcowego i klucza usługi Azure Resource. Jeśli zmienna środowiskowa została utworzona po uruchomieniu aplikacji, należy zamknąć i ponownie otworzyć Edytor, środowisko IDE lub powłokę, na których jest uruchomiona, aby uzyskać dostęp do zmiennej. Następnie Utwórz `byte[]` dla obrazu, który będzie przekazywany. Utwórz `try` blok dla metod, które określisz później, i Załaduj obraz i przekonwertuj go na bajty `toByteArray()`przy użyciu.
 
 [!code-java[Main method](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=main)]
 
 
-### <a name="install-the-client-library"></a>Instalowanie biblioteki klienta
+### <a name="install-the-client-library"></a>Zainstaluj bibliotekę kliencką
 
-Ten przewodnik Szybki start używa menedżera zależności Gradle. Bibliotekę klienta i informacje dla innych menedżerów zależności można znaleźć w [repozytorium Centralnym Maven](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-textanalytics/).
+Ten przewodnik Szybki Start używa Menedżera zależności Gradle. Bibliotekę i informacje o kliencie można znaleźć dla innych menedżerów zależności w [repozytorium centralnym Maven](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-textanalytics/).
 
-W pliku *build.gradle.kts* projektu należy dołączyć bibliotekę klienta `implementation` jako instrukcję. 
+W pliku *Build. Gradle. KTS* projektu Pamiętaj o uwzględnieniu biblioteki klienta jako `implementation` instrukcji. 
 
 ```kotlin
 dependencies {
@@ -114,39 +114,39 @@ dependencies {
 
 ## <a name="code-examples"></a>Przykłady kodu
 
-Te fragmenty kodu pokazują, jak wykonać następujące zadania za pomocą biblioteki klienta wyszukiwania wizualnego Bing i języka Java:
+Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań przy użyciu biblioteki klienta wyszukiwanie wizualne Bing i środowiska Java:
 
-* [Uwierzytelnij klienta](#authenticate-the-client)
-* [Wysyłanie wizualnego żądania wyszukiwania](#send-a-visual-search-request)
-* [Drukowanie tokenu wglądu w obraz i wizualnych znaczników wyszukiwania](#print-the-image-insight-token-and-visual-search-tags)
+* [Uwierzytelnianie klienta](#authenticate-the-client)
+* [Wyślij żądanie wyszukiwania wizualnego](#send-a-visual-search-request)
+* [Drukuj token wglądu w obraz i Tagi wyszukiwania wizualnego](#print-the-image-insight-token-and-visual-search-tags)
 
-## <a name="authenticate-the-client"></a>Uwierzytelnij klienta
+## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
 > [!NOTE]
-> Ten przewodnik Szybki start zakłada utworzenie [zmiennej środowiskowej](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla klucza wyszukiwania wizualnego Bing o nazwie `BING_SEARCH_V7_SUBSCRIPTION_KEY`.
+> W tym przewodniku szybki start przyjęto założenie, że dla klucza wyszukiwanie wizualne Bing `BING_SEARCH_V7_SUBSCRIPTION_KEY`została [utworzona zmienna środowiskowa](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) o nazwie.
 
 
-W głównej metodzie należy użyć klucza subskrypcji do wystąpienia obiektu [BingVisualSearchAPI.](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingvisualsearchapi?view=azure-java-stable)
+W metodzie Main upewnij się, że używasz klucza subskrypcji, aby utworzyć wystąpienie obiektu [BingVisualSearchAPI](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingvisualsearchapi?view=azure-java-stable) .
 
 ```csharp
 BingVisualSearchAPI client = BingVisualSearchManager.authenticate(subscriptionKey);
 ```
 
-## <a name="send-a-visual-search-request"></a>Wysyłanie wizualnego żądania wyszukiwania
+## <a name="send-a-visual-search-request"></a>Wyślij żądanie wyszukiwania wizualnego
 
-W nowej metodzie wyślij tablicę bajtów obrazu `main()` (która została utworzona w metodzie) przy użyciu metody [bingImages().visualSearch().](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingimages.visualsearch?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_visualsearch_BingImages_visualSearch__) 
+W nowej metodzie należy wysłać tablicę bajtową obrazu (która została utworzona w `main()` metodzie) przy użyciu metody [bingImages (). visualSearch (](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingimages.visualsearch?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_visualsearch_BingImages_visualSearch__) ) klienta. 
 
 [!code-java[visualSearch() method](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=visualSearch)]
 
-## <a name="print-the-image-insight-token-and-visual-search-tags"></a>Drukowanie tokenu wglądu w obraz i wizualnych znaczników wyszukiwania
+## <a name="print-the-image-insight-token-and-visual-search-tags"></a>Drukuj token wglądu w obraz i Tagi wyszukiwania wizualnego
 
-Sprawdź, czy [obiekt ImageKnowledge](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.models.imageknowledge?view=azure-java-stable) ma wartość null. Jeśli nie, wydrukuj token wglądu w obrazy, liczbę znaczników, liczbę akcji i pierwszy typ akcji.
+Sprawdź, czy obiekt [ImageKnowledge](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.models.imageknowledge?view=azure-java-stable) ma wartość null. W przeciwnym razie należy wydrukować token Insights, liczbę tagów, liczbę akcji i typ pierwszego działania.
 
 [!code-java[Print token and tags](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=printVisualSearchResults)]
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
-Możesz utworzyć aplikację za pomocą:
+Aplikację można skompilować przy użyciu:
 
 ```console
 gradle build
@@ -160,7 +160,7 @@ gradle run
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli chcesz wyczyścić i usunąć subskrypcję usług Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów powoduje również usunięcie innych skojarzonych z nią zasobów.
+Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Interfejs wiersza polecenia platformy Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)

@@ -1,6 +1,6 @@
 ---
-title: Przykładowe typy klas w usługach Azure Lab Services | Dokumenty firmy Microsoft
-description: Zawiera niektóre typy klas, dla których można skonfigurować laboratoria przy użyciu usługi Azure Lab Services.
+title: Przykładowe typy klas w Azure Lab Services | Microsoft Docs
+description: Zawiera typy klas, dla których można skonfigurować laboratoria przy użyciu Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,58 +14,58 @@ ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 27619a69a1f7fbded8ce6430afc2b8e9a8b4a00c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79296731"
 ---
-# <a name="class-types-overview---azure-lab-services"></a>Omówienie typów klas — usługi Azure Lab Services
+# <a name="class-types-overview---azure-lab-services"></a>Przegląd typów klas — Azure Lab Services
 
-Usługa Azure Lab Services umożliwia szybkie konfigurowanie środowisk laboratoryjnych w klasie w chmurze. Artykuły w tej sekcji zawierają wskazówki dotyczące konfigurowania kilku typów laboratoriów w klasie przy użyciu usług Azure Lab Services.
+Azure Lab Services umożliwia szybkie Konfigurowanie środowisk laboratoryjnych w chmurze. Artykuły w tej sekcji zawierają wskazówki dotyczące konfigurowania kilku typów laboratoriów zajęć przy użyciu Azure Lab Services.
 
-## <a name="deep-learning-in-natural-language-processing"></a>Głębokie uczenie się w przetwarzaniu języka naturalnego
+## <a name="deep-learning-in-natural-language-processing"></a>Uczenie głębokie w ramach przetwarzania języka naturalnego
 
-Można skonfigurować laboratorium koncentrujące się na głębokim uczeniu w przetwarzaniu języka naturalnego (NLP) przy użyciu usługi Azure Lab Services. Przetwarzanie języka naturalnego (NLP) jest formą sztucznej inteligencji (AI), która umożliwia komputerom z możliwością tłumaczenia, rozpoznawania mowy i innych funkcji rozumienia języka. Uczniowie biorący klasę NLP otrzymują maszynę wirtualną systemu Linux (VM), aby dowiedzieć się, jak zastosować algorytmy sieci neuronowej do opracowywania modeli uczenia głębokiego, które są używane do analizowania napisanego języka ludzkiego.
+Można skonfigurować laboratorium ukierunkowane na głębokie uczenie w ramach przetwarzania języka naturalnego (NLP) przy użyciu Azure Lab Services. Przetwarzanie języka naturalnego (NLP) jest formą sztucznej analizy (AI), która umożliwia komputerom z translacją, rozpoznawanie mowy i innymi funkcjami interpretacji języka. Studenci tworzący klasę NLPą mogą uzyskać maszynę wirtualną z systemem Linux, aby dowiedzieć się, jak zastosować algorytmy sieciowe neuronowych w celu opracowania modeli uczenia głębokiego, które są używane do analizowania zapisanych języków ludzkich.
 
-Aby uzyskać szczegółowe informacje na temat konfigurowania tego typu laboratorium, zobacz [Konfigurowanie laboratorium koncentrującego się na głębokim uczeniu w przetwarzaniu języka naturalnego przy użyciu usług Azure Lab Services.](class-type-deep-learning-natural-processing.md)
+Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania tego typu laboratorium, zobacz [Konfigurowanie laboratorium ukierunkowanego na głębokie uczenie w zakresie przetwarzania w języku naturalnym przy użyciu Azure Lab Services](class-type-deep-learning-natural-processing.md).
 
 ## <a name="shell-scripting-on-linux"></a>Skrypty powłoki w systemie Linux
 
-Można skonfigurować laboratorium do nauczania skryptów powłoki na Linuksie. Skrypty są użyteczną częścią administracji systemowej, która pozwala administratorom uniknąć powtarzających się zadań. W tym przykładowym scenariuszu klasa obejmuje tradycyjnych skryptów bash i skryptów rozszerzonych. Ulepszone skrypty to skrypty łączące polecenia bash i Ruby. Takie podejście pozwala Ruby przekazać dane wokół i bash polecenia do interakcji z powłoki.
+Można skonfigurować laboratorium do uczenia skryptów powłoki w systemie Linux. Obsługa skryptów jest przydatną częścią administrowania systemem, która umożliwia administratorom uniknięcie powtarzających się zadań. W tym przykładowym scenariuszu Klasa obejmuje tradycyjne skrypty bash oraz ulepszone skrypty. Ulepszone skrypty to skrypty, które łączą bash polecenia i Ruby. Takie podejście umożliwia używanie języka Ruby do przekazywania danych wokół i bash poleceń w celu współdziałania z powłoką.
 
-Uczniowie biorący te klasy skryptów otrzymują maszynę wirtualną Linuksa, aby nauczyć się podstaw linuksa, a także zapoznać się ze skryptami powłoki bash. Maszyna wirtualna Systemu Linux jest wyposażona w dostęp do pulpitu zdalnego z zainstalowanym [edytorami](https://help.gnome.org/users/gedit/stable/) tekstu gedit i [Visual Studio Code.](https://code.visualstudio.com/)
+Studenci korzystający z tych klas skryptów otrzymują maszynę wirtualną z systemem Linux, aby poznać podstawy systemu Linux, a także zapoznać się z obsługą skryptów powłoki bash. Na maszynie wirtualnej z systemem Linux jest włączona funkcja dostępu do pulpitu zdalnego z zainstalowanym edytorem tekstu w języku [regedit](https://help.gnome.org/users/gedit/stable/) i [Visual Studio Code](https://code.visualstudio.com/) .
 
-Aby uzyskać szczegółowe informacje na temat konfigurowania tego typu laboratorium, zobacz [Skrypty powłoki w systemie Linux](class-type-shell-scripting-linux.md).
+Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania tego typu laboratorium, zobacz [Skrypty powłoki w systemie Linux](class-type-shell-scripting-linux.md).
 
 ## <a name="ethical-hacking"></a>Etyczne działania hakerskie
 
-Możesz założyć laboratorium dla klasy, która koncentruje się na kryminalistyce etycznego hakowania. Testy penetracyjne, praktyka stosowana przez etyczną społeczność hakerów, ma miejsce, gdy ktoś próbuje uzyskać dostęp do systemu lub sieci, aby wykazać luki, które może wykorzystać złośliwy atakujący.
+Można skonfigurować laboratorium dla klasy, która koncentruje się na dowodowych etycznej działanie hakerskie. Testowanie penetracji, metoda stosowana przez społeczność etyczną działanie hakerskie, występuje, gdy ktoś próbuje uzyskać dostęp do systemu lub sieci w celu zademonstrowania luk w zabezpieczeniach.
 
-W klasie etycznego hakowania uczniowie mogą nauczyć się nowoczesnych technik obrony przed lukami w zabezpieczeniach. Każdy student otrzymuje maszynę wirtualną hosta systemu Windows Server, która ma dwie zagnieżdżone maszyny wirtualne — jedną maszynę wirtualną z obrazem [Metasploitable3](https://github.com/rapid7/metasploitable3) i inną maszynę z obrazem [Kali Linux.](https://www.kali.org/) Metasploitable maszyny wirtualnej jest używany do wykorzystania celów.  Maszyna wirtualna Kali Linux zapewnia dostęp do narzędzi potrzebnych do wykonywania zadań kryminalistycznych.
+W klasie etycznej działanie hakerskie studenci mogą uczyć się nowoczesnych technik obrony przed lukami w zabezpieczeniach. Każdy student otrzymuje maszynę wirtualną hosta systemu Windows Server, która ma dwie zagnieżdżone maszyny wirtualne — jedną maszynę wirtualną z obrazem [Metasploitable3](https://github.com/rapid7/metasploitable3) i inną maszynę z obrazem [Kali Linux](https://www.kali.org/) . Maszyna wirtualna Metasploitable jest używana do wykorzystania w celach.  Maszyna wirtualna z systemem Kali Linux zapewnia dostęp do narzędzi wymaganych do wykonywania zadań śledczej.
 
-Aby uzyskać szczegółowe informacje na temat konfigurowania tego typu laboratorium, zobacz [Konfigurowanie laboratorium do nauczania etycznego hackingu.](class-type-ethical-hacking.md)
+Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania tego typu laboratorium, zobacz [Konfigurowanie laboratorium do uczenia klasy etycznej działanie hakerskie](class-type-ethical-hacking.md).
 
 ## <a name="database-management"></a>Zarządzanie bazami danych
-Koncepcje baz danych są jednym z kursów wprowadzających prowadzonych w większości wydziałów informatyki w college'u. W usłudze Azure Lab Services można skonfigurować laboratorium dla klasy zarządzania podstawowymi bazami danych. Na przykład można skonfigurować szablon maszyny wirtualnej w laboratorium za pomocą serwera bazy danych [MySQL](https://www.mysql.com/) lub serwera [SQL Server 2019.](https://www.microsoft.com/sql-server/sql-server-2019)
+Pojęcia dotyczące baz danych są jednym z kursów wprowadzających w większości działów nauki komputerowych w szkole. W Azure Lab Services można skonfigurować laboratorium dla podstawowej klasy zarządzania bazami danych. Na przykład można skonfigurować szablon maszyny wirtualnej w laboratorium z serwerem bazy danych [MySQL](https://www.mysql.com/) lub serwerem [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) .
 
-Aby uzyskać szczegółowe informacje na temat konfigurowania tego typu laboratorium, zobacz [Konfigurowanie laboratorium do nauczania zarządzania bazami danych dla relacyjnych baz danych](class-type-database-management.md).
+Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania tego typu laboratorium, zobacz [Konfigurowanie laboratorium do uczenia zarządzania bazami danych dla relacyjnych baz danych](class-type-database-management.md).
 
-## <a name="python-and-jupyter-notebooks"></a>Notesy Pythona i Jupytera
-Maszynę szablonów można skonfigurować w usłudze Azure Lab Services za pomocą narzędzi potrzebnych do nauczenia uczniów, jak używać [notesów Jupyter.](http://jupyter-notebook.readthedocs.io) Jupyter Notebooks to projekt typu open source, który pozwala łatwo łączyć tekst sformatowany i wykonywalny kod źródłowy [Pythona](https://www.python.org/) na jednym płótnie zwanym notesem. Uruchomienie notesu powoduje liniowy rekord wejść i wyjść.  Te dane wyjściowe mogą zawierać tekst, tabele informacji, wykresy punktowe i inne.
+## <a name="python-and-jupyter-notebooks"></a>Notesy Python i Jupyter
+Można skonfigurować maszynę szablonu w Azure Lab Services z narzędziami wymaganymi do nauki uczniów, jak korzystać z [notesów Jupyter](http://jupyter-notebook.readthedocs.io). Notesy Jupyter to projekt typu "open source", który umożliwia łatwe łączenie tekstu sformatowanego i wykonywalnego kodu źródłowego języka [Python](https://www.python.org/) na jednej kanwie o nazwie Notes. Uruchamianie notesu skutkuje liniowym rekordem danych wejściowych i wyjściowych.  Mogą one obejmować tekst, tabele informacji, wykresy punktowe i wiele innych.
 
-Aby uzyskać szczegółowe informacje na temat konfigurowania tego typu laboratorium, zobacz [Konfigurowanie laboratorium do nauczania nauki o danych za pomocą notesów Pythona i Jupytera](class-type-jupyter-notebook.md).
+Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania tego typu laboratorium, zobacz [Konfigurowanie laboratorium do uczenia danych przy użyciu notesów Python i Jupyter](class-type-jupyter-notebook.md).
 
 ## <a name="mobile-app-development-with-android-studio"></a>Tworzenie aplikacji mobilnych za pomocą programu Android Studio
-Można skonfigurować laboratorium w usłudze Azure Lab Services, aby uczyć wprowadzającej klasy tworzenia aplikacji mobilnych. Ta klasa koncentruje się na aplikacjach mobilnych na Androida, które można opublikować w [Sklepie Google Play.](https://play.google.com/store/apps)  Uczniowie uczą się, jak używać [Android Studio](https://developer.android.com/studio) do tworzenia aplikacji.  [Visual Studio Emulator dla systemu Android](https://visualstudio.microsoft.com/vs/msft-android-emulator/) jest używany do testowania aplikacji lokalnie.
+Można skonfigurować laboratorium w Azure Lab Services, aby nauczyć się wprowadzenia klasy opracowywania aplikacji mobilnych. Ta klasa koncentruje się na aplikacjach mobilnych systemu Android, które można opublikować w [sklep Google Play](https://play.google.com/store/apps).  Studenci mogą dowiedzieć się, jak używać [Android Studio](https://developer.android.com/studio) do kompilowania aplikacji.  [Emulator programu Visual Studio dla systemu Android](https://visualstudio.microsoft.com/vs/msft-android-emulator/) służy do lokalnego testowania aplikacji.
 
-Aby uzyskać szczegółowe informacje na temat konfigurowania tego typu laboratorium, zobacz [Konfigurowanie laboratorium do nauczania tworzenia aplikacji mobilnych w systemie Android Studio](class-type-mobile-dev-android-studio.md).
+Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania tego typu laboratorium, zobacz [Konfigurowanie laboratorium do uczenia opracowywania aplikacji mobilnych za pomocą Android Studio](class-type-mobile-dev-android-studio.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 Zobacz następujące artykuły:
 
-- [Skonfiguruj laboratorium koncentrujące się na głębokim uczeniu w przetwarzaniu języka naturalnego przy użyciu usług Azure Lab Services](class-type-deep-learning-natural-processing.md)
+- [Skonfiguruj laboratorium ukierunkowane na głębokie uczenie się w przetwarzaniu języka naturalnego przy użyciu Azure Lab Services](class-type-deep-learning-natural-processing.md)
 - [Skrypty powłoki w systemie Linux](class-type-shell-scripting-linux.md)
 - [Etyczne działania hakerskie](class-type-ethical-hacking.md)

@@ -1,140 +1,140 @@
 ---
-title: Opis metryk dla usługi Azure Spring Cloud
-description: Dowiedz się, jak przeglądać metryki w usłudze Azure Spring Cloud
+title: Informacje o metrykach dla chmury wiosennej platformy Azure
+description: Dowiedz się, jak przejrzeć metryki w chmurze Azure wiosennej
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
 ms.openlocfilehash: bb23afff2b4b449897d8e420934d038938d20205
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79256759"
 ---
-# <a name="understand-metrics-for-azure-spring-cloud"></a>Opis metryk dla usługi Azure Spring Cloud
+# <a name="understand-metrics-for-azure-spring-cloud"></a>Informacje o metrykach dla chmury wiosennej platformy Azure
 
-Eksplorator metryk platformy Azure jest składnikiem portalu Microsoft Azure, który umożliwia drukowanie wykresów, wizualnie korelowanie trendów i badanie skoków i spadków metryk. Użyj Eksploratora metryk, aby zbadać kondycję i wykorzystanie zasobów. 
+Eksplorator metryk platformy Azure to składnik Microsoft Azure Portal, który umożliwia Wykreślanie wykresów, wizualnie skorelowanych trendów oraz badanie skoków i wartości DIP w metrykach. Użyj Eksploratora metryk, aby zbadać kondycję i wykorzystanie zasobów. 
 
-W usłudze Azure Spring Cloud istnieją dwa punkty widoku dla metryk.
+W chmurze Azure wiosną istnieją dwa punkty widoku dla metryk.
 * Wykresy na każdej stronie przeglądu aplikacji
 * Strona typowe metryki
 
- ![Wykresy metryki](media/metrics/metrics-1.png)
+ ![Wykresy metryk](media/metrics/metrics-1.png)
 
-Wykresy w **aplikacji Omówienie** zapewniają szybkie sprawdzanie stanu dla każdej aplikacji. Wspólna strona **Metryki** zawiera wszystkie metryki dostępne w celach informacyjnych. Możesz tworzyć własne wykresy na wspólnej stronie metryk i przypinać je na pulpicie nawigacyjnym.
+Wykresy w **przeglądzie** aplikacji zapewniają szybkie sprawdzanie stanu dla każdej aplikacji. Strona typowe **metryki** zawiera wszystkie metryki dostępne dla odwołania. Możesz utworzyć własne wykresy na stronie typowe metryki i przypiąć je na pulpicie nawigacyjnym.
 
 ## <a name="application-overview-page"></a>Strona przeglądu aplikacji
-Wybierz aplikację w **obszarze Zarządzanie aplikacjami,** aby znaleźć wykresy na stronie przeglądu.  
+Wybierz aplikację w obszarze **Zarządzanie aplikacjami** , aby znaleźć wykresy na stronie Przegląd.  
 
  ![Zarządzanie metrykami aplikacji](media/metrics/metrics-2.png)
 
-Każda aplikacja **przegląd aplikacji** strona przedstawia wykres metryki, który umożliwia szybkie sprawdzanie stanu aplikacji.  
+Na stronie **przeglądu aplikacji** każdej aplikacji jest prezentowany wykres metryk, który umożliwia wykonywanie szybkiego sprawdzania stanu aplikacji.  
 
- ![Omówienie metryk aplikacji](media/metrics/metrics-3.png)
+ ![Przegląd metryk aplikacji](media/metrics/metrics-3.png)
 
-Usługa Azure Spring Cloud udostępnia te pięć wykresów z metrykami, które są aktualizowane co minutę:
+Chmura sprężynowa Azure udostępnia te pięć wykresów z metrykami, które są aktualizowane co minutę:
 
-* **Błędy serwera Http:** Liczba błędów dla żądań HTTP do aplikacji
-* **Dane w**: Bajty odebrane przez aplikację
-* **Wyjście danych:** bajty wysyłane przez aplikację
-* **Żądania:** Żądania odebrane przez aplikację
-* **Średni czas reakcji:** średni czas reakcji z aplikacji
+* **Błędy serwera http**: liczba błędów dla żądań HTTP do aplikacji
+* **Dane w**: bajty odebrane przez aplikację
+* **Dane wychodzące**: Bajty wysłane przez aplikację
+* **Żądania**: żądania odebrane przez aplikację
+* **Średni czas odpowiedzi**: Średni czas odpowiedzi z aplikacji
 
-Dla wykresu można wybrać zakres czasu od jednej godziny do siedmiu dni.
+Dla wykresu można wybrać zakres czasu z przedziału od 1 do siedmiu dni.
 
 ## <a name="common-metrics-page"></a>Strona typowe metryki
 
-**Metryki** w lewym okienku nawigacji łączy się ze wspólną stronę metryki.
+**Metryki** w okienku nawigacji po lewej stronie łączą się ze wspólną metryką.
 
-Najpierw wybierz dane do wyświetlenia:
+Najpierw wybierz metryki do wyświetlenia:
 
 ![Wybierz widok metryki](media/metrics/metrics-4.png)
 
-Szczegółowe informacje o opcji wszystkich metryk można znaleźć w [sekcji](#user-metrics-options) poniżej.
+Szczegóły wszystkich opcji metryk można znaleźć w [sekcji](#user-metrics-options) poniżej.
 
 Następnie wybierz typ agregacji dla każdej metryki:
 
-![Agregacja metryczna](media/metrics/metrics-5.png)
+![Agregacja metryk](media/metrics/metrics-5.png)
 
-Typ agregacji wskazuje sposób agregowania punktów metryk na wykresie według czasu. Co minutę jest jeden punkt metryki nieprzetworzonej, a typ wstępnej agregacji w ciągu kilku minut jest wstępnie zdefiniowany przez typ metryki.
-* Suma: Sumuj wszystkie wartości jako dane wyjściowe docelowe.
-* Średnia: Użyj średniej wartości w okresie jako docelowej produkcji wyjściowej.
-* Max/Min: Użyj wartości Max/Min w okresie jako wyjścia docelowego.
+Typ agregacji wskazuje sposób agregowania punktów metryk na wykresie według czasu. Istnieje jeden nieprzetworzony punkt metryki co minutę, a typ przed agregacją w minutach jest wstępnie zdefiniowany przez typ metryki.
+* Sum: Sumuj wszystkie wartości jako docelowe dane wyjściowe.
+* Średnia: Użyj średniej wartości w okresie jako docelowy wynik.
+* Max/min: Użyj wartości max/min w okresie jako docelowego wyjścia.
 
-Zakres czasu, aby pokazać może być również modyfikowany. Zakres czasu można wybrać z ostatnich 30 minut do ostatnich 30 dni lub niestandardowy zakres czasu.
+Można również zmodyfikować zakres czasu do pokazania. Zakres czasu można wybrać z ostatnich 30 minut do ostatnich 30 dni lub z niestandardowym zakresem czasu.
 
-![Modyfikacja metryczna](media/metrics/metrics-6.png)
+![Modyfikacja metryki](media/metrics/metrics-6.png)
 
-Widok domyślny zawiera wszystkie metryki aplikacji usługi Azure Spring Cloud razem. Metryki jednej aplikacji lub wystąpienia można filtrować na ekranie.  Kliknij **pozycję Dodaj filtr**, ustaw właściwość na **Aplikację**i wybierz aplikację docelową, którą chcesz monitorować, w polu tekstowym **Wartości.** 
+Widok domyślny obejmuje wszystkie metryki application's usługi chmurowej platformy Azure ze sobą. Metryki jednej aplikacji lub wystąpienia można filtrować na ekranie.  Kliknij przycisk **Dodaj filtr**, ustaw właściwość na wartość **aplikacja**i wybierz aplikację docelową, którą chcesz monitorować, w polu tekstowym **wartości** . 
 
 Można użyć dwóch rodzajów filtrów (właściwości):
-* Aplikacja: filtrowanie według nazwy aplikacji
-* Wystąpienie: filtrowanie według wystąpienia aplikacji
+* Aplikacja: Filtruj według nazwy aplikacji
+* Wystąpienie: Filtruj według wystąpienia aplikacji
 
-![Filtry metryczne](media/metrics/metrics-7.png)
+![Filtry metryk](media/metrics/metrics-7.png)
 
-Można również użyć opcji **Zastosuj podział,** która spowoduje narysowanie wielu linii dla jednej aplikacji:
+Można również użyć opcji **Zastosuj dzielenie** , która spowoduje narysowanie wielu wierszy dla jednej aplikacji:
 
-![Podział metryczny](media/metrics/metrics-8.png)
+![Podział metryk](media/metrics/metrics-8.png)
 
 >[!TIP]
-> Możesz tworzyć własne wykresy na stronie metryki i przypinać je do **pulpitu nawigacyjnego**. Zacznij od nadania nazwy wykresowi.  Następnie wybierz **pozycję Przypnij do pulpitu nawigacyjnego w prawym górnym rogu**. Teraz możesz sprawdzić aplikację na **pulpicie nawigacyjnym**portalu .
+> Możesz tworzyć własne wykresy na stronie metryk i przypinać je do **pulpitu nawigacyjnego**. Zacznij od zmiany nazwy wykresu.  Następnie wybierz pozycję **Przypnij do pulpitu nawigacyjnego w prawym górnym rogu**. Teraz możesz sprawdzić swoją aplikację na **pulpicie nawigacyjnym**portalu.
 
 ## <a name="user-metrics-options"></a>Opcje metryk użytkownika
 
-W poniższych tabelach przedstawiono dostępne dane i szczegóły.
+W poniższych tabelach przedstawiono dostępne metryki i szczegóły.
 
-### <a name="error"></a>Błąd
+### <a name="error"></a>Error
 >[!div class="mx-tdCol2BreakAll"]
->| Nazwa | Nazwa metryki siłownika sprężyny | Jednostka | Szczegóły |
+>| Nazwa | Nazwa metryki siłownika | Jednostka | Szczegóły |
 >|----|----|----|------------|
->| Błąd globalny Tomcat | tomcat.global.error | Liczba | Liczba wystąpi ą błędy przetworzonych żądań |
+>| Błąd globalny Tomcat | Tomcat. Global. Error | Liczba | Liczba błędów przetworzonych żądań |
 
 ### <a name="performance"></a>Wydajność
 >[!div class="mx-tdCol2BreakAll"]
->| Nazwa | Nazwa metryki siłownika sprężyny | Jednostka | Szczegóły |
+>| Nazwa | Nazwa metryki siłownika | Jednostka | Szczegóły |
 >|----|----|----|------------|
->|Procent użycia procesora CPU systemu | system.cpu.usage | Wartość procentowa | Ostatnie użycie procesora dla całego systemu. Ta wartość jest podwójną w interwale [0.0,1.0]. Wartość 0,0 oznacza, że wszystkie procesory były bezczynne w ostatnim okresie obserwowanym okresie czasu, podczas gdy wartość 1,0 oznacza, że wszystkie procesory aktywnie działały w 100% czasu w ostatnim okresie obserwowanym.|
->| Procent użycia procesora CPU aplikacji | Procent użycia procesora CPU aplikacji | Wartość procentowa | Ostatnie użycie procesora CPU dla procesu java virtual machine. Ta wartość jest podwójną w interwale [0.0,1.0]. Wartość 0,0 oznacza, że żaden z procesorów nie uruchamiał wątków z procesu JVM w ostatnim okresie obserwowanego okresu, podczas gdy wartość 1,0 oznacza, że wszystkie procesory aktywnie uruchamiały wątki z JVM 100% czasu w ostatnim okresie obserwowanym. Wątki z JVM obejmują wątki aplikacji, a także wątki wewnętrzne JVM.|
->| Przypisana pamięć aplikacji | jvm.memory.committed | Bajty | Reprezentuje ilość pamięci, która jest gwarantowana do użycia przez JVM. JVM może zwolnić pamięć do systemu i popełnione może być mniejsza niż init. zawsze będzie większa lub równa wykorzystanym. |
->| Używana pamięć aplikacji | jvm.memory.used | Bajty | Reprezentuje ilość pamięci aktualnie używanej w bajtach. |
->| Maksymalna ilość pamięci aplikacji | jvm.memory.max | Bajty | Reprezentuje maksymalną ilość pamięci, która może służyć do zarządzania pamięcią. Ilość używanej i zatwierdzonej pamięci będzie zawsze mniejsza lub równa max, jeśli zdefiniowano maks. Alokacja pamięci może zakończyć się niepowodzeniem, jeśli próbuje zwiększyć używanej pamięci, tak aby została zatwierdzona >, nawet jeśli jest używana <= max, nadal będzie prawdziwa (na przykład, gdy w systemie brakuje pamięci wirtualnej). |
->| Maksymalny dostępny rozmiar danych starej generacji | jvm.gc.max.data.size | Bajty | Szczytowe użycie pamięci w puli pamięci starej generacji od momentu uruchomienia maszyny wirtualnej Java. |
->| Rozmiar danych starej generacji | jvm.gc.live.data.size | Bajty | Rozmiar starej generacji puli pamięci po pełnej GC. |
->| Promowanie rozmiaru danych starej generacji | jvm.gc.memory.promoted | Bajty | Liczba dodatnich wzrostów wielkości puli pamięci starej generacji przed GC do po GC. |
->| Promuj rozmiar danych młodego pokolenia | jvm.gc.memory.allocated jvm.gc.memory.allocated jvm.gc.memory.allocated jv | Bajty | Zwiększa się do zwiększenia wielkości puli pamięci młodego pokolenia po jednym GC do przed następnym. |
->| Liczba wstrzymania GC | jvm.gc.pause (całkowita liczba) | Liczba | Całkowita liczba GC po rozpoczęciu tego JMV, w tym Young i Old GC. |
->| Całkowity czas pauzy GC | jvm.gc.pause (całkowity czas) | Milisekund | Całkowity czas pochłonięty przez GC po rozpoczęciu tego JMV, w tym Young i Old GC. |
+>|Procent użycia procesora systemu | System. CPU. Usage | Wartość procentowa | Ostatnie użycie procesora CPU całego systemu. Ta wartość jest podwójnym interwałem [0.0, 1.0]. Wartość 0,0 oznacza, że wszystkie procesory były bezczynne w trakcie ostatniego zaobserwowanego okresu, a wartość 1,0 oznacza, że wszystkie procesory aktywnie działały 100% czasu w trakcie ostatniego zaobserwowanego okresu.|
+>| Procent użycia procesora aplikacji | Procent użycia procesora aplikacji | Wartość procentowa | Ostatnie użycie procesora CPU przez proces wirtualna maszyna Java. Ta wartość jest podwójnym interwałem [0.0, 1.0]. Wartość 0,0 oznacza, że żaden z procesorów CPU nie był uruchomiony z procesu JVM w trakcie ostatniego zaobserwowanego okresu, a wartość 1,0 oznacza, że wszystkie procesory aktywnie działały wątki z JVM 100% czasu podczas ostatniego zaobserwowanego okresu. Wątki z JVM obejmują wątki aplikacji oraz wewnętrzne wątki JVM.|
+>| Przypisana pamięć aplikacji | JVM. Memory. Committed | Bajty | Reprezentuje ilość pamięci, która ma być dostępna do użycia przez JVM. JVM może zwolnić pamięć do systemu, a zatwierdzenie może być mniejsze niż init. wartość zatwierdzone będzie zawsze większa lub równa używanej. |
+>| Użyta pamięć aplikacji | JVM. Memory. użyty | Bajty | Reprezentuje ilość pamięci aktualnie używaną w bajtach. |
+>| Maksymalna ilość pamięci aplikacji | JVM. Memory. Max | Bajty | Reprezentuje maksymalną ilość pamięci, która może być używana do zarządzania pamięcią. Ilość użytych i przekazanych pamięci będzie zawsze mniejsza lub równa Max, jeśli zdefiniowano wartość Max. Alokacja pamięci może zakończyć się niepowodzeniem, jeśli próbuje zwiększyć użytą pamięć, taką jak > zatwierdzone, nawet jeśli użyto <= Max (na przykład gdy w systemie brakuje pamięci wirtualnej). |
+>| Maksymalna dostępna wartość starego rozmiaru danych generacji | JVM. GC. max. Data. size | Bajty | Szczytowe użycie pamięci przez starszą pulę pamięci generacji od momentu uruchomienia maszyny wirtualnej Java. |
+>| Stary rozmiar danych generacji | JVM. GC. Live. Data. size | Bajty | Rozmiar starej puli pamięci generacji po pełnej operacji GC. |
+>| Podwyższ poziom do starego rozmiaru danych generacji | JVM. GC. Memory. awansowana | Bajty | Liczba pozytywnych wzrostów rozmiaru starej puli pamięci generacji przed GC do po GC. |
+>| Podwyższ poziom do rozmiaru danych dla małych generacji | JVM. GC. Memory. przydzielono | Bajty | Zwiększa się w celu zwiększenia rozmiaru puli pamięci młodej generacji po jednej operacji GC do wcześniejszej. |
+>| Liczba wstrzymań GC | JVM. GC. Pause (łącznie-Count) | Liczba | Łączna liczba GC po rozpoczęciu tego JMV, w tym w przypadku młodych i starych wykazów GC. |
+>| Całkowity czas wstrzymania odzyskiwania pamięci | JVM. GC. Pause (całkowity czas) | ) | Łączny czas, zużyty przez GC po rozpoczęciu tego JMV, w tym dla młodych i starych WYKAZów. |
 
-### <a name="request"></a>Żądanie
+### <a name="request"></a>Request
 >[!div class="mx-tdCol2BreakAll"]
->| Nazwa | Nazwa metryki siłownika sprężyny | Jednostka | Szczegóły |
+>| Nazwa | Nazwa metryki siłownika | Jednostka | Szczegóły |
 >|----|----|----|------------|
->| Tomcat całkowita wysłana bajty | tomcat.global.sent | Bajty | Ilość wysłanych danych serwera www Tomcat |
->| Tomcat Całkowita liczba odebranych bajtów | tomcat.global.received | Bajty | Ilość danych odebranych przez serwer www Tomcat |
->| Tomcat żądanie całkowity czas | tomcat.global.request (całkowity czas) | Milisekund | Całkowity czas przetwarzania żądań serwera sieci Web firmy Tomcat |
->| Całkowita liczba żądań Tomcat | tomcat.global.request (całkowita liczba) | Liczba | Całkowita liczba żądań przetworzonych serwera sieci Web Tomcat |
->| Tomcat Wniosek Maksymalny czas | tomcat.global.request.max | Milisekund | Maksymalny czas przetwarzania żądania przez serwer www Tomcat |
+>| Całkowita liczba wysłanych bajtów Tomcat | Tomcat. Global. sent | Bajty | Liczba wysłanych serwerów sieci Web Tomcat danych |
+>| Całkowita liczba odebranych bajtów Tomcat | Tomcat. Global. Receives | Bajty | Liczba odebranych danych Tomcat serwera sieci Web |
+>| Łączny czas żądania Tomcat | Tomcat. Global. Request (łącznie-Time) | ) | Łączny czas przetwarzania żądań przez serwer sieci Web Tomcat |
+>| Łączna liczba żądań Tomcat | Tomcat. Global. Request (Total-Count) | Liczba | Łączna liczba żądań przetworzonych przez serwer sieci Web Tomcat |
+>| Maksymalny czas żądania Tomcat | Tomcat. Global. Request. Max | ) | Maksymalny czas przetwarzania żądania przez serwer sieci Web Tomcat |
 
 ### <a name="session"></a>Sesja
 >[!div class="mx-tdCol2BreakAll"]
->| Nazwa | Nazwa metryki siłownika sprężyny | Jednostka | Szczegóły |
+>| Nazwa | Nazwa metryki siłownika | Jednostka | Szczegóły |
 >|----|----|----|------------|
->| Tomcat Session Max Aktywna liczba | tomcat.sessions.active.mak | Liczba | Maksymalna liczba sesji, które były aktywne w tym samym czasie |
->| Tomcat Sesja Max Alive Czas | tomcat.sessions.alive.max | Milisekund | Najdłuższy czas (w sekundach), że wygasła sesja była żywa |
->| Liczba utworów sesji Tomcat | tomcat.sessions.created | Liczba | Liczba utworzonych sesji |
->| Liczba wygasłych sesji Tomcat | tomcat.sessions.expired | Liczba | Liczba sesji, które wygasły |
->| Liczba odrzuconych sesji Tomcat | tomcat.sessions.odrzucony | Liczba | Liczba sesji, które nie zostały utworzone, ponieważ osiągnięto maksymalną liczbę aktywnych sesji. |
+>| Maksymalna liczba aktywnych sesji Tomcat | Tomcat. Sessions. Active. Max | Liczba | Maksymalna liczba sesji, które były aktywne w tym samym czasie |
+>| Maksymalny czas aktywności sesji Tomcat | Tomcat. Sessions. Alive. Max | ) | Najdłuższy czas (w sekundach) aktywności wygasłej sesji |
+>| Liczba utworzonych sesji Tomcat | Tomcat. Sessions. Created | Liczba | Liczba utworzonych sesji |
+>| Liczba wygasłych sesji Tomcat | Tomcat. Sessions. wygasła | Liczba | Liczba wygasłych sesji |
+>| Liczba odrzuconych sesji Tomcat | Tomcat. Sessions. rejected | Liczba | Liczba sesji, które nie zostały utworzone, ponieważ osiągnięto maksymalną liczbę aktywnych sesji. |
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Wprowadzenie do Eksploratora metryk platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
 
-* [Analizowanie dzienników i danych za pomocą ustawień diagnostycznych](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
+* [Analizowanie dzienników i metryk przy użyciu ustawień diagnostycznych](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
 
 ## <a name="next-steps"></a>Następne kroki
-* [Samouczek: Monitorowanie zasobów wiosennej chmury przy użyciu alertów i grup akcji](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups)
+* [Samouczek: monitorowanie źródeł wiosennych w chmurze przy użyciu alertów i grup akcji](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups)
 
-* [Przydziały i plany usług dla usługi Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quotas)
+* [Limity przydziału i plany usług dla chmury wiosennej platformy Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quotas)
 

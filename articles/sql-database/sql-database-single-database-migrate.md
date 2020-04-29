@@ -1,6 +1,6 @@
 ---
-title: Migracja bazy danych programu SQL Server do pojedynczej/puli bazy danych
-description: Dowiedz się, jak o migracji bazy danych programu SQL Server do pojedynczej bazy danych lub puli elastycznej w bazie danych SQL Azure.
+title: SQL Server migrację bazy danych do bazy danych z jedną/pulą
+description: Dowiedz się, jak informacje o SQL Server migracji bazy danych do pojedynczej bazy danych lub elastycznej puli w programie Azure SQL Database.
 keywords: migracja bazy danych,migracja bazy danych programu sql server,narzędzia migracji bazy danych,migracja bazy danych,migracja bazy danych sql
 services: sql-database
 ms.service: sql-database
@@ -13,47 +13,47 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
 ms.openlocfilehash: 9cec91ccc80b9072b1a3da756f26f47eb88b951c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268615"
 ---
-# <a name="sql-server-database-migration-to-azure-sql-database"></a>Migracja bazy danych programu SQL Server do bazy danych SQL Azure
+# <a name="sql-server-database-migration-to-azure-sql-database"></a>SQL Server migrację bazy danych do Azure SQL Database
 
-W tym artykule dowiesz się o podstawowych metodach migracji bazy danych programu SQL Server 2005 lub nowszej do pojedynczej lub puli bazy danych w bazie danych SQL Azure. Aby uzyskać informacje dotyczące migracji do wystąpienia zarządzanego, zobacz [Migrowanie do wystąpienia programu SQL Server do wystąpienia zarządzanego usługi Azure SQL Database](sql-database-managed-instance-migrate.md). Aby uzyskać informacje dotyczące migracji z innych platform, zobacz [Przewodnik migracji bazy danych platformy Azure](https://datamigration.microsoft.com/).
+W tym artykule przedstawiono podstawowe metody migrowania bazy danych SQL Server 2005 lub nowszej do jednej lub puli baz danych w Azure SQL Database. Aby uzyskać informacje na temat migracji do wystąpienia zarządzanego, zobacz [Migrowanie do wystąpienia usługi SQL Server do Azure SQL Database wystąpienia zarządzanego](sql-database-managed-instance-migrate.md). Informacje o migracji z innych platform znajdują się w temacie [Przewodnik po migracji bazy danych Azure](https://datamigration.microsoft.com/).
 
-## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>Migrowanie do pojedynczej bazy danych lub puli bazy danych
+## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>Migrowanie do pojedynczej bazy danych lub bazy danych w puli
 
-Istnieją dwie podstawowe metody migracji bazy danych programu SQL Server 2005 lub nowszej do pojedynczej lub puli bazy danych w bazie danych SQL Azure. Pierwsza metoda jest prostsza, ale wymaga pewnego, prawdopodobnie znaczącego, przestoju podczas migracji. Druga metoda jest bardziej skomplikowana, ale znacznie eliminuje przestój podczas migracji.
+Istnieją dwie podstawowe metody migrowania bazy danych SQL Server 2005 lub nowszej do jednej lub puli baz danych w Azure SQL Database. Pierwsza metoda jest prostsza, ale wymaga pewnego, prawdopodobnie znaczącego, przestoju podczas migracji. Druga metoda jest bardziej skomplikowana, ale znacznie eliminuje przestój podczas migracji.
 
-W obu przypadkach należy upewnić się, że źródłowa baza danych jest zgodna z usługą Azure SQL Database przy użyciu [Asystenta migracji danych (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). Baza danych SQL V12 zbliża się do [parzystości funkcji](sql-database-features.md) z programem SQL Server, inne niż problemy związane z operacjami na poziomie serwera i między bazami danych. Bazy danych i aplikacje oparte na [częściowo obsługiwanych lub nieobsługiwanych funkcjach](sql-database-transact-sql-information.md) muszą zostać w pewnym stopniu [przeprojektowane, aby usunąć niezgodności](sql-database-single-database-migrate.md#resolving-database-migration-compatibility-issues) i umożliwić migrację bazy danych programu SQL Server.
+W obu przypadkach należy upewnić się, że źródłowa baza danych jest zgodna z Azure SQL Database przy użyciu [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). SQL Database V12 zbliża się do [funkcji](sql-database-features.md) SQL Server, innych niż problemy związane z operacjami między bazami danych i serwerami. Bazy danych i aplikacje oparte na [częściowo obsługiwanych lub nieobsługiwanych funkcjach](sql-database-transact-sql-information.md) muszą zostać w pewnym stopniu [przeprojektowane, aby usunąć niezgodności](sql-database-single-database-migrate.md#resolving-database-migration-compatibility-issues) i umożliwić migrację bazy danych programu SQL Server.
 
 > [!NOTE]
 > Aby wykonać migrację bazy danych innej niż baza danych programu SQL Server, w tym bazy danych Microsoft Access, Sybase, MySQL Oracle i DB2, do usługi Azure SQL Database, zobacz temat [Asystent migracji programu SQL Server](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/).
 
 ## <a name="method-1-migration-with-downtime-during-the-migration"></a>Metoda 1. Migracja z przestojem podczas migracji
 
- Ta metoda służy do migracji do pojedynczej lub puli bazy danych, jeśli można sobie pozwolić na pewne przestoje lub wykonujesz migrację testową produkcyjnej bazy danych do późniejszej migracji. Aby zapoznać się z samouczkiem, zobacz [Migrowanie bazy danych programu SQL Server](../dms/tutorial-sql-server-to-azure-sql.md).
+ Ta metoda służy do migrowania do jednej lub puli baz danych, jeśli jest możliwe przestoje lub przeprowadzana jest testowa migracja produkcyjnej bazy danych do późniejszej migracji. Aby zapoznać się z samouczkiem, zobacz [Migrowanie bazy danych SQL Server](../dms/tutorial-sql-server-to-azure-sql.md).
 
-Poniższa lista zawiera ogólny przepływ pracy dla migracji bazy danych programu SQL Server pojedynczej lub puli bazy danych przy użyciu tej metody. Aby przejść migrację do wystąpienia zarządzanego, zobacz [Migracja do wystąpienia zarządzanego](sql-database-managed-instance-migrate.md).
+Poniższa lista zawiera ogólny przepływ pracy dla SQL Server migracji bazy danych z jedną lub pulą baz danych za pomocą tej metody. Aby przeprowadzić migrację do wystąpienia zarządzanego, zobacz [migracja do wystąpienia zarządzanego](sql-database-managed-instance-migrate.md).
 
   ![Diagram migracji VSSSDT](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. [Ocena](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) zgodności bazy danych przy użyciu najnowszej wersji [Asystenta migracji danych (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+1. [Oceń](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) bazę danych pod kątem zgodności przy użyciu najnowszej wersji [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 2. Przygotowanie wszelkich niezbędnych poprawek jako skryptów języka Transact-SQL.
-3. Zrób spójną transakcyjnie kopię źródłowej bazy danych, która jest migrowana, lub zatrzymaj nowe transakcje w źródłowej bazie danych podczas migracji. Metody do wykonania tej ostatniej opcji obejmują wyłączenie łączności klienta lub tworzenie [migawki bazy danych](https://msdn.microsoft.com/library/ms175876.aspx). Po migracji można użyć replikacji transakcyjnej do zaktualizowania zmigrowanych baz danych ze zmianami, które występują po punkcie odcięcia migracji. Zobacz [Migrowanie przy użyciu migracji transakcyjnej](sql-database-single-database-migrate.md#method-2-use-transactional-replication).  
+3. Wykonaj transakcję spójną ze sobą poddawaną migracji źródłowej bazy danych lub zatrzymywanie nowych transakcji w źródłowej bazie danych podczas migracji. Metody do wykonania tej ostatniej opcji obejmują wyłączenie łączności klienta lub utworzenie [migawki bazy danych](https://msdn.microsoft.com/library/ms175876.aspx). Po migracji może być możliwe użycie replikacji transakcyjnej w celu zaktualizowania zmigrowanych baz danych przy użyciu zmian, które wystąpiły po punkcie odcięcia migracji. Zobacz [Migrowanie przy użyciu migracji transakcyjnej](sql-database-single-database-migrate.md#method-2-use-transactional-replication).  
 4. Wdrożenie skryptów języka Transact-SQL w celu zastosowania poprawek do kopii bazy danych.
-5. [Migrowanie](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) kopii bazy danych do nowej bazy danych SQL Azure przy użyciu Asystenta migracji danych.
+5. [Przeprowadź migrację](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) kopii bazy danych do nowej Azure SQL Database przy użyciu Data Migration Assistant.
 
 > [!NOTE]
-> Zamiast używać DMA, można również użyć pliku BACPAC. Zobacz [Importowanie pliku BACPAC do nowej bazy danych SQL Azure](sql-database-import.md).
+> Zamiast korzystać z usługi DMA, można również użyć pliku BACPAC. Zobacz [Importowanie pliku BACPAC do nowego Azure SQL Database](sql-database-import.md).
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Optymalizowanie wydajności transferu danych podczas migracji
 
 Poniższa lista zawiera zalecenia pozwalające uzyskać najlepszą wydajność podczas procesu importowania.
 
-- Wybierz najwyższą warstwę usług i rozmiar obliczeń, który pozwala zmaksymalizować wydajność transferu. Po zakończeniu migracji będzie można dokonać skalowania w dół, aby nie ponosić nadmiernych kosztów.
+- Wybierz najwyższą warstwę usługi i wielkość obliczeń, którą pozwala budżet na maksymalizację wydajności transferu. Po zakończeniu migracji będzie można dokonać skalowania w dół, aby nie ponosić nadmiernych kosztów.
 - Zminimalizuj odległość między plikiem BACPAC a docelowym centrum danych.
 - Wyłącz automatyczne statystyki na czas migracji.
 - Partycjonuj tabele i indeksy.
@@ -66,7 +66,7 @@ Poniższa lista zawiera zalecenia pozwalające uzyskać najlepszą wydajność p
 
 ## <a name="method-2-use-transactional-replication"></a>Metoda 2. Użycie replikacji transakcyjnej
 
-Gdy nie możesz sobie pozwolić na usunięcie bazy danych programu SQL Server ze środowiska produkcyjnego na czas migracji, jako rozwiązania do migracji możesz wykorzystać replikację transakcyjną programu SQL Server. Aby użyć tej metody, źródłowa baza danych musi spełniać [wymagania dotyczące replikacji transakcyjnej](https://msdn.microsoft.com/library/mt589530.aspx) i być zgodna z usługą Azure SQL Database. Aby uzyskać informacje o replikacji SQL przy funkcji Zawsze włączone, zobacz [Konfigurowanie replikacji dla grup zawsze włączonych dostępności (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
+Gdy nie możesz sobie pozwolić na usunięcie bazy danych programu SQL Server ze środowiska produkcyjnego na czas migracji, jako rozwiązania do migracji możesz wykorzystać replikację transakcyjną programu SQL Server. Aby użyć tej metody, źródłowa baza danych musi spełniać [wymagania dotyczące replikacji transakcyjnej](https://msdn.microsoft.com/library/mt589530.aspx) i być zgodna z usługą Azure SQL Database. Aby uzyskać informacje o replikacji SQL z funkcją zawsze włączone, zobacz [Konfigurowanie replikacji dla zawsze włączonych grup dostępności (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 
 Aby użyć tego rozwiązania, usługę Azure SQL Database konfiguruje się jako subskrybenta wystąpienia programu SQL Server do migracji. Dystrybutor replikacji transakcyjnej synchronizuje dane z bazy danych do synchronizacji (wydawcy), podczas gdy cały czas realizowane są nowe transakcje.
 
@@ -96,7 +96,7 @@ Przy replikacji transakcyjnej wszystkie zmiany wprowadzane do danych lub schemat
 Niektóre wskazówki i różnice dotyczące migracji do usługi SQL Database
 
 - Użycie dystrybutora lokalnego:
-  - W ten sposób powoduje wpływ na wydajność serwera.
+  - Wykonanie tej czynności powoduje wpływ na wydajność serwera.
   - Jeśli negatywny wpływ na wydajność jest nieakceptowalny, można użyć innego serwera, ale komplikuje to zarządzanie i administrowanie.
 - Wybierając folder migawki, upewnij się, że wybrany folder jest wystarczająco duży, aby pomieścić kopię BCP każdej tabeli, którą chcesz zreplikować.
 - Tworzenie migawki powoduje zablokowanie skojarzonych tabel do czasu zakończenia operacji, dlatego tworzenie migawek należy odpowiednio zaplanować.
@@ -116,7 +116,7 @@ Może wystąpić wiele różnych problemów ze zgodnością, w zależności od w
 Oprócz wyszukiwania w Internecie i użycia wymienionych zasobów, możesz skorzystać z [forów społeczności programu SQL Server w sieci MSDN](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) lub witryny [StackOverflow](https://stackoverflow.com/).
 
 > [!IMPORTANT]
-> Wystąpienie zarządzane bazy danych SQL umożliwia migrację istniejącego wystąpienia programu SQL Server i jego baz danych przy minimalnych do żadnych problemów ze zgodnością. Zobacz [Co to jest wystąpienie zarządzane](sql-database-managed-instance.md).
+> SQL Database wystąpienie zarządzane umożliwia migrowanie istniejącego wystąpienia SQL Server i jego baz danych z minimalnym brakiem problemów ze zgodnością. Zobacz [, co to jest wystąpienie zarządzane](sql-database-managed-instance.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,6 +1,6 @@
 ---
-title: Dodatkowe scenariusze licencjonowania oparte na grupach — Azure AD | Dokumenty firmy Microsoft
-description: Więcej scenariuszy licencjonowania opartego na grupach usługi Azure Active Directory
+title: Dodatkowe scenariusze licencjonowania opartego na grupach — Azure AD | Microsoft Docs
+description: Więcej scenariuszy Azure Active Directory licencjonowania opartego na grupach
 services: active-directory
 keywords: Zarządzanie licencjonowaniem w usłudze Azure AD
 documentationcenter: ''
@@ -16,160 +16,160 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 139d7e0cf2b57cc466dc97370b90a599257ce755
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79266288"
 ---
-# <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenariusze, ograniczenia i znane problemy przy użyciu grup do zarządzania licencjonowaniem w usłudze Azure Active Directory
+# <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenariusze, ograniczenia i znane problemy przy użyciu grup do zarządzania licencjonowaniem w programie Azure Active Directory
 
-Skorzystaj z poniższych informacji i przykładów, aby uzyskać bardziej zaawansowaną wiedzę na temat licencjonowania opartego na grupie usługi Azure Active Directory (Azure AD).
+Skorzystaj z poniższych informacji i przykładów, aby uzyskać bardziej zaawansowane Omówienie licencjonowania opartego na grupach Azure Active Directory (Azure AD).
 
 ## <a name="usage-location"></a>Lokalizacja użycia
 
-Nie wszystkie usługi firmy Microsoft są dostępne we wszystkich lokalizacjach. Zanim licencja może być przypisana do użytkownika, administrator musi określić **właściwość Lokalizacja użycia** użytkownika. W [witrynie Azure portal](https://portal.azure.com)można określić lokalizację użycia w **ustawieniach** **profilu** &gt; **użytkownika** &gt; .
+Nie wszystkie usługi firmy Microsoft są dostępne we wszystkich lokalizacjach. Aby można było przypisać licencję do użytkownika, administrator musi określić właściwość **Lokalizacja użycia** dla użytkownika. W [Azure Portal](https://portal.azure.com)można określić lokalizację użycia w **ustawieniach** **profilu** &gt; **użytkownika** &gt; .
 
-W przypadku przypisania licencji grupowej użytkownicy bez określonej lokalizacji użycia dziedziczą lokalizację katalogu. Jeśli masz użytkowników w wielu lokalizacjach, przed dodaniem użytkowników z licencjami należy to poprawnie odzwierciedlić w zasobach użytkowników.
+W przypadku przypisania licencji grupy Wszyscy użytkownicy bez określonej lokalizacji użycia dziedziczą lokalizację katalogu. Jeśli masz użytkowników w wielu lokalizacjach, upewnij się, że zostały one odzwierciedlone prawidłowo w zasobach użytkownika przed dodaniem użytkowników do grup z licencjami.
 
 > [!NOTE]
-> Przypisanie licencji grupy nigdy nie zmodyfikuje istniejącej wartości lokalizacji użycia użytkownika. Zaleca się, aby zawsze ustawić lokalizację użycia jako część przepływu tworzenia użytkownika w usłudze Azure AD (np. za pośrednictwem konfiguracji AAD Connect) — co zapewni, że wynik przypisania licencji jest zawsze poprawny, a użytkownicy nie otrzymują usług w lokalizacjach, które nie są dozwolone.
+> Przypisanie licencji grupy nigdy nie spowoduje modyfikacji istniejącej wartości lokalizacji użycia na komputerze użytkownika. Zalecamy, aby zawsze ustawiać lokalizację użycia w ramach przepływu tworzenia użytkownika w usłudze Azure AD (np. przy użyciu konfiguracji programu AAD Connect), która zapewni, że wynik przypisywania licencji jest zawsze poprawny, a użytkownicy nie otrzymują usług w lokalizacjach, które są niedozwolone.
 
-## <a name="use-group-based-licensing-with-dynamic-groups"></a>Korzystanie z licencjonowania opartego na grupach z grupami dynamicznymi
+## <a name="use-group-based-licensing-with-dynamic-groups"></a>Używanie licencjonowania opartego na grupach z grupami dynamicznymi
 
-Licencjonowanie oparte na grupach można używać z dowolną grupą zabezpieczeń, co oznacza, że można je łączyć z grupami dynamicznymi usługi Azure AD. Grupy dynamiczne uruchamiają reguły względem atrybutów zasobów użytkownika, aby automatycznie dodawać i usuwać użytkowników z grup.
+Można użyć licencjonowania opartego na grupach z dowolną grupą zabezpieczeń, co oznacza, że można ją połączyć z grupami dynamicznymi usługi Azure AD. Grupy dynamiczne uruchamiają reguły dotyczące atrybutów zasobów użytkownika, aby automatycznie dodawać i usuwać użytkowników z grup.
 
-Na przykład można utworzyć grupę dynamiczną dla niektórych zestaw produktów, które mają być przypisane do użytkowników. Każda grupa jest wypełniana przez regułę dodawania użytkowników według ich atrybutów, a każdej grupie są przypisywane licencje, które mają otrzymać. Można przypisać atrybut lokalnie i zsynchronizować go z usługą Azure AD lub można zarządzać atrybutem bezpośrednio w chmurze.
+Na przykład można utworzyć grupę dynamiczną dla pewnego zestawu produktów, które mają być przypisane do użytkowników. Każda grupa jest wypełniana przez regułę, dodając użytkowników według ich atrybutów, a każda grupa ma przypisane licencje, które mają zostać odebrane. Można przypisać atrybut lokalnie i zsynchronizować go z usługą Azure AD lub można zarządzać atrybutem bezpośrednio w chmurze.
 
 Licencje są przypisywane do użytkownika wkrótce po dodaniu ich do grupy. Po zmianie atrybutu użytkownik opuszcza grupy, a licencje są usuwane.
 
 ### <a name="example"></a>Przykład
 
-Rozważmy przykład lokalnego rozwiązania do zarządzania tożsamościami, które decyduje, którzy użytkownicy powinni mieć dostęp do usług sieci Web firmy Microsoft. Używa **extensionAttribute1** do przechowywania wartości ciągu reprezentującego licencje, które użytkownik powinien mieć. Usługa Azure AD Connect synchronizuje ją z usługą Azure AD.
+Rozważmy przykład lokalnego rozwiązania do zarządzania tożsamościami, które decyduje o tym, którzy użytkownicy powinni mieć dostęp do usług sieci Web firmy Microsoft. Używa **extensionAttribute1** do przechowywania wartości ciągu reprezentującej licencje, które użytkownik powinien mieć. Azure AD Connect synchronizuje ją z usługą Azure AD.
 
-Użytkownicy mogą potrzebować jednej licencji, ale nie innej, lub mogą potrzebować obu. Oto przykład, w którym licencje usługi Office 365 Enterprise E5 i Enterprise Mobility + Security (EMS) są dystrybuowane do użytkowników w grupach:
+Użytkownicy mogą potrzebować jednej licencji, ale nie innej, lub mogą być potrzebne. Oto przykład, w którym są dystrybuowane Licencje pakietu Office 365 Enterprise E5 i Enterprise Mobility + Security (EMS) do użytkowników w grupach:
 
 #### <a name="office-365-enterprise-e5-base-services"></a>Office 365 Enterprise E5: usługi podstawowe
 
-![Zrzut ekranu przedstawiający usługi podstawowe usługi Office 365 Enterprise E5](./media/licensing-group-advanced/o365-e5-base-services.png)
+![Zrzut ekranu usług podstawowych dla pakietu Office 365 Enterprise E5](./media/licensing-group-advanced/o365-e5-base-services.png)
 
-#### <a name="enterprise-mobility--security-licensed-users"></a>Enterprise Mobility + Security: licencjonowani użytkownicy
+#### <a name="enterprise-mobility--security-licensed-users"></a>Enterprise Mobility + Security: Licencjonowani użytkownicy
 
-![Zrzut ekranu przedstawiający użytkowników licencjonowanych w ramach programu Enterprise Mobility + Security](./media/licensing-group-advanced/o365-e5-licensed-users.png)
+![Zrzut ekranu przedstawiający Enterprise Mobility + Security licencjonowanych użytkowników](./media/licensing-group-advanced/o365-e5-licensed-users.png)
 
-W tym przykładzie zmodyfikuj jednego użytkownika i `EMS;E5_baseservices;` ustaw jego rozszerzenieAttribute1 na wartość, jeśli chcesz, aby użytkownik miał obie licencje. Tę modyfikację można wprowadzić lokalnie. Po zsynchronizowania zmiany z chmurą użytkownik jest automatycznie dodawany do obu grup, a licencje są przypisywane.
+W tym przykładzie zmodyfikuj jednego użytkownika i ustaw ich extensionAttribute1 na wartość, `EMS;E5_baseservices;` Jeśli chcesz, aby użytkownik miał obie licencje. Tę modyfikację można wprowadzić lokalnie. Po zsynchronizowaniu zmiany z chmurą użytkownik zostanie automatycznie dodany do obu grup, a licencje są przypisane.
 
-![Zrzut ekranu przedstawiający sposób ustawiania rozszerzenia użytkownikaAttribute1](./media/licensing-group-advanced/user-set-extensionAttribute1.png)
+![Zrzut ekranu przedstawiający sposób ustawiania extensionAttribute1 użytkownika](./media/licensing-group-advanced/user-set-extensionAttribute1.png)
 
 > [!WARNING]
-> Podczas modyfikowania reguły członkostwa istniejącej grupy należy zachować ostrożność. Po zmianie reguły członkostwo w grupie zostanie ponownie ocenione, a użytkownicy, którzy nie będą już pasować do nowej reguły, zostaną usunięci (użytkownicy, którzy nadal pasują do nowej reguły, nie zostaną dotknięci w trakcie tego procesu). Użytkownicy ci zostaną usunięci podczas procesu, co może spowodować utratę usługi lub w niektórych przypadkach utratę danych.
+> Podczas modyfikowania reguły członkostwa istniejącej grupy należy zachować ostrożność. Gdy reguła zostanie zmieniona, członkostwo w grupie zostanie ponownie ocenione i użytkownicy, którzy nie są już zgodni z nową regułą, zostaną usunięci (Użytkownicy, którzy nadal pasują do nowej reguły, nie będą mieć żadnych zmian w trakcie tego procesu). Ci użytkownicy zostaną usunięci z licencji podczas procesu, co może spowodować utratę usługi lub w niektórych przypadkach utratę danych.
 > 
-> Jeśli masz dużą grupę dynamiczną, od której zależy przypisanie licencji, rozważ sprawdzenie poprawności wszelkich istotnych zmian w mniejszej grupie testowej przed zastosowaniem ich do grupy głównej.
+> Jeśli masz dużą grupę dynamiczną, która jest zależna od przypisywania licencji, rozważ zweryfikowanie wszelkich istotnych zmian w mniejszej grupie testowej przed zastosowaniem ich do grupy głównej.
 
 ## <a name="multiple-groups-and-multiple-licenses"></a>Wiele grup i wiele licencji
 
-Użytkownik może być członkiem wielu grup z licencjami. Oto kilka rzeczy, które należy wziąć pod uwagę:
+Użytkownik może być członkiem wielu grup z licencjami. Oto kilka kwestii, które należy wziąć pod uwagę:
 
-- Wiele licencji dla tego samego produktu może się nakładać i powodują, że wszystkie włączone usługi są stosowane do użytkownika. W poniższym przykładzie przedstawiono dwie grupy licencjonowania: *Usługi podstawowe E3* zawiera usługi fundacji do wdrożenia w pierwszej kolejności dla wszystkich użytkowników. Rozszerzone *usługi E3* zawierają dodatkowe usługi (Sway i Planner) do wdrożenia tylko dla niektórych użytkowników. W tym przykładzie użytkownik został dodany do obu grup:
+- Wiele licencji na ten sam produkt może się pokrywać i powodują, że wszystkie włączone usługi są stosowane do użytkownika. W poniższym przykładzie przedstawiono dwie grupy licencjonowania: *usługi podstawowe* w programie E3 zawierają usługi Foundation do wdrożenia najpierw dla wszystkich użytkowników. I *E3 Extended Services* zawiera dodatkowe usługi (Sway i planista) do wdrożenia tylko dla niektórych użytkowników. W tym przykładzie użytkownik został dodany do obu grup:
 
-  ![Zrzut ekranu przedstawiający włączone usługi](./media/licensing-group-advanced/view-enabled-services.png)
+  ![Zrzut ekranu z włączonymi usługami](./media/licensing-group-advanced/view-enabled-services.png)
 
-  W rezultacie użytkownik ma 7 z 12 usług w produkcie włączone, podczas korzystania tylko z jednej licencji dla tego produktu.
+  W związku z tym użytkownik ma 7 usług 12 z włączonym produktem, korzystając tylko z jednej licencji dla tego produktu.
 
-- Wybranie licencji *E3* zawiera więcej szczegółów, w tym informacje o tym, które usługi są włączone dla użytkownika przez przypisanie licencji grupy.
+- Wybranie licencji *E3* zawiera więcej szczegółów, w tym informacje o usługach włączonych dla użytkownika przez przypisanie licencji grupy.
 
-## <a name="direct-licenses-coexist-with-group-licenses"></a>Licencje bezpośrednie współistnieją z licencjami grupowymi
+## <a name="direct-licenses-coexist-with-group-licenses"></a>Bezpośrednie licencje współistnieją z licencjami grupy
 
-Gdy użytkownik dziedziczy licencję z grupy, nie można bezpośrednio usunąć lub zmodyfikować tego przypisania licencji we właściwościach użytkownika. Zmiany muszą być wprowadzone w grupie, a następnie propagowane do wszystkich użytkowników.
+Gdy użytkownik dziedziczy licencję z grupy, nie można bezpośrednio usunąć ani zmodyfikować tego przypisania licencji we właściwościach użytkownika. Zmiany muszą zostać wprowadzone w grupie, a następnie przekazane do wszystkich użytkowników.
 
 Istnieje jednak możliwość przypisania tej samej licencji produktu bezpośrednio do użytkownika, oprócz licencji dziedziczonej. Możesz włączyć dodatkowe usługi z produktu tylko dla jednego użytkownika, bez wpływu na innych użytkowników.
 
-Bezpośrednio przypisane licencje mogą zostać usunięte i nie mają wpływu na licencje dziedziczone. Należy wziąć pod uwagę użytkownika, który dziedziczy licencję usługi Office 365 Enterprise E3 z grupy.
+Bezpośrednio przypisane licencje można usunąć i nie mieć wpływu na dziedziczone licencje. Rozważ użycie przez użytkownika, który odziedziczy licencję pakietu Office 365 Enterprise E3 od grupy.
 
-Początkowo użytkownik dziedziczy licencję tylko z grupy *usług podstawowych E3,* która umożliwia cztery plany usług.
+Początkowo użytkownik dziedziczy licencję tylko z *podstawowej grupy usług E3* , która umożliwia korzystanie z czterech planów usług.
 
-1. Wybierz **pozycję Przypisz,** aby bezpośrednio przypisać licencję E3 do użytkownika. W takim przypadku zamierzasz wyłączyć wszystkie plany usług z wyjątkiem usługi Yammer Enterprise.
+1. Wybierz pozycję **Przypisz** , aby bezpośrednio przypisać licencję E3 do użytkownika. W takim przypadku należy wyłączyć wszystkie plany usług z wyjątkiem usługi Yammer Enterprise.
 
-    W rezultacie użytkownik nadal używa tylko jednej licencji produktu E3. Jednak przypisanie bezpośrednie umożliwia usługę Yammer Enterprise tylko dla tego użytkownika. Możesz zobaczyć, które usługi są włączone przez członkostwo w grupie w porównaniu z przypisaniem bezpośrednim.
+    W związku z tym użytkownik nadal używa tylko jednej licencji produktu E3. Ale bezpośrednie przypisanie umożliwia usłudze Yammer Enterprise tylko dla tego użytkownika. Możesz zobaczyć, które usługi są włączane przez członkostwo w grupie w porównaniu do bezpośredniego przypisywania.
 
-1. Podczas korzystania z przypisania bezpośredniego dozwolone są następujące operacje:
+1. W przypadku korzystania z bezpośredniego przypisania są dozwolone następujące operacje:
 
-   - Usługę Yammer Enterprise można bezpośrednio wyłączyć w zasobie użytkownika. **Przełącznik On/Off na** ilustracji został włączony dla tej usługi, w przeciwieństwie do innych przełączników usługi. Ponieważ usługa jest włączona bezpośrednio na użytkownika, można ją zmodyfikować.
-   - Dodatkowe usługi mogą być również włączone, jako część bezpośrednio przypisanej licencji.
-   - Przycisk **Usuń** może służyć do usunięcia licencji bezpośredniej od użytkownika. Widać, że użytkownik ma teraz tylko licencję grupy dziedziczonej i tylko oryginalne usługi pozostają włączone:
+   - Usługę Yammer Enterprise można wyłączyć bezpośrednio dla zasobu użytkownika. Przełącznik **Włącz/Wyłącz** na ilustracji został włączony dla tej usługi, w przeciwieństwie do innych przełączników usługi. Ponieważ usługa jest włączona bezpośrednio dla użytkownika, może być modyfikowana.
+   - Dodatkowe usługi można również włączyć w ramach bezpośrednio przypisanej licencji.
+   - Przycisk **Usuń** może służyć do usuwania licencji bezpośredniej od użytkownika. Zobaczysz, że użytkownik ma teraz tylko Odziedziczone licencje grupy i tylko oryginalne usługi pozostają włączone:
 
-## <a name="managing-new-services-added-to-products"></a>Zarządzanie nowymi usługami dodawanymi do produktów
+## <a name="managing-new-services-added-to-products"></a>Zarządzanie nowymi usługami dodanymi do produktów
 
-Gdy firma Microsoft doda nową usługę do planu licencji produktu, jest domyślnie włączona we wszystkich grupach, do których przypisano licencję produktu. Użytkownicy w dzierżawie, którzy subskrybują powiadomienia o zmianach produktu, otrzymają e-maile z wyprzedzeniem, powiadamiając ich o nadchodzących dodatkach do usługi.
+Gdy firma Microsoft dodaje nową usługę do planu licencji produktu, jest domyślnie włączona we wszystkich grupach, do których przypisano licencję na produkt. Użytkownicy w dzierżawie, którzy subskrybują powiadomienia o zmianach produktu, będą otrzymywać wiadomości e-mail z wyprzedzeniem o nadchodzącym czasie dodawania usług.
 
-Jako administrator możesz przejrzeć wszystkie grupy, których dotyczy zmiana, i podjąć działania, takie jak wyłączenie nowej usługi w każdej grupie. Na przykład jeśli utworzono grupy przeznaczone tylko dla określonych usług dla wdrożenia, można ponownie odwiedzić te grupy i upewnij się, że wszystkie nowo dodane usługi są wyłączone.
+Jako administrator możesz przejrzeć wszystkie grupy, których dotyczy zmiana, i podjąć działania, takie jak wyłączenie nowej usługi w każdej grupie. Jeśli na przykład utworzono grupy przeznaczone tylko dla określonych usług do wdrożenia, możesz ponownie odwiedzić te grupy i upewnić się, że wszystkie nowo dodane usługi są wyłączone.
 
-Oto przykład tego, jak może wyglądać ten proces:
+Oto przykład tego, jak ten proces może wyglądać następująco:
 
-1. Pierwotnie produkt *Office 365 Enterprise E5* został przypisany do kilku grup. Jedna z tych grup o nazwie *O365 E5 — tylko program Exchange* został zaprojektowany, aby włączyć tylko usługę Exchange Online *(Plan 2)* dla swoich członków.
+1. Pierwotnie przypisano produkt *Office 365 Enterprise E5* do kilku grup. Jedna z tych grup o nazwie *O365 E5 — Exchange* została zaprojektowana tak, aby umożliwić jej członkom tylko usługę *Exchange Online (plan 2)* .
 
-2. Otrzymałeś powiadomienie od firmy Microsoft, że produkt E5 zostanie rozszerzony o nową usługę - *Microsoft Stream*. Gdy usługa staje się dostępna w dzierżawie, można wykonać następujące czynności:
+2. Otrzymasz powiadomienie od firmy Microsoft, że produkt E5 zostanie rozszerzony przy użyciu nowej usługi — *Microsoft Stream*. Gdy usługa stanie się dostępna w dzierżawie, możesz wykonać następujące czynności:
 
-3. Przejdź do [**bloku Licencje > usługi Azure Active Directory > Wszystkie produkty**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) i wybierz pozycję Office *365 Enterprise E5*, a następnie wybierz **pozycję Grupy licencjonowane,** aby wyświetlić listę wszystkich grup z tym produktem.
+3. Przejdź do okna [**Azure Active Directory licencje > > wszystkie produkty**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) i wybierz pozycję *Office 365 Enterprise E5*, a następnie wybierz pozycję **licencjonowane grupy** , aby wyświetlić listę wszystkich grup z tym produktem.
 
-4. Kliknij grupę, którą chcesz przejrzeć (w tym przypadku *O365 E5 - Tylko wymiana).* Spowoduje to otwarcie karty **Licencje. Kliknięcie** licencji E5 spowoduje otwarcie bloku zawierającego listę wszystkich włączonych usług.
+4. Kliknij grupę, którą chcesz przejrzeć (w tym przypadku jest to usługa *O365 E5-Exchange*). Spowoduje to otwarcie karty **licencje** . kliknięcie licencji E5 spowoduje otwarcie bloku zawierającego listę wszystkich włączonych usług.
    > [!NOTE]
-   > Usługa *Microsoft Stream* została automatycznie dodana i włączona w tej grupie, oprócz usługi Exchange *Online:*
+   > Usługa *Microsoft Stream* została automatycznie dodana i włączona w tej grupie, oprócz usługi *Exchange Online* :
 
-   ![Zrzut ekranu przedstawiający nową usługę dodaną do licencji grupy](./media/licensing-group-advanced/manage-new-services.png)
+   ![Zrzut ekranu nowej usługi dodanej do licencji grupy](./media/licensing-group-advanced/manage-new-services.png)
 
-5. Jeśli chcesz wyłączyć nową usługę w tej grupie, kliknij przełącznik **Włączanie/Wyłączanie** obok usługi i kliknij przycisk **Zapisz,** aby potwierdzić zmianę. Usługa Azure AD będzie teraz przetwarzać wszystkich użytkowników w grupie, aby zastosować zmianę; nowi użytkownicy dodani do grupy nie będą mieli włączonej usługi *Microsoft Stream.*
+5. Jeśli chcesz wyłączyć nową usługę w tej grupie, kliknij przełącznik **wł. off** obok usługi, a następnie kliknij przycisk **Zapisz** , aby potwierdzić zmianę. Usługa Azure AD będzie teraz przetwarzać wszystkich użytkowników w grupie w celu zastosowania zmiany. Wszyscy nowi użytkownicy dodani do grupy nie będą mieć włączonej usługi *Microsoft Stream* .
 
    > [!NOTE]
-   > Użytkownicy mogą nadal mieć włączoną usługę za pośrednictwem innego przypisania licencji (innej grupy, do których są członkami lub bezpośredniego przypisania licencji).
+   > Użytkownicy mogą nadal korzystać z usługi przy użyciu innych przypisań licencji (innych grup, do których należą, lub do bezpośredniego przypisania licencji).
 
-6. W razie potrzeby wykonaj te same czynności dla innych grup z przypisanym produktem.
+6. W razie potrzeby wykonaj te same kroki dla innych grup, do których ten produkt jest przypisany.
 
-## <a name="use-powershell-to-see-who-has-inherited-and-direct-licenses"></a>Użyj programu PowerShell, aby zobaczyć, kto odziedziczył i bezpośrednie licencje
-Skrypt programu PowerShell służy do sprawdzania, czy użytkownicy mają licencję przypisaną bezpośrednio lub dziedziczoną z grupy.
+## <a name="use-powershell-to-see-who-has-inherited-and-direct-licenses"></a>Użyj programu PowerShell, aby zobaczyć, kto ma Odziedziczone i bezpośrednie licencje
+Możesz użyć skryptu programu PowerShell, aby sprawdzić, czy użytkownicy mają licencję przypisaną bezpośrednio lub dziedziczoną przez grupę.
 
-1. Uruchom `connect-msolservice` polecenie cmdlet, aby uwierzytelnić i połączyć się z dzierżawą.
+1. Uruchom `connect-msolservice` polecenie cmdlet w celu uwierzytelnienia i nawiązania połączenia z dzierżawcą.
 
-2. `Get-MsolAccountSku`może służyć do odnajdowania wszystkich aprowizowanych licencji produktu w dzierżawie.
+2. `Get-MsolAccountSku`może służyć do wykrywania wszystkich licencji na produkty inicjowane w dzierżawie.
 
-   ![Zrzut ekranu przedstawiający polecenie cmdlet Get-Msolaccountsku](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
+   ![Zrzut ekranu przedstawiający polecenie cmdlet Get-Msolaccountsku i sprawdź](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
-3. Użyj wartości *AccountSkuId* dla licencji, która Cię interesuje za pomocą [tego skryptu programu PowerShell](licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group). Spowoduje to wyświetlenia listy użytkowników, którzy mają tę licencję z informacjami o tym, jak licencja jest przypisana.
+3. Użyj wartości *AccountSkuId* dla licencji, którą interesujesz za pomocą [tego skryptu programu PowerShell](licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group). Spowoduje to utworzenie listy użytkowników, którzy mają tę licencję z informacjami o sposobie przypisywania licencji.
 
-## <a name="use-audit-logs-to-monitor-group-based-licensing-activity"></a>Monitorowanie działań licencjonowania opartych na grupach za pomocą dzienników inspekcji
+## <a name="use-audit-logs-to-monitor-group-based-licensing-activity"></a>Korzystanie z dzienników inspekcji do monitorowania działań licencjonowania opartych na grupach
 
-Za pomocą [dzienników inspekcji usługi Azure AD](../reports-monitoring/concept-audit-logs.md#audit-logs) można wyświetlić wszystkie działania związane z licencjonowaniem opartym na grupach, w tym:
-- który zmienił licencje w grupach
-- kiedy system rozpoczął przetwarzanie zmiany licencji grupowej i po jej zakończeniu
-- jakie zmiany licencji zostały wprowadzone do użytkownika w wyniku przypisania licencji grupy.
+Za pomocą [dzienników inspekcji usługi Azure AD](../reports-monitoring/concept-audit-logs.md#audit-logs) można zobaczyć wszystkie działania związane z licencjonowaniem opartym na grupach, w tym:
+- kto zmienił licencje dla grup
+- gdy system rozpoczął przetwarzanie zmiany licencji grupy, a po jej zakończeniu
+- Jakie zmiany licencji zostały dokonane dla użytkownika w wyniku przypisania licencji grupy.
 
 >[!NOTE]
-> Dzienniki inspekcji są dostępne w większości bloków w sekcji Usługi Azure Active Directory w portalu. W zależności od tego, gdzie można uzyskać do nich dostęp, filtry mogą być wstępnie stosowane tylko pokazać działanie istotne dla kontekstu bloku. Jeśli nie widzisz oczekiwanych wyników, sprawdź [opcje filtrowania](../reports-monitoring/concept-audit-logs.md#filtering-audit-logs) lub uzyskaj dostęp do niefiltrowanych dzienników inspekcji w obszarze [**Dzienniki inspekcji > działania usługi Azure Active Directory > inspekcji**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit).
+> Dzienniki inspekcji są dostępne na większości bloków w sekcji Azure Active Directory portalu. W zależności od tego, gdzie znajdują się dostęp do nich, filtry mogą być wstępnie zastosowane do wyświetlania tylko działania związane z kontekstem bloku. Jeśli nie widzisz oczekiwanych wyników, przejrzyj [Opcje filtrowania](../reports-monitoring/concept-audit-logs.md#filtering-audit-logs) lub uzyskaj dostęp do niefiltrowanych dzienników inspekcji w obszarze [**Azure Active Directory > działania > inspekcje dzienników**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit).
 
-### <a name="find-out-who-modified-a-group-license"></a>Dowiedz się, kto zmodyfikował licencję grupową
+### <a name="find-out-who-modified-a-group-license"></a>Dowiedz się, kto zmodyfikował licencję grupy
 
-1. Ustaw filtr **Aktywność,** aby *ustawić licencję grupy* i kliknij przycisk **Zastosuj**.
-2. Wyniki obejmują wszystkie przypadki umieszczania lub modyfikowanie licencji w grupach.
+1. Ustaw filtr **działania** , aby *ustawić licencję grupy* , a następnie kliknij przycisk **Zastosuj**.
+2. Wyniki obejmują wszystkie przypadki, w których licencje są ustawiane lub modyfikowane w grupach.
    >[!TIP]
-   > Można również wpisać nazwę grupy w filtrze *docelowym,* aby zakres wyników.
+   > Możesz również wpisać nazwę grupy w filtrze *docelowym* , aby określić zakres wyników.
 
-3. Wybierz element na liście, aby zobaczyć szczegóły tego, co się zmieniło. W obszarze *Zmodyfikowane właściwości* są wyświetlane zarówno stare, jak i nowe wartości przypisania licencji.
+3. Wybierz element na liście, aby wyświetlić szczegółowe informacje o tym, co zostało zmienione. W obszarze *zmodyfikowane właściwości* są wyświetlane stare i nowe wartości dla przypisania licencji.
 
-Oto przykład ostatnich zmian licencji grupowych ze szczegółami:
+Oto przykład ostatnich zmian licencji grupowych, z uwzględnieniem szczegółów:
 
-![Zmiany licencji grupy zrzutu ekranu](./media/licensing-group-advanced/audit-group-license-change.png)
+![Zrzut ekranu — zmiany licencji grupy](./media/licensing-group-advanced/audit-group-license-change.png)
 
-### <a name="find-out-when-group-changes-started-and-finished-processing"></a>Dowiedz się, kiedy rozpoczęto i zakończono przetwarzanie zmian w grupie
+### <a name="find-out-when-group-changes-started-and-finished-processing"></a>Dowiedz się, kiedy zmiany grupy zostały rozpoczęte i zakończone przetwarzaniem
 
-Gdy licencja ulegnie zmianie w grupie, usługa Azure AD rozpocznie stosowanie zmian do wszystkich użytkowników.
+Po zmianie licencji na grupę usługa Azure AD zacznie stosować zmiany do wszystkich użytkowników.
 
-1. Aby zobaczyć, kiedy grupy rozpoczęły przetwarzanie, ustaw filtr **Aktywność** na *Rozpocznij stosowanie licencji opartej na grupach dla użytkowników*. Należy zauważyć, że podmiotem operacji jest *licencjonowanie oparte na grupie usługi Microsoft Azure AD* — konto systemowe, które jest używane do wykonywania wszystkich zmian licencji grupy.
+1. Aby sprawdzić, kiedy grupy rozpoczęły przetwarzanie, Ustaw filtr **działania** , aby *rozpocząć stosowanie licencji opartej na grupie dla użytkowników*. Należy pamiętać, że aktor dla operacji jest *Microsoft Azure AD licencjonowania opartego na grupach* — konta systemowego, które jest używane do wykonywania wszystkich zmian licencji grupowych.
    >[!TIP]
-   > Kliknij element na liście, aby wyświetlić pole *Zmodyfikowane właściwości* — pokazuje zmiany licencji, które zostały pobrane do przetworzenia. Jest to przydatne w przypadku wielu zmian w grupie i nie masz pewności, która z nich została przetworzona.
+   > Kliknij element na liście, aby wyświetlić pole *zmodyfikowano właściwości* — pokazuje zmiany licencji, które zostały pobrane do przetwarzania. Jest to przydatne, jeśli wprowadzono wiele zmian w grupie i nie masz pewności, która z nich została przetworzona.
 
-2. Podobnie, aby zobaczyć, kiedy grupy zakończyły przetwarzanie, użyj wartości filtru *Zakończ stosowanie licencji opartej na grupie dla użytkowników*.
+2. Podobnie aby zobaczyć, kiedy grupy zostały zakończone przetwarzanie, użyj wartości filtru *zakończenie stosowania licencji opartej na grupie dla użytkowników*.
    > [!TIP]
-   > W takim przypadku pole *Zmodyfikowane właściwości* zawiera podsumowanie wyników — jest to przydatne do szybkiego sprawdzenia, czy przetwarzanie spowodowało błędy. Przykładowe dane wyjściowe:
+   > W takim przypadku pole *zmodyfikowano Właściwość* zawiera podsumowanie wyników — jest to przydatne do szybkiego sprawdzenia, czy przetwarzanie spowodowało błędy. Przykładowe dane wyjściowe:
    > ```
    > Modified Properties
    > ...
@@ -178,54 +178,54 @@ Gdy licencja ulegnie zmianie w grupie, usługa Azure AD rozpocznie stosowanie zm
    > New Value : [Users successfully assigned licenses: 6, Users for whom license assignment failed: 0.];
    > ```
 
-3. Aby wyświetlić pełny dziennik sposobu przetwarzania grupy, w tym wszystkie zmiany użytkownika, ustaw następujące filtry:
-   - **Zainicjowane przez (aktora)**: "Licencjonowanie oparte na grupach usług Microsoft Azure AD"
-   - **Zakres dat** (opcjonalnie): niestandardowy zakres, gdy znasz określoną grupę rozpoczętą i zakończono przetwarzanie
+3. Aby wyświetlić pełny dziennik, w jaki sposób przetworzył grupę, w tym wszystkie zmiany użytkownika, ustaw następujące filtry:
+   - **Zainicjowane przez (aktor)**: "Microsoft Azure AD licencjonowania opartego na grupach"
+   - **Zakres dat** (opcjonalnie): niestandardowy zakres dla gdy wiadomo, że określona grupa została rozpoczęta i zakończyła przetwarzanie
 
-To przykładowe dane wyjściowe pokazuje początek przetwarzania, wszystkie wynikające zmiany użytkownika i zakończenia przetwarzania.
+To przykładowe dane wyjściowe przedstawiają początek przetwarzania, wszystkie wynikowe zmiany użytkownika i zakończenie przetwarzania.
 
-![Zmiany licencji grupy zrzutu ekranu](./media/licensing-group-advanced/audit-group-processing-log.png)
+![Zrzut ekranu — zmiany licencji grupy](./media/licensing-group-advanced/audit-group-processing-log.png)
 
 >[!TIP]
-> Kliknięcie pozycji związanych z *poleceniem Zmień licencję użytkownika* spowoduje wyświetlenie szczegółów dotyczących zmian licencji zastosowanych do każdego użytkownika.
+> Kliknięcie pozycji elementy powiązane ze *zmianą licencji użytkownika* spowoduje wyświetlenie szczegółowych informacji dotyczących zmian licencji zastosowanych do poszczególnych użytkowników.
 
 ## <a name="deleting-a-group-with-an-assigned-license"></a>Usuwanie grupy z przypisaną licencją
 
-Nie można usunąć grupy z przypisaną aktywną licencją. Administrator może usunąć grupę, która nie zdawała sobie sprawy, że spowoduje to usunięcie licencji z użytkowników — z tego powodu wymagamy usunięcia wszelkich licencji z grupy, zanim będzie można je usunąć.
+Nie można usunąć grupy z przypisaną aktywną licencją. Administrator może usunąć grupę niewykonującą, że spowoduje to usunięcie licencji z użytkowników. z tego powodu przed usunięciem tej grupy wymagane są wszystkie licencje.
 
-Podczas próby usunięcia grupy w witrynie Azure portal może ![pojawić się powiadomienie o błędzie w ten sposób: Usunięcie grupy zrzutu ekranu nie powiodło się](./media/licensing-group-advanced/groupdeletionfailed.png)
+Podczas próby usunięcia grupy w Azure Portal może zostać wyświetlony komunikat o błędzie: ![Usuwanie grupy zrzutu ekranu nie powiodło się](./media/licensing-group-advanced/groupdeletionfailed.png)
 
-Przejdź do karty **Licencje** w grupie i sprawdź, czy są przypisane licencje. Jeśli tak, usuń te licencje i spróbuj ponownie usunąć grupę.
+Przejdź do karty **licencje** w grupie i sprawdź, czy istnieją przypisane licencje. Jeśli tak, usuń te licencje i spróbuj ponownie usunąć grupę.
 
-Podobne błędy mogą wystąpić podczas próby usunięcia grupy za pośrednictwem programu PowerShell lub Graph API. Jeśli używasz grupy zsynchronizowanej z lokalnego, usługa Azure AD Connect może również zgłaszać błędy, jeśli nie można usunąć grupy w usłudze Azure AD. We wszystkich takich przypadkach upewnij się, że istnieją jakieś licencje przypisane do grupy i najpierw je usuń.
+Podczas próby usunięcia grupy przy użyciu programu PowerShell lub interfejs API programu Graph mogą pojawić się podobne błędy. W przypadku korzystania z grupy zsynchronizowanej z poziomu lokalnego Azure AD Connect mogą także zgłaszać błędy, Jeśli usunięcie grupy w usłudze Azure AD kończy się niepowodzeniem. We wszystkich takich przypadkach upewnij się, że masz przypisane licencje do grupy, a następnie usuń je jako pierwsze.
 
 ## <a name="limitations-and-known-issues"></a>Ograniczenia i znane problemy
 
-Jeśli korzystasz z licencjonowania grupowego, warto zapoznać się z poniższą listą ograniczeń i znanych problemów.
+W przypadku korzystania z licencjonowania opartego na grupach warto zapoznać się z poniższą listą ograniczeń i znanych problemów.
 
 - Licencjonowanie na podstawie grupy obecnie nie jest obsługiwane dla grup, które zawierają inne grupy (grupy zagnieżdżone). Jeśli zastosujesz licencję do grupy zagnieżdżonej, zostanie ona przypisana tylko do użytkowników będących bezpośrednimi członkami pierwszego poziomu grupy.
 
-- Tej funkcji można używać tylko z grupami zabezpieczeń i grupami usługi Office 365, które mają securityEnabled=TRUE.
+- Funkcja może być używana tylko z grupami zabezpieczeń i grupami pakietu Office 365, które mają securityEnabled = TRUE.
 
-- [Centrum administracyjne usługi Microsoft 365](https://admin.microsoft.com) nie obsługuje obecnie licencjonowania opartego na grupach. Jeśli użytkownik dziedziczy licencję z grupy, ta licencja pojawi się w portalu administracyjnym pakietu Office jako licencja zwykłego użytkownika. Jeśli spróbujesz zmodyfikować tę licencję lub spróbujesz usunąć licencję, portal zwróci komunikat o błędzie. Licencji grupy dziedziczonej nie można modyfikować bezpośrednio na użytkownika.
+- [Centrum administracyjne Microsoft 365](https://admin.microsoft.com) nie obsługuje obecnie licencjonowania opartego na grupach. Jeśli użytkownik odziedziczy licencję z grupy, ta licencja jest wyświetlana w portalu administracyjnym pakietu Office jako zwykła Licencja użytkownika. Jeśli spróbujesz zmodyfikować tę licencję lub spróbujesz usunąć licencję, Portal zwróci komunikat o błędzie. Dziedziczone licencje grupy nie mogą być modyfikowane bezpośrednio dla użytkownika.
 
-- Jeśli licencje są przypisywane lub modyfikowane dla dużej grupy (na przykład 100 000 użytkowników), może to wpłynąć na wydajność. W szczególności ilość zmian generowanych przez automatyzację usługi Azure AD może negatywnie wpłynąć na wydajność synchronizacji katalogów między usługą Azure AD i systemami lokalnymi.
+- Gdy licencje są przypisywane lub modyfikowane dla dużej grupy (na przykład 100 000 użytkowników), może to mieć wpływ na wydajność. W odniesieniu do wielkości zmian wygenerowanych przez usługę Azure AD Automation może niekorzystnie wpłynąć na wydajność synchronizacji katalogów między systemami Azure AD i lokalnymi.
 
 - Jeśli używasz grup dynamicznych do zarządzania członkostwem użytkowników, sprawdź, czy dany użytkownik należy do grupy. Jest to wymagane do przypisania licencji. Jeśli tak nie jest, [sprawdź stan przetwarzania reguły członkostwa](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule) grupy dynamicznej.
 
-- W niektórych sytuacjach wysokiego obciążenia może upłynąć dużo czasu, aby przetworzyć zmiany licencji dla grup lub zmian członkostwa w grupach z istniejącymi licencjami. Jeśli widzisz, że zmiany trwają dłużej niż 24 godziny, aby przetworzyć rozmiar grupy 60K lub mniej, [otwórz bilet pomocy technicznej,](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) aby umożliwić nam zbadanie. 
+- W pewnych sytuacjach wymagających dużego obciążenia może upłynąć dużo czasu, aby przetwarzać zmiany w grupach lub zmianach członkostwa w grupach z istniejącymi licencjami. Jeśli zobaczysz, że zmiany będą trwać dłużej niż 24 godziny w celu przetworzenia rozmiaru grupy 60K użytkowników lub mniej, [Otwórz bilet pomocy technicznej](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) , aby umożliwić nam zbadanie. 
 
-- Automatyzacja zarządzania licencjami nie reaguje automatycznie na wszystkie typy zmian w środowisku. Na przykład może brakować licencji, co powoduje, że niektórzy użytkownicy są w stanie błędu. Aby zwolnić dostępną liczbę miejsc, możesz usunąć niektóre bezpośrednio przypisane licencje od innych użytkowników. Jednak system nie reaguje automatycznie na tę zmianę i naprawić użytkowników w tym stanie błędu.
+- Automatyzacja zarządzania licencjami nie reaguje automatycznie na wszystkie typy zmian w środowisku. Na przykład można wypróbować Brak licencji, co może spowodować, że niektórzy użytkownicy będą w stanie błąd. Aby zwolnić dostępną liczbę miejsc, możesz usunąć niektóre bezpośrednio przypisane licencje od innych użytkowników. Jednak system nie reaguje automatycznie na tę zmianę i naprawia użytkowników w tym stanie błędu.
 
-  Aby obejść te typy ograniczeń, możesz przejść do bloku **grupy** w usłudze Azure AD i kliknąć przycisk **Ponownie przetworzyć**. To polecenie przetwarza wszystkich użytkowników w tej grupie i rozwiązuje stany błędów, jeśli to możliwe.
+  Aby obejść te ograniczenia, możesz przejść do bloku **grupy** w usłudze Azure AD, a następnie kliknąć pozycję **przetwórz**ponownie. To polecenie przetwarza wszystkich użytkowników w tej grupie i rozwiązuje Stany błędów, jeśli jest to możliwe.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej na temat innych scenariuszy zarządzania licencjami w ramach programu licencjonowania opartego na grupach, zobacz:
 
-* [Co to jest licencjonowanie oparte na grupach w usłudze Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [Co to jest Licencjonowanie oparte na grupach w Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [Przypisywanie licencji do grupy w usłudze Azure Active Directory](licensing-groups-assign.md)
 * [Identyfikowanie i rozwiązywanie problemów z licencją dla grupy w usłudze Azure Active Directory](licensing-groups-resolve-problems.md)
 * [Jak migrować użytkowników z licencjami indywidualnymi do licencji opartych na grupach w usłudze Azure Active Directory](licensing-groups-migrate-users.md)
-* [Jak migrować użytkowników między licencjami produktów przy użyciu licencjonowania opartego na grupach w usłudze Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
-* [Przykłady programu PowerShell dotyczące licencjonowania opartego na grupach w usłudze Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)
+* [Jak migrować użytkowników między licencjami produktu przy użyciu licencjonowania opartego na grupach w programie Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
+* [Przykłady programu PowerShell dla licencjonowania opartego na grupach w Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)

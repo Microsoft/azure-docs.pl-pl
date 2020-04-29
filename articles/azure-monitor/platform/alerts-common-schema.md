@@ -1,76 +1,76 @@
 ---
-title: Wspólny schemat alertów dla alertów monitora platformy Azure
-description: Opis wspólnego schematu alertu, dlaczego należy go używać i jak go włączyć
+title: Typowy schemat alertów dla alertów usługi Azure monitor
+description: Informacje o typowym schemacie alertów, dlaczego należy z nich korzystać i jak go włączyć
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
 ms.openlocfilehash: 1445e8cf38b2694146fc8749ba5e77f2297de969
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79249050"
 ---
 # <a name="common-alert-schema"></a>Typowe schematy alertów
 
-W tym artykule opisano, co jest wspólny schemat alertów, korzyści z używania go i jak go włączyć.
+W tym artykule opisano, jakie są typowe schematy alertów, zalety korzystania z nich oraz sposób ich włączania.
 
-## <a name="what-is-the-common-alert-schema"></a>Co to jest wspólny schemat alertu?
+## <a name="what-is-the-common-alert-schema"></a>Co to jest wspólny schemat alertów?
 
-Wspólny schemat alertów standaryzuje środowisko zużycia powiadomień alertów na platformie Azure już dziś. Historycznie trzy typy alertów na platformie Azure dzisiaj (metryka, dziennik i dziennik aktywności) miały własne szablony wiadomości e-mail, schematy zestawów webhook itp. Za pomocą wspólnego schematu alertu można teraz odbierać powiadomienia alertów ze spójnym schematem.
+Typowy schemat alertów umożliwia standaryzację użycia powiadomień o alertach na platformie Azure już dziś. W przeszłości trzy typy alertów na platformie Azure dzisiaj (metryki, dzienniki i dziennik aktywności) miały własne szablony wiadomości e-mail, schematy elementu webhook itp. Ze wspólnym schematem alertów można teraz odbierać powiadomienia o alertach ze spójnym schematem.
 
-Każde wystąpienie alertu opisuje **zasób, którego dotyczy problem,** i **przyczynę alertu,** a te wystąpienia są opisane we wspólnym schemacie w następujących sekcjach:
-* **Podstawowe informacje:** Zestaw **znormalizowanych pól,** wspólnych dla wszystkich typów alertów, które opisują, **na jakim zasobie** znajduje się alert wraz z dodatkowymi typowymi metadanymi alertów (na przykład ważnością lub opisem). 
-* **Kontekst alertu:** Zestaw pól **opisujących przyczynę alertu,** z polami, które różnią się w zależności od **typu alertu.** Na przykład alert metryki będzie miał pola, takie jak nazwa metryki i wartość metryki w kontekście alertu, podczas gdy alert dziennika aktywności będzie miał informacje o zdarzeniu, które wygenerowało alert. 
+Każde wystąpienie alertu opisuje **zasób, którego dotyczy problem** , i **przyczynę alertu**, a te wystąpienia są opisane w typowym schemacie w następujących sekcjach:
+* **Podstawowe**: zestaw **standardowych pól**, wspólnych dla wszystkich typów alertów, opisujących **zasób** , w którym znajduje się alert, wraz z dodatkowymi typowymi metadanymi alertów (na przykład ważności lub opisu). 
+* **Kontekst alertu**: zestaw pól opisujących **przyczynę alertu**, z polami, które różnią się **w zależności od typu alertu**. Na przykład alert dotyczący metryki będzie zawierał pola, takie jak nazwa metryki i wartość metryki w kontekście alertu, podczas gdy alert dziennika aktywności będzie zawierał informacje o zdarzeniu, które wygenerowało alert. 
 
-Typowe scenariusze integracji, które słyszymy od klientów, obejmują routing wystąpienia alertu do danego zespołu na podstawie niektórych przestawnych (na przykład grupy zasobów), po czym odpowiedzialny zespół rozpoczyna pracę nad nim. Za pomocą wspólnego schematu alertu można mieć znormalizowane logiki routingu między typami alertów, wykorzystując podstawowe pola, pozostawiając pola kontekstu, jak jest dla zainteresowanych zespołów do dalszego zbadania.
+Typowe scenariusze integracji występujące od klientów obejmują Routing wystąpienia alertu do danego zespołu w oparciu o część tabeli przestawnej (na przykład grupy zasobów), po którym zespół odpowiedzialny rozpoczyna pracę nad nim. Ze wspólnym schematem alertów można mieć ustandaryzowaną logikę routingu dla różnych typów alertów, wykorzystując zasadnicze pola, pozostawiając pola kontekstowe jako przeznaczone dla zainteresowanych zespołów do dalszej analizy.
 
-Oznacza to, że potencjalnie można mieć mniej integracji, dzięki czemu proces zarządzania i utrzymywania ich _znacznie_ prostsze zadanie. Ponadto przyszłe wzbogacenia ładunku alertów (na przykład dostosowywanie, wzbogacenie diagnostyczne itp.) będą pojawiać się tylko we wspólnym schemacie.
+Oznacza to, że można potencjalnie mieć mniejszą liczbę integracji, dzięki czemu proces zarządzania i konserwowania ich _znacznie_ prostszego zadania. Ponadto przyszłe wzbogacanie ładunku alertów (na przykład dostosowanie, wzbogacanie diagnostyki itp.) będzie się pojawić tylko w wspólnym schemacie.
 
-## <a name="what-enhancements-does-the-common-alert-schema-bring"></a>Jakie ulepszenia zawiera wspólny schemat alertów?
+## <a name="what-enhancements-does-the-common-alert-schema-bring"></a>Jakie ulepszenia są wykonywane przez wspólny schemat alertów?
 
-Schemat alertów typowych będzie przede wszystkim manifestować się w powiadomieniach alertów. Ulepszenia, które zostaną wyświetlone, są wymienione poniżej:
+Typowy schemat alertów będzie przede wszystkim używany w powiadomieniach o alertach. Poniżej znajdują się ulepszenia, które zobaczysz poniżej:
 
 | Akcja | Ulepszenia |
 |:---|:---|
-| SMS | Spójny szablon SMS dla wszystkich typów alertów. |
-| Adres e-mail | Spójny i szczegółowy szablon wiadomości e-mail, umożliwiający łatwe diagnozowanie problemów na pierwszy rzut oka. Osadzone głębokie łącza do wystąpienia alertu w portalu i zasobu, którego dotyczy problem, zapewniają szybkie przejście do procesu korygowania. |
-| Webhook/Logic App/Azure Function/Automation Runbook | Spójna struktura JSON dla wszystkich typów alertów, która umożliwia łatwe tworzenie integracji między różnymi typami alertów. |
+| SMS | Spójny szablon programu SMS dla wszystkich typów alertów. |
+| Poczta e-mail | Spójny i szczegółowy szablon wiadomości e-mail, który umożliwia błyskawiczne diagnozowanie problemów. Wbudowane głębokie łącza do wystąpienia alertów w portalu i zaatakowany zasób zapewniają możliwość szybkiego przejścia do procesu korygowania. |
+| Element webhook/aplikacja logiki/funkcja Azure Function/Automation | Spójna struktura JSON dla wszystkich typów alertów, która umożliwia łatwe tworzenie integracji dla różnych typów alertów. |
 
-Nowy schemat umożliwi również bogatsze środowisko użycia alertów w witrynie Azure portal i aplikacji mobilnej platformy Azure w najbliższej przyszłości. 
+Nowy schemat umożliwi również bardziej zaawansowane środowisko korzystania z alertów w ramach zarówno Azure Portal, jak i aplikacja mobilna platformy Azure w przyszłości. 
 
-[Dowiedz się więcej o definicjach schematów dla zestawów Webhooks/Logic Apps/Azure Functions/Automation Runbooks.](https://aka.ms/commonAlertSchemaDefinitions)
-
-> [!NOTE]
-> Następujące akcje nie obsługują wspólnego schematu alertu: ŁĄCZNIK ITSM.
-
-## <a name="how-do-i-enable-the-common-alert-schema"></a>Jak włączyć wspólny schemat alertu?
-
-Możesz wyrazić zgodę na wspólny schemat alertów lub zrezygnować za pośrednictwem grup akcji, zarówno w portalu, jak i za pośrednictwem interfejsu API REST. Przełącznik, aby przełączyć się do nowego schematu istnieje na poziomie akcji. Na przykład musisz osobno zdecydować się na akcję e-mail i akcję elementu webhook.
+[Dowiedz się więcej na temat definicji schematu dla elementów webhook/Logic Apps/Azure Functions/elementy Runbook usługi Automation.](https://aka.ms/commonAlertSchemaDefinitions)
 
 > [!NOTE]
-> 1. Następujące typy alertów domyślnie obsługują wspólny schemat (nie jest wymagana opt in):
->     * Inteligentne alerty wykrywania
-> 1. Następujące typy alertów obecnie nie obsługują wspólnego schematu:
->     * Alerty generowane przez [usługę Azure Monitor dla maszyn wirtualnych](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)
->     * Alerty generowane przez [usługę Azure Cost Management](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario)
+> Następujące akcje nie obsługują wspólnego schematu alertu: łącznik ITSM.
 
-### <a name="through-the-azure-portal"></a>Za pośrednictwem portalu Azure
+## <a name="how-do-i-enable-the-common-alert-schema"></a>Jak mogę włączyć wspólny schemat alertów?
 
-![Wspólny schemat alertów](media/alerts-common-schema/portal-opt-in.png)
+Możesz wybrać lub zrezygnować ze wspólnego schematu alertu za pomocą grup akcji w portalu i za pomocą interfejsu API REST. Przełącznik do przełączenia do nowego schematu istnieje na poziomie akcji. Na przykład należy osobno wyrazić zgodę na akcję poczty e-mail i akcję elementu webhook.
+
+> [!NOTE]
+> 1. Następujące typy alertów obsługują domyślnie wspólny schemat (brak zgody na wymagane):
+>     * Alerty inteligentnego wykrywania
+> 1. Następujące typy alertów nie obsługują obecnie wspólnego schematu:
+>     * Alerty wygenerowane przez [Azure monitor dla maszyn wirtualnych](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)
+>     * Alerty wygenerowane przez [Azure Cost Management](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario)
+
+### <a name="through-the-azure-portal"></a>Za pomocą Azure Portal
+
+![Wybór typowego schematu alertu](media/alerts-common-schema/portal-opt-in.png)
 
 1. Otwórz dowolną istniejącą lub nową akcję w grupie akcji. 
-1. Wybierz "Tak" dla przełącznika, aby włączyć wspólny schemat alertu, jak pokazano.
+1. Wybierz opcję "tak" dla przełącznika, aby włączyć wspólny schemat alertów, jak pokazano.
 
-### <a name="through-the-action-groups-rest-api"></a>Za pośrednictwem interfejsu API REST grup akcji
+### <a name="through-the-action-groups-rest-api"></a>Za pomocą interfejsu API REST grup akcji
 
-Można również użyć [interfejsu API grup akcji,](https://docs.microsoft.com/rest/api/monitor/actiongroups) aby zdecydować się na wspólny schemat alertów. Podczas tworzenia [lub aktualizowania](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) wywołania interfejsu API REST, można ustawić flagę "useCommonAlertSchema" na "true" (aby wyrazić zgodę) lub "false" (aby zrezygnować) dla dowolnej z następujących akcji - email/webhook/logic app/Azure Function/automation runbook.
+Możesz również użyć [interfejsu API grup akcji](https://docs.microsoft.com/rest/api/monitor/actiongroups) , aby zadecydować o wspólnym schemacie alertów. Podczas [tworzenia lub aktualizowania](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) wywołania interfejsu API REST można ustawić flagę "useCommonAlertSchema" na wartość "true" (Aby zrezygnować z) lub "false" (wycofać) dla dowolnej z następujących akcji — wiadomości e-mail/elementu webhook/aplikacji logiki/elementu Runbook usługi Azure Function/Automation.
 
-Na przykład następująca treść żądania do interfejsu API [create lub update](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) REST wykona następujące czynności:
+Na przykład następująca treść żądania utworzona w interfejsie API REST usługi [Create lub Update](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) wykona następujące czynności:
 
-* Włącz wspólny schemat alertu dla akcji e-mail "John Doe's email"
-* Wyłącz wspólny schemat alertu dla akcji e-mail "E-mail Jane Smith"
-* Włącz wspólny schemat alertu dla akcji elementu webhook "Przykładowy element webhook"
+* Włącz wspólny schemat alertów dla akcji poczty e-mail "Jan Nowak"
+* Wyłącz wspólny schemat alertów dla akcji poczty e-mail "adres e-mail w firmie Jan Kowalski"
+* Włącz wspólny schemat alertów dla akcji elementu webhook "przykładowy element webhook"
 
 ```json
 {
@@ -120,7 +120,7 @@ Na przykład następująca treść żądania do interfejsu API [create lub updat
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Typowe definicje schematów alertów dla zestawów Webhooks/Logic Apps/Azure Functions/Automation Runbooks.](https://aka.ms/commonAlertSchemaDefinitions)
+- [Definicje schematów typowych alertów dla elementów webhook/Logic Apps/Azure Functions/elementy Runbook usługi Automation.](https://aka.ms/commonAlertSchemaDefinitions)
 - [Dowiedz się, jak utworzyć aplikację logiki, która wykorzystuje wspólny schemat alertów do obsługi wszystkich alertów.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
 
 

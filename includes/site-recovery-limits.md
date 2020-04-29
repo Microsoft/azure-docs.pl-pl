@@ -1,6 +1,6 @@
 ---
-title: Tabela limitów odzyskiwania lokacji
-description: W tym artykule opisano limity systemowe dotyczące odzyskiwania witryny.
+title: Tabela limitów Site Recovery
+description: Opisuje limity systemowe dla Site Recovery.
 services: site recovery
 documentationcenter: NA
 author: csilauraa
@@ -14,20 +14,20 @@ ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
 ms.openlocfilehash: 7a241d3144b6220d0084b61de2dde7c36a68c257
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335134"
 ---
-Następujące limity dotyczą usługi Azure Site Recovery.
+Poniższe limity mają zastosowanie do Azure Site Recovery.
 
 | Identyfikator limitu | Limit |
 | --- | --- |
-| Liczba przechowalni na subskrypcję |500 |     
-| Liczba serwerów w przechowalni platformy Azure |250 |
-| Liczba grup ochrony na magazyn platformy Azure |Bez ograniczeń |
-| Liczba planów odzyskiwania na magazyn platformy Azure |Bez ograniczeń |
-| Liczba serwerów w poł. |Bez ograniczeń |
+| Liczba magazynów na subskrypcję |500 |     
+| Liczba serwerów na Magazyn Azure |250 |
+| Liczba grup ochrony na Magazyn Azure |Bez ograniczeń |
+| Liczba planów odzyskiwania na Magazyn Azure |Bez ograniczeń |
+| Liczba serwerów na grupę ochrony |Bez ograniczeń |
 | Liczba serwerów na plan odzyskiwania |50 |
 

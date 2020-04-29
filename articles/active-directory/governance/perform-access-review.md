@@ -1,6 +1,6 @@
 ---
-title: Przeglądanie dostępu do grup & aplikacji w recenzjach dostępu — Usługa Azure AD
-description: Dowiedz się, jak przeglądać dostęp członków grupy lub dostępu do aplikacji w recenzjach dostępu usługi Azure Active Directory.
+title: Przeglądanie dostępu do grup & aplikacji w ramach przeglądów dostępu — Azure AD
+description: Dowiedz się, jak przeglądać dostęp do członków grupy lub dostępu do aplikacji w Azure Active Directory przeglądy dostępu.
 services: active-directory
 author: barclayn
 manager: daveba
@@ -16,94 +16,94 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ee4125e82dd5176f01de294011e22a1d66005094
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80128447"
 ---
-# <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Przeglądanie dostępu do grup i aplikacji w recenzjach dostępu usługi Azure AD
+# <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Przeglądanie dostępu do grup i aplikacji w przeglądach dostępu do usługi Azure AD
 
-Usługa Azure Active Directory (Azure AD) upraszcza sposób zarządzania dostępem przedsiębiorstw do grup i aplikacji w usłudze Azure AD i innych usługach online firmy Microsoft za pomocą funkcji o nazwie Przeglądy dostępu usługi Azure AD.
+Azure Active Directory (Azure AD) upraszczają, w jaki sposób przedsiębiorstwa zarządzają dostępem do grup i aplikacji w usłudze Azure AD i innych usługach online firmy Microsoft przy użyciu funkcji o nazwie przeglądy dostępu usługi Azure AD.
 
-W tym artykule opisano, jak wyznaczony recenzent wykonuje przegląd dostępu dla członków grupy lub użytkowników z dostępem do aplikacji.
+W tym artykule opisano, w jaki sposób wskazany recenzent wykonuje przegląd dostępu dla członków grupy lub użytkowników mających dostęp do aplikacji.
 
 ## <a name="open-the-access-review"></a>Otwórz przegląd dostępu
 
 Pierwszym krokiem do przeprowadzenia przeglądu dostępu jest znalezienie i otwarcie przeglądu dostępu.
 
-1. Poszukaj wiadomości e-mail od firmy Microsoft z prośbą o sprawdzenie dostępu. Oto przykładowy adres e-mail do przejrzenia dostępu dla grupy.
+1. Poszukaj wiadomości e-mail od firmy Microsoft, która prosi o sprawdzenie dostępu. Oto przykładowa wiadomość e-mail, aby przejrzeć dostęp do grupy.
 
-    ![Przykładowy adres e-mail od firmy Microsoft w celu sprawdzenia dostępu do grupy](./media/perform-access-review/access-review-email.png)
+    ![Przykładowa wiadomość e-mail od firmy Microsoft w celu przejrzenia dostępu do grupy](./media/perform-access-review/access-review-email.png)
 
-1. Kliknij łącze **Rozpocznij przegląd,** aby otworzyć przegląd dostępu.
+1. Kliknij link **Rozpocznij przegląd** , aby otworzyć przegląd dostępu.
 
-Jeśli nie masz wiadomości e-mail, możesz znaleźć oczekujące opinie o dostępie, wykonując następujące kroki.
+Jeśli nie masz wiadomości e-mail, możesz znaleźć oczekujące przeglądy dostępu, wykonując następujące kroki.
 
-1. Zaloguj się do portalu MyApps pod adresem [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Zaloguj się do portalu aplikacji w witrynie [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
-    ![Portal MyApps z listą aplikacji, do których masz uprawnienia](./media/perform-access-review/myapps-access-panel.png)
+    ![Portal aplikacji z listą aplikacji, do których masz uprawnienia](./media/perform-access-review/myapps-access-panel.png)
 
 1. W prawym górnym rogu strony kliknij symbol użytkownika, który wyświetla Twoją nazwę i domyślną organizację. Jeśli na liście jest więcej niż jedna organizacja, wybierz tę, która zażądała przeglądu dostępu.
 
-1. Kliknij kafelek **Przeglądy programu Access,** aby wyświetlić listę oczekujących przeglądów dostępu.
+1. Kliknij kafelek **przeglądy dostępu** , aby wyświetlić listę oczekujących przeglądów dostępu.
 
     Jeśli kafelek nie jest widoczny, nie ma żadnych przeglądów dostępu do wykonania dla tej organizacji i w tej chwili jest wymagana żadna akcja.
 
-    ![Lista oczekujących recenzji dostępu dla aplikacji i grup](./media/perform-access-review/access-reviews-list.png)
+    ![Lista oczekujących przeglądów dostępu dla aplikacji i grup](./media/perform-access-review/access-reviews-list.png)
 
-1. Kliknij łącze **Rozpocznij recenzowania** dla przeglądu dostępu, który chcesz wykonać.
+1. Kliknij link **Rozpocznij przegląd** , aby zapoznać się z przeglądem dostępu, który chcesz wykonać.
 
-## <a name="perform-the-access-review"></a>Wykonywanie przeglądu dostępu
+## <a name="perform-the-access-review"></a>Wykonaj przegląd dostępu
 
-Po otwarciu przeglądu dostępu zobaczysz nazwy użytkowników, którzy muszą zostać przejrzeni.
+Po otwarciu przeglądu dostępu zobaczysz nazwy użytkowników, którzy muszą być zrecenzowani.
 
-Jeśli żądanie ma na celu sprawdzenie własnego dostępu, strona będzie wyglądać inaczej. Aby uzyskać więcej informacji, zobacz [Przeglądanie dostępu dla siebie do grup lub aplikacji](review-your-access.md).
+Jeśli żądanie dotyczy sprawdzenia własnego dostępu, strona będzie wyglądać inaczej. Aby uzyskać więcej informacji, zobacz [przeglądanie dostępu dla siebie do grup lub aplikacji](review-your-access.md).
 
-![Przegląd otwartego dostępu z listą użytkowników, którzy muszą zostać przejrzeni](./media/perform-access-review/perform-access-review.png)
+![Otwórz przegląd dostępu, aby wyświetlić listę użytkowników, którzy muszą zostać zrecenzowani](./media/perform-access-review/perform-access-review.png)
 
-Istnieją dwa sposoby zatwierdzania lub odrzucania dostępu:
+Istnieją dwa sposoby zatwierdzenia lub odmowy dostępu:
 
-- Możesz zatwierdzić lub odmówić dostępu jednemu lub większej liczbie użytkowników, lub
-- Można zaakceptować zalecenia systemowe, które są najprostszym i najszybszym sposobem.
+- Możesz zatwierdzić lub odmówić dostępu dla jednego lub kilku użytkowników lub
+- Możesz zaakceptować zalecenia dotyczące systemu, które jest najłatwiejszym i najszybszym sposobem.
 
-### <a name="approve-or-deny-access-for-one-or-more-users"></a>Zatwierdzanie lub odmawianie dostępu jednemu lub większej liczbie użytkowników
+### <a name="approve-or-deny-access-for-one-or-more-users"></a>Zatwierdź lub Odmów dostępu dla co najmniej jednego użytkownika
 
-1. Przejrzyj listę użytkowników, aby zdecydować, czy zatwierdzić, czy odmówić im ciągłego dostępu.
+1. Przejrzyj listę użytkowników, aby zdecydować, czy chcesz zatwierdzić lub odrzucić dalszy dostęp.
 
-1. Aby zatwierdzić lub odmówić dostępu jednemu użytkownikowi, kliknij wiersz, aby otworzyć okno, aby określić akcję do podjęcia. Aby zatwierdzić lub odmówić dostępu wielu użytkownikom, dodaj znaczniki wyboru obok użytkowników, a następnie kliknij przycisk **Przejrzyj użytkowników X,** aby otworzyć okno, aby określić akcję do podjęcia.
+1. Aby zatwierdzić lub odmówić dostępu dla jednego użytkownika, kliknij wiersz, aby otworzyć okno, aby określić akcję do wykonania. Aby zatwierdzić lub odmówić dostępu dla wielu użytkowników, należy dodać znaczniki wyboru obok użytkowników, a następnie kliknąć przycisk **Przejrzyj użytkownika X** , aby otworzyć okno, w którym można określić akcję do wykonania.
 
-1. Kliknij **przycisk Zatwierdź** lub **Odmów**. Jeśli nie masz pewności, możesz kliknąć przycisk **Nie wiem**. Spowoduje to, że użytkownik zachowa dostęp, ale wybór zostanie odzwierciedlony w dziennikach inspekcji.
+1. Kliknij przycisk **Zatwierdź** lub **Odmów**. Jeśli nie masz pewności, możesz kliknąć opcję **nieznane**. Spowoduje to, że użytkownik będzie utrzymywać dostęp, ale wybór zostanie odzwierciedlony w dziennikach inspekcji.
 
-    ![Okno akcji z opcjami Zatwierdzanie, Odmów i Nie znam](./media/perform-access-review/approve-deny.png)
+    ![Okno akcji, które obejmuje opcje Zatwierdź, Odmów i nieznane](./media/perform-access-review/approve-deny.png)
 
-1. W razie potrzeby wprowadź przyczynę w polu **Przyczyna.**
+1. W razie potrzeby wprowadź przyczynę w polu **Przyczyna** .
 
-    Administrator przeglądu dostępu może wymagać podania przyczyny zatwierdzenia dalszego dostępu lub członkostwa w grupie.
+    Administrator recenzji dostępu może wymagać podania przyczyny zatwierdzenia ciągłego dostępu lub członkostwa w grupie.
 
-1. Po określeniu akcji do podjęcia kliknij przycisk **Zapisz**.
+1. Po określeniu akcji do wykonania kliknij przycisk **Zapisz**.
 
-    Jeśli chcesz zmienić odpowiedź, wybierz wiersz i zaktualizuj odpowiedź. Na przykład można zatwierdzić wcześniej odrzuconego użytkownika lub odmówić wcześniej zatwierdzonemu użytkownikowi. Odpowiedź można zmienić w dowolnym momencie do czasu zakończenia przeglądu dostępu.
+    Jeśli chcesz zmienić odpowiedź, zaznacz wiersz i zaktualizuj odpowiedź. Na przykład możesz zatwierdzić wcześniej odmówiony użytkownika lub odmówić wcześniej zatwierdzonego użytkownika. Odpowiedź można zmienić w dowolnym momencie do momentu zakończenia przeglądu dostępu.
 
-    Jeśli istnieje wiele recenzentów, ostatnia przesłana odpowiedź jest rejestrowana. Rozważmy przykład, w którym administrator wyznacza dwóch recenzentów — Alicji i Roberta. Alicja najpierw otwiera przegląd dostępu i zatwierdza dostęp. Przed zakończeniem przeglądu, Robert otwiera przegląd dostępu i odmawia dostępu. Ostatnia odpowiedź odmowy jest to, co jest rejestrowane.
+    Jeśli istnieje wielu recenzentów, zostanie zarejestrowana Ostatnia przesłana odpowiedź. Rozważmy przykład, w którym administrator wyznaczy dwóch recenzentów — Alicja i Robert. Alicja otwiera najpierw przegląd dostępu i zatwierdza dostęp. Przed zakończeniem przeglądu Robert otwiera przegląd dostępu i odmówi dostępu. Ostatnia odpowiedź odmowy to to, co jest rejestrowane.
 
     > [!NOTE]
-    > Jeśli użytkownikowi odmówiono dostępu, nie zostaną one natychmiast usunięte. Są one usuwane po zakończeniu przeglądu lub gdy administrator zatrzymuje przegląd.
+    > Jeśli użytkownik odmówi dostępu, nie zostanie natychmiast usunięty. Są one usuwane po zakończeniu przeglądu lub gdy administrator zatrzyma przegląd.
 
-### <a name="approve-or-deny-access-based-on-recommendations"></a>Zatwierdzanie lub odmawianie dostępu na podstawie zaleceń
+### <a name="approve-or-deny-access-based-on-recommendations"></a>Zatwierdzanie lub odrzucanie dostępu na podstawie zaleceń
 
-Aby ułatwić i przyspieszyć dostęp do opinii, udostępniamy również rekomendacje, które możesz zaakceptować za pomocą jednego kliknięcia. Zalecenia są generowane na podstawie działania logowania użytkownika.
+Aby ułatwić Ci przeglądy dostępu, możesz także zatwierdzić zaleceń, które można zaakceptować przy użyciu jednego kliknięcia. Zalecenia są generowane na podstawie działania logowania użytkownika.
 
-1. Na niebieskim pasku u dołu strony kliknij pozycję **Zaakceptuj rekomendacje**.
+1. Na niebieskim pasku w dolnej części strony kliknij pozycję **Zaakceptuj zalecenia**.
 
-    ![Lista recenzji otwartego dostępu z przyciskiem Zaakceptuj rekomendacje](./media/perform-access-review/accept-recommendations.png)
+    ![Otwórz listę przeglądów dostępu z przyciskiem Zaakceptuj zalecenia](./media/perform-access-review/accept-recommendations.png)
 
     Zobaczysz podsumowanie zalecanych akcji.
 
-    ![Okno wyświetlaujące podsumowanie zalecanych akcji](./media/perform-access-review/accept-recommendations-summary.png)
+    ![Okno, które wyświetla podsumowanie zalecanych akcji](./media/perform-access-review/accept-recommendations-summary.png)
 
-1. Kliknij **przycisk Ok,** aby zaakceptować zalecenia.
+1. Kliknij przycisk **OK** , aby zaakceptować zalecenia.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Ukończ przegląd dostępu grup lub aplikacji](complete-access-review.md)
+- [Ukończ przegląd dostępu do grup lub aplikacji](complete-access-review.md)

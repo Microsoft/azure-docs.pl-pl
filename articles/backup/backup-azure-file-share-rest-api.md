@@ -1,54 +1,54 @@
 ---
-title: Dziele zapasowe udziałów plików platformy Azure za pomocą interfejsu REST API
-description: Dowiedz się, jak używać interfejsu API REST do utworzenia kopii zapasowej udziałów plików platformy Azure w magazynie usług odzyskiwania
+title: Tworzenie kopii zapasowych udziałów plików platformy Azure przy użyciu interfejsu API REST
+description: Dowiedz się, jak używać interfejsu API REST do tworzenia kopii zapasowych udziałów plików platformy Azure w magazynie Recovery Services
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 2cf385830ec1be17cb62432e6ef9cba7d82a9db1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79248101"
 ---
-# <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Tworzenie kopii zapasowych udziału plików platformy Azure przy użyciu usługi Azure Backup za pośrednictwem interfejsu API rest
+# <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Tworzenie kopii zapasowej udziału plików platformy Azure przy użyciu Azure Backup za pomocą interfejsu API REST
 
-W tym artykule opisano sposób tworzenia kopii zapasowej udziału plików platformy Azure przy użyciu usługi Azure Backup za pośrednictwem interfejsu API REST.
+W tym artykule opisano sposób tworzenia kopii zapasowej udziału plików platformy Azure przy użyciu Azure Backup za pośrednictwem interfejsu API REST.
 
-W tym artykule przyjęto założenie, że utworzono już magazyn usług odzyskiwania i zasady konfigurowania kopii zapasowej dla udziału plików. Jeśli nie, zapoznaj się z [tworzeniem magazynu](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatevault) i [tworzenie zasad](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatepolicy) REST interfejs api samouczki do tworzenia nowych magazynów i zasad.
+W tym artykule przyjęto założenie, że utworzono już magazyn i zasady usługi Recovery Services w celu skonfigurowania kopii zapasowej udziału plików. Jeśli nie, zapoznaj się z samouczkiem [Tworzenie magazynu](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatevault) i interfejs API REST [zasad](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatepolicy) , aby utworzyć nowe magazyny i zasady.
 
-W tym artykule użyjemy następujących zasobów:
+W tym artykule będziemy używać następujących zasobów:
 
 - **RecoveryServicesVault**: *azurefilesvault*
 
-- **Zasady:** *harmonogram1*
+- **Zasady:** *schedule1*
 
-- **Grupa zasobów**: *azurefiles*
+- **Grupa zasobów**: *migracji pamięci*
 
-- **Konto magazynu:** *testvault2*
+- **Konto magazynu**: *testvault2*
 
-- **Udział w pliku:** *testshare*
+- **Udział plików**: *testshare*
 
 ## <a name="configure-backup-for-an-unprotected-azure-file-share-using-rest-api"></a>Konfigurowanie kopii zapasowej dla niechronionego udziału plików platformy Azure przy użyciu interfejsu API REST
 
-### <a name="discover-storage-accounts-with-unprotected-azure-file-shares"></a>Odnajdowanie kont magazynu z niechronionymi udziałami plików platformy Azure
+### <a name="discover-storage-accounts-with-unprotected-azure-file-shares"></a>Odnajdywanie kont magazynu z niechronionymi udziałami plików platformy Azure
 
-Przechowalnia musi odnajdywać wszystkie konta magazynu platformy Azure w ramach subskrypcji za pomocą udziałów plików, których kopię zapasową można w magazynie usług odzyskiwania. Jest to wyzwalane za pomocą [operacji odświeżania](https://docs.microsoft.com/rest/api/backup/protectioncontainers/refresh). Jest to operacja asynchronizastej *post,* która zapewnia, że magazyn pobiera najnowszą listę wszystkich niechronionych udziałów usługi Azure File w bieżącej subskrypcji i "buforuje" je. Gdy udział plików jest "buforowany", usługi odzyskiwania mogą uzyskać dostęp do udziału plików i chronić go.
+Magazyn musi odnaleźć wszystkie konta usługi Azure Storage w ramach subskrypcji z udziałami plików, których kopie zapasowe mogą być tworzone w magazynie Recovery Services. Jest to wyzwalane przy użyciu [operacji odświeżania](https://docs.microsoft.com/rest/api/backup/protectioncontainers/refresh). Jest to asynchroniczna operacja *post* , która zapewnia, że magazyn otrzymuje najnowszą listę wszystkich niechronionych udziałów plików platformy Azure w bieżącej subskrypcji i "pamięci podręcznej". Gdy udział plików jest buforowany, usługi odzyskiwania mogą uzyskać dostęp do udziału plików i chronić go.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
 ```
 
-Identyfikator URI `{subscriptionId}`post `{vaultName}` `{vaultresourceGroupName}`ma `{fabricName}` , , i parametry. W naszym przykładzie wartość dla różnych parametrów będzie następująca:
+Identyfikator URI wpisu zawiera `{subscriptionId}`parametry `{vaultName}`, `{vaultresourceGroupName}`, i `{fabricName}` . W naszym przykładzie wartość dla różnych parametrów będzie następująca:
 
-- `{fabricName}`to *Platforma Azure*
+- `{fabricName}`jest *platformą Azure*
 
 - `{vaultName}`jest *azurefilesvault*
 
-- `{vaultresourceGroupName}`to *azurefiles*
+- `{vaultresourceGroupName}`jest *migracji pamięci*
 
-- $filter=backupManagementType eq 'AzureStorage'
+- $filter = backupManagementType EQ "AzureStorage"
 
-Ponieważ wszystkie wymagane parametry są podane w identyfikatorze URI, nie ma potrzeby oddzielnego żądania treści.
+Ponieważ wszystkie wymagane parametry są określone w identyfikatorze URI, nie ma potrzeby oddzielnej treści żądania.
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
@@ -56,13 +56,13 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 #### <a name="responses"></a>Odpowiedzi
 
-Operacja "odświeżanie" jest [operacją asynchronizacyjną](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Oznacza to, że ta operacja tworzy inną operację, która musi być śledzona oddzielnie.
+Operacja "Refresh" jest [operacją asynchroniczną](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
 
-Zwraca dwie odpowiedzi: 202 (Zaakceptowane) podczas tworzenia innej operacji i 200 (OK) po zakończeniu tej operacji.
+Zwraca dwie odpowiedzi: 202 (zaakceptowane), gdy tworzona jest inna operacja, a 200 (OK) po zakończeniu tej operacji.
 
 ##### <a name="example-responses"></a>Przykładowe odpowiedzi
 
-Po przesłaniu żądania *POST* zwracana jest odpowiedź 202 (zaakceptowana).
+Po przesłaniu żądania *post* zostaje zwrócona odpowiedź 202 (zaakceptowana).
 
 ```http
 HTTP/1.1 202 Accepted
@@ -83,13 +83,13 @@ cca47745-12d2-42f9-b3a4-75335f18fdf6?api-version=2016-12-01’
 'Date': 'Mon, 03 Feb 2020 09:13:25 GMT'
 ```
 
-Śledzenie wynikowej operacji za pomocą nagłówka "Lokalizacja" za pomocą prostego polecenia *GET*
+Śledzenie wyniku operacji przy użyciu nagłówka "Location" z prostym poleceniem *Get*
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/operationResults/cca47745-12d2-42f9-b3a4-75335f18fdf6?api-version=2016-12-01
 ```
 
-Po wykryciu wszystkich kont usługi Azure Storage polecenie GET zwraca odpowiedź 200 (bez zawartości). Przechowalnia może teraz odnajdywać dowolne konto magazynu z udziałami plików, których kopię zapasową można w ramach subskrypcji.
+Po odnalezieniu wszystkich kont usługi Azure Storage polecenie GET zwróci odpowiedź 200 (brak zawartości). Magazyn umożliwia teraz odnajdywanie dowolnego konta magazynu z udziałami plików, których kopie zapasowe mogą być tworzone w ramach subskrypcji.
 
 ```http
 HTTP/1.1 200 NoContent
@@ -106,15 +106,15 @@ x-ms-routing-request-id  : CENTRALUSEUAP:20200127T105304Z:d9bdb266-8349-4dbd-968
 Date   : Mon, 27 Jan 2020 10:53:04 GMT
 ```
 
-### <a name="get-list-of-storage-accounts-that-can-be-protected-with-recovery-services-vault"></a>Pobierz listę kont magazynu, które mogą być chronione za pomocą magazynu usług odzyskiwania
+### <a name="get-list-of-storage-accounts-that-can-be-protected-with-recovery-services-vault"></a>Pobierz listę kont magazynu, które mogą być chronione za pomocą magazynu Recovery Services
 
-Aby potwierdzić, że "buforowanie" jest wykonywane, wystawić wszystkie konta magazynu chronionego w ramach subskrypcji. Następnie zlokalizuj żądane konto magazynu w odpowiedzi. Odbywa się to za pomocą [get protectablecontainers](https://docs.microsoft.com/rest/api/backup/protectablecontainers/list) operacji.
+Aby upewnić się, że "buforowanie" jest gotowe, Wyświetl listę wszystkich kont magazynu z ochroną w ramach subskrypcji. Następnie Znajdź odpowiednie konto magazynu w odpowiedzi. Odbywa się to przy użyciu operacji [Get ProtectableContainers](https://docs.microsoft.com/rest/api/backup/protectablecontainers/list) .
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectableContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
 ```
 
-*Identyfikator URI GET* ma wszystkie wymagane parametry. Nie jest wymagana żadna dodatkowa treść żądania.
+Identyfikator URI *Get* zawiera wszystkie wymagane parametry. Żadna dodatkowa treść żądania nie jest wymagana.
 
 Przykład treści odpowiedzi:
 
@@ -156,26 +156,26 @@ protectableContainers/StorageContainer;Storage;AzureFiles;testvault2",
 }
 ```
 
-Ponieważ możemy zlokalizować konto magazynu *testvault2* w treści odpowiedzi o przyjaznej nazwie, operacja odświeżania wykonana powyżej zakończyła się pomyślnie. Magazyn usług odzyskiwania może teraz pomyślnie odnajdyć konta magazynu z niechronionymi udziałami plików w tej samej subskrypcji.
+Ponieważ firma Microsoft może zlokalizować konto magazynu *testvault2* w treści odpowiedzi o przyjaznej nazwie, wykonana powyżej operacja odświeżania powiodła się. Magazyn usługi Recovery Services może teraz pomyślnie wykryć konta magazynu z udziałami plików niechronionymi w tej samej subskrypcji.
 
-### <a name="register-storage-account-with-recovery-services-vault"></a>Rejestrowanie konta magazynu w magazynie usług odzyskiwania
+### <a name="register-storage-account-with-recovery-services-vault"></a>Rejestrowanie konta magazynu w magazynie Recovery Services
 
-Ten krok jest potrzebny tylko wtedy, gdy konto magazynu nie zostało wcześniej zarejestrowane w przechowalni. Przechowalnię można zarejestrować za pomocą [operacji ProtectionContainers-Register](https://docs.microsoft.com/rest/api/backup/protectioncontainers/register).
+Ten krok jest wymagany tylko wtedy, gdy konto magazynu zostało wcześniej zarejestrowane w magazynie. Magazyn można zarejestrować za pomocą [operacji ProtectionContainers-Register](https://docs.microsoft.com/rest/api/backup/protectioncontainers/register).
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}?api-version=2016-12-01
 ```
 
-Ustaw zmienne identyfikatora URI w następujący sposób:
+Ustaw zmienne dla identyfikatora URI w następujący sposób:
 
-- {resourceGroupName} - *azurefiles*
-- {fabricName} — *platforma Azure*
-- {vaultName} - *azurefilesvault*
-- {containerName} - Jest to atrybut name w treści odpowiedzi operacji GET ProtectableContainers.
-   W naszym przykładzie jest *storagecontainer; Przechowywanie; AzureFiles;testvault2*
+- {resourceGroupName} — *migracji pamięci*
+- {fabricname} — *Azure*
+- {magazynname} — *azurefilesvault*
+- {ContainerName} — jest to atrybut Name w treści odpowiedzi operacji GET ProtectableContainers.
+   W naszym przykładzie jest to *StorageContainer; Chowan Migracji pamięci; testvault2*
 
 >[!NOTE]
-> Zawsze należy wziąć atrybut nazwa odpowiedzi i wypełnić go w tym żądaniu. NIE kodu twardego lub utworzyć format nazwy kontenera. Jeśli utworzysz lub zakodujesz go, wywołanie interfejsu API zakończy się niepowodzeniem, jeśli format nazwy kontenera zmieni się w przyszłości.
+> Zawsze należy przyjmować atrybut name odpowiedzi i wypełnić go w ramach tego żądania. NIE należy nakodować twardej ani utworzyć formatu nazwy kontenera. Jeśli utworzysz lub sformatujesz go, wywołanie interfejsu API zakończy się niepowodzeniem, jeśli format nazwy kontenera zmieni się w przyszłości.
 
 <br>
 
@@ -183,7 +183,7 @@ Ustaw zmienne identyfikatora URI w następujący sposób:
 PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AzureFiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;Storage;AzureFiles;testvault2?api-version=2016-12-01
 ```
 
-Treść żądania utworzenia jest następująca:
+Treść żądania Create jest następująca:
 
 ```json
 {
@@ -209,9 +209,9 @@ Treść żądania utworzenia jest następująca:
  }
 ```
 
-Pełna lista definicji treści wniosku i innych szczegółów można znaleźć w [rejestrze zabezpieczeń](https://docs.microsoft.com/rest/api/backup/protectioncontainers/register#azurestoragecontainer).
+Aby uzyskać pełną listę definicji treści żądania i innych szczegółów, zobacz [ProtectionContainers-Register](https://docs.microsoft.com/rest/api/backup/protectioncontainers/register#azurestoragecontainer).
 
-Jest to operacja asynchronizacjowa i zwraca dwie odpowiedzi: "202 Accepted" po zaakceptowaniu operacji i "200 OK" po zakończeniu operacji.  Aby śledzić stan operacji, użyj nagłówka lokalizacji, aby uzyskać najnowszy stan operacji.
+Jest to operacja asynchroniczna i zwraca dwie odpowiedzi: "202 zaakceptowane", gdy operacja zostanie zaakceptowana i "200 OK", gdy operacja zostanie ukończona.  Aby śledzić stan operacji, użyj nagłówka lokalizacji w celu uzyskania najnowszego stanu operacji.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AzureFiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;Storage;AzureFiles;testvault2/operationresults/1a3c8ee7-e0e5-43ed-b8b3-73cc992b6db9?api-version=2016-12-01
@@ -237,11 +237,11 @@ protectionContainers/StorageContainer;Storage;AzureFiles;testvault2",
 }
 ```
 
-Można sprawdzić, czy rejestracja zakończyła się pomyślnie od wartości *parametru registrationstatus* w treści odpowiedzi. W naszym przypadku pokazuje status zarejestrowany dla *testvault2*, więc operacja rejestracji zakończyła się pomyślnie.
+Możesz sprawdzić, czy rejestracja zakończyła się pomyślnie z wartości parametru *registrationstatus* w treści odpowiedzi. W naszym przypadku pokazuje stan zarejestrowany dla *testvault2*, więc operacja rejestracji zakończyła się pomyślnie.
 
-### <a name="inquire-all-unprotected-files-shares-under-a-storage-account"></a>Zapytanie o wszystkie niechronione udziały plików na koncie magazynu
+### <a name="inquire-all-unprotected-files-shares-under-a-storage-account"></a>Zapytanie dotyczące wszystkich niechronionych udziałów plików w ramach konta magazynu
 
-Można uzyskać informacje o chronionych elementów na koncie magazynu przy użyciu [ochrony kontenerów-inquire](https://docs.microsoft.com/rest/api/backup/protectioncontainers/inquire) operacji. Jest to operacja asynchroniza, a wyniki powinny być śledzone za pomocą nagłówka lokalizacji.
+Aby uzyskać informacje na temat elementów podlegających ochronie na koncie magazynu, należy wykonać operację zapytania dotyczącego [kontenerów ochrony](https://docs.microsoft.com/rest/api/backup/protectioncontainers/inquire) . Jest to operacja asynchroniczna, a wyniki powinny być śledzone przy użyciu nagłówka lokalizacji.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/inquire?api-version=2016-12-01
@@ -249,9 +249,9 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 Ustaw zmienne dla powyższego identyfikatora URI w następujący sposób:
 
-- {vaultName} - *azurefilesvault*
-- {fabricName} — *platforma Azure*
-- {containerName}- Należy zapoznać się z atrybutem name w treści odpowiedzi operacji GET ProtectableContainers. W naszym przykładzie jest *storagecontainer; Przechowywanie; AzureFiles;testvault2*
+- {magazynname} — *azurefilesvault*
+- {fabricname} — *Azure*
+- {ContainerName} — odwołaj się do atrybutu Name w treści odpowiedzi operacji GET ProtectableContainers. W naszym przykładzie jest to *StorageContainer; Chowan Migracji pamięci; testvault2*
 
 ```http
 https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;Storage;AzureFiles;testvault2/inquire?api-version=2016-12-01
@@ -274,18 +274,18 @@ x-ms-routing-request-id   : CENTRALUSEUAP:20200127T105305Z:68727f1e-b8cf-4bf1-bf
 Date  : Mon, 27 Jan 2020 10:53:05 GMT
 ```
 
-### <a name="select-the-file-share-you-want-to-back-up"></a>Wybierz udział plików, którego chcesz udostępnić, aby uzyskać ich utworzenie kopii zapasowej
+### <a name="select-the-file-share-you-want-to-back-up"></a>Wybierz udział plików, dla którego chcesz utworzyć kopię zapasową
 
-Można wyświetlić listę wszystkich elementów chronionych w ramach subskrypcji i zlokalizować żądany udział plików, który ma być archiwizacyjny przy użyciu operacji [GET backupprotectableItems.](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list)
+Można wyświetlić listę wszystkich elementów podlegających ochronie w ramach subskrypcji i zlokalizować żądany udział plików, którego kopia zapasowa ma zostać utworzona przy użyciu operacji [Get backupprotectableItems](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) .
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupProtectableItems?api-version=2016-12-01&$filter={$filter}
 ```
 
-Skonstruuj identyfikator URI w następujący sposób:
+Utwórz identyfikator URI w następujący sposób:
 
-- {vaultName} - *azurefilesvault*
-- {$filter} — *kopia zapasowaZakładanie Typ eq "AzureStorage"*
+- {magazynname} — *azurefilesvault*
+- {$filter} — *backupManagementType EQ "AzureStorage"*
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupProtectableItems?$filter=backupManagementType eq 'AzureStorage'&api-version=2016-12-01
@@ -347,19 +347,19 @@ Status Code:200
 }
 ```
 
-Odpowiedź zawiera listę wszystkich niechronionych udziałów plików i zawiera wszystkie informacje wymagane przez usługę Azure Recovery Service do skonfigurowania kopii zapasowej.
+Odpowiedź zawiera listę wszystkich niechronionych udziałów plików i zawiera wszystkie informacje wymagane przez usługę Azure Recovery w celu skonfigurowania kopii zapasowej.
 
-### <a name="enable-backup-for-the-file-share"></a>Włączanie tworzenia kopii zapasowej dla udziału plików
+### <a name="enable-backup-for-the-file-share"></a>Włącz tworzenie kopii zapasowej udziału plików
 
-Po "identyfikowaniu" odpowiedniego udziału plików z przyjazną nazwą wybierz zasady, które mają być chronione. Aby dowiedzieć się więcej o istniejących zasadach w przechowalni, zobacz [interfejs API zasad listy](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Następnie wybierz [odpowiednie zasady,](https://docs.microsoft.com/rest/api/backup/protectionpolicies/get) odwołując się do nazwy zasad. Aby utworzyć zasady, zapoznaj się z [samouczka tworzenia zasad](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatepolicy).
+Gdy odpowiedni udział plików jest "zidentyfikowany" z przyjazną nazwą, wybierz zasady do ochrony. Aby dowiedzieć się więcej na temat istniejących zasad w magazynie, zapoznaj się z tematem [interfejs API zasad listy](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Następnie wybierz [odpowiednie zasady](https://docs.microsoft.com/rest/api/backup/protectionpolicies/get) , odwołując się do nazwy zasad. Aby utworzyć zasady, zobacz [samouczek Tworzenie zasad](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatepolicy).
 
-Włączenie ochrony jest asynchroniką *PUT* operacji, która tworzy "element chroniony".
+Włączenie ochrony jest asynchroniczną operacją *Put* , która tworzy "chroniony element".
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
 ```
 
-Ustaw **containername** i **protecteditemname** zmiennych przy użyciu atrybutu ID w treści odpowiedzi get backupprotectableitems operacji.
+Ustaw zmienne **ContainerName** i **protecteditemname** przy użyciu atrybutu ID w treści odpowiedzi operacji get backupprotectableitems.
 
 W naszym przykładzie identyfikator udziału plików, który chcemy chronić, to:
 
@@ -367,13 +367,13 @@ W naszym przykładzie identyfikator udziału plików, który chcemy chronić, to
 "/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/storagecontainer;storage;azurefiles;testvault2/protectableItems/azurefileshare;testshare
 ```
 
-- {containername} - *magazynprzewieracz;magazyn;azurefiles;testvault2*
-- {protectedItemName} - *azurefileshare;testshare*
+- {ContainerName}- *storagecontainer; Storage; migracji pamięci; testvault2*
+- {protectedItemName}- *azurefileshare; testshare*
 
-Można też odwołać się do atrybutu **nazwa** kontenera ochrony i odpowiedzi elementu chronionego.
+Lub można odwołać się do atrybutu **name** kontenera ochrony i funkcji chronionych przez elementy.
 
 >[!NOTE]
->Zawsze należy wziąć atrybut nazwa odpowiedzi i wypełnić go w tym żądaniu. NIE należy kodować na czas twardy ani tworzyć formatu nazwy kontenera lub formatu nazwy chronionego elementu. Jeśli utworzysz lub zakodujesz go, wywołanie interfejsu API zakończy się niepowodzeniem, jeśli format nazwy kontenera lub format nazwy chronionego elementu zmieni się w przyszłości.
+>Zawsze należy przyjmować atrybut name odpowiedzi i wypełnić go w ramach tego żądania. NIE należy wykodować kodu ani utworzyć formatu nazwy kontenera lub chronionej nazwy elementu. Jeśli utworzysz lub sformatujesz go, wywołanie interfejsu API zakończy się niepowodzeniem w przypadku zmiany formatu nazwy kontenera lub chronionej nazwy elementu w przyszłości.
 
 <br>
 
@@ -383,7 +383,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 Utwórz treść żądania:
 
-Poniższa treść żądania definiuje właściwości wymagane do utworzenia chronionego elementu.
+Następująca treść żądania definiuje właściwości wymagane do utworzenia chronionego elementu.
 
 ```json
 {
@@ -395,13 +395,13 @@ Poniższa treść żądania definiuje właściwości wymagane do utworzenia chro
 }
 ```
 
-**SourceResourceId** jest **parentcontainerFabricID** w odpowiedzi GET backupprotectableItems.
+**Identyfikator sourceresourceid** jest **parentcontainerFabricID** w odpowiedzi na pobieranie backupprotectableItems.
 
 Przykładowa odpowiedź
 
-Utworzenie chronionego elementu jest operacją asynchronizacyjną, która tworzy inną operację, która musi być śledzona. Zwraca dwie odpowiedzi: 202 (Zaakceptowane) po utworzeniu innej operacji i 200 (OK) po zakończeniu tej operacji.
+Tworzenie chronionego elementu jest operacją asynchroniczną, która tworzy kolejną operację, która musi być śledzona. Zwraca dwie odpowiedzi: 202 (zaakceptowane), gdy tworzona jest inna operacja i 200 (OK) po zakończeniu tej operacji.
 
-Po przesłaniu żądania *PUT* dla utworzenia lub aktualizacji chronionego elementu początkowa odpowiedź jest 202 (Zaakceptowana) z nagłówkiem lokalizacji.
+Po przesłaniu żądania *Put* dotyczącego tworzenia lub aktualizowania chronionego elementu początkowa odpowiedź to 202 (zaakceptowana) z nagłówkiem lokalizacji.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -421,7 +421,7 @@ x-ms-routing-request-id  : CENTRALUSEUAP:20200127T105412Z:b55527fa-f473-4f09-b16
 Date : Mon, 27 Jan 2020 10:54:12 GMT
 ```
 
-Następnie śledź wynikową operację przy użyciu nagłówka lokalizacji lub nagłówka Azure-AsyncOperation za pomocą polecenia *GET.*
+Następnie Śledź wyniki operacji przy użyciu nagłówka lokalizacji lub nagłówka Azure-AsyncOperation za pomocą polecenia *Get* .
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupOperations/c3a52d1d-0853-4211-8141-477c65740264?api-version=2016-12-01
@@ -429,7 +429,7 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 Po zakończeniu operacji zwraca 200 (OK) z zawartością chronionego elementu w treści odpowiedzi.
 
-Przykładowy organ odpowiedzi:
+Przykładowa treść odpowiedzi:
 
 ```json
 {
@@ -445,11 +445,11 @@ Przykładowy organ odpowiedzi:
 }
 ```
 
-Potwierdza to, że ochrona jest włączona dla udziału plików, a pierwsza kopia zapasowa zostanie wyzwolona zgodnie z harmonogramem zasad.
+Pozwala to upewnić się, że ochrona jest włączona dla udziału plików, a pierwsza kopia zapasowa zostanie wyzwolona zgodnie z harmonogramem zasad.
 
 ## <a name="trigger-an-on-demand-backup-for-file-share"></a>Wyzwalanie kopii zapasowej na żądanie dla udziału plików
 
-Po skonfigurowaniu udziału plików platformy Azure do tworzenia kopii zapasowych kopie zapasowe są uruchamiane zgodnie z harmonogramem zasad. Możesz poczekać na pierwszą zaplanowaną kopię zapasową lub wyzwolić kopię zapasową na żądanie w dowolnym momencie.
+Gdy udział plików platformy Azure jest skonfigurowany do tworzenia kopii zapasowych, kopie zapasowe są uruchamiane zgodnie z harmonogramem zasad. Możesz poczekać na pierwszą zaplanowaną kopię zapasową lub wyzwolić kopię zapasową na żądanie w dowolnym momencie.
 
 Wyzwalanie kopii zapasowej na żądanie jest operacją POST.
 
@@ -457,7 +457,7 @@ Wyzwalanie kopii zapasowej na żądanie jest operacją POST.
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/backup?api-version=2016-12-01
 ```
 
-{containerName} i {protectedItemName} są skonstruowane powyżej, włączając podczas włączania kopii zapasowej. W naszym przykładzie przekłada się to na:
+{ContainerName} i {protectedItemName} są tak skonstruowane jak powyżej podczas włączania tworzenia kopii zapasowych. W naszym przykładzie jest to tłumaczone na:
 
 ```http
 POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;testvault2/protectedItems/AzureFileShare;testshare/backup?api-version=2017-07-01
@@ -465,13 +465,13 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 ### <a name="create-request-body"></a>Utwórz treść żądania
 
-Aby wyzwolić kopię zapasową na żądanie, poniżej znajdują się składniki treści żądania.
+Aby wyzwolić kopię zapasową na żądanie, poniżej przedstawiono składniki treści żądania.
 
 | Nazwa       | Typ                       | Opis                       |
 | ---------- | -------------------------- | --------------------------------- |
 | Właściwości | AzurefilesharebackupReques | Właściwości BackupRequestResource |
 
-Pełna lista definicji treści żądania i innych szczegółów można znaleźć w [celu wykonania kopii zapasowych wyzwalania chronionych elementów dokumentu interfejsu API REST](https://docs.microsoft.com/rest/api/backup/backups/trigger#request-body).
+Aby zapoznać się z pełną listą definicji treści żądania i innych szczegółów, zapoznaj się z tematem [wyzwalanie kopii zapasowych dla dokumentów interfejsu API REST elementów chronionych](https://docs.microsoft.com/rest/api/backup/backups/trigger#request-body).
 
 Przykład treści żądania
 
@@ -489,13 +489,13 @@ Przykład treści żądania
 
 ### <a name="responses"></a>Odpowiedzi
 
-Wyzwalanie kopii zapasowej na żądanie jest [operacją asynchronizacyjną](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Oznacza to, że ta operacja tworzy inną operację, która musi być śledzona oddzielnie.
+Wyzwalanie kopii zapasowej na żądanie jest [operacją asynchroniczną](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
 
-Zwraca dwie odpowiedzi: 202 (Zaakceptowane) po utworzeniu innej operacji i 200 (OK) po zakończeniu tej operacji.
+Zwraca dwie odpowiedzi: 202 (zaakceptowane), gdy tworzona jest inna operacja i 200 (OK) po zakończeniu tej operacji.
 
 ### <a name="example-responses"></a>Przykładowe odpowiedzi
 
-Po przesłaniu żądania *POST* dla kopii zapasowej na żądanie początkowa odpowiedź jest 202 (zaakceptowana) z nagłówkiem lokalizacji lub nagłówkiem asynchronizowania platformy Azure.
+Po przesłaniu żądania *post* do kopii zapasowej na żądanie początkowa odpowiedź to 202 (zaakceptowana) z nagłówkiem lokalizacji lub z nagłówkiem Azure-Async-header.
 
 ```http
 'Cache-Control': 'no-cache'
@@ -516,15 +516,15 @@ Po przesłaniu żądania *POST* dla kopii zapasowej na żądanie początkowa odp
 'Content-Length': '0'
 ```
 
-Następnie śledź wynikową operację przy użyciu nagłówka lokalizacji lub nagłówka Azure-AsyncOperation za pomocą polecenia *GET.*
+Następnie Śledź wyniki operacji przy użyciu nagłówka lokalizacji lub nagłówka Azure-AsyncOperation za pomocą polecenia *Get* .
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupOperations/dc62d524-427a-4093-968d-e951c0a0726e?api-version=2016-12-01
 ```
 
-Po zakończeniu operacji zwraca 200 (OK) z identyfikatorem wynikowego zadania tworzenia kopii zapasowej w treści odpowiedzi.
+Po zakończeniu operacji zwraca 200 (OK) z IDENTYFIKATORem wynikowego zadania tworzenia kopii zapasowej w treści odpowiedzi.
 
-#### <a name="sample-response-body"></a>Przykładowy materiał odpowiedzi
+#### <a name="sample-response-body"></a>Przykładowa treść odpowiedzi
 
 ```json
 {
@@ -540,8 +540,8 @@ Po zakończeniu operacji zwraca 200 (OK) z identyfikatorem wynikowego zadania tw
 }
 ```
 
-Ponieważ zadanie tworzenia kopii zapasowej jest długotrwałą operacją, musi być śledzone zgodnie z opisem w [zadaniach monitora przy użyciu dokumentu INTERFEJSU API REST](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-managejobs#tracking-the-job).
+Ponieważ zadanie tworzenia kopii zapasowej jest długotrwałą operacją, musi być śledzone zgodnie z opisem w [dokumencie monitorowanie zadań przy użyciu interfejsu API REST](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-managejobs#tracking-the-job).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak [przywrócić udziały plików platformy Azure przy użyciu interfejsu API rest](restore-azure-file-share-rest-api.md).
+- Dowiedz się, jak [przywrócić udziały plików platformy Azure przy użyciu interfejsu API REST](restore-azure-file-share-rest-api.md).

@@ -1,5 +1,5 @@
 ---
-title: Szybki start biblioteki klienta usługi Bing News Search Python
+title: wyszukiwanie wiadomości Bing przewodniku szybki start dla biblioteki klienta języka Python
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,17 +9,17 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
 ms.openlocfilehash: c1bd0d86a3fd9d19d67d84b9b05955421373e01e
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79503881"
 ---
-Użyj tego przewodnika Szybki start, aby rozpocząć wyszukiwanie wiadomości w bibliotece klienta wyszukiwania wiadomości Bing dla języka Python. Usługa Bing News Search ma interfejs API REST zgodny z większością języków programowania, ale biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py).
+Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć wyszukiwanie wiadomości za pomocą biblioteki klienta wyszukiwanie wiadomości Bing dla języka Python. Chociaż wyszukiwanie wiadomości Bing ma interfejs API REST zgodny z większością języków programowania, Biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Python](https://www.python.org/) 2.x lub 3.x
+* Język [Python](https://www.python.org/) 2. x lub 3. x
 
 Zalecane jest użycie [środowiska wirtualnego](https://docs.python.org/3/tutorial/venv.html) dla programowania w języku python. Środowisko wirtualne możesz zainstalować i zainicjować przy użyciu [modułu venv](https://pypi.python.org/pypi/virtualenv). Musi być zainstalowany moduł virtualenv dla języka Python 2.7. Środowisko wirtualne można utworzyć w następujący sposób:
 
@@ -27,7 +27,7 @@ Zalecane jest użycie [środowiska wirtualnego](https://docs.python.org/3/tutori
 python -m venv mytestenv
 ```
 
-Za pomocą tego polecenia można zainstalować zależności biblioteki klienta wyszukiwania wiadomości Bing za pomocą tego polecenia:
+Można zainstalować zależności biblioteki klienta wyszukiwanie wiadomości Bing za pomocą tego polecenia:
     
 ```console
 python -m pip install azure-cognitiveservices-search-newssearch
@@ -83,4 +83,4 @@ else:
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Tworzenie jednostronicowej aplikacji sieci Web](../../tutorial-bing-news-search-single-page-app.md)
+> [Tworzenie jednostronicowej aplikacji internetowej](../../tutorial-bing-news-search-single-page-app.md)

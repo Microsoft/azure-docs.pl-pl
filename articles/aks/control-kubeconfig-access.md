@@ -1,56 +1,56 @@
 ---
-title: Ogranicz dostęp do kubeconfig w usłudze Azure Kubernetes (AKS)
-description: Dowiedz się, jak kontrolować dostęp do pliku konfiguracji kubernetes (kubeconfig) dla administratorów klastrów i użytkowników klastra
+title: Ograniczanie dostępu do kubeconfig w usłudze Azure Kubernetes Service (AKS)
+description: Dowiedz się, jak kontrolować dostęp do pliku Kubernetes Configuration (kubeconfig) dla administratorów klastrów i użytkowników klastrów
 services: container-service
 ms.topic: article
 ms.date: 01/28/2020
 ms.openlocfilehash: 25c710cce2855d6af985d3f46082f47573bbc101
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79259554"
 ---
-# <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Użyj kontroli dostępu opartego na rolach platformy Azure, aby zdefiniować dostęp do pliku konfiguracji usługi Kubernetes w usłudze Azure Kubernetes (AKS)
+# <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Użycie kontroli dostępu opartej na rolach na platformie Azure w celu zdefiniowania dostępu do pliku konfiguracji Kubernetes w usłudze Azure Kubernetes Service (AKS)
 
-Za pomocą `kubectl` narzędzia można wchodzić w interakcje z klastrami kubernetes. Narzędzie koneuszny platformy Azure umożliwia łatwe uzyskiwanie poświadczeń dostępu `kubectl`i informacji o konfiguracji w celu nawiązania połączenia z klastrami AKS przy użyciu programu . Aby ograniczyć, kto może uzyskać te informacje o konfiguracji kubernetes *(kubeconfig)* i ograniczyć uprawnienia, które następnie mają, można użyć kontroli dostępu opartego na rolach platformy Azure (RBAC).
+Za pomocą `kubectl` narzędzia można korzystać z klastrów Kubernetes. Interfejs wiersza polecenia platformy Azure udostępnia łatwy sposób uzyskiwania poświadczeń dostępu i informacji o konfiguracji w celu łączenia się z klastrami `kubectl`AKS przy użyciu programu. Aby ograniczyć liczbę użytkowników, którzy mogą uzyskać informacje o konfiguracji usługi Kubernetes (*kubeconfig*) i ograniczyć uprawnienia do nich, możesz użyć kontroli dostępu opartej na ROLACH (RBAC) platformy Azure.
 
-W tym artykule pokazano, jak przypisać role RBAC, które ograniczają, kto może uzyskać informacje o konfiguracji dla klastra AKS.
+W tym artykule opisano sposób przypisywania ról RBAC, które ograniczają, kto może uzyskać informacje o konfiguracji dla klastra AKS.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zobacz szybki start usługi AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub za pomocą portalu [Azure.][aks-quickstart-portal]
+W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
-W tym artykule wymaga również, że są uruchomione interfejsu wiersza polecenia platformy Azure w wersji 2.0.65 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
+Ten artykuł wymaga również uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.0.65 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
 
 ## <a name="available-cluster-roles-permissions"></a>Dostępne uprawnienia ról klastra
 
-Podczas interakcji z klastrem AKS za pomocą `kubectl` narzędzia używany jest plik konfiguracyjny definiujący informacje o połączeniu klastra. Ten plik konfiguracyjny jest zazwyczaj przechowywany w *pliku ~/.kube/config*. W tym pliku *kubeconfig* można zdefiniować wiele klastrów. Przełączasz się między klastrami za pomocą polecenia [kubectl config use-context.][kubectl-config-use-context]
+Podczas pracy z klastrem AKS przy użyciu `kubectl` narzędzia jest używany plik konfiguracji, który definiuje informacje o połączeniu z klastrem. Ten plik konfiguracji jest zwykle przechowywany w *~/.Kube/config*. W tym pliku *kubeconfig* można zdefiniować wiele klastrów. Można przełączać się między klastrami przy użyciu polecenia [polecenia kubectl config use-Context][kubectl-config-use-context] .
 
-Polecenie [az aks get-credentials][az-aks-get-credentials] umożliwia uzyskanie poświadczeń dostępu dla klastra AKS i scalanie ich z plikiem *kubeconfig.* Aby kontrolować dostęp do tych poświadczeń, można użyć formantów dostępu opartych na rolach platformy Azure (RBAC). Te role rbac platformy Azure umożliwiają zdefiniowanie, kto może pobrać plik *kubeconfig* i jakie uprawnienia mają następnie w klastrze.
+Polecenie [AZ AKS Get-Credentials][az-aks-get-credentials] pozwala uzyskać poświadczenia dostępu do klastra AKS i scalić je z plikiem *kubeconfig* . Za pomocą kontroli dostępu opartej na rolach (RBAC) platformy Azure można kontrolować dostęp do tych poświadczeń. Te role RBAC platformy Azure umożliwiają zdefiniowanie osób, które mogą pobrać plik *kubeconfig* i jakie uprawnienia są następnie w klastrze.
 
 Dwie wbudowane role to:
 
-* **Rola administratora klastra usługi Azure Kubernetes**  
-  * Umożliwia dostęp do wywołania interfejsu API *Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action.* To wywołanie interfejsu API [zawiera listę poświadczeń administratora klastra][api-cluster-admin].
-  * Pliki do pobrania *kubeconfig* dla *roli clusterAdmin.*
-* **Rola użytkownika klastra usług Azure Kubernetes**
-  * Umożliwia dostęp do *microsoft.ContainerService/managedClusters/listClusterUserCredential/action* WYWOŁANIE INTERFEJSU API. To wywołanie interfejsu API [zawiera listę poświadczeń użytkownika klastra][api-cluster-user].
-  * Pliki do pobrania *kubeconfig* dla *roli clusterUser.*
+* **Rola administratora klastra usługi Kubernetes platformy Azure**  
+  * Zezwala na dostęp do wywołania interfejsu API *Microsoft. ContainerService/managedClusters/listClusterAdminCredential/Action* . To wywołanie interfejsu API [wyświetla listę poświadczeń administratora klastra][api-cluster-admin].
+  * Pobiera *kubeconfig* dla roli *clusterAdmin* .
+* **Rola użytkownika klastra usługi Azure Kubernetes Service**
+  * Zezwala na dostęp do wywołania interfejsu API *Microsoft. ContainerService/managedClusters/listClusterUserCredential/Action* . To wywołanie interfejsu API [wyświetla listę poświadczeń użytkownika klastra][api-cluster-user].
+  * Pobiera *kubeconfig* dla roli *clusterUser* .
 
-Te role RBAC można zastosować do użytkownika lub grupy usługi Azure Active Directory (AD).
+Te role RBAC można zastosować do użytkownika lub grupy Azure Active Directory (AD).
 
-> ! [UWAGA] W klastrach korzystających z usługi Azure AD użytkownicy z rolą *clusterUser* mają pusty plik *kubeconfig,* który monituje o zalogowanie. Po zalogowaniu użytkownicy mają dostęp na podstawie ustawień użytkownika lub grupy usługi Azure AD. Użytkownicy z rolą *clusterAdmin* mają dostęp administratora.
+> ! KORYGUJĄC W klastrach korzystających z usługi Azure AD użytkownicy z rolą *clusterUser* mają pusty plik *kubeconfig* , który będzie monitował o logowanie. Po zalogowaniu użytkownicy będą mieli dostęp na podstawie ustawień użytkownika lub grupy usługi Azure AD. Użytkownicy z rolą *clusterAdmin* mają dostęp administratora.
 >
-> Klastry, które nie używają usługi Azure AD, używają tylko roli *clusterAdmin.*
+> W klastrach, które nie korzystają z usługi Azure AD, należy używać tylko roli *clusterAdmin* .
 
-## <a name="assign-role-permissions-to-a-user-or-group"></a>Przypisywanie uprawnień roli do użytkownika lub grupy
+## <a name="assign-role-permissions-to-a-user-or-group"></a>Przypisywanie uprawnień roli użytkownikowi lub grupie
 
-Aby przypisać jedną z dostępnych ról, musisz uzyskać identyfikator zasobu klastra AKS i identyfikator konta użytkownika lub grupy usługi Azure AD. Następujące przykładowe polecenia:
+Aby przypisać jedną z dostępnych ról, należy uzyskać identyfikator zasobu klastra AKS oraz identyfikator konta użytkownika lub grupy usługi Azure AD. Następujące przykładowe polecenia:
 
-* Pobierz identyfikator zasobu klastra za pomocą polecenia [az aks show][az-aks-show] dla klastra o nazwie *myAKSCluster* w grupie zasobów *myResourceGroup.* W razie potrzeby podaj własną nazwę klastra i grupy zasobów.
-* Użyj polecenia [az account show][az-account-show] i [az ad user show,][az-ad-user-show] aby uzyskać identyfikator użytkownika.
-* Na koniec przypisz rolę za pomocą [polecenia tworzenia przypisania roli az.][az-role-assignment-create]
+* Pobierz identyfikator zasobu klastra przy użyciu polecenia [AZ AKS show][az-aks-show] dla klastra o nazwie *myAKSCluster* w grupie zasobów *WebResource* . Podaj własny klaster i nazwę grupy zasobów zgodnie z potrzebami.
+* Użyj polecenia [AZ Account show][az-account-show] i [AZ AD User show][az-ad-user-show] , aby uzyskać identyfikator użytkownika.
+* Na koniec Przypisz rolę za pomocą polecenia [AZ role Assign Create][az-role-assignment-create] .
 
 Poniższy przykład przypisuje *rolę administratora klastra usługi Azure Kubernetes* do indywidualnego konta użytkownika:
 
@@ -70,11 +70,11 @@ az role assignment create \
 ```
 
 > [!TIP]
-> Jeśli chcesz przypisać uprawnienia do grupy usługi Azure `--assignee` AD, zaktualizuj parametr pokazany w poprzednim przykładzie o identyfikatorze obiektu dla *grupy,* a nie *dla użytkownika.* Aby uzyskać identyfikator obiektu dla grupy, użyj polecenia [az ad group show.][az-ad-group-show] W poniższym przykładzie pobiera identyfikator obiektu dla grupy usługi Azure AD o nazwie *appdev:*`az ad group show --group appdev --query objectId -o tsv`
+> Jeśli chcesz przypisać uprawnienia do grupy usługi Azure AD, zaktualizuj `--assignee` parametr wyświetlany w poprzednim przykładzie przy użyciu identyfikatora obiektu dla *grupy* , a nie *użytkownika*. Aby uzyskać identyfikator obiektu dla grupy, użyj polecenia [AZ AD Group Show][az-ad-group-show] . Poniższy przykład pobiera identyfikator obiektu dla grupy usługi Azure AD o nazwie *appdev*:`az ad group show --group appdev --query objectId -o tsv`
 
-W razie potrzeby można zmienić poprzednie przypisanie na *rolę użytkownika klastra.*
+W razie potrzeby można zmienić poprzednie przypisanie do *roli użytkownika klastra* .
 
-Poniższy przykładowy wynik pokazuje, że przypisanie roli zostało pomyślnie utworzone:
+Następujące przykładowe dane wyjściowe pokazują, że przypisanie roli zostało pomyślnie utworzone:
 
 ```
 {
@@ -89,15 +89,15 @@ Poniższy przykładowy wynik pokazuje, że przypisanie roli zostało pomyślnie 
 }
 ```
 
-## <a name="get-and-verify-the-configuration-information"></a>Pobierz i zweryfikuj informacje o konfiguracji
+## <a name="get-and-verify-the-configuration-information"></a>Pobieranie i weryfikowanie informacji o konfiguracji
 
-Przy przypisanych rolach RBAC użyj polecenia [az aks get-credentials,][az-aks-get-credentials] aby uzyskać definicję *kubeconfig* dla klastra AKS. Poniższy przykład pobiera *poświadczenia --admin,* które działają poprawnie, jeśli użytkownikowi przyznano *rolę administratora klastra:*
+W przypadku przypisanych ról RBAC Użyj polecenia [AZ AKS Get-Credentials][az-aks-get-credentials] , aby uzyskać definicję *KUBECONFIG* dla klastra AKS. Poniższy przykład pobiera poświadczenia *--administratora* , które działają poprawnie, jeśli użytkownikowi udzielono *roli administratora klastra*:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-Następnie można użyć polecenia [widoku konfiguracji kubectl,][kubectl-config-view] aby sprawdzić, czy *kontekst* klastra pokazuje, że informacje o konfiguracji administratora zostały zastosowane:
+Następnie można użyć polecenia [View config polecenia kubectl][kubectl-config-view] , aby sprawdzić, czy *kontekst* klastra pokazuje, że zostały zastosowane informacje o konfiguracji administratora:
 
 ```
 $ kubectl config view
@@ -124,9 +124,9 @@ users:
     token: e9f2f819a4496538b02cefff94e61d35
 ```
 
-## <a name="remove-role-permissions"></a>Usuwanie uprawnień roli
+## <a name="remove-role-permissions"></a>Usuń uprawnienia roli
 
-Aby usunąć przypisania ról, użyj polecenia [usuń przypisanie roli az.][az-role-assignment-delete] Określ identyfikator konta i identyfikator zasobu klastra, zgodnie z poprzednimi poleceniami. Jeśli przypisano rolę do grupy, a nie do użytkownika, określ odpowiedni identyfikator obiektu `--assignee` grupy, a nie identyfikator obiektu konta dla tego parametru:
+Aby usunąć przypisania ról, użyj polecenia [AZ role przypisanie Delete][az-role-assignment-delete] . Określ identyfikator konta i identyfikator zasobu klastra, jak uzyskano w poprzednich poleceniach. Jeśli rola została przypisana do grupy, a nie jako użytkownik, określ odpowiedni identyfikator obiektu grupy zamiast identyfikatora obiektu konta dla `--assignee` parametru:
 
 ```azurecli-interactive
 az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
@@ -134,7 +134,7 @@ az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zwiększyć bezpieczeństwo dostępu do klastrów AKS, [zintegruj uwierzytelnianie usługi Azure Active Directory][aad-integration].
+Aby zwiększyć bezpieczeństwo dostępu do klastrów AKS, należy [zintegrować uwierzytelnianie Azure Active Directory][aad-integration].
 
 <!-- LINKS - external -->
 [kubectl-config-use-context]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#config

@@ -19,14 +19,14 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bbd1ad6178e0120bf8414fc424b79254e306d2c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261569"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorowanie usług AD FS za pomocą programu Azure AD Connect Health
-Poniższa dokumentacja dotyczy monitorowania infrastruktury usług AD FS przy użyciu programu Azure AD Connect Health. Aby uzyskać informacje na temat monitorowania usługi Azure AD Connect (Sync) za pomocą usługi Azure AD Connect Health, zobacz [Korzystanie z usługi Azure AD Connect Health for Sync](how-to-connect-health-sync.md). Ponadto aby uzyskać informacje na temat monitorowania usług domenowych Active Directory za pomocą usługi Azure AD Connect Health, zobacz [Korzystanie z usługi Azure AD Connect Health z usługami AD DS](how-to-connect-health-adds.md).
+Poniższa dokumentacja dotyczy monitorowania infrastruktury usług AD FS przy użyciu programu Azure AD Connect Health. Aby uzyskać informacje na temat monitorowania Azure AD Connect (Sync) z Azure AD Connect Health, zobacz [używanie Azure AD Connect Health do synchronizacji](how-to-connect-health-sync.md). Ponadto aby uzyskać informacje na temat monitorowania Active Directory Domain Services przy użyciu Azure AD Connect Health, zobacz [używanie Azure AD Connect Health z AD DS](how-to-connect-health-adds.md).
 
 ## <a name="alerts-for-ad-fs"></a>Alerty dla usług AD FS
 Sekcja Alerty programu Azure AD Connect Health udostępnia listę aktywnych alertów. Każdy alert zawiera istotne informacje, kroki do rozwiązania problemu i linki do powiązanej dokumentacji.
@@ -121,5 +121,5 @@ Raport zawiera następujące informacje:
 ## <a name="related-links"></a>Powiązane linki
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Instalowanie agenta programu Azure AD Connect Health](how-to-connect-health-agent-install.md)
-* [Ryzykowny raport IP](how-to-connect-health-adfs-risky-ip.md)
+* [Raport dotyczący ryzykownego adresu IP](how-to-connect-health-adfs-risky-ip.md)
 

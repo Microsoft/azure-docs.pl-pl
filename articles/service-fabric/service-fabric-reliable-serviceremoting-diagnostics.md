@@ -1,95 +1,95 @@
 ---
-title: Diagnostyka i monitorowanie usługi Azure ServiceFabric
-description: W tym artykule opisano funkcje monitorowania wydajności w czasie wykonywania niezawodnej usługi usługi UsługiZamykanie, takie jak liczniki wydajności emitowane przez niego.
+title: Diagnostyka i monitorowanie usługi Azure servicefabric
+description: W tym artykule opisano funkcje monitorowania wydajności w Service Fabric niezawodnego środowiska uruchomieniowego servicekomunikacja zdalnego, takie jak liczniki wydajności emitowane przez ten program.
 author: suchiagicha
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
 ms.openlocfilehash: 31095a619fc4d756fa4ef9c29691d1d511d59ece
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282278"
 ---
-# <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostyka i monitorowanie wydajności w celu niezawodnej komunikacji serwisowej
-Środowisko wykonawcze Reliable ServiceRemoting emituje [liczniki wydajności.](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) Zapewniają one wgląd w sposób serviceremoting działa i pomoc w rozwiązywaniu problemów i monitorowania wydajności.
+# <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostyka i monitorowanie wydajności dla niezawodnej komunikacji zdalnej usługi
+Niezawodne środowisko uruchomieniowe servicekomunikacji zdalnej nie emituje [liczników wydajności](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Umożliwiają one wgląd w działanie usługi servicekomunikacja zdalna i rozwiązywanie problemów i monitorowanie wydajności.
 
 
 ## <a name="performance-counters"></a>Liczniki wydajności
-Środowisko uruchomieniowe Reliable ServiceRemoting definiuje następujące kategorie liczników wydajności:
+Niezawodne środowisko uruchomieniowe servicekomunikacji zdalnej definiuje następujące kategorie liczników wydajności:
 
 | Kategoria | Opis |
 | --- | --- |
-| Usługa sieci szkieletowej usług |Liczniki specyficzne dla usługi Azure Service Fabric Service Service Remoting , na przykład średni czas przetwarzania żądania |
-| Metoda usługi sieci szkieletowej usług |Liczniki specyficzne dla metod zaimplementowanych przez usługę komunikacji zdalnej sieci szkieletowej usług, na przykład, jak często wywoływana jest metoda usługi |
+| Usługa Service Fabric |Liczniki specyficzne dla komunikacji zdalnej usługi Azure Service Fabric, na przykład średni czas przetwarzania żądania |
+| Service Fabric metoda usługi |Liczniki specyficzne dla metod implementowanych przez usługę komunikacji zdalnej Service Fabric, na przykład częstotliwość wywoływania metody usługi |
 
 Każda z powyższych kategorii ma jeden lub więcej liczników.
 
-Aplikacja [Monitor wydajności systemu Windows,](https://technet.microsoft.com/library/cc749249.aspx) która jest domyślnie dostępna w systemie operacyjnym Windows, może służyć do zbierania i wyświetlania danych licznika wydajności. [Diagnostyka platformy Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) to kolejna opcja do zbierania danych licznika wydajności i przekazywania ich do tabel platformy Azure.
+Aplikacja [Monitor wydajności systemu Windows](https://technet.microsoft.com/library/cc749249.aspx) , która jest dostępna domyślnie w systemie operacyjnym Windows, może służyć do zbierania i wyświetlania danych licznika wydajności. [Diagnostyka Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) jest kolejną opcją do zbierania danych licznika wydajności i przekazywania ich do tabel platformy Azure.
 
-### <a name="performance-counter-instance-names"></a>Nazwy wystąpień licznika wydajności
-Klaster, który ma dużą liczbę usługRekontowanie usług lub partycji mają dużą liczbę wystąpień licznika wydajności. Nazwy wystąpień licznika wydajności może pomóc w identyfikacji określonej partycji i service metody (jeśli dotyczy), że wystąpienie licznika wydajności jest skojarzony z.
+### <a name="performance-counter-instance-names"></a>Nazwy wystąpień liczników wydajności
+Klaster, który ma dużą liczbę usług zdalnej usługi lub partycji, ma dużą liczbę wystąpień liczników wydajności. Nazwy wystąpień licznika wydajności mogą pomóc w zidentyfikowaniu konkretnej metody partycji i usługi (jeśli dotyczy), z którą skojarzone jest wystąpienie licznika wydajności.
 
-#### <a name="service-fabric-service-category"></a>Kategoria usługi sieci szkieletowej usług
-W przypadku `Service Fabric Service`kategorii nazwy wystąpień licznika są w następującym formacie:
+#### <a name="service-fabric-service-category"></a>Kategoria usługi Service Fabric
+W przypadku kategorii `Service Fabric Service`nazwy wystąpień liczników mają następujący format:
 
 `ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*ServiceFabricPartitionID* jest reprezentacją ciągu identyfikatora partycji sieci szkieletowej usług, z którą jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) reprezentacja ciągu jest generowana za pomocą metody z specyfikatorem formatu "D".
+*ServiceFabricPartitionID* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu jest [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) generowana za pomocą metody ze specyfikatorem formatu "D".
 
-*Identyfikator InstanceId usługi Jest* reprezentacją ciągu identyfikatora repliki/wystąpienia sieci szkieletowej usług, z którą jest skojarzone wystąpienie licznika wydajności.
+*ServiceReplicaOrInstanceId* to ciąg reprezentujący identyfikator Service Fabric repliki/wystąpienia, z którym jest skojarzone wystąpienie licznika wydajności.
 
-*ServiceRuntimeInternalID* jest reprezentacją ciągu 64-bitowej liczby całkowitej, która jest generowana przez środowisko uruchomieniowe usługi sieci szkieletowej do użytku wewnętrznego. Jest to zawarte w nazwie wystąpienia licznika wydajności, aby zapewnić jego unikatowość i uniknąć konfliktu z innymi nazwami wystąpień licznika wydajności. Użytkownicy nie powinni próbować interpretować tej części nazwy wystąpienia licznika wydajności.
+*ServiceRuntimeInternalID* to ciąg reprezentujący 64-bitową liczbę całkowitą wygenerowaną przez środowisko uruchomieniowe usługi sieci szkieletowej do użytku wewnętrznego. Ta wartość jest uwzględniona w nazwie wystąpienia licznika wydajności, aby zapewnić jej unikatowość i uniknąć konfliktu z innymi nazwami wystąpień liczników wydajności. Użytkownicy nie powinni próbować interpretować tej części nazwy wystąpienia licznika wydajności.
 
-Poniżej przedstawiono przykład nazwy wystąpienia licznika dla licznika, który należy do `Service Fabric Service` kategorii:
+Poniżej znajduje się przykład nazwy wystąpienia licznika dla licznika, który należy do `Service Fabric Service` kategorii:
 
 `2740af29-78aa-44bc-a20b-7e60fb783264_635650083799324046_5008379932`
 
-W poprzednim przykładzie `2740af29-78aa-44bc-a20b-7e60fb783264` jest reprezentacja ciągu identyfikatora partycji sieci szkieletowej `635650083799324046` usług, `5008379932` jest reprezentacją ciągu Replika/InstanceId i jest 64-bitowym identyfikatorem, który jest generowany do użytku wewnętrznego środowiska wykonawczego.
+W poprzednim przykładzie, `2740af29-78aa-44bc-a20b-7e60fb783264` jest reprezentacją ciągu Service Fabric identyfikator partycji, `635650083799324046` jest reprezentacją typu replika/InstanceId `5008379932` i jest 64-bitowym identyfikatorem, który jest generowany dla wewnętrznego użycia środowiska uruchomieniowego.
 
-#### <a name="service-fabric-service-method-category"></a>Kategoria metody usługi sieci szkieletowej usług
-W przypadku `Service Fabric Service Method`kategorii nazwy wystąpień licznika są w następującym formacie:
+#### <a name="service-fabric-service-method-category"></a>Kategoria metody usługi Service Fabric
+W przypadku kategorii `Service Fabric Service Method`nazwy wystąpień liczników mają następujący format:
 
 `MethodName_ServiceRuntimeMethodId_ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*MethodName* to nazwa metody usługi, z którą jest skojarzone wystąpienie licznika wydajności. Format nazwy metody jest określany na podstawie pewnej logiki w czasie wykonywania usługi sieci szkieletowej, która równoważy czytelność nazwy z ograniczeniami dotyczącymi maksymalnej długości nazw wystąpień licznika wydajności w systemie Windows.
+*MethodName* to nazwa metody usługi, z którą jest skojarzone wystąpienie licznika wydajności. Format nazwy metody jest określany na podstawie pewnej logiki w środowisku uruchomieniowym usługi sieci szkieletowej, która równoważy czytelność nazwy z ograniczeniami dotyczącymi maksymalnej długości nazw wystąpień liczników wydajności w systemie Windows.
 
-*ServiceRuntimeMethodId* jest reprezentacją ciągu 32-bitowej liczby całkowitej, która jest generowana przez środowisko uruchomieniowe usługi sieci szkieletowej do użytku wewnętrznego. Jest to zawarte w nazwie wystąpienia licznika wydajności, aby zapewnić jego unikatowość i uniknąć konfliktu z innymi nazwami wystąpień licznika wydajności. Użytkownicy nie powinni próbować interpretować tej części nazwy wystąpienia licznika wydajności.
+*ServiceRuntimeMethodId* to ciąg reprezentujący 32-bitową liczbę całkowitą wygenerowaną przez środowisko uruchomieniowe usługi sieci szkieletowej do użytku wewnętrznego. Ta wartość jest uwzględniona w nazwie wystąpienia licznika wydajności, aby zapewnić jej unikatowość i uniknąć konfliktu z innymi nazwami wystąpień liczników wydajności. Użytkownicy nie powinni próbować interpretować tej części nazwy wystąpienia licznika wydajności.
 
-*ServiceFabricPartitionID* jest reprezentacją ciągu identyfikatora partycji sieci szkieletowej usług, z którą jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) reprezentacja ciągu jest generowana za pomocą metody z specyfikatorem formatu "D".
+*ServiceFabricPartitionID* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu jest [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) generowana za pomocą metody ze specyfikatorem formatu "D".
 
-*Identyfikator InstanceId usługi Jest* reprezentacją ciągu identyfikatora repliki/wystąpienia sieci szkieletowej usług, z którą jest skojarzone wystąpienie licznika wydajności.
+*ServiceReplicaOrInstanceId* to ciąg reprezentujący identyfikator Service Fabric repliki/wystąpienia, z którym jest skojarzone wystąpienie licznika wydajności.
 
-*ServiceRuntimeInternalID* jest reprezentacją ciągu 64-bitowej liczby całkowitej, która jest generowana przez środowisko uruchomieniowe usługi sieci szkieletowej do użytku wewnętrznego. Jest to zawarte w nazwie wystąpienia licznika wydajności, aby zapewnić jego unikatowość i uniknąć konfliktu z innymi nazwami wystąpień licznika wydajności. Użytkownicy nie powinni próbować interpretować tej części nazwy wystąpienia licznika wydajności.
+*ServiceRuntimeInternalID* to ciąg reprezentujący 64-bitową liczbę całkowitą wygenerowaną przez środowisko uruchomieniowe usługi sieci szkieletowej do użytku wewnętrznego. Ta wartość jest uwzględniona w nazwie wystąpienia licznika wydajności, aby zapewnić jej unikatowość i uniknąć konfliktu z innymi nazwami wystąpień liczników wydajności. Użytkownicy nie powinni próbować interpretować tej części nazwy wystąpienia licznika wydajności.
 
-Poniżej przedstawiono przykład nazwy wystąpienia licznika dla licznika, który należy do `Service Fabric Service Method` kategorii:
+Poniżej znajduje się przykład nazwy wystąpienia licznika dla licznika, który należy do `Service Fabric Service Method` kategorii:
 
 `ivoicemailboxservice.leavemessageasync_2_89383d32-e57e-4a9b-a6ad-57c6792aa521_635650083804480486_5008380`
 
-W poprzednim przykładzie `ivoicemailboxservice.leavemessageasync` jest nazwą `2` metody, jest 32-bitowy identyfikator generowany dla użytku `89383d32-e57e-4a9b-a6ad-57c6792aa521` wewnętrznego środowiska wykonawczego, jest reprezentacją ciągu identyfikator partycji sieci szkieletowej`635650083804480486` `5008380` usług, jest reprezentacją ciągu repliki/wystąpienia sieci szkieletowej usług i jest identyfikatorem 64-bitowym generowanym do użytku wewnętrznego środowiska wykonawczego.
+W poprzednim przykładzie `ivoicemailboxservice.leavemessageasync` , jest nazwą metody, `2` jest 32-bitowy identyfikator wygenerowany dla wewnętrznego użytku środowiska uruchomieniowego, `89383d32-e57e-4a9b-a6ad-57c6792aa521` to ciąg reprezentujący identyfikator partycji Service Fabric,`635650083804480486` jest reprezentacją ciągu Service Fabric repliki/identyfikatora wystąpienia i `5008380` jest identyfikatorem 64-bitowym wygenerowanym dla wewnętrznego użycia środowiska uruchomieniowego.
 
 ## <a name="list-of-performance-counters"></a>Lista liczników wydajności
-### <a name="service-method-performance-counters"></a>Liczniki wydajności metody serwisowej
+### <a name="service-method-performance-counters"></a>Liczniki wydajności metody usługi
 
 Środowisko uruchomieniowe niezawodnej usługi publikuje następujące liczniki wydajności związane z wykonywaniem metod usługi.
 
 | Nazwa kategorii | Nazwa licznika | Opis |
 | --- | --- | --- |
-| Metoda usługi sieci szkieletowej usług |Wywołania/s |Liczba wywołań metody usługi na sekundę |
-| Metoda usługi sieci szkieletowej usług |Średnia milisekundy na wywołanie |Czas wykonania metody usługi w milisekundach |
-| Metoda usługi sieci szkieletowej usług |Wyjątki generowane/s |Liczba wyświetlek, w których metoda usługi zgłosiła wyjątek na sekundę |
+| Service Fabric metoda usługi |Wywołania/s |Liczba wywoływanych metod usługi na sekundę |
+| Service Fabric metoda usługi |Średni czas dla wywołania |Czas wykonania metody usługi w milisekundach |
+| Service Fabric metoda usługi |Zgłoszone wyjątki/s |Ile razy metoda usługi zgłosiła wyjątek na sekundę |
 
-### <a name="service-request-processing-performance-counters"></a>Liczniki wydajności przetwarzania żądań serwisowych
-Gdy klient wywołuje metodę za pośrednictwem obiektu serwera proxy usługi, powoduje to wysłanie komunikatu żądania za pośrednictwem sieci do usługi komunikacji zdalnej. Usługa przetwarza komunikat żądania i wysyła odpowiedź z powrotem do klienta. Środowisko wykonawcze Niezawodne usługiRemoting publikuje następujące liczniki wydajności związane z przetwarzaniem żądań usługi.
+### <a name="service-request-processing-performance-counters"></a>Liczniki wydajności przetwarzania żądań obsługi
+Gdy klient wywołuje metodę za pośrednictwem obiektu serwera proxy usługi, powoduje wysłanie komunikatu żądania przez sieć do usługi zdalnej. Usługa przetwarza komunikat żądania i wysyła odpowiedź z powrotem do klienta. Niezawodne środowisko uruchomieniowe servicekomunikacji zdalnej publikuje następujące liczniki wydajności związane z przetwarzaniem żądań obsługi.
 
 | Nazwa kategorii | Nazwa licznika | Opis |
 | --- | --- | --- |
-| Usługa sieci szkieletowej usług |Liczba zaległych wniosków |Liczba żądań przetwarzanych w usłudze |
-| Usługa sieci szkieletowej usług |Średnia milisekundy na żądanie |Czas przejmujeny przez usługę (w milisekundach) na przetworzenie żądania |
-| Usługa sieci szkieletowej usług |Średnia milisekundy dla deserializacji żądania |Czas (w milisekundach) na deserializację komunikatu żądania usługi po odebraniu go w usłudze |
-| Usługa sieci szkieletowej usług |Średnia milisekundy dla serializacji odpowiedzi |Czas potrzebny (w milisekundach) na serializację komunikatu odpowiedzi usługi w usłudze przed wysłaniem odpowiedzi do klienta |
+| Usługa Service Fabric |Liczba oczekujących żądań |Liczba żądań przetwarzanych w usłudze |
+| Usługa Service Fabric |Średni czas na żądanie |Czas trwania (w milisekundach) przez usługę w celu przetworzenia żądania |
+| Usługa Service Fabric |Średni czas deserializacji żądania (w milisekundach) |Czas (w milisekundach) deserializacji komunikatu żądania obsługi po odebraniu w usłudze |
+| Usługa Service Fabric |Średni czas serializacji odpowiedzi (w milisekundach) |Czas (w milisekundach) serializacji komunikatu odpowiedzi usługi w usłudze przed wysłaniem odpowiedzi do klienta |
 
 ## <a name="next-steps"></a>Następne kroki
 * [Przykładowy kod](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
-* [Dostawcy usługi EventSource w utrw](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
+* [Dostawcy EventSource w narzędzia PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie przekazywania usług DNS dla plików platformy Azure | Dokumenty firmy Microsoft
-description: Omówienie opcji sieciowych dla usług Azure Files.
+title: Konfigurowanie przekazywania DNS dla Azure Files | Microsoft Docs
+description: Omówienie opcji sieciowych dla Azure Files.
 author: roygara
 ms.service: storage
 ms.topic: overview
@@ -8,50 +8,50 @@ ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 35dfbcb274721049f2160719222ca89038c93356
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80082500"
 ---
-# <a name="configuring-dns-forwarding-for-azure-files"></a>Konfigurowanie przekazywania usług DNS dla plików platformy Azure
-Usługa Azure Files umożliwia tworzenie prywatnych punktów końcowych dla kont magazynu zawierających udziały plików. Chociaż przydatne dla wielu różnych aplikacji, prywatne punkty końcowe są szczególnie przydatne do łączenia się z udziałami plików platformy Azure z sieci lokalnej przy użyciu połączenia SIECI VPN lub usługi ExpressRoute przy użyciu prywatnej komunikacji równorzędnej. 
+# <a name="configuring-dns-forwarding-for-azure-files"></a>Konfigurowanie przekazywania DNS dla usługi Azure Files
+Azure Files umożliwia tworzenie prywatnych punktów końcowych dla kont magazynu zawierających udziały plików. Mimo że jest to przydatne w przypadku wielu różnych aplikacji, prywatne punkty końcowe są szczególnie przydatne do łączenia się z udziałami plików platformy Azure z sieci lokalnej przy użyciu połączenia VPN lub ExpressRoute za pomocą komunikacji równorzędnej. 
 
-Aby połączenia z kontem magazynu zostały przejmące się przez tunel sieciowy, w pełni kwalifikowana nazwa domeny (FQDN) konta magazynu musi zostać rozpoznana na prywatny adres IP prywatnego punktu końcowego. Aby to osiągnąć, należy przesłać dalej sufiks punktu końcowego magazynu (dla`core.windows.net` regionów chmury publicznej) do prywatnej usługi DNS platformy Azure dostępnej z poziomu sieci wirtualnej. W tym przewodniku pokazano, jak skonfigurować i skonfigurować przekazywanie dns, aby poprawnie rozpoznać adres IP prywatnego punktu końcowego konta magazynu.
+Aby połączenia z kontem magazynu były przenoszone przez tunel sieciowy, w pełni kwalifikowana nazwa domeny (FQDN) konta magazynu musi zostać rozpoznana jako prywatny adres IP prywatnego punktu końcowego. Aby to osiągnąć, należy przekazać sufiks punktu końcowego magazynu (`core.windows.net` dla regionów chmury publicznej) do prywatnej usługi DNS platformy Azure dostępnej w sieci wirtualnej. W tym przewodniku przedstawiono sposób konfigurowania i konfigurowania funkcji przekazywania DNS w celu prawidłowego rozpoznania adresu IP prywatnego punktu końcowego konta magazynu.
 
-Zdecydowanie zaleca się [przeczytanie planowania dla wdrożenia usługi Azure Files](storage-files-planning.md) i zagadnienia dotyczące sieci usługi Azure Files przed wykonaniem kroków [opisanych](storage-files-networking-overview.md) w tym artykule.
+Zdecydowanie zalecamy zapoznanie się z [planowaniem Azure Files wdrożenia](storage-files-planning.md) i [Azure Files zagadnień dotyczących sieci](storage-files-networking-overview.md) przed wykonaniem kroków opisanych w tym artykule.
 
 ## <a name="overview"></a>Omówienie
-Usługa Azure Files udostępnia dwa główne typy punktów końcowych dostępu do udziałów plików platformy Azure: 
+Azure Files udostępnia dwa główne typy punktów końcowych do uzyskiwania dostępu do udziałów plików platformy Azure: 
 - Publiczne punkty końcowe, które mają publiczny adres IP i są dostępne z dowolnego miejsca na świecie.
-- Prywatne punkty końcowe, które istnieją w sieci wirtualnej i mają prywatny adres IP z przestrzeni adresowej tej sieci wirtualnej.
+- Prywatne punkty końcowe, które istnieją w ramach sieci wirtualnej i mają prywatny adres IP w przestrzeni adresowej tej sieci wirtualnej.
 
-Publiczne i prywatne punkty końcowe istnieją na koncie magazynu platformy Azure. Konto magazynu jest konstrukcją zarządzania, która reprezentuje udostępnioną pulę magazynu, w której można wdrożyć wiele udziałów plików, a także inne zasoby magazynu, takie jak kontenery obiektów blob lub kolejki.
+Publiczne i prywatne punkty końcowe istnieją na koncie usługi Azure Storage. Konto magazynu to konstrukcja zarządzania, która reprezentuje udostępnioną pulę magazynu, w którym można wdrożyć wiele udziałów plików, a także inne zasoby magazynu, takie jak kontenery obiektów blob lub kolejki.
 
-Każde konto magazynu ma w pełni kwalifikowaną nazwę domeny (FQDN). W przypadku regionów chmury publicznej ta nazwa `storageaccount.file.core.windows.net` FQDN jest zgodna ze wzorcem, gdzie `storageaccount` jest nazwa konta magazynu. Podczas wysyłania żądań dotyczących tej nazwy, takich jak instalowanie udziału na stacji roboczej przy użyciu protokołu SMB, system operacyjny wykonuje wyszukiwanie DNS w celu rozpoznania w pełni kwalifikowanej nazwy domeny na adres IP, którego może używać do wysyłania żądań SMB.
+Każde konto magazynu ma w pełni kwalifikowaną nazwę domeny (FQDN). W przypadku regionów chmury publicznej ta nazwa FQDN jest zgodna ze `storageaccount.file.core.windows.net` wzorcem, gdzie `storageaccount` jest nazwą konta magazynu. Po wprowadzeniu żądań dotyczących tej nazwy, takich jak zainstalowanie udziału na stacji roboczej przy użyciu protokołu SMB, system operacyjny wykonuje wyszukiwanie DNS, aby rozpoznać w pełni kwalifikowaną nazwę domeny adres IP, za pomocą którego można wysyłać żądania SMB do programu.
 
-Domyślnie `storageaccount.file.core.windows.net` jest rozpoznawany jako adres IP publicznego punktu końcowego. Publiczny punkt końcowy dla konta magazynu jest obsługiwany w klastrze magazynu platformy Azure, który obsługuje wiele innych publicznych punktów końcowych kont magazynu. Podczas tworzenia prywatnego punktu końcowego prywatna strefa DNS jest połączona z siecią wirtualną, do której została dodana, z mapowaniem `storageaccount.file.core.windows.net` rekordu CNAME do wpisu rekordu A dla prywatnego adresu IP prywatnego punktu końcowego konta magazynu. Dzięki temu można `storageaccount.file.core.windows.net` używać FQDN w sieci wirtualnej i mieć go rozwiązać adres IP prywatnego punktu końcowego.
+Domyślnie program `storageaccount.file.core.windows.net` jest rozpoznawany jako adres IP publicznego punktu końcowego. Publiczny punkt końcowy dla konta magazynu jest hostowany w klastrze usługi Azure Storage, który hostuje wiele innych publicznych punktów końcowych kont magazynu. Gdy tworzysz prywatny punkt końcowy, prywatna strefa DNS jest połączona z siecią wirtualną, do której została dodana, z mapowaniem `storageaccount.file.core.windows.net` rekordu CNAME na wpis rekordu a dla prywatnego adresu IP prywatnego punktu końcowego konta magazynu. Dzięki temu można używać `storageaccount.file.core.windows.net` nazwy FQDN w sieci wirtualnej i rozpoznać ją jako adres IP prywatnego punktu końcowego.
 
-Ponieważ naszym ostatecznym celem jest dostęp do udziałów plików platformy Azure hostowanych na koncie magazynu z lokalnego tunelu sieciowego, takiego jak połączenie VPN lub ExpressRoute, należy skonfigurować lokalne serwery DNS do przesyłania dalej żądań przesyłanych na platformę Azure Pliki usługi do usługi Azure private DNS. Aby to osiągnąć, należy skonfigurować *warunkowe przekazywanie* `*.core.windows.net` (lub odpowiedni sufiks punktu końcowego magazynu dla instytucji rządowych STANÓW Zjednoczonych, Niemiec lub Chin chmury krajowe) do serwera DNS hostowanego w sieci wirtualnej platformy Azure. Ten serwer DNS będzie następnie rekursywnie przekazywać żądanie do prywatnej usługi DNS platformy Azure, która rozwiąże w pełni kwalifikowaną nazwę domeny konta magazynu na odpowiedni prywatny adres IP.
+Najważniejszym celem jest uzyskanie dostępu do udziałów plików platformy Azure hostowanych w ramach konta magazynu lokalnego przy użyciu tunelu sieciowego, takiego jak połączenie VPN lub ExpressRoute, należy skonfigurować lokalne serwery DNS do przesyłania dalej żądań wysyłanych do usługi Azure Files do prywatnej usługi DNS platformy Azure. Aby to osiągnąć, należy skonfigurować *warunkowe przekazywanie* `*.core.windows.net` (lub odpowiedni sufiks punktu końcowego magazynu dla instytucji rządowych Stanów Zjednoczonych, Niemiec lub Chin) do serwera DNS hostowanego w sieci wirtualnej platformy Azure. Ten serwer DNS następnie rekursywnie przekaże żądanie do prywatnej usługi DNS platformy Azure, która będzie rozpoznawać w pełni kwalifikowaną nazwę domeny konta magazynu na odpowiednim prywatnym adresie IP.
 
-Konfigurowanie przekazywania dns dla usług Azure Files będzie wymagać uruchomienia maszyny wirtualnej do hostowania serwera DNS do przesyłania dalej żądań, jednak jest to krok jednorazowy dla wszystkich udziałów plików platformy Azure hostowanych w sieci wirtualnej. Ponadto nie jest to wyłączne wymaganie dla usługi Azure Files — każda usługa platformy Azure, która obsługuje prywatne punkty końcowe, do których chcesz uzyskać dostęp z lokalnego środowiska, może korzystać z przekazywania dalej DNS, które zostaną skonfigurowane w tym przewodniku: Magazyn obiektów Blob azure, SQL Azure, Cosmos DB; Itp. 
+Skonfigurowanie przesyłania dalej DNS dla Azure Files będzie wymagało uruchomienia maszyny wirtualnej do hostowania serwera DNS w celu przesyłania dalej żądań, ale jest to jeden krok dla wszystkich udziałów plików platformy Azure hostowanych w ramach sieci wirtualnej. Ponadto nie jest to jedyne wymaganie dotyczące Azure Files — dowolna usługa platformy Azure, która obsługuje prywatne punkty końcowe, do których chcesz uzyskać dostęp z lokalnego systemu, może korzystać z funkcji przesyłania dalej DNS, która zostanie skonfigurowana w tym przewodniku: Azure Blob Storage, SQL Azure, Cosmos DB itd. 
 
-W tym przewodniku przedstawiono kroki konfigurowania przekazywania usług DNS dla punktu końcowego magazynu platformy Azure, więc oprócz usług Azure Files, żądania rozpoznawania nazw DNS dla wszystkich innych usług magazynu platformy Azure (magazyn obiektów Blob platformy Azure, magazyn tabel platformy Azure, magazyn kolejki platformy Azure itp.) do prywatnej usługi DNS platformy Azure. Dodatkowe punkty końcowe dla innych usług platformy Azure można również dodać w razie potrzeby. Przekierowanie DNS z powrotem do lokalnych serwerów DNS zostanie również skonfigurowane, umożliwiając zasoby w chmurze w sieci wirtualnej (takie jak serwer DFS-N) w celu rozpoznawania nazw komputerów lokalnych. 
+W tym przewodniku przedstawiono procedurę konfigurowania przesyłania dalej DNS dla punktu końcowego usługi Azure Storage, a także Azure Files żądania rozpoznawania nazw DNS dla wszystkich innych usług Azure Storage (Azure Blob Storage, Azure Table Storage, Azure Queue Storage itp.) zostaną przekazane do prywatnej usługi DNS platformy Azure. W razie potrzeby można również dodać dodatkowe punkty końcowe dla innych usług platformy Azure. Przekierowywanie DNS z powrotem do lokalnych serwerów DNS również zostanie skonfigurowane, aby umożliwić zasobom chmury w sieci wirtualnej (na przykład serwer DFS-N) rozpoznawanie nazw maszyn lokalnych. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Przed skonfigurowaniem przekierowania DNS do usługi Azure Files należy wykonać następujące kroki:
+Aby można było skonfigurować przekazywanie DNS do Azure Files, należy wykonać następujące czynności:
 
 - Konto magazynu zawierające udział plików platformy Azure, który chcesz zainstalować. Aby dowiedzieć się, jak utworzyć konto magazynu i udział plików platformy Azure, zobacz [Tworzenie udziału plików platformy Azure](storage-how-to-create-file-share.md).
-- Prywatny punkt końcowy dla konta magazynu. Aby dowiedzieć się, jak utworzyć prywatny punkt końcowy dla usług Azure Files, zobacz [Tworzenie prywatnego punktu końcowego](storage-files-networking-endpoints.md#create-a-private-endpoint).
-- [Najnowsza wersja](https://docs.microsoft.com/powershell/azure/install-az-ps) modułu programu Azure PowerShell.
+- Prywatny punkt końcowy dla konta magazynu. Aby dowiedzieć się, jak utworzyć prywatny punkt końcowy dla Azure Files, zobacz [Tworzenie prywatnego punktu końcowego](storage-files-networking-endpoints.md#create-a-private-endpoint).
+- [Najnowsza wersja](https://docs.microsoft.com/powershell/azure/install-az-ps) modułu Azure PowerShell.
 
 > [!Important]  
-> W tym przewodniku przyjęto założenie, że serwer DNS w systemie Windows Server jest używany w środowisku lokalnym. Wszystkie kroki opisane w tym przewodniku są możliwe z dowolnego serwera DNS, a nie tylko windows serwera DNS.
+> W tym przewodniku przyjęto założenie, że używasz serwera DNS w systemie Windows Server w środowisku lokalnym. Wszystkie kroki opisane w tym przewodniku są możliwe z dowolnym serwerem DNS, a nie tylko z serwerem DNS systemu Windows.
 
-## <a name="manually-configuring-dns-forwarding"></a>Ręczne konfigurowanie przekazywania dalej DNS
-Jeśli masz już serwery DNS w sieci wirtualnej platformy Azure lub jeśli wolisz po prostu wdrożyć własne maszyny wirtualne jako serwery DNS według dowolnej metodologii używanej przez organizację, możesz ręcznie skonfigurować system DNS za pomocą wbudowanego serwera DNS Polecenia cmdlet programu PowerShell.
+## <a name="manually-configuring-dns-forwarding"></a>Ręczne konfigurowanie przekazywania DNS
+Jeśli masz już serwery DNS w sieci wirtualnej platformy Azure lub jeśli wolisz wdrożyć własne maszyny wirtualne jako serwery DNS przez dowolną metodologię używaną przez organizację, możesz skonfigurować usługę DNS ręcznie przy użyciu wbudowanych poleceń cmdlet programu PowerShell serwera DNS.
 
-Na lokalnych serwerach DNS utwórz warunkową usługę `Add-DnsServerConditionalForwarderZone`przesyłania dalej za pomocą programu . Ta warunkowa usługa przesyłania dalej musi zostać wdrożona na wszystkich lokalnych serwerach DNS, aby była skuteczna w prawidłowym przekazywaniu ruchu na platformę Azure. Pamiętaj, `<azure-dns-server-ip>` aby zastąpić je odpowiednimi adresami IP dla danego środowiska.
+Na lokalnych serwerach DNS Utwórz usługę przesyłania dalej warunkowego za pomocą polecenia `Add-DnsServerConditionalForwarderZone`. Ta warunkowa usługa przesyłania dalej musi być wdrożona na wszystkich lokalnych serwerach DNS, aby zapewnić skuteczne przekazywanie ruchu do platformy Azure. Pamiętaj, aby `<azure-dns-server-ip>` zamienić na odpowiednie adresy IP dla danego środowiska.
 
 ```powershell
 $vnetDnsServers = "<azure-dns-server-ip>", "<azure-dns-server-ip>"
@@ -65,7 +65,7 @@ Add-DnsServerConditionalForwarderZone `
         -MasterServers $vnetDnsServers
 ```
 
-Na serwerach DNS w sieci wirtualnej platformy Azure należy również umieścić usługę przesyłania dalej w taki sposób, aby żądania strefy DNS konta magazynu `168.63.129.16`były kierowane do prywatnej usługi DNS platformy Azure, która jest kierowana przez zastrzeżony adres IP . (Pamiętaj, aby `$storageAccountEndpoint` wypełnić, jeśli używasz poleceń w ramach innej sesji programu PowerShell.)
+Na serwerach DNS w sieci wirtualnej platformy Azure należy również umieścić usługę przesyłania dalej w taki sposób, aby żądania dla strefy DNS konta magazynu były kierowane do prywatnej usługi DNS platformy Azure, która jest przedstawiona przez zastrzeżony adres `168.63.129.16`IP. (Pamiętaj, aby `$storageAccountEndpoint` wypełnić w przypadku uruchamiania poleceń w ramach innej sesji programu PowerShell).
 
 ```powershell
 Add-DnsServerConditionalForwarderZone `
@@ -73,10 +73,10 @@ Add-DnsServerConditionalForwarderZone `
         -MasterServers "168.63.129.16"
 ```
 
-## <a name="using-the-azure-files-hybrid-module-to-configure-dns-forwarding"></a>Konfigurowanie przekazywania dalej plików DNS za pomocą modułu Azure Files
-Aby skonfigurować przekazywanie dns tak proste, jak to możliwe, udostępniliśmy automatyzację w module Azure Files Hybrid. Polecenia cmdlet przewidziane do manipulowania systemem DNS w tym module ułatwiają wdrażanie serwerów DNS w sieci wirtualnej platformy Azure i aktualizowanie lokalnych serwerów DNS w celu przekazania ich dalej. 
+## <a name="using-the-azure-files-hybrid-module-to-configure-dns-forwarding"></a>Używanie modułu hybrydowego Azure Files do konfigurowania przekazywania DNS
+Aby jak najszybciej skonfigurować przekazywanie DNS, w module hybrydowym Azure Files podano automatyzację. Polecenia cmdlet zapewniające manipulowanie usługą DNS w tym module ułatwią wdrażanie serwerów DNS w sieci wirtualnej platformy Azure i aktualizowanie lokalnych serwerów DNS w celu przekazywania ich do nich. 
 
-Jeśli nigdy nie był używany moduł hybrydowy usługi Azure Files, należy najpierw zainstalować go na stacji roboczej. Pobierz [najnowszą wersję](https://github.com/Azure-Samples/azure-files-samples/releases) modułu programu Azure Files Hybrid PowerShell:
+Jeśli nie korzystasz z modułu hybrydowego Azure Files, musisz najpierw zainstalować go na stacji roboczej. Pobierz [najnowszą wersję](https://github.com/Azure-Samples/azure-files-samples/releases) Azure Files hybrydowego modułu programu PowerShell:
 
 ```PowerShell
 # Unzip the downloaded file
@@ -92,9 +92,9 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted
 Import-Module -Name AzFilesHybrid
 ```
 
-Wdrażanie rozwiązania do przekazywania dns ma dwa kroki, tworząc zestaw reguł przekazywania dns, który określa, które usługi platformy Azure, które chcesz przesyłać dalej żądania, i rzeczywiste wdrożenie usług przesyłania dalej DNS. 
+Wdrożenie rozwiązania przekazującego DNS zawiera dwa kroki, utworzenie zestawu reguł przekazywania DNS, który definiuje usługi platformy Azure, do których mają być przekazywane żądania, oraz rzeczywiste wdrożenie usług przesyłania dalej DNS. 
 
-Poniższy przykład przekazuje żądania do konta magazynu, włącznie żądań do usługi Azure Files, usługi Azure Blob storage, Usługi Azure Table Storage i Usługi Azure Queue storage. W razie potrzeby można dodać przekazywanie do reguły `-AzureEndpoints` dodatkowej `New-AzDnsForwardingRuleSet` usługi platformy Azure za pomocą parametru polecenia cmdlet. Pamiętaj, `<virtual-network-resource-group>`aby `<virtual-network-name>`zastąpić `<subnet-name>` , i z odpowiednimi wartościami dla środowiska.
+Poniższy przykład przekazuje żądania do konta magazynu, włącznie z żądaniami do Azure Files, Azure Blob Storage, Azure Table Storage i Azure queue storage. W razie potrzeby można dodać przekazywanie dla dodatkowej usługi platformy Azure do reguły za pośrednictwem `-AzureEndpoints` parametru `New-AzDnsForwardingRuleSet` polecenia cmdlet. Pamiętaj, aby `<virtual-network-resource-group>`zamienić `<virtual-network-name>`, `<subnet-name>` i z odpowiednimi wartościami dla danego środowiska.
 
 ```PowerShell
 # Create a rule set, which defines the forwarding rules
@@ -108,21 +108,21 @@ New-AzDnsForwarder `
         -VirtualNetworkSubnetName "<subnet-name>"
 ```
 
-Dodatkowo może okazać się przydatne / konieczne, aby podać kilka dodatkowych parametrów:
+Warto również sprawdzić, czy jest to przydatne/konieczne, aby podać kilka dodatkowych parametrów:
 
 | Nazwa parametru | Typ | Opis |
 |----------------|------|-------------|
-| `DnsServerResourceGroupName` | `string` | Domyślnie serwery DNS będą wdrażane w tej samej grupie zasobów co sieć wirtualna. Jeśli nie jest to pożądane, ten parametr umożliwia wybranie alternatywnej grupy zasobów dla nich do wdrożenia. |
-| `DnsForwarderRootName` | `string` | Domyślnie serwery DNS, które są wdrażane `DnsFwder-*`na platformie Azure mają nazwy , gdzie gwiazdka jest wypełniana przez iteratora. Ten parametr zmienia katalog główny tej nazwy `DnsFwder`(tj. ). |
-| `VmTemporaryPassword` | `SecureString` | Domyślnie losowe hasło jest wybierane dla tymczasowego konta domyślnego maszyny Wirtualnej przed przyłączeniem do domeny. Po dołączeniu do domeny konto domyślne jest wyłączone. |
-| `DomainToJoin` | `string` | Domena, do łączyć maszyny wirtualne DNS do przyłączenia się. Domyślnie ta domena jest wybierana na podstawie domeny komputera, na którym są uruchomione polecenia cmdlet. |
-| `DnsForwarderRedundancyCount` | `int` | Liczba maszyn wirtualnych DNS do wdrożenia dla sieci wirtualnej. Domyślnie `New-AzDnsForwarder` wdraża dwa serwery DNS w sieci wirtualnej platformy Azure w zestawie dostępności, aby zapewnić nadmiarowość. Liczba ta może zostać zmodyfikowana zgodnie z potrzebami. |
-| `OnPremDnsHostNames` | `HashSet<string>` | Ręcznie określona lista lokalnych nazw hostów DNS do utworzenia usług przesyłania dalej. Ten parametr jest przydatny, gdy nie chcesz stosować usług przesyłania dalej na wszystkich lokalnych serwerach DNS, na przykład gdy masz szereg klientów z ręcznie określonymi nazwami DNS. |
-| `Credential` | `PSCredential` | Poświadczenia używane podczas aktualizowania serwerów DNS. Jest to przydatne, gdy konto użytkownika, na którym się zalogowano, nie ma uprawnień do modyfikowania ustawień DNS. |
-| `SkipParentDomain` | `SwitchParameter` | Domyślnie usługi przesyłania dalej DNS są stosowane do domeny najwyższego poziomu, która istnieje w twoim środowisku. Na przykład, `northamerica.corp.contoso.com` jeśli jest `corp.contoso.com`domeną podrzędną programu , usługa przesyłania `corp.contoso.com`dalej zostanie utworzona dla serwerów DNS skojarzonych z programem . Ten parametr spowoduje, że spedycyjnie zostaną utworzeni w `northamerica.corp.contoso.com`pliku . |
+| `DnsServerResourceGroupName` | `string` | Domyślnie serwery DNS zostaną wdrożone w tej samej grupie zasobów co sieć wirtualna. Jeśli nie jest to potrzebne, ten parametr pozwala wybrać alternatywną grupę zasobów, która ma zostać wdrożona w programie. |
+| `DnsForwarderRootName` | `string` | Domyślnie serwery DNS wdrożone na platformie Azure mają nazwy `DnsFwder-*`, w których gwiazdka jest wypełniana przez iterator. Ten parametr zmienia katalog główny tej nazwy (tj. `DnsFwder`). |
+| `VmTemporaryPassword` | `SecureString` | Domyślnie dla tymczasowego konta domyślnego jest wybierane hasło losowe, a maszyna wirtualna jest przyłączona do domeny. Po przyłączeniu do domeny konto domyślne jest wyłączone. |
+| `DomainToJoin` | `string` | Domena do przyłączenia do maszyn wirtualnych DNS do przyłączenia. Domyślnie ta domena jest wybierana na podstawie domeny komputera, na którym są uruchamiane polecenia cmdlet programu. |
+| `DnsForwarderRedundancyCount` | `int` | Liczba maszyn wirtualnych DNS do wdrożenia w sieci wirtualnej. Domyślnie program `New-AzDnsForwarder` wdraża dwa serwery DNS w sieci wirtualnej platformy Azure w zestawie dostępności w celu zapewnienia nadmiarowości. Tę liczbę można zmodyfikować zgodnie z potrzebami. |
+| `OnPremDnsHostNames` | `HashSet<string>` | Ręcznie określona lista lokalnych nazw hostów DNS w celu utworzenia usług przesyłania dalej. Ten parametr jest przydatny, gdy nie chcesz stosować usług przesyłania dalej na wszystkich lokalnych serwerach DNS, takich jak w przypadku wielu klientów z ręcznie określonymi nazwami DNS. |
+| `Credential` | `PSCredential` | Poświadczenie do użycia podczas aktualizacji serwerów DNS. Jest to przydatne, gdy konto użytkownika, które zostało zalogowane, nie ma uprawnień do modyfikowania ustawień DNS. |
+| `SkipParentDomain` | `SwitchParameter` | Domyślnie usługi przesyłania dalej DNS są stosowane do domeny najwyższego poziomu, która istnieje w danym środowisku. Na przykład jeśli `northamerica.corp.contoso.com` jest domeną podrzędną `corp.contoso.com`, usługa przesyłania dalej zostanie utworzona dla serwerów DNS skojarzonych z programem. `corp.contoso.com` Ten parametr spowoduje utworzenie usług przesyłania dalej w `northamerica.corp.contoso.com`. |
 
 ## <a name="confirm-dns-forwarders"></a>Potwierdź usługi przesyłania dalej DNS
-Przed przetestowaniem, aby sprawdzić, czy usługi przesyłania dalej DNS zostały pomyślnie zastosowane, `Clear-DnsClientCache`zalecamy wyczyszczenie pamięci podręcznej DNS na lokalnej stacji roboczej przy użyciu . Aby sprawdzić, czy można pomyślnie rozpoznać w pełni kwalifikowaną `Resolve-DnsName` `nslookup`nazwę domeny konta magazynu, użyj lub .
+Przed rozpoczęciem testowania, aby sprawdzić, czy usługi przesyłania dalej DNS zostały pomyślnie zastosowane, zalecamy wyczyszczenie pamięci podręcznej DNS `Clear-DnsClientCache`na lokalnej stacji roboczej przy użyciu programu. Aby sprawdzić, czy można pomyślnie rozpoznać w pełni kwalifikowaną nazwę domeny konta magazynu, użyj `Resolve-DnsName` lub. `nslookup`
 
 ```powershell
 # Replace storageaccount.file.core.windows.net with the appropriate FQDN for your storage account.
@@ -130,7 +130,7 @@ Przed przetestowaniem, aby sprawdzić, czy usługi przesyłania dalej DNS zosta�
 Resolve-DnsName -Name storageaccount.file.core.windows.net
 ```
 
-Jeśli rozpoznawanie nazw zakończy się pomyślnie, powinien zostać wyświetlony rozwiązany adres IP zgodny z adresem IP konta magazynu.
+Jeśli rozpoznawanie nazw powiedzie się, powinien zostać wyświetlony rozpoznany adres IP zgodny z adresem IP Twojego konta magazynu.
 
 ```Output
 Name                              Type   TTL   Section    NameHost
@@ -145,13 +145,13 @@ Section    : Answer
 IP4Address : 192.168.0.4
 ```
 
-Jeśli masz już skonfigurowane połączenie VPN lub Usługi ExpressRoute, możesz również sprawdzić, `Test-NetConnection` czy połączenie TCP może zostać pomyślnie nawiązane do twojego konta magazynu.
+Jeśli skonfigurowano już połączenie sieci VPN lub ExpressRoute, można również użyć `Test-NetConnection` , aby zobaczyć, że można pomyślnie nawiązać połączenie TCP z kontem magazynu.
 
 ```PowerShell
 Test-NetConnection -ComputerName storageaccount.file.core.windows.net -CommonTCPPort SMB
 ```
 
-## <a name="see-also"></a>Zobacz też
-- [Planowanie wdrożenia usługi Azure Files](storage-files-planning.md)
-- [Zagadnienia dotyczące sieci usług Azure Files](storage-files-networking-overview.md)
-- [Konfigurowanie sieciowych punktów końcowych usługi Azure Files](storage-files-networking-endpoints.md)
+## <a name="see-also"></a>Zobacz także
+- [Planowanie wdrażania usługi Pliki Azure](storage-files-planning.md)
+- [Zagadnienia dotyczące sieci Azure Files](storage-files-networking-overview.md)
+- [Konfigurowanie punktów końcowych sieci Azure Files](storage-files-networking-endpoints.md)

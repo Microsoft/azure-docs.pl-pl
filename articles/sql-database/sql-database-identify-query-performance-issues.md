@@ -1,6 +1,6 @@
 ---
-title: Typy problemów z wydajnością kwerend w bazie danych SQL usługi Azure
-description: W tym artykule dowiesz się o typach problemów z wydajnością kwerend w usłudze Azure SQL Database, a także dowiedz się, jak identyfikować i rozwiązywać kwerendy z tymi problemami
+title: Typy problemów z wydajnością zapytań w Azure SQL Database
+description: Ten artykuł zawiera informacje na temat typów problemów z wydajnością zapytań w Azure SQL Database, a także informacje na temat identyfikowania i rozwiązywania zapytań z tymi problemami.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -12,79 +12,79 @@ ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: e155321c2727bf4ee871ef7be7b61b6a523ec1fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79256135"
 ---
-# <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Wykrywalne typy wąskich gardeł wydajności zapytań w bazie danych SQL azure
+# <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Wykrywalne typy wąskich gardeł wydajności zapytań w Azure SQL Database
 
-Podczas próby rozwiązania wąskiego gardła wydajności, należy rozpocząć od określenia, czy wąskie gardło występuje, gdy kwerenda jest w stanie uruchomionym lub oczekiwania. W zależności od tego określenia stosuje się różne rozdzielczości. Użyj poniższego diagramu, aby zrozumieć czynniki, które mogą powodować problem związany z uruchomieniem lub problem związany z oczekiwaniem. Problemy i rozwiązania dotyczące każdego typu problemu są omówione w tym artykule.
+Próbując rozwiązać wąskie gardła wydajności, Zacznij od określenia, czy wąskie gardło występuje, gdy zapytanie jest w stanie uruchomienia lub w stanie oczekiwania. Różne rozdzielczości są stosowane w zależności od tego ustalenia. Na poniższym diagramie przedstawiono informacje o czynnikach, które mogą spowodować problemy związane z działaniem lub problem związany z oczekiwaniem. Problemy i rozwiązania dotyczące poszczególnych typów problemów zostały omówione w tym artykule.
 
-Za pomocą usługi Azure SQL Database [Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md#detectable-database-performance-patterns) lub SQL Server [DMV](sql-database-monitoring-with-dmvs.md) można wykryć tego typu wąskie gardła wydajności.
+Aby wykryć te typy wąskich gardeł wydajności, można użyć Azure SQL Database [Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md#detectable-database-performance-patterns) lub SQL Server [widoków DMV](sql-database-monitoring-with-dmvs.md) .
 
-![Stany obciążenia pracą](./media/sql-database-monitor-tune-overview/workload-states.png)
+![Stany obciążeń](./media/sql-database-monitor-tune-overview/workload-states.png)
 
-**Problemy związane z bieganiem:** Problemy związane z uruchamianiem są zazwyczaj związane z problemami kompilacji, co powoduje nieoptymalny plan kwerend lub problemy z wykonywaniem związane z niewystarczającymi lub nadużywanymi zasobami.
-**Problemy związane z czekaniem**: Problemy związane z czekaniem są zazwyczaj związane z:
+**Problemy związane z uruchamianiem**: problemy związane z działaniem są zwykle związane z problemami z kompilacją, które wykonują nieoptymalny plan zapytania lub problemy z wykonywaniem związane z niewystarczającymi lub niewykorzystanymi zasobami.
+**Problemy**zależne: problemy związane z oczekiwaniem są zwykle powiązane z:
 
-- Zamki (blokowanie)
+- Blokady (blokowanie)
 - WE/WY
-- Rywalizacja związana z użyciem bazy danych TempDB
-- Dotacja pamięci czeka
+- Rywalizacja o użycie bazy danych TempDB
+- Oczekiwanie na przydzielenie pamięci
 
-## <a name="compilation-problems-resulting-in-a-suboptimal-query-plan"></a>Problemy z kompilacją skutkujące nieoptymalnym planem zapytań
+## <a name="compilation-problems-resulting-in-a-suboptimal-query-plan"></a>Problemy z kompilacją powodujące nieoptymalny plan zapytania
 
-Nieoptymalny plan wygenerowany przez optymalizator zapytań SQL może być przyczyną powolnej wydajności kwerendy. Optymalizator zapytań SQL może spowodować nieoptymalny plan z powodu brakującego indeksu, starych statystyk, niepoprawnego oszacowania liczby wierszy do przetworzenia lub niedokładnego oszacowania wymaganej pamięci. Jeśli wiesz, że kwerenda została wykonana szybciej w przeszłości lub w innym wystąpieniu (wystąpienie zarządzane lub wystąpienie programu SQL Server), porównaj rzeczywiste plany wykonania, aby sprawdzić, czy są one różne.
+Nieoptymalny plan wygenerowany przez optymalizator zapytań SQL może być przyczyną powolnej wydajności zapytań. Optymalizator zapytań SQL może utworzyć nieoptymalny plan z powodu braku indeksu, nieodświeżonych statystyk, nieprawidłowego oszacowania liczby wierszy do przetworzenia lub nieprawidłowego oszacowania wymaganej pamięci. Jeśli wiesz, że zapytanie zostało wykonane szybciej w przeszłości lub w innym wystąpieniu (wystąpienie zarządzane lub SQL Server wystąpienie), porównaj rzeczywiste plany wykonywania, aby zobaczyć, czy są one różne.
 
-- Identyfikowanie brakujących indeksów przy użyciu jednej z następujących metod:
+- Zidentyfikuj wszystkie brakujące indeksy przy użyciu jednej z następujących metod:
 
-  - Użyj [inteligentnego wglądu w dane szczegółowe](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index).
-  - [Doradca bazy danych](sql-database-advisor.md) dla pojedynczych i pulowych baz danych.
-  - Dmvs. W tym przykładzie pokazano wpływ brakującego indeksu, jak wykryć [brakujące indeksy](sql-database-performance-guidance.md#identifying-and-adding-missing-indexes) przy użyciu dmvs i wpływ implementowania zalecenia brakujące indeksu.
-- Spróbuj zastosować [wskazówki dotyczące kwerend,](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) [zaktualizować statystyki](https://docs.microsoft.com/sql/t-sql/statements/update-statistics-transact-sql)lub [odbudować indeksy,](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes) aby uzyskać lepszy plan. Włącz [automatyczną korektę planu](sql-database-automatic-tuning.md) w usłudze Azure SQL Database, aby automatycznie ograniczyć te problemy.
+  - Użyj [Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index).
+  - [Database Advisor](sql-database-advisor.md) dla baz danych o pojedynczej i puli.
+  - Widoków DMV. Ten przykład pokazuje wpływ brakującego indeksu, sposób wykrywania [brakujących indeksów](sql-database-performance-guidance.md#identifying-and-adding-missing-indexes) przy użyciu widoków DMV oraz wpływ implementacji brakującego zalecenia dotyczącego indeksu.
+- Spróbuj zastosować [wskazówki dotyczące zapytania](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query), [zaktualizować statystyki](https://docs.microsoft.com/sql/t-sql/statements/update-statistics-transact-sql)lub [ponownie skompilować indeksy](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes) , aby uzyskać lepszy plan. Włącz [automatyczną korektę planu](sql-database-automatic-tuning.md) w Azure SQL Database, aby automatycznie wyeliminować te problemy.
 
-  W tym [przykładzie](sql-database-performance-guidance.md#query-tuning-and-hinting) pokazano wpływ nieoptymalnego planu kwerendy z powodu sparametryzowanej kwerendy, jak wykryć ten warunek i jak użyć wskazówki kwerendy, aby rozwiązać.
+  Ten [przykład](sql-database-performance-guidance.md#query-tuning-and-hinting) pokazuje wpływ nieoptymalnego planu zapytania ze względu na zapytanie parametryczne, sposób wykrywania tego warunku i sposób użycia wskazówki zapytania do rozwiązania.
 
-- Spróbuj zmienić poziom zgodności bazy danych i zaimplementowanie inteligentnego przetwarzania zapytań. Optymalizator zapytań SQL może generować inny plan kwerend w zależności od poziomu zgodności bazy danych. Wyższe poziomy zgodności zapewniają bardziej [inteligentne możliwości przetwarzania zapytań.](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing)
+- Spróbuj zmienić poziom zgodności bazy danych i zaimplementować inteligentne przetwarzanie zapytań. Optymalizator zapytań SQL może generować inny plan zapytania w zależności od poziomu zgodności bazy danych. Wyższe poziomy zgodności zapewniają bardziej [inteligentne możliwości przetwarzania zapytań](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing).
 
-  - Aby uzyskać więcej informacji na temat przetwarzania kwerend, zobacz [Przewodnik architektury przetwarzania zapytań](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide).
-  - Aby zmienić poziomy zgodności bazy danych i dowiedzieć się więcej o różnicach między poziomami zgodności, zobacz [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).
-  - Aby dowiedzieć się więcej o szacowaniu kardynalności, zobacz [Oszacowanie kardynalności](https://docs.microsoft.com/sql/relational-databases/performance/cardinality-estimation-sql-server)
+  - Aby uzyskać więcej informacji na temat przetwarzania zapytań, zobacz [Przewodnik po architekturze przetwarzania zapytań](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide).
+  - Aby zmienić poziomy zgodności bazy danych i dowiedzieć się więcej na temat różnic między poziomami zgodności, zobacz [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).
+  - Aby dowiedzieć się więcej na temat oszacowania kardynalności, zobacz [oszacowanie kardynalności](https://docs.microsoft.com/sql/relational-databases/performance/cardinality-estimation-sql-server)
 
-## <a name="resolving-queries-with-suboptimal-query-execution-plans"></a>Rozwiązywanie zapytań za pomocą nieoptymalnych planów wykonywania zapytań
+## <a name="resolving-queries-with-suboptimal-query-execution-plans"></a>Rozpoznawanie zapytań przy użyciu nieoptymalnych planów wykonywania zapytań
 
-W poniższych sekcjach omówiono sposób rozwiązywania zapytań za pomocą planu wykonania kwerend nieoptymalnych.
+W poniższych sekcjach omówiono sposób rozwiązywania zapytań z nieoptymalnym planem wykonywania zapytań.
 
-### <a name="queries-that-have-parameter-sensitive-plan-psp-problems"></a><a name="ParamSniffing"></a>Kwerendy z problemami z planem zależnym od parametrów (PSP)
+### <a name="queries-that-have-parameter-sensitive-plan-psp-problems"></a><a name="ParamSniffing"></a>Zapytania, które mają problemy z planem z uwzględnieniem parametrów (PSP)
 
-Problem z planem zależnym od parametrów (PSP) występuje, gdy optymalizator kwerend generuje plan wykonania kwerendy, który jest optymalny tylko dla określonej wartości parametru (lub zestawu wartości), a buforowany plan nie jest optymalny dla wartości parametrów, które są używane w kolejnych Egzekucji. Plany, które nie są optymalne, mogą następnie powodować problemy z wydajnością kwerend i obniżać ogólną przepływność obciążenia.
+Problem z planem wrażliwym na parametry (PSP) występuje, gdy optymalizator zapytań generuje plan wykonywania zapytania, który jest optymalny tylko dla konkretnej wartości parametru (lub zestawu wartości), a w pamięci podręcznej nie jest optymalny dla wartości parametrów, które są używane podczas wykonywania kolejnych operacji. Plany, które nie są optymalne, mogą powodować problemy z wydajnością zapytań i obniżać ogólną przepływność obciążeń.
 
-Aby uzyskać więcej informacji na temat wąchania parametrów i przetwarzania zapytań, zobacz [przewodnik po architekturze przetwarzania zapytań](/sql/relational-databases/query-processing-architecture-guide#ParamSniffing).
+Aby uzyskać więcej informacji na temat wykrywania parametrów i przetwarzania zapytań, zobacz [Przewodnik po architekturze przetwarzania zapytań](/sql/relational-databases/query-processing-architecture-guide#ParamSniffing).
 
-Kilka obejść może ograniczyć problemy psp. Każde obejście ma związane z nimi wady i wady:
+Kilka obejść może rozwiązać problemy związane z PSP. Każde obejście ma powiązane kompromisy i wady:
 
-- Użyj wskazówki [kwerendy RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) przy każdym wykonaniu kwerendy. To obejście handluje czasem kompilacji i zwiększonym procesorem CPU w celu uzyskania lepszej jakości planu. Opcja `RECOMPILE` często nie jest możliwa dla obciążeń, które wymagają wysokiej przepływności.
-- Użyj wskazówki [kwerendy OPTION (OPTIMIZE FOR...),](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) aby zastąpić rzeczywistą wartość parametru typową wartością parametru, która tworzy plan, który jest wystarczająco dobry dla większości możliwości wartości parametru. Ta opcja wymaga dobrego zrozumienia optymalnych wartości parametrów i skojarzonych cech planu.
-- Użyj wskazówki [kwerendy OPTION (OPTIMIZE FOR UNKNOWN),](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) aby zastąpić rzeczywistą wartość parametru i zamiast tego użyć średniej wektorowej gęstości. Można to również zrobić, przechwytując wartości parametrów przychodzących w zmiennych lokalnych, a następnie przy użyciu zmiennych lokalnych w predykatach zamiast przy użyciu samych parametrów. Dla tej poprawki średnia gęstość musi być *wystarczająco dobra*.
-- Wyłącz parametr wąchania całkowicie za pomocą [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) wskazówka kwerendy.
-- Użyj wskazówki dotyczącej kwerendy [KEEPFIXEDPLAN,](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) aby zapobiec ponownej kompilacji w pamięci podręcznej. To obejście zakłada, że wystarczająco dobry wspólny plan jest już w pamięci podręcznej. Można również wyłączyć automatyczne aktualizacje statystyk, aby zmniejszyć szanse, że dobry plan zostanie eksmitowany i nowy zły plan zostanie skompilowany.
-- Wymusz plan, jawnie używając wskazówki kwerendy [USE PLAN,](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) przepisując kwerendę i dodając wskazówkę w tekście kwerendy. Możesz też ustawić określony plan za pomocą Magazynu zapytań lub włączając [automatyczne dostrajanie](sql-database-automatic-tuning.md).
-- Zastąp pojedynczą procedurę zagnieżdżoną zestawem procedur, z których każda może być używana na podstawie logiki warunkowej i skojarzonych wartości parametrów.
-- Tworzenie dynamicznych alternatyw wykonywania ciągów do definicji procedury statycznej.
+- Użyj wskazówki dotyczącej ponownej [kompilacji](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) w każdym wykonaniu zapytania. To obejście umożliwia wymianę czasu kompilacji i zwiększenie procesora w celu zapewnienia lepszej jakości planu. `RECOMPILE` Opcja jest często niemożliwa w przypadku obciążeń wymagających dużej przepływności.
+- Użyj [opcji zapytania (Optymalizacja dla...)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) , aby zastąpić rzeczywistą wartość parametru wartością typowego parametru, która generuje plan, który jest wystarczająco dobry dla większości wartości parametrów. Ta opcja wymaga dobrego poznania optymalnych wartości parametrów i skojarzonych cech planu.
+- Użyj [opcji (Optymalizacja dla NIEznanej)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) wskazówki, aby zastąpić rzeczywistą wartość parametru, a zamiast tego użyć średniej gęstości wektora. Można to zrobić również, przechwytując wartości parametrów przychodzących w zmiennych lokalnych, a następnie używając zmiennych lokalnych w predykatach zamiast używać samych parametrów. W przypadku tej poprawki średnia gęstość musi być *wystarczająca*.
+- Wyłącz wykrywanie parametrów, używając wskazówki zapytania [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) .
+- Użyj wskazówki zapytania [KEEPFIXEDPLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) , aby uniemożliwić ponowne kompilacje w pamięci podręcznej. W tym rozwiązaniu przyjęto założenie, że jest to ten sam plan, który jest już w pamięci podręcznej. Możesz również wyłączyć automatyczne aktualizacje statystyk, aby zmniejszyć prawdopodobieństwo wykluczenia dobrego planu i skompilowania nowego nieprawidłowego planu.
+- Wymuś planowanie jawnie za pomocą wskazówki zapytania [use plan](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) przez ponowne zapisanie zapytania i dodanie wskazówki w tekście zapytania. Lub ustawić konkretny plan przy użyciu magazynu zapytań lub przez włączenie [dostrajania automatycznego](sql-database-automatic-tuning.md).
+- Zastąp pojedynczą procedurę z zagnieżdżonym zestawem procedur, które mogą być używane na podstawie logiki warunkowej i skojarzonych wartości parametrów.
+- Utwórz alternatywny sposób wykonywania ciągów dynamicznych do definicji procedury statycznej.
 
-Aby uzyskać więcej informacji na temat rozwiązywania problemów z psp, zobacz następujące wpisy w blogu:
+Aby uzyskać więcej informacji na temat rozwiązywania problemów z PSP, zobacz następujące wpisy w blogu:
 
-- [Czuję parametr](https://docs.microsoft.com/archive/blogs/queryoptteam/i-smell-a-parameter)
-- [Conor vs. dynamiczny SQL vs. procedury a jakość planu dla sparametryzowanych zapytań](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)
-- [Techniki optymalizacji zapytań SQL w programie SQL Server: wąchanie parametrów](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/)
+- [Zapach I parametr](https://docs.microsoft.com/archive/blogs/queryoptteam/i-smell-a-parameter)
+- [Conor a dynamiczne SQL a procedury i planowanie jakości zapytań parametrycznych](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)
+- [Techniki optymalizacji zapytań SQL w SQL Server: wykrywanie parametrów](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/)
 
-### <a name="compile-activity-caused-by-improper-parameterization"></a>Skompilowanie działania spowodowanego nieprawidłową parametryzacją
+### <a name="compile-activity-caused-by-improper-parameterization"></a>Działanie kompilowania spowodowane przez niewłaściwe parametryzacja
 
-Gdy kwerenda ma literały, aparat bazy danych automatycznie parametryzuje instrukcję lub użytkownik jawnie parametryzuje instrukcję, aby zmniejszyć liczbę kompilacji. Duża liczba kompilacji dla kwerendy przy użyciu tego samego wzorca, ale różne wartości literału może spowodować wysokie użycie procesora CPU. Podobnie, jeśli tylko częściowo sparametryzować kwerendę, która nadal ma literały, aparat bazy danych nie parametryzuje kwerendy dalej.
+Gdy zapytanie zawiera literały, aparat bazy danych automatycznie parameterizes instrukcję lub użytkownik jawnie parameterizes instrukcji w celu zmniejszenia liczby kompilacji. Duża liczba kompilacji dla zapytania korzystającego z tego samego wzorca, ale różne wartości literałów mogą spowodować wysokie użycie procesora CPU. Podobnie, jeśli tylko częściowo Sparametryzuj zapytanie, które nadal ma literały, aparat bazy danych nie Sparametryzuj zapytania dalej.
 
-Oto przykład częściowo sparametryzowanej kwerendy:
+Oto przykład zapytania częściowo sparametryzowanego:
 
 ```sql
 SELECT *
@@ -92,9 +92,9 @@ FROM t1 JOIN t2 ON t1.c1 = t2.c1
 WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F'
 ```
 
-W tym `t1.c1` przykładzie `@p1` `t2.c2` przyjmuje , ale nadal przyjmuje identyfikator GUID jako literał. W takim przypadku, jeśli zmienisz wartość dla `c2`, kwerenda jest traktowana jako inna kwerenda i nastąpi nowa kompilacja. Aby zmniejszyć kompilacje w tym przykładzie, należy również sparametryzować identyfikator GUID.
+W tym przykładzie `t1.c1` przyjmuje `@p1`, ale `t2.c2` nadal przyjmuje identyfikator GUID jako literał. W takim przypadku, jeśli zmienisz wartość dla `c2`, zapytanie jest traktowane jako inne zapytanie i zostanie wykonana Nowa kompilacja. Aby zmniejszyć kompilacje w tym przykładzie, należy również Sparametryzuj identyfikator GUID.
 
-Następująca kwerenda przedstawia liczbę zapytań według skrótu kwerendy w celu ustalenia, czy kwerenda jest poprawnie sparametryzowana:
+Następujące zapytanie pokazuje liczbę zapytań według skrótu zapytania, aby określić, czy zapytanie jest prawidłowo sparametryzowane:
 
 ```sql
 SELECT TOP 10
@@ -117,109 +117,109 @@ GROUP BY q.query_hash
 ORDER BY count (distinct p.query_id) DESC
 ```
 
-### <a name="factors-that-affect-query-plan-changes"></a>Czynniki wpływające na zmiany planu kwerend
+### <a name="factors-that-affect-query-plan-changes"></a>Czynniki wpływające na zmiany planu zapytania
 
-Ponowna kompilacja planu wykonania kwerendy może spowodować wygenerowany plan kwerendy, który różni się od oryginalnego planu buforowanego. Istniejący pierwotny plan może zostać automatycznie ponownie skompilowany z różnych powodów:
+Ponowna kompilacja planu wykonania zapytania może spowodować wygenerowanie planu zapytania, który różni się od oryginalnego buforowanego planu. Istniejący oryginalny plan może zostać automatycznie ponownie skompilowany z różnych powodów:
 
-- Zmiany w schemacie są odwoływane przez kwerendę
-- Zmiany danych w tabelach są odwoływane przez kwerendę
-- Zmieniono opcje kontekstu kwerendy
+- Do zmian w schemacie odwołuje się zapytanie
+- Do zmian danych w tabelach odwołuje się zapytanie
+- Opcje kontekstu zapytania zostały zmienione
 
-Skompilowany plan może zostać wyrzucony z pamięci podręcznej z różnych powodów, takich jak:
+Skompilowany plan może zostać wysunięty z pamięci podręcznej z różnych powodów, takich jak:
 
-- Wystąpienie jest ponownie uruchamiane
-- Zmiany konfiguracji o zakresie bazy danych
+- Ponowne uruchomienie wystąpienia
+- Zmiany konfiguracji w zakresie bazy danych
 - Wykorzystanie pamięci
-- Jawne żądania wyczyszczenie pamięci podręcznej
+- Jawne żądania wyczyszczenia pamięci podręcznej
 
-Jeśli używasz wskazówki RECOMPILE, plan nie będzie buforowany.
+Jeśli używasz wskazówki RECOMPILE, plan nie zostanie zapisany w pamięci podręcznej.
 
-Ponowna kompilacja (lub kompilacja fresh po eksmisji pamięci podręcznej) może nadal spowodować generowanie planu wykonywania kwerendy, który jest identyczny z oryginałem. Gdy plan zmienia się w stosunku do poprzedniego lub pierwotnego planu, te wyjaśnienia są prawdopodobne:
+Ponowna kompilacja (lub Nowa kompilacja po wykluczeniu pamięci podręcznej) nadal może skutkować generowaniem planu wykonywania zapytania, który jest identyczny z oryginałem. W przypadku zmiany planu z planu poprzedniego lub oryginalnego te wyjaśnienia mogą być następujące:
 
-- **Zmieniono projekt fizyczny:** Na przykład nowo utworzone indeksy skuteczniej obejmują wymagania kwerendy. Nowe indeksy mogą być używane w nowej kompilacji, jeśli optymalizator kwerendy zdecyduje, że przy użyciu tego nowego indeksu jest bardziej optymalne niż przy użyciu struktury danych, który został pierwotnie wybrany dla pierwszej wersji wykonywania kwerendy. Wszelkie zmiany fizyczne do obiektów, do których istnieje odwołanie może spowodować nowy wybór planu w czasie kompilacji.
+- **Zmieniony projekt fizyczny**: na przykład nowo utworzone indeksy bardziej efektywnie obejmują wymagania zapytania. Nowe indeksy mogą być używane w nowej kompilacji, jeśli optymalizator zapytań zdecyduje, że użycie tego nowego indeksu jest bardziej optymalne niż użycie struktury danych, która została pierwotnie wybrana dla pierwszej wersji wykonywania zapytania. Wszelkie zmiany fizyczne obiektów, do których istnieją odwołania, mogą spowodować powstanie nowego planu w czasie kompilacji.
 
-- **Różnice zasobów serwera:** Gdy plan w jednym systemie różni się od planu w innym systemie, dostępność zasobów, takich jak liczba dostępnych procesorów, może mieć wpływ na to, który plan zostanie wygenerowany. Na przykład jeśli jeden system ma więcej procesorów, można wybrać plan równoległy.
+- **Różnice zasobów serwera**: gdy plan w jednym systemie różni się od planu w innym systemie, dostępność zasobów, taka jak liczba dostępnych procesorów, może mieć wpływ na sposób generowania planu. Na przykład jeśli jeden system ma więcej procesorów, można wybrać plan równoległy.
 
-- **Różne statystyki:** Statystyki skojarzone z obiektami, do których istnieją odwołania, mogły ulec zmianie lub mogły się istotnie różnić od statystyk oryginalnego systemu. Jeśli statystyki zmienić i rekompilacji dzieje, optymalizator kwerendy używa statystyk, począwszy od kiedy zostały zmienione. Skorygowane rozkłady i częstotliwości danych statystycznych mogą różnić się od tych z pierwotnej kompilacji. Zmiany te są używane do tworzenia szacunków kardynalność. (Szacunki*kardynalności* to liczba wierszy, które mają przepływać przez drzewo zapytań logicznych). Zmiany w szacowaności kardynalności może prowadzić do wyboru różnych operatorów fizycznych i skojarzonych zleceń operacji. Nawet niewielkie zmiany w statystykach może spowodować zmieniony plan wykonania kwerendy.
+- **Różne statystyki**: Statystyka skojarzona z obiektami, do których istnieją odwołania, mogła ulec zmianie lub może być istotnie różna od statystyk oryginalnego systemu. W przypadku zmiany statystyk i ponownej kompilacji optymalizator zapytań używa statystyk rozpoczynających się od momentu zmiany. Dane statystyczne i częstotliwości dla zaktualizowanych statystyk mogą się różnić od tych, które zostały oryginalnie skompilowane. Te zmiany są używane do tworzenia oszacowań kardynalności. (*Oszacowania kardynalności* to liczba wierszy, które powinny przepływać przez drzewo zapytania logicznego). Zmiany w oszacowaniach kardynalności mogą prowadzić do wyboru różnych operatorów fizycznych i skojarzonych z nimi zamówień. Nawet niewielkie zmiany w statystyce mogą spowodować zmianę planu wykonywania zapytania.
 
-- **Zmieniono poziom zgodności bazy danych lub wersję estymatora kardynalności:** Zmiany na poziomie zgodności bazy danych mogą włączyć nowe strategie i funkcje, które mogą spowodować inny plan wykonania kwerendy. Poza poziomem zgodności bazy danych, flaga śledzenia wyłączone lub włączone 4199 lub zmieniony stan konfiguracji o zakresie bazy danych QUERY_OPTIMIZER_HOTFIXES mogą również wpływać na wybór planu wykonywania kwerend w czasie kompilacji. Flagi śledzenia 9481 (siła starsza CE) i 2312 (wymuszanie domyślnej CE) również wpływają na plan.
+- **Zmieniony poziom zgodności bazy danych lub wersja szacowaniaa Kardynalność**: zmiany poziomu zgodności bazy danych mogą umożliwić nowe strategie i funkcje, które mogą spowodować powstanie innego planu wykonywania zapytań. Poza poziomem zgodności bazy danych wyłączona lub włączona flaga śledzenia 4199 lub zmieniony stan QUERY_OPTIMIZER_HOTFIXES konfiguracji z zakresem bazy danych może również mieć wpływ na Opcje planu wykonywania zapytania w czasie kompilacji. Flagi śledzenia 9481 (Wymuś starszą wersję CE) i 2312 (Wymuś ustawienie domyślne CE) wpływają również na plan.
 
-## <a name="resource-limits-issues"></a>Problemy z limitami zasobów
+## <a name="resource-limits-issues"></a>Problemy z ograniczeniami zasobów
 
-Powolna wydajność kwerendy niezwiązane z nieoptymalnymi planami kwerend i brakami indeksów są zazwyczaj związane z niewystarczającymi lub nadużywającymi zasobami. Jeśli plan kwerend jest optymalny, kwerenda (i baza danych) może być uderzenie limitów zasobów dla bazy danych, puli elastycznej lub wystąpienia zarządzanego. Przykładem może być nadmiar przepływności zapisu dziennika dla poziomu usługi.
+Niska wydajność zapytań nie jest związana z nieoptymalnymi planami zapytań i brakujące indeksy są zwykle związane z niewystarczającymi lub nieużywanymi zasobami. Jeśli plan zapytania jest optymalny, zapytanie (i baza danych) może powodować limity zasobów dla bazy danych, puli elastycznej lub wystąpienia zarządzanego. Przykładem może być nadmiarowa przepustowość zapisu w dzienniku dla poziomu usługi.
 
-- Wykrywanie problemów z zasobami przy użyciu witryny Azure portal: Aby sprawdzić, czy problemem są limity zasobów, zobacz [Monitorowanie zasobów bazy danych SQL](sql-database-monitor-tune-overview.md#sql-database-resource-monitoring). W przypadku pojedynczych baz danych i pul elastycznych zobacz [Zalecenia dotyczące wydajności Klasyfikatora baz danych](sql-database-advisor.md) i Szczegółowe informacje o wydajności [kwerend](sql-database-query-performance.md).
-- Wykrywanie limitów zasobów przy użyciu [aplikacji Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits)
-- Wykrywanie problemów z zasobami przy użyciu [dmv:](sql-database-monitoring-with-dmvs.md)
+- Wykrywanie problemów dotyczących zasobów przy użyciu Azure Portal: Aby sprawdzić, czy są to problemy, zobacz [SQL Database monitorowania zasobów](sql-database-monitor-tune-overview.md#sql-database-resource-monitoring). W przypadku pojedynczych baz danych i pul elastycznych zapoznaj się z tematem [Database Advisor zalecenia dotyczące wydajności](sql-database-advisor.md) i [szczegółowe informacje o wydajności zapytań](sql-database-query-performance.md).
+- Wykrywanie limitów zasobów przy użyciu [Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits)
+- Wykrywanie problemów z zasobami przy użyciu [widoków DMV](sql-database-monitoring-with-dmvs.md):
 
-  - [Plik sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) DMV zwraca zużycie procesora CPU, we/wy i pamięci dla bazy danych SQL. Jeden wiersz istnieje dla każdego interwału 15-sekundowego, nawet jeśli w bazie danych nie ma żadnych działań. Dane historyczne są przechowywane przez godzinę.
-  - [Plik sys.resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) DMV zwraca dane użycia procesora i magazynu dla usługi Azure SQL Database. Dane są zbierane i agregowane w odstępach pięciu minut.
-  - [Wiele pojedynczych zapytań, które łącznie zużywają wysoki poziom procesora](sql-database-monitoring-with-dmvs.md#many-individual-queries-that-cumulatively-consume-high-cpu)
+  - [Sys. dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) DMV zwraca procesor, we/wy i użycie pamięci dla bazy danych SQL. Jeden wiersz istnieje dla każdego 15-sekundowego interwału, nawet jeśli w bazie danych nie ma żadnych działań. Dane historyczne są przechowywane przez jedną godzinę.
+  - DMV [sys. resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) zwraca dane użycia procesora CPU i magazynu dla Azure SQL Database. Dane są zbierane i agregowane w odstępach 5-minutowych.
+  - [Wiele indywidualnych zapytań, które łącznie zużywają duże użycie procesora CPU](sql-database-monitoring-with-dmvs.md#many-individual-queries-that-cumulatively-consume-high-cpu)
   - 
 
-Jeśli problem zostanie zidentyfikować jako za mało zasobów, można uaktualnić zasoby, aby zwiększyć pojemność bazy danych SQL, aby wchłonąć wymagania procesora CPU. Aby uzyskać więcej informacji, zobacz [Skalowanie zasobów pojedynczej bazy danych w bazie danych SQL azure](sql-database-single-database-scale.md) i [skalowanie zasobów puli elastycznej w bazie danych SQL azure.](sql-database-elastic-pool-scale.md) Aby uzyskać informacje dotyczące skalowania wystąpienia zarządzanego, zobacz [Limity zasobów warstwy usług](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
+W przypadku zidentyfikowania problemu jako niewystarczającego zasobu można uaktualnić zasoby, aby zwiększyć pojemność bazy danych SQL w celu zaabsorbowania wymagań procesora. Aby uzyskać więcej informacji, zobacz [skalowanie zasobów pojedynczej bazy danych w Azure SQL Database](sql-database-single-database-scale.md) i [skalowanie zasobów puli elastycznej w Azure SQL Database](sql-database-elastic-pool-scale.md). Aby uzyskać informacje na temat skalowania wystąpienia zarządzanego, zobacz [limity zasobów w warstwie usług](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
-## <a name="performance-problems-caused-by-increased-workload-volume"></a>Problemy z wydajnością spowodowane zwiększoną liczbą obciążeń
+## <a name="performance-problems-caused-by-increased-workload-volume"></a>Problemy z wydajnością spowodowane przez zwiększony wolumin obciążeń
 
-Zwiększenie ruchu aplikacji i woluminu obciążenia może spowodować zwiększone użycie procesora CPU. Ale musisz uważać, aby prawidłowo zdiagnozować ten problem. Gdy pojawi się problem z wysokim procesorem, odpowiedz na te pytania, aby ustalić, czy wzrost jest spowodowany zmianami w woluminie obciążenia:
+Zwiększenie natężenia ruchu i obciążenia aplikacji może spowodować zwiększenie użycia procesora CPU. Jednak należy zachować ostrożność, aby prawidłowo zdiagnozować ten problem. Gdy widzisz problem z dużym procesorem CPU, Odpowiedz na te pytania, aby określić, czy wzrost jest spowodowany przez zmiany w woluminie obciążeń:
 
-- Czy zapytania z aplikacji są przyczyną problemu z wysokim procesorem CPU?
-- W przypadku [najlepszych zapytań zużywających procesor, które można zidentyfikować:](sql-database-monitoring-with-dmvs.md#the-cpu-issue-occurred-in-the-past)
+- Czy zapytania z aplikacji są przyczyną problemu z dużym procesorem CPU?
+- Dla [najważniejszych zapytań zużywających procesor CPU, które można zidentyfikować](sql-database-monitoring-with-dmvs.md#the-cpu-issue-occurred-in-the-past):
 
-  - Czy z tą samą kwerendą skojarzono wiele planów wykonania? Jeśli tak, to dlaczego?
-  - W przypadku zapytań z tym samym planem wykonania, czy czasy wykonywania były spójne? Czy liczba wykonań wzrosła? Jeśli tak, wzrost obciążenia jest prawdopodobnie przyczyną problemów z wydajnością.
+  - Czy wiele planów wykonywania jest skojarzonych z tym samym zapytaniem? Jeśli tak, dlaczego?
+  - Czy w przypadku zapytań z tym samym planem wykonania były spójne czasy wykonywania? Czy Liczba wykonań została zwiększona? W takim przypadku zwiększenie obciążenia prawdopodobnie spowoduje problemy z wydajnością.
 
-Podsumowując, jeśli plan wykonywania kwerendy nie wykonać inaczej, ale użycie procesora CPU wzrosła wraz z liczbą wykonania, problem z wydajnością jest prawdopodobnie związane ze wzrostem obciążenia.
+Podsumowując, jeśli plan wykonywania zapytania nie został wykonany inaczej, ale użycie procesora CPU wzrosło wraz z licznikiem wykonania, problem z wydajnością jest prawdopodobnie związany z wzrostem obciążenia.
 
-Nie zawsze jest łatwo zidentyfikować zmianę głośności obciążenia, która napędza problem z procesorem. Należy wziąć pod uwagę następujące czynniki:
+Nie zawsze można łatwo zidentyfikować zmiany woluminu obciążenia, który zapewnia problem z procesorem CPU. Należy wziąć pod uwagę następujące czynniki:
 
-- **Zmieniono użycie zasobów:** Rozważmy na przykład scenariusz, w którym użycie procesora CPU wzrosło do 80 procent przez dłuższy okres czasu. Samo użycie procesora CPU nie oznacza zmiany woluminu obciążenia. Regresje w planie wykonywania kwerend i zmiany w dystrybucji danych może również przyczynić się do większego użycia zasobów, nawet jeśli aplikacja wykonuje to samo obciążenie.
+- **Zmieniono użycie zasobów**: na przykład Rozważmy scenariusz, w którym użycie procesora CPU wzrosło do 80% przez dłuższy czas. Samo użycie procesora CPU nie oznacza, że wolumin obciążenia został zmieniony. Regresje w planie wykonywania zapytań oraz zmiany w dystrybucji danych mogą również przyczynić się do większej ilości zasobów, nawet jeśli aplikacja wykonuje to samo obciążenie.
 
-- **Wygląd nowej kwerendy:** Aplikacja może napędzać nowy zestaw zapytań w różnym czasie.
+- **Wygląd nowej kwerendy**: aplikacja może uzyskać nowy zestaw zapytań w różnym czasie.
 
-- **Zwiększenie lub zmniejszenie liczby żądań:** Ten scenariusz jest najbardziej oczywistą miarą obciążenia pracą. Liczba zapytań nie zawsze odpowiada większe wykorzystanie zasobów. Jednak ta metryka jest nadal znaczącym sygnałem, przy założeniu, że inne czynniki pozostają niezmienione.
+- **Zwiększenie lub zmniejszenie liczby żądań**: ten scenariusz jest najbardziej oczywistą miarą obciążenia. Liczba zapytań nie zawsze odpowiada większej ilości zasobów. Jednak ten pomiar jest nadal znaczący, przy założeniu, że inne czynniki nie są zmieniane.
 
-Użyj funkcji Intelligent Insights, aby wykryć [zwiększenie obciążenia](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) i [zaplanować regresji.](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression)
+Użyj Intelligent Insights, aby wykrywać [wzrost obciążeń](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) i [planować regresje](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression).
 
 ## <a name="waiting-related-problems"></a>Problemy związane z oczekiwaniem
 
-Po wyeliminowaniu planu nieoptymalnego i problemów *związanych z oczekiwaniem,* które są związane z problemami z wykonywaniem, problem z wydajnością jest zazwyczaj kwerendy prawdopodobnie czekają na jakiś zasób. Problemy związane z oczekiwaniem mogą być spowodowane przez:
+Gdy zostanie wyeliminowany nieoptymalny plan i problemy *związane* z uruchamianiem, które są związane z problemami z wykonywaniem, problem z wydajnością zazwyczaj jest oczekiwany w przypadku niektórych zasobów. Problemy zależne mogą być spowodowane przez:
 
 - **Blokowanie**:
 
-  Jedna kwerenda może zawierać blokadę obiektów w bazie danych, podczas gdy inne próbują uzyskać dostęp do tych samych obiektów. Zapytania blokujące można zidentyfikować za pomocą [modułów DMV](sql-database-monitoring-with-dmvs.md#monitoring-blocked-queries) lub [aplikacji Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md#locking).
-- **Problemy z io**
+  Jedno zapytanie może blokować blokowanie obiektów w bazie danych, podczas gdy inne próbują uzyskać dostęp do tych samych obiektów. Można zidentyfikować blokowanie zapytań za pomocą [widoków DMV](sql-database-monitoring-with-dmvs.md#monitoring-blocked-queries) lub [Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md#locking).
+- **Problemy we/wy**
 
-  Kwerendy mogą czekać na strony, które mają być zapisywane w plikach danych lub dziennika. W takim przypadku `INSTANCE_LOG_RATE_GOVERNOR`sprawdź `WRITE_LOG`statystyki `PAGEIOLATCH_*` , , lub oczekiwania w DMV. Zobacz korzystanie z dmvs do [identyfikacji problemów z wydajnością we/wy](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues).
+  Zapytania mogą oczekiwać na zapisanie stron w plikach danych lub dziennika. W takim przypadku sprawdź statystyki `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`lub `PAGEIOLATCH_*` Zaczekaj na DMV. Zobacz Korzystanie z widoków DMV, aby [identyfikować problemy z wydajnością we/wy](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues).
 - **Problemy z bazą danych TempDB**
 
-  Jeśli obciążenie używa tabel tymczasowych lub istnieją wycieki bazy danych TempDB w planach, kwerendy mogą mieć problem z przepływnością bazy danych TempDB. Zobacz używanie dmvs do [tożsamości TempDB problemy](sql-database-monitoring-with-dmvs.md#identify-tempdb-performance-issues).
+  Jeśli obciążenie używa tabel tymczasowych lub w planach występuje wyciek bazy danych TempDB, zapytania mogą mieć problem z przepływem pracy w bazie danych TempDB. Zobacz Używanie widoków DMV do [tożsamości bazy danych tempdb](sql-database-monitoring-with-dmvs.md#identify-tempdb-performance-issues).
 - **Problemy związane z pamięcią**
 
-  Jeśli obciążenie nie ma wystarczającej ilości pamięci, średnia długość życia strony może spaść lub zapytania mogą uzyskać mniej pamięci niż potrzebują. W niektórych przypadkach wbudowana inteligencja w Optymalizatorze zapytań rozwiąże problemy związane z pamięcią. Zobacz za pomocą DMVs do [identyfikowania problemów dotacji pamięci](sql-database-monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues).
+  Jeśli obciążenie nie ma wystarczającej ilości pamięci, może zostać pobrana stron życia strony lub zapytania mogą uzyskać mniejszą ilość pamięci niż jest to potrzebne. W niektórych przypadkach wbudowana analiza w optymalizatora zapytań naprawi problemy związane z pamięcią. Zobacz Używanie widoków DMV, aby [identyfikować problemy z przydzielaniem pamięci](sql-database-monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues).
 
-### <a name="methods-to-show-top-wait-categories"></a>Metody pokazywania najlepszych kategorii oczekiwania
+### <a name="methods-to-show-top-wait-categories"></a>Metody wyświetlania najważniejszych kategorii oczekiwania
 
-Metody te są często używane do pokazywania najlepszych kategorii typów oczekiwania:
+Te metody są często używane do wyświetlania najważniejszych kategorii typów oczekiwania:
 
-- Użyj inteligentnej analizy do identyfikowania zapytań z pogorszeniem wydajności z powodu [zwiększonego oczekiwania](sql-database-intelligent-insights-troubleshoot-performance.md#increased-wait-statistic)
-- Użyj [Magazynu zapytań,](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) aby znaleźć statystyki oczekiwania dla każdej kwerendy w czasie. W Magazynie zapytań typy oczekiwania są łączone w kategorie oczekiwania. Mapowanie kategorii oczekiwania można czekać na [typy w pliku sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
-- Użyj [sys.dm_db_wait_stats,](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) aby zwrócić informacje o wszystkich oczekiwaniach napotkanych przez wątki, które zostały wykonane podczas operacji kwerendy. Ten widok zagregowany służy do diagnozowania problemów z wydajnością usługi Azure SQL Database, a także z określonymi zapytaniami i partiami. Kwerendy mogą czekać na zasoby, oczekiwania w kolejce lub oczekiwania zewnętrzne.
-- Użyj [pliku sys.dm_os_waiting_tasks,](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) aby zwrócić informacje o kolejce zadań oczekujących na niektóre zasoby.
+- Użyj Intelligent Insights, aby identyfikować zapytania z obniżeniem wydajności z powodu [zwiększonego oczekiwania](sql-database-intelligent-insights-troubleshoot-performance.md#increased-wait-statistic)
+- Użyj [magazynu zapytań](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) , aby znaleźć statystyki oczekiwania dla każdego zapytania w czasie. W magazynie zapytań typy oczekiwania są łączone w kategorie oczekiwania. Można znaleźć Mapowanie kategorii oczekiwania na typy oczekiwania w [tabeli sys. query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
+- Użyj wykazu [sys. dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) , aby zwrócić informacje o wszystkich czekach na wątki wykonywane podczas operacji zapytania. Ten Zagregowany widok służy do diagnozowania problemów z wydajnością Azure SQL Database a także z określonymi kwerendami i partiami. Zapytania oczekują na zasoby, czekają na kolejki lub czekają na zewnątrz.
+- Użyj wykazu [sys. dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) , aby zwrócić informacje o kolejce zadań oczekujących na jakiś zasób.
 
-W scenariuszach o wysokim procesorze CPU statystyki magazynu zapytań i oczekiwania mogą nie odzwierciedlać użycia procesora CPU, jeśli:
+W scenariuszach z wysokim procesorem CPU magazyn zapytań i statystyki oczekiwania mogą nie odzwierciedlać użycia procesora, jeśli:
 
-- Kwerendy o wysokiej wydajności procesora CPU są nadal wykonywane.
-- Kwerendy o wysokiej wydajności procesora CPU były uruchomione, gdy doszło do pracy awaryjnej.
+- Nadal są wykonywane zapytania o wysokim zużyciu procesora CPU.
+- W przypadku przełączenia w tryb failover działały zapytania o wysokim zużyciu procesora CPU.
 
-DmVs, które śledzą query store i statystyki oczekiwania pokazują wyniki tylko pomyślnie zakończone i limit czasu kwerend. Nie pokazują one danych dla aktualnie wykonywanych instrukcji, dopóki instrukcje nie zakończą się. Użyj dynamicznego widoku zarządzania [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) do śledzenia aktualnie wykonywanych zapytań i skojarzonego czasu procesu roboczego.
+Widoków DMV, który śledzi magazyn zapytań i statystyki oczekiwania, pokazują wyniki tylko dla zapytań zakończonych pomyślnie i przekroczenia limitu czasu. Nie wyświetlają one danych dla aktualnie wykonywanych instrukcji do momentu zakończenia instrukcji. Użyj dynamicznego widoku zarządzania [sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) , aby śledzić aktualnie wykonywane zapytania i czas skojarzonego pracownika.
 
 > [!TIP]
 > Dodatkowe narzędzia:
 >
-> - [TigerToolbox czeka i zatrzaski](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
-> - [usp_whatsup TigerToolbox](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
+> - [TigerToolbox czeka i Zamky](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
+> - [TigerToolbox usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Omówienie monitorowania i dostrajania bazy danych SQL](sql-database-monitor-tune-overview.md)
+[Przegląd SQL Database monitorowania i dostrajania](sql-database-monitor-tune-overview.md)

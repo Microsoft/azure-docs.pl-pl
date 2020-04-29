@@ -1,7 +1,7 @@
 ---
-title: Rozwiązywanie problemów z usługą Storm przy użyciu usługi Azure HDInsight
-description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące korzystania z usługi Apache Storm w usłudze Azure HDInsight.
-keywords: Usługa Azure HDInsight, burza, często zadawane pytania, przewodnik po rozwiązywaniu problemów, typowe problemy
+title: Rozwiązywanie problemów z burzą przy użyciu usługi Azure HDInsight
+description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące korzystania z Apache Storm z usługą Azure HDInsight.
+keywords: Azure HDInsight, burza, często zadawane pytania, Przewodnik rozwiązywania problemów, typowe problemy
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,180 +10,180 @@ ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: b51b2c21fd9256c93f6947386a48336af2b75d88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271930"
 ---
-# <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z usługą Apache Storm przy użyciu usługi Azure HDInsight
+# <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z Apache Storm przy użyciu usługi Azure HDInsight
 
-Dowiedz się więcej o najważniejszych problemach i ich rozwiązaniach dotyczących pracy z ładunkami [Apache Storm](https://storm.apache.org/) w [Apache Ambari](https://ambari.apache.org/).
+Poznaj najważniejsze problemy i ich rozwiązania umożliwiające pracę z [Apache Storm](https://storm.apache.org/) ładunkiami w programie [Apache Ambari](https://ambari.apache.org/).
 
-## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Jak uzyskać dostęp do interfejsu użytkownika burzy w klastrze?
+## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Jak mogę uzyskać dostęp do interfejsu użytkownika burzy w klastrze?
 
-Masz dwie opcje uzyskiwania dostępu do interfejsu użytkownika burzy z przeglądarki:
+Dostępne są dwie opcje uzyskiwania dostępu do interfejsu użytkownika burzy z przeglądarki:
 
-### <a name="apache-ambari-ui"></a>Interfejs apache Ambari
+### <a name="apache-ambari-ui"></a>Interfejs użytkownika Apache Ambari
 
 1. Przejdź do pulpitu nawigacyjnego Ambari.
-2. Na liście usług wybierz pozycję **Burza**.
-3. W menu **Szybkie łącza** wybierz polecenie **Interfejs burzy**.
+2. Na liście usług wybierz pozycję **burza**.
+3. W menu **szybkie linki** wybierz pozycję **interfejs użytkownika burzy**.
 
-### <a name="direct-link"></a>Bezpośredni link
+### <a name="direct-link"></a>Link bezpośredni
 
-Dostęp do interfejsu użytkownika burzy można uzyskać pod następującym adresem URL:
+Możesz uzyskać dostęp do interfejsu użytkownika burzy pod następującym adresem URL:
 
 `https://<cluster DNS name>/stormui`
 
 Przykład: `https://stormcluster.azurehdinsight.net/stormui`
 
-## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Jak przenieść informacje o punkcie kontrolnym centrum zdarzeń Storm z jednej topologii do drugiej?
+## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Jak mogę transferu informacji o punkcie kontrolnym centrum zdarzeń burzy elementu Spout z jednej topologii do innej?
 
-Podczas opracowywania topologii, które są odczytywane z usługi Azure Event Hubs przy użyciu pliku .jar centrum zdarzeń usługi HDInsight Storm, należy wdrożyć topologię o tej samej nazwie w nowym klastrze. Jednak należy zachować dane punktu kontrolnego, który został zatwierdzony do [Apache ZooKeeper](https://zookeeper.apache.org/) na starym klastrze.
+Podczas tworzenia topologii odczytanych z usługi Azure Event Hubs przy użyciu pliku elementu Spout. jar z centrum zdarzeń burza (HDInsight) należy wdrożyć topologię o tej samej nazwie w nowym klastrze. Należy jednak zachować dane punktów kontrolnych, które zostały zatwierdzone do [Apache ZooKeeper](https://zookeeper.apache.org/) w starym klastrze.
 
-### <a name="where-checkpoint-data-is-stored"></a>Gdzie przechowywane są dane punktu kontrolnego
+### <a name="where-checkpoint-data-is-stored"></a>Miejsce przechowywania danych punktów kontrolnych
 
-Dane punktu kontrolnego dla przesunięć są przechowywane przez wylewka centrum zdarzeń w ZooKeeper w dwóch ścieżkach głównych:
+Dane punktów kontrolnych dla przesunięć są przechowywane przez centrum zdarzeń elementu Spout w dozorcy w dwóch ścieżkach głównych:
 
-- Nietransakcyjne punkty kontrolne wylewki są przechowywane w `/eventhubspout`pliku .
+- Nietransakcyjne punkty kontrolne elementu Spout są przechowywane w `/eventhubspout`.
 
-- Dane punktu kontrolnego wylewki transakcyjnej są przechowywane w `/transactional`pliku .
+- Dane transakcyjnego punktu kontrolnego elementu Spout `/transactional`są przechowywane w.
 
 ### <a name="how-to-restore"></a>Jak przywrócić
 
-Aby uzyskać skrypty i biblioteki używane do eksportowania danych z zookeeper, a następnie zaimportować dane z powrotem do ZooKeeper o nowej nazwie, zobacz [przykłady BURZY HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/tools/zkdatatool-1.0).
+Aby pobrać skrypty i biblioteki, których używasz do eksportowania danych z programu dozorcy, a następnie zaimportuj dane z powrotem do dozorcy z nową nazwą, zobacz [przykłady burzy](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/tools/zkdatatool-1.0)w usłudze HDInsight.
 
-Folder lib zawiera pliki jar, które zawierają implementację operacji eksportowania/importowania. Folder bash zawiera przykładowy skrypt, który pokazuje, jak wyeksportować dane z serwera ZooKeeper w starym klastrze, a następnie zaimportować go z powrotem do serwera ZooKeeper w nowym klastrze.
+Folder lib zawiera pliki jar, które zawierają implementację operacji eksportu/importu. Folder bash zawiera przykładowy skrypt demonstrujący sposób eksportowania danych z serwera dozorcy w starym klastrze, a następnie zaimportowania go z powrotem do serwera dozorcy w nowym klastrze.
 
-Uruchom skrypt [stormmeta.sh](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/tools/zkdatatool-1.0/bash/stormmeta.sh) z węzłów ZooKeeper do wyeksportowania, a następnie zaimportuj dane. Zaktualizuj skrypt do poprawnej wersji platformy danych Hortonworks (HDP). (Pracujemy nad tym, aby te skrypty były ogólne w HDInsight. Skrypty ogólne można uruchamiać z dowolnego węzła w klastrze bez modyfikacji przez użytkownika.)
+Uruchom skrypt [stormmeta.sh](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/tools/zkdatatool-1.0/bash/stormmeta.sh) z węzłów dozorcy, aby wyeksportować i zaimportować dane. Zaktualizuj skrypt do odpowiedniej wersji Hortonworks Data Platform (HDP). (Pracujemy nad tym, że te skrypty są ogólne w usłudze HDInsight. Skrypty ogólne można uruchamiać z dowolnego węzła w klastrze bez modyfikacji użytkownika.
 
-Polecenie eksportu zapisuje metadane do ścieżki apache Hadoop Distributed File System (HDFS) (w usłudze Azure Blob Storage lub Azure Data Lake Storage) w ustawionej lokalizacji.
+Polecenie eksportu zapisuje metadane w ścieżce rozproszony system plików Apache Hadoop (HDFS) (na platformie Azure Blob Storage lub Azure Data Lake Storage) w ustawionej lokalizacji.
 
 ### <a name="examples"></a>Przykłady
 
 #### <a name="export-offset-metadata"></a>Eksportowanie metadanych przesunięcia
 
-1. Użyj SSH, aby przejść do klastra ZooKeeper w klastrze, z którego musi zostać wyeksportowane przesunięcie punktu kontrolnego.
-2. Uruchom następujące polecenie (po zaktualizowaniu ciągu wersji HDP), aby `/stormmetadta/zkdata` wyeksportować dane odsunięcia ZooKeeper do ścieżki HDFS:
+1. Użyj protokołu SSH, aby przejść do klastra dozorcy w klastrze, z którego ma zostać wyeksportowane przesunięcie punktu kontrolnego.
+2. Uruchom następujące polecenie (po zaktualizowaniu ciągu wersji HDP), aby wyeksportować dane przesunięcia dozorcy do ścieżki `/stormmetadta/zkdata` HDFS:
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter export /eventhubspout /stormmetadata/zkdata
     ```
 
-#### <a name="import-offset-metadata"></a>Importowanie metadanych przesunięcia
+#### <a name="import-offset-metadata"></a>Importuj metadane przesunięcia
 
-1. Użyj SSH, aby przejść do klastra ZooKeeper w klastrze, z którego należy zaimportować przesunięcie punktu kontrolnego.
-2. Uruchom następujące polecenie (po zaktualizowaniu ciągu wersji HDP), aby zaimportować dane odsunięcia Programu ZooKeeper ze ścieżki `/stormmetadata/zkdata` HDFS do serwera ZooKeeper w klastrze docelowym:
+1. Użyj protokołu SSH, aby przejść do klastra dozorcy w klastrze, z którego należy zaimportować przesunięcie punktu kontrolnego.
+2. Uruchom następujące polecenie (po zaktualizowaniu ciągu wersji HDP), aby zaimportować dane przesunięcia dozorcy z ścieżki `/stormmetadata/zkdata` HDFS do serwera dozorcy w klastrze docelowym:
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter import /eventhubspout /home/sshadmin/zkdata
     ```
 
-#### <a name="delete-offset-metadata-so-that-topologies-can-start-processing-data-from-the-beginning-or-from-a-timestamp-that-the-user-chooses"></a>Usuń metadane offsetowe, aby topologie mogły rozpocząć przetwarzanie danych od początku lub z sygnatury czasowej, którą użytkownik wybierze
+#### <a name="delete-offset-metadata-so-that-topologies-can-start-processing-data-from-the-beginning-or-from-a-timestamp-that-the-user-chooses"></a>Usuwanie metadanych przesunięcia, dzięki czemu topologie mogą rozpocząć przetwarzanie danych od początku lub z sygnatury czasowej wybranej przez użytkownika
 
-1. Użyj SSH, aby przejść do klastra ZooKeeper w klastrze, z którego należy usunąć przesunięcie punktu kontrolnego.
-2. Uruchom następujące polecenie (po zaktualizowaniu ciągu wersji HDP), aby usunąć wszystkie dane odsunięcia Programu ZooKeeper w bieżącym klastrze:
+1. Użyj protokołu SSH, aby przejść do klastra dozorcy w klastrze, z którego należy usunąć przesunięcie punktu kontrolnego.
+2. Uruchom następujące polecenie (po zaktualizowaniu ciągu wersji HDP), aby usunąć wszystkie dane przesunięcia dozorcy w bieżącym klastrze:
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter delete /eventhubspout
     ```
 
-## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>Jak zlokalizować pliki binarne burzy w klastrze?
+## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>Jak mogę zlokalizować plików binarnych burzy w klastrze?
 
-Pliki binarne burzowe dla `/usr/hdp/current/storm-client`bieżącego stosu HDP znajdują się w pliku . Lokalizacja jest taka sama zarówno dla węzłów głównego, jak i węzłów procesu roboczego.
+Pliki binarne burzy dla bieżącego stosu HDP znajdują się w `/usr/hdp/current/storm-client`. Lokalizacja jest taka sama w przypadku węzłów głównych i węzłów procesu roboczego.
 
-Może istnieć wiele plików binarnych dla określonych wersji HDP `/usr/hdp/2.5.0.1233/storm`w /usr/hdp (na przykład ). Folder `/usr/hdp/current/storm-client` jest połączony z najnowszą wersją, która jest uruchomiona w klastrze.
+Może istnieć wiele plików binarnych dla określonych wersji HDP w/usr/HDP (na przykład `/usr/hdp/2.5.0.1233/storm`). `/usr/hdp/current/storm-client` Folder jest symlinked do najnowszej wersji działającej w klastrze.
 
-Aby uzyskać więcej informacji, zobacz [Łączenie się z klastrem HDInsight przy użyciu funkcji SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) i [Apache Storm](https://storm.apache.org/).
+Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z klastrem usługi HDInsight przy użyciu protokołu SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) i [Apache Storm](https://storm.apache.org/).
 
-## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Jak określić topologię wdrażania klastra Storm?
+## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Jak mogę ustalić topologii wdrażania klastra burzy?
 
-Najpierw należy zidentyfikować wszystkie składniki, które są zainstalowane z HDInsight Storm. Klaster Storm składa się z czterech kategorii węzłów:
+Najpierw Zidentyfikuj wszystkie składniki, które są zainstalowane wraz z usługą HDInsight. Klaster burzy składa się z czterech kategorii węzłów:
 
 * Węzły bramy
-* Węzły głowy
-* Węzły ZooKeeper
+* Węzły główne
+* Dozorcy węzły
 * Węzły procesu roboczego
 
 ### <a name="gateway-nodes"></a>Węzły bramy
 
-Węzeł bramy jest usługą bramy i odwrotnego serwera proxy, która umożliwia publiczny dostęp do aktywnej usługi zarządzania Ambari. Zajmuje się również wyborami lidera Ambari.
+Węzeł bramy to Usługa bramy i zwrotny serwer proxy, który umożliwia publiczny dostęp do aktywnej usługi zarządzania Ambari. Obsługuje ona również wybór lidera Ambari.
 
-### <a name="head-nodes"></a>Węzły głowy
+### <a name="head-nodes"></a>Węzły główne
 
-Węzły head storm uruchamiają następujące usługi:
+Węzły główne burzy są uruchomione następujące usługi:
 * Nimbus
 * Serwer Ambari
-* Serwer Ambari Metrics
-* Ambari Metryk Collector
+* Serwer metryk Ambari
+* Moduł zbierający metryk Ambari
  
-### <a name="zookeeper-nodes"></a>Węzły ZooKeeper
+### <a name="zookeeper-nodes"></a>Dozorcy węzły
 
-HDInsight jest wyposażony w trzywęzłowe kworum ZooKeeper. Rozmiar kworum jest stały i nie można go ponownie skonfigurować.
+Usługa HDInsight zawiera dozorcy kworum z trzema węzłami. Rozmiar kworum został ustalony i nie można go zmienić.
 
-Usługi burzowe w klastrze są skonfigurowane do automatycznego używania kworum ZooKeeper.
+Usługi burzy w klastrze są skonfigurowane do automatycznego używania kworum dozorcy.
 
 ### <a name="worker-nodes"></a>Węzły procesu roboczego
 
-Węzły procesu roboczego burzy uruchamiają następujące usługi:
+W węzłach procesu roboczego burzy są uruchomione następujące usługi:
 * Nadzorca
-* Maszyny wirtualne języka Java (JVM) dla uruchamiania topologii
+* Maszyny wirtualne Java dla procesów roboczych (JVMs), na potrzeby uruchamiania topologii
 * Agent Ambari
 
-## <a name="how-do-i-locate-storm-event-hub-spout-binaries-for-development"></a>Jak zlokalizować pliki binarne centrum zdarzeń Storm w celu opracowania?
+## <a name="how-do-i-locate-storm-event-hub-spout-binaries-for-development"></a>Jak mogę zlokalizować dane binarne usługi Event Hub elementu Spout na potrzeby programowania?
 
-Aby uzyskać więcej informacji na temat korzystania z plików .jar centrum zdarzeń burzy z topologią, zobacz następujące zasoby.
+Aby uzyskać więcej informacji na temat używania aplikacji elementu Spout. jar centrum zdarzeń z topologią, zobacz następujące zasoby.
 
 ### <a name="java-based-topology"></a>Topologia oparta na języku Java
 
-[Przetwarzanie zdarzeń z usługi Azure Event Hubs za pomocą usługi Apache Storm w usłudze HDInsight (Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)
+[Przetwarzanie zdarzeń z usługi Azure Event Hubs przy użyciu Apache Storm w usłudze HDInsight (Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)
 
-### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>Topologia oparta na języku C #(Mono na klastrach Burzań 3.4+ Linux)
+### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>Topologia języka C# (mono w przypadku klastrów burzowych usługi HDInsight 3.4 + Linux)
 
-[Przetwarzanie zdarzeń z usługi Azure Event Hubs za pomocą usługi Apache Storm w programie HDInsight (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
+[Przetwarzanie zdarzeń z usługi Azure Event Hubs przy użyciu Apache Storm w usłudze HDInsight (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
 
-### <a name="latest-apache-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>Najnowsze pliki binarne centrum zdarzeń Apache Storm dla klastrów Burzak 3.5+ Linux
+### <a name="latest-apache-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>Najnowsze Apache Storm plików binarnych elementu Spout centrum zdarzeń dla klastrów burzy usługi HDInsight 3.5 + Linux
 
-Aby dowiedzieć się, jak korzystać z najnowszej wylewki centrum zdarzeń Storm, która współpracuje z klastrami HDInsight 3.5+ Linux Storm, zobacz [plik readme mvn-repo](https://github.com/hdinsight/mvn-repo/blob/master/README.md).
+Aby dowiedzieć się, jak używać najnowszej elementu Spout centrum zdarzeń burzy, które współpracuje z klastrami burzy usługi HDInsight 3.5 + Linux, zobacz [plik Readme MVN-repo](https://github.com/hdinsight/mvn-repo/blob/master/README.md).
 
 ### <a name="source-code-examples"></a>Przykłady kodu źródłowego
 
-Zobacz [przykłady](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) sposobu odczytywania i pisania z usługi Azure Event Hub przy użyciu topologii usługi Apache Storm (napisanej w języku Java) w klastrze usługi Azure HDInsight.
+Zapoznaj się z [przykładami](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) dotyczącymi odczytywania i zapisywania z usługi Azure Event Hub przy użyciu topologii Apache Storm (napisanych w języku Java) w klastrze usługi Azure HDInsight.
 
-## <a name="how-do-i-locate-storm-log4j-2-configuration-files-on-clusters"></a>Jak zlokalizować pliki konfiguracyjne Storm Log4J 2 w klastrach?
+## <a name="how-do-i-locate-storm-log4j-2-configuration-files-on-clusters"></a>Jak mogę zlokalizować pliki konfiguracji burzy Log4J 2 w klastrach?
 
-Aby zidentyfikować [apache Log4j 2](https://logging.apache.org/log4j/2.x/) pliki konfiguracyjne dla usług Storm.
+Aby zidentyfikować pliki konfiguracji [Apache Log4J 2](https://logging.apache.org/log4j/2.x/) dla usług burzy.
 
-### <a name="on-head-nodes"></a>Na węzłach głowy
+### <a name="on-head-nodes"></a>Na węzłach głównych
 
-Konfiguracja Nimbus Log4J `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`jest odczytywana z .
+Konfiguracja Nimbus Log4J jest odczytana `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`z.
 
-### <a name="on-worker-nodes"></a>W węzłach procesu roboczego
+### <a name="on-worker-nodes"></a>Na węzłach procesu roboczego
 
-Konfiguracja log4J nadzorcy jest odczytywana z `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`.
+Konfiguracja Log4J opiekuna jest odczytywana `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`z.
 
-Plik konfiguracyjny log4J `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml`procesu roboczego jest odczytywany z pliku .
+Plik konfiguracji Log4J procesu roboczego jest odczytywany `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml`z programu.
 
-Przykłady:`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
+Pokazują`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 `/usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml`
 
 ---
 
-## <a name="not-a-leader-exception"></a>Nie jest to wyjątek od lidera
+## <a name="not-a-leader-exception"></a>To nie jest wyjątek lidera
 
-Podczas przesyłania topologii użytkownik może otrzymać komunikat o `Topology submission exception, cause not a leader, the current leader is NimbusInfo`błędzie podobny do: .
+Podczas przesyłania topologii użytkownik może otrzymać komunikat o błędzie podobny do: `Topology submission exception, cause not a leader, the current leader is NimbusInfo`.
 
-Aby rozwiązać problem, użytkownik może być konieczne złożyć bilet, aby węzły ponownie/ponownie uruchomić. Aby uzyskać więcej [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html)informacji, zobacz .
+Aby rozwiązać ten problem, użytkownik może potrzebować zaplikować bilet w celu ponownego uruchomienia lub ponownego uruchomienia węzłów. Aby uzyskać więcej informacji, [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html)Zobacz.
 
 ---
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli nie widzisz problemu lub nie możesz rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy technicznej:
+Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy:
 
-- Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej platformy Azure Community.](https://azure.microsoft.com/support/community/)
+- Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-- Połącz [@AzureSupport](https://twitter.com/azuresupport) się z — oficjalnym kontem platformy Microsoft Azure w celu poprawy jakości obsługi klienta. Łączenie społeczności platformy Azure z odpowiednimi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
+- Połącz się [@AzureSupport](https://twitter.com/azuresupport) z programem — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
-- Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy z [witryny Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Wybierz **pozycję Obsługa z** paska menu lub otwórz centrum pomocy + pomocy **technicznej.** Aby uzyskać bardziej szczegółowe informacje, zapoznaj [się z instrukcjami tworzenia żądania pomocy technicznej platformy Azure.](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) Dostęp do obsługi zarządzania subskrypcjami i rozliczeń jest dołączony do subskrypcji platformy Microsoft Azure, a pomoc techniczna jest świadczona za pośrednictwem jednego z [planów pomocy technicznej platformy Azure.](https://azure.microsoft.com/support/plans/)
+- Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

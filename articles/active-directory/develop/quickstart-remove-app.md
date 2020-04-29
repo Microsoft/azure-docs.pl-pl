@@ -1,5 +1,5 @@
 ---
-title: Usuwanie aplikacji zarejestrowanej na platformie tożsamości firmy Microsoft | Azure
+title: Usuwanie aplikacji zarejestrowanej za pomocą platformy tożsamości firmy Microsoft | Azure
 description: Dowiedz się, jak usunąć aplikację zarejestrowaną za pomocą platformy tożsamości firmy Microsoft.
 services: active-directory
 author: rwike77
@@ -13,13 +13,13 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: 3cc9e4458f14a63bad7f484bc16683248895ede9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79240849"
 ---
-# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Szybki start: usuwanie aplikacji zarejestrowanej na platformie tożsamości firmy Microsoft
+# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Szybki Start: Usuwanie aplikacji zarejestrowanej za pomocą platformy tożsamości firmy Microsoft
 
 Deweloperzy w przedsiębiorstwach oraz dostawcy oprogramowania jako usługi (SaaS), którzy zarejestrowali aplikacje za pomocą platformy tożsamości firmy Microsoft, mogą potrzebować usunąć rejestrację aplikacji.
 
@@ -30,7 +30,7 @@ W tym przewodniku Szybki start zawarto informacje na temat wykonywania następuj
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Musisz mieć dzierżawę, która ma aplikacje zarejestrowane do niego. Aby dowiedzieć się, jak dodawać i rejestrować aplikacje, zobacz [Rejestrowanie aplikacji za pomocą platformy tożsamości firmy Microsoft](quickstart-register-app.md).
+Wymagana jest dzierżawa z zarejestrowanymi aplikacjami. Aby dowiedzieć się, jak dodawać i rejestrować aplikacje, zobacz [Rejestrowanie aplikacji za pomocą platformy tożsamości firmy Microsoft](quickstart-register-app.md).
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>Usuwanie aplikacji utworzonej przez Ciebie lub Twoją organizację
 
@@ -40,7 +40,7 @@ Aplikacje zarejestrowane przez Ciebie lub Twoją aplikację są reprezentowane p
 
 1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com) przy użyciu służbowego lub osobistego konta Microsoft.
 2. Jeśli Twoje konto umożliwia dostęp do więcej niż jednej dzierżawy, wybierz konto w prawym górnym rogu, a następnie ustaw sesję portalu na odpowiednią dzierżawę usługi Azure AD.
-3. W lewym okienku nawigacji wybierz usługę **Azure Active Directory,** a następnie wybierz pozycję **Rejestracje aplikacji**. Znajdź i wybierz aplikację, którą chcesz skonfigurować. Po wybraniu aplikacji zobaczysz stronę **Przegląd** aplikacji.
+3. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** a następnie wybierz pozycję **rejestracje aplikacji**. Znajdź i wybierz aplikację, którą chcesz skonfigurować. Po wybraniu aplikacji zobaczysz stronę **Przegląd** aplikacji.
 4. Na stronie **Przegląd** wybierz pozycję **Usuń**.
 5. Wybierz pozycję **Tak**, aby potwierdzić, że chcesz usunąć aplikację.
 

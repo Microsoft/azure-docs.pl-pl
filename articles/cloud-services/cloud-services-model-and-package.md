@@ -1,6 +1,6 @@
 ---
-title: Co to jest model usługi w chmurze i pakiet | Dokumenty firmy Microsoft
-description: Zawiera opis modelu usługi w chmurze (csdef, cscfg) i pakietu (.cspkg) na platformie Azure
+title: Co to jest model i pakiet usługi w chmurze | Microsoft Docs
+description: Opisuje model usług w chmurze (. csdef,. cscfg) i pakiet (. cspkg) na platformie Azure
 services: cloud-services
 author: tanmaygore
 ms.service: cloud-services
@@ -8,31 +8,31 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: 32603f4ab33e020245861e5dc66d2ade545fa627
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79247490"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Co to jest model usługi w chmurze i jak go spakować?
-Usługa w chmurze jest tworzona z trzech składników, definicji usługi *(csdef),* konfiguracji usługi *(cscfg)* i pakietu usług *(.cspkg)*. Pliki **ServiceDefinition.csdef** i **ServiceConfig.cscfg** są oparte na języku XML i opisują strukturę usługi w chmurze oraz sposób jej konfigurowania; model zwany zbiorczo. **ServicePackage.cspkg** to plik zip, który jest generowany z **ServiceDefinition.csdef** i między innymi zawiera wszystkie wymagane zależności oparte na binarnych. Platforma Azure tworzy usługę w chmurze zarówno z **servicepackage.cspkg,** jak i **ServiceConfig.cscfg**.
+Usługa w chmurze jest tworzona na podstawie trzech składników: definicji usługi *(. csdef)*, konfiguracji usługi *(. cscfg)* i pakietu usługi *(. cspkg)*. Pliki **ServiceDefinition. csdef** i **ServiceConfig. cscfg** są oparte na języku XML i opisują strukturę usługi w chmurze oraz sposób jej konfiguracji; nazywana zbiorczo modelem. **Servicepackage. cspkg** to plik zip, który jest generowany na podstawie elementu **ServiceDefinition. csdef** i między innymi, zawiera wszystkie wymagane zależności oparte na plikach binarnych. Platforma Azure tworzy usługę w chmurze zarówno z **servicepackage. cspkg** , jak i **ServiceConfig. cscfg**.
 
-Gdy usługa w chmurze jest uruchomiona na platformie Azure, można ponownie skonfigurować go za pomocą pliku **ServiceConfig.cscfg,** ale nie można zmienić definicji.
+Gdy usługa w chmurze jest uruchomiona na platformie Azure, można ją skonfigurować ponownie za pomocą pliku **ServiceConfig. cscfg** , ale nie można zmienić definicji.
 
-## <a name="what-would-you-like-to-know-more-about"></a>O czym chciałbyś wiedzieć więcej?
-* Chcę dowiedzieć się więcej o plikach [ServiceDefinition.csdef](#csdef) i [ServiceConfig.cscfg.](#cscfg)
-* Już o tym wiem, podam [kilka przykładów](#next-steps) na temat tego, co mogę skonfigurować.
-* Chcę utworzyć [ServicePackage.cspkg](#cspkg).
+## <a name="what-would-you-like-to-know-more-about"></a>Jak chcesz dowiedzieć się więcej?
+* Chcę dowiedzieć się więcej na temat plików [ServiceDefinition. csdef](#csdef) i [ServiceConfig. cscfg](#cscfg) .
+* Już wie o tym, co można zrobić, aby uzyskać więcej [przykładów](#next-steps) na temat konfiguracji.
+* Chcę utworzyć [servicepackage. cspkg](#cspkg).
 * Używam programu Visual Studio i chcę...
   * [Tworzenie usługi w chmurze][vs_create]
-  * [Ponowne konfigurowanie istniejącej usługi w chmurze][vs_reconfigure]
+  * [Skonfiguruj ponownie istniejącą usługę w chmurze][vs_reconfigure]
   * [Wdrażanie projektu usługi w chmurze][vs_deploy]
-  * [Pulpit zdalny w wystąpieniu usługi w chmurze][remotedesktop]
+  * [Pulpit zdalny do wystąpienia usługi w chmurze][remotedesktop]
 
 <a name="csdef"></a>
 
-## <a name="servicedefinitioncsdef"></a>UsługaDefinicja.csdef
-**Plik ServiceDefinition.csdef** określa ustawienia używane przez platformę Azure do konfigurowania usługi w chmurze. [Schemat definicji usługi Azure (plik csdef)](/previous-versions/azure/reference/ee758711(v=azure.100)) zapewnia dozwolony format pliku definicji usługi. W poniższym przykładzie przedstawiono ustawienia, które można zdefiniować dla ról sieci Web i pracownika:
+## <a name="servicedefinitioncsdef"></a>ServiceDefinition. csdef
+Plik **ServiceDefinition. csdef** określa ustawienia, które są używane przez platformę Azure do konfigurowania usługi w chmurze. [Schemat definicji usługi platformy Azure (plik csdef)](/previous-versions/azure/reference/ee758711(v=azure.100)) zawiera dozwolony format dla pliku definicji usługi. W poniższym przykładzie przedstawiono ustawienia, które można zdefiniować dla ról Sieć Web i proces roboczy:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -83,38 +83,38 @@ Gdy usługa w chmurze jest uruchomiona na platformie Azure, można ponownie skon
 </ServiceDefinition>
 ```
 
-Można odwołać się do [schematu definicji usługi](/previous-versions/azure/reference/ee758711(v=azure.100)) w celu lepszego zrozumienia schematu XML używanego w tym miejscu, jednak tutaj znajduje się szybkie wyjaśnienie niektórych elementów:
+Można odwołać się do [schematu definicji usługi](/previous-versions/azure/reference/ee758711(v=azure.100)) , aby lepiej zrozumieć schemat XML użyty tutaj, ale poniżej przedstawiono krótkie wyjaśnienie niektórych elementów:
 
 **Witryny**  
-Zawiera definicje witryn sieci Web lub aplikacji sieci web, które są hostowane w usługach IIS7.
+Zawiera definicje witryn internetowych lub aplikacji sieci Web, które są hostowane w IIS7.
 
-**Punkty wprowadzania**  
-Zawiera definicje dla punktów końcowych, które są używane do kontaktu z usługą w chmurze.
+**InputEndpoints**  
+Zawiera definicje punktów końcowych, które są używane do kontaktowania się z usługą w chmurze.
 
-**Punkty internalend**  
-Zawiera definicje dla punktów końcowych, które są używane przez wystąpienia roli do komunikowania się ze sobą.
+**InternalEndpoints**  
+Zawiera definicje dla punktów końcowych, które są używane przez wystąpienia ról do komunikowania się ze sobą.
 
-**Configurationsettings**  
+**ConfigurationSettings**  
 Zawiera definicje ustawień dla funkcji określonej roli.
 
 **Certyfikaty**  
-Zawiera definicje certyfikatów, które są potrzebne dla roli. W przykładzie poprzedniego kodu pokazano certyfikat, który jest używany do konfiguracji usługi Azure Connect.
+Zawiera definicje certyfikatów, które są zbędne dla roli. Poprzedni przykład kodu przedstawia certyfikat używany do konfiguracji usługi Azure Connect.
 
-**Zasoby lokalne**  
-Zawiera definicje zasobów magazynu lokalnego. Zasób magazynu lokalnego jest zastrzeżonym katalogiem w systemie plików maszyny wirtualnej, w którym jest uruchomione wystąpienie roli.
+**LocalResources**  
+Zawiera definicje zasobów magazynu lokalnego. Lokalny zasób magazynu jest katalogiem zastrzeżonym w systemie plików maszyny wirtualnej, w którym jest uruchomiona wystąpienie roli.
 
-**Przywozu**  
-Zawiera definicje importowanych modułów. W przykładzie poprzedniego kodu przedstawiono moduły dla usługi Podłączanie pulpitu zdalnego i usługi Azure Connect.
+**Importowania**  
+Zawiera definicje importowanych modułów. Poprzedni przykład kodu przedstawia moduły Podłączanie pulpitu zdalnego i Azure Connect.
 
 **Uruchamianie**  
-Zawiera zadania, które są uruchamiane po uruchomieniu roli. Zadania są definiowane w pliku cmd lub pliku wykonywalnym.
+Zawiera zadania, które są uruchamiane, gdy zostanie uruchomiona rola. Zadania są zdefiniowane w pliku cmd lub wykonywalnym.
 
 <a name="cscfg"></a>
 
-## <a name="serviceconfigurationcscfg"></a>UsługaConfiguration.cscfg
-Konfiguracja ustawień usługi w chmurze zależy od wartości w pliku **ServiceConfiguration.cscfg.** Należy określić liczbę wystąpień, które chcesz wdrożyć dla każdej roli w tym pliku. Wartości ustawień konfiguracji zdefiniowanych w pliku definicji usługi są dodawane do pliku konfiguracji usługi. Odciski palców dla wszystkich certyfikatów zarządzania, które są skojarzone z usługą w chmurze są również dodawane do pliku. [Schemat konfiguracji usługi Azure (plik cscfg)](/previous-versions/azure/reference/ee758710(v=azure.100)) zapewnia dozwolony format pliku konfiguracji usługi.
+## <a name="serviceconfigurationcscfg"></a>ServiceConfiguration. cscfg
+Konfiguracja ustawień dla usługi w chmurze zależy od wartości w pliku **ServiceConfiguration. cscfg** . Należy określić liczbę wystąpień, które mają zostać wdrożone dla każdej roli w tym pliku. Wartości ustawień konfiguracji zdefiniowanych w pliku definicji usługi są dodawane do pliku konfiguracji usługi. Odciski palców dla wszystkich certyfikatów zarządzania skojarzonych z usługą w chmurze są również dodawane do pliku. [Schemat konfiguracji usługi platformy Azure (plik cscfg)](/previous-versions/azure/reference/ee758710(v=azure.100)) zawiera dozwolony format dla pliku konfiguracji usługi.
 
-Plik konfiguracji usługi nie jest spakowany z aplikacją, ale jest przekazyany na platformę Azure jako oddzielny plik i jest używany do konfigurowania usługi w chmurze. Możesz przekazać nowy plik konfiguracji usługi bez ponownego rozmieszczania usługi w chmurze. Wartości konfiguracji usługi w chmurze można zmienić, gdy usługa w chmurze jest uruchomiona. W poniższym przykładzie przedstawiono ustawienia konfiguracji, które można zdefiniować dla ról Sieci Web i Pracownika:
+Plik konfiguracji usługi nie jest spakowany z aplikacją, ale jest przekazywany do platformy Azure jako oddzielny plik i służy do konfigurowania usługi w chmurze. Można przekazać nowy plik konfiguracji usługi bez ponownego wdrażania usługi w chmurze. Wartości konfiguracji usługi w chmurze można zmienić, gdy usługa w chmurze jest uruchomiona. Poniższy przykład przedstawia ustawienia konfiguracji, które można zdefiniować dla ról Sieć Web i proces roboczy:
 
 ```xml
 <?xml version="1.0"?>
@@ -134,28 +134,28 @@ Plik konfiguracji usługi nie jest spakowany z aplikacją, ale jest przekazyany 
 </ServiceConfiguration>
 ```
 
-Można odwołać się do [schematu konfiguracji usługi](/previous-versions/azure/reference/ee758710(v=azure.100)) w celu lepszego zrozumienia schematu XML używanego w tym miejscu, jednak tutaj znajduje się szybkie wyjaśnienie elementów:
+Aby lepiej zrozumieć schemat XML użyty w tym miejscu, można zapoznać się ze [schematem konfiguracji usługi](/previous-versions/azure/reference/ee758710(v=azure.100)) , ale poniżej przedstawiono krótkie wyjaśnienie elementów:
 
 **Wystąpienia**  
-Konfiguruje liczbę uruchomionych wystąpień dla roli. Aby zapobiec potencjalnie niedostępności usługi w chmurze podczas uaktualniania, zaleca się wdrożenie więcej niż jednego wystąpienia ról związanych z sieci web. Wdrażając więcej niż jedno wystąpienie, przestrzegasz wytycznych zawartych w [umowie dotyczącej poziomu usług obliczeniowych platformy Azure (SLA),](https://azure.microsoft.com/support/legal/sla/)która gwarantuje 99,95% łączności zewnętrznej dla ról internetowych, gdy dwa lub więcej wystąpień roli jest wdrażanych dla usługi.
+Konfiguruje liczbę uruchomionych wystąpień dla roli. Aby zapobiec ewentualnej niedostępności usługi w chmurze podczas uaktualniania, zalecamy wdrożenie więcej niż jednego wystąpienia ról dostępnych w sieci Web. Wdrażając więcej niż jedno wystąpienie, przestrzegasz wytycznych dotyczących usługi [Azure Compute umowa dotycząca poziomu usług (SLA)](https://azure.microsoft.com/support/legal/sla/), co gwarantuje 99,95% łączności zewnętrznej dla ról mających dostęp do Internetu po wdrożeniu co najmniej dwóch wystąpień roli dla usługi.
 
-**Configurationsettings**  
+**ConfigurationSettings**  
 Konfiguruje ustawienia dla uruchomionych wystąpień dla roli. Nazwa `<Setting>` elementów musi być zgodna z definicjami ustawień w pliku definicji usługi.
 
 **Certyfikaty**  
-Konfiguruje certyfikaty, które są używane przez usługę. W przykładzie poprzedniego kodu pokazano, jak zdefiniować certyfikat dla modułu RemoteAccess. Wartość atrybutu *odcisk palca* musi być ustawiona na odcisk palca certyfikatu do użycia.
+Konfiguruje certyfikaty, które są używane przez usługę. W poprzednim przykładzie kodu pokazano, jak zdefiniować certyfikat dla modułu dostępu zdalnego. Wartość atrybutu *odcisku palca* musi być ustawiona na odcisk palca certyfikatu, który ma być używany.
 
 <p/>
 
 > [!NOTE]
-> Odcisk palca certyfikatu można dodać do pliku konfiguracji za pomocą edytora tekstu. Lub wartość można dodać na karcie **Certyfikaty** na stronie **Właściwości** roli w programie Visual Studio.
+> Odcisk palca certyfikatu można dodać do pliku konfiguracji przy użyciu edytora tekstu. Lub wartość można dodać na karcie **Certyfikaty** na stronie **Właściwości** roli w programie Visual Studio.
 > 
 > 
 
 ## <a name="defining-ports-for-role-instances"></a>Definiowanie portów dla wystąpień roli
-Platforma Azure zezwala tylko jeden punkt wejścia do roli sieci web. Oznacza to, że cały ruch odbywa się za pośrednictwem jednego adresu IP. Witryny sieci Web można skonfigurować do udostępniania portu, konfigurując nagłówek hosta, aby przekierować żądanie do właściwej lokalizacji. Można również skonfigurować aplikacje do nasłuchiwać dobrze znanych portów na adres IP.
+System Azure umożliwia tylko jeden punkt wejścia do roli sieci Web. Oznacza to, że cały ruch odbywa się przy użyciu jednego adresu IP. Można skonfigurować witryny sieci Web do udostępniania portu przez skonfigurowanie nagłówka hosta, aby skierować żądanie do odpowiedniej lokalizacji. Możesz również skonfigurować aplikacje do nasłuchiwania dobrze znanych portów w adresie IP.
 
-W poniższym przykładzie przedstawiono konfigurację roli sieci web z witryną sieci Web i aplikacją sieci Web. Witryna sieci Web jest skonfigurowana jako domyślna lokalizacja wejścia na porcie 80, a aplikacje sieci web są skonfigurowane do odbierania żądań z alternatywnego nagłówka hosta o nazwie "mail.mysite.cloudapp.net".
+Poniższy przykład pokazuje konfigurację roli sieci Web z witryną internetową i aplikacją sieci Web. Witryna internetowa jest konfigurowana jako domyślna lokalizacja wpisu na porcie 80, a aplikacje sieci Web są skonfigurowane do odbierania żądań z alternatywnego nagłówka hosta o nazwie "mail.mysite.cloudapp.net".
 
 ```xml
 <WebRole>
@@ -191,57 +191,57 @@ W poniższym przykładzie przedstawiono konfigurację roli sieci web z witryną 
 
 
 ## <a name="changing-the-configuration-of-a-role"></a>Zmienianie konfiguracji roli
-Można zaktualizować konfigurację usługi w chmurze, gdy jest uruchomiona na platformie Azure, bez przekładzania usługi w tryb offline. Aby zmienić informacje o konfiguracji, można przekazać nowy plik konfiguracyjny lub edytować plik konfiguracyjny w miejscu i zastosować go do uruchomionej usługi. W konfiguracji usługi można ww ciągu następujących zmian:
+Konfigurację usługi w chmurze można zaktualizować, gdy jest ona uruchomiona na platformie Azure bez przełączania usługi do trybu offline. Aby zmienić informacje o konfiguracji, można przekazać nowy plik konfiguracji lub edytować plik konfiguracji w miejscu i zastosować go do uruchomionej usługi. W konfiguracji usługi można wprowadzać następujące zmiany:
 
 * **Zmiana wartości ustawień konfiguracji**  
-  Gdy zmienia się ustawienie konfiguracji, wystąpienie roli można zastosować zmiany, gdy wystąpienie jest w trybie online lub odtworzyć wystąpienie bezpiecznie i zastosować zmianę, gdy wystąpienie jest w trybie offline.
-* **Zmiana topologii usług wystąpień ról**  
-  Zmiany topologii nie mają wpływu na uruchomione wystąpienia, z wyjątkiem sytuacji, gdy wystąpienie jest usuwane. Wszystkie pozostałe wystąpienia zazwyczaj nie muszą być poddane recyklingowi; można jednak wybrać do odtwo oddać do recyklingu wystąpień roli w odpowiedzi na zmianę topologii.
+  Po zmianie ustawienia konfiguracji wystąpienie roli może zdecydować się na zastosowanie zmiany, gdy wystąpienie jest w trybie online lub aby bezpiecznie odtworzyć wystąpienie i zastosować zmiany, gdy wystąpienie jest w trybie offline.
+* **Zmiana topologii usługi wystąpień roli**  
+  Zmiany topologii nie wpływają na uruchomione wystąpienia, chyba że wystąpienie jest usuwane. Wszystkie pozostałe wystąpienia zwykle nie muszą być odtwarzane; można jednak wybrać odtwarzanie wystąpień ról w odpowiedzi na zmianę topologii.
 * **Zmiana odcisku palca certyfikatu**  
-  Certyfikat można zaktualizować tylko wtedy, gdy wystąpienie roli jest w trybie offline. Jeśli certyfikat zostanie dodany, usunięty lub zmieniony, gdy wystąpienie roli jest w trybie online, platforma Azure bezpiecznie przejmuje wystąpienie do trybu offline, aby zaktualizować certyfikat i przywrócić go do trybu online po zakończeniu zmiany.
+  Certyfikat można aktualizować tylko wtedy, gdy wystąpienie roli jest w trybie offline. Jeśli certyfikat zostanie dodany, usunięty lub zmieniony, gdy wystąpienie roli jest w trybie online, platforma Azure bezpiecznie przełącza wystąpienie do trybu offline w celu zaktualizowania certyfikatu i przełączenia go do trybu online po zakończeniu zmiany.
 
-### <a name="handling-configuration-changes-with-service-runtime-events"></a>Obsługa zmian konfiguracji za pomocą zdarzeń środowiska wykonawczego usługi
-[Biblioteka środowiska wykonawczego platformy Azure](/previous-versions/azure/reference/mt419365(v=azure.100)) zawiera obszar nazw [Microsoft.WindowsAzure.ServiceRuntime,](/previous-versions/azure/reference/ee741722(v=azure.100)) który udostępnia klasy do interakcji ze środowiskiem platformy Azure z roli. Klasa [RoleEnvironment](/previous-versions/azure/reference/ee773173(v=azure.100)) definiuje następujące zdarzenia, które są wywoływane przed i po zmianie konfiguracji:
+### <a name="handling-configuration-changes-with-service-runtime-events"></a>Obsługa zmian konfiguracji przy użyciu zdarzeń środowiska uruchomieniowego usługi
+[Biblioteka środowiska uruchomieniowego platformy Azure](/previous-versions/azure/reference/mt419365(v=azure.100)) obejmuje przestrzeń nazw [Microsoft. windowsazure. serviceruntime](/previous-versions/azure/reference/ee741722(v=azure.100)) , która zapewnia klasy umożliwiające współdziałanie ze środowiskiem platformy Azure z roli. Klasa [RoleEnvironment](/previous-versions/azure/reference/ee773173(v=azure.100)) definiuje następujące zdarzenia, które są wywoływane przed zmianą konfiguracji i po niej:
 
 * **[Zmiana](/previous-versions/azure/reference/ee758134(v=azure.100)) zdarzenia**  
-  Dzieje się tak, zanim zmiana konfiguracji zostanie zastosowana do określonego wystąpienia roli, co daje szansę na zdejmanie wystąpień roli, jeśli to konieczne.
+  Dzieje się tak przed zastosowaniem zmiany konfiguracji do określonego wystąpienia roli, dzięki czemu można w razie potrzeby wyłączyć wystąpienia roli.
 * **[Zmieniono](/previous-versions/azure/reference/ee758129(v=azure.100)) zdarzenie**  
   Występuje po zastosowaniu zmiany konfiguracji do określonego wystąpienia roli.
 
 > [!NOTE]
-> Ponieważ zmiany certyfikatu zawsze biorą wystąpienia roli w tryb offline, nie podnoszą zdarzeń RoleEnvironment.Changing lub RoleEnvironment.Changed.
+> Ponieważ zmiany certyfikatu zawsze przyjmują wystąpienia roli w trybie offline, nie zgłaszają zdarzeń RoleEnvironment. zmiana lub RoleEnvironment.
 > 
 > 
 
 <a name="cspkg"></a>
 
-## <a name="servicepackagecspkg"></a>Pakiet usług.cspkg
+## <a name="servicepackagecspkg"></a>Servicepackage. cspkg
 > [!NOTE]
-> Maksymalny rozmiar pakietu, który można wdrożyć, to 600 MB
+> Maksymalny rozmiar pakietu, który można wdrożyć, to 600MB
 
-Aby wdrożyć aplikację jako usługę w chmurze na platformie Azure, należy najpierw spakować aplikację w odpowiednim formacie. Za pomocą narzędzia wiersza polecenia **CSPack** (zainstalowanego przy użyciu [zestawu Azure SDK)](https://azure.microsoft.com/downloads/)można utworzyć plik pakietu jako alternatywę dla programu Visual Studio.
+Aby wdrożyć aplikację jako usługę w chmurze na platformie Azure, musisz najpierw spakować aplikację w odpowiednim formacie. Aby utworzyć plik pakietu jako alternatywę dla programu Visual Studio, można użyć narzędzia wiersza polecenia **CSPack** (zainstalowanego z [zestawem Azure SDK](https://azure.microsoft.com/downloads/)).
 
-**CSPack** używa zawartości pliku definicji usługi i pliku konfiguracji usługi do definiowania zawartości pakietu. **CsPack** generuje plik pakietu aplikacji (.cspkg), który można przekazać na platformę Azure przy użyciu [portalu Azure](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Domyślnie pakiet ma `[ServiceDefinitionFileName].cspkg`nazwę , ale można określić `/out` inną nazwę, korzystając z opcji **CSPack**.
+**CSPack** używa zawartości pliku definicji usługi i pliku konfiguracji usługi do definiowania zawartości pakietu. **CSPack** generuje plik pakietu aplikacji (. cspkg), który można przekazać do platformy Azure za pomocą [Azure Portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Domyślnie pakiet nosi nazwę `[ServiceDefinitionFileName].cspkg`, ale można określić inną nazwę przy użyciu `/out` opcji **CSPack**.
 
-**CSPack** znajduje się pod adresem  
+**CSPack** znajduje się w lokalizacji  
 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\[sdk-version]\bin\`
 
 > [!NOTE]
-> Program CSPack.exe (w systemie Windows) jest dostępny po uruchomieniu skrótu **wiersza polecenia platformy Microsoft Azure** zainstalowanego przy zestaw SDK.  
+> CSPack. exe (w systemie Windows) jest dostępny przez uruchomienie skrótu **wiersza polecenia Microsoft Azure** , który jest instalowany z zestawem SDK.  
 > 
-> Uruchom program CSPack.exe samodzielnie, aby zobaczyć dokumentację dotyczącą wszystkich możliwych przełączników i poleceń.
+> Uruchom program CSPack. exe, aby wyświetlić dokumentację dotyczącą wszystkich możliwych przełączników i poleceń.
 > 
 > 
 
 <p />
 
 > [!TIP]
-> Uruchom usługę w chmurze lokalnie w **emulatorze obliczeń platformy Microsoft Azure**, użyj **/copyonly** opcji. Ta opcja kopiuje pliki binarne aplikacji do układu katalogu, z którego można je uruchomić w emulatorze obliczeniowym.
+> Uruchom usługę w chmurze lokalnie w **emulatorze obliczeń Microsoft Azure**, użyj opcji **/CopyOnly** . Ta opcja powoduje skopiowanie plików binarnych aplikacji do układu katalogu, z którego mogą być uruchamiane w emulatorze obliczeniowym.
 > 
 > 
 
-### <a name="example-command-to-package-a-cloud-service"></a>Przykładowe polecenie do pakowania usługi w chmurze
-Poniższy przykład tworzy pakiet aplikacji, który zawiera informacje dla roli sieci web. Polecenie określa plik definicji usługi do użycia, katalog, w którym można znaleźć pliki binarne, oraz nazwę pliku pakietu.
+### <a name="example-command-to-package-a-cloud-service"></a>Przykładowe polecenie do spakowania usługi w chmurze
+Poniższy przykład tworzy pakiet aplikacji, który zawiera informacje dla roli sieci Web. Polecenie Określa plik definicji usługi, który ma być używany, katalog, w którym można znaleźć pliki binarne, oraz nazwę pliku pakietu.
 
 ```cmd
 cspack [DirectoryName]\[ServiceDefinition]
@@ -250,7 +250,7 @@ cspack [DirectoryName]\[ServiceDefinition]
        /out:[OutputFileName]
 ```
 
-Jeśli aplikacja zawiera zarówno rolę sieci web, jak i rolę procesu roboczego, używane jest następujące polecenie:
+Jeśli aplikacja zawiera zarówno rolę sieci Web, jak i rolę procesu roboczego, używane jest następujące polecenie:
 
 ```cmd
 cspack [DirectoryName]\[ServiceDefinition]
@@ -260,29 +260,29 @@ cspack [DirectoryName]\[ServiceDefinition]
        /role:[RoleName];[RoleBinariesDirectory];[RoleAssemblyName]
 ```
 
-W przypadku gdy zmienne są zdefiniowane w następujący sposób:
+Gdzie zmienne są zdefiniowane w następujący sposób:
 
 | Zmienna | Wartość |
 | --- | --- |
-| \[Directoryname\] |Podkatalog w katalogu projektu głównego, który zawiera plik csdef projektu platformy Azure. |
-| \[Definicja usługi\] |Nazwa pliku definicji usługi. Domyślnie ten plik nosi nazwę ServiceDefinition.csdef. |
-| \[Outputfilename\] |Nazwa wygenerowanego pliku pakietu. Zazwyczaj jest to ustawione na nazwę aplikacji. Jeśli nazwa pliku nie jest określona, \[pakiet\]aplikacji jest tworzony jako ApplicationName .cspkg. |
+| \[DirectoryName\] |Podkatalog w katalogu głównym projektu, który zawiera plik. csdef projektu platformy Azure. |
+| \[ServiceDefinition\] |Nazwa pliku definicji usługi. Domyślnie ten plik nosi nazwę ServiceDefinition. csdef. |
+| \[OutputFileName\] |Nazwa wygenerowanego pliku pakietu. Zazwyczaj jest to nazwa aplikacji. Jeśli nazwa pliku nie zostanie określona, pakiet aplikacji zostanie utworzony jako \[ApplicationName\]. cspkg. |
 | \[RoleName\] |Nazwa roli zdefiniowanej w pliku definicji usługi. |
 | \[RoleBinariesDirectory] |Lokalizacja plików binarnych dla roli. |
-| \[Virtualpath\] |Katalogi fizyczne dla każdej ścieżki wirtualnej zdefiniowane w sekcji Lokacje definicji usługi. |
-| \[PhysicalPath\] |Katalogi fizyczne zawartości dla każdej ścieżki wirtualnej zdefiniowanej w węźle lokacji definicji usługi. |
-| \[Nazwa roli\] |Nazwa pliku binarnego dla roli. |
+| \[VirtualPath\] |Katalogi fizyczne dla każdej ścieżki wirtualnej zdefiniowanej w sekcji Lokacje definicji usługi. |
+| \[PhysicalPath\] |Katalogi fizyczne zawartości dla każdej ścieżki wirtualnej zdefiniowanej w węźle lokacja definicji usługi. |
+| \[RoleAssemblyName\] |Nazwa pliku binarnego dla roli. |
 
 ## <a name="next-steps"></a>Następne kroki
-Tworzym pakiet usług w chmurze i chcę...
+Tworzymy pakiet usługi w chmurze i chcę...
 
 * [Konfigurowanie pulpitu zdalnego dla wystąpienia usługi w chmurze][remotedesktop]
 * [Wdrażanie projektu usługi w chmurze][deploy]
 
 Używam programu Visual Studio i chcę...
 
-* [Tworzenie nowej usługi w chmurze][vs_create]
-* [Ponowne konfigurowanie istniejącej usługi w chmurze][vs_reconfigure]
+* [Utwórz nową usługę w chmurze][vs_create]
+* [Skonfiguruj ponownie istniejącą usługę w chmurze][vs_reconfigure]
 * [Wdrażanie projektu usługi w chmurze][vs_deploy]
 * [Konfigurowanie pulpitu zdalnego dla wystąpienia usługi w chmurze][vs_remote]
 

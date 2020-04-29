@@ -1,56 +1,56 @@
 ---
-title: Planowanie pojemności i skalowanie sieci szkieletowej usług Azure
-description: Najważniejsze wskazówki dotyczące planowania i skalowania klastrów i aplikacji sieci szkieletowej usług.
+title: Planowanie i skalowanie pojemności dla Service Fabric platformy Azure
+description: Najlepsze rozwiązania związane z planowaniem i skalowaniem Service Fabric klastrów i aplikacji.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.openlocfilehash: bf228e17ca24df9833f96f0c6fd3ef232cdf7ae6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258995"
 ---
-# <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planowanie pojemności i skalowanie sieci szkieletowej usług Azure
+# <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planowanie i skalowanie pojemności dla Service Fabric platformy Azure
 
-Przed utworzeniem dowolnego klastra sieci szkieletowej usługi Azure lub skalowania zasobów obliczeniowych, które obsługują klaster, należy zaplanować pojemność. Aby uzyskać więcej informacji na temat planowania pojemności, zobacz [Planowanie pojemności klastra sieci szkieletowej usług](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity). Aby uzyskać dalsze wskazówki dotyczące najlepszych rozwiązań dotyczących skalowalności klastra, zobacz [Zagadnienia dotyczące skalowalności sieci szkieletowej usług.](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric#scalability-considerations)
+Przed utworzeniem dowolnego klastra usługi Azure Service Fabric lub skalowaniem zasobów obliczeniowych, które obsługują klaster, ważne jest zaplanowanie pojemności. Aby uzyskać więcej informacji o planowaniu pojemności, zobacz [Planowanie pojemności klastra Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity). Aby uzyskać dalsze wskazówki dotyczące skalowalności klastra, zobacz [zagadnienia dotyczące skalowalności Service Fabric](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric#scalability-considerations).
 
-Oprócz uwzględnienia typu węzła i charakterystyki klastra, należy oczekiwać, że operacje skalowania potrwać dłużej niż godzinę, aby zakończyć dla środowiska produkcyjnego. Ta uwaga jest spełniony niezależnie od liczby maszyn wirtualnych, które dodajesz.
+Oprócz uwzględniania właściwości typu węzła i klastra należy oczekiwać skalowania operacji trwających dłużej niż godzinę dla środowiska produkcyjnego. Ta kwestia jest prawdziwa niezależnie od liczby dodawanych maszyn wirtualnych.
 
 ## <a name="autoscaling"></a>Skalowanie automatyczne
-Operacje skalowania należy wykonywać za pomocą szablonów usługi Azure Resource Manager, ponieważ najlepszym rozwiązaniem jest traktowanie [konfiguracji zasobów jako kodu.]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code) 
+Należy wykonywać operacje skalowania za pomocą szablonów Azure Resource Manager, ponieważ najlepszym rozwiązaniem jest traktowanie [konfiguracji zasobów jako kodu]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code). 
 
-Za pomocą automatycznego skalowania za pomocą zestawów skalowania maszyny wirtualnej sprawi, że szablon Menedżera zasobów wersjonowane niedokładnie zdefiniować liczbę wystąpień dla zestawów skalowania maszyny wirtualnej. Niedokładna definicja zwiększa ryzyko, że przyszłe wdrożenia spowoduje niezamierzone operacje skalowania. Ogólnie rzecz biorąc, należy użyć skalowania automatycznego, jeśli:
+Używanie skalowania automatycznego za pośrednictwem zestawów skalowania maszyn wirtualnych sprawia, że wersja szablonu Menedżer zasobów w niewłaściwy sposób definiuje liczbę wystąpień dla zestawów skalowania maszyn wirtualnych. Niedokładne definicje zwiększają ryzyko, że przyszłe wdrożenia spowodują niezamierzone operacje skalowania. Ogólnie rzecz biorąc należy używać skalowania automatycznego, jeśli:
 
-* Wdrażanie szablonów Menedżera zasobów z zadeklarowanym pojemnością nie obsługuje przypadku użycia.
+* Wdrażanie szablonów Menedżer zasobów z wykorzystaniem odpowiednich pojemności nie obsługuje Twojego przypadku użycia.
      
-   Oprócz ręcznego skalowania można skonfigurować [potok ciągłej integracji i dostarczania w usługach Azure DevOps przy użyciu projektów wdrażania grup zasobów platformy Azure.](https://docs.microsoft.com/azure/vs-azure-tools-resource-groups-ci-in-vsts) Ten potok jest często wyzwalany przez aplikację logiki, która używa metryk wydajności maszyny wirtualnej, których dotyczy zapytanie z [interfejsu API REST usługi Azure Monitor.](https://docs.microsoft.com/azure/azure-monitor/platform/rest-api-walkthrough) Potok skutecznie skaluje się automatycznie na podstawie dowolnych metryk, podczas gdy optymalizujesz szablony Menedżera zasobów.
-* Należy skalować poziomo tylko jeden węzeł zestawu skalowania maszyny wirtualnej naraz.
+   Oprócz skalowania ręcznego można skonfigurować [potok ciągłej integracji i dostarczania w Azure DevOps Services przy użyciu projektów wdrażania grupy zasobów platformy Azure](https://docs.microsoft.com/azure/vs-azure-tools-resource-groups-ci-in-vsts). Ten potok jest często wyzwalany przez aplikację logiki, która używa metryk wydajności maszyny wirtualnej, które są wysyłane z [Azure monitor interfejsu API REST](https://docs.microsoft.com/azure/azure-monitor/platform/rest-api-walkthrough). Potok jest efektywnie skalowany automatycznie na podstawie dowolnych metryk, podczas optymalizacji pod kątem Menedżer zasobów szablonów.
+* W danym momencie trzeba skalować w poziomie tylko jeden węzeł zestawu skalowania maszyn wirtualnych.
    
-   Aby skalować w poziomie przez co najmniej trzy węzły naraz, należy [skalować w poziomie klaster sieci szkieletowej usług, dodając zestaw skalowania maszyny wirtualnej.](virtual-machine-scale-set-scale-node-type-scale-out.md) Najbezpieczniej jest skalować i skalować w poziomie skala maszyny wirtualnej ustawia poziomo, jeden węzeł na raz.
-* Masz niezawodność Silver lub wyższą dla klastra sieci szkieletowej usług i trwałość silver lub wyższą na dowolnej skali, w której konfigurujesz reguły skalowania automatycznego.
+   Aby skalować w poziomie o trzy lub więcej węzłów jednocześnie, należy [skalować klaster Service Fabric przez dodanie zestawu skalowania maszyn wirtualnych](virtual-machine-scale-set-scale-node-type-scale-out.md). Najbezpieczniejszym sposobem skalowania i skalowania zestawów skalowania maszyn wirtualnych w poziomie jest jeden węzeł w danym momencie.
+* W przypadku klastra Service Fabric masz Silver lub wyższą niezawodność, a wersja Silver lub nowsza na dowolnej skali, w której można skonfigurować reguły skalowania automatycznego.
   
-   Minimalna pojemność reguł skalowania automatycznego musi być równa lub większa niż pięć wystąpień maszyny wirtualnej. Musi być również równa lub większa niż minimum warstwy niezawodności dla typu węzła podstawowego.
+   Minimalna pojemność reguł skalowania automatycznego musi być równa lub większa niż pięć wystąpień maszyn wirtualnych. Musi ona również być równa lub większa od warstwy niezawodności minimalnej dla typu węzła podstawowego.
 
 > [!NOTE]
-> Sieci szkieletowej usług stanowych sieci szkieletowej:/System/InfastructureService/<NODE_TYPE_NAME> działa na każdym typie węzła, który ma silver lub większą trwałość. Jest to jedyna usługa systemowa, która jest obsługiwana do uruchamiania na platformie Azure na dowolnym typie węzłów klastrów.
+> Service Fabric stanowa Usługa Service Fabric:/system/InfastructureService/<NODE_TYPE_NAME> działa na każdym typie węzła, którego trwałość to Silver lub wyższa. Jest to jedyna usługa systemowa, która jest obsługiwana na platformie Azure dla dowolnego typu węzła klastra.
 
 ## <a name="vertical-scaling-considerations"></a>Zagadnienia dotyczące skalowania w pionie
 
-[Skalowanie w pionie](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) typu węzła w sieci szkieletowej usługi Azure wymaga kilku kroków i zagadnień. Przykład:
+[Skalowanie w pionie](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) typu węzła w usłudze Azure Service Fabric wymaga kilku kroków i kwestii. Przykład:
 
-* Klaster musi być w dobrej kondycji przed skalowaniem. W przeciwnym razie zdestabilizujesz klaster dalej.
-* Poziom trwałości silver lub większy jest wymagany dla wszystkich typów węzłów klastra sieci szkieletowej usług, które obsługują usługi stanowe.
+* Aby można było skalować klaster, należy go dobrać w dobrej kondycji. W przeciwnym razie bardziej stabilny jest klaster.
+* Dla wszystkich typów węzłów klastra Service Fabric, które obsługują usługi stanowe, wymagany jest poziom trwałości Silver lub nowszy.
 
 > [!NOTE]
-> Typ węzła podstawowego, który obsługuje usługi systemu sieci szkieletowej usług stanowych, musi mieć poziom trwałości Silver lub wyższy. Po włączeniu trwałości silver operacje klastra, takie jak uaktualnienia, dodawanie lub usuwanie węzłów i tak dalej będzie wolniejszy, ponieważ system optymalizuje bezpieczeństwo danych nad szybkością operacji.
+> Podstawowy typ węzła, który hostuje stanowe Service Fabric usługi systemowe, musi mieć poziom trwałości Silver lub wyższy. Po włączeniu trwałości Silver operacje klastra, takie jak uaktualnienia, Dodawanie lub usuwanie węzłów, są wolniejsze, ponieważ system optymalizuje się pod kątem bezpieczeństwa danych przez szybkość operacji.
 
-Skalowanie w pionie zestaw skalowania maszyny wirtualnej jest operacją destrukcyjną. Zamiast tego skaluj poziomo klaster, dodając nowy zestaw skalowania z żądaną jednostką SKU. Następnie należy przeprowadzić migrację usług do żądanej jednostki SKU, aby ukończyć bezpieczną operację skalowania pionowego. Zmiana jednostki SKU zestawu zasobów zestawu skalowania maszyny wirtualnej jest operacją destrukcyjną, ponieważ ponownie wyobraża hosty, co usuwa wszystkie lokalnie utrwalone stany.
+Skalowanie w pionie zestawu skalowania maszyn wirtualnych jest operacją niszczącą. W takim przypadku w poziomie można skalować klaster przez dodanie nowego zestawu skalowania z odpowiednią jednostką SKU. Następnie Przeprowadź migrację usług do żądanej jednostki SKU, aby ukończyć bezpieczną operację skalowania w pionie. Zmiana jednostki SKU zasobu zestawu skalowania maszyn wirtualnych jest operacją niszczącą, ponieważ powoduje odtworzenie obrazu na hostach, co spowoduje usunięcie całego stanu trwałego.
 
-Klaster używa właściwości węzła sieci szkieletowej [usług i ograniczeń umieszczania,](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) aby zdecydować, gdzie mają być hostowane usługi aplikacji. Podczas skalowania w pionie typu węzła podstawowego `"nodeTypeRef"`należy zadeklarować identyczne wartości właściwości dla obiektu . Te wartości można znaleźć w rozszerzeniu sieci szkieletowej usług dla zestawów skalowania maszyny wirtualnej. 
+Klaster używa [właściwości węzła Service Fabric i ograniczeń umieszczania](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) , aby zdecydować, gdzie hostować usługi aplikacji. W przypadku skalowania w pionie typu węzła podstawowego należy zadeklarować identyczne wartości `"nodeTypeRef"`właściwości dla. Te wartości można znaleźć w rozszerzeniu Service Fabric dla zestawów skalowania maszyn wirtualnych. 
 
-Poniższy fragment szablonu Menedżera zasobów zawiera właściwości, które należy zadeklarować. Ma taką samą wartość dla nowo aprowizacji zestawów skalowania, które są skalowanie do i jest obsługiwany tylko jako tymczasowa usługa stanowa dla klastra.
+Poniższy fragment kodu Menedżer zasobów zawiera właściwości, które zostaną zadeklarowane. Ma taką samą wartość dla nowo zainicjowanych zestawów skalowania, do których jest skalowane, i jest obsługiwana tylko jako tymczasowa usługa stanowa klastra.
 
 ```json
 "settings": {
@@ -59,29 +59,29 @@ Poniższy fragment szablonu Menedżera zasobów zawiera właściwości, które n
 ```
 
 > [!NOTE]
-> Nie pozostawiaj klastra uruchomionego z wieloma `nodeTypeRef` zestawami skalowania, które używają tej samej wartości właściwości dłuższej niż wymagana do ukończenia pomyślnej operacji skalowania pionowego.
+> Nie opuszczaj klastra z wieloma zestawami skalowania, które używają `nodeTypeRef` tej samej wartości właściwości dłużej niż jest to wymagane, aby ukończyć pomyślną operację skalowania w pionie.
 >
-> Zawsze sprawdzaj poprawność operacji w środowiskach testowych przed podjęciem próby zmian w środowisku produkcyjnym. Domyślnie usługi systemu klastra sieci szkieletowej usług sieci szkieletowych mają ograniczenie umieszczania tylko do docelowego typu węzła podstawowego.
+> Zawsze Weryfikuj operacje w środowiskach testowych przed podjęciem zmian w środowisku produkcyjnym. Domyślnie usługi systemu Service Fabric klastra mają ograniczenie umieszczania tylko dla docelowego typu węzła podstawowego.
 
-Z właściwości węzła i ograniczenia umieszczania zadeklarowane, wykonaj następujące kroki po jednym wystąpieniu maszyny Wirtualnej w czasie. Dzięki temu usługi systemowe (i usługi stanowe) mają być zamknięte bezpiecznie w wystąpieniu maszyny Wirtualnej, które usuwasz, jak nowe repliki są tworzone w innym miejscu.
+Po zadeklarowaniu właściwości węzła i ograniczeń położenia wykonaj następujące kroki w jednym wystąpieniu maszyny wirtualnej naraz. Dzięki temu usługi systemowe (i usługi stanowe) mogą być bezpiecznie zamykane w wystąpieniu maszyny wirtualnej, która jest usuwana w innym miejscu.
 
-1. Z programu PowerShell `Disable-ServiceFabricNode` `RemoveNode` uruchom z zamiarem wyłączenia węzła, który zamierzasz usunąć. Usuń typ węzła, który ma największą liczbę. Na przykład jeśli masz klaster z sześcioma węzłami, usuń wystąpienie maszyny wirtualnej "MyNodeType_5".
-2. Uruchom, `Get-ServiceFabricNode` aby upewnić się, że węzeł został przeniesiony do wyłączone. Jeśli nie, poczekaj, aż węzeł zostanie wyłączony. Może to potrwać kilka godzin dla każdego węzła. Nie kontynuuj, dopóki węzeł nie został przeniesiony do wyłączonego.
-3. Zmniejsz liczbę maszyn wirtualnych o jeden w tym typie węzła. Najwyższe wystąpienie maszyny Wirtualnej zostanie teraz usunięte.
-4. Powtórz kroki od 1 do 3 w razie potrzeby, ale nigdy nie skaluj w dół liczby wystąpień w typach węzłów podstawowych mniej niż wymaga tego warstwa niezawodności. Zobacz [Planowanie pojemności klastra sieci szkieletowej usług](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) dla listy zalecanych wystąpień.
-5. Gdy wszystkie maszyny wirtualne znikną (reprezentowane jako "W dół") sieci szkieletowej:/System/InfrastructureService/[nazwa węzła] pokaże stan error. Następnie można zaktualizować zasób klastra, aby usunąć typ węzła. Można użyć wdrożenia szablonu ARM lub edytować zasób klastra za pośrednictwem [Menedżera zasobów platformy Azure](https://resources.azure.com). Spowoduje to uruchomienie uaktualnienia klastra, który usunie usługę szkieletową:/System/InfrastructureService/[node type] w stanie błędu.
- 6. Po tym można opcjonalnie usunąć VMScaleSet, nadal będzie widać węzły jako "W dół" z widoku Eksploratora sieci szkieletowej usług choć. Ostatnim krokiem byłoby, aby `Remove-ServiceFabricNodeState` oczyścić je za pomocą polecenia.
+1. W programie PowerShell uruchom `Disable-ServiceFabricNode` polecenie with `RemoveNode` , aby wyłączyć węzeł, który ma zostać usunięty. Usuń typ węzła o największej liczbie. Na przykład jeśli masz klaster z sześcioma węzłami, Usuń wystąpienie maszyny wirtualnej "MyNodeType_5".
+2. Uruchom `Get-ServiceFabricNode` , aby upewnić się, że węzeł został przeniesiony do wyłączenia. Jeśli nie, zaczekaj, aż węzeł zostanie wyłączony. Może to potrwać kilka godzin dla każdego węzła. Nie należy przechodzić do czasu, aż węzeł zostanie przeniesiony do wyłączenia.
+3. Zmniejsz liczbę maszyn wirtualnych przez jedną w tym typie węzła. Największe wystąpienie maszyny wirtualnej zostanie teraz usunięte.
+4. Powtórz kroki od 1 do 3, jeśli jest to potrzebne, ale nigdy nie Skaluj w dół liczby wystąpień w typach węzłów głównych mniejszych niż to, co gwarantuje warstwa niezawodności. Zapoznaj się z tematem [Planowanie pojemności klastra Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) , aby zapoznać się z listą zalecanych wystąpień.
+5. Gdy wszystkie maszyny wirtualne zostaną usunięte (reprezentowane jako "w dół"), w obszarze Sieć szkieletowa:/system/InfrastructureService/[nazwa węzła] zostanie wyświetlony stan błędu. Następnie można zaktualizować zasób klastra, aby usunąć typ węzła. Możesz użyć wdrożenia szablonu ARM lub edytować zasób klastra za pomocą [usługi Azure Resource Manager](https://resources.azure.com). Spowoduje to uruchomienie uaktualnienia klastra, co spowoduje usunięcie usługi sieci szkieletowej:/system/InfrastructureService/[Node Type], która jest w stanie błędu.
+ 6. Po wybraniu opcjonalnego usunięcia VMScaleSet nadal będą wyświetlane węzły jako "w dół" w widoku Service Fabric Explorer. Ostatnim krokiem jest oczyszczenie ich przy użyciu `Remove-ServiceFabricNodeState` polecenia.
 
 ## <a name="horizontal-scaling"></a>skalowanie w poziomie,
 
-Skalowanie w poziomie można wykonać [ręcznie](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down) lub [programowo](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
+Skalowanie w poziomie można przeprowadzić [ręcznie](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down) lub [programowo](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
 
 > [!NOTE]
-> Jeśli skalujesz typ węzła, który ma trwałość Silver lub Gold, skalowanie będzie powolne.
+> W przypadku skalowania typu węzła, który ma trwałość Silver lub Gold, skalowanie będzie powolne.
 
 ### <a name="scaling-out"></a>Skalowanie w poziomie
 
-Skalowanie w poziomie klastra sieci szkieletowej usług przez zwiększenie liczby wystąpień dla określonego zestawu skalowania maszyny wirtualnej. Można skalować w poziomie `AzureClient` programowo za pomocą i identyfikator dla zestawu skaly żądanej, aby zwiększyć pojemność.
+Skalowanie klastra Service Fabric przez zwiększenie liczby wystąpień określonego zestawu skalowania maszyn wirtualnych. Można programowo skalować w poziomie przy użyciu `AzureClient` i identyfikatora żądanego zestawu skalowania w celu zwiększenia pojemności.
 
 ```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
@@ -89,7 +89,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ```
 
-Aby ręcznie skalować w poziomie, należy zaktualizować pojemność we właściwości jednostki SKU żądanego zasobu [zestawu skalowania maszyny wirtualnej.](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile)
+Aby ręcznie skalować w poziomie, zaktualizuj pojemność we właściwości SKU żądanego zasobu [zestawu skalowania maszyn wirtualnych](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) .
 
 ```json
 "sku": {
@@ -101,19 +101,19 @@ Aby ręcznie skalować w poziomie, należy zaktualizować pojemność we właśc
 
 ### <a name="scaling-in"></a>Skalowanie w
 
-Skalowanie w wymaga więcej uwagę niż skalowanie w poziomie. Na przykład:
+Skalowanie w górę wymaga większego nacisku niż skalowanie w górę. Na przykład:
 
-* Usługi systemu sieci szkieletowej usług są uruchamiane w typie węzła podstawowego w klastrze. Nigdy nie zamykaj ani nie skaluj w dół liczby wystąpień dla tego typu węzła, aby mieć mniej wystąpień niż gwarantuje warstwa niezawodności. 
-* Dla usługi stanowej trzeba pewną liczbę węzłów, które są zawsze do utrzymania dostępności i zachowania stanu usługi. Co najmniej potrzebna jest liczba węzłów równych docelowej liczbie zestawów replik partycji lub usługi.
+* Usługi systemowe Service Fabric uruchamiane w podstawowym typie węzła w klastrze. Nigdy nie zamykaj ani nie Skaluj w dół liczby wystąpień tego typu węzła, aby mieć mniej wystąpień niż to, co gwarantuje warstwa niezawodności. 
+* W przypadku usługi stanowej potrzebna jest pewna liczba węzłów, które są zawsze do utrzymania dostępności i zachowania stanu usługi. Wymagana jest co najmniej liczba węzłów równa liczbie docelowych zestawu replik partycji lub usługi.
 
-Aby skalować ręcznie, wykonaj następujące kroki:
+Aby ręcznie skalować, wykonaj następujące kroki:
 
-1. Z programu PowerShell `Disable-ServiceFabricNode` `RemoveNode` uruchom z zamiarem wyłączenia węzła, który zamierzasz usunąć. Usuń typ węzła, który ma największą liczbę. Na przykład jeśli masz klaster z sześcioma węzłami, usuń wystąpienie maszyny wirtualnej "MyNodeType_5".
-2. Uruchom, `Get-ServiceFabricNode` aby upewnić się, że węzeł został przeniesiony do wyłączone. Jeśli nie, poczekaj, aż węzeł zostanie wyłączony. Może to potrwać kilka godzin dla każdego węzła. Nie kontynuuj, dopóki węzeł nie został przeniesiony do wyłączonego.
-3. Zmniejsz liczbę maszyn wirtualnych o jeden w tym typie węzła. Najwyższe wystąpienie maszyny Wirtualnej zostanie teraz usunięte.
-4. W razie potrzeby powtarzaj kroki od 1 do 3, aż do momentu udostępnić odpowiednią pojemność. Nie skaluj w dół liczby wystąpień w typach węzłów podstawowych do mniej niż gwarantuje warstwa niezawodności. Zobacz [Planowanie pojemności klastra sieci szkieletowej usług](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) dla listy zalecanych wystąpień.
+1. W programie PowerShell uruchom `Disable-ServiceFabricNode` polecenie with `RemoveNode` , aby wyłączyć węzeł, który ma zostać usunięty. Usuń typ węzła o największej liczbie. Na przykład jeśli masz klaster z sześcioma węzłami, Usuń wystąpienie maszyny wirtualnej "MyNodeType_5".
+2. Uruchom `Get-ServiceFabricNode` , aby upewnić się, że węzeł został przeniesiony do wyłączenia. Jeśli nie, zaczekaj, aż węzeł zostanie wyłączony. Może to potrwać kilka godzin dla każdego węzła. Nie należy przechodzić do czasu, aż węzeł zostanie przeniesiony do wyłączenia.
+3. Zmniejsz liczbę maszyn wirtualnych przez jedną w tym typie węzła. Największe wystąpienie maszyny wirtualnej zostanie teraz usunięte.
+4. Powtórz kroki od 1 do 3, dopóki nie zostanie zainicjowana wymagana pojemność. Nie Skaluj w dół liczby wystąpień w typach węzłów głównych do wartości mniejszej niż wartość gwarancji warstwy niezawodności. Zapoznaj się z tematem [Planowanie pojemności klastra Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) , aby zapoznać się z listą zalecanych wystąpień.
 
-Aby skalować ręcznie, należy zaktualizować pojemność we właściwości SKU żądanego zasobu [zestawu skalowania maszyny wirtualnej.](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile)
+Aby ręcznie skalować, zaktualizuj pojemność we właściwości SKU żądanego zasobu [zestawu skalowania maszyn wirtualnych](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) .
 
 ```json
 "sku": {
@@ -123,7 +123,7 @@ Aby skalować ręcznie, należy zaktualizować pojemność we właściwości SKU
 }
 ```
 
-Należy przygotować węzeł do zamknięcia, aby skalować programowo. Znajdź węzeł do usunięcia (węzeł najwyższego wystąpienia). Przykład:
+Aby można było programowo skalować w poziomie, należy przygotować węzeł do zamknięcia. Znajdź węzeł, który ma zostać usunięty (węzeł najwyższego wystąpienia). Przykład:
 
 ```csharp
 using (var client = new FabricClient())
@@ -140,7 +140,7 @@ using (var client = new FabricClient())
         .FirstOrDefault();
 ```
 
-Dezaktywuj i usuń `FabricClient` węzeł`client` przy użyciu tego samego`instanceIdString` wystąpienia (w tym przypadku) i wystąpienia węzła (w tym przypadku), które zostały użyte w poprzednim kodzie:
+Dezaktywuj i Usuń węzeł przy użyciu tego samego `FabricClient` wystąpienia (`client` w tym przypadku) i wystąpienia węzła (`instanceIdString` w tym przypadku), które zostało użyte w poprzednim kodzie:
 
 ```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
@@ -166,24 +166,24 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> Po skalowaniu w dół klastra, zobaczysz usunięte węzeł/maszyna wirtualna wystąpienie wyświetlane w stanie w złej kondycji w Eksploratorze sieci szkieletowej usług. Aby uzyskać wyjaśnienie tego zachowania, zobacz [zachowania, które można zaobserwować w Eksploratorze sieci szkieletowej usług](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer). Możesz:
-> * Wywołanie [polecenia Usuń-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) z odpowiednią nazwą węzła.
-> * Wdrażanie [aplikacji pomocnika skalowania automatycznego sieci szkieletowej](https://github.com/Azure/service-fabric-autoscale-helper/) w klastrze. Ta aplikacja zapewnia, że węzły skalowane w dół są czyszczone z Eksploratora sieci szkieletowej usług.
+> Podczas skalowania w dół klastra zobaczysz usunięte wystąpienie węzła/maszyny wirtualnej wyświetlone w złej kondycji w Service Fabric Explorer. Aby uzyskać wyjaśnienie tego zachowania, zobacz [zachowania, które można obserwować w Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer). Można:
+> * Wywołaj [polecenie Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) z odpowiednią nazwą węzła.
+> * Wdróż [aplikację pomocnika automatycznego skalowania Service Fabric](https://github.com/Azure/service-fabric-autoscale-helper/) w klastrze. Ta aplikacja zapewnia, że węzły skalowane w dół są wyczyszczone z Service Fabric Explorer.
 
 ## <a name="reliability-levels"></a>Poziomy niezawodności
 
-[Poziom niezawodności](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) jest właściwością zasobu klastra sieci szkieletowej usług. Nie można skonfigurować inaczej dla poszczególnych typów węzłów. Steruje współczynnikiem replikacji usług systemowych dla klastra i jest ustawieniem na poziomie zasobów klastra. 
+[Poziom niezawodności](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) jest właściwością zasobu klastra Service Fabric. Nie można go skonfigurować inaczej dla poszczególnych typów węzłów. Kontroluje współczynnik replikacji usług systemowych dla klastra i jest ustawieniem na poziomie zasobów klastra. 
 
 Poziom niezawodności określi minimalną liczbę węzłów, które musi mieć typ węzła podstawowego. Warstwa niezawodności może przyjmować następujące wartości:
 
-* Platyna: uruchamia usługi systemowe z docelową liczbą zestawów replik siedmiu i dziewięciu węzłów źródłowych.
-* Złoto: Uruchamia usługi systemowe z docelową liczbą zestawów replik siedmiu i siedmiu węzłów źródłowych.
-* Srebro: uruchamia usługi systemowe z docelową liczbą zestawów replik pięciu i pięciu węzłów źródłowych.
-* Brązowy: Uruchamia usługi systemowe z docelową liczbą zestawów replik trzech i trzech węzłów źródłowych.
+* Pakiet Platinum: uruchamia usługi systemowe z docelową liczbą zestawu replik siedmiu i dziewięciu węzłów inicjatora.
+* Złoty: uruchamia usługi systemowe z docelową liczbą zestawów replik siedmiu i siedmiu węzłów inicjatora.
+* Silver: uruchamia usługi systemowe z docelową liczbą zestawów replik 5 i 5 węzłów inicjatora.
+* Brąz: uruchamia usługi systemowe z docelową liczbą zestawów replik trzech i trzech węzłów inicjatora.
 
 Minimalny zalecany poziom niezawodności to Silver.
 
-Poziom niezawodności jest ustawiony w sekcji właściwości [zasobu Microsoft.ServiceFabric/clusters,](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters)w ten sposób:
+Poziom niezawodności jest ustawiany w sekcji właściwości [zasobu Microsoft. servicefabric/klastrów](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters), w tym:
 
 ```json
 "properties":{
@@ -194,11 +194,11 @@ Poziom niezawodności jest ustawiony w sekcji właściwości [zasobu Microsoft.S
 ## <a name="durability-levels"></a>Poziomy trwałości
 
 > [!WARNING]
-> Typy węzłów z brązową trwałością nie uzyskują _żadnych uprawnień._ Zadania infrastruktury, które wpływają na obciążenia bezstanowe nie zostaną zatrzymane lub opóźnione, co może mieć wpływ na obciążenia. 
+> Typy węzłów działające z trwałością Bronze nie uzyskują _żadnych uprawnień_. Zadania infrastruktury mające wpływ na obciążenia bezstanowe nie zostaną zatrzymane ani opóźnione, co może wpłynąć na obciążenia. 
 >
-> Brązowa trwałość tylko dla typów węzłów, które uruchamiają obciążenia bezstanowe. W przypadku obciążeń produkcyjnych uruchom program Silver lub wyższy, aby zapewnić spójność stanu. Wybierz odpowiednią niezawodność na podstawie wskazówek zawartych w [dokumentacji planowania pojemności.](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)
+> Użyj trwałości Bronze tylko dla typów węzłów, które uruchamiają obciążenia bezstanowe. W przypadku obciążeń produkcyjnych należy uruchomić Silver lub nowszy, aby zapewnić spójność stanu. Wybierz odpowiednią niezawodność w oparciu o wskazówki zawarte w dokumentacji dotyczącej [planowania pojemności](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 
-Poziom trwałości musi być ustawiony w dwóch zasobach. Jednym z nich jest profil rozszerzenia [zasobu zestawu skalowania maszyny wirtualnej:](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile)
+Poziom trwałości musi być ustawiony w dwóch zasobach. Jeden to profil rozszerzenia [zasobu zestawu skalowania maszyn wirtualnych](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile):
 
 ```json
 "extensionProfile": {
@@ -213,7 +213,7 @@ Poziom trwałości musi być ustawiony w dwóch zasobach. Jednym z nich jest pro
 }
 ```
 
-Drugi zasób `nodeTypes` znajduje się w [zasobie Microsoft.ServiceFabric/clusters:](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters) 
+Inny zasób znajduje się w `nodeTypes` obszarze [zasobów Microsoft. servicefabric/klastrów](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters): 
 
 ```json
 "nodeTypes": [
@@ -226,8 +226,8 @@ Drugi zasób `nodeTypes` znajduje się w [zasobie Microsoft.ServiceFabric/cluste
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Tworzenie klastra na maszynach wirtualnych lub komputerach z systemem Windows Server: [Tworzenie klastra sieci szkieletowej usług dla systemu Windows Server](service-fabric-cluster-creation-for-windows-server.md).
-* Tworzenie klastra na maszynach wirtualnych lub komputerach z systemem Linux: [Tworzenie klastra linuksa](service-fabric-cluster-creation-via-portal.md).
-* Dowiedz się więcej o [opcjach pomocy technicznej sieci szkieletowej](service-fabric-support.md)usług .
+* Tworzenie klastra na maszynach wirtualnych lub komputerach z systemem Windows Server: [Service Fabric tworzenia klastra dla systemu Windows Server](service-fabric-cluster-creation-for-windows-server.md).
+* Tworzenie klastra na maszynach wirtualnych lub komputerach z systemem Linux: [Tworzenie klastra systemu Linux](service-fabric-cluster-creation-via-portal.md).
+* Dowiedz się więcej o [opcjach pomocy technicznej Service Fabric](service-fabric-support.md).
 
 [Image1]: ./media/service-fabric-best-practices/generate-common-name-cert-portal.png

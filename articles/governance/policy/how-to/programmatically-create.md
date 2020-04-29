@@ -1,46 +1,46 @@
 ---
 title: Programowe tworzenie zasad
-description: W tym artykule oszukujesz programowo tworzenie zasad dla platformy Azure i zarządzanie nimi za pomocą interfejsu wiersza polecenia platformy Azure, programu Azure PowerShell i interfejsu API REST.
+description: W tym artykule opisano sposób programowego tworzenia zasad i zarządzania nimi dla Azure Policy za pomocą interfejsu wiersza polecenia platformy Azure, Azure PowerShell i API REST.
 ms.date: 01/31/2019
 ms.topic: how-to
 ms.openlocfilehash: 08ed43a464d1dd7de8220428dbc1c61ce9fc3ad6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79264546"
 ---
 # <a name="programmatically-create-policies"></a>Programowe tworzenie zasad
 
-W tym artykule otrzymasz od ciebie programowe tworzenie zasad i zarządzanie nimi. Definicje zasad platformy Azure wymuszają różne reguły i efekty w stosunku do zasobów. Wymuszanie zapewnia zgodność zasobów ze standardami firmowymi i umowami o poziomie usług.
+Ten artykuł przeprowadzi Cię przez programowe tworzenie zasad i zarządzanie nimi. Definicje Azure Policy wymuszają różne reguły i efekty dotyczące zasobów. Wymuszanie gwarantuje, że zasoby pozostają zgodne ze standardami firmy i umowami dotyczącymi poziomu usług.
 
-Aby uzyskać informacje na temat zgodności, zobacz [uzyskiwanie danych dotyczących zgodności](get-compliance-data.md).
+Aby uzyskać informacje na temat zgodności, zobacz [pobieranie danych zgodności](get-compliance-data.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem upewnij się, że spełnione są następujące wymagania wstępne:
+Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagania wstępne:
 
 1. Jeśli ta czynność nie została jeszcze wykonana, zainstaluj klienta [ARMClient](https://github.com/projectkudu/ARMClient). Jest to narzędzie, które wysyła żądania HTTP do interfejsów API opartych na usłudze Azure Resource Manager.
 
-1. Zaktualizuj moduł programu Azure PowerShell do najnowszej wersji. Zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps), aby uzyskać szczegółowe informacje. Aby uzyskać więcej informacji na temat najnowszej wersji, zobacz [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
+1. Zaktualizuj moduł Azure PowerShell do najnowszej wersji. Zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps), aby uzyskać szczegółowe informacje. Aby uzyskać więcej informacji na temat najnowszej wersji, zobacz [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
-1. Zarejestruj dostawcę zasobów usługi Azure Policy Insights przy użyciu programu Azure PowerShell, aby sprawdzić, czy subskrypcja współpracuje z dostawcą zasobów. Aby zarejestrować dostawcę zasobów, musisz mieć uprawnienia do uruchamiania operacji akcji rejestru dla dostawcy zasobów. Ta operacja jest uwzględniona w rolach Współautor i Właściciel. Uruchom następujące polecenie, aby zarejestrować dostawcę zasobów:
+1. Zarejestruj dostawcę zasobów usługi Azure Policy Insights za pomocą Azure PowerShell, aby sprawdzić, czy subskrypcja współpracuje z dostawcą zasobów. Aby zarejestrować dostawcę zasobów, musisz mieć uprawnienie do uruchamiania operacji Rejestruj akcję dla dostawcy zasobów. Ta operacja jest uwzględniona w rolach Współautor i Właściciel. Uruchom następujące polecenie, aby zarejestrować dostawcę zasobów:
 
    ```azurepowershell-interactive
    Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
    ```
 
-   Aby uzyskać więcej informacji na temat rejestrowania i wyświetlania dostawców zasobów, zobacz [Dostawcy i typy zasobów](../../../azure-resource-manager/management/resource-providers-and-types.md).
+   Aby uzyskać więcej informacji na temat rejestrowania i przeglądania dostawców zasobów, zobacz [dostawcy zasobów i ich typy](../../../azure-resource-manager/management/resource-providers-and-types.md).
 
-1. Jeśli jeszcze tego nie zrobiłeś, zainstaluj narzędzie interfejsu wiersza polecenia platformy Azure. Najnowszą wersję można uzyskać w [instalacji interfejsu wiersza polecenia platformy Azure w systemie Windows](/cli/azure/install-azure-cli-windows).
+1. Jeśli jeszcze tego nie zrobiono, zainstaluj interfejs wiersza polecenia platformy Azure. Najnowszą wersję można uzyskać w [instalacji interfejsu wiersza polecenia platformy Azure w systemie Windows](/cli/azure/install-azure-cli-windows).
 
 ## <a name="create-and-assign-a-policy-definition"></a>Tworzenie i przypisywanie definicji zasad
 
-Pierwszym krokiem w kierunku lepszej widoczności zasobów jest tworzenie i przypisywanie zasad nad zasobami. Następnym krokiem jest, aby dowiedzieć się, jak programowo tworzyć i przypisywać zasady. Przykładowa zasada przeprowadza inspekcję kont magazynu, które są otwarte dla wszystkich sieci publicznych przy użyciu żądań programu PowerShell, interfejsu wiersza polecenia platformy Azure i HTTP.
+Pierwszym krokiem w celu lepszego wglądu w zasoby jest utworzenie i przypisanie zasad do zasobów. Następnym krokiem jest zapoznanie się z sposobem programowego tworzenia i przypisywania zasad. Przykładowe zasady przeprowadzają inspekcję kont magazynu otwartych dla wszystkich sieci publicznych przy użyciu programu PowerShell, interfejsu wiersza polecenia platformy Azure i żądań HTTP.
 
 ### <a name="create-and-assign-a-policy-definition-with-powershell"></a>Tworzenie i przypisywanie definicji zasad za pomocą programu PowerShell
 
-1. Użyj następującego fragmentu kodu JSON, aby utworzyć plik JSON o nazwie AuditStorageAccounts.json.
+1. Użyj poniższego fragmentu kodu JSON, aby utworzyć plik JSON o nazwie AuditStorageAccounts. JSON.
 
    ```json
    {
@@ -61,21 +61,21 @@ Pierwszym krokiem w kierunku lepszej widoczności zasobów jest tworzenie i przy
    }
    ```
 
-   Aby uzyskać więcej informacji na temat tworzenia definicji zasad, zobacz [Struktura definicji zasad platformy Azure](../concepts/definition-structure.md).
+   Aby uzyskać więcej informacji na temat tworzenia definicji zasad, zobacz [Azure Policy struktura definicji](../concepts/definition-structure.md).
 
-1. Uruchom następujące polecenie, aby utworzyć definicję zasad przy użyciu pliku AuditStorageAccounts.json.
+1. Uruchom następujące polecenie, aby utworzyć definicję zasad przy użyciu pliku AuditStorageAccounts. JSON.
 
    ```azurepowershell-interactive
    New-AzPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
    ```
 
-   Polecenie tworzy definicję zasad o nazwie _Konta magazynu inspekcji otwarte dla sieci publicznych_.
-   Aby uzyskać więcej informacji o innych parametrach, których można użyć, zobacz [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition).
+   Polecenie tworzy definicję zasad o nazwie _konta magazynu inspekcji otwarte dla sieci publicznych_.
+   Aby uzyskać więcej informacji na temat innych parametrów, których można użyć, zobacz [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition).
 
-   Po wywołaniu bez `New-AzPolicyDefinition` parametrów lokalizacji domyślnie zapisuje definicję zasad w wybranej subskrypcji kontekstu sesji. Aby zapisać definicję w innej lokalizacji, należy użyć następujących parametrów:
+   Gdy jest wywoływana bez parametrów lokalizacji `New-AzPolicyDefinition` , domyślnie zapisuje definicję zasad w wybranej subskrypcji kontekstu sesji. Aby zapisać definicję w innej lokalizacji, użyj następujących parametrów:
 
-   - **Identyfikator subskrypcji** — zapisz w innej subskrypcji. Wymaga wartości _GUID._
-   - **ManagementGroupName** — zapisywanie w grupie zarządzania. Wymaga wartości _ciągu._
+   - Identyfikator **subskrypcji** — Zapisz w innej subskrypcji. Wymaga wartości _identyfikatora GUID_ .
+   - **ManagementGroupName** — Zapisz w grupie zarządzania. Wymaga wartości _ciągu_ .
 
 1. Po utworzeniu definicji zasad można utworzyć przypisanie zasad, uruchamiając następujące polecenia:
 
@@ -87,21 +87,21 @@ Pierwszym krokiem w kierunku lepszej widoczności zasobów jest tworzenie i przy
 
    Zastąp _ContosoRG_ nazwą zamierzonej grupy zasobów.
 
-   Parametr **Zakres** `New-AzPolicyAssignment` dotyczący działa z grupą zarządzania, subskrypcją, grupą zasobów lub pojedynczym zasobem. Parametr używa pełnej ścieżki zasobu, która `Get-AzResourceGroup` **ResourceId** właściwość na zwraca. Wzorzec **dla zakresu** dla każdego kontenera jest następujący. Zastąp `{rName}` `{rgName}`, `{subId}`odpowiednio, `{mgName}` nazwą zasobu, nazwą grupy zasobów, identyfikatorem subskrypcji i nazwą grupy zarządzania.
-   `{rType}`zostanie zastąpiony **typem zasobu,** na `Microsoft.Compute/virtualMachines` przykład dla maszyny Wirtualnej.
+   Parametr **SCOPE** w `New-AzPolicyAssignment` działaniu z grupą zarządzania, subskrypcją, grupą zasobów lub pojedynczym zasobem. Parametr używa pełnej ścieżki zasobu, która Właściwość **ResourceID** `Get-AzResourceGroup` zwraca wartość. Wzorzec dla **zakresu** dla każdego kontenera jest następujący:. Zastąp odpowiednio nazwę zasobu, nazwę grupy zasobów, Identyfikator subskrypcji i nazwę grupy zarządzania. `{rName}` `{rgName}` `{subId}` `{mgName}`
+   `{rType}`zostanie zastąpiony **typem zasobu** zasobu, na przykład `Microsoft.Compute/virtualMachines` dla maszyny wirtualnej.
 
-   - Zasób -`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-   - Grupa zasobów -`/subscriptions/{subId}/resourceGroups/{rgName}`
-   - Subskrypcja -`/subscriptions/{subId}/`
-   - Grupa zarządzająca -`/providers/Microsoft.Management/managementGroups/{mgName}`
+   - Zasoby`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Grupa zasobów —`/subscriptions/{subId}/resourceGroups/{rgName}`
+   - Ramach`/subscriptions/{subId}/`
+   - Grupa zarządzania —`/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Aby uzyskać więcej informacji na temat zarządzania zasadami zasobów przy użyciu modułu Programu PowerShell usługi Azure Resource Manager, zobacz [Az.Resources](/powershell/module/az.resources/#policies).
+Aby uzyskać więcej informacji na temat zarządzania zasadami zasobów przy użyciu modułu Azure Resource Manager PowerShell, zobacz [AZ. resources](/powershell/module/az.resources/#policies).
 
-### <a name="create-and-assign-a-policy-definition-using-armclient"></a>Tworzenie i przypisywanie definicji zasad przy użyciu funkcji ARMClient
+### <a name="create-and-assign-a-policy-definition-using-armclient"></a>Tworzenie i przypisywanie definicji zasad za pomocą ARMClient
 
-Aby utworzyć definicję zasad, użyj poniższej procedury.
+Aby utworzyć definicję zasad, należy wykonać poniższą procedurę.
 
-1. Skopiuj następujący fragment kodu JSON, aby utworzyć plik JSON. Plik zostanie wywołany w następnym kroku.
+1. Skopiuj poniższy fragment kodu JSON, aby utworzyć plik JSON. Plik zostanie wywoływać w następnym kroku.
 
    ```json
    "properties": {
@@ -139,13 +139,13 @@ Aby utworzyć definicję zasad, użyj poniższej procedury.
    armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
    ```
 
-   Zastąp poprzednią {subscriptionId} identyfikatorem subskrypcji lub {managementGroupId} identyfikatorem [grupy zarządzania](../../management-groups/overview.md).
+   Zastąp poprzednią wartość {Subscription} IDENTYFIKATORem subskrypcji lub {managementGroupId} IDENTYFIKATORem [grupy zarządzania](../../management-groups/overview.md).
 
-   Aby uzyskać więcej informacji na temat struktury kwerendy, zobacz [Definicje zasad platformy Azure — tworzenie lub aktualizowanie](/rest/api/resources/policydefinitions/createorupdate) i [definicje zasad — tworzenie lub aktualizowanie w grupie zarządzania](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
+   Aby uzyskać więcej informacji na temat struktury zapytania, zobacz [definicje Azure Policy — Tworzenie lub aktualizowanie](/rest/api/resources/policydefinitions/createorupdate) oraz [definicje zasad — Tworzenie lub aktualizowanie w grupie zarządzania](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
 
-Poniższa procedura służy do tworzenia przypisania zasad i przypisywania definicji zasad na poziomie grupy zasobów.
+Aby utworzyć przypisanie zasad i przypisać definicję zasad na poziomie grupy zasobów, należy wykonać czynności opisane w poniższej procedurze.
 
-1. Skopiuj następujący fragment kodu JSON, aby utworzyć plik przypisania zasad JSON. Zastąp &lt; &gt; przykładowe informacje w symbolach własnymi wartościami.
+1. Skopiuj poniższy fragment kodu JSON, aby utworzyć plik przydziału zasad JSON. Zastąp przykładowe informacje &lt; &gt; w symbolami własnymi wartościami.
 
    ```json
    {
@@ -159,21 +159,21 @@ Poniższa procedura służy do tworzenia przypisania zasad i przypisywania defin
    }
    ```
 
-1. Utwórz przypisanie zasad przy użyciu następującego połączenia:
+1. Utwórz przypisanie zasad, używając następującego wywołania:
 
    ```console
    armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2017-06-01-preview" @<path to Assignment JSON file>
    ```
 
-   Zastąp &lt; &gt; przykładowe informacje w symbolach własnymi wartościami.
+   Zastąp przykładowe informacje &lt; &gt; w symbolami własnymi wartościami.
 
-   Aby uzyskać więcej informacji na temat nawiązywać wywołania HTTP do interfejsu API REST, zobacz [Zasoby interfejsu API rest platformy Azure](/rest/api/resources/).
+   Aby uzyskać więcej informacji na temat wykonywania wywołań HTTP do interfejsu API REST, zobacz [zasoby interfejsu API REST platformy Azure](/rest/api/resources/).
 
 ### <a name="create-and-assign-a-policy-definition-with-azure-cli"></a>Tworzenie i przypisywanie definicji zasad za pomocą interfejsu wiersza polecenia platformy Azure
 
-Aby utworzyć definicję zasad, należy użyć następującej procedury:
+Aby utworzyć definicję zasad, należy wykonać czynności opisane w poniższej procedurze:
 
-1. Skopiuj następujący fragment kodu JSON, aby utworzyć plik przypisania zasad JSON.
+1. Skopiuj poniższy fragment kodu JSON, aby utworzyć plik przydziału zasad JSON.
 
    ```json
    {
@@ -194,7 +194,7 @@ Aby utworzyć definicję zasad, należy użyć następującej procedury:
    }
    ```
 
-   Aby uzyskać więcej informacji na temat tworzenia definicji zasad, zobacz [Struktura definicji zasad platformy Azure](../concepts/definition-structure.md).
+   Aby uzyskać więcej informacji na temat tworzenia definicji zasad, zobacz [Azure Policy struktura definicji](../concepts/definition-structure.md).
 
 1. Uruchom następujące polecenie, aby utworzyć definicję zasad:
 
@@ -202,47 +202,47 @@ Aby utworzyć definicję zasad, należy użyć następującej procedury:
    az policy definition create --name 'audit-storage-accounts-open-to-public-networks' --display-name 'Audit Storage Accounts Open to Public Networks' --description 'This policy ensures that storage accounts with exposures to public networks are audited.' --rules '<path to json file>' --mode All
    ```
 
-   Polecenie tworzy definicję zasad o nazwie _Konta magazynu inspekcji otwarte dla sieci publicznych_.
-   Aby uzyskać więcej informacji o innych parametrach, których można użyć, zobacz [definicja zasad az create](/cli/azure/policy/definition#az-policy-definition-create).
+   Polecenie tworzy definicję zasad o nazwie _konta magazynu inspekcji otwarte dla sieci publicznych_.
+   Aby uzyskać więcej informacji na temat innych parametrów, których można użyć, zobacz [AZ Policy Definition Create](/cli/azure/policy/definition#az-policy-definition-create).
 
-   Po wywołaniu bez `az policy definition creation` parametrów lokalizacji domyślnie zapisuje definicję zasad w wybranej subskrypcji kontekstu sesji. Aby zapisać definicję w innej lokalizacji, należy użyć następujących parametrów:
+   Gdy jest wywoływana bez parametrów lokalizacji `az policy definition creation` , domyślnie zapisuje definicję zasad w wybranej subskrypcji kontekstu sesji. Aby zapisać definicję w innej lokalizacji, użyj następujących parametrów:
 
-   - **--subscription** - Zapisz do innej subskrypcji. Wymaga wartości _identyfikatora GUID_ dla identyfikatora subskrypcji lub wartości _ciągu_ dla nazwy subskrypcji.
-   - **--management-group** — zapisz w grupie zarządzania. Wymaga wartości _ciągu._
+   - **--subskrypcja** — Zapisz w innej subskrypcji. Wymaga wartości identyfikatora _GUID_ dla identyfikatora subskrypcji lub wartości _ciągu_ dla nazwy subskrypcji.
+   - **--Management-Group** -Save w grupie zarządzania. Wymaga wartości _ciągu_ .
 
-1. Użyj następującego polecenia, aby utworzyć przypisanie zasad. Zastąp &lt; &gt; przykładowe informacje w symbolach własnymi wartościami.
+1. Użyj następującego polecenia, aby utworzyć przypisanie zasad. Zastąp przykładowe informacje &lt; &gt; w symbolami własnymi wartościami.
 
    ```azurecli-interactive
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
 
-   Parametr **--scope** `az policy assignment create` w pracy z grupą zarządzania, subskrypcją, grupą zasobów lub pojedynczym zasobem. Parametr używa pełnej ścieżki zasobów. Wzorzec **dla --scope** dla każdego kontenera jest następujący. Zastąp `{rName}` `{rgName}`, `{subId}`odpowiednio, `{mgName}` nazwą zasobu, nazwą grupy zasobów, identyfikatorem subskrypcji i nazwą grupy zarządzania. `{rType}`zostanie zastąpiony **typem zasobu,** na `Microsoft.Compute/virtualMachines` przykład dla maszyny Wirtualnej.
+   Parametr **--SCOPE** w `az policy assignment create` programie współdziała z grupą zarządzania, subskrypcją, grupą zasobów lub pojedynczym zasobem. Parametr używa pełnej ścieżki zasobów. Wzorzec dla **zakresu** dla każdego kontenera jest następujący:. Zastąp odpowiednio nazwę zasobu, nazwę grupy zasobów, Identyfikator subskrypcji i nazwę grupy zarządzania. `{rName}` `{rgName}` `{subId}` `{mgName}` `{rType}`zostanie zastąpiony **typem zasobu** zasobu, na przykład `Microsoft.Compute/virtualMachines` dla maszyny wirtualnej.
 
-   - Zasób -`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-   - Grupa zasobów -`/subscriptions/{subID}/resourceGroups/{rgName}`
-   - Subskrypcja -`/subscriptions/{subID}`
-   - Grupa zarządzająca -`/providers/Microsoft.Management/managementGroups/{mgName}`
+   - Zasoby`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Grupa zasobów —`/subscriptions/{subID}/resourceGroups/{rgName}`
+   - Ramach`/subscriptions/{subID}`
+   - Grupa zarządzania —`/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Identyfikator definicji zasad platformy Azure można uzyskać przy użyciu programu PowerShell za pomocą następującego polecenia:
+Identyfikator definicji Azure Policy można uzyskać za pomocą programu PowerShell przy użyciu następującego polecenia:
 
 ```azurecli-interactive
 az policy definition show --name 'Audit Storage Accounts with Open Public Networks'
 ```
 
-Identyfikator definicji zasad dla utworzonej definicji zasad powinien przypominać następujący przykład:
+Identyfikator definicji zasad dla utworzonej definicji zasad powinien wyglądać podobnie do poniższego przykładu:
 
 ```output
 "/subscription/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks"
 ```
 
-Aby uzyskać więcej informacji na temat zarządzania zasadami zasobów za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [Zasady zasobów interfejsu wiersza polecenia platformy Azure](/cli/azure/policy?view=azure-cli-latest).
+Aby uzyskać więcej informacji o sposobach zarządzania zasadami zasobów przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [zasady zasobów interfejsu wiersza polecenia platformy Azure](/cli/azure/policy?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z poniższymi artykułami, aby uzyskać więcej informacji na temat poleceń i zapytań w tym artykule.
+Zapoznaj się z następującymi artykułami, aby uzyskać więcej informacji na temat poleceń i zapytań zawartych w tym artykule.
 
-- [Zasoby interfejsu API usługi Azure REST](/rest/api/resources/)
-- [Moduły programu Azure PowerShell](/powershell/module/az.resources/#policies)
-- [Polecenia zasad interfejsu wiersza polecenia platformy Azure](/cli/azure/policy?view=azure-cli-latest)
-- [Odwołanie do interfejsu API interfejsu REST dostawcy zasobów usługi Azure Policy Insights](/rest/api/policy-insights)
-- [Organizuj swoje zasoby za pomocą grup zarządzania platformy Azure](../../management-groups/overview.md).
+- [Zasoby interfejsu API REST platformy Azure](/rest/api/resources/)
+- [Moduły Azure PowerShell](/powershell/module/az.resources/#policies)
+- [Poleceń zasad interfejsu wiersza polecenia platformy Azure](/cli/azure/policy?view=azure-cli-latest)
+- [Dokumentacja interfejsu API REST dostawcy zasobów usługi Azure Policy Insights](/rest/api/policy-insights)
+- [Organizowanie zasobów przy użyciu grup zarządzania platformy Azure](../../management-groups/overview.md).

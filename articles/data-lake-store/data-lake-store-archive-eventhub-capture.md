@@ -1,6 +1,6 @@
 ---
-title: Przechwytywanie danych z centrów zdarzeń do usługi Azure Data Lake Storage Gen1 | Dokumenty firmy Microsoft
-description: Przechwytywanie danych z centrów zdarzeń za pomocą usługi Azure Data Lake Storage Gen1
+title: Przechwytywanie danych z Event Hubs do Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Użyj Azure Data Lake Storage Gen1 do przechwytywania danych z Event Hubs
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -12,116 +12,116 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bb67c1769510710b368bef4dc0b501f939b3427e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265664"
 ---
-# <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Przechwytywanie danych z centrów zdarzeń za pomocą usługi Azure Data Lake Storage Gen1
+# <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Użyj Azure Data Lake Storage Gen1 do przechwytywania danych z Event Hubs
 
-Dowiedz się, jak używać usługi Azure Data Lake Storage Gen1 do przechwytywania danych odebranych przez usługi Azure Event Hubs.
+Dowiedz się, jak używać Azure Data Lake Storage Gen1 do przechwytywania danych odebranych przez usługę Azure Event Hubs.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Konto usługi Azure Data Lake Storage Gen1**. Aby uzyskać instrukcje dotyczące tworzenia jednego z nich, zobacz Wprowadzenie do [usługi Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
+* **Konto Azure Data Lake Storage Gen1**. Aby uzyskać instrukcje dotyczące sposobu tworzenia takiego elementu, zobacz Wprowadzenie [do Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
 
-*  **Obszar nazw Centrów zdarzeń**. Aby uzyskać instrukcje, zobacz [Tworzenie obszaru nazw Centrów zdarzeń](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace). Upewnij się, że konto Data Lake Storage Gen1 i obszar nazw usługi Event Hubs znajdują się w tej samej subskrypcji platformy Azure.
+*  **Przestrzeń nazw Event Hubs**. Aby uzyskać instrukcje, zobacz [Tworzenie przestrzeni nazw Event Hubs](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace). Upewnij się, że konto Data Lake Storage Gen1 i przestrzeń nazw Event Hubs znajdują się w tej samej subskrypcji platformy Azure.
 
 
-## <a name="assign-permissions-to-event-hubs"></a>Przypisywanie uprawnień do centrów zdarzeń
+## <a name="assign-permissions-to-event-hubs"></a>Przypisywanie uprawnień do Event Hubs
 
-W tej sekcji należy utworzyć folder na koncie, na którym chcesz przechwycić dane z centrum zdarzeń. Można również przypisać uprawnienia do usługi Event Hubs, dzięki czemu można zapisywać dane na koncie Data Lake Storage Gen1. 
+W tej sekcji utworzysz folder na koncie, w którym chcesz przechwytywać dane z Event Hubs. Możesz również przypisać uprawnienia do Event Hubs, aby można było zapisywać dane na koncie Data Lake Storage Gen1. 
 
-1. Otwórz konto Data Lake Storage Gen1, na którym chcesz przechwycić dane z Centrów zdarzeń, a następnie kliknij **Eksplorator danych**.
+1. Otwórz konto Data Lake Storage Gen1, do którego chcesz przechwytywać dane Event Hubs a następnie kliknij przycisk **Eksplorator danych**.
 
     ![Eksplorator danych Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-open-data-explorer.png "Eksplorator danych Data Lake Storage Gen1")
 
-1.  Kliknij **pozycję Nowy folder,** a następnie wprowadź nazwę folderu, w którym chcesz przechwycić dane.
+1.  Kliknij pozycję **Nowy folder** , a następnie wprowadź nazwę folderu, w którym chcesz przechwycić dane.
 
-    ![Tworzenie nowego folderu w umiań magazynu usługi Data Lake](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-new-folder.png "Tworzenie nowego folderu w umiań magazynu usługi Data Lake")
+    ![Utwórz nowy folder w Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-new-folder.png "Utwórz nowy folder w Data Lake Storage Gen1")
 
-1. Przypisz uprawnienia w katalogu głównym usługi Data Lake Storage Gen1. 
+1. Przypisz uprawnienia w katalogu głównym Data Lake Storage Gen1. 
 
-    a. Kliknij **pozycję Eksplorator danych**, wybierz katalog główny konta Data Lake Storage Gen1, a następnie kliknij pozycję **Dostęp**.
+    a. Kliknij **Eksplorator danych**, wybierz katalog główny konta Data Lake Storage Gen1, a następnie kliknij pozycję **dostęp**.
 
-    ![Przypisywanie uprawnień dla katalogu głównego usługi Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "Przypisywanie uprawnień dla katalogu głównego usługi Data Lake Storage Gen1")
+    ![Przypisywanie uprawnień dla Data Lake Storage Gen1 głównego](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "Przypisywanie uprawnień dla Data Lake Storage Gen1 głównego")
 
-    b. W obszarze **Dostęp**kliknij pozycję **Dodaj**, kliknij `Microsoft.EventHubs`pozycję Wybierz użytkownika lub **Grupuj**, a następnie wyszukaj . 
+    b. W obszarze **dostęp**kliknij pozycję **Dodaj**, kliknij pozycję **Wybierz użytkownika lub grupę**, a następnie `Microsoft.EventHubs`Wyszukaj ciąg. 
 
-    ![Przypisywanie uprawnień dla katalogu głównego usługi Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Przypisywanie uprawnień dla katalogu głównego usługi Data Lake Storage Gen1")
+    ![Przypisywanie uprawnień dla Data Lake Storage Gen1 głównego](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Przypisywanie uprawnień dla Data Lake Storage Gen1 głównego")
     
-    Kliknij **pozycję Wybierz**.
+    Kliknij pozycję **Wybierz**.
 
-    d. W obszarze **Przypisywanie uprawnień**kliknij pozycję **Wybierz uprawnienia**. Ustaw **uprawnienia** do **wykonania**. Ustaw **dodaj do** tego **folderu i wszystkie dzieci**. Ustaw **pozycję Dodaj jako** wpis uprawnienia dostępu i **domyślny wpis uprawnień**.
+    c. W obszarze **przypisywanie uprawnień**kliknij przycisk **Wybierz uprawnienia**. Ustaw **uprawnienia** do **wykonania**. Ustaw wartość opcji **Dodaj do** na **ten folder i wszystkie elementy podrzędne**. Ustaw pozycję **Dodaj jako jako** **uprawnienia dostępu i domyślny wpis uprawnienia**.
 
     > [!IMPORTANT]
-    > Podczas tworzenia nowej hierarchii folderów do przechwytywania danych odebranych przez usługi Azure Event Hubs jest to prosty sposób na zapewnienie dostępu do folderu docelowego.  Jednak dodawanie uprawnień do wszystkich obrażeń folderu najwyższego poziomu z wieloma plikami i folderami podrzędnymi może zająć dużo czasu.  Jeśli folder główny zawiera dużą liczbę plików i folderów, **Execute** może być `Microsoft.EventHubs` szybsze dodanie uprawnień wykonywania indywidualnie do każdego folderu w ścieżce do folderu docelowego. 
+    > Podczas tworzenia nowej hierarchii folderów do przechwytywania danych odbieranych przez usługę Azure Event Hubs jest to prosty sposób zapewnienia dostępu do folderu docelowego.  Jednak dodanie uprawnień do wszystkich elementów podrzędnych folderu najwyższego poziomu z wieloma plikami podrzędnymi i folderami może zająć dużo czasu.  Jeśli folder główny zawiera dużą liczbę plików i folderów, można szybciej dodawać uprawnienia do **wykonywania** dla `Microsoft.EventHubs` poszczególnych folderów w ścieżce do folderu docelowego. 
 
-    ![Przypisywanie uprawnień dla katalogu głównego usługi Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Przypisywanie uprawnień dla katalogu głównego usługi Data Lake Storage Gen1")
+    ![Przypisywanie uprawnień dla Data Lake Storage Gen1 głównego](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Przypisywanie uprawnień dla Data Lake Storage Gen1 głównego")
 
     Kliknij przycisk **OK**.
 
-1. Przypisz uprawnienia do folderu w obszarze konta Data Lake Storage Gen1, na którym chcesz przechwytywać dane.
+1. Przypisz uprawnienia do folderu na koncie Data Lake Storage Gen1, w którym chcesz przechwytywać dane.
 
-    a. Kliknij **pozycję Eksplorator danych**, wybierz folder na koncie Data Lake Storage Gen1, a następnie kliknij pozycję **Dostęp**.
+    a. Kliknij pozycję **Eksplorator danych**, wybierz folder na koncie Data Lake Storage Gen1, a następnie kliknij pozycję **dostęp**.
 
     ![Przypisywanie uprawnień do folderu Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-folder.png "Przypisywanie uprawnień do folderu Data Lake Storage Gen1")
 
-    b. W obszarze **Dostęp**kliknij pozycję **Dodaj**, kliknij `Microsoft.EventHubs`pozycję Wybierz użytkownika lub **Grupuj**, a następnie wyszukaj . 
+    b. W obszarze **dostęp**kliknij pozycję **Dodaj**, kliknij pozycję **Wybierz użytkownika lub grupę**, a następnie `Microsoft.EventHubs`Wyszukaj ciąg. 
 
     ![Przypisywanie uprawnień do folderu Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Przypisywanie uprawnień do folderu Data Lake Storage Gen1")
     
-    Kliknij **pozycję Wybierz**.
+    Kliknij pozycję **Wybierz**.
 
-    d. W obszarze **Przypisywanie uprawnień**kliknij pozycję **Wybierz uprawnienia**. Ustaw **uprawnienia** do **odczytu, zapisu** i **wykonywania**. Ustaw **dodaj do** tego **folderu i wszystkie dzieci**. Na koniec ustaw **dodaj jako** wpis uprawnienia dostępu **i domyślny wpis uprawnień**.
+    c. W obszarze **przypisywanie uprawnień**kliknij przycisk **Wybierz uprawnienia**. Ustawianie **uprawnień** do **odczytu, zapisu** i **wykonania**. Ustaw wartość opcji **Dodaj do** na **ten folder i wszystkie elementy podrzędne**. Na koniec ustaw pozycję **Dodaj jako jako** **uprawnienia dostępu i domyślny wpis uprawnienia**.
 
     ![Przypisywanie uprawnień do folderu Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp-folder.png "Przypisywanie uprawnień do folderu Data Lake Storage Gen1")
     
     Kliknij przycisk **OK**. 
 
-## <a name="configure-event-hubs-to-capture-data-to-data-lake-storage-gen1"></a>Konfigurowanie centrów zdarzeń do przechwytywania danych do usługi Data Lake Storage Gen1
+## <a name="configure-event-hubs-to-capture-data-to-data-lake-storage-gen1"></a>Konfigurowanie Event Hubs przechwytywania danych do Data Lake Storage Gen1
 
-W tej sekcji utworzysz Centrum zdarzeń w obszarze nazw Centrum zdarzeń. Centrum zdarzeń można również skonfigurować do przechwytywania danych na koncie usługi Azure Data Lake Storage Gen1. W tej sekcji przyjęto założenie, że utworzono już obszar nazw centrów zdarzeń.
+W tej sekcji utworzysz centrum zdarzeń w przestrzeni nazw Event Hubs. Należy również skonfigurować centrum zdarzeń do przechwytywania danych do konta Azure Data Lake Storage Gen1. W tej sekcji założono, że utworzono już Event Hubs przestrzeń nazw.
 
-1. W okienku **Przegląd** obszaru nazw Centra zdarzeń kliknij pozycję **+ Centrum zdarzeń**.
+1. W okienku **Przegląd** obszaru nazw Event Hubs kliknij pozycję **+ centrum zdarzeń**.
 
     ![Tworzenie centrum zdarzeń](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Tworzenie centrum zdarzeń")
 
-1. Podaj następujące wartości, aby skonfigurować usługi Event Hubs do przechwytywania danych do usługi Data Lake Storage Gen1.
+1. Podaj następujące wartości, aby skonfigurować Event Hubs przechwytywania danych do Data Lake Storage Gen1.
 
     ![Tworzenie centrum zdarzeń](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Tworzenie centrum zdarzeń")
 
-    a. Podaj nazwę Centrum zdarzeń.
+    a. Podaj nazwę centrum zdarzeń.
     
-    b. W tym samouczku ustaw **liczbę partycji** i **przechowywanie wiadomości** na wartości domyślne.
+    b. Na potrzeby tego samouczka Ustaw **liczbę partycji** i **przechowywanie komunikatów** na wartości domyślne.
     
-    d. Ustaw **przechwytywanie** **na włączone**. Ustaw **okno czasu** (jak często przechwytywać) i **Okno rozmiaru** (rozmiar danych do przechwycenia). 
+    c. Ustaw wartość opcji **Przechwyć** **na na**. Ustaw **przedział czasu** (Częstotliwość przechwytywania) i **rozmiar okna** (rozmiar danych do przechwycenia). 
     
-    d. W przypadku **dostawcy przechwytywania**wybierz **pozycję Azure Data Lake Store,** a następnie wybierz konto Data Lake Storage Gen1 utworzone wcześniej. W przypadku **ścieżki usługi Data Lake**wprowadź nazwę folderu utworzonego na koncie Data Lake Storage Gen1. Wystarczy podać ścieżkę względną do folderu.
+    d. W obszarze **dostawca przechwytywania**wybierz pozycję **Azure Data Lake Store** a następnie wybierz utworzone wcześniej konto Data Lake Storage Gen1. W polu **ścieżka do Data Lake**wprowadź nazwę folderu utworzonego na koncie Data Lake Storage Gen1. Wystarczy podać ścieżkę względną do folderu.
 
-    e. Pozostaw **formaty nazw plików przechwytywania próbki** do wartości domyślnej. Ta opcja reguluje strukturę folderów utworzoną w folderze przechwytywania.
+    e. Pozostaw **przykładowe nazwy plików przechwytywania** do wartości domyślnej. Ta opcja reguluje strukturę folderów utworzoną w folderze przechwytywania.
 
     f. Kliknij przycisk **Utwórz**.
 
 ## <a name="test-the-setup"></a>Testowanie konfiguracji
 
-Teraz można przetestować rozwiązanie, wysyłając dane do usługi Azure Event Hub. Postępuj zgodnie z instrukcjami w [witrynie Wyślij zdarzenia do usługi Azure Event Hubs](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md). Po rozpoczęciu wysyłania danych zobaczysz dane odzwierciedlone w umiań magazynowania usługi Data Lake przy użyciu określonej struktury folderów. Na przykład na koncie Usługi Data Lake Storage Gen1 zostanie wyświetlona struktura folderów, jak pokazano na poniższym zrzucie ekranu.
+Teraz można testować rozwiązanie, wysyłając dane do centrum zdarzeń platformy Azure. Postępuj zgodnie z instrukcjami wyświetlanymi na stronie [wysyłanie zdarzeń do usługi Azure Event Hubs](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md). Po rozpoczęciu wysyłania danych zostaną wyświetlone dane odzwierciedlone w Data Lake Storage Gen1 przy użyciu określonej struktury folderów. Na przykład zostanie wyświetlona struktura folderów, jak pokazano na poniższym zrzucie ekranu, na koncie Data Lake Storage Gen1.
 
-![Przykładowe dane usługi EventHub w umiar pamięci masowej usługi Data Lake Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-eventhub-data-sample.png "Przykładowe dane usługi EventHub w umiar pamięci masowej usługi Data Lake Gen1")
+![Przykładowe dane EventHub w Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-eventhub-data-sample.png "Przykładowe dane EventHub w Data Lake Storage Gen1")
 
 > [!NOTE]
-> Nawet jeśli nie masz wiadomości pochodzących z Centrum zdarzeń, Centra zdarzeń zapisuje puste pliki tylko nagłówki do konta Data Lake Storage Gen1. Pliki są zapisywane w tym samym przedziale czasu, który został podany podczas tworzenia centrum zdarzeń.
+> Nawet jeśli nie masz komunikatów do Event Hubs, Event Hubs zapisuje puste pliki z tylko nagłówkami w ramach konta Data Lake Storage Gen1. Pliki są zapisywane w tym samym przedziale czasu, który został dostarczony podczas tworzenia Event Hubs.
 > 
 >
 
-## <a name="analyze-data-in-data-lake-storage-gen1"></a>Analizowanie danych w umiar pamięci masowej usługi Data Lake Gen1
+## <a name="analyze-data-in-data-lake-storage-gen1"></a>Analizowanie danych w Data Lake Storage Gen1
 
-Gdy dane znajdują się w u źródła danych Lake Storage Gen1, można uruchomić zadania analityczne do przetwarzania i crunch danych. Zobacz [przykład programu USQL Avro,](https://github.com/Azure/usql/tree/master/Examples/AvroExamples) jak to zrobić za pomocą usługi Azure Data Lake Analytics.
+Gdy dane są w Data Lake Storage Gen1, można uruchamiać zadania analityczne, aby przetwarzać i przetwarzanie dane. Zobacz [przykład USQL Avro](https://github.com/Azure/usql/tree/master/Examples/AvroExamples) , aby dowiedzieć się, jak to zrobić za pomocą Azure Data Lake Analytics.
   
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Zabezpieczanie danych w usłudze Data Lake Storage 1. generacji](data-lake-store-secure-data.md)
-* [Kopiowanie danych z obiektów blob usługi Azure Storage do usługi Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
+* [Kopiowanie danych z obiektów BLOB usługi Azure Storage do Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)

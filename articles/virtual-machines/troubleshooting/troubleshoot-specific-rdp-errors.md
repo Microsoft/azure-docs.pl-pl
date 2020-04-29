@@ -1,7 +1,7 @@
 ---
-title: Komunikaty o błędach protokołu RDP dla maszyn wirtualnych platformy Azure | Dokumenty firmy Microsoft
-description: Opis określonych komunikatów o błędach, które mogą pojawić się podczas próby użycia połączenia pulpitu zdalnego z maszyną wirtualną systemu Windows na platformie Azure
-keywords: Błąd pulpitu zdalnego,błąd połączenia pulpitu zdalnego,nie można połączyć się z maszyną wirtualną,rozwiązywanie problemów z pulpitem zdalnym
+title: Określone komunikaty o błędach protokołu RDP dla maszyn wirtualnych platformy Azure | Microsoft Docs
+description: Informacje o konkretnych komunikatach o błędach, które mogą pojawić się podczas próby użycia Pulpit zdalny połączenia z maszyną wirtualną z systemem Windows na platformie Azure
+keywords: Błąd pulpitu zdalnego, błąd połączenia pulpitu zdalnego, nie można nawiązać połączenia z maszyną wirtualną, rozwiązywanie problemów z pulpitem zdalnym
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -16,97 +16,97 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 851c5eb4ebfee4e4a4836a07b51578dd2b0c68cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79266873"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Rozwiązywanie problemów z określonymi komunikatami o błędach protokołu RDP dla maszyny wirtualnej z systemem Windows na platformie Azure
-Podczas korzystania z połączenia pulpitu zdalnego z maszyną wirtualną systemu Windows (VM) na platformie Azure może pojawić się określony komunikat o błędzie. W tym artykule opisano niektóre z bardziej typowych komunikatów o błędach napotkanych, wraz z krokami rozwiązywania problemów, aby je rozwiązać. Jeśli występują problemy z połączeniem się z maszyną wirtualną przy użyciu protokołu RDP, ale nie występują określone komunikaty o błędzie, zobacz [przewodnik rozwiązywania problemów z pulpitem zdalnym](troubleshoot-rdp-connection.md).
+W przypadku korzystania z Pulpit zdalny połączenia z maszyną wirtualną z systemem Windows na platformie Azure może zostać wyświetlony konkretny komunikat o błędzie. W tym artykule opisano niektóre typowe komunikaty o błędach, a także kroki rozwiązywania problemów. Jeśli masz problemy z nawiązywaniem połączenia z maszyną wirtualną przy użyciu protokołu RDP, ale nie napotkasz określonego komunikatu o błędzie, zobacz [Przewodnik rozwiązywania problemów dla Pulpit zdalny](troubleshoot-rdp-connection.md).
 
-Aby uzyskać informacje na temat określonych komunikatów o błędach, zobacz następujące informacje:
+Aby uzyskać informacje dotyczące konkretnych komunikatów o błędach, zobacz następujące tematy:
 
-* [Sesja zdalna została rozłączona, ponieważ nie ma dostępnych serwerów licencji usług pulpitu zdalnego, aby zapewnić licencję](#rdplicense).
-* [Pulpit zdalny nie może znaleźć "nazwy" komputera](#rdpname).
-* [Wystąpił błąd uwierzytelniania. Nie można skontaktować się z lokalnym urzędem bezpieczeństwa](#rdpauth).
-* [Błąd zabezpieczeń systemu Windows: poświadczenia nie działały](#wincred).
-* [Ten komputer nie może połączyć się z komputerem zdalnym](#rdpconnect).
+* [Sesja zdalna została rozłączona z powodu braku dostępnych serwerów licencji pulpit zdalny w celu udostępnienia licencji](#rdplicense).
+* [Pulpit zdalny nie może znaleźć komputera "name"](#rdpname).
+* [Wystąpił błąd uwierzytelniania. Nie można skontaktować się z urzędem zabezpieczeń lokalnych](#rdpauth).
+* [Błąd zabezpieczeń systemu Windows: Twoje poświadczenia nie działają](#wincred).
+* [Ten komputer nie może nawiązać połączenia z komputerem zdalnym](#rdpconnect).
 
 <a id="rdplicense"></a>
 
-## <a name="the-remote-session-was-disconnected-because-there-are-no-remote-desktop-license-servers-available-to-provide-a-license"></a>Sesja zdalna została rozłączona, ponieważ nie ma dostępnych serwerów licencji usług pulpitu zdalnego, aby zapewnić licencję.
-Przyczyna: 120-dniowy okres prolongaty licencjonowania dla roli Serwer pulpitu zdalnego wygasł i należy zainstalować licencje.
+## <a name="the-remote-session-was-disconnected-because-there-are-no-remote-desktop-license-servers-available-to-provide-a-license"></a>Sesja zdalna została rozłączona z powodu braku dostępnych serwerów licencji Pulpit zdalny w celu udostępnienia licencji.
+Przyczyna: okres prolongaty licencjonowania 120 dla roli serwera Pulpit zdalny wygasł i należy zainstalować licencje.
 
-Aby obejść ten problem, zapisz lokalną kopię pliku RDP z portalu i uruchom to polecenie w wierszu polecenia programu PowerShell, aby się połączyć. Ten krok wyłącza licencjonowanie tylko dla tego połączenia:
+Aby obejść ten sposób, Zapisz lokalną kopię pliku RDP z portalu i Uruchom to polecenie w wierszu polecenia programu PowerShell, aby nawiązać połączenie. Ten krok powoduje wyłączenie licencjonowania tylko dla tego połączenia:
 
         mstsc <File name>.RDP /admin
 
-Jeśli w rzeczywistości nie potrzebujesz więcej niż dwóch jednoczesnych połączeń pulpitu zdalnego z maszyną wirtualną, możesz użyć Menedżera serwera, aby usunąć rolę serwera pulpitu zdalnego.
+Jeśli nie potrzebujesz więcej niż dwóch jednoczesnych połączeń Pulpit zdalny z maszyną wirtualną, możesz użyć Menedżer serwera, aby usunąć rolę serwera Pulpit zdalny.
 
-Aby uzyskać więcej informacji, zobacz wpis w blogu [Azure VM kończy się niepowodzeniem z "Brak serwerów licencji pulpitu zdalnego dostępne"](https://blogs.msdn.microsoft.com/mast/2014/01/21/rdp-to-azure-vm-fails-with-no-remote-desktop-license-servers-available/).
+Aby uzyskać więcej informacji, zobacz wpis w blogu na [maszynie wirtualnej platformy Azure nie powiodło się z opcją "Brak dostępnych serwerów licencji pulpit zdalny"](https://blogs.msdn.microsoft.com/mast/2014/01/21/rdp-to-azure-vm-fails-with-no-remote-desktop-license-servers-available/).
 
 <a id="rdpname"></a>
 
-## <a name="remote-desktop-cant-find-the-computer-name"></a>Pulpit zdalny nie może znaleźć "nazwy" komputera.
-Przyczyna: Klient pulpitu zdalnego na komputerze nie może rozpoznać nazwy komputera w ustawieniach pliku RDP.
+## <a name="remote-desktop-cant-find-the-computer-name"></a>Pulpit zdalny nie może znaleźć komputera "name".
+Przyczyna: klient Pulpit zdalny na komputerze nie może rozpoznać nazwy komputera w ustawieniach pliku RDP.
 
 Możliwe rozwiązania:
 
-* Jeśli korzystasz z intranetu organizacji, upewnij się, że komputer ma dostęp do serwera proxy i może wysyłać do niego ruch HTTPS.
-* Jeśli używasz lokalnie przechowywanego pliku RDP, spróbuj użyć pliku wygenerowanego przez portal. Ten krok gwarantuje, że masz poprawną nazwę DNS dla maszyny wirtualnej lub usługi w chmurze i portu punktu końcowego maszyny wirtualnej. Oto przykładowy plik RDP wygenerowany przez portal:
+* Jeśli korzystasz z intranetu organizacji, upewnij się, że komputer ma dostęp do serwera proxy i może wysłać do niego ruch HTTPS.
+* Jeśli używasz lokalnie przechowywanego pliku RDP, spróbuj użyć takiego, który jest generowany przez portal. Ten krok zapewnia, że masz poprawną nazwę DNS maszyny wirtualnej lub usługę w chmurze i Port punktu końcowego maszyny wirtualnej. Oto przykładowy plik RDP wygenerowany przez portal:
   
         full address:s:tailspin-azdatatier.cloudapp.net:55919
         prompt for credentials:i:1
 
-Część adresowa tego pliku RDP zawiera:
+Część adresu tego pliku RDP ma:
 
-* W pełni kwalifikowana nazwa domeny usługi w chmurze, która zawiera maszynę wirtualną ("tailspin-azdatatier.cloudapp.net" w tym przykładzie).
-* Zewnętrzny port TCP punktu końcowego dla ruchu pulpitu zdalnego (55919).
+* W pełni kwalifikowana nazwa domeny usługi w chmurze zawierającej maszynę wirtualną ("tailspin-azdatatier.cloudapp.net" w tym przykładzie).
+* Zewnętrzny port TCP punktu końcowego dla Pulpit zdalny ruchu (55919).
 
 <a id="rdpauth"></a>
 
-## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>Wystąpił błąd uwierzytelniania. Nie można skontaktować się z Lokalnym Urzędem Bezpieczeństwa.
-Przyczyna: Docelowa maszyna wirtualna nie może zlokalizować urzędu zabezpieczeń w części nazwy użytkownika poświadczeń.
+## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>Wystąpił błąd uwierzytelniania. Nie można skontaktować się z urzędem zabezpieczeń lokalnych.
+Przyczyna: docelowa maszyna wirtualna nie może zlokalizować urzędu zabezpieczeń w części nazwy użytkownika poświadczeń.
 
-Gdy nazwa użytkownika znajduje się w formularzu *SecurityAuthority*\\*UserName* (przykład: CORP\User1), część *SecurityAuthority* jest nazwą komputera maszyny Wirtualnej (dla lokalnego urzędu zabezpieczeń) lub nazwą domeny usługi Active Directory.
+Jeśli nazwa użytkownika ma postać *SecurityAuthority*\\*username* (przykład: CORP\User1.), część *SecurityAuthority* to nazwa komputera maszyny wirtualnej (dla urzędu zabezpieczeń lokalnych) lub nazwa domeny Active Directory.
 
 Możliwe rozwiązania:
 
-* Jeśli konto jest lokalne dla maszyny Wirtualnej, upewnij się, że nazwa maszyny Wirtualnej jest poprawnie wpisany.
-* Jeśli konto znajduje się w domenie usługi Active Directory, sprawdź pisownię nazwy domeny.
-* Jeśli jest to konto domeny usługi Active Directory, a nazwa domeny jest poprawnie wpisana, sprawdź, czy kontroler domeny jest dostępny w tej domenie. Jest to typowy problem w sieciach wirtualnych platformy Azure, które zawierają kontrolery domeny, że kontroler domeny jest niedostępny, ponieważ nie został uruchomiony. Aby obejść ten problem, możesz użyć konta administratora lokalnego zamiast konta domeny.
+* Jeśli konto jest lokalne dla maszyny wirtualnej, upewnij się, że nazwa maszyny wirtualnej jest wpisana poprawnie.
+* Jeśli konto znajduje się w domenie Active Directory, Sprawdź pisownię nazwy domeny.
+* Jeśli jest to konto domeny Active Directory, a nazwa domeny jest wpisana prawidłowo, sprawdź, czy kontroler domeny jest dostępny w tej domenie. Jest to typowy problem z sieciami wirtualnymi platformy Azure, które zawierają kontrolery domeny, dla których kontroler domeny jest niedostępny, ponieważ nie został uruchomiony. Jako obejście można użyć konta administratora lokalnego zamiast konta domeny.
 
 <a id="wincred"></a>
 
-## <a name="windows-security-error-your-credentials-did-not-work"></a>Błąd zabezpieczeń systemu Windows: poświadczenia nie działały.
-Przyczyna: Docelowa maszyna wirtualna nie może zweryfikować nazwy konta i hasła.
+## <a name="windows-security-error-your-credentials-did-not-work"></a>Błąd zabezpieczeń systemu Windows: Twoje poświadczenia nie działają.
+Przyczyna: docelowa maszyna wirtualna nie może zweryfikować nazwy konta i hasła.
 
 Komputer z systemem Windows może sprawdzać poprawność poświadczeń konta lokalnego lub konta domeny.
 
-* W przypadku kont lokalnych należy użyć składni*Nazwa użytkownika* *komputera*\\(przykład: SQL1\Admin4798).
-* W przypadku kont domeny należy użyć składni*Nazwa użytkownika* *nazwy domeny*\\(przykład: CONTOSO\peterodman).
+* W przypadku kont lokalnych użyj składni *ComputerName*\\*nazwy użytkownika* ComputerName (przykład: SQL1\Admin4798).
+* W przypadku kont domeny użyj składni *nazwa_domeny*\\*nazwy użytkownika* (przykład: CONTOSO\peterodman).
 
-Jeśli maszyna wirtualna została wypromowana na kontroler domeny w nowym lesie usługi Active Directory, konto administratora lokalnego, za pomocą którego zalogowano się, zostanie przekonwertowane na równoważne konto z tym samym hasłem w nowym lesie i domenie. Konto lokalne zostanie następnie usunięte.
+Jeśli Twoja maszyna wirtualna została podwyższona do kontrolera domeny w nowym lesie Active Directory, konto administratora lokalnego, które zostało zalogowane, jest konwertowane na równoważne konto z tym samym hasłem w nowym lesie i domenie. Konto lokalne jest następnie usuwane.
 
-Na przykład po zalogowaniu się przy za pomocą konta lokalnego DC1\DCAdmin, a następnie promowaniu maszyny wirtualnej jako kontrolera domeny w nowym lesie dla domeny corp.contoso.com, konto lokalne DC1\DCAdmin zostanie usunięte, a nowe konto domeny (CORP\DCAdmin) zostanie usunięte, a nowe konto domeny (CORP\DCAdmin) zostanie usunięte, a nowe konto domeny (CORP\DCAdmin) zostanie usunięte utworzone przy tym samym haśle.
+Na przykład po zalogowaniu się przy użyciu konta lokalnego DC1\DCAdmin, a następnie podwyższeniu poziomu maszyny wirtualnej jako kontrolera domeny w nowym lesie dla domeny corp.contoso.com, konto lokalne DC1\DCAdmin zostanie usunięte i zostanie utworzone nowe konto domeny (CORP\DCAdmin) z tym samym hasłem.
 
-Upewnij się, że nazwa konta jest nazwą, którą maszyna wirtualna może zweryfikować jako prawidłowe konto i że hasło jest poprawne.
+Upewnij się, że nazwa konta jest nazwą, którą maszyna wirtualna może zweryfikować jako prawidłowe konto, a hasło jest poprawne.
 
-Jeśli chcesz zmienić hasło konta administratora lokalnego, zobacz [Jak zresetować hasło lub usługę pulpitu zdalnego dla maszyn wirtualnych systemu Windows](reset-rdp.md).
+Jeśli musisz zmienić hasło konta administratora lokalnego, zobacz [jak zresetować hasło lub usługę pulpit zdalny dla maszyn wirtualnych z systemem Windows](reset-rdp.md).
 
 <a id="rdpconnect"></a>
 
-## <a name="this-computer-cant-connect-to-the-remote-computer"></a>Ten komputer nie może połączyć się z komputerem zdalnym.
-Przyczyna: Konto używane do nawiązywania połączenia nie ma praw logowania do pulpitu zdalnego.
+## <a name="this-computer-cant-connect-to-the-remote-computer"></a>Ten komputer nie może nawiązać połączenia z komputerem zdalnym.
+Przyczyna: konto używane do nawiązania połączenia nie ma uprawnień do logowania Pulpit zdalny.
 
-Każdy komputer z systemem Windows ma lokalną grupę użytkowników pulpitu zdalnego, która zawiera konta i grupy, które mogą się do niego logować zdalnie. Członkowie grupy administratorów lokalnych również mają dostęp, nawet jeśli te konta nie są wymienione w grupie lokalnej użytkownicy pulpitu zdalnego. W przypadku komputerów przyłączonych do domeny grupa administratorów lokalnych zawiera również administratorów domeny.
+Każdy komputer z systemem Windows ma grupę lokalną użytkownicy Pulpit zdalny, która zawiera konta i grupy, które mogą logować się do niego zdalnie. Członkowie lokalnej grupy administratorów mają również dostęp, nawet jeśli te konta nie są wymienione w lokalnej grupie Użytkownicy Pulpit zdalny. W przypadku komputerów przyłączonych do domeny lokalna grupa administratorów zawiera również administratorów domeny dla domeny.
 
-Upewnij się, że konto, którego używasz do nawiązywania połączenia, ma prawa logowania do pulpitu zdalnego. Aby połączyć się za pomocą pulpitu zdalnego, użyj konta administratora domeny lub lokalnego. Aby dodać żądane konto do grupy lokalnej użytkownicy pulpitu zdalnego, użyj przystawki Microsoft Management Console **(Narzędzia systemowe > użytkownicy i grupy lokalne > grupy > użytkownicy pulpitu zdalnego).**
+Upewnij się, że konto używane do nawiązania połączenia ma Pulpit zdalny prawa do logowania. Aby obejść ten element, należy użyć konta domeny lub administratora lokalnego do nawiązania połączenia przez Pulpit zdalny. Aby dodać żądane konto do grupy lokalnej Użytkownicy Pulpit zdalny, użyj przystawki programu Microsoft Management Console (**Narzędzia systemowe > Użytkownicy i grupy lokalne > grup > pulpit zdalny użytkowników**).
 
 ## <a name="next-steps"></a>Następne kroki
-Jeśli nie wystąpił żaden z tych błędów i wystąpił nieznany [troubleshooting guide for Remote Desktop](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)problem z połączeniem z prok.
+Jeśli żaden z tych błędów nie wystąpił i masz nieznany problem z połączeniem przy użyciu protokołu RDP, zobacz [Przewodnik rozwiązywania problemów dla Pulpit zdalny](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-* Aby uzyskać instrukcje rozwiązywania problemów z uzyskiwaniem dostępu do aplikacji uruchomionych na maszynie wirtualnej, zobacz [Rozwiązywanie problemów z dostępem do aplikacji uruchomionej na maszynie Wirtualnej platformy Azure](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Jeśli masz problemy z używaniem secure shell (SSH) do łączenia się z maszyną wirtualną z systemem Linux na platformie Azure, zobacz [Rozwiązywanie problemów z połączeniami SSH z maszyną wirtualną z systemem Linux na platformie Azure.](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* Aby uzyskać informacje na temat rozwiązywania problemów z dostępem do aplikacji uruchomionych na maszynie wirtualnej, zobacz [Rozwiązywanie problemów z dostępem do aplikacji uruchomionej na maszynie wirtualnej platformy Azure](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Jeśli masz problemy z używaniem Secure Shell (SSH) do łączenia się z maszyną wirtualną z systemem Linux na platformie Azure, zobacz [Rozwiązywanie problemów z połączeniami SSH z maszyną wirtualną z systemem Linux na platformie Azure](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

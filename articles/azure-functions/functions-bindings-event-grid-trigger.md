@@ -1,33 +1,33 @@
 ---
-title: Wyzwalacz usługi Azure Event Grid dla funkcji platformy Azure
-description: Dowiedz się, aby uruchomić kod, gdy zdarzenia w usłudze Azure Functions są wywoływane.
+title: Wyzwalacz Azure Event Grid dla Azure Functions
+description: Dowiedz się, jak uruchomić kod, gdy Event Grid zdarzenia w Azure Functions są wysyłane.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 2027629e1e9e297c97cbf40485ebe7dc2e3e6c0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277728"
 ---
-# <a name="azure-event-grid-trigger-for-azure-functions"></a>Wyzwalacz usługi Azure Event Grid dla funkcji platformy Azure
+# <a name="azure-event-grid-trigger-for-azure-functions"></a>Wyzwalacz Azure Event Grid dla Azure Functions
 
-Użyj wyzwalacza funkcji, aby odpowiedzieć na zdarzenie wysłane do tematu siatki zdarzeń.
+Użyj wyzwalacza funkcji, aby odpowiedzieć na zdarzenie wysłane do Event Grid tematu.
 
-Aby uzyskać informacje na temat szczegółów konfiguracji i konfiguracji, zobacz [omówienie](./functions-bindings-event-grid.md).
+Aby uzyskać informacje na temat konfiguracji i szczegółów konfiguracji, zobacz [Omówienie](./functions-bindings-event-grid.md).
 
 ## <a name="example"></a>Przykład
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
-W przykładzie wyzwalacza HTTP zobacz [Odbieranie zdarzeń do punktu końcowego HTTP](../event-grid/receive-events.md).
+Aby zapoznać się z przykładem wyzwalacza HTTP, zobacz [odbieranie zdarzeń do punktu końcowego http](../event-grid/receive-events.md).
 
-### <a name="c-2x-and-higher"></a>C# (2.x lub wyższe)
+### <a name="c-2x-and-higher"></a>C# (2. x i nowsze)
 
-W poniższym przykładzie pokazano funkcję `EventGridEvent`Języka [C#,](functions-dotnet-class-library.md) która wiąże się z:
+Poniższy przykład pokazuje [funkcję języka C#](functions-dotnet-class-library.md) , która wiąże się `EventGridEvent`z:
 
 ```cs
 using Microsoft.Azure.EventGrid.Models;
@@ -49,11 +49,11 @@ namespace Company.Function
 }
 ```
 
-Aby uzyskać więcej informacji, zobacz Pakiety, [Atrybuty](#attributes-and-annotations), [Konfiguracja](#configuration)i [Użycie](#usage).
+Aby uzyskać więcej informacji, zobacz pakiety, [atrybuty](#attributes-and-annotations), [Konfiguracja](#configuration)i [użycie](#usage).
 
-### <a name="version-1x"></a>Wersja 1.x
+### <a name="version-1x"></a>Wersja 1. x
 
-W poniższym przykładzie przedstawiono funkcję Funkcji 1.x [C#,](functions-dotnet-class-library.md) która wiąże się `JObject`z:
+W poniższym przykładzie przedstawiono [funkcję języka C#](functions-dotnet-class-library.md) 1. x, która jest powiązana `JObject`z:
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -76,11 +76,11 @@ namespace Company.Function
 }
 ```
 
-# <a name="c-script"></a>[Skrypt języka C#](#tab/csharp-script)
+# <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-W poniższym przykładzie pokazano powiązanie wyzwalacza w pliku *function.json* i [funkcję skryptu Języka C#,](functions-reference-csharp.md) która używa powiązania.
+Poniższy przykład pokazuje powiązanie wyzwalacza w pliku *Function. JSON* oraz [funkcję skryptu języka C#](functions-reference-csharp.md) , która używa powiązania.
 
-Oto dane powiązania w pliku *function.json:*
+Oto dane powiązania w pliku *Function. JSON* :
 
 ```json
 {
@@ -95,9 +95,9 @@ Oto dane powiązania w pliku *function.json:*
 }
 ```
 
-### <a name="version-2x-and-higher"></a>Wersja 2.x lub nowsza
+### <a name="version-2x-and-higher"></a>Wersja 2. x lub nowsza
 
-Oto przykład, który wiąże `EventGridEvent`się z:
+Oto przykład, który wiąże się z `EventGridEvent`:
 
 ```csharp
 #r "Microsoft.Azure.EventGrid"
@@ -110,11 +110,11 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 }
 ```
 
-Aby uzyskać więcej informacji, zobacz Pakiety, [Atrybuty](#attributes-and-annotations), [Konfiguracja](#configuration)i [Użycie](#usage).
+Aby uzyskać więcej informacji, zobacz pakiety, [atrybuty](#attributes-and-annotations), [Konfiguracja](#configuration)i [użycie](#usage).
 
-### <a name="version-1x"></a>Wersja 1.x
+### <a name="version-1x"></a>Wersja 1. x
 
-Oto funkcje 1.x C# kod skryptu, który wiąże się z: `JObject`
+Poniżej znajduje się kod skryptu w języku C#, który jest powiązany z `JObject`:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -128,11 +128,11 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-W poniższym przykładzie pokazano powiązanie wyzwalacza w pliku *function.json* i [funkcję JavaScript,](functions-reference-node.md) która używa powiązania.
+W poniższym przykładzie pokazano powiązanie wyzwalacza w pliku *Function. JSON* oraz [funkcja języka JavaScript](functions-reference-node.md) , która używa powiązania.
 
-Oto dane powiązania w pliku *function.json:*
+Oto dane powiązania w pliku *Function. JSON* :
 
 ```json
 {
@@ -161,9 +161,9 @@ module.exports = function (context, eventGridEvent) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-W poniższym przykładzie pokazano powiązanie wyzwalacza w pliku *function.json* i [funkcję Języka Python,](functions-reference-python.md) która używa powiązania.
+Poniższy przykład pokazuje powiązanie wyzwalacza w pliku *Function. JSON* i [funkcji języka Python](functions-reference-python.md) , która używa powiązania.
 
-Oto dane powiązania w pliku *function.json:*
+Oto dane powiązania w pliku *Function. JSON* :
 
 ```json
 {
@@ -179,7 +179,7 @@ Oto dane powiązania w pliku *function.json:*
 }
 ```
 
-Oto kod Pythona:
+Oto kod języka Python:
 
 ```python
 import json
@@ -204,12 +204,12 @@ def main(event: func.EventGridEvent):
 
 Ta sekcja zawiera następujące przykłady:
 
-* [Wyzwalacz siatki zdarzeń, parametr String](#event-grid-trigger-string-parameter)
-* [Wyzwalacz siatki zdarzeń, parametr POJO](#event-grid-trigger-pojo-parameter)
+* [Wyzwalacz Event Grid, parametr ciągu](#event-grid-trigger-string-parameter)
+* [Wyzwalacz Event Grid, parametr POJO](#event-grid-trigger-pojo-parameter)
 
-Poniższe przykłady pokazują powiązania wyzwalacza w [języku Java,](functions-reference-java.md) które używają powiązania `String` i wydrukować zdarzenie, najpierw odbierając zdarzenie jako i drugi jako POJO.
+W poniższych przykładach pokazano powiązanie wyzwalacza w [języku Java](functions-reference-java.md) , które używa powiązania i drukuje zdarzenie, po pierwsze odebranie zdarzenia jako `String` Pojo.
 
-### <a name="event-grid-trigger-string-parameter"></a>Wyzwalacz siatki zdarzeń, parametr String
+### <a name="event-grid-trigger-string-parameter"></a>Wyzwalacz Event Grid, parametr ciągu
 
 ```java
   @FunctionName("eventGridMonitorString")
@@ -223,9 +223,9 @@ Poniższe przykłady pokazują powiązania wyzwalacza w [języku Java,](function
   }
 ```
 
-### <a name="event-grid-trigger-pojo-parameter"></a>Wyzwalacz siatki zdarzeń, parametr POJO
+### <a name="event-grid-trigger-pojo-parameter"></a>Wyzwalacz Event Grid, parametr POJO
 
-W tym przykładzie użyto następującego POJO, reprezentującego właściwości najwyższego poziomu zdarzenia Event Grid:
+W tym przykładzie zastosowano następujący POJO reprezentujący właściwości najwyższego poziomu zdarzenia Event Grid:
 
 ```java
 import java.util.Date;
@@ -245,7 +245,7 @@ public class EventSchema {
 }
 ```
 
-Po przybyciu ładunku JSON zdarzenia jest de-serialized do ```EventSchema``` POJO do użycia przez funkcję. Ten proces umożliwia funkcji dostęp do właściwości zdarzenia w sposób obiektowy.
+Po przybyciu ładunek JSON zdarzenia jest deserializowany do ```EventSchema``` Pojo do użycia przez funkcję. Ten proces umożliwia funkcji dostęp do właściwości zdarzenia w sposób zorientowany obiektowo.
 
 ```java
   @FunctionName("eventGridMonitor")
@@ -263,17 +263,17 @@ Po przybyciu ładunku JSON zdarzenia jest de-serialized do ```EventSchema``` POJ
   }
 ```
 
-W [bibliotece środowiska wykonawczego](/java/api/overview/azure/functions/runtime)funkcji `EventGridTrigger` Java użyj adnotacji na temat parametrów, których wartość pochodziłaby z programu EventGrid. Parametry z tymi adnotacjami powodują, że funkcja jest uruchamiana po nadejściu zdarzenia.  Ta adnotacja może być używana z natywnymi typami `Optional<T>`Java, POJO lub wartościami nullable przy użyciu .
+W [bibliotece środowiska uruchomieniowego funkcji Java](/java/api/overview/azure/functions/runtime)Użyj `EventGridTrigger` adnotacji w parametrach, których wartość pochodzi z EventGrid. Parametry z tymi adnotacjami powodują, że funkcja jest uruchamiana po nadejściu zdarzenia.  Tej adnotacji można używać w przypadku natywnych typów Java, Pojo lub wartości null `Optional<T>`przy użyciu.
 
 ---
 
 ## <a name="attributes-and-annotations"></a>Atrybuty i adnotacje
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
-W [bibliotekach klas języka C#](functions-dotnet-class-library.md)użyj atrybutu [EventGridTrigger.](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs)
+W [bibliotekach klas języka C#](functions-dotnet-class-library.md), Użyj atrybutu [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs) .
 
-Oto `EventGridTrigger` atrybut w podpisie metody:
+Oto `EventGridTrigger` atrybut w sygnaturze metody:
 
 ```csharp
 [FunctionName("EventGridTest")]
@@ -283,83 +283,83 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 }
 ```
 
-Na przykład pełne zobacz przykład języka C#.
+Aby zapoznać się z kompletnym przykładem, zobacz przykład w języku C#.
 
-# <a name="c-script"></a>[Skrypt języka C#](#tab/csharp-script)
+# <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
 Atrybuty nie są obsługiwane przez skrypt języka C#.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Atrybuty nie są obsługiwane przez javascript.
+Atrybuty nie są obsługiwane przez język JavaScript.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Atrybuty nie są obsługiwane przez Pythona.
+Atrybuty nie są obsługiwane przez język Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Adnotacja [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) umożliwia deklaratywne skonfigurowanie powiązania z siatką zdarzeń przez podanie wartości konfiguracji. Zobacz [przykład](#example) i sekcje [konfiguracji,](#configuration) aby uzyskać więcej szczegółów.
+Adnotacja [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) umożliwia deklaratywne skonfigurowanie powiązania Event Grid przez podanie wartości konfiguracyjnych. Więcej szczegółów można znaleźć w sekcjach [przykładowych](#example) i [konfiguracyjnych](#configuration) .
 
 ---
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
-W poniższej tabeli opisano właściwości konfiguracji powiązania, które można ustawić w pliku *function.json.* Nie ma żadnych parametrów konstruktora `EventGridTrigger` lub właściwości do ustawienia w atrybucie.
+W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* . Brak parametrów lub właściwości konstruktora do ustawienia w `EventGridTrigger` atrybucie.
 
-|właściwość function.json |Opis|
+|Function. JSON — Właściwość |Opis|
 |---------|---------|
-| **Typu** | Wymagane - musi być `eventGridTrigger`ustawiona na . |
-| **Kierunku** | Wymagane - musi być `in`ustawiona na . |
-| **Nazwa** | Wymagane — nazwa zmiennej używana w kodzie funkcji dla parametru odbierania danych zdarzenia. |
+| **Wprowadź** | Wymagane — musi być ustawiony na `eventGridTrigger`wartość. |
+| **wskazywa** | Wymagane — musi być ustawiony na `in`wartość. |
+| **Nazwij** | Wymagane — nazwa zmiennej używana w kodzie funkcji dla parametru, który odbiera dane zdarzenia. |
 
 ## <a name="usage"></a>Sposób użycia
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
-W usłudze Azure Functions 1.x można użyć następujących typów parametrów dla wyzwalacza siatki zdarzeń:
-
-* `JObject`
-* `string`
-
-W usłudze Azure Functions 2.x lub nowszej, masz również możliwość użycia następującego typu parametru dla wyzwalacza siatki zdarzeń:
-
-* `Microsoft.Azure.EventGrid.Models.EventGridEvent`- Definiuje właściwości dla pól wspólnych dla wszystkich typów zdarzeń.
-
-> [!NOTE]
-> W funkcji w wersji 1, jeśli spróbujesz powiązać `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`z kompilatorem `Microsoft.Azure.EventGrid.Models.EventGridEvent` wyświetli komunikat "przestarzałe" i zaleca się użycie zamiast tego. Aby użyć nowszego typu, odwołaj się do pakietu [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet i w pełni zakwalifikuj `EventGridEvent` nazwę typu, prefiksując go za pomocą `Microsoft.Azure.EventGrid.Models`pliku .
-
-# <a name="c-script"></a>[Skrypt języka C#](#tab/csharp-script)
-
-W usłudze Azure Functions 1.x można użyć następujących typów parametrów dla wyzwalacza siatki zdarzeń:
+W Azure Functions 1. x można użyć następujących typów parametrów dla wyzwalacza Event Grid:
 
 * `JObject`
 * `string`
 
-W usłudze Azure Functions 2.x lub nowszej, masz również możliwość użycia następującego typu parametru dla wyzwalacza siatki zdarzeń:
+W Azure Functions 2. x i wyższych można także użyć następującego typu parametru dla wyzwalacza Event Grid:
 
-* `Microsoft.Azure.EventGrid.Models.EventGridEvent`- Definiuje właściwości dla pól wspólnych dla wszystkich typów zdarzeń.
+* `Microsoft.Azure.EventGrid.Models.EventGridEvent`-Definiuje właściwości dla pól wspólnych dla wszystkich typów zdarzeń.
 
 > [!NOTE]
-> W funkcji w wersji 1, jeśli spróbujesz powiązać `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`z kompilatorem `Microsoft.Azure.EventGrid.Models.EventGridEvent` wyświetli komunikat "przestarzałe" i zaleca się użycie zamiast tego. Aby użyć nowszego typu, odwołaj się do pakietu [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet i w pełni zakwalifikuj `EventGridEvent` nazwę typu, prefiksując go za pomocą `Microsoft.Azure.EventGrid.Models`pliku . Aby uzyskać informacje dotyczące odwoływania się do pakietów NuGet w funkcji skryptu języka C#, zobacz [Używanie pakietów NuGet](functions-reference-csharp.md#using-nuget-packages)
+> W funkcji v1 w przypadku próby utworzenia powiązania z `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, kompilator wyświetli komunikat "przestarzałe" i poradzi, że zamiast tego zostanie `Microsoft.Azure.EventGrid.Models.EventGridEvent` użyty. Aby użyć nowszego typu, należy odwołać się do pakietu NuGet [Microsoft. Azure. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) i `EventGridEvent` w pełni zakwalifikować nazwę typu, `Microsoft.Azure.EventGrid.Models`wpisując je prefiksem.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Wystąpienie siatki zdarzeń jest dostępne za pośrednictwem parametru skonfigurowanego we `name` właściwości pliku *function.json.*
+W Azure Functions 1. x można użyć następujących typów parametrów dla wyzwalacza Event Grid:
+
+* `JObject`
+* `string`
+
+W Azure Functions 2. x i wyższych można także użyć następującego typu parametru dla wyzwalacza Event Grid:
+
+* `Microsoft.Azure.EventGrid.Models.EventGridEvent`-Definiuje właściwości dla pól wspólnych dla wszystkich typów zdarzeń.
+
+> [!NOTE]
+> W funkcji v1 w przypadku próby utworzenia powiązania z `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, kompilator wyświetli komunikat "przestarzałe" i poradzi, że zamiast tego zostanie `Microsoft.Azure.EventGrid.Models.EventGridEvent` użyty. Aby użyć nowszego typu, należy odwołać się do pakietu NuGet [Microsoft. Azure. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) i `EventGridEvent` w pełni zakwalifikować nazwę typu, `Microsoft.Azure.EventGrid.Models`wpisując je prefiksem. Aby uzyskać informacje o sposobach odwoływania się do pakietów NuGet w funkcji skryptu języka C#, zobacz [Korzystanie z pakietów NuGet](functions-reference-csharp.md#using-nuget-packages)
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Wystąpienie Event Grid jest dostępne za pośrednictwem parametru skonfigurowanego w `name` właściwości pliku *Function. JSON* .
 
 # <a name="python"></a>[Python](#tab/python)
 
-Wystąpienie Siatki zdarzeń jest dostępne za pośrednictwem parametru skonfigurowanego `name` we właściwości `func.EventGridEvent`pliku *function.json,* wpisanego jako .
+Wystąpienie Event Grid jest dostępne za pośrednictwem parametru skonfigurowanego w `name` właściwości pliku *Function. JSON* , które wpisano jako `func.EventGridEvent`.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Wystąpienie zdarzenia Event Grid jest dostępne za `EventGridTrigger` pośrednictwem parametru skojarzonego z atrybutem, wpisanego jako . `EventSchema` Zobacz [przykład,](#example) aby uzyskać więcej szczegółów.
+Wystąpienie zdarzenia Event Grid jest dostępne za pośrednictwem parametru skojarzonego z `EventGridTrigger` atrybutem, który wpisano jako `EventSchema`. Zobacz [przykład](#example) , aby uzyskać więcej szczegółów.
 
 ---
 
 ## <a name="event-schema"></a>Schemat zdarzeń
 
-Dane dla zdarzenia Siatki zdarzeń są odbierane jako obiekt JSON w treści żądania HTTP. JSON wygląda podobnie do następującego przykładu:
+Dane dla zdarzenia Event Grid są odbierane jako obiekt JSON w treści żądania HTTP. KOD JSON wygląda podobnie do poniższego przykładu:
 
 ```json
 [{
@@ -387,49 +387,49 @@ Dane dla zdarzenia Siatki zdarzeń są odbierane jako obiekt JSON w treści żą
 }]
 ```
 
-Pokazany przykład jest tablicą jednego elementu. Usługa Event Grid zawsze wysyła tablicę i może wysyłać więcej niż jedno zdarzenie w tablicy. Środowisko wykonawcze wywołuje funkcję raz dla każdego elementu tablicy.
+Pokazany przykład jest tablicą jednego elementu. Event Grid zawsze wysyła tablicę i może wysłać więcej niż jedno zdarzenie w tablicy. Środowisko uruchomieniowe wywołuje funkcję jeden raz dla każdego elementu tablicy.
 
-Właściwości najwyższego poziomu w przypadku danych JSON są takie same dla wszystkich `data` typów zdarzeń, podczas gdy zawartość właściwości są specyficzne dla każdego typu zdarzenia. Pokazany przykład jest dla zdarzenia magazynu obiektów blob.
+Właściwości najwyższego poziomu w danych JSON zdarzenia są takie same dla wszystkich typów zdarzeń, natomiast zawartość `data` właściwości jest specyficzna dla każdego typu zdarzenia. Pokazany przykład dotyczy zdarzenia magazynu obiektów BLOB.
 
-Aby uzyskać szczegółowe opisy właściwości wspólnych i specyficznych dla zdarzenia, zobacz [Właściwości zdarzeń](../event-grid/event-schema.md#event-properties) w dokumentacji siatki zdarzeń.
+Aby uzyskać wyjaśnienia dotyczące wspólnych i specyficznych dla zdarzeń właściwości, zobacz [właściwości zdarzeń](../event-grid/event-schema.md#event-properties) w dokumentacji Event Grid.
 
-Typ `EventGridEvent` definiuje tylko właściwości najwyższego poziomu; `Data` obiekt jest `JObject`.
+`EventGridEvent` Typ definiuje tylko właściwości najwyższego poziomu; `Data` właściwość jest `JObject`.
 
 ## <a name="create-a-subscription"></a>Tworzenie subskrypcji
 
-Aby rozpocząć odbieranie żądań HTTP w siatce zdarzeń, utwórz subskrypcję usługi Event Grid, która określa adres URL punktu końcowego, który wywołuje tę funkcję.
+Aby rozpocząć otrzymywanie Event Grid żądania HTTP, Utwórz subskrypcję Event Grid, która określa adres URL punktu końcowego, który wywołuje funkcję.
 
-### <a name="azure-portal"></a>Portal Azure
+### <a name="azure-portal"></a>Azure Portal
 
-W przypadku funkcji tworzonych w witrynie Azure portal z wyzwalaczem siatki zdarzeń wybierz pozycję **Dodaj subskrypcję siatki zdarzeń**.
+W przypadku funkcji, które tworzysz w Azure Portal z wyzwalaczem Event Grid, wybierz pozycję **Dodaj subskrypcję Event Grid**.
 
-![Tworzenie subskrypcji w portalu](media/functions-bindings-event-grid/portal-sub-create.png)
+![Utwórz subskrypcję w portalu](media/functions-bindings-event-grid/portal-sub-create.png)
 
-Po wybraniu tego łącza portal otworzy stronę **Utwórz subskrypcję zdarzeń** z wstępnie wypełnionym adresem URL punktu końcowego.
+Po wybraniu tego linku w portalu zostanie otwarta strona **Tworzenie subskrypcji zdarzeń** z wstępnie wypełnionym adresem URL punktu końcowego.
 
 ![Wstępnie wypełniony adres URL punktu końcowego](media/functions-bindings-event-grid/endpoint-url.png)
 
-Aby uzyskać więcej informacji na temat tworzenia subskrypcji przy użyciu witryny Azure portal, zobacz [Tworzenie zdarzenia niestandardowego — witryna Azure portal](../event-grid/custom-event-quickstart-portal.md) w dokumentacji usługi Event Grid.
+Aby uzyskać więcej informacji o sposobach tworzenia subskrypcji przy użyciu Azure Portal, zobacz [Tworzenie niestandardowych zdarzeń Azure Portal](../event-grid/custom-event-quickstart-portal.md) w dokumentacji Event Grid.
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Aby utworzyć subskrypcję przy użyciu [interfejsu wiersza polecenia platformy Azure,](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)należy użyć polecenia [tworzenia subskrypcji zdarzeń az.](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create)
+Aby utworzyć subskrypcję przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), użyj polecenie [AZ eventgrid Event-Subscription Create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create) .
 
-Polecenie wymaga adresu URL punktu końcowego, który wywołuje funkcję. W poniższym przykładzie przedstawiono wzorzec adresu URL specyficznego dla wersji:
+Polecenie wymaga adresu URL punktu końcowego, który wywołuje funkcję. Poniższy przykład przedstawia wzorzec adresu URL specyficznego dla wersji:
 
-#### <a name="version-2x-and-higher-runtime"></a>Środowisko uruchomieniowe w wersji 2.x (i nowszej)
+#### <a name="version-2x-and-higher-runtime"></a>Środowisko uruchomieniowe w wersji 2. x (lub nowszej)
 
     https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
 
-#### <a name="version-1x-runtime"></a>Środowisko wykonawcze wersji 1.x
+#### <a name="version-1x-runtime"></a>Wersja 1. x środowiska uruchomieniowego
 
     https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
 
-Klucz systemowy jest kluczem autoryzacji, który musi zostać uwzględniony w adresie URL punktu końcowego wyzwalacza siatki zdarzeń. W poniższej sekcji wyjaśniono, jak uzyskać klucz systemowy.
+Klucz systemowy jest kluczem autoryzacji, który musi być uwzględniony w adresie URL punktu końcowego dla wyzwalacza Event Grid. W poniższej sekcji wyjaśniono, jak uzyskać klucz systemowy.
 
-Oto przykład, który subskrybuje konto magazynu obiektów blob (z symbolem zastępczym klucza systemowego):
+Oto przykład, który subskrybuje konto usługi BLOB Storage (z symbolem zastępczym dla klucza systemowego):
 
-#### <a name="version-2x-and-higher-runtime"></a>Środowisko uruchomieniowe w wersji 2.x (i nowszej)
+#### <a name="version-2x-and-higher-runtime"></a>Środowisko uruchomieniowe w wersji 2. x (lub nowszej)
 
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
@@ -440,7 +440,7 @@ az eventgrid resource event-subscription create -g myResourceGroup \
 --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
 ```
 
-#### <a name="version-1x-runtime"></a>Środowisko wykonawcze wersji 1.x
+#### <a name="version-1x-runtime"></a>Wersja 1. x środowiska uruchomieniowego
 
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
@@ -451,27 +451,27 @@ az eventgrid resource event-subscription create -g myResourceGroup \
 --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
 ```
 
-Aby uzyskać więcej informacji na temat tworzenia subskrypcji, zobacz [szybki start magazynu obiektów blob](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) lub inne przewodniki Szybki start usługi Event Grid.
+Aby uzyskać więcej informacji na temat sposobu tworzenia subskrypcji, zobacz [Przewodnik Szybki Start](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) dotyczący usługi BLOB Storage lub innych Event Grid przewodników Szybki Start.
 
-### <a name="get-the-system-key"></a>Pobierz klucz systemowy
+### <a name="get-the-system-key"></a>Pobieranie klucza systemowego
 
 Klucz systemowy można uzyskać za pomocą następującego interfejsu API (HTTP GET):
 
-#### <a name="version-2x-and-higher-runtime"></a>Środowisko uruchomieniowe w wersji 2.x (i nowszej)
+#### <a name="version-2x-and-higher-runtime"></a>Środowisko uruchomieniowe w wersji 2. x (lub nowszej)
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_extension?code={masterkey}
 ```
 
-#### <a name="version-1x-runtime"></a>Środowisko wykonawcze wersji 1.x
+#### <a name="version-1x-runtime"></a>Wersja 1. x środowiska uruchomieniowego
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
 ```
 
-Jest to interfejs API administratora, więc wymaga [klucza głównego](functions-bindings-http-webhook-trigger.md#authorization-keys)aplikacji funkcji . Nie należy mylić klucza systemowego (do wywoływania funkcji wyzwalacza siatki zdarzeń) z kluczem głównym (do wykonywania zadań administracyjnych w aplikacji funkcji). Podczas subskrybowania tematu siatki zdarzeń należy użyć klucza systemowego.
+Jest to interfejs API administratora, więc wymaga [klucza głównego](functions-bindings-http-webhook-trigger.md#authorization-keys)aplikacji funkcji. Nie należy mylić klucza systemowego (do wywoływania funkcji wyzwalacza Event Grid) za pomocą klucza głównego (na potrzeby wykonywania zadań administracyjnych w aplikacji funkcji). Gdy subskrybujesz temat Event Grid, pamiętaj, aby użyć klucza systemowego.
 
-Oto przykład odpowiedzi, która zawiera klucz systemowy:
+Oto przykład odpowiedzi, która dostarcza klucz systemowy:
 
 ```
 {
@@ -486,29 +486,29 @@ Oto przykład odpowiedzi, która zawiera klucz systemowy:
 }
 ```
 
-Klucz główny aplikacji funkcji można uzyskać na karcie **Ustawienia aplikacji Funkcji** w portalu.
+Klucz główny aplikacji funkcji można uzyskać z karty **Ustawienia aplikacji funkcji** w portalu.
 
 > [!IMPORTANT]
-> Klucz główny zapewnia administratorowi dostęp do aplikacji funkcji. Nie udostępniaj tego klucza stronom trzecim ani nie rozpowszechniaj go w natywnych aplikacjach klienckich.
+> Klucz główny zapewnia administratorowi dostęp do aplikacji funkcji. Nie udostępniaj tego klucza podmiotom trzecim ani nie rozpowszechniaj go w natywnych aplikacjach klienckich.
 
-Aby uzyskać więcej informacji, zobacz [Klucze autoryzacji](functions-bindings-http-webhook-trigger.md#authorization-keys) w artykule odwołania do wyzwalacza HTTP.
+Aby uzyskać więcej informacji, zobacz [klucze autoryzacji](functions-bindings-http-webhook-trigger.md#authorization-keys) w artykule odwołanie wyzwalacza http.
 
-Alternatywnie można wysłać HTTP PUT, aby samodzielnie określić wartość klucza.
+Alternatywnie można wysłać polecenie HTTP PUT, aby samodzielnie określić wartość klucza.
 
-## <a name="local-testing-with-viewer-web-app"></a>Testowanie lokalne za pomocą aplikacji internetowej przeglądarki
+## <a name="local-testing-with-viewer-web-app"></a>Testowanie lokalne przy użyciu aplikacji internetowej przeglądarki
 
-Aby przetestować wyzwalacz siatki zdarzeń lokalnie, musisz uzyskać żądania HTTP usługi Event Grid dostarczane z ich pochodzenia w chmurze do komputera lokalnego. Jednym ze sposobów, aby to zrobić, jest przechwytywanie żądań online i ręczne ponowne wysłanie ich na komputerze lokalnym:
+Aby przetestować wyzwalacz Event Grid lokalnie, należy uzyskać Event Grid żądania HTTP dostarczone z ich pochodzenia w chmurze do komputera lokalnego. Jednym ze sposobów jest przechwycenie żądań online i ręczne ponowne wysłanie ich na komputer lokalny:
 
-1. [Utwórz aplikację internetową przeglądarki,](#create-a-viewer-web-app) która przechwytuje komunikaty o zdarzeniach.
-1. [Utwórz subskrypcję usługi Event Grid,](#create-an-event-grid-subscription) która wysyła zdarzenia do aplikacji przeglądarki.
+1. [Utwórz aplikację sieci Web w przeglądarce](#create-a-viewer-web-app) , która przechwytuje komunikaty o zdarzeniach.
+1. [Utwórz subskrypcję Event Grid](#create-an-event-grid-subscription) , która wysyła zdarzenia do aplikacji przeglądarki.
 1. [Wygeneruj żądanie](#generate-a-request) i skopiuj treść żądania z aplikacji przeglądarki.
-1. [Ręcznie opublikuj żądanie na](#manually-post-the-request) adresie URL hosta lokalnego funkcji wyzwalania siatki zdarzeń.
+1. [Ręcznie Opublikuj żądanie](#manually-post-the-request) na adres URL hosta lokalnego funkcji wyzwalacza Event Grid.
 
-Po zakończeniu testowania, można użyć tej samej subskrypcji dla produkcji, aktualizując punkt końcowy. Użyj polecenia [az eventgrid eventgrid update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI.
+Po zakończeniu testowania możesz użyć tej samej subskrypcji dla środowiska produkcyjnego, aktualizując punkt końcowy. Użyj polecenia [AZ eventgrid Event-Subscription Update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) platformy Azure.
 
-### <a name="create-a-viewer-web-app"></a>Tworzenie aplikacji sieci Web przeglądarki
+### <a name="create-a-viewer-web-app"></a>Tworzenie aplikacji sieci Web w przeglądarce
 
-Aby uprościć przechwytywanie komunikatów o zdarzeniach, można wdrożyć [wstępnie szesnasty aplikację sieci web,](https://github.com/Azure-Samples/azure-event-grid-viewer) która wyświetla komunikaty o zdarzeniach. Wdrożone rozwiązanie zawiera plan usługi App Service, aplikację internetową usługi App Service i kod źródłowy z repozytorium GitHub.
+W celu uproszczenia przechwytywania komunikatów zdarzeń można wdrożyć [wstępnie utworzoną aplikację sieci Web](https://github.com/Azure-Samples/azure-event-grid-viewer) , która wyświetla komunikaty o zdarzeniach. Wdrożone rozwiązanie zawiera plan usługi App Service, aplikację internetową usługi App Service i kod źródłowy z repozytorium GitHub.
 
 Wybierz pozycję **Wdróż na platformie Azure** w celu wdrożenia rozwiązania w subskrypcji. W witrynie Azure Portal podaj wartości parametrów.
 
@@ -522,52 +522,52 @@ Zobaczysz witrynę, w której nie opublikowano jeszcze żadnych zdarzeń.
 
 ### <a name="create-an-event-grid-subscription"></a>Tworzenie subskrypcji usługi Event Grid
 
-Utwórz subskrypcję usługi Event Grid typu, który chcesz przetestować, i nadaj jej adres URL z aplikacji sieci web jako punkt końcowy powiadomienia o zdarzeniu. Punkt końcowy dla aplikacji internetowej musi zawierać sufiks `/api/updates/`. Tak więc pełny adres URL jest`https://<your-site-name>.azurewebsites.net/api/updates`
+Utwórz subskrypcję Event Grid typu, który chcesz przetestować, i nadaj jej adres URL z aplikacji sieci Web jako punkt końcowy powiadomienia o zdarzeniu. Punkt końcowy dla aplikacji internetowej musi zawierać sufiks `/api/updates/`. Dlatego pełny adres URL to`https://<your-site-name>.azurewebsites.net/api/updates`
 
-Aby uzyskać informacje dotyczące tworzenia subskrypcji przy użyciu witryny Azure portal, zobacz [Tworzenie zdarzenia niestandardowego — witryna Azure portal](../event-grid/custom-event-quickstart-portal.md) w dokumentacji usługi Event Grid.
+Aby uzyskać informacje o sposobach tworzenia subskrypcji przy użyciu Azure Portal, zobacz [Tworzenie niestandardowych zdarzeń Azure Portal](../event-grid/custom-event-quickstart-portal.md) w dokumentacji Event Grid.
 
-### <a name="generate-a-request"></a>Generowanie żądania
+### <a name="generate-a-request"></a>Generuj żądanie
 
-Wyzwalanie zdarzenia, które wygeneruje ruch HTTP do punktu końcowego aplikacji sieci web.  Na przykład jeśli utworzono subskrypcję magazynu obiektów blob, przekaż lub usuń obiekt blob. Gdy żądanie pojawi się w aplikacji sieci web, skopiuj treść żądania.
+Wyzwól zdarzenie, które będzie generować ruch HTTP do punktu końcowego aplikacji sieci Web.  Na przykład jeśli utworzono subskrypcję usługi BLOB Storage, Przekaż lub usuń obiekt BLOB. Gdy żądanie zostanie wyświetlone w aplikacji sieci Web, skopiuj treść żądania.
 
-Żądanie weryfikacji subskrypcji zostanie odebrane jako pierwsze; zignorować wszystkie żądania sprawdzania poprawności i skopiować żądanie zdarzenia.
+Żądanie weryfikacji subskrypcji zostanie najpierw odebrane. Zignoruj wszystkie żądania weryfikacji i skopiuj żądanie zdarzenia.
 
-![Kopiowanie treści żądania z aplikacji sieci Web](media/functions-bindings-event-grid/view-results.png)
+![Kopiuj treść żądania z aplikacji sieci Web](media/functions-bindings-event-grid/view-results.png)
 
-### <a name="manually-post-the-request"></a>Ręcznie opublikuj żądanie
+### <a name="manually-post-the-request"></a>Ręcznie Opublikuj żądanie
 
-Uruchom funkcję siatki zdarzeń lokalnie.
+Uruchom lokalnie funkcję Event Grid.
 
-Użyj narzędzia, takiego jak [Listonosz](https://www.getpostman.com/) lub [zwiń,](https://curl.haxx.se/docs/httpscripting.html) aby utworzyć żądanie HTTP POST:
+Użyj narzędzia takiego jak [Ogłoś](https://www.getpostman.com/) lub [zwinięcie](https://curl.haxx.se/docs/httpscripting.html) , aby utworzyć żądanie HTTP Post:
 
-* Ustawianie `Content-Type: application/json` nagłówka.
-* Ustawianie `aeg-event-type: Notification` nagłówka.
+* Ustaw `Content-Type: application/json` nagłówek.
+* Ustaw `aeg-event-type: Notification` nagłówek.
 * Wklej dane RequestBin do treści żądania.
-* Opublikuj adres URL funkcji wyzwalania siatki zdarzeń.
-  * W przypadku 2.x i nowszych należy użyć następującego wzoru:
+* Opublikuj na adres URL funkcji wyzwalacza Event Grid.
+  * Dla 2. x i wyższych należy użyć następującego wzorca:
 
     ```
     http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
     ```
 
-  * W przypadku zastosowania 1.x:
+  * Użycie 1. x:
 
     ```
     http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
     ```
 
-Parametr `functionName` musi być nazwą określoną w atrybucie. `FunctionName`
+`functionName` Parametr musi być nazwą określoną w `FunctionName` atrybucie.
 
-Poniższe zrzuty ekranu pokazują nagłówki i treść żądania w postmanie:
+Poniższe zrzuty ekranu pokazują nagłówki i treść żądania w programie Poster:
 
-![Nagłówki w listonoszu](media/functions-bindings-event-grid/postman2.png)
+![Nagłówki w programie Poster](media/functions-bindings-event-grid/postman2.png)
 
-![Treść żądania w listonoszu](media/functions-bindings-event-grid/postman.png)
+![Treść żądania w programie Poster](media/functions-bindings-event-grid/postman.png)
 
-Funkcja wyzwalania siatki zdarzeń wykonuje i pokazuje dzienniki podobne do następującego przykładu:
+Funkcja wyzwalacza Event Grid wykonuje i pokazuje dzienniki podobne do poniższego przykładu:
 
-![Przykładowe dzienniki funkcji wyzwalania siatki zdarzeń](media/functions-bindings-event-grid/eg-output.png)
+![Przykładowe dzienniki funkcji wyzwalacza Event Grid](media/functions-bindings-event-grid/eg-output.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wysyłanie zdarzenia w sieci zdarzeń](./functions-bindings-event-grid-trigger.md)
+* [Wysyłanie zdarzenia Event Grid](./functions-bindings-event-grid-trigger.md)

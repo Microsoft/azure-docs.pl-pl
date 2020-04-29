@@ -1,7 +1,7 @@
 ---
-title: Tworzenie definicji indeksu i pojęć
+title: Tworzenie definicji indeksu i koncepcji
 titleSuffix: Azure Cognitive Search
-description: Wprowadzenie do terminów i pojęć indeksu w usłudze Azure Cognitive Search, w tym części składowych i struktury fizycznej.
+description: Wprowadzenie do indeksowania terminów i koncepcji na platformie Azure Wyszukiwanie poznawcze, w tym części składników i struktury fizycznej.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,51 +9,51 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: d2b8b2fecbf85e6590294f1fbd7ff2a4453b9e87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282785"
 ---
-# <a name="create-a-basic-index-in-azure-cognitive-search"></a>Tworzenie podstawowego indeksu w usłudze Azure Cognitive Search
+# <a name="create-a-basic-index-in-azure-cognitive-search"></a>Tworzenie podstawowego indeksu na platformie Azure Wyszukiwanie poznawcze
 
-W usłudze Azure Cognitive Search *indeks* jest trwałym magazynem *dokumentów* i innych konstrukcji używanych do wyszukiwania filtrowanego i pełnotekstowego w usłudze Azure Cognitive Search. Koncepcyjnie dokument jest pojedynczą jednostką danych zdatnych do wyszukiwania w indeksie. Na przykład sklep internetowy może mieć dokument dla każdego sprzedawanego produktu, a organizacja medialna — dla każdego artykułu itp. W przełożeniu na lepiej znane pojęcia bazodanowe: *indeks* jest podobny do *tabeli*, a *dokumenty* są w przybliżeniu równe *wierszom* w tabeli.
+Na platformie Azure Wyszukiwanie poznawcze *indeks* jest trwałym magazynem *dokumentów* i innych konstrukcji używanych do przeszukiwania i wyszukiwania pełnotekstowego w usłudze Azure wyszukiwanie poznawcze. Koncepcyjnie dokument jest pojedynczą jednostką danych, które można przeszukiwać w indeksie. Na przykład sklep internetowy może mieć dokument dla każdego sprzedawanego produktu, a organizacja medialna — dla każdego artykułu itp. W przełożeniu na lepiej znane pojęcia bazodanowe: *indeks* jest podobny do *tabeli*, a *dokumenty* są w przybliżeniu równe *wierszom* w tabeli.
 
-Po dodaniu lub przekazaniu indeksu usługa Azure Cognitive Search tworzy struktury fizyczne na podstawie schematu, który podasz. Jeśli na przykład pole w indeksie jest oznaczone jako możliwe do wyszukania, dla tego pola tworzony jest odwrócony indeks. Później po dodaniu lub przekazaniu dokumentów lub przesłaniu zapytań wyszukiwania do usługi Azure Cognitive Search wysyłasz żądania do określonego indeksu w usłudze wyszukiwania. Ładowanie pól z wartościami dokumentu jest nazywane *indeksowanie* lub pozyskiwania danych.
+Gdy dodajesz lub przekażesz indeks, platforma Azure Wyszukiwanie poznawcze tworzy struktury fizyczne na podstawie udostępnianego schematu. Na przykład, jeśli pole w indeksie jest oznaczone jako kryterium wyszukiwania, dla tego pola jest tworzony odwrócony indeks. Później podczas dodawania lub przekazywania dokumentów lub przesyłania zapytań wyszukiwania do usługi Azure Wyszukiwanie poznawcze wysyłane są żądania do określonego indeksu w usłudze wyszukiwania. Ładowanie pól z wartościami dokumentu jest nazywane *indeksowaniem* lub pozyskiwaniem danych.
 
-Indeks można utworzyć w portalu, [interfejsie API REST](search-create-index-rest-api.md)lub [sdku .NET.](search-create-index-dotnet.md)
+Indeks można utworzyć w portalu, [interfejsie API REST](search-create-index-rest-api.md)lub w [zestawie SDK platformy .NET](search-create-index-dotnet.md).
 
 ## <a name="recommended-workflow"></a>Zalecany przepływ pracy
 
-Osiągnięcie odpowiedniego projektu indeksu jest zazwyczaj osiągane za pomocą wielu iteracji. Korzystanie z kombinacji narzędzi i interfejsów API może pomóc szybko sfinalizować projekt.
+Docieranie do właściwego projektu indeksu jest zazwyczaj realizowane przez wiele iteracji. Korzystanie z kombinacji narzędzi i interfejsów API może pomóc w szybkim sfinalizowaniu projektu.
 
-1. Określ, czy można użyć [indeksatora](search-indexer-overview.md#supported-data-sources). Jeśli dane zewnętrzne są jednym z obsługiwanych źródeł danych, można prototypować i ładować indeks za pomocą [**Kreatora importu danych.**](search-import-data-portal.md)
+1. Określ, czy można użyć [indeksatora](search-indexer-overview.md#supported-data-sources). Jeśli dane zewnętrzne są jednym z obsługiwanych źródeł danych, można prototypować i ładować indeks za pomocą kreatora [**importu danych**](search-import-data-portal.md) .
 
-2. Jeśli nie można użyć **importu danych,** nadal można [utworzyć początkowy indeks w portalu,](search-create-index-portal.md)dodając pola, typy danych i przypisując atrybuty za pomocą kontrolek na stronie Dodaj **indeks.** Portal pokazuje, które atrybuty są dostępne dla różnych typów danych. Jeśli jesteś nowy w projekcie indeksu, jest to pomocne.
+2. Jeśli nie można użyć opcji **Importuj dane**, nadal można [utworzyć początkowy indeks w portalu](search-create-index-portal.md), dodać pola, typy danych i przypisać atrybuty przy użyciu kontrolek na stronie **Dodawanie indeksu** . W portalu pokazano, które atrybuty są dostępne dla różnych typów danych. Jeśli nie jesteś nowym indeksem projektu, jest to przydatne.
 
-   ![Dodawanie strony indeksu z atrybutami według typu danych](media/search-create-index-portal/field-attributes.png "Dodawanie strony indeksu z atrybutami według typu danych")
+   ![Dodaj stronę indeksu pokazującą atrybuty według typu danych](media/search-create-index-portal/field-attributes.png "Dodaj stronę indeksu pokazującą atrybuty według typu danych")
   
-   Po kliknięciu **przycisku Utwórz**wszystkie struktury fizyczne wspierające indeks są tworzone w usłudze wyszukiwania.
+   Po kliknięciu pozycji **Utwórz**wszystkie struktury fizyczne obsługujące indeks są tworzone w usłudze wyszukiwania.
 
-3. Pobierz schemat indeksu przy użyciu [interfejsu API Get Index REST](https://docs.microsoft.com/rest/api/searchservice/get-index) i narzędzia do testowania sieci Web, takiego jak [Postman](search-get-started-postman.md). Masz teraz reprezentację JSON indeksu utworzonego w portalu. 
+3. Pobierz schemat indeksu przy użyciu [interfejsu API REST Get index](https://docs.microsoft.com/rest/api/searchservice/get-index) i narzędzia do testowania sieci Web, takiego jak program [Poster](search-get-started-postman.md). Masz teraz reprezentację w formacie JSON indeksu utworzonego w portalu. 
 
-   Przełączasz się na podejście oparte na kodzie w tym momencie. Portal nie nadaje się do iteracji, ponieważ nie można edytować indeksu, który jest już utworzony. Ale można użyć Postman i REST dla pozostałych zadań.
+   W tym momencie przełączasz się na podejście oparte na kodzie. Portal nie jest dobrze dostosowany do iteracji, ponieważ nie można edytować indeksu, który został już utworzony. Można jednak użyć elementu Poster i REST dla pozostałych zadań.
 
-4. [Załaduj indeks z danymi](search-what-is-data-import.md). Usługa Azure Cognitive Search akceptuje dokumenty JSON. Aby załadować dane programowo, można użyć listonosza z dokumentami JSON w ładunku żądania. Jeśli dane nie są łatwo wyrażone jako JSON, ten krok będzie najbardziej pracochłonne.
+4. [Załaduj swój indeks z danymi](search-what-is-data-import.md). Usługa Azure Wyszukiwanie poznawcze akceptuje dokumenty JSON. Aby programowo załadować dane, można użyć programu Poster z dokumentami JSON w ładunku żądania. Jeśli dane nie są łatwo wyrażone w formacie JSON, ten krok będzie najbardziej pracochłonny.
 
-5. Kwerenda indeksu, zbadać wyniki i dalsze iteracji w schemacie indeksu, aż zaczniesz widzieć oczekiwane wyniki. Za pomocą [**Eksploratora wyszukiwania**](search-explorer.md) lub listonosza można zbadać indeks.
+5. Zbadaj swój indeks, sprawdź wyniki i wykonaj kolejne iteracje na schemacie indeksu do momentu rozpoczęcia wyświetlania oczekiwanych wyników. Aby zbadać indeks, można użyć [**Eksploratora wyszukiwania**](search-explorer.md) lub programu Poster.
 
-6. Kontynuuj używanie kodu do iteracji nad projektem.  
+6. Kontynuuj korzystanie z kodu, aby wykonać iterację Twojego projektu.  
 
-Ponieważ struktury fizyczne są tworzone w usłudze, [upuszczanie i odtworzenie indeksów](search-howto-reindex.md) jest konieczne za każdym razem, gdy wprowadzasz istotne zmiany w istniejącej definicji pola. Oznacza to, że podczas rozwoju należy planować częste przebudowy. Można rozważyć pracę z podzbiorem danych, aby przebudowa przejść szybciej. 
+Ponieważ struktury fizyczne są tworzone w usłudze, [usuwanie i ponowne tworzenie indeksów](search-howto-reindex.md) jest konieczne po każdym wprowadzeniu istotnych zmian w istniejącej definicji pola. Oznacza to, że podczas opracowywania należy zaplanować częste ponowne kompilacje. Możesz rozważyć pracę z podzbiorem danych, aby szybciej tworzyć kompilacje. 
 
-Kod, a nie podejście portalu, jest zalecane dla projektowania iteracyjnego. Jeśli polegasz na portalu dla definicji indeksu, trzeba będzie wypełnić definicję indeksu na każdej przebudowy. Alternatywnie narzędzia, takie jak [Postman i INTERFEJS API REST,](search-get-started-postman.md) są pomocne w testowaniu weryfikacji koncepcji, gdy projekty programistyczne są nadal we wczesnych fazach. Można wprowadzić przyrostowe zmiany w definicji indeksu w treści żądania, a następnie wysłać żądanie do usługi, aby odtworzyć indeks przy użyciu zaktualizowanego schematu.
+Nie zaleca się tworzenia kodu, a nie podejścia do portalu. Jeśli korzystasz z portalu dla definicji indeksu, musisz podać definicję indeksu dla każdej kompilacji. Alternatywnie narzędzia takie jak [Poster i interfejs API REST](search-get-started-postman.md) są przydatne do testowania koncepcji, gdy projekty programistyczne są nadal w fazie wczesnych faz. Możesz wprowadzić przyrostowe zmiany definicji indeksu w treści żądania, a następnie wysłać żądanie do usługi, aby ponownie utworzyć indeks przy użyciu zaktualizowanego schematu.
 
 ## <a name="components-of-an-index"></a>Składniki indeksu
 
-Schematycznie indeks usługi Azure Cognitive Search składa się z następujących elementów. 
+W sposób schematyczny indeks Wyszukiwanie poznawcze platformy Azure składa się z następujących elementów. 
 
-[*Kolekcja pól*](#fields-collection) jest zazwyczaj największą częścią indeksu, gdzie każde pole jest nazwane, wpisane i przypisane z dopuszczalnymi zachowaniami, które określają sposób jego użycia. Inne elementy obejmują [sugestów](#suggesters), [profile oceniania,](#scoring-profiles) [analizatory](#analyzers) z częściami składowymi do obsługi dostosowywania, [CORS](#cors) i opcje [klucza szyfrowania.](#encryption-key)
+[*Kolekcja Fields*](#fields-collection) jest zwykle największą częścią indeksu, gdzie każde pole ma nazwę, wpisano i jest przypisane do dozwolonych zachowań, które określają sposób ich używania. Inne elementy obejmują [sugestie](#suggesters), [Profile oceniania](#scoring-profiles), [analizatory](#analyzers) ze składnikami składników do obsługi opcji dostosowywania, [CORS](#cors) i [klucza szyfrowania](#encryption-key) .
 
 ```json
 {
@@ -140,31 +140,31 @@ Schematycznie indeks usługi Azure Cognitive Search składa się z następujący
 
 <a name="fields-collection"></a>
 
-## <a name="fields-collection-and-field-attributes"></a>Atrybuty kolekcji i pól
+## <a name="fields-collection-and-field-attributes"></a>Kolekcja pól i atrybuty pól
 
 W trakcie definiowania schematu musisz określić nazwę, typ i atrybuty każdego pola w indeksie. Typ pola klasyfikuje dane, które są w nim przechowywane. Atrybuty są ustawiane dla poszczególnych pól, aby określić sposób użycia pola. W poniższych tabelach zostały wyszczególnione typy i atrybuty, które możesz określić.
 
 ### <a name="data-types"></a>Typy danych
 | Typ | Opis |
 | --- | --- |
-| *Edm.String* |Tekst, który opcjonalnie może być tokenizowany do wyszukiwania pełnotekstowego (łamanie wyrazów, wynikające i tak dalej). |
+| *Edm.String* |Tekst, który można opcjonalnie uzyskać tokeny na potrzeby wyszukiwania pełnotekstowego (dzielenia wyrazów, szukania rdzeni itd.). |
 | *Collection(Edm.String)* |Lista ciągów, które opcjonalnie można podzielić na tokeny na potrzeby wyszukiwania pełnotekstowego. Nie ma teoretycznej górnej granicy liczby elementów w kolekcji, ale rozmiar ładunku w kolekcjach jest ograniczony do 16 MB. |
 | *Edm.Boolean* |Zawiera wartości prawda/fałsz. |
 | *Edm.Int32* |32-bitowe wartości całkowite. |
 | *Edm.Int64* |64-bitowe wartości całkowite. |
 | *Edm.Double* |Dane liczbowe o podwójnej precyzji. |
-| *Edm.DateTimeOffset* |Wartości daty i godziny reprezentowane w formacie OData V4 (na przykład `yyyy-MM-ddTHH:mm:ss.fffZ` lub `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
+| *Edm.DateTimeOffset* |Wartości daty i godziny reprezentowane w formacie OData v4 (na przykład `yyyy-MM-ddTHH:mm:ss.fffZ` lub `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |Punkt przedstawiający lokalizację geograficzną na świecie. |
 
-Bardziej szczegółowe informacje na temat [obsługiwanych typów danych usługi](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types)Azure Cognitive Search można znaleźć tutaj.
+Więcej szczegółowych informacji na temat [obsługiwanych typów danych](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types)platformy Azure wyszukiwanie poznawcze można znaleźć tutaj.
 
 ### <a name="index-attributes"></a>Atrybuty indeksu
 
-Dokładnie jedno pole w indeksie musi być wyznaczone jako pole **klucza,** które jednoznacznie identyfikuje każdy dokument.
+Dokładnie jedno pole w indeksie musi być wyznaczono jako pole **klucza** , które jednoznacznie identyfikuje każdy dokument.
 
-Inne atrybuty określają sposób, w jaki pole jest używane w aplikacji. Na przykład atrybut **z wyszukuj** jest przypisywany do każdego pola, które powinno zostać uwzględnione w wyszukiwaniu pełnotekstowym. 
+Inne atrybuty określają, w jaki sposób pole jest używane w aplikacji. Na przykład atrybut **możliwy do przeszukiwania** jest przypisany do każdego pola, które powinno zostać uwzględnione w wyszukiwaniu pełnotekstowym. 
 
-Interfejsy API używane do tworzenia indeksu mają różne zachowania domyślne. W przypadku [interfejsów API REST](https://docs.microsoft.com/rest/api/searchservice/Create-Index)większość atrybutów jest domyślnie włączona (na przykład **przeszukiwalne** i **możliwe do pobrania** dotyczy pól ciągów) i często trzeba je ustawić tylko wtedy, gdy chcesz je wyłączyć. W przypadku sdk .NET jest odwrotnie. W każdej właściwości, której nie ustawiono jawnie, domyślnie jest wyłączenie odpowiedniego zachowania wyszukiwania, chyba że zostanie ono specjalnie włączone.
+Interfejsy API używane do tworzenia indeksu mają różne ustawienia domyślne. W przypadku [interfejsów API REST](https://docs.microsoft.com/rest/api/searchservice/Create-Index)większość atrybutów jest domyślnie włączona (na przykład **Wyszukiwanie** i **pobieranie jest prawdziwe** dla pól ciągów) i często należy je ustawić tylko wtedy, gdy chcesz je wyłączyć. W przypadku zestawu .NET SDK przeciwieństwem jest true. W przypadku każdej właściwości, która nie została ustawiona jawnie, domyślnie należy wyłączyć odpowiednie zachowanie wyszukiwania, chyba że zostanie to włączone.
 
 | Atrybut | Opis |
 | --- | --- |
@@ -177,53 +177,53 @@ Interfejsy API używane do tworzenia indeksu mają różne zachowania domyślne.
 
 ## <a name="index-size"></a>Rozmiar indeksu
 
-Rozmiar indeksu zależy od rozmiaru przekazytowane dokumenty oraz konfiguracji indeksu, takich jak to, czy są dołączane sugestatory i jak ustawić atrybuty w poszczególnych polach. Poniższy zrzut ekranu ilustruje wzorce magazynu indeksu wynikające z różnych kombinacji atrybutów.
+Rozmiar indeksu zależy od rozmiaru przekazywanych dokumentów, a także konfiguracji indeksu, takich jak to, czy są uwzględniane sugestie i jak ustawić atrybuty dla poszczególnych pól. Poniższy zrzut ekranu ilustruje wzorce magazynu indeksów, które wynikają z różnych kombinacji atrybutów.
 
-Indeks jest oparty na wbudowanym źródle [danych przykładowych nieruchomości,](search-get-started-portal.md) które można indeksować i wyszukiwać w portalu. Chociaż schematy indeksu nie są wyświetlane, można wywnioskować atrybuty na podstawie nazwy indeksu. Na przykład indeks *przeszukiwalny przez realestate* ma wybrany atrybut **z wyszukuj i** nic więcej, indeks *realestate-retrievable* ma wybrany atrybut **do pobrania** i nic więcej, i tak dalej.
+Indeks jest oparty na [wbudowanym przykładowym](search-get-started-portal.md) źródle danych Nieruchomości, który można indeksować i wysyłać zapytania w portalu. Chociaż schematy indeksów nie są wyświetlane, można wywnioskować atrybuty na podstawie nazwy indeksu. Na przykład indeks z *możliwością wyszukiwania realestate* ma wybrany atrybut **możliwy do przeszukiwania** i nic nie jest, a *realestate —* indeks, który można pobrać, ma wybrany atrybut do **pobierania** i nic innego i tak dalej.
 
-![Rozmiar indeksu na podstawie wyboru atrybutu](./media/search-what-is-an-index/realestate-index-size.png "Rozmiar indeksu na podstawie wyboru atrybutu")
+![Rozmiar indeksu na podstawie wybranego atrybutu](./media/search-what-is-an-index/realestate-index-size.png "Rozmiar indeksu na podstawie wybranego atrybutu")
 
-Mimo że te warianty indeksu są sztuczne, możemy odwoływać się do nich do szerokiego porównania, jak atrybuty wpływają na magazyn. Czy ustawienie **można odzyskać** zwiększyć rozmiar indeksu? Nie. Czy dodawanie pól do **sugestywny** zwiększa rozmiar indeksu? Tak.
+Chociaż te warianty indeksów są sztuczne, możemy odnieść się do nich w celu uzyskania szerokiego porównania wpływu atrybutów na magazyn. Czy ustawienie **umożliwia** pobieranie rozmiaru indeksu wzrostu? Nie. Czy dodanie pól do **sugestii** zwiększa rozmiar indeksu? Tak.
 
-Indeksy obsługujące filtrowanie i sortowanie są proporcjonalnie większe niż indeksy obsługujące tylko wyszukiwanie pełnotekstowe. Operacje filtrowania i sortowania skanują w poszukiwaniu dokładnych dopasowań, wymagając obecności nienaruszonych dokumentów. Z kolei pola z możliwością wyszukiwania obsługujące wyszukiwanie pełnotekstowe i rozmyte używają odwróconych indeksów, które są wypełniane terminami tokenizowanymi, które zajmują mniej miejsca niż całe dokumenty. 
+Indeksy obsługujące filtrowanie i sortowanie są proporcjonalnie większe niż te obsługujące tylko wyszukiwanie pełnotekstowe. Filtrowanie i sortowanie operacji skanowania pod kątem dokładnych dopasowań, które wymagają obecności nienaruszonych dokumentów. W przeciwieństwie do pól z możliwością wyszukiwania tekst obsługujący pełnotekstowe i rozmyte wyszukiwanie używaj odwróconych indeksów, które są wypełniane za pomocą tokenów, które zużywają mniej miejsca niż całe dokumenty. 
 
 > [!Note]
-> Architektura magazynu jest uważany za szczegóły implementacji usługi Azure Cognitive Search i może ulec zmianie bez powiadomienia. Nie ma żadnej gwarancji, że bieżące zachowanie będzie się utrzymywać w przyszłości.
+> Architektura magazynu jest uważana za szczegóły implementacji platformy Azure Wyszukiwanie poznawcze i może ulec zmianie bez powiadomienia. Nie ma żadnej gwarancji, że bieżące zachowanie będzie nadal występowało w przyszłości.
 
 ## <a name="suggesters"></a>Funkcje sugestii
-Sugestywny jest sekcja schematu, który definiuje, które pola w indeksie są używane do obsługi auto-complete lub typu z wyprzedzeniem kwerend w wyszukiwaniach. Zazwyczaj częściowe ciągi wyszukiwania są wysyłane do [sugestii (INTERFEJS API REST),](https://docs.microsoft.com/rest/api/searchservice/suggestions) gdy użytkownik wpisuje kwerendę wyszukiwania, a interfejs API zwraca zestaw sugerowanych dokumentów lub fraz. 
+Sugerował to sekcja schematu, która określa, które pola w indeksie są używane do obsługi autouzupełniania lub zapytań typu "w wyszukiwaniach". Zazwyczaj częściowe ciągi wyszukiwania są wysyłane do [sugestii (interfejs API REST)](https://docs.microsoft.com/rest/api/searchservice/suggestions) , podczas gdy użytkownik pisze zapytanie wyszukiwania, a interfejs API zwraca zestaw sugerowanych dokumentów lub fraz. 
 
-Pola dodane do sugestyw są używane do tworzenia wyszukiwanych haseł typu z wyprzedzeniem. Wszystkie wyszukiwane terminy są tworzone podczas indeksowania i przechowywane oddzielnie. Aby uzyskać więcej informacji na temat tworzenia struktury sugestywny, zobacz [Dodawanie sugestów](index-add-suggesters.md).
+Pola dodane do sugestii są używane do kompilowania terminów wyszukiwania z wyprzedzeniem. Wszystkie terminy wyszukiwania są tworzone podczas indeksowania i zapisywane oddzielnie. Aby uzyskać więcej informacji na temat tworzenia struktury sugerującej, zobacz [Dodawanie sugestii](index-add-suggesters.md).
 
 ## <a name="scoring-profiles"></a>Profile oceniania
 
-[Profil oceniania](index-add-scoring-profiles.md) to sekcja schematu, która definiuje niestandardowe zachowania oceniania, które umożliwiają wpływ na elementy, które są wyświetlane wyżej w wynikach wyszukiwania. Profile punktacji są wykonane z mas terenowych i funkcji. Aby ich użyć, należy określić profil według nazwy w ciągu zapytania.
+[Profil oceniania](index-add-scoring-profiles.md) to sekcja schematu, która definiuje niestandardowe zachowania oceniania, które pozwalają na wpływ, które elementy są wyświetlane w wynikach wyszukiwania. Profile oceniania składają się z wag pól i funkcji. Aby ich użyć, należy określić profil według nazwy w ciągu zapytania.
 
-Domyślny profil oceniania działa w tle, aby obliczyć wynik wyszukiwania dla każdego elementu w zestawie wyników. Można użyć wewnętrznego, nienazwanego profilu oceniania. Alternatywnie ustaw **defaultScoringProfile** używać profilu niestandardowego jako domyślnego, wywoływane, gdy profil niestandardowy nie jest określony w ciągu zapytania.
+Domyślny profil oceniania działa w tle, aby obliczyć wynik wyszukiwania dla każdego elementu w zestawie wyników. Możesz użyć wewnętrznego, nienazwanego profilu oceniania. Alternatywnie można ustawić **defaultScoringProfile** , aby używał niestandardowego profilu jako domyślnego, wywołanego za każdym razem, gdy w ciągu zapytania nie określono profilu niestandardowego.
 
 ## <a name="analyzers"></a>Analizatory
 
-Analizatorów element ustawia nazwę analizatora języka do użycia w polu. Aby uzyskać więcej informacji na temat zakresu analizatorów dostępnych dla Ciebie, zobacz [Dodawanie analizatorów do indeksu usługi Azure Cognitive Search.](search-analyzers.md) Analizatory mogą być używane tylko z polami z wyszukujnymi. Po przypisaniu analizatora do pola nie można go zmienić, chyba że zostanie odbudowany indeks.
+Element analizatorzes ustawia nazwę analizatora języka, który ma być używany dla pola. Aby uzyskać więcej informacji na temat zakresu analizatorów dostępnych dla Ciebie, zobacz [Dodawanie analizatorów do indeksu wyszukiwanie poznawcze platformy Azure](search-analyzers.md). Analizatory mogą być używane tylko z polami z możliwością wyszukiwania. Gdy analizator zostanie przypisany do pola, nie można go zmienić, chyba że zostanie odbudowany indeks.
 
 ## <a name="cors"></a>CORS
 
-JavaScript po stronie klienta nie może domyślnie wywoływać żadnych interfejsów API, ponieważ przeglądarka uniemożliwi wszystkie żądania cross-origin. Aby zezwolić na zapytania między źródłami do indeksu, włącz CORS (Cross-Origin Resource Sharing), ustawiając atrybut **corsOptions.** Ze względów bezpieczeństwa tylko kwerendy interfejsów API obsługuje cors. 
+Kod JavaScript po stronie klienta nie może domyślnie wywołać żadnych interfejsów API, ponieważ przeglądarka uniemożliwi wszystkie żądania między źródłami. Aby zezwolić na zapytania między źródłami do indeksu, Włącz funkcję CORS (Udostępnianie zasobów między źródłami) przez ustawienie atrybutu **corsOptions** . Ze względów bezpieczeństwa tylko interfejsy API zapytań obsługują mechanizm CORS. 
 
-Dla cors można ustawić następujące opcje:
+Dla mechanizmu CORS można ustawić następujące opcje:
 
-+ **allowedOrigins** (wymagane): Jest to lista źródeł, które będą przyznawane dostęp do indeksu. Oznacza to, że każdy kod JavaScript obsługiwany z tych źródeł będzie mógł wysyłać zapytania do indeksu (przy założeniu, że zawiera poprawny klucz interfejsu api). Każde źródło jest zazwyczaj `protocol://<fully-qualified-domain-name>:<port>` formularza, chociaż `<port>` często jest pomijany. Więcej informacji można znaleźć w [artykule Udostępnianie zasobów między źródłami (Wikipedia).](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
++ **allowedOrigins** (wymagane): jest to lista źródeł, do których zostanie udzielony dostęp do Twojego indeksu. Oznacza to, że każdy kod JavaScript obsługiwany z tych źródeł będzie mógł wysyłać zapytania do indeksu (przy założeniu, że zawiera on prawidłowy klucz API-Key). Każdy punkt początkowy ma zwykle postać `protocol://<fully-qualified-domain-name>:<port>` , chociaż `<port>` jest często pomijany. Aby uzyskać więcej informacji, zobacz [udostępnianie zasobów między źródłami (Wikipedia)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) .
 
-  Jeśli chcesz zezwolić na dostęp do `*` wszystkich źródeł, należy uwzględnić jako pojedynczy element w **tablicy allowedOrigins.** *Nie jest to zalecana praktyka dla usług wyszukiwania produkcyjnego,* ale często jest przydatna do tworzenia i debugowania.
+  Jeśli chcesz zezwolić na dostęp do wszystkich źródeł, Dołącz `*` jako pojedynczy element w tablicy **allowedOrigins** . *Nie jest to zalecane w przypadku usług wyszukiwania w środowisku produkcyjnym* , ale często jest to przydatne w przypadku programowania i debugowania.
 
-+ **maxAgeInSeconds** (opcjonalnie): Przeglądarki używają tej wartości do określenia czasu trwania (w sekundach) do buforowania odpowiedzi inspekcji wstępnej CORS. Musi to być nieujemna liczba całkowita. Im większa jest ta wartość, tym lepsza będzie wydajność, ale im dłużej będzie to trwać, aby zmiany zasad CORS weszły w życie. Jeśli nie jest ustawiona, zostanie użyty domyślny czas trwania 5 minut.
++ **atrybut maxageinseconds** (opcjonalnie): przeglądarki używają tej wartości, aby określić czas (w sekundach), w którym są buforowane odpowiedzi na inspekcje wstępne. Ta wartość musi być nieujemną liczbą całkowitą. Im większa wartość to, tym lepsza wydajność, ale im dłużej zacznie obowiązywać zmiana zasad CORS. Jeśli nie jest ustawiona, zostanie użyty domyślny czas trwania wynoszący 5 minut.
 
 ## <a name="encryption-key"></a>Klucz szyfrowania
 
-Podczas gdy wszystkie indeksy usługi Azure Cognitive Search są domyślnie szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft, indeksy można skonfigurować tak, aby były szyfrowane za pomocą **kluczy zarządzanych przez klienta** w usłudze Key Vault. Aby dowiedzieć się więcej, zobacz [Zarządzanie kluczami szyfrowania w usłudze Azure Cognitive Search](search-security-manage-encryption-keys.md).
+Wszystkie indeksy Wyszukiwanie poznawcze platformy Azure domyślnie są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft, indeksy można skonfigurować tak, aby były szyfrowane za pomocą **kluczy zarządzanych przez klienta** w Key Vault. Aby dowiedzieć się więcej, zobacz [Zarządzanie kluczami szyfrowania w usłudze Azure wyszukiwanie poznawcze](search-security-manage-encryption-keys.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ze zrozumieniem składu indeksu można kontynuować w portalu, aby utworzyć pierwszy indeks.
+Dzięki zrozumieniu kompozycji indeksów można kontynuować w portalu, aby utworzyć swój pierwszy indeks.
 
 > [!div class="nextstepaction"]
-> [Dodawanie indeksu (portalu)](search-create-index-portal.md)
+> [Dodawanie indeksu (Portal)](search-create-index-portal.md)

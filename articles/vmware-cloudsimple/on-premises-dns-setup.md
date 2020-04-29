@@ -1,6 +1,6 @@
 ---
-title: Rozwiązanie Azure VMware firmy CloudSimple — konfigurowanie usługi DNS dla chmury prywatnej CloudProste
-description: W tym artykule opisano sposób konfigurowania rozpoznawania nazw DNS w celu uzyskania dostępu do serwera vCenter w chmurze CloudSimple Private Cloud z lokalnych stacji roboczych
+title: Rozwiązanie VMware firmy Azure według CloudSimple — Konfigurowanie usługi DNS dla chmury prywatnej CloudSimple
+description: Opisuje sposób konfigurowania rozpoznawania nazw DNS na potrzeby dostępu do programu vCenter Server w chmurze prywatnej CloudSimple z lokalnych stacji roboczych
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/14/2019
@@ -9,41 +9,41 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: c2d69d21eb46d502a45c9df1dfaaa947d26ef7c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79246112"
 ---
-# <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Konfigurowanie systemu DNS dla rozpoznawania nazw dla dostępu vCenter usługi Private Cloud z lokalnych stacji roboczych
+# <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Konfigurowanie systemu DNS do rozpoznawania nazw dla prywatnego dostępu vCenter w chmurze z lokalnych stacji roboczych
 
-Aby uzyskać dostęp do serwera vCenter w chmurze cloudimobiej CloudSimple z lokalnych stacji roboczych, należy skonfigurować rozpoznawanie adresów DNS, aby serwer vCenter mógł być adresowany za pomocą nazwy hosta, a także adresu IP.
+Aby uzyskać dostęp do serwera vCenter w chmurze prywatnej CloudSimple z lokalnych stacji roboczych, należy skonfigurować rozpoznawanie adresów DNS, aby serwer vCenter mógł zostać rozkierowany przy użyciu nazwy hosta i adresu IP.
 
-## <a name="obtain-the-ip-address-of-the-dns-server-for-your-private-cloud"></a>Uzyskiwanie adresu IP serwera DNS dla chmury prywatnej
+## <a name="obtain-the-ip-address-of-the-dns-server-for-your-private-cloud"></a>Uzyskaj adres IP serwera DNS dla chmury prywatnej
 
 1. Zaloguj się do [portalu CloudSimple](access-cloudsimple-portal.md).
 
-2. Przejdź do chmury**prywatnej** **zasobów** > i wybierz chmurę prywatną, z którą chcesz się połączyć.
+2. Przejdź do **zasobów** > **chmury prywatne** i wybierz chmurę prywatną, z którą chcesz nawiązać połączenie.
 
-3. Na stronie **Podsumowanie** chmury prywatnej w obszarze **Informacje podstawowe**skopiuj adres IP serwera DNS w chmurze prywatnej.
+3. Na stronie **Podsumowanie** w chmurze prywatnej w obszarze **podstawowe informacje**Skopiuj adres IP serwera DNS w chmurze prywatnej.
 
     ![Serwery DNS w chmurze prywatnej](media/private-cloud-dns-server.png)
 
 
-Użyj jednej z tych opcji dla konfiguracji DNS.
+Użyj dowolnej z tych opcji dla konfiguracji DNS.
 
-* [Tworzenie strefy na serwerze DNS dla *.cloudsimple.io](#create-a-zone-on-a-microsoft-windows-dns-server)
-* [Utwórz warunkową usługę przesyłania dalej na lokalnym serwerze DNS w celu rozwiązania *.cloudsimple.io](#create-a-conditional-forwarder)
+* [Utwórz strefę na serwerze DNS dla *. cloudsimple.io](#create-a-zone-on-a-microsoft-windows-dns-server)
+* [Utwórz usługę przesyłania dalej warunkowego na lokalnym serwerze DNS, aby rozwiązać ten problem *. cloudsimple.io](#create-a-conditional-forwarder)
 
-## <a name="create-a-zone-on-the-dns-server-for-cloudsimpleio"></a>Tworzenie strefy na serwerze DNS dla *.cloudsimple.io
+## <a name="create-a-zone-on-the-dns-server-for-cloudsimpleio"></a>Utwórz strefę na serwerze DNS dla *. cloudsimple.io
 
-Strefę można skonfigurować jako strefę skrótową i wskazać serwery DNS w chmurze prywatnej w celu rozpoznawania nazw. Ta sekcja zawiera informacje dotyczące korzystania z serwera DNS BIND lub serwera DNS systemu Microsoft Windows.
+Można skonfigurować strefę jako strefę zastępczą i wskazać serwery DNS w chmurze prywatnej do rozpoznawania nazw. Ta sekcja zawiera informacje dotyczące korzystania z serwera DNS BIND lub serwera DNS systemu Microsoft Windows.
 
 ### <a name="create-a-zone-on-a-bind-dns-server"></a>Tworzenie strefy na serwerze DNS BIND
 
-Określony plik i parametry do skonfigurowania mogą się różnić w zależności od indywidualnej konfiguracji DNS.
+Określony plik i parametry do skonfigurowania mogą się różnić w zależności od konfiguracji poszczególnych ustawień DNS.
 
-Na przykład dla domyślnej konfiguracji serwera BIND, edytuj /etc/named.conf pliku na serwerze DNS i dodać następujące informacje o strefie.
+Na przykład dla domyślnej konfiguracji serwera BIND Edytuj plik/etc/named.conf na serwerze DNS i Dodaj następujące informacje o strefie.
 
 ```
 zone "az.cloudsimple.io"
@@ -56,35 +56,35 @@ zone "az.cloudsimple.io"
 
 ### <a name="create-a-zone-on-a-microsoft-windows-dns-server"></a>Tworzenie strefy na serwerze DNS systemu Microsoft Windows
 
-1. Kliknij prawym przyciskiem myszy serwer DNS i wybierz polecenie **Nowa strefa**. 
+1. Kliknij prawym przyciskiem myszy serwer DNS i wybierz pozycję **Nowa strefa**. 
   
     ![Nowa strefa](media/DNS01.png)
-2. Wybierz **opcję Strefa skrótowa** i kliknij przycisk **Dalej**.
+2. Wybierz pozycję **strefa zastępcza** i kliknij przycisk **dalej**.
 
     ![Nowa strefa](media/DNS02.png)
-3. Wybierz odpowiednią opcję w zależności od środowiska i kliknij przycisk **Dalej**.
+3. Wybierz odpowiednią opcję w zależności od środowiska, a następnie kliknij przycisk **dalej**.
 
     ![Nowa strefa](media/DNS03.png)
-4. Wybierz **pozycję Strefa wyszukiwania do przodu** i kliknij przycisk **Dalej**.
+4. Wybierz pozycję **Strefa wyszukiwania do przodu** , a następnie kliknij przycisk **dalej**.
 
     ![Nowa strefa](media/DNS01.png)
-5. Wprowadź nazwę strefy i kliknij przycisk **Dalej**.
+5. Wprowadź nazwę strefy, a następnie kliknij przycisk **dalej**.
 
     ![Nowa strefa](media/DNS05.png)
-6. Wprowadź adresy IP serwerów DNS dla chmury prywatnej uzyskane z portalu CloudSimple.
+6. Wprowadź adresy IP serwerów DNS dla chmury prywatnej uzyskanej z portalu CloudSimple.
 
     ![Nowa strefa](media/DNS06.png)
-7. Kliknij **przycisk Dalej zgodnie** z potrzebami, aby ukończyć konfigurację kreatora.
+7. W razie potrzeby kliknij przycisk **dalej** , aby zakończyć pracę Instalatora kreatora.
 
-## <a name="create-a-conditional-forwarder"></a>Tworzenie warunkowego przesyłania dalej
+## <a name="create-a-conditional-forwarder"></a>Tworzenie usługi przesyłania dalej warunkowego
 
-Usługa przesyłania dalej warunkowej przesyła dalej wszystkie żądania rozpoznawania nazw DNS do wyznaczonego serwera. W przypadku tej konfiguracji każde żądanie do *.cloudsimple.io jest przekazywane do serwerów DNS znajdujących się w chmurze prywatnej. Poniższe przykłady pokazują, jak skonfigurować usługi przesyłania dalej na różnych typach serwerów DNS.
+Usługa przesyłania dalej warunkowego przekazuje wszystkie żądania rozpoznawania nazw DNS do wywskazanego serwera. W przypadku tej konfiguracji każde żądanie do *. cloudsimple.io jest przekazywane do serwerów DNS znajdujących się w chmurze prywatnej. W poniższych przykładach pokazano, jak skonfigurować usługi przesyłania dalej na różnych typach serwerów DNS.
 
 ### <a name="create-a-conditional-forwarder-on-a-bind-dns-server"></a>Tworzenie usługi przesyłania dalej warunkowej na serwerze DNS BIND
 
-Określony plik i parametry do skonfigurowania mogą się różnić w zależności od indywidualnej konfiguracji DNS.
+Określony plik i parametry do skonfigurowania mogą się różnić w zależności od konfiguracji poszczególnych ustawień DNS.
 
-Na przykład dla domyślnej konfiguracji serwera BIND, edytuj /etc/named.conf pliku na serwerze DNS i dodać następujące informacje o przekazywaniu warunkowym.
+Na przykład dla domyślnej konfiguracji serwera BIND Edytuj plik/etc/named.conf na serwerze DNS i Dodaj następujące informacje warunkowego przekazywania.
 
 ```
 zone "az.cloudsimple.io" {
@@ -96,7 +96,7 @@ zone "az.cloudsimple.io" {
 ### <a name="create-a-conditional-forwarder-on-a-microsoft-windows-dns-server"></a>Tworzenie usługi przesyłania dalej warunkowej na serwerze DNS systemu Microsoft Windows
 
 1. Otwórz Menedżera DNS na serwerze DNS.
-2. Kliknij prawym przyciskiem myszy **warunkowe przesyłanie dalej** i wybierz opcję, aby dodać nową warunkową przesyłanie dalej.
+2. Kliknij prawym przyciskiem myszy pozycję **usługi przesyłania dalej warunkowe** i wybierz opcję dodania nowej usługi przesyłania dalej warunkowego.
 
-    ![Usługa warunkowa przesyłania dalej 1 Usługa Windows DNS](media/DNS08.png)
+    ![Warunkowy serwer usługi przesyłania dalej 1 systemu Windows](media/DNS08.png)
 3. Wprowadź domenę DNS i adres IP serwerów DNS w chmurze prywatnej, a następnie kliknij przycisk **OK**.

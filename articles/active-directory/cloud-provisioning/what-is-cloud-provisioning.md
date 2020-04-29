@@ -1,6 +1,6 @@
 ---
-title: Co to jest inicjowanie obsługi administracyjnej w chmurze usługi Azure AD Connect. | Microsoft Docs
-description: W tym artykule opisano inicjowanie obsługi administracyjnej w chmurze usługi Azure AD Connect.
+title: Co to jest Azure AD Connect aprowizacji w chmurze. | Microsoft Docs
+description: Opisuje Azure AD Connect aprowizacji w chmurze.
 services: active-directory
 author: billmath
 manager: daveba
@@ -12,60 +12,60 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a86d34fca9a88b0df601533a0f3de1cc97ad1a2f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80050595"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>Co to jest aprowizacja w chmurze programu Azure AD Connect?
-Inicjowanie obsługi administracyjnej w chmurze usługi Azure AD Connect to nowy agent firmy Microsoft zaprojektowany w celu osiągnięcia i osiągnięcia celów tożsamości hybrydowej w celu synchronizacji użytkowników, grup i kontaktów z usługą Azure AD.  Może być używany wraz z synchronizacją usługi Azure AD Connect i zapewnia następujące korzyści:
+Azure AD Connect aprowizacji w chmurze to nowy Agent firmy Microsoft, który zaprojektowano w celu spełnienia celów tożsamości hybrydowej dla synchronizacji użytkowników, grup i kontaktów z usługą Azure AD.  Można go używać razem z Azure AD Connect synchronizacją i zapewnia następujące korzyści:
     
-- Obsługa synchronizacji z dzierżawą usługi Azure AD z wielolesowego środowiska lasu usługi Active Directory: Typowe scenariusze obejmują fuzję & nabycia, w których lasy ad przejętej firmy są izolowane od lasów ad firmy nadrzędnej i firm, które w przeszłości miały wiele lasów usługi AD.
-- Uproszczona instalacja z lekkimi agentami inicjowania obsługi administracyjnej: agenci działają jako mostek z usługi AD do usługi Azure AD, przy czym cała konfiguracja synchronizacji jest zarządzana w chmurze. 
-- Wielu agentów inicjowania obsługi administracyjnej może służyć do upraszczania wdrożeń o wysokiej dostępności, szczególnie krytyczne dla organizacji korzystających z synchronizacji skrótów haseł z usługi AD do usługi Azure AD.
+- Obsługa synchronizowania z dzierżawą usługi Azure AD z wielu lasów odłączonych Active Directory środowiska lasu: typowe scenariusze obejmują proces scalania & pozyskiwania, gdzie lasy usługi AD nabyte w firmie są odizolowane od lasów i firm DOMENOWYCH w firmie nadrzędnej, w których historycznie istniały wiele lasów usługi AD.
+- Uproszczona instalacja z użyciem lekkich agentów aprowizacji: agenci działają jako most z usługi AD do usługi Azure AD, ze wszystkimi konfiguracją synchronizacji zarządzaną w chmurze. 
+- Wielu agentów aprowizacji można użyć do uproszczenia wdrożeń o wysokiej dostępności, szczególnie krytycznych dla organizacji korzystających z synchronizacji skrótów haseł z usługi AD do usługi Azure AD.
 
 
 ![Co to jest program Azure AD Connect](media/what-is-cloud-provisioning/architecture.png)
 
-## <a name="how-is-azure-ad-connect-cloud-provisioning-different-from-azure-ad-connect-sync"></a>Czym różni się inicjowanie obsługi administracyjnej w chmurze usługi Azure AD Connect od synchronizacji usługi Azure AD Connect?
-Dzięki inicjowaniu obsługi administracyjnej w chmurze usługi Azure AD Connect inicjowanie obsługi administracyjnej z usługi AD na usługę Azure AD jest aranżowane w usługach Microsoft Online Services. Organizacja musi tylko wdrożyć w środowisku lokalnym i hostowanym przez usługę IaaS lekki agent, który działa jako most między usługą Azure AD i AD. Konfiguracja inicjowania obsługi administracyjnej jest przechowywana w usłudze Azure AD i zarządzana jako część usługi.
+## <a name="how-is-azure-ad-connect-cloud-provisioning-different-from-azure-ad-connect-sync"></a>Jak Azure AD Connect aprowizacji w chmurze różni się od synchronizacji Azure AD Connect?
+Dzięki Azure AD Connect aprowizacji w chmurze Inicjowanie obsługi administracyjnej z usługi AD do usługi Azure AD jest zorganizowane w usługach online firmy Microsoft. Organizacja musi tylko wdrożyć w środowisku lokalnym i IaaS, lekki Agent, który działa jako Most między usługą Azure AD i usługą AD. Konfiguracja aprowizacji jest przechowywana w usłudze Azure AD i zarządzana jako część usługi.
 
-Poniższa tabela zawiera porównanie między uaszczeniem obsługi administracyjnej w chmurze usługi Azure AD Connect i usługi Azure AD Connect:
+Poniższa tabela zawiera porównanie między Azure AD Connect i Azure AD Connect aprowizacji w chmurze:
 
-| Funkcja | Synchronizacja łączy usługi Azure Active Directory| Inicjowanie obsługi administracyjnej w chmurze usługi Azure Active Directory Connect |
+| Funkcja | Synchronizacja Azure Active Directory Connect| Azure Active Directory Connect aprowizacji w chmurze |
 |:--- |:---:|:---:|
 |Połączenie z pojedynczym lokalnym lasem usługi AD|● |● |
 | Połączenie z wieloma lokalnymi lasami usługi AD |● |● |
-| Łączenie się z wieloma odłączonych lokalnych lasami usługi AD | |● |
-| Lekki model instalacji agenta | |● |
-| Wiele aktywnych agentów o wysokiej dostępności | |● |
-| Łączenie się z katalogami LDAP|●| | 
-| Obsługa obiektów użytkowników |● |● |
+| Nawiązywanie połączenia z wieloma odłączonymi lokalnymi lasami usługi AD | |● |
+| Model instalacji uproszczonego agenta | |● |
+| Wielu aktywnych agentów w celu zapewnienia wysokiej dostępności | |● |
+| Łączenie z katalogami LDAP|●| | 
+| Obsługa obiektów użytkownika |● |● |
 | Obsługa obiektów grupy |● |● |
 | Obsługa obiektów kontaktów |● |● |
-| Obsługa obiektów urządzenia |● | |
+| Obsługa obiektów urządzeń |● | |
 | Zezwalaj na podstawowe dostosowywanie przepływów atrybutów |● |● |
-| Atrybuty online programu Sychronize Exchange |● |● |
-| Synchronizowanie atrybutów rozszerzenia 1-15 |● |● |
-| Synchronizowanie atrybutów AD zdefiniowanych przez klienta (rozszerzenia katalogów) |● | |
+| Sychronize atrybuty usługi Exchange Online |● |● |
+| Synchronizuj atrybuty rozszerzenia 1-15 |● |● |
+| Synchronizowanie atrybutów usługi AD zdefiniowanych przez klienta (rozszerzenia katalogów) |● | |
 | Obsługa synchronizacji skrótów haseł |●|●|
 | Obsługa uwierzytelniania przekazywanego |●||
-| Wsparcie dla federacji |●|●|
+| Obsługa federacji |●|●|
 | Bezproblemowe logowanie jednokrotne|● |●|
 | Obsługuje instalację na kontrolerze domeny |● |● |
 | Obsługa systemu Windows Server 2012 i Windows Server 2012 R2 |● |● |
-| Filtrowanie domen/u/grup/grup |● |● |
+| Filtrowanie według domen/jednostek organizacyjnych/grup |● |● |
 | Filtrowanie wartości atrybutów obiektów |● | |
 | Umożliwia synchronizowanie minimalnego zestawu atrybutów (MinSync) |● |● |
 | Umożliwia usuwanie atrybutów z przepływu z usługi AD do usługi Azure AD |● |● |
 | Umożliwia zaawansowane dostosowywanie przepływów atrybutów |● | |
-| Obsługa stornia zwrotnego (hasła, urządzenia, grupy) |● | |
-| Obsługa usług domenowych usługi Azure AD|● | |
-| [Hybrydowy odpis programu Exchange](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
+| Obsługa zapisywania zwrotnego (hasła, urządzenia, grupy) |● | |
+| Obsługa Azure AD Domain Services|● | |
+| [Stornowanie hybrydowe programu Exchange](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
 | Obsługa ponad 50 000 obiektów na domenę usługi AD |● | |
 
 ## <a name="next-steps"></a>Następne kroki 
 
 - [Co to jest aprowizacja?](what-is-provisioning.md)
-- [Instalowanie inicjowania obsługi administracyjnej w chmurze](how-to-install.md)
+- [Zainstaluj aprowizacji w chmurze](how-to-install.md)

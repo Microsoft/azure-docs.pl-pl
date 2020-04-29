@@ -1,6 +1,6 @@
 ---
-title: Korzystanie z maszyny wirtualnej systemu Windows w witrynie Azure portal | Dokumenty firmy Microsoft
-description: Dowiedz się, jak rozwiązywać problemy z maszyną wirtualną systemu Windows na platformie Azure, łącząc dysk systemu operacyjnego z maszyną wirtualną odzyskiwania przy użyciu portalu Azure
+title: Użyj maszyny wirtualnej rozwiązywania problemów z systemem Windows w Azure Portal | Microsoft Docs
+description: Dowiedz się, jak rozwiązywać problemy z maszynami wirtualnymi systemu Windows na platformie Azure, łącząc dysk systemu operacyjnego z maszyną wirtualną odzyskiwania przy użyciu Azure Portal
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -13,45 +13,45 @@ ms.workload: infrastructure
 ms.date: 08/19/2018
 ms.author: genli
 ms.openlocfilehash: e76fc2da8da2325a8bb0cda47c4405c9eb03c8f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79249999"
 ---
-# <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Rozwiązywanie problemów z maszyną wirtualną systemu Windows, dołączając dysk systemu operacyjnego do maszyny wirtualnej odzyskiwania przy użyciu portalu Azure
-Jeśli maszyna wirtualna systemu Windows (VM) na platformie Azure napotka błąd rozruchu lub dysku, może być konieczne wykonanie kroków rozwiązywania problemów na samym wirtualnym dysku twardym. Typowym przykładem może być nieudana aktualizacja aplikacji, która uniemożliwia maszynie wirtualnej pomyślne uruchomienie. W tym artykule opisano, jak używać witryny Azure Portal do łączenia wirtualnego dysku twardego z inną maszyną wirtualną systemu Windows w celu naprawienia błędów, a następnie ponownego utworzenia oryginalnej maszyny Wirtualnej. 
+# <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Rozwiązywanie problemów z maszyną wirtualną z systemem Windows przez dołączenie dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania przy użyciu Azure Portal
+Jeśli maszyna wirtualna z systemem Windows na platformie Azure napotyka błąd rozruchu lub dysku, może być konieczne wykonanie kroków rozwiązywania problemów dotyczących wirtualnego dysku twardego. Typowym przykładem może być niepowodzenie aktualizacji aplikacji, która uniemożliwia pomyślne uruchomienie maszyny wirtualnej. W tym artykule szczegółowo opisano sposób używania Azure Portal do łączenia wirtualnego dysku twardego z inną maszyną wirtualną z systemem Windows w celu usunięcia błędów, a następnie ponownego utworzenia oryginalnej maszyny wirtualnej. 
 
 ## <a name="recovery-process-overview"></a>Omówienie procesu odzyskiwania
 Proces rozwiązywania problemów jest następujący:
 
-1. Zatrzymaj maszynę wirtualną, na które dotyczy problem.
-1. Utwórz migawkę dysku systemu operacyjnego maszyny Wirtualnej.
-1. Utwórz wirtualny dysk twardy z migawki.
-1. Podłącz i zamontuj wirtualny dysk twardy na innej maszynie wirtualnej systemu Windows w celu rozwiązywania problemów.
-1. Nawiąż połączenie z maszyną wirtualną rozwiązywania problemów. Edytuj pliki lub uruchom dowolne narzędzia, aby rozwiązać problemy na oryginalnym wirtualnym dysku twardym.
+1. Zatrzymaj zaatakowaną maszynę wirtualną.
+1. Utwórz migawkę dysku systemu operacyjnego dla maszyny wirtualnej.
+1. Utwórz wirtualny dysk twardy na podstawie migawki.
+1. Dołącz i Zainstaluj wirtualny dysk twardy na innej maszynie wirtualnej z systemem Windows w celu rozwiązywania problemów.
+1. Nawiąż połączenie z maszyną wirtualną rozwiązywania problemów. Edytuj pliki lub Uruchom dowolne narzędzia, aby rozwiązać problemy dotyczące oryginalnego wirtualnego dysku twardego.
 1. Odłącz wirtualny dysk twardy od maszyny wirtualnej rozwiązywania problemów.
-1. Zamień dysk systemu operacyjnego na maszynę wirtualną.
+1. Zamień dysk systemu operacyjnego dla maszyny wirtualnej.
 
 > [!NOTE]
-> Ten artykuł nie dotyczy maszyny Wirtualnej z dyskiem niezarządzanym.
+> Ten artykuł nie ma zastosowania do maszyny wirtualnej z dyskiem niezarządzanym.
 
-## <a name="take-a-snapshot-of-the-os-disk"></a>Tworzenie migawki dysku systemu operacyjnego
-Migawka to pełna kopia wirtualnego dysku twardego (VHD) tylko do odczytu. Zaleca się, aby czysto zamknąć maszynę wirtualną przed wykonaniem migawki, aby wyczyścić wszystkie procesy, które są w toku. Aby wykonać migawkę dysku systemu operacyjnego, wykonaj następujące kroki:
+## <a name="take-a-snapshot-of-the-os-disk"></a>Utwórz migawkę dysku systemu operacyjnego
+Migawka to pełna kopia tylko do odczytu wirtualnego dysku twardego (VHD). Zalecamy wyczyszczenie maszyny wirtualnej przed wykonaniem migawki, aby wyczyścić wszystkie procesy, które są w toku. Aby wykonać migawkę dysku systemu operacyjnego, wykonaj następujące kroki:
 
-1. Przejdź do [witryny Azure portal](https://portal.azure.com). Wybierz **maszyny wirtualne** z paska bocznego, a następnie wybierz maszynę wirtualną, która ma problem.
-1. W lewym okienku wybierz pozycję **Dyski**, a następnie wybierz nazwę dysku systemu operacyjnego.
-    ![Obraz dotyczący nazwy dysku systemu operacyjnego](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
-1. Na stronie **Przegląd** dysku systemu operacyjnego wybierz pozycję **Utwórz migawkę**.
-1. Utwórz migawkę w tym samym miejscu co dysk systemu operacyjnego.
+1. Przejdź do [Azure Portal](https://portal.azure.com). Wybierz pozycję **maszyny wirtualne** z paska bocznego, a następnie wybierz maszynę wirtualną, która ma problem.
+1. W okienku po lewej stronie wybierz pozycję **dyski**, a następnie wybierz nazwę dysku systemu operacyjnego.
+    ![Obraz przedstawiający nazwę dysku systemu operacyjnego](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
+1. Na stronie **Przegląd** dysku systemu operacyjnego, a następnie wybierz pozycję **Utwórz migawkę**.
+1. Utwórz migawkę w tej samej lokalizacji, w której znajduje się dysk systemu operacyjnego.
 
-## <a name="create-a-disk-from-the-snapshot"></a>Tworzenie dysku na podstawie migawki
-Aby utworzyć dysk z migawki, wykonaj następujące kroki:
+## <a name="create-a-disk-from-the-snapshot"></a>Utwórz dysk na podstawie migawki
+Aby utworzyć dysk na podstawie migawki, wykonaj następujące kroki:
 
-1. Wybierz **powłokę chmury** z witryny Azure portal.
+1. Wybierz **Cloud Shell** z Azure Portal.
 
-    ![Obraz o otwartej powłoce chmury](./media/troubleshoot-recovery-disks-portal-windows/cloud-shell.png)
-1. Uruchom następujące polecenia programu PowerShell, aby utworzyć dysk zarządzany z migawki. Należy zastąpić te przykładowe nazwy odpowiednimi nazwami.
+    ![Obraz informacji o otwartych Cloud Shell](./media/troubleshoot-recovery-disks-portal-windows/cloud-shell.png)
+1. Uruchom następujące polecenia programu PowerShell, aby utworzyć dysk zarządzany na podstawie migawki. Te przykładowe nazwy należy zastąpić odpowiednimi nazwami.
 
     ```powershell
     #Provide the name of your resource group
@@ -81,64 +81,64 @@ Aby utworzyć dysk z migawki, wykonaj następujące kroki:
      
     New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
     ```
-3. Jeśli polecenia zostaną uruchomione pomyślnie, nowy dysk zostanie wyświetlony w podanej grupie zasobów.
+3. Jeśli polecenia zostaną wykonane pomyślnie, zobaczysz nowy dysk w podanej grupie zasobów.
 
-## <a name="attach-the-disk-to-another-vm"></a>Dołączanie dysku do innej maszyny Wirtualnej
-W kolejnych kilku krokach należy użyć innej maszyny Wirtualnej do rozwiązywania problemów. Po dołączeniu dysku do maszyny wirtualnej do rozwiązywania problemów można przeglądać i edytować zawartość dysku. Ten proces umożliwia skorygowanie błędów konfiguracji lub przejrzenie dodatkowych plików dziennika aplikacji lub systemu. Aby dołączyć dysk do innej maszyny Wirtualnej, wykonaj następujące kroki:
+## <a name="attach-the-disk-to-another-vm"></a>Dołącz dysk do innej maszyny wirtualnej
+W następnych kilku krokach do rozwiązywania problemów służy inna maszyna wirtualna. Po dołączeniu dysku do maszyny wirtualnej rozwiązywania problemów można przeglądać i edytować zawartość tego dysku. Ten proces umożliwia poprawienie wszystkich błędów konfiguracji lub przejrzenie dodatkowych plików dziennika aplikacji lub systemu. Aby dołączyć dysk do innej maszyny wirtualnej, wykonaj następujące kroki:
 
-1. Wybierz grupę zasobów z portalu, a następnie wybierz maszynę wirtualną do rozwiązywania problemów. Wybierz pozycję **Dyski**, wybierz pozycję **Edytuj**, a następnie kliknij pozycję **Dodaj dysk danych:**
+1. Wybierz grupę zasobów z portalu, a następnie wybierz maszynę wirtualną rozwiązywania problemów. Wybierz pozycję **dyski**, wybierz pozycję **Edytuj**, a następnie kliknij pozycję **Dodaj dysk danych**:
 
-    ![Dołączanie istniejącego dysku w portalu](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
+    ![Dołącz istniejący dysk w portalu](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
 
-2. Na liście **Dyski danych** wybierz dysk systemu operacyjnego zidentyfikowanej maszyny wirtualnej. Jeśli dysk systemu operacyjnego nie jest widoczny, upewnij się, że rozwiązywanie problemów z maszyną wirtualną i dyskiem systemu operacyjnego znajduje się w tym samym regionie (lokalizacji). 
-3. Wybierz **pozycję Zapisz,** aby zastosować zmiany.
+2. Z listy **dyski danych** wybierz dysk systemu operacyjnego zidentyfikowanej maszyny wirtualnej. Jeśli nie widzisz dysku systemu operacyjnego, upewnij się, że Rozwiązywanie problemów z maszyną wirtualną i dyskiem systemu operacyjnego znajduje się w tym samym regionie (lokalizacja). 
+3. Wybierz pozycję **Zapisz** , aby zastosować zmiany.
 
-## <a name="mount-the-attached-data-disk-to-the-vm"></a>Zamontuj dołączony dysk danych na maszynie wirtualnej
+## <a name="mount-the-attached-data-disk-to-the-vm"></a>Instalowanie dołączonego dysku z danymi na maszynie wirtualnej
 
-1. Otwórz połączenie pulpitu zdalnego na maszynie wirtualnej, która rozwiązuje problemy. 
-2. W rozwiązywaniu problemów z maszyną wirtualną otwórz **Menedżera serwera**, a następnie wybierz pozycję Usługi plików **i magazynowania**. 
+1. Otwórz połączenie Pulpit zdalny z maszyną wirtualną rozwiązywania problemów. 
+2. W obszarze Rozwiązywanie problemów z maszyną wirtualną Otwórz **Menedżer serwera**, a następnie wybierz pozycję **usługi plików i magazynowania**. 
 
-    ![Wybieranie usług plików i magazynowania w Menedżerze serwera](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
+    ![Wybierz usługi plików i magazynowania w ramach Menedżer serwera](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
 
-3. Dysk danych jest automatycznie wykrywany i dołączany. Aby wyświetlić listę podłączonych dysków, wybierz pozycję **Dyski**. Można wybrać dysk danych, aby wyświetlić informacje o woluminie, w tym literę dysku. Poniższy przykład przedstawia dysk danych dołączony i **używający F:**:
+3. Dysk danych zostanie automatycznie wykryty i dołączony. Aby wyświetlić listę podłączonych dysków, wybierz pozycję **dyski**. Możesz wybrać dysk danych, aby wyświetlić informacje o woluminie, w tym literę dysku. Poniższy przykład przedstawia dołączony dysk danych i użycie **F:**:
 
-    ![Informacje o dysku i woluminie w Menedżerze serwera](./media/troubleshoot-recovery-disks-portal-windows/server-manager-disk-attached.png)
+    ![Informacje o dysku i woluminie w Menedżer serwera](./media/troubleshoot-recovery-disks-portal-windows/server-manager-disk-attached.png)
 
-## <a name="fix-issues-on-original-virtual-hard-disk"></a>Rozwiązywanie problemów z oryginalnym wirtualnym dyskiem twardym
-Po zamontowaniu istniejącego wirtualnego dysku twardego można teraz wykonać wszelkie czynności konserwacyjne i rozwiązywanie problemów zgodnie z potrzebami. Po usunięciu problemów wykonaj następujące kroki.
+## <a name="fix-issues-on-original-virtual-hard-disk"></a>Rozwiązywanie problemów dotyczących oryginalnego wirtualnego dysku twardego
+Po zainstalowaniu istniejącego wirtualnego dysku twardego można wykonać wszelkie czynności konserwacyjne i rozwiązywania problemów zgodnie z wymaganiami. Po usunięciu problemów wykonaj następujące kroki.
 
-## <a name="unmount-and-detach-original-virtual-hard-disk"></a>Odmontuj i odłącz oryginalny wirtualny dysk twardy
-Po usunięciu błędów odłącz istniejący wirtualny dysk twardy od maszyny wirtualnej do rozwiązywania problemów. Nie można używać wirtualnego dysku twardego z żadną inną maszyną wirtualną, dopóki nie zostanie zwolniona dzierżawa dołączająca wirtualny dysk twardy do maszyny wirtualnej do rozwiązywania problemów.
+## <a name="unmount-and-detach-original-virtual-hard-disk"></a>Odinstalowywanie i odłączanie oryginalnego wirtualnego dysku twardego
+Po rozwiązaniu błędów Odłącz istniejący wirtualny dysk twardy z maszyny wirtualnej rozwiązywania problemów. Nie można użyć wirtualnego dysku twardego z żadną inną maszyną wirtualną, dopóki dzierżawa nie dołączy wirtualnego dysku twardego do maszyny wirtualnej rozwiązywania problemów.
 
-1. Od sesji RDP do maszyny Wirtualnej otwórz **Menedżera serwera,** a następnie wybierz pozycję **Usługi plików i magazynu:**
+1. Z sesji RDP na maszynę wirtualną Otwórz **Menedżer serwera**, a następnie wybierz pozycję **usługi plików i magazynowania**:
 
-    ![Wybieranie usług plików i magazynowania w Menedżerze serwera](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
+    ![Wybierz usługi plików i magazynowania w Menedżer serwera](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
 
-2. Wybierz **pozycję Dyski,** a następnie wybierz dysk danych. Kliknij prawym przyciskiem myszy dysk z danymi i wybierz pozycję **Przejmij w tryb offline:**
+2. Wybierz pozycję **dyski** , a następnie wybierz dysk danych. Kliknij prawym przyciskiem myszy dysk danych i wybierz polecenie **Przełącz do trybu offline**:
 
-    ![Ustawianie dysku danych jako trybu offline w Menedżerze serwera](./media/troubleshoot-recovery-disks-portal-windows/server-manager-set-disk-offline.png)
+    ![Ustaw dysk danych jako w trybie offline w Menedżer serwera](./media/troubleshoot-recovery-disks-portal-windows/server-manager-set-disk-offline.png)
 
-3. Teraz odłącz wirtualny dysk twardy od maszyny Wirtualnej. Wybierz maszynę wirtualną w witrynie Azure portal i kliknij pozycję **Dyski**. 
-4. Wybierz **pozycję Edytuj**, wybierz dołączony dysk systemu operacyjnego, a następnie kliknij pozycję **Odłącz**:
+3. Teraz Odłącz wirtualny dysk twardy od maszyny wirtualnej. W Azure Portal wybierz maszynę wirtualną, a następnie kliknij pozycję **dyski**. 
+4. Wybierz pozycję **Edytuj**, wybierz dołączony dysk systemu operacyjnego, a następnie kliknij przycisk **Odłącz**:
 
-    ![Odłącz istniejące wirtualne dyski twarde](./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png)
+    ![Odłącz istniejący wirtualny dysk twardy](./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png)
 
     Poczekaj, aż maszyna wirtualna pomyślnie odłączy dysk danych przed kontynuowaniem.
 
-## <a name="swap-the-os-disk-for-the-vm"></a>Zamiana dysku systemu operacyjnego na maszynę wirtualną
+## <a name="swap-the-os-disk-for-the-vm"></a>Wymiana dysku systemu operacyjnego dla maszyny wirtualnej
 
-Usługa Azure portal obsługuje teraz zmianę dysku systemu operacyjnego maszyny Wirtualnej. W tym celu wykonaj następujące kroki:
+Azure Portal teraz obsługuje zmianę dysku systemu operacyjnego maszyny wirtualnej. W tym celu wykonaj następujące czynności:
 
-1. Przejdź do [witryny Azure portal](https://portal.azure.com). Wybierz **maszyny wirtualne** z paska bocznego, a następnie wybierz maszynę wirtualną, która ma problem.
-1. W lewym okienku wybierz pozycję **Dyski**, a następnie wybierz pozycję **Zamień dysk systemu operacyjnego**.
-        ![Obraz dotyczący dysku swap os w witrynie Azure portal](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
+1. Przejdź do [Azure Portal](https://portal.azure.com). Wybierz pozycję **maszyny wirtualne** z paska bocznego, a następnie wybierz maszynę wirtualną, która ma problem.
+1. W okienku po lewej stronie wybierz pozycję **dyski**, a następnie wybierz pozycję **Zamień dysk systemu operacyjnego**.
+        ![Obraz dotyczący wymiany dysku systemu operacyjnego w Azure Portal](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
 
-1. Wybierz nowy naprawiony dysk, a następnie wpisz nazwę maszyny Wirtualnej, aby potwierdzić zmianę. Jeśli dysk nie jest widoczny na liście, odczekaj 10 ~ 15 minut po odłączeniu dysku od maszyny Wirtualnej do rozwiązywania problemów. Upewnij się również, że dysk znajduje się w tym samym miejscu co maszyna wirtualna.
+1. Wybierz nowy dysk, który został naprawiony, a następnie wpisz nazwę maszyny wirtualnej, aby potwierdzić zmianę. Jeśli dysk nie jest wyświetlany na liście, odczekaj 10% minut po odłączeniu dysku od maszyny wirtualnej rozwiązywania problemów. Upewnij się również, że dysk znajduje się w tej samej lokalizacji co maszyna wirtualna.
 1. Wybierz przycisk OK.
 
 ## <a name="next-steps"></a>Następne kroki
-Jeśli masz problemy z połączeniem się z maszyną [wirtualną, zobacz Rozwiązywanie problemów z połączeniami protokołu RDP z maszyną wirtualną platformy Azure.](troubleshoot-rdp-connection.md) Aby uzyskać problemy z uzyskiwaniem dostępu do aplikacji uruchomionych na maszynie wirtualnej, zobacz [Rozwiązywanie problemów z łącznością aplikacji na maszynie Wirtualnej systemu Windows](troubleshoot-app-connection.md).
+Jeśli masz problemy z nawiązywaniem połączenia z maszyną wirtualną, zobacz [Rozwiązywanie problemów z połączeniami RDP z maszyną wirtualną platformy Azure](troubleshoot-rdp-connection.md). Problemy dotyczące uzyskiwania dostępu do aplikacji uruchomionych na maszynie wirtualnej można znaleźć [w temacie Rozwiązywanie problemów z łącznością aplikacji na maszynie wirtualnej z systemem Windows](troubleshoot-app-connection.md).
 
-Aby uzyskać więcej informacji na temat korzystania z Menedżera zasobów, zobacz [Omówienie usługi Azure Resource Manager](../../azure-resource-manager/management/overview.md).
+Aby uzyskać więcej informacji o korzystaniu z Menedżer zasobów, zobacz [Azure Resource Manager omówienie](../../azure-resource-manager/management/overview.md).
 
 

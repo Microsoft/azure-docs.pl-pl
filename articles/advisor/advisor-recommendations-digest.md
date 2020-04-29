@@ -1,63 +1,63 @@
 ---
-title: Podsumowanie rekomendacji dla usługi Azure Advisor
-description: Uzyskaj okresowe podsumowanie aktywnych rekomendacji
+title: Podsumowanie rekomendacji dla Azure Advisor
+description: Pobierz okresowe podsumowanie Twoich aktywnych zaleceń
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: sagupt
 ms.openlocfilehash: 98f1bfd42a486e005cd1e777a83f5b615a7c8304
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79502466"
 ---
-# <a name="configure-periodic-summary-for-recommendations"></a>Konfigurowanie okresowego podsumowania rekomendacji
+# <a name="configure-periodic-summary-for-recommendations"></a>Skonfiguruj okresowe Podsumowanie dla zaleceń
 
-**Skróty rekomendacji** advisor zapewniają łatwy i proaktywny sposób, aby być na bieżąco z aktywnymi zaleceniami w różnych kategoriach. Funkcja ta umożliwia konfigurowanie okresowych powiadomień dla podsumowania wszystkich aktywnych rekomendacji w różnych kategoriach. Możesz wybrać żądany kanał dla powiadomień, takich jak e-mail, SMS lub inne, za pomocą grup akcji. W tym artykule pokazano, jak skonfigurować **podsumowanie rekomendacji** dla zaleceń doradcy.
+Skróty doradcze **rekomendacji** zapewniają łatwy i aktywny sposób, aby zachować swoje aktywne zalecenia w różnych kategoriach. Ta funkcja umożliwia skonfigurowanie okresowych powiadomień w celu podsumowania wszystkich aktywnych zaleceń w różnych kategoriach. Możesz wybrać żądany kanał dla powiadomień, takich jak poczta e-mail, wiadomości SMS lub inne, przy użyciu grup akcji. W tym artykule opisano sposób konfigurowania **podsumowania rekomendacji** dla zaleceń usługi Advisor.
 
 
-## <a name="setting-up-your-recommendation-digest"></a>Konfigurowanie skrótu rekomendacji 
+## <a name="setting-up-your-recommendation-digest"></a>Konfigurowanie podsumowania rekomendacji 
 
-Środowisko tworzenia **skrótu rekomendacji** pomaga skonfigurować podsumowanie. Poniżej można wybrać parametry konfiguracji:
-1. Kategoria: Mamy kategorie rekomendacji, takie jak koszt, wysoka dostępność, wydajność i doskonałość operacyjna. Ta funkcja nie jest jeszcze dostępna dla zaleceń dotyczących zabezpieczeń.
-2. Częstotliwość trawienia: Częstotliwość powiadomień podsumowujących może być tygodniowa, dwutygodniowa i miesięczna.
-3. Grupa akcji: można wybrać istniejącą grupę akcji lub utworzyć nową grupę akcji. Aby dowiedzieć się więcej o grupach akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
-4. Język do podsumowania
-5. Nazwa skrótu rekomendacji: Można użyć przyjaznego dla użytkownika ciągu, aby lepiej śledzić i monitorować skróty.
+Środowisko tworzenia podsumowania **rekomendacji** pomaga skonfigurować podsumowanie. Dla konfiguracji można wybrać następujące parametry:
+1. Kategoria: mamy takie kategorie, jak koszt, wysoka dostępność, wydajność i doskonałości operacyjne. Ta funkcja nie jest jeszcze dostępna w przypadku zaleceń dotyczących zabezpieczeń.
+2. Częstotliwość Digest: częstotliwość dla powiadomień podsumowujących może być co tydzień, co dwa tygodnie i co miesiąc.
+3. Grupa akcji: możesz wybrać istniejącą grupę akcji lub utworzyć nową grupę akcji. Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+4. Język dla skrótu
+5. Nazwa skrócona zalecenia: można użyć ciągu przyjaznego dla użytkownika, aby lepiej śledzić i monitorować skróty.
 
-## <a name="steps-to-create-recommendation-digest-in-azure-portal"></a>Kroki tworzenia skrótu rekomendacji w witrynie Azure portal
+## <a name="steps-to-create-recommendation-digest-in-azure-portal"></a>Procedura tworzenia podsumowania rekomendacji w Azure Portal
 
-Oto kroki, aby utworzyć **podsumowanie rekomendacji:**
-* **Krok 1:** W witrynie Azure portal przejdź do **sekcji Poradnika** i w sekcji **Monitorowanie** wybierz pozycję **Podsumowanie rekomendacji** 
+Poniżej przedstawiono procedurę tworzenia **podsumowania rekomendacji:**
+* **Krok 1:** W Azure Portal przejdź do usługi **Advisor** i w obszarze **monitorowanie** wybierz pozycję **zalecenie skrócone** 
 
-   ![Punkt wejścia skrótu rekomendacji](./media/digest-0.png)
+   ![Punkt wejścia podsumowania zalecenia](./media/digest-0.png)
 
-* **Krok 2:** Wybierz **nowe podsumowanie rekomendacji** z górnego paska, jak poniżej:
+* **Krok 2:** Wybierz pozycję **nowy skrót rekomendacji** na górnym pasku poniżej:
 
-   ![Utwórz podsumowanie rekomendacji](./media/digest-5.png)
+   ![Utwórz skrót rekomendacji](./media/digest-5.png)
 
-* **Krok 3:** W sekcji **zakres** wybierz **subskrypcję** dla skrótu
+* **Krok 3.** W sekcji **zakres** wybierz **subskrypcję** dla swojego skrótu
 
-   ![Podaj dane wejściowe skrótu rekomendacji](./media/digest-1.png)
+   ![Podaj dane wejściowe podsumowania rekomendacji](./media/digest-1.png)
 
-* **Krok 4:** W sekcji **warunek** wybierz konfiguracje, takie jak **kategoria,** **częstotliwość** i **język**
+* **Krok 4.** W sekcji **warunek** Wybierz konfiguracje, takie jak **Kategoria**, **częstotliwość** i **Język** .
 
-   ![Zapewnienie warunków wprowadzania skrótu rekomendacji](./media/digest-2.png)
+   ![Podaj warunki wejściowe podsumowania rekomendacji](./media/digest-2.png)
 
-* **Krok 5:** W sekcji **grupa akcji** wybierz **grupę akcji** dla skrótu. Więcej informacji można znaleźć tutaj — [tworzenie grup akcji i zarządzanie nimi](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+* **Krok 5.** W sekcji **Grupa akcji** wybierz **grupę akcji** dla tego podsumowania. Więcej informacji można znaleźć tutaj — [Tworzenie grup akcji i zarządzanie nimi](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
 
-   ![Podaj grupę akcji wprowadzania skrótu rekomendacji](./media/digest-3.png)
+   ![Podaj grupę akcji wejścia podsumowania rekomendacji](./media/digest-3.png)
 
-* **Krok 6:** W tej ostatniej sekcji **dla szczegółów skrótu**można przypisać nazwę i stan do skrótu rekomendacji. Naciśnij **utwórz skrót rekomendacji,** aby zakończyć konfigurację.
-   ![Kompletne tworzenie skrótów rekomendacji](./media/digest-4.png)
+* **Krok 6.** W tej ostatniej sekcji dla **szczegółów podsumowania**można przypisać nazwę i stan do podsumowania rekomendacji. Naciśnij pozycję **Utwórz skrót rekomendacji** , aby zakończyć konfigurację.
+   ![Ukończ tworzenie podsumowania rekomendacji](./media/digest-4.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat zaleceń advisor, zobacz:
-* [Wprowadzenie do usługi Azure Advisor](advisor-overview.md)
+Aby uzyskać więcej informacji na temat zaleceń klasyfikatora, zobacz:
+* [Wprowadzenie do Azure Advisor](advisor-overview.md)
 * [Wprowadzenie do usługi Advisor](advisor-get-started.md)
-* [Rekomendacje dotyczące kosztów doradcy](advisor-cost-recommendations.md)
-* [Zalecenia dotyczące wydajności doradcy](advisor-performance-recommendations.md)
-* [Zalecenia dotyczące zabezpieczeń doradcy](advisor-security-recommendations.md)
-* [Zalecenia dotyczące doskonałości operacyjnej doradcy](advisor-operational-excellence-recommendations.md)
-* [Interfejs API REST doradcy](https://docs.microsoft.com/rest/api/advisor/)
+* [Zalecenia dotyczące kosztów usługi Advisor](advisor-cost-recommendations.md)
+* [Zalecenia dotyczące wydajności usługi Advisor](advisor-performance-recommendations.md)
+* [Zalecenia dotyczące zabezpieczeń usługi Advisor](advisor-security-recommendations.md)
+* [Zalecenia dotyczące doskonałości operacyjnej klasyfikatora](advisor-operational-excellence-recommendations.md)
+* [Interfejs API REST usługi Advisor](https://docs.microsoft.com/rest/api/advisor/)

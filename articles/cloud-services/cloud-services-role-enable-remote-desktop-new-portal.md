@@ -1,7 +1,7 @@
 ---
-title: Włącz pulpit zdalny dla roli za pomocą portalu
+title: Używanie portalu do włączania Pulpit zdalny dla roli
 titleSuffix: Azure Cloud Services
-description: Jak skonfigurować aplikację usługi azure cloud service, aby umożliwić połączenia pulpitu zdalnego
+description: Jak skonfigurować aplikację usługi w chmurze platformy Azure w celu zezwalania na połączenia pulpitu zdalnego
 services: cloud-services
 documentationcenter: ''
 author: mmccrory
@@ -10,59 +10,59 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: memccror
 ms.openlocfilehash: d65f4b55be317234c10a0e90cfe413d9e38a6a90
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79247464"
 ---
-# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Włączanie połączenia pulpitu zdalnego dla roli w usługach w chmurze platformy Azure
+# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Włączanie Podłączanie pulpitu zdalnego roli na platformie Azure Cloud Services
 
 > [!div class="op_single_selector"]
-> * [Portal Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
-> * [Powershell](cloud-services-role-enable-remote-desktop-powershell.md)
+> * [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
-Pulpit zdalny umożliwia dostęp do pulpitu roli uruchomionej na platformie Azure. Za pomocą połączenia pulpitu zdalnego można rozwiązywać i diagnozować problemy z aplikacją, gdy jest uruchomiona.
+Pulpit zdalny umożliwia dostęp do pulpitu roli działającej na platformie Azure. Połączenia Pulpit zdalny można użyć do rozwiązywania problemów i diagnozowania problemów z aplikacją, gdy jest ona uruchomiona.
 
-Połączenie pulpitu zdalnego w roli podczas tworzenia, dołączając moduły pulpitu zdalnego do definicji usługi lub włącz pulpit zdalny za pomocą rozszerzenia pulpitu zdalnego. Preferowanym podejściem jest użycie rozszerzenia Pulpit zdalny, ponieważ można włączyć pulpit zdalny nawet po wdrożeniu aplikacji bez konieczności ponownego wdrażania aplikacji.
+Możesz włączyć Pulpit zdalny połączenie w swojej roli podczas opracowywania, dołączając moduły Pulpit zdalny w definicji usługi lub można włączyć Pulpit zdalny za pomocą rozszerzenia Pulpit zdalny. Preferowanym podejściem jest użycie rozszerzenia Pulpit zdalny, ponieważ można włączyć Pulpit zdalny nawet po wdrożeniu aplikacji bez konieczności ponownego wdrażania aplikacji.
 
-## <a name="configure-remote-desktop-from-the-azure-portal"></a>Konfigurowanie pulpitu zdalnego z witryny Azure portal
+## <a name="configure-remote-desktop-from-the-azure-portal"></a>Konfigurowanie Pulpit zdalny z Azure Portal
 
-Portal Azure używa metody rozszerzenia pulpitu zdalnego, dzięki czemu można włączyć pulpit zdalny nawet po wdrożeniu aplikacji. Ustawienia **pulpitu zdalnego** usługi w chmurze umożliwiają włączenie pulpitu zdalnego, zmianę lokalnego konta administratora używanego do łączenia się z maszynami wirtualnymi, certyfikat używany w uwierzytelniania i ustawienie daty wygaśnięcia.
+Azure Portal używa podejścia rozszerzenia Pulpit zdalny, aby można było włączyć Pulpit zdalny nawet po wdrożeniu aplikacji. Ustawienia **pulpit zdalny** dla usługi w chmurze umożliwiają włączenie pulpit zdalny, zmianę konta administratora lokalnego używanego do nawiązywania połączenia z maszynami wirtualnymi, certyfikatu używanego w ramach uwierzytelniania i ustawienia daty wygaśnięcia.
 
-1. Kliknij **pozycję Usługi w chmurze**, wybierz nazwę usługi w chmurze, a następnie wybierz pozycję Pulpit **zdalny**.
+1. Kliknij **Cloud Services**, wybierz nazwę usługi w chmurze, a następnie wybierz pozycję **pulpit zdalny**.
 
-    ![Pulpit zdalny usług w chmurze](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop.png)
+    ![Pulpit zdalny usług Cloud Services](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop.png)
 
-2. Wybierz, czy chcesz włączyć pulpit zdalny dla pojedynczej roli, czy dla wszystkich ról, a następnie zmień wartość przełącznika na **Włączone**.
+2. Wybierz, czy chcesz włączyć Pulpit zdalny dla poszczególnych ról, czy dla wszystkich ról, a następnie zmień wartość przełącznika, aby **włączyć**.
 
-3. Wypełnij wymagane pola dla nazwy użytkownika, hasła, wygaśnięcia i certyfikatu.
+3. Wypełnij pola wymagane dla nazwy użytkownika, hasła, wygaśnięcia i certyfikatu.
 
-    ![Pulpit zdalny usług w chmurze](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Details.png)
+    ![Pulpit zdalny usług Cloud Services](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Details.png)
 
    > [!WARNING]
-   > Wszystkie wystąpienia roli zostaną ponownie uruchomione po pierwszym włączeniu pulpitu zdalnego i **wybraniu przycisku OK** (znacznik wyboru). Aby zapobiec ponownemu uruchomieniu, certyfikat używany do szyfrowania hasła musi być zainstalowany w roli. Aby zapobiec ponownemu uruchomieniu, [przekaż certyfikat dla usługi w chmurze,](cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate) a następnie wróć do tego okna dialogowego.
+   > Wszystkie wystąpienia ról zostaną uruchomione ponownie przy pierwszym włączeniu Pulpit zdalny i wybierz pozycję **OK** (znacznik wyboru). Aby zapobiec ponownym uruchomieniu, należy zainstalować certyfikat użyty do zaszyfrowania hasła. Aby zapobiec ponownemu uruchomieniu, [Przekaż certyfikat dla usługi w chmurze](cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate) , a następnie wróć do tego okna dialogowego.
 
-4. W **obszarze Role**wybierz rolę, którą chcesz zaktualizować, lub wybierz pozycję **Wszystkie** dla wszystkich ról.
+4. W obszarze **role**wybierz rolę do zaktualizowania lub wybierz **wszystkie** role.
 
-5. Po zakończeniu aktualizacji konfiguracji wybierz pozycję **Zapisz**. Zanim wystąpienia roli będą gotowe do odbierania połączeń, zajmie kilka chwil.
+5. Po zakończeniu aktualizacji konfiguracji wybierz pozycję **Zapisz**. Potrwa to chwilę, zanim wystąpienia roli będą gotowe do odbierania połączeń.
 
 ## <a name="remote-into-role-instances"></a>Zdalne do wystąpień roli
 
-Po włączeniu pulpitu zdalnego w rolach można zainicjować połączenie bezpośrednio z witryny Azure portal:
+Po włączeniu Pulpit zdalny na rolach można zainicjować połączenie bezpośrednio z poziomu Azure Portal:
 
-1. Kliknij **pozycję Wystąpienia,** aby otworzyć ustawienia **wystąpień.**
-2. Wybierz wystąpienie roli z skonfigurowanym pulpitem zdalnym.
-3. Kliknij **przycisk Połącz,** aby pobrać plik RDP dla wystąpienia roli.
+1. Kliknij pozycję **wystąpienia** , aby otworzyć ustawienia **wystąpień** .
+2. Wybierz wystąpienie roli, dla którego skonfigurowano Pulpit zdalny.
+3. Kliknij przycisk **Połącz** , aby pobrać plik RDP dla wystąpienia roli.
 
-    ![Pulpit zdalny usług w chmurze](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Connect.png)
+    ![Pulpit zdalny usług Cloud Services](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Connect.png)
 
-4. Kliknij **przycisk Otwórz,** a następnie kliknij przycisk **Połącz,** aby uruchomić połączenie pulpitu zdalnego.
+4. Kliknij przycisk **Otwórz** , a następnie **Połącz** się, aby uruchomić Pulpit zdalny połączenie.
 
 >[!NOTE]
-> Jeśli usługa w chmurze znajduje się za siecią sieciową, może być konieczne utworzenie reguł umożliwiających ruch na portach **3389** i **20000**.  Pulpit zdalny używa portu **3389**.  Wystąpienia usługi w chmurze są równoważenia obciążenia, więc nie można bezpośrednio kontrolować, które wystąpienie, aby połączyć się z.  Agenci *RemoteForwarder* i *RemoteAccess* zarządzają ruchem RDP i umożliwiają klientowi wysyłanie pliku cookie RDP i określanie pojedynczego wystąpienia, z które ma się połączyć.  *RemoteForwarder* i *RemoteAccess* agentów wymagają, aby port **20000*** jest otwarty, które mogą być blokowane, jeśli masz nsg.
+> Jeśli usługa w chmurze znajduje się za sieciowej grupy zabezpieczeń, może być konieczne utworzenie reguł zezwalających na ruch na portach **3389** i **20000**.  Pulpit zdalny używa portu **3389**.  Wystąpienia usługi w chmurze są zrównoważone obciążenia, więc nie można bezpośrednio kontrolować tego, z którym wystąpieniem ma zostać nawiązane połączenie.  Agenci *RemoteForwarder* i *RemoteAccess* zarządzają ruchem RDP i umożliwiają klientowi wysyłanie plików cookie RDP i określanie poszczególnych wystąpień do nawiązania połączenia.  Agenci *RemoteForwarder* i *RemoteAccess* wymagają, aby port **20000*** był otwarty, co może być zablokowane, jeśli masz sieciowej grupy zabezpieczeń.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-[Jak skonfigurować usługi w chmurze](cloud-services-how-to-configure-portal.md)
+[Jak skonfigurować Cloud Services](cloud-services-how-to-configure-portal.md)

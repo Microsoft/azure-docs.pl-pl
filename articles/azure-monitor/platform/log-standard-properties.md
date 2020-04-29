@@ -1,32 +1,32 @@
 ---
-title: Właściwości standardowe w rekordach dziennika usługi Azure Monitor | Dokumenty firmy Microsoft
-description: W tym artykule opisano właściwości, które są wspólne dla wielu typów danych w dziennikach usługi Azure Monitor.
+title: Standardowe właściwości w dzienniku Azure Monitor rekordy | Microsoft Docs
+description: Opisuje właściwości, które są wspólne dla wielu typów danych w dziennikach Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
 ms.openlocfilehash: 252ddeb372744986df0b8ba9b742d0462a4e8202
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79274478"
 ---
-# <a name="standard-properties-in-azure-monitor-logs"></a>Właściwości standardowe w dziennikach monitora platformy Azure
-Dane w dziennikach usługi Azure Monitor są [przechowywane jako zestaw rekordów w obszarze roboczym usługi Log Analytics lub aplikacji usługi Application Insights](../log-query/logs-structure.md), każdy z określonym typem danych, który ma unikatowy zestaw właściwości. Wiele typów danych będzie miało standardowe właściwości, które są wspólne dla wielu typów. W tym artykule opisano te właściwości i przedstawiono przykłady, jak można ich używać w kwerendach.
+# <a name="standard-properties-in-azure-monitor-logs"></a>Standardowe właściwości w dziennikach Azure Monitor
+Dane w dziennikach Azure Monitor są [przechowywane jako zestaw rekordów w obszarze roboczym log Analytics lub w aplikacji Application Insights](../log-query/logs-structure.md), z których każdy ma określony typ danych, który ma unikatowy zestaw właściwości. Wiele typów danych będzie zawierać standardowe właściwości, które są wspólne dla wielu typów. W tym artykule opisano te właściwości i przedstawiono przykłady korzystania z nich w zapytaniach.
 
 > [!NOTE]
-> Niektóre standardowe właściwości nie będą wyświetlane w widoku schematu lub intellisense w usłudze Log Analytics i nie będą wyświetlane w wynikach kwerendy, chyba że jawnie określisz właściwość w danych wyjściowych.
+> Niektóre z właściwości standardowych nie będą wyświetlane w widoku schematu ani IntelliSense w Log Analytics i nie będą wyświetlane w wynikach zapytania, chyba że jawnie określisz właściwość w danych wyjściowych.
 
-## <a name="timegenerated-and-timestamp"></a>CzasGenerowany i sygnatura czasowa
-Właściwości **TimeGenerated** (Log Analytics workspace) i **sygnatury czasowej** (application Insights) zawierają datę i godzinę utworzenia rekordu przez źródło danych. Aby uzyskać więcej informacji, zobacz [Rejestrowanie czasu pozyskiwania danych w usłudze Azure Monitor.](data-ingestion-time.md)
+## <a name="timegenerated-and-timestamp"></a>TimeGenerated i znacznik czasu
+Właściwości **TimeGenerated** (obszar roboczy log Analytics) i **sygnatura czasowa** (aplikacja Application Insights Application) zawierają datę i godzinę utworzenia rekordu przez źródło danych. Aby uzyskać więcej informacji, zobacz czas pozyskiwania [danych dziennika w Azure monitor](data-ingestion-time.md) .
 
-**CzasGenerowany** i **sygnatura czasowa** zapewniają wspólną właściwość do filtrowania lub podsumowania według czasu. Po wybraniu zakresu czasu dla widoku lub pulpitu nawigacyjnego w witrynie Azure portal, używa TimeGenerated lub sygnatury czasowej do filtrowania wyników. 
+**TimeGenerated** i **sygnatura czasowa** zapewniają wspólną Właściwość służącą do filtrowania lub podsumowywania według czasu. Po wybraniu przedziału czasu dla widoku lub pulpitu nawigacyjnego w Azure Portal do filtrowania wyników służy TimeGenerated lub znacznik czasu. 
 
 ### <a name="examples"></a>Przykłady
 
-Następująca kwerenda zwraca liczbę zdarzeń błędów utworzonych dla każdego dnia w poprzednim tygodniu.
+Następujące zapytanie zwraca liczbę zdarzeń błędów utworzonych dla każdego dnia w poprzednim tygodniu.
 
 ```Kusto
 Event
@@ -36,7 +36,7 @@ Event
 | sort by TimeGenerated asc 
 ```
 
-Następująca kwerenda zwraca liczbę wyjątków utworzonych dla każdego dnia w poprzednim tygodniu.
+Następujące zapytanie zwraca liczbę wyjątków utworzonych dla każdego dnia w poprzednim tygodniu.
 
 ```Kusto
 exceptions
@@ -45,10 +45,10 @@ exceptions
 | sort by timestamp asc 
 ```
 
-## <a name="_timereceived"></a>\_CzasReceived
-** \_Właściwość TimeReceived** zawiera datę i godzinę odebranie rekordu przez punkt pozyskiwania usługi Azure Monitor w chmurze platformy Azure. Może to być przydatne do identyfikowania problemów z opóźnieniami między źródłem danych a chmurą. Przykładem może być problem z siecią powodujący opóźnienie z danymi wysyłanymi z agenta. Aby uzyskać więcej informacji, zobacz [Rejestrowanie czasu pozyskiwania danych w usłudze Azure Monitor.](data-ingestion-time.md)
+## <a name="_timereceived"></a>\_TimeReceived
+Właściwość ** \_TimeReceived** zawiera datę i godzinę odebrania rekordu przez punkt pozyskiwania Azure monitor w chmurze platformy Azure. Może to być przydatne do identyfikowania problemów opóźnienia między źródłem danych i chmurą. Przykładem może być problem z siecią, powodujący opóźnienie przesyłania danych z agenta. Aby uzyskać więcej informacji, zobacz czas pozyskiwania [danych dziennika w Azure monitor](data-ingestion-time.md) .
 
-Poniższa kwerenda daje średnie opóźnienie według godziny dla rekordów zdarzeń od agenta. Obejmuje to czas od agenta do chmury i całkowity czas dla rekordu, który ma być dostępny dla zapytań dziennika.
+Następujące zapytanie zwraca średni czas oczekiwania (według godziny) dla rekordów zdarzeń z agenta. Obejmuje to czas od agenta do chmury oraz całkowity czas dostępności rekordu dla zapytań dzienników.
 
 ```Kusto
 Event
@@ -59,11 +59,11 @@ Event
 | summarize avg(AgentLatency), avg(TotalLatency) by bin(TimeGenerated,1hr)
 ``` 
 
-## <a name="type-and-itemtype"></a>Typ i typ elementu
-Właściwości **Type** (Log Analytics workspace) i **itemType** (Application Insights application) przechowują nazwę tabeli, z której pobrano rekord, z której można również traktować jako typ rekordu. Ta właściwość jest przydatna w kwerendach, które łączą rekordy `search` z wielu tabel, takich jak te, które używają operatora, do rozróżniania rekordów różnych typów. **$table** mogą być używane w miejsce **Typu** w niektórych miejscach.
+## <a name="type-and-itemtype"></a>Typ i itemType
+Właściwości **Type** (log Analytics Workspace) i **ItemType** (Application Insights Application) zawierają nazwę tabeli, z której został pobrany rekord, który może być również uważany za typ rekordu. Ta właściwość jest przydatna w zapytaniach, które łączą rekordy z wielu tabel, takich jak `search` te, które używają operatora, aby rozróżnić rekordy różnych typów. **$Table** można używać zamiast **typu** w niektórych miejscach.
 
 ### <a name="examples"></a>Przykłady
-Następująca kwerenda zwraca liczbę rekordów według typu zebranych w ciągu ostatniej godziny.
+Następujące zapytanie zwraca liczbę rekordów według typu zebranych w ciągu ostatniej godziny.
 
 ```Kusto
 search * 
@@ -71,20 +71,20 @@ search *
 | summarize count() by Type
 
 ```
-## <a name="_itemid"></a>\_Itemid
-** \_Właściwość ItemId** zawiera unikatowy identyfikator rekordu.
+## <a name="_itemid"></a>\_Elementów
+Właściwość ** \_ItemId** posiada unikatowy identyfikator rekordu.
 
 
 ## <a name="_resourceid"></a>\_ResourceId
-** \_Właściwość ResourceId** zawiera unikatowy identyfikator zasobu, z który jest skojarzony rekord. Daje to standardową właściwość do użycia do zakresu kwerendy tylko rekordy z określonego zasobu lub do łączyć powiązanych danych w wielu tabelach.
+Właściwość ** \_ResourceID** zawiera unikatowy identyfikator zasobu, z którym jest skojarzony rekord. Zapewnia to standardową Właściwość służącą do określania zakresu zapytania tylko do rekordów z określonego zasobu lub do łączenia się z danymi powiązanymi między wieloma tabelami.
 
-W przypadku zasobów platformy Azure wartością **_ResourceId** jest [adres URL identyfikatora zasobu platformy Azure](../../azure-resource-manager/templates/template-functions-resource.md). Właściwość jest obecnie ograniczona do zasobów platformy Azure, ale zostanie rozszerzona na zasoby poza platformą Azure, takie jak komputery lokalne.
+W przypadku zasobów platformy Azure wartość **_ResourceId** jest [adresem URL identyfikatora zasobu platformy Azure](../../azure-resource-manager/templates/template-functions-resource.md). Właściwość jest obecnie ograniczona do zasobów platformy Azure, ale zostanie rozszerzona o zasoby spoza platformy Azure, takie jak komputery lokalne.
 
 > [!NOTE]
-> Niektóre typy danych mają już pola, które zawierają identyfikator zasobu platformy Azure lub przynajmniej jego części, takie jak identyfikator subskrypcji. Chociaż te pola są przechowywane w celu zapewnienia zgodności z powrotem, zaleca się użycie _ResourceId do wykonywania korelacji krzyżowej, ponieważ będzie bardziej spójne.
+> Niektóre typy danych mają już pola zawierające identyfikator zasobu platformy Azure lub co najmniej te elementy, takie jak identyfikator subskrypcji. Chociaż te pola są utrzymywane w celu zapewnienia zgodności z poprzednimi wersjami, zaleca się używanie _ResourceId do wykonywania wzajemnej korelacji, ponieważ będzie ona bardziej spójna.
 
 ### <a name="examples"></a>Przykłady
-Poniższa kwerenda łączy dane wydajności i zdarzeń dla każdego komputera. Pokazuje wszystkie zdarzenia o identyfikatorze _101_ i wykorzystanie procesora ponad 50%.
+Poniższe zapytanie dołącza dane dotyczące wydajności i zdarzeń dla każdego komputera. Pokazuje wszystkie zdarzenia o IDENTYFIKATORze _101_ i użycia procesora przekraczającym 50%.
 
 ```Kusto
 Perf 
@@ -95,7 +95,7 @@ Perf
 ) on _ResourceId
 ```
 
-Następująca kwerenda łączy rekordy _usługi AzureActivity_ z rekordami _SecurityEvent._ Pokazuje wszystkie operacje działania z użytkownikami, którzy byli zalogowani do tych maszyn.
+Następujące zapytanie sprzęga rekordy _platformy Azure_ z rekordami _SecurityEvent_ . Pokazuje wszystkie operacje działania z użytkownikami, którzy zostali zarejestrowani na tych komputerach.
 
 ```Kusto
 AzureActivity 
@@ -109,7 +109,7 @@ AzureActivity
 ) on _ResourceId  
 ```
 
-Poniższa kwerenda analizuje **_ResourceId** i agreguje rozliczane woluminy danych na subskrypcję platformy Azure.
+Poniższe zapytanie analizuje **_ResourceId** i agreguje rozliczane woluminy danych na subskrypcję platformy Azure.
 
 ```Kusto
 union withsource = tt * 
@@ -119,16 +119,16 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last 
 ```
 
-Użyj `union withsource = tt *` tych kwerend oszczędnie, ponieważ skanowanie w różnych typach danych są kosztowne do wykonania.
+Te zapytania `union withsource = tt *` są oszczędnie zależą od tego, jak skanowanie między typami danych jest kosztowne.
 
-## <a name="_isbillable"></a>\_IsBillable (Możliwe jest rozliczanie się)
-Właściwość IsBillable określa, czy pogoń za danymi jest rozliczalna. ** \_** Dane z ** \_IsBillable** równe _false_ są zbierane za darmo i nie rozliczane na koncie platformy Azure.
+## <a name="_isbillable"></a>\_Ismiliard
+Właściwość isbilled określa, czy są naliczane opłaty za pozyskiwane dane. ** \_** Dane z ** \_ismiliardem** równym _wartości false_ są zbierane bezpłatnie i nie są naliczane za Twoje konto platformy Azure.
 
 ### <a name="examples"></a>Przykłady
-Aby uzyskać listę komputerów wysyłających typy danych z rozliczeniami, użyj następującej kwerendy:
+Aby uzyskać listę komputerów wysyłających typy danych, należy użyć następującej kwerendy:
 
 > [!NOTE]
-> Użyj kwerend `union withsource = tt *` z oszczędnie, ponieważ skanowanie w różnych typach danych są kosztowne do wykonania. 
+> Używaj zapytań z `union withsource = tt *` nieoszczędnymi możliwościami w miarę wykonywania skanowania między typami danych. 
 
 ```Kusto
 union withsource = tt * 
@@ -138,7 +138,7 @@ union withsource = tt *
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
 ```
 
-Można to rozszerzyć, aby zwrócić liczbę komputerów na godzinę, które wysyłają typy danych naliczonych naliczania:
+Można to rozszerzyć, aby zwrócić liczbę komputerów na godzinę, które wysyłają typy danych rozliczanych:
 
 ```Kusto
 union withsource = tt * 
@@ -148,12 +148,12 @@ union withsource = tt *
 | summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
 ```
 
-## <a name="_billedsize"></a>\_Rozliczony rozmiar
-** \_Właściwość BilledSize** określa rozmiar w bajtach danych, które będą rozliczane na koncie platformy Azure, jeśli ** \_jest spełniony.**
+## <a name="_billedsize"></a>\_BilledSize
+Właściwość ** \_BilledSize** określa rozmiar w bajtach danych, które będą rozliczane na konto platformy Azure ** \_, jeśli jest** to wartość true.
 
 
 ### <a name="examples"></a>Przykłady
-Aby zobaczyć rozmiar zdarzeń podlegających rozliczaniu po spożyciu na komputerze, użyj `_BilledSize` właściwości, która zapewnia rozmiar w bajtach:
+Aby wyświetlić wielkość rozliczania zdarzeń pobieranych na komputer, użyj `_BilledSize` właściwości, która zapewnia rozmiar w bajtach:
 
 ```Kusto
 union withsource = tt * 
@@ -161,7 +161,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last 
 ```
 
-Aby wyświetlić rozmiar zdarzeń podlegających rozliczaniu przynajmowanych na subskrypcję, użyj następującej kwerendy:
+Aby wyświetlić wielkość rozliczania zdarzeń pobieranych na subskrypcję, użyj następującego zapytania:
 
 ```Kusto
 union withsource=table * 
@@ -170,7 +170,7 @@ union withsource=table *
 | summarize Bytes=sum(_BilledSize) by  SubscriptionId | sort by Bytes nulls last 
 ```
 
-Aby wyświetlić rozmiar zdarzeń rozliczanych przynajmowanych według grupy zasobów, użyj następującej kwerendy:
+Aby wyświetlić rozmiar pozyskanych zdarzeń rozliczanych według grupy zasobów, należy użyć następującego zapytania:
 
 ```Kusto
 union withsource=table * 
@@ -181,14 +181,14 @@ union withsource=table *
 ```
 
 
-Aby wyświetlić liczbę zdarzeń przynajmowanych na komputer, użyj następującej kwerendy:
+Aby wyświetlić liczbę zdarzeń pozyskanych na komputer, użyj następującego zapytania:
 
 ```Kusto
 union withsource = tt *
 | summarize count() by Computer | sort by count_ nulls last
 ```
 
-Aby wyświetlić liczbę zdarzeń rozliczanych na komputerze, należy użyć następującej kwerendy: 
+Aby zobaczyć liczbę zdarzeń rozliczanych pobieranych na komputer, użyj następującego zapytania: 
 
 ```Kusto
 union withsource = tt * 
@@ -196,7 +196,7 @@ union withsource = tt *
 | summarize count() by Computer  | sort by count_ nulls last
 ```
 
-Aby wyświetlić liczbę typów danych podlegaalnych z rozliczeń z określonego komputera, użyj następującej kwerendy:
+Aby wyświetlić liczbę typów danych rozliczanych z określonego komputera, użyj następującego zapytania:
 
 ```Kusto
 union withsource = tt *
@@ -207,6 +207,6 @@ union withsource = tt *
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [sposobie przechowywania danych dziennika usługi Azure Monitor.](../log-query/log-query-overview.md)
-- Pobierz lekcję na [temat pisania zapytań dziennika](../../azure-monitor/log-query/get-started-queries.md).
-- Pobierz lekcję na [temat łączenia tabel w zapytaniach dziennika](../../azure-monitor/log-query/joins.md).
+- Przeczytaj więcej na temat sposobu [przechowywania danych dziennika Azure monitor](../log-query/log-query-overview.md).
+- Zapoznaj się z lekcjami dotyczącymi [pisania zapytań dzienników](../../azure-monitor/log-query/get-started-queries.md).
+- Zapoznaj się z lekcji na [sprzęganie tabel w zapytaniach dziennika](../../azure-monitor/log-query/joins.md).

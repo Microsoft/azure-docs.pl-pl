@@ -1,6 +1,6 @@
 ---
-title: Szablony stron w usłudze Azure API Management | Dokumenty firmy Microsoft
-description: Dowiedz się, jak dostosować zawartość stron portalu deweloperów przy użyciu zestawu szablonów w usłudze Azure API Management.
+title: Szablony stron na platformie Azure API Management | Microsoft Docs
+description: Dowiedz się, jak dostosować zawartość stron portalu dla deweloperów przy użyciu zestawu szablonów w usłudze Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ce56c406c884471c445b25343d5c42f9edcbe4c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79249544"
 ---
-# <a name="page-templates-in-azure-api-management"></a>Szablony stron w usłudze Azure API Management
-Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu deweloperów przy użyciu zestawu szablonów, które konfigurują ich zawartość. Za pomocą [dotLiquid](http://dotliquidmarkup.org/) składni i edytora do wyboru, takich jak [DotLiquid dla projektantów](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), i pod warunkiem, zestaw zlokalizowanych [zasobów ciąg,](api-management-template-resources.md#strings) [zasoby glifów](api-management-template-resources.md#glyphs)i [page formantów,](api-management-page-controls.md)masz dużą elastyczność, aby skonfigurować zawartość stron, jak można uznać za stosowne przy użyciu tych szablonów.  
+# <a name="page-templates-in-azure-api-management"></a>Szablony stron na platformie Azure API Management
+Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu dla deweloperów przy użyciu zestawu szablonów, które konfigurują ich zawartość. Korzystając z składni [DotLiquid](http://dotliquidmarkup.org/) i wybranego edytora, takiego jak [DotLiquid dla projektantów](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), i dostępnego zestawu zlokalizowanych [zasobów ciągów](api-management-template-resources.md#strings), [zasobów glifów](api-management-template-resources.md#glyphs)i [kontrolek stron](api-management-page-controls.md), masz doskonałą elastyczność konfigurowania zawartości stron w miarę, w jakiej są one widoczne przy użyciu tych szablonów.  
   
- Szablony w tej sekcji umożliwiają dostosowanie zawartości stron logowania, rejestracji i strony, na której nie znaleziono stron w portalu dla deweloperów.  
+ Szablony w tej sekcji umożliwiają dostosowanie zawartości stron logowania, rejestracji i nieznalezienia stron w portalu dla deweloperów.  
   
 -   [Zaloguj się](#SignIn)  
   
@@ -32,16 +32,16 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 -   [Nie znaleziono strony](#PageNotFound)  
   
 > [!NOTE]
->  Przykładowe szablony domyślne są zawarte w poniższej dokumentacji, ale mogą ulec zmianie z powodu ciągłych ulepszeń. Domyślne szablony na żywo można wyświetlić w portalu dla deweloperów, przechodząc do żądanych szablonów indywidualnych. Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [Jak dostosować portal dewelopera zarządzania interfejsami API przy użyciu szablonów](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Przykładowe szablony domyślne są zawarte w poniższej dokumentacji, ale mogą ulec zmianie ze względu na ciągłe ulepszenia. Możesz wyświetlić szablony domyślne na żywo w portalu dla deweloperów, przechodząc do żądanych poszczególnych szablonów. Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dostosowywanie portalu deweloperów API Management przy użyciu szablonów](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="sign-in"></a><a name="SignIn"></a>Rejestrowanie  
- Szablon **logowania** umożliwia dostosowanie strony logowania w portalu dewelopera.  
+ Szablon **logowania** umożliwia dostosowanie strony logowania w portalu dla deweloperów.  
   
- ![Strona logowania](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "Szablony portalu deweloperów logowania do witryny APIM")  
+ ![Strona logowania](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "APIM — szablony portalu dla deweloperów")  
   
 ### <a name="default-template"></a>Szablon domyślny  
   
@@ -100,14 +100,14 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 ```  
   
 ### <a name="controls"></a>Formanty  
- Ten szablon może używać [kontrolek](api-management-page-controls.md)strony poniżej .  
+ Ten szablon może korzystać z następujących [kontrolek strony](api-management-page-controls.md).  
   
--   [podstawowe-signin](api-management-page-controls.md#basic-signin)  
+-   [Logowanie Podstawowe](api-management-page-controls.md#basic-signin)  
   
--   [Dostawców](api-management-page-controls.md#providers)  
+-   [udostępnia](api-management-page-controls.md#providers)  
   
 ### <a name="data-model"></a>Model danych  
- [Jednostka logowania użytkownika.](api-management-template-data-model-reference.md#UseSignIn)  
+ Jednostka [logowania użytkownika](api-management-template-data-model-reference.md#UseSignIn) .  
   
 ### <a name="sample-template-data"></a>Przykładowe dane szablonu  
   
@@ -140,7 +140,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 ##  <a name="sign-up"></a><a name="SignUp"></a>Zarejestruj się  
  Szablon **rejestracji** umożliwia dostosowanie strony rejestracji w portalu dla deweloperów.  
   
- ![Strona zarejestruj się](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "Szablony portalu deweloperów stron rejestracji w interfejsie APIM")  
+ ![Strona rejestracji](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "APIM rejestracji — szablony portalu dla deweloperów")  
   
 ### <a name="default-template"></a>Szablon domyślny  
   
@@ -159,12 +159,12 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 ```  
   
 ### <a name="controls"></a>Formanty  
- Ten szablon może używać [kontrolek](api-management-page-controls.md)strony poniżej .  
+ Ten szablon może korzystać z następujących [kontrolek strony](api-management-page-controls.md).  
   
--   [Rejestracji](api-management-page-controls.md#sign-up)  
+-   [Utwórz konto](api-management-page-controls.md#sign-up)  
   
 ### <a name="data-model"></a>Model danych  
- [Jednostka rejestracji użytkownika.](api-management-template-data-model-reference.md#UserSignUp)  
+ Jednostka [rejestracji użytkownika](api-management-template-data-model-reference.md#UserSignUp) .  
   
 ### <a name="sample-template-data"></a>Przykładowe dane szablonu  
   
@@ -186,9 +186,9 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 ```  
   
 ##  <a name="page-not-found"></a><a name="PageNotFound"></a>Nie znaleziono strony  
- **Nie znaleziono** szablonu strony umożliwia dostosowanie strony, której nie znaleziono w portalu dla deweloperów.  
+ Szablon **nie znaleziono strony** pozwala na dostosowanie strony, która nie została znaleziona w portalu dla deweloperów.  
   
- ![Nie znaleziono strony](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "Szablony portalu deweloperów nie znalezionych stron w interfejsie APIM")  
+ ![Strona nie została znaleziona](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "Nie znaleziono APIM szablonów portalu dla deweloperów")  
   
 ### <a name="default-template"></a>Szablon domyślny  
   
@@ -223,17 +223,17 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 ```  
   
 ### <a name="controls"></a>Formanty  
- Ten szablon nie może używać żadnych [formantów strony](api-management-page-controls.md).  
+ Ten szablon nie może używać żadnych [kontrolek strony](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Model danych  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
-|referenceCode (Kod referencyjny)|ciąg|Kod wygenerowany, jeśli ta strona została wyświetlona w wyniku błędu wewnętrznego.|  
-|Errorcode|ciąg|Kod wygenerowany, jeśli ta strona została wyświetlona w wyniku błędu wewnętrznego.|  
-|emailBody (Ciało e-mail)|ciąg|Treść wiadomości e-mail wygenerowana, jeśli ta strona została wyświetlona w wyniku błędu wewnętrznego.|  
-|wniosekUrl|ciąg|Adres URL żądany, gdy strona nie została znaleziona.|  
-|odsyłaczUrl|ciąg|Adres URL strony odsyłającej do żądanego adresu URL.|  
+|referenceCode|ciąg|Kod wygenerowany, jeśli ta strona była wyświetlana jako wynik błędu wewnętrznego.|  
+|Kodzie|ciąg|Kod wygenerowany, jeśli ta strona była wyświetlana jako wynik błędu wewnętrznego.|  
+|emailBody|ciąg|Treść wiadomości e-mail wygenerowanej, jeśli ta strona była wyświetlana jako wynik błędu wewnętrznego.|  
+|requestedUrl|ciąg|Adres URL żądany, gdy strona nie została znaleziona.|  
+|referrerUrl|ciąg|Adres URL odwołującego się do żądanego adresu URL.|  
   
 ### <a name="sample-template-data"></a>Przykładowe dane szablonu  
   
@@ -248,4 +248,4 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [Jak dostosować portal dewelopera zarządzania interfejsami API przy użyciu szablonów](api-management-developer-portal-templates.md).
+Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dostosowywanie portalu deweloperów API Management przy użyciu szablonów](api-management-developer-portal-templates.md).

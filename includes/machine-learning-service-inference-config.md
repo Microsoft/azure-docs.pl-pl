@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 01/28/2020
 ms.author: larryfr
 ms.openlocfilehash: 5102e8f75da14c58e948e81aaa418539dd18869a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80159419"
 ---
-Wpisy w `inferenceconfig.json` dokumencie są mapowane na parametry klasy [InferenceConfig.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) W poniższej tabeli opisano mapowanie między jednostkami w dokumencie JSON i parametry metody:
+Wpisy w `inferenceconfig.json` dokumencie są mapowane na parametry klasy [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) . W poniższej tabeli opisano mapowanie między jednostkami w dokumencie JSON a parametrami metody:
 
-| Jednostka JSON | Parametr Metody | Opis |
+| Jednostka JSON | Parametr metody | Opis |
 | ----- | ----- | ----- |
 | `entryScript` | `entry_script` | Ścieżka do pliku lokalnego, który zawiera kod do uruchomienia dla obrazu. |
-| `sourceDirectory` | `source_directory` | Element opcjonalny. Ścieżka do folderów zawierających wszystkie pliki w celu utworzenia obrazu, co ułatwia dostęp do wszystkich plików w tym folderze lub podfolderze. Cały folder z komputera lokalnego można przekazać jako zależności dla usługi sieci Web. Uwaga: ścieżki entry_script, conda_file i extra_docker_file_steps są ścieżkami względnymi do ścieżki source_directory. |
-| `environment` | `environment` | Element opcjonalny.  [Środowisko](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)usługi Azure Machine Learning .|
+| `sourceDirectory` | `source_directory` | Opcjonalny. Ścieżka do folderów zawierających wszystkie pliki do utworzenia obrazu, co ułatwia dostęp do dowolnych plików w tym folderze lub podfolderze. Można przekazać cały folder z komputera lokalnego jako zależności usługi sieci Web. Uwaga: ścieżki entry_script, conda_file i extra_docker_file_steps są ścieżkami względnymi do ścieżki source_directory. |
+| `environment` | `environment` | Opcjonalny.  [Środowisko](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)Azure Machine Learning.|
 
-W pliku konfiguracyjnym wnioskowania można dołączyć pełne specyfikacje [środowiska](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) usługi Azure Machine Learning. Jeśli to środowisko nie istnieje w obszarze roboczym, usługa Azure Machine Learning utworzy go. W przeciwnym razie usługa Azure Machine Learning zaktualizuje środowisko, jeśli to konieczne. Przykładem jest następujący JSON:
+W pliku konfiguracyjnym wnioskowania można uwzględnić pełne specyfikacje [środowiska](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) Azure Machine Learning. Jeśli to środowisko nie istnieje w obszarze roboczym, Azure Machine Learning utworzy je. W przeciwnym razie Azure Machine Learning zaktualizuje środowisko w razie potrzeby. Poniższy kod JSON jest przykładem:
 
 ```json
 {
@@ -65,7 +65,7 @@ W pliku konfiguracyjnym wnioskowania można dołączyć pełne specyfikacje [śr
 }
 ```
 
-Można również użyć istniejącego [środowiska](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) usługi Azure Machine Learning w oddzielnych parametrów interfejsu wiersza polecenia i usunąć klucz "środowisko" z pliku konfiguracji wnioskowania. Użyj -e dla nazwy środowiska i --ev dla wersji środowiska. Jeśli nie określisz --ev, zostanie użyta najnowsza wersja. Oto przykład pliku konfiguracyjnego wnioskowania:
+Można również użyć istniejącego [środowiska](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) Azure Machine Learning w oddzielnych parametrach interfejsu wiersza polecenia i usunąć klucz "Environment" z pliku konfiguracyjnego wnioskowania. Użyj-e dla nazwy środowiska i--EV dla wersji środowiska. Jeśli nie określisz wartość--EV, zostanie użyta Najnowsza wersja. Oto przykład pliku konfiguracyjnego wnioskowania:
 
 ```json
 {
@@ -74,9 +74,9 @@ Można również użyć istniejącego [środowiska](https://docs.microsoft.com/p
 }
 ```
 
-Poniższe polecenie pokazuje, jak wdrożyć model przy użyciu poprzedniego pliku konfiguracji wnioskowania (o nazwie myInferenceConfig.json). 
+Następujące polecenie pokazuje, jak wdrożyć model przy użyciu poprzedniego pliku konfiguracyjnego wnioskowania (o nazwie myInferenceConfig. JSON). 
 
-Używa również najnowszej wersji istniejącego [środowiska](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) usługi Azure Machine Learning (o nazwie AzureML-Minimal).
+Używa również najnowszej wersji istniejącego [środowiska](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) Azure Machine Learning (o nazwie "Azure-minimum").
 
 ```azurecli-interactive
 az ml model deploy -m mymodel:1 --ic myInferenceConfig.json -e AzureML-Minimal --dc deploymentconfig.json

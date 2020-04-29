@@ -1,50 +1,50 @@
 ---
 title: Przywracanie udziałów plików platformy Azure za pomocą interfejsu API REST
-description: Dowiedz się, jak przywrócić udziały plików platformy Azure lub określone pliki z punktu przywracania utworzonego przez usługę Azure Backup za pomocą interfejsu API REST
+description: Dowiedz się, jak używać interfejsu API REST do przywracania udziałów plików platformy Azure lub określonych plików z punktu przywracania utworzonego przez Azure Backup
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 1c3160491ef92c62745af1468556e7d5c30437fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79252508"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Przywracanie udziałów plików platformy Azure przy użyciu interfejsu API REST
 
-W tym artykule wyjaśniono, jak przywrócić cały udział plików lub określonych plików z punktu przywracania utworzonego przez [usługę Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) przy użyciu interfejsu API REST.
+W tym artykule wyjaśniono, jak przywrócić cały udział plików lub określone pliki z punktu przywracania utworzonego przez [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) przy użyciu interfejsu API REST.
 
-Pod koniec tego artykułu dowiesz się, jak wykonać następujące operacje przy użyciu interfejsu API REST:
+Na końcu tego artykułu dowiesz się, jak wykonywać następujące operacje przy użyciu interfejsu API REST:
 
-* Wyświetlanie punktów przywracania dla kopii zapasowej udziału plików platformy Azure.
-* Przywracanie pełnego udziału plików platformy Azure.
-* Przywracanie pojedynczych plików lub folderów.
+* Wyświetl punkty przywracania dla kopii zapasowej udziału plików platformy Azure.
+* Przywróć pełny udział plików platformy Azure.
+* Przywróć pojedyncze pliki lub foldery.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zakładamy, że masz już utworzony kopię zapasową udziału plików, który chcesz przywrócić. Jeśli nie, sprawdź [backup udziału plików platformy Azure przy użyciu interfejsu API REST,](backup-azure-file-share-rest-api.md) aby dowiedzieć się, jak go utworzyć.
+Przyjęto założenie, że masz już udział plików, którego kopię zapasową chcesz przywrócić. Jeśli tego nie zrobisz, Sprawdź Tworzenie [kopii zapasowej udziału plików platformy Azure przy użyciu interfejsu API REST](backup-azure-file-share-rest-api.md) , aby dowiedzieć się, jak go utworzyć.
 
-W tym artykule użyjemy następujących zasobów:
+W tym artykule będziemy używać następujących zasobów:
 
 * **RecoveryServicesVault**: *azurefilesvault*
-* **Grupa zasobów**: *azurefiles*
-* **Konto magazynu:** *afsaccount*
-* **Udział plików**: *azurefiles*
+* **Grupa zasobów**: *migracji pamięci*
+* **Konto magazynu**: *afsaccount*
+* **Udział plików**: *migracji pamięci*
 
 ## <a name="fetch-containername-and-protecteditemname"></a>Pobierz ContainerName i ProtectedItemName
 
-W przypadku większości wywołań interfejsu API związanych z przywracanie należy przekazać wartości parametrów identyfikatora URI {containerName} i {protectedItemName}. Użyj atrybutu ID w treści odpowiedzi operacji [GET backupprotectableems,](https://docs.microsoft.com/rest/api/backup/protecteditems/get) aby pobrać wartości dla tych parametrów. W naszym przykładzie identyfikator udziału plików, który chcemy chronić, to:
+W przypadku większości wywołań interfejsu API związanych z przywracaniem należy przekazać wartości parametrów identyfikatora URI {ContainerName} i {protectedItemName}. Użyj atrybutu ID w treści odpowiedzi operacji [Get backupprotectableitems](https://docs.microsoft.com/rest/api/backup/protecteditems/get) , aby pobrać wartości dla tych parametrów. W naszym przykładzie identyfikator udziału plików, który chcemy chronić, to:
 
 `"/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/storagecontainer;storage;azurefiles;afsaccount/protectableItems/azurefileshare;azurefiles`
 
-Tak więc wartości tłumaczą się w następujący sposób:
+Dlatego wartości są tłumaczone w następujący sposób:
 
-* {containername} - *magazynwłaściw;magazyn;azurefiles;afsaccount*
-* {protectedItemName} - *azurefileshare;azurefiles*
+* {ContainerName}- *storagecontainer; Storage; migracji pamięci; afsaccount*
+* {protectedItemName}- *azurefileshare; migracji pamięci*
 
-## <a name="fetch-recovery-points-for-backed-up-azure-file-share"></a>Pobieranie punktów odzyskiwania dla kopii zapasowej udziału plików platformy Azure
+## <a name="fetch-recovery-points-for-backed-up-azure-file-share"></a>Pobierz punkty odzyskiwania dla kopii zapasowej udziału plików platformy Azure
 
-Aby przywrócić dowolny utworzony plik lub pliki, należy najpierw wybrać punkt odzyskiwania, aby wykonać operację przywracania. Dostępne punkty odzyskiwania elementu kopii zapasowej można wyświetlić za pomocą wywołania interfejsu API REST [listy odzyskiwania](https://docs.microsoft.com/rest/api/site-recovery/recoverypoints/listbyreplicationprotecteditems) odzyskiwania. Jest to operacja GET ze wszystkimi odpowiednimi wartościami.
+Aby przywrócić kopię zapasową udziału plików lub plików, najpierw wybierz punkt odzyskiwania, aby wykonać operację przywracania. Dostępne punkty odzyskiwania elementu kopii zapasowej można wyświetlić za pomocą wywołania interfejsu API REST z [listą punktów odzyskiwania](https://docs.microsoft.com/rest/api/site-recovery/recoverypoints/listbyreplicationprotecteditems) . Jest to operacja pobrania ze wszystkimi odpowiednimi wartościami.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13&$filter={$filter}
@@ -52,13 +52,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 Ustaw wartości identyfikatora URI w następujący sposób:
 
-* {nazwa sieci szkieletowa}: *platforma Azure*
-* {vaultName}: *azurefilesvault*
-* {containername}: *magazynwłaściw;magazyn;azurefiles;afsaccount*
-* {protectedItemName}: *azurefileshare;azurefiles*
-* {Nazwagrupy zasobów}: *pliki azurefiles*
+* {fabricname}: *Azure*
+* {magazynname}: *azurefilesvault*
+* {ContainerName}: *storagecontainer; Storage; migracji pamięci; afsaccount*
+* {protectedItemName}: *azurefileshare; migracji pamięci*
+* {ResourceGroupName}: *migracji pamięci*
 
-Identyfikator URI GET ma wszystkie wymagane parametry. Nie ma potrzeby dodatkowego organu żądania.
+Identyfikator URI GET zawiera wszystkie wymagane parametry. Nie ma potrzeby dodatkowej treści żądania.
 
 ```http
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare;azurefiles/recoveryPoints?api-version=2019-05-13
@@ -66,7 +66,7 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 ### <a name="example-response"></a>Przykładowa odpowiedź
 
-Po przesłaniu identyfikatora GET URI zwracana jest odpowiedź 200:
+Po przesłaniu identyfikatora URI zostanie zwrócona odpowiedź 200:
 
 ```http
 HTTP/1.1" 200 None
@@ -139,18 +139,18 @@ HTTP/1.1" 200 None
   },
 ```
 
-Punkt odzyskiwania jest identyfikowany za pomocą pola {name} w powyższej odpowiedzi.
+Punkt odzyskiwania jest identyfikowany za pomocą pola {Name} w powyższej odpowiedzi.
 
-## <a name="full-share-recovery-using-rest-api"></a>Pełne odzyskiwanie udziału przy użyciu interfejsu API REST
+## <a name="full-share-recovery-using-rest-api"></a>Odzyskiwanie pełnego udziału przy użyciu interfejsu API REST
 
-Ta opcja przywracania służy do przywracania pełnego udziału plików w oryginalnej lub alternatywnej lokalizacji.
-Wyzwalanie przywracania jest żądaniem POST i można wykonać tę operację przy użyciu interfejsu API [rest przywracania wyzwalacza.](https://docs.microsoft.com/rest/api/backup/restores/trigger)
+Użyj tej opcji przywracania, aby przywrócić pełny udział plików w lokalizacji oryginalnej lub alternatywnej.
+Wyzwalanie przywracania jest żądaniem POST i można wykonać tę operację przy użyciu interfejsu API REST [przywracania wyzwalacza](https://docs.microsoft.com/rest/api/backup/restores/trigger) .
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13
 ```
 
-Wartości {containerName} i {protectedItemName} są ustawione [w tym miejscu,](#fetch-containername-and-protecteditemname) a recoveryPointID jest polem {name} punktu odzyskiwania, o którym mowa powyżej.
+Wartości {ContainerName} i {protectedItemName} są ustawione w [tym miejscu](#fetch-containername-and-protecteditemname) , a recoveryPointID to pole {Name} w powyższym punkcie odzyskiwania.
 
 ```http
 POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare%3Bazurefiles/recoveryPoints/932886657837421071/restore?api-version=2019-05-13'
@@ -158,15 +158,15 @@ POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48a
 
 ### <a name="create-request-body"></a>Utwórz treść żądania
 
-Aby wyzwolić przywracanie dla udziału plików platformy Azure, następujące składniki treści żądania:
+Aby wyzwolić przywracanie dla udziału plików platformy Azure, poniżej przedstawiono składniki treści żądania:
 
 Nazwa |  Typ   |   Opis
 --- | ---- | ----
 Właściwości | AzureFileShareRestoreRequest | Właściwości RestoreRequestResource
 
-Pełna lista definicji treści żądania i innych szczegółów znajduje się w [dokumencie interfejsu API wyzwalacza Przywracanie rest](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body).
+Aby uzyskać pełną listę definicji treści żądania i innych szczegółów, zobacz [dokument interfejsu API REST przywracania wyzwalacza](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body).
 
-### <a name="restore-to-original-location"></a>Przywracanie do pierwotnej lokalizacji
+### <a name="restore-to-original-location"></a>Przywróć do oryginalnej lokalizacji
 
 #### <a name="request-body-example"></a>Przykład treści żądania
 
@@ -184,17 +184,17 @@ Następująca treść żądania definiuje właściwości wymagane do wyzwolenia 
 }
 ```
 
-### <a name="restore-to-alternate-location"></a>Przywracanie do lokalizacji alternatywnej
+### <a name="restore-to-alternate-location"></a>Przywróć do lokalizacji alternatywnej
 
-Określ następujące parametry dla odzyskiwania lokalizacji alternatywnej:
+Określ następujące parametry odzyskiwania lokalizacji alternatywnej:
 
-* **targetResourceId**: konto magazynu, na którym przywracana jest kopia zapasowa zawartości. Docelowe konto magazynu musi znajdować się w tej samej lokalizacji co magazyn.
-* **name**: Udział plików na docelowym koncie magazynu, na którym przywrócono kopię zapasową zawartości.
-* **targetFolderPath**: Folder pod udziałem plików, do którego dane są przywracane.
+* **element targetresourceid**: konto magazynu, do którego zostanie przywrócona zawartość kopii zapasowej. Docelowe konto magazynu musi znajdować się w tej samej lokalizacji co magazyn.
+* **Nazwa**: udział plików w docelowym koncie magazynu, do którego zostanie przywrócona zawartość kopii zapasowej.
+* **targetFolderPath**: folder w udziale plików, do którego przywracane są dane.
 
 #### <a name="request-body-example"></a>Przykład treści żądania
 
-Następująca treść żądania przywraca udział pliku *azurefiles* na koncie magazynu *afsaccount* do udziału pliku *azurefiles1* na koncie magazynu *afaccount1.*
+Następująca treść żądania przywraca udział plików *migracji pamięci* na koncie magazynu *afsaccount* do udziału plików *azurefiles1* na koncie magazynu *afaccount1* .
 
 ```json
 {
@@ -219,12 +219,12 @@ Następująca treść żądania przywraca udział pliku *azurefiles* na koncie m
 
 ### <a name="response"></a>Odpowiedź
 
-Wyzwalanie operacji przywracania jest [operacją asynchronizacyjną](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ta operacja tworzy inną operację, która musi być śledzona oddzielnie.
-Zwraca dwie odpowiedzi: 202 (Zaakceptowane) podczas tworzenia innej operacji i 200 (OK) po zakończeniu tej operacji.
+Wyzwalacz operacji przywracania jest [operacją asynchroniczną](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ta operacja tworzy inną operację, która musi być śledzona oddzielnie.
+Zwraca dwie odpowiedzi: 202 (zaakceptowane), gdy tworzona jest inna operacja, a 200 (OK) po zakończeniu tej operacji.
 
 #### <a name="response-example"></a>Przykład odpowiedzi
 
-Po przesłaniu *identyfikatora* URI POST do wyzwalania przywracania początkowa odpowiedź to 202 (zaakceptowana) z nagłówkiem lokalizacji lub nagłówkiem asynchronizowania platformy Azure.
+*Po przesłaniu identyfikatora URI* dla wyzwalania przywracania, początkowa odpowiedź to 202 (zaakceptowane) z nagłówkiem lokalizacji lub z nagłówkiem Azure-Async-header.
 
 ```http
 HTTP/1.1" 202
@@ -245,13 +245,13 @@ HTTP/1.1" 202
 'Date': 'Wed, 05 Feb 2020 07:43:47 GMT'
 ```
 
-Następnie śledź wynikową operację przy użyciu nagłówka lokalizacji lub nagłówka Azure-AsyncOperation za pomocą polecenia GET.
+Następnie Śledź wyniki operacji przy użyciu nagłówka lokalizacji lub nagłówka Azure-AsyncOperation za pomocą polecenia GET.
 
 ```http
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupOperations/68ccfbc1-a64f-4b29-b955-314b5790cfa9?api-version=2016-12-01
 ```
 
-Po zakończeniu operacji zwraca 200 (OK) z identyfikatorem wynikowego zadania przywracania w treści odpowiedzi.
+Po zakończeniu operacji zwraca 200 (OK) z IDENTYFIKATORem wynikowego zadania przywracania w treści odpowiedzi.
 
 ```http
 HTTP/1.1" 200
@@ -304,7 +304,7 @@ HTTP/1.1" 200
 }
 ```
 
-W przypadku odzyskiwania lokalizacji alternatywnej treść odpowiedzi będzie następująca:
+W przypadku odzyskiwania do lokalizacji alternatywnej treść odpowiedzi będzie wyglądać następująco:
 
 ```http
 {
@@ -350,17 +350,17 @@ W przypadku odzyskiwania lokalizacji alternatywnej treść odpowiedzi będzie na
 }
 ```
 
-Ponieważ zadanie tworzenia kopii zapasowej jest długotrwałą operacją, należy je śledzić zgodnie z opisem w [zadaniach monitora przy użyciu dokumentu INTERFEJSU API REST](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-managejobs#tracking-the-job).
+Ponieważ zadanie tworzenia kopii zapasowej jest długotrwałą operacją, powinno być śledzone w sposób opisany w [dokumencie monitorowanie zadań przy użyciu interfejsu API REST](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-managejobs#tracking-the-job).
 
-## <a name="item-level-recovery-using-rest-api"></a>Odzyskiwanie poziomu elementu przy użyciu interfejsu API REST
+## <a name="item-level-recovery-using-rest-api"></a>Odzyskiwanie na poziomie elementu przy użyciu interfejsu API REST
 
-Za pomocą tej opcji przywracania można przywrócić poszczególne pliki lub foldery w oryginalnej lub alternatywnej lokalizacji.
+Ta opcja przywracania służy do przywracania pojedynczych plików lub folderów w lokalizacji oryginalnej lub alternatywnej.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13
 ```
 
-Wartości {containerName} i {protectedItemName} są ustawione [w tym miejscu,](#fetch-containername-and-protecteditemname) a recoveryPointID jest polem {name} punktu odzyskiwania, o którym mowa powyżej.
+Wartości {ContainerName} i {protectedItemName} są ustawione w [tym miejscu](#fetch-containername-and-protecteditemname) , a recoveryPointID to pole {Name} w powyższym punkcie odzyskiwania.
 
 ```http
 POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare%3Bazurefiles/recoveryPoints/932886657837421071/restore?api-version=2019-05-13'
@@ -368,17 +368,17 @@ POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48a
 
 ### <a name="create-request-body"></a>Utwórz treść żądania
 
-Aby wyzwolić przywracanie dla udziału plików platformy Azure, następujące składniki treści żądania:
+Aby wyzwolić przywracanie dla udziału plików platformy Azure, poniżej przedstawiono składniki treści żądania:
 
 Nazwa |  Typ   |   Opis
 --- | ---- | ----
 Właściwości | AzureFileShareRestoreRequest | Właściwości RestoreRequestResource
 
-Pełna lista definicji treści żądania i innych szczegółów znajduje się w [dokumencie interfejsu API wyzwalacza Przywracanie rest](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body).
+Aby uzyskać pełną listę definicji treści żądania i innych szczegółów, zobacz [dokument interfejsu API REST przywracania wyzwalacza](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body).
 
-### <a name="restore-to-original-location"></a>Przywracanie do pierwotnej lokalizacji
+### <a name="restore-to-original-location"></a>Przywróć do oryginalnej lokalizacji
 
-Następująca treść żądania polega na przywróceniu pliku *Restoretest.txt* w udziale pliku *azurefiles* na koncie magazynu *afsaccount.*
+Następująca treść żądania polega na przywróceniu pliku *Restoretest. txt* w udziale plików *migracji pamięci* na koncie magazynu *afsaccount* .
 
 Utwórz treść żądania
 
@@ -402,9 +402,9 @@ Utwórz treść żądania
 }
 ```
 
-### <a name="restore-to-alternate-location"></a>Przywracanie do lokalizacji alternatywnej
+### <a name="restore-to-alternate-location"></a>Przywróć do lokalizacji alternatywnej
 
-Następująca treść żądania polega na przywróceniu pliku *Restoretest.txt* w udziale pliku *azurefiles* na koncie magazynu *afsaccount* do folderu *restoredata* udziału pliku *azurefiles1* na koncie magazynu *afaccount1.*
+Następująca treść żądania polega na przywróceniu pliku *Restoretest. txt* w udziale plików *migracji pamięci* na koncie magazynu *afsaccount* do folderu *restoredata* udziału plików *azurefiles1* na koncie magazynu *afaccount1* .
 
 Utwórz treść żądania
 
@@ -431,8 +431,8 @@ Utwórz treść żądania
 }
 ```
 
-Odpowiedź powinna być traktowana w taki sam sposób, jak wyjaśniono powyżej dla [pełnego przywracania akcji](#full-share-recovery-using-rest-api).
+Odpowiedź powinna być obsługiwana w taki sam sposób, jak wyjaśniono powyżej, aby można było [przywrócić pełne udostępnianie](#full-share-recovery-using-rest-api).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się, jak [zarządzać tworzeniem kopii zapasowych udziałów plików platformy Azure przy użyciu interfejsu REST API](manage-azure-file-share-rest-api.md).
+* Dowiedz się, jak [zarządzać kopiami zapasowymi udziałów plików platformy Azure przy użyciu interfejsu API REST](manage-azure-file-share-rest-api.md).

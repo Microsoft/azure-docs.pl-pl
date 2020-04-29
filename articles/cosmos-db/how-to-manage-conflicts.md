@@ -1,27 +1,27 @@
 ---
-title: Zarządzanie konfliktami między regionami usługi Azure Cosmos DB
-description: Dowiedz się, jak zarządzać konfliktami w usłudze Azure Cosmos DB, tworząc zasady ostatecznego modułu zapisującego lub niestandardowe zasady rozwiązywania konfliktów
+title: Zarządzanie konfliktami między regionami w Azure Cosmos DB
+description: Dowiedz się, jak zarządzać konfliktami w Azure Cosmos DB przez tworzenie zasad ostatniego rozwiązywania konfliktów — WINS lub niestandardowych
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: mjbrown
 ms.openlocfilehash: 6d364f1a9974d6d638bb0f824e88ed3866644c15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79247412"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Zarządzanie zasadami rozwiązywania konfliktów w usłudze Azure Cosmos DB
 
-W przypadku zapisów wieloregionowych, gdy wielu klientów zapisuje do tego samego elementu, mogą wystąpić konflikty. W przypadku wystąpienia konfliktu można rozwiązać konflikt przy użyciu różnych zasad rozwiązywania konfliktów. W tym artykule opisano sposób zarządzania zasadami rozwiązywania konfliktów.
+W przypadku zapisów w wielu regionach, gdy wielu klientów zapisuje do tego samego elementu, mogą wystąpić konflikty. W przypadku wystąpienia konfliktu można rozwiązać konflikt, używając różnych zasad rozwiązywania konfliktów. W tym artykule opisano sposób zarządzania zasadami rozwiązywania konfliktów.
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Tworzenie zasad rozwiązywania konfliktów polegających na traktowaniu ostatniego zapisu jako prawidłowego
 
-Poniższe przykłady pokazują, jak skonfigurować kontener za pomocą zasad rozwiązywania konfliktów polegających na traktowaniu ostatniego zapisu jako prawidłowego. Domyślną ścieżką dla ostatniego modułu zapisującego `_ts` wygrywa jest pole sygnatury czasowej lub właściwość. W przypadku interfejsu API SQL można to również ustawić na ścieżkę zdefiniowaną przez użytkownika z typem numerycznym. W konflikcie wygrywa najwyższa wartość. Jeśli ścieżka nie jest ustawiona lub jest nieprawidłowa, domyślnie `_ts`jest to . Konflikty rozwiązane z tej zasady nie są wyświetlane w pliku danych o konflikcie. Ta zasada może być używana przez wszystkie interfejsy API.
+Poniższe przykłady pokazują, jak skonfigurować kontener za pomocą zasad rozwiązywania konfliktów polegających na traktowaniu ostatniego zapisu jako prawidłowego. Domyślną ścieżką dla ostatniego składnika zapisywania usługi WINS jest pole timestamp lub `_ts` właściwość. W przypadku interfejsu API SQL może to również być ustawiona jako ścieżka zdefiniowana przez użytkownika z typem liczbowym. W konflikcie jest najwyższa wartość WINS. Jeśli ścieżka nie jest ustawiona lub jest nieprawidłowa, domyślnie jest to `_ts`. Konflikty rozwiązane z tymi zasadami nie są wyświetlane w kanale informacyjnym konfliktu. Te zasady mogą być używane przez wszystkie interfejsy API.
 
-### <a name="net-sdk-v2"></a><a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK V2
+### <a name="net-sdk-v2"></a><a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>ZESTAW .NET SDK V2
 
 ```csharp
 DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -36,7 +36,7 @@ DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIf
   });
 ```
 
-### <a name="net-sdk-v3"></a><a id="create-custom-conflict-resolution-policy-lww-dotnet-v3"></a>.NET SDK V3
+### <a name="net-sdk-v3"></a><a id="create-custom-conflict-resolution-policy-lww-dotnet-v3"></a>ZESTAW .NET SDK V3
 
 ```csharp
 Container container = await createClient.GetDatabase(this.databaseName)
@@ -85,7 +85,7 @@ const { container: lwwContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-lww-python"></a>Python SDK
+### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-lww-python"></a>Zestaw SDK dla języka Python
 
 ```python
 udp_collection = {
@@ -99,23 +99,23 @@ udp_collection = self.try_create_document_collection(
     create_client, database, udp_collection)
 ```
 
-## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>Tworzenie niestandardowych zasad rozwiązywania konfliktów przy użyciu procedury składowanej
+## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>Utwórz niestandardowe zasady rozwiązywania konfliktów przy użyciu procedury składowanej
 
-Poniższe przykłady pokazują, jak skonfigurować kontener za pomocą niestandardowych zasad rozwiązywania konfliktów z procedurą składowaną, aby rozwiązać konflikt. Te konflikty nie są widoczne w kanale informacyjnym konfliktów, chyba że w procedurze składowanej wystąpi błąd. Po utworzeniu zasad za pomocą kontenera należy utworzyć procedurę składowaną. Przykład .NET SDK poniżej przedstawiono przykład. Ta zasada jest obsługiwana tylko w interfejsie API Core (SQL).
+Poniższe przykłady pokazują, jak skonfigurować kontener za pomocą niestandardowych zasad rozwiązywania konfliktów z procedurą składowaną, aby rozwiązać konflikt. Te konflikty nie są widoczne w kanale informacyjnym konfliktów, chyba że w procedurze składowanej wystąpi błąd. Po utworzeniu zasad przy użyciu kontenera należy utworzyć procedurę składowaną. Przykładowy zestaw SDK platformy .NET zawiera przykład. Te zasady są obsługiwane tylko w przypadku interfejsu API Core (SQL).
 
-### <a name="sample-custom-conflict-resolution-stored-procedure"></a>Przykładowa niestandardowa procedura rozwiązywania konfliktów
+### <a name="sample-custom-conflict-resolution-stored-procedure"></a>Przykładowa procedura składowana niestandardowego rozwiązywania konfliktów
 
-Niestandardowe procedury przechowywane rozwiązywania konfliktów muszą być implementowane przy użyciu podpisu funkcji pokazanego poniżej. Nazwa funkcji nie musi odpowiadać nazwie używanej podczas rejestrowania procedury składowanej z kontenerem, ale upraszcza nazewnictwo. Oto opis parametrów, które muszą być zaimplementowane dla tej procedury składowanej.
+Procedury składowane rozwiązywania konfliktów niestandardowych należy zaimplementować przy użyciu sygnatury funkcji pokazanej poniżej. Nazwa funkcji nie musi być zgodna z nazwą używaną podczas rejestrowania procedury składowanej w kontenerze, ale upraszcza nazywanie. Poniżej znajduje się opis parametrów, które muszą zostać zaimplementowane dla tej procedury składowanej.
 
-- **incomingItem**: Element wstawiany lub aktualizowany w zatwierdzeniu, który generuje konflikty. Jest null dla operacji usuwania.
-- **existingItem**: Aktualnie zatwierdzony element. Ta wartość jest null w aktualizacji i null dla wstawić lub usuwa.
-- **isTombstone**: Boolean wskazujący, czy przychodzącewymiłagody jest w konflikcie z poprzednio usuniętym elementem. Gdy true, existingItem jest również null.
-- **conflictingItems:** Tablica zatwierdzonej wersji wszystkich elementów w kontenerze, które są w konflikcie z incomingItem na identyfikatorze lub innych unikatowych właściwości indeksu.
+- **incomingItem**: element wstawiany lub aktualizowany w zatwierdzeniu, który generuje konflikty. Ma wartość null w przypadku operacji usuwania.
+- **existingItem**: aktualnie przydzielony element. Ta wartość jest inna niż null w aktualizacjach i wartości null dla operacji INSERT lub usunięć.
+- **ischowania**: wartość logiczna wskazująca, czy incomingItem powoduje konflikt z wcześniej usuniętym elementem. W przypadku wartości true existingItem ma również wartość null.
+- **conflictingItems**: tablica zatwierdzonej wersji wszystkich elementów w kontenerze, które powodują konflikt z INCOMINGITEM on ID lub innymi unikatowymi właściwościami indeksu.
 
 > [!IMPORTANT]
-> Podobnie jak w przypadku każdej procedury składowanej, niestandardowa procedura rozwiązywania konfliktów może uzyskać dostęp do dowolnych danych przy tym samym kluczu partycji i może wykonywać dowolną operację wstawania, aktualizowania lub usuwania w celu rozwiązania konfliktów.
+> Podobnie jak w przypadku każdej procedury składowanej, niestandardowa procedura rozwiązywania konfliktów może uzyskać dostęp do dowolnych danych z tym samym kluczem partycji i można wykonać dowolną operację wstawiania, aktualizowania lub usuwania, aby rozwiązać konflikty.
 
-Ta przykładowa procedura składowana rozwiązuje konflikty, `/myCustomId` wybierając najniższą wartość ze ścieżki.
+Ta przykładowa procedura składowana rozwiązuje konflikty, wybierając najniższą wartość `/myCustomId` ze ścieżki.
 
 ```javascript
 function resolver(incomingItem, existingItem, isTombstone, conflictingItems) {
@@ -171,7 +171,7 @@ function resolver(incomingItem, existingItem, isTombstone, conflictingItems) {
 }
 ```
 
-### <a name="net-sdk-v2"></a><a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK V2
+### <a name="net-sdk-v2"></a><a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>ZESTAW .NET SDK V2
 
 ```csharp
 DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -194,7 +194,7 @@ UriFactory.CreateStoredProcedureUri(this.databaseName, this.udpCollectionName, "
 });
 ```
 
-### <a name="net-sdk-v3"></a><a id="create-custom-conflict-resolution-policy-stored-proc-dotnet-v3"></a>.NET SDK V3
+### <a name="net-sdk-v3"></a><a id="create-custom-conflict-resolution-policy-stored-proc-dotnet-v3"></a>ZESTAW .NET SDK V3
 
 ```csharp
 Container container = await createClient.GetDatabase(this.databaseName)
@@ -256,7 +256,7 @@ const { container: udpContainer } = await database.containers.createIfNotExists(
 
 Po utworzeniu kontenera należy utworzyć procedurę składowaną `resolver`.
 
-### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>Python SDK
+### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>Zestaw SDK dla języka Python
 
 ```python
 udp_collection = {
@@ -276,7 +276,7 @@ Po utworzeniu kontenera należy utworzyć procedurę składowaną `resolver`.
 
 Poniższe przykłady pokazują, jak skonfigurować kontener za pomocą niestandardowych zasad rozwiązywania konfliktów. Te konflikty są widoczne w kanale informacyjnym konfliktów.
 
-### <a name="net-sdk-v2"></a><a id="create-custom-conflict-resolution-policy-dotnet"></a>.NET SDK V2
+### <a name="net-sdk-v2"></a><a id="create-custom-conflict-resolution-policy-dotnet"></a>ZESTAW .NET SDK V2
 
 ```csharp
 DocumentCollection manualCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -290,7 +290,7 @@ DocumentCollection manualCollection = await createClient.CreateDocumentCollectio
   });
 ```
 
-### <a name="net-sdk-v3"></a><a id="create-custom-conflict-resolution-policy-dotnet-v3"></a>.NET SDK V3
+### <a name="net-sdk-v3"></a><a id="create-custom-conflict-resolution-policy-dotnet-v3"></a>ZESTAW .NET SDK V3
 
 ```csharp
 Container container = await createClient.GetDatabase(this.databaseName)
@@ -337,7 +337,7 @@ const {
 });
 ```
 
-### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-python"></a>Python SDK
+### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-python"></a>Zestaw SDK dla języka Python
 
 ```python
 database = client.ReadDatabase("dbs/" + self.database_name)
@@ -352,15 +352,15 @@ manual_collection = client.CreateContainer(database['_self'], collection)
 
 ## <a name="read-from-conflict-feed"></a>Odczytywanie z kanału informacyjnego konfliktów
 
-Te przykłady pokazują, jak odczytywać z kanału informacyjnego konfliktów kontenera. Konflikty są wyświetlane w pliku danych o konfliktach tylko wtedy, gdy nie zostały rozwiązane automatycznie lub jeśli są używane niestandardowe zasady konfliktu.
+Te przykłady pokazują, jak odczytywać z kanału informacyjnego konfliktów kontenera. Konflikty są wyświetlane w kanale informacyjnym powodującym konflikt tylko wtedy, gdy nie zostały rozpoznane automatycznie lub w przypadku użycia niestandardowych zasad konfliktu.
 
-### <a name="net-sdk-v2"></a><a id="read-from-conflict-feed-dotnet"></a>.NET SDK V2
+### <a name="net-sdk-v2"></a><a id="read-from-conflict-feed-dotnet"></a>ZESTAW .NET SDK V2
 
 ```csharp
 FeedResponse<Conflict> conflicts = await delClient.ReadConflictFeedAsync(this.collectionUri);
 ```
 
-### <a name="net-sdk-v3"></a><a id="read-from-conflict-feed-dotnet-v3"></a>.NET SDK V3
+### <a name="net-sdk-v3"></a><a id="read-from-conflict-feed-dotnet-v3"></a>ZESTAW .NET SDK V3
 
 ```csharp
 FeedIterator<ConflictProperties> conflictFeed = container.Conflicts.GetConflictQueryIterator();
@@ -427,8 +427,8 @@ while conflict:
 Poznaj następujące pojęcia dotyczące usługi Azure Cosmos DB:
 
 - [Dystrybucja globalna — szczegóły działania](global-dist-under-the-hood.md)
-- [Jak skonfigurować multi-master w aplikacjach](how-to-multi-master.md)
-- [Konfigurowanie klientów do multihomingu](how-to-manage-database-account.md#configure-multiple-write-regions)
+- [Jak skonfigurować wiele wzorców w aplikacjach](how-to-multi-master.md)
+- [Konfigurowanie klientów dla usługi wieloadresowości](how-to-manage-database-account.md#configure-multiple-write-regions)
 - [Dodawanie lub usuwanie regionów z konta usługi Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 - [How to configure multi-master in your applications (Jak skonfigurować wielowzorcowość w aplikacji)](how-to-multi-master.md).
 - [Partycjonowanie i dystrybucja danych](partition-data.md)

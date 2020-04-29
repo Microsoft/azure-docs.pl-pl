@@ -1,6 +1,6 @@
 ---
-title: Środowisko użytkownika końcowego dla aplikacji — usługa Azure Active Directory
-description: Usługa Azure Active Directory (Azure AD) udostępnia kilka konfigurowalnych sposobów wdrażania aplikacji dla użytkowników końcowych w organizacji.
+title: Środowiska użytkownika końcowego dla aplikacji — Azure Active Directory
+description: Azure Active Directory (Azure AD) oferuje kilka dostosowywalnych metod wdrażania aplikacji dla użytkowników końcowych w organizacji.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -13,69 +13,69 @@ ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 72b3e37a423442194b81e3d10ecc7157201ff8be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79266626"
 ---
-# <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Środowisko użytkownika końcowego dla aplikacji w usłudze Azure Active Directory
+# <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Środowisko użytkownika końcowego dla aplikacji w Azure Active Directory
 
-Usługa Azure Active Directory (Azure AD) udostępnia kilka konfigurowalnych sposobów wdrażania aplikacji dla użytkowników końcowych w organizacji:
+Azure Active Directory (Azure AD) oferuje kilka dostosowywalnych metod wdrażania aplikacji dla użytkowników końcowych w organizacji:
 
 * Panel dostępu usługi Azure AD
-* Uruchamianie aplikacji usługi Office 365
+* Uruchamianie aplikacji pakietu Office 365
 * Bezpośrednie logowanie do aplikacji federacyjnych
 * Linki bezpośrednie do federacyjnych, opartych na hasłach lub istniejących aplikacjach
 
-To, którą metodę wybierzesz do wdrożenia w organizacji, jest twoim dyskrecją.
+Metody wybrane do wdrożenia w organizacji są takie same.
 
 ## <a name="azure-ad-access-panel"></a>Panel dostępu usługi Azure AD
 
-Panel dostępu https://myapps.microsoft.com jest portalem internetowym, który umożliwia użytkownikowi końcowemu z kontem organizacyjnym w usłudze Azure Active Directory wyświetlanie i uruchamianie aplikacji, do których administrator usługi Azure AD uzyskał dostęp. Jeśli jesteś użytkownikiem końcowym za pomocą [usługi Azure Active Directory Premium,](https://azure.microsoft.com/pricing/details/active-directory/)możesz również korzystać z możliwości zarządzania grupami samoobsługowymi za pośrednictwem Panelu dostępu.
+Panel dostępu w https://myapps.microsoft.com programie jest portalem opartym na sieci Web, który umożliwia użytkownikowi końcowemu konta organizacyjnego w Azure Active Directory wyświetlanie i uruchamianie aplikacji, do których udzielono dostępu przez administratora usługi Azure AD. Jeśli jesteś użytkownikiem końcowym [Azure Active Directory — wersja Premium](https://azure.microsoft.com/pricing/details/active-directory/), możesz również korzystać z funkcji samoobsługowego zarządzania grupami za pomocą panelu dostępu.
 
-![Zrzut ekranu przedstawiający portal Panelu dostępu usługi Azure AD](media/what-is-single-sign-on/azure-ad-access-panel.png)
+![Zrzut ekranu przedstawia Portal panelu dostępu usługi Azure AD](media/what-is-single-sign-on/azure-ad-access-panel.png)
 
-Domyślnie wszystkie aplikacje są wyświetlane razem na jednej stronie. Ale można użyć kolekcji do grupowania powiązanych aplikacji i prezentować je na osobnej karcie, dzięki czemu łatwiej je znaleźć. Na przykład można użyć kolekcji do tworzenia logicznych grupowania aplikacji dla określonych ról zadań, zadań, projektów i tak dalej. Aby uzyskać więcej informacji, zobacz [Jak dostosować panele dostępu użytkowników za pomocą kolekcji Moje aplikacje.](access-panel-collections.md) 
+Domyślnie wszystkie aplikacje są wyświetlane na jednej stronie. Można jednak użyć kolekcji, aby zgrupować powiązane aplikacje i przedstawić je na osobnej karcie, co ułatwia ich znalezienie. Można na przykład użyć kolekcji do tworzenia logicznych grup aplikacji dla określonych ról zadań, zadań, projektów i tak dalej. Aby uzyskać więcej informacji, zobacz [jak używać kolekcji my Apps do dostosowywania paneli dostępu użytkowników](access-panel-collections.md). 
 
-Panel dostępu jest oddzielony od witryny Azure portal i nie wymaga od użytkowników subskrypcji platformy Azure lub subskrypcji usługi Office 365.
+Panel dostępu jest oddzielony od Azure Portal i nie wymaga, aby użytkownicy mieli subskrypcję platformy Azure ani subskrypcję pakietu Office 365.
 
 Aby uzyskać więcej informacji na temat panelu dostępu usługi Azure AD, zobacz [wprowadzenie do panelu dostępu](../user-help/active-directory-saas-access-panel-introduction.md).
 
-## <a name="office-365-application-launcher"></a>Uruchamianie aplikacji usługi Office 365
+## <a name="office-365-application-launcher"></a>Uruchamianie aplikacji pakietu Office 365
 
-W przypadku organizacji, które wdrożyły usługę Office 365, aplikacje przypisane użytkownikom za pośrednictwem [https://portal.office.com/myapps](https://portal.office.com/myapps)usługi Azure AD będą również wyświetlane w portalu usługi Office 365 pod adresem . Ułatwia to użytkownikom w organizacji uruchamianie aplikacji bez konieczności korzystania z drugiego portalu i jest zalecanym rozwiązaniem do uruchamiania aplikacji dla organizacji korzystających z usługi Office 365.
+W przypadku organizacji z wdrożonym pakietem Office 365 aplikacje przypisane do użytkowników za pomocą usługi Azure AD będą również widoczne w portalu [https://portal.office.com/myapps](https://portal.office.com/myapps)pakietu Office 365 pod adresem. Dzięki temu użytkownicy w organizacji mogą korzystać z aplikacji bez konieczności korzystania z drugiego portalu i są zalecanym rozwiązaniem do uruchamiania aplikacji dla organizacji korzystających z pakietu Office 365.
 
-![Zrzut ekranu przedstawiający portal usługi Office 365](./media/end-user-experiences/microsoft-365-portal-office-com.png)
+![Zrzut ekranu przedstawia Portal pakietu Office 365](./media/end-user-experiences/microsoft-365-portal-office-com.png)
 
-Aby uzyskać więcej informacji na temat uruchamiania aplikacji usługi Office 365, zobacz [Wyświetlanie aplikacji w witrynie Uruchamianie aplikacji usługi Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
+Aby uzyskać więcej informacji na temat uruchamiania aplikacji pakietu Office 365, zobacz temat Wyświetlanie [aplikacji w programie uruchamiania aplikacji pakietu office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
 ## <a name="direct-sign-on-to-federated-apps"></a>Bezpośrednie logowanie do aplikacji federacyjnych
 
-Większość aplikacji federacyjnych, które obsługują SAML 2.0, Federacja WS lub OpenID połączyć również obsługiwać możliwość dla użytkowników, aby rozpocząć w aplikacji, a następnie zalogować się za pośrednictwem usługi Azure AD albo przez automatyczne przekierowanie lub klikając łącze, aby zalogować się. Jest to znane jako dostawcy usług zainicjowane logowania i większość aplikacji federacyjnych w galerii aplikacji usługi Azure AD obsługuje to (zobacz dokumentację połączoną z kreatora konfiguracji logowania jednokrotnego aplikacji w witrynie Azure portal, aby uzyskać szczegółowe informacje).
+Większość aplikacji federacyjnych, które obsługują protokół SAML 2,0, WS-Federation lub OpenID Connect, również umożliwia użytkownikom uruchamianie w aplikacji, a następnie logowanie za pomocą usługi Azure AD odbywa się przez automatyczne przekierowanie lub przez kliknięcie linku do logowania. Jest to nazywane logowaniem zainicjowanym przez dostawcę usługi i większość aplikacji federacyjnych w galerii aplikacji usługi Azure AD obsługuje tę funkcję (zobacz dokumentację połączoną z kreatorem konfiguracji logowania jednokrotnego aplikacji w Azure Portal, aby uzyskać szczegółowe informacje).
 
 ![Przykład strony logowania do aplikacji mobilnej](./media/end-user-experiences/workdaymobile.png)
 
-## <a name="direct-sign-on-links"></a>Bezpośrednie łącza logowania
+## <a name="direct-sign-on-links"></a>Linki bezpośrednie logowania
 
-Usługa Azure AD obsługuje również bezpośrednie łącza logowania jednokrotnego do poszczególnych aplikacji, które obsługują logowanie jednoobrałowe oparte na hasłach, połączone logowanie jednokrotne i dowolną formę rejestracji sfederowanej logowania jednokrotnego.
+Usługa Azure AD obsługuje także bezpośrednie łącza do poszczególnych aplikacji, które obsługują Logowanie jednokrotne oparte na hasłach, połączone Logowanie jednokrotne i dowolną formę federacyjnego logowania jednokrotnego.
 
-Te łącza są specjalnie spreparowane adresy URL, które wysyłają użytkownika za pośrednictwem procesu logowania usługi Azure AD dla określonej aplikacji bez konieczności uruchamiania ich przez użytkownika z panelu dostępu usługi Azure AD lub usługi Office 365. Te **adresy URL dostępu użytkowników** można znaleźć pod właściwościami dostępnych aplikacji dla przedsiębiorstw. W witrynie Azure portal wybierz pozycję **Aplikacje usługi Azure Active Directory** > **Enterprise**. Wybierz aplikację, a następnie wybierz pozycję **Właściwości**.
+Te linki są specjalnie spreparowanymi adresami URL, które wysyłają użytkownika przez proces logowania do usługi Azure AD dla określonej aplikacji bez konieczności uruchamiania ich przez użytkownika z poziomu panelu dostępu usługi Azure AD lub pakietu Office 365. Te **adresy URL dostępu użytkowników** można znaleźć w obszarze właściwości dostępnych aplikacji dla przedsiębiorstw. W Azure Portal wybierz pozycję **Azure Active Directory** > **aplikacje dla przedsiębiorstw**. Wybierz aplikację, a następnie wybierz pozycję **Właściwości**.
 
-![Przykład adresu URL dostępu użytkownika we właściwościach Twittera](media/end-user-experiences/direct-sign-on-link.png)
+![Przykład adresu URL dostępu użytkownika we właściwościach usługi Twitter](media/end-user-experiences/direct-sign-on-link.png)
 
-Te łącza można kopiować i wklejać w dowolnym miejscu, w dowolnym miejscu, w dowolnym miejscu, aby podać łącze logowania do wybranej aplikacji. Może to być w wiadomości e-mail lub w dowolnym niestandardowym portalu sieci web, który został skonfigurowany do dostępu do aplikacji użytkownika. Oto przykład bezpośredniego adresu URL logowania jednokrotnego usługi Azure AD dla Twittera:
+Te linki można kopiować i wklejać wszędzie tam, gdzie chcesz udostępnić link logowania do wybranej aplikacji. Może to być w wiadomości e-mail lub w dowolnym niestandardowym portalu opartym na sieci Web skonfigurowanym do uzyskiwania dostępu do aplikacji użytkownika. Oto przykład adresu URL logowania jednokrotnego w usłudze Azure AD dla usługi Twitter:
 
 `https://myapps.microsoft.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
 
-Podobnie jak w przypadku adresów URL specyficznych dla organizacji w panelu dostępu, można dodatkowo dostosować ten adres URL, dodając jedną z aktywnych lub zweryfikowanych domen dla katalogu po myapps.microsoft.com domenie. Dzięki temu wszelkie znaki firmowe są ładowane natychmiast na stronie logowania bez konieczności wprowadzania identyfikatora użytkownika:
+Podobnie jak w przypadku adresów URL specyficznych dla organizacji dla panelu dostępu można jeszcze bardziej dostosować ten adres URL, dodając jedną z aktywnych lub zweryfikowanych domen dla katalogu po domenie myapps.microsoft.com. Gwarantuje to, że każde oznakowanie organizacyjne zostanie załadowane natychmiast na stronie logowania bez konieczności wprowadzania identyfikatora użytkownika jako pierwszej:
 
 `https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
 
-Gdy autoryzowany użytkownik kliknie jedno z tych łączy specyficznych dla aplikacji, najpierw zobaczy swoją stronę logowania organizacyjnego (przy założeniu, że nie jest jeszcze zalogowany), a po zalogowaniu się zostanie przekierowany do aplikacji bez uprzedniego zatrzymania się w panelu dostępu. Jeśli użytkownik nie ma wymagań wstępnych, aby uzyskać dostęp do aplikacji, takich jak rozszerzenie przeglądarki logowania jednokrotnego oparte na hasłach, łącze wyświetli monit o zainstalowanie brakującego rozszerzenia. Adres URL łącza również pozostaje stała, jeśli zmieni się konfiguracja logowania jednokrotnego dla aplikacji.
+Gdy autoryzowany użytkownik kliknie jedno z tych linków specyficznych dla aplikacji, po raz pierwszy zobaczy swoją organizacyjną stronę logowania (przy założeniu, że nie są jeszcze zarejestrowani), a po zalogowaniu się do swojej aplikacji nie Zatrzymaj się najpierw na panelu dostępu. Jeśli użytkownik nie ma wymagań wstępnych, aby uzyskać dostęp do aplikacji, na przykład rozszerzenie przeglądarki jednokrotnego podpisywania opartego na hasłach, wówczas zostanie wyświetlony monit o zainstalowanie brakującego rozszerzenia. Adres URL linku pozostaje również stały, jeśli konfiguracja logowania jednokrotnego dla aplikacji zostanie zmieniona.
 
-Te łącza używają tych samych mechanizmów kontroli dostępu co panel dostępu i usługi Office 365 i tylko ci użytkownicy lub grupy, którzy zostali przypisani do aplikacji w witrynie Azure portal, będą mogli pomyślnie uwierzytelnić się. Jednak każdy użytkownik, który jest nieautoryzowany, zobaczy komunikat wyjaśniający, że nie przyznano im dostępu i otrzyma łącze do załadowania panelu dostępu, aby wyświetlić dostępne aplikacje, do których ma dostęp.
+Te linki korzystają z tych samych mechanizmów kontroli dostępu jak panel dostępu i pakiet Office 365, a tylko Ci użytkownicy lub grupy, którzy zostali przypisani do aplikacji w Azure Portal będą mogli pomyślnie uwierzytelnić się. Jednak każdy użytkownik, który nie ma autoryzacji, zobaczy komunikat z informacją, że nie udzielono dostępu i ma link umożliwiający załadowanie panelu dostępu w celu wyświetlenia dostępnych aplikacji, do których mają dostęp.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zapoznać się z planami wdrażania, zobacz [Plany wdrażania usługi Azure Active Directory](../fundamentals/active-directory-deployment-plans.md)
+W przypadku planów wdrażania zobacz [Azure Active Directory plany wdrożenia](../fundamentals/active-directory-deployment-plans.md)

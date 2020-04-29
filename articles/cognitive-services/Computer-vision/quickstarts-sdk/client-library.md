@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: biblioteka klientów Computer Vision | Dokumenty firmy Microsoft'
+title: 'Szybki Start: przetwarzanie obrazówa Biblioteka kliencka | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: Ten przewodnik Szybki start umożliwia połączenie aplikacji z interfejsem API przetwarzania obrazów komputera z usługi Azure Cognitive Services.
+description: Skorzystaj z tego przewodnika Szybki Start, aby połączyć aplikacje z interfejs API przetwarzania obrazów z poziomu platformy Azure Cognitive Services.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,20 +12,20 @@ ms.date: 03/12/2020
 ms.author: pafarley
 zone_pivot_groups: programming-languages-set-one
 ms.openlocfilehash: 4ac9f4bcaed5400846bf94f7db6ea6c143c101d6
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80136028"
 ---
-# <a name="quickstart-use-the-computer-vision-client-library"></a>Szybki start: korzystanie z biblioteki klienta przetwarzania
+# <a name="quickstart-use-the-computer-vision-client-library"></a>Szybki Start: korzystanie z biblioteki klienta przetwarzanie obrazów
 
-Wprowadzenie do biblioteki klienta usługi Computer Vision. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Computer Vision zapewnia dostęp do zaawansowanych algorytmów przetwarzania obrazów i zwracanych informacji
+Rozpocznij pracę z biblioteką klienta przetwarzanie obrazów. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. przetwarzanie obrazów zapewnia dostęp do zaawansowanych algorytmów przetwarzania obrazów i zwracania informacji
 
-Biblioteka klienta przetwarzania obrazów umożliwia:
+Użyj biblioteki klienta przetwarzanie obrazów, aby:
 
-* Analizowanie obrazu pod kątem znaczników, opisu tekstu, twarzy, treści dla dorosłych i innych obrażeń.
-* Rozpoznawanie drukowanego i odręcznego tekstu za pomocą interfejsu API odczytu wsadowego.
+* Analizuj obraz pod kątem tagów, opisu tekstu, twarzy, treści dla dorosłych itd.
+* Rozpoznawanie wydrukowanych i odręcznych tekstu za pomocą interfejsu API odczytu usługi Batch.
 
 ::: zone pivot="programming-language-csharp"
 
