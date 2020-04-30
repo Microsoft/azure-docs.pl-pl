@@ -12,19 +12,19 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/14/2020
-ms.openlocfilehash: 2564fd0ffd980dae4ca1835f4211fee0a0cf040c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 1fedf889fa8d39a926067eb227b895d4fe1e3c39
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380932"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509350"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Zarządzanie długoterminowym przechowywaniem kopii zapasowych Azure SQL Database
 
 W Azure SQL Database można skonfigurować jedną lub bazę danych w puli z [długoterminowymi zasadami przechowywania kopii zapasowych](sql-database-long-term-retention.md) (LTR), aby automatycznie zachować kopie zapasowe bazy danych w oddzielnych kontenerach usługi Azure Blob Storage przez maksymalnie 10 lat. Następnie można odzyskać bazę danych przy użyciu tych kopii zapasowych przy użyciu Azure Portal lub programu PowerShell.
 
 > [!IMPORTANT]
-> [Wystąpienie zarządzane usługi Azure SQL Database](sql-database-managed-instance.md) nie obsługuje obecnie długoterminowego przechowywania kopii zapasowych.
+> W przypadku wystąpienia zarządzanego usługi Azure SQL Database zapoznaj się z [obsługą instrukcji ltr dla wystąpienia zarządzanego](sql-database-long-term-retention.md#managed-instance-support).
 
 ## <a name="using-azure-portal"></a>Korzystanie z witryny Azure Portal
 

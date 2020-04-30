@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
-ms.openlocfilehash: 53d8da3f5ff715fa34f007272214823ed60e6326
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c0e95b71ec21b384f17a44ebf5cfd4f33b45f0f
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192063"
+ms.locfileid: "82232857"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Zarządzanie klastrami HDInsight przy użyciu internetowego interfejsu użytkownika systemu Apache Ambari
 
@@ -135,7 +135,7 @@ Wybranie dowolnego z tych linków spowoduje otwarcie nowej karty w przeglądarce
 
 ### <a name="ambari-users-groups-and-permissions"></a>Ambari użytkownicy, grupy i uprawnienia
 
-Praca z użytkownikami, grupami i uprawnieniami jest obsługiwana w przypadku korzystania z klastra usługi HDInsight przyłączonego do domeny. Aby uzyskać informacje na temat korzystania z interfejsu użytkownika zarządzania Ambari w klastrze przyłączonym do domeny, zobacz [Zarządzanie przyłączonymi do domeny klastrami usługi HDInsight](./domain-joined/hdinsight-security-overview.md).
+Obsługa użytkowników, grup i uprawnień jest obsługiwana. Aby uzyskać administrację lokalną, zobacz [Autoryzowanie użytkowników na potrzeby widoków Apache Ambari](./hdinsight-authorize-users-to-ambari.md). W przypadku klastrów przyłączonych do domeny Zobacz [Zarządzanie przyłączonymi do domeny klastrami usługi HDInsight](./domain-joined/hdinsight-security-overview.md).
 
 > [!WARNING]  
 > Nie należy zmieniać hasła licznika Ambari (hdinsightwatchdog) w klastrze usługi HDInsight opartym na systemie Linux. Zmiana hasła zrywa możliwość korzystania z akcji skryptu lub wykonywania operacji skalowania w klastrze.

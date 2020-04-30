@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
-ms.date: 02/12/2020
-ms.openlocfilehash: 6bba71ab35920027cc7296e774936c3d1deb8f92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.date: 04/10/2020
+ms.openlocfilehash: ed2fe1736c887fd8aa866c8d0c71a5df0aa4fb31
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770315"
+ms.locfileid: "82232840"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Konfigurowanie klastrów w usłudze HDInsight przy użyciu technologii Apache Hadoop, Apache Spark, Apache Kafka i innych
 
@@ -128,6 +128,9 @@ Aby uzyskać więcej informacji na temat opcji magazynu w usłudze HDInsight, zo
 Podczas konfiguracji dla domyślnego punktu końcowego magazynu należy określić kontener obiektów BLOB dla konta usługi Azure Storage lub Data Lake Storage. Domyślny magazyn zawiera Dzienniki aplikacji i systemu. Opcjonalnie można określić dodatkowe połączone konta usługi Azure Storage i konta Data Lake Storage, do których może uzyskać dostęp klaster. Klaster usługi HDInsight i zależne konta magazynu muszą znajdować się w tej samej lokalizacji platformy Azure.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+
+> [!IMPORTANT]
+> Włączenie bezpiecznego transferu magazynu po utworzeniu klastra może spowodować błędy przy użyciu konta magazynu i nie jest to zalecane. Lepszym rozwiązaniem jest utworzenie nowego klastra przy użyciu konta magazynu z już włączonym bezpiecznym transferem.
 
 ### <a name="metastore-settings"></a>Ustawienia magazynu metadanych
 

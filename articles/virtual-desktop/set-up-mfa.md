@@ -1,21 +1,21 @@
 ---
-title: Konfigurowanie usługi Azure MFA Authentication dla pulpitu wirtualnego systemu Windows — Azure
-description: Jak skonfigurować usługę Azure MFA Authentication w celu zwiększenia bezpieczeństwa na pulpicie wirtualnym systemu Windows.
+title: Konfigurowanie usługi Azure Multi-Factor Authentication dla pulpitu wirtualnego systemu Windows — Azure
+description: Jak skonfigurować usługę Azure Multi-Factor Authentication w celu zwiększenia bezpieczeństwa na pulpicie wirtualnym systemu Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b470f9278bdca94d1fe98c64b11b070fb36cb075
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 069d2a153e307ed94032ce1d980f26521969fc56
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80998476"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508347"
 ---
-# <a name="set-up-azure-multi-factor-authentication"></a>Konfiguracja usługi Azure Multi-Factor Authentication
+# <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Włączanie usługi Azure Multi-Factor Authentication dla pulpitu wirtualnego systemu Windows
 
 Klient systemu Windows dla pulpitu wirtualnego systemu Windows jest doskonałym rozwiązaniem do integrowania pulpitu wirtualnego systemu Windows z maszyną lokalną. Jednak podczas konfigurowania konta pulpitu wirtualnego systemu Windows na kliencie systemu Windows istnieją pewne miary, które należy podjąć, aby zapewnić sobie bezpieczeństwo i użytkowników.
 
@@ -27,71 +27,34 @@ Zapamiętanie poświadczeń jest wygodne, ale może również sprawić, że wdro
 
 Oto co należy zrobić:
 
-- Przypisz wszystkich użytkowników jedną z następujących licencji:
-  - Microsoft 365 E3 lub E5
-  - Azure Active Directory — wersja Premium P1 lub P2
-  - Enterprise Mobility + Security E3 lub E5
+- Przypisz użytkownikom licencję obejmującą Azure Active Directory — wersja Premium P1 lub P2.
 - Grupa Azure Active Directory z użytkownikami przypisanymi jako członkowie grupy.
 - Włącz usługę Azure MFA dla wszystkich użytkowników. Aby uzyskać więcej informacji o tym, jak to zrobić, zobacz [temat jak wymagać weryfikacji dwuetapowej dla użytkownika](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user).
 
->[!NOTE]
->Poniższe ustawienie dotyczy również [klienta sieci Web pulpitu wirtualnego systemu Windows](https://rdweb.wvd.microsoft.com/webclient/index.html).
+> [!NOTE]
+> Poniższe ustawienie dotyczy również [klienta sieci Web pulpitu wirtualnego systemu Windows](https://rdweb.wvd.microsoft.com/webclient/index.html).
 
-## <a name="opt-in-to-the-conditional-access-policy"></a>Zgoda na zasady dostępu warunkowego
+## <a name="create-a-conditional-access-policy"></a>Tworzenie zasad dostępu warunkowego
 
-1. Otwórz **Azure Active Directory**.
+W tej sekcji przedstawiono sposób tworzenia zasad dostępu warunkowego, które wymagają uwierzytelniania wieloskładnikowego podczas nawiązywania połączenia z pulpitem wirtualnym systemu Windows.
 
-2. Przejdź do karty **wszystkie aplikacje** . Z menu rozwijanego "typ aplikacji" Wybierz opcję **aplikacje przedsiębiorstwa**, a następnie wyszukaj pozycję **Klient pulpitu wirtualnego systemu Windows**.
+1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
+1. Przejdź do **Azure Active Directory** > **Security** > **dostępu warunkowego**zabezpieczeń.
+1. Wybierz pozycję **nowe zasady**.
+1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
+1. W obszarze **Przypisania** wybierz pozycję **Użytkownicy i grupy**.
+   1. W obszarze **dołączanie**wybierz pozycję **Wybierz użytkowników i grupy** > **Użytkownicy i grupy** > wybierz grupę utworzoną na etapie wymagania wstępne.
+   1. Wybierz pozycję **Gotowe**.
+1. W obszarze **aplikacje w chmurze lub akcje** > **Dołącz**wybierz pozycję **Wybierz aplikacje**.
+   1. Wybierz pozycję **pulpit wirtualny systemu** Windows i **Klient pulpitu wirtualnego systemu Windows**, a następnie wybierz pozycję **Wybierz** **gotowe**.
+   ![Zrzut ekranu strony aplikacji w chmurze lub akcji. Pulpity wirtualne systemu Windows i aplikacje klienckie pulpitu wirtualnego systemu Windows są wyróżnione kolorem czerwonym.](media/cloud-apps-enterprise-selected.png)
+1. W **obszarze kontrola** > dostępu**przyznawanie**wybierz pozycję **Udziel dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie **Wybierz opcję**.
+1. W obszarze > **sesja** **kontroli dostępu**wybierz **pozycję częstotliwość logowania**, ustaw wartość **1** i jednostkę na **godziny**, a następnie **Wybierz pozycję**.
+1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
+1. Wybierz pozycję **Utwórz** , aby włączyć zasady.
 
-    ![Zrzut ekranu przedstawiający kartę wszystkie aplikacje. Użytkownik wprowadził "klienta pulpitu wirtualnego systemu Windows" na pasku wyszukiwania, a aplikacja jest wyświetlana w wynikach wyszukiwania.](media/all-applications-search.png)
+## <a name="next-steps"></a>Następne kroki
 
-3. Wybierz pozycję **dostęp warunkowy**.
+- [Dowiedz się więcej o zasadach dostępu warunkowego](../active-directory/conditional-access/concept-conditional-access-policies.md)
 
-    ![Zrzut ekranu przedstawiający umieszczenie kursora myszy na karcie dostęp warunkowy przez użytkownika.](media/conditional-access-location.png)
-
-4. Wybierz pozycję **+ nowe zasady**.
-
-   ![Zrzut ekranu strony dostępu warunkowego. Użytkownik przesuwa wskaźnik myszy nad przyciskiem nowe zasady.](media/new-policy-button.png)
-
-5. Wprowadź **nazwę** **reguły**, a następnie **Wybierz** nazwę **grupy** , która została utworzona w sekcji wymagania wstępne.
-
-6. Wybierz pozycję **Wybierz**, a następnie wybierz pozycję **gotowe**.
-
-7. Następnie otwórz **aplikacje lub akcje w chmurze**.
-
-8. Na panelu **Wybierz** wybierz aplikację Enterprise Desktop dla przedsiębiorstw **systemu Windows** .
-
-    ![Zrzut ekranu strony aplikacji w chmurze lub akcji. Użytkownik wybrał aplikację pulpitu wirtualnego systemu Windows, zaznaczając obok niej znacznik wyboru. Wybrana aplikacja zostanie wyróżniona kolorem czerwonym.](media/cloud-apps-select.png)
-    
-    >[!NOTE]
-    >Po lewej stronie ekranu powinna zostać wyświetlona również aplikacja klienta pulpitu wirtualnego systemu Windows, jak pokazano na poniższej ilustracji. Aby zasady działały, potrzebne są zarówno aplikacje pulpitu wirtualnego systemu Windows, jak i klienta pulpitu wirtualnego systemu Windows.
-    >
-    > ![Zrzut ekranu strony aplikacji w chmurze lub akcji. Pulpity wirtualne systemu Windows i aplikacje klienckie pulpitu wirtualnego systemu Windows są wyróżnione kolorem czerwonym.](media/cloud-apps-enterprise-selected.png)
-
-9. Wybierz pozycję **Wybierz**
-
-10. Następnie **Otwórz** przystawkę 
-
-11. Wybierz pozycję **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie wybierz pozycję **Wymagaj jednej z wybranych kontrolek**.
-   
-    ![Zrzut ekranu strony dotacji. Wybrano "Wymagaj uwierzytelniania wieloskładnikowego".](media/grant-page.png)
-
-    >[!NOTE]
-    >Jeśli w organizacji znajdują się urządzenia zarejestrowane w usłudze MDM i nie chcesz, aby były wyświetlane monity usługi MFA, możesz również wybrać opcję **Wymagaj, aby urządzenie było oznaczone jako zgodne**.
-
-12. Wybierz **sesję**.
-
-13. Ustaw **częstotliwość logowania** na **aktywną**, a następnie zmień jej wartość na **1 godzinę**.
-
-    ![Zrzut ekranu strony sesji. Menu sesji zawiera menu rozwijane częstotliwości logowania zostały zmienione na wartość "1" i "godziny".](media/sign-in-frequency.png)
-   
-    >[!NOTE]
-    >Aktywne sesje w środowisku pulpitu wirtualnego systemu Windows będą nadal działały po zmianie zasad. Jeśli jednak nastąpi odłączenie lub wylogowanie, musisz podać swoje poświadczenia ponownie po 60 minutach. Podczas zmieniania ustawień można przedłużyć limit czasu (o ile jest on wyrównany do zasad zabezpieczeń organizacji).
-    >
-    >Ustawieniem domyślnym jest stopniowe okno z 90 dni, co oznacza, że klient zostanie poproszony o ponowne zalogowanie się, gdy spróbujesz uzyskać dostęp do zasobu po wystąpieniu nieaktywności na komputerze przez 90 dni lub dłużej.
-
-14. Włącz zasady.
-
-15. Wybierz pozycję **Utwórz** , aby potwierdzić zasady.
-
-Wszystko gotowe! Przetestuj zasady, aby upewnić się, że lista dozwolonych działa zgodnie z oczekiwaniami.
+- [Dowiedz się więcej o częstotliwości logowania użytkownika](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md#user-sign-in-frequency)

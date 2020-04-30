@@ -5,14 +5,14 @@ keywords: app service, azure app service, mapowanie domeny, nazwa domeny, istnie
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/06/2019
+ms.date: 04/27/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: adc9b60ce1c31076a91ec44b9656752b464e024d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: 116ec218b1f3947b85b4ab865df30477f05c601a
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "80811784"
+ms.locfileid: "82559891"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Samouczek: mapowanie istniejącej niestandardowej nazwy DNS na Azure App Service
 
@@ -93,6 +93,12 @@ Wyświetlenie następującego powiadomienia oznacza zakończenie operacji skalow
 
 <a name="cname" aria-hidden="true"></a>
 
+## <a name="get-domain-verification-id"></a>Pobierz identyfikator weryfikacji domeny
+
+Aby dodać domenę niestandardową do aplikacji, musisz zweryfikować własność domeny, dodając identyfikator weryfikacyjny jako rekord TXT z dostawcą domeny. W lewym panelu nawigacyjnym strony aplikacji kliknij pozycję **Eksplorator zasobów** w obszarze **Narzędzia deweloperskie**, a następnie kliknij pozycję **Przejdź**.
+
+W widoku JSON właściwości aplikacji Wyszukaj `customDomainVerificationId`i skopiuj jej wartość wewnątrz podwójnych cudzysłowów. Ten identyfikator weryfikacyjny jest potrzebny do następnego kroku.
+
 ## <a name="map-your-domain"></a>Mapowanie domeny
 
 Do mapowania niestandardowej nazwy DNS na usługę App Service możesz użyć **rekordu CNAME** lub **rekordu A**. Postępuj zgodnie z odpowiednimi instrukcjami:
@@ -114,11 +120,14 @@ W przykładzie znajdującym się w tym samouczku dodasz rekord CNAME dla poddome
 
 #### <a name="create-the-cname-record"></a>Tworzenie rekordu CNAME
 
-Dodaj rekord CNAME, aby zmapować poddomenę na domyślną nazwę domeny aplikacji (`<app_name>.azurewebsites.net`gdzie `<app_name>` jest nazwą aplikacji).
+Zamapuj poddomenę na domyślną nazwę domeny aplikacji (`<app_name>.azurewebsites.net`gdzie `<app_name>` jest nazwą aplikacji). Aby utworzyć mapowanie CNAME dla `www` domeny podrzędnej, Utwórz dwa rekordy:
 
-W przypadku przykładowej domeny `www.contoso.com` dodaj rekord CNAME, który zmapuje nazwę `www` na `<app_name>.azurewebsites.net`.
+| Typ rekordu | Host | Wartość | Komentarze |
+| - | - | - |
+| CNAME | `www` | `<app_name>.azurewebsites.net` | Mapowanie domeny. |
+| TXT | `asuid.www` | [Wcześniej identyfikator weryfikacyjny](#get-domain-verification-id) | App Service uzyskuje dostęp `asuid.<subdomain>` do rekordu TXT w celu zweryfikowania własności domeny niestandardowej. |
 
-Po dodaniu tego rekordu CNAME strona rekordów DNS wygląda podobnie jak w następującym przykładzie:
+Po dodaniu rekordów CNAME i TXT Strona rekordów DNS wygląda następująco:
 
 ![Nawigacja w portalu do aplikacji platformy Azure](./media/app-service-web-tutorial-custom-domain/cname-record.png)
 
@@ -183,17 +192,12 @@ Na stronie **Domeny niestandardowe** skopiuj adres IP aplikacji.
 
 #### <a name="create-the-a-record"></a>Tworzenie rekordu A
 
-Aby móc zmapować rekord A na aplikację, usługa App Service wymaga **dwóch** rekordów DNS:
+Aby zmapować Rekord A do aplikacji, zwykle do domeny głównej, Utwórz dwa rekordy:
 
-- Rekord **A** do zmapowania adresu IP aplikacji.
-- Rekord **txt** do zmapowania do domyślnej nazwy `<app_name>.azurewebsites.net`domeny aplikacji. Usługa App Service używa tego rekordu tylko podczas konfiguracji, aby sprawdzić, czy jesteś właścicielem domeny niestandardowej. Po zweryfikowaniu i skonfigurowaniu domeny niestandardowej w usłudze App Service możesz usunąć ten rekord TXT.
-
-Dla przykładowej domeny `contoso.com` utwórz rekordy A i TXT zgodnie z wartościami z poniższej tabeli (`@` zazwyczaj reprezentuje domenę katalogu głównego).
-
-| Typ rekordu | Host | Wartość |
+| Typ rekordu | Host | Wartość | Komentarze |
 | - | - | - |
-| A | `@` | Adres IP z sekcji [Kopiowanie adresu IP aplikacji](#info) |
-| TXT | `@` | `<app_name>.azurewebsites.net` |
+| A | `@` | Adres IP z sekcji [Kopiowanie adresu IP aplikacji](#info) | Samo mapowanie domeny (`@` zazwyczaj reprezentuje domenę główną). |
+| TXT | `asuid` | [Wcześniej identyfikator weryfikacyjny](#get-domain-verification-id) | App Service uzyskuje dostęp `asuid.<subdomain>` do rekordu TXT w celu zweryfikowania własności domeny niestandardowej. W przypadku domeny głównej Użyj `asuid`. |
 
 > [!NOTE]
 > Aby dodać poddomeny (takie jak `www.contoso.com`) przy użyciu rekordu A zamiast zalecanego [rekordu CNAME](#map-a-cname-record), Twój rekord A i rekord TXT powinny zamiast tego wyglądać podobnie jak w poniższej tabeli:
@@ -201,7 +205,7 @@ Dla przykładowej domeny `contoso.com` utwórz rekordy A i TXT zgodnie z wartoś
 > | Typ rekordu | Host | Wartość |
 > | - | - | - |
 > | A | `www` | Adres IP z sekcji [Kopiowanie adresu IP aplikacji](#info) |
-> | TXT | `www` | `<app_name>.azurewebsites.net` |
+> | TXT | `asuid.www` | `<app_name>.azurewebsites.net` |
 >
 
 Po dodaniu tych rekordów strona rekordów DNS wygląda podobnie jak w następującym przykładzie:

@@ -1,20 +1,22 @@
 ---
-title: Konwertuj kod eksperymentu uczenia maszynowego na kod produkcyjny
+title: Konwertowanie kodu notesu na skrypty języka Python
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak przekonwertować kod eksperymentalny uczenia maszynowego na kod produkcyjny przy użyciu szablonu kodu MLOpsPython.
+description: Przekształcenie eksperymentalnych notesów uczenia maszynowego do kodu gotowego do produkcji przy użyciu szablonu kodu MLOpsPython. Następnie można testować, wdrażać i automatyzować ten kod.
 author: bjcmit
 ms.author: brysmith
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 03/13/2020
-ms.openlocfilehash: e3c9b16ae3d2b06ec19ecd29d15762a065c0c1ae
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/30/2020
+ms.openlocfilehash: a0b66f233de9e1bfdc6d011b65489884a1049a12
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80521440"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559664"
 ---
-# <a name="tutorial-convert-ml-experimental-code-to-production-code"></a>Samouczek: konwertowanie eksperymentalnego kodu ML na kod produkcyjny
+# <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Samouczek: konwertowanie eksperymentów ML do kodu w języku Python produkcji
+
+W tym samouczku dowiesz się, jak konwertować notesy Juptyer na skrypty języka Python, aby zapewnić ich testowanie i automatyzację przy użyciu szablonu kodu MLOpsPython i Azure Machine Learning. Zazwyczaj ten proces służy do podejmowania eksperymentów/kodu szkoleniowego z notesu Juptyer i konwertowania go na skrypty języka Python. Te skrypty mogą następnie służyć do testowania i automatyzacji ciągłej integracji/ciągłego wdrażania w środowisku produkcyjnym. 
 
 Projekt uczenia maszynowego wymaga eksperymentu, w którym są testowane z użyciem narzędzi agile, takich jak Jupyter Notebook przy użyciu rzeczywistych zestawów danych. Gdy model jest gotowy do produkcji, kod modelu powinien być umieszczony w repozytorium kodu produkcyjnego. W niektórych przypadkach kod modelu musi być konwertowany do skryptów języka Python, które mają zostać umieszczone w repozytorium kodu produkcyjnego. Ten samouczek obejmuje zalecane podejście do eksportowania kodu eksperymentu do skryptów języka Python.
 

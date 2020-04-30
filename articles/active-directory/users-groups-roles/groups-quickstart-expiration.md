@@ -1,5 +1,5 @@
 ---
-title: Szybki start zasad wygasania grup — usługa Azure AD | Dokumenty firmy Microsoft
+title: Przewodnik Szybki Start dotyczący zasad wygasania grup — Azure AD | Microsoft Docs
 description: Wygasanie grup usługi Office 365 — Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 11/08/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16b6e4f521568c89e415e6e9fa621175052cf34d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 616910eda33b3ddc49fa6233ccb3989c5e4214e2
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74026895"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582849"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Szybki start: konfigurowanie wygasania grup usługi Office 365 w usłudze Azure Active Directory
 
@@ -27,23 +27,23 @@ W tym przewodniku Szybki start ustawisz zasady wygasania grup usługi Office 365
 
 Zasady wygasania są proste:
 
-- Grupy z działaniami użytkowników są automatycznie odnawiane w miarę zbliżania się wygaśnięcia
+- Grupy z działaniami użytkownika są automatycznie odnawiane jako zbliżające się czas wygaśnięcia
 - Właściciele grupy są powiadamiani o konieczności odnowienia wygasającej grupy
 - Grupa, która nie zostanie odnowiona, zostanie usunięta
 - Usunięta grupa usługi Office 365 może zostać przywrócona w ciągu 30 dni przez właściciela grupy lub administratora usługi Azure AD
 
 > [!NOTE]
-> Grupy używają teraz analizy usługi Azure AD do automatycznego odnawiania na podstawie tego, czy były używane w ostatnim czasie. Ta decyzja o odnowieniu jest oparta na aktywności użytkowników w grupach w usługach Office 365, takich jak Outlook, SharePoint, Teams, Yammer i innych.
+> Grupy teraz używają usługi Azure AD Intelligence do automatycznego odnawiania w zależności od tego, czy zostały one ostatnio użyte. Ta decyzja o odnowieniu jest oparta na aktywności użytkownika w grupach w ramach usług Office 365, takich jak Outlook, SharePoint, Teams, Yammer i inne.
 
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisite"></a>Wymagania wstępne
 
- Najmniej uprzywilejowaną rolą wymaganą do skonfigurowania wygaśnięcia grupy jest administrator użytkownika w organizacji.
+ Rola najniższych uprawnień wymagana do skonfigurowania wygaśnięcia grupy jest administratorem użytkownika w organizacji.
 
 ## <a name="turn-on-user-creation-for-groups"></a>Włączanie tworzenia grup przez użytkowników
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) przy za pomocą konta administratora użytkownika.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta administratora użytkowników.
 
 2. Wybierz pozycję **Grupy**, a następnie wybierz pozycję **Ogólne**.
   
@@ -55,9 +55,9 @@ Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://
 
 ## <a name="set-group-expiration"></a>Ustawianie czasu wygaśnięcia grup
 
-1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com), wybierz**opcję Wygasanie** **grup** >  **usługi Azure Active Directory,** > aby otworzyć ustawienia wygaśnięcia.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com), wybierz pozycję **Azure Active Directory** > **grupy** > **wygaśnięcia** , aby otworzyć ustawienia wygasania.
   
-   ![Strona ustawień wygaśnięcia dla grupy](./media/groups-quickstart-expiration/expiration-settings.png)
+   ![Strona ustawień wygasania dla grupy](./media/groups-quickstart-expiration/expiration-settings.png)
 
 2. Ustaw interwał wygasania. Wybierz wstępnie zdefiniowaną wartość lub wprowadź niestandardową wartość większą niż 31 dni. 
 
@@ -73,18 +73,18 @@ Gotowe. W tym przewodniku Szybki start pomyślnie ustawiono zasady wygasania dla
 
 ### <a name="to-remove-the-expiration-policy"></a>Aby usunąć zasady wygasania
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu konta administratora globalnego dzierżawy.
-2. Wybierz**wygaśnięcie****grup** >  **usługi Azure Active Directory** > .
+1. Upewnij się, że zalogowano się do [Azure Portal](https://portal.azure.com) przy użyciu konta, które jest administratorem globalnym organizacji usługi Azure AD.
+2. Wybierz pozycję**wygaśnięcie****grup** >  **Azure Active Directory** > .
 3. Ustaw opcję **Włącz wygaśnięcie dla tych grup usługi Office 365** na wartość **Brak**.
 
 ### <a name="to-turn-off-user-creation-for-groups"></a>Aby wyłączyć tworzenie grup przez użytkowników
 
-1. Wybierz pozycję**Grupy** > **ogólne**usługi Azure Active **Directory** > . 
+1. Wybierz pozycję**grupy** >  **Azure Active Directory** > **Ogólne**. 
 2. Ustaw opcję **Użytkownicy mogą tworzyć grupy usługi Office 365 w portalach platformy Azure** na wartość **Nie**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat wygaśnięcia, w tym instrukcje programu PowerShell i ograniczenia techniczne, zobacz następujący artykuł:
+Aby uzyskać więcej informacji na temat wygaśnięcia, w tym instrukcji programu PowerShell i ograniczeń technicznych, zobacz następujący artykuł:
 
 > [!div class="nextstepaction"]
 > [Zasady wygasania programu PowerShell](groups-lifecycle.md)

@@ -1,22 +1,22 @@
 ---
-title: Apache Spark najlepszych praktyk dotyczących usługi Azure HDInsight
-description: Zapoznaj się z najlepszymi rozwiązaniami dotyczącymi używania Apache Spark w usłudze Azure HDInsight.
+title: Wskazówki dotyczące Apache Spark w usłudze Azure HDInsight
+description: Poznaj wskazówki dotyczące używania Apache Spark w usłudze Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 09/18/2019
-ms.openlocfilehash: 20033e52e862f086d1491c06d38cdf4f2c57ba8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 04/28/2020
+ms.openlocfilehash: 424a0cfd02cfce9fb87bc3e21d7b067740df8218
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71106127"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509418"
 ---
-# <a name="apache-spark-best-practices"></a>Apache Spark najlepszych praktyk
+# <a name="apache-spark-guidelines"></a>Wskazówki dotyczące Apache Spark
 
-Ten artykuł zawiera różne najlepsze rozwiązania dotyczące korzystania z Apache Spark w usłudze Azure HDInsight.
+Ten artykuł zawiera różne wskazówki dotyczące używania Apache Spark w usłudze Azure HDInsight.
 
 ## <a name="how-do-i-run-or-submit-spark-jobs"></a>Jak mogę uruchomić lub przesłać zadania platformy Spark?
 
@@ -28,6 +28,10 @@ Ten artykuł zawiera różne najlepsze rozwiązania dotyczące korzystania z Apa
 | IntelliJ | [Samouczek: tworzenie aplikacji Scala Maven dla platformy Apache Spark w usłudze HDInsight przy użyciu środowiska IntelliJ](./apache-spark-create-standalone-application.md) |
 | Notesy Zeppelin | [Korzystanie z notesów Apache Zeppelin z klastrem Apache Spark w usłudze Azure HDInsight](./apache-spark-zeppelin-notebook.md) |
 | Zdalne przesyłanie zadania za pomocą usługi Livy | [Przesyłanie zadań zdalnych do klastra usługi HDInsight Spark przy użyciu interfejsu API REST platformy Apache Spark](./apache-spark-livy-rest-interface.md) |
+|[Apache Oozie](../hdinsight-use-oozie-linux-mac.md)|Oozie to przepływ pracy i system koordynacji, który zarządza zadaniami usługi Hadoop.|
+|[Apache Livy](./apache-spark-livy-rest-interface.md)|Można użyć usługi Livy do uruchamiania interakcyjnych powłok Spark lub przesyłania zadań wsadowych do uruchamiania na platformie Spark.|
+|[Azure Data Factory Apache Spark](/../data-factory/transform-data-using-spark.md)|Działanie platformy Spark w potoku Data Factory wykonuje program platformy Spark we własnym lub [w klastrze usługi HDInsight na żądanie.|
+|[Azure Data Factory Apache Hive](/../data-factory/transform-data-using-hadoop-hive.md)|Działanie programu Hive w usłudze HDInsight w potoku Data Factory wykonuje zapytania Hive w klastrze usługi HDInsight w twoim własnym lub na żądanie.|
 
 ## <a name="how-do-i-monitor-and-debug-spark-jobs"></a>Jak mogę monitorować i debugować zadania platformy Spark?
 

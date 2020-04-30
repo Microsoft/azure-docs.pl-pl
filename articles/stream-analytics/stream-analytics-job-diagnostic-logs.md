@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.openlocfilehash: 40b57af95f9ea4d4212756634c721ddd55f85d7b
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82127749"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Rozwiązywanie problemów z Azure Stream Analytics przy użyciu dzienników zasobów
@@ -63,7 +63,7 @@ Zdecydowanie zaleca się włączenie dzienników zasobów i wysłanie ich do dzi
 
     ![Nawigacja w bloku do dzienników zasobów](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Utwórz **nazwę** w **ustawieniach diagnostycznych** i zaznacz pole wyboru obok pozycji **Wyślij do log Analytics**. Następnie Dodaj istniejący lub Utwórz nowy **obszar roboczy usługi log Analytics**. Zaznacz pola wyboru do **wykonania** i **tworzenia** w obszarze **Dziennik**, a następnie pozycję **AllMetrics** w obszarze **Metryka**. Kliknij pozycję **Zapisz**. Zalecane jest używanie obszaru roboczego Log Analytics w tym samym regionie świadczenia usługi Azure co zadanie Stream Analytics, aby zapobiec dodatkowym kosztom.
+2.  Utwórz **nazwę** w **ustawieniach diagnostycznych** i zaznacz pole wyboru obok pozycji **Wyślij do log Analytics**. Następnie Dodaj istniejący lub Utwórz nowy **obszar roboczy usługi log Analytics**. Zaznacz pola wyboru do **wykonania** i **tworzenia** w obszarze **Dziennik**, a następnie pozycję **AllMetrics** w obszarze **Metryka**. Kliknij przycisk **Zapisz**. Zalecane jest używanie obszaru roboczego Log Analytics w tym samym regionie świadczenia usługi Azure co zadanie Stream Analytics, aby zapobiec dodatkowym kosztom.
 
     ![Ustawienia dzienników zasobów](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
@@ -115,7 +115,7 @@ Każdy błąd, który występuje, gdy zadanie przetwarza dane, jest w tej katego
 Nazwa | Opis
 ------- | -------
 Element źródłowy | Nazwa danych wejściowych lub wyjściowych zadania, w których wystąpił błąd.
-Komunikat | Komunikat skojarzony z błędem.
+Wiadomość | Komunikat skojarzony z błędem.
 Typ | Typ błędu. Na przykład **DataConversionError**, **CsvParserError**lub **ServiceBusPropertyColumnMissingError**.
 Dane | Zawiera dane, które są przydatne do dokładnego lokalizowania źródła błędu. Podlega obcięciu, w zależności od rozmiaru.
 
@@ -135,8 +135,8 @@ Zdarzenia ogólne obejmują wszystko inne.
 
 Nazwa | Opis
 -------- | --------
-Błąd | obowiązkowe Informacje o błędzie. Zazwyczaj są to informacje o wyjątkach, jeśli są dostępne.
-Komunikat| Komunikat dziennika.
+Error | obowiązkowe Informacje o błędzie. Zazwyczaj są to informacje o wyjątkach, jeśli są dostępne.
+Wiadomość| Komunikat dziennika.
 Typ | Typ komunikatu. Mapuje na wewnętrzną kategoryzację błędów. Na przykład **JobValidationError** lub **BlobOutputAdapterInitializationFailure**.
 Identyfikator korelacji | [Identyfikator GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) , który jednoznacznie identyfikuje wykonywanie zadania. Wszystkie wpisy dziennika wykonania od momentu uruchomienia zadania do momentu zatrzymania zadania mają tę samą wartość **identyfikatora korelacji** .
 

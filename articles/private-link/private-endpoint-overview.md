@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
 ms.openlocfilehash: a4117acb2fada5c4422e177e9e6b84d7a0a51b69
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82129318"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Co to jest prywatny punkt końcowy platformy Azure?
@@ -52,7 +52,7 @@ Zasób link prywatny jest docelowym miejscem docelowym danego prywatnego punktu 
  
 |Nazwa zasobu linku prywatnego  |Typ zasobu   |Dowolnych podrzędnych  |
 |---------|---------|---------|
-|**Usługa link prywatny** (Twoja usługa)   |  Microsoft. Network/privateLinkServices       | empty |
+|**Usługa link prywatny** (Twoja usługa)   |  Microsoft. Network/privateLinkServices       | puste |
 |**Azure SQL Database** | Microsoft. SQL/serwery    |  Program SQL Server (sqlServer)        |
 |**Azure Synapse Analytics** | Microsoft. SQL/serwery    |  Program SQL Server (sqlServer)        | 
 |**Usługa Azure Storage**  | Microsoft. Storage/storageAccounts    |  Obiekt BLOB (BLOB, blob_secondary)<BR> Tabela (tabela, table_secondary)<BR> Kolejka (Kolejka, queue_secondary)<BR> Plik (plik, file_secondary)<BR> Sieć Web (sieć Web, web_secondary)        |

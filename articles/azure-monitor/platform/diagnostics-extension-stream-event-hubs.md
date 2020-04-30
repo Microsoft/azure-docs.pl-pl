@@ -1,49 +1,49 @@
 ---
-title: Wysyłanie danych z rozszerzenia diagnostyki systemu Windows Azure do usługi Azure Event Hubs
-description: Skonfiguruj rozszerzenie diagnostyki w usłudze Azure Monitor, aby wysyłać dane do usługi Azure Event Hub, aby można było przesyłać je dalej do lokalizacji poza platformą Azure.
+title: Wyślij dane z rozszerzenia Diagnostyka systemu Windows Azure do usługi Azure Event Hubs
+description: Skonfiguruj rozszerzenie diagnostyki w Azure Monitor, aby wysyłać dane do usługi Azure Event Hub, aby można je było przesłać dalej do lokalizacji poza platformą Azure.
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/18/2020
-ms.openlocfilehash: 5e5034e99d37d3681192c2ad066f28acd1c4aeeb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 979535b1f9a237f6975908178fb1e5ed819181b0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77672535"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233469"
 ---
-# <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Wysyłanie danych z rozszerzenia diagnostyki systemu Windows Azure do usługi Azure Event Hubs
-Rozszerzenie diagnostyki platformy Azure jest agentem w usłudze Azure Monitor, który zbiera dane monitorowania z systemu operacyjnego gościa i obciążeń maszyn wirtualnych platformy Azure i innych zasobów obliczeniowych. W tym artykule opisano sposób wysyłania danych z rozszerzenia diagnostyki systemu Windows Azure (WAD) do [usługi Azure Event Hubs,](https://azure.microsoft.com/services/event-hubs/) dzięki czemu można przesyłać dalej do lokalizacji poza platformą Azure.
+# <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Wyślij dane z rozszerzenia Diagnostyka systemu Windows Azure do usługi Azure Event Hubs
+Rozszerzenie diagnostyki Azure to Agent w Azure Monitor, który zbiera dane monitorowania z systemu operacyjnego gościa i obciążeń maszyn wirtualnych platformy Azure i innych zasobów obliczeniowych. W tym artykule opisano, jak wysyłać dane z rozszerzenia diagnostyki systemu Windows Azure (funkcji wad) do [usługi azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) , aby umożliwić przesyłanie dalej do lokalizacji poza platformą Azure.
 
 ## <a name="supported-data"></a>Obsługiwane dane
 
-Dane zebrane z systemu operacyjnego gościa, które mogą być wysyłane do centrum zdarzeń, obejmują następujące czynności. Inne źródła danych zebrane przez WAD, w tym dzienniki i zrzuty awaryjne i zrzuty awaryjne, nie mogą być wysyłane do centrów zdarzeń.
+Dane zbierane z systemu operacyjnego gościa, które mogą być wysyłane do Event Hubs, obejmują następujące elementy: Inne źródła danych zbierane przez funkcji wad, w tym dzienniki usług IIS i Zrzuty awaryjne, nie mogą być wysyłane do Event Hubs.
 
 * Zdarzenia funkcji Śledzenie zdarzeń systemu Windows (ETW)
 * Liczniki wydajności
-* Dzienniki zdarzeń systemu Windows, w tym dzienniki aplikacji w dzienniku zdarzeń systemu Windows
+* Dzienniki zdarzeń systemu Windows, w tym Dzienniki aplikacji w dzienniku zdarzeń systemu Windows
 * Dzienniki infrastruktury diagnostyki Azure
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Rozszerzenie diagnostyki systemu Windows 1.6 lub nowsze. Zobacz [wersje schematu konfiguracji rozszerzenia usługi Azure Diagnostics, aby](diagnostics-extension-versions.md) uzyskać historię wersji i [omówienie rozszerzenia diagnostyki platformy Azure](diagnostics-extension-overview.md) dla obsługiwanych zasobów.
-* Obszar nazw Centrum zdarzeń musi być zawsze aprowizowana. Zobacz [Wprowadzenie do centrów zdarzeń, aby](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) uzyskać szczegółowe informacje.
+* Rozszerzenie diagnostyki systemu Windows w wersji 1,6 lub nowszej. Zapoznaj się z tematem [Konfiguracja rozszerzenia Diagnostyka Azure wersje schematu oraz historia](diagnostics-extension-versions.md) wersji i [Omówienie rozszerzenia Diagnostyka Azure](diagnostics-extension-overview.md) dla obsługiwanych zasobów.
+* Przestrzeń nazw Event Hubs musi zawsze być obsługiwana. Aby uzyskać szczegółowe informacje, zobacz Wprowadzenie do [Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) .
 
 
 ## <a name="configuration-schema"></a>Schemat konfiguracji
-Zobacz [Instalowanie i konfigurowanie rozszerzenia diagnostyki systemu Windows Azure (WAD)](diagnostics-extension-windows-install.md) dla różnych opcji włączania i konfigurowania rozszerzenia diagnostyki i [schematu konfiguracji diagnostyki platformy Azure](diagnostics-extension-schema-windows.md) w celu uzyskania odniesienia do schematu konfiguracji. W dalszej części tego artykułu opisano, jak używać tej konfiguracji do wysyłania danych do centrum zdarzeń. 
+Zapoznaj się z tematem [Instalowanie i Konfigurowanie rozszerzenia diagnostyki systemu Windows Azure (funkcji wad)](diagnostics-extension-windows-install.md) dla różnych opcji włączania i konfigurowania rozszerzenia diagnostyki oraz [Diagnostyka Azure schematu konfiguracji](diagnostics-extension-schema-windows.md) , aby uzyskać odwołanie do schematu konfiguracji. W pozostałej części tego artykułu opisano sposób korzystania z tej konfiguracji w celu wysyłania danych do centrum zdarzeń. 
 
-Diagnostyka platformy Azure zawsze wysyła dzienniki i metryki do konta usługi Azure Storage. Można skonfigurować co najmniej jeden *pochłaniacz danych,* które wysyłają dane do dodatkowych lokalizacji. Każdy obiekt sink jest zdefiniowany w [SinksConfig element](diagnostics-extension-schema-windows.md#sinksconfig-element) konfiguracji publicznej z poufnych informacji w konfiguracji prywatnej. Ta konfiguracja dla centrów zdarzeń używa wartości w poniższej tabeli.
+Diagnostyka Azure zawsze wysyła dzienniki i metryki do konta usługi Azure Storage. Można skonfigurować co najmniej jeden *ujścia danych* , który wysyła dane do dodatkowych lokalizacji. Każdy ujścia jest zdefiniowany w [elemencie SinksConfig](diagnostics-extension-schema-windows.md#sinksconfig-element) konfiguracji publicznej z informacjami poufnymi w konfiguracji prywatnej. Ta konfiguracja centrów zdarzeń używa wartości z poniższej tabeli.
 
 | Właściwość | Opis |
 |:---|:---|
-| Nazwa | Opisowa nazwa ujścia. Używane w konfiguracji, aby określić, które źródła danych do wysłania do ujścia. |
-| Url  | Adres URL centrum zdarzeń \<w obszarze\>nazw event-hubs-servicebus.windows.net/\<event-hub-name\>.          |
-| SharedAccessKeyName | Nazwa zasady dostępu współdzielonego dla centrum zdarzeń, które ma co najmniej **uprawnienia wysyłania.** |
-| SharedAccessKey     | Klucz podstawowy lub pomocniczy z zasad dostępu współużytkowego dla Centrum zdarzeń. |
+| Nazwa | Nazwa opisowa ujścia. Używane w konfiguracji, aby określić źródła danych do wysłania do ujścia. |
+| Url  | Adres URL \<centrum zdarzeń w postaci Event-Hubs-namespace\>. ServiceBus.Windows.NET/\<Event-Hub-Name.\>          |
+| SharedAccessKeyName | Nazwa zasad dostępu współdzielonego centrum zdarzeń, które ma co najmniej urząd **wysyłania** . |
+| SharedAccessKey     | Klucz podstawowy lub pomocniczy z zasad dostępu współdzielonego dla centrum zdarzeń. |
 
-Poniżej przedstawiono przykładowe konfiguracje publiczne i prywatne. Jest to minimalna konfiguracja z jednego licznika wydajności i dziennika zdarzeń, aby zilustrować, jak skonfigurować i używać ujścia danych centrum zdarzeń. Zobacz [schemat konfiguracji diagnostyki platformy Azure](diagnostics-extension-schema-windows.md) dla bardziej złożonego przykładu.
+Poniżej przedstawiono przykładowe konfiguracje publiczne i prywatne. Jest to minimalna konfiguracja z pojedynczym licznikiem wydajności i dziennikiem zdarzeń, aby zilustrować sposób konfigurowania i używania ujścia danych centrum zdarzeń. Zobacz [Schemat konfiguracji Diagnostyka Azure](diagnostics-extension-schema-windows.md) , aby uzyskać bardziej skomplikowany przykład.
 
 ### <a name="public-configuration"></a>Konfiguracja publiczna
 
@@ -51,26 +51,26 @@ Poniżej przedstawiono przykładowe konfiguracje publiczne i prywatne. Jest to m
 {
     "WadCfg": {
         "DiagnosticMonitorConfiguration": {
-            "overallQuotaInMB": 5120
-        },
-        "PerformanceCounters": {
-            "scheduledTransferPeriod": "PT1M",
-            "sinks": "myEventHub",
-            "PerformanceCounterConfiguration": [
-                {
-                    "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-                    "sampleRate": "PT3M"
-                }
-            ]
-        },
-        "WindowsEventLog": {
-            "scheduledTransferPeriod": "PT1M",
-            "sinks": "myEventHub",
-                "DataSource": [
-                {
-                    "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
-                }
-            ]
+            "overallQuotaInMB": 5120,
+            "PerformanceCounters": {
+                "scheduledTransferPeriod": "PT1M",
+                "sinks": "myEventHub",
+                "PerformanceCounterConfiguration": [
+                    {
+                        "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+                        "sampleRate": "PT3M"
+                    }
+                ]
+            },
+            "WindowsEventLog": {
+                "scheduledTransferPeriod": "PT1M",
+                "sinks": "myEventHub",
+                    "DataSource": [
+                    {
+                        "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
+                    }
+                ]
+            }
         },
         "SinksConfig": {
             "Sink": [
@@ -107,7 +107,7 @@ Poniżej przedstawiono przykładowe konfiguracje publiczne i prywatne. Jest to m
 
 
 ## <a name="configuration-options"></a>Opcje konfiguracji
-Aby wysłać dane do ujścia danych, należy określić atrybut **pochłaniacze** w węźle źródła danych. Miejsce, w którym atrybut **sinks** określa zakres przypisania. W poniższym przykładzie **sinks** atrybut jest zdefiniowany do **węźle PerformanceCounters,** co spowoduje, że wszystkie liczniki wydajności podrzędnych mają być wysyłane do centrum zdarzeń.
+Aby wysłać dane do ujścia danych, należy określić atrybut **ujścia** w węźle źródła danych. Gdy umieszczasz atrybut **ujścias** określa zakres przypisania. W poniższym przykładzie atrybut **ujścia** jest zdefiniowany jako węzeł **liczniki wydajności** , co spowoduje wysłanie wszystkich podrzędnych liczników wydajności do centrum zdarzeń.
 
 ```JSON
 "PerformanceCounters": {
@@ -131,7 +131,7 @@ Aby wysłać dane do ujścia danych, należy określić atrybut **pochłaniacze*
 ```
 
 
-W poniższym przykładzie **atrybucje** atrybut jest stosowany bezpośrednio do trzech liczników, które spowoduje, że tylko te liczniki wydajności mają być wysyłane do centrum zdarzeń. 
+W poniższym przykładzie atrybut **ujścia** jest stosowany bezpośrednio do trzech liczników, co spowoduje wysłanie tylko tych liczników wydajności do centrum zdarzeń. 
 
 ```JSON
 "PerformanceCounters": {
@@ -164,15 +164,15 @@ W poniższym przykładzie **atrybucje** atrybut jest stosowany bezpośrednio do 
 }
 ```
 
-## <a name="validating-configuration"></a>Sprawdzanie poprawności konfiguracji
-Można użyć różnych metod, aby sprawdzić, czy dane są wysyłane do centrum zdarzeń. ne prosta metoda polega na użyciu przechwytywania centrum zdarzeń zgodnie z opisem w [usłudze Capture events za pośrednictwem usługi Azure Event Hubs w usłudze Azure Blob Storage lub usłudze Azure Data Lake Storage.](../../event-hubs/event-hubs-capture-overview.md) 
+## <a name="validating-configuration"></a>Weryfikowanie konfiguracji
+Możesz użyć różnych metod, aby sprawdzić, czy dane są wysyłane do centrum zdarzeń. ne prosta metoda polega na użyciu funkcji przechwytywania Event Hubs, zgodnie z opisem w temacie [przechwytywanie zdarzeń za pomocą usługi azure Event Hubs na platformie azure BLOB Storage lub Azure Data Lake Storage](../../event-hubs/event-hubs-capture-overview.md). 
 
 
-## <a name="troubleshoot-event-hubs-sinks"></a>Rozwiązywanie problemów z zajmami z centrami zdarzeń
+## <a name="troubleshoot-event-hubs-sinks"></a>Rozwiązywanie problemów z Event Hubs ujściami
 
-- Spójrz na tabeli usługi Azure Storage **WADDiagnosticInfrastructureLogsTable,** która zawiera dzienniki i błędy dla samej diagnostyki platformy Azure. Jedną z opcji jest użycie narzędzia, takiego jak [Eksplorator usługi Azure Storage,](https://www.storageexplorer.com) aby połączyć się z tym kontem magazynu, wyświetlić tę tabelę i dodać kwerendę dla sygnatury czasowej w ciągu ostatnich 24 godzin. Za pomocą tego narzędzia można wyeksportować plik csv i otworzyć go w aplikacji, takiej jak Microsoft Excel. Program Excel ułatwia wyszukiwanie ciągów kart telefonicznych, takich jak **EventHubs,** aby zobaczyć, jaki błąd jest zgłaszany.  
+- Zapoznaj się z tabelą usługi Azure Storage **WADDiagnosticInfrastructureLogsTable** , która zawiera dzienniki i błędy Diagnostyka Azure samego siebie. Jedną z opcji jest użycie narzędzia, takiego jak [Eksplorator usługi Azure Storage](https://www.storageexplorer.com) , aby nawiązać połączenie z tym kontem magazynu, wyświetlić tę tabelę i dodać zapytanie dla sygnatury czasowej w ciągu ostatnich 24 godzin. Możesz użyć narzędzia, aby wyeksportować plik CSV i otworzyć go w aplikacji, takiej jak program Microsoft Excel. Program Excel ułatwia wyszukiwanie ciągów kart wywołujących, takich jak **EventHubs**, aby zobaczyć, jaki błąd jest zgłaszany.  
 
-- Sprawdź, czy centrum zdarzeń zostało pomyślnie zainicjowane. Wszystkie informacje o połączeniu w **sekcji PrivateConfig** konfiguracji muszą być zgodne z wartościami zasobu, jak w portalu. Upewnij się, że masz zdefiniowane zasady sygnatury dostępu Współdzielonego *(SendRule* w przykładzie) w portalu i że uprawnienie *Wyślij* jest przyznawane.  
+- Sprawdź, czy centrum zdarzeń zostało pomyślnie zainicjowane. Wszystkie informacje o połączeniu w sekcji **PrivateConfig** konfiguracji muszą być zgodne z wartościami Twojego zasobu, które są widoczne w portalu. Upewnij się, że masz zdefiniowane zasady sygnatury dostępu współdzielonego (*SendRule* w tym przykładzie) w portalu oraz że udzielono uprawnienia do *wysyłania* .  
 
 ## <a name="next-steps"></a>Następne kroki
 

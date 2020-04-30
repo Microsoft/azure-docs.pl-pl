@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 58fd9225298b4322567f4feb02629e3ad4e0f00d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 2760033cd66e99a7a7f6d331e03c6f98c486d286
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127570"
+ms.locfileid: "82231972"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Znane problemy i rozwiązywanie problemów Azure Machine Learning
 
@@ -56,7 +56,23 @@ Dowiedz się więcej na temat [przydziałów zasobów](how-to-manage-quotas.md) 
         pip install azure-ml-datadrift
         pip install azureml-train-automl 
      ```
-     
+
+* **Błędy Panda: zwykle widoczne podczas eksperymentu AutoML:**
+   
+   Po ręcznym skonfigurowaniu usługi Environmnet przy użyciu narzędzia PIP błędy atrybutów (zwłaszcza z Pandas) będą widoczne z powodu instalacji nieobsługiwanych wersji pakietu. Aby uniknąć takich błędów, [Zainstaluj zestaw AutoML SDK przy użyciu automl_setup. cmd](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md):
+   
+    1. Otwórz monit Anaconda i Sklonuj repozytorium GitHub dla zestawu przykładowych notesów.
+
+    ```bash
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
+    
+    2. dysk CD do folderu How to-use-Azure/automat-Learning, w którym przykładowe notesy zostały wyodrębnione i następnie uruchomione:
+    
+    ```bash
+    automl_setup
+    ```
+  
 * **Komunikat o błędzie: nie można odinstalować "PyYAML"**
 
     Azure Machine Learning SDK dla języka Python: PyYAML jest `distutils` zainstalowanym projektem. W związku z tym nie można dokładnie określić, które pliki należą do niej, jeśli istnieje częściowe odinstalowanie. Aby kontynuować instalowanie zestawu SDK przy ignorowaniu tego błędu, użyj:

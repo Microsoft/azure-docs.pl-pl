@@ -1,7 +1,7 @@
 ---
-title: Rozwiązywanie problemów z łącznością TRANSLATOR SIECI WIRTUALNEJ platformy Azure
+title: Rozwiązywanie problemów z łącznością NAT na platformie Azure Virtual Network
 titleSuffix: Azure Virtual Network
-description: Rozwiązywanie problemów z translatorem adresów sieci wirtualnych.
+description: Rozwiązywanie problemów z Virtual Network translatora adresów sieciowych.
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -12,173 +12,181 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/30/2020
+ms.date: 04/28/2020
 ms.author: allensu
-ms.openlocfilehash: c012a8d83761b88cc59b62d11fd3d5542ca7f7a1
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: c9b5aaefeb8ab21eed850f5bf291d38981239aab
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396089"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508432"
 ---
-# <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Rozwiązywanie problemów z łącznością TRANSLATOR SIECI WIRTUALNEJ platformy Azure
+# <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Rozwiązywanie problemów z łącznością NAT na platformie Azure Virtual Network
 
-Ten artykuł pomaga administratorom diagnozować i rozwiązywać problemy z łącznością podczas korzystania z translatora adresów sieci wirtualnych.
+Ten artykuł ułatwia administratorom diagnozowanie i rozwiązywanie problemów z łącznością podczas korzystania z Virtual Network translatora adresów sieciowych.
 
-## <a name="problems"></a>Problemy
+## <a name="problems"></a>Dotyczące
 
-* [Wyczerpanie SNAT](#snat-exhaustion)
-* [Ping ICMP nie działa](#icmp-ping-is-failing)
-* [Awarie łączności](#connectivity-failures)
+* [Wyczerpanie adresów współlotowych](#snat-exhaustion)
+* [Polecenie ping protokołu ICMP kończy się niepowodzeniem](#icmp-ping-is-failing)
+* [Błędy łączności](#connectivity-failures)
 * [Współistnienie IPv6](#ipv6-coexistence)
 
-Aby rozwiązać te problemy, wykonaj kroki opisane w poniższej sekcji.
+Aby rozwiązać te problemy, wykonaj kroki opisane w następnej sekcji.
 
 ## <a name="resolution"></a>Rozwiązanie
 
-### <a name="snat-exhaustion"></a>Wyczerpanie SNAT
+### <a name="snat-exhaustion"></a>Wyczerpanie adresów współlotowych
 
-Pojedynczy [zasób bramy TRANSLATOR](nat-gateway-resource.md) obsługuje od 64 000 do 1 miliona równoczesnych przepływów.  Każdy adres IP udostępnia 64 000 portów SNAT do dostępnego magazynu. Na zasób bramy TRANSLATORA można użyć maksymalnie 16 adresów IP.  Mechanizm SNAT jest opisany [tutaj](nat-gateway-resource.md#source-network-address-translation) bardziej szczegółowo.
+Pojedynczy [zasób bramy translatora adresów sieciowych](nat-gateway-resource.md) obsługuje od 64 000 do 1 000 000 współbieżnych przepływów.  Każdy adres IP zapewnia 64 000 portów do dostępnego spisu. Możesz użyć maksymalnie 16 adresów IP na zasób bramy NAT.  Mechanizm podstawcy adresów sieciowych został opisany [tutaj](nat-gateway-resource.md#source-network-address-translation) bardziej szczegółowo.
 
-Często główną przyczyną wyczerpania SNAT jest anty-wzorzec dla jak połączenia wychodzącego jest ustanawiana, zarządzane lub konfigurowalne czasomierze zmienione z ich wartości domyślnych.  Uważnie przejrzyj tę sekcję.
+Często główną przyczyną wyczerpania ruchu związanego z ruchem przychodzącym jest wzorzec dla połączeń wychodzących, zarządzanych lub konfigurowalnych czasomierzy zmieniony z wartości domyślnych.  Uważnie przejrzyj tę sekcję.
 
 #### <a name="steps"></a>Kroki
 
-1. Sprawdź, czy domyślny limit czasu bezczynnego został zmodyfikowany do wartości wyższej niż 4 minuty.
-2. Sprawdź, jak aplikacja tworzy łączność wychodzącą (na przykład przegląd kodu lub przechwytywanie pakietów). 
-3. Określ, czy to działanie jest oczekiwane zachowanie lub czy aplikacja jest niewłaściwie.  Użyj [metryki](nat-metrics.md) w usłudze Azure Monitor, aby uzasadnić swoje ustalenia. Użyj kategorii "Niepowodzenie" dla metryki Połączenia SNAT.
-4. Oceń, czy są przestrzegane odpowiednie wzorce.
-5. Oceń, czy należy ograniczyć wyczerpanie portów SNAT za pomocą dodatkowych adresów IP przypisanych do zasobu bramy TRANSLATORA.
+1. Sprawdź, czy zmodyfikowano domyślny limit czasu bezczynności do wartości większej niż 4 minuty.
+2. Zbadaj, w jaki sposób aplikacja tworzy łączność wychodzącą (na przykład przegląd kodu lub przechwycenie pakietu). 
+3. Ustal, czy to działanie jest oczekiwane, czy też czy aplikacja jest błędna.  Skorzystaj z [metryk](nat-metrics.md) w Azure monitor, aby uzasadnić swoje ustalenia. Użyj kategorii "Niepowodzenie" dla metryki połączeń z podłączaniem adresów sieciowych.
+4. Oceń, czy są obserwowane odpowiednie wzorce.
+5. Oceń, czy wyczerpanie portów podadresów IP powinno być skorygowane przy użyciu dodatkowych adresów, przypisanych do zasobu bramy translatora adresów sieciowych.
 
 #### <a name="design-patterns"></a>Wzorce projektowe
 
-Zawsze korzystaj z ponownego użycia połączenia i buforowania połączeń, gdy tylko jest to możliwe.  Te wzorce pozwoli uniknąć problemów wyczerpania zasobów i spowodować przewidywalne zachowanie. Egoisje dla tych wzorców można znaleźć w wielu bibliotekach programistycznych i strukturach.
+Zawsze korzystaj z zalet użycia połączenia i puli połączeń, jeśli to możliwe.  Wzorce te pozwolą uniknąć problemów z wyczerpaniem zasobów i powodować przewidywalne zachowanie. Elementy pierwotne dla tych wzorców można znaleźć w wielu bibliotekach i strukturach programistycznych.
 
-_**Rozwiązanie:**_ Używanie odpowiednich wzorców i najlepszych praktyk
+_**Rozwiązanie:**_ Korzystanie z odpowiednich wzorców i najlepszych rozwiązań
 
-- Zasoby bramy TRANSLATORA mają domyślny limit czasu bezczynności TCP 4 minuty.  Jeśli to ustawienie zostanie zmienione na wyższą wartość, translator z translatorem ludzi będzie dłużej przepływać i może powodować [niepotrzebną presję na zapasy portów SNAT](nat-gateway-resource.md#timers).
-- Żądania niepodzielne (jedno żądanie na połączenie) są złym wyborem projektu. Takie anty-wzorek ogranicza skalę, zmniejsza wydajność i zmniejsza niezawodność. Zamiast tego ponownie użyć połączeń HTTP/S, aby zmniejszyć liczbę połączeń i skojarzonych portów SNAT. Skala aplikacji wzrośnie, a wydajność wzrośnie dzięki zmniejszeniu uzgadniania, obciążeniem i kosztom operacji kryptograficznej podczas korzystania z protokołu TLS.
-- System DNS może wprowadzać wiele pojedynczych przepływów na woluminie, gdy klient nie buforuje wyniku rozpoznawania nazw DNS. Użyj buforowania.
-- Przepływy UDP (na przykład wyszukiwania DNS) przydzielają porty SNAT na czas trwania limitu czasu bezczynności. Im dłuższy limit czasu bezczynnego, tym większe ciśnienie w portach SNAT. Użyj krótkiego limitu czasu bezczynnego (na przykład 4 minuty).
-- Użyj pul połączeń, aby kształtować wolumin połączenia.
-- Nigdy nie po cichu porzucić przepływ TCP i polegać na czasomierze TCP do czyszczenia przepływu. Jeśli nie pozwolisz TCP jawnie zamknąć połączenie, stan pozostaje przydzielony w systemach pośrednich i punktach końcowych i sprawia, że porty SNAT niedostępne dla innych połączeń. Może to wywołać błędy aplikacji i wyczerpanie SNAT. 
-- Nie zmieniaj wartości czasu ścisłego związanego z TCP na poziomie systemu operacyjnego bez specjalistycznej wiedzy na temat wpływu. Podczas gdy stos TCP zostanie odzyskany, wydajność aplikacji może mieć negatywny wpływ, gdy punkty końcowe połączenia mają niedopasowane oczekiwania. Chęć zmiany czasomierzy jest zwykle oznaką podstawowego problemu projektowego. Zapoznaj się z poniższymi zaleceniami.
+- Zasoby bramy NAT mają domyślny limit czasu bezczynności protokołu TCP wynoszący 4 minuty.  Jeśli to ustawienie zostanie zmienione na wyższą wartość, nastąpi przeprowadzenie translacji adresów sieciowych w celu przeprowadzenia dłuższego czasu i może spowodować [niepotrzebne obciążenie spisu portów](nat-gateway-resource.md#timers).
+- Żądania niepodzielne (jedno żądanie na połączenie) to słaba opcja projektowania. Takie limity antywzorców są skalowane, zmniejszają wydajność i zmniejszają niezawodność. Zamiast tego należy ponownie użyć połączeń HTTP/S, aby zmniejszyć liczbę połączeń i skojarzonych z nimi portów. Skalowanie aplikacji zwiększy się i poprawi wydajność ze względu na zmniejszone uzgodnienia, obciążenie i koszt operacji kryptograficznej przy korzystaniu z protokołu TLS.
+- System DNS może wprowadzić wiele pojedynczych przepływów w woluminie, gdy klient nie buforuje wyniku rozpoznawania nazw DNS. Użyj buforowania.
+- Przepływy UDP (na przykład wyszukiwania DNS) przydzielą porty przydziałów adresów sieciowych przez czas trwania bezczynności. Im dłuższy limit czasu bezczynności, tym wyższe ciśnienie w portach źródłowego. Użyj krótkiego limitu czasu bezczynności (na przykład 4 minuty).
+- Użyj pul połączeń do kształtowania woluminu połączenia.
+- Nigdy nie wolno odrzucać przepływu TCP i polegać na czasomierzach TCP w celu oczyszczenia przepływu. Jeśli nie zezwolisz na bezpośrednie zamknięcie połączenia protokołu TCP, stan pozostanie przydzielony w systemach pośrednich i punktach końcowych, a porty dla innych połączeń są niedostępne. Może to spowodować awarię aplikacji i wyczerpanie adresów współdziałania. 
+- Nie zmieniaj wartości czasomierza zamknięcia protokołu TCP na poziomie systemu operacyjnego bez specjalistycznej wiedzy o wpływie na nie. Gdy stos TCP zostanie odzyskany, wydajność aplikacji może mieć negatywny wpływ, gdy punkty końcowe połączenia mają niezgodne oczekiwania. Zamiarem zmiany czasomierzy jest zwykle znak podstawowego problemu projektowego. Przejrzyj poniższe zalecenia.
 
-Często wyczerpanie SNAT może być również wzmacniane za pomocą innych wzorców anty-wzorów w podstawowej aplikacji. Przejrzyj te dodatkowe wzorce i najlepsze rozwiązania, aby poprawić skalę i niezawodność usługi.
+Często przekroczenie wyczerpania może być również wzmocnione przy użyciu innych antywzorców w aplikacji źródłowej. Zapoznaj się z tymi dodatkowymi wzorcami i najlepszymi rozwiązaniami, aby zwiększyć skalowalność i niezawodność usługi.
 
-- Poznaj wpływ zmniejszenia [limitu czasu bezczynności TCP](nat-gateway-resource.md#timers) do niższych wartości, w tym domyślnego limitu czasu bezczynności 4 minut, aby wcześniej zwolnić zapasy portów SNAT.
-- Należy wziąć pod uwagę [wzorce sondowania asynchronii dla](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) długotrwałych operacji, aby zwolnić zasoby połączenia dla innych operacji.
-- Przepływy długotrwałe (na przykład ponownie używane połączenia TCP) powinny używać funkcji tcp keepalives lub keepalives warstwy aplikacji, aby uniknąć limitu czasu systemów pośrednich. Zwiększenie limitu czasu bezczynności jest ostatecznością i może nie rozwiązać główną przyczynę. Długi limit czasu może spowodować błędy niskiej szybkości po upływie limitu czasu i wprowadzić opóźnienie i niepotrzebne błędy.
-- Wdzięku [ponawiania wzorców](https://docs.microsoft.com/azure/architecture/patterns/retry) powinny być używane w celu uniknięcia agresywnych ponownych prób/wybuchów podczas przejściowej awarii lub odzyskiwania awarii.
-Tworzenie nowego połączenia TCP dla każdej operacji HTTP (znanej również jako "połączenia niepodzielne") jest wzorcem.  Połączenia atomowe uniemożliwią aplikacji skalowanie dobrze i odpadów zasobów.  Zawsze potok wiele operacji do tego samego połączenia.  Aplikacja będzie korzystać z szybkości transakcji i kosztów zasobów.  Gdy aplikacja używa szyfrowania warstwy transportu (na przykład TLS), istnieje znaczne koszty związane z przetwarzaniem nowych połączeń.  Przejrzyj [wzorce projektowania usługi Azure Cloud, aby](https://docs.microsoft.com/azure/architecture/patterns/) uzyskać dodatkowe wzorce najlepszych rozwiązań.
+- Zbadaj wpływ zmniejszenia [limitu czasu bezczynności protokołu TCP](nat-gateway-resource.md#timers) na niższe wartości, łącznie z domyślnym limitem czasu bezczynności wynoszącym 4 minuty, aby zwolnić wcześniej spis portów.
+- Należy rozważyć [asynchroniczne wzorce sondowania](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) dla długotrwałych operacji w celu zwolnienia zasobów połączenia dla innych operacji.
+- Przepływy długotrwałe (na przykład ponowne użycie połączeń TCP) powinny korzystać z utrzymywania aktywności protokołu TCP lub warstwy aplikacji, aby uniknąć przekroczenia limitu czasu w systemach pośrednich. Zwiększenie limitu czasu bezczynności jest ostatnim etapem i może nie rozpoznać głównej przyczyny. Długi limit czasu może powodować błędy niskiej szybkości, gdy limit czasu wygasa i wprowadza opóźnienie i niepotrzebne błędy.
+- [Wzorce ponowień](https://docs.microsoft.com/azure/architecture/patterns/retry) należy stosować, aby uniknąć agresywnych ponownych prób/serii podczas przejściowej awarii lub odzyskiwania po awarii.
+Tworzenie nowego połączenia TCP dla każdej operacji HTTP (nazywanej również "połączeniami niepodzielnymi") jest antywzorcem.  Połączenia niepodzielne uniemożliwią aplikacji również skalowanie zasobów.  Zawsze potoku wiele operacji w ramach tego samego połączenia.  Twoja aplikacja będzie korzystać z szybkości transakcji i kosztów zasobów.  Gdy aplikacja korzysta z szyfrowania warstwy transportowej (na przykład TLS), istnieje znaczący koszt związany z przetwarzaniem nowych połączeń.  Zapoznaj się ze [wzorcami projektowymi chmury platformy Azure](https://docs.microsoft.com/azure/architecture/patterns/) , aby uzyskać dodatkowe wzorce najlepszych rozwiązań.
 
 #### <a name="additional-possible-mitigations"></a>Dodatkowe możliwe środki zaradcze
 
 _**Rozwiązanie:**_ Skaluj łączność wychodzącą w następujący sposób:
 
-| Scenariusz | Dowody |Środki zaradcze |
+| Scenariusz | Świadectwa |Środki zaradcze |
 |---|---|---|
-| Występują rywalizacji dla portów SNAT i wyczerpania portów SNAT w okresach wysokiego użycia. | Kategoria "Nie powiodło się" dla [metryki](nat-metrics.md) Połączenia SNAT w usłudze Azure Monitor pokazuje przejściowe lub trwałe błędy w czasie i dużej głośności połączenia.  | Określ, czy można dodać dodatkowe zasoby publicznego adresu IP lub publiczne zasoby prefiksu IP. To dodanie pozwoli na maksymalnie 16 adresów IP w sumie do bramy NAT. Ten dodatek zapewni więcej zapasów dla dostępnych portów SNAT (64 000 na adres IP) i pozwoli na dalsze skalowanie scenariusza.|
-| Masz już podane 16 adresów IP i nadal występują wyczerpanie portu SNAT. | Próba dodania dodatkowego adresu IP kończy się niepowodzeniem. Łączna liczba adresów IP z publicznych zasobów adresów IP lub publicznych zasobów prefiksu IP przekracza łącznie 16. | Rozsiewaj środowisko aplikacji w wielu podsieciach i udostępniaj zasób bramy TRANSLATORA dla każdej podsieci.  Ponownie ocenić wzór(y) projektu, aby zoptymalizować na podstawie powyższych [wskazówek](#design-patterns). |
+| Wystąpiła rywalizacja o porty i wyczerpanie portów przydziałów adresów sieciowych w okresach o wysokim poziomie użycia. | Kategoria "Niepowodzenie" dla [metryki](nat-metrics.md) połączeń protokołu wiązania w Azure monitor pokazuje przejściowe lub trwałe błędy w porównaniu z ilością czasu i dużym połączeniem.  | Ustal, czy można dodać dodatkowe zasoby publicznego adresu IP lub zasobów prefiksu publicznego adresu IP. Spowoduje to dodanie maksymalnie 16 adresów IP do bramy translatora adresów sieciowych. To dodanie spowoduje udostępnienie większej ilości zasobów dla dostępnych portów (64 000 na adres IP) i pozwala na dalsze skalowanie scenariusza.|
+| Podano już 16 adresów IP, a nadal wystąpiły wyczerpanie portów. | Próba dodania dodatkowego adresu IP kończy się niepowodzeniem. Łączna liczba adresów IP z zasobów publicznych adresów IP lub zasobów prefiksu publicznego adresu IP przekracza całkowitą liczbę 16. | Dystrybuuj środowisko aplikacji w wielu podsieciach i podaj zasób bramy NAT dla każdej podsieci.  Ponownie Oceń wzorce projektu, aby zoptymalizować je w oparciu o wcześniejsze [wskazówki](#design-patterns). |
 
 >[!NOTE]
->Ważne jest, aby zrozumieć, dlaczego występuje wyczerpanie SNAT. Upewnij się, że używasz odpowiednich wzorców do skalowalnych i niezawodnych scenariuszy.  Dodawanie większej liczby portów SNAT do scenariusza bez zrozumienia przyczyny popytu powinno być ostatecznością. Jeśli nie rozumiesz, dlaczego scenariusz jest zastosowanie nacisku na zapasy portów SNAT, dodanie więcej portów SNAT do zapasów przez dodanie większej liczby adresów IP tylko opóźni ten sam błąd wyczerpania, jak skale aplikacji.  Możesz maskować inne nieefektywności i anty-wzory.
+>Ważne jest, aby zrozumieć, dlaczego następuje wyczerpanie adresów. Upewnij się, że używasz właściwych wzorców do skalowalnych i niezawodnych scenariuszy.  Dodanie więcej portów do scenariusza bez znajomości przyczyny powinno być ostatnim etapem. Jeśli nie rozumiesz, dlaczego scenariusz stosuje nacisk na spis portów IP, dodanie większej liczby portów do spisu przez dodanie większej liczby adresów IP spowoduje opóźnienie tego samego błędu wyczerpania, co w przypadku skalowania aplikacji.  Mogą być maskowane inne nieefektywność i antywzorce.
 
-### <a name="icmp-ping-is-failing"></a>Ping ICMP nie działa
+### <a name="icmp-ping-is-failing"></a>Polecenie ping protokołu ICMP kończy się niepowodzeniem
 
-[Translator adresów sieci wirtualnej](nat-overview.md) obsługuje protokoły IPv4 UDP i TCP. ICMP nie jest obsługiwany i oczekuje się, że zakończy się niepowodzeniem.  
+[Virtual Network translator adresów sieciowych](nat-overview.md) obsługuje protokoły UDP IPv4 i TCP. Protokół ICMP nie jest obsługiwany i oczekiwany jest błąd.  
 
-_**Rozwiązanie:**_ Zamiast tego należy użyć testów połączeń TCP (na przykład "PING TCP") i testów warstwy aplikacji specyficznych dla protokołu UDP, aby sprawdzić poprawność łączności typu end-to-end.
+_**Rozwiązanie:**_ Zamiast tego należy użyć testów połączeń TCP (na przykład "TCP ping") i testów warstwy aplikacji specyficznych dla protokołu UDP w celu zweryfikowania kompleksowej łączności.
 
-W poniższej tabeli można użyć punktu wyjścia, dla którego narzędzia do rozpoczęcia testów.
-
-| System operacyjny | Ogólny test połączenia TCP | Test warstwy aplikacji TCP | UDP |
-|---|---|---|---|
-| Linux | nc (test połączenia ogólnego) | curl (test warstwy aplikacji TCP) | specyficzne dla aplikacji |
-| Windows | [PsPing (PsPing)](https://docs.microsoft.com/sysinternals/downloads/psping) | [Odwołanie do wywołania w programie PowerShell-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | specyficzne dla aplikacji |
-
-### <a name="connectivity-failures"></a>Awarie łączności
-
-Problemy z łącznością z [translatorem adresów sieci wirtualnych](nat-overview.md) mogą być spowodowane kilkoma różnymi problemami:
-
-* przejściowe lub trwałe [wyczerpanie bramy](#snat-exhaustion) NAT,
-* przejściowe awarie w infrastrukturze platformy Azure, 
-* przejściowe błędy na ścieżce między platformą Azure a publicznym miejscem docelowym internetu, 
-* przejściowych lub uporczywych awarii w publicznym miejscu docelowym Internetu.
-
-Użyj narzędzi, takich jak następujące do łączności sprawdzania poprawności. [Ping ICMP nie jest obsługiwany](#icmp-ping-is-failing).
+W poniższej tabeli można użyć punktu wyjścia, dla którego narzędzia do uruchomienia testów.
 
 | System operacyjny | Ogólny test połączenia TCP | Test warstwy aplikacji TCP | UDP |
 |---|---|---|---|
-| Linux | nc (test połączenia ogólnego) | curl (test warstwy aplikacji TCP) | specyficzne dla aplikacji |
-| Windows | [PsPing (PsPing)](https://docs.microsoft.com/sysinternals/downloads/psping) | [Odwołanie do wywołania w programie PowerShell-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | specyficzne dla aplikacji |
+| Linux | NC (ogólny test połączenia) | zwinięcie (test warstwy aplikacji TCP) | specyficzne dla aplikacji |
+| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | Wywołanie programu PowerShell [— żądanie WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | specyficzne dla aplikacji |
 
-#### <a name="snat-exhaustion"></a>Wyczerpanie SNAT
+### <a name="connectivity-failures"></a>Błędy łączności
 
-Przejrzyj sekcję na [wyczerpanie SNAT](#snat-exhaustion) w tym artykule.
+Problemy z łącznością z [Virtual Network translatora adresów sieciowych](nat-overview.md) mogą być spowodowane kilkoma różnymi problemami:
+
+* stałe błędy spowodowane błędami konfiguracji.
+* przejściowe lub trwałe [wyczerpanie](#snat-exhaustion) elementu przekroczenia bramy TRANSLATORA adresów sieciowych,
+* Błędy przejściowe w infrastrukturze platformy Azure, 
+* przejściowe błędy w ścieżce między platformą Azure a publicznym miejscem docelowym Internetu, 
+* Błędy przejściowe lub trwałe w publicznym miejscu docelowym Internetu.
+
+Użyj narzędzi, takich jak następujące, aby sprawdzić poprawność łączności. [Polecenie ping protokołu ICMP nie jest obsługiwane](#icmp-ping-is-failing).
+
+| System operacyjny | Ogólny test połączenia TCP | Test warstwy aplikacji TCP | UDP |
+|---|---|---|---|
+| Linux | NC (ogólny test połączenia) | zwinięcie (test warstwy aplikacji TCP) | specyficzne dla aplikacji |
+| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | Wywołanie programu PowerShell [— żądanie WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | specyficzne dla aplikacji |
+
+#### <a name="configuration"></a>Konfiguracja
+
+Sprawdź następujące informacje:
+1. Czy zasób bramy NAT ma co najmniej jeden zasób publicznego adresu IP lub jeden zasób prefiksu publicznego adresu IP? Aby zapewnić łączność wychodzącą, musisz mieć co najmniej jeden adres IP skojarzony z bramą translatora adresów sieciowych.
+2. Czy podsieć sieci wirtualnej jest skonfigurowana do korzystania z bramy translatora adresów sieciowych?
+3. Czy używasz UDR (trasa zdefiniowana przez użytkownika) i chcesz zastępowanie miejsca docelowego?  Zasoby bramy NAT stają się domyślną trasą (0/0) w skonfigurowanych podsieciach.
+
+#### <a name="snat-exhaustion"></a>Wyczerpanie adresów współlotowych
+
+Przejrzyj sekcję dotyczącą [wyczerpania adresów](#snat-exhaustion) w tym artykule.
 
 #### <a name="azure-infrastructure"></a>Infrastruktura platformy Azure
 
-Platforma Azure monitoruje i obsługuje swoją infrastrukturę z wielką starannością. Mogą wystąpić przejściowe awarie, nie ma gwarancji, że transmisje są bezstratne.  Użyj wzorców projektowych, które umożliwiają retransmisję SYN dla aplikacji TCP. Użyj limitów czasu połączenia wystarczająco dużych, aby umożliwić retransmisję TCP SYN w celu zmniejszenia przejściowych skutków spowodowanych utratą pakietu SYN.
+Platforma Azure monitoruje i współpracuje z infrastrukturą. Mogą wystąpić błędy przejściowe, nie ma gwarancji, że transmisje są bezstratne.  Użyj wzorców projektowych, które pozwalają na retransmisję SYN dla aplikacji TCP. Limity czasu połączenia są wystarczająco duże, aby zezwolić na ponowną transmisję protokołu TCP SYN w celu ograniczenia przejściowych wpływów spowodowanych przez utracony pakiet SYN.
 
-_**Rozwiązanie:**_
+_**Narzędzie**_
 
-* Sprawdź [wyczerpanie SNAT](#snat-exhaustion).
-* Parametr konfiguracji w stosie TCP sterujący zachowaniem retransmisji SYN nosi nazwę RTO ([Limit czasu retransmisji](https://tools.ietf.org/html/rfc793)). Wartość RTO jest regulowana, ale zazwyczaj domyślnie 1 sekunda lub wyższa z wykładniczym wycofywania.  Jeśli limit czasu połączenia aplikacji jest zbyt krótki (na przykład 1 sekunda), mogą być widoczne sporadyczne limity czasu połączenia.  Zwiększ limit czasu połączenia aplikacji.
-* Jeśli zauważysz dłuższe, nieoczekiwane limity czasu z domyślnymi zachowaniami aplikacji, otwórz przypadek pomocy technicznej w celu dalszego rozwiązywania problemów.
+* Sprawdź, czy jest [wyczerpany wyczerpanie adresów](#snat-exhaustion).
+* Parametr konfiguracji w stosie protokołu TCP kontrolujący zachowanie retransmisji SYN ma nazwę RTO ([limit czasu retransmisji](https://tools.ietf.org/html/rfc793)). Wartość RTO jest ustawiana, ale zazwyczaj jest domyślnie 1 sekunda lub wyższa, z możliwością wycofywania wykładniczego.  Jeśli limit czasu połączenia aplikacji jest za krótki (na przykład 1 s), można zobaczyć sporadyczne limity czasu połączenia.  Zwiększ limit czasu połączenia aplikacji.
+* Jeśli obserwujesz dłużej, nieoczekiwane limity czasu przy użyciu domyślnych zachowań aplikacji, Otwórz przypadek pomocy technicznej w celu dalszego rozwiązywania problemów.
 
-Nie zaleca się sztucznie zmniejszania limitu czasu połączenia TCP lub dostrajania parametru RTO.
+Nie zalecamy sztucznego zmniejszania limitu czasu połączenia TCP ani dostrajania parametru RTO.
 
-#### <a name="public-internet-transit"></a>Publiczny tranzyt przez Internet
+#### <a name="public-internet-transit"></a>Publiczne tranzyt internetowy
 
-Prawdopodobieństwo awarii przejściowych zwiększa się wraz z dłuższą ścieżką do miejsca docelowego i bardziej pośrednimi systemami. Oczekuje się, że przejściowe awarie mogą zwiększyć częstotliwość w [infrastrukturze platformy Azure.](#azure-infrastructure) 
+Szanse na błędy przejściowe zwiększają się o dłuższą ścieżkę do miejsca docelowego i większej liczby systemów pośrednich. Oczekuje się, że przejściowe błędy mogą zwiększyć częstotliwość w przypadku [infrastruktury platformy Azure](#azure-infrastructure). 
 
-Postępuj zgodnie z tymi samymi wskazówkami, co poprzednia sekcja [infrastruktury platformy Azure.](#azure-infrastructure)
+Postępuj zgodnie z tymi samymi wskazówkami jak w poprzedniej sekcji [infrastruktury platformy Azure](#azure-infrastructure) .
 
 #### <a name="internet-endpoint"></a>Internetowy punkt końcowy
 
-Poprzednie sekcje mają zastosowanie wraz z punktem końcowym Internetu, z którymi jest ustanawiana komunikacja. Inne czynniki, które mogą mieć wpływ na sukces łączności to:
+Poprzednie sekcje dotyczą programu wraz z internetowym punktem końcowym, z którym nawiązuje się komunikacja. Inne czynniki, które mogą mieć wpływ na łączność, są następujące:
 
-* zarządzania ruchem po stronie docelowej, w tym
-- Ograniczenie szybkości API nałożone przez stronę docelową
-- Ograniczenia ddos wolumetryczne lub kształtowanie ruchu warstwy transportowej
-* zapory sieciowej lub innych składników w miejscu docelowym 
+* zarządzanie ruchem na stronie docelowej, w tym
+- Ograniczanie szybkości interfejsu API nakładane po stronie docelowej
+- Pomiarowe środki zaradcze DDoS lub transkształtowanie ruchu warstwy transportowej
+* Zapora lub inne składniki w miejscu docelowym 
 
-Zazwyczaj przechwytywanie pakietów u źródła i miejsce docelowe (jeśli jest dostępne) są wymagane do określenia, co się dzieje.
+Zwykle przechwycenia pakietu w lokalizacji źródłowej i docelowej (jeśli jest dostępna) jest wymagana do określenia, co ma miejsce.
 
-_**Rozwiązanie:**_
+_**Narzędzie**_
 
-* Sprawdź [wyczerpanie SNAT](#snat-exhaustion). 
+* Sprawdź, czy jest [wyczerpany wyczerpanie adresów](#snat-exhaustion). 
 * Sprawdź poprawność łączności z punktem końcowym w tym samym regionie lub w innym miejscu do porównania.  
-* Jeśli tworzysz testowanie dużej ilości lub szybkości transakcji, zbadaj, czy zmniejszenie szybkości zmniejsza występowanie błędów.
-* Jeśli zmiana szybkości wpływa na szybkość błędów, sprawdź, czy mogły zostać osiągnięte limity szybkości interfejsu API lub inne ograniczenia po stronie docelowej.
-* Jeśli dochodzenie jest niejednoznaczne, otwórz sprawę pomocy technicznej w celu dalszego rozwiązywania problemów.
+* Jeśli tworzysz testy dotyczące dużej ilości pamięci lub transakcji, zbadaj, czy zmniejszenie szybkości zmniejsza liczbę błędów.
+* Jeśli zmiana szybkości ma wpływ na liczbę błędów, sprawdź, czy osiągnięto limity szybkości interfejsu API lub inne ograniczenia na stronie docelowej.
+* Jeśli badanie jest niejednoznaczne, Otwórz zgłoszenie do pomocy technicznej, aby uzyskać dalsze Rozwiązywanie problemów.
 
-#### <a name="tcp-resets-received"></a>Odebrano resetowanie TCP
+#### <a name="tcp-resets-received"></a>Odebrane resety TCP
 
-Brama NAT generuje resetowanie protokołu TCP na źródłowej maszynie wirtualnej dla ruchu, który nie jest rozpoznawany jako w toku.
+Brama translatora adresów sieciowych generuje resety TCP na źródłowej maszynie wirtualnej dla ruchu, który nie jest rozpoznawany jako w toku.
 
-Jednym z możliwych powodów jest to, że połączenie TCP ma limit czasu bezczynnego.  Limit czasu bezczynnego można regulować z 4 minut do maksymalnie 120 minut.
+Jedną z możliwych przyczyn jest to, że połączenie TCP ma limit czasu bezczynności.  Limit czasu bezczynności można dostosować z 4 minut do 120 minut.
 
-Resety TCP nie są generowane po stronie publicznej zasobów bramy NAT. Resetowanie protokołu TCP po stronie docelowej jest generowane przez źródłowe maszyny Wirtualnej, a nie przez zasób bramy NAT.
+Resetowanie protokołu TCP nie jest generowane po stronie publicznej zasobów bramy translatora adresów sieciowych. Resetowanie protokołu TCP po stronie docelowej jest generowane przez źródłową maszynę wirtualną, a nie zasób bramy translatora adresów sieciowych.
 
-_**Rozwiązanie:**_
+_**Narzędzie**_
 
-* Przejrzyj zalecenia dotyczące [wzorców projektowych.](#design-patterns)  
-* Otwórz przypadek pomocy technicznej, aby w razie potrzeby rozwiązać dalsze problemy.
+* Przejrzyj zalecenia dotyczące [wzorców projektowych](#design-patterns) .  
+* Aby uzyskać dalsze Rozwiązywanie problemów, w razie potrzeby należy otworzyć zgłoszenie do pomocy technicznej.
 
 ### <a name="ipv6-coexistence"></a>Współistnienie IPv6
 
-[Translator adresów sieci wirtualnej](nat-overview.md) obsługuje protokoły Protokołu IPv4 UDP i TCP, a wdrażanie w [podsieci z prefiksem IPv6 nie jest obsługiwane.](nat-overview.md#limitations)
+[Virtual Network translator adresów sieciowych](nat-overview.md) obsługuje protokoły UDP IPv4 i TCP oraz wdrożenie w [podsieci z prefiksem IPv6 nie jest obsługiwane](nat-overview.md#limitations).
 
-_**Rozwiązanie:**_ Wdrażanie bramy TRANSLATORa w podsieci bez prefiksu IPv6.
+_**Rozwiązanie:**_ Wdróż bramę translatora adresów sieciowych w podsieci bez prefiksu IPv6.
 
-Można wskazać zainteresowanie dodatkowymi możliwościami za pośrednictwem [virtual network NAT UserVoice](https://aka.ms/natuservoice).
+Możesz wskazać zainteresowanie dodatkowymi możliwościami za pośrednictwem [Virtual Network translatora adresów sieciowych](https://aka.ms/natuservoice)w usłudze UserVoice.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [nat sieci wirtualnej](nat-overview.md)
-* Dowiedz się więcej o [zasobie bramy NAT](nat-gateway-resource.md)
-* Dowiedz się więcej o [metrykach i alertach dotyczących zasobów bramy TRANSLATORA](nat-metrics.md).
-* [Powiedz nam, co zbudować dalej dla Virtual Network NAT w UserVoice](https://aka.ms/natuservoice).
+* Dowiedz się więcej o [Virtual Network translatora adresów sieciowych](nat-overview.md)
+* Informacje o [zasobie bramy translatora adresów sieciowych](nat-gateway-resource.md)
+* Informacje o [metrykach i alertach dotyczących zasobów bramy translatora adresów sieciowych](nat-metrics.md).
+* [Powiedz nam, co należy utworzyć obok Virtual Network translatora adresów sieciowych w usłudze UserVoice](https://aka.ms/natuservoice).
 

@@ -1,6 +1,6 @@
 ---
 title: Tworzenie pojedynczej bazy danych
-description: Utwórz pojedynczą bazę danych usługi Azure SQL Database przy użyciu portalu Azure, programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Kwerenda bazy danych z Edytorem zapytań w witrynie Azure portal.
+description: Utwórz Azure SQL Database pojedynczej bazy danych przy użyciu Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Wykonaj zapytanie do bazy danych za pomocą edytora zapytań w Azure Portal.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -12,21 +12,21 @@ ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
 ms.date: 04/19/2020
 ms.openlocfilehash: b06c255f94b4d539c7c85e318238b10629cbb907
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81685139"
 ---
-# <a name="quickstart-create-an-azure-sql-database-single-database"></a>Szybki start: tworzenie pojedynczej bazy danych usługi Azure SQL Database
+# <a name="quickstart-create-an-azure-sql-database-single-database"></a>Szybki Start: Tworzenie Azure SQL Database pojedynczej bazy danych
 
-W tym przewodniku Szybki start do utworzenia pojedynczej bazy danych usługi Azure SQL Database użyjesz portalu Azure portal, skryptu programu PowerShell lub skryptu interfejsu wiersza polecenia platformy Azure. Następnie kwerendy bazy danych za pomocą **edytora zapytań** w witrynie Azure portal. 
+W tym przewodniku szybki start użyjesz Azure Portal, skryptu programu PowerShell lub skryptu interfejsu wiersza polecenia platformy Azure do utworzenia Azure SQL Database pojedynczej bazy danych. Następnie należy wykonać zapytanie do bazy danych za pomocą **edytora zapytań** w Azure Portal. 
 
-[Pojedyncza baza danych](sql-database-single-database.md) jest najszybszą i najprostszą opcją wdrażania dla usługi Azure SQL Database. Zarządzasz pojedynczą bazą danych w [ramach serwera bazy danych SQL](sql-database-servers.md), który znajduje się wewnątrz grupy zasobów platformy [Azure](../azure-resource-manager/management/overview.md) w określonym regionie platformy Azure. W tym przewodniku Szybki start utworzysz nową grupę zasobów i serwer SQL dla nowej bazy danych.
+[Pojedyncza baza danych](sql-database-single-database.md) to najszybsza i najprostsza opcja wdrażania dla Azure SQL Database. Zarządzasz pojedynczą bazą danych na [serwerze SQL Database](sql-database-servers.md), która znajduje się w [grupie zasobów platformy Azure](../azure-resource-manager/management/overview.md) w określonym regionie świadczenia usługi Azure. W tym przewodniku szybki start utworzysz nową grupę zasobów i program SQL Server dla nowej bazy danych.
 
-Można utworzyć pojedynczą bazę danych w warstwie obliczeniowej *aprowizowana* lub *bezserwerowa.* Aprowizowana baza danych jest wstępnie przydzielona określoną ilość zasobów obliczeniowych, w tym procesora i pamięci, i używa jednego z dwóch [modeli zakupu](sql-database-purchase-models.md). Ten przewodnik Szybki start tworzy aprowizowana bazę danych przy użyciu modelu zakupów [opartego na](sql-database-service-tiers-vcore.md) języka, ale można również wybrać model [oparty na UTU.](sql-database-service-tiers-DTU.md) 
+Można utworzyć pojedynczą bazę danych w warstwie *obliczeniowej lub* *bezserwerowej* . Zainicjowana baza danych jest wstępnie przydzieloną ustaloną ilością zasobów obliczeniowych, w tym procesora CPU i pamięci, i używa jednego z dwóch [modeli zakupu](sql-database-purchase-models.md). Ten przewodnik Szybki Start tworzy zainicjowaną bazę danych przy użyciu modelu zakupu [opartego na rdzeń wirtualny](sql-database-service-tiers-vcore.md) , ale można również wybrać model [oparty na](sql-database-service-tiers-DTU.md) jednostkach DTU. 
 
-Warstwa obliczeniowa bezserwerowa jest dostępna tylko w modelu zakupów opartym na rdzeniach wirtualnych i ma automatycznie skalowany zakres zasobów obliczeniowych, w tym procesora CPU i pamięci. Aby utworzyć pojedynczą bazę danych w warstwie obliczeniowej bezserwerowej, zobacz [Tworzenie bazy danych bezserwerowej](sql-database-serverless.md#create-new-database-in-serverless-compute-tier).
+Warstwa obliczeń bezserwerowych jest dostępna tylko w modelu zakupu opartym na rdzeń wirtualny i ma automatycznie skalowany zakres zasobów obliczeniowych, w tym procesora CPU i pamięci. Aby utworzyć pojedynczą bazę danych w warstwie obliczeń bezserwerowych, zobacz [Tworzenie bazy danych bez serwera](sql-database-serverless.md#create-new-database-in-serverless-compute-tier).
 
 ## <a name="prerequisite"></a>Wymagania wstępne
 
@@ -38,11 +38,11 @@ Warstwa obliczeniowa bezserwerowa jest dostępna tylko w modelu zakupów opartym
 
 ## <a name="query-the-database"></a>Wykonywanie zapytań względem bazy danych
 
-Po utworzeniu bazy danych można użyć wbudowanego **edytora zapytań** w witrynie Azure portal, aby połączyć się z bazą danych i zbadać dane.
+Po utworzeniu bazy danych można użyć wbudowanego **edytora zapytań** w Azure Portal, aby nawiązać połączenie z bazą danych i wykonać zapytanie o dane.
 
-1. W portalu wyszukaj i wybierz **bazy danych SQL**, a następnie wybierz bazę danych z listy.
+1. W portalu Wyszukaj i wybierz pozycję **bazy danych SQL**, a następnie wybierz bazę danych z listy.
 1. Na stronie **SQL Database** dla używanej bazy danych wybierz pozycję **Edytor zapytań (wersja zapoznawcza)** w menu po lewej stronie.
-1. Wprowadź informacje logowania administratora serwera i wybierz **przycisk OK**.
+1. Wprowadź dane logowania administratora serwera, a następnie wybierz **przycisk OK**.
    
    ![Logowanie w Edytorze zapytań](./media/sql-database-single-database-get-started/query-editor-login.png)
 
@@ -63,17 +63,17 @@ Po utworzeniu bazy danych można użyć wbudowanego **edytora zapytań** w witry
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Zachowaj grupę zasobów, serwer i pojedynczą bazę danych, aby przejść do następnych kroków, i dowiedz się, jak połączyć się i zbadać bazę danych za pomocą różnych metod.
+Należy zachować grupę zasobów, serwer i pojedynczą bazę danych, aby przejść do następnych kroków i dowiedzieć się, jak nawiązać połączenie z bazą danych i wysyłać do niej zapytania przy użyciu różnych metod.
 
-Po zakończeniu korzystania z tych zasobów można usunąć utworzoną grupę zasobów, która spowoduje również usunięcie serwera i pojedynczej bazy danych w nim.
+Po zakończeniu korzystania z tych zasobów można usunąć utworzoną grupę zasobów, która spowoduje również usunięcie serwera i pojedynczej bazy danych w ramach tej grupy.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Aby usunąć **myResourceGroup** i wszystkie jego zasoby za pomocą witryny Azure portal:
+Aby usunąć **zasób** i wszystkie jego zasoby przy użyciu Azure Portal:
 
-1. W portalu wyszukaj i wybierz **grupę zasobów**, a następnie wybierz **myResourceGroup** z listy.
-1. Na stronie grupy zasobów wybierz pozycję **Usuń grupę zasobów**.
-1. W obszarze **Wpisz nazwę grupy zasobów**wprowadź *myResourceGroup*, a następnie wybierz pozycję **Usuń**.
+1. W portalu Wyszukaj i wybierz pozycję **grupy zasobów**, a następnie **Wybierz z listy pozycję Lista zasobów.**
+1. Na stronie Grupa zasobów wybierz pozycję **Usuń grupę zasobów**.
+1. W obszarze **wpisz nazwę grupy zasobów** *, wprowadź,* a następnie wybierz pozycję **Usuń**.
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -95,7 +95,7 @@ Remove-AzResourceGroup -Name <your resource group>
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Łączenie i wykonywanie zapytań](sql-database-connect-query.md) z bazą danych przy użyciu różnych narzędzi i języków:
+[Łączenie i wykonywanie zapytań](sql-database-connect-query.md) dotyczących bazy danych przy użyciu różnych narzędzi i języków:
 > [!div class="nextstepaction"]
 > [Nawiązywanie połączeń i wykonywanie zapytań przy użyciu programu SQL Server Management Studio](sql-database-connect-query-ssms.md)
 > 

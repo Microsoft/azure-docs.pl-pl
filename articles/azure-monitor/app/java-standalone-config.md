@@ -3,12 +3,12 @@ title: Monitoruj aplikacje Java w dowolnym miejscu — Azure Monitor Application
 description: Monitorowanie wydajności aplikacji bezkodowej dla aplikacji Java działających w dowolnym środowisku bez Instrumentacji aplikacji. Znajdź główną przyczynę problemów d przy użyciu śledzenia rozproszonego i mapy aplikacji.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 5d930d349a2ab1efbd7a61904874bf6bdb411889
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 478e42669339ac015076c89da103d91080090685
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641890"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509214"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opcje konfiguracji — autonomiczny Agent Java dla Azure Monitor Application Insights
 
@@ -33,14 +33,14 @@ Aby uzyskać więcej informacji, Zobacz więcej szczegółów i dodatkowe opcje 
 
 ## <a name="configuration-file-path"></a>Ścieżka pliku konfiguracji
 
-Domyślnie program Application Insights Java 3,0 Preview oczekuje, że plik konfiguracji jest nazwany `ApplicationInsights.json`i znajduje się w tym samym katalogu, co. `applicationinsights-agent-3.0.0-PREVIEW.jar`
+Domyślnie program Application Insights Java 3,0 Preview oczekuje, że plik konfiguracji jest nazwany `ApplicationInsights.json`i znajduje się w tym samym katalogu, co. `applicationinsights-agent-3.0.0-PREVIEW.4.jar`
 
 Ścieżkę do pliku konfiguracji można określić przy użyciu opcji
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE`Zmienna środowiskowa lub
 * `applicationinsights.configurationFile`Właściwość systemu Java
 
-W przypadku określenia ścieżki względnej zostanie ona rozwiązany względem katalogu, w którym `applicationinsights-agent-3.0.0-PREVIEW.jar` znajduje się lokalizacja.
+W przypadku określenia ścieżki względnej zostanie ona rozwiązany względem katalogu, w którym `applicationinsights-agent-3.0.0-PREVIEW.4.jar` znajduje się lokalizacja.
 
 ## <a name="connection-string"></a>Parametry połączenia
 
@@ -150,11 +150,13 @@ Jeśli masz pewne JMX metryki, które chcesz przechwytywać:
 }
 ```
 
-## <a name="micrometer"></a>Mikrometr
+## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>Micrometer (w tym metryki z siłownika rozruchu sprężynowego)
 
-Domyślnie, jeśli aplikacja używa [Micrometer](https://micrometer.io), Application Insights 3,0 (począwszy od wersji zapoznawczej. 2) teraz dodaje sam do rejestru globalnego Micrometer i przechwytuje metryki Micrometer.
+Jeśli aplikacja używa [Micrometer](https://micrometer.io), Application Insights 3,0 (począwszy od wersji zapoznawczej. 2) teraz przechwytuje metryki wysyłane do rejestru globalnego Micrometer.
 
-Jeśli chcesz wyłączyć tę funkcję:
+Jeśli aplikacja korzysta z [siłownika uruchomienia sprężynowego](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), Application Insights 3,0 (począwszy od wersji zapoznawczej. 4) teraz przechwytuje metryki skonfigurowane przez siłownik rozruchu sprężynowego (który używa Micrometer, ale nie używa rejestru globalnego Micrometer).
+
+Jeśli chcesz wyłączyć te funkcje:
 
 ```json
 {

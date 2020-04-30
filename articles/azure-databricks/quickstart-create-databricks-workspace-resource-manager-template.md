@@ -1,6 +1,6 @@
 ---
-title: Szybki start — tworzenie obszaru roboczego usługi Azure Databricks za pomocą Menedżera zasobów platformy Azure
-description: Ten przewodnik Szybki start pokazuje, jak używać szablonu usługi Azure Resource Manager do tworzenia obszaru roboczego usługi Azure Databricks, a następnie tworzenia klastra Platformy Spark apache i uruchamiania zadania platformy Spark.
+title: Szybki Start — Tworzenie obszaru roboczego Azure Databricks za pomocą usługi Azure Resource Manager
+description: W tym przewodniku szybki start pokazano, jak utworzyć obszar roboczy Azure Databricks za pomocą szablonu Azure Resource Manager, a następnie utworzyć klaster Apache Spark i uruchomić zadanie Spark.
 services: azure-databricks
 ms.service: azure-databricks
 author: mamccrea
@@ -11,27 +11,27 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/23/2020
 ms.openlocfilehash: d3c3c55a4ce3ee25db01128dcf50bb8763c5829b
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81604641"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Szybki start: Uruchamianie zadania Spark w usłudze Azure Databricks przy użyciu szablonu usługi Resource Manager
 
-W tym przewodniku Szybki start można użyć szablonu usługi Azure Resource Manager do utworzenia obszaru roboczego usługi Azure Databricks z klastrem Platformy Spark Apache. Uruchom zadanie w klastrze i używasz niestandardowych wykresów do tworzenia raportów w czasie rzeczywistym z bezpłatnego/płatnego użycia na podstawie danych demograficznych.
+W tym przewodniku szybki start użyjesz szablonu Azure Resource Manager, aby utworzyć obszar roboczy Azure Databricks z klastrem Apache Spark. Uruchamiasz zadanie w klastrze i korzystasz z wykresów niestandardowych do tworzenia raportów w czasie rzeczywistym na podstawie bezpłatnych i płatnych zastosowań na mocy demograficznej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure — [utwórz bezpłatną subskrypcję](https://azure.microsoft.com/free/)
+- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 > [!Note]
-> Tego samouczka nie można przeprowadzić przy użyciu **bezpłatnej subskrypcji próbnej platformy Azure.**
-> Jeśli masz darmowe konto, przejdź do swojego profilu i zmień subskrypcję na **płatność zgodnie z rzeczywistymami.** Aby uzyskać więcej informacji, zobacz [Bezpłatne konto platformy Azure](https://azure.microsoft.com/free/). Następnie [usuń limit wydatków](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)i [poproś o zwiększenie przydziału](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) dla procesorów wirtualnych w twoim regionie. Podczas tworzenia obszaru roboczego usługi Azure Databricks, można wybrać **warstwę cenową trial (Premium — 14-dniowe bezpłatne dbu),** aby dać obszarowi roboczemu dostęp do bezpłatnych witryn dbu usługi Premium Azure Databricks przez 14 dni.
+> Tego samouczka nie można przeprowadzić za pomocą **subskrypcji bezpłatnej wersji próbnej platformy Azure**.
+> Jeśli masz bezpłatne konto, przejdź do swojego profilu i Zmień subskrypcję na **płatność zgodnie z rzeczywistym**użyciem. Aby uzyskać więcej informacji, zobacz [Bezpłatne konto platformy Azure](https://azure.microsoft.com/free/). Następnie [Usuń limit wydatków](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)i [Poproś o zwiększenie limitu przydziału](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) dla procesorów wirtualnych vCPU w Twoim regionie. Podczas tworzenia obszaru roboczego Azure Databricks możesz wybrać warstwę cenową **wersji próbnej (Premium-14-Days Free dBu)** , aby umożliwić dostęp do obszaru roboczego bezpłatnie Azure Databricks DBU przez 14 dni.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Tworzenie obszaru roboczego usługi Azure Databricks
 
@@ -43,7 +43,7 @@ W tej sekcji utworzysz obszar roboczy usługi Azure Databricks przy użyciu szab
 
 2. Podaj wymagane wartości, aby utworzyć obszar roboczy usługi Azure Databricks.
 
-   ![Tworzenie obszaru roboczego usługi Azure Databricks przy użyciu szablonu usługi Azure Resource Manager](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-workspace-using-resource-manager-template.png "Tworzenie obszaru roboczego usługi Azure Databricks przy użyciu szablonu usługi Azure Resource Manager")
+   ![Tworzenie obszaru roboczego Azure Databricks przy użyciu szablonu Azure Resource Manager](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-workspace-using-resource-manager-template.png "Tworzenie obszaru roboczego Azure Databricks przy użyciu szablonu Azure Resource Manager")
 
    Podaj następujące wartości:
 
@@ -59,9 +59,9 @@ W tej sekcji utworzysz obszar roboczy usługi Azure Databricks przy użyciu szab
 
 4. Tworzenie obszaru roboczego trwa kilka minut. Podczas tworzenia obszaru roboczego po prawej stronie portalu jest wyświetlany kafelek **Przesyłanie wdrożenia dla usługi Azure Databricks**. Aby go zobaczyć, być może trzeba będzie przesunąć pulpit nawigacyjny w prawo. W górnej części ekranu jest również wyświetlany pasek postępu. Postęp można obserwować w dowolnym z tych obszarów.
 
-   ![Kafelek wdrażania databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-deployment-tile.png "Kafelek wdrażania databricks")
+   ![Kafelek wdrożenia datakostek](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-deployment-tile.png "Kafelek wdrożenia datakostek")
 
-   Gdy wdrożenie obszaru roboczego nie powiedzie się, obszar roboczy jest nadal tworzony w stanie awarii. Usuń nieudany obszar roboczy i utwórz nowy obszar roboczy, który rozwiązuje błędy wdrażania. Po usunięciu nieudanego obszaru roboczego grupa zarządzanych zasobów i wszystkie pomyślnie wdrożone zasoby są również usuwane.
+   W przypadku niepowodzenia wdrożenia obszaru roboczego jest on nadal tworzony w stanie niepowodzenia. Usuń niepowodzenie obszaru roboczego i Utwórz nowy obszar roboczy, który rozwiązuje błędy wdrożenia. Po usunięciu obszaru roboczego niepowodzenie zostanie również usunięta zarządzana Grupa zasobów i wszystkie pomyślnie wdrożone zasoby.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Tworzenie klastra Spark w usłudze Databricks
 
@@ -69,17 +69,17 @@ W tej sekcji utworzysz obszar roboczy usługi Azure Databricks przy użyciu szab
 
 2. Nastąpi przekierowanie do portalu usługi Azure Databricks. W portalu kliknij pozycję **Klaster**.
 
-   ![Databricks na platformie Azure](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-on-azure.png "Databricks na platformie Azure")
+   ![Datakostki na platformie Azure](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-on-azure.png "Datakostki na platformie Azure")
 
 3. Na stronie **Nowy klaster** podaj wartości, aby utworzyć klaster.
 
-   ![Tworzenie klastra Databricks Spark na platformie Azure](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-spark-cluster.png "Tworzenie klastra Databricks Spark na platformie Azure")
+   ![Tworzenie klastra usługi datakosteks Spark na platformie Azure](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-spark-cluster.png "Tworzenie klastra usługi datakosteks Spark na platformie Azure")
 
    Zaakceptuj pozostałe wartości domyślne poza następującymi:
 
    * Wprowadź nazwę klastra.
    * W tym artykule należy utworzyć klaster ze środowiskiem uruchomieniowym **4.0**.
-   * Upewnij się, że zaznaczysz pole wyboru **Zakończ po \_ \_ minutach braku aktywności.** Podaj czas (w minutach), po jakim działanie klastra ma zostać zakończone, jeśli nie jest używany.
+   * Upewnij się, że jest zaznaczone pole wyboru **Zakończ po \_ \_ minutach braku aktywności** . Podaj czas (w minutach), po jakim działanie klastra ma zostać zakończone, jeśli nie jest używany.
 
    Wybierz pozycję **Utwórz klaster**. Po uruchomieniu klastra możesz dołączyć do niego notesy i uruchamiać zadania Spark.
 
@@ -90,18 +90,18 @@ Aby uzyskać więcej informacji na temat tworzenia klastrów, zobacz [Create a S
 Przed przystąpieniem do pracy z tą sekcją musisz zapewnić spełnienie następujących wymagań wstępnych:
 
 * [Utwórz konto usługi Azure Blob Storage](../storage/common/storage-account-create.md).
-* Pobierz przykładowy plik JSON [z GitHub](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
+* Pobierz przykładowy plik JSON [z usługi GitHub](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
 * Przekaż ten przykładowy plik JSON na utworzone konto usługi Azure Blob Storage. Do przekazywania plików możesz używać [Eksploratora usługi Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 Wykonaj poniższe kroki, aby utworzyć notes w usłudze Databricks, skonfigurować odczytywanie za jego pomocą danych z konta usługi Azure Blob Storage, a następnie uruchomić zadanie Spark SQL na tych danych.
 
 1. W okienku po lewej stronie kliknij pozycję **Obszar roboczy**. Na liście rozwijanej **Obszar roboczy** kliknij pozycję **Utwórz**, a następnie kliknij pozycję **Notes**.
 
-   ![Tworzenie notesu w umiań danych](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-create-notebook.png "Tworzenie notesu w umiań danych")
+   ![Tworzenie notesu w kostkach](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-create-notebook.png "Tworzenie notesu w kostkach")
 
 2. W oknie dialogowym **Tworzenie notesu** wpisz nazwę, wybierz jako język pozycję **Scala** i wybierz utworzony wcześniej klaster Spark.
 
-   ![Tworzenie notesu w umiań danych](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-details.png "Tworzenie notesu w umiań danych")
+   ![Tworzenie notesu w kostkach](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-details.png "Tworzenie notesu w kostkach")
 
    Kliknij przycisk **Utwórz**.
 
@@ -125,7 +125,7 @@ Wykonaj poniższe kroki, aby utworzyć notes w usłudze Databricks, skonfigurowa
 
           spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
 
-     Aby uzyskać informacje dotyczące pobierania kluczy dostępu do konta magazynu, zobacz [Zarządzanie kluczami dostępu do konta magazynu](../storage/common/storage-account-keys-manage.md).
+     Aby uzyskać informacje na temat pobierania kluczy dostępu do konta magazynu, zobacz [Zarządzanie kluczami dostępu do konta magazynu](../storage/common/storage-account-keys-manage.md).
 
    > [!NOTE]
    > Z klastrem Spark w usłudze Azure Databricks można również używać usługi Azure Data Lake Store. Aby uzyskać instrukcje, zobacz [Use Data Lake Store with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) (Używanie usługi Data Lake Store z usługą Azure Databricks).
@@ -161,11 +161,11 @@ Wykonaj poniższe kroki, aby utworzyć notes w usłudze Databricks, skonfigurowa
 
 7. Teraz utworzysz reprezentację wizualną tych danych w celu pokazania, ilu użytkowników każdej płci ma konta bezpłatne, a ilu opłaca subskrypcję. U dołu tabelarycznych danych wyjściowych kliknij ikonę **Wykres słupkowy**, a następnie pozycję **Opcje wykresu**.
 
-   ![Tworzenie wykresu słupkowego](./media/quickstart-create-databricks-workspace-resource-manager-template/create-plots-databricks-notebook.png "Tworzenie wykresu słupkowego")
+   ![Utwórz wykres słupkowy](./media/quickstart-create-databricks-workspace-resource-manager-template/create-plots-databricks-notebook.png "Utwórz wykres słupkowy")
 
 8. W obszarze **Dostosowywanie wykresu** przeciągnij i upuść wartości, jak pokazano na zrzucie ekranu.
 
-   ![Dostosowywanie wykresu słupkowego](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-customize-plot.png "Dostosowywanie wykresu słupkowego")
+   ![Dostosuj wykres słupkowy](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-customize-plot.png "Dostosuj wykres słupkowy")
 
    * W obszarze **Klucze** ustaw wartość **gender** (płeć).
    * W obszarze **Grupowania serii** ustaw wartość **level** (poziom).
@@ -176,15 +176,15 @@ Wykonaj poniższe kroki, aby utworzyć notes w usłudze Databricks, skonfigurowa
 
 9. Wynikiem będzie reprezentacja wizualna przedstawiona na zrzucie ekranu:
 
-   ![Dostosowywanie wykresu słupkowego](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-sql-query-output-bar-chart.png "Dostosowywanie wykresu słupkowego")
+   ![Dostosuj wykres słupkowy](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-sql-query-output-bar-chart.png "Dostosuj wykres słupkowy")
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy skończysz korzystać z tego artykułu, możesz zakończyć działanie klastra. Aby to zrobić, w obszarze roboczym usługi Azure Databricks wybierz pozycję **Klastry** w lewym okienku. W obszarze klastra, którego działanie chcesz zakończyć, przesuń kursor na wielokropek w kolumnie **Akcje**, a następnie wybierz ikonę **Zakończ**.
 
-![Zatrzymywać klaster Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/terminate-databricks-cluster.png "Zatrzymywać klaster Databricks")
+![Zatrzymaj klaster datakostki](./media/quickstart-create-databricks-workspace-resource-manager-template/terminate-databricks-cluster.png "Zatrzymaj klaster datakostki")
 
-Jeśli klaster nie zostanie ręcznie zakończony, zostanie on automatycznie wstrzymany, pod warunkiem, że podczas tworzenia klastra zostanie zaznaczone pole wyboru **Zakończ po \_ \_ minutach braku aktywności.** W takim przypadku nieaktywny klaster automatycznie zatrzymuje się po określonym czasie.
+Jeśli klaster nie zostanie ręcznie zakończony, zostanie on automatycznie zatrzymany, pod warunkiem, że podczas tworzenia klastra zaznaczono pole wyboru **Przerwij po \_ \_ minutach braku aktywności** . W takim przypadku nieaktywny klaster automatycznie zatrzymuje się po określonym czasie.
 
 ## <a name="next-steps"></a>Następne kroki
 

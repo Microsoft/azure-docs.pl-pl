@@ -1,6 +1,6 @@
 ---
-title: Rozwiązania Oracle na maszynach wirtualnych platformy Azure | Dokumenty firmy Microsoft
-description: Dowiedz się więcej o obsługiwanych konfiguracjach i ograniczeniach obrazów maszyn wirtualnych Oracle na platformie Microsoft Azure.
+title: Rozwiązania firmy Oracle na maszynach wirtualnych platformy Azure | Microsoft Docs
+description: Informacje o obsługiwanych konfiguracjach i ograniczeniach obrazów maszyn wirtualnych Oracle na Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: BorisB2015
@@ -14,15 +14,15 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: borisb
 ms.openlocfilehash: 0cee7c25960d567c75a14d8ad9ef95b3e7221862
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683417"
 ---
-# <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Obrazy maszyn wirtualnych Oracle i ich wdrożenie na platformie Microsoft Azure
+# <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Obrazy maszyn wirtualnych Oracle i ich wdrożenie na Microsoft Azure
 
-W tym artykule omówiono informacje o rozwiązaniach Oracle opartych na obrazach maszyn wirtualnych opublikowanych przez oracle w portalu Azure Marketplace. Jeśli interesują Cię rozwiązania w zakresie aplikacji między chmurami z oracle cloud infrastructure, zobacz [rozwiązania aplikacji Oracle integrujące microsoft azure i oracle cloud infrastructure](oracle-oci-overview.md).
+Ten artykuł zawiera informacje na temat rozwiązań firmy Oracle opartych na obrazach maszyn wirtualnych opublikowanych przez program Oracle w portalu Azure Marketplace. Jeśli interesujesz się rozwiązaniami aplikacji w chmurze za pomocą infrastruktury chmurowej Oracle, zobacz [rozwiązania aplikacji Oracle integrujące Microsoft Azure i infrastrukturę chmurową firmy Oracle](oracle-oci-overview.md).
 
 Aby uzyskać listę aktualnie dostępnych obrazów, uruchom następujące polecenie:
 
@@ -30,7 +30,7 @@ Aby uzyskać listę aktualnie dostępnych obrazów, uruchom następujące polece
 az vm image list --publisher oracle -o table --all
 ```
 
-Od maja 2019 r. dostępne są następujące obrazy:
+Od maja 2019 dostępne są następujące obrazy:
 
 ```bash
 Offer                   Publisher    Sku                     Urn                                                          Version
@@ -53,93 +53,93 @@ Oracle-Linux            Oracle       7.6                     Oracle:Oracle-Linux
 Oracle-WebLogic-Server  Oracle       Oracle-WebLogic-Server  Oracle:Oracle-WebLogic-Server:Oracle-WebLogic-Server:12.1.2  12.1.2
 ```
 
-Te obrazy są uważane za "Bring Your Own License" i jako takie będą naliczane tylko za koszty obliczeniowe, magazynowe i sieciowe poniesione w związku z uruchomieniem maszyny Wirtualnej.  Zakłada się, że masz odpowiednie licencje na korzystanie z oprogramowania Oracle i że masz aktualną umowę pomocy technicznej z Oracle. Oracle ma zagwarantowaną mobilność licencji z lokalnego na platformę Azure. Szczegółowe informacje na temat mobilności licencji można znaleźć w opublikowanej notatce [oracle i microsoft.](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html) 
+Te obrazy są uważane za "dostarczenie własnej licencji", a w związku z tym opłaty są naliczane tylko za zasoby obliczeniowe, magazynowe i sieciowe związane z uruchamianiem maszyny wirtualnej.  Przyjęto założenie, że masz licencję na korzystanie z oprogramowania Oracle i że masz bieżącą umowę pomocy technicznej na platformie Oracle. Firma Oracle gwarantuje mobilność licencji ze środowiska lokalnego na platformę Azure. Aby uzyskać szczegółowe informacje na temat mobilności licencji, zobacz opublikowane [oprogramowanie Oracle i Microsoft](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html) uwagi. 
 
-Osoby fizyczne mogą również oprzeć swoje rozwiązania na obrazie niestandardowym, który tworzą od podstaw na platformie Azure lub przekazać obraz niestandardowy ze środowiska lokalnego.
+Użytkownicy mogą również zdecydować się na oparcie rozwiązań w obrazie niestandardowym utworzonym od podstaw na platformie Azure lub przekazaniem obrazu niestandardowego ze środowiska lokalnego.
 
 ## <a name="oracle-database-vm-images"></a>Obrazy maszyn wirtualnych bazy danych Oracle
-Oracle obsługuje uruchamianie oracle database 12.1 i wyższych wersji Standard i Enterprise na platformie Azure na obrazach maszyn wirtualnych opartych na systemie Oracle Linux.  Aby uzyskać najlepszą wydajność dla obciążeń produkcyjnych bazy danych Oracle Database na platformie Azure, należy odpowiednio powymitować obraz maszyny Wirtualnej i używać dysków zarządzanych dysków SSD premium lub ultra SSD. Aby uzyskać instrukcje dotyczące szybkiego uruchamiania bazy danych Oracle Database na platformie Azure przy użyciu opublikowanego obrazu maszyny [Wirtualnej](oracle-database-quick-create.md)Oracle, wypróbuj przewodnik Szybki start bazy danych Oracle Database .
+Oprogramowanie Oracle obsługuje uruchamianie Oracle Database 12,1 i nowszych wersji Standard i Enterprise na platformie Azure w obrazach maszyn wirtualnych na podstawie Oracle Linux.  Aby uzyskać najlepszą wydajność dla obciążeń produkcyjnych Oracle Database na platformie Azure, należy pamiętać o prawidłowym rozmiarze obrazu maszyny wirtualnej i użyć SSD w warstwie Premium lub SSD w warstwie Ultra Managed Disks. Aby uzyskać instrukcje na temat szybkiego uzyskiwania Oracle Database na platformie Azure przy użyciu opublikowanego obrazu maszyny wirtualnej Oracle, [wypróbuj Oracle Database przewodnika Szybki Start](oracle-database-quick-create.md).
 
-### <a name="attached-disk-configuration-options"></a>Dołączone opcje konfiguracji dysku
+### <a name="attached-disk-configuration-options"></a>Opcje konfiguracji dołączonego dysku
 
-Dołączone dyski są zależne od usługi magazynu obiektów Blob platformy Azure. Każdy dysk standardowy jest w stanie maksymalnie około 500 operacji wejścia/wyjścia na sekundę (IOPS). Nasza oferta dysków premium jest preferowana w przypadku obciążeń bazy danych o wysokiej wydajności i może osiągnąć do 5000 IOps na dysk. Można użyć jednego dysku, jeśli spełnia twoje potrzeby w zakresie wydajności. Można jednak poprawić efektywną wydajność usług We/Wy, jeśli używasz wielu dołączonych dysków, rozmieszczasz dane bazy danych na nich, a następnie użyj automatycznego zarządzania pamięcią masową Oracle (ASM). Więcej informacji na temat oracle ASM można [znaleźć w omówienie funkcji Oracle Automatic Storage.](https://www.oracle.com/technetwork/database/index-100339.html) Na przykład jak zainstalować i skonfigurować Oracle ASM na maszynie wirtualnej platformy Azure z systemem Linux, zobacz [instalowanie i konfigurowanie Oracle Automated Storage Management](configure-oracle-asm.md) samouczek.
+Dołączone dyski korzystają z usługi Azure Blob Storage. Każdy dysk w warstwie Standardowa może teoretycznie maksymalnie wynosić około 500 operacji wejścia/wyjścia na sekundę (IOPS). Nasza oferta dysku Premium jest preferowana w przypadku obciążeń baz danych o wysokiej wydajności i może osiągać 5000 operacji we/wy na dysku. Można użyć jednego dysku, jeśli spełnia wymagania dotyczące wydajności. Można jednak zwiększyć wydajność wydajności operacji we/wy, jeśli używasz wielu dołączonych dysków, rozłożyć dane bazy danych między nimi, a następnie użyj funkcji automatycznego zarządzania magazynem (ASM) firmy Oracle. Zobacz [Omówienie automatycznego magazynu Oracle](https://www.oracle.com/technetwork/database/index-100339.html) , aby uzyskać więcej informacji dotyczących programu Oracle ASM. Przykład instalacji i konfiguracji programu Oracle ASM na maszynie wirtualnej platformy Azure z systemem Linux można znaleźć w temacie [Instalowanie i Konfigurowanie zautomatyzowanego zarządzania magazynem programu Oracle](configure-oracle-asm.md) .
 
 ### <a name="shared-storage-configuration-options"></a>Opcje konfiguracji magazynu udostępnionego
 
-Usługa Azure NetApp Files została zaprojektowana w celu spełnienia podstawowych wymagań uruchamiania obciążeń o wysokiej wydajności, takich jak bazy danych w chmurze, i zapewnia;
-- Natywna usługa magazynowania nfs platformy Azure do uruchamiania obciążeń Oracle za pośrednictwem natywnego klienta NFS maszyny wirtualnej lub oracle dNFS
-- Skalowalne warstwy wydajności, które odzwierciedlają rzeczywisty zakres wymagań we/wy
+Azure NetApp Files został zaprojektowany tak, aby spełniał podstawowe wymagania dotyczące uruchamiania obciążeń o wysokiej wydajności, takich jak bazy danych w chmurze, i zapewnia;
+- Usługa Azure Native Shared Storage NFS do uruchamiania obciążeń Oracle przy użyciu natywnego klienta systemu plików NFS lub Oracle dNFS
+- Skalowalne warstwy wydajności odzwierciedlające rzeczywisty zakres żądań IOPS
 - Małe opóźnienia
-- Wysoka dostępność, wysoka trwałość i łatwość zarządzania na dużą skalę, zwykle wymagane przez krytyczne obciążenia przedsiębiorstwa (takie jak SAP i Oracle)
-- Szybkie i wydajne tworzenie kopii zapasowych i odzyskiwanie, aby osiągnąć najbardziej agresywne RTO i RPO SLA
+- Wysoka dostępność, wysoka trwałość i łatwość zarządzania na dużą skalę, zazwyczaj zapotrzebowanie na zadania o znaczeniu krytycznym dla przedsiębiorstw (na przykład SAP i Oracle)
+- Szybka i wydajna kopia zapasowa i odzyskiwanie, aby osiągnąć najbardziej agresywne umowy SLA RTO i RPO
 
-Te możliwości są możliwe, ponieważ usługa Azure NetApp Files jest oparta na netapp® ONTAP® systemach wszystkich flash działających w środowisku centrum danych platformy Azure — jako usługa Azure Native. Rezultatem jest technologia magazynu bazy danych idealne, które mogą być aprowizowane i używane, podobnie jak inne opcje magazynu platformy Azure. Zobacz [dokumentację usługi Azure NetApp Files,](https://docs.microsoft.com/azure/azure-netapp-files/) aby uzyskać więcej informacji na temat wdrażania woluminów NFS plików plików NetApp i uzyskiwania do nich dostępu. Zobacz [Przewodnik najlepszych rozwiązań oracle na platformie Azure Deployment Using Azure NetApp Files,](https://www.netapp.com/us/media/tr-4780.pdf) aby uzyskać zalecenia dotyczące najlepszych rozwiązań dotyczących obsługi bazy danych Oracle w plikach NetApp platformy Azure.
-
-
-## <a name="licensing-oracle-database--software-on-azure"></a>Licencjonowanie oprogramowania oracle database & na platformie Azure
-Platforma Microsoft Azure jest autoryzowanym środowiskiem chmury do uruchamiania bazy danych Oracle Database. Tabela Oracle Core Factor nie ma zastosowania podczas licencjonowania baz danych Oracle w chmurze. Zamiast tego podczas korzystania z maszyn wirtualnych z technologią hyper-threading włączoną dla baz danych wersji Enterprise Edition należy zliczyć dwa procesory wirtualne jako równoważne jednej licencji procesora Oracle, jeśli hiperwątkowość jest włączona (jak określono w dokumencie zasad). Szczegóły zasad można znaleźć [tutaj](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
-Bazy danych Oracle zazwyczaj wymagają większej ilości pamięci i we/wy. Z tego powodu maszyny [wirtualne zoptymalizowane pod kątem pamięci](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory) są zalecane dla tych obciążeń. Aby jeszcze bardziej zoptymalizować obciążenia, [procesory wirtualne o ograniczonej liczbie rdzeni](https://docs.microsoft.com/azure/virtual-machines/linux/constrained-vcpu) są zalecane dla obciążeń bazy danych Oracle Database, które wymagają dużej ilości pamięci, pamięci masowej i przepustowości we/wy, ale nie są to wysokie liczby rdzeni.
-
-Podczas migracji oprogramowania i obciążeń Oracle z lokalnego środowiska do platformy Microsoft Azure oracle zapewnia mobilność licencji zgodnie z często zadawanymi [pytaniami dotyczącymi oracle na platformie Azure](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
+Te możliwości są możliwe, ponieważ Azure NetApp Files jest oparty na NetApp® ONTAP® wszystkie systemy Flash działające w środowisku centrum danych platformy Azure — jako usługa natywna platformy Azure. Wynikiem jest idealna technologia magazynu bazy danych, która może zostać zainicjowana i zużyta podobnie jak w przypadku innych opcji usługi Azure Storage. Więcej informacji na temat sposobu wdrażania i uzyskiwania dostępu do Azure NetApp Files woluminów NFS znajduje się w [dokumentacji Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/) . Zapoznaj się z tematem zalecenia dotyczące [najlepszych rozwiązań w programie Oracle na platformie Azure, korzystając z Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf) z najlepszymi rozwiązaniami dotyczącymi obsługi bazy Azure NetApp Files danych Oracle.
 
 
-## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle Real Application Cluster (Oracle RAC)
-Oracle Real Application Cluster (Oracle RAC) został zaprojektowany w celu ograniczenia awarii pojedynczego węzła w lokalnej konfiguracji klastra z wieloma węzłami. Opiera się na dwóch technologiach lokalnych, które nie są rodzime dla środowisk chmury publicznej na dużą skalę: sieci multi-cast i współużytkowany dysk. Jeśli rozwiązanie bazy danych wymaga oracle rac na platformie Azure, potrzebujesz oprogramowania innej firmy, aby włączyć te technologie. Więcej informacji na temat programu Oracle RAC można znaleźć na [stronie FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
+## <a name="licensing-oracle-database--software-on-azure"></a>Licencjonowanie Oracle Database & oprogramowania na platformie Azure
+Microsoft Azure to autoryzowane środowisko chmury do uruchamiania Oracle Database. Tabela czynników podstawowych firmy Oracle nie ma zastosowania w przypadku licencjonowania baz danych Oracle w chmurze. Zamiast tego podczas korzystania z maszyn wirtualnych z technologią Hyper-Threading dla baz danych w wersji Enterprise należy liczyć dwie procesorów wirtualnych vCPU jako równoważne jednej licencji procesora Oracle, jeśli jest włączona funkcja wielowątkowości (zgodnie z opisem w dokumencie zasad). Szczegóły zasad można znaleźć [tutaj](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
+Bazy danych Oracle zazwyczaj wymagają wyższych ilości pamięci i operacji we/wy. Z tego powodu zaleca się używanie [maszyn wirtualnych zoptymalizowanych pod kątem pamięci](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory) dla tych obciążeń. Aby jeszcze bardziej zoptymalizować obciążenia, Oracle Database zaleca się użycie [procesorów wirtualnych vcpuych rdzeni](https://docs.microsoft.com/azure/virtual-machines/linux/constrained-vcpu) , które wymagają dużej ilości pamięci, magazynu I przepustowości we/wy, ale nie dużej liczby rdzeni.
 
-## <a name="high-availability-and-disaster-recovery-considerations"></a>Wysoka dostępność i zagadnienia związane z odzyskiwaniem po awarii
-Podczas korzystania z baz danych Oracle na platformie Azure, jesteś odpowiedzialny za wdrożenie wysokiej dostępności i odzyskiwania po awarii rozwiązanie, aby uniknąć przestojów. 
-
-Wysoką dostępność i odzyskiwanie po awarii dla Oracle Database Enterprise Edition (bez polegania na oracle RAC) można osiągnąć na platformie Azure za pomocą [data guard, Active Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html)lub Oracle [GoldenGate](https://www.oracle.com/technetwork/middleware/goldengate), z dwiema bazami danych na dwóch oddzielnych maszynach wirtualnych. Obie maszyny wirtualne powinny znajdować się w tej samej [sieci wirtualnej,](https://azure.microsoft.com/documentation/services/virtual-network/) aby zapewnić sobie dostęp do siebie za pośrednictwem prywatnego trwałego adresu IP.  Ponadto zaleca się umieszczenie maszyn wirtualnych w tym samym zestawie dostępności, aby umożliwić platformie Azure umieszczanie ich w oddzielnych domenach błędów i domenach uaktualniania. Jeśli chcesz mieć nadmiarowość geograficzną, skonfiguruj dwie bazy danych do replikacji między dwoma różnymi regionami i połącz dwa wystąpienia z bramą sieci VPN.
-
-Samouczek [Implementuj oracle data guard na platformie Azure](configure-oracle-dataguard.md) przeprowadzi Cię przez podstawową procedurę konfiguracji na platformie Azure.  
-
-Dzięki oracle data guard można osiągnąć wysoką dostępność dzięki podstawowej bazie danych w jednej maszynie wirtualnej, pomocniczej (rezerwowej) bazie danych na innej maszynie wirtualnej i jednokierunkowej replikacji skonfigurowanej między nimi. Wynikiem jest dostęp do odczytu do kopii bazy danych. Za pomocą oracle GoldenGate można skonfigurować replikację dwukierunkową między dwiema bazami danych. Aby dowiedzieć się, jak skonfigurować rozwiązanie o wysokiej dostępności dla baz danych przy użyciu tych narzędzi, zobacz [Active Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html) i [Dokumentacja GoldenGate](https://docs.oracle.com/goldengate/1212/gg-winux/index.html) w witrynie Oracle. Jeśli potrzebujesz dostępu do odczytu i zapisu do kopii bazy danych, możesz użyć [Oracle Active Data Guard](https://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
-
-Samouczek [Implementuj Oracle GoldenGate na platformie Azure](configure-oracle-golden-gate.md) przeprowadzi Cię przez podstawową procedurę konfiguracji na platformie Azure.
-
-Oprócz posiadania wysokiej bazy danych i odzyskiwania po awarii rozwiązanie zaprojektowany na platformie Azure, należy mieć strategii tworzenia kopii zapasowych w celu przywrócenia bazy danych. Samouczek [Kopia zapasowa i odzyskiwanie bazy danych Oracle Database](oracle-backup-recovery.md) przeprowadzi Cię przez podstawową procedurę ustanawiania spójnej kopii zapasowej.
+W przypadku migrowania oprogramowania i obciążeń programu Oracle ze środowiska lokalnego do Microsoft Azure firma Oracle zapewnia mobilność licencji zgodnie z opisem w artykule [Oracle na platformie Azure — często zadawane pytania](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
 
 
-## <a name="support-for-jd-edwards"></a>Wsparcie dla JD Edwards
-Zgodnie z Oracle Support note [Doc ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4), JD Edwards EnterpriseOne w wersji 9.2 i nowszych są obsługiwane w **dowolnej ofercie chmury publicznej,** która spełnia ich specyficzne `Minimum Technical Requirements` (MTR).  Należy utworzyć niestandardowe obrazy, które spełniają ich specyfikacje MTR dla zgodności systemu operacyjnego i aplikacji. 
+## <a name="oracle-real-application-cluster-oracle-rac"></a>Klaster aplikacji w rzeczywistości Oracle (Oracle RAC)
+Miesięczny klaster aplikacji Oracle (Oracle RAC) został zaprojektowany z myślą o ograniczeniu awarii pojedynczego węzła w lokalnej konfiguracji klastra wielowęzłowego. Opiera się on na dwóch lokalnych technologiach, które nie są natywne dla środowisk chmury publicznej z funkcją Hyper-skalowania: sieć z obsługą wielu multiemisji i dysk udostępniony. Jeśli rozwiązanie bazy danych wymaga programu Oracle RAC na platformie Azure, do włączenia tych technologii wymagane jest oprogramowanie trzeciej firmy. Więcej informacji na temat programu Oracle RAC można znaleźć na [stronie FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
+
+## <a name="high-availability-and-disaster-recovery-considerations"></a>Zagadnienia dotyczące wysokiej dostępności i odzyskiwania po awarii
+W przypadku korzystania z baz danych Oracle na platformie Azure użytkownik jest odpowiedzialny za wdrożenie rozwiązania wysokiej dostępności i odzyskiwania po awarii w celu uniknięcia wszelkich przestojów. 
+
+Wysoką dostępność i odzyskiwanie po awarii dla Oracle Database Enterprise Edition (bez polegania na programie Oracle RAC) można uzyskać na platformie Azure przy użyciu funkcji [Data Guard, Active Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html)lub [Oracle GoldenGate](https://www.oracle.com/technetwork/middleware/goldengate)z dwiema bazami danych na dwóch oddzielnych maszynach wirtualnych. Obie maszyny wirtualne powinny znajdować się w tej samej [sieci wirtualnej](https://azure.microsoft.com/documentation/services/virtual-network/) , aby zapewnić, że będą mogły uzyskać do nich dostęp za pośrednictwem prywatnego trwałego adresu IP.  Ponadto Zalecamy umieszczenie maszyn wirtualnych w tym samym zestawie dostępności, aby umożliwić platformie Azure umieszczenie ich w osobnych domenach błędów i domenach uaktualnienia. Jeśli chcesz mieć nadmiarowość geograficzną, skonfiguruj dwie bazy danych do replikowania między dwoma różnymi regionami i Połącz te dwa wystąpienia z VPN Gateway.
+
+Samouczek [implementujący funkcję Oracle Data Guard na platformie Azure](configure-oracle-dataguard.md) przeprowadzi Cię przez podstawową procedurę konfiguracji na platformie Azure.  
+
+Przy użyciu funkcji Oracle Data Guard można uzyskać wysoką dostępność przy użyciu podstawowej bazy danych na jednej maszynie wirtualnej, dodatkowej (w stanie gotowości) w innej maszynie wirtualnej i replikacji jednokierunkowej. Wynikiem jest dostęp do odczytu do kopii bazy danych programu. Za pomocą programu Oracle GoldenGate można skonfigurować dwukierunkową replikację między dwiema bazami danych. Aby dowiedzieć się, jak skonfigurować rozwiązanie wysokiej dostępności dla baz danych przy użyciu tych narzędzi, zobacz artykuł [Active Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html) i dokumentacja [GoldenGate](https://docs.oracle.com/goldengate/1212/gg-winux/index.html) w witrynie Oracle. Jeśli potrzebujesz dostępu do odczytu i zapisu do kopii bazy danych programu, możesz użyć usługi [Oracle Active Data Guard](https://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
+
+Samouczek [implementacji programu Oracle GoldenGate na platformie Azure](configure-oracle-golden-gate.md) przeprowadzi Cię przez podstawową procedurę konfiguracji na platformie Azure.
+
+Oprócz posiadania rozwiązań o wysokiej dostępności i rozwiązaniu DR na platformie Azure należy utworzyć strategię tworzenia kopii zapasowych w celu przywrócenia bazy danych. W samouczku [Tworzenie kopii zapasowej i odzyskiwanie Oracle Database](oracle-backup-recovery.md) przeprowadzi Cię przez podstawową procedurę tworzenia spójnej kopii zapasowej.
 
 
-## <a name="oracle-weblogic-server-virtual-machine-images"></a>Obrazy maszyn wirtualnych oracle WebLogic Server
+## <a name="support-for-jd-edwards"></a>Obsługa JD Edwards
+Zgodnie z pomocą techniczną firmy Oracle [Identyfikator Doc 2178595,1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4), JD Edwards EnterpriseOne wersje 9,2 i nowsze są obsługiwane we **wszystkich ofertach chmury publicznej** , które `Minimum Technical Requirements` spełniają ich specyficzne (MTR).  Należy utworzyć niestandardowe obrazy, które spełniają specyfikacje MTR dla zgodności aplikacji systemu operacyjnego i oprogramowania. 
 
-* **Klastrowanie jest obsługiwane tylko w wersji Enterprise Edition.** Korzystanie z klastrów WebLogic jest licencjonowane tylko w przypadku korzystania z programu Enterprise Edition programu Oracle WebLogic Server. Nie należy używać klastrowania z oracle weblogic server standard edition.
-* **Multiemisji UDP nie jest obsługiwany.** Platforma Azure obsługuje emisję pojedynczą UDP, ale nie multiemisji lub nadawania. Oracle WebLogic Server może polegać na możliwościach emisji pojedynczej platformy Azure UDP. Aby uzyskać najlepsze wyniki opierając się na emisji pojedynczej UDP, zaleca się, że rozmiar klastra WebLogic jest statyczny lub przechowywane z nie więcej niż 10 serwerów zarządzanych.
-* **Oracle WebLogic Server oczekuje, że porty publiczne i prywatne będą takie same dla dostępu T3 (na przykład podczas korzystania z oprogramowania JavaBeans).** Rozważmy scenariusz wielowarstwowy, w którym aplikacja warstwy usług (EJB) jest uruchomiona w klastrze Oracle WebLogic Server składającym się z dwóch lub więcej maszyn wirtualnych w sieci wirtualnej o nazwie *SLWLS*. Warstwa klienta znajduje się w innej podsieci w tej samej sieci wirtualnej, z uruchomionym prostym programem Java, który próbuje wywołać EJB w warstwie usługi. Ponieważ konieczne jest zrównoważenie obciążenia warstwy usługi, należy utworzyć publiczny punkt końcowy z równoważenia obciążenia dla maszyn wirtualnych w klastrze serwera Oracle WebLogic Server. Jeśli określony port prywatny różni się od portu publicznego (na przykład 7006:7008), wystąpi następujący błąd:
+
+## <a name="oracle-weblogic-server-virtual-machine-images"></a>Obrazy maszyn wirtualnych z programem Oracle WebLogic Server
+
+* **Klastrowanie jest obsługiwane tylko w wersji Enterprise.** Masz licencję na korzystanie z klastrowania WebLogic tylko w przypadku korzystania z serwera Oracle WebLogic Server w wersji Enterprise. Nie należy używać klastrowania z Oracle WebLogic Server Standard Edition.
+* **Multiemisja UDP nie jest obsługiwana.** Platforma Azure obsługuje emisję pojedynczą UDP, ale nie multiemisję ani rozgłaszanie. Serwer Oracle WebLogic Server może polegać na możliwościach emisji pojedynczej protokołu UDP platformy Azure. W celu uzyskania najlepszych wyników polegających na emisji pojedynczej UDP zaleca się, aby rozmiar klastra WebLogic był przechowywany statyczny lub przechowywany bez więcej niż 10 serwerów zarządzanych.
+* **Serwer Oracle WebLogic oczekuje, że porty publiczne i prywatne mają być takie same dla dostępu T3 (na przykład w przypadku korzystania z usługi Enterprise JavaBeans).** Rozważmy scenariusz wielowarstwowy, w którym aplikacja warstwy usług (EJB) jest uruchomiona w klastrze programu Oracle WebLogic Server składającym się z co najmniej dwóch maszyn wirtualnych w sieci wirtualnej o nazwie *SLWLS*. Warstwa klienta znajduje się w innej podsieci w tej samej sieci wirtualnej, uruchamiając prosty program języka Java próbujący wywołać EJB w warstwie usług. Ponieważ konieczne jest równoważenie obciążenia warstwy usług, należy utworzyć publiczny punkt końcowy ze zrównoważonym obciążeniem dla maszyn wirtualnych w klastrze serwera Oracle WebLogic. Jeśli określony port prywatny różni się od portu publicznego (na przykład 7006:7008), wystąpi błąd, taki jak następujące:
 
        [java] javax.naming.CommunicationException [Root exception is java.net.ConnectException: t3://example.cloudapp.net:7006:
 
        Bootstrap to: example.cloudapp.net/138.91.142.178:7006' over: 't3' got an error or timed out]
 
-   Dzieje się tak, ponieważ w przypadku każdego zdalnego dostępu T3 serwer Oracle WebLogic Server oczekuje, że port modułu równoważenia obciążenia i port serwera zarządzanego WebLogic będą takie same. W poprzednim przypadku klient uzyskuje dostęp do portu 7006 (port modułu równoważenia obciążenia), a serwer zarządzany nasłuchuje na 7008 (port prywatny). To ograniczenie ma zastosowanie tylko do dostępu T3, a nie http.
+   Jest to spowodowane tym, że dla każdego zdalnego dostępu T3 serwer Oracle WebLogic oczekuje, że port usługi równoważenia obciążenia i port serwera zarządzanego WebLogic są takie same. W poprzednim przypadku klient uzyskuje dostęp do portu 7006 (Port usługi równoważenia obciążenia), a serwer zarządzany nasłuchuje na 7008 (port prywatny). To ograniczenie dotyczy tylko dostępu T3, a nie protokołu HTTP.
 
-   Aby uniknąć tego problemu, należy użyć jednego z następujących rozwiązań:
+   Aby uniknąć tego problemu, użyj jednego z następujących obejść:
 
-  * Użyj tych samych numerów portów prywatnych i publicznych dla punktów końcowych z równoważenia obciążenia dedykowanych dostępowi T3.
-  * Podczas uruchamiania programu Oracle WebLogic Server należy uwzględnić następujący parametr JVM:
+  * Użyj tych samych numerów portów prywatnych i publicznych dla punktów końcowych z równoważeniem obciążenia, które są przeznaczone dla dostępu T3.
+  * Podczas uruchamiania serwera Oracle WebLogic należy uwzględnić następujący parametr JVM:
 
     ```
     -Dweblogic.rjvm.enableprotocolswitch=true
     ```
 
-Informacje te można znaleźć w artykule **860340.1** bazy wiedzy o . <https://support.oracle.com>
+Aby uzyskać powiązane informacje, zobacz artykuł **860340,1** w <https://support.oracle.com>bazie wiedzy o.
 
-* **Dynamiczne klastrowanie i równoważenie obciążenia.** Załóżmy, że chcesz użyć klastra dynamicznego w programie Oracle WebLogic Server i udostępnić go za pośrednictwem jednego, publicznego punktu końcowego z równoważenia obciążenia na platformie Azure. Można to zrobić tak długo, jak można użyć stałego numeru portu dla każdego z serwerów zarządzanych (nie dynamicznie przypisane z zakresu) i nie uruchomić więcej serwerów zarządzanych niż istnieją maszyny administrator jest śledzenie. Oznacza to, że nie ma więcej niż jeden serwer zarządzany na maszynę wirtualną). Jeśli konfiguracja powoduje, że uruchamia się więcej serwerów Oracle WebLogic niż maszyny wirtualne (oznacza to, że wiele wystąpień serwera Oracle WebLogic Server współużytkuje tę samą maszynę wirtualną), nie jest możliwe, aby więcej niż jedno z tych wystąpień serwerów Oracle WebLogic powiązać z danym numerem portu. Pozostałe na tej maszynie wirtualnej nie powiedzie się.
+* **Ograniczenia dynamicznego klastrowania i równoważenia obciążenia.** Załóżmy, że chcesz użyć dynamicznego klastra na serwerze Oracle WebLogic i uwidocznić go za pomocą jednego publicznego punktu końcowego ze zrównoważonym obciążeniem na platformie Azure. Można to zrobić tak długo, jak używasz stałego numeru portu dla każdego z serwerów zarządzanych (nie jest to przypisywany dynamicznie z zakresu) i nie uruchamiaj więcej zarządzanych serwerów niż maszyny, które są śledzone przez administratora. Oznacza to, że nie ma więcej niż jednego serwera zarządzanego na maszynę wirtualną. Jeśli konfiguracja powoduje, że są uruchamiane więcej serwerów Oracle WebLogic niż maszyny wirtualne (w przypadku wielu wystąpień serwera Oracle WebLogic, które współużytkują tę samą maszynę wirtualną), nie jest możliwe, aby więcej niż jedno wystąpienie serwerów Oracle WebLogic było powiązane z danym numerem portu. Inne osoby na tej maszynie wirtualnej zakończą się niepowodzeniem.
 
-   Jeśli serwer administracyjny zostanie skonfigurowany do automatycznego przypisywania unikatowych numerów portów do serwerów zarządzanych, równoważenie obciążenia nie jest możliwe, ponieważ platforma Azure nie obsługuje mapowania z jednego portu publicznego do wielu portów prywatnych, co byłoby wymagane w tej konfiguracji.
-* **Wiele wystąpień serwera Oracle WebLogic server na maszynie wirtualnej.** W zależności od wymagań wdrożenia można rozważyć uruchomienie wielu wystąpień programu Oracle WebLogic Server na tej samej maszynie wirtualnej, jeśli maszyna wirtualna jest wystarczająco duża. Na przykład na średniej wielkości maszynie wirtualnej, która zawiera dwa rdzenie, można uruchomić dwa wystąpienia Oracle WebLogic Server. Jednak nadal zaleca się, aby uniknąć wprowadzania pojedynczych punktów awarii do architektury, co byłoby w przypadku, gdy używasz tylko jednej maszyny wirtualnej, która jest uruchomiona wiele wystąpień Oracle WebLogic Server. Przy użyciu co najmniej dwóch maszyn wirtualnych może być lepsze podejście, a każda maszyna wirtualna może następnie uruchomić wiele wystąpień Oracle WebLogic Server. Każde wystąpienie programu Oracle WebLogic Server może nadal być częścią tego samego klastra. Jednak obecnie nie jest możliwe użycie platformy Azure do równoważenia obciążenia punktów końcowych, które są udostępniane przez takie wdrożenia Oracle WebLogic Server w ramach tej samej maszyny wirtualnej, ponieważ moduł równoważenia obciążenia platformy Azure wymaga, aby serwery z równoważeniem obciążenia były dystrybuowane między unikatowymi maszynami wirtualnymi.
+   Jeśli skonfigurujesz serwer administracyjny do automatycznego przypisywania unikatowych numerów portów do serwerów zarządzanych, równoważenie obciążenia nie jest możliwe, ponieważ platforma Azure nie obsługuje mapowania z jednego portu publicznego na wiele portów prywatnych, co byłoby wymagane dla tej konfiguracji.
+* **Wiele wystąpień serwera Oracle WebLogic na maszynie wirtualnej.** W zależności od wymagań wdrożenia można rozważyć uruchomienie wielu wystąpień serwera Oracle WebLogic na tej samej maszynie wirtualnej, jeśli maszyna wirtualna jest wystarczająco duża. Na przykład na maszynie wirtualnej o średnim rozmiarze, która zawiera dwa rdzenie, można uruchomić dwa wystąpienia serwera Oracle webWebLogicc Server. Jednak nadal zalecamy uniknięcie wprowadzenia pojedynczych punktów awarii do architektury, w przypadku gdy używana jest tylko jedna maszyna wirtualna z wieloma wystąpieniami programu Oracle webWebLogicc Server. Korzystanie z co najmniej dwóch maszyn wirtualnych może być lepszym rozwiązaniem, a każda maszyna wirtualna może uruchamiać wiele wystąpień serwera Oracle webWebLogicc Server. Każde wystąpienie serwera Oracle WebLogic może być częścią tego samego klastra. Obecnie nie jest możliwe używanie platformy Azure do równoważenia obciążenia punktów końcowych, które są udostępniane przez takie wdrożenia serwera Oracle WebLogic w ramach tej samej maszyny wirtualnej, ponieważ moduł równoważenia obciążenia platformy Azure wymaga dystrybuowania serwerów z równoważeniem obciążenia między unikatowymi maszynami wirtualnymi.
 
 ## <a name="oracle-jdk-virtual-machine-images"></a>Obrazy maszyn wirtualnych Oracle JDK
-* **JDK 6 i 7 najnowsze aktualizacje.** Chociaż zalecamy korzystanie z najnowszej publicznej, obsługiwanej wersji oprogramowania Java (obecnie Java 8), platforma Azure udostępnia również obrazy JDK 6 i 7. Jest to przeznaczone dla starszych aplikacji, które nie są jeszcze gotowe do uaktualnienia do JDK 8. Chociaż aktualizacje poprzednich obrazów JDK mogą nie być już dostępne dla ogółu społeczeństwa, biorąc pod uwagę partnerstwo firmy Microsoft z oracle, obrazy JDK 6 i 7 dostarczone przez platformę Azure mają zawierać nowszą niepubliczną aktualizację, która jest zwykle oferowana przez Oracle tylko wybranej grupie obsługiwanych klientów Oracle. Nowe wersje obrazów JDK będą udostępniane w czasie ze zaktualizowanymi wersjami JDK 6 i 7.
+* **JDK 6 i 7 najnowszych aktualizacji.** Chociaż zalecamy korzystanie z najnowszej publicznej, obsługiwanej wersji języka Java (obecnie Java 8), platforma Azure udostępnia również obrazy z JDK 6 i 7. Jest to przeznaczone dla starszych aplikacji, które nie są jeszcze gotowe do uaktualnienia do JDK 8. Mimo że aktualizacje wcześniejszych JDK obrazów mogą nie być już dostępne publicznie, biorąc pod partnerstwo firmy Microsoft z firmą Oracle, obrazy JDK 6 i 7 udostępniane przez platformę Azure mają zawierać nowszą, niepubliczną aktualizację, która zwykle jest oferowana przez firmę Oracle tylko do wybranej grupy obsługiwanych klientów firmy Oracle. Nowe wersje obrazów JDK będą udostępniane w czasie z zaktualizowanymi wersjami JDK 6 i 7.
 
-   Zestaw JDK dostępny w obrazach JDK 6 i 7 oraz maszyny wirtualne i obrazy z nich pochodzące mogą być używane tylko na platformie Azure.
-* **64-bitowy JDK.** Obrazy maszyn wirtualnych serwera Oracle WebLogic Server i obrazy maszyn wirtualnych Oracle JDK dostarczane przez platformę Azure zawierają 64-bitowe wersje zarówno systemu Windows Server, jak i JDK.
+   JDK dostępne w obrazach JDK 6 i 7, a maszyny wirtualne i obrazy pochodzące od nich mogą być używane tylko na platformie Azure.
+* **64-bitowy JDK.** Obrazy maszyn wirtualnych programu Oracle WebLogic Server i obrazy maszyn wirtualnych Oracle JDK udostępniane przez platformę Azure zawierają 64-bitowe wersje systemów Windows Server i JDK.
 
 ## <a name="next-steps"></a>Następne kroki
-Masz teraz przegląd aktualnych rozwiązań Oracle opartych na obrazach maszyn wirtualnych na platformie Microsoft Azure. Następnym krokiem jest wdrożenie pierwszej bazy danych Oracle na platformie Azure.
+Teraz masz przegląd bieżących rozwiązań firmy Oracle opartych na obrazach maszyn wirtualnych w Microsoft Azure. Następnym krokiem jest wdrożenie pierwszej bazy danych Oracle Database na platformie Azure.
 
 > [!div class="nextstepaction"]
 > [Tworzenie bazy danych Oracle na platformie Azure](oracle-database-quick-create.md)

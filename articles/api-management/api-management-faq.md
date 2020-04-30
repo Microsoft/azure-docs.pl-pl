@@ -13,20 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: c32fdc67c74e100e0e31dad3afde128c05c356d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 219681351159de6ac6bb48ff979cc68aa4ee18d3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335970"
+ms.locfileid: "82233486"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management — często zadawane pytania
 Uzyskaj odpowiedzi na często zadawane pytania, wzorce oraz najlepsze rozwiązania dotyczące usługi Azure API Management.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="contact-us"></a>Skontaktuj się z nami
-* [Jak zadać pytanie w Microsoft Azure API Management zespołu?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 * [Co oznacza, gdy funkcja jest w wersji zapoznawczej?](#what-does-it-mean-when-a-feature-is-in-preview)
@@ -48,15 +45,8 @@ Uzyskaj odpowiedzi na często zadawane pytania, wzorce oraz najlepsze rozwiązan
 * [Czy mogę przenieść usługę API Management z jednej subskrypcji do innej](#can-i-move-an-api-management-service-from-one-subscription-to-another)
 * [Czy istnieją ograniczenia dotyczące lub znane problemy z importowaniem interfejsu API?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
-### <a name="how-can-i-ask-the-microsoft-azure-api-management-team-a-question"></a>Jak zadać pytanie w Microsoft Azure API Management zespołu?
-Możesz skontaktować się z nami przy użyciu jednej z następujących opcji:
-
-* Opublikuj swoje pytania na naszym [Forum usługi MSDN API Management](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt).
-* Wyślij wiadomość e-mail na adres <mailto:apimgmt@microsoft.com>.
-* Wyślij nam żądanie funkcji na [forum opinii na platformie Azure](https://feedback.azure.com/forums/248703-api-management).
-
 ### <a name="what-does-it-mean-when-a-feature-is-in-preview"></a>Co oznacza, gdy funkcja jest w wersji zapoznawczej?
-Gdy funkcja jest w wersji zapoznawczej, oznacza to, że aktywnie szukamy opinii na temat sposobu działania tej funkcji. Funkcja w wersji zapoznawczej jest funkcjonalnie kompletna, ale istnieje możliwość, że w odpowiedzi na Opinie klientów wprowadzimy istotną zmianę. Zalecamy, aby nie zależały od funkcji, która jest w wersji zapoznawczej w środowisku produkcyjnym. Jeśli masz opinię na temat funkcji wersji zapoznawczej, skontaktuj się z nami za pomocą jednej z opcji kontaktu w temacie [jak zadać pytania Microsoft Azure API Management zespołu?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
+Gdy funkcja jest w wersji zapoznawczej, oznacza to, że aktywnie szukamy opinii na temat sposobu działania tej funkcji. Funkcja w wersji zapoznawczej jest funkcjonalnie kompletna, ale istnieje możliwość, że w odpowiedzi na Opinie klientów wprowadzimy istotną zmianę. Zalecamy, aby nie zależały od funkcji, która jest w wersji zapoznawczej w środowisku produkcyjnym.
 
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>Jak mogę zabezpieczyć połączenie między bramą usługi API Management i usługami zaplecza?
 Istnieje kilka opcji zabezpieczania połączenia między bramą API Management i usługami zaplecza. Można:

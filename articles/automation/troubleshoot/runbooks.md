@@ -10,7 +10,7 @@ ms.service: automation
 manager: carmonm
 ms.openlocfilehash: ef3f50e79f4458845ec2e3df73e1e87766bfd0f4
 ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "82508789"

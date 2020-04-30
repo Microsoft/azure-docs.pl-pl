@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9f52dfd92d430abffe5857d231898dd4b0e7745e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 701a5aab7a0061f8b5abfaac1b699034db2671b9
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679920"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508993"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Zarządzanie pakietami Python 2 w Azure Automation
 
@@ -46,7 +46,7 @@ Po pobraniu pakietów można je zaimportować do konta usługi Automation.
 
 ### <a name="runbook"></a>Element Runbook
 
-Zaimportuj element Runbook języka Python [zaimportuj pakiety Python 2 z PyPi do konta Azure Automation](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) z galerii do konta usługi Automation. Upewnij się, że ustawienia uruchomieniowe są ustawione na **platformę Azure** , i uruchom element Runbook za pomocą parametrów. Aby konto usługi Automation działało, element Runbook wymaga konta Uruchom jako. Dla każdego parametru upewnij się, że został on uruchomiony z przełącznikiem, jak pokazano na poniższej liście i obrazie:
+ Aby uzyskać element Runbook, [zaimportuj pakiety Python 2 z programu PyPi do konta Azure Automation](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) z galerii do konta usługi Automation. Upewnij się, że ustawienia uruchomieniowe są ustawione na **platformę Azure** , i uruchom element Runbook za pomocą parametrów. Aby konto usługi Automation działało, element Runbook wymaga konta Uruchom jako. Dla każdego parametru upewnij się, że został on uruchomiony z przełącznikiem, jak pokazano na poniższej liście i obrazie:
 
 * -s \<subskrypcji\>
 * -g \<z zasobów\>

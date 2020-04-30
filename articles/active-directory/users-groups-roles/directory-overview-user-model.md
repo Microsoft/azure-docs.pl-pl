@@ -1,5 +1,5 @@
 ---
-title: Omówienie użytkowników, grup, licencjonowania i ról — usługa Azure AD | Dokumenty firmy Microsoft
+title: Omówienie użytkowników, grup, licencjonowania i ról — Azure AD | Microsoft Docs
 description: Relacje między użytkownikami i przypisanymi licencjami, role administratora oraz członkostwo w grupie w usłudze Azure Active Directory
 keywords: ''
 author: curtand
@@ -14,12 +14,12 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3cc2de5a2f297e8133011905ff2961b44476d6b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8052bb44df6d29e17304763051fa2099009b9701
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77046338"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583024"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>Użytkownicy, grupy, licencje i role w dużych organizacjach
 
@@ -31,7 +31,7 @@ Ten artykuł, przeznaczony dla administratorów usługi Azure AD, zawiera wprowa
 
 ## <a name="assign-users-to-groups"></a>Przypisywanie użytkowników do grup
 
-Grup usługi Azure AD można użyć do przypisania licencji wielu użytkownikom lub przypisania użytkownikom dostępu do wdrożonych aplikacji przedsiębiorstwa. Za pomocą grup można przypisać wszystkie role administratora z wyjątkiem administratora globalnego w usłudze Azure AD lub można udzielić dostępu do zasobów, które są zewnętrzne, takich jak aplikacje SaaS lub witryny programu SharePoint.
+Grup usługi Azure AD można użyć do przypisania licencji wielu użytkownikom lub przypisania użytkownikom dostępu do wdrożonych aplikacji przedsiębiorstwa. Za pomocą grup można przypisywać wszystkie role administratorów z wyjątkiem administratora globalnego w usłudze Azure AD lub można udzielić dostępu do zasobów zewnętrznych, takich jak aplikacje SaaS lub witryny programu SharePoint.
 
 Aby zwiększyć elastyczność i ograniczyć nakład pracy związanej z zarządzaniem członkostwem w grupach, w usłudze Azure AD można używać [grup dynamicznych](groups-create-rule.md), które pozwalają automatycznie zwiększać i zmniejszać liczbę członków w grupie. Dla każdego użytkownika, który jest członkiem co najmniej jednej grupy dynamicznej potrzebna jest licencja usługi Azure AD w wersji Premium P1.
 
@@ -52,7 +52,7 @@ Wiele dużych organizacji chce, aby ich użytkownicy mogli uzyskiwać uprawnieni
 
  Nazwa roli | Podsumowanie uprawnień
  --------- | -------------------
- **Administrator aplikacji** | Może dodawać aplikacje przedsiębiorstwa i rejestracje aplikacji oraz zarządzać nimi, a także konfigurować ustawienia aplikacji serwera proxy. Administratorzy aplikacji mogą wyświetlać zasady i urządzenia dostępu warunkowego, ale nie zarządzają nimi.
+ **Administrator aplikacji** | Może dodawać aplikacje przedsiębiorstwa i rejestracje aplikacji oraz zarządzać nimi, a także konfigurować ustawienia aplikacji serwera proxy. Administratorzy aplikacji mogą wyświetlać zasady dostępu warunkowego i urządzenia, ale nie zarządzać nimi.
  **Administrator aplikacji w chmurze** | Może dodawać aplikacje przedsiębiorstwa i rejestracje aplikacji przedsiębiorstwa oraz zarządzać nimi. Ta rola ma wszystkie uprawnienia administratora aplikacji, ale nie może zarządzać ustawieniami serwera proxy aplikacji.
 **Deweloper aplikacji** | Może dodawać i aktualizować rejestracje aplikacji, ale nie może zarządzać aplikacjami przedsiębiorstwa ani konfigurować serwera proxy aplikacji.
 
@@ -60,7 +60,7 @@ Aktualnie są dodawane nowe role administratora usługi Azure AD. Informacje o a
 
 ## <a name="assign-app-access"></a>Przyznawanie dostępu do aplikacji
 
-Usługa Azure AD pozwala przyznawać dostęp grupowy do [aplikacji przedsiębiorstwa wdrożonych w dzierżawie usługi Azure AD](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context). Połączenie grup dynamicznych z grupowym przypisaniem aplikacji umożliwia automatyzowanie przypisań dostępu użytkowników do aplikacji w miarę rozwoju organizacji. Przyznawanie dostępu do aplikacji przedsiębiorstwa wymaga licencji usługi Azure Active Directory w wersji Premium P1 lub Premium P2.
+Za pomocą usługi Azure AD można przypisywać dostęp grup do [aplikacji dla przedsiębiorstw wdrożonych w organizacji usługi Azure AD](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context). Połączenie grup dynamicznych z grupowym przypisaniem aplikacji umożliwia automatyzowanie przypisań dostępu użytkowników do aplikacji w miarę rozwoju organizacji. Przyznawanie dostępu do aplikacji przedsiębiorstwa wymaga licencji usługi Azure Active Directory w wersji Premium P1 lub Premium P2.
 
 Usługa Azure AD umożliwia również precyzyjną kontrolę danych przesyłanych między aplikacją a grupami, którym przyznano dostęp. Po otwarciu aplikacji w bloku [Aplikacje dla przedsiębiorstw](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) i wybraniu pozycji **Inicjowanie obsługi administracyjnej** można wykonywać następujące czynności:
 

@@ -3,12 +3,12 @@ title: Jak utworzyć zasady konfiguracji gościa dla systemu Windows
 description: Dowiedz się, jak utworzyć Azure Policy zasady konfiguracji gościa dla systemu Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: f09bb543f73e37bd211a55e2238808f57585bb18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a75525b25945dd9548d7c293d5965cc67eb463dc
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024901"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509622"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Jak utworzyć zasady konfiguracji gościa dla systemu Windows
 
@@ -16,7 +16,7 @@ Przed utworzeniem zasad niestandardowych warto przeczytać informacje dotyczące
  
 Aby dowiedzieć się więcej o tworzeniu zasad konfiguracji gościa dla systemu Linux, zobacz stronę [jak utworzyć zasady konfiguracji gościa dla systemu Linux](./guest-configuration-create-linux.md) .
 
-Podczas inspekcji systemu Windows konfiguracja gościa używa modułu zasobów [konfiguracji stanu żądanego](/powershell/scripting/dsc/overview/overview) (DSC) do pliku konfiguracji. Konfiguracja DSC definiuje warunek, w którym maszyna powinna znajdować się w programie.
+Podczas inspekcji systemu Windows konfiguracja gościa używa modułu zasobów [Konfiguracja żądanego stanu](/powershell/scripting/dsc/overview/overview) (DSC) do utworzenia pliku konfiguracji. Konfiguracja DSC definiuje warunek, w którym maszyna powinna znajdować się w programie.
 Jeśli Ocena konfiguracji nie powiedzie się, zostanie wyzwolony efekt zasad **auditIfNotExists** i maszyna zostanie uznana za **niezgodną**.
 
 [Azure Policy konfiguracja gościa](../concepts/guest-configuration.md) może być używana tylko do inspekcji ustawień wewnątrz maszyn. Korygowanie ustawień wewnątrz maszyn nie jest jeszcze dostępne.

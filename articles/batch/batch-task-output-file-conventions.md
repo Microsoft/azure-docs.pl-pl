@@ -4,12 +4,12 @@ description: Dowiedz się, jak używać biblioteki Konwencji plików Azure Batch
 ms.topic: article
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e835b4e4ace344de65bc5d037b99afdf811ed4bb
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 2d7988ef4339280bd729cc1acaa1b7fb2c33b6b9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116438"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232704"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Utrwalanie danych zadań i zadań w usłudze Azure Storage za pomocą biblioteki Konwencji plików wsadowych dla platformy .NET
 
@@ -182,7 +182,7 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## <a name="view-output-files-in-the-azure-portal"></a>Wyświetlanie plików wyjściowych w Azure Portal
 
-Azure Portal Wyświetla pliki wyjściowe zadania i dzienniki, które są utrwalane na połączonym koncie usługi Azure Storage przy użyciu [standardu plików wsadowych](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Można zaimplementować te konwencje samodzielnie w wybranym języku lub można użyć biblioteki Konwencji plików w aplikacjach .NET.
+Azure Portal Wyświetla pliki wyjściowe zadania i dzienniki, które są utrwalane na połączonym koncie usługi Azure Storage przy użyciu [standardu plików wsadowych](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). Można zaimplementować te konwencje samodzielnie w wybranym języku lub można użyć biblioteki Konwencji plików w aplikacjach .NET.
 
 Aby umożliwić wyświetlanie plików wyjściowych w portalu, musisz spełnić następujące wymagania:
 

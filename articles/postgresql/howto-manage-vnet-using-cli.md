@@ -1,18 +1,18 @@
 ---
 title: Korzystanie z reguł sieci wirtualnej — interfejs wiersza polecenia platformy Azure — Azure Database for PostgreSQL — pojedynczy serwer
 description: W tym artykule opisano sposób tworzenia i zarządzania punktami końcowymi usługi sieci wirtualnej oraz regułami dotyczącymi Azure Database for PostgreSQL przy użyciu wiersza polecenia platformy Azure.
-author: bolzmj
-ms.author: mbolz
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 5e80b48e43e72bc3eda16a5dcc64f980065c923f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4a5cf7bb13b12224a5a89d3c82670cc2a36b4494
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75974124"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509384"
 ---
 # <a name="create-and-manage-vnet-service-endpoints-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Tworzenie punktów końcowych usługi sieci wirtualnej i zarządzanie nimi dla Azure Database for PostgreSQL-pojedynczego serwera przy użyciu interfejsu wiersza polecenia platformy Azure
 Punkty końcowe usług Virtual Network (VNet) i reguły zwiększają prywatną przestrzeń adresową Virtual Network do serwera Azure Database for PostgreSQL. Korzystając z wygodnych poleceń interfejsu wiersza polecenia platformy Azure, można tworzyć, aktualizować, usuwać, wyświetlać i przedstawiać punkty końcowe usługi sieci wirtualnej oraz zasady zarządzania serwerem. Omówienie punktów końcowych usługi sieci wirtualnej Azure Database for PostgreSQL, w tym ograniczeń, znajduje się w temacie [punkty końcowe usługi sieci wirtualnej Azure Database for PostgreSQL Server](concepts-data-access-and-security-vnet.md). Punkty końcowe usługi sieci wirtualnej są dostępne we wszystkich obsługiwanych regionach dla Azure Database for PostgreSQL.

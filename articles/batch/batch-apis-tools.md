@@ -4,12 +4,12 @@ description: Informacje na temat narzędzi i interfejsów API przeznaczonych do 
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 56c268675a39dfd3c70b3d8d8e457a2a200d7db6
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: e345e91b2f7d66f014427770614efe42b5fb7a44
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82114925"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232687"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Omówienie narzędzi i interfejsów API usługi Batch
 
@@ -32,11 +32,11 @@ Podczas opracowywania rozwiązań usługi Batch potrzebne są następujące kont
 
 Aplikacje i usługi mogą wykonywać bezpośrednie wywołania interfejsu API REST lub użyć co najmniej jednej z następujących bibliotek klienckich do uruchamiania obciążeń usługi Azure Batch i zarządzania nimi.
 
-| Interfejs API | Dokumentacja interfejsu API | Pobierz | Samouczek | Przykłady kodu | Więcej informacji |
+| Interfejs API | Dokumentacja interfejsu API | Pliki do pobrania | Samouczek | Przykłady kodu | Więcej informacji |
 | --- | --- | --- | --- | --- | --- |
 | **Batch REST** |[docs.microsoft.com][batch_rest] |Nie dotyczy |- |- | [Obsługiwane wersje](/rest/api/batchservice/batch-service-rest-api-versioning) |
-| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet][api_net_nuget] |[Samouczek](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [Uwagi do wersji](https://aka.ms/batch-net-dataplane-changelog) |
-| **Batch Python** |[docs.microsoft.com][api_python] |[PyPI][api_python_pypi] |[Samouczek](tutorial-parallel-python.md)|[GitHub][api_sample_python] | [Plik Readme](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
+| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet][api_net_nuget] |[Samouczek](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [Informacje o wersji](https://aka.ms/batch-net-dataplane-changelog) |
+| **Batch Python** |[docs.microsoft.com][api_python] |[PyPI][api_python_pypi] |[Samouczek](tutorial-parallel-python.md)|[GitHub][api_sample_python] | [Plik Readme](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/batch/azure-batch/README.md) |
 | **Batch Node.js** |[docs.microsoft.com][api_nodejs] |[npm][api_nodejs_npm] |[Samouczek](batch-nodejs-get-started.md) |- | [Plik Readme](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
 | **Batch Java** |[docs.microsoft.com][api_java] |[Maven][api_java_jar] |- |[Plik Readme][api_sample_java] | [Plik Readme](https://github.com/Azure/azure-batch-sdk-for-java)|
 
@@ -44,7 +44,7 @@ Aplikacje i usługi mogą wykonywać bezpośrednie wywołania interfejsu API RES
 
 Interfejsy API usługi Azure Resource Manager dla usługi Batch zapewniają dostęp programowy do kont usługi Batch. Za pomocą tych interfejsów API możesz programowo zarządzać kontami usługi Batch, limitami przydziału, pakietami aplikacji i innymi zasobami za pośrednictwem dostawcy Microsoft.Batch.  
 
-| Interfejs API | Dokumentacja interfejsu API | Pobierz | Samouczek | Przykłady kodu |
+| Interfejs API | Dokumentacja interfejsu API | Pliki do pobrania | Samouczek | Przykłady kodu |
 | --- | --- | --- | --- | --- |
 | **Batch Management REST (Interfejs REST zarządzania usługą Batch)** |[docs.microsoft.com][api_rest_mgmt] |Nie dotyczy |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
 | **Batch Management .NET** |[docs.microsoft.com][api_net_mgmt] |[NuGet][api_net_mgmt_nuget] | [Samouczek](batch-management-dotnet.md) |[GitHub][api_sample_net] |

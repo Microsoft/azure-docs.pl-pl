@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: a9c167c5767a4156147e13a1e4ae21162e506474
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3618e6d3fe919bc06496d5b41d162bd211c3d404
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "75445853"
+ms.locfileid: "82231938"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Twórz, Zaplanuj i uruchamiaj zadania cykliczne i przepływy pracy z wyzwalaczem cyklu w Azure Logic Apps
 
@@ -77,7 +77,7 @@ W przypadku różnic między tym wyzwalaczem a oknem przesuwania lub aby uzyska�
    | **Strefa czasowa** | `timeZone` | Nie | String | Ma zastosowanie tylko w przypadku określenia czasu rozpoczęcia, ponieważ ten wyzwalacz nie akceptuje [przesunięcia czasu UTC](https://en.wikipedia.org/wiki/UTC_offset). Wybierz strefę czasową, która ma zostać zastosowana. |
    | **Godzina rozpoczęcia** | `startTime` | Nie | String | Podaj datę i godzinę rozpoczęcia w tym formacie: <p>RRRR-MM-DDTgg: mm: SS w przypadku wybrania strefy czasowej <p>— lub — <p>RRRR-MM-DDTgg: mm: SSS, jeśli nie wybierzesz strefy czasowej <p>Na przykład jeśli chcesz, aby 18 września 2017 o 2:00 PM, określ wartość "2017-09-18T14:00:00" i wybierz strefę czasową, na przykład Pacyfik (czas standardowy). Lub określ wartość "2017-09-18T14:00:00Z" bez strefy czasowej. <p>**Uwaga:** Ta godzina rozpoczęcia ma maksymalnie 49 lat w przyszłości i musi być zgodna ze [specyfikacją ISO 8601 Data Time](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) w [formacie czasu UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ale bez [przesunięcia czasu UTC](https://en.wikipedia.org/wiki/UTC_offset). Jeśli nie wybierzesz strefy czasowej, musisz dodać literę "Z" na końcu bez spacji. Ten "Z" odnosi się do odpowiadającego [czasu morskich](https://en.wikipedia.org/wiki/Nautical_time). <p>W przypadku prostych harmonogramów czas rozpoczęcia jest pierwszym wystąpieniem, a w przypadku harmonogramów złożonych wyzwalacz nie jest uruchamiany dłużej niż godzina rozpoczęcia. [*Jakie są sposoby używania daty i godziny rozpoczęcia?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    | **W tych dniach** | `weekDays` | Nie | Ciąg lub tablica ciągów | W przypadku wybrania opcji "tydzień" można wybrać co najmniej jeden dzień, w którym chcesz uruchomić przepływ pracy: **poniedziałek**, **wtorek**, **środa**, **czwartek**, **piątek**, **Sobota**i **Niedziela** |
-   | **W tych godzinach** | `hours` | Nie | Tablica liczb całkowitych lub liczb całkowitych | W przypadku wybrania opcji "dzień" lub "tydzień" można wybrać co najmniej jedną liczbę całkowitą z przedziału od 0 do 23 jako godzinę, o której ma być uruchamiany przepływ pracy. <p><p>Na przykład, jeśli określisz wartość "10", "12" i "14", otrzymujesz 10 AM, 12 PM i 2 PM w godzinach dnia, ale minuty dnia są obliczane na podstawie momentu rozpoczęcia cyklu. Aby ustawić minuty dnia, określ wartość dla właściwości **at** . |
+   | **W tych godzinach** | `hours` | Nie | Tablica liczb całkowitych lub liczb całkowitych | W przypadku wybrania opcji "dzień" lub "tydzień" można wybrać co najmniej jedną liczbę całkowitą z przedziału od 0 do 23 jako godzinę, o której ma być uruchamiany przepływ pracy. <p><p>Na przykład, jeśli określisz wartość "10", "12" i "14", otrzymujesz 10 AM, 12 PM i 2 PM w godzinach dnia, ale minuty dnia są obliczane na podstawie momentu rozpoczęcia cyklu. Aby ustawić określone minuty dnia, na przykład 10:00 AM, 12:00 PM i 2:00 PM, określ te wartości przy użyciu właściwości **at** . |
    | **W tych minutach** | `minutes` | Nie | Tablica liczb całkowitych lub liczb całkowitych | W przypadku wybrania opcji "dzień" lub "tydzień" można wybrać co najmniej jedną liczbę całkowitą z zakresu od 0 do 59 jako minuty godziny, Kiedy chcesz uruchomić przepływ pracy. <p>Na przykład można określić wartość "30" jako znak minuty i użyć poprzedniego przykładu dla godzin dnia, otrzymują 10:30 AM, 12:30 PM i 2:30 PM. |
    |||||
 

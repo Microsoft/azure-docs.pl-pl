@@ -4,12 +4,12 @@ description: Opis funkcji usługi Batch i jej interfejsów API z punktu widzenia
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: fdc04c49521c9d91ef836c4d1dba76091db8f16a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 590ce6d6804c25ea9a3c1104f8fea2ea00c66356
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115384"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509197"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Tworzenie rozbudowanych rozwiązań przetwarzania równoległego przy użyciu usługi Batch
 
@@ -429,7 +429,7 @@ Formuła skalowania może opierać się na następujących metrykach:
 * **Metryki zasobów** — na podstawie użycia procesora, wykorzystania przepustowości, użycia pamięci i liczby węzłów.
 * **Metryki zadań podrzędnych** — na podstawie stanu zadania podrzędnego, takiego jak *Aktywne* (w kolejce), *Uruchomione* lub *Ukończone*.
 
-Ponieważ automatyczne skalowanie zmniejsza liczbę węzłów obliczeniowych w puli, należy rozważyć sposób obsługi zadań podrzędnych wykonywanych w czasie operacji zmniejszania tej liczby. Aby to umożliwić, usługa Batch oferuje *opcje cofnięcia alokacji węzłów* umieszczanych w formułach. Możesz na przykład zdecydować, że przed usunięciem węzła z puli uruchomione zadania podrzędne będą zatrzymywane natychmiast i ponownie umieszczane w kolejce do wykonania w innym węźle albo ich wykonywanie zostanie najpierw ukończone.
+Ponieważ automatyczne skalowanie zmniejsza liczbę węzłów obliczeniowych w puli, należy rozważyć sposób obsługi zadań podrzędnych wykonywanych w czasie operacji zmniejszania tej liczby. Aby to umożliwić, w usłudze Batch jest dostępna [*opcja cofnięcia przydziału węzła*](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) , którą można uwzględnić w formułach. Możesz na przykład zdecydować, że przed usunięciem węzła z puli uruchomione zadania podrzędne będą zatrzymywane natychmiast i ponownie umieszczane w kolejce do wykonania w innym węźle albo ich wykonywanie zostanie najpierw ukończone. Należy pamiętać, że ustawienie opcji cofnięcia alokacji `taskcompletion` węzła `retaineddata` lub uniemożliwi operacje zmiany rozmiaru puli, dopóki nie zostaną zakończone wszystkie zadania lub wszystkie okresy przechowywania zadań wygasły odpowiednio.
 
 Więcej informacji na temat automatycznego skalowania aplikacji znajduje się w temacie [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-scaling.md) (Automatyczne skalowanie węzłów obliczeniowych w puli usługi Azure Batch).
 

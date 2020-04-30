@@ -5,20 +5,20 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: f78b65169899107bcd4626bbed65bd4fddd8af43
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c36d651fde4c10157979e12fda12604153aefdfc
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77595454"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561883"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
 Usługa Azure Service Kubernetes (AKS) ułatwia wdrażanie zarządzanego klastra Kubernetes na platformie Azure. Usługa AKS zmniejsza złożoność i nakłady operacyjne związane z zarządzaniem rozwiązaniem Kubernetes, przenosząc znaczną część tej odpowiedzialności na platformę Azure. Jako hostowana usługa Kubernetes, platforma Azure obsługuje krytyczne zadania, takie jak monitorowanie kondycji i konserwacja. Wzorce rozwiązania Kubernetes są zarządzane przez platformę Azure. Zarządzasz tylko węzłami agentów i obsługujesz je. Jako zarządzana usługa Kubernetes usługa AKS jest bezpłatna — płacisz tylko za węzły agentów w swoich klastrach, a nie za wzorce.
 
-Klaster usługi AKS możesz utworzyć w witrynie Azure Portal, przy użyciu wiersza polecenia platformy Azure lub opcji wdrożenia opartych na szablonach, takich jak szablony usługi Resource Manager i programu Terraform. Podczas wdrażania klastra usługi AKS wzorzec Kubernetes i wszystkie węzły są wdrażane i konfigurowane automatycznie. Dodatkowe funkcje, takie jak zaawansowana łączność sieciowa, integracja z usługą Azure Active Directory i monitorowanie, także można skonfigurować podczas procesu wdrażania. Obsługa kontenerów systemu Windows Server jest obecnie w wersji zapoznawczej w programie AKS.
+Klaster usługi AKS możesz utworzyć w witrynie Azure Portal, przy użyciu wiersza polecenia platformy Azure lub opcji wdrożenia opartych na szablonach, takich jak szablony usługi Resource Manager i programu Terraform. Podczas wdrażania klastra usługi AKS wzorzec Kubernetes i wszystkie węzły są wdrażane i konfigurowane automatycznie. Dodatkowe funkcje, takie jak zaawansowana łączność sieciowa, integracja z usługą Azure Active Directory i monitorowanie, także można skonfigurować podczas procesu wdrażania. Kontenery systemu Windows Server są obsługiwane w AKS.
 
-Aby uzyskać więcej informacji na temat podstaw usługi Kubernetes, zobacz [Podstawowe pojęcia kubernetes dla usługi AKS][concepts-clusters-workloads].
+Aby uzyskać więcej informacji na temat Kubernetes, zobacz [podstawowe pojęcia dotyczące Kubernetes dla AKS][concepts-clusters-workloads].
 
 Aby rozpocząć pracę, ukończ przewodnik Szybki start dotyczący usługi AKS [w witrynie Azure Portal][aks-portal] lub [przy użyciu wiersza polecenia platformy Azure][aks-cli].
 
@@ -32,7 +32,7 @@ Aby zapewnić lepsze zabezpieczenia i zarządzanie, usługa AKS umożliwia integ
 
 Aby ograniczyć dostęp do zasobów klastra, usługa AKS obsługuje [kontrolę dostępu opartą na rolach (RBAC) platformy Kubernetes][kubernetes-rbac]. Kontrola dostępu oparta na rolach umożliwia kontrolowanie dostępu do zasobów i przestrzeni nazw platformy Kubernetes, a także uprawnień do tych zasobów. Możesz też skonfigurować integrację klastra usługi AKS z usługą Azure Active Directory. Dzięki integracji z usługą Azure AD dostęp do platformy Kubernetes można skonfigurować w oparciu o istniejącą tożsamość i członkostwo w grupie. Istniejącym użytkownikom i grupom usługi Azure AD można zapewnić dostęp do zasobów usługi AKS i zintegrowane środowisko logowania.
 
-Aby uzyskać więcej informacji na temat tożsamości, zobacz [Opcje dostępu i tożsamości dla usługi AKS][concepts-identity].
+Aby uzyskać więcej informacji na temat tożsamości, zobacz [Opcje dostępu i tożsamości dla AKS][concepts-identity].
 
 Aby zabezpieczyć klastry usługi AKS, zobacz [Integrowanie usługi Azure Active Directory z usługą AKS][aks-aad].
 
@@ -44,7 +44,7 @@ Aby uzyskać więcej informacji, zobacz [Monitorowanie kondycji kontenera usług
 
 ## <a name="clusters-and-nodes"></a>Klastry i węzły
 
-Węzły usługi AKS są uruchamiane na maszynach wirtualnych platformy Azure. Możesz połączyć magazyn z węzłami i zasobnikami, uaktualnić składniki klastra oraz używać procesorów GPU. Usługa AKS obsługuje klastry kubernetes, które uruchamiają wiele pul węzłów do obsługi mieszanych systemów operacyjnych i kontenerów systemu Windows Server (obecnie w wersji zapoznawczej). Węzły systemu Linux uruchamiają dostosowany obraz systemu operacyjnego Ubuntu, a węzły systemu Windows Server uruchamiają dostosowany obraz systemu operacyjnego Systemu Windows Server 2019.
+Węzły usługi AKS są uruchamiane na maszynach wirtualnych platformy Azure. Możesz połączyć magazyn z węzłami i zasobnikami, uaktualnić składniki klastra oraz używać procesorów GPU. AKS obsługuje klastry Kubernetes z wieloma pulami węzłów w celu obsługi mieszanych systemów operacyjnych i kontenerów systemu Windows Server. W węzłach systemu Linux jest uruchamiany dostosowany obraz systemu operacyjnego Ubuntu, a w węzłach z systemem Windows Server jest uruchamiany dostosowany obraz systemu operacyjnego Windows Server 2019.
 
 ### <a name="cluster-node-and-pod-scaling"></a>Skalowanie węzłów klastra i zasobników
 
@@ -68,15 +68,15 @@ Aby uzyskać więcej informacji, zobacz [Korzystanie z procesorów GPU w usłudz
 
 Na potrzeby obsługi obciążeń aplikacji możesz zainstalować woluminy magazynu do trwałego magazynowania danych. Mogą być używane woluminy statyczne i dynamiczne. W zależności od liczby połączonych zasobników współużytkujących magazyn możesz używać magazynu opartego na usłudze Azure Disks na potrzeby dostępu pojedynczego zasobnika lub usługi Azure Files na potrzeby dostępu wielu współbieżnych zasobników.
 
-Aby uzyskać więcej informacji, zobacz [Opcje magazynowania aplikacji w aks][concepts-storage].
+Aby uzyskać więcej informacji, zobacz [Opcje magazynu dla aplikacji w AKS][concepts-storage].
 
-Rozpocznij pracę z dynamicznymi woluminami trwałymi przy użyciu [dysków platformy Azure][azure-disk] lub [plików platformy Azure][azure-files].
+Rozpocznij pracę z dynamicznymi woluminami trwałymi przy użyciu [usługi Azure disks][azure-disk] lub [Azure Files][azure-files].
 
 ## <a name="virtual-networks-and-ingress"></a>Sieci wirtualne i ruch przychodzący
 
 Klaster usługi AKS można wdrożyć w istniejącej sieci wirtualnej. W takiej konfiguracji każdy zasobnik w klastrze ma przypisany adres IP w sieci wirtualnej i może bezpośrednio komunikować się z innymi zasobnikami w klastrze oraz innymi węzłami w sieci wirtualnej. Zasobniki mogą też łączyć się z innymi usługami w równorzędnych sieciach wirtualnych i z sieciami lokalnymi za pośrednictwem usługi ExpressRoute lub połączeń sieci VPN typu lokacja-lokacja (S2S).
 
-Aby uzyskać więcej informacji, zobacz [pojęcia dotyczące sieci aplikacji w u.][aks-networking]
+Aby uzyskać więcej informacji, zobacz [pojęcia dotyczące sieci dla aplikacji w AKS][aks-networking].
 
 Aby rozpocząć pracę z ruchem danych przychodzących, zobacz [Routing aplikacji protokołu HTTP][aks-http-routing].
 
@@ -88,7 +88,7 @@ Aby rozpocząć pracę z ruchem danych przychodzących, zobacz [Routing aplikacj
 
 ## <a name="development-tooling-integration"></a>Integracja narzędzi deweloperskich
 
-Platforma Kubernetes ma rozbudowany ekosystem narzędzi do programowania i zarządzania, takich jak Helm, Draft i rozszerzenie Kubernetes dla programu Visual Studio Code. Te narzędzia współpracują bezproblemowo z usługą AKS.
+Kubernetes ma rozbudowany ekosystem narzędzi do tworzenia i zarządzania, takich jak Helm i rozszerzenie Kubernetes dla Visual Studio Code. Te narzędzia współpracują bezproblemowo z usługą AKS.
 
 Dodatkowo usługa Azure Dev Spaces udostępnia środowisko do szybkiego, iteracyjnego programowania na platformie Kubernetes dla zespołów. Wykonując minimum czynności konfiguracyjnych, możesz uruchamiać i debugować kontenery bezpośrednio w usłudze AKS. Aby rozpocząć pracę, zobacz usługę [Azure Dev Spaces][azure-dev-spaces].
 
@@ -108,7 +108,7 @@ Usługa Azure Kubernetes Service (AKS) ma certyfikat CNCF zgodności z platform�
 
 ## <a name="regulatory-compliance"></a>Zgodność z przepisami
 
-Usługa Azure Kubernetes Service (AKS) jest zgodna z regulacjami SOC, ISO, PCI DSS i HIPAA. Aby uzyskać więcej informacji, zobacz [Omówienie zgodności platformy Microsoft Azure][compliance-doc].
+Usługa Azure Kubernetes Service (AKS) jest zgodna z regulacjami SOC, ISO, PCI DSS i HIPAA. Aby uzyskać więcej informacji, zobacz [Omówienie zgodności Microsoft Azure][compliance-doc].
 
 ## <a name="next-steps"></a>Następne kroki
 

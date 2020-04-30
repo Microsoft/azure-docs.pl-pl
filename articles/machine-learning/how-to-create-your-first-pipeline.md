@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: b1b0facbb7cdd0dd51c53077c21afab427facf3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 44a200f63adc0286a58c864b8ba04982ca58c76c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133580"
+ms.locfileid: "82231902"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Tworzenie i uruchamianie potoków uczenia maszynowego za pomocą zestawu SDK Azure Machine Learning
 
@@ -329,7 +329,10 @@ pipeline1 = Pipeline(workspace=ws, steps=steps)
 
 ### <a name="use-a-dataset"></a>Korzystanie z zestawu danych 
 
-Zestawy danych utworzone z usługi Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database i Azure Database for PostgreSQL mogą być używane jako dane wejściowe do dowolnego etapu potoku. Z wyjątkiem zapisu danych wyjściowych do [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py) lub [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)dane wyjściowe ([PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)) mogą być zapisywane tylko w obiektach Blob platformy Azure i w magazynach datastores usługi Azure File Share.
+Zestawy danych utworzone z usługi Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database i Azure Database for PostgreSQL mogą być używane jako dane wejściowe do dowolnego etapu potoku. Można napisać dane wyjściowe do [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py), [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)lub, jeśli chcesz zapisać danych do określonego datasore Użyj [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). 
+
+> [!IMPORTANT]
+> Zapisywanie danych wyjściowych z powrotem do magazynu danych za pomocą PipelineData jest obsługiwane tylko w przypadku obiektów blob platformy Azure i magazynów danych usługi Azure File Share. Ta funkcja nie jest obsługiwana w przypadku [magazynów danych ADLS generacji 2](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakegen2datastore?view=azure-ml-py) .
 
 ```python
 dataset_consuming_step = PythonScriptStep(
