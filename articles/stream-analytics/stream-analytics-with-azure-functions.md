@@ -1,5 +1,5 @@
 ---
-title: Samouczek — uruchamianie funkcji platformy Azure w zadaniach usługi Azure Stream Analytics
+title: Samouczek — uruchamianie Azure Functions w zadaniach Azure Stream Analytics
 description: W tym samouczku przedstawiono konfigurowanie usługi Azure Functions jako ujścia danych wyjściowych dla zadań usługi Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
@@ -8,27 +8,27 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/27/2020
 ms.openlocfilehash: 837174b3ccc08a74583587cb9efd34f8f720aec5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77589457"
 ---
-# <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Samouczek: Uruchamianie funkcji platformy Azure z zadań usługi Azure Stream Analytics 
+# <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Samouczek: uruchamianie Azure Functions z Azure Stream Analytics zadań 
 
 Usługę Azure Functions można uruchomić z usługi Azure Stream Analytics, konfigurując usługę Functions jako jedno z ujść danych wyjściowych dla zadania usługi Stream Analytics. Usługa Functions to sterowane zdarzeniami środowisko obliczeń na żądanie, które umożliwia implementowanie kodu wyzwalanego przez zdarzenia występujące na platformie Azure lub w usługach innych firm. Dzięki możliwości reagowania na wyzwalacze usługa Functions stanowi naturalne wyjście dla zadań usługi Stream Analytics.
 
 Usługa Stream Analytics wywołuje usługę Functions za pomocą wyzwalaczy protokołu HTTP. Adapter wyjścia usługi Functions umożliwia użytkownikom połączenie usługi Functions z usługą Stream Analytics, tak aby można było wyzwalać zdarzenia na podstawie zapytań usługi Stream Analytics. 
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Tworzenie i uruchamianie zadania usługi Stream Analytics
+> * Tworzenie i uruchamianie zadania Stream Analytics
 > * Tworzenie wystąpienia pamięci podręcznej Azure Cache for Redis
 > * Tworzenie funkcji platformy Azure
 > * Sprawdzanie pamięci podręcznej Azure Cache for Redis pod kątem wyników
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>Konfigurowanie zadania usługi Stream Analytics pod kątem uruchamiania funkcji 
 
@@ -38,7 +38,7 @@ W tej sekcji przedstawiono sposób konfigurowania zadania usługi Stream Analyti
 
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Tworzenie zadania usługi Stream Analytics z usługą Event Hubs jako wejściem
 
-Postępuj zgodnie z samouczkiem [Wykrywanie oszustw w czasie rzeczywistym](stream-analytics-real-time-fraud-detection.md), aby utworzyć centrum zdarzeń, uruchomić aplikację generatora zdarzeń i utworzyć zadanie usługi Stream Analytics. Pomiń kroki, aby utworzyć kwerendę i dane wyjściowe. Zamiast tego zobacz następujące sekcje, aby skonfigurować dane wyjściowe usługi Azure Functions.
+Postępuj zgodnie z samouczkiem [Wykrywanie oszustw w czasie rzeczywistym](stream-analytics-real-time-fraud-detection.md), aby utworzyć centrum zdarzeń, uruchomić aplikację generatora zdarzeń i utworzyć zadanie usługi Stream Analytics. Pomiń procedurę tworzenia zapytania i danych wyjściowych. Zamiast tego zapoznaj się z poniższymi sekcjami, aby skonfigurować Azure Functions dane wyjściowe.
 
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Tworzenie wystąpienia pamięci podręcznej Azure Cache for Redis
 
@@ -50,9 +50,9 @@ Postępuj zgodnie z samouczkiem [Wykrywanie oszustw w czasie rzeczywistym](strea
 
 ## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-cache-for-redis"></a>Tworzenie funkcji w usłudze Azure Functions, która może zapisywać dane w pamięci podręcznej Azure Cache for Redis
 
-1. Zobacz sekcję [Tworzenie aplikacji funkcji](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) w dokumentacji usługi Functions. W tej sekcji opisano, jak utworzyć aplikację funkcji i [funkcję wyzwalaną przez protokół HTTP w usłudze Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function), przy użyciu języka CSharp.  
+1. Zobacz sekcję [Tworzenie aplikacji funkcji](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) w dokumentacji usługi Functions. W tej sekcji omówiono sposób tworzenia aplikacji funkcji i [funkcji wyzwalanej przez protokół HTTP w Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function)przy użyciu języka CSharp.  
 
-2. Przejdź do funkcji **run.csx**. Zaktualizuj ją za pomocą następującego kodu. Zamień **"ciąg\<połączenia usługi Azure\>Cache for Redis przechodzi tutaj"** za pomocą podstawowego ciągu połączenia Usługi Azure Cache for Redis pobranego w poprzedniej sekcji. 
+2. Przejdź do funkcji **run.csx**. Zaktualizuj ją za pomocą następującego kodu. Zastąp **ciąg\<"Twoje dane połączenia w pamięci podręcznej platformy Azure dla usługi Redis\>"** w pamięci podręcznej platformy Azure dla podstawowych parametrów połączenia Redis, które zostały pobrane w poprzedniej sekcji. 
 
     ```csharp
     using System;
@@ -103,7 +103,7 @@ Postępuj zgodnie z samouczkiem [Wykrywanie oszustw w czasie rzeczywistym](strea
 
    ```
 
-   Gdy usługa Stream Analytics odbierze z funkcji wyjątek dotyczący zbyt dużej jednostki żądania HTTP, to zmniejszy rozmiar partii wysyłanych do usługi Functions. Poniższy kod gwarantuje, że usługa Stream Analytics nie wysyła dużych partii. Upewnij się, że wartości rozmiaru i maksymalnej liczby partii używane w funkcji są zgodne z wartościami podanymi w portalu usługi Stream Analytics.
+   Gdy usługa Stream Analytics odbierze z funkcji wyjątek dotyczący zbyt dużej jednostki żądania HTTP, to zmniejszy rozmiar partii wysyłanych do usługi Functions. Poniższy kod gwarantuje, że Stream Analytics nie wysyła zbyt dużych partii. Upewnij się, że wartości rozmiaru i maksymalnej liczby partii używane w funkcji są zgodne z wartościami podanymi w portalu usługi Stream Analytics.
 
     ```csharp
     if (dataArray.ToString().Length > 262144)
@@ -112,7 +112,7 @@ Postępuj zgodnie z samouczkiem [Wykrywanie oszustw w czasie rzeczywistym](strea
         }
    ```
 
-3. W edytorze tekstów utwórz plik JSON o nazwie **project.json**. Wklej następujący kod i zapisz go na komputerze lokalnym. Ten plik zawiera zależności pakietów NuGet, które są wymagane przez funkcję języka C#.  
+3. W edytorze tekstów utwórz plik JSON o nazwie **project.json**. Wklej poniższy kod i Zapisz go na komputerze lokalnym. Ten plik zawiera zależności pakietów NuGet, które są wymagane przez funkcję języka C#.  
    
     ```json
     {
@@ -140,7 +140,7 @@ Postępuj zgodnie z samouczkiem [Wykrywanie oszustw w czasie rzeczywistym](strea
 
 1. Otwórz zadanie usługi Stream Analytics w witrynie Azure Portal.  
 
-2. Przejdź do funkcji i wybierz **pozycję Ogólne** > **dane wyjściowe** > **Dodaj**. Aby dodać nowe wyjście, wybierz pozycję **Azure Function** jako opcję ujścia. Adapter wyjściowy usługi Functions ma następujące właściwości:  
+2. Przejdź do funkcji, a następnie wybierz pozycję **Przegląd** > danych**wyjściowych** > **Dodaj**. Aby dodać nowe wyjście, wybierz pozycję **Azure Function** jako opcję ujścia. Adapter wyjściowy usługi Functions ma następujące właściwości:  
 
    |**Nazwa właściwości**|**Opis**|
    |---|---|
@@ -148,13 +148,13 @@ Postępuj zgodnie z samouczkiem [Wykrywanie oszustw w czasie rzeczywistym](strea
    |Opcja importu| Można użyć funkcji z bieżącej subskrypcji lub, jeśli funkcja znajduje się w innej subskrypcji, podać ustawienia ręcznie. |
    |Aplikacja usługi Functions| Nazwa aplikacji usługi Functions. |
    |Funkcja| Nazwa funkcji w aplikacji usługi Functions (nazwa funkcji run.csx).|
-   |Maksymalny rozmiar partii|Ustawia maksymalny rozmiar dla każdej partii wyjściowej, która jest wysyłana do funkcji w bajtach. Domyślnie ta wartość jest równa 262 144 B (256 KB).|
+   |Maksymalny rozmiar partii|Ustawia maksymalny rozmiar każdej partii wyjściowej, która jest wysyłana do funkcji w bajtach. Domyślnie ta wartość jest równa 262 144 B (256 KB).|
    |Maksymalna liczba partii|Umożliwia określenie maksymalnej liczby zdarzeń w każdej z partii wysyłanych do funkcji. Wartość domyślna to 100. Ta właściwość jest opcjonalna.|
    |Klucz|Pozwala na użycie funkcji z innej subskrypcji. Podaj wartość klucza, aby uzyskać dostęp do funkcji. Ta właściwość jest opcjonalna.|
 
-3. Podaj nazwę aliasu danych wyjściowych. W tym samouczku, to jest nazwany **saop1**, ale można użyć dowolnej nazwy do wyboru. Podaj inne szczegóły.
+3. Podaj nazwę aliasu danych wyjściowych. W tym samouczku nazywa się **saop1**, ale można użyć dowolnej wybranej nazwy. Podaj inne szczegóły.
 
-4. Otwórz zadanie usługi Stream Analytics i zaktualizuj zapytanie w następujący sposób. Jeśli nie nazwać ujścia danych wyjściowych **saop1**, należy pamiętać, aby zmienić go w kwerendzie.  
+4. Otwórz zadanie usługi Stream Analytics i zaktualizuj zapytanie w następujący sposób. Jeśli nie nazwijesz **saop1**ujścia danych wyjściowych, pamiętaj, aby zmienić je w zapytaniu.  
 
    ```sql
     SELECT
@@ -167,7 +167,7 @@ Postępuj zgodnie z samouczkiem [Wykrywanie oszustw w czasie rzeczywistym](strea
         WHERE CS1.SwitchNum != CS2.SwitchNum
    ```
 
-5. Uruchom aplikację telcodatagen.exe, uruchamiając następujące polecenie w wierszu polecenia. Polecenie używa formatu `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`.  
+5. Uruchom aplikację telcodatagen. exe, uruchamiając następujące polecenie w wierszu polecenia. Polecenie używa formatu `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`.  
    
    ```cmd
    telcodatagen.exe 1000 0.2 2
@@ -179,7 +179,7 @@ Postępuj zgodnie z samouczkiem [Wykrywanie oszustw w czasie rzeczywistym](strea
 
 1. Przejdź do witryny Azure Portal i znajdź pamięć podręczną Azure Cache for Redis. Wybierz pozycję **Konsola**.  
 
-2. Użyj [poleceń pamięci podręcznej Azure Cache for Redis](https://redis.io/commands), aby sprawdzić, czy dane znajdują się w usłudze Azure Cache for Redis. (Polecenie przyjmuje format Pobierz {klucz}).) Na przykład:
+2. Użyj [poleceń pamięci podręcznej Azure Cache for Redis](https://redis.io/commands), aby sprawdzić, czy dane znajdują się w usłudze Azure Cache for Redis. (Polecenie przyjmuje format {Key}). Na przykład:
 
    **Get "12/19/2017 21:32:24 - 123414732"**
 
@@ -189,18 +189,18 @@ Postępuj zgodnie z samouczkiem [Wykrywanie oszustw w czasie rzeczywistym](strea
 
 ## <a name="error-handling-and-retries"></a>Obsługa błędów oraz wykonywanie ponownych prób
 
-Jeśli wystąpi błąd podczas wysyłania zdarzeń do usługi Azure Functions, usługa Stream Analytics ponawia większość operacji. Wszystkie wyjątki http są ponawiane do sukcesu z wyjątkiem błędu http 413 (jednostka zbyt duża). Zbyt duży błąd jednostki jest traktowany jako błąd danych, który podlega [zasadom ponawiania lub upuszczania](stream-analytics-output-error-policy.md).
+Jeśli wystąpi błąd podczas wysyłania zdarzeń do Azure Functions, Stream Analytics ponawiać próbę wykonania większości operacji. Wszystkie wyjątki http są ponawiane do momentu sukcesu z wyjątkiem błędu HTTP 413 (jednostka jest za duża). Zbyt duży błąd jednostki jest traktowany jako błąd danych, który podlega [ponowieniu lub porzucenia zasad](stream-analytics-output-error-policy.md).
 
 > [!NOTE]
-> Limit czasu dla żądań HTTP z usługi Stream Analytics do usługi Azure Functions jest ustawiony na 100 sekund. Jeśli aplikacja usługi Azure Functions trwa więcej niż 100 sekund, aby przetworzyć partię, usługa Stream Analytics błędy.
+> Limit czasu dla żądań HTTP z Stream Analytics do Azure Functions jest ustawiony na 100 sekund. Jeśli przetworzenie partii przez aplikację Azure Functions trwa ponad 100 sekund, Stream Analytics błędy.
 
 ## <a name="known-issues"></a>Znane problemy
 
 Przy próbie resetowania wartości Maksymalny rozmiar partii/Maksymalna liczba partii na wartość pustą (domyślną) w witrynie Azure Portal wartość zostanie zmieniona z powrotem na wartość podaną wcześniej przy zapisywaniu. W takim przypadku ręcznie podaj wartości domyślne dla tych pól.
 
-Korzystanie z [routingu HTTP](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) w usługach Azure Functions nie jest obecnie obsługiwane przez usługę Stream Analytics.
+Korzystanie z [routingu http](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) na Azure Functions nie jest obecnie obsługiwane przez Stream Analytics.
 
-Obsługa łączenia się z usługami Azure Functions hostowanym w sieci wirtualnej nie jest włączona.
+Obsługa połączenia z Azure Functions hostowanego w sieci wirtualnej nie jest włączona.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -211,7 +211,7 @@ Gdy grupa zasobów, zadanie przesyłania strumieniowego i wszystkie pokrewne zas
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku utworzono proste zadanie usługi Stream Analytics, które uruchamia funkcję platformy Azure. Aby dowiedzieć się więcej na temat zadań usługi Stream Analytics, przejdź do następnego samouczka:
+W tym samouczku utworzono proste zadanie Stream Analytics, w którym działa funkcja platformy Azure. Aby dowiedzieć się więcej na temat zadań usługi Stream Analytics, przejdź do następnego samouczka:
 
 > [!div class="nextstepaction"]
 > [Uruchamianie funkcji języka JavaScript zdefiniowanych przez użytkownika w ramach zadań usługi Stream Analytics](stream-analytics-javascript-user-defined-functions.md)

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: philmea
 ms.openlocfilehash: eaca93ac8a4e8c660be9618aefb27921a4e0a2eb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77565582"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Samouczek: zarządzanie połączonymi urządzeniami w trybie zbiorczym
@@ -31,7 +31,7 @@ W tym samouczku zostały wykonane następujące czynności:
 > * Wdrażanie konfiguracji na urządzeniach z grupy urządzeń
 > * Monitorowanie wdrożenia
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 <!--
 If this is going to be a tutorial - we need to split this include into two so that we can accommodate the additional prerequisites:
@@ -71,11 +71,11 @@ Następnie kliknij pozycję **Uruchom** na kafelku akceleratora rozwiązania do 
 
 Aby oprogramowanie układowe było automatycznie aktualizowane w grupie urządzeń, urządzenia muszą być elementami członkowskimi grupy urządzeń w rozwiązaniu do monitorowania zdalnego:
 
-1. Na stronie **Urządzenia** wybierz wszystkie urządzenia **IoT DevKit**, które zostały połączone z akceleratorem rozwiązań. Następnie kliknij pozycję **Zadania**.
+1. Na stronie **Urządzenia** wybierz wszystkie urządzenia **IoT DevKit**, które zostały połączone z akceleratorem rozwiązań. Następnie kliknij pozycję **zadania**.
 
-1. W panelu **Zadania** wybierz **pozycję Znaczniki**, ustaw nazwę zadania na **AddDevKitTag**, a następnie dodaj znacznik tekstowy o nazwie **IsDevKitDevice** o wartości **Y**. Następnie kliknij przycisk **Zastosuj**.
+1. W panelu **zadania** wybierz pozycję **Tagi**, Ustaw nazwę zadania na **AddDevKitTag**, a następnie Dodaj tag tekstowy o nazwie **IsDevKitDevice** z wartością **Y**. Następnie kliknij przycisk **Zastosuj**.
 
-1. Teraz możesz użyć wartości tagów do utworzenia grupy urządzeń. Na stronie **Urządzenia** kliknij pozycję **Zarządzaj grupami urządzeń**.
+1. Teraz możesz użyć wartości tagów do utworzenia grupy urządzeń. Na stronie **urządzenia** kliknij pozycję **Zarządzaj grupami urządzeń**.
 
 1. Utwórz filtr tekstowy, używając w warunku nazwy tagu **IsDevKitDevice** i wartości **Y**. Zapisz grupę urządzeń pod nazwą **Urządzenia IoT DevKit**.
 

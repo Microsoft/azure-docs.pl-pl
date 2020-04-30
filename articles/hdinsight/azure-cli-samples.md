@@ -1,5 +1,5 @@
 ---
-title: 'Usługa Azure HDInsight: przykłady interfejsu wiersza polecenia platformy Azure'
+title: 'Azure HDInsight: przykłady interfejsu wiersza polecenia platformy Azure'
 description: Przykłady interfejsu wiersza polecenia platformy Azure dla typowych zadań w usłudze Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,30 +8,30 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
 ms.openlocfilehash: cbbb38c645e56b2e7b8c70b437b1e5158b09a50b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78207102"
 ---
-# <a name="azure-hdinsight-azure-cli-samples"></a>Usługa Azure HDInsight: przykłady interfejsu wiersza polecenia platformy Azure
+# <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: przykłady interfejsu wiersza polecenia platformy Azure
 
 > [!div class="op_single_selector"]
-> [.NET Przykłady](hdinsight-sdk-dotnet-samples.md)
-> [Python przykłady](hdinsight-sdk-python-samples.md)
-> [Java Przykłady](hdinsight-sdk-java-samples.md)
+> [.NET Examples](hdinsight-sdk-dotnet-samples.md)Przykłady dla
+> [języka](hdinsight-sdk-java-samples.md) Python przykłady dla platformy .NET[Python Examples](hdinsight-sdk-python-samples.md)
+> 
 
-Ten artykuł zawiera przykładowe skrypty dla typowych zadań. Dla każdego przykładu zaktualizuj zmienne za pomocą odpowiednich wartości, a następnie wykonaj polecenie.
+Ten artykuł zawiera przykładowe skrypty dla typowych zadań. Dla każdego przykładu należy zaktualizować zmienne przy użyciu odpowiednich wartości, a następnie wykonać polecenie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Interfejsu wiersza polecenia platformy Azure. Zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure, aby](https://docs.microsoft.com/cli/azure/install-azure-cli) uzyskać instrukcje.
+* Interfejs wiersza polecenia platformy Azure. Aby uzyskać instrukcje [, zobacz Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) .
 
-* Opcjonalnie: Bash. Przykłady w tym artykule używają powłoki Bash w systemie Windows 10. Aby uzyskać instrukcje instalacji, zobacz [Podręcznik instalacji systemu Windows dla systemu Linux dla systemu Windows 10.](https://docs.microsoft.com/windows/wsl/install-win10)  Przykłady będą działać z wiersza polecenia systemu Windows z niewielkimi modyfikacjami.
+* Opcjonalnie: bash. W przykładach w tym artykule użyto powłoki bash w systemie Windows 10. Aby uzyskać instrukcje dotyczące instalacji, zobacz artykuł [podsystem instalacji systemu Windows dla systemu Linux w systemie Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) .  Przykłady będą działały z wiersza polecenia systemu Windows z niewielkimi modyfikacjami.
 
 ## <a name="az-login"></a>az login
 
-[Zaloguj się na platformie Azure](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).
+[Zaloguj się do platformy Azure](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).
 
 ```azurecli
 az login
@@ -40,7 +40,7 @@ az login
 # az account set --subscription "SUBSCRIPTIONID"
 ```
 
-## <a name="az-hdinsight-create"></a>az hdinsight tworzenie
+## <a name="az-hdinsight-create"></a>AZ HDInsight Create
 
 [Tworzy nowy klaster](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create).
 
@@ -62,7 +62,7 @@ az hdinsight create \
     --storage-account $AZURE_STORAGE_ACCOUNT
 ```
 
-### <a name="create-a-cluster-with-the-enterprise-security-package-esp"></a>Tworzenie klastra z pakietem zabezpieczeń przedsiębiorstwa (ESP)
+### <a name="create-a-cluster-with-the-enterprise-security-package-esp"></a>Tworzenie klastra z pakiet Enterprise Security (ESP)
 
 ```azurecli
 export clusterName=CLUSTERNAME
@@ -90,7 +90,7 @@ az hdinsight create \
     --cluster-users-group-dns $groupDNS
 ```
 
-### <a name="create-a-kafka-cluster-with-disk-encryption"></a>Tworzenie klastra platformy Kafka z [szyfrowaniem dysku](./disk-encryption.md)
+### <a name="create-a-kafka-cluster-with-disk-encryption"></a>Tworzenie klastra Kafka z [szyfrowaniem dysków](./disk-encryption.md)
 
 ```azurecli
 export clusterName=CLUSTERNAME
@@ -116,7 +116,7 @@ az hdinsight create \
     --assign-identity $userAssignedIdentity
 ```
 
-### <a name="create-a-cluster-with-azure-data-lake-storage-gen2"></a>Tworzenie klastra za pomocą usługi Azure Data Lake Storage Gen2
+### <a name="create-a-cluster-with-azure-data-lake-storage-gen2"></a>Tworzenie klastra przy użyciu Azure Data Lake Storage Gen2
 
 ```azurecli
 export clusterName=CLUSTERNAME
@@ -135,7 +135,7 @@ az hdinsight create \
     --storage-account-managed-identity $sami
 ```
 
-### <a name="create-a-cluster-with-configuration-from-json-string"></a>Tworzenie klastra z konfiguracją z ciągu JSON
+### <a name="create-a-cluster-with-configuration-from-json-string"></a>Utwórz klaster z konfiguracją z ciągu JSON
 
 ```azurecli
 export clusterName=CLUSTERNAME
@@ -173,11 +173,11 @@ az hdinsight create \
     --cluster-configuration $clusterConfiguration
 ```
 
-## <a name="az-hdinsight-application-create"></a>az hdinsight tworzenie aplikacji
+## <a name="az-hdinsight-application-create"></a>AZ HDInsight Application Create
 
-[Utwórz aplikację dla klastra HDInsight](https://docs.microsoft.com/cli/azure/hdinsight/application?view=azure-cli-latest#az-hdinsight-application-create).
+[Tworzenie aplikacji dla klastra usługi HDInsight](https://docs.microsoft.com/cli/azure/hdinsight/application?view=azure-cli-latest#az-hdinsight-application-create).
 
-### <a name="create-an-application-with-a-script-uri"></a>Tworzenie aplikacji przy zastosowaniu identyfikatora URI skryptu
+### <a name="create-an-application-with-a-script-uri"></a>Tworzenie aplikacji za pomocą identyfikatora URI skryptu
 
 ```azurecli
 export resourceGroupName=RESOURCEGROUPNAME
@@ -240,11 +240,11 @@ az hdinsight application create \
     --sub-domain-suffix $subDomainSuffix
 ```
 
-## <a name="az-hdinsight-script-action-execute"></a>az hdinsight skrypt-akcja wykonać
+## <a name="az-hdinsight-script-action-execute"></a>AZ HDInsight Script-Action Execute
 
-[Wykonywanie akcji skryptu w określonym klastrze HDInsight](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute).
+[Wykonaj akcje skryptu w określonym klastrze usługi HDInsight](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute).
 
-### <a name="execute-a-script-action-and-persist-on-success"></a>Wykonywanie akcji skryptu i utrwalanie się po sukcesie
+### <a name="execute-a-script-action-and-persist-on-success"></a>Wykonywanie akcji skryptu i utrwalanie po sukcesie
 
 ```azurecli
 export resourceGroupName=RESOURCEGROUPNAME

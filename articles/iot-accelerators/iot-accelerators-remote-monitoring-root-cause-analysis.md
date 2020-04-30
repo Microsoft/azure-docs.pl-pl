@@ -9,10 +9,10 @@ ms.date: 11/20/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: c3cb940583677d813873c07fbfa679fdcc1dff59
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77565472"
 ---
 # <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Samouczek: przeprowadzanie analizy głównej przyczyny po wystąpieniu alertu
@@ -30,7 +30,7 @@ W tym samouczku zostały wykonane następujące czynności:
 > * Przeprowadzanie analizy głównej przyczyny
 > * Tworzenie nowej reguły na podstawie zdobytych informacji
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
@@ -38,7 +38,7 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
 
 Aby wybrać połączone urządzenia, które mają być wyświetlane na stronie **Pulpit nawigacyjny**, użyj filtrów. Aby wyświetlić tylko urządzenia typu **Truck** (Ciężarówka), wybierz wbudowany filtr **Trucks** na liście rozwijanej filtrów:
 
-[![Filtr dla ciężarówek na desce rozdzielczej](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-expanded.png#lightbox)
+[![Filtrowanie ciężarówek na pulpicie nawigacyjnym](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-expanded.png#lightbox)
 
 Po zastosowaniu filtrowania na mapie oraz w panelu telemetrii na stronie **Pulpit nawigacyjny** są wyświetlane tylko te urządzenia, które odpowiadają warunkom filtrowania. Widać, że do akceleratora rozwiązania są podłączone dwie ciężarówki, w tym ciężarówka **truck-02**.
 
@@ -46,17 +46,17 @@ Po zastosowaniu filtrowania na mapie oraz w panelu telemetrii na stronie **Pulpi
 
 Akcelerator rozwiązań pokazuje dane telemetryczne w czasie rzeczywistym na wykresie na stronie **Pulpit nawigacyjny**. Domyślnie wykres pokazuje dane telemetryczne wysokości nad poziomem morza, która zmienia się wraz z upływem czasu:
 
-[![Wykres telemetryczny wysokości samochodu ciężarowego](./media/iot-accelerators-remote-monitoring-root-cause-analysis/trucks-moving-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/trucks-moving-expanded.png#lightbox)
+[![Wykres telemetrii na wysokości ciężarówki](./media/iot-accelerators-remote-monitoring-root-cause-analysis/trucks-moving-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/trucks-moving-expanded.png#lightbox)
 
 Aby wyświetlić dane telemetryczne dotyczące temperatury dla ciężarówek, kliknij pozycję **Temperature** (Temperatura) na **panelu danych telemetrycznych**. Widać, jak zmieniała się temperatura obydwu ciężarówek w ciągu ostatnich 15 minut. W okienku alertów widać również, że alert dotyczący niskiej temperatury został wyzwolony dla ciężarówki delivery-truck-02.
 
-[![Pulpit nawigacyjny RM z alertem o niskiej temperaturze](./media/iot-accelerators-remote-monitoring-root-cause-analysis/low-temp-alert-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/low-temp-alert-expanded.png#lightbox)
+[![Pulpit nawigacyjny RM z niskim alertem tymczasowym](./media/iot-accelerators-remote-monitoring-root-cause-analysis/low-temp-alert-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/low-temp-alert-expanded.png#lightbox)
 
 ## <a name="explore-the-data"></a>Eksplorowanie danych
 
 Aby zidentyfikować przyczynę alarmu dotyczącego niskiej temperatury, otwórz dane telemetryczne ciężarówki dostawczej w eksploratorze usługi Time Series Insights. Kliknij dowolny link **Explore in Time Series Insights** (Eksploruj w usłudze Time Series Insights) na pulpicie nawigacyjnym:
 
-[![Pulpit nawigacyjny RM z wyróżnionymi łączami TSI](./media/iot-accelerators-remote-monitoring-root-cause-analysis/explore-tsi-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/explore-tsi-expanded.png#lightbox)
+[![Pulpit nawigacyjny RM z wyróżnionymi linkami TSI](./media/iot-accelerators-remote-monitoring-root-cause-analysis/explore-tsi-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/explore-tsi-expanded.png#lightbox)
 
 Po uruchomieniu eksploratora zobaczysz wszystkie swoje urządzenia na liście:
 
@@ -64,11 +64,11 @@ Po uruchomieniu eksploratora zobaczysz wszystkie swoje urządzenia na liście:
 
 Przefiltruj urządzenia, wpisując ciąg **delivery-truck** w polu filtru, i wybierz wartość **temperature** (temperatura) w polu **Measure** (Miara) w panelu po lewej stronie:
 
-[![TSI Explorer temperatura ciężarówki](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-expanded.png#lightbox)
+[![Temperatura ciężarówki Eksploratora TSI](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-expanded.png#lightbox)
 
 Zostanie wyświetlony ten sam widok, który był wyświetlany na pulpicie nawigacyjnym zdalnego monitorowania. Ponadto teraz można przybliżyć horyzont czasowy, w którym alert został wyzwolony:
 
-[![Powiększenie eksploratora TSI](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-expanded.png#lightbox)
+[![Powiększenie Eksploratora TSI](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-expanded.png#lightbox)
 
 Możesz również dodać inne strumienie danych telemetrycznych pochodzące z ciężarówek. Kliknij przycisk **Add** (Dodaj) w lewym górnym rogu. Zostanie wyświetlone nowe okienko:
 
@@ -76,7 +76,7 @@ Możesz również dodać inne strumienie danych telemetrycznych pochodzące z ci
 
 W nowym okienku zmień nazwę nowej etykiety na **Devices** (Urządzenia), aby była zgodna z poprzednią. Wybierz pozycję **altitude** (wysokość) w polu **Measure** (Miara) i wartość **iothub-connection-device-id** w polu **Split By** (Podziel według), aby dodać dane telemetryczne wysokości do widoku:
 
-[![TSI Explorer z temperaturą i wysokością](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-altitude-expanded.png#lightbox)
+[![Eksplorator TSI z temperaturą i wysokością](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-altitude-expanded.png#lightbox)
 
 ## <a name="diagnose-the-alert"></a>Diagnozowanie alertu
 
@@ -84,13 +84,13 @@ Po wyświetleniu strumieni w bieżącym widoku widać, że profile wysokości dl
 
 Aby potwierdzić swoje podejrzenia, że ciężarówki pojechały różnymi trasami, dodaj kolejne okienko do panelu bocznego, używając przycisku **Add** (Dodaj). W nowym okienku zmień nazwę nowej etykiety na **Devices** (Urządzenia), aby była zgodna z poprzednią. Wybierz pozycję **longitude** (długość geograficzna) w polu **Measure** (Miara) i wartość **iothub-connection-device-id** w polu **Split By** (Podziel według), aby dodać dane telemetryczne długości geograficznej do widoku. Możesz zauważyć, że ciężarówki faktycznie pojechały innymi trasami, patrząc na różnicę między strumieniami **długości geograficznej**:
 
-[![TSI Explorer z temperaturą, wysokością i długością geograficzną](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-longitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-longitude-expanded.png#lightbox)
+[![Eksplorator TSI z temperaturą, wysokością i długością geograficzną](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-longitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-longitude-expanded.png#lightbox)
 
 ## <a name="create-a-new-rule"></a>Tworzenie nowej reguły
 
 Trasy ciężarówek są przeważnie optymalizowane z wyprzedzeniem, okazuje się jednak, że ruch na drogach, pogoda i inne nieprzewidziane zdarzenia mogą powodować opóźnienia i pozostawiać podejmowane w ostatniej chwili decyzje dotyczące trasy w rękach kierowców, którzy podejmują je w oparciu o swoje doświadczenie i ocenę sytuacji. Jednak ze względu na to, że temperatura produktów znajdujących się wewnątrz pojazdu ma kluczowe znaczenie, należy utworzyć dodatkową regułę w rozwiązaniu do monitorowania zdalnego. Ta reguła zapewnia otrzymanie ostrzeżenia, jeśli średnia wysokość w okresie 1 minuty przekroczy 350 stóp (ok. 107 metrów):
 
-[![Reguły zdalnego monitorowania ustawiają regułę wysokości](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-expanded.png#lightbox)
+[![Zestaw kart reguły zdalnego monitorowania — reguła wysokości](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-expanded.png#lightbox)
 
 Aby dowiedzieć się, jak tworzyć i edytować reguły, zapoznaj się z poprzednim samouczkiem na temat [wykrywania problemów z urządzeniami](iot-accelerators-remote-monitoring-automate.md).
 
