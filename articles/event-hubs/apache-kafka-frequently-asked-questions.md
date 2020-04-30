@@ -1,5 +1,5 @@
 ---
-title: Często zadawane pytania — Usługi Azure Event Hubs dla platformy Apache Kafka
+title: Często zadawane pytania — Event Hubs platformy Azure dla Apache Kafka
 description: W tym artykule pokazano, jak konsumenci i producenci korzystający z różnych protokołów (AMQP, Apache Kafka i HTTPS) mogą wymieniać zdarzenia podczas korzystania z usługi Azure Event Hubs.
 services: event-hubs
 documentationcenter: ''
@@ -13,42 +13,42 @@ ms.workload: na
 ms.date: 04/01/2020
 ms.author: shvija
 ms.openlocfilehash: 0186b90e1d75c5dba6e1ca26e4ba079a3456cea4
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81606745"
 ---
-# <a name="frequently-asked-questions---event-hubs-for-apache-kafka"></a>Często zadawane pytania - Event Hubs for Apache Kafka 
-Ten artykuł zawiera odpowiedzi na niektóre z często zadawanych pytań dotyczących migracji do centrów zdarzeń dla platformy Apache Kafka.
+# <a name="frequently-asked-questions---event-hubs-for-apache-kafka"></a>Często zadawane pytania — Event Hubs dla Apache Kafka 
+Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące migracji do Event Hubs Apache Kafka.
 
-## <a name="do-you-run-apache-kafka"></a>Czy prowadzisz Apache Kafka?
+## <a name="do-you-run-apache-kafka"></a>Czy uruchamiasz Apache Kafka?
 
-Nie.  Wykonujemy operacje interfejsu API platformy Kafka względem infrastruktury centrum zdarzeń.  Ponieważ istnieje ścisła korelacja między Apache Kafka i Event Hubs funkcji AMQP (czyli produkcji, odbioru, zarządzania, tak dalej), jesteśmy w stanie przenieść znaną niezawodność Centrum zdarzeń do przestrzeni Kafka PaaS.
+Nie.  Wykonujemy operacje interfejsu API Kafka w odniesieniu do infrastruktury Event Hubs.  Ponieważ istnieje ścisła korelacja między Apache Kafka i Event Hubs funkcjonalnością AMQP (to jest, produkuje, odbierają, zarządzamy itd.), możemy zapewnić znaną niezawodność Event Hubs do Kafka PaaS.
 
-## <a name="event-hubs-consumer-group-vs-kafka-consumer-group"></a>Grupa odbiorców Event Hubs a grupa odbiorców platformy Kafka
-Jaka jest różnica między grupą odbiorców Centrum zdarzeń a grupą odbiorców platformy Kafka w centrach zdarzeń? Grupy konsumentów platformy Kafka w centrach zdarzeń są w pełni różne od standardowych grup odbiorców Centrum zdarzeń.
+## <a name="event-hubs-consumer-group-vs-kafka-consumer-group"></a>Event Hubs Grupa konsumentów a grupa odbiorców Kafka
+Jaka jest różnica między grupą użytkowników centrum zdarzeń i grupą konsumentów Kafka na Event Hubs? Grupy konsumentów Kafka na Event Hubs są w pełni odmienne od standardowych grup konsumenckich Event Hubs.
 
-**Grupy odbiorców usługi Event Hubs**
+**Event Hubs grupy konsumentów**
 
-- Są one zarządzane za pomocą operacji tworzenia, pobierania, aktualizacji i usuwania (CRUD) za pośrednictwem szablonów portalu, SDK lub Usługi Azure Resource Manager. Grup konsumentów centrum zdarzeń nie można automatycznie utworzyć.
-- Są to jednostki podrzędne centrum zdarzeń. Oznacza to, że ta sama nazwa grupy odbiorców może być ponownie używana między centrami zdarzeń w tym samym obszarze nazw, ponieważ są one oddzielne jednostki.
-- Nie są one używane do przechowywania przesunięć. Zaaranżowane zużycie amqp odbywa się przy użyciu zewnętrznego magazynu offsetowego, na przykład usługi Azure Storage.
+- Są one zarządzane przy użyciu operacji tworzenia, pobierania, aktualizowania i usuwania (CRUD) za pomocą szablonów portalu, zestawu SDK lub Azure Resource Manager. Nie można utworzyć AutoCreate Event Hubs grupy konsumentów.
+- Są one jednostkami podrzędnymi centrum zdarzeń. Oznacza to, że ta sama nazwa grupy odbiorców może być ponownie używana między centrami zdarzeń w tej samej przestrzeni nazw, ponieważ są one osobnymi jednostkami.
+- Nie są one używane do przechowywania przesunięć. Zorganizowane użycie AMQP odbywa się przy użyciu zewnętrznego magazynu przesunięcia, na przykład usługi Azure Storage.
 
-**Grupy konsumentów platformy Kafka**
+**Grupy konsumentów Kafka**
 
-- Są one automatycznietworzone.  Grupy platformy Kafka można zarządzać za pośrednictwem interfejsów API grupy odbiorców platformy Kafka.
-- Mogą przechowywać przesunięcia w usłudze Usługi Event Hubs.
-- Są one używane jako klucze w tym, co jest skutecznie magazynu klucza przesunięcia wartości. Dla unikatowej `group.id` pary `topic-partition`i , przechowujemy przesunięcie w usłudze Azure Storage (replikacja 3x). Użytkownicy centrów zdarzeń nie ponoszą dodatkowych kosztów magazynowania z powodu przechowywania przesunięć platformy Kafka. Przesunięcia są manipulable za pośrednictwem interfejsów API grupy konsumentów platformy Kafka, ale *konta* magazynu przeciwstawnego nie są bezpośrednio widoczne lub manipulable dla użytkowników Centrum zdarzeń.  
-- Obejmują one obszar nazw. Przy użyciu tej samej nazwy grupy platformy Kafka dla wielu aplikacji na wiele tematów oznacza, że wszystkie aplikacje i ich klientów platformy Kafka zostaną zrównoważone, gdy tylko jedna aplikacja wymaga równoważenia.  Mądrze wybieraj nazwy grup.
-- W pełni różnią się od grup konsumentów usługi Event Hubs. **Nie** musisz używać "$Default", ani nie musisz się martwić o klientów platformy Kafka zakłócających obciążenia AMQP.
-- Nie są one widoczne w witrynie Azure portal. Informacje o grupie konsumentów są dostępne za pośrednictwem interfejsów API platformy Kafka.
+- Są one tworzone przez Autotworzenie.  Grupami Kafka można zarządzać za pośrednictwem interfejsów API grup konsumenckich Kafka.
+- Mogą przechowywać przesunięcia w usłudze Event Hubs.
+- Są one używane jako klucze, co jest efektywnie przesuniętym magazynem wartości. W przypadku unikatowej pary `group.id` i `topic-partition`przechowujemy przesunięcie w usłudze Azure Storage (replikacja 3). Event Hubs użytkownicy nie będą ponosić dodatkowych kosztów związanych z przechowywaniem przesunięć Kafka. Przesunięcia są manipulable za pośrednictwem interfejsów API grup konsumenckich Kafka, ale przesunięte *konta* magazynu nie są bezpośrednio widoczne lub manipulable dla użytkowników centrum zdarzeń.  
+- Obejmują one przestrzeń nazw. Użycie tej samej nazwy grupy Kafka dla wielu aplikacji w wielu tematach oznacza, że wszystkie aplikacje i ich klienci Kafka będą ponownie zrównoważyć, gdy tylko jedna aplikacja będzie wymagała ponownego zrównoważenia.  Wybierz swoje nazwy grup.
+- Są one w pełni odmienne od Event Hubs grup odbiorców. **Nie** musisz używać "$default" ani nie musisz martwić się o Kafka klientów zakłócających obciążenia AMQP.
+- Nie są one widoczne w Azure Portal. Informacje o grupie odbiorców są dostępne za pośrednictwem interfejsów API Kafka.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o centrach zdarzeń i centrach zdarzeń dla platformy Kafka, zobacz następujące artykuły:  
+Aby dowiedzieć się więcej na temat Event Hubs i Event Hubs dla Kafka, zobacz następujące artykuły:  
 
-- [Apache Kafka — przewodnik dla centrów zdarzeń](apache-kafka-developer-guide.md)
-- [Apache Kafka przewodnik migracji dla Centrów zdarzeń](apache-kafka-migration-guide.md)
-- [Apache Kafka przewodnik rozwiązywania problemów dla Centrum zdarzeń](apache-kafka-troubleshooting-guide.md)
+- [Apache Kafka Przewodnik dla deweloperów Event Hubs](apache-kafka-developer-guide.md)
+- [Apache Kafka Przewodnik migracji Event Hubs](apache-kafka-migration-guide.md)
+- [Apache Kafka Przewodnik rozwiązywania problemów dla Event Hubs](apache-kafka-troubleshooting-guide.md)
 - [Zalecane konfiguracje](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
 

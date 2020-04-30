@@ -1,7 +1,7 @@
 ---
-title: Samouczek - Tworzenie aplikacji o wysokiej dostępności z pamięcią blob
+title: Samouczek — Tworzenie aplikacji o wysokiej dostępności przy użyciu magazynu obiektów BLOB
 titleSuffix: Azure Storage
-description: Użyj magazynu geograficznego dostępu do odczytu, aby dane aplikacji były wysoce dostępne.
+description: Używanie magazynu geograficznie nadmiarowego do odczytu w celu uzyskania wysokiej dostępności danych aplikacji.
 services: storage
 author: tamram
 ms.service: storage
@@ -12,13 +12,13 @@ ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
 ms.openlocfilehash: 27f90edf84fd51e5c13bc082cfaba50e26c54780
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81606026"
 ---
-# <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Samouczek: Tworzenie aplikacji o wysokiej dostępności z pamięcią blob
+# <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Samouczek: Tworzenie aplikacji o wysokiej dostępności przy użyciu magazynu obiektów BLOB
 
 Niniejszy samouczek jest pierwszą częścią serii. Z tego samouczka dowiesz się, jak uzyskać wysoką dostępność danych aplikacji na platformie Azure.
 
@@ -26,7 +26,7 @@ Po ukończeniu tego samouczka będziesz mieć aplikację konsolową, która prze
 
 Działanie magazynu RA-GRS polega na replikowaniu transakcji z regionu podstawowego do pomocniczego. Ten proces replikacji gwarantuje, że dane w regionie pomocniczym ostatecznie uzyskają spójność. Aplikacja korzysta z wzorca [Wyłącznika](/azure/architecture/patterns/circuit-breaker) do określania punktu końcowego, z którym ma się połączyć, i automatycznego przełączania między punktami końcowymi podczas symulacji awarii i odzyskiwania.
 
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 Część pierwsza serii zawiera informacje na temat wykonywania następujących czynności:
 
@@ -41,18 +41,18 @@ W celu ukończenia tego samouczka:
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-* Zainstaluj [program Visual Studio 2019](https://www.visualstudio.com/downloads/) z obciążeniem **dewelopera platformy Azure.**
+* Zainstaluj [program Visual Studio 2019](https://www.visualstudio.com/downloads/) przy użyciu obciążeń **programistycznych platformy Azure** .
 
   ![Tworzenie aplikacji na platformie Azure (w Internecie i w chmurze)](media/storage-create-geo-redundant-storage/workloads.png)
 
 # <a name="python"></a>[Python](#tab/python)
 
-* Instalowanie [języka Python](https://www.python.org/downloads/)
-* Pobieranie i [instalowanie pakietu Azure Storage SDK dla języka Python](https://github.com/Azure/azure-storage-python)
+* Zainstaluj język [Python](https://www.python.org/downloads/)
+* Pobierz i zainstaluj [zestaw SDK usługi Azure Storage dla języka Python](https://github.com/Azure/azure-storage-python)
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-* Zainstaluj [plik Node.js](https://nodejs.org).
+* Zainstaluj program [Node. js](https://nodejs.org).
 
 ---
 
@@ -79,7 +79,7 @@ Wykonaj następujące kroki, aby utworzyć konto magazynu geograficznie nadmiaro
    | **Wydajność** | Standardowa | Warstwa Standardowa jest wystarczająca na potrzeby przykładowego scenariusza. |
    | **Replikacja**| Magazyn geograficznie nadmiarowy dostępny do odczytu (RA-GRS) | Jest to niezbędne do działania przykładu. |
    |**Subskrypcja** | Twoja subskrypcja |Aby uzyskać szczegółowe informacje o subskrypcjach, zobacz [Subskrypcje](https://account.azure.com/Subscriptions). |
-   |**Grupa zasobów** | myResourceGroup |Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Reguły i ograniczenia nazewnictwa). |
+   |**ResourceGroup** | myResourceGroup |Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Reguły i ograniczenia nazewnictwa). |
    |**Lokalizacja** | Wschodnie stany USA | Wybierz lokalizację. |
 
 ![tworzenie konta magazynu](media/storage-create-geo-redundant-storage/createragrsstracct.png)
@@ -104,7 +104,7 @@ git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-patter
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-[Pobierz przykładowy projekt](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) i rozpakuj plik. Możesz również użyć narzędzia [git](https://git-scm.com/), aby pobrać kopię tej aplikacji do swojego środowiska projektowego. Przykładowy projekt zawiera podstawową aplikację Node.js.
+[Pobierz przykładowy projekt](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) i rozpakuj plik. Możesz również użyć narzędzia [git](https://git-scm.com/), aby pobrać kopię tej aplikacji do swojego środowiska projektowego. Przykładowy projekt zawiera podstawową aplikację Node. js.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
@@ -118,7 +118,7 @@ git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
 
 W aplikacji należy wprowadzić parametry połączenia konta magazynu. Te parametry połączenia można przechowywać w zmiennej środowiskowej na maszynie lokalnej z uruchomioną aplikacją. Postępuj zgodnie z jednym z poniższych przykładów w zależności od używanego systemu operacyjnego, aby utworzyć zmienną środowiskową.
 
-W witrynie Azure Portal przejdź do swojego konta magazynu. Wybierz pozycję **Klucze dostępu** w obszarze **Ustawienia** konta magazynu. Skopiuj **parametry połączenia** z klucza podstawowego lub pomocniczego. Uruchom jedno z następujących poleceń w oparciu \<o system\> operacyjny, zastępując ciąg połączenia rzeczywistym ciągiem połączenia. To polecenie zapisuje zmienną środowiskową na maszynie lokalnej. W systemie Windows zmienna środowiskowa nie jest dostępna do czasu ponownego załadowania używanej powłoki lub **wiersza polecenia**.
+W witrynie Azure Portal przejdź do swojego konta magazynu. Wybierz pozycję **Klucze dostępu** w obszarze **Ustawienia** konta magazynu. Skopiuj **parametry połączenia** z klucza podstawowego lub pomocniczego. Uruchom jedno z następujących poleceń w zależności od używanego systemu operacyjnego, zastępując \<yourconnectionstring\> z rzeczywistymi parametrami połączenia. To polecenie zapisuje zmienną środowiskową na maszynie lokalnej. W systemie Windows zmienna środowiskowa nie jest dostępna do czasu ponownego załadowania używanej powłoki lub **wiersza polecenia**.
 
 ### <a name="linux"></a>Linux
 
@@ -134,9 +134,9 @@ setx storageconnectionstring "<yourconnectionstring>"
 
 # <a name="python"></a>[Python](#tab/python)
 
-W aplikacji należy podać poświadczenia konta magazynu. Można przechowywać te informacje w zmiennych środowiskowych na komputerze lokalnym z uruchomieniem aplikacji. Postępuj zgodnie z jednym z poniższych przykładów w zależności od systemu operacyjnego, aby utworzyć zmienne środowiskowe.
+W aplikacji należy podać poświadczenia konta magazynu. Te informacje można przechowywać w zmiennych środowiskowych na komputerze lokalnym, na którym działa aplikacja. Wykonaj jedną z poniższych przykładów w zależności od używanego systemu operacyjnego, aby utworzyć zmienne środowiskowe.
 
-W witrynie Azure Portal przejdź do swojego konta magazynu. Wybierz pozycję **Klucze dostępu** w obszarze **Ustawienia** konta magazynu. Wklej **nazwę konta magazynu** i wartości **klucza** do \<następujących poleceń, zastępując symbole zastępcze youraccountname\> i \<youraccountkey.\> To polecenie zapisuje zmienne środowiskowe na komputerze lokalnym. W systemie Windows zmienna środowiskowa nie jest dostępna do czasu ponownego załadowania używanej powłoki lub **wiersza polecenia**.
+W witrynie Azure Portal przejdź do swojego konta magazynu. Wybierz pozycję **Klucze dostępu** w obszarze **Ustawienia** konta magazynu. Wklej **nazwę konta magazynu** i wartości **klucza** do następujących poleceń, zastępując symbole zastępcze \<youraccountname\> i \<youraccountkey\> . To polecenie zapisuje zmienne środowiskowe na komputerze lokalnym. W systemie Windows zmienna środowiskowa nie jest dostępna do czasu ponownego załadowania używanej powłoki lub **wiersza polecenia**.
 
 ### <a name="linux"></a>Linux
 
@@ -154,16 +154,16 @@ setx accountkey "<youraccountkey>"
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Aby uruchomić ten przykład, należy dodać poświadczenia `.env.example` konta magazynu do pliku, a następnie zmienić jego nazwę na `.env`.
+Aby uruchomić ten przykład, należy dodać do `.env.example` pliku poświadczenia konta magazynu, a następnie zmienić jego nazwę na. `.env`
 
 ```
 AZURE_STORAGE_ACCOUNT_NAME=<replace with your storage account name>
 AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 ```
 
-Informacje te można znaleźć w witrynie Azure portal, przechodząc do konta magazynu i wybierając **klawisze programu Access** w sekcji **Ustawienia.**
+Te informacje można znaleźć w Azure Portal, przechodząc do konta magazynu i wybierając pozycję **klucze dostępu** w sekcji **Ustawienia** .
 
-Zainstaluj wymagane zależności. Aby to zrobić, otwórz wiersz polecenia, przejdź do `npm install`przykładowego folderu, a następnie wprowadź .
+Zainstaluj wymagane zależności. Aby to zrobić, Otwórz wiersz polecenia, przejdź do folderu przykład, a następnie wprowadź `npm install`.
 
 ---
 
@@ -173,15 +173,15 @@ Zainstaluj wymagane zależności. Aby to zrobić, otwórz wiersz polecenia, prze
 
 W programie Visual Studio naciśnij klawisz **F5** lub wybierz pozycję **Uruchom**, aby rozpocząć debugowanie aplikacji. Program Visual Studio automatycznie przywraca brakujące pakiety NuGet, jeśli zostały skonfigurowane. Więcej szczegółów można znaleźć w temacie [Installing and reinstalling packages with package restore (Instalowanie i ponowne instalowanie pakietów przy użyciu funkcji przywracania pakietów)](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview).
 
-Zostanie uruchomione okno konsoli i aplikacja zacznie działać. Aplikacja przekazuje obraz **HelloWorld.png** z rozwiązania na konto magazynu. Aplikacja sprawdza, czy obraz został replikowany do pomocniczego punktu końcowego RA-GRS. Następnie rozpoczyna pobieranie obrazu maksymalnie 999 razy. Każdy odczyt jest reprezentowany przez **P** lub **S**. Gdzie **P** reprezentuje podstawowy punkt końcowy i **S** reprezentuje pomocniczy punkt końcowy.
+Zostanie uruchomione okno konsoli i aplikacja zacznie działać. Aplikacja przekazuje obraz **HelloWorld.png** z rozwiązania na konto magazynu. Aplikacja sprawdza, czy obraz został replikowany do pomocniczego punktu końcowego RA-GRS. Następnie rozpoczyna pobieranie obrazu maksymalnie 999 razy. Każdy odczyt jest reprezentowany przez **P** lub **S**. Gdzie **P** reprezentuje podstawowy punkt końcowy, a **S** reprezentuje pomocniczy punkt końcowy.
 
 ![Uruchomiona aplikacja konsolowa](media/storage-create-geo-redundant-storage/figure3.png)
 
-W przykładowym kodzie zadanie `RunCircuitBreakerAsync` w pliku `Program.cs` jest używane do pobierania obrazu z konta magazynu przy użyciu metody [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync). Przed pobraniem [OperationContext](/dotnet/api/microsoft.azure.cosmos.table.operationcontext) jest zdefiniowany. Kontekst operacji definiuje procedury obsługi zdarzeń wyzwalane po pomyślnym zakończeniu pobierania lub po niepowodzeniu pobierania i podjęciu jego kolejnej próby.
+W przykładowym kodzie zadanie `RunCircuitBreakerAsync` w pliku `Program.cs` jest używane do pobierania obrazu z konta magazynu przy użyciu metody [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync). Przed pobraniem zostanie zdefiniowany element [OperationContext](/dotnet/api/microsoft.azure.cosmos.table.operationcontext) . Kontekst operacji definiuje procedury obsługi zdarzeń wyzwalane po pomyślnym zakończeniu pobierania lub po niepowodzeniu pobierania i podjęciu jego kolejnej próby.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Aby uruchomić aplikację w terminalu lub wierszu polecenia, przejdź do katalogu **circuitbreaker.py** i wprowadź wartość `python circuitbreaker.py`. Aplikacja przekazuje obraz **HelloWorld.png** z rozwiązania na konto magazynu. Aplikacja sprawdza, czy obraz został replikowany do pomocniczego punktu końcowego RA-GRS. Następnie rozpoczyna pobieranie obrazu maksymalnie 999 razy. Każdy odczyt jest reprezentowany przez **P** lub **S**. Gdzie **P** reprezentuje podstawowy punkt końcowy i **S** reprezentuje pomocniczy punkt końcowy.
+Aby uruchomić aplikację w terminalu lub wierszu polecenia, przejdź do katalogu **circuitbreaker.py** i wprowadź wartość `python circuitbreaker.py`. Aplikacja przekazuje obraz **HelloWorld.png** z rozwiązania na konto magazynu. Aplikacja sprawdza, czy obraz został replikowany do pomocniczego punktu końcowego RA-GRS. Następnie rozpoczyna pobieranie obrazu maksymalnie 999 razy. Każdy odczyt jest reprezentowany przez **P** lub **S**. Gdzie **P** reprezentuje podstawowy punkt końcowy, a **S** reprezentuje pomocniczy punkt końcowy.
 
 ![Uruchomiona aplikacja konsolowa](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -189,13 +189,13 @@ W przykładowym kodzie metoda `run_circuit_breaker` w pliku `circuitbreaker.py` 
 
 Funkcja ponawiania obiektu usługi Storage została ustawiona na zasady ponawiania liniowego. Funkcja ponawiania określa, czy należy ponowić próbę żądania, oraz wskazuje liczbę sekund oczekiwania przed ponownym podjęciem próby wykonania żądania. Ustaw pozycję **retry\_to\_secondary** na wartość true, jeśli żądanie powinno być ponawiane w punkcie pomocniczym w przypadku niepowodzenia początkowego żądania w punkcie podstawowym. W przykładowej aplikacji niestandardowe zasady ponawiania zostały zdefiniowane w funkcji `retry_callback` obiektu magazynu.
 
-Przed pobraniem zdefiniowano [retry_callback](https://docs.microsoft.com/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient?view=azure-python) i funkcję [response_callback](https://docs.microsoft.com/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient?view=azure-python) obiektu Usługi. Te funkcje definiują procedury obsługi zdarzeń wyzwalane po pomyślnym zakończeniu pobierania lub po niepowodzeniu pobierania i podjęciu jego kolejnej próby.
+Przed pobraniem zostanie zdefiniowany obiekt usługi [retry_callback](https://docs.microsoft.com/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient?view=azure-python) i funkcja [response_callback](https://docs.microsoft.com/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient?view=azure-python) . Te funkcje definiują procedury obsługi zdarzeń wyzwalane po pomyślnym zakończeniu pobierania lub po niepowodzeniu pobierania i podjęciu jego kolejnej próby.
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Aby uruchomić próbkę, otwórz wiersz polecenia, przejdź do `node index.js`przykładowego folderu, a następnie wprowadź .
+Aby uruchomić przykład, Otwórz wiersz polecenia, przejdź do folderu przykład, a następnie wprowadź `node index.js`.
 
-Przykład tworzy kontener na koncie magazynu obiektów Blob, przekazuje **HelloWorld.png** do kontenera, a następnie wielokrotnie sprawdza, czy kontener i obraz zostały zreplikowane do regionu pomocniczego. Po replikacji zostanie wyświetlony monit o wprowadzenie **D** lub **Q** (a następnie wpisać ENTER) w celu pobrania lub zamknięcia. Dane wyjściowe powinny wyglądać podobnie do następującego przykładu:
+Przykład tworzy kontener na koncie magazynu obiektów blob, przekazuje plik **HelloWorld. png** do kontenera, a następnie wielokrotnie sprawdza, czy kontener i obraz zostały zreplikowane do regionu pomocniczego. Po replikacji zostanie wyświetlony komunikat z prośbą o wprowadzenie **D** lub **Q** (a następnie klawisz ENTER) w celu pobrania lub zamknięcia. Dane wyjściowe powinny wyglądać podobnie do poniższego przykładu:
 
 ```
 Created container successfully: newcontainer1550799840726
@@ -318,7 +318,7 @@ def response_callback(response):
 
 ### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Z Node.js V10 SDK, programy obsługi wywołania zwrotnego są niepotrzebne. Zamiast tego przykład tworzy potok skonfigurowany z opcjami ponawiania próby i pomocniczego punktu końcowego. Dzięki temu aplikacja automatycznie przełączyć się do potoku pomocniczego, jeśli nie można dotrzeć do danych za pośrednictwem potoku podstawowego.
+W przypadku zestawu SDK środowiska Node. js v10 wymagane są programy obsługi wywołań zwrotnych. Zamiast tego, przykład tworzy potok skonfigurowany przy użyciu opcji ponowień i pomocniczego punktu końcowego. Dzięki temu aplikacja może automatycznie przełączać się na potok pomocniczy, jeśli nie dotrze do danych za pomocą potoku podstawowego.
 
 ```javascript
 const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
@@ -348,4 +348,4 @@ W pierwszej części serii omówiono czynności dotyczące uzyskiwania wysokiej 
 Przejdź do drugiej części serii, aby dowiedzieć się, jak symulować błąd i wymuszać użycie pomocniczego punktu końcowego RA-GRS w aplikacji.
 
 > [!div class="nextstepaction"]
-> [Symulowanie błędu w odczytaniu z regionu podstawowego](storage-simulate-failure-ragrs-account-app.md)
+> [Symulowanie błędu podczas odczytywania z regionu podstawowego](storage-simulate-failure-ragrs-account-app.md)

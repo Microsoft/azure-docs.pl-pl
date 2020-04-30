@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 03/26/2020
 ms.author: larryfr
 ms.openlocfilehash: 428a3ad17c81b465635207de622398e814289d87
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81616830"
 ---
 > [!TIP]
-> Po zalogowaniu się zobaczysz listę subskrypcji skojarzonych z twoim kontem platformy Azure. Informacje o `isDefault: true` subskrypcji to aktualnie aktywowana subskrypcja poleceń interfejsu wiersza polecenia platformy Azure. Ta subskrypcja musi być taka sama, która zawiera obszar roboczy usługi Azure Machine Learning. Identyfikator subskrypcji można znaleźć w [witrynie Azure portal,](https://portal.azure.com) odwiedzając stronę przeglądu obszaru roboczego. Można również użyć SDK, aby uzyskać identyfikator subskrypcji z obiektu obszaru roboczego. Na przykład `Workspace.from_config().subscription_id`.
+> Po zalogowaniu zostanie wyświetlona lista subskrypcji skojarzonych z Twoim kontem platformy Azure. Informacje o subskrypcji `isDefault: true` są aktualnie aktywowanymi subskrypcjami poleceń interfejsu wiersza polecenia platformy Azure. Ta subskrypcja musi być taka sama, która zawiera obszar roboczy Azure Machine Learning. Identyfikator subskrypcji można znaleźć na [Azure Portal](https://portal.azure.com) , odwiedzając stronę przeglądu obszaru roboczego. Możesz również użyć zestawu SDK, aby uzyskać identyfikator subskrypcji z obiektu obszaru roboczego. Na przykład `Workspace.from_config().subscription_id`.
 > 
-> Aby wybrać inną subskrypcję, `az account set -s <subscription name or ID>` użyj polecenia i określ nazwę subskrypcji lub identyfikator, do którego chcesz się przełączyć. Aby uzyskać więcej informacji na temat wyboru subskrypcji, zobacz [Używanie wielu subskrypcji platformy Azure](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+> Aby wybrać inną subskrypcję, użyj `az account set -s <subscription name or ID>` polecenia i określ nazwę lub Identyfikator subskrypcji do przełączenia. Aby uzyskać więcej informacji na temat wyboru subskrypcji, zobacz [Korzystanie z wielu subskrypcji platformy Azure](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).

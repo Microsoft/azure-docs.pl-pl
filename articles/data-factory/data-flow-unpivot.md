@@ -1,6 +1,6 @@
 ---
-title: Transformacja odwzorowania przepływu danych mapowania
-description: Transformacja przepływu danych usługi Azure Data Factory mapowanie unpivot
+title: Mapowanie UNPIVOT przepływu danych przez transformację
+description: Przekształcenie Unpivot przepływu danych mapowania Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
@@ -9,50 +9,50 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
 ms.openlocfilehash: c3e769334beb6a5739eebb8d7e8dc370533c2dc6
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81606243"
 ---
-# <a name="azure-data-factory-unpivot-transformation"></a>Transformacja unpivot fabryki danych platformy Azure
+# <a name="azure-data-factory-unpivot-transformation"></a>Azure Data Factory przekształcenie Unpivot
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Użyj unpivot w przepływie danych mapowania podajnika ADF jako sposób, aby przekształcić nienormalizowanego zestawu danych w bardziej znormalizowanej wersji, rozwijając wartości z wielu kolumn w jednym rekordzie do wielu rekordów o tych samych wartościach w jednej kolumnie.
+Użyj wyrażenia UNPIVOT w przepływie danych mapowania ADF jako metody przekształcenia nieznormalizowanego zestawu danych w bardziej znormalizowaną wersję, rozszerzając wartości z wielu kolumn w pojedynczym rekordzie na wiele rekordów z tymi samymi wartościami w jednej kolumnie.
 
-![Unpivot transformacji](media/data-flow/unpivot1.png "Opcje unpivot 1")
+![Przekształcanie UNPIVOT](media/data-flow/unpivot1.png "Opcje UNPIVOT 1")
 
 ## <a name="ungroup-by"></a>Rozgrupuj według
 
-![Unpivot transformacji](media/data-flow/unpivot5.png "Opcje unpivot 2")
+![Przekształcanie UNPIVOT](media/data-flow/unpivot5.png "Opcje UNPIVOT 2")
 
-Najpierw ustaw kolumny, według których chcesz pogrupować dla agregacji przestawnej. Ustaw jedną lub więcej kolumn do rozgrupowania ze znakiem + obok listy kolumn.
+Najpierw ustaw kolumny, według których chcesz grupować dla agregacji tabeli przestawnej. Ustaw co najmniej jedną kolumnę do rozgrupowania przy użyciu znaku + obok listy kolumn.
 
-## <a name="unpivot-key"></a>Unpivot klucz
+## <a name="unpivot-key"></a>Klucz UNPIVOT
 
-![Unpivot transformacji](media/data-flow/unpivot6.png "Opcje unpivot 3")
+![Przekształcanie UNPIVOT](media/data-flow/unpivot6.png "Opcje UNPIVOT 3")
 
-Klawisz przestawny to kolumna, którą podajnik ADF będzie obracał z wiersza na kolumnę. Domyślnie każda unikatowa wartość w zestawie danych dla tego pola zostanie prześliona do kolumny. Można jednak opcjonalnie wprowadzić wartości z zestawu danych, które mają być przestawiane do wartości kolumn.
+Klucz przestawny jest kolumną przestawianą przez ADF z wierszy do kolumny. Domyślnie każda unikatowa wartość w zestawie danych dla tego pola będzie przestawiana do kolumny. Można jednak opcjonalnie wprowadzić wartości z zestawu danych, który ma być przestawny na wartości kolumn.
 
-## <a name="unpivoted-columns"></a>Nieprzewidyowane kolumny
+## <a name="unpivoted-columns"></a>Kolumny przestawiane
 
-![Unpivot transformacji](media/data-flow//unpivot7.png "Unpivot opcje 4")
+![Przekształcanie UNPIVOT](media/data-flow//unpivot7.png "Opcje (UNPIVOT) 4")
 
-Na koniec wybierz agregację, która ma być używana dla wartości przestawnych i jak chcesz kolumny mają być wyświetlane w nowej projekcji wyjściowej z transformacji.
+Na koniec wybierz agregację, która ma być używana dla wartości przestawnych, i sposób, w jaki kolumny mają być wyświetlane w nowej projekcji wyjściowej z transformacji.
 
-(Opcjonalnie) Można ustawić wzorzec nazewnictwa z prefiksem, środkiem i sufiksem, który ma zostać dodany do każdej nowej nazwy kolumny z wartości wierszy.
+Obowiązkowe Można ustawić wzorzec nazewnictwa z prefiksem, środkową i sufiksem, który ma zostać dodany do każdej nowej kolumny Nazwa z wartości wierszy.
 
-Na przykład przestawianie "Sprzedaż" przez "Region" po prostu daje nowe wartości kolumn z każdej wartości sprzedaży. Na przykład: "25", "50", "1000", ... Jeśli jednak ustawisz wartość prefiksu "Sprzedaż", wartość "Sprzedaż" zostanie poprzedzony wartościami.
+Na przykład przestawianie "Sales" według "region" po prostu daje nowe wartości kolumny na podstawie każdej wartości sprzedaży. Na przykład: "25", "50", "1000",... Jeśli jednak ustawisz wartość prefiksu "Sales", "Sales" zostanie poprzedzona wartościami.
 
 <img src="media/data-flow/unpivot3.png" width="400">
 
-Ustawienie układu kolumn na "Normalny" spowoduje zgrupowanie wszystkich kolumn przestawnych z ich zagregowanymi wartościami. Ustawienie układu kolumn na "Boczne" będzie naprzemiennie między kolumną a wartością.
+Ustawienie kolumny "normalny" spowoduje grupowanie wszystkich kolumn przestawnych z wartościami zagregowanymi. Ustawienie kolumn rozmieszczenia na "boczne" będzie odróżniać się od kolumn i wartości.
 
-![Unpivot transformacji](media/data-flow//unpivot7.png "Opcje unpivot 5")
+![Przekształcanie UNPIVOT](media/data-flow//unpivot7.png "Opcje UNPIVOT 5")
 
-Końcowy zestaw wyników niepiślanych pokazuje sumy kolumn teraz niepichowe do oddzielnych wartości wierszy.
+W końcowym zestawie wyników nieprzestawionych danych są wyświetlane sumy kolumn, które są teraz oddzielone do oddzielnych wartości wierszy.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Transformacja przestawna](data-flow-pivot.md) służy do obracania wierszy do kolumn.
+Użyj [transformacji przestawnej](data-flow-pivot.md) , aby przestawić wiersze do kolumn.
