@@ -8,10 +8,10 @@ ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
 ms.openlocfilehash: 0a228f6d8b4f72acd3783f27bf192fe6bd13f988
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75392143"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Tworzenie wystąpienia usługi Azure SignalR Service
@@ -34,10 +34,10 @@ Twoja aplikacja nawiąże połączenie z wystąpieniem usługi SignalR na platfo
     | **Lokalizacja** | Zachodnie stany USA | Wybierz [region](https://azure.microsoft.com/regions/) blisko siebie. |
     | **Warstwa cenowa** | Bezpłatna | Wypróbuj bezpłatnie usługę Azure SignalR Service. |
     | **Liczba jednostek** |  Nie dotyczy | Liczba jednostek określa liczbę połączeń, które może akceptować wystąpienie usługi SignalR Service. Można to skonfigurować tylko w warstwie Standardowa. |
-    | **Tryb serwisowy** |  Praca bezserwerowa | Do użytku z usługą Azure Functions lub REST API. |
+    | **Tryb usługi** |  Praca bezserwerowa | Do użytku z interfejsem API REST Azure Functions lub. |
 
     ![Tworzenie usługi SignalR Service](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
 
 1. Wybierz pozycję **Utwórz**, aby rozpocząć wdrażanie wystąpienia usługi SignalR Service.
 
-1. Po wdrożeniu wystąpienia otwórz je w portalu i znajdź jego stronę Ustawienia. Zmień ustawienie trybu usługi na *Serverless* tylko wtedy, gdy używasz usługi Azure SignalR za pośrednictwem powiązania usługi Azure Functions lub interfejsu API REST. Pozostaw go w *klasycznym* lub *domyślnym* w inny sposób.
+1. Po wdrożeniu wystąpienia otwórz je w portalu i Znajdź jego stronę ustawień. Zmień ustawienie trybu usługi na *bezserwerowe* tylko wtedy, gdy korzystasz z usługi Azure Signal Service za pośrednictwem Azure Functions powiązania lub interfejsu API REST. Pozostaw je w trybie *klasycznym* lub *domyślnym* , w przeciwnym razie.

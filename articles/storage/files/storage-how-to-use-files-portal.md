@@ -8,16 +8,16 @@ ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: fef3daf6e9e535736002e309e3d27491364dc553
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71260286"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Szybki start: tworzenie udziałów plików platformy Azure i zarządzanie nimi za pomocą witryny Azure Portal 
 [Azure Files](storage-files-introduction.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziały plików platformy Azure można instalować w systemach Windows, Linux i macOS. W tym przewodniku przedstawiono podstawowe informacje dotyczące pracy z udziałami plików platformy Azure przy użyciu witryny [Azure Portal](https://portal.azure.com/).
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 [!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]
@@ -29,7 +29,7 @@ Aby utworzyć udział plików platformy Azure, wykonaj następujące czynności:
 2. Na stronie konta magazynu w sekcji **Usługi** wybierz pozycję **Pliki**.
     ![Zrzut ekranu przedstawiający sekcję usług konta magazynu; wybieranie usługi Pliki](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
-3. W menu u góry strony **Usługi plików** kliknij pozycję **Udział plików**. Zostanie rozwinięta strona **Nowy udział plików**.
+3. W menu w górnej części strony **usługi plików** kliknij pozycję **udział plików**. Zostanie rozwinięta strona **Nowy udział plików**.
 4. W polu **Nazwa** wpisz ciąg *myshare*.
 5. Kliknij przycisk **OK**, aby utworzyć udział plików platformy Azure.
 
@@ -41,12 +41,12 @@ Usługa Azure Files oferuje dwie metody pracy z plikami i folderami w obrębie u
 Aby zainstalować udział plików za pomocą protokołu SMB, zobacz następujący dokument zgodny z używanym systemem operacyjnym:
 - [Windows](storage-how-to-use-files-windows.md)
 - [Linux](storage-how-to-use-files-linux.md)
-- [Macos](storage-how-to-use-files-mac.md)
+- [macOS](storage-how-to-use-files-mac.md)
 
 ### <a name="using-an-azure-file-share-from-the-azure-portal"></a>Korzystanie z udziału plików platformy Azure w witrynie Azure Portal
-Wszystkie żądania przekazywane za pośrednictwem witryny Azure Portal są przekazywane przy użyciu interfejsu API REST plików, co umożliwia tworzenie, modyfikowanie oraz usuwanie plików i katalogów na klientach bez dostępu do protokołu SMB. Istnieje możliwość pracy bezpośrednio z protokołem FILE REST (czyli ręczne wykonywanie wywołań REST HTTP samodzielnie), ale najczęstszym sposobem (poza korzystaniem z witryny Azure portal) jest użycie protokołu File REST jest użycie [modułu Azure PowerShell](storage-how-to-use-files-powershell.md), [interfejsu wiersza polecenia platformy Azure](storage-how-to-use-files-cli.md)lub narzędzia Azure Storage SDK, z których wszystkie zapewniają ładne otoki wokół protokołu FILE REST w wybranym języku skryptów/programowania. 
+Wszystkie żądania przekazywane za pośrednictwem witryny Azure Portal są przekazywane przy użyciu interfejsu API REST plików, co umożliwia tworzenie, modyfikowanie oraz usuwanie plików i katalogów na klientach bez dostępu do protokołu SMB. Istnieje możliwość bezpośredniej pracy z protokołem REST usługi File (to oznacza, że usługa handcrafting REST HTTP samodzielnie), ale najbardziej typowym sposobem korzystania z protokołu REST (poza Azure Portal) jest użycie [modułu Azure PowerShell](storage-how-to-use-files-powershell.md), [interfejsu wiersza polecenia platformy Azure](storage-how-to-use-files-cli.md)lub zestawu SDK usługi Azure Storage, z którego wszystkie zapewniają całkiem otokę z protokołem REST w systemie plików w wybranym języku skryptów i programowania. 
 
-Oczekujemy, że większość użytkowników usługi Azure Files będzie chciała pracować ze swoim udziałem plików platformy Azure za pomocą protokołu SMB, ponieważ pozwala im to na korzystanie z istniejących aplikacji i narzędzi, których oczekują, że będą mogli korzystać, ale istnieje kilka powodów, dla których korzystne jest korzystanie z interfejsu API FILE REST zamiast SMB, takich jak:
+Oczekujemy, że większość użytkowników Azure Files będzie chciała współpracować z udziałem plików platformy Azure za pośrednictwem protokołu SMB, ponieważ pozwala na używanie istniejących aplikacji i narzędzi, których oczekujesz, ale istnieje kilka powodów, dla których warto użyć interfejsu API REST plików zamiast protokołu SMB, takich jak:
 
 - W trakcie podróży musisz szybko wprowadzić zmianę w udziale plików platformy Azure, korzystając z laptopa bez dostępu do protokołu SMB, tabletu lub urządzenia przenośnego.
 - Musisz wykonać skrypt lub uruchomić aplikację z poziomu klienta, który nie może instalować udziału SMB. Mogą to być na przykład klienci lokalni bez odblokowanego portu 445.

@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: overview
 ms.date: 06/23/2017
 ms.openlocfilehash: 3572c308310c49eed48ccb25dfa7cb0fb161515f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "70164507"
 ---
 # <a name="what-is-azure-data-lake-analytics"></a>Co to jest usługa Azure Data Lake Analytics?
@@ -42,10 +42,10 @@ Usługa Data Lake Analytics to ekonomiczne rozwiązanie służące do uruchamian
     
 ### <a name="works-with-all-your-azure-data"></a>Współdziałanie z wszystkimi danymi na platformie Azure
   
-Usługa Data Lake Analytics współpracuje z usługą Azure Data Lake Storage w celu uzyskania najwyższej wydajności, przepływności i równoległości oraz współpracuje z obiektami blob usługi Azure Storage, usługa Azure SQL Database, usługa Azure Warehouse.
+Data Lake Analytics współpracuje z Azure Data Lake Storage w celu uzyskania najwyższej wydajności, przepływności i przetwarzanie równoległe i współpracuje z obiektami BLOB usługi Azure Storage, Azure SQL Database i magazynem platformy Azure.
 
 ### <a name="next-steps"></a>Następne kroki
  
-  * Wprowadzenie do usługi Data Lake Analytics przy użyciu [witryny Azure portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI](data-lake-analytics-get-started-cli.md)
-  * Zarządzanie usługą Azure Data Lake Analytics przy użyciu [witryny](data-lake-analytics-manage-use-portal.md) | Azure portal[Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) | [Azure . NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md) | [Node.js](data-lake-analytics-manage-use-nodejs.md)
+  * Wprowadzenie do Data Lake Analytics przy użyciu[interfejsu wiersza polecenia](data-lake-analytics-get-started-cli.md) [Azure Portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | 
+  * Zarządzanie Azure Data Lake Analytics przy [użyciu Azure Portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [interfejs wiersza polecenia](data-lake-analytics-manage-use-cli.md) | [platformy Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md) | [Node. js](data-lake-analytics-manage-use-nodejs.md)
   * [Jak kontrolować koszty i oszczędzać pieniądze przy użyciu usługi Data Lake Analytics](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c)

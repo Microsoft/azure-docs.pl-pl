@@ -11,13 +11,13 @@ ms.custom: mvc
 ms.date: 12/20/2019
 ms.author: spelluru
 ms.openlocfilehash: 890e8d3a7592a6794fd19ac28b6ca613ac7201c6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75426939"
 ---
-# <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Szybki start: tworzenie kolejki usługi Service Bus za pomocą programu Azure PowerShell
+# <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Szybki Start: Tworzenie kolejki Service Bus za pomocą Azure PowerShell
 W tym przewodniku Szybki start opisano, jak wysyłać i odbierać komunikaty z i do kolejki usługi Service Bus, używając programu PowerShell do utworzenia przestrzeni nazw na potrzeby przesyłania komunikatów i kolejki w ramach tej przestrzeni nazw, a także jak uzyskać poświadczenia autoryzacji do tej przestrzeni nazw. Następnie w procedurze przedstawiono, jak wysyłać i odbierać komunikaty z tej kolejki przy użyciu [biblioteki platformy .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -29,11 +29,11 @@ W tym przewodniku Szybki start opisano, jak wysyłać i odbierać komunikaty z i
 
 Aby ukończyć kroki tego samouczka, upewnij się, że zainstalowano następujące elementy:
 
-- Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto][] przed rozpoczęciem. 
-- [Program Visual Studio 2017 Update 3 (wersja 15.3, 26730.01)](https://www.visualstudio.com/vs) lub nowszy. Program Visual Studio służy do tworzenia próbki, która wysyła wiadomości i odbiera wiadomości z kolejki. Przykład jest do testowania kolejki utworzonej w portalu. 
+- Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto][] . 
+- [Program Visual Studio 2017 Update 3 (wersja 15.3, 26730.01)](https://www.visualstudio.com/vs) lub nowszy. Używasz programu Visual Studio do tworzenia przykładu, który wysyła wiadomości do i odbiera komunikat z kolejki. Przykładem jest testowanie kolejki utworzonej w portalu. 
 - [Zestaw NET Core SDK](https://www.microsoft.com/net/download/windows), wersja 2.0 lub nowsza.
 
-Ten przewodnik Szybki start wymaga używania najnowszej wersji programu Azure PowerShell. Jeśli chcesz zainstalować lub uaktualnić, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell][]. Jeśli znasz usługę Azure Cloud Shell, można go używać bez instalowania programu Azure PowerShell na komputerze. Aby uzyskać szczegółowe informacje na temat usługi Azure Cloud Shell, zobacz [Omówienie usługi Azure Cloud Shell](../cloud-shell/overview.md)
+Ten przewodnik Szybki start wymaga używania najnowszej wersji programu Azure PowerShell. Jeśli konieczne jest zainstalowanie lub uaktualnienie, zobacz [Instalowanie i konfigurowanie Azure PowerShell][]. Jeśli znasz Azure Cloud Shell, możesz go używać bez instalowania Azure PowerShell na komputerze. Aby uzyskać szczegółowe informacje na temat Azure Cloud Shell, zobacz [omówienie Azure Cloud Shell](../cloud-shell/overview.md)
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -128,7 +128,7 @@ Ta sekcja zawiera więcej szczegółów na temat operacji wykonywanych przez prz
 
 ### <a name="get-connection-string-and-queue"></a>Pobieranie kolejki i parametrów połączenia
 
-Ciąg połączenia i nazwa kolejki `Main()` są przekazywane do metody jako argumenty wiersza polecenia. Element `Main()` deklaruje dwie zmienne ciągu do przechowywania tych wartości:
+Parametry połączenia i nazwa kolejki są przekazane do `Main()` metody jako argumenty wiersza polecenia. Element `Main()` deklaruje dwie zmienne ciągu do przechowywania tych wartości:
 
 ```csharp
 static void Main(string[] args)
@@ -165,7 +165,7 @@ Metoda `Main()` następnie rozpoczyna asynchroniczną pętlę komunikatów, `Mai
 
 ### <a name="message-loop"></a>Pętla komunikatów
 
-Metoda MainAsync() tworzy klienta kolejki z argumentami wiersza polecenia, `RegisterOnMessageHandlerAndReceiveMessages()`wywołuje program obsługi wiadomości odbierających o nazwie i wysyła zestaw komunikatów:
+Metoda MainAsync () tworzy klienta kolejki z argumentami wiersza polecenia, wywołuje procedurę obsługi komunikatów odebranych o nazwie `RegisterOnMessageHandlerAndReceiveMessages()`i wysyła zestaw komunikatów:
 
 ```csharp
 static async Task MainAsync(string ServiceBusConnectionString, string QueueName)
@@ -256,14 +256,14 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 ```
 
 > [!NOTE]
-> Zasoby usługi Service Bus można zarządzać za pomocą [Eksploratora magistrali usług](https://github.com/paolosalvatori/ServiceBusExplorer/). Eksplorator usługi Service Bus umożliwia użytkownikom łączenie się z obszarem nazw usługi Service Bus i administrowanie jednostkami obsługi wiadomości w łatwy sposób. Narzędzie zapewnia zaawansowane funkcje, takie jak funkcje importu/eksportu lub możliwość testowania tematu, kolejek, subskrypcji, usług przekazywania, centrów powiadomień i centrów zdarzeń. 
+> Za pomocą [eksploratora Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/)można zarządzać zasobami Service Bus. Eksplorator Service Bus umożliwia użytkownikom łączenie się z przestrzenią nazw Service Bus i administrowanie jednostkami obsługi komunikatów w prosty sposób. Narzędzie zapewnia zaawansowane funkcje, takie jak funkcja importowania/eksportowania lub możliwość testowania tematów, kolejek, subskrypcji, usług przekazywania, centrów powiadomień i centrów zdarzeń. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule utworzono przestrzeń nazw usługi Service Bus oraz inne zasoby wymagane do wysyłania i odbierania komunikatów z kolejki. Aby dowiedzieć się więcej na temat pisania kodu do wysyłania i odbierania wiadomości, przejdź do samouczków w sekcji **Wysyłanie i odbieranie wiadomości.** 
+W tym artykule utworzono przestrzeń nazw usługi Service Bus oraz inne zasoby wymagane do wysyłania i odbierania komunikatów z kolejki. Aby dowiedzieć się więcej na temat pisania kodu w celu wysyłania i odbierania wiadomości, przejdź do samouczków w sekcji **wysyłanie i odbieranie komunikatów** . 
 
 > [!div class="nextstepaction"]
 > [Wysyłanie i odbieranie komunikatów](service-bus-dotnet-get-started-with-queues.md)
 
-[darmowe konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[bezpłatne konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Instalowanie i konfigurowanie programu Azure PowerShell]: /powershell/azure/install-Az-ps

@@ -12,13 +12,13 @@ ms.author: sachinp
 ms.reviewer: vanto, carlrab
 ms.date: 02/11/2019
 ms.openlocfilehash: ff2508952b75bad88ff8ff92388c20ba52f50f42
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73818254"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Szybki start: tworzenie reguły zapory na poziomie serwera dla pojedynczych i pulowanych baz danych przy użyciu witryny Azure portal
+# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Szybki Start: Tworzenie reguły zapory na poziomie serwera dla baz danych o pojedynczej i puli przy użyciu Azure Portal
 
 Ten przewodnik Szybki start przedstawia tworzenie [reguły zapory na poziomie serwera](sql-database-firewall-configure.md) dla pojedynczych baz danych i baz danych w puli w usłudze Azure SQL Database przy użyciu witryny Azure Portal. Ma to na celu umożliwienie nawiązywania połączeń z serwerami baz danych, pojedynczymi bazami danych oraz elastycznymi pulami i ich bazami danych. Reguła zapory jest wymagana do nawiązania połączenia z innymi zasobami platformy Azure i z zasobami lokalnymi.
 
@@ -28,7 +28,7 @@ Jako punktu początkowego ten przewodnik Szybki start używa zasobów utworzonyc
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>Tworzenie reguły zapory bazującej na adresach IP na poziomie serwera
 
@@ -54,10 +54,10 @@ Wykonaj następujące kroki, aby utworzyć regułę zapory bazującą na adresac
 4. Wybierz pozycję **Dodaj adres IP klienta** na pasku narzędzi, aby dodać bieżący adres IP do nowej reguły zapory bazującej na adresach IP na poziomie serwera. Reguła zapory bazująca na adresach IP na poziomie serwera może otworzyć port 1433 dla pojedynczego adresu IP lub zakresu adresów IP.
 
    > [!IMPORTANT]
-   > Domyślnie dostęp za pośrednictwem zapory bazy danych SQL jest wyłączony dla wszystkich usług platformy Azure. Wybierz **on** na tej stronie, jeśli chcesz włączyć dostęp dla wszystkich usług platformy Azure.
+   > Domyślnie dostęp za pomocą zapory SQL Database jest wyłączony dla wszystkich usług platformy Azure. Jeśli chcesz włączyć dostęp dla wszystkich usług platformy Azure, wybierz pozycję **włączone** na tej stronie.
    >
 
-5. Wybierz **pozycję Zapisz**. Dla bieżącego adresu IP zostanie utworzona reguła zapory bazująca na adresach IP na poziomie serwera otwierająca port 1433 na serwerze usługi SQL Database.
+5. Wybierz pozycję **Zapisz**. Dla bieżącego adresu IP zostanie utworzona reguła zapory bazująca na adresach IP na poziomie serwera otwierająca port 1433 na serwerze usługi SQL Database.
 
 6. Zamknij stronę **Ustawienia zapory**.
 

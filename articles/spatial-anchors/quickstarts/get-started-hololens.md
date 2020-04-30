@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: tworzenie aplikacji HoloLens za pomocą programu DirectX'
+title: 'Szybki Start: Tworzenie aplikacji HoloLens przy użyciu technologii DirectX'
 description: Z tego przewodnika Szybki start dowiesz się, jak utworzyć aplikację dla urządzenia HoloLens, używając usługi Spatial Anchors.
 author: craigktreasure
 manager: virivera
@@ -9,13 +9,13 @@ ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 01a9a8239e2997335f5123d63cfc664027cffa02
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75376396"
 ---
-# <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Szybki start: tworzenie aplikacji HoloLens z kotwicami przestrzennymi platformy Azure w językach C++/WinRT i DirectX
+# <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Szybki Start: Tworzenie aplikacji HoloLens z zakotwiczeniami przestrzennymi platformy Azure w językach C++/WinRT i DirectX
 
 W tym przewodniku Szybki start opisano, jak utworzyć aplikację dla urządzenia HoloLens przy użyciu usługi [Azure Spatial Anchors](../overview.md) w języku C++/WinRT z użyciem programu DirectX. Azure Spatial Anchors to usługa dla deweloperów programujących dla wielu platform, która pozwala kreować rozwiązania z rzeczywistością mieszaną z użyciem obiektów, których lokalizacja jest taka sama na różnych urządzeniach mimo upływu czasu. Gdy skończysz, będziesz mieć aplikację dla urządzenia HoloLens, która może zapisywać i przywoływać kotwicę przestrzenną.
 
@@ -31,7 +31,7 @@ Omawiane tematy:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby ukończyć ten przewodnik Szybki start, upewnij się, że dysponujesz następującymi elementami:
-- Komputer z systemem Windows z <a href="https://www.visualstudio.com/downloads/" target="_blank">programem Visual Studio 2019</a> zainstalowany z obciążeniem **deweloperskim platformy systemu** Windows i składnikiem **SDK systemu Windows 10 (10.0.18362.0 lub nowszym).** Należy również zainstalować <a href="https://git-scm.com/download/win" target="_blank">Git dla Windows</a> i <a href="https://git-lfs.github.com/">Git LFS</a>.
+- Maszyna z systemem Windows z programem <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> z pakietem roboczym **programowanie platforma uniwersalna systemu Windows** i **zestawem SDK systemu Windows 10 (10.0.18362.0 lub nowszym)** . Należy również zainstalować narzędzie <a href="https://git-scm.com/download/win" target="_blank">git dla systemu Windows</a> i <a href="https://git-lfs.github.com/">narzędzia Git LFS</a>.
 - Powinno być zainstalowane rozszerzenie [C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix) dla programu Visual Studio z usługi [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 - Urządzenie HoloLens z włączonym [trybem dewelopera](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio). Ten artykuł wymaga urządzenia HoloLens z [aktualizacją systemu Windows z 10 października 2018 r.](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018 ) (znaną także jako RS5). Aby wykonać aktualizację do najnowszej wersji na urządzeniu HoloLens, otwórz aplikację **Ustawienia**, przejdź do pozycji **Aktualizacja i zabezpieczenia**, a następnie wybierz przycisk **Sprawdź dostępność aktualizacji**.
 - Aplikacja musi ustawiać możliwość **spatialPerception** w manifeście AppX.
@@ -46,7 +46,7 @@ Otwórz plik `HoloLens\DirectX\SampleHoloLens.sln` w programie Visual Studio.
 
 ## <a name="configure-account-identifier-and-key"></a>Konfigurowanie identyfikatora i klucza konta
 
-Następnym krokiem jest skonfigurowanie aplikacji do używania identyfikatora konta i klucza konta. Skopiowano je do edytora tekstu podczas [konfigurowania zasobu Zakotwiczenia przestrzenne](#create-a-spatial-anchors-resource).
+Następnym krokiem jest skonfigurowanie aplikacji w taki sposób, aby korzystała z identyfikatora konta i klucza konta. Skopiowano je do edytora tekstu podczas [konfigurowania zasobów kotwic przestrzennych](#create-a-spatial-anchors-resource).
 
 Otwórz plik `HoloLens\DirectX\SampleHoloLens\ViewController.cpp`.
 
@@ -58,13 +58,13 @@ Znajdź pole `SpatialAnchorsAccountId` i zastąp wartość `Set me` identyfikato
 
 Zmień **konfigurację rozwiązania** na **Wydanie**, zmień **platformę rozwiązania** na **x86** i wybierz **urządzenie** spośród opcji miejsc docelowych wdrażania.
 
-Jeśli używasz HoloLens 2, użyj **ARM64** jako **platformy rozwiązania,** zamiast **x86**.
+W przypadku korzystania z urządzenia HoloLens 2 Użyj **arm64** jako **platformy rozwiązania**zamiast **architektury x86**.
 
 ![Konfiguracja programu Visual Studio](./media/get-started-hololens/visual-studio-configuration.png)
 
 Włącz urządzenie HoloLens, zaloguj się i połącz to urządzenie z komputerem PC za pomocą kabla USB.
 
-Wybierz **debugowanie** > **Rozpocznij debugowanie,** aby wdrożyć aplikację i rozpocząć debugowanie.
+Wybierz kolejno opcje **Debuguj** > **Rozpocznij debugowanie** , aby wdrożyć aplikację i rozpocząć debugowanie.
 
 Postępuj zgodnie z instrukcjami w aplikacji, aby umieścić i przywołać kotwicę.
 
@@ -75,4 +75,4 @@ W programie Visual Studio zatrzymaj aplikację, wybierając pozycję **Zatrzymaj
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
-> [Samouczek: Udostępnianie zakotwiczeń przestrzennych na różnych urządzeniach](../tutorials/tutorial-share-anchors-across-devices.md)
+> [Samouczek: udostępnianie kotwic przestrzennych między urządzeniami](../tutorials/tutorial-share-anchors-across-devices.md)

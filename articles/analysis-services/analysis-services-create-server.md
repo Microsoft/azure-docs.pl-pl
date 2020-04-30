@@ -1,6 +1,6 @@
 ---
-title: Szybki start — tworzenie serwera usług Analysis Services w witrynie Azure portal | Dokumenty firmy Microsoft
-description: Dowiedz się, jak szybko utworzyć wystąpienie serwera usług Azure Analysis Services przy użyciu witryny Azure Portal.
+title: Szybki Start — Tworzenie serwera Analysis Services w Azure Portal | Microsoft Docs
+description: Dowiedz się, jak szybko utworzyć wystąpienie serwera Azure Analysis Services przy użyciu Azure Portal.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 4c1b22d4871d3e490f59be71b63569fdf563ce45
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75442836"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Szybki start: tworzenie serwera — portal
@@ -30,13 +30,13 @@ W tym przewodniku Szybki start opisano, jak utworzyć zasób serwera usług Anal
 
 ## <a name="create-a-server"></a>Tworzenie serwera
 
-1. Kliknij **pozycję + Utwórz usługi** > **analizy** > **Analysis Services**analizy zasobów .
+1. Kliknij pozycję **+ Utwórz** > **Analytics** > **Analysis Services**analizy zasobów.
 
     ![Portal](./media/analysis-services-create-server/aas-create-server-portal.png)
 
 2. W sekcji **Analysis Services** wypełnij wymagane pola, a następnie naciśnij przycisk **Utwórz**.
    
-   * **Nazwa serwera**: wpisz unikatową nazwę, która będzie używana do odwoływania się do serwera. Nazwa serwera musi zaczynać się od małych liter i zawierać od 3 do 128 małych liter i cyfr. Białe znaki i znaki specjalne nie są dozwolone.
+   * **Nazwa serwera**: wpisz unikatową nazwę, która będzie używana do odwoływania się do serwera. Nazwa serwera musi rozpoczynać się od małej litery i zawierać od 3 do 128 małych liter i cyfr. Odstępy i znaki specjalne są niedozwolone.
    * **Subskrypcja**: wybierz subskrypcję, z którą będzie skojarzony ten serwer.
    * **Grupa zasobów**: utwórz nową grupę zasobów lub wybierz istniejącą. Grupy zasobów ułatwiają zarządzanie kolekcją zasobów platformy Azure. Aby dowiedzieć się więcej, zobacz [grupy zasobów](../azure-resource-manager/management/overview.md).
    * **Lokalizacja**: lokalizacja centrum danych Azure, w którym będzie hostowany ten serwer. Wybierz lokalizację najbliższą względem Twojej największej bazy użytkowników.
@@ -45,7 +45,7 @@ W tym przewodniku Szybki start opisano, jak utworzyć zasób serwera usług Anal
    * **Ustawienie Magazyn kopii zapasowych**: opcjonalne. Jeśli masz już [konto magazynu](../storage/common/storage-introduction.md), możesz je wskazać jako domyślny magazyn kopii zapasowych modelowej bazy danych. Możesz również określić ustawienia [tworzenia i przywracania kopii zapasowych](analysis-services-backup.md) później.
    * **Czas wygaśnięcia klucza magazynu**: opcjonalne. Określ czas wygaśnięcia klucza magazynu.
 
-Tworzenie serwera zwykle trwa mniej niż minutę. W przypadku wybrania opcji **Dodaj do portalu** przejdź do portalu, aby zobaczyć nowy serwer. Można też przejść do **pozycji Wszystkie usługi** > **Analysis Services,** aby sprawdzić, czy serwer jest gotowy. Serwery obsługują modele tabelaryczne na poziomie zgodności 1200 i wyższym. Poziom zgodności modelu jest określony w programie Visual Studio lub SSMS.
+Tworzenie serwera zwykle trwa mniej niż minutę. W przypadku wybrania opcji **Dodaj do portalu** przejdź do portalu, aby zobaczyć nowy serwer. Lub przejdź do **wszystkich usług** > **Analysis Services** , aby sprawdzić, czy serwer jest gotowy. Serwery obsługują modele tabelaryczne na poziomach zgodności 1200 i wyższych. Poziom zgodności modelu jest określony w programie Visual Studio lub SSMS.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -58,6 +58,6 @@ Gdy serwer nie będzie już potrzebny, usuń go. Na stronie **Przegląd** serwer
 W tym przewodniku Szybki Start przedstawiono sposób tworzenia serwera w ramach subskrypcji platformy Azure. Teraz, po utworzeniu serwera, możesz go zabezpieczyć, konfigurując (opcjonalną) zaporę serwera. Możesz też dodać do serwera podstawowy przykładowy model danych bezpośrednio w portalu. Przykładowy model służy do zdobywania wiedzy na temat konfigurowania ról modelowej bazy danych oraz testowania połączeń klienckich. Aby dowiedzieć się więcej, przejdź do samouczka dotyczącego dodawania przykładowego modelu.
 
 > [!div class="nextstepaction"]
-> [Szybki start: Konfigurowanie zapory serwera — portal](analysis-services-qs-firewall.md)   
+> [Szybki Start: Konfigurowanie zapory serwera — Portal](analysis-services-qs-firewall.md)   
 > [!div class="nextstepaction"]
 > [Tutorial: Add a sample model to your server](analysis-services-create-sample-model.md) (Samouczek: dodawanie przykładowego modelu do serwera)

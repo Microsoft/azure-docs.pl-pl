@@ -13,10 +13,10 @@ ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: acfa10ea506e063bf6b230386ca0722f1c959d18
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75442558"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Tworzenie nowego wystąpienia usługi Azure API Management
@@ -27,23 +27,23 @@ W tym przewodniku Szybki start opisano procedurę tworzenia nowego wystąpienia 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-![Wystąpienie zarządzania interfejsami API](./media/get-started-create-service-instance/get-started-create-service-instance-created.png)
+![Wystąpienie API Management](./media/get-started-create-service-instance/get-started-create-service-instance-created.png)
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do [Portalu Azure](https://portal.azure.com).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-new-service"></a>Tworzenie nowej usługi
 
-1. Z menu Portalu platformy Azure wybierz polecenie **Utwórz zasób**. Można również wybrać **Utwórz zasób** na **stronie** głównej platformy Azure. 
+1. Z menu Azure Portal wybierz pozycję **Utwórz zasób**. Możesz również wybrać pozycję **Utwórz zasób** na stronie **głównej** platformy Azure. 
    
-   ![Wybieranie opcji Utwórz zasób](./media/get-started-create-service-instance/00-CreateResource-01.png)
+   ![Wybierz pozycję Utwórz zasób](./media/get-started-create-service-instance/00-CreateResource-01.png)
    
-1. Na ekranie **Nowy** wybierz pozycję **Integracja,** a następnie wybierz pozycję **Zarządzanie interfejsami API**.
+1. Na **nowym** ekranie wybierz pozycję **integracja** , a następnie wybierz pozycję **API Management**.
    
    ![Nowe wystąpienie usługi Azure API Management](./media/get-started-create-service-instance/00-CreateResource-02.png)
    
-1. Na ekranie **usługi Zarządzanie interfejsami API** wprowadź ustawienia.
+1. Na ekranie **usługi API Management** wprowadź ustawienia.
    
    ![nowe wystąpienie](./media/get-started-create-service-instance/get-started-create-service-instance-create-new.png)
    
@@ -54,8 +54,8 @@ Zaloguj się do [Portalu Azure](https://portal.azure.com).
 | **Grupa zasobów**      | *apimResourceGroup*                           | Możesz wybrać nowy lub istniejący zasób. Grupa zasobów jest kolekcją zasobów, które mają ten sam cykl życia, uprawnienia i zasady. Dowiedz się więcej [tutaj](../azure-resource-manager/management/overview.md#resource-groups).                                                                                                  |
 | **Lokalizacja**            | *Zachodnie stany USA*                                    | Wybierz region geograficzny w pobliżu. Na liście rozwijanej są wyświetlane tylko regiony dostępne w usłudze API Management.                                                                                                                                                                                                          |
 | **Nazwa organizacji**   | Nazwa organizacji                 | Ta nazwa jest używana w wielu miejscach, w tym w tytule portalu dla deweloperów i nadawcy wiadomości e-mail z powiadomieniem.                                                                                                                                                                                                             |
-| **Adres e-mail administratora** | *org.com\@admin*                               | Ustaw adres e-mail, na który będą wysyłane wszystkie powiadomienia z usługi **API Management**.                                                                                                                                                                                                                                              |
-| **Warstwa cenowa**        | *Developer*                                   | Skonfiguruj warstwę **Developer**, aby ocenić usługę. Ta warstwa nie jest do użytku produkcyjnego. Aby uzyskać więcej informacji na temat skalowania warstw usługi API Management, zobacz [Upgrade and scale](upgrade-and-scale.md) (Uaktualnianie i skalowanie).                                                                                                                                    |
+| **Adres e-mail administratora** | *org.com\@administratora*                               | Ustaw adres e-mail, na który będą wysyłane wszystkie powiadomienia z usługi **API Management**.                                                                                                                                                                                                                                              |
+| **Warstwa cenowa**        | *Deweloper*                                   | Skonfiguruj warstwę **Developer**, aby ocenić usługę. Ta warstwa nie jest do użytku produkcyjnego. Aby uzyskać więcej informacji na temat skalowania warstw usługi API Management, zobacz [Upgrade and scale](upgrade-and-scale.md) (Uaktualnianie i skalowanie).                                                                                                                                    |
 
 3. Wybierz pozycję **Utwórz**.
 
@@ -68,15 +68,15 @@ Zaloguj się do [Portalu Azure](https://portal.azure.com).
 
 Gdy grupa zasobów i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć, wykonując następujące kroki:
 
-1. W witrynie Azure portal wyszukaj i wybierz **grup zasobów**. Można również wybrać **grupy zasobów** na stronie **głównej.** 
+1. W Azure Portal Wyszukaj i wybierz pozycję **grupy zasobów**. Możesz również wybrać **grupy zasobów** na stronie **głównej** . 
 
    ![Nawigacja po grupach zasobów](./media/get-started-create-service-instance/00-DeleteResource-01.png)
 
-1. Na stronie **Grupy zasobów** wybierz grupę zasobów.
+1. Na stronie **grupy zasobów** wybierz grupę zasobów.
 
    ![Nawigacja po grupach zasobów](./media/get-started-create-service-instance/00-DeleteResource-02.png)
 
-1. Na stronie grupy zasobów wybierz pozycję **Usuń grupę zasobów**. 
+1. Na stronie Grupa zasobów wybierz pozycję **Usuń grupę zasobów**. 
    
 1. Wpisz nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**.
 

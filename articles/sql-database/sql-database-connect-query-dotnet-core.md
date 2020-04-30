@@ -1,5 +1,5 @@
 ---
-title: Użyj programu .NET Core do kwerendy
+title: Użyj platformy .NET Core do wykonywania zapytań
 description: W tym temacie przedstawiono sposób wykorzystania platformy .NET Core do utworzenia programu, który nawiązuje połączenie z bazą danych Azure SQL Database i wykonuje zapytania za pomocą instrukcji języka Transact-SQL.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/29/2019
 ms.openlocfilehash: 369c708fd3181076c6deb9d7ac9134c57a18f819
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73827092"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Szybki start: korzystanie z platformy .NET Core (C#) do wykonywania zapytań w bazie danych Azure SQL Database
@@ -23,7 +23,7 @@ ms.locfileid: "73827092"
 W tym przewodniku Szybki start użyjesz platformy [.NET Core](https://www.microsoft.com/net/) i kodu C# do nawiązania połączenia z bazą danych Azure SQL Database. Następnie uruchomisz instrukcję języka Transact-SQL w celu wykonania zapytania na danych.
 
 > [!TIP]
-> Poniższy moduł Microsoft Learn pomaga bezpłatnie dowiedzieć się, jak [opracować i skonfigurować aplikację ASP.NET, która wysyła kwerendy do bazy danych SQL azure](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
+> Poniższy moduł Microsoft Learn umożliwia zapoznanie się z bezpłatnymi sposobami [tworzenia i konfigurowania aplikacji ASP.NET, która wysyła zapytanie do Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -34,12 +34,12 @@ W celu skorzystania z tego samouczka potrzebne są następujące elementy:
   || Pojedyncza baza danych | Wystąpienie zarządzane |
   |:--- |:--- |:---|
   | Utwórz| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
-  || [Cli](scripts/sql-database-create-and-configure-database-cli.md) | [Cli](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [Powershell](scripts/sql-database-create-and-configure-database-powershell.md) | [Powershell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
+  || [Interfejs wiersza polecenia](scripts/sql-database-create-and-configure-database-cli.md) | [Interfejs wiersza polecenia](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Konfigurowanie | [Reguła zapory bazująca na adresach IP na poziomie serwera](sql-database-server-level-firewall-rule.md)| [Łączność z maszyny wirtualnej](sql-database-managed-instance-configure-vm.md)|
   |||[Łączność ze środowiska lokalnego](sql-database-managed-instance-configure-p2s.md)
   |Ładowanie danych|Ładowanie bazy danych Adventure Works na potrzeby samouczka Szybki start|[Przywracanie bazy danych Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Przywracanie lub importowanie programów Adventure Works z pliku [BACPAC](sql-database-import.md) z [gitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Przywróć lub zaimportuj Adventure Works z pliku [BACPAC](sql-database-import.md) z usługi [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
@@ -54,7 +54,7 @@ W celu skorzystania z tego samouczka potrzebne są następujące elementy:
 
 Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z bazą danych Azure SQL Database. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera lub nazwa hosta, nazwa bazy danych i informacje logowania.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 2. Otwórz stronę **Bazy danych SQL** lub **Wystąpienia zarządzane SQL**.
 
@@ -197,6 +197,6 @@ namespace sqltest
 ## <a name="next-steps"></a>Następne kroki
 
 - [Rozpoczynanie pracy z platformą .NET Core w systemie Windows/Linux/macOS przy użyciu wiersza polecenia](/dotnet/core/tutorials/using-with-xplat-cli).
-- Dowiedz się, jak [połączyć bazę danych SQL platformy Azure i wysyłać kwerendy przy użyciu programu .NET Framework i programu Visual Studio.](sql-database-connect-query-dotnet-visual-studio.md)  
+- Dowiedz się, jak [nawiązać połączenie z bazą danych Azure SQL Database i wysyłać do niej zapytania przy użyciu .NET Framework i programu Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
 - Dowiedz się, jak [zaprojektować swoją pierwszą bazę danych Azure SQL Database przy użyciu narzędzia SSMS](sql-database-design-first-database.md) lub [zaprojektować bazę danych Azure SQL Database i nawiązać połączenie przy użyciu języka C# i sterownika ADO.NET](sql-database-design-first-database-csharp.md).
 - Aby uzyskać więcej informacji na temat platformy .NET, zobacz [.NET documentation](https://docs.microsoft.com/dotnet/) (Dokumentacja platformy .NET).

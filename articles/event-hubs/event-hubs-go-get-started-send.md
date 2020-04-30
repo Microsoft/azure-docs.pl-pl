@@ -1,6 +1,6 @@
 ---
-title: 'Szybki start: wysyłanie i odbieranie zdarzeń przy użyciu usługi Go — Usługi Azure Event Hubs'
-description: 'Szybki start: Ten artykuł zawiera przewodnik dotyczący tworzenia aplikacji Go, która wysyła zdarzenia z usługi Azure Event Hubs.'
+title: 'Szybki Start: wysyłanie i odbieranie zdarzeń przy użyciu języka go-Azure Event Hubs'
+description: 'Szybki Start: Ten artykuł zawiera Przewodnik dotyczący tworzenia aplikacji języka go, która wysyła zdarzenia z usługi Azure Event Hubs.'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
@@ -11,16 +11,16 @@ ms.custom: seodec18
 ms.date: 11/05/2019
 ms.author: shvija
 ms.openlocfilehash: e5f52d0ddbf9a66d974732d6d98ca8a5b09cc2d0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73720585"
 ---
-# <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Szybki start: wysyłanie zdarzeń do centrów zdarzeń lub odbieranie ich z nich za pomocą funkcji Go
+# <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Szybki Start: wysyłanie zdarzeń do i odbieranie zdarzeń z Event Hubs przy użyciu języka go
 Azure Event Hubs to platforma do pozyskiwania i strumieniowego przesyłania danych, która umożliwia odbieranie i przetwarzanie milionów zdarzeń na sekundę. Usługa Event Hubs pozwala przetwarzać i przechowywać zdarzenia, dane lub dane telemetryczne generowane przez rozproszone oprogramowanie i urządzenia. Dane wysłane do centrum zdarzeń mogą zostać przekształcone i zmagazynowane przy użyciu dowolnego dostawcy analityki czasu rzeczywistego lub adapterów przetwarzania wsadowego/magazynowania. Aby zapoznać się ze szczegółowym omówieniem usługi Event Hubs, zobacz [Omówienie usługi Event Hubs](event-hubs-about.md) i [Funkcje usługi Event Hubs](event-hubs-features.md).
 
-W tym samouczku opisano sposób pisania aplikacji Go do wysyłania zdarzeń do lub odbierania zdarzeń z centrum zdarzeń. 
+W tym samouczku opisano, jak zapisywać aplikacje w programie w celu wysyłania zdarzeń do zdarzeń lub odbierania ich z centrum zdarzeń. 
 
 > [!NOTE]
 > Ten przewodnik Szybki start możesz pobrać jako przykład z witryny [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs), zastąpić ciągi `EventHubConnectionString` i `EventHubName` wartościami swojego centrum zdarzeń, a następnie uruchomić go. Alternatywnie możesz utworzyć własne rozwiązanie, wykonując kroki opisane w tym samouczku.
@@ -29,16 +29,16 @@ W tym samouczku opisano sposób pisania aplikacji Go do wysyłania zdarzeń do l
 
 Do wykonania kroków tego samouczka niezbędne jest spełnienie następujących wymagań wstępnych:
 
-- Przejdź zainstalowany lokalnie. W razie potrzeby należy postępować zgodnie [z tymi instrukcjami.](https://golang.org/doc/install)
-- Aktywne konto platformy Azure. Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto][] przed rozpoczęciem.
-- **Utwórz obszar nazw Centrów zdarzeń i centrum zdarzeń**. Użyj [witryny Azure Portal,](https://portal.azure.com) aby utworzyć obszar nazw typu Usługi zdarzeń i uzyskać poświadczenia zarządzania, których aplikacja potrzebuje do komunikowania się z centrum zdarzeń. Aby utworzyć przestrzeń nazw i centrum zdarzeń, wykonaj procedurę opisaną w [tym artykule](event-hubs-create.md).
+- Zainstalowano lokalnie. W razie potrzeby postępuj zgodnie z [tymi instrukcjami](https://golang.org/doc/install) .
+- Aktywne konto platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto][] .
+- **Utwórz przestrzeń nazw Event Hubs i centrum zdarzeń**. Użyj [Azure Portal](https://portal.azure.com) , aby utworzyć przestrzeń nazw typu Event Hubs i uzyskać poświadczenia zarządzania wymagane przez aplikację do komunikacji z centrum zdarzeń. Aby utworzyć przestrzeń nazw i centrum zdarzeń, wykonaj procedurę opisaną w [tym artykule](event-hubs-create.md).
 
 ## <a name="send-events"></a>Wysyłanie zdarzeń
-W tej sekcji pokazano, jak utworzyć aplikację Go, aby wysłać zdarzenia do centrum zdarzeń. 
+W tej sekcji przedstawiono sposób tworzenia aplikacji języka go w celu wysyłania zdarzeń do centrum zdarzeń. 
 
-### <a name="install-go-package"></a>Pakiet Zainstaluj go
+### <a name="install-go-package"></a>Zainstaluj pakiet języka go
 
-Pobierz pakiet Go dla centrów `dep`zdarzeń z lub `go get` . Przykład:
+Pobierz pakiet języka go dla Event Hubs z `go get` lub `dep`. Przykład:
 
 ```bash
 go get -u github.com/Azure/azure-event-hubs-go
@@ -50,9 +50,9 @@ dep ensure -add github.com/Azure/azure-event-hubs-go
 dep ensure -add github.com/Azure/azure-amqp-common-go
 ```
 
-### <a name="import-packages-in-your-code-file"></a>Importowanie pakietów w pliku kodu
+### <a name="import-packages-in-your-code-file"></a>Importuj pakiety w pliku kodu
 
-Aby zaimportować pakiety Go, użyj następującego przykładu kodu:
+Aby zaimportować pakiety języka go, należy użyć następującego przykładu kodu:
 
 ```go
 import (
@@ -63,7 +63,7 @@ import (
 
 ### <a name="create-service-principal"></a>Tworzenie jednostki usługi
 
-Utwórz nowego podmiotu usługi, postępując zgodnie z instrukcjami w [obszarze Tworzenie jednostki usługi platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure 2.0.](/cli/azure/create-an-azure-service-principal-azure-cli) Zapisz podane poświadczenia w swoim środowisku z następującymi nazwami. Pakiet Azure SDK for Go i pakiety Usługi Event Hubs są wstępnie skonfigurowane w celu wyszukywały te nazwy zmiennych:
+Utwórz nową nazwę główną usługi, postępując zgodnie z instrukcjami w temacie [Tworzenie jednostki usługi platformy Azure przy użyciu interfejsu wiersza polecenia platformy azure 2,0](/cli/azure/create-an-azure-service-principal-azure-cli). Zapisz podane poświadczenia w środowisku z następującymi nazwami. Zarówno Azure SDK dla języka Go, jak i pakiety Event Hubs są wstępnie skonfigurowane do wyszukiwania tych nazw zmiennych:
 
 ```bash
 export AZURE_CLIENT_ID=
@@ -72,7 +72,7 @@ export AZURE_TENANT_ID=
 export AZURE_SUBSCRIPTION_ID= 
 ```
 
-Teraz utwórz dostawcę autoryzacji dla klienta usługi Event Hubs, który używa tych poświadczeń:
+Teraz Utwórz dostawcę autoryzacji dla klienta Event Hubs, który używa tych poświadczeń:
 
 ```go
 tokenProvider, err := aad.NewJWTProvider(aad.JWTProviderWithEnvironmentVars())
@@ -81,9 +81,9 @@ if err != nil {
 }
 ```
 
-### <a name="create-event-hubs-client"></a>Tworzenie klienta centrów zdarzeń
+### <a name="create-event-hubs-client"></a>Utwórz klienta Event Hubs
 
-Poniższy kod tworzy klienta usługi Event Hubs:
+Poniższy kod tworzy klienta Event Hubs:
 
 ```go
 hub, err := eventhubs.NewHub("namespaceName", "hubName", tokenProvider)
@@ -96,7 +96,7 @@ if err != nil {
 
 ### <a name="write-code-to-send-messages"></a>Pisanie kodu w celu wysyłania komunikatów
 
-We werwieniu kodu użyj (1) do interaktywnego wysyłania wiadomości z terminala lub (2) do wysyłania wiadomości w programie:
+W poniższym fragmencie kodu Użyj (1), aby interakcyjnie wysyłać wiadomości z terminalu, lub (2), aby wysyłać komunikaty w ramach programu:
 
 ```go
 // 1. send messages at the terminal
@@ -131,15 +131,15 @@ Gratulacje! Wysłano komunikaty do centrum zdarzeń.
 
 ## <a name="receive-events"></a>Odbieranie zdarzeń
 
-### <a name="create-a-storage-account-and-container"></a>Tworzenie konta i kontenera magazynu
+### <a name="create-a-storage-account-and-container"></a>Tworzenie konta magazynu i kontenera
 
-Stan, takich jak dzierżawy partycji i punktów kontrolnych w strumieniu zdarzeń są współużytkowane przez odbiorców przy użyciu kontenera usługi Azure Storage. Można utworzyć konto magazynu i kontener za pomocą go SDK, ale można również utworzyć, postępując zgodnie z instrukcjami w [informacje o kontach usługi Azure storage](../storage/common/storage-create-storage-account.md).
+Stan, taki jak dzierżawy na partycjach i punkty kontrolne w strumieniu zdarzeń, jest współużytkowany przez odbiorniki przy użyciu kontenera usługi Azure Storage. Można utworzyć konto magazynu i kontener za pomocą zestawu SDK języka go, ale można go również utworzyć, wykonując instrukcje zawarte w [temacie Informacje o kontach usługi Azure Storage](../storage/common/storage-create-storage-account.md).
 
-Przykłady do tworzenia artefaktów magazynu za pomocą zestawu Go SDK są dostępne w [repozytorium próbek Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/storage) i w przykładzie odpowiadającym temu samouczkowi.
+Przykłady tworzenia artefaktów magazynu za pomocą zestawu SDK języka go są dostępne w [repozytorium przykłady](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/storage) i w przykładach odpowiadających temu samouczkowi.
 
-### <a name="go-packages"></a>Pakiety Go
+### <a name="go-packages"></a>Pakiety języka go
 
-Aby odbierać wiadomości, pobierz pakiety Go `go get` `dep`dla Centrów zdarzeń z lub:
+Aby odbierać komunikaty, Pobierz pakiety go dla Event Hubs z `go get` lub: `dep`
 
 ```bash
 go get -u github.com/Azure/azure-event-hubs-go/...
@@ -153,9 +153,9 @@ dep ensure -add github.com/Azure/azure-amqp-common-go
 dep ensure -add github.com/Azure/go-autorest
 ```
 
-### <a name="import-packages-in-your-code-file"></a>Importowanie pakietów w pliku kodu
+### <a name="import-packages-in-your-code-file"></a>Importuj pakiety w pliku kodu
 
-Aby zaimportować pakiety Go, użyj następującego przykładu kodu:
+Aby zaimportować pakiety języka go, należy użyć następującego przykładu kodu:
 
 ```go
 import (
@@ -169,7 +169,7 @@ import (
 
 ### <a name="create-service-principal"></a>Tworzenie jednostki usługi
 
-Utwórz nowego podmiotu usługi, postępując zgodnie z instrukcjami w [obszarze Tworzenie jednostki usługi platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure 2.0.](/cli/azure/create-an-azure-service-principal-azure-cli) Zapisz podane poświadczenia w swoim środowisku z następującymi nazwami: Pakiet Azure SDK for Go i pakiet Usługi Event Hubs są wstępnie skonfigurowane do wyszukiwania tych nazw zmiennych.
+Utwórz nową nazwę główną usługi, postępując zgodnie z instrukcjami w temacie [Tworzenie jednostki usługi platformy Azure przy użyciu interfejsu wiersza polecenia platformy azure 2,0](/cli/azure/create-an-azure-service-principal-azure-cli). Zapisz podane poświadczenia w danym środowisku przy użyciu następujących nazw: wstępnie skonfigurowany pakiet Azure SDK dla języka Go i Event Hubs do wyszukiwania tych nazw zmiennych.
 
 ```bash
 export AZURE_CLIENT_ID=
@@ -178,7 +178,7 @@ export AZURE_TENANT_ID=
 export AZURE_SUBSCRIPTION_ID= 
 ```
 
-Następnie utwórz dostawcę autoryzacji dla klienta usługi Event Hubs, który używa tych poświadczeń:
+Następnie utwórz dostawcę autoryzacji dla klienta Event Hubs, który używa tych poświadczeń:
 
 ```go
 tokenProvider, err := aad.NewJWTProvider(aad.JWTProviderWithEnvironmentVars())
@@ -187,9 +187,9 @@ if err != nil {
 }
 ```
 
-### <a name="get-metadata-struct"></a>Uzyskaj strukturę metadanych
+### <a name="get-metadata-struct"></a>Pobierz strukturę metadanych
 
-Uzyskaj strukturę z metadanymi o środowisku platformy Azure przy użyciu narzędzia Azure Go SDK. Późniejsze operacje używają tej struktury, aby znaleźć poprawne punkty końcowe.
+Pobierz strukturę z metadanymi o środowisku platformy Azure przy użyciu zestawu Azure go SDK. Późniejsze operacje używają tej struktury do znajdowania prawidłowych punktów końcowych.
 
 ```go
 azureEnv, err := azure.EnvironmentFromName("AzurePublicCloud")
@@ -198,9 +198,9 @@ if err != nil {
 }
 ```
 
-### <a name="create-credential-helper"></a>Tworzenie pomocnika poświadczeń 
+### <a name="create-credential-helper"></a>Utwórz pomocnika poświadczeń 
 
-Utwórz pomocnika poświadczeń, który używa poprzednich poświadczeń usługi Azure Active Directory (AAD) do utworzenia poświadczenia sygnatury dostępu współdzielonego (SAS) dla magazynu. Ostatni parametr informuje ten konstruktora, aby używał tych samych zmiennych środowiskowych, które były używane wcześniej:
+Utwórz pomocnika poświadczeń korzystającego z poprzednich poświadczeń usługi Azure Active Directory (AAD), aby utworzyć poświadczenia sygnatury dostępu współdzielonego (SAS) dla magazynu. Ostatni parametr nakazuje temu konstruktorowi używanie tych samych zmiennych środowiskowych, jak używane wcześniej:
 
 ```go
 cred, err := storageLeaser.NewAADSASCredential(
@@ -214,11 +214,11 @@ if err != nil {
 }
 ```
 
-### <a name="create-a-check-pointer-and-a-leaser"></a>Tworzenie wskaźnika wyboru i dzierżawy 
+### <a name="create-a-check-pointer-and-a-leaser"></a>Tworzenie wskaźnika Check i dzierżawy 
 
-Utwórz **dzierżawcę,** odpowiedzialnego za dzierżawę partycji do określonego odbiorcy i **wskaźnik wyboru**, odpowiedzialny za pisanie punktów kontrolnych dla strumienia wiadomości, tak aby inni odbiorcy mogli rozpocząć odczyt z właściwego przesunięcia.
+Utwórz **dzierżawę**, odpowiedzialną za dzierżawę określonej odbiorcy, a także **wskaźnik kontroli**odpowiedzialny za pisanie punktów kontrolnych strumienia wiadomości, dzięki czemu inni odbiorcy mogą zacząć odczytywanie od poprawnego przesunięcia.
 
-Obecnie dostępny jest pojedynczy **punkt kontroli magazynu,** który używa tego samego kontenera magazynu do zarządzania dzierżawami i punktami kontrolnymi. Oprócz nazwy konta magazynu i kontenera **StorageLeaserCheckpointer** potrzebuje poświadczenia utworzonego w poprzednim kroku i struktury środowiska platformy Azure, aby poprawnie uzyskać dostęp do kontenera.
+Obecnie dostępna jest jedna **StorageLeaserCheckpointer** , która używa tego samego kontenera magazynu do zarządzania dzierżawami i punktami kontrolnymi. Oprócz nazw kont magazynu i kontenerów **StorageLeaserCheckpointer** wymaga podania poświadczeń utworzonych w poprzednim kroku i struktury środowiska platformy Azure w celu prawidłowego dostępu do kontenera.
 
 ```go
 leaserCheckpointer, err := storageLeaser.NewStorageLeaserCheckpointer(
@@ -231,9 +231,9 @@ if err != nil {
 }
 ```
 
-### <a name="construct-event-processor-host"></a>Konstruuj hosta procesora zdarzeń
+### <a name="construct-event-processor-host"></a>Konstruowanie hosta procesora zdarzeń
 
-Masz teraz elementy potrzebne do skonstruowania EventProcessorHost, w następujący sposób. Ten sam **StorageLeaserCheckpointer** jest używany zarówno jako leasingodziarz, jak i wskaźnik wyboru, jak opisano wcześniej:
+Masz teraz elementy potrzebne do skonstruowania klasy eventprocessorhost w następujący sposób. Ten sam **StorageLeaserCheckpointer** jest używany zarówno jako dzierżawa, jak i wskaźnik sprawdzania, jak opisano wcześniej:
 
 ```go
 ctx := context.Background()
@@ -250,9 +250,9 @@ if err != nil {
 defer p.Close(context.Background())
 ```
 
-### <a name="create-handler"></a>Tworzenie programu obsługi 
+### <a name="create-handler"></a>Utwórz procedurę obsługi 
 
-Teraz utwórz program obsługi i zarejestruj go za pomocą hosta procesora zdarzeń. Po uruchomieniu hosta stosuje to i wszystkie inne określone programy obsługi do wiadomości przychodzących:
+Teraz Utwórz procedurę obsługi i zarejestruj ją za pomocą hosta procesora zdarzeń. Gdy host zostanie uruchomiony, ma zastosowanie do wszystkich innych określonych programów obsługi komunikatów przychodzących:
 
 ```go
 handler := func(ctx context.Context, event *eventhubs.Event) error {
@@ -269,9 +269,9 @@ if err != nil {
 
 ### <a name="write-code-to-receive-messages"></a>Pisanie kodu w celu odbierania komunikatów
 
-Po skonfigurowaniu wszystkiego można uruchomić hosta `Start(context)` procesora zdarzeń, aby `StartNonBlocking(context)` utrzymać go na stałe, lub aby uruchomić tylko tak długo, jak długo są dostępne wiadomości.
+Za pomocą wszystkich konfiguracji można uruchomić hosta procesora zdarzeń za pomocą `Start(context)` programu, aby zachować jego trwałą pracę, lub `StartNonBlocking(context)` z systemem, tak długo, jak są dostępne komunikaty.
 
-Ten samouczek rozpoczyna się i działa w następujący sposób; zobacz przykład GitHub na `StartNonBlocking`przykład przy użyciu:
+Ten samouczek jest uruchamiany i uruchamiany w następujący sposób: Zapoznaj się z przykładem usługi GitHub `StartNonBlocking`, korzystając z:
 
 ```go
 ctx := context.Background()
@@ -291,4 +291,4 @@ Przeczytaj następujące artykuły:
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md
-[darmowe konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[bezpłatne konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

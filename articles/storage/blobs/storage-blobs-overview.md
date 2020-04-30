@@ -1,5 +1,5 @@
 ---
-title: Informacje o blob (obiektowym) magazynie — usługa Azure Storage
+title: Informacje o magazynie obiektów BLOB (Object) — Azure Storage
 description: Magazyn obiektów Blob Azure przechowuje olbrzymie ilości danych obiektów niestrukturalnych, takich jak dane tekstowe lub binarne. Magazyn obiektów blob obsługuje również usługę Azure Data Lake Storage 2. generacji do analizy danych big data.
 services: storage
 author: tamram
@@ -9,10 +9,10 @@ ms.date: 11/04/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 8f9c1b1762c4e6028d935e03a630dfc0ca4ee4b9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73615762"
 ---
 # <a name="what-is-azure-blob-storage"></a>Co to jest Azure Blob Storage? 
@@ -22,4 +22,4 @@ ms.locfileid: "73615762"
 ## <a name="next-steps"></a>Następne kroki
 
 - [Wprowadzenie do usługi Azure Blob Storage](storage-blobs-introduction.md)
-- [Wprowadzenie do usługi Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)
+- [Wprowadzenie do Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

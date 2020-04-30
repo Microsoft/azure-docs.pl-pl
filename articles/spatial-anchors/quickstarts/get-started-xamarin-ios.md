@@ -1,6 +1,6 @@
 ---
-title: 'Szybki start: tworzenie aplikacji xamarin na iOS'
-description: W tym przewodniku Szybki start dowiesz się, jak utworzyć aplikację dla systemu iOS za pomocą platformy Xamarin przy użyciu zakotwiczeń przestrzennych.
+title: 'Szybki Start: Tworzenie aplikacji platformy Xamarin dla systemu iOS'
+description: W tym przewodniku szybki start dowiesz się, jak utworzyć aplikację dla systemu iOS za pomocą platformy Xamarin przy użyciu kotwic przestrzennych.
 author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
@@ -9,15 +9,15 @@ ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: c5e217a33c8b461a438e2d0209fe6733850634e6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75465149"
 ---
-# <a name="quickstart-create-a-xamarin-ios-app-with-azure-spatial-anchors"></a>Szybki start: tworzenie aplikacji xamarin na iOS za pomocą zakotwiczeń przestrzennych platformy Azure
+# <a name="quickstart-create-a-xamarin-ios-app-with-azure-spatial-anchors"></a>Szybki Start: Tworzenie aplikacji platformy Xamarin dla systemu iOS przy użyciu kotwic Azure przestrzennego
 
-Ten przewodnik Szybki start obejmuje sposób tworzenia aplikacji na iOS za pomocą platformy Xamarin przy użyciu [funkcji Azure Spatial Anchors](../overview.md). Azure Spatial Anchors to usługa dla deweloperów programujących dla wielu platform, która pozwala kreować rozwiązania z rzeczywistością mieszaną z użyciem obiektów, których lokalizacja jest taka sama na różnych urządzeniach mimo upływu czasu. Po zakończeniu będziesz mieć aplikację na iOS, która może zapisywać i odwoływać zakotwiczenie przestrzenne.
+W tym przewodniku szybki start opisano sposób tworzenia aplikacji dla systemu iOS przy użyciu funkcji [Azure przestrzenny kotwic](../overview.md). Azure Spatial Anchors to usługa dla deweloperów programujących dla wielu platform, która pozwala kreować rozwiązania z rzeczywistością mieszaną z użyciem obiektów, których lokalizacja jest taka sama na różnych urządzeniach mimo upływu czasu. Po zakończeniu będziesz mieć aplikację systemu iOS, która będzie mogła zapisywać i odwoływać kotwicę przestrzenną.
 
 Omawiane tematy:
 
@@ -31,10 +31,10 @@ Omawiane tematy:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby ukończyć ten przewodnik Szybki start, upewnij się, że dysponujesz następującymi elementami:
-- Mac z systemem macOS High Sierra (10.13) lub wyższym z:
-  - Najnowsza wersja Xcode i iOS SDK zainstalowana w [App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12).
-  - Aktualna wersja programu <a href="https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio dla komputerów Mac 8.1+</a>.
-  - <a href="https://git-scm.com/download/mac" target="_blank">Git dla systemu macOS</a>.
+- Komputery Mac z systemem macOS High Sierra (10,13) lub nowszym z:
+  - Najnowsza wersja oprogramowania Xcode i zestawu iOS SDK zainstalowana ze [sklepu App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12).
+  - Aktualna wersja <a href="https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio dla komputerów Mac 8.1 +</a>.
+  - <a href="https://git-scm.com/download/mac" target="_blank">Git for macOS</a>.
   - <a href="https://git-lfs.github.com/">Git LFS</a>.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
@@ -47,7 +47,7 @@ Otwórz plik `Xamarin/SampleXamarin.sln` w programie Visual Studio.
 
 ## <a name="configure-account-identifier-and-key"></a>Konfigurowanie identyfikatora i klucza konta
 
-Następnym krokiem jest skonfigurowanie aplikacji do używania identyfikatora konta i klucza konta. Skopiowano je do edytora tekstu podczas [konfigurowania zasobu Zakotwiczenia przestrzenne](#create-a-spatial-anchors-resource).
+Następnym krokiem jest skonfigurowanie aplikacji w taki sposób, aby korzystała z identyfikatora konta i klucza konta. Skopiowano je do edytora tekstu podczas [konfigurowania zasobów kotwic przestrzennych](#create-a-spatial-anchors-resource).
 
 Otwórz plik `Xamarin/SampleXamarin.Common/AccountDetails.cs`.
 
@@ -57,23 +57,23 @@ Znajdź pole `SpatialAnchorsAccountId` i zastąp wartość `Set me` identyfikato
 
 ## <a name="deploy-the-app-to-your-ios-device"></a>Wdrażanie aplikacji na urządzeniu z systemem iOS
 
-Włącz urządzenie z systemem iOS, zaloguj się i podłącz go do komputera za pomocą kabla USB.
+Włącz urządzenie z systemem iOS, zaloguj się i połącz je z komputerem przy użyciu kabla USB.
 
-Ustaw projekt startowy na **SampleXamarin.iOS**, zmień **konfigurację rozwiązania** na **Zwolnij**i wybierz urządzenie, na które chcesz wdrożyć w z listy rozwijanej selektora urządzeń.
+Ustaw projekt startowy na **SampleXamarin. iOS**, Zmień **konfigurację rozwiązania** na **Zwolnij**, a następnie wybierz urządzenie, które chcesz wdrożyć, na liście rozwijanej selektora urządzeń.
 
 ![Konfiguracja programu Visual Studio](./media/get-started-xamarin-iOS/visual-studio-macos-configuration.jpg)
 
-Wybierz **pozycję Uruchom** > **start bez debugowania,** aby wdrożyć i uruchomić aplikację.
+Wybierz pozycję **Uruchom** > **Uruchom bez debugowania** , aby wdrożyć i uruchomić aplikację.
 
-W aplikacji wybierz **opcję Podstawowe,** aby uruchomić demo i postępuj zgodnie z instrukcjami, aby umieścić i przywołać kotwicę.
+W aplikacji wybierz pozycję **podstawowa** , aby uruchomić demonstrację, i postępuj zgodnie z instrukcjami, aby umieścić i odwołać kotwicę.
 
 > ![Zrzut ekranu](./media/get-started-xamarin-ios/screenshot-1.jpg)
-> ![1](./media/get-started-xamarin-ios/screenshot-2.jpg)
-> ![Zrzut ekranu 2 Zrzut ekranu 3](./media/get-started-xamarin-ios/screenshot-3.jpg)
+> ![1 Zrzut](./media/get-started-xamarin-ios/screenshot-2.jpg)
+> ![ekranu 2 zrzut ekranu 3](./media/get-started-xamarin-ios/screenshot-3.jpg)
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
-> [Samouczek: Udostępnianie zakotwiczeń przestrzennych na różnych urządzeniach](../tutorials/tutorial-share-anchors-across-devices.md)
+> [Samouczek: udostępnianie kotwic przestrzennych między urządzeniami](../tutorials/tutorial-share-anchors-across-devices.md)

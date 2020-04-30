@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie udziałami plików platformy Azure przy użyciu Eksploratora usługi Azure Storage
+title: Zarządzanie udziałami plików platformy Azure przy użyciu Eksplorator usługi Azure Storage
 description: W tym przewodniku Szybki start dowiesz się, jak zarządzać usługą Azure Files za pomocą Eksploratora usługi Azure Storage.
 author: roygara
 ms.service: storage
@@ -8,10 +8,10 @@ ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0bf66baba1b665c92a11d7bda91dcaa3e355dd96
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75431818"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Szybki start: tworzenie udziałów plików platformy Azure i zarządzanie nimi za pomocą Eksploratora usługi Azure Storage
@@ -19,7 +19,7 @@ W tym przewodniku przedstawiono podstawowe informacje dotyczące pracy z [udzia�
 
 Eksplorator usługi Azure Storage to popularne narzędzie klienckie dostępne dla systemów Windows, macOS i Linux. Eksplorator usługi Storage służy do zarządzania udziałami plików platformy Azure i innymi zasobami magazynu.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Ten przewodnik Szybki start wymaga zainstalowanego Eksploratora usługi Azure Storage. Aby pobrać i zainstalować go, przejdź na stronę [Eksploratora usługi Storage Azure](https://azure.microsoft.com/features/storage-explorer/).
@@ -49,7 +49,7 @@ Aby utworzyć Twój pierwszy udział plików platformy Azure w ramach konta maga
 
 3. Dla udziału plików podaj wartość *myshare*, a następnie naciśnij klawisz Enter.
 
-Nazwy udziałów mogą zawierać tylko małe litery, cyfry i pojedyncze łączniki (ale nie mogą zaczynać się łącznikiem). Aby uzyskać szczegółowe informacje na temat nazewnictwa udziałów i plików plików, zobacz [Nazywanie i odwoływanie się do udziałów, katalogów, plików i metadanych](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Nazwy udziałów mogą zawierać tylko małe litery, cyfry i pojedyncze łączniki (ale nie mogą zaczynać się łącznikiem). Aby uzyskać szczegółowe informacje o nazewnictwie udziałów plików i plików, zobacz [nazewnictwo i odwoływanie się do udziałów, katalogów, plików i metadanych](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 Po utworzeniu udziału plików w okienku po prawej zostanie otwarta karta dla udziału plików. 
 

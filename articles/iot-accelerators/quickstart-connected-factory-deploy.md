@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 6338403818259c7263fe66af7d8c8840d98efbcd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "62127467"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Szybki start: testowanie rozwiązania opartego na chmurze w celu zarządzania przemysłowymi urządzeniami IoT
@@ -26,7 +26,7 @@ Ten przewodnik Szybki start przedstawia sposób wdrażania akceleratora rozwiąz
 
 Do wykonania kroków tego przewodnika Szybki start jest potrzebna aktywna subskrypcja platformy Azure.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="deploy-the-solution"></a>Wdrażanie rozwiązania
 
@@ -80,7 +80,7 @@ Ogólna wydajność sprzętu pozwala ocenić wydajność procesu produkcyjnego p
 
 Ogólną wydajność sprzętu możesz dokładniej analizować na dowolnym poziomie w danych hierarchii. Kliknij wskaźnik procentowy ogólnej wydajności sprzętu, dostępności, wydajności lub jakości. Zostanie wyświetlony panel kontekstowy z wizualizacjami przedstawiającymi dane w różnych skalach czasu:
 
-[![Ogólna szczegółowość wydajności sprzętu](./media/quickstart-connected-factory-deploy/oeedetail-inline.png)](./media/quickstart-connected-factory-deploy/oeedetail-expanded.png#lightbox)
+[![Ogólna wydajność sprzętu — szczegóły](./media/quickstart-connected-factory-deploy/oeedetail-inline.png)](./media/quickstart-connected-factory-deploy/oeedetail-expanded.png#lightbox)
 
 Kliknięcie wykresu umożliwia dalszą analizę danych.
 
@@ -92,7 +92,7 @@ Panel **Kluczowe wskaźniki wydajności** wyświetla liczbę wytworzonych produk
 
 Kluczowe wskaźniki wydajności możesz dokładniej analizować na dowolnym poziomie w danych hierarchii. Kliknij wskaźnik procentowy ogólnej wydajności sprzętu, dostępności, wydajności lub jakości. Zostanie wyświetlony panel kontekstowy z wizualizacjami przedstawiającymi dane w różnych skalach czasu:
 
-[![Szczegóły kluczowego wskaźnika wydajności](./media/quickstart-connected-factory-deploy/kpidetail-inline.png)](./media/quickstart-connected-factory-deploy/kpidetail-expanded.png#lightbox)
+[![Szczegóły wskaźnika KPI](./media/quickstart-connected-factory-deploy/kpidetail-inline.png)](./media/quickstart-connected-factory-deploy/kpidetail-expanded.png#lightbox)
 
 Kliknięcie wykresu umożliwia dalszą analizę danych.
 
@@ -100,7 +100,7 @@ Kliknięcie wykresu umożliwia dalszą analizę danych.
 
 Panel **Lokalizacje fabryk**, który przedstawia stan, lokalizację i bieżącą konfigurację produkcji w rozwiązaniu. Przy pierwszym uruchomieniu akceleratora rozwiązań pulpit nawigacyjny przedstawia symulowany zestaw fabryk. Każda symulacja linii produkcyjnej składa się z trzech prawdziwych serwerów OPC UA, które uruchamiają symulowane zadania i udostępniają dane. Aby uzyskać więcej informacji na temat architektury OPC UA, zobacz [Połączona fabryka — często zadawane pytania](iot-accelerators-faq-cf.md):
 
-[![Lokalizacje fabryczne](./media/quickstart-connected-factory-deploy/factorylocations-inline.png)](./media/quickstart-connected-factory-deploy/factorylocations-expanded.png#lightbox)
+[![Lokalizacje fabryki](./media/quickstart-connected-factory-deploy/factorylocations-inline.png)](./media/quickstart-connected-factory-deploy/factorylocations-expanded.png#lightbox)
 
 Po hierarchii rozwiązania można nawigować oraz wyświetlać wartości ogólnej wydajności sprzętu i kluczowych wskaźników wydajności na każdym poziomie:
 
@@ -112,13 +112,13 @@ Po hierarchii rozwiązania można nawigować oraz wyświetlać wartości ogólne
 
 1. Kliknij węzeł **EnergyConsumption**. Zostaną wyświetlone wykresy przedstawiające tę wartość w różnych skalach czasu. Kliknięcie wykresu umożliwia dalszą analizę danych.
 
-[![Wyświetlanie zużycia energii](./media/quickstart-connected-factory-deploy/explorelocations-inline.png)](./media/quickstart-connected-factory-deploy/explorelocations-expanded.png#lightbox)
+[![Wyświetl zużycie energii](./media/quickstart-connected-factory-deploy/explorelocations-inline.png)](./media/quickstart-connected-factory-deploy/explorelocations-expanded.png#lightbox)
 
 ### <a name="map"></a>Mapa
 
 Jeśli Twoja subskrypcja ma dostęp do [interfejsu API usługi Mapy Bing](iot-accelerators-faq-cf.md), na mapie *Fabryki* są wyświetlane lokalizacje geograficzne i stan wszystkich fabryk w rozwiązaniu. Aby przejść do szczegółów lokalizacji, kliknij lokalizacje wyświetlane na mapie.
 
-[![Mapę](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
+[![Zmapować](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
 
 ### <a name="alarms"></a>Alarmy
 
@@ -133,11 +133,11 @@ Dane, które spowodowały wystąpienie alarmu, można analizować z poziomu pulp
 
 Kliknij jeden z alarmów, z listy rozwijanej **Wybierz akcję** wybierz pozycję **Potwierdź alert**, a następnie kliknij przycisk **Zastosuj**:
 
-[![Potwierdzenie alarmu](./media/quickstart-connected-factory-deploy/acknowledge-inline.png)](./media/quickstart-connected-factory-deploy/acknowledge-expanded.png#lightbox)
+[![Potwierdź alarm](./media/quickstart-connected-factory-deploy/acknowledge-inline.png)](./media/quickstart-connected-factory-deploy/acknowledge-expanded.png#lightbox)
 
 Aby dalej analizować dane alarmów, kliknij wykres na panelu alarmów.
 
-Te alarmy są generowane na podstawie reguł określonych w pliku konfiguracyjnym w akceleratorze rozwiązania. Reguły te mogą generować alarmy, gdy wartości OEE lub KPI lub wartości węzłów OPC UA przekrocają próg. Możesz ustawić wartość tego progu.
+Te alarmy są generowane na podstawie reguł określonych w pliku konfiguracyjnym w akceleratorze rozwiązania. Te reguły mogą generować alarmy, gdy OEE lub kluczowego wskaźnika wydajności lub wartości węzła OPC UA przekraczają próg. Możesz ustawić wartość tego progu.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

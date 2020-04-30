@@ -1,5 +1,5 @@
 ---
-title: Łączenie się i wykonywanie zapytań za pomocą programu VS Code
+title: Używanie VS Code do nawiązywania połączeń i zapytań
 description: Dowiedz się, jak łączyć się z bazą danych SQL Database na platformie Azure przy użyciu programu Visual Studio Code. Następnie uruchom instrukcje Transact-SQL (T-SQL), aby wykonać zapytanie i edytować dane.
 keywords: nawiązywanie połączenia z bazą danych SQL
 services: sql-database
@@ -13,13 +13,13 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
 ms.openlocfilehash: 28b35f273783b2e4d0b8f59c5bc5be384b933ba2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73826890"
 ---
-# <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Szybki start: łączenie bazy danych SQL i wykonywanie kwerend przez program Azure SQL za pomocą kodu programu Visual Studio
+# <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Szybki Start: używanie Visual Studio Code do nawiązywania połączenia i wysyłania zapytań do Azure SQL Database
 
 [Visual Studio Code](https://code.visualstudio.com/docs) jest graficznym edytorem kodu dla systemów Linux, macOS i Windows. Obsługuje rozszerzenia, w tym [rozszerzenie mssql](https://aka.ms/mssql-marketplace), używane do wysyłania zapytań do programów Microsoft SQL Server oraz usług Azure SQL Database i SQL Data Warehouse. W tym przewodniku Szybki start użyjesz edytora Visual Studio Code w celu nawiązania połączenia z bazą danych Azure SQL Database, a następnie uruchomisz instrukcje języka Transact-SQL, aby wysyłać zapytania o dane, a także wstawiać, aktualizować i usuwać dane.
 
@@ -30,12 +30,12 @@ ms.locfileid: "73826890"
   || Pojedyncza baza danych | Wystąpienie zarządzane |
   |:--- |:--- |:---|
   | Utwórz| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
-  || [Cli](scripts/sql-database-create-and-configure-database-cli.md) | [Cli](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [Powershell](scripts/sql-database-create-and-configure-database-powershell.md) | [Powershell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
+  || [Interfejs wiersza polecenia](scripts/sql-database-create-and-configure-database-cli.md) | [Interfejs wiersza polecenia](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Konfigurowanie | [Reguła zapory bazująca na adresach IP na poziomie serwera](sql-database-server-level-firewall-rule.md)| [Łączność z maszyny wirtualnej](sql-database-managed-instance-configure-vm.md)|
   |||[Łączność ze środowiska lokalnego](sql-database-managed-instance-configure-p2s.md)
   |Ładowanie danych|Ładowanie bazy danych Adventure Works na potrzeby samouczka Szybki start|[Przywracanie bazy danych Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Przywracanie lub importowanie programów Adventure Works z pliku [BACPAC](sql-database-import.md) z [gitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Przywróć lub zaimportuj Adventure Works z pliku [BACPAC](sql-database-import.md) z usługi [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
@@ -49,7 +49,7 @@ Upewnij się, że masz zainstalowaną najnowszą wersję programu [Visual Studio
 
 ### <a name="mac-os"></a>**Mac OS**
 
-W systemie macOS należy zainstalować openssl, który jest warunkiem wstępnym dla programu .NET Core używanego przez rozszerzenie mssql. Otwórz terminal i wprowadź następujące polecenia, aby zainstalować rozwiązania **brew** i **OpenSSL**.
+W przypadku macOS należy zainstalować OpenSSL, który jest wymaganiem wstępnym dla platformy .NET Core używanej przez rozszerzenie MSSQL. Otwórz terminal i wprowadź następujące polecenia, aby zainstalować rozwiązania **brew** i **OpenSSL**.
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -72,7 +72,7 @@ Nie jest potrzebna specjalna konfiguracja.
 
 Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z bazą danych Azure SQL Database. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera lub nazwa hosta, nazwa bazy danych i informacje logowania.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 2. Otwórz stronę **Bazy danych SQL** lub **Wystąpienia zarządzane SQL**.
 
@@ -84,7 +84,7 @@ W programie Visual Studio Code ustaw tryb języka na **SQL**, aby włączyć pol
 
 1. Otwórz nowe okno programu Visual Studio Code.
 
-2. Naciśnij **klawisze Ctrl**+**N**. Zostanie otwarty nowy plik w formacie zwykłego tekstu.
+2. Naciśnij **klawisze CTRL**+**N**. Zostanie otwarty nowy plik w formacie zwykłego tekstu.
 
 3. Wybierz pozycję **Zwykły tekst** w prawym dolnym rogu paska stanu.
 
@@ -109,7 +109,7 @@ Użyj programu Visual Studio Code, aby nawiązać połączenie z serwerem usług
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nazwa serwera** | W pełni kwalifikowana nazwa serwera | Na przykład: **mojnowyserwer20170313.database.windows.net**. |
    | **Nazwa bazy danych** | mySampleDatabase | Baza danych, z którą ma zostać nawiązane połączenie. |
-   | **Uwierzytelnianie** | Identyfikator logowania SQL| W tym samouczku używane jest uwierzytelnianie SQL. |
+   | **Authentication** | Identyfikator logowania SQL| W tym samouczku używane jest uwierzytelnianie SQL. |
    | **Nazwa użytkownika** | Nazwa użytkownika | Nazwa użytkownika konta administratora serwera, którego użyto do utworzenia serwera. |
    | **Hasło (identyfikator logowania SQL)** | Hasło | Hasło użytkownika konta administratora serwera, którego użyto do utworzenia serwera. |
    | **Zapisać hasło?** | Tak lub Nie | Wybierz opcję **Tak**, jeśli nie chcesz wprowadzać hasła za każdym razem. |
@@ -130,7 +130,7 @@ Uruchom następującą instrukcję [SELECT](https://msdn.microsoft.com/library/m
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-2. Naciśnij **klawisze Ctrl**+**Shift**+**E,** aby `Product` `ProductCategory` uruchomić kwerendę i wyświetlić wyniki z tabel i tabel.
+2. Naciśnij **klawisze CTRL**+**SHIFT**+**E** , aby uruchomić zapytanie i wyświetlić wyniki z `Product` tabel `ProductCategory` i.
 
     ![Zapytanie do pobierania danych z 2 tabel](./media/sql-database-connect-query-vscode/query.png)
 
@@ -160,7 +160,7 @@ Uruchom następującą instrukcję [INSERT](https://msdn.microsoft.com/library/m
          ,GETDATE() );
    ```
 
-2. Naciśnij **klawisze Ctrl**+**Shift**+**E,** aby wstawić nowy wiersz do `Product` tabeli.
+2. Naciśnij **klawisze CTRL**+**SHIFT**+**E** , aby wstawić nowy wiersz w `Product` tabeli.
 
 ## <a name="update-data"></a>Aktualizowanie danych
 
@@ -174,7 +174,7 @@ Uruchom następującą instrukcję [UPDATE](https://msdn.microsoft.com/library/m
    WHERE Name = 'myNewProduct';
    ```
 
-2. Naciśnij **klawisze Ctrl**+**Shift**+**E,** aby zaktualizować określony wiersz w `Product` tabeli.
+2. Naciśnij **klawisze CTRL**+**SHIFT**+**E** , aby zaktualizować określony wiersz w `Product` tabeli.
 
 ## <a name="delete-data"></a>Usuwanie danych
 
@@ -187,10 +187,10 @@ Uruchom następującą instrukcję [DELETE](https://docs.microsoft.com/sql/t-sql
    WHERE Name = 'myNewProduct';
    ```
 
-2. Naciśnij **klawisze Ctrl**+**Shift**+**E,** aby usunąć określony wiersz w `Product` tabeli.
+2. Naciśnij **klawisze CTRL**+**SHIFT**+**E** , aby usunąć określony wiersz w `Product` tabeli.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby połączyć się i zbadać przy użyciu programu SQL Server Management Studio, zobacz [Szybki start: Łączenie się z bazą danych usługi Azure SQL Database i danymi kwerend za pomocą programu SQL Server Management Studio: Łączenie się z bazą danych sql i danymi kwerend .](sql-database-connect-query-ssms.md)
-- Aby połączyć się i zapytać za pomocą portalu Azure, zobacz [Szybki start: Łączenie się i wykonywanie zapytań](sql-database-connect-query-portal.md)o dane za pomocą narzędzia SQL W portalu Azure .
+- Aby nawiązać połączenie i wykonać zapytanie przy użyciu SQL Server Management Studio, zobacz [Szybki Start: użyj SQL Server Management Studio, aby nawiązać połączenie z danymi Azure SQL Database i zapytań](sql-database-connect-query-ssms.md).
+- Aby nawiązać połączenie i wykonać zapytanie przy użyciu Azure Portal, zobacz [Szybki Start: Użyj edytora zapytań SQL w Azure Portal, aby nawiązać połączenie i wykonać zapytania dotyczące danych](sql-database-connect-query-portal.md).
 - Aby zapoznać się z artykułem w magazynie MSDN dotyczącym programu Visual Studio Code, zobacz temat [Create a database IDE with MSSQL extension blog post](https://msdn.microsoft.com/magazine/mt809115) (Tworzenie bazy danych w środowisku IDE, korzystając z wpisu na blogu dotyczącym rozszerzenia MSSQL).

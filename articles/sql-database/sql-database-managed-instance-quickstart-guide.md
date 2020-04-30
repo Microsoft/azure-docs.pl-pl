@@ -1,5 +1,5 @@
 ---
-title: Szybki start — wystąpienie zarządzane sql
+title: Szybki Start — wystąpienie zarządzane SQL
 description: Dowiedz się, jak szybko rozpocząć pracę z usługą Azure SQL Database — wystąpienie zarządzane
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 07/11/2019
 ms.openlocfilehash: 602de3e23eb5419958f84b071e2220550d1d04d0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73821715"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Wprowadzenie do wystąpienia zarządzanego usługi Azure SQL Database
@@ -39,7 +39,7 @@ Pierwszym krokiem powinno być utworzenie pierwszego wystąpienia zarządzanego 
   > [!NOTE]
   > Możesz też użyć usługi ExpressRoute lub połączenia lokacja-lokacja z sieci lokalnej, lecz te podejścia są poza zakresem tych przewodników Szybki start.
 
-Jako alternatywę dla ręcznego tworzenia wystąpienia zarządzanego można użyć [programu PowerShell,](scripts/sql-database-create-configure-managed-instance-powershell.md) [programu PowerShell z szablonem usługi Resource Manager](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)lub interfejsu [wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) do skryptu i automatyzacji tego procesu.
+Alternatywą dla ręcznego tworzenia wystąpienia zarządzanego jest używanie [programu PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), [programu PowerShell z szablonem Menedżer zasobów](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) do tworzenia skryptów i automatyzowania tego procesu.
 
 ### <a name="migrate-your-databases"></a>Migrowanie baz danych
 
@@ -58,21 +58,21 @@ Mimo że sieć wirtualną i podsieć można automatycznie skonfigurować podczas
 
 Jako alternatywy możesz użyć [skryptu programu PowerShell](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) do zautomatyzowania tworzenia sieci.
 
-Jeśli masz już sieć wirtualną i podsieć, w których chcesz wdrożyć wystąpienie zarządzane, upewnij się, że sieć wirtualna i podsieć spełniają [wymagania dotyczące sieci](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Użyj tego [skryptu programu PowerShell, aby zweryfikować, czy podsieć jest poprawnie skonfigurowana](sql-database-managed-instance-configure-vnet-subnet.md). Ten skrypt zweryfikuje sieć i zgłosi problemy, określi, co należy zmienić, oraz zaoferuje możliwość wprowadzenia koniecznych zmian sieci wirtualnej lub podsieci. Uruchom ten skrypt, jeśli nie chcesz ręcznie konfigurować sieci wirtualnej i podsieci. Należy go także uruchomić po każdej znacznej zmianie konfiguracji infrastruktury sieciowej. Jeśli chcesz utworzyć i skonfigurować własną sieć, przeczytaj [architekturę łączności](sql-database-managed-instance-connectivity-architecture.md) i ten [najlepszy przewodnik do tworzenia i konfigurowania środowiska wystąpienia zarządzanego](https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01).
+Jeśli masz już sieć wirtualną i podsieć, w których chcesz wdrożyć wystąpienie zarządzane, upewnij się, że sieć wirtualna i podsieć spełniają [wymagania dotyczące sieci](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Użyj tego [skryptu programu PowerShell, aby zweryfikować, czy podsieć jest poprawnie skonfigurowana](sql-database-managed-instance-configure-vnet-subnet.md). Ten skrypt zweryfikuje sieć i zgłosi problemy, określi, co należy zmienić, oraz zaoferuje możliwość wprowadzenia koniecznych zmian sieci wirtualnej lub podsieci. Uruchom ten skrypt, jeśli nie chcesz ręcznie konfigurować sieci wirtualnej i podsieci. Należy go także uruchomić po każdej znacznej zmianie konfiguracji infrastruktury sieciowej. Jeśli chcesz utworzyć i skonfigurować własną sieć, zapoznaj się z artykułem [Architektura łączności](sql-database-managed-instance-connectivity-architecture.md) i ten [ostateczny Przewodnik dotyczący tworzenia i konfigurowania środowiska wystąpienia zarządzanego](https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01).
 
 ## <a name="migrate-to-a-managed-instance"></a>Migrowanie do wystąpienia zarządzanego
 
-Artykuły w tych przewodnikach Szybki start umożliwiają szybkie skonfigurowanie wystąpienia zarządzanego i przeniesienie baz danych przy użyciu natywnej funkcji `RESTORE`. Jest to dobry punkt wyjścia, jeśli chcesz zakończyć szybkie sprawdzanie koncepcji i sprawdzić, czy rozwiązanie może pracować z wystąpieniem zarządzanym. 
+Artykuły w tych przewodnikach Szybki start umożliwiają szybkie skonfigurowanie wystąpienia zarządzanego i przeniesienie baz danych przy użyciu natywnej funkcji `RESTORE`. Jest to dobry punkt wyjścia, jeśli chcesz zakończyć szybkie sprawdzanie koncepcji i sprawdzić, czy rozwiązanie może współpracować z wystąpieniem zarządzanym. 
 
-Jednak w celu migracji produkcyjnej bazy danych lub nawet dev/test baz danych, które mają być używane dla niektórych testów wydajności, należy rozważyć użycie niektórych dodatkowych technik, takich jak:
-- Testowanie wydajności — należy zmierzyć wydajność planu bazowego w źródłowym wystąpieniu programu SQL Server i porównać je z wydajnością docelowego wystąpienia zarządzanego, w którym została zmigrowana baza danych. Dowiedz się więcej o [najlepszych praktykach porównywania wydajności](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
-- Migracja online — `RESTORE` w przypadku natywnego opisanego w tym artykule należy poczekać na przywrócenie baz danych (i skopiowanie do magazynu obiektów Blob platformy Azure, jeśli nie są tam już przechowywane). Może to spowodować przestój aplikacji, szczególnie jeśli bazy danych są duże. Aby przenieść produkcyjną bazę danych, użyj usługi [Data Migration Service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) w celu migrowania bazy danych z minimalnym przestojem. Usługa DMS realizuje to przez przyrostowe wypychanie zmian wprowadzanych w źródłowej bazie danych do przywracanej bazy danych wystąpienia zarządzanego. Dzięki niej można szybko przełączyć aplikację ze źródłowej do docelowej bazy danych z możliwie najkrótszym przestojem.
+Jednak w celu migrowania produkcyjnej bazy danych, a nawet tworzenia/testowania baz danych, które mają być używane w przypadku niektórych testów wydajności, należy rozważyć użycie pewnych dodatkowych technik, takich jak:
+- Testowanie wydajności — należy mierzyć wydajność linii bazowej na źródłowym wystąpieniu SQL Server i porównać je z wydajnością w docelowym wystąpieniu zarządzanym, w którym przeprowadzono migrację bazy danych. Dowiedz się więcej o [najlepszych rozwiązaniach dotyczących porównywania wydajności](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
+- Migracja w trybie online — w `RESTORE` przypadku kodu natywnego opisanego w tym artykule należy zaczekać, aż bazy danych mają zostać przywrócone (i skopiowane do usługi Azure Blob Storage, jeśli jeszcze nie są przechowywane). Może to spowodować przestój aplikacji, szczególnie jeśli bazy danych są duże. Aby przenieść produkcyjną bazę danych, użyj usługi [Data Migration Service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) w celu migrowania bazy danych z minimalnym przestojem. Usługa DMS realizuje to przez przyrostowe wypychanie zmian wprowadzanych w źródłowej bazie danych do przywracanej bazy danych wystąpienia zarządzanego. Dzięki niej można szybko przełączyć aplikację ze źródłowej do docelowej bazy danych z możliwie najkrótszym przestojem.
 
 Dowiedz się więcej o [zalecanym procesie migracji](sql-database-managed-instance-migrate.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Tutaj znajdziesz [listę obsługiwanych funkcji wysokiego poziomu w wystąpieniu zarządzanym](sql-database-features.md) oraz [szczegóły i znane problemy tutaj](sql-database-managed-instance-transact-sql-information.md).
-- Dowiedz się więcej o [charakterystykach technicznych wystąpienia zarządzanego](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
+- Znajdź [tutaj listę obsługiwanych funkcji w wystąpieniu zarządzanym](sql-database-features.md) oraz [szczegóły i znane problemy w tym miejscu](sql-database-managed-instance-transact-sql-information.md).
+- Dowiedz się więcej o [cechach technicznych wystąpienia zarządzanego](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 - Więcej instrukcji zaawansowanych można znaleźć w [dokumentacji używania wystąpienia zarządzanego w usłudze Azure SQL Database](sql-database-howto-managed-instance.md).
-- [Zidentyfikuj właściwą jednostkę SKU usługi Azure SQL Database/Managed Instance dla lokalnej bazy danych.](/sql/dma/dma-sku-recommend-sql-db/)
+- [Zidentyfikuj odpowiednią Azure SQL Database/jednostkę SKU wystąpienia zarządzanego dla lokalnej bazy danych](/sql/dma/dma-sku-recommend-sql-db/).

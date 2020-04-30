@@ -1,6 +1,6 @@
 ---
-title: Szybki start — wyświetlanie dostępu użytkownika do zasobów platformy Azure
-description: W tym przewodniku Szybki start dowiedz się, jak wyświetlić dostęp użytkownika lub innego podmiotu zabezpieczeń do zasobów platformy Azure przy użyciu kontroli dostępu opartej na rolach (RBAC) i witryny Azure portal.
+title: Przewodnik Szybki Start — wyświetlanie dostępu użytkownika do zasobów platformy Azure
+description: W tym przewodniku szybki start dowiesz się, jak wyświetlić dostęp użytkownika lub innego podmiotu zabezpieczeń do zasobów platformy Azure przy użyciu kontroli dostępu opartej na rolach (RBAC) i Azure Portal.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -15,13 +15,13 @@ ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: b23c10fc2a551b8044b208911dbc048968b06564
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74419607"
 ---
-# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Szybki start: wyświetlanie dostępu użytkownika do zasobów platformy Azure
+# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Szybki Start: wyświetlanie dostępu użytkownika do zasobów platformy Azure
 
 Informacje o dostępie użytkownika lub innego podmiotu zabezpieczeń do zasobów platformy Azure można wyświetlić w bloku **Kontrola dostępu (IAM)** w obszarze [Kontrola dostępu oparta na rolach (RBAC)](overview.md). Czasami jednak wystarczy szybki przegląd informacji o dostępie pojedynczego użytkownika lub innego podmiotu zabezpieczeń. Najłatwiej można to zrobić przy użyciu funkcji **Sprawdź dostęp** w witrynie Azure Portal.
 
@@ -54,4 +54,4 @@ Informacje o dostępie użytkownika lub innego podmiotu zabezpieczeń do zasobó
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Samouczek: Udzielanie użytkownikowi dostępu do zasobów platformy Azure przy użyciu funkcji RBAC i witryny Azure portal](quickstart-assign-role-user-portal.md)
+> [Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure przy użyciu RBAC i Azure Portal](quickstart-assign-role-user-portal.md)

@@ -1,6 +1,6 @@
 ---
-title: Połącz się z PHP — usługa Azure Database for PostgreSQL — single server
-description: Ten przewodnik Szybki start zawiera przykładowy kod PHP, którego można użyć do łączenia się i wykonywania zapytań o dane z usługi Azure Database for PostgreSQL — Single Server.
+title: Nawiązywanie połączenia przy użyciu języka PHP-Azure Database for PostgreSQL-pojedynczego serwera
+description: Ten przewodnik Szybki Start zawiera przykład kodu w języku PHP, którego można użyć do nawiązywania połączeń i wysyłania zapytań dotyczących danych z jednego serwera Azure Database for PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -9,13 +9,13 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 2/28/2018
 ms.openlocfilehash: 6e453201eb499f65ee7f3b8c17cbf0e5127182b0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74766382"
 ---
-# <a name="azure-database-for-postgresql---single-server-use-php-to-connect-and-query-data"></a>Usługa Azure Database for PostgreSQL — pojedynczy serwer: łączenie danych i wykonywanie zapytań za pomocą usługi PHP
+# <a name="azure-database-for-postgresql---single-server-use-php-to-connect-and-query-data"></a>Azure Database for PostgreSQL — pojedynczy serwer: używanie języka PHP do łączenia i wykonywania zapytań dotyczących danych
 Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for PostgreSQL przy użyciu aplikacji języka [PHP](https://secure.php.net/manual/intro-whatis.php). Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W krokach w tym artykule założono, że wiesz już, jak programować za pomocą języka PHP, i dopiero zaczynasz pracę z usługą Azure Database for PostgreSQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -54,7 +54,7 @@ Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z usługą 
 ## <a name="connect-and-create-a-table"></a>Łączenie i tworzenie tabeli
 Użyj poniższego kodu w celu nawiązania połączenia i utworzenia tabeli za pomocą instrukcji **CREATE TABLE** języka SQL, a następnie instrukcji **INSERT INTO** języka SQL, aby dodać wiersze do tabeli.
 
-Metoda wywołania kodu [pg_connect()](https://secure.php.net/manual/en/function.pg-connect.php) do łączenia się z usługą Azure Database for PostgreSQL. Następnie kod wywołuje metodę [pg_query()](https://secure.php.net/manual/en/function.pg-query.php) kilka razy w celu uruchomienia wielu poleceń i metodę [pg_last_error()](https://secure.php.net/manual/en/function.pg-last-error.php) w celu sprawdzenia szczegółów, jeśli za każdym razem występuje błąd. W kolejnym kroku kod wywołuje metodę [pg_close()](https://secure.php.net/manual/en/function.pg-close.php) w celu zamknięcia połączenia.
+Metoda wywołująca kod [pg_connect ()](https://secure.php.net/manual/en/function.pg-connect.php) w celu nawiązania połączenia z Azure Database for PostgreSQL. Następnie kod wywołuje metodę [pg_query()](https://secure.php.net/manual/en/function.pg-query.php) kilka razy w celu uruchomienia wielu poleceń i metodę [pg_last_error()](https://secure.php.net/manual/en/function.pg-last-error.php) w celu sprawdzenia szczegółów, jeśli za każdym razem występuje błąd. W kolejnym kroku kod wywołuje metodę [pg_close()](https://secure.php.net/manual/en/function.pg-close.php) w celu zamknięcia połączenia.
 
 Zastąp parametry `$host`, `$database`, `$user` i `$password` własnymi wartościami. 
 
@@ -112,7 +112,7 @@ Zastąp parametry `$host`, `$database`, `$user` i `$password` własnymi wartośc
 ## <a name="read-data"></a>Odczyt danych
 Użyj poniższego kodu, aby nawiązać połączenie i odczytać dane za pomocą instrukcji **SELECT** języka SQL. 
 
- Metoda wywołania kodu [pg_connect()](https://secure.php.net/manual/en/function.pg-connect.php) do łączenia się z usługą Azure Database for PostgreSQL. Następnie kod wywołuje metodę [pg_query()](https://secure.php.net/manual/en/function.pg-query.php) w celu uruchomienia polecenia SELECT, zachowując wyniki w zestawie wyników, i metodę [pg_last_error()](https://secure.php.net/manual/en/function.pg-last-error.php) w celu sprawdzenia błędów, jeśli wystąpił błąd.  Aby odczytać zestaw wyników, metoda [pg_fetch_row()](https://secure.php.net/manual/en/function.pg-fetch-row.php) jest wywoływana w postaci pętli, jeden raz dla każdego wiersza, a dane są pobierane w tablicy `$row`, z jedną wartością danych na kolumnę w każdej pozycji tablicy.  Aby zwolnić zestaw wyników, należy wywołać metodę [pg_free_result()](https://secure.php.net/manual/en/function.pg-free-result.php). W kolejnym kroku kod wywołuje metodę [pg_close()](https://secure.php.net/manual/en/function.pg-close.php) w celu zamknięcia połączenia.
+ Metoda wywołująca kod [pg_connect ()](https://secure.php.net/manual/en/function.pg-connect.php) w celu nawiązania połączenia z Azure Database for PostgreSQL. Następnie kod wywołuje metodę [pg_query()](https://secure.php.net/manual/en/function.pg-query.php) w celu uruchomienia polecenia SELECT, zachowując wyniki w zestawie wyników, i metodę [pg_last_error()](https://secure.php.net/manual/en/function.pg-last-error.php) w celu sprawdzenia błędów, jeśli wystąpił błąd.  Aby odczytać zestaw wyników, metoda [pg_fetch_row()](https://secure.php.net/manual/en/function.pg-fetch-row.php) jest wywoływana w postaci pętli, jeden raz dla każdego wiersza, a dane są pobierane w tablicy `$row`, z jedną wartością danych na kolumnę w każdej pozycji tablicy.  Aby zwolnić zestaw wyników, należy wywołać metodę [pg_free_result()](https://secure.php.net/manual/en/function.pg-free-result.php). W kolejnym kroku kod wywołuje metodę [pg_close()](https://secure.php.net/manual/en/function.pg-close.php) w celu zamknięcia połączenia.
 
 Zastąp parametry `$host`, `$database`, `$user` i `$password` własnymi wartościami. 
 
@@ -150,7 +150,7 @@ Zastąp parametry `$host`, `$database`, `$user` i `$password` własnymi wartośc
 ## <a name="update-data"></a>Aktualizowanie danych
 Użyj poniższego kodu, aby nawiązać połączenie i zaktualizować dane za pomocą instrukcji **UPDATE** języka SQL.
 
-Metoda wywołania kodu [pg_connect()](https://secure.php.net/manual/en/function.pg-connect.php) do łączenia się z usługą Azure Database for PostgreSQL. Następnie kod wywołuje metodę [pg_query()](https://secure.php.net/manual/en/function.pg-query.php) w celu uruchomienia polecenia i metodę [pg_last_error()](https://secure.php.net/manual/en/function.pg-last-error.php) w celu sprawdzenia szczegółów, jeśli wystąpił błąd. W kolejnym kroku kod wywołuje metodę [pg_close()](https://secure.php.net/manual/en/function.pg-close.php) w celu zamknięcia połączenia.
+Metoda wywołująca kod [pg_connect ()](https://secure.php.net/manual/en/function.pg-connect.php) w celu nawiązania połączenia z Azure Database for PostgreSQL. Następnie kod wywołuje metodę [pg_query()](https://secure.php.net/manual/en/function.pg-query.php) w celu uruchomienia polecenia i metodę [pg_last_error()](https://secure.php.net/manual/en/function.pg-last-error.php) w celu sprawdzenia szczegółów, jeśli wystąpił błąd. W kolejnym kroku kod wywołuje metodę [pg_close()](https://secure.php.net/manual/en/function.pg-close.php) w celu zamknięcia połączenia.
 
 Zastąp parametry `$host`, `$database`, `$user` i `$password` własnymi wartościami. 
 

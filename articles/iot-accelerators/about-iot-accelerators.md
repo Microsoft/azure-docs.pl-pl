@@ -10,10 +10,10 @@ ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
 ms.openlocfilehash: 1a27d748e16f892a748cf18569c13ca3f9ead1dd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71309515"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Co to są akceleratory rozwiązań Azure IoT?
@@ -38,7 +38,7 @@ Obecnie dostępne do wdrożenia są cztery akceleratory rozwiązań:
 
 Za pomocą pulpitu nawigacyjnego zdalnego monitorowania można wyświetlać dane telemetryczne z połączonych urządzeń, aprowizować nowe urządzenia lub uaktualniać oprogramowanie układowe połączonych urządzeń:
 
-[![Pulpit nawigacyjny rozwiązania do zdalnego monitorowania](./media/about-iot-accelerators/rm-dashboard-inline.png)](./media/about-iot-accelerators/rm-dashboard-expanded.png#lightbox)
+[![Pulpit nawigacyjny rozwiązania do monitorowania zdalnego](./media/about-iot-accelerators/rm-dashboard-inline.png)](./media/about-iot-accelerators/rm-dashboard-expanded.png#lightbox)
 
 ### <a name="connected-factory"></a>Połączona fabryka
 
@@ -46,7 +46,7 @@ Za pomocą pulpitu nawigacyjnego zdalnego monitorowania można wyświetlać dane
 
 Pulpit nawigacyjny połączonej fabryki umożliwia monitorowanie urządzeń przemysłowych i zarządzanie nimi:
 
-[![Połączony panel rozwiązań fabrycznych](./media/about-iot-accelerators/cf-dashboard-inline.png)](./media/about-iot-accelerators/cf-dashboard-expanded.png#lightbox)
+[![Pulpit nawigacyjny rozwiązania połączonej fabryki](./media/about-iot-accelerators/cf-dashboard-inline.png)](./media/about-iot-accelerators/cf-dashboard-expanded.png#lightbox)
 
 ### <a name="predictive-maintenance"></a>Konserwacja zapobiegawcza
 
@@ -54,7 +54,7 @@ Pulpit nawigacyjny połączonej fabryki umożliwia monitorowanie urządzeń prze
 
 Za pomocą pulpitu nawigacyjnego konserwacji predykcyjnej można wyświetlać analizę konserwacji predykcyjnej:
 
-[![Połączony panel rozwiązań fabrycznych](./media/about-iot-accelerators/pm-dashboard-inline.png)](./media/about-iot-accelerators/pm-dashboard-expanded.png#lightbox)
+[![Pulpit nawigacyjny rozwiązania połączonej fabryki](./media/about-iot-accelerators/pm-dashboard-inline.png)](./media/about-iot-accelerators/pm-dashboard-expanded.png#lightbox)
 
 ### <a name="device-simulation"></a>Symulacja urządzenia
 
@@ -62,7 +62,7 @@ Za pomocą pulpitu nawigacyjnego konserwacji predykcyjnej można wyświetlać an
 
 Za pomocą aplikacji internetowej symulacji urządzenia można konfigurować i uruchamiać symulacje:
 
-[![Połączony panel rozwiązań fabrycznych](./media/about-iot-accelerators/ds-dashboard-inline.png)](./media/about-iot-accelerators/ds-dashboard-expanded.png#lightbox)
+[![Pulpit nawigacyjny rozwiązania połączonej fabryki](./media/about-iot-accelerators/ds-dashboard-inline.png)](./media/about-iot-accelerators/ds-dashboard-expanded.png#lightbox)
 
 ## <a name="design-principles"></a>Zasady projektowania
 
