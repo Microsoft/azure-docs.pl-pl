@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: diagnozowanie problemu z filtrem ruchu sieciowego maszyny Wirtualnej — witryna Azure portal'
+title: 'Szybki Start: diagnozowanie problemu z filtrem ruchu sieciowego maszyny wirtualnej — Azure Portal'
 titleSuffix: Azure Network Watcher
 description: W tym przewodniku Szybki start zawarto informacje na temat sposobu diagnozowania problemu z filtrowaniem ruchu sieciowego maszyny wirtualnej przy użyciu możliwości weryfikowania przepływu adresów IP w usłudze Azure Network Watcher.
 services: network-watcher
@@ -18,17 +18,17 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 68f575164487f726c2f6c7477ceacd731bb52b0f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79241598"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Szybki start: diagnozowanie problemu z filtrowaniem ruchu sieciowego maszyny wirtualnej przy użyciu witryny Azure Portal
 
 W tym przewodniku Szybki start wdrożysz maszynę wirtualną, a następnie sprawdzisz komunikację z adresem IP i adresem URL oraz komunikację z adresu IP. Określisz przyczynę niepowodzenia komunikacji oraz sposób rozwiązania problemu.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
@@ -38,7 +38,7 @@ Zaloguj się do witryny Azure Portal na stronie https://portal.azure.com.
 
 1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **+ Utwórz zasób**.
 2. Wybierz pozycję **Compute**, a następnie wybierz pozycję **Windows Server 2016 Datacenter** lub wersję **Ubuntu Server**.
-3. Wprowadź lub wybierz następujące informacje, zaakceptuj ustawienia domyślne dla pozostałych ustawień, a następnie wybierz **przycisk OK:**
+3. Wprowadź lub wybierz poniższe informacje, zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz przycisk **OK**:
 
     |Ustawienie|Wartość|
     |---|---|
@@ -47,7 +47,7 @@ Zaloguj się do witryny Azure Portal na stronie https://portal.azure.com.
     |Hasło| Wprowadź wybrane hasło. Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subskrypcja| Wybierz subskrypcję.|
     |Grupa zasobów| Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę **myResourceGroup**.|
-    |Lokalizacja| Wybierz **wschodnie stany USA**|
+    |Lokalizacja| Wybierz **Wschodnie stany USA**|
 
 4. Wybierz rozmiar maszyny wirtualnej, a następnie wybierz pozycję **Wybierz**.
 5. W obszarze **Ustawienia** zaakceptuj wszystkie wartości domyślne i wybierz przycisk **OK**.
@@ -72,7 +72,7 @@ Jeśli masz już włączoną usługę Network Watcher co najmniej w jednym regio
 
 Podczas tworzenia maszyny wirtualnej platforma Azure domyślnie zezwala na i blokuje ruch sieciowy do i z maszyny wirtualnej. Domyślne ustawienia platformy Azure można później zastąpić, aby zezwalać lub nie zezwalać na dodatkowe typy ruchu.
 
-1. W portalu wybierz pozycję **Wszystkie usługi**. W polu *Filtr* **wszystkie usługi** wprowadź *wpisać obserwatora sieciowego*. Gdy w wynikach pojawi się nazwa **Network Watcher**, wybierz ją.
+1. W portalu wybierz pozycję **Wszystkie usługi**. W polu *Filtr* **wszystkie usługi** wprowadź *Network Watcher*. Gdy w wynikach pojawi się nazwa **Network Watcher**, wybierz ją.
 2. W obszarze **Narzędzia do diagnostyki sieci** wybierz pozycję **Weryfikowanie przepływu adresów IP**.
 3. Wybierz subskrypcję, wpisz lub wybierz następujące wartości, a następnie wybierz pozycję **Sprawdź**, jak pokazano na poniższej ilustracji:
 
@@ -85,7 +85,7 @@ Podczas tworzenia maszyny wirtualnej platforma Azure domyślnie zezwala na i blo
     | Kierunek         | Wychodzący                                                                                          |
     | Lokalny adres IP  | 10.0.0.4                                                                                          |
     | Port lokalny      | 60000                                                                                                |
-    | Zdalny adres IP | 13.107.21.200 - Jeden z adresów <www.bing.com>.                                             |
+    | Zdalny adres IP | 13.107.21.200 — jeden z adresów dla <www.bing.com>.                                             |
     | Port zdalny       | 80                                                                                                |
 
     ![Weryfikowanie przepływu adresów IP](./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-outbound.png)
@@ -120,7 +120,7 @@ Gdy grupa zasobów i wszystkie znajdujące się w niej zasoby nie będą już po
 
 1. Wprowadź ciąg *myResourceGroup* w polu **Szukaj** w górnej części portalu. Gdy pozycja **myResourceGroup** pojawi się w wynikach wyszukiwania, wybierz ją.
 2. Wybierz pozycję **Usuń grupę zasobów**.
-3. Wprowadź *myResourceGroup* dla **TYPU NAZWA GRUPY ZASOBÓW:** i wybierz pozycję **Usuń**.
+3. Wprowadź dla elementu *Webresourcename* **Typ Nazwa grupy zasobów:** a następnie wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 

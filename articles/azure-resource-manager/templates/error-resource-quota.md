@@ -1,24 +1,24 @@
 ---
 title: Błędy przydziału
-description: W tym artykule opisano sposób rozwiązywania błędów przydziału zasobów podczas wdrażania zasobów za pomocą usługi Azure Resource Manager.
+description: Opisuje sposób rozwiązywania problemów z przydziałami zasobów podczas wdrażania zasobów przy użyciu Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.openlocfilehash: 410b086b39d63d03491d390364f4aec6300fc7c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273789"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Resolve errors for resource quotas (Rozwiązywanie błędów z limitami przydziałów zasobów)
 
-W tym artykule opisano błędy przydziału, które mogą wystąpić podczas wdrażania zasobów.
+W tym artykule opisano błędy przydziałów, które mogą wystąpić podczas wdrażania zasobów.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="symptom"></a>Objaw
 
-Jeśli wdrożysz szablon, który tworzy zasoby, które przekraczają przydziały platformy Azure, pojawi się błąd wdrożenia, który wygląda następująco:
+W przypadku wdrożenia szablonu, który tworzy zasoby przekraczające limity przydziału platformy Azure, zostanie wyświetlony błąd wdrażania, który wygląda następująco:
 
 ```
 Code=OperationNotAllowed
@@ -38,19 +38,19 @@ please delete some resources of this type before creating a new one.
 ## <a name="cause"></a>Przyczyna
 
 Limity przydziału są stosowane dla każdej grupy zasobów, subskrypcji, konta i innych zakresów. Na przykład subskrypcja może być skonfigurowana w taki sposób, aby ograniczyć liczbę rdzeni dla regionu. Jeśli spróbujesz wdrożyć maszynę wirtualną o liczbie rdzeni większej niż dozwolona, otrzymasz błąd informujący o przekroczeniu limitu przydziału.
-Aby uzyskać pełne informacje o przydziałach, zobacz [Limity subskrypcji i usług platformy Azure, przydziały i ograniczenia](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+Aby uzyskać pełne informacje o limicie przydziału, zobacz [limity subskrypcji i usług platformy Azure, przydziały i ograniczenia](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-W przypadku interfejsu `az vm list-usage` wiersza polecenia platformy Azure użyj tego polecenia, aby znaleźć przydziały maszyn wirtualnych.
+Aby znaleźć przydziały maszyny `az vm list-usage` wirtualnej, dla interfejsu wiersza polecenia platformy Azure wykonaj polecenie.
 
 ```azurecli
 az vm list-usage --location "South Central US"
 ```
 
-Który zwraca:
+Które zwraca:
 
 ```output
 [
@@ -68,13 +68,13 @@ Który zwraca:
 
 ### <a name="powershell"></a>PowerShell
 
-W przypadku programu PowerShell użyj polecenia **Get-AzVMUsage,** aby znaleźć przydziały maszyny wirtualnej.
+W przypadku programu PowerShell Użyj polecenia **Get-AzVMUsage** , aby znaleźć przydziały maszyny wirtualnej.
 
 ```powershell
 Get-AzVMUsage -Location "South Central US"
 ```
 
-Który zwraca:
+Które zwraca:
 
 ```output
 Name                             Current Value Limit  Unit
@@ -86,28 +86,28 @@ Virtual Machines                             0 10000 Count
 
 ## <a name="solution"></a>Rozwiązanie
 
-Aby zażądać zwiększenia przydziału, przejdź do portalu i złóż problem z pomocą techniczną. W przypadku problemu z pomocą techniczną poproś o zwiększenie przydziału dla regionu, w którym chcesz wdrożyć.
+Aby zażądać zwiększenia limitu przydziału, przejdź do portalu i zapoznaj się z tematem problem z pomocą techniczną. W obszarze problem z pomocą techniczną Poproś o zwiększenie limitu przydziału dla regionu, w którym ma zostać wdrożone.
 
 > [!NOTE]
-> Należy pamiętać, że dla grup zasobów przydział jest dla każdego regionu, a nie dla całej subskrypcji. Jeśli musisz wdrożyć 30 rdzeni w zachodnie stany USA, musisz poprosić o 30 rdzeni Menedżera zasobów w zachodnie stany USA. Jeśli musisz wdrożyć 30 rdzeni w dowolnym z regionów, do których masz dostęp, należy poprosić o 30 rdzeni Menedżera zasobów we wszystkich regionach.
+> Należy pamiętać, że w przypadku grup zasobów limit przydziału dotyczy każdego regionu, a nie całej subskrypcji. Jeśli musisz wdrożyć 30 rdzeni w regionie zachodnie stany USA, musisz zażądać 30 Menedżer zasobów rdzeni w regionie zachodnie stany USA. Jeśli musisz wdrożyć 30 rdzeni w dowolnym z regionów, do których masz dostęp, należy zażądać 30 Menedżer zasobów rdzeni we wszystkich regionach.
 >
 >
 
 1. Wybierz pozycję **Subskrypcje**.
 
-   ![Subskrypcje](./media/error-resource-quota/subscriptions.png)
+   ![Subscriptions](./media/error-resource-quota/subscriptions.png)
 
 2. Wybierz subskrypcję, która wymaga zwiększenia limitu przydziału.
 
    ![Wybieranie subskrypcji](./media/error-resource-quota/select-subscription.png)
 
-3. Wybierz **użycie + przydziały**
+3. Wybierz **użycie i przydziały**
 
-   ![Wybieranie użycia i przydziałów](./media/error-resource-quota/select-usage-quotas.png)
+   ![Wybierz użycie i przydziały](./media/error-resource-quota/select-usage-quotas.png)
 
-4. W prawym górnym rogu wybierz pozycję **Poproś o zwiększenie**.
+4. W prawym górnym rogu wybierz pozycję **Zwiększ liczbę żądań**.
 
-   ![Zwiększenie żądania](./media/error-resource-quota/request-increase.png)
+   ![Zwiększ liczbę żądań](./media/error-resource-quota/request-increase.png)
 
 5. Wypełnij formularze dotyczące typu przydziału, który chcesz zwiększyć.
 

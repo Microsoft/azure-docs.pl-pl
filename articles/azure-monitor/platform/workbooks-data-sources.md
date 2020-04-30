@@ -1,6 +1,6 @@
 ---
-title: Źródła danych skoroszytów usługi Azure Monitor | Dokumenty firmy Microsoft
-description: Uprość składanie złożonych raportów dzięki wstępnie utworzonym i niestandardowych sparametryzowanym skoroszytom usługi Azure Monitor utworzonym z wielu źródeł danych
+title: Azure Monitor skoroszyty ze źródłami danych | Dokumentacja firmy Microsoft
+description: Uprość złożone raportowanie ze wstępnie skompilowanymi i niestandardowymi skoroszytami Azure Monitor utworzonymi na podstawie wielu źródeł danych
 services: azure-monitor
 documentationcenter: ''
 author: mrbullwinkle
@@ -11,77 +11,77 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: d57910ae31d4db9be17b3dc46b5920a925ab4fcf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79248582"
 ---
-# <a name="azure-monitor-workbooks-data-sources"></a>Źródła danych skoroszytów usługi Azure Monitor
+# <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor skoroszyty ze źródłami danych
 
-Skoroszyty są zgodne z dużą liczbą źródeł danych. W tym artykule zostaną udostępnione źródła danych, które są obecnie dostępne dla skoroszytów usługi Azure Monitor.
+Skoroszyty są zgodne z dużą liczbą źródeł danych. Ten artykuł przeprowadzi Cię przez źródła danych, które są obecnie dostępne dla Azure Monitor skoroszytów.
 
 ## <a name="logs"></a>Dzienniki
 
-Skoroszyty zezwalają na wykonywanie zapytań o dzienniki z następujących źródeł:
+Skoroszyty umożliwiają wykonywanie zapytań względem dzienników z następujących źródeł:
 
-* Dzienniki usługi Azure Monitor (zasoby aplikacji i obszary robocze analizy dzienników).
-* Dane zorientowane na zasoby (dzienniki aktywności)
+* Dzienniki Azure Monitor (zasoby Application Insights i Log Analytics obszary robocze).
+* Dane skoncentrowane na zasobach (dzienniki aktywności)
 
-Autorzy skoroszytu mogą używać kwerend KQL, które przekształcają podstawowe dane zasobów, aby wybrać zestaw wyników, który można wizualizować jako tekst, wykresy lub siatki.
+Autorzy skoroszytu mogą używać zapytań KQL, które przekształcają bazowe dane zasobów, aby wybrać zestaw wyników, który można wizualizować jako tekst, wykresy lub siatki.
 
 ![Zrzut ekranu przedstawiający interfejs raportu dzienników skoroszytów](./media/workbooks-overview/logs.png)
 
-Autorzy skoroszytów mogą łatwo wyszukiwać w wielu zasobach, tworząc prawdziwie ujednolicone środowisko raportowania.
+Autorzy skoroszytu mogą łatwo wykonywać zapytania dotyczące wielu zasobów, tworząc naprawdę ujednolicone, bogate środowisko raportowania.
 
 ## <a name="metrics"></a>Metryki
 
-Zasoby platformy Azure emitują [metryki,](data-platform-metrics.md) do których można uzyskać dostęp za pośrednictwem skoroszytów. Metryki są dostępne w skoroszytach za pomocą wyspecjalizowanego formantu, który umożliwia określenie zasobów docelowych, żądanych metryk i ich agregacji. Dane te można następnie wykreślać na wykresach lub w siatce.
+Zasoby platformy Azure emitują [metryki](data-platform-metrics.md) , do których można uzyskiwać dostęp za pośrednictwem skoroszytów. Dostęp do metryk w skoroszytach można uzyskać za pomocą wyspecjalizowanej kontrolki, która umożliwia określenie zasobów docelowych, odpowiednich metryk i ich agregacji. Te dane można następnie wykreślić na wykresach lub siatkach.
 
-![Zrzut ekranu przedstawiający wykresy metryki skoroszytu dotyczące wykorzystania procesora](./media/workbooks-overview/metrics-graph.png)
+![Zrzut ekranu przedstawiający wykresy metryk skoroszytu dotyczące użycia procesora CPU](./media/workbooks-overview/metrics-graph.png)
 
-![Zrzut ekranu przedstawiający interfejs metryki skoroszytu](./media/workbooks-overview/metrics.png)
+![Zrzut ekranu przedstawiający interfejs metryk skoroszytu](./media/workbooks-overview/metrics.png)
 
 ## <a name="azure-resource-graph"></a>Azure Resource Graph 
 
-Skoroszyty obsługują kwerendy dotyczące zasobów i ich metadanych przy użyciu programu Azure Resource Graph (ARG). Ta funkcja jest używana głównie do tworzenia niestandardowych zakresów kwerend dla raportów. Zakres zasobu jest wyrażona za pośrednictwem podzbiór KQL, który obsługuje ARG — co często jest wystarczające dla typowych przypadków użycia.
+Skoroszyty obsługują zapytania dotyczące zasobów i ich metadanych przy użyciu usługi Azure Resource Graph (ARG). Ta funkcja jest używana głównie do tworzenia niestandardowych zakresów zapytań dla raportów. Zakres zasobów jest wyrażany za pomocą podzestawu KQL, który jest obsługiwany przez argument, który jest często wystarczający dla typowych przypadków użycia.
 
-Aby formant kwerendy używał tego źródła danych, użyj listy rozwijanej Typ kwerendy, aby wybrać program Azure Resource Graph i wybrać subskrypcje docelowe. Użyj formantu Kwerenda, aby dodać arg KQL-podzbiór, który wybiera ciekawy podzbiór zasobów.
+Aby formant zapytania używał tego źródła danych, Użyj listy rozwijanej Typ zapytania, aby wybrać pozycję Azure Resource Graph i wybrać subskrypcje docelowe. Za pomocą kontrolki zapytanie Dodaj wartość ARG KQL-podzestaw, która wybiera interesujący podzbiór zasobów.
 
 
-![Zrzut ekranu przedstawiający kwerendę KQL programu Azure Resource Graph](./media/workbooks-overview/azure-resource-graph.png)
+![Zrzut ekranu przedstawiający zapytanie KQL wykresu zasobów platformy Azure](./media/workbooks-overview/azure-resource-graph.png)
 
 ## <a name="alerts-preview"></a>Alerty (wersja zapoznawcza)
 
-Skoroszyty umożliwiają użytkownikom wizualizowanie aktywnych alertów związanych z ich zasobami. Ta funkcja umożliwia tworzenie raportów, które łączą dane powiadomień (alert) i informacje diagnostyczne (metryki, dzienniki) w jednym raporcie. Te informacje można również połączyć ze sobą, aby utworzyć zaawansowane raporty, które łączą szczegółowe informacje w tych źródłach danych.
+Skoroszyty umożliwiają użytkownikom wizualizację aktywnych alertów związanych ze swoimi zasobami. Ta funkcja umożliwia tworzenie raportów, które łączą dane powiadomień (alertu) i informacje diagnostyczne (metryki, dzienniki) w jeden raport. Te informacje można również łączyć ze sobą, aby tworzyć zaawansowane raporty, które łączą szczegółowe dane w tych źródłach danych.
 
-Aby formant kwerendy używał tego źródła danych, użyj listy rozwijanej Typ kwerendy, aby wybrać pozycję Alerty i wybrać subskrypcje, grupy zasobów lub zasoby do docelowego. Użyj listy rozwijanej filtru alertów, aby wybrać interesujący podzbiór alertów dla twoich potrzeb analitycznych.
+Aby formant zapytania używał tego źródła danych, Użyj listy rozwijanej Typ zapytania, aby wybrać alerty i wybrać subskrypcje, grupy zasobów lub zasoby docelowe. Użyj listy rozwijanej filtr alertów, aby wybrać interesujący podzbiór alertów dla potrzeb analitycznych.
 
-![Zrzut ekranu przedstawiający kwerendę alertów](./media/workbooks-overview/alerts.png)
+![Zrzut ekranu zapytania o alerty](./media/workbooks-overview/alerts.png)
 
 ## <a name="workload-health-preview"></a>Kondycja obciążenia (wersja zapoznawcza)
 
-Usługa Azure Monitor ma funkcje, które proaktywnie monitoruje dostępność i wydajność systemów operacyjnych windows lub linux gości. Usługa Azure Monitor modeluje kluczowe składniki i ich relacje, kryteria pomiaru kondycji tych składników i składniki, które ostrzegają użytkownika po wykryciu warunku w złej kondycji. Skoroszyty umożliwiają użytkownikom korzystanie z tych informacji do tworzenia rozszerzonych raportów interaktywnych.
+Azure Monitor ma funkcję, która aktywnie monitoruje dostępność i wydajność systemów operacyjnych gościa z systemem Windows lub Linux. Azure Monitor modeluje składniki i ich relacje, kryteria służące do mierzenia kondycji tych składników oraz składniki ostrzegające o wykryciu złej kondycji. Skoroszyty umożliwiają użytkownikom korzystanie z tych informacji w celu tworzenia rozbudowanych raportów interaktywnych.
 
-To make a query control use this data source, use the **Query type** drop-down to choose Workload Health and select subscription, resource group or VM resources to target. Użyj rozwijanych filtrów kondycji, aby wybrać interesujący podzbiór zdarzeń dotyczących kondycji dla twoich potrzeb analitycznych.
+Aby formant zapytania używał tego źródła danych, Użyj listy rozwijanej **typ zapytania** , aby wybrać opcję kondycja obciążenia i wybrać opcję subskrypcja, Grupa zasobów lub zasoby maszyn wirtualnych. Użyj listy rozwijanej filtr kondycji, aby wybrać interesujący podzbiór zdarzeń związanych z kondycją dla potrzeb analitycznych.
 
-![Zrzut ekranu przedstawiający kwerendę alertów](./media/workbooks-overview/workload-health.png)
+![Zrzut ekranu zapytania o alerty](./media/workbooks-overview/workload-health.png)
 
-## <a name="azure-resource-health"></a>Kondycja zasobów platformy Azure 
+## <a name="azure-resource-health"></a>Usługa Azure Resource Health 
 
-Skoroszyty obsługują uzyskiwanie kondycji zasobów platformy Azure i łączenie ich z innymi źródłami danych w celu tworzenia bogatych, interaktywnych raportów dotyczących kondycji
+Skoroszyty obsługują uzyskiwanie informacji o kondycji zasobów platformy Azure i łączenie ich z innymi źródłami danych w celu tworzenia zaawansowanych, interaktywnych raportów o kondycji
 
-Aby formant kwerendy używał tego źródła danych, użyj listy rozwijanej **Typ kwerendy,** aby wybrać kondycję platformy Azure i wybrać zasoby docelowe. Użyj rozwijanych filtrów kondycji, aby wybrać interesujący podzbiór problemów z zasobami dla twoich potrzeb analitycznych.
+Aby formant zapytania używał tego źródła danych, Użyj listy rozwijanej **typ zapytania** , aby wybrać opcję kondycja platformy Azure, a następnie wybierz zasoby docelowe. Użyj listy rozwijanej filtr kondycji, aby wybrać interesujący podzbiór problemów dotyczących zasobów dla potrzeb analitycznych.
 
-![Zrzut ekranu przedstawiający kwerendę alertów](./media/workbooks-overview/resource-health.png)
+![Zrzut ekranu zapytania o alerty](./media/workbooks-overview/resource-health.png)
 
-## <a name="azure-data-explorer-preview"></a>Eksplorator danych platformy Azure (wersja zapoznawcza)
+## <a name="azure-data-explorer-preview"></a>Azure Eksplorator danych (wersja zapoznawcza)
 
-Skoroszyty mają teraz obsługę zapytań z klastrów [usługi Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/) za pomocą zaawansowanego języka zapytań [Kusto.](https://docs.microsoft.com/azure/kusto/query/index)   
+Skoroszyty obsługują teraz wykonywanie zapytań z klastrów [usługi Azure Eksplorator danych](https://docs.microsoft.com/azure/data-explorer/) przy użyciu zaawansowanego języka zapytań [Kusto](https://docs.microsoft.com/azure/kusto/query/index) .   
 
 ![Zrzut ekranu przedstawiający okno zapytania Kusto](./media/workbooks-overview/data-explorer.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Rozpocznij](workbooks-visualizations.md) naukę o skoroszytach wiele rozbudowanych opcji wizualizacji.
+* [Rozpocznij](workbooks-visualizations.md) naukę więcej o skoroszytach wiele opcji rozbudowanych wizualizacji.
 * [Kontroluj](workbooks-access-control.md) i udostępniaj dostęp do zasobów skoroszytu.

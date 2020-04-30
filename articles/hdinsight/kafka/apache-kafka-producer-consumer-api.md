@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Apache Kafka Producent & interfejsów API konsumentów - Azure HDInsight'
+title: 'Samouczek: Apache Kafka producenci & interfejsy API konsumentów — Azure HDInsight'
 description: Informacje o sposobie korzystania z interfejsów API producentów i odbiorców platformy Apache Kafka w usłudze HDInsight. W tym samouczku dowiesz się, jak używać tych interfejsów API na platformie Kafka w usłudze HDInsight z poziomu aplikacji Java.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 10/08/2019
 ms.openlocfilehash: 5a7d4d1917f65cd3d836db83600937a3e3d89de6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79239539"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Samouczek: korzystanie z interfejsów API producentów i odbiorców platformy Apache Kafka
@@ -21,7 +21,7 @@ Informacje o sposobie korzystania z interfejsów API producentów i odbiorców p
 
 Interfejs API producenta platformy Kafka umożliwia aplikacjom wysyłanie strumieni danych do klastra Kafka. Interfejs API odbiorcy platformy Kafka umożliwia aplikacjom odczytywanie strumieni danych z klastra.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Wymagania wstępne
@@ -33,20 +33,20 @@ Aby uzyskać więcej informacji o tych interfejsach API, zobacz dokumentację pl
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Apache Kafka w klastrze HDInsight. Aby dowiedzieć się, jak utworzyć klaster, zobacz [Uruchamianie z apache kafka w programie HDInsight](apache-kafka-get-started.md).
-* [Zestaw Java Developer Kit (JDK) w wersji 8](https://aka.ms/azure-jdks) lub równoważnej, takiej jak OpenJDK.
-* [Apache Maven](https://maven.apache.org/download.cgi) prawidłowo [zainstalowany](https://maven.apache.org/install.html) zgodnie z Apache.  Maven to system budowania projektów java.
-* Klient SSH jak Putty. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Apache Kafka w klastrze usługi HDInsight. Aby dowiedzieć się, jak utworzyć klaster, zobacz [Rozpoczynanie pracy z Apache Kafka w usłudze HDInsight](apache-kafka-get-started.md).
+* [Zestaw Java developer Kit (JDK) w wersji 8](https://aka.ms/azure-jdks) lub równoważnej, taki jak OpenJDK.
+* Pakiet [Apache Maven](https://maven.apache.org/download.cgi) został prawidłowo [zainstalowany](https://maven.apache.org/install.html) zgodnie z usługą Apache.  Maven to system kompilacji projektu dla projektów języka Java.
+* Klient SSH, taki jak wyglądająco. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="understand-the-code"></a>Zrozumienie kodu
 
-Przykładowa aplikacja znajduje [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)się `Producer-Consumer` w , w podkatalogu. Jeśli używasz klastra platformy Kafka z włączonym **pakietem zabezpieczeń przedsiębiorstwa (ESP),** należy użyć wersji aplikacji znajdującej `DomainJoined-Producer-Consumer` się w podkatalogu.
+Przykładowa aplikacja znajduje się w [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)lokalizacji w `Producer-Consumer` podkatalogu. Jeśli pakiet Enterprise Security używany jest klaster Kafka **(ESP)** , należy użyć wersji aplikacji znajdującej się w `DomainJoined-Producer-Consumer` podkatalogu.
 
 Ta aplikacja składa się zasadniczo z czterech plików:
 * `pom.xml`: w tym pliku są definiowane zależności projektu, wersja języka Java i metody pakowania.
 * `Producer.java`: ten plik wysyła losowe zdania do platformy Kafka przy użyciu interfejsu API producenta.
 * `Consumer.java`: ten plik korzysta z interfejsu API odbiorcy do odczytywania danych z platformy Kafka i przekazywania ich do wyjścia STDOUT.
-* `AdminClientWrapper.java`: Ten plik używa interfejsu API administratora do tworzenia, opisywania i usuwania tematów platformy Kafka.
+* `AdminClientWrapper.java`: Ten plik używa interfejsu API administratora do tworzenia, opisywania i usuwania tematów Kafka.
 * `Run.java`: interfejs wiersza polecenia używany do uruchamiania kodu producenta i odbiorcy.
 
 ### <a name="pomxml"></a>Pom.xml
@@ -73,7 +73,7 @@ Należy zrozumieć następujące ważne kwestie dotyczące pliku `pom.xml`:
 
 ### <a name="producerjava"></a>Producer.java
 
-Producent komunikuje się z hostami brokera platformy Kafka (węzłami procesu roboczego) i wysyła dane do tematu platformy Kafka. Poniższy fragment kodu pochodzi z pliku [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) z [repozytorium GitHub](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) i pokazuje, jak ustawić właściwości producenta:
+Producent komunikuje się z hostami brokera platformy Kafka (węzłami procesu roboczego) i wysyła dane do tematu platformy Kafka. Poniższy fragment kodu pochodzi z pliku [Producer. Java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) z [repozytorium GitHub](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) i pokazuje, jak ustawić właściwości producenta:
 
 ```java
 Properties properties = new Properties();
@@ -111,15 +111,15 @@ W tym kodzie odbiorca jest skonfigurowany do odczytywania od początku tematu (w
 
 ### <a name="runjava"></a>Run.java
 
-Plik [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java) udostępnia interfejs wiersza polecenia, który uruchamia kod producenta lub konsumenta. Jako parametr należy podać informacje o hoście brokera platformy Kafka. Opcjonalnie można dołączyć wartość identyfikatora grupy, która jest używana przez proces konsumenta. Jeśli utworzysz wiele wystąpień konsumenta przy użyciu tego samego identyfikatora grupy, będą one odczytywanie równoważenia obciążenia z tematu.
+Plik [Run. Java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java) zawiera interfejs wiersza polecenia, w którym jest uruchamiany kod producenta lub konsumenta. Jako parametr należy podać informacje o hoście brokera platformy Kafka. Opcjonalnie możesz dołączyć wartość identyfikatora grupy, która jest używana przez proces odbiorcy. Jeśli utworzysz wiele wystąpień odbiorców przy użyciu tego samego identyfikatora grupy, to spowoduje to załadowanie z tematu równoważenia obciążenia.
 
 ## <a name="build-and-deploy-the-example"></a>Kompilowanie i wdrażanie przykładu
 
-Jeśli chcesz pominąć ten krok, wstępnie utworzone słoiki `Prebuilt-Jars` można pobrać z podkatalogu. Pobierz kafka-producer-consumer.jar. Jeśli klaster jest włączony **jako pakiet zabezpieczeń przedsiębiorstwa (ESP),** należy użyć platformy kafka-producer-consumer-esp.jar. Wykonaj krok 3, aby skopiować słoik do klastra HDInsight.
+Jeśli chcesz pominąć ten krok, prekompilowane Jars można pobrać z `Prebuilt-Jars` podkatalogu. Pobierz plik Kafka-Producer-Consumer. jar. Jeśli klaster jest włączony **pakiet Enterprise Security (ESP)** , użyj Kafka-Producer-Consumer-ESP. jar. Wykonaj krok 3, aby skopiować plik jar do klastra usługi HDInsight.
 
-1. Pobierz i wyodrębnij [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)przykłady z .
+1. Pobierz i Wyodrębnij przykłady z [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)programu.
 
-2. Ustaw bieżący katalog na lokalizację `hdinsight-kafka-java-get-started\Producer-Consumer` katalogu. Jeśli używasz klastra platformy Kafka z włączonym **pakietem zabezpieczeń przedsiębiorstwa (ESP),** należy ustawić lokalizację na `DomainJoined-Producer-Consumer`podkatalog. Użyj następującego polecenia, aby utworzyć aplikację:
+2. Ustaw bieżący katalog na lokalizację `hdinsight-kafka-java-get-started\Producer-Consumer` katalogu. Jeśli pakiet Enterprise Security używasz klastra Kafka **(ESP)** z włączoną obsługą klastrów, należy ustawić lokalizację na `DomainJoined-Producer-Consumer`podkatalog. Użyj następującego polecenia, aby skompilować aplikację:
 
     ```cmd
     mvn clean package
@@ -127,13 +127,13 @@ Jeśli chcesz pominąć ten krok, wstępnie utworzone słoiki `Prebuilt-Jars` mo
 
     To polecenie tworzy katalog o nazwie `target`, który zawiera plik o nazwie `kafka-producer-consumer-1.0-SNAPSHOT.jar`.
 
-3. Zamień ciąg `sshuser` na nazwę użytkownika SSH klastra i zamień ciąg `CLUSTERNAME` na nazwę klastra. Wprowadź następujące polecenie, `kafka-producer-consumer-1.0-SNAPSHOT.jar` aby skopiować plik do klastra HDInsight. Po wyświetleniu monitu wprowadź hasło użytkownika SSH.
+3. Zamień ciąg `sshuser` na nazwę użytkownika SSH klastra i zamień ciąg `CLUSTERNAME` na nazwę klastra. Wprowadź następujące polecenie, aby skopiować `kafka-producer-consumer-1.0-SNAPSHOT.jar` plik do klastra usługi HDInsight. Po wyświetleniu monitu wprowadź hasło użytkownika SSH.
 
     ```cmd
     scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
     ```
 
-## <a name="run-the-example"></a><a id="run"></a>Uruchom przykład
+## <a name="run-the-example"></a><a id="run"></a>Uruchamianie przykładu
 
 1. Zamień ciąg `sshuser` na nazwę użytkownika SSH klastra i zamień ciąg `CLUSTERNAME` na nazwę klastra. Otwórz połączenie SSH z klastrem, wprowadzając następujące polecenie. Jeśli zostanie wyświetlony monit, wprowadź hasło konta użytkownika SSH.
 
@@ -141,7 +141,7 @@ Jeśli chcesz pominąć ten krok, wstępnie utworzone słoiki `Prebuilt-Jars` mo
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Aby uzyskać hosty brokera platformy `<clustername>` Kafka, zastąp wartości i `<password>` w następującym poleceniu i wykonaj je. Użyj tej samej `<clustername>` obudowy, jak pokazano w witrynie Azure portal. Zamień `<password>` hasło logowania klastra, a następnie wykonaj:
+1. Aby uzyskać hosty brokera Kafka, Zastąp wartości `<clustername>` i `<password>` w poniższym poleceniu i wykonaj je. Użyj tej samej wielkości liter `<clustername>` dla, jak pokazano w Azure Portal. Zamień `<password>` na hasło logowania klastra, a następnie wykonaj następujące polecenie:
 
     ```bash
     sudo apt -y install jq
@@ -151,9 +151,9 @@ Jeśli chcesz pominąć ten krok, wstępnie utworzone słoiki `Prebuilt-Jars` mo
     ```
 
     > [!Note]  
-    > To polecenie wymaga dostępu Ambari. Jeśli klaster znajduje się za sieciowej grupy sieciowej, uruchom to polecenie z komputera, który może uzyskać dostęp do ambari.
+    > To polecenie wymaga dostępu Ambari. Jeśli klaster znajduje się za sieciowej grupy zabezpieczeń, Uruchom to polecenie z komputera, który może uzyskać dostęp do Ambari.
 
-1. Utwórz temat `myTest`platformy Kafka, wprowadzając następujące polecenie:
+1. Utwórz temat Kafka, `myTest`wprowadzając następujące polecenie:
 
     ```bash
     java -jar kafka-producer-consumer.jar create myTest $KAFKABROKERS
@@ -195,14 +195,14 @@ tmux new-session 'java -jar kafka-producer-consumer.jar consumer myTest $KAFKABR
 \; attach
 ```
 
-To polecenie używa polecenia `tmux`, aby podzielić terminal na dwie kolumny. W każdej kolumnie jest uruchamiany odbiorca z tą samą wartością identyfikatora grupy. Kiedy odbiorcy zakończą odczytywanie, można zauważyć, że każdy z nich odczytał tylko część rekordów. Użyj __ctrl +__ C `tmux`dwa razy, aby wyjść .
+To polecenie używa polecenia `tmux`, aby podzielić terminal na dwie kolumny. W każdej kolumnie jest uruchamiany odbiorca z tą samą wartością identyfikatora grupy. Kiedy odbiorcy zakończą odczytywanie, można zauważyć, że każdy z nich odczytał tylko część rekordów. __Naciśnij klawisz Ctrl + C__ dwa razy `tmux`, aby wyjść.
 
 Użycie przez klientów w tej samej grupie jest obsługiwane przez partycje tematu. W tym przykładowym kodzie utworzony wcześniej temat `test` ma osiem partycji. Jeśli zostanie uruchomionych ośmiu odbiorców, każdy z nich będzie odczytywał rekordy z jednej partycji tematu.
 
 > [!IMPORTANT]  
 > Grupa odbiorców nie może zawierać więcej wystąpień odbiorców niż partycji. W tym przykładzie jedna grupa odbiorców może zawierać maksymalnie ośmiu odbiorców, ponieważ tyle partycji znajduje się w temacie. Może też istnieć wiele grup odbiorców — każda z nich może zawierać maksymalnie ośmiu odbiorców.
 
-Rekordy przechowywane w kafce są przechowywane w kolejności, w jakiej są odbierane w ramach partycji. Aby dostarczać rekordy *na partycji* w określonej kolejności, utwórz grupę odbiorców, w której liczba wystąpień odbiorców jest zgodna z liczbą partycji. Aby dostarczać rekordy *w temacie* w określonej kolejności, utwórz grupę odbiorców z jednym wystąpieniem odbiorcy.
+Rekordy przechowywane w Kafka są przechowywane w kolejności, w jakiej są odbierane w ramach partycji. Aby dostarczać rekordy *na partycji* w określonej kolejności, utwórz grupę odbiorców, w której liczba wystąpień odbiorców jest zgodna z liczbą partycji. Aby dostarczać rekordy *w temacie* w określonej kolejności, utwórz grupę odbiorców z jednym wystąpieniem odbiorcy.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -218,5 +218,5 @@ Aby usunąć grupę zasobów za pomocą witryny Azure Portal:
 
 W tym dokumencie zawarto informacje o sposobie korzystania z interfejsu API producenta i odbiorcy platformy Apache Kafka w usłudze HDInsight. Dowiedz się więcej o pracy z platformą Kafka, korzystając z następujących zasobów:
 
-* [Użyj serwera proxy Kafka REST](rest-proxy.md)
-* [Analyze Apache Kafka logs](apache-kafka-log-analytics-operations-management.md) (Analizowanie dzienników platformy Apache Kafka)
+* [Użyj serwera proxy REST Kafka](rest-proxy.md)
+* [Analizowanie dzienników platformy Apache Kafka](apache-kafka-log-analytics-operations-management.md)

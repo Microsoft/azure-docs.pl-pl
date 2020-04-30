@@ -1,6 +1,6 @@
 ---
-title: Samouczek kopiowania danych do usługi Azure Data Box Heavy za pośrednictwem systemu plików NFS| Dokumenty firmy Microsoft
-description: Dowiedz się, jak kopiować dane do usługi Azure Data Box Heavy za pośrednictwem systemu plików NFS
+title: Samouczek do kopiowania danych do Azure Data Box Heavy za pomocą systemu plików NFS | Microsoft Docs
+description: Dowiedz się, jak kopiować dane do Azure Data Box Heavy za pośrednictwem systemu plików NFS
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 4361cee3d07408c3abb5031d2ab18c15c92c5e0a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79238986"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-heavy-via-nfs"></a>Samouczek: Kopiowanie danych do usługi Azure Data Box Heavy za pośrednictwem systemu plików NFS
+# <a name="tutorial-copy-data-to-azure-data-box-heavy-via-nfs"></a>Samouczek: kopiowanie danych do Azure Data Box Heavy za pośrednictwem systemu plików NFS
 
-W tym samouczku opisano sposób łączenia się z komputerem-hostem i kopiowania ich przy użyciu lokalnego interfejsu użytkownika sieci Web do usługi Azure Data Box Heavy.
+W tym samouczku opisano sposób nawiązywania połączenia z komputerem hosta i kopiowania danych z niego przy użyciu lokalnego interfejsu użytkownika sieci Web do Azure Data Box Heavy.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Wymagania wstępne
@@ -30,8 +30,8 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 
 Przed rozpoczęciem upewnij się, że:
 
-1. [Ukończono samouczek: Konfigurowanie narzędzia Azure Data Box Heavy](data-box-heavy-deploy-set-up.md).
-2. Otrzymałeśeśeś data box heavy, a stan zamówienia w portalu jest **dostarczany**.
+1. Samouczek został ukończony [: skonfiguruj Azure Data Box Heavy](data-box-heavy-deploy-set-up.md).
+2. Otrzymano Data Box Heavy, a stan zamówienia w portalu jest **dostarczany**.
 3. Masz komputer-host zawierający dane, które mają zostać skopiowane na urządzenie Data Box Heavy. Na komputerze hosta wymagane jest:
     - Uruchom [obsługiwany system operacyjny](data-box-heavy-system-requirements.md).
     - Połączenie z siecią o dużej szybkości. Aby uzyskać największe szybkości kopiowania, można użyć dwóch równoległych połączeń 40-GbE (po jednym na węzeł). Jeśli nie masz dostępnego połączenia 40-GbE, zalecamy skorzystanie z co najmniej dwóch połączeń 10-GbE (po jednym na węzeł). 
@@ -61,7 +61,7 @@ W poniższej tabeli przedstawiono ścieżkę UNC do udziałów na urządzeniu Da
 | Stronicowe obiekty blob platformy Azure  | <li>Ścieżka UNC do udziałów: `//<DeviceIPAddres>/<StorageAccountName_PageBlob>/<ContainerName>/files/a.txt`</li><li>Adres URL w usłudze Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
 | Azure Files       |<li>Ścieżka UNC do udziałów: `//<DeviceIPAddres>/<StorageAccountName_AzFile>/<ShareName>/files/a.txt`</li><li>Adres URL w usłudze Azure Storage: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |
 
-Jeśli używasz komputera-hosta systemu Linux, wykonaj następujące czynności, aby skonfigurować urządzenie tak, aby zezwolić na dostęp do klientów systemu plików NFS.
+Jeśli używasz komputera hosta z systemem Linux, wykonaj następujące kroki, aby skonfigurować urządzenie w celu zezwalania na dostęp do klientów NFS.
 
 1. Podaj adresy IP dozwolonych klientów, którzy mogą uzyskiwać dostęp do udziału. W lokalnym internetowym interfejsie użytkownika przejdź do strony **Połącz i skopiuj**. W obszarze **Ustawienia sieciowego systemu plików** kliknij przycisk **Dostęp klienta do sieciowego systemu plików**. 
 
@@ -77,7 +77,7 @@ Jeśli używasz komputera-hosta systemu Linux, wykonaj następujące czynności,
 
     `sudo mount <Data Box Heavy device IP>:/<NFS share on Data Box Heavy device> <Path to the folder on local Linux computer>`
 
-    W poniższym przykładzie pokazano, jak połączyć się za pośrednictwem systemu plików NFS z udziałem data box heavy. Data Box Heavy `10.161.23.130`IP jest `Mystoracct_Blob` , udział jest zamontowany na ubuntuVM, punkt montażu jest `/home/databoxheavyubuntuhost/databoxheavy`.
+    Poniższy przykład pokazuje, jak nawiązać połączenie za pomocą systemu plików NFS z udziałem Data Box Heavy. Data Box Heavy IP to `10.161.23.130`, udział `Mystoracct_Blob` jest instalowany na ubuntuVM, punktu instalacji. `/home/databoxheavyubuntuhost/databoxheavy`
 
     `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxheavyubuntuhost/databoxheavy`
     
@@ -92,15 +92,15 @@ Jeśli używasz komputera-hosta systemu Linux, wykonaj następujące czynności,
 Po nawiązaniu połączenia z udziałami Data Box Heavy następnym krokiem jest skopiowanie danych. Przed rozpoczęciem kopiowania danych należy uwzględnić następujące kwestie:
 
 - Upewnij się, że dane są kopiowane do udziałów odpowiadających właściwym formatom danych. To znaczy na przykład, że dane blokowych obiektów blob są kopiowane do udziału dla blokowych obiektów blob. Skopiuj wirtualne dyski twarde do stronicowych obiektów blob. Jeśli format danych nie pasuje do odpowiedniego typu udziału, na późniejszym etapie przekazywanie danych na platformę Azure zakończy się niepowodzeniem.
--  Podczas kopiowania danych upewnij się, że rozmiar danych jest zgodny z limitami rozmiaru opisanymi w limitach magazynu platformy Azure i dużych [rozmiarów.](data-box-heavy-limits.md) 
+-  Podczas kopiowania danych upewnij się, że rozmiar danych jest zgodny z limitami rozmiaru opisanymi w [limitach usługi Azure Storage i Data Box Heavy](data-box-heavy-limits.md). 
 - Jeśli dane przekazywane przy użyciu urządzenia Data Box Heavy będą jednocześnie przekazywane przez inne aplikacje, poza urządzeniem Data Box Heavy, skutkiem może być niepowodzenie zadania przekazywania oraz uszkodzenie danych.
 - Nie zaleca się jednoczesnego używania protokołu SMB i sieciowego systemu plików ani kopiowania tych samych danych do tego samego końcowego miejsca docelowego na platformie Azure. W takich przypadkach nie można określić ostatecznego wyniku.
 - **Zawsze należy utworzyć w udziale folder na pliki, które chcesz skopiować, a następnie skopiować pliki do tego folderu**. Folder utworzony w ramach udziałów blokowych obiektów blob i stronicowych obiektów blob reprezentuje kontener, do którego dane są przekazywane w postaci obiektów blob. Plików nie można kopiować bezpośrednio do folderu *głównego* na koncie magazynu.
-- W przypadku pozyskiwania nazw katalogów i plików z funkcji NFS z udziału systemu plików NFS w programie Data Box Heavy: 
-    - Sprawa jest zachowywana w nazwie.
-    - Pliki są niewrażliwe na argumenty.
+- W przypadku pozyskania nazw plików z uwzględnieniem wielkości liter i katalogów z udziału NFS do systemu plików NFS na Data Box Heavy: 
+    - Wielkość liter jest zachowywana w nazwie.
+    - W plikach nie jest rozróżniana wielkość liter.
     
-    Na przykład, jeśli `SampleFile.txt` `Samplefile.Txt`kopiowanie i , sprawa zostanie zachowana w nazwie po skopiowaniu do urządzenia, ale drugi plik zastąpi pierwszy, ponieważ są one uważane za ten sam plik.
+    Na przykład, jeśli kopiowanie `SampleFile.txt` i `Samplefile.Txt`, wielkość liter zostanie zachowana w nazwie podczas kopiowania do urządzenia, ale drugi plik zastąpi pierwsze, ponieważ są one uznawane za ten sam plik.
 
 
 Jeśli korzystasz z komputera-hosta z systemem Linux, użyj narzędzia do kopiowania podobnego do narzędzia Robocopy. W systemie Linux są dostępne na przykład narzędzia [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) lub [Ultracopier](https://ultracopier.first-world.info/).  
@@ -142,7 +142,7 @@ W przypadku korzystania z opcji rsync na potrzeby kopiowania wielowątkowego nal
      Na początku zaleca się użycie 16 równoległych kopii i zwiększanie liczby wątków w zależności od dostępności zasobów.
 
 > [!IMPORTANT]
-> Następujące typy plików systemu Linux nie są obsługiwane: łącza symboliczne, pliki znaków, pliki blokowe, gniazda i potoki. Te typy plików spowoduje błędy podczas **kroku Przygotowanie do wysyłki.**
+> Następujące typy plików systemu Linux nie są obsługiwane: linki symboliczne, pliki znaków, pliki blokowe, gniazda i potoki. Te typy plików spowodują błędy podczas kroku **przygotowanie do wysłania** .
 
 Otwórz folder docelowy, aby wyświetlić i zweryfikować skopiowane pliki. Jeśli podczas procesu kopiowania wystąpiły jakiekolwiek błędy, pobierz pliki z błędami, które pomogą w rozwiązywaniu problemów. Aby uzyskać więcej informacji, zobacz [Wyświetlanie dzienników błędów podczas kopiowania danych na urządzenie Data Box Heavy](data-box-logs.md#view-error-log-during-data-copy). Aby uzyskać szczegółową listę błędów występujących podczas kopiowania danych, zobacz [Rozwiązywanie problemów z urządzeniem Data Box Heavy](data-box-troubleshoot.md).
 

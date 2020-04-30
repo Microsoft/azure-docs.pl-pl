@@ -1,39 +1,39 @@
 ---
-title: Monitorowanie wdrożonego klastra usługi Azure Kubernetes (AKS) | Dokumenty firmy Microsoft
-description: Dowiedz się, jak włączyć monitorowanie klastra usługi Azure Kubernetes (AKS) za pomocą usługi Azure Monitor dla kontenerów już wdrożonych w ramach subskrypcji.
+title: Monitoruj wdrożony klaster usługi Azure Kubernetes Service (AKS) | Microsoft Docs
+description: Dowiedz się, jak włączyć monitorowanie klastra usługi Azure Kubernetes Service (AKS) za pomocą Azure Monitor dla kontenerów już wdrożonych w ramach subskrypcji.
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.openlocfilehash: 8589ea71b5c7affadc61d5e4543f734a660ab543
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79275453"
 ---
-# <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Włącz monitorowanie już wdrożonego klastra usługi Azure Kubernetes (AKS)
+# <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Włącz monitorowanie już wdrożonego klastra usługi Azure Kubernetes Service (AKS)
 
-W tym artykule opisano sposób konfigurowania usługi Azure Monitor dla kontenerów w celu monitorowania zarządzanego klastra kubernetes hostowanego w [usłudze Azure Kubernetes,](https://docs.microsoft.com/azure/aks/) które zostały już wdrożone w ramach subskrypcji.
+W tym artykule opisano sposób konfigurowania Azure Monitor kontenerów do monitorowania zarządzanego klastra Kubernetes hostowanego w [usłudze Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) , która została już wdrożona w ramach subskrypcji.
 
 Można włączyć monitorowanie klastra AKS, który jest już wdrożony przy użyciu jednej z obsługiwanych metod:
 
 * Interfejs wiersza polecenia platformy Azure
 * Terraform
-* [Z usługi Azure Monitor](#enable-from-azure-monitor-in-the-portal) lub [bezpośrednio z klastra AKS](#enable-directly-from-aks-cluster-in-the-portal) w witrynie Azure portal
-* Za [pomocą szablonu usługi Azure Resource Manager](#enable-using-an-azure-resource-manager-template) przy `New-AzResourceGroupDeployment` użyciu polecenia cmdlet programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure.
+* [Z Azure monitor](#enable-from-azure-monitor-in-the-portal) lub [bezpośrednio z klastra AKS](#enable-directly-from-aks-cluster-in-the-portal) w Azure Portal
+* Za pomocą [podanego szablonu Azure Resource Manager](#enable-using-an-azure-resource-manager-template) przy użyciu polecenia `New-AzResourceGroupDeployment` cmdlet Azure PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [Portalu Azure](https://portal.azure.com).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-## <a name="enable-using-azure-cli"></a>Włącz korzystanie z interfejsu wiersza polecenia platformy Azure
+## <a name="enable-using-azure-cli"></a>Włączanie przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Poniższy krok umożliwia monitorowanie klastra AKS przy użyciu interfejsu wiersza polecenia platformy Azure. W tym przykładzie nie są wymagane do tworzenia lub określania istniejącego obszaru roboczego. To polecenie upraszcza proces, tworząc domyślny obszar roboczy w domyślnej grupie zasobów subskrypcji klastra AKS, jeśli nie istnieje jeszcze w regionie.  Utworzony domyślny obszar roboczy przypomina format *DefaultWorkspace\<-\<GUID>- Region>*.  
+Poniższy krok umożliwia monitorowanie klastra AKS przy użyciu interfejsu wiersza polecenia platformy Azure. W tym przykładzie nie trzeba tworzyć ani określać istniejącego obszaru roboczego. To polecenie upraszcza proces przez utworzenie domyślnego obszaru roboczego w domyślnej grupie zasobów subskrypcji klastra AKS, jeśli jeszcze nie istnieje w regionie.  Utworzony domyślny obszar roboczy jest podobny do formatu *DefaultWorkspace-\<GUID>\<-region>*.  
 
 ```azurecli
 az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
 ```
 
-Dane wyjściowe będą podobne do następujących:
+Dane wyjściowe będą wyglądać następująco:
 
 ```output
 provisioningState       : Succeeded
@@ -41,15 +41,15 @@ provisioningState       : Succeeded
 
 ### <a name="integrate-with-an-existing-workspace"></a>Integracja z istniejącym obszarem roboczym
 
-Jeśli wolisz zintegrować z istniejącym obszarem roboczym, wykonaj następujące kroki, aby najpierw zidentyfikować `--workspace-resource-id` pełny identyfikator zasobu obszaru roboczego usługi Log Analytics wymaganego dla parametru, a następnie uruchom polecenie, aby włączyć dodatek monitorowania względem określonego obszaru roboczego.  
+Jeśli wolisz zintegrować z istniejącym obszarem roboczym, wykonaj następujące kroki, aby najpierw zidentyfikować pełny identyfikator zasobu Log Analytics obszaru roboczego, który `--workspace-resource-id` jest wymagany dla tego parametru, a następnie uruchom polecenie, aby włączyć dodatek monitorowania względem określonego obszaru roboczego.  
 
-1. Wyświetl listę wszystkich subskrypcji, do których masz dostęp, używając następującego polecenia:
+1. Wyświetl listę wszystkich subskrypcji, do których masz dostęp, za pomocą następującego polecenia:
 
     ```azurecli
     az account list --all -o table
     ```
 
-    Dane wyjściowe będą podobne do następujących:
+    Dane wyjściowe będą wyglądać następująco:
 
     ```output
     Name                                  CloudName    SubscriptionId                        State    IsDefault
@@ -57,37 +57,37 @@ Jeśli wolisz zintegrować z istniejącym obszarem roboczym, wykonaj następują
     Microsoft Azure                       AzureCloud   68627f8c-91fO-4905-z48q-b032a81f8vy0  Enabled  True
     ```
 
-    Skopiuj wartość **identyfikatora subscriptionid**.
+    Skopiuj wartość identyfikatora **subskrypcji**.
 
-2. Przełącz się do subskrypcji obsługującej obszar roboczy usługi Log Analytics za pomocą następującego polecenia:
+2. Przejdź do subskrypcji, w której znajduje się obszar roboczy Log Analytics, przy użyciu następującego polecenia:
 
     ```azurecli
     az account set -s <subscriptionId of the workspace>
     ```
 
-3. W poniższym przykładzie jest wyświetlana lista obszarów roboczych w subskrypcjach w domyślnym formacie JSON.
+3. Poniższy przykład wyświetla listę obszarów roboczych w Twoich subskrypcjach w domyślnym formacie JSON.
 
     ```azurecli
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-    W danych wyjściowych znajdź nazwę obszaru roboczego, a następnie skopiuj pełny identyfikator zasobu tego obszaru roboczego usługi Log Analytics pod **identyfikatorem**pola .
+    W danych wyjściowych Znajdź nazwę obszaru roboczego, a następnie skopiuj pełny identyfikator zasobu tego Log Analytics obszaru roboczego pod **identyfikatorem**pola.
 
-4. Uruchom następujące polecenie, aby włączyć dodatek monitorowania, zastępując `--workspace-resource-id` wartość parametru. Wartość ciągu musi znajdować się w cudzysłowie:
+4. Uruchom następujące polecenie, aby włączyć dodatek monitorowania, zastępując wartość `--workspace-resource-id` parametru. Wartość ciągu musi znajdować się w podwójnych cudzysłowach:
 
     ```azurecli
     az aks enable-addons -a monitoring -n ExistingManagedCluster -g ExistingManagedClusterRG --workspace-resource-id "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>"
     ```
 
-    Dane wyjściowe będą podobne do następujących:
+    Dane wyjściowe będą wyglądać następująco:
 
     ```output
     provisioningState       : Succeeded
     ```
 
-## <a name="enable-using-terraform"></a>Włącz korzystanie z terraform
+## <a name="enable-using-terraform"></a>Włącz korzystanie z Terraform
 
-1. Dodawanie **oms_agent** profilu dodatku do istniejącego [zasobu azurerm_kubernetes_cluster](https://www.terraform.io/docs/providers/azurerm/d/kubernetes_cluster.html#addon_profile)
+1. Dodawanie profilu dodatku **oms_agent** do istniejącego [zasobu azurerm_kubernetes_cluster](https://www.terraform.io/docs/providers/azurerm/d/kubernetes_cluster.html#addon_profile)
 
    ```
    addon_profile {
@@ -98,76 +98,76 @@ Jeśli wolisz zintegrować z istniejącym obszarem roboczym, wykonaj następują
    }
    ```
 
-2. Dodaj [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) wykonując kroki opisane w dokumentacji terraform.
+2. Dodaj [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) , wykonując czynności opisane w dokumentacji Terraform.
 
-## <a name="enable-from-azure-monitor-in-the-portal"></a>Włącz z usługi Azure Monitor w portalu
+## <a name="enable-from-azure-monitor-in-the-portal"></a>Włączanie z Azure Monitor w portalu
 
-Aby włączyć monitorowanie klastra AKS w witrynie Azure portal z usługi Azure Monitor, wykonaj następujące czynności:
+Aby włączyć monitorowanie klastra AKS w Azure Portal z Azure Monitor, wykonaj następujące czynności:
 
-1. W witrynie Azure portal wybierz pozycję **Monitor**.
+1. W Azure Portal wybierz pozycję **Monitoruj**.
 
-2. Wybierz **pozycję Kontenery** z listy.
+2. Z listy wybierz **kontenery** .
 
-3. Na stronie **Monitor — kontenery** wybierz pozycję **Klastry niemonitorowane**.
+3. Na stronie **monitorowanie kontenerów** wybierz pozycję **Niemonitorowane klastry**.
 
-4. Na liście niemonitorowanych klastrów znajdź kontener na liście i kliknij przycisk **Włącz**.   
+4. Na liście niemonitorowanych klastrów Znajdź kontener na liście i kliknij pozycję **Włącz**.   
 
-5. Na stronie **Dołączanie do usługi Azure Monitor dla kontenerów,** jeśli masz istniejący obszar roboczy usługi Log Analytics w tej samej subskrypcji co klaster, wybierz go z listy rozwijanej.  
-    Lista wstępnieselektuje domyślny obszar roboczy i lokalizację, do których kontener AKS jest wdrażany w ramach subskrypcji.
+5. Na stronie Dołączanie **do Azure monitor dla kontenerów** Jeśli masz istniejący obszar roboczy log Analytics w tej samej subskrypcji co klaster, wybierz go z listy rozwijanej.  
+    Na tej liście jest wybierany domyślny obszar roboczy i lokalizacja, w ramach której jest wdrażany kontener AKS.
 
-    ![Włączanie monitorowania szczegółowych informacji kontenerów AKS](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
+    ![Włącz monitorowanie usługi AKS Container Insights](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
 
     >[!NOTE]
-    >Jeśli chcesz utworzyć nowy obszar roboczy usługi Log Analytics do przechowywania danych monitorowania z klastra, postępuj zgodnie z instrukcjami w [obszarze roboczym Tworzenie usługi Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). Pamiętaj, aby utworzyć obszar roboczy w tej samej subskrypcji, w których wdrożono kontener AKS.
+    >Jeśli chcesz utworzyć nowy obszar roboczy Log Analytics do przechowywania danych monitorowania z klastra, postępuj zgodnie z instrukcjami w temacie [tworzenie log Analytics obszaru roboczego](../../azure-monitor/learn/quick-create-workspace.md). Upewnij się, że obszar roboczy jest tworzony w tej samej subskrypcji, w której jest wdrażany kontener AKS.
 
 Po włączeniu monitorowania może upłynąć około 15 minut, zanim będzie można wyświetlić metryki kondycji klastra.
 
-## <a name="enable-directly-from-aks-cluster-in-the-portal"></a>Włączanie bezpośrednio z klastra AKS w portalu
+## <a name="enable-directly-from-aks-cluster-in-the-portal"></a>Włącz bezpośrednio z klastra AKS w portalu
 
-Aby włączyć monitorowanie bezpośrednio z jednego z klastrów AKS w witrynie Azure portal, wykonaj następujące czynności:
+Aby włączyć monitorowanie bezpośrednio z jednego z klastrów AKS w Azure Portal, wykonaj następujące czynności:
 
-1. W witrynie Azure portal wybierz pozycję **Wszystkie usługi**.
+1. W Azure Portal wybierz pozycję **wszystkie usługi**.
 
-2. Na liście zasobów rozpocznij wpisywanie **kontenerów**.  Lista filtruje na podstawie danych wejściowych.
+2. Na liście zasobów Rozpocznij wpisywanie **kontenerów**.  Lista filtruje się na podstawie danych wejściowych.
 
-3. Wybierz **pozycję Usługi Kubernetes**.  
+3. Wybierz pozycję **Kubernetes Services**.  
 
-    ![Łącze usług Kubernetes](./media/container-insights-onboard/portal-search-containers-01.png)
+    ![Link usług Kubernetes Services](./media/container-insights-onboard/portal-search-containers-01.png)
 
 4. Na liście kontenerów wybierz kontener.
 
-5. Na stronie przegląd kontenerów wybierz pozycję **Monitoruj kontenery**.  
+5. Na stronie Przegląd kontenera wybierz pozycję **Monitoruj kontenery**.  
 
-6. Na stronie **Dołączanie do usługi Azure Monitor dla kontenerów,** jeśli masz istniejący obszar roboczy usługi Log Analytics w tej samej subskrypcji co klaster, wybierz go na liście rozwijanej.  
-    Lista wstępnieselektuje domyślny obszar roboczy i lokalizację, do których kontener AKS jest wdrażany w ramach subskrypcji.
+6. Na stronie Dołączanie **do Azure monitor dla kontenerów** Jeśli masz istniejący obszar roboczy log Analytics w tej samej subskrypcji co klaster, wybierz go na liście rozwijanej.  
+    Na tej liście jest wybierany domyślny obszar roboczy i lokalizacja, w ramach której jest wdrażany kontener AKS.
 
-    ![Włączanie monitorowania kondycji kontenera AKS](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)
+    ![Włącz monitorowanie kondycji kontenera AKS](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)
 
     >[!NOTE]
-    >Jeśli chcesz utworzyć nowy obszar roboczy usługi Log Analytics do przechowywania danych monitorowania z klastra, postępuj zgodnie z instrukcjami w [obszarze roboczym Tworzenie usługi Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). Pamiętaj, aby utworzyć obszar roboczy w tej samej subskrypcji, w których wdrożono kontener AKS.
+    >Jeśli chcesz utworzyć nowy obszar roboczy Log Analytics do przechowywania danych monitorowania z klastra, postępuj zgodnie z instrukcjami w temacie [tworzenie log Analytics obszaru roboczego](../../azure-monitor/learn/quick-create-workspace.md). Upewnij się, że obszar roboczy jest tworzony w tej samej subskrypcji, w której jest wdrażany kontener AKS.
 
 Po włączeniu monitorowania może upłynąć około 15 minut, zanim będzie można wyświetlić dane operacyjne dla klastra.
 
-## <a name="enable-using-an-azure-resource-manager-template"></a>Włączanie przy użyciu szablonu usługi Azure Resource Manager
+## <a name="enable-using-an-azure-resource-manager-template"></a>Włączanie przy użyciu szablonu Azure Resource Manager
 
-Ta metoda zawiera dwa szablony JSON. Jeden szablon określa konfigurację włączania monitorowania, a drugi zawiera wartości parametrów skonfigurowane w celu określenia następujących wartości:
+Ta metoda obejmuje dwa szablony JSON. Jeden szablon określa konfigurację umożliwiającą monitorowanie, a druga zawiera wartości parametrów, które można skonfigurować, aby określić następujące elementy:
 
 * Identyfikator zasobu kontenera AKS.
-* Grupa zasobów, w których jest wdrażany klaster.
+* Grupa zasobów, w której jest wdrażany klaster.
 
 >[!NOTE]
 >Szablon musi zostać wdrożony w tej samej grupie zasobów co klaster.
 >
 
-Obszar roboczy usługi Log Analytics musi zostać utworzony przed włączeniem monitorowania przy użyciu programu Azure PowerShell lub interfejsu wiersza polecenia. Aby utworzyć obszar roboczy, można go skonfigurować za pośrednictwem [usługi Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), za pośrednictwem programu [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)lub w [portalu Azure](../../azure-monitor/learn/quick-create-workspace.md).
+Aby można było włączyć monitorowanie za pomocą Azure PowerShell lub interfejsu wiersza polecenia, należy utworzyć obszar roboczy Log Analytics. Aby utworzyć obszar roboczy, można go skonfigurować za pomocą [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), za pomocą [programu PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)lub [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md).
 
-Jeśli nie znasz pojęcia wdrażania zasobów przy użyciu szablonu, zobacz:
+Jeśli nie znasz koncepcji wdrażania zasobów przy użyciu szablonu, zobacz:
 
 * [Deploy resources with Resource Manager templates and Azure PowerShell (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i programu Azure PowerShell)](../../azure-resource-manager/templates/deploy-powershell.md)
 
-* [Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i interfejsu wiersza polecenia platformy Azure](../../azure-resource-manager/templates/deploy-cli.md)
+* [Wdrażanie zasobów za pomocą szablonów Menedżer zasobów i interfejsu wiersza polecenia platformy Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Jeśli zdecydujesz się korzystać z interfejsu wiersza polecenia platformy Azure, najpierw należy zainstalować i używać interfejsu wiersza polecenia lokalnie. Musi być uruchomiony interfejsu wiersza polecenia platformy Azure w wersji 2.0.59 lub nowszej. Aby zidentyfikować swoją `az --version`wersję, uruchom polecenie . Jeśli chcesz zainstalować lub uaktualnić platformę Azure CLI, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Jeśli zdecydujesz się na korzystanie z interfejsu wiersza polecenia platformy Azure, musisz najpierw zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie. Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.59 lub nowszej. Aby zidentyfikować swoją wersję, uruchom `az --version`polecenie. Jeśli konieczne jest zainstalowanie lub uaktualnienie interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="create-and-execute-a-template"></a>Tworzenie i wykonywanie szablonu
 
@@ -227,9 +227,9 @@ Jeśli zdecydujesz się korzystać z interfejsu wiersza polecenia platformy Azur
     }
     ```
 
-2. Zapisz ten plik jako **istniejącyClusterOnboarding.json** w folderze lokalnym.
+2. Zapisz ten plik jako **existingClusterOnboarding. JSON** w folderze lokalnym.
 
-3. Wklej do pliku następującą składnię JSON:
+3. Wklej następującą składnię JSON do pliku:
 
     ```json
     {
@@ -256,27 +256,27 @@ Jeśli zdecydujesz się korzystać z interfejsu wiersza polecenia platformy Azur
     }
     ```
 
-4. Edytuj wartości **aksResourceId** i **aksResourceLocation** przy użyciu wartości na stronie **Przegląd AKS** dla klastra AKS. Wartość **workspaceResourceId** jest pełny identyfikator zasobu obszaru roboczego usługi Log Analytics, który zawiera nazwę obszaru roboczego.
+4. Edytuj wartości dla **aksResourceId** i **aksResourceLocation** przy użyciu wartości na stronie **Przegląd AKS** dla klastra AKS. Wartość **workspaceResourceId** to pełny identyfikator zasobu obszaru roboczego log Analytics, który obejmuje nazwę obszaru roboczego.
 
-    Edytuj wartości **wartości aksResourceTagValues,** aby dopasować je do istniejących wartości tagów określonych dla klastra AKS.
+    Edytuj wartości dla **aksResourceTagValues** , aby pasowały do istniejących wartości tagów określonych dla klastra AKS.
 
-5. Zapisz ten plik jako **istniejącyClusterParam.json** w folderze lokalnym.
+5. Zapisz ten plik jako **existingClusterParam. JSON** w folderze lokalnym.
 
 6. Wszystko jest teraz gotowe do wdrożenia tego szablonu.
 
-   * Aby wdrożyć za pomocą programu Azure PowerShell, należy użyć następujących poleceń w folderze, który zawiera szablon:
+   * Aby wdrożyć program przy użyciu Azure PowerShell, użyj następujących poleceń w folderze zawierającym szablon:
 
        ```powershell
        New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
        ```
 
-       Zmiana konfiguracji może potrwać kilka minut. Po jego zakończeniu zostanie wyświetlony komunikat podobny do następującego i zawiera wynik:
+       Zmiana konfiguracji może potrwać kilka minut. Po zakończeniu zostanie wyświetlony komunikat podobny do poniższego i zawiera wynik:
 
        ```output
        provisioningState       : Succeeded
        ```
 
-   * Aby wdrożyć za pomocą interfejsu wiersza polecenia platformy Azure, uruchom następujące polecenia:
+   * Aby przeprowadzić wdrożenie przy użyciu interfejsu wiersza polecenia platformy Azure, uruchom następujące polecenia:
 
        ```azurecli
        az login
@@ -284,7 +284,7 @@ Jeśli zdecydujesz się korzystać z interfejsu wiersza polecenia platformy Azur
        az group deployment create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
        ```
 
-       Zmiana konfiguracji może potrwać kilka minut. Po jego zakończeniu zostanie wyświetlony komunikat podobny do następującego i zawiera wynik:
+       Zmiana konfiguracji może potrwać kilka minut. Po zakończeniu zostanie wyświetlony komunikat podobny do poniższego i zawiera wynik:
 
        ```output
        provisioningState       : Succeeded
@@ -292,19 +292,19 @@ Jeśli zdecydujesz się korzystać z interfejsu wiersza polecenia platformy Azur
 
        Po włączeniu monitorowania może upłynąć około 15 minut, zanim będzie można wyświetlić metryki kondycji klastra.
 
-## <a name="verify-agent-and-solution-deployment"></a>Weryfikowanie wdrażania agenta i rozwiązania
+## <a name="verify-agent-and-solution-deployment"></a>Weryfikowanie wdrożenia agenta i rozwiązania
 
-W wersji agenta *06072018* lub nowszej można sprawdzić, czy agent i rozwiązanie zostały pomyślnie wdrożone. We wcześniejszych wersjach agenta można zweryfikować tylko wdrożenie agenta.
+W przypadku agenta w wersji *06072018* lub nowszej można sprawdzić, czy zarówno Agent, jak i rozwiązanie zostały pomyślnie wdrożone. W przypadku wcześniejszych wersji agenta można zweryfikować tylko wdrożenie agenta.
 
-### <a name="agent-version-06072018-or-later"></a>Wersja agenta 06072018 lub nowsza
+### <a name="agent-version-06072018-or-later"></a>Agent w wersji 06072018 lub nowszej
 
-Uruchom następujące polecenie, aby sprawdzić, czy agent został pomyślnie wdrożony.
+Uruchom następujące polecenie, aby sprawdzić, czy Agent został wdrożony pomyślnie.
 
 ```
 kubectl get ds omsagent --namespace=kube-system
 ```
 
-Dane wyjściowe powinny przypominać następujące, co wskazuje, że został wdrożony poprawnie:
+Dane wyjściowe powinny wyglądać podobnie do poniższego, co oznacza, że zostało prawidłowo wdrożone:
 
 ```output
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
@@ -318,7 +318,7 @@ Aby zweryfikować wdrożenie rozwiązania, uruchom następujące polecenie:
 kubectl get deployment omsagent-rs -n=kube-system
 ```
 
-Dane wyjściowe powinny przypominać następujące, co wskazuje, że został wdrożony poprawnie:
+Dane wyjściowe powinny wyglądać podobnie do poniższego, co oznacza, że zostało prawidłowo wdrożone:
 
 ```output
 User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system
@@ -328,13 +328,13 @@ omsagent   1         1         1            1            3h
 
 ### <a name="agent-version-earlier-than-06072018"></a>Wersja agenta wcześniejsza niż 06072018
 
-Aby sprawdzić, czy wersja agenta usługi Log Analytics wydana przed *06072018* jest poprawnie wdrożona, uruchom następujące polecenie:  
+Aby sprawdzić, czy wersja agenta Log Analytics wydana przed *06072018* zostanie wdrożona prawidłowo, uruchom następujące polecenie:  
 
 ```
 kubectl get ds omsagent --namespace=kube-system
 ```
 
-Dane wyjściowe powinny przypominać następujące, co wskazuje, że został wdrożony poprawnie:  
+Dane wyjściowe powinny wyglądać podobnie do poniższego, co oznacza, że zostało prawidłowo wdrożone:  
 
 ```output
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
@@ -342,15 +342,15 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR 
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
 
-## <a name="view-configuration-with-cli"></a>Wyświetlanie konfiguracji za pomocą interfejsu wiersza polecenia
+## <a name="view-configuration-with-cli"></a>Wyświetl konfigurację przy użyciu interfejsu wiersza polecenia
 
-Użyj `aks show` polecenia, aby uzyskać szczegółowe informacje, takie jak jest włączone rozwiązanie lub nie, co to jest log analytics obszar roboczy resourceID i szczegóły podsumowania o klastrze.  
+Użyj `aks show` polecenia, aby uzyskać szczegółowe informacje, takie jak rozwiązanie włączone lub nie, co to jest identyfikator zasobu obszaru roboczego log Analytics i szczegóły podsumowania klastra.  
 
 ```azurecli
 az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
 ```
 
-Po kilku minutach polecenie kończy i zwraca informacje o rozwiązaniu w formacie JSON.  Wyniki polecenia powinny wyświetlać profil dodatku monitorowania i przypomina następujące przykładowe dane wyjściowe:
+Po kilku minutach polecenie zostanie wykonane i zwróci informacje w formacie JSON o rozwiązaniu.  Wyniki polecenia powinny zawierać profil dodatku monitorowania i podobne do następujących przykładowych danych wyjściowych:
 
 ```output
 "addonProfiles": {
@@ -365,6 +365,6 @@ Po kilku minutach polecenie kończy i zwraca informacje o rozwiązaniu w formaci
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Jeśli podczas próby wprowadzenia rozwiązania wystąpią problemy, zapoznaj się z [przewodnikiem rozwiązywania problemów](container-insights-troubleshoot.md)
+* Jeśli wystąpią problemy podczas próby dołączenia rozwiązania, zapoznaj się z [przewodnikiem rozwiązywania problemów](container-insights-troubleshoot.md)
 
-* Dzięki możliwości monitorowania włączonemu do zbierania kondycji i wykorzystania zasobów klastra AKS i uruchomionych na nich obciążeń dowiedz się, [jak używać](container-insights-analyze.md) usługi Azure Monitor dla kontenerów.
+* Po włączeniu monitorowania w celu zbierania danych o kondycji i użyciu zasobów klastra AKS oraz obciążeń na nich uruchomionych należy dowiedzieć się, [jak używać](container-insights-analyze.md) Azure monitor do kontenerów.
