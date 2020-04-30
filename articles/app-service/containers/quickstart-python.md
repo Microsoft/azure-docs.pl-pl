@@ -1,34 +1,34 @@
 ---
-title: 'Szybki start: tworzenie aplikacji Python linux'
-description: Rozpocznij pracę z aplikacjami systemu Linux w usłudze Azure App Service, wdrażając pierwszą aplikację języka Python w kontenerze systemu Linux w usłudze App Service.
+title: 'Szybki Start: Tworzenie aplikacji w języku Python dla systemu Linux'
+description: Zacznij korzystać z aplikacji systemu Linux na Azure App Service, wdrażając pierwszą aplikację w języku Python w kontenerze systemu Linux w App Service.
 ms.topic: quickstart
 ms.date: 04/03/2020
 ms.custom: seo-python-october2019, cli-validate
 experimental: true
 experiment_id: 01a9132f-eaab-4c
 ms.openlocfilehash: 7f8d21cbccc1a6eec7f62ab5d129f3f0637b8d13
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82085131"
 ---
-# <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Szybki start: tworzenie aplikacji języka Python w usłudze Azure App Service w systemie Linux
+# <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Szybki Start: Tworzenie aplikacji w języku Python w Azure App Service w systemie Linux
 
-W tym przewodniku Szybki start można wdrożyć aplikację sieci Web języka Python do [usługi App Service w systemie Linux](app-service-linux-intro.md), wysoce skalowalna, samoładująca się usługa hostingu azure. Lokalny interfejs [wiersza polecenia platformy Azure (CLI)](/cli/azure/install-azure-cli) jest używany na komputerze Mac, Linux lub Windows. Skonfigurowana aplikacja sieci web używa bezpłatnej warstwy usługi App Service, więc w trakcie tego artykułu nie ponosisz żadnych kosztów.
+W tym przewodniku szybki start wdrożono aplikację sieci Web w języku Python w celu [App Service w systemie Linux](app-service-linux-intro.md)— wysoce skalowalna, samoobsługowa usługa hostingu sieci Web na platformie Azure. Używasz lokalnego [interfejsu wiersza polecenia platformy Azure (CLI)](/cli/azure/install-azure-cli) na komputerze Mac, Linux lub Windows. Skonfigurowana aplikacja internetowa korzysta z bezpłatnej warstwy App Service, więc nie ponosisz żadnych kosztów w ramach tego artykułu.
 
-Jeśli wolisz wdrażać aplikacje za pośrednictwem ide, zobacz [Wdrażanie aplikacji języka Python w usłudze App Service z programu Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
+Jeśli wolisz wdrażać aplikacje za pośrednictwem środowiska IDE, zobacz [wdrażanie aplikacji w języku Python do App Service z Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure — [utwórz bezpłatną subskrypcję](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- <a href="https://www.python.org/downloads/" target="_blank">Python 3.7</a> (Python 3.6 jest również obsługiwany)
+- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- <a href="https://www.python.org/downloads/" target="_blank">Python 3,7</a> (obsługiwane jest również środowisko Python 3,6)
 - <a href="https://git-scm.com/downloads" target="_blank">Git</a>
-- <a href="https://docs.microsoft.com/cli/azure/install-azure-cli" target="_blank">Narzędzie CLI platformy Azure</a> 2.0.80 lub nowsze. Uruchom polecenie `az --version`, aby sprawdzić wersję.
+- <a href="https://docs.microsoft.com/cli/azure/install-azure-cli" target="_blank">Interfejs wiersza polecenia platformy Azure</a> 2.0.80 lub wyższy. Uruchom polecenie `az --version`, aby sprawdzić wersję.
 
 ## <a name="download-the-sample"></a>Pobierz przykład
 
-W oknie terminala uruchom następujące polecenie, aby sklonować przykładową aplikację na komputerze lokalnym. 
+W oknie terminalu uruchom następujące polecenie, aby sklonować przykładową aplikację na komputer lokalny. 
 
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
@@ -40,11 +40,11 @@ Następnie przejdź do tego folderu:
 cd python-docs-hello-world
 ```
 
-Repozytorium zawiera plik *application.py,* który informuje app service, że kod zawiera aplikację Flask. Aby uzyskać więcej informacji, zobacz [Proces uruchamiania kontenera i dostosowania](how-to-configure-python.md).
+Repozytorium zawiera plik *Application.py* , który informuje App Service, że kod zawiera aplikację z kolbą. Aby uzyskać więcej informacji, zobacz [Proces uruchamiania kontenera i dostosowania](how-to-configure-python.md).
 
 ## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 
-W oknie terminala użyj poniższych poleceń (odpowiednio dla systemu operacyjnego), aby zainstalować wymagane zależności i uruchomić wbudowany serwer dewelopera. 
+W oknie terminalu Użyj poleceń poniżej (odpowiednio dla danego systemu operacyjnego), aby zainstalować wymagane zależności i uruchomić wbudowany serwer programistyczny. 
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
@@ -78,38 +78,38 @@ flask run
 
 ---
 
-Otwórz przeglądarkę internetową i przejdź do `http://localhost:5000/`przykładowej aplikacji pod adresem . Aplikacja wyświetla komunikat **Hello World!**.
+Otwórz przeglądarkę internetową i przejdź do przykładowej aplikacji pod adresem `http://localhost:5000/`. Aplikacja wyświetli komunikat **Hello World!**.
 
-![Lokalne uruchamianie przykładowej aplikacji języka Python](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
+![Uruchamianie przykładowej aplikacji w języku Python lokalnie](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
 
-W oknie terminala naciśnij klawisz **Ctrl**+**C,** aby wyjść z serwera sieci Web.
+W oknie terminalu naciśnij klawisz **Ctrl**+**, aby wyjść z serwera** sieci Web.
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Narzędzie wiersza polecenia platformy Azure zapewnia wiele wygodnych poleceń używanych z terminala lokalnego do inicjowania obsługi administracyjnej zasobów platformy Azure i zarządzania nimi z wiersza polecenia. Polecenia służy do wykonywania tych samych zadań, które można za pośrednictwem witryny Azure portal w przeglądarce. Można również użyć poleceń interfejsu wiersza polecenia w skryptach do automatyzacji procesów zarządzania.
+Interfejs wiersza polecenia platformy Azure udostępnia wiele wygodnych poleceń, które są używane z lokalnego terminalu do aprowizacji zasobów platformy Azure i zarządzania nimi z wiersza poleceń. Polecenia służą do wykonywania tych samych zadań, które można wykonać za pomocą Azure Portal w przeglądarce. Do automatyzowania procesów zarządzania można także używać poleceń interfejsu wiersza polecenia w skryptach.
 
-Aby uruchomić polecenia platformy Azure w platformie Azure `az login` CLI, należy najpierw zalogować się przy użyciu polecenia. To polecenie otwiera przeglądarkę w celu zebrania poświadczeń.
+Aby uruchomić polecenia platformy Azure w interfejsie wiersza polecenia platformy Azure, musisz najpierw zalogować się przy użyciu `az login` polecenia. To polecenie umożliwia otwarcie przeglądarki w celu zebrania poświadczeń.
 
 ```azurecli
 az login
 ```
 
-## <a name="deploy-the-sample"></a>Wdrażanie próbki
+## <a name="deploy-the-sample"></a>Wdróż przykład
 
-Polecenie [`az webapp up`](/cli/azure/webapp#az-webapp-up) tworzy aplikację sieci web w usłudze App Service i wdraża kod.
+[`az webapp up`](/cli/azure/webapp#az-webapp-up) Polecenie tworzy aplikację sieci web na App Service i wdraża swój kod.
 
-W folderze *python-docs-hello-world* zawierającym przykładowy `az webapp up` kod uruchom następujące polecenie. Zamień `<app-name>` na globalnie unikatową nazwę aplikacji *(prawidłowe znaki to `a-z`, `0-9`i `-` *).
+W folderze *Python-docs-Hello-World* , który zawiera przykładowy kod, uruchom następujące `az webapp up` polecenie. Zamień `<app-name>` na globalnie unikatową nazwę aplikacji (*prawidłowe znaki to `a-z`, `0-9`i `-` *).
 
 
 ```azurecli
 az webapp up --sku F1 -n <app-name>
 ```
 
-Argument `--sku F1` tworzy aplikację sieci web w warstwie Bezpłatne ceny. Można pominąć ten argument, aby zamiast tego użyć warstwy premium, która wiąże się z kosztem godzinowym.
+`--sku F1` Argument tworzy aplikację sieci Web w warstwie cenowej bezpłatna. Możesz pominąć ten argument, aby zamiast tego użyć warstwy Premium, która ponosi koszt godzinowy.
 
-Opcjonalnie można dołączyć `-l <location-name>` argument, gdzie `<location_name>` jest region azure, takich jak **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, i tak dalej. Listę dozwolonych regionów dla konta platformy Azure można pobrać, uruchamiając [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) polecenie.
+Opcjonalnie `-l <location-name>` możesz dołączyć argument, gdzie `<location_name>` jest regionem świadczenia usługi Azure, takim jak **środkowe**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**i tak dalej. Możesz pobrać listę dozwolonych regionów dla Twojego konta platformy Azure, uruchamiając [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) polecenie.
 
-Całkowite `az webapp up` uruchomienie polecenia może potrwać kilka minut. Podczas pracy wyświetla informacje podobne do poniższego przykładu, gdzie `<app-name>` będzie nazwa podana wcześniej:
+Wykonanie `az webapp up` polecenia może potrwać kilka minut. W trakcie działania są wyświetlane informacje podobne do poniższego przykładu, `<app-name>` gdzie zostanie podana wcześniej Nazwa:
 
 <pre>
 Creating Resource group 'appsvc_rg_Linux_centralus' ...
@@ -141,17 +141,17 @@ You can launch the app at http://&lt;app-name&gt;.azurewebsites.net
 
 ## <a name="browse-to-the-app"></a>Przechodzenie do aplikacji
 
-Przejdź do wdrożonej aplikacji w przeglądarce `http://<app-name>.azurewebsites.net`internetowej pod adresem URL .
+Przejdź do wdrożonej aplikacji w przeglądarce sieci Web pod adresem URL `http://<app-name>.azurewebsites.net`.
 
-Przykładowy kod języka Python jest uruchomiony kontener systemu Linux w usłudze App Service przy użyciu wbudowanego obrazu.
+Przykładowy kod w języku Python używa kontenera systemu Linux w App Service przy użyciu wbudowanego obrazu.
 
-![Uruchamianie przykładowej aplikacji języka Python na platformie Azure](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
+![Uruchamianie przykładowej aplikacji w języku Python na platformie Azure](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
 
-**Gratulacje!** Aplikacja Języka Python została wdrożona w usłudze App Service w systemie Linux.
+**Gratulacje!** Aplikacja w języku Python została wdrożona w celu App Service w systemie Linux.
 
-## <a name="redeploy-updates"></a>Ponowne wdrożenie aktualizacji
+## <a name="redeploy-updates"></a>Wdróż ponownie aktualizacje
 
-W ulubionym edytorze kodu otwórz *application.py* i `hello` zaktualizuj tę funkcję w następujący sposób. Ta zmiana `print` dodaje instrukcję do generowania danych wyjściowych rejestrowania, które można pracować z w następnej sekcji. 
+W ulubionym edytorze kodu Otwórz *Application.py* i zaktualizuj `hello` funkcję w następujący sposób. Ta zmiana powoduje dodanie `print` instrukcji w celu wygenerowania danych wyjściowych rejestrowania, które są używane w następnej sekcji. 
 
 ```python
 def hello():
@@ -161,63 +161,63 @@ def hello():
 
 Zapisz zmiany i zamknij edytor. 
 
-Ponownie rozesz się `az webapp up` ponownie aplikacji za pomocą polecenia ponownie:
+Ponownie Wdróż aplikację przy użyciu `az webapp up` polecenia:
 
 ```azurecli
 az webapp up
 ```
 
-To polecenie używa wartości, które są buforowane w pliku *.azure/config,* w tym nazwę aplikacji, grupę zasobów i plan usługi App Service.
+To polecenie używa wartości przechowywanych w pamięci podręcznej w pliku *. Azure/config* , łącznie z nazwą aplikacji, grupą zasobów i planem App Service.
 
-Po zakończeniu wdrażania przełącz się z `http://<app-name>.azurewebsites.net` powrotem do otwartego okna przeglądarki i odśwież stronę, która powinna wyświetlić zmodyfikowany komunikat:
+Po zakończeniu wdrażania Przełącz się z powrotem do okna przeglądarki Otwórz `http://<app-name>.azurewebsites.net` i Odśwież stronę, która powinna wyświetlać zmodyfikowany komunikat:
 
-![Uruchamianie zaktualizowanej przykładowej aplikacji języka Python na platformie Azure](./media/quickstart-python/run-updated-hello-world-sample-python-app-in-browser.png)
+![Uruchamianie zaktualizowanej przykładowej aplikacji w języku Python na platformie Azure](./media/quickstart-python/run-updated-hello-world-sample-python-app-in-browser.png)
 
 > [!TIP]
-> Visual Studio Code udostępnia zaawansowane rozszerzenia dla języka Python i usługi Azure App Service, które upraszczają proces wdrażania aplikacji internetowych języka Python w usłudze App Service. Aby uzyskać więcej informacji, zobacz [Wdrażanie aplikacji języka Python w usłudze App Service z programu Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
+> Visual Studio Code zapewnia zaawansowane rozszerzenia dla języka Python i Azure App Service, co upraszcza proces wdrażania aplikacji sieci Web w języku Python w App Service. Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji w języku Python do App Service z Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
 
 ## <a name="stream-logs"></a>Strumieniowe przesyłanie dzienników
 
-Można uzyskać dostęp do dzienników konsoli generowanych z wewnątrz aplikacji i kontenera, w którym działa. Dzienniki obejmują wszelkie `print` dane wyjściowe generowane przy użyciu instrukcji.
+Można uzyskać dostęp do dzienników konsoli wygenerowanych z wewnątrz aplikacji i kontenera, w którym działa. Dzienniki zawierają wszystkie dane wyjściowe wygenerowane przy użyciu `print` instrukcji.
 
-Aby przesyłać strumieniowo dzienniki, uruchom następujące polecenie:
+Aby przesłać strumieniowo dzienniki, uruchom następujące polecenie:
 
 ```azurecli
 az webapp log tail
 ```
 
-Odśwież aplikację w przeglądarce, aby wygenerować dzienniki konsoli, które powinny zawierać wiersze podobne do następującego tekstu. Jeśli nie widzisz danych wyjściowych od razu, spróbuj ponownie w ciągu 30 sekund.
+Odśwież aplikację w przeglądarce, aby generować dzienniki konsoli, które powinny zawierać wiersze podobne do poniższego tekstu. Jeśli dane wyjściowe nie są widoczne natychmiast, spróbuj ponownie za 30 sekund.
 
 <pre>
 2020-04-03T22:54:04.236405938Z Handling request to home page.
 2020-04-03T22:54:04.236497641Z 172.16.0.1 - - [03/Apr/2020:22:54:04 +0000] "GET / HTTP/1.1" 200 12 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.83 Safari/537.36 Edg/81.0.416.41"
 </pre>
 
-Można również sprawdzić pliki dziennika z `https://<app-name>.scm.azurewebsites.net/api/logs/docker`przeglądarki w .
+Możesz również sprawdzić pliki dziennika z przeglądarki pod adresem `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
 
-Aby zatrzymać przesyłanie strumieniowe `Ctrl` + `C`dziennika w dowolnym momencie, wpisz .
+Aby zatrzymać przesyłanie strumieniowe dzienników w dowolnym momencie `Ctrl` + `C`, wpisz polecenie.
 
 ## <a name="manage-the-azure-app"></a>Zarządzanie aplikacją platformy Azure
 
-Przejdź do witryny <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, aby zarządzać utworzoną aplikacją. Wyszukaj i wybierz **pozycję Usługi aplikacji**.
+Przejdź do witryny <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, aby zarządzać utworzoną aplikacją. Wyszukaj i wybierz **App Services**.
 
-![Przechodzenie do usług aplikacji w witrynie Azure portal](./media/quickstart-python/navigate-to-app-services-in-the-azure-portal.png)
+![Przejdź do App Services w Azure Portal](./media/quickstart-python/navigate-to-app-services-in-the-azure-portal.png)
 
 Wybierz nazwę aplikacji platformy Azure.
 
-![Przechodzenie do aplikacji języka Python w usługach app services w witrynie Azure portal](./media/quickstart-python/navigate-to-app-in-app-services-in-the-azure-portal.png)
+![Przejdź do aplikacji w języku Python w App Services w Azure Portal](./media/quickstart-python/navigate-to-app-in-app-services-in-the-azure-portal.png)
 
 Zostanie wyświetlona strona omówienia aplikacji. Tutaj możesz wykonywać podstawowe zadania zarządzania, takie jak przeglądanie, zatrzymywanie, uruchamianie, ponowne uruchamianie i usuwanie.
 
-![Zarządzanie aplikacją języka Python na stronie Przegląd w witrynie Azure Portal](./media/quickstart-python/manage-an-app-in-app-services-in-the-azure-portal.png)
+![Zarządzaj swoją aplikacją w języku Python na stronie Przegląd w Azure Portal](./media/quickstart-python/manage-an-app-in-app-services-in-the-azure-portal.png)
 
-Menu Usługi aplikacji zawiera różne strony do konfigurowania aplikacji.
+Menu App Service zawiera różne strony służące do konfigurowania aplikacji.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-W poprzednich krokach utworzono zasoby platformy Azure w grupie zasobów. Grupa zasobów ma nazwę taką jak "appsvc_rg_Linux_CentralUS" w zależności od lokalizacji. Jeśli używasz jednostki SKU usługi app service innej niż bezpłatna warstwa F1, te zasoby ponoszą bieżące koszty (zobacz [cennik usługi App Service).](https://azure.microsoft.com/pricing/details/app-service/linux/)
+W poprzednich krokach utworzono zasoby platformy Azure w grupie zasobów. Grupa zasobów ma nazwę "appsvc_rg_Linux_CentralUS" w zależności od lokalizacji. Jeśli używasz jednostki SKU App Service innej niż bezpłatna warstwa F1, te zasoby ponoszą bieżące koszty (zobacz [App Service Cennik](https://azure.microsoft.com/pricing/details/app-service/linux/)).
 
-Jeśli nie spodziewasz się, że te zasoby będą potrzebne w przyszłości, `<resource-group-name>` usuń grupę zasobów, uruchamiając `az webapp up` następujące polecenie, zastępując grupę zasobów pokazaną w danych wyjściowych polecenia, taką jak "appsvc_rg_Linux_centralus". Polecenie może potrwać minutę.
+Jeśli nie chcesz potrzebować tych zasobów w przyszłości, Usuń grupę zasobów, uruchamiając następujące polecenie, zastępując `<resource-group-name>` ją grupą zasobów pokazaną w danych wyjściowych `az webapp up` polecenia, na przykład "appsvc_rg_Linux_centralus". Wykonanie polecenia może potrwać minutę.
 
 ```azurecli
 az group delete -n <resource-group-name>
@@ -226,13 +226,13 @@ az group delete -n <resource-group-name>
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Samouczek: Python (Django) aplikacja internetowa z PostgreSQL](tutorial-python-postgresql-app.md)
+> [Samouczek: aplikacja sieci Web języka Python (Django) z PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Dodawanie logowania użytkownika do aplikacji sieci Web języka Python](../../active-directory/develop/quickstart-v2-python-webapp.md)
+> [Dodawanie logowania użytkownika do aplikacji sieci Web w języku Python](../../active-directory/develop/quickstart-v2-python-webapp.md)
 
 > [!div class="nextstepaction"]
-> [Konfigurowanie aplikacji Języka Python](how-to-configure-python.md)
+> [Konfigurowanie aplikacji języka Python](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Samouczek: Uruchamianie aplikacji Python w kontenerze niestandardowym](tutorial-custom-docker-image.md)
+> [Samouczek: uruchamianie aplikacji języka Python w kontenerze niestandardowym](tutorial-custom-docker-image.md)
