@@ -1,5 +1,5 @@
 ---
-title: Tworzenie aplikacji — Usługa Azure Cosmos DB za pomocą interfejsu API tabel i języka Java
+title: Używanie interfejs API tabel i języka Java do kompilowania aplikacji Azure Cosmos DB
 description: Ten przewodnik szybkiego startu przedstawia wykorzystanie interfejsu API tabeli usługi Azure Cosmos DB do tworzenia aplikacji przy użyciu witryny Azure Portal i języka Java
 author: SnehaGunda
 ms.service: cosmos-db
@@ -10,13 +10,13 @@ ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: e3517804cb66a9f98351e4c68f4f7c4387cee8fe
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82083805"
 ---
-# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>Szybki start: tworzenie aplikacji Java do zarządzania danymi interfejsu API tabeli usługi Azure Cosmos DB
+# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>Szybki Start: Tworzenie aplikacji Java do zarządzania danymi interfejs API tabel Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -25,14 +25,14 @@ ms.locfileid: "82083805"
 > * [Python](create-table-python.md)
 > 
 
-W tym przewodniku Szybki start utworzysz konto interfejsu API tabeli usługi Azure Cosmos DB i użyj Eksploratora danych i aplikacji Java sklonowanej z usługi GitHub do tworzenia tabel i jednostek. Usługa Azure Cosmos DB to wielomodelowa usługa bazy danych, która umożliwia szybkie tworzenie i wykonywanie zapytań o bazy danych dokumentów, tabeli, wartości klucza i wykresów z możliwościami dystrybucji globalnej i skali poziomej.
+W tym przewodniku szybki start utworzysz konto Azure Cosmos DB interfejs API tabel i używasz Eksplorator danych oraz aplikacji Java sklonowanej z usługi GitHub w celu tworzenia tabel i jednostek. Azure Cosmos DB to wielomodelowa usługa bazy danych, która pozwala szybko tworzyć i wysyłać zapytania dotyczące dokumentów, tabel, kluczy i wartościowych baz danych przy użyciu dystrybucji globalnej i możliwości skalowania w poziomie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz jeden za darmo](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Możesz [też bezpłatnie wypróbować usługę Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można również użyć [emulatora bazy danych usługi Azure Cosmos](https://aka.ms/cosmosdb-emulator) z identyfikatorem URI `https://localhost:8081` i kluczem. `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`
-- [Zestaw java development (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Skieruj `JAVA_HOME` zmienną środowiskową do folderu, w którym jest zainstalowany JDK.
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Lub [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można również użyć [emulatora Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) z identyfikatorem URI `https://localhost:8081` i kluczem `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
+- [Zestaw Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Wskaż zmienną `JAVA_HOME` środowiskową do folderu, w którym zainstalowano JDK.
 - [Archiwum binarne Maven](https://maven.apache.org/download.cgi). 
-- [Git](https://www.git-scm.com/downloads). 
+- Usługi [git](https://www.git-scm.com/downloads). 
 
 ## <a name="create-a-database-account"></a>Tworzenie konta bazy danych
 
@@ -72,19 +72,19 @@ Teraz sklonujemy aplikację Tabela z serwisu GitHub, ustawimy parametry połącz
     git clone https://github.com/Azure-Samples/storage-table-java-getting-started.git 
     ```
 
-> ! [PORADA] Aby uzyskać bardziej szczegółowe wskazówki dotyczące podobnego kodu, zobacz przykładowy artykuł [interfejsu API tabeli usługi Cosmos DB.](table-storage-how-to-use-java.md) 
+> ! WYOWIETLON Aby zapoznać się z bardziej szczegółowym omówieniem podobnego kodu, zobacz artykuł [Cosmos DB interfejs API tabel Sample](table-storage-how-to-use-java.md) . 
 
 ## <a name="update-your-connection-string"></a>Aktualizowanie parametrów połączenia
 
 Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji. Umożliwia to aplikacji komunikację z hostowaną bazą danych. 
 
-1. Na swoim koncie usługi Azure Cosmos DB w [portalu Azure](https://portal.azure.com/)wybierz pozycję **Parametry połączenia**. 
+1. Na koncie Azure Cosmos DB w [Azure Portal](https://portal.azure.com/)wybierz pozycję **Parametry połączenia**. 
 
-   ![Wyświetlanie informacji o ciągu połączenia w okienku Ciąg połączenia](./media/create-table-java/cosmos-db-quickstart-connection-string.png)
+   ![Wyświetlanie informacji o parametrach połączenia w okienku parametrów połączenia](./media/create-table-java/cosmos-db-quickstart-connection-string.png)
 
 2. Skopiuj PODSTAWOWE PARAMETRY POŁĄCZENIA przy użyciu przycisku kopiowania po prawej stronie.
 
-3. Otwórz *plik config.properties* z folderu *C:\git-samples\storage-table-java-getting-started\src\main\resources* folderu. 
+3. Otwórz *plik config. Properties* z folderu *C:\git-samples\storage-Table-Java-getting-started\src\main\resources* . 
 
 5. Oznacz jako komentarz wiersz pierwszy i usuń znaczniki komentarza dla wiersza drugiego. Pierwsze dwa wiersze powinny teraz wyglądać następująco.
 
@@ -99,7 +99,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
     > Jeśli dany punkt końcowy korzysta z adresu documents.azure.com, oznacza to, że masz konto w wersji zapoznawczej i musisz utworzyć [nowe konto interfejsu API tabeli](#create-a-database-account), aby korzystać z dostępnego ogólnie zestawu SDK API tabeli.
     >
 
-7. Zapisz plik *config.properties.*
+7. Zapisz plik *config. Properties* .
 
 Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB. 
 
@@ -111,7 +111,7 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
     cd "C:\git-samples\storage-table-java-getting-started"
     ```
 
-2. W oknie terminala git uruchom następujące polecenia, aby uruchomić aplikację Java.
+2. W oknie terminalu usługi git Uruchom następujące polecenia, aby uruchomić aplikację Java.
 
     ```git
     mvn compile exec:java 
@@ -131,7 +131,7 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start przedstawiono sposób tworzenia konta usługi Azure Cosmos DB, tworzenia tabeli przy użyciu Eksploratora danych i uruchamiania aplikacji Java w celu dodania danych tabeli.  Teraz można tworzyć zapytania do danych przy użyciu interfejsu API tabel.  
+W tym przewodniku szybki start przedstawiono sposób tworzenia konta Azure Cosmos DB, tworzenia tabeli przy użyciu Eksplorator danych i uruchamiania aplikacji Java w celu dodania danych tabeli.  Teraz można tworzyć zapytania do danych przy użyciu interfejsu API tabel.  
 
 > [!div class="nextstepaction"]
 > [Importowanie danych tabeli do interfejsu API tabeli](table-import.md)

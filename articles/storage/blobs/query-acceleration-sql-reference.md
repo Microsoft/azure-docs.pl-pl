@@ -1,7 +1,7 @@
 ---
-title: Odwołanie do języka SQL akceleracji kwerendy (wersja zapoznawcza)
+title: Informacje dotyczące języka SQL przyspieszania zapytań (wersja zapoznawcza)
 titleSuffix: Azure Storage
-description: Dowiedz się, jak używać składni sql akceleracji kwerendy.
+description: Dowiedz się, jak używać składni SQL Acceleration Query.
 services: storage
 author: normesta
 ms.service: storage
@@ -11,44 +11,44 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
 ms.openlocfilehash: cea5fb507225f063e2d48c56fae254e123a8f72b
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81772121"
 ---
-# <a name="query-acceleration-sql-language-reference-preview"></a>Odwołanie do języka SQL akceleracji kwerendy (wersja zapoznawcza)
+# <a name="query-acceleration-sql-language-reference-preview"></a>Informacje dotyczące języka SQL przyspieszania zapytań (wersja zapoznawcza)
 
-Akceleracja zapytań obsługuje język podobny do języka SQL ANSI do wyrażania zapytań za pośrednictwem zawartości obiektu blob.  Dialekt SQL przyspieszania kwerendy jest podzbiorem ANSI SQL, z ograniczonym zestawem obsługiwanych typów danych, operatorów itp., ale także rozszerza się na ANSI SQL, aby obsługiwać zapytania w hierarchicznych formatach danych półstrukturacyjnych, takich jak JSON. 
+Przyspieszenie zapytań obsługuje język podobny do ANSI SQL, który umożliwia tworzenie zapytań dotyczących zawartości obiektu BLOB.  Dialekt SQL przyspieszania zapytań jest podzbiorem ANSI SQL, z ograniczonym zestawem obsługiwanych typów danych, operatorów itp., ale również rozszerza się w standardzie ANSI SQL, aby obsługiwał zapytania za pośrednictwem hierarchicznych formatów danych z częściową strukturą, takich jak JSON. 
 
 > [!NOTE]
-> Funkcja przyspieszania kwerend jest dostępna w publicznej wersji zapoznawczej i jest dostępna w regionach Kanada Środkowa i Francja Central. Aby przejrzeć ograniczenia, zobacz artykuł [Znane problemy.](data-lake-storage-known-issues.md) Aby zarejestrować się w wersji zapoznawczej, zobacz [ten formularz](https://aka.ms/adls/qa-preview-signup). 
+> Funkcja przyspieszenia zapytań jest w publicznej wersji zapoznawczej i jest dostępna w regionach Kanada Środkowa i Francja środkowa. Aby zapoznać się z ograniczeniami, zobacz artykuł [znane problemy](data-lake-storage-known-issues.md) . Aby zarejestrować się w wersji zapoznawczej, zobacz [ten formularz](https://aka.ms/adls/qa-preview-signup). 
 
-## <a name="select-syntax"></a>WYBIERZ Składnię
+## <a name="select-syntax"></a>Wybierz składnię
 
-Jedyną instrukcją SQL obsługiwana przez akcelerację kwerendy jest instrukcja SELECT. W tym przykładzie zwraca każdy wiersz, dla którego wyrażenie zwraca wartość true.
+Jedyną instrukcją SQL obsługiwaną przez przyspieszenie zapytania jest instrukcja SELECT. Ten przykład zwraca wszystkie wiersze, dla których wyrażenie zwraca wartość true.
 
 ```sql
 SELECT * FROM table [WHERE expression] [LIMIT limit]
 ```
 
-W przypadku danych w formacie CSV *tabela* musi być `BlobStorage`.  Oznacza to, że kwerenda będzie uruchamiana względem dowolnego obiektu blob został określony w wywołaniu REST.
-W przypadku danych w formacie JSON *tabela* jest "deskryptorem tabeli".   Zobacz [sekcję Deskryptory tabeli](#table-descriptors) tego artykułu.
+W przypadku danych w formacie CSV *tabela* musi być `BlobStorage`.  Oznacza to, że zapytanie zostanie uruchomione względem tego, który obiekt BLOB został określony w wywołaniu REST.
+W przypadku danych w formacie JSON *tabela* jest "deskryptorem tabeli".   Zobacz sekcję [deskryptory tabeli](#table-descriptors) w tym artykule.
 
-W poniższym przykładzie dla każdego wiersza, dla którego *wyrażenie* WHERE zwraca wartość true, ta instrukcja zwróci nowy wiersz, który jest wykonany z oceny każdego z wyrażeń rzutowania.
+W poniższym przykładzie dla każdego wiersza, dla którego *wyrażenie* WHERE zwraca wartość true, ta instrukcja zwróci nowy wiersz, który jest wykonywany przy obliczaniu każdego z wyrażeń projekcji.
 
 
 ```sql
 SELECT expression [, expression …] FROM table [WHERE expression] [LIMIT limit]
 ```
 
-Poniższy przykład zwraca obliczenia agregacji (Na przykład: średnia wartość określonej kolumny) nad każdym z wierszy, dla których *wyrażenie* zwraca wartość true. 
+Poniższy przykład zwraca obliczenia zagregowane (na przykład wartość średnia określonej kolumny) nad każdym wierszem, dla którego *wyrażenie* zwraca wartość true. 
 
 ```sql
 SELECT aggregate_expression FROM table [WHERE expression] [LIMIT limit]
 ```
 
-Poniższy przykład zwraca odpowiednie przesunięcia do dzielenia obiektu blob w formacie CSV.  Zobacz sekcję [Sys.Split](#sys-split) tego artykułu.
+Poniższy przykład zwraca odpowiednie przesunięcia dla dzielenia obiektu BLOB sformatowanego w formacie CSV.  Zobacz sekcję [sys. Split](#sys-split) w tym artykule.
 
 ```sql
 SELECT sys.split(split_size)FROM BlobStorage
@@ -60,21 +60,21 @@ SELECT sys.split(split_size)FROM BlobStorage
 
 |Typ danych|Opis|
 |---------|-------------------------------------------|
-|INT      |64-bitowa podpisana integer.                     |
-|Float    |64-bitowy ("podwójna precyzja") zmiennoprzecinkiem.|
-|Ciąg   |Ciąg Unicode o zmiennej długości.            |
-|Sygnatury czasowej|Punkt w czasie.                           |
-|Boolean  |Prawda lub fałsz.                             |
+|INT      |64-bitowa liczba całkowita ze znakiem.                     |
+|FLOAT    |64-bitowa ("Podwójna precyzja") liczba zmiennoprzecinkowa.|
+|PARAMETRY   |Ciąg Unicode o zmiennej długości.            |
+|ZNACZNIK czasu|Punkt w czasie.                           |
+|TYPU  |Prawda lub fałsz.                             |
 
-Podczas odczytywania wartości z danych w formacie CSV wszystkie wartości są odczytywane jako ciągi.  Wartości ciągów mogą być konwertowane na inne typy przy użyciu wyrażeń CAST.  Wartości mogą być rzutowanie niejawnie do innych typów w zależności od kontekstu. Aby uzyskać więcej informacji, zobacz [Pierwszeństwo typu danych (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017).
+Podczas odczytywania wartości z danych w formacie CSV wszystkie wartości są odczytywane jako ciągi.  Wartości ciągu mogą być konwertowane na inne typy przy użyciu wyrażeń RZUTowania.  Wartości mogą być niejawnie rzutowane na inne typy w zależności od kontekstu. Aby uzyskać więcej informacji, zobacz [pierwszeństwo typów danych (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017).
 
 ## <a name="expressions"></a>Wyrażenia
 
-### <a name="referencing-fields"></a>Odwoływanie się do pól
+### <a name="referencing-fields"></a>Odwołania do pól
 
-W przypadku danych w formacie JSON lub danych w formacie CSV z wierszem nagłówka pola mogą być odwoływane za pomocą nazwy.  Nazwy pól mogą być cytowane lub niecytowane. Podane nazwy pól są ujęte w znaki cudzysłowu ("), mogą zawierać spacje i są rozróżniane.  Nazwy pól niecytowanych są niewrażliwe na wielkości liter i nie mogą zawierać żadnych znaków specjalnych.
+W przypadku danych w formacie JSON lub danych w formacie CSV z wierszem nagłówka pola mogą być przywoływane przez nazwę.  Nazwy pól mogą być ujęte w cudzysłów lub bez cudzysłowów. Nazwy pól w cudzysłowie są ujęte w znaki podwójnego cudzysłowu ("), mogą zawierać spacje i uwzględniać wielkość liter.  Nazwy pól bez cudzysłowów nie uwzględniają wielkości liter i nie mogą zawierać żadnych znaków specjalnych.
 
-W danych w formacie CSV pola mogą być również odwoływane przez porządkowe, poprzedzone znakiem podkreślenia (_).  Na przykład do pierwszego pola można odwoływać się jako _1 lub jedenaste pole może być przywołytą jako _11.  Odwoływanie się do pól przez porządkowe jest przydatne w przypadku danych w formacie CSV, które nie zawierają wiersza nagłówka, w którym to przypadku jedynym sposobem odwoływania się do określonego pola jest liczba porządkowa.
+W danych w formacie CSV pola mogą być również przywoływane przez liczebniki, poprzedzone znakiem podkreślenia (_).  Na przykład pierwsze pole może być przywoływane jako _1 lub jedenaste pole może być przywoływane jako _11.  Odwołania do pól według liczby porządkowej są przydatne w przypadku danych w formacie CSV, które nie zawierają wiersza nagłówka, w takim przypadku jedynym sposobem odwoływania się do określonego pola jest według liczby porządkowej.
 
 ### <a name="operators"></a>Operatory
 
@@ -82,19 +82,19 @@ Obsługiwane są następujące standardowe operatory SQL:
 
 ``=``, ``!=``, ``<>``, ``<``, ``<=``, ``>``, ``>=``, ``+``, ``-``, ``/``, ``*``, ``%``, ``AND``, ``OR``, ``NOT``, ``CAST``, ``BETWEEN``, ``IN``, ``NULLIF``, ``COALESCE``
 
-Jeśli typy danych po lewej i prawej stronie operatora są różne, automatyczna konwersja będzie przeprowadzana zgodnie z regułami określonymi w tym miejscu: [Pierwszeństwo typu danych (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017).
+Jeśli typy danych po lewej i prawej stronie operatora są inne, konwersja automatyczna będzie wykonywana zgodnie z regułami określonymi tutaj: [pierwszeństwo typów danych (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017).
 
-Język SQL przyspieszania kwerendy obsługuje tylko bardzo mały podzbiór typów danych omówionych w tym artykule.  Zobacz sekcję [Typy danych](#data-types) tego artykułu.
+Język SQL przyspieszania zapytań obsługuje tylko bardzo mały podzestaw typów danych opisanych w tym artykule.  Zobacz sekcję [typy danych](#data-types) w tym artykule.
 
-### <a name="casts"></a>Rzuca
+### <a name="casts"></a>Rzutowania
 
-Język SQL przyspieszania kwerendy obsługuje operator CAST, zgodnie z regułami tutaj: [Konwersja typu danych (Aparat baz danych)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-conversion-database-engine?view=sql-server-2017).  
+Język SQL przyspieszania zapytań obsługuje operator CAST, zgodnie z regułami w tym miejscu: [Konwersja typu danych (aparat bazy danych)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-conversion-database-engine?view=sql-server-2017).  
 
-Język SQL przyspieszania kwerendy obsługuje tylko niewielki podzbiór typów danych omówionych w tym artykule.  Zobacz sekcję [Typy danych](#data-types) tego artykułu.
+Język SQL przyspieszania zapytań obsługuje tylko niewielki podzbiór typów danych omówionych w tym artykule.  Zobacz sekcję [typy danych](#data-types) w tym artykule.
 
 ### <a name="string-functions"></a>Funkcje ciągów
 
-Język SQL przyspieszania kwerendy obsługuje następujące standardowe funkcje ciągu SQL:
+Język SQL przyspieszania zapytań obsługuje następujące standardowe funkcje ciągów SQL:
 
 ``LIKE``, ``CHAR_LENGTH``, ``CHARACTER_LENGTH``, ``LOWER``, ``UPPER``, ``SUBSTRING``, ``TRIM``, ``LEADING``, ``TRAILING``.
 
@@ -109,7 +109,7 @@ Oto kilka przykładów:
 |SUBSTRING|``SUBSTRING('123456789', 1, 5)``|``23456``|
 |TRIM|``TRIM(BOTH '123' FROM '1112211Microsoft22211122')``|``Microsoft``|
 
-Funkcja [LIKE](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) pomaga wyszukać wzorzec. Oto kilka przykładów, które używają funkcji [LIKE](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) do ``abc,abd,cd\ntest,test2,test3\na_bc,xc%d^e,gh[i ``wyszukiwania ciągu danych .
+Funkcja [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) ułatwia wyszukiwanie wzorca. Oto kilka przykładów, które wykorzystują funkcję [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) do wyszukiwania ciągu ``abc,abd,cd\ntest,test2,test3\na_bc,xc%d^e,gh[i ``danych.
 
 |Zapytanie|Przykład|
 |--|--|
@@ -125,11 +125,11 @@ Obsługiwane są następujące standardowe funkcje daty SQL:
 
 ``DATE_ADD``, ``DATE_DIFF``, ``EXTRACT``, ``TO_STRING``, ``TO_TIMESTAMP``.
 
-Obecnie konwertujemy wszystkie [formaty dat standardowego IS08601](https://www.w3.org/TR/NOTE-datetime). 
+Obecnie Konwertujemy wszystkie [formaty daty standardowego IS08601](https://www.w3.org/TR/NOTE-datetime). 
 
-#### <a name="date_add-function"></a>DATE_ADD funkcja
+#### <a name="date_add-function"></a>Funkcja DATE_ADD
 
-Język SQL przyspieszania zapytania obsługuje rok, miesiąc, dzień, ``DATE_ADD`` godzinę, minutę, drugi dla funkcji.
+Język SQL przyspieszania zapytań obsługuje rok, miesiąc, dzień, godzinę, minutę, sekundę dla ``DATE_ADD`` funkcji.
 
 Przykłady:
 
@@ -138,18 +138,18 @@ DATE_ADD(datepart, quantity, timestamp)
 DATE_ADD('minute', 1, CAST('2017-01-02T03:04:05.006Z' AS TIMESTAMP)
 ```
 
-#### <a name="date_diff-function"></a>DATE_DIFF funkcja
+#### <a name="date_diff-function"></a>Funkcja DATE_DIFF
 
-Język SQL przyspieszania zapytania obsługuje rok, miesiąc, dzień, ``DATE_DIFF`` godzinę, minutę, drugi dla funkcji.
+Język SQL przyspieszania zapytań obsługuje rok, miesiąc, dzień, godzinę, minutę, sekundę dla ``DATE_DIFF`` funkcji.
 
 ```sql
 DATE_DIFF(datepart, timestamp, timestamp)
 DATE_DIFF('hour','2018-11-09T00:00+05:30','2018-11-09T01:00:23-08:00') 
 ```
 
-#### <a name="extract-function"></a>WYCIĄG, funkcja
+#### <a name="extract-function"></a>EXTRACT — funkcja
 
-W przypadku wyodrębniać inne ``DATE_ADD`` niż część daty obsługiwane dla funkcji, akceleracja kwerendy język SQL obsługuje timezone_hour i timezone_minute jako część daty.
+W przypadku WYODRĘBNIenia innego niż część daty obsługiwana ``DATE_ADD`` dla tej funkcji język SQL przyspieszania zapytań obsługuje timezone_hour i timezone_minute jako część daty.
 
 Przykłady:
 
@@ -158,7 +158,7 @@ EXTRACT(datepart FROM timestampstring)
 EXTRACT(YEAR FROM '2010-01-01T')
 ```
 
-#### <a name="to_string-function"></a>TO_STRING funkcja
+#### <a name="to_string-function"></a>Funkcja TO_STRING
 
 Przykłady:
 
@@ -167,39 +167,39 @@ TO_STRING(TimeStamp , format)
 TO_STRING(CAST('1969-07-20T20:18Z' AS TIMESTAMP),  'MMMM d, y')
 ```
 
-W tej tabeli opisano ciągi, których można ``TO_STRING`` użyć do określenia formatu wyjściowego funkcji.
+W tej tabeli opisano ciągi, których można użyć do określenia formatu danych wyjściowych ``TO_STRING`` funkcji.
 
 |Ciąg formatu    |Dane wyjściowe                               |
 |-----------------|-------------------------------------|
-|RR               |Rok w formacie dwucyfrowym – 1999 jako "99"|
+|RR               |Rok w formacie 2-cyfrowym — 1999 jako "99"|
 |t                |Rok w formacie 4-cyfrowym               |
 |yyyy             |Rok w formacie 4-cyfrowym               |
-|M                |Miesiąc roku – 1                    |
-|MM               |Miesiąc wyściełany zero – 01               |
-|MMM              |Abbr. miesiąc roku -JAN            |
-|MMMM             |Pełny miesiąc – maj                      |
+|M                |Miesiąc roku — 1                    |
+|MM               |Miesiąc uzupełniony o zero — 01               |
+|MMM              |Abbr. miesiąc roku — sty            |
+|MMMM             |Pełny miesiąc — może                      |
 |d                |Dzień miesiąca (1-31)                  |
-|dd               |Zero wyściełane dzień miesiąca (01-31)     |
+|dd               |Zerowy dzień miesiąca (01-31)     |
 |a                |AM lub PM                             |
 |h                |Godzina dnia (1-12)                   |
-|hh               |Zero wyściełane godziny od dnia (01-12)     |
+|hh               |Zero uzupełnionych godzin od dnia (01-12)     |
 |H                |Godzina dnia (0-23)                   |
-|HH               |Zero wyściełane godzina dnia (00-23)      |
+|HH               |Zero z uzupełnioną godziną dnia (00-23)      |
 |m                |Minuta godziny (0-59)                |
-|mm               |Minuta wyściełana (00-59)           |
-|s                |Drugi z minut (0-59)             |
-|ss               |Zero wyściełane sekundy (00-59)          |
-|S                |Ułamek sekundy (0,1-0,9)        |
-|SS               |Ułamek sekundy (0,01-0,99)      |
-|Sss              |Ułamek sekundy (0,001-0,999)    |
+|mm               |Zero uzupełnionej minuty (00-59)           |
+|s                |Sekunda (0-59)             |
+|ss               |Zero uzupełnione s (00-59)          |
+|S                |Ułamek sekund (0,1 – 0.9)        |
+|SS               |Ułamek sekund (0,01-0,99)      |
+|BEZPIECZNEGO              |Ułamek sekund (0,001-0.999)    |
 |X                |Przesunięcie w godzinach                      |
-|XX lub XXXX       |Przesunięcie w godzinach i minutach (+0430)  |
+|XX lub XXXX       |Przesunięcie w godzinach i minutach (+ 0430)  |
 |XXX lub XXXXX     |Przesunięcie w godzinach i minutach (-07:00) |
 |x                |Przesunięcie w godzinach (7)                  |
-|xx lub xxxx       |Przesunięcie w godzinę i minutę (+0530)    |
-|Xxx lub xxxxx     |Przesunięcie w godzinę i minutę (+05:30)   |
+|XX lub xxxx       |Przesunięcie w ciągu godziny i minuty (+ 0530)    |
+|XXX lub XXXXX     |Przesunięcie w ciągu godziny i minuty (+ 05:30)   |
 
-#### <a name="to_timestamp-function"></a>TO_TIMESTAMP funkcja
+#### <a name="to_timestamp-function"></a>Funkcja TO_TIMESTAMP
 
 Obsługiwane są tylko formaty IS08601.
 
@@ -211,31 +211,31 @@ TO_TIMESTAMP('2007T')
 ```
 
 > [!NOTE]
-> Można również użyć ``UTCNOW`` tej funkcji, aby uzyskać czas systemowy.
+> Możesz również użyć funkcji, ``UTCNOW`` Aby uzyskać czas systemowy.
 
 
-## <a name="aggregate-expressions"></a>Wyrażenia agregucjonauraz
+## <a name="aggregate-expressions"></a>Wyrażenia agregujące
 
-Instrukcja SELECT może zawierać jedno lub więcej wyrażeń rzutowania lub pojedyncze wyrażenie agregowane.  Obsługiwane są następujące wyrażenia agregacji:
+Instrukcja SELECT może zawierać jedno lub więcej wyrażeń projekcji lub pojedyncze wyrażenie agregujące.  Obsługiwane są następujące wyrażenia agregujące:
 
 |Wyrażenie|Opis|
 |--|--|
-|[ZLICZ(\*)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Zwraca liczbę rekordów, które odpowiadały wyrażeniu predykatu.|
-|[COUNT(wyrażenie)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Zwraca liczbę rekordów, dla których wyrażenie jest niezerowe.|
-|[ŚREDNIA(wyrażenie)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql?view=sql-server-ver15)    |Zwraca średnią wartości wyrażenia innych niż null.|
-|[MIN(wyrażenie)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql?view=sql-server-ver15)    |Zwraca minimalną wartość wyrażenia innej niż null.|
-|[MAX(wyrażenie)](https://docs.microsoft.com/sql/t-sql/functions/max-transact-sql?view=sql-server-ver15)    |Zwraca maksymalną wartość wyrażenia innej niż null.|
-|[SUMA(wyrażenie)](https://docs.microsoft.com/sql/t-sql/functions/sum-transact-sql?view=sql-server-ver15)    |Zwraca sumę wszystkich wartości wyrażenia innych niż null.|
+|[COUNT (\*)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Zwraca liczbę rekordów, które pasują do wyrażenia predykatu.|
+|[COUNT (wyrażenie)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Zwraca liczbę rekordów, dla których wyrażenie jest inne niż null.|
+|[Średnia (wyrażenie)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql?view=sql-server-ver15)    |Zwraca średnią wartości wyrażenia inne niż null.|
+|[MIN (wyrażenie)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql?view=sql-server-ver15)    |Zwraca minimalną wartość wyrażenia o wartości innej niż null.|
+|[Max (wyrażenie](https://docs.microsoft.com/sql/t-sql/functions/max-transact-sql?view=sql-server-ver15))    |Zwraca maksymalną wartość różną od null wyrażenia.|
+|[SUM (wyrażenie)](https://docs.microsoft.com/sql/t-sql/functions/sum-transact-sql?view=sql-server-ver15)    |Zwraca sumę wszystkich wartości innych niż null wyrażenia.|
 
-### <a name="missing"></a>Brakuje
+### <a name="missing"></a>NIEDOSTĘPNY
 
-Operator ``IS MISSING`` jest jedynym niestandardowym, który obsługuje język SQL przyspieszenia kwerendy.  W przypadku danych JSON, jeśli w określonym rekordzie ``IS MISSING`` wejściowym brakuje pola, pole wyrażenia zostanie ocenione jako wartość logiczna true.
+``IS MISSING`` Operator jest jedynym niestandardowym, który obsługuje język SQL przyspieszania zapytań.  W przypadku danych JSON w przypadku braku pola w określonym rekordzie wejściowym pole ``IS MISSING`` Expression zostanie obliczone do wartości logicznej true.
 
 <a id="table-descriptors" />
 
 ## <a name="table-descriptors"></a>Deskryptory tabeli
 
-W przypadku danych CSV nazwa `BlobStorage`tabeli jest zawsze .  Przykład:
+W przypadku danych CSV nazwa tabeli jest zawsze `BlobStorage`.  Przykład:
 
 ```sql
 SELECT * FROM BlobStorage
@@ -247,11 +247,11 @@ W przypadku danych JSON dostępne są dodatkowe opcje:
 SELECT * FROM BlobStorage[*].path
 ```
 
-Dzięki temu zapytania dotyczące podzbiorów danych JSON.
+Pozwala to na zapytania przez podzbiory danych JSON.
 
-W przypadku zapytań JSON można wspomnieć o ścieżce w części klauzuli FROM. Te ścieżki pomogą przeanalizować podzbiór danych JSON. Ścieżki te mogą odwoływać się do wartości tablicy JSON i object.
+W przypadku zapytań JSON można wspominać o ścieżce w części klauzuli FROM. Ścieżki te pomogą analizować podzestaw danych JSON. Ścieżki te mogą odwoływać się do wartości tablicy i obiektów JSON.
 
-Weźmy przykład, aby zrozumieć to bardziej szczegółowo.
+Przyjrzyjmy się przykładowi bardziej szczegółowo.
 
 Oto nasze przykładowe dane:
 
@@ -279,32 +279,32 @@ Oto nasze przykładowe dane:
 }
 ```
 
-Możesz być zainteresowany tylko `warehouses` obiekt JSON z powyższych danych. Obiekt `warehouses` jest typem tablicy JSON, więc można o tym wspomnieć w klauzuli FROM. Przykładowe zapytanie może wyglądać mniej więcej tak.
+Może zainteresować tylko obiekt `warehouses` JSON z powyższych danych. `warehouses` Obiekt jest typem tablicy JSON, więc można go wspominać w klauzuli FROM. Przykładowe zapytanie może wyglądać podobnie do tego.
 
 ```sql
 SELECT latitude FROM BlobStorage[*].warehouses[*]
 ```
 
-Kwerenda pobiera wszystkie pola, ale wybiera tylko szerokość geograficzną.
+Zapytanie pobiera wszystkie pola, ale wybiera tylko szerokość geograficzną.
 
-Jeśli chcesz uzyskać dostęp `dimensions` tylko do wartości obiektu JSON, można użyć odwołać się do tego obiektu w kwerendzie. Przykład:
+Jeśli chcesz uzyskać dostęp tylko do wartości `dimensions` obiektu JSON, możesz użyć odwołującego się do tego obiektu w zapytaniu. Przykład:
 
 ```sql
 SELECT length FROM BlobStorage[*].dimensions
 ```
 
-Ogranicza to również dostęp do `dimensions` członków obiektu. Jeśli chcesz uzyskać dostęp do innych elementów członkowskich pól JSON i wartości wewnętrznych obiektów JSON, możesz użyć kwerendy, takiej jak pokazano w poniższym przykładzie:
+Pozwala to również ograniczyć dostęp do elementów członkowskich `dimensions` obiektu. Jeśli chcesz uzyskać dostęp do innych elementów członkowskich pól JSON i wewnętrznych wartości obiektów JSON, możesz użyć zapytań, takich jak pokazano w następującym przykładzie:
 
 ```sql
 SELECT weight,warehouses[0].longitude,id,tags[1] FROM BlobStorage[*]
 ```
 
 > [!NOTE]
-> BlobStorage i BlobStorage[\*] odnoszą się do całego obiektu. Jeśli jednak masz ścieżkę w klauzuli FROM, musisz użyć funkcji BlobStorage[\*].
+> BlobStorage i BlobStorage [\*] odnoszą się do całego obiektu. Jeśli jednak ścieżka znajduje się w klauzuli FROM, należy użyć BlobStorage [\*]. Path
 
 <a id="sys-split" />
 
-## <a name="syssplit"></a>Sys.Split
+## <a name="syssplit"></a>Sys. Split
 
 Jest to specjalna forma instrukcji SELECT, która jest dostępna tylko dla danych w formacie CSV.
 
@@ -312,17 +312,17 @@ Jest to specjalna forma instrukcji SELECT, która jest dostępna tylko dla danyc
 SELECT sys.split(split_size)FROM BlobStorage
 ```
 
-Ta instrukcja jest używana w przypadkach, gdy chcesz pobrać, a następnie przetwarzać rekordy danych CSV w partiach. W ten sposób można przetwarzać rekordy równolegle, zamiast pobierać wszystkie rekordy jednocześnie. Ta instrukcja nie zwraca rekordów z pliku CSV. Zamiast tego zwraca kolekcję rozmiarów partii. Następnie można użyć każdego rozmiaru partii, aby pobrać partię rekordów danych. 
+Użyj tej instrukcji w przypadkach, w których chcesz pobrać, a następnie przetworzyć rekordy danych CSV w partiach. Dzięki temu możesz przetwarzać rekordy równolegle, zamiast pobierać wszystkie rekordy jednocześnie. Ta instrukcja nie zwraca rekordów z pliku CSV. Zamiast tego zwraca kolekcję rozmiarów partii. Następnie można użyć każdego rozmiaru partii do pobrania partii rekordów danych. 
 
-Parametr *split_size* służy do określania liczby bajtów, które mają zawierać każda partia. Na przykład jeśli chcesz przetworzyć tylko 10 MB danych naraz, instrukcja `SELECT sys.split(10485760)FROM BlobStorage` będzie wyglądać tak: ponieważ 10 MB jest równa 10,485,760 bajtów. Każda partia będzie zawierać tyle rekordów, ile może zmieścić się w tych 10 MB. 
+Użyj parametru *split_size* , aby określić liczbę bajtów, które mają zawierać każda partia zadań. Na przykład jeśli chcesz przetworzyć tylko 10 MB danych jednocześnie, będzie to wyglądać następująco: `SELECT sys.split(10485760)FROM BlobStorage` , ponieważ 10 MB jest równe 10 485 760 bajtów. Każda partia zadań będzie zawierać tyle rekordów, ile można dopasować do tych 10 MB. 
 
-W większości przypadków rozmiar każdej partii będzie nieco wyższy niż liczba określona. Dzieje się tak, ponieważ partia nie może zawierać rekordu częściowego. Jeśli ostatni rekord w partii rozpoczyna się przed końcem progu, partia będzie większa, dzięki czemu może zawierać pełny rekord. Rozmiar ostatniej partii będzie prawdopodobnie mniejszy niż rozmiar określony.
+W większości przypadków rozmiar każdej partii będzie nieco większy niż określona liczba. Wynika to z faktu, że partia nie może zawierać rekordu częściowego. Jeśli ostatni rekord w partii zaczyna się przed końcem progu, partia będzie większa, aby mogła zawierać cały rekord. Rozmiar ostatniej partii będzie prawdopodobnie mniejszy niż określony rozmiar.
 
 >[!NOTE]
-> split_size musi wynosić co najmniej 10 MB (10485760).
+> Split_size musi być co najmniej 10 MB (10485760).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-- [Akceleracja zapytań usługi Azure Data Lake Storage (wersja zapoznawcza)](data-lake-storage-query-acceleration.md)
-- [Filtrowanie danych przy użyciu akceleracji zapytań usługi Azure Data Lake Storage (wersja zapoznawcza)](data-lake-storage-query-acceleration-how-to.md)
+- [Przyspieszenie zapytań Azure Data Lake Storage (wersja zapoznawcza)](data-lake-storage-query-acceleration.md)
+- [Filtrowanie danych przy użyciu przyspieszania zapytań Azure Data Lake Storage (wersja zapoznawcza)](data-lake-storage-query-acceleration-how-to.md)
 

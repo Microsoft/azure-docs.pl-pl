@@ -1,6 +1,6 @@
 ---
 title: 'Azure ExpressRoute: przykłady konfiguracji routera'
-description: Ta strona zawiera próbki konfiguracji routera dla routerów Cisco i Juniper.
+description: Ta strona zawiera przykłady konfiguracji routera dla routerów Cisco i Juniper.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,37 +8,37 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: osamaz
 ms.openlocfilehash: 3603bc45b920dc62eb8bf6f2eb8557f98e21638e
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82024816"
 ---
-# <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Przykłady konfiguracji routera do konfigurowania routingu i zarządzania nim
+# <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Przykłady konfiguracji routera umożliwiające skonfigurowanie routingu i zarządzanie nim
 Ta strona zawiera przykłady konfiguracji interfejsu i routingu dla routerów z serii Cisco IOS-XE i Juniper MX podczas pracy z usługą Azure ExpressRoute.
 
 > [!IMPORTANT]
-> Przykłady na tej stronie są wyłącznie w celu uzyskania wskazówek. Aby znaleźć odpowiednie konfiguracje, aby spełnić twoje potrzeby, należy współpracować z zespołem sprzedaży/techniki dostawcy i zespołem sieciowym. Firma Microsoft nie będzie obsługiwać problemów związanych z konfiguracjami wymienionymi na tej stronie. Skontaktuj się z dostawcą urządzenia, aby uzyskać problemy z pomocą techniczną.
+> Przykłady na tej stronie są wyłącznie dla wskazówek. Aby znaleźć odpowiednie konfiguracje, należy skontaktować się z zespołem handlowym/technicznym dostawcy i zespołem sieciowym. Firma Microsoft nie będzie obsługiwać problemów związanych z konfiguracjami wymienionymi na tej stronie. Skontaktuj się z dostawcą urządzenia w celu uzyskania problemów z pomocą techniczną.
 > 
 > 
 
-## <a name="mtu-and-tcp-mss-settings-on-router-interfaces"></a>Ustawienia MMU i TCP w interfejsach routera
-Maksymalna jednostka transmisji (MTU) dla interfejsu usługi ExpressRoute wynosi 1500, co jest typową domyślną jednostką MTU dla interfejsu Ethernet na routerze. Jeśli router nie ma domyślnie innej jednostki MTU, nie ma potrzeby określania wartości w interfejsie routera.
+## <a name="mtu-and-tcp-mss-settings-on-router-interfaces"></a>Ustawienia MTU i TCP/Settings w interfejsach routera
+Maksymalna jednostka transmisji (MTU) dla interfejsu ExpressRoute to 1500, który jest typowym domyślną wartością MTU dla interfejsu Ethernet na routerze. Jeśli router nie ma domyślnie innej jednostki MTU, nie ma potrzeby określania wartości w interfejsie routera.
 
-W przeciwieństwie do bramy sieci VPN platformy Azure maksymalny rozmiar segmentu TCP (MSS) dla obwodu usługi ExpressRoute nie musi być określony.
+W przeciwieństwie do bramy sieci VPN platformy Azure nie trzeba określać maksymalnego rozmiaru segmentu TCP dla obwodu ExpressRoute.
 
-Przykłady konfiguracji routera w tym artykule dotyczą wszystkich komunikacji równorzędnej. Przejrzyj wymagania [dotyczące komunikacji równorzędnej usługi ExpressRoute](expressroute-circuit-peerings.md) i [routingu usługi ExpressRoute,](expressroute-routing.md) aby uzyskać więcej informacji na temat routingu.
+Przykłady konfiguracji routera w tym artykule mają zastosowanie do wszystkich komunikacji równorzędnych. Aby uzyskać więcej informacji na temat routingu, przejrzyj wymagania dotyczące [komunikacji równorzędnej ExpressRoute](expressroute-circuit-peerings.md) i [routingu ExpressRoute](expressroute-routing.md) .
 
 
-## <a name="cisco-ios-xe-based-routers"></a>Routery z systemem Cisco IOS-XE
-Przykłady w tej sekcji dotyczą dowolnego routera z rodziną systemu operacyjnego IOS-XE.
+## <a name="cisco-ios-xe-based-routers"></a>Cisco IOS — systemy oparte na interfejsie XE
+Przykłady w tej sekcji dotyczą dowolnego routera z rodziną systemów operacyjnych IOS-XE.
 
-### <a name="configure-interfaces-and-subinterfaces"></a>Konfigurowanie interfejsów i podinterpołew
-Będziesz potrzebować jednego podinterface na komunikację równorzędnej w każdym routerze, który łączysz się z firmą Microsoft. Podprzeszczegłów można zidentyfikować za pomocą identyfikatora sieci VLAN lub skumulowanej pary identyfikatorów sieci VLAN i adresu IP.
+### <a name="configure-interfaces-and-subinterfaces"></a>Konfigurowanie interfejsów i podinterfejsów
+Na każdym routerze, który nawiązuje połączenie z firmą Microsoft, będzie potrzebny jeden interfejs podrzędny. Interfejs podrzędny może być identyfikowany za pomocą identyfikatora sieci VLAN lub skumulowanej pary identyfikatorów sieci VLAN i adresu IP.
 
 **Definicja interfejsu Dot1Q**
 
-Ten przykład zawiera definicję podinterpołeza dla podintertwa z pojedynczym identyfikatorem sieci VLAN. Identyfikator sieci VLAN jest unikatowy dla komunikacji równorzędnej. Ostatni oktet twojego adresu IPv4 będzie zawsze nieparzystą liczbą.
+Ten przykład zawiera definicję podinterfejsu dla podinterfejsu z pojedynczym IDENTYFIKATORem sieci VLAN. Identyfikator sieci VLAN jest unikatowy dla poszczególnych komunikacji równorzędnych. Ostatni oktet adresu IPv4 zawsze będzie liczbą nieparzystą.
 
     interface GigabitEthernet<Interface_Number>.<Number>
      encapsulation dot1Q <VLAN_ID>
@@ -46,14 +46,14 @@ Ten przykład zawiera definicję podinterpołeza dla podintertwa z pojedynczym i
 
 **Definicja interfejsu QinQ**
 
-Ten przykład zawiera definicję podinterpołezy dla podintertwa z dwoma identyfikatorami VLAN. Zewnętrzny identyfikator sieci VLAN (s-tag), jeśli jest używany, pozostaje taki sam we wszystkich elementach równorzędnych. Wewnętrzny identyfikator sieci VLAN (c-tag) jest unikatowy na komunikację równorzędną. Ostatni oktet twojego adresu IPv4 będzie zawsze nieparzystą liczbą.
+Ten przykład zawiera definicję podinterfejsu dla podinterfejsu z dwoma identyfikatorami sieci VLAN. Zewnętrzny identyfikator sieci VLAN (s-tag), jeśli jest używany, pozostaje taki sam dla wszystkich komunikacji równorzędnych. Wewnętrzny identyfikator sieci VLAN (c-tag) jest unikatowy dla komunikacji równorzędnej. Ostatni oktet adresu IPv4 zawsze będzie liczbą nieparzystą.
 
     interface GigabitEthernet<Interface_Number>.<Number>
      encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
      ip address <IPv4_Address><Subnet_Mask>
 
 ### <a name="set-up-ebgp-sessions"></a>Konfigurowanie sesji eBGP
-Należy skonfigurować sesję Protokołu BGP z firmą Microsoft dla każdej komunikacji równorzędnej. Skonfiguruj sesję BGP przy użyciu następującego przykładu. Jeśli adres IPv4 użyty dla podinterpołu był a.b.c.d, adres IP sąsiada BGP (Microsoft) będzie a.b.c.d+1. Ostatni oktet adresu IPv4 sąsiada protokołu IPv4 protokołu BGP będzie zawsze liczbą parzysty.
+Należy skonfigurować sesję protokołu BGP dla każdej komunikacji równorzędnej z firmą Microsoft. Skonfiguruj sesję BGP przy użyciu poniższego przykładu. Jeśli adres IPv4 używany przez interfejs podrzędny to a. b. c. d, wówczas adres IP sąsiada BGP (Microsoft) będzie a. b. c. d + 1. Ostatni oktet adresu IPv4 sąsiada BGP zawsze będzie liczbą parzystą.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -64,8 +64,8 @@ Należy skonfigurować sesję Protokołu BGP z firmą Microsoft dla każdej komu
      exit-address-family
     !
 
-### <a name="set-up-prefixes-to-be-advertised-over-the-bgp-session"></a>Konfigurowanie prefiksów, które mają być anonsowane w sesji BGP
-Skonfiguruj router do anonsowania wybranych prefiksów do firmy Microsoft przy użyciu poniższego przykładu.
+### <a name="set-up-prefixes-to-be-advertised-over-the-bgp-session"></a>Skonfiguruj prefiksy do anonsowania za pośrednictwem sesji BGP
+Skonfiguruj router, aby anonsować wybór prefiksów do firmy Microsoft przy użyciu poniższego przykładu.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -78,7 +78,7 @@ Skonfiguruj router do anonsowania wybranych prefiksów do firmy Microsoft przy u
     !
 
 ### <a name="route-maps"></a>Mapy tras
-Użyj map tras i list prefiksów, aby filtrować prefiksy propagowane do sieci. Zobacz poniższy przykład i upewnij się, że masz skonfigurowane listy prefiksów.
+Użyj map tras i list prefiksów do filtrowania prefiksów rozmnożonych do sieci. Zapoznaj się z poniższym przykładem i upewnij się, że skonfigurowano odpowiednie listy prefiksów.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -96,7 +96,7 @@ Użyj map tras i list prefiksów, aby filtrować prefiksy propagowane do sieci. 
 
 ### <a name="configure-bfd"></a>Konfigurowanie BFD
 
-BfD skonfigurujesz w dwóch miejscach: jednym na poziomie interfejsu, a drugim na poziomie BGP. Przykładem jest interfejs QinQ. 
+Skonfigurujesz BFD w dwóch miejscach: jeden na poziomie interfejsu i inny na poziomie protokołu BGP. Przykład dotyczy interfejsu QinQ. 
 
     interface GigabitEthernet<Interface_Number>.<Number>
      bfd interval 300 min_rx 300 multiplier 3
@@ -114,14 +114,14 @@ BfD skonfigurujesz w dwóch miejscach: jednym na poziomie interfejsu, a drugim n
     !
 
 
-## <a name="juniper-mx-series-routers"></a>Routery z serii Juniper MX
+## <a name="juniper-mx-series-routers"></a>Routery serii Juniper MX
 Przykłady w tej sekcji dotyczą dowolnego routera serii Juniper MX.
 
-### <a name="configure-interfaces-and-subinterfaces"></a>Konfigurowanie interfejsów i podinterpołew
+### <a name="configure-interfaces-and-subinterfaces"></a>Konfigurowanie interfejsów i podinterfejsów
 
 **Definicja interfejsu Dot1Q**
 
-Ten przykład zawiera definicję podinterpołeza dla podintertwa z pojedynczym identyfikatorem sieci VLAN. Identyfikator sieci VLAN jest unikatowy dla komunikacji równorzędnej. Ostatni oktet twojego adresu IPv4 będzie zawsze nieparzystą liczbą.
+Ten przykład zawiera definicję podinterfejsu dla podinterfejsu z pojedynczym IDENTYFIKATORem sieci VLAN. Identyfikator sieci VLAN jest unikatowy dla poszczególnych komunikacji równorzędnych. Ostatni oktet adresu IPv4 zawsze będzie liczbą nieparzystą.
 
     interfaces {
         vlan-tagging;
@@ -138,7 +138,7 @@ Ten przykład zawiera definicję podinterpołeza dla podintertwa z pojedynczym i
 
 **Definicja interfejsu QinQ**
 
-Ten przykład zawiera definicję podinterpołezy dla podintertwa z dwoma identyfikatorami VLAN. Zewnętrzny identyfikator sieci VLAN (s-tag), jeśli jest używany, pozostaje taki sam we wszystkich elementach równorzędnych. Wewnętrzny identyfikator sieci VLAN (c-tag) jest unikatowy na komunikację równorzędną. Ostatni oktet twojego adresu IPv4 będzie zawsze nieparzystą liczbą.
+Ten przykład zawiera definicję podinterfejsu dla podinterfejsu z dwoma identyfikatorami sieci VLAN. Zewnętrzny identyfikator sieci VLAN (s-tag), jeśli jest używany, pozostaje taki sam dla wszystkich komunikacji równorzędnych. Wewnętrzny identyfikator sieci VLAN (c-tag) jest unikatowy dla komunikacji równorzędnej. Ostatni oktet adresu IPv4 zawsze będzie liczbą nieparzystą.
 
     interfaces {
         <Interface_Number> {
@@ -153,7 +153,7 @@ Ten przykład zawiera definicję podinterpołezy dla podintertwa z dwoma identyf
     }                           
 
 ### <a name="set-up-ebgp-sessions"></a>Konfigurowanie sesji eBGP
-Należy skonfigurować sesję Protokołu BGP z firmą Microsoft dla każdej komunikacji równorzędnej. Skonfiguruj sesję BGP przy użyciu następującego przykładu. Jeśli adres IPv4 użyty dla podinterpołu był a.b.c.d, adres IP sąsiada BGP (Microsoft) będzie a.b.c.d+1. Ostatni oktet adresu IPv4 sąsiada protokołu IPv4 protokołu BGP będzie zawsze liczbą parzysty.
+Należy skonfigurować sesję protokołu BGP dla każdej komunikacji równorzędnej z firmą Microsoft. Skonfiguruj sesję BGP przy użyciu poniższego przykładu. Jeśli adres IPv4 używany przez interfejs podrzędny to a. b. c. d, wówczas adres IP sąsiada BGP (Microsoft) będzie a. b. c. d + 1. Ostatni oktet adresu IPv4 sąsiada BGP zawsze będzie liczbą parzystą.
 
     routing-options {
         autonomous-system <Customer_ASN>;
@@ -168,8 +168,8 @@ Należy skonfigurować sesję Protokołu BGP z firmą Microsoft dla każdej komu
         }                                   
     }
 
-### <a name="set-up-prefixes-to-be-advertised-over-the-bgp-session"></a>Konfigurowanie prefiksów, które mają być anonsowane w sesji BGP
-Skonfiguruj router do anonsowania wybranych prefiksów do firmy Microsoft przy użyciu poniższego przykładu.
+### <a name="set-up-prefixes-to-be-advertised-over-the-bgp-session"></a>Skonfiguruj prefiksy do anonsowania za pośrednictwem sesji BGP
+Skonfiguruj router, aby anonsować wybór prefiksów do firmy Microsoft przy użyciu poniższego przykładu.
 
     policy-options {
         policy-statement <Policy_Name> {
@@ -194,8 +194,8 @@ Skonfiguruj router do anonsowania wybranych prefiksów do firmy Microsoft przy u
     }
 
 
-### <a name="route-policies"></a>Zasady trasy
-Mapy tras i listy prefiksów można używać do filtrowania prefiksów propagowanych w sieci. Zobacz poniższy przykład i upewnij się, że masz skonfigurowane listy prefiksów.
+### <a name="route-policies"></a>Zasady tras
+Za pomocą map tras i list prefiksów można filtrować prefiksy rozmnożone do sieci. Zapoznaj się z poniższym przykładem i upewnij się, że skonfigurowano odpowiednie listy prefiksów.
 
     policy-options {
         prefix-list MS_Prefixes {
@@ -225,7 +225,7 @@ Mapy tras i listy prefiksów można używać do filtrowania prefiksów propagowa
     }
 
 ### <a name="configure-bfd"></a>Konfigurowanie BFD
-Skonfiguruj BFD tylko w sekcji protokołu BGP.
+Skonfiguruj BFD w sekcji protokołu BGP.
 
     protocols {
         bgp { 

@@ -10,10 +10,10 @@ ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: seo-python-october2019
 ms.openlocfilehash: 673155706c3b7d44b41562c2dc8ce24a94ac6a58
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82083635"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Szybki start: tworzenie aplikacji interfejsu API tabel przy użyciu języka Python i usługi Azure Cosmos DB
@@ -25,13 +25,13 @@ ms.locfileid: "82083635"
 > * [Python](create-table-python.md)
 > 
 
-W tym przewodniku Szybki start można utworzyć konto interfejsu API tabeli usługi Azure Cosmos DB i zarządzać nim z witryny Azure Portal i visual studio za pomocą aplikacji języka Python sklonowanej z usługi GitHub. Usługa Azure Cosmos DB to wielomodelowa usługa bazy danych, która umożliwia szybkie tworzenie i wykonywanie zapytań o bazy danych dokumentów, tabeli, wartości klucza i wykresów z możliwościami dystrybucji globalnej i skali poziomej.
+W tym przewodniku szybki start utworzysz konto Azure Cosmos DB interfejs API tabel i zarządzasz nim z Azure Portal oraz z programu Visual Studio z aplikacją w języku Python sklonowaną z usługi GitHub. Azure Cosmos DB to wielomodelowa usługa bazy danych, która pozwala szybko tworzyć i wysyłać zapytania dotyczące dokumentów, tabel, kluczy i wartościowych baz danych przy użyciu dystrybucji globalnej i możliwości skalowania w poziomie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz jeden za darmo](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Możesz [też bezpłatnie wypróbować usługę Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można również użyć [emulatora bazy danych usługi Azure Cosmos](https://aka.ms/cosmosdb-emulator) z identyfikatorem URI `https://localhost:8081` i kluczem. `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`
-- [Visual Studio 2019](https://www.visualstudio.com/downloads/), z **deweloperami platformy Azure** i obciążeń **programistów Python** wybrany podczas instalacji. 
-- [Git](https://git-scm.com/downloads).
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Lub [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można również użyć [emulatora Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) z identyfikatorem URI `https://localhost:8081` i kluczem `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
+- [Program Visual Studio 2019](https://www.visualstudio.com/downloads/)z obciążeniami programistycznymi **platformy Azure** i **programowaniem** w języku Python wybranym podczas instalacji. 
+- Usługi [git](https://git-scm.com/downloads).
 
 ## <a name="create-a-database-account"></a>Tworzenie konta bazy danych
 
@@ -73,15 +73,15 @@ Teraz sklonujemy aplikację Tabela z serwisu GitHub, ustawimy parametry połącz
 
 3. Następnie otwórz plik rozwiązania w programie Visual Studio. 
 
-> ! [PORADA] Aby uzyskać bardziej szczegółowe wskazówki dotyczące podobnego kodu, zobacz przykładowy artykuł [interfejsu API tabeli usługi Cosmos DB.](table-storage-how-to-use-python.md)
+> ! WYOWIETLON Aby zapoznać się z bardziej szczegółowym omówieniem podobnego kodu, zobacz artykuł [Cosmos DB interfejs API tabel Sample](table-storage-how-to-use-python.md) .
 
 ## <a name="update-your-connection-string"></a>Aktualizowanie parametrów połączenia
 
 Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji. Umożliwia to aplikacji komunikację z hostowaną bazą danych. 
 
-1. Na swoim koncie usługi Azure Cosmos DB w [portalu Azure](https://portal.azure.com/)wybierz pozycję **Parametry połączenia**. 
+1. Na koncie Azure Cosmos DB w [Azure Portal](https://portal.azure.com/)wybierz pozycję **Parametry połączenia**. 
 
-    ![Wyświetlanie i kopiowanie ciągu połączenia w ustawieniach parametry połączenia](./media/create-table-python/view-and-copy-connection-string-in-connection-string-settings.png)
+    ![Wyświetlanie i kopiowanie parametrów połączenia w ustawieniach parametrów połączenia](./media/create-table-python/view-and-copy-connection-string-in-connection-string-settings.png)
 
 2. Skopiuj NAZWĘ KONTA przy użyciu przycisku po prawej stronie pola.
 
@@ -91,15 +91,15 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 5. Wklej KLUCZ PODSTAWOWY z portalu do wartości STORAGE_ACCOUNT_KEY w wierszu 20.
 
-6. Zapisz plik *config.py.*
+6. Zapisz plik *config.py* .
 
 ## <a name="run-the-app"></a>Uruchomienie aplikacji
 
-1. W programie Visual Studio kliknij prawym przyciskiem myszy projekt w **Eksploratorze rozwiązań**.
+1. W programie Visual Studio kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań**.
 
-2. Wybierz bieżące środowisko Języka Python, a następnie kliknij prawym przyciskiem myszy.
+2. Wybierz bieżące środowisko języka Python, a następnie kliknij prawym przyciskiem myszy.
 
-2. Wybierz **pozycję Zainstaluj pakiet Python**, a następnie wprowadź *tabelę azure-storage*.
+2. Wybierz pozycję **Zainstaluj pakiet języka Python**, a następnie wprowadź pozycję *Azure-Storage-Table*.
 
 3. Naciśnij klawisz F5, aby uruchomić aplikację. Aplikacja zostanie wyświetlona w przeglądarce. 
 
@@ -115,7 +115,7 @@ Teraz możesz wrócić do Eksploratora danych i zobaczyć, jak się pracuje z no
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start przedstawiono sposób tworzenia konta usługi Azure Cosmos DB, tworzenia tabeli przy użyciu Eksploratora danych i uruchamiania aplikacji języka Python w programie Visual Studio w celu dodania danych tabeli.  Teraz można tworzyć zapytania do danych przy użyciu interfejsu API tabel.  
+W tym przewodniku szybki start dowiesz się, jak utworzyć konto Azure Cosmos DB, utworzyć tabelę przy użyciu Eksplorator danych i uruchomić aplikację w języku Python w programie Visual Studio, aby dodać dane tabeli.  Teraz można tworzyć zapytania do danych przy użyciu interfejsu API tabel.  
 
 > [!div class="nextstepaction"]
 > [Importowanie danych tabeli do interfejsu API tabeli](table-import.md)

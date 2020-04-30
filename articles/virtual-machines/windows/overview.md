@@ -1,6 +1,6 @@
 ---
 title: Omówienie maszyn wirtualnych z systemem Windows na platformie Azure
-description: Omówienie maszyn wirtualnych systemu Windows na platformie Azure.
+description: Omówienie maszyn wirtualnych z systemem Windows na platformie Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -9,10 +9,10 @@ ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: e304841d09913aac59f5e6ba082d3e76ec791e81
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81869348"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Maszyny wirtualne z systemem Windows na platformie Azure
@@ -59,13 +59,13 @@ Platforma Azure oferuje najlepszą w branży umowę dotyczącą poziomu usług g
 ## <a name="vm-size"></a>Rozmiar maszyny wirtualnej
 [Rozmiar](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) maszyny wirtualnej zależy od obciążenia, które ma zostać uruchomione. Wybrany rozmiar ma więc wpływ na takie czynniki jak moc procesora, pamięć i przestrzeń dyskowa. W ramach platformy Azure dostępna jest szeroka gama rozmiarów umożliwiających wykorzystanie produktu do wielu różnych zastosowań.
 
-Platforma Azure pobiera [cenę godzinową](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) na podstawie rozmiaru maszyny Wirtualnej i systemu operacyjnego. W przypadku rozpoczętych godzin opłaty są pobierane tylko za faktycznie wykorzystane minuty. Magazyn jest wyceniany oddzielnie; związane z nim opłaty są także pobierane osobno.
+Na platformie Azure jest naliczana [Cena godzinowa](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) w oparciu o rozmiar i system operacyjny maszyny wirtualnej. W przypadku rozpoczętych godzin opłaty są pobierane tylko za faktycznie wykorzystane minuty. Magazyn jest wyceniany oddzielnie; związane z nim opłaty są także pobierane osobno.
 
 ## <a name="vm-limits"></a>Limity maszyn wirtualnych
 Subskrypcje mają domyślne [limity przydziałów](../../azure-resource-manager/management/azure-subscription-service-limits.md), które mogą mieć wpływ na wdrożenie wielu maszyn wirtualnych w projekcie. Aktualny limit dla każdej subskrypcji wynosi 20 maszyn wirtualnych na region. Limity można zwiększyć, [wypełniając odpowiednio bilet pomocy technicznej](../../azure-portal/supportability/resource-manager-core-quotas-request.md)
 
 ### <a name="operating-system-disks-and-images"></a>Dyski i obrazy z systemem operacyjnym
-Maszyny wirtualne używają [wirtualnych dysków twardych (VHD)](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) do przechowywania swojego systemu operacyjnego i danych. Wirtualne dyski twarde są również używane do obsługi obrazów, spośród których można wybierać, chcąc zainstalować system operacyjny. 
+Maszyny wirtualne używają [wirtualnych dysków twardych (VHD)](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) do przechowywania systemu operacyjnego i danych. Wirtualne dyski twarde są również używane do obsługi obrazów, spośród których można wybierać, chcąc zainstalować system operacyjny. 
 
 Na platformie Azure jest dostępnych wiele [obrazów z portalu Marketplace](https://azure.microsoft.com/marketplace/virtual-machines/), których można używać z różnymi wersjami i typami systemów operacyjnych Windows Server. Obrazy z Marketplace są oznaczone nazwą wydawcy i oferty, jednostką SKU i wersją (zwykle najnowszą). Obsługiwane są tylko 64-bitowe systemy operacyjne. Aby uzyskać więcej informacji dotyczących obsługiwanych systemów operacyjnych gościa, ról oraz funkcji, zobacz temat [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) (Obsługa oprogramowania serwera Microsoft maszyn wirtualnych Microsoft Azure).
 
@@ -76,7 +76,7 @@ W poniższej tabeli pokazano, jak można znaleźć informacje o obrazie.
 | Azure Portal |Wartości są podawane automatycznie po wybraniu obrazu, który ma zostać użyty. |
 | Azure PowerShell |[Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) -Location *lokalizacja*<BR>[Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) -Location *lokalizacja* -Publisher *nazwaWydawcy*<BR>[Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) -Location *lokalizacja* -Publisher *nazwaWydawcy* -Offer *nazwaOferty* |
 | Interfejsy API REST |[Wyświetl listę wydawców obrazów](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Wyświetl listę ofert obrazów](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Wyświetl listę jednostek SKU obrazów](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| Interfejs wiersza polecenia platformy Azure |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *lokalizacja*<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location location --publisher publisherName az vm image list-offers --location location --publisher *publisherName Az* vm image list-offers --location *location* --publisher publisherName Az<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest) --location *lokalizacja* --publisher *nazwa_wydawcy* --offer *nazwa_oferty*|
+| Interfejs wiersza polecenia platformy Azure |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *lokalizacja*<BR>[AZ VM Image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) *-Lokalizacja lokalizacji--* Publisher *PublisherName*<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest) --location *lokalizacja* --publisher *nazwa_wydawcy* --offer *nazwa_oferty*|
 
 Istnieje możliwość [przesłania i użycia własnego obrazu](upload-generalized-managed.md) — nazwa wydawcy, oferta i jednostka SKU nie są wtedy używane.
 
@@ -94,16 +94,16 @@ Zasoby wymienione w tej tabeli są używane przez maszynę wirtualną i muszą i
 
 | Zasób | Wymagany | Opis |
 | --- | --- | --- |
-| [Grupa zasobów](../../azure-resource-manager/management/overview.md) |Yes |Maszyna wirtualna musi być zawarta w grupie zasobów. |
-| [Konto magazynu](../../storage/common/storage-create-storage-account.md) |Yes |Maszyna wirtualna wymaga konta magazynu do przechowywania wirtualnych dysków twardych. |
-| [Sieć wirtualna](../../virtual-network/virtual-networks-overview.md) |Yes |Maszyna wirtualna musi należeć do sieci wirtualnej. |
+| [Grupa zasobów](../../azure-resource-manager/management/overview.md) |Tak |Maszyna wirtualna musi być zawarta w grupie zasobów. |
+| [Konto magazynu](../../storage/common/storage-create-storage-account.md) |Tak |Maszyna wirtualna wymaga konta magazynu do przechowywania wirtualnych dysków twardych. |
+| [Sieć wirtualna](../../virtual-network/virtual-networks-overview.md) |Tak |Maszyna wirtualna musi należeć do sieci wirtualnej. |
 | [Publiczny adres IP](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Nie |Maszyna wirtualna może mieć przypisany publiczny adres IP umożliwiający uzyskiwanie do niej dostępu zdalnego. |
-| [Interfejs sieciowy](../../virtual-network/virtual-network-network-interface.md) |Yes |Maszyna wirtualna wymaga interfejsu sieciowego do komunikacji w sieci. |
+| [Interfejs sieciowy](../../virtual-network/virtual-network-network-interface.md) |Tak |Maszyna wirtualna wymaga interfejsu sieciowego do komunikacji w sieci. |
 | [Dyski z danymi](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Nie |Maszyna wirtualna może zawierać dyski danych zwiększające jej pojemność. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Stwórz swoją pierwszą maszynę wirtualną!
+Utwórz pierwszą maszynę wirtualną.
 
 - [Portal](quick-create-portal.md)
 - [PowerShell](quick-create-powershell.md)

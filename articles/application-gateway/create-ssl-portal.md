@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Konfigurowanie zakończenia protokołu TLS w portalu — brama aplikacji platformy Azure'
-description: W tym samouczku dowiesz się, jak skonfigurować bramę aplikacji i dodać certyfikat dla zakończenia protokołu TLS przy użyciu portalu Azure.
+title: 'Samouczek: Konfigurowanie zakończenia protokołu TLS w portalu — Application Gateway platformy Azure'
+description: W tym samouczku dowiesz się, jak skonfigurować bramę aplikacji i dodać certyfikat dla zakończenia protokołu TLS przy użyciu Azure Portal.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: victorh
 ms.openlocfilehash: 62f5375a0d468f5b137c4628c89c802d83dee102
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82024497"
 ---
-# <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Samouczek: Konfigurowanie bramy aplikacji z zakończeniem protokołu TLS przy użyciu portalu Azure
+# <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Samouczek: Konfigurowanie bramy aplikacji z zakończeniem protokołu TLS przy użyciu Azure Portal
 
-Za pomocą portalu Azure można skonfigurować [bramę aplikacji](overview.md) z certyfikatem dla zakończenia protokołu TLS, który używa maszyn wirtualnych dla serwerów zaplecza.
+Za pomocą Azure Portal można skonfigurować [bramę aplikacji](overview.md) z certyfikatem dla zakończenia protokołu TLS, który używa maszyn wirtualnych dla serwerów zaplecza.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -26,19 +26,19 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Tworzenie maszyn wirtualnych używanych jako serwery zaplecza
 > * Testowanie bramy aplikacji
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do witryny Azure portal at[https://portal.azure.com](https://portal.azure.com)
+Zaloguj się do Azure Portal w[https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-a-self-signed-certificate"></a>Tworzenie certyfikatu z podpisem własnym
 
-W tej sekcji służy [new-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) do tworzenia certyfikatu z podpisem własnym. Przekaż certyfikat do witryny Azure portal podczas tworzenia odbiornika dla bramy aplikacji.
+W tej sekcji użyto polecenie [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) , aby utworzyć certyfikat z podpisem własnym. Certyfikat jest przekazywany do Azure Portal podczas tworzenia odbiornika dla bramy aplikacji.
 
-Na komputerze lokalnym otwórz okno programu Windows PowerShell jako administrator. Uruchom następujące polecenie, aby utworzyć certyfikat:
+Na komputerze lokalnym Otwórz okno programu Windows PowerShell jako administrator. Uruchom następujące polecenie, aby utworzyć certyfikat:
 
 ```powershell
 New-SelfSignedCertificate `
@@ -46,7 +46,7 @@ New-SelfSignedCertificate `
   -dnsname www.contoso.com
 ```
 
-Powinieneś zobaczyć coś takiego odpowiedzi:
+Powinna zostać wyświetlona podobne odpowiedzi:
 
 ```
 PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\my
@@ -56,7 +56,7 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-Użyj [export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) z odcisku palca, który został zwrócony do eksportu pliku pfx z certyfikatu. Upewnij się, że hasło ma długość od 4 do 12 znaków:
+Użyj [eksportu-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) z odciskiem palca, który został zwrócony w celu wyeksportowania pliku PFX z certyfikatu. Upewnij się, że hasło jest o długości do 4-12 znaków:
 
 
 ```powershell
@@ -71,140 +71,140 @@ Export-PfxCertificate `
 
 1. Wybierz pozycję **Utwórz zasób** w menu po lewej stronie w witrynie Azure Portal. Zostanie wyświetlone okno **Nowe**.
 
-2. Wybierz **pozycję Sieć,** a następnie wybierz pozycję **Brama aplikacji** na liście **Polecane.**
+2. Wybierz pozycję **Sieć** , a następnie wybierz pozycję **Application Gateway** na liście **polecanych** .
 
 ### <a name="basics-tab"></a>Karta Podstawowe
 
-1. Na karcie **Podstawy** wprowadź następujące wartości dla następujących ustawień bramy aplikacji:
+1. Na karcie **podstawowe** wprowadź następujące wartości następujących ustawień bramy aplikacji:
 
-   - **Grupa zasobów**: Wybierz **myResourceGroupAG** dla grupy zasobów. Jeśli ta grupa nie istnieje, wybierz pozycję **Utwórz nową** w celu jej utworzenia.
-   - **Nazwa bramy aplikacji:** Wprowadź *myAppGateway* dla nazwy bramy aplikacji.
+   - **Grupa zasobów**: wybierz pozycję **myResourceGroupAG** dla grupy zasobów. Jeśli ta grupa nie istnieje, wybierz pozycję **Utwórz nową** w celu jej utworzenia.
+   - **Nazwa bramy aplikacji**: wprowadź *myAppGateway* jako nazwę bramy aplikacji.
 
-        ![Tworzenie nowej bramy aplikacji: Podstawy](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
+        ![Utwórz nową bramę aplikacji: podstawowe](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
-2.  Do komunikacji między tworzonymi zasobami platforma Azure potrzebuje sieci wirtualnej. Można utworzyć nową sieć wirtualną lub użyć istniejącej. W tym przykładzie utworzysz nową sieć wirtualną w tym samym czasie, w tym co brama aplikacji. Wystąpienia bramy aplikacji są tworzone w oddzielnych podsieciach. W tym przykładzie tworzysz dwie podsieci: jedną dla bramy aplikacji i drugą dla serwerów zaplecza.
+2.  Do komunikacji między tworzonymi zasobami platforma Azure potrzebuje sieci wirtualnej. Można utworzyć nową sieć wirtualną lub użyć istniejącej. W tym przykładzie utworzysz nową sieć wirtualną w tym samym czasie, podczas tworzenia bramy aplikacji. Wystąpienia Application Gateway są tworzone w różnych podsieciach. W tym przykładzie tworzysz dwie podsieci: jedną dla bramy aplikacji i drugą dla serwerów zaplecza.
 
-    W obszarze **Konfigurowanie sieci wirtualnej**utwórz nową sieć wirtualną, wybierając **pozycję Utwórz nowy**. W oknie **Utwórz sieć wirtualną,** które zostanie otwarte, wprowadź następujące wartości, aby utworzyć sieć wirtualną i dwie podsieci:
+    W obszarze **Konfigurowanie sieci wirtualnej**Utwórz nową sieć wirtualną, wybierając pozycję **Utwórz nową**. W otwartym oknie **Tworzenie sieci wirtualnej** wprowadź następujące wartości, aby utworzyć sieć wirtualną i dwie podsieci:
 
-    - **Nazwa**: Wprowadź *myVNet* dla nazwy sieci wirtualnej.
+    - **Nazwa**: wprowadź *myVNet* dla nazwy sieci wirtualnej.
 
-    - **Nazwa podsieci** (podsieć bramy aplikacji): W siatce **podsieci** zostanie wyświetlonych podsieć o nazwie *Domyślna*. Zmień nazwę tej podsieci na *myAGSubnet*.<br>Podsieć bramy aplikacji może zawierać tylko bramy aplikacji. Inne zasoby nie są dozwolone.
+    - **Nazwa podsieci** (Application Gateway podsieć): w siatce **podsieci** zostanie wyświetlona podsieć o nazwie *default*. Zmień nazwę tej podsieci na *myAGSubnet*.<br>Podsieć bramy aplikacji może zawierać tylko bramy aplikacji. Inne zasoby nie są dozwolone.
 
-    - **Nazwa podsieci** (podsieć serwera wewnętrznej bazy danych): W drugim wierszu siatki **Podsieci** wprowadź *myBackendSubnet* w kolumnie **Nazwa podsieci.**
+    - **Nazwa podsieci** (podsieć serwera wewnętrznej bazy danych): w drugim wierszu siatki **podsieci** wprowadź *myBackendSubnet* w kolumnie **Nazwa podsieci** .
 
-    - **Zakres adresów** (podsieć serwera wewnętrznej bazy danych): W drugim wierszu siatki **podsieci** wprowadź zakres adresów, który nie pokrywa się z zakresem adresów *myAGSubnet*. Jeśli na przykład zakres adresów *myAGSubnet* wynosi 10.0.0.0/24, wprowadź *10.0.1.0/24* dla zakresu adresów *myBackendSubnet*.
+    - **Zakres adresów** (podsieć serwera wewnętrznej bazy danych): w drugim wierszu siatki **podsieci** Wprowadź zakres adresów, który nie nakłada się na zakres adresów *myAGSubnet*. Na przykład jeśli zakres adresów *myAGSubnet* jest równy 10.0.0.0/24, wprowadź *10.0.1.0/24* dla zakresu adresów *myBackendSubnet*.
 
-    Wybierz **przycisk OK,** aby zamknąć okno **Utwórz sieć wirtualną** i zapisać ustawienia sieci wirtualnej.
+    Wybierz **przycisk OK** , aby zamknąć okno **Tworzenie sieci wirtualnej** i zapisać ustawienia sieci wirtualnej.
 
-    ![Tworzenie nowej bramy aplikacji: sieć wirtualna](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
+    ![Utwórz nową bramę aplikacji: Sieć wirtualna](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
     
-3. Na karcie Podstawy zaakceptuj wartości **domyślne** dla innych ustawień, a następnie wybierz pozycję **Dalej: Przednie przyciski**.
+3. Na karcie **podstawy** zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz pozycję **Dalej: frontony**.
 
-### <a name="frontends-tab"></a>Karta Frontendy
+### <a name="frontends-tab"></a>Karta frontonów
 
-1. Na karcie **Frontends** sprawdź, czy **typ adresu IP zaplecza** jest ustawiony na **Publiczny**. <br>Adres IP frontu można skonfigurować jako publiczny lub prywatny, zgodnie z przypadkiem użycia. W tym przykładzie wybierzesz adres IP frontu publicznego.
+1. Na karcie **frontony** Sprawdź, czy **Typ adresu IP frontonu** jest ustawiony na wartość **Public**. <br>Adres IP frontonu można skonfigurować tak, aby był publiczny lub prywatny jak w przypadku użycia. W tym przykładzie wybrano publiczny adres IP frontonu.
    > [!NOTE]
-   > Dla jednostki SKU bramy aplikacji w wersji 2 można wybrać tylko konfigurację adresów IP **publicznego** frontendu. Konfiguracja ip prywatnego frontonu nie jest obecnie włączona dla tej jednostki SKU w wersji 2.
+   > W przypadku jednostki SKU Application Gateway v2 można wybrać tylko **publiczną** konfigurację adresu IP frontonu. Konfiguracja prywatnego adresu IP frontonu nie jest obecnie włączona dla tej jednostki SKU w wersji 2.
 
-2. Wybierz **pozycję Utwórz nowy** dla **publicznego adresu IP** i wprowadź adres *myAGPublicIPAddress* dla publicznej nazwy adresu IP, a następnie wybierz przycisk **OK**. 
+2. Wybierz opcję **Utwórz nowy** dla **publicznego adresu IP** i wprowadź *MYAGPUBLICIPADDRESS* dla nazwy publicznego adresu IP, a następnie wybierz przycisk **OK**. 
 
-   ![Tworzenie nowej bramy aplikacji: frontendy](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
+   ![Utwórz nową bramę aplikacji: frontony](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
-3. Wybierz **dalej: Zaplecze**.
+3. Wybierz pozycję **Dalej: nadkończenie**.
 
-### <a name="backends-tab"></a>Karta Zaplecze
+### <a name="backends-tab"></a>Karta zakończyła się
 
-Pula wewnętrznej bazy danych jest używana do kierowania żądań do serwerów wewnętrznej bazy danych, które obsługują żądanie. Pule zaplecza mogą składać się z kart sieciowych, zestawów skalowania maszyn wirtualnych, publicznych adresów IP, wewnętrznych adresów IP, w pełni kwalifikowanych nazw domen (FQDN) i zaplecza wielu dzierżawców, takich jak usługa Azure App Service. W tym przykładzie utworzysz pustą pulę wewnętrznej bazy danych z bramą aplikacji, a następnie dodasz obiekty docelowe wewnętrznej bazy danych do puli wewnętrznej bazy danych.
+Pula zaplecza służy do kierowania żądań do serwerów zaplecza, które obsługują żądanie. Pule zaplecza mogą składać się z kart sieciowych, zestawów skalowania maszyn wirtualnych, publicznych adresów IP, wewnętrznych adresów IP, w pełni kwalifikowanych nazw domen (FQDN) i wielodostępnych zapleczy, takich jak Azure App Service. W tym przykładzie utworzysz pustą pulę zaplecza z bramą aplikacji, a następnie dodasz cele zaplecza do puli zaplecza.
 
-1. Na karcie **Wewnętrznej bazy zaznaczyć** pozycję **+Dodaj pulę zaplecza**.
+1. Na karcie **nadkończenie** wybierz pozycję **+ Dodaj pulę zaplecza**.
 
-2. W oknie **Dodaj pulę wewnętrznej bazy** danych, które zostanie otwarte, wprowadź następujące wartości, aby utworzyć pustą pulę wewnętrznej bazy danych:
+2. W otwartym oknie **Dodawanie puli zaplecza** wprowadź następujące wartości, aby utworzyć pustą pulę zaplecza:
 
-    - **Nazwa**: Wprowadź *myBackendPool* dla nazwy puli wewnętrznej bazy danych.
-    - **Dodaj pulę wewnętrznej bazy danych bez obiektów docelowych:** Wybierz **tak,** aby utworzyć pulę wewnętrznej bazy danych bez obiektów docelowych. Po utworzeniu bramy aplikacji dodasz obiekty docelowe wewnętrznej bazy danych.
+    - **Nazwa**: wprowadź *myBackendPool* jako nazwę puli zaplecza.
+    - **Dodaj pulę zaplecza bez elementów docelowych**: wybierz opcję **tak** , aby utworzyć pulę zaplecza, która nie ma elementów docelowych. Po utworzeniu bramy aplikacji należy dodać cele zaplecza.
 
-3. W oknie **Dodawanie puli wewnętrznej bazy bazy danych** wybierz pozycję **Dodaj,** aby zapisać konfigurację puli wewnętrznej bazy danych i powrócić do karty **Wewnętrznej bazy** danych.
+3. W oknie **Dodawanie puli zaplecza** wybierz pozycję **Dodaj** , aby zapisać konfigurację puli zaplecza i powrócić **do karty** zaplecze.
 
-   ![Tworzenie nowej bramy aplikacji: zaplecze](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
+   ![Utwórz nową bramę aplikacji: zafrontony](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
 
-4. Na karcie **Wewnętrznej bazy** wybierz pozycję **Dalej: Konfiguracja**.
+4. Na karcie **zakończyło** się wybierz pozycję **Dalej: Konfiguracja**.
 
 ### <a name="configuration-tab"></a>Karta Konfiguracja
 
-Na karcie **Konfiguracja** połączysz pulę frontu i wewnętrznej bazy danych utworzonej przy użyciu reguły routingu.
+Na karcie **Konfiguracja** zostanie nawiązane połączenie frontonu i puli zaplecza utworzonej przy użyciu reguły routingu.
 
-1. Wybierz **pozycję Dodaj regułę** w kolumnie **Reguły routingu.**
+1. Wybierz pozycję **Dodaj regułę** w kolumnie **reguły routingu** .
 
-2. W oknie **Dodawanie reguły routingu,** które się otworzy, wprowadź *myRoutingRule* dla **nazwy reguły**.
+2. W otwartym oknie **Dodawanie reguły routingu** wpisz *MyRoutingRule* dla **nazwy reguły**.
 
-3. Reguła routingu wymaga odbiornika. Na karcie **Odbiornik** w oknie **Dodawanie reguły routingu** wprowadź następujące wartości dla odbiornika:
+3. Reguła routingu wymaga odbiornika. Na karcie **odbiornik** w oknie **Dodawanie reguły routingu** wprowadź następujące wartości dla odbiornika:
 
-    - **Nazwa odbiornika**: Wprowadź *myListener* dla nazwy odbiornika.
-    - **Adres IP frontendu:** Wybierz **opcję Publiczne,** aby wybrać publiczny adres IP utworzony dla frontendu.
-    - **Protokół**: Wybierz **HTTPS**.
-    - **Port**: Sprawdź, czy 443 jest wprowadzany dla portu.
+    - **Nazwa odbiornika** *: Wprowadź nazwę* odbiornika.
+    - **Adres IP frontonu**: wybierz opcję **publiczny** , aby wybrać publiczny adres IP utworzony dla frontonu.
+    - **Protokół**: wybierz pozycję **https**.
+    - **Port**: Sprawdź, czy dla portu wprowadzono 443.
 
-   W obszarze **Certyfikat HTTPS:**
+   W obszarze **certyfikat HTTPS**:
 
-   - **Plik certyfikatu PFX** — umożliwia przeglądanie i wybieranie pliku c:\appgwcert.pfx, który został utworzony wcześniej.
-   - **Nazwa certyfikatu** — wpisz *mycert1* dla nazwy certyfikatu.
+   - **Plik certyfikatu PFX** — Przeglądaj w poszukiwaniu i wybierz utworzony wcześniej plik c:\appgwcert.pfx.
+   - **Nazwa certyfikatu** — typ *mycert1* dla nazwy certyfikatu.
    - **Hasło** — wpisz hasło.
   
-        Zaakceptuj wartości domyślne dla innych ustawień na karcie **Odbiornik,** a następnie wybierz kartę **Bazy danych,** aby skonfigurować pozostałą część reguły routingu.
+        Zaakceptuj wartości domyślne pozostałych ustawień na karcie **odbiornik** , a następnie wybierz kartę **cele zaplecza** , aby skonfigurować resztę reguły routingu.
 
-   ![Tworzenie nowej bramy aplikacji: odbiornik](./media/create-ssl-portal/application-gateway-create-rule-listener.png)
+   ![Utwórz nową bramę aplikacji: odbiornik](./media/create-ssl-portal/application-gateway-create-rule-listener.png)
 
-4. Na karcie **Cele wewnętrznej bazy danych** wybierz **myBackendPool** dla **celu wewnętrznej bazy**danych .
+4. Na karcie **cele zaplecza** wybierz pozycję **myBackendPool** dla **elementu docelowego zaplecza**.
 
-5. W przypadku **ustawienia HTTP**wybierz pozycję **Utwórz nowy,** aby utworzyć nowe ustawienie HTTP. Ustawienie HTTP określi zachowanie reguły routingu. W oknie **ustawień Dodaj HTTP,** które się otworzy, wprowadź *pozycjęHTTPSetting* dla **nazwy ustawienia HTTP**. Zaakceptuj wartości domyślne dla innych ustawień w oknie **ustawień Dodaj HTTP,** a następnie wybierz pozycję **Dodaj,** aby powrócić do okna **Dodaj regułę routingu.** 
+5. Dla **Ustawienia http**wybierz pozycję **Utwórz nowy** , aby utworzyć nowe ustawienie http. Ustawienie HTTP określi zachowanie reguły routingu. W oknie **Dodawanie ustawienia protokołu HTTP** , które zostanie otwarte, wprowadź *myHTTPSetting* dla **nazwy ustawienia http**. Zaakceptuj wartości domyślne pozostałych ustawień w oknie **Dodawanie ustawienia protokołu HTTP** , a następnie wybierz pozycję **Dodaj** , aby powrócić do okna **Dodawanie reguły routingu** . 
 
-   ![Tworzenie nowej bramy aplikacji: ustawienie HTTP](./media/create-ssl-portal/application-gateway-create-httpsetting.png)
+   ![Utwórz nową bramę aplikacji: ustawienie HTTP](./media/create-ssl-portal/application-gateway-create-httpsetting.png)
 
-6. W oknie **Dodawanie reguły routingu** wybierz pozycję **Dodaj,** aby zapisać regułę routingu i wróć do karty **Konfiguracja.**
+6. W oknie **Dodawanie reguły routingu** wybierz pozycję **Dodaj** , aby zapisać regułę routingu, i wróć do karty **Konfiguracja** .
 
    ![Tworzenie nowej bramy aplikacji: reguła routingu](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
 
-7. Wybierz **dalej: Tagi,** a następnie **Dalej: Recenzja + utwórz**.
+7. Wybierz pozycję **Dalej: Tagi** , a następnie kliknij przycisk **Dalej: przegląd + Utwórz**.
 
-### <a name="review--create-tab"></a>Karta Recenzja + tworzenie
+### <a name="review--create-tab"></a>Przejrzyj i Utwórz kartę
 
-Przejrzyj ustawienia na karcie **Recenzja + utwórz,** a następnie wybierz pozycję **Utwórz,** aby utworzyć sieć wirtualną, publiczny adres IP i bramę aplikacji. Tworzenie bramy aplikacji na platformie Azure może potrwać kilka minut. Zaczekaj na pomyślne zakończenie wdrożenia, zanim przejdziesz do kolejnej sekcji.
+Przejrzyj ustawienia na karcie **Przegląd + tworzenie** , a następnie wybierz pozycję **Utwórz** , aby utworzyć sieć wirtualną, publiczny adres IP i bramę aplikacji. Tworzenie bramy aplikacji na platformie Azure może potrwać kilka minut. Zaczekaj na pomyślne zakończenie wdrożenia, zanim przejdziesz do kolejnej sekcji.
 
-## <a name="add-backend-targets"></a>Dodawanie obiektów docelowych wewnętrznej bazy danych
+## <a name="add-backend-targets"></a>Dodaj cele zaplecza
 
-W tym przykładzie użyjesz maszyn wirtualnych jako docelowego zaplecza. Można użyć istniejących maszyn wirtualnych lub utworzyć nowe. Utworzysz dwie maszyny wirtualne, które platforma Azure używa jako serwerów wewnętrznej bazy danych dla bramy aplikacji.
+W tym przykładzie użyjesz maszyn wirtualnych jako zaplecza docelowego. Możesz użyć istniejących maszyn wirtualnych lub utworzyć nowe. Utworzysz dwie maszyny wirtualne używane przez platformę Azure jako serwery zaplecza dla bramy aplikacji.
 
-Aby to zrobić, będziesz:
+W tym celu wykonaj następujące czynności:
 
-1. Utwórz dwie nowe maszyny wirtualne, *myVM* i *myVM2*, które mają być używane jako serwery wewnętrznej bazy danych.
-2. Zainstaluj usługi IIS na maszynach wirtualnych, aby sprawdzić, czy brama aplikacji została pomyślnie utworzona.
-3. Dodaj serwery wewnętrznej bazy danych do puli wewnętrznej bazy danych.
+1. Utwórz dwie nowe maszyny wirtualne, *myVM* i *myVM2*, które będą używane jako serwery zaplecza.
+2. Zainstaluj usługi IIS na maszynach wirtualnych, aby sprawdzić, czy Brama aplikacji została utworzona pomyślnie.
+3. Dodaj serwery zaplecza do puli zaplecza.
 
 ### <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
 1. W witrynie Azure Portal wybierz pozycję **Utwórz zasób**. Zostanie wyświetlone okno **Nowe**.
-2. Wybierz **pozycję Centrum danych systemu Windows Server 2016** na liście **Popularne.** Zostanie wyświetlona strona **Tworzenie maszyny wirtualnej**.
+2. Wybierz pozycję **Windows Server 2016 Datacenter** na **popularnej** liście. Zostanie wyświetlona strona **Tworzenie maszyny wirtualnej**.
 
-   Brama aplikacji może kierować ruch do dowolnego typu maszyny wirtualnej używanej w puli wewnętrznej bazy danych. W tym przykładzie należy użyć centrum danych systemu Windows Server 2016.
+   Application Gateway może kierować ruch do dowolnego typu maszyny wirtualnej używanej w puli zaplecza. W tym przykładzie używane jest centrum danych systemu Windows Server 2016.
 
 1. Wprowadź następujące wartości na karcie **Podstawy** dla poniższych ustawień maszyny wirtualnej:
 
-    - **Grupa zasobów**: Wybierz **myResourceGroupAG** dla nazwy grupy zasobów.
-    - **Nazwa maszyny wirtualnej**: Wprowadź *myVM* dla nazwy maszyny wirtualnej.
-    - **Nazwa użytkownika**: Wprowadź *użytkownika azureuser* dla nazwy użytkownika administratora.
-    - **Hasło**: Wprowadź hasło do konta administratora.
-1. Zaakceptuj inne ustawienia domyślne, a następnie wybierz pozycję **Dalej: Dyski**.  
-2. Zaakceptuj domyślne ustawienia karty **Dyski,** a następnie wybierz pozycję **Dalej: Sieć**.
-3. Na karcie **Sieć** sprawdź, czy wybrano pozycję **myVNet** w obszarze **Sieć wirtualna** oraz czy pozycja **Podsieć** została ustawiona na wartość **myBackendSubnet**. Zaakceptuj inne ustawienia domyślne, a następnie wybierz **pozycję Dalej: Zarządzanie**.
+    - **Grupa zasobów**: wybierz pozycję **myResourceGroupAG** dla nazwy grupy zasobów.
+    - **Nazwa maszyny wirtualnej**: wprowadź *myVM* dla nazwy maszyny wirtualnej.
+    - **Nazwa**użytkownika: wprowadź *azureuser* dla nazwy administratora.
+    - **Hasło**: wprowadź hasło dla konta administratora.
+1. Zaakceptuj inne wartości domyślne, a następnie wybierz pozycję **Dalej: dyski**.  
+2. Zaakceptuj ustawienia domyślne karty **dyski** , a następnie wybierz pozycję **Dalej: sieć**.
+3. Na karcie **Sieć** sprawdź, czy wybrano pozycję **myVNet** w obszarze **Sieć wirtualna** oraz czy pozycja **Podsieć** została ustawiona na wartość **myBackendSubnet**. Zaakceptuj inne wartości domyślne, a następnie wybierz pozycję **Dalej: Zarządzanie**.
 
-   Brama aplikacji może komunikować się z wystąpieniami poza siecią wirtualną, w której się znajduje, ale musisz upewnić się, że istnieje łączność IP.
+   Application Gateway może komunikować się z wystąpieniami poza siecią wirtualną, w której znajduje się, ale należy upewnić się, że połączenie IP jest nawiązywane.
 1. Na karcie **Zarządzanie** ustaw pozycję **Diagnostyka rozruchu** na **Wył.** Zaakceptuj pozostałe wartości domyślne, a następnie wybierz pozycję **Przeglądanie + tworzenie**.
 2. Na karcie **Przeglądanie + tworzenie** przejrzyj ustawienia, usuń wszystkie błędy walidacji, a następnie wybierz pozycję **Utwórz**.
-3. Poczekaj na zakończenie wdrożenia przed kontynuowaniem.
+3. Przed kontynuowaniem Zaczekaj na ukończenie wdrożenia.
 
-### <a name="install-iis-for-testing"></a>Instalowanie usługi IIS do testowania
+### <a name="install-iis-for-testing"></a>Zainstaluj usługi IIS do testowania
 
-W tym przykładzie można zainstalować usługi IIS na maszynach wirtualnych tylko w celu sprawdzenia, czy platforma Azure pomyślnie utworzyła bramę aplikacji.
+W tym przykładzie należy zainstalować usługi IIS tylko na maszynach wirtualnych, aby sprawdzić, czy platforma Azure utworzyła bramę aplikacji pomyślnie.
 
 1. Otwórz program [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). W tym celu wybierz pozycję **Cloud Shell** na górnym pasku nawigacyjnym w witrynie Azure Portal, a następnie wybierz pozycję **PowerShell** z listy rozwijanej. 
 
@@ -224,15 +224,15 @@ W tym przykładzie można zainstalować usługi IIS na maszynach wirtualnych tyl
             -Location EastUS
    ```
 
-3. Utwórz drugą maszynę wirtualną i zainstaluj usługi IIS, wykonując kroki ukończone wcześniej. Nazwa maszyny wirtualnej i nazwa maszyny **wirtualnej** umożliwia użycie *myVM2* dla nazwy maszyny wirtualnej i dla ustawienia polecenia cmdlet **Set-AzVMExtension.**
+3. Utwórz drugą maszynę wirtualną i zainstaluj usługi IIS, wykonując kroki ukończone wcześniej. Użyj *myVM2* dla nazwy maszyny wirtualnej i ustawienia **VMName** polecenia cmdlet **Set-AzVMExtension** .
 
-### <a name="add-backend-servers-to-backend-pool"></a>Dodawanie serwerów zaplecza do puli wewnętrznej bazy danych
+### <a name="add-backend-servers-to-backend-pool"></a>Dodawanie serwerów zaplecza do puli zaplecza
 
 1. Wybierz pozycję **Wszystkie zasoby**, a następnie wybierz pozycję **myAppGateway**.
 
 2. Wybierz pozycję **Pule zaplecza** w menu po lewej stronie.
 
-3. Wybierz **myBackendPool**.
+3. Wybierz pozycję **myBackendPool**.
 
 4. W obszarze **Cele** wybierz pozycję **Maszyna wirtualna** z listy rozwijanej.
 
@@ -242,17 +242,17 @@ W tym przykładzie można zainstalować usługi IIS na maszynach wirtualnych tyl
 
 6. Wybierz pozycję **Zapisz**.
 
-7. Poczekaj na zakończenie wdrożenia przed przejściem do następnego kroku.
+7. Przed przejściem do następnego kroku poczekaj na zakończenie wdrożenia.
 
 ## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
 
-1. Wybierz **pozycję Wszystkie zasoby**, a następnie wybierz pozycję **myAGPublicIPAddress**.
+1. Wybierz pozycję **wszystkie zasoby**, a następnie wybierz pozycję **myAGPublicIPAddress**.
 
     ![Rejestrowanie publicznego adresu IP bramy aplikacji](./media/create-ssl-portal/application-gateway-ag-address.png)
 
-2. Na pasku adresu przeglądarki wpisz *https://\<adresu\>IP bramy aplikacji*.
+2. Na pasku adresu przeglądarki wpisz *https://\<adres\>IP bramy aplikacji*.
 
-   Aby zaakceptować ostrzeżenie dotyczące zabezpieczeń, jeśli używano certyfikatu z podpisem własnym, wybierz **opcję Szczegóły** (lub **Zaawansowane** w Chrome), a następnie przejdź do strony sieci Web:
+   Aby zaakceptować ostrzeżenie o zabezpieczeniach, jeśli został użyty certyfikat z podpisem własnym, wybierz pozycję **szczegóły** (lub **Zaawansowane** w programie Chrome), a następnie przejdź do strony sieci Web:
 
     ![Ostrzeżenie o zabezpieczeniach](./media/create-ssl-portal/application-gateway-secure.png)
 
@@ -263,4 +263,4 @@ W tym przykładzie można zainstalować usługi IIS na maszynach wirtualnych tyl
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o obsłudze TLS bramy aplikacji](ssl-overview.md)
+> [Dowiedz się więcej o obsłudze protokołu TLS Application Gateway](ssl-overview.md)

@@ -1,6 +1,6 @@
 ---
 title: Aktualizowanie oprogramowania układowego urządzenia za pośrednictwem usługi Azure IoT Hub | Microsoft Docs
-description: Dowiedz się, jak zaimplementować proces aktualizacji oprogramowania układowego urządzenia, który może zostać wyzwolony z aplikacji zaplecza podłączonej do centrum IoT Hub.
+description: Dowiedz się, jak zaimplementować proces aktualizacji oprogramowania układowego urządzenia, który może zostać wywołany z poziomu aplikacji zaplecza połączonej z Centrum IoT.
 services: iot-hub
 author: wesmc7777
 ms.author: wesmc
@@ -12,10 +12,10 @@ ms.custom:
 - mvc
 - mqtt
 ms.openlocfilehash: 2eec96eee943d6fe291d054e1d73876e38f61d6d
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81769956"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Samouczek: wdrażanie procesu aktualizacji oprogramowania układowego urządzenia
@@ -36,13 +36,13 @@ W tym samouczku wykonasz następujące zadania:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Dwie przykładowe aplikacje uruchamiane w tym przewodniku Szybki start zostały napisane przy użyciu środowiska Node.js. Na komputerze deweloperskim potrzebny jest plik Node.js v10.x.x lub nowszy.
+Dwie przykładowe aplikacje uruchamiane w tym przewodniku Szybki start zostały napisane przy użyciu środowiska Node.js. Potrzebujesz środowiska Node. js v10. x. x lub nowszego na komputerze deweloperskim.
 
-Node.js można pobrać z [nodejs.org.](https://nodejs.org)
+W programie Node. js można pobrać wiele platform z [NodeJS.org](https://nodejs.org).
 
 Możesz sprawdzić bieżącą wersję środowiska Node.js na komputerze deweloperskim przy użyciu następującego polecenia:
 
@@ -52,7 +52,7 @@ node --version
 
 Pobierz przykładowy projekt Node.js z https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip i wyodrębnij archiwum ZIP.
 
-Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym samouczku używa protokołu MQTT, który komunikuje się za pomocą portu 8883. Ten port może być zablokowany w niektórych środowiskach sieci firmowych i edukacyjnych. Aby uzyskać więcej informacji i sposobów obejść ten problem, zobacz [Łączenie się z centrum IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym samouczku używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="set-up-azure-resources"></a>Konfigurowanie zasobów platformy Azure
 
@@ -187,7 +187,7 @@ Poniższy zrzut ekranu przedstawia dane wyjściowe z aplikacji zaplecza i prezen
 
 ![Aplikacja zaplecza](./media/tutorial-firmware-update/BackEnd2.png)
 
-Ponieważ automatyczne konfiguracje urządzeń są uruchamiane w czasie tworzenia, a następnie co pięć minut, może nie być widoczne wszystkie aktualizacji stanu wysyłane do aplikacji zaplecza. Metryki możesz również wyświetlić w portalu, w sekcji **Automatyczne zarządzanie urządzeniami -> Konfiguracja urządzenia IoT** centrum IoT:
+Ponieważ automatyczne konfiguracje urządzeń są uruchamiane podczas tworzenia, a następnie co pięć minut, może nie być widoczna każda aktualizacja stanu wysłana do aplikacji zaplecza. Metryki możesz również wyświetlić w portalu, w sekcji **Automatyczne zarządzanie urządzeniami -> Konfiguracja urządzenia IoT** centrum IoT:
 
 ![Wyświetlanie konfiguracji w portalu](./media/tutorial-firmware-update/portalview.png)
 

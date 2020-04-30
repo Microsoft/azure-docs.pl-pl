@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
 ms.openlocfilehash: df26021a3718c17d72f0fdb25588487043918732
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82084111"
 ---
-# <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Szybki start: tworzenie aplikacji interfejsu API tabel za pomocą narzędzia .NET SDK i usługi Azure Cosmos DB 
+# <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Szybki Start: Tworzenie aplikacji interfejs API tabel przy użyciu zestawu .NET SDK i Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -28,7 +28,7 @@ Ten przewodnik szybkiego startu pokazuje, jak używać programu .NET i [interfej
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz jeszcze zainstalowanej programu Visual Studio 2019, możesz pobrać **bezpłatną** [wersję programu Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)i korzystać z niej. Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure**.
+Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2019, możesz pobrać i korzystać **bezpłatnie** z programu [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure**.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -66,7 +66,7 @@ Teraz sklonujemy aplikację Tabela z serwisu GitHub, ustawimy parametry połącz
    git clone https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started.git
    ```
 
-> ! [PORADA] Aby uzyskać bardziej szczegółowe wskazówki dotyczące podobnego kodu, zobacz przykładowy artykuł [interfejsu API tabeli usługi Cosmos DB.](table-storage-how-to-use-dotnet.md)
+> ! WYOWIETLON Aby zapoznać się z bardziej szczegółowym omówieniem podobnego kodu, zobacz artykuł [Cosmos DB interfejs API tabel Sample](table-storage-how-to-use-dotnet.md) .
 
 ## <a name="open-the-sample-application-in-visual-studio"></a>Otwieranie przykładowej aplikacji w programie Visual Studio
 
@@ -74,7 +74,7 @@ Teraz sklonujemy aplikację Tabela z serwisu GitHub, ustawimy parametry połącz
 
    ![Otwieranie rozwiązania](media/create-table-dotnet/azure-cosmosdb-open-solution.png) 
 
-2. Przejdź do folderu, w którym sklonowała przykładowa aplikacja i otwórz plik TableStorage.sln.
+2. Przejdź do folderu, w którym Sklonowano przykładową aplikację, a następnie otwórz plik TableStorage. sln.
 
 ## <a name="update-your-connection-string"></a>Aktualizowanie parametrów połączenia
 
@@ -84,9 +84,9 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
    ![Wyświetlanie i kopiowanie PODSTAWOWYCH PARAMETRÓW POŁĄCZENIA w okienku parametrów połączenia](./media/create-table-dotnet/connection-string.png)
 
-2. W programie Visual Studio otwórz plik **Settings.json.** 
+2. W programie Visual Studio Otwórz plik **Settings. JSON** . 
 
-3. Wklej **podstawowy ciąg połączenia** z portalu do wartości StorageConnectionString. Wklej parametry wewnątrz cudzysłowów.
+3. Wklej **podstawowe parametry połączenia** z portalu do wartości StorageConnectionString. Wklej parametry wewnątrz cudzysłowów.
 
    ```csharp
    {
@@ -94,27 +94,27 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
    }
    ```
 
-4. Naciśnij klawisze CTRL+S, aby zapisać plik **Settings.json.**
+4. Naciśnij kombinację klawiszy CTRL + S, aby zapisać plik **Settings. JSON** .
 
 Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB. 
 
 ## <a name="build-and-deploy-the-app"></a>Kompilowanie i wdrażanie aplikacji
 
-1. W programie Visual Studio kliknij prawym przyciskiem myszy projekt **CosmosTableSamples** w **Eksploratorze rozwiązań,** a następnie kliknij polecenie **Zarządzaj pakietami NuGet**. 
+1. W programie Visual Studio kliknij prawym przyciskiem myszy projekt **CosmosTableSamples** w **Eksplorator rozwiązań** a następnie kliknij pozycję **Zarządzaj pakietami NuGet**. 
 
    ![Zarządzanie pakietami NuGet](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
 
-2. W polu NuGet **Browse** wpisz Microsoft.Azure.Cosmos.Table. Spowoduje to wyszukanie biblioteki klienta interfejsu API tabeli usługi Cosmos DB. Należy zauważyć, że ta biblioteka jest obecnie dostępna dla platformy .NET Framework i .NET Standard. 
+2. W polu **wyszukiwania** NuGet wpisz Microsoft. Azure. Cosmos. Table. Spowoduje to wyszukanie biblioteki klienta interfejsu API tabeli usługi Cosmos DB. Ta biblioteka jest obecnie dostępna dla .NET Framework i .NET Standard. 
    
    ![Karta Przeglądaj pakietu NuGet](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
 
-3. Kliknij **przycisk Zainstaluj,** aby zainstalować bibliotekę **Microsoft.Azure.Cosmos.Table.** Spowoduje to zainstalowanie pakietu interfejsu API tabeli usługi Azure Cosmos DB oraz wszystkich zależności.
+3. Kliknij przycisk **Instaluj** , aby zainstalować bibliotekę **Microsoft. Azure. Cosmos. Table** . Spowoduje to zainstalowanie pakietu interfejsu API tabeli usługi Azure Cosmos DB oraz wszystkich zależności.
 
-4. Po uruchomieniu całej aplikacji przykładowe dane są wstawiane do encji tabeli i usuwane na końcu, więc nie zobaczysz żadnych wstawionych danych po uruchomieniu całej próbki. Można jednak wstawić niektóre punkty przerwania, aby wyświetlić dane. Otwórz BasicSamples.cs plik i kliknij prawym przyciskiem myszy wiersz 52, wybierz **punkt przerwania,** a następnie wybierz pozycję **Wstaw punkt przerwania**. Wstaw kolejny punkt przerwania w wierszu 55.
+4. Po uruchomieniu całej aplikacji przykładowe dane są wstawiane do jednostki tabeli i usuwane na końcu, aby nie były widoczne żadne dane wstawione w przypadku uruchomienia całego przykładu. Można jednak wstawić kilka punktów przerwania, aby wyświetlić dane. Otwórz plik BasicSamples.cs i kliknij prawym przyciskiem myszy wiersz 52, wybierz **punkt przerwania**, a następnie wybierz polecenie **Wstaw punkt przerwania**. Wstaw kolejny punkt przerwania w wierszu 55.
 
    ![Dodawanie punktu przerwania](media/create-table-dotnet/azure-cosmosdb-breakpoint.png) 
 
-5. Naciśnij klawisz F5, aby uruchomić aplikację. Okno konsoli wyświetla nazwę nowej bazy danych tabeli (w tym przypadku demoa13b1) w usłudze Azure Cosmos DB. 
+5. Naciśnij klawisz F5, aby uruchomić aplikację. W oknie konsoli jest wyświetlana nazwa nowej tabeli bazy danych (w tym przypadku demoa13b1) w Azure Cosmos DB. 
     
    ![Dane wyjściowe konsoli](media/create-table-dotnet/azure-cosmosdb-console.png)
 
@@ -122,7 +122,7 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 
    ![Nowa jednostka](media/create-table-dotnet/azure-cosmosdb-entity.png)
     
-   Jeśli podczas uruchamiania projektu zostanie wyświetlony komunikat o błędzie pliku Settings.json, można go rozwiązać, dodając do ustawień projektu następujący wpis XML. Kliknij prawym przyciskiem myszy cosmostablepróby, wybierz pozycję Edytuj CosmosTableSamples.csproj i dodaj następujący elementGrupa: 
+   Jeśli zostanie wyświetlony komunikat o błędzie z informacją, że nie można znaleźć pliku Settings. JSON podczas uruchamiania projektu, można go rozwiązać, dodając następujący wpis XML do ustawień projektu. Kliknij prawym przyciskiem myszy pozycję CosmosTableSamples, wybierz pozycję Edytuj CosmosTableSamples. csproj i Dodaj następujący element: 
 
    ```csharp
      <ItemGroup>
@@ -132,7 +132,7 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
      </ItemGroup>
    ```
 
-6. Zamknij kartę **Jednostki** w Eksploratorze danych.
+6. Zamknij kartę **jednostki** w Eksplorator danych.
     
 7. Naciśnij klawisz F5, aby kontynuować pracę aplikacji do następnego punktu przerwania. 
 

@@ -1,6 +1,6 @@
 ---
 title: Ręczne przechodzenie w tryb failover w centrum Azure IoT Hub | Microsoft Docs
-description: Dowiedz się, jak wykonać ręczną pracę awaryjną centrum IoT hub do innego regionu i potwierdzić, że działa, a następnie zwrócić go do oryginalnego regionu i sprawdzić go ponownie.
+description: Dowiedz się, jak ręcznie przetworzyć w trybie failover Centrum IoT Hub w innym regionie i potwierdzić jego pracę, a następnie zwrócić go do oryginalnego regionu i ponownie go sprawdzić.
 author: robinsh
 manager: timlt
 ms.service: iot-hub
@@ -12,13 +12,13 @@ ms.custom:
 - mvc
 - mqtt
 ms.openlocfilehash: 86b39beb2958194f7c86409c5d78992616234b05
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81769910"
 ---
-# <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Samouczek: Wykonywanie ręcznego trybu failover dla centrum IoT
+# <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Samouczek: Wykonywanie ręcznego przełączania do trybu failover dla Centrum IoT Hub
 
 Ręczne przechodzenie w tryb failover to funkcja usługi IoT Hub, która umożliwia klientom [przełączanie w tryb failover](https://en.wikipedia.org/wiki/Failover) operacji centrum z regionu podstawowego do odpowiedniego sparowanego geograficznie regionu świadczenia usługi Azure. Ręczne przejście w tryb failover można wykonać w przypadku awarii regionalnej lub dłuższej awarii usługi. Można też wykonać planowane przejście w tryb failover, aby przetestować możliwości odzyskiwania po awarii, mimo że zalecamy użycie testowego centrum IoT Hub zamiast centrum w środowisku produkcyjnym. Funkcja ręcznego przechodzenia w tryb failover jest oferowana klientom bez dodatkowych kosztów.
 
@@ -33,25 +33,25 @@ Ten samouczek obejmuje wykonanie następujących zadań:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
-* Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym samouczku używa protokołu MQTT, który komunikuje się za pomocą portu 8883. Ten port może być zablokowany w niektórych środowiskach sieci firmowych i edukacyjnych. Aby uzyskać więcej informacji i sposobów obejść ten problem, zobacz [Łączenie się z centrum IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym samouczku używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com). 
+1. Zaloguj się do [Azure Portal](https://portal.azure.com). 
 
 2. Kliknij pozycję **+ Utwórz zasób**, wybierz pozycję **Internet rzeczy**, a następnie pozycję **IoT Hub**.
 
    ![Zrzut ekranu przedstawiający tworzenie centrum IoT Hub](./media/tutorial-manual-failover/create-hub-01.png)
 
-3. Wybierz kartę **Podstawy.** Wypełnij następujące pola.
+3. Wybierz kartę **podstawy** . Wypełnij następujące pola.
 
     **Subskrypcja**: wybierz subskrypcję platformy Azure, której chcesz użyć.
 
     **Grupa zasobów**: kliknij pozycję **Utwórz nową** i wprowadź **ManlFailRG** jako nazwę grupy zasobów.
 
-    **Region**: wybierz region blisko ciebie. W tym samouczku użyto regionu `West US 2`. Przejście w tryb failover można wykonać tylko między sparowanymi geograficznie regionami świadczenia usługi Azure. Region połączony geograficznie z zachodnimi stanami USA 2 to WestCentralUS.
+    **Region**: zaznacz region blisko siebie. W tym samouczku użyto regionu `West US 2`. Przejście w tryb failover można wykonać tylko między sparowanymi geograficznie regionami świadczenia usługi Azure. Region geograficznie sparowany z zachodnim stanem USA 2 to WestCentralUS.
     
    **Nazwa centrum IoT Hub**:podaj nazwę centrum IoT Hub. Nazwa centrum musi być unikatowa w skali globalnej. 
 
@@ -69,37 +69,37 @@ Istnieje limit dwóch przejść w tryb failover i dwóch powrotów po awarii dzi
 
 1. Kliknij pozycję **Grupy zasobów**, a następnie wybierz grupę zasobów **ManlFailRG**. Kliknij centrum na liście zasobów. 
 
-1. W obszarze **Ustawienia** w okienku Centrum IoT kliknij pozycję **Przetwórda w pracy awaryjnej**.
+1. W obszarze **Ustawienia** w okienku IoT Hub kliknij pozycję **tryb failover**.
 
    ![Zrzut ekranu przedstawiający okienko właściwości centrum IoT Hub](./media/tutorial-manual-failover/trigger-failover-01.png)
 
-1. W okienku Ręczne tryb failover zobaczysz **bieżącą lokalizację** i **lokalizację trybu failover**. Bieżąca lokalizacja zawsze wskazuje lokalizację, w której koncentrator jest aktualnie aktywny. Lokalizacja trybu failover jest standardowym [regionem platformy Azure sparowanym geograficznie,](../best-practices-availability-paired-regions.md) który jest sparowany z bieżącą lokalizacją. Nie można zmienić wartości lokalizacji. W tym samouczku bieżąca lokalizacja jest `West US 2` `West Central US`i lokalizacja pracy awaryjnej jest .
+1. W okienku ręczny tryb failover zobaczysz **bieżącą lokalizację** i **lokalizację trybu failover**. Bieżąca lokalizacja zawsze wskazuje lokalizację, w której centrum jest obecnie aktywne. Lokalizacja trybu failover to standardowy [region z parowaniem geograficznym platformy Azure](../best-practices-availability-paired-regions.md) , który jest sparowany z bieżącą lokalizacją. Nie można zmienić wartości lokalizacji. W tym samouczku bieżąca lokalizacja jest `West US 2` i lokalizacją trybu failover. `West Central US`
 
    ![Zrzut ekranu przedstawiający okienko ręcznego przejścia w tryb failover](./media/tutorial-manual-failover/trigger-failover-02.png)
 
-1. U góry okienka Ręczne tryb failover kliknij pozycję **Rozpocznij pracę awaryjną**. 
+1. W górnej części okienka ręczny tryb failover kliknij pozycję **Uruchom tryb failover**. 
 
-1. W okienku potwierdzenia wpisz nazwę centrum IoT hub, aby potwierdzić, że jest to ta, którą chcesz przewinąć w błąd. Następnie, aby zainicjować przetwórz pracy awaryjnej, kliknij przycisk **Failover**.
+1. W okienku potwierdzenia Podaj nazwę Centrum IoT Hub, aby potwierdzić, że jest on przeznaczony do pracy w trybie failover. Następnie, aby zainicjować tryb failover, kliknij pozycję **tryb failover**.
 
    Ilość czasu potrzebnego do ręcznego przejścia w tryb failover jest proporcjonalna do liczby urządzeń zarejestrowanych w centrum. Jeśli na przykład masz 100 000 urządzeń, może to potrwać 15 minut, ale jeśli masz pięć milionów urządzeń, może to potrwać godzinę lub dłużej.
 
    ![Zrzut ekranu przedstawiający okienko ręcznego przejścia w tryb failover](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
-   Gdy proces ręcznego pracy awaryjnej jest uruchomiony, baner pojawia się powiedzieć, że ręczne przejście awaryjne jest w toku. 
+   Podczas ręcznego działania trybu failover jest wyświetlany transparent informujący o ręcznym przejściu w tryb failover. 
 
    ![Zrzut ekranu przedstawiający trwające ręczne przechodzenie w tryb failover](./media/tutorial-manual-failover/trigger-failover-04-in-progress.png)
 
-   Jeśli zamkniesz okienko Centrum IoT i otworzysz je ponownie, klikając go w okienku Grupy zasobów, zostanie wyświetlony baner informujący o tym, że koncentrator znajduje się w środku ręcznego trybu failover. 
+   Jeśli zamkniesz okienko IoT Hub i otworzysz je ponownie, klikając je w okienku Grupa zasobów, zobaczysz transparent informujący o tym, że centrum jest w trakcie ręcznego przełączania do trybu failover. 
 
-   ![Zrzut ekranu przedstawiający przewijanie awaryjne usługi IoT Hub w toku](./media/tutorial-manual-failover/trigger-failover-05-hub-inactive.png)
+   ![Zrzut ekranu przedstawiający IoT Hub tryb failover w toku](./media/tutorial-manual-failover/trigger-failover-05-hub-inactive.png)
 
-   Po jego zakończeniu bieżące i trybu failover regiony na stronie Ręczne tryb failover są przerzucane i koncentrator jest ponownie aktywny. W tym przykładzie bieżąca `WestCentralUS` lokalizacja jest teraz `West US 2`i lokalizacja pracy awaryjnej jest teraz . 
+   Po zakończeniu bieżące regiony i przełączenia w tryb failover na stronie ręczny tryb failover są przerzucane, a centrum jest ponownie aktywne. W tym przykładzie bieżąca lokalizacja jest teraz `WestCentralUS` i lokalizacją trybu failover jest teraz. `West US 2` 
 
    ![Zrzut ekranu przedstawiający ukończone przejście w tryb failover](./media/tutorial-manual-failover/trigger-failover-06-finished.png)
 
-   Na stronie przeglądu znajduje się również baner wskazujący, że przewijanie awaryjne i centrum IoT hub jest uruchomiony w `West Central US`.
+   Na stronie Przegląd jest również wyświetlany transparent wskazujący, że Ukończono pracę w trybie failover, a `West Central US`IoT Hub działa w systemie.
 
-   ![Zrzut ekranu przedstawiający przełączenie w pełni w pełni jest na stronie przeglądu](./media/tutorial-manual-failover/trigger-failover-06-finished-overview.png)
+   ![Zrzut ekranu przedstawiający tryb failover jest zakończony na stronie Przegląd](./media/tutorial-manual-failover/trigger-failover-06-finished-overview.png)
 
 
 ## <a name="perform-a-failback"></a>Wykonywanie powrotu po awarii 
@@ -110,15 +110,15 @@ Powrót po awarii przebiega podobnie do ręcznego przejścia w tryb failover. Po
 
 1. Aby wykonać powrót po awarii, wróć do centrum IoT Hub w okienku usługi IoT Hub.
 
-2. W obszarze **Ustawienia** w okienku Centrum IoT kliknij pozycję **Przetwórda w pracy awaryjnej**. 
+2. W obszarze **Ustawienia** w okienku IoT Hub kliknij pozycję **tryb failover**. 
 
-3. U góry okienka Ręczne tryb failover kliknij pozycję **Rozpocznij pracę awaryjną**. 
+3. W górnej części okienka ręczny tryb failover kliknij pozycję **Uruchom tryb failover**. 
 
-4. W okienku potwierdzenia wpisz nazwę centrum IoT hub, aby potwierdzić, że jest to ten, który chcesz powiększyć po awarii. Aby zainicjować powrót po awarii, kliknij przycisk OK. 
+4. W okienku potwierdzenia Podaj nazwę Centrum IoT Hub, aby potwierdzić, że jest to konto, którego chcesz użyć do powrotu po awarii. Aby zainicjować powrót po awarii, kliknij przycisk OK. 
 
    ![Zrzut ekranu przedstawiający żądanie ręcznego powrotu po awarii](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
-   Zostaną wyświetlone banery opisane w sekcji przechodzenia w tryb failover. Po zakończeniu powrotu po awarii `West US 2` ponownie jest wyświetlany `West Central US` jako bieżącej lokalizacji i jako lokalizacji pracy awaryjnej, jak ustawiono pierwotnie.
+   Zostaną wyświetlone banery opisane w sekcji przechodzenia w tryb failover. Po zakończeniu powrotu po awarii jest on ponownie wyświetlany `West US 2` jako bieżąca lokalizacja oraz `West Central US` jako lokalizacja trybu failover ustawiona jako oryginalna.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów 
 

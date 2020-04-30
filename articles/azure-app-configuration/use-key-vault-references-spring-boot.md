@@ -1,6 +1,6 @@
 ---
-title: Samouczek dotyczący korzystania z odwołań do magazynu kluczy konfiguracji aplikacji Azure w aplikacji Java Spring Boot | Dokumenty firmy Microsoft
-description: W tym samouczku dowiesz się, jak korzystać z odwołań do usługi Azure App Configuration's Key Vault z aplikacji Java Spring Boot
+title: Samouczek dotyczący używania usługi Azure App Configuration Key Vault References w aplikacji rozruchu ze sprężyną Java | Microsoft Docs
+description: W tym samouczku dowiesz się, jak używać odwołań Key Vault konfiguracji aplikacji platformy Azure z poziomu aplikacji z rozruchem ze sprężyną Java
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -15,86 +15,86 @@ ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc
 ms.openlocfilehash: 6a5bc947c3ea414f197df9cfcdd5f233e4654cbc
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82085029"
 ---
-# <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Samouczek: Używanie odwołań do magazynu kluczy w aplikacji Java Spring
+# <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Samouczek: Używanie odwołań Key Vault w aplikacji ze sprężyną Java
 
-W tym samouczku dowiesz się, jak korzystać z usługi konfiguracji aplikacji platformy Azure wraz z usługą Azure Key Vault. Konfiguracja aplikacji i usługa Key Vault są usługami uzupełniającymi używanymi obok siebie w większości wdrożeń aplikacji.
+W tym samouczku dowiesz się, jak korzystać z usługi Azure App Configuration razem z Azure Key Vault. Konfiguracja aplikacji i Key Vault to uzupełniające się usługi używane obok większości wdrożeń aplikacji.
 
-Konfiguracja aplikacji ułatwia korzystanie z usług razem, tworząc klucze, które odwołują się do wartości przechowywanych w przechowalni kluczy. Gdy konfiguracja aplikacji tworzy takie klucze, przechowuje identyfikatory URI wartości magazynu kluczy, a nie same wartości.
+Konfiguracja aplikacji ułatwia korzystanie z usług, tworząc klucze, które odwołują się do wartości przechowywanych w Key Vault. Gdy konfiguracja aplikacji tworzy takie klucze, przechowuje identyfikatory URI wartości Key Vault, a nie same wartości.
 
-Aplikacja używa dostawcy klienta konfiguracji aplikacji do pobierania odwołań do usługi Key Vault, podobnie jak w przypadku innych kluczy przechowywanych w konfiguracji aplikacji. W takim przypadku wartości przechowywane w konfiguracji aplikacji są identyfikatory URI, które odwołują się do wartości w magazynie kluczy. Nie są to wartości ani poświadczenia usługi Key Vault. Ponieważ dostawca klienta rozpoznaje klucze jako odwołania do magazynu kluczy, używa usługi Key Vault do pobierania ich wartości.
+Aplikacja używa dostawcy klienta konfiguracji aplikacji do pobierania odwołań Key Vault, podobnie jak w przypadku innych kluczy przechowywanych w konfiguracji aplikacji. W takim przypadku wartości przechowywane w konfiguracji aplikacji to identyfikatory URI, które odwołują się do wartości w Key Vault. Nie Key Vault wartości ani poświadczeń. Ponieważ dostawca klienta rozpoznaje klucze jako odwołania Key Vault, używa Key Vault do pobierania ich wartości.
 
-Aplikacja jest odpowiedzialna za prawidłowe uwierzytelnianie zarówno w konfiguracji aplikacji, jak i w magazynie kluczy. Dwie usługi nie komunikują się bezpośrednio.
+Aplikacja jest odpowiedzialna za prawidłowe uwierzytelnianie zarówno w konfiguracji aplikacji, jak i Key Vault. Te dwie usługi nie komunikują się bezpośrednio.
 
-W tym samouczku pokazano, jak zaimplementować odwołania do usługi Key Vault w kodzie. Opiera się on na aplikacji internetowej wprowadzonej w przewodnikach Szybki start. Przed kontynuowaniem należy najpierw [ukończyć tworzenie aplikacji Java Spring z konfiguracją aplikacji.](./quickstart-java-spring-app.md)
+W tym samouczku pokazano, jak zaimplementować Key Vault odwołania w kodzie. Opiera się on na aplikacji internetowej wprowadzonej w przewodnikach Szybki start. Przed kontynuowaniem należy najpierw [utworzyć aplikację ze sprężyną Java z konfiguracją aplikacji](./quickstart-java-spring-app.md) .
 
-Aby wykonać czynności opisane w tym samouczku, można użyć dowolnego edytora kodu. Na przykład [Visual Studio Code](https://code.visualstudio.com/) to wieloplatformowy edytor kodu, który jest dostępny dla systemów operacyjnych Windows, macOS i Linux.
+Aby wykonać kroki opisane w tym samouczku, można użyć dowolnego edytora kodu. Na przykład [Visual Studio Code](https://code.visualstudio.com/) to Międzyplatformowy Edytor kodu, który jest dostępny dla systemów operacyjnych Windows, MacOS i Linux.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Utwórz klucz konfiguracji aplikacji, który odwołuje się do wartości przechowywanej w magazynie kluczy.
-> * Dostęp do wartości tego klucza z aplikacji Java Spring.
+> * Utwórz klucz konfiguracji aplikacji, który odwołuje się do wartości przechowywanej w Key Vault.
+> * Uzyskaj dostęp do wartości tego klucza z aplikacji ze sprężyną Java.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [utwórz bezpłatną subskrypcję](https://azure.microsoft.com/free/)
-* Obsługiwany zestaw [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) w wersji 8.
-* [Apache Maven](https://maven.apache.org/download.cgi) w wersji 3.0 lub wyższej.
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+* Obsługiwany [zestaw Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) w wersji 8.
+* System [Apache Maven](https://maven.apache.org/download.cgi) w wersji 3,0 lub nowszej.
 
 ## <a name="create-a-vault"></a>Tworzenie magazynu
 
-1. Wybierz opcję **Utwórz zasób** w lewym górnym rogu witryny Azure Portal:
+1. Wybierz opcję **Utwórz zasób** w lewym górnym rogu Azure Portal:
 
     ![Dane wyjściowe po zakończeniu tworzenia magazynu kluczy](./media/quickstarts/search-services.png)
-1. W polu wyszukiwania wprowadź **przechowalnię kluczy**.
-1. Z listy wyników wybierz **pozycję Przechowalnia kluczy** po lewej stronie.
-1. W **obszarze Przechowalnia kluczy**wybierz pozycję **Dodaj**.
-1. Po prawej stronie w **programie Utwórz magazyn kluczy**podaj następujące informacje:
-    * Wybierz **subskrypcję,** aby wybrać subskrypcję.
-    * W **obszarze Grupa zasobów**wybierz pozycję **Utwórz nowy** i wprowadź nazwę grupy zasobów.
-    * W **nazwie magazynu kluczy**wymagana jest unikatowa nazwa. W tym samouczku wprowadź **Contoso-vault2**.
-    * Z listy rozwijanej **Region** wybierz lokalizację.
+1. W polu wyszukiwania wprowadź **Key Vault**.
+1. Z listy wyników wybierz pozycję **magazyny kluczy** po lewej stronie.
+1. W obszarze **magazyny kluczy**wybierz pozycję **Dodaj**.
+1. Po prawej stronie w temacie **Tworzenie magazynu kluczy**podaj następujące informacje:
+    * Wybierz pozycję **subskrypcja** , aby wybrać subskrypcję.
+    * W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów.
+    * W **nazwie magazynu kluczy**wymagana jest unikatowa nazwa. Na potrzeby tego samouczka wprowadź **contoso-vault2**.
+    * Z listy rozwijanej **region** wybierz lokalizację.
 1. Pozostaw inne opcje **tworzenia magazynu kluczy** z wartościami domyślnymi.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
-W tym momencie twoje konto platformy Azure jest jedynym autoryzowanym do uzyskania dostępu do tego nowego magazynu.
+W tym momencie Twoje konto platformy Azure jest jedynym autoryzowanym dostępem do tego nowego magazynu.
 
 ![Dane wyjściowe po zakończeniu tworzenia magazynu kluczy](./media/quickstarts/vault-properties.png)
 
 ## <a name="add-a-secret-to-key-vault"></a>Dodawanie wpisu tajnego do usługi Key Vault
 
-Aby dodać klucz tajny do magazynu, musisz wykonać tylko kilka dodatkowych kroków. W takim przypadku należy dodać komunikat, którego można użyć do przetestowania pobierania usługi Key Vault. Wiadomość nosi nazwę **Message**i przechowujesz w niej wartość "Hello from Key Vault".
+Aby dodać wpis tajny do magazynu, należy wykonać zaledwie kilka dodatkowych kroków. W takim przypadku Dodaj komunikat, którego można użyć do przetestowania pobierania Key Vault. Wiadomość jest nazywana **komunikatem**i przechowuje w niej wartość "Hello from Key Vault".
 
-1. Na stronach właściwości magazynu kluczy wybierz pozycję **Wpisy tajne**.
-1. Wybierz **pozycję Generuj/Importuj**.
-1. W okienku **Utwórz klucz tajny** wprowadź następujące wartości:
-    * **Opcje przesyłania**: Wprowadź **instrukcję**.
-    * **Nazwa**: Wprowadź **wiadomość**.
-    * **Wartość**: Wprowadź **Hello z przechowalni kluczy**.
-1. Pozostaw inne Tworzenie właściwości **tajnych** z ich wartościami domyślnymi.
-1. Wybierz pozycję **Utwórz**.
+1. Na stronie właściwości Key Vault wybierz pozycję wpisy **tajne**.
+1. Wybierz pozycję **Generuj/Importuj**.
+1. W okienku **Utwórz wpis tajny** wprowadź następujące wartości:
+    * **Opcje przekazywania**: wprowadź **Ręczne**.
+    * **Nazwa**: wprowadź **komunikat**.
+    * **Wartość**: wprowadź **Hello z Key Vault**.
+1. Pozostaw inne właściwości **klucza tajnego** z wartościami domyślnymi.
+1. Wybierz przycisk **Utwórz**.
 
-## <a name="add-a-key-vault-reference-to-app-configuration"></a>Dodawanie odwołania do usługi Key Vault do konfiguracji aplikacji
+## <a name="add-a-key-vault-reference-to-app-configuration"></a>Dodaj odwołanie Key Vault do konfiguracji aplikacji
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz **pozycję Wszystkie zasoby**, a następnie wybierz wystąpienie sklepu konfiguracja aplikacji utworzone w przewodniku Szybki start.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **wszystkie zasoby**, a następnie wybierz wystąpienie magazynu konfiguracji aplikacji utworzone w ramach przewodnika Szybki Start.
 
-1. Wybierz **Pozycję Eksplorator konfiguracji**.
+1. Wybierz pozycję **Eksplorator konfiguracji**.
 
-1. Wybierz **+ Utwórz** > **odwołanie do przechowalni kluczy,** a następnie określ następujące wartości:
-    * **Klucz**: Wybierz **/application/config.keyvaultmessage**
-    * **Etykieta**: Pozostaw tę wartość pustą.
-    * **Subskrypcja,** **Grupa zasobów**i **Magazyn kluczy**: Wprowadź wartości odpowiadające wartościom w magazynie kluczy utworzonym w poprzedniej sekcji.
-    * **Klucz tajny:** Wybierz klucz tajny o nazwie **Wiadomość** utworzona w poprzedniej sekcji.
+1. Wybierz pozycję **+ Utwórz** > **odwołanie do magazynu kluczy**, a następnie określ następujące wartości:
+    * **Klucz**: Wybierz **/Application/config.keyvaultmessage**
+    * **Etykieta**: pozostaw tę wartość pustą.
+    * **Subskrypcja**, **Grupa zasobów**i **Magazyn kluczy**: wprowadź wartości odpowiadające wartościom w magazynie kluczy utworzonym w poprzedniej sekcji.
+    * **Wpis tajny**: Wybierz **komunikat** o nazwie Secret utworzony w poprzedniej sekcji.
 
-## <a name="connect-to-key-vault"></a>Łączenie się z przechowalnią kluczy
+## <a name="connect-to-key-vault"></a>Połącz z Key Vault
 
-1. W tym samouczku używasz jednostki usługi do uwierzytelniania do usługi Key Vault. Aby utworzyć tego podmiotu usługi, użyj polecenia Azure CLI [az ad sp create-for-rbac:](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
+1. W tym samouczku użyjesz nazwy głównej usługi do uwierzytelniania do Key Vault. Aby utworzyć tę nazwę główną usługi, użyj interfejsu wiersza polecenia platformy Azure [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) :
 
     ```azurecli
     az ad sp create-for-rbac -n "http://mySP" --sdk-auth
@@ -116,7 +116,7 @@ Aby dodać klucz tajny do magazynu, musisz wykonać tylko kilka dodatkowych krok
     }
     ```
 
-1. Uruchom następujące polecenie, aby umożliwić podmiotowi usługi dostęp do magazynu kluczy:
+1. Uruchom następujące polecenie, aby umożliwić jednostce usługi dostęp do magazynu kluczy:
 
     ```console
     az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get
@@ -129,26 +129,26 @@ Aby dodać klucz tajny do magazynu, musisz wykonać tylko kilka dodatkowych krok
     az role assignment create --role "App Configuration Data Reader" --assignee-object-id <objectId-of-your-service-principal> --resource-group <your-resource-group>
     ```
 
-1. Utwórz następujące zmienne środowiskowe, używając wartości jednostki usługi, które były wyświetlane w poprzednim kroku:
+1. Utwórz następujące zmienne środowiskowe przy użyciu wartości dla jednostki usługi, która została wyświetlona w poprzednim kroku:
 
-    * **AZURE_CLIENT_ID**: *identyfikator klienta*
+    * **AZURE_CLIENT_ID**: *clientId*
     * **AZURE_CLIENT_SECRET**: *clientSecret*
-    * **AZURE_TENANT_ID**: *identyfikator najemcy*
+    * **AZURE_TENANT_ID**: *tenantId*
 
 > [!NOTE]
-> Te poświadczenia usługi Key Vault są używane tylko w aplikacji.  Aplikacja uwierzytelnia się bezpośrednio za pomocą usługi Key Vault przy użyciu tych poświadczeń bez korzystania z usługi konfiguracji aplikacji.  Usługa Key Vault zapewnia uwierzytelnianie zarówno dla aplikacji, jak i usługi konfiguracji aplikacji bez udostępniania lub udostępniania kluczy.
+> Te poświadczenia Key Vault są używane tylko w aplikacji.  Aplikacja uwierzytelnia się bezpośrednio za pomocą Key Vault przy użyciu tych poświadczeń bez uwzględniania usługi konfiguracji aplikacji.  Key Vault zapewnia uwierzytelnianie zarówno aplikacji, jak i usługi konfiguracji aplikacji bez udostępniania ani ujawniania kluczy.
 
-## <a name="update-your-code-to-use-a-key-vault-reference"></a>Aktualizowanie kodu w celu użycia odwołania do usługi Key Vault
+## <a name="update-your-code-to-use-a-key-vault-reference"></a>Zaktualizuj kod, aby użyć odwołania Key Vault
 
-1. Utwórz zmienną środowiskową o nazwie **APP_CONFIGURATION_ENDPOINT**. Ustaw jego wartość na punkt końcowy dla magazynu konfiguracji aplikacji. Punkt końcowy można znaleźć w bloku **kluczy dostępu** w witrynie Azure portal.
+1. Utwórz zmienną środowiskową o nazwie **APP_CONFIGURATION_ENDPOINT**. Ustaw jej wartość na punkt końcowy magazynu konfiguracji aplikacji. Punkt końcowy można znaleźć w bloku **klucze dostępu** w Azure Portal.
 
-1. Otwórz *bootstrap.properties* w folderze *zasobów.* Zaktualizuj ten plik, aby użyć punktu końcowego konfiguracji aplikacji, a nie ciągu połączenia.
+1. Otwórz okno *Bootstrap. Properties* w folderze *resources* . Zaktualizuj ten plik, aby użyć punktu końcowego konfiguracji aplikacji zamiast parametrów połączenia.
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
     ```
 
-1. Otwórz *messageproperties.java*. Dodaj nową zmienną o nazwie *keyVaultMessage*:
+1. Otwórz *MessageProperties. Java*. Dodaj nową zmienną o nazwie *keyVaultMessage*:
 
     ```java
     private String keyVaultMessage;
@@ -162,7 +162,7 @@ Aby dodać klucz tajny do magazynu, musisz wykonać tylko kilka dodatkowych krok
     }
     ```
 
-1. Otwórz *HelloController.java*. Zaktualizuj metodę *getMessage,* aby uwzględnić wiadomość pobraną z usługi Key Vault.
+1. Otwórz *HelloController. Java*. Zaktualizuj metodę *GetMessage* , aby uwzględnić komunikat pobrany z Key Vault.
 
     ```java
     @GetMapping
@@ -171,7 +171,7 @@ Aby dodać klucz tajny do magazynu, musisz wykonać tylko kilka dodatkowych krok
     }
     ```
 
-1. Utwórz nowy plik o nazwie *AzureCredentials.java* i dodaj poniższy kod.
+1. Utwórz nowy plik o nazwie *AzureCredentials. Java* i Dodaj poniższy kod.
 
     ```java
     package com.example.demo;
@@ -200,7 +200,7 @@ Aby dodać klucz tajny do magazynu, musisz wykonać tylko kilka dodatkowych krok
     }
     ```
 
-1. Utwórz nowy plik o nazwie *AppConfiguration.java*. I dodać poniższy kod.
+1. Utwórz nowy plik o nazwie *AppConfiguration. Java*. I Dodaj poniższy kod.
 
     ```java
     package com.example.demo;
@@ -218,27 +218,27 @@ Aby dodać klucz tajny do magazynu, musisz wykonać tylko kilka dodatkowych krok
     }
     ```
 
-1. Utwórz nowy plik w katalogu META-INF zasobów o nazwie *spring.factorys* i dodaj.
+1. Utwórz nowy plik w katalogu META-INF zasobów o nazwie *sprężyne. fabryki* i Dodaj.
 
     ```factories
     org.springframework.cloud.bootstrap.BootstrapConfiguration=\
     com.example.demo.AppConfiguration
     ```
 
-1. Zbuduj aplikację Spring Boot za pomocą Maven i uruchom ją, na przykład:
+1. Skompiluj aplikację do rozruchu ze sprężyną przy użyciu Maven i uruchom ją, na przykład:
 
     ```shell
     mvn clean package
     mvn spring-boot:run
     ```
 
-1. Po uruchomieniu aplikacji użyj *curl,* aby przetestować aplikację, na przykład:
+1. Po uruchomieniu aplikacji należy użyć *zazwinięcie* do przetestowania aplikacji, na przykład:
 
       ```shell
       curl -X GET http://localhost:8080/
       ```
 
-    Zostanie wyświetlony komunikat wprowadzony w sklepie Konfiguracja aplikacji. Zostanie również wyświetlony komunikat wprowadzony w przechowalni kluczy.
+    Zobaczysz komunikat wprowadzony w magazynie konfiguracji aplikacji. Zobaczysz również komunikat wprowadzony w Key Vault.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -246,7 +246,7 @@ Aby dodać klucz tajny do magazynu, musisz wykonać tylko kilka dodatkowych krok
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku utworzono klucz konfiguracji aplikacji, który odwołuje się do wartości przechowywanej w magazynie kluczy. Aby dowiedzieć się, jak używać flag funkcji w aplikacji Java Spring, przejdź do następnego samouczka.
+W tym samouczku utworzysz klucz konfiguracji aplikacji, który odwołuje się do wartości przechowywanej w Key Vault. Aby dowiedzieć się, jak używać flag funkcji w aplikacji ze sprężyną Java, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
 > [Integracja tożsamości zarządzanej](./quickstart-feature-flag-spring-boot.md)

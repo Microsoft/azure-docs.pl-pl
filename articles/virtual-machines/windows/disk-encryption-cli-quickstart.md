@@ -1,6 +1,6 @@
 ---
 title: Tworzenie i szyfrowanie maszyny wirtualnej z systemem Windows przy użyciu interfejsu wiersza polecenia platformy Azure
-description: W tym przewodniku Szybki start dowiesz się, jak używać interfejsu wiersza polecenia platformy Azure do tworzenia i szyfrowania maszyny wirtualnej systemu Windows
+description: W tym przewodniku szybki start dowiesz się, jak utworzyć i zaszyfrować maszynę wirtualną z systemem Windows przy użyciu interfejsu wiersza polecenia platformy Azure
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: virtual-machines-windows
@@ -8,25 +8,25 @@ ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.openlocfilehash: aa0dd0bf55d51800d6a9b4283aa9e653887bf2f1
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82082802"
 ---
-# <a name="quickstart-create-and-encrypt-a-windows-vm-with-the-azure-cli"></a>Szybki start: tworzenie i szyfrowanie maszyny Wirtualnej systemu Windows za pomocą interfejsu wiersza polecenia platformy Azure
+# <a name="quickstart-create-and-encrypt-a-windows-vm-with-the-azure-cli"></a>Szybki Start: Tworzenie i szyfrowanie maszyny wirtualnej z systemem Windows przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów. Ten przewodnik Szybki start pokazuje, jak używać interfejsu wiersza polecenia platformy Azure do tworzenia i szyfrowania maszyny wirtualnej systemu Windows Server 2016.This Quickstart shows you how to use the Azure CLI to create and encrypt a Windows Server 2016 virtual machine (VM).
+Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów. W tym przewodniku szybki start pokazano, jak utworzyć i zaszyfrować maszynę wirtualną z systemem Windows Server 2016 przy użyciu interfejsu wiersza polecenia platformy Azure.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować i używać interfejsu wiersza polecenia platformy Azure lokalnie, ten szybki start wymaga, aby uruchomić interfejsu wiersza polecenia platformy Azure w wersji 2.0.30 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia platformy Azure i korzystać z niego lokalnie, ten przewodnik Szybki Start będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.30 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w lokalizacji *eastus:*
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -60,11 +60,11 @@ Utworzenie maszyny wirtualnej i zasobów pomocniczych potrwa kilka minut. Nastę
 }
 ```
 
-## <a name="create-a-key-vault-configured-for-encryption-keys"></a>Tworzenie magazynu kluczy skonfigurowanych dla kluczy szyfrowania
+## <a name="create-a-key-vault-configured-for-encryption-keys"></a>Utwórz Key Vault skonfigurowany pod kątem kluczy szyfrowania
 
-Szyfrowanie dysków platformy Azure przechowuje swój klucz szyfrowania w magazynie azure key vault. Utwórz magazyn kluczy za pomocą [programu az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create). Aby włączyć magazyn kluczy do przechowywania kluczy szyfrowania, należy użyć parametru --enabled-for-disk-encryption.
+Klucz szyfrowania w usłudze Azure Disk Encryption jest przechowywany w Azure Key Vault. Utwórz Key Vault przy użyciu [AZ kluczy Create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create). Aby umożliwić Key Vault przechowywanie kluczy szyfrowania, użyj parametru--enabled-for-Disk-Encryption.
 > [!Important]
-> Każda przechowalnia kluczy musi mieć unikatową nazwę. Poniższy przykład tworzy magazyn kluczy o nazwie *myKV*, ale należy nazwać coś innego.
+> Każdy Key Vault musi mieć unikatową nazwę. Poniższy przykład tworzy Key Vault o nazwie *myKV*, ale należy nazwać coś innego.
 
 ```azurecli-interactive
 az keyvault create --name "myKV" --resource-group "myResourceGroup" --location eastus --enabled-for-disk-encryption
@@ -72,19 +72,19 @@ az keyvault create --name "myKV" --resource-group "myResourceGroup" --location e
 
 ## <a name="encrypt-the-virtual-machine"></a>Szyfruj maszynę wirtualną
 
-Zaszyfruj [maszynę wirtualną za pomocą szyfrowania az vm,](/cli/azure/vm/encryption?view=azure-cli-latest)podając unikatową nazwę usługi Key Vault parametrowi --disk-encryption-keyvault.
+Zaszyfruj maszynę wirtualną za pomocą [AZ VM Encryption](/cli/azure/vm/encryption?view=azure-cli-latest), podając unikatową nazwę Key Vaultową dla parametru--Disk-Encryption-Parameter.
 
 ```azurecli-interactive
 az vm encryption enable -g MyResourceGroup --name MyVM --disk-encryption-keyvault myKV
 ```
 
-Można sprawdzić, czy szyfrowanie jest włączone na maszynie wirtualnej za pomocą [programu AZ VM](/cli/azure/vm/encryption#az-vm-encryption-show)
+Możesz sprawdzić, czy szyfrowanie jest włączone na maszynie wirtualnej za pomocą [AZ VM show](/cli/azure/vm/encryption#az-vm-encryption-show)
 
 ```azurecli-interactive
 az vm show --name MyVM -g MyResourceGroup
 ```
 
-Na zwróconym wyjściu zostaną wyświetlene następujące informacje:
+W zwracanych danych wyjściowych zostaną wyświetlone następujące elementy:
 
 ```
 "EncryptionOperation": "EnableEncryption"
@@ -92,7 +92,7 @@ Na zwróconym wyjściu zostaną wyświetlene następujące informacje:
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy nie jest już potrzebne, można użyć polecenia [delete grupy az,](/cli/azure/group) aby usunąć grupę zasobów, maszynę wirtualną i magazyn kluczy.
+Gdy grupa zasobów, maszyna wirtualna i Key Vault nie będą już potrzebne, można je usunąć za pomocą polecenia [AZ Group Delete](/cli/azure/group) .
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -100,7 +100,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start utworzono maszynę wirtualną, utworzono magazyn kluczy, który był włączony dla kluczy szyfrowania, i zaszyfrowano maszynę wirtualną.  Przejdź do następnego artykułu, aby dowiedzieć się więcej na temat wymagań wstępnych usługi Azure Disk Encryption dotyczących maszyn wirtualnych IaaS.
+W tym przewodniku szybki start utworzono maszynę wirtualną, która utworzyła Key Vault, w której włączono obsługę kluczy szyfrowania, oraz zaszyfrowaną MASZYNę wirtualną.  Przejdź do następnego artykułu, aby dowiedzieć się więcej na temat wymagań wstępnych usługi Azure Disk Encryption dotyczących maszyn wirtualnych IaaS.
 
 > [!div class="nextstepaction"]
-> [Omówienie szyfrowania dysków platformy Azure](disk-encryption-overview.md)
+> [Przegląd Azure Disk Encryption](disk-encryption-overview.md)

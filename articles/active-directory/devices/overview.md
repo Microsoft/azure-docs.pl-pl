@@ -1,6 +1,6 @@
 ---
-title: Co to jest tożsamość urządzenia w usłudze Azure Active Directory?
-description: Dowiedz się, jak zarządzanie tożsamościami urządzeń może pomóc w zarządzaniu urządzeniami uzyskującymi dostęp do zasobów w twoim środowisku.
+title: Co to jest tożsamość urządzenia w Azure Active Directory?
+description: Dowiedz się, jak zarządzanie tożsamościami urządzeń może ułatwić zarządzanie urządzeniami, które uzyskują dostęp do zasobów w danym środowisku.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -12,86 +12,86 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ba0630474224c34eb96429cd7592028362e03381
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82024442"
 ---
 # <a name="what-is-a-device-identity"></a>Co to jest tożsamość urządzenia?
 
-Wraz z rozprzestrzenianiem się urządzeń o różnych kształtach i rozmiarach oraz koncepcją Bring Your Own Device (BYOD), informatycy mają do czynienia z dwoma nieco przeciwstawnymi celami:
+Dzięki rozłącznym urządzeniom wszystkich kształtów i rozmiarów oraz koncepcji "Dobierz własne urządzenie" (BYOD), specjaliści IT są podłączeni do dwóch zamierzonych celów:
 
-- Zezwalaj użytkownikom końcowym na produktywność w dowolnym miejscu i czasie
+- Zezwalaj użytkownikom końcowym na produktywność wszędzie tam, gdzie i za każdym razem
 - Ochrona zasobów organizacji
 
-Aby chronić te zasoby, pracownicy IT muszą najpierw zarządzać tożsamościami urządzeń. Pracownicy działu IT mogą chować się na tożsamości urządzenia za pomocą narzędzi, takich jak Microsoft Intune, aby zapewnić zgodność standardów zabezpieczeń i zgodności. Usługa Azure Active Directory (Azure AD) umożliwia logowanie jednokrotne na urządzeniach, aplikacjach i usługach z dowolnego miejsca za pośrednictwem tych urządzeń.
+Aby chronić te zasoby, pracownicy działu IT muszą najpierw zarządzać tożsamościami urządzeń. Pracownicy IT mogą kompilować tożsamość urządzenia przy użyciu narzędzi, takich jak Microsoft Intune, aby zapewnić zgodność ze standardami bezpieczeństwa i zgodności. Usługa Azure Active Directory (Azure AD) umożliwia logowanie jednokrotne do urządzeń, aplikacji i usług z dowolnego miejsca za pośrednictwem tych urządzeń.
 
-- Użytkownicy uzyskują dostęp do potrzebnych im zasobów organizacji. 
-- Pracownicy IT otrzymują kontrole potrzebne do zabezpieczenia organizacji.
+- Użytkownicy uzyskują dostęp do potrzebnych zasobów organizacji. 
+- Pracownicy działu IT uzyskują kontrolki potrzebne do zabezpieczenia organizacji.
 
-Zarządzanie tożsamością urządzeń jest podstawą [dostępu warunkowego opartego na urządzeniach](../conditional-access/require-managed-devices.md). Dzięki zasadom dostępu warunkowego opartego na urządzeniach można zapewnić, że dostęp do zasobów w twoim środowisku jest możliwy tylko na urządzeniach zarządzanych.
+Zarządzanie tożsamościami urządzeń jest podstawą dla [dostępu warunkowego opartego na urządzeniach](../conditional-access/require-managed-devices.md). Za pomocą zasad dostępu warunkowego opartego na urządzeniach można zapewnić, że dostęp do zasobów w środowisku jest możliwy tylko przy użyciu zarządzanych urządzeń.
 
-## <a name="getting-devices-in-azure-ad"></a>Uzyskiwanie urządzeń w usłudze Azure AD
+## <a name="getting-devices-in-azure-ad"></a>Pobieranie urządzeń w usłudze Azure AD
 
 Aby uzyskać urządzenie w usłudze Azure AD, masz wiele opcji:
 
 - **Zarejestrowane w usłudze Azure AD**
-   - Urządzenia zarejestrowane w usłudze Azure AD są zazwyczaj własnością osobiście lub urządzeniami przenośnymi i są zalogowane za pomocą osobistego konta Microsoft lub innego konta lokalnego.
+   - Urządzenia, które są zarejestrowane w usłudze Azure AD, są zazwyczaj urządzeniami prywatnymi lub przenośnymi, a są zalogowani przy użyciu osobistego konto Microsoft lub innego konta lokalnego.
       - Windows 10
       - iOS
       - Android
       - MacOS
 - **Dołączone do usługi Azure AD**
-   - Urządzenia, które są przyłączone do usługi Azure AD, są własnością organizacji i są zalogowane przy za pomocą konta usługi Azure AD należącego do tej organizacji. Istnieją one tylko w chmurze.
+   - Urządzenia, które są przyłączone do usługi Azure AD, należą do organizacji i są zalogowane przy użyciu konta usługi Azure AD należącego do tej organizacji. Istnieją one tylko w chmurze.
       - Windows 10 
-      - Windows Server 2019 (rdzeń serwera nie jest obsługiwany)
+      - Windows Server 2019 (instalacja Server Core nie jest obsługiwana)
 - **hybrydowym dołączonym do usługi Azure AD**.
-   - Urządzenia, które są przyłączone do usługi Azure AD są własnością organizacji i są zalogowane przy za pomocą konta usługi Azure AD należącego do tej organizacji. Istnieją one w chmurze i lokalnie.
-      - Windows 7, 8.1 lub 10
-      - Windows Server 2008 lub nowszy
+   - Urządzenia, które są dołączone do hybrydowej usługi Azure AD, są własnością organizacji i są zalogowane przy użyciu konta usługi Azure AD należącego do tej organizacji. Istnieją one w chmurze i lokalnie.
+      - Windows 7, 8,1 lub 10
+      - System Windows Server 2008 lub nowszy
 
-![Urządzenia wyświetlane w bloku Urządzenia usługi Azure AD](./media/overview/azure-active-directory-devices-all-devices.png)
+![Urządzenia wyświetlane w bloku urządzenia usługi Azure AD](./media/overview/azure-active-directory-devices-all-devices.png)
 
 > [!NOTE]
-> Stan hybrydowy odnosi się do więcej niż tylko stan urządzenia. Aby stan hybrydowy był prawidłowy, wymagany jest również prawidłowy użytkownik usługi Azure AD.
+> Stan hybrydowy odnosi się tylko do stanu urządzenia. Aby stan hybrydowy był prawidłowy, wymagany jest również prawidłowy użytkownik usługi Azure AD.
 
 ## <a name="device-management"></a>Zarządzanie urządzeniami
 
-Urządzeniami w usłudze Azure AD można zarządzać za pomocą narzędzi zarządzania urządzeniami przenośnymi (MDM), takich jak Microsoft Intune, Microsoft Endpoint Configuration Manager, Group Policy (hybrid Azure AD join), Mobile Application Management (MAM) lub innych narzędzi innych firm.
+Urządzeniami w usłudze Azure AD można zarządzać przy użyciu narzędzi do zarządzania urządzeniami przenośnymi (MDM), takich jak Microsoft Intune, Microsoft Endpoint Configuration Manager, zasady grupy (dołączanie hybrydowej usługi Azure AD), narzędzia do zarządzania aplikacjami mobilnymi (MAM) lub innych narzędzi innych firm.
 
 ## <a name="resource-access"></a>Dostęp do zasobów
 
-Rejestrowanie i łączenie urządzeń z usługą Azure AD zapewnia użytkownikom bezproblemowe logowanie (Logowanie jednokrotne) do zasobów w chmurze. Ten proces umożliwia również administratorom stosowanie zasad dostępu warunkowego do zasobów na podstawie urządzenia, z których są uzyskiwać dostęp. 
+Rejestrowanie i dołączanie urządzeń do usługi Azure AD zapewnia użytkownikom bezproblemowe logowanie do zasobów w chmurze. Ten proces umożliwia także administratorom stosowanie zasad dostępu warunkowego do zasobów w oparciu o urządzenie, z którego są uzyskiwane dostęp. 
 
 > [!NOTE]
-> Zasady dostępu warunkowego oparte na urządzeniach wymagają hybrydowych urządzeń przyłączonych do usługi Azure AD lub zgodnych urządzeń przyłączonych do usługi Azure AD lub urządzeń zarejestrowanych w usłudze Azure AD.
+> Zasady dostępu warunkowego opartego na urządzeniach wymagają urządzeń przyłączonych do hybrydowej usługi Azure AD lub zgodnych urządzeń z usługą Azure AD, które są zarejestrowane.
 
-Podstawowy token odświeżania (PRT) zawiera informacje o urządzeniu i jest wymagany dla logowania pierwszego przyuśtu. Jeśli masz ustawione zasady dostępu warunkowego oparte na urządzeniu w aplikacji, bez PRT, odmowa dostępu. Zasady hybrydowego dostępu warunkowego wymagają urządzenia stanu hybrydowego i prawidłowego użytkownika, który jest zalogowany.
+Podstawowy token odświeżania (PRT) zawiera informacje o urządzeniu i jest wymagany w przypadku logowania jednokrotnego. Jeśli masz ustawione zasady dostępu warunkowego opartego na urządzeniach dla aplikacji, bez PRT, odmowa dostępu. Hybrydowe zasady dostępu warunkowego wymagają hybrydowego urządzenia stanu i prawidłowego zalogowanego użytkownika.
 
-Urządzenia, które są przyłączone do usługi Azure AD lub hybrydowe usługi Azure AD przyłączone korzyści z jednokrotnego użytkownika do zasobów lokalnych organizacji, a także zasobów w chmurze. Więcej informacji można znaleźć w artykule Jak [samouszeńców do zasobów lokalnych działa na urządzeniach przyłączonych do usługi Azure AD.](azuread-join-sso.md)
+Urządzenia, które są przyłączone do usługi Azure AD lub korzystają z hybrydowej usługi Azure AD z logowaniem jednokrotnym do zasobów lokalnych organizacji, a także zasobów w chmurze. Więcej informacji można znaleźć w artykule, w [jaki sposób logowanie JEDNOkrotne do zasobów lokalnych działa na urządzeniach przyłączonych do usługi Azure AD](azuread-join-sso.md).
 
 ## <a name="device-security"></a>Zabezpieczenia urządzeń
 
-- **Urządzenia zarejestrowane w usłudze Azure AD** korzystają z konta zarządzanego przez użytkownika końcowego, to konto jest kontem Microsoft lub innym lokalnie zarządzanym poświadczeniem zabezpieczonym jednym lub kilkoma z poniższych.
+- **Zarejestrowane urządzenia usługi Azure AD** wykorzystują konto zarządzane przez użytkownika końcowego, to konto jest konto Microsoft lub innym lokalnym zarządzanym poświadczeniami zabezpieczonymi przy użyciu co najmniej jednej z poniższych opcji.
    - Hasło
    - Kod PIN
    - Wzorce
    - Windows Hello
-- **Urządzenia przyłączone do usługi Azure AD lub hybrydowe przyłączone do usługi Azure AD** wykorzystują konto organizacyjne w usłudze Azure AD zabezpieczone co najmniej jednym z poniższych.
+- **Przyłączone do usługi Azure AD lub hybrydowe urządzenia z usługą Azure AD** wykorzystują konto organizacyjne w usłudze Azure AD zabezpieczone przy użyciu co najmniej jednego z następujących elementów.
    - Hasło
-   - Windows Hello dla firm
+   - Windows Hello for Business
 
 ## <a name="provisioning"></a>Inicjowanie obsługi
 
-Wprowadzenie urządzeń do usługi Azure AD można wykonać w sposób samoobsługowy lub kontrolowany proces inicjowania obsługi administracyjnej przez administratorów.
+Uzyskiwanie urządzeń w usłudze Azure AD może odbywać się w sposób samoobsługowy lub kontrolowany proces aprowizacji przez administratorów.
 
 ## <a name="summary"></a>Podsumowanie
 
-Dzięki zarządzaniu tożsamością urządzeń w usłudze Azure AD można:
+Za pomocą zarządzania tożsamościami urządzeń w usłudze Azure AD można:
 
-- Uprość proces wprowadzania urządzeń i zarządzania nimi w usłudze Azure AD
-- Zapewnienie użytkownikom łatwego dostępu do zasobów chmurowych organizacji
+- Uproszczenie procesu przenoszenia urządzeń i zarządzania nimi w usłudze Azure AD
+- Zapewnianie użytkownikom łatwego dostępu do zasobów opartych na chmurze w organizacji
 
 ## <a name="license-requirements"></a>Wymagania licencyjne
 
@@ -99,8 +99,8 @@ Dzięki zarządzaniu tożsamością urządzeń w usłudze Azure AD można:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [urządzeniach zarejestrowanych w usłudze Azure AD](concept-azure-ad-register.md)
+- Dowiedz się więcej o [zarejestrowanych urządzeniach usługi Azure AD](concept-azure-ad-register.md)
 - Dowiedz się więcej o [urządzeniach przyłączonych do usługi Azure AD](concept-azure-ad-join.md)
-- Dowiedz się więcej o [hybrydowych urządzeniach przyłączonych do usługi Azure AD](concept-azure-ad-join-hybrid.md)
-- Aby uzyskać omówienie sposobu zarządzania tożsamościami urządzeń w witrynie Azure portal, zobacz [Zarządzanie tożsamościami urządzeń przy użyciu witryny Azure portal.](device-management-azure-portal.md)
-- Aby dowiedzieć się więcej o dostępie warunkowym opartym na urządzeniach, zobacz [Konfigurowanie zasad dostępu warunkowego opartego na urządzeniach usługi Azure Active Directory](../conditional-access/require-managed-devices.md).
+- Dowiedz się więcej o [urządzeniach przyłączonych do hybrydowej usługi Azure AD](concept-azure-ad-join-hybrid.md)
+- Aby dowiedzieć się, jak zarządzać tożsamościami urządzeń w Azure Portal, zobacz [Zarządzanie tożsamościami urządzeń przy użyciu Azure Portal](device-management-azure-portal.md).
+- Aby dowiedzieć się więcej o dostępie warunkowym opartym na urządzeniach, zobacz [Konfigurowanie zasad dostępu warunkowego opartego na urządzeniach Azure Active Directory](../conditional-access/require-managed-devices.md).

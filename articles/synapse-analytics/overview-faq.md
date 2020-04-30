@@ -1,5 +1,5 @@
 ---
-title: Często zadawane pytania — Usługa Azure Synapse Analytics
+title: Często zadawane pytania — Azure Synapse Analytics
 description: Często zadawane pytania dotyczące usługi Azure Synapse Analytics
 services: synapse-analytics
 author: ArnoMicrosoft
@@ -10,102 +10,102 @@ ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 00a98fdeb4b8febbcb9d1183fabffc7298cc9e4c
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81770727"
 ---
-# <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Usługa Azure Synapse Analytics (wersja zapoznawcza obszaru roboczego) często zadawane pytania
+# <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Usługa Azure Synapse Analytics (wersja zapoznawcza obszaru roboczego) — często zadawane pytania
 
-W tym przewodniku znajdziesz najczęściej zadawane pytania dotyczące Synapse Analytics.
+W tym przewodniku znajdziesz najczęściej zadawane pytania dotyczące analizy Synapse.
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
 ## <a name="general"></a>Ogólne
 
-### <a name="q-what-is-azure-synapse-analytics"></a>P: Co to jest usługa Azure Synapse Analytics
+### <a name="q-what-is-azure-synapse-analytics"></a>P: co to jest usługa Azure Synapse Analytics
 
-Odp.: Azure Synapse to zintegrowana platforma danych dla analizy biznesowej, sztucznej inteligencji i ciągłej analizy. Łączy różne środowiska wykonawcze analizy, takie jak SQL i Spark za pośrednictwem jednej platformy, która zapewnia ujednolicony sposób:
+Odp.: usługa Azure Synapse to Zintegrowana platforma danych dla analizy biznesowej, AI i ciągłego. Łączy on różne środowiska uruchomieniowe analizy, takie jak SQL i Spark, za pomocą pojedynczej platformy, która zapewnia jednolity sposób:
 
-- Zabezpiecz swoje zasoby analityczne, w tym sieć, zarządzanie dostępem do puli, danych i artefaktów deweloperskich.
-- Łatwe monitorowanie i szybkie optymalizowanie zdarzeń związanych z obszarem roboczym, reagowanie i debugowanie w dowolnej warstwie.
-- Zarządzanie metadanymi w różnych aparatach. Utwórz tabelę Platformy Spark, która będzie automatycznie dostępna w bazach danych usługi Azure Synapse.
-- Interakcja z danymi za pośrednictwem ujednoliconego środowiska użytkownika. Synapse Studio przenosi deweloperów big data, inżynierów danych, administratorów danych, analityków danych i analityków danych na tę samą platformę.
+- Zabezpieczanie zasobów analitycznych, w tym sieci, zarządzanie dostępem jednokrotnym do puli, danych i artefaktów programistycznych.
+- Łatwo Monitoruj i szybko Optymalizuj, reaguj i Debuguj zdarzenia występujące w działaniach obszaru roboczego w dowolnej warstwie.
+- Zarządzaj metadanymi w różnych aparatach. Utwórz tabelę platformy Spark i zostanie ona automatycznie udostępniona w bazach danych usługi Azure Synapse.
+- Pracuj z danymi za pomocą ujednoliconego środowiska użytkownika. Synapse Studio zapewnia deweloperom danych Big Data, inżynierów danych, przetwarzający, analityków danych i naukowców z danymi na tej samej platformie.
 
-### <a name="q-how-do-i-get-started-with-azure-synapse-analytics"></a>Pyt.: Jak rozpocząć korzystanie z usługi Azure Synapse Analytics
+### <a name="q-how-do-i-get-started-with-azure-synapse-analytics"></a>P: Jak mogę Rozpoczynanie pracy z usługą Azure Synapse Analytics
 
-Odp.: Aby rozpocząć korzystanie z usługi Azure Synapse Analytics, utwórz [obszar roboczy Synapse](https://portal.azure.com) (jest bezpłatny!) i utwórz zasoby, które chcesz w tym obszarze roboczym. Możesz wykonać jeden z naszych samouczków Szybki start, takich jak [Tworzenie puli SQL Synapse](quickstart-create-sql-pool.md) lub [Tworzenie obszaru roboczego,](quickstart-create-workspace.md)który poprowadzi Cię przez prosty przypadek użycia. 
+Odp.: Aby rozpocząć korzystanie z usługi Azure Synapse Analytics, Utwórz [obszar roboczy Synapse](https://portal.azure.com) (bezpłatnie!) i Utwórz zasoby, które mają być w tym obszarze roboczym. Możesz wykonać jedną z naszych samouczków szybkiego startu, na przykład [utworzyć pulę SQL Synapse](quickstart-create-sql-pool.md) lub [utworzyć obszar roboczy](quickstart-create-workspace.md), który przeprowadzi Cię przez prosty przypadek użycia. 
 
-Przykładowe notesy i skrypty SQL można również znaleźć w naszym [repozytorium.](https://github.com/Azure/azure-synapse-analytics/tree/master/samples) Jeśli chcesz połączyć się z publicznym zestawem danych, utwórz nową połączone usługi z następującymi atrybutami:
+Możesz również znaleźć przykładowe Notesy i skrypty SQL w naszym [repozytorium](https://github.com/Azure/azure-synapse-analytics/tree/master/samples). Jeśli musisz nawiązać połączenie z publicznym zestawem danych, Utwórz nową połączoną usługę z następującymi atrybutami:
 
 - azure_storage_account_name = "azureopendatastorage"
-- azure_storage_sas_token = "" (zapis **""**)
+- azure_storage_sas_token = "" (Write **""**)
 
 ### <a name="q-what-are-the-main-components-of-azure-synapse-analytics"></a>P: Jakie są główne składniki usługi Azure Synapse Analytics
 
-Odp.: Usługa Azure Synapse ma następujące możliwości:
+Odp.: usługa Azure Synapse oferuje następujące możliwości:
 
-- Funkcje analizy są oferowane za pośrednictwem puli SQL lub SQL na żądanie (wersja zapoznawcza) (bezserwerowa).
-- Apache Spark pool (wersja zapoznawcza) z pełną obsługą scala, Python, SparkSQL i C #
-- Przepływ danych oferuje bezkońcowe środowisko przekształcania dużych zbiorów danych
-- Integracja danych & aranżacji, aby zintegrować dane i operacjonalizacji całego tworzenia kodu
-- Studio, aby uzyskać dostęp do wszystkich tych funkcji za pośrednictwem jednego interfejsu użytkownika sieci Web
+- Możliwości analizy są oferowane za poorednictwem puli SQL lub SQL na żądanie (wersja zapoznawcza) (bezserwerowa).
+- Pula Apache Spark (wersja zapoznawcza) z pełną obsługą Scala, Python, SparkSQL i C #
+- Przepływ danych oferujący środowisko przekształcania danych Big Data bez kodu
+- Integracja danych & aranżacji, aby zintegrować swoje dane i operacjonalizować wszystkie Programowanie kodu
+- Studio, aby uzyskać dostęp do wszystkich tych funkcji za pomocą pojedynczego internetowego interfejsu użytkownika
 
-### <a name="q-how-does-azure-synapse-analytics-relate-to-azure-sql-data-warehouse"></a>Pyt.: W jaki sposób usługa Azure Synapse Analytics odnosi się do usługi Azure SQL Data Warehouse
+### <a name="q-how-does-azure-synapse-analytics-relate-to-azure-sql-data-warehouse"></a>P: w jaki sposób usługa Azure Synapse Analytics wiąże się z Azure SQL Data Warehouse
 
-Odp.: Usługa Azure Synapse Analytics to ewolucja usługi Azure SQL Data Warehouse w platformę analityczną, która obejmuje pulę SQL jako rozwiązanie magazynu danych. Ta platforma łączy eksplorację danych, pozyskiwania, przekształcanie, przygotowanie i warstwę analizy obsługujących.
+Odp.: usługa Azure Synapse Analytics to ewolucja Azure SQL Data Warehouse na platformie analitycznej, która obejmuje pulę SQL jako rozwiązanie magazynu danych. Ta platforma łączy eksplorację, pozyskiwanie, przekształcenie, przygotowanie i obsługę warstwy analitycznej.
 
 ## <a name="use-cases"></a>Przypadki zastosowań
 
-### <a name="q-what-is-a-good-use-case-for-synapse-sql-pool"></a>P: Co to jest dobry przypadek użycia puli Synapse SQL
+### <a name="q-what-is-a-good-use-case-for-synapse-sql-pool"></a>P: co to jest dobry przypadek użycia dla puli SQL Synapse
 
-Odp.: Pula SQL jest sercem potrzeb magazynu danych. Jest to wiodące rozwiązanie magazynu danych pod względem [ceny/wydajności.](https://azure.microsoft.com/services/sql-data-warehouse/compare/) Pula SQL jest wiodącym w branży rozwiązaniem do magazynu danych w chmurze, ponieważ można:
+Odp.: Pula SQL jest sercem potrzeb hurtowni danych. Jest to wiodące rozwiązanie magazynu danych w [cenie/wydajności](https://azure.microsoft.com/services/sql-data-warehouse/compare/). Pula SQL to wiodące w branży rozwiązanie magazynu danych w chmurze, ponieważ można:
 
-- obsługa dużej i mieszanej gamy obciążeń bez wpływu na wydajność dzięki wysokiej współbieżności i izolacji obciążenia
-- łatwe zabezpieczanie danych dzięki zaawansowanym funkcjom, od zabezpieczeń sieci po dostęp do drobnoziarnistego
-- korzystać z szerokiej gamy ekosystemów
+- Obsługuj duże i mieszane różne obciążenia bez wpływu na wydajność dzięki wysokiej współbieżności i izolacji obciążeń
+- łatwe Zabezpieczanie danych dzięki zaawansowanym funkcjom z zakresu zabezpieczeń sieci na potrzeby dostępu do zasobów szczegółowych
+- Skorzystaj z szerokiego zakresu ekologicznego systemu
 
-### <a name="q-what-is-a-good-use-case-for-spark-in-synapse"></a>P: Co to jest dobry przypadek użycia spark w Synapse
+### <a name="q-what-is-a-good-use-case-for-spark-in-synapse"></a>P: co to jest dobry przypadek użycia dla platformy Spark w Synapse
 
-Odp.: Naszym pierwszym celem jest zapewnienie doskonałego środowiska inżynierii danych do przekształcania danych w jeziorze w partii lub strumieniu. Jego ścisła i prosta integracja z naszą aranżacją danych sprawia, że operacjonalizacja pracy deweloperskiej jest prosta.
+Odp.: pierwszym celem jest zapewnienie doskonałego środowiska inżynierii danych do przekształcania danych w usłudze Batch lub Stream. Jej ścisła i prosta integracja z naszą aranżacją danych sprawia, że operacjonalizacji prac programistycznych jest prosta.
 
 Innym przypadkiem użycia dla platformy Spark jest dla analityka danych:
 
-- wyodrębnianie funkcji
-- eksplorowanie danych
-- szkolić model
+- Wyodrębnij funkcję
+- Eksplorowanie danych
+- uczenie modelu
 
-### <a name="q-what-is-a-good-use-case-for-sql-on-demand-in-synapse"></a>P: Co to jest dobry przypadek użycia sql na żądanie w Synapse
+### <a name="q-what-is-a-good-use-case-for-sql-on-demand-in-synapse"></a>P: co to jest dobry przypadek użycia dla SQL na żądanie w Synapse
 
-Odp.: SQL na żądanie jest usługą zapytań za pośrednictwem danych w usłudze data lake. Umożliwia demokratyzację dostępu do wszystkich danych, zapewniając znaną składnię T-SQL do wykonywania zapytań o dane w miejscu, bez konieczności kopiowania lub ładowania danych do specjalistycznego magazynu.
+Odp.: SQL na żądanie jest usługą zapytania na danych w usłudze Data Lake. Dzięki temu można zdemokratyzuj proces dostęp do wszystkich danych, dostarczając znaną składnię T-SQL służącą do wykonywania zapytań dotyczących danych, bez konieczności kopiowania lub ładowania danych do wyspecjalizowanego magazynu.
 
-Przykłady przypadków użycia są następujące:
+Przykłady użycia:
 
-- podstawowe odkrycie i eksploracja - zapewnia analitykom danych, nowo powstającym analitykom danych i inżynierom danych łatwą ścieżkę do pierwszego wglądu w dane żyjące w ich jeziorze danych ze schematem odczytu zapytań T-SQL
-- logiczny magazyn danych - analitycy danych mogą uruchamiać pełną ekspresję języka T-SQL, aby bezpośrednio wyszukiwać i analizować dane zamieszkałe w usłudze Azure Storage i używać znanych narzędzi analizy biznesowej (np. usługi Analizy platformy Azure, usługi Power BI Premium itp.), aby odświeżyć pulpity nawigacyjne, ponownie uruchamiając zapytania Starlight Query
-- "pojedyncze zapytanie" ETL - pozwala inżynierom danych na przekształcanie danych opartych na usłudze Azure Storage z jednego formatu do drugiego, filtrowanie, agregowanie itp.
+- podstawowe odnajdywanie i Eksploracja — zapewnia analitykom danych, a także inżynierów danych, dzięki łatwej ścieżce do wglądu w dane żyjące w ich usłudze Data Lake przy użyciu schematu na potrzeby odczytywania zapytań T-SQL
+- logiczny magazyn danych — analitycy danych mogą uruchamiać pełne wyrazistości języka T-SQL, aby bezpośrednio wysyłać zapytania i analizować dane przechowywane w usłudze Azure Storage oraz korzystać z znanych narzędzi analizy biznesowej (np. usług analiz platformy Azure, Power BI Premium itp.) do odświeżania pulpitów nawigacyjnych przez ponowne uruchomienie zapytań zapytania Starlight
+- ETL "Single Query" — umożliwia inżynierom danych Przekształcanie danych opartych na usłudze Azure Storage z jednego formatu na inny, filtrowanie, agregowanie itp. w sposób wysoce równoległy, utrwalanie wyników zapytania w usłudze Azure Storage i natychmiastowe udostępnianie ich w celu dalszej obróbki w Starlight zapytania lub innych interesujących usług
 
-### <a name="q-what-is-a-good-use-case-for-data-flow-in-synapse"></a>P: Co to jest dobry przypadek użycia przepływu danych w Synapse
+### <a name="q-what-is-a-good-use-case-for-data-flow-in-synapse"></a>P: co to jest dobry przypadek użycia przepływu danych w Synapse
 
-Odp.: Przepływ danych umożliwia inżynierom danych opracowanie logiki transformacji danych graficznych bez pisania kodu. Wynikowe przepływy danych są wykonywane jako działania w ramach integracji danych & aranżacji. Działania przepływu danych mogą być operationalized za pośrednictwem istniejących planowania, kontroli, przepływu i monitorowania możliwości.
+Odp.: przepływ danych umożliwia inżynierom danych Tworzenie logiki transformacji danych graficznych bez pisania kodu. Wyniki przepływów danych są wykonywane jako działania w ramach integracji danych & aranżacji. Działania przepływu danych mogą być operacyjne za pośrednictwem istniejących możliwości planowania, kontroli, przepływu i monitorowania.
 
 ## <a name="security-and-access"></a>Bezpieczeństwo i dostęp
 
-Odp.: Kompleksowe środowisko logowania jednokrotnego jest ważnym procesem uwierzytelniania w usłudze Synapse Analytics. Zarządzanie i przekazywanie tożsamości za pośrednictwem pełnej integracji usługi AAD jest koniecznością.
+Odp.: kompleksowe środowisko logowania jednokrotnego to ważny proces uwierzytelniania w Synapse Analytics. Zarządzanie tożsamościami i przekazywanie ich za pośrednictwem pełnej integracji usługi AAD jest konieczne.
 
-### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adlsg2"></a>P: Jak uzyskać dostęp do plików i folderów w ADLSg2
+### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adlsg2"></a>P: Jak mogę uzyskać dostęp do plików i folderów w ADLSg2
 
-Odp.: Dostęp do plików i folderów jest obecnie zarządzany za pośrednictwem ADLSg2. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu do magazynu usługi Data Lake](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Odp.: dostęp do plików i folderów jest obecnie zarządzany za pomocą ADLSg2. Aby uzyskać więcej informacji, zobacz [Data Lake kontroli dostępu do magazynu](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-### <a name="q-can-i-use-third-party-business-intelligence-tools-to-access-azure-synapse-analytics"></a>P: Czy mogę korzystać z narzędzi analizy biznesowej innych firm w celu uzyskania dostępu do usługi Azure Synapse Analytics
+### <a name="q-can-i-use-third-party-business-intelligence-tools-to-access-azure-synapse-analytics"></a>P: Czy można używać narzędzi analizy biznesowej innych firm do uzyskiwania dostępu do usługi Azure Synapse Analytics
 
-Odp.: Tak, możesz używać aplikacji biznesowych innych firm, takich jak Tableau i Power BI, do łączenia się z pulą SQL i sql na żądanie. Spark obsługuje technologię IntelliJ.
+Odp.: tak, możesz użyć własnych aplikacji innych firm, takich jak Tableau i Power BI, aby nawiązać połączenie z pulą SQL i SQL na żądanie. Platforma Spark obsługuje IntelliJ.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Tworzenie obszaru roboczego](quickstart-create-workspace.md)
-- [Korzystanie z Synapse Studio](quickstart-synapse-studio.md)
+- [Korzystanie z programu Synapse Studio](quickstart-synapse-studio.md)
 - [Tworzenie puli SQL](quickstart-create-sql-pool.md)
 - [Korzystanie z bazy danych SQL na żądanie](quickstart-sql-on-demand.md)
-- [Tworzenie puli platformy Spark Apache](quickstart-create-apache-spark-pool.md) 
+- [Tworzenie puli Apache Spark](quickstart-create-apache-spark-pool.md) 

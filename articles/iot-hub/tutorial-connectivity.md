@@ -13,17 +13,17 @@ ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
 ms.openlocfilehash: e42b403717eb83db06a9f719a6451cbca74c2929
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81770044"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Samouczek: testowanie łączności z centrum IoT za pomocą urządzenia symulowanego
 
 W tym samouczku użyjesz narzędzi portalu usługi Azure IoT Hub i poleceń interfejsu wiersza polecenia platformy Azure, aby przetestować łączność urządzeń. W tym samouczku został użyty również prosty symulator urządzenia działający na komputerze stacjonarnym.
 
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
@@ -44,9 +44,9 @@ az extension add --name azure-iot
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-Uruchamiana w tym samouczku aplikacja symulatora urządzenia została napisana przy użyciu środowiska Node.js. Na komputerze deweloperskim potrzebny jest plik Node.js v10.x.x lub nowszy.
+Uruchamiana w tym samouczku aplikacja symulatora urządzenia została napisana przy użyciu środowiska Node.js. Potrzebujesz środowiska Node. js v10. x. x lub nowszego na komputerze deweloperskim.
 
-Node.js można pobrać z [nodejs.org.](https://nodejs.org)
+W programie Node. js można pobrać wiele platform z [NodeJS.org](https://nodejs.org).
 
 Możesz sprawdzić bieżącą wersję środowiska Node.js na komputerze deweloperskim przy użyciu następującego polecenia:
 
@@ -56,7 +56,7 @@ node --version
 
 Pobierz przykładowy projekt symulatora urządzenia Node.js ze strony https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip i wyodrębnij archiwum ZIP.
 
-Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym samouczku używa protokołu MQTT, który komunikuje się za pomocą portu 8883. Ten port może być zablokowany w niektórych środowiskach sieci firmowych i edukacyjnych. Aby uzyskać więcej informacji i sposobów obejść ten problem, zobacz [Łączenie się z centrum IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym samouczku używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
@@ -183,7 +183,7 @@ Najpierw należy pobrać aktualne parametry połączenia urządzenia symulowaneg
 az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
-Aby uruchomić symulowane urządzenie, które wysyła wiadomości, przejdź do folderu **iot-hub\Tutorials\ConnectivityTests** w pobranym kodzie.
+Aby uruchomić symulowane urządzenie, które wysyła komunikaty, przejdź do folderu **IoT-hub\Tutorials\ConnectivityTests** w pobranym kodzie.
 
 W oknie terminalu uruchom następujące polecenia, aby zainstalować wymagane biblioteki i uruchomić aplikację urządzenia symulowanego:
 
@@ -196,7 +196,7 @@ Podczas wysyłania danych telemetrycznych do centrum w oknie terminalu zostaną 
 
 ![Wysyłanie komunikatów przez symulowane urządzenie](media/tutorial-connectivity/sim-3-sending.png)
 
-**Metryki** w portalu można użyć, aby sprawdzić, czy wiadomości telemetryczne docierają do centrum IoT hub. Wybierz centrum IoT w menu rozwijanym **Zasób**, a następnie wybierz metrykę **Komunikaty telemetrii wysłane** i wybierz przedział czasowy **Ostatnia godzina**. Wykres pokazuje zagregowaną liczbę komunikatów wysłanych przez urządzenie symulowane:
+Możesz użyć **metryk** w portalu, aby sprawdzić, czy komunikaty telemetryczne docierają do centrum IoT. Wybierz centrum IoT w menu rozwijanym **Zasób**, a następnie wybierz metrykę **Komunikaty telemetrii wysłane** i wybierz przedział czasowy **Ostatnia godzina**. Wykres pokazuje zagregowaną liczbę komunikatów wysłanych przez urządzenie symulowane:
 
 ![Wyświetlanie metryk usługi IoT Hub](media/tutorial-connectivity/metrics-portal.png)
 

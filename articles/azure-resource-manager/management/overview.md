@@ -4,23 +4,23 @@ description: Opis wdrażania zasobów na platformie Azure, kontrolowania dostęp
 ms.topic: overview
 ms.date: 04/21/2020
 ms.openlocfilehash: 253fc2f296fa764a6c22fa1331221df60ca21bb5
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81870488"
 ---
-# <a name="what-is-azure-resource-manager"></a>Co to jest Usługa Azure Resource Manager?
+# <a name="what-is-azure-resource-manager"></a>Co to jest Azure Resource Manager?
 
-Usługa Azure Resource Manager to usługa wdrażania i zarządzania dla platformy Azure. Zawiera warstwę zarządzania, która umożliwia tworzenie, aktualizowanie i usuwanie zasobów na koncie platformy Azure. Za pomocą funkcji zarządzania, takich jak kontrola dostępu, blokady i tagi, można zabezpieczyć i zorganizować zasoby po wdrożeniu.
+Usługa Azure Resource Manager to usługa wdrażania i zarządzania dla platformy Azure. Zapewnia ona warstwę zarządzania, która umożliwia tworzenie, aktualizowanie i usuwanie zasobów na koncie platformy Azure. Za pomocą funkcji zarządzania, takich jak kontrola dostępu, blokady i Tagi, można zabezpieczyć i zorganizować zasoby po wdrożeniu.
 
-Aby dowiedzieć się więcej o szablonach usługi Azure Resource Manager, zobacz [Omówienie wdrażania szablonów](../templates/overview.md).
+Aby dowiedzieć się więcej o szablonach Azure Resource Manager, zobacz [Template Deployment Omówienie](../templates/overview.md).
 
 ## <a name="consistent-management-layer"></a>Spójna warstwa zarządzania
 
-Gdy użytkownik wysyła żądanie z dowolnego narzędzia platformy Azure, interfejsy API lub zestawów SDK, Menedżer zasobów odbiera żądanie. Uwierzytelnia i autoryzuje żądanie. Menedżer zasobów wysyła żądanie do usługi Azure, która wykonuje żądaną akcję. Ponieważ wszystkie żądania są obsługiwane przez ten sam interfejs API, użytkownik widzi spójne wyniki i możliwości w różnych narzędziach.
+Gdy użytkownik wysyła żądanie z dowolnego narzędzia, interfejsów API lub zestawów SDK platformy Azure, Menedżer zasobów odbiera żądanie. Uwierzytelnia i autoryzuje żądanie. Menedżer zasobów wysyła żądanie do usługi platformy Azure, która przyjmuje żądaną akcję. Ponieważ wszystkie żądania są obsługiwane przez ten sam interfejs API, użytkownik widzi spójne wyniki i możliwości w różnych narzędziach.
 
-Na poniższej ilustracji przedstawiono rolę, jaką usługa Azure Resource Manager odgrywa w obsłudze żądań platformy Azure.
+Na poniższej ilustracji przedstawiono rolę Azure Resource Manager odgrywaną w obsłudze żądań platformy Azure.
 
 ![Model żądań usługi Resource Manager](./media/overview/consistent-management-layer.png)
 
@@ -30,39 +30,39 @@ Wszystkie funkcje, które są dostępne w portalu są również dostępne za po�
 
 Jeśli dopiero zaczynasz korzystać z usługi Azure Resource Manager, oto kilka terminów, których możesz nie znać.
 
-* **Zasób** — dostępny za pośrednictwem platformy Azure element, którym można zarządzać. Przykładami zasobów są maszyny wirtualne, konta magazynu, aplikacje internetowe, bazy danych i sieci wirtualne. Grupy zasobów, subskrypcje, grupy zarządzania i tagi są również przykładami zasobów.
+* **Zasób** — dostępny za pośrednictwem platformy Azure element, którym można zarządzać. Przykładami zasobów są maszyny wirtualne, konta magazynu, aplikacje internetowe, bazy danych i sieci wirtualne. Grupy zasobów, subskrypcje, grupy zarządzania i Tagi są również przykładami zasobów.
 * **Grupa zasobów** — kontener, który zawiera powiązane zasoby rozwiązania dla platformy Azure. Grupa zasobów zawiera zasoby, którymi chcesz zarządzać jako grupą. Należy zdecydować, które zasoby należą do grupy zasobów, w oparciu o to, co jest najrozsądniejsze dla Twojej organizacji. Zobacz [Grupy zasobów](#resource-groups).
-* **Dostawca zasobów** — usługa dostarczająca zasoby platformy Azure. Na przykład typowym dostawcą zasobów jest Microsoft.Compute, który dostarcza zasób maszyny wirtualnej. Innym typowym dostawcą zasobów jest Microsoft.Storage. Zobacz [Dostawców zasobów i typy](resource-providers-and-types.md).
-* **Szablon Menedżera zasobów** — plik JSON (JavaScript Object Notation), który definiuje jeden lub więcej zasobów do wdrożenia w grupie zasobów, subskrypcji, grupie zarządzania lub dzierżawie. Szablon może służyć do spójnego i wielokrotnego wdrażania zasobów. Zobacz [omówienie wdrażania szablonu](../templates/overview.md).
-* **Składnia deklaratywna** — składnia pozwalająca określić, co zamierzasz utworzyć, bez konieczności pisania w tym celu sekwencji poleceń programistycznych. Przykładem składni deklaratywnej jest szablon usługi Resource Manager. W tym pliku definiuje się właściwości infrastruktury do wdrożenia na platformie Azure.  Zobacz [omówienie wdrażania szablonu](../templates/overview.md).
+* **Dostawca zasobów** — usługa dostarczająca zasoby platformy Azure. Na przykład typowym dostawcą zasobów jest Microsoft.Compute, który dostarcza zasób maszyny wirtualnej. Innym typowym dostawcą zasobów jest Microsoft.Storage. Zobacz [dostawcy zasobów i ich typy](resource-providers-and-types.md).
+* **Szablon Menedżer zasobów** — plik JavaScript Object Notation (JSON), który definiuje co najmniej jeden zasób do wdrożenia w grupie zasobów, subskrypcji, grupie zarządzania lub dzierżawie. Szablon może służyć do spójnego i wielokrotnego wdrażania zasobów. Zobacz [Template Deployment przegląd](../templates/overview.md).
+* **Składnia deklaratywna** — składnia pozwalająca określić, co zamierzasz utworzyć, bez konieczności pisania w tym celu sekwencji poleceń programistycznych. Przykładem składni deklaratywnej jest szablon usługi Resource Manager. W tym pliku definiuje się właściwości infrastruktury do wdrożenia na platformie Azure.  Zobacz [Template Deployment przegląd](../templates/overview.md).
 
 ## <a name="the-benefits-of-using-resource-manager"></a>Zalety korzystania z usługi Resource Manager
 
-Za pomocą Menedżera zasobów można:
+Za pomocą Menedżer zasobów można:
 
-* Zarządzanie infrastrukturą za pomocą szablonów deklaratywnych, a nie skryptów.
+* Zarządzaj infrastrukturą przy użyciu szablonów deklaratywnych zamiast skryptów.
 
-* Wdrażaj, zarządzaj i monitoruj wszystkie zasoby rozwiązania jako grupę, zamiast obsługiwać te zasoby indywidualnie.
+* Wdrażaj i Monitoruj wszystkie zasoby dla rozwiązania jako grupę, a także zarządzaj nimi, a nie Przetwarzaj tych zasobów pojedynczo.
 
-* Ponownie wdrożyć rozwiązanie w całym cyklu życia rozwoju i mieć pewność, że zasoby są wdrażane w spójnym stanie.
+* Wdróż ponownie rozwiązanie w całym cyklu rozwoju i Zachowaj pewność, że zasoby są wdrażane w spójnym stanie.
 
-* Zdefiniuj zależności między zasobami, aby były wdrażane w odpowiedniej kolejności.
+* Zdefiniuj zależności między zasobami, aby zostały wdrożone w odpowiedniej kolejności.
 
-* Zastosuj kontrolę dostępu do wszystkich usług, ponieważ kontrola dostępu oparta na rolach (RBAC) jest natywnie zintegrowana z platformą zarządzania.
+* Zastosuj kontrolę dostępu do wszystkich usług, ponieważ Access Control oparte na rolach (RBAC) są natywnie zintegrowane z platformą zarządzania.
 
-* Zastosuj tagi do zasobów, aby logicznie zorganizować wszystkie zasoby w ramach subskrypcji.
+* Zastosuj Tagi do zasobów, aby logicznie organizować wszystkie zasoby w subskrypcji.
 
-* Wyjaśnij rozliczenia organizacji, wyświetlając koszty dla grupy zasobów udostępniających ten sam tag.
+* Wyjaśnij rozliczenia w organizacji, wyświetlając koszty dla grupy zasobów, które współużytkują ten sam tag.
 
 ## <a name="understand-scope"></a>Objaśnienie zakresu
 
-Platforma Azure udostępnia cztery poziomy zakresu: [grupy zarządzania,](../../governance/management-groups/overview.md)subskrypcje, [grupy zasobów](#resource-groups)i zasoby. Na poniższej ilustracji przedstawiono takie przykładowe warstwy.
+Platforma Azure udostępnia cztery poziomy zakresu: [grupy zarządzania](../../governance/management-groups/overview.md), subskrypcje, [grupy zasobów](#resource-groups)i zasoby. Na poniższej ilustracji przedstawiono takie przykładowe warstwy.
 
 ![Poziomy zarządzania](./media/overview/scope-levels.png)
 
-Ustawienia zarządzania są stosowane na dowolnych z tych poziomów zakresu. Zasięg zastosowania ustawienia jest określany na podstawie wybranego poziomu. Niższe poziomy dziedziczą ustawienia z wyższych poziomów. Na przykład po zastosowaniu [zasad](../../governance/policy/overview.md) do subskrypcji, zasady są stosowane do wszystkich grup zasobów i zasobów w ramach subskrypcji. Po zastosowaniu zasad do grupy zasobów ta zasada jest stosowana w grupie zasobów i wszystkich jej zasobach. Jednak inna grupa zasobów nie ma tego przypisania zasad.
+Ustawienia zarządzania są stosowane na dowolnych z tych poziomów zakresu. Zasięg zastosowania ustawienia jest określany na podstawie wybranego poziomu. Niższe poziomy dziedziczą ustawienia z wyższych poziomów. Na przykład w przypadku zastosowania [zasad](../../governance/policy/overview.md) do subskrypcji zasady są stosowane do wszystkich grup zasobów i zasobów w ramach subskrypcji. Po zastosowaniu zasad w grupie zasobów te zasady są stosowane do grupy zasobów i wszystkich jej zasobów. Jednak inna grupa zasobów nie ma tego przypisania zasad.
 
-Szablony można wdrażać dla dzierżaw, grup zarządzania, subskrypcji lub grup zasobów.
+Szablony można wdrażać dla dzierżawców, grup zarządzania, subskrypcji lub grup zasobów.
 
 ## <a name="resource-groups"></a>Grupy zasobów
 
@@ -72,7 +72,7 @@ Definiując grupę zasobów, należy wziąć pod uwagę pewne ważne czynniki:
 
 * Każdy zasób może znajdować się tylko w jednej grupie zasobów.
 
-* Niektóre zasoby mogą istnieć poza grupą zasobów. Te zasoby są wdrażane w [ramach subskrypcji,](../templates/deploy-to-subscription.md) [grupy zarządzania](../templates/deploy-to-management-group.md)lub [dzierżawy.](../templates/deploy-to-tenant.md) Tylko określone typy zasobów są obsługiwane w tych zakresach.
+* Niektóre zasoby mogą znajdować się poza grupą zasobów. Te zasoby są wdrażane w [subskrypcji](../templates/deploy-to-subscription.md), [grupie zarządzania](../templates/deploy-to-management-group.md)lub [dzierżawie](../templates/deploy-to-tenant.md). W tych zakresach są obsługiwane tylko określone typy zasobów.
 
 * Zasoby w grupie można dodawać i usuwać w dowolnym momencie.
 
@@ -84,28 +84,28 @@ Definiując grupę zasobów, należy wziąć pod uwagę pewne ważne czynniki:
 
 * Zasób może wchodzić w interakcję z zasobami znajdującymi się w innych grupach zasobów. Ta interakcja jest typowa, gdy dwa zasoby są ze sobą powiązane, ale nie mają tego samego cyklu życia (na przykład aplikacje internetowe łączące się z bazą danych).
 
-Podczas tworzenia grupy zasobów, należy podać lokalizację dla danej grupy zasobów. Być może zastanawiasz się, „Dlaczego grupa zasobów wymaga określenia lokalizacji? Ponadto dlaczego lokalizacja grupy zasobów jest w ogóle istotna, skoro zasoby mogą znajdować się w innej lokalizacji niż grupa zasobów?” Grupa zasobów przechowuje metadane dotyczące zasobów. Po określeniu lokalizacji dla grupy zasobów, określasz, gdzie te metadane są przechowywane. Dla zachowania zgodności może być konieczne upewnienie się, że dane są przechowywane w odpowiednim regionie.
+Podczas tworzenia grupy zasobów, należy podać lokalizację dla danej grupy zasobów. Być może zastanawiasz się, „Dlaczego grupa zasobów wymaga określenia lokalizacji? Ponadto dlaczego lokalizacja grupy zasobów jest w ogóle istotna, skoro zasoby mogą znajdować się w innej lokalizacji niż grupa zasobów?” Grupa zasobów przechowuje metadane dotyczące zasobów. W przypadku określania lokalizacji grupy zasobów należy określić miejsce przechowywania metadanych. Dla zachowania zgodności może być konieczne upewnienie się, że dane są przechowywane w odpowiednim regionie.
 
-Jeśli region grupy zasobów jest tymczasowo niedostępny, nie można zaktualizować zasobów w grupie zasobów, ponieważ metadane są niedostępne. Zasoby w innych regionach będą nadal działać zgodnie z oczekiwaniami, ale nie można ich zaktualizować. Aby uzyskać więcej informacji na temat tworzenia niezawodnych aplikacji, zobacz [Projektowanie niezawodnych aplikacji platformy Azure.](/azure/architecture/checklist/resiliency-per-service)
+Jeśli region grupy zasobów jest tymczasowo niedostępny, nie można zaktualizować zasobów w grupie zasobów, ponieważ metadane są niedostępne. Zasoby w innych regionach będą nadal działać zgodnie z oczekiwaniami, ale nie można ich zaktualizować. Aby uzyskać więcej informacji na temat tworzenia niezawodnych aplikacji, zobacz [projektowanie niezawodnych aplikacji platformy Azure](/azure/architecture/checklist/resiliency-per-service).
 
-## <a name="resiliency-of-azure-resource-manager"></a>Odporność usługi Azure Resource Manager
+## <a name="resiliency-of-azure-resource-manager"></a>Odporność Azure Resource Manager
 
-Usługa Azure Resource Manager została zaprojektowana z myślą o odporności i ciągłej dostępności. Operacje Menedżera zasobów i płaszczyzny sterowania (żądania wysyłane do management.azure.com) w interfejsie API REST są następujące:
+Usługa Azure Resource Manager została zaprojektowana pod kątem odporności i ciągłej dostępności. Operacje płaszczyzny Menedżer zasobów i kontroli (żądania wysyłane do management.azure.com) w interfejsie API REST są następujące:
 
-* Rozmieszczony w różnych regionach. Niektóre usługi mają regionalny.
+* Rozproszone w różnych regionach. Niektóre usługi są regionalne.
 
-* Rozmieszczony w strefach dostępności (a także regionach) w lokalizacjach, w których znajduje się wiele stref dostępności.
+* Dystrybuowane między Strefy dostępności (jak również regiony) w lokalizacjach, które mają wiele Strefy dostępności.
 
-* Nie zależy od jednego logicznego centrum danych.
+* Nie jest zależne od pojedynczego logicznego centrum danych.
 
-* Nigdy nie zdjęty do czynności konserwacyjnych.
+* Nigdy nie są wykonywane w ramach działań konserwacyjnych.
 
-Ta odporność ma zastosowanie do usług, które odbierają żądania za pośrednictwem Menedżera zasobów. Na przykład Usługa Key Vault korzysta z tej odporności.
+Ta odporność ma zastosowanie do usług, które odbierają żądania przez Menedżer zasobów. Na przykład Key Vault korzyści wynikające z tej odporności.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o przenoszeniu zasobów, zobacz [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](move-resource-group-and-subscription.md).
+* Aby dowiedzieć się więcej o przenoszeniu zasobów, zobacz [przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](move-resource-group-and-subscription.md).
 
-* Aby dowiedzieć się więcej o oznaczaniu zasobów, zobacz [Organizowanie zasobów platformy Azure za pomocą tagów.](tag-resources.md)
+* Aby dowiedzieć się więcej o znakowaniu zasobów, zobacz [Używanie tagów do organizowania zasobów platformy Azure](tag-resources.md).
 
-* Aby dowiedzieć się więcej o blokowaniu zasobów, zobacz [Blokowanie zasobów, aby zapobiec nieoczekiwanym zmianom](lock-resources.md).
+* Aby dowiedzieć się więcej o blokowaniu zasobów, zobacz [blokowanie zasobów, aby zapobiec nieoczekiwanym zmianom](lock-resources.md).

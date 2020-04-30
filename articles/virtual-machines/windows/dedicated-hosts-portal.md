@@ -1,6 +1,6 @@
 ---
 title: Wdrażanie dedykowanych hostów platformy Azure przy użyciu portalu
-description: Wdrażanie maszyn wirtualnych do dedykowanych hostów za pomocą portalu.
+description: Wdrażaj maszyny wirtualne na dedykowanych hostach przy użyciu portalu.
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: article
@@ -9,57 +9,57 @@ ms.date: 03/10/2020
 ms.author: cynthn
 ms.reviewer: zivr
 ms.openlocfilehash: 53a9cd33f7bd2223be1c9f199b7a6d10d876c322
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82082938"
 ---
-# <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Wdrażanie maszyn wirtualnych na dedykowanych hostach za pomocą portalu
+# <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Wdrażanie maszyn wirtualnych na dedykowanych hostach przy użyciu portalu
 
-W tym artykule opisano, jak utworzyć [dedykowany host](dedicated-hosts.md) platformy Azure do obsługi maszyn wirtualnych (maszyn wirtualnych). 
+W tym artykule opisano sposób tworzenia [dedykowanego hosta](dedicated-hosts.md) platformy Azure do hostowania maszyn wirtualnych. 
 
 [!INCLUDE [virtual-machines-common-dedicated-hosts-portal](../../../includes/virtual-machines-common-dedicated-hosts-portal.md)]
 
 ## <a name="create-a-vm"></a>Tworzenie maszyny wirtualnej
 
 1. W lewym górnym rogu okna witryny Azure Portal wybierz pozycję **Utwórz zasób**.
-1. Na stronie **Nowy** w obszarze **Popularne**wybierz pozycję **Centrum danych systemu Windows Server 2016**.
-1. Na karcie **Podstawy** w obszarze **Szczegóły projektu**upewnij się, że jest wybrana poprawna subskrypcja, a następnie wybierz *myDedicatedHostsRG* jako **grupę Zasobów**. 
+1. Na stronie **Nowy** w obszarze **popularne**wybierz pozycję **Windows Server 2016 Datacenter**.
+1. Na karcie **podstawy** w obszarze **szczegóły projektu**upewnij się, że wybrano poprawną subskrypcję, a następnie wybierz pozycję *myDedicatedHostsRG* jako **grupę zasobów**. 
 1. W obszarze **Szczegóły wystąpienia** wpisz *myVM* w polu **Nazwa maszyny wirtualnej** i wybierz *Wschodnie stany USA* w polu **Lokalizacja **.
-1. W **obszarze Opcje dostępności** wybierz **strefę Dostępność**, wybierz *1* z listy rozwijanej.
-1. Dla rozmiaru wybierz pozycję **Zmień rozmiar**. Na liście dostępnych rozmiarów wybierz jeden z serii Esv3, takich jak **Standard E2s v3**. Może być konieczne wyczyszczenie filtru, aby wyświetlić wszystkie dostępne rozmiary.
+1. W obszarze **Opcje dostępności** wybierz pozycję **strefa dostępności**, a następnie z listy rozwijanej wybierz pozycję *1* .
+1. Dla rozmiaru wybierz pozycję **Zmień rozmiar**. Na liście dostępnych rozmiarów wybierz jedną z serii Esv3, na przykład **standardowa E2s v3**. Może być konieczne wyczyszczenie filtru, aby wyświetlić wszystkie dostępne rozmiary.
 1. W obszarze **Konto administratora** podaj nazwę użytkownika, taką jak *azureuser*, oraz hasło. Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](faq.md#what-are-the-password-requirements-when-creating-a-vm).
-1. W obszarze **Reguły portów przychodzących**wybierz pozycję **Zezwalaj na wybrane porty,** a następnie wybierz z listy rozwijanej pozycję **RDP (3389).**
-1. U góry strony wybierz kartę **Zaawansowane,** a następnie w sekcji **Host** wybierz **grupę** *myHostGroup* for Host i *myHost* dla **hosta**. 
-    ![Wybieranie grupy hostów i hosta](./media/dedicated-hosts-portal/advanced.png)
+1. W obszarze **reguły portów ruchu przychodzącego**wybierz opcję **Zezwalaj na wybrane porty** , a następnie wybierz pozycję **RDP (3389)** z listy rozwijanej.
+1. W górnej części strony wybierz kartę **Zaawansowane** i w sekcji **host** wybierz pozycję Moja *host* dla **grupy hostów** *i hosta* dla **hosta**. 
+    ![Wybierz grupę hostów i hosta](./media/dedicated-hosts-portal/advanced.png)
 1. Pozostaw pozostałe wartości domyślne, a następnie wybierz przycisk **Przejrzyj + utwórz** znajdujący się u dołu strony.
-1. Po wyświetleniu komunikatu, że weryfikacja została przekazana, wybierz pozycję **Utwórz**.
+1. Gdy zobaczysz komunikat, że Walidacja zakończyła się pomyślnie, wybierz pozycję **Utwórz**.
 
 ## <a name="add-an-existing-vm"></a>Dodawanie istniejącej maszyny wirtualnej 
 
-Do dedykowanego hosta można dodać istniejącą maszynę wirtualną, ale najpierw maszyna wirtualna musi być zatrzymana\przydziałem. Przed przeniesieniem maszyny Wirtualnej na dedykowany host upewnij się, że konfiguracja maszyny Wirtualnej jest obsługiwana:
+Możesz dodać istniejącą maszynę wirtualną do dedykowanego hosta, ale najpierw należy Stop\Deallocated. maszynę wirtualną Przed przeniesieniem maszyny wirtualnej do dedykowanego hosta upewnij się, że konfiguracja maszyny wirtualnej jest obsługiwana:
 
-- Rozmiar maszyny Wirtualnej musi znajdować się w tej samej rodzinie rozmiarów co dedykowany host. Na przykład jeśli dedykowany host jest DSv3, rozmiar maszyny Wirtualnej może być Standard_D4s_v3, ale nie może być Standard_A4_v2. 
+- Rozmiar maszyny wirtualnej musi znajdować się w tej samej rodzinie rozmiarów co dedykowany host. Na przykład jeśli dedykowany host to DSv3, rozmiar maszyny wirtualnej może być Standard_D4s_v3, ale nie Standard_A4_v2. 
 - Maszyna wirtualna musi znajdować się w tym samym regionie co dedykowany host.
-- Maszyna wirtualna nie może być częścią grupy miejsc docelowych zbliżeniowych. Usuń maszynę wirtualną z grupy miejsc docelowych zbliżeniowych przed przeniesieniem jej do dedykowanego hosta. Aby uzyskać więcej informacji, zobacz [Przenoszenie maszyny Wirtualnej z grupy miejsc docelowych zbliżeniowych](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group)
-- Maszyna wirtualna nie może być w zestawie dostępności.
-- Jeśli maszyna wirtualna znajduje się w strefie dostępności, musi być tą samą strefą dostępności co grupa hosta. Ustawienia strefy dostępności dla maszyny Wirtualnej i grupy hostów muszą być zgodne.
+- Maszyna wirtualna nie może być częścią grupy umieszczania sąsiedztwa. Usuń maszynę wirtualną z grupy położenia zbliżeniowe przed przeniesieniem jej do dedykowanego hosta. Aby uzyskać więcej informacji, zobacz [Przenoszenie maszyny wirtualnej z grupy umieszczania sąsiedztwa](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group)
+- Maszyna wirtualna nie może znajdować się w zestawie dostępności.
+- Jeśli maszyna wirtualna znajduje się w strefie dostępności, musi to być ta sama strefa dostępności co grupa hostów. Ustawienia strefy dostępności dla maszyny wirtualnej i grupy hostów muszą być zgodne.
 
-Przenieś maszynę wirtualną na dedykowany host za pomocą [portalu](https://portal.azure.com).
+Przenieś maszynę wirtualną na dedykowanego hosta przy użyciu [portalu](https://portal.azure.com).
 
-1. Otwórz stronę maszyny Wirtualnej.
-1. Wybierz **pozycję Zatrzymaj,** aby zatrzymać\zdeterminowaćlokalizuj maszynę wirtualną.
-1. Z lewego menu **wybierz polecenie Konfiguracja.**
-1. Wybierz grupę hostów i hosta z menu rozwijanych.
-1. Po zakończeniu wybierz pozycję **Zapisz** u góry strony.
-1. Po dodaniu maszyny Wirtualnej do hosta wybierz **opcję Przegląd** z lewego menu.
-1. U góry strony wybierz pozycję **Start,** aby ponownie uruchomić maszynę wirtualną.
+1. Otwórz stronę dla maszyny wirtualnej.
+1. Wybierz pozycję **Zatrzymaj** , aby stop\deallocate maszynę wirtualną.
+1. Z menu po lewej stronie wybierz pozycję **Konfiguracja** .
+1. Wybierz grupę hostów i hosta z menu rozwijanego.
+1. Gdy skończysz, wybierz pozycję **Zapisz** w górnej części strony.
+1. Po dodaniu maszyny wirtualnej do hosta z menu po lewej stronie wybierz pozycję **Przegląd** .
+1. W górnej części strony wybierz pozycję **Rozpocznij** , aby ponownie uruchomić maszynę wirtualną.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji, zobacz [przegląd dedykowanych hostów.](dedicated-hosts.md) 
+- Aby uzyskać więcej informacji, zobacz Omówienie [dedykowanych hostów](dedicated-hosts.md) . 
 
-- Istnieje przykładowy szablon, znaleziono [tutaj,](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)który używa zarówno stref i domen błędów dla maksymalnej odporności w regionie.
+- Istnieje przykładowy szablon, który znajduje się w [tym miejscu](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), który używa stref i domen błędów w celu uzyskania maksymalnej odporności w regionie.
 
-- Można również wdrożyć dedykowanego hosta przy użyciu [programu Azure PowerShell](dedicated-hosts-powershell.md).
+- Możesz również wdrożyć dedykowanego hosta przy użyciu [Azure PowerShell](dedicated-hosts-powershell.md).

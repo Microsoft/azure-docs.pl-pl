@@ -9,15 +9,15 @@ ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 9b6a0733961b9495290e583a6d0f7047ab771b83
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82085839"
 ---
-Utwórz [aplikację](../articles/app-service/containers/app-service-linux-intro.md) internetową `myAppServicePlan` w planie usługi app service. 
+Utwórz [aplikację internetową](../articles/app-service/containers/app-service-linux-intro.md) w planie `myAppServicePlan` App Service. 
 
-W powłoki chmury można [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) użyć polecenia. W poniższym przykładzie zastąp ciąg `<app-name>` globalnie unikatową nazwą aplikacji (prawidłowe znaki to `a-z`, `0-9` i `-`). Środowisko uruchomieniowe ma ustawioną wartość `PHP|7.0`. Aby wyświetlić wszystkie obsługiwane środowiska [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes)wykonawcze, uruchom plik . 
+W Cloud Shell można użyć [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) polecenia. W poniższym przykładzie zastąp ciąg `<app-name>` globalnie unikatową nazwą aplikacji (prawidłowe znaki to `a-z`, `0-9` i `-`). Środowisko uruchomieniowe ma ustawioną wartość `PHP|7.0`. Aby wyświetlić wszystkie obsługiwane środowiska uruchomieniowe, [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes)Uruchom polecenie. 
 
 ```azurecli-interactive
 # Bash

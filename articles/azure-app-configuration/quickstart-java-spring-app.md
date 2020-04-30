@@ -1,5 +1,5 @@
 ---
-title: Szybki start, aby dowiedzieć się, jak korzystać z konfiguracji aplikacji platformy Azure
+title: Przewodnik Szybki Start, aby dowiedzieć się, jak korzystać z usługi Azure App Configuration
 description: Przewodnik Szybki start dotyczący korzystania z usługi Azure App Configuration z aplikacjami Java Spring.
 services: azure-app-configuration
 documentationcenter: ''
@@ -11,58 +11,58 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.openlocfilehash: 69b9733f4d79f5fc42fe86ca0f8a97305205aeef
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82085063"
 ---
-# <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Szybki start: tworzenie aplikacji Java Spring za pomocą konfiguracji aplikacji azure
+# <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Szybki Start: Tworzenie aplikacji ze sprężyną Java przy użyciu konfiguracji aplikacji platformy Azure
 
-W tym przewodniku Szybki start można włączyć konfigurację aplikacji platformy Azure do aplikacji Java Spring, aby scentralizować przechowywanie i zarządzanie ustawieniami aplikacji oddzielnie od kodu.
+W tym przewodniku szybki start dołączysz konfigurację aplikacji platformy Azure do aplikacji ze sprężyną Java w celu scentralizowanego przechowywania i zarządzania ustawieniami aplikacji oddzielonymi od kodu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure — [utwórz bezpłatną subskrypcję](https://azure.microsoft.com/free/)
-- Obsługiwany zestaw [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) w wersji 8.
-- [Apache Maven](https://maven.apache.org/download.cgi) w wersji 3.0 lub wyższej.
+- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+- Obsługiwany [zestaw Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) w wersji 8.
+- System [Apache Maven](https://maven.apache.org/download.cgi) w wersji 3,0 lub nowszej.
 
-## <a name="create-an-app-configuration-store"></a>Tworzenie sklepu konfiguracji aplikacji
+## <a name="create-an-app-configuration-store"></a>Tworzenie magazynu konfiguracji aplikacji
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Wybierz **Eksplorator** > konfiguracji **+ Utwórz** > **wartość klucza,** aby dodać następujące pary klucz-wartość:
+6. Wybierz kolejno pozycje **Eksplorator** > konfiguracji **+ Utwórz** > **klucz-wartość** , aby dodać następujące pary klucz-wartość:
 
     | Klucz | Wartość |
     |---|---|
     | /application/config.message | Hello |
 
-    Pozostaw **etykietę** i **typ zawartości** puste na razie.
+    Dla tej pory pozostaw pustą **etykietę** i **Typ zawartości** .
 
 7. Wybierz przycisk **Zastosuj**.
 
 ## <a name="create-a-spring-boot-app"></a>Tworzenie aplikacji Spring Boot
 
-Użyj [spring initializr,](https://start.spring.io/) aby utworzyć nowy projekt Spring Boot.
+Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy projekt z rozruchem sprężyny.
 
 1. Przejdź do <https://start.spring.io/>.
 
 1. Określ następujące opcje:
 
    - Wygeneruj projekt **Maven** z użyciem języka **Java**.
-   - Określ wersję **rozruchu sprężyny,** która jest równa lub większa niż 2.0.
+   - Określ wersję **rozruchu sprężynowego** , która jest równa lub większa niż 2,0.
    - Określ nazwy **Grupa** i **Artefakt** dla swojej aplikacji.
-   - Dodaj **wiosenną** zależność sieci Web.
+   - Dodaj zależność **sieci Web sprężyny** .
 
 1. Po określeniu poprzednich opcji wybierz pozycję **Generuj projekt**. Po wyświetleniu monitu pobierz projekt do ścieżki na komputerze lokalnym.
 
-## <a name="connect-to-an-app-configuration-store"></a>Łączenie się ze sklepem konfiguracji aplikacji
+## <a name="connect-to-an-app-configuration-store"></a>Nawiązywanie połączenia z magazynem konfiguracji aplikacji
 
-1. Po wyodrębnieniu plików w systemie lokalnym prosta aplikacja Spring Boot jest gotowa do edycji. Znajdź plik *pom.xml* w katalogu głównym swojej aplikacji.
+1. Po wyodrębnieniu plików w systemie lokalnym, prosta aplikacja rozruchowa sprężyny jest gotowa do edycji. Znajdź plik *pom.xml* w katalogu głównym swojej aplikacji.
 
 1. Otwórz plik *pom.xml* w edytorze tekstu, a następnie dodaj starter Spring Cloud Azure Config do listy `<dependencies>`:
 
-    **Wiosenna chmura 1.1.x**
+    **Chmura Wiosenna 1.1. x**
 
     ```xml
     <dependency>
@@ -72,7 +72,7 @@ Użyj [spring initializr,](https://start.spring.io/) aby utworzyć nowy projekt 
     </dependency>
     ```
 
-    **Wiosenna chmura 1.2.x**
+    **Chmura Wiosenna 1.2. x**
 
     ```xml
     <dependency>
@@ -140,13 +140,13 @@ Użyj [spring initializr,](https://start.spring.io/) aby utworzyć nowy projekt 
     }
     ```
 
-1. Utwórz nowy `bootstrap.properties` plik o nazwie w katalogu zasobów aplikacji i dodaj do pliku następujące wiersze. Zastąp przykładowe wartości odpowiednimi właściwościami dla sklepu konfiguracji aplikacji.
+1. Utwórz nowy plik o nazwie `bootstrap.properties` w katalogu zasobów aplikacji, a następnie Dodaj do pliku następujące wiersze. Zastąp przykładowe wartości odpowiednimi właściwościami magazynu konfiguracji aplikacji.
 
     ```CLI
     spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
-1. Ustaw zmienną środowiskową o nazwie **APP_CONFIGURATION_CONNECTION_STRING**i ustaw ją na klucz dostępu do sklepu konfiguracji aplikacji. W wierszu polecenia uruchom następujące polecenie i uruchom ponownie wiersz polecenia, aby umożliwić zmianę:
+1. Ustaw zmienną środowiskową o nazwie **APP_CONFIGURATION_CONNECTION_STRING**i ustaw ją na klucz dostępu do magazynu konfiguracji aplikacji. W wierszu polecenia Uruchom następujące polecenie i ponownie uruchom wiersz polecenia, aby zezwolić na wprowadzenie zmiany:
 
     ```cmd
     setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
@@ -158,7 +158,7 @@ Użyj [spring initializr,](https://start.spring.io/) aby utworzyć nowy projekt 
     $Env:APP_CONFIGURATION_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
     ```
 
-    Jeśli używasz systemu macOS lub Linux, uruchom następujące polecenie:
+    Jeśli używasz macOS lub Linux, uruchom następujące polecenie:
 
     ```cmd
     export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
@@ -166,20 +166,20 @@ Użyj [spring initializr,](https://start.spring.io/) aby utworzyć nowy projekt 
 
 ## <a name="build-and-run-the-app-locally"></a>Lokalne kompilowanie i uruchamianie aplikacji
 
-1. Zbuduj aplikację Spring Boot za pomocą Maven i uruchom ją, na przykład:
+1. Skompiluj aplikację do rozruchu ze sprężyną przy użyciu Maven i uruchom ją, na przykład:
 
     ```cmd
     mvn clean package
     mvn spring-boot:run
     ```
 
-2. Po uruchomieniu aplikacji użyj *curl,* aby przetestować aplikację, na przykład:
+2. Po uruchomieniu aplikacji należy użyć *zazwinięcie* do przetestowania aplikacji, na przykład:
 
       ```cmd
       curl -X GET http://localhost:8080/
       ```
 
-    Zostanie wyświetlony komunikat wprowadzony w sklepie Konfiguracja aplikacji.
+    Zobaczysz komunikat wprowadzony w magazynie konfiguracji aplikacji.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -187,7 +187,7 @@ Użyj [spring initializr,](https://start.spring.io/) aby utworzyć nowy projekt 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start utworzono nowy sklep konfiguracji aplikacji i użyto go z aplikacją Java Spring. Aby uzyskać więcej informacji, zobacz [Wiosna na platformie Azure](https://docs.microsoft.com/java/azure/spring-framework/). Aby dowiedzieć się, jak włączyć aplikację Java Spring dynamicznie odświeżać ustawienia konfiguracji, przejdź do następnego samouczka.
+W tym przewodniku szybki start utworzono nowy magazyn konfiguracji aplikacji i użył go w aplikacji ze sprężyną Java. Aby uzyskać więcej informacji, zobacz [Sprężyna na platformie Azure](https://docs.microsoft.com/java/azure/spring-framework/). Aby dowiedzieć się, jak włączyć aplikację ze sprężyną Java do dynamicznego odświeżania ustawień konfiguracji, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
 > [Włącz konfigurację dynamiczną](./enable-dynamic-configuration-java-spring-app.md)

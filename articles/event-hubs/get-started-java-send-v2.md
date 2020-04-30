@@ -1,6 +1,6 @@
 ---
-title: Wysyłanie lub odbieranie zdarzeń z usługi Azure Event Hubs przy użyciu języka Java (najnowsze)
-description: Ten artykuł zawiera przewodnik tworzenia aplikacji Java, która wysyła/odbiera zdarzenia do/z usługi Azure Event Hubs przy użyciu najnowszego pakietu azure-messaging-eventhubs.
+title: Wysyłanie i odbieranie zdarzeń z usługi Azure Event Hubs przy użyciu języka Java (najnowsze)
+description: Ten artykuł zawiera Przewodnik dotyczący tworzenia aplikacji Java, która wysyła/odbiera zdarzenia do/z usługi Azure Event Hubs przy użyciu najnowszego pakietu Azure-Messaging-eventhubs.
 services: event-hubs
 author: spelluru
 ms.service: event-hubs
@@ -9,34 +9,34 @@ ms.topic: quickstart
 ms.date: 04/21/2020
 ms.author: spelluru
 ms.openlocfilehash: ca22f4481750abb3bd4432c8b42fbce93ede8ffd
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81770879"
 ---
-# <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-messaging-eventhubs"></a>Używanie języka Java do wysyłania zdarzeń do centrów zdarzeń platformy Azure lub odbierania ich z usługi Azure Event Hubs (azure-messaging-eventhubs)
-Ten przewodnik Szybki start pokazuje, jak wysyłać zdarzenia i odbierać zdarzenia z centrum zdarzeń przy użyciu pakietu Java **azure-messaging-eventhubs.**
+# <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-messaging-eventhubs"></a>Wysyłanie zdarzeń do i odbieranie zdarzeń z usługi Azure Event Hubs (Azure-Messaging-eventhubs) przy użyciu języka Java
+Ten przewodnik Szybki Start przedstawia sposób wysyłania zdarzeń do i odbierania zdarzeń z centrum zdarzeń przy użyciu pakietu **Azure-Messaging-eventhubs** Java.
 
 > [!IMPORTANT]
-> Ten przewodnik Szybki start używa nowego pakietu **azure-messaging-eventhubs.** Aby uzyskać przewodnik Szybki start, który używa starych pakietów **azure-eventhubs** i **azure-eventhubs-eph,** zobacz [Wysyłanie i odbieranie zdarzeń przy użyciu azure-eventhubs i azure-eventhubs-eph.](event-hubs-java-get-started-send.md) 
+> Ten przewodnik Szybki Start używa nowego pakietu **Azure-Messaging-eventhubs** . Aby uzyskać szybki Start, który używa starych pakietów **Azure-eventhubs** i **Azure-eventhubs-EPH** , zobacz [wysyłanie i odbieranie zdarzeń przy użyciu platformy Azure-eventhubs i platformy Azure-eventhubs-EPH](event-hubs-java-get-started-send.md). 
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Jeśli jesteś nowym użytkownikiem usługi Azure Event Hubs, zobacz [Omówienie centrów zdarzeń](event-hubs-about.md) przed rozpoczęciem tego przewodnika Szybki start. 
+Jeśli dopiero zaczynasz w usłudze Azure Event Hubs, zapoznaj się z tematem [Event Hubs Overview](event-hubs-about.md) przed wykonaniem tego przewodnika Szybki Start. 
 
 Do wykonania kroków tego przewodnika Szybki start niezbędne jest spełnienie następujących wymagań wstępnych:
 
-- **Subskrypcja platformy Microsoft Azure**. Aby korzystać z usług platformy Azure, w tym usługi Azure Event Hubs, potrzebujesz subskrypcji.  Jeśli nie masz istniejącego konta platformy Azure, możesz zarejestrować się w celu [uzyskania bezpłatnej wersji próbnej](https://azure.microsoft.com/free/) lub skorzystać z korzyści dla subskrybenta MSDN podczas [tworzenia konta.](https://azure.microsoft.com)
-- Środowisko programistyczne Java. Ten szybki start używa [Eclipse](https://www.eclipse.org/). Wymagany jest zestaw Java Development Kit (JDK) w wersji 8 lub wyższej. 
-- **Utwórz obszar nazw Centrów zdarzeń i centrum zdarzeń**. Pierwszym krokiem jest użycie [witryny Azure Portal](https://portal.azure.com) do utworzenia obszaru nazw typu Event Hubs i uzyskania poświadczeń zarządzania, których aplikacja potrzebuje do komunikowania się z centrum zdarzeń. Aby utworzyć przestrzeń nazw i centrum zdarzeń, wykonaj procedurę opisaną w [tym artykule](event-hubs-create.md). Następnie pobierz **ciąg połączenia dla obszaru nazw Centrum zdarzeń,** postępując zgodnie z instrukcjami z artykułu: [Pobierz parametry połączenia](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Ciąg połączenia należy użyć w dalszej części tego przewodnika Szybki start.
+- **Subskrypcja Microsoft Azure**. Do korzystania z usług platformy Azure, w tym usługi Azure Event Hubs, potrzebna jest subskrypcja.  Jeśli nie masz istniejącego konta platformy Azure, możesz zarejestrować się w celu korzystania z [bezpłatnej wersji próbnej](https://azure.microsoft.com/free/) lub skorzystać z korzyści dla subskrybentów MSDN podczas [tworzenia konta](https://azure.microsoft.com).
+- Środowisko projektowe Java. Ten przewodnik Szybki Start używa [Przezaćmienia](https://www.eclipse.org/). Wymagany jest zestaw Java Development Kit (JDK) z wersją 8 lub nowszą. 
+- **Utwórz przestrzeń nazw Event Hubs i centrum zdarzeń**. Pierwszym krokiem jest użycie [Azure Portal](https://portal.azure.com) do utworzenia przestrzeni nazw typu Event Hubs i uzyskanie poświadczeń zarządzania wymaganych przez aplikację do komunikacji z centrum zdarzeń. Aby utworzyć przestrzeń nazw i centrum zdarzeń, wykonaj procedurę opisaną w [tym artykule](event-hubs-create.md). Następnie Pobierz **Parametry połączenia dla przestrzeni nazw Event Hubs** , wykonując instrukcje z artykułu: [pobieranie parametrów połączenia](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Parametry połączenia są używane w dalszej części tego przewodnika Szybki Start.
 
 ## <a name="send-events"></a>Wysyłanie zdarzeń 
-W tej sekcji pokazano, jak utworzyć aplikację Java do wysyłania zdarzeń centrum zdarzeń. 
+W tej sekcji pokazano, jak utworzyć aplikację Java do wysyłania zdarzeń do centrum zdarzeń. 
 
-### <a name="add-reference-to-azure-event-hubs-library"></a>Dodawanie odwołania do biblioteki usługi Azure Event Hubs
+### <a name="add-reference-to-azure-event-hubs-library"></a>Dodaj odwołanie do biblioteki Event Hubs platformy Azure
 
-Biblioteka klienta Java dla centrów zdarzeń jest dostępna w [repozytorium Centralnym Maven.](https://search.maven.org/search?q=a:azure-messaging-eventhubs) Do tej biblioteki można odwołać się przy użyciu następującej deklaracji zależności wewnątrz pliku projektu Maven:
+Biblioteka klienta Java dla Event Hubs jest dostępna w [repozytorium centralnym Maven](https://search.maven.org/search?q=a:azure-messaging-eventhubs). Można odwołać się do tej biblioteki za pomocą następującej deklaracji zależności w pliku projektu Maven:
 
 ```xml
 <dependency>
@@ -48,7 +48,7 @@ Biblioteka klienta Java dla centrów zdarzeń jest dostępna w [repozytorium Cen
 
 ### <a name="write-code-to-send-messages-to-the-event-hub"></a>Pisanie kodu w celu wysyłania komunikatów do centrum zdarzeń
 
-Na potrzeby poniższego przykładu należy w ulubionym środowisku programowania Java utworzyć nowy projekt Maven dla aplikacji konsoli lub powłoki. Dodaj klasę `Sender`o nazwie i dodaj do klasy następujący kod:
+Na potrzeby poniższego przykładu należy w ulubionym środowisku programowania Java utworzyć nowy projekt Maven dla aplikacji konsoli lub powłoki. Dodaj klasę o nazwie `Sender`i Dodaj następujący kod do klasy:
 
 ```java
 import com.azure.messaging.eventhubs.*;
@@ -60,16 +60,16 @@ public class Sender {
 }
 ```
 
-### <a name="connection-string-and-event-hub"></a>Ciąg połączenia i centrum zdarzeń
-Ten kod używa ciągu połączenia do obszaru nazw Centrum zdarzeń i nazwy centrum zdarzeń do tworzenia klienta centrum zdarzeń. 
+### <a name="connection-string-and-event-hub"></a>Parametry połączenia i centrum zdarzeń
+Ten kod używa parametrów połączenia do przestrzeni nazw Event Hubs i nazwy centrum zdarzeń do kompilowania klienta Event Hubs. 
 
 ```java
 String connectionString = "<CONNECTION STRING to EVENT HUBS NAMESPACE>";
 String eventHubName = "<EVENT HUB NAME>";
 ```
 
-### <a name="create-an-event-hubs-producer-client"></a>Tworzenie klienta producenta centrów zdarzeń 
-Ten kod tworzy obiekt klienta producenta, który jest używany do tworzenia/wysyłania zdarzeń do centrum zdarzeń. 
+### <a name="create-an-event-hubs-producer-client"></a>Tworzenie klienta Event Hubs producent 
+Ten kod tworzy obiekt klienta producenta służący do tworzenia/wysyłania zdarzeń do centrum zdarzeń. 
 
 ```java
 EventHubProducerClient producer = new EventHubClientBuilder()
@@ -77,7 +77,7 @@ EventHubProducerClient producer = new EventHubClientBuilder()
     .buildProducerClient();
 ```
 
-### <a name="prepare-a-batch-of-events"></a>Przygotowanie partii zdarzeń
+### <a name="prepare-a-batch-of-events"></a>Przygotowywanie partii zdarzeń
 Ten kod przygotowuje partię zdarzeń. 
 
 ```java
@@ -90,20 +90,20 @@ batch.tryAdd(new EventData("Fifth event"));
 ```
 
 ### <a name="send-the-batch-of-events-to-the-event-hub"></a>Wysyłanie partii zdarzeń do centrum zdarzeń
-Ten kod wysyła partię zdarzeń przygotowanych w poprzednim kroku do Centrum zdarzeń. Następujące bloki kodu w operacji wysyłania. 
+Ten kod wysyła partię zdarzeń przygotowanych w poprzednim kroku do centrum zdarzeń. Poniższy blok kodu dla operacji wysyłania. 
 
 ```java
 producer.send(batch);
 ```
 
-### <a name="close-and-cleanup"></a>Zamykanie i oczyszczanie
+### <a name="close-and-cleanup"></a>Zamknij i oczyść
 Ten kod zamyka producenta. 
 
 ```java
 producer.close();
 ```
-### <a name="complete-code-to-send-events"></a>Kompletny kod do wysyłania zdarzeń
-Oto kompletny kod do wysyłania zdarzeń do centrum zdarzeń. 
+### <a name="complete-code-to-send-events"></a>Ukończ kod do wysyłania zdarzeń
+Oto kompletny kod umożliwiający wysyłanie zdarzeń do centrum zdarzeń. 
 
 ```java
 import com.azure.messaging.eventhubs.*;
@@ -135,17 +135,17 @@ public class Sender {
 }
 ```
 
-Skompiluj program i upewnij się, że nie ma żadnych błędów. Program zostanie uruchomiony po uruchomieniu programu odbiornika. 
+Skompiluj program i upewnij się, że nie ma żadnych błędów. Ten program zostanie uruchomiony po uruchomieniu programu odbiorcy. 
 
 ## <a name="receive-events"></a>Odbieranie zdarzeń
-Kod w tym samouczku jest oparty na [próbce EventProcessorClient na GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/EventProcessorClientSample.java), które można sprawdzić, aby zobaczyć pełną działającą aplikację.
+Kod w tym samouczku jest oparty na [przykładzie EventProcessorClient w witrynie GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/EventProcessorClientSample.java), który można sprawdzić, aby zobaczyć pełną działającą aplikację.
 
 > [!NOTE]
-> Jeśli korzystasz z usługi Azure Stack Hub, ta platforma może obsługiwać inną wersję SDK obiektów blob magazynu niż te zwykle dostępne na platformie Azure. Na przykład jeśli korzystasz [z usługi Azure Stack Hub w wersji 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), najwyższą dostępną wersją usługi Storage jest wersja 2017-11-09. W takim przypadku oprócz następujących kroków w tej sekcji, należy również dodać kod do docelowej wersji interfejsu API usługi magazynu 2017-11-09. Na przykład, jak kierować określonej wersji interfejsu API magazynu, zobacz [ten przykład na GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java). Aby uzyskać więcej informacji na temat wersji usługi Azure Storage obsługiwanych w usłudze Azure Stack Hub, zobacz [usługi Azure Stack Hub storage: Różnice i zagadnienia.](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences)
+> Jeśli korzystasz z usługi Azure Stack Hub, Ta platforma może obsługiwać inną wersję zestawu SDK obiektów BLOB Storage, która jest zazwyczaj dostępna na platformie Azure. Na przykład jeśli korzystasz z programu [Azure Stack Hub w wersji 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), najwyższa dostępna wersja usługi Storage to wersja 2017-11-09. W takim przypadku, oprócz kroków opisanych w tej sekcji, należy również dodać kod docelowy interfejsu API usługi Storage w wersji 2017-11-09. Aby zapoznać się z przykładem dotyczącym konkretnej wersji interfejsu API usługi Storage, zobacz [ten przykład w witrynie GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java). Więcej informacji o wersjach usługi Azure Storage obsługiwanych w centrum Azure Stack można znaleźć w centrum [Azure Stack Storage: różnice i zagadnienia](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences).
 
 ### <a name="create-a-java-project"></a>Tworzenie projektu Java
 
-Biblioteka klienta Java dla centrów zdarzeń jest dostępna do użycia w projektach Maven z [repozytorium Centralnego Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22)i można się do niej odwoływać przy użyciu następującej deklaracji zależności wewnątrz pliku projektu Maven: 
+Biblioteka klienta Java dla Event Hubs jest dostępna do użycia w projektach Maven z [repozytorium Central Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22)i może być przywoływana przy użyciu następującej deklaracji zależności w pliku projektu Maven: 
 
 ```xml
 <dependencies>
@@ -157,7 +157,7 @@ Biblioteka klienta Java dla centrów zdarzeń jest dostępna do użycia w projek
 </dependencies>
 ```
 
-1. Użyj następującego kodu, aby utworzyć nową klasę o nazwie `Receiver`. Zastąp symbole zastępcze wartościami używanymi podczas tworzenia centrum zdarzeń i konta magazynu:
+1. Użyj następującego kodu, aby utworzyć nową klasę o nazwie `Receiver`. Zastąp symbole zastępcze wartościami użytymi podczas tworzenia centrum zdarzeń i konta magazynu:
    
    ```java
      import com.azure.messaging.eventhubs.*;
@@ -211,15 +211,15 @@ Biblioteka klienta Java dla centrów zdarzeń jest dostępna do użycia w projek
      }
     ```
     
-2. Pobierz plik **SampleCheckpointStore.java** z [gitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/SampleCheckpointStore.java)i dodaj go do swojego projektu. 
+2. Pobierz plik **SampleCheckpointStore. Java** z usługi [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/SampleCheckpointStore.java)i dodaj go do projektu. 
 3. Skompiluj program i upewnij się, że nie ma żadnych błędów. 
 
 ## <a name="run-the-applications"></a>Uruchamianie aplikacji
-1. Najpierw uruchom aplikację **odbiornika.**
-1. Następnie uruchom aplikację **nadawcy.** 
-1. W oknie aplikacji **odbiorcy** upewnij się, że są widoczne zdarzenia, które zostały opublikowane przez aplikację nadawcy.
-1. Naciśnij **klawisz ENTER** w oknie aplikacji odbiornika, aby zatrzymać aplikację. 
+1. Najpierw uruchom aplikację **odbiornika** .
+1. Następnie uruchom aplikację **nadawcy** . 
+1. W oknie Aplikacja **odbiornika** Potwierdź, że zobaczysz zdarzenia, które zostały opublikowane przez aplikację nadawcy.
+1. Naciśnij klawisz **Enter** w oknie aplikacji odbiornika, aby zatrzymać aplikację. 
 
 ## <a name="next-steps"></a>Następne kroki
-Zapoznaj się z [przykładami java SDK w usłudze GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
+Zapoznaj się [z przykładami zestawu SDK dla języka Java w witrynie GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
 
