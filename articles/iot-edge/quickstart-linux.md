@@ -10,26 +10,26 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 52258a8bc287df36158ec143e4aad74c34455ea4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80236084"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Szybki start: wdrażanie pierwszego modułu usługi IoT Edge na wirtualnym urządzeniu z systemem Linux
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Szybki Start: wdrażanie pierwszego modułu IoT Edge na wirtualnym urządzeniu z systemem Linux
 
-Przetestuj usługę Azure IoT Edge w tym przewodniku Szybki start, wdrażając konteneryzowany kod na wirtualnym urządzeniu usługi IoT Edge. Usługa IoT Edge umożliwia zdalne zarządzanie kodem na urządzeniach, dzięki czemu można wysyłać więcej obciążeń do krawędzi. W tym przewodniku Szybki start zaleca się użycie maszyny wirtualnej platformy Azure dla urządzenia usługi IoT Edge, która umożliwia szybkie utworzenie komputera testowego ze wszystkimi wymaganiami wstępnymi zainstalowanymi, a następnie usunięcie go po zakończeniu.
+Przetestuj Azure IoT Edge w tym przewodniku Szybki Start, wdrażając kod kontenerowy na urządzeniu IoT Edge wirtualnym. IoT Edge umożliwia zdalne zarządzanie kodem na urządzeniach, dzięki czemu można wysyłać więcej obciążeń do krawędzi. W tym przewodniku szybki start zalecamy korzystanie z maszyny wirtualnej platformy Azure dla urządzenia IoT Edge, co pozwala na szybkie utworzenie maszyny testowej z zainstalowanymi wszystkimi wymaganiami wstępnymi, a następnie usunięcie jej po zakończeniu.
 
 W tym przewodniku Szybki start zawarto informacje na temat wykonywania następujących czynności:
 
 1. Tworzenie centrum IoT Hub.
 2. Rejestrowanie urządzenia usługi IoT Edge w centrum IoT Hub.
-3. Zainstaluj i uruchom środowisko uruchomieniowe usługi IoT Edge na urządzeniu wirtualnym.
+3. Zainstaluj i uruchom środowisko uruchomieniowe IoT Edge na urządzeniu wirtualnym.
 4. Zdalne wdrażanie modułu na urządzeniu usługi IoT Edge.
 
 ![Diagram — architektura przewodnika Szybki start dla urządzenia i chmury](./media/quickstart-linux/install-edge-full.png)
 
-Ten szybki start przeprowadzi Cię przez tworzenie maszyny wirtualnej systemu Linux, która jest skonfigurowana jako urządzenie usługi IoT Edge. Następnie wdrożysz modułu z witryny Azure Portal na swoim urządzeniu. Moduł wdrażany podczas pracy z tym przewodnikiem Szybki start to symulowany czujnik generujący dane dotyczące temperatury, wilgotności i ciśnienia. Z wykonanej tutaj pracy będziesz korzystać w pozostałych samouczkach usługi Azure IoT Edge, wdrażając moduły do analizy symulowanych danych na potrzeby biznesowe.
+Ten przewodnik Szybki Start przeprowadzi Cię przez proces tworzenia maszyny wirtualnej z systemem Linux, która jest skonfigurowana do IoT Edge urządzenia. Następnie wdrożysz modułu z witryny Azure Portal na swoim urządzeniu. Moduł wdrażany podczas pracy z tym przewodnikiem Szybki start to symulowany czujnik generujący dane dotyczące temperatury, wilgotności i ciśnienia. Z wykonanej tutaj pracy będziesz korzystać w pozostałych samouczkach usługi Azure IoT Edge, wdrażając moduły do analizy symulowanych danych na potrzeby biznesowe.
 
 Jeśli nie masz aktywnej subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free).
 
@@ -57,7 +57,7 @@ Zasoby w chmurze:
 
 Urządzenie usługi IoT Edge:
 
-* Urządzenie lub maszyna wirtualna z systemem Linux, która będzie działać jako urządzenie usługi IoT Edge. Należy użyć usługi Azure IoT Edge dostarczonej przez firmę Microsoft na maszynie wirtualnej [Ubuntu,](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) która preinstaluje wszystko, czego potrzebujesz do uruchomienia usługi IoT Edge na urządzeniu. Zaakceptuj warunki użytkowania i utwórz tę maszynę wirtualną przy użyciu następujących poleceń:
+* Urządzenie lub maszyna wirtualna z systemem Linux, która będzie działać jako urządzenie usługi IoT Edge. Należy używać Azure IoT Edge dostarczonej przez firmę Microsoft na maszynie wirtualnej [Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) , która instaluje wszystko, czego potrzebujesz do uruchamiania IoT Edge na urządzeniu. Zaakceptuj warunki użytkowania i Utwórz tę maszynę wirtualną przy użyciu następujących poleceń:
 
    ```azurecli-interactive
    az vm image terms accept --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
@@ -68,7 +68,7 @@ Urządzenie usługi IoT Edge:
 
    Podczas tworzenia nowej maszyny wirtualnej zanotuj wartość elementu **publicIpAddress**. Jest ona widoczna w danych wyjściowych polecenia create. Tego publicznego adresu IP użyjesz później w tym przewodniku Szybki start do nawiązania połączenia z maszyną wirtualną.
 
-* Jeśli wolisz uruchomić środowisko wykonawcze usługi Azure IoT Edge na własnym urządzeniu, postępuj zgodnie z instrukcjami podanymi w aplikacji [Zainstaluj środowisko uruchomieniowe usługi Azure IoT Edge w systemie Linux.](how-to-install-iot-edge-linux.md)
+* Jeśli wolisz uruchomić środowisko uruchomieniowe Azure IoT Edge na swoim urządzeniu, postępuj zgodnie z instrukcjami podanymi w [tematach Instalowanie środowiska uruchomieniowego Azure IoT Edge w systemie Linux](how-to-install-iot-edge-linux.md).
 
 ## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
@@ -78,7 +78,7 @@ Rozpocznij pracę z przewodnikiem Szybki start od utworzenia centrum IoT za pomo
 
 W tym przewodniku Szybki start wystarcza warstwa bezpłatna usługi IoT Hub. Jeśli w przeszłości używano usługi IoT Hub i masz już utworzone bezpłatne centrum, możesz używać tego centrum IoT Hub. Każda subskrypcja może zawierać tylko jedno bezpłatne centrum IoT Hub.
 
-Poniższy kod tworzy bezpłatne centrum **F1** w grupie zasobów **IoTEdgeResources**. Zamień `{hub_name}` unikatową nazwę centrum IoT Hub.
+Poniższy kod tworzy bezpłatne centrum **F1** w grupie zasobów **IoTEdgeResources**. Zamień `{hub_name}` na unikatową nazwę Centrum IoT.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
@@ -126,17 +126,17 @@ Podczas konfigurowania środowiska uruchomieniowego należy podać parametry po�
 
 ### <a name="set-the-connection-string-on-the-iot-edge-device"></a>Ustawianie parametrów połączenia na urządzeniu usługi IoT Edge
 
-Jeśli używasz usługi Azure IoT Edge na maszynie wirtualnej Ubuntu, zgodnie z opisem w wymaganiach wstępnych, urządzenie ma już zainstalowane środowisko uruchomieniowe usługi IoT Edge. Wystarczy skonfigurować urządzenie przy użyciu parametrów połączenia urządzenia pobranych w poprzedniej sekcji. Można to zrobić zdalnie bez konieczności nawiązywania połączenia z maszyną wirtualną. Uruchom następujące polecenie, `{device_connection_string}` zastępując własnym ciągiem.
+Jeśli używasz Azure IoT Edge na maszynie wirtualnej Ubuntu, zgodnie z opisem w sekcji wymagania wstępne, na urządzeniu jest już zainstalowane środowisko uruchomieniowe IoT Edge. Wystarczy skonfigurować urządzenie przy użyciu parametrów połączenia urządzenia pobranych w poprzedniej sekcji. Można to zrobić zdalnie bez konieczności nawiązywania połączenia z maszyną wirtualną. Uruchom następujące polecenie, zastępując `{device_connection_string}` je własnym ciągiem.
 
    ```azurecli-interactive
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
    ```
 
-Jeśli używasz usługi IoT Edge na komputerze lokalnym lub urządzeniu ARM32 lub ARM64, musisz zainstalować środowisko wykonawcze usługi IoT Edge i jego wymagania wstępne na urządzeniu. Postępuj zgodnie z instrukcjami w [zainstaluj środowisko uruchomieniowe usługi Azure IoT Edge w systemie Linux,](how-to-install-iot-edge-linux.md)a następnie wróć do tego przewodnika Szybki start.
+Jeśli używasz IoT Edge na komputerze lokalnym lub urządzeniu ARM32 lub ARM64, musisz zainstalować środowisko uruchomieniowe IoT Edge i jego wymagania wstępne na urządzeniu. Postępuj zgodnie z instrukcjami w temacie [Instalowanie środowiska wykonawczego Azure IoT Edge w systemie Linux](how-to-install-iot-edge-linux.md), a następnie wróć do tego przewodnika Szybki Start.
 
 ### <a name="view-the-iot-edge-runtime-status"></a>Wyświetlanie stanu środowiska uruchomieniowego usługi IoT Edge
 
-Pozostałe polecenia w tym przewodniku Szybki start są wykonywane na samym urządzeniu usługi IoT Edge, dzięki czemu można zobaczyć, co dzieje się na urządzeniu. Jeśli używasz maszyny wirtualnej, połącz się z nią teraz, używając publicznego adresu IP z danych wyjściowych polecenia użytego do jej utworzenia. Publiczny adres IP możesz również znaleźć na stronie przeglądu swojej maszyny wirtualnej w witrynie Azure Portal. Użyj następującego polecenia, aby nawiązać połączenie z maszyną wirtualną. Zamień, `{azureuser}` jeśli użyto innej nazwy użytkownika niż sugerowana w wymaganiach wstępnych. Wymień `{publicIpAddress}` na adres urządzenia.
+Pozostałe polecenia w tym przewodniku Szybki start są wykonywane na samym urządzeniu usługi IoT Edge, dzięki czemu można zobaczyć, co dzieje się na urządzeniu. Jeśli używasz maszyny wirtualnej, połącz się z nią teraz, używając publicznego adresu IP z danych wyjściowych polecenia użytego do jej utworzenia. Publiczny adres IP możesz również znaleźć na stronie przeglądu swojej maszyny wirtualnej w witrynie Azure Portal. Użyj następującego polecenia, aby nawiązać połączenie z maszyną wirtualną. Zamień `{azureuser}` , jeśli użyto innej nazwy użytkownika niż sugerowana w wymaganiach wstępnych. Zamień `{publicIpAddress}` na adres maszyny.
 
    ```console
    ssh azureuser@{publicIpAddress}
@@ -145,15 +145,15 @@ Pozostałe polecenia w tym przewodniku Szybki start są wykonywane na samym urz�
 Sprawdź, czy środowisko uruchomieniowe zostało pomyślnie zainstalowane i skonfigurowane na urządzeniu usługi IoT Edge.
 
 >[!TIP]
->Uruchomienie poleceń `iotedge` wymaga podniesionych uprawnień. Po wylogowaniu się z komputera i ponownym zalogowaniu się do niego po raz pierwszy od zainstalowania środowiska uruchomieniowego usługi IoT Edge Twoje uprawnienia zostaną automatycznie zaktualizowane. Do tego `sudo` czasu należy używać przed poleceniami.
+>Uruchomienie poleceń `iotedge` wymaga podniesionych uprawnień. Po wylogowaniu się z komputera i ponownym zalogowaniu się do niego po raz pierwszy od zainstalowania środowiska uruchomieniowego usługi IoT Edge Twoje uprawnienia zostaną automatycznie zaktualizowane. Do tego momentu `sudo` należy użyć przed poleceniami.
 
-1. Sprawdź, czy demon zabezpieczeń usługi IoT Edge działa jako usługa systemowa.
+1. Sprawdź, czy demon IoT Edge Security jest uruchomiony jako usługa systemowa.
 
    ```bash
    sudo systemctl status iotedge
    ```
 
-   ![Zobacz demona IoT Edge działającego jako usługa systemowa](./media/quickstart-linux/iotedged-running.png)
+   ![Zobacz demon IoT Edge uruchomiony jako usługa systemowa](./media/quickstart-linux/iotedged-running.png)
 
 2. Jeśli potrzebujesz rozwiązać problem z usługą, pobierz jej dzienniki.
 
@@ -203,11 +203,11 @@ Wyświetl komunikaty wysyłane z modułu czujnika temperatury:
 
    ![Wyświetlanie danych z modułu](./media/quickstart-linux/iotedge-logs.png)
 
-Można również obserwować wiadomości przychodzące do centrum IoT hub przy użyciu [rozszerzenia Usługi Azure IoT Hub dla programu Visual Studio Code.](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
+Możesz również obejrzeć komunikaty docierające do centrum IoT Hub przy użyciu [rozszerzenia IoT Hub platformy Azure dla Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli chcesz przejść do samouczków dotyczących usługi IoT Edge, możesz użyć urządzenia, które zostało zarejestrowane i skonfigurowane w ramach tego przewodnika Szybki start. W przeciwnym razie można usunąć zasoby platformy Azure, które zostały utworzone w celu uniknięcia opłat.
+Jeśli chcesz przejść do samouczków dotyczących usługi IoT Edge, możesz użyć urządzenia, które zostało zarejestrowane i skonfigurowane w ramach tego przewodnika Szybki start. W przeciwnym razie możesz usunąć utworzone zasoby platformy Azure, aby uniknąć naliczania opłat.
 
 Jeśli maszyna wirtualna i centrum IoT Hub zostały utworzone w nowej grupie zasobów, możesz usunąć tę grupę i wszystkie powiązane zasoby. Sprawdź dokładnie zawartość grupy zasobów, aby się upewnić, że nie ma w niej żadnych elementów, które chcesz zachować. Jeśli nie chcesz usuwać całej grupy, możesz usunąć poszczególne zasoby.
 
@@ -221,7 +221,7 @@ az group delete --name IoTEdgeResources
 
 W tym przewodniku Szybki start utworzono urządzenie usługi IoT Edge i wdrożono na nim kod przy użyciu interfejsu usługi Azure IoT Edge w chmurze. Masz teraz urządzenie testowe generujące dane pierwotne dotyczące jego otoczenia.
 
-Następnym krokiem jest skonfigurowanie lokalnego środowiska programistycznego, dzięki czemu można rozpocząć tworzenie modułów usługi IoT Edge, które uruchamiają logikę biznesową.
+Następnym krokiem jest skonfigurowanie lokalnego środowiska programistycznego, aby można było rozpocząć tworzenie modułów IoT Edge, które uruchamiają logikę biznesową.
 
 > [!div class="nextstepaction"]
-> [Rozpoczęcie tworzenia modułów IoT Edge dla urządzeń z systemem Linux](tutorial-develop-for-linux.md)
+> [Rozpocznij opracowywanie modułów IoT Edge dla urządzeń z systemem Linux](tutorial-develop-for-linux.md)

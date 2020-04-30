@@ -1,6 +1,6 @@
 ---
-title: Rejestrowanie urządzeń X.509 w usłudze inicjowania obsługi urządzeń platformy Azure przy użyciu języka Python
-description: W tym przewodniku Szybki start używane są rejestracje grupowe. W tym przewodniku Szybki start urządzenia X.509 zostaną zarejestrowane w usłudze inicjowania obsługi urządzeń usługi Azure IoT Hub (DPS) w języku Python
+title: Rejestrowanie urządzeń X. 509 w usłudze Azure Device Provisioning przy użyciu języka Python
+description: W tym przewodniku Szybki start używane są rejestracje grupowe. W tym przewodniku szybki start nastąpi zarejestrowanie urządzeń X. 509 w usłudze Azure IoT Hub Device Provisioning Service (DPS) przy użyciu języka Python
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -10,28 +10,28 @@ services: iot-dps
 ms.devlang: python
 ms.custom: mvc
 ms.openlocfilehash: ed51fb7589247b1a52930931ed297d4292b07ea6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77921134"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>Przewodnik Szybki start: rejestrowanie urządzeń X.509 w usłudze Device Provisioning przy użyciu języka Python
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-W tym przewodniku Szybki start można użyć języka Python do programowego tworzenia grupy rejestracji, która używa certyfikatów pośredniego lub głównego urzędu certyfikacji X.509. Grupa rejestracji steruje dostępem do usługi aprowizacji dla urządzeń, które mają wspólny certyfikat podpisywania w swoim łańcuchu certyfikatów. Grupa rejestracji jest tworzona przy użyciu zestawu SDK usługi aprowizacji języka Python i przykładowej aplikacji w języku Python.
+W tym przewodniku szybki start użyjesz języka Python, aby programowo utworzyć grupę rejestracji, która używa pośrednich lub głównych certyfikatów X. 509 urzędu certyfikacji. Grupa rejestracji steruje dostępem do usługi aprowizacji dla urządzeń, które mają wspólny certyfikat podpisywania w swoim łańcuchu certyfikatów. Grupa rejestracji jest tworzona przy użyciu zestawu SDK usługi aprowizacji języka Python i przykładowej aplikacji w języku Python.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Zakończenie [konfigurowania usługi inicjowania obsługi administracyjnej urządzeń usługi Usługi obsługi urządzeń usługi IoT Hub za pomocą witryny Azure portal](./quick-setup-auto-provision.md).
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz jeden za darmo](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Python 2.x lub 3.x](https://www.python.org/downloads/). Dodaj Pythona do zmiennych środowiskowych specyficznych dla platformy. Ten szybki start instaluje [sdk usługi inicjowania obsługi administracyjnej języka Python](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) poniżej.
-- [Pip](https://pip.pypa.io/en/stable/installing/), jeśli nie jest dołączony do dystrybucji Pythona.
-- [Git](https://git-scm.com/download/).
+- Zakończenie [konfigurowania IoT Hub Device Provisioning Service przy użyciu Azure Portal](./quick-setup-auto-provision.md).
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Python 2. x lub 3. x](https://www.python.org/downloads/). Dodaj język Python do zmiennych środowiskowych specyficznych dla platformy. Ten przewodnik Szybki Start instaluje [zestaw SDK usługi aprowizacji języka Python](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) poniżej.
+- [PIP](https://pip.pypa.io/en/stable/installing/), jeśli nie jest dołączony do dystrybucji języka Python.
+- Usługi [git](https://git-scm.com/download/).
 
 > [!IMPORTANT]
-> Ten artykuł dotyczy tylko przestarzałego SDK języka Python w języku Python. Klienci urządzeń i usług usługi usługi inicjowania obsługi urządzeń usługi IoT Hub nie są jeszcze dostępne w wersji 2. Zespół jest obecnie ciężko pracuje, aby doprowadzić V2 do parytetu funkcji.
+> Ten artykuł dotyczy tylko przestarzałego zestawu SDK języka Python w wersji 1. Klienci urządzeń i usług dla IoT Hub Device Provisioning Service nie są jeszcze dostępni w wersji 2. Zespół jest obecnie trudny w pracy, aby przywrócić dostęp do wersji 2.
 
 ## <a name="prepare-test-certificates"></a>Przygotowywanie certyfikatów testowych
 
@@ -43,9 +43,9 @@ Aby uzyskać więcej informacji na temat używania infrastruktury kluczy publicz
 
 Aby użyć tych narzędzi testowych do wygenerowania certyfikatów, wykonaj następujące kroki:
 
-1. Znajdź nazwę tagu dla [najnowszej wersji](https://github.com/Azure/azure-iot-sdk-c/releases/latest) SDK C usługi Azure IoT.
+1. Znajdź nazwę tagu dla [najnowszej wersji](https://github.com/Azure/azure-iot-sdk-c/releases/latest) zestawu SDK języka C usługi Azure IoT.
 
-2. Otwórz wiersz polecenia lub powłokę Git Bash i przejdź do folderu roboczego na swojej maszynie. Uruchom następujące polecenia, aby sklonować najnowszą wersję repozytorium GitHub [SDK usługi Azure IoT C.](https://github.com/Azure/azure-iot-sdk-c) Użyj znacznika znalezionego w poprzednim kroku `-b` jako wartości parametru:
+2. Otwórz wiersz polecenia lub powłokę Git Bash i przejdź do folderu roboczego na swojej maszynie. Uruchom następujące polecenia, aby sklonować najnowszą wersję repozytorium [usługi Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) w witrynie GitHub. Użyj znacznika znalezionego w poprzednim kroku jako wartości `-b` parametru:
 
     ```cmd/sh
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -120,7 +120,7 @@ W tej sekcji przedstawiono sposób dodawania szczegółów aprowizacji urządzen
 Usługa Azure IoT Device Provisioning obsługuje dwa typy rejestracji:
 
 - [Grupy rejestracji](concepts-service.md#enrollment-group): służą do rejestrowania wielu pokrewnych urządzeń.
-- [Rejestracje indywidualne:](concepts-service.md#individual-enrollment)służy do rejestrowania jednego urządzenia.
+- [Rejestracje indywidualne](concepts-service.md#individual-enrollment): służy do rejestrowania jednego urządzenia.
 
 Obsługa tworzenia rejestracji indywidualnych za pomocą [zestawu SDK usługi aprowizacji języka Python](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) jest w toku. Aby dowiedzieć się więcej, zobacz [Sterowanie dostępem urządzenia do usługi aprowizacji za pomocą certyfikatów X.509](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
@@ -144,15 +144,15 @@ Obsługa tworzenia rejestracji indywidualnych za pomocą [zestawu SDK usługi ap
 
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
-Jeśli planujesz eksplorować przykład usługi Java, nie czyścić zasobów utworzonych w tym przewodniku Szybki start. Jeśli nie zamierzasz kontynuować, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone przez ten przewodnik Szybki start.
+Jeśli planujesz Eksplorowanie przykładu usługi Java, nie czyść zasobów utworzonych w tym przewodniku Szybki Start. Jeśli nie planujesz kontynuować pracy, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w ramach tego przewodnika Szybki Start.
 
 1. Zamknij okno danych wyjściowych przykładowej usługi Java na swojej maszynie.
 1. Zamknij okno _Generator certyfikatów X509_ na swojej maszynie.
-1. Przejdź do usługi inicjowania obsługi urządzeń w portalu Azure, wybierz pozycję **Zarządzaj rejestracjami** *GROUP NAME* , a następnie wybierz kartę **Grupy rejestracji.** **Delete**    
+1. Przejdź do usługi Device Provisioning w Azure Portal wybierz pozycję **Zarządzaj rejestracjami**, a następnie wybierz kartę **grupy rejestracji** . Zaznacz pole wyboru obok *nazwy grupy* dla urządzeń X. 509 zarejestrowanych w ramach tego przewodnika Szybki Start, a następnie naciśnij przycisk **Usuń** w górnej części okienka.    
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym przewodniku Szybki start zarejestrowano symulowaną grupę urządzeń X.509 do usługi inicjowania obsługi administracyjnej urządzeń. Aby uzyskać dokładne informacje na temat aprowizowania urządzeń, przejdź do samouczka poświęconego konfiguracji usługi Device Provisioning Service w witrynie Azure portal. 
+W tym przewodniku szybki start zarejestrowano symulowaną grupę urządzeń X. 509 w usłudze Device Provisioning. Aby uzyskać dokładne informacje na temat aprowizowania urządzeń, przejdź do samouczka poświęconego konfiguracji usługi Device Provisioning Service w witrynie Azure portal. 
 
 > [!div class="nextstepaction"]
 > [Samouczki dla usługi Azure IoT Hub Device Provisioning Service](./tutorial-set-up-cloud.md)

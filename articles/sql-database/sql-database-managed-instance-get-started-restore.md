@@ -12,13 +12,13 @@ ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
 ms.openlocfilehash: 3b12aa860bee189f706bd98df63fc194a3a0cc71
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80874708"
 ---
-# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Szybki start: przywracanie bazy danych do wystąpienia zarządzanego
+# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Szybki Start: Przywracanie bazy danych do wystąpienia zarządzanego
 
 W tym przewodniku Szybki start użyjesz programu SQL Server Management Studio (SSMS), aby przywrócić bazę danych (plik kopii zapasowej Wide World Importers — Standard) z usługi Azure Blob Storage do [wystąpienia zarządzanego](sql-database-managed-instance.md) usługi Azure SQL Database.
 
@@ -35,9 +35,9 @@ Ten przewodnik Szybki start:
 - Wykorzystuje zasoby z przewodnika Szybki start [Tworzenie wystąpienia zarządzanego](sql-database-managed-instance-get-started.md).
 - Wymaga komputera z zainstalowanym najnowszym programem [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms).
 - Wymaga użycia programu SSMS do połączenia z wystąpieniem zarządzanym. Zobacz te przewodniki Szybki start dotyczące nawiązywania połączenia:
-  - [Włącz publiczny punkt końcowy](sql-database-managed-instance-public-endpoint-configure.md) w wystąpieniu zarządzanym — jest to zalecane podejście dla tego samouczka.
+  - [Włącz publiczny punkt końcowy](sql-database-managed-instance-public-endpoint-configure.md) w wystąpieniu zarządzanym — jest to zalecane podejście do tego samouczka.
   - [Nawiązywanie połączenia z wystąpieniem zarządzanym usługi Azure SQL Database z maszyny wirtualnej platformy Azure](sql-database-managed-instance-configure-vm.md)
-  - [Skonfiguruj połączenie typu "punkt-lokacja" z wystąpieniem zarządzanym bazy danych SQL platformy Azure z lokalnego](sql-database-managed-instance-configure-p2s.md).
+  - [Skonfiguruj połączenie punkt-lokacja z wystąpieniem zarządzanym Azure SQL Database z lokalnego](sql-database-managed-instance-configure-p2s.md).
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat tworzenia kopii zapasowych i przywracania bazy danych programu SQL Server przy użyciu usługi Azure Blob Storage i [klucza sygnatury dostępu współdzielonego (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), zobacz artykuł [SQL Server Backup to URL (Tworzenie kopii zapasowej programu SQL Server pod określonym adresem URL)](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
@@ -46,7 +46,7 @@ Ten przewodnik Szybki start:
 
 W programie SSMS użyj następujących kroków, aby przywrócić bazę danych Wide World Importers do wystąpienia zarządzanego. Plik kopii zapasowej bazy danych znajduje na wstępnie skonfigurowanym koncie usługi Azure Blob Storage.
 
-1. Otwórz ssms i połącz się z wystąpieniem zarządzanym.
+1. Otwórz narzędzie SSMS i Połącz się z wystąpieniem zarządzanym.
 2. W menu po lewej stronie, kliknij prawym przyciskiem myszy wystąpienie zarządzane i wybierz pozycję **Nowe zapytanie**, aby otworzyć okno nowego zapytania.
 3. Uruchom poniższy skrypt SQL wykorzystujący wstępnie skonfigurowane konto magazynu i klucz SAS, aby [utworzyć poświadczenie](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) w wystąpieniu zarządzanym.
 
@@ -86,14 +86,14 @@ W programie SSMS użyj następujących kroków, aby przywrócić bazę danych Wi
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-7. Po zakończeniu przywracania wyświetl bazę danych w Eksploratorze obiektów. Można sprawdzić, czy przywracanie bazy danych zostało zakończone przy użyciu [widoku sys.dm_operation_status.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)
+7. Po zakończeniu przywracania Wyświetl bazę danych w Eksplorator obiektów. Można sprawdzić, czy przywracanie bazy danych zostało ukończone przy użyciu widoku [sys. dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) .
 
 > [!NOTE]
-> Operacja przywracania bazy danych jest asynchronizalna i można go ponowić. Może pojawić się błąd jest SQL Server Management Studio, jeśli przerwy połączenia lub upośń upływ czasu wygasa. Usługa Azure SQL Database będzie próbować przywrócić bazę danych w tle i można śledzić postęp przywracania przy użyciu [widoków sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) i [sys.dm_operation_status.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)
-> W niektórych fazach procesu przywracania zobaczysz unikatowy identyfikator zamiast rzeczywistej nazwy bazy danych w widokach systemowych. Dowiedz `RESTORE` się więcej o różnicach w zachowaniu instrukcji [tutaj](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement).
+> Operacja przywracania bazy danych jest asynchroniczna i wywołały. Może pojawić SQL Server Management Studio się komunikat o błędzie, jeśli wystąpiły przerwy w połączeniach lub wygaśnie limit czasu. Azure SQL Database będzie próbować przywrócić bazę danych w tle, a postęp przywracania można śledzić przy użyciu widoków [sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) i [sys. dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) .
+> W niektórych fazach procesu przywracania w widokach systemu zostanie wyświetlony unikatowy identyfikator zamiast rzeczywistej nazwy bazy danych. Więcej informacji `RESTORE` na temat różnic dotyczących zachowań instrukcji [znajdziesz tutaj](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement).
 
 ## <a name="next-steps"></a>Następne kroki
 
 - W celu rozwiązywania problemów dotyczących tworzenia kopii zapasowej do adresu URL, zobacz artykuł [SQL Server Backup to URL Best Practices and Troubleshooting](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting) (Kopia zapasowa programu SQL Server do adresu URL — najlepsze rozwiązania i rozwiązywanie problemów).
 - Aby uzyskać omówienie opcji połączenia aplikacji, zobacz artykuł [Connect your applications to Managed Instance](sql-database-managed-instance-connect-app.md) (Łączenie aplikacji z wystąpieniem zarządzanym).
-- Aby kwerendy przy użyciu ulubionych narzędzi lub języków, zobacz [Szybkie starty: Azure SQL Database Connect i Query](sql-database-connect-query.md).
+- Aby wykonywać zapytania przy użyciu ulubionych narzędzi lub języków, zobacz [Przewodniki Szybki Start: Azure SQL Database Connect and Query](sql-database-connect-query.md).

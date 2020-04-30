@@ -1,6 +1,6 @@
 ---
-title: Szybki start — tworzenie prywatnej strefy DNS platformy Azure przy użyciu portalu Azure
-description: W tym przewodniku Szybki start tworzysz i testujesz prywatną strefę DNS i rejestrujesz w usłudze Azure DNS. Jest to przewodnik krok po kroku, aby utworzyć pierwszą prywatną strefę DNS i nagrywać pierwszą prywatną strefę DNS i zarządzać nią za pomocą witryny Azure portal.
+title: Szybki Start — tworzenie prywatnej strefy DNS platformy Azure przy użyciu Azure Portal
+description: W tym przewodniku szybki start utworzysz i testujesz prywatną strefę DNS i rekord w Azure DNS. Jest to przewodnik krok po kroku dotyczący tworzenia pierwszej prywatnej strefy i rekordu DNS przy użyciu Azure Portal i zarządzania nią.
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -8,17 +8,17 @@ ms.topic: quickstart
 ms.date: 10/11/2019
 ms.author: rohink
 ms.openlocfilehash: 52bf9e061eb57c7ce6ea698b7468b5ba5e11b4e8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78244976"
 ---
-# <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Szybki start: tworzenie prywatnej strefy DNS platformy Azure przy użyciu portalu Azure
+# <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Szybki Start: Tworzenie prywatnej strefy DNS platformy Azure przy użyciu Azure Portal
 
-Ten przewodnik Szybki start przeprowadzi Cię przez kroki, aby utworzyć pierwszą prywatną strefę DNS i nagrywać za pomocą witryny Azure portal.
+Ten przewodnik Szybki Start przeprowadzi Cię przez kroki tworzenia pierwszej prywatnej strefy i rekordu DNS przy użyciu Azure Portal.
 
-Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Aby rozpocząć hostowanie domeny w usłudze Azure DNS, musisz utworzyć strefę DNS dla tej nazwy domeny. Każdy rekord DNS domeny zostanie utworzony w tej strefie DNS. Aby opublikować prywatną strefę DNS w sieci wirtualnej, musisz określić listę sieci wirtualnych, które mogą rozpoznawać rekordy w strefie.  Są one nazywane *połączonymi* sieciami wirtualnymi. Gdy autoregistration jest włączona, usługa Azure DNS aktualizuje również rekordy strefy za każdym razem, gdy maszyna wirtualna jest tworzona, zmienia swój adres IP lub jest usuwany.
+Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Aby rozpocząć hostowanie domeny w usłudze Azure DNS, musisz utworzyć strefę DNS dla tej nazwy domeny. Każdy rekord DNS domeny zostanie utworzony w tej strefie DNS. Aby opublikować prywatną strefę DNS w sieci wirtualnej, musisz określić listę sieci wirtualnych, które mogą rozpoznawać rekordy w strefie.  Są one nazywane *połączonymi* sieciami wirtualnymi. Gdy Autorejestracja jest włączona, Azure DNS aktualizuje także rekordy strefy za każdym razem, gdy maszyna wirtualna jest tworzona, zmienia jej adres IP lub został usunięty.
 
 W tym przewodniku Szybki start zawarto informacje na temat wykonywania następujących czynności:
 
@@ -30,46 +30,46 @@ W tym przewodniku Szybki start zawarto informacje na temat wykonywania następuj
 > * Tworzenie dodatkowego rekordu DNS
 > * Testowanie strefy prywatnej
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
-Jeśli wolisz, możesz ukończyć ten szybki start przy użyciu [programu Azure PowerShell](private-dns-getstarted-powershell.md) lub [interfejsu wiersza polecenia platformy Azure.](private-dns-getstarted-cli.md)
+Jeśli wolisz, możesz ukończyć ten przewodnik Szybki Start przy użyciu [Azure PowerShell](private-dns-getstarted-powershell.md) lub [interfejsu wiersza polecenia platformy Azure](private-dns-getstarted-cli.md).
 
 ## <a name="create-a-private-dns-zone"></a>Tworzenie prywatnej strefy DNS
 
-Poniższy przykład tworzy strefę DNS o nazwie **private.contoso.com** w grupie zasobów o nazwie **MyAzureResourceGroup**.
+Poniższy przykład tworzy strefę DNS o nazwie **Private.contoso.com** w grupie zasobów o nazwie **MyAzureResourceGroup**.
 
 Strefa DNS zawiera wpisy DNS dla domeny. Aby rozpocząć hostowanie domeny w usłudze Azure DNS, należy utworzyć strefę DNS dla tej nazwy domeny.
 
-![Wyszukiwanie prywatnych stref DNS](media/private-dns-portal/search-private-dns.png)
+![Wyszukiwanie stref Prywatna strefa DNS](media/private-dns-portal/search-private-dns.png)
 
-1. Na pasku wyszukiwania portalu wpisz **prywatne strefy dns** w polu tekstowym wyszukiwania i naciśnij klawisz **Enter**.
-1. Wybierz **pozycję Prywatna strefa DNS**.
-2. Wybierz **pozycję Utwórz prywatną strefę dns**.
+1. Na pasku wyszukiwania portalu wpisz **prywatne strefy DNS** w polu tekstowym Wyszukaj, a następnie naciśnij klawisz **Enter**.
+1. Wybierz pozycję **prywatna strefa DNS strefa**.
+2. Wybierz pozycję **Utwórz prywatną strefę DNS**.
 
-1. Na stronie **Tworzenie prywatnej strefy DNS** wpisz lub wybierz następujące wartości:
+1. Na stronie **Tworzenie strefy prywatna strefa DNS** wpisz lub wybierz następujące wartości:
 
-   - **Grupa zasobów**: Wybierz **pozycję Utwórz nowy**, wprowadź *myAzureResourceGroup*i wybierz **przycisk OK**. Nazwa grupy zasobów musi być unikatowa w ramach subskrypcji platformy Azure.
-   -  **Nazwa**: Wpisz *private.contoso.com* w tym przykładzie.
-1. W **obszarze Lokalizacja grupy zasobów**wybierz pozycję Zachodnie **środkowe stany USA**.
+   - **Grupa zasobów**: wybierz pozycję **Utwórz nową**, wpisz *MyAzureResourceGroup*, a następnie wybierz **przycisk OK**. Nazwa grupy zasobów musi być unikatowa w ramach subskrypcji platformy Azure.
+   -  **Name**: wpisz *Private.contoso.com* w tym przykładzie.
+1. W obszarze **Lokalizacja grupy zasobów**wybierz pozycję **zachodnio-środkowe stany USA**.
 
-1. Wybierz **pozycję Recenzja + Utwórz**.
+1. Wybierz pozycję **Recenzja + Utwórz**.
 
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 Tworzenie strefy może potrwać kilka minut.
 
 ## <a name="virtual-network-and-parameters"></a>Sieć wirtualna i parametry
 
-W tej sekcji należy zastąpić następujące parametry w krokach poniższymi informacjami:
+W tej sekcji należy zamienić następujące parametry w krokach z poniższymi informacjami:
 
 | Parametr                   | Wartość                |
 |-----------------------------|----------------------|
-| **\<>nazwa grupy zasobów**  | MyAzureResourceGroup (Wybierz istniejącą grupę zasobów) |
-| **\<>nazwa sieci wirtualnej** | MyAzureVNet (MyAzureVNet)          |
-| **\<nazwa regionu>**          | Zachodnio-środkowe stany USA      |
-| **\<>przestrzeni adresowej IPv4**   | 10.2.0.0\16          |
-| **\<>nazwa podsieci**          | MyAzureSubnet ( MyAzureSubnet )        |
-| **\<>zakresu adresu podsieci** | 10.2.0.0\24          |
+| **\<Nazwa grupy zasobów>**  | MyAzureResourceGroup (wybierz istniejącą grupę zasobów) |
+| **\<Nazwa sieci wirtualnej>** | MyAzureVNet          |
+| **\<Nazwa regionu>**          | Zachodnio-środkowe stany USA      |
+| **\<Adresy IPv4>miejsca**   | 10.2.0.0 \ 16          |
+| **\<>nazwy podsieci**          | MyAzureSubnet        |
+| **\<>zakresu adresów podsieci** | 10.2.0.0 \ 24          |
 
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
@@ -78,51 +78,51 @@ W tej sekcji należy zastąpić następujące parametry w krokach poniższymi in
 
 Aby połączyć prywatną strefę DNS z siecią wirtualną, należy utworzyć łącze sieci wirtualnej.
 
-![Dodawanie łącza do sieci wirtualnej](media/private-dns-portal/dns-add-virtual-network-link.png)
+![Dodaj łącze sieci wirtualnej](media/private-dns-portal/dns-add-virtual-network-link.png)
 
-1. Otwórz grupę zasobów **MyAzureResourceGroup** i wybierz **strefę prywatną private.contoso.com.**
-2. W lewym okienku wybierz pozycję **Łącza sieci wirtualnej**.
+1. Otwórz grupę zasobów **MyAzureResourceGroup** i wybierz strefę prywatną **Private.contoso.com** .
+2. W okienku po lewej stronie wybierz pozycję **linki sieci wirtualnej**.
 3. Wybierz pozycję **Dodaj**.
-4. Wpisz **myLink** dla **nazwy łącza**.
-5. W przypadku **sieci wirtualnej**wybierz **myAzureVNet**.
-6. Zaznacz pole wyboru **Włącz automatyczną rejestrację.**
-7. Kliknij przycisk **OK**.
+4. Wpisz **link** do **nazwy linku**.
+5. W obszarze **Sieć wirtualna**wybierz pozycję **myAzureVNet**.
+6. Zaznacz pole wyboru **Włącz rejestrację autorejestrowania** .
+7. Wybierz przycisk **OK**.
 
 ## <a name="create-the-test-virtual-machines"></a>Tworzenie testowych maszyn wirtualnych
 
 Teraz utworzysz dwie maszyny wirtualne, aby umożliwić przetestowanie strefy prywatnej DNS:
 
-1. Na stronie portalu w lewym górnym rogu wybierz pozycję **Utwórz zasób**, a następnie wybierz pozycję **Centrum danych systemu Windows Server 2016**.
-1. Wybierz **myazureResourceGroup** dla grupy zasobów.
-1. Wpisz **myVM01** - dla nazwy maszyny wirtualnej.
-1. Wybierz **pozycję Zachodnie środkowe stany USA** dla **regionu**.
-1. Wprowadź nazwę użytkownika administratora.
-2. Wprowadź hasło i potwierdź hasło.
-5. W obszarze **Publiczne porty przychodzące**wybierz pozycję **Zezwalaj na wybrane porty**, a następnie wybierz pozycję **RDP (3389)** dla **wybierz pozycję Wybierz porty przychodzące**.
-10. Zaakceptuj inne ustawienia domyślne strony, a następnie kliknij przycisk **Dalej: Dyski >**.
-11. Zaakceptuj ustawienia domyślne na stronie **Dyski,** a następnie kliknij przycisk **Dalej: >sieci **.
-1. Upewnij się, że **myAzureVNet** jest wybrany dla sieci wirtualnej.
-1. Zaakceptuj inne ustawienia domyślne strony, a następnie kliknij przycisk **Dalej: Zarządzanie >**.
-2. W polu **Diagnostyka rozruchowa**wybierz pozycję **Wyłączone**, zaakceptuj inne wartości domyślne, a następnie wybierz **pozycję Przejrzyj + utwórz**.
+1. Na stronie portalu w lewym górnym rogu wybierz pozycję **Utwórz zasób**, a następnie wybierz pozycję **Windows Server 2016 centrum**danych.
+1. Wybierz pozycję **MyAzureResourceGroup** dla grupy zasobów.
+1. Wpisz **myVM01** — jako nazwę maszyny wirtualnej.
+1. Wybierz pozycję **zachodnie stany USA** dla **regionu**.
+1. Wprowadź nazwę dla nazwy użytkownika administratora.
+2. Wprowadź hasło i Potwierdź hasło.
+5. W przypadku **publicznych portów ruchu przychodzącego**wybierz opcję **Zezwalaj na wybrane porty**, a następnie wybierz pozycję **RDP (3389)** w obszarze **Wybieranie portów przychodzących**.
+10. Zaakceptuj inne wartości domyślne dla strony, a następnie kliknij przycisk **Dalej: dyski >**.
+11. Zaakceptuj wartości domyślne na stronie **dyski** , a następnie kliknij przycisk **dalej: sieć >**.
+1. Upewnij się, że wybrano **myAzureVNet** dla sieci wirtualnej.
+1. Zaakceptuj inne wartości domyślne dla strony, a następnie kliknij przycisk **Dalej: zarządzanie >**.
+2. W obszarze **Diagnostyka rozruchu**wybierz pozycję **wyłączone**, zaakceptuj pozostałe wartości domyślne, a następnie wybierz pozycję **Przegląd + Utwórz**.
 1. Przejrzyj ustawienia, a następnie kliknij przycisk **Utwórz**.
 
-Powtórz te kroki i utwórz kolejną maszynę wirtualną o nazwie **myVM02**.
+Powtórz te kroki i Utwórz inną maszynę wirtualną o nazwie **myVM02**.
 
-Zajmie kilka minut dla obu maszyn wirtualnych, aby zakończyć.
+Ukończenie obu maszyn wirtualnych może potrwać kilka minut.
 
 ## <a name="create-an-additional-dns-record"></a>Tworzenie dodatkowego rekordu DNS
 
- Poniższy przykład tworzy rekord o względnej nazwie **db** w **strefie**DNS private.contoso.com , w grupie zasobów **MyAzureResourceGroup**. W pełni kwalifikowana nazwa zestawu rekordów jest **db.private.contoso.com**. Typ rekordu to "A", z adresem IP **myVM01**.
+ Poniższy przykład tworzy rekord z względną nazwą **bazy danych** w strefie DNS **Private.contoso.com**w grupie zasobów **MyAzureResourceGroup**. W pełni kwalifikowana nazwa zestawu rekordów to **DB.private.contoso.com**. Typ rekordu to "A" z adresem IP **myVM01**.
 
-1. Otwórz grupę zasobów **MyAzureResourceGroup** i wybierz **strefę prywatną private.contoso.com.**
+1. Otwórz grupę zasobów **MyAzureResourceGroup** i wybierz strefę prywatną **Private.contoso.com** .
 2. Wybierz pozycję **+ Zestaw rekordów**.
-3. W **yjaj nazwę**wpisz **db**.
-4. W przypadku **adresu IP**wpisz adres IP, który jest widoczny dla **myVM01**. Powinno to być automatycznie rejestrowane po uruchomieniu maszyny wirtualnej.
-5. Kliknij przycisk **OK**.
+3. W obszarze **Nazwa**wpisz **DB**.
+4. W polu **adres IP**wpisz adres IP, który będzie widoczny dla **myVM01**. Ta wartość powinna być rejestrowana po uruchomieniu maszyny wirtualnej.
+5. Wybierz przycisk **OK**.
 
 ## <a name="test-the-private-zone"></a>Testowanie strefy prywatnej
 
-Teraz możesz przetestować rozpoznawanie nazw dla **private.contoso.com** strefy prywatnej.
+Teraz można testować rozpoznawanie nazw dla strefy prywatnej **Private.contoso.com** .
 
 ### <a name="configure-vms-to-allow-inbound-icmp"></a>Konfigurowanie maszyn wirtualnych w celu zezwolenia na ruch przychodzący protokołu ICMP
 
@@ -182,7 +182,7 @@ Powtórz dla maszyny wirtualnej myVM02.
 
 ## <a name="delete-all-resources"></a>Usuwanie wszystkich zasobów
 
-Gdy nie jest już potrzebna, usuń grupę zasobów **MyAzureResourceGroup,** aby usunąć zasoby utworzone w tym przewodniku Szybki start.
+Gdy nie jest już potrzebne, Usuń grupę zasobów **MyAzureResourceGroup** , aby usunąć zasoby utworzone w tym przewodniku Szybki Start.
 
 
 ## <a name="next-steps"></a>Następne kroki

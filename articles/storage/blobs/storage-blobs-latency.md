@@ -1,6 +1,6 @@
 ---
-title: Opóźnienie w magazynie obiektów Blob — usługa Azure Storage
-description: Zrozumienie i mierzenie opóźnień dla operacji magazynu obiektów Blob i dowiedz się, jak zaprojektować aplikacje magazynu obiektów Blob z małym opóźnieniem.
+title: Opóźnienie w usłudze BLOB Storage — Azure Storage
+description: Poznaj i mierz opóźnienia dla operacji usługi BLOB Storage i Dowiedz się, jak projektować aplikacje usługi BLOB Storage w celu uzyskania małych opóźnień.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,63 +9,63 @@ ms.date: 09/05/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 78440b8150a0992bed2e2a3e597fdac8e7a1c7b0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75749728"
 ---
 # <a name="latency-in-blob-storage"></a>Opóźnienia w magazynie obiektów blob
 
-Opóźnienie, czasami odwołuje się jako czas odpowiedzi, jest czas, który aplikacja musi czekać na żądanie, aby zakończyć. Opóźnienie może bezpośrednio wpłynąć na wydajność aplikacji. Małe opóźnienia są często ważne w przypadku scenariuszy z ludźmi w pętli, takich jak przeprowadzanie transakcji kartą kredytową lub ładowanie stron internetowych. Systemy, które muszą przetwarzać zdarzenia przychodzące z wysokimi szybkościami, takie jak rejestrowanie danych telemetrycznych lub zdarzenia IoT, również wymagają małych opóźnień. W tym artykule opisano, jak zrozumieć i zmierzyć opóźnienie operacji na blokowych obiektach blob i jak zaprojektować aplikacje dla małych opóźnień.
+Opóźnienie, czasami przywoływany jako czas odpowiedzi, to ilość czasu, jaką aplikacja musi oczekiwać na ukończenie żądania. Opóźnienie może bezpośrednio wpływać na wydajność aplikacji. Małe opóźnienia często są ważne w przypadku scenariuszy z ludźmi w pętli, takich jak przeprowadzenie transakcji karty kredytowej lub załadowanie stron sieci Web. Systemy, które muszą przetwarzać zdarzenia przychodzące przy wysokich stawkach, takie jak rejestrowanie danych telemetrycznych lub zdarzenia IoT, wymagają również małych opóźnień. W tym artykule opisano sposób zrozumienia i mierzenia opóźnienia operacji na blokowych obiektach Blob oraz sposobu projektowania aplikacji pod kątem małych opóźnień.
 
-Usługa Azure Storage oferuje dwie różne opcje wydajności dla bloków obiektów blob: premium i standard. Obiekty BLOB bloków premium oferują znacznie mniejsze i bardziej spójne opóźnienia niż standardowe blokowe obiekty blob za pośrednictwem dysków SSD o wysokiej wydajności. Aby uzyskać więcej informacji, zobacz **Magazyn obiektów blob bloku wydajności premium** w magazynie obiektów [Blob platformy Azure: warstwy dostępu gorąca, chłodna i archiwizowana.](storage-blob-storage-tiers.md)
+Usługa Azure Storage oferuje dwie różne opcje wydajności dla blokowych obiektów blob: Premium i Standard. Blokowe obiekty blob w warstwie Premium oferują znacznie niższe i bardziej spójne opóźnienia niż w przypadku standardowych blokowych obiektów BLOB za pośrednictwem dysków SSD o wysokiej wydajności. Aby uzyskać więcej informacji, zobacz **Magazyn obiektów BLOB wydajności** w warstwie Premium w [usłudze Azure Blob Storage: warstwy dostępu gorąca, chłodna i archiwalna](storage-blob-storage-tiers.md).
 
-## <a name="about-azure-storage-latency"></a>Opóźnienia usługi Azure Storage – informacje
+## <a name="about-azure-storage-latency"></a>Informacje o opóźnieniu usługi Azure Storage
 
-Opóźnienie usługi Azure Storage jest związane ze stawkami żądań dla operacji usługi Azure Storage. Stawki żądań są również nazywane operacjami wejścia/wyjścia na sekundę (IOPS).
+Opóźnienie usługi Azure Storage jest związane ze stawkami za żądania operacji usługi Azure Storage. Stawki żądania są również znane jako operacje wejścia/wyjścia na sekundę (IOPS).
 
-Aby obliczyć stawkę żądania, najpierw określ czas potrzebny do ukończenia każdego żądania, a następnie oblicz, ile żądań można przetwarzać na sekundę. Załóżmy na przykład, że żądanie trwa 50 milisekund (ms) do wykonania. Aplikacja używająca jednego wątku z jedną zaległą operacją odczytu lub zapisu powinna osiągnąć 20 operacji We/Wy (1 sekunda lub 1000 ms / 50 ms na żądanie). Teoretycznie, jeśli liczba wątków jest podwojona do dwóch, aplikacja powinna być w stanie osiągnąć 40 IOPS. Jeśli nierozstrzygnięte asynchroniczne operacje odczytu lub zapisu dla każdego wątku są podwojone do dwóch, aplikacja powinna być w stanie osiągnąć 80 Operacji We/Wy.
+Aby obliczyć stawkę żądania, należy najpierw określić długość czasu, przez który każde żądanie trwa, a następnie obliczyć liczbę żądań, które mogą być przetwarzane na sekundę. Załóżmy na przykład, że żądanie trwa 50 milisekund (MS). Aplikacja używająca jednego wątku z jedną zaległą operacją odczytu lub zapisu powinna osiągnąć 20 operacji we/wy (1 sekundę lub 1000 MS/50 MS na żądanie). Teoretycznie, jeśli liczba wątków jest dwukrotnie równa dwa, aplikacja powinna mieć możliwość osiągnięcia 40 operacji we/wy na sekundę. Jeśli zaległe asynchroniczne operacje odczytu lub zapisu dla każdego wątku są podwójne do dwóch, aplikacja powinna mieć możliwość osiągnięcia 80 operacji we/wy na sekundę.
 
-W praktyce stawki żądań nie zawsze skalują się tak liniowo, ze względu na obciążenie klienta z planowania zadań, przełączania kontekstu i tak dalej. Po stronie usługi może istnieć zmienność opóźnienia z powodu nacisku na system usługi Azure Storage, różnice w nośniku magazynu używane, hałas z innych obciążeń, zadania konserwacji i inne czynniki. Na koniec połączenie sieciowe między klientem a serwerem może mieć wpływ na opóźnienie usługi Azure Storage z powodu przeciążenia, przekierowania lub innych zakłóceń.
+W tej sprawie stawki żądania nie zawsze są skalowane w sposób liniowy z powodu narzutu na klienta z harmonogramu zadań, przełączania kontekstu i tak dalej. Po stronie usługi może wystąpić zmienność opóźnienia z powodu nacisku na system Azure Storage, różnice w używanym nośniku magazynu, szum z innych obciążeń, zadań konserwacyjnych i innych czynników. Na koniec połączenie sieciowe między klientem i serwerem może wpłynąć na opóźnienie usługi Azure Storage z powodu przeciążenia, ponownego routingu lub innych zakłóceń.
 
-Przepustowość usługi Azure Storage, nazywana również przepływnością, jest powiązana z szybkością żądania i może być obliczana przez pomnożenie szybkości żądania (IOPS) przez rozmiar żądania. Na przykład przy założeniu 160 żądań na sekundę, każdy 256 KiB danych powoduje przepustowość 40 960 KiB na sekundę lub 40 MiB na sekundę.
+Przepustowość usługi Azure Storage, określana również jako przepływność, jest związana z szybkością żądań i można ją obliczyć przez pomnożenie liczby żądań (IOPS) przez rozmiar żądania. Na przykład przy założeniu 160 żądań na sekundę, każdy 256 KiB danych powoduje przepływność 40 960 KiB na sekundę lub 40 MiB na sekundę.
 
-## <a name="latency-metrics-for-block-blobs"></a>Metryki opóźnienia dla bloków blob
+## <a name="latency-metrics-for-block-blobs"></a>Metryki opóźnienia dla blokowych obiektów BLOB
 
-Usługa Azure Storage udostępnia dwie metryki opóźnienia dla bloków obiektów blob. Te metryki można wyświetlić w witrynie Azure portal:
+Usługa Azure Storage udostępnia dwie metryki opóźnienia dla blokowych obiektów BLOB. Te metryki można wyświetlać w Azure Portal:
 
-- **Opóźnienie end-to-end (E2E)** mierzy interwał od momentu odebraniem pierwszego pakietu żądania przez usługę Azure Storage, dopóki usługa Azure Storage nie otrzyma potwierdzenia klienta w ostatnim pakiecie odpowiedzi.
+- **Opóźnienie (E2E)** mierzy interwał od momentu, w którym usługa Azure Storage otrzymuje pierwszy pakiet żądania do momentu otrzymania przez usługę Azure Storage potwierdzenia ostatniego pakietu odpowiedzi.
 
-- **Opóźnienie serwera** mierzy interwał od momentu odebrania ostatniego pakietu żądania przez usługę Azure Storage do momentu zwrócenia pierwszego pakietu odpowiedzi z usługi Azure Storage.
+- **Opóźnienie serwera** mierzy interwał od momentu, gdy usługa Azure Storage odbierze ostatni pakiet żądania do momentu zwrócenia pierwszego pakietu odpowiedzi z usługi Azure Storage.
 
-Na poniższej ilustracji przedstawiono **opóźnienie średniego sukcesu E2E** i średnie `Get Blob` opóźnienie serwera **sukcesu** dla przykładowego obciążenia, które wywołuje operację:
+Na poniższej ilustracji przedstawiono **średnie pomyślne opóźnienie E2E** i **Średni czas opóźnienia serwera** dla przykładowego obciążenia wywołującego `Get Blob` operację:
 
-![Zrzut ekranu przedstawiający metryki opóźnienia dla operacji Pobierz obiekt blob](media/storage-blobs-latency/latency-metrics-get-blob.png)
+![Zrzut ekranu przedstawiający metryki opóźnienia dla operacji pobierania obiektu BLOB](media/storage-blobs-latency/latency-metrics-get-blob.png)
 
-W normalnych warunkach istnieje niewielka różnica między opóźnieniem end-to-end i opóźnienie serwera, co jest, co obraz pokazuje dla obciążenia próbki.
+W normalnych warunkach występuje niewielka różnica między końcem kompleksu i opóźnieniem serwera, który jest obrazem dla przykładowego obciążenia.
 
-Jeśli przejrzysz metryki opóźnienia end-to-end i serwera i okaże się, że opóźnienie end-to-end jest znacznie wyższa niż opóźnienie serwera, a następnie zbadać i rozwiązać źródło dodatkowego opóźnienia.
+W przypadku przejrzenia metryk na potrzeby kompleksowych i opóźnień serwera oraz ustalenia, że opóźnienie na zakończenie jest znacznie większe niż opóźnienia serwera, zbadaj i zapoznaj się ze źródłem dodatkowego opóźnienia.
 
-Jeśli opóźnienie end-to-end i serwera są podobne, ale wymagają mniejszego opóźnienia, należy rozważyć migrację do magazynu bloków obiektów blob w wersji premium.
+Jeśli opóźnienie kompleksowe i serwerowe są podobne, ale potrzebujesz małych opóźnień, rozważ migrację do magazynu blokowych obiektów BLOB w warstwie Premium.
 
 ## <a name="factors-influencing-latency"></a>Czynniki wpływające na opóźnienie
 
-Głównym czynnikiem wpływającym na opóźnienie jest rozmiar operacji. Trwa dłużej, aby zakończyć większe operacje, ze względu na ilość danych przesyłanych za pośrednictwem sieci i przetwarzane przez usługę Azure Storage.
+Głównym czynnikiem wpływającym na opóźnienie jest rozmiar operacji. Wykonanie większej liczby operacji trwa dłużej, ponieważ ilość danych przesyłanych przez sieć jest przetwarzana przez usługę Azure Storage.
 
-Na poniższym diagramie przedstawiono całkowity czas operacji o różnych rozmiarach. W przypadku małych ilości danych interwał opóźnienia jest głównie wydawany na obsługę żądania, a nie na przesyłanie danych. Interwał opóźnienia zwiększa się tylko nieznacznie wraz ze wzrostem rozmiaru operacji (oznaczonym 1 na poniższym diagramie). Wraz ze wzrostem rozmiaru operacji więcej czasu poświęcają na przesyłanie danych, dzięki czemu całkowity interwał opóźnienia jest dzielony między obsługę żądań i transfer danych (oznaczony 2 na poniższym diagramie). W przypadku większych rozmiarów operacji interwał opóźnienia jest prawie wyłącznie wydawany na przesyłanie danych, a obsługa żądań jest w dużej mierze nieistotna (oznaczona 3 na poniższym diagramie).
+Na poniższym diagramie przedstawiono łączny czas operacji dla różnych rozmiarów. W przypadku małych ilości danych interwał opóźnienia jest głównie poświęcany na obsługę żądania, a nie transfer danych. Interwał opóźnień zwiększa się tylko nieznacznie w miarę wzrostu rozmiaru operacji (oznaczony 1 na poniższym diagramie). W miarę zwiększania rozmiaru operacji jest poświęcany więcej czasu na transfer danych, dzięki czemu łączny interwał opóźnienia jest dzielony między obsługą żądań a transferem danych (oznaczonym 2 na poniższym diagramie). W przypadku większych rozmiarów operacji interwał opóźnień jest niemal wyłącznie poświęcany na transfer danych, a obsługa żądań jest w znacznym stopniu nieistotny (oznaczone jako 3 na poniższym diagramie).
 
-![Zrzut ekranu przedstawiający całkowity czas pracy według rozmiaru operacji](media/storage-blobs-latency/operation-time-size-chart.png)
+![Zrzut ekranu przedstawiający łączny czas operacji według rozmiaru operacji](media/storage-blobs-latency/operation-time-size-chart.png)
 
-Czynniki konfiguracji klienta, takie jak współbieżność i wątki również wpływają na opóźnienie. Ogólna przepływność zależy od liczby żądań magazynu są w locie w danym momencie i jak aplikacja obsługuje wątki. Zasoby klienta, w tym procesora CPU, pamięci, magazynu lokalnego i interfejsów sieciowych może również mieć wpływ na opóźnienie.
+Czynniki konfiguracji klientów, takie jak współbieżność i wątkowość, wpływają również na opóźnienia. Ogólna przepływność zależy od liczby żądań magazynowania w danym momencie, a także od tego, jak aplikacja obsługuje wątki. Zasoby klienta, w tym procesor CPU, pamięć, Magazyn lokalny i interfejsy sieciowe, mogą również wpływać na opóźnienia.
 
-Przetwarzanie żądań usługi Azure Storage wymaga zasobów procesora CPU i pamięci klienta. Jeśli klient znajduje się pod presją z powodu niedostateczonej maszyny wirtualnej lub niektórych proces ucieczki w systemie, istnieje mniej zasobów dostępnych do przetwarzania żądań usługi Azure Storage. Wszelkie rywalizacji lub brak zasobów klienta spowoduje wzrost opóźnienia end-to-end bez zwiększenia opóźnienia serwera, zwiększając lukę między tymi dwoma metrykami.
+Przetwarzanie żądań usługi Azure Storage wymaga zasobów procesora i pamięci klienta. Jeśli klient jest pod ciśnieniem ze względu na nieelektryczną maszynę wirtualną lub kilka procesów przemijających w systemie, jest dostępnych mniej zasobów do przetwarzania żądań usługi Azure Storage. Wszelkie rywalizacje lub brak zasobów klienta spowoduje wzrost opóźnień końcowych bez wzrostu opóźnień serwera, zwiększając przerwy między dwiema metrykami.
 
-Równie ważne jest interfejs sieciowy i potok sieciowy między klientem a usługą Azure Storage. Sama odległość fizyczna może być istotnym czynnikiem, na przykład jeśli maszyna wirtualna klienta znajduje się w innym regionie platformy Azure lub lokalnie. Inne czynniki, takie jak przeskoki sieciowe, routing usługodawcy internetowego i stan internetu, mogą mieć wpływ na ogólne opóźnienie magazynu.
+Równie ważne jest interfejs sieciowy i potok sieciowy między klientem a magazynem platformy Azure. Sama odległość fizyczna może być istotnym czynnikiem, na przykład jeśli maszyna wirtualna klienta znajduje się w innym regionie świadczenia usługi Azure lub lokalnie. Inne czynniki, takie jak przeskoki sieci, routing usługodawców internetowych i stan Internetu, mogą mieć wpływ na ogólne opóźnienie magazynu.
 
-Aby ocenić opóźnienie, należy najpierw ustalić metryki linii bazowej dla scenariusza. Metryki planu bazowego zapewniają oczekiwane opóźnienie end-to-end i serwera w kontekście środowiska aplikacji, w zależności od profilu obciążenia, ustawień konfiguracji aplikacji, zasobów klienta, potoku sieciowego i innych czynników. Jeśli masz metryki linii bazowej, można łatwiej zidentyfikować nieprawidłowe w porównaniu z normalnymi warunkami. Metryki linii bazowej umożliwiają również obserwowanie efektów zmienionych parametrów, takich jak konfiguracja aplikacji lub rozmiary maszyn wirtualnych.
+Aby ocenić opóźnienia, najpierw Ustanów metryki bazowe dla danego scenariusza. Metryki linii bazowej umożliwiają oczekiwanie na zakończenie i opóźnienie serwera w kontekście środowiska aplikacji, w zależności od profilu obciążenia, ustawień konfiguracji aplikacji, zasobów klienta, potoku sieci i innych czynników. Gdy masz metryki bazowe, możesz łatwiej identyfikować nietypowe i normalne warunki. Metryki linii bazowej umożliwiają również przestrzeganie efektów zmienionych parametrów, takich jak konfiguracja aplikacji lub rozmiary maszyn wirtualnych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Cele dotyczące skalowalności i wydajności pamięci masowej obiektów Blob](scalability-targets.md)
-- [Lista kontrolna wydajności i skalowalności magazynu obiektów Blob](storage-performance-checklist.md)
+- [Cele skalowalności i wydajności dla usługi BLOB Storage](scalability-targets.md)
+- [Lista kontrolna wydajności i skalowalności usługi BLOB Storage](storage-performance-checklist.md)

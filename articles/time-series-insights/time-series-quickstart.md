@@ -1,6 +1,6 @@
 ---
-title: 'Szybki start: Eksplorator usługi Azure Time Series Insights — usługa Azure Time Series Insights | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak rozpocząć pracę z Eksploratorem usługi Azure Time Series Insights. Wizualizuj duże ilości danych IoT i zapoznaj się z kluczowymi funkcjami środowiska.
+title: 'Szybki Start: Azure Time Series Insights Explorer — Azure Time Series Insights | Microsoft Docs'
+description: Dowiedz się, jak rozpocząć pracę z Eksploratorem Azure Time Series Insights. Wizualizuj duże ilości danych IoT i kluczowych funkcji środowiska.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,70 +11,70 @@ ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 04/13/2020
 ms.openlocfilehash: a566c55d2ac51efc5ff2650ad682f10dae2bdc31
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81272002"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Szybki start: poznawanie usługi Azure Time Series Insights
 
-Ten szybki start usługi Azure Time Series Insights ułatwia rozpoczęcie pracy z usługą Time Series Insights w bezpłatnym środowisku demonstracyjnym. W tym przewodniku Szybki start dowiesz się, jak używać przeglądarki sieci Web do wizualizacji dużych ilości danych IoT i kluczowych funkcji przewodnika, które są obecnie ogólnie dostępne.
+Ten Azure Time Series Insights przewodniku szybki start ułatwia rozpoczęcie pracy z usługą Time Series Insights w wolnym środowisku demonstracyjnym. W tym przewodniku szybki start dowiesz się, jak za pomocą przeglądarki sieci Web wizualizować duże ilości danych IoT i funkcji kluczowych przewodników, które są ogólnie dostępne.
 
-Usługa Azure Time Series Insights to w pełni zarządzana usługa analizy, magazynu i wizualizacji, która upraszcza jednoczesne eksplorowanie i analizowanie miliardów zdarzeń IoT. Zapewnia globalny widok danych, dzięki czemu można szybko zweryfikować rozwiązanie IoT i uniknąć kosztownych przestojów na urządzeniach o znaczeniu krytycznym. Usługa Azure Time Series Insights ułatwia odkrywanie ukrytych trendów, wykrywanie anomalii i przeprowadzanie analiz przyczyn źródłowych w czasie zbliżonym do rzeczywistego.
+Azure Time Series Insights to w pełni zarządzana usługa analizy, magazynu i wizualizacji, która upraszcza, jak eksplorować i analizować miliardy zdarzeń IoT jednocześnie. Zapewnia ona globalny widok danych, dzięki czemu możesz szybko zweryfikować swoje rozwiązanie IoT i uniknąć kosztownych przestojów w przypadku urządzeń o krytycznym znaczeniu. Azure Time Series Insights pomaga w odnajdywaniu ukrytych trendów, wykrytych anomalii i przeprowadzaniu analiz głównych przyczyn w czasie zbliżonym do rzeczywistego.
 
-Aby uzyskać dodatkową elastyczność, można dodać usługę Azure Time Series Insights do istniejącej wcześniej aplikacji za pośrednictwem [zaawansowanych interfejsów API REST](./time-series-insights-update-tsq.md) i [sdk klienta.](https://github.com/microsoft/tsiclient) Interfejsy API można używać do przechowywania, wykonywania zapytań i używania danych szeregów czasowych w wybranej aplikacji klienckiej. Można również użyć sdk klienta, aby dodać składniki interfejsu użytkownika do istniejącej aplikacji.
+Aby uzyskać dodatkową elastyczność, można dodać Azure Time Series Insights do istniejącej aplikacji za pomocą jej zaawansowanych [interfejsów API REST](./time-series-insights-update-tsq.md) i [zestawu SDK klienta](https://github.com/microsoft/tsiclient). Za pomocą interfejsów API można przechowywać dane szeregów czasowych, wykonywać zapytania i korzystać z nich w wybranej aplikacji klienckiej. Można również użyć zestawu SDK klienta, aby dodać składniki interfejsu użytkownika do istniejącej aplikacji.
 
-Ten szybki start usługi Time Series Insights explorer oferuje przewodnik po funkcjach, które są ogólnie dostępne.
+Ten przewodnik Szybki Start dla programu Time Series Insights Explorer oferuje funkcje, które są ogólnie dostępne.
 
 > [!IMPORTANT]
-> Utwórz [bezpłatne konto platformy Azure,](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) jeśli jeszcze go nie utworzyłeś.
+> Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) , jeśli jeszcze tego nie zrobiono.
 
 ## <a name="prepare-the-demo-environment"></a>Przygotowanie środowiska demonstracyjnego
 
-1. W przeglądarce przejdź do [wersji demonstracyjnej ogólnej dostępności](https://insights.timeseries.azure.com/demo).
+1. W przeglądarce przejdź do [głównej wersji demonstracyjnej](https://insights.timeseries.azure.com/demo).
 
-1. Jeśli zostanie wyświetlony monit, zaloguj się do Eksploratora usługi Time Series Insights przy użyciu poświadczeń konta platformy Azure.
+1. Jeśli zostanie wyświetlony monit, zaloguj się do Eksploratora Time Series Insights przy użyciu poświadczeń konta platformy Azure.
 
-1. Zostanie wyświetlona skrócona strona szybkiego przewodnika Usługi Time Series Insights. Wybierz **przycisk Dalej,** aby rozpocząć szybką wycieczkę.
+1. Zostanie wyświetlona strona Time Series Insights Quick przewodnika. Wybierz pozycję **dalej** , aby rozpocząć szybkie samouczki.
 
-   [![Zapraszamy do szybkiego startu - wybierz dalej](media/quickstart/quickstart-welcome.png)](media/quickstart/quickstart-welcome.png#lightbox)
+   [![Szybki Start — Zapraszamy! wybierz pozycję Dalej](media/quickstart/quickstart-welcome.png)](media/quickstart/quickstart-welcome.png#lightbox)
 
-## <a name="explore-the-demo-environment"></a>Poznaj środowisko demonstracyjne
+## <a name="explore-the-demo-environment"></a>Eksplorowanie środowiska demonstracyjnego
 
-1. Zostanie wyświetlony **panel wyboru czasu.** Użyj tego panelu, aby wybrać przedział czasu do wizualizacji.
+1. Zostanie wyświetlony **panel wybór czasu** . Użyj tego panelu, aby wybrać przedział czasu do wizualizacji.
 
    [![Panel wyboru czasu](media/quickstart/quickstart-time-selection-panel.png)](media/quickstart/quickstart-time-selection-panel.png#lightbox)
 
-1. Wybierz przedział czasu i przeciągnij go w regionie. Następnie wybierz **pozycję Wyszukaj**.
+1. Wybierz przedział czasu i przeciągnij go w regionie. Następnie wybierz pozycję **Wyszukaj**.
 
    [![Wybieranie przedziału czasu](media/quickstart/quickstart-select-time.png)](media/quickstart/quickstart-select-time.png#lightbox)
 
-   Usługa Time Series Insights wyświetli wizualizację wykresu dla określonego przedziału czasu. Można wykonywać różne czynności na wykresie liniowym. Na przykład można filtrować, przypinać, sortować i układać stos.
+   Usługa Time Series Insights wyświetli wizualizację wykresu dla określonego przedziału czasu. Na wykresie liniowym można wykonywać różne czynności. Na przykład można filtrować, przypinać, sortować i stosu.
 
-   Aby powrócić do **panelu wyboru Czas,** wybierz strzałkę w dół, jak pokazano na rysunku:
+   Aby powrócić do **panelu wyboru czasu**, wybierz strzałkę w dół, jak pokazano:
 
    [![Wykres](media/quickstart/quickstart-select-down-arrow.png)](media/quickstart/quickstart-select-down-arrow.png#lightbox)
 
-1. Wybierz **pozycję Dodaj** w panelu **Warunki,** aby dodać nowy wyszukiwany termin.
+1. Wybierz pozycję **Dodaj** na **panelu warunki** , aby dodać nowy termin wyszukiwania.
 
-   [![Dodawanie panelu wyszukiwanych haseł](media/quickstart/quickstart-add-terms.png)](media/quickstart/quickstart-add-terms.png#lightbox)
+   [![Dodaj panel wyszukiwanych terminów](media/quickstart/quickstart-add-terms.png)](media/quickstart/quickstart-add-terms.png#lightbox)
 
 1. Na wykresie możesz wybrać region, kliknąć prawym przyciskiem myszy ten region i wybrać polecenie **Eksploruj zdarzenia**.
 
    [![Eksploruj zdarzenia](media/quickstart/quickstart-explore-events.png)](media/quickstart/quickstart-explore-events.png#lightbox)
 
-   Siatka nieprzetworzonych danych jest wyświetlana z regionu, który eksplorujesz.
+   Siatka danych pierwotnych jest wyświetlana w regionie, w którym jest przeprowadzana Eksplorowanie.
 
-   [![Eksploruj zdarzenia — widok danych siatki](media/quickstart/quickstart-explore-events-grid-data.png)](media/quickstart/quickstart-explore-events-grid-data.png#lightbox)
+   [![Eksplorowanie zdarzeń — widok danych siatki](media/quickstart/quickstart-explore-events-grid-data.png)](media/quickstart/quickstart-explore-events-grid-data.png#lightbox)
 
 ## <a name="select-and-filter-data"></a>Wybieranie i filtrowanie danych
 
-1. Edytuj terminy, aby zmienić wartości na wykresie. Dodaj inny termin do krzyżowego skorelowania różnych typów wartości.
+1. Edytuj swoje warunki, aby zmienić wartości na wykresie. Dodaj kolejny termin, aby skorelować krzyżowo różne typy wartości.
 
    [![Dodaj termin](media/quickstart/quickstart-add-a-term.png)](media/quickstart/quickstart-add-a-term.png#lightbox)
 
-1. Pozostaw puste pole **Seria Filtruj,** aby wyświetlić wszystkie wybrane wyszukiwane terminy, lub wprowadź termin filtru w polu **Filtruj serię** do filtrowania serii improwizowanych.
+1. Pozostaw puste pole **filtru serii** , aby wyświetlić wszystkie wybrane terminy wyszukiwania lub wprowadź termin filtru w polu **Seria filtru** dla filtrowania serii Improvised.
 
    [![Filtrowanie szeregów](media/quickstart/quickstart-filter-series.png)](media/quickstart/quickstart-filter-series.png#lightbox)
 
@@ -84,13 +84,13 @@ Po zakończeniu przewodnika Szybki start możesz poeksperymentować z zestawem d
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Po zakończeniu samouczka posprzątaj utworzone zasoby:
+Po ukończeniu samouczka Wyczyść utworzone zasoby:
 
-1. Z lewego menu w [witrynie Azure portal](https://portal.azure.com)wybierz **pozycję Wszystkie zasoby**— znajdź grupę zasobów usługi Azure Time Series Insights.
-1. Usuń całą grupę zasobów (i wszystkie zasoby w niej zawarte), wybierając **pozycję Usuń** lub usuń każdy zasób indywidualnie.
+1. W menu po lewej stronie w [Azure Portal](https://portal.azure.com)wybierz pozycję **wszystkie zasoby**, Znajdź Azure Time Series Insights grupę zasobów.
+1. Usuń całą grupę zasobów (i wszystkie znajdujące się w niej zasoby), wybierając pozycję **Usuń** lub Usuń osobno każdy zasób.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Możesz utworzyć własne środowisko usługi Time Series Insights:
+Wszystko jest gotowe do utworzenia własnego środowiska Time Series Insightsowego:
 > [!div class="nextstepaction"]
 > [Planowanie środowiska usługi Time Series Insights](time-series-insights-environment-planning.md)

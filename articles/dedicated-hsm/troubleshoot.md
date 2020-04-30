@@ -14,142 +14,142 @@ ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: ad3c9d702384b8a32a9d4f0c8aebe44de4bb526e
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80337176"
 ---
 # <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Usługa dedykowanego modułu HSM platformy Azure ma dwa różne aspekty. Po pierwsze rejestracji i wdrażania na platformie Azure urządzeń HSM z ich podstawowych składników sieciowych. Po drugie, konfiguracja urządzeń HSM w ramach przygotowań do użycia/integracji z danym obciążeniem lub aplikacją. Mimo że urządzenia HSM sieci Thales Luna są takie same na platformie Azure, jak można kupić bezpośrednio od firmy Thales, fakt, że są one zasobem na platformie Azure tworzy pewne unikatowe zagadnienia. Te zagadnienia i wszelkie wynikające z tego szczegółowe informacje dotyczące rozwiązywania problemów lub najlepsze rozwiązania są udokumentowane w tym miejscu, aby zapewnić wysoką widoczność i dostęp do krytycznych informacji. Gdy usługa jest w użyciu, ostateczne informacje są dostępne za pośrednictwem żądań pomocy technicznej do firmy Microsoft lub Thales bezpośrednio. 
+Dedykowana usługa HSM platformy Azure ma dwa różne zestawy reguł. Po pierwsze Rejestracja i wdrożenie na platformie Azure urządzeń HSM z ich podstawowymi składnikami sieciowymi. Na koniec konfiguracja urządzeń HSM w przygotowaniu do użycia/integracji z danym obciążeniem lub aplikacją. Mimo że urządzenia HSM sieci firmy Thales Luna są takie same na platformie Azure, jak w przypadku zakupu bezpośrednio od firmy Thales, fakt, że jest to zasób na platformie Azure, tworzy pewne unikatowe uwagi. Te zagadnienia i wszelkie wynikłe rozwiązania dotyczące rozwiązywania problemów oraz najlepsze rozwiązania są udokumentowane w tym miejscu, aby zapewnić wysoką widoczność i dostęp do krytycznych informacji. Gdy usługa jest używana, ostateczne informacje są dostępne za pośrednictwem żądań pomocy technicznej bezpośrednio do firmy Microsoft lub firmy Thales. 
 
 > [!NOTE]
-> Należy zauważyć, że przed wykonaniem jakiejkolwiek konfiguracji na nowo wdrożonym urządzeniu HSM należy ją zaktualizować o odpowiednie poprawki. Określona wymagana poprawka to [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789) w portalu pomocy technicznej firmy Thales, która rozwiązuje problem z ponownym uruchomieniem.
+> Należy zauważyć, że przed wykonaniem jakiejkolwiek konfiguracji na nowo wdrożonym urządzeniu HSM, należy je zaktualizować przy użyciu wszelkich odpowiednich poprawek. Konkretna wymagana poprawka to [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789) w portalu pomocy technicznej firmy Thales, który rozwiązuje problem z zawieszaniem się ponownego uruchomienia.
 
-## <a name="hsm-registration"></a>Rejestracja HSM
+## <a name="hsm-registration"></a>Rejestracja modułu HSM
 
-Dedykowany moduł HSM nie jest swobodnie dostępny do użytku, ponieważ dostarcza zasoby sprzętowe w chmurze, a zatem jest cennym zasobem, który wymaga ochrony. Dlatego korzystamy z procesu umieszczania HSMrequest@microsoft.comna białej liście za pośrednictwem poczty elektronicznej za pomocą . 
+Dedykowany moduł HSM nie jest dostępny do użycia w miarę dostarczania zasobów sprzętowych w chmurze, a tym samym jest cennym zasobem, który wymaga ochrony. W związku z tym korzystamy z procesu listy dozwolonych HSMrequest@microsoft.comza pośrednictwem poczty e-mail. 
 
 ### <a name="getting-access-to-dedicated-hsm"></a>Uzyskiwanie dostępu do dedykowanego modułu HSM
 
-Jeśli uważasz, że dedykowany moduł HSM HSMrequest@microsoft.com będzie pasować do wymagań magazynu kluczy, a następnie wysłać wiadomość e-mail, aby zażądać dostępu. Określ aplikację, regiony, w których chcesz modułów HSM i ilość hsmów, których szukasz. Jeśli pracujesz z przedstawicielem firmy Microsoft, na przykład account executive lub Cloud Solution Architect, dołącz je do dowolnego żądania.
+Jeśli uważasz, że dedykowany moduł HSM będzie pasował do wymagań dotyczących magazynu HSMrequest@microsoft.com kluczy, Wyślij wiadomość e-mail do żądania dostępu. Utwórz konspekt aplikacji, regiony, które chcesz sprzętowych modułów zabezpieczeń i ilość szukanych sprzętowych modułów zabezpieczeń. Jeśli pracujesz z przedstawicielem firmy Microsoft, takim jak dyrektor ds. kont lub architektem rozwiązań w chmurze, na przykład Dołącz je do każdego żądania.
 
-## <a name="hsm-provisioning"></a>Inicjowanie obsługi administracyjnej modułu HSM
+## <a name="hsm-provisioning"></a>Inicjowanie obsługi modułu HSM
 
-Inicjowanie obsługi administracyjnej urządzenia HSM na platformie Azure można wykonać za pośrednictwem interfejsu wiersza polecenia lub programu PowerShell. Podczas rejestracji do usługi, przykładowy szablon ARM zostaną dostarczone i pomoc zostanie udzielona do wstępnego dostosowania. 
+Inicjowanie obsługi urządzenia HSM na platformie Azure można wykonać za pomocą interfejsu wiersza polecenia lub programu PowerShell. Po zarejestrowaniu się w usłudze zostanie udostępniony przykładowy szablon ARM i będzie można uzyskać pomoc dotyczącą wstępnego dostosowywania. 
 
-### <a name="hsm-deployment-failure-information"></a>Informacje o niepowodzeniu wdrażania modułu HSM
+### <a name="hsm-deployment-failure-information"></a>Informacje o niepowodzeniach wdrożenia modułu HSM
 
-Dedykowany moduł HSM obsługuje polecenia cli i powershell do wdrożenia, więc informacje o błędach oparte na portalu są ograniczone i nie są pełne. Lepsze informacje można znaleźć za pomocą Eksploratora zasobów. Strona główna portalu ma ikonę dla tego i bardziej szczegółowe informacje o błędzie jest dostępna. Te informacje bardzo pomaga, jeśli wklejone podczas tworzenia żądania pomocy technicznej związane z problemami wdrażania.
+Dedykowany moduł HSM obsługuje interfejs wiersza polecenia i program PowerShell dla wdrożenia, aby informacje o błędach w portalu były ograniczone i niepełne. Lepsze informacje można znaleźć za pomocą Eksplorator zasobów. Na stronie głównej portalu znajduje się ikona tego i bardziej szczegółowe informacje o błędzie są dostępne. Te informacje ułatwiają wiele sytuacji, w których podczas tworzenia żądania pomocy technicznej związanego z wdrażaniem zawarto bardzo dużo uwagi.
 
-![Informacje o niepowodzeniu](./media/troubleshoot/failure-information.png)
+![Informacje o niepowodzeniach](./media/troubleshoot/failure-information.png)
 
-### <a name="hsm-subnet-delegation"></a>Delegowanie podsieci HSM
-Numer jeden przyczyną niepowodzeń wdrażania jest zapominanie ustawić odpowiednie delegowanie dla podsieci zdefiniowanej przez klienta, w którym będą aprowizacji modułów HSM. Ustawienie, że delegowanie jest częścią sieci wirtualnej i podsieci wymagania wstępne dotyczące wdrażania i więcej szczegółów można znaleźć w samouczkach.
+### <a name="hsm-subnet-delegation"></a>Delegowanie podsieci modułu HSM
+Liczba jednej przyczyny niepowodzenia wdrożenia to zapominanie o ustawieniu odpowiedniego delegowania dla podsieci zdefiniowanej przez klienta, na której zostanie zainicjowana sprzętowych modułów zabezpieczeń. Ustawienie delegowania jest częścią sieci wirtualnej i wymagań wstępnych podsieci do wdrożenia. więcej szczegółów można znaleźć w samouczkach.
 
 ![Delegowanie podsieci](./media/troubleshoot/subnet-delegation.png)
 
-### <a name="hsm-deployment-race-condition"></a>Stan wyścigu wdrażania HSM
+### <a name="hsm-deployment-race-condition"></a>Warunek wyścigu wdrożenia modułu HSM
 
-Standardowy szablon ARM przewidziany do wdrożenia zawiera zasoby związane z usługami HSM i usługi ExpressRoute gateway. Zasoby sieciowe są zależnością dla pomyślnego wdrożenia modułu HSM i czas może mieć kluczowe znaczenie.  Od czasu do czasu widzieliśmy błędy wdrażania związane z problemami z zależnościami i ponowne uruchomienie wdrożenia często rozwiązuje problem. Jeśli nie, usunięcie zasobów, a następnie ponowne wdrożenie często zakończy się powodzeniem. Po próbie tego problemu i nadal znalezienie problemu, należy podnieść żądanie pomocy technicznej w witrynie Azure portal wybierając typ problemu "Problemy z konfigurowaniem konfiguracji platformy Azure".
+Standardowy szablon ARM udostępniony do wdrożenia ma zasoby dotyczące modułów HSM i ExpressRoute Gateway. Zasoby sieciowe są zależnością do pomyślnego wdrożenia modułu HSM, a chronometraż może być decydujący.  Czasami pojawiły się błędy wdrażania związane z problemami zależności i ponowne uruchomienie wdrożenia często rozwiązuje problem. W przeciwnym razie usunięcie zasobów i ponowne wdrożenie często powiodło się. Po próbie tego problemu i dalszym znalezieniu go Zgłoś żądanie pomocy technicznej w Azure Portal wybranie typu problemu "problemy z skonfigurowaniem konfiguracji platformy Azure".
 
-### <a name="hsm-deployment-using-terraform"></a>Wdrażanie HSM przy użyciu terraform
+### <a name="hsm-deployment-using-terraform"></a>Wdrażanie modułu HSM przy użyciu Terraform
 
-Kilku klientów korzystało z programu Terraform jako środowiska automatyzacji zamiast szablonów ARM dostarczonych podczas rejestracji tej usługi. Modułów HSM nie można wdrożyć w ten sposób, ale zasoby sieciowe zależne mogą. Terraform ma moduł do wywołania minimalnego szablonu ARM, który jut ma wdrożenie HSM.  W tej sytuacji należy zadbać o to, aby zapewnić pełne wdrożenie zasobów sieciowych, takich jak wymagana brama usługi ExpressRoute Gateway, przed wdrożeniem modułów HSM. Następujące polecenie interfejsu wiersza polecenia może służyć do testowania ukończonego wdrożenia i zintegrowane zgodnie z wymaganiami. Wymień uchwyty na uchwyty kątowe dla konkretnego nazewnictwa. Należy szukać wyniku "Inicjowanie obsługi administracyjnejState jest powiódł się"
+Kilku klientów użył Terraform jako środowiska automatyzacji zamiast szablonów ARM, które są dostarczane podczas rejestrowania dla tej usługi. Sprzętowych modułów zabezpieczeń nie można wdrożyć w ten sposób, ale zależne zasoby sieciowe mogą. Terraform ma moduł do wywołania minimalnego szablonu ARM, który JUT ma wdrożenie HSM.  W takiej sytuacji należy zachować ostrożność, aby zapewnić, że zasoby sieciowe, takie jak wymagana Brama ExpressRoute są w pełni wdrożone przed wdrożeniem sprzętowych modułów zabezpieczeń. Poniższe polecenie interfejsu wiersza polecenia może służyć do testowania wdrożenia zakończonego i zintegrowanego zgodnie z wymaganiami. Zastąp symbole kątowe odniesień do określonych nazw. Należy wyszukać wynik "provisioningState jest powodzenie"
 
 ```azurecli
 az resource show --ids /subscriptions/<subid>/resourceGroups/<myresourcegroup>/providers/Microsoft.Network/virtualNetworkGateways/<myergateway>
 ```
 
-### <a name="deployment-failure-based-on-quota"></a>Niepowodzenie wdrożenia na podstawie przydziału
-Wdrożenia mogą zakończyć się niepowodzeniem, jeśli przekroczysz 2 moduły HSM na znaczek i 4 moduły HSM na region. Aby uniknąć tej sytuacji, upewnij się, że zostały usunięte zasoby z wcześniej nieudanych wdrożeń przed ponownym wdrożeniem. Zapoznaj się z poniższym elementem "Jak zobaczyć moduły HSM", aby sprawdzić zasoby. Jeśli uważasz, że musisz przekroczyć ten limit, który jest HSMrequest@microsoft.com przede wszystkim tam jako zabezpieczenie, wyślij e-mail ze szczegółami.
+### <a name="deployment-failure-based-on-quota"></a>Niepowodzenie wdrożenia na podstawie limitu przydziału
+Wdrożenia mogą zakończyć się niepowodzeniem w przypadku przekroczenia 2 sprzętowych modułów zabezpieczeń na sygnaturę i 4 sprzętowych modułów zabezpieczeń na region. Aby uniknąć tej sytuacji, upewnij się, że usunięto zasoby z wcześniej zakończonych niepowodzeniem wdrożeń przed ponownym wdrożeniem. Zapoznaj się z poniższym elementem "Jak mogę See sprzętowych modułów zabezpieczeń", aby sprawdzić zasoby. Jeśli uważasz, że musisz przekroczyć ten limit przydziału, który jest przede wszystkim w ramach zabezpieczeń, HSMrequest@microsoft.com Wyślij wiadomość e-mail ze szczegółowymi informacjami.
 
-### <a name="deployment-failure-based-on-capacity"></a>Błąd wdrożenia na podstawie zdolności produkcyjnych
-Gdy określony znaczek lub region staje się pełna, oznacza to, że prawie wszystkie bezpłatne moduły HSM są aprowizacji, może to prowadzić do błędów wdrażania. Każdy znaczek ma 11 modułów HSM dostępnych dla klientów, co oznacza 22 na region. W każdym znaczku znajdują się również 3 części zamienne i 1 urządzenie testowe. Jeśli uważasz, że możesz osiągnąć HSMrequest@microsoft.com limit, wyślij wiadomość e-mail z informacją o poziomie wypełnienia określonych znaczków.
+### <a name="deployment-failure-based-on-capacity"></a>Niepowodzenie wdrażania na podstawie pojemności
+Gdy określona sygnatura lub region jest zapełniony, oznacza to, że prawie wszystkie bezpłatne sprzętowych modułów zabezpieczeń są obsługiwane, co może prowadzić do niepowodzeń wdrażania. Każda sygnatura ma 11 sprzętowych modułów zabezpieczeń dostępnych dla klientów, co oznacza 22 dla regionu. W każdej sygnaturze znajdują się również 3 zapasy i 1 urządzenie testowe. Jeśli uważasz, że osiągnięto limit, Wyślij wiadomość e-mail HSMrequest@microsoft.com w celu uzyskania informacji na temat wypełniania określonych sygnatur.
 
-###  <a name="how-do-i-see-hsms-when-provisioned"></a>Jak wyświetlić moduły HSM po zainicjowaniu obsługi administracyjnej?
-Ze względu na dedykowane HSM jest usługi białej listy, jest uważany za "typ ukryty" w witrynie Azure portal. Aby wyświetlić zasoby modułu HSM, należy zaznaczyć pole wyboru "Pokaż ukryte typy", jak pokazano poniżej. Zasób karty sieciowej zawsze podąża za modułem HSM i jest dobrym miejscem, aby dowiedzieć się adres IP modułu HSM przed użyciem protokołu SSH do nawiązania połączenia.
+###  <a name="how-do-i-see-hsms-when-provisioned"></a>Jak mogę zobaczyć sprzętowych modułów zabezpieczeń po zainicjowaniu obsługi administracyjnej?
+Ze względu na dedykowany moduł HSM, który jest usługą listy dozwolonych, jest traktowany jako "typ ukryty" w Azure Portal. Aby wyświetlić zasoby HSM, należy zaznaczyć pole wyboru "Pokaż ukryte typy", jak pokazano poniżej. Zasób karty sieciowej zawsze jest zgodny z modułem HSM i jest dobrym miejscem, aby znaleźć adres IP modułu HSM przed użyciem protokołu SSH do nawiązania połączenia.
 
 ![Delegowanie podsieci](./media/troubleshoot/hsm-provisioned.png)
 
 ## <a name="networking-resources"></a>Zasoby sieciowe
 
-Wdrażanie dedykowanego modułu HSM ma zależność od zasobów sieciowych i niektóre ograniczenia następcze, o czym należy pamiętać.
+Wdrożenie dedykowanego modułu HSM ma zależność od zasobów sieciowych i niektórych wynikających z nich ograniczeń.
 
-### <a name="provisioning-expressroute"></a>Inicjowanie obsługi administracyjnej usługi ExpressRoute
+### <a name="provisioning-expressroute"></a>ExpressRoute aprowizacji
 
-Dedykowany moduł HSM używa bramy usługi ExpressRoute jako "tunelu" do komunikacji między prywatną przestrzenią adresów IP klienta a fizycznym modułem HSM w centrum danych platformy Azure.  Biorąc pod uwagę, że istnieje ograniczenie jednej bramy na sieci wirtualnej, klienci wymagający połączenia z ich zasobów lokalnych za pośrednictwem usługi ExpressRoute, będzie musiał użyć innej sieci wirtualnej dla tego połączenia.  
+Dedykowany moduł HSM używa bramy ExpressRoute jako "tunel" do komunikacji między prywatną przestrzenią adresów IP klienta i fizycznym modułem HSM w centrum danych platformy Azure.  Biorąc pod uwagę, że istnieje ograniczenie jednej bramy dla sieci wirtualnej, klienci wymagający połączenia z zasobami lokalnymi za pośrednictwem usługi ExpressRoute będą musieli użyć innej sieci wirtualnej dla tego połączenia.  
 
-### <a name="hsm-private-ip-address"></a>Prywatny adres IP HSM
+### <a name="hsm-private-ip-address"></a>Prywatny adres IP modułu HSM
 
-Przykładowe szablony dostarczone dla dedykowanego modułu HSM zakładają, że adres IP modułu HSM zostanie automatycznie pobrany z danego zakresu podsieci. Można określić jawny adres IP dla modułu HSM za pomocą atrybutu "NetworkInterfaces" w szablonie ARM. 
+Przykładowe szablony udostępniane dla dedykowanego modułu HSM zakładają, że adres IP modułu HSM zostanie automatycznie pobrany z danego zakresu podsieci. Można określić jawny adres IP dla modułu HSM za pośrednictwem atrybutu "NetworkInterfaces" w szablonie ARM. 
 
 ![Delegowanie podsieci](./media/troubleshoot/private-ip-address.png)
 
 ## <a name="hsm-initialization"></a>Inicjowanie modułu HSM
 
-Inicjalizacja przygotowuje nowy moduł HSM do użycia lub istniejący moduł HSM do ponownego użycia. Inicjowanie modułu HSM musi zostać zakończone, zanim będzie można wygenerować lub przechowywać obiekty, zezwolić klientom na łączenie się lub wykonywanie operacji kryptograficznych.
+Inicjalizacja przygotowuje nowy moduł HSM do użycia lub istniejący moduł HSM do ponownego użycia. Inicjalizacja modułu HSM musi zostać zakończona, aby można było generować lub przechowywać obiekty, zezwalać klientom na łączenie lub wykonywać operacje kryptograficzne.
 
 ### <a name="lost-credentials"></a>Utracone poświadczenia
 
-Utrata hasła administratora powłoki spowoduje utratę materiału klucza HSM. Należy złożyć żądanie pomocy technicznej w celu zresetowania modułu HSM.
-Podczas inicjowania modułu HSM bezpiecznie przechowuj poświadczenia. Poświadczenia powłoki i modułu HSM powinny być przechowywane zgodnie z zasadami firmy.
+Utrata hasła administratora powłoki spowoduje utratę materiału klucza HSM. Należy wprowadzić żądanie pomocy technicznej w celu zresetowania modułu HSM.
+Podczas inicjowania modułu HSM bezpieczne przechowywanie poświadczeń. Poświadczenia powłoki i modułu HSM powinny być przechowywane zgodnie z zasadami obowiązującymi w firmie.
 
 ### <a name="failed-logins"></a>Nieudane logowania
 
-Podanie niepoprawnych poświadczeń do modułów HSM może mieć destrukcyjne konsekwencje. Poniżej przedstawiono domyślne zachowania ról modułu HSM.
+Dostarczenie nieprawidłowych poświadczeń do sprzętowych modułów zabezpieczeń może mieć konsekwencje destrukcyjne. Poniżej przedstawiono domyślne zachowania ról modułu HSM.
 
-| Rola | Próg (liczba prób) | W wyniku zbyt wielu złych prób logowania | Odzyskiwanie |
+| Rola | Próg (liczba prób) | Wynik zbyt dużej liczby nieudanych prób logowania | Odzyskiwanie |
 |--|--|--|--|
-| HSM TAK | 3 |  Hsm jest zerowany (wszystkie tożsamości obiektów HSM, a wszystkie partycje zniknęły)  |  Moduł HSM musi zostać ponownie zainicjowany. Zawartość można przywrócić z kopii zapasowych. | 
-| Partycja TAK | 10 |  Partycja jest zerowana. |  Partycja musi zostać ponownie zainicjowana. Zawartość można przywrócić z kopii zapasowej. |  
-| Inspekcja | 10 | Blokady | Odblokowany automatycznie po 10 minutach. |  
-| Oficer krypto | 10 (można zmniejszyć) | Jeśli zasady MODUŁU HSM 15: Włącz resetowanie tak numeru PIN partycji jest ustawiona na 1 (włączona), role CO i CU są zablokowane.<br>Jeśli zasady MODUŁU HSM 15: Włącz resetowanie tak numeru PIN partycji jest ustawiona na 0 (wyłączone), role CO i CU są trwale zablokowane, a zawartość partycji nie są już dostępne. Jest to ustawienie domyślne. | Rola CO musi zostać odblokowana, a poświadczenie zresetowane przez partition SO, za pomocą . `role resetpw -name co`<br>Partycja musi zostać ponownie zainicjowana, a materiał klucza przywrócony z urządzenia kopii zapasowej. |  
+| MODUŁ HSM | 3 |  Moduł HSM jest zerowy (wszystkie tożsamości obiektów HSM i wszystkie partycje zostaną usunięte)  |  Moduł HSM musi zostać ponownie zainicjowany. Zawartość można przywrócić z kopii zapasowych. | 
+| Podziel na partycje | 10 |  Partycja ma wartość zero. |  Partycja musi zostać zainicjowana ponownie. Zawartość można przywrócić z kopii zapasowej. |  
+| Inspekcja | 10 | Blokad | Odblokowane automatycznie po 10 minutach. |  
+| Oficer kryptograficzny | 10 (można je zmniejszyć) | Jeśli zasady HSM 15: Enable, tak aby Resetowanie numeru PIN partycji zostało ustawione na 1 (włączone), role CO i CU są zablokowane.<br>Jeśli zasady HSM 15: Enable, tak aby Resetowanie numeru PIN partycji zostało ustawione na 0 (wyłączone), role CO i CU są trwale zablokowane i zawartość partycji nie jest już dostępna. Jest to ustawienie domyślne. | Rola CO należy odblokować, a poświadczenia są resetowane przez partycję, a `role resetpw -name co`więc przy użyciu polecenia.<br>Partycja musi być zainicjowana ponownie i materiał klucza przywrócony z urządzenia kopii zapasowej. |  
 
 ## <a name="hsm-configuration"></a>Konfiguracja modułu HSM 
 
-Następujące elementy są sytuacje, w których błędy konfiguracji są wspólne lub mają wpływ, który jest godny wywołania:
+Poniżej znajdują się sytuacje, w których błędy konfiguracji są wspólne lub mają wpływ zaufanego się na wywołania:
 
-### <a name="hsm-documentation-and-software"></a>Dokumentacja i oprogramowanie HSM
-Oprogramowanie i dokumentacja urządzeń HSM Thales SafeNet Luna 7 nie jest dostępna od firmy Microsoft i musi zostać pobrana bezpośrednio z firmy Thales. Rejestracja jest wymagana przy użyciu identyfikatora klienta Thales otrzymanego podczas procesu rejestracji. Urządzenia, dostarczone przez firmę Microsoft, mają wersję oprogramowania 7.2 i firmware w wersji 7.0.3. Na początku 2020 r. Thales upublicznił dokumentację i można ją znaleźć [tutaj](https://thalesdocs.com/gphsm/luna/7.2/docs/network/Content/Home_network.htm).  
+### <a name="hsm-documentation-and-software"></a>Dokumentacja i oprogramowanie modułu HSM
+Oprogramowanie i dokumentacja urządzeń HSM firmy Thales SafeNet Luna 7 nie są dostępne w firmie Microsoft i muszą zostać pobrane bezpośrednio z usługi firmy Thales. Rejestracja jest wymagana przy użyciu identyfikatora klienta firmy Thales otrzymanego podczas procesu rejestracji. Urządzenia, zgodnie z oczekiwaniami firmy Microsoft, mają oprogramowanie wersja 7,2 i oprogramowanie układowe 7.0.3. Wcześniej w 2020 firmy Thales dokumentację publiczną i można ją znaleźć [tutaj](https://thalesdocs.com/gphsm/luna/7.2/docs/network/Content/Home_network.htm).  
 
 ### <a name="hsm-networking-configuration"></a>Konfiguracja sieci HSM
 
-Należy zachować ostrożność podczas konfigurowania sieci w ramach modułu HSM.  Moduł HSM ma połączenie za pośrednictwem bramy usługi ExpressRoute z prywatnej przestrzeni adresów IP klienta bezpośrednio do modułu HSM.  Ten kanał komunikacji służy wyłącznie do komunikacji z klientami, a firma Microsoft nie ma dostępu. Jeśli moduł HSM jest skonfigurowany w taki sposób, że ta ścieżka sieciowa ma wpływ, oznacza to, że cała komunikacja z modułem HSM jest usuwany.  W tej sytuacji jedyną opcją jest zgłoszenie żądania pomocy technicznej firmy Microsoft za pośrednictwem witryny Azure portal, aby zresetować urządzenie. Ta procedura resetowania ustawia hsm z powrotem do stanu początkowego i wszystkie konfiguracji i materiału klucza jest tracona.  Konfiguracja musi zostać odtworzona, a gdy urządzenie dołączy do grupy wysokiej sieci, zostanie zreplikowane z materiału klucza.  
+Należy zachować ostrożność podczas konfigurowania sieci w module HSM.  Moduł HSM ma połączenie za pośrednictwem bramy ExpressRoute z prywatnego obszaru adresów IP klienta bezpośrednio do modułu HSM.  Ten kanał komunikacyjny dotyczy tylko komunikacji z klientem, a firma Microsoft nie ma dostępu. Jeśli moduł HSM jest skonfigurowany w taki sposób, że ma to wpływ na tę ścieżkę sieciową, oznacza to, że cała komunikacja z modułem HSM zostanie usunięta.  W takiej sytuacji jedyną opcją jest podnoszenie żądania pomocy technicznej firmy Microsoft za pośrednictwem Azure Portal w celu zresetowania urządzenia. Ta procedura resetowania ustawia moduł HSM z powrotem do stanu początkowego, a cała konfiguracja i materiał klucza zostaną utracone.  Należy ponownie utworzyć konfigurację i po dołączeniu urządzenia do grupy HA pobieranie materiału klucza zostanie zreplikowane.  
 
 ### <a name="hsm-device-reboot"></a>Ponowne uruchomienie urządzenia HSM
 
-Niektóre zmiany konfiguracji wymagają, aby moduł HSM był cyklicznie zasilany lub ponownie uruchamiany. Testy firmy Microsoft modułu HSM na platformie Azure ustaliły, że w niektórych przypadkach ponowne uruchomienie może się zawiesić. Implikacją jest to, że żądanie pomocy technicznej musi zostać utworzone w witrynie Azure portal z żądaniem twardego ponownego uruchomienia komputera, a ukończenie może potrwać do 48 godzin, biorąc pod uwagę, że jest to proces ręczny w centrum danych platformy Azure.  Aby uniknąć tej sytuacji, upewnij się, że wdrożono poprawkę ponownego uruchomienia dostępną bezpośrednio z thales. Zapoznaj się z [numerem KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) w pliku Thales Luna Network HSM 7.2 Downloads, aby uzyskać zalecaną poprawkę, aby uzyskać problem z zawieszeniem na czas ponownego uruchomienia (Uwaga: aby pobrać, musisz zarejestrować się w portalu pomocy technicznej firmy Thales).
+Niektóre zmiany konfiguracji wymagają włączenia lub ponownego uruchomienia modułu HSM. Testy firmy Microsoft dotyczące modułu HSM na platformie Azure ustaliły, że w niektórych przypadkach ponowne uruchomienie może się zawiesić. W takim przypadku należy utworzyć żądanie pomocy technicznej w Azure Portal zażądać twardego ponownego uruchomienia komputera, co może potrwać do 48 godzin, biorąc pod uwagę, że jest to proces ręczny w centrum danych platformy Azure.  Aby uniknąć tej sytuacji, upewnij się, że wdrożono poprawkę ponownego uruchamiania dostępną bezpośrednio z usługi firmy Thales. Zapoznaj się z artykułem [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) w plikach firmy Thales Luna Network HSM 7,2 dla zalecanej poprawki, aby rozwiązać problem z ponownym uruchomieniem systemu (Uwaga: konieczne będzie zarejestrowanie się w portalu pomocy technicznej firmy Thales do pobrania).
 
-### <a name="ntls-certificates-out-of-sync"></a>Brak synchronizacji certyfikatów NTLS
-Klient może utracić łączność z modułem HSM po wygaśnięciu lub zastąpieniu certyfikatu za pomocą aktualizacji konfiguracji. Konfiguracja klienta wymiany certyfikatów powinna być ponownie stosowana z każdym modułem HSM.
+### <a name="ntls-certificates-out-of-sync"></a>NTLS certyfikaty poza synchronizacją
+Klient może utracić połączenie z modułem HSM, gdy certyfikat wygaśnie lub został nadpisany przez aktualizacje konfiguracji. Konfiguracja klienta wymiany certyfikatów powinna być stosowana ponownie z każdym modułem HSM.
 Przykład rejestrowania NTLS z nieprawidłowym certyfikatem:
 
-> NTLS[8508]: info : 0 : Żądanie połączenia przychodzącego... : 192.168.50.2/59415 NTLS[8508]: Komunikat o błędzie z S SSLAccept jest: error:14094418:SSL routines:ssl3_read_bytes:tlsv1 alert unknown ca NTLS[8508]: Błąd podczas akceptowania protokołu SSL ( RC_SSL_ERROR ) NTLS[8508]: info : 0xc0000711 : Nie można ustanowić bezpiecznego kanału z klientem: 192.168.50.2/59415 : RC_SSL_FAILED_HANDSHAKE NTLS[8508]: info : 0 : NTLS Klient "Nieznana nazwa hosta" Usunięto wystąpienie połączenia: 192.168.50.2/59415
+> NTLS [8508]: info: 0: żądanie połączenia przychodzącego...: 192.168.50.2/59415 NTLS [8508]: komunikat o błędzie z SSLAccept: błąd: 14094418: procedury SSL: ssl3_read_bytes: TLSv1 alert nieznany urząd certyfikacji NTLS [8508]: Wystąpił błąd podczas akceptowania protokołu SSL (RC_SSL_ERROR) NTLS [8508]: info: 0xc0000711: nie można nawiązać bezpiecznego kanału z klientem: 192.168.50.2/59415: RC_SSL_FAILED_HANDSHAKE NTLS [8508]: info: 0: NTLS Client "Nieznana nazwa hosta" usunięte wystąpienie połączenia: 192.168.50.2/59415
 
-### <a name="failed-tcp-communication"></a>Nieudana komunikacja TCP
+### <a name="failed-tcp-communication"></a>Komunikacja TCP zakończona niepowodzeniem
 
-Komunikacja z instalacji luna klienta do modułu HSM wymaga co najmniej portu TCP 1792. Należy wziąć to pod uwagę, jak wszystkie konfiguracje sieci są zmieniane w środowisku.
+Komunikacja z instalacją klienta Luna do modułu HSM wymaga co najmniej portu TCP 1792. Należy wziąć pod uwagę, że wszystkie konfiguracje sieci zostaną zmienione w środowisku.
 
-### <a name="failed-ha-group-member-doesnt-recover"></a>Nie powiodło się członek grupy HA nie odzyskiwanie
+### <a name="failed-ha-group-member-doesnt-recover"></a>Niepowodzenie odzyskania elementu członkowskiego grupy HA
 
-Jeśli nie powiodło się członek grupy HA nie odzyska, musi być ręcznie odzyskane z klienta Luna przy użyciu polecenia hagroup odzyskać.
-Konieczne jest skonfigurowanie liczby ponownych prób dla grupy wysokiej haw, aby włączyć automatyczne odzyskiwanie. Domyślnie grupa wysokiej haw nie będzie próbować odzyskać członka wysokiej haw do grupy po odzyskaniu.
+Jeśli niepomyślny członek grupy HA nie odzyska tego, należy ręcznie odzyskać go z klienta Luna za pomocą polecenia hagroup Recover.
+Aby włączyć Autoodzyskiwanie, należy skonfigurować liczbę ponownych prób dla grupy HA. Domyślnie grupa HA nie będzie podejmować próby odzyskania elementu członkowskiego HA do grupy podczas odzyskiwania.
 
-### <a name="ha-group-doesnt-sync"></a>Grupa HA nie synchronizuje się
+### <a name="ha-group-doesnt-sync"></a>Grupa HA nie jest zsynchronizowana
 
-W przypadku, gdy partycje członkowskie nie mają tej samej domeny klonowania, polecenie ha synchronize wyświetli następujące informacje: Ostrzeżenie: Synchronizacja może zakończyć się niepowodzeniem.  Elementy członkowskie w gniazdach 0 i 1 mają sprzeczne ustawienia klonowania kluczy prywatnych.
-Nowa partycja z właściwą domeną klonowania powinna zostać dodana do grupy wysokiej klasy, a następnie usunięcie niepoprawnie skonfigurowaną partycję.
+W przypadku, gdy partycje elementów członkowskich nie mają tej samej domeny klonowania, polecenie synchronizacji ha wyświetli następujący komunikat: Ostrzeżenie: Synchronizacja może zakończyć się niepowodzeniem.  Elementy członkowskie w gnieździe 0 i gnieździe 1 zawierają ustawienia powodujące konflikt klonowania klucza prywatnego.
+Do grupy HA należy dodać nową partycję z poprawną domeną klonowania, a następnie usunąć niepoprawnie skonfigurowaną partycję.
 
-## <a name="hsm-deprovisioning"></a>Anulowanie obsługi administracyjnej HSM 
+## <a name="hsm-deprovisioning"></a>Anulowanie aprowizacji modułu HSM 
 
-Tylko po pełnym zakończeniu z hsm może być deprovisioned, a następnie Microsoft będzie go zresetować i zwrócić go do bezpłatnej puli. 
+Tylko wtedy, gdy w pełni zakończysz pracę z modułem HSM, można anulować obsługę administracyjną, a następnie firma Microsoft zresetuje ją i zwróci ją do puli bezpłatna. 
 
 ### <a name="how-to-delete-an-hsm-resource"></a>Jak usunąć zasób HSM
 
-Nie można usunąć zasobu platformy Azure dla modułu HSM, chyba że moduł HSM jest w stanie "zerowanym".  W związku z tym wszystkie materiały klucza muszą zostać usunięte przed próbą usunięcia go jako zasobu. Najszybszym sposobem zerowania jest 3-krotne podanie hasła administratora modułu HSM (uwaga: odnosi się to do administratora hsm, a nie do administratora na poziomie urządzenia). Powłoka Luna ma `hsm -factoryreset` polecenie, które zeroizes, ale może być wykonywany tylko za pośrednictwem konsoli na porcie szeregowym i klienci nie mają do tego dostępu.
+Nie można usunąć zasobu platformy Azure dla modułu HSM, jeśli moduł HSM nie jest w stanie "zero".  W związku z tym przed próbą usunięcia go jako zasobu należy usunąć cały materiał klucza. Najszybszym sposobem na zeroize jest uzyskanie nieprawidłowych haseł administratora modułu HSM (Uwaga: dotyczy to administratorów modułu HSM, a nie administratora na poziomie urządzenia). Powłoka Luna ma `hsm -factoryreset` polecenie, które zeroizes, ale może być wykonywane tylko przez konsolę na porcie seryjnym, a klienci nie mają do niej dostępu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono obszary w całym cyklu życia wdrażania modułu HSM, które mogą mieć problemy lub wymagają rozwiązywania problemów lub starannego rozważenia. Mam nadzieję, że ten artykuł pomoże Ci uniknąć niepotrzebnych opóźnień i frustracji, a jeśli masz odpowiednie dodatki lub zmiany, a następnie zgłosić prośbę o pomoc techniczną z firmą Microsoft i daj nam znać. 
+W tym artykule udostępniono wgląd w obszary w całym cyklu życia wdrożenia modułu HSM, które mogą mieć problemy lub wymagają podania problemów. Miejmy nadzieję ten artykuł pomaga uniknąć niepotrzebnych opóźnień i frustrację, a jeśli masz odpowiednie dodatki lub zmiany, Zgłoś żądanie pomocy technicznej firmie Microsoft i daj nam znać. 

@@ -1,6 +1,6 @@
 ---
-title: Usługa Azure Machine Learning vs. Machine Learning Studio (klasyczna)
-description: Jaka jest różnica między usługą Azure Machine Learning i Machine Learning Studio (klasyczny)?
+title: Azure Machine Learning a Machine Learning Studio (wersja klasyczna)
+description: Jaka jest różnica między Azure Machine Learning i Machine Learning Studio (klasyczny)?
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,58 +9,58 @@ author: j-martens
 ms.author: jmartens
 ms.date: 03/25/2020
 ms.openlocfilehash: 5577a9847ff405397c553028a6dfdf2df80d03fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80371836"
 ---
-# <a name="azure-machine-learning-vs-machine-learning-studio-classic"></a>Usługa Azure Machine Learning vs Machine Learning Studio (klasyczna)
+# <a name="azure-machine-learning-vs-machine-learning-studio-classic"></a>Azure Machine Learning vs Machine Learning Studio (klasyczny)
 
-W tym artykule dowiesz się różnicy między usługi Azure Machine Learning i Machine Learning Studio (klasyczny). 
+Ten artykuł zawiera informacje o różnicach między Azure Machine Learning i Machine Learning Studio (klasyczne). 
 
-Usługa Azure Machine Learning udostępnia zestawy SDK języka Python i R **oraz** projektanta "przeciągania i upuszczania" do tworzenia i wdrażania modeli uczenia maszynowego. Studio (klasyczny) oferuje tylko samodzielne doświadczenie przeciągania i upuszczania.
+Azure Machine Learning oferuje narzędzia Python i R SDK **oraz** projektanta "przeciągnij i upuść", aby kompilować i wdrażać modele uczenia maszynowego. Studio (klasyczny) oferuje tylko autonomiczne środowisko przeciągania i upuszczania.
 
-Zalecamy, aby nowi użytkownicy wybrali usługę Azure Machine Learning dla najszerszej gamy najnowocześniejszych narzędzi uczenia maszynowego.
+Zalecamy, aby nowi użytkownicy wybierali Azure Machine Learning w celu uzyskania szerokiej gamy narzędzi do uczenia maszynowego.
 
 ## <a name="quick-comparison"></a>Szybkie porównanie
 
-W poniższej tabeli podsumowano niektóre kluczowe różnice między usługą Azure Machine Learning i Studio (klasyczne):
+W poniższej tabeli zestawiono niektóre kluczowe różnice między Azure Machine Learning i Studio (klasyczne):
 
 | | Usługa Machine Learning Studio (klasyczna) | Azure Machine Learning |
 |---| --- | --- |
-| Interfejs przeciągania i upuszczania | Obsługiwane | Obsługiwane — [projektant usługi Azure Machine Learning (wersja zapoznawcza)](concept-designer.md) | 
-| Experiment | Skalowalne (limit danych szkoleniowych 10 GB) | Skaluj z celem obliczeniowym |
-| Cele obliczeń szkoleniowych | Zastrzeżony cel obliczeniowy, tylko obsługa procesora | Szeroka gama konfigurowalnych [celów obliczeniowych szkoleniowych.](concept-compute-target.md#train) Obejmuje obsługę procesorów graficznych i procesorów | 
-| Obiekty docelowe obliczeń wdrażania | Zastrzeżony format usługi internetowej, nie można dostosowywać | Szeroka gama konfigurowalnych [celów obliczeniowych wdrażania](concept-compute-target.md#deploy). Obejmuje obsługę procesorów graficznych i procesorów |
-| Rurociąg ML | Nieobsługiwane | Tworzenie [elastycznych, modułowych rurociągów](concept-ml-pipelines.md) w celu automatyzacji przepływów pracy |
-| MlOps ( mlops ) | Podstawowe zarządzanie modelami i wdrażanie | Przechowywanie wersji encji (model, dane, przepływy pracy), automatyzacja przepływu pracy, integracja z narzędziami CICD [i inne](concept-model-management-and-deployment.md) |
-| Format modelu | Zastrzeżony format, Studio (tylko klasyczny) | Wiele obsługiwanych formatów w zależności od typu zadania szkoleniowego |
-| Zautomatyzowane szkolenie modeli i strojenie hiperparametryczne |  Nieobsługiwane | [Obsługiwane w obszarze roboczym SDK i wizualnym](concept-automated-ml.md) | 
-| Wykrywanie dryfu danych | Nieobsługiwane | [Obsługiwane w SDK i wizualnym obszarze roboczym](how-to-monitor-datasets.md) |
+| Przeciąganie i upuszczanie interfejsu | Obsługiwane | Obsługiwane — [projektant Azure Machine Learning (wersja zapoznawcza)](concept-designer.md) | 
+| Experiment | Skalowalne (limit danych szkolenia 10 GB) | Skalowanie za pomocą elementu docelowego obliczeń |
+| Szkoleniowe cele obliczeniowe | Własnościowy obiekt docelowy obliczeń, tylko obsługa procesora CPU | Szeroki zakres dostosowywalnych [obiektów docelowych obliczeń szkoleniowych](concept-compute-target.md#train). Obejmuje obsługę procesora GPU i procesorów | 
+| Cele obliczeń wdrożenia | Własny format usługi sieci Web, niedostosowywalny | Szeroka gama [elementów docelowych obliczeniowych wdrożenia](concept-compute-target.md#deploy). Obejmuje obsługę procesora GPU i procesorów |
+| Potok ML | Nieobsługiwane | Twórz elastyczne, modularne [potoki](concept-ml-pipelines.md) do automatyzowania przepływów pracy |
+| MLOps | Podstawowe Zarządzanie modelami i wdrażanie | Przechowywanie wersji jednostek (model, dane, przepływy pracy), Automatyzacja przepływu pracy, integracja z narzędziami CICD [i inne](concept-model-management-and-deployment.md) |
+| Format modelu | Format własnościowy, Studio (klasyczny) | Wiele obsługiwanych formatów w zależności od typu zadania szkoleniowego |
+| Automatyczne szkolenie modelu i dostrajanie parametrów |  Nieobsługiwane | [Obsługiwane w zestawie SDK i obszarze roboczym Visual](concept-automated-ml.md) | 
+| Wykrywanie dryfowania danych | Nieobsługiwane | [Obsługiwane w zestawach SDK i Visual Workspace](how-to-monitor-datasets.md) |
 
 
-## <a name="migrate-from-machine-learning-studio-classic"></a>Migrowanie z machine learning studio (klasyczny)
+## <a name="migrate-from-machine-learning-studio-classic"></a>Migrowanie z Machine Learning Studio (klasyczne)
 
-Obecnie nie ma możliwości migracji zasobów studio (klasyczne) do projektanta usługi Azure Machine Learning (wersja zapoznawcza). Obecni użytkownicy studio (klasyczni) mogą nadal korzystać ze swoich zasobów uczenia maszynowego. Jednak zachęcamy wszystkich użytkowników do rozważenia korzystania z projektanta, który zapewnia znane środowisko przeciągania i upuszczania z ulepszonym przepływem pracy **oraz** skalowalnością, kontrolą wersji i zabezpieczeniami przedsiębiorstwa.
+Obecnie nie ma możliwości migrowania zasobów Studio (klasycznych) do programu Azure Machine Learning Designer (wersja zapoznawcza). Bieżący Studio (klasyczny) użytkownicy mogą nadal korzystać z swoich zasobów uczenia maszynowego. Zachęcamy jednak wszystkich użytkowników do rozważania przy użyciu projektanta, który zapewnia znane środowisko przeciągania i upuszczania z ulepszonym przepływem pracy **oraz** skalowalnością, kontrolą wersji i zabezpieczeniami przedsiębiorstwa.
 
-## <a name="get-started-with-azure-machine-learning"></a>Wprowadzenie do usługi Azure Machine Learning
+## <a name="get-started-with-azure-machine-learning"></a>Wprowadzenie do Azure Machine Learning
 
-Poniższe zasoby mogą pomóc w rozpoczęciu pracy z usługą Azure Machine Learning. 
+Następujące zasoby mogą pomóc Ci rozpocząć pracę z Azure Machine Learning. 
 
-- Przeczytaj [omówienie usługi Azure Machine Learning](overview-what-is-azure-ml.md).
+- Zapoznaj się z [omówieniem Azure Machine Learning](overview-what-is-azure-ml.md).
 
-- Utwórz [swój pierwszy eksperyment z zestawem SDK języka Python](tutorial-1st-experiment-sdk-setup.md).
+- Tworzenie [pierwszego eksperymentu za pomocą zestawu SDK języka Python](tutorial-1st-experiment-sdk-setup.md).
 
-- [Utwórz swój pierwszy potok projektanta](tutorial-designer-automobile-price-train-score.md) do przewidywania cen automatycznych.
+- [Utwórz swój pierwszy potok projektanta](tutorial-designer-automobile-price-train-score.md) , aby przewidzieć ceny dla samochodów.
 
-![Przykład projektanta usługi Azure Machine Learning](media/concept-designer/designer-drag-and-drop.gif)
+![Przykład projektanta Azure Machine Learning](media/concept-designer/designer-drag-and-drop.gif)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Oprócz funkcji przeciągania i upuszczania w projektancie usługa Azure Machine Learning ma inne dostępne narzędzia:  
-  + [Szkolenie & wdrażania modeli modułów ML za pomocą notesów języka Python](tutorial-1st-experiment-sdk-setup.md)
-  + [Użyj R Markdown, aby szkolić & wdrażania modeli ml](tutorial-1st-r-experiment.md) 
-  + [Użyj automatycznego uczenia maszynowego, aby szkolić & wdrażać modele ml](tutorial-first-experiment-automated-ml.md)  
-  + [Szkolenie i wdrażanie modelu za pomocą interfejsu wiersza polecenia uczenia maszynowego](tutorial-train-deploy-model-cli.md)
+Oprócz funkcji przeciągania i upuszczania w projektancie Azure Machine Learning dostępne są inne narzędzia:  
+  + [Korzystanie z notesów Python do uczenia & Wdrażanie modeli ML](tutorial-1st-experiment-sdk-setup.md)
+  + [Używanie R Markdown do uczenia & wdrażania modeli ML](tutorial-1st-r-experiment.md) 
+  + [Używanie automatycznej uczenia maszynowego do uczenia & Wdrażanie modeli ML](tutorial-first-experiment-automated-ml.md)  
+  + [Korzystanie z interfejsu wiersza polecenia Machine Learning w celu uczenia i wdrożenia modelu](tutorial-train-deploy-model-cli.md)
 

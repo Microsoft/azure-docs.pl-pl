@@ -1,6 +1,6 @@
 ---
-title: Rejestrowanie urządzeń X.509 w usłudze inicjowania obsługi urządzeń platformy Azure przy użyciu języka Java
-description: W tym przewodniku Szybki start używane są zarówno rejestracje grupowe, jak i indywidualne. W tym przewodniku Szybki start należy zarejestrować urządzenia X.509 do usługi inicjowania obsługi administracyjnej urządzeń usługi Azure IoT Hub (DPS) przy użyciu oprogramowania Java.
+title: Rejestrowanie urządzeń X. 509 w usłudze Azure Device Provisioning przy użyciu języka Java
+description: W tym przewodniku Szybki start używane są zarówno rejestracje grupowe, jak i indywidualne. W tym przewodniku szybki start nastąpi zarejestrowanie urządzeń X. 509 w usłudze Azure IoT Hub Device Provisioning Service (DPS) przy użyciu języka Java.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -10,25 +10,25 @@ services: iot-dps
 ms.devlang: java
 ms.custom: mvc
 ms.openlocfilehash: 534956a53615cfafeffa611127bc8c3cc4493753
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77604904"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Przewodnik Szybki start: rejestrowanie urządzeń X.509 w usłudze Device Provisioning przy użyciu języka Java
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-W tym przewodniku Szybki start używasz oprogramowania do programowego rejestrowania grupy symulowanych urządzeń X.509 do usługi inicjowania obsługi administracyjnej usługi Azure IoT Hub. Urządzenia są rejestrowane w wystąpieniu usługi inicjowania obsługi administracyjnej przez utworzenie grupy rejestracji lub rejestracji indywidualnej. Ten przewodnik Szybki start pokazuje, jak utworzyć oba typy rejestracji przy użyciu zestawu SDK usługi Java i przykładowej aplikacji Java.
+W tym przewodniku szybki start używasz języka Java do programistycznego rejestrowania grupy symulowanych urządzeń X. 509 w usłudze Azure IoT Hub Device Provisioning Service. Urządzenia są rejestrowane w wystąpieniu usługi aprowizacji przez utworzenie grupy rejestracji lub rejestracji indywidualnej. Ten przewodnik Szybki Start przedstawia sposób tworzenia obu typów rejestracji przy użyciu zestawu SDK usługi Java i przykładowej aplikacji Java.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Zakończenie [konfigurowania usługi inicjowania obsługi administracyjnej urządzeń usługi Usługi obsługi urządzeń usługi IoT Hub za pomocą witryny Azure portal](./quick-setup-auto-provision.md).
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz jeden za darmo](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Zestaw java se development 8](https://aka.ms/azure-jdks). Ten szybki start instaluje [sdk usługi Java](https://azure.github.io/azure-iot-sdk-java/service/) poniżej. Działa zarówno na Windows i Linux. Ten przewodnik Szybki start korzysta z systemu Windows.
+- Zakończenie [konfigurowania IoT Hub Device Provisioning Service przy użyciu Azure Portal](./quick-setup-auto-provision.md).
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Java SE Development Kit 8](https://aka.ms/azure-jdks). Ten przewodnik Szybki Start instaluje [zestaw SDK usługi Java](https://azure.github.io/azure-iot-sdk-java/service/) poniżej. Działa on zarówno w systemie Windows, jak i Linux. Ten przewodnik Szybki Start używa systemu Windows.
 - [Maven 3](https://maven.apache.org/download.cgi).
-- [Git](https://git-scm.com/download/).
+- Usługi [git](https://git-scm.com/download/).
 
 <a id="javasample"></a>
 
@@ -41,7 +41,7 @@ W tej sekcji używany jest certyfikat z podpisem własnym X.509. Ważne jest, ab
 
 W poniższych krokach przedstawiono sposób dodawania szczegółów aprowizacji urządzenia X.509 do przykładowego kodu. 
 
-1. Otwórz wiersz polecenia. Sklonuj przykład kodu kodu rejestracji urządzenia repozytorium GitHub przy użyciu zestawu [SDK usługi Java:](https://azure.github.io/azure-iot-sdk-java/service/)
+1. Otwórz wiersz polecenia. Sklonuj repozytorium GitHub na potrzeby przykładowego kodu rejestracji urządzenia przy użyciu [zestawu SDK usługi Java](https://azure.github.io/azure-iot-sdk-java/service/):
     
     ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -50,7 +50,7 @@ W poniższych krokach przedstawiono sposób dodawania szczegółów aprowizacji 
 2. W pobranym kodzie źródłowym przejdź do folderu przykładu **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**. Otwórz plik **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** w dowolnym edytorze i dodaj następujące szczegółowe informacje:
 
     1. Dodaj ciąg `[Provisioning Connection String]` dla usługi aprowizacji z portalu, jako pokazano poniżej:
-        1. Przejdź do usługi inicjowania obsługi administracyjnej w [witrynie Azure portal](https://portal.azure.com). 
+        1. Przejdź do usługi aprowizacji w [Azure Portal](https://portal.azure.com). 
         2. Otwórz **Zasady dostępu współużytkowanego** i wybierz zasadę, która ma uprawnienie *EnrollmentWrite*.
         3. Skopiuj **Parametry połączenia klucza podstawowego**. 
 
@@ -134,9 +134,9 @@ W poniższych krokach przedstawiono sposób dodawania szczegółów aprowizacji 
 Usługa Azure IoT Device Provisioning obsługuje dwa typy rejestracji:
 
 - [Grupy rejestracji](concepts-service.md#enrollment-group): służą do rejestrowania wielu pokrewnych urządzeń.
-- [Rejestracje indywidualne:](concepts-service.md#individual-enrollment)służy do rejestrowania jednego urządzenia.
+- [Rejestracje indywidualne](concepts-service.md#individual-enrollment): służy do rejestrowania jednego urządzenia.
 
-W tej procedurze użyto grupy rejestracji. W następnej sekcji użyto rejestracji indywidualnej.
+Ta procedura powoduje użycie grupy rejestracji. Następna sekcja używa rejestracji indywidualnej.
 
 1. Otwórz okno polecenia i przejdź do folderu **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**.
 
@@ -146,7 +146,7 @@ W tej procedurze użyto grupy rejestracji. W następnej sekcji użyto rejestracj
     mvn install -DskipTests
     ```
 
-   To polecenie pobiera pakiet [`com.microsoft.azure.sdk.iot.provisioning.service`](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) Maven na komputer. Ten pakiet zawiera pliki binarne zestawu SDK usługi Java wymagane przez przykładowy kod na potrzeby kompilacji. W przypadku uruchomienia narzędzia _Generator certyfikatów X.509_ w poprzedniej sekcji ten pakiet będzie już pobrany na Twoim komputerze. 
+   To polecenie pobiera pakiet [`com.microsoft.azure.sdk.iot.provisioning.service`](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) Maven na maszynę. Ten pakiet zawiera pliki binarne zestawu SDK usługi Java wymagane przez przykładowy kod na potrzeby kompilacji. W przypadku uruchomienia narzędzia _Generator certyfikatów X.509_ w poprzedniej sekcji ten pakiet będzie już pobrany na Twoim komputerze. 
 
 3. Uruchom przykładowy kod przy użyciu tych poleceń w oknie polecenia:
 
@@ -195,18 +195,18 @@ Aby zarejestrować pojedyncze urządzenie X.509, zmodyfikuj kod przykładowy *re
     Attestation attestation = X509Attestation.createFromClientCertificates(PUBLIC_KEY_CERTIFICATE_STRING);
     ```
 
-4. Zapisz, skompiluj i uruchom przykładowy plik *rejestracji indywidualnej,* wykonując kroki opisane w sekcji [Kompilacja i uruchom przykładowy kod dla rejestracji indywidualnej.](quick-enroll-device-tpm-java.md#runjavasample)
+4. Zapisz, Kompiluj i uruchamiaj przykładowy plik *rejestracji indywidualnej* , korzystając z kroków z sekcji [Kompilowanie i uruchamianie przykładowego kodu do rejestracji indywidualnej](quick-enroll-device-tpm-java.md#runjavasample).
 
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
-Jeśli planujesz eksplorować przykład usługi Java, nie czyścić zasobów utworzonych w tym przewodniku Szybki start. Jeśli nie zamierzasz kontynuować, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone przez ten przewodnik Szybki start.
+Jeśli planujesz Eksplorowanie przykładu usługi Java, nie czyść zasobów utworzonych w tym przewodniku Szybki Start. Jeśli nie planujesz kontynuować pracy, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w ramach tego przewodnika Szybki Start.
 
 1. Zamknij okno danych wyjściowych przykładowej usługi Java na swojej maszynie.
 1. Zamknij okno _Generator certyfikatów X509_ na swojej maszynie.
-1. Przejdź do usługi inicjowania obsługi urządzeń w portalu Azure, wybierz pozycję **Zarządzaj rejestracjami** *GROUP NAME* , a następnie wybierz kartę **Grupy rejestracji.** **Delete**  
+1. Przejdź do usługi Device Provisioning w Azure Portal wybierz pozycję **Zarządzaj rejestracjami**, a następnie wybierz kartę **grupy rejestracji** . Zaznacz pole wyboru obok *nazwy grupy* dla urządzeń X. 509 zarejestrowanych w ramach tego przewodnika Szybki Start, a następnie naciśnij przycisk **Usuń** w górnej części okienka.  
 
 ## <a name="next-steps"></a>Następne kroki
-W tym przewodniku Szybki start zarejestrowano symulowaną grupę urządzeń X.509 do usługi inicjowania obsługi administracyjnej urządzeń. Aby uzyskać dokładne informacje na temat aprowizowania urządzeń, przejdź do samouczka poświęconego konfiguracji usługi Device Provisioning Service w witrynie Azure portal. 
+W tym przewodniku szybki start zarejestrowano symulowaną grupę urządzeń X. 509 w usłudze Device Provisioning. Aby uzyskać dokładne informacje na temat aprowizowania urządzeń, przejdź do samouczka poświęconego konfiguracji usługi Device Provisioning Service w witrynie Azure portal. 
 
 > [!div class="nextstepaction"]
 > [Samouczki dla usługi Azure IoT Hub Device Provisioning Service](./tutorial-set-up-cloud.md)

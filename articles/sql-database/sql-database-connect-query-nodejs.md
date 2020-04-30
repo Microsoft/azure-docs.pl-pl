@@ -1,5 +1,5 @@
 ---
-title: Używanie pliku Node.js do wykonywania kwerend bazy danych
+title: Używanie środowiska Node. js do wykonywania zapytań w bazie danych
 description: Sposób użycia narzędzia Node.js do utworzenia programu, który nawiązuje połączenie z bazą danych Azure SQL Database i wykonuje zapytania za pomocą instrukcji języka T-SQL.
 services: sql-database
 ms.service: sql-database
@@ -12,53 +12,53 @@ ms.reviewer: v-masebo
 ms.date: 03/25/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
 ms.openlocfilehash: c0da38a41bf613237ea3b164d70e4729a7284ca7
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76768604"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Szybki start: korzystanie z narzędzia Node.js do wykonywania zapytań w bazie danych Azure SQL Database
 
-W tym przewodniku Szybki start można użyć Node.js do łączenia się z bazą danych SQL platformy Azure i używać instrukcji T-SQL do wykonywania zapytań o dane.
+W tym przewodniku szybki start użyjesz środowiska Node. js do nawiązywania połączenia z usługą Azure SQL Database i używasz instrukcji języka T-SQL do wykonywania zapytań dotyczących danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto za darmo](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Baza danych SQL platformy Azure](sql-database-single-database-get-started.md)
-- Oprogramowanie powiązane z [node.js](https://nodejs.org)
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Baza danych SQL Azure](sql-database-single-database-get-started.md)
+- Oprogramowanie związane z [Node. js](https://nodejs.org)
 
-  # <a name="macos"></a>[Macos](#tab/macos)
+  # <a name="macos"></a>[macOS](#tab/macos)
 
-  Zainstaluj homebrew i node.js, a następnie zainstaluj sterownik ODBC i SQLCMD, wykonując kroki **1.2** i **1.3** w [aplikacji Create Node.js przy użyciu programu SQL Server w systemie macOS](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
+  Zainstaluj oprogramowania Homebrew i Node. js, a następnie zainstaluj sterownik ODBC i polecenie SQLCMD, wykonując kroki **1,2** i **1,3** w temacie [Tworzenie aplikacji Node. js przy użyciu SQL Server na macOS](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
 
   # <a name="ubuntu"></a>[Ubuntu](#tab/ubuntu)
 
-  Zainstaluj Node.js, a następnie zainstaluj sterownik ODBC i SQLCMD, wykonując kroki **1.2** i **1.3** w [aplikacji Create Node.js przy użyciu programu SQL Server na Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
+  Zainstaluj program Node. js, a następnie zainstaluj sterownik ODBC i Narzędzie SQLCMD, wykonując kroki **1,2** i **1,3** w temacie [Tworzenie aplikacji Node. js przy użyciu SQL Server w Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
 
   # <a name="windows"></a>[Windows](#tab/windows)
 
-  Zainstaluj Chocolatey i Node.js, a następnie zainstaluj sterownik ODBC i SQLCMD, wykonując kroki **1.2** i **1.3** w [aplikacji Create Node.js przy użyciu programu SQL Server w systemie Windows](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
+  Zainstaluj czekoladę i Node. js, a następnie zainstaluj sterownik ODBC i polecenie SQLCMD, wykonując kroki **1,2** i **1,3** w temacie [Tworzenie aplikacji Node. js przy użyciu SQL Server w systemie Windows](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
 
   ---
 
 > [!IMPORTANT]
-> Skrypty w tym artykule są zapisywane w celu użycia bazy danych **Adventure Works.**
+> Skrypty w tym artykule są przeznaczone do korzystania z bazy danych firmy **Adventure Works** .
 
 > [!NOTE]
-> Opcjonalnie można wybrać opcję użycia wystąpienia zarządzanego sql platformy Azure.
+> Opcjonalnie możesz wybrać użycie wystąpienia zarządzanego Azure SQL.
 >
-> Aby utworzyć i skonfigurować, należy użyć [usługi Azure Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)lub [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44), a następnie skonfigurować łączność [lokacji](sql-database-managed-instance-configure-p2s.md) lub [maszyny Wirtualnej.](sql-database-managed-instance-configure-vm.md)
+> Aby utworzyć i skonfigurować, Użyj witryny [Azure Portal](sql-database-managed-instance-get-started.md), [programu PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)lub [interfejsu wiersza polecenia](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44), a następnie skonfiguruj łączność między [lokacjami](sql-database-managed-instance-configure-p2s.md) i [maszynami](sql-database-managed-instance-configure-vm.md) wirtualnymi.
 >
-> Aby załadować dane, zobacz [przywracanie za pomocą bacpac](sql-database-import.md) z plikiem [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) lub zobacz [przywracanie bazy danych Szerokich importerów światowych](sql-database-managed-instance-get-started-restore.md).
+> Aby załadować dane, zobacz [Restore with BACPAC](sql-database-import.md) with the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) File lub zobacz [przywracanie bazy danych Wide World](sql-database-managed-instance-get-started-restore.md)Imports.
 
 ## <a name="get-sql-server-connection-information"></a>Uzyskiwanie informacji o połączeniu z serwerem SQL
 
 Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z bazą danych Azure SQL Database. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera lub nazwa hosta, nazwa bazy danych i informacje logowania.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-2. Przejdź do **bazy danych SQL** lub strony wystąpienia zarządzane **sql.**
+2. Przejdź do strony **bazy danych SQL** lub **wystąpienia zarządzane SQL** .
 
 3. Na stronie **Przegląd** znajdź w pełni kwalifikowaną nazwę serwera obok pola **Nazwa serwera** (w przypadku pojedynczej bazy danych) lub w pełni kwalifikowaną nazwę serwera obok pola **Host** (w przypadku wystąpienia zarządzanego). Aby skopiować nazwę serwera lub hosta, umieść na niej wskaźnik myszy i wybierz ikonę **Kopiuj**. 
 

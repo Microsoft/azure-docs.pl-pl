@@ -1,6 +1,6 @@
 ---
-title: Aprowizuj symulowane urządzenie X.509 do usługi Azure IoT Hub przy użyciu języka Python
-description: Szybki start — tworzenie i inicjowanie obsługi administracyjnej symulowanego urządzenia X.509 przy użyciu sdk urządzenia Języka Python dla usługi inicjowania obsługi administracyjnej (DPS) centrum IoT hub. W tym przewodniku Szybki start używane są rejestracje indywidualne.
+title: Inicjowanie obsługi symulowanego urządzenia X. 509 na platformie Azure IoT Hub przy użyciu języka Python
+description: Szybki Start — tworzenie i Inicjowanie obsługi symulowanego urządzenia X. 509 za pomocą zestawu SDK języka Python dla IoT Hub Device Provisioning Service (DPS). W tym przewodniku Szybki start używane są rejestracje indywidualne.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -10,35 +10,35 @@ services: iot-dps
 ms.devlang: python
 ms.custom: mvc
 ms.openlocfilehash: 44f1a2cd3336eeae87878c333fb05d2e6b1f88e8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77605395"
 ---
-# <a name="quickstart-create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Szybki start: tworzenie i inicjowanie obsługi administracyjnej symulowanego urządzenia X.509 przy użyciu sdk urządzenia Języka Python dla usługi inicjowania obsługi administracyjnej usługi urządzeń usługi IoT Hub
+# <a name="quickstart-create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Szybki Start: Tworzenie i udostępnianie symulowanego urządzenia X. 509 za pomocą zestawu SDK języka Python dla IoT Hub Device Provisioning Service
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-W tym przewodniku Szybki start utworzysz symulowane urządzenie X.509 na komputerze z systemem Windows. Przykładowy kod języka Python używasz do łączenia tego symulowanego urządzenia z centrum IoT przy użyciu indywidualnej rejestracji za pomocą usługi inicjowania obsługi administracyjnej (DPS).
+W tym przewodniku szybki start utworzysz symulowane urządzenie X. 509 na komputerze z systemem Windows. Używasz przykładowego kodu w języku Python do łączenia tego symulowanego urządzenia z usługą IoT Hub przy użyciu rejestracji indywidualnej w usłudze Device Provisioning Service (DPS).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Przegląd [koncepcji automatycznego inicjowania obsługi administracyjnej](concepts-auto-provisioning.md).
-- Zakończenie [konfigurowania usługi inicjowania obsługi administracyjnej urządzeń w centrum IoT za pomocą witryny Azure portal](./quick-setup-auto-provision.md).
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz jeden za darmo](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Visual Studio 2015+](https://visualstudio.microsoft.com/vs/) z tworzeniem pulpitu w języku C++.
-- [CMake system kompilacji](https://cmake.org/download/).
-- [Git](https://git-scm.com/download/).
+- Przegląd pojęć związanych z obsługą [administracyjną](concepts-auto-provisioning.md).
+- Zakończenie [konfigurowania IoT Hub Device Provisioning Service przy użyciu Azure Portal](./quick-setup-auto-provision.md).
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Program Visual Studio 2015 +](https://visualstudio.microsoft.com/vs/) z programowaniem aplikacji klasycznych w języku C++.
+- [System kompilacji CMAKE](https://cmake.org/download/).
+- Usługi [git](https://git-scm.com/download/).
 
 > [!IMPORTANT]
-> Ten artykuł dotyczy tylko przestarzałego SDK języka Python w języku Python. Klienci urządzeń i usług usługi usługi inicjowania obsługi urządzeń Iot Hub nie są jeszcze dostępne w wersji 2. Zespół jest obecnie ciężko pracuje, aby doprowadzić V2 do parytetu funkcji.
+> Ten artykuł dotyczy tylko przestarzałego zestawu SDK języka Python w wersji 1. Klienci urządzeń i usług dla usługi IoT Hub Device Provisioning nie są jeszcze dostępni w wersji 2. Zespół jest obecnie trudny w pracy, aby przywrócić dostęp do wersji 2.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
 ## <a name="prepare-the-environment"></a>Przygotowywanie środowiska 
 
-1. Upewnij się, że zainstalowano [program Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 lub nowsze, z włączonym obciążeniem "Tworzenie pulpitu z C++" dla instalacji programu Visual Studio.
+1. Upewnij się, że zainstalowano [program Visual studio](https://visualstudio.microsoft.com/vs/) 2015 lub nowszy z włączonym obciążeniem "Programowanie aplikacji klasycznych w języku C++" dla instalacji programu Visual Studio.
 
 2. Pobierz i zainstaluj [system kompilacji CMake](https://cmake.org/download/).
 
@@ -77,7 +77,7 @@ Przykładowy kod z zestawu SDK języka C platformy usługi Azure IoT zostanie u�
 Usługa Azure IoT Device Provisioning obsługuje dwa typy rejestracji:
 
 - [Grupy rejestracji](concepts-service.md#enrollment-group): służą do rejestrowania wielu pokrewnych urządzeń.
-- [Rejestracje indywidualne:](concepts-service.md#individual-enrollment)służy do rejestrowania jednego urządzenia.
+- [Rejestracje indywidualne](concepts-service.md#individual-enrollment): służy do rejestrowania jednego urządzenia.
 
 W tym artykule przedstawiono rejestracje indywidualne.
 
@@ -101,26 +101,26 @@ W tym artykule przedstawiono rejestracje indywidualne.
  
 4. Utwórz plik o nazwie **_X509testcertificate.pem_** na maszynie z systemem Windows, otwórz go w wybranym edytorze, a następnie skopiuj zawartość schowka do tego pliku. Zapisz plik. 
 
-5. Zaloguj się do witryny Azure portal, wybierz przycisk **Wszystkie zasoby** w menu po lewej stronie i otwórz usługę inicjowania obsługi administracyjnej.
+5. Zaloguj się do Azure Portal, wybierz przycisk **wszystkie zasoby** w menu po lewej stronie i Otwórz swoją usługę aprowizacji.
 
-6. Z menu Usługa inicjowania obsługi administracyjnej urządzeń wybierz polecenie **Zarządzaj rejestracjami**. Wybierz kartę **Rejestracje indywidualne** i wybierz przycisk **Dodaj rejestrację indywidualną** u góry. 
+6. W menu usługi Device Provisioning wybierz pozycję **Zarządzaj rejestracjami**. Wybierz kartę **indywidualne rejestracje** i wybierz u góry przycisk **Dodaj rejestrację indywidualną** . 
 
 7. W panelu **Dodawanie rejestracji** wprowadź następujące informacje:
    - Wybierz opcję **X.509** jako *Mechanizm* poświadczania tożsamości.
-   - W obszarze *Certyfikat podstawowy .pem lub cer file*wybierz *plik,* aby wybrać plik certyfikatu **X509testcertificate.pem** utworzony w poprzednich krokach.
+   - W obszarze *plik PEM lub CER certyfikatu podstawowego*wybierz *pozycję Wybierz plik* , aby wybrać plik certyfikatu **X509testcertificate. pem** utworzony w poprzednich krokach.
    - Opcjonalnie można podać następujące informacje:
      - Wybierz centrum IoT połączone z Twoją usługą aprowizacji.
      - Wprowadź unikatowy identyfikator urządzenia. Nadając nazwę urządzeniu, unikaj korzystania z danych poufnych. 
      - Zaktualizuj pole **Początkowy stan bliźniaczej reprezentacji urządzenia** za pomocą wybranej konfiguracji początkowej dla urządzenia.
-   - Po zakończeniu naciśnij przycisk **Zapisz.** 
+   - Po zakończeniu naciśnij przycisk **Zapisz** . 
 
-     [![Dodawanie indywidualnej rejestracji dla zaświadczenia X.509 w portalu](./media/python-quick-create-simulated-device-x509/device-enrollment.png)](./media/python-quick-create-simulated-device-x509/device-enrollment.png#lightbox)
+     [![Dodawanie rejestracji indywidualnej dla zaświadczania X. 509 w portalu](./media/python-quick-create-simulated-device-x509/device-enrollment.png)](./media/python-quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
    Po pomyślnej rejestracji urządzenie X.509 jest wyświetlane jako **riot-device-cert** w kolumnie *Identyfikator rejestracji* na karcie *Indywidualne rejestracje*. 
 
 ## <a name="simulate-the-device"></a>Symulowanie urządzenia
 
-1. Z menu Usługa aprowizacji urządzeń wybierz polecenie **Omówienie**. Zanotuj _zakres identyfikatora_ i _punkt końcowy usługi globalnej_.
+1. W menu usługi Device Provisioning wybierz pozycję **Przegląd**. Zanotuj _zakres identyfikatorów_ i _globalny punkt końcowy usługi_.
 
     ![Informacje o usłudze](./media/python-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
@@ -159,7 +159,7 @@ W tym artykule przedstawiono rejestracje indywidualne.
 
     ![pomyślna rejestracja](./media/python-quick-create-simulated-device-x509/enrollment-success.png)
 
-8. W portalu przejdź do centrum IoT Hub połączonego z usługą aprowizacji, a następnie otwórz blok **Device Explorer**. Po pomyślnej aprowizacji symulowanego urządzenia X.509 w centrum identyfikator urządzenia jest wyświetlany w bloku **Device Explorer** z pozycją *STATUS* (stan) ustawioną na wartość **enabled** (włączone). Może być konieczne naciśnięcie przycisku **Odśwież** u góry, jeśli blok został już otwarty przed uruchomieniem przykładowej aplikacji urządzenia. 
+8. W portalu przejdź do centrum IoT Hub połączonego z usługą aprowizacji, a następnie otwórz blok **Device Explorer**. Po pomyślnej aprowizacji symulowanego urządzenia X.509 w centrum identyfikator urządzenia jest wyświetlany w bloku **Device Explorer** z pozycją *STATUS* (stan) ustawioną na wartość **enabled** (włączone). Może być konieczne naciśnięcie przycisku **Odśwież** w górnej części, jeśli blok został już otwarty przed uruchomieniem przykładowej aplikacji urządzenia. 
 
     ![Urządzenie jest rejestrowane w centrum IoT](./media/python-quick-create-simulated-device-x509/registration.png) 
 
@@ -169,15 +169,15 @@ W tym artykule przedstawiono rejestracje indywidualne.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli planujesz kontynuować pracę i eksplorowanie przykładu klienta urządzenia, nie czyścić zasobów utworzonych w tym przewodniku Szybki start. Jeśli nie zamierzasz kontynuować, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone przez ten przewodnik Szybki start.
+Jeśli planujesz kontynuować pracę i eksplorowanie przykładowego klienta urządzenia, nie czyść zasobów utworzonych w tym przewodniku Szybki Start. Jeśli nie planujesz kontynuować pracy, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w ramach tego przewodnika Szybki Start.
 
 1. Zamknij okno danych wyjściowych przykładu klienta urządzenia na swojej maszynie.
-2. Z menu po lewej stronie w witrynie Azure portal wybierz **pozycję Wszystkie zasoby,** a następnie wybierz usługę inicjowania obsługi urządzeń. Otwórz bloku **Zarządzaj rejestracjami** dla usługi, a następnie wybierz kartę **Rejestracje indywidualne.** Zaznacz pole wyboru obok *identyfikatora REJESTRACJI* urządzenia zarejestrowanego w tym przewodniku Szybki start, a następnie naciśnij przycisk **Usuń** u góry okienka. 
-3. Z menu po lewej stronie w witrynie Azure portal wybierz **pozycję Wszystkie zasoby,** a następnie wybierz centrum IoT Hub. Otwórz blok **Urządzenia IoT** dla koncentratora, zaznacz pole wyboru obok *identyfikatora URZĄDZENIA* urządzenia zarejestrowanego w tym przewodniku Szybki start, a następnie naciśnij przycisk **Usuń** u góry okienka.
+2. Z menu po lewej stronie w Azure Portal wybierz pozycję **wszystkie zasoby** , a następnie wybierz usługę Device Provisioning. Otwórz blok **Zarządzanie rejestracjami** dla usługi, a następnie wybierz kartę **indywidualne rejestracje** . Zaznacz pole wyboru obok *identyfikatora rejestracji* urządzenia zarejestrowanego w tym przewodniku Szybki Start, a następnie naciśnij przycisk **Usuń** w górnej części okienka. 
+3. Z menu po lewej stronie w Azure Portal wybierz pozycję **wszystkie zasoby** , a następnie wybierz swoje centrum IoT Hub. Otwórz blok **urządzenia IoT** dla centrum, zaznacz pole wyboru obok *identyfikatora urządzenia* urządzenia zarejestrowanego w tym przewodniku Szybki Start, a następnie naciśnij przycisk **Usuń** w górnej części okienka.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start utworzono symulowane urządzenie X.509 na komputerze z systemem Windows i udostępnino go do centrum IoT hub przy użyciu usługi inicjowania obsługi administracyjnej usługi Azure IoT Hub w portalu. Aby dowiedzieć się, jak zarejestrować urządzenie X.509 programowo, przejdź do szybkiego startu w celu uzyskania programowej rejestracji urządzeń X.509. 
+W tym przewodniku szybki start utworzono symulowane urządzenie X. 509 na komputerze z systemem Windows i udostępniono je Centrum IoT Hub przy użyciu IoT Hub Device Provisioning Service platformy Azure w portalu. Aby dowiedzieć się, jak zarejestrować urządzenie X. 509 programowo, przejdź do przewodnika Szybki Start dotyczącego rejestrowania na urządzeniach X. 509. 
 
 > [!div class="nextstepaction"]
-> [Szybki start platformy Azure — rejestrowanie urządzeń X.509 w usłudze inicjowania obsługi administracyjnej usługi Azure IoT Hub](quick-enroll-device-x509-python.md)
+> [Przewodnik Szybki Start platformy Azure — rejestrowanie urządzeń X. 509 w usłudze Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-python.md)

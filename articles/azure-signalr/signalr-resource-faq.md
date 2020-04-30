@@ -1,16 +1,16 @@
 ---
 title: Często zadawane pytania dotyczące usługi Azure SignalR Service
-description: Uzyskaj szybki dostęp do często zadawanych pytań w usłudze Azure SignalR, dotyczących rozwiązywania problemów i typowych scenariuszy użycia.
+description: Uzyskaj szybki dostęp do często zadawanych pytań dotyczących usługi Azure Signal Service, rozwiązywania problemów i typowych scenariuszy użycia.
 author: sffamily
 ms.service: signalr
 ms.topic: overview
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: dde11b6097dddb1568f5adfea811606214a9759e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75891247"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR Service — FAQ

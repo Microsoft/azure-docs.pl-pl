@@ -9,13 +9,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.openlocfilehash: 55f40e8f22b39caa3527a378f33982276bed597d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79240184"
 ---
-# <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Szybki start: tworzenie aplikacji sieci web platformy .NET przy użyciu interfejsu API usługi Azure Cosmos DB dla usługi MongoDB 
+# <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Szybki Start: Tworzenie aplikacji sieci Web platformy .NET przy użyciu interfejsu API Azure Cosmos DB dla MongoDB 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -34,7 +34,7 @@ Ten przewodnik Szybki start opisuje sposób tworzenia konta usługi Cosmos przy 
 
 Aby uruchomić przykład, musisz mieć program [Visual Studio](https://www.visualstudio.com/downloads/) i ważne konto usługi Microsoft Azure Cosmos DB.
 
-Jeśli nie masz jeszcze programu Visual Studio, pobierz [program Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) z ASP.NET i obciążenia tworzenia sieci **Web** zainstalowanego z instalatorem.
+Jeśli nie masz jeszcze programu Visual Studio, Pobierz [program Visual studio 2019 Community Edition](https://www.visualstudio.com/downloads/) z obciążeniem **ASP.NET i programowaniem aplikacji sieci Web** instalowanym z instalatorem.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 

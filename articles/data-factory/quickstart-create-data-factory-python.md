@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: tworzenie fabryki danych platformy Azure przy użyciu języka Python'
+title: 'Szybki Start: Tworzenie Azure Data Factory przy użyciu języka Python'
 description: Tworzenie fabryki danych platformy Azure w celu skopiowania danych między lokalizacjami w usłudze Azure Blob Storage.
 services: data-factory
 documentationcenter: ''
@@ -14,37 +14,37 @@ ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019
 ms.openlocfilehash: 85b61e03f1545b8a0e8263b799ac7a5b347be181
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81419140"
 ---
-# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Szybki start: tworzenie fabryki danych i potoku przy użyciu języka Python
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Szybki Start: Tworzenie fabryki danych i potoku przy użyciu języka Python
 
-> [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
+> [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Bieżąca wersja](quickstart-create-data-factory-python.md)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-W tym przewodniku Szybki start utworzysz fabrykę danych przy użyciu języka Python. Potok w tej fabryce danych kopiuje dane z jednego folderu do innego folderu w magazynie obiektów Blob platformy Azure.
+W tym przewodniku szybki start utworzysz fabrykę danych przy użyciu języka Python. Potok w tej fabryce danych kopiuje dane z jednego folderu do innego folderu w usłudze Azure Blob Storage.
 
-Usługa Azure Data Factory to oparta na chmurze usługa integracji danych, która umożliwia tworzenie opartych na danych przepływów pracy w celu organizowania i automatyzacji przenoszenia danych i przekształcania danych. Korzystając z usługi Azure Data Factory, można tworzyć i planować przepływy pracy oparte na danych, nazywane potokami.
+Azure Data Factory to oparta na chmurze usługa integracji danych, która umożliwia tworzenie przepływów pracy opartych na danych na potrzeby organizowania i automatyzowania przenoszenia i przekształcania danych. Za pomocą Azure Data Factory można tworzyć i planować przepływy pracy oparte na danych, nazywane potokami.
 
-Potoki można pozyskiwania danych z różnych magazynów danych. Potoki przetwarzają lub przekształcają dane przy użyciu usług obliczeniowych, takich jak Usługi Azure HDInsight Hadoop, Spark, Usługa Azure Data Lake Analytics i usługa Azure Machine Learning. Potoki publikują dane wyjściowe do magazynów danych, takich jak usługi Azure SQL Data Warehouse for business intelligence (BI) applications.
+Potoki mogą pozyskiwanie danych z różnych magazynów danych. Potoki przetwarzają lub przekształcają dane przy użyciu usług obliczeniowych, takich jak Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics i Azure Machine Learning. Potoki publikują dane wyjściowe w magazynach danych, takich jak Azure SQL Data Warehouse aplikacji analizy biznesowej (BI).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Konto platformy Azure z aktywną subskrypcją. [Utwórz jeden za darmo](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Python 3.4+](https://www.python.org/downloads/).
+* [Python 3.4 +](https://www.python.org/downloads/).
 
 * [Konto usługi Azure Storage](../storage/common/storage-account-create.md).
 
 * [Eksplorator usługi Azure Storage](https://storageexplorer.com/) (opcjonalnie).
 
-* [Aplikacja w usłudze Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Zanotuj następujące wartości, które mają być używane w kolejnych krokach: **identyfikator aplikacji,** **klucz uwierzytelniania**i **identyfikator dzierżawy.** Przypisz aplikację do roli **współautora,** postępując zgodnie z instrukcjami w tym samym artykule.
+* [Aplikacja w Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Należy pamiętać o następujących wartościach, które mają być używane w kolejnych krokach: **Identyfikator aplikacji**, **klucz uwierzytelniania**i **Identyfikator dzierżawy**. Przypisz aplikację do roli **współautor** , wykonując instrukcje opisane w tym samym artykule.
 
 ## <a name="create-and-upload-an-input-file"></a>Tworzenie i przekazywanie pliku wejściowego
 
@@ -417,7 +417,7 @@ main()
 
 Skompiluj i uruchom aplikację, a następnie zweryfikuj wykonywanie potoku.
 
-Konsola wypisuje postęp tworzenia fabryki danych, połączonej usługi, zestawów danych, potoku i uruchomienia potoku. Poczekaj na wyświetlenie szczegółów uruchomienia działania kopiowania z rozmiarem odczytanych/zapisanych danych. Następnie użyj narzędzi, takich jak [Eksplorator usługi Azure Storage,](https://azure.microsoft.com/features/storage-explorer/) aby sprawdzić, czy obiekty blob są kopiowane do "outputBlobPath" z "inputBlobPath", jak określono w zmiennych.
+Konsola wypisuje postęp tworzenia fabryki danych, połączonej usługi, zestawów danych, potoku i uruchomienia potoku. Poczekaj na wyświetlenie szczegółów uruchomienia działania kopiowania z rozmiarem odczytanych/zapisanych danych. Następnie użyj narzędzi takich jak [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) , aby sprawdzić, czy obiekty blob zostały skopiowane do "outputBlobPath" z "inputBlobPath", jak określono w zmiennych.
 
 Oto przykładowe dane wyjściowe:
 

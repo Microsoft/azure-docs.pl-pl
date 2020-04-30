@@ -1,6 +1,6 @@
 ---
-title: Mikro-realizacji centrum szablonu aplikacji tutorial | Dokumenty firmy Microsoft
-description: Samouczek dotyczący szablonu aplikacji centrum mikrorealizacji dla usługi Azure IoT Central
+title: Samouczek szablonu aplikacji centrum Micro-zrealizować | Microsoft Docs
+description: Samouczek dotyczący szablonu aplikacji centrum mikrorealizacji dla systemu Azure IoT Central
 author: avneet723
 ms.author: avneets
 ms.service: iot-central
@@ -8,89 +8,89 @@ ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 01/09/2020
 ms.openlocfilehash: 74deb4253a21445e21f7ef04f53f3bfe3f1fe0d0
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81000539"
 ---
-# <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Samouczek: Wdrażanie i przechodzenie przez szablon aplikacji centrum mikrorealizacji
+# <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Samouczek: wdrażanie i przechodzenie przez szablon aplikacji Centrum programu Micro-zrealizować
 
-W tym samouczku używasz szablonu aplikacji centrum mikrorealizacji usługi Azure IoT Central do tworzenia rozwiązania sieci sprzedaży detalicznej. Dowiesz się, jak wdrożyć szablon, co jest w nim zawarte i co warto zrobić dalej.
+W tym samouczku zostanie użyty szablon aplikacji Centrum programu Azure IoT Central Micro-zrealizować, aby utworzyć rozwiązanie detaliczne. Dowiesz się, jak wdrożyć szablon, co zawiera jego zawartość i co warto zrobić dalej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby ukończyć tę serię samouczków, potrzebujesz subskrypcji platformy Azure. Opcjonalnie możesz skorzystać z bezpłatnego 7-dniowego okresu próbnego. Jeśli nie masz subskrypcji platformy Azure, możesz ją utworzyć na [stronie rejestracji platformy Azure.](https://aka.ms/createazuresubscription)
+Do ukończenia tej serii samouczków potrzebna jest subskrypcja platformy Azure. Opcjonalnie możesz użyć bezpłatnej 7-dniowej wersji próbnej. Jeśli nie masz subskrypcji platformy Azure, możesz ją utworzyć na [stronie rejestracji na platformie Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="create-an-application"></a>Tworzenie aplikacji 
-W tej sekcji utworzysz nową aplikację Azure IoT Central na podstawie szablonu. Użyjesz tej aplikacji w całej serii samouczków, aby utworzyć kompletne rozwiązanie.
+W tej sekcji utworzysz nową aplikację usługi Azure IoT Central na podstawie szablonu. Ta aplikacja zostanie użyta w całej serii samouczków, aby skompilować kompletne rozwiązanie.
 
 Aby utworzyć nową aplikację usługi Azure IoT Central:
 
-1. Przejdź do witryny [menedżera aplikacji Usługi Azure IoT Central.](https://aka.ms/iotcentral)
-1. Jeśli masz subskrypcję platformy Azure, zaloguj się przy użyciu poświadczeń, których używasz, aby uzyskać do niej dostęp. W przeciwnym razie zaloguj się przy użyciu konta Microsoft:
+1. Przejdź do witryny sieci Web programu [Azure IoT Central Application Manager](https://aka.ms/iotcentral) .
+1. Jeśli masz subskrypcję platformy Azure, zaloguj się przy użyciu poświadczeń, których używasz, aby uzyskać do niej dostęp. W przeciwnym razie zaloguj się przy użyciu konto Microsoft:
 
-   ![Zrzut ekranu przedstawiający okno dialogowe logowania do konta Microsoft](./media/tutorial-in-store-analytics-create-app/sign-in.png)
+   ![Zrzut ekranu przedstawiający okno dialogowe logowania konto Microsoft](./media/tutorial-in-store-analytics-create-app/sign-in.png)
 
 1. Aby rozpocząć tworzenie nowej aplikacji usługi Azure IoT Central, wybierz pozycję **Nowa aplikacja**.
 
-1. Wybierz **pozycję Handel detaliczny**.  Na stronie sieci sprzedaży jest wyświetlanych kilka szablonów aplikacji sieci sprzedaży.
+1. Wybierz pozycję **sprzedaż detaliczna**.  Na stronie detalicznej są wyświetlane kilka szablonów aplikacji sieci Web.
 
-Aby utworzyć nową aplikację centrum mikrorealizacji, która korzysta z funkcji w wersji zapoznawczej:  
-1. Wybierz szablon aplikacji **Centrum mikrorealizacji.** Ten szablon zawiera szablony urządzeń dla wszystkich urządzeń używanych w samouczku. Szablon zapewnia również pulpit nawigacyjny operatora do monitorowania warunków w centrum realizacji, a także warunków dla operatorów robotów. 
+Aby utworzyć nową aplikację centrum o wysokiej realizacji, która korzysta z funkcji w wersji zapoznawczej:  
+1. Wybierz szablon aplikacja **centrum mikrorealizacji** . Ten szablon zawiera szablony urządzeń dla wszystkich urządzeń używanych w samouczku. Szablon zawiera również pulpit nawigacyjny operatora do monitorowania warunków w centrum realizacji, a także warunki dla przewoźników zautomatyzowanych. 
 
-    ![Zrzut ekranu przedstawiający stronę aplikacji IoT Central usługi Azure IoT](./media/tutorial-micro-fulfillment-center-app/iotc-retail-homepage-mfc.png)
+    ![Zrzut ekranu przedstawiający platformę Azure IoT Central Kompilowanie strony aplikacji IoT](./media/tutorial-micro-fulfillment-center-app/iotc-retail-homepage-mfc.png)
     
-1. Opcjonalnie wybierz przyjazną **nazwę aplikacji**. Szablon aplikacji jest oparty na fikcyjnej firmie Northwind Traders. 
+1. Opcjonalnie możesz wybrać przyjazną **nazwę aplikacji**. Szablon aplikacji jest oparty na fikcyjnej firmie Northwind Traders. 
 
     >[!NOTE]
     >Jeśli używasz przyjaznej nazwy aplikacji, nadal musisz użyć unikatowej wartości dla adresu URL aplikacji.
 
-1. Jeśli masz subskrypcję platformy Azure, wprowadź swój katalog, subskrypcję platformy Azure i region. Jeśli nie masz subskrypcji, możesz włączyć 7-dniową bezpłatną wersję próbną i wypełnić wymagane informacje kontaktowe.  
+1. Jeśli masz subskrypcję platformy Azure, wprowadź swój katalog, subskrypcję platformy Azure i region. Jeśli nie masz subskrypcji, możesz włączyć 7-dniową bezpłatną wersję próbną i uzupełnić wymagane informacje kontaktowe.  
 
-    Aby uzyskać więcej informacji na temat katalogów i subskrypcji, zobacz [Tworzenie szybkiego startu aplikacji.](../preview/quick-deploy-iot-central.md)
+    Aby uzyskać więcej informacji na temat katalogów i subskrypcji, zobacz [Tworzenie aplikacji](../preview/quick-deploy-iot-central.md) — Szybki Start.
 
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
-    ![Zrzut ekranu przedstawiający stronę Nowa aplikacja Usługi Azure IoT Central](./media/tutorial-micro-fulfillment-center-app/iotc-retail-create-app-mfc.png)
+    ![Zrzut ekranu strony nowej aplikacji IoT Central platformy Azure](./media/tutorial-micro-fulfillment-center-app/iotc-retail-create-app-mfc.png)
 
-## <a name="walk-through-the-application"></a>Przejdź przez aplikację 
+## <a name="walk-through-the-application"></a>Przechodzenie przez aplikację 
 
-Po pomyślnym wdrożeniu szablonu aplikacji zostanie wyświetlony **pulpit nawigacyjny centrum mikrorealizacji Northwind Traders**. Northwind Traders to fikcyjny sprzedawca detaliczny, który ma centrum mikrorealizacji zarządzane w tej aplikacji Azure IoT Central. Na tym pulpicie nawigacyjnym operatora są widoczne informacje i dane telemetryczne dotyczące urządzeń w tym szablonie, a także zestaw poleceń, zadań i akcji, które można podjąć. Pulpit nawigacyjny jest logicznie podzielony na dwie sekcje. Po lewej stronie można monitorować warunki środowiskowe w strukturze realizacji, a po prawej można monitorować stan zdrowia robota przewoźnika w obiekcie.  
+Po pomyślnym wdrożeniu szablonu aplikacji zobaczysz **pulpit nawigacyjny centrum danych Northwind Traders**. Northwind Traders to fikcyjny sprzedawca detaliczny, który ma centrum mikrorealizacji zarządzane w tej aplikacji IoT Central platformy Azure. Na tym pulpicie nawigacyjnym operatora widoczne są informacje i dane telemetryczne dotyczące urządzeń w tym szablonie, a także zestaw poleceń, zadań i akcji, które można wykonać. Pulpit nawigacyjny jest podzielony logicznie na dwie sekcje. Po lewej stronie można monitorować warunki środowiska w ramach struktury realizacji i po prawej stronie można monitorować kondycję operatora zautomatyzowanego w ramach tej funkcji.  
 
-Na pulpicie nawigacyjnym można:
-   * Zobacz dane telemetryczne urządzenia, takie jak liczba pobranych, liczba przetworzonych zamówień i właściwości, takie jak stan systemu struktury.  
-   * Zobacz plan kondygnacji i lokalizację nośników robotów w strukturze realizacji.
-   * Polecenia wyzwalania, takie jak resetowanie systemu sterowania, aktualizowanie oprogramowania układowego operatora i ponowne konfigurowanie sieci.
+Z poziomu pulpitu nawigacyjnego można:
+   * Zobacz dane telemetryczne urządzenia, takie jak Liczba pobrań, Liczba przetworzonych zamówień i właściwości, takie jak struktura stanu systemu.  
+   * Zapoznaj się z planem pomieszczeń i lokalizacją przewoźników zautomatyzowanych w ramach struktury realizacji.
+   * Wyzwalaj polecenia, takie jak resetowanie systemu kontroli, aktualizowanie oprogramowania układowego operatora i ponowne konfigurowanie sieci.
 
-     ![Zrzut ekranu przedstawiający panel centrum mikrorealizacji Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
-   * Zobacz przykład pulpitu nawigacyjnego, którego operator może używać do monitorowania warunków w centrum realizacji. 
-   * Monitoruj kondycję ładunków uruchomionych na urządzeniu bramy w centrum realizacji.    
+     ![Zrzut ekranu przedstawiający pulpit nawigacyjny centrum danych Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
+   * Zapoznaj się z przykładem pulpitu nawigacyjnego, którego operator może użyć do monitorowania warunków w centrum realizacji. 
+   * Monitoruj kondycję ładunków, które są uruchomione na urządzeniu bramy w centrum realizacji.    
 
-     ![Zrzut ekranu przedstawiający panel centrum mikrorealizacji Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
+     ![Zrzut ekranu przedstawiający pulpit nawigacyjny centrum danych Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
 
 ## <a name="device-template"></a>Szablon urządzenia
-Jeśli wybierzesz kartę Szablony urządzeń, zobaczysz, że istnieją dwa różne typy urządzeń, które są częścią szablonu: 
-   * **Robotic Carrier:** Ten szablon urządzenia reprezentuje definicję działającego przewoźnika robota, który został wdrożony w strukturze realizacji i wykonuje odpowiednie operacje przechowywania i pobierania. Jeśli wybierzesz szablon, zobaczysz, że robot wysyła dane urządzenia, takie jak temperatura i położenie osi, oraz właściwości, takie jak stan nośnika robota. 
-   * **Monitorowanie stanu struktury:** Ten szablon urządzenia reprezentuje kolekcję urządzeń, która umożliwia monitorowanie stanu środowiska, a także urządzenie bramy obsługujące różne obciążenia brzegowe w celu zasilania centrum realizacji zamówień. Urządzenie wysyła dane telemetryczne, takie jak temperatura, liczba typów i liczba zamówień. Wysyła również informacje o stanie i kondycji obciążeń obliczeniowych działających w twoim środowisku. 
+W przypadku wybrania karty szablony urządzeń widoczne są dwa różne typy urządzeń, które są częścią szablonu: 
+   * **Przewoźnik zautomatyzowany**: ten szablon urządzenia reprezentuje definicję działającego operatora zautomatyzowanego, który został wdrożony w strukturze realizacji, i wykonuje odpowiednie operacje związane z magazynowaniem i pobieraniem. Jeśli wybierzesz szablon, zobaczysz, że robot wysyła dane urządzenia, takie jak położenie temperatury i osi oraz właściwości, takie jak stan nośnej. 
+   * **Monitorowanie warunków struktury**: ten szablon urządzenia reprezentuje kolekcję urządzeń, która pozwala monitorować warunek środowiska, a także urządzenie bramy obsługujące różne obciążenia brzegowe umożliwiające zarządzanie centrum realizacji. Urządzenie wysyła dane telemetryczne, takie jak temperatura, Liczba pobrań i liczba zamówień. Wysyła również informacje o stanie i kondycji obciążeń obliczeniowych uruchomionych w danym środowisku. 
 
-     ![Szablony urządzeń Centrum mikrorealizacji](./media/tutorial-micro-fulfillment-center-app/device-templates.png)
+     ![Szablony urządzeń centrum Micro-zrealizować](./media/tutorial-micro-fulfillment-center-app/device-templates.png)
 
-Jeśli wybierzesz kartę Grupy urządzeń, zobaczysz również, że te szablony urządzeń są automatycznie tworzone dla nich grupami urządzeń.
+Jeśli wybierzesz kartę grupy urządzeń, zobaczysz również, że te szablony urządzeń automatycznie mają utworzone grupy urządzeń.
 
 ## <a name="rules"></a>Reguły
-Na **reguły** kartę, zobaczysz przykładową regułę, która istnieje w szablonie aplikacji do monitorowania warunków temperatury dla przewoźnika robota. Ta reguła może zostać użyta do ostrzeżenia operatora, jeśli określony robot w zakładzie jest przegrzany i musi zostać przesuń do trybu offline w celu obsługi serwisowej. 
+Na karcie **reguły** zostanie wyświetlona Przykładowa reguła, która istnieje w szablonie aplikacji, aby monitorować warunki temperatury dla operatora zautomatyzowanego. Ta reguła może być używana do powiadamiania operatora o przepełnieniu konkretnej robotu i musi zostać przełączona w tryb offline w celu obsługi. 
 
-Użyj przykładowej reguły jako inspiracji, aby zdefiniować reguły, które są bardziej odpowiednie dla funkcji biznesowych.
+Użyj przykładowej reguły jako inspiracji, aby zdefiniować reguły, które są bardziej odpowiednie dla funkcji firmy.
 
-![Zrzut ekranu przedstawiający kartę Reguły](./media/tutorial-micro-fulfillment-center-app/rules.png)
+![Zrzut ekranu przedstawiający kartę reguły](./media/tutorial-micro-fulfillment-center-app/rules.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli nie zamierzasz nadal korzystać z tej aplikacji, usuń szablon aplikacji. Przejdź do ustawień aplikacji **Delete** **administracyjnej** > **Application settings**i wybierz pozycję Usuń .
+Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń szablon aplikacji. Przejdź do pozycji **Administracja** > **Ustawienia aplikacji**, a następnie wybierz pozycję **Usuń**.
 
-![Zrzut ekranu przedstawiający stronę Ustawienia ustawień centrum mikrorealizacji](./media/tutorial-micro-fulfillment-center-app/delete.png)
+![Zrzut ekranu przedstawiający stronę ustawień aplikacji Centrum programu Micro-zrealizować](./media/tutorial-micro-fulfillment-center-app/delete.png)
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [architekturze rozwiązań mikrorealizacji.](./architecture-micro-fulfillment-center.md)
-* Dowiedz się więcej o innych [szablonach sieci sprzedaży usługi Azure IoT Central](./overview-iot-central-retail.md).
-* Przeczytaj [omówienie usługi Azure IoT Central](../preview/overview-iot-central.md).
+* Dowiedz się więcej o [architekturze rozwiązania Micro-zrealizować centrum](./architecture-micro-fulfillment-center.md).
+* Dowiedz się więcej na temat innych [szablonów detalicznych usługi Azure IoT Central](./overview-iot-central-retail.md).
+* Zapoznaj się z [omówieniem IoT Central platformy Azure](../preview/overview-iot-central.md).

@@ -1,6 +1,6 @@
 ---
 title: Uwierzytelnianie SQL
-description: Dowiedz się więcej o uwierzytelnianiu SQL w usłudze Azure Synapse Analytics.
+description: Informacje o uwierzytelnianiu SQL w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -9,59 +9,59 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.openlocfilehash: 2b80efa30ac7e04b9eb21dd6f8a39ab4ee90adf6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81424853"
 ---
 # <a name="sql-authentication"></a>Uwierzytelnianie SQL
 
-Usługa Azure Synapse Analytics ma dwa rozmiary formularza SQL, które umożliwiają kontrolowanie zużycia zasobów. W tym artykule wyjaśniono, jak dwa formaty sterujące uwierzytelnianiem użytkownika.
+Usługa Azure Synapse Analytics ma dwa czynniki formularzy SQL, które umożliwiają kontrolowanie zużycia zasobów. W tym artykule wyjaśniono, jak dwa czynniki kontrolne sterują uwierzytelnianiem użytkownika.
 
-Aby autoryzować synapse SQL, można użyć dwóch typów autoryzacji:
+Aby autoryzować do Synapse SQL, można użyć dwóch typów autoryzacji:
 
-- Autoryzacja AAD
+- Autoryzacja usługi AAD
 - Autoryzacja SQL
 
-Autoryzacja usługi AAD opiera się na usłudze Azure Active Directory i umożliwia tworzenie jednego miejsca do zarządzania użytkownikami. Autoryzacja SQL umożliwia starsze aplikacje do korzystania synapse SQL w dobrze znany sposób.
+Autoryzacja w usłudze AAD opiera się na Azure Active Directory i umożliwia korzystanie z jednego miejsca do zarządzania użytkownikami. Autoryzacja SQL umożliwia starszym aplikacjom używanie Synapse SQL w dobrze znany sposób.
 
-## <a name="administrative-accounts"></a>Rachunki administracyjne
+## <a name="administrative-accounts"></a>Konta administracyjne
 
-Istnieją dwa konta z uprawnieniami administracyjnymi (**Administrator serwera** i **Administrator usługi Active Directory**), które funkcjonują jako administratorzy. Aby zidentyfikować te konta administratora dla serwera SQL, otwórz witrynę Azure portal i przejdź do karty Właściwości programu Synapse SQL.
+Istnieją dwa konta z uprawnieniami administracyjnymi (**Administrator serwera** i **Administrator usługi Active Directory**), które funkcjonują jako administratorzy. Aby zidentyfikować te konta administratorów dla programu SQL Server, Otwórz Azure Portal i przejdź do karty właściwości w programie SQL Synapse.
 
 ![Administratorzy serwera SQL](./media/sql-authentication/sql-admins.png)
 
 - **Administrator serwera**
 
-  Podczas tworzenia usługi Azure Synapse Analytics należy wyznaczyć **login administratora serwera**. Serwer SQL tworzy to konto jako identyfikator logowania w bazie danych master. To konto używa do połączenia uwierzytelnienia programu SQL Server (nazwy użytkownika i hasła). Może istnieć tylko jedno z tych kont.
+  Podczas tworzenia analizy usługi Azure Synapse należy wyznaczyć **Identyfikator logowania administratora serwera**. Serwer SQL tworzy to konto jako identyfikator logowania w bazie danych master. To konto używa do połączenia uwierzytelnienia programu SQL Server (nazwy użytkownika i hasła). Może istnieć tylko jedno z tych kont.
 
 - **Administrator usługi Azure Active Directory**
 
-  Jako konto administratora można również skonfigurować jedno konto usługi Azure Active Directory (indywidualne lub grupy zabezpieczeń). Jest opcjonalne skonfigurowanie administratora usługi Azure AD, ale administrator usługi Azure AD **musi** być skonfigurowany, jeśli chcesz używać kont usługi Azure AD do łączenia się z synapse SQL.
+  Jako konto administratora można również skonfigurować jedno konto usługi Azure Active Directory (indywidualne lub grupy zabezpieczeń). Skonfigurowanie administratora usługi Azure AD jest opcjonalne, ale **należy** skonfigurować administratora usługi Azure AD, jeśli chcesz używać kont usługi Azure AD do nawiązywania połączeń z usługą SQL Synapse.
 
-Konta **administratora serwera** i **administratora usługi Azure AD** mają następujące cechy:
+Konta administratorów **serwera** i **usługi Azure AD** mają następującą charakterystykę:
 
-- Są jedynymi kontami, które mogą automatycznie łączyć się z dowolną bazą danych SQL na serwerze. (Aby połączyć się z bazą danych użytkownika, inne konta muszą być właścicielem bazy danych lub mieć konto użytkownika w bazie danych użytkownika).
+- Są jedynymi kontami, które mogą automatycznie łączyć się z dowolnymi SQL Database na serwerze. (Aby połączyć się z bazą danych użytkownika, inne konta muszą być właścicielem bazy danych lub mieć konto użytkownika w bazie danych użytkownika).
 - Te konta korzystają z baz danych użytkowników jako użytkownik `dbo` i mają wszystkie uprawnienia w bazach danych użytkowników. (Właściciel bazy danych użytkownika również korzysta z bazy danych jako użytkownik `dbo`).
-- Nie należy `master` wprowadzać `dbo` bazy danych jako użytkownika i mieć ograniczone uprawnienia w wzorcu.
-- Nie **not** są członkami standardowej `sysadmin` roli serwera stacjonarnego SQL Server, która nie jest dostępna w bazie danych SQL.  
-- Może tworzyć, zmieniać i upuszczać bazy danych, logowania, użytkowników w regułach zapory adresowej i adresowej ip na poziomie serwera.
-- Można dodawać i `dbmanager` usuwać członków do ról i. `loginmanager`
-- Można wyświetlić tabelę `sys.sql_logins` system.
+- Nie należy wprowadzać `master` bazy danych jako `dbo` użytkownik i mieć ograniczone uprawnienia w obszarze głównym.
+- **Nie** są członkami standardowej SQL Server `sysadmin` stałej roli serwera, która nie jest dostępna w usłudze SQL Database.  
+- Może tworzyć, zmieniać i usuwać bazy danych, nazwy logowania, użytkowników z wzorców i reguły zapory adresów IP na poziomie serwera.
+- Może dodawać i usuwać członków do ról `dbmanager` i `loginmanager` .
+- Może wyświetlać tabelę `sys.sql_logins` systemową.
 
 ## <a name="sql-on-demand-preview"></a>SQL na żądanie (wersja zapoznawcza)
 
-Aby zarządzać użytkownikami ma dostęp do sql na żądanie, można użyć poniższych instrukcji.
+Aby zarządzać użytkownikami mającymi dostęp do programu SQL na żądanie, możesz użyć poniższych instrukcji.
 
-Aby utworzyć identyfikator LOGOWANIA do języka SQL na żądanie, należy użyć następującej składni:
+Aby utworzyć identyfikator logowania do bazy danych SQL na żądanie, użyj następującej składni:
 
 ```sql
 CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
 -- or
 CREATE LOGIN Mary@domainname.net FROM EXTERNAL PROVIDER;
 ```
-Gdy istnieje identyfikator logowania, można utworzyć użytkowników w poszczególnych bazach danych wewnątrz punktu końcowego SQL na żądanie i udzielić wymaganych uprawnień do tych użytkowników. Aby utworzyć użycie, można użyć następującej składni:
+Po zakończeniu logowania można utworzyć użytkowników w poszczególnych bazach danych w punkcie końcowym SQL na żądanie i przyznać im wymagane uprawnienia. Aby utworzyć użycie, można użyć następującej składni:
 ```sql
 CREATE USER Mary FROM LOGIN Mary;
 -- or
@@ -70,7 +70,7 @@ CREATE USER Mary FROM LOGIN Mary@domainname.net;
 CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 ```
 
-Po utworzeniu logowania i użytkownika można użyć zwykłej składni programu SQL Server do przyznania praw.
+Po utworzeniu nazwy logowania i użytkownika można przyznać prawa przy użyciu standardowej składni SQL Server.
 
 ## <a name="sql-pool"></a>Pula SQL
 
@@ -78,20 +78,20 @@ Po utworzeniu logowania i użytkownika można użyć zwykłej składni programu 
 
 Po poprawnym skonfigurowaniu zapory na poziomie serwera konta **Administrator serwera SQL** i **Administrator usługi Azure Active Directory** mogą łączyć się przy użyciu narzędzi klienckich, takich jak SQL Server Management Studio lub SQL Server Data Tools. Tylko najnowsze narzędzia oferują wszystkie funkcje i możliwości. 
 
-Na poniższym diagramie przedstawiono typową konfigurację dla dwóch kont administratora:
+Na poniższym diagramie przedstawiono typową konfigurację dwóch kont administratorów:
  
-![konfiguracja dwóch rachunków administracyjnych](./media/sql-authentication/1sql-db-administrator-access.png)
+![Konfiguracja dwóch kont administracyjnych](./media/sql-authentication/1sql-db-administrator-access.png)
 
 Używając otwartego portu w zaporze na poziomie serwera, administratorzy mogą połączyć się z dowolną bazą danych SQL.
 
 ### <a name="database-creators"></a>Kreatory bazy danych
 
-Jedną z tych ról administracyjnych jest rola **dbmanager.** Członkowie tej roli mogą tworzyć nowe bazy danych. Aby użyć tej roli, należy utworzyć użytkownika w bazie danych `master` i dodać go do roli bazy danych **dbmanager**. 
+Jedną z tych ról administracyjnych jest rola **DBManager** . Członkowie tej roli mogą tworzyć nowe bazy danych. Aby użyć tej roli, należy utworzyć użytkownika w bazie danych `master` i dodać go do roli bazy danych **dbmanager**. 
 
-Aby utworzyć bazę danych, użytkownik musi być użytkownikiem `master` na podstawie logowania programu SQL Server w bazie danych lub zawierał użytkownika bazy danych na podstawie użytkownika usługi Azure Active Directory.
+Aby utworzyć bazę danych, użytkownik musi być użytkownikiem opartym na SQL Server logowaniu do `master` bazy danych lub użytkownika zawartej bazy danych na podstawie Azure Active Directory użytkownika.
 
-1. Korzystając z konta administratora, połącz się z bazą `master` danych.
-2. Utwórz logowanie uwierzytelniania programu SQL Server przy użyciu instrukcji [CREATE LOGIN.](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) Przykładowa instrukcja:
+1. Aby nawiązać połączenie z `master` bazą danych, użyj konta administratora.
+2. Utwórz nazwę logowania SQL Server uwierzytelniania przy użyciu instrukcji [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) . Przykładowa instrukcja:
 
    ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
@@ -102,7 +102,7 @@ Aby utworzyć bazę danych, użytkownik musi być użytkownikiem `master` na pod
 
    W celu poprawy wydajności nazwy logowania (nazwy główne na poziomie serwera) są tymczasowo przechowywane w pamięci podręcznej na poziomie bazy danych. Aby odświeżyć pamięć podręczną uwierzytelniania, zobacz artykuł [DBCC FLUSHAUTHCACHE](/sql/t-sql/database-console-commands/dbcc-flushauthcache-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-3. W `master` bazie danych utwórz użytkownika przy użyciu [instrukcji CREATE USER.](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) Użytkownik może być użytkownikiem bazy danych zawierającej uwierzytelnianie usługi Azure Active Directory (jeśli skonfigurowano środowisko do uwierzytelniania usługi Azure AD) lub użytkownikiem bazy danych zawierającym uwierzytelnianie programu SQL Server lub użytkownikiem uwierzytelniania programu SQL Server na podstawie logowania uwierzytelniania programu SQL Server (utworzonego w poprzednim kroku). Przykładowe instrukcje:
+3. W `master` bazie danych Utwórz użytkownika przy użyciu instrukcji [Create User](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) . Użytkownik może być Azure Active Directory uwierzytelnienia zawartej bazy danych (Jeśli skonfigurowano środowisko do uwierzytelniania w usłudze Azure AD) lub użytkownika uwierzytelniania SQL Server zawartej bazy danych lub SQL Server użytkownika uwierzytelniania na podstawie logowania do SQL Server uwierzytelniania (utworzonego w poprzednim kroku). Przykładowe instrukcje:
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -110,7 +110,7 @@ Aby utworzyć bazę danych, użytkownik musi być użytkownikiem `master` na pod
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Dodaj nowego użytkownika do roli bazy danych `master` **dbmanager** przy użyciu instrukcji [ALTER ROLE.](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) Przykładowe instrukcje:
+4. Dodaj nowego użytkownika do roli bazy danych **DBManager** w programie `master` przy użyciu instrukcji [ALTER role](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) . Przykładowe instrukcje:
 
    ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary;
@@ -122,7 +122,7 @@ Aby utworzyć bazę danych, użytkownik musi być użytkownikiem `master` na pod
 
 5. W razie potrzeby skonfiguruj regułę zapory, aby umożliwić połączenie się nowemu użytkownikowi. (Nowy użytkownik może być objęty istniejącą regułą zapory).
 
-Teraz użytkownik może połączyć się z bazą `master` danych i może tworzyć nowe bazy danych. Konto tworzące bazę danych staje się właścicielem bazy danych.
+Teraz użytkownik może połączyć się z `master` bazą danych i może tworzyć nowe bazy danych. Konto tworzące bazę danych staje się właścicielem bazy danych.
 
 ### <a name="login-managers"></a>Menedżerowie logowania
 
@@ -147,24 +147,24 @@ Początkowo tylko jeden z administratorów lub jeden z właścicieli bazy danych
 GRANT ALTER ANY USER TO Mary;
 ```
 
-Aby dać dodatkowym użytkownikom pełną kontrolę nad bazą danych, uczynić je członkiem **roli db_owner** stałej bazy danych.
+Aby zapewnić dodatkowym użytkownikom pełną kontrolę nad bazą danych, nadaj im członkom **db_owner** stałą rolę bazy danych.
 
-W usłudze Azure `ALTER ROLE` SQL Database użyj instrukcji.
+W Azure SQL Database Użyj `ALTER ROLE` instrukcji.
 
 ```sql
 ALTER ROLE db_owner ADD MEMBER Mary;
 ```
 
-W puli SQL użyj [sp_addrolemember EXEC](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+W puli SQL Użyj [Sp_addrolemember exec](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ```sql
 EXEC sp_addrolemember 'db_owner', 'Mary';
 ```
 
 > [!NOTE]
-> Częstym powodem, aby utworzyć użytkownika bazy danych na podstawie logowania serwera bazy danych SQL jest dla użytkowników, którzy potrzebują dostępu do wielu baz danych. Ponieważ użytkownicy zawartej bazy danych są poszczególnymi jednostkami, każda baza danych przechowuje własnego użytkownika i własne hasło. Może to spowodować obciążenie, ponieważ użytkownik musi następnie zapamiętać każde hasło dla każdej bazy danych i może stać się nie do utrzymania, gdy trzeba zmienić wiele haseł dla wielu baz danych. Jednak w przypadku korzystania z sql server logowania i wysokiej dostępności (aktywne replikacji geograficznej i grup pracy awaryjnej), SQL Server logowania muszą być ustawione ręcznie na każdym serwerze. W przeciwnym razie użytkownik bazy danych nie będzie już mapowany do logowania serwera po przejściu w tryb failover i nie będzie mógł uzyskać dostępu do bazy danych po przejściu w tryb failover. 
+> Jednym z typowych przyczyn tworzenia użytkownika bazy danych na podstawie nazwy logowania SQL Database serwera jest użytkownicy, którzy muszą mieć dostęp do wielu baz danych. Ponieważ użytkownicy zawartej bazy danych są poszczególnymi jednostkami, każda baza danych utrzymuje własnego użytkownika i jego własne hasło. Może to spowodować obciążenie, ponieważ użytkownik musi pamiętać każde hasło dla każdej bazy danych i może stać się untenable w przypadku konieczności zmiany wielu haseł dla wielu baz danych. Jednak w przypadku korzystania z SQL Server logowań i wysokiej dostępności (aktywnej replikacji geograficznej i grup trybu failover) SQL Server logowania należy ustawić ręcznie na każdym serwerze. W przeciwnym razie użytkownik bazy danych nie będzie już mapowany na logowanie do serwera po przejściu w tryb failover i nie będzie mógł uzyskać dostępu do przełączenia do trybu failover dla bazy danych. 
 
-Aby uzyskać więcej informacji na temat konfigurowania loginów do replikacji geograficznej, zobacz [Konfigurowanie zabezpieczeń usługi Azure SQL Database i zarządzanie nimi w celu przywracania geograficznego lub pracy awaryjnej](../../sql-database/sql-database-geo-replication-security-config.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Aby uzyskać więcej informacji na temat konfigurowania nazw logowania dla replikacji geograficznej, zobacz [Konfigurowanie i zarządzanie zabezpieczeniami Azure SQL Database na potrzeby przywracania geograficznego lub przełączania do trybu failover](../../sql-database/sql-database-geo-replication-security-config.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### <a name="configuring-the-database-level-firewall"></a>Konfigurowanie zapory na poziomie bazy danych
 
@@ -200,9 +200,9 @@ Rozpocznij od listy uprawnień [Uprawnienia (aparat bazy danych)](https://docs.m
 
 ### <a name="considerations-and-restrictions"></a>Uwagi i ograniczenia
 
-Podczas zarządzania logowania i użytkowników w bazie danych SQL, należy wziąć pod uwagę następujące punkty:
+Podczas zarządzania nazwami logowania i użytkownikami w SQL Database należy wziąć pod uwagę następujące kwestie:
 
-- Podczas wykonywania instrukcji musi być nawiązywanie połączenia z **główną** bazą `CREATE/ALTER/DROP DATABASE` danych.
+- Podczas wykonywania `CREATE/ALTER/DROP DATABASE` instrukcji musisz mieć połączenie z bazą danych **Master** .
 - Użytkownik bazy danych odpowiadający identyfikatorowi logowania **Administrator serwera** nie może zostać zmieniony ani usunięty.
 - Domyślnym językiem identyfikatora logowania **Administrator serwera** jest angielski (Stany Zjednoczone).
 - Tylko administratorzy (identyfikator logowania **Administrator serwera** lub Administrator usługi Azure AD) i członkowie roli bazy danych **dbmanager** w bazie danych **master** mają uprawnienia do wykonywania instrukcji `CREATE DATABASE` i `DROP DATABASE`.
@@ -220,7 +220,7 @@ Podczas zarządzania logowania i użytkowników w bazie danych SQL, należy wzi�
   GO
   ```
   
-  Zamiast tego należy użyć następującej instrukcji Transact-SQL:
+  Zamiast tego należy użyć następującej instrukcji języka Transact-SQL:
   
   ```sql
   DROP DATABASE IF EXISTS [database_name]

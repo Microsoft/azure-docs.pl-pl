@@ -10,10 +10,10 @@ ms.date: 10/22/2019
 ms.author: spelluru
 ms.custom: seodec18
 ms.openlocfilehash: 6122f17637e76f42cc4fbcc87ac9f48da3cdca36
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76122206"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Wybór usługi do obsługi wiadomości na platformie Azure — Event Grid, Event Hubs i Service Bus
@@ -21,7 +21,7 @@ ms.locfileid: "76122206"
 Platforma Azure oferuje 3 usługi, które pomagają dostarczać komunikaty o zdarzeniach w obrębie rozwiązania. Te usługi to:
 
 * [Event Grid](/azure/event-grid/)
-* [Centra zdarzeń](/azure/event-hubs/)
+* [Event Hubs](/azure/event-hubs/)
 * [Service Bus](/azure/service-bus-messaging/)
 
 Mimo iż pod niektórymi względami są one do siebie podobne, każdą z tych usług zaprojektowano z myślą o konkretnych scenariuszach. W tym artykule opisano różnice między tymi usługami w celu ułatwienia wyboru odpowiedniej usługi dla aplikacji. W wielu przypadkach usługi obsługi komunikatów uzupełniają się wzajemnie i można ich używać razem.
@@ -38,7 +38,7 @@ Zdarzenia odrębne zgłaszają zmianę stanu i umożliwiają wykonanie akcji. Ab
 
 Zdarzenia w serii zgłaszają warunek i nadają się do analizy. Zdarzenia są uporządkowane według czasu i powiązane. Odbiorca potrzebuje sekwencyjnej serii zdarzeń, aby móc przeanalizować, co się zdarzyło.
 
-### <a name="message"></a>Komunikat
+### <a name="message"></a>Wiadomość
 
 Komunikat to nieprzetworzone dane utworzone przez usługę, które mają zostać użyte lub przechowane w innej lokalizacji. Komunikat zawiera dane, które spowodowały wyzwolenie potoku komunikatów. Wydawca komunikatu ma oczekiwanie dotyczące sposobu obsługi komunikatu przez odbiorcę. Pomiędzy obiema stronami obowiązuje kontrakt. Na przykład wydawca wysyła komunikat z nieprzetworzonymi danymi i oczekuje, że odbiorca utworzy plik na podstawie tych danych i wyśle odpowiedź po zakończeniu pracy.
 
@@ -47,8 +47,8 @@ Komunikat to nieprzetworzone dane utworzone przez usługę, które mają zostać
 | Usługa | Przeznaczenie | Typ | Kiedy stosować |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | Programowanie reaktywne | Dystrybucja zdarzeń (odrębne) | Reagowanie na zmiany stanu |
-| Usługa Event Hubs | Potok danych big data | Przesyłanie strumieniowe zdarzeń (serie) | Przesyłanie strumieniowe rozproszonych danych i telemetrii |
-| Service Bus | Obsługa komunikatów o wysokiej wartości w przedsiębiorstwie | Komunikat | Przetwarzanie zamówień i transakcje finansowe |
+| Event Hubs | Potok danych big data | Przesyłanie strumieniowe zdarzeń (serie) | Przesyłanie strumieniowe rozproszonych danych i telemetrii |
+| Service Bus | Obsługa komunikatów o wysokiej wartości w przedsiębiorstwie | Wiadomość | Przetwarzanie zamówień i transakcje finansowe |
 
 ### <a name="event-grid"></a>Event Grid
 
@@ -65,7 +65,7 @@ Ma następujące cechy:
 * praca bezserwerowa
 * co najmniej jednokrotne dostarczanie
 
-### <a name="event-hubs"></a>Usługa Event Hubs
+### <a name="event-hubs"></a>Event Hubs
 
 Usługa Azure Event Hubs to potok danych big data. Ułatwia przechwytywanie, przechowywanie i ponowne odtwarzanie danych telemetrycznych i danych strumienia zdarzeń. Dane mogą pochodzić z wielu równoczesnych źródeł. Usługa Event Hubs umożliwia udostępnianie danych telemetrycznych i danych zdarzeń różnym infrastrukturom przetwarzania strumieni oraz usługom analizy. Jest dostępna jako strumienie danych albo partie powiązanych zdarzeń. Ta usługa zapewnia pojedyncze rozwiązanie umożliwiające szybkie pobieranie danych na potrzeby przetwarzania w czasie rzeczywistym oraz powtarzane ponowne odtwarzanie przechowywanych nieprzetworzonych danych. Może przechwycić dane przesyłane strumieniowo do pliku na potrzeby przetwarzania i analizy.
 
@@ -90,7 +90,7 @@ Ma następujące cechy:
 
 ## <a name="use-the-services-together"></a>Jednoczesne używanie usług
 
-W niektórych przypadkach usług można używać obok siebie w celu spełniania unikatowych ról. Na przykład witryna handlu elektronicznego może używać usługi Service Bus do przetwarzania zamówienia, centrum zdarzeń do przechwytywania danych telemetrycznych witryny i siatka zdarzeń w celu reagowania na zdarzenia, takie jak wysyłka towaru.
+W niektórych przypadkach usług można używać obok siebie w celu spełniania unikatowych ról. Na przykład witryna handlu elektronicznego może używać Service Bus, aby przetwarzać zamówienie, Event Hubs do przechwytywania danych telemetrycznych lokacji i Event Grid reagować na zdarzenia, takie jak element został wysłany.
 
 W innych przypadkach można je połączyć ze sobą w celu utworzenia potoku zdarzeń i danych. Usługa Event Grid służy wtedy do reagowania na zdarzenia w innych usługach. Aby zapoznać się z przykładem migrowania danych do magazynu danych za pomocą usług Event Grid i Event Hubs, zobacz [Przesyłanie strumieniowe danych big data do magazynu danych](event-grid-event-hubs-integration.md). Na poniższej ilustracji przedstawiono przepływ pracy przesyłania strumieniowego danych.
 
@@ -98,7 +98,7 @@ W innych przypadkach można je połączyć ze sobą w celu utworzenia potoku zda
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące artykuły: 
-- [Opcje asynchronicznych wiadomości na platformie Azure](/azure/architecture/guide/technology-choices/messaging)
+- [Opcje asynchronicznej obsługi komunikatów na platformie Azure](/azure/architecture/guide/technology-choices/messaging)
 - [Zdarzenia, punkty danych i komunikaty — wybieranie usługi platformy Azure do obsługi wiadomości właściwej dla Twoich danych](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
 - [Porównanie kolejek magazynu i kolejek usługi Service Bus](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - Aby rozpocząć pracę z usługą Event Grid, zobacz [Tworzenie i kierowanie zdarzeń niestandardowych za pomocą usługi Azure Event Grid](custom-event-quickstart.md).

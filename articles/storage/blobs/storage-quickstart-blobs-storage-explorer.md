@@ -1,7 +1,7 @@
 ---
-title: Szybki start — tworzenie obiektu blob za pomocą Eksploratora usługi Azure Storage
+title: Szybki Start — Tworzenie obiektu BLOB za pomocą Eksplorator usługi Azure Storage
 titleSuffix: Azure Storage
-description: W tym przewodniku Szybki start dowiesz się, jak utworzyć kontener i obiekt blob za pomocą Eksploratora usługi Azure Storage, pobrać obiekt blob na komputer lokalny i wyświetlić wszystkie obiekty blob w kontenerze.
+description: W tym przewodniku szybki start dowiesz się, jak za pomocą Eksplorator usługi Azure Storage utworzyć kontener i obiekt BLOB, pobrać obiekt BLOB na komputer lokalny i wyświetlić wszystkie obiekty blob w kontenerze.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.date: 12/04/2019
 ms.author: tamram
 ms.openlocfilehash: 04530844316610bb8a97e8a299b5fb41ebf49955
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80061374"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>Szybki start: tworzenie obiektu blob za pomocą Eksploratora usługi Azure Storage
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>Szybki Start: Tworzenie obiektu BLOB za pomocą Eksplorator usługi Azure Storage
 
-W tym przewodniku Szybki start dowiesz się, jak utworzyć kontener i obiekt blob za pomocą [Eksploratora usługi Azure Storage.](https://azure.microsoft.com/features/storage-explorer/) Następnie dowiesz się, jak pobrać obiekt blob na komputer lokalny i jak wyświetlać wszystkie obiekty blob w kontenerze. Dowiesz się również, jak utworzyć migawkę obiektu blob, zarządzać zasadami dostępu do kontenera i utworzyć sygnaturę dostępu współdzielonego.
+W tym przewodniku szybki start dowiesz się, jak za pomocą [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) utworzyć kontener i obiekt BLOB. Następnie dowiesz się, jak pobrać obiekt blob na komputer lokalny i jak wyświetlać wszystkie obiekty blob w kontenerze. Dowiesz się również, jak utworzyć migawkę obiektu blob, zarządzać zasadami dostępu do kontenera i utworzyć sygnaturę dostępu współdzielonego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -32,11 +32,11 @@ Podczas pierwszego uruchomienia wyświetlane jest okno **Eksplorator usługi Mic
 
 |Zadanie|Przeznaczenie|
 |---|---|
-|Dodawanie konta platformy Azure | Przekierowuje użytkownika do strony logowania w organizacji w celu uwierzytelnienia użytkownika na platformie Azure. |
+|Dodawanie konta platformy Azure | Przekierowuje użytkownika do strony logowania w organizacji w celu uwierzytelnienia na platformie Azure. |
 |Używanie parametrów połączenia lub identyfikatora URI sygnatury dostępu współdzielonego | Umożliwia bezpośredni dostęp do kontenera lub konta magazynu za pomocą tokenu sygnatury dostępu współdzielonego lub udostępnionych parametrów połączenia. |
 |Używanie nazwy i klucza konta magazynu| Użyj nazwy i klucza konta magazynu do nawiązania połączenia z magazynem Azure Storage.|
 
-Wybierz **pozycję Dodaj konto platformy Azure** i kliknij pozycję Zaloguj **się..**. Postępuj zgodnie z monitami wyświetlanymi na ekranie, aby zalogować się na swoje konto platformy Azure.
+Wybierz pozycję **Dodaj konto platformy Azure** , a następnie kliknij pozycję **Zaloguj się.**.. Postępuj zgodnie z monitami wyświetlanymi na ekranie, aby zalogować się do konta platformy Azure.
 
 ![Okno Eksplorator usługi Microsoft Azure Storage — nawiązywanie połączenia](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
@@ -48,7 +48,7 @@ Po nawiązaniu połączenia Eksplorator usługi Azure Storage zostanie załadowa
 
 Obiekty blob są zawsze przesyłane do kontenera. Umożliwia to organizowanie grup obiektów blob w sposób podobny do organizowania plików w folderach na komputerze.
 
-Aby utworzyć kontener, rozwiń konto magazynu utworzone w poprzednim kroku. Wybierz pozycję **Kontenery obiektów blob**, rozwiń ją, a następnie wybierz pozycję **Utwórz kontener obiektów blob**. Wprowadź nazwę kontenera obiektów blob. Zobacz [Tworzenie kontenera](storage-quickstart-blobs-dotnet.md#create-a-container) sekcji listy reguł i ograniczeń dotyczących nazewnictwa kontenerów obiektów blob. Po zakończeniu naciśnij klawisz **Enter**, aby utworzyć kontener obiektów blob. Po pomyślnym utworzeniu kontener obiektów blob zostanie wyświetlony w folderze **Kontenery obiektów blob** dla wybranego konta magazynu.
+Aby utworzyć kontener, rozwiń konto magazynu utworzone w poprzednim kroku. Wybierz pozycję **Kontenery obiektów blob**, rozwiń ją, a następnie wybierz pozycję **Utwórz kontener obiektów blob**. Wprowadź nazwę kontenera obiektów blob. Zapoznaj się z sekcją [Tworzenie kontenera](storage-quickstart-blobs-dotnet.md#create-a-container) , aby zapoznać się z listą reguł i ograniczeń dotyczących nazewnictwa kontenerów obiektów BLOB. Po zakończeniu naciśnij klawisz **Enter**, aby utworzyć kontener obiektów blob. Po pomyślnym utworzeniu kontener obiektów blob zostanie wyświetlony w folderze **Kontenery obiektów blob** dla wybranego konta magazynu.
 
 ## <a name="upload-blobs-to-the-container"></a>Przekazywanie obiektów blob do kontenera
 
@@ -84,13 +84,13 @@ Eksplorator usługi Azure Storage umożliwia tworzenie [migawek](storage-blob-sn
 
 ## <a name="manage-access-policies"></a>Zarządzanie zasadami dostępu
 
-Eksplorator usługi Storage umożliwia zarządzanie zasadami dostępu dla kontenerów w ramach ich interfejsu użytkownika. Istnieją dwa typy zasad bezpiecznego dostępu (sygnatury dostępu współdzielonego): na poziomie usługi i na poziomie konta. Sygnatury dostępu współdzielonego na poziomie konta dotyczą konta magazynu i mogą zostać zastosowane względem wielu usług i zasobów. Sygnatury dostępu współdzielonego na poziomie usługi są definiowane dla zasobu w ramach określonej usługi. Aby wygenerować sygnaturę dostępu Współdzielonego na poziomie usług, kliknij prawym przyciskiem myszy dowolny kontener i wybierz pozycję **Zarządzaj zasadami dostępu...**. Aby wygenerować sygnaturę dostępu Współdzielonego na poziomie konta, kliknij prawym przyciskiem myszy konto magazynu.
+Eksplorator usługi Storage umożliwia zarządzanie zasadami dostępu dla kontenerów w ramach ich interfejsu użytkownika. Istnieją dwa typy zasad bezpiecznego dostępu (sygnatury dostępu współdzielonego): na poziomie usługi i na poziomie konta. Sygnatury dostępu współdzielonego na poziomie konta dotyczą konta magazynu i mogą zostać zastosowane względem wielu usług i zasobów. Sygnatury dostępu współdzielonego na poziomie usługi są definiowane dla zasobu w ramach określonej usługi. Aby wygenerować sygnaturę dostępu współdzielonego na poziomie usługi, kliknij prawym przyciskiem myszy dowolny kontener i wybierz polecenie **Zarządzaj zasadami zabezpieczeń.**... Aby wygenerować sygnaturę dostępu współdzielonego na poziomie konta, kliknij prawym przyciskiem myszy konto magazynu.
 
 Wybierz pozycję **Dodaj**, aby dodać nowe zasady dostępu oraz zdefiniować uprawnienia dla tych zasad. Po zakończeniu wybierz pozycję **Zapisz**, aby zapisać zasady dostępu. Te zasady są teraz dostępne do użycia podczas konfigurowania sygnatury dostępu współdzielonego.
 
 ## <a name="work-with-shared-access-signatures"></a>Praca z sygnaturami dostępu współdzielonego
 
-Sygnatury dostępu współdzielonego można pobierać za pomocą Eksploratora usługi Storage. Kliknij prawym przyciskiem myszy konto magazynu, kontener lub obiekt blob i wybierz polecenie **Pobierz podpis dostępu współdzielonego...**. Wybierz godzinę rozpoczęcia i wygaśnięcia oraz uprawnienia do adresu URL sygnatury dostępu Współdzielonego i wybierz pozycję **Utwórz**. Zostanie udostępniony pełny adres URL z ciągiem zapytania oraz sam ciąg zapytania — możliwe jest skopiowanie tych elementów z następnego ekranu.
+Sygnatury dostępu współdzielonego można pobierać za pomocą Eksploratora usługi Storage. Kliknij prawym przyciskiem myszy konto magazynu, kontener lub obiekt BLOB, a następnie wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego...**. Wybierz czas rozpoczęcia i wygaśnięcia oraz uprawnienia dla adresu URL sygnatury dostępu współdzielonego, a następnie wybierz pozycję **Utwórz**. Zostanie udostępniony pełny adres URL z ciągiem zapytania oraz sam ciąg zapytania — możliwe jest skopiowanie tych elementów z następnego ekranu.
 
 ![Eksplorator usługi Microsoft Azure Storage — wyświetlanie listy obiektów blob w kontenerze](media/storage-quickstart-blobs-storage-explorer/sharedaccesssignature.png)
 

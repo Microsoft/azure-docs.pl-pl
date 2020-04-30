@@ -1,6 +1,6 @@
 ---
-title: Poradnik logistyki IoT Connected | Dokumenty firmy Microsoft
-description: Samouczek szablonu aplikacji logistycznej connected dla usługi IoT Central
+title: Samouczek dotyczący rozwiązanej logistyki IoT | Microsoft Docs
+description: Samouczek dotyczący połączonego szablonu aplikacji logistycznej dla IoT Central
 author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
@@ -8,112 +8,112 @@ ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
 ms.openlocfilehash: eac43ae68b10436b3e45452c6b1d03bec3ae4c9c
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81000560"
 ---
-# <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>Samouczek: Wdrażanie i przechodzenie przez szablon połączonej aplikacji logistycznej
+# <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>Samouczek: wdrażanie i przechodzenie przez połączony szablon aplikacji logistycznej
 
 
 
-W tym samouczku pokazano, jak rozpocząć wdrażanie szablonu **aplikacji połączonej logistyki IoT** Central. Dowiesz się, jak wdrożyć szablon, co jest zawarte po wyjęciu z pudełka i co możesz zrobić dalej.
+W tym samouczku pokazano, jak rozpocząć pracę, wdrażając IoT Central połączony szablon aplikacji **logistycznej** . Dowiesz się, jak wdrożyć szablon, co jest dołączone do pola i co warto zrobić dalej.
 
-W tym samouczku dowiesz się, jak,
+W ramach tego samouczka nauczysz się, jak,
 
-* tworzenie połączonej aplikacji logistycznej
-* przejść przez aplikację 
+* Tworzenie połączonej aplikacji logistycznej
+* Przechodzenie przez aplikację 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Do wdrożenia tej aplikacji nie są wymagane żadne szczególne wymagania wstępne
-* Zalecane, aby mieć subskrypcję platformy Azure, ale możesz nawet spróbować bez niej
+* Wdrożenie tej aplikacji nie wymaga określonych wymagań wstępnych
+* Zalecane jest posiadanie subskrypcji platformy Azure, ale możesz nawet spróbować bez niej
 
-## <a name="create-connected-logistics-application-template"></a>Tworzenie szablonu aplikacji logistycznej połączonej
+## <a name="create-connected-logistics-application-template"></a>Tworzenie szablonu połączonej aplikacji logistycznej
 
-Aplikację można tworzyć, wykonując następujące kroki
+Możesz utworzyć aplikację, wykonując następujące czynności
 
-1. Przejdź do witryny menedżera aplikacji usługi Azure IoT Central. Wybierz **pozycję Buduj** na lewym pasku nawigacyjnym, a następnie kliknij kartę **Handel detaliczny.**
-
-    > [!div class="mx-imgBorder"]
-    > ![Pulpit nawigacyjny połączonej logistyki](./media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png)
-
-2. Wybierz **pozycję Utwórz aplikację** w obszarze Aplikacja **Połączonej Logistyki**
-
-3. **Utwórz aplikację** otworzy nowy formularz aplikacji i wypełni żądane szczegóły, jak pokazano poniżej.
-   * **Nazwa aplikacji:** możesz użyć domyślnej sugerowanej nazwy lub wprowadzić przyjazną nazwę aplikacji.
-   * **URL:** możesz użyć sugerowanego domyślnego adresu URL lub wprowadzić przyjazny unikalny adres URL w pamięć. Następnie ustawienie domyślne jest zalecane, jeśli masz już subskrypcję platformy Azure. Możesz zacząć od 7-dniowego bezpłatnego planu cenowego i wybrać opcję konwersji na standardowy plan cenowy w dowolnym momencie przed wygaśnięciem bezpłatnego szlaku.
-   * **Informacje rozliczeniowe:** Szczegóły katalogu, subskrypcji platformy Azure i regionu są wymagane do inicjowania obsługi administracyjnej zasobów.
-   * **Utwórz**: Wybierz utwórz u dołu strony, aby wdrożyć aplikację.
+1. Przejdź do witryny sieci Web programu Azure IoT Central Application Manager. Wybierz pozycję **kompilacja** na pasku nawigacyjnym po lewej stronie, a następnie kliknij kartę **sprzedaż detaliczna** .
 
     > [!div class="mx-imgBorder"]
-    > ![Pulpit nawigacyjny połączonej logistyki](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png)
+    > ![Połączony pulpit nawigacyjny logistyki](./media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png)
+
+2. Wybierz pozycję **Utwórz aplikację** w ramach **połączonej aplikacji logistycznej**
+
+3. **Utwórz aplikację** spowoduje otwarcie formularza nowej aplikacji i zapełnienie żądanych szczegółów, jak pokazano poniżej.
+   * **Nazwa aplikacji**: możesz użyć domyślnej sugerowanej nazwy lub wprowadzić przyjazną nazwę aplikacji.
+   * **Adres URL**: możesz użyć sugerowanego domyślnego adresu URL lub wprowadzić przyjazny unikatowy adres URL, który można dopamiętać. Następnie ustawienie domyślne jest zalecane, jeśli masz już subskrypcję platformy Azure. Możesz zacząć od 7-dniowego planu cenowego w wersji próbnej i wybrać konwersję do standardowego planu cenowego w dowolnym momencie przed wygaśnięciem okresu bezpłatnego.
+   * **Informacje o rozliczeniach**: katalog, subskrypcja platformy Azure i szczegółowe informacje o regionie są wymagane do aprowizacji zasobów.
+   * **Utwórz**: wybierz pozycję Utwórz w dolnej części strony, aby wdrożyć aplikację.
 
     > [!div class="mx-imgBorder"]
-    > ![Informacje rozliczeniowe Connected Logistics](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png)
+    > ![Połączony pulpit nawigacyjny logistyki](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png)
 
-## <a name="walk-through-the-application"></a>Przejdź przez aplikację 
+    > [!div class="mx-imgBorder"]
+    > ![Informacje o rozwiązaniu dotyczące rozliczeń logistycznych](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png)
+
+## <a name="walk-through-the-application"></a>Przechodzenie przez aplikację 
 
 ## <a name="dashboard"></a>Pulpit nawigacyjny
 
-Po pomyślnym wdrożeniu szablonu aplikacji domyślny pulpit nawigacyjny jest portalem skoncentrowanym na połączonym operatorze logistycznym. Northwind Trader jest fikcyjnym dostawcą logistycznym zarządzającym flotą ładunków w oceanie i na lądzie. Na tym pulpicie nawigacyjnym zostaną wyświetlone dwie różne bramy zapewniające dane telemetryczne dotyczące wysyłek wraz ze skojarzonymi poleceniami, zadaniami i akcjami, które można wykonać. Ten pulpit nawigacyjny jest wstępnie skonfigurowany do prezentacji krytycznych działań operacyjnych urządzeń logistycznych.
-Pulpit nawigacyjny jest logicznie podzielony na dwie różne operacje zarządzania urządzeniami bramy, 
-   * Trasa logistyczna dla przesyłki samochodowej i szczegóły lokalizacji przesyłki oceanicznej jest istotnym elementem dla całego transportu multimodalnego
-   * Wyświetlanie stanu bramy & odpowiednich informacji 
+Po pomyślnym wdrożeniu szablonu aplikacji domyślny pulpit nawigacyjny jest podłączonym portalem ukierunkowanym na logistykę. Podmiot gospodarczy Northwind to fikcyjny dostawca logistyczny zarządzający flotą ładunku w oceanie i na lądzie. Na tym pulpicie nawigacyjnym zostaną wyświetlone dwie różne bramy dostarczające dane telemetryczne dotyczące wysyłek wraz z skojarzonymi poleceniami, zadaniami i akcjami, które można wykonać. Ten pulpit nawigacyjny jest wstępnie skonfigurowany do zaprezentowania krytycznych działań związanych z operacjami logistycznymi urządzenia.
+Pulpit nawigacyjny jest logicznie podzielony między dwie różne operacje zarządzania urządzeniami bramy. 
+   * Trasa logistyczna dla wysyłki i lokalizacji w układzie morskim jest istotnym elementem dla całego transportu wielomodalnego
+   * Wyświetlanie stanu bramy & istotnych informacji 
 
 > [!div class="mx-imgBorder"]
-> ![Pulpit nawigacyjny połączonej logistyki](./media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png)
+> ![Połączony pulpit nawigacyjny logistyki](./media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png)
 
-   * Można łatwo śledzić całkowitą liczbę bram, aktywnych i nieznanych tagów.
-   * Można wykonywać operacje zarządzania urządzeniami, takie jak aktualizacja oprogramowania układowego, wyłączanie czujnika, włączanie czujnika, próg aktualizacji czujnika, okresy aktualizacji danych telemetrycznych & aktualizowanie umów serwisowych urządzeń.
+   * Możesz łatwo śledzić łączną liczbę bram, aktywnych i nieznanych tagów.
+   * Można wykonywać operacje związane z zarządzaniem urządzeniami, takie jak oprogramowanie układowe aktualizacji, wyłączanie czujnika, Włączanie czujnika, próg czujnika aktualizacji, aktualizowanie interwałów telemetrii, & aktualizowanie umów usługi urządzenia.
    * Wyświetlanie zużycia baterii urządzenia
 
 > [!div class="mx-imgBorder"]
-> ![Pulpit nawigacyjny połączonej logistyki](./media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard2.png)
+> ![Połączony pulpit nawigacyjny logistyki](./media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard2.png)
 
 ## <a name="device-template"></a>Szablon urządzenia
 
-Kliknij kartę Szablony urządzeń, a zobaczysz model możliwości bramy. Model możliwości jest skonstruowany wokół dwóch różnych interfejsów **Telemetria bramy & właściwości** i **poleceń bramy**
+Kliknij kartę szablony urządzeń, a zobaczysz model możliwości bramy. Model możliwości jest strukturalny wokół dwóch różnych poleceń **& właściwości** i **bramy** bramy między bramami interfejsów
 
-**Właściwość & danych telemetrycznych bramy** — ten interfejs reprezentuje wszystkie dane telemetryczne związane z czujnikami, lokalizacją i informacjami o urządzeniu, a także możliwości właściwości bliźniaczej reprezentacji urządzenia, takie jak progi czujników & interwały aktualizacji.
-
-> [!div class="mx-imgBorder"]
-> ![Pulpit nawigacyjny połączonej logistyki](./media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate1.png)
-
-**Polecenia bramy** — ten interfejs organizuje wszystkie możliwości poleceń bramy
+**Właściwość & danych telemetrycznych bramy** — ten interfejs reprezentuje wszystkie dane telemetryczne związane z czujnikami, lokalizacją i informacjami o urządzeniach, a także funkcję właściwości sieci bliźniaczych, takich jak progi czujników & interwały aktualizacji.
 
 > [!div class="mx-imgBorder"]
-> ![Pulpit nawigacyjny połączonej logistyki](./media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate2.png)
+> ![Połączony pulpit nawigacyjny logistyki](./media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate1.png)
+
+**Polecenia bramy** — ten interfejs organizuje wszystkie możliwości polecenia bramy
+
+> [!div class="mx-imgBorder"]
+> ![Połączony pulpit nawigacyjny logistyki](./media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate2.png)
 
 ## <a name="rules"></a>Reguły
-Wybierz kartę reguł, aby wyświetlić dwie różne reguły, które istnieją w tym szablonie aplikacji. Reguły te są skonfigurowane do powiadomień e-mail do operatorów w celu dalszego dochodzenia.
+Wybierz kartę reguły, aby wyświetlić dwie różne reguły, które istnieją w tym szablonie aplikacji. Te reguły są skonfigurowane do wysyłania powiadomień e-mail do operatorów w celu przeprowadzenia dalszych badań.
  
-**Alert kradzieży bramy:** Ta reguła jest wyzwalana, gdy czujniki w trakcie podróży wykrywają nieoczekiwane światło. Operatorzy muszą zostać powiadomieni jak najszybciej w celu zbadania potencjalnej kradzieży.
+**Alert dotyczący kradzieży bramy**: Ta reguła jest wyzwalana w przypadku nieoczekiwanego wykrywania oświetlenia przez czujniki w trakcie podróży. Operatory muszą zostać powiadomione JNW, aby zbadać potencjalne kradzieży.
  
-**Brama nieodpowiadające:** Ta reguła wyzwoli się, jeśli brama nie zgłosi się do chmury przez dłuższy czas. Brama może nie odpowiadać z powodu trybu niskiego poziomu naładowania baterii, utraty łączności, kondycji urządzenia.
+**Brama nieodpowiadająca**: Ta reguła zostanie wyzwolona, jeśli Brama nie zgłosi do chmury przez długi czas. Brama może nie odpowiadać z powodu trybu niskiego poziomu naładowania baterii, utraty łączności i kondycji urządzenia.
 
 > [!div class="mx-imgBorder"]
-> ![Pulpit nawigacyjny połączonej logistyki](./media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png)
+> ![Połączony pulpit nawigacyjny logistyki](./media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png)
 
 ## <a name="jobs"></a>Stanowiska
-Wybierz kartę Zadania, aby wyświetlić pięć różnych zadań, które istnieją jako część tego szablonu aplikacji:
+Wybierz kartę zadania, aby zobaczyć pięć różnych zadań, które istnieją w ramach tego szablonu aplikacji:
 
 > [!div class="mx-imgBorder"]
-> ![Pulpit nawigacyjny połączonej logistyki](./media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png)
+> ![Połączony pulpit nawigacyjny logistyki](./media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png)
 
-Funkcji zadań można używać do wykonywania operacji w całej rozwiązaniach. W tym miejscu zadania są za pomocą poleceń urządzenia i podwójnej funkcji do wykonywania zadań, takich jak wyłączenie określonych czujników we wszystkich bramach lub modyfikowanie progu czujnika w zależności od trybu wysyłki i trasy. 
-   * Jest to standardowa operacja wyłączania czujników wstrząsów podczas transportu oceanicznego w celu oszczędzania baterii lub obniżenia progu temperatury podczas transportu w łańcuchu chłodniim. 
+Funkcja zadania służy do wykonywania operacji w całym rozwiązaniu. W tym miejscu zadania są używane do wykonywania zadań, takich jak wyłączenie określonych czujników dla wszystkich bram lub modyfikowanie progu czujnika w zależności od trybu wysyłki i trasy. 
+   * Jest to standardowa operacja, która umożliwia wyłączenie czujników wstrząsów podczas wysyłki w oceanie w celu zachowania baterii lub obniżenia progu temperatury podczas transportowania zimnego łańcucha. 
  
-   * Zadania umożliwiają operacje w całym systemie, takie jak aktualizowanie oprogramowania układowego na bramkach lub aktualizowanie umowy serwisowej w celu utrzymania bieżących czynności konserwacyjnych.
+   * Zadania umożliwiają wykonywanie operacji na całym systemie, takich jak aktualizowanie oprogramowania układowego na bramach lub aktualizowanie kontraktu usługi, aby zachować bieżące informacje o działaniach konserwacyjnych.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
-Jeśli nie zamierzasz nadal korzystać z tej aplikacji, usuń szablon aplikacji, odwiedzając**ustawienia aplikacji** **administracyjnej** > i kliknij przycisk **Usuń**.
+Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń szablon aplikacji, odwiedzając**Ustawienia aplikacji** **Administracja** > , a następnie kliknij przycisk **Usuń**.
 
 > [!div class="mx-imgBorder"]
-> ![Pulpit nawigacyjny połączonej logistyki](./media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png)
+> ![Połączony pulpit nawigacyjny logistyki](./media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png)
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [koncepcji połączonej logistyki](./architecture-connected-logistics.md)
-* Dowiedz się więcej o innych [szablonach detalicznych IoT Central](./overview-iot-central-retail.md)
-* Dowiedz się więcej o [przeglądzie IoT Central](../core/overview-iot-central.md)
+* Dowiedz się więcej o [koncepcji rozwiązanej logistyki](./architecture-connected-logistics.md)
+* Dowiedz się więcej na temat innych [szablonów detalicznych IoT Central](./overview-iot-central-retail.md)
+* Dowiedz się więcej o [IoT Central przegląd](../core/overview-iot-central.md)

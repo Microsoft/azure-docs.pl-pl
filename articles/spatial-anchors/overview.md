@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 5ebd29b5fb6fdedcdfbc434209b350512c4cd5dc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77657311"
 ---
 # <a name="azure-spatial-anchors-overview"></a>Omówienie usługi Azure Spatial Anchors
@@ -39,13 +39,13 @@ Usługa Azure Spatial Anchors składa się z usługi zarządzanej i zestawów SD
 Tworzenie pierwszej aplikacji z użyciem usługi Spatial Anchors.
 
 > [!div class="nextstepaction"]
-> [Jedność (HoloLens)](quickstarts/get-started-unity-hololens.md)
+> [Unity (HoloLens)](quickstarts/get-started-unity-hololens.md)
 
 > [!div class="nextstepaction"]
-> [Jedność (iOS)](quickstarts/get-started-unity-ios.md)
+> [Unity (iOS)](quickstarts/get-started-unity-ios.md)
 
 > [!div class="nextstepaction"]
-> [Jedność (Android)](quickstarts/get-started-unity-android.md)
+> [Unity (Android)](quickstarts/get-started-unity-android.md)
 
 > [!div class="nextstepaction"]
 > [iOS](quickstarts/get-started-ios.md)

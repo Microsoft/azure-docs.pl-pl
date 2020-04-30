@@ -1,5 +1,5 @@
 ---
-title: Omówienie zestawów skalowania maszyny wirtualnej platformy Azure
+title: Omówienie zestawów skalowania maszyn wirtualnych platformy Azure
 description: Dowiedz się więcej o zestawach skalowania maszyn wirtualnych platformy Azure i o sposobie automatycznego skalowania swoich aplikacji
 author: mimckitt
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: mimckitt
 ms.openlocfilehash: 03e3c7b5c0696069729d3067faad8ceb91fc611f
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81272546"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Co to są zestawy skalowania maszyn wirtualnych?
@@ -27,7 +27,7 @@ Zestawy skalowania maszyn wirtualnych platformy Azure zapewniają możliwości z
 - **Łatwe tworzenie wielu maszyn wirtualnych i zarządzanie nimi**
     - Jeśli masz wiele maszyn wirtualnych, na których działa Twoja aplikacja, ważne jest zachowanie spójnej konfiguracji w całym środowisku. Zapewniana wydajność aplikacji, rozmiar maszyny wirtualnej, konfiguracja dysku i instalacje aplikacji powinny być zgodne na wszystkich maszynach wirtualnych.
     - Za pomocą zestawów skalowania wszystkie wystąpienia maszyn wirtualnych są tworzone na podstawie tego samego podstawowego obrazu systemu operacyjnego i jego konfiguracji. Takie podejście umożliwia łatwe zarządzanie setkami maszyn wirtualnych bez dodatkowych zadań konfiguracji lub zarządzania siecią.
-    - Zestawy skalowania obsługują użycie [modułu równoważenia obciążenia platformy Azure](../load-balancer/load-balancer-overview.md) do podstawowej dystrybucji ruchu warstwy 4 i [bramy aplikacji platformy Azure](../application-gateway/application-gateway-introduction.md) dla bardziej zaawansowanej dystrybucji ruchu warstwy 7 i zakończenia protokołu TLS.
+    - Zestawy skalowania obsługują korzystanie z [modułu równoważenia obciążenia platformy Azure](../load-balancer/load-balancer-overview.md) na potrzeby dystrybucji ruchu w warstwie 4 i na [platformie Azure Application Gateway](../application-gateway/application-gateway-introduction.md) w celu uzyskania bardziej zaawansowanego rozkładu ruchu warstwy 7 i protokołu TLS.
 
 - **Zapewnia wysoką dostępność i odporność aplikacji**
     - Zestawy skalowania służą do uruchamiania wielu wystąpień aplikacji. Jeśli jedno z tych wystąpień maszyny wirtualnej ma problem, klienci nadal mają dostęp do aplikacji za pośrednictwem jednego z innych wystąpień maszyn wirtualnych z minimalną przerwą.
@@ -38,7 +38,7 @@ Zestawy skalowania maszyn wirtualnych platformy Azure zapewniają możliwości z
     - Funkcja automatycznego skalowania minimalizuje również liczbę niepotrzebnych wystąpień maszyn wirtualnych, na których jest uruchomiona Twoja aplikacja, gdy zapotrzebowanie jest niskie, przy czym klienci nadal mają zapewniony akceptowalny poziom wydajności w miarę wzrostu zapotrzebowania, a dodatkowe wystąpienia maszyn wirtualnych są automatycznie dodawane. Ta możliwość ułatwia obniżenie kosztów i efektywnie tworzy zasoby platformy Azure zgodnie z potrzebami.
 
 - **Działa na dużą skalę**
-    - Zestaw skalowania obsługuje maksymalnie 1000 wystąpień maszyn wirtualnych. Jeśli tworzysz i przekazujesz własne niestandardowe obrazy maszyn wirtualnych, limit wynosi 600 wystąpień maszyn wirtualnych.
+    - Zestaw skalowania obsługuje maksymalnie 1000 wystąpień maszyn wirtualnych. W przypadku utworzenia i przekazania własnych niestandardowych obrazów maszyn wirtualnych limit wynosi 600 wystąpień maszyn wirtualnych.
     - Aby uzyskać najlepszą wydajność dla obciążeń produkcyjnych, użyj funkcji [Dyski zarządzane platformy Azure](../virtual-machines/windows/managed-disks-overview.md).
 
 
@@ -54,11 +54,11 @@ Zestawy skalowania są tworzone z maszyn wirtualnych. Zestawy skalowania udostę
 
 Używanie zestawów skalowania nie pociąga za sobą dodatkowych kosztów. Płacisz tylko za podstawowe zasoby obliczeniowe, takie jak wystąpienia maszyn wirtualnych, moduł równoważenia obciążenia lub miejsce na dysku zarządzanym. Funkcje zarządzania i automatyzacji, takie jak skalowanie automatyczne i nadmiarowość, nie pociągają za sobą dodatkowych opłat za korzystanie z maszyn wirtualnych.
 
-## <a name="how-to-monitor-your-scale-sets"></a>Jak monitorować zestawy wag
+## <a name="how-to-monitor-your-scale-sets"></a>Jak monitorować zestawy skalowania
 
-Użyj [usługi Azure Monitor dla maszyn wirtualnych,](../azure-monitor/insights/vminsights-overview.md)który ma prosty proces dołączania i zautomatyzuje zbieranie ważnych liczników wydajności procesora CPU, pamięci, dysku i sieci z maszyn wirtualnych w zestawie skalowania. Zawiera również dodatkowe funkcje monitorowania i wstępnie zdefiniowane wizualizacje, które pomagają skupić się na dostępności i wydajności zestawów skalowania.
+Użyj [Azure monitor dla maszyn wirtualnych](../azure-monitor/insights/vminsights-overview.md), który ma prosty proces dołączania i automatyzuje zbieranie ważnych liczników wydajności procesora CPU, pamięci, dysku i sieci z maszyn wirtualnych w zestawie skalowania. Zawiera również dodatkowe możliwości monitorowania i wstępnie zdefiniowane wizualizacje, które ułatwiają skoncentrowanie się na dostępności i wydajności zestawów skalowania.
 
-Włącz monitorowanie [aplikacji zestawu skalowania maszyny wirtualnej](../azure-monitor/app/azure-vm-vmss-apps.md) za pomocą usługi Application Insights w celu zbierania szczegółowych informacji o aplikacji, w tym widoków strony, żądań aplikacji i wyjątków. Ponadto sprawdź dostępność aplikacji, konfigurując [test dostępności,](../azure-monitor/app/monitor-web-app-availability.md) aby symulować ruch użytkowników.
+Włącz monitorowanie [aplikacji zestawu skalowania maszyn wirtualnych](../azure-monitor/app/azure-vm-vmss-apps.md) za pomocą Application Insights, aby zbierać szczegółowe informacje o aplikacji, w tym o widokach stron, żądaniach aplikacji i wyjątkach. Sprawdź dostępność aplikacji, konfigurując [Test dostępności](../azure-monitor/app/monitor-web-app-availability.md) w celu zasymulowania ruchu użytkownika.
 
 ## <a name="next-steps"></a>Następne kroki
 Aby rozpocząć, utwórz swój pierwszy zestaw skalowania maszyn wirtualnych w witrynie Azure Portal.

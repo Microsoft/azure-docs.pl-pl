@@ -14,17 +14,17 @@ ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: 8d7fa8b8119ddf1769b36bcb55831047d6242470
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79240366"
 ---
 # <a name="about-api-management"></a>Informacje o usłudze API Management
 
 Za pomocą usługi API Management (APIM) możesz szybko tworzyć spójne i nowoczesne bramy interfejsów API dla istniejących usług zaplecza.
 
-Usługa API Management pomaga organizacjom publikować interfejsy API dla zewnętrznych, partnerskich i wewnętrznych deweloperów, aby odblokować potencjał swoich danych i usług. Firmy na całym świecie dążą do rozszerzenia operacji w postaci platformy cyfrowej, tworząc nowe kanały, znajdując nowych klientów i nakłaniając obecnych do głębszego zaangażowania. Usługa API Management zapewnia podstawowe możliwości, które pozwalają na pomyślne programowanie interfejsów API przez zaangażowanych deweloperów, a także udostępnia wgląd w kwestie biznesowe, analizy, zabezpieczenia i ochronę. Usługa Azure API Management umożliwia użycie dowolnego oprogramowania zaplecza i uruchomienie opartego na nim, w pełni funkcjonalnego programu interfejsu API.
+API Management pomaga organizacjom publikować interfejsy API dla deweloperów zewnętrznych, partnerskich i wewnętrznych, aby odblokować potencjał swoich danych i usług. Firmy na całym świecie dążą do rozszerzenia operacji w postaci platformy cyfrowej, tworząc nowe kanały, znajdując nowych klientów i nakłaniając obecnych do głębszego zaangażowania. Usługa API Management zapewnia podstawowe możliwości, które pozwalają na pomyślne programowanie interfejsów API przez zaangażowanych deweloperów, a także udostępnia wgląd w kwestie biznesowe, analizy, zabezpieczenia i ochronę. Usługa Azure API Management umożliwia użycie dowolnego oprogramowania zaplecza i uruchomienie opartego na nim, w pełni funkcjonalnego programu interfejsu API.
 
 Ten artykuł zawiera omówienie typowych scenariuszy dotyczących usługi APIM.  Omówiono w nim też krótko główne składniki systemu usługi APIM. W dalszej części artykułu bardziej szczegółowo omówiono poszczególne składniki.
 
@@ -53,7 +53,7 @@ System składa się z następujących składników:
   * Konfigurowanie zasad, takich jak przydziały lub przekształcenia w interfejsach API.
   * Uzyskiwanie szczegółowych informacji analitycznych.
   * Zarządzanie użytkownikami.
-* **Portal dla deweloperów** służy jako główna obecność w sieci Web dla programistów, gdzie mogą:
+* **Portal dla deweloperów** służy jako główna obecność w sieci Web dla deweloperów, gdzie mogą:
   
   * Czytanie dokumentacji interfejsu API.
   * Wypróbowanie interfejsu API za pośrednictwem interakcyjnej konsoli.
@@ -99,7 +99,7 @@ Kiedy deweloperzy subskrybują produkt, otrzymują klucz podstawowy i pomocniczy
 
 Aby uzyskać więcej informacji, zobacz [How to create or invite developers][How to create or invite developers] (Jak utworzyć i zaprosić deweloperów) i [How to associate groups with developers][How to associate groups with developers] (Jak skojarzyć grupy z deweloperami).
 
-## <a name="policies"></a><a name="policies"> </a> Zasady działalności
+## <a name="policies"></a><a name="policies"> </a> Zasady
 Zasady są zaawansowaną możliwością usługi API Management, która pozwala witrynie Azure Portal zmieniać zachowanie interfejsu API za pomocą konfiguracji. Zasady to zbiór instrukcji, które są wykonywane sekwencyjnie podczas żądania lub odpowiedzi interfejsu API. Popularne instrukcje obejmują konwersję z formatu XML na format JSON i ograniczanie liczby wywołań, aby zmniejszyć liczbę wywołań przychodzących od dewelopera. Ponadto dostępnych jest wiele innych zasad.
 
 Wyrażenia zasad mogą służyć jako wartości atrybutów lub wartości tekstowe w dowolnej z zasad usługi API Management, o ile w zasadach nie określono inaczej. Niektóre zasady, np. [Przepływ sterowania](/azure/api-management/api-management-advanced-policies#choose) i [Ustawianie zmiennej](/azure/api-management/api-management-advanced-policies#set-variable), są oparte na wyrażeniach zasad. Aby uzyskać więcej informacji, zobacz tematy [Advanced policies](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) (Zaawansowane zasady) i [Policy expressions](/azure/api-management/api-management-policy-expressions) (Wyrażenia zasad).

@@ -13,13 +13,13 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/14/2019
 ms.openlocfilehash: 3aeeb989d15dc74849c85fa58cbefa891809f3c5
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80347084"
 ---
-# <a name="quickstart-create-an-azure-notification-hub-in-the-azure-portal"></a>Szybki start: tworzenie centrum powiadomień platformy Azure w witrynie Azure portal 
+# <a name="quickstart-create-an-azure-notification-hub-in-the-azure-portal"></a>Szybki Start: tworzenie centrum powiadomień platformy Azure w Azure Portal 
 Usługa Azure Notification Hubs oferuje łatwy w użyciu, skalowany w poziomie mechanizm, który umożliwia wysyłanie powiadomień do dowolnej platformy (iOS, Android, Windows, Kindle, Baidu, itp.) z poziomu dowolnego zaplecza (w chmurze lub w środowisku lokalnym). Aby uzyskać więcej informacji na temat usługi, zobacz [Co to jest usługa Azure Notification Hubs?](notification-hubs-push-notification-overview.md)
 
 W tym przewodniku Szybki start utworzysz centrum powiadomień w witrynie Azure Portal. Pierwsza sekcja zawiera kroki tworzenia przestrzeni nazw usługi Notification Hubs i centrum w tej przestrzeni nazw. Druga sekcja zawiera kroki tworzenia centrum powiadomień w istniejącej przestrzeni nazw usługi Notification Hubs. 
@@ -32,7 +32,7 @@ W tej sekcji utworzysz przestrzeń nazw i centrum w przestrzeni nazw.
 ## <a name="create-a-notification-hub-in-an-existing-namespace"></a>Tworzenie centrum powiadomień w istniejącej przestrzeni nazw
 W tej sekcji utworzysz centrum powiadomień w istniejącej przestrzeni nazw. 
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Wybierz pozycję **Wszystkie usługi** w menu po lewej stronie, wyszukaj pozycję **Centrum powiadomień** i wybierz **gwiazdkę** (`*`) obok pozycji **Przestrzenie nazw centrum powiadomień**, aby dodać je do sekcji **ULUBIONE** w menu po lewej stronie. Wybierz pozycję **Przestrzenie nazw centrum powiadomień**. 
 
       ![Azure Portal — wybieranie pozycji Przestrzenie nazw centrum powiadomień](./media/create-notification-hub-portal/select-notification-hub-namespaces-all-services.png)

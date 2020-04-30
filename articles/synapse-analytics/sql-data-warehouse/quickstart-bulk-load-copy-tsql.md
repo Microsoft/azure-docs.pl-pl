@@ -1,6 +1,6 @@
 ---
-title: 'Szybki start: zbiorcze ładowanie danych przy użyciu pojedynczej instrukcji T-SQL'
-description: Dane obciążenia zbiorczego przy użyciu instrukcji COPY
+title: 'Szybki Start: ładowanie danych zbiorczo przy użyciu jednej instrukcji języka T-SQL'
+description: Ładowanie zbiorcze danych za pomocą instrukcji COPY
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,33 +12,33 @@ ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: d39b3085a802ca0ff745ab1f63f4a8fba966ea48
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81115003"
 ---
-# <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Szybki start: dane ładowania zbiorczego przy użyciu instrukcji COPY
+# <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Szybki Start: ładowanie danych przy użyciu instrukcji COPY
 
-W tym przewodniku Szybki start zbiorcze załadować dane do puli SQL przy użyciu proste i elastyczne [COPY instrukcji](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) dla pozyskiwania danych o wysokiej przepływności. Instrukcja COPY jest zalecanym narzędziem ładowania, ponieważ umożliwia bezproblemowe i elastyczne ładowanie danych, zapewniając funkcjonalność:
+W tym przewodniku szybki start załadujesz dane do puli SQL przy użyciu prostej i elastycznej [instrukcji Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) do pozyskiwania danych o wysokiej przepływności. Instrukcja COPY jest zalecanym narzędziem do ładowania, ponieważ pozwala bezproblemowo i elastycznie ładować dane przez zapewnienie funkcjonalności:
 
-- Zezwalaj użytkownikom o niższych uprawnieniach na ładowanie bez konieczności stosowania ścisłych uprawnień CONTROL w magazynie danych
-- Wykorzystaj tylko jedną instrukcję T-SQL bez konieczności tworzenia dodatkowych obiektów bazy danych
-- Korzystanie z drobniejszego modelu uprawnień bez ujawniania kluczy konta magazynu przy użyciu sygnatur dostępu współdzielonego (SAS)
+- Zezwalaj niższym uprzywilejowanym użytkownikom na ładowanie bez konieczności stosowania ścisłych kontroli w magazynie danych
+- Wykorzystanie tylko jednej instrukcji języka T-SQL bez konieczności tworzenia dodatkowych obiektów bazy danych
+- Wykorzystanie bardziej precyzyjnego modelu uprawnień bez uwidaczniania kluczy konta magazynu za pomocą sygnatur dostępu współdzielonego (SAS)
 - Określ inne konto magazynu dla lokalizacji ERRORFILE (REJECTED_ROW_LOCATION)
-- Dostosowywanie wartości domyślnych dla każdej kolumny docelowej i określanie pól danych źródłowych do załadowania do określonych kolumn docelowych
-- Określanie niestandardowego terminatora wiersza dla plików CSV
-- Ograniczniki ciągów ucieczki, pól i wierszy dla plików CSV
-- Korzystanie z formatów SQL Server Date dla plików CSV
+- Dostosuj wartości domyślne dla każdej kolumny docelowej i Określ pola danych źródłowych do załadowania do określonych kolumn docelowych
+- Określ niestandardowy terminator wiersza dla plików CSV
+- Ciąg ucieczki, pole i ograniczniki wierszy dla plików CSV
+- Wykorzystanie SQL Server formatach dat dla plików CSV
 - Określanie symboli wieloznacznych i wielu plików w ścieżce lokalizacji magazynu
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Ten przewodnik Szybki start zakłada, że masz już pulę SQL. Jeśli pula SQL nie została utworzona, użyj przewodnika Szybki start [utwórz i połącz — portal.](create-data-warehouse-portal.md)
+W tym przewodniku szybki start założono, że masz już pulę SQL. Jeśli nie utworzono puli SQL, Skorzystaj z przewodnika Szybki Start dotyczącego [tworzenia i łączenia z portalem](create-data-warehouse-portal.md) .
 
 ## <a name="create-the-target-table"></a>Tworzenie tabeli docelowej
 
-W tym przykładzie będziemy wczytywania danych z zestawu danych taksówki w Nowym Jorku. Załadujemy tabelę o nazwie Trip, która reprezentuje przejazdy taksówką w ciągu jednego roku. Aby utworzyć tabelę, uruchom następujące czynności:
+W tym przykładzie będziemy ładować dane z nowego zestawu danych programu York. Załadujemy tabelę o nazwie rejs, która reprezentuje podróże w jednym roku. Uruchom następujące kroki, aby utworzyć tabelę:
 
 ```sql
 CREATE TABLE [dbo].[Trip]
@@ -74,9 +74,9 @@ WITH
 );
 ```
 
-## <a name="run-the-copy-statement"></a>Uruchamianie instrukcji COPY
+## <a name="run-the-copy-statement"></a>Uruchom instrukcję COPY
 
-Uruchom następującą instrukcję COPY, która będzie ładować dane z konta magazynu obiektów blob platformy Azure do tabeli Trip.
+Uruchom następującą instrukcję COPY, która spowoduje załadowanie danych z konta usługi Azure Blob Storage do tabeli rejsów.
 
 ```sql
 COPY INTO [dbo].[Trip] FROM 'https://nytaxiblob.blob.core.windows.net/2013/Trip2013/'
@@ -88,7 +88,7 @@ WITH (
 
 ## <a name="monitor-the-load"></a>Monitorowanie obciążenia
 
-Sprawdź, czy obciążenie jest postęp, okresowo uruchamiając następującą kwerendę:
+Sprawdź, czy obciążenie jest wykonywane przez okresowe uruchamianie następującej kwerendy:
 
 ```sql
 SELECT  r.[request_id]                           
@@ -110,5 +110,5 @@ GROUP BY r.[request_id]
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać najlepsze rozwiązania dotyczące ładowania danych, zobacz [Najważniejsze wskazówki dotyczące ładowania danych](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data).
-- Aby uzyskać informacje na temat zarządzania zasobami dla obciążeń danych, zobacz [Izolacja obciążenia](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql). 
+- Aby uzyskać najlepsze rozwiązania dotyczące ładowania danych, zobacz [najlepsze rozwiązania dotyczące ładowania danych](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data).
+- Aby uzyskać informacje na temat sposobu zarządzania zasobami na potrzeby ładowania danych, zobacz [izolacja obciążenia](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql). 

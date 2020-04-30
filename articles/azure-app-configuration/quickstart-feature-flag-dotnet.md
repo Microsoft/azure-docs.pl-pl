@@ -1,6 +1,6 @@
 ---
-title: Szybki start do dodawania flag funkcji do aplikacji .NET Framework | Dokumenty firmy Microsoft | Dokumenty firmy Microsoft
-description: Szybki start do dodawania flag funkcji do aplikacji platformy .NET Framework i zarządzania nimi w konfiguracji aplikacji platformy Azure
+title: Przewodnik Szybki Start dotyczący dodawania flag funkcji do aplikacji .NET Framework | Microsoft Docs | Microsoft Docs
+description: Przewodnik Szybki Start dotyczący dodawania flag funkcji do .NET Framework aplikacji i zarządzania nimi w konfiguracji aplikacji platformy Azure
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -15,46 +15,46 @@ ms.workload: tbd
 ms.date: 10/21/2019
 ms.author: lcozzens
 ms.openlocfilehash: 5ea9749c07aadc7037e753160e9b053992bebae2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77619313"
 ---
-# <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Szybki start: dodawanie flag funkcji do aplikacji .NET Framework
+# <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji .NET Framework
 
-W tym przewodniku Szybki start można włączyć konfigurację aplikacji platformy Azure do aplikacji .NET Framework, aby utworzyć kompleksową implementację zarządzania funkcjami. Za pomocą usługi Konfiguracja aplikacji można centralnie przechowywać wszystkie flagi funkcji i kontrolować ich stany. 
+W tym przewodniku szybki start dołączysz konfigurację aplikacji platformy Azure do aplikacji .NET Framework, aby utworzyć kompleksową implementację zarządzania funkcjami. Za pomocą usługi konfiguracji aplikacji można centralnie przechowywać wszystkie flagi funkcji i kontrolować ich Stany. 
 
-Biblioteki zarządzania funkcjami platformy .NET rozszerzają strukturę o kompleksową obsługę flag funkcji. Biblioteki te są zbudowane na systemie konfiguracji platformy .NET. Bezproblemowo integrują się z konfiguracją aplikacji za pośrednictwem dostawcy konfiguracji platformy .NET.
+Biblioteki zarządzania funkcjami platformy .NET umożliwiają rozbudowanie platformy z kompleksową obsługą flag funkcji. Te biblioteki są zbudowane na podstawie systemu konfiguracji platformy .NET. Zapewniają one bezproblemowe integrację z konfiguracją aplikacji za pomocą dostawcy konfiguracji platformy .NET.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure — [utwórz bezpłatną subskrypcję](https://azure.microsoft.com/free/)
+- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
-- [.NET Framework 4.8](https://dotnet.microsoft.com/download)
+- [.NET Framework 4,8](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>Tworzenie sklepu konfiguracji aplikacji
+## <a name="create-an-app-configuration-store"></a>Tworzenie magazynu konfiguracji aplikacji
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Wybierz **pozycję Menedżer** > operacji **+Dodaj,** aby dodać flagę operacji o nazwie `Beta`.
+6. Wybierz pozycję **Menedżer** > funkcji **+ Dodaj** , aby dodać flagę `Beta`funkcji o nazwie.
 
     > [!div class="mx-imgBorder"]
-    > ![Włącz flagę funkcji o nazwie Beta](media/add-beta-feature-flag.png)
+    > ![Włącz flagę funkcji o nazwie beta](media/add-beta-feature-flag.png)
 
-    Zostaw `label` niezdefiniowane na razie.
+    Dla `label` tej pory pozostaw niezdefiniowane.
 
 ## <a name="create-a-net-console-app"></a>Tworzenie aplikacji konsolowej platformy .NET
 
-1. Uruchom program Visual Studio i wybierz pozycję **Plik** > **nowego** > **projektu**.
+1. Uruchom program Visual Studio i wybierz pozycję **plik** > **Nowy** > **projekt**.
 
-1. W **programie Tworzenie nowego projektu**filtruj typ projektu **konsoli** i kliknij aplikację Console **App (.NET Framework).** Kliknij przycisk **alej**.
+1. W obszarze **Utwórz nowy projekt**odfiltruj typ projektu **konsoli** i kliknij pozycję **Aplikacja konsolowa (.NET Framework)**. Kliknij przycisk **Dalej**.
 
-1. W **obszarze Konfiguruj nowy projekt**wprowadź nazwę projektu. W obszarze **Framework**wybierz opcję **.NET Framework 4.8** lub nowszą. Kliknij przycisk **Utwórz**.
+1. W obszarze **Konfigurowanie nowego projektu**wprowadź nazwę projektu. W obszarze **Struktura**wybierz opcję **.NET Framework 4,8** lub wyższą. Kliknij przycisk **Utwórz**.
 
-## <a name="connect-to-an-app-configuration-store"></a>Łączenie się ze sklepem konfiguracji aplikacji
+## <a name="connect-to-an-app-configuration-store"></a>Nawiązywanie połączenia z magazynem konfiguracji aplikacji
 
-1. Kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Zarządzaj pakietami NuGet**. Na karcie **Przeglądaj** wyszukaj i dodaj do projektu następujące pakiety NuGet. Jeśli nie możesz ich znaleźć, zaznacz pole wyboru **Dołącz wydanie wstępne.**
+1. Kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Zarządzaj pakietami NuGet**. Na karcie **Przeglądaj** Wyszukaj i Dodaj następujące pakiety NuGet do swojego projektu. Jeśli nie możesz ich znaleźć, zaznacz pole wyboru **Uwzględnij wersję wstępną** .
 
     ```
     Microsoft.Extensions.DependencyInjection
@@ -62,7 +62,7 @@ Biblioteki zarządzania funkcjami platformy .NET rozszerzają strukturę o kompl
     Microsoft.FeatureManagement
     ```
 
-1. Otwórz *Program.cs* i dodaj następujące instrukcje:
+1. Otwórz *program.cs* i Dodaj następujące instrukcje:
 
     ```csharp
     using Microsoft.Extensions.DependencyInjection;
@@ -71,7 +71,7 @@ Biblioteki zarządzania funkcjami platformy .NET rozszerzają strukturę o kompl
     using Microsoft.FeatureManagement;
     ```
 
-1. Zaktualizuj `Main` metodę, aby połączyć się z konfiguracją `UseFeatureFlags` aplikacji, określając opcję, tak aby flagi funkcji były pobierane. Następnie wyświetl komunikat, `Beta` jeśli flaga obiektu jest włączona.
+1. Zaktualizuj `Main` metodę, aby połączyć się z konfiguracją aplikacji, `UseFeatureFlags` określając opcję, aby można było pobrać flagi funkcji. Następnie Wyświetl komunikat, jeśli flaga `Beta` funkcji jest włączona.
 
     ```csharp
         public static async Task Main(string[] args)
@@ -103,7 +103,7 @@ Biblioteki zarządzania funkcjami platformy .NET rozszerzają strukturę o kompl
 
 ## <a name="build-and-run-the-app-locally"></a>Lokalne kompilowanie i uruchamianie aplikacji
 
-1. Ustaw zmienną środowiskową o nazwie **ConnectionString** na ciąg połączenia magazynu konfiguracji aplikacji. Jeśli używasz wiersza polecenia systemu Windows, uruchom następujące polecenie:
+1. Ustaw zmienną środowiskową o nazwie **ConnectionString** na parametry połączenia magazynu konfiguracji aplikacji. Jeśli używasz wiersza polecenia systemu Windows, uruchom następujące polecenie:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -111,9 +111,9 @@ Biblioteki zarządzania funkcjami platformy .NET rozszerzają strukturę o kompl
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-1. Uruchom ponownie program Visual Studio, aby umożliwić zmianę, aby wejść w życie. 
+1. Uruchom ponownie program Visual Studio, aby zmiany zaczęły obowiązywać. 
 
-1. Naciśnij klawisze Ctrl + F5, aby utworzyć i uruchomić aplikację konsoli.
+1. Naciśnij kombinację klawiszy CTRL + F5, aby skompilować i uruchomić aplikację konsolową.
 
     ![Aplikacja z włączoną flagą funkcji](./media/quickstarts/dotnet-app-feature-flag.png)
 
@@ -123,7 +123,7 @@ Biblioteki zarządzania funkcjami platformy .NET rozszerzają strukturę o kompl
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start utworzono flagę funkcji w konfiguracji aplikacji i użyto jej z aplikacją konsoli .NET Framework. Aby dowiedzieć się, jak dynamicznie aktualizować flagi funkcji i inne wartości konfiguracji bez ponownego uruchamiania aplikacji, przejdź do następnego samouczka.
+W tym przewodniku szybki start utworzono flagę funkcji w konfiguracji aplikacji i użyto jej z aplikacją konsolową .NET Framework. Aby dowiedzieć się, jak dynamicznie aktualizować flagi funkcji i inne wartości konfiguracji bez ponownego uruchamiania aplikacji, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
 > [Włącz konfigurację dynamiczną](./enable-dynamic-configuration-dotnet.md)

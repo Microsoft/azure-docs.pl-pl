@@ -1,6 +1,6 @@
 ---
-title: Przechowywanie wyników kwerend do magazynu
-description: W tym artykule dowiesz się, jak przechowywać wyniki kwerend do magazynu przy użyciu sql na żądanie (wersja zapoznawcza).
+title: Przechowywanie wyników zapytania w magazynie
+description: W tym artykule dowiesz się, jak przechowywać wyniki zapytania do magazynu przy użyciu usługi SQL na żądanie (wersja zapoznawcza).
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -10,29 +10,29 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 462185feb2b9cbebd17ce9cba54c2b23deea6c75
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81425147"
 ---
-# <a name="store-query-results-to-storage-using-sql-on-demand-preview-using-azure-synapse-analytics"></a>Przechowywanie wyników kwerend do magazynu przy użyciu sql na żądanie (wersja zapoznawcza) przy użyciu usługi Azure Synapse Analytics
+# <a name="store-query-results-to-storage-using-sql-on-demand-preview-using-azure-synapse-analytics"></a>Przechowywanie wyników zapytania w magazynie przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) przy użyciu usługi Azure Synapse Analytics
 
-W tym artykule dowiesz się, jak przechowywać wyniki kwerend do magazynu przy użyciu sql on-demand (wersja zapoznawcza).
+W tym artykule dowiesz się, jak przechowywać wyniki zapytania do magazynu przy użyciu usługi SQL na żądanie (wersja zapoznawcza).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Pierwszym krokiem jest przejrzenie poniższych artykułów i upewnienie się, że spełniasz wymagania wstępne:
+Pierwszym krokiem jest zapoznanie się z artykułami poniżej i upewnienie się, że spełniono wymagania wstępne:
 
-- [Konfiguracja po raz pierwszy](query-data-storage.md#first-time-setup)
+- [Konfiguracja pierwszego czasu](query-data-storage.md#first-time-setup)
 - [Wymagania wstępne](query-data-storage.md#prerequisites)
 
-## <a name="create-external-table-as-select"></a>Tworzenie tabeli zewnętrznej w miarę wyboru
+## <a name="create-external-table-as-select"></a>Utwórz tabelę zewnętrzną jako wybraną
 
-Instrukcji CREATE EXTERNAL TABLE AS SELECT (CETAS) można użyć do przechowywania wyników kwerendy w magazynie.
+Możesz użyć instrukcji CREATE EXTERNAL TABLE AS SELECT (CETAS), aby przechowywać wyniki zapytania do magazynu.
 
 > [!NOTE]
-> Zmień pierwszy wiersz w kwerendzie, czyli [mydbname], aby użyć utworzonej bazy danych. Jeśli baza danych nie została utworzona, przeczytaj artykuł [Pierwsza konfiguracja](query-data-storage.md#first-time-setup).
+> Zmień pierwszy wiersz zapytania, na przykład [mydbname], tak aby była używana utworzona baza danych. Jeśli baza danych nie została utworzona, zapoznaj się z [konfiguracją pierwszego czasu](query-data-storage.md#first-time-setup).
 
 ```sql
 USE [mydbname];
@@ -69,12 +69,12 @@ FROM
 
 ```
 
-## <a name="use-a-external-table-created"></a>Korzystanie z utworzonej tabeli zewnętrznej
+## <a name="use-a-external-table-created"></a>Użyj utworzonej tabeli zewnętrznej
 
-Można użyć tabeli zewnętrznej utworzonej za pośrednictwem CETAS jak zwykłej tabeli zewnętrznej.
+Możesz użyć tabeli zewnętrznej utworzonej za pomocą CETAS, jak zwykła tabela zewnętrzna.
 
 > [!NOTE]
-> Zmień pierwszy wiersz w kwerendzie, czyli [mydbname], aby użyć utworzonej bazy danych. Jeśli baza danych nie została utworzona, przeczytaj artykuł [Pierwsza konfiguracja](query-data-storage.md#first-time-setup).
+> Zmień pierwszy wiersz zapytania, na przykład [mydbname], tak aby była używana utworzona baza danych. Jeśli baza danych nie została utworzona, zapoznaj się z [konfiguracją pierwszego czasu](query-data-storage.md#first-time-setup).
 
 ```sql
 USE [mydbname];
@@ -91,4 +91,4 @@ ORDER BY
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać informacje na temat sposobu wykonywania zapytań o różne typy plików, zobacz [pojedyncze pliki CSV kwerendy,](query-single-csv-file.md) [pliki parkietu kwerendy](query-parquet-files.md)i artykuły [z plikami JSON kwerendy.](query-json-files.md)
+Aby uzyskać informacje na temat wykonywania zapytań o różne typy plików, zapoznaj się z artykułami [Single CSV pliku](query-single-csv-file.md), [Query Parquet Files](query-parquet-files.md)i [plików zapytania JSON](query-json-files.md) .

@@ -1,6 +1,6 @@
 ---
-title: Włącz zaporę aplikacji sieci Web — interfejs wiersza polecenia platformy Azure
-description: Dowiedz się, jak ograniczyć ruch internetowy za pomocą Zapory aplikacji sieci Web w bramie aplikacji przy użyciu interfejsu wiersza polecenia platformy Azure.
+title: Włączanie zapory aplikacji sieci Web — interfejs wiersza polecenia platformy Azure
+description: Dowiedz się, jak ograniczyć ruch internetowy za pomocą zapory aplikacji sieci Web w bramie aplikacji przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -8,10 +8,10 @@ ms.date: 08/21/2019
 ms.author: victorh
 ms.topic: overview
 ms.openlocfilehash: 4882ac51af271625b8e61d862890beb6d5f63213
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80240077"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Włączanie zapory aplikacji sieci Web przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -26,15 +26,15 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 > * Tworzenie zestawu skalowania maszyn wirtualnych
 > * Tworzenie konta magazynu i konfigurowanie diagnostyki
 
-![Przykład Zapory aplikacji sieci Web](../media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
+![Przykład zapory aplikacji sieci Web](../media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 
-Jeśli wolisz, możesz wykonać tę procedurę przy użyciu [programu Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
+Jeśli wolisz, możesz wykonać tę procedurę przy użyciu [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować i używać interfejsu wiersza polecenia lokalnie, ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -139,7 +139,7 @@ az vmss extension set \
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Tworzenie konta magazynu i konfigurowanie diagnostyki
 
-W tym artykule brama aplikacji używa konta magazynu do przechowywania danych do celów wykrywania i zapobiegania. Do rejestrowania danych można też użyć dzienników usługi Azure Monitor lub usługi Event Hub. 
+W tym artykule Brama aplikacji używa konta magazynu do przechowywania danych na potrzeby wykrywania i zapobiegania. Do rejestrowania danych można też użyć dzienników usługi Azure Monitor lub usługi Event Hub. 
 
 ### <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
@@ -156,7 +156,7 @@ az storage account create \
 
 ### <a name="configure-diagnostics"></a>Konfigurowanie diagnostyki
 
-Skonfiguruj diagnostykę do rejestrowania danych w dziennikach ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog i ApplicationGatewayFirewallLog. Zamień `<subscriptionId>` identyfikator subskrypcji, a następnie skonfiguruj diagnostykę za pomocą [ustawień diagnostycznych monitora AZ](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create).
+Skonfiguruj diagnostykę do rejestrowania danych w dziennikach ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog i ApplicationGatewayFirewallLog. Zastąp `<subscriptionId>` ciąg identyfikatorem subskrypcji, a następnie skonfiguruj diagnostykę przy użyciu [AZ monitor Diagnostic-Settings Create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create).
 
 ```azurecli-interactive
 appgwid=$(az network application-gateway show --name myAppGateway --resource-group myResourceGroupAG --query id -o tsv)

@@ -1,6 +1,6 @@
 ---
-title: Tożsamość zarządzana w obszarze roboczym usługi Azure Synapse
-description: Artykuł wyjaśniający tożsamość zarządzaną w obszarze roboczym Usługi Azure Synapse
+title: Zarządzana tożsamość w obszarze roboczym usługi Azure Synapse
+description: Artykuł objaśniający tożsamość zarządzaną w obszarze roboczym usługi Azure Synapse
 author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
@@ -8,53 +8,53 @@ ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ms.openlocfilehash: ee0e6249acf3fbbab369d42ae691a5a826df1ee8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81425119"
 ---
-# <a name="azure-synapse-workspace-managed-identity-preview"></a>Tożsamość zarządzana obszaru roboczego Usługi Azure Synapse (wersja zapoznawcza)
+# <a name="azure-synapse-workspace-managed-identity-preview"></a>Tożsamość zarządzana obszaru roboczego usługi Azure Synapse (wersja zapoznawcza)
 
-W tym artykule dowiesz się o tożsamości zarządzanej w obszarze roboczym Usługi Azure Synapse.
+W tym artykule omówiono tożsamość zarządzaną w obszarze roboczym usługi Azure Synapse.
 
-## <a name="managed-identities"></a>Tożsamości zarządzane
+## <a name="managed-identities"></a>Zarządzane tożsamości
 
-Tożsamość zarządzana dla zasobów platformy Azure jest funkcją usługi Azure Active Directory. Funkcja ta udostępnia usługom platformy Azure automatycznie zarządzaną tożsamość w usłudze Azure AD. Za pomocą funkcji Tożsamość zarządzana można uwierzytelniać do dowolnej usługi obsługującej uwierzytelnianie usługi Azure AD.
+Zarządzana tożsamość zasobów platformy Azure to funkcja Azure Active Directory. Funkcja ta udostępnia usługom platformy Azure automatycznie zarządzaną tożsamość w usłudze Azure AD. Można użyć funkcji tożsamości zarządzanej do uwierzytelniania w dowolnej usłudze, która obsługuje uwierzytelnianie w usłudze Azure AD.
 
-Tożsamości zarządzane dla zasobów platformy Azure to nowa nazwa usługi wcześniej znanej jako tożsamość usługi zarządzanej (MSI). Zobacz [Tożsamości zarządzane,](../../active-directory/managed-identities-azure-resources/overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) aby dowiedzieć się więcej.
+Zarządzane tożsamości dla zasobów platformy Azure to nowa nazwa usługi znana wcześniej jako tożsamość usługi zarządzanej (MSI). Zobacz [zarządzane tożsamości](../../active-directory/managed-identities-azure-resources/overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , aby dowiedzieć się więcej.
 
-## <a name="azure-synapse-workspace-managed-identity"></a>Tożsamość zarządzana obszarem roboczym usługi Azure Synapse
+## <a name="azure-synapse-workspace-managed-identity"></a>Tożsamość zarządzana obszaru roboczego usługi Azure Synapse
 
-Tożsamość zarządzana przypisana do systemu jest tworzona dla obszaru roboczego usługi Azure Synapse podczas tworzenia obszaru roboczego.
+Podczas tworzenia obszaru roboczego tworzona jest tożsamość zarządzana przypisana przez system dla obszaru roboczego usługi Azure Synapse.
 
 >[!NOTE]
->Ta tożsamość zarządzana obszaru roboczego będzie określana jako tożsamość zarządzana za pośrednictwem pozostałej części tego dokumentu.
+>Ta tożsamość zarządzana w obszarze roboczym będzie określana jako tożsamość zarządzana w pozostałej części tego dokumentu.
 
-Usługa Azure Synapse używa tożsamości zarządzanej do organizowania potoków. Cykl życia tożsamości zarządzanej jest bezpośrednio powiązany z obszarem roboczym usługi Azure Synapse. Jeśli usuniesz obszar roboczy Usługi Azure Synapse, tożsamość zarządzana jest również czyszczona.
+Usługa Azure Synapse używa zarządzanej tożsamości do organizowania potoków. Cykl życia zarządzanej tożsamości jest bezpośrednio powiązany z obszarem roboczym usługi Azure Synapse. Po usunięciu obszaru roboczego Azure Synapse, tożsamość zarządzana jest również czyszczona.
 
-Tożsamość zarządzana obszaru roboczego wymaga uprawnień do wykonywania operacji w potokach. Identyfikator obiektu lub nazwę obszaru roboczego Usługi Azure Synapse można użyć, aby znaleźć tożsamość zarządzana podczas udzielania uprawnień.
+Tożsamość zarządzana w obszarze roboczym musi mieć uprawnienia do wykonywania operacji w potokach. Możesz użyć identyfikatora obiektu lub nazwy obszaru roboczego usługi Azure Synapse, aby znaleźć tożsamość zarządzaną podczas udzielania uprawnień.
 
-## <a name="retrieve-managed-identity-in-azure-portal"></a>Pobieranie tożsamości zarządzanej w witrynie Azure portal
+## <a name="retrieve-managed-identity-in-azure-portal"></a>Pobierz tożsamość zarządzaną w Azure Portal
 
-Tożsamość zarządzana można pobrać w witrynie Azure portal. Otwórz obszar roboczy usługi Azure Synapse w witrynie Azure portal i wybierz **omówienie** z lewej strony nawigacji. Identyfikator obiektu tożsamości zarządzanej jest wyświetlany na ekranie głównym.
+Tożsamość zarządzaną można pobrać w Azure Portal. Otwórz obszar roboczy usługi Azure Synapse w Azure Portal i wybierz pozycję **Przegląd** na lewym pasku nawigacyjnym. Identyfikator obiektu tożsamości zarządzanej jest wyświetlany na ekranie głównym.
 
 ![Identyfikator obiektu tożsamości zarządzanej](./media/synapse-workspace-managed-identity/workspace-managed-identity-1.png)
 
-Informacje o tożsamości zarządzanej będą również wyświetlane podczas tworzenia połączonej usługi obsługującej uwierzytelnianie tożsamości zarządzanej z usługi Azure Synapse Studio.
+Informacje o tożsamości zarządzanej również zostaną wyświetlone podczas tworzenia połączonej usługi, która obsługuje uwierzytelnianie tożsamości zarządzanej z usługi Azure Synapse Studio.
 
-Uruchom **usługę Azure Synapse Studio** i wybierz kartę **Zarządzaj** z lewej strony nawigacji. Następnie wybierz pozycję **Połączone usługi** i wybierz opcję **+ Nowy,** aby utworzyć nową usługę połączona.
+Uruchom **usługę Azure Synapse Studio** i wybierz kartę **Zarządzanie** na pasku nawigacyjnym po lewej stronie. Następnie wybierz pozycję **połączone usługi** i wybierz opcję **+ Nowa** , aby utworzyć nową połączoną usługę.
 
-![Tworzenie usługi połączonej 1](./media/synapse-workspace-managed-identity/workspace-managed-identity-2.png)
+![Tworzenie połączonej usługi 1](./media/synapse-workspace-managed-identity/workspace-managed-identity-2.png)
 
-W oknie **Nowa usługa połączona** wpisz *Azure Data Lake Storage Gen2*. Wybierz typ zasobu **usługi Azure Data Lake Storage Gen2** z poniższej listy i wybierz pozycję **Kontynuuj**.
+W oknie **Nowa połączona usługa** wpisz *Azure Data Lake Storage Gen2*. Wybierz z poniższej listy Typ zasobu **Azure Data Lake Storage Gen2** i wybierz pozycję **Kontynuuj**.
 
-![Tworzenie usługi połączonej 2](./media/synapse-workspace-managed-identity/workspace-managed-identity-3.png)
+![Tworzenie połączonej usługi 2](./media/synapse-workspace-managed-identity/workspace-managed-identity-3.png)
 
-W następnym oknie wybierz pozycję **Zarządzana tożsamość** dla **uwierzytelniania.** Zobaczysz **nazwę** tożsamości zarządzanej i **identyfikator obiektu**.
+W następnym oknie wybierz pozycję **zarządzana tożsamość** dla **metody uwierzytelniania**. Zobaczysz **nazwę** i **Identyfikator obiektu**tożsamości zarządzanej.
 
-![Tworzenie usługi połączonej 3](./media/synapse-workspace-managed-identity/workspace-managed-identity-4.png)
+![Tworzenie połączonej usługi 3](./media/synapse-workspace-managed-identity/workspace-managed-identity-4.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Udzielanie uprawnień do tożsamości zarządzanej obszaru roboczego Usługi Azure Synapse](./how-to-grant-workspace-managed-identity-permissions.md)
+[Przyznawanie uprawnień do tożsamości zarządzanej w obszarze roboczym usługi Azure Synapse](./how-to-grant-workspace-managed-identity-permissions.md)

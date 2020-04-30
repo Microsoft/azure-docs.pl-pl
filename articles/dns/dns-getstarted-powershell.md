@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: tworzenie strefy DNS platformy Azure i rejestrowanie — Azure PowerShell'
+title: 'Szybki Start: Tworzenie strefy Azure DNS i rekordu — Azure PowerShell'
 titleSuffix: Azure DNS
 description: Dowiedz się, jak utworzyć strefę i rekord DNS w usłudze Azure DNS. W tym szczegółowym przewodniku Szybki start pokazano, jak po raz pierwszy utworzyć strefę i rekord DNS przy użyciu programu Azure PowerShell.
 services: dns
@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: rohink
 ms.openlocfilehash: e33f6fdba1a15032d76b94804d610e292f663d59
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76937158"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Szybki start — tworzenie strefy i rekordu usługi Azure DNS przy użyciu programu Azure PowerShell
@@ -27,7 +27,7 @@ Usługa Azure DNS obsługuje też tworzenie domen prywatnych. Aby uzyskać instr
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="create-the-resource-group"></a>Tworzenie grupy zasobów
 
@@ -39,7 +39,7 @@ New-AzResourceGroup -name MyResourceGroup -location "eastus"
 
 ## <a name="create-a-dns-zone"></a>Tworzenie strefy DNS
 
-Strefa DNS jest tworzona za pomocą polecenia cmdlet `New-AzDnsZone`. Poniższy przykład tworzy strefę DNS o nazwie *contoso.xyz* w grupie zasobów o nazwie *MyResourceGroup*. Skorzystaj z tego przykładu, aby utworzyć strefę DNS, podstawiając własne wartości.
+Strefa DNS jest tworzona za pomocą polecenia cmdlet `New-AzDnsZone`. Poniższy przykład tworzy strefę DNS o nazwie *contoso. xyz* w grupie zasobów o nazwie Moja *resourceName*. Skorzystaj z tego przykładu, aby utworzyć strefę DNS, podstawiając własne wartości.
 
 ```powershell
 New-AzDnsZone -Name contoso.xyz -ResourceGroupName MyResourceGroup
@@ -47,7 +47,7 @@ New-AzDnsZone -Name contoso.xyz -ResourceGroupName MyResourceGroup
 
 ## <a name="create-a-dns-record"></a>Tworzenie rekordu DNS
 
-Zestawy rekordów są tworzone za pomocą polecenia cmdlet `New-AzDnsRecordSet`. Poniższy przykład tworzy rekord o względnej nazwie "www" w strefie DNS "contoso.xyz", w grupie zasobów "MyResourceGroup". W pełni kwalifikowaną nazwą zestawu rekordów jest "www.contoso.xyz". Typ rekordu to "A", z adresem IP "10.10.10.10", a czas wygaśnięcia wynosi 3600 sekund.
+Zestawy rekordów są tworzone za pomocą polecenia cmdlet `New-AzDnsRecordSet`. W poniższym przykładzie jest tworzony rekord o nazwie względnej "www" w strefie DNS "contoso. xyz" w grupie zasobów "Moje zasoby". W pełni kwalifikowana nazwa zestawu rekordów to "www. contoso. xyz". Typ rekordu to "A" z adresem IP "10.10.10.10", a czas wygaśnięcia wynosi 3600 sekund.
 
 ```powershell
 New-AzDnsRecordSet -Name www -RecordType A -ZoneName contoso.xyz -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address "10.10.10.10")
@@ -67,7 +67,7 @@ Po utworzeniu testowej strefy DNS z rekordem „A” możesz przetestować rozpo
 
 **Aby przetestować rozpoznawanie nazw DNS:**
 
-1. Uruchom następujące polecenie cmdlet, aby uzyskać listę serwerów nazw dla swojej strefy:
+1. Uruchom następujące polecenie cmdlet, aby uzyskać listę serwerów nazw dla strefy:
 
    ```azurepowershell
    Get-AzDnsRecordSet -ZoneName contoso.xyz -ResourceGroupName MyResourceGroup -RecordType ns
@@ -91,7 +91,7 @@ Po utworzeniu testowej strefy DNS z rekordem „A” możesz przetestować rozpo
 
    ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-Nazwa hosta **www\.contoso.xyz** jest rozpoznawana jako **10.10.10.10**, tak jak została skonfigurowana. Taki wynik potwierdza, że rozpoznawanie nazw działa poprawnie.
+Nazwa hosta **www\.contoso. xyz** jest rozpoznawana jako **10.10.10.10**, tak jak została skonfigurowana. Taki wynik potwierdza, że rozpoznawanie nazw działa poprawnie.
 
 ## <a name="delete-all-resources"></a>Usuwanie wszystkich zasobów
 

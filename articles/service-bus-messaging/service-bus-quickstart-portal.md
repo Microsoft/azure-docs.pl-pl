@@ -1,5 +1,5 @@
 ---
-title: Tworzenie kolejki usługi Service Bus za pomocą portalu Azure
+title: Tworzenie kolejki Service Bus za pomocą Azure Portal
 description: W tym samouczku szybkiego startu dowiesz się, jak utworzyć kolejkę usługi Service Bus przy użyciu witryny Azure Portal. Następnie użyjesz przykładowej aplikacji klienckiej, aby wysyłać komunikaty do kolejki i odbierać komunikaty z kolejki.
 services: service-bus-messaging
 author: spelluru
@@ -9,13 +9,13 @@ ms.custom: mvc
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 0c88db652efe54a497af094160fb426be7c43d16
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79240646"
 ---
-# <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Szybki start: tworzenie kolejki usługi Service Bus za pomocą portalu Azure
+# <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Szybki Start: Tworzenie kolejki Service Bus za pomocą Azure Portal
 W tym przewodniku Szybki start opisano, jak wysyłać i odbierać komunikaty do i z kolejki usługi Service Bus, używając witryny [Azure Portal][Azure portal] do utworzenia przestrzeni nazw do przesyłania komunikatów oraz kolejki w ramach tej przestrzeni nazw, a także uzyskać poświadczenia autoryzacji do tej przestrzeni nazw. Następnie w procedurze przedstawiono, jak wysyłać i odbierać komunikaty z tej kolejki przy użyciu [biblioteki platformy .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
@@ -25,7 +25,7 @@ W tym przewodniku Szybki start opisano, jak wysyłać i odbierać komunikaty do 
 Aby ukończyć kroki tego samouczka, upewnij się, że zainstalowano następujące elementy:
 
 - Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, możesz utworzyć [bezpłatne konto][] przed rozpoczęciem.
-- [Program Visual Studio 2017 Update 3 (wersja 15.3, 26730.01)](https://www.visualstudio.com/vs) lub nowszy. Program Visual Studio służy do tworzenia próbki, która wysyła wiadomości i odbiera wiadomości z kolejki. Przykład jest do testowania kolejki utworzonej przy użyciu programu PowerShell. 
+- [Program Visual Studio 2017 Update 3 (wersja 15.3, 26730.01)](https://www.visualstudio.com/vs) lub nowszy. Używasz programu Visual Studio do tworzenia przykładu, który wysyła wiadomości do i odbiera komunikat z kolejki. Przykładem jest testowanie kolejki utworzonej przy użyciu programu PowerShell. 
 - [Zestaw NET Core SDK](https://www.microsoft.com/net/download/windows), wersja 2.0 lub nowsza.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
@@ -35,13 +35,13 @@ Aby ukończyć kroki tego samouczka, upewnij się, że zainstalowano następują
 ## <a name="send-and-receive-messages"></a>Wysyłanie i odbieranie komunikatów
 
 > [!NOTE]
-> Przykład używany w tej sekcji do wysyłania i odbierania wiadomości jest próbką .NET. Aby uzyskać przykłady do wysyłania/odbierania wiadomości przy użyciu innych języków programowania, zobacz [przykłady usługi Service Bus](service-bus-samples.md). 
+> Przykład używany w tej sekcji do wysyłania i odbierania wiadomości jest przykładem platformy .NET. Aby uzyskać przykłady wysyłania/odbierania wiadomości przy użyciu innych języków programowania, zobacz [Service Bus Samples](service-bus-samples.md). 
 > 
-> Aby uzyskać instrukcje krok po kroku dotyczące wysyłania/odbierania wiadomości przy użyciu różnych języków programowania, zobacz następujące szybkie uruchamianie:
+> Instrukcje krok po kroku dotyczące wysyłania/otrzymywania wiadomości przy użyciu różnych języków programowania można znaleźć w następujących przewodnikach szybki start:
 > - [.NET](service-bus-dotnet-get-started-with-queues.md)
 > - [Java](service-bus-java-how-to-use-queues.md)
-> - [Node.js przy użyciu pakietu azure/service-bus](service-bus-nodejs-how-to-use-queues-new-package.md)
-> - [Node.js przy użyciu pakietu azure-sb](service-bus-nodejs-how-to-use-queues.md)
+> - [Node. js przy użyciu pakietu Azure/Service-Bus](service-bus-nodejs-how-to-use-queues-new-package.md)
+> - [Node. js przy użyciu pakietu Azure-SB](service-bus-nodejs-how-to-use-queues.md)
 > - [PHP](service-bus-php-how-to-use-queues.md)
 > - [Python](service-bus-python-how-to-use-queues.md)
 > - [Ruby](service-bus-ruby-how-to-use-queues.md)
@@ -82,7 +82,7 @@ Ta sekcja zawiera więcej szczegółów na temat operacji wykonywanych przez prz
 
 ### <a name="get-connection-string-and-queue"></a>Pobieranie kolejki i parametrów połączenia
 
-Ciąg połączenia i nazwa kolejki `Main()` są przekazywane do metody jako argumenty wiersza polecenia. Element `Main()` deklaruje dwie zmienne ciągu do przechowywania tych wartości:
+Parametry połączenia i nazwa kolejki są przekazane do `Main()` metody jako argumenty wiersza polecenia. Element `Main()` deklaruje dwie zmienne ciągu do przechowywania tych wartości:
 
 ```csharp
 static void Main(string[] args)
@@ -119,7 +119,7 @@ Metoda `Main()` następnie rozpoczyna asynchroniczną pętlę komunikatów, `Mai
 
 ### <a name="message-loop"></a>Pętla komunikatów
 
-Metoda MainAsync() tworzy klienta kolejki z argumentami wiersza polecenia, `RegisterOnMessageHandlerAndReceiveMessages()`wywołuje program obsługi wiadomości odbierających o nazwie i wysyła zestaw komunikatów:
+Metoda MainAsync () tworzy klienta kolejki z argumentami wiersza polecenia, wywołuje procedurę obsługi komunikatów odebranych o nazwie `RegisterOnMessageHandlerAndReceiveMessages()`i wysyła zestaw komunikatów:
 
 ```csharp
 static async Task MainAsync(string ServiceBusConnectionString, string QueueName)
@@ -209,17 +209,17 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 }
 ```
 > [!NOTE]
-> Zasoby usługi Service Bus można zarządzać za pomocą [Eksploratora magistrali usług](https://github.com/paolosalvatori/ServiceBusExplorer/). Eksplorator usługi Service Bus umożliwia użytkownikom łączenie się z obszarem nazw usługi Service Bus i administrowanie jednostkami obsługi wiadomości w łatwy sposób. Narzędzie zapewnia zaawansowane funkcje, takie jak funkcje importu/eksportu lub możliwość testowania tematu, kolejek, subskrypcji, usług przekazywania, centrów powiadomień i centrów zdarzeń. 
+> Za pomocą [eksploratora Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/)można zarządzać zasobami Service Bus. Eksplorator Service Bus umożliwia użytkownikom łączenie się z przestrzenią nazw Service Bus i administrowanie jednostkami obsługi komunikatów w prosty sposób. Narzędzie zapewnia zaawansowane funkcje, takie jak funkcja importowania/eksportowania lub możliwość testowania tematów, kolejek, subskrypcji, usług przekazywania, centrów powiadomień i centrów zdarzeń. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule utworzono przestrzeń nazw usługi Service Bus oraz inne zasoby wymagane do wysyłania i odbierania komunikatów z kolejki. Aby dowiedzieć się więcej na temat pisania kodu do wysyłania i odbierania wiadomości, przejdź do samouczków w sekcji **Wysyłanie i odbieranie wiadomości.** 
+W tym artykule utworzono przestrzeń nazw usługi Service Bus oraz inne zasoby wymagane do wysyłania i odbierania komunikatów z kolejki. Aby dowiedzieć się więcej na temat pisania kodu w celu wysyłania i odbierania wiadomości, przejdź do samouczków w sekcji **wysyłanie i odbieranie komunikatów** . 
 
 > [!div class="nextstepaction"]
 > [Wysyłanie i odbieranie komunikatów](service-bus-dotnet-get-started-with-queues.md)
 
 
-[darmowe konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[bezpłatne konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 

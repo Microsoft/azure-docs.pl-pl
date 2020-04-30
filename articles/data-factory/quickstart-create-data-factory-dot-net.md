@@ -1,5 +1,5 @@
 ---
-title: Tworzenie fabryki danych platformy Azure przy użyciu narzędzia .NET SDK
+title: Tworzenie usługi Azure Data Factory przy użyciu zestawu SDK platformy .NET
 description: Tworzenie fabryki danych platformy Azure w celu skopiowania danych między lokalizacjami w usłudze Azure Blob Storage.
 services: data-factory
 documentationcenter: ''
@@ -14,21 +14,21 @@ ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
 ms.openlocfilehash: 7f0f18e523368e85d9cea0206e98bb7b1a0e6165
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81419378"
 ---
-# <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Szybki start: tworzenie fabryki danych i potoku przy użyciu pliku .NET SDK
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Szybki Start: Tworzenie fabryki danych i potoku przy użyciu zestawu .NET SDK
 
-> [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
+> [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Bieżąca wersja](quickstart-create-data-factory-dot-net.md)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Ten samouczek Szybki start opisuje sposób używania zestawu SDK .NET w celu utworzenia usługi Azure Data Factory. Potok utworzony w tej fabryce danych **kopiuje** dane z jednego folderu do innego folderu w magazynie obiektów blob platformy Azure. Aby zapoznać się z samouczkiem na temat **przekształcania** danych przy użyciu usługi Azure Data Factory, zobacz [Samouczek: Przekształcanie danych przy użyciu platformy Spark](tutorial-transform-data-spark-portal.md).
+Ten samouczek Szybki start opisuje sposób używania zestawu SDK .NET w celu utworzenia usługi Azure Data Factory. Potok tworzony w tej fabryce danych **kopiuje** dane z jednego folderu do innego folderu w usłudze Azure Blob Storage. Aby zapoznać się z samouczkiem dotyczącym **przekształcania** danych przy użyciu Azure Data Factory, zobacz [Samouczek: Przekształcanie danych przy użyciu platformy Spark](tutorial-transform-data-spark-portal.md).
 
 > [!NOTE]
 > Ten artykuł nie zawiera szczegółowego wprowadzenia do usługi Data Factory. Aby zapoznać się z wprowadzeniem do usługi Azure Data Factory, zobacz [Wprowadzenie do usługi Azure Data Factory](introduction.md).
@@ -37,7 +37,7 @@ Ten samouczek Szybki start opisuje sposób używania zestawu SDK .NET w celu utw
 
 ### <a name="visual-studio"></a>Visual Studio
 
-W przewodniku w tym artykule używa programu Visual Studio 2019. Procedury dla programu Visual Studio 2013, 2015 lub 2017 różnią się nieznacznie.
+W przewodniku w tym artykule jest wykorzystywany program Visual Studio 2019. Procedury dotyczące Visual Studio 2013, 2015 lub 2017 różnią się nieznacznie.
 
 ### <a name="azure-net-sdk"></a>Zestaw Azure .NET SDK
 
@@ -45,26 +45,26 @@ Pobierz i zainstaluj zestaw [Azure .NET SDK](https://azure.microsoft.com/downloa
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Tworzenie aplikacji w usłudze Azure Active Directory
 
-W sekcjach *w jak: Użyj portalu, aby utworzyć aplikację i jednostkę usługi Azure AD, która może uzyskiwać dostęp do zasobów,* postępuj zgodnie z instrukcjami, aby wykonać następujące zadania:
+W sekcjach w sekcji *jak: korzystanie z portalu do tworzenia aplikacji usługi Azure AD i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów*, postępuj zgodnie z instrukcjami, aby wykonać następujące zadania:
 
-1. W [tworzenie aplikacji usługi Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application), utworzyć aplikację, która reprezentuje aplikację .NET, które są tworzędliwe w tym samouczku. W przypadku adresu URL logowania możesz podać fikcyjny adres URL, jak pokazano w artykule (`https://contoso.org/exampleapp`).
-2. W [Pobierz wartości do logowania](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)się , pobierz identyfikator **aplikacji** i **identyfikator dzierżawy**i zanotuj te wartości, których używasz w dalszej części tego samouczka. 
-3. W [przypadku certyfikatów i wpisów tajnych](../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets)pobierz **klucz uwierzytelniania**i zanotuj tę wartość, której używasz w dalszej części tego samouczka.
-4. W [Przypisz aplikację do roli,](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application)przypisz aplikację do roli **współautora** na poziomie subskrypcji, aby aplikacja mogła tworzyć fabryki danych w ramach subskrypcji.
+1. W obszarze [Tworzenie aplikacji Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)Utwórz aplikację reprezentującą aplikację platformy .NET, którą tworzysz w tym samouczku. W przypadku adresu URL logowania możesz podać fikcyjny adres URL, jak pokazano w artykule (`https://contoso.org/exampleapp`).
+2. W polu [Pobierz wartości do logowania](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)Pobierz **Identyfikator aplikacji** i **Identyfikator dzierżawy**, a następnie zanotuj te wartości, które są używane w dalszej części tego samouczka. 
+3. W obszarze [Certyfikaty i wpisy tajne](../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets)Pobierz **klucz uwierzytelniania**i zanotuj tę wartość, która jest używana w dalszej części tego samouczka.
+4. W polu [Przypisz aplikację do roli](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) **współautor** na poziomie subskrypcji, aby aplikacja mogła tworzyć fabryki danych w subskrypcji.
 
 ## <a name="create-a-visual-studio-project"></a>Tworzenie projektu programu Visual Studio
 
-Następnie utwórz aplikację konsoli języka C# .NET w programie Visual Studio:
+Następnie Utwórz aplikację konsolową .NET C# w programie Visual Studio:
 
 1. Uruchom program **Visual Studio**.
-2. W oknie Start wybierz pozycję **Utwórz nową aplikację konsoli projektu** > **(.NET Framework).** Wymagana jest platforma .NET w wersji 4.5.2 lub nowszej.
-3. W **nazwie projektu**wprowadź **adfv2QuickStart**.
+2. W oknie uruchamiania wybierz pozycję **Utwórz nową** > **aplikację konsolową projektu (.NET Framework)**. Wymagana jest platforma .NET w wersji 4.5.2 lub nowszej.
+3. W polu **Nazwa projektu**wprowadź **ADFv2QuickStart**.
 4. Wybierz polecenie **Create** (Utwórz), aby utworzyć projekt.
 
 ## <a name="install-nuget-packages"></a>Instalowanie pakietów NuGet
 
-1. Wybierz **opcję Konsola** > Menedżera**pakietów Menedżera** > **pakietów**Narzędzia NuGet .
-2. W okienku **Konsola Menedżera pakietów** uruchom następujące polecenia, aby zainstalować pakiety. Aby uzyskać więcej informacji, zobacz [pakiet nuget Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
+1. Wybierz kolejno pozycje **Narzędzia** > **Menedżer pakietów** > NuGet**konsola Menedżera pakietów**.
+2. W okienku **konsoli Menedżera pakietów** Uruchom następujące polecenia, aby zainstalować pakiety. Aby uzyskać więcej informacji, zobacz [pakiet NuGet Microsoft. Azure. Management. DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
     ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
@@ -87,7 +87,7 @@ Następnie utwórz aplikację konsoli języka C# .NET w programie Visual Studio:
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Dodaj do metody **Main** następujący kod, który określa zmienne. Zastąp symbole zastępcze własnymi wartościami. Aby uzyskać listę regionów platformy Azure, w których obecnie jest dostępna usługa Data Factory, wybierz dane regiony na poniższej stronie, a następnie rozwiń węzeł **Analiza**, aby zlokalizować pozycję **Data Factory**: [Produkty dostępne według regionu](https://azure.microsoft.com/global-infrastructure/services/). Magazyny danych (Usługa Azure Storage, usługa Azure SQL Database i inne) oraz obliczenia (HDInsight i inne) używane przez fabrykę danych mogą znajdować się w innych regionach.
+2. Dodaj do metody **Main** następujący kod, który określa zmienne. Zastąp symbole zastępcze własnymi wartościami. Aby uzyskać listę regionów platformy Azure, w których obecnie jest dostępna usługa Data Factory, wybierz dane regiony na poniższej stronie, a następnie rozwiń węzeł **Analiza**, aby zlokalizować pozycję **Data Factory**: [Produkty dostępne według regionu](https://azure.microsoft.com/global-infrastructure/services/). Magazyny danych (Azure Storage, Azure SQL Database i inne) oraz obliczenia (HDInsight i inne) używane przez fabrykę danych mogą znajdować się w innych regionach.
 
    ```csharp
    // Set variables
@@ -115,7 +115,7 @@ Następnie utwórz aplikację konsoli języka C# .NET w programie Visual Studio:
    string pipelineName = "Adfv2QuickStartPipeline";
    ```
 
-3. Dodaj następujący kod do **Main** metody, która tworzy wystąpienie **DataFactoryManagementClient** klasy. Ten obiekt jest używany do tworzenia fabryki danych, połączonej usługi, zestawów danych i potoku. Umożliwia on również monitorowanie szczegółów uruchomienia potoku.
+3. Dodaj do metody **Main** następujący kod, który tworzy wystąpienie klasy **DataFactoryManagementClient** . Ten obiekt jest używany do tworzenia fabryki danych, połączonej usługi, zestawów danych i potoku. Umożliwia on również monitorowanie szczegółów uruchomienia potoku.
 
    ```csharp
    // Authenticate and create a data factory management client
@@ -155,7 +155,7 @@ while (client.Factories.Get(resourceGroup, dataFactoryName).ProvisioningState ==
 
 Dodaj do metody **Main** poniższy kod, który tworzy **połączoną usługę Azure Storage**.
 
-Połączone usługi tworzy się w fabryce danych w celu połączenia magazynów danych i usług obliczeniowych z fabryką danych. W tym przewodniku Szybki start wystarczy utworzyć tylko jedną usługę linked Azure Storage połączone dla źródła kopii i magazynu ujścia; ma nazwę "AzureStorageLinkedService" w przykładzie.
+Połączone usługi tworzy się w fabryce danych w celu połączenia magazynów danych i usług obliczeniowych z fabryką danych. W tym przewodniku szybki start musisz utworzyć tylko jedną połączoną usługę Azure Storage dla źródła kopii i magazynu ujścia. jest on nazywany "AzureStorageLinkedService" w przykładzie.
 
 ```csharp
 // Create an Azure Storage linked service
@@ -177,9 +177,9 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(
 
 ## <a name="create-a-dataset"></a>Tworzenie zestawu danych
 
-Dodaj następujący kod do **metody Main,** która tworzy **zestaw danych obiektów blob platformy Azure**.
+Dodaj do metody **Main** następujący kod, który tworzy **zestaw danych obiektów blob platformy Azure**.
 
-Zdefiniuj zestaw danych, który reprezentuje dane do skopiowania ze źródła do ujścia. W tym przykładzie ten zestaw danych obiektu blob odwołuje się do połączonej usługi Azure Storage utworzonej w poprzednim kroku. Zestaw danych przyjmuje parametr, którego wartość jest ustawiana w działaniu wykorzystującym zestaw danych. Parametr jest używany do konstruowania "folderPath" wskazując, gdzie dane znajdują się/jest przechowywany.
+Zdefiniuj zestaw danych, który reprezentuje dane do skopiowania ze źródła do ujścia. W tym przykładzie ten zestaw danych obiektu blob odwołuje się do połączonej usługi Azure Storage utworzonej w poprzednim kroku. Zestaw danych przyjmuje parametr, którego wartość jest ustawiana w działaniu wykorzystującym zestaw danych. Parametr służy do konstruowania "folderPath" wskazujący, gdzie znajdują się dane/są przechowywane.
 
 ```csharp
 // Create an Azure Blob dataset
@@ -208,7 +208,7 @@ Console.WriteLine(
 
 Dodaj do metody **Main** poniższy kod, który tworzy **potok z działaniem kopiowania**.
 
-W tym przykładzie ten potok zawiera jedno działanie i przyjmuje dwa parametry: wejściową ścieżkę obiektu blob i wyjściową ścieżkę obiektu blob. Wartości tych parametrów są ustawiane w chwili wyzwolenia/uruchomienia potoku. Działanie kopiowania dotyczy tego samego zestawu danych obiektu blob, który został utworzony w poprzednim kroku jako wejście i wyjście. W przypadku użycia zestawu danych jako zestawu danych wejściowych określana jest ścieżka wejściowa. Natomiast w przypadku użycia zestawu danych jako zestawu danych wyjściowych określana jest ścieżka wyjściowa. 
+W tym przykładzie ten potok zawiera jedno działanie i przyjmuje dwa parametry: wejściowy ścieżkę obiektu BLOB i ścieżkę wyjściowego obiektu BLOB. Wartości tych parametrów są ustawiane w chwili wyzwolenia/uruchomienia potoku. Działanie kopiowania dotyczy tego samego zestawu danych obiektu blob, który został utworzony w poprzednim kroku jako wejście i wyjście. W przypadku użycia zestawu danych jako zestawu danych wejściowych określana jest ścieżka wejściowa. Natomiast w przypadku użycia zestawu danych jako zestawu danych wyjściowych określana jest ścieżka wyjściowa. 
 
 ```csharp
 // Create a pipeline with a copy activity
@@ -260,7 +260,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(pipeline, client.Serialization
 
 Dodaj do metody **Main** poniższy kod, który **wyzwala uruchomienie potoku**.
 
-Ten kod ustawia również wartości **inputPath** i **outputPath** parametry określone w potoku z rzeczywistych wartości ścieżki obiektu blob źródła i ujścia.
+Ten kod ustawia również wartości parametrów **inputPath** i **outputPath** określonych w potoku za pomocą rzeczywistych wartości ścieżek źródła i ujścia obiektu BLOB.
 
 ```csharp
 // Create a pipeline run
@@ -296,7 +296,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
    }
    ```
 
-2. Dodaj następujący kod do **Main** metody, która pobiera szczegóły uruchamiania działania kopiowania, takie jak rozmiar danych, które są odczytywane lub zapisywane.
+2. Dodaj do metody **Main** następujący kod, który pobiera szczegóły uruchomienia działania kopiowania, na przykład rozmiar danych odczytywanych lub zapisywana.
 
    ```csharp
    // Check the copy activity run details
@@ -318,7 +318,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 Skompiluj i uruchom aplikację, a następnie zweryfikuj wykonywanie potoku.
 
-Konsola wypisuje postęp tworzenia fabryki danych, połączonej usługi, zestawów danych, potoku i uruchomienia potoku. Następnie sprawdza stan uruchomienia potoku. Poczekaj, aż zobaczysz szczegóły uruchomienia działania kopiowania o rozmiarze danych odczytu/zapisu. Następnie użyj narzędzi, takich jak [Eksplorator usługi Azure Storage,](https://azure.microsoft.com/features/storage-explorer/) aby sprawdzić, czy obiekty blob są kopiowane do "outputBlobPath" z "inputBlobPath", jak określono w zmiennych.
+Konsola wypisuje postęp tworzenia fabryki danych, połączonej usługi, zestawów danych, potoku i uruchomienia potoku. Następnie sprawdza stan uruchomienia potoku. Poczekaj, aż zobaczysz szczegóły uruchomienia działania kopiowania z rozmiarem danych odczytu/zapisu. Następnie użyj narzędzi, takich jak [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) , aby sprawdzić, czy obiekty blob zostały skopiowane do "outputBlobPath" z "inputBlobPath", jak określono w zmiennych.
 
 ### <a name="sample-output"></a>Przykładowe dane wyjściowe
 
@@ -430,15 +430,15 @@ Press any key to exit...
 
 ## <a name="verify-the-output"></a>Sprawdzanie danych wyjściowych
 
-Potok automatycznie tworzy folder wyjściowy w kontenerze obiektów blob **adftutorial.** Następnie kopiuje plik **emp.txt** z folderu wejściowego do folderu wyjściowego. 
+Potok automatycznie tworzy folder wyjściowy w kontenerze obiektów BLOB **adftutorial** . Następnie kopiuje plik **EMP. txt** z folderu input do folderu Output. 
 
-1. W witrynie Azure portal na stronie kontenera **adftutorial,** który został zatrzymany w [dodaniu folderu wejściowego i pliku dla kontenera obiektów blob](#add-an-input-folder-and-file-for-the-blob-container) sekcji powyżej, wybierz **odśwież,** aby wyświetlić folder wyjściowy. 
-2. Na liście folderów wybierz pozycję **wyjście**.
+1. W Azure Portal na stronie kontenera **adftutorial** , która została zatrzymana w sekcji [Dodaj folder wejściowy i plik dla kontenera obiektów BLOB](#add-an-input-folder-and-file-for-the-blob-container) powyżej, wybierz pozycję **Odśwież** , aby wyświetlić folder danych wyjściowych. 
+2. Na liście folder wybierz pozycję **dane wyjściowe**.
 3. Upewnij się, że plik **emp.txt** jest kopiowany do folderu wyjściowego. 
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Aby programowo usunąć fabrykę danych, dodaj do programu następujące wiersze kodu: 
+Aby programowo usunąć fabrykę danych, Dodaj następujące wiersze kodu do programu: 
 
 ```csharp
 Console.WriteLine("Deleting the data factory");

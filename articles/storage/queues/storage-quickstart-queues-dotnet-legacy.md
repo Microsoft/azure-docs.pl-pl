@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: zarządzanie kolejką za pomocą usługi Azure Storage w wersji 11 dla platformy .NET'
+title: 'Szybki Start: korzystanie z usługi Azure Storage v11 dla platformy .NET do zarządzania kolejką'
 description: Z tego przewodnika Szybki start dowiesz się, jak używać biblioteki klienta usługi Azure Storage dla platformy .NET do tworzenia kolejki i dodawania do niej komunikatów. Następnie dowiesz się, jak odczytywać i przetwarzać komunikaty z kolejki.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -9,15 +9,15 @@ ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: cbrooks
 ms.openlocfilehash: c327629f0c5e88520a8bb0b9c4ff68e6edc00c35
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79137343"
 ---
-# <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Szybki start: zarządzanie kolejką za pomocą narzędzia Azure Storage SDK w wersji 11 dla platformy .NET
+# <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Szybki Start: korzystanie z usługi Azure Storage SDK v11 for .NET do zarządzania kolejką
 
-W tym przewodniku Szybki start dowiesz się, jak utworzyć kolejkę i dodać do niej bibliotekę klienta usługi Azure Storage w wersji 11 dla platformy .NET. Następnie dowiesz się, jak odczytywać i przetwarzać komunikaty z kolejki. 
+W tym przewodniku szybki start dowiesz się, jak utworzyć kolejkę i dodać do niej komunikaty przy użyciu biblioteki klienta usługi Azure Storage w wersji 11. Następnie dowiesz się, jak odczytywać i przetwarzać komunikaty z kolejki. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -186,9 +186,9 @@ Console.WriteLine();
 
 Następnie przykładowy kod dodaje komunikat na końcu kolejki. 
 
-Wiadomość musi być w formacie, który można uwzględnić w żądaniu XML z kodowaniem UTF-8, a jego maksymalny rozmiar może wynosić maksymalnie 64 KB. Jeśli wiadomość zawiera dane binarne, zaleca się kodowanie wiadomości przez base64.
+Wiadomość musi być w formacie, który można uwzględnić w żądaniu XML z kodowaniem UTF-8, a jego maksymalny rozmiar może wynosić maksymalnie 64 KB. Jeśli komunikat zawiera dane binarne, zalecamy kodowanie Base64 wiadomości.
 
-Domyślnie maksymalny czas wygaśnięcia komunikatu wynosi 7 dni. Można określić dowolną liczbę dodatnią dla czasu wiadomości do żywo.
+Domyślnie maksymalny czas wygaśnięcia komunikatu wynosi 7 dni. Można określić dowolną liczbę dodatnią dla komunikatu czas wygaśnięcia.
 
 ```csharp
 // Create a message and add it to the queue. Set expiration time to 14 days.
@@ -200,7 +200,7 @@ Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToStrin
 Console.WriteLine();
 ```
 
-Aby dodać wiadomość, która nie `Timespan.FromSeconds(-1)` wygasa, użyj połączenia [z AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
+Aby dodać komunikat, który nie wygasa, użyj `Timespan.FromSeconds(-1)` w wywołaniu metody [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
 
 ```csharp
 await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);

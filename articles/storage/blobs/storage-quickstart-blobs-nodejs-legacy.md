@@ -1,6 +1,6 @@
 ---
-title: 'Szybki start: biblioteka klienta magazynu obiektów Blob platformy Azure w wersji 10 dla języka JavaScript'
-description: Tworzenie, przekazywanie i usuwanie obiektów blob i kontenerów w pliku Node.js za pomocą biblioteki klienta usługi Azure Storage w wersji 10 dla języka JavaScript
+title: 'Szybki Start: Biblioteka kliencka usługi Azure Blob Storage v10 dla języka JavaScript'
+description: Tworzenie, przekazywanie i usuwanie obiektów blob i kontenerów w programie Node. js za pomocą biblioteki klienta usługi Azure Storage v10 dla języka JavaScript
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 01/24/2020
@@ -8,21 +8,21 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: c2bf401713dc7ae3b060181f1df56d0915f68aed
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78269505"
 ---
-# <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Szybki start: zarządzanie obiektami blob za pomocą pliku JavaScript w wersji 10 SDK w pliku Node.js
+# <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK v10 języka JavaScript w programie Node. js
 
-W tym przewodniku Szybki start nauczysz się zarządzać obiektami blob za pomocą pliku Node.js. Obiekty blob to obiekty, które mogą zawierać duże ilości danych tekstowych lub binarnych, w tym obrazy, dokumenty, multimedia strumieniowe i dane archiwum. Będziesz przesyłać, pobierać, listy i usuwać obiekty blob, a będziesz zarządzać kontenerami.
+W tym przewodniku szybki start dowiesz się, jak zarządzać obiektami BLOB za pomocą środowiska Node. js. Obiekty blob są obiektami, które mogą przechowywać duże ilości danych tekstowych lub binarnych, w tym obrazy, dokumenty, multimedia strumieniowe i dane archiwalne. Będziesz ładować, pobierać, wyświetlać i usuwać obiekty blob i zarządzać kontenerami.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto za darmo](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Konto usługi Azure Storage. [Utwórz konto magazynu](../common/storage-account-create.md).
-- [Node.js](https://nodejs.org/en/download/).
+- [Node. js](https://nodejs.org/en/download/).
 
 ## <a name="download-the-sample-application"></a>Pobieranie przykładowej aplikacji
 
@@ -80,7 +80,7 @@ Container "demo" is deleted
 Done
 ```
 
-Jeśli używasz nowego konta magazynu dla tego przewodnika Szybki start, możesz zobaczyć tylko kontener *demonstracyjny* wymieniony pod etykietą "*Kontenery:*".
+Jeśli używasz nowego konta magazynu dla tego przewodnika Szybki Start, możesz zobaczyć tylko kontener *demonstracyjny* w obszarze etykieta "*kontenery:*".
 
 ## <a name="understanding-the-code"></a>Omówienie kodu
 
@@ -135,7 +135,7 @@ const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
 
-Żądania wykonane przez interfejs API można ustawić na limit czasu po danym interwale. Klasa [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-legacy) jest odpowiedzialna za zarządzanie sposobem wygasania żądań, a poniższa stała służy do definiowania limitów czasu używanych w tym przykładzie.
+Żądania wykonywane przez interfejs API można ustawić, aby przekroczyć limit czasu po upływie określonego interwału. Klasa [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-legacy) jest odpowiedzialna za zarządzanie sposobem wygasania żądań, a poniższa stała służy do definiowania limitów czasu używanych w tym przykładzie.
 
 ```javascript
 const ONE_MINUTE = 60 * 1000;
@@ -205,7 +205,7 @@ Podobnie jak w przypadku kontenera, blokowy obiekt blob jeszcze nie istnieje. Zm
 
 ### <a name="using-the-aborter-class"></a>Używanie klasy Aborter
 
-Żądania wykonane przez interfejs API można ustawić na limit czasu po danym interwale. Klasa *Aborter* jest odpowiedzialny za zarządzanie, jak żądania są przesunął limit czasu. Poniższy kod tworzy kontekst, w którym zestaw żądań jest podana 30 minut do wykonania.
+Żądania wykonywane przez interfejs API można ustawić, aby przekroczyć limit czasu po upływie określonego interwału. Klasa *Abort* jest odpowiedzialna za zarządzanie sposobem przekroczenia limitu czasu żądań. Poniższy kod tworzy kontekst, w którym zestaw żądań jest określony jako 30 minut do wykonania.
 
 ```javascript
 const aborter = Aborter.timeout(30 * ONE_MINUTE);
@@ -363,7 +363,7 @@ const downloadedContent = await streamToString(downloadResponse.readableStreamBo
 console.log(`Downloaded blob content: "${downloadedContent}"`);
 ```
 
-Odpowiedź jest zwracana jako strumień. W tym przykładzie strumień jest konwertowany na ciąg przy użyciu następującej funkcji pomocnika *streamToString.*
+Odpowiedź jest zwracana jako strumień. W tym przykładzie strumień jest konwertowany na ciąg za pomocą następującej funkcji pomocnika *streamToString* .
 
 ```javascript
 // A helper method used to read a Node.js readable stream into a string
@@ -408,5 +408,5 @@ Wszystkie dane zapisane na koncie magazynu są automatycznie usuwane po zakończ
 W tym przewodniku Szybki start pokazano, jak zarządzać obiektami blob i kontenerami w usłudze Azure Blob Storage przy użyciu środowiska Node.js. Aby dowiedzieć się więcej na temat pracy z tym zestawem SDK, zapoznaj się z repozytorium GitHub.
 
 > [!div class="nextstepaction"]
-> [Zestaw SDK usługi Azure Storage w wersji 10 dla repozytorium](https://github.com/Azure/azure-storage-js)
-> JavaScript[usługi JavaScript usługi Azure Storage JavaScript API Reference](/javascript/api/overview/azure/storage-overview)
+> [Azure Storage v10 SDK dla repozytorium](https://github.com/Azure/azure-storage-js)
+> JavaScript[Dokumentacja interfejsu API JavaScript usługi Azure Storage](/javascript/api/overview/azure/storage-overview)

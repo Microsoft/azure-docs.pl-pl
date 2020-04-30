@@ -1,6 +1,6 @@
 ---
 title: Integracja kontroli źródła
-description: Środowisko DevOps bazy danych klasy korporacyjnej dla puli SQL z natywną integracją kontroli źródła przy użyciu usługi Azure Repos (Git i GitHub).
+description: Środowisko DevOps Database klasy korporacyjnej dla puli SQL z integracją natywnej kontroli źródła przy użyciu Azure Repos (git i GitHub).
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,74 +11,74 @@ ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 3ec52c5274891619cf7976e99b5241bfc67a4076
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81415098"
 ---
 # <a name="source-control-integration-for-sql-pool"></a>Integracja kontroli źródła dla puli SQL
 
-W tym samouczku opisano, jak zintegrować projekt bazy danych narzędzi danych programu SQL Server (SSDT) z kontrolą źródła.  Integracja kontroli źródła jest pierwszym krokiem w tworzeniu potoku ciągłej integracji i wdrażania z zasobem puli SQL w usłudze Azure Synapse Analytics.
+W tym samouczku opisano sposób integrowania projektu bazy danych SQL Server Data Tools (SSDT) z kontrolą źródła.  Integracja kontroli źródła to pierwszy krok w tworzeniu potoku ciągłej integracji i wdrażania przy użyciu zasobu puli SQL w usłudze Azure Synapse Analytics.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-- Zarejestruj się w [organizacji Azure DevOps](https://azure.microsoft.com/services/devops/)
-- Przejdź przez samouczek [Tworzenie i łączenie](create-data-warehouse-portal.md)
-- [Instalowanie programu Visual Studio 2019](https://visualstudio.microsoft.com/vs/older-downloads/)
+- Utwórz konto w [organizacji usługi Azure DevOps](https://azure.microsoft.com/services/devops/)
+- Przejdź do samouczka [Tworzenie i łączenie](create-data-warehouse-portal.md)
+- [Zainstaluj program Visual Studio 2019](https://visualstudio.microsoft.com/vs/older-downloads/)
 
-## <a name="set-up-and-connect-to-azure-devops"></a>Konfigurowanie programów DevOps i łączenie się z nią
+## <a name="set-up-and-connect-to-azure-devops"></a>Konfigurowanie usługi Azure DevOps i nawiązywanie z nią połączenia
 
-1. W organizacji programu Azure DevOps utwórz projekt, który będzie hostował projekt bazy danych SSDT za pośrednictwem repozytorium usługi Azure Repo
+1. W organizacji usługi Azure DevOps Utwórz projekt, który będzie hostować projekt bazy danych SSDT za pośrednictwem repozytorium repozytorium Azure
 
-   ![Tworzenie projektu](./media/sql-data-warehouse-source-control-integration/1-create-project-azure-devops.png "Tworzenie projektu")
+   ![Utwórz projekt](./media/sql-data-warehouse-source-control-integration/1-create-project-azure-devops.png "Utwórz projekt")
 
-2. Otwórz program Visual Studio i połącz się z organizacją i projektem usługi Azure DevOps z kroku 1, wybierając opcję "Zarządzaj połączeniami"
+2. Otwórz program Visual Studio i Połącz się z organizacją usługi Azure DevOps i projektem w kroku 1, wybierając pozycję "Zarządzaj połączeniami".
 
    ![Zarządzanie połączeniami](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Zarządzanie połączeniami")
 
    ![Połącz](./media/sql-data-warehouse-source-control-integration/3-connect.png "Połącz")
 
-3. Klonowanie repozytorium usługi Azure repozytorium z projektu na komputerze lokalnym
+3. Klonowanie repozytorium repozytorium platformy Azure z projektu na komputerze lokalnym
 
-   ![Repo klonowania](./media/sql-data-warehouse-source-control-integration/4-clone-repo.png "Repo klonowania")
+   ![Klonowanie repozytorium](./media/sql-data-warehouse-source-control-integration/4-clone-repo.png "Klonowanie repozytorium")
 
 ## <a name="create-and-connect-your-project"></a>Tworzenie i łączenie projektu
 
-1. W programie Visual Studio utwórz nowy projekt bazy danych programu SQL Server z katalogiem i lokalnym repozytorium Git w **lokalnym sklonowanym repozytorium**
+1. W programie Visual Studio Utwórz nowy projekt SQL Server bazy danych z katalogiem i lokalnym repozytorium Git w **lokalnym sklonowanym repozytorium** .
 
-   ![Tworzenie nowego projektu](./media/sql-data-warehouse-source-control-integration/5-create-new-project.png "Tworzenie nowego projektu")  
+   ![Utwórz nowy projekt](./media/sql-data-warehouse-source-control-integration/5-create-new-project.png "Tworzenie nowego projektu")  
 
-2. Kliknij prawym przyciskiem myszy pusty projekt sqlproject i zaimportuj magazyn danych do projektu bazy danych
+2. Kliknij prawym przyciskiem myszy pusty program sqlproject i zaimportuj magazyn danych do projektu bazy danych
 
-   ![Importowanie projektu](./media/sql-data-warehouse-source-control-integration/6-import-new-project.png "Importowanie projektu")  
+   ![Importuj projekt](./media/sql-data-warehouse-source-control-integration/6-import-new-project.png "Importuj projekt")  
 
-3. W eksploratorze zespołu w programie Visual Studio zaaproponuj wszystkie zmiany w lokalnym repozytorium Git
+3. W programie Team Explorer w programie Visual Studio Zatwierdź wszystkie zmiany w lokalnym repozytorium git
 
    ![Zatwierdzenie](./media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Zatwierdzenie")  
 
-4. Teraz, gdy masz zmiany zatwierdzone lokalnie w sklonowanym repozytorium, zsynchronizuj i wyprowaj zmiany do repozytorium usługi Azure Repo w projekcie Azure DevOps.
+4. Teraz, gdy zmiany zostały zatwierdzone lokalnie w sklonowanym repozytorium, zsynchronizuj i wypchnij zmiany do repozytorium repozytorium platformy Azure w projekcie usługi Azure DevOps.
 
-   ![Synchronizacja i wypychanie — przemieszczania](./media/sql-data-warehouse-source-control-integration/7-commit-push-changes.png "Synchronizacja i wypychanie — przemieszczania")
+   ![Synchronizacja i wypychanie](./media/sql-data-warehouse-source-control-integration/7-commit-push-changes.png "Synchronizacja i wypychanie")
 
-   ![Synchronizacja i wypychanie](./media/sql-data-warehouse-source-control-integration/7.5-commit-push-changes.png "Synchronizacja i wypychanie")  
+   ![Synchronizuj i wypchnij](./media/sql-data-warehouse-source-control-integration/7.5-commit-push-changes.png "Synchronizuj i wypchnij")  
 
 ## <a name="validation"></a>Walidacja
 
-1. Sprawdź, czy zmiany zostały wypychane do repozytorium usługi Azure, aktualizując kolumnę tabeli w projekcie bazy danych za pomocą narzędzia danych programu Visual Studio SQL Server Data Tools (SSDT)
+1. Sprawdź, czy zmiany zostały wypchnięte do repozytorium platformy Azure przez zaktualizowanie kolumny tabeli w projekcie bazy danych za pomocą programu Visual Studio SQL Server Data Tools (SSDT)
 
-   ![Sprawdzanie poprawności kolumny aktualizacji](./media/sql-data-warehouse-source-control-integration/8-validation-update-column.png "Sprawdzanie poprawności kolumny aktualizacji")
+   ![Sprawdź poprawność kolumny aktualizacji](./media/sql-data-warehouse-source-control-integration/8-validation-update-column.png "Sprawdź poprawność kolumny aktualizacji")
 
-2. Zatwierdzanie i wypychanie zmian z lokalnego repozytorium do usługi Azure Repo
+2. Zatwierdź i wypchnij zmianę z repozytorium lokalnego do repozytorium Azure
 
    ![Wypychanie zmian](./media/sql-data-warehouse-source-control-integration/9-push-column-change.png "Wypychanie zmian")
 
-3. Sprawdź, czy zmiana została wypchnięta w repozytorium repozytorium usługi Azure
+3. Sprawdź, czy zmiana została wypchnięcia w repozytorium repozytorium platformy Azure
 
-   ![Sprawdź](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Weryfikowanie zmian")
+   ![Sprawdź](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Weryfikuj zmiany")
 
-4. (**Opcjonalnie**) Użyj porównania schematu i zaktualizuj zmiany w docelowym magazynie danych przy użyciu narzędzia SSDT, aby upewnić się, że definicje obiektów w repozytorium repozytorium usługi Azure i repozytorium lokalnym odzwierciedlają magazyn danych
+4. (**Opcjonalnie**) Użyj porównania schematów i zaktualizuj zmiany w docelowym hurtowni danych przy użyciu SSDT, aby upewnić się, że definicje obiektów w repozytorium Azure Repository i repozytorium lokalnym odzwierciedlają magazyn danych
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie dla tworzenia dla puli SQL](sql-data-warehouse-overview-develop.md)
+- [Opracowywanie aplikacji dla puli SQL](sql-data-warehouse-overview-develop.md)

@@ -1,5 +1,5 @@
 ---
-title: Tworzenie fabryki danych platformy Azure przy użyciu interfejsu REST API
+title: Tworzenie fabryki danych Azure przy użyciu interfejsu API REST
 description: Tworzenie fabryki danych platformy Azure w celu skopiowania danych między lokalizacjami w usłudze Azure Blob Storage.
 services: data-factory
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.date: 06/10/2019
 ms.author: jingwang
 ms.openlocfilehash: b50217a3a8aeda03996183bf1dc82a0be1f485ae
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81419106"
 ---
-# <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Szybki start: tworzenie fabryki danych platformy Azure i potoku przy użyciu interfejsu API REST
+# <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Szybki Start: Tworzenie fabryki danych Azure i potoku przy użyciu interfejsu API REST
 
-> [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
+> [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Bieżąca wersja](quickstart-create-data-factory-rest-api.md)
 
@@ -32,7 +32,7 @@ Azure Data Factory to oparta na chmurze usługa integracji danych, za pomocą kt
 
 Ten samouczek Szybki start opisuje sposób używania interfejsu API REST w celu utworzenia usługi Azure Data Factory. Potok w tej usłudze Data Factory kopiuje dane z jednej lokalizacji do innej lokalizacji w usłudze Azure Blob Storage.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne](https://azure.microsoft.com/free/) konto przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,8 +41,8 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne](https://azure.
 * **Subskrypcja platformy Azure**. Jeśli nie masz subskrypcji, możesz utworzyć konto [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/).
 * **Konto usługi Azure Storage**. Magazyn obiektów blob jest używany jako magazyn **źródła** i **ujścia** danych. Jeśli nie masz konta usługi Azure Storage, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu](../storage/common/storage-account-create.md).
 * Utwórz **kontener obiektów blob** w usłudze Blob Storage, utwórz **folder** wejściowy w kontenerze i przekaż niektóre pliki do folderu. Narzędzia, takie jak [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/), umożliwiają łączenie z usługą Azure Blob Storage, tworzenie kontenera obiektów blob, przekazywanie pliku wejściowego i weryfikację pliku wyjściowego.
-* Zainstaluj **program Azure PowerShell**. Wykonaj instrukcje podane w temacie [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-Az-ps). Ten samouczek Szybki start używa programu PowerShell do wywoływania interfejsu API REST.
-* **Utwórz aplikację w usłudze Azure Active Directory**, wykonując [tę instrukcję](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Zanotuj następujące wartości, których używasz w kolejnych krokach: **identyfikator aplikacji,** **clientSecrets**i **identyfikator dzierżawy**. Przypisz aplikację do roli „**Współautor**”.
+* Zainstaluj **Azure PowerShell**. Wykonaj instrukcje podane w temacie [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-Az-ps). Ten samouczek Szybki start używa programu PowerShell do wywoływania interfejsu API REST.
+* **Utwórz aplikację w usłudze Azure Active Directory**, wykonując [tę instrukcję](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Zwróć uwagę na następujące wartości, których można użyć w kolejnych krokach: **Identyfikator aplikacji**, **clientSecrets**i **Identyfikator dzierżawy**. Przypisz aplikację do roli „**Współautor**”.
 
 ## <a name="set-global-variables"></a>Ustawianie zmiennych globalnych
 
@@ -58,7 +58,7 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne](https://azure.
     ```powershell
     Get-AzSubscription
     ```
-    Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Zamień **identyfikator subscriptionid** na identyfikator subskrypcji platformy Azure:
+    Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Zastąp **Identyfikator subskrypcji ID** subskrypcji platformy Azure:
 
     ```powershell
     Select-AzSubscription -SubscriptionId "<SubscriptionId>"
@@ -194,7 +194,7 @@ Oto przykładowe dane wyjściowe:
 
 Zdefiniuj zestaw danych, który reprezentuje dane do skopiowania ze źródła do ujścia. W tym przykładzie utworzysz dwa zestawy danych: InputDataset i OutputDataset. Odwołują się one do połączonej usługi Azure Storage utworzonej w poprzedniej sekcji. Wejściowy zestaw danych reprezentuje dane źródłowe w folderze wejściowym. W definicji wejściowego zestawu danych określany jest kontener obiektów blob (adftutorial), folder (input) i plik (emp.txt), który zawiera dane źródłowe. Wyjściowy zestaw danych reprezentuje dane, które są kopiowane do lokalizacji docelowej. W definicji wyjściowego zestawu danych określany jest kontener obiektów blob (adftutorial), folder (output) i plik, do którego kopiowane są dane.
 
-**Utwórz zestaw danych wejściowych**
+**Utwórz InputDataset**
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/datasets/InputDataset?api-version=${apiVersion}"
@@ -248,7 +248,7 @@ Oto przykładowe dane wyjściowe:
     "etag":"07011c57-0000-0100-0000-5d6e14b40000"
 }
 ```
-**Tworzenie zestawu danych wyjściowych**
+**Utwórz OutputDataset**
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/datasets/OutputDataset?api-version=${apiVersion}"
@@ -385,7 +385,7 @@ Oto przykładowe dane wyjściowe:
 
 W tym kroku ustawisz wartości parametrów **inputPath** i **outputPath** określonych w potoku za pomocą rzeczywistych wartości ścieżek źródła i ujścia obiektu blob oraz wyzwolisz uruchomienie potoku. Identyfikator uruchomienia potoku zwracany w treści odpowiedzi jest używany później do monitorowania interfejsu API.
 
-Zamień wartość **inputPath** i **outputPath** ze ścieżką źródłową i docelową ścieżkę obiektu blob, aby skopiować dane z i do przed zapisaniem pliku.
+Zastąp wartość **inputPath** i **outputPath** ścieżką źródłową i ujścia obiektu BLOB, aby skopiować dane z i do przed zapisaniem pliku.
 
 
 ```powershell

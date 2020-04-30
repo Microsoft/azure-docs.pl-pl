@@ -1,5 +1,5 @@
 ---
-title: Szybki start — tworzenie zestawu skalowania maszyny wirtualnej systemu Linux za pomocą szablonu usługi Azure Resource Manager
+title: Szybki Start — Tworzenie zestawu skalowania maszyn wirtualnych z systemem Linux przy użyciu szablonu Azure Resource Manager
 description: Dowiedz się, jak szybko utworzyć skalę maszyny wirtualnej z systemem Linux za pomocą szablonu usługi Azure Resource Manager, który wdraża przykładową aplikację i konfiguruje reguły automatycznego skalowania
 author: ju-shim
 tags: azure-resource-manager
@@ -9,19 +9,19 @@ ms.custom: mvc,subject-armqs
 ms.date: 03/27/2020
 ms.author: jushiman
 ms.openlocfilehash: 4c0bac943be996c02436824334bd79a270f9a2e2
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81010464"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-resource-manager-template"></a>Szybki start: tworzenie zestawu skalowania maszyny wirtualnej systemu Linux za pomocą szablonu usługi Azure Resource Manager
+# <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-resource-manager-template"></a>Szybki Start: Tworzenie zestawu skalowania maszyn wirtualnych z systemem Linux przy użyciu szablonu Azure Resource Manager
 
 Zestaw skalowania maszyn wirtualnych umożliwia wdrożenie zestawu identycznych, automatycznie skalowanych maszyn wirtualnych, oraz zarządzanie nimi. Maszyny wirtualne w zestawie skalowania możesz skalować ręcznie lub możesz zdefiniować reguły skalowania automatycznego na podstawie użycia takich zasobów jak procesor CPU, zapotrzebowanie na pamięć lub ruch sieciowy. Moduł równoważenia obciążenia platformy Azure następnie dystrybuuje ruch do wystąpień maszyn wirtualnych w zestawie skalowania. W tym przewodniku Szybki start utworzysz zestaw skalowania maszyn wirtualnych i wdrożysz przykładową aplikację przy użyciu szablonu usługi Azure Resource Manager.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -31,19 +31,19 @@ Brak.
 
 Szablony usługi Azure Resource Manager umożliwiają wdrażanie grup powiązanych zasobów. W jednym szablonie można utworzyć zestaw skalowania maszyn wirtualnych, zainstalować aplikacje i skonfigurować reguły automatycznego skalowania. Korzystając ze zmiennych i parametrów, można ponownie użyć tego szablonu, aby zaktualizować istniejące zestawy skalowania lub utworzyć dodatkowe. Szablony można wdrażać za pośrednictwem witryny Azure Portal, interfejsu wiersza polecenia platformy Azure lub programu Azure PowerShell bądź z poziomu potoków ciągłej integracji/ciągłego dostarczania (CI/CD).
 
-### <a name="review-the-template"></a>Przejrzyj szablon
+### <a name="review-the-template"></a>Zapoznaj się z szablonem
 
-Szablon używany w tym przewodniku Szybki start pochodzi z [szablonów szybki start platformy Azure](https://azure.microsoft.com/resources/templates/201-vmss-bottle-autoscale/).
+Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/201-vmss-bottle-autoscale/).
 
 :::code language="json" source="~/quickstart-templates/201-vmss-bottle-autoscale/azuredeploy.json" range="1-330" highlight="176-264":::
 
 Te zasoby są zdefiniowane w szablonie:
 
-- [**Sieć Microsoft.Network/virtual Sieci**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
-- [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadbalancers)
+- [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft. Network/adresów publicipaddress**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft. Network/loadBalancers**](/azure/templates/microsoft.network/loadbalancers)
 - [**Microsoft.Compute/virtualMachineScaleSets**](/azure/templates/microsoft.compute/virtualmachinescalesets)
-- [**Microsoft.Insights/skalowanie automatyczneStawienia**](/azure/templates/microsoft.insights/autoscalesettings)
+- [**Microsoft. Insights/autoscaleSettings**](/azure/templates/microsoft.insights/autoscalesettings)
 
 #### <a name="define-a-scale-set"></a>Definiowanie zestawu skalowania
 
@@ -62,7 +62,7 @@ Wyróżniona część jest definicją zasobu zestawu skalowania. Aby utworzyć s
 | osProfile.adminUsername      | Nazwa użytkownika dla każdego wystąpienia maszyny wirtualnej                        | użytkownik_azure                                 |
 | osProfile.adminPassword      | Hasło dla każdego wystąpienia maszyny wirtualnej                        | P@ssw0rd!                                 |
 
-Aby dostosować szablon zestawu skalowania, można zmienić rozmiar maszyny Wirtualnej lub pojemność początkową. Inną opcją jest użycie innej platformy lub niestandardowego obrazu.
+Aby dostosować szablon zestawu skalowania, można zmienić rozmiar maszyny wirtualnej lub pojemność początkową. Innym rozwiązaniem jest użycie innej platformy lub obrazu niestandardowego.
 
 #### <a name="add-a-sample-application"></a>Dodawanie przykładowej aplikacji
 
@@ -74,17 +74,17 @@ Aby przetestować zestaw skalowania, należy zainstalować podstawową aplikacj�
 - Lokalizacja konfiguracji lub skryptów instalacji
 - Polecenia do wykonania na wystąpieniach maszyn wirtualnych
 
-Szablon używa niestandardowego rozszerzenia skryptu do [zainstalowania bottle,](https://bottlepy.org/docs/dev/)struktury sieci Web Języka Python i prostego serwera HTTP.
+Szablon używa niestandardowego rozszerzenia skryptu w celu zainstalowania [butelek](https://bottlepy.org/docs/dev/), struktury sieci Web języka Python i prostego serwera http.
 
-Dwa skrypty są zdefiniowane w*installserver.sh* **fileUris** - i *workserver.py*. Pliki te są pobierane z GitHub, a `bash installserver.sh` następnie *commandToExecute* działa, aby zainstalować i skonfigurować aplikację.
+Dwa skrypty są zdefiniowane w **fileUris** - *installserver.sh*i *workserver.py*. Te pliki są pobierane z usługi GitHub, *commandToExecute* a następnie `bash installserver.sh` sekcji commandtoexecute są uruchamiane w celu zainstalowania i skonfigurowania aplikacji.
 
 ### <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-Szablon można wdrożyć, wybierając następujący przycisk **Wdrażanie na platformie Azure.** Ten przycisk otwiera witrynę Azure Portal, ładuje pełny szablon i wyświetla monit o podanie kilku parametrów, takich jak nazwa zestawu skalowania, liczba wystąpień i poświadczenia administratora.
+Szablon można wdrożyć, wybierając poniższy przycisk **Wdróż na platformie Azure** . Ten przycisk otwiera witrynę Azure Portal, ładuje pełny szablon i wyświetla monit o podanie kilku parametrów, takich jak nazwa zestawu skalowania, liczba wystąpień i poświadczenia administratora.
 
-[![Wdrażanie szablonu na platformie Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
+[![Wdróż szablon na platformie Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
-Można również wdrożyć szablon Usługi Resource Manager przy użyciu interfejsu wiersza polecenia platformy Azure:
+Szablon Menedżer zasobów można również wdrożyć przy użyciu interfejsu wiersza polecenia platformy Azure:
 
 ```azurecli-interactive
 # Create a resource group
@@ -108,7 +108,7 @@ az network public-ip list \
     --query [*].ipAddress -o tsv
 ```
 
-Wprowadź publiczny adres IP modułu równoważenia obciążenia w przeglądarce internetowej w formacie *\/http: /publicIpAddress:9000/do_work*. Moduł równoważenia obciążenia kieruje ruch do jednego z wystąpień maszyn wirtualnych, jak pokazano w poniższym przykładzie:
+Wprowadź publiczny adres IP modułu równoważenia obciążenia w przeglądarce internetowej w formacie *http:\//publicIpAddress: 9000/do_work*. Moduł równoważenia obciążenia kieruje ruch do jednego z wystąpień maszyn wirtualnych, jak pokazano w poniższym przykładzie:
 
 ![Domyślna strona internetowa na serwerze NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
 

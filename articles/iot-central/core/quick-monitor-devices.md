@@ -1,6 +1,6 @@
 ---
-title: Szybki start — monitorowanie urządzeń w usłudze Azure IoT Central
-description: Jako operator dowiedz się, jak monitorować urządzenia za pomocą aplikacji Azure IoT Central.
+title: Szybki Start — monitorowanie urządzeń na platformie Azure IoT Central
+description: Dowiedz się, jak używać aplikacji IoT Central platformy Azure do monitorowania urządzeń.
 author: dominicbetts
 ms.author: dobett
 ms.date: 02/12/2020
@@ -10,47 +10,47 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: 1dec52bbf1435cd7e363edf111f769d3e2cffb6a
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80998920"
 ---
-# <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>Szybki start: monitorowanie urządzeń za pomocą usługi Azure IoT Central
+# <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>Szybki Start: korzystanie z usługi Azure IoT Central do monitorowania urządzeń
 
 *Ten artykuł dotyczy operatorów, konstruktorów i administratorów.*
 
-Ten przewodnik Szybki start pokazuje, jako operator, jak używać aplikacji Microsoft Azure IoT Central do monitorowania urządzeń i zmiany ustawień.
+Ten przewodnik Szybki Start przedstawia Cię jako operatora, jak używać aplikacji Microsoft Azure IoT Central do monitorowania urządzeń i zmieniania ustawień.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem należy wykonać trzy poprzednie przewodniki Szybki start [Tworzenie aplikacji Azure IoT Central](./quick-deploy-iot-central.md), Dodawanie [symulowanego urządzenia do aplikacji IoT Central](./quick-create-simulated-device.md) oraz [konfigurowanie reguł i akcji dla urządzenia.](quick-configure-rules.md)
+Przed rozpoczęciem należy wykonać trzy poprzednie Przewodniki Szybki Start [Tworzenie aplikacji IoT Central platformy Azure](./quick-deploy-iot-central.md), [dodać symulowane urządzenie do aplikacji IoT Central](./quick-create-simulated-device.md) i [skonfigurować reguły i akcje dla urządzenia](quick-configure-rules.md).
 
 ## <a name="receive-a-notification"></a>Odbieranie powiadomienia
 
-Usługa Azure IoT Central wysyła powiadomienia dotyczące urządzeń jako wiadomości e-mail. Konstruktor dodał regułę wysyłania powiadomień, gdy temperatura w podłączonym czujniku urządzenia przekroczyła próg. Sprawdź wiadomości e-mail wysłane na konto wybrane przez konstruktora do odbierania powiadomień.
+Usługa Azure IoT Central wysyła powiadomienia dotyczące urządzeń jako wiadomości e-mail. Konstruktor dodał regułę do wysyłania powiadomienia, gdy temperatura w czujniku połączonego urządzenia przekroczyła wartość progową. Sprawdź wiadomości e-mail wysłane na konto wybrane przez konstruktora do odbierania powiadomień.
 
-Otwórz wiadomość e-mail otrzymaną na końcu [reguł i akcji Konfigurowanie dla szybkiego startu urządzenia.](quick-configure-rules.md) W wiadomości e-mail wybierz łącze do urządzenia:
+Otwórz wiadomość e-mail otrzymaną po zakończeniu [konfigurowania reguł i akcji dla](quick-configure-rules.md) szybkiego startu urządzenia. W wiadomości e-mail wybierz link do urządzenia:
 
 ![Wiadomość e-mail z alertem](media/quick-monitor-devices/email.png)
 
-Widok **Przegląd** symulowanego urządzenia utworzonego w poprzednich przewodnikach Szybki start otwiera się w przeglądarce:
+Widok **omówienia** symulowanego urządzenia utworzonego w poprzednich przewodnikach Szybki Start zostanie otwarty w przeglądarce:
 
 ![Urządzenie, które wyzwoliło wiadomość e-mail z powiadomieniem](media/quick-monitor-devices/dashboard.png)
 
 ## <a name="investigate-an-issue"></a>Badanie problemu
 
-Jako operator można wyświetlać informacje o urządzeniu w widokach **Przegląd**, **Informacje**i **Polecenia.** Konstruktor utworzył widok **Zarządzaj urządzeniem,** aby edytować informacje o urządzeniu i ustawić właściwości urządzenia.
+Jako operator można wyświetlić informacje o urządzeniu w widokach **Przegląd**, **informacje**i **polecenia** . Konstruktor utworzył widok **Zarządzanie urządzeniem** służący do edytowania informacji o urządzeniu i ustawiania właściwości urządzeń.
 
-Wykres na pulpicie nawigacyjnym pokazuje wykreśloną temperaturę urządzenia. Zdecydujesz, że temperatura urządzenia jest zbyt wysoka.
+Wykres na pulpicie nawigacyjnym pokazuje wykreśloną temperaturę urządzenia. Należy określić, że temperatura urządzenia jest zbyt wysoka.
 
 ## <a name="remediate-an-issue"></a>Rozwiązywanie problemu
 
-Aby wprowadzić zmiany na urządzeniu, użyj strony **Zarządzanie urządzeniem.**
+Aby wprowadzić zmianę na urządzeniu, użyj strony **Zarządzanie urządzeniem** .
 
-Zmień **prędkość wentylatora** na 500, aby schłodzić urządzenie. Wybierz **pozycję Zapisz,** aby zaktualizować urządzenie. Gdy urządzenie potwierdzi zmianę ustawień, stan właściwości zmienia się na **zsynchronizowany:**
+Zmień **szybkość wentylatora** na 500, aby schłodzić urządzenie. Wybierz pozycję **Zapisz** , aby zaktualizować urządzenie. Gdy urządzenie potwierdzi zmianę ustawień, stan właściwości zmieni się na **zsynchronizowany**:
 
-![Aktualizowanie ustawień](media/quick-monitor-devices/change-settings.png)
+![Ustawienia aktualizacji](media/quick-monitor-devices/change-settings.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -60,7 +60,7 @@ W tym przewodniku Szybki start zawarto informacje na temat wykonywania następuj
 * Badanie problemu
 * Rozwiązywanie problemu
 
-Teraz, gdy wiesz teraz, aby monitorować swoje urządzenie, sugerowanym następnym krokiem jest:
+Teraz, gdy teraz wiesz już, jak monitorować urządzenie, sugerowanym następnym krokiem jest:
 
 > [!div class="nextstepaction"]
-> [Tworzenie szablonu urządzenia i zarządzanie nim](howto-set-up-template.md).
+> [Kompiluj szablon urządzenia i Zarządzaj nim](howto-set-up-template.md).

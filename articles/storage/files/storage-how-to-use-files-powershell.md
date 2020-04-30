@@ -8,16 +8,16 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: c419c2127b1c5fe3aaa60c6e828ff0c5a6676c07
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77598548"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Szybki start: tworzenie udziałów plików platformy Azure i zarządzanie nimi za pomocą programu Azure PowerShell 
 W tym przewodniku przedstawiono podstawowe informacje dotyczące pracy z [udziałami plików platformy Azure](storage-files-introduction.md) przy użyciu programu PowerShell. Udziały plików platformy Azure są podobne do innych udziałów plików, ale są przechowywane w chmurze i obsługiwane przez platformę Azure. Udziały plików platformy Azure obsługują standardowy w branży protokół SMB i umożliwiają udostępnianie plików między wieloma maszynami, aplikacjami i wystąpieniami. 
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -26,7 +26,7 @@ Jeśli chcesz zainstalować program PowerShell i używać go lokalnie, ten przew
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Jeśli nie masz jeszcze grupy zasobów platformy Azure, możesz utworzyć nową grupę za pomocą polecenia cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
 
-Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w regionie Zachodnie stany USA 2:
+Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w regionie zachodnie stany USA 2:
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -38,9 +38,9 @@ New-AzResourceGroup `
 ```
 
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
-Konto magazynu to udostępniona pula magazynu, której można użyć do wdrożenia udziałów plików platformy Azure. Konto magazynu może zawierać nieograniczoną liczbę udziałów, a udział może obejmować nieograniczoną liczbę plików, nieprzekraczającą limitów pojemności konta magazynu. W tym przykładzie tworzy ogólnego przeznaczenia w wersji 2 (konto magazynu GPv2), który może magazynować standardowe udziały plików platformy Azure lub innych zasobów magazynu, takich jak obiekty blob lub kolejki, na dysku twardym (HDD) nośnika obrotowego. Usługa Azure Files obsługuje również dyski PÓŁPRZEWODNIKOWE klasy premium (SSD); udziały plików platformy Azure premium można tworzyć na kontach magazynu FileStorage.
+Konto magazynu to udostępniona pula magazynu, za pomocą której można wdrażać udziały plików platformy Azure. Konto magazynu może zawierać nieograniczoną liczbę udziałów, a udział może obejmować nieograniczoną liczbę plików, nieprzekraczającą limitów pojemności konta magazynu. W tym przykładzie tworzony jest program ogólnego przeznaczenia w wersji 2 (GPv2 Storage), który może magazynować standardowe udziały plików platformy Azure lub inne zasoby magazynu, takie jak obiekty blob lub kolejki, na nośniku rotacyjnym dysku twardego. Azure Files obsługuje również dyski półprzewodnikowe w warstwie Premium (dysków SSD); udziały plików platformy Azure w warstwie Premium można tworzyć na kontach magazynu FileStorage.
 
-W tym przykładzie tworzone jest konto magazynu przy użyciu polecenia cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Konto magazynu nosi nazwę *mystorageaccount\<liczba losowa>* i odwołanie do tego konta magazynu jest przechowywany w zmiennej **$storageAcct**. Nazwy kont magazynów muszą być unikatowe, użyj zatem polecenia `Get-Random` w celu dołączenia liczby do nazwy, aby była unikatowa. 
+W tym przykładzie tworzone jest konto magazynu przy użyciu polecenia cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Konto magazynu ma nazwę *mojekontomagazynu\<liczba losowa>* a odwołanie do tego konta magazynu jest przechowywane w zmiennej **$storageAcct**. Nazwy kont magazynów muszą być unikatowe, użyj zatem polecenia `Get-Random` w celu dołączenia liczby do nazwy, aby była unikatowa. 
 
 ```azurepowershell-interactive 
 $storageAccountName = "mystorageacct$(Get-Random)"
@@ -55,10 +55,10 @@ $storageAcct = New-AzStorageAccount `
 ```
 
 > [!Note]  
-> Udziały większe niż 5 TiB (maksymalnie 100 TiB na jedną akcję) są dostępne tylko na kontach magazynowych zbędnych lokalnie (LRS) i strefowych (ZRS). Aby utworzyć konto magazynu geograficznie nadmiarowe (GRS) lub geo-zone-redundant `-EnableLargeFileShare` (GZRS), usuń ten parametr.
+> Udziały większe niż 5 TiB (maksymalnie 100 TiB na udział) są dostępne tylko na kontach magazynu lokalnie nadmiarowy (LRS) i strefowo nadmiarowe (ZRS). Aby utworzyć konto magazynu geograficznie nadmiarowego (GRS) lub strefy geograficznie nadmiarowe (GZRS), `-EnableLargeFileShare` Usuń parametr.
 
 ## <a name="create-an-azure-file-share"></a>Tworzenie udziału plików platformy Azure
-Teraz możesz utworzyć swój pierwszy udział plików platformy Azure. Udział plików można utworzyć za pomocą polecenia cmdlet [New-AzRmStorageShare.](/powershell/module/az.storage/New-AzRmStorageShare) W tym przykładzie tworzony jest udział o nazwie `myshare`.
+Teraz możesz utworzyć swój pierwszy udział plików platformy Azure. Udział plików można utworzyć przy użyciu polecenia cmdlet [New-AzRmStorageShare](/powershell/module/az.storage/New-AzRmStorageShare) . W tym przykładzie tworzony jest udział o nazwie `myshare`.
 
 ```azurepowershell-interactive
 $shareName = "myshare"
@@ -77,18 +77,18 @@ Usługa Azure Files oferuje dwie metody pracy z plikami i folderami w obrębie u
 Aby zainstalować udział plików za pomocą protokołu SMB, zobacz następujący dokument zgodny z używanym systemem operacyjnym:
 - [Windows](storage-how-to-use-files-windows.md)
 - [Linux](storage-how-to-use-files-linux.md)
-- [Macos](storage-how-to-use-files-mac.md)
+- [macOS](storage-how-to-use-files-mac.md)
 
 ### <a name="using-an-azure-file-share-with-the-file-rest-protocol"></a>Korzystanie z udziału plików platformy Azure za pomocą protokołu REST usługi Files 
-Jest możliwe, aby pracować z protokołem FILE REST bezpośrednio (tj. ręczne wykonywanie REST HTTP wywołuje siebie), ale najczęstszym sposobem korzystania z protokołu FILE REST jest użycie modułu Azure PowerShell, [interfejsu wiersza polecenia platformy Azure](storage-how-to-use-files-cli.md)lub zestawu SDK usługi Azure Storage, z których wszystkie zapewniają ładne otoki wokół protokołu FILE REST w wybranym języku skryptów/programowania.  
+Istnieje możliwość bezpośredniej pracy z protokołem REST plików (tj. wywołania HTTP REST handcrafting samodzielnie), ale najbardziej typowym sposobem korzystania z protokołu REST jest użycie modułu Azure PowerShell, [interfejsu wiersza polecenia platformy Azure](storage-how-to-use-files-cli.md)lub zestawu SDK usługi Azure Storage, z którego wszystkie zapewniają dodatkową otokę wokół protokołu REST plików w wybranym języku skryptów/programowania.  
 
 W większości przypadków użyjesz udziału plików platformy Azure za pośrednictwem protokołu SMB, ponieważ umożliwi to skorzystanie ze znanych Ci istniejących aplikacji i narzędzi, ale istnieje kilka powodów, dla których użycie interfejsu API REST usługi Files wydaje się korzystniejsze niż użycie protokołu SMB:
 
 - Udziały plików przeglądasz za pomocą programu PowerShell Cloud Shell (który nie może instalować udziałów plików za pośrednictwem protokołu SMB).
 - Korzystasz z zasobów bezserwerowych, takich jak [usługa Azure Functions](../../azure-functions/functions-overview.md). 
-- Tworzysz usługę dodawania wartości, która będzie współdziałać z wieloma udziałami plików platformy Azure, takimi jak wykonywanie kopii zapasowych lub skanowania antywirusowego.
+- Tworzysz usługę wartości doprowadzającej, która będzie współdziałać z wieloma udziałami plików platformy Azure, takimi jak wykonywanie skanowania kopii zapasowej lub skanowanie antywirusowe.
 
-W poniższych przykładach przedstawiono, jak używać modułu Azure PowerShell do obsługi udziałów plików platformy Azure przy użyciu protokołu REST usługi Files. Parametr `-Context` jest używany do pobierania klucza konta magazynu do wykonywania wskazanych akcji względem udziału plików. Aby pobrać klucz konta magazynu, musisz mieć rolę `Owner` RBAC na koncie magazynu.
+W poniższych przykładach przedstawiono, jak używać modułu Azure PowerShell do obsługi udziałów plików platformy Azure przy użyciu protokołu REST usługi Files. Ten `-Context` parametr służy do pobierania klucza konta magazynu w celu wykonania wskazanych akcji względem udziału plików. Aby można było pobrać klucz konta magazynu, należy mieć rolę RBAC `Owner` na koncie magazynu.
 
 #### <a name="create-directory"></a>Tworzenie katalogu
 Aby utworzyć nowy katalog o nazwie *myDirectory* w katalogu głównym udziału plików platformy Azure, użyj polecenia cmdlet [New-AzStorageDirectory](/powershell/module/az.storage/New-AzStorageDirectory).
@@ -186,13 +186,13 @@ Get-AzStorageFile `
     -Path "myDirectory2" 
 ```
 
-Podczas `Start-AzStorageFileCopy` gdy polecenie cmdlet jest wygodne dla doraźnych ruchów plików między `robocopy` udziałami `rsync` plików platformy Azure, migracji i większych ruchów danych, zalecamy w systemie Windows i na macOS i Linux. `robocopy`i `rsync` użyj SMB do wykonywania ruchów danych zamiast interfejsu API FileREST.
+Chociaż `Start-AzStorageFileCopy` polecenie cmdlet jest wygodne w przypadku przenoszenia plików między udziałami plików platformy Azure, w przypadku migracji i większych przepływów danych zalecamy `robocopy` korzystanie z systemów `rsync` Windows i macOS oraz Linux. `robocopy`i `rsync` Użyj protokołu SMB, aby wykonać przesunięcia danych zamiast interfejsu API FileREST.
 
 ## <a name="create-and-manage-share-snapshots"></a>Tworzenie migawek udziałów i zarządzanie nimi
 Jedną z dodatkowych przydatnych czynności, które można wykonywać na udziałach plików platformy Azure, jest tworzenie migawek udziałów. Migawka zachowuje określony moment w czasie dla udziału plików platformy Azure. Migawki udziałów są podobne do technologii systemów operacyjnych, które być może już znasz, takich jak:
 
 - [Usługa kopiowania woluminów w tle (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) dla systemów plików systemu Windows, takich jak NTFS i ReFS.
-- Migawki [menedżera woluminów logicznych (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) dla systemów Linux.
+- Migawki [Menedżera woluminów logicznych (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) dla systemów Linux.
 - Migawki [Systemu plików firmy Apple (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) dla systemu macOS 
 
 Migawkę dla udziału można utworzyć za pomocą metody `Snapshot` na obiekcie programu PowerShell dla udziału plików, który jest pobierany za pomocą polecenia cmdlet [Get-AzStorageShare](/powershell/module/az.storage/Get-AzStorageShare). 
@@ -263,7 +263,7 @@ Zasoby możesz również usuwać pojedynczo:
     ```
 
     > [!Note]  
-    > Przed usunięciem udziału plików platformy Azure należy usunąć wszystkie migawki udziału dla utworzonych udziałów plików platformy Azure.
+    > Musisz usunąć wszystkie migawki udziałów dla utworzonych udziałów plików platformy Azure przed usunięciem udziału plików platformy Azure.
 
 - Aby usunąć konto magazynu (spowoduje to niejawne usunięcie utworzonych udziałów plików platformy Azure oraz wszelkich innych zasobów magazynu, które mogły zostać utworzone, takich jak kontener usługi Azure Blob Storage).
 

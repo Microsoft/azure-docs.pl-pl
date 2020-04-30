@@ -1,6 +1,6 @@
 ---
-title: 'Szybki start: ustawianie i pobieranie klucza z usługi Azure Key Vault'
-description: Szybki start pokazujący, jak ustawić i pobrać klucz z usługi Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure
+title: 'Szybki Start: Ustawianie i pobieranie klucza z Azure Key Vault'
+description: Przewodnik Szybki Start przedstawiający sposób ustawiania i pobierania klucza z Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 03/30/2020
 ms.author: mbaldwin
 ms.openlocfilehash: defc5317c127d771786989748e404285ca0c0584
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81424209"
 ---
-# <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-cli"></a>Szybki start: ustawianie i pobieranie klucza z usługi Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-cli"></a>Szybki Start: Ustawianie i pobieranie klucza z Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure
 
-W tym przewodniku Szybki start utworzysz magazyn kluczy w usłudze Azure Key Vault za pomocą interfejsu wiersza polecenia platformy Azure. Azure Key Vault to usługa w chmurze, która działa jako bezpieczny magazyn wpisów tajnych. Możesz bezpiecznie przechowywać klucze, hasła, certyfikaty oraz inne wpisy tajne. Aby uzyskać więcej informacji na temat Usługi Key Vault, można zapoznać się z [omówieniem](../general/overview.md). Interfejs wiersza polecenia platformy Azure służy do tworzenia zasobów platformy Azure i zarządzanie nimi za pomocą poleceń lub skryptów. Po zakończeniu tego, będziesz przechowywać klucz.
+W tym przewodniku szybki start utworzysz Magazyn kluczy w Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure. Azure Key Vault to usługa w chmurze, która działa jako bezpieczny magazyn wpisów tajnych. Możesz bezpiecznie przechowywać klucze, hasła, certyfikaty oraz inne wpisy tajne. Aby uzyskać więcej informacji na Key Vault można zapoznać się z [omówieniem](../general/overview.md). Interfejs wiersza polecenia platformy Azure służy do tworzenia zasobów platformy Azure i zarządzanie nimi za pomocą poleceń lub skryptów. Po zakończeniu tej operacji będziesz przechowywać klucz.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -63,26 +63,26 @@ Dane wyjściowe tego polecenia cmdlet pokazują właściwości nowo utworzonej u
 
 Twoje konto platformy Azure jest teraz jedynym kontem z uprawnieniami do wykonywania jakichkolwiek operacji na tym nowym magazynie.
 
-## <a name="add-a-key-to-key-vault"></a>Dodawanie klucza do przechowalni kluczy
+## <a name="add-a-key-to-key-vault"></a>Dodaj klucz do Key Vault
 
-Aby dodać klucz do repozytorium, wystarczy wykonać kilka dodatkowych kroków. Ten klucz może być używany przez aplikację. 
+Aby dodać klucz do magazynu, wystarczy wykonać kilka dodatkowych kroków. Ten klucz może być używany przez aplikację. 
 
-Wpisz poniższe polecenia, aby utworzyć o nazwie **ExampleKey** :
+Wpisz poniższe polecenia, aby utworzyć nazwę o nazwie **ExampleKey** :
 
 ```azurecli
 az keyvault key create --vault-name "Contoso-Vault2" -n ExampleKey --protection software
 ```
 
-Teraz można odwoływać się do tego klucza, który został dodany do usługi Azure Key Vault przy użyciu jego identyfikatora URI. Użyj, **https://Contoso-Vault2.vault.azure.net/keys/ExampleKey** aby uzyskać bieżącą wersję. 
+Teraz można odwołać się do tego klucza, który został dodany do Azure Key Vault przy użyciu identyfikatora URI. Użyj **https://Contoso-Vault2.vault.azure.net/keys/ExampleKey** , aby pobrać bieżącą wersję. 
 
-Aby wyświetlić wcześniej zapisany klucz:
+Aby wyświetlić poprzednio przechowywany klucz:
 
 ```azurecli
 
 az keyvault key show --name "ExampleKey" --vault-name "Contoso-Vault2"
 ```
 
-Teraz utworzono przechowalnię kluczy, zapisałeś klucz i pobierałeś go.
+Teraz utworzono Key Vault, Zapisano klucz i pobieramy go.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -95,8 +95,8 @@ az group delete --name ContosoResourceGroup
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start utworzono przechowalnię kluczy i zapisaną w nim klucz. Aby dowiedzieć się więcej o programie Key Vault i integruj go z aplikacjami, przejdź do poniższych artykułów.
+W tym przewodniku szybki start utworzono Key Vault i Zapisano w nim klucz. Aby dowiedzieć się więcej na temat Key Vault i sposobu integrowania go z aplikacjami, przejdź do artykułu poniżej.
 
-- Przeczytaj [omówienie usługi Azure Key Vault](../general/overview.md)
-- Zobacz odwołanie do [poleceń azure cli az keyvault](/cli/azure/keyvault?view=azure-cli-latest)
-- Zapoznaj się z [najlepszymi rozwiązaniami usługi Azure Key Vault](../general/best-practices.md)
+- Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
+- Zobacz odwołanie do [interfejsu wiersza polecenia platformy Azure AZ](/cli/azure/keyvault?view=azure-cli-latest)
+- Przegląd [Azure Key Vault najlepszych](../general/best-practices.md) rozwiązań

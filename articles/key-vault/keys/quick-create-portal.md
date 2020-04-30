@@ -1,6 +1,6 @@
 ---
-title: Szybki start platformy Azure — ustawianie i pobieranie klucza z usługi Key Vault przy użyciu witryny Azure | Dokumenty firmy Microsoft
-description: Szybki start pokazujący, jak ustawić i pobrać klucz z usługi Azure Key Vault za pomocą witryny Azure portal
+title: Przewodnik Szybki Start platformy Azure — Ustawianie i pobieranie klucza z Key Vault przy użyciu Azure Portal | Microsoft Docs
+description: Przewodnik Szybki Start przedstawiający sposób ustawiania i pobierania klucza z Azure Key Vault przy użyciu Azure Portal
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -12,17 +12,17 @@ ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 41f3d60d91b7418d6e9733b8351d4830b31dbace
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81424195"
 ---
-# <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-the-azure-portal"></a>Szybki start: ustawianie i pobieranie klucza z usługi Azure Key Vault przy użyciu witryny Azure portal
+# <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-the-azure-portal"></a>Szybki Start: Ustawianie i pobieranie klucza z Azure Key Vault przy użyciu Azure Portal
 
-Azure Key Vault to usługa w chmurze, która zapewnia bezpieczny magazyn wpisów tajnych. Możesz bezpiecznie przechowywać klucze, hasła, certyfikaty oraz inne wpisy tajne. Magazyny kluczy platformy Azure można tworzyć oraz nimi zarządzać za pośrednictwem witryny Azure Portal. W tym przewodniku Szybki start utworzysz magazyn kluczy, a następnie użyj go do przechowywania klucza. Aby uzyskać więcej informacji na temat usługi Key Vault, możesz zapoznać się z [omówieniem](../general/overview.md).
+Azure Key Vault to usługa w chmurze, która zapewnia bezpieczny magazyn wpisów tajnych. Możesz bezpiecznie przechowywać klucze, hasła, certyfikaty oraz inne wpisy tajne. Magazyny kluczy platformy Azure można tworzyć oraz nimi zarządzać za pośrednictwem witryny Azure Portal. W tym przewodniku szybki start utworzysz Magazyn kluczy, a następnie użyjesz go do przechowywania klucza. Aby uzyskać więcej informacji na temat usługi Key Vault, możesz zapoznać się z [omówieniem](../general/overview.md).
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -30,39 +30,39 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Tworzenie magazynu
 
-1. Z menu Portalu Platformy Azure lub ze strony **głównej** wybierz pozycję **Utwórz zasób**.
+1. W menu Azure Portal lub na stronie **głównej** wybierz pozycję **Utwórz zasób**.
 2. W polu wyszukiwania wpisz **Key Vault**.
 3. Na liście wyników wybierz pozycję **Key Vault**.
 4. W sekcji Key Vault, wybierz przycisk **Utwórz**.
 5. W sekcji **Tworzenie magazynu kluczy** podaj następujące informacje:
-    - **Nazwa**: wymagana jest unikatowa nazwa. W tym przewodniku Szybki start używamy **przykładu-Vault**. 
+    - **Nazwa**: wymagana jest unikatowa nazwa. W tym przewodniku szybki start użyjemy **przykładowego magazynu**. 
     - **Subskrypcja**: wybierz subskrypcję.
-    - W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nowy** i wprowadź nazwę grupy zasobów.
+    - W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów.
     - W menu rozwijanym **Lokalizacja** wybierz lokalizację.
     - Dla pozostałych opcji zostaw wartości domyślne.
 6. Po podaniu powyższych informacje wybierz przycisk **Utwórz**.
 
 Zanotuj dwie poniższe właściwości:
 
-* **Nazwa przechowalni:** W przykładzie jest to **Przykład-Vault**. Użyjesz tej nazwy w innych krokach.
+* **Nazwa magazynu**: w tym przykładzie **przykład-magazyn**. Użyjesz tej nazwy w innych krokach.
 * **Identyfikator URI magazynu**: w tym przykładzie jest to https://example-vault.vault.azure.net/. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
 
 Twoje konto platformy Azure jest teraz jedynym kontem z uprawnieniami do wykonywania operacji na tym nowym magazynie.
 
 ![Dane wyjściowe po ukończeniu tworzenia usługi Key Vault](../media/keys/quick-create-portal/vault-properties.png)
 
-## <a name="add-a-key-to-key-vault"></a>Dodawanie klucza do przechowalni kluczy
+## <a name="add-a-key-to-key-vault"></a>Dodaj klucz do Key Vault
 
-Aby dodać klucz do repozytorium, wystarczy wykonać kilka dodatkowych kroków. W takim przypadku dodajemy klucz, który może być używany przez aplikację. Klucz nosi nazwę **ExampleKey**.
+Aby dodać klucz do magazynu, wystarczy wykonać kilka dodatkowych kroków. W tym przypadku dodamy klucz, który może być używany przez aplikację. Klucz ma nazwę **ExampleKey**.
 
-1. Na stronach właściwości magazynu kluczy wybierz pozycję **Klawisze**.
+1. Na stronie właściwości Key Vault wybierz pozycję **klucze**.
 2. Kliknij pozycję **Wygeneruj/zaimportuj**.
-3. Na ekranie **Utwórz klawisz wybierz** następujące wartości:
-    - **Opcje**: Generowanie.
+3. Na ekranie **Tworzenie klucza** wybierz następujące wartości:
+    - **Opcje**: generate.
     - **Nazwa**: ExampleKey.
     - Dla pozostałych opcji zostaw wartości domyślne. Kliknij przycisk **Utwórz**.
 
-Po otrzymaniu komunikatu, że klucz został pomyślnie utworzony, możesz kliknąć go na liście. Zostaną wtedy wyświetlone niektóre jego właściwości. Jeśli klikniesz bieżącą wersję, zostanie wyświetlona wartość określona w poprzednim kroku.
+Po otrzymaniu komunikatu o tym, że klucz został pomyślnie utworzony, możesz kliknąć go na liście. Zostaną wtedy wyświetlone niektóre jego właściwości. Jeśli klikniesz bieżącą wersję, zostanie wyświetlona wartość określona w poprzednim kroku.
 
 ![Kluczowe właściwości](../media/keys/quick-create-portal/current-version-hidden.png)
 
@@ -79,8 +79,8 @@ Jeśli nie będą Ci one już potrzebne, usuń grupę zasobów, a zostanie takż
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start utworzono przechowalnię kluczy i zapisaną w nim klucz. Aby dowiedzieć się więcej o programie Key Vault i integruj go z aplikacjami, przejdź do poniższych artykułów.
+W tym przewodniku szybki start utworzono Key Vault i Zapisano w nim klucz. Aby dowiedzieć się więcej na temat Key Vault i sposobu integrowania go z aplikacjami, przejdź do artykułu poniżej.
 
-- Przeczytaj [omówienie usługi Azure Key Vault](../general/overview.md)
-- Zobacz [przewodnik dla deweloperów usługi Azure Key Vault](../general/developers-guide.md)
-- Zapoznaj się z [najlepszymi rozwiązaniami usługi Azure Key Vault](../general/best-practices.md)
+- Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
+- Zobacz [przewodnik dewelopera Azure Key Vault](../general/developers-guide.md)
+- Przegląd [Azure Key Vault najlepszych](../general/best-practices.md) rozwiązań

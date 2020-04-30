@@ -1,6 +1,6 @@
 ---
-title: Tworzenie niestandardowego punktu końcowego | Dokumenty firmy Microsoft
-description: W tym artykule dowiesz się, jak skonfigurować niestandardowy punkt końcowy do pomiaru za pomocą zasobu analizatora internetowego.
+title: Tworzenie niestandardowego punktu końcowego | Microsoft Docs
+description: W tym artykule dowiesz się, jak skonfigurować niestandardowy punkt końcowy do mierzenia przy użyciu zasobu analizatora Internetu.
 services: internet-analyzer
 author: mattcalder
 ms.service: internet-analyzer
@@ -8,15 +8,15 @@ ms.topic: quickstart
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 6a781e767393f35a1ec22f195ba787e3018d8d1e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76713086"
 ---
 # <a name="measure-custom-endpoints-to-evaluate-in-your-internet-analyzer-tests"></a>Mierzenie niestandardowych punktów końcowych do oceny w testach analizatora internetowego 
 
-W tym artykule pokazano, jak skonfigurować niestandardowy punkt końcowy do pomiaru w ramach testów analizatora internetowego. Niestandardowe punkty końcowe pomagają w ocenie obciążeń lokalnych, obciążeń uruchomionych u innych dostawców chmury i niestandardowych konfiguracji platformy Azure.  Porównywanie dwóch niestandardowych punktów końcowych w jednym teście jest możliwe, jeśli jeden punkt końcowy jest zasobem platformy Azure. Aby uzyskać więcej informacji na temat analizatora internetowego, zobacz [omówienie](internet-analyzer-overview.md). 
+W tym artykule pokazano, jak skonfigurować niestandardowy punkt końcowy do mierzenia w ramach testów analizatora internetowego. Niestandardowe punkty końcowe pomagają w ocenie obciążeń lokalnych, obciążeń działających w innych dostawcach chmury i niestandardowych konfiguracjach platformy Azure.  Porównywanie dwóch niestandardowych punktów końcowych w jednym teście jest możliwe, jeśli jeden punkt końcowy jest zasobem platformy Azure. Aby uzyskać więcej informacji na temat programu Internet Analyzer, zobacz [Omówienie](internet-analyzer-overview.md). 
 
 > [!IMPORTANT]
 > Ten podgląd publiczny nie jest objęty umową dotyczącą poziomu usług i nie należy korzystać z niego w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą nie być obsługiwane, mogą mieć ograniczone możliwości lub mogą nie być dostępne we wszystkich lokalizacjach platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Dodatkowe warunki użytkowania wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -24,16 +24,16 @@ W tym artykule pokazano, jak skonfigurować niestandardowy punkt końcowy do pom
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Upewnij się, że skonfigurowano zasób analizatora internetowego i wybierz opcję "Niestandardowy punkt końcowy". Analizator internetowy zakłada, że niestandardowy punkt końcowy jest dostępny w Internecie. Aby uzyskać więcej informacji, zobacz [Tworzenie zasobu analizatora internetowego](internet-analyzer-create-test-portal.md).
+Upewnij się, że został skonfigurowany zasób analizatora internetowego i wybierz opcję "niestandardowy punkt końcowy". Analizator Internetu zakłada, że niestandardowy punkt końcowy jest dostępny z Internetu. Aby uzyskać więcej informacji, zobacz [Tworzenie zasobu analizatora internetowego](internet-analyzer-create-test-portal.md).
 
 
 ## <a name="create-custom-endpoint"></a>Tworzenie niestandardowego punktu końcowego
 
-1. Pobierz przezroczysty obraz testowy o jednym pikselu [tutaj](https://fpc.msedge.net/apc/trans.gif). Ten obraz jednopikselowy jest zasobem pobranym przez klienta JavaScript w celu pomiaru wydajności.
-2. W niestandardowej aplikacji sieci web wdrożyć obraz testowy w ścieżce publicznie dostępne. Ścieżka powinna działać za pośrednictwem protokołu HTTPS. 
-3. Skopiuj pełny niestandardowy adres https://contoso.com/test/trans.gif) URL punktu końcowego (np. do niestandardowego pola punktu końcowego podczas tworzenia testu.
+1. Pobierz przezroczysty [obraz testu](https://fpc.msedge.net/apc/trans.gif)o pojedynczej pikseli. Ten obraz z jednym pikselem jest zasobem, który klient JavaScript pobierze w celu zmierzenia wydajności.
+2. W niestandardowej aplikacji sieci Web Wdróż obraz testowy w dostępnej publicznie ścieżce. Ścieżka powinna korzystać z protokołu HTTPS. 
+3. Skopiuj pełny adres URL niestandardowego punktu końcowego (np https://contoso.com/test/trans.gif) . do niestandardowego pola punktu końcowego podczas tworzenia testu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przeczytaj często zadawane [pytania dotyczące analizatora internetowego](internet-analyzer-faq.md)
+Przeczytaj [często zadawane pytania dotyczące narzędzia Internet Analyzer](internet-analyzer-faq.md)
 

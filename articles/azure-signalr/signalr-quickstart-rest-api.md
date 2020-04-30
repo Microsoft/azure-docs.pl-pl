@@ -1,16 +1,16 @@
 ---
 title: Przewodnik Szybki start — interfejs API REST usługi Azure SignalR Service
-description: Dowiedz się, jak korzystać z interfejsu API REST z usługą Azure SignalR Service po przykładach. Szczegółowe informacje na temat specyfikacji interfejsu API REST.
+description: Dowiedz się, jak korzystać z interfejsu API REST w usłudze Azure Signal Service. Znajdź szczegóły specyfikacji interfejsu API REST.
 author: sffamily
 ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 70053fbc47a5ba85e7bb18ab762868973d014beb
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80548127"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Szybki start: tworzenie przekazów komunikatów w czasie rzeczywistym z poziomu aplikacji konsolowej
@@ -126,7 +126,7 @@ Wersja | Interfejs API stanu | Drzwi | Określona wersja
 
 Lista dostępnych interfejsów API dla każdej konkretnej wersji znajduje się na poniższej liście.
 
-interfejs API | `1.0-preview` | `1.0`
+Interfejs API | `1.0-preview` | `1.0`
 --- | --- | ---
 [Rozgłoś do wszystkich](#broadcast) | **&#x2713;** | **&#x2713;**
 [Rozgłoś do grupy](#broadcast-group) | **&#x2713;** | **&#x2713;**
@@ -138,9 +138,9 @@ Wyślij do niektórych użytkowników | **&#x2713;** (przestarzałe) | `N / A`
 [Sprawdzanie istnienia użytkownika](#check-user-existence) | `N / A` | **&#x2713;**
 [Usuwanie użytkownika ze wszystkich grup](#remove-user-from-all-groups) | `N / A` | **&#x2713;**
 [Wyślij do połączenia](#send-connection) | `N / A` | **&#x2713;**
-[Dodawanie połączenia do grupy](#add-connection-to-group) | `N / A` | **&#x2713;**
+[Dodawanie połączenia z grupą](#add-connection-to-group) | `N / A` | **&#x2713;**
 [Usuwanie połączenia z grupy](#remove-connection-from-group) | `N / A` | **&#x2713;**
-[Zamykanie połączenia z klientem](#close-connection) | `N / A` | **&#x2713;**
+[Zamykanie połączenia klienta](#close-connection) | `N / A` | **&#x2713;**
 [Service Health](#service-health) | `N / A` | **&#x2713;**
 
 <a name="broadcast"> </a>
@@ -202,14 +202,14 @@ Wersja interfejsu API | Metoda HTTP interfejsu API | Adres URL żądania
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/users/<user-id>/groups`
 
 <a name="send-connection"> </a>
-### <a name="send-message-to-a-connection"></a>Wysyłanie wiadomości do połączenia
+### <a name="send-message-to-a-connection"></a>Wyślij wiadomość do połączenia
 
 Wersja interfejsu API | Metoda HTTP interfejsu API | Adres URL żądania | Treść żądania
 ---|---|---|---
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>` | `{ "target":"<method-name>", "arguments":[ ... ] }`
 
 <a name="add-connection-to-group"> </a>
-### <a name="add-a-connection-to-a-group"></a>Dodawanie połączenia do grupy
+### <a name="add-a-connection-to-a-group"></a>Dodawanie połączenia z grupą
 
 Wersja interfejsu API | Metoda HTTP interfejsu API | Adres URL żądania
 ---|---|---
@@ -225,7 +225,7 @@ Wersja interfejsu API | Metoda HTTP interfejsu API | Adres URL żądania
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>/groups/<group-name>`
 
 <a name="close-connection"> </a>
-### <a name="close-a-client-connection"></a>Zamykanie połączenia z klientem
+### <a name="close-a-client-connection"></a>Zamykanie połączenia klienta
 
 Wersja interfejsu API | Metoda HTTP interfejsu API | Adres URL żądania
 ---|---|---
@@ -241,14 +241,14 @@ Wersja interfejsu API | Metoda HTTP interfejsu API | Adres URL żądania
 
 Kod stanu odpowiedzi | Opis
 ---|---
-`200` | Dobra obsługa
-`503` | Usługa niedostępna
+`200` | Dobre usługi
+`503` | Usługa jest niedostępna
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start dowiesz się, jak używać interfejsu API REST do emisji wiadomości w czasie rzeczywistym z usługi SignalR service do klientów. Następnie dowiedz się więcej o tym, jak tworzyć i wdrażać usługi Azure Functions za pomocą powiązania usługi SignalR, które jest oparte na interfejsie API REST.
+W tym przewodniku szybki start przedstawiono sposób korzystania z interfejsu API REST w celu emitowania komunikatów w czasie rzeczywistym od usługi sygnalizującej do klientów. Następnie Dowiedz się więcej na temat tworzenia i wdrażania Azure Functions za pomocą powiązania usługi sygnalizującego, który jest oparty na interfejsie API REST.
 
 > [!div class="nextstepaction"]
-> [Tworzenie funkcji platformy Azure przy użyciu powiązań usługi Azure SignalR](signalr-quickstart-azure-functions-csharp.md)
+> [Opracowywanie Azure Functions przy użyciu powiązań usługi platformy Azure](signalr-quickstart-azure-functions-csharp.md)

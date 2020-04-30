@@ -8,10 +8,10 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: f13e3b8c861d963c2e9e0b827ba00ee6fa70d31e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76277822"
 ---
 # <a name="deprecated-introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>(PRZESTARZAŁE) Wprowadzenie do rozwiązań hostingu kontenera przy użyciu usługi Azure Container Service 
@@ -27,7 +27,7 @@ Usługa Azure Container Service korzysta z formatu kontenera Docker do zapewnien
 Za pomocą usługi Azure Container Service możesz korzystać z funkcji klasy korporacyjnej platformy Azure, zachowując jednocześnie przenośność aplikacji — w tym przenośność w warstwach aranżacji.
 
 ## <a name="using-azure-container-service"></a>Korzystanie z usługi Azure Container Service
-Naszym celem w usłudze Azure Container Service jest zapewnienie środowiska hostingu kontenerów przy użyciu narzędzi i technologii typu open source, które są obecnie popularne wśród użytkowników. W tym celu możemy uwidocznić standardowe punkty końcowe interfejsu API dla wybranego koordynatora (DC/OS, Docker Swarm lub Kubernetes). Za pomocą tych punktów końcowych można wykorzystać dowolne oprogramowanie, które jest w stanie komunikować się z tymi punktami końcowymi. Na przykład w przypadku punktu końcowego Docker Swarm można użyć interfejsu wiersza polecenia (CLI) platformy Docker. Dla platformy DC/OS można wybrać interfejs wiersza polecenia DCOS. W przypadku rozwiązania Kubernetes można wybrać narzędzie `kubectl`.
+Naszym celem Azure Container Service jest zapewnienie środowiska hostingu kontenera przy użyciu narzędzi i technologii typu "open source", które są już popularne wśród użytkowników. W tym celu możemy uwidocznić standardowe punkty końcowe interfejsu API dla wybranego koordynatora (DC/OS, Docker Swarm lub Kubernetes). Za pomocą tych punktów końcowych można wykorzystać dowolne oprogramowanie, które jest w stanie komunikować się z tymi punktami końcowymi. Na przykład w przypadku punktu końcowego Docker Swarm można użyć interfejsu wiersza polecenia (CLI) platformy Docker. Dla platformy DC/OS można wybrać interfejs wiersza polecenia DCOS. W przypadku rozwiązania Kubernetes można wybrać narzędzie `kubectl`.
 
 ## <a name="creating-a-docker-cluster-by-using-azure-container-service"></a>Tworzenie klastra platformy Docker za pomocą usługi Azure Container Service
 Aby rozpocząć korzystanie z usługi Azure Container Service, musisz wdrożyć klaster usługi Azure Container Service za pośrednictwem portalu (wyszukaj w witrynie Marketplace termin **Azure Container Service**) przy użyciu szablonu usługi Azure Resource Manager ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm), [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) lub [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)) albo za pomocą [interfejsu wiersza polecenia platformy Azure](container-service-create-acs-cluster-cli.md). Udostępnione szablony szybkiego startu można modyfikować w celu włączenia dodatkowej lub zaawansowanej konfiguracji platformy Azure. Aby uzyskać więcej informacji, zobacz [Wdrażanie klastra usługi Azure Container Service](container-service-deployment.md).
@@ -43,7 +43,7 @@ Koordynator DC/OS to rozproszony system operacyjny oparty na jądrze systemów r
 Systemy DC/OS i Apache Mesos zawierają imponujący zestaw funkcji:
 
 * Sprawdzoną skalowalność
-* Odporne na uszkodzenia replikowane podstawowe i pomocnicze przy użyciu Apache ZooKeeper
+* Odporne na błędy zreplikowane serwery podstawowe i pomocnicze przy użyciu Apache ZooKeeper
 * Obsługę kontenerów w formacie aparatu Docker
 * Natywną izolację między zadaniami przy użyciu kontenerów systemu Linux
 * Planowanie wielu zasobów (pamięci, procesora CPU, dysku i portów)
@@ -56,7 +56,7 @@ Domyślnie koordynator DC/OS działający w usłudze Azure Container Service zaw
 
 #### <a name="using-marathon"></a>Przy użyciu platformy Marathon
 Platforma Marathon to obejmujący cały klaster system inicjowania i kontroli dla usług w cgroup — lub, w przypadku usługi Azure Container Service, kontenerów w formacie aparatu Docker. Platforma Marathon udostępnia interfejs sieci Web, z którego można wdrażać aplikacje. Dostęp do niego możesz uzyskać pod adresem URL, który wygląda podobnie jak `http://DNS_PREFIX.REGION.cloudapp.azure.com`,
-gdzie DNS\_PREFIX i REGION są definiowane w czasie wdrażania. Można również podać własną nazwę DNS. Aby uzyskać więcej informacji na temat uruchamiania kontenera za pomocą interfejsu użytkownika sieci Web platformy Marathon, zobacz [DC/OS container management through the Marathon web UI](container-service-mesos-marathon-ui.md) (Zarządzanie kontenerem DC/OS za pomocą interfejsu użytkownika sieci Web platformy Marathon).
+gdzie DNS\_PREFIX i REGION są definiowane w czasie wdrażania. Możesz również podać własną nazwę DNS. Aby uzyskać więcej informacji na temat uruchamiania kontenera za pomocą interfejsu użytkownika sieci Web platformy Marathon, zobacz [DC/OS container management through the Marathon web UI](container-service-mesos-marathon-ui.md) (Zarządzanie kontenerem DC/OS za pomocą interfejsu użytkownika sieci Web platformy Marathon).
 
 ![Lista aplikacji aparatu Marathon](media/dcos/marathon-applications-list.png)
 

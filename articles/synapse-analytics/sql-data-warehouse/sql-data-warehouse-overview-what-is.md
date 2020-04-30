@@ -1,6 +1,6 @@
 ---
-title: Co to jest usługa Azure Synapse Analytics (dawniej SQL DW)?
-description: Usługa Azure Synapse Analytics (dawniej SQL DW) to nieograniczona usługa analityczna, która łączy w sobie hurtownię danych w przedsiębiorstwie i analizę dużych zbiorów danych.
+title: Co to jest Azure Synapse Analytics (dawniej SQL DW)?
+description: Azure Synapse Analytics (dawniej SQL DW) to nieograniczona Usługa analityczna, która łączy magazyn danych w przedsiębiorstwie i analizę danych Big Data.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,61 +11,61 @@ ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: a9506d45350a567e3643b6edd6afc7668662f6e5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81416029"
 ---
-# <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Co to jest usługa Azure Synapse Analytics (dawniej SQL DW)?
+# <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Co to jest Azure Synapse Analytics (dawniej SQL DW)?
 
-Azure Synapse to usługa analityczna, która łączy w sobie hurtownię danych w przedsiębiorstwie i analizę dużych zbiorów danych. Zapewnia swobodę wykonywania zapytań dotyczących danych na Twoich warunkach, korzystając z bezserwerowych zasobów na żądanie lub aprowizowanych zasobów — w dużej skali. Usługa Azure Synapse łączy te dwa światy z ujednoliconym doświadczeniem w zakresie pozyskiwania, przygotowywania, zarządzania i obsługi danych na potrzeby natychmiastowej analizy biznesowej i uczenia maszynowego.
+Azure Synapse to Usługa analityczna, która łączy magazyn danych w przedsiębiorstwie i analizę danych Big Data. Zapewnia swobodę wykonywania zapytań dotyczących danych na Twoich warunkach, korzystając z bezserwerowych zasobów na żądanie lub aprowizowanych zasobów — w dużej skali. Usługa Azure Synapse udostępnia te dwa światy wraz z ujednoliconym doświadczeniem do pozyskiwania, przygotowywania, zarządzania i obsługi danych w celu natychmiastowej analizy biznesowej i uczenia maszynowego.
 
 Usługa Azure Synapse ma cztery składniki:
 
-- Synapse SQL: Kompletna analiza oparta na T-SQL — ogólnie dostępna
-  - Pula SQL (płatność za dwu aprowizowana)
-  - SQL na żądanie (płatność za TB przetwarzane) - (Wersja zapoznawcza)
-- Iskra: Głęboko zintegrowana platforma Apache Spark (wersja zapoznawcza)
-- Potoki Synapse: hybrydowa integracja danych (wersja zapoznawcza)
-- Studio: Ujednolicone środowisko użytkownika.  (Wersja zapoznawcza)
+- Synapse SQL: Pełna analiza oparta na języku T-SQL — ogólnie dostępna
+  - Pula SQL (płatność za jednostek dwu z obsługą administracyjną)
+  - SQL na żądanie (płatność za 1 TB przetworzonych) — (wersja zapoznawcza)
+- Spark: głębokie zintegrowane Apache Spark (wersja zapoznawcza)
+- Potoki Synapse: integracja danych hybrydowych (wersja zapoznawcza)
+- Studio: ujednolicone środowisko użytkownika.  (Wersja zapoznawcza)
 
 > [!NOTE]
-> Aby uzyskać dostęp do funkcji w wersji zapoznawczej platformy Azure Synapse, poproś o dostęp [tutaj](https://aka.ms/synapsepreview). Firma Microsoft będzie klasyfikować wszystkie żądania i odpowiadać tak szybko, jak to możliwe.
+> Aby uzyskać dostęp do funkcji w wersji zapoznawczej usługi Azure Synapse, zażądaj dostępu [tutaj](https://aka.ms/synapsepreview). Firma Microsoft będzie Klasyfikacja wszystkie żądania i odpowiadać tak szybko, jak to możliwe.
 >
-> Wyświetl [dokumentację podglądu usługi Azure Synapse](../overview-what-is.md).
+> Zapoznaj się z [dokumentacją usługi Azure Synapse w wersji zapoznawczej](../overview-what-is.md).
 
-## <a name="synapse-sql-pool-in-azure-synapse"></a>Pula SQL synapse w usłudze Azure Synapse
+## <a name="synapse-sql-pool-in-azure-synapse"></a>Synapse pulę SQL na platformie Azure Synapse
 
-Pula SQL synapse odnosi się do funkcji magazynowania danych przedsiębiorstwa, które są ogólnie dostępne w usłudze Azure Synapse.
+Synapse Pula SQL odwołuje się do funkcji magazynowania danych przedsiębiorstwa, które są ogólnie dostępne w usłudze Azure Synapse.
 
-Pula SQL reprezentuje zbiór zasobów analitycznych, które są aprowizacji podczas korzystania z Synapse SQL. Rozmiar puli SQL jest określany przez jednostki magazynowania danych (DWU).
+Pula SQL reprezentuje kolekcję zasobów analitycznych, które są obsługiwane podczas korzystania z programu Synapse SQL. Rozmiar puli SQL jest określany przez jednostki magazynowania danych (jednostek dwu).
 
-Importuj duże zbiory danych za pomocą prostych zapytań [T-SQL PolyBase,](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) a następnie korzystaj z mocy MPP do uruchamiania analizy o wysokiej wydajności. Podczas integrowania i analizowania pula SQL Synapse stanie się pojedynczą wersją prawdy, na której twoja firma może liczyć na szybsze i bardziej niezawodne spostrzeżenia.  
+Zaimportuj dane Big Data za [pomocą prostych zapytań](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL, a następnie użyj możliwości MPP, aby uruchomić analizę o wysokiej wydajności. Po zintegrowaniu i przeanalizowaniu Pula SQL Synapse stanie się jedną wersją prawdy, na którą firma będzie mogła na szybszy i bardziej niezawodny wgląd w szczegółowe dane.  
 
-## <a name="key-component-of-a-big-data-solution"></a>Kluczowy składnik rozwiązania do dużych zbiorów danych
+## <a name="key-component-of-a-big-data-solution"></a>Kluczowy składnik rozwiązania danych Big Data
 
-Hurtownia danych jest kluczowym składnikiem opartego na chmurze, kompleksowego rozwiązania do przetwarzania dużych zbiorów danych.
+Magazynowanie danych to kluczowy składnik oparty na chmurze, kompleksowe rozwiązanie do obsługi danych Big Data.
 
 ![Rozwiązanie magazynu danych](./media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png)
 
-W rozwiązaniu danych w chmurze dane są pozyskiwane do magazynów danych big data z różnych źródeł. Platformy Hadoop, Spark i algorytmy uczenia maszynowego przygotowują i przystosowują dane, gdy te już znajdą się w magazynie danych big data. Gdy dane są gotowe do złożonej analizy, puli Synapse SQL używa PolyBase do kwerendy magazynów dużych zbiorów danych. PolyBase używa standardowych zapytań T-SQL, aby przenieść dane do tabel puli Synapse SQL.
+W rozwiązaniu danych w chmurze dane są pozyskiwane do magazynów danych big data z różnych źródeł. Platformy Hadoop, Spark i algorytmy uczenia maszynowego przygotowują i przystosowują dane, gdy te już znajdą się w magazynie danych big data. Gdy dane są gotowe do złożonej analizy, Synapse puli SQL używa bazy danych w celu wysyłania zapytań do magazynów z danymi Big Data. Baza kodu używa standardowych zapytań T-SQL do przenoszenia danych do tabel puli SQL Synapse.
 
-Pula Synapse SQL przechowuje dane w tabelach relacyjnych z magazynem kolumnowym. Ten format znacznie zmniejsza koszty przechowywania danych i poprawia wydajność zapytań. Gdy dane znajdują się w magazynie, można wykonywać analizy na wielką skalę. W porównaniu do tradycyjnych systemów bazy danych, zapytania analizy kończą się w ciągu sekund zamiast minut lub godzin zamiast dni.
+Synapse Pool SQL przechowuje dane w tabelach relacyjnych z magazynem kolumnowym. Ten format znacznie zmniejsza koszty przechowywania danych i poprawia wydajność zapytań. Gdy dane znajdują się w magazynie, można wykonywać analizy na wielką skalę. W porównaniu do tradycyjnych systemów bazy danych, zapytania analizy kończą się w ciągu sekund zamiast minut lub godzin zamiast dni.
 
 Wyniki analizy można odnieść do ogólnoświatowych baz danych raportowania lub aplikacji. Analitycy biznesowi mogą zatem uzyskiwać wyniki analizy w celu świadomego podejmowania decyzji biznesowych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Poznaj [architekturę Usługi Azure Synapse](massively-parallel-processing-mpp-architecture.md)
-- Szybkie [tworzenie puli SQL](create-data-warehouse-portal.md)
-- [Załaduj przykładowe dane](load-data-from-azure-blob-storage-using-polybase.md).
-- Przeglądaj [filmy](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
+- Poznaj [architekturę usługi Azure Synapse](massively-parallel-processing-mpp-architecture.md)
+- Szybkie [Tworzenie puli SQL](create-data-warehouse-portal.md)
+- [Ładowanie przykładowych danych](load-data-from-azure-blob-storage-using-polybase.md).
+- Eksploruj [wideo](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
-Lub spójrz na niektóre z tych innych zasobów usługi Azure Synapse.
+Lub zapoznaj się z innymi zasobami usługi Azure Synapse.
 
-- Szukaj [blogów](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
-- Przesyłanie [żądań funkcji](https://feedback.azure.com/forums/307516-sql-data-warehouse)
+- Wyszukaj [Blogi](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
+- Prześlij [żądania funkcji](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 - [Tworzenie biletu pomocy technicznej](sql-data-warehouse-get-started-create-support-ticket.md)
-- Szukaj [na forum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
-- Szukaj [na forum Przepełnienie stosu](https://stackoverflow.com/questions/tagged/azure-sqldw)
+- Wyszukaj [forum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
+- [Forum wyszukiwania Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)

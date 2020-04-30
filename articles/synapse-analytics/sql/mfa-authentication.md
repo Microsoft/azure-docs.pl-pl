@@ -1,6 +1,6 @@
 ---
-title: Korzystanie z wieloskładnikowego uwierzytelniania AAD
-description: Synapse SQL obsługuje połączenia z programu SQL Server Management Studio (SSMS) przy użyciu uwierzytelniania uniwersalnego usługi Active Directory.
+title: Korzystanie z uwierzytelniania wieloskładnikowego usługi AAD
+description: Synapse połączenia obsługiwane przez program SQL Server z SQL Server Management Studio (SSMS) przy użyciu uwierzytelniania uniwersalnego Active Directory.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -9,88 +9,88 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.openlocfilehash: 8e8f17f54f52aef6f552b7c211aa8f0e498b94df
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81424923"
 ---
-# <a name="using-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Korzystanie z wieloczynnikowego uwierzytelniania AAD z synapse SQL (obsługa SSMS dla usługi MFA)
+# <a name="using-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Korzystanie z uwierzytelniania wieloskładnikowego usługi AAD za pomocą Synapse SQL (Obsługa programu SSMS dla usługi MFA)
 
-Synapse SQL obsługuje połączenia z programu SQL Server Management Studio (SSMS) przy użyciu *uwierzytelniania uniwersalnego usługi Active Directory*. 
+Synapse połączenia obsługiwane przez program SQL Server z SQL Server Management Studio (SSMS) przy użyciu *uwierzytelniania uniwersalnego Active Directory*. 
 
-W tym artykule omówiono różnice między różnymi opcjami uwierzytelniania, a także ograniczenia związane z używaniem uwierzytelniania uniwersalnego. 
+W tym artykule omówiono różnice między różnymi opcjami uwierzytelniania, a także ograniczenia związane z uwierzytelnianiem uniwersalnym. 
 
-**Pobierz najnowsze usługi SSMS** — na komputerze klienckim pobierz najnowszą wersję programu SSMS z [programu Download SQL Server Management Studio (SSMS).](https://msdn.microsoft.com/library/mt238290.aspx) 
+**Pobierz najnowszy program SSMS** — na komputerze klienckim Pobierz najnowszą wersję programu ssms z [SQL Server Management Studio pobierania (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). 
 
-**Pobierz najnowsze usługi SSMS** — na komputerze klienckim pobierz najnowszą wersję programu SSMS z [programu Download SQL Server Management Studio (SSMS).](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+**Pobierz najnowszy program SSMS** — na komputerze klienckim Pobierz najnowszą wersję programu ssms z [SQL Server Management Studio pobierania (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-W przypadku wszystkich funkcji opisanych w tym artykule należy użyć co najmniej lipca 2017 r., wersja 17.2.  Okno dialogowe Najnowsze połączenie powinno wyglądać podobnie do następującego obrazu:
+Aby zapoznać się ze wszystkimi funkcjami omówionymi w tym artykule, należy użyć co najmniej 2017 lipca w wersji 17,2.  Ostatnie połączenie okno dialogowe powinno wyglądać podobnie do poniższej ilustracji:
 
-![1mfa-universal-connect](./media/mfa-authentication/1mfa-universal-connect.png "Kończy pole Nazwa użytkownika.")  
+![1mfa — połączenie uniwersalne](./media/mfa-authentication/1mfa-universal-connect.png "Kończy działanie pola Nazwa użytkownika.")  
 
 ## <a name="the-five-authentication-options"></a>Pięć opcji uwierzytelniania  
 
-Uwierzytelnianie uniwersalne usługi Active Directory obsługuje dwie metody uwierzytelniania nieinterakcyjnego:
-    - `Active Directory - Password`Uwierzytelniania
-    - `Active Directory - Integrated`Uwierzytelniania
+Active Directory uniwersalne uwierzytelnianie obsługuje dwie nieinteraktywne metody uwierzytelniania:
+    - `Active Directory - Password`ponowne
+    - `Active Directory - Integrated`ponowne
 
-Istnieją również dwa nieinterakcyjne modele uwierzytelniania, które mogą być używane w wielu różnych aplikacjach (ADO.NET, JDCB, ODC itp.). Te dwie metody nigdy nie powodują wyskakujących okienek dialogowych:
+Istnieją również dwa nieinteraktywne modele uwierzytelniania, które mogą być używane w wielu różnych aplikacjach (ADO.NET, JDCB, ODC itp.). Te dwie metody nigdy nie powodują wyskakujących okien dialogowych:
 
 - `Active Directory - Password`
 - `Active Directory - Integrated`
 
-Interaktywna metoda jest, że obsługuje również azure uwierzytelnianie wieloskładnikowe (MFA) jest:
+Interaktywna Metoda obejmuje również obsługę uwierzytelniania wieloskładnikowego (MFA) w usłudze Azure:
 
 - `Active Directory - Universal with MFA`
 
-Usługa Azure MFA zabezpiecza dostęp do danych i aplikacji, a jednocześnie spełnia wymagania użytkowników dotyczące prostoty procesu logowania. Zapewnia silne uwierzytelnianie dzięki szerokiej gamie łatwych opcji weryfikacji (rozmowa telefoniczna, wiadomość tekstowa, karty inteligentne z pinem lub powiadomienie aplikacji mobilnej), dzięki czemu użytkownicy mogą wybrać preferowaną metodę. Interaktywne uwierzytelnianie wieloskładnikowe z usługą Azure AD może spowodować wyświetlenie okna dialogowego wyskakującym okienkiem w celu weryfikacji.
+Usługa Azure MFA zabezpiecza dostęp do danych i aplikacji, a jednocześnie spełnia wymagania użytkowników dotyczące prostoty procesu logowania. Zapewnia silne uwierzytelnianie dzięki szerokiemu zakresowi opcji łatwej weryfikacji (połączenie telefoniczne, wiadomość tekstowa, kartach inteligentnych z numerem PIN lub powiadomieniem aplikacji mobilnej), co pozwala użytkownikom na wybranie preferowanej metody. Interaktywna usługa MFA z usługą Azure AD może spowodować wyskakujące okno dialogowe umożliwiające weryfikację.
 
-Aby uzyskać opis uwierzytelniania wieloskładnikowego, zobacz [Uwierzytelnianie wieloskładnikowe](../../active-directory/authentication//concept-mfa-howitworks.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Opis Multi-Factor Authentication można znaleźć w temacie [Multi-Factor Authentication](../../active-directory/authentication//concept-mfa-howitworks.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Nazwa domeny usługi Azure AD lub parametr identyfikatora dzierżawy
 
-Począwszy od [usługi SSMS w wersji 17](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), użytkownicy zaimportowani do bieżącej usługi Active Directory z innych usług Azure Active Directories jako użytkownicy-goście, mogą podać nazwę domeny usługi Azure AD lub identyfikator dzierżawy podczas nawiązywania połączenia. 
+Począwszy od programu [SSMS w wersji 17](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), użytkownicy, którzy zostali zaimportowani do bieżącego Active Directory z innych katalogów usługi Azure Active Directory jako gość, mogą podać nazwę domeny usługi Azure AD lub identyfikator dzierżawy podczas nawiązywania połączenia. 
 
-Użytkownicy-goście to użytkownicy zaproszeni z innych usług Ad platformy Azure, kont Microsoft, takich jak outlook.com, hotmail.com, live.com lub innych kont, takich jak gmail.com. Te informacje umożliwiają **programowi Active Directory Universal z uwierzytelnianiem usługi MFA** identyfikowanie prawidłowego urzędu uwierzytelniającego. Ta opcja jest również wymagana do obsługi kont Microsoft (MSA), takich jak konta outlook.com, hotmail.com, live.com lub inne niż MSA. 
+Użytkownicy-Goście obejmują użytkowników zaproszonych z innych reklam systemu Azure, kont Microsoft, takich jak outlook.com, hotmail.com, live.com lub innych kont, takich jak gmail.com. Te informacje umożliwiają **Active Directory uniwersalnego z uwierzytelnianiem MFA** w celu zidentyfikowania prawidłowego urzędu uwierzytelniającego. Ta opcja jest również wymagana do obsługi kont Microsoft (MSA), takich jak outlook.com, hotmail.com, live.com lub non-MSA. 
 
-Wszyscy ci użytkownicy, którzy chcą być uwierzytelnieni przy użyciu uwierzytelniania uniwersalnego, muszą wprowadzić swoją nazwę domeny usługi Azure AD lub identyfikator dzierżawy. Ten parametr reprezentuje bieżący identyfikator domeny/dzierżawy usługi Azure AD, z który jest połączony serwer Azure Server. 
+Wszyscy ci użytkownicy, którzy chcą być uwierzytelniani przy użyciu uwierzytelniania uniwersalnego, muszą wprowadzić nazwę domeny usługi Azure AD lub identyfikator dzierżawy. Ten parametr reprezentuje bieżącą nazwę domeny i identyfikator dzierżawy usługi Azure AD, z którą jest połączony serwer platformy Azure. 
 
-Jeśli na przykład serwer Azure Server jest `contosotest.onmicrosoft.com` skojarzony z domeną usługi Azure AD, w której użytkownik `joe@contosodev.onmicrosoft.com` jest hostowany jako importowany użytkownik z domeny `contosodev.onmicrosoft.com`usługi Azure AD, nazwa domeny wymagana do uwierzytelnienia tego użytkownika to `contosotest.onmicrosoft.com`. 
+Na przykład jeśli serwer platformy Azure jest skojarzony `contosotest.onmicrosoft.com` z domeną usługi Azure AD `joe@contosodev.onmicrosoft.com` , w której użytkownik jest hostowany jako zaimportowany `contosodev.onmicrosoft.com`użytkownik z domeny usługi Azure AD, nazwa domeny wymagana `contosotest.onmicrosoft.com`do uwierzytelnienia tego użytkownika to. 
 
-Gdy użytkownik jest natywnym użytkownikiem usługi Azure AD połączonym z usługą Azure Server i nie jest kontem MSA, nie jest wymagana nazwa domeny ani identyfikator dzierżawy. 
+Jeśli użytkownik jest natywnym użytkownikiem usługi Azure AD połączonej z serwerem platformy Azure i nie jest kontem MSA, nie jest wymagana żadna nazwa domeny ani identyfikator dzierżawy. 
 
-Aby wprowadzić parametr (począwszy od programu SSMS w wersji 17.2), w oknie dialogowym Łączenie z **bazą danych** wypełnij okno dialogowe, wybierając pozycję **Active Directory — Uniwersalne z** uwierzytelnianiem usługi MFA, kliknij pozycję **Opcje**, wypełnij pole **Nazwa użytkownika,** a następnie kliknij kartę **Właściwości połączenia.** 
+Aby wprowadzić parametr (począwszy od programu SSMS w wersji 17,2), w oknie dialogowym **łączenie z bazą danych** wypełnij okno dialogowe, wybierając pozycję **Active Directory-Universal z** uwierzytelnianiem MFA, kliknij przycisk **Opcje**, Wypełnij pole **Nazwa użytkownika** , a następnie kliknij kartę **Właściwości połączenia** . 
 
-Sprawdź **pole Nazwa domeny usługi AD lub identyfikator dzierżawy** i podaj upoważnienie uwierzytelniające, takie jak nazwa domeny **(contosotest.onmicrosoft.com)** lub identyfikator GUID identyfikatora dzierżawy.  
+Sprawdź **nazwę domeny usługi AD lub pole Identyfikator dzierżawy** , a następnie podaj urząd uwierzytelniający, taki jak nazwa domeny (**contosotest.onmicrosoft.com**) lub identyfikator GUID identyfikatora dzierżawy.  
 
-   ![mfa-tenant-ssms](./media/mfa-authentication/mfa-tenant-ssms.png)
+   ![MFA — dzierżawca — SSMS](./media/mfa-authentication/mfa-tenant-ssms.png)
 
-Jeśli używasz systemu SSMS 18.x lub nowszego, nazwa domeny usługi AD lub identyfikator dzierżawy nie są już potrzebne użytkownikom-gościom, ponieważ program 18.x lub nowszy automatycznie je rozpoznaje.
+Jeśli używasz programu SSMS 18. x lub nowszego, nazwa domeny lub identyfikator dzierżawy usługi AD nie są już potrzebne dla użytkowników-Gości, ponieważ program automatycznie rozpoznaje ją.
 
-   ![mfa-tenant-ssms](./media/mfa-authentication/mfa-no-tenant-ssms.png)
+   ![MFA — dzierżawca — SSMS](./media/mfa-authentication/mfa-no-tenant-ssms.png)
 
-### <a name="azure-ad-business-to-business-support"></a>Pomoc techniczna dla firm usługi Azure AD dla firm   
-Użytkownicy usługi Azure AD obsługiwane dla scenariuszy usługi Azure AD B2B jako użytkownicy-goście (zobacz [Co to jest współpraca Usługi Azure B2B](../../active-directory/b2b/what-is-b2b.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) można połączyć się z Synapse SQL tylko jako część członków grupy utworzonej w bieżącej usługi Azure AD i mapowane ręcznie przy użyciu instrukcji Transact-SQL `CREATE USER` w danej bazie danych. 
+### <a name="azure-ad-business-to-business-support"></a>Obsługa usługi Azure AD Business dla firm   
+Użytkownicy usługi Azure AD obsługiwani przez scenariusze B2B usługi Azure AD jako użytkownicy-Goście (Zobacz artykuł [co to jest współpraca w usłudze Azure B2B](../../active-directory/b2b/what-is-b2b.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , która może łączyć się z usługą Synapse SQL tylko jako część elementów członkowskich grupy utworzonej w bieżącej usłudze `CREATE USER` Azure AD i zamapowana ręcznie przy użyciu instrukcji języka Transact-SQL w danej bazie danych. 
 
-Na przykład `steve@gmail.com` jeśli jest proszony `contosotest` o usługę Azure `contosotest.onmicrosoft.com`AD (z domeną `usergroup` reklamy platformy Azure), grupa `steve@gmail.com` usługi Azure AD, na przykład musi zostać utworzona w usłudze Azure AD, która zawiera członka. Następnie ta grupa musi zostać utworzona dla określonej bazy danych (czyli MyDatabase) przez administratora usługi Azure `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` AD SQL lub usługi Azure AD DBO przez wykonanie instrukcji Transact-SQL. 
+Na `steve@gmail.com` przykład jeśli zostanie zaproszony do usługi Azure `contosotest` AD (z `contosotest.onmicrosoft.com`domeną usługi Azure AD), Grupa usługi Azure AD, `usergroup` taka jak musi zostać utworzona w usłudze Azure AD, `steve@gmail.com` która zawiera członka. Następnie należy utworzyć tę grupę dla konkretnej bazy danych (to jest baza danych) za pomocą administratora SQL usługi Azure AD lub roli DBO usługi Azure AD przez wykonanie instrukcji języka `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` Transact-SQL. 
 
-Po utworzeniu użytkownika bazy danych `steve@gmail.com` użytkownik może `MyDatabase` zalogować się do `Active Directory – Universal with MFA support`opcji uwierzytelniania SSMS . 
+Po utworzeniu użytkownika bazy danych użytkownik `steve@gmail.com` może zalogować się `MyDatabase` przy użyciu opcji `Active Directory – Universal with MFA support`uwierzytelniania programu SSMS. 
 
-Grupa użytkowników domyślnie ma tylko uprawnienie connect i wszelkie dalsze dostęp do danych, które będą musiały być przyznane w normalny sposób. 
+Domyślnie użytkownik ma tylko uprawnienie łączenie i dalsze dostęp do danych, które będą musiały zostać przyznane w zwykły sposób. 
 
-Należy zauważyć, że użytkownik `steve@gmail.com` jako użytkownik-gość musi `contosotest.onmicrosoft.com` zaznaczyć to pole i dodać nazwę domeny usługi AD w oknie dialogowym **Właściwości połączenia** SSMS. Nazwa domeny usługi AD lub identyfikator **dzierżawy** opcja jest obsługiwana tylko dla opcji połączenia uniwersalnego z uwierzytelniać wieloskładnikowej, w przeciwnym razie jest wyszarzona.
+Należy zauważyć, `steve@gmail.com` że użytkownik jako gość musi zaznaczyć pole wyboru i dodać nazwę `contosotest.onmicrosoft.com` domeny usługi AD w oknie dialogowym **Właściwości połączenia** programu SSMS. Opcja **nazwy domeny lub identyfikatora dzierżawy usługi Active Directory** jest obsługiwana tylko dla opcji połączenia uniwersalnego z usługą MFA, w przeciwnym razie jest wyszarzona.
 
-## <a name="universal-authentication-limitations-for-synapse-sql"></a>Ograniczenia uwierzytelniania uniwersalnego dla synapse SQL
+## <a name="universal-authentication-limitations-for-synapse-sql"></a>Ograniczenia uwierzytelniania uniwersalnego dla Synapse SQL
 
-- SSMS i SqlPackage.exe są jedynymi narzędziami aktualnie włączonymi dla usługi MFA za pośrednictwem uniwersalnego uwierzytelniania usługi Active Directory.
-- Usługa SSMS w wersji 17.2 obsługuje równoczesny dostęp dla wielu użytkowników przy użyciu uwierzytelniania uniwersalnego z uwierzytelnianiem wieloskładnikowym. Wersja 17.0 i 17.1 ograniczyły logowanie dla wystąpienia usługi SSMS przy użyciu uwierzytelniania uniwersalnego na jednym koncie usługi Azure Active Directory. Aby zalogować się jako inne konto usługi Azure AD, należy użyć innego wystąpienia usługi SSMS. (To ograniczenie jest ograniczone do uwierzytelniania uniwersalnego usługi Active Directory; można zalogować się do różnych serwerów przy użyciu uwierzytelniania hasłem usługi Active Directory, zintegrowanego uwierzytelniania usługi Active Directory lub uwierzytelniania serwera SQL Server).
-- Usługa SSMS obsługuje uniwersalne uwierzytelnianie usługi Active Directory dla Eksploratora obiektów, Edytor zapytań i wizualizację magazynu zapytań.
-- Usługa SSMS w wersji 17.2 zapewnia obsługę bazy danych danych programu DacFx Kreatora programu DacFx. Gdy określony użytkownik jest uwierzytelniony za pośrednictwem okna dialogowego uwierzytelniania początkowego przy użyciu uwierzytelniania uniwersalnego, Kreator programu DacFx działa tak samo jak w przypadku wszystkich innych metod uwierzytelniania.
-- Projektant tabel SSMS nie obsługuje uwierzytelniania uniwersalnego.
-- Nie ma żadnych dodatkowych wymagań dotyczących oprogramowania dla uwierzytelniania uniwersalnego usługi Active Directory, z wyjątkiem tego, że należy użyć obsługiwanej wersji usługi SSMS.  
-- Wersja biblioteki uwierzytelniania usługi Active Directory (ADAL) dla uwierzytelniania uniwersalnego została zaktualizowana do najnowszej wersji dostępnej w pliku ADAL.dll 3.13.9. Zobacz [Biblioteka uwierzytelniania usługi Active Directory 3.14.1](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
+- Narzędzie SSMS i sqlpackage. exe są jedynymi narzędziami obecnie włączonymi dla usługi MFA za pomocą uwierzytelniania uniwersalnego Active Directory.
+- Program SSMS w wersji 17,2 obsługuje współbieżne dostęp użytkowników przy użyciu uwierzytelniania uniwersalnego w ramach usługi MFA. Wersje 17,0 i 17,1, ograniczone logowanie do wystąpienia programu SSMS przy użyciu uwierzytelniania uniwersalnego na pojedynczym koncie Azure Active Directory. Aby zalogować się jako inne konto usługi Azure AD, musisz użyć innego wystąpienia programu SSMS. To ograniczenie jest ograniczone do Active Directory uwierzytelniania uniwersalnego. możesz zalogować się do różnych serwerów przy użyciu uwierzytelniania za pomocą hasła Active Directory, Active Directory uwierzytelniania zintegrowanego lub SQL Server uwierzytelniania).
+- Program SSMS obsługuje uwierzytelnianie uniwersalne Active Directory w przypadku Eksplorator obiektów, edytora zapytań i wizualizacji magazynu zapytań.
+- Program SSMS w wersji 17,2 zapewnia obsługę kreatora DacFx dla bazy danych eksport/Extract/Deploy. Gdy określony użytkownik zostanie uwierzytelniony za pośrednictwem okna dialogowego uwierzytelniania początkowego przy użyciu uwierzytelniania uniwersalnego, Kreator DacFx działa tak samo jak w przypadku wszystkich innych metod uwierzytelniania.
+- Projektant tabel programu SSMS nie obsługuje uwierzytelniania uniwersalnego.
+- Nie ma dodatkowych wymagań dotyczących oprogramowania dla Active Directory uwierzytelniania uniwersalnego, z tą różnicą, że należy użyć obsługiwanej wersji programu SSMS.  
+- Wersja Active Directory Authentication Library (ADAL) dla uwierzytelniania uniwersalnego została zaktualizowana do najnowszej udostępnionej wersji biblioteki ADAL. dll 3.13.9. Zobacz [Active Directory Authentication Library 3.14.1](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji, zobacz [artykuł Połącz z programem Synapse SQL z programem SQL Server Management Studio.](get-started-ssms.md) 
+Aby uzyskać więcej informacji, zobacz artykuł [Connect to Synapse SQL with SQL Server Management Studio](get-started-ssms.md) . 
 

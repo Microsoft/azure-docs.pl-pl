@@ -1,6 +1,6 @@
 ---
-title: Szybki start — konfigurowanie reguł i akcji w usłudze Azure IoT Central
-description: Ten przewodnik Szybki start pokazuje, jako konstruktora, jak skonfigurować reguły i akcje oparte na telemetrii w aplikacji Azure IoT Central.
+title: Szybki Start — Konfigurowanie reguł i akcji na platformie Azure IoT Central
+description: W tym przewodniku szybki start pokazano, jak za pomocą konstruktora, jak skonfigurować reguły i akcje na podstawie danych telemetrycznych w aplikacji IoT Central platformy Azure.
 author: dominicbetts
 ms.author: dobett
 ms.date: 02/12/2020
@@ -10,33 +10,33 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: 66c3bd8650d1194d5d753c1dc967ec8e870c8748
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80998960"
 ---
-# <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Szybki start: konfigurowanie reguł i akcji dla urządzenia w usłudze Azure IoT Central
+# <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Szybki Start: Konfigurowanie reguł i akcji dla urządzenia w usłudze Azure IoT Central
 
 *Ten artykuł dotyczy operatorów, konstruktorów i administratorów.*
 
-W tym przewodniku Szybki start utworzysz regułę, która wysyła wiadomość e-mail, gdy temperatura zgłaszana przez czujnik urządzenia przekracza 90&deg; F.
+W tym przewodniku szybki start utworzysz regułę, która wysyła wiadomość e-mail, gdy temperatura zgłoszona przez czujnik urządzenia przekracza&deg; 90 F.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem należy wykonać dwa poprzednie przewodniki Szybki start [Tworzenie aplikacji Azure IoT Central](./quick-deploy-iot-central.md) i dodawanie [symulowanego urządzenia do aplikacji IoT Central](./quick-create-simulated-device.md) w celu utworzenia szablonu urządzenia **MXChip IoT DevKit** do pracy.
+Przed rozpoczęciem należy wykonać dwa poprzednie Przewodniki Szybki Start [Tworzenie aplikacji IoT Central platformy Azure](./quick-deploy-iot-central.md) i [Dodawanie symulowanego urządzenia do aplikacji IoT Central](./quick-create-simulated-device.md) w celu utworzenia szablonu urządzenia **zestawu deweloperskiego IoT DevKit** do pracy z usługą.
 
 ## <a name="create-a-telemetry-based-rule"></a>Tworzenie reguły opartej na danych telemetrycznych
 
-1. Aby dodać nową regułę opartą na telemetrii do aplikacji, w lewym okienku wybierz pozycję **Reguły**.
+1. Aby dodać nową regułę opartą na telemetrii do aplikacji, w okienku po lewej stronie wybierz pozycję **reguły**.
 
 1. Aby utworzyć nową regułę, wybierz opcję **+**.
 
 1. Wprowadź **temperaturę środowiska** jako nazwę reguły.
 
-1. W sekcji **Urządzenia docelowe** wybierz **pozycję MXChip IoT DevKit** jako szablon urządzenia. Ta opcja filtruje urządzenia, które reguła ma zastosowanie według typu szablonu urządzenia. Więcej kryteriów filtrowania można dodać, wybierając opcję **+ Filtr**.
+1. W sekcji **urządzenia docelowe** wybierz pozycję **zestawu deweloperskiego IoT DevKit** jako szablon urządzenia. Ta opcja umożliwia filtrowanie urządzeń, do których odnosi się reguła według typu szablonu urządzenia. Aby dodać więcej kryteriów filtrowania, wybierz pozycję **+ Filtr**.
 
-1. W sekcji **Warunki** można zdefiniować, co wyzwala regułę. Aby zdefiniować warunek na podstawie danych telemetrycznych temperatury, należy użyć następujących informacji:
+1. W sekcji **warunki** definiujesz, co wyzwala regułę. Poniższe informacje służą do definiowania warunków opartych na telemetrii temperatury:
 
     | Pole        | Wartość            |
     | ------------ | ---------------- |
@@ -44,26 +44,26 @@ Przed rozpoczęciem należy wykonać dwa poprzednie przewodniki Szybki start [Tw
     | Operator     | jest większe niż  |
     | Wartość        | 90               |
 
-    Aby dodać więcej warunków, wybierz **+ Warunek**.
+    Aby dodać więcej warunków, wybierz pozycję **+ warunek**.
 
-    ![Warunek tworzenia reguły](./media/quick-configure-rules/condition.png)
+    ![Utwórz warunek reguły](./media/quick-configure-rules/condition.png)
 
-1. Aby dodać akcję e-mail do uruchomienia po wyzwoleniu reguły, wybierz pozycję **+ Wyślij wiadomość e-mail**.
+1. Aby dodać akcję poczty e-mail do uruchomienia, gdy reguła jest wyzwalana, wybierz pozycję **+ poczta e-mail**.
 
-1. Użyj informacji w poniższej tabeli, aby zdefiniować akcję, a następnie wybierz pozycję **Gotowe:**
+1. Użyj informacji podanych w poniższej tabeli, aby zdefiniować akcję, a następnie wybierz pozycję **gotowe**:
 
     | Ustawienie   | Wartość                                             |
     | --------- | ------------------------------------------------- |
     | Nazwa wyświetlana | Akcja e-mail operatora                          |
     | Do        | Twój adres e-mail                                |
-    | Uwagi     | Temperatura środowiska przekroczyła próg. |
+    | Uwagi     | Temperatura środowiska przekroczyła wartość progową. |
 
     > [!NOTE]
     > Aby użytkownik mógł otrzymywać wiadomości e-mail z powiadomieniem, adres e-mail musi być [identyfikatorem użytkownika w aplikacji](howto-administer.md), a użytkownik musiał zalogować się do aplikacji co najmniej raz.
 
-    ![Utwórz akcję reguły](./media/quick-configure-rules/action.png)
+    ![Akcja tworzenia reguły](./media/quick-configure-rules/action.png)
 
-1. Wybierz **pozycję Zapisz**. Reguła znajduje się na stronie **Reguły.**
+1. Wybierz pozycję **Zapisz**. Reguła zostanie wyświetlona na stronie **reguły** .
 
 ## <a name="test-the-rule"></a>Testowanie reguły
 
@@ -79,7 +79,7 @@ W tym przewodniku Szybki start zawarto informacje na temat wykonywania następuj
 * Tworzenie reguły opartej na danych telemetrycznych
 * Dodawanie akcji
 
-Aby dowiedzieć się więcej o monitorowaniu urządzeń podłączonych do aplikacji, przejdź do przewodnika Szybki start:
+Aby dowiedzieć się więcej o monitorowaniu urządzeń połączonych z aplikacją, przejdź do przewodnika Szybki Start:
 
 > [!div class="nextstepaction"]
-> [Użyj usługi Azure IoT Central, aby monitorować swoje urządzenia.](quick-monitor-devices.md)
+> [Użyj usługi Azure IoT Central do monitorowania urządzeń](quick-monitor-devices.md).

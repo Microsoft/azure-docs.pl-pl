@@ -1,6 +1,6 @@
 ---
-title: Tworzenie i używanie widoków w języku SQL na żądanie (wersja zapoznawcza)
-description: W tej sekcji dowiesz się, jak tworzyć i używać widoków do zawijania zapytań SQL na żądanie (wersja zapoznawcza). Widoki umożliwiają ponowne użycie tych zapytań. Widoki są również potrzebne, jeśli chcesz używać narzędzi, takich jak Usługa Power BI, w połączeniu z programem SQL na żądanie.
+title: Tworzenie i Używanie widoków w SQL na żądanie (wersja zapoznawcza)
+description: W tej sekcji dowiesz się, jak tworzyć widoki i używać ich do zawijania zapytań SQL na żądanie (wersja zapoznawcza). Widoki umożliwią ponowne użycie tych zapytań. Widoki są również potrzebne, jeśli chcesz użyć narzędzi, takich jak Power BI, w połączeniu z SQL na żądanie.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,29 +10,29 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 0f5323193706fdd00739be6c71a4fe12cfedf21b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81424538"
 ---
-# <a name="create-and-use-views-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Tworzenie i używanie widoków w języku SQL na żądanie (wersja zapoznawcza) przy użyciu usługi Azure Synapse Analytics
+# <a name="create-and-use-views-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Tworzenie i Używanie widoków w usłudze SQL na żądanie (wersja zapoznawcza) przy użyciu usługi Azure Synapse Analytics
 
-W tej sekcji dowiesz się, jak tworzyć i używać widoków do zawijania zapytań SQL na żądanie (wersja zapoznawcza). Widoki umożliwiają ponowne użycie tych zapytań. Widoki są również potrzebne, jeśli chcesz używać narzędzi, takich jak Usługa Power BI, w połączeniu z programem SQL na żądanie.
+W tej sekcji dowiesz się, jak tworzyć widoki i używać ich do zawijania zapytań SQL na żądanie (wersja zapoznawcza). Widoki umożliwią ponowne użycie tych zapytań. Widoki są również potrzebne, jeśli chcesz użyć narzędzi, takich jak Power BI, w połączeniu z SQL na żądanie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Pierwszym krokiem jest przejrzenie poniższych artykułów i upewnienie się, że spełniasz wymagania wstępne dotyczące tworzenia i używania widoków SQL na żądanie:
+Pierwszym krokiem jest zapoznanie się z artykułami poniżej i upewnienie się, że spełniono wymagania wstępne dotyczące tworzenia i używania widoków na żądanie SQL:
 
-- [Konfiguracja po raz pierwszy](query-data-storage.md#first-time-setup)
+- [Konfiguracja pierwszego czasu](query-data-storage.md#first-time-setup)
 - [Wymagania wstępne](query-data-storage.md#prerequisites)
 
 ## <a name="create-a-view"></a>Tworzenie widoku
 
-Widoki można tworzyć w taki sam sposób, jak zwykłe widoki programu SQL Server. Poniższa kwerenda tworzy widok, który odczytuje plik *population.csv.*
+Możesz tworzyć widoki w taki sam sposób, jak w przypadku zwykłych widoków SQL Server. Poniższe zapytanie tworzy widok, który odczytuje plik. *CSV* .
 
 > [!NOTE]
-> Zmień pierwszy wiersz w kwerendzie, czyli [mydbname], aby użyć utworzonej bazy danych. Jeśli baza danych nie została utworzona, przeczytaj artykuł [Pierwsza konfiguracja](query-data-storage.md#first-time-setup).
+> Zmień pierwszy wiersz zapytania, na przykład [mydbname], tak aby była używana utworzona baza danych. Jeśli baza danych nie została utworzona, zapoznaj się z [konfiguracją pierwszego czasu](query-data-storage.md#first-time-setup).
 
 ```sql
 USE [mydbname];
@@ -59,12 +59,12 @@ WITH (
 
 ## <a name="use-a-view"></a>Korzystanie z widoku
 
-Widoki w kwerendach można używać w taki sam sposób, w jaki używane są widoki w kwerendach programu SQL Server.
+W zapytaniach można używać widoków w taki sam sposób jak w przypadku zapytań SQL Server.
 
-Poniższa kwerenda pokazuje, przy użyciu widoku *population_csv* utworzyliśmy w [Tworzenie widoku](#create-a-view). Zwraca nazwy krajów z ich populacją w 2019 roku w porządku malejącym.
+Poniższe zapytanie ilustruje użycie widoku *population_csv* utworzonego w temacie [Tworzenie widoku](#create-a-view). Zwraca nazwy krajów z ich populacją w 2019 w kolejności malejącej.
 
 > [!NOTE]
-> Zmień pierwszy wiersz w kwerendzie, czyli [mydbname], aby użyć utworzonej bazy danych. Jeśli baza danych nie została utworzona, przeczytaj artykuł [Pierwsza konfiguracja](query-data-storage.md#first-time-setup).
+> Zmień pierwszy wiersz zapytania, na przykład [mydbname], tak aby była używana utworzona baza danych. Jeśli baza danych nie została utworzona, zapoznaj się z [konfiguracją pierwszego czasu](query-data-storage.md#first-time-setup).
 
 ```sql
 USE [mydbname];
@@ -81,4 +81,4 @@ ORDER BY
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać informacje na temat sposobu wykonywania zapytań o różne typy plików, zobacz [pojedyncze pliki CSV kwerendy,](query-single-csv-file.md) [pliki parkietu kwerendy](query-parquet-files.md)i artykuły [z plikami JSON kwerendy.](query-json-files.md)
+Aby uzyskać informacje na temat wykonywania zapytań o różne typy plików, zapoznaj się z artykułami [Single CSV pliku](query-single-csv-file.md), [Query Parquet Files](query-parquet-files.md)i [plików zapytania JSON](query-json-files.md) .

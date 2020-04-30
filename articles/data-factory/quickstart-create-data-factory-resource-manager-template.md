@@ -1,5 +1,5 @@
 ---
-title: Tworzenie fabryki danych platformy Azure przy użyciu szablonu Usługi Resource Manager
+title: Tworzenie fabryki danych Azure przy użyciu szablonu Menedżer zasobów
 description: W tym samouczku przedstawiono tworzenie przykładowego potoku usługi Azure Data Factory przy użyciu szablonu usługi Azure Resource Manager.
 services: data-factory
 documentationcenter: ''
@@ -11,21 +11,21 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 5ea45346de5ea841867dd13dd4c9a0ed26647448
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81419123"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Samouczek: tworzenie fabryki danych na platformie Azure przy użyciu szablonu usługi Azure Resource Manager
 
-> [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
+> [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Bieżąca wersja](quickstart-create-data-factory-resource-manager-template.md)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-W tym przewodniku Szybki start wyjaśniono, jak skorzystać z szablonu usługi Azure Resource Manager w celu utworzenia fabryki danych na platformie Azure. Potok utworzony w tej fabryce danych **kopiuje** dane z jednego folderu do innego folderu w magazynie obiektów blob platformy Azure. Aby zapoznać się z samouczkiem na temat **przekształcania** danych przy użyciu usługi Azure Data Factory, zobacz [Samouczek: Przekształcanie danych przy użyciu platformy Spark](transform-data-using-spark.md).
+W tym przewodniku Szybki start wyjaśniono, jak skorzystać z szablonu usługi Azure Resource Manager w celu utworzenia fabryki danych na platformie Azure. Potok tworzony w tej fabryce danych **kopiuje** dane z jednego folderu do innego folderu w usłudze Azure Blob Storage. Aby zapoznać się z samouczkiem dotyczącym **przekształcania** danych przy użyciu Azure Data Factory, zobacz [Samouczek: Przekształcanie danych przy użyciu platformy Spark](transform-data-using-spark.md).
 
 > [!NOTE]
 > Ten artykuł nie zawiera szczegółowego wprowadzenia do usługi Data Factory. Aby zapoznać się z wprowadzeniem do usługi Azure Data Factory, zobacz [Wprowadzenie do usługi Azure Data Factory](introduction.md).
@@ -36,7 +36,7 @@ W tym przewodniku Szybki start wyjaśniono, jak skorzystać z szablonu usługi A
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Zainstaluj najnowsze moduły programu Azure PowerShell, postępując zgodnie z instrukcjami w [temacie Jak zainstalować i skonfigurować program Azure PowerShell](/powershell/azure/install-Az-ps).
+Zainstaluj najnowsze moduły Azure PowerShell, postępując zgodnie z instrukcjami w temacie [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="resource-manager-templates"></a>Szablony usługi Resource Manager
 
@@ -48,7 +48,7 @@ Aby dowiedzieć się więcej na temat składni JSON i właściwości dla zasobó
 
 ## <a name="data-factory-json"></a>Plik JSON usługi Data Factory
 
-Utwórz plik JSON o nazwie **ADFTutorialARM.json** w folderze **C:\ADFTutorial** (Utwórz folder ADFTutorial, jeśli jeszcze nie istnieje) z następującą zawartością:
+Utwórz plik JSON o nazwie **ADFTutorialARM. JSON** w folderze **C:\ADFTutorial** (Utwórz folder ADFTutorial, jeśli jeszcze nie istnieje) z następującą zawartością:
 
 ```json
 {  
@@ -325,7 +325,7 @@ Utwórz plik JSON o nazwie **ADFTutorialARM-Parameters.json** zawierający param
 
 ## <a name="deploy-data-factory-entities"></a>Wdrażanie jednostek usługi Data Factory
 
-W programie PowerShell uruchom następujące polecenie, aby wdrożyć jednostki usługi Data Factory w grupie zasobów (w tym przypadku weź jako przykład ADFTutorialResourceGroup) przy użyciu szablonu Menedżera zasobów utworzonego wcześniej w tym przewodniku Szybki start.
+W programie PowerShell uruchom następujące polecenie, aby wdrożyć jednostki Data Factory w grupie zasobów (w tym przypadku ADFTutorialResourceGroup jako przykład) przy użyciu szablonu Menedżer zasobów utworzonego wcześniej w tym przewodniku Szybki Start.
 
 ```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
@@ -359,13 +359,13 @@ DeploymentDebugLogLevel :
 Szablon umożliwia wdrożenie następujących jednostek usługi Data Factory:
 
 - Połączona usługa Azure Storage
-- Binarne zestawy danych (wejściowe i wyjściowe)
+- Binarne zestawy danych (dane wejściowe i wyjściowe)
 - Potok z działaniem kopiowania
 - Wyzwalacz potoku
 
-Wdrożony wyzwalacz jest w stanie zatrzymanym. Jednym ze sposobów uruchomienia wyzwalacza jest użycie polecenia cmdlet **Start-AzDataFactoryV2Trigger** PowerShell. Poniższa procedura zawiera szczegółowy opis kroków:
+Wdrożony wyzwalacz jest w stanie zatrzymanym. Jednym z metod uruchomienia wyzwalacza jest użycie polecenia cmdlet **Start-AzDataFactoryV2Trigger** programu PowerShell. Poniższa procedura zawiera szczegółowy opis kroków:
 
-1. W oknie programu PowerShell utwórz zmienną do przechowywania nazwy grupy zasobów. Skopiuj poniższe polecenie do okna programu PowerShell i naciśnij klawisz ENTER. Jeśli określono inną nazwę grupy zasobów dla polecenia New-AzResourceGroupDeployment, zaktualizuj wartość w tym miejscu.
+1. W oknie programu PowerShell utwórz zmienną do przechowywania nazwy grupy zasobów. Skopiuj poniższe polecenie do okna programu PowerShell i naciśnij klawisz ENTER. Jeśli podano inną nazwę grupy zasobów dla polecenia New-AzResourceGroupDeployment, zaktualizuj wartość w tym miejscu.
 
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
@@ -412,7 +412,7 @@ Wdrożony wyzwalacz jest w stanie zatrzymanym. Jednym ze sposobów uruchomienia 
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
     True
     ```
-6. Upewnij się, że wyzwalacz został uruchomiony przez ponowne uruchomienie polecenia Get-AzDataFactoryV2Trigger.
+6. Upewnij się, że wyzwalacz został uruchomiony, ponownie uruchamiając polecenie Get-AzDataFactoryV2Trigger.
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
@@ -434,21 +434,21 @@ Wdrożony wyzwalacz jest w stanie zatrzymanym. Jednym ze sposobów uruchomienia 
 
 2. Na stronie **Fabryki danych** kliknij utworzoną fabrykę danych. W razie potrzeby przefiltruj listę, wpisując nazwę fabryki danych.
 
-3. Na stronie Fabryka danych kliknij kafelek **Autor & Monitor.**
+3. Na stronie Fabryka danych kliknij kafelek **tworzenie & monitor** .
 
-4. Na stronie **Rozpocznijmy pracę** wybierz **kartę Monitor**.  ![Monitorowanie przebiegu potoku](media/doc-common-process/get-started-page-monitor-button.png)
+4. **Na stronie Wprowadzenie** wybierz **kartę Monitorowanie**.  ![Monitorowanie uruchomienia potoku](media/doc-common-process/get-started-page-monitor-button.png)
 
     > [!IMPORTANT]
     > Wyświetlane uruchomienia potoku są ustawione tylko na pełne godziny (na przykład: 4:00, 5:00, 6:00 itd.). Kliknij przycisk **Odśwież** na pasku narzędzi, aby odświeżyć listę po upływie kolejnej godziny.
 
-5. Kliknij **łącze Wyświetl działanie uruchamiane** w kolumnie **Akcje.**
+5. Kliknij link **Wyświetl uruchomienia działania** w kolumnie **Akcje** .
 
     ![Link akcji potoku](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
 
 6. Zostaną wyświetlone uruchomienia działania skojarzone z uruchomieniem potoku. W tym przewodniku Szybki start potok ma tylko jedno działanie typu Kopiowanie. Widać uruchomienie tego działania.
 
     ![Uruchomienia działania](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
-7. Kliknij kolumnę **Dane wyjściowe** w obszarze Akcje. Dane wyjściowe operacji kopiowania zostaną wyświetlone w oknie **Dane wyjściowe**. Kliknij przycisk Maksymalizuj, aby wyświetlić pełne dane wyjściowe. Zmaksymalizowane okno możesz przywrócić lub zamknąć.
+7. Kliknij link **dane wyjściowe** w kolumnie akcje. Dane wyjściowe operacji kopiowania zostaną wyświetlone w oknie **Dane wyjściowe**. Kliknij przycisk Maksymalizuj, aby wyświetlić pełne dane wyjściowe. Zmaksymalizowane okno możesz przywrócić lub zamknąć.
 
 8. Po sprawdzeniu stanu uruchomienia zatrzymaj wyzwalacz. Wyzwalacz uruchamia potok co godzinę. Przy każdym uruchomieniu potok kopiuje ten sam plik z folderu wejściowego do folderu wyjściowego. Aby zatrzymać wyzwalacz, uruchom następujące polecenie w oknie programu PowerShell.
     
@@ -462,9 +462,9 @@ Wdrożony wyzwalacz jest w stanie zatrzymanym. Jednym ze sposobów uruchomienia 
 
 Następujące jednostki usługi Data Factory są zdefiniowane w szablonie JSON:
 
-- [Usługa połączona usługi Usługi Azure Storage](#azure-storage-linked-service)
+- [Połączona usługa Azure Storage](#azure-storage-linked-service)
 - [Binarny zestaw danych wejściowych](#binary-input-dataset)
-- [Binarny zestaw danych wyjściowych](#binary-output-dataset)
+- [Binarny wyjściowy zestaw danych](#binary-output-dataset)
 - [Potok danych z działaniem kopiowania](#data-pipeline)
 - [Wyzwalacz](#trigger)
 
@@ -496,7 +496,7 @@ Parametr connectionString używa parametrów storageAccountName i storageAccount
 
 #### <a name="binary-input-dataset"></a>Binarny zestaw danych wejściowych
 
-Połączona usługa magazynu Azure określa parametry połączenia, z których korzysta usługa Data Factory w czasie wykonywania, aby połączyć się z kontem magazynu Azure. W binarnej definicji zestawu danych można określić nazwy kontenera obiektów blob, folderu i pliku zawierającego dane wejściowe. Zobacz [Właściwości binarnego zestawu danych,](format-binary.md#dataset-properties) aby uzyskać szczegółowe informacje na temat właściwości JSON używanych do definiowania binarnego zestawu danych.
+Połączona usługa magazynu Azure określa parametry połączenia, z których korzysta usługa Data Factory w czasie wykonywania, aby połączyć się z kontem magazynu Azure. W definicji binarnego zestawu danych można określić nazwy kontenera obiektów blob, folderu i pliku, który zawiera dane wejściowe. Zobacz [Właściwości binarnego zestawu danych](format-binary.md#dataset-properties) , aby uzyskać szczegółowe informacje na temat właściwości JSON używanych do definiowania binarnego zestawu danych.
 
 ```json
 {  
@@ -528,9 +528,9 @@ Połączona usługa magazynu Azure określa parametry połączenia, z których k
 }
 ```
 
-#### <a name="binary-output-dataset"></a>Binarny zestaw danych wyjściowych
+#### <a name="binary-output-dataset"></a>Binarny wyjściowy zestaw danych
 
-Należy podać nazwę folderu usługi Azure Blob Storage, w którym są przechowywane dane skopiowane z folderu wejściowego. Zobacz [Właściwości binarnego zestawu danych,](format-binary.md#dataset-properties) aby uzyskać szczegółowe informacje na temat właściwości JSON używanych do definiowania binarnego zestawu danych.
+Należy podać nazwę folderu usługi Azure Blob Storage, w którym są przechowywane dane skopiowane z folderu wejściowego. Zobacz [Właściwości binarnego zestawu danych](format-binary.md#dataset-properties) , aby uzyskać szczegółowe informacje na temat właściwości JSON używanych do definiowania binarnego zestawu danych.
 
 ```json
 {  
@@ -563,7 +563,7 @@ Należy podać nazwę folderu usługi Azure Blob Storage, w którym są przechow
 
 #### <a name="data-pipeline"></a>Potok danych
 
-Definiujesz potok, który kopiuje dane z jednego binarnego zestawu danych do innego binarnego zestawu danych. Opisy elementów JSON używanych do definiowania potoku w tym przykładzie zawiera temat [Pipeline JSON](concepts-pipelines-activities.md#pipeline-json) (Kod JSON potoku).
+Należy zdefiniować potok, który kopiuje dane z jednego binarnego zestawu danych do innego binarnego zestawu danych. Opisy elementów JSON używanych do definiowania potoku w tym przykładzie zawiera temat [Pipeline JSON](concepts-pipelines-activities.md#pipeline-json) (Kod JSON potoku).
 
 ```json
 {  
@@ -638,7 +638,7 @@ Definiujesz potok, który kopiuje dane z jednego binarnego zestawu danych do inn
 
 #### <a name="trigger"></a>Wyzwalacz
 
-Należy zdefiniować wyzwalacz, który uruchamia potok co godzinę. Wdrożony wyzwalacz jest w stanie zatrzymanym. Uruchom wyzwalacz przy użyciu polecenia cmdlet **Start-AzDataFactoryV2Trigger.** Aby uzyskać więcej informacji na temat wyzwalaczy, zobacz [wykonanie potoku i wyzwalaczy](concepts-pipeline-execution-triggers.md#trigger-execution) artykułu.
+Należy zdefiniować wyzwalacz, który uruchamia potok co godzinę. Wdrożony wyzwalacz jest w stanie zatrzymanym. Uruchom wyzwalacz za pomocą polecenia cmdlet **Start-AzDataFactoryV2Trigger** . Aby uzyskać więcej informacji na temat wyzwalaczy, zobacz artykuł [wykonywanie potoku i wyzwalacze](concepts-pipeline-execution-triggers.md#trigger-execution) .
 
 ```json
 {  

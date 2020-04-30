@@ -1,6 +1,6 @@
 ---
-title: Ściągawka - Azure Synapse Analytics
-description: Przewodnik pomocniczy dotyczący użytkowników przechodzących przez usługę Azure Synapse Analytics
+title: Arkusz Ściągawka — analiza Synapse Azure
+description: Przewodnik dotyczący przechodzenia przez usługę Azure Synapse Analytics
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
@@ -10,17 +10,17 @@ ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: aa93a816fc11158d928978bdec2dbf42119fa149
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81424657"
 ---
-# <a name="azure-synapse-analytics-cheat-sheet"></a>Arkusz cheatów usługi Azure Synapse Analytics
+# <a name="azure-synapse-analytics-cheat-sheet"></a>Arkusz Ściągawka usługi Azure Synapse Analytics
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-Arkusz ściągawki usługi Azure Synapse Analytics przeprowadzi Cię przez podstawowe pojęcia usługi i ważne polecenia. Ten artykuł jest przydatny zarówno dla nowych uczniów, jak i tych, którzy chcą najważniejsze tematy dotyczącą podstawowych tematów platformy Azure Synapse.
+Arkusz usługi Azure Synapse Analytics Ściągawka przeprowadzi Cię przez podstawowe pojęcia związane z usługą i ważnymi poleceniami. Ten artykuł jest pomocny w przypadku nowych osób, które chcą uzyskać najważniejsze tematy dotyczące usługi Azure Synapse.
 
 ## <a name="architecture"></a>Architektura
 
@@ -30,32 +30,32 @@ Arkusz ściągawki usługi Azure Synapse Analytics przeprowadzi Cię przez podst
 ## <a name="concepts"></a>Pojęcia
 | Rzeczowniki i czasowniki                         | Wyniki działania       |
 |:---                                 |:---                 |
-| **Obszar roboczy Synapse (wersja zapoznawcza)** | Zabezpiecza granica współpracy do wykonywania analizy przedsiębiorstw opartych na chmurze na platformie Azure. Obszar roboczy jest wdrażany w określonym regionie i ma skojarzone konto ADLSg2 i system plików (do przechowywania danych tymczasowych). Obszar roboczy znajduje się w grupie zasobów. |
-| **Analiza SQL**   | Uruchamiaj analizy za pomocą pul lub funkcji na żądanie.  |
-| **Pula SQL**   | 0-to-N SQL aprowizacji zasobów z ich odpowiednich baz danych można wdrożyć w obszarze roboczym. Każda pula SQL ma skojarzoną bazę danych. Pula SQL może być skalowana, wstrzymana i wznowiona ręcznie lub automatycznie. Pula SQL można skalować od 100 DWU do 30 000 DWU.       |
-| **SQL na żądanie (wersja zapoznawcza)**   | Rozproszony system przetwarzania danych stworzony z myślą o dużych danych, który umożliwia uruchamianie zapytań T-SQL za pośrednictwem danych w układzie danych. Jest bezserwerowy, więc nie trzeba zarządzać infrastrukturą.       |
-|**Apache Spark** | Czas wykonywania platformy Spark używany w puli platformy Spark. Obsługiwana jest bieżąca wersja spark 2.4 z Python 3.6.1, Scala 2.11.12, .NET wsparcie dla Apache Spark 0.5 i Delta Lake 0.3.  | 
-| **Apache Spark pool (wersja zapoznawcza)**  | 0-to-N Spark aprowizacji zasobów z ich odpowiednich baz danych można wdrożyć w obszarze roboczym. Pulę platformy Spark można automatycznie wstrzymać, wznowić i skalować.  |
-| **Aplikacja Spark**  |   Składa się z procesu sterownika i zestawu procesów egzekucyjnych. Aplikacja Spark jest uruchamiana na puli platformy Spark.            |
-| **Sesja iskra**  |   Ujednolicony punkt wejścia aplikacji iskrowej. Zapewnia sposób interakcji z różnych funkcji Spark i z mniejszą liczbę konstrukcji. Aby uruchomić notes, należy utworzyć sesję. Sesję można skonfigurować tak, aby działała na określonej liczbie wykonawców o określonym rozmiarze. Domyślną konfiguracją sesji notesu jest uruchomienie 2 średnich executorów. |
-| **Żądanie SQL**  |   Operacja, taka jak kwerenda uruchamiana za pośrednictwem puli SQL lub SQL na żądanie. |
-|**Integracja danych**| Umożliwia pozyskiwanie danych między różnymi źródłami i organizowanie działań uruchomionych w obszarze roboczym lub poza obszarem roboczym.| 
-|**Artefakty**| Koncepcja, która hermetyzuje wszystkie obiekty niezbędne dla użytkownika do zarządzania źródłami danych, opracowywania, organizowania i wizualizacji.|
-|**Notes**| Interaktywny i reaktywny interfejs nauki o danych i inżynierii obsługujący scala, pyspark, c#i sparksql. |
-|**Definicja zadania iskry**|Interfejs do przesyłania zadania Platformy Spark za pomocą zestawu jar zawierającego kod i jego zależności.|
-|**Przepływ danych**|  Zapewnia w pełni wizualne środowisko bez kodowania wymagane do przetwarzania dużych zbiorów danych. Wszystkie optymalizacje i wykonanie są obsługiwane w sposób bezserwerowy. |
-|**Skrypt SQL**| Zestaw poleceń SQL zapisanych w pliku. Skrypt SQL może zawierać co najmniej jedną instrukcję SQL. Może służyć do uruchamiania żądań SQL za pośrednictwem puli SQL lub SQL na żądanie.|
-|**Rurociągu**| Logiczne grupowanie działań, które wykonują zadanie razem.|
+| **Obszar roboczy Synapse (wersja zapoznawcza)** | Jest to zabezpieczana granica współpracy na potrzeby przeprowadzania analiz przedsiębiorstw opartych na chmurze na platformie Azure. Obszar roboczy jest wdrażany w określonym regionie i ma skojarzone konto ADLSg2 i system plików (do przechowywania danych tymczasowych). Obszar roboczy znajduje się w grupie zasobów. |
+| **Analiza SQL**   | Uruchom analizę z pulami lub z możliwościami na żądanie.  |
+| **Pula SQL**   | w obszarze roboczym można wdrożyć zasoby od 0 do N z przydziałem SQL z odpowiednimi bazami danych. Każda pula SQL ma skojarzoną bazę danych. Pulę SQL można skalować, wstrzymywać i wznawiać ręcznie lub automatycznie. Pula SQL może być skalowana z 100 jednostek dwu do 30 000 jednostek dwu.       |
+| **SQL na żądanie (wersja zapoznawcza)**   | System rozproszonego przetwarzania danych zbudowany na potrzeby danych na dużą skalę, który umożliwia uruchamianie zapytań T-SQL za pośrednictwem danych w usłudze Data Lake. Nie trzeba zarządzać infrastrukturą.       |
+|**Apache Spark** | Czas wykonywania platformy Spark używany w puli platformy Spark. Bieżącą obsługiwaną wersją jest platforma Spark 2,4 z 3.6.1 języka Python, Scala 2.11.12, obsługą platformy .NET dla Apache Spark 0,5 i delty Lake 0,3.  | 
+| **Pula Apache Spark (wersja zapoznawcza)**  | w obszarze roboczym można wdrożyć zasoby z obsługą od 0 do N platformy Spark z odpowiednimi bazami danych. Pulę platformy Spark można automatycznie wstrzymać, wznowić i skalować.  |
+| **Aplikacja platformy Spark**  |   Składa się z procesu sterownika i zestawu procesów wykonujących. Aplikacja platformy Spark działa w puli platformy Spark.            |
+| **Sesja platformy Spark**  |   Zunifikowany punkt wejścia aplikacji Spark. Zapewnia sposób współpracy z różnymi funkcjami platformy Spark i z mniejszą liczbą konstrukcji. Aby uruchomić Notes, należy utworzyć sesję. Sesję można skonfigurować do uruchamiania na określonej liczbie wykonawców o określonym rozmiarze. Domyślną konfiguracją sesji notesu jest uruchamianie na 2 wykonawczych o średnim rozmiarze. |
+| **Żądanie SQL**  |   Operacje, takie jak zapytanie, są wykonywane za pomocą puli SQL lub SQL na żądanie. |
+|**Integracja danych**| Zapewnia możliwość pozyskiwania danych między różnymi źródłami i organizowania działań uruchomionych w obszarze roboczym lub poza obszarem roboczym.| 
+|**Artefakty**| Koncepcja, która hermetyzuje wszystkie obiekty wymagane przez użytkownika do zarządzania źródłami danych, opracowywania, organizowania i wizualizacji.|
+|**Notes**| Interaktywny i reaktywny interfejs nauki i inżynierii danych obsługujący Scala, PySpark, C# i SparkSQL. |
+|**Definicja zadania platformy Spark**|Interfejs do przesyłania zadania platformy Spark przez zestaw jar zawierający kod i jego zależności.|
+|**Przepływ danych**|  Zapewnia w pełni wizualizację, bez konieczności kodowania danych Big Data. Wszystkie optymalizacje i wykonywanie są obsługiwane w sposób bezserwerowy. |
+|**Skrypt SQL**| Zestaw poleceń SQL zapisanych w pliku. Skrypt SQL może zawierać jedną lub więcej instrukcji SQL. Może służyć do uruchamiania żądań SQL za poorednictwem puli SQL lub SQL na żądanie.|
+|**Proces**| Logiczne grupowanie działań, które wspólnie wykonują zadanie.|
 |**Działanie**| Definiuje akcje do wykonania na danych, takich jak kopiowanie danych, uruchamianie notesu lub skryptu SQL.|
-|**Wyzwalacz**| Wykonuje potok. Można go uruchomić ręcznie lub automatycznie (harmonogram, okno tumbling lub oparte na zdarzeniach).|
-|**Usługa połączona**| Parametry połączenia definiujące informacje o połączeniu potrzebne do łączenia się z zasobami zewnętrznymi obszaru roboczego.|
-|**Dataset**|  Nazwany widok danych, które po prostu wskazuje lub odwołuje się do danych, które mają być używane w działaniu jako dane wejściowe i wyjściowe. Należy do usługi połączonej.|
+|**Wyzwalacz**| Wykonuje potok. Może być uruchamiany ręcznie lub automatycznie (harmonogram, wirowania okno lub zdarzenia).|
+|**Połączona usługa**| Parametry połączenia, które definiują informacje o połączeniu, które są konieczne do nawiązania połączenia z zasobami zewnętrznymi.|
+|**Dataset**|  Nazwany widok danych, który po prostu wskazuje lub odwołuje się do danych, które mają być używane w działaniu jako dane wejściowe i wyjściowe. Należy do połączonej usługi.|
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Tworzenie obszaru roboczego](quickstart-create-workspace.md)
-- [Korzystanie z Synapse Studio](quickstart-synapse-studio.md)
+- [Korzystanie z programu Synapse Studio](quickstart-synapse-studio.md)
 - [Tworzenie puli SQL](quickstart-create-sql-pool.md)
-- [Korzystanie z języka SQL na żądanie](quickstart-sql-on-demand.md)
-- [Tworzenie puli platformy Spark Apache](quickstart-create-apache-spark-pool.md)
+- [Korzystanie z bazy danych SQL na żądanie](quickstart-sql-on-demand.md)
+- [Tworzenie puli Apache Spark](quickstart-create-apache-spark-pool.md)
 

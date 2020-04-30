@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: Tworzenie serwera — narzędzie interfejsu wiersza polecenia platformy Azure — usługa Azure Database dla bazy mariadb'
+title: 'Szybki Start: Tworzenie serwera — interfejs wiersza polecenia platformy Azure — Azure Database for MariaDB'
 description: W tym przewodniku Szybki start opisano, jak utworzyć serwer usługi Azure Database for MariaDB w grupie zasobów platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure.
 author: ajlam
 ms.author: andrela
@@ -9,17 +9,17 @@ ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc
 ms.openlocfilehash: f83af794a179634b9b6b7adedd329ea6f4a7b8d0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79536466"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Tworzenie serwera usługi Azure Database for MariaDB za pomocą interfejsu wiersza polecenia platformy Azure
 
 Interfejs wiersza polecenia platformy Azure może służyć do tworzenia zasobów platformy Azure i zarządzania nimi z poziomu wiersza polecenia lub skryptów. W tym przewodniku Szybki start opisano, jak utworzyć serwer usługi Azure Database for MariaDB w grupie zasobów platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure w czasie około pięciu minut.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne](https://azure.microsoft.com/free/) konto przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -48,16 +48,16 @@ Utwórz serwer usługi Azure Database for MariaDB za pomocą polecenia [az maria
 Ustawienie | Wartość przykładowa | Opis
 ---|---|---
 name | **mydemoserver** | Wprowadź unikatową nazwę, która identyfikuje Twój serwer usługi Azure Database for MariaDB. Nazwa serwera może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zawierać od 3 do 63 znaków.
-resource-group | **grupa myresource** | Wprowadź nazwę grupy zasobów platformy Azure.
-sku-name | **GP_Gen5_2** | Nazwa jednostki SKU. Wynika z konwencji *cen owych wytwarzania*\_\_korli*wytwarzania* w*skrócie.* Aby uzyskać więcej informacji na temat parametru **sku-name**, zobacz sekcję poniżej tabeli.
+resource-group | **myresourcegroup** | Wprowadź nazwę grupy zasobów platformy Azure.
+sku-name | **GP_Gen5_2** | Nazwa jednostki SKU. Zgodnie z Konwencją Konwencji *cenowej*\_\_*rdzeni wirtualnych* *generacji obliczeń*w postaci skróconej. Aby uzyskać więcej informacji na temat parametru **sku-name**, zobacz sekcję poniżej tabeli.
 backup-retention | **7** | Jak długo należy przechowywać kopię zapasową. Jednostka to dni. Zakres: 7–35. 
-geo-redundant-backup | **Wyłączone** | Określa, czy dla tego serwera powinny być włączone geograficznie nadmiarowe kopie zapasowe. Dozwolone wartości: **Włączone**, **Wyłączone**.
+geo-redundant-backup | **Wyłączony** | Określa, czy dla tego serwera powinny być włączone geograficznie nadmiarowe kopie zapasowe. Dozwolone wartości: **włączone**, **wyłączone**.
 location | **westus** | Lokalizacja platformy Azure dla serwera.
-ssl-enforcement | **Enabled (Włączony)** | Określa, czy dla tego serwera powinien być włączony protokół SSL. Dozwolone wartości: **Włączone**, **Wyłączone**.
+ssl-enforcement | **Dostępny** | Określa, czy dla tego serwera powinien być włączony protokół SSL. Dozwolone wartości: **włączone**, **wyłączone**.
 storage-size | **51200** | Pojemność magazynu serwera (w megabajtach). Prawidłowy rozmiar magazynu to 5120 MB (minimum) rosnący z przyrostem 1024 MB. Aby uzyskać więcej informacji na temat limitów rozmiaru magazynu, zobacz [Warstwy cenowe](./concepts-pricing-tiers.md). 
-version | **10.2** | Wersja główna aparatu MariaDB.
+Wersja | **10.2** | Wersja główna aparatu MariaDB.
 admin-user | **myadmin** | Nazwa użytkownika w przypadku logowania administratora. Parametr **admin-user** nie może mieć wartości **azure_superuser**, **admin**, **administrator**, **root**, **guest** ani **public**.
-admin-password | *twoje hasło* | Hasło użytkownika administratora. Twoje hasło musi zawierać od 8 do 128 znaków. Musi ono zawierać znaki z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry i znaki inne niż alfanumeryczne.
+admin-password | *Twoje hasło* | Hasło użytkownika administratora. Twoje hasło musi zawierać od 8 do 128 znaków. Musi ono zawierać znaki z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry i znaki inne niż alfanumeryczne.
 
 Wartość parametru sku-name jest zgodna z konwencją {warstwa cenowa}\_{generacja obliczeniowa}\_{rdzenie wirtualne}, jak pokazano w przykładach poniżej:
 + `--sku-name B_Gen5_1` — warstwa podstawowa, 5. generacja, 1 rdzeń wirtualny. Ta opcja to najmniejsza dostępna jednostka SKU.
@@ -212,12 +212,12 @@ Aby nawiązać połączenie z serwerem, używając narzędzia wiersza polecenia 
 
    | Ustawienie | Sugerowana wartość | Opis |
    |---|---|---|
-   | Nazwa połączenia | **Połączenie demo** | Wprowadź etykietę dla tego połączenia (nazwa połączenia może być dowolna) |
+   | Nazwa połączenia | **Połączenie demonstracyjne** | Wprowadź etykietę dla tego połączenia (nazwa połączenia może być dowolna) |
    | Metoda połączenia | **Standardowa (TCP/IP)** | Użyj protokołu TCP/IP do nawiązania połączenia z usługą Azure Database for MariaDB |
    | Nazwa hosta | **mydemoserver.mariadb.database.azure.com** | Zanotowana wcześniej nazwa serwera. |
    | Port | **3306** | Domyślny port dla usługi Azure Database for MariaDB. |
-   | Nazwa użytkownika | **mydemoserver myadmin\@** | Zanotowany wcześniej identyfikator logowania administratora serwera. |
-   | Hasło | *twoje hasło* | Użyj skonfigurowanego wcześniej hasła konta administratora. |
+   | Nazwa użytkownika | **mydemoserver administratora\@** | Zanotowany wcześniej identyfikator logowania administratora serwera. |
+   | Hasło | *Twoje hasło* | Użyj skonfigurowanego wcześniej hasła konta administratora. |
 
 3. Aby sprawdzić, czy wszystkie parametry zostały skonfigurowane poprawnie, wybierz pozycję **Testuj połączenie**.
 

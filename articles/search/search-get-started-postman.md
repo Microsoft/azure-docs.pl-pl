@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: tworzenie indeksu wyszukiwania w postman przy użyciu interfejsów API REST'
+title: 'Szybki Start: Tworzenie indeksu wyszukiwania w programie Poster przy użyciu interfejsów API REST'
 titleSuffix: Azure Cognitive Search
-description: W tym przewodniku Szybki start interfejsu API REST dowiedz się, jak wywołać interfejsy API REST usługi Azure Cognitive Search przy użyciu usług Postman i przykładowych danych i definicji.
+description: W tym przewodniku szybki start interfejsu API REST dowiesz się, jak wywoływać interfejsy API REST platformy Azure Wyszukiwanie poznawcze przy użyciu programu Poster oraz dane przykładowe i definicje.
 author: tchristiani
 manager: nitinme
 ms.author: terrychr
@@ -10,89 +10,89 @@ ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 02/10/2020
 ms.openlocfilehash: c502886aac9d13f7a470a9b83f1fc12334913beb
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77121638"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Szybki start: tworzenie indeksu usługi Azure Cognitive Search w usłudze Postman przy użyciu interfejsów API REST
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w programie Poster przy użyciu interfejsów API REST
 > [!div class="op_single_selector"]
 > * [Postman](search-get-started-postman.md)
-> * [C #](search-create-index-dotnet.md)
+> * [S #](search-create-index-dotnet.md)
 > * [Python](search-get-started-python.md)
 > * [Portal](search-get-started-portal.md)
-> * [Powershell](search-howto-dotnet-sdk.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
-Jednym z najprostszych sposobów eksplorowania [interfejsów API rest usługi Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice) jest użycie usługi Postman lub innego narzędzia do testowania sieci Web do formułowania żądań HTTP i sprawdzania odpowiedzi. Za pomocą odpowiednich narzędzi i niniejszej instrukcji możesz wysyłać żądania i wyświetlać odpowiedzi przed napisaniem jakiegokolwiek kodu.
+Jednym z najprostszych sposobów eksplorowania [interfejsów API REST platformy Azure wyszukiwanie poznawcze](https://docs.microsoft.com/rest/api/searchservice) jest użycie programu Poster lub innego narzędzia do testowania sieci Web w celu sformułowania żądań HTTP i sprawdzenia odpowiedzi. Za pomocą odpowiednich narzędzi i niniejszej instrukcji możesz wysyłać żądania i wyświetlać odpowiedzi przed napisaniem jakiegokolwiek kodu.
 
-W tym artykule wyjaśniono, jak formułować żądania interaktywnie. Alternatywnie można [pobrać i zaimportować kolekcję Postman](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) do korzystania ze wstępnie zdefiniowanych żądań.
+W tym artykule wyjaśniono, jak w sposób interaktywny sformułować żądania. Alternatywnie można [pobrać i zaimportować kolekcję programu Poster](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) , aby użyć wstępnie zdefiniowanych żądań.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do tego przewodnika Szybki start wymagane są następujące usługi i narzędzia. 
+Ten przewodnik Szybki Start wymaga następujących usług i narzędzi. 
 
-+ [Aplikacja klasyczna Postman](https://www.getpostman.com/) służy do wysyłania żądań do usługi Azure Cognitive Search.
++ [Aplikacja klasyczna programu post](https://www.getpostman.com/) jest używana do wysyłania żądań do usługi Azure wyszukiwanie poznawcze.
 
-+ [Utwórz usługę Azure Cognitive Search](search-create-service-portal.md) lub znajdź [istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) w ramach bieżącej subskrypcji. Możesz skorzystać z bezpłatnej usługi dla tego szybkiego startu. 
++ [Utwórz usługę Azure wyszukiwanie poznawcze](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) w ramach bieżącej subskrypcji. Możesz użyć bezpłatnej usługi dla tego przewodnika Szybki Start. 
 
-## <a name="get-a-key-and-url"></a>Uzyskaj klucz i adres URL
+## <a name="get-a-key-and-url"></a>Pobierz klucz i adres URL
 
-Wywołania interfejsu REST wymagają adresu URL usługi i klucza dostępu dla każdego żądania. Usługa wyszukiwania jest tworzona z obu, więc jeśli dodano usługę Azure Cognitive Search do subskrypcji, wykonaj następujące kroki, aby uzyskać niezbędne informacje:
+Wywołania interfejsu REST wymagają adresu URL usługi i klucza dostępu dla każdego żądania. Usługa wyszukiwania jest tworzona razem z usługą, więc jeśli do subskrypcji dodano Wyszukiwanie poznawcze platformy Azure, wykonaj następujące kroki, aby uzyskać niezbędne informacje:
 
-1. [Zaloguj się do witryny Azure portal](https://portal.azure.com/), a na stronie **przegląd** usługi wyszukiwania pobierz adres URL. Przykładowy punkt końcowy może wyglądać podobnie jak `https://mydemo.search.windows.net`.
+1. [Zaloguj się do Azure Portal](https://portal.azure.com/)i na stronie **Przegląd** usługi wyszukiwania Uzyskaj adres URL. Przykładowy punkt końcowy może wyglądać podobnie jak `https://mydemo.search.windows.net`.
 
-1. W **ustawieniach** > **klawiszy**pobierz klucz administratora, aby uzyskać pełne prawa do usługi. Istnieją dwa wymienne klucze administracyjne, przewidziane dla ciągłości biznesowej w przypadku, gdy trzeba przewrócić jeden. Klucz podstawowy lub pomocniczy można używać w żądaniach dodawania, modyfikowania i usuwania obiektów.
+1. W obszarze **Ustawienia** > **klucze**Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
 
-![Uzyskiwanie punktu końcowego HTTP i klucza dostępu](media/search-get-started-postman/get-url-key.png "Uzyskiwanie punktu końcowego HTTP i klucza dostępu")
+![Pobieranie punktu końcowego HTTP i klucza dostępu](media/search-get-started-postman/get-url-key.png "Pobieranie punktu końcowego HTTP i klucza dostępu")
 
-Wszystkie żądania wymagają klucza api przy każdym żądaniu wysłanym do usługi. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
+Wszystkie żądania wymagają klucza API dla każdego żądania wysyłanego do usługi. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
-## <a name="connect-to-azure-cognitive-search"></a>Łączenie się z usługą Azure Cognitive Search
+## <a name="connect-to-azure-cognitive-search"></a>Nawiązywanie połączenia z usługą Azure Wyszukiwanie poznawcze
 
-W tej sekcji użyj wybranego narzędzia sieci web, aby skonfigurować połączenia z usługą Azure Cognitive Search. Każde narzędzie powtarza informacje nagłówka żądania dla sesji, co oznacza, że wystarczy wprowadzić api-key i Content-Type tylko raz.
+W tej sekcji Użyj wybranego narzędzia sieci Web, aby skonfigurować połączenia z usługą Azure Wyszukiwanie poznawcze. Każde narzędzie utrzymuje informacje nagłówka żądania dla sesji, co oznacza, że wystarczy tylko raz wprowadzić klucz API-Key i Content-Type.
 
-Dla obu narzędzi, należy wybrać polecenie (GET, POST, PUT, itd.), podaj punkt końcowy adresu URL, a dla niektórych zadań, podaj JSON w treści żądania. Zastąp nazwę usługi wyszukiwania (YOUR-SEARCH-SERVICE-NAME) prawidłową wartością. Dodaj, `$select=name` aby zwrócić tylko nazwę każdego indeksu. 
+Dla każdego narzędzia należy wybrać polecenie (GET, POST, PUT itd.), podać punkt końcowy adresu URL, a w przypadku niektórych zadań podać kod JSON w treści żądania. Zastąp nazwę usługi wyszukiwania (nazwa użytkownika-SEARCH-SERVICE-NAME) prawidłową wartością. Dodaj `$select=name` , aby zwrócić tylko nazwę każdego indeksu. 
 
     https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name
 
-Zwróć uwagę na prefiks HTTPS, nazwę usługi, nazwę obiektu (w tym przypadku kolekcję indeksów) i [wersję interfejsu api](search-api-versions.md). Wersja interfejsu api jest wymaganym, małe litery ciąg określony jak `?api-version=2019-05-06` dla bieżącej wersji. Wersje interfejsu API są regularnie aktualizowane. Uwzględnienie parametru api-version w każdym żądaniu daje pełną kontrolę nad tym, która z nich jest używana.  
+Zwróć uwagę na prefiks protokołu HTTPS, nazwę usługi, nazwę obiektu (w tym przypadku kolekcja indeksów) i [wersję interfejsu API-Version](search-api-versions.md). Interfejs API-Version jest wymagana, a w `?api-version=2019-05-06` przypadku bieżącej wersji określono ciąg małymi literami. Wersje interfejsu API są regularnie aktualizowane. Uwzględnienie parametru api-version w każdym żądaniu daje pełną kontrolę nad tym, która z nich jest używana.  
 
-Kompozycja nagłówka żądania zawiera dwa elementy, typ zawartości oraz klucz interfejsu API używany do uwierzytelniania w usłudze Azure Cognitive Search. Zastąp klucz interfejsu API administratora (YOUR-AZURE-SEARCH-ADMIN-API-KEY) prawidłową wartością. 
+Kompozycja nagłówka żądania zawiera dwa elementy, typ zawartości oraz klucz API-Key służący do uwierzytelniania w usłudze Azure Wyszukiwanie poznawcze. Zastąp klucz interfejsu API administratora (parametr-AZURE-SEARCH-ADMIN-API-KEY) prawidłową wartością. 
 
     api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
     Content-Type: application/json
 
-W polu Postman sformułowanie żądania, które wygląda jak poniższy zrzut ekranu. Wybierz **GET** jako czasownik, podaj adres URL i kliknij przycisk **Wyślij**. To polecenie łączy się z usługą Azure Cognitive Search, odczytuje kolekcję indeksów i zwraca kod stanu HTTP 200 w przypadku pomyślnego połączenia. Jeśli usługa ma już indeksy, odpowiedź będzie również zawierać definicje indeksu.
+W programie Poster należy sformułować żądanie, które wygląda podobnie do poniższego zrzutu ekranu. Wybierz pozycję **Get** jako zlecenie, podaj adres URL, a następnie kliknij pozycję **Wyślij**. To polecenie nawiązuje połączenie z usługą Azure Wyszukiwanie poznawcze, odczytuje kolekcję indeksów i zwraca kod stanu HTTP 200 na pomyślnym połączeniu. Jeśli usługa ma już indeksy, odpowiedź będzie zawierać również definicje indeksów.
 
-![Adres URL i nagłówek żądania listonosza](media/search-get-started-postman/postman-url.png "Adres URL i nagłówek żądania listonosza")
+![Adres URL i nagłówek żądania post](media/search-get-started-postman/postman-url.png "Adres URL i nagłówek żądania post")
 
 ## <a name="1---create-an-index"></a>1 — Tworzenie indeksu
 
-W usłudze Azure Cognitive Search zwykle tworzysz indeks przed załadowaniem go z danymi. Dla tego zadania jest używany [interfejs API Create Index REST.](https://docs.microsoft.com/rest/api/searchservice/create-index) 
+Na platformie Azure Wyszukiwanie poznawcze zwykle tworzysz indeks przed załadowaniem go z danymi. Dla tego zadania jest używany [interfejs API Rest tworzenia indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index) . 
 
-Adres URL zostanie rozszerzony `hotels` o nazwę indeksu.
+Adres URL jest rozszerzony i zawiera nazwę `hotels` indeksu.
 
-Aby to zrobić w Postman:
+Aby to zrobić w programie Poster:
 
-1. Zmień czasownik na **PUT**.
+1. Zmień czasownik na wartość **Put**.
 
-2. Skopiuj w tym adresie URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06`.
+2. Kopiuj w tym adresie URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06`.
 
-3. Podaj definicję indeksu (kod gotowy do kopiowania znajduje się poniżej) w treści żądania.
+3. Podaj definicję indeksu (kod przygotowany do kopiowania jest podany poniżej) w treści żądania.
 
 4. Kliknij pozycję **Wyślij**.
 
-![Indeks dokumentu JSON w treści żądania](media/search-get-started-postman/postman-request.png "Indeks dokumentu JSON w treści żądania")
+![Indeksowanie dokumentu JSON w treści żądania](media/search-get-started-postman/postman-request.png "Indeksowanie dokumentu JSON w treści żądania")
 
 ### <a name="index-definition"></a>Definicja indeksu
 
-Kolekcja pól definiuje strukturę dokumentu. Każdy dokument musi mieć te pola, a każde pole musi mieć typ danych. Pola ciągów są używane podczas wyszukiwania pełnotekstowego, możesz więc rzutować dane numeryczne jako ciągi, jeśli potrzebujesz, aby ta zawartość dawała możliwość wyszukiwania.
+Kolekcja Fields definiuje strukturę dokumentu. Każdy dokument musi mieć te pola, a każde pole musi mieć typ danych. Pola ciągów są używane podczas wyszukiwania pełnotekstowego, możesz więc rzutować dane numeryczne jako ciągi, jeśli potrzebujesz, aby ta zawartość dawała możliwość wyszukiwania.
 
-Atrybuty w polu określają dozwoloną akcję. Interfejsy API REST domyślnie umożliwiają wiele akcji. Na przykład wszystkie ciągi domyślnie umożliwiają wyszukiwanie, pobieranie, filtrowanie i tworzenie aspektów. Często trzeba ustawić atrybuty tylko wtedy, gdy trzeba wyłączyć zachowanie.
+Atrybuty w polu określają dozwoloną akcję. Interfejsy API REST domyślnie umożliwiają wiele akcji. Na przykład wszystkie ciągi domyślnie umożliwiają wyszukiwanie, pobieranie, filtrowanie i tworzenie aspektów. Często należy ustawić atrybuty tylko wtedy, gdy trzeba wyłączyć zachowanie.
 
 ```json
 {
@@ -124,19 +124,19 @@ Po przesłaniu tego żądania powinna pojawić się odpowiedź 201 protokołu HT
 > [!TIP]
 > Jeśli otrzymasz odpowiedź 504 protokołu HTTP, sprawdź, czy adres URL określa protokół HTTPS. Jeśli zobaczysz odpowiedź 400 lub 404 protokołu HTTP, sprawdź treść żądania, aby zweryfikować, czy nie było żadnych błędów podczas kopiowania i wklejania. Odpowiedź 403 protokołu HTTP zazwyczaj wskazuje na problem z kluczem api-key (nieprawidłowy klucz lub problem ze składnią klucza api-key).
 
-## <a name="2---load-documents"></a>2 - Ładowanie dokumentów
+## <a name="2---load-documents"></a>2 — ładowanie dokumentów
 
-Tworzenie indeksu i wypełnianie indeksu to oddzielne kroki. W usłudze Azure Cognitive Search indeks zawiera wszystkie dane z wyszukujne, które można podać jako dokumenty JSON. Dla tego zadania jest używany [interfejs API Dodawanie, aktualizowanie lub usuwanie dokumentów REST.](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 
+Tworzenie indeksu i wypełnianie indeksu to oddzielne kroki. Na platformie Azure Wyszukiwanie poznawcze indeks zawiera wszystkie dane, które mogą być możliwe do przeszukania, które można podać jako dokumenty JSON. Dla tego zadania jest używany [interfejs API REST Dodawanie, aktualizowanie lub usuwanie dokumentów](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) . 
 
-Adres URL zostanie rozszerzony `docs` o `index` kolekcje i działanie.
+Adres URL jest rozszerzony, aby uwzględnić `docs` kolekcje i `index` operację.
 
-Aby to zrobić w Postman:
+Aby to zrobić w programie Poster:
 
 1. Zmień zlecenie na **POST**.
 
-2. Skopiuj w tym adresie URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2019-05-06`.
+2. Kopiuj w tym adresie URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2019-05-06`.
 
-3. Podaj dokumenty JSON (kod gotowy do kopiowania znajduje się poniżej) w treści żądania.
+3. Podaj dokumenty JSON (kod przygotowany do kopiowania poniżej) w treści żądania.
 
 4. Kliknij pozycję **Wyślij**.
 
@@ -229,7 +229,7 @@ Obszar Request Body (Treść żądania) zawiera cztery dokumenty, które mają z
 }
 ```
 
-W ciągu kilku sekund powinna zostać wyświetlona odpowiedź HTTP 201 na liście sesji. Oznacza to, że dokumenty zostały pomyślnie utworzone. 
+W ciągu kilku sekund na liście sesji powinna zostać wyświetlona odpowiedź HTTP 201. Oznacza to, że dokumenty zostały pomyślnie utworzone. 
 
 Jeśli otrzymasz odpowiedź 207, przekazanie co najmniej jednego dokumentu nie powiodło się. Jeśli otrzymasz odpowiedź 404, wystąpił błąd składniowy w nagłówku lub w treści żądania: zweryfikuj, czy zmiana punktu końcowego uwzględniła `/docs/index`.
 
@@ -239,25 +239,25 @@ Jeśli otrzymasz odpowiedź 207, przekazanie co najmniej jednego dokumentu nie p
 
 ## <a name="3---search-an-index"></a>3 — Przeszukiwanie indeksu
 
-Teraz, gdy indeks i dokumenty są ładowane, można wystawiać zapytania przeciwko nim za pomocą [interfejsu API REST wyszukiwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Teraz, gdy indeks i dokumenty są ładowane, można wysyłać zapytania do nich za pomocą [interfejsu API REST dokumentów wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-Adres URL jest rozszerzany o wyrażenie zapytania, określone za pomocą operatora wyszukiwania.
+Adres URL jest rozszerzony, aby uwzględnić wyrażenie zapytania, określone za pomocą operatora wyszukiwania.
 
-Aby to zrobić w Postman:
+Aby to zrobić w programie Poster:
 
-1. Zmień czasownik na **GET**.
+1. Zmień zlecenie, aby **uzyskać**.
 
-2. Skopiuj w tym adresie URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$count=true&api-version=2019-05-06`.
+2. Kopiuj w tym adresie URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$count=true&api-version=2019-05-06`.
 
 3. Kliknij pozycję **Wyślij**.
 
-Ta kwerenda jest pusta i zwraca liczbę dokumentów w wynikach wyszukiwania. Po kliknięciu przycisku **Wyślij** żądanie i odpowiedź powinny wyglądać podobnie jak na poniższym zrzucie ekranu z narzędzia Postman. Kod stanu powinien być równy 200.
+To zapytanie jest puste i zwraca liczbę dokumentów w wynikach wyszukiwania. Po kliknięciu przycisku **Wyślij** żądanie i odpowiedź powinny wyglądać podobnie jak na poniższym zrzucie ekranu z narzędzia Postman. Kod stanu powinien być równy 200.
 
- ![GET z ciągiem wyszukiwania na adresie URL](media/search-get-started-postman/postman-query.png "GET z ciągiem wyszukiwania na adresie URL")
+ ![Pobierz ciąg wyszukiwania w adresie URL](media/search-get-started-postman/postman-query.png "Pobierz ciąg wyszukiwania w adresie URL")
 
-Wypróbuj kilka innych przykładów zapytań, aby uzyskać odczucie składni. Można wykonać wyszukiwanie ciągów, dosłownie $filter zapytania, ograniczyć zestaw wyników, zakres wyszukiwania do określonych pól i więcej.
+Wypróbuj kilka innych przykładów zapytania, aby uzyskać działanie dla składni. Możesz wykonać wyszukiwanie ciągów, Verbatim $filter zapytań, ograniczyć zestaw wyników, określić zakres wyszukiwania do określonych pól itd.
 
-Zamień bieżący adres URL na poniższy adres URL, klikając za każdym razem **pozycję Wyślij,** aby wyświetlić wyniki.
+Zamień bieżący adres URL na poniższe, a następnie kliknij pozycję **Wyślij** za każdym razem, aby wyświetlić wyniki.
 
 ```
 # Query example 1 - Search on restaurant and wifi
@@ -276,7 +276,7 @@ https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?
 ```
 
 ## <a name="get-index-properties"></a>Pobierz właściwości indeksu
-Można również użyć [Pobierz statystyki](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) do wykonywania zapytań o liczbę dokumentów i rozmiar indeksu: 
+Można również użyć [Get Statistics](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) do wykonywania zapytań dotyczących liczby dokumentów i rozmiaru indeksu: 
 
 ```
 https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/stats?api-version=2019-05-06
@@ -284,21 +284,21 @@ https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/
 
 Dodanie `/stats` do adresu URL zwraca informacje o indeksie. W narzędziu Postman Twoje żądanie powinno wyglądać podobnie do poniższego, zaś odpowiedź zawiera liczbę dokumentów i użyte miejsce w bajtach.
 
- ![Uzyskaj informacje o indeksie](media/search-get-started-postman/postman-system-query.png "Uzyskaj informacje o indeksie")
+ ![Pobierz informacje o indeksie](media/search-get-started-postman/postman-system-query.png "Pobierz informacje o indeksie")
 
-Zwróć uwagę, że składnia parametru api-version różni się. Dla tego żądania użyj `?`, aby dołączyć parametr api-version. Oddziela `?` ścieżkę adresu URL od ciągu zapytania, podczas gdy & oddziela każdą parę "name=value" w ciągu zapytania. Dla tego zapytania parametr api-version jest pierwszym i jedynym elementem ciągu zapytania.
+Zwróć uwagę, że składnia parametru api-version różni się. Dla tego żądania użyj `?`, aby dołączyć parametr api-version. `?` Oddziela ścieżkę adresu URL od ciągu zapytania, podczas & oddziela każdą parę "name = value" w ciągu zapytania. Dla tego zapytania parametr api-version jest pierwszym i jedynym elementem ciągu zapytania.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
-Zasoby można znaleźć i zarządzać nimi w portalu, korzystając z łącza **Wszystkie zasoby** lub **Grupy zasobów** w lewym okienku nawigacji.
+Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 
-Jeśli korzystasz z bezpłatnej usługi, należy pamiętać, że są ograniczone do trzech indeksów, indeksatorów i źródeł danych. Możesz usunąć poszczególne elementy w portalu, aby pozostać poniżej limitu. 
+Jeśli używasz bezpłatnej usługi, pamiętaj, że masz ograniczone do trzech indeksów, indeksatorów i źródeł danych. Możesz usunąć poszczególne elementy w portalu, aby zachować limit. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy wiesz, jak wykonywać podstawowe zadania, możesz przejść do przodu dzięki dodatkowym wywołam interfejsu API REST dla bardziej zaawansowanych funkcji, takich jak indeksatory lub [konfigurowanie potoku wyszukiwania kognitywnego.](cognitive-search-tutorial-blob.md) W następnym kroku zalecamy następujące łącze:
+Teraz, gdy wiesz już, jak wykonywać podstawowe zadania, możesz przejść do przodu z dodatkowymi wywołaniami interfejsu API REST, aby uzyskać bardziej zaawansowane funkcje, takie jak indeksatory, lub [skonfigurować potok wyszukiwania poznawczego](cognitive-search-tutorial-blob.md). W następnym kroku zalecamy następujące łącze:
 
 > [!div class="nextstepaction"]
-> [Samouczek REST: Indeksy i wyszukiwanie danych o częściowo ustrukturyzowanych (JSON blob) w usłudze Azure Cognitive Search](search-semi-structured-data.md)
+> [Samouczek REST: indeksowanie i wyszukiwanie danych częściowo strukturalnych (obiektów BLOB JSON) na platformie Azure Wyszukiwanie poznawcze](search-semi-structured-data.md)
