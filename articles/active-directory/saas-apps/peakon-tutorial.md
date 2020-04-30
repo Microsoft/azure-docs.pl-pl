@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
 ms.openlocfilehash: b093a26848701254ad674081037c266f1fb012b2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67094722"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Samouczek: integracja Azure Active Directory z usługą Peakon
@@ -130,7 +130,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Peakon, wyk
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
 ### <a name="configure-peakon-single-sign-on"></a>Konfigurowanie logowania jednokrotnego Peakon
 
@@ -156,7 +156,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Peakon, wyk
 
     b. W polu tekstowym **adres URL logowania jednokrotnego** wklej wartość **adresu URL wylogowania**, który został skopiowany z Azure Portal.
 
-    d. Kliknij pozycję **Wybierz plik** , aby przekazać certyfikat pobrany z Azure Portal do pola certyfikat.
+    c. Kliknij pozycję **Wybierz plik** , aby przekazać certyfikat pobrany z Azure Portal do pola certyfikat.
 
     d. Kliknij **ikonę** , aby skopiować **Identyfikator jednostki** i wkleić w polu tekstowym **identyfikatora** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
@@ -185,7 +185,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     b. W polu **Nazwa użytkownika** wpisz **brittasimon@yourcompanydomain.extension**  
     Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
@@ -240,7 +240,7 @@ W przypadku Peakon, Inicjowanie obsługi administracyjnej jest zadaniem ręcznym
 
     b. W polu tekstowym **adres e-mail** wpisz adres e-mail, na **przykład\@Brittasimon contoso.com**.
 
-    d. Kliknij pozycję **Utwórz pracownika**.
+    c. Kliknij pozycję **Utwórz pracownika**.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
